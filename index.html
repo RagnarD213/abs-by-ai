@@ -2,398 +2,820 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Abs By AI</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Abs by AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
-    min-height: 100vh;
-  }
-  .glass {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .glass-strong {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-  }
-  .gradient-text {
-    background: linear-gradient(135deg, #a78bfa 0%, #f0abfc 50%, #fb923c 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .gradient-btn {
-    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-    transition: all 0.2s;
-  }
-  .gradient-btn:hover:not(:disabled) {
-    background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.5);
-  }
-  .gradient-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  .option-card {
-    cursor: pointer;
-    transition: all 0.15s;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-  }
-  .option-card:hover {
-    border-color: rgba(167, 139, 250, 0.5);
-    background: rgba(255, 255, 255, 0.08);
-  }
-  .option-card.selected {
-    border-color: #a78bfa;
-    background: rgba(167, 139, 250, 0.15);
-    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
-  }
-  .upload-zone {
-    border: 2px dashed rgba(255, 255, 255, 0.2);
-    transition: all 0.2s;
-  }
-  .upload-zone:hover {
-    border-color: rgba(167, 139, 250, 0.5);
-    background: rgba(167, 139, 250, 0.05);
-  }
-  .upload-zone.dragover {
-    border-color: #a78bfa;
-    background: rgba(167, 139, 250, 0.1);
-  }
-  .spinner {
-    border: 3px solid rgba(255,255,255,0.2);
-    border-top-color: #a78bfa;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    animation: spin 0.8s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .fade-in { animation: fadeIn 0.4s ease-out; }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-  }
-  @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 20px rgba(167, 139, 250, 0.3); }
-    50% { box-shadow: 0 0 40px rgba(167, 139, 250, 0.6); }
-  }
-  textarea, input[type="text"], input[type="password"] {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    transition: all 0.15s;
-  }
-  textarea:focus, input:focus {
-    outline: none;
-    border-color: #a78bfa;
-    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
-  }
-  .step-pill {
-    background: rgba(167, 139, 250, 0.2);
-    border: 1px solid rgba(167, 139, 250, 0.4);
-  }
-  details > summary { list-style: none; cursor: pointer; }
-  details > summary::-webkit-details-marker { display: none; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f6f5f2;
+  --card: #ffffff;
+  --line: rgba(20,18,15,0.09);
+  --line2: rgba(20,18,15,0.14);
+  --ink: #1b1a18;
+  --mute: #6e6b64;
+  --faint: #a29e95;
+  --acc: #2f5fe0;
+  --acc-soft: rgba(47,95,224,0.08);
+  --acc-line: rgba(47,95,224,0.35);
+  --shadow: 0 1px 2px rgba(20,18,15,0.04), 0 8px 24px rgba(20,18,15,0.06);
+  --shadow-cta: 0 8px 24px rgba(47,95,224,0.32);
+  --f: 'Manrope', sans-serif;
+}
+
+html, body {
+  font-family: var(--f);
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+/* ── Top bar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 22px;
+}
+.app-name {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+.dots { display: flex; gap: 5px; align-items: center; }
+.dot { height: 6px; border-radius: 3px; transition: width 0.2s; }
+.dot.active { width: 16px; background: var(--acc); }
+.dot.inactive { width: 6px; background: var(--line2); }
+
+/* ── Hero text ── */
+.hero-h1 {
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: -0.9px;
+  line-height: 1.08;
+  margin-bottom: 7px;
+}
+.hero-sub {
+  font-size: 14.5px;
+  color: var(--mute);
+  line-height: 1.45;
+  margin-bottom: 22px;
+}
+
+/* ── Backend status ── */
+.backend-error {
+  background: rgba(220,70,50,0.07);
+  border: 1px solid rgba(220,70,50,0.2);
+  border-radius: 14px;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  color: #b83a2a;
+}
+.backend-error-dot { width: 8px; height: 8px; border-radius: 50%; background: #d94a37; flex-shrink: 0; }
+
+/* ── Upload card ── */
+.upload-card {
+  background: var(--card);
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 26px 20px;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.upload-card:hover { border-color: var(--acc-line); }
+.upload-card.dragover { border-color: var(--acc); background: var(--acc-soft); }
+.upload-icon-tile {
+  width: 50px; height: 50px;
+  margin: 0 auto 14px;
+  border-radius: 14px;
+  background: var(--acc-soft);
+  display: flex; align-items: center; justify-content: center;
+}
+.upload-title { font-size: 16.5px; font-weight: 700; letter-spacing: -0.2px; }
+.upload-caption { font-size: 12.5px; color: var(--mute); margin-top: 5px; line-height: 1.4; }
+.upload-preview-img {
+  width: 100%;
+  border-radius: 13px;
+  max-height: 300px;
+  object-fit: cover;
+}
+.remove-photo {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--mute);
+  cursor: pointer;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  font-family: var(--f);
+}
+
+/* ── Inline warnings ── */
+.inline-warn {
+  background: rgba(220,70,50,0.07);
+  border: 1px solid rgba(220,70,50,0.2);
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: 13px;
+  color: #b83a2a;
+  line-height: 1.45;
+  margin-bottom: 18px;
+}
+.clothing-block-msg {
+  text-align: center;
+  font-size: 12.5px;
+  color: #b83a2a;
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+
+/* ── Section label ── */
+.lbl {
+  display: flex; align-items: baseline; gap: 8px;
+  margin-bottom: 11px;
+}
+.lbl-text { font-size: 13.5px; font-weight: 700; color: var(--ink); letter-spacing: -0.1px; }
+.lbl-opt { font-size: 12px; font-weight: 500; color: var(--faint); }
+
+/* ── Segmented control ── */
+.seg-wrap { margin-bottom: 22px; }
+.seg {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(20,18,15,0.05);
+  border-radius: 13px;
+}
+.seg-opt {
+  flex: 1;
+  text-align: center;
+  padding: 11px 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: none;
+  font-family: var(--f);
+  background: transparent;
+  color: var(--mute);
+}
+.seg-opt.active {
+  background: var(--card);
+  color: var(--acc);
+  box-shadow: 0 1px 3px rgba(20,18,15,0.12);
+}
+
+/* ── Pick cards ── */
+.pick-group { margin-bottom: 22px; }
+.pick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pick-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 14px 15px;
+  border: 1.5px solid var(--line);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+.pick-card:hover { border-color: var(--acc-line); }
+.pick-card.active {
+  background: var(--acc-soft);
+  border-color: var(--acc-line);
+  box-shadow: none;
+}
+.pick-header { display: flex; align-items: center; justify-content: space-between; }
+.pick-label { font-size: 14.5px; font-weight: 700; color: var(--ink); letter-spacing: -0.1px; }
+.pick-card.active .pick-label { color: var(--acc); }
+.pick-radio {
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+.pick-card.active .pick-radio { border-color: var(--acc); background: var(--acc); }
+.pick-radio .check-svg { display: none; }
+.pick-card.active .pick-radio .check-svg { display: block; }
+.pick-sub { font-size: 11.5px; color: var(--mute); margin-top: 4px; }
+.pick-card.active .pick-sub { color: rgba(47,95,224,0.7); }
+
+/* ── Physique textarea ── */
+.physique-wrap { margin-bottom: 26px; }
+.physique-input {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 15px;
+  font-size: 13.5px;
+  color: var(--ink);
+  font-family: var(--f);
+  box-shadow: var(--shadow);
+  resize: none;
+  transition: border-color 0.15s;
+  outline: none;
+  line-height: 1.5;
+}
+.physique-input::placeholder { color: var(--faint); }
+.physique-input:focus { border-color: var(--acc-line); }
+
+/* ── Loading status ── */
+.loading-status {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.loading-spinner {
+  width: 20px; height: 20px;
+  border: 2.5px solid var(--line2);
+  border-top-color: var(--acc);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-title { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.loading-sub { font-size: 12px; color: var(--mute); margin-top: 2px; }
+
+/* ── Error toast ── */
+.error-toast {
+  background: rgba(220,70,50,0.07);
+  border: 1px solid rgba(220,70,50,0.2);
+  border-radius: 14px;
+  padding: 13px 15px;
+  font-size: 13px;
+  color: #b83a2a;
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+/* ── CTA button ── */
+.cta-btn {
+  width: 100%;
+  background: var(--acc);
+  border: none;
+  border-radius: 16px;
+  padding: 17px;
+  text-align: center;
+  box-shadow: var(--shadow-cta);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  font-family: var(--f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.cta-btn:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); }
+.cta-btn:disabled { opacity: 0.42; cursor: not-allowed; box-shadow: none; transform: none; }
+.btn-spinner {
+  width: 17px; height: 17px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+.cta-note { text-align: center; font-size: 12px; color: var(--faint); margin-top: 12px; }
+
+/* ── Nav bar ── */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 20px;
+}
+.nav-icon-btn {
+  background: none; border: none; cursor: pointer; padding: 2px;
+  display: flex; align-items: center;
+}
+.nav-title { font-size: 14px; font-weight: 600; color: var(--mute); }
+
+/* ── Before / After ── */
+.before-after-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.ba-col-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--faint);
+  margin-bottom: 7px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+.ba-col-label.after-lbl { color: var(--acc); font-weight: 700; }
+.ba-img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* ── Body fat row ── */
+.bodyfat-row {
+  background: var(--card);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+.bodyfat-label { font-size: 13px; font-weight: 600; color: var(--mute); }
+.bodyfat-values { display: flex; align-items: center; gap: 9px; font-size: 16px; font-weight: 700; }
+
+/* ── Ghost buttons ── */
+.ghost-row { display: flex; gap: 10px; margin-bottom: 14px; }
+.ghost-btn {
+  flex: 1;
+  text-align: center;
+  padding: 13px 0;
+  border-radius: 13px;
+  background: var(--card);
+  border: 1px solid var(--line2);
+  box-shadow: var(--shadow);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--f);
+  transition: background 0.12s;
+}
+.ghost-btn:hover { background: #f3f2ef; }
+.ghost-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.try-diff-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--acc);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--f);
+  padding: 4px 0;
+}
+
+/* ── Achievement screen ── */
+.goal-set-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 0 20px;
+}
+.goal-set-label { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--acc); }
+.goal-tick {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--acc);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hero-img-card {
+  background: var(--card);
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 12px;
+  margin-bottom: 14px;
+}
+.hero-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 13px;
+  display: block;
+}
+
+.save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--line2);
+  box-shadow: var(--shadow);
+  margin-bottom: 26px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--f);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.save-btn:hover { background: #f3f2ef; }
+
+.section-hdr { font-size: 17px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 14px; }
+
+/* ── Offer cards ── */
+.offer-card {
+  background: var(--card);
+  border-radius: 18px;
+  border: 1.5px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 17px 18px;
+  margin-bottom: 13px;
+}
+.offer-card.hot { background: var(--acc-soft); border-color: var(--acc-line); box-shadow: none; }
+.offer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.offer-title-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.offer-title { font-size: 15.5px; font-weight: 800; letter-spacing: -0.3px; }
+.offer-badge {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.6px;
+  color: var(--acc); background: rgba(47,95,224,0.12);
+  padding: 3px 7px; border-radius: 20px; text-transform: uppercase;
+}
+.offer-desc { font-size: 12.5px; color: var(--mute); margin-top: 5px; line-height: 1.45; }
+.offer-price { font-size: 19px; font-weight: 800; color: var(--ink); letter-spacing: -0.4px; flex-shrink: 0; }
+.offer-price.soon-price { color: var(--faint); }
+.offer-cta {
+  width: 100%;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  background: var(--acc);
+  border: none;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.1px;
+  cursor: pointer;
+  font-family: var(--f);
+  display: block;
+  transition: opacity 0.12s;
+}
+.offer-cta:hover { opacity: 0.88; }
+.offer-cta.muted-cta {
+  background: transparent;
+  border: 1px solid var(--line2);
+  color: var(--mute);
+  cursor: default;
+}
+.offer-cta.muted-cta:hover { opacity: 1; }
+
+/* ── Footer ── */
+.footer { text-align: center; font-size: 11.5px; color: var(--faint); padding: 6px 0 4px; }
+
+/* ── Screen transitions ── */
+.screen { animation: fadeUp 0.28s ease-out; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
-<body class="text-white">
-<div class="max-w-5xl mx-auto px-4 py-8 sm:py-12">
-  <!-- Header -->
-  <header class="text-center mb-10">
-    <h1 class="text-5xl sm:text-6xl font-black tracking-tight gradient-text mb-3">Abs By AI</h1>
-    <p class="text-white/60 text-lg">See your future self. Stay focused on the goal.</p>
-  </header>
-  <!-- Backend Status -->
-  <div id="backendStatus" class="hidden glass rounded-2xl mb-6 p-5 border-2 border-red-500/40 bg-red-500/10">
-    <div class="flex items-center gap-3">
-      <div class="w-2.5 h-2.5 rounded-full bg-red-400 shrink-0"></div>
-      <span class="font-semibold text-red-200">Service Unavailable</span>
-      <span id="backendStatusText" class="text-sm text-white/60"></span>
-    </div>
-  </div>
-  <!-- Main Form -->
-  <main class="glass-strong rounded-3xl p-6 sm:p-8 space-y-8">
-    <!-- Step 1: Upload Photo -->
-    <section>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="step-pill px-3 py-1 rounded-full text-xs font-bold text-violet-200">STEP 1</div>
-        <h2 class="text-xl font-bold">Upload your shirtless / sports-bra selfie</h2>
+<body>
+<div class="app">
+
+  <!-- ════════════════ FORM SCREEN ════════════════ -->
+  <div id="formSection" class="screen">
+    <div class="topbar">
+      <span class="app-name">Abs by AI</span>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot inactive"></div>
+        <div class="dot inactive"></div>
       </div>
-      <div id="uploadZone" class="upload-zone rounded-2xl p-8 text-center cursor-pointer">
-        <input type="file" id="photoInput" accept="image/*" class="hidden" />
-        <div id="uploadPlaceholder">
-          <svg class="w-12 h-12 mx-auto mb-3 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+    </div>
+
+    <div class="hero-h1">Meet your<br>future self.</div>
+    <div class="hero-sub">Upload a photo, set your goal, and see exactly where you're headed.</div>
+
+    <!-- Backend error -->
+    <div id="backendStatus" class="backend-error" style="display:none">
+      <div class="backend-error-dot"></div>
+      <span id="backendStatusText">Cannot reach the server. Please try again in a moment.</span>
+    </div>
+
+    <!-- Photo upload -->
+    <input type="file" id="photoInput" accept="image/*" style="display:none" />
+    <div id="uploadCard" class="upload-card">
+      <div id="uploadPlaceholder">
+        <div class="upload-icon-tile">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#2f5fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 16V4m0 0L7 9m5-5l5 5"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
           </svg>
-          <p class="text-white/70 mb-1">Tap, drag, or paste a photo here</p>
-          <p class="text-white/40 text-sm">JPEG or PNG · paste with Ctrl/Cmd+V · higher resolution photos produce better results</p>
         </div>
-        <div id="uploadPreview" class="hidden">
-          <img id="previewImg" class="max-h-64 mx-auto rounded-xl shadow-2xl" />
-          <button id="removePhoto" class="mt-3 text-sm text-white/60 hover:text-white underline">Remove photo</button>
-        </div>
+        <div class="upload-title">Add your photo</div>
+        <div class="upload-caption">Shirtless or sports-bra works best.<br>Tap, drag, or paste.</div>
       </div>
-    </section>
+      <div id="uploadPreview" style="display:none">
+        <img id="previewImg" class="upload-preview-img" alt="Your photo" />
+        <button id="removePhoto" class="remove-photo">Remove photo</button>
+      </div>
+    </div>
+
     <!-- Clothing warning -->
-    <div id="clothingWarning" class="hidden mt-3 px-4 py-3 rounded-xl bg-amber-500/15 border border-amber-400/30 text-sm text-amber-200 flex items-start gap-2">
-      <svg class="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
-      <span>Your photo appears to show you fully clothed. For best results, upload a shirtless or sports-bra photo — the app works by editing your visible body.</span>
+    <div id="clothingWarning" class="inline-warn" style="display:none"></div>
+
+    <!-- Sex -->
+    <div class="seg-wrap">
+      <div class="lbl"><span class="lbl-text">Sex</span></div>
+      <div class="seg" id="sexSeg">
+        <button class="seg-opt active" data-value="male">Male</button>
+        <button class="seg-opt" data-value="female">Female</button>
+      </div>
     </div>
-    <!-- Step 2: Gender -->
-    <section>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="step-pill px-3 py-1 rounded-full text-xs font-bold text-violet-200">STEP 2</div>
-        <h2 class="text-xl font-bold">Gender</h2>
-      </div>
-      <div class="grid grid-cols-2 gap-3 max-w-sm" id="genderGroup">
-        <div class="option-card rounded-xl p-4 text-center" data-group="gender" data-value="male">
-          <div class="text-2xl mb-1">♂</div>
-          <div class="text-sm font-semibold">Male</div>
+
+    <!-- Body type -->
+    <div class="pick-group">
+      <div class="lbl"><span class="lbl-text">Where you are now</span></div>
+      <div class="pick-grid" id="bodyTypeGrid">
+        <div class="pick-card" data-value="heavier">
+          <div class="pick-header">
+            <span class="pick-label">Heavier</span>
+            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
+          </div>
+          <div class="pick-sub">Fat to lose</div>
         </div>
-        <div class="option-card rounded-xl p-4 text-center" data-group="gender" data-value="female">
-          <div class="text-2xl mb-1">♀</div>
-          <div class="text-sm font-semibold">Female</div>
+        <div class="pick-card" data-value="moderate">
+          <div class="pick-header">
+            <span class="pick-label">Average</span>
+            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
+          </div>
+          <div class="pick-sub">Soft, can lean out</div>
         </div>
-      </div>
-    </section>
-    <!-- Step 3: Current Condition -->
-    <section>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="step-pill px-3 py-1 rounded-full text-xs font-bold text-violet-200">STEP 3</div>
-        <h2 class="text-xl font-bold">Where you are now</h2>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="conditionGroup">
-        <div class="option-card rounded-xl p-4" data-group="condition" data-value="heavier">
-          <div class="font-semibold mb-1">Heavier</div>
-          <div class="text-xs text-white/50">Significant body fat to lose</div>
+        <div class="pick-card" data-value="fit">
+          <div class="pick-header">
+            <span class="pick-label">Fit</span>
+            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
+          </div>
+          <div class="pick-sub">Some definition</div>
         </div>
-        <div class="option-card rounded-xl p-4" data-group="condition" data-value="moderate">
-          <div class="font-semibold mb-1">Average</div>
-          <div class="text-xs text-white/50">Soft, room to lean out</div>
-        </div>
-        <div class="option-card rounded-xl p-4" data-group="condition" data-value="fit">
-          <div class="font-semibold mb-1">Fit</div>
-          <div class="text-xs text-white/50">Lean with some definition</div>
-        </div>
-        <div class="option-card rounded-xl p-4" data-group="condition" data-value="very_lean">
-          <div class="font-semibold mb-1">Lean</div>
-          <div class="text-xs text-white/50">Visible abs already</div>
+        <div class="pick-card" data-value="very_lean">
+          <div class="pick-header">
+            <span class="pick-label">Lean</span>
+            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
+          </div>
+          <div class="pick-sub">Abs already show</div>
         </div>
       </div>
-    </section>
-    <!-- Step 4: Intensity -->
-    <section>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="step-pill px-3 py-1 rounded-full text-xs font-bold text-violet-200">STEP 4</div>
-        <h2 class="text-xl font-bold">How dramatic should the transformation be?</h2>
+    </div>
+
+    <!-- Intensity -->
+    <div class="pick-group">
+      <div class="lbl"><span class="lbl-text">How dramatic</span></div>
+      <div class="pick-grid" id="intensityGrid">
+        <div class="pick-card" data-value="subtle">
+          <div class="pick-header">
+            <span class="pick-label">Subtle</span>
+            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
+          </div>
+          <div class="pick-sub">Polished you</div>
+        </div>
+        <div class="pick-card" data-value="moderate">
+          <div class="pick-header">
+            <span class="pick-label">Moderate</span>
+            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
+          </div>
+          <div class="pick-sub">Clearly fit</div>
+        </div>
+        <div class="pick-card active" data-value="dramatic">
+          <div class="pick-header">
+            <span class="pick-label">Dramatic</span>
+            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
+          </div>
+          <div class="pick-sub">Fitness model</div>
+        </div>
+        <div class="pick-card" data-value="max">
+          <div class="pick-header">
+            <span class="pick-label">Peak</span>
+            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
+          </div>
+          <div class="pick-sub">Photoshoot ready</div>
+        </div>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="intensityGroup">
-        <div class="option-card rounded-xl p-4" data-group="intensity" data-value="subtle">
-          <div class="font-semibold mb-1">Subtle</div>
-          <div class="text-xs text-white/50">A polished version of you</div>
-        </div>
-        <div class="option-card rounded-xl p-4" data-group="intensity" data-value="moderate">
-          <div class="font-semibold mb-1">Moderate</div>
-          <div class="text-xs text-white/50">Clearly fit</div>
-        </div>
-        <div class="option-card rounded-xl p-4 selected" data-group="intensity" data-value="dramatic">
-          <div class="font-semibold mb-1">Dramatic</div>
-          <div class="text-xs text-white/50">Fitness model</div>
-        </div>
-        <div class="option-card rounded-xl p-4" data-group="intensity" data-value="max">
-          <div class="font-semibold mb-1">Peak</div>
-          <div class="text-xs text-white/50">Photoshoot ready</div>
-        </div>
+    </div>
+
+    <!-- Physique description -->
+    <div class="physique-wrap">
+      <div class="lbl">
+        <span class="lbl-text">Describe your dream physique</span>
+        <span class="lbl-opt">Optional</span>
       </div>
-    </section>
-    <!-- Step 5: Description -->
-    <section>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="step-pill px-3 py-1 rounded-full text-xs font-bold text-violet-200">STEP 5</div>
-        <h2 class="text-xl font-bold">Describe your dream physique</h2>
+      <textarea id="description" class="physique-input" rows="3" maxlength="500"
+        placeholder="Lean and athletic, defined but not bulky…"></textarea>
+    </div>
+
+    <!-- Loading state -->
+    <div id="statusSection" style="display:none" class="loading-status">
+      <div class="loading-spinner"></div>
+      <div>
+        <div id="statusTitle" class="loading-title">Working…</div>
+        <div id="statusSub" class="loading-sub">Crafting the perfect prompt for your goals</div>
       </div>
-      <textarea id="description" rows="3" maxlength="500"
-        placeholder="e.g. 'Lean and athletic like a soccer player, defined abs but not bulky' or 'Sculpted shoulders and a flat stomach like a Pilates instructor'"
-        class="w-full px-4 py-3 rounded-xl resize-none text-sm"></textarea>
-      <div class="text-xs text-white/40 mt-2">Optional — leave blank for a sensible default based on your selections above.</div>
-    </section>
-    <!-- Generate Button -->
+    </div>
+
+    <!-- Error -->
+    <div id="errorSection" style="display:none" class="error-toast"></div>
+
+    <!-- CTA -->
     <div>
-      <button id="generateBtn" class="gradient-btn w-full py-5 rounded-2xl font-bold text-lg disabled:transform-none">
-        Generate My Future Self
+      <button id="generateBtn" class="cta-btn" disabled>
+        <span id="generateBtnLabel">Generate my future self</span>
       </button>
-      <p class="text-center text-xs text-white/40 mt-3">
-        Two AI calls — Claude crafts your prompt, then Gemini generates the image. Takes ~15–30 seconds.
-      </p>
-      <div id="clothingBlockMsg" class="hidden mt-3 text-center text-sm text-amber-300">
-        ⚠ Generation disabled — your photo appears to show you fully clothed. Please upload a shirtless or sports-bra photo above.
-      </div>
-    </div>
-  </main>
-  <!-- Status / Loading -->
-  <div id="statusSection" class="hidden mt-6">
-    <div class="glass-strong rounded-2xl p-6 pulse-glow">
-      <div class="flex items-center gap-4">
-        <div class="spinner"></div>
-        <div>
-          <div id="statusTitle" class="font-semibold">Working…</div>
-          <div id="statusSub" class="text-sm text-white/60">Crafting the perfect prompt for your goals</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Error -->
-  <div id="errorSection" class="hidden mt-6">
-    <div class="glass-strong rounded-2xl p-5 border-2 border-red-500/40 bg-red-500/10">
-      <div class="flex items-start gap-3">
-        <svg class="w-5 h-5 text-red-300 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
-        </svg>
-        <div class="flex-1">
-          <div class="font-semibold text-red-200 mb-1">Something went wrong</div>
-          <div id="errorMsg" class="text-sm text-white/70"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Result screen -->
-  <div id="resultSection" class="hidden mt-6 fade-in">
-    <div class="glass-strong rounded-3xl p-6 sm:p-8">
-      <h2 class="text-2xl font-bold mb-6 gradient-text">Your future self</h2>
-      <div class="grid sm:grid-cols-2 gap-4 mb-8">
-        <div>
-          <div class="text-xs uppercase tracking-widest text-white/40 mb-2 font-bold">Before</div>
-          <img id="beforeImg" class="w-full rounded-2xl shadow-2xl" />
-        </div>
-        <div>
-          <div class="text-xs uppercase tracking-widest text-violet-300 mb-2 font-bold">After</div>
-          <img id="afterImg" class="w-full rounded-2xl shadow-2xl" />
-        </div>
-      </div>
-      <!-- Three action buttons -->
-      <div class="flex flex-col gap-3">
-        <button id="loveItBtn" class="gradient-btn w-full py-4 rounded-2xl font-bold text-base">
-          ❤️ I Love It! This is my future self.
-        </button>
-        <div class="grid grid-cols-2 gap-3">
-          <button id="moreDramaticBtn" class="px-4 py-3 rounded-xl font-semibold text-sm bg-white/10 hover:bg-white/15 transition">
-            🔥 Make It More Dramatic
-          </button>
-          <button id="moreRealisticBtn" class="px-4 py-3 rounded-xl font-semibold text-sm bg-white/10 hover:bg-white/15 transition">
-            🎯 Make It More Realistic
-          </button>
-        </div>
-        <button id="tryAgainBtn" class="text-xs text-white/40 hover:text-white/60 transition mt-1">Try a completely different look</button>
-      </div>
-      <details class="mt-6 glass rounded-xl">
-        <summary class="p-4 flex items-center justify-between text-sm font-semibold hover:bg-white/5">
-          <span>Show generated prompt</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </summary>
-        <pre id="generatedPrompt" class="p-4 pt-0 text-xs text-white/60 whitespace-pre-wrap font-mono"></pre>
-      </details>
+      <div class="cta-note">Two AI steps · about 20 seconds</div>
     </div>
   </div>
 
-  <!-- Achievement screen -->
-  <div id="achievementSection" class="hidden mt-6 fade-in">
-    <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none" style="z-index:9999;"></canvas>
-    <div class="glass-strong rounded-3xl p-6 sm:p-8 mb-6">
-      <div class="text-center mb-8">
-        <div class="text-4xl mb-3">🎉</div>
-        <h2 class="text-3xl font-black gradient-text mb-2">Your Future Self Awaits!</h2>
-        <p class="text-white/60">You've set your vision. Now let's make it real.</p>
+  <!-- ════════════════ RESULT SCREEN ════════════════ -->
+  <div id="resultSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="resultBackBtn" title="Back">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Your future self</span>
+      <a id="resultDownloadBtn" download="my-future-self.png" class="nav-icon-btn" title="Save image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-h1" style="font-size:30px;line-height:1.05;margin-bottom:6px">Meet the new you.</div>
+    <div class="hero-sub" style="margin-bottom:22px">Same you — leaner, stronger, sharper.</div>
+
+    <div class="before-after-grid">
+      <div>
+        <div class="ba-col-label">Before</div>
+        <img id="beforeImg" class="ba-img" alt="Before" />
       </div>
-      <div class="grid sm:grid-cols-2 gap-4 mb-8">
-        <div>
-          <div class="text-xs uppercase tracking-widest text-white/40 mb-2 font-bold">Current Self</div>
-          <img id="achieveBeforeImg" class="w-full rounded-2xl shadow-2xl" />
-        </div>
-        <div>
-          <div class="text-xs uppercase tracking-widest text-violet-300 mb-2 font-bold">Future Self</div>
-          <img id="achieveAfterImg" class="w-full rounded-2xl shadow-2xl" />
-        </div>
-      </div>
-      <div class="mb-6">
-        <a id="achieveDownloadBtn" download="my-future-self.png" class="gradient-btn px-6 py-3 rounded-xl font-semibold text-sm inline-flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4 4m0 0l-4-4m4 4V4"/></svg>
-          Save Your Future Self
-        </a>
+      <div>
+        <div class="ba-col-label after-lbl">After</div>
+        <img id="afterImg" class="ba-img" alt="After — AI generated" />
       </div>
     </div>
-    <div class="glass-strong rounded-3xl p-6 sm:p-8">
-      <h3 class="text-2xl font-bold mb-4 gradient-text">Here's how we can help you achieve your dream body</h3>
-      <div class="space-y-4 text-white/60 text-sm leading-relaxed">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        <div class="grid sm:grid-cols-3 gap-4 mt-6">
-          <div class="glass rounded-xl p-4 text-center">
-            <div class="text-2xl mb-2">🏋️</div>
-            <div class="font-semibold text-white mb-1">Custom Workout Plan</div>
-            <div class="text-xs">Placeholder</div>
-          </div>
-          <div class="glass rounded-xl p-4 text-center">
-            <div class="text-2xl mb-2">🥗</div>
-            <div class="font-semibold text-white mb-1">Nutrition Guide</div>
-            <div class="text-xs">Placeholder</div>
-          </div>
-          <div class="glass rounded-xl p-4 text-center">
-            <div class="text-2xl mb-2">📈</div>
-            <div class="font-semibold text-white mb-1">Progress Tracking</div>
-            <div class="text-xs">Placeholder</div>
-          </div>
-        </div>
+
+    <div class="bodyfat-row">
+      <span class="bodyfat-label">Estimated body fat</span>
+      <span class="bodyfat-values">
+        <span id="bfBefore" style="color:var(--faint)">—</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2f5fe0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span id="bfAfter" style="color:var(--acc)">—</span>
+      </span>
+    </div>
+
+    <!-- Result loading state -->
+    <div id="resultStatusSection" style="display:none" class="loading-status">
+      <div class="loading-spinner"></div>
+      <div>
+        <div id="resultStatusTitle" class="loading-title">Regenerating…</div>
+        <div id="resultStatusSub" class="loading-sub">Applying your new intensity level</div>
       </div>
-      <button id="startOverBtn" class="mt-8 text-sm text-white/40 hover:text-white/60 transition">← Start over with a new photo</button>
+    </div>
+
+    <!-- Result error -->
+    <div id="resultErrorSection" style="display:none" class="error-toast"></div>
+
+    <div>
+      <button id="loveItBtn" class="cta-btn" style="margin-bottom:10px">Lock in this goal</button>
+      <div class="ghost-row">
+        <button class="ghost-btn" id="moreDramaticBtn">More dramatic</button>
+        <button class="ghost-btn" id="moreSubtleBtn">More subtle</button>
+      </div>
+      <button class="try-diff-btn" id="tryAgainBtn">Try a different look</button>
     </div>
   </div>
 
-  <footer class="mt-12 text-center text-xs text-white/30">
-    Powered by Claude + Gemini Image Generation · Built for personal motivation use
-  </footer>
-</div>
+  <!-- ════════════════ ACHIEVEMENT SCREEN ════════════════ -->
+  <div id="achievementSection" class="screen" style="display:none">
+    <div class="goal-set-bar">
+      <span class="goal-set-label">
+        <span class="goal-tick">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg>
+        </span>
+        Goal set
+      </span>
+      <button class="nav-icon-btn" id="achieveDismissBtn" title="Start over">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6e6b64" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="hero-h1" style="font-size:29px;line-height:1.06;margin-bottom:7px">Your future self<br>is ready.</div>
+    <div class="hero-sub" style="margin-bottom:20px">You've set the vision. Here's how to make it real.</div>
+
+    <div class="hero-img-card">
+      <img id="achieveImg" class="hero-img" alt="AI-generated future self" />
+    </div>
+
+    <a id="achieveDownloadBtn" download="my-future-self.png" class="save-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M8 11l4 4 4-4M12 15V3"/></svg>
+      Save image
+    </a>
+
+    <div class="section-hdr">How we'll get you there</div>
+
+    <div class="offer-card">
+      <div class="offer-top">
+        <div style="flex:1">
+          <div class="offer-title-row"><span class="offer-title">Future-Self Photo Pack</span></div>
+          <div class="offer-desc">Four polished, high-res angles of your transformation to keep you focused.</div>
+        </div>
+        <span class="offer-price">$9</span>
+      </div>
+      <button class="offer-cta">Get the pack</button>
+    </div>
+
+    <div class="offer-card hot">
+      <div class="offer-top">
+        <div style="flex:1">
+          <div class="offer-title-row">
+            <span class="offer-title">12-Week Program</span>
+            <span class="offer-badge">Popular</span>
+          </div>
+          <div class="offer-desc">The training and nutrition plan built to turn this vision into your reality.</div>
+        </div>
+        <span class="offer-price">$49</span>
+      </div>
+      <button class="offer-cta">Start the program</button>
+    </div>
+
+    <div class="offer-card">
+      <div class="offer-top">
+        <div style="flex:1">
+          <div class="offer-title-row"><span class="offer-title">Supplement Stack</span></div>
+          <div class="offer-desc">A simple daily system to support your cut. Launching soon.</div>
+        </div>
+        <span class="offer-price soon-price">Soon</span>
+      </div>
+      <button class="offer-cta muted-cta">Join the waitlist</button>
+    </div>
+
+    <div class="footer">Powered by Claude + Gemini</div>
+  </div>
+
+</div><!-- /.app -->
+
 <script>
 // ============================================================
-//  STATE
+//  CONSTANTS
 // ============================================================
 const INTENSITY_LADDER = ['subtle', 'moderate', 'dramatic', 'max'];
-
-// Configure backend URL (change this if deploying to a different domain)
 const BACKEND_URL = window.location.hostname === 'localhost'
   ? 'http://localhost:3000'
   : 'https://abs-by-ai-production.up.railway.app';
 
+// Body-fat anchors (midpoints) for display
+const BF_BEFORE = { heavier: { male: '28–32%', female: '36–40%' }, moderate: { male: '20–24%', female: '28–32%' }, fit: { male: '15–17%', female: '22–25%' }, very_lean: { male: '11–13%', female: '18–20%' } };
+const BF_AFTER  = { subtle: { male: '16%', female: '25%' }, moderate: { male: '13%', female: '23%' }, dramatic: { male: '10%', female: '20%' }, max: { male: '9%', female: '18%' } };
+
+// ============================================================
+//  STATE
+// ============================================================
 const state = {
   photoData: null,
   photoMime: null,
   photoIsClothed: false,
   photoBlockMsg: '',
-  gender: null,
+  gender: 'male',
   condition: null,
   intensity: 'dramatic',
-  effectiveIntensity: 'dramatic', // tracks current generation intensity (can be adjusted)
+  effectiveIntensity: 'dramatic',
   description: '',
-  lastAfterDataUrl: null, // stores the current generated image for achievement screen
+  lastAfterDataUrl: null,
 };
+
 // ============================================================
 //  SYSTEM PROMPTS
 // ============================================================
-// GOAL_SYSTEM_PROMPT: identical to SYSTEM_PROMPT but calibration rule removed —
-// always honors the user's requested intensity at full strength, no downgrade.
-
 const SYSTEM_PROMPT = `You are the prompt-engineering layer for Abs By AI, a fitness visualization app. Users upload a selfie and describe their dream physique. Your job is to write a high-quality image-editing prompt for Gemini image generation that produces a photorealistic "future you" image.
 
 CORE PRINCIPLE: The body MUST visibly change. The face and identity must stay the same. These are the only two rules that cannot be broken. Everything else serves the transformation.
@@ -515,8 +937,6 @@ FINAL REMINDERS
 - For fit/very_lean subjects at dramatic/max: push harder, not softer. They want more definition, not a copy of themselves.
 - Never sexualize. Never describe minors. Never lecture.`;
 
-// GOAL_SYSTEM_PROMPT — same as above but calibration rule replaced:
-// always honor requested intensity at FULL strength regardless of starting condition.
 const GOAL_SYSTEM_PROMPT = SYSTEM_PROMPT.replace(
   `CALIBRATION RULE — only for "heavier" starting condition
 If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": DOWNGRADE the body-fat target by one step (use "moderate" anchors), and add to the directive: "This is a believable mid-journey transformation — the subject should look noticeably leaner and fitter, but not yet at peak condition."
@@ -529,31 +949,39 @@ Always honor the user's requested intensity at FULL strength regardless of start
 //  HELPERS
 // ============================================================
 const $ = (id) => document.getElementById(id);
+
+function showScreen(name) {
+  ['formSection', 'resultSection', 'achievementSection'].forEach(id => {
+    const el = $(id);
+    if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Sync dots
+  const dotMap = { form: 0, result: 1, achievement: 2 };
+  document.querySelectorAll('.dot').forEach((d, i) => {
+    d.className = 'dot ' + (i === dotMap[name] ? 'active' : 'inactive');
+  });
+}
+
 async function updateBackendStatus() {
   try {
     const res = await fetch(`${BACKEND_URL}/health`, { signal: AbortSignal.timeout(5000) });
     if (!res.ok) throw new Error(`Server returned ${res.status}`);
-    // All good — keep the status bar hidden
-    $('backendStatus').classList.add('hidden');
+    $('backendStatus').style.display = 'none';
   } catch (err) {
     $('backendStatusText').textContent = err.message?.includes('fetch')
       ? 'Cannot reach the server. Please try again in a moment.'
-      : err.message || 'Server is not responding.';
-    $('backendStatus').classList.remove('hidden');
+      : (err.message || 'Server is not responding.');
+    $('backendStatus').style.display = '';
   }
   validateForm();
 }
-function selectOption(group, value) {
-  document.querySelectorAll(`[data-group="${group}"]`).forEach(el => el.classList.remove('selected'));
-  document.querySelector(`[data-group="${group}"][data-value="${value}"]`).classList.add('selected');
-  state[group] = value;
-  validateForm();
-}
+
 function validateForm() {
-  const ready = state.photoData && state.gender && state.condition && state.intensity && !state.photoIsClothed;
+  const ready = state.photoData && state.condition && !state.photoIsClothed;
   $('generateBtn').disabled = !ready;
-  $('clothingBlockMsg').classList.toggle('hidden', !state.photoIsClothed);
 }
+
 function fileToBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -567,38 +995,92 @@ function fileToBase64(file) {
     reader.readAsDataURL(file);
   });
 }
+
 function setStatus(title, sub) {
-  $('statusSection').classList.remove('hidden');
+  $('statusSection').style.display = '';
   $('statusTitle').textContent = title;
   $('statusSub').textContent = sub;
 }
-function clearStatus() { $('statusSection').classList.add('hidden'); }
+function clearStatus() { $('statusSection').style.display = 'none'; }
+
 function showError(msg) {
-  $('errorSection').classList.remove('hidden');
-  $('errorMsg').textContent = msg;
+  const el = $('errorSection');
+  el.textContent = msg;
+  el.style.display = '';
 }
-function clearError() { $('errorSection').classList.add('hidden'); }
+function clearError() { $('errorSection').style.display = 'none'; }
+
+function setResultStatus(title, sub) {
+  $('resultStatusSection').style.display = '';
+  $('resultStatusTitle').textContent = title;
+  $('resultStatusSub').textContent = sub;
+}
+function clearResultStatus() { $('resultStatusSection').style.display = 'none'; }
+
+function showResultError(msg) {
+  const el = $('resultErrorSection');
+  el.textContent = msg;
+  el.style.display = '';
+}
+function clearResultError() { $('resultErrorSection').style.display = 'none'; }
+
+function setGenerating(loading) {
+  const btn = $('generateBtn');
+  const lbl = $('generateBtnLabel');
+  if (loading) {
+    btn.disabled = true;
+    btn.innerHTML = '<div class="btn-spinner"></div><span>Generating…</span>';
+  } else {
+    btn.innerHTML = '<span id="generateBtnLabel">Generate my future self</span>';
+    validateForm();
+  }
+}
+
+function updateBodyFatDisplay() {
+  const cond = state.condition || 'moderate';
+  const sex = state.gender || 'male';
+  const intens = state.effectiveIntensity || state.intensity || 'dramatic';
+  const before = (BF_BEFORE[cond] || BF_BEFORE.moderate)[sex] || '—';
+  const after = (BF_AFTER[intens] || BF_AFTER.dramatic)[sex] || '—';
+  $('bfBefore').textContent = before;
+  $('bfAfter').textContent = after;
+}
+
+// ============================================================
+//  PICK CARD SELECTION
+// ============================================================
+function selectPick(gridId, value, stateKey) {
+  document.querySelectorAll(`#${gridId} .pick-card`).forEach(card => {
+    card.classList.toggle('active', card.dataset.value === value);
+  });
+  state[stateKey] = value;
+  validateForm();
+}
+
 // ============================================================
 //  EVENT WIRING
 // ============================================================
 window.addEventListener('DOMContentLoaded', () => {
   updateBackendStatus();
-  const uploadZone = $('uploadZone');
+
+  // Upload card click
+  const uploadCard = $('uploadCard');
   const photoInput = $('photoInput');
-  uploadZone.addEventListener('click', (e) => {
+  uploadCard.addEventListener('click', (e) => {
     if (e.target.id !== 'removePhoto') photoInput.click();
   });
-  uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
-  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
-  uploadZone.addEventListener('drop', async (e) => {
+  uploadCard.addEventListener('dragover', (e) => { e.preventDefault(); uploadCard.classList.add('dragover'); });
+  uploadCard.addEventListener('dragleave', () => uploadCard.classList.remove('dragover'));
+  uploadCard.addEventListener('drop', async (e) => {
     e.preventDefault();
-    uploadZone.classList.remove('dragover');
+    uploadCard.classList.remove('dragover');
     if (e.dataTransfer.files[0]) await handlePhoto(e.dataTransfer.files[0]);
   });
   photoInput.addEventListener('change', async (e) => {
     if (e.target.files[0]) await handlePhoto(e.target.files[0]);
   });
-  // Paste support — works anywhere on the page
+
+  // Paste support
   document.addEventListener('paste', async (e) => {
     const items = e.clipboardData?.items;
     if (!items) return;
@@ -610,32 +1092,58 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
   $('removePhoto').addEventListener('click', (e) => {
     e.stopPropagation();
     state.photoData = null;
     state.photoMime = null;
-    $('uploadPreview').classList.add('hidden');
-    $('uploadPlaceholder').classList.remove('hidden');
+    state.photoIsClothed = false;
+    $('uploadPreview').style.display = 'none';
+    $('uploadPlaceholder').style.display = '';
+    $('clothingWarning').style.display = 'none';
     photoInput.value = '';
     validateForm();
   });
-  document.querySelectorAll('[data-group]').forEach(el => {
-    el.addEventListener('click', () => selectOption(el.dataset.group, el.dataset.value));
+
+  // Sex segmented control
+  document.querySelectorAll('#sexSeg .seg-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#sexSeg .seg-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.gender = btn.dataset.value;
+    });
   });
+
+  // Body type picks
+  document.querySelectorAll('#bodyTypeGrid .pick-card').forEach(card => {
+    card.addEventListener('click', () => selectPick('bodyTypeGrid', card.dataset.value, 'condition'));
+  });
+
+  // Intensity picks
+  document.querySelectorAll('#intensityGrid .pick-card').forEach(card => {
+    card.addEventListener('click', () => {
+      selectPick('intensityGrid', card.dataset.value, 'intensity');
+    });
+  });
+
   $('description').addEventListener('input', (e) => { state.description = e.target.value; });
+
   $('generateBtn').addEventListener('click', generate);
-  $('tryAgainBtn').addEventListener('click', () => {
-    $('resultSection').classList.add('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+
+  // Result screen
+  $('resultBackBtn').addEventListener('click', () => showScreen('form'));
   $('loveItBtn').addEventListener('click', showAchievement);
   $('moreDramaticBtn').addEventListener('click', () => adjustIntensity(1));
-  $('moreRealisticBtn').addEventListener('click', () => adjustIntensity(-1));
-  $('startOverBtn').addEventListener('click', () => {
-    $('achievementSection').classList.add('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  $('moreSubtleBtn').addEventListener('click', () => adjustIntensity(-1));
+  $('tryAgainBtn').addEventListener('click', () => showScreen('form'));
+
+  // Achievement screen
+  $('achieveDismissBtn').addEventListener('click', () => showScreen('form'));
 });
+
+// ============================================================
+//  PHOTO HANDLING
+// ============================================================
 async function handlePhoto(file) {
   if (!file.type.startsWith('image/')) {
     showError('Please upload an image file.');
@@ -645,23 +1153,15 @@ async function handlePhoto(file) {
   state.photoData = data;
   state.photoMime = mime;
   $('previewImg').src = dataUrl;
-  $('uploadPreview').classList.remove('hidden');
-  $('uploadPlaceholder').classList.add('hidden');
-  // Reset photo check state for new photo
+  $('uploadPreview').style.display = '';
+  $('uploadPlaceholder').style.display = 'none';
   state.photoIsClothed = false;
   state.photoBlockMsg = '';
-  $('clothingWarning').classList.add('hidden');
+  $('clothingWarning').style.display = 'none';
   validateForm();
-  // Run clothing check in background
   checkClothing(data, mime);
 }
 
-// Photo check response codes:
-// OK       — shirtless/sports bra/swimwear, acceptable for the app
-// CLOTHED  — fully or mostly clothed, torso not visible
-// EXPLICIT — sexually explicit content
-// ILLEGAL  — visible illegal activity (drugs, weapons, etc.)
-// MINOR    — subject appears to be under 18
 async function checkClothing(photoBase64, photoMime) {
   try {
     const res = await fetch(`${BACKEND_URL}/api/check-photo`, {
@@ -673,7 +1173,7 @@ async function checkClothing(photoBase64, photoMime) {
     const code = result?.code?.toUpperCase() || 'OK';
     const blockMessages = {
       CLOTHED: 'Your photo appears to show you fully clothed. For best results, upload a shirtless or sports-bra photo — the app works by editing your visible body.',
-      SUGGESTIVE: 'This photo looks too suggestive for our image generator to process. Please use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with a neutral pose.',
+      SUGGESTIVE: 'This photo looks too suggestive for our image generator. Please use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with a neutral pose.',
       EXPLICIT: 'This photo cannot be used. Please upload an appropriate fitness photo.',
       ILLEGAL: 'This photo cannot be used. Please upload an appropriate fitness photo.',
       MINOR: 'This app is for adults only (18+). Please upload a photo of yourself if you are 18 or older.',
@@ -681,16 +1181,15 @@ async function checkClothing(photoBase64, photoMime) {
     if (code && code !== 'OK') {
       state.photoIsClothed = true;
       state.photoBlockMsg = blockMessages[code] || blockMessages.CLOTHED;
-      $('clothingWarning').querySelector('span').textContent = state.photoBlockMsg;
-      $('clothingWarning').classList.remove('hidden');
-      $('clothingBlockMsg').textContent = '⚠ ' + state.photoBlockMsg;
+      $('clothingWarning').textContent = state.photoBlockMsg;
+      $('clothingWarning').style.display = '';
       validateForm();
     }
   } catch (e) {
-    // Fail silently — photo check is non-blocking
     console.error('Photo check error:', e);
   }
 }
+
 // ============================================================
 //  GENERATION PIPELINE
 // ============================================================
@@ -705,124 +1204,100 @@ function makeUserJson(intensityOverride) {
 }
 
 async function generate() {
-  // Reset effective intensity to user's selected intensity on fresh generate
   state.effectiveIntensity = state.intensity;
-  await runGeneration();
+  clearError();
+  setGenerating(true);
+  setStatus('Stage 1 of 2', 'Claude is crafting the perfect prompt for your goals…');
+
+  try {
+    const generatedPrompt = await callGeminiText(GOAL_SYSTEM_PROMPT, makeUserJson());
+    if (generatedPrompt.trim() === 'REFUSED_MINOR') {
+      throw new Error('This app is for adults only. Please use a photo of someone 18 or older.');
+    }
+    setStatus('Stage 2 of 2', 'Gemini is generating your future self… (10–20 seconds)');
+    const imageBase64 = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
+    const afterDataUrl = `data:image/png;base64,${imageBase64}`;
+    state.lastAfterDataUrl = afterDataUrl;
+
+    $('beforeImg').src = `data:${state.photoMime};base64,${state.photoData}`;
+    $('afterImg').src = afterDataUrl;
+    $('resultDownloadBtn').href = afterDataUrl;
+    updateBodyFatDisplay();
+    clearStatus();
+    showScreen('result');
+  } catch (err) {
+    clearStatus();
+    showError(err.message || 'Unknown error. Please try again.');
+    console.error(err);
+  } finally {
+    setGenerating(false);
+  }
 }
 
 async function adjustIntensity(delta) {
   const currentIdx = INTENSITY_LADDER.indexOf(state.effectiveIntensity);
   const newIdx = Math.max(0, Math.min(INTENSITY_LADDER.length - 1, currentIdx + delta));
-  if (newIdx === currentIdx) return; // already at limit
+  if (newIdx === currentIdx) return;
   state.effectiveIntensity = INTENSITY_LADDER[newIdx];
-  await runGeneration();
-}
 
-async function runGeneration() {
-  clearError();
-  $('resultSection').classList.add('hidden');
-  $('achievementSection').classList.add('hidden');
-  $('generateBtn').disabled = true;
+  clearResultError();
+  $('moreDramaticBtn').disabled = true;
+  $('moreSubtleBtn').disabled = true;
+  $('loveItBtn').disabled = true;
+  setResultStatus('Regenerating…', `Applying ${state.effectiveIntensity} intensity`);
 
   try {
-    setStatus('Stage 1 of 2', 'Claude is crafting the perfect prompt for your goals…');
     const generatedPrompt = await callGeminiText(GOAL_SYSTEM_PROMPT, makeUserJson());
-    if (generatedPrompt.trim() === 'REFUSED_MINOR') {
-      throw new Error('This app is for adults only. Please use a photo of someone 18 or older.');
-    }
-    setStatus('Stage 2 of 2', 'Gemini is generating your future self… (this takes 10–20 sec)');
+    if (generatedPrompt.trim() === 'REFUSED_MINOR') throw new Error('Refused.');
+    setResultStatus('Regenerating…', 'Gemini is generating the new image…');
     const imageBase64 = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
-    $('beforeImg').src = `data:${state.photoMime};base64,${state.photoData}`;
     $('afterImg').src = afterDataUrl;
-    $('generatedPrompt').textContent = generatedPrompt;
-    clearStatus();
-    $('resultSection').classList.remove('hidden');
-    $('resultSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    $('resultDownloadBtn').href = afterDataUrl;
+    updateBodyFatDisplay();
+    clearResultStatus();
   } catch (err) {
-    clearStatus();
-    showError(err.message || 'Unknown error');
+    clearResultStatus();
+    showResultError(err.message || 'Something went wrong. Please try again.');
     console.error(err);
   } finally {
-    $('generateBtn').disabled = false;
+    $('moreDramaticBtn').disabled = false;
+    $('moreSubtleBtn').disabled = false;
+    $('loveItBtn').disabled = false;
   }
 }
 
 function showAchievement() {
-  $('resultSection').classList.add('hidden');
-  $('achieveBeforeImg').src = `data:${state.photoMime};base64,${state.photoData}`;
-  $('achieveAfterImg').src = state.lastAfterDataUrl;
+  $('achieveImg').src = state.lastAfterDataUrl;
   $('achieveDownloadBtn').href = state.lastAfterDataUrl;
-  $('achievementSection').classList.remove('hidden');
-  $('achievementSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  launchConfetti();
+  showScreen('achievement');
 }
 
-function launchConfetti() {
-  const canvas = $('confettiCanvas');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  const ctx = canvas.getContext('2d');
-  const pieces = Array.from({ length: 120 }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * -canvas.height,
-    w: 8 + Math.random() * 8,
-    h: 5 + Math.random() * 5,
-    color: ['#a78bfa','#f0abfc','#fb923c','#34d399','#60a5fa','#fbbf24'][Math.floor(Math.random()*6)],
-    rot: Math.random() * Math.PI * 2,
-    vx: (Math.random() - 0.5) * 3,
-    vy: 2 + Math.random() * 4,
-    vr: (Math.random() - 0.5) * 0.2,
-  }));
-  let frame = 0;
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    pieces.forEach(p => {
-      ctx.save();
-      ctx.translate(p.x + p.w/2, p.y + p.h/2);
-      ctx.rotate(p.rot);
-      ctx.fillStyle = p.color;
-      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
-      ctx.restore();
-      p.x += p.vx; p.y += p.vy; p.rot += p.vr;
-    });
-    frame++;
-    if (frame < 180) requestAnimationFrame(draw);
-    else ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-  draw();
-}
+// ============================================================
+//  API CALLS
+// ============================================================
 async function callGeminiText(systemPrompt, userMessage) {
-  // Stage 1: Call backend to generate prompt with Claude Sonnet
   const res = await fetch(`${BACKEND_URL}/api/generate-prompt`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ systemPrompt, userJson: userMessage }),
   });
   const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
-  }
-  if (!data?.prompt) {
-    throw new Error('Backend returned no prompt. The prompt may have been blocked by safety filters.');
-  }
+  if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
+  if (!data?.prompt) throw new Error('Backend returned no prompt. The prompt may have been blocked by safety filters.');
   return data.prompt.trim();
 }
+
 async function callGeminiImage(prompt, photoBase64, photoMime) {
-  // Stage 2: Call backend to generate image with Gemini
   const res = await fetch(`${BACKEND_URL}/api/generate-image`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ prompt, photoBase64, photoMime }),
   });
   const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
-  }
-  if (!data?.imageBase64) {
-    throw new Error('Image generation was blocked — this is usually caused by a photo that is too suggestive or explicit. For best results, use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with neutral pose and lighting. Please try a different photo.');
-  }
+  if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
+  if (!data?.imageBase64) throw new Error('Image generation was blocked — this is usually caused by a photo that is too suggestive or explicit. For best results, use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with a neutral pose and lighting. Please try a different photo.');
   return data.imageBase64;
 }
 </script>
