@@ -4,6 +4,7 @@ const rateLimit = require('express-rate-limit');
 const fetch = require('node-fetch');
 
 const app = express();
+app.set('trust proxy', 1); // Required for Railway/proxied environments
 
 // Middleware
 app.use(cors());
