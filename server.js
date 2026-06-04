@@ -238,6 +238,17 @@ app.post('/api/generate-image', async (req, res) => {
   }
 });
 
+// ============================================================
+// STATIC FILES & FALLBACK
+// ============================================================
+const path = require('path');
+app.use(express.static(path.join(__dirname)));
+
+// Serve index.html for all non-API routes (SPA fallback)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
