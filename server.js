@@ -191,8 +191,8 @@ app.use(express.json({ limit: '10mb' }));
 // Rate limiting: 10 requests per minute per IP
 const limiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 10,
-  message: 'Too many requests, please try again later.',
+  max: 20,
+  message: { error: 'Too many requests, please try again in a minute.' },
   standardHeaders: true,
   legacyHeaders: false,
 });
@@ -201,7 +201,7 @@ const limiter = rateLimit({
 const checkoutLimiter = rateLimit({
   windowMs: 60 * 1000,
   max: 30,
-  message: 'Too many requests, please try again later.',
+  message: { error: 'Too many requests, please try again in a minute.' },
   standardHeaders: true,
   legacyHeaders: false,
 });
