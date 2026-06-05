@@ -6,33 +6,215 @@ const fetch = require('node-fetch');
 const app = express();
 app.set('trust proxy', 1); // Required for Railway/proxied environments
 
-// Middleware
-app.use(cors());
-app.use(express.json({ limit: '10mb' }));
-
-// Rate limiting: 10 requests per minute per IP
-const limiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 10, // limit each IP to 10 requests per minute
-  message: 'Too many requests, please try again later.',
-  standardHeaders: true, // return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // disable the `X-RateLimit-*` headers
-});
-
-app.use(limiter);
-
 // API Keys from environment variables
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const PRINTIFY_API_KEY = process.env.PRINTIFY_API_KEY;
+const PRINTIFY_SHOP_ID = process.env.PRINTIFY_SHOP_ID;
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
+const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
 
 if (!ANTHROPIC_API_KEY || !GEMINI_API_KEY) {
   console.error('ERROR: Missing ANTHROPIC_API_KEY or GEMINI_API_KEY environment variables');
   process.exit(1);
 }
 
+// Initialize Stripe if configured
+let stripeClient = null;
+if (STRIPE_SECRET_KEY) {
+  try {
+    stripeClient = require('stripe')(STRIPE_SECRET_KEY);
+  } catch (e) {
+    console.warn('WARNING: stripe package not installed. Run: npm install stripe');
+  }
+}
+
+// ============================================================
+// PRODUCT CONFIG — fully populated from Printify catalog
+//
+// Canvas unframed: blueprint 937 (Matte Canvas Multi-Size), Jondo (105)
+// Canvas framed:   blueprint 944 (Matte Canvas Framed),     Jondo (105), Black frame
+//   Note: framed not available in 8×10 — smallest framed is 11×14
+// Poster:          blueprint 282 (Matte Vertical Posters),  Sensaria (2)
+//   Note: smallest available size is 9×11 (≈8×10)
+// Keychain acrylic: blueprint 2675 (Single-Sided Charm),    Printdoors (332)
+// Keychain metal:   blueprint 790  (Rectangle Photo Keyring), Imagine Your Photos (59)
+//
+// Each variant carries its own blueprintId/printProviderId so the
+// webhook handler can build the Printify order without extra lookups.
+// ============================================================
+const PRODUCT_CONFIG = {
+  canvas: {
+    variants: {
+      '8x10_unframed':  { blueprintId: 937, printProviderId: 105, variantId: 95212,  price: 3400 },
+      '11x14_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82229,  price: 4200 },
+      '16x20_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82231,  price: 5400 },
+      '18x24_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82232,  price: 6300 },
+      '24x36_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82235,  price: 7900 },
+      '11x14_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88291,  price: 7500 },
+      '16x20_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88293,  price: 8700 },
+      '18x24_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88294,  price: 9600 },
+      '24x36_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88297,  price: 11200 },
+    },
+  },
+  poster: {
+    variants: {
+      '9x11':  { blueprintId: 282, printProviderId: 2, variantId: 62103,  price: 1800 },
+      '11x14': { blueprintId: 282, printProviderId: 2, variantId: 43135,  price: 2700 },
+      '12x16': { blueprintId: 282, printProviderId: 2, variantId: 101110, price: 2400 },
+      '18x24': { blueprintId: 282, printProviderId: 2, variantId: 43144,  price: 4400 },
+      '24x36': { blueprintId: 282, printProviderId: 2, variantId: 43150,  price: 5200 },
+    },
+  },
+  keychain: {
+    variants: {
+      'acrylic_small': { blueprintId: 2675, printProviderId: 332, variantId: 147952, price: 900 },
+      'acrylic_large': { blueprintId: 2675, printProviderId: 332, variantId: 147953, price: 1200 },
+      'metal':         { blueprintId: 790,  printProviderId: 59,  variantId: 74997,  price: 2500 },
+    },
+  },
+};
+
+// ============================================================
+// MIDDLEWARE
+// Stripe webhook MUST receive raw body — register its route
+// before express.json() so the global parser doesn't consume it.
+// ============================================================
+app.use(cors());
+
+// ============================================================
+// ENDPOINT: Stripe webhook (raw body, no rate-limit)
+// ============================================================
+app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+  if (!stripeClient) {
+    return res.status(503).json({ error: 'Stripe not configured' });
+  }
+  if (!STRIPE_WEBHOOK_SECRET) {
+    return res.status(503).json({ error: 'STRIPE_WEBHOOK_SECRET not configured' });
+  }
+
+  const sig = req.headers['stripe-signature'];
+  let event;
+  try {
+    event = stripeClient.webhooks.constructEvent(req.body, sig, STRIPE_WEBHOOK_SECRET);
+  } catch (err) {
+    console.error('Webhook signature verification failed:', err.message);
+    return res.status(400).json({ error: `Webhook Error: ${err.message}` });
+  }
+
+  if (event.type === 'checkout.session.completed') {
+    const session = event.data.object;
+    const { imageId, productType, size, framed } = session.metadata || {};
+    const email = session.customer_details?.email;
+    const shipping = session.shipping_details?.address;
+
+    console.log(`Order completed: ${productType} ${size}${framed === 'true' ? ' framed' : ''} for ${email}`);
+
+    if (PRINTIFY_API_KEY && PRINTIFY_SHOP_ID && imageId && productType && size) {
+      const framedBool = framed === 'true';
+      const variantKey = productType === 'canvas'
+        ? `${size}_${framedBool ? 'framed' : 'unframed'}`
+        : size;
+      const variant = PRODUCT_CONFIG[productType]?.variants[variantKey];
+
+      if (!variant || !variant.variantId) {
+        console.warn(`Printify variant not configured for ${productType}/${variantKey} — order NOT submitted to Printify`);
+      } else {
+        try {
+          const orderPayload = {
+            external_id: session.id,
+            line_items: [
+              {
+                blueprint_id: variant.blueprintId,
+                print_provider_id: variant.printProviderId,
+                variant_id: variant.variantId,
+                print_areas: {
+                  front: [{ src: '', position: 'front', scale: 1, angle: 0 }],
+                },
+                quantity: 1,
+              },
+            ],
+            shipping_method: 1,
+            send_shipping_notification: true,
+            address_to: {
+              first_name: session.shipping_details?.name?.split(' ')[0] || '',
+              last_name: session.shipping_details?.name?.split(' ').slice(1).join(' ') || '',
+              email: email || '',
+              phone: '',
+              country: shipping?.country || 'US',
+              region: shipping?.state || '',
+              address1: shipping?.line1 || '',
+              address2: shipping?.line2 || '',
+              city: shipping?.city || '',
+              zip: shipping?.postal_code || '',
+            },
+          };
+
+          // Attach the uploaded Printify image ID to the print area
+          orderPayload.line_items[0].print_areas.front[0].src = `https://images.printify.com/${imageId}`;
+
+          const printifyRes = await fetch(
+            `https://api.printify.com/v1/shops/${PRINTIFY_SHOP_ID}/orders.json`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${PRINTIFY_API_KEY}`,
+              },
+              body: JSON.stringify(orderPayload),
+            }
+          );
+          const printifyData = await printifyRes.json();
+          if (!printifyRes.ok) {
+            console.error('Printify order creation failed:', JSON.stringify(printifyData));
+          } else {
+            console.log('Printify order created:', printifyData.id);
+          }
+        } catch (err) {
+          console.error('Printify order creation error:', err);
+        }
+      }
+    } else if (!PRINTIFY_API_KEY || !PRINTIFY_SHOP_ID) {
+      console.warn('Printify not configured — order recorded but not sent to Printify');
+    }
+  }
+
+  res.json({ received: true });
+});
+
+// Global JSON parser (after webhook route so it doesn't consume raw bytes)
+app.use(express.json({ limit: '10mb' }));
+
+// Rate limiting: 10 requests per minute per IP
+const limiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 10,
+  message: 'Too many requests, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Separate generous limiter for checkout (not an abuse vector)
+const checkoutLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 30,
+  message: 'Too many requests, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.use(limiter);
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
+});
+
+// Public config for frontend (publishable key is safe to expose)
+app.get('/api/config', (req, res) => {
+  res.json({
+    stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY || '',
+  });
 });
 
 // ============================================================
@@ -235,6 +417,122 @@ app.post('/api/generate-image', async (req, res) => {
   } catch (err) {
     console.error('Image generation error:', err);
     res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ============================================================
+// ENDPOINT 4: Upload image to Printify
+// ============================================================
+app.post('/api/printify/upload-image', checkoutLimiter, async (req, res) => {
+  if (!PRINTIFY_API_KEY) {
+    return res.status(503).json({ error: 'Printify not configured. Add PRINTIFY_API_KEY to environment variables.' });
+  }
+
+  try {
+    const { imageBase64, fileName } = req.body;
+    if (!imageBase64 || !fileName) {
+      return res.status(400).json({ error: 'Missing imageBase64 or fileName' });
+    }
+
+    const response = await fetch('https://api.printify.com/v1/uploads/images.json', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${PRINTIFY_API_KEY}`,
+      },
+      body: JSON.stringify({
+        file_name: fileName,
+        contents: imageBase64,
+      }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      console.error('Printify upload error:', JSON.stringify(data));
+      return res.status(response.status).json({ error: data?.message || 'Printify upload failed' });
+    }
+
+    res.json({ imageId: data.id });
+  } catch (err) {
+    console.error('Printify upload error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ============================================================
+// ENDPOINT 5: Create Stripe Embedded Checkout session
+// ============================================================
+app.post('/api/stripe/create-checkout', checkoutLimiter, async (req, res) => {
+  if (!stripeClient) {
+    return res.status(503).json({ error: 'Stripe not configured. Add STRIPE_SECRET_KEY to environment variables.' });
+  }
+
+  try {
+    const { productType, size, framed, priceInCents, imageId, productLabel, returnUrl } = req.body;
+    if (!productType || !size || !priceInCents || !returnUrl) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    const displayName = `${productLabel || productType} — ${size}${framed ? ' (Framed)' : ''}`;
+
+    const session = await stripeClient.checkout.sessions.create({
+      ui_mode: 'embedded',
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: displayName,
+              description: 'Your AI-generated future self, printed and shipped to you.',
+            },
+            unit_amount: priceInCents,
+          },
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      return_url: returnUrl,
+      shipping_address_collection: {
+        allowed_countries: [
+          'US', 'CA', 'GB', 'AU', 'DE', 'FR', 'ES', 'IT', 'NL', 'SE', 'NO', 'DK',
+          'FI', 'AT', 'BE', 'CH', 'IE', 'NZ', 'JP', 'SG', 'HK', 'MX', 'BR',
+        ],
+      },
+      automatic_tax: { enabled: false },
+      metadata: {
+        imageId: imageId || '',
+        productType,
+        size,
+        framed: String(!!framed),
+      },
+    });
+
+    res.json({ clientSecret: session.client_secret });
+  } catch (err) {
+    console.error('Stripe checkout creation error:', err);
+    res.status(500).json({ error: err.message || 'Internal server error' });
+  }
+});
+
+// ============================================================
+// ENDPOINT 6: Check Stripe session status (after redirect back)
+// ============================================================
+app.get('/api/stripe/session-status', async (req, res) => {
+  if (!stripeClient) {
+    return res.status(503).json({ error: 'Stripe not configured' });
+  }
+
+  try {
+    const { session_id } = req.query;
+    if (!session_id) {
+      return res.status(400).json({ error: 'Missing session_id' });
+    }
+
+    const session = await stripeClient.checkout.sessions.retrieve(session_id);
+    res.json({ status: session.status });
+  } catch (err) {
+    console.error('Session status error:', err);
+    res.status(500).json({ error: err.message || 'Internal server error' });
   }
 });
 

@@ -14,6 +14,11 @@
   ],
   "env": {
     "ANTHROPIC_API_KEY": "@anthropic_api_key",
-    "GEMINI_API_KEY": "@gemini_api_key"
+    "GEMINI_API_KEY": "@gemini_api_key",
+    "PRINTIFY_API_KEY": "@printify_api_key",
+    "PRINTIFY_SHOP_ID": "@printify_shop_id",
+    "STRIPE_SECRET_KEY": "@stripe_secret_key",
+    "STRIPE_PUBLISHABLE_KEY": "@stripe_publishable_key",
+    "STRIPE_WEBHOOK_SECRET": "@stripe_webhook_secret"
   }
 }

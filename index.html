@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://js.stripe.com/v3/"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -395,56 +396,7 @@ html, body {
   padding: 4px 0;
 }
 
-/* ── Achievement screen ── */
-.goal-set-bar {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 0 20px;
-}
-.goal-set-label { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--acc); }
-.goal-tick {
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--acc);
-  display: flex; align-items: center; justify-content: center;
-}
-
-.hero-img-card {
-  background: var(--card);
-  border-radius: 20px;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  padding: 12px;
-  margin-bottom: 14px;
-}
-.hero-img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 13px;
-  display: block;
-}
-
-.save-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  padding: 13px;
-  border-radius: 14px;
-  background: var(--card);
-  border: 1px solid var(--line2);
-  box-shadow: var(--shadow);
-  margin-bottom: 26px;
-  text-decoration: none;
-  color: var(--ink);
-  font-size: 14px;
-  font-weight: 700;
-  font-family: var(--f);
-  cursor: pointer;
-  transition: background 0.12s;
-}
-.save-btn:hover { background: #f3f2ef; }
-
+/* ── Section header ── */
 .section-hdr { font-size: 17px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 14px; }
 
 /* ── Offer cards ── */
@@ -501,6 +453,221 @@ html, body {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ════════════════════════════════════════
+   UPSELL FLOW STYLES
+   ════════════════════════════════════════ */
+
+/* ── Steps screen ── */
+.step-card {
+  display: flex;
+  gap: 15px;
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 18px 16px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 32px; height: 32px; flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--acc);
+  color: #fff;
+  font-size: 15px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+.step-title { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.1px; }
+.step-desc { font-size: 13px; color: var(--mute); line-height: 1.5; }
+
+/* ── Product selector cards ── */
+.product-card {
+  background: var(--card);
+  border-radius: 18px;
+  border: 1.5px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 16px 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+}
+.product-card:hover { border-color: var(--acc-line); }
+.product-card.featured { background: var(--acc-soft); border-color: var(--acc-line); }
+.product-card-info { flex: 1; min-width: 0; }
+.product-card-title-row { display: flex; align-items: center; gap: 7px; margin-bottom: 4px; flex-wrap: wrap; }
+.product-card-title { font-size: 15.5px; font-weight: 800; letter-spacing: -0.2px; }
+.product-card-desc { font-size: 12px; color: var(--mute); line-height: 1.4; margin-bottom: 5px; }
+.product-card-price { font-size: 13.5px; font-weight: 700; color: var(--acc); }
+.product-card-arrow { flex-shrink: 0; color: var(--faint); }
+
+/* ── Mini mockups (product card thumbnails) ── */
+.mini-canvas {
+  width: 60px; height: 60px; flex-shrink: 0;
+  background: #ece6dc;
+  border: 2px solid #c8bcac;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 7px #fff, 0 2px 8px rgba(0,0,0,0.14);
+  position: relative;
+}
+.mini-canvas img {
+  position: absolute; inset: 7px;
+  width: calc(100% - 14px); height: calc(100% - 14px);
+  object-fit: cover; border-radius: 1px; display: block;
+}
+.mini-poster {
+  width: 44px; height: 60px; flex-shrink: 0;
+  border-radius: 2px; overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+}
+.mini-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mini-keychain {
+  width: 54px; height: 54px; flex-shrink: 0;
+  border-radius: 10px; overflow: hidden;
+  border: 2px solid #cec5bb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+}
+.mini-keychain img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── Full mockups (customize screen) ── */
+.mockup-center {
+  display: flex; justify-content: center;
+  padding: 20px 0 6px;
+  margin-bottom: 4px;
+}
+.full-canvas {
+  width: 170px; height: 170px;
+  background: #ece6dc;
+  border: 3px solid #c8bcac;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.16), inset 0 0 0 13px #fff;
+  position: relative;
+}
+.full-canvas img {
+  position: absolute; inset: 13px;
+  width: calc(100% - 26px); height: calc(100% - 26px);
+  object-fit: cover; border-radius: 2px; display: block;
+}
+.full-poster {
+  width: 146px; height: 204px;
+  border-radius: 3px; overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+}
+.full-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.full-keychain-wrap { display: flex; flex-direction: column; align-items: center; }
+.full-keychain-ring {
+  width: 26px; height: 26px;
+  border: 4px solid #a09488;
+  border-radius: 50%;
+  margin-bottom: -4px;
+  z-index: 1;
+  position: relative;
+}
+.full-keychain {
+  width: 96px; height: 96px;
+  border-radius: 15px; overflow: hidden;
+  border: 3px solid #cec5bb;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+.full-keychain img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── Size/style chips ── */
+.chips-wrap { margin-bottom: 22px; }
+.chips-label { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.1px; }
+.chips-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.size-chip {
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--line2);
+  background: var(--card);
+  font-size: 13px; font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--f);
+  transition: all 0.12s;
+  box-shadow: var(--shadow);
+}
+.size-chip:hover { border-color: var(--acc-line); }
+.size-chip.active {
+  background: var(--acc-soft);
+  border-color: var(--acc-line);
+  color: var(--acc);
+  box-shadow: none;
+}
+
+/* ── Frame toggle ── */
+.frame-wrap { margin-bottom: 22px; }
+.frame-label { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.1px; }
+.frame-seg {
+  display: flex; gap: 4px; padding: 4px;
+  background: rgba(20,18,15,0.05);
+  border-radius: 13px;
+}
+.frame-opt {
+  flex: 1; text-align: center;
+  padding: 11px 0;
+  border-radius: 10px;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all 0.15s;
+  border: none; font-family: var(--f);
+  background: transparent; color: var(--mute);
+}
+.frame-opt.active {
+  background: var(--card);
+  color: var(--acc);
+  box-shadow: 0 1px 3px rgba(20,18,15,0.12);
+}
+
+/* ── Price display ── */
+.price-display {
+  font-size: 38px; font-weight: 800;
+  color: var(--ink); letter-spacing: -1.5px;
+  text-align: center;
+  margin: 16px 0 22px;
+}
+
+/* ── Checkout overlay (full-screen sheet) ── */
+#checkoutOverlay {
+  position: fixed; inset: 0;
+  background: rgba(20,18,15,0.65);
+  z-index: 1000;
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.checkout-sheet {
+  background: var(--card);
+  border-radius: 24px 24px 0 0;
+  width: 100%; max-width: 480px;
+  max-height: 92vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.checkout-sheet-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0;
+  background: var(--card); z-index: 1;
+  border-radius: 24px 24px 0 0;
+}
+.checkout-sheet-title { font-size: 15px; font-weight: 700; color: var(--ink); }
+.checkout-close-btn {
+  background: none; border: none; cursor: pointer; padding: 2px;
+  color: var(--faint); display: flex; align-items: center;
+}
+#checkout { padding: 8px 8px 32px; min-height: 400px; }
+
+/* ── Order confirmation ── */
+.confirm-icon {
+  width: 68px; height: 68px; border-radius: 50%;
+  background: rgba(34,197,94,0.1);
+  border: 2px solid rgba(34,197,94,0.25);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
 }
 </style>
 </head>
@@ -715,74 +882,183 @@ html, body {
     </div>
   </div>
 
-  <!-- ════════════════ ACHIEVEMENT SCREEN ════════════════ -->
-  <div id="achievementSection" class="screen" style="display:none">
-    <div class="goal-set-bar">
-      <span class="goal-set-label">
-        <span class="goal-tick">
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg>
-        </span>
-        Goal set
-      </span>
-      <button class="nav-icon-btn" id="achieveDismissBtn" title="Start over">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6e6b64" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  <!-- ════════════════ SCREEN 3: THREE STEPS ════════════════ -->
+  <div id="stepsSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="stepsBackBtn" title="Back">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
+      <span class="nav-title">Your path forward</span>
+      <span style="width:26px"></span>
     </div>
 
-    <div class="hero-h1" style="font-size:29px;line-height:1.06;margin-bottom:7px">Your future self<br>is ready.</div>
-    <div class="hero-sub" style="margin-bottom:20px">You've set the vision. Here's how to make it real.</div>
+    <div class="hero-h1" style="font-size:25px;line-height:1.1;margin-bottom:8px">Here's How To Get Your Dream Body In Three Simple Steps.</div>
+    <div class="hero-sub" style="margin-bottom:26px">A clear plan makes all the difference.</div>
 
-    <div class="hero-img-card">
-      <img id="achieveImg" class="hero-img" alt="AI-generated future self" />
-    </div>
-
-    <a id="achieveDownloadBtn" download="my-future-self.png" class="save-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M8 11l4 4 4-4M12 15V3"/></svg>
-      Save image
-    </a>
-
-    <div class="section-hdr">How we'll get you there</div>
-
-    <div class="offer-card">
-      <div class="offer-top">
-        <div style="flex:1">
-          <div class="offer-title-row"><span class="offer-title">Future-Self Photo Pack</span></div>
-          <div class="offer-desc">Four polished, high-res angles of your transformation to keep you focused.</div>
-        </div>
-        <span class="offer-price">$9</span>
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Print Your Future Self</div>
+        <div class="step-desc">Print your future self image, and put it somewhere where you'll see it multiple times per day. Constantly visualizing your future self focuses you on your goal and provides powerful motivation.</div>
       </div>
-      <button class="offer-cta">Get the pack</button>
     </div>
 
-    <div class="offer-card hot">
-      <div class="offer-top">
-        <div style="flex:1">
-          <div class="offer-title-row">
-            <span class="offer-title">12-Week Program</span>
-            <span class="offer-badge">Popular</span>
-          </div>
-          <div class="offer-desc">The training and nutrition plan built to turn this vision into your reality.</div>
-        </div>
-        <span class="offer-price">$49</span>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Get Your AI Fitness Plan</div>
+        <div class="step-desc">Have our AI fitness coach create a customized workout, nutrition, and supplement plan for you.</div>
       </div>
-      <button class="offer-cta">Start the program</button>
     </div>
 
-    <div class="offer-card">
-      <div class="offer-top">
-        <div style="flex:1">
-          <div class="offer-title-row"><span class="offer-title">Supplement Stack</span></div>
-          <div class="offer-desc">A simple daily system to support your cut. Launching soon.</div>
-        </div>
-        <span class="offer-price soon-price">Soon</span>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Get Your Supplements</div>
+        <div class="step-desc">Get the supplements your AI coach recommends for you.</div>
       </div>
-      <button class="offer-cta muted-cta">Join the waitlist</button>
     </div>
 
-    <div class="footer">Powered by Claude + Gemini</div>
+    <div style="margin-top:28px">
+      <button id="letsStartBtn" class="cta-btn">Let's Get Started</button>
+    </div>
+  </div>
+
+  <!-- ════════════════ SCREEN 4: PRODUCT SELECTOR ════════════════ -->
+  <div id="productSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="productBackBtn" title="Back">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Choose your print</span>
+      <span style="width:26px"></span>
+    </div>
+
+    <div class="hero-h1" style="font-size:26px;line-height:1.1;margin-bottom:8px">Print Your Future Self</div>
+    <div class="hero-sub" style="margin-bottom:24px">Put it somewhere you'll see it every single day.</div>
+
+    <!-- Canvas Print -->
+    <div class="product-card" id="selectCanvas" data-product="canvas">
+      <div class="mini-canvas">
+        <img id="canvasMockupImg" alt="" />
+      </div>
+      <div class="product-card-info">
+        <div class="product-card-title-row">
+          <span class="product-card-title">Canvas Print</span>
+        </div>
+        <div class="product-card-desc">Gallery-quality canvas stretched over a sturdy frame. Built to last years.</div>
+        <div class="product-card-price">From $34</div>
+      </div>
+      <svg class="product-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+
+    <!-- Poster (Most Popular) -->
+    <div class="product-card featured" id="selectPoster" data-product="poster">
+      <div class="mini-poster">
+        <img id="posterMockupImg" alt="" />
+      </div>
+      <div class="product-card-info">
+        <div class="product-card-title-row">
+          <span class="product-card-title">Poster</span>
+          <span class="offer-badge">Most Popular</span>
+        </div>
+        <div class="product-card-desc">Crisp, vibrant print on premium poster paper. Ships fast.</div>
+        <div class="product-card-price">From $18</div>
+      </div>
+      <svg class="product-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+
+    <!-- Keychain -->
+    <div class="product-card" id="selectKeychain" data-product="keychain">
+      <div class="mini-keychain">
+        <img id="keychainMockupImg" alt="" />
+      </div>
+      <div class="product-card-info">
+        <div class="product-card-title-row">
+          <span class="product-card-title">Keychain</span>
+        </div>
+        <div class="product-card-desc">Your future self, always with you. Daily motivation on the go.</div>
+        <div class="product-card-price">From $9</div>
+      </div>
+      <svg class="product-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+  </div>
+
+  <!-- ════════════════ SCREEN 5: CUSTOMIZER ════════════════ -->
+  <div id="customizeSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="customizeBackBtn" title="Back">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title" id="customizeNavTitle">Customize</span>
+      <span style="width:26px"></span>
+    </div>
+
+    <!-- Product mockup (rendered by JS) -->
+    <div class="mockup-center" id="fullMockupWrap"></div>
+
+    <!-- Size / style picker (rendered by JS) -->
+    <div class="chips-wrap">
+      <div class="chips-label" id="chipsLabel">Size</div>
+      <div class="chips-row" id="sizeGrid"></div>
+    </div>
+
+    <!-- Frame toggle (canvas only, shown/hidden by JS) -->
+    <div class="frame-wrap" id="frameToggleWrap" style="display:none">
+      <div class="frame-label">Frame</div>
+      <div class="frame-seg">
+        <button class="frame-opt active" id="frameUnframed">Unframed</button>
+        <button class="frame-opt" id="frameFramed">Framed <span style="font-size:12px;font-weight:500">(+$33)</span></button>
+      </div>
+    </div>
+
+    <!-- Price -->
+    <div class="price-display">$<span id="customizePrice">--</span></div>
+
+    <!-- Checkout error -->
+    <div id="checkoutError" style="display:none" class="error-toast"></div>
+
+    <button id="checkoutBtn" class="cta-btn" disabled>Proceed to Checkout</button>
+    <div class="cta-note">Secure checkout · Stripe · Ships worldwide</div>
+  </div>
+
+  <!-- ════════════════ CONFIRMATION SCREEN ════════════════ -->
+  <div id="confirmationSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <span style="width:26px"></span>
+      <span class="nav-title">Order placed</span>
+      <span style="width:26px"></span>
+    </div>
+
+    <div style="text-align:center;padding:32px 0 12px">
+      <div class="confirm-icon">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="hero-h1" style="font-size:28px;margin-bottom:10px">You're all set!</div>
+      <div class="hero-sub" style="margin-bottom:0">Your order is confirmed. You'll receive a confirmation email, and we'll send tracking info once your print ships.</div>
+    </div>
+
+    <div style="margin-top:36px">
+      <button id="confirmStartOverBtn" class="cta-btn">Generate another look</button>
+    </div>
+
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini</div>
   </div>
 
 </div><!-- /.app -->
+
+<!-- ════════════════ STRIPE CHECKOUT OVERLAY ════════════════ -->
+<div id="checkoutOverlay" style="display:none">
+  <div class="checkout-sheet">
+    <div class="checkout-sheet-hdr">
+      <span class="checkout-sheet-title">Complete your order</span>
+      <button id="checkoutCloseBtn" class="checkout-close-btn" title="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="checkout"></div>
+  </div>
+</div>
 
 <script>
 // ============================================================
@@ -793,9 +1069,37 @@ const BACKEND_URL = window.location.hostname === 'localhost'
   ? 'http://localhost:3000'
   : 'https://abs-by-ai-production.up.railway.app';
 
+// Fetched from backend on load — set STRIPE_PUBLISHABLE_KEY in Railway env vars
+let STRIPE_PUBLISHABLE_KEY = '';
+
 // Body-fat anchors (midpoints) for display
 const BF_BEFORE = { heavier: { male: '28–32%', female: '36–40%' }, moderate: { male: '20–24%', female: '28–32%' }, fit: { male: '15–17%', female: '22–25%' }, very_lean: { male: '11–13%', female: '18–20%' } };
 const BF_AFTER  = { subtle: { male: '16%', female: '25%' }, moderate: { male: '13%', female: '23%' }, dramatic: { male: '10%', female: '20%' }, max: { male: '9%', female: '18%' } };
+
+// Upsell product pricing (prices in cents)
+// Canvas framed not available in 8×10 — UI enforces minimum 11×14 when Framed selected
+const UPSELL_PRICES = {
+  canvas: {
+    '8x10':  { base: 3400, label: '8×10"',  supportsFramed: false },
+    '11x14': { base: 4200, label: '11×14"', supportsFramed: true },
+    '16x20': { base: 5400, label: '16×20"', supportsFramed: true },
+    '18x24': { base: 6300, label: '18×24"', supportsFramed: true },
+    '24x36': { base: 7900, label: '24×36"', supportsFramed: true },
+    framedExtra: 3300,
+  },
+  poster: {
+    '9x11':  { base: 1800, label: '9×11"' },
+    '11x14': { base: 2700, label: '11×14"' },
+    '12x16': { base: 2400, label: '12×16"' },
+    '18x24': { base: 4400, label: '18×24"' },
+    '24x36': { base: 5200, label: '24×36"' },
+  },
+  keychain: {
+    'acrylic_small': { base: 900,  label: 'Acrylic Small (1.2"×2.4")' },
+    'acrylic_large': { base: 1200, label: 'Acrylic Large (1.6"×3.1")' },
+    'metal':         { base: 2500, label: 'Metal Rectangle' },
+  },
+};
 
 // ============================================================
 //  STATE
@@ -811,6 +1115,12 @@ const state = {
   effectiveIntensity: 'dramatic',
   description: '',
   lastAfterDataUrl: null,
+};
+
+const upsell = {
+  product: null,   // 'canvas' | 'poster' | 'keychain'
+  size: null,      // e.g. '8x10', 'acrylic_small'
+  framed: false,
 };
 
 // ============================================================
@@ -951,13 +1261,12 @@ Always honor the user's requested intensity at FULL strength regardless of start
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'achievementSection'].forEach(id => {
+  ['formSection', 'resultSection', 'stepsSection', 'productSection', 'customizeSection', 'confirmationSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Sync dots
-  const dotMap = { form: 0, result: 1, achievement: 2 };
+  const dotMap = { form: 0, result: 1 };
   document.querySelectorAll('.dot').forEach((d, i) => {
     d.className = 'dot ' + (i === dotMap[name] ? 'active' : 'inactive');
   });
@@ -1026,7 +1335,6 @@ function clearResultError() { $('resultErrorSection').style.display = 'none'; }
 
 function setGenerating(loading) {
   const btn = $('generateBtn');
-  const lbl = $('generateBtnLabel');
   if (loading) {
     btn.disabled = true;
     btn.innerHTML = '<div class="btn-spinner"></div><span>Generating…</span>';
@@ -1058,9 +1366,185 @@ function selectPick(gridId, value, stateKey) {
 }
 
 // ============================================================
+//  UPSELL: PRODUCT + CUSTOMIZE
+// ============================================================
+function showProductSection() {
+  const imgSrc = state.lastAfterDataUrl || '';
+  $('canvasMockupImg').src = imgSrc;
+  $('posterMockupImg').src = imgSrc;
+  $('keychainMockupImg').src = imgSrc;
+  showScreen('product');
+}
+
+function selectProduct(type) {
+  upsell.product = type;
+  upsell.size = null;
+  upsell.framed = false;
+
+  const titles = { canvas: 'Canvas Print', poster: 'Poster', keychain: 'Keychain' };
+  $('customizeNavTitle').textContent = titles[type];
+
+  // Render full mockup
+  const imgSrc = state.lastAfterDataUrl || '';
+  const wrap = $('fullMockupWrap');
+  if (type === 'canvas') {
+    wrap.innerHTML = `<div class="full-canvas"><img src="${imgSrc}" alt="Your future self" /></div>`;
+  } else if (type === 'poster') {
+    wrap.innerHTML = `<div class="full-poster"><img src="${imgSrc}" alt="Your future self" /></div>`;
+  } else {
+    wrap.innerHTML = `<div class="full-keychain-wrap"><div class="full-keychain-ring"></div><div class="full-keychain"><img src="${imgSrc}" alt="Your future self" /></div></div>`;
+  }
+
+  // Render size/style chips
+  $('chipsLabel').textContent = type === 'keychain' ? 'Style' : 'Size';
+  const sizeGrid = $('sizeGrid');
+  const entries = Object.entries(UPSELL_PRICES[type]).filter(([k]) => k !== 'framedExtra');
+  sizeGrid.innerHTML = entries.map(([key, val]) =>
+    `<button class="size-chip" data-size="${key}">${val.label}</button>`
+  ).join('');
+
+  sizeGrid.querySelectorAll('.size-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      sizeGrid.querySelectorAll('.size-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      upsell.size = chip.dataset.size;
+      updateCustomizePrice();
+      $('checkoutBtn').disabled = false;
+    });
+  });
+
+  // Auto-select first chip
+  const first = sizeGrid.querySelector('.size-chip');
+  if (first) first.click();
+
+  // Frame toggle (canvas only)
+  const frameWrap = $('frameToggleWrap');
+  if (type === 'canvas') {
+    frameWrap.style.display = '';
+    $('frameUnframed').classList.add('active');
+    $('frameFramed').classList.remove('active');
+    upsell.framed = false;
+  } else {
+    frameWrap.style.display = 'none';
+  }
+
+  $('checkoutError').style.display = 'none';
+  showScreen('customize');
+}
+
+function getUpsellPrice() {
+  if (!upsell.product || !upsell.size) return 0;
+  const prices = UPSELL_PRICES[upsell.product];
+  const base = prices[upsell.size]?.base || 0;
+  const extra = (upsell.product === 'canvas' && upsell.framed) ? (prices.framedExtra || 0) : 0;
+  return base + extra;
+}
+
+function updateCustomizePrice() {
+  const cents = getUpsellPrice();
+  $('customizePrice').textContent = cents > 0 ? Math.round(cents / 100) : '--';
+}
+
+// ============================================================
+//  UPSELL: STRIPE CHECKOUT
+// ============================================================
+async function handleCheckout() {
+  if (!STRIPE_PUBLISHABLE_KEY) {
+    $('checkoutError').textContent = 'Checkout is not yet configured — check back soon!';
+    $('checkoutError').style.display = '';
+    return;
+  }
+
+  const btn = $('checkoutBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="btn-spinner"></div><span>Setting up checkout…</span>';
+  $('checkoutError').style.display = 'none';
+
+  try {
+    // 1. Upload image to Printify
+    const imgBase64 = state.lastAfterDataUrl.split(',')[1];
+    const uploadRes = await fetch(`${BACKEND_URL}/api/printify/upload-image`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ imageBase64: imgBase64, fileName: 'future-self.png' }),
+    });
+    const uploadData = await uploadRes.json();
+    if (!uploadRes.ok) throw new Error(uploadData.error || 'Image upload failed');
+    const imageId = uploadData.imageId;
+
+    // 2. Create Stripe checkout session
+    const price = getUpsellPrice();
+    const productLabels = { canvas: 'Canvas Print', poster: 'Poster', keychain: 'Keychain' };
+    const returnUrl = window.location.origin + window.location.pathname + '?session_id={CHECKOUT_SESSION_ID}';
+
+    const sessionRes = await fetch(`${BACKEND_URL}/api/stripe/create-checkout`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        productType: upsell.product,
+        size: upsell.size,
+        framed: upsell.framed,
+        priceInCents: price,
+        imageId,
+        productLabel: productLabels[upsell.product],
+        returnUrl,
+      }),
+    });
+    const sessionData = await sessionRes.json();
+    if (!sessionRes.ok) throw new Error(sessionData.error || 'Checkout setup failed');
+
+    // 3. Mount Stripe Embedded Checkout
+    const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
+    const checkout = await stripeJs.initEmbeddedCheckout({ clientSecret: sessionData.clientSecret });
+
+    $('checkoutOverlay').style.display = 'flex';
+    $('checkout').innerHTML = '';
+    checkout.mount('#checkout');
+    window._stripeCheckout = checkout;
+
+  } catch (err) {
+    console.error('Checkout error:', err);
+    $('checkoutError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('checkoutError').style.display = '';
+    btn.disabled = false;
+    btn.textContent = 'Proceed to Checkout';
+  }
+}
+
+async function checkOrderSession() {
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get('session_id');
+  if (!sessionId) return;
+
+  // Clean the URL immediately
+  window.history.replaceState({}, '', window.location.pathname);
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(sessionId)}`);
+    const data = await res.json();
+    if (data.status === 'complete') {
+      showScreen('confirmation');
+    }
+  } catch (e) {
+    console.error('Session status check failed:', e);
+  }
+}
+
+// ============================================================
 //  EVENT WIRING
 // ============================================================
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
+  // Fetch public config (Stripe publishable key) from backend
+  try {
+    const cfg = await fetch(`${BACKEND_URL}/api/config`).then(r => r.json());
+    if (cfg.stripePublishableKey) STRIPE_PUBLISHABLE_KEY = cfg.stripePublishableKey;
+  } catch (e) {
+    console.warn('Could not fetch config:', e);
+  }
+
+  // Check if returning from Stripe checkout
+  checkOrderSession();
+
   updateBackendStatus();
 
   // Upload card click
@@ -1132,13 +1616,63 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Result screen
   $('resultBackBtn').addEventListener('click', () => showScreen('form'));
-  $('loveItBtn').addEventListener('click', showAchievement);
+  $('loveItBtn').addEventListener('click', () => showScreen('steps'));
   $('moreDramaticBtn').addEventListener('click', () => adjustIntensity(1));
   $('moreSubtleBtn').addEventListener('click', () => adjustIntensity(-1));
   $('tryAgainBtn').addEventListener('click', () => showScreen('form'));
 
-  // Achievement screen
-  $('achieveDismissBtn').addEventListener('click', () => showScreen('form'));
+  // Steps screen
+  $('stepsBackBtn').addEventListener('click', () => showScreen('result'));
+  $('letsStartBtn').addEventListener('click', showProductSection);
+
+  // Product screen
+  $('productBackBtn').addEventListener('click', () => showScreen('steps'));
+  ['selectCanvas', 'selectPoster', 'selectKeychain'].forEach(id => {
+    $(id).addEventListener('click', () => selectProduct($(id).dataset.product));
+  });
+
+  // Customize screen
+  $('customizeBackBtn').addEventListener('click', () => showScreen('product'));
+  $('frameUnframed').addEventListener('click', () => {
+    $('frameUnframed').classList.add('active');
+    $('frameFramed').classList.remove('active');
+    upsell.framed = false;
+    updateCustomizePrice();
+  });
+  $('frameFramed').addEventListener('click', () => {
+    // 8×10 not available framed — auto-upgrade to 11×14
+    if (upsell.size === '8x10') {
+      const grid = $('sizeGrid');
+      grid.querySelectorAll('.size-chip').forEach(c => {
+        c.classList.toggle('active', c.dataset.size === '11x14');
+      });
+      upsell.size = '11x14';
+    }
+    $('frameFramed').classList.add('active');
+    $('frameUnframed').classList.remove('active');
+    upsell.framed = true;
+    updateCustomizePrice();
+  });
+  $('checkoutBtn').addEventListener('click', handleCheckout);
+
+  // Checkout overlay
+  $('checkoutCloseBtn').addEventListener('click', () => {
+    $('checkoutOverlay').style.display = 'none';
+    if (window._stripeCheckout) {
+      window._stripeCheckout.destroy();
+      window._stripeCheckout = null;
+    }
+    $('checkout').innerHTML = '';
+    const btn = $('checkoutBtn');
+    btn.disabled = false;
+    btn.textContent = 'Proceed to Checkout';
+  });
+
+  // Confirmation screen
+  $('confirmStartOverBtn').addEventListener('click', () => {
+    state.lastAfterDataUrl = null;
+    showScreen('form');
+  });
 });
 
 // ============================================================
@@ -1266,12 +1800,6 @@ async function adjustIntensity(delta) {
     $('moreSubtleBtn').disabled = false;
     $('loveItBtn').disabled = false;
   }
-}
-
-function showAchievement() {
-  $('achieveImg').src = state.lastAfterDataUrl;
-  $('achieveDownloadBtn').href = state.lastAfterDataUrl;
-  showScreen('achievement');
 }
 
 // ============================================================
