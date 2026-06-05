@@ -132,7 +132,7 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
                 print_provider_id: variant.printProviderId,
                 variant_id: variant.variantId,
                 print_areas: {
-                  front: [{ src: '', position: 'front', scale: 1, angle: 0 }],
+                  front: [{ src: '', scale: 1, x: 0.5, y: 0.5, angle: 0 }],
                 },
                 quantity: 1,
               },
