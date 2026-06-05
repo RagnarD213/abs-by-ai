@@ -1471,6 +1471,7 @@ async function handleCheckout() {
     const uploadData = await uploadRes.json();
     if (!uploadRes.ok) throw new Error(uploadData.error || 'Image upload failed');
     const imageId = uploadData.imageId;
+    const imagePreviewUrl = uploadData.previewUrl || '';
 
     // 2. Create Stripe checkout session
     const price = getUpsellPrice();
@@ -1486,6 +1487,7 @@ async function handleCheckout() {
         framed: upsell.framed,
         priceInCents: price,
         imageId,
+        imagePreviewUrl,
         productLabel: productLabels[upsell.product],
         returnUrl,
       }),

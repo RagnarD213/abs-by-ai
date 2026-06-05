@@ -104,13 +104,16 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
 
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object;
-    const { imageId, productType, size, framed } = session.metadata || {};
+    const { imageId, imagePreviewUrl, productType, size, framed } = session.metadata || {};
     const email = session.customer_details?.email;
     const shipping = session.shipping_details?.address;
 
     console.log(`Order completed: ${productType} ${size}${framed === 'true' ? ' framed' : ''} for ${email}`);
 
-    if (PRINTIFY_API_KEY && PRINTIFY_SHOP_ID && imageId && productType && size) {
+    // Use previewUrl from upload response; fall back to reconstructed URL for old orders
+    const imageSrc = imagePreviewUrl || `https://images-api.printify.com/${imageId}`;
+
+    if (PRINTIFY_API_KEY && PRINTIFY_SHOP_ID && imageSrc && productType && size) {
       const framedBool = framed === 'true';
       const variantKey = productType === 'canvas'
         ? `${size}_${framedBool ? 'framed' : 'unframed'}`
@@ -150,8 +153,8 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
             },
           };
 
-          // Attach the uploaded Printify image ID to the print area
-          orderPayload.line_items[0].print_areas.front[0].src = `https://images.printify.com/${imageId}`;
+          orderPayload.line_items[0].print_areas.front[0].src = imageSrc;
+          console.log(`Printify order image src: ${imageSrc}`);
 
           const printifyRes = await fetch(
             `https://api.printify.com/v1/shops/${PRINTIFY_SHOP_ID}/orders.json`,
@@ -452,7 +455,7 @@ app.post('/api/printify/upload-image', checkoutLimiter, async (req, res) => {
       return res.status(response.status).json({ error: data?.message || 'Printify upload failed' });
     }
 
-    res.json({ imageId: data.id });
+    res.json({ imageId: data.id, previewUrl: data.preview_url });
   } catch (err) {
     console.error('Printify upload error:', err);
     res.status(500).json({ error: 'Internal server error' });
@@ -468,7 +471,7 @@ app.post('/api/stripe/create-checkout', checkoutLimiter, async (req, res) => {
   }
 
   try {
-    const { productType, size, framed, priceInCents, imageId, productLabel, returnUrl } = req.body;
+    const { productType, size, framed, priceInCents, imageId, imagePreviewUrl, productLabel, returnUrl } = req.body;
     if (!productType || !size || !priceInCents || !returnUrl) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
@@ -501,6 +504,7 @@ app.post('/api/stripe/create-checkout', checkoutLimiter, async (req, res) => {
       automatic_tax: { enabled: false },
       metadata: {
         imageId: imageId || '',
+        imagePreviewUrl: imagePreviewUrl || '',
         productType,
         size,
         framed: String(!!framed),
