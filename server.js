@@ -140,8 +140,8 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
             shipping_method: 1,
             send_shipping_notification: true,
             address_to: {
-              first_name: session.shipping_details?.name?.split(' ')[0] || '',
-              last_name: session.shipping_details?.name?.split(' ').slice(1).join(' ') || '',
+              first_name: (session.shipping_details?.name || session.customer_details?.name || '').split(' ')[0] || '',
+              last_name: (session.shipping_details?.name || session.customer_details?.name || '').split(' ').slice(1).join(' ') || '',
               email: email || '',
               phone: '',
               country: shipping?.country || 'US',
