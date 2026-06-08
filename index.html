@@ -48,10 +48,19 @@ html, body {
   justify-content: space-between;
   padding: 18px 0 22px;
 }
-.app-logo {
-  height: 28px;
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.app-icon {
+  height: 22px;
   width: auto;
-  display: block;
+}
+.app-name {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
 }
 .dots { display: flex; gap: 5px; align-items: center; }
 .dot { height: 6px; border-radius: 3px; transition: width 0.2s; }
@@ -677,7 +686,10 @@ html, body {
   <!-- ════════════════ FORM SCREEN ════════════════ -->
   <div id="formSection" class="screen">
     <div class="topbar">
-      <img src="img/logo.png" class="app-logo" alt="Abs by AI">
+      <div class="app-brand">
+        <img src="img/icon.png" class="app-icon" alt="">
+        <span class="app-name">Abs by AI</span>
+      </div>
       <div class="dots">
         <div class="dot active"></div>
         <div class="dot inactive"></div>
