@@ -103,12 +103,14 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
   }
 
   if (event.type === 'checkout.session.completed') {
-    const session = event.data.object;
+    // Retrieve the full session — webhook payload omits shipping_details for embedded checkout
+    const session = await stripeClient.checkout.sessions.retrieve(event.data.object.id);
     const { imageId, imagePreviewUrl, productType, size, framed } = session.metadata || {};
     const email = session.customer_details?.email;
     const shipping = session.shipping_details?.address;
 
     console.log(`Order completed: ${productType} ${size}${framed === 'true' ? ' framed' : ''} for ${email}`);
+    console.log(`Shipping details: ${JSON.stringify(session.shipping_details)}`);
 
     // Use previewUrl from upload response; fall back to reconstructed URL for old orders
     const imageSrc = imagePreviewUrl || `https://images-api.printify.com/${imageId}`;
