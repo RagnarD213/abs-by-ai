@@ -561,6 +561,26 @@ app.get('/analytics', (req, res) => {
   res.sendFile(path.join(__dirname, 'analytics.html'));
 });
 
+// PostHog HogQL query proxy — keeps personal API key server-side
+app.post('/api/posthog-query', async (req, res) => {
+  const { query } = req.body;
+  if (!query) return res.status(400).json({ error: 'Missing query' });
+  const POSTHOG_KEY = process.env.POSTHOG_PERSONAL_KEY;
+  if (!POSTHOG_KEY) return res.status(503).json({ error: 'POSTHOG_PERSONAL_KEY not set in Railway env vars' });
+  try {
+    const r = await fetch('https://us.posthog.com/api/projects/458833/query/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${POSTHOG_KEY}` },
+      body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
+    });
+    const data = await r.json();
+    if (!r.ok) return res.status(r.status).json(data);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // ============================================================
 // STATIC FILES & FALLBACK
 // ============================================================
