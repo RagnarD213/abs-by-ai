@@ -3,6 +3,10 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const fetch = require('node-fetch');
 
+
+// PostHog analytics
+const { PostHog } = require('posthog-node');
+const posthog = new PostHog('phc_s3ZXKWHRFQVqK6pYRBRBKtc2ex7LL78CFMHtCfENEQrU', { host: 'https://us.i.posthog.com' });
 const app = express();
 app.set('trust proxy', 1); // Required for Railway/proxied environments
 
@@ -110,6 +114,12 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
     const shipping = session.shipping_details?.address;
 
     console.log(`Order completed: ${productType} ${size}${framed === 'true' ? ' framed' : ''} for ${email}`);
+    // Track purchase
+    posthog.capture({
+      distinctId: email || session.id,
+      event: 'purchase_completed',
+      properties: { revenue: (session.amount_total || 0) / 100, product_type: productType, size }
+    });
     console.log(`Shipping details: ${JSON.stringify(session.shipping_details)}`);
 
     // Use previewUrl from upload response; fall back to reconstructed URL for old orders
@@ -418,6 +428,10 @@ app.post('/api/generate-image', async (req, res) => {
 
     const imageBase64 = (imgPart.inline_data || imgPart.inlineData).data;
 
+    // Track generation
+    const distinctId = req.body.distinctId || 'server-anonymous';
+    posthog.capture({ distinctId, event: 'generation_created', properties: { cost_usd: 0.06 } });
+
     res.json({ imageBase64 });
   } catch (err) {
     console.error('Image generation error:', err);
@@ -547,11 +561,6 @@ app.get('/api/stripe/session-status', async (req, res) => {
 // ============================================================
 const path = require('path');
 app.use(express.static(path.join(__dirname)));
-
-// Serve todo.html at /todo
-app.get('/todo', (req, res) => {
-  res.sendFile(path.join(__dirname, 'todo.html'));
-});
 
 // Serve index.html for all non-API routes (SPA fallback)
 app.get('*', (req, res) => {
