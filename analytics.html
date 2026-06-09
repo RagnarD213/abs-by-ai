@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abs By AI — Analytics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f6fa;
+      color: #1a1a2e;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .header-left h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .header-left .subtitle {
+      font-size: 12px;
+      color: #888;
+      margin-top: 2px;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .date-select {
+      padding: 6px 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 13px;
+      background: white;
+      cursor: pointer;
+      color: #333;
+    }
+    .refresh-btn {
+      padding: 6px 12px;
+      background: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .refresh-btn:hover { background: #5254cc; }
+    .last-updated { font-size: 11px; color: #aaa; }
+
+    /* Setup notice */
+    .setup-notice {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .setup-notice strong {
+      font-size: 13px;
+      color: #92400e;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .setup-notice p { font-size: 12px; color: #78350f; line-height: 1.6; }
+    .setup-notice code {
+      background: rgba(0,0,0,0.07);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: 'SF Mono', monospace;
+      font-size: 11px;
+    }
+
+    /* KPI grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .kpi-card {
+      background: white;
+      border-radius: 12px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      border: 1px solid #efefef;
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent, #6366f1);
+    }
+    .kpi-card:nth-child(1) { --accent: #6366f1; }
+    .kpi-card:nth-child(2) { --accent: #8b5cf6; }
+    .kpi-card:nth-child(3) { --accent: #06b6d4; }
+    .kpi-card:nth-child(4) { --accent: #10b981; }
+    .kpi-card:nth-child(5) { --accent: #f59e0b; }
+
+    .kpi-label {
+      font-size: 11px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a2e;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .kpi-value.loading { color: #ddd; font-size: 20px; }
+    .kpi-sub {
+      font-size: 11px;
+      color: #bbb;
+    }
+    .kpi-sub.profit {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .kpi-sub.profit.positive { color: #10b981; }
+    .kpi-sub.profit.negative { color: #ef4444; }
+
+    /* Charts */
+    .charts-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .chart-card {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      border: 1px solid #efefef;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .chart-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+    }
+    .chart-legend {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      color: #aaa;
+    }
+    .legend-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid #e0e0e0;
+      border-top-color: #6366f1;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>💪 Abs By AI</h1>
+      <div class="subtitle" id="subtitleRange">Last 30 days · PostHog</div>
+    </div>
+    <div class="header-right">
+      <select class="date-select" id="dateRange" onchange="loadData()">
+        <option value="7">Last 7 days</option>
+        <option value="30" selected>Last 30 days</option>
+        <option value="90">Last 90 days</option>
+      </select>
+      <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+      <span class="last-updated" id="lastUpdated"></span>
+    </div>
+  </div>
+
+  <div class="setup-notice" id="setupNotice">
+    <strong>📭 No data yet — here's how to instrument your app</strong>
+    <p>
+      PostHog is connected. Fire these events from your backend/frontend:<br>
+      • <code>$pageview</code> — autocaptured by PostHog JS snippet (visitors)<br>
+      • <code>generation_created</code> with property <code>cost_usd: 0.012</code> — on each AI generation<br>
+      • <code>generation_locked_in</code> — when user locks in a result<br>
+      • <code>purchase_completed</code> with property <code>revenue: 9.99</code> — on successful payment
+    </p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Total Visitors</div>
+      <div class="kpi-value loading" id="kpiVisitors">—</div>
+      <div class="kpi-sub">unique users</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Generations</div>
+      <div class="kpi-value loading" id="kpiGenerations">—</div>
+      <div class="kpi-sub">total created</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Locked In</div>
+      <div class="kpi-value loading" id="kpiLockedIn">—</div>
+      <div class="kpi-sub">generations</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Lock-In Rate</div>
+      <div class="kpi-value loading" id="kpiLockRate">—</div>
+      <div class="kpi-sub">locked ÷ total</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Revenue</div>
+      <div class="kpi-value loading" id="kpiRevenue">—</div>
+      <div class="kpi-sub profit" id="kpiProfit">gen cost: —</div>
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Daily Visitors & Generations</div>
+        <div class="chart-legend">
+          <span><span class="legend-dot" style="background:#6366f1"></span>Visitors</span>
+          <span><span class="legend-dot" style="background:#8b5cf6"></span>Generations</span>
+        </div>
+      </div>
+      <canvas id="mainChart" height="160"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Lock-In Rate %</div>
+      </div>
+      <canvas id="lockChart" height="160"></canvas>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Daily Revenue</div>
+      </div>
+      <canvas id="revenueChart" height="140"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Daily Gen Costs</div>
+      </div>
+      <canvas id="costChart" height="140"></canvas>
+    </div>
+  </div>
+
+  <script>
+    let charts = {};
+
+    function parseTable(text) {
+      if (!text) return [];
+      const lines = text.trim().split('\n').filter(l => l.includes('|'));
+      if (lines.length < 2) return [];
+      const headers = lines[0].split('|').map(h => h.trim());
+      return lines.slice(1).map(line => {
+        const vals = line.split('|');
+        const obj = {};
+        headers.forEach((h, i) => { obj[h] = (vals[i] || '').trim(); });
+        return obj;
+      });
+    }
+
+    async function sql(query) {
+      try {
+        const r = await window.cowork.callMcpTool(
+          'mcp__e6fedfc3-9449-4e9b-a3d8-aee5941cf8ab__execute-sql',
+          { query }
+        );
+        if (r.isError) return [];
+        const text = Array.isArray(r.content) ? r.content[0]?.text : r.content;
+        return parseTable(text || '');
+      } catch(e) {
+        return [];
+      }
+    }
+
+    function fmt(n) {
+      const v = parseFloat(n);
+      if (isNaN(v)) return '0';
+      if (v >= 1e6) return (v/1e6).toFixed(1) + 'M';
+      if (v >= 1e3) return (v/1e3).toFixed(1) + 'k';
+      return Math.round(v).toLocaleString();
+    }
+
+    function money(n) {
+      const v = parseFloat(n) || 0;
+      if (v >= 1000) return '$' + (v/1000).toFixed(1) + 'k';
+      return '$' + v.toFixed(2);
+    }
+
+    function makeChart(id, type, labels, datasets, options = {}) {
+      if (charts[id]) charts[id].destroy();
+      charts[id] = new Chart(document.getElementById(id), {
+        type,
+        data: { labels, datasets },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+          scales: {
+            x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#bbb' } },
+            y: { beginAtZero: true, grid: { color: '#f0f0f0' }, ticks: { font: { size: 10 }, color: '#bbb' } }
+          },
+          ...options
+        }
+      });
+    }
+
+    async function loadData() {
+      const days = parseInt(document.getElementById('dateRange').value);
+      const intv = `INTERVAL ${days} DAY`;
+      document.getElementById('lastUpdated').innerHTML = '<span class="spinner"></span>loading';
+      document.getElementById('subtitleRange').textContent = `Last ${days} days · PostHog`;
+
+      try {
+        const [
+          visitors, generations, lockedIn, revenue, costs,
+          dailyVisitors, dailyGenerations, dailyLockRate,
+          dailyRevenue, dailyCosts
+        ] = await Promise.all([
+          sql(`SELECT uniq(person_id) as val FROM events WHERE event = '$pageview' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT count() as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT count() as val FROM events WHERE event = 'generation_locked_in' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT sum(toFloat64OrZero(properties.revenue)) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT sum(toFloat64OrZero(properties.cost_usd)) as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT toDate(timestamp) as day, uniq(person_id) as val FROM events WHERE event = '$pageview' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, count() as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, countIf(event='generation_locked_in') as locked, countIf(event='generation_created') as total FROM events WHERE event IN ('generation_created','generation_locked_in') AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, sum(toFloat64OrZero(properties.revenue)) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, sum(toFloat64OrZero(properties.cost_usd)) as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+        ]);
+
+        const totalVisitors    = parseFloat(visitors[0]?.val) || 0;
+        const totalGenerations = parseFloat(generations[0]?.val) || 0;
+        const totalLockedIn    = parseFloat(lockedIn[0]?.val) || 0;
+        const totalRevenue     = parseFloat(revenue[0]?.val) || 0;
+        const totalCosts       = parseFloat(costs[0]?.val) || 0;
+        const lockRate = totalGenerations > 0 ? (totalLockedIn / totalGenerations * 100) : 0;
+        const profit = totalRevenue - totalCosts;
+
+        document.getElementById('kpiVisitors').textContent    = fmt(totalVisitors);
+        document.getElementById('kpiGenerations').textContent = fmt(totalGenerations);
+        document.getElementById('kpiLockedIn').textContent    = fmt(totalLockedIn);
+        document.getElementById('kpiLockRate').textContent    = lockRate.toFixed(1) + '%';
+        document.getElementById('kpiRevenue').textContent     = money(totalRevenue);
+
+        const profitEl = document.getElementById('kpiProfit');
+        profitEl.textContent = `cost ${money(totalCosts)} · profit ${money(profit)}`;
+        profitEl.className = 'kpi-sub profit ' + (profit >= 0 ? 'positive' : 'negative');
+
+        ['kpiVisitors','kpiGenerations','kpiLockedIn','kpiLockRate','kpiRevenue'].forEach(id => {
+          document.getElementById(id).classList.remove('loading');
+        });
+
+        const hasData = totalVisitors > 0 || totalGenerations > 0 || totalRevenue > 0;
+        document.getElementById('setupNotice').style.display = hasData ? 'none' : 'block';
+
+        // Main chart: visitors + generations overlay
+        const allDays = [...new Set([
+          ...dailyVisitors.map(r => r.day),
+          ...dailyGenerations.map(r => r.day)
+        ])].sort();
+        const vMap = Object.fromEntries(dailyVisitors.map(r => [r.day, parseInt(r.val)||0]));
+        const gMap = Object.fromEntries(dailyGenerations.map(r => [r.day, parseInt(r.val)||0]));
+        const shortLabels = allDays.map(d => d.slice(5));
+
+        makeChart('mainChart', 'bar', shortLabels, [
+          { label: 'Visitors', data: allDays.map(d => vMap[d]||0), backgroundColor: 'rgba(99,102,241,0.7)', borderRadius: 4, yAxisID: 'y' },
+          { label: 'Generations', data: allDays.map(d => gMap[d]||0), backgroundColor: 'rgba(139,92,246,0.7)', borderRadius: 4, yAxisID: 'y' }
+        ], { scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#bbb' } },
+          y: { beginAtZero: true, grid: { color: '#f0f0f0' }, ticks: { font: { size: 10 }, color: '#bbb' } }
+        }});
+
+        // Lock-in rate chart
+        const lrLabels = dailyLockRate.map(r => r.day?.slice(5));
+        const lrData = dailyLockRate.map(r => {
+          const locked = parseInt(r.locked)||0, total = parseInt(r.total)||0;
+          return total > 0 ? parseFloat((locked/total*100).toFixed(1)) : 0;
+        });
+        makeChart('lockChart', 'line', lrLabels, [{
+          label: 'Lock-In %', data: lrData,
+          borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.08)',
+          tension: 0.35, fill: true, pointRadius: 3, borderWidth: 2
+        }], { scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#bbb' } },
+          y: { beginAtZero: true, max: 100, grid: { color: '#f0f0f0' }, ticks: { font: { size: 10 }, color: '#bbb', callback: v => v + '%' } }
+        }});
+
+        // Revenue chart
+        const revLabels = dailyRevenue.map(r => r.day?.slice(5));
+        const revData = dailyRevenue.map(r => parseFloat(r.val)||0);
+        makeChart('revenueChart', 'bar', revLabels, [{
+          label: 'Revenue', data: revData,
+          backgroundColor: 'rgba(245,158,11,0.7)', borderRadius: 4
+        }], { scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#bbb' } },
+          y: { beginAtZero: true, grid: { color: '#f0f0f0' }, ticks: { font: { size: 10 }, color: '#bbb', callback: v => '$'+v } }
+        }});
+
+        // Costs chart
+        const costLabels = dailyCosts.map(r => r.day?.slice(5));
+        const costData = dailyCosts.map(r => parseFloat(r.val)||0);
+        makeChart('costChart', 'bar', costLabels, [{
+          label: 'Gen Cost', data: costData,
+          backgroundColor: 'rgba(239,68,68,0.6)', borderRadius: 4
+        }], { scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#bbb' } },
+          y: { beginAtZero: true, grid: { color: '#f0f0f0' }, ticks: { font: { size: 10 }, color: '#bbb', callback: v => '$'+v.toFixed(3) } }
+        }});
+
+        document.getElementById('lastUpdated').textContent = 'Updated ' + new Date().toLocaleTimeString();
+      } catch(e) {
+        document.getElementById('lastUpdated').textContent = 'Error: ' + e.message;
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
