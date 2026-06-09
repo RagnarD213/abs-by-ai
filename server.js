@@ -556,6 +556,11 @@ app.get('/api/stripe/session-status', async (req, res) => {
   }
 });
 
+// Analytics dashboard
+app.get('/analytics', (req, res) => {
+  res.sendFile(path.join(__dirname, 'analytics.html'));
+});
+
 // ============================================================
 // STATIC FILES & FALLBACK
 // ============================================================
