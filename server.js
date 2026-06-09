@@ -548,6 +548,11 @@ app.get('/api/stripe/session-status', async (req, res) => {
 const path = require('path');
 app.use(express.static(path.join(__dirname)));
 
+// Serve todo.html at /todo
+app.get('/todo', (req, res) => {
+  res.sendFile(path.join(__dirname, 'todo.html'));
+});
+
 // Serve index.html for all non-API routes (SPA fallback)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
