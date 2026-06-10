@@ -3,26 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Today's To-Do — Abs By AI</title>
+<title>Daniel's Daily To-Do — Abs By AI</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: #0f0f0f;
     color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
   }
   h1 {
-    text-align: center;
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 600;
     color: #fff;
     margin-bottom: 0.25rem;
-    letter-spacing: 0.02em;
   }
-  .date {
-    text-align: center;
+  .subtitle {
     font-size: 0.8rem;
     color: #666;
     margin-bottom: 2rem;
@@ -30,171 +27,140 @@
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 2rem;
   }
-  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-  .list-card {
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 12px;
-    padding: 1.25rem;
-  }
-  .list-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #2a2a2a;
-  }
-  .list-header span {
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+  .col-title {
     font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #888;
-    flex: 1;
-  }
-  .progress {
-    font-size: 0.7rem;
     color: #555;
+    margin-bottom: 1rem;
   }
-  .todo-item {
+  .task {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    padding: 9px 0;
-    border-bottom: 1px solid #222;
+    padding: 10px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: opacity 0.15s;
+    margin-bottom: 6px;
+    transition: background 0.15s;
     user-select: none;
   }
-  .todo-item:last-child { border-bottom: none; }
-  .todo-item.done { opacity: 0.35; }
-  .todo-item.done .item-text { text-decoration: line-through; }
-  .check {
+  .task:hover { background: #1a1a1a; }
+  .task.done { opacity: 0.35; }
+  .task.done .task-text { text-decoration: line-through; }
+  .badge {
     flex-shrink: 0;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .high { background: #7f1d1d; color: #fca5a5; }
+  .mid  { background: #78350f; color: #fcd34d; }
+  .low  { background: #1f2937; color: #9ca3af; }
+  .task-text { font-size: 0.88rem; line-height: 1.45; color: #d4d4d4; }
+  .check-box {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
     border: 1.5px solid #444;
+    border-radius: 4px;
+    margin-top: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.15s, border-color 0.15s;
-    margin-top: 1px;
   }
-  .todo-item.done .check {
-    background: #22c55e;
-    border-color: #22c55e;
-  }
-  .check svg { display: none; }
-  .todo-item.done .check svg { display: block; }
-  .num {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    font-weight: 500;
-    margin-top: 1px;
-  }
-  .p-high { background: rgba(239,68,68,0.15); color: #f87171; }
-  .p-mid  { background: rgba(234,179,8,0.15);  color: #facc15; }
-  .p-low  { background: rgba(255,255,255,0.06); color: #666; }
-  .item-text { font-size: 0.85rem; color: #d4d4d4; line-height: 1.4; }
-  .item-sub  { font-size: 0.75rem; color: #555; margin-top: 2px; }
+  .task.done .check-box { background: #2d5a27; border-color: #4ade80; }
+  .check-box svg { display: none; }
+  .task.done .check-box svg { display: block; }
 </style>
 </head>
 <body>
-<h1>Today's To-Do</h1>
-<p class="date" id="date-label"></p>
+<h1>Daniel's Daily To-Do</h1>
+<p class="subtitle" id="dateLabel"></p>
 
 <div class="grid">
-  <div class="list-card">
-    <div class="list-header">
-      <span>💼 Business</span>
-      <span class="progress" id="biz-prog">0 / 10</span>
-    </div>
-    <div id="biz"></div>
+  <div>
+    <div class="col-title">Business</div>
+    <div id="business"></div>
   </div>
-  <div class="list-card">
-    <div class="list-header">
-      <span>🏠 Personal</span>
-      <span class="progress" id="per-prog">0 / 9</span>
-    </div>
-    <div id="per"></div>
+  <div>
+    <div class="col-title">Personal</div>
+    <div id="personal"></div>
   </div>
 </div>
 
 <script>
-const CHECK_SVG = `<svg width="11" height="11" viewBox="0 0 11 11"><polyline points="1.5,5.5 4.5,8.5 9.5,2.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-
-const BIZ = [
-  { p:'high', text:'Post new job descriptions for videographer', sub:'Only 1 application — urgent pipeline issue' },
-  { p:'high', text:'Finish setting up Abs By AI analytics', sub:'Need data visibility before optimizing' },
-  { p:'high', text:'Create workout program', sub:'Core product — context Qs → workout → nutrition → supplements → sleep' },
-  { p:'mid',  text:'Add generation limiting feature to app', sub:'Required before monetization' },
-  { p:'mid',  text:'Add pay for generations to app', sub:'Direct revenue — depends on #4' },
-  { p:'mid',  text:'Outline videos for shoot', sub:'Needed before filming anything' },
-  { p:'mid',  text:'Practice filming channel intro video', sub:'Depends on outline' },
-  { p:'low',  text:'Make avatar image and channel banner', sub:'Quick brand win for YouTube' },
-  { p:'low',  text:'Make Android app' },
-  { p:'low',  text:'Make iOS app' },
+const business = [
+  { text: "Review job applications and schedule interviews", p: "high" },
+  { text: "Post new job descriptions for videographer", p: "high" },
+  { text: "Get analytics fully working with all costs reflected", p: "high" },
+  { text: "Add email capture to app", p: "high" },
+  { text: "Set up email autoresponder", p: "mid" },
+  { text: "Add shipping costs to app — pass through actual costs", p: "mid" },
+  { text: "Add generation limiting feature to app", p: "mid" },
+  { text: "Add pay for generations to app", p: "mid" },
+  { text: "Create workout program", p: "mid" },
+  { text: "Outline videos for shoot", p: "low" },
+  { text: "Practice filming channel intro video", p: "low" },
+  { text: "Make avatar image and channel banner", p: "low" },
+  { text: "Make Android app", p: "low" },
+  { text: "Make iOS app", p: "low" }
+];
+const personal = [
+  { text: "Respond to text messages", p: "high" },
+  { text: "Call fence company", p: "high" },
+  { text: "Call title company", p: "high" },
+  { text: "Try Abs By AI photo on match.com — confirm no ban on Seeking and CMB", p: "mid" },
+  { text: "Make eyebrow threading appointment", p: "mid" },
+  { text: "Make haircut appointment", p: "mid" },
+  { text: "Take out trash", p: "low" },
+  { text: "Do dishes", p: "low" },
+  { text: "Put away sheets", p: "low" },
+  { text: "Put away Amazon package", p: "low" }
 ];
 
-const PER = [
-  { p:'high', text:'Respond to text messages', sub:'Time-sensitive, relationship maintenance' },
-  { p:'high', text:'Call fence company', sub:'Fix artificial hedge — scheduling lead time' },
-  { p:'high', text:'Call title company', sub:'Get real estate agent — can affect deals' },
-  { p:'mid',  text:'Take out trash' },
-  { p:'mid',  text:'Do dishes' },
-  { p:'mid',  text:'Put away sheets' },
-  { p:'mid',  text:'Put away Amazon package' },
-  { p:'low',  text:'Make eyebrow threading appointment' },
-  { p:'low',  text:'Make haircut appointment' },
-];
+const stored = JSON.parse(localStorage.getItem('todo-2026-06-10') || '{}');
 
-function buildList(items, containerId, progId, storageKey) {
-  const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
-  const container = document.getElementById(containerId);
-  
+function renderList(items, containerId) {
+  const el = document.getElementById(containerId);
   items.forEach((item, i) => {
-    const el = document.createElement('div');
-    el.className = 'todo-item' + (saved[i] ? ' done' : '');
-    el.innerHTML = `
-      <div class="check">${CHECK_SVG}</div>
-      <div class="num p-${item.p}">${i + 1}</div>
-      <div>
-        <div class="item-text">${item.text}</div>
-        ${item.sub ? `<div class="item-sub">${item.sub}</div>` : ''}
+    const key = containerId + '-' + i;
+    const done = stored[key] || false;
+    const div = document.createElement('div');
+    div.className = 'task' + (done ? ' done' : '');
+    div.innerHTML = `
+      <div class="badge ${item.p}">${i+1}</div>
+      <div class="task-text">${item.text}</div>
+      <div class="check-box" style="margin-left:auto;">
+        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+          <path d="M1 4l3 3 5-6" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>`;
-    el.addEventListener('click', () => {
-      el.classList.toggle('done');
-      const state = [...container.querySelectorAll('.todo-item')].map(e => e.classList.contains('done'));
-      localStorage.setItem(storageKey, JSON.stringify(state));
-      updateProgress(container, progId, items.length);
+    div.addEventListener('click', () => {
+      div.classList.toggle('done');
+      stored[key] = div.classList.contains('done');
+      localStorage.setItem('todo-2026-06-10', JSON.stringify(stored));
     });
-    container.appendChild(el);
+    el.appendChild(div);
   });
-  updateProgress(container, progId, items.length);
 }
 
-function updateProgress(container, progId, total) {
-  const done = container.querySelectorAll('.done').length;
-  document.getElementById(progId).textContent = `${done} / ${total}`;
-}
-
-buildList(BIZ, 'biz', 'biz-prog', 'todo_biz');
-buildList(PER, 'per', 'per-prog', 'todo_per');
+renderList(business, 'business');
+renderList(personal, 'personal');
 
 const d = new Date();
-document.getElementById('date-label').textContent = d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+document.getElementById('dateLabel').textContent = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 </script>
 </body>
 </html>
