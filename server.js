@@ -191,9 +191,21 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
             });
           } else {
             console.log('Printify order created:', printifyData.id);
-            // Fire PostHog with actual Printify cost breakdown
-            const productCostUsd  = (printifyData.total_price    || 0) / 100;
-            const shippingCostUsd = (printifyData.total_shipping  || 0) / 100;
+            console.log('Printify order full response:', JSON.stringify(printifyData));
+
+            // Printify stores costs either at the top level or per line item.
+            // Try both locations; fall back to the configured retail price as a last resort.
+            const item = printifyData.line_items?.[0] || {};
+            const productCostRaw  = printifyData.total_price    || item.cost          || 0;
+            const shippingCostRaw = printifyData.total_shipping  || item.shipping_cost || 0;
+
+            // If Printify still returns 0 (order pending pricing), use the known
+            // variant retail price from config as a conservative fallback.
+            const fallbackProductCost = variant.price || 0; // already in cents
+            const productCostUsd  = productCostRaw  > 0 ? productCostRaw  / 100 : fallbackProductCost / 100;
+            const shippingCostUsd = shippingCostRaw / 100;
+
+            console.log(`Cost data — product: ${productCostUsd}, shipping: ${shippingCostUsd}`);
             posthog.capture({
               distinctId: email || session.id,
               event: 'purchase_completed',
