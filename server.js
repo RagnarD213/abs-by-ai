@@ -582,6 +582,38 @@ app.post('/api/posthog-query', async (req, res) => {
 });
 
 // ============================================================
+// ENDPOINT: Todo state (persist completed tasks server-side)
+// Stored in /tmp/todo-state.json — survives between requests,
+// resets on Railway redeploy (acceptable: morning script reads
+// it before today's push wipes it).
+// ============================================================
+const fs = require('fs');
+const TODO_STATE_FILE = '/tmp/todo-state.json';
+
+app.get('/api/todo-state', (req, res) => {
+  try {
+    if (fs.existsSync(TODO_STATE_FILE)) {
+      const data = JSON.parse(fs.readFileSync(TODO_STATE_FILE, 'utf8'));
+      res.json(data);
+    } else {
+      res.json({ completed: [], date: null });
+    }
+  } catch (e) {
+    res.json({ completed: [], date: null });
+  }
+});
+
+app.post('/api/todo-state', express.json({ limit: '64kb' }), (req, res) => {
+  try {
+    const { completed, date } = req.body;
+    fs.writeFileSync(TODO_STATE_FILE, JSON.stringify({ completed, date }));
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ============================================================
 // STATIC FILES & FALLBACK
 // ============================================================
 const path = require('path');

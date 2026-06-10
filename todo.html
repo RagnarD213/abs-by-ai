@@ -13,73 +13,21 @@
     min-height: 100vh;
     padding: 2rem 1.5rem;
   }
-  h1 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 0.25rem;
-  }
-  .subtitle {
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 2rem;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
+  h1 { font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 0.8rem; color: #666; margin-bottom: 2rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
   @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
-  .col-title {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #555;
-    margin-bottom: 1rem;
-  }
-  .task {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 6px;
-    transition: background 0.15s;
-    user-select: none;
-  }
+  .col-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 1rem; }
+  .task { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 8px; cursor: pointer; margin-bottom: 6px; transition: background 0.15s; user-select: none; }
   .task:hover { background: #1a1a1a; }
   .task.done { opacity: 0.35; }
   .task.done .task-text { text-decoration: line-through; }
-  .badge {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.65rem;
-    font-weight: 700;
-    margin-top: 1px;
-  }
+  .badge { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; margin-top: 1px; }
   .high { background: #7f1d1d; color: #fca5a5; }
   .mid  { background: #78350f; color: #fcd34d; }
   .low  { background: #1f2937; color: #9ca3af; }
   .task-text { font-size: 0.88rem; line-height: 1.45; color: #d4d4d4; }
-  .check-box {
-    flex-shrink: 0;
-    width: 16px;
-    height: 16px;
-    border: 1.5px solid #444;
-    border-radius: 4px;
-    margin-top: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.15s, border-color 0.15s;
-  }
+  .check-box { flex-shrink: 0; width: 16px; height: 16px; border: 1.5px solid #444; border-radius: 4px; margin-top: 3px; margin-left: auto; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
   .task.done .check-box { background: #2d5a27; border-color: #4ade80; }
   .check-box svg { display: none; }
   .task.done .check-box svg { display: block; }
@@ -88,19 +36,14 @@
 <body>
 <h1>Daniel's Daily To-Do</h1>
 <p class="subtitle" id="dateLabel"></p>
-
 <div class="grid">
-  <div>
-    <div class="col-title">Business</div>
-    <div id="business"></div>
-  </div>
-  <div>
-    <div class="col-title">Personal</div>
-    <div id="personal"></div>
-  </div>
+  <div><div class="col-title">Business</div><div id="business"></div></div>
+  <div><div class="col-title">Personal</div><div id="personal"></div></div>
 </div>
-
 <script>
+const TODAY = new Date().toISOString().slice(0,10);
+const STORE_KEY = 'todo-' + TODAY;
+
 const business = [
   { text: "Review job applications and schedule interviews", p: "high" },
   { text: "Post new job descriptions for videographer", p: "high" },
@@ -117,7 +60,12 @@ const business = [
   { text: "Make Android app", p: "low" },
   { text: "Make iOS app", p: "low" }
 ];
+
 const personal = [
+  { text: "Work out", p: "high" },
+  { text: "Supplements", p: "high" },
+  { text: "Shower", p: "high" },
+  { text: "Eat salad", p: "high" },
   { text: "Respond to text messages", p: "high" },
   { text: "Call fence company", p: "high" },
   { text: "Call title company", p: "high" },
@@ -127,22 +75,33 @@ const personal = [
   { text: "Take out trash", p: "low" },
   { text: "Do dishes", p: "low" },
   { text: "Put away sheets", p: "low" },
-  { text: "Put away Amazon package", p: "low" }
+  { text: "Put away Amazon package", p: "low" },
+  { text: "Review dating apps", p: "low" }
 ];
 
-const stored = JSON.parse(localStorage.getItem('todo-2026-06-10') || '{}');
+// Load from localStorage
+const stored = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+
+function syncToServer() {
+  const completed = Object.keys(stored).filter(k => stored[k]);
+  fetch('/api/todo-state', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ completed, date: TODAY })
+  }).catch(() => {});
+}
 
 function renderList(items, containerId) {
   const el = document.getElementById(containerId);
   items.forEach((item, i) => {
-    const key = containerId + '-' + i;
+    const key = containerId + ':' + item.text;
     const done = stored[key] || false;
     const div = document.createElement('div');
     div.className = 'task' + (done ? ' done' : '');
     div.innerHTML = `
       <div class="badge ${item.p}">${i+1}</div>
       <div class="task-text">${item.text}</div>
-      <div class="check-box" style="margin-left:auto;">
+      <div class="check-box">
         <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
           <path d="M1 4l3 3 5-6" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -150,7 +109,8 @@ function renderList(items, containerId) {
     div.addEventListener('click', () => {
       div.classList.toggle('done');
       stored[key] = div.classList.contains('done');
-      localStorage.setItem('todo-2026-06-10', JSON.stringify(stored));
+      localStorage.setItem(STORE_KEY, JSON.stringify(stored));
+      syncToServer();
     });
     el.appendChild(div);
   });
@@ -158,6 +118,9 @@ function renderList(items, containerId) {
 
 renderList(business, 'business');
 renderList(personal, 'personal');
+
+// Sync on load in case server lost state
+syncToServer();
 
 const d = new Date();
 document.getElementById('dateLabel').textContent = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
