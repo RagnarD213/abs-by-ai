@@ -1785,6 +1785,7 @@ async function generate() {
     $('afterImg').src = afterDataUrl;
     $('resultDownloadBtn').href = afterDataUrl;
     updateBodyFatDisplay();
+    updateIntensityButtons();
     clearStatus();
     showScreen('result');
   } catch (err) {
@@ -1796,10 +1797,18 @@ async function generate() {
   }
 }
 
+function updateIntensityButtons() {
+  const idx = INTENSITY_LADDER.indexOf(state.effectiveIntensity);
+  $('moreDramaticBtn').disabled = idx >= INTENSITY_LADDER.length - 1;
+  $('moreSubtleBtn').disabled = idx <= 0;
+}
+
 async function adjustIntensity(delta) {
   const currentIdx = INTENSITY_LADDER.indexOf(state.effectiveIntensity);
   const newIdx = Math.max(0, Math.min(INTENSITY_LADDER.length - 1, currentIdx + delta));
   if (newIdx === currentIdx) return;
+
+  const prevIntensity = state.effectiveIntensity;
   state.effectiveIntensity = INTENSITY_LADDER[newIdx];
 
   clearResultError();
@@ -1821,12 +1830,12 @@ async function adjustIntensity(delta) {
     clearResultStatus();
   } catch (err) {
     clearResultStatus();
+    state.effectiveIntensity = prevIntensity; // revert state on failure
     showResultError(err.message || 'Something went wrong. Please try again.');
     console.error(err);
   } finally {
-    $('moreDramaticBtn').disabled = false;
-    $('moreSubtleBtn').disabled = false;
     $('loveItBtn').disabled = false;
+    updateIntensityButtons();
   }
 }
 
