@@ -114,13 +114,9 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
     const shipping = session.shipping_details?.address;
 
     console.log(`Order completed: ${productType} ${size}${framed === 'true' ? ' framed' : ''} for ${email}`);
-    // Track purchase
-    posthog.capture({
-      distinctId: email || session.id,
-      event: 'purchase_completed',
-      properties: { revenue: (session.amount_total || 0) / 100, product_type: productType, size }
-    });
     console.log(`Shipping details: ${JSON.stringify(session.shipping_details)}`);
+
+    const revenueUsd = (session.amount_total || 0) / 100;
 
     // Use previewUrl from upload response; fall back to reconstructed URL for old orders
     const imageSrc = imagePreviewUrl || `https://images-api.printify.com/${imageId}`;
@@ -134,6 +130,11 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
 
       if (!variant || !variant.variantId) {
         console.warn(`Printify variant not configured for ${productType}/${variantKey} — order NOT submitted to Printify`);
+        posthog.capture({
+          distinctId: email || session.id,
+          event: 'purchase_completed',
+          properties: { revenue: revenueUsd, product_type: productType, size },
+        });
       } else {
         try {
           const orderPayload = {
@@ -182,8 +183,28 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
           const printifyData = await printifyRes.json();
           if (!printifyRes.ok) {
             console.error('Printify order creation failed:', JSON.stringify(printifyData));
+            // Fire PostHog without cost breakdown — order failed
+            posthog.capture({
+              distinctId: email || session.id,
+              event: 'purchase_completed',
+              properties: { revenue: revenueUsd, product_type: productType, size },
+            });
           } else {
             console.log('Printify order created:', printifyData.id);
+            // Fire PostHog with actual Printify cost breakdown
+            const productCostUsd  = (printifyData.total_price    || 0) / 100;
+            const shippingCostUsd = (printifyData.total_shipping  || 0) / 100;
+            posthog.capture({
+              distinctId: email || session.id,
+              event: 'purchase_completed',
+              properties: {
+                revenue:       revenueUsd,
+                product_cost:  productCostUsd,
+                shipping_cost: shippingCostUsd,
+                product_type:  productType,
+                size,
+              },
+            });
           }
         } catch (err) {
           console.error('Printify order creation error:', err);
@@ -191,6 +212,11 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
       }
     } else if (!PRINTIFY_API_KEY || !PRINTIFY_SHOP_ID) {
       console.warn('Printify not configured — order recorded but not sent to Printify');
+      posthog.capture({
+        distinctId: email || session.id,
+        event: 'purchase_completed',
+        properties: { revenue: revenueUsd, product_type: productType, size },
+      });
     }
   }
 
