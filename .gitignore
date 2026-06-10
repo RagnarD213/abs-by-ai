@@ -24,3 +24,11 @@ Thumbs.db
 logs/
 *.log
 npm-debug.log*
+
+# Android build artifacts & signing secrets (back up the keystore separately!)
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/keystore/
+android/keystore.properties

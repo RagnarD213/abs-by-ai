@@ -650,6 +650,17 @@ app.get("/todo", (req, res) => {
   res.sendFile(path.join(__dirname, "todo.html"));
 });
 
+app.get('/privacy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'privacy.html'));
+});
+
+// Digital Asset Links — proves ownership of absbyai.com to the Android
+// app (TWA). Served explicitly because express.static can skip dotfolders.
+app.get('/.well-known/assetlinks.json', (req, res) => {
+  res.type('application/json');
+  res.sendFile(path.join(__dirname, '.well-known', 'assetlinks.json'));
+});
+
 // Serve index.html for all non-API routes (SPA fallback)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));

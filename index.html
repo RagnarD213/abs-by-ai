@@ -4,6 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>Abs by AI</title>
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#f6f5f2" />
+<link rel="icon" type="image/png" href="/img/icon-192.png" />
+<link rel="apple-touch-icon" href="/img/icon-192.png" />
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1058,7 +1067,7 @@ html, body {
       <button id="confirmStartOverBtn" class="cta-btn">Generate another look</button>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini</div>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/privacy" style="color:inherit">Privacy</a></div>
   </div>
 
 </div><!-- /.app -->
