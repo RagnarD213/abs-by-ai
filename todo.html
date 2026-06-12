@@ -45,20 +45,13 @@ const TODAY = new Date().toISOString().slice(0,10);
 const STORE_KEY = 'todo-' + TODAY;
 
 const business = [
-  { text: "Review job applications and schedule interviews", p: "high" },
-  { text: "Post new job descriptions for videographer", p: "high" },
   { text: "Get analytics fully working with all costs reflected", p: "high" },
-  { text: "Add email capture to app", p: "high" },
+  { text: "Add generation limiting feature to app", p: "high" },
+  { text: "Add pay for generations to app", p: "high" },
+  { text: "Add email capture to app", p: "mid" },
   { text: "Set up email autoresponder", p: "mid" },
-  { text: "Add shipping costs to app — pass through actual costs", p: "mid" },
-  { text: "Add generation limiting feature to app", p: "mid" },
-  { text: "Add pay for generations to app", p: "mid" },
-  { text: "Create workout program", p: "mid" },
-  { text: "Outline videos for shoot", p: "low" },
-  { text: "Practice filming channel intro video", p: "low" },
-  { text: "Make avatar image and channel banner", p: "low" },
-  { text: "Make Android app", p: "low" },
-  { text: "Make iOS app", p: "low" }
+  { text: "Add shipping costs to app", p: "mid" },
+  { text: "Create workout program", p: "low" },
 ];
 
 const personal = [
@@ -66,64 +59,91 @@ const personal = [
   { text: "Supplements", p: "high" },
   { text: "Shower", p: "high" },
   { text: "Eat salad", p: "high" },
-  { text: "Respond to text messages", p: "high" },
-  { text: "Call fence company", p: "high" },
-  { text: "Call title company", p: "high" },
-  { text: "Try Abs By AI photo on match.com — confirm no ban on Seeking and CMB", p: "mid" },
-  { text: "Make eyebrow threading appointment", p: "mid" },
-  { text: "Make haircut appointment", p: "mid" },
+  { text: "Call fence company", p: "mid" },
+  { text: "Call title company", p: "mid" },
+  { text: "Try Abs By AI photo on match.com", p: "mid" },
+  { text: "Make eyebrow threading appointment", p: "low" },
+  { text: "Make haircut appointment", p: "low" },
   { text: "Take out trash", p: "low" },
   { text: "Do dishes", p: "low" },
   { text: "Put away sheets", p: "low" },
   { text: "Put away Amazon package", p: "low" },
-  { text: "Review dating apps", p: "low" }
+  { text: "Review dating apps", p: "low" },
 ];
 
-// Load from localStorage
-const stored = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+let completed = new Set();
 
-function syncToServer() {
-  const completed = Object.keys(stored).filter(k => stored[k]);
-  fetch('/api/todo-state', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ completed, date: TODAY })
-  }).catch(() => {});
+function getKey(container, text) {
+  return container + ':' + text;
 }
 
-function renderList(items, containerId) {
+function saveToLocalStorage() {
+  localStorage.setItem(STORE_KEY, JSON.stringify([...completed]));
+}
+
+async function syncToServer() {
+  try {
+    const res = await fetch('/api/todo-state');
+    const data = await res.json();
+    if (data.date === TODAY && Array.isArray(data.completed)) {
+      completed = new Set(data.completed);
+      saveToLocalStorage();
+      render();
+    } else {
+      const stored = localStorage.getItem(STORE_KEY);
+      if (stored) { completed = new Set(JSON.parse(stored)); }
+      render();
+    }
+  } catch (e) {
+    const stored = localStorage.getItem(STORE_KEY);
+    if (stored) { completed = new Set(JSON.parse(stored)); }
+    render();
+  }
+}
+
+async function postToServer() {
+  try {
+    await fetch('/api/todo-state', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ completed: [...completed], date: TODAY })
+    });
+  } catch (e) {}
+}
+
+function checkSVG() {
+  return '<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+}
+
+function renderList(items, containerId, container) {
   const el = document.getElementById(containerId);
+  el.innerHTML = '';
   items.forEach((item, i) => {
-    const key = containerId + ':' + item.text;
-    const done = stored[key] || false;
+    const key = getKey(container, item.text);
+    const done = completed.has(key);
     const div = document.createElement('div');
     div.className = 'task' + (done ? ' done' : '');
-    div.innerHTML = `
-      <div class="badge ${item.p}">${i+1}</div>
-      <div class="task-text">${item.text}</div>
-      <div class="check-box">
-        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-          <path d="M1 4l3 3 5-6" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>`;
+    div.innerHTML =
+      '<div class="badge ' + item.p + '">' + (i + 1) + '</div>' +
+      '<span class="task-text">' + item.text + '</span>' +
+      '<div class="check-box">' + checkSVG() + '</div>';
     div.addEventListener('click', () => {
-      div.classList.toggle('done');
-      stored[key] = div.classList.contains('done');
-      localStorage.setItem(STORE_KEY, JSON.stringify(stored));
-      syncToServer();
+      if (completed.has(key)) { completed.delete(key); } else { completed.add(key); }
+      saveToLocalStorage();
+      postToServer();
+      render();
     });
     el.appendChild(div);
   });
 }
 
-renderList(business, 'business');
-renderList(personal, 'personal');
+function render() {
+  renderList(business, 'business', 'business');
+  renderList(personal, 'personal', 'personal');
+}
 
-// Sync on load in case server lost state
+document.getElementById('dateLabel').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 syncToServer();
-
-const d = new Date();
-document.getElementById('dateLabel').textContent = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 </script>
 </body>
 </html>
