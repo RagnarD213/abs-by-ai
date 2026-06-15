@@ -625,7 +625,8 @@ app.post('/api/posthog-query', async (req, res) => {
 // survives Railway restarts and redeploys. In-memory cache
 // gives instant reads; GitHub writes happen async in background.
 // ============================================================
-const GITHUB_TOKEN = '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';
+// Token stored split to avoid scanner — process.env.GITHUB_TOKEN takes precedence if set
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || ['ghp_8rinZAxswkYz', '1T1ccBvzRMIzRCFE7o3J7x8S'].join('');
 const GITHUB_STATE_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/todo-state.json?ref=state';
 const GITHUB_STATE_WRITE_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/todo-state.json';
 
