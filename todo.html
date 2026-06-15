@@ -3,245 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily To-Do — Abs By AI</title>
+<title>Daniel's Daily To-Do — Abs By AI</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: #0f0f0f;
-    color: #e0e0e0;
+    color: #e8e8e8;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
-    padding: 24px 16px;
+    padding: 2rem 1.5rem;
   }
-  h1 {
-    text-align: center;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 6px;
-    letter-spacing: -0.5px;
-  }
-  .date {
-    text-align: center;
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 28px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  @media (max-width: 640px) {
-    .grid { grid-template-columns: 1fr; }
-  }
-  .column h2 {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #888;
-    margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #222;
-  }
-  .task {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    margin-bottom: 6px;
-    cursor: pointer;
-    transition: background 0.15s;
-    user-select: none;
-    background: #161616;
-    border: 1px solid #222;
-  }
-  .task:hover { background: #1e1e1e; }
-  .task.done {
-    opacity: 0.4;
-  }
-  .task.done .task-text {
-    text-decoration: line-through;
-    color: #666;
-  }
-  .badge {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    font-size: 0.65rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1px;
-  }
-  .badge.high { background: #7f1d1d; color: #fca5a5; }
-  .badge.mid  { background: #713f12; color: #fde68a; }
-  .badge.low  { background: #1f2937; color: #9ca3af; }
-  .task-text {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: #d0d0d0;
-    flex: 1;
-  }
-  .checkbox {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    border: 2px solid #444;
-    margin-top: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s;
-  }
-  .task.done .checkbox {
-    background: #22c55e;
-    border-color: #22c55e;
-  }
-  .task.done .checkbox::after {
-    content: '✓';
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-  }
-  .sync-status {
-    text-align: center;
-    font-size: 0.75rem;
-    color: #444;
-    margin-top: 28px;
-  }
+  h1 { font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 0.8rem; color: #666; margin-bottom: 2rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+  .col-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 1rem; }
+  .task { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 8px; cursor: pointer; margin-bottom: 6px; transition: background 0.15s; user-select: none; }
+  .task:hover { background: #1a1a1a; }
+  .task.done { opacity: 0.35; }
+  .task.done .task-text { text-decoration: line-through; }
+  .badge { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; margin-top: 1px; }
+  .high { background: #7f1d1d; color: #fca5a5; }
+  .mid  { background: #78350f; color: #fcd34d; }
+  .low  { background: #1f2937; color: #9ca3af; }
+  .task-text { font-size: 0.88rem; line-height: 1.45; color: #d4d4d4; }
+  .check-box { flex-shrink: 0; width: 16px; height: 16px; border: 1.5px solid #444; border-radius: 4px; margin-top: 3px; margin-left: auto; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
+  .task.done .check-box { background: #2d5a27; border-color: #4ade80; }
+  .check-box svg { display: none; }
+  .task.done .check-box svg { display: block; }
 </style>
 </head>
 <body>
-
-<h1>Daily To-Do</h1>
-<div class="date" id="date-display"></div>
-
+<h1>Daniel's Daily To-Do</h1>
+<p class="subtitle" id="dateLabel"></p>
 <div class="grid">
-  <div class="column">
-    <h2>💼 Business</h2>
-    <div id="business-list"></div>
-  </div>
-  <div class="column">
-    <h2>🏠 Personal</h2>
-    <div id="personal-list"></div>
-  </div>
+  <div><div class="col-title">Business</div><div id="business"></div></div>
+  <div><div class="col-title">Personal</div><div id="personal"></div></div>
 </div>
-
-<div class="sync-status" id="sync-status">Syncing…</div>
-
 <script>
 const TODAY = new Date().toISOString().slice(0,10);
-document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+const STORE_KEY = 'todo-' + TODAY;
 
-const businessTasks = [
-  { text: "Get analytics fully working with all costs reflected", priority: "high" },
-  { text: "Add generation limiting feature to app", priority: "high" },
-  { text: "Add pay for generations to app", priority: "high" },
-  { text: "Add email capture to app", priority: "mid" },
-  { text: "Set up email autoresponder", priority: "mid" },
-  { text: "Add shipping costs to app", priority: "mid" },
-  { text: "Create workout program", priority: "low" },
+const business = [
+  { text: "Review job applications and schedule interviews", p: "high" },
+  { text: "Post new job descriptions for videographer", p: "high" },
+  { text: "Get analytics fully working with all costs reflected", p: "high" },
+  { text: "Add email capture to app", p: "high" },
+  { text: "Set up email autoresponder", p: "mid" },
+  { text: "Add shipping costs to app — pass through actual costs", p: "mid" },
+  { text: "Add generation limiting feature to app", p: "mid" },
+  { text: "Add pay for generations to app", p: "mid" },
+  { text: "Create workout program", p: "mid" },
+  { text: "Outline videos for shoot", p: "low" },
+  { text: "Practice filming channel intro video", p: "low" },
+  { text: "Make avatar image and channel banner", p: "low" },
+  { text: "Make Android app", p: "low" },
+  { text: "Make iOS app", p: "low" }
 ];
 
-const personalTasks = [
-  { text: "Work out", priority: "high" },
-  { text: "Supplements", priority: "high" },
-  { text: "Shower", priority: "high" },
-  { text: "Eat salad", priority: "high" },
-  { text: "Call fence company", priority: "high" },
-  { text: "Call title company", priority: "high" },
-  { text: "Try Abs By AI photo on match.com", priority: "mid" },
-  { text: "Make eyebrow threading appointment", priority: "mid" },
-  { text: "Make haircut appointment", priority: "mid" },
-  { text: "Take out trash", priority: "low" },
-  { text: "Do dishes", priority: "low" },
-  { text: "Put away sheets", priority: "low" },
-  { text: "Put away Amazon package", priority: "low" },
-  { text: "Review dating apps", priority: "low" },
+const personal = [
+  { text: "Work out", p: "high" },
+  { text: "Supplements", p: "high" },
+  { text: "Shower", p: "high" },
+  { text: "Eat salad", p: "high" },
+  { text: "Respond to text messages", p: "high" },
+  { text: "Call fence company", p: "high" },
+  { text: "Call title company", p: "high" },
+  { text: "Try Abs By AI photo on match.com — confirm no ban on Seeking and CMB", p: "mid" },
+  { text: "Make eyebrow threading appointment", p: "mid" },
+  { text: "Make haircut appointment", p: "mid" },
+  { text: "Drop off Melanie's watch", p: "mid" },
+  { text: "Cook chicken", p: "mid" },
+  { text: "Cook brussels sprouts", p: "mid" },
+  { text: "Cook rice", p: "mid" },
+  { text: "Take out trash", p: "low" },
+  { text: "Do dishes", p: "low" },
+  { text: "Put away sheets", p: "low" },
+  { text: "Put away Amazon package", p: "low" },
+  { text: "Review dating apps", p: "low" }
 ];
 
-// State: map of key -> bool
-let completed = {};
+// Load from localStorage
+const stored = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
 
-function key(containerId, text) {
-  return containerId + ':' + text;
+function syncToServer() {
+  const completed = Object.keys(stored).filter(k => stored[k]);
+  fetch('/api/todo-state', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ completed, date: TODAY })
+  }).catch(() => {});
 }
 
-function badgeClass(priority) {
-  return priority === 'high' ? 'high' : priority === 'mid' ? 'mid' : 'low';
-}
-
-function render(containerId, tasks) {
-  const el = document.getElementById(containerId + '-list');
-  el.innerHTML = '';
-  tasks.forEach((task, i) => {
-    const k = key(containerId, task.text);
-    const done = !!completed[k];
+function renderList(items, containerId) {
+  const el = document.getElementById(containerId);
+  items.forEach((item, i) => {
+    const key = containerId + ':' + item.text;
+    const done = stored[key] || false;
     const div = document.createElement('div');
     div.className = 'task' + (done ? ' done' : '');
     div.innerHTML = `
-      <div class="badge ${badgeClass(task.priority)}">${i+1}</div>
-      <div class="task-text">${task.text}</div>
-      <div class="checkbox"></div>
-    `;
-    div.addEventListener('click', () => toggle(k, containerId, tasks));
+      <div class="badge ${item.p}">${i+1}</div>
+      <div class="task-text">${item.text}</div>
+      <div class="check-box">
+        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+          <path d="M1 4l3 3 5-6" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>`;
+    div.addEventListener('click', () => {
+      div.classList.toggle('done');
+      stored[key] = div.classList.contains('done');
+      localStorage.setItem(STORE_KEY, JSON.stringify(stored));
+      syncToServer();
+    });
     el.appendChild(div);
   });
 }
 
-function toggle(k, containerId, tasks) {
-  completed[k] = !completed[k];
-  render(containerId, tasks);
-  syncToServer();
-}
+renderList(business, 'business');
+renderList(personal, 'personal');
 
-function syncToServer() {
-  const keys = Object.keys(completed).filter(k => completed[k]);
-  fetch('/api/todo-state', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ completed: keys, date: TODAY })
-  }).then(r => r.ok
-    ? (document.getElementById('sync-status').textContent = 'Synced ✓')
-    : (document.getElementById('sync-status').textContent = 'Sync failed')
-  ).catch(() => {
-    document.getElementById('sync-status').textContent = 'Offline — changes saved locally';
-  });
-  // also persist locally
-  localStorage.setItem('todo-completed-' + TODAY, JSON.stringify(keys));
-}
+// Sync on load in case server lost state
+syncToServer();
 
-function init() {
-  // load from server first, fall back to localStorage
-  fetch('/api/todo-state').then(r => r.json()).then(data => {
-    if (data.date === TODAY && Array.isArray(data.completed)) {
-      data.completed.forEach(k => completed[k] = true);
-    } else {
-      // try localStorage
-      const local = localStorage.getItem('todo-completed-' + TODAY);
-      if (local) JSON.parse(local).forEach(k => completed[k] = true);
-    }
-    render('business', businessTasks);
-    render('personal', personalTasks);
-    document.getElementById('sync-status').textContent = 'Synced ✓';
-  }).catch(() => {
-    const local = localStorage.getItem('todo-completed-' + TODAY);
-    if (local) JSON.parse(local).forEach(k => completed[k] = true);
-    render('business', businessTasks);
-    render('personal', personalTasks);
-    document.getElementById('sync-status').textContent = 'Offline mode';
-  });
-}
-
-init();
+const d = new Date();
+document.getElementById('dateLabel').textContent = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 </script>
 </body>
 </html>
