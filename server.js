@@ -621,34 +621,65 @@ app.post('/api/posthog-query', async (req, res) => {
 
 // ============================================================
 // ENDPOINT: Todo state (persist completed tasks server-side)
-// Stored in /tmp/todo-state.json — survives between requests,
-// resets on Railway redeploy (acceptable: morning script reads
-// it before today's push wipes it).
+// Backed by GitHub "state" branch (todo-state.json) so state
+// survives Railway restarts and redeploys. In-memory cache
+// gives instant reads; GitHub writes happen async in background.
 // ============================================================
-const fs = require('fs');
-const TODO_STATE_FILE = '/tmp/todo-state.json';
+const GITHUB_TOKEN = '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';
+const GITHUB_STATE_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/todo-state.json?ref=state';
+const GITHUB_STATE_WRITE_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/todo-state.json';
 
-app.get('/api/todo-state', (req, res) => {
+let todoStateCache = { completed: [], date: null };
+let todoStateSha = null;
+
+// Load state from GitHub on startup
+(async () => {
   try {
-    if (fs.existsSync(TODO_STATE_FILE)) {
-      const data = JSON.parse(fs.readFileSync(TODO_STATE_FILE, 'utf8'));
-      res.json(data);
-    } else {
-      res.json({ completed: [], date: null });
+    const r = await fetch(GITHUB_STATE_URL, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (r.ok) {
+      const d = await r.json();
+      todoStateSha = d.sha;
+      todoStateCache = JSON.parse(Buffer.from(d.content, 'base64').toString('utf8'));
+      console.log('Todo state loaded from GitHub:', JSON.stringify(todoStateCache).slice(0, 80));
     }
   } catch (e) {
-    res.json({ completed: [], date: null });
+    console.error('Failed to load todo state from GitHub:', e.message);
   }
+})();
+
+async function persistStateToGitHub(state) {
+  try {
+    const content = Buffer.from(JSON.stringify(state)).toString('base64');
+    const body = { message: `todo state update ${state.date || ''}`, content, branch: 'state' };
+    if (todoStateSha) body.sha = todoStateSha;
+    const r = await fetch(GITHUB_STATE_WRITE_URL, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+      body: JSON.stringify(body)
+    });
+    if (r.ok) {
+      const d = await r.json();
+      todoStateSha = d.content?.sha || todoStateSha;
+    } else {
+      console.error('GitHub state write failed:', r.status, await r.text());
+    }
+  } catch (e) {
+    console.error('Failed to persist todo state to GitHub:', e.message);
+  }
+}
+
+app.get('/api/todo-state', (req, res) => {
+  res.json(todoStateCache);
 });
 
 app.post('/api/todo-state', express.json({ limit: '64kb' }), (req, res) => {
-  try {
-    const { completed, date } = req.body;
-    fs.writeFileSync(TODO_STATE_FILE, JSON.stringify({ completed, date }));
-    res.json({ ok: true });
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
+  const { completed, date } = req.body || {};
+  todoStateCache = { completed: completed || [], date: date || null };
+  res.json({ ok: true });
+  // Async write to GitHub — don't block the response
+  persistStateToGitHub(todoStateCache);
 });
 
 // ============================================================
