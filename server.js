@@ -238,6 +238,12 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
           }
         } catch (err) {
           console.error('Printify order creation error:', err);
+          // Still record the purchase in PostHog so revenue isn't lost
+          posthog.capture({
+            distinctId: email || session.id,
+            event: 'purchase_completed',
+            properties: { revenue: revenueUsd, product_type: productType, size },
+          });
         }
       }
     } else if (!PRINTIFY_API_KEY || !PRINTIFY_SHOP_ID) {
