@@ -163,7 +163,7 @@
           sql(`SELECT sum(toFloat(coalesce(properties.revenue, 0))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
           sql(`SELECT count() as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
           sql(`SELECT sum(toFloat(coalesce(properties.cost_usd, 0))) as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} LIMIT 1`),
-          sql(`SELECT sum(toFloat(coalesce(properties.product_cost, 0))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT sum(if(toFloat(coalesce(properties.product_cost, 0)) > 0, toFloat(coalesce(properties.product_cost, 0)), if(properties.product_type = 'poster', 7.00, if(properties.product_type = 'canvas', 20.00, 3.50)))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
           sql(`SELECT sum(if(toFloat(coalesce(properties.shipping_cost, 0)) > 0, toFloat(coalesce(properties.shipping_cost, 0)), if(properties.product_type = 'poster', 4.99, if(properties.product_type = 'canvas', 8.99, 3.99)))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
           sql(`SELECT toDate(timestamp) as day, uniq(person_id) as val FROM events WHERE event = '$pageview' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
           sql(`SELECT toDate(timestamp) as day, count() as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
@@ -171,7 +171,7 @@
           sql(`SELECT toDate(timestamp) as day, sum(toFloat(coalesce(properties.revenue, 0))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
           sql(`SELECT toDate(timestamp) as day, count() as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
           sql(`SELECT toDate(timestamp) as day, sum(toFloat(coalesce(properties.cost_usd, 0))) as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
-          sql(`SELECT toDate(timestamp) as day, sum(toFloat(coalesce(properties.product_cost, 0))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, sum(if(toFloat(coalesce(properties.product_cost, 0)) > 0, toFloat(coalesce(properties.product_cost, 0)), if(properties.product_type = 'poster', 7.00, if(properties.product_type = 'canvas', 20.00, 3.50)))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
           sql(`SELECT toDate(timestamp) as day, sum(if(toFloat(coalesce(properties.shipping_cost, 0)) > 0, toFloat(coalesce(properties.shipping_cost, 0)), if(properties.product_type = 'poster', 4.99, if(properties.product_type = 'canvas', 8.99, 3.99)))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
         ]);
         const totalVisitors=parseFloat(visitors[0]?.val)||0, totalGenerations=parseFloat(generations[0]?.val)||0, totalLockedIn=parseFloat(lockedIn[0]?.val)||0;
