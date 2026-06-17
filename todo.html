@@ -1,132 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily To-Do — Abs By AI</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #0f0f0f;
-      color: #e0e0e0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      min-height: 100vh;
-      padding: 24px 16px;
-    }
-    h1 { text-align: center; font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
-    .date { text-align: center; font-size: 0.85rem; color: #666; margin-bottom: 28px; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
-    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-    .column h2 {
-      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 1.5px; color: #888; margin-bottom: 14px;
-      padding-bottom: 8px; border-bottom: 1px solid #222;
-    }
-    .task {
-      display: flex; align-items: flex-start; gap: 10px;
-      padding: 10px 12px; border-radius: 8px; margin-bottom: 6px;
-      background: #161616; cursor: pointer; transition: background 0.15s; user-select: none;
-    }
-    .task:hover { background: #1e1e1e; }
-    .task.done { opacity: 0.38; }
-    .task.done .task-text { text-decoration: line-through; }
-    .badge {
-      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
-      font-size: 0.65rem; font-weight: 700; display: flex;
-      align-items: center; justify-content: center; margin-top: 1px;
-    }
-    .badge.red    { background: #7f1d1d; color: #fca5a5; }
-    .badge.yellow { background: #78350f; color: #fcd34d; }
-    .badge.gray   { background: #1f2937; color: #9ca3af; }
-    .check {
-      flex-shrink: 0; width: 18px; height: 18px; border: 2px solid #333;
-      border-radius: 4px; margin-top: 2px; display: flex; align-items: center; justify-content: center;
-    }
-    .task.done .check { background: #16a34a; border-color: #16a34a; }
-    .check-icon { display: none; color: #fff; font-size: 11px; font-weight: 700; }
-    .task.done .check-icon { display: block; }
-    .task-text { font-size: 0.875rem; line-height: 1.45; color: #d1d5db; }
-    .sync-status { text-align: center; font-size: 0.75rem; color: #444; margin-top: 28px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily To-Do — Abs By AI</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0f0f0f;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .date {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 28px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .column h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #888;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #222;
+  }
+  .task {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .task:hover { background: #1a1a1a; }
+  .task.done { opacity: 0.38; }
+  .task.done .task-text { text-decoration: line-through; color: #555; }
+  .badge {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 800;
+    margin-top: 1px;
+  }
+  .badge.high { background: #7f1d1d; color: #fca5a5; }
+  .badge.mid  { background: #78350f; color: #fcd34d; }
+  .badge.low  { background: #1f1f1f; color: #777; }
+  .check {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #444;
+    border-radius: 4px;
+    margin-top: 2px;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .task.done .check {
+    background: #333;
+    border-color: #555;
+  }
+  .check svg { display: none; }
+  .task.done .check svg { display: block; }
+  .task-text {
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: #d0d0d0;
+  }
+  .sync-status {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #444;
+    margin-top: 32px;
+  }
+</style>
 </head>
 <body>
-  <h1>Daily To-Do</h1>
-  <div class="date" id="dateLabel"></div>
-  <div class="grid">
-    <div class="column"><h2>Business</h2><div id="business-list"></div></div>
-    <div class="column"><h2>Personal</h2><div id="personal-list"></div></div>
+
+<h1>Daily To-Do</h1>
+<div class="date" id="dateLabel"></div>
+
+<div class="grid">
+  <div class="column">
+    <h2>Business</h2>
+    <div id="business-list"></div>
   </div>
-  <div class="sync-status" id="syncStatus">Syncing...</div>
+  <div class="column">
+    <h2>Personal</h2>
+    <div id="personal-list"></div>
+  </div>
+</div>
+
+<div class="sync-status" id="syncStatus">Syncing&hellip;</div>
 
 <script>
-const TODAY = new Date().toISOString().split('T')[0];
-document.getElementById('dateLabel').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+const TODAY = new Date().toISOString().slice(0,10);
+document.getElementById('dateLabel').textContent = new Date().toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
 
-const BUSINESS = [
-  {text:"Get analytics fully working with all costs reflected",priority:"red"},
-  {text:"Add generation limiting feature to app",priority:"red"},
-  {text:"Add pay for generations to app",priority:"red"},
-  {text:"Add email capture to app",priority:"yellow"},
-  {text:"Set up email autoresponder",priority:"yellow"},
-  {text:"Write outlines for test shoot",priority:"yellow"},
-  {text:"Fix Printify store name and picture issue",priority:"yellow"},
-  {text:"Add shipping costs to app",priority:"gray"},
-  {text:"Create workout program",priority:"gray"},
+const businessTasks = [
+  { text: "Get analytics fully working with all costs reflected", priority: "high" },
+  { text: "Add generation limiting feature to app", priority: "high" },
+  { text: "Add pay for generations to app", priority: "high" },
+  { text: "Add email capture to app", priority: "high" },
+  { text: "Set up email autoresponder", priority: "mid" },
+  { text: "Write outlines for test shoot", priority: "mid" },
+  { text: "Fix Printify store name and picture issue", priority: "mid" },
+  { text: "Add shipping costs to app", priority: "low" },
+  { text: "Create workout program", priority: "low" }
 ];
 
-const PERSONAL = [
-  {text:"Work out",priority:"red"},
-  {text:"Supplements",priority:"red"},
-  {text:"Shower",priority:"red"},
-  {text:"Eat salad",priority:"red"},
-  {text:"Call fence company",priority:"red"},
-  {text:"Call title company",priority:"red"},
-  {text:"Make eyebrow threading appointment",priority:"yellow"},
-  {text:"Find best mechanic to fix car",priority:"yellow"},
-  {text:"Take Audi to mechanic",priority:"yellow"},
-  {text:"Take out trash",priority:"yellow"},
-  {text:"Cook rice",priority:"gray"},
-  {text:"Review dating apps",priority:"gray"},
+const personalTasks = [
+  { text: "Work out", priority: "high" },
+  { text: "Supplements", priority: "high" },
+  { text: "Shower", priority: "high" },
+  { text: "Eat salad", priority: "high" },
+  { text: "Call fence company", priority: "mid" },
+  { text: "Call title company", priority: "mid" },
+  { text: "Make eyebrow threading appointment", priority: "mid" },
+  { text: "Find best mechanic to fix car", priority: "mid" },
+  { text: "Take Audi to mechanic", priority: "mid" },
+  { text: "Take out trash", priority: "low" },
+  { text: "Cook rice", priority: "low" },
+  { text: "Review dating apps", priority: "low" }
 ];
 
-let checkedKeys = new Set();
+let completedKeys = new Set();
 
-function key(cid, text) { return cid + ':' + text; }
+function key(containerId, text) {
+  return containerId + ':' + text;
+}
 
-function renderList(cid, items) {
-  const el = document.getElementById(cid+'-list');
+function renderList(containerId, tasks) {
+  const el = document.getElementById(containerId + '-list');
   el.innerHTML = '';
-  items.forEach((item, i) => {
-    const k = key(cid, item.text);
+  tasks.forEach((task, i) => {
+    const k = key(containerId, task.text);
+    const done = completedKeys.has(k);
     const div = document.createElement('div');
-    div.className = 'task' + (checkedKeys.has(k) ? ' done' : '');
-    div.innerHTML = '<div class="badge '+item.priority+'">'+(i+1)+'</div><div class="check"><span class="check-icon">&#10003;</span></div><div class="task-text">'+item.text+'</div>';
-    div.addEventListener('click', () => { checkedKeys.has(k) ? checkedKeys.delete(k) : checkedKeys.add(k); renderList('business',BUSINESS); renderList('personal',PERSONAL); syncToServer(); });
+    div.className = 'task' + (done ? ' done' : '');
+    div.innerHTML = '<div class="badge ' + task.priority + '">' + (i+1) + '</div>' +
+      '<div class="check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none">' +
+      '<path d="M1 4L3.5 6.5L9 1" stroke="#888" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '</svg></div>' +
+      '<div class="task-text">' + task.text + '</div>';
+    div.addEventListener('click', () => toggleTask(containerId, task.text, k));
     el.appendChild(div);
   });
+}
+
+function toggleTask(containerId, text, k) {
+  if (completedKeys.has(k)) {
+    completedKeys.delete(k);
+  } else {
+    completedKeys.add(k);
+  }
+  renderAll();
+  syncToServer();
+}
+
+function renderAll() {
+  renderList('business', businessTasks);
+  renderList('personal', personalTasks);
 }
 
 async function syncToServer() {
   document.getElementById('syncStatus').textContent = 'Saving...';
   try {
-    await fetch('/api/todo-state',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({completed:[...checkedKeys],date:TODAY})});
-    document.getElementById('syncStatus').textContent = 'Saved';
-    setTimeout(()=>{document.getElementById('syncStatus').textContent='';},2000);
-  } catch(e) { document.getElementById('syncStatus').textContent = 'Sync failed'; }
+    const res = await fetch('/api/todo-state', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ completed: Array.from(completedKeys), date: TODAY })
+    });
+    document.getElementById('syncStatus').textContent = res.ok
+      ? 'Saved · ' + new Date().toLocaleTimeString()
+      : 'Save failed';
+  } catch(e) {
+    document.getElementById('syncStatus').textContent = 'Offline';
+  }
 }
 
-async function init() {
+async function loadFromServer() {
   try {
     const res = await fetch('/api/todo-state');
-    const data = await res.json();
-    if (data.date === TODAY && Array.isArray(data.completed)) checkedKeys = new Set(data.completed);
-  } catch(e) {}
-  renderList('business',BUSINESS);
-  renderList('personal',PERSONAL);
-  document.getElementById('syncStatus').textContent = '';
+    if (res.ok) {
+      const data = await res.json();
+      if (data.date === TODAY && Array.isArray(data.completed)) {
+        completedKeys = new Set(data.completed);
+      }
+    }
+    document.getElementById('syncStatus').textContent = 'Loaded · ' + new Date().toLocaleTimeString();
+  } catch(e) {
+    document.getElementById('syncStatus').textContent = 'Offline';
+  }
+  renderAll();
 }
 
-init();
+loadFromServer();
 </script>
 </body>
 </html>
