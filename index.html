@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
 <title>Abs by AI</title>
 <link rel="manifest" href="/manifest.json" />
 <meta name="theme-color" content="#f6f5f2" />
@@ -691,6 +691,94 @@ html, body {
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 20px;
 }
+
+/* ── Credit counter ── */
+.credit-counter {
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--acc);
+  margin-top: 9px;
+  letter-spacing: 0.01em;
+}
+.credit-counter.low { color: #d97706; }
+
+/* ── After image lock overlay ── */
+.after-img-wrap { position: relative; }
+.after-lock-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.52);
+  border-radius: 12px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 7px;
+  color: white;
+  font-size: 13px; font-weight: 700;
+  pointer-events: none;
+}
+.after-locked {
+  filter: blur(14px);
+  transform: scale(1.06); /* hides blur edges */
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+/* ── Paywall section ── */
+#paywallSection { margin-bottom: 18px; }
+.paywall-headline {
+  font-size: 17px; font-weight: 800;
+  color: var(--ink); text-align: center;
+  margin-bottom: 5px; letter-spacing: -0.2px;
+}
+.paywall-sub {
+  font-size: 13px; color: var(--mute);
+  text-align: center; margin-bottom: 16px;
+}
+.pack-cards { display: flex; flex-direction: column; gap: 10px; }
+.pack-card {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  position: relative;
+}
+.pack-card:active { opacity: 0.82; }
+.pack-card-featured {
+  background: var(--acc-soft);
+  border-color: var(--acc-line);
+}
+.pack-badge {
+  position: absolute; top: -10px; left: 16px;
+  background: var(--acc); color: white;
+  font-size: 10.5px; font-weight: 800;
+  padding: 2px 8px; border-radius: 20px;
+  letter-spacing: 0.03em; text-transform: uppercase;
+}
+.pack-card-info { flex: 1; min-width: 0; }
+.pack-card-name { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 2px; }
+.pack-card-desc { font-size: 12px; color: var(--mute); }
+.pack-card-price { font-size: 16px; font-weight: 800; color: var(--acc); flex-shrink: 0; }
+.pack-card-loading { opacity: 0.6; pointer-events: none; }
+
+/* ── Credits success toast ── */
+.credits-success-toast {
+  position: fixed; bottom: 28px; left: 50%;
+  transform: translateX(-50%);
+  background: #16a34a; color: white;
+  padding: 11px 20px; border-radius: 40px;
+  font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
+  z-index: 2000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  white-space: nowrap;
+  animation: toastIn 0.25s ease;
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
 </style>
 </head>
 <body>
@@ -847,6 +935,7 @@ html, body {
         <span id="generateBtnLabel">Generate my future self</span>
       </button>
       <div class="cta-note">Two AI steps · about 20 seconds</div>
+      <div id="creditCounter" class="credit-counter" style="display:none"></div>
     </div>
   </div>
 
@@ -872,7 +961,13 @@ html, body {
       </div>
       <div>
         <div class="ba-col-label after-lbl">After</div>
-        <img id="afterImg" class="ba-img" alt="After — AI generated" />
+        <div class="after-img-wrap">
+          <img id="afterImg" class="ba-img" alt="After — AI generated" />
+          <div id="afterLockOverlay" class="after-lock-overlay" style="display:none">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <span>Unlock to reveal</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -897,7 +992,32 @@ html, body {
     <!-- Result error -->
     <div id="resultErrorSection" style="display:none" class="error-toast"></div>
 
-    <div>
+    <!-- Paywall (shown when credits = 0) -->
+    <div id="paywallSection" style="display:none">
+      <div class="paywall-headline">Your result is ready — unlock it</div>
+      <div class="paywall-sub">Get more generations to see your future self in full.</div>
+      <div class="pack-cards">
+        <div class="pack-card" id="packStarter" data-pack="starter">
+          <div class="pack-card-info">
+            <div class="pack-card-name">Starter Pack</div>
+            <div class="pack-card-desc">5 generations</div>
+          </div>
+          <div class="pack-card-price">$4.99</div>
+        </div>
+        <div class="pack-card pack-card-featured" id="packPower" data-pack="power">
+          <div class="pack-badge">Most Popular</div>
+          <div class="pack-card-info">
+            <div class="pack-card-name">Power Pack</div>
+            <div class="pack-card-desc">20 generations</div>
+          </div>
+          <div class="pack-card-price">$14.99</div>
+        </div>
+      </div>
+      <div id="creditsCheckoutError" style="display:none" class="error-toast"></div>
+    </div>
+
+    <!-- Normal action buttons (hidden when locked) -->
+    <div id="resultActionsSection">
       <button id="loveItBtn" class="cta-btn" style="margin-bottom:10px">Lock in this goal</button>
       <div class="ghost-row">
         <button class="ghost-btn" id="moreDramaticBtn">More dramatic</button>
@@ -1072,6 +1192,12 @@ html, body {
 
 </div><!-- /.app -->
 
+<!-- ════════════════ CREDITS SUCCESS TOAST ════════════════ -->
+<div id="creditsSuccessToast" class="credits-success-toast" style="display:none">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="creditsSuccessText">Credits added!</span>
+</div>
+
 <!-- ════════════════ STRIPE CHECKOUT OVERLAY ════════════════ -->
 <div id="checkoutOverlay" style="display:none">
   <div class="checkout-sheet">
@@ -1096,6 +1222,115 @@ const BACKEND_URL = window.location.hostname === 'localhost'
 
 // Fetched from backend on load — set STRIPE_PUBLISHABLE_KEY in Railway env vars
 let STRIPE_PUBLISHABLE_KEY = '';
+
+// ── Credits state ──
+const state_credits = { value: 3 }; // initialised from server on load
+
+function getDeviceId() {
+  let id = localStorage.getItem('absbyai_device_id');
+  if (!id) {
+    id = 'dev-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+    localStorage.setItem('absbyai_device_id', id);
+  }
+  return id;
+}
+
+async function fetchCreditsFromServer() {
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/credits?deviceId=${encodeURIComponent(getDeviceId())}`);
+    const data = await res.json();
+    return typeof data.credits === 'number' ? data.credits : state_credits.value;
+  } catch (e) { return state_credits.value; }
+}
+
+async function loadCredits() {
+  state_credits.value = await fetchCreditsFromServer();
+  updateCreditDisplay();
+}
+
+function updateCreditDisplay() {
+  const el = $('creditCounter');
+  if (!el) return;
+  const c = state_credits.value;
+  if (c <= 0) { el.style.display = 'none'; return; }
+  el.style.display = '';
+  const noun = c === 1 ? 'generation' : 'generations';
+  const suffix = c === 1 ? ' — last one!' : '';
+  el.className = 'credit-counter' + (c === 1 ? ' low' : '');
+  el.textContent = `✦ ${c} free ${noun} remaining${suffix}`;
+}
+
+function showLockedResult() {
+  $('afterImg').classList.add('after-locked');
+  $('afterLockOverlay').style.display = '';
+  $('resultActionsSection').style.display = 'none';
+  $('resultDownloadBtn').style.visibility = 'hidden';
+  $('paywallSection').style.display = '';
+  showScreen('result');
+}
+
+function unlockResult() {
+  $('afterImg').classList.remove('after-locked');
+  $('afterLockOverlay').style.display = 'none';
+  $('resultActionsSection').style.display = '';
+  $('resultDownloadBtn').style.visibility = '';
+  $('paywallSection').style.display = 'none';
+}
+
+async function handleCreditsCheckout(pack) {
+  if (!STRIPE_PUBLISHABLE_KEY) {
+    $('creditsCheckoutError').textContent = 'Checkout not yet configured — check back soon!';
+    $('creditsCheckoutError').style.display = '';
+    return;
+  }
+  const card = $('pack' + pack.charAt(0).toUpperCase() + pack.slice(1));
+  document.querySelectorAll('.pack-card').forEach(c => c.classList.add('pack-card-loading'));
+  $('creditsCheckoutError').style.display = 'none';
+
+  try {
+    const returnUrl = window.location.origin + window.location.pathname + '?credits_session_id={CHECKOUT_SESSION_ID}';
+    const res = await fetch(`${BACKEND_URL}/api/stripe/create-credits-checkout`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pack, deviceId: getDeviceId(), returnUrl }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Checkout setup failed');
+
+    const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
+    const checkout = await stripeJs.initEmbeddedCheckout({ clientSecret: data.clientSecret });
+    $('checkoutOverlay').style.display = 'flex';
+    $('checkout').innerHTML = '';
+    checkout.mount('#checkout');
+    window._stripeCheckout = checkout;
+  } catch (err) {
+    console.error('Credits checkout error:', err);
+    $('creditsCheckoutError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('creditsCheckoutError').style.display = '';
+  } finally {
+    document.querySelectorAll('.pack-card').forEach(c => c.classList.remove('pack-card-loading'));
+  }
+}
+
+async function checkCreditsSession() {
+  const params = new URLSearchParams(window.location.search);
+  const creditsSessionId = params.get('credits_session_id');
+  if (!creditsSessionId) return;
+  window.history.replaceState({}, '', window.location.pathname);
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(creditsSessionId)}`);
+    const data = await res.json();
+    if (data.status === 'complete') {
+      // Webhook has already added credits — re-fetch to get updated count
+      state_credits.value = await fetchCreditsFromServer();
+      updateCreditDisplay();
+      const toast = $('creditsSuccessToast');
+      $('creditsSuccessText').textContent = `${state_credits.value} generation${state_credits.value !== 1 ? 's' : ''} ready — generate now!`;
+      toast.style.display = 'flex';
+      setTimeout(() => { toast.style.display = 'none'; }, 4500);
+    }
+  } catch (e) { console.error('Credits session check failed:', e); }
+}
 
 // Body-fat anchors (midpoints) for display
 const BF_BEFORE = { heavier: { male: '28–32%', female: '36–40%' }, moderate: { male: '20–24%', female: '28–32%' }, fit: { male: '15–17%', female: '22–25%' }, very_lean: { male: '11–13%', female: '18–20%' } };
@@ -1570,8 +1805,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     console.warn('Could not fetch config:', e);
   }
 
-  // Check if returning from Stripe checkout
+  // Check if returning from Stripe checkout (print order)
   checkOrderSession();
+
+  // Check if returning from credits checkout
+  checkCreditsSession();
+
+  // Load credit balance
+  loadCredits();
 
   updateBackendStatus();
 
@@ -1701,6 +1942,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     state.lastAfterDataUrl = null;
     showScreen('form');
   });
+
+  // Credits pack cards
+  document.querySelectorAll('.pack-card[data-pack]').forEach(card => {
+    card.addEventListener('click', () => handleCreditsCheckout(card.dataset.pack));
+  });
 });
 
 // ============================================================
@@ -1777,7 +2023,7 @@ async function generate() {
       throw new Error('This app is for adults only. Please use a photo of someone 18 or older.');
     }
     setStatus('Stage 2 of 2', 'Gemini is generating your future self… (10–20 seconds)');
-    const imageBase64 = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
+    const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
 
@@ -1787,7 +2033,16 @@ async function generate() {
     updateBodyFatDisplay();
     updateIntensityButtons();
     clearStatus();
-    showScreen('result');
+
+    if (locked) {
+      showLockedResult();
+    } else {
+      unlockResult();
+      // Sync credit count from server (server already deducted)
+      state_credits.value = Math.max(0, state_credits.value - 1);
+      updateCreditDisplay();
+      showScreen('result');
+    }
   } catch (err) {
     clearStatus();
     showError(err.message || 'Unknown error. Please try again.');
@@ -1821,13 +2076,21 @@ async function adjustIntensity(delta) {
     const generatedPrompt = await callGeminiText(GOAL_SYSTEM_PROMPT, makeUserJson());
     if (generatedPrompt.trim() === 'REFUSED_MINOR') throw new Error('Refused.');
     setResultStatus('Regenerating…', 'Gemini is generating the new image…');
-    const imageBase64 = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
+    const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
     $('afterImg').src = afterDataUrl;
     $('resultDownloadBtn').href = afterDataUrl;
     updateBodyFatDisplay();
     clearResultStatus();
+
+    if (locked) {
+      showLockedResult();
+    } else {
+      unlockResult();
+      state_credits.value = Math.max(0, state_credits.value - 1);
+      updateCreditDisplay();
+    }
   } catch (err) {
     clearResultStatus();
     state.effectiveIntensity = prevIntensity; // revert state on failure
@@ -1858,13 +2121,87 @@ async function callGeminiImage(prompt, photoBase64, photoMime) {
   const res = await fetch(`${BACKEND_URL}/api/generate-image`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ prompt, photoBase64, photoMime, distinctId: window.posthog ? posthog.get_distinct_id() : 'anonymous' }),
+    body: JSON.stringify({
+      prompt, photoBase64, photoMime,
+      distinctId: window.posthog ? posthog.get_distinct_id() : 'anonymous',
+      deviceId: getDeviceId(),
+    }),
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
   if (!data?.imageBase64) throw new Error('Image generation was blocked — this is usually caused by a photo that is too suggestive or explicit. For best results, use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with a neutral pose and lighting. Please try a different photo.');
-  return data.imageBase64;
+  return { imageBase64: data.imageBase64, locked: !!data.locked };
 }
+</script>
+<script>
+/* ── Native iOS app integration (Capacitor) ──
+   Only activates inside the Abs by AI iOS app, where Capacitor injects
+   its bridge. No effect on the website, PWA, or Android TWA. */
+(function () {
+  const cap = window.Capacitor;
+  if (!cap || !cap.isNativePlatform || !cap.isNativePlatform()) return;
+  const P = cap.Plugins || {};
+
+  document.documentElement.classList.add('cap-native');
+
+  // Safe areas: the native webview is edge-to-edge (viewport-fit=cover)
+  const style = document.createElement('style');
+  style.textContent = `
+    html.cap-native body {
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    html.cap-native #checkoutOverlay {
+      padding-top: env(safe-area-inset-top);
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Status bar: dark text over the light brand background
+  try { P.StatusBar && P.StatusBar.setStyle({ style: 'LIGHT' }); } catch (e) {}
+
+  const haptic = (kind) => {
+    try {
+      if (!P.Haptics) return;
+      if (kind === 'success') P.Haptics.notification({ type: 'SUCCESS' });
+      else P.Haptics.impact({ style: kind === 'medium' ? 'MEDIUM' : 'LIGHT' });
+    } catch (e) {}
+  };
+
+  document.getElementById('generateBtn')?.addEventListener('click', () => haptic('medium'));
+  document.getElementById('checkoutBtn')?.addEventListener('click', () => haptic('medium'));
+
+  // Success haptic when the result screen appears
+  const resultSection = document.getElementById('resultSection');
+  if (resultSection) {
+    new MutationObserver(() => {
+      if (resultSection.style.display !== 'none') haptic('success');
+    }).observe(resultSection, { attributes: true, attributeFilter: ['style'] });
+  }
+
+  // Saving via <a download> on a data: URL doesn't work in the iOS webview —
+  // route it through the native share sheet (Save Image / AirDrop / etc.)
+  const dlBtn = document.getElementById('resultDownloadBtn');
+  if (dlBtn) {
+    dlBtn.addEventListener('click', async (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      try {
+        const href = dlBtn.getAttribute('href') || '';
+        const base64 = href.split(',')[1];
+        if (!base64 || !P.Filesystem || !P.Share) return;
+        const file = await P.Filesystem.writeFile({
+          path: 'my-future-self.png',
+          data: base64,
+          directory: 'CACHE'
+        });
+        await P.Share.share({ title: 'My future self', files: [file.uri] });
+      } catch (e) {
+        if (!/cancel/i.test(String(e && e.message))) console.error('Native share failed', e);
+      }
+    }, true);
+  }
+})();
 </script>
 </body>
 </html>
