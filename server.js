@@ -119,7 +119,22 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
   if (event.type === 'checkout.session.completed') {
     // Retrieve the full session — webhook payload omits shipping_details for embedded checkout
     const session = await stripeClient.checkout.sessions.retrieve(event.data.object.id);
-    const { imageId, imagePreviewUrl, productType, size, framed } = session.metadata || {};
+    const { purchaseType, generationsCount, deviceId, imageId, imagePreviewUrl, productType, size, framed } = session.metadata || {};
+
+    // ── Credits purchase (digital, no Printify) ──────────────
+    if (purchaseType === 'credits') {
+      const amount = parseInt(generationsCount, 10) || 0;
+      if (amount > 0 && deviceId) {
+        addCredits(deviceId, amount);
+        console.log(`Credits: added ${amount} to device ${deviceId}`);
+      }
+      posthog.capture({
+        distinctId: session.customer_details?.email || deviceId || session.id,
+        event: 'credits_purchased',
+        properties: { amount, revenue: (session.amount_total || 0) / 100 },
+      });
+      return res.json({ received: true });
+    }
     const email = session.customer_details?.email;
     const shipping = session.shipping_details?.address;
 
@@ -423,13 +438,17 @@ app.post('/api/generate-prompt', async (req, res) => {
 // ============================================================
 app.post('/api/generate-image', async (req, res) => {
   try {
-    const { prompt, photoBase64, photoMime } = req.body;
+    const { prompt, photoBase64, photoMime, deviceId } = req.body;
 
     if (!prompt || !photoBase64 || !photoMime) {
       return res.status(400).json({
         error: 'Missing prompt, photoBase64, or photoMime',
       });
     }
+
+    // Check credits — still generate if 0 (returns locked:true for the "teaser"), but don't deduct
+    const credits = getCredits(deviceId || '');
+    const locked = credits <= 0;
 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key=${encodeURIComponent(GEMINI_API_KEY)}`;
 
@@ -479,11 +498,14 @@ app.post('/api/generate-image', async (req, res) => {
 
     const imageBase64 = (imgPart.inline_data || imgPart.inlineData).data;
 
+    // Deduct credit if not locked
+    if (!locked && deviceId) deductCredit(deviceId);
+
     // Track generation
     const distinctId = req.body.distinctId || 'server-anonymous';
-    posthog.capture({ distinctId, event: 'generation_created', properties: { cost_usd: 0.06 } });
+    posthog.capture({ distinctId, event: 'generation_created', properties: { cost_usd: 0.06, locked } });
 
-    res.json({ imageBase64 });
+    res.json({ imageBase64, locked });
   } catch (err) {
     console.error('Image generation error:', err);
     res.status(500).json({ error: 'Internal server error' });
@@ -581,6 +603,53 @@ app.post('/api/stripe/create-checkout', checkoutLimiter, async (req, res) => {
     res.json({ clientSecret: session.client_secret });
   } catch (err) {
     console.error('Stripe checkout creation error:', err);
+    res.status(500).json({ error: err.message || 'Internal server error' });
+  }
+});
+
+// ============================================================
+// ENDPOINT: Create Stripe checkout session for credits packs
+// ============================================================
+const CREDITS_PACKS = {
+  starter: { name: 'Abs By AI – Starter Pack', desc: '5 AI generations', amount: 499,  count: 5  },
+  power:   { name: 'Abs By AI – Power Pack',   desc: '20 AI generations', amount: 1499, count: 20 },
+};
+
+app.post('/api/stripe/create-credits-checkout', checkoutLimiter, async (req, res) => {
+  if (!stripeClient) {
+    return res.status(503).json({ error: 'Stripe not configured' });
+  }
+  const { pack, deviceId, returnUrl } = req.body;
+  if (!pack || !deviceId || !returnUrl) {
+    return res.status(400).json({ error: 'Missing pack, deviceId, or returnUrl' });
+  }
+  const info = CREDITS_PACKS[pack];
+  if (!info) return res.status(400).json({ error: 'Invalid pack' });
+
+  try {
+    const session = await stripeClient.checkout.sessions.create({
+      ui_mode: 'embedded',
+      line_items: [{
+        price_data: {
+          currency: 'usd',
+          product_data: { name: info.name, description: info.desc },
+          unit_amount: info.amount,
+        },
+        quantity: 1,
+      }],
+      mode: 'payment',
+      return_url: returnUrl,
+      automatic_tax: { enabled: false },
+      metadata: {
+        purchaseType: 'credits',
+        pack,
+        generationsCount: String(info.count),
+        deviceId,
+      },
+    });
+    res.json({ clientSecret: session.client_secret });
+  } catch (err) {
+    console.error('Credits checkout error:', err);
     res.status(500).json({ error: err.message || 'Internal server error' });
   }
 });
@@ -686,6 +755,81 @@ async function persistStateToGitHub(state) {
 
 app.get('/api/todo-state', (req, res) => {
   res.json(todoStateCache);
+});
+
+// ============================================================
+// CREDITS: GitHub-backed per-device credit store
+// Same pattern as todo state — in-memory cache, async GitHub writes.
+// New devices start with 3 free generations (default).
+// ============================================================
+const FREE_CREDITS = 3;
+const GITHUB_CREDITS_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/credits.json?ref=state';
+const GITHUB_CREDITS_WRITE_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/credits.json';
+
+let creditsCache = {}; // { deviceId: number }
+let creditsSha = null;
+
+(async () => {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const r = await fetch(GITHUB_CREDITS_URL, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (r.ok) {
+      const d = await r.json();
+      creditsSha = d.sha;
+      creditsCache = JSON.parse(Buffer.from(d.content, 'base64').toString('utf8'));
+      console.log('Credits cache loaded from GitHub, devices tracked:', Object.keys(creditsCache).length);
+    } else {
+      console.log('No credits.json on state branch yet — will create on first write.');
+    }
+  } catch (e) {
+    console.error('Failed to load credits from GitHub:', e.message);
+  }
+})();
+
+async function persistCreditsToGitHub() {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const content = Buffer.from(JSON.stringify(creditsCache)).toString('base64');
+    const body = { message: 'credits update', content, branch: 'state' };
+    if (creditsSha) body.sha = creditsSha;
+    const r = await fetch(GITHUB_CREDITS_WRITE_URL, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+      body: JSON.stringify(body)
+    });
+    if (r.ok) {
+      const d = await r.json();
+      creditsSha = d.content?.sha || creditsSha;
+    } else {
+      console.error('GitHub credits write failed:', r.status, await r.text());
+    }
+  } catch (e) {
+    console.error('Failed to persist credits to GitHub:', e.message);
+  }
+}
+
+function getCredits(deviceId) {
+  return deviceId in creditsCache ? creditsCache[deviceId] : FREE_CREDITS;
+}
+
+function deductCredit(deviceId) {
+  if (!deviceId) return;
+  creditsCache[deviceId] = Math.max(0, getCredits(deviceId) - 1);
+  persistCreditsToGitHub();
+}
+
+function addCredits(deviceId, amount) {
+  if (!deviceId || !amount) return;
+  creditsCache[deviceId] = getCredits(deviceId) + amount;
+  persistCreditsToGitHub();
+}
+
+app.get('/api/credits', (req, res) => {
+  const { deviceId } = req.query;
+  if (!deviceId) return res.status(400).json({ error: 'Missing deviceId' });
+  res.json({ credits: getCredits(deviceId) });
 });
 
 app.post('/api/todo-state', express.json({ limit: '64kb' }), (req, res) => {
