@@ -241,19 +241,29 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
 // Global JSON parser (after webhook route so it doesn't consume raw bytes)
 app.use(express.json({ limit: '10mb' }));
 
-// Rate limiting: 10 requests per minute per IP
+// Global rate limiter — skips analytics proxy (handled by its own limiter below)
 const limiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 20,
+  max: 60,
   message: { error: 'Too many requests, please try again in a minute.' },
   standardHeaders: true,
   legacyHeaders: false,
+  skip: (req) => req.path === '/api/posthog-query',
 });
 
 // Separate generous limiter for checkout (not an abuse vector)
 const checkoutLimiter = rateLimit({
   windowMs: 60 * 1000,
   max: 30,
+  message: { error: 'Too many requests, please try again in a minute.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Analytics proxy limiter — dashboard fires 16 queries per load; allow generous headroom
+const analyticsLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 200,
   message: { error: 'Too many requests, please try again in a minute.' },
   standardHeaders: true,
   legacyHeaders: false,
@@ -603,7 +613,7 @@ app.get('/analytics', (req, res) => {
 });
 
 // PostHog HogQL query proxy — keeps personal API key server-side
-app.post('/api/posthog-query', async (req, res) => {
+app.post('/api/posthog-query', analyticsLimiter, async (req, res) => {
   const { query } = req.body;
   if (!query) return res.status(400).json({ error: 'Missing query' });
   const POSTHOG_KEY = process.env.POSTHOG_PERSONAL_KEY;
