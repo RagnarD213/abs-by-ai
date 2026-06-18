@@ -15,11 +15,11 @@
   }
   h1 {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: #fff;
     margin-bottom: 6px;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
   }
   .date {
     text-align: center;
@@ -31,15 +31,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
   }
-  @media (max-width: 640px) {
+  @media (max-width: 600px) {
     .grid { grid-template-columns: 1fr; }
   }
   .column h2 {
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: #888;
@@ -47,22 +47,21 @@
     padding-bottom: 8px;
     border-bottom: 1px solid #222;
   }
-  .task {
+  .item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
     padding: 10px 12px;
     border-radius: 8px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     cursor: pointer;
     transition: background 0.15s;
     user-select: none;
   }
-  .task:hover { background: #1a1a1a; }
-  .task.done { opacity: 0.38; }
-  .task.done .task-text { text-decoration: line-through; color: #555; }
+  .item:hover { background: #1a1a1a; }
+  .item.checked { opacity: 0.4; }
+  .item.checked .label { text-decoration: line-through; color: #555; }
   .badge {
-    flex-shrink: 0;
     width: 22px;
     height: 22px;
     border-radius: 50%;
@@ -70,41 +69,37 @@
     align-items: center;
     justify-content: center;
     font-size: 0.65rem;
-    font-weight: 800;
-    margin-top: 1px;
-  }
-  .badge.high { background: #7f1d1d; color: #fca5a5; }
-  .badge.mid  { background: #78350f; color: #fcd34d; }
-  .badge.low  { background: #1f1f1f; color: #777; }
-  .check {
+    font-weight: 700;
     flex-shrink: 0;
+  }
+  .high { background: #7f1d1d; color: #fca5a5; }
+  .mid  { background: #78350f; color: #fcd34d; }
+  .low  { background: #1f2937; color: #9ca3af; }
+  .checkbox {
     width: 18px;
     height: 18px;
     border: 2px solid #444;
     border-radius: 4px;
-    margin-top: 2px;
-    transition: all 0.15s;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.15s;
   }
-  .task.done .check {
-    background: #333;
-    border-color: #555;
+  .item.checked .checkbox { background: #333; border-color: #333; }
+  .checkbox::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border: 2px solid #0f0f0f;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+    display: none;
   }
-  .check svg { display: none; }
-  .task.done .check svg { display: block; }
-  .task-text {
-    font-size: 0.92rem;
-    line-height: 1.45;
-    color: #d0d0d0;
-  }
-  .sync-status {
-    text-align: center;
-    font-size: 0.75rem;
-    color: #444;
-    margin-top: 32px;
-  }
+  .item.checked .checkbox::after { display: block; }
+  .label { font-size: 0.88rem; line-height: 1.4; color: #d0d0d0; }
+  .sync-status { text-align: center; font-size: 0.75rem; color: #444; margin-top: 32px; }
 </style>
 </head>
 <body>
@@ -123,14 +118,13 @@
   </div>
 </div>
 
-<div class="sync-status" id="syncStatus">Syncing&hellip;</div>
+<div class="sync-status" id="syncStatus">Syncing...</div>
 
 <script>
 const TODAY = new Date().toISOString().slice(0,10);
 document.getElementById('dateLabel').textContent = new Date().toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
 
-const businessTasks = [
-  { text: "Get analytics fully working with all costs reflected", priority: "high" },
+const BUSINESS = [
   { text: "Add generation limiting feature to app", priority: "high" },
   { text: "Add pay for generations to app", priority: "high" },
   { text: "Add email capture to app", priority: "high" },
@@ -138,10 +132,10 @@ const businessTasks = [
   { text: "Write outlines for test shoot", priority: "mid" },
   { text: "Fix Printify store name and picture issue", priority: "mid" },
   { text: "Add shipping costs to app", priority: "low" },
-  { text: "Create workout program", priority: "low" }
+  { text: "Create workout program", priority: "low" },
 ];
 
-const personalTasks = [
+const PERSONAL = [
   { text: "Work out", priority: "high" },
   { text: "Supplements", priority: "high" },
   { text: "Shower", priority: "high" },
@@ -150,62 +144,49 @@ const personalTasks = [
   { text: "Call title company", priority: "mid" },
   { text: "Make eyebrow threading appointment", priority: "mid" },
   { text: "Find best mechanic to fix car", priority: "mid" },
-  { text: "Take Audi to mechanic", priority: "mid" },
+  { text: "Take Audi to mechanic", priority: "low" },
   { text: "Take out trash", priority: "low" },
-  { text: "Cook rice", priority: "low" },
-  { text: "Review dating apps", priority: "low" }
+  { text: "Review dating apps", priority: "low" },
 ];
 
-let completedKeys = new Set();
+let completed = new Set();
 
-function key(containerId, text) {
-  return containerId + ':' + text;
-}
+function key(containerId, text) { return containerId + ':' + text; }
+function badgeClass(p) { return p === 'high' ? 'high' : p === 'mid' ? 'mid' : 'low'; }
 
-function renderList(containerId, tasks) {
+function renderList(containerId, items) {
   const el = document.getElementById(containerId + '-list');
   el.innerHTML = '';
-  tasks.forEach((task, i) => {
-    const k = key(containerId, task.text);
-    const done = completedKeys.has(k);
+  items.forEach((item, i) => {
+    const k = key(containerId, item.text);
     const div = document.createElement('div');
-    div.className = 'task' + (done ? ' done' : '');
-    div.innerHTML = '<div class="badge ' + task.priority + '">' + (i+1) + '</div>' +
-      '<div class="check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none">' +
-      '<path d="M1 4L3.5 6.5L9 1" stroke="#888" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '</svg></div>' +
-      '<div class="task-text">' + task.text + '</div>';
-    div.addEventListener('click', () => toggleTask(containerId, task.text, k));
+    div.className = 'item' + (completed.has(k) ? ' checked' : '');
+    div.innerHTML = `
+      <div class="badge ${badgeClass(item.priority)}">${i+1}</div>
+      <div class="checkbox"></div>
+      <div class="label">${item.text}</div>
+    `;
+    div.addEventListener('click', () => toggle(containerId, item.text));
     el.appendChild(div);
   });
 }
 
-function toggleTask(containerId, text, k) {
-  if (completedKeys.has(k)) {
-    completedKeys.delete(k);
-  } else {
-    completedKeys.add(k);
-  }
-  renderAll();
+function toggle(containerId, text) {
+  const k = key(containerId, text);
+  if (completed.has(k)) completed.delete(k); else completed.add(k);
+  renderList('business', BUSINESS);
+  renderList('personal', PERSONAL);
   syncToServer();
 }
 
-function renderAll() {
-  renderList('business', businessTasks);
-  renderList('personal', personalTasks);
-}
-
 async function syncToServer() {
-  document.getElementById('syncStatus').textContent = 'Saving...';
   try {
     const res = await fetch('/api/todo-state', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ completed: Array.from(completedKeys), date: TODAY })
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ completed: [...completed], date: TODAY })
     });
-    document.getElementById('syncStatus').textContent = res.ok
-      ? 'Saved · ' + new Date().toLocaleTimeString()
-      : 'Save failed';
+    if (res.ok) document.getElementById('syncStatus').textContent = 'Saved ✓  ' + new Date().toLocaleTimeString();
   } catch(e) {
     document.getElementById('syncStatus').textContent = 'Offline';
   }
@@ -214,17 +195,14 @@ async function syncToServer() {
 async function loadFromServer() {
   try {
     const res = await fetch('/api/todo-state');
-    if (res.ok) {
-      const data = await res.json();
-      if (data.date === TODAY && Array.isArray(data.completed)) {
-        completedKeys = new Set(data.completed);
-      }
+    const data = await res.json();
+    if (data.date === TODAY && Array.isArray(data.completed)) {
+      completed = new Set(data.completed);
     }
-    document.getElementById('syncStatus').textContent = 'Loaded · ' + new Date().toLocaleTimeString();
-  } catch(e) {
-    document.getElementById('syncStatus').textContent = 'Offline';
-  }
-  renderAll();
+  } catch(e) {}
+  renderList('business', BUSINESS);
+  renderList('personal', PERSONAL);
+  document.getElementById('syncStatus').textContent = 'Loaded ✓';
 }
 
 loadFromServer();
