@@ -702,6 +702,11 @@ html, body {
   letter-spacing: 0.01em;
 }
 .credit-counter.low { color: #d97706; }
+/* When credit-counter sits right after a nav-bar, give it breathing room */
+.nav-bar + .credit-indicator {
+  margin-top: 6px;
+  margin-bottom: -8px;
+}
 
 /* ── After image lock overlay ── */
 .after-img-wrap { position: relative; }
@@ -934,8 +939,8 @@ html, body {
       <button id="generateBtn" class="cta-btn" disabled>
         <span id="generateBtnLabel">Generate my future self</span>
       </button>
+      <div id="creditCounter" class="credit-indicator credit-counter" style="display:none"></div>
       <div class="cta-note">Two AI steps · about 20 seconds</div>
-      <div id="creditCounter" class="credit-counter" style="display:none"></div>
     </div>
   </div>
 
@@ -950,6 +955,7 @@ html, body {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>
       </a>
     </div>
+    <div class="credit-indicator credit-counter" style="display:none"></div>
 
     <div class="hero-h1" style="font-size:30px;line-height:1.05;margin-bottom:6px">Meet the new you.</div>
     <div class="hero-sub" style="margin-bottom:22px">Same you — leaner, stronger, sharper.</div>
@@ -1036,6 +1042,7 @@ html, body {
       <span class="nav-title">Your path forward</span>
       <span style="width:26px"></span>
     </div>
+    <div class="credit-indicator credit-counter" style="display:none"></div>
 
     <div class="hero-h1" style="font-size:25px;line-height:1.1;margin-bottom:8px">Here's How To Get Your Dream Body In Three Simple Steps.</div>
     <div class="hero-sub" style="margin-bottom:26px">A clear plan makes all the difference.</div>
@@ -1249,15 +1256,16 @@ async function loadCredits() {
 }
 
 function updateCreditDisplay() {
-  const el = $('creditCounter');
-  if (!el) return;
+  const els = document.querySelectorAll('.credit-indicator');
   const c = state_credits.value;
-  if (c <= 0) { el.style.display = 'none'; return; }
-  el.style.display = '';
-  const noun = c === 1 ? 'generation' : 'generations';
-  const suffix = c === 1 ? ' — last one!' : '';
-  el.className = 'credit-counter' + (c === 1 ? ' low' : '');
-  el.textContent = `✦ ${c} free ${noun} remaining${suffix}`;
+  els.forEach(el => {
+    if (c <= 0) { el.style.display = 'none'; return; }
+    el.style.display = '';
+    const noun = c === 1 ? 'generation' : 'generations';
+    const suffix = c === 1 ? ' — last one!' : '';
+    el.className = 'credit-indicator credit-counter' + (c === 1 ? ' low' : '');
+    el.textContent = `✦ ${c} free ${noun} remaining${suffix}`;
+  });
 }
 
 function showLockedResult() {
