@@ -3,65 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily To-Do — Abs By AI</title>
+<title>Abs By AI — Daily To-Do</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: #0f0f0f;
     color: #e0e0e0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
-    padding: 24px 16px;
+    padding: 32px 24px 60px;
   }
-  h1 {
+  header {
     text-align: center;
-    font-size: 1.6rem;
+    margin-bottom: 36px;
+  }
+  header h1 {
+    font-size: 1.8rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 6px;
     letter-spacing: -0.5px;
   }
-  .date {
-    text-align: center;
+  header p {
+    color: #555;
     font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 28px;
+    margin-top: 6px;
   }
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 900px;
+    gap: 28px;
+    max-width: 960px;
     margin: 0 auto;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
     .grid { grid-template-columns: 1fr; }
   }
   .column h2 {
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #888;
+    color: #666;
     margin-bottom: 14px;
     padding-bottom: 8px;
     border-bottom: 1px solid #222;
   }
-  .item {
+  .task-list { list-style: none; }
+  .task-item {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    margin-bottom: 8px;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 4px;
+    border-bottom: 1px solid #1c1c1c;
     cursor: pointer;
-    transition: background 0.15s;
-    user-select: none;
+    transition: background 0.1s;
+    border-radius: 4px;
   }
-  .item:hover { background: #1a1a1a; }
-  .item.checked { opacity: 0.4; }
-  .item.checked .label { text-decoration: line-through; color: #555; }
+  .task-item:last-child { border-bottom: none; }
+  .task-item:hover { background: #161616; }
   .badge {
+    flex-shrink: 0;
     width: 22px;
     height: 22px;
     border-radius: 50%;
@@ -70,139 +71,135 @@
     justify-content: center;
     font-size: 0.65rem;
     font-weight: 700;
-    flex-shrink: 0;
+    margin-top: 1px;
   }
-  .high { background: #7f1d1d; color: #fca5a5; }
-  .mid  { background: #78350f; color: #fcd34d; }
-  .low  { background: #1f2937; color: #9ca3af; }
-  .checkbox {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #444;
-    border-radius: 4px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s;
+  .badge.high { background: #7f1d1d; color: #fca5a5; }
+  .badge.mid  { background: #713f12; color: #fde68a; }
+  .badge.low  { background: #1f2937; color: #9ca3af; }
+  .task-text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    flex: 1;
+    transition: color 0.15s;
   }
-  .item.checked .checkbox { background: #333; border-color: #333; }
-  .checkbox::after {
-    content: '';
-    width: 5px;
-    height: 9px;
-    border: 2px solid #0f0f0f;
-    border-top: none;
-    border-left: none;
-    transform: rotate(45deg) translateY(-1px);
-    display: none;
+  .task-item.done .task-text {
+    color: #3a3a3a;
+    text-decoration: line-through;
   }
-  .item.checked .checkbox::after { display: block; }
-  .label { font-size: 0.88rem; line-height: 1.4; color: #d0d0d0; }
-  .sync-status { text-align: center; font-size: 0.75rem; color: #444; margin-top: 32px; }
+  .task-item.done .badge { opacity: 0.3; }
+  .sync-bar {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.75rem;
+    color: #444;
+    min-height: 18px;
+  }
+  #sync-status.ok { color: #4ade80; }
+  #sync-status.err { color: #f87171; }
 </style>
 </head>
 <body>
-
-<h1>Daily To-Do</h1>
-<div class="date" id="dateLabel"></div>
+<header>
+  <h1>Abs By AI — Daily To-Do</h1>
+  <p id="today-date"></p>
+</header>
 
 <div class="grid">
   <div class="column">
     <h2>Business</h2>
-    <div id="business-list"></div>
+    <ul class="task-list" id="business-list"></ul>
   </div>
   <div class="column">
     <h2>Personal</h2>
-    <div id="personal-list"></div>
+    <ul class="task-list" id="personal-list"></ul>
   </div>
 </div>
 
-<div class="sync-status" id="syncStatus">Syncing...</div>
+<div class="sync-bar"><span id="sync-status">Syncing…</span></div>
 
 <script>
-const TODAY = new Date().toISOString().slice(0,10);
-document.getElementById('dateLabel').textContent = new Date().toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+const TODAY = new Date().toISOString().slice(0, 10);
+document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
 
-const BUSINESS = [
+const BUSINESS_TASKS = [
   { text: "Add generation limiting feature to app", priority: "high" },
   { text: "Add pay for generations to app", priority: "high" },
   { text: "Add email capture to app", priority: "high" },
   { text: "Set up email autoresponder", priority: "mid" },
   { text: "Write outlines for test shoot", priority: "mid" },
   { text: "Fix Printify store name and picture issue", priority: "mid" },
-  { text: "Add shipping costs to app", priority: "low" },
+  { text: "Add shipping costs to app", priority: "mid" },
   { text: "Create workout program", priority: "low" },
 ];
 
-const PERSONAL = [
+const PERSONAL_TASKS = [
   { text: "Work out", priority: "high" },
   { text: "Supplements", priority: "high" },
   { text: "Shower", priority: "high" },
   { text: "Eat salad", priority: "high" },
-  { text: "Call fence company", priority: "mid" },
-  { text: "Call title company", priority: "mid" },
+  { text: "Call fence company", priority: "high" },
+  { text: "Call title company", priority: "high" },
   { text: "Make eyebrow threading appointment", priority: "mid" },
   { text: "Find best mechanic to fix car", priority: "mid" },
-  { text: "Take Audi to mechanic", priority: "low" },
+  { text: "Take Audi to mechanic", priority: "mid" },
   { text: "Take out trash", priority: "low" },
   { text: "Review dating apps", priority: "low" },
 ];
 
-let completed = new Set();
+let completedSet = new Set();
 
-function key(containerId, text) { return containerId + ':' + text; }
-function badgeClass(p) { return p === 'high' ? 'high' : p === 'mid' ? 'mid' : 'low'; }
+function key(cid, text) { return cid + ':' + text; }
 
-function renderList(containerId, items) {
-  const el = document.getElementById(containerId + '-list');
+function renderList(el, cid, tasks) {
   el.innerHTML = '';
-  items.forEach((item, i) => {
-    const k = key(containerId, item.text);
-    const div = document.createElement('div');
-    div.className = 'item' + (completed.has(k) ? ' checked' : '');
-    div.innerHTML = `
-      <div class="badge ${badgeClass(item.priority)}">${i+1}</div>
-      <div class="checkbox"></div>
-      <div class="label">${item.text}</div>
-    `;
-    div.addEventListener('click', () => toggle(containerId, item.text));
-    el.appendChild(div);
+  tasks.forEach((task, i) => {
+    const k = key(cid, task.text);
+    const li = document.createElement('li');
+    li.className = 'task-item' + (completedSet.has(k) ? ' done' : '');
+    li.innerHTML = '<div class="badge ' + task.priority + '">' + (i+1) + '</div><div class="task-text">' + task.text + '</div>';
+    li.addEventListener('click', () => {
+      completedSet.has(k) ? completedSet.delete(k) : completedSet.add(k);
+      renderAll();
+      syncToServer();
+    });
+    el.appendChild(li);
   });
 }
 
-function toggle(containerId, text) {
-  const k = key(containerId, text);
-  if (completed.has(k)) completed.delete(k); else completed.add(k);
-  renderList('business', BUSINESS);
-  renderList('personal', PERSONAL);
-  syncToServer();
+function renderAll() {
+  renderList(document.getElementById('business-list'), 'business', BUSINESS_TASKS);
+  renderList(document.getElementById('personal-list'), 'personal', PERSONAL_TASKS);
 }
 
 async function syncToServer() {
+  const s = document.getElementById('sync-status');
   try {
-    const res = await fetch('/api/todo-state', {
+    const r = await fetch('/api/todo-state', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ completed: [...completed], date: TODAY })
+      body: JSON.stringify({completed: Array.from(completedSet), date: TODAY})
     });
-    if (res.ok) document.getElementById('syncStatus').textContent = 'Saved ✓  ' + new Date().toLocaleTimeString();
+    if (!r.ok) throw new Error(r.status);
+    s.textContent = 'Saved ✓'; s.className = 'ok';
+    setTimeout(() => { s.textContent = ''; s.className = ''; }, 2500);
   } catch(e) {
-    document.getElementById('syncStatus').textContent = 'Offline';
+    s.textContent = 'Sync error'; s.className = 'err';
   }
 }
 
 async function loadFromServer() {
+  const s = document.getElementById('sync-status');
   try {
-    const res = await fetch('/api/todo-state');
-    const data = await res.json();
-    if (data.date === TODAY && Array.isArray(data.completed)) {
-      completed = new Set(data.completed);
-    }
-  } catch(e) {}
-  renderList('business', BUSINESS);
-  renderList('personal', PERSONAL);
-  document.getElementById('syncStatus').textContent = 'Loaded ✓';
+    const r = await fetch('/api/todo-state');
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    completedSet = new Set(Array.isArray(data.completed) ? data.completed : []);
+    s.textContent = ''; s.className = '';
+    renderAll();
+  } catch(e) {
+    s.textContent = 'Could not load state'; s.className = 'err';
+    renderAll();
+  }
 }
 
 loadFromServer();
