@@ -362,13 +362,20 @@
     .sleep-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+    }
+
+    .stage-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
     .sleep-label {
       font-size: 11px;
       color: var(--muted);
-      width: 40px;
+      width: 36px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -639,41 +646,72 @@
     <div class="card">
       <div class="card-title">Oura — Last Night's Sleep</div>
       <div id="oura-section">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-          <div>
-            <div class="score-badge">
-              <span class="score-big" id="sleep-score">—</span>
-              <span class="score-max">/100</span>
+
+        <!-- Circular score ring -->
+        <div style="display:flex;justify-content:center;margin-bottom:18px">
+          <div style="position:relative;width:150px;height:150px">
+            <svg viewBox="0 0 160 160" style="width:150px;height:150px">
+              <circle cx="80" cy="80" r="65" fill="none" stroke="#222" stroke-width="13"/>
+              <circle cx="80" cy="80" r="65" fill="none" stroke="#00c49a" stroke-width="13"
+                stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="408.4"
+                transform="rotate(-90 80 80)" id="oura-ring-arc"
+                style="transition:stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)"/>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
+              <div style="font-size:44px;font-weight:800;line-height:1;color:#00c49a" id="sleep-score">—</div>
+              <div style="font-size:10px;color:var(--muted);letter-spacing:0.1em;margin-top:3px">SLEEP SCORE</div>
             </div>
-            <div class="score-label">Sleep Score</div>
-          </div>
-          <div style="text-align:right">
-            <div style="font-size:20px;font-weight:600" id="sleep-total">—</div>
-            <div style="font-size:11px;color:var(--muted)">Total Sleep</div>
-            <div style="font-size:18px;font-weight:600;margin-top:4px" id="hrv-val">—</div>
-            <div style="font-size:11px;color:var(--muted)">HRV</div>
           </div>
         </div>
 
+        <!-- Key stats -->
+        <div style="display:flex;text-align:center;margin-bottom:18px;padding:0 4px">
+          <div style="flex:1;border-right:1px solid var(--border);padding:0 8px">
+            <div style="font-size:19px;font-weight:700" id="sleep-total">—</div>
+            <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px">Total Sleep</div>
+          </div>
+          <div style="flex:1;border-right:1px solid var(--border);padding:0 8px">
+            <div style="font-size:19px;font-weight:700" id="hrv-val">—</div>
+            <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px">Avg HRV</div>
+          </div>
+          <div style="flex:1;padding:0 8px">
+            <div style="font-size:19px;font-weight:700" id="readiness-val">—</div>
+            <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px">Readiness</div>
+          </div>
+        </div>
+
+        <!-- Hypnogram stacked bar -->
+        <div style="display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:14px">
+          <div id="hypo-rem"   style="background:#9b59d6;flex:0;transition:flex 0.9s ease"></div>
+          <div id="hypo-deep"  style="background:#4f85e5;flex:0;transition:flex 0.9s ease"></div>
+          <div id="hypo-light" style="background:#5cb8c4;flex:0;transition:flex 0.9s ease"></div>
+          <div id="hypo-awake" style="background:#f0845a;flex:0;transition:flex 0.9s ease"></div>
+        </div>
+
+        <!-- Stage breakdown -->
         <div class="sleep-stages" id="sleep-stages">
           <div class="sleep-row">
+            <div class="stage-dot" style="background:#9b59d6"></div>
             <div class="sleep-label">REM</div>
-            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-rem" style="width:0%;background:#a855f7"></div></div>
+            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-rem" style="width:0%;background:#9b59d6"></div></div>
             <div class="sleep-val" id="val-rem">—</div>
           </div>
           <div class="sleep-row">
-            <div class="sleep-label">Deep</div>
-            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-deep" style="width:0%;background:#3b82f6"></div></div>
+            <div class="stage-dot" style="background:#4f85e5"></div>
+            <div class="sleep-label">DEEP</div>
+            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-deep" style="width:0%;background:#4f85e5"></div></div>
             <div class="sleep-val" id="val-deep">—</div>
           </div>
           <div class="sleep-row">
-            <div class="sleep-label">Light</div>
-            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-light" style="width:0%;background:#6b7280"></div></div>
+            <div class="stage-dot" style="background:#5cb8c4"></div>
+            <div class="sleep-label">LIGHT</div>
+            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-light" style="width:0%;background:#5cb8c4"></div></div>
             <div class="sleep-val" id="val-light">—</div>
           </div>
           <div class="sleep-row">
-            <div class="sleep-label">Awake</div>
-            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-awake" style="width:0%;background:#ef4444"></div></div>
+            <div class="stage-dot" style="background:#f0845a"></div>
+            <div class="sleep-label">AWAKE</div>
+            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-awake" style="width:0%;background:#f0845a"></div></div>
             <div class="sleep-val" id="val-awake">—</div>
           </div>
         </div>
@@ -904,10 +942,10 @@ function fmtMins(m) {
 }
 
 function scoreColor(s) {
-  if (s >= 85) return 'var(--green)';
-  if (s >= 70) return 'var(--blue)';
-  if (s >= 55) return 'var(--yellow)';
-  return 'var(--red)';
+  if (s >= 85) return '#21d07a';  // Oura optimal green
+  if (s >= 70) return '#00c49a';  // Oura good teal
+  if (s >= 55) return '#f5a623';  // Oura fair orange
+  return '#ef4444';               // poor red
 }
 
 function recoveryClass(s) {
@@ -1034,14 +1072,21 @@ function renderNews(items) {
 function renderOura(data) {
   const notice = document.getElementById('oura-notice');
   const pill   = document.getElementById('recovery-pill');
+  const arc    = document.getElementById('oura-ring-arc');
+  const scoreEl = document.getElementById('sleep-score');
 
   if (!data) {
-    document.getElementById('sleep-score').textContent = '—';
+    scoreEl.textContent = '—';
+    scoreEl.style.color = 'var(--muted)';
     document.getElementById('sleep-total').textContent = '—';
     document.getElementById('hrv-val').textContent = '—';
+    document.getElementById('readiness-val').textContent = '—';
     ['rem','deep','light','awake'].forEach(s => {
       document.getElementById(`val-${s}`).textContent = '—';
+      document.getElementById(`bar-${s}`).style.width = '0%';
+      document.getElementById(`hypo-${s}`).style.flex = '0';
     });
+    if (arc) { arc.style.strokeDashoffset = '408.4'; arc.style.stroke = '#333'; }
     pill.textContent = '— Sleep data unavailable';
     notice.style.display = 'block';
     const rec = workoutRec(null, null);
@@ -1051,19 +1096,36 @@ function renderOura(data) {
     return;
   }
 
-  const { score, total_sleep, hrv_avg, rem, deep, light, awake } = data;
+  const { score, total_sleep, hrv_avg, rem, deep, light, awake, readiness } = data;
   const totalMins = total_sleep || 0;
+  const color = scoreColor(score);
 
-  document.getElementById('sleep-score').textContent = score ?? '—';
-  document.getElementById('sleep-score').style.color = scoreColor(score);
+  // Animate ring
+  if (arc) {
+    arc.style.stroke = color;
+    setTimeout(() => {
+      arc.style.strokeDashoffset = score ? (408.4 * (1 - score / 100)).toString() : '408.4';
+    }, 120);
+  }
+  scoreEl.textContent = score ?? '—';
+  scoreEl.style.color = color;
+
   document.getElementById('sleep-total').textContent = fmtMins(totalMins);
-  document.getElementById('hrv-val').textContent = hrv_avg ? `${hrv_avg} ms` : '—';
+  document.getElementById('hrv-val').textContent = hrv_avg ? `${Math.round(hrv_avg)} ms` : '—';
+  const readinessEl = document.getElementById('readiness-val');
+  readinessEl.textContent = readiness ?? '—';
+  if (readiness) readinessEl.style.color = scoreColor(readiness);
 
+  // Sleep stages + hypnogram
   const stages = { rem, deep, light, awake };
+  const totalStage = (rem||0) + (deep||0) + (light||0) + (awake||0) || totalMins || 1;
   Object.entries(stages).forEach(([s, m]) => {
     document.getElementById(`val-${s}`).textContent = fmtMins(m);
-    const pct = totalMins > 0 ? Math.min(100, (m / totalMins) * 100) : 0;
+    const pct = Math.min(100, ((m||0) / totalMins) * 100);
     document.getElementById(`bar-${s}`).style.width = pct + '%';
+    // Hypnogram uses proportion of total stage time
+    const hypoFlex = ((m||0) / totalStage * 100).toFixed(1);
+    setTimeout(() => { document.getElementById(`hypo-${s}`).style.flex = hypoFlex; }, 120);
   });
 
   pill.className = `recovery-pill ${recoveryClass(score)}`;
