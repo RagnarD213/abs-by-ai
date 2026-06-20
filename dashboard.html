@@ -33,7 +33,7 @@
       overflow-x: hidden;
     }
 
-    /* ── HEADER ── */
+    /* ââ HEADER ââ */
     .header {
       display: flex;
       align-items: center;
@@ -88,7 +88,7 @@
       margin-top: 2px;
     }
 
-    /* ── GRID ── */
+    /* ââ GRID ââ */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -136,7 +136,7 @@
     .col-health .dot { background: var(--health); }
     .col-rel .dot    { background: var(--rel); }
 
-    /* ── CARDS ── */
+    /* ââ CARDS ââ */
     .card {
       background: var(--surface2);
       border: 1px solid var(--border);
@@ -154,7 +154,7 @@
       margin-bottom: 10px;
     }
 
-    /* ── METRICS ROW ── */
+    /* ââ METRICS ROW ââ */
     .metrics {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -193,7 +193,7 @@
     .down { color: var(--red); }
     .flat { color: var(--muted); }
 
-    /* ── TODO LIST ── */
+    /* ââ TODO LIST ââ */
     .todo-list {
       list-style: none;
     }
@@ -228,7 +228,7 @@
     }
 
     .todo-item.done .todo-cb::after {
-      content: '✓';
+      content: 'â';
       font-size: 10px;
       color: #000;
       font-weight: 700;
@@ -259,7 +259,7 @@
     .tag-med    { background: rgba(234,179,8,0.15);   color: var(--yellow); }
     .tag-low    { background: rgba(102,102,102,0.15); color: var(--muted); }
 
-    /* ── CALENDAR EVENTS ── */
+    /* ââ CALENDAR EVENTS ââ */
     .event {
       display: flex;
       gap: 12px;
@@ -299,7 +299,7 @@
       margin-top: 2px;
     }
 
-    /* ── NEWS ── */
+    /* ââ NEWS ââ */
     .news-item {
       padding: 8px 0;
       border-bottom: 1px solid var(--border);
@@ -322,7 +322,7 @@
       margin-top: 3px;
     }
 
-    /* ── HEALTH RINGS ── */
+    /* ââ HEALTH RINGS ââ */
     .rings {
       display: flex;
       justify-content: space-around;
@@ -352,7 +352,7 @@
       text-align: center;
     }
 
-    /* ── SLEEP BARS ── */
+    /* ââ SLEEP BARS ââ */
     .sleep-stages {
       display: flex;
       flex-direction: column;
@@ -401,7 +401,7 @@
       text-align: right;
     }
 
-    /* ── SCORE BADGE ── */
+    /* ââ SCORE BADGE ââ */
     .score-badge {
       display: inline-flex;
       align-items: baseline;
@@ -426,7 +426,7 @@
       margin-top: 4px;
     }
 
-    /* ── RECOVERY STATUS ── */
+    /* ââ RECOVERY STATUS ââ */
     .recovery-pill {
       display: inline-flex;
       align-items: center;
@@ -443,7 +443,7 @@
     .recovery-moderate  { background: rgba(234,179,8,0.15);  color: var(--yellow);border: 1px solid rgba(234,179,8,0.3); }
     .recovery-poor      { background: rgba(239,68,68,0.15);  color: var(--red);   border: 1px solid rgba(239,68,68,0.3); }
 
-    /* ── OURA CONTRIBUTORS ── */
+    /* ââ OURA CONTRIBUTORS ââ */
     .contrib-row {
       margin-bottom: 14px;
     }
@@ -484,7 +484,7 @@
       transition: width 0.9s cubic-bezier(0.4,0,0.2,1);
     }
 
-    /* ── SETUP NOTICE ── */
+    /* ââ SETUP NOTICE ââ */
     .setup-notice {
       background: rgba(59,130,246,0.08);
       border: 1px solid rgba(59,130,246,0.2);
@@ -500,7 +500,7 @@
       text-decoration: none;
     }
 
-    /* ── LOADING / ERROR ── */
+    /* ââ LOADING / ERROR ââ */
     .loading {
       font-size: 12px;
       color: var(--muted);
@@ -517,13 +517,13 @@
       50% { opacity: 0.4; }
     }
 
-    /* ── DATE BADGE ── */
+    /* ââ DATE BADGE ââ */
     .date-block {
       display: flex;
       flex-direction: column;
     }
 
-    /* ── REFRESH BTN ── */
+    /* ââ REFRESH BTN ââ */
     .refresh-btn {
       background: none;
       border: 1px solid var(--border);
@@ -540,14 +540,14 @@
       color: var(--text);
     }
 
-    /* ── EMPTY STATE ── */
+    /* ââ EMPTY STATE ââ */
     .empty {
       font-size: 12px;
       color: var(--muted);
       padding: 12px 0;
     }
 
-    /* ── WORKOUT SUGGESTION ── */
+    /* ââ WORKOUT SUGGESTION ââ */
     .workout-card {
       display: flex;
       align-items: center;
@@ -594,26 +594,26 @@
 </head>
 <body>
 
-<!-- ════════════════════════ HEADER ════════════════════════ -->
+<!-- ââââââââââââââââââââââââ HEADER ââââââââââââââââââââââââ -->
 <div class="header">
   <div class="header-left">
     <div class="date-block">
       <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Good Morning, Dan</div>
-      <div class="date" id="dateDisplay">—</div>
+      <div class="date" id="dateDisplay">â</div>
     </div>
   </div>
   <div class="header-center">
-    <div class="time" id="clockDisplay">—</div>
+    <div class="time" id="clockDisplay">â</div>
   </div>
   <div class="header-right">
-    <button class="refresh-btn" onclick="loadData()">↺ Refresh</button>
+    <button class="refresh-btn" onclick="loadData()">âº Refresh</button>
   </div>
 </div>
 
-<!-- ════════════════════════ GRID ════════════════════════ -->
+<!-- ââââââââââââââââââââââââ GRID ââââââââââââââââââââââââ -->
 <div class="grid">
 
-  <!-- ══ MONEY COLUMN ══ -->
+  <!-- ââ MONEY COLUMN ââ -->
   <div class="col col-money">
     <div class="col-header">
       <div class="dot"></div>
@@ -622,21 +622,21 @@
 
     <!-- App Metrics -->
     <div class="card">
-      <div class="card-title">Abs By AI — App Metrics</div>
+      <div class="card-title">Abs By AI â App Metrics</div>
       <div id="posthog-metrics">
         <div class="metrics">
           <div class="metric">
-            <div class="val up" id="metric-dau">—</div>
+            <div class="val up" id="metric-dau">â</div>
             <div class="lbl">DAU</div>
             <div class="chg" id="metric-dau-chg"></div>
           </div>
           <div class="metric">
-            <div class="val up" id="metric-signups">—</div>
+            <div class="val up" id="metric-signups">â</div>
             <div class="lbl">Signups</div>
             <div class="chg" id="metric-signups-chg"></div>
           </div>
           <div class="metric">
-            <div class="val" id="metric-images">—</div>
+            <div class="val" id="metric-images">â</div>
             <div class="lbl">Images</div>
             <div class="chg" id="metric-images-chg"></div>
           </div>
@@ -651,7 +651,7 @@
     <div class="card">
       <div class="card-title">Top Business To-Dos</div>
       <ul class="todo-list" id="business-todos">
-        <li class="loading pulse">Loading…</li>
+        <li class="loading pulse">Loadingâ¦</li>
       </ul>
     </div>
 
@@ -659,7 +659,7 @@
     <div class="card">
       <div class="card-title">Today's Schedule</div>
       <div id="business-calendar">
-        <div class="loading pulse">Loading…</div>
+        <div class="loading pulse">Loadingâ¦</div>
       </div>
       <div id="calendar-notice" class="setup-notice" style="display:none;margin-top:8px">
         Google Calendar not connected. Add <code>GOOGLE_CLIENT_ID</code>, <code>GOOGLE_CLIENT_SECRET</code>, and <code>GOOGLE_REFRESH_TOKEN</code> to enable.
@@ -670,13 +670,13 @@
     <div class="card">
       <div class="card-title">Industry News</div>
       <div id="news-list">
-        <div class="loading pulse">Loading…</div>
+        <div class="loading pulse">Loadingâ¦</div>
       </div>
     </div>
 
   </div>
 
-  <!-- ══ HEALTH COLUMN ══ -->
+  <!-- ââ HEALTH COLUMN ââ -->
   <div class="col col-health">
     <div class="col-header">
       <div class="dot"></div>
@@ -685,7 +685,7 @@
 
     <!-- Sleep Score -->
     <div class="card">
-      <div class="card-title">Oura — Last Night's Sleep</div>
+      <div class="card-title">Oura â Last Night's Sleep</div>
       <div id="oura-section">
 
         <!-- Score ring + status badge -->
@@ -699,25 +699,25 @@
                 style="transition:stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)"/>
             </svg>
             <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
-              <div style="font-size:28px;font-weight:800;line-height:1;color:#00c49a" id="sleep-score">—</div>
+              <div style="font-size:28px;font-weight:800;line-height:1;color:#00c49a" id="sleep-score">â</div>
               <div style="font-size:8px;color:var(--muted);letter-spacing:0.08em;margin-top:1px">/100</div>
             </div>
           </div>
           <div style="flex:1;min-width:0">
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;margin-bottom:4px" id="oura-status-badge">—</div>
-            <div style="font-size:17px;font-weight:700;line-height:1.25;margin-bottom:6px" id="oura-title">—</div>
-            <div style="font-size:12px;color:var(--muted);line-height:1.45" id="oura-subtitle">—</div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;margin-bottom:4px" id="oura-status-badge">â</div>
+            <div style="font-size:17px;font-weight:700;line-height:1.25;margin-bottom:6px" id="oura-title">â</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.45" id="oura-subtitle">â</div>
           </div>
         </div>
 
         <!-- HRV + Readiness mini row -->
         <div style="display:flex;gap:0;margin-bottom:18px;border:1px solid var(--border);border-radius:8px;overflow:hidden">
           <div style="flex:1;padding:8px 10px;border-right:1px solid var(--border)">
-            <div style="font-size:16px;font-weight:700" id="hrv-val">—</div>
+            <div style="font-size:16px;font-weight:700" id="hrv-val">â</div>
             <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px">Avg HRV</div>
           </div>
           <div style="flex:1;padding:8px 10px">
-            <div style="font-size:16px;font-weight:700" id="readiness-val">—</div>
+            <div style="font-size:16px;font-weight:700" id="readiness-val">â</div>
             <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px">Readiness</div>
           </div>
         </div>
@@ -729,7 +729,7 @@
           <div class="contrib-row">
             <div class="contrib-top">
               <span class="contrib-name">Total sleep</span>
-              <span class="contrib-val" id="c-total-sleep">—</span>
+              <span class="contrib-val" id="c-total-sleep">â</span>
             </div>
             <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-total-sleep"></div></div>
           </div>
@@ -737,7 +737,7 @@
           <div class="contrib-row">
             <div class="contrib-top">
               <span class="contrib-name">Efficiency</span>
-              <span class="contrib-val" id="c-efficiency">—</span>
+              <span class="contrib-val" id="c-efficiency">â</span>
             </div>
             <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-efficiency"></div></div>
           </div>
@@ -745,7 +745,7 @@
           <div class="contrib-row">
             <div class="contrib-top">
               <span class="contrib-name">Restfulness</span>
-              <span class="contrib-val" id="c-restfulness">—</span>
+              <span class="contrib-val" id="c-restfulness">â</span>
             </div>
             <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-restfulness"></div></div>
           </div>
@@ -753,7 +753,7 @@
           <div class="contrib-row">
             <div class="contrib-top">
               <span class="contrib-name">REM sleep</span>
-              <span class="contrib-val" id="c-rem">—</span>
+              <span class="contrib-val" id="c-rem">â</span>
             </div>
             <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-rem"></div></div>
           </div>
@@ -761,7 +761,7 @@
           <div class="contrib-row">
             <div class="contrib-top">
               <span class="contrib-name">Deep sleep</span>
-              <span class="contrib-val" id="c-deep">—</span>
+              <span class="contrib-val" id="c-deep">â</span>
             </div>
             <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-deep"></div></div>
           </div>
@@ -769,7 +769,7 @@
           <div class="contrib-row">
             <div class="contrib-top">
               <span class="contrib-name">Latency</span>
-              <span class="contrib-val" id="c-latency">—</span>
+              <span class="contrib-val" id="c-latency">â</span>
             </div>
             <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-latency"></div></div>
           </div>
@@ -777,7 +777,7 @@
           <div class="contrib-row" style="margin-bottom:0">
             <div class="contrib-top">
               <span class="contrib-name">Timing</span>
-              <span class="contrib-val" id="c-timing">—</span>
+              <span class="contrib-val" id="c-timing">â</span>
             </div>
             <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-timing"></div></div>
           </div>
@@ -805,7 +805,7 @@
 
     <!-- Apple Watch Rings -->
     <div class="card">
-      <div class="card-title">Apple Watch — Today's Activity</div>
+      <div class="card-title">Apple Watch â Today's Activity</div>
       <div id="rings-section">
         <div class="rings">
           <div class="ring-wrap">
@@ -816,7 +816,7 @@
                 stroke-linecap="round" id="ring-move"
                 style="transition:stroke-dashoffset 1s ease"/>
             </svg>
-            <div class="ring-val" id="ring-move-val" style="color:#ef4444">—<br><span style="font-size:9px;color:var(--muted)">/ — CAL</span></div>
+            <div class="ring-val" id="ring-move-val" style="color:#ef4444">â<br><span style="font-size:9px;color:var(--muted)">/ â CAL</span></div>
             <div class="ring-label">Move</div>
           </div>
           <div class="ring-wrap">
@@ -827,7 +827,7 @@
                 stroke-linecap="round" id="ring-exercise"
                 style="transition:stroke-dashoffset 1s ease"/>
             </svg>
-            <div class="ring-val" id="ring-exercise-val" style="color:#22c55e">— min<br><span style="font-size:9px;color:var(--muted)">/ 30 min</span></div>
+            <div class="ring-val" id="ring-exercise-val" style="color:#22c55e">â min<br><span style="font-size:9px;color:var(--muted)">/ 30 min</span></div>
             <div class="ring-label">Exercise</div>
           </div>
           <div class="ring-wrap">
@@ -838,22 +838,22 @@
                 stroke-linecap="round" id="ring-stand"
                 style="transition:stroke-dashoffset 1s ease"/>
             </svg>
-            <div class="ring-val" id="ring-stand-val" style="color:#00bcd4">— hrs<br><span style="font-size:9px;color:var(--muted)">/ 12 hrs</span></div>
+            <div class="ring-val" id="ring-stand-val" style="color:#00bcd4">â hrs<br><span style="font-size:9px;color:var(--muted)">/ 12 hrs</span></div>
             <div class="ring-label">Stand</div>
           </div>
         </div>
 
         <div id="watch-stats" style="display:flex;justify-content:space-around;margin-top:8px">
           <div style="text-align:center">
-            <div style="font-size:16px;font-weight:600" id="steps-val">—</div>
+            <div style="font-size:16px;font-weight:600" id="steps-val">â</div>
             <div style="font-size:10px;color:var(--muted);text-transform:uppercase">Steps</div>
           </div>
           <div style="text-align:center">
-            <div style="font-size:16px;font-weight:600" id="workout-min">—</div>
+            <div style="font-size:16px;font-weight:600" id="workout-min">â</div>
             <div style="font-size:10px;color:var(--muted);text-transform:uppercase">Workout min</div>
           </div>
           <div style="font-size:16px;font-weight:600;text-align:center">
-            <div id="resting-hr">—</div>
+            <div id="resting-hr">â</div>
             <div style="font-size:10px;color:var(--muted);text-transform:uppercase">Resting HR</div>
           </div>
         </div>
@@ -869,9 +869,9 @@
     <div class="card">
       <div class="card-title">Workout Recommendation</div>
       <div class="workout-card" id="workout-rec">
-        <div class="workout-icon">🏋️</div>
+        <div class="workout-icon">ðï¸</div>
         <div class="workout-text">
-          <div class="name" id="workout-name">Loading…</div>
+          <div class="name" id="workout-name">Loadingâ¦</div>
           <div class="detail" id="workout-detail"></div>
         </div>
       </div>
@@ -879,7 +879,7 @@
 
   </div>
 
-  <!-- ══ RELATIONSHIPS COLUMN ══ -->
+  <!-- ââ RELATIONSHIPS COLUMN ââ -->
   <div class="col col-rel">
     <div class="col-header">
       <div class="dot"></div>
@@ -890,7 +890,7 @@
     <div class="card">
       <div class="card-title">Personal To-Dos</div>
       <ul class="todo-list" id="personal-todos">
-        <li class="loading pulse">Loading…</li>
+        <li class="loading pulse">Loadingâ¦</li>
       </ul>
     </div>
 
@@ -898,7 +898,7 @@
     <div class="card">
       <div class="card-title">Today's Dates & Plans</div>
       <div id="rel-calendar">
-        <div class="loading pulse">Loading…</div>
+        <div class="loading pulse">Loadingâ¦</div>
       </div>
       <div id="rel-calendar-notice" class="setup-notice" style="display:none;margin-top:8px">
         Connect Google Calendar to pull your dating app appointments automatically.
@@ -911,15 +911,15 @@
       <div id="pipeline-section">
         <div style="display:flex;justify-content:space-between;margin-bottom:8px">
           <div style="text-align:center;flex:1">
-            <div style="font-size:22px;font-weight:700;color:var(--rel)" id="pipeline-new">—</div>
+            <div style="font-size:22px;font-weight:700;color:var(--rel)" id="pipeline-new">â</div>
             <div style="font-size:10px;color:var(--muted);text-transform:uppercase">New matches</div>
           </div>
           <div style="text-align:center;flex:1">
-            <div style="font-size:22px;font-weight:700;color:var(--orange)" id="pipeline-convos">—</div>
+            <div style="font-size:22px;font-weight:700;color:var(--orange)" id="pipeline-convos">â</div>
             <div style="font-size:10px;color:var(--muted);text-transform:uppercase">Active convos</div>
           </div>
           <div style="text-align:center;flex:1">
-            <div style="font-size:22px;font-weight:700;color:var(--green)" id="pipeline-dates">—</div>
+            <div style="font-size:22px;font-weight:700;color:var(--green)" id="pipeline-dates">â</div>
             <div style="font-size:10px;color:var(--muted);text-transform:uppercase">Scheduled</div>
           </div>
         </div>
@@ -937,7 +937,7 @@
 
 </div>
 
-<!-- ══ PIPELINE MODAL ══ -->
+<!-- ââ PIPELINE MODAL ââ -->
 <div id="pipeline-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center">
   <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:24px;width:280px">
     <div style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Update Pipeline</div>
@@ -960,7 +960,7 @@
 </div>
 
 <script>
-// ── CLOCK ──
+// ââ CLOCK ââ
 function updateClock() {
   const now = new Date();
   const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -976,7 +976,7 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 5000);
 
-// ── PIPELINE LOCAL STATE ──
+// ââ PIPELINE LOCAL STATE ââ
 let pipeline = JSON.parse(localStorage.getItem('pipeline') || '{"new":0,"convos":0,"dates":0}');
 function renderPipeline() {
   document.getElementById('pipeline-new').textContent   = pipeline.new;
@@ -1003,7 +1003,7 @@ function closePipelineModal() {
   document.getElementById('pipeline-modal').style.display = 'none';
 }
 
-// ── TODO CHECK ──
+// ââ TODO CHECK ââ
 const checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
 function toggleTodo(id, el) {
   if (checkedTodos.has(id)) { checkedTodos.delete(id); el.classList.remove('done'); }
@@ -1011,9 +1011,9 @@ function toggleTodo(id, el) {
   localStorage.setItem('checkedTodos', JSON.stringify([...checkedTodos]));
 }
 
-// ── HELPERS ──
+// ââ HELPERS ââ
 function fmtMins(m) {
-  if (!m || m <= 0) return '—';
+  if (!m || m <= 0) return 'â';
   return `${Math.floor(m/60)}h ${m%60}m`;
 }
 
@@ -1032,18 +1032,18 @@ function recoveryClass(s) {
 }
 
 function recoveryLabel(s) {
-  if (s >= 85) return '🟢 Optimal — Push Hard Today';
-  if (s >= 70) return '🔵 Good — Normal Training';
-  if (s >= 55) return '🟡 Moderate — Take It Easy';
-  return '🔴 Poor — Rest or Light Movement';
+  if (s >= 85) return 'ð¢ Optimal â Push Hard Today';
+  if (s >= 70) return 'ðµ Good â Normal Training';
+  if (s >= 55) return 'ð¡ Moderate â Take It Easy';
+  return 'ð´ Poor â Rest or Light Movement';
 }
 
 function workoutRec(sleepScore, hrvVal) {
-  if (!sleepScore) return { icon: '🏋️', name: 'Check Oura for recommendation', detail: 'Sleep data needed' };
-  if (sleepScore >= 85) return { icon: '🏋️', name: 'Heavy Lift or HIIT', detail: `Recovery optimal (${sleepScore}/100) — great day to train hard` };
-  if (sleepScore >= 70) return { icon: '🚴', name: 'Moderate Training', detail: `Good recovery (${sleepScore}/100) — steady cardio or moderate lifts` };
-  if (sleepScore >= 55) return { icon: '🧘', name: 'Light Movement', detail: `Recovery moderate (${sleepScore}/100) — walk, stretch, or yoga` };
-  return { icon: '😴', name: 'Rest Day', detail: `Poor recovery (${sleepScore}/100) — prioritize rest and nutrition` };
+  if (!sleepScore) return { icon: 'ðï¸', name: 'Check Oura for recommendation', detail: 'Sleep data needed' };
+  if (sleepScore >= 85) return { icon: 'ðï¸', name: 'Heavy Lift or HIIT', detail: `Recovery optimal (${sleepScore}/100) â great day to train hard` };
+  if (sleepScore >= 70) return { icon: 'ð´', name: 'Moderate Training', detail: `Good recovery (${sleepScore}/100) â steady cardio or moderate lifts` };
+  if (sleepScore >= 55) return { icon: 'ð§', name: 'Light Movement', detail: `Recovery moderate (${sleepScore}/100) â walk, stretch, or yoga` };
+  return { icon: 'ð´', name: 'Rest Day', detail: `Poor recovery (${sleepScore}/100) â prioritize rest and nutrition` };
 }
 
 function animateRing(id, pct) {
@@ -1053,19 +1053,19 @@ function animateRing(id, pct) {
   if (el) setTimeout(() => el.style.strokeDashoffset = offset, 100);
 }
 
-// ── RENDER FUNCTIONS ──
+// ââ RENDER FUNCTIONS ââ
 function renderPosthog(data) {
   if (!data) {
     document.getElementById('posthog-notice').style.display = 'block';
-    document.getElementById('metric-dau').textContent       = '—';
-    document.getElementById('metric-signups').textContent   = '—';
-    document.getElementById('metric-images').textContent    = '—';
+    document.getElementById('metric-dau').textContent       = 'â';
+    document.getElementById('metric-signups').textContent   = 'â';
+    document.getElementById('metric-images').textContent    = 'â';
     return;
   }
   const { dau, dau_chg, signups, signups_chg, images, images_chg } = data;
-  document.getElementById('metric-dau').textContent = dau ?? '—';
-  document.getElementById('metric-signups').textContent = signups ?? '—';
-  document.getElementById('metric-images').textContent = images ?? '—';
+  document.getElementById('metric-dau').textContent = dau ?? 'â';
+  document.getElementById('metric-signups').textContent = signups ?? 'â';
+  document.getElementById('metric-images').textContent = images ?? 'â';
 
   if (dau_chg != null) {
     const el = document.getElementById('metric-dau-chg');
@@ -1140,7 +1140,7 @@ function renderNews(items) {
   el.innerHTML = items.map(n => `
     <div class="news-item" onclick="window.open('${n.url}','_blank')">
       <div class="news-title">${n.title}</div>
-      <div class="news-source">${n.source} · ${n.age}</div>
+      <div class="news-source">${n.source} Â· ${n.age}</div>
     </div>
   `).join('');
 }
@@ -1154,7 +1154,7 @@ function contribColor(s) {
 }
 
 function contribLabel(s) {
-  if (!s) return '—';
+  if (!s) return 'â';
   if (s >= 80) return 'Optimal';
   if (s >= 60) return 'Good';
   if (s >= 40) return 'Fair';
@@ -1176,10 +1176,10 @@ function setContrib(id, val, score) {
 
 function sleepSummary(score, totalMins) {
   const t = fmtMins(totalMins);
-  if (!score) return ['—', ''];
+  if (!score) return ['â', ''];
   if (score >= 85) return ['Excellent recovery', `You got ${t} of high-quality sleep. Your body is primed to perform today.`];
-  if (score >= 70) return ['A good night\'s sleep', `You slept ${t} last night. Solid recovery — you should feel good today.`];
-  if (score >= 55) return ['Fair night\'s sleep', `You slept ${t} last night. Not your best — take it easy on intense workouts.`];
+  if (score >= 70) return ['A good night\'s sleep', `You slept ${t} last night. Solid recovery â you should feel good today.`];
+  if (score >= 55) return ['Fair night\'s sleep', `You slept ${t} last night. Not your best â take it easy on intense workouts.`];
   return ['Rough night', `Only ${t} of sleep. Prioritize rest today and skip hard training.`];
 }
 
@@ -1189,17 +1189,17 @@ function renderOura(data) {
   const scoreEl = document.getElementById('sleep-score');
 
   if (!data) {
-    scoreEl.textContent = '—';
+    scoreEl.textContent = 'â';
     scoreEl.style.color = 'var(--muted)';
     if (arc) { arc.style.strokeDashoffset = '263.9'; arc.style.stroke = '#333'; }
-    document.getElementById('oura-status-badge').textContent = '—';
+    document.getElementById('oura-status-badge').textContent = 'â';
     document.getElementById('oura-status-badge').style.color = 'var(--muted)';
     document.getElementById('oura-title').textContent = 'No sleep data';
     document.getElementById('oura-subtitle').textContent = '';
-    document.getElementById('hrv-val').textContent = '—';
-    document.getElementById('readiness-val').textContent = '—';
+    document.getElementById('hrv-val').textContent = 'â';
+    document.getElementById('readiness-val').textContent = 'â';
     ['total-sleep','efficiency','restfulness','rem','deep','latency','timing'].forEach(id => {
-      const v = document.getElementById(`c-${id}`); if (v) v.textContent = '—';
+      const v = document.getElementById(`c-${id}`); if (v) v.textContent = 'â';
       const b = document.getElementById(`cb-${id}`); if (b) b.style.width = '0%';
     });
     notice.style.display = 'block';
@@ -1223,7 +1223,7 @@ function renderOura(data) {
       arc.style.strokeDashoffset = score ? (263.9 * (1 - score / 100)).toString() : '263.9';
     }, 120);
   }
-  scoreEl.textContent = score ?? '—';
+  scoreEl.textContent = score ?? 'â';
   scoreEl.style.color = color;
 
   // Status badge + title
@@ -1239,9 +1239,9 @@ function renderOura(data) {
   document.getElementById('oura-subtitle').textContent = subtitle;
 
   // HRV + Readiness
-  document.getElementById('hrv-val').textContent = hrv_avg ? `${Math.round(hrv_avg)} ms` : '—';
+  document.getElementById('hrv-val').textContent = hrv_avg ? `${Math.round(hrv_avg)} ms` : 'â';
   const readinessEl = document.getElementById('readiness-val');
-  readinessEl.textContent = readiness ?? '—';
+  readinessEl.textContent = readiness ?? 'â';
   if (readiness) readinessEl.style.color = scoreColor(readiness);
 
   // Contributors
@@ -1249,11 +1249,11 @@ function renderOura(data) {
   const deepPct = totalMins > 0 ? Math.round((deep||0) / totalMins * 100) : 0;
 
   setContrib('total-sleep', fmtMins(totalMins),       c.total_sleep);
-  setContrib('efficiency',  efficiency ? `${efficiency}%` : '—', c.efficiency);
+  setContrib('efficiency',  efficiency ? `${efficiency}%` : 'â', c.efficiency);
   setContrib('restfulness', contribLabel(c.restfulness), c.restfulness);
   setContrib('rem',         `${fmtMins(rem)}, ${remPct}%`,  c.rem_sleep);
   setContrib('deep',        `${fmtMins(deep)}, ${deepPct}%`, c.deep_sleep);
-  setContrib('latency',     latency_mins ? `${latency_mins}m` : '—', c.latency);
+  setContrib('latency',     latency_mins ? `${latency_mins}m` : 'â', c.latency);
   setContrib('timing',      contribLabel(c.timing),     c.timing);
 
   // Workout card (separate card below)
@@ -1273,7 +1273,7 @@ function renderWatch(data) {
   }
   const { move_cal, move_goal, exercise_min, stand_hrs, steps, workout_min, resting_hr } = data;
   const movePct     = move_goal > 0 ? Math.min(100, (move_cal / move_goal) * 100) : 0;
-  const exercisePct = Math.min(100, (exercise_min / 30) * 100);
+  const exercisePct = exercise_min != null ? Math.min(100, (exercise_min / 30) * 100) : 0;
   const standPct    = Math.min(100, (stand_hrs / 12) * 100);
 
   animateRing('ring-move',     movePct);
@@ -1283,18 +1283,18 @@ function renderWatch(data) {
   document.getElementById('ring-move-val').innerHTML =
     `${Math.round(movePct)}%<br><span style="font-size:9px;color:var(--muted)">${move_cal} / ${move_goal} CAL</span>`;
   document.getElementById('ring-exercise-val').innerHTML =
-    `${exercise_min} min<br><span style="font-size:9px;color:var(--muted)">/ 30 min</span>`;
+    `${exercise_min != null ? exercise_min + ' min' : '—'}<br><span style="font-size:9px;color:var(--muted)">/ 30 min</span>`;
   document.getElementById('ring-stand-val').innerHTML =
     `${stand_hrs} hrs<br><span style="font-size:9px;color:var(--muted)">/ 12 hrs</span>`;
 
-  document.getElementById('steps-val').textContent      = steps ? steps.toLocaleString() : '—';
-  document.getElementById('workout-min').textContent    = workout_min ?? '—';
-  document.getElementById('resting-hr').textContent     = resting_hr ? `${resting_hr} bpm` : '—';
+  document.getElementById('steps-val').textContent      = steps ? steps.toLocaleString() : 'â';
+  document.getElementById('workout-min').textContent    = workout_min ?? 'â';
+  document.getElementById('resting-hr').textContent     = resting_hr ? `${resting_hr} bpm` : 'â';
 
   notice.style.display = 'none';
 }
 
-// ── MAIN LOAD ──
+// ââ MAIN LOAD ââ
 async function loadData() {
   try {
     const res = await fetch('/api/morning-data');
