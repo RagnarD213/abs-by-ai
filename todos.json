@@ -1,8 +1,1 @@
-{
-  "business": [
-    { "text": "Add your business to-dos here", "priority": "high" }
-  ],
-  "personal": [
-    { "text": "Add your personal to-dos here", "priority": "med" }
-  ]
-}
+{"business":[],"health":[],"personal":[]}
