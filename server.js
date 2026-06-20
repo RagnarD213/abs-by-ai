@@ -153,8 +153,11 @@ async function fetchOura() {
     const tStr   = now.toISOString().split('T')[0];
     const tmrStr = tomorrow.toISOString().split('T')[0];
 
-    const [sleepRes, readinessRes] = await Promise.all([
+    const [sleepRes, dailySleepRes, readinessRes] = await Promise.all([
       fetch(`https://api.ouraring.com/v2/usercollection/sleep?start_date=${yStr}&end_date=${tmrStr}`, {
+        headers: { 'Authorization': `Bearer ${OURA_ACCESS_TOKEN}` },
+      }),
+      fetch(`https://api.ouraring.com/v2/usercollection/daily_sleep?start_date=${yStr}&end_date=${tmrStr}`, {
         headers: { 'Authorization': `Bearer ${OURA_ACCESS_TOKEN}` },
       }),
       fetch(`https://api.ouraring.com/v2/usercollection/daily_readiness?start_date=${yStr}&end_date=${tmrStr}`, {
@@ -162,8 +165,9 @@ async function fetchOura() {
       }),
     ]);
 
-    const sleepData = sleepRes.ok ? await sleepRes.json() : null;
-    const readinessData = readinessRes.ok ? await readinessRes.json() : null;
+    const sleepData      = sleepRes.ok      ? await sleepRes.json()      : null;
+    const dailySleepData = dailySleepRes.ok ? await dailySleepRes.json() : null;
+    const readinessData  = readinessRes.ok  ? await readinessRes.json()  : null;
 
     const toMins = (secs) => secs ? Math.round(secs / 60) : 0;
 
@@ -173,12 +177,17 @@ async function fetchOura() {
 
     if (!main) return null;
 
+    // Sleep score comes from daily_sleep endpoint, not sleep periods
+    const allDailySleep = dailySleepData?.data || [];
+    const dailySleep = allDailySleep.find(d => d.day === tStr) || allDailySleep.find(d => d.day === yStr);
+    const sleepScore = dailySleep?.score ?? null;
+
     // Readiness: prefer today's, fall back to yesterday's
     const allReadiness = readinessData?.data || [];
     const readinessScore = (allReadiness.find(r => r.day === tStr) || allReadiness.find(r => r.day === yStr))?.score ?? null;
 
     return {
-      score: main.score ?? null,
+      score: sleepScore,
       total_sleep: toMins(main.total_sleep_duration),
       hrv_avg: main.average_hrv ?? null,
       rem:    toMins(main.rem_sleep_duration),
