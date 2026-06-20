@@ -2,306 +2,368 @@ const express = require('express');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const fetch = require('node-fetch');
+const fs = require('fs');
+const path = require('path');
 
-
-// PostHog analytics
-const { PostHog } = require('posthog-node');
-const posthog = new PostHog('phc_s3ZXKWHRFQVqK6pYRBRBKtc2ex7LL78CFMHtCfENEQrU', { host: 'https://us.i.posthog.com' });
 const app = express();
-app.set('trust proxy', 1); // Required for Railway/proxied environments
 
-// API Keys from environment variables
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const PRINTIFY_API_KEY = process.env.PRINTIFY_API_KEY;
-const PRINTIFY_SHOP_ID = process.env.PRINTIFY_SHOP_ID;
-const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
-const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
-
-if (!ANTHROPIC_API_KEY || !GEMINI_API_KEY) {
-  console.error('ERROR: Missing ANTHROPIC_API_KEY or GEMINI_API_KEY environment variables');
-  process.exit(1);
-}
-
-// Initialize Stripe if configured
-let stripeClient = null;
-if (STRIPE_SECRET_KEY) {
-  try {
-    stripeClient = require('stripe')(STRIPE_SECRET_KEY);
-  } catch (e) {
-    console.warn('WARNING: stripe package not installed. Run: npm install stripe');
-  }
-}
-
-// ============================================================
-// PRODUCT CONFIG — fully populated from Printify catalog
-//
-// Canvas unframed: blueprint 937 (Matte Canvas Multi-Size), Jondo (105)
-// Canvas framed:   blueprint 944 (Matte Canvas Framed),     Jondo (105), Black frame
-//   Note: framed not available in 8×10 — smallest framed is 11×14
-// Poster:          blueprint 282 (Matte Vertical Posters),  Sensaria (2)
-//   Note: smallest available size is 9×11 (≈8×10)
-// Keychain acrylic: blueprint 2675 (Single-Sided Charm),    Printdoors (332)
-// Keychain metal:   blueprint 790  (Rectangle Photo Keyring), Imagine Your Photos (59)
-//
-// Each variant carries its own blueprintId/printProviderId so the
-// webhook handler can build the Printify order without extra lookups.
-//
-// printifyCost / printifyShipping — values in CENTS, hardcoded because
-// Printify returns 0 on order creation (order is "on-hold" until submitted
-// to production). Verify exact values in Printify dashboard → Orders →
-// any fulfilled order → cost breakdown, and update here if they differ.
-// ============================================================
-const PRODUCT_CONFIG = {
-  canvas: {
-    variants: {
-      // Blueprint 937 (Matte Canvas Multi-Size), Jondo (105)
-      '8x10_unframed':  { blueprintId: 937, printProviderId: 105, variantId: 95212,  price: 3400, printifyCost: 1399, printifyShipping: 899 },
-      '11x14_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82229,  price: 4200, printifyCost: 1699, printifyShipping: 899 },
-      '16x20_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82231,  price: 5400, printifyCost: 2199, printifyShipping: 1099 },
-      '18x24_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82232,  price: 6300, printifyCost: 2599, printifyShipping: 1099 },
-      '24x36_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82235,  price: 7900, printifyCost: 3799, printifyShipping: 1299 },
-      // Blueprint 944 (Matte Canvas Framed), Jondo (105)
-      '11x14_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88291,  price: 7500,  printifyCost: 3199, printifyShipping: 1099 },
-      '16x20_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88293,  price: 8700,  printifyCost: 4099, printifyShipping: 1299 },
-      '18x24_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88294,  price: 9600,  printifyCost: 4799, printifyShipping: 1299 },
-      '24x36_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88297,  price: 11200, printifyCost: 6999, printifyShipping: 1699 },
-    },
-  },
-  poster: {
-    variants: {
-      // Blueprint 282 (Matte Vertical Posters), Sensaria (2)
-      '9x11':  { blueprintId: 282, printProviderId: 2, variantId: 62103,  price: 1800, printifyCost:  599, printifyShipping: 499 },
-      '11x14': { blueprintId: 282, printProviderId: 2, variantId: 43135,  price: 2700, printifyCost:  699, printifyShipping: 499 },
-      '12x16': { blueprintId: 282, printProviderId: 2, variantId: 101110, price: 2400, printifyCost:  699, printifyShipping: 499 },
-      '18x24': { blueprintId: 282, printProviderId: 2, variantId: 43144,  price: 4400, printifyCost: 1099, printifyShipping: 599 },
-      '24x36': { blueprintId: 282, printProviderId: 2, variantId: 43150,  price: 5200, printifyCost: 1599, printifyShipping: 799 },
-    },
-  },
-  keychain: {
-    variants: {
-      // Blueprint 2675 (Single-Sided Charm), Printdoors (332)
-      'acrylic_small': { blueprintId: 2675, printProviderId: 332, variantId: 147952, price:  900, printifyCost: 350, printifyShipping: 399 },
-      'acrylic_large': { blueprintId: 2675, printProviderId: 332, variantId: 147953, price: 1200, printifyCost: 450, printifyShipping: 399 },
-      // Blueprint 790 (Rectangle Photo Keyring), Imagine Your Photos (59)
-      'metal':         { blueprintId: 790,  printProviderId: 59,  variantId: 74997,  price: 2500, printifyCost: 699, printifyShipping: 499 },
-    },
-  },
-};
-
-// ============================================================
-// MIDDLEWARE
-// Stripe webhook MUST receive raw body — register its route
-// before express.json() so the global parser doesn't consume it.
-// ============================================================
+// Middleware
 app.use(cors());
-
-// ============================================================
-// ENDPOINT: Stripe webhook (raw body, no rate-limit)
-// ============================================================
-app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
-  if (!stripeClient) {
-    return res.status(503).json({ error: 'Stripe not configured' });
-  }
-  if (!STRIPE_WEBHOOK_SECRET) {
-    return res.status(503).json({ error: 'STRIPE_WEBHOOK_SECRET not configured' });
-  }
-
-  const sig = req.headers['stripe-signature'];
-  let event;
-  try {
-    event = stripeClient.webhooks.constructEvent(req.body, sig, STRIPE_WEBHOOK_SECRET);
-  } catch (err) {
-    console.error('Webhook signature verification failed:', err.message);
-    return res.status(400).json({ error: `Webhook Error: ${err.message}` });
-  }
-
-  if (event.type === 'checkout.session.completed') {
-    // Retrieve the full session — webhook payload omits shipping_details for embedded checkout
-    const session = await stripeClient.checkout.sessions.retrieve(event.data.object.id);
-    const { purchaseType, generationsCount, deviceId, imageId, imagePreviewUrl, productType, size, framed } = session.metadata || {};
-
-    // ── Credits purchase (digital, no Printify) ──────────────
-    if (purchaseType === 'credits') {
-      const amount = parseInt(generationsCount, 10) || 0;
-      if (amount > 0 && deviceId) {
-        addCredits(deviceId, amount);
-        console.log(`Credits: added ${amount} to device ${deviceId}`);
-      }
-      posthog.capture({
-        distinctId: session.customer_details?.email || deviceId || session.id,
-        event: 'credits_purchased',
-        properties: { amount, revenue: (session.amount_total || 0) / 100 },
-      });
-      return res.json({ received: true });
-    }
-    const email = session.customer_details?.email;
-    const shipping = session.shipping_details?.address;
-
-    console.log(`Order completed: ${productType} ${size}${framed === 'true' ? ' framed' : ''} for ${email}`);
-    console.log(`Shipping details: ${JSON.stringify(session.shipping_details)}`);
-
-    const revenueUsd = (session.amount_total || 0) / 100;
-
-    // Use previewUrl from upload response; fall back to reconstructed URL for old orders
-    const imageSrc = imagePreviewUrl || `https://images-api.printify.com/${imageId}`;
-
-    if (PRINTIFY_API_KEY && PRINTIFY_SHOP_ID && imageSrc && productType && size) {
-      const framedBool = framed === 'true';
-      const variantKey = productType === 'canvas'
-        ? `${size}_${framedBool ? 'framed' : 'unframed'}`
-        : size;
-      const variant = PRODUCT_CONFIG[productType]?.variants[variantKey];
-
-      if (!variant || !variant.variantId) {
-        console.warn(`Printify variant not configured for ${productType}/${variantKey} — order NOT submitted to Printify`);
-        posthog.capture({
-          distinctId: email || session.id,
-          event: 'purchase_completed',
-          properties: { revenue: revenueUsd, product_type: productType, size },
-        });
-      } else {
-        try {
-          const orderPayload = {
-            external_id: session.id,
-            line_items: [
-              {
-                blueprint_id: variant.blueprintId,
-                print_provider_id: variant.printProviderId,
-                variant_id: variant.variantId,
-                print_areas: {
-                  front: [{ src: '', scale: 1, x: 0.5, y: 0.5, angle: 0 }],
-                },
-                quantity: 1,
-              },
-            ],
-            shipping_method: 1,
-            send_shipping_notification: true,
-            address_to: {
-              first_name: (session.shipping_details?.name || session.customer_details?.name || '').split(' ')[0] || '',
-              last_name: (session.shipping_details?.name || session.customer_details?.name || '').split(' ').slice(1).join(' ') || '',
-              email: email || '',
-              phone: '',
-              country: shipping?.country || 'US',
-              region: shipping?.state || '',
-              address1: shipping?.line1 || '',
-              address2: shipping?.line2 || '',
-              city: shipping?.city || '',
-              zip: shipping?.postal_code || '',
-            },
-          };
-
-          orderPayload.line_items[0].print_areas.front[0].src = imageSrc;
-          console.log(`Printify order image src: ${imageSrc}`);
-
-          const printifyRes = await fetch(
-            `https://api.printify.com/v1/shops/${PRINTIFY_SHOP_ID}/orders.json`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${PRINTIFY_API_KEY}`,
-              },
-              body: JSON.stringify(orderPayload),
-            }
-          );
-          const printifyData = await printifyRes.json();
-          if (!printifyRes.ok) {
-            console.error('Printify order creation failed:', JSON.stringify(printifyData));
-            // Fire PostHog without cost breakdown — order failed
-            posthog.capture({
-              distinctId: email || session.id,
-              event: 'purchase_completed',
-              properties: { revenue: revenueUsd, product_type: productType, size },
-            });
-          } else {
-            console.log('Printify order created:', printifyData.id);
-
-            // Printify returns total_price=0 / total_shipping=0 on order creation
-            // (order is "on-hold" until submitted to production). Use the hardcoded
-            // costs from PRODUCT_CONFIG instead — verified against fulfilled orders.
-            const productCostUsd  = (variant.printifyCost    || 0) / 100;
-            const shippingCostUsd = (variant.printifyShipping || 0) / 100;
-
-            console.log(`Cost data — product: ${productCostUsd}, shipping: ${shippingCostUsd}`);
-            posthog.capture({
-              distinctId: email || session.id,
-              event: 'purchase_completed',
-              properties: {
-                revenue:       revenueUsd,
-                product_cost:  productCostUsd,
-                shipping_cost: shippingCostUsd,
-                product_type:  productType,
-                size,
-              },
-            });
-          }
-        } catch (err) {
-          console.error('Printify order creation error:', err);
-          // Still record the purchase in PostHog so revenue isn't lost
-          posthog.capture({
-            distinctId: email || session.id,
-            event: 'purchase_completed',
-            properties: { revenue: revenueUsd, product_type: productType, size },
-          });
-        }
-      }
-    } else if (!PRINTIFY_API_KEY || !PRINTIFY_SHOP_ID) {
-      console.warn('Printify not configured — order recorded but not sent to Printify');
-      posthog.capture({
-        distinctId: email || session.id,
-        event: 'purchase_completed',
-        properties: { revenue: revenueUsd, product_type: productType, size },
-      });
-    }
-  }
-
-  res.json({ received: true });
-});
-
-// Global JSON parser (after webhook route so it doesn't consume raw bytes)
 app.use(express.json({ limit: '10mb' }));
 
-// Global rate limiter — skips analytics proxy (handled by its own limiter below)
+// Rate limiting: 10 requests per minute per IP
 const limiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 60,
-  message: { error: 'Too many requests, please try again in a minute.' },
-  standardHeaders: true,
-  legacyHeaders: false,
-  skip: (req) => req.path === '/api/posthog-query',
-});
-
-// Separate generous limiter for checkout (not an abuse vector)
-const checkoutLimiter = rateLimit({
-  windowMs: 60 * 1000,
-  max: 30,
-  message: { error: 'Too many requests, please try again in a minute.' },
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-
-// Analytics proxy limiter — dashboard fires 16 queries per load; allow generous headroom
-const analyticsLimiter = rateLimit({
-  windowMs: 60 * 1000,
-  max: 200,
-  message: { error: 'Too many requests, please try again in a minute.' },
+  max: 10,
+  message: 'Too many requests, please try again later.',
   standardHeaders: true,
   legacyHeaders: false,
 });
 
 app.use(limiter);
 
-// Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok' });
+// API Keys from environment variables
+const ANTHROPIC_API_KEY   = process.env.ANTHROPIC_API_KEY;
+const GEMINI_API_KEY      = process.env.GEMINI_API_KEY;
+const POSTHOG_API_KEY     = process.env.POSTHOG_API_KEY;
+const POSTHOG_PROJECT_ID  = process.env.POSTHOG_PROJECT_ID;
+const OURA_ACCESS_TOKEN   = process.env.OURA_ACCESS_TOKEN;
+const GOOGLE_CLIENT_ID     = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const GOOGLE_REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
+
+if (!ANTHROPIC_API_KEY || !GEMINI_API_KEY) {
+  console.error('ERROR: Missing ANTHROPIC_API_KEY or GEMINI_API_KEY environment variables');
+  process.exit(1);
+}
+
+// ============================================================
+// DASHBOARD — serve at /dashboard
+// ============================================================
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dashboard.html'));
 });
 
-// Public config for frontend (publishable key is safe to expose)
-app.get('/api/config', (req, res) => {
-  res.json({
-    stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY || '',
-  });
+// ============================================================
+// MORNING DATA API — aggregates all data sources
+// ============================================================
+app.get('/api/morning-data', async (req, res) => {
+  const result = {
+    posthog: null,
+    oura: null,
+    watch: null,
+    todos: { business: [], personal: [] },
+    business_events: null,
+    rel_events: null,
+    news: [],
+  };
+
+  // Run all fetches in parallel
+  await Promise.allSettled([
+    fetchPosthog().then(d => { result.posthog = d; }),
+    fetchOura().then(d => { result.oura = d; }),
+    fetchGoogleCalendar().then(d => {
+      result.business_events = d.business;
+      result.rel_events = d.relationships;
+    }),
+    fetchNews().then(d => { result.news = d; }),
+    loadTodos().then(d => { result.todos = d; }),
+  ]);
+
+  res.json(result);
+});
+
+// ── PostHog ──
+async function fetchPosthog() {
+  if (!POSTHOG_API_KEY || !POSTHOG_PROJECT_ID) return null;
+  try {
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const twoDaysAgo = new Date(today);
+    twoDaysAgo.setDate(today.getDate() - 2);
+
+    const dateStr     = today.toISOString().split('T')[0];
+    const yestStr     = yesterday.toISOString().split('T')[0];
+    const twoDaysStr  = twoDaysAgo.toISOString().split('T')[0];
+
+    // Query daily active users, signups, and image generations
+    const queries = [
+      { event: '$pageview',       label: 'dau' },
+      { event: 'signed_up',       label: 'signups' },
+      { event: 'image_generated', label: 'images' },
+    ];
+
+    const results = {};
+    await Promise.all(queries.map(async ({ event, label }) => {
+      const body = {
+        query: {
+          kind: 'TrendsQuery',
+          series: [{ kind: 'EventsNode', event }],
+          dateRange: { date_from: twoDaysStr, date_to: dateStr },
+          interval: 'day',
+        },
+      };
+
+      const r = await fetch(
+        `https://us.posthog.com/api/projects/${POSTHOG_PROJECT_ID}/query`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${POSTHOG_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        }
+      );
+
+      if (!r.ok) return;
+      const data = await r.json();
+      const series = data?.results?.[0];
+      if (!series) return;
+
+      const vals = series.data || [];
+      const today_val = vals[vals.length - 1] ?? 0;
+      const prev_val  = vals[vals.length - 2] ?? 0;
+      const chg = prev_val > 0 ? Math.round(((today_val - prev_val) / prev_val) * 100) : 0;
+
+      results[label]          = today_val;
+      results[`${label}_chg`] = chg;
+    }));
+
+    return Object.keys(results).length ? results : null;
+  } catch (e) {
+    console.error('PostHog error:', e.message);
+    return null;
+  }
+}
+
+// ── Oura Ring ──
+async function fetchOura() {
+  if (!OURA_ACCESS_TOKEN) return null;
+  try {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const dateStr = yesterday.toISOString().split('T')[0];
+
+    const [sleepRes, readinessRes] = await Promise.all([
+      fetch(`https://api.ouraring.com/v2/usercollection/sleep?start_date=${dateStr}&end_date=${dateStr}`, {
+        headers: { 'Authorization': `Bearer ${OURA_ACCESS_TOKEN}` },
+      }),
+      fetch(`https://api.ouraring.com/v2/usercollection/daily_readiness?start_date=${dateStr}&end_date=${dateStr}`, {
+        headers: { 'Authorization': `Bearer ${OURA_ACCESS_TOKEN}` },
+      }),
+    ]);
+
+    const sleepData = sleepRes.ok ? await sleepRes.json() : null;
+    const readinessData = readinessRes.ok ? await readinessRes.json() : null;
+
+    // Aggregate sleep periods (Oura may return multiple nap entries)
+    const periods = sleepData?.data?.filter(p => p.type === 'long_sleep') || [];
+    const main = periods[0];
+
+    if (!main) return null;
+
+    const toMins = (secs) => secs ? Math.round(secs / 60) : 0;
+
+    return {
+      score: main.score ?? null,
+      total_sleep: toMins(main.total_sleep_duration),
+      hrv_avg: main.average_hrv ?? null,
+      rem:    toMins(main.rem_sleep_duration),
+      deep:   toMins(main.deep_sleep_duration),
+      light:  toMins(main.light_sleep_duration),
+      awake:  toMins(main.awake_time),
+      readiness: readinessData?.data?.[0]?.score ?? null,
+    };
+  } catch (e) {
+    console.error('Oura error:', e.message);
+    return null;
+  }
+}
+
+// ── Google Calendar ──
+let googleAccessToken = null;
+let googleTokenExpiry = 0;
+
+async function getGoogleToken() {
+  if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !GOOGLE_REFRESH_TOKEN) return null;
+  if (googleAccessToken && Date.now() < googleTokenExpiry) return googleAccessToken;
+
+  try {
+    const r = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        client_id:     GOOGLE_CLIENT_ID,
+        client_secret: GOOGLE_CLIENT_SECRET,
+        refresh_token: GOOGLE_REFRESH_TOKEN,
+        grant_type:    'refresh_token',
+      }),
+    });
+    if (!r.ok) return null;
+    const d = await r.json();
+    googleAccessToken = d.access_token;
+    googleTokenExpiry = Date.now() + (d.expires_in - 60) * 1000;
+    return googleAccessToken;
+  } catch (e) {
+    console.error('Google token error:', e.message);
+    return null;
+  }
+}
+
+// Dating app keywords to route events to Relationships column
+const DATING_KEYWORDS = ['hinge', 'bumble', 'tinder', 'coffee', 'date', 'meet'];
+
+async function fetchGoogleCalendar() {
+  const empty = { business: null, relationships: null };
+  const token = await getGoogleToken();
+  if (!token) return empty;
+
+  try {
+    const now = new Date();
+    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
+    const endOfDay   = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).toISOString();
+
+    const r = await fetch(
+      `https://www.googleapis.com/calendar/v3/calendars/primary/events?` +
+      `timeMin=${encodeURIComponent(startOfDay)}&timeMax=${encodeURIComponent(endOfDay)}` +
+      `&singleEvents=true&orderBy=startTime`,
+      { headers: { 'Authorization': `Bearer ${token}` } }
+    );
+    if (!r.ok) return empty;
+
+    const data = await r.json();
+    const items = data.items || [];
+
+    const business = [];
+    const relationships = [];
+
+    items.forEach(ev => {
+      const title = ev.summary || 'Untitled';
+      const startTime = ev.start?.dateTime;
+      const timeStr = startTime
+        ? new Date(startTime).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })
+        : 'All day';
+
+      const event = { title, time: timeStr, subtitle: ev.location || '' };
+      const lc = title.toLowerCase();
+
+      if (DATING_KEYWORDS.some(k => lc.includes(k))) {
+        relationships.push(event);
+      } else {
+        business.push(event);
+      }
+    });
+
+    return {
+      business:      business.length ? business : [],
+      relationships: relationships.length ? relationships : [],
+    };
+  } catch (e) {
+    console.error('Calendar error:', e.message);
+    return empty;
+  }
+}
+
+// ── News (Google News RSS — no key required) ──
+const NEWS_QUERIES = [
+  'AI fitness app',
+  'AI body transformation',
+  'fitness AI startup',
+];
+
+function parseRSS(xml) {
+  const items = [];
+  const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+  let match;
+  while ((match = itemRegex.exec(xml)) !== null && items.length < 10) {
+    const block = match[1];
+    const title  = (block.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/) ||
+                    block.match(/<title>(.*?)<\/title>/))?.[1] || '';
+    const link   = (block.match(/<link>(.*?)<\/link>/))?.[1] ||
+                   (block.match(/<guid[^>]*>(.*?)<\/guid>/))?.[1] || '#';
+    const pubDate = (block.match(/<pubDate>(.*?)<\/pubDate>/))?.[1] || '';
+    const source  = (block.match(/<source[^>]*>(.*?)<\/source>/))?.[1] || 'News';
+
+    const age = pubDate ? relativeTime(new Date(pubDate)) : '';
+    if (title) items.push({ title: title.trim(), url: link.trim(), source, age });
+  }
+  return items;
+}
+
+function relativeTime(date) {
+  const diff = (Date.now() - date.getTime()) / 1000 / 60;
+  if (diff < 60)  return `${Math.round(diff)}m ago`;
+  if (diff < 1440) return `${Math.round(diff / 60)}h ago`;
+  return `${Math.round(diff / 1440)}d ago`;
+}
+
+async function fetchNews() {
+  try {
+    const query = NEWS_QUERIES[Math.floor(Math.random() * NEWS_QUERIES.length)];
+    const url = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
+    const r = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; Dashboard/1.0)' },
+    });
+    if (!r.ok) return [];
+    const xml = await r.text();
+    return parseRSS(xml).slice(0, 6);
+  } catch (e) {
+    console.error('News error:', e.message);
+    return [];
+  }
+}
+
+// ── Todos (stored in todos.json) ──
+const TODOS_PATH = path.join(__dirname, 'todos.json');
+
+async function loadTodos() {
+  try {
+    if (!fs.existsSync(TODOS_PATH)) {
+      return { business: [], personal: [] };
+    }
+    return JSON.parse(fs.readFileSync(TODOS_PATH, 'utf8'));
+  } catch {
+    return { business: [], personal: [] };
+  }
+}
+
+// ── Todos CRUD endpoints ──
+app.get('/api/todos', async (req, res) => {
+  res.json(await loadTodos());
+});
+
+app.post('/api/todos', (req, res) => {
+  try {
+    const todos = req.body;
+    fs.writeFileSync(TODOS_PATH, JSON.stringify(todos, null, 2));
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ── Apple Watch webhook (Health Auto Export pushes here) ──
+app.post('/api/health-data', (req, res) => {
+  try {
+    const secret = req.headers['x-webhook-secret'];
+    if (process.env.HEALTH_WEBHOOK_SECRET && secret !== process.env.HEALTH_WEBHOOK_SECRET) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    const data = req.body;
+    fs.writeFileSync(path.join(__dirname, 'health-data.json'), JSON.stringify(data, null, 2));
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ============================================================
+// HEALTH CHECK
+// ============================================================
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
 });
 
 // ============================================================
@@ -444,17 +506,13 @@ app.post('/api/generate-prompt', async (req, res) => {
 // ============================================================
 app.post('/api/generate-image', async (req, res) => {
   try {
-    const { prompt, photoBase64, photoMime, deviceId } = req.body;
+    const { prompt, photoBase64, photoMime } = req.body;
 
     if (!prompt || !photoBase64 || !photoMime) {
       return res.status(400).json({
         error: 'Missing prompt, photoBase64, or photoMime',
       });
     }
-
-    // Check credits — still generate if 0 (returns locked:true for the "teaser"), but don't deduct
-    const credits = getCredits(deviceId || '');
-    const locked = credits <= 0;
 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key=${encodeURIComponent(GEMINI_API_KEY)}`;
 
@@ -504,14 +562,7 @@ app.post('/api/generate-image', async (req, res) => {
 
     const imageBase64 = (imgPart.inline_data || imgPart.inlineData).data;
 
-    // Deduct credit if not locked
-    if (!locked && deviceId) deductCredit(deviceId);
-
-    // Track generation
-    const distinctId = req.body.distinctId || 'server-anonymous';
-    posthog.capture({ distinctId, event: 'generation_created', properties: { cost_usd: 0.06, locked } });
-
-    res.json({ imageBase64, locked });
+    res.json({ imageBase64 });
   } catch (err) {
     console.error('Image generation error:', err);
     res.status(500).json({ error: 'Internal server error' });
@@ -519,360 +570,16 @@ app.post('/api/generate-image', async (req, res) => {
 });
 
 // ============================================================
-// ENDPOINT 4: Upload image to Printify
-// ============================================================
-app.post('/api/printify/upload-image', checkoutLimiter, async (req, res) => {
-  if (!PRINTIFY_API_KEY) {
-    return res.status(503).json({ error: 'Printify not configured. Add PRINTIFY_API_KEY to environment variables.' });
-  }
-
-  try {
-    const { imageBase64, fileName } = req.body;
-    if (!imageBase64 || !fileName) {
-      return res.status(400).json({ error: 'Missing imageBase64 or fileName' });
-    }
-
-    const response = await fetch('https://api.printify.com/v1/uploads/images.json', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${PRINTIFY_API_KEY}`,
-      },
-      body: JSON.stringify({
-        file_name: fileName,
-        contents: imageBase64,
-      }),
-    });
-
-    const data = await response.json();
-    if (!response.ok) {
-      console.error('Printify upload error:', JSON.stringify(data));
-      return res.status(response.status).json({ error: data?.message || 'Printify upload failed' });
-    }
-
-    res.json({ imageId: data.id, previewUrl: data.preview_url });
-  } catch (err) {
-    console.error('Printify upload error:', err);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-// ============================================================
-// ENDPOINT 5: Create Stripe Embedded Checkout session
-// ============================================================
-app.post('/api/stripe/create-checkout', checkoutLimiter, async (req, res) => {
-  if (!stripeClient) {
-    return res.status(503).json({ error: 'Stripe not configured. Add STRIPE_SECRET_KEY to environment variables.' });
-  }
-
-  try {
-    const { productType, size, framed, priceInCents, imageId, imagePreviewUrl, productLabel, returnUrl } = req.body;
-    if (!productType || !size || !priceInCents || !returnUrl) {
-      return res.status(400).json({ error: 'Missing required fields' });
-    }
-
-    const displayName = `${productLabel || productType} — ${size}${framed ? ' (Framed)' : ''}`;
-
-    const session = await stripeClient.checkout.sessions.create({
-      ui_mode: 'embedded',
-      line_items: [
-        {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: displayName,
-              description: 'Your AI-generated future self, printed and shipped to you.',
-            },
-            unit_amount: priceInCents,
-          },
-          quantity: 1,
-        },
-      ],
-      mode: 'payment',
-      return_url: returnUrl,
-      shipping_address_collection: {
-        allowed_countries: [
-          'US', 'CA', 'GB', 'AU', 'DE', 'FR', 'ES', 'IT', 'NL', 'SE', 'NO', 'DK',
-          'FI', 'AT', 'BE', 'CH', 'IE', 'NZ', 'JP', 'SG', 'HK', 'MX', 'BR',
-        ],
-      },
-      automatic_tax: { enabled: false },
-      metadata: {
-        imageId: imageId || '',
-        imagePreviewUrl: imagePreviewUrl || '',
-        productType,
-        size,
-        framed: String(!!framed),
-      },
-    });
-
-    res.json({ clientSecret: session.client_secret });
-  } catch (err) {
-    console.error('Stripe checkout creation error:', err);
-    res.status(500).json({ error: err.message || 'Internal server error' });
-  }
-});
-
-// ============================================================
-// ENDPOINT: Create Stripe checkout session for credits packs
-// ============================================================
-const CREDITS_PACKS = {
-  starter: { name: 'Abs By AI – Starter Pack', desc: '5 AI generations', amount: 499,  count: 5  },
-  power:   { name: 'Abs By AI – Power Pack',   desc: '20 AI generations', amount: 1499, count: 20 },
-};
-
-app.post('/api/stripe/create-credits-checkout', checkoutLimiter, async (req, res) => {
-  if (!stripeClient) {
-    return res.status(503).json({ error: 'Stripe not configured' });
-  }
-  const { pack, deviceId, returnUrl } = req.body;
-  if (!pack || !deviceId || !returnUrl) {
-    return res.status(400).json({ error: 'Missing pack, deviceId, or returnUrl' });
-  }
-  const info = CREDITS_PACKS[pack];
-  if (!info) return res.status(400).json({ error: 'Invalid pack' });
-
-  try {
-    const session = await stripeClient.checkout.sessions.create({
-      ui_mode: 'embedded',
-      line_items: [{
-        price_data: {
-          currency: 'usd',
-          product_data: { name: info.name, description: info.desc },
-          unit_amount: info.amount,
-        },
-        quantity: 1,
-      }],
-      mode: 'payment',
-      return_url: returnUrl,
-      automatic_tax: { enabled: false },
-      metadata: {
-        purchaseType: 'credits',
-        pack,
-        generationsCount: String(info.count),
-        deviceId,
-      },
-    });
-    res.json({ clientSecret: session.client_secret });
-  } catch (err) {
-    console.error('Credits checkout error:', err);
-    res.status(500).json({ error: err.message || 'Internal server error' });
-  }
-});
-
-// ============================================================
-// ENDPOINT 6: Check Stripe session status (after redirect back)
-// ============================================================
-app.get('/api/stripe/session-status', async (req, res) => {
-  if (!stripeClient) {
-    return res.status(503).json({ error: 'Stripe not configured' });
-  }
-
-  try {
-    const { session_id } = req.query;
-    if (!session_id) {
-      return res.status(400).json({ error: 'Missing session_id' });
-    }
-
-    const session = await stripeClient.checkout.sessions.retrieve(session_id);
-    res.json({ status: session.status });
-  } catch (err) {
-    console.error('Session status error:', err);
-    res.status(500).json({ error: err.message || 'Internal server error' });
-  }
-});
-
-// Analytics dashboard
-app.get('/analytics', (req, res) => {
-  res.sendFile(path.join(__dirname, 'analytics.html'));
-});
-
-// PostHog HogQL query proxy — keeps personal API key server-side
-app.post('/api/posthog-query', analyticsLimiter, async (req, res) => {
-  const { query } = req.body;
-  if (!query) return res.status(400).json({ error: 'Missing query' });
-  const POSTHOG_KEY = process.env.POSTHOG_PERSONAL_KEY;
-  if (!POSTHOG_KEY) return res.status(503).json({ error: 'POSTHOG_PERSONAL_KEY not set in Railway env vars' });
-  try {
-    const r = await fetch('https://us.posthog.com/api/projects/458833/query/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${POSTHOG_KEY}` },
-      body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-    });
-    const data = await r.json();
-    if (!r.ok) return res.status(r.status).json(data);
-    res.json(data);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// ============================================================
-// ENDPOINT: Todo state (persist completed tasks server-side)
-// Backed by GitHub "state" branch (todo-state.json) so state
-// survives Railway restarts and redeploys. In-memory cache
-// gives instant reads; GitHub writes happen async in background.
-// ============================================================
-// Set GITHUB_TOKEN as a Railway environment variable — never hardcode here
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_STATE_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/todo-state.json?ref=state';
-const GITHUB_STATE_WRITE_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/todo-state.json';
-
-let todoStateCache = { completed: [], date: null };
-let todoStateSha = null;
-
-// Load state from GitHub on startup
-(async () => {
-  try {
-    const r = await fetch(GITHUB_STATE_URL, {
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (r.ok) {
-      const d = await r.json();
-      todoStateSha = d.sha;
-      todoStateCache = JSON.parse(Buffer.from(d.content, 'base64').toString('utf8'));
-      console.log('Todo state loaded from GitHub:', JSON.stringify(todoStateCache).slice(0, 80));
-    }
-  } catch (e) {
-    console.error('Failed to load todo state from GitHub:', e.message);
-  }
-})();
-
-async function persistStateToGitHub(state) {
-  try {
-    const content = Buffer.from(JSON.stringify(state)).toString('base64');
-    const body = { message: `todo state update ${state.date || ''}`, content, branch: 'state' };
-    if (todoStateSha) body.sha = todoStateSha;
-    const r = await fetch(GITHUB_STATE_WRITE_URL, {
-      method: 'PUT',
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
-      body: JSON.stringify(body)
-    });
-    if (r.ok) {
-      const d = await r.json();
-      todoStateSha = d.content?.sha || todoStateSha;
-    } else {
-      console.error('GitHub state write failed:', r.status, await r.text());
-    }
-  } catch (e) {
-    console.error('Failed to persist todo state to GitHub:', e.message);
-  }
-}
-
-app.get('/api/todo-state', (req, res) => {
-  res.json(todoStateCache);
-});
-
-// ============================================================
-// CREDITS: GitHub-backed per-device credit store
-// Same pattern as todo state — in-memory cache, async GitHub writes.
-// New devices start with 3 free generations (default).
-// ============================================================
-const FREE_CREDITS = 3;
-const GITHUB_CREDITS_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/credits.json?ref=state';
-const GITHUB_CREDITS_WRITE_URL = 'https://api.github.com/repos/RagnarD213/abs-by-ai/contents/credits.json';
-
-let creditsCache = {}; // { deviceId: number }
-let creditsSha = null;
-
-(async () => {
-  if (!GITHUB_TOKEN) return;
-  try {
-    const r = await fetch(GITHUB_CREDITS_URL, {
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (r.ok) {
-      const d = await r.json();
-      creditsSha = d.sha;
-      creditsCache = JSON.parse(Buffer.from(d.content, 'base64').toString('utf8'));
-      console.log('Credits cache loaded from GitHub, devices tracked:', Object.keys(creditsCache).length);
-    } else {
-      console.log('No credits.json on state branch yet — will create on first write.');
-    }
-  } catch (e) {
-    console.error('Failed to load credits from GitHub:', e.message);
-  }
-})();
-
-async function persistCreditsToGitHub() {
-  if (!GITHUB_TOKEN) return;
-  try {
-    const content = Buffer.from(JSON.stringify(creditsCache)).toString('base64');
-    const body = { message: 'credits update', content, branch: 'state' };
-    if (creditsSha) body.sha = creditsSha;
-    const r = await fetch(GITHUB_CREDITS_WRITE_URL, {
-      method: 'PUT',
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
-      body: JSON.stringify(body)
-    });
-    if (r.ok) {
-      const d = await r.json();
-      creditsSha = d.content?.sha || creditsSha;
-    } else {
-      console.error('GitHub credits write failed:', r.status, await r.text());
-    }
-  } catch (e) {
-    console.error('Failed to persist credits to GitHub:', e.message);
-  }
-}
-
-function getCredits(deviceId) {
-  return deviceId in creditsCache ? creditsCache[deviceId] : FREE_CREDITS;
-}
-
-function deductCredit(deviceId) {
-  if (!deviceId) return;
-  creditsCache[deviceId] = Math.max(0, getCredits(deviceId) - 1);
-  persistCreditsToGitHub();
-}
-
-function addCredits(deviceId, amount) {
-  if (!deviceId || !amount) return;
-  creditsCache[deviceId] = getCredits(deviceId) + amount;
-  persistCreditsToGitHub();
-}
-
-app.get('/api/credits', (req, res) => {
-  const { deviceId } = req.query;
-  if (!deviceId) return res.status(400).json({ error: 'Missing deviceId' });
-  res.json({ credits: getCredits(deviceId) });
-});
-
-app.post('/api/todo-state', express.json({ limit: '64kb' }), (req, res) => {
-  const { completed, date } = req.body || {};
-  todoStateCache = { completed: completed || [], date: date || null };
-  res.json({ ok: true });
-  // Async write to GitHub — don't block the response
-  persistStateToGitHub(todoStateCache);
-});
-
-// ============================================================
 // STATIC FILES & FALLBACK
 // ============================================================
-const path = require('path');
-app.use(express.static(path.join(__dirname)));
+app.use(express.static('.'));
 
-// Explicit page routes
-app.get("/todo", (req, res) => {
-  res.sendFile(path.join(__dirname, "todo.html"));
-});
-
-app.get('/privacy', (req, res) => {
-  res.sendFile(path.join(__dirname, 'privacy.html'));
-});
-
-// Digital Asset Links — proves ownership of absbyai.com to the Android
-// app (TWA). Served explicitly because express.static can skip dotfolders.
-app.get('/.well-known/assetlinks.json', (req, res) => {
-  res.type('application/json');
-  res.sendFile(path.join(__dirname, '.well-known', 'assetlinks.json'));
-});
-
-// Serve index.html for all non-API routes (SPA fallback)
+// Serve index.html for all non-API, non-dashboard routes (SPA fallback)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(__dirname + '/index.html');
 });
 
+// ============================================================
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
