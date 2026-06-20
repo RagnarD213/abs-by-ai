@@ -142,15 +142,17 @@ async function fetchPosthog() {
 async function fetchOura() {
   if (!OURA_ACCESS_TOKEN) return null;
   try {
+    const today = new Date();
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     const dateStr = yesterday.toISOString().split('T')[0];
+    const todayStr = today.toISOString().split('T')[0];
 
     const [sleepRes, readinessRes] = await Promise.all([
-      fetch(`https://api.ouraring.com/v2/usercollection/sleep?start_date=${dateStr}&end_date=${dateStr}`, {
+      fetch(`https://api.ouraring.com/v2/usercollection/sleep?start_date=${dateStr}&end_date=${todayStr}`, {
         headers: { 'Authorization': `Bearer ${OURA_ACCESS_TOKEN}` },
       }),
-      fetch(`https://api.ouraring.com/v2/usercollection/daily_readiness?start_date=${dateStr}&end_date=${dateStr}`, {
+      fetch(`https://api.ouraring.com/v2/usercollection/daily_readiness?start_date=${dateStr}&end_date=${todayStr}`, {
         headers: { 'Authorization': `Bearer ${OURA_ACCESS_TOKEN}` },
       }),
     ]);
