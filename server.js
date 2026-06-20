@@ -351,34 +351,58 @@ async function fetchNews() {
   }
 }
 
-// ââ Todos (stored in todos.json) ââ
-const TODOS_PATH = path.join(__dirname, 'todos.json');
+// ── Todos (stored in GitHub todos.json so they survive Railway deploys) ──
+const TODOS_FILE = 'todos.json';
+const EMPTY_TODOS = { business: [], health: [], personal: [] };
 
 async function loadTodos() {
+  if (!GITHUB_TOKEN) return EMPTY_TODOS;
   try {
-    if (!fs.existsSync(TODOS_PATH)) {
-      return { business: [], personal: [] };
-    }
-    return JSON.parse(fs.readFileSync(TODOS_PATH, 'utf8'));
-  } catch {
-    return { business: [], personal: [] };
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODOS_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return EMPTY_TODOS;
+    const data = await res.json();
+    return JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+  } catch (e) {
+    console.error('loadTodos error:', e.message);
+    return EMPTY_TODOS;
   }
 }
 
-// ââ Todos CRUD endpoints ââ
+async function saveTodosToGitHub(todos) {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const content = Buffer.from(JSON.stringify(todos, null, 2)).toString('base64');
+    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODOS_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const body = { message: 'Update todos', content };
+    if (getRes.ok) { const cur = await getRes.json(); body.sha = cur.sha; }
+    await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODOS_FILE}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    console.log('Todos saved to GitHub');
+  } catch (e) { console.error('GitHub todos save error:', e.message); }
+}
+
+// ── Todos CRUD endpoints ──
 app.get('/api/todos', async (req, res) => {
   res.json(await loadTodos());
 });
 
-app.post('/api/todos', (req, res) => {
+app.post('/api/todos', async (req, res) => {
   try {
     const todos = req.body;
-    fs.writeFileSync(TODOS_PATH, JSON.stringify(todos, null, 2));
+    await saveTodosToGitHub(todos);
     res.json({ ok: true });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
+
 
 // ââ Apple Watch data â stored in GitHub so it survives Railway deploys ââ
 let latestWatchData = null;
@@ -725,3 +749,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Abs By AI backend running on port ${PORT}`);
 });
+
