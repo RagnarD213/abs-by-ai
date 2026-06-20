@@ -70,6 +70,8 @@ app.get('/api/morning-data', async (req, res) => {
     loadTodos().then(d => { result.todos = d; }),
   ]);
 
+  result.watch = loadWatch();
+
   res.json(result);
 });
 
@@ -375,6 +377,61 @@ app.post('/api/todos', (req, res) => {
   }
 });
 
+// ── Apple Watch data — in-memory (survives restarts via file fallback) ──
+let latestHealthData = null;
+try {
+  const raw = fs.readFileSync(path.join(__dirname, 'health-data.json'), 'utf8');
+  latestHealthData = JSON.parse(raw);
+} catch {}
+
+function parseHealthData(raw) {
+  // Health Auto Export sends: { data: { metrics: [...], workouts: [...] } }
+  // or top-level: { metrics: [...], workouts: [...] }
+  const payload = raw?.data || raw || {};
+  const metrics = payload.metrics || [];
+  const workouts = payload.workouts || [];
+
+  function getMetric(name) {
+    const m = metrics.find(x => x.name === name);
+    if (!m || !m.data || !m.data.length) return null;
+    // Sum today's values (data may have multiple entries per day)
+    const today = new Date().toISOString().split('T')[0];
+    const todayRows = m.data.filter(d => (d.date || '').startsWith(today));
+    const rows = todayRows.length ? todayRows : m.data.slice(-1);
+    return rows.reduce((sum, d) => sum + (d.qty || 0), 0);
+  }
+
+  const move_cal   = getMetric('active_energy')      || getMetric('activeEnergy')      || null;
+  const move_goal  = getMetric('active_energy_goal') || getMetric('activeEnergyGoal')  || 600;
+  const exercise   = getMetric('exercise_time')      || getMetric('exerciseTime')       || null;
+  const stand      = getMetric('apple_stand_hour')   || getMetric('standHour')          || null;
+  const steps      = getMetric('step_count')         || getMetric('stepCount')          || null;
+  const resting_hr = getMetric('resting_heart_rate') || getMetric('restingHeartRate')   || null;
+
+  const workout_min = workouts.reduce((sum, w) => sum + Math.round((w.duration || 0)), 0) || null;
+
+  if (!move_cal && !steps && !resting_hr) return null; // no usable data
+
+  return {
+    move_cal:    move_cal    ? Math.round(move_cal)    : null,
+    move_goal:   move_goal   ? Math.round(move_goal)   : 600,
+    exercise_min:exercise    ? Math.round(exercise)    : null,
+    stand_hrs:   stand       ? Math.round(stand)       : null,
+    steps:       steps       ? Math.round(steps)       : null,
+    resting_hr:  resting_hr  ? Math.round(resting_hr)  : null,
+    workout_min: workout_min || null,
+  };
+}
+
+function loadWatch() {
+  if (latestHealthData) return parseHealthData(latestHealthData);
+  try {
+    const raw = fs.readFileSync(path.join(__dirname, 'health-data.json'), 'utf8');
+    return parseHealthData(JSON.parse(raw));
+  } catch {}
+  return null;
+}
+
 // ── Apple Watch webhook (Health Auto Export pushes here) ──
 app.post('/api/health-data', (req, res) => {
   try {
@@ -382,12 +439,17 @@ app.post('/api/health-data', (req, res) => {
     if (process.env.HEALTH_WEBHOOK_SECRET && secret !== process.env.HEALTH_WEBHOOK_SECRET) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
-    const data = req.body;
-    fs.writeFileSync(path.join(__dirname, 'health-data.json'), JSON.stringify(data, null, 2));
+    latestHealthData = req.body;
+    try { fs.writeFileSync(path.join(__dirname, 'health-data.json'), JSON.stringify(latestHealthData, null, 2)); } catch {}
     res.json({ ok: true });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
+});
+
+// Debug: inspect raw health payload
+app.get('/api/health-debug', (req, res) => {
+  res.json({ stored: latestHealthData, parsed: loadWatch() });
 });
 
 // ============================================================
