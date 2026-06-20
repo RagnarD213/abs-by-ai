@@ -952,9 +952,10 @@ function updateClock() {
   const ampm = h >= 12 ? 'PM' : 'AM';
   const h12 = h % 12 || 12;
   const mStr = String(m).padStart(2, '0');
-  document.getElementById('clockDisplay').textContent = `${h12}:${mStr} ${ampm}`;
-  document.getElementById('dateDisplay').textContent =
-    `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}`;
+  const clockEl = document.getElementById('clockDisplay');
+  const dateEl = document.getElementById('dateDisplay');
+  if (clockEl) clockEl.textContent = `${h12}:${mStr} ${ampm}`;
+  if (dateEl) dateEl.textContent = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}`;
 }
 updateClock();
 setInterval(updateClock, 5000);
@@ -1309,4 +1310,5 @@ loadData();
 </script>
 </body>
 </html>
+
 
