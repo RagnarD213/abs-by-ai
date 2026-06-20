@@ -31,6 +31,9 @@ const OURA_ACCESS_TOKEN   = process.env.OURA_ACCESS_TOKEN;
 const GOOGLE_CLIENT_ID     = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const GOOGLE_REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
+const GITHUB_TOKEN         = process.env.GITHUB_TOKEN;
+const GITHUB_REPO          = 'RagnarD213/abs-by-ai';
+const WATCH_DATA_FILE      = 'watch-data.json'; // persists parsed watch data across deploys
 
 if (!ANTHROPIC_API_KEY || !GEMINI_API_KEY) {
   console.error('ERROR: Missing ANTHROPIC_API_KEY or GEMINI_API_KEY environment variables');
@@ -377,14 +380,42 @@ app.post('/api/todos', (req, res) => {
   }
 });
 
-// ── Apple Watch data — in-memory + /tmp fallback (Railway filesystem is read-only) ──
-const HEALTH_FILE = '/tmp/health-data.json';
-let latestHealthData = null;
-try {
-  const raw = fs.readFileSync(HEALTH_FILE, 'utf8');
-  latestHealthData = JSON.parse(raw);
-  console.log('Loaded health data from /tmp on startup');
-} catch {}
+// ── Apple Watch data — stored in GitHub so it survives Railway deploys ──
+let latestWatchData = null; // parsed watch metrics, loaded from GitHub on startup
+
+async function saveWatchToGitHub(parsed) {
+  if (!GITHUB_TOKEN || !parsed) return;
+  try {
+    const content = Buffer.from(JSON.stringify(parsed)).toString('base64');
+    // Get current SHA if file exists
+    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${WATCH_DATA_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const body = { message: 'Update watch data', content };
+    if (getRes.ok) { const cur = await getRes.json(); body.sha = cur.sha; }
+    await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${WATCH_DATA_FILE}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    console.log('Watch data saved to GitHub');
+  } catch (e) { console.error('GitHub watch save error:', e.message); }
+}
+
+async function loadWatchFromGitHub() {
+  if (!GITHUB_TOKEN) return null;
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${WATCH_DATA_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+  } catch (e) { return null; }
+}
+
+// Load cached watch data from GitHub on startup
+loadWatchFromGitHub().then(d => { if (d) { latestWatchData = d; console.log('Watch data loaded from GitHub:', d); } });
 
 function parseHealthData(raw) {
   // Health Auto Export sends: { data: { metrics: [...], workouts: [...] } }
@@ -440,14 +471,7 @@ function parseHealthData(raw) {
 }
 
 function loadWatch() {
-  if (latestHealthData) return parseHealthData(latestHealthData);
-  try {
-    const raw = fs.readFileSync(HEALTH_FILE, 'utf8');
-    const parsed = JSON.parse(raw);
-    latestHealthData = parsed; // cache in memory
-    return parseHealthData(parsed);
-  } catch {}
-  return null;
+  return latestWatchData || null;
 }
 
 // ── Apple Watch webhook (Health Auto Export pushes here) ──
@@ -457,17 +481,20 @@ app.post('/api/health-data', (req, res) => {
     if (process.env.HEALTH_WEBHOOK_SECRET && secret !== process.env.HEALTH_WEBHOOK_SECRET) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
-    latestHealthData = req.body;
-    try { fs.writeFileSync(HEALTH_FILE, JSON.stringify(latestHealthData)); } catch (e) { console.error('health file write failed:', e.message); }
-    res.json({ ok: true });
+    const parsed = parseHealthData(req.body);
+    if (parsed) {
+      latestWatchData = parsed;
+      saveWatchToGitHub(parsed); // async, don't block response
+    }
+    res.json({ ok: true, parsed: !!parsed });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
 
-// Debug: inspect raw health payload
+// Debug: inspect watch data state
 app.get('/api/health-debug', (req, res) => {
-  res.json({ stored: latestHealthData, parsed: loadWatch() });
+  res.json({ watch: latestWatchData, github_token_set: !!GITHUB_TOKEN });
 });
 
 // ============================================================
