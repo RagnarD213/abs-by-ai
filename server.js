@@ -89,9 +89,9 @@ async function fetchPosthog() {
 
     // Query daily active users, signups, and image generations
     const queries = [
-      { event: '$pageview',       label: 'dau' },
-      { event: 'signed_up',       label: 'signups' },
-      { event: 'image_generated', label: 'images' },
+      { event: '$pageview',          label: 'dau' },
+      { event: 'purchase_completed', label: 'signups' },
+      { event: 'generation_created', label: 'images' },
     ];
 
     const results = {};
