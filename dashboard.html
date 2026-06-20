@@ -995,9 +995,14 @@ function renderTodos(data) {
 function renderCalendar(events, colId, barClass, noticeId) {
   const el = document.getElementById(colId);
   const notice = document.getElementById(noticeId);
-  if (!events || !events.length) {
-    el.innerHTML = '<div class="empty">No events today</div>';
+  // null = not connected; [] = connected but no events today
+  if (events === null || events === undefined) {
+    el.innerHTML = '<div class="empty">Not connected</div>';
     if (notice) notice.style.display = 'block';
+    return;
+  }
+  if (!events.length) {
+    el.innerHTML = '<div class="empty">No events today</div>';
     return;
   }
   el.innerHTML = events.map(e => `
