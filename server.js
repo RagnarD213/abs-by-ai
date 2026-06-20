@@ -32,6 +32,8 @@ const GOOGLE_CLIENT_ID     = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const GOOGLE_REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
 const GITHUB_TOKEN         = process.env.GITHUB_TOKEN;
+const MONARCH_EMAIL        = process.env.MONARCH_EMAIL;
+const MONARCH_PASSWORD     = process.env.MONARCH_PASSWORD;
 const GITHUB_REPO          = 'RagnarD213/abs-by-ai';
 const WATCH_DATA_FILE      = 'watch-data.json'; // persists parsed watch data across deploys
 
@@ -74,6 +76,8 @@ app.get('/api/morning-data', async (req, res) => {
   ]);
 
   result.watch = loadWatch();
+
+  await fetchMonarch().then(d => { result.monarch = d; }).catch(() => {});
 
   res.json(result);
 });
@@ -350,6 +354,120 @@ async function fetchNews() {
     return [];
   }
 }
+
+// ── Monarch Money ──
+let monarchToken = null;
+let monarchTokenExpiry = 0;
+
+async function getMonarchToken() {
+  if (!MONARCH_EMAIL || !MONARCH_PASSWORD) return null;
+  if (monarchToken && Date.now() < monarchTokenExpiry) return monarchToken;
+  try {
+    const r = await fetch('https://api.monarchmoney.com/auth/login/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Client-Platform': 'web',
+        'Content-Type': 'application/json',
+        'User-Agent': 'MonarchMoneyAPI',
+      },
+      body: JSON.stringify({ username: MONARCH_EMAIL, password: MONARCH_PASSWORD, supports_mfa: true, trusted_device: false }),
+    });
+    if (!r.ok) { console.error('Monarch login failed:', r.status); return null; }
+    const d = await r.json();
+    if (!d.token) { console.error('Monarch: no token in response'); return null; }
+    monarchToken = d.token;
+    monarchTokenExpiry = Date.now() + 23 * 60 * 60 * 1000;
+    return monarchToken;
+  } catch (e) {
+    console.error('Monarch auth error:', e.message);
+    return null;
+  }
+}
+
+async function monarchGQL(token, query, variables = {}) {
+  const r = await fetch('https://api.monarchmoney.com/graphql', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': `Token ${token}`,
+      'Client-Platform': 'web',
+      'Content-Type': 'application/json',
+      'User-Agent': 'MonarchMoneyAPI',
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+  if (!r.ok) throw new Error(`Monarch GQL ${r.status}`);
+  return r.json();
+}
+
+async function fetchMonarch() {
+  if (!MONARCH_EMAIL || !MONARCH_PASSWORD) return null;
+  try {
+    const token = await getMonarchToken();
+    if (!token) return null;
+
+    const pad = n => String(n).padStart(2, '0');
+    const fmt = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+    const today = new Date();
+    const yesterday = new Date(today); yesterday.setDate(today.getDate() - 1);
+    const weekAgo   = new Date(today); weekAgo.setDate(today.getDate() - 7);
+    const monthAgo  = new Date(today); monthAgo.setDate(today.getDate() - 30);
+    const todayStr     = fmt(today);
+    const yesterdayStr = fmt(yesterday);
+    const weekAgoStr   = fmt(weekAgo);
+    const monthAgoStr  = fmt(monthAgo);
+
+    const [accountsRes, txRes] = await Promise.all([
+      monarchGQL(token, `query { accounts { id displayName currentBalance isAsset includeInNetWorth type { display } } }`),
+      monarchGQL(token, `
+        query GetTx($filters: TransactionFilterInput) {
+          allTransactions(filters: $filters) {
+            results(limit: 500) { id amount pending date merchant { name } category { name } }
+          }
+        }
+      `, { filters: { startDate: monthAgoStr, endDate: todayStr } }),
+    ]);
+
+    // Net worth: sum signed balances for accounts included in net worth
+    const accounts = accountsRes?.data?.accounts || [];
+    let netWorth = 0;
+    for (const a of accounts) {
+      if (!a.includeInNetWorth) continue;
+      netWorth += a.isAsset ? (a.currentBalance || 0) : -(a.currentBalance || 0);
+    }
+
+    // Spending: negative amounts = expenses (exclude pending)
+    const expenses = (txRes?.data?.allTransactions?.results || [])
+      .filter(tx => !tx.pending && tx.amount < 0);
+
+    const sumSpending = startStr => expenses
+      .filter(tx => tx.date >= startStr && tx.date <= todayStr)
+      .reduce((s, tx) => s + Math.abs(tx.amount), 0);
+
+    const yesterdayTx = expenses
+      .filter(tx => tx.date === yesterdayStr)
+      .map(tx => ({ merchant: tx.merchant?.name || 'Unknown', category: tx.category?.name || '', amount: Math.abs(tx.amount) }))
+      .sort((a, b) => b.amount - a.amount);
+
+    return {
+      net_worth:           Math.round(netWorth),
+      spending_yesterday:  Math.round(sumSpending(yesterdayStr)),
+      spending_week:       Math.round(sumSpending(weekAgoStr)),
+      spending_month:      Math.round(sumSpending(monthAgoStr)),
+      yesterday_transactions: yesterdayTx,
+    };
+  } catch (e) {
+    console.error('Monarch error:', e.message);
+    return null;
+  }
+}
+
+app.get('/api/monarch', async (req, res) => {
+  const data = await fetchMonarch();
+  if (!data) return res.status(503).json({ error: 'Monarch not connected or credentials missing' });
+  res.json(data);
+});
 
 // ── Todos (stored in GitHub todos.json so they survive Railway deploys) ──
 const TODOS_FILE = 'todos.json';
