@@ -377,11 +377,13 @@ app.post('/api/todos', (req, res) => {
   }
 });
 
-// ── Apple Watch data — in-memory (survives restarts via file fallback) ──
+// ── Apple Watch data — in-memory + /tmp fallback (Railway filesystem is read-only) ──
+const HEALTH_FILE = '/tmp/health-data.json';
 let latestHealthData = null;
 try {
-  const raw = fs.readFileSync(path.join(__dirname, 'health-data.json'), 'utf8');
+  const raw = fs.readFileSync(HEALTH_FILE, 'utf8');
   latestHealthData = JSON.parse(raw);
+  console.log('Loaded health data from /tmp on startup');
 } catch {}
 
 function parseHealthData(raw) {
@@ -440,8 +442,10 @@ function parseHealthData(raw) {
 function loadWatch() {
   if (latestHealthData) return parseHealthData(latestHealthData);
   try {
-    const raw = fs.readFileSync(path.join(__dirname, 'health-data.json'), 'utf8');
-    return parseHealthData(JSON.parse(raw));
+    const raw = fs.readFileSync(HEALTH_FILE, 'utf8');
+    const parsed = JSON.parse(raw);
+    latestHealthData = parsed; // cache in memory
+    return parseHealthData(parsed);
   } catch {}
   return null;
 }
@@ -454,7 +458,7 @@ app.post('/api/health-data', (req, res) => {
       return res.status(401).json({ error: 'Unauthorized' });
     }
     latestHealthData = req.body;
-    try { fs.writeFileSync(path.join(__dirname, 'health-data.json'), JSON.stringify(latestHealthData, null, 2)); } catch {}
+    try { fs.writeFileSync(HEALTH_FILE, JSON.stringify(latestHealthData)); } catch (e) { console.error('health file write failed:', e.message); }
     res.json({ ok: true });
   } catch (e) {
     res.status(500).json({ error: e.message });
