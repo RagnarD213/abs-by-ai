@@ -142,17 +142,22 @@ async function fetchPosthog() {
 async function fetchOura() {
   if (!OURA_ACCESS_TOKEN) return null;
   try {
-    const today = new Date();
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const dateStr = yesterday.toISOString().split('T')[0];
-    const todayStr = today.toISOString().split('T')[0];
+    // Oura records sleep under the WAKE date (not fall-asleep date).
+    // end_date is exclusive, so to fetch date X we need end_date = X+1.
+    // We fetch yesterday→tomorrow so we get both today's sleep (last night)
+    // and yesterday's as a fallback if today hasn't synced yet.
+    const now = new Date();
+    const yesterday = new Date(now); yesterday.setDate(now.getDate() - 1);
+    const tomorrow  = new Date(now); tomorrow.setDate(now.getDate() + 1);
+    const yStr   = yesterday.toISOString().split('T')[0];
+    const tStr   = now.toISOString().split('T')[0];
+    const tmrStr = tomorrow.toISOString().split('T')[0];
 
     const [sleepRes, readinessRes] = await Promise.all([
-      fetch(`https://api.ouraring.com/v2/usercollection/sleep?start_date=${dateStr}&end_date=${todayStr}`, {
+      fetch(`https://api.ouraring.com/v2/usercollection/sleep?start_date=${yStr}&end_date=${tmrStr}`, {
         headers: { 'Authorization': `Bearer ${OURA_ACCESS_TOKEN}` },
       }),
-      fetch(`https://api.ouraring.com/v2/usercollection/daily_readiness?start_date=${dateStr}&end_date=${todayStr}`, {
+      fetch(`https://api.ouraring.com/v2/usercollection/daily_readiness?start_date=${yStr}&end_date=${tmrStr}`, {
         headers: { 'Authorization': `Bearer ${OURA_ACCESS_TOKEN}` },
       }),
     ]);
@@ -160,13 +165,17 @@ async function fetchOura() {
     const sleepData = sleepRes.ok ? await sleepRes.json() : null;
     const readinessData = readinessRes.ok ? await readinessRes.json() : null;
 
-    // Aggregate sleep periods (Oura may return multiple nap entries)
-    const periods = sleepData?.data?.filter(p => p.type === 'long_sleep') || [];
-    const main = periods[0];
+    const toMins = (secs) => secs ? Math.round(secs / 60) : 0;
+
+    // Prefer today's long_sleep (last night), fall back to yesterday's
+    const allPeriods = sleepData?.data?.filter(p => p.type === 'long_sleep') || [];
+    const main = allPeriods.find(p => p.day === tStr) || allPeriods.find(p => p.day === yStr);
 
     if (!main) return null;
 
-    const toMins = (secs) => secs ? Math.round(secs / 60) : 0;
+    // Readiness: prefer today's, fall back to yesterday's
+    const allReadiness = readinessData?.data || [];
+    const readinessScore = (allReadiness.find(r => r.day === tStr) || allReadiness.find(r => r.day === yStr))?.score ?? null;
 
     return {
       score: main.score ?? null,
@@ -176,7 +185,7 @@ async function fetchOura() {
       deep:   toMins(main.deep_sleep_duration),
       light:  toMins(main.light_sleep_duration),
       awake:  toMins(main.awake_time),
-      readiness: readinessData?.data?.[0]?.score ?? null,
+      readiness: readinessScore,
     };
   } catch (e) {
     console.error('Oura error:', e.message);
