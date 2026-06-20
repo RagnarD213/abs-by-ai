@@ -603,6 +603,14 @@
       <h2>Money</h2>
     </div>
 
+    <!-- Money Tasks -->
+    <div class="card">
+      <div class="card-title">Money Tasks</div>
+      <ul class="todo-list" id="business-todos">
+        <li class="loading pulse">Loading…</li>
+      </ul>
+    </div>
+
     <!-- App Metrics -->
     <div class="card">
       <div class="card-title">Abs By AI — App Metrics</div>
@@ -628,14 +636,6 @@
           PostHog not connected. Add <code>POSTHOG_API_KEY</code> and <code>POSTHOG_PROJECT_ID</code> to your Railway env vars.
         </div>
       </div>
-    </div>
-
-    <!-- Business To-Dos -->
-    <div class="card">
-      <div class="card-title">Top Business To-Dos</div>
-      <ul class="todo-list" id="business-todos">
-        <li class="loading pulse">Loading…</li>
-      </ul>
     </div>
 
     <!-- Business Calendar -->
@@ -667,6 +667,13 @@
     </div>
 
     <!-- Sleep Score -->
+    <!-- Health Tasks -->
+    <div class="card">
+      <div class="card-title">Health Tasks</div>
+      <ul class="todo-list" id="health-todos">
+        <li class="loading pulse">Loading…</li>
+      </ul>
+    </div>
     <div class="card">
       <div class="card-title">Oura — Last Night's Sleep</div>
       <div id="oura-section">
@@ -871,7 +878,7 @@
 
     <!-- Personal To-Dos -->
     <div class="card">
-      <div class="card-title">Personal To-Dos</div>
+      <div class="card-title">Personal Tasks</div>
       <ul class="todo-list" id="personal-todos">
         <li class="loading pulse">Loading…</li>
       </ul>
@@ -1064,13 +1071,16 @@ function renderPosthog(data) {
 }
 
 function renderTodos(data) {
-  const biz = data?.business || [];
-  const per = data?.personal || [];
+  const biz    = data?.business || [];
+  const per    = data?.personal || [];
+  const health = data?.health   || [];
 
-  const bizEl = document.getElementById('business-todos');
-  const perEl = document.getElementById('personal-todos');
+  const bizEl    = document.getElementById('business-todos');
+  const perEl    = document.getElementById('personal-todos');
+  const healthEl = document.getElementById('health-todos');
 
   const renderList = (items, el) => {
+    if (!el) return;
     if (!items.length) { el.innerHTML = '<li class="empty">No to-dos</li>'; return; }
     el.innerHTML = items.map((t, i) => {
       const id = `todo-${el.id}-${i}`;
@@ -1086,8 +1096,9 @@ function renderTodos(data) {
     }).join('');
   };
 
-  renderList(biz, bizEl);
-  renderList(per, perEl);
+  renderList(biz,    bizEl);
+  renderList(per,    perEl);
+  renderList(health, healthEl);
 }
 
 function renderCalendar(events, colId, barClass, noticeId) {
@@ -1310,5 +1321,6 @@ loadData();
 </script>
 </body>
 </html>
+
 
 
