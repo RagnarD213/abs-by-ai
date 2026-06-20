@@ -443,6 +443,47 @@
     .recovery-moderate  { background: rgba(234,179,8,0.15);  color: var(--yellow);border: 1px solid rgba(234,179,8,0.3); }
     .recovery-poor      { background: rgba(239,68,68,0.15);  color: var(--red);   border: 1px solid rgba(239,68,68,0.3); }
 
+    /* ── OURA CONTRIBUTORS ── */
+    .contrib-row {
+      margin-bottom: 14px;
+    }
+
+    .contrib-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .contrib-name {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .contrib-val {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .contrib-val-attention {
+      color: #f5a623;
+    }
+
+    .contrib-bar-track {
+      height: 4px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .contrib-bar-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 2px;
+      background: #21d07a;
+      transition: width 0.9s cubic-bezier(0.4,0,0.2,1);
+    }
+
     /* ── SETUP NOTICE ── */
     .setup-notice {
       background: rgba(59,130,246,0.08);
@@ -647,78 +688,113 @@
       <div class="card-title">Oura — Last Night's Sleep</div>
       <div id="oura-section">
 
-        <!-- Circular score ring -->
-        <div style="display:flex;justify-content:center;margin-bottom:18px">
-          <div style="position:relative;width:150px;height:150px">
-            <svg viewBox="0 0 160 160" style="width:150px;height:150px">
-              <circle cx="80" cy="80" r="65" fill="none" stroke="#222" stroke-width="13"/>
-              <circle cx="80" cy="80" r="65" fill="none" stroke="#00c49a" stroke-width="13"
-                stroke-linecap="round" stroke-dasharray="408.4" stroke-dashoffset="408.4"
-                transform="rotate(-90 80 80)" id="oura-ring-arc"
+        <!-- Score ring + status badge -->
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px">
+          <div style="position:relative;width:90px;height:90px;flex-shrink:0">
+            <svg viewBox="0 0 100 100" style="width:90px;height:90px">
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#222" stroke-width="9"/>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#00c49a" stroke-width="9"
+                stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="263.9"
+                transform="rotate(-90 50 50)" id="oura-ring-arc"
                 style="transition:stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)"/>
             </svg>
             <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
-              <div style="font-size:44px;font-weight:800;line-height:1;color:#00c49a" id="sleep-score">—</div>
-              <div style="font-size:10px;color:var(--muted);letter-spacing:0.1em;margin-top:3px">SLEEP SCORE</div>
+              <div style="font-size:28px;font-weight:800;line-height:1;color:#00c49a" id="sleep-score">—</div>
+              <div style="font-size:8px;color:var(--muted);letter-spacing:0.08em;margin-top:1px">/100</div>
             </div>
           </div>
-        </div>
-
-        <!-- Key stats -->
-        <div style="display:flex;text-align:center;margin-bottom:18px;padding:0 4px">
-          <div style="flex:1;border-right:1px solid var(--border);padding:0 8px">
-            <div style="font-size:19px;font-weight:700" id="sleep-total">—</div>
-            <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px">Total Sleep</div>
-          </div>
-          <div style="flex:1;border-right:1px solid var(--border);padding:0 8px">
-            <div style="font-size:19px;font-weight:700" id="hrv-val">—</div>
-            <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px">Avg HRV</div>
-          </div>
-          <div style="flex:1;padding:0 8px">
-            <div style="font-size:19px;font-weight:700" id="readiness-val">—</div>
-            <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px">Readiness</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;margin-bottom:4px" id="oura-status-badge">—</div>
+            <div style="font-size:17px;font-weight:700;line-height:1.25;margin-bottom:6px" id="oura-title">—</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.45" id="oura-subtitle">—</div>
           </div>
         </div>
 
-        <!-- Hypnogram stacked bar -->
-        <div style="display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:14px">
-          <div id="hypo-rem"   style="background:#9b59d6;flex:0;transition:flex 0.9s ease"></div>
-          <div id="hypo-deep"  style="background:#4f85e5;flex:0;transition:flex 0.9s ease"></div>
-          <div id="hypo-light" style="background:#5cb8c4;flex:0;transition:flex 0.9s ease"></div>
-          <div id="hypo-awake" style="background:#f0845a;flex:0;transition:flex 0.9s ease"></div>
-        </div>
-
-        <!-- Stage breakdown -->
-        <div class="sleep-stages" id="sleep-stages">
-          <div class="sleep-row">
-            <div class="stage-dot" style="background:#9b59d6"></div>
-            <div class="sleep-label">REM</div>
-            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-rem" style="width:0%;background:#9b59d6"></div></div>
-            <div class="sleep-val" id="val-rem">—</div>
+        <!-- HRV + Readiness mini row -->
+        <div style="display:flex;gap:0;margin-bottom:18px;border:1px solid var(--border);border-radius:8px;overflow:hidden">
+          <div style="flex:1;padding:8px 10px;border-right:1px solid var(--border)">
+            <div style="font-size:16px;font-weight:700" id="hrv-val">—</div>
+            <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px">Avg HRV</div>
           </div>
-          <div class="sleep-row">
-            <div class="stage-dot" style="background:#4f85e5"></div>
-            <div class="sleep-label">DEEP</div>
-            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-deep" style="width:0%;background:#4f85e5"></div></div>
-            <div class="sleep-val" id="val-deep">—</div>
-          </div>
-          <div class="sleep-row">
-            <div class="stage-dot" style="background:#5cb8c4"></div>
-            <div class="sleep-label">LIGHT</div>
-            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-light" style="width:0%;background:#5cb8c4"></div></div>
-            <div class="sleep-val" id="val-light">—</div>
-          </div>
-          <div class="sleep-row">
-            <div class="stage-dot" style="background:#f0845a"></div>
-            <div class="sleep-label">AWAKE</div>
-            <div class="sleep-bar-track"><div class="sleep-bar-fill" id="bar-awake" style="width:0%;background:#f0845a"></div></div>
-            <div class="sleep-val" id="val-awake">—</div>
+          <div style="flex:1;padding:8px 10px">
+            <div style="font-size:16px;font-weight:700" id="readiness-val">—</div>
+            <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px">Readiness</div>
           </div>
         </div>
 
-        <div id="oura-recovery" style="margin-top:12px">
-          <span class="recovery-pill recovery-good" id="recovery-pill">—</span>
+        <!-- Contributors (matching Oura app layout) -->
+        <div style="font-size:15px;font-weight:600;margin-bottom:14px">Contributors</div>
+        <div id="oura-contributors">
+
+          <div class="contrib-row">
+            <div class="contrib-top">
+              <span class="contrib-name">Total sleep</span>
+              <span class="contrib-val" id="c-total-sleep">—</span>
+            </div>
+            <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-total-sleep"></div></div>
+          </div>
+
+          <div class="contrib-row">
+            <div class="contrib-top">
+              <span class="contrib-name">Efficiency</span>
+              <span class="contrib-val" id="c-efficiency">—</span>
+            </div>
+            <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-efficiency"></div></div>
+          </div>
+
+          <div class="contrib-row">
+            <div class="contrib-top">
+              <span class="contrib-name">Restfulness</span>
+              <span class="contrib-val" id="c-restfulness">—</span>
+            </div>
+            <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-restfulness"></div></div>
+          </div>
+
+          <div class="contrib-row">
+            <div class="contrib-top">
+              <span class="contrib-name">REM sleep</span>
+              <span class="contrib-val" id="c-rem">—</span>
+            </div>
+            <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-rem"></div></div>
+          </div>
+
+          <div class="contrib-row">
+            <div class="contrib-top">
+              <span class="contrib-name">Deep sleep</span>
+              <span class="contrib-val" id="c-deep">—</span>
+            </div>
+            <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-deep"></div></div>
+          </div>
+
+          <div class="contrib-row">
+            <div class="contrib-top">
+              <span class="contrib-name">Latency</span>
+              <span class="contrib-val" id="c-latency">—</span>
+            </div>
+            <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-latency"></div></div>
+          </div>
+
+          <div class="contrib-row" style="margin-bottom:0">
+            <div class="contrib-top">
+              <span class="contrib-name">Timing</span>
+              <span class="contrib-val" id="c-timing">—</span>
+            </div>
+            <div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-timing"></div></div>
+          </div>
+
         </div>
+
+        <!-- Hidden elements kept for JS compatibility -->
+        <span id="recovery-pill" style="display:none"></span>
+        <span id="sleep-total"   style="display:none"></span>
+        <span id="val-rem"       style="display:none"></span>
+        <span id="val-deep"      style="display:none"></span>
+        <span id="val-light"     style="display:none"></span>
+        <span id="val-awake"     style="display:none"></span>
+        <span id="bar-rem"       style="display:none"></span>
+        <span id="bar-deep"      style="display:none"></span>
+        <span id="bar-light"     style="display:none"></span>
+        <span id="bar-awake"     style="display:none"></span>
 
         <div id="oura-notice" class="setup-notice" style="display:none;margin-top:10px">
           Oura not connected. Add <code>OURA_ACCESS_TOKEN</code> to your Railway env vars.
@@ -1069,25 +1145,63 @@ function renderNews(items) {
   `).join('');
 }
 
+function contribColor(s) {
+  if (!s) return '#21d07a';
+  if (s >= 80) return '#21d07a';
+  if (s >= 60) return '#00c49a';
+  if (s >= 40) return '#f5a623';
+  return '#ef4444';
+}
+
+function contribLabel(s) {
+  if (!s) return '—';
+  if (s >= 80) return 'Optimal';
+  if (s >= 60) return 'Good';
+  if (s >= 40) return 'Fair';
+  return 'Pay attention';
+}
+
+function setContrib(id, val, score) {
+  const valEl = document.getElementById(`c-${id}`);
+  const barEl = document.getElementById(`cb-${id}`);
+  if (valEl) {
+    valEl.textContent = val;
+    valEl.className = score && score < 40 ? 'contrib-val contrib-val-attention' : 'contrib-val';
+  }
+  if (barEl) {
+    barEl.style.background = contribColor(score);
+    setTimeout(() => { barEl.style.width = (score ?? 0) + '%'; }, 120);
+  }
+}
+
+function sleepSummary(score, totalMins) {
+  const t = fmtMins(totalMins);
+  if (!score) return ['—', ''];
+  if (score >= 85) return ['Excellent recovery', `You got ${t} of high-quality sleep. Your body is primed to perform today.`];
+  if (score >= 70) return ['A good night\'s sleep', `You slept ${t} last night. Solid recovery — you should feel good today.`];
+  if (score >= 55) return ['Fair night\'s sleep', `You slept ${t} last night. Not your best — take it easy on intense workouts.`];
+  return ['Rough night', `Only ${t} of sleep. Prioritize rest today and skip hard training.`];
+}
+
 function renderOura(data) {
-  const notice = document.getElementById('oura-notice');
-  const pill   = document.getElementById('recovery-pill');
-  const arc    = document.getElementById('oura-ring-arc');
+  const notice  = document.getElementById('oura-notice');
+  const arc     = document.getElementById('oura-ring-arc');
   const scoreEl = document.getElementById('sleep-score');
 
   if (!data) {
     scoreEl.textContent = '—';
     scoreEl.style.color = 'var(--muted)';
-    document.getElementById('sleep-total').textContent = '—';
+    if (arc) { arc.style.strokeDashoffset = '263.9'; arc.style.stroke = '#333'; }
+    document.getElementById('oura-status-badge').textContent = '—';
+    document.getElementById('oura-status-badge').style.color = 'var(--muted)';
+    document.getElementById('oura-title').textContent = 'No sleep data';
+    document.getElementById('oura-subtitle').textContent = '';
     document.getElementById('hrv-val').textContent = '—';
     document.getElementById('readiness-val').textContent = '—';
-    ['rem','deep','light','awake'].forEach(s => {
-      document.getElementById(`val-${s}`).textContent = '—';
-      document.getElementById(`bar-${s}`).style.width = '0%';
-      document.getElementById(`hypo-${s}`).style.flex = '0';
+    ['total-sleep','efficiency','restfulness','rem','deep','latency','timing'].forEach(id => {
+      const v = document.getElementById(`c-${id}`); if (v) v.textContent = '—';
+      const b = document.getElementById(`cb-${id}`); if (b) b.style.width = '0%';
     });
-    if (arc) { arc.style.strokeDashoffset = '408.4'; arc.style.stroke = '#333'; }
-    pill.textContent = '— Sleep data unavailable';
     notice.style.display = 'block';
     const rec = workoutRec(null, null);
     document.getElementById('workout-name').textContent = rec.name;
@@ -1096,41 +1210,53 @@ function renderOura(data) {
     return;
   }
 
-  const { score, total_sleep, hrv_avg, rem, deep, light, awake, readiness } = data;
+  const { score, total_sleep, hrv_avg, rem, deep, light, awake,
+          efficiency, latency_mins, readiness, contributors } = data;
   const totalMins = total_sleep || 0;
   const color = scoreColor(score);
+  const c = contributors || {};
 
-  // Animate ring
+  // Ring
   if (arc) {
     arc.style.stroke = color;
     setTimeout(() => {
-      arc.style.strokeDashoffset = score ? (408.4 * (1 - score / 100)).toString() : '408.4';
+      arc.style.strokeDashoffset = score ? (263.9 * (1 - score / 100)).toString() : '263.9';
     }, 120);
   }
   scoreEl.textContent = score ?? '—';
   scoreEl.style.color = color;
 
-  document.getElementById('sleep-total').textContent = fmtMins(totalMins);
+  // Status badge + title
+  const badge = document.getElementById('oura-status-badge');
+  badge.style.color = color;
+  if (score >= 85)      { badge.textContent = 'OPTIMAL'; }
+  else if (score >= 70) { badge.textContent = 'GOOD'; }
+  else if (score >= 55) { badge.textContent = 'FAIR'; }
+  else                  { badge.textContent = 'POOR'; }
+
+  const [title, subtitle] = sleepSummary(score, totalMins);
+  document.getElementById('oura-title').textContent = title;
+  document.getElementById('oura-subtitle').textContent = subtitle;
+
+  // HRV + Readiness
   document.getElementById('hrv-val').textContent = hrv_avg ? `${Math.round(hrv_avg)} ms` : '—';
   const readinessEl = document.getElementById('readiness-val');
   readinessEl.textContent = readiness ?? '—';
   if (readiness) readinessEl.style.color = scoreColor(readiness);
 
-  // Sleep stages + hypnogram
-  const stages = { rem, deep, light, awake };
-  const totalStage = (rem||0) + (deep||0) + (light||0) + (awake||0) || totalMins || 1;
-  Object.entries(stages).forEach(([s, m]) => {
-    document.getElementById(`val-${s}`).textContent = fmtMins(m);
-    const pct = Math.min(100, ((m||0) / totalMins) * 100);
-    document.getElementById(`bar-${s}`).style.width = pct + '%';
-    // Hypnogram uses proportion of total stage time
-    const hypoFlex = ((m||0) / totalStage * 100).toFixed(1);
-    setTimeout(() => { document.getElementById(`hypo-${s}`).style.flex = hypoFlex; }, 120);
-  });
+  // Contributors
+  const remPct  = totalMins > 0 ? Math.round((rem||0)  / totalMins * 100) : 0;
+  const deepPct = totalMins > 0 ? Math.round((deep||0) / totalMins * 100) : 0;
 
-  pill.className = `recovery-pill ${recoveryClass(score)}`;
-  pill.textContent = recoveryLabel(score);
+  setContrib('total-sleep', fmtMins(totalMins),       c.total_sleep);
+  setContrib('efficiency',  efficiency ? `${efficiency}%` : '—', c.efficiency);
+  setContrib('restfulness', contribLabel(c.restfulness), c.restfulness);
+  setContrib('rem',         `${fmtMins(rem)}, ${remPct}%`,  c.rem_sleep);
+  setContrib('deep',        `${fmtMins(deep)}, ${deepPct}%`, c.deep_sleep);
+  setContrib('latency',     latency_mins ? `${latency_mins}m` : '—', c.latency);
+  setContrib('timing',      contribLabel(c.timing),     c.timing);
 
+  // Workout card (separate card below)
   const rec = workoutRec(score, hrv_avg);
   document.getElementById('workout-name').textContent = rec.name;
   document.getElementById('workout-detail').textContent = rec.detail;
