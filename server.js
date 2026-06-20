@@ -391,30 +391,44 @@ function parseHealthData(raw) {
   const metrics = payload.metrics || [];
   const workouts = payload.workouts || [];
 
+  const today = new Date().toISOString().split('T')[0];
+
+  // Sum qty values for a metric (today's data, or last available)
   function getMetric(name) {
     const m = metrics.find(x => x.name === name);
     if (!m || !m.data || !m.data.length) return null;
-    // Sum today's values (data may have multiple entries per day)
-    const today = new Date().toISOString().split('T')[0];
     const todayRows = m.data.filter(d => (d.date || '').startsWith(today));
     const rows = todayRows.length ? todayRows : m.data.slice(-1);
     return rows.reduce((sum, d) => sum + (d.qty || 0), 0);
   }
 
-  const move_cal   = getMetric('active_energy')      || getMetric('activeEnergy')      || null;
-  const move_goal  = getMetric('active_energy_goal') || getMetric('activeEnergyGoal')  || 600;
-  const exercise   = getMetric('exercise_time')      || getMetric('exerciseTime')       || null;
-  const stand      = getMetric('apple_stand_hour')   || getMetric('standHour')          || null;
-  const steps      = getMetric('step_count')         || getMetric('stepCount')          || null;
-  const resting_hr = getMetric('resting_heart_rate') || getMetric('restingHeartRate')   || null;
+  // Average the Avg field for metrics like heart_rate
+  function getMetricAvg(name) {
+    const m = metrics.find(x => x.name === name);
+    if (!m || !m.data || !m.data.length) return null;
+    const todayRows = m.data.filter(d => (d.date || '').startsWith(today));
+    const rows = todayRows.length ? todayRows : m.data.slice(-1);
+    const vals = rows.map(d => d.Avg || d.qty || 0).filter(v => v > 0);
+    return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+  }
+
+  const move_cal    = getMetric('active_energy')           || null;
+  const exercise    = getMetric('apple_exercise_time')      || getMetric('exercise_time') || null;
+  const stand       = getMetric('apple_stand_hour')         || null;
+  const steps       = getMetric('step_count')               || null;
+  // Use walking HR average as resting HR proxy (closest available without explicit metric)
+  const resting_hr  = getMetric('resting_heart_rate')
+                   || getMetricAvg('walking_heart_rate_average')
+                   || getMetricAvg('heart_rate')
+                   || null;
 
   const workout_min = workouts.reduce((sum, w) => sum + Math.round((w.duration || 0)), 0) || null;
 
-  if (!move_cal && !steps && !resting_hr) return null; // no usable data
+  if (!move_cal && !steps && !stand) return null; // no usable data
 
   return {
     move_cal:    move_cal    ? Math.round(move_cal)    : null,
-    move_goal:   move_goal   ? Math.round(move_goal)   : 600,
+    move_goal:   600,
     exercise_min:exercise    ? Math.round(exercise)    : null,
     stand_hrs:   stand       ? Math.round(stand)       : null,
     steps:       steps       ? Math.round(steps)       : null,
