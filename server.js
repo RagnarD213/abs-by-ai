@@ -41,14 +41,14 @@ if (!ANTHROPIC_API_KEY || !GEMINI_API_KEY) {
 }
 
 // ============================================================
-// DASHBOARD — serve at /dashboard
+// DASHBOARD â serve at /dashboard
 // ============================================================
 app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'dashboard.html'));
 });
 
 // ============================================================
-// MORNING DATA API — aggregates all data sources
+// MORNING DATA API â aggregates all data sources
 // ============================================================
 app.get('/api/morning-data', async (req, res) => {
   const result = {
@@ -78,7 +78,7 @@ app.get('/api/morning-data', async (req, res) => {
   res.json(result);
 });
 
-// ── PostHog ──
+// ââ PostHog ââ
 async function fetchPosthog() {
   if (!POSTHOG_API_KEY || !POSTHOG_PROJECT_ID) return null;
   try {
@@ -143,13 +143,13 @@ async function fetchPosthog() {
   }
 }
 
-// ── Oura Ring ──
+// ââ Oura Ring ââ
 async function fetchOura() {
   if (!OURA_ACCESS_TOKEN) return null;
   try {
     // Oura records sleep under the WAKE date (not fall-asleep date).
     // end_date is exclusive, so to fetch date X we need end_date = X+1.
-    // We fetch yesterday→tomorrow so we get both today's sleep (last night)
+    // We fetch yesterdayâtomorrow so we get both today's sleep (last night)
     // and yesterday's as a fallback if today hasn't synced yet.
     const now = new Date();
     const yesterday = new Date(now); yesterday.setDate(now.getDate() - 1);
@@ -218,7 +218,7 @@ async function fetchOura() {
   }
 }
 
-// ── Google Calendar ──
+// ââ Google Calendar ââ
 let googleAccessToken = null;
 let googleTokenExpiry = 0;
 
@@ -302,7 +302,7 @@ async function fetchGoogleCalendar() {
   }
 }
 
-// ── News (Google News RSS — no key required) ──
+// ââ News (Google News RSS â no key required) ââ
 const NEWS_QUERIES = [
   'AI fitness app',
   'AI body transformation',
@@ -351,7 +351,7 @@ async function fetchNews() {
   }
 }
 
-// ── Todos (stored in todos.json) ──
+// ââ Todos (stored in todos.json) ââ
 const TODOS_PATH = path.join(__dirname, 'todos.json');
 
 async function loadTodos() {
@@ -365,7 +365,7 @@ async function loadTodos() {
   }
 }
 
-// ── Todos CRUD endpoints ──
+// ââ Todos CRUD endpoints ââ
 app.get('/api/todos', async (req, res) => {
   res.json(await loadTodos());
 });
@@ -380,8 +380,9 @@ app.post('/api/todos', (req, res) => {
   }
 });
 
-// ── Apple Watch data — stored in GitHub so it survives Railway deploys ──
-let latestWatchData = null; // parsed watch metrics, loaded from GitHub on startup
+// ââ Apple Watch data â stored in GitHub so it survives Railway deploys ââ
+let latestWatchData = null;
+let lastRawMetricNames = null; // parsed watch metrics, loaded from GitHub on startup
 
 async function saveWatchToGitHub(parsed) {
   if (!GITHUB_TOKEN || !parsed) return;
@@ -423,6 +424,7 @@ function parseHealthData(raw) {
   const payload = raw?.data || raw || {};
   const metrics = payload.metrics || [];
   const workouts = payload.workouts || [];
+  lastRawMetricNames = metrics.map(m => m.name);
 
   const today = new Date().toISOString().split('T')[0];
 
@@ -446,7 +448,7 @@ function parseHealthData(raw) {
   }
 
   const move_cal    = getMetric('active_energy')           || null;
-  const exercise    = getMetric('apple_exercise_time')      || getMetric('exercise_time') || null;
+  const exercise    = getMetric('apple_exercise_time') || getMetric('exercise_time') || getMetric('Apple Exercise Time') || getMetricAvg('apple_exercise_time') || null;
   const stand       = getMetric('apple_stand_hour')         || null;
   const steps       = getMetric('step_count')               || null;
   // Use walking HR average as resting HR proxy (closest available without explicit metric)
@@ -474,7 +476,7 @@ function loadWatch() {
   return latestWatchData || null;
 }
 
-// ── Apple Watch webhook (Health Auto Export pushes here) ──
+// ââ Apple Watch webhook (Health Auto Export pushes here) ââ
 app.post('/api/health-data', (req, res) => {
   try {
     const secret = req.headers['x-webhook-secret'];
@@ -494,7 +496,7 @@ app.post('/api/health-data', (req, res) => {
 
 // Debug: inspect watch data state
 app.get('/api/health-debug', (req, res) => {
-  res.json({ watch: latestWatchData, github_token_set: !!GITHUB_TOKEN });
+  res.json({ watch: latestWatchData, github_token_set: !!GITHUB_TOKEN, metric_names: lastRawMetricNames });
 });
 
 // ============================================================
@@ -541,17 +543,17 @@ app.post('/api/check-photo', async (req, res) => {
                 type: 'text',
                 text: `Review this photo for a fitness transformation app and reply with exactly one of these codes:
 
-OK — the person is shirtless, or wearing a sports bra, bikini, swimsuit, swimwear, athletic wear, or underwear-style clothing that clearly exposes their bare midsection/torso. This includes beach photos, pool photos, gym photos, and mirror selfies. Even glamorous or professional-looking photos are OK as long as the clothing is standard swimwear or athletic wear and the pose is not explicitly sexual.
+OK â the person is shirtless, or wearing a sports bra, bikini, swimsuit, swimwear, athletic wear, or underwear-style clothing that clearly exposes their bare midsection/torso. This includes beach photos, pool photos, gym photos, and mirror selfies. Even glamorous or professional-looking photos are OK as long as the clothing is standard swimwear or athletic wear and the pose is not explicitly sexual.
 
-SUGGESTIVE — the photo is clearly sexually provocative: lingerie specifically intended to be erotic (not athletic/swimwear), explicitly sexual posing (spread legs, simulated sex acts), or nudity beyond what would be seen at a beach or gym.
+SUGGESTIVE â the photo is clearly sexually provocative: lingerie specifically intended to be erotic (not athletic/swimwear), explicitly sexual posing (spread legs, simulated sex acts), or nudity beyond what would be seen at a beach or gym.
 
-CLOTHED — the person is fully or mostly clothed and their torso is not clearly visible.
+CLOTHED â the person is fully or mostly clothed and their torso is not clearly visible.
 
-EXPLICIT — the image contains pornographic or sexually explicit content.
+EXPLICIT â the image contains pornographic or sexually explicit content.
 
-ILLEGAL — the image shows visible illegal activity such as drug use, weapons, or similar.
+ILLEGAL â the image shows visible illegal activity such as drug use, weapons, or similar.
 
-MINOR — the subject appears to be under 18 years old.
+MINOR â the subject appears to be under 18 years old.
 
 When in doubt between OK and SUGGESTIVE, choose OK. Only flag SUGGESTIVE if the photo is clearly inappropriate for a fitness context.
 
@@ -694,7 +696,7 @@ app.post('/api/generate-image', async (req, res) => {
       return res.status(400).json({
         error:
           textBlock ||
-          'Image generation was blocked — this is usually caused by a photo that is too suggestive or explicit. For best results, use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with neutral pose and lighting.',
+          'Image generation was blocked â this is usually caused by a photo that is too suggestive or explicit. For best results, use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with neutral pose and lighting.',
       });
     }
 
