@@ -194,7 +194,18 @@ async function fetchOura() {
       deep:   toMins(main.deep_sleep_duration),
       light:  toMins(main.light_sleep_duration),
       awake:  toMins(main.awake_time),
+      efficiency: main.efficiency ?? null,           // sleep efficiency %
+      latency_mins: toMins(main.latency ?? 0),      // minutes to fall asleep
       readiness: readinessScore,
+      contributors: {
+        total_sleep: dailySleep?.contributors?.total_sleep ?? null,
+        efficiency:  dailySleep?.contributors?.efficiency  ?? null,
+        restfulness: dailySleep?.contributors?.restfulness ?? null,
+        rem_sleep:   dailySleep?.contributors?.rem_sleep   ?? null,
+        deep_sleep:  dailySleep?.contributors?.deep_sleep  ?? null,
+        latency:     dailySleep?.contributors?.latency     ?? null,
+        timing:      dailySleep?.contributors?.timing      ?? null,
+      },
     };
   } catch (e) {
     console.error('Oura error:', e.message);
