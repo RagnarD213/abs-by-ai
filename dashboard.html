@@ -242,6 +242,13 @@ font-weight: 600;
 white-space: nowrap;
 margin-left: auto;
 align-self: center;
+cursor: pointer;
+user-select: none;
+transition: filter 0.1s;
+}
+
+.todo-tag:hover {
+filter: brightness(1.2);
 }
 
 .tag-high { background: rgba(34,197,94,0.15); color: var(--green); }
@@ -536,6 +543,66 @@ color: var(--muted);
 padding: 12px 0;
 }
 
+/* ── ADD TASK FORM ── */
+.todo-add-row {
+display: flex;
+gap: 6px;
+margin-top: 10px;
+padding-top: 8px;
+border-top: 1px solid var(--border);
+align-items: center;
+}
+
+.todo-add-input {
+flex: 1;
+min-width: 0;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 6px;
+padding: 5px 8px;
+font-size: 12px;
+color: var(--text);
+outline: none;
+font-family: inherit;
+}
+
+.todo-add-input:focus { border-color: rgba(255,255,255,0.3); }
+.todo-add-input::placeholder { color: var(--muted); }
+
+.todo-add-priority {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 6px;
+padding: 5px 4px;
+font-size: 11px;
+color: var(--muted);
+cursor: pointer;
+outline: none;
+font-family: inherit;
+flex-shrink: 0;
+}
+
+.todo-add-btn {
+background: none;
+border: 1px solid var(--border);
+border-radius: 6px;
+width: 27px;
+height: 27px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 17px;
+color: var(--muted);
+cursor: pointer;
+transition: all 0.15s;
+flex-shrink: 0;
+padding: 0;
+line-height: 1;
+}
+
+.todo-add-btn:hover:not(:disabled) { border-color: var(--text); color: var(--text); }
+.todo-add-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
 /* HRV sparkline placeholder */
 .mini-chart {
 height: 32px;
@@ -586,6 +653,16 @@ background: var(--blue);
 <ul class="todo-list" id="business-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
+<div class="todo-add-row">
+<input class="todo-add-input" type="text" id="add-input-business" placeholder="Add task…" onkeydown="if(event.key==='Enter')addTodo('business')">
+<select class="todo-add-priority" id="add-priority-business">
+<option value="claude">Claude's choice</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+</select>
+<button class="todo-add-btn" id="add-btn-business" onclick="addTodo('business')">+</button>
+</div>
 </div>
 
 <!-- Money Tasks -->
@@ -594,6 +671,16 @@ background: var(--blue);
 <ul class="todo-list" id="money-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
+<div class="todo-add-row">
+<input class="todo-add-input" type="text" id="add-input-money" placeholder="Add task…" onkeydown="if(event.key==='Enter')addTodo('money')">
+<select class="todo-add-priority" id="add-priority-money">
+<option value="claude">Claude's choice</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+</select>
+<button class="todo-add-btn" id="add-btn-money" onclick="addTodo('money')">+</button>
+</div>
 </div>
 
 <!-- App Metrics -->
@@ -666,6 +753,16 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 <ul class="todo-list" id="health-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
+<div class="todo-add-row">
+<input class="todo-add-input" type="text" id="add-input-health" placeholder="Add task…" onkeydown="if(event.key==='Enter')addTodo('health')">
+<select class="todo-add-priority" id="add-priority-health">
+<option value="claude">Claude's choice</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+</select>
+<button class="todo-add-btn" id="add-btn-health" onclick="addTodo('health')">+</button>
+</div>
 </div>
 
 <!-- Sleep Score -->
@@ -865,6 +962,16 @@ Then add <code>HEALTH_WEBHOOK_SECRET</code> to your env vars.
 <ul class="todo-list" id="personal-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
+<div class="todo-add-row">
+<input class="todo-add-input" type="text" id="add-input-personal" placeholder="Add task…" onkeydown="if(event.key==='Enter')addTodo('personal')">
+<select class="todo-add-priority" id="add-priority-personal">
+<option value="claude">Claude's choice</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+</select>
+<button class="todo-add-btn" id="add-btn-personal" onclick="addTodo('personal')">+</button>
+</div>
 </div>
 
 <!-- Dating / Social Calendar -->
@@ -900,7 +1007,8 @@ if (dateEl) dateEl.textContent = `${days[now.getDay()]}, ${months[now.getMonth()
 updateClock();
 setInterval(updateClock, 5000);
 
-// ── TODO CHECK ──
+// ── TODO STATE ──
+let currentTodos = null;
 const checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
 function syncCompletedToServer() {
   // Build "category:text" pairs from all checked items for the morning refresh
@@ -1004,21 +1112,23 @@ const healthEl = document.getElementById('health-todos');
 const moneyEl = document.getElementById('money-todos');
 
 const priOrder = { high: 0, med: 1, low: 2 };
+const tClass = p => p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med' : 'tag-low';
+const tLabel = p => p === 'high' ? 'High' : p === 'med' ? 'Med' : 'Low';
+
 const renderList = (items, el, category) => {
 if (!el) return;
 if (!items.length) { el.innerHTML = '<li class="empty">No to-dos</li>'; return; }
-const sorted = [...items].sort((a, b) => (priOrder[a.priority] ?? 2) - (priOrder[b.priority] ?? 2));
+const withIdx = items.map((t, i) => ({ ...t, _orig: i }));
+const sorted = [...withIdx].sort((a, b) => (priOrder[a.priority] ?? 2) - (priOrder[b.priority] ?? 2));
 el.innerHTML = sorted.map((t, i) => {
 const id = `todo-${el.id}-${i}`;
 const isDone = checkedTodos.has(id);
-const tagClass = t.priority === 'high' ? 'tag-high' : t.priority === 'med' ? 'tag-med' : 'tag-low';
-const tagLabel = t.priority === 'high' ? 'High' : t.priority === 'med' ? 'Med' : 'Low';
 const safeText = t.text.replace(/"/g, '&quot;');
 return `
-<li class="todo-item${isDone ? ' done' : ''}" onclick="toggleTodo('${id}', this)" id="${id}" data-category="${category}" data-text="${safeText}">
-<div class="todo-cb"></div>
-<span class="todo-text">${t.text}</span>
-<span class="todo-tag ${tagClass}">${tagLabel}</span>
+<li class="todo-item${isDone ? ' done' : ''}" id="${id}" data-category="${category}" data-text="${safeText}">
+<div class="todo-cb" onclick="toggleTodo('${id}',this.closest('li'))"></div>
+<span class="todo-text" onclick="toggleTodo('${id}',this.closest('li'))">${t.text}</span>
+<span class="todo-tag ${tClass(t.priority)}" title="Click to change priority" onclick="cyclePriority(event,'${category}',${t._orig},'${t.priority}')">${tLabel(t.priority)}</span>
 </li>`;
 }).join('');
 };
@@ -1297,6 +1407,61 @@ ${txRows || '<div class="empty">No transactions yesterday</div>'}
 notice.style.display = 'none';
 }
 
+// ── ADD TODO ──
+async function addTodo(category) {
+const input = document.getElementById(`add-input-${category}`);
+const prioritySelect = document.getElementById(`add-priority-${category}`);
+const btn = document.getElementById(`add-btn-${category}`);
+const text = input.value.trim();
+if (!text) return;
+btn.disabled = true;
+btn.textContent = '…';
+try {
+const res = await fetch('/api/todos/add', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ category, text, priority: prioritySelect.value }),
+});
+if (!res.ok) throw new Error('Failed');
+const data = await res.json();
+currentTodos = data.todos;
+renderTodos(currentTodos);
+input.value = '';
+prioritySelect.value = 'claude';
+} catch (e) {
+console.error('Add todo error:', e);
+} finally {
+btn.disabled = false;
+btn.textContent = '+';
+}
+}
+
+// ── CYCLE PRIORITY ──
+async function cyclePriority(event, category, origIndex, currentPriority) {
+event.stopPropagation();
+const next = { high: 'med', med: 'low', low: 'high' }[currentPriority] || 'med';
+const tag = event.currentTarget;
+tag.className = `todo-tag ${tClass(next)}`;
+tag.textContent = tLabel(next);
+tag.onclick = null; // prevent double-click during save
+try {
+const res = await fetch('/api/todos/priority', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ category, index: origIndex, priority: next }),
+});
+if (!res.ok) throw new Error('Failed');
+const data = await res.json();
+currentTodos = data.todos;
+renderTodos(currentTodos);
+} catch (e) {
+tag.className = `todo-tag ${tClass(currentPriority)}`;
+tag.textContent = tLabel(currentPriority);
+tag.onclick = (ev) => cyclePriority(ev, category, origIndex, currentPriority);
+console.error('Priority cycle error:', e);
+}
+}
+
 // ── MAIN LOAD ──
 async function loadData() {
 try {
@@ -1305,7 +1470,8 @@ if (!res.ok) throw new Error('API error');
 const d = await res.json();
 
 renderPosthog(d.posthog);
-renderTodos(d.todos);
+currentTodos = d.todos;
+renderTodos(currentTodos);
 renderCalendar(d.business_events, 'business-calendar', 'event-bar-money', 'calendar-notice');
 renderCalendar(d.rel_events, 'rel-calendar', 'event-bar-rel', 'rel-calendar-notice');
 renderNews(d.news);
@@ -1316,7 +1482,8 @@ renderMonarch(d.monarch);
 } catch (e) {
 console.error('Dashboard load error:', e);
 renderPosthog(null);
-renderTodos({ business: [], personal: [] });
+currentTodos = { business: [], health: [], personal: [], money: [] };
+renderTodos(currentTodos);
 renderCalendar([], 'business-calendar', 'event-bar-money', 'calendar-notice');
 renderCalendar([], 'rel-calendar', 'event-bar-rel', 'rel-calendar-notice');
 renderNews([]);

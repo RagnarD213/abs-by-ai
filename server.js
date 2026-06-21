@@ -456,6 +456,69 @@ app.post('/api/todos', async (req, res) => {
     const todos = req.body;
     await saveTodosToGitHub(todos);
     res.json({ ok: true });
+
+async function assignPriorityWithClaude(text, category) {
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 5,
+        system: 'You assign task priorities for a personal productivity dashboard. High = urgent or high-impact. Med = important but not urgent. Low = minor or nice-to-have. Reply with exactly one word: high, med, or low.',
+        messages: [{ role: 'user', content: `Category: ${category}
+Task: ${text}
+
+Priority?` }],
+      }),
+    });
+    const data = await response.json();
+    const result = data?.content?.[0]?.text?.trim().toLowerCase();
+    return ['high', 'med', 'low'].includes(result) ? result : 'med';
+  } catch (e) {
+    console.error('Claude priority error:', e.message);
+    return 'med';
+  }
+}
+
+app.post('/api/todos/add', async (req, res) => {
+  try {
+    const { category, text, priority } = req.body;
+    if (!category || !text) return res.status(400).json({ error: 'Missing category or text' });
+    if (!['business', 'health', 'personal', 'money'].includes(category)) {
+      return res.status(400).json({ error: 'Invalid category' });
+    }
+    const todos = await loadTodos();
+    if (!todos[category]) todos[category] = [];
+    const finalPriority = priority === 'claude'
+      ? await assignPriorityWithClaude(text.trim(), category)
+      : (['high', 'med', 'low'].includes(priority) ? priority : 'med');
+    todos[category].push({ text: text.trim(), priority: finalPriority });
+    await saveTodosToGitHub(todos);
+    res.json({ ok: true, todos, assignedPriority: finalPriority });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.post('/api/todos/priority', async (req, res) => {
+  try {
+    const { category, index, priority } = req.body;
+    if (!category || index == null || !priority) return res.status(400).json({ error: 'Missing fields' });
+    if (!['high', 'med', 'low'].includes(priority)) return res.status(400).json({ error: 'Invalid priority' });
+    const todos = await loadTodos();
+    if (!todos[category] || !todos[category][index]) return res.status(404).json({ error: 'Todo not found' });
+    todos[category][index].priority = priority;
+    await saveTodosToGitHub(todos);
+    res.json({ ok: true, todos });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
