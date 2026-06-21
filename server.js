@@ -875,6 +875,7 @@ app.post('/api/todo-state', (req, res) => {
 // ============================================================
 // STATIC FILES & FALLBACK
 // ============================================================
+app.get('/api/version', (req, res) => res.json({ v: 'v2-todos-add' }));
 app.use(express.static('.'));
 
 // Serve index.html for all non-API, non-dashboard routes (SPA fallback)
