@@ -716,13 +716,29 @@ background: var(--blue);
   .desktop-only { display: none !important; }
   .hamburger-btn { display: block; }
 
-  /* Header: make room for both side buttons */
+  /* Header: compact sticky nav bar on mobile */
   .header {
-    padding: 14px 56px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    flex-direction: row;
+    justify-content: center;
+    padding: 12px 52px;
   }
-  .header-headline { font-size: 22px; }
-  .header-sub { font-size: 13px; }
-  .header-refresh { right: 14px; }
+  /* Hide long motivational subtitles on mobile — just show the title */
+  .header-sub { display: none; }
+  .header-headline { font-size: 18px; }
+  .hamburger-btn {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+  .header-refresh {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   /* Single-column flex layout */
   .grid {
