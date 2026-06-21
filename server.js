@@ -32,9 +32,8 @@ const GOOGLE_CLIENT_ID     = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const GOOGLE_REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
 const GITHUB_TOKEN         = process.env.GITHUB_TOKEN;
-const MONARCH_COOKIES      = process.env.MONARCH_COOKIES;
-const MONARCH_CSRF         = process.env.MONARCH_CSRF_TOKEN;
-const MONARCH_DEVICE_UUID  = process.env.MONARCH_DEVICE_UUID;
+const MONARCH_PUSH_SECRET  = process.env.MONARCH_PUSH_SECRET;
+const MONARCH_DATA_FILE    = 'monarch-data.json';
 const GITHUB_REPO          = 'RagnarD213/abs-by-ai';
 const WATCH_DATA_FILE      = 'watch-data.json'; // persists parsed watch data across deploys
 
@@ -356,91 +355,57 @@ async function fetchNews() {
   }
 }
 
-// ── Monarch Money (cookie-based auth) ──
-async function monarchGQL(query, variables = {}) {
-  if (!MONARCH_COOKIES) throw new Error('MONARCH_COOKIES not set');
-  const r = await fetch('https://api.monarch.com/graphql', {
-    method: 'POST',
-    headers: {
-      'accept': '*/*',
-      'client-platform': 'web',
-      'content-type': 'application/json',
-      'cookie': MONARCH_COOKIES,
-      'device-uuid': MONARCH_DEVICE_UUID || '',
-      'monarch-client': 'monarch-core-web-app-graphql',
-      'monarch-client-version': 'v1.0.2878',
-      'origin': 'https://app.monarch.com',
-      'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36',
-      'x-csrftoken': MONARCH_CSRF || '',
-    },
-    body: JSON.stringify({ query, variables }),
-  });
-  if (!r.ok) throw new Error(`Monarch GQL ${r.status}`);
-  const data = await r.json();
-  if (data.errors) throw new Error(data.errors[0]?.message || 'GraphQL error');
-  return data;
-}
-
+// ── Monarch Money (Mac-push model — data synced from user's machine, cached in GitHub) ──
 async function fetchMonarch() {
-  if (!MONARCH_COOKIES) return null;
+  if (!GITHUB_TOKEN) return null;
   try {
-    const pad = n => String(n).padStart(2, '0');
-    const fmt = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-    const today = new Date();
-    const yesterday = new Date(today); yesterday.setDate(today.getDate() - 1);
-    const weekAgo   = new Date(today); weekAgo.setDate(today.getDate() - 7);
-    const monthAgo  = new Date(today); monthAgo.setDate(today.getDate() - 30);
-    const todayStr     = fmt(today);
-    const yesterdayStr = fmt(yesterday);
-    const weekAgoStr   = fmt(weekAgo);
-    const monthAgoStr  = fmt(monthAgo);
-
-    const [accountsRes, txRes] = await Promise.all([
-      monarchGQL(`query { accounts { id displayName currentBalance isAsset includeInNetWorth type { display } } }`),
-      monarchGQL(`
-        query GetTx($filters: TransactionFilterInput) {
-          allTransactions(filters: $filters) {
-            results(limit: 500) { id amount pending date merchant { name } category { name } }
-          }
-        }
-      `, { filters: { startDate: monthAgoStr, endDate: todayStr } }),
-    ]);
-
-    const accounts = accountsRes?.data?.accounts || [];
-    let netWorth = 0;
-    for (const a of accounts) {
-      if (!a.includeInNetWorth) continue;
-      netWorth += a.isAsset ? (a.currentBalance || 0) : -(a.currentBalance || 0);
-    }
-
-    const expenses = (txRes?.data?.allTransactions?.results || [])
-      .filter(tx => !tx.pending && tx.amount < 0);
-
-    const sumSpending = startStr => expenses
-      .filter(tx => tx.date >= startStr && tx.date <= todayStr)
-      .reduce((s, tx) => s + Math.abs(tx.amount), 0);
-
-    const yesterdayTx = expenses
-      .filter(tx => tx.date === yesterdayStr)
-      .map(tx => ({ merchant: tx.merchant?.name || 'Unknown', category: tx.category?.name || '', amount: Math.abs(tx.amount) }))
-      .sort((a, b) => b.amount - a.amount);
-
-    return {
-      net_worth:           Math.round(netWorth),
-      spending_yesterday:  Math.round(sumSpending(yesterdayStr)),
-      spending_week:       Math.round(sumSpending(weekAgoStr)),
-      spending_month:      Math.round(sumSpending(monthAgoStr)),
-      yesterday_transactions: yesterdayTx,
-    };
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${MONARCH_DATA_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return null;
+    const meta = await res.json();
+    return JSON.parse(Buffer.from(meta.content, 'base64').toString('utf8'));
   } catch (e) {
-    console.error('Monarch error:', e.message);
+    console.error('Monarch cache read error:', e.message);
     return null;
   }
 }
 
+async function saveMonarchToGitHub(data) {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const content = Buffer.from(JSON.stringify(data, null, 2)).toString('base64');
+    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${MONARCH_DATA_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const body = { message: 'Update monarch data', content };
+    if (getRes.ok) { const cur = await getRes.json(); body.sha = cur.sha; }
+    await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${MONARCH_DATA_FILE}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+  } catch (e) { console.error('Monarch GitHub save error:', e.message); }
+}
+
+// Receives pushed data from the Mac sync script
+app.post('/api/monarch-push', async (req, res) => {
+  const secret = req.headers['x-push-secret'];
+  if (MONARCH_PUSH_SECRET && secret !== MONARCH_PUSH_SECRET) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  try {
+    const data = { ...req.body, synced_at: new Date().toISOString() };
+    await saveMonarchToGitHub(data);
+    res.json({ ok: true, synced_at: data.synced_at });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 app.get('/api/monarch', async (req, res) => {
   const data = await fetchMonarch();
-  if (!data) return res.status(503).json({ error: 'Monarch not connected — check MONARCH_COOKIES in Railway' });
+  if (!data) return res.status(503).json({ error: 'No Monarch data yet — run the sync script on your Mac' });
   res.json(data);
 });
 
