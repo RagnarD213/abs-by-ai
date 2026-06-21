@@ -61,6 +61,10 @@
       "priority": "high"
     },
     {
+      "text": "Put chemicals in pool",
+      "priority": "high"
+    },
+    {
       "text": "Make eyebrow threading appointment",
       "priority": "med"
     },
@@ -71,6 +75,34 @@
     {
       "text": "Take Audi to mechanic",
       "priority": "med"
+    },
+    {
+      "text": "Clean office",
+      "priority": "med"
+    },
+    {
+      "text": "Find powerwashing company",
+      "priority": "med"
+    },
+    {
+      "text": "Repair artificial hedge",
+      "priority": "med"
+    },
+    {
+      "text": "Fold laundry",
+      "priority": "low"
+    },
+    {
+      "text": "Do dishes",
+      "priority": "low"
+    },
+    {
+      "text": "Organize kitchen cabinets",
+      "priority": "low"
+    },
+    {
+      "text": "Organize bathroom cabinets",
+      "priority": "low"
     },
     {
       "text": "Take out trash",
