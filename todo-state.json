@@ -1,1 +1,6 @@
-{"completed":["health:Workout","health:Supplements"],"date":"2026-06-21"}
+{
+  "completed": [
+    "business:Test task"
+  ],
+  "date": "2026-06-21"
+}
