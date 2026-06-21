@@ -1009,6 +1009,8 @@ setInterval(updateClock, 5000);
 
 // ── TODO STATE ──
 let currentTodos = null;
+const tClass = p => p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med' : 'tag-low';
+const tLabel = p => p === 'high' ? 'High' : p === 'med' ? 'Med' : 'Low';
 const checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
 function syncCompletedToServer() {
   // Build "category:text" pairs from all checked items for the morning refresh
@@ -1112,8 +1114,6 @@ const healthEl = document.getElementById('health-todos');
 const moneyEl = document.getElementById('money-todos');
 
 const priOrder = { high: 0, med: 1, low: 2 };
-const tClass = p => p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med' : 'tag-low';
-const tLabel = p => p === 'high' ? 'High' : p === 'med' ? 'Med' : 'Low';
 
 const renderList = (items, el, category) => {
 if (!el) return;
@@ -1407,6 +1407,35 @@ ${txRows || '<div class="empty">No transactions yesterday</div>'}
 notice.style.display = 'none';
 }
 
+// ── CLAUDE PRIORITY ──
+async function getClaudePriority(text, category) {
+try {
+const res = await fetch('/api/generate-prompt', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({
+systemPrompt: 'You assign task priorities. Reply with exactly one word: high, med, or low. High = urgent or high-impact. Med = important but not urgent. Low = minor or nice-to-have.',
+userJson: `Category: ${category}\nTask: ${text}\n\nPriority?`
+})
+});
+if (!res.ok) return 'med';
+const data = await res.json();
+const r = data.prompt?.trim().toLowerCase();
+return ['high', 'med', 'low'].includes(r) ? r : 'med';
+} catch (e) { return 'med'; }
+}
+
+// ── SAVE TODOS ──
+async function saveTodos(todos) {
+const res = await fetch('/api/todos', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify(todos),
+});
+if (!res.ok) throw new Error('Save failed');
+return todos;
+}
+
 // ── ADD TODO ──
 async function addTodo(category) {
 const input = document.getElementById(`add-input-${category}`);
@@ -1417,22 +1446,25 @@ if (!text) return;
 btn.disabled = true;
 btn.textContent = '…';
 try {
-const res = await fetch('/api/todos/add', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ category, text, priority: prioritySelect.value }),
-});
-if (!res.ok) throw new Error('Failed');
-const data = await res.json();
-currentTodos = data.todos;
+const todosRes = await fetch('/api/todos');
+if (!todosRes.ok) throw new Error('Load failed');
+const todos = await todosRes.json();
+if (!todos[category]) todos[category] = [];
+const selVal = prioritySelect.value;
+const priority = selVal === 'claude' ? await getClaudePriority(text, category) : selVal;
+todos[category].push({ text, priority });
+await saveTodos(todos);
+currentTodos = todos;
 renderTodos(currentTodos);
 input.value = '';
 prioritySelect.value = 'claude';
 } catch (e) {
 console.error('Add todo error:', e);
+btn.textContent = '!';
+setTimeout(() => { btn.textContent = '+'; }, 2000);
 } finally {
 btn.disabled = false;
-btn.textContent = '+';
+if (btn.textContent === '…') btn.textContent = '+';
 }
 }
 
@@ -1443,16 +1475,16 @@ const next = { high: 'med', med: 'low', low: 'high' }[currentPriority] || 'med';
 const tag = event.currentTarget;
 tag.className = `todo-tag ${tClass(next)}`;
 tag.textContent = tLabel(next);
-tag.onclick = null; // prevent double-click during save
+tag.onclick = null;
 try {
-const res = await fetch('/api/todos/priority', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ category, index: origIndex, priority: next }),
-});
-if (!res.ok) throw new Error('Failed');
-const data = await res.json();
-currentTodos = data.todos;
+const todosRes = await fetch('/api/todos');
+if (!todosRes.ok) throw new Error('Load failed');
+const todos = await todosRes.json();
+if (todos[category] && todos[category][origIndex]) {
+todos[category][origIndex].priority = next;
+}
+await saveTodos(todos);
+currentTodos = todos;
 renderTodos(currentTodos);
 } catch (e) {
 tag.className = `todo-tag ${tClass(currentPriority)}`;
