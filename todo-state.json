@@ -3,7 +3,9 @@
     "business:Add pay for generations to app",
     "health:Shower",
     "personal:Buy groceries",
-    "personal:Start boxers in washing machine"
+    "personal:Start boxers in washing machine",
+    "personal:Fold laundry",
+    "personal:Take out trash"
   ],
   "date": "2026-06-21"
 }
