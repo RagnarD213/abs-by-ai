@@ -193,7 +193,9 @@ async function loadFromServer() {
     const r = await fetch('/api/todo-state');
     if (!r.ok) throw new Error(r.status);
     const data = await r.json();
-    completedSet = new Set(Array.isArray(data.completed) ? data.completed : []);
+    if (data.date === TODAY && Array.isArray(data.completed)) {
+      completedSet = new Set(data.completed);
+    }
     s.textContent = ''; s.className = '';
     renderAll();
   } catch(e) {

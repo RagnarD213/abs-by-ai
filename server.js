@@ -791,6 +791,26 @@ app.post('/api/generate-image', async (req, res) => {
   }
 });
 
+// ── Todo completion state (in-memory, date-keyed — resets each day) ──
+let todoStateStore = { completed: [], date: '' };
+
+app.get('/api/todo-state', (req, res) => {
+  const today = new Date().toISOString().slice(0, 10);
+  if (todoStateStore.date !== today) {
+    todoStateStore = { completed: [], date: today };
+  }
+  res.json(todoStateStore);
+});
+
+app.post('/api/todo-state', (req, res) => {
+  const { completed, date } = req.body || {};
+  if (Array.isArray(completed)) {
+    todoStateStore = { completed, date: date || new Date().toISOString().slice(0, 10) };
+  }
+  res.json({ ok: true });
+});
+
+
 // ============================================================
 // STATIC FILES & FALLBACK
 // ============================================================
