@@ -1,0 +1,16 @@
+{
+  "net_worth": 4657279,
+  "spending_yesterday": 285,
+  "spending_week": 331,
+  "spending_month": 32238,
+  "yesterday_transactions": [
+    {
+      "merchant": "Capital One",
+      "category": "Credit Card Payment",
+      "amount": 284.88
+    }
+  ],
+  "tx_count": 137,
+  "expense_count": 11,
+  "synced_at": "2026-06-21T00:13:20.116Z"
+}
