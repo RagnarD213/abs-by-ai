@@ -1,18 +1,67 @@
 {
-  "net_worth": 4657279,
-  "nw_change_1m": null,
+  "net_worth": 4579017,
+  "nw_change_1m": 30760,
   "nw_change_1y": null,
   "nw_change_3y": null,
-  "net_worth_history": [
-    {
-      "date": "2026-06-20",
-      "net_worth": 4657279
-    }
-  ],
-  "spending_yesterday": 0,
-  "spending_week": 46,
-  "spending_month": 2239,
+  "nw_history_since": "2026-02-26",
+  "spending_yesterday": 484,
+  "spending_week": 1594,
+  "spending_month": 13223,
   "yesterday_transactions": [
+    {
+      "merchant": "Uber",
+      "category": "Taxi & Ride Shares",
+      "amount": 86.97,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Uber",
+      "category": "Taxi & Ride Shares",
+      "amount": 69.22,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Uber Eats",
+      "category": "Food Delivery",
+      "amount": 52.91,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Amazon",
+      "category": "Shopping",
+      "amount": 36.79,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Uber Eats",
+      "category": "Food Delivery",
+      "amount": 36.38,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Amazon",
+      "category": "Shopping",
+      "amount": 32.93,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Amazon",
+      "category": "Shopping",
+      "amount": 32.03,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Instacart",
+      "category": "Groceries",
+      "amount": 31.46,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Instacart",
+      "category": "Groceries",
+      "amount": 22.66,
+      "is_transfer": false
+    },
     {
       "merchant": "Capital One",
       "category": "Credit Card Payment",
@@ -20,5 +69,5 @@
       "is_transfer": true
     }
   ],
-  "synced_at": "2026-06-21T00:22:04.816Z"
+  "synced_at": "2026-06-21T00:28:22.008Z"
 }
