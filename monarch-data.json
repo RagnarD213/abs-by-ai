@@ -1,16 +1,24 @@
 {
   "net_worth": 4657279,
-  "spending_yesterday": 285,
-  "spending_week": 331,
-  "spending_month": 32238,
+  "nw_change_1m": null,
+  "nw_change_1y": null,
+  "nw_change_3y": null,
+  "net_worth_history": [
+    {
+      "date": "2026-06-20",
+      "net_worth": 4657279
+    }
+  ],
+  "spending_yesterday": 0,
+  "spending_week": 46,
+  "spending_month": 2239,
   "yesterday_transactions": [
     {
       "merchant": "Capital One",
       "category": "Credit Card Payment",
-      "amount": 284.88
+      "amount": 284.88,
+      "is_transfer": true
     }
   ],
-  "tx_count": 137,
-  "expense_count": 11,
-  "synced_at": "2026-06-21T00:13:20.116Z"
+  "synced_at": "2026-06-21T00:22:04.816Z"
 }
