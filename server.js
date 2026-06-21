@@ -32,8 +32,9 @@ const GOOGLE_CLIENT_ID     = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const GOOGLE_REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
 const GITHUB_TOKEN         = process.env.GITHUB_TOKEN;
-const MONARCH_EMAIL        = process.env.MONARCH_EMAIL;
-const MONARCH_PASSWORD     = process.env.MONARCH_PASSWORD;
+const MONARCH_COOKIES      = process.env.MONARCH_COOKIES;
+const MONARCH_CSRF         = process.env.MONARCH_CSRF_TOKEN;
+const MONARCH_DEVICE_UUID  = process.env.MONARCH_DEVICE_UUID;
 const GITHUB_REPO          = 'RagnarD213/abs-by-ai';
 const WATCH_DATA_FILE      = 'watch-data.json'; // persists parsed watch data across deploys
 
@@ -355,58 +356,34 @@ async function fetchNews() {
   }
 }
 
-// ── Monarch Money ──
-let monarchToken = null;
-let monarchTokenExpiry = 0;
-
-async function getMonarchToken() {
-  if (!MONARCH_EMAIL || !MONARCH_PASSWORD) return null;
-  if (monarchToken && Date.now() < monarchTokenExpiry) return monarchToken;
-  try {
-    const r = await fetch('https://api.monarchmoney.com/auth/login/', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Client-Platform': 'web',
-        'Content-Type': 'application/json',
-        'User-Agent': 'MonarchMoneyAPI',
-      },
-      body: JSON.stringify({ username: MONARCH_EMAIL, password: MONARCH_PASSWORD, supports_mfa: true, trusted_device: false }),
-    });
-    if (!r.ok) { console.error('Monarch login failed:', r.status); return null; }
-    const d = await r.json();
-    if (!d.token) { console.error('Monarch: no token in response'); return null; }
-    monarchToken = d.token;
-    monarchTokenExpiry = Date.now() + 23 * 60 * 60 * 1000;
-    return monarchToken;
-  } catch (e) {
-    console.error('Monarch auth error:', e.message);
-    return null;
-  }
-}
-
-async function monarchGQL(token, query, variables = {}) {
-  const r = await fetch('https://api.monarchmoney.com/graphql', {
+// ── Monarch Money (cookie-based auth) ──
+async function monarchGQL(query, variables = {}) {
+  if (!MONARCH_COOKIES) throw new Error('MONARCH_COOKIES not set');
+  const r = await fetch('https://api.monarch.com/graphql', {
     method: 'POST',
     headers: {
-      'Accept': 'application/json',
-      'Authorization': `Token ${token}`,
-      'Client-Platform': 'web',
-      'Content-Type': 'application/json',
-      'User-Agent': 'MonarchMoneyAPI',
+      'accept': '*/*',
+      'client-platform': 'web',
+      'content-type': 'application/json',
+      'cookie': MONARCH_COOKIES,
+      'device-uuid': MONARCH_DEVICE_UUID || '',
+      'monarch-client': 'monarch-core-web-app-graphql',
+      'monarch-client-version': 'v1.0.2878',
+      'origin': 'https://app.monarch.com',
+      'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36',
+      'x-csrftoken': MONARCH_CSRF || '',
     },
     body: JSON.stringify({ query, variables }),
   });
   if (!r.ok) throw new Error(`Monarch GQL ${r.status}`);
-  return r.json();
+  const data = await r.json();
+  if (data.errors) throw new Error(data.errors[0]?.message || 'GraphQL error');
+  return data;
 }
 
 async function fetchMonarch() {
-  if (!MONARCH_EMAIL || !MONARCH_PASSWORD) return null;
+  if (!MONARCH_COOKIES) return null;
   try {
-    const token = await getMonarchToken();
-    if (!token) return null;
-
     const pad = n => String(n).padStart(2, '0');
     const fmt = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
     const today = new Date();
@@ -419,8 +396,8 @@ async function fetchMonarch() {
     const monthAgoStr  = fmt(monthAgo);
 
     const [accountsRes, txRes] = await Promise.all([
-      monarchGQL(token, `query { accounts { id displayName currentBalance isAsset includeInNetWorth type { display } } }`),
-      monarchGQL(token, `
+      monarchGQL(`query { accounts { id displayName currentBalance isAsset includeInNetWorth type { display } } }`),
+      monarchGQL(`
         query GetTx($filters: TransactionFilterInput) {
           allTransactions(filters: $filters) {
             results(limit: 500) { id amount pending date merchant { name } category { name } }
@@ -429,7 +406,6 @@ async function fetchMonarch() {
       `, { filters: { startDate: monthAgoStr, endDate: todayStr } }),
     ]);
 
-    // Net worth: sum signed balances for accounts included in net worth
     const accounts = accountsRes?.data?.accounts || [];
     let netWorth = 0;
     for (const a of accounts) {
@@ -437,7 +413,6 @@ async function fetchMonarch() {
       netWorth += a.isAsset ? (a.currentBalance || 0) : -(a.currentBalance || 0);
     }
 
-    // Spending: negative amounts = expenses (exclude pending)
     const expenses = (txRes?.data?.allTransactions?.results || [])
       .filter(tx => !tx.pending && tx.amount < 0);
 
@@ -465,7 +440,7 @@ async function fetchMonarch() {
 
 app.get('/api/monarch', async (req, res) => {
   const data = await fetchMonarch();
-  if (!data) return res.status(503).json({ error: 'Monarch not connected or credentials missing' });
+  if (!data) return res.status(503).json({ error: 'Monarch not connected — check MONARCH_COOKIES in Railway' });
   res.json(data);
 });
 
