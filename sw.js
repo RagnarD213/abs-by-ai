@@ -1,7 +1,7 @@
 // Minimal service worker: only provides an offline fallback page for
 // navigations. It never caches app pages or API/Stripe/analytics requests,
 // so live behavior is unchanged whenever the network is available.
-const CACHE = 'absbyai-v1';
+const CACHE = 'absbyai-v2';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

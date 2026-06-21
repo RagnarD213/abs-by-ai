@@ -46,6 +46,7 @@ if (!ANTHROPIC_API_KEY || !GEMINI_API_KEY) {
 // DASHBOARD â serve at /dashboard
 // ============================================================
 app.get('/dashboard', (req, res) => {
+  res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.sendFile(path.join(__dirname, 'dashboard.html'));
 });
 
