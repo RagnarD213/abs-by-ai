@@ -123,6 +123,10 @@
     {
       "text": "Start boxers in washing machine",
       "priority": "med"
+    },
+    {
+      "text": "Put new rake on luba",
+      "priority": "low"
     }
   ],
   "money": [
