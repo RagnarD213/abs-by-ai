@@ -795,10 +795,8 @@ app.post('/api/generate-image', async (req, res) => {
 let todoStateStore = { completed: [], date: '' };
 
 app.get('/api/todo-state', (req, res) => {
-  const today = new Date().toISOString().slice(0, 10);
-  if (todoStateStore.date !== today) {
-    todoStateStore = { completed: [], date: today };
-  }
+  // Note: do NOT auto-reset here. The daily refresh task reads this first
+  // thing each morning and then explicitly clears it via POST after processing.
   res.json(todoStateStore);
 });
 

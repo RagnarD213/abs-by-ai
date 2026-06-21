@@ -580,10 +580,18 @@ background: var(--blue);
 <h2>Money</h2>
 </div>
 
+<!-- Business Tasks -->
+<div class="card">
+<div class="card-title">Business Tasks</div>
+<ul class="todo-list" id="business-todos">
+<li class="loading pulse">Loading…</li>
+</ul>
+</div>
+
 <!-- Money Tasks -->
 <div class="card">
 <div class="card-title">Money Tasks</div>
-<ul class="todo-list" id="business-todos">
+<ul class="todo-list" id="money-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
 </div>
@@ -894,10 +902,24 @@ setInterval(updateClock, 5000);
 
 // ── TODO CHECK ──
 const checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
+function syncCompletedToServer() {
+  // Build "category:text" pairs from all checked items for the morning refresh
+  const completed = [];
+  document.querySelectorAll('.todo-item.done[data-category][data-text]').forEach(el => {
+    completed.push(el.dataset.category + ':' + el.dataset.text);
+  });
+  const today = new Date().toISOString().slice(0, 10);
+  fetch('/api/todo-state', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ completed, date: today })
+  }).catch(() => {});
+}
 function toggleTodo(id, el) {
 if (checkedTodos.has(id)) { checkedTodos.delete(id); el.classList.remove('done'); }
 else { checkedTodos.add(id); el.classList.add('done'); }
 localStorage.setItem('checkedTodos', JSON.stringify([...checkedTodos]));
+syncCompletedToServer();
 }
 
 // ── HELPERS ──
@@ -974,13 +996,15 @@ function renderTodos(data) {
 const biz = data?.business || [];
 const per = data?.personal || [];
 const health = data?.health || [];
+const money = data?.money || [];
 
 const bizEl = document.getElementById('business-todos');
 const perEl = document.getElementById('personal-todos');
 const healthEl = document.getElementById('health-todos');
+const moneyEl = document.getElementById('money-todos');
 
 const priOrder = { high: 0, med: 1, low: 2 };
-const renderList = (items, el) => {
+const renderList = (items, el, category) => {
 if (!el) return;
 if (!items.length) { el.innerHTML = '<li class="empty">No to-dos</li>'; return; }
 const sorted = [...items].sort((a, b) => (priOrder[a.priority] ?? 2) - (priOrder[b.priority] ?? 2));
@@ -989,8 +1013,9 @@ const id = `todo-${el.id}-${i}`;
 const isDone = checkedTodos.has(id);
 const tagClass = t.priority === 'high' ? 'tag-high' : t.priority === 'med' ? 'tag-med' : 'tag-low';
 const tagLabel = t.priority === 'high' ? 'High' : t.priority === 'med' ? 'Med' : 'Low';
+const safeText = t.text.replace(/"/g, '&quot;');
 return `
-<li class="todo-item${isDone ? ' done' : ''}" onclick="toggleTodo('${id}', this)" id="${id}">
+<li class="todo-item${isDone ? ' done' : ''}" onclick="toggleTodo('${id}', this)" id="${id}" data-category="${category}" data-text="${safeText}">
 <div class="todo-cb"></div>
 <span class="todo-text">${t.text}</span>
 <span class="todo-tag ${tagClass}">${tagLabel}</span>
@@ -998,9 +1023,10 @@ return `
 }).join('');
 };
 
-renderList(biz, bizEl);
-renderList(per, perEl);
-renderList(health, healthEl);
+renderList(biz, bizEl, 'business');
+renderList(per, perEl, 'personal');
+renderList(health, healthEl, 'health');
+renderList(money, moneyEl, 'money');
 }
 
 function renderCalendar(events, colId, barClass, noticeId) {
