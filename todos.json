@@ -1,10 +1,6 @@
 {
   "business": [
     {
-      "text": "Add generation limiting feature to app",
-      "priority": "high"
-    },
-    {
       "text": "Add pay for generations to app",
       "priority": "high"
     },
