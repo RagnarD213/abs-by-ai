@@ -13,11 +13,19 @@
       "priority": "high"
     },
     {
+      "text": "Reschedule next 2 shoots for week after",
+      "priority": "high"
+    },
+    {
       "text": "Set up email autoresponder",
       "priority": "med"
     },
     {
       "text": "Write outlines for test shoot",
+      "priority": "med"
+    },
+    {
+      "text": "Write more outlines for YouTube videos",
       "priority": "med"
     },
     {
@@ -62,6 +70,10 @@
     },
     {
       "text": "Put chemicals in pool",
+      "priority": "high"
+    },
+    {
+      "text": "Update Monarch money transactions",
       "priority": "high"
     },
     {
