@@ -244,9 +244,9 @@ margin-left: auto;
 align-self: center;
 }
 
-.tag-high { background: rgba(239,68,68,0.15); color: var(--red); }
+.tag-high { background: rgba(34,197,94,0.15); color: var(--green); }
 .tag-med { background: rgba(234,179,8,0.15); color: var(--yellow); }
-.tag-low { background: rgba(102,102,102,0.15); color: var(--muted); }
+.tag-low { background: rgba(239,68,68,0.15); color: var(--red); }
 
 /* ── CALENDAR EVENTS ── */
 .event {
@@ -979,19 +979,21 @@ const bizEl = document.getElementById('business-todos');
 const perEl = document.getElementById('personal-todos');
 const healthEl = document.getElementById('health-todos');
 
+const priOrder = { high: 0, med: 1, low: 2 };
 const renderList = (items, el) => {
 if (!el) return;
 if (!items.length) { el.innerHTML = '<li class="empty">No to-dos</li>'; return; }
-el.innerHTML = items.map((t, i) => {
+const sorted = [...items].sort((a, b) => (priOrder[a.priority] ?? 2) - (priOrder[b.priority] ?? 2));
+el.innerHTML = sorted.map((t, i) => {
 const id = `todo-${el.id}-${i}`;
 const isDone = checkedTodos.has(id);
 const tagClass = t.priority === 'high' ? 'tag-high' : t.priority === 'med' ? 'tag-med' : 'tag-low';
-const tagLabel = t.priority === 'high' ? 'High' : t.priority === 'med' ? 'Med' : '';
+const tagLabel = t.priority === 'high' ? 'High' : t.priority === 'med' ? 'Med' : 'Low';
 return `
 <li class="todo-item${isDone ? ' done' : ''}" onclick="toggleTodo('${id}', this)" id="${id}">
 <div class="todo-cb"></div>
 <span class="todo-text">${t.text}</span>
-${tagLabel ? `<span class="todo-tag ${tagClass}">${tagLabel}</span>` : ''}
+<span class="todo-tag ${tagClass}">${tagLabel}</span>
 </li>`;
 }).join('');
 };
