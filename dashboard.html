@@ -1196,7 +1196,7 @@ section.innerHTML = '';
 notice.style.display = 'block';
 return;
 }
-const { net_worth, nw_change_1m, nw_change_1y, nw_change_3y, nw_history_since,
+const { net_worth, nw_change_1m, nw_change_3m, nw_change_all, nw_history_since,
         spending_yesterday, spending_week, spending_month,
         yesterday_transactions, synced_at } = data;
 const nwColor = net_worth >= 0 ? 'var(--green)' : 'var(--red)';
@@ -1236,15 +1236,15 @@ ${syncAge ? `<div style="font-size:10px;color:var(--muted)">synced ${syncAge}</d
 <div class="lbl">1 Month</div>
 </div>
 <div class="metric">
-<div class="val" style="font-size:15px;color:${chgColor(nw_change_1y)}">${fmtNWChange(nw_change_1y)}</div>
-<div class="lbl">1 Year</div>
+<div class="val" style="font-size:15px;color:${chgColor(nw_change_3m)}">${fmtNWChange(nw_change_3m)}</div>
+<div class="lbl">3 Months</div>
 </div>
 <div class="metric">
-<div class="val" style="font-size:15px;color:${chgColor(nw_change_3y)}">${fmtNWChange(nw_change_3y)}</div>
-<div class="lbl">3 Years</div>
+<div class="val" style="font-size:15px;color:${chgColor(nw_change_all)}">${fmtNWChange(nw_change_all)}</div>
+<div class="lbl">All Time</div>
 </div>
 </div>
-${(nw_change_1y == null || nw_change_3y == null) && nw_history_since ? `<div style="font-size:10px;color:var(--muted);margin-top:-6px;margin-bottom:14px">— = no Monarch history before ${new Date(nw_history_since + 'T00:00:00').toLocaleDateString('en-US',{month:'short',year:'numeric'})}; fills in over time</div>` : ''}
+${nw_history_since ? `<div style="font-size:10px;color:var(--muted);margin-top:-6px;margin-bottom:14px">All-time since ${new Date(nw_history_since + 'T00:00:00').toLocaleDateString('en-US',{month:'short',year:'numeric'})}</div>` : ''}
 <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Spending (excl. transfers)</div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
 <div class="metric">
