@@ -35,6 +35,10 @@
     {
       "text": "Create workout program",
       "priority": "low"
+    },
+    {
+      "text": "TEST TASK - DELETE ME",
+      "priority": "high"
     }
   ],
   "health": [
