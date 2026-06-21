@@ -4,9 +4,9 @@
   "nw_change_1y": null,
   "nw_change_3y": null,
   "nw_history_since": "2026-02-26",
-  "spending_yesterday": 484,
-  "spending_week": 1594,
-  "spending_month": 13223,
+  "spending_yesterday": 401,
+  "spending_week": 1511,
+  "spending_month": 13141,
   "yesterday_transactions": [
     {
       "merchant": "Uber",
@@ -69,5 +69,5 @@
       "is_transfer": true
     }
   ],
-  "synced_at": "2026-06-21T00:28:22.008Z"
+  "synced_at": "2026-06-21T00:29:05.968Z"
 }
