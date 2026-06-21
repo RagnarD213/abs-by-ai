@@ -115,6 +115,14 @@
     {
       "text": "Review dating apps",
       "priority": "low"
+    },
+    {
+      "text": "Buy groceries",
+      "priority": "high"
+    },
+    {
+      "text": "Start boxers in washing machine",
+      "priority": "med"
     }
   ],
   "money": [
