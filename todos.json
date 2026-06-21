@@ -35,6 +35,10 @@
     {
       "text": "Create workout program",
       "priority": "low"
+    },
+    {
+      "text": "Get Capital One SRM membership fee refunded and cancel card",
+      "priority": "med"
     }
   ],
   "health": [
