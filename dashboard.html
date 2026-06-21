@@ -1178,6 +1178,16 @@ document.getElementById('resting-hr').textContent = resting_hr ? `${resting_hr} 
 notice.style.display = 'none';
 }
 
+function fmtNWChange(chg) {
+if (chg == null) return '—';
+const abs = Math.abs(chg);
+let str;
+if (abs >= 1000000) str = `$${(abs/1000000).toFixed(2)}M`;
+else if (abs >= 1000) str = `$${(abs/1000).toFixed(1)}k`;
+else str = `$${abs}`;
+return (chg >= 0 ? '+' : '-') + str;
+}
+
 function renderMonarch(data) {
 const section = document.getElementById('monarch-section');
 const notice = document.getElementById('monarch-notice');
@@ -1186,34 +1196,67 @@ section.innerHTML = '';
 notice.style.display = 'block';
 return;
 }
-const { net_worth, spending_yesterday, spending_week, spending_month, yesterday_transactions } = data;
+const { net_worth, nw_change_1m, nw_change_1y, nw_change_3y,
+        spending_yesterday, spending_week, spending_month,
+        yesterday_transactions, synced_at } = data;
 const nwColor = net_worth >= 0 ? 'var(--green)' : 'var(--red)';
-const txRows = (yesterday_transactions || []).slice(0, 8).map(tx => `
-<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border)">
+
+const chgColor = c => c == null ? 'var(--muted)' : c >= 0 ? 'var(--green)' : 'var(--red)';
+
+const txRows = (yesterday_transactions || []).map(tx => {
+const isTx = tx.is_transfer;
+return `
+<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);${isTx ? 'opacity:0.45' : ''}">
 <div style="min-width:0;flex:1">
-<div style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${tx.merchant}</div>
+<div style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:${isTx ? 'var(--muted)' : 'var(--text)'}">${tx.merchant}</div>
 ${tx.category ? `<div style="font-size:10px;color:var(--muted)">${tx.category}</div>` : ''}
 </div>
-<div style="font-size:13px;font-weight:600;color:var(--red);margin-left:8px;flex-shrink:0">-${fmtDollars(tx.amount)}</div>
-</div>
-`).join('');
+<div style="font-size:13px;font-weight:600;color:${isTx ? 'var(--muted)' : 'var(--red)'};margin-left:8px;flex-shrink:0">${isTx ? '' : '-'}${fmtDollars(tx.amount)}</div>
+</div>`;
+}).join('');
+
+const syncAge = synced_at ? (() => {
+const mins = Math.round((Date.now() - new Date(synced_at)) / 60000);
+if (mins < 60) return `${mins}m ago`;
+if (mins < 1440) return `${Math.round(mins/60)}h ago`;
+return `${Math.round(mins/1440)}d ago`;
+})() : '';
+
 section.innerHTML = `
 <div style="margin-bottom:14px">
-<div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Net Worth</div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+<div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em">Net Worth</div>
+${syncAge ? `<div style="font-size:10px;color:var(--muted)">synced ${syncAge}</div>` : ''}
+</div>
 <div style="font-size:34px;font-weight:800;color:${nwColor};line-height:1">${fmtDollars(net_worth)}</div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
 <div class="metric">
-<div class="val" style="font-size:15px;color:var(--red)">-${fmtDollars(spending_yesterday)}</div>
+<div class="val" style="font-size:15px;color:${chgColor(nw_change_1m)}">${fmtNWChange(nw_change_1m)}</div>
+<div class="lbl">1 Month</div>
+</div>
+<div class="metric">
+<div class="val" style="font-size:15px;color:${chgColor(nw_change_1y)}">${fmtNWChange(nw_change_1y)}</div>
+<div class="lbl">1 Year</div>
+</div>
+<div class="metric">
+<div class="val" style="font-size:15px;color:${chgColor(nw_change_3y)}">${fmtNWChange(nw_change_3y)}</div>
+<div class="lbl">3 Years</div>
+</div>
+</div>
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Spending (excl. transfers)</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
+<div class="metric">
+<div class="val" style="font-size:15px;color:${spending_yesterday > 0 ? 'var(--red)' : 'var(--muted)'}">${spending_yesterday > 0 ? '-' : ''}${fmtDollars(spending_yesterday)}</div>
 <div class="lbl">Yesterday</div>
 </div>
 <div class="metric">
-<div class="val" style="font-size:15px;color:var(--red)">-${fmtDollars(spending_week)}</div>
-<div class="lbl">7 Days</div>
+<div class="val" style="font-size:15px;color:${spending_week > 0 ? 'var(--red)' : 'var(--muted)'}">${spending_week > 0 ? '-' : ''}${fmtDollars(spending_week)}</div>
+<div class="lbl">Last Week</div>
 </div>
 <div class="metric">
-<div class="val" style="font-size:15px;color:var(--red)">-${fmtDollars(spending_month)}</div>
-<div class="lbl">30 Days</div>
+<div class="val" style="font-size:15px;color:${spending_month > 0 ? 'var(--red)' : 'var(--muted)'}">${spending_month > 0 ? '-' : ''}${fmtDollars(spending_month)}</div>
+<div class="lbl">Last Month</div>
 </div>
 </div>
 <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Yesterday's Transactions</div>
