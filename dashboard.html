@@ -1011,25 +1011,21 @@ setInterval(updateClock, 5000);
 let currentTodos = null;
 const tClass = p => p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med' : 'tag-low';
 const tLabel = p => p === 'high' ? 'High' : p === 'med' ? 'Med' : 'Low';
-const checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
+// Keys are "category:text" — device-independent, synced via server
+const checkedTodos = new Set();
 function syncCompletedToServer() {
-  // Build "category:text" pairs from all checked items for the morning refresh
-  const completed = [];
-  document.querySelectorAll('.todo-item.done[data-category][data-text]').forEach(el => {
-    completed.push(el.dataset.category + ':' + el.dataset.text);
-  });
   const today = new Date().toISOString().slice(0, 10);
   fetch('/api/todo-state', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ completed, date: today })
+    body: JSON.stringify({ completed: [...checkedTodos], date: today })
   }).catch(() => {});
 }
-function toggleTodo(id, el) {
-if (checkedTodos.has(id)) { checkedTodos.delete(id); el.classList.remove('done'); }
-else { checkedTodos.add(id); el.classList.add('done'); }
-localStorage.setItem('checkedTodos', JSON.stringify([...checkedTodos]));
-syncCompletedToServer();
+function toggleTodo(el) {
+  const key = el.dataset.key;
+  if (checkedTodos.has(key)) { checkedTodos.delete(key); el.classList.remove('done'); }
+  else { checkedTodos.add(key); el.classList.add('done'); }
+  syncCompletedToServer();
 }
 
 // ── HELPERS ──
@@ -1120,14 +1116,15 @@ if (!el) return;
 if (!items.length) { el.innerHTML = '<li class="empty">No to-dos</li>'; return; }
 const withIdx = items.map((t, i) => ({ ...t, _orig: i }));
 const sorted = [...withIdx].sort((a, b) => (priOrder[a.priority] ?? 2) - (priOrder[b.priority] ?? 2));
-el.innerHTML = sorted.map((t, i) => {
-const id = `todo-${el.id}-${i}`;
-const isDone = checkedTodos.has(id);
-const safeText = t.text.replace(/"/g, '&quot;');
+el.innerHTML = sorted.map(t => {
+const key = `${category}:${t.text}`;
+const isDone = checkedTodos.has(key);
+const safeText = t.text.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+const safeKey = key.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 return `
-<li class="todo-item${isDone ? ' done' : ''}" id="${id}" data-category="${category}" data-text="${safeText}">
-<div class="todo-cb" onclick="toggleTodo('${id}',this.closest('li'))"></div>
-<span class="todo-text" onclick="toggleTodo('${id}',this.closest('li'))">${t.text}</span>
+<li class="todo-item${isDone ? ' done' : ''}" data-category="${category}" data-text="${safeText}" data-key="${safeKey}">
+<div class="todo-cb" onclick="toggleTodo(this.closest('li'))"></div>
+<span class="todo-text" onclick="toggleTodo(this.closest('li'))">${t.text}</span>
 <span class="todo-tag ${tClass(t.priority)}" title="Click to change priority" onclick="cyclePriority(event,'${category}',${t._orig},'${t.priority}')">${tLabel(t.priority)}</span>
 </li>`;
 }).join('');
@@ -1497,9 +1494,25 @@ console.error('Priority cycle error:', e);
 // ── MAIN LOAD ──
 async function loadData() {
 try {
-const res = await fetch('/api/morning-data');
-if (!res.ok) throw new Error('API error');
-const d = await res.json();
+const today = new Date().toISOString().slice(0, 10);
+
+// Fetch data and completion state in parallel
+const [dataRes, stateRes] = await Promise.all([
+  fetch('/api/morning-data'),
+  fetch('/api/todo-state'),
+]);
+
+// Load server-side completion state (cross-device persistent)
+if (stateRes.ok) {
+  const state = await stateRes.json();
+  if (state.date === today && Array.isArray(state.completed)) {
+    checkedTodos.clear();
+    state.completed.forEach(k => checkedTodos.add(k));
+  }
+}
+
+if (!dataRes.ok) throw new Error('API error');
+const d = await dataRes.json();
 
 renderPosthog(d.posthog);
 currentTodos = d.todos;

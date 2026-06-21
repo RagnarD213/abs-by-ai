@@ -855,19 +855,59 @@ app.post('/api/generate-image', async (req, res) => {
   }
 });
 
-// ── Todo completion state (in-memory, date-keyed — resets each day) ──
-let todoStateStore = { completed: [], date: '' };
+// ── Todo completion state (GitHub-backed for cross-device persistence) ──
+const TODO_STATE_FILE = 'todo-state.json';
+let todoStateCache = null;
 
-app.get('/api/todo-state', (req, res) => {
-  // Note: do NOT auto-reset here. The daily refresh task reads this first
-  // thing each morning and then explicitly clears it via POST after processing.
-  res.json(todoStateStore);
+async function loadTodoState() {
+  if (!GITHUB_TOKEN) return { completed: [], date: '' };
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODO_STATE_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return { completed: [], date: '' };
+    const data = await res.json();
+    return JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+  } catch (e) {
+    console.error('loadTodoState error:', e.message);
+    return { completed: [], date: '' };
+  }
+}
+
+async function saveTodoStateToGitHub(state) {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const content = Buffer.from(JSON.stringify(state, null, 2)).toString('base64');
+    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODO_STATE_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const body = { message: 'Update todo state', content };
+    if (getRes.ok) { const cur = await getRes.json(); body.sha = cur.sha; }
+    await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODO_STATE_FILE}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    console.log('Todo state saved to GitHub');
+  } catch (e) {
+    console.error('GitHub todo-state save error:', e.message);
+  }
+}
+
+app.get('/api/todo-state', async (req, res) => {
+  // Use in-memory cache if available (populated on first load or after any write)
+  if (todoStateCache) return res.json(todoStateCache);
+  const state = await loadTodoState();
+  todoStateCache = state;
+  res.json(state);
 });
 
-app.post('/api/todo-state', (req, res) => {
+app.post('/api/todo-state', async (req, res) => {
   const { completed, date } = req.body || {};
   if (Array.isArray(completed)) {
-    todoStateStore = { completed, date: date || new Date().toISOString().slice(0, 10) };
+    const state = { completed, date: date || new Date().toISOString().slice(0, 10) };
+    todoStateCache = state;
+    saveTodoStateToGitHub(state); // async — don't block response
   }
   res.json({ ok: true });
 });
