@@ -69,10 +69,6 @@
       "priority": "high"
     },
     {
-      "text": "Update Monarch money transactions",
-      "priority": "high"
-    },
-    {
       "text": "Make eyebrow threading appointment",
       "priority": "med"
     },
@@ -119,6 +115,12 @@
     {
       "text": "Review dating apps",
       "priority": "low"
+    }
+  ],
+  "money": [
+    {
+      "text": "Update Monarch money transactions",
+      "priority": "med"
     }
   ]
 }
