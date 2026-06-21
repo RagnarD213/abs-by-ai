@@ -1,1 +1,84 @@
-{"business":[{"text":"Add generation limiting feature to app","priority":"high"},{"text":"Add pay for generations to app","priority":"high"},{"text":"Add email capture to app","priority":"high"},{"text":"Set up email autoresponder","priority":"med"},{"text":"Write outlines for test shoot","priority":"med"},{"text":"Fix Printify store name and picture issue","priority":"med"},{"text":"Add shipping costs to app","priority":"med"},{"text":"Create workout program","priority":"low"}],"health":[{"text":"Workout","priority":"high"},{"text":"Supplements","priority":"high"},{"text":"Shower","priority":"high"},{"text":"Salad","priority":"high"}],"personal":[{"text":"Call fence company","priority":"high"},{"text":"Call title company","priority":"high"},{"text":"Make eyebrow threading appointment","priority":"med"},{"text":"Find best mechanic to fix car","priority":"med"},{"text":"Take Audi to mechanic","priority":"med"},{"text":"Take out trash","priority":"low"},{"text":"Review dating apps","priority":"low"}]}
+{
+  "business": [
+    {
+      "text": "Add generation limiting feature to app",
+      "priority": "high"
+    },
+    {
+      "text": "Add pay for generations to app",
+      "priority": "high"
+    },
+    {
+      "text": "Add email capture to app",
+      "priority": "high"
+    },
+    {
+      "text": "Set up email autoresponder",
+      "priority": "med"
+    },
+    {
+      "text": "Write outlines for test shoot",
+      "priority": "med"
+    },
+    {
+      "text": "Fix Printify store name and picture issue",
+      "priority": "med"
+    },
+    {
+      "text": "Add shipping costs to app",
+      "priority": "med"
+    },
+    {
+      "text": "Create workout program",
+      "priority": "low"
+    }
+  ],
+  "health": [
+    {
+      "text": "Workout",
+      "priority": "high"
+    },
+    {
+      "text": "Supplements",
+      "priority": "high"
+    },
+    {
+      "text": "Shower",
+      "priority": "high"
+    },
+    {
+      "text": "Salad",
+      "priority": "high"
+    }
+  ],
+  "personal": [
+    {
+      "text": "Call fence company",
+      "priority": "high"
+    },
+    {
+      "text": "Call title company",
+      "priority": "high"
+    },
+    {
+      "text": "Make eyebrow threading appointment",
+      "priority": "med"
+    },
+    {
+      "text": "Find best mechanic to fix car",
+      "priority": "med"
+    },
+    {
+      "text": "Take Audi to mechanic",
+      "priority": "med"
+    },
+    {
+      "text": "Take out trash",
+      "priority": "low"
+    },
+    {
+      "text": "Review dating apps",
+      "priority": "low"
+    }
+  ]
+}
