@@ -1196,7 +1196,7 @@ section.innerHTML = '';
 notice.style.display = 'block';
 return;
 }
-const { net_worth, nw_change_1m, nw_change_1y, nw_change_3y,
+const { net_worth, nw_change_1m, nw_change_1y, nw_change_3y, nw_history_since,
         spending_yesterday, spending_week, spending_month,
         yesterday_transactions, synced_at } = data;
 const nwColor = net_worth >= 0 ? 'var(--green)' : 'var(--red)';
@@ -1244,6 +1244,7 @@ ${syncAge ? `<div style="font-size:10px;color:var(--muted)">synced ${syncAge}</d
 <div class="lbl">3 Years</div>
 </div>
 </div>
+${(nw_change_1y == null || nw_change_3y == null) && nw_history_since ? `<div style="font-size:10px;color:var(--muted);margin-top:-6px;margin-bottom:14px">— = no Monarch history before ${new Date(nw_history_since + 'T00:00:00').toLocaleDateString('en-US',{month:'short',year:'numeric'})}; fills in over time</div>` : ''}
 <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Spending (excl. transfers)</div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
 <div class="metric">
@@ -1259,7 +1260,10 @@ ${syncAge ? `<div style="font-size:10px;color:var(--muted)">synced ${syncAge}</d
 <div class="lbl">Last Month</div>
 </div>
 </div>
-<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Yesterday's Transactions</div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Yesterday's Transactions</div>
+<div style="font-size:13px;font-weight:700;color:${spending_yesterday > 0 ? 'var(--red)' : 'var(--muted)'}">${spending_yesterday > 0 ? '-' : ''}${fmtDollars(spending_yesterday)}</div>
+</div>
 ${txRows || '<div class="empty">No transactions yesterday</div>'}
 `;
 notice.style.display = 'none';
