@@ -13,6 +13,14 @@
       "priority": "high"
     },
     {
+      "text": "Email Knives to check on video progress",
+      "priority": "high"
+    },
+    {
+      "text": "Fix dashboard functionality",
+      "priority": "high"
+    },
+    {
       "text": "Set up email autoresponder",
       "priority": "med"
     },
@@ -89,6 +97,10 @@
       "priority": "high"
     },
     {
+      "text": "Buy groceries",
+      "priority": "high"
+    },
+    {
       "text": "Find best mechanic to fix car",
       "priority": "med"
     },
@@ -106,6 +118,14 @@
     },
     {
       "text": "Repair artificial hedge",
+      "priority": "med"
+    },
+    {
+      "text": "Start boxers in washing machine",
+      "priority": "med"
+    },
+    {
+      "text": "Put new rake on luba",
       "priority": "med"
     },
     {
@@ -129,20 +149,8 @@
       "priority": "low"
     },
     {
-      "text": "Review dating apps",
+      "text": "Check dating apps",
       "priority": "low"
-    },
-    {
-      "text": "Buy groceries",
-      "priority": "high"
-    },
-    {
-      "text": "Start boxers in washing machine",
-      "priority": "med"
-    },
-    {
-      "text": "Put new rake on luba",
-      "priority": "med"
     }
   ]
 }
