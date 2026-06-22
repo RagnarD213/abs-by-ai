@@ -2,7 +2,8 @@
   "checked": [
     "health::Shower",
     "personal::Buy groceries",
-    "money::Email Knives to check on video progress"
+    "money::Email Knives to check on video progress",
+    "money::Reschedule next 2 shoots for week after"
   ],
   "log": {}
 }
