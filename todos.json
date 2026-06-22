@@ -77,6 +77,26 @@
     {
       "text": "Salad",
       "priority": "high"
+    },
+    {
+      "text": "Make salads",
+      "priority": "high"
+    },
+    {
+      "text": "Cook salmon",
+      "priority": "high"
+    },
+    {
+      "text": "Cook Brussels sprouts",
+      "priority": "high"
+    },
+    {
+      "text": "Cook rice",
+      "priority": "high"
+    },
+    {
+      "text": "Pack meals",
+      "priority": "high"
     }
   ],
   "personal": [
