@@ -60,6 +60,11 @@
       "text": "Write script for HOG commercial",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Buy teleprompter",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
