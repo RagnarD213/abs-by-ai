@@ -14,7 +14,8 @@
     "personal::Start boxers in washing machine",
     "personal::Put chemicals in pool",
     "money::Fix dashboard functionality",
-    "personal::Make eyebrow threading appointment"
+    "personal::Make eyebrow threading appointment",
+    "health::Workout"
   ],
   "log": {}
 }
