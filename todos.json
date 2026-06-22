@@ -80,6 +80,11 @@
       "text": "Improve app generation time",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Improve app loading animations",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
