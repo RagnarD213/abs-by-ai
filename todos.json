@@ -213,6 +213,11 @@
       "text": "Spray weeds with roundup",
       "priority": "low",
       "recurring": false
+    },
+    {
+      "text": "Do weed whacker",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
