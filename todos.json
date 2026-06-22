@@ -70,11 +70,6 @@
       "text": "Write YouTube ad scripts",
       "priority": "high",
       "recurring": false
-    },
-    {
-      "text": "Review HBI campaigns",
-      "priority": "high",
-      "recurring": false
     }
   ],
   "health": [
