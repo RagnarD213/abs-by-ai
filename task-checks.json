@@ -12,7 +12,8 @@
     "personal::Call fence company",
     "personal::Fold laundry",
     "personal::Start boxers in washing machine",
-    "personal::Put chemicals in pool"
+    "personal::Put chemicals in pool",
+    "money::Fix dashboard functionality"
   ],
   "log": {}
 }
