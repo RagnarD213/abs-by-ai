@@ -1,9 +1,10 @@
 {
   "balances": {
     "dev-1781745122020-mnwdv5nv": 0,
-    "dev-1782150252688-p5pbzsis": 0
+    "dev-1782150252688-p5pbzsis": 20
   },
   "fulfilled": {
-    "cs_live_a1twQmW1btR3Kp9LKE30b4yeXLBlv2mF5p3RoGgYyxQQ6yY60dZUjsVdl1": true
+    "cs_live_a1twQmW1btR3Kp9LKE30b4yeXLBlv2mF5p3RoGgYyxQQ6yY60dZUjsVdl1": true,
+    "cs_live_a1rDMo4HUvIyxl6N9KKZ9mlkemI8M1XzdCTep4cNXWynO3nRPyo199rB7d": true
   }
 }
