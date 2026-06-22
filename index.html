@@ -806,6 +806,14 @@ html, body {
   transform: scale(1.06); /* hides blur edges */
   transition: filter 0.35s ease, transform 0.35s ease;
 }
+/* Scan overlay for the result-screen regenerate (reuses the gen-* scan parts) */
+.after-scan {
+  position: absolute; inset: 0;
+  height: 230px; /* matches .ba-img */
+  border-radius: 16px;
+  overflow: hidden;
+  pointer-events: none;
+}
 
 /* ── Paywall section ── */
 #paywallSection { margin-bottom: 18px; }
@@ -1068,6 +1076,13 @@ html, body {
         <div class="ba-col-label after-lbl">After</div>
         <div class="after-img-wrap">
           <img id="afterImg" class="ba-img" alt="After — AI generated" />
+          <div id="afterScan" class="after-scan" style="display:none">
+            <div class="gen-loader-veil"></div>
+            <div class="gen-grid"></div>
+            <div class="gen-scan"></div>
+            <span class="gen-bracket tl"></span><span class="gen-bracket tr"></span>
+            <span class="gen-bracket bl"></span><span class="gen-bracket br"></span>
+          </div>
           <div id="afterLockOverlay" class="after-lock-overlay" style="display:none">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             <span>Unlock to reveal</span>
@@ -1085,7 +1100,18 @@ html, body {
       </span>
     </div>
 
-    <!-- Result loading state -->
+    <!-- Result loading state (progress bar + synced copy; scan overlays the after image) -->
+    <div id="resultGenLoader" class="gen-loader" style="display:none">
+      <div class="gen-loader-info" style="margin-top:0">
+        <div class="gen-status-row">
+          <span id="resultGenStatusText" class="gen-status-text">Re-sculpting your future self…</span>
+          <span id="resultGenPct" class="gen-pct">0%</span>
+        </div>
+        <div class="gen-bar-track"><div id="resultGenBarFill" class="gen-bar-fill"></div></div>
+        <div class="gen-sub">Applying your new intensity — about 20 seconds</div>
+      </div>
+    </div>
+    <!-- Legacy minimal result status (kept as hidden fallback for setResultStatus) -->
     <div id="resultStatusSection" style="display:none" class="loading-status">
       <div class="loading-spinner"></div>
       <div>
@@ -1766,35 +1792,55 @@ const GEN_STAGES = [
   [94,  'Rendering your future self…'],
   [101, 'Adding the finishing touches…'],
 ];
-let genTimer = null, genProgress = 0;
-function renderGenProgress(p) {
-  const pct = Math.min(99, Math.round(p));
-  $('genBarFill').style.width = pct + '%';
-  $('genPct').textContent = pct + '%';
-  $('genStatusText').textContent = (GEN_STAGES.find(s => pct < s[0]) || GEN_STAGES[GEN_STAGES.length - 1])[1];
+// Shared controller for both the initial-generation loader (form screen) and the
+// regenerate loader (result screen). `ids.scan` is an optional separate overlay
+// (the result screen scans the existing after-image rather than a photo inside
+// the card).
+function makeProgressLoader(ids) {
+  const el = k => document.getElementById(ids[k]);
+  const scanEl = () => ids.scan ? el('scan') : null;
+  let timer = null, p = 0;
+  const render = v => {
+    const pct = Math.min(99, Math.round(v));
+    el('bar').style.width = pct + '%';
+    el('pct').textContent = pct + '%';
+    el('status').textContent = (GEN_STAGES.find(s => pct < s[0]) || GEN_STAGES[GEN_STAGES.length - 1])[1];
+  };
+  return {
+    start() {
+      p = 0; render(0);
+      el('card').style.display = '';
+      const s = scanEl(); if (s) s.style.display = '';
+      if (timer) clearInterval(timer);
+      timer = setInterval(() => { p += (92 - p) * 0.06; render(p); }, 200); // ease toward 92% asymptote
+    },
+    finish() {
+      if (timer) { clearInterval(timer); timer = null; }
+      el('bar').style.width = '100%'; el('pct').textContent = '100%'; el('status').textContent = 'Done!';
+      return new Promise(r => setTimeout(() => {
+        el('card').style.display = 'none';
+        const s = scanEl(); if (s) s.style.display = 'none';
+        r();
+      }, 420));
+    },
+    clear() {
+      if (timer) { clearInterval(timer); timer = null; }
+      el('card').style.display = 'none';
+      const s = scanEl(); if (s) s.style.display = 'none';
+    },
+  };
 }
+const _genLoader = makeProgressLoader({ card: 'genLoader', bar: 'genBarFill', pct: 'genPct', status: 'genStatusText' });
+const _resultLoader = makeProgressLoader({ card: 'resultGenLoader', bar: 'resultGenBarFill', pct: 'resultGenPct', status: 'resultGenStatusText', scan: 'afterScan' });
 function startGenLoader() {
-  genProgress = 0;
   if (state.photoData) $('genLoaderPhoto').src = `data:${state.photoMime};base64,${state.photoData}`;
-  renderGenProgress(0);
-  $('genLoader').style.display = '';
-  if (genTimer) clearInterval(genTimer);
-  genTimer = setInterval(() => {
-    genProgress += (92 - genProgress) * 0.06; // ease toward 92% asymptote
-    renderGenProgress(genProgress);
-  }, 200);
+  _genLoader.start();
 }
-function finishGenLoader() {
-  if (genTimer) { clearInterval(genTimer); genTimer = null; }
-  $('genBarFill').style.width = '100%';
-  $('genPct').textContent = '100%';
-  $('genStatusText').textContent = 'Done!';
-  return new Promise(r => setTimeout(() => { $('genLoader').style.display = 'none'; r(); }, 420));
-}
-function clearGenLoader() {
-  if (genTimer) { clearInterval(genTimer); genTimer = null; }
-  $('genLoader').style.display = 'none';
-}
+function finishGenLoader() { return _genLoader.finish(); }
+function clearGenLoader() { _genLoader.clear(); }
+function startResultLoader() { _resultLoader.start(); }
+function finishResultLoader() { return _resultLoader.finish(); }
+function clearResultLoader() { _resultLoader.clear(); }
 
 function setStatus(title, sub) {
   $('statusSection').style.display = '';
@@ -2370,19 +2416,18 @@ async function adjustIntensity(delta) {
   $('moreDramaticBtn').disabled = true;
   $('moreSubtleBtn').disabled = true;
   $('loveItBtn').disabled = true;
-  setResultStatus('Regenerating…', `Applying ${state.effectiveIntensity} intensity`);
+  startResultLoader();
 
   try {
     const generatedPrompt = await callGeminiText(GOAL_SYSTEM_PROMPT, makeUserJson());
     if (generatedPrompt.trim() === 'REFUSED_MINOR') throw new Error('Refused.');
-    setResultStatus('Regenerating…', 'Gemini is generating the new image…');
     const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
+    await finishResultLoader(); // land the bar at 100% before swapping the image in
     $('afterImg').src = afterDataUrl;
     $('resultDownloadBtn').href = afterDataUrl;
     updateBodyFatDisplay();
-    clearResultStatus();
 
     if (locked) {
       showLockedResult();
@@ -2392,7 +2437,7 @@ async function adjustIntensity(delta) {
       updateCreditDisplay();
     }
   } catch (err) {
-    clearResultStatus();
+    clearResultLoader();
     state.effectiveIntensity = prevIntensity; // revert state on failure
     showResultError(err.message || 'Something went wrong. Please try again.');
     console.error(err);
