@@ -1,4 +1,6 @@
 {
-  "checked": [],
+  "checked": [
+    "health::Shower"
+  ],
   "log": {}
 }
