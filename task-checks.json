@@ -16,7 +16,8 @@
     "money::Fix dashboard functionality",
     "personal::Make eyebrow threading appointment",
     "health::Workout",
-    "health::Supplements"
+    "health::Supplements",
+    "money::Review HBI campaigns"
   ],
   "log": {}
 }
