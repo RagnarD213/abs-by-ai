@@ -390,14 +390,26 @@ app.get('/api/calendar-debug', async (req, res) => {
   const calListData = calListRes.ok ? await calListRes.json() : null;
   const calendars = (calListData?.items || []).map(c => ({ id: c.id, summary: c.summary, role: c.accessRole }));
 
-  // Query primary
-  const primRes = await fetch(
-    `https://www.googleapis.com/calendar/v3/calendars/primary/events?timeMin=${encodeURIComponent(startOfDay)}&timeMax=${encodeURIComponent(endOfDay)}&singleEvents=true`,
-    { headers: { 'Authorization': `Bearer ${token}` } });
-  const primStatus = primRes.status;
-  const primData = primRes.ok ? await primRes.json() : await primRes.text();
+  // Query each calendar individually and collect results
+  const perCalendar = [];
+  const calIds = ['primary', ...calendars.map(c => c.id)];
+  const uniqueIds = [...new Set(calIds)];
+  for (const calId of uniqueIds) {
+    const r = await fetch(
+      `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calId)}/events?timeMin=${encodeURIComponent(startOfDay)}&timeMax=${encodeURIComponent(endOfDay)}&singleEvents=true`,
+      { headers: { 'Authorization': `Bearer ${token}` } });
+    const status = r.status;
+    if (r.ok) {
+      const data = await r.json();
+      const events = (data.items || []).map(ev => ({ id: ev.id, title: ev.summary, time: ev.start?.dateTime || ev.start?.date, status: ev.status }));
+      perCalendar.push({ calId, status, eventCount: events.length, events });
+    } else {
+      const errText = await r.text().catch(() => '');
+      perCalendar.push({ calId, status, error: errText.slice(0, 200) });
+    }
+  }
 
-  res.json({ token_ok: true, startOfDay, endOfDay, calListStatus, calendars, primStatus, primItems: primData?.items?.length, primError: primData?.error || null });
+  res.json({ token_ok: true, startOfDay, endOfDay, calListStatus, perCalendar });
 });
 
 // Dating app keywords to route events to Relationships column
