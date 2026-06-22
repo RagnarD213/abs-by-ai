@@ -1296,17 +1296,22 @@ async function handleCreditsCheckout(pack) {
   $('creditsCheckoutError').style.display = 'none';
 
   try {
-    const returnUrl = window.location.origin + window.location.pathname + '?credits_session_id={CHECKOUT_SESSION_ID}';
     const res = await fetch(`${BACKEND_URL}/api/stripe/create-credits-checkout`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ pack, deviceId: getDeviceId(), returnUrl }),
+      body: JSON.stringify({ pack, deviceId: getDeviceId() }),
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Checkout setup failed');
 
+    const purchasedSessionId = data.sessionId;
     const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
-    const checkout = await stripeJs.initEmbeddedCheckout({ clientSecret: data.clientSecret });
+    // onComplete fires in-page (no redirect) thanks to redirect_on_completion:'never'
+    // on the server, so the previously generated image is preserved.
+    const checkout = await stripeJs.initEmbeddedCheckout({
+      clientSecret: data.clientSecret,
+      onComplete: () => { handleCreditsPurchaseComplete(purchasedSessionId); },
+    });
     $('checkoutOverlay').style.display = 'flex';
     $('checkout').innerHTML = '';
     checkout.mount('#checkout');
@@ -1317,6 +1322,40 @@ async function handleCreditsCheckout(pack) {
     $('creditsCheckoutError').style.display = '';
   } finally {
     document.querySelectorAll('.pack-card').forEach(c => c.classList.remove('pack-card-loading'));
+  }
+}
+
+function closeCreditsCheckout() {
+  $('checkoutOverlay').style.display = 'none';
+  if (window._stripeCheckout) {
+    try { window._stripeCheckout.destroy(); } catch (e) {}
+    window._stripeCheckout = null;
+  }
+  $('checkout').innerHTML = '';
+}
+
+// Called by Stripe's onComplete after a successful credit purchase. Keeps the
+// user on the result screen and reveals the image they generated before paying.
+async function handleCreditsPurchaseComplete(sessionId) {
+  // Make sure the server has credited the purchase (idempotent) before we read
+  // the balance — covers the case where the webhook hasn't landed yet.
+  try {
+    if (sessionId) {
+      await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(sessionId)}`).catch(() => {});
+    }
+    state_credits.value = await fetchCreditsFromServer();
+  } catch (e) { console.error('Post-purchase sync failed:', e); }
+  updateCreditDisplay();
+
+  closeCreditsCheckout();
+  unlockResult();   // reveal the already-generated image in place
+  fireConfetti();   // celebrate 🎉
+
+  const toast = $('creditsSuccessToast');
+  if (toast) {
+    $('creditsSuccessText').textContent = `${state_credits.value} generation${state_credits.value !== 1 ? 's' : ''} ready — generate now!`;
+    toast.style.display = 'flex';
+    setTimeout(() => { toast.style.display = 'none'; }, 4500);
   }
 }
 
@@ -1579,6 +1618,74 @@ function setStatus(title, sub) {
   $('statusSub').textContent = sub;
 }
 function clearStatus() { $('statusSection').style.display = 'none'; }
+
+// Celebratory confetti burst (self-contained, no CDN so it works offline in the
+// PWA). Shared by "Lock in this goal" and a successful credit purchase.
+function fireConfetti() {
+  // Respect users who prefer reduced motion.
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let canvas = document.getElementById('confetti-canvas');
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    canvas.id = 'confetti-canvas';
+    canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+    document.body.appendChild(canvas);
+  }
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const W = window.innerWidth || document.documentElement.clientWidth || screen.width || 1024;
+  const H = window.innerHeight || document.documentElement.clientHeight || screen.height || 768;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const colors = ['#21d07a', '#00c49a', '#f5a623', '#ef4444', '#6366f1', '#ec4899', '#38bdf8'];
+  const N = 140;
+  const parts = [];
+  for (let i = 0; i < N; i++) {
+    parts.push({
+      x: W / 2 + (Math.random() - 0.5) * 120,
+      y: H / 2 + (Math.random() - 0.5) * 60,
+      vx: (Math.random() - 0.5) * 14,
+      vy: (Math.random() * -16) - 4,
+      size: 5 + Math.random() * 7,
+      color: colors[(Math.random() * colors.length) | 0],
+      rot: Math.random() * Math.PI * 2,
+      vrot: (Math.random() - 0.5) * 0.3,
+      life: 0,
+    });
+  }
+  const gravity = 0.4, drag = 0.985, maxLife = 140;
+  let raf;
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    let alive = false;
+    for (const p of parts) {
+      p.life++;
+      p.vx *= drag;
+      p.vy = p.vy * drag + gravity;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vrot;
+      const alpha = Math.max(0, 1 - p.life / maxLife);
+      if (alpha > 0 && p.y < H + 50) alive = true;
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+      ctx.restore();
+    }
+    if (alive) {
+      raf = requestAnimationFrame(frame);
+    } else {
+      cancelAnimationFrame(raf);
+      ctx.clearRect(0, 0, W, H);
+    }
+  }
+  frame();
+}
 
 function showError(msg) {
   const el = $('errorSection');
@@ -1893,7 +2000,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   // Result screen
   $('resultBackBtn').addEventListener('click', () => showScreen('form'));
-  $('loveItBtn').addEventListener('click', () => showScreen('steps'));
+  $('loveItBtn').addEventListener('click', () => { fireConfetti(); showScreen('steps'); });
   $('moreDramaticBtn').addEventListener('click', () => adjustIntensity(1));
   $('moreSubtleBtn').addEventListener('click', () => adjustIntensity(-1));
   $('tryAgainBtn').addEventListener('click', () => showScreen('form'));
@@ -2113,8 +2220,28 @@ async function adjustIntensity(delta) {
 // ============================================================
 //  API CALLS
 // ============================================================
+// Retries ONLY on network-level failures ("Failed to fetch" / TypeError) — the
+// kind thrown by transient blips or a server cold-start/redeploy — never on HTTP
+// error responses (those are real app errors and resolve normally with res.ok
+// false). The image endpoint consumes a credit, so it uses a single retry to
+// minimize the rare chance of double-charging if the request reached the server
+// before the connection dropped.
+async function fetchWithRetry(url, opts, retries = 2) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await fetch(url, opts);
+    } catch (err) {
+      if (attempt < retries) {
+        await new Promise(r => setTimeout(r, 600 * (attempt + 1)));
+        continue;
+      }
+      throw new Error('Network connection issue — please check your connection and try again.');
+    }
+  }
+}
+
 async function callGeminiText(systemPrompt, userMessage) {
-  const res = await fetch(`${BACKEND_URL}/api/generate-prompt`, {
+  const res = await fetchWithRetry(`${BACKEND_URL}/api/generate-prompt`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ systemPrompt, userJson: userMessage }),
@@ -2126,7 +2253,7 @@ async function callGeminiText(systemPrompt, userMessage) {
 }
 
 async function callGeminiImage(prompt, photoBase64, photoMime) {
-  const res = await fetch(`${BACKEND_URL}/api/generate-image`, {
+  const res = await fetchWithRetry(`${BACKEND_URL}/api/generate-image`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2134,7 +2261,7 @@ async function callGeminiImage(prompt, photoBase64, photoMime) {
       distinctId: window.posthog ? posthog.get_distinct_id() : 'anonymous',
       deviceId: getDeviceId(),
     }),
-  });
+  }, 1);
   const data = await res.json();
   if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
   if (!data?.imageBase64) throw new Error('Image generation was blocked — this is usually caused by a photo that is too suggestive or explicit. For best results, use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with a neutral pose and lighting. Please try a different photo.');

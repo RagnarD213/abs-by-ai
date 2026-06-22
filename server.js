@@ -1419,16 +1419,18 @@ app.post('/api/stripe/create-credits-checkout', async (req, res) => {
     const stripe = getStripe();
     if (!stripe) return res.status(503).json({ error: 'Payments are not configured yet.' });
 
-    const { pack, deviceId, returnUrl } = req.body || {};
+    const { pack, deviceId } = req.body || {};
     const packDef = CREDIT_PACKS[pack];
     if (!packDef) return res.status(400).json({ error: 'Invalid pack' });
     if (!deviceId) return res.status(400).json({ error: 'Missing deviceId' });
-    if (!returnUrl) return res.status(400).json({ error: 'Missing returnUrl' });
 
+    // redirect_on_completion:'never' keeps the buyer on the SPA after paying —
+    // the client handles completion via Stripe's onComplete callback instead of
+    // a full-page return_url redirect (which would lose the generated image).
     const session = await stripe.checkout.sessions.create({
       ui_mode: 'embedded',
       mode: 'payment',
-      return_url: returnUrl,
+      redirect_on_completion: 'never',
       line_items: [{
         quantity: 1,
         price_data: {
@@ -1443,7 +1445,7 @@ app.post('/api/stripe/create-credits-checkout', async (req, res) => {
       metadata: { kind: 'credits', pack, deviceId, credits: String(packDef.credits) },
     });
 
-    res.json({ clientSecret: session.client_secret });
+    res.json({ clientSecret: session.client_secret, sessionId: session.id });
   } catch (err) {
     console.error('create-credits-checkout error:', err.message);
     res.status(500).json({ error: 'Could not start checkout. Please try again.' });
