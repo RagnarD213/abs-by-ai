@@ -19,7 +19,8 @@
     "health::Supplements",
     "money::Review HBI campaigns",
     "money::Get Capital One SRM membership fee refunded and cancel card",
-    "money::Get credit limit increased for Capital One RDH card"
+    "money::Get credit limit increased for Capital One RDH card",
+    "money::Add pay for generations to app"
   ],
   "log": {}
 }
