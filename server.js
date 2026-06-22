@@ -27,7 +27,14 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
 
   if (event.type === 'checkout.session.completed') {
     try {
-      await fulfillCreditsSession(event.data.object);
+      const meta = event.data.object.metadata || {};
+      // Two kinds of checkout share this webhook: credit-pack purchases
+      // (meta.kind === 'credits') and printed-product orders (meta.productType).
+      if (meta.productType) {
+        await fulfillProductOrder(event.data.object);
+      } else {
+        await fulfillCreditsSession(event.data.object);
+      }
     } catch (e) {
       console.error('Webhook fulfillment error:', e.message);
       // Return 200 anyway — session-status on return is a fallback path.
@@ -62,6 +69,8 @@ const GITHUB_TOKEN         = process.env.GITHUB_TOKEN;
 const STRIPE_SECRET_KEY    = process.env.STRIPE_SECRET_KEY;
 const STRIPE_PUBLISHABLE_KEY = process.env.STRIPE_PUBLISHABLE_KEY;
 const STRIPE_WEBHOOK_SECRET  = process.env.STRIPE_WEBHOOK_SECRET;
+const PRINTIFY_API_KEY     = process.env.PRINTIFY_API_KEY;
+const PRINTIFY_SHOP_ID     = process.env.PRINTIFY_SHOP_ID;
 const CREDITS_FILE         = 'credits-data.json'; // persists per-device credit balances + fulfilled checkout sessions
 const FREE_CREDITS         = 3;  // free generations every new device starts with
 // Credit packs offered on the paywall. Prices in cents. Keys must match the
@@ -1467,7 +1476,13 @@ app.get('/api/stripe/session-status', async (req, res) => {
 
     const session = await stripe.checkout.sessions.retrieve(session_id);
     if (session.status === 'complete') {
-      await fulfillCreditsSession(session); // idempotent
+      // Fallback fulfillment in case the webhook hasn't landed yet. Both paths
+      // are idempotent. Route by metadata: product orders vs credit packs.
+      if (session.metadata?.productType) {
+        await fulfillProductOrder(session);
+      } else {
+        await fulfillCreditsSession(session);
+      }
     }
     res.json({ status: session.status, payment_status: session.payment_status });
   } catch (err) {
@@ -1478,6 +1493,246 @@ app.get('/api/stripe/session-status', async (req, res) => {
 
 // Load persisted balances at startup.
 loadCreditsStore().then(s => { creditsStore = s; console.log('Credits store loaded'); });
+
+// ============================================================
+// PRINTED PRODUCTS — Printify upsell (canvas / poster / keychain)
+// ============================================================
+// PRODUCT CONFIG — populated from the Printify catalog. Each variant carries
+// its own blueprintId/printProviderId so the webhook can build the order
+// without extra lookups. printifyCost / printifyShipping are in CENTS and
+// hardcoded because Printify returns 0 on order creation (orders are
+// "on-hold" until submitted to production); verify against fulfilled orders.
+const PRODUCT_CONFIG = {
+  canvas: {
+    variants: {
+      // Blueprint 937 (Matte Canvas Multi-Size), Jondo (105)
+      '8x10_unframed':  { blueprintId: 937, printProviderId: 105, variantId: 95212,  price: 3400, printifyCost: 1399, printifyShipping: 899 },
+      '11x14_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82229,  price: 4200, printifyCost: 1699, printifyShipping: 899 },
+      '16x20_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82231,  price: 5400, printifyCost: 2199, printifyShipping: 1099 },
+      '18x24_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82232,  price: 6300, printifyCost: 2599, printifyShipping: 1099 },
+      '24x36_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82235,  price: 7900, printifyCost: 3799, printifyShipping: 1299 },
+      // Blueprint 944 (Matte Canvas Framed), Jondo (105)
+      '11x14_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88291,  price: 7500,  printifyCost: 3199, printifyShipping: 1099 },
+      '16x20_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88293,  price: 8700,  printifyCost: 4099, printifyShipping: 1299 },
+      '18x24_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88294,  price: 9600,  printifyCost: 4799, printifyShipping: 1299 },
+      '24x36_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88297,  price: 11200, printifyCost: 6999, printifyShipping: 1699 },
+    },
+  },
+  poster: {
+    variants: {
+      // Blueprint 282 (Matte Vertical Posters), Sensaria (2)
+      '9x11':  { blueprintId: 282, printProviderId: 2, variantId: 62103,  price: 1800, printifyCost:  599, printifyShipping: 499 },
+      '11x14': { blueprintId: 282, printProviderId: 2, variantId: 43135,  price: 2700, printifyCost:  699, printifyShipping: 499 },
+      '12x16': { blueprintId: 282, printProviderId: 2, variantId: 101110, price: 2400, printifyCost:  699, printifyShipping: 499 },
+      '18x24': { blueprintId: 282, printProviderId: 2, variantId: 43144,  price: 4400, printifyCost: 1099, printifyShipping: 599 },
+      '24x36': { blueprintId: 282, printProviderId: 2, variantId: 43150,  price: 5200, printifyCost: 1599, printifyShipping: 799 },
+    },
+  },
+  keychain: {
+    variants: {
+      // Blueprint 2675 (Single-Sided Charm), Printdoors (332)
+      'acrylic_small': { blueprintId: 2675, printProviderId: 332, variantId: 147952, price:  900, printifyCost: 350, printifyShipping: 399 },
+      'acrylic_large': { blueprintId: 2675, printProviderId: 332, variantId: 147953, price: 1200, printifyCost: 450, printifyShipping: 399 },
+      // Blueprint 790 (Rectangle Photo Keyring), Imagine Your Photos (59)
+      'metal':         { blueprintId: 790,  printProviderId: 59,  variantId: 74997,  price: 2500, printifyCost: 699, printifyShipping: 499 },
+    },
+  },
+};
+
+// Parse a product's aspect ratio (width/height) from a size key like "18x24".
+// Returns null for sizes without parseable dimensions (e.g. keychains).
+function productAspectFromSize(size) {
+  const m = /(\d+(?:\.\d+)?)x(\d+(?:\.\d+)?)/i.exec(size || '');
+  if (!m) return null;
+  const w = parseFloat(m[1]), h = parseFloat(m[2]);
+  if (!w || !h) return null;
+  return w / h;
+}
+
+// Compute a Printify front print-area placement that never crops the subject's
+// head. Printify scales the artwork so its width fills the print area at
+// scale 1, positions the image *center* at (x, y) as fractions of the print
+// area, and crops whatever falls outside. Two cases:
+//   • artwork WIDER than the product → scale up to fill the height instead,
+//     so the overflow is on the (less important) left/right edges.
+//   • artwork TALLER/narrower than the product → keep scale 1 and bias the
+//     vertical position upward so the crop is taken from the bottom (feet),
+//     keeping the head and abs in frame.
+// Falls back to the original centered fill when dimensions are unknown.
+function computePrintPlacement(imgW, imgH, prodAspect) {
+  if (!imgW || !imgH || !prodAspect) return { scale: 1, x: 0.5, y: 0.5, angle: 0 };
+  const aImg = imgW / imgH;
+  if (aImg >= prodAspect) {
+    return { scale: aImg / prodAspect, x: 0.5, y: 0.5, angle: 0 };
+  }
+  const renderedH = prodAspect / aImg;     // rendered height in print-area-height units (>1)
+  const topMargin = 0.03;                   // small headroom so the head isn't flush to the edge
+  const y = Math.min(1, topMargin + renderedH / 2);
+  return { scale: 1, x: 0.5, y, angle: 0 };
+}
+
+// Upload the generated image to Printify and return its id + pixel dimensions.
+app.post('/api/printify/upload-image', async (req, res) => {
+  if (!PRINTIFY_API_KEY) {
+    return res.status(503).json({ error: 'Printify not configured. Add PRINTIFY_API_KEY to environment variables.' });
+  }
+  try {
+    const { imageBase64, fileName } = req.body || {};
+    if (!imageBase64 || !fileName) {
+      return res.status(400).json({ error: 'Missing imageBase64 or fileName' });
+    }
+    const response = await fetch('https://api.printify.com/v1/uploads/images.json', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${PRINTIFY_API_KEY}` },
+      body: JSON.stringify({ file_name: fileName, contents: imageBase64 }),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      console.error('Printify upload error:', JSON.stringify(data));
+      return res.status(response.status).json({ error: data?.message || 'Printify upload failed' });
+    }
+    // Printify returns the artwork's pixel dimensions — the client passes these
+    // back into create-checkout so the webhook can compute a no-crop placement.
+    res.json({ imageId: data.id, previewUrl: data.preview_url, width: data.width, height: data.height });
+  } catch (err) {
+    console.error('Printify upload error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Create an embedded Stripe Checkout session for a printed-product order.
+app.post('/api/stripe/create-checkout', async (req, res) => {
+  const stripe = getStripe();
+  if (!stripe) return res.status(503).json({ error: 'Stripe not configured. Add STRIPE_SECRET_KEY to environment variables.' });
+  try {
+    const { productType, size, framed, priceInCents, imageId, imagePreviewUrl, imgWidth, imgHeight, productLabel, returnUrl } = req.body || {};
+    if (!productType || !size || !priceInCents || !returnUrl) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+    const displayName = `${productLabel || productType} — ${size}${framed ? ' (Framed)' : ''}`;
+    const session = await stripe.checkout.sessions.create({
+      ui_mode: 'embedded',
+      mode: 'payment',
+      return_url: returnUrl,
+      line_items: [{
+        quantity: 1,
+        price_data: {
+          currency: 'usd',
+          unit_amount: priceInCents,
+          product_data: {
+            name: displayName,
+            description: 'Your AI-generated future self, printed and shipped to you.',
+          },
+        },
+      }],
+      shipping_address_collection: {
+        allowed_countries: [
+          'US', 'CA', 'GB', 'AU', 'DE', 'FR', 'ES', 'IT', 'NL', 'SE', 'NO', 'DK',
+          'FI', 'AT', 'BE', 'CH', 'IE', 'NZ', 'JP', 'SG', 'HK', 'MX', 'BR',
+        ],
+      },
+      automatic_tax: { enabled: false },
+      metadata: {
+        imageId: imageId || '',
+        imagePreviewUrl: imagePreviewUrl || '',
+        imgWidth: String(imgWidth || ''),
+        imgHeight: String(imgHeight || ''),
+        productType,
+        size,
+        framed: String(!!framed),
+      },
+    });
+    res.json({ clientSecret: session.client_secret });
+  } catch (err) {
+    console.error('create-checkout error:', err.message);
+    res.status(500).json({ error: err.message || 'Internal server error' });
+  }
+});
+
+// Submit a paid printed-product order to Printify. Idempotent via the same
+// `fulfilled` map used for credits, so the webhook + return-redirect paths
+// never double-submit. Builds the order from the session metadata and the
+// no-crop placement computed from the artwork + product aspect ratios.
+async function fulfillProductOrder(session) {
+  if (!session || session.payment_status !== 'paid') return false;
+  const stripe = getStripe();
+  // The webhook payload omits shipping_details for embedded checkout — re-fetch.
+  const full = (stripe && session.id) ? await stripe.checkout.sessions.retrieve(session.id) : session;
+  const sid = full.id;
+  if (creditsStore.fulfilled[`order_${sid}`]) return false; // already submitted
+
+  const meta = full.metadata || {};
+  const { imageId, imagePreviewUrl, productType, size } = meta;
+  const framedBool = meta.framed === 'true';
+  const email = full.customer_details?.email;
+  const shipping = full.shipping_details?.address;
+  const imageSrc = imagePreviewUrl || (imageId ? `https://images-api.printify.com/${imageId}` : '');
+
+  if (!PRINTIFY_API_KEY || !PRINTIFY_SHOP_ID) {
+    console.warn('Printify not configured — product order recorded but not submitted');
+    return false;
+  }
+  if (!imageSrc || !productType || !size) {
+    console.warn('Product order missing image/product/size — not submitted to Printify');
+    return false;
+  }
+
+  const variantKey = productType === 'canvas' ? `${size}_${framedBool ? 'framed' : 'unframed'}` : size;
+  const variant = PRODUCT_CONFIG[productType]?.variants[variantKey];
+  if (!variant || !variant.variantId) {
+    console.warn(`Printify variant not configured for ${productType}/${variantKey} — order NOT submitted`);
+    return false;
+  }
+
+  const prodAspect = productAspectFromSize(size);
+  const placement = computePrintPlacement(parseInt(meta.imgWidth, 10), parseInt(meta.imgHeight, 10), prodAspect);
+  console.log(`Print placement for ${productType}/${variantKey} (img ${meta.imgWidth}x${meta.imgHeight}, aspect ${prodAspect}):`, JSON.stringify(placement));
+
+  const fullName = (full.shipping_details?.name || full.customer_details?.name || '').trim();
+  const orderPayload = {
+    external_id: sid,
+    line_items: [{
+      blueprint_id: variant.blueprintId,
+      print_provider_id: variant.printProviderId,
+      variant_id: variant.variantId,
+      print_areas: { front: [{ src: imageSrc, ...placement }] },
+      quantity: 1,
+    }],
+    shipping_method: 1,
+    send_shipping_notification: true,
+    address_to: {
+      first_name: fullName.split(' ')[0] || '',
+      last_name: fullName.split(' ').slice(1).join(' ') || '',
+      email: email || '',
+      phone: '',
+      country: shipping?.country || 'US',
+      region: shipping?.state || '',
+      address1: shipping?.line1 || '',
+      address2: shipping?.line2 || '',
+      city: shipping?.city || '',
+      zip: shipping?.postal_code || '',
+    },
+  };
+
+  const printifyRes = await fetch(
+    `https://api.printify.com/v1/shops/${PRINTIFY_SHOP_ID}/orders.json`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${PRINTIFY_API_KEY}` },
+      body: JSON.stringify(orderPayload),
+    }
+  );
+  const printifyData = await printifyRes.json();
+  if (!printifyRes.ok) {
+    console.error('Printify order creation failed:', JSON.stringify(printifyData));
+    return false;
+  }
+
+  creditsStore.fulfilled[`order_${sid}`] = true;
+  persistCreditsStore();
+  console.log(`Printify order created: ${printifyData.id} (${productType} ${size}${framedBool ? ' framed' : ''}) for ${email}`);
+  return true;
+}
 
 // ============================================================
 // STATIC FILES & FALLBACK

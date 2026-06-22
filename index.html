@@ -136,8 +136,11 @@ html, body {
 .upload-preview-img {
   width: 100%;
   border-radius: 13px;
-  max-height: 300px;
-  object-fit: cover;
+  max-height: 360px;
+  /* contain (not cover) so a tall portrait photo is shown whole — head and
+     feet stay in frame instead of being cropped to fill a fixed box. */
+  object-fit: contain;
+  background: #f1efea;
 }
 .remove-photo {
   display: inline-block;
@@ -308,7 +311,8 @@ html, body {
 }
 .gen-loader-photo {
   width: 100%; height: 100%;
-  object-fit: cover; display: block;
+  /* contain so the scan animation runs over the whole photo, not a crop. */
+  object-fit: contain; display: block;
   filter: saturate(0.92) contrast(1.02);
 }
 .gen-loader-veil {
@@ -444,7 +448,10 @@ html, body {
 .ba-img {
   width: 100%;
   height: 230px;
-  object-fit: cover;
+  /* contain so the whole person (head + abs) shows in the before/after pair,
+     even when the photo's aspect ratio doesn't match the 230px box. */
+  object-fit: contain;
+  background: #f1efea;
   border-radius: 16px;
   display: block;
 }
@@ -620,21 +627,21 @@ html, body {
 .mini-canvas img {
   position: absolute; inset: 7px;
   width: calc(100% - 14px); height: calc(100% - 14px);
-  object-fit: cover; border-radius: 1px; display: block;
+  object-fit: contain; background: #fff; border-radius: 1px; display: block;
 }
 .mini-poster {
   width: 44px; height: 60px; flex-shrink: 0;
   border-radius: 2px; overflow: hidden;
   box-shadow: 0 3px 12px rgba(0,0,0,0.2);
 }
-.mini-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mini-poster img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
 .mini-keychain {
   width: 54px; height: 54px; flex-shrink: 0;
   border-radius: 10px; overflow: hidden;
   border: 2px solid #cec5bb;
   box-shadow: 0 2px 8px rgba(0,0,0,0.16);
 }
-.mini-keychain img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mini-keychain img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
 
 /* ── Full mockups (customize screen) ── */
 .mockup-center {
@@ -653,14 +660,14 @@ html, body {
 .full-canvas img {
   position: absolute; inset: 13px;
   width: calc(100% - 26px); height: calc(100% - 26px);
-  object-fit: cover; border-radius: 2px; display: block;
+  object-fit: contain; background: #fff; border-radius: 2px; display: block;
 }
 .full-poster {
   width: 146px; height: 204px;
   border-radius: 3px; overflow: hidden;
   box-shadow: 0 10px 40px rgba(0,0,0,0.22);
 }
-.full-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.full-poster img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
 .full-keychain-wrap { display: flex; flex-direction: column; align-items: center; }
 .full-keychain-ring {
   width: 26px; height: 26px;
@@ -676,7 +683,7 @@ html, body {
   border: 3px solid #cec5bb;
   box-shadow: 0 6px 24px rgba(0,0,0,0.2);
 }
-.full-keychain img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.full-keychain img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
 
 /* ── Size/style chips ── */
 .chips-wrap { margin-bottom: 22px; }
@@ -1576,7 +1583,7 @@ Output ONLY the image-editing prompt. No preamble, no commentary, no explanation
 Every prompt must contain exactly these seven sections in this order:
 1. TRANSFORMATION DIRECTIVE — mandatory opening paragraph (see template below)
 2. BODY TRANSFORMATION — 6-10 specific bullet points
-3. PRESERVE EXACTLY — identity lockdown (use verbatim block)
+3. PRESERVE EXACTLY — identity lockdown + FRAMING lockdown (use verbatim blocks)
 4. SKIN TONE RULES — (use verbatim block)
 5. AVOID — guardrails
 6. CLOSING — (use verbatim block)
@@ -1635,6 +1642,9 @@ VERBATIM BLOCKS — copy these exactly
 PRESERVE EXACTLY block:
 "PRESERVE EXACTLY: the same face, facial features, jawline, hairstyle, hair color, hair length, eye color, ethnicity, age, smile, expression, clothing, jewelry, watch, accessories, shoes, pose, background, and lighting from the original photo. The subject must be immediately recognizable as the same person. Only the body composition changes."
 
+FRAMING block — ALWAYS include verbatim:
+"FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo. Keep the entire subject fully within the frame exactly as in the input — the full head, face, and the full torso including the abs and waistline must remain completely visible, with the same margin/headroom around the subject as the original. Do NOT crop, zoom in, cut off, or push out of frame any part of the head, face, or body. Do NOT re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed."
+
 SKIN TONE RULES block — scale the tan by intensity:
 - subtle/moderate: "add a very subtle warm glow — no more than 1 shade deeper than the natural skin tone"
 - dramatic: "add a light sun-kissed warmth — no more than 1-2 shades deeper than the natural skin tone. Do NOT dramatically darken fair or light skin."
@@ -1651,6 +1661,8 @@ Always include:
 - oily, shiny, or wet-looking skin
 - exaggerated or cartoonish proportions
 - anything sexualized in pose, framing, or clothing
+- cropping, zooming in on, or cutting off the head, face, abs, or any part of the body — the full subject must stay in frame
+- changing the framing, camera distance, composition, or aspect ratio of the original photo
 - making the output look identical or nearly identical to the input — visible change is required
 
 Add for MALE:
@@ -2091,6 +2103,11 @@ async function handleCheckout() {
     if (!uploadRes.ok) throw new Error(uploadData.error || 'Image upload failed');
     const imageId = uploadData.imageId;
     const imagePreviewUrl = uploadData.previewUrl || '';
+    // Printify reports the uploaded artwork's pixel dimensions — pass them
+    // through so the server can compute a smart print placement that never
+    // crops the subject's head (see create-checkout / webhook on the server).
+    const imgWidth = uploadData.width || 0;
+    const imgHeight = uploadData.height || 0;
 
     // 2. Create Stripe checkout session
     const price = getUpsellPrice();
@@ -2107,6 +2124,8 @@ async function handleCheckout() {
         priceInCents: price,
         imageId,
         imagePreviewUrl,
+        imgWidth,
+        imgHeight,
         productLabel: productLabels[upsell.product],
         returnUrl,
       }),
