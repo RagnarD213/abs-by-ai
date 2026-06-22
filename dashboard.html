@@ -242,13 +242,6 @@ font-weight: 600;
 white-space: nowrap;
 margin-left: auto;
 align-self: center;
-cursor: pointer;
-user-select: none;
-transition: filter 0.1s;
-}
-
-.todo-tag:hover {
-filter: brightness(1.2);
 }
 
 .tag-high { background: rgba(34,197,94,0.15); color: var(--green); }
@@ -543,66 +536,6 @@ color: var(--muted);
 padding: 12px 0;
 }
 
-/* ── ADD TASK FORM ── */
-.todo-add-row {
-display: flex;
-gap: 6px;
-margin-top: 10px;
-padding-top: 8px;
-border-top: 1px solid var(--border);
-align-items: center;
-}
-
-.todo-add-input {
-flex: 1;
-min-width: 0;
-background: var(--surface);
-border: 1px solid var(--border);
-border-radius: 6px;
-padding: 5px 8px;
-font-size: 12px;
-color: var(--text);
-outline: none;
-font-family: inherit;
-}
-
-.todo-add-input:focus { border-color: rgba(255,255,255,0.3); }
-.todo-add-input::placeholder { color: var(--muted); }
-
-.todo-add-priority {
-background: var(--surface);
-border: 1px solid var(--border);
-border-radius: 6px;
-padding: 5px 4px;
-font-size: 11px;
-color: var(--muted);
-cursor: pointer;
-outline: none;
-font-family: inherit;
-flex-shrink: 0;
-}
-
-.todo-add-btn {
-background: none;
-border: 1px solid var(--border);
-border-radius: 6px;
-width: 27px;
-height: 27px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 17px;
-color: var(--muted);
-cursor: pointer;
-transition: all 0.15s;
-flex-shrink: 0;
-padding: 0;
-line-height: 1;
-}
-
-.todo-add-btn:hover:not(:disabled) { border-color: var(--text); color: var(--text); }
-.todo-add-btn:disabled { opacity: 0.45; cursor: not-allowed; }
-
 /* HRV sparkline placeholder */
 .mini-chart {
 height: 32px;
@@ -623,161 +556,12 @@ transition: background 0.2s;
 .mini-bar.today {
 background: var(--blue);
 }
-
-/* ── MOBILE NAV & HAMBURGER ── */
-.mobile-only { display: none; }
-.desktop-only { display: block; }
-
-.hamburger-btn {
-  display: none;
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text);
-  border-radius: 8px;
-  padding: 6px 11px;
-  font-size: 20px;
-  cursor: pointer;
-  line-height: 1;
-  transition: border-color 0.15s;
-  z-index: 10;
-}
-.hamburger-btn:active { border-color: var(--text); }
-
-/* Bottom-sheet overlay */
-.nav-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  z-index: 200;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s;
-}
-.nav-overlay.open { opacity: 1; pointer-events: all; }
-
-/* Bottom sheet panel */
-.nav-sheet {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-radius: 20px 20px 0 0;
-  z-index: 201;
-  padding-bottom: env(safe-area-inset-bottom, 16px);
-  transform: translateY(100%);
-  transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
-  max-height: 80vh;
-  overflow-y: auto;
-}
-.nav-sheet.open { transform: translateY(0); }
-
-.nav-handle {
-  width: 40px; height: 4px;
-  background: var(--border);
-  border-radius: 2px;
-  margin: 10px auto 14px;
-}
-.nav-sheet-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 0 20px 10px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 4px;
-}
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--border);
-  color: var(--text);
-  text-align: left;
-  padding: 15px 20px;
-  font-size: 15px;
-  font-family: inherit;
-  cursor: pointer;
-}
-.nav-link:last-child { border-bottom: none; }
-.nav-link:active { background: var(--surface2); }
-.nav-link-icon { font-size: 18px; width: 24px; text-align: center; }
-
-/* ── MOBILE LAYOUT (≤ 767px) ── */
-@media (max-width: 767px) {
-  .mobile-only { display: block; }
-  .desktop-only { display: none !important; }
-  .hamburger-btn { display: block; }
-
-  /* Header: compact sticky nav bar on mobile */
-  .header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    flex-direction: row;
-    justify-content: center;
-    padding: 12px 52px;
-  }
-  /* Hide long motivational subtitles on mobile — just show the title */
-  .header-sub { display: none; }
-  .header-headline { font-size: 18px; }
-  .hamburger-btn {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-  }
-  .header-refresh {
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  /* Single-column flex layout */
-  .grid {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    overflow: visible;
-    gap: 0;
-  }
-
-  /* Remove column wrappers so cards become direct flex children */
-  .col { display: contents; }
-  .col-header { display: none; }
-
-  /* Card spacing */
-  .card {
-    margin: 6px 10px;
-    border-radius: 12px;
-  }
-
-  /* Mobile card order */
-  #mobile-money-card   { order: 1; }
-  #card-health-tasks   { order: 2; }
-  #card-personal-tasks { order: 3; }
-  #card-app-metrics    { order: 4; }
-  #card-schedule       { order: 5; }
-  #card-net-worth      { order: 6; }
-  #card-news           { order: 7; }
-  #card-oura           { order: 8; }
-  #card-watch          { order: 9; }
-  #card-dates          { order: 10; }
-}
 </style>
 </head>
 <body>
 
 <!-- ════════════════════════ HEADER ════════════════════════ -->
 <div class="header">
-<button class="hamburger-btn mobile-only" onclick="openNavSheet()" aria-label="Navigation menu">☰</button>
 <div class="header-headline">VICTORY DASHBOARD</div>
 <div class="header-sub win">Execute Top Priority Tasks On This Dashboard, And You Will Become A Ripped Decamillionaire Winner</div>
 <div class="header-sub lose">Fail To Execute On Top Priority Tasks, And You Will Become A Poor, Fat, Pathetic Loser</div>
@@ -789,24 +573,6 @@ background: var(--blue);
 <!-- ════════════════════════ GRID ════════════════════════ -->
 <div class="grid">
 
-<!-- ══ MOBILE-ONLY: Combined Money Tasks card (shown instead of separate business/money cards) ══ -->
-<div class="card mobile-only" id="mobile-money-card">
-<div class="card-title">Money Tasks</div>
-<ul class="todo-list" id="mobile-money-todos">
-<li class="loading pulse">Loading…</li>
-</ul>
-<div class="todo-add-row">
-<input class="todo-add-input" type="text" id="add-input-mobile-money" placeholder="Add money task…" onkeydown="if(event.key==='Enter')addTodo('money','mobile-money')">
-<select class="todo-add-priority" id="add-priority-mobile-money">
-<option value="claude">Claude's choice</option>
-<option value="high">High</option>
-<option value="med">Med</option>
-<option value="low">Low</option>
-</select>
-<button class="todo-add-btn" id="add-btn-mobile-money" onclick="addTodo('money','mobile-money')">+</button>
-</div>
-</div>
-
 <!-- ══ MONEY COLUMN ══ -->
 <div class="col col-money">
 <div class="col-header">
@@ -814,44 +580,16 @@ background: var(--blue);
 <h2>Money</h2>
 </div>
 
-<!-- Business Tasks (desktop only — merged into mobile-money-card on mobile) -->
-<div class="card desktop-only" id="card-business-tasks">
-<div class="card-title">Business Tasks</div>
+<!-- Money Tasks -->
+<div class="card">
+<div class="card-title">Money Tasks</div>
 <ul class="todo-list" id="business-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
-<div class="todo-add-row">
-<input class="todo-add-input" type="text" id="add-input-business" placeholder="Add task…" onkeydown="if(event.key==='Enter')addTodo('business')">
-<select class="todo-add-priority" id="add-priority-business">
-<option value="claude">Claude's choice</option>
-<option value="high">High</option>
-<option value="med">Med</option>
-<option value="low">Low</option>
-</select>
-<button class="todo-add-btn" id="add-btn-business" onclick="addTodo('business')">+</button>
-</div>
-</div>
-
-<!-- Money Tasks (desktop only — merged into mobile-money-card on mobile) -->
-<div class="card desktop-only" id="card-money-tasks">
-<div class="card-title">Money Tasks</div>
-<ul class="todo-list" id="money-todos">
-<li class="loading pulse">Loading…</li>
-</ul>
-<div class="todo-add-row">
-<input class="todo-add-input" type="text" id="add-input-money" placeholder="Add task…" onkeydown="if(event.key==='Enter')addTodo('money')">
-<select class="todo-add-priority" id="add-priority-money">
-<option value="claude">Claude's choice</option>
-<option value="high">High</option>
-<option value="med">Med</option>
-<option value="low">Low</option>
-</select>
-<button class="todo-add-btn" id="add-btn-money" onclick="addTodo('money')">+</button>
-</div>
 </div>
 
 <!-- App Metrics -->
-<div class="card" id="card-app-metrics">
+<div class="card">
 <div class="card-title">Abs By AI — App Metrics</div>
 <div id="posthog-metrics">
 <div class="metrics">
@@ -878,7 +616,7 @@ PostHog not connected. Add <code>POSTHOG_API_KEY</code> and <code>POSTHOG_PROJEC
 </div>
 
 <!-- Business Calendar -->
-<div class="card" id="card-schedule">
+<div class="card">
 <div class="card-title">Today's Schedule</div>
 <div id="business-calendar">
 <div class="loading pulse">Loading…</div>
@@ -889,7 +627,7 @@ Google Calendar not connected. Add <code>GOOGLE_CLIENT_ID</code>, <code>GOOGLE_C
 </div>
 
 <!-- Net Worth & Spending -->
-<div class="card" id="card-net-worth">
+<div class="card">
 <div class="card-title">Net Worth & Spending</div>
 <div id="monarch-section"><div class="loading pulse">Loading…</div></div>
 <div id="monarch-notice" class="setup-notice" style="display:none">
@@ -898,7 +636,7 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 </div>
 
 <!-- News -->
-<div class="card" id="card-news">
+<div class="card">
 <div class="card-title">Industry News</div>
 <div id="news-list">
 <div class="loading pulse">Loading…</div>
@@ -915,25 +653,15 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 </div>
 
 <!-- Health Tasks -->
-<div class="card" id="card-health-tasks">
+<div class="card">
 <div class="card-title">Health Tasks</div>
 <ul class="todo-list" id="health-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
-<div class="todo-add-row">
-<input class="todo-add-input" type="text" id="add-input-health" placeholder="Add task…" onkeydown="if(event.key==='Enter')addTodo('health')">
-<select class="todo-add-priority" id="add-priority-health">
-<option value="claude">Claude's choice</option>
-<option value="high">High</option>
-<option value="med">Med</option>
-<option value="low">Low</option>
-</select>
-<button class="todo-add-btn" id="add-btn-health" onclick="addTodo('health')">+</button>
-</div>
 </div>
 
 <!-- Sleep Score -->
-<div class="card" id="card-oura">
+<div class="card">
 <div class="card-title">Oura — Last Night's Sleep</div>
 <div id="oura-section">
 
@@ -1053,7 +781,7 @@ Get your token at <a href="https://cloud.ouraring.com/personal-access-tokens" ta
 </div>
 
 <!-- Apple Watch Rings -->
-<div class="card" id="card-watch">
+<div class="card">
 <div class="card-title">Apple Watch — Today's Activity</div>
 <div id="rings-section">
 <div class="rings">
@@ -1124,25 +852,15 @@ Then add <code>HEALTH_WEBHOOK_SECRET</code> to your env vars.
 </div>
 
 <!-- Personal To-Dos -->
-<div class="card" id="card-personal-tasks">
+<div class="card">
 <div class="card-title">Personal Tasks</div>
 <ul class="todo-list" id="personal-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
-<div class="todo-add-row">
-<input class="todo-add-input" type="text" id="add-input-personal" placeholder="Add task…" onkeydown="if(event.key==='Enter')addTodo('personal')">
-<select class="todo-add-priority" id="add-priority-personal">
-<option value="claude">Claude's choice</option>
-<option value="high">High</option>
-<option value="med">Med</option>
-<option value="low">Low</option>
-</select>
-<button class="todo-add-btn" id="add-btn-personal" onclick="addTodo('personal')">+</button>
-</div>
 </div>
 
 <!-- Dating / Social Calendar -->
-<div class="card" id="card-dates">
+<div class="card">
 <div class="card-title">Today's Dates & Plans</div>
 <div id="rel-calendar">
 <div class="loading pulse">Loading…</div>
@@ -1154,23 +872,6 @@ Connect Google Calendar to pull your dating app appointments automatically.
 
 </div>
 
-</div>
-
-<!-- ══ MOBILE BOTTOM-SHEET NAV ══ -->
-<div class="nav-overlay mobile-only" id="nav-overlay" onclick="closeNavSheet()"></div>
-<div class="nav-sheet mobile-only" id="nav-sheet">
-  <div class="nav-handle"></div>
-  <div class="nav-sheet-label">Jump to section</div>
-  <button class="nav-link" onclick="navTo('mobile-money-card')"><span class="nav-link-icon">💰</span> Money Tasks</button>
-  <button class="nav-link" onclick="navTo('card-health-tasks')"><span class="nav-link-icon">💪</span> Health Tasks</button>
-  <button class="nav-link" onclick="navTo('card-personal-tasks')"><span class="nav-link-icon">👤</span> Personal Tasks</button>
-  <button class="nav-link" onclick="navTo('card-app-metrics')"><span class="nav-link-icon">📊</span> App Metrics</button>
-  <button class="nav-link" onclick="navTo('card-schedule')"><span class="nav-link-icon">📅</span> Today's Schedule</button>
-  <button class="nav-link" onclick="navTo('card-net-worth')"><span class="nav-link-icon">💎</span> Net Worth</button>
-  <button class="nav-link" onclick="navTo('card-news')"><span class="nav-link-icon">📰</span> Industry News</button>
-  <button class="nav-link" onclick="navTo('card-oura')"><span class="nav-link-icon">😴</span> Sleep Data</button>
-  <button class="nav-link" onclick="navTo('card-watch')"><span class="nav-link-icon">⌚</span> Activity Rings</button>
-  <button class="nav-link" onclick="navTo('card-dates')"><span class="nav-link-icon">❤️</span> Dates & Plans</button>
 </div>
 
 <script>
@@ -1191,40 +892,37 @@ if (dateEl) dateEl.textContent = `${days[now.getDay()]}, ${months[now.getMonth()
 updateClock();
 setInterval(updateClock, 5000);
 
-// ── TODO STATE ──
-let currentTodos = null;
-const tClass = p => p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med' : 'tag-low';
-const tLabel = p => p === 'high' ? 'High' : p === 'med' ? 'Med' : 'Low';
-// Keys are "category:text" — device-independent, synced via server
-const checkedTodos = new Set();
-function syncCompletedToServer() {
-  const today = new Date().toISOString().slice(0, 10);
-  fetch('/api/todo-state', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ completed: [...checkedTodos], date: today })
-  }).catch(() => {});
-}
-function toggleTodo(el) {
-  const key = el.dataset.key;
-  if (checkedTodos.has(key)) { checkedTodos.delete(key); el.classList.remove('done'); }
-  else { checkedTodos.add(key); el.classList.add('done'); }
-  syncCompletedToServer();
+// ── TODO CHECK (synced across devices via /api/task-checks; localStorage is an
+// offline cache so checks still show instantly and survive being offline) ──
+const checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
+
+function cacheChecks() {
+localStorage.setItem('checkedTodos', JSON.stringify([...checkedTodos]));
 }
 
-// ── MOBILE NAV ──
-function openNavSheet() {
-  document.getElementById('nav-sheet').classList.add('open');
-  document.getElementById('nav-overlay').classList.add('open');
+// Replace local check state with the server's source of truth (called on load).
+function seedChecks(serverChecked) {
+if (!Array.isArray(serverChecked)) return;
+checkedTodos.clear();
+serverChecked.forEach(id => checkedTodos.add(id));
+cacheChecks();
 }
-function closeNavSheet() {
-  document.getElementById('nav-sheet').classList.remove('open');
-  document.getElementById('nav-overlay').classList.remove('open');
+
+async function toggleTodo(id, el) {
+const nowChecked = !checkedTodos.has(id);
+if (nowChecked) { checkedTodos.add(id); el.classList.add('done'); }
+else { checkedTodos.delete(id); el.classList.remove('done'); }
+cacheChecks(); // optimistic local update
+try {
+await fetch('/api/task-checks', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ id, checked: nowChecked }),
+});
+} catch (e) {
+// Offline: the localStorage cache keeps the toggle; next load re-syncs.
+console.warn('task-check sync failed (kept locally):', e);
 }
-function navTo(id) {
-  closeNavSheet();
-  const el = document.getElementById(id);
-  if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
 }
 
 // ── HELPERS ──
@@ -1297,68 +995,50 @@ el.className = `chg ${signups_chg > 0 ? 'up' : signups_chg < 0 ? 'down' : 'flat'
 }
 }
 
-function renderTodos(data) {
-const biz = data?.business || [];
-const per = data?.personal || [];
-const health = data?.health || [];
-const money = data?.money || [];
+function escapeHtml(s) {
+return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+.replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
-const bizEl = document.getElementById('business-todos');
-const perEl = document.getElementById('personal-todos');
-const healthEl = document.getElementById('health-todos');
-const moneyEl = document.getElementById('money-todos');
-const mobileMoneyEl = document.getElementById('mobile-money-todos');
+// Stable, content-based check id: survives reorder/re-prioritize and is the same
+// across every device. Keyed by logical list + task text (not array position).
+function taskCheckId(listKey, text) {
+return `${listKey}::${text}`;
+}
+
+function renderTodos(data) {
+// One single Money Tasks list: legacy `money` items fold in with `business`.
+const money = [...(data?.business || []), ...(data?.money || [])];
+const personal = data?.personal || [];
+const health = data?.health || [];
 
 const priOrder = { high: 0, med: 1, low: 2 };
-
-const renderList = (items, el, category) => {
+const renderList = (listKey, items, el) => {
 if (!el) return;
-if (!items.length) { el.innerHTML = '<li class="empty">No to-dos</li>'; return; }
-const withIdx = items.map((t, i) => ({ ...t, _orig: i }));
-const sorted = [...withIdx].sort((a, b) => (priOrder[a.priority] ?? 2) - (priOrder[b.priority] ?? 2));
-el.innerHTML = sorted.map(t => {
-const key = `${category}:${t.text}`;
-const isDone = checkedTodos.has(key);
-const safeText = t.text.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
-const safeKey = key.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+if (!items.length) { el.innerHTML = '<li class="empty">No to-dos</li>'; el.onclick = null; return; }
+const sorted = [...items].sort((a, b) => (priOrder[a.priority] ?? 2) - (priOrder[b.priority] ?? 2));
+el.innerHTML = sorted.map((t) => {
+const id = taskCheckId(listKey, t.text);
+const isDone = checkedTodos.has(id);
+const tagClass = t.priority === 'high' ? 'tag-high' : t.priority === 'med' ? 'tag-med' : 'tag-low';
+const tagLabel = t.priority === 'high' ? 'High' : t.priority === 'med' ? 'Med' : 'Low';
 return `
-<li class="todo-item${isDone ? ' done' : ''}" data-category="${category}" data-text="${safeText}" data-key="${safeKey}">
-<div class="todo-cb" onclick="toggleTodo(this.closest('li'))"></div>
-<span class="todo-text" onclick="toggleTodo(this.closest('li'))">${t.text}</span>
-<span class="todo-tag ${tClass(t.priority)}" title="Click to change priority" onclick="cyclePriority(event,'${category}',${t._orig},'${t.priority}')">${tLabel(t.priority)}</span>
+<li class="todo-item${isDone ? ' done' : ''}" data-check-id="${escapeHtml(id)}">
+<div class="todo-cb"></div>
+<span class="todo-text">${escapeHtml(t.text)}</span>
+<span class="todo-tag ${tagClass}">${tagLabel}</span>
 </li>`;
 }).join('');
+// Event delegation: robust against task text containing quotes/apostrophes.
+el.onclick = (e) => {
+const li = e.target.closest('.todo-item');
+if (li && li.dataset.checkId) toggleTodo(li.dataset.checkId, li);
+};
 };
 
-renderList(biz, bizEl, 'business');
-renderList(per, perEl, 'personal');
-renderList(health, healthEl, 'health');
-renderList(money, moneyEl, 'money');
-
-// Mobile: render combined business + money as one sorted list
-if (mobileMoneyEl) {
-  const combined = [
-    ...biz.map((t, i) => ({ ...t, _cat: 'business', _orig: i })),
-    ...money.map((t, i) => ({ ...t, _cat: 'money', _orig: i })),
-  ];
-  if (!combined.length) {
-    mobileMoneyEl.innerHTML = '<li class="empty">No tasks</li>';
-  } else {
-    const sorted = [...combined].sort((a, b) => (priOrder[a.priority] ?? 2) - (priOrder[b.priority] ?? 2));
-    mobileMoneyEl.innerHTML = sorted.map(t => {
-      const key = `${t._cat}:${t.text}`;
-      const isDone = checkedTodos.has(key);
-      const safeText = t.text.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
-      const safeKey = key.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
-      return `
-<li class="todo-item${isDone ? ' done' : ''}" data-category="${t._cat}" data-text="${safeText}" data-key="${safeKey}">
-<div class="todo-cb" onclick="toggleTodo(this.closest('li'))"></div>
-<span class="todo-text" onclick="toggleTodo(this.closest('li'))">${t.text}</span>
-<span class="todo-tag ${tClass(t.priority)}" title="Click to change priority" onclick="cyclePriority(event,'${t._cat}',${t._orig},'${t.priority}')">${tLabel(t.priority)}</span>
-</li>`;
-    }).join('');
-  }
-}
+renderList('money', money, document.getElementById('business-todos'));
+renderList('personal', personal, document.getElementById('personal-todos'));
+renderList('health', health, document.getElementById('health-todos'));
 }
 
 function renderCalendar(events, colId, barClass, noticeId) {
@@ -1629,120 +1309,16 @@ ${txRows || '<div class="empty">No transactions yesterday</div>'}
 notice.style.display = 'none';
 }
 
-// ── CLAUDE PRIORITY ──
-async function getClaudePriority(text, category) {
-try {
-const res = await fetch('/api/generate-prompt', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({
-systemPrompt: 'You assign task priorities. Reply with exactly one word: high, med, or low. High = urgent or high-impact. Med = important but not urgent. Low = minor or nice-to-have.',
-userJson: `Category: ${category}\nTask: ${text}\n\nPriority?`
-})
-});
-if (!res.ok) return 'med';
-const data = await res.json();
-const r = data.prompt?.trim().toLowerCase();
-return ['high', 'med', 'low'].includes(r) ? r : 'med';
-} catch (e) { return 'med'; }
-}
-
-// ── SAVE TODOS ──
-async function saveTodos(todos) {
-const res = await fetch('/api/todos', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify(todos),
-});
-if (!res.ok) throw new Error('Save failed');
-return todos;
-}
-
-// ── ADD TODO ──
-async function addTodo(category, prefix) {
-const pfx = prefix || category;
-const input = document.getElementById(`add-input-${pfx}`);
-const prioritySelect = document.getElementById(`add-priority-${pfx}`);
-const btn = document.getElementById(`add-btn-${pfx}`);
-const text = input.value.trim();
-if (!text) return;
-btn.disabled = true;
-btn.textContent = '…';
-try {
-const todosRes = await fetch('/api/todos');
-if (!todosRes.ok) throw new Error('Load failed');
-const todos = await todosRes.json();
-if (!todos[category]) todos[category] = [];
-const selVal = prioritySelect.value;
-const priority = selVal === 'claude' ? await getClaudePriority(text, category) : selVal;
-todos[category].push({ text, priority });
-await saveTodos(todos);
-currentTodos = todos;
-renderTodos(currentTodos);
-input.value = '';
-prioritySelect.value = 'claude';
-} catch (e) {
-console.error('Add todo error:', e);
-btn.textContent = '!';
-setTimeout(() => { btn.textContent = '+'; }, 2000);
-} finally {
-btn.disabled = false;
-if (btn.textContent === '…') btn.textContent = '+';
-}
-}
-
-// ── CYCLE PRIORITY ──
-async function cyclePriority(event, category, origIndex, currentPriority) {
-event.stopPropagation();
-const next = { high: 'med', med: 'low', low: 'high' }[currentPriority] || 'med';
-const tag = event.currentTarget;
-tag.className = `todo-tag ${tClass(next)}`;
-tag.textContent = tLabel(next);
-tag.onclick = null;
-try {
-const todosRes = await fetch('/api/todos');
-if (!todosRes.ok) throw new Error('Load failed');
-const todos = await todosRes.json();
-if (todos[category] && todos[category][origIndex]) {
-todos[category][origIndex].priority = next;
-}
-await saveTodos(todos);
-currentTodos = todos;
-renderTodos(currentTodos);
-} catch (e) {
-tag.className = `todo-tag ${tClass(currentPriority)}`;
-tag.textContent = tLabel(currentPriority);
-tag.onclick = (ev) => cyclePriority(ev, category, origIndex, currentPriority);
-console.error('Priority cycle error:', e);
-}
-}
-
 // ── MAIN LOAD ──
 async function loadData() {
 try {
-const today = new Date().toISOString().slice(0, 10);
-
-// Fetch data and completion state in parallel
-const [dataRes, stateRes] = await Promise.all([
-  fetch('/api/morning-data'),
-  fetch('/api/todo-state'),
-]);
-
-// Load server-side completion state (cross-device persistent)
-if (stateRes.ok) {
-  const state = await stateRes.json();
-  if (state.date === today && Array.isArray(state.completed)) {
-    checkedTodos.clear();
-    state.completed.forEach(k => checkedTodos.add(k));
-  }
-}
-
-if (!dataRes.ok) throw new Error('API error');
-const d = await dataRes.json();
+const res = await fetch('/api/morning-data');
+if (!res.ok) throw new Error('API error');
+const d = await res.json();
 
 renderPosthog(d.posthog);
-currentTodos = d.todos;
-renderTodos(currentTodos);
+seedChecks(d.task_checks?.checked); // sync checked state from server before render
+renderTodos(d.todos);
 renderCalendar(d.business_events, 'business-calendar', 'event-bar-money', 'calendar-notice');
 renderCalendar(d.rel_events, 'rel-calendar', 'event-bar-rel', 'rel-calendar-notice');
 renderNews(d.news);
@@ -1753,8 +1329,7 @@ renderMonarch(d.monarch);
 } catch (e) {
 console.error('Dashboard load error:', e);
 renderPosthog(null);
-currentTodos = { business: [], health: [], personal: [], money: [] };
-renderTodos(currentTodos);
+renderTodos({ business: [], personal: [] });
 renderCalendar([], 'business-calendar', 'event-bar-money', 'calendar-notice');
 renderCalendar([], 'rel-calendar', 'event-bar-rel', 'rel-calendar-notice');
 renderNews([]);
