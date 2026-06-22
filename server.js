@@ -1273,10 +1273,11 @@ app.post('/api/_bench', async (req, res) => {
     return { model, ms: Date.now() - t0, ok: r.ok, len: txt.length, out_tokens: j?.usage?.output_tokens };
   };
   try {
-    const sonnet = []; const haiku = [];
-    for (let i = 0; i < 2; i++) sonnet.push(await run('claude-sonnet-4-6', 2048));   // OLD config
-    for (let i = 0; i < 2; i++) haiku.push(await run('claude-haiku-4-5-20251001', 1024)); // NEW config
-    res.json({ sonnet, haiku });
+    const which = req.query.m || 'both';
+    const result = {};
+    if (which === 'sonnet' || which === 'both') result.sonnet = await run('claude-sonnet-4-6', 2048);   // OLD config
+    if (which === 'haiku' || which === 'both') result.haiku = await run('claude-haiku-4-5-20251001', 1024); // NEW config
+    res.json(result);
   } catch (e) { res.status(500).json({ error: String(e) }); }
 });
 
