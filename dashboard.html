@@ -1749,17 +1749,35 @@ if (code <= 86) return ['🌨️', 'Snow showers'];
 if (code <= 99) return ['⛈️', 'Thunderstorm'];
 return ['🌡️', '—'];
 }
+// Resolve a location: browser geolocation (accurate) → IP services → NYC default.
+function resolveLocation() {
+return new Promise(resolve => {
+const ipFallback = async () => {
+for (const svc of [
+{ url: 'https://ipapi.co/json/', lat: 'latitude', lon: 'longitude', city: 'city' },
+{ url: 'https://ipwho.is/', lat: 'latitude', lon: 'longitude', city: 'city' },
+]) {
+try {
+const d = await fetch(svc.url).then(r => r.ok ? r.json() : null);
+if (d && d[svc.lat] && d[svc.lon]) return resolve({ lat: d[svc.lat], lon: d[svc.lon], place: d[svc.city] || '' });
+} catch (e) { /* try next */ }
+}
+resolve({ lat: 40.71, lon: -74.01, place: 'New York' });
+};
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(
+p => resolve({ lat: p.coords.latitude, lon: p.coords.longitude, place: '' }),
+() => ipFallback(),
+{ timeout: 7000, maximumAge: 3600000 }
+);
+} else ipFallback();
+});
+}
+
 async function loadWeather() {
 const el = document.getElementById('weather-section');
 if (!el) return;
-let lat = 40.71, lon = -74.01, place = 'New York';
-try {
-const geo = await fetch('https://ipapi.co/json/').then(r => r.ok ? r.json() : null).catch(() => null);
-if (geo && geo.latitude && geo.longitude) {
-lat = geo.latitude; lon = geo.longitude;
-place = geo.city || geo.region || '';
-}
-} catch (e) { /* fall back to default */ }
+const { lat, lon, place } = await resolveLocation();
 try {
 const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
 `&current=temperature_2m,apparent_temperature,is_day,weather_code` +
