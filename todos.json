@@ -55,10 +55,6 @@
     {
       "text": "Update Monarch money transactions",
       "priority": "med"
-    },
-    {
-      "text": "Request credit limit increase on Capital One business card",
-      "priority": "med"
     }
   ],
   "health": [
