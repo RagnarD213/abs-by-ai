@@ -1,6 +1,7 @@
 {
   "checked": [
-    "health::Shower"
+    "health::Shower",
+    "personal::Buy groceries"
   ],
   "log": {}
 }
