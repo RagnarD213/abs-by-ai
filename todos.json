@@ -167,6 +167,11 @@
     {
       "text": "Check dating apps",
       "priority": "low"
+    },
+    {
+      "text": "Dry boxers",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
