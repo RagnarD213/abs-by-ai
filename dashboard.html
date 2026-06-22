@@ -1166,8 +1166,79 @@ if (serverLog && typeof serverLog === 'object') taskLog = serverLog;
 cacheChecks();
 }
 
+// ── CONFETTI: celebrate task completion ──
+// Self-contained canvas burst, no external deps (works offline).
+function fireConfetti() {
+// Respect users who prefer reduced motion.
+if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+let canvas = document.getElementById('confetti-canvas');
+if (!canvas) {
+canvas = document.createElement('canvas');
+canvas.id = 'confetti-canvas';
+canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999;';
+document.body.appendChild(canvas);
+}
+const ctx = canvas.getContext('2d');
+const dpr = window.devicePixelRatio || 1;
+// Fall back to screen dims if the layout viewport reports 0 (some embedded/headless views).
+const W = window.innerWidth || document.documentElement.clientWidth || screen.width || 1024;
+const H = window.innerHeight || document.documentElement.clientHeight || screen.height || 768;
+canvas.width = W * dpr;
+canvas.height = H * dpr;
+ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+const colors = ['#21d07a', '#00c49a', '#f5a623', '#ef4444', '#6366f1', '#ec4899', '#38bdf8'];
+const N = 140;
+const parts = [];
+for (let i = 0; i < N; i++) {
+parts.push({
+x: W / 2 + (Math.random() - 0.5) * 120,
+y: H / 2 + (Math.random() - 0.5) * 60,
+vx: (Math.random() - 0.5) * 14,
+vy: (Math.random() * -16) - 4,
+size: 5 + Math.random() * 7,
+color: colors[(Math.random() * colors.length) | 0],
+rot: Math.random() * Math.PI * 2,
+vrot: (Math.random() - 0.5) * 0.3,
+life: 0,
+});
+}
+
+const gravity = 0.4, drag = 0.985, maxLife = 140;
+let raf;
+function frame() {
+ctx.clearRect(0, 0, W, H);
+let alive = false;
+for (const p of parts) {
+p.life++;
+p.vx *= drag;
+p.vy = p.vy * drag + gravity;
+p.x += p.vx;
+p.y += p.vy;
+p.rot += p.vrot;
+const alpha = Math.max(0, 1 - p.life / maxLife);
+if (alpha > 0 && p.y < H + 50) alive = true;
+ctx.save();
+ctx.globalAlpha = alpha;
+ctx.translate(p.x, p.y);
+ctx.rotate(p.rot);
+ctx.fillStyle = p.color;
+ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+ctx.restore();
+}
+if (alive) {
+raf = requestAnimationFrame(frame);
+} else {
+cancelAnimationFrame(raf);
+ctx.clearRect(0, 0, W, H);
+}
+}
+frame();
+}
+
 async function toggleTodo(id, recurring, el) {
 const nowChecked = !isDone(id, recurring);
+if (nowChecked) fireConfetti(); // celebrate the win 🎉
 if (recurring) {
 const arr = new Set(taskLog[id] || []);
 if (nowChecked) arr.add(localToday()); else arr.delete(localToday());
