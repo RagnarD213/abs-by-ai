@@ -208,6 +208,11 @@
       "text": "Put boxes in recycling",
       "priority": "low",
       "recurring": false
+    },
+    {
+      "text": "Spray weeds with roundup",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
