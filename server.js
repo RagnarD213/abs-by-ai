@@ -1256,6 +1256,30 @@ app.post('/api/generate-prompt', aiLimiter, async (req, res) => {
   }
 });
 
+// TEMP benchmark — times Sonnet (old) vs Haiku (new) on the same prompt/infra so
+// we can report a real before/after for the prompt step. Token-gated. REMOVE after.
+app.post('/api/_bench', async (req, res) => {
+  if (req.query.k !== 'bench-7Qx2') return res.status(404).end();
+  const { systemPrompt, userJson } = req.body;
+  const run = async (model, max_tokens) => {
+    const t0 = Date.now();
+    const r = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({ model, max_tokens, temperature: 0.4, system: systemPrompt, messages: [{ role: 'user', content: userJson }] }),
+    });
+    const j = await r.json();
+    const txt = (j?.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
+    return { model, ms: Date.now() - t0, ok: r.ok, len: txt.length, out_tokens: j?.usage?.output_tokens };
+  };
+  try {
+    const sonnet = []; const haiku = [];
+    for (let i = 0; i < 2; i++) sonnet.push(await run('claude-sonnet-4-6', 2048));   // OLD config
+    for (let i = 0; i < 2; i++) haiku.push(await run('claude-haiku-4-5-20251001', 1024)); // NEW config
+    res.json({ sonnet, haiku });
+  } catch (e) { res.status(500).json({ error: String(e) }); }
+});
+
 // ============================================================
 // ENDPOINT 3: Generate image (Gemini)
 // ============================================================
