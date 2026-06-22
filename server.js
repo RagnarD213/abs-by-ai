@@ -480,9 +480,21 @@ async function fetchGoogleCalendar(userDate, tzOffsetMins) {
     items.forEach(ev => {
       const title = ev.summary || 'Untitled';
       const startTime = ev.start?.dateTime;
-      const timeStr = startTime
-        ? new Date(startTime).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })
-        : 'All day';
+      // Extract wall-clock time directly from the RFC3339 string so the
+      // server's UTC timezone doesn't corrupt the displayed time.
+      // e.g. "2026-06-22T19:00:00-05:00" → "7:00 PM"
+      let timeStr = 'All day';
+      if (startTime) {
+        const m = startTime.match(/T(\d{2}):(\d{2})/);
+        if (m) {
+          const h = parseInt(m[1], 10), min = m[2];
+          const ampm = h >= 12 ? 'PM' : 'AM';
+          const h12 = h % 12 || 12;
+          timeStr = `${h12}:${min} ${ampm}`;
+        } else {
+          timeStr = new Date(startTime).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+        }
+      }
 
       const event = { title, time: timeStr, subtitle: ev.location || '' };
       const lc = title.toLowerCase();
