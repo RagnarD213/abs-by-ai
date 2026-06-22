@@ -15,7 +15,8 @@
     "personal::Put chemicals in pool",
     "money::Fix dashboard functionality",
     "personal::Make eyebrow threading appointment",
-    "health::Workout"
+    "health::Workout",
+    "health::Supplements"
   ],
   "log": {}
 }
