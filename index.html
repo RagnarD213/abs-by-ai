@@ -287,6 +287,86 @@ html, body {
 .loading-title { font-size: 13.5px; font-weight: 700; color: var(--ink); }
 .loading-sub { font-size: 12px; color: var(--mute); margin-top: 2px; }
 
+/* ── Perceived-speed generation loader (scan over photo + progress) ── */
+.gen-loader {
+  background: var(--card);
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.gen-loader-photo-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: 340px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ece9e4;
+  box-shadow: 0 0 0 1px var(--line) inset;
+}
+.gen-loader-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  filter: saturate(0.92) contrast(1.02);
+}
+.gen-loader-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(47,95,224,0.10), rgba(20,18,15,0.20));
+  mix-blend-mode: multiply;
+}
+.gen-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(150,200,255,0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150,200,255,0.11) 1px, transparent 1px);
+  background-size: 26px 26px;
+  animation: genGrid 6s linear infinite;
+  opacity: 0.5;
+}
+@keyframes genGrid { to { background-position: 26px 26px; } }
+.gen-scan {
+  position: absolute; left: 0; right: 0; height: 34%; top: -34%;
+  background: linear-gradient(180deg, rgba(150,200,255,0) 0%, rgba(150,200,255,0.10) 55%, rgba(160,205,255,0.55) 88%, rgba(255,255,255,0.92) 100%);
+  box-shadow: 0 2px 16px 2px rgba(120,170,255,0.55);
+  animation: genScan 2.4s cubic-bezier(.45,.05,.55,.95) infinite;
+}
+.gen-scan::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 0 12px 2px rgba(160,205,255,0.9);
+}
+@keyframes genScan { 0% { top: -34%; } 100% { top: 100%; } }
+.gen-bracket { position: absolute; width: 22px; height: 22px; border: 2px solid rgba(255,255,255,0.82); }
+.gen-bracket.tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; border-radius: 5px 0 0 0; }
+.gen-bracket.tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; border-radius: 0 5px 0 0; }
+.gen-bracket.bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; border-radius: 0 0 0 5px; }
+.gen-bracket.br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; border-radius: 0 0 5px 0; }
+.gen-loader-info { margin-top: 14px; }
+.gen-status-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; }
+.gen-status-text { font-size: 13.5px; font-weight: 700; color: var(--ink); letter-spacing: -0.1px; }
+.gen-pct { font-size: 13px; font-weight: 700; color: var(--acc); font-variant-numeric: tabular-nums; }
+.gen-bar-track { height: 7px; border-radius: 99px; background: var(--line2); overflow: hidden; }
+.gen-bar-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #2f5fe0, #5b86ff);
+  border-radius: 99px; position: relative;
+  transition: width 0.25s ease;
+}
+.gen-bar-fill::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: translateX(-100%);
+  animation: genShimmer 1.4s linear infinite;
+}
+@keyframes genShimmer { to { transform: translateX(100%); } }
+.gen-sub { margin-top: 9px; font-size: 11.5px; color: var(--faint); text-align: center; }
+@media (prefers-reduced-motion: reduce) {
+  .gen-grid, .gen-bar-fill::after { animation: none; }
+  .gen-scan { display: none; }
+}
+
 /* ── Error toast ── */
 .error-toast {
   background: rgba(220,70,50,0.07);
@@ -922,7 +1002,26 @@ html, body {
         placeholder="Lean and athletic, defined but not bulky…"></textarea>
     </div>
 
-    <!-- Loading state -->
+    <!-- Loading state (perceived-speed loader: AI scan over the user's photo + progress) -->
+    <div id="genLoader" class="gen-loader" style="display:none">
+      <div class="gen-loader-photo-wrap">
+        <img id="genLoaderPhoto" class="gen-loader-photo" alt="Analyzing your photo" />
+        <div class="gen-loader-veil"></div>
+        <div class="gen-grid"></div>
+        <div class="gen-scan"></div>
+        <span class="gen-bracket tl"></span><span class="gen-bracket tr"></span>
+        <span class="gen-bracket bl"></span><span class="gen-bracket br"></span>
+      </div>
+      <div class="gen-loader-info">
+        <div class="gen-status-row">
+          <span id="genStatusText" class="gen-status-text">Analyzing your photo…</span>
+          <span id="genPct" class="gen-pct">0%</span>
+        </div>
+        <div class="gen-bar-track"><div id="genBarFill" class="gen-bar-fill"></div></div>
+        <div class="gen-sub">Creating your future self — about 20 seconds</div>
+      </div>
+    </div>
+    <!-- Legacy minimal status (kept as hidden fallback for setStatus) -->
     <div id="statusSection" style="display:none" class="loading-status">
       <div class="loading-spinner"></div>
       <div>
@@ -1650,6 +1749,53 @@ function downscaleImage(file) {
   });
 }
 
+// ── Perceived-speed generation loader ──────────────────────────────
+// Shows the user's own photo with an AI "scan" sweep + a front-loaded progress
+// bar and body-specific rotating copy. The bar eases toward a 92% asymptote
+// (fast at first, slow near the end) so it always feels like work is happening,
+// then snaps to 100% the instant the real image arrives. Status text is derived
+// from the progress value so the words stay in sync with the bar.
+const GEN_STAGES = [
+  [12,  'Analyzing your photo…'],
+  [25,  'Reading your physique & lighting…'],
+  [40,  'Mapping muscle groups…'],
+  [55,  'Sculpting lean definition…'],
+  [68,  'Etching ab & core detail…'],
+  [80,  'Refining your silhouette…'],
+  [88,  'Tuning skin tone & lighting…'],
+  [94,  'Rendering your future self…'],
+  [101, 'Adding the finishing touches…'],
+];
+let genTimer = null, genProgress = 0;
+function renderGenProgress(p) {
+  const pct = Math.min(99, Math.round(p));
+  $('genBarFill').style.width = pct + '%';
+  $('genPct').textContent = pct + '%';
+  $('genStatusText').textContent = (GEN_STAGES.find(s => pct < s[0]) || GEN_STAGES[GEN_STAGES.length - 1])[1];
+}
+function startGenLoader() {
+  genProgress = 0;
+  if (state.photoData) $('genLoaderPhoto').src = `data:${state.photoMime};base64,${state.photoData}`;
+  renderGenProgress(0);
+  $('genLoader').style.display = '';
+  if (genTimer) clearInterval(genTimer);
+  genTimer = setInterval(() => {
+    genProgress += (92 - genProgress) * 0.06; // ease toward 92% asymptote
+    renderGenProgress(genProgress);
+  }, 200);
+}
+function finishGenLoader() {
+  if (genTimer) { clearInterval(genTimer); genTimer = null; }
+  $('genBarFill').style.width = '100%';
+  $('genPct').textContent = '100%';
+  $('genStatusText').textContent = 'Done!';
+  return new Promise(r => setTimeout(() => { $('genLoader').style.display = 'none'; r(); }, 420));
+}
+function clearGenLoader() {
+  if (genTimer) { clearInterval(genTimer); genTimer = null; }
+  $('genLoader').style.display = 'none';
+}
+
 function setStatus(title, sub) {
   $('statusSection').style.display = '';
   $('statusTitle').textContent = title;
@@ -2170,14 +2316,13 @@ async function generate() {
   state.effectiveIntensity = state.intensity;
   clearError();
   setGenerating(true);
-  setStatus('Stage 1 of 2', 'Claude is crafting the perfect prompt for your goals…');
+  startGenLoader();
 
   try {
     const generatedPrompt = await callGeminiText(GOAL_SYSTEM_PROMPT, makeUserJson());
     if (generatedPrompt.trim() === 'REFUSED_MINOR') {
       throw new Error('This app is for adults only. Please use a photo of someone 18 or older.');
     }
-    setStatus('Stage 2 of 2', 'Gemini is generating your future self… (10–20 seconds)');
     const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
@@ -2187,7 +2332,7 @@ async function generate() {
     $('resultDownloadBtn').href = afterDataUrl;
     updateBodyFatDisplay();
     updateIntensityButtons();
-    clearStatus();
+    await finishGenLoader(); // snap bar to 100% and let it land before revealing
 
     if (locked) {
       showLockedResult();
@@ -2199,7 +2344,7 @@ async function generate() {
       showScreen('result');
     }
   } catch (err) {
-    clearStatus();
+    clearGenLoader();
     showError(err.message || 'Unknown error. Please try again.');
     console.error(err);
   } finally {
