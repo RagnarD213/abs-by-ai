@@ -9,7 +9,8 @@
     "personal::Put new rake on luba",
     "personal::Do dishes",
     "personal::Take out trash",
-    "personal::Call fence company"
+    "personal::Call fence company",
+    "personal::Fold laundry"
   ],
   "log": {}
 }
