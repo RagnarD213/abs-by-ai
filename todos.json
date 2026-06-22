@@ -203,6 +203,11 @@
       "text": "Empty pool robot",
       "priority": "low",
       "recurring": false
+    },
+    {
+      "text": "Put boxes in recycling",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
