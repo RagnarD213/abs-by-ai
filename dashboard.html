@@ -1860,6 +1860,21 @@ setInterval(() => { if (document.visibilityState === 'visible') syncTasks(); }, 
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncTasks(); });
 
 // ── MAIN LOAD ──
+function skel(n) {
+let s = '';
+for (let i = 0; i < n; i++) s += `<div class="skel skel-line" style="width:${70 + (i % 3) * 10}%"></div>`;
+return s;
+}
+function showSkeletons() {
+const map = {
+'monarch-section': 4, 'news-list': 5, 'business-calendar': 3, 'rel-calendar': 3, 'weather-section': 2,
+};
+Object.entries(map).forEach(([id, n]) => {
+const el = document.getElementById(id);
+if (el && (!el.innerHTML || /Loading…/.test(el.innerHTML))) el.innerHTML = skel(n);
+});
+}
+
 async function loadData() {
 try {
 const res = await fetch('/api/morning-data');
@@ -1892,6 +1907,7 @@ renderMonarch(null);
 }
 }
 
+showSkeletons();
 loadData();
 loadWeather();
 initPush();
