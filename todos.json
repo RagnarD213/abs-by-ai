@@ -78,7 +78,7 @@
     },
     {
       "text": "Improve app generation time",
-      "priority": "low",
+      "priority": "high",
       "recurring": false
     }
   ],
