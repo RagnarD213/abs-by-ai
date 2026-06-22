@@ -65,6 +65,11 @@
       "text": "Buy teleprompter",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Write YouTube ad scripts",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
