@@ -1612,6 +1612,44 @@ function fileToBase64(file) {
   });
 }
 
+// Downscale + compress the user's photo on-device BEFORE any upload. Phone
+// cameras produce ~3000–4000px / 3–8MB images, but the image model only needs
+// ~1024px, so this shrinks the payload ~80–90% — the single biggest load-time
+// win on slow mobile connections (the photo otherwise travels phone→server→
+// Gemini at full size). No visible effect on output quality. Falls back to the
+// raw file if the browser can't decode/resize it for any reason.
+const MAX_PHOTO_DIM = 1024;
+const PHOTO_JPEG_QUALITY = 0.85;
+function downscaleImage(file) {
+  return new Promise((resolve) => {
+    const fallback = () => fileToBase64(file).then(resolve, () => resolve(null));
+    try {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        try {
+          const longest = Math.max(img.width, img.height);
+          const scale = Math.min(1, MAX_PHOTO_DIM / longest);
+          // Already small enough — keep the original bytes, don't re-encode.
+          if (scale >= 1) { URL.revokeObjectURL(url); return fallback(); }
+          const w = Math.round(img.width * scale);
+          const h = Math.round(img.height * scale);
+          const canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          URL.revokeObjectURL(url);
+          const dataUrl = canvas.toDataURL('image/jpeg', PHOTO_JPEG_QUALITY);
+          const [meta, data] = dataUrl.split(',');
+          const mime = meta.match(/data:(.*?);/)[1];
+          resolve({ data, mime, dataUrl, _w: w, _h: h });
+        } catch (e) { URL.revokeObjectURL(url); fallback(); }
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); fallback(); };
+      img.src = url;
+    } catch (e) { fallback(); }
+  });
+}
+
 function setStatus(title, sub) {
   $('statusSection').style.display = '';
   $('statusTitle').textContent = title;
@@ -2072,7 +2110,9 @@ async function handlePhoto(file) {
     showError('Please upload an image file.');
     return;
   }
-  const { data, mime, dataUrl } = await fileToBase64(file);
+  // Resize/compress on-device first (big upload-time win); fall back to raw bytes.
+  const resized = await downscaleImage(file) || await fileToBase64(file);
+  const { data, mime, dataUrl } = resized;
   state.photoData = data;
   state.photoMime = mime;
   $('previewImg').src = dataUrl;

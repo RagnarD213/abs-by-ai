@@ -1212,8 +1212,12 @@ app.post('/api/generate-prompt', aiLimiter, async (req, res) => {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 2048,
+        // Haiku 4.5 instead of Sonnet 4.6 for the prompt-assembly step: this is
+        // templated structured-text generation (Haiku's wheelhouse), and it
+        // responds ~2x faster, shaving several seconds off every generation.
+        // max_tokens trimmed 2048→1024 (the prompt never approaches 2048).
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 1024,
         temperature: 0.4,
         system: systemPrompt,
         messages: [
@@ -1491,4 +1495,18 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Abs By AI backend running on port ${PORT}`);
 });
+
+// ── Keep-warm heartbeat ──────────────────────────────────────────────
+// A user's first generation after an idle period can stall a few seconds while
+// the server/runtime spins back up (a "cold start"). This self-ping every 4
+// minutes keeps the process, outbound DNS/TLS, and the platform's instance warm
+// so requests are served instantly. Hits the public Railway domain when known,
+// otherwise localhost. Best-effort: failures are swallowed.
+const KEEP_WARM_MS = 4 * 60 * 1000;
+const KEEP_WARM_URL = process.env.RAILWAY_PUBLIC_DOMAIN
+  ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}/health`
+  : `http://127.0.0.1:${PORT}/health`;
+setInterval(() => {
+  fetch(KEEP_WARM_URL).catch(() => {});
+}, KEEP_WARM_MS).unref?.();
 
