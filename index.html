@@ -1104,7 +1104,7 @@ html, body {
     <div id="resultGenLoader" class="gen-loader" style="display:none">
       <div class="gen-loader-info" style="margin-top:0">
         <div class="gen-status-row">
-          <span id="resultGenStatusText" class="gen-status-text">Re-sculpting your future self…</span>
+          <span id="resultGenStatusText" class="gen-status-text">Re-reading your goal…</span>
           <span id="resultGenPct" class="gen-pct">0%</span>
         </div>
         <div class="gen-bar-track"><div id="resultGenBarFill" class="gen-bar-fill"></div></div>
@@ -1792,19 +1792,32 @@ const GEN_STAGES = [
   [94,  'Rendering your future self…'],
   [101, 'Adding the finishing touches…'],
 ];
+// Regenerate (result screen) has its own context-aware copy — it's adjusting an
+// existing result, not analyzing the photo for the first time.
+const REGEN_STAGES = [
+  [13,  'Re-reading your goal…'],
+  [27,  'Dialing in the new intensity…'],
+  [42,  'Re-sculpting your physique…'],
+  [57,  'Fine-tuning muscle definition…'],
+  [72,  'Rebalancing your proportions…'],
+  [85,  'Refreshing skin tone & lighting…'],
+  [94,  'Rendering your new look…'],
+  [101, 'Almost there…'],
+];
 // Shared controller for both the initial-generation loader (form screen) and the
 // regenerate loader (result screen). `ids.scan` is an optional separate overlay
 // (the result screen scans the existing after-image rather than a photo inside
-// the card).
+// the card); `ids.stages` overrides the status copy (defaults to GEN_STAGES).
 function makeProgressLoader(ids) {
   const el = k => document.getElementById(ids[k]);
   const scanEl = () => ids.scan ? el('scan') : null;
+  const stages = ids.stages || GEN_STAGES;
   let timer = null, p = 0;
   const render = v => {
     const pct = Math.min(99, Math.round(v));
     el('bar').style.width = pct + '%';
     el('pct').textContent = pct + '%';
-    el('status').textContent = (GEN_STAGES.find(s => pct < s[0]) || GEN_STAGES[GEN_STAGES.length - 1])[1];
+    el('status').textContent = (stages.find(s => pct < s[0]) || stages[stages.length - 1])[1];
   };
   return {
     start() {
@@ -1831,7 +1844,7 @@ function makeProgressLoader(ids) {
   };
 }
 const _genLoader = makeProgressLoader({ card: 'genLoader', bar: 'genBarFill', pct: 'genPct', status: 'genStatusText' });
-const _resultLoader = makeProgressLoader({ card: 'resultGenLoader', bar: 'resultGenBarFill', pct: 'resultGenPct', status: 'resultGenStatusText', scan: 'afterScan' });
+const _resultLoader = makeProgressLoader({ card: 'resultGenLoader', bar: 'resultGenBarFill', pct: 'resultGenPct', status: 'resultGenStatusText', scan: 'afterScan', stages: REGEN_STAGES });
 function startGenLoader() {
   if (state.photoData) $('genLoaderPhoto').src = `data:${state.photoMime};base64,${state.photoData}`;
   _genLoader.start();
