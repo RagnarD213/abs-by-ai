@@ -623,6 +623,24 @@ border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-fa
 .btn-sm.primary { background: var(--green); color: #000; border-color: var(--green); font-weight: 700; }
 .btn-sm:hover { filter: brightness(1.1); }
 
+/* inline quick-add row (persistent, at bottom of each task list) */
+.task-add-row { display: flex; gap: 6px; align-items: center; margin-top: 10px; }
+.task-add-row input[type=text] {
+flex: 1; min-width: 0; background: var(--bg); border: 1px solid var(--border); color: var(--text);
+border-radius: 6px; padding: 7px 9px; font-size: 13px; font-family: inherit;
+}
+.task-add-row select {
+background: var(--bg); border: 1px solid var(--border); color: var(--text);
+border-radius: 6px; padding: 7px 6px; font-size: 11px; font-family: inherit; flex-shrink: 0;
+}
+.task-add-go {
+background: none; border: 1px solid var(--border); color: var(--muted);
+border-radius: 6px; width: 32px; height: 33px; font-size: 18px; line-height: 1;
+cursor: pointer; flex-shrink: 0; transition: all 0.15s;
+}
+.task-add-go:hover { border-color: var(--green); color: var(--green); }
+.task-add-go:disabled { opacity: 0.5; cursor: wait; }
+
 /* ── SPARKLINE / TREND ── */
 .spark { width: 100%; height: 40px; display: block; }
 .trend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
@@ -697,7 +715,6 @@ transition: all 0.15s; }
 <div class="card">
 <div class="card-head">
 <div class="card-title">Money Tasks</div>
-<button class="task-add-btn" onclick="showAddForm('money')" title="Add task">+</button>
 </div>
 <div class="progress-wrap" id="progress-money" style="display:none">
 <div class="progress-track"><div class="progress-fill"></div></div>
@@ -707,6 +724,16 @@ transition: all 0.15s; }
 <ul class="todo-list" id="business-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
+<div class="task-add-row">
+<input type="text" id="qa-text-money" placeholder="Add task…" onkeydown="if(event.key==='Enter')quickAddTask('money')">
+<select id="qa-pri-money" title="Priority">
+<option value="auto">Claude's choice</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+</select>
+<button class="task-add-go" id="qa-go-money" onclick="quickAddTask('money')" title="Add task">+</button>
+</div>
 </div>
 
 <!-- App Metrics -->
@@ -794,7 +821,6 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 <div class="card">
 <div class="card-head">
 <div class="card-title">Health Tasks</div>
-<button class="task-add-btn" onclick="showAddForm('health')" title="Add task">+</button>
 </div>
 <div class="progress-wrap" id="progress-health" style="display:none">
 <div class="progress-track"><div class="progress-fill"></div></div>
@@ -804,6 +830,16 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 <ul class="todo-list" id="health-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
+<div class="task-add-row">
+<input type="text" id="qa-text-health" placeholder="Add task…" onkeydown="if(event.key==='Enter')quickAddTask('health')">
+<select id="qa-pri-health" title="Priority">
+<option value="auto">Claude's choice</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+</select>
+<button class="task-add-go" id="qa-go-health" onclick="quickAddTask('health')" title="Add task">+</button>
+</div>
 </div>
 
 <!-- Sleep Score -->
@@ -1012,17 +1048,10 @@ Then add <code>HEALTH_WEBHOOK_SECRET</code> to your env vars.
 <h2>Personal</h2>
 </div>
 
-<!-- Weather -->
-<div class="card">
-<div class="card-title">Weather</div>
-<div id="weather-section"><div class="loading pulse">Loading…</div></div>
-</div>
-
 <!-- Personal To-Dos -->
 <div class="card">
 <div class="card-head">
 <div class="card-title">Personal Tasks</div>
-<button class="task-add-btn" onclick="showAddForm('personal')" title="Add task">+</button>
 </div>
 <div class="progress-wrap" id="progress-personal" style="display:none">
 <div class="progress-track"><div class="progress-fill"></div></div>
@@ -1032,6 +1061,16 @@ Then add <code>HEALTH_WEBHOOK_SECRET</code> to your env vars.
 <ul class="todo-list" id="personal-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
+<div class="task-add-row">
+<input type="text" id="qa-text-personal" placeholder="Add task…" onkeydown="if(event.key==='Enter')quickAddTask('personal')">
+<select id="qa-pri-personal" title="Priority">
+<option value="auto">Claude's choice</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+</select>
+<button class="task-add-go" id="qa-go-personal" onclick="quickAddTask('personal')" title="Add task">+</button>
+</div>
 </div>
 
 <!-- Dating / Social Calendar -->
@@ -1043,6 +1082,12 @@ Then add <code>HEALTH_WEBHOOK_SECRET</code> to your env vars.
 <div id="rel-calendar-notice" class="setup-notice" style="display:none;margin-top:8px">
 Connect Google Calendar to pull your dating app appointments automatically.
 </div>
+</div>
+
+<!-- Weather (bottom of column) -->
+<div class="card">
+<div class="card-title">Weather</div>
+<div id="weather-section"><div class="loading pulse">Loading…</div></div>
 </div>
 
 </div>
@@ -1409,6 +1454,45 @@ todosState[listKey].splice(idx, 1);
 renderAllTasks();
 saveTodos();
 toast('Task deleted', 'ok');
+}
+
+// ── INLINE QUICK-ADD (persistent row at bottom of each list) ──
+async function quickAddTask(listKey) {
+const input = document.getElementById(`qa-text-${listKey}`);
+const priSel = document.getElementById(`qa-pri-${listKey}`);
+const btn = document.getElementById(`qa-go-${listKey}`);
+const text = input.value.trim();
+if (!text) { input.focus(); return; }
+let priority = priSel.value;
+if (priority === 'auto') {
+btn.disabled = true;
+const prev = btn.textContent;
+btn.textContent = '…';
+priority = await assignPriority(text, listKey);
+btn.disabled = false;
+btn.textContent = prev;
+}
+todosState[listKey] = todosState[listKey] || [];
+todosState[listKey].push({ text, priority, recurring: false });
+input.value = '';
+priSel.value = 'auto';
+renderAllTasks();
+saveTodos();
+toast('Task added', 'ok');
+input.focus();
+}
+
+// Ask Claude (server-side) to pick a priority. Falls back to "med" on any error.
+async function assignPriority(text, listKey) {
+try {
+const r = await fetch('/api/assign-priority', {
+method: 'POST', headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ text, list: listKey }),
+});
+if (!r.ok) throw new Error('assign failed');
+const d = await r.json();
+return ['high', 'med', 'low'].includes(d.priority) ? d.priority : 'med';
+} catch (e) { return 'med'; }
 }
 async function saveTodos() {
 // Persist the editable lists. Money maps back to the `business` key so the

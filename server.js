@@ -683,6 +683,41 @@ app.post('/api/todos', async (req, res) => {
   }
 });
 
+// ── AI priority triage (for the dashboard's "Claude's choice" quick-add) ──
+app.post('/api/assign-priority', aiLimiter, async (req, res) => {
+  try {
+    const { text, list } = req.body || {};
+    if (!text || typeof text !== 'string') return res.status(400).json({ error: 'Missing text', priority: 'med' });
+    if (!ANTHROPIC_API_KEY) return res.json({ priority: 'med' });
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 8,
+        messages: [{
+          role: 'user',
+          content: `You triage to-do items for a personal productivity dashboard. The task belongs to the "${list || 'general'}" category. Based on urgency and impact, assign a priority. Task: "${text.slice(0, 300)}". Reply with exactly one word: high, med, or low.`,
+        }],
+      }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) return res.status(response.status).json({ error: data?.error?.message || 'Claude API error', priority: 'med' });
+
+    const raw = (data?.content?.[0]?.text || '').trim().toLowerCase();
+    const priority = ['high', 'med', 'low'].find(p => raw.includes(p)) || 'med';
+    res.json({ priority });
+  } catch (e) {
+    res.status(500).json({ error: e.message, priority: 'med' });
+  }
+});
+
 
 // ── Task checks (which todos are checked off — synced across devices via GitHub) ──
 // Checked state is keyed by a stable, content-based id (list + task text) so it
