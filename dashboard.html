@@ -556,6 +556,118 @@ transition: background 0.2s;
 .mini-bar.today {
 background: var(--blue);
 }
+
+/* ── TASK CARD HEADER (title + progress + add) ── */
+.card-head {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 8px;
+margin-bottom: 8px;
+}
+.card-head .card-title { margin-bottom: 0; }
+.task-add-btn {
+background: none;
+border: 1px solid var(--border);
+color: var(--muted);
+border-radius: 6px;
+width: 22px; height: 22px;
+font-size: 15px; line-height: 1;
+cursor: pointer;
+flex-shrink: 0;
+transition: all 0.15s;
+}
+.task-add-btn:hover { border-color: var(--green); color: var(--green); }
+
+/* progress bar */
+.progress-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.progress-track { flex: 1; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--green); border-radius: 3px; width: 0; transition: width 0.6s cubic-bezier(0.4,0,0.2,1); }
+.progress-label { font-size: 10px; color: var(--muted); white-space: nowrap; min-width: 60px; text-align: right; }
+
+/* streak badge */
+.streak {
+font-size: 10px;
+color: var(--orange);
+font-weight: 700;
+white-space: nowrap;
+margin-left: 6px;
+}
+
+/* per-row task controls (edit/delete) */
+.todo-actions { display: flex; gap: 4px; margin-left: 6px; opacity: 0; transition: opacity 0.12s; align-self: center; }
+.todo-item:hover .todo-actions { opacity: 1; }
+.todo-act {
+background: none; border: none; color: var(--muted);
+cursor: pointer; font-size: 12px; padding: 2px 3px; line-height: 1; border-radius: 4px;
+}
+.todo-act:hover { color: var(--text); background: var(--surface); }
+
+/* inline add/edit form */
+.task-form { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+.task-form input[type=text] {
+width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text);
+border-radius: 6px; padding: 7px 9px; font-size: 13px; margin-bottom: 8px; font-family: inherit;
+}
+.task-form-row { display: flex; gap: 8px; align-items: center; }
+.task-form select {
+background: var(--bg); border: 1px solid var(--border); color: var(--text);
+border-radius: 6px; padding: 6px 8px; font-size: 12px; font-family: inherit;
+}
+.task-form label { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.task-form .spacer { flex: 1; }
+.btn-sm {
+border: 1px solid var(--border); background: var(--surface2); color: var(--text);
+border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit;
+}
+.btn-sm.primary { background: var(--green); color: #000; border-color: var(--green); font-weight: 700; }
+.btn-sm:hover { filter: brightness(1.1); }
+
+/* ── SPARKLINE / TREND ── */
+.spark { width: 100%; height: 40px; display: block; }
+.trend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
+.trend-cell { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px; text-align: center; }
+.trend-cell .tv { font-size: 14px; font-weight: 700; }
+.trend-cell .tl { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
+
+/* ── CATEGORY BARS ── */
+.cat-row { margin-bottom: 7px; }
+.cat-top { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 3px; }
+.cat-name { color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cat-amt { color: var(--muted); margin-left: 8px; flex-shrink: 0; }
+.cat-track { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.cat-fill { height: 100%; background: var(--orange); border-radius: 2px; width: 0; transition: width 0.7s; }
+
+/* ── WEATHER ── */
+.weather-main { display: flex; align-items: center; gap: 14px; }
+.weather-temp { font-size: 40px; font-weight: 800; line-height: 1; }
+.weather-icon { font-size: 38px; line-height: 1; }
+.weather-meta { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ── TOASTS ── */
+#toast-wrap { position: fixed; bottom: 18px; right: 18px; z-index: 1000; display: flex; flex-direction: column; gap: 8px; }
+.toast {
+background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--blue);
+border-radius: 8px; padding: 10px 14px; font-size: 12.5px; color: var(--text);
+box-shadow: 0 4px 16px rgba(0,0,0,0.4); max-width: 320px;
+animation: toastIn 0.25s ease; }
+.toast.err { border-left-color: var(--red); }
+.toast.ok { border-left-color: var(--green); }
+@keyframes toastIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ── SKELETON ── */
+.skel { background: linear-gradient(90deg, var(--surface) 25%, var(--surface2) 37%, var(--surface) 63%);
+background-size: 400% 100%; animation: shimmer 1.4s ease infinite; border-radius: 6px; }
+@keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+.skel-line { height: 12px; margin: 9px 0; }
+
+/* ── PUSH BUTTON ── */
+.push-btn {
+background: none; border: 1px solid var(--border); color: var(--muted);
+border-radius: 6px; padding: 5px 10px; font-size: 11px; cursor: pointer; margin-right: 8px;
+transition: all 0.15s; }
+.push-btn:hover { border-color: var(--text); color: var(--text); }
+.push-btn.on { border-color: var(--green); color: var(--green); }
 </style>
 </head>
 <body>
@@ -566,6 +678,7 @@ background: var(--blue);
 <div class="header-sub win">Execute Top Priority Tasks On This Dashboard, And You Will Become A Ripped Decamillionaire Winner</div>
 <div class="header-sub lose">Fail To Execute On Top Priority Tasks, And You Will Become A Poor, Fat, Pathetic Loser</div>
 <div class="header-refresh">
+<button class="push-btn" id="push-btn" style="display:none" onclick="togglePush()">🔔 Notify me</button>
 <button class="refresh-btn" onclick="loadData()">↺ Refresh</button>
 </div>
 </div>
@@ -582,7 +695,15 @@ background: var(--blue);
 
 <!-- Money Tasks -->
 <div class="card">
+<div class="card-head">
 <div class="card-title">Money Tasks</div>
+<button class="task-add-btn" onclick="showAddForm('money')" title="Add task">+</button>
+</div>
+<div class="progress-wrap" id="progress-money" style="display:none">
+<div class="progress-track"><div class="progress-fill"></div></div>
+<div class="progress-label"></div>
+</div>
+<div id="form-money"></div>
 <ul class="todo-list" id="business-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
@@ -608,6 +729,23 @@ background: var(--blue);
 <div class="lbl">Images</div>
 <div class="chg" id="metric-images-chg"></div>
 </div>
+</div>
+<div class="metrics" id="stripe-metrics" style="display:none;margin-bottom:0">
+<div class="metric">
+<div class="val up" id="metric-mrr">—</div>
+<div class="lbl">MRR</div>
+</div>
+<div class="metric">
+<div class="val" id="metric-rev30">—</div>
+<div class="lbl">Rev 30d</div>
+</div>
+<div class="metric">
+<div class="val" id="metric-subs">—</div>
+<div class="lbl">Subs</div>
+</div>
+</div>
+<div id="stripe-notice" class="setup-notice" style="display:none;margin-top:8px">
+Stripe not connected. Add <code>STRIPE_SECRET_KEY</code> to your Railway env vars for MRR &amp; revenue.
 </div>
 <div id="posthog-notice" class="setup-notice" style="display:none">
 PostHog not connected. Add <code>POSTHOG_API_KEY</code> and <code>POSTHOG_PROJECT_ID</code> to your Railway env vars.
@@ -654,7 +792,15 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 
 <!-- Health Tasks -->
 <div class="card">
+<div class="card-head">
 <div class="card-title">Health Tasks</div>
+<button class="task-add-btn" onclick="showAddForm('health')" title="Add task">+</button>
+</div>
+<div class="progress-wrap" id="progress-health" style="display:none">
+<div class="progress-track"><div class="progress-fill"></div></div>
+<div class="progress-label"></div>
+</div>
+<div id="form-health"></div>
 <ul class="todo-list" id="health-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
@@ -761,6 +907,21 @@ style="transition:stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)"/>
 
 </div>
 
+<!-- 7-day trends -->
+<div id="oura-trend" style="display:none;margin-top:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+<div style="font-size:13px;font-weight:600">7-Day Trends</div>
+<div style="font-size:10px;color:var(--muted)" id="workout-streak"></div>
+</div>
+<svg class="spark" id="spark-sleep" viewBox="0 0 300 40" preserveAspectRatio="none"></svg>
+<div class="trend-grid">
+<div class="trend-cell"><div class="tv" id="avg-sleep">—</div><div class="tl">Sleep</div></div>
+<div class="trend-cell"><div class="tv" id="avg-readiness">—</div><div class="tl">Readiness</div></div>
+<div class="trend-cell"><div class="tv" id="avg-hrv">—</div><div class="tl">HRV</div></div>
+<div class="trend-cell"><div class="tv" id="avg-steps">—</div><div class="tl">Steps</div></div>
+</div>
+</div>
+
 <!-- Hidden elements kept for JS compatibility -->
 <span id="recovery-pill" style="display:none"></span>
 <span id="sleep-total" style="display:none"></span>
@@ -851,9 +1012,23 @@ Then add <code>HEALTH_WEBHOOK_SECRET</code> to your env vars.
 <h2>Personal</h2>
 </div>
 
+<!-- Weather -->
+<div class="card">
+<div class="card-title">Weather</div>
+<div id="weather-section"><div class="loading pulse">Loading…</div></div>
+</div>
+
 <!-- Personal To-Dos -->
 <div class="card">
+<div class="card-head">
 <div class="card-title">Personal Tasks</div>
+<button class="task-add-btn" onclick="showAddForm('personal')" title="Add task">+</button>
+</div>
+<div class="progress-wrap" id="progress-personal" style="display:none">
+<div class="progress-track"><div class="progress-fill"></div></div>
+<div class="progress-label"></div>
+</div>
+<div id="form-personal"></div>
 <ul class="todo-list" id="personal-todos">
 <li class="loading pulse">Loading…</li>
 </ul>
@@ -874,6 +1049,8 @@ Connect Google Calendar to pull your dating app appointments automatically.
 
 </div>
 
+<div id="toast-wrap"></div>
+
 <script>
 // ── CLOCK ──
 function updateClock() {
@@ -892,35 +1069,76 @@ if (dateEl) dateEl.textContent = `${days[now.getDay()]}, ${months[now.getMonth()
 updateClock();
 setInterval(updateClock, 5000);
 
-// ── TODO CHECK (synced across devices via /api/task-checks; localStorage is an
-// offline cache so checks still show instantly and survive being offline) ──
-const checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
+// Register the service worker so web-push works on the dashboard page too.
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});
+
+// ── TASK STATE (synced across devices) ──
+//   checkedTodos — sticky one-off completions (ids); stay until unchecked.
+//   taskLog      — recurring completion dates { id: [yyyy-mm-dd] } → drives
+//                  "done today" + streaks, with automatic daily reset.
+//   todosState   — editable task lists {money,health,personal} of {text,priority,recurring}.
+// localStorage mirrors all three so the UI is instant and works offline.
+let checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
+let taskLog = JSON.parse(localStorage.getItem('taskLog') || '{}');
+let todosState = { money: [], health: [], personal: [] };
 
 function cacheChecks() {
 localStorage.setItem('checkedTodos', JSON.stringify([...checkedTodos]));
+localStorage.setItem('taskLog', JSON.stringify(taskLog));
 }
 
-// Replace local check state with the server's source of truth (called on load).
-function seedChecks(serverChecked) {
-if (!Array.isArray(serverChecked)) return;
-checkedTodos.clear();
-serverChecked.forEach(id => checkedTodos.add(id));
+// Local (device-timezone) date helpers — daily reset must follow the user's day.
+function localToday() {
+const d = new Date();
+return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function shiftDate(str, days) {
+const [y,m,d] = str.split('-').map(Number);
+const dt = new Date(y, m-1, d); dt.setDate(dt.getDate()+days);
+return `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`;
+}
+
+// Recurring task: "done" means completed today. One-off: in the checked set.
+function isDone(id, recurring) {
+if (recurring) return (taskLog[id] || []).includes(localToday());
+return checkedTodos.has(id);
+}
+
+// Consecutive-day streak, counting back from today (or yesterday if not yet done today).
+function calcStreak(id) {
+const set = new Set(taskLog[id] || []);
+let cursor = set.has(localToday()) ? localToday() : shiftDate(localToday(), -1);
+if (!set.has(cursor)) return 0;
+let n = 0;
+while (set.has(cursor)) { n++; cursor = shiftDate(cursor, -1); }
+return n;
+}
+
+// Replace local state with the server's source of truth.
+function seedChecks(serverChecked, serverLog) {
+if (Array.isArray(serverChecked)) checkedTodos = new Set(serverChecked);
+if (serverLog && typeof serverLog === 'object') taskLog = serverLog;
 cacheChecks();
 }
 
-async function toggleTodo(id, el) {
-const nowChecked = !checkedTodos.has(id);
-if (nowChecked) { checkedTodos.add(id); el.classList.add('done'); }
-else { checkedTodos.delete(id); el.classList.remove('done'); }
-cacheChecks(); // optimistic local update
+async function toggleTodo(id, recurring, el) {
+const nowChecked = !isDone(id, recurring);
+if (recurring) {
+const arr = new Set(taskLog[id] || []);
+if (nowChecked) arr.add(localToday()); else arr.delete(localToday());
+if (arr.size) taskLog[id] = [...arr]; else delete taskLog[id];
+} else {
+if (nowChecked) checkedTodos.add(id); else checkedTodos.delete(id);
+}
+cacheChecks();
+renderAllTasks(); // refresh streaks + progress
 try {
 await fetch('/api/task-checks', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ id, checked: nowChecked }),
+body: JSON.stringify({ id, checked: nowChecked, recurring: !!recurring, date: localToday() }),
 });
 } catch (e) {
-// Offline: the localStorage cache keeps the toggle; next load re-syncs.
 console.warn('task-check sync failed (kept locally):', e);
 }
 }
@@ -969,7 +1187,53 @@ const el = document.getElementById(id);
 if (el) setTimeout(() => el.style.strokeDashoffset = offset, 100);
 }
 
+// ── TOAST ──
+function toast(msg, type = '') {
+const wrap = document.getElementById('toast-wrap');
+if (!wrap) return;
+const el = document.createElement('div');
+el.className = `toast ${type}`;
+el.textContent = msg;
+wrap.appendChild(el);
+setTimeout(() => { el.style.transition = 'opacity .3s'; el.style.opacity = '0'; setTimeout(() => el.remove(), 320); }, 4000);
+}
+
+// ── SPARKLINE (SVG line from a series; nulls are skipped) ──
+function sparkline(svgId, values, color = '#00c49a') {
+const svg = document.getElementById(svgId);
+if (!svg) return;
+const defined = (values || []).filter(v => v != null);
+if (defined.length < 2) { svg.innerHTML = ''; return; }
+const W = 300, H = 40, pad = 4;
+const min = Math.min(...defined), max = Math.max(...defined);
+const range = (max - min) || 1;
+const n = values.length;
+const pts = [];
+values.forEach((v, i) => {
+if (v == null) return;
+const x = pad + (n > 1 ? (i / (n - 1)) : 0) * (W - 2 * pad);
+const y = H - pad - ((v - min) / range) * (H - 2 * pad);
+pts.push([x, y]);
+});
+const d = pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+const last = pts[pts.length - 1];
+svg.innerHTML =
+`<path d="${d}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>` +
+`<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.5" fill="${color}"/>`;
+}
+
 // ── RENDER FUNCTIONS ──
+function renderStripe(data) {
+const box = document.getElementById('stripe-metrics');
+const notice = document.getElementById('stripe-notice');
+if (!data) { box.style.display = 'none'; notice.style.display = 'block'; return; }
+notice.style.display = 'none';
+box.style.display = 'grid';
+document.getElementById('metric-mrr').textContent = fmtDollars(data.mrr);
+document.getElementById('metric-rev30').textContent = fmtDollars(data.revenue_30d);
+document.getElementById('metric-subs').textContent = data.active_subs ?? '—';
+}
+
 function renderPosthog(data) {
 if (!data) {
 document.getElementById('posthog-notice').style.display = 'block';
@@ -1006,39 +1270,160 @@ function taskCheckId(listKey, text) {
 return `${listKey}::${text}`;
 }
 
-function renderTodos(data) {
-// One single Money Tasks list: legacy `money` items fold in with `business`.
-const money = [...(data?.business || []), ...(data?.money || [])];
-const personal = data?.personal || [];
-const health = data?.health || [];
+// Load task lists into editable state, then render. One single Money Tasks list:
+// legacy `money` items fold in with `business`.
+function setTodos(data) {
+todosState = {
+money:    [...(data?.business || []), ...(data?.money || [])],
+health:   data?.health || [],
+personal: data?.personal || [],
+};
+renderAllTasks();
+}
+// Back-compat alias for existing call sites.
+function renderTodos(data) { setTodos(data); }
 
-const priOrder = { high: 0, med: 1, low: 2 };
-const renderList = (listKey, items, el) => {
+const PRI_ORDER = { high: 0, med: 1, low: 2 };
+const LIST_TARGETS = {
+money:    { el: 'business-todos', progress: 'progress-money' },
+health:   { el: 'health-todos',   progress: 'progress-health' },
+personal: { el: 'personal-todos', progress: 'progress-personal' },
+};
+
+function renderAllTasks() {
+Object.keys(LIST_TARGETS).forEach(listKey => {
+const { el, progress } = LIST_TARGETS[listKey];
+renderList(listKey, todosState[listKey] || [], document.getElementById(el), progress);
+});
+}
+
+function renderList(listKey, items, el, progressId) {
 if (!el) return;
-if (!items.length) { el.innerHTML = '<li class="empty">No to-dos</li>'; el.onclick = null; return; }
-const sorted = [...items].sort((a, b) => (priOrder[a.priority] ?? 2) - (priOrder[b.priority] ?? 2));
-el.innerHTML = sorted.map((t) => {
+const withIdx = items.map((t, i) => ({ t, i }))
+.sort((a, b) => (PRI_ORDER[a.t.priority] ?? 2) - (PRI_ORDER[b.t.priority] ?? 2));
+
+if (!withIdx.length) {
+el.innerHTML = '<li class="empty">No to-dos</li>';
+} else {
+el.innerHTML = withIdx.map(({ t, i }) => {
+const rec = !!t.recurring;
 const id = taskCheckId(listKey, t.text);
-const isDone = checkedTodos.has(id);
+const done = isDone(id, rec);
+const streak = rec ? calcStreak(id) : 0;
 const tagClass = t.priority === 'high' ? 'tag-high' : t.priority === 'med' ? 'tag-med' : 'tag-low';
 const tagLabel = t.priority === 'high' ? 'High' : t.priority === 'med' ? 'Med' : 'Low';
 return `
-<li class="todo-item${isDone ? ' done' : ''}" data-check-id="${escapeHtml(id)}">
+<li class="todo-item${done ? ' done' : ''}" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}" data-idx="${i}">
 <div class="todo-cb"></div>
-<span class="todo-text">${escapeHtml(t.text)}</span>
+<span class="todo-text">${escapeHtml(t.text)}${rec ? ' <span title="Daily" style="opacity:0.7">🔁</span>' : ''}</span>
+${streak > 1 ? `<span class="streak">🔥${streak}</span>` : ''}
 <span class="todo-tag ${tagClass}">${tagLabel}</span>
+<span class="todo-actions">
+<button class="todo-act" data-act="edit" title="Edit">✎</button>
+<button class="todo-act" data-act="del" title="Delete">✕</button>
+</span>
 </li>`;
 }).join('');
-// Event delegation: robust against task text containing quotes/apostrophes.
+}
+
+// Event delegation handles checkbox toggle + edit/delete (robust vs special chars).
 el.onclick = (e) => {
 const li = e.target.closest('.todo-item');
-if (li && li.dataset.checkId) toggleTodo(li.dataset.checkId, li);
-};
+if (!li) return;
+const actBtn = e.target.closest('.todo-act');
+if (actBtn) {
+const idx = +li.dataset.idx;
+if (actBtn.dataset.act === 'edit') showEditForm(listKey, idx);
+else if (actBtn.dataset.act === 'del') { if (confirm('Delete this task?')) deleteTask(listKey, idx); }
+return;
+}
+toggleTodo(li.dataset.checkId, li.dataset.recurring === '1', li);
 };
 
-renderList('money', money, document.getElementById('business-todos'));
-renderList('personal', personal, document.getElementById('personal-todos'));
-renderList('health', health, document.getElementById('health-todos'));
+updateProgress(listKey, items, progressId);
+}
+
+function updateProgress(listKey, items, progressId) {
+const wrap = document.getElementById(progressId);
+if (!wrap) return;
+if (!items.length) { wrap.style.display = 'none'; return; }
+let done = 0;
+items.forEach(t => { if (isDone(taskCheckId(listKey, t.text), !!t.recurring)) done++; });
+const pct = Math.round(done / items.length * 100);
+wrap.style.display = 'flex';
+wrap.querySelector('.progress-fill').style.width = pct + '%';
+wrap.querySelector('.progress-label').textContent = `${done}/${items.length} done`;
+}
+
+// ── TASK CRUD ──
+function taskFormHtml(listKey, idx) {
+const editing = idx != null && idx >= 0;
+const t = editing ? todosState[listKey][idx] : { text: '', priority: 'med', recurring: false };
+return `
+<div class="task-form">
+<input type="text" id="tf-text-${listKey}" placeholder="Task description" value="${escapeHtml(t.text)}">
+<div class="task-form-row">
+<select id="tf-pri-${listKey}">
+<option value="high"${t.priority === 'high' ? ' selected' : ''}>High</option>
+<option value="med"${t.priority === 'med' ? ' selected' : ''}>Med</option>
+<option value="low"${t.priority === 'low' ? ' selected' : ''}>Low</option>
+</select>
+<label><input type="checkbox" id="tf-rec-${listKey}"${t.recurring ? ' checked' : ''}> Daily</label>
+<span class="spacer"></span>
+<button class="btn-sm" onclick="cancelForm('${listKey}')">Cancel</button>
+<button class="btn-sm primary" onclick="saveTask('${listKey}', ${editing ? idx : 'null'})">Save</button>
+</div>
+</div>`;
+}
+function showAddForm(listKey) {
+const f = document.getElementById(`form-${listKey}`);
+f.innerHTML = taskFormHtml(listKey, null);
+const inp = document.getElementById(`tf-text-${listKey}`);
+inp.focus();
+inp.onkeydown = (e) => { if (e.key === 'Enter') saveTask(listKey, null); if (e.key === 'Escape') cancelForm(listKey); };
+}
+function showEditForm(listKey, idx) {
+const f = document.getElementById(`form-${listKey}`);
+f.innerHTML = taskFormHtml(listKey, idx);
+const inp = document.getElementById(`tf-text-${listKey}`);
+inp.focus();
+inp.onkeydown = (e) => { if (e.key === 'Enter') saveTask(listKey, idx); if (e.key === 'Escape') cancelForm(listKey); };
+}
+function cancelForm(listKey) { document.getElementById(`form-${listKey}`).innerHTML = ''; }
+
+function saveTask(listKey, idx) {
+const text = document.getElementById(`tf-text-${listKey}`).value.trim();
+if (!text) return;
+const priority = document.getElementById(`tf-pri-${listKey}`).value;
+const recurring = document.getElementById(`tf-rec-${listKey}`).checked;
+const task = { text, priority, recurring };
+if (idx == null || idx < 0) todosState[listKey].push(task);
+else todosState[listKey][idx] = task;
+cancelForm(listKey);
+renderAllTasks();
+saveTodos();
+toast('Task saved', 'ok');
+}
+function deleteTask(listKey, idx) {
+todosState[listKey].splice(idx, 1);
+renderAllTasks();
+saveTodos();
+toast('Task deleted', 'ok');
+}
+async function saveTodos() {
+// Persist the editable lists. Money maps back to the `business` key so the
+// single merged Money Tasks list stays consolidated server-side.
+const payload = {
+business: todosState.money,
+health:   todosState.health,
+personal: todosState.personal,
+};
+try {
+const r = await fetch('/api/todos', {
+method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
+});
+if (!r.ok) throw new Error('save failed');
+} catch (e) { toast('Could not save tasks (will retry on next edit)', 'err'); }
 }
 
 function renderCalendar(events, colId, barClass, noticeId) {
@@ -1136,6 +1521,7 @@ document.getElementById('readiness-val').textContent = '—';
 const v = document.getElementById(`c-${id}`); if (v) v.textContent = '—';
 const b = document.getElementById(`cb-${id}`); if (b) b.style.width = '0%';
 });
+renderOuraTrend(null);
 notice.style.display = 'block';
 return;
 }
@@ -1186,7 +1572,27 @@ setContrib('deep', `${fmtMins(deep)}, ${deepPct}%`, c.deep_sleep);
 setContrib('latency', latency_mins ? `${latency_mins}m` : '—', c.latency);
 setContrib('timing', contribLabel(c.timing), c.timing);
 
+renderOuraTrend(data.trend);
 notice.style.display = 'none';
+}
+
+function renderOuraTrend(trend) {
+const box = document.getElementById('oura-trend');
+if (!box) return;
+if (!trend) { box.style.display = 'none'; return; }
+box.style.display = 'block';
+sparkline('spark-sleep', trend.sleep, '#00c49a');
+document.getElementById('avg-sleep').textContent = trend.avg_sleep ?? '—';
+document.getElementById('avg-readiness').textContent = trend.avg_readiness ?? '—';
+document.getElementById('avg-hrv').textContent = trend.avg_hrv != null ? `${trend.avg_hrv}` : '—';
+const st = trend.avg_steps;
+document.getElementById('avg-steps').textContent =
+st == null ? '—' : (st >= 1000 ? `${(st / 1000).toFixed(1)}k` : `${st}`);
+
+// Workout streak comes from the recurring "Workout" health task.
+const streak = calcStreak(taskCheckId('health', 'Workout'));
+const ws = document.getElementById('workout-streak');
+if (ws) ws.textContent = streak > 0 ? `🔥 ${streak}-day workout streak` : '';
 }
 
 function renderWatch(data) {
@@ -1237,8 +1643,8 @@ notice.style.display = 'block';
 return;
 }
 const { net_worth, nw_change_1m, nw_change_3m, nw_change_all, nw_history_since,
-        spending_yesterday, spending_week, spending_month,
-        yesterday_transactions, synced_at } = data;
+        nw_history, spending_yesterday, spending_week, spending_month,
+        spending_categories, yesterday_transactions, synced_at } = data;
 const nwColor = net_worth >= 0 ? 'var(--green)' : 'var(--red)';
 
 const chgColor = c => c == null ? 'var(--muted)' : c >= 0 ? 'var(--green)' : 'var(--red)';
@@ -1262,6 +1668,19 @@ if (mins < 1440) return `${Math.round(mins/60)}h ago`;
 return `${Math.round(mins/1440)}d ago`;
 })() : '';
 
+// Top spending categories (last 30 days) as labeled bars.
+const cats = spending_categories || [];
+const maxCat = cats.length ? Math.max(...cats.map(c => c.amount)) : 1;
+const catBlock = cats.length ? `
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Top Categories (30d)</div>
+<div style="margin-bottom:14px">
+${cats.map(c => `
+<div class="cat-row">
+<div class="cat-top"><span class="cat-name">${escapeHtml(c.category)}</span><span class="cat-amt">${fmtDollars(c.amount)}</span></div>
+<div class="cat-track"><div class="cat-fill" style="width:${Math.round(c.amount / maxCat * 100)}%"></div></div>
+</div>`).join('')}
+</div>` : '';
+
 section.innerHTML = `
 <div style="margin-bottom:14px">
 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
@@ -1269,6 +1688,7 @@ section.innerHTML = `
 ${syncAge ? `<div style="font-size:10px;color:var(--muted)">synced ${syncAge}</div>` : ''}
 </div>
 <div style="font-size:34px;font-weight:800;color:${nwColor};line-height:1">${fmtDollars(net_worth)}</div>
+<svg class="spark" id="spark-nw" viewBox="0 0 300 40" preserveAspectRatio="none" style="margin-top:8px"></svg>
 </div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
 <div class="metric">
@@ -1300,14 +1720,126 @@ ${nw_history_since ? `<div style="font-size:10px;color:var(--muted);margin-top:-
 <div class="lbl">Last Month</div>
 </div>
 </div>
+${catBlock}
 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
 <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Yesterday's Transactions</div>
 <div style="font-size:13px;font-weight:700;color:${spending_yesterday > 0 ? 'var(--red)' : 'var(--muted)'}">${spending_yesterday > 0 ? '-' : ''}${fmtDollars(spending_yesterday)}</div>
 </div>
 ${txRows || '<div class="empty">No transactions yesterday</div>'}
 `;
+// Net-worth sparkline (after innerHTML so the <svg> exists).
+const balances = (nw_history || []).map(h => h.balance);
+sparkline('spark-nw', balances, net_worth >= 0 ? '#22c55e' : '#ef4444');
 notice.style.display = 'none';
 }
+
+// ── WEATHER (Open-Meteo, no key; located via IP geolocation, NYC fallback) ──
+function weatherInfo(code, isDay) {
+// WMO weather codes → [emoji, label]
+const day = isDay !== 0;
+if (code === 0) return [day ? '☀️' : '🌙', 'Clear'];
+if (code <= 2) return [day ? '🌤️' : '☁️', 'Partly cloudy'];
+if (code === 3) return ['☁️', 'Overcast'];
+if (code <= 48) return ['🌫️', 'Fog'];
+if (code <= 57) return ['🌦️', 'Drizzle'];
+if (code <= 67) return ['🌧️', 'Rain'];
+if (code <= 77) return ['🌨️', 'Snow'];
+if (code <= 82) return ['🌧️', 'Showers'];
+if (code <= 86) return ['🌨️', 'Snow showers'];
+if (code <= 99) return ['⛈️', 'Thunderstorm'];
+return ['🌡️', '—'];
+}
+async function loadWeather() {
+const el = document.getElementById('weather-section');
+if (!el) return;
+let lat = 40.71, lon = -74.01, place = 'New York';
+try {
+const geo = await fetch('https://ipapi.co/json/').then(r => r.ok ? r.json() : null).catch(() => null);
+if (geo && geo.latitude && geo.longitude) {
+lat = geo.latitude; lon = geo.longitude;
+place = geo.city || geo.region || '';
+}
+} catch (e) { /* fall back to default */ }
+try {
+const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+`&current=temperature_2m,apparent_temperature,is_day,weather_code` +
+`&daily=temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=auto`;
+const d = await fetch(url).then(r => r.json());
+const c = d.current;
+if (!c) throw new Error('no weather');
+const [icon, label] = weatherInfo(c.weather_code, c.is_day);
+const hi = d.daily?.temperature_2m_max?.[0];
+const lo = d.daily?.temperature_2m_min?.[0];
+el.innerHTML = `
+<div class="weather-main">
+<div class="weather-icon">${icon}</div>
+<div class="weather-temp">${Math.round(c.temperature_2m)}°</div>
+<div class="weather-meta">
+${label}<br>
+${hi != null ? `H ${Math.round(hi)}° · L ${Math.round(lo)}°` : ''}<br>
+${place ? place + ' · ' : ''}Feels ${Math.round(c.apparent_temperature)}°
+</div>
+</div>`;
+} catch (e) {
+el.innerHTML = '<div class="empty">Weather unavailable</div>';
+}
+}
+
+// ── PUSH NOTIFICATIONS ──
+let pushPublicKey = null;
+function urlB64ToUint8(base64) {
+const pad = '='.repeat((4 - base64.length % 4) % 4);
+const b64 = (base64 + pad).replace(/-/g, '+').replace(/_/g, '/');
+const raw = atob(b64);
+return Uint8Array.from([...raw].map(c => c.charCodeAt(0)));
+}
+function setPushBtn(on) {
+const btn = document.getElementById('push-btn');
+if (!btn) return;
+btn.classList.toggle('on', on);
+btn.textContent = on ? '🔔 Notifications on' : '🔔 Notify me';
+}
+async function initPush() {
+if (!('serviceWorker' in navigator) || !('PushManager' in window)) return;
+try {
+const d = await fetch('/api/push/public-key').then(r => r.json());
+pushPublicKey = d.key;
+if (!pushPublicKey) return; // push not configured on the server yet
+document.getElementById('push-btn').style.display = 'inline-block';
+const reg = await navigator.serviceWorker.ready.catch(() => null);
+const sub = reg ? await reg.pushManager.getSubscription() : null;
+setPushBtn(!!sub);
+} catch (e) { /* push optional */ }
+}
+async function togglePush() {
+try {
+const reg = await navigator.serviceWorker.ready;
+let sub = await reg.pushManager.getSubscription();
+if (sub) {
+await fetch('/api/push/unsubscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ endpoint: sub.endpoint }) });
+await sub.unsubscribe();
+setPushBtn(false); toast('Notifications off', 'ok'); return;
+}
+const perm = await Notification.requestPermission();
+if (perm !== 'granted') { toast('Notification permission denied', 'err'); return; }
+sub = await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlB64ToUint8(pushPublicKey) });
+await fetch('/api/push/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sub) });
+setPushBtn(true); toast("Notifications on — you'll get a morning summary", 'ok');
+} catch (e) { console.error(e); toast('Could not enable notifications', 'err'); }
+}
+
+// ── AUTO-SYNC (keeps tasks in sync across devices without heavy refetch) ──
+async function syncTasks() {
+try {
+const res = await fetch('/api/tasks-state');
+if (!res.ok) return;
+const d = await res.json();
+seedChecks(d.task_checks?.checked, d.task_checks?.log);
+setTodos(d.todos);
+} catch (e) { /* transient; ignore */ }
+}
+setInterval(() => { if (document.visibilityState === 'visible') syncTasks(); }, 60000);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncTasks(); });
 
 // ── MAIN LOAD ──
 async function loadData() {
@@ -1317,8 +1849,9 @@ if (!res.ok) throw new Error('API error');
 const d = await res.json();
 
 renderPosthog(d.posthog);
-seedChecks(d.task_checks?.checked); // sync checked state from server before render
-renderTodos(d.todos);
+renderStripe(d.stripe);
+seedChecks(d.task_checks?.checked, d.task_checks?.log); // sync state before render
+setTodos(d.todos);
 renderCalendar(d.business_events, 'business-calendar', 'event-bar-money', 'calendar-notice');
 renderCalendar(d.rel_events, 'rel-calendar', 'event-bar-rel', 'rel-calendar-notice');
 renderNews(d.news);
@@ -1328,8 +1861,10 @@ renderMonarch(d.monarch);
 
 } catch (e) {
 console.error('Dashboard load error:', e);
+toast('Could not load dashboard data — retrying is available via ↺ Refresh', 'err');
 renderPosthog(null);
-renderTodos({ business: [], personal: [] });
+renderStripe(null);
+setTodos({ business: [], health: [], personal: [] });
 renderCalendar([], 'business-calendar', 'event-bar-money', 'calendar-notice');
 renderCalendar([], 'rel-calendar', 'event-bar-rel', 'rel-calendar-notice');
 renderNews([]);
@@ -1340,6 +1875,8 @@ renderMonarch(null);
 }
 
 loadData();
+loadWeather();
+initPush();
 </script>
 </body>
 </html>
