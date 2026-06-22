@@ -46,7 +46,6 @@ if (!ANTHROPIC_API_KEY || !GEMINI_API_KEY) {
 // DASHBOARD â serve at /dashboard
 // ============================================================
 app.get('/dashboard', (req, res) => {
-  res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.sendFile(path.join(__dirname, 'dashboard.html'));
 });
 
@@ -58,7 +57,8 @@ app.get('/api/morning-data', async (req, res) => {
     posthog: null,
     oura: null,
     watch: null,
-    todos: { business: [], personal: [] },
+    todos: { business: [], health: [], personal: [] },
+    task_checks: { checked: [] },
     business_events: null,
     rel_events: null,
     news: [],
@@ -74,6 +74,7 @@ app.get('/api/morning-data', async (req, res) => {
     }),
     fetchNews().then(d => { result.news = d; }),
     loadTodos().then(d => { result.todos = d; }),
+    loadTaskChecks().then(d => { result.task_checks = { checked: d.checked }; }),
   ]);
 
   result.watch = loadWatch();
@@ -414,6 +415,18 @@ app.get('/api/monarch', async (req, res) => {
 const TODOS_FILE = 'todos.json';
 const EMPTY_TODOS = { business: [], health: [], personal: [] };
 
+// Normalize raw todos.json into the lists the dashboard renders. The legacy
+// `money` list is folded into `business` so there is one single Money Tasks
+// list everywhere. Done on read so it works no matter what writes the file.
+function normalizeTodos(raw) {
+  const t = raw || {};
+  return {
+    business: [...(t.business || []), ...(t.money || [])],
+    health:   t.health   || [],
+    personal: t.personal || [],
+  };
+}
+
 async function loadTodos() {
   if (!GITHUB_TOKEN) return EMPTY_TODOS;
   try {
@@ -422,7 +435,7 @@ async function loadTodos() {
     });
     if (!res.ok) return EMPTY_TODOS;
     const data = await res.json();
-    return JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+    return normalizeTodos(JSON.parse(Buffer.from(data.content, 'base64').toString('utf8')));
   } catch (e) {
     console.error('loadTodos error:', e.message);
     return EMPTY_TODOS;
@@ -457,69 +470,70 @@ app.post('/api/todos', async (req, res) => {
     const todos = req.body;
     await saveTodosToGitHub(todos);
     res.json({ ok: true });
-
-async function assignPriorityWithClaude(text, category) {
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 5,
-        system: 'You assign task priorities for a personal productivity dashboard. High = urgent or high-impact. Med = important but not urgent. Low = minor or nice-to-have. Reply with exactly one word: high, med, or low.',
-        messages: [{ role: 'user', content: `Category: ${category}
-Task: ${text}
-
-Priority?` }],
-      }),
-    });
-    const data = await response.json();
-    const result = data?.content?.[0]?.text?.trim().toLowerCase();
-    return ['high', 'med', 'low'].includes(result) ? result : 'med';
   } catch (e) {
-    console.error('Claude priority error:', e.message);
-    return 'med';
+    res.status(500).json({ error: e.message });
+  }
+});
+
+
+// ── Task checks (which todos are checked off — synced across devices via GitHub) ──
+// Checked state is keyed by a stable, content-based id (list + task text) so it
+// survives reordering, re-prioritizing, and re-rendering. Writes are applied as
+// deltas with read-modify-write + retry, so two devices toggling different tasks
+// at once don't clobber each other.
+const TASK_CHECKS_FILE = 'task-checks.json';
+
+async function loadTaskChecks() {
+  if (!GITHUB_TOKEN) return { checked: [], sha: null };
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TASK_CHECKS_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return { checked: [], sha: null };
+    const data = await res.json();
+    const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+    return { checked: Array.isArray(parsed.checked) ? parsed.checked : [], sha: data.sha };
+  } catch (e) {
+    console.error('loadTaskChecks error:', e.message);
+    return { checked: [], sha: null };
   }
 }
 
-app.post('/api/todos/add', async (req, res) => {
-  try {
-    const { category, text, priority } = req.body;
-    if (!category || !text) return res.status(400).json({ error: 'Missing category or text' });
-    if (!['business', 'health', 'personal', 'money'].includes(category)) {
-      return res.status(400).json({ error: 'Invalid category' });
-    }
-    const todos = await loadTodos();
-    if (!todos[category]) todos[category] = [];
-    const finalPriority = priority === 'claude'
-      ? await assignPriorityWithClaude(text.trim(), category)
-      : (['high', 'med', 'low'].includes(priority) ? priority : 'med');
-    todos[category].push({ text: text.trim(), priority: finalPriority });
-    await saveTodosToGitHub(todos);
-    res.json({ ok: true, todos, assignedPriority: finalPriority });
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
+async function putTaskChecks(checked, sha) {
+  const content = Buffer.from(JSON.stringify({ checked }, null, 2)).toString('base64');
+  const body = { message: 'Update task checks', content };
+  if (sha) body.sha = sha;
+  return fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TASK_CHECKS_FILE}`, {
+    method: 'PUT',
+    headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+}
+
+app.get('/api/task-checks', async (req, res) => {
+  const { checked } = await loadTaskChecks();
+  res.json({ checked });
 });
 
-app.post('/api/todos/priority', async (req, res) => {
-  try {
-    const { category, index, priority } = req.body;
-    if (!category || index == null || !priority) return res.status(400).json({ error: 'Missing fields' });
-    if (!['high', 'med', 'low'].includes(priority)) return res.status(400).json({ error: 'Invalid priority' });
-    const todos = await loadTodos();
-    if (!todos[category] || !todos[category][index]) return res.status(404).json({ error: 'Todo not found' });
-    todos[category][index].priority = priority;
-    await saveTodosToGitHub(todos);
-    res.json({ ok: true, todos });
-  } catch (e) {
-    res.status(500).json({ error: e.message });
+app.post('/api/task-checks', async (req, res) => {
+  if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
+  const { id, checked } = req.body || {};
+  if (typeof id !== 'string' || typeof checked !== 'boolean') {
+    return res.status(400).json({ error: 'expected { id: string, checked: boolean }' });
   }
-});
+  try {
+    for (let attempt = 0; attempt < 4; attempt++) {
+      const cur = await loadTaskChecks();
+      const set = new Set(cur.checked);
+      if (checked) set.add(id); else set.delete(id);
+      const next = [...set];
+      const putRes = await putTaskChecks(next, cur.sha);
+      if (putRes.ok) return res.json({ ok: true, checked: next });
+      if (putRes.status === 409 || putRes.status === 422) continue; // sha race — reload & retry
+      const txt = await putRes.text().catch(() => '');
+      return res.status(502).json({ error: `github ${putRes.status}: ${txt}` });
+    }
+    return res.status(503).json({ error: 'write conflict, please retry' });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
@@ -855,68 +869,9 @@ app.post('/api/generate-image', async (req, res) => {
   }
 });
 
-// ── Todo completion state (GitHub-backed for cross-device persistence) ──
-const TODO_STATE_FILE = 'todo-state.json';
-let todoStateCache = null;
-
-async function loadTodoState() {
-  if (!GITHUB_TOKEN) return { completed: [], date: '' };
-  try {
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODO_STATE_FILE}`, {
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (!res.ok) return { completed: [], date: '' };
-    const data = await res.json();
-    return JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
-  } catch (e) {
-    console.error('loadTodoState error:', e.message);
-    return { completed: [], date: '' };
-  }
-}
-
-async function saveTodoStateToGitHub(state) {
-  if (!GITHUB_TOKEN) return;
-  try {
-    const content = Buffer.from(JSON.stringify(state, null, 2)).toString('base64');
-    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODO_STATE_FILE}`, {
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    const body = { message: 'Update todo state', content };
-    if (getRes.ok) { const cur = await getRes.json(); body.sha = cur.sha; }
-    await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODO_STATE_FILE}`, {
-      method: 'PUT',
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-    console.log('Todo state saved to GitHub');
-  } catch (e) {
-    console.error('GitHub todo-state save error:', e.message);
-  }
-}
-
-app.get('/api/todo-state', async (req, res) => {
-  // Use in-memory cache if available (populated on first load or after any write)
-  if (todoStateCache) return res.json(todoStateCache);
-  const state = await loadTodoState();
-  todoStateCache = state;
-  res.json(state);
-});
-
-app.post('/api/todo-state', async (req, res) => {
-  const { completed, date } = req.body || {};
-  if (Array.isArray(completed)) {
-    const state = { completed, date: date || new Date().toISOString().slice(0, 10) };
-    todoStateCache = state;
-    saveTodoStateToGitHub(state); // async — don't block response
-  }
-  res.json({ ok: true });
-});
-
-
 // ============================================================
 // STATIC FILES & FALLBACK
 // ============================================================
-app.get('/api/version', (req, res) => res.json({ v: 'v2-todos-add' }));
 app.use(express.static('.'));
 
 // Serve index.html for all non-API, non-dashboard routes (SPA fallback)
