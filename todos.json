@@ -55,6 +55,11 @@
     {
       "text": "Update Monarch money transactions",
       "priority": "med"
+    },
+    {
+      "text": "Write script for HOG commercial",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
