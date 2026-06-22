@@ -171,6 +171,11 @@
     {
       "text": "Check dating apps",
       "priority": "low"
+    },
+    {
+      "text": "Schedule dentist appointment this week",
+      "priority": "high",
+      "recurring": false
     }
   ]
 }
