@@ -9,6 +9,33 @@ const app = express();
 
 // Middleware
 app.use(cors());
+
+// Stripe webhook MUST receive the raw request body for signature verification,
+// so it is registered BEFORE the global express.json() parser below. Defined
+// here for ordering; the fulfillment logic lives with the other credits code.
+app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+  const stripe = getStripe();
+  if (!stripe || !STRIPE_WEBHOOK_SECRET) return res.status(503).send('webhook not configured');
+
+  let event;
+  try {
+    event = stripe.webhooks.constructEvent(req.body, req.headers['stripe-signature'], STRIPE_WEBHOOK_SECRET);
+  } catch (err) {
+    console.error('Stripe webhook signature verification failed:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  if (event.type === 'checkout.session.completed') {
+    try {
+      await fulfillCreditsSession(event.data.object);
+    } catch (e) {
+      console.error('Webhook fulfillment error:', e.message);
+      // Return 200 anyway — session-status on return is a fallback path.
+    }
+  }
+  res.json({ received: true });
+});
+
 app.use(express.json({ limit: '100mb' }));
 
 // Rate limiting: applied ONLY to the expensive AI endpoints (photo check,
@@ -33,6 +60,16 @@ const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const GOOGLE_REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
 const GITHUB_TOKEN         = process.env.GITHUB_TOKEN;
 const STRIPE_SECRET_KEY    = process.env.STRIPE_SECRET_KEY;
+const STRIPE_PUBLISHABLE_KEY = process.env.STRIPE_PUBLISHABLE_KEY;
+const STRIPE_WEBHOOK_SECRET  = process.env.STRIPE_WEBHOOK_SECRET;
+const CREDITS_FILE         = 'credits-data.json'; // persists per-device credit balances + fulfilled checkout sessions
+const FREE_CREDITS         = 3;  // free generations every new device starts with
+// Credit packs offered on the paywall. Prices in cents. Keys must match the
+// data-pack attributes in index.html (starter / power).
+const CREDIT_PACKS = {
+  starter: { credits: 5,  priceInCents: 499,  label: 'Starter Pack' },
+  power:   { credits: 20, priceInCents: 1499, label: 'Power Pack' },
+};
 const MONARCH_PUSH_SECRET  = process.env.MONARCH_PUSH_SECRET;
 const MONARCH_DATA_FILE    = 'monarch-data.json';
 const GITHUB_REPO          = 'RagnarD213/abs-by-ai';
@@ -1220,7 +1257,7 @@ app.post('/api/generate-prompt', aiLimiter, async (req, res) => {
 // ============================================================
 app.post('/api/generate-image', aiLimiter, async (req, res) => {
   try {
-    const { prompt, photoBase64, photoMime } = req.body;
+    const { prompt, photoBase64, photoMime, deviceId } = req.body;
 
     if (!prompt || !photoBase64 || !photoMime) {
       return res.status(400).json({
@@ -1276,12 +1313,165 @@ app.post('/api/generate-image', aiLimiter, async (req, res) => {
 
     const imageBase64 = (imgPart.inline_data || imgPart.inlineData).data;
 
-    res.json({ imageBase64 });
+    // Credit gating: if the device has credits left, consume one and return the
+    // image unlocked. If it's out of credits, still return the image but flag it
+    // `locked` so the client blurs it behind the paywall (generate-and-lock).
+    // Requests without a deviceId (e.g. legacy clients) are left unlocked.
+    let locked = false;
+    if (deviceId) {
+      const balance = getCredits(deviceId);
+      if (balance > 0) {
+        creditsStore.balances[deviceId] = balance - 1;
+        persistCreditsStore(); // fire-and-forget; in-memory copy is source of truth
+      } else {
+        locked = true;
+      }
+    }
+
+    res.json({ imageBase64, locked });
   } catch (err) {
     console.error('Image generation error:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// ============================================================
+// CREDITS — pay-for-more-generations
+// ============================================================
+// Per-device credit balances persisted as JSON in the GitHub repo (same
+// pattern as todos / task-checks). Shape:
+//   { balances: { [deviceId]: number }, fulfilled: { [sessionId]: true } }
+// `fulfilled` makes crediting idempotent across the webhook + return-redirect
+// paths so a purchase is never double-counted.
+let creditsStore = { balances: {}, fulfilled: {} };
+
+async function loadCreditsStore() {
+  if (!GITHUB_TOKEN) return { balances: {}, fulfilled: {} };
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${CREDITS_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return { balances: {}, fulfilled: {} };
+    const data = await res.json();
+    const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+    return { balances: parsed.balances || {}, fulfilled: parsed.fulfilled || {} };
+  } catch (e) {
+    console.error('loadCreditsStore error:', e.message);
+    return { balances: {}, fulfilled: {} };
+  }
+}
+
+async function persistCreditsStore() {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const content = Buffer.from(JSON.stringify(creditsStore, null, 2)).toString('base64');
+    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${CREDITS_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const body = { message: 'Update credits', content };
+    if (getRes.ok) { const cur = await getRes.json(); body.sha = cur.sha; }
+    await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${CREDITS_FILE}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+  } catch (e) { console.error('persistCreditsStore error:', e.message); }
+}
+
+// Balance for a device — new devices implicitly start with FREE_CREDITS.
+function getCredits(deviceId) {
+  if (!deviceId) return 0;
+  const b = creditsStore.balances[deviceId];
+  return typeof b === 'number' ? b : FREE_CREDITS;
+}
+
+// Idempotently grant a completed checkout session's credits to its device.
+async function fulfillCreditsSession(session) {
+  if (!session || session.payment_status !== 'paid') return false;
+  const sid = session.id;
+  if (creditsStore.fulfilled[sid]) return false; // already credited
+  const meta = session.metadata || {};
+  if (meta.kind !== 'credits') return false;
+  const deviceId = meta.deviceId;
+  const credits = parseInt(meta.credits, 10);
+  if (!deviceId || !credits) return false;
+
+  creditsStore.balances[deviceId] = getCredits(deviceId) + credits;
+  creditsStore.fulfilled[sid] = true;
+  await persistCreditsStore();
+  console.log(`Credited ${credits} to ${deviceId} (session ${sid})`);
+  return true;
+}
+
+// Public client config (Stripe publishable key).
+app.get('/api/config', (req, res) => {
+  res.json({ stripePublishableKey: STRIPE_PUBLISHABLE_KEY || '' });
+});
+
+// Current credit balance for a device.
+app.get('/api/credits', (req, res) => {
+  res.json({ credits: getCredits(req.query.deviceId) });
+});
+
+// Create an embedded Stripe Checkout session for a credit pack.
+app.post('/api/stripe/create-credits-checkout', async (req, res) => {
+  try {
+    const stripe = getStripe();
+    if (!stripe) return res.status(503).json({ error: 'Payments are not configured yet.' });
+
+    const { pack, deviceId, returnUrl } = req.body || {};
+    const packDef = CREDIT_PACKS[pack];
+    if (!packDef) return res.status(400).json({ error: 'Invalid pack' });
+    if (!deviceId) return res.status(400).json({ error: 'Missing deviceId' });
+    if (!returnUrl) return res.status(400).json({ error: 'Missing returnUrl' });
+
+    const session = await stripe.checkout.sessions.create({
+      ui_mode: 'embedded',
+      mode: 'payment',
+      return_url: returnUrl,
+      line_items: [{
+        quantity: 1,
+        price_data: {
+          currency: 'usd',
+          unit_amount: packDef.priceInCents,
+          product_data: {
+            name: `${packDef.label} — ${packDef.credits} generations`,
+            description: 'Abs By AI image generations',
+          },
+        },
+      }],
+      metadata: { kind: 'credits', pack, deviceId, credits: String(packDef.credits) },
+    });
+
+    res.json({ clientSecret: session.client_secret });
+  } catch (err) {
+    console.error('create-credits-checkout error:', err.message);
+    res.status(500).json({ error: 'Could not start checkout. Please try again.' });
+  }
+});
+
+// Verify a checkout session on return from Stripe. Doubles as a fulfillment
+// fallback in case the webhook hasn't landed yet.
+app.get('/api/stripe/session-status', async (req, res) => {
+  try {
+    const stripe = getStripe();
+    if (!stripe) return res.status(503).json({ error: 'Payments are not configured yet.' });
+    const { session_id } = req.query;
+    if (!session_id) return res.status(400).json({ error: 'Missing session_id' });
+
+    const session = await stripe.checkout.sessions.retrieve(session_id);
+    if (session.status === 'complete') {
+      await fulfillCreditsSession(session); // idempotent
+    }
+    res.json({ status: session.status, payment_status: session.payment_status });
+  } catch (err) {
+    console.error('session-status error:', err.message);
+    res.status(500).json({ error: 'Could not verify session.' });
+  }
+});
+
+// Load persisted balances at startup.
+loadCreditsStore().then(s => { creditsStore = s; console.log('Credits store loaded'); });
 
 // ============================================================
 // STATIC FILES & FALLBACK
