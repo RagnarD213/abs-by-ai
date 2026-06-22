@@ -10,7 +10,8 @@
     "personal::Do dishes",
     "personal::Take out trash",
     "personal::Call fence company",
-    "personal::Fold laundry"
+    "personal::Fold laundry",
+    "personal::Start boxers in washing machine"
   ],
   "log": {}
 }
