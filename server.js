@@ -54,6 +54,9 @@ app.get('/dashboard', (req, res) => {
 // MORNING DATA API â aggregates all data sources
 // ============================================================
 app.get('/api/morning-data', async (req, res) => {
+  const userDate = req.query.date || null;      // YYYY-MM-DD in user's local time
+  const tzOffset = parseInt(req.query.tz) || 0; // minutes east of UTC (e.g. -300 for CDT)
+
   const result = {
     posthog: null,
     stripe: null,
@@ -71,7 +74,7 @@ app.get('/api/morning-data', async (req, res) => {
     fetchPosthog().then(d => { result.posthog = d; }),
     fetchStripe().then(d => { result.stripe = d; }),
     fetchOura().then(d => { result.oura = d; }),
-    fetchGoogleCalendar().then(d => {
+    fetchGoogleCalendar(userDate, tzOffset).then(d => {
       result.business_events = d.business;
       result.rel_events = d.relationships;
     }),
@@ -371,26 +374,64 @@ async function getGoogleToken() {
 // Dating app keywords to route events to Relationships column
 const DATING_KEYWORDS = ['hinge', 'bumble', 'tinder', 'coffee', 'date', 'meet'];
 
-async function fetchGoogleCalendar() {
+async function fetchGoogleCalendar(userDate, tzOffsetMins) {
   const empty = { business: null, relationships: null };
   const token = await getGoogleToken();
   if (!token) return empty;
 
   try {
-    const now = new Date();
-    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
-    const endOfDay   = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).toISOString();
+    // Build the user's local-day boundaries in UTC.
+    // Railway runs UTC — if we just use new Date(y,m,d) we get UTC boundaries,
+    // but a 7 PM Central event = midnight UTC = outside the old end-of-day cutoff.
+    let startOfDay, endOfDay;
+    if (userDate) {
+      const [y, m, d] = userDate.split('-').map(Number);
+      // tzOffsetMins < 0 for US (e.g. CDT = -300). offsetMs is also negative.
+      const offsetMs = (tzOffsetMins || 0) * 60 * 1000;
+      startOfDay = new Date(Date.UTC(y, m - 1, d) - offsetMs).toISOString();
+      endOfDay   = new Date(Date.UTC(y, m - 1, d, 23, 59, 59) - offsetMs).toISOString();
+    } else {
+      // Fallback: ±14 h window covers any timezone
+      const now = new Date();
+      startOfDay = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - 14 * 3600000).toISOString();
+      endOfDay   = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 59, 59) + 14 * 3600000).toISOString();
+    }
 
-    const r = await fetch(
-      `https://www.googleapis.com/calendar/v3/calendars/primary/events?` +
-      `timeMin=${encodeURIComponent(startOfDay)}&timeMax=${encodeURIComponent(endOfDay)}` +
-      `&singleEvents=true&orderBy=startTime`,
+    // Query ALL user calendars, not just `primary`.
+    // Events on secondary calendars (dating, family, work) were silently missed.
+    const calListRes = await fetch(
+      'https://www.googleapis.com/calendar/v3/users/me/calendarList',
       { headers: { 'Authorization': `Bearer ${token}` } }
     );
-    if (!r.ok) return empty;
+    let calendarIds = ['primary'];
+    if (calListRes.ok) {
+      const calListData = await calListRes.json();
+      const ids = (calListData.items || [])
+        .filter(cal => ['owner', 'writer', 'reader'].includes(cal.accessRole) && !cal.deleted)
+        .map(cal => cal.id);
+      if (ids.length) calendarIds = ids;
+    }
 
-    const data = await r.json();
-    const items = data.items || [];
+    const allItems = [];
+    await Promise.all(calendarIds.map(async (calId) => {
+      try {
+        const r = await fetch(
+          `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calId)}/events?` +
+          `timeMin=${encodeURIComponent(startOfDay)}&timeMax=${encodeURIComponent(endOfDay)}` +
+          `&singleEvents=true&orderBy=startTime`,
+          { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        if (!r.ok) return;
+        const data = await r.json();
+        allItems.push(...(data.items || []));
+      } catch (_) { /* skip individual calendar errors */ }
+    }));
+
+    // Deduplicate by event id (shared calendars can surface duplicates)
+    const seen = new Set();
+    const items = allItems
+      .filter(ev => { if (seen.has(ev.id)) return false; seen.add(ev.id); return true; })
+      .sort((a, b) => (a.start?.dateTime || a.start?.date || '').localeCompare(b.start?.dateTime || b.start?.date || ''));
 
     const business = [];
     const relationships = [];

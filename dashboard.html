@@ -1877,7 +1877,9 @@ if (el && (!el.innerHTML || /Loading…/.test(el.innerHTML))) el.innerHTML = ske
 
 async function loadData() {
 try {
-const res = await fetch('/api/morning-data');
+const userDate = new Date().toLocaleDateString('en-CA');  // YYYY-MM-DD in local time
+const tzOffset = -new Date().getTimezoneOffset();          // minutes east of UTC
+const res = await fetch(`/api/morning-data?date=${userDate}&tz=${tzOffset}`);
 if (!res.ok) throw new Error('API error');
 const d = await res.json();
 
