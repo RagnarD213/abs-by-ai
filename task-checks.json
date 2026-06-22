@@ -11,7 +11,8 @@
     "personal::Take out trash",
     "personal::Call fence company",
     "personal::Fold laundry",
-    "personal::Start boxers in washing machine"
+    "personal::Start boxers in washing machine",
+    "personal::Put chemicals in pool"
   ],
   "log": {}
 }
