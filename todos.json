@@ -172,6 +172,11 @@
       "text": "Dry boxers",
       "priority": "low",
       "recurring": false
+    },
+    {
+      "text": "Put away boxers",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
