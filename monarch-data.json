@@ -1,8 +1,8 @@
 {
-  "net_worth": 4578724,
-  "nw_change_1m": 24563,
-  "nw_change_3m": 377414,
-  "nw_change_all": 4610517,
+  "net_worth": 4578540,
+  "nw_change_1m": 7602,
+  "nw_change_3m": 339497,
+  "nw_change_all": 4610333,
   "nw_history_since": "2026-02-26",
   "nw_history": [
     {
@@ -70,24 +70,24 @@
       "balance": 4205025
     },
     {
-      "date": "2026-03-28",
-      "balance": 4168736
+      "date": "2026-03-29",
+      "balance": 4168266
     },
     {
-      "date": "2026-03-30",
-      "balance": 4168023
+      "date": "2026-03-31",
+      "balance": 4159362
     },
     {
-      "date": "2026-04-01",
-      "balance": 4236133
+      "date": "2026-04-02",
+      "balance": 4242988
     },
     {
-      "date": "2026-04-03",
-      "balance": 4242818
+      "date": "2026-04-04",
+      "balance": 4242569
     },
     {
-      "date": "2026-04-05",
-      "balance": 4242290
+      "date": "2026-04-06",
+      "balance": 4238576
     },
     {
       "date": "2026-04-07",
@@ -130,44 +130,44 @@
       "balance": 4440395
     },
     {
-      "date": "2026-04-26",
-      "balance": 4445357
+      "date": "2026-04-27",
+      "balance": 4455800
     },
     {
-      "date": "2026-04-28",
-      "balance": 4453815
+      "date": "2026-04-29",
+      "balance": 4428643
     },
     {
-      "date": "2026-04-30",
-      "balance": 4426462
+      "date": "2026-05-01",
+      "balance": 4483574
     },
     {
-      "date": "2026-05-02",
-      "balance": 4467664
+      "date": "2026-05-03",
+      "balance": 4467252
     },
     {
-      "date": "2026-05-04",
-      "balance": 4471187
+      "date": "2026-05-05",
+      "balance": 4475043
     },
     {
-      "date": "2026-05-06",
-      "balance": 4495632
+      "date": "2026-05-07",
+      "balance": 4533072
     },
     {
-      "date": "2026-05-08",
-      "balance": 4518389
+      "date": "2026-05-09",
+      "balance": 4538948
     },
     {
-      "date": "2026-05-10",
-      "balance": 4538812
+      "date": "2026-05-11",
+      "balance": 4538114
     },
     {
-      "date": "2026-05-12",
-      "balance": 4546859
+      "date": "2026-05-13",
+      "balance": 4539033
     },
     {
-      "date": "2026-05-14",
-      "balance": 4576132
+      "date": "2026-05-15",
+      "balance": 4576775
     },
     {
       "date": "2026-05-16",
@@ -190,97 +190,97 @@
       "balance": 4570871
     },
     {
-      "date": "2026-05-25",
-      "balance": 4580202
+      "date": "2026-05-26",
+      "balance": 4579774
     },
     {
-      "date": "2026-05-27",
-      "balance": 4598798
+      "date": "2026-05-28",
+      "balance": 4593190
     },
     {
-      "date": "2026-05-29",
-      "balance": 4608403
+      "date": "2026-05-30",
+      "balance": 4607751
     },
     {
-      "date": "2026-05-31",
-      "balance": 4608174
+      "date": "2026-06-01",
+      "balance": 4604485
     },
     {
-      "date": "2026-06-02",
-      "balance": 4609236
+      "date": "2026-06-03",
+      "balance": 4622379
     },
     {
-      "date": "2026-06-04",
-      "balance": 4600942
+      "date": "2026-06-05",
+      "balance": 4617334
     },
     {
-      "date": "2026-06-06",
-      "balance": 4534305
+      "date": "2026-06-07",
+      "balance": 4533985
     },
     {
-      "date": "2026-06-08",
-      "balance": 4537700
+      "date": "2026-06-09",
+      "balance": 4519623
     },
     {
-      "date": "2026-06-10",
-      "balance": 4521903
+      "date": "2026-06-11",
+      "balance": 4541812
     },
     {
-      "date": "2026-06-12",
-      "balance": 4551713
+      "date": "2026-06-13",
+      "balance": 4568902
     },
     {
-      "date": "2026-06-14",
-      "balance": 4568640
+      "date": "2026-06-15",
+      "balance": 4601150
     },
     {
-      "date": "2026-06-16",
-      "balance": 4606524
+      "date": "2026-06-17",
+      "balance": 4604753
     },
     {
-      "date": "2026-06-18",
-      "balance": 4546234
-    },
-    {
-      "date": "2026-06-20",
-      "balance": 4579017
+      "date": "2026-06-19",
+      "balance": 4578731
     },
     {
       "date": "2026-06-21",
       "balance": 4578724
+    },
+    {
+      "date": "2026-06-22",
+      "balance": 4578540
     }
   ],
-  "spending_yesterday": 265,
-  "spending_week": 1138,
-  "spending_month": 12654,
+  "spending_yesterday": 345,
+  "spending_week": 1347,
+  "spending_month": 12442,
   "spending_categories": [
     {
       "category": "Auto Maintenance",
       "amount": 2391
     },
     {
-      "category": "Restaurants & Bars",
-      "amount": 1443
-    },
-    {
       "category": "Auto Payment",
       "amount": 1412
+    },
+    {
+      "category": "Restaurants & Bars",
+      "amount": 1386
+    },
+    {
+      "category": "Shopping",
+      "amount": 1059
     },
     {
       "category": "Cash & ATM",
       "amount": 1000
     },
     {
-      "category": "Shopping",
-      "amount": 805
-    },
-    {
       "category": "Groceries",
-      "amount": 779
+      "amount": 827
     },
     {
       "category": "Food Delivery",
-      "amount": 657
+      "amount": 700
     },
     {
       "category": "Gas & Electric",
@@ -289,35 +289,29 @@
   ],
   "yesterday_transactions": [
     {
-      "merchant": "Uber",
-      "category": "Taxi & Ride Shares",
-      "amount": 88.19,
-      "is_transfer": false
-    },
-    {
       "merchant": "Amazon",
       "category": "Shopping",
-      "amount": 82.21,
-      "is_transfer": false
-    },
-    {
-      "merchant": "Uber Eats",
-      "category": "Food Delivery",
-      "amount": 52.91,
-      "is_transfer": false
-    },
-    {
-      "merchant": "Uber Eats",
-      "category": "Food Delivery",
-      "amount": 29.03,
+      "amount": 207.72,
       "is_transfer": false
     },
     {
       "merchant": "Instacart",
       "category": "Groceries",
-      "amount": 13.11,
+      "amount": 47.76,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Costco",
+      "category": "Shopping",
+      "amount": 46.16,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Uber Eats",
+      "category": "Food Delivery",
+      "amount": 43.58,
       "is_transfer": false
     }
   ],
-  "synced_at": "2026-06-22T02:18:56.638Z"
+  "synced_at": "2026-06-22T11:00:05.772Z"
 }
