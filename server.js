@@ -371,6 +371,35 @@ async function getGoogleToken() {
   }
 }
 
+// ── Calendar debug endpoint (temp) ──
+app.get('/api/calendar-debug', async (req, res) => {
+  const token = await getGoogleToken();
+  if (!token) return res.json({ error: 'no_token' });
+
+  const userDate = req.query.date || new Date().toISOString().slice(0, 10);
+  const tzOffsetMins = parseInt(req.query.tz) || 0;
+  const [y, m, d] = userDate.split('-').map(Number);
+  const offsetMs = tzOffsetMins * 60 * 1000;
+  const startOfDay = new Date(Date.UTC(y, m - 1, d) - offsetMs).toISOString();
+  const endOfDay   = new Date(Date.UTC(y, m - 1, d, 23, 59, 59) - offsetMs).toISOString();
+
+  // Get calendar list
+  const calListRes = await fetch('https://www.googleapis.com/calendar/v3/users/me/calendarList',
+    { headers: { 'Authorization': `Bearer ${token}` } });
+  const calListStatus = calListRes.status;
+  const calListData = calListRes.ok ? await calListRes.json() : null;
+  const calendars = (calListData?.items || []).map(c => ({ id: c.id, summary: c.summary, role: c.accessRole }));
+
+  // Query primary
+  const primRes = await fetch(
+    `https://www.googleapis.com/calendar/v3/calendars/primary/events?timeMin=${encodeURIComponent(startOfDay)}&timeMax=${encodeURIComponent(endOfDay)}&singleEvents=true`,
+    { headers: { 'Authorization': `Bearer ${token}` } });
+  const primStatus = primRes.status;
+  const primData = primRes.ok ? await primRes.json() : await primRes.text();
+
+  res.json({ token_ok: true, startOfDay, endOfDay, calListStatus, calendars, primStatus, primItems: primData?.items?.length, primError: primData?.error || null });
+});
+
 // Dating app keywords to route events to Relationships column
 const DATING_KEYWORDS = ['hinge', 'bumble', 'tinder', 'coffee', 'date', 'meet'];
 
