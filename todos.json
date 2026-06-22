@@ -177,6 +177,11 @@
       "text": "Put away boxers",
       "priority": "low",
       "recurring": false
+    },
+    {
+      "text": "Change chlorine tabs in floaters",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
