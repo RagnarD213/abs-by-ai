@@ -43,24 +43,36 @@
     {
       "text": "Get credit limit increased for Capital One RDH card",
       "priority": "med"
+    },
+    {
+      "text": "Update Monarch money transactions",
+      "priority": "med"
+    },
+    {
+      "text": "Request credit limit increase on Capital One business card",
+      "priority": "med"
     }
   ],
   "health": [
     {
       "text": "Workout",
-      "priority": "high"
+      "priority": "high",
+      "recurring": true
     },
     {
       "text": "Supplements",
-      "priority": "high"
+      "priority": "high",
+      "recurring": true
     },
     {
       "text": "Shower",
-      "priority": "high"
+      "priority": "high",
+      "recurring": true
     },
     {
       "text": "Salad",
-      "priority": "high"
+      "priority": "high",
+      "recurring": true
     }
   ],
   "personal": [
@@ -134,16 +146,6 @@
     },
     {
       "text": "Put new rake on luba",
-      "priority": "med"
-    }
-  ],
-  "money": [
-    {
-      "text": "Update Monarch money transactions",
-      "priority": "med"
-    },
-    {
-      "text": "Request credit limit increase on Capital One business card",
       "priority": "med"
     }
   ]
