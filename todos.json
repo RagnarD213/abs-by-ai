@@ -75,6 +75,11 @@
       "text": "Rebalance retirement accounts",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Improve app generation time",
+      "priority": "low",
+      "recurring": false
     }
   ],
   "health": [
