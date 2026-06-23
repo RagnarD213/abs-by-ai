@@ -1,23 +1,7 @@
 {
   "business": [
     {
-      "text": "Add pay for generations to app",
-      "priority": "high"
-    },
-    {
       "text": "Add email capture to app",
-      "priority": "high"
-    },
-    {
-      "text": "Reschedule next 2 shoots for week after",
-      "priority": "high"
-    },
-    {
-      "text": "Email Knives to check on video progress",
-      "priority": "high"
-    },
-    {
-      "text": "Fix dashboard functionality",
       "priority": "high"
     },
     {
@@ -43,14 +27,6 @@
     {
       "text": "Create workout program",
       "priority": "low"
-    },
-    {
-      "text": "Get Capital One SRM membership fee refunded and cancel card",
-      "priority": "med"
-    },
-    {
-      "text": "Get credit limit increased for Capital One RDH card",
-      "priority": "med"
     },
     {
       "text": "Update Monarch money transactions",
@@ -105,19 +81,7 @@
   ],
   "personal": [
     {
-      "text": "Call fence company",
-      "priority": "high"
-    },
-    {
       "text": "Call title company",
-      "priority": "high"
-    },
-    {
-      "text": "Put chemicals in pool",
-      "priority": "high"
-    },
-    {
-      "text": "Buy groceries",
       "priority": "high"
     },
     {
@@ -137,47 +101,11 @@
       "priority": "med"
     },
     {
-      "text": "Repair artificial hedge",
-      "priority": "med"
-    },
-    {
-      "text": "Start boxers in washing machine",
-      "priority": "med"
-    },
-    {
-      "text": "Put new rake on luba",
-      "priority": "med"
-    },
-    {
-      "text": "Fold laundry",
-      "priority": "low"
-    },
-    {
-      "text": "Do dishes",
-      "priority": "low"
-    },
-    {
       "text": "Organize kitchen cabinets",
       "priority": "low"
     },
     {
       "text": "Organize bathroom cabinets",
-      "priority": "low"
-    },
-    {
-      "text": "Take out trash",
-      "priority": "low"
-    },
-    {
-      "text": "Check dating apps",
-      "priority": "low"
-    },
-    {
-      "text": "Dry boxers",
-      "priority": "low"
-    },
-    {
-      "text": "Put away boxers",
       "priority": "low"
     },
     {
