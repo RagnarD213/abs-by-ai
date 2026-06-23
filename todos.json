@@ -130,7 +130,7 @@
     },
     {
       "text": "Eyebrow threading appointment",
-      "priority": "low",
+      "priority": "high",
       "recurring": false
     }
   ]
