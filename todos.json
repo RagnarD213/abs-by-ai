@@ -58,38 +58,31 @@
     },
     {
       "text": "Write script for HOG commercial",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     },
     {
       "text": "Buy teleprompter",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     },
     {
       "text": "Write YouTube ad scripts",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     },
     {
       "text": "Rebalance retirement accounts",
-      "priority": "med",
-      "recurring": false
+      "priority": "med"
     },
     {
       "text": "Improve app generation time",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     },
     {
       "text": "Improve app loading animations",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     },
     {
       "text": "Edit Knives Videos",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     }
   ],
   "health": [
@@ -107,26 +100,6 @@
     },
     {
       "text": "Salad",
-      "priority": "high"
-    },
-    {
-      "text": "Make salads",
-      "priority": "high"
-    },
-    {
-      "text": "Cook salmon",
-      "priority": "high"
-    },
-    {
-      "text": "Cook Brussels sprouts",
-      "priority": "high"
-    },
-    {
-      "text": "Cook rice",
-      "priority": "high"
-    },
-    {
-      "text": "Pack meals",
       "priority": "high"
     }
   ],
@@ -201,38 +174,31 @@
     },
     {
       "text": "Dry boxers",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     },
     {
       "text": "Put away boxers",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     },
     {
       "text": "Change chlorine tabs in floaters",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     },
     {
       "text": "Empty pool robot",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     },
     {
       "text": "Put boxes in recycling",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     },
     {
       "text": "Spray weeds with roundup",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     },
     {
       "text": "Do weed whacker",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     }
   ]
 }
