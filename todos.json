@@ -127,11 +127,6 @@
     {
       "text": "Do weed whacker",
       "priority": "low"
-    },
-    {
-      "text": "Eyebrow threading appointment",
-      "priority": "high",
-      "recurring": false
     }
   ]
 }
