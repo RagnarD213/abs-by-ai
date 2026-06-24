@@ -59,6 +59,14 @@
     {
       "text": "Edit Knives Videos",
       "priority": "high"
+    },
+    {
+      "text": "Finish editing Intro video",
+      "priority": "high"
+    },
+    {
+      "text": "Color correct 1st video with DaVinci Resolve",
+      "priority": "high"
     }
   ],
   "health": [
@@ -83,6 +91,10 @@
     {
       "text": "Call title company",
       "priority": "high"
+    },
+    {
+      "text": "Review dating apps",
+      "priority": "med"
     },
     {
       "text": "Find best mechanic to fix car",
