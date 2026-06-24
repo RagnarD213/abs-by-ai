@@ -148,6 +148,11 @@
     {
       "text": "Do weed whacker",
       "priority": "low"
+    },
+    {
+      "text": "Buy new date clothes",
+      "priority": "high",
+      "recurring": false
     }
   ]
 }
