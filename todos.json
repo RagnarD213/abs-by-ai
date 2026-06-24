@@ -77,6 +77,11 @@
       "text": "Hire Upwork editor for comparison",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Post Upwork video editor job ad",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
