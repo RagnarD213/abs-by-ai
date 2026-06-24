@@ -153,6 +153,11 @@
       "text": "Buy new date clothes",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Buy Melanie sunglasses",
+      "priority": "high",
+      "recurring": false
     }
   ]
 }
