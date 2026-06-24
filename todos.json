@@ -72,6 +72,11 @@
       "text": "Email HOG to buy advertising",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Hire Upwork editor for comparison",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
