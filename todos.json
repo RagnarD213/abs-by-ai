@@ -169,6 +169,11 @@
       "text": "Buy amazon items: hibiclens, glycolic acid body wash, defense soap, smart plug",
       "priority": "low",
       "recurring": false
+    },
+    {
+      "text": "Put away boxers",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
