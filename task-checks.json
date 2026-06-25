@@ -32,7 +32,8 @@
     "personal::Empty pool robot",
     "money::Improve app generation time",
     "money::Improve app loading animations",
-    "health::Inject Zepbound"
+    "health::Inject Zepbound",
+    "money::Export descript raw cutdown"
   ],
   "log": {
     "health::Shower": [
