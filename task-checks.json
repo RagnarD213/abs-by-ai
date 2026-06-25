@@ -31,7 +31,8 @@
     "personal::Change chlorine tabs in floaters",
     "personal::Empty pool robot",
     "money::Improve app generation time",
-    "money::Improve app loading animations"
+    "money::Improve app loading animations",
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
