@@ -70,50 +70,39 @@
     },
     {
       "text": "Email HOG to buy advertising",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     },
     {
       "text": "Hire Upwork editor for comparison",
-      "priority": "high",
-      "recurring": false
-    },
-    {
-      "text": "Post Upwork video editor job ad",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     }
   ],
   "health": [
     {
       "text": "Workout",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Supplements",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Shower",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Salad",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
     {
       "text": "Call title company",
       "priority": "high"
-    },
-    {
-      "text": "Review dating apps",
-      "priority": "med"
     },
     {
       "text": "Find best mechanic to fix car",
@@ -161,13 +150,11 @@
     },
     {
       "text": "Buy new date clothes",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     },
     {
       "text": "Buy Melanie sunglasses",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     }
   ]
 }
