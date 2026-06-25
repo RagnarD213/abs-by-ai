@@ -29,7 +29,8 @@
     "personal::Review dating apps",
     "personal::Buy amazon items: hibiclens, glycolic acid body wash, defense soap, smart plug",
     "personal::Change chlorine tabs in floaters",
-    "personal::Empty pool robot"
+    "personal::Empty pool robot",
+    "money::Improve app generation time"
   ],
   "log": {
     "health::Shower": [
