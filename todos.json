@@ -159,7 +159,8 @@
     },
     {
       "text": "Buy Melanie sunglasses",
-      "priority": "high"
+      "priority": "low",
+      "recurring": false
     },
     {
       "text": "Review dating apps",
