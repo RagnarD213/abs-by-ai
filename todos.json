@@ -80,19 +80,23 @@
   "health": [
     {
       "text": "Workout",
-      "priority": "high"
+      "priority": "high",
+      "recurring": true
     },
     {
       "text": "Supplements",
-      "priority": "high"
+      "priority": "high",
+      "recurring": true
     },
     {
       "text": "Shower",
-      "priority": "high"
+      "priority": "high",
+      "recurring": true
     },
     {
       "text": "Salad",
-      "priority": "high"
+      "priority": "high",
+      "recurring": true
     },
     {
       "text": "Inject Zepbound",
