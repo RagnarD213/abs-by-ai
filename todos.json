@@ -45,14 +45,6 @@
       "priority": "med"
     },
     {
-      "text": "Improve app generation time",
-      "priority": "high"
-    },
-    {
-      "text": "Improve app loading animations",
-      "priority": "high"
-    },
-    {
       "text": "Edit Knives Videos",
       "priority": "high"
     },
@@ -71,36 +63,23 @@
     {
       "text": "Hire Upwork editor for comparison",
       "priority": "high"
-    },
-    {
-      "text": "Export descript raw cutdown",
-      "priority": "high",
-      "recurring": false
     }
   ],
   "health": [
     {
       "text": "Workout",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Supplements",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Shower",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Salad",
-      "priority": "high",
-      "recurring": true
-    },
-    {
-      "text": "Inject Zepbound",
       "priority": "high"
     }
   ],
@@ -134,14 +113,6 @@
       "priority": "low"
     },
     {
-      "text": "Change chlorine tabs in floaters",
-      "priority": "low"
-    },
-    {
-      "text": "Empty pool robot",
-      "priority": "low"
-    },
-    {
       "text": "Put boxes in recycling",
       "priority": "low"
     },
@@ -159,23 +130,11 @@
     },
     {
       "text": "Buy Melanie sunglasses",
-      "priority": "low",
-      "recurring": false
-    },
-    {
-      "text": "Review dating apps",
-      "priority": "low",
-      "recurring": false
-    },
-    {
-      "text": "Buy amazon items: hibiclens, glycolic acid body wash, defense soap, smart plug",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     },
     {
       "text": "Put away boxers",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     }
   ]
 }
