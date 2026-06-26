@@ -139,6 +139,11 @@
     {
       "text": "Put away boxers",
       "priority": "low"
+    },
+    {
+      "text": "Buy outlet timer",
+      "priority": "high",
+      "recurring": false
     }
   ]
 }
