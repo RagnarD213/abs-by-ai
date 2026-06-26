@@ -1,8 +1,8 @@
 {
-  "net_worth": 4530227,
-  "nw_change_1m": -49547,
-  "nw_change_3m": 325202,
-  "nw_change_all": 4562020,
+  "net_worth": 4536309,
+  "nw_change_1m": -62489,
+  "nw_change_3m": 367573,
+  "nw_change_all": 4568102,
   "nw_history_since": "2026-02-26",
   "nw_history": [
     {
@@ -246,13 +246,13 @@
       "balance": 4536150
     },
     {
-      "date": "2026-06-25",
-      "balance": 4530227
+      "date": "2026-06-26",
+      "balance": 4536309
     }
   ],
-  "spending_yesterday": 15,
-  "spending_week": 3470,
-  "spending_month": 13241,
+  "spending_yesterday": 279,
+  "spending_week": 5593,
+  "spending_month": 13647,
   "spending_categories": [
     {
       "category": "Auto Maintenance",
@@ -260,15 +260,15 @@
     },
     {
       "category": "Shopping",
-      "amount": 2175
+      "amount": 2244
+    },
+    {
+      "category": "Restaurants & Bars",
+      "amount": 1460
     },
     {
       "category": "Auto Payment",
       "amount": 1412
-    },
-    {
-      "category": "Restaurants & Bars",
-      "amount": 1386
     },
     {
       "category": "Medical",
@@ -289,11 +289,35 @@
   ],
   "yesterday_transactions": [
     {
-      "merchant": "ZenBusiness",
-      "category": "Financial & Legal Services",
-      "amount": 15,
+      "merchant": "Amazon",
+      "category": "Shopping",
+      "amount": 146.15,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Sixty Vines",
+      "category": "Restaurants & Bars",
+      "amount": 66.24,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Netflix",
+      "category": "Entertainment & Recreation",
+      "amount": 29.22,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Dogwood Bar And Grill",
+      "category": "Restaurants & Bars",
+      "amount": 19,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Amazon",
+      "category": "Entertainment & Recreation",
+      "amount": 18.39,
       "is_transfer": false
     }
   ],
-  "synced_at": "2026-06-25T11:27:59.472Z"
+  "synced_at": "2026-06-26T11:27:58.401Z"
 }
