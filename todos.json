@@ -73,23 +73,19 @@
   "health": [
     {
       "text": "Workout",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Supplements",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Shower",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Salad",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     }
   ],
   "personal": [
@@ -148,11 +144,6 @@
     {
       "text": "Buy outlet timer",
       "priority": "high",
-      "recurring": false
-    },
-    {
-      "text": "Review dating apps",
-      "priority": "low",
       "recurring": false
     }
   ]
