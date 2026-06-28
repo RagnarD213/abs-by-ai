@@ -66,30 +66,25 @@
     },
     {
       "text": "Pay Ashley Callahan invoice",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     }
   ],
   "health": [
     {
       "text": "Workout",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Supplements",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Shower",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Salad",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     }
   ],
   "personal": [
@@ -147,8 +142,7 @@
     },
     {
       "text": "Buy outlet timer",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     }
   ]
 }
