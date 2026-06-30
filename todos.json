@@ -89,6 +89,11 @@
       "text": "Salad",
       "priority": "high",
       "recurring": true
+    },
+    {
+      "text": "Buy supplements",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "personal": [
