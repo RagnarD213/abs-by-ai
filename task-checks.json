@@ -35,7 +35,8 @@
     "health::Inject Zepbound",
     "money::Export descript raw cutdown",
     "personal::Buy outlet timer",
-    "health::Buy supplements"
+    "health::Buy supplements",
+    "personal::Buy Melanie sunglasses"
   ],
   "log": {
     "health::Shower": [
