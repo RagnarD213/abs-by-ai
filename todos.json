@@ -152,6 +152,11 @@
     {
       "text": "Buy outlet timer",
       "priority": "high"
+    },
+    {
+      "text": "Put away laundry",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
