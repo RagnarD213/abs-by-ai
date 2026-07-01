@@ -34,7 +34,8 @@
     "money::Improve app loading animations",
     "health::Inject Zepbound",
     "money::Export descript raw cutdown",
-    "personal::Buy outlet timer"
+    "personal::Buy outlet timer",
+    "health::Buy supplements"
   ],
   "log": {
     "health::Shower": [
