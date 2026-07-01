@@ -36,7 +36,8 @@
     "money::Export descript raw cutdown",
     "personal::Buy outlet timer",
     "health::Buy supplements",
-    "personal::Buy Melanie sunglasses"
+    "personal::Buy Melanie sunglasses",
+    "personal::Do weed whacker"
   ],
   "log": {
     "health::Shower": [
