@@ -91,9 +91,8 @@
       "recurring": true
     },
     {
-      "text": "Buy supplements",
-      "priority": "high",
-      "recurring": false
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
@@ -155,8 +154,7 @@
     },
     {
       "text": "Put away laundry",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     }
   ]
 }
