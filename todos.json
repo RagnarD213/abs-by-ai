@@ -64,6 +64,11 @@
       "text": "Create calorie tracker",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Reschedule next week's shoots",
+      "priority": "low",
+      "recurring": false
     }
   ],
   "health": [
