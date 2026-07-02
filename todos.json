@@ -67,7 +67,7 @@
     },
     {
       "text": "Reschedule next week's shoots",
-      "priority": "low",
+      "priority": "high",
       "recurring": false
     }
   ],
