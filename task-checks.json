@@ -46,7 +46,8 @@
     "health::Floss",
     "money::Respond to Upwork messages",
     "personal::Respond to hoes",
-    "health::Inject Zepbound"
+    "health::Inject Zepbound",
+    "personal::Make reservation for tonight"
   ],
   "log": {
     "health::Shower": [
