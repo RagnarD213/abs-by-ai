@@ -1,8 +1,8 @@
 {
-  "net_worth": 4597524,
-  "nw_change_1m": -6961,
-  "nw_change_3m": 354536,
-  "nw_change_all": 4629317,
+  "net_worth": 4591618,
+  "nw_change_1m": -17618,
+  "nw_change_3m": 348800,
+  "nw_change_all": 4623411,
   "nw_history_since": "2026-02-26",
   "nw_history": [
     {
@@ -42,8 +42,8 @@
       "balance": 4252439
     },
     {
-      "date": "2026-03-16",
-      "balance": 4258180
+      "date": "2026-03-17",
+      "balance": 4281866
     },
     {
       "date": "2026-03-19",
@@ -78,12 +78,12 @@
       "balance": 4242988
     },
     {
-      "date": "2026-04-04",
-      "balance": 4242569
+      "date": "2026-04-05",
+      "balance": 4242290
     },
     {
-      "date": "2026-04-06",
-      "balance": 4238576
+      "date": "2026-04-07",
+      "balance": 4248906
     },
     {
       "date": "2026-04-09",
@@ -110,20 +110,20 @@
       "balance": 4446945
     },
     {
-      "date": "2026-04-21",
-      "balance": 4415697
+      "date": "2026-04-22",
+      "balance": 4408456
     },
     {
-      "date": "2026-04-23",
-      "balance": 4426187
+      "date": "2026-04-24",
+      "balance": 4424808
     },
     {
-      "date": "2026-04-25",
-      "balance": 4440395
+      "date": "2026-04-26",
+      "balance": 4445357
     },
     {
-      "date": "2026-04-27",
-      "balance": 4455800
+      "date": "2026-04-28",
+      "balance": 4453815
     },
     {
       "date": "2026-04-30",
@@ -146,24 +146,24 @@
       "balance": 4518389
     },
     {
-      "date": "2026-05-10",
-      "balance": 4538812
+      "date": "2026-05-11",
+      "balance": 4538114
     },
     {
-      "date": "2026-05-12",
-      "balance": 4546859
+      "date": "2026-05-13",
+      "balance": 4539033
     },
     {
-      "date": "2026-05-14",
-      "balance": 4576132
+      "date": "2026-05-15",
+      "balance": 4576775
     },
     {
-      "date": "2026-05-16",
-      "balance": 4531452
+      "date": "2026-05-17",
+      "balance": 4531160
     },
     {
-      "date": "2026-05-18",
-      "balance": 4531061
+      "date": "2026-05-19",
+      "balance": 4531728
     },
     {
       "date": "2026-05-21",
@@ -178,32 +178,32 @@
       "balance": 4580202
     },
     {
-      "date": "2026-05-27",
-      "balance": 4598798
+      "date": "2026-05-28",
+      "balance": 4593190
     },
     {
-      "date": "2026-05-29",
-      "balance": 4608403
+      "date": "2026-05-30",
+      "balance": 4607751
     },
     {
-      "date": "2026-05-31",
-      "balance": 4608174
+      "date": "2026-06-01",
+      "balance": 4604485
     },
     {
-      "date": "2026-06-02",
-      "balance": 4609236
+      "date": "2026-06-03",
+      "balance": 4622379
     },
     {
-      "date": "2026-06-04",
-      "balance": 4600942
+      "date": "2026-06-05",
+      "balance": 4617334
     },
     {
-      "date": "2026-06-06",
-      "balance": 4534305
+      "date": "2026-06-07",
+      "balance": 4533985
     },
     {
-      "date": "2026-06-08",
-      "balance": 4537700
+      "date": "2026-06-09",
+      "balance": 4519623
     },
     {
       "date": "2026-06-11",
@@ -214,49 +214,49 @@
       "balance": 4568902
     },
     {
-      "date": "2026-06-15",
-      "balance": 4601150
+      "date": "2026-06-16",
+      "balance": 4606524
     },
     {
-      "date": "2026-06-17",
-      "balance": 4604753
+      "date": "2026-06-18",
+      "balance": 4546234
     },
     {
-      "date": "2026-06-19",
-      "balance": 4578731
+      "date": "2026-06-20",
+      "balance": 4579017
     },
     {
-      "date": "2026-06-21",
-      "balance": 4578724
+      "date": "2026-06-22",
+      "balance": 4579457
     },
     {
-      "date": "2026-06-23",
-      "balance": 4571952
+      "date": "2026-06-24",
+      "balance": 4536150
     },
     {
-      "date": "2026-06-25",
-      "balance": 4528746
+      "date": "2026-06-26",
+      "balance": 4538020
     },
     {
-      "date": "2026-06-27",
-      "balance": 4537913
+      "date": "2026-06-28",
+      "balance": 4534655
     },
     {
-      "date": "2026-06-29",
-      "balance": 4539324
-    },
-    {
-      "date": "2026-07-01",
+      "date": "2026-06-30",
       "balance": 4597524
+    },
+    {
+      "date": "2026-07-02",
+      "balance": 4591618
     }
   ],
-  "spending_yesterday": 18,
-  "spending_week": 3865,
-  "spending_month": 14487,
+  "spending_yesterday": 400,
+  "spending_week": 2995,
+  "spending_month": 14664,
   "spending_categories": [
     {
       "category": "Shopping",
-      "amount": 2457
+      "amount": 2915
     },
     {
       "category": "Auto Maintenance",
@@ -268,7 +268,7 @@
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 1292
+      "amount": 1334
     },
     {
       "category": "Cash & ATM",
@@ -284,16 +284,46 @@
     },
     {
       "category": "Groceries",
-      "amount": 755
+      "amount": 770
     }
   ],
   "yesterday_transactions": [
     {
-      "merchant": "Sixty Vines",
+      "merchant": "Amazon",
+      "category": "Shopping",
+      "amount": 138.55,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Costco",
+      "category": "Shopping",
+      "amount": 130,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Urban Eat Drink",
       "category": "Restaurants & Bars",
-      "amount": 18.19,
+      "amount": 57.71,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Georgetown Car Wash",
+      "category": "Auto Maintenance",
+      "amount": 37,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Poshmark",
+      "category": "Shopping",
+      "amount": 21.1,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Instacart",
+      "category": "Groceries",
+      "amount": 15.27,
       "is_transfer": false
     }
   ],
-  "synced_at": "2026-07-01T11:01:01.523Z"
+  "synced_at": "2026-07-02T11:01:01.337Z"
 }
