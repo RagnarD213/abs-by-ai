@@ -90,6 +90,11 @@
     {
       "text": "Inject Zepbound",
       "priority": "high"
+    },
+    {
+      "text": "Brush teeth",
+      "priority": "low",
+      "recurring": false
     }
   ],
   "personal": [
