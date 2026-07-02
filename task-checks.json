@@ -39,7 +39,8 @@
     "personal::Buy Melanie sunglasses",
     "personal::Do weed whacker",
     "money::Pay Ashley Callahan invoice",
-    "personal::Put boxes in recycling"
+    "personal::Put boxes in recycling",
+    "money::Hire Upwork editor for comparison"
   ],
   "log": {
     "health::Shower": [
