@@ -43,7 +43,8 @@
     "personal::Put away boxers",
     "personal::Put away laundry",
     "health::Brush teeth",
-    "health::Floss"
+    "health::Floss",
+    "money::Respond to Upwork messages"
   ],
   "log": {
     "health::Shower": [
