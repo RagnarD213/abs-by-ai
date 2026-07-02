@@ -45,7 +45,8 @@
     "health::Brush teeth",
     "health::Floss",
     "money::Respond to Upwork messages",
-    "personal::Respond to hoes"
+    "personal::Respond to hoes",
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
