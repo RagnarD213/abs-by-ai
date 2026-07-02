@@ -1301,7 +1301,7 @@ const MEAL_SCHEMA = {
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['name', 'estimated_grams', 'calories', 'protein_g', 'carbs_g', 'fat_g', 'confidence', 'assumptions'],
+        required: ['name', 'estimated_grams', 'calories', 'protein_g', 'carbs_g', 'fat_g', 'alcohol_g', 'confidence', 'assumptions'],
         properties: {
           name: { type: 'string' },
           estimated_grams: { type: 'number' },
@@ -1309,6 +1309,7 @@ const MEAL_SCHEMA = {
           protein_g: { type: 'number' },
           carbs_g: { type: 'number' },
           fat_g: { type: 'number' },
+          alcohol_g: { type: 'number', description: 'Grams of pure ethanol in the portion (0 for non-alcoholic items). Beer ~4g/100ml, wine ~10g/100ml, spirits ~33g/100ml.' },
           confidence: { type: 'string', enum: ['high', 'medium', 'low'] },
           assumptions: { type: 'array', items: { type: 'string' } },
         },
@@ -1338,24 +1339,32 @@ const MEAL_SYSTEM_PROMPT = `You are the meal-analysis engine for a fitness app. 
 Rules:
 - One entry per distinct food item. Include cooking fats, oils, dressings, and sauces as their own line items when they are plausibly present, even if not directly visible (e.g. "cooking oil" for pan-fried food, "dressing" for a glossy salad).
 - estimated_grams is the edible portion as served. Use visual references (plate ~27cm, fork, hands) to judge scale. Do not default to "standard serving" sizes when the photo shows more or less.
-- calories, protein_g, carbs_g, fat_g are for the estimated portion, not per 100g. Keep calories consistent with 4/4/9 macro math.
+- calories, protein_g, carbs_g, fat_g are for the estimated portion, not per 100g. Keep calories consistent with energy math: 4 kcal/g protein and carbs, 9 kcal/g fat, 7 kcal/g alcohol.
+- For alcoholic drinks, set alcohol_g to the grams of pure ethanol in the portion — most of their calories come from alcohol, not macros. Set alcohol_g to 0 for everything else.
 - If the photo shows a nutrition label, read it verbatim and set source to "label" with a single item.
 - List every assumption that materially moves the numbers (e.g. "assumed whole milk", "assumed cooked in 1 tbsp oil").
 - clarifying_questions: at most 2, only questions whose answer would change calories by >10%. Each needs 2-4 short tap-friendly options, most likely option first. If confidence is high, return an empty array.
 - If the image contains no food or drink, set is_food to false and return an empty items array.`;
 
-// Enforce calories = 4p + 4c + 9f per item. If the model's calorie figure
-// disagrees with its own macros by >15%, the macros win (they're the more
-// constrained estimate) and calories are recomputed here.
+// Enforce calories = 4p + 4c + 9f + 7a per item (a = alcohol grams). If the
+// model's calorie figure disagrees with its own macros by >15%, the macros win
+// (they're the more constrained estimate) and calories are recomputed here.
 function enforceMacroMath(items) {
   return items.map((item) => {
-    const computed = 4 * item.protein_g + 4 * item.carbs_g + 9 * item.fat_g;
+    const alcohol = item.alcohol_g || 0;
+    const computed = 4 * item.protein_g + 4 * item.carbs_g + 9 * item.fat_g + 7 * alcohol;
     const stated = item.calories;
+    // Zero macros + zero alcohol gives the formula nothing to stand on (water,
+    // black coffee — or an item whose energy source the schema doesn't model).
+    // Keep the model's figure rather than "correcting" real calories to zero.
+    if (computed === 0) {
+      return { ...item, alcohol_g: alcohol, calories: Math.round(stated), macro_corrected: false };
+    }
     const drift = Math.abs(computed - stated) / Math.max(stated, 1);
     if (drift > 0.15) {
-      return { ...item, calories: Math.round(computed), macro_corrected: true };
+      return { ...item, alcohol_g: alcohol, calories: Math.round(computed), macro_corrected: true };
     }
-    return { ...item, calories: Math.round(stated), macro_corrected: false };
+    return { ...item, alcohol_g: alcohol, calories: Math.round(stated), macro_corrected: false };
   });
 }
 
@@ -1369,6 +1378,7 @@ function applyCalibration(items, factor) {
     protein_g: Math.round(item.protein_g * factor * 10) / 10,
     carbs_g: Math.round(item.carbs_g * factor * 10) / 10,
     fat_g: Math.round(item.fat_g * factor * 10) / 10,
+    alcohol_g: Math.round((item.alcohol_g || 0) * factor * 10) / 10,
   }));
 }
 
