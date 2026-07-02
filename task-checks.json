@@ -42,7 +42,8 @@
     "money::Hire Upwork editor for comparison",
     "personal::Put away boxers",
     "personal::Put away laundry",
-    "health::Brush teeth"
+    "health::Brush teeth",
+    "health::Floss"
   ],
   "log": {
     "health::Shower": [
