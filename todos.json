@@ -152,6 +152,11 @@
     {
       "text": "Put away laundry",
       "priority": "low"
+    },
+    {
+      "text": "Make reservation for tonight",
+      "priority": "high",
+      "recurring": false
     }
   ]
 }
