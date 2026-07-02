@@ -177,6 +177,11 @@
       "text": "Make reservation for tonight",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Respond to hoes",
+      "priority": "med",
+      "recurring": false
     }
   ]
 }
