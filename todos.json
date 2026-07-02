@@ -69,6 +69,11 @@
       "text": "Reschedule next week's shoots",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Respond to Upwork messages",
+      "priority": "med",
+      "recurring": false
     }
   ],
   "health": [
