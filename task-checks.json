@@ -41,7 +41,8 @@
     "personal::Put boxes in recycling",
     "money::Hire Upwork editor for comparison",
     "personal::Put away boxers",
-    "personal::Put away laundry"
+    "personal::Put away laundry",
+    "health::Brush teeth"
   ],
   "log": {
     "health::Shower": [
