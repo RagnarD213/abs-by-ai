@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#f6f5f2" />
 <link rel="icon" type="image/png" href="/img/icon-192.png" />
 <link rel="apple-touch-icon" href="/img/icon-192.png" />
+<link rel="stylesheet" href="/vendor/cropperjs/cropper.min.css" />
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
@@ -770,6 +771,40 @@ html, body {
 }
 #checkout { padding: 8px 8px 32px; min-height: 400px; }
 
+/* ── Crop overlay (full-screen, adjust photo before generating) ── */
+#cropOverlay {
+  position: fixed; inset: 0;
+  background: #14120f;
+  z-index: 1100;
+  display: flex; flex-direction: column;
+}
+.crop-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 16px;
+  flex-shrink: 0;
+}
+.crop-hdr-title { font-size: 15px; font-weight: 700; color: #fff; }
+.crop-cancel-btn, .crop-confirm-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--f); font-size: 15px; font-weight: 700;
+  padding: 8px 4px;
+}
+.crop-cancel-btn { color: rgba(255,255,255,0.7); font-weight: 600; }
+.crop-confirm-btn { color: var(--acc); }
+.crop-stage {
+  flex: 1; min-height: 0;
+  position: relative;
+  background: #14120f;
+}
+.crop-stage img { display: block; max-width: 100%; }
+.crop-controls {
+  flex-shrink: 0;
+  padding: 14px 24px calc(20px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: center; gap: 12px;
+}
+.crop-zoom-icon { color: rgba(255,255,255,0.5); flex-shrink: 0; }
+#cropZoom { flex: 1; accent-color: var(--acc); }
+
 /* ── Order confirmation ── */
 .confirm-icon {
   width: 68px; height: 68px; border-radius: 50%;
@@ -1350,6 +1385,23 @@ html, body {
   </div>
 </div>
 
+<div id="cropOverlay" style="display:none">
+  <div class="crop-hdr">
+    <button id="cropCancelBtn" class="crop-cancel-btn">Cancel</button>
+    <span class="crop-hdr-title">Adjust Photo</span>
+    <button id="cropConfirmBtn" class="crop-confirm-btn">Use Photo</button>
+  </div>
+  <div class="crop-stage">
+    <img id="cropImage" src="" alt="" />
+  </div>
+  <div class="crop-controls">
+    <svg class="crop-zoom-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="range" id="cropZoom" min="0" max="100" step="1" value="0" />
+    <svg class="crop-zoom-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6"/><path d="M11 8v6"/></svg>
+  </div>
+</div>
+
+<script src="/vendor/cropperjs/cropper.min.js"></script>
 <script>
 // ============================================================
 //  CONSTANTS
@@ -2223,6 +2275,18 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
+  // Crop overlay controls
+  $('cropCancelBtn').addEventListener('click', () => {
+    closeCropper();
+    photoInput.value = '';
+  });
+  $('cropConfirmBtn').addEventListener('click', confirmCrop);
+  $('cropZoom').addEventListener('input', (e) => {
+    if (!cropState) return;
+    const base = cropState.baseZoomRatio || 1;
+    cropState.cropper.zoomTo(base * (1 + Number(e.target.value) / 100 * 2));
+  });
+
   $('removePhoto').addEventListener('click', (e) => {
     e.stopPropagation();
     state.photoData = null;
@@ -2329,14 +2393,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 // ============================================================
 //  PHOTO HANDLING
 // ============================================================
-async function handlePhoto(file) {
-  if (!file.type.startsWith('image/')) {
-    showError('Please upload an image file.');
-    return;
-  }
-  // Resize/compress on-device first (big upload-time win); fall back to raw bytes.
-  const resized = await downscaleImage(file) || await fileToBase64(file);
-  const { data, mime, dataUrl } = resized;
+function finalizePhoto({ data, mime, dataUrl }) {
   state.photoData = data;
   state.photoMime = mime;
   $('previewImg').src = dataUrl;
@@ -2347,6 +2404,92 @@ async function handlePhoto(file) {
   $('clothingWarning').style.display = 'none';
   validateForm();
   checkClothing(data, mime);
+}
+
+async function handlePhoto(file) {
+  if (!file.type.startsWith('image/')) {
+    showError('Please upload an image file.');
+    return;
+  }
+  // Cropper.js failed to load (network hiccup) — don't block generation, fall
+  // back to the old resize-and-accept-whole-photo path.
+  if (typeof Cropper === 'undefined') {
+    const resized = await downscaleImage(file) || await fileToBase64(file);
+    finalizePhoto(resized);
+    return;
+  }
+  openCropper(file);
+}
+
+// ── Crop overlay: adjust framing before the photo is finalized ──────
+const CROP_ASPECT_RATIO = 4 / 5;
+let cropState = null; // { cropper, objectUrl }
+
+function newCropperInstance(img) {
+  return new Cropper(img, {
+    aspectRatio: CROP_ASPECT_RATIO,
+    viewMode: 1,
+    dragMode: 'move',
+    autoCropArea: 1,
+    background: false,
+    guides: false,
+    center: false,
+    highlight: false,
+    toggleDragModeOnDblclick: false,
+    zoomOnWheel: true,
+    ready() {
+      $('cropZoom').value = 0;
+      const canvasData = this.cropper.getCanvasData();
+      cropState.baseZoomRatio = canvasData.width / canvasData.naturalWidth;
+    },
+  });
+}
+
+function openCropper(file) {
+  const objectUrl = URL.createObjectURL(file);
+  const img = $('cropImage');
+  img.src = objectUrl;
+  $('cropOverlay').style.display = 'flex';
+  cropState = { cropper: newCropperInstance(img), objectUrl };
+}
+
+function closeCropper() {
+  if (!cropState) return;
+  cropState.cropper.destroy();
+  URL.revokeObjectURL(cropState.objectUrl);
+  cropState = null;
+  $('cropOverlay').style.display = 'none';
+  $('cropImage').src = '';
+}
+
+// Cropper.js's own resize() doesn't reliably reflow canvas/crop-box sizing
+// after a container resize (e.g. mobile orientation flip while the overlay
+// is open) — rebuilding the instance against the already-loaded image is
+// cheap and always correct.
+let cropResizeTimer = null;
+window.addEventListener('resize', () => {
+  if (!cropState) return;
+  clearTimeout(cropResizeTimer);
+  cropResizeTimer = setTimeout(() => {
+    if (!cropState) return;
+    cropState.cropper.destroy();
+    cropState.cropper = newCropperInstance($('cropImage'));
+  }, 150);
+});
+
+function confirmCrop() {
+  if (!cropState) return;
+  const longest = MAX_PHOTO_DIM;
+  const canvas = cropState.cropper.getCroppedCanvas({
+    width: Math.round(longest * CROP_ASPECT_RATIO),
+    height: longest,
+    imageSmoothingQuality: 'high',
+  });
+  const dataUrl = canvas.toDataURL('image/jpeg', PHOTO_JPEG_QUALITY);
+  const [meta, data] = dataUrl.split(',');
+  const mime = meta.match(/data:(.*?);/)[1];
+  closeCropper();
+  finalizePhoto({ data, mime, dataUrl });
 }
 
 async function checkClothing(photoBase64, photoMime) {
@@ -2549,6 +2692,9 @@ async function callGeminiImage(prompt, photoBase64, photoMime) {
       padding-bottom: env(safe-area-inset-bottom);
     }
     html.cap-native #checkoutOverlay {
+      padding-top: env(safe-area-inset-top);
+    }
+    html.cap-native #cropOverlay {
       padding-top: env(safe-area-inset-top);
     }
   `;
