@@ -2520,7 +2520,7 @@ async function callGeminiImage(prompt, photoBase64, photoMime) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       prompt, photoBase64, photoMime,
-      distinctId: window.posthog ? posthog.get_distinct_id() : 'anonymous',
+      distinctId: (window.posthog && typeof posthog.get_distinct_id === 'function') ? posthog.get_distinct_id() : 'anonymous',
       deviceId: getDeviceId(),
     }),
   }, 1);
