@@ -72,7 +72,7 @@
     },
     {
       "text": "Respond to Upwork messages",
-      "priority": "med",
+      "priority": "high",
       "recurring": false
     }
   ],
