@@ -1266,6 +1266,289 @@ app.post('/api/generate-prompt', aiLimiter, async (req, res) => {
 });
 
 // ============================================================
+// MACRO TRACKER: Analyze meal photo (Claude Sonnet)
+// ============================================================
+// Pipeline: Sonnet itemizes the meal via a strict JSON schema → code enforces
+// 4/4/9 macro math per item → a calibration multiplier counters the documented
+// systematic underestimation (applied to grams so the itemized card still sums)
+// → totals are computed here, never trusted from the model.
+
+// Calibration multipliers by meal context. Starting values are conservative;
+// tune them with the eval harness (measured bias per category), not by feel.
+// Label reads are near-exact, so they are never inflated.
+const MEAL_CALIBRATION = {
+  label: 1.0,        // read off a nutrition label
+  packaged: 1.0,     // recognizable packaged product
+  home: 1.05,        // home-cooked
+  restaurant: 1.15,  // restaurant/takeout — hidden oils, larger portions
+  unknown: 1.1,
+  lowConfidenceFloor: 1.15, // any meal the model itself isn't confident about
+};
+
+// Strict schema for the meal analysis (structured outputs — guaranteed parseable).
+const MEAL_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['is_food', 'meal_name', 'source', 'context', 'confidence', 'items', 'clarifying_questions', 'matches_recent'],
+  properties: {
+    is_food: { type: 'boolean', description: 'False if the photo does not show food or drink.' },
+    meal_name: { type: 'string', description: 'Short human name for this meal, e.g. "Chicken burrito bowl".' },
+    source: { type: 'string', enum: ['estimated', 'label', 'menu'], description: 'label = numbers read directly off a nutrition label in the photo.' },
+    context: { type: 'string', enum: ['home', 'restaurant', 'packaged', 'unknown'] },
+    confidence: { type: 'string', enum: ['high', 'medium', 'low'] },
+    items: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['name', 'estimated_grams', 'calories', 'protein_g', 'carbs_g', 'fat_g', 'confidence', 'assumptions'],
+        properties: {
+          name: { type: 'string' },
+          estimated_grams: { type: 'number' },
+          calories: { type: 'number' },
+          protein_g: { type: 'number' },
+          carbs_g: { type: 'number' },
+          fat_g: { type: 'number' },
+          confidence: { type: 'string', enum: ['high', 'medium', 'low'] },
+          assumptions: { type: 'array', items: { type: 'string' } },
+        },
+      },
+    },
+    clarifying_questions: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['question', 'options'],
+        properties: {
+          question: { type: 'string' },
+          options: { type: 'array', items: { type: 'string' } },
+        },
+      },
+    },
+    matches_recent: {
+      type: ['string', 'null'],
+      description: 'If the photo clearly matches one of the user\'s recent meals (provided in the prompt), its exact name; otherwise null.',
+    },
+  },
+};
+
+const MEAL_SYSTEM_PROMPT = `You are the meal-analysis engine for a fitness app. Given a photo of food, itemize everything edible and estimate nutrition per item.
+
+Rules:
+- One entry per distinct food item. Include cooking fats, oils, dressings, and sauces as their own line items when they are plausibly present, even if not directly visible (e.g. "cooking oil" for pan-fried food, "dressing" for a glossy salad).
+- estimated_grams is the edible portion as served. Use visual references (plate ~27cm, fork, hands) to judge scale. Do not default to "standard serving" sizes when the photo shows more or less.
+- calories, protein_g, carbs_g, fat_g are for the estimated portion, not per 100g. Keep calories consistent with 4/4/9 macro math.
+- If the photo shows a nutrition label, read it verbatim and set source to "label" with a single item.
+- List every assumption that materially moves the numbers (e.g. "assumed whole milk", "assumed cooked in 1 tbsp oil").
+- clarifying_questions: at most 2, only questions whose answer would change calories by >10%. Each needs 2-4 short tap-friendly options, most likely option first. If confidence is high, return an empty array.
+- If the image contains no food or drink, set is_food to false and return an empty items array.`;
+
+// Enforce calories = 4p + 4c + 9f per item. If the model's calorie figure
+// disagrees with its own macros by >15%, the macros win (they're the more
+// constrained estimate) and calories are recomputed here.
+function enforceMacroMath(items) {
+  return items.map((item) => {
+    const computed = 4 * item.protein_g + 4 * item.carbs_g + 9 * item.fat_g;
+    const stated = item.calories;
+    const drift = Math.abs(computed - stated) / Math.max(stated, 1);
+    if (drift > 0.15) {
+      return { ...item, calories: Math.round(computed), macro_corrected: true };
+    }
+    return { ...item, calories: Math.round(stated), macro_corrected: false };
+  });
+}
+
+// Scale grams + macros + calories together so the itemized card stays self-consistent.
+function applyCalibration(items, factor) {
+  if (factor === 1.0) return items;
+  return items.map((item) => ({
+    ...item,
+    estimated_grams: Math.round(item.estimated_grams * factor),
+    calories: Math.round(item.calories * factor),
+    protein_g: Math.round(item.protein_g * factor * 10) / 10,
+    carbs_g: Math.round(item.carbs_g * factor * 10) / 10,
+    fat_g: Math.round(item.fat_g * factor * 10) / 10,
+  }));
+}
+
+function sumTotals(items) {
+  const r = (n) => Math.round(n * 10) / 10;
+  return {
+    calories: Math.round(items.reduce((s, i) => s + i.calories, 0)),
+    protein_g: r(items.reduce((s, i) => s + i.protein_g, 0)),
+    carbs_g: r(items.reduce((s, i) => s + i.carbs_g, 0)),
+    fat_g: r(items.reduce((s, i) => s + i.fat_g, 0)),
+  };
+}
+
+function calibrationFactorFor(analysis) {
+  if (analysis.source === 'label') return 1.0;
+  const base = MEAL_CALIBRATION[analysis.context] ?? MEAL_CALIBRATION.unknown;
+  if (analysis.confidence === 'low') return Math.max(base, MEAL_CALIBRATION.lowConfidenceFloor);
+  return base;
+}
+
+app.post('/api/analyze-meal', aiLimiter, async (req, res) => {
+  try {
+    const { photoBase64, photoMime, note, recentMeals } = req.body;
+
+    if (!photoBase64 || !photoMime) {
+      return res.status(400).json({ error: 'Missing photoBase64 or photoMime' });
+    }
+
+    const userContent = [
+      {
+        type: 'image',
+        source: { type: 'base64', media_type: photoMime, data: photoBase64 },
+      },
+    ];
+
+    let textParts = ['Analyze this meal.'];
+    if (note && typeof note === 'string') {
+      textParts.push(`User note about the meal: "${note.slice(0, 300)}"`);
+    }
+    if (Array.isArray(recentMeals) && recentMeals.length) {
+      const names = recentMeals.slice(0, 15).map((m) => String(m).slice(0, 80));
+      textParts.push(`The user's recently logged meals: ${names.join('; ')}. If this photo clearly shows one of these exact meals again, set matches_recent to its name.`);
+    }
+    userContent.push({ type: 'text', text: textParts.join('\n') });
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 2000,
+        system: MEAL_SYSTEM_PROMPT,
+        output_config: { format: { type: 'json_schema', schema: MEAL_SCHEMA } },
+        messages: [{ role: 'user', content: userContent }],
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return res.status(response.status).json({ error: data?.error?.message || 'Claude API error' });
+    }
+
+    let analysis;
+    try {
+      analysis = JSON.parse(data?.content?.[0]?.text || '');
+    } catch {
+      return res.status(502).json({ error: 'Model returned unparseable analysis' });
+    }
+
+    if (!analysis.is_food) {
+      return res.json({ isFood: false });
+    }
+
+    const checkedItems = enforceMacroMath(analysis.items);
+    const factor = calibrationFactorFor(analysis);
+    const adjustedItems = applyCalibration(checkedItems, factor);
+
+    res.json({
+      isFood: true,
+      mealName: analysis.meal_name,
+      source: analysis.source,
+      context: analysis.context,
+      confidence: analysis.confidence,
+      matchesRecent: analysis.matches_recent,
+      items: adjustedItems,
+      totals: sumTotals(adjustedItems),
+      raw: { items: checkedItems, totals: sumTotals(checkedItems), calibrationFactor: factor },
+      clarifyingQuestions: (analysis.clarifying_questions || []).slice(0, 2),
+      needsClarification: analysis.confidence !== 'high' && (analysis.clarifying_questions || []).length > 0,
+    });
+  } catch (err) {
+    console.error('Meal analysis error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ============================================================
+// MACRO TRACKER: Refine meal after clarifying answers (Haiku)
+// ============================================================
+// Adjusts an existing analysis given the user's answers — no image re-send,
+// so it's fast and cheap enough to never charge for. The calibration
+// multiplier is NOT re-applied on top (the answers resolve the ambiguity the
+// multiplier stood in for); the refined items get the base-context factor only.
+app.post('/api/refine-meal', aiLimiter, async (req, res) => {
+  try {
+    const { analysis, answers } = req.body;
+
+    if (!analysis?.items?.length || !Array.isArray(answers) || !answers.length) {
+      return res.status(400).json({ error: 'Missing analysis or answers' });
+    }
+
+    const answersText = answers
+      .slice(0, 4)
+      .map((a) => `Q: ${String(a.question).slice(0, 200)}\nA: ${String(a.answer).slice(0, 100)}`)
+      .join('\n');
+
+    const refineSchema = {
+      type: 'object',
+      additionalProperties: false,
+      required: ['items'],
+      properties: { items: MEAL_SCHEMA.properties.items },
+    };
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 1500,
+        system:
+          'You adjust a meal nutrition estimate given the user\'s answers to clarifying questions. Update only the items the answers affect; keep everything else unchanged. Keep calories consistent with 4/4/9 macro math. Add or remove line items if an answer requires it (e.g. "no oil" removes the cooking-oil item).',
+        output_config: { format: { type: 'json_schema', schema: refineSchema } },
+        messages: [
+          {
+            role: 'user',
+            content: `Current estimate (raw, uncalibrated):\n${JSON.stringify({ items: analysis.raw?.items || analysis.items })}\n\nUser's answers:\n${answersText}`,
+          },
+        ],
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return res.status(response.status).json({ error: data?.error?.message || 'Claude API error' });
+    }
+
+    let refined;
+    try {
+      refined = JSON.parse(data?.content?.[0]?.text || '');
+    } catch {
+      return res.status(502).json({ error: 'Model returned unparseable refinement' });
+    }
+
+    const checkedItems = enforceMacroMath(refined.items);
+    // Ambiguity resolved by the user → base context factor only, no low-confidence floor.
+    const factor = analysis.source === 'label' ? 1.0 : (MEAL_CALIBRATION[analysis.context] ?? MEAL_CALIBRATION.unknown);
+    const adjustedItems = applyCalibration(checkedItems, factor);
+
+    res.json({
+      items: adjustedItems,
+      totals: sumTotals(adjustedItems),
+      raw: { items: checkedItems, totals: sumTotals(checkedItems), calibrationFactor: factor },
+    });
+  } catch (err) {
+    console.error('Meal refinement error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ============================================================
 // ENDPOINT 3: Generate image (Gemini)
 // ============================================================
 app.post('/api/generate-image', aiLimiter, async (req, res) => {
