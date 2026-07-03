@@ -4,6 +4,11 @@
       "subscribedAt": "2026-07-03T22:09:57.849Z",
       "deviceId": "prod-check",
       "synced": true
+    },
+    "deploy-verify@example.com": {
+      "subscribedAt": "2026-07-03T22:21:05.923Z",
+      "deviceId": "dv1",
+      "synced": true
     }
   }
 }
