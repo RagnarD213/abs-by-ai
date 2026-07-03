@@ -1788,7 +1788,7 @@ app.get('/api/stripe/session-status', async (req, res) => {
 loadCreditsStore().then(s => { creditsStore = s; console.log('Credits store loaded'); });
 
 // ============================================================
-// PRINTED PRODUCTS — Printify upsell (canvas / poster / keychain)
+// PRINTED PRODUCTS — Printify upsell (canvas / poster)
 // ============================================================
 // PRODUCT CONFIG — populated from the Printify catalog. Each variant carries
 // its own blueprintId/printProviderId so the webhook can build the order
@@ -1802,13 +1802,9 @@ const PRODUCT_CONFIG = {
       '8x10_unframed':  { blueprintId: 937, printProviderId: 105, variantId: 95212,  price: 3400, printifyCost: 1399, printifyShipping: 899 },
       '11x14_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82229,  price: 4200, printifyCost: 1699, printifyShipping: 899 },
       '16x20_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82231,  price: 5400, printifyCost: 2199, printifyShipping: 1099 },
-      '18x24_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82232,  price: 6300, printifyCost: 2599, printifyShipping: 1099 },
-      '24x36_unframed': { blueprintId: 937, printProviderId: 105, variantId: 82235,  price: 7900, printifyCost: 3799, printifyShipping: 1299 },
       // Blueprint 944 (Matte Canvas Framed), Jondo (105)
       '11x14_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88291,  price: 7500,  printifyCost: 3199, printifyShipping: 1099 },
       '16x20_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88293,  price: 8700,  printifyCost: 4099, printifyShipping: 1299 },
-      '18x24_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88294,  price: 9600,  printifyCost: 4799, printifyShipping: 1299 },
-      '24x36_framed':   { blueprintId: 944, printProviderId: 105, variantId: 88297,  price: 11200, printifyCost: 6999, printifyShipping: 1699 },
     },
   },
   poster: {
@@ -1816,24 +1812,12 @@ const PRODUCT_CONFIG = {
       // Blueprint 282 (Matte Vertical Posters), Sensaria (2)
       '9x11':  { blueprintId: 282, printProviderId: 2, variantId: 62103,  price: 1800, printifyCost:  599, printifyShipping: 499 },
       '11x14': { blueprintId: 282, printProviderId: 2, variantId: 43135,  price: 2700, printifyCost:  699, printifyShipping: 499 },
-      '12x16': { blueprintId: 282, printProviderId: 2, variantId: 101110, price: 2400, printifyCost:  699, printifyShipping: 499 },
-      '18x24': { blueprintId: 282, printProviderId: 2, variantId: 43144,  price: 4400, printifyCost: 1099, printifyShipping: 599 },
-      '24x36': { blueprintId: 282, printProviderId: 2, variantId: 43150,  price: 5200, printifyCost: 1599, printifyShipping: 799 },
-    },
-  },
-  keychain: {
-    variants: {
-      // Blueprint 2675 (Single-Sided Charm), Printdoors (332)
-      'acrylic_small': { blueprintId: 2675, printProviderId: 332, variantId: 147952, price:  900, printifyCost: 350, printifyShipping: 399 },
-      'acrylic_large': { blueprintId: 2675, printProviderId: 332, variantId: 147953, price: 1200, printifyCost: 450, printifyShipping: 399 },
-      // Blueprint 790 (Rectangle Photo Keyring), Imagine Your Photos (59)
-      'metal':         { blueprintId: 790,  printProviderId: 59,  variantId: 74997,  price: 2500, printifyCost: 699, printifyShipping: 499 },
     },
   },
 };
 
-// Parse a product's aspect ratio (width/height) from a size key like "18x24".
-// Returns null for sizes without parseable dimensions (e.g. keychains).
+// Parse a product's aspect ratio (width/height) from a size key like "11x14".
+// Returns null for sizes without parseable dimensions.
 function productAspectFromSize(size) {
   const m = /(\d+(?:\.\d+)?)x(\d+(?:\.\d+)?)/i.exec(size || '');
   if (!m) return null;

@@ -613,13 +613,6 @@ html, body {
   box-shadow: 0 3px 12px rgba(0,0,0,0.2);
 }
 .mini-poster img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
-.mini-keychain {
-  width: 54px; height: 54px; flex-shrink: 0;
-  border-radius: 10px; overflow: hidden;
-  border: 2px solid #cec5bb;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.16);
-}
-.mini-keychain img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
 
 /* ── Full mockups (customize screen) ── */
 .mockup-center {
@@ -646,22 +639,6 @@ html, body {
   box-shadow: 0 10px 40px rgba(0,0,0,0.22);
 }
 .full-poster img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
-.full-keychain-wrap { display: flex; flex-direction: column; align-items: center; }
-.full-keychain-ring {
-  width: 26px; height: 26px;
-  border: 4px solid #a09488;
-  border-radius: 50%;
-  margin-bottom: -4px;
-  z-index: 1;
-  position: relative;
-}
-.full-keychain {
-  width: 96px; height: 96px;
-  border-radius: 15px; overflow: hidden;
-  border: 3px solid #cec5bb;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
-}
-.full-keychain img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
 
 /* ── Size/style chips ── */
 .chips-wrap { margin-bottom: 22px; }
@@ -1328,21 +1305,6 @@ html, body {
       <svg class="product-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
     </div>
 
-    <!-- Keychain -->
-    <div class="product-card" id="selectKeychain" data-product="keychain">
-      <div class="mini-keychain">
-        <img id="keychainMockupImg" alt="" />
-      </div>
-      <div class="product-card-info">
-        <div class="product-card-title-row">
-          <span class="product-card-title">Keychain</span>
-        </div>
-        <div class="product-card-desc">Your future self, always with you. Daily motivation on the go.</div>
-        <div class="product-card-price">From $9</div>
-      </div>
-      <svg class="product-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-    </div>
-
     <button id="productSkipBtn" class="try-diff-btn" style="margin-top:8px">Skip for now</button>
   </div>
 
@@ -1690,21 +1652,11 @@ const UPSELL_PRICES = {
     '8x10':  { base: 3400, label: '8×10"',  supportsFramed: false },
     '11x14': { base: 4200, label: '11×14"', supportsFramed: true },
     '16x20': { base: 5400, label: '16×20"', supportsFramed: true },
-    '18x24': { base: 6300, label: '18×24"', supportsFramed: true },
-    '24x36': { base: 7900, label: '24×36"', supportsFramed: true },
     framedExtra: 3300,
   },
   poster: {
     '9x11':  { base: 1800, label: '9×11"' },
     '11x14': { base: 2700, label: '11×14"' },
-    '12x16': { base: 2400, label: '12×16"' },
-    '18x24': { base: 4400, label: '18×24"' },
-    '24x36': { base: 5200, label: '24×36"' },
-  },
-  keychain: {
-    'acrylic_small': { base: 900,  label: 'Acrylic Small (1.2"×2.4")' },
-    'acrylic_large': { base: 1200, label: 'Acrylic Large (1.6"×3.1")' },
-    'metal':         { base: 2500, label: 'Metal Rectangle' },
   },
 };
 
@@ -1725,8 +1677,8 @@ const state = {
 };
 
 const upsell = {
-  product: null,   // 'canvas' | 'poster' | 'keychain'
-  size: null,      // e.g. '8x10', 'acrylic_small'
+  product: null,   // 'canvas' | 'poster'
+  size: null,      // e.g. '8x10'
   framed: false,
 };
 
@@ -2178,7 +2130,6 @@ function showProductSection() {
   const imgSrc = state.lastAfterDataUrl || '';
   $('canvasMockupImg').src = imgSrc;
   $('posterMockupImg').src = imgSrc;
-  $('keychainMockupImg').src = imgSrc;
   showScreen('product');
 }
 
@@ -2187,7 +2138,7 @@ function selectProduct(type) {
   upsell.size = null;
   upsell.framed = false;
 
-  const titles = { canvas: 'Canvas Print', poster: 'Poster', keychain: 'Keychain' };
+  const titles = { canvas: 'Canvas Print', poster: 'Poster' };
   $('customizeNavTitle').textContent = titles[type];
 
   // Render full mockup
@@ -2195,14 +2146,11 @@ function selectProduct(type) {
   const wrap = $('fullMockupWrap');
   if (type === 'canvas') {
     wrap.innerHTML = `<div class="full-canvas"><img src="${imgSrc}" alt="Your future self" /></div>`;
-  } else if (type === 'poster') {
-    wrap.innerHTML = `<div class="full-poster"><img src="${imgSrc}" alt="Your future self" /></div>`;
   } else {
-    wrap.innerHTML = `<div class="full-keychain-wrap"><div class="full-keychain-ring"></div><div class="full-keychain"><img src="${imgSrc}" alt="Your future self" /></div></div>`;
+    wrap.innerHTML = `<div class="full-poster"><img src="${imgSrc}" alt="Your future self" /></div>`;
   }
 
-  // Render size/style chips
-  $('chipsLabel').textContent = type === 'keychain' ? 'Style' : 'Size';
+  // Render size chips
   const sizeGrid = $('sizeGrid');
   const entries = Object.entries(UPSELL_PRICES[type]).filter(([k]) => k !== 'framedExtra');
   sizeGrid.innerHTML = entries.map(([key, val]) =>
@@ -2287,7 +2235,7 @@ async function handleCheckout() {
 
     // 2. Create Stripe checkout session
     const price = getUpsellPrice();
-    const productLabels = { canvas: 'Canvas Print', poster: 'Poster', keychain: 'Keychain' };
+    const productLabels = { canvas: 'Canvas Print', poster: 'Poster' };
     const returnUrl = window.location.origin + window.location.pathname + '?session_id={CHECKOUT_SESSION_ID}';
 
     const sessionRes = await fetch(`${BACKEND_URL}/api/stripe/create-checkout`, {
@@ -2468,7 +2416,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   // Product screen
   $('productBackBtn').addEventListener('click', () => showScreen('email'));
   $('productSkipBtn').addEventListener('click', () => showMacroScreen());
-  ['selectCanvas', 'selectPoster', 'selectKeychain'].forEach(id => {
+  ['selectCanvas', 'selectPoster'].forEach(id => {
     $(id).addEventListener('click', () => selectProduct($(id).dataset.product));
   });
 
