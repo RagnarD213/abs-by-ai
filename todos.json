@@ -53,25 +53,12 @@
       "priority": "high"
     },
     {
-      "text": "Hire Upwork editor for comparison",
-      "priority": "high"
-    },
-    {
-      "text": "Pay Ashley Callahan invoice",
-      "priority": "high"
-    },
-    {
       "text": "Create calorie tracker",
       "priority": "high",
       "recurring": false
     },
     {
       "text": "Reschedule next week's shoots",
-      "priority": "high",
-      "recurring": false
-    },
-    {
-      "text": "Respond to Upwork messages",
       "priority": "high",
       "recurring": false
     }
@@ -96,20 +83,6 @@
       "text": "Salad",
       "priority": "high",
       "recurring": true
-    },
-    {
-      "text": "Inject Zepbound",
-      "priority": "high"
-    },
-    {
-      "text": "Brush teeth",
-      "priority": "low",
-      "recurring": false
-    },
-    {
-      "text": "Floss",
-      "priority": "low",
-      "recurring": false
     }
   ],
   "personal": [
@@ -142,46 +115,12 @@
       "priority": "low"
     },
     {
-      "text": "Put boxes in recycling",
-      "priority": "low"
-    },
-    {
       "text": "Spray weeds with roundup",
-      "priority": "low"
-    },
-    {
-      "text": "Do weed whacker",
       "priority": "low"
     },
     {
       "text": "Buy new date clothes",
       "priority": "high"
-    },
-    {
-      "text": "Buy Melanie sunglasses",
-      "priority": "low"
-    },
-    {
-      "text": "Put away boxers",
-      "priority": "low"
-    },
-    {
-      "text": "Buy outlet timer",
-      "priority": "high"
-    },
-    {
-      "text": "Put away laundry",
-      "priority": "low"
-    },
-    {
-      "text": "Make reservation for tonight",
-      "priority": "high",
-      "recurring": false
-    },
-    {
-      "text": "Respond to hoes",
-      "priority": "med",
-      "recurring": false
     }
   ]
 }
