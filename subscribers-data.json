@@ -3,7 +3,7 @@
     "absbyai-prod-test@example.com": {
       "subscribedAt": "2026-07-03T22:09:57.849Z",
       "deviceId": "prod-check",
-      "synced": false
+      "synced": true
     }
   }
 }
