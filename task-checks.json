@@ -37,8 +37,7 @@
     "health::Brush teeth",
     "health::Floss",
     "personal::Respond to hoes",
-    "health::Inject Zepbound",
-    "personal::Make reservation for tonight"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
