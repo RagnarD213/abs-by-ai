@@ -71,6 +71,9 @@ const STRIPE_PUBLISHABLE_KEY = process.env.STRIPE_PUBLISHABLE_KEY;
 const STRIPE_WEBHOOK_SECRET  = process.env.STRIPE_WEBHOOK_SECRET;
 const PRINTIFY_API_KEY     = process.env.PRINTIFY_API_KEY;
 const PRINTIFY_SHOP_ID     = process.env.PRINTIFY_SHOP_ID;
+const MAILERLITE_API_KEY   = process.env.MAILERLITE_API_KEY;
+const MAILERLITE_GROUP_ID  = process.env.MAILERLITE_GROUP_ID;
+const SUBSCRIBERS_FILE     = 'subscribers-data.json'; // persists captured emails (repo is private — contains PII)
 const CREDITS_FILE         = 'credits-data.json'; // persists per-device credit balances + fulfilled checkout sessions
 const FREE_CREDITS         = 3;  // free generations every new device starts with
 // Credit packs offered on the paywall. Prices in cents. Keys must match the
@@ -1709,6 +1712,94 @@ async function fulfillCreditsSession(session) {
   return true;
 }
 
+// ============================================================
+// EMAIL SUBSCRIBERS — capture + MailerLite sync
+// ============================================================
+// Emails captured on the download screen, persisted as JSON in the GitHub
+// repo (same pattern as credits) so we always own the raw list, and pushed
+// to MailerLite which runs the autoresponder. Shape:
+//   { emails: { [email]: { subscribedAt, deviceId, synced } } }
+// `synced:false` entries are retried on the next subscribe attempt from the
+// same email, so a MailerLite outage never loses an address.
+let subscribersStore = { emails: {} };
+
+async function loadSubscribersStore() {
+  if (!GITHUB_TOKEN) return { emails: {} };
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SUBSCRIBERS_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return { emails: {} };
+    const data = await res.json();
+    const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+    return { emails: parsed.emails || {} };
+  } catch (e) {
+    console.error('loadSubscribersStore error:', e.message);
+    return { emails: {} };
+  }
+}
+
+async function persistSubscribersStore() {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const content = Buffer.from(JSON.stringify(subscribersStore, null, 2)).toString('base64');
+    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SUBSCRIBERS_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const body = { message: 'Update subscribers', content };
+    if (getRes.ok) { const cur = await getRes.json(); body.sha = cur.sha; }
+    await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SUBSCRIBERS_FILE}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+  } catch (e) { console.error('persistSubscribersStore error:', e.message); }
+}
+
+// Upsert a subscriber into MailerLite (200 = updated, 201 = created).
+async function pushToMailerLite(email) {
+  if (!MAILERLITE_API_KEY) { console.warn('MAILERLITE_API_KEY not set — subscriber stored locally only'); return false; }
+  try {
+    const body = { email };
+    if (MAILERLITE_GROUP_ID) body.groups = [MAILERLITE_GROUP_ID];
+    const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${MAILERLITE_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) console.error(`MailerLite subscribe failed (${res.status}):`, (await res.text()).slice(0, 300));
+    return res.ok;
+  } catch (e) {
+    console.error('pushToMailerLite error:', e.message);
+    return false;
+  }
+}
+
+app.post('/api/subscribe', async (req, res) => {
+  const email = String(req.body?.email || '').trim().toLowerCase();
+  const deviceId = String(req.body?.deviceId || '');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
+    return res.status(400).json({ error: 'Invalid email' });
+  }
+
+  const existing = subscribersStore.emails[email];
+  if (existing?.synced) return res.json({ ok: true }); // already captured + synced
+
+  const synced = await pushToMailerLite(email);
+  subscribersStore.emails[email] = {
+    subscribedAt: existing?.subscribedAt || new Date().toISOString(),
+    deviceId: existing?.deviceId || deviceId,
+    synced,
+  };
+  persistSubscribersStore(); // fire-and-forget; in-memory copy is source of truth
+  console.log(`Subscriber ${existing ? 'retried' : 'added'}: ${email} (MailerLite sync: ${synced})`);
+  res.json({ ok: true });
+});
+
 // Public client config (Stripe publishable key).
 app.get('/api/config', (req, res) => {
   res.json({ stripePublishableKey: STRIPE_PUBLISHABLE_KEY || '' });
@@ -1786,6 +1877,18 @@ app.get('/api/stripe/session-status', async (req, res) => {
 
 // Load persisted balances at startup.
 loadCreditsStore().then(s => { creditsStore = s; console.log('Credits store loaded'); });
+loadSubscribersStore().then(async s => {
+  subscribersStore = s;
+  console.log('Subscribers store loaded');
+  // Heal addresses captured while MailerLite was unconfigured or unreachable.
+  if (!MAILERLITE_API_KEY) return;
+  let healed = 0;
+  for (const [email, entry] of Object.entries(subscribersStore.emails)) {
+    if (entry.synced) continue;
+    if (await pushToMailerLite(email)) { entry.synced = true; healed++; }
+  }
+  if (healed) { persistSubscribersStore(); console.log(`Re-synced ${healed} subscriber(s) to MailerLite`); }
+});
 
 // ============================================================
 // PRINTED PRODUCTS — Printify upsell (canvas / poster)

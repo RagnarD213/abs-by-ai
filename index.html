@@ -1257,6 +1257,7 @@ html, body {
       <input type="email" id="emailInput" class="text-field" placeholder="you@example.com" required autocomplete="email" />
       <button type="submit" class="cta-btn" style="margin-top:12px">Get My Download</button>
     </form>
+    <div style="font-size:12px;color:#8a877f;margin-top:10px">We'll email you your image plus fitness tips and offers. Unsubscribe anytime.</div>
 
     <button id="emailSkipBtn" class="try-diff-btn" style="margin-top:16px">No Thanks</button>
   </div>
@@ -2408,7 +2409,16 @@ window.addEventListener('DOMContentLoaded', async () => {
   $('emailForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const email = $('emailInput').value.trim();
-    if (email) localStorage.setItem('absbyai_email', email);
+    if (email) {
+      localStorage.setItem('absbyai_email', email);
+      if (window.posthog) posthog.capture('email_subscribed');
+      // Fire-and-forget: never block the user's path to products on a network hiccup.
+      fetch(`${BACKEND_URL}/api/subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, deviceId: getDeviceId() }),
+      }).catch(() => {});
+    }
     showProductSection();
   });
   $('emailSkipBtn').addEventListener('click', () => showProductSection());
