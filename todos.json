@@ -59,6 +59,11 @@
     {
       "text": "Reschedule next week's shoots",
       "priority": "high"
+    },
+    {
+      "text": "Write outlines for tomorrow's shoot",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
