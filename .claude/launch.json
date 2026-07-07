@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "abs-by-ai",
+      "runtimeExecutable": "env",
+      "runtimeArgs": ["GEMINI_API_KEY=dummy", "ANTHROPIC_API_KEY=dummy", "DATABASE_URL=pgmem://local", "node", "server.js"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}

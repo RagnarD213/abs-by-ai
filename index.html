@@ -902,6 +902,48 @@ html, body {
   margin-bottom: 18px;
 }
 
+/* ── Accounts: login link, hub ── */
+.login-link, .hub-logout-btn {
+  background: none; border: none; cursor: pointer;
+  font: inherit; font-size: 13px; font-weight: 700; color: var(--mute);
+  padding: 4px 2px; letter-spacing: -0.1px;
+}
+.login-link:hover, .hub-logout-btn:hover { color: var(--ink); }
+.hub-hero {
+  display: flex; gap: 10px; margin-bottom: 18px;
+}
+.hub-hero-col { flex: 1; position: relative; }
+.hub-hero-col img {
+  width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block;
+  border-radius: 14px; border: 1px solid var(--line2); background: var(--card);
+}
+.hub-hero-lbl {
+  position: absolute; left: 8px; bottom: 8px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.3px; text-transform: uppercase;
+  color: #fff; background: rgba(20,18,15,0.55); border-radius: 7px; padding: 3px 8px;
+}
+.hub-hero-lbl-goal { background: #2f5fe0; }
+.hub-tiles { display: flex; flex-direction: column; gap: 9px; }
+.hub-tile {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
+  padding: 13px 14px; cursor: pointer; font: inherit; text-align: left; color: var(--ink);
+}
+.hub-tile:active { border-color: var(--line2); }
+.hub-tile-emoji { font-size: 21px; flex-shrink: 0; }
+.hub-tile-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.hub-tile-name { font-size: 14.5px; font-weight: 700; letter-spacing: -0.1px; }
+.hub-tile-sub { font-size: 12px; color: var(--mute); }
+.hub-tile-chev { color: var(--mute); flex-shrink: 0; }
+.hub-soon {
+  flex-shrink: 0; font-size: 10.5px; font-weight: 800; letter-spacing: 0.3px; text-transform: uppercase;
+  color: #2f5fe0; background: rgba(47,95,224,0.09); border-radius: 7px; padding: 4px 8px;
+}
+.hub-soon-note {
+  margin-top: 12px; font-size: 12.5px; color: var(--mute); line-height: 1.45;
+  background: var(--card); border: 1px dashed var(--line2); border-radius: 12px; padding: 10px 12px;
+}
+
 /* ── Receipt card (macro tracker) ── */
 .receipt-card {
   background: var(--card);
@@ -963,10 +1005,13 @@ html, body {
         <img src="img/icon.png" class="app-icon" alt="">
         <span class="app-name">Abs by AI</span>
       </div>
-      <div class="dots">
-        <div class="dot active"></div>
-        <div class="dot inactive"></div>
-        <div class="dot inactive"></div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="dots">
+          <div class="dot active"></div>
+          <div class="dot inactive"></div>
+          <div class="dot inactive"></div>
+        </div>
+        <button id="loginLink" class="login-link">Log in</button>
       </div>
     </div>
 
@@ -1371,13 +1416,113 @@ html, body {
     <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/privacy" style="color:inherit">Privacy</a></div>
   </div>
 
+  <!-- ════════════════ SCREEN: LOG IN / SIGN UP ════════════════ -->
+  <div id="authSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="authBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title" id="authNavTitle">Log in</span>
+      <span style="width:26px"></span>
+    </div>
+
+    <div class="hero-h1" id="authTitle" style="font-size:26px;line-height:1.1;margin-bottom:6px">Welcome back</div>
+    <div class="hero-sub" id="authSub" style="margin-bottom:18px">Log in to get back to your tracker and tools.</div>
+
+    <form id="authForm">
+      <input type="email" id="authEmail" class="text-field" placeholder="you@example.com" required autocomplete="email" style="margin-bottom:10px" />
+      <input type="password" id="authPassword" class="text-field" placeholder="Password (8+ characters)" required minlength="8" autocomplete="current-password" style="margin-bottom:14px" />
+      <div id="authError" class="inline-warn" style="display:none;margin-bottom:12px"></div>
+      <button type="submit" id="authSubmitBtn" class="cta-btn">Log In</button>
+    </form>
+    <button id="authToggleBtn" class="try-diff-btn" style="margin-top:16px">New here? Create a free account</button>
+  </div>
+
+  <!-- ════════════════ SCREEN: MEMBER HUB ════════════════ -->
+  <div id="hubSection" class="screen" style="display:none">
+    <div class="topbar">
+      <div class="app-brand">
+        <img src="img/icon.png" class="app-icon" alt="">
+        <span class="app-name">Abs by AI</span>
+      </div>
+      <button id="hubLogoutBtn" class="hub-logout-btn">Log out</button>
+    </div>
+
+    <div class="hero-h1" style="font-size:26px;line-height:1.1;margin-bottom:4px">Welcome back</div>
+    <div class="hero-sub" id="hubEmail" style="margin-bottom:16px"></div>
+
+    <!-- Before / after transformation hero -->
+    <div id="hubHero" class="hub-hero" style="display:none">
+      <div class="hub-hero-col">
+        <img id="hubBeforeImg" alt="You today" />
+        <div class="hub-hero-lbl">Today</div>
+      </div>
+      <div class="hub-hero-col">
+        <img id="hubAfterImg" alt="Your future self" />
+        <div class="hub-hero-lbl hub-hero-lbl-goal">Your Goal</div>
+      </div>
+    </div>
+
+    <div class="hub-tiles">
+      <button class="hub-tile" data-feature="macro">
+        <span class="hub-tile-emoji">🍽️</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">Macro Tracker</span><span class="hub-tile-sub">Snap a meal photo, get calories &amp; macros</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <button class="hub-tile" data-feature="trainer" data-soon="Personalized workout plans that adapt to your progress.">
+        <span class="hub-tile-emoji">🏋️</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">AI Trainer</span><span class="hub-tile-sub">Workout plans built for your goal</span></span>
+        <span class="hub-soon">Coming soon</span>
+      </button>
+      <button class="hub-tile" data-feature="nutritionist" data-soon="Meal plans and food advice tuned to your macro history.">
+        <span class="hub-tile-emoji">🥗</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">AI Nutritionist</span><span class="hub-tile-sub">Eat right for your transformation</span></span>
+        <span class="hub-soon">Coming soon</span>
+      </button>
+      <button class="hub-tile" data-feature="sleep" data-soon="Sleep coaching to boost recovery and fat loss.">
+        <span class="hub-tile-emoji">😴</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">AI Sleep Coach</span><span class="hub-tile-sub">Recover better, progress faster</span></span>
+        <span class="hub-soon">Coming soon</span>
+      </button>
+      <button class="hub-tile" data-feature="transformations" data-soon="A gallery of every future-you image you've generated.">
+        <span class="hub-tile-emoji">📸</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">My Transformations</span><span class="hub-tile-sub">Your before &amp; after gallery</span></span>
+        <span class="hub-soon">Coming soon</span>
+      </button>
+      <button class="hub-tile" data-feature="weight" data-soon="Weekly weigh-ins charted against your nutrition.">
+        <span class="hub-tile-emoji">📈</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">Weight &amp; Progress Log</span><span class="hub-tile-sub">Track your journey over time</span></span>
+        <span class="hub-soon">Coming soon</span>
+      </button>
+      <button class="hub-tile" data-feature="generate">
+        <span class="hub-tile-emoji">✨</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">Generate New Image</span><span class="hub-tile-sub">See a new version of future you</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <a class="hub-tile" href="mailto:support@absbyai.com" data-feature="support" style="text-decoration:none">
+        <span class="hub-tile-emoji">💬</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">Support</span><span class="hub-tile-sub">We're here to help</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div id="hubSoonNote" class="hub-soon-note" style="display:none"></div>
+
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/privacy" style="color:inherit">Privacy</a></div>
+  </div>
+
   <!-- ════════════════ SCREEN 6: MACRO TRACKER ════════════════ -->
   <div id="macroSection" class="screen" style="display:none">
     <div class="nav-bar">
-      <span style="width:26px"></span>
+      <button class="nav-icon-btn" id="macroBackBtn" title="Back" style="visibility:hidden">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
       <span class="nav-title">Track your meals</span>
       <span style="width:26px"></span>
     </div>
+
+    <!-- Save-progress CTA for logged-out users -->
+    <button id="macroAccountCta" class="try-diff-btn" style="display:none;margin:0 0 14px">Create a free account to save your progress →</button>
 
     <div class="hero-h1" style="font-size:25px;line-height:1.1;margin-bottom:6px">Track Your Macros With AI</div>
     <div class="hero-sub" style="margin-bottom:18px">Snap a photo of your meal and we'll estimate the calories &amp; macros.</div>
@@ -1612,6 +1757,8 @@ async function handleCreditsPurchaseComplete(sessionId) {
 
   closeCreditsCheckout();
   unlockResult();   // reveal the already-generated image in place
+  storeTransformationLocally();
+  saveTransformationIfLoggedIn();
   fireConfetti();   // celebrate 🎉
 
   const toast = $('creditsSuccessToast');
@@ -1826,7 +1973,7 @@ Always honor the user's requested intensity at FULL strength regardless of start
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection'].forEach(id => {
+  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -2480,7 +2627,251 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 
   initMealTracker();
+  initAccounts();
+  restoreSession(); // routes returning logged-in users straight to the hub
 });
+
+// ============================================================
+//  ACCOUNTS — login/signup, member hub, cloud meal sync
+// ============================================================
+const AUTH_TOKEN_KEY = 'absbyai_session_token';
+const AUTH_EMAIL_KEY = 'absbyai_account_email';
+const LAST_BEFORE_KEY = 'absbyai_last_before';
+const LAST_AFTER_KEY = 'absbyai_last_after';
+const auth = { token: localStorage.getItem(AUTH_TOKEN_KEY) || null, email: localStorage.getItem(AUTH_EMAIL_KEY) || '', mode: 'login' };
+
+function isLoggedIn() { return !!auth.token; }
+
+async function authApi(path, opts = {}) {
+  const res = await fetch(`${BACKEND_URL}${path}`, {
+    ...opts,
+    headers: {
+      'Content-Type': 'application/json',
+      ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
+      ...(opts.headers || {}),
+    },
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const err = new Error(data.error || `Request failed (HTTP ${res.status})`);
+    err.status = res.status;
+    throw err;
+  }
+  return data;
+}
+
+function setLoggedIn({ token, email, deviceId }) {
+  auth.token = token;
+  auth.email = email;
+  localStorage.setItem(AUTH_TOKEN_KEY, token);
+  localStorage.setItem(AUTH_EMAIL_KEY, email);
+  // Adopt the account's canonical device id so credits follow the account.
+  if (deviceId) localStorage.setItem('absbyai_device_id', deviceId);
+  loadCredits();
+  updateAuthUi();
+}
+
+function clearLoggedIn() {
+  auth.token = null;
+  auth.email = '';
+  localStorage.removeItem(AUTH_TOKEN_KEY);
+  localStorage.removeItem(AUTH_EMAIL_KEY);
+  updateAuthUi();
+}
+
+function updateAuthUi() {
+  const logged = isLoggedIn();
+  $('loginLink').textContent = logged ? 'My account' : 'Log in';
+  $('macroAccountCta').style.display = logged ? 'none' : '';
+  $('macroBackBtn').style.visibility = logged ? 'visible' : 'hidden';
+}
+
+// On load: validate any stored token; if good, land on the hub.
+async function restoreSession() {
+  updateAuthUi();
+  if (!auth.token) return;
+  try {
+    const me = await authApi('/api/auth/me');
+    setLoggedIn({ token: auth.token, email: me.email, deviceId: me.deviceId });
+    // Don't hijack Stripe-checkout return flows
+    if (!new URLSearchParams(window.location.search).get('session_id')) showHub();
+    syncMealsFromServer();
+  } catch (e) {
+    if (e.status === 401) clearLoggedIn(); // stale token; network errors keep it
+  }
+}
+
+function setAuthMode(mode) {
+  auth.mode = mode;
+  const signup = mode === 'signup';
+  $('authNavTitle').textContent = signup ? 'Create account' : 'Log in';
+  $('authTitle').textContent = signup ? 'Create your free account' : 'Welcome back';
+  $('authSub').textContent = signup
+    ? 'Save your progress and unlock member features.'
+    : 'Log in to get back to your tracker and tools.';
+  $('authSubmitBtn').textContent = signup ? 'Create Account' : 'Log In';
+  $('authToggleBtn').textContent = signup ? 'Already have an account? Log in' : 'New here? Create a free account';
+  $('authPassword').autocomplete = signup ? 'new-password' : 'current-password';
+  $('authError').style.display = 'none';
+}
+
+function showAuthScreen(mode) {
+  setAuthMode(mode || 'login');
+  showScreen('auth');
+}
+
+async function handleAuthSubmit(e) {
+  e.preventDefault();
+  const btn = $('authSubmitBtn');
+  btn.disabled = true;
+  $('authError').style.display = 'none';
+  try {
+    const data = await authApi(`/api/auth/${auth.mode}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: $('authEmail').value.trim(),
+        password: $('authPassword').value,
+        deviceId: getDeviceId(),
+      }),
+    });
+    if (window.posthog) posthog.capture(auth.mode === 'signup' ? 'account_signup' : 'account_login');
+    setLoggedIn(data);
+    $('authPassword').value = '';
+    await syncMealsFromServer();
+    // First save of the transformation if this browser has one
+    saveTransformationIfLoggedIn();
+    showHub();
+  } catch (err) {
+    $('authError').textContent = err.message;
+    $('authError').style.display = '';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// ── Member hub ──
+function showHub() {
+  $('hubEmail').textContent = auth.email;
+  $('hubSoonNote').style.display = 'none';
+  renderHubHero();
+  showScreen('hub');
+}
+
+async function renderHubHero() {
+  let before = localStorage.getItem(LAST_BEFORE_KEY);
+  let after = localStorage.getItem(LAST_AFTER_KEY);
+  if ((!before || !after) && isLoggedIn()) {
+    try {
+      const t = await authApi('/api/account/transformation');
+      before = t.before; after = t.after;
+      try {
+        if (before) localStorage.setItem(LAST_BEFORE_KEY, before);
+        if (after) localStorage.setItem(LAST_AFTER_KEY, after);
+      } catch (e) {} // quota — server copy is enough
+    } catch (e) {}
+  }
+  if (before && after) {
+    $('hubBeforeImg').src = before;
+    $('hubAfterImg').src = after;
+    $('hubHero').style.display = '';
+  } else {
+    $('hubHero').style.display = 'none';
+  }
+}
+
+// Persist the latest before/after pair locally + to the account.
+function storeTransformationLocally() {
+  if (!state.photoData || !state.lastAfterDataUrl) return;
+  try {
+    localStorage.setItem(LAST_BEFORE_KEY, `data:${state.photoMime};base64,${state.photoData}`);
+    localStorage.setItem(LAST_AFTER_KEY, state.lastAfterDataUrl);
+  } catch (e) {} // storage quota — non-fatal
+}
+
+function saveTransformationIfLoggedIn() {
+  if (!isLoggedIn()) return;
+  const before = localStorage.getItem(LAST_BEFORE_KEY);
+  const after = localStorage.getItem(LAST_AFTER_KEY);
+  if (!before || !after) return;
+  authApi('/api/account/transformation', {
+    method: 'POST',
+    body: JSON.stringify({ before, after }),
+  }).catch(e => console.warn('Transformation save failed:', e.message));
+}
+
+// ── Cloud meal sync ──
+// One-way merge on login (push local meals lacking a serverId, then pull all),
+// plus fire-and-forget pushes as new meals are logged. localStorage stays the
+// render source, so the tracker works offline and logged out.
+async function syncMealsFromServer() {
+  if (!isLoggedIn()) return;
+  try {
+    const local = loadLoggedMeals();
+    for (const m of local.filter(m => !m.serverId)) {
+      try {
+        const { id } = await authApi('/api/meals', {
+          method: 'POST',
+          body: JSON.stringify({ date: m.date, loggedAt: m.loggedAt ? new Date(m.loggedAt).toISOString() : null, mealName: m.name, totals: m.totals, items: m.items }),
+        });
+        m.serverId = id;
+      } catch (e) { break; } // retry the rest next load
+    }
+    const { meals } = await authApi('/api/meals');
+    saveLoggedMeals(meals.map(r => ({
+      serverId: r.id,
+      date: r.date,
+      loggedAt: new Date(r.logged_at).getTime(),
+      name: r.meal_name,
+      totals: r.totals,
+      items: r.items,
+    })));
+    if ($('macroSection').style.display !== 'none') renderDailyTotals();
+  } catch (e) {
+    console.warn('Meal sync failed:', e.message);
+  }
+}
+
+function pushMealToServer(entry) {
+  if (!isLoggedIn()) return;
+  authApi('/api/meals', {
+    method: 'POST',
+    body: JSON.stringify({ date: entry.date, loggedAt: new Date(entry.loggedAt).toISOString(), mealName: entry.name, totals: entry.totals, items: entry.items }),
+  }).then(({ id }) => {
+    const all = loadLoggedMeals();
+    const match = all.find(m => m.loggedAt === entry.loggedAt && !m.serverId);
+    if (match) { match.serverId = id; saveLoggedMeals(all); }
+  }).catch(e => console.warn('Meal push failed:', e.message));
+}
+
+async function handleLogout() {
+  try { await authApi('/api/auth/logout', { method: 'POST' }); } catch (e) {}
+  clearLoggedIn();
+  if (window.posthog) posthog.capture('account_logout');
+  showScreen('form');
+}
+
+function initAccounts() {
+  $('loginLink').addEventListener('click', () => (isLoggedIn() ? showHub() : showAuthScreen('login')));
+  $('authBackBtn').addEventListener('click', () => showScreen('form'));
+  $('authToggleBtn').addEventListener('click', () => setAuthMode(auth.mode === 'login' ? 'signup' : 'login'));
+  $('authForm').addEventListener('submit', handleAuthSubmit);
+  $('hubLogoutBtn').addEventListener('click', handleLogout);
+  $('macroBackBtn').addEventListener('click', () => { if (isLoggedIn()) showHub(); });
+  $('macroAccountCta').addEventListener('click', () => showAuthScreen('signup'));
+
+  document.querySelectorAll('#hubSection .hub-tile').forEach(tile => {
+    tile.addEventListener('click', () => {
+      const feature = tile.dataset.feature;
+      if (window.posthog) posthog.capture('hub_tile_clicked', { feature });
+      if (feature === 'macro') return showMacroScreen();
+      if (feature === 'generate') return showScreen('form');
+      if (feature === 'support') return; // <a mailto> handles itself
+      const note = $('hubSoonNote');
+      note.textContent = `${tile.querySelector('.hub-tile-name').textContent} is coming soon — ${tile.dataset.soon || ''} You'll get an email when it's live.`;
+      note.style.display = '';
+    });
+  });
+}
 
 // ============================================================
 //  PHOTO HANDLING
@@ -2651,6 +3042,8 @@ async function generate() {
       showLockedResult();
     } else {
       unlockResult();
+      storeTransformationLocally();
+      saveTransformationIfLoggedIn();
       // Sync credit count from server (server already deducted)
       state_credits.value = Math.max(0, state_credits.value - 1);
       updateCreditDisplay();
@@ -2700,6 +3093,8 @@ async function adjustIntensity(delta) {
       showLockedResult();
     } else {
       unlockResult();
+      storeTransformationLocally();
+      saveTransformationIfLoggedIn();
       state_credits.value = Math.max(0, state_credits.value - 1);
       updateCreditDisplay();
     }
@@ -3039,6 +3434,7 @@ function logMeal() {
   const all = loadLoggedMeals();
   all.push(entry);
   saveLoggedMeals(all);
+  pushMealToServer(entry);
   renderDailyTotals();
 
   // Reset for the next meal

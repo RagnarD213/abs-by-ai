@@ -4,6 +4,9 @@ const rateLimit = require('express-rate-limit');
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const bcrypt = require('bcryptjs');
+const { pool: db, initDb } = require('./db');
 
 const app = express();
 
@@ -1800,6 +1803,191 @@ app.post('/api/subscribe', async (req, res) => {
   res.json({ ok: true });
 });
 
+// ============================================================
+// ACCOUNTS — email/password auth, sessions, meal sync (Postgres)
+// ============================================================
+// Opaque session tokens (not cookies): the site is served cross-origin from
+// the Railway URL and also runs inside the iOS/Android wrappers, where
+// third-party cookies are unreliable. Clients send `Authorization: Bearer`.
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  message: 'Too many attempts, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+const SESSION_DAYS = 90;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function dbUnavailable(res) {
+  return res.status(503).json({ error: 'Accounts are unavailable right now.' });
+}
+
+async function createSession(userId) {
+  const token = crypto.randomBytes(32).toString('hex');
+  await db.query(
+    `INSERT INTO sessions (token, user_id, expires_at) VALUES ($1, $2, now() + interval '${SESSION_DAYS} days')`,
+    [token, userId]
+  );
+  return token;
+}
+
+// Attaches req.user = { id, email, device_id } or 401s.
+async function requireAuth(req, res, next) {
+  if (!db) return dbUnavailable(res);
+  const token = (req.headers.authorization || '').replace(/^Bearer\s+/i, '');
+  if (!token) return res.status(401).json({ error: 'Not logged in' });
+  try {
+    const { rows } = await db.query(
+      `SELECT u.id, u.email, u.device_id FROM sessions s JOIN users u ON u.id = s.user_id
+       WHERE s.token = $1 AND s.expires_at > now()`,
+      [token]
+    );
+    if (!rows.length) return res.status(401).json({ error: 'Session expired' });
+    req.user = rows[0];
+    req.sessionToken = token;
+    next();
+  } catch (e) {
+    console.error('requireAuth error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
+app.post('/api/auth/signup', authLimiter, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  const email = String(req.body?.email || '').trim().toLowerCase();
+  const password = String(req.body?.password || '');
+  const deviceId = String(req.body?.deviceId || '');
+  if (!EMAIL_RE.test(email) || email.length > 254) return res.status(400).json({ error: 'Invalid email' });
+  if (password.length < 8) return res.status(400).json({ error: 'Password must be at least 8 characters' });
+  if (!deviceId) return res.status(400).json({ error: 'Missing device id' });
+  try {
+    const hash = await bcrypt.hash(password, 10);
+    const { rows } = await db.query(
+      `INSERT INTO users (email, password_hash, device_id) VALUES ($1, $2, $3)
+       ON CONFLICT (email) DO NOTHING RETURNING id`,
+      [email, hash, deviceId]
+    );
+    if (!rows.length) return res.status(409).json({ error: 'An account with that email already exists. Log in instead.' });
+    const token = await createSession(rows[0].id);
+    pushToMailerLite(email).catch(() => {}); // join the email list, same as the capture screen
+    console.log(`Account created: ${email}`);
+    res.json({ token, email, deviceId });
+  } catch (e) {
+    console.error('signup error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/auth/login', authLimiter, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  const email = String(req.body?.email || '').trim().toLowerCase();
+  const password = String(req.body?.password || '');
+  const deviceId = String(req.body?.deviceId || '');
+  try {
+    const { rows } = await db.query('SELECT id, password_hash, device_id FROM users WHERE email = $1', [email]);
+    const user = rows[0];
+    const ok = user && (await bcrypt.compare(password, user.password_hash));
+    if (!ok) return res.status(401).json({ error: 'Invalid email or password' });
+
+    // Credit linking: fold this device's explicit balance into the account's
+    // canonical device, then the client adopts the canonical device id so all
+    // existing credit/Stripe code keeps working, now effectively per-account.
+    if (deviceId && deviceId !== user.device_id) {
+      const stray = creditsStore.balances[deviceId];
+      if (typeof stray === 'number') {
+        creditsStore.balances[user.device_id] = getCredits(user.device_id) + stray;
+        delete creditsStore.balances[deviceId];
+        persistCreditsStore(); // fire-and-forget, in-memory copy is source of truth
+      }
+    }
+
+    const token = await createSession(user.id);
+    res.json({ token, email, deviceId: user.device_id });
+  } catch (e) {
+    console.error('login error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/auth/logout', requireAuth, async (req, res) => {
+  try { await db.query('DELETE FROM sessions WHERE token = $1', [req.sessionToken]); } catch (e) {}
+  res.json({ ok: true });
+});
+
+// Session restore on page load. Excludes images (large) — hub fetches those separately.
+app.get('/api/auth/me', requireAuth, (req, res) => {
+  res.json({ email: req.user.email, deviceId: req.user.device_id });
+});
+
+// ── Latest transformation (before = uploaded photo, after = generated image) ──
+app.get('/api/account/transformation', requireAuth, async (req, res) => {
+  try {
+    const { rows } = await db.query('SELECT before_image, after_image FROM users WHERE id = $1', [req.user.id]);
+    res.json({ before: rows[0]?.before_image || null, after: rows[0]?.after_image || null });
+  } catch (e) {
+    console.error('get transformation error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/account/transformation', requireAuth, async (req, res) => {
+  const before = String(req.body?.before || '');
+  const after = String(req.body?.after || '');
+  if (!before.startsWith('data:image/') || !after.startsWith('data:image/')) {
+    return res.status(400).json({ error: 'Invalid image data' });
+  }
+  try {
+    await db.query('UPDATE users SET before_image = $1, after_image = $2 WHERE id = $3', [before, after, req.user.id]);
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('save transformation error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ── Meal sync ──
+app.get('/api/meals', requireAuth, async (req, res) => {
+  try {
+    const { rows } = await db.query(
+      'SELECT id, date, logged_at, meal_name, totals, items FROM meals WHERE user_id = $1 ORDER BY logged_at ASC LIMIT 2000',
+      [req.user.id]
+    );
+    res.json({ meals: rows });
+  } catch (e) {
+    console.error('get meals error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/meals', requireAuth, async (req, res) => {
+  const m = req.body || {};
+  if (!m.date || !m.totals) return res.status(400).json({ error: 'Missing meal data' });
+  try {
+    const { rows } = await db.query(
+      `INSERT INTO meals (user_id, date, logged_at, meal_name, totals, items)
+       VALUES ($1, $2, COALESCE($3, now()), $4, $5, $6) RETURNING id`,
+      [req.user.id, String(m.date), m.loggedAt || null, String(m.mealName || ''),
+       JSON.stringify(m.totals), JSON.stringify(m.items || [])]
+    );
+    res.json({ id: rows[0].id });
+  } catch (e) {
+    console.error('save meal error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.delete('/api/meals/:id', requireAuth, async (req, res) => {
+  try {
+    await db.query('DELETE FROM meals WHERE id = $1 AND user_id = $2', [parseInt(req.params.id, 10) || 0, req.user.id]);
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('delete meal error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Public client config (Stripe publishable key).
 app.get('/api/config', (req, res) => {
   res.json({ stripePublishableKey: STRIPE_PUBLISHABLE_KEY || '' });
@@ -2130,6 +2318,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Abs By AI backend running on port ${PORT}`);
 });
+initDb().catch(e => console.error('initDb error:', e.message));
 
 // ── Keep-warm heartbeat ──────────────────────────────────────────────
 // A user's first generation after an idle period can stall a few seconds while
