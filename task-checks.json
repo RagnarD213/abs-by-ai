@@ -36,8 +36,7 @@
     "health::Buy supplements",
     "health::Brush teeth",
     "health::Floss",
-    "health::Inject Zepbound",
-    "money::Write outlines for tomorrow's shoot"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
