@@ -1,10 +1,6 @@
 {
   "business": [
     {
-      "text": "Add email capture to app",
-      "priority": "high"
-    },
-    {
       "text": "Set up email autoresponder",
       "priority": "med"
     },
@@ -59,11 +55,6 @@
     {
       "text": "Reschedule next week's shoots",
       "priority": "high"
-    },
-    {
-      "text": "Write outlines for tomorrow's shoot",
-      "priority": "high",
-      "recurring": false
     }
   ],
   "health": [
