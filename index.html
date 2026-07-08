@@ -890,6 +890,109 @@ html, body {
 .text-field::placeholder { color: var(--faint); }
 .text-field:focus { border-color: var(--acc-line); }
 
+/* ── AI Trainer: intake wizard ── */
+.intake-progress { height: 5px; background: var(--line); border-radius: 3px; margin-bottom: 22px; overflow: hidden; }
+.intake-progress-fill { height: 100%; background: var(--acc); border-radius: 3px; transition: width 0.25s ease; }
+.intake-opts { display: flex; flex-direction: column; gap: 9px; }
+.intake-opt {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+  padding: 14px 15px; border: 1.5px solid var(--line); border-radius: 13px;
+  background: var(--card); cursor: pointer; font: inherit; color: var(--ink);
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.intake-opt:hover { border-color: var(--line2); }
+.intake-opt.selected { border-color: var(--acc); background: rgba(47,95,224,0.06); }
+.intake-opt-emoji { font-size: 20px; flex-shrink: 0; }
+.intake-opt-name { font-size: 14.5px; font-weight: 700; letter-spacing: -0.1px; }
+.intake-opt-sub { font-size: 12px; color: var(--mute); margin-top: 1px; }
+.intake-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.intake-chip {
+  padding: 9px 14px; border: 1.5px solid var(--line); border-radius: 999px;
+  background: var(--card); cursor: pointer; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--ink);
+}
+.intake-chip.selected { border-color: var(--acc); background: rgba(47,95,224,0.08); color: var(--acc); }
+.intake-back { margin-top: 18px; }
+.consent-row { display: flex; align-items: flex-start; gap: 10px; padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 13px; margin-top: 14px; cursor: pointer; }
+.consent-row input { margin-top: 2px; }
+.consent-row .intake-opt-sub { margin-top: 3px; }
+
+/* ── AI Trainer: program view ── */
+.why-card { background: rgba(47,95,224,0.06); border: 1px solid rgba(47,95,224,0.25); border-radius: 14px; padding: 15px 16px; font-size: 14px; line-height: 1.55; margin-bottom: 18px; }
+.why-card b { color: var(--acc); }
+.wk-card { border: 1px solid var(--line); border-radius: 14px; margin-bottom: 12px; overflow: hidden; background: var(--card); }
+.wk-hdr { display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; background: rgba(0,0,0,0.02); border-bottom: 1px solid var(--line); }
+.wk-title { font-size: 13.5px; font-weight: 800; letter-spacing: -0.1px; }
+.wk-theme { font-size: 12px; color: var(--mute); font-weight: 600; }
+.day-row {
+  display: flex; align-items: center; gap: 11px; width: 100%; text-align: left;
+  padding: 12px 14px; background: none; border: none; border-bottom: 1px solid var(--line);
+  cursor: pointer; font: inherit; color: var(--ink);
+}
+.day-row:last-child { border-bottom: none; }
+.day-row:hover { background: rgba(0,0,0,0.02); }
+.day-row-num { width: 34px; height: 34px; border-radius: 10px; background: rgba(47,95,224,0.09); color: var(--acc); font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.day-row-locked { opacity: 0.55; cursor: default; }
+.day-row-locked .day-row-num { background: var(--line); color: var(--mute); }
+.day-row-body { flex: 1; min-width: 0; }
+.day-row-focus { font-size: 14px; font-weight: 700; letter-spacing: -0.1px; }
+.day-row-sub { font-size: 12px; color: var(--mute); margin-top: 1px; }
+.day-row-check { color: #1e9e5a; flex-shrink: 0; }
+.day-free-badge { font-size: 10.5px; font-weight: 800; letter-spacing: 0.4px; color: #1e9e5a; background: rgba(30,158,90,0.1); padding: 3px 8px; border-radius: 999px; }
+
+/* Day view */
+.ex-group-lbl { font-size: 11.5px; font-weight: 800; letter-spacing: 0.7px; text-transform: uppercase; color: var(--mute); margin: 18px 0 8px; }
+.ex-card { border: 1px solid var(--line); border-radius: 13px; background: var(--card); padding: 12px 13px; margin-bottom: 9px; }
+.ex-card-top { display: flex; align-items: center; gap: 10px; }
+.ex-name { font-size: 14.5px; font-weight: 700; letter-spacing: -0.1px; flex: 1; cursor: pointer; }
+.ex-name:hover { color: var(--acc); }
+.ex-rx { font-size: 12.5px; color: var(--mute); font-weight: 600; white-space: nowrap; }
+.ex-cue { font-size: 12.5px; color: var(--mute); margin-top: 5px; line-height: 1.4; }
+.set-pills { display: flex; gap: 7px; margin-top: 10px; flex-wrap: wrap; }
+.set-pill {
+  min-width: 44px; height: 34px; border-radius: 9px; border: 1.5px solid var(--line);
+  background: var(--card); font: inherit; font-size: 13px; font-weight: 700; color: var(--mute); cursor: pointer;
+}
+.set-pill.done { background: #1e9e5a; border-color: #1e9e5a; color: #fff; }
+.ex-actions { display: flex; gap: 12px; margin-top: 9px; }
+.ex-action-btn { background: none; border: none; padding: 0; font: inherit; font-size: 12.5px; font-weight: 700; color: var(--acc); cursor: pointer; }
+
+/* Exercise detail bottom sheet */
+#exSheetOverlay { position: fixed; inset: 0; background: rgba(10,14,24,0.5); z-index: 60; display: flex; align-items: flex-end; }
+.ex-sheet { background: var(--bg, #fff); width: 100%; max-height: 80vh; overflow-y: auto; border-radius: 18px 18px 0 0; padding: 20px 20px 28px; }
+.ex-sheet-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.ex-sheet-title { font-size: 19px; font-weight: 800; letter-spacing: -0.3px; }
+.ex-sheet-muscles { font-size: 12.5px; color: var(--mute); font-weight: 600; margin-bottom: 14px; }
+.ex-sheet-sec { margin-bottom: 13px; }
+.ex-sheet-sec-lbl { font-size: 11px; font-weight: 800; letter-spacing: 0.7px; text-transform: uppercase; color: var(--mute); margin-bottom: 3px; }
+.ex-sheet-sec-txt { font-size: 13.5px; line-height: 1.5; }
+.ex-sheet-close { background: none; border: none; color: var(--mute); cursor: pointer; padding: 4px; }
+
+/* ── Membership paywall / plans ── */
+.plan-cards { display: flex; flex-direction: column; gap: 10px; margin: 16px 0 6px; }
+.plan-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  width: 100%; text-align: left; padding: 15px 16px; border: 1.5px solid var(--line);
+  border-radius: 14px; background: var(--card); cursor: pointer; font: inherit; color: var(--ink);
+}
+.plan-card.selected { border-color: var(--acc); background: rgba(47,95,224,0.05); }
+.plan-name { font-size: 15px; font-weight: 800; letter-spacing: -0.1px; }
+.plan-sub { font-size: 12px; color: var(--mute); margin-top: 2px; }
+.plan-price { font-size: 16px; font-weight: 800; white-space: nowrap; }
+.plan-badge { font-size: 10.5px; font-weight: 800; letter-spacing: 0.4px; color: #1e9e5a; background: rgba(30,158,90,0.1); padding: 3px 8px; border-radius: 999px; margin-left: 8px; }
+.member-benefits { margin: 14px 0 4px; padding: 0; list-style: none; }
+.member-benefits li { display: flex; gap: 9px; align-items: flex-start; font-size: 13.5px; padding: 5px 0; }
+.member-benefits li::before { content: '✓'; color: #1e9e5a; font-weight: 800; }
+.credit-convert-note { font-size: 13px; font-weight: 700; color: #1e9e5a; background: rgba(30,158,90,0.08); border: 1px solid rgba(30,158,90,0.25); border-radius: 11px; padding: 10px 13px; margin-top: 12px; }
+.guarantee-note { font-size: 12px; color: var(--mute); text-align: center; margin-top: 12px; }
+.locked-cta-card { border: 1.5px solid var(--acc); border-radius: 15px; padding: 17px 16px; margin: 16px 0; background: rgba(47,95,224,0.05); }
+.locked-cta-h { font-size: 16.5px; font-weight: 800; letter-spacing: -0.2px; margin-bottom: 5px; }
+.locked-cta-sub { font-size: 13px; color: var(--mute); line-height: 1.45; margin-bottom: 13px; }
+
+/* Check-in */
+.checkin-card { border: 1px solid var(--line); border-radius: 14px; padding: 15px 16px; margin-top: 18px; background: var(--card); }
+.checkin-seg { display: flex; gap: 8px; margin: 10px 0 12px; }
+.checkin-seg .intake-chip { flex: 1; text-align: center; }
+
 /* ── Email capture screen ── */
 .email-future-img {
   width: 100%;
@@ -1469,10 +1572,10 @@ html, body {
         <span class="hub-tile-body"><span class="hub-tile-name">Macro Tracker</span><span class="hub-tile-sub">Snap a meal photo, get calories &amp; macros</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
-      <button class="hub-tile" data-feature="trainer" data-soon="Personalized workout plans that adapt to your progress.">
+      <button class="hub-tile" data-feature="trainer">
         <span class="hub-tile-emoji">🏋️</span>
-        <span class="hub-tile-body"><span class="hub-tile-name">AI Trainer</span><span class="hub-tile-sub">Workout plans built for your goal</span></span>
-        <span class="hub-soon">Coming soon</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">AI Trainer</span><span class="hub-tile-sub">Your personalized 4-week program</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
       <button class="hub-tile" data-feature="nutritionist" data-soon="Meal plans and food advice tuned to your macro history.">
         <span class="hub-tile-emoji">🥗</span>
@@ -1523,6 +1626,13 @@ html, body {
 
     <!-- Save-progress CTA for logged-out users -->
     <button id="macroAccountCta" class="try-diff-btn" style="display:none;margin:0 0 14px">Create a free account to save your progress →</button>
+
+    <!-- AI Trainer promo (intake is free for everyone) -->
+    <button class="hub-tile" id="macroTrainerPromo" style="margin-bottom:16px">
+      <span class="hub-tile-emoji">🏋️</span>
+      <span class="hub-tile-body"><span class="hub-tile-name">Get your personal training plan</span><span class="hub-tile-sub">60-second quiz → a 4-week program built for you. Free.</span></span>
+      <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
 
     <div class="hero-h1" style="font-size:25px;line-height:1.1;margin-bottom:6px">Track Your Macros With AI</div>
     <div class="hero-sub" style="margin-bottom:18px">Snap a photo of your meal and we'll estimate the calories &amp; macros.</div>
@@ -1588,7 +1698,91 @@ html, body {
     <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/privacy" style="color:inherit">Privacy</a></div>
   </div>
 
+  <!-- ════════════════ SCREEN: AI TRAINER — INTAKE ════════════════ -->
+  <div id="trainerSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="trainerBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Your AI Trainer</span>
+      <span style="width:26px"></span>
+    </div>
+    <div class="intake-progress"><div id="intakeProgressFill" class="intake-progress-fill" style="width:10%"></div></div>
+    <div id="intakeStep"><!-- rendered by JS --></div>
+    <button id="intakeBackStep" class="try-diff-btn intake-back" style="display:none">← Back</button>
+
+    <!-- Generating loader -->
+    <div id="programLoader" class="loading-status" style="display:none;margin-top:20px">
+      <div class="loading-spinner"></div>
+      <div>
+        <div class="loading-title">Building your program…</div>
+        <div class="loading-sub">Designing 4 weeks around your answers</div>
+      </div>
+    </div>
+    <div id="programGenError" class="error-toast" style="display:none;margin-top:14px"></div>
+  </div>
+
+  <!-- ════════════════ SCREEN: MY PROGRAM ════════════════ -->
+  <div id="programSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="programBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title" id="programNavTitle">My Program</span>
+      <span style="width:26px"></span>
+    </div>
+    <div id="programContent"><!-- rendered by JS --></div>
+  </div>
+
+  <!-- ════════════════ SCREEN: MEMBERSHIP ════════════════ -->
+  <div id="membershipSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="membershipBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Membership</span>
+      <span style="width:26px"></span>
+    </div>
+
+    <div class="hero-h1" style="font-size:25px;line-height:1.12;margin-bottom:6px">Everything, unlocked</div>
+    <div class="hero-sub" style="margin-bottom:4px">One membership. Your full training program, unlimited transformations, unlimited meal tracking.</div>
+
+    <ul class="member-benefits">
+      <li>Your full 4-week AI training program — and every block after it</li>
+      <li>Unlimited future-self image generations</li>
+      <li>Unlimited AI meal &amp; macro tracking</li>
+      <li>Program check-ins that adapt to your progress</li>
+    </ul>
+
+    <div class="plan-cards">
+      <button class="plan-card" data-plan="annual" id="planAnnual">
+        <span>
+          <span class="plan-name">Annual<span class="plan-badge">BEST VALUE — $5/mo</span></span>
+          <span class="plan-sub" style="display:block">Billed $59.99/year</span>
+        </span>
+        <span class="plan-price">$59.99</span>
+      </button>
+      <button class="plan-card" data-plan="monthly" id="planMonthly">
+        <span>
+          <span class="plan-name">Monthly</span>
+          <span class="plan-sub" style="display:block">Cancel anytime</span>
+        </span>
+        <span class="plan-price">$9.99</span>
+      </button>
+    </div>
+
+    <div id="creditConvertNote" class="credit-convert-note" style="display:none"></div>
+    <div id="membershipError" class="error-toast" style="display:none;margin-top:12px"></div>
+    <button id="membershipSubscribeBtn" class="cta-btn" style="margin-top:14px">Become a Member</button>
+    <div class="guarantee-note">7-day money-back guarantee. Not feeling it? Email us within a week for a full refund.</div>
+  </div>
+
 </div><!-- /.app -->
+
+<!-- ════════════════ EXERCISE DETAIL SHEET ════════════════ -->
+<div id="exSheetOverlay" style="display:none">
+  <div class="ex-sheet" id="exSheet"><!-- rendered by JS --></div>
+</div>
 
 <!-- ════════════════ CREDITS SUCCESS TOAST ════════════════ -->
 <div id="creditsSuccessToast" class="credits-success-toast" style="display:none">
@@ -1626,6 +1820,7 @@ html, body {
 </div>
 
 <script src="/vendor/cropperjs/cropper.min.js"></script>
+<script src="/exercises.js"></script>
 <script>
 // ============================================================
 //  CONSTANTS
@@ -1973,7 +2168,7 @@ Always honor the user's requested intensity at FULL strength regardless of start
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection'].forEach(id => {
+  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -2628,6 +2823,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   initMealTracker();
   initAccounts();
+  initTrainer();
   restoreSession(); // routes returning logged-in users straight to the hub
 });
 
@@ -2696,6 +2892,8 @@ async function restoreSession() {
     // Don't hijack Stripe-checkout return flows
     if (!new URLSearchParams(window.location.search).get('session_id')) showHub();
     syncMealsFromServer();
+    refreshMembership();
+    syncProgramFromServer();
   } catch (e) {
     if (e.status === 401) clearLoggedIn(); // stale token; network errors keep it
   }
@@ -2740,7 +2938,15 @@ async function handleAuthSubmit(e) {
     await syncMealsFromServer();
     // First save of the transformation if this browser has one
     saveTransformationIfLoggedIn();
-    showHub();
+    refreshMembership();
+    // Flows like the trainer paywall set a continuation to resume after auth.
+    if (window._afterAuth) {
+      const cont = window._afterAuth;
+      window._afterAuth = null;
+      cont();
+    } else {
+      showHub();
+    }
   } catch (err) {
     $('authError').textContent = err.message;
     $('authError').style.display = '';
@@ -2864,6 +3070,7 @@ function initAccounts() {
       const feature = tile.dataset.feature;
       if (window.posthog) posthog.capture('hub_tile_clicked', { feature });
       if (feature === 'macro') return showMacroScreen();
+      if (feature === 'trainer') return openTrainer();
       if (feature === 'generate') return showScreen('form');
       if (feature === 'support') return; // <a mailto> handles itself
       const note = $('hubSoonNote');
@@ -2871,6 +3078,700 @@ function initAccounts() {
       note.style.display = '';
     });
   });
+}
+
+// ============================================================
+//  MEMBERSHIP — plans, paywall, subscription checkout
+// ============================================================
+const memberState = { active: false, plan: null, discountCents: 0, loaded: false };
+let selectedPlan = 'annual';
+let membershipReturnTo = null; // where to go after subscribing (or backing out)
+
+async function refreshMembership() {
+  if (!isLoggedIn()) { memberState.active = false; memberState.loaded = true; return; }
+  try {
+    const m = await authApi(`/api/membership?deviceId=${encodeURIComponent(getDeviceId())}`);
+    memberState.active = !!m.active;
+    memberState.plan = m.plan;
+    memberState.discountCents = m.creditDiscountCents || 0;
+    memberState.loaded = true;
+  } catch (e) { console.warn('membership fetch failed:', e.message); }
+}
+
+function showMembershipScreen(returnTo) {
+  membershipReturnTo = returnTo || membershipReturnTo;
+  if (window.posthog) posthog.capture('membership_screen_viewed');
+  document.querySelectorAll('.plan-card').forEach(c => c.classList.toggle('selected', c.dataset.plan === selectedPlan));
+  const note = $('creditConvertNote');
+  if (!memberState.active && memberState.discountCents > 0) {
+    const n = Math.round(memberState.discountCents / 100);
+    note.textContent = `✦ Your ${n} credit${n !== 1 ? 's' : ''} = $${n} off your first payment`;
+    note.style.display = '';
+  } else {
+    note.style.display = 'none';
+  }
+  $('membershipError').style.display = 'none';
+  showScreen('membership');
+}
+
+async function handleMembershipSubscribe() {
+  if (!isLoggedIn()) {
+    // Membership lives on the account — create one, then come right back.
+    window._afterAuth = () => { refreshMembership().then(() => showMembershipScreen()); };
+    showAuthScreen('signup');
+    return;
+  }
+  const btn = $('membershipSubscribeBtn');
+  btn.disabled = true;
+  $('membershipError').style.display = 'none';
+  try {
+    const data = await authApi('/api/stripe/create-membership-checkout', {
+      method: 'POST',
+      body: JSON.stringify({ plan: selectedPlan, deviceId: getDeviceId() }),
+    });
+    const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
+    const sessionId = data.sessionId;
+    const checkout = await stripeJs.initEmbeddedCheckout({
+      clientSecret: data.clientSecret,
+      onComplete: () => { handleMembershipComplete(sessionId); },
+    });
+    $('checkoutOverlay').style.display = 'flex';
+    $('checkout').innerHTML = '';
+    checkout.mount('#checkout');
+    window._stripeCheckout = checkout;
+  } catch (err) {
+    $('membershipError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('membershipError').style.display = '';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function handleMembershipComplete(sessionId) {
+  try {
+    if (sessionId) {
+      await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(sessionId)}`).catch(() => {});
+    }
+  } catch (e) {}
+  closeCreditsCheckout();
+  if (window.posthog) posthog.capture('membership_subscribed', { plan: selectedPlan });
+  await refreshMembership();
+  loadCredits(); // converted credits were zeroed
+  fireConfetti();
+  const toast = $('creditsSuccessToast');
+  if (toast) {
+    $('creditsSuccessText').textContent = "You're a member — everything is unlocked!";
+    toast.style.display = 'flex';
+    setTimeout(() => { toast.style.display = 'none'; }, 4500);
+  }
+  // Unlock the program: prefer the full server copy; regenerate from the saved
+  // intake if this program was generated anonymously (server never stored it).
+  await unlockProgramAfterSubscribe();
+  const dest = membershipReturnTo;
+  membershipReturnTo = null;
+  if (dest) dest(); else if (loadStoredProgram()) showProgram(); else showHub();
+}
+
+// ============================================================
+//  AI TRAINER — intake wizard, program generation & rendering
+// ============================================================
+const INTAKE_KEY = 'absbyai_trainer_intake';
+const PROGRAM_KEY = 'absbyai_trainer_program';
+const PROGRESS_KEY = 'absbyai_trainer_progress';
+
+const intakeState = { step: 0, answers: {} };
+
+const INTAKE_STEPS = [
+  {
+    key: 'goal', title: "What's your #1 goal?", sub: 'Your whole program bends around this.',
+    opts: [
+      { v: 'lose_fat', e: '🔥', n: 'Lose fat' },
+      { v: 'build_muscle', e: '💪', n: 'Build muscle' },
+      { v: 'abs_visible', e: '🎯', n: 'Get visible abs' },
+      { v: 'recomp', e: '⚖️', n: 'Lose fat + build muscle', s: 'Body recomposition' },
+      { v: 'general_fitness', e: '⚡', n: 'Just get fit & feel better' },
+    ],
+  },
+  {
+    key: 'equipment', title: 'Where will you train?', sub: 'We only pick exercises you can actually do.',
+    opts: [
+      { v: 'none', e: '🏠', n: 'Home — no equipment', s: 'Bodyweight only' },
+      { v: 'db', e: '🏠', n: 'Home — some dumbbells' },
+      { v: 'gym', e: '🏋️', n: 'Full gym' },
+    ],
+  },
+  {
+    key: 'days_per_week', title: 'How many days a week?', sub: 'Be honest — consistency beats ambition.',
+    opts: [
+      { v: 2, e: '2️⃣', n: '2 days' },
+      { v: 3, e: '3️⃣', n: '3 days', s: 'Most popular' },
+      { v: 4, e: '4️⃣', n: '4 days' },
+      { v: 5, e: '5️⃣', n: '5+ days' },
+    ],
+  },
+  {
+    key: 'session_minutes', title: 'How long per session?',
+    opts: [
+      { v: 20, e: '⏱️', n: '20 minutes' },
+      { v: 30, e: '⏱️', n: '30 minutes' },
+      { v: 45, e: '⏱️', n: '45 minutes' },
+      { v: 60, e: '⏱️', n: '60 minutes' },
+    ],
+  },
+  {
+    key: 'experience', title: "What's your training background?",
+    opts: [
+      { v: 'never', e: '🌱', n: "I've never really trained" },
+      { v: 'on_and_off', e: '🔁', n: 'On and off over the years' },
+      { v: 'consistent', e: '🏆', n: "I lift consistently" },
+    ],
+  },
+  { key: 'injuries', title: 'Any injuries or areas to protect?', sub: 'Tap all that apply.', type: 'chips',
+    chips: [
+      { v: 'knees', n: 'Knees' }, { v: 'lower_back', n: 'Lower back' },
+      { v: 'shoulders', n: 'Shoulders' }, { v: 'wrists', n: 'Wrists' }, { v: 'none', n: 'None' },
+    ],
+  },
+  { key: 'body', title: 'A few basics', sub: 'Helps us set the right starting volume.', type: 'body' },
+  {
+    key: 'quit_reason', title: 'What made you quit before?', sub: "We'll design around it.",
+    opts: [
+      { v: 'no_time', e: '⏳', n: 'No time' },
+      { v: 'got_bored', e: '🥱', n: 'Got bored' },
+      { v: 'no_results', e: '📉', n: "Didn't see results" },
+      { v: 'got_hurt', e: '🤕', n: 'Got hurt' },
+      { v: 'never_started', e: '🚀', n: 'Never really started' },
+    ],
+  },
+  { key: 'photo', title: 'Build the plan toward your photo?', type: 'photo' },
+];
+
+function openTrainer() {
+  if (window.posthog) posthog.capture('trainer_opened');
+  const stored = loadStoredProgram();
+  if (stored) return showProgram();
+  startIntake();
+}
+
+function startIntake() {
+  intakeState.step = 0;
+  intakeState.answers = { injuries: [] };
+  $('programGenError').style.display = 'none';
+  $('programLoader').style.display = 'none';
+  renderIntakeStep();
+  showScreen('trainer');
+}
+
+function renderIntakeStep() {
+  const step = INTAKE_STEPS[intakeState.step];
+  const wrap = $('intakeStep');
+  $('intakeProgressFill').style.width = `${Math.round(((intakeState.step + 1) / INTAKE_STEPS.length) * 100)}%`;
+  $('intakeBackStep').style.display = intakeState.step > 0 ? '' : 'none';
+  wrap.style.display = '';
+
+  let inner = `<div class="hero-h1" style="font-size:23px;line-height:1.15;margin-bottom:5px">${step.title}</div>`;
+  if (step.sub) inner += `<div class="hero-sub" style="margin-bottom:16px">${step.sub}</div>`;
+  else inner += `<div style="margin-bottom:16px"></div>`;
+
+  if (step.opts) {
+    inner += `<div class="intake-opts">` + step.opts.map(o => `
+      <button class="intake-opt" data-v="${o.v}">
+        <span class="intake-opt-emoji">${o.e}</span>
+        <span><span class="intake-opt-name">${o.n}</span>${o.s ? `<span class="intake-opt-sub" style="display:block">${o.s}</span>` : ''}</span>
+      </button>`).join('') + `</div>`;
+  } else if (step.type === 'chips') {
+    const sel = intakeState.answers.injuries || [];
+    inner += `<div class="intake-chips">` + step.chips.map(c =>
+      `<button class="intake-chip${sel.includes(c.v) ? ' selected' : ''}" data-v="${c.v}">${c.n}</button>`).join('') + `</div>
+      <div class="physique-wrap" style="margin-top:16px">
+        <div class="lbl"><span class="lbl-text">Anything else we should know?</span><span class="lbl-opt">Optional</span></div>
+        <input type="text" id="injuryNotes" class="text-field" maxlength="300" placeholder="e.g. recovering from a sprained ankle" value="${escapeHtml(intakeState.answers.injury_notes || '')}" />
+      </div>
+      <button class="cta-btn" id="intakeChipsNext" style="margin-top:16px">Continue</button>`;
+  } else if (step.type === 'body') {
+    const b = intakeState.answers.body || {};
+    const ageChips = ['18–25', '26–35', '36–45', '46–55', '56+'];
+    inner += `
+      <div class="lbl"><span class="lbl-text">Age range</span></div>
+      <div class="intake-chips" id="ageChips" style="margin-bottom:14px">${ageChips.map(a => `<button class="intake-chip${b.age_range === a ? ' selected' : ''}" data-v="${a}">${a}</button>`).join('')}</div>
+      <div class="lbl"><span class="lbl-text">Sex</span></div>
+      <div class="intake-chips" id="sexChips" style="margin-bottom:14px">
+        <button class="intake-chip${b.sex === 'male' ? ' selected' : ''}" data-v="male">Male</button>
+        <button class="intake-chip${b.sex === 'female' ? ' selected' : ''}" data-v="female">Female</button>
+      </div>
+      <div style="display:flex;gap:10px">
+        <div style="flex:1"><div class="lbl"><span class="lbl-text">Height</span><span class="lbl-opt">Optional</span></div>
+        <input type="text" id="bodyHeight" class="text-field" maxlength="20" value="${escapeHtml(b.height || '')}" placeholder="e.g. 5'10&quot;" /></div>
+        <div style="flex:1"><div class="lbl"><span class="lbl-text">Weight</span><span class="lbl-opt">Optional</span></div>
+        <input type="text" id="bodyWeight" class="text-field" maxlength="20" placeholder="e.g. 185 lb" value="${escapeHtml(b.weight || '')}" /></div>
+      </div>
+      <button class="cta-btn" id="intakeBodyNext" style="margin-top:16px">Continue</button>`;
+  } else if (step.type === 'photo') {
+    const hasPhoto = !!(localStorage.getItem(LAST_BEFORE_KEY) && localStorage.getItem(LAST_AFTER_KEY));
+    inner += hasPhoto ? `
+      <div class="hero-sub" style="margin-bottom:8px">You already have your future-self photo. With your OK, our AI reads your <b>before</b> photo to gauge your starting point — and builds the plan that gets you to the <b>after</b>.</div>
+      <label class="consent-row"><input type="checkbox" id="photoConsent" checked />
+        <span><span class="intake-opt-name">Use my photos to personalize my program</span>
+        <span class="intake-opt-sub" style="display:block">Your before photo is analyzed once, never stored by the AI.</span></span></label>
+      <button class="cta-btn" id="intakeGenerateBtn" style="margin-top:18px">Build My Program</button>` : `
+      <div class="hero-sub" style="margin-bottom:16px">No photo on file — no problem. Your answers are plenty to build a strong program. (You can generate your future-self photo any time.)</div>
+      <button class="cta-btn" id="intakeGenerateBtn" style="margin-top:6px">Build My Program</button>`;
+  }
+
+  wrap.innerHTML = inner;
+
+  // Wire the step
+  if (step.opts) {
+    wrap.querySelectorAll('.intake-opt').forEach(btn => btn.addEventListener('click', () => {
+      let v = btn.dataset.v;
+      if (step.key === 'days_per_week' || step.key === 'session_minutes') v = parseInt(v, 10);
+      intakeState.answers[step.key] = v;
+      nextIntakeStep();
+    }));
+  } else if (step.type === 'chips') {
+    wrap.querySelectorAll('.intake-chip').forEach(chip => chip.addEventListener('click', () => {
+      const v = chip.dataset.v;
+      let sel = intakeState.answers.injuries || [];
+      if (v === 'none') sel = sel.includes('none') ? [] : ['none'];
+      else { sel = sel.filter(x => x !== 'none'); sel = sel.includes(v) ? sel.filter(x => x !== v) : [...sel, v]; }
+      intakeState.answers.injuries = sel;
+      renderIntakeStep();
+    }));
+    $('intakeChipsNext').addEventListener('click', () => {
+      intakeState.answers.injury_notes = $('injuryNotes').value.trim();
+      nextIntakeStep();
+    });
+  } else if (step.type === 'body') {
+    const b = intakeState.answers.body = intakeState.answers.body || {};
+    wrap.querySelectorAll('#ageChips .intake-chip').forEach(c => c.addEventListener('click', () => {
+      b.age_range = c.dataset.v;
+      wrap.querySelectorAll('#ageChips .intake-chip').forEach(x => x.classList.toggle('selected', x === c));
+    }));
+    wrap.querySelectorAll('#sexChips .intake-chip').forEach(c => c.addEventListener('click', () => {
+      b.sex = c.dataset.v;
+      wrap.querySelectorAll('#sexChips .intake-chip').forEach(x => x.classList.toggle('selected', x === c));
+    }));
+    $('intakeBodyNext').addEventListener('click', () => {
+      b.height = $('bodyHeight').value.trim();
+      b.weight = $('bodyWeight').value.trim();
+      nextIntakeStep();
+    });
+  } else if (step.type === 'photo') {
+    $('intakeGenerateBtn').addEventListener('click', generateProgram);
+  }
+}
+
+function nextIntakeStep() {
+  if (intakeState.step < INTAKE_STEPS.length - 1) {
+    intakeState.step++;
+    renderIntakeStep();
+  }
+}
+
+async function generateProgram() {
+  const a = intakeState.answers;
+  const intake = {
+    goal: a.goal, equipment: a.equipment, days_per_week: a.days_per_week,
+    session_minutes: a.session_minutes, experience: a.experience,
+    injuries: (a.injuries || []).filter(x => x !== 'none'),
+    injury_notes: a.injury_notes || '', quit_reason: a.quit_reason,
+    body: a.body || {},
+  };
+  localStorage.setItem(INTAKE_KEY, JSON.stringify(intake));
+
+  const consentEl = $('photoConsent');
+  const consent = !!(consentEl && consentEl.checked);
+  let photoBase64 = null, photoMime = null;
+  if (consent) {
+    const before = localStorage.getItem(LAST_BEFORE_KEY);
+    const m = before && before.match(/^data:(.*?);base64,(.*)$/);
+    if (m) { photoMime = m[1]; photoBase64 = m[2]; }
+  }
+
+  $('intakeStep').style.display = 'none';
+  $('intakeBackStep').style.display = 'none';
+  $('programGenError').style.display = 'none';
+  $('programLoader').style.display = '';
+  if (window.posthog) posthog.capture('program_generation_started', { goal: intake.goal, equipment: intake.equipment });
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/generate-program`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
+      },
+      body: JSON.stringify({ intake, photoBase64, photoMime, photoConsent: consent }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
+
+    storeProgram(data);
+    saveProgress({}); // fresh block, fresh progress
+    if (window.posthog) posthog.capture('program_generated', { locked: data.locked });
+    showProgram();
+  } catch (err) {
+    $('programGenError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('programGenError').style.display = '';
+    $('intakeStep').style.display = '';
+    $('intakeBackStep').style.display = '';
+  } finally {
+    $('programLoader').style.display = 'none';
+  }
+}
+
+// ── Program storage ──
+function storeProgram(data) {
+  try { localStorage.setItem(PROGRAM_KEY, JSON.stringify(data)); } catch (e) {}
+}
+function loadStoredProgram() {
+  try { return JSON.parse(localStorage.getItem(PROGRAM_KEY) || 'null'); } catch (e) { return null; }
+}
+function loadProgress() {
+  try { return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}'); } catch (e) { return {}; }
+}
+let progressPushTimer = null;
+function saveProgress(progress) {
+  try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress)); } catch (e) {}
+  const stored = loadStoredProgram();
+  if (isLoggedIn() && stored?.programId) {
+    clearTimeout(progressPushTimer);
+    progressPushTimer = setTimeout(() => {
+      authApi('/api/program/progress', {
+        method: 'POST',
+        body: JSON.stringify({ programId: stored.programId, progress }),
+      }).catch(e => console.warn('progress push failed:', e.message));
+    }, 1200);
+  }
+}
+
+// Pull the server's copy on login/restore (it may be fuller — e.g. unlocked).
+async function syncProgramFromServer() {
+  if (!isLoggedIn()) return;
+  try {
+    const data = await authApi('/api/program');
+    if (data.program) {
+      storeProgram(data);
+      if (data.progress && Object.keys(data.progress).length) {
+        const local = loadProgress();
+        try { localStorage.setItem(PROGRESS_KEY, JSON.stringify({ ...data.progress, ...local })); } catch (e) {}
+      }
+    }
+  } catch (e) { console.warn('program sync failed:', e.message); }
+}
+
+async function unlockProgramAfterSubscribe() {
+  const stored = loadStoredProgram();
+  if (stored?.programId && isLoggedIn()) {
+    await syncProgramFromServer();
+    return;
+  }
+  // Program was generated anonymously — regenerate (free) from the saved intake,
+  // now authenticated + member, so the full block comes back and persists.
+  const intake = (() => { try { return JSON.parse(localStorage.getItem(INTAKE_KEY) || 'null'); } catch (e) { return null; } })();
+  if (!intake || !isLoggedIn()) return;
+  try {
+    const data = await authApi('/api/generate-program', {
+      method: 'POST',
+      body: JSON.stringify({ intake }),
+    });
+    storeProgram(data);
+    saveProgress({});
+  } catch (e) { console.warn('program unlock regen failed:', e.message); }
+}
+
+// ── Program rendering ──
+const programView = { week: null, day: null }; // null = block overview
+
+function showProgram() {
+  programView.week = null;
+  programView.day = null;
+  renderProgram();
+  showScreen('program');
+}
+
+function slotKey(w, d, sec, i) { return `w${w}d${d}${sec}${i}`; }
+
+function effectiveExercise(ex, key, progress) {
+  const swapId = (progress.swaps || {})[key];
+  const id = swapId || ex.exercise_id;
+  return { id, lib: EXERCISE_BY_ID[id] || EXERCISE_BY_ID[ex.exercise_id], swapped: !!swapId };
+}
+
+function dayIsComplete(week, day, progress) {
+  const done = progress.done || {};
+  const check = (list, sec) => (list || []).every((ex, i) => {
+    const sets = ex.sets || 1;
+    for (let s = 0; s < sets; s++) if (!done[`${slotKey(week.week, day.day, sec, i)}s${s}`]) return false;
+    return true;
+  });
+  return check(day.main, 'm') && check(day.abs_finisher, 'a');
+}
+
+function renderProgram() {
+  const stored = loadStoredProgram();
+  const wrap = $('programContent');
+  if (!stored?.program) { startIntake(); return; }
+
+  if (programView.week != null) return renderDayView(stored);
+
+  $('programNavTitle').textContent = `My Program — Block ${stored.blockNumber || 1}`;
+  const p = stored.program;
+  const progress = loadProgress();
+  const locked = !!stored.locked && !memberState.active;
+
+  let html = `<div class="why-card"><b>Why this works for you</b><br>${escapeHtml(p.why_this_works || '')}</div>`;
+
+  html += (p.weeks || []).map(week => {
+    const days = (week.days || []).map(day => {
+      const isLockedDay = locked && !(week.week === 1 && day.day === 1);
+      if (isLockedDay) {
+        return `<button class="day-row day-row-locked" tabindex="-1">
+          <span class="day-row-num">🔒</span>
+          <span class="day-row-body"><span class="day-row-focus">${escapeHtml(day.focus)}</span>
+          <span class="day-row-sub">${day.exercise_count ? `${day.exercise_count} exercises · ` : ''}Members only</span></span>
+        </button>`;
+      }
+      const complete = dayIsComplete(week, day, progress);
+      const freeBadge = locked ? `<span class="day-free-badge">FREE</span>` : '';
+      return `<button class="day-row" data-week="${week.week}" data-day="${day.day}">
+        <span class="day-row-num">D${day.day}</span>
+        <span class="day-row-body"><span class="day-row-focus">${escapeHtml(day.focus)}</span>
+        <span class="day-row-sub">${(day.main || []).length} exercises + abs finisher</span></span>
+        ${freeBadge}
+        ${complete ? `<svg class="day-row-check" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`
+        : `<svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>`}
+      </button>`;
+    }).join('');
+    return `<div class="wk-card">
+      <div class="wk-hdr"><span class="wk-title">Week ${week.week}</span><span class="wk-theme">${escapeHtml(week.theme || '')}</span></div>
+      ${days}</div>`;
+  }).join('');
+
+  if (locked) {
+    html += `<div class="locked-cta-card">
+      <div class="locked-cta-h">Your plan is built. Day 1 is on us.</div>
+      <div class="locked-cta-sub">This program was designed around your goal, schedule, and body — it already has your name on it. Unlock all 4 weeks, plus unlimited transformations and meal tracking.</div>
+      <button class="cta-btn" id="programUnlockBtn">Unlock My Full Program</button>
+      <div class="guarantee-note">$9.99/mo or $59.99/yr · 7-day money-back guarantee</div>
+    </div>`;
+  } else {
+    html += `<div class="checkin-card" id="checkinCard">
+      <div class="locked-cta-h" style="font-size:15px">Finished the block?</div>
+      <div class="locked-cta-sub" style="margin-bottom:10px">Check in and we'll build your next 4 weeks around how this one went.</div>
+      <div class="lbl"><span class="lbl-text">How did it feel?</span></div>
+      <div class="checkin-seg">
+        <button class="intake-chip" data-diff="too_easy">Too easy</button>
+        <button class="intake-chip selected" data-diff="just_right">Just right</button>
+        <button class="intake-chip" data-diff="too_hard">Too hard</button>
+      </div>
+      <div class="lbl"><span class="lbl-text">Anything you skipped or want changed?</span><span class="lbl-opt">Optional</span></div>
+      <input type="text" id="checkinNotes" class="text-field" maxlength="300" placeholder="e.g. skipped burpees, want more arms" style="margin-bottom:12px" />
+      <div id="checkinError" class="error-toast" style="display:none;margin-bottom:10px"></div>
+      <button class="try-diff-btn" id="checkinBtn" style="margin:0">Generate My Next Block →</button>
+    </div>`;
+    html += `<button class="try-diff-btn" id="programRestartBtn" style="margin-top:14px">Start over with a new intake</button>`;
+  }
+
+  wrap.innerHTML = html;
+
+  wrap.querySelectorAll('.day-row[data-week]').forEach(row => row.addEventListener('click', () => {
+    programView.week = parseInt(row.dataset.week, 10);
+    programView.day = parseInt(row.dataset.day, 10);
+    renderProgram();
+    window.scrollTo({ top: 0 });
+  }));
+  const unlockBtn = $('programUnlockBtn');
+  if (unlockBtn) unlockBtn.addEventListener('click', () => showMembershipScreen(() => showProgram()));
+  const restartBtn = $('programRestartBtn');
+  if (restartBtn) restartBtn.addEventListener('click', () => {
+    if (confirm('Start a brand new program? Your current block and progress will be replaced.')) startIntake();
+  });
+  const checkinCard = $('checkinCard');
+  if (checkinCard) {
+    let diff = 'just_right';
+    checkinCard.querySelectorAll('[data-diff]').forEach(b => b.addEventListener('click', () => {
+      diff = b.dataset.diff;
+      checkinCard.querySelectorAll('[data-diff]').forEach(x => x.classList.toggle('selected', x === b));
+    }));
+    $('checkinBtn').addEventListener('click', () => submitCheckin(diff));
+  }
+}
+
+function renderDayView(stored) {
+  const p = stored.program;
+  const week = (p.weeks || []).find(w => w.week === programView.week);
+  const day = week && (week.days || []).find(d => d.day === programView.day);
+  if (!day || day.locked) { programView.week = null; return renderProgram(); }
+
+  $('programNavTitle').textContent = `Week ${week.week} · Day ${day.day}`;
+  const progress = loadProgress();
+  const done = progress.done || {};
+
+  const exCard = (ex, sec, i) => {
+    const key = slotKey(week.week, day.day, sec, i);
+    const eff = effectiveExercise(ex, key, progress);
+    const lib = eff.lib || {};
+    const sets = ex.sets || 1;
+    const pills = Array.from({ length: sets }, (_, s) =>
+      `<button class="set-pill${done[`${key}s${s}`] ? ' done' : ''}" data-key="${key}" data-set="${s}">${done[`${key}s${s}`] ? '✓' : `Set ${s + 1}`}</button>`
+    ).join('');
+    return `<div class="ex-card">
+      <div class="ex-card-top">
+        <span class="ex-name" data-ex="${eff.id}" data-cue="${escapeHtml(ex.cue || '')}" data-mistake="${escapeHtml(ex.common_mistake || '')}">${escapeHtml(lib.name || eff.id)}${eff.swapped ? ' ·<span style="color:var(--acc);font-size:11.5px"> swapped</span>' : ''}</span>
+        <span class="ex-rx">${sets} × ${escapeHtml(String(ex.reps))} · rest ${ex.rest_sec}s</span>
+      </div>
+      ${ex.cue ? `<div class="ex-cue">💡 ${escapeHtml(ex.cue)}</div>` : ''}
+      <div class="set-pills">${pills}</div>
+      <div class="ex-actions">
+        <button class="ex-action-btn" data-detail="${eff.id}" data-cue="${escapeHtml(ex.cue || '')}" data-mistake="${escapeHtml(ex.common_mistake || '')}">How to do it</button>
+        ${lib.swap ? `<button class="ex-action-btn" data-swapkey="${key}" data-current="${eff.id}">${eff.swapped ? 'Undo swap' : `Swap → ${escapeHtml((EXERCISE_BY_ID[lib.swap] || {}).name || lib.swap)}`}</button>` : ''}
+      </div>
+    </div>`;
+  };
+
+  let html = `<div class="hero-h1" style="font-size:22px;line-height:1.15;margin-bottom:2px">${escapeHtml(day.focus)}</div>
+    <div class="hero-sub" style="margin-bottom:6px">Tap each set as you finish it.</div>`;
+
+  html += `<div class="ex-group-lbl">Warm-up</div>`;
+  html += (day.warmup || []).map(w => {
+    const lib = EXERCISE_BY_ID[w.exercise_id] || {};
+    return `<div class="ex-card"><div class="ex-card-top">
+      <span class="ex-name" data-detail-inline data-ex="${w.exercise_id}">${escapeHtml(lib.name || w.exercise_id)}</span>
+      <span class="ex-rx">${escapeHtml(w.prescription || '')}</span></div></div>`;
+  }).join('');
+
+  html += `<div class="ex-group-lbl">Main work</div>`;
+  html += (day.main || []).map((ex, i) => exCard(ex, 'm', i)).join('');
+
+  html += `<div class="ex-group-lbl">Abs finisher 🔥</div>`;
+  html += (day.abs_finisher || []).map((ex, i) => exCard(ex, 'a', i)).join('');
+
+  html += `<button class="cta-btn" id="dayDoneBtn" style="margin-top:18px">Finish Workout</button>`;
+
+  const wrap = $('programContent');
+  wrap.innerHTML = html;
+
+  wrap.querySelectorAll('.set-pill').forEach(pill => pill.addEventListener('click', () => {
+    const progress2 = loadProgress();
+    progress2.done = progress2.done || {};
+    const k = `${pill.dataset.key}s${pill.dataset.set}`;
+    progress2.done[k] = !progress2.done[k];
+    saveProgress(progress2);
+    pill.classList.toggle('done', progress2.done[k]);
+    pill.textContent = progress2.done[k] ? '✓' : `Set ${parseInt(pill.dataset.set, 10) + 1}`;
+  }));
+
+  wrap.querySelectorAll('[data-detail], .ex-name[data-ex]').forEach(el => el.addEventListener('click', () => {
+    openExerciseSheet(el.dataset.detail || el.dataset.ex, el.dataset.cue, el.dataset.mistake);
+  }));
+
+  wrap.querySelectorAll('[data-swapkey]').forEach(btn => btn.addEventListener('click', () => {
+    const progress2 = loadProgress();
+    progress2.swaps = progress2.swaps || {};
+    const key = btn.dataset.swapkey;
+    if (progress2.swaps[key]) delete progress2.swaps[key];
+    else {
+      const lib = EXERCISE_BY_ID[btn.dataset.current];
+      if (lib?.swap) progress2.swaps[key] = lib.swap;
+    }
+    saveProgress(progress2);
+    renderProgram();
+  }));
+
+  $('dayDoneBtn').addEventListener('click', () => {
+    // Mark every set of the day done, celebrate, back to overview.
+    const progress2 = loadProgress();
+    progress2.done = progress2.done || {};
+    const markAll = (list, sec) => (list || []).forEach((ex, i) => {
+      for (let s = 0; s < (ex.sets || 1); s++) progress2.done[`${slotKey(week.week, day.day, sec, i)}s${s}`] = true;
+    });
+    markAll(day.main, 'm');
+    markAll(day.abs_finisher, 'a');
+    saveProgress(progress2);
+    if (window.posthog) posthog.capture('workout_completed', { week: week.week, day: day.day });
+    fireConfetti();
+    programView.week = null;
+    renderProgram();
+    window.scrollTo({ top: 0 });
+  });
+}
+
+function openExerciseSheet(exId, cue, mistake) {
+  const lib = EXERCISE_BY_ID[exId];
+  if (!lib) return;
+  $('exSheet').innerHTML = `
+    <div class="ex-sheet-hdr">
+      <span class="ex-sheet-title">${escapeHtml(lib.name)}</span>
+      <button class="ex-sheet-close" id="exSheetClose"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="ex-sheet-muscles">${escapeHtml(lib.muscles || '')}</div>
+    <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Setup</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.setup)}</div></div>
+    <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">How to do it</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.execution)}</div></div>
+    <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Most common mistake</div><div class="ex-sheet-sec-txt">${escapeHtml(mistake || lib.mistake)}</div></div>
+    ${cue ? `<div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Your cue</div><div class="ex-sheet-sec-txt">💡 ${escapeHtml(cue)}</div></div>` : ''}
+    ${lib.video ? `<a class="cta-btn" style="display:block;text-align:center;text-decoration:none" href="${lib.video}" target="_blank" rel="noopener">▶ Watch form video</a>` : ''}
+  `;
+  $('exSheetOverlay').style.display = 'flex';
+  $('exSheetClose').addEventListener('click', closeExerciseSheet);
+}
+function closeExerciseSheet() { $('exSheetOverlay').style.display = 'none'; }
+
+async function submitCheckin(difficulty) {
+  const stored = loadStoredProgram();
+  if (!stored?.programId || !isLoggedIn()) {
+    // Anonymous/unsaved program can't check in server-side — send them to intake.
+    return startIntake();
+  }
+  const btn = $('checkinBtn');
+  btn.disabled = true;
+  btn.textContent = 'Building your next block…';
+  $('checkinError').style.display = 'none';
+  try {
+    const data = await authApi('/api/program/checkin', {
+      method: 'POST',
+      body: JSON.stringify({
+        programId: stored.programId,
+        feedback: { difficulty, skipped: $('checkinNotes').value.trim(), notes: '' },
+      }),
+    });
+    storeProgram(data);
+    saveProgress({});
+    if (window.posthog) posthog.capture('program_checkin_completed', { difficulty });
+    fireConfetti();
+    showProgram();
+  } catch (err) {
+    if (err.status === 402) { showMembershipScreen(() => showProgram()); return; }
+    $('checkinError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('checkinError').style.display = '';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Generate My Next Block →';
+  }
+}
+
+function initTrainer() {
+  $('trainerBackBtn').addEventListener('click', () => (isLoggedIn() ? showHub() : showMacroScreen()));
+  $('intakeBackStep').addEventListener('click', () => {
+    if (intakeState.step > 0) { intakeState.step--; renderIntakeStep(); }
+  });
+  $('programBackBtn').addEventListener('click', () => {
+    if (programView.week != null) { programView.week = null; programView.day = null; renderProgram(); }
+    else if (isLoggedIn()) showHub();
+    else showMacroScreen();
+  });
+  $('membershipBackBtn').addEventListener('click', () => {
+    const dest = membershipReturnTo;
+    membershipReturnTo = null;
+    if (dest) dest(); else if (isLoggedIn()) showHub(); else showScreen('form');
+  });
+  document.querySelectorAll('.plan-card').forEach(card => card.addEventListener('click', () => {
+    selectedPlan = card.dataset.plan;
+    document.querySelectorAll('.plan-card').forEach(c => c.classList.toggle('selected', c === card));
+  }));
+  $('membershipSubscribeBtn').addEventListener('click', handleMembershipSubscribe);
+  $('macroTrainerPromo').addEventListener('click', openTrainer);
+  $('exSheetOverlay').addEventListener('click', (e) => { if (e.target === $('exSheetOverlay')) closeExerciseSheet(); });
 }
 
 // ============================================================
@@ -3269,15 +4170,24 @@ async function analyzeMeal() {
     const recentMeals = loadLoggedMeals().slice(-15).map(m => m.name).filter(Boolean);
     const res = await fetchWithRetry(`${BACKEND_URL}/api/analyze-meal`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
+      },
       body: JSON.stringify({
         photoBase64: meal.photoData,
         photoMime: meal.photoMime,
         note: $('mealNoteInput').value.trim() || undefined,
         recentMeals,
+        deviceId: getDeviceId(),
       }),
     });
     const data = await res.json();
+    if (res.status === 402 && data?.needsMembership) {
+      // Free analyses used up — the membership paywall takes it from here.
+      showMembershipScreen(() => showMacroScreen());
+      return;
+    }
     if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
 
     if (!data.isFood) {

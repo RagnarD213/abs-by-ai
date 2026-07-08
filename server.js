@@ -31,10 +31,13 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
   if (event.type === 'checkout.session.completed') {
     try {
       const meta = event.data.object.metadata || {};
-      // Two kinds of checkout share this webhook: credit-pack purchases
-      // (meta.kind === 'credits') and printed-product orders (meta.productType).
+      // Three kinds of checkout share this webhook: credit-pack purchases
+      // (meta.kind === 'credits'), membership subscriptions (meta.kind ===
+      // 'membership'), and printed-product orders (meta.productType).
       if (meta.productType) {
         await fulfillProductOrder(event.data.object);
+      } else if (meta.kind === 'membership') {
+        await fulfillMembershipSession(event.data.object);
       } else {
         await fulfillCreditsSession(event.data.object);
       }
@@ -42,6 +45,12 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
       console.error('Webhook fulfillment error:', e.message);
       // Return 200 anyway — session-status on return is a fallback path.
     }
+  } else if (event.type === 'customer.subscription.updated' || event.type === 'customer.subscription.deleted') {
+    // Keep member state in sync across renewals, cancellations, and payment
+    // failures. Stripe keeps status 'active' with cancel_at_period_end until
+    // the period actually ends, so storing status + period_end is enough.
+    try { await syncSubscriptionState(event.data.object); }
+    catch (e) { console.error('Subscription sync error:', e.message); }
   }
   res.json({ received: true });
 });
@@ -85,6 +94,15 @@ const CREDIT_PACKS = {
   starter: { credits: 5,  priceInCents: 499,  label: 'Starter Pack' },
   power:   { credits: 20, priceInCents: 1499, label: 'Power Pack' },
 };
+// Membership plans (Stripe subscriptions). Keys must match data-plan
+// attributes in index.html. Annual ≈ $5/mo is the anti-churn lever.
+const MEMBERSHIP_PLANS = {
+  monthly: { priceInCents: 999,  interval: 'month', label: 'Monthly Membership' },
+  annual:  { priceInCents: 5999, interval: 'year',  label: 'Annual Membership' },
+};
+// Free (non-member) allowance of meal-photo analyses — the freemium taste.
+const FREE_MEAL_ANALYSES = 3;
+const { EXERCISE_BY_ID, exercisesForEquipment } = require('./exercises');
 const MONARCH_PUSH_SECRET  = process.env.MONARCH_PUSH_SECRET;
 const MONARCH_DATA_FILE    = 'monarch-data.json';
 const GITHUB_REPO          = 'RagnarD213/abs-by-ai';
@@ -1405,12 +1423,25 @@ function calibrationFactorFor(analysis) {
   return base;
 }
 
-app.post('/api/analyze-meal', aiLimiter, async (req, res) => {
+app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
   try {
-    const { photoBase64, photoMime, note, recentMeals } = req.body;
+    const { photoBase64, photoMime, note, recentMeals, deviceId } = req.body;
 
     if (!photoBase64 || !photoMime) {
       return res.status(400).json({ error: 'Missing photoBase64 or photoMime' });
+    }
+
+    // Freemium taste: non-members get FREE_MEAL_ANALYSES total, members unlimited.
+    const isMember = isActiveMembership(req.user);
+    const dev = String(deviceId || req.user?.device_id || '');
+    if (!isMember && dev) {
+      const used = creditsStore.mealCounts?.[dev] || 0;
+      if (used >= FREE_MEAL_ANALYSES) {
+        return res.status(402).json({
+          error: 'You\'ve used your free meal analyses. Become a member for unlimited tracking.',
+          needsMembership: true,
+        });
+      }
     }
 
     const userContent = [
@@ -1466,6 +1497,13 @@ app.post('/api/analyze-meal', aiLimiter, async (req, res) => {
     const checkedItems = enforceMacroMath(analysis.items);
     const factor = calibrationFactorFor(analysis);
     const adjustedItems = applyCalibration(checkedItems, factor);
+
+    // Count this analysis against the free allowance (successful food reads only).
+    if (!isMember && dev) {
+      if (!creditsStore.mealCounts) creditsStore.mealCounts = {};
+      creditsStore.mealCounts[dev] = (creditsStore.mealCounts[dev] || 0) + 1;
+      persistCreditsStore(); // fire-and-forget
+    }
 
     res.json({
       isFood: true,
@@ -1567,7 +1605,7 @@ app.post('/api/refine-meal', aiLimiter, async (req, res) => {
 // ============================================================
 // ENDPOINT 3: Generate image (Gemini)
 // ============================================================
-app.post('/api/generate-image', aiLimiter, async (req, res) => {
+app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
   try {
     const { prompt, photoBase64, photoMime, deviceId } = req.body;
 
@@ -1629,8 +1667,9 @@ app.post('/api/generate-image', aiLimiter, async (req, res) => {
     // image unlocked. If it's out of credits, still return the image but flag it
     // `locked` so the client blurs it behind the paywall (generate-and-lock).
     // Requests without a deviceId (e.g. legacy clients) are left unlocked.
+    // Members generate without consuming credits.
     let locked = false;
-    if (deviceId) {
+    if (deviceId && !isActiveMembership(req.user)) {
       const balance = getCredits(deviceId);
       if (balance > 0) {
         creditsStore.balances[deviceId] = balance - 1;
@@ -1655,21 +1694,22 @@ app.post('/api/generate-image', aiLimiter, async (req, res) => {
 //   { balances: { [deviceId]: number }, fulfilled: { [sessionId]: true } }
 // `fulfilled` makes crediting idempotent across the webhook + return-redirect
 // paths so a purchase is never double-counted.
-let creditsStore = { balances: {}, fulfilled: {} };
+let creditsStore = { balances: {}, fulfilled: {}, mealCounts: {} };
 
 async function loadCreditsStore() {
-  if (!GITHUB_TOKEN) return { balances: {}, fulfilled: {} };
+  const empty = { balances: {}, fulfilled: {}, mealCounts: {} };
+  if (!GITHUB_TOKEN) return empty;
   try {
     const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${CREDITS_FILE}`, {
       headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
     });
-    if (!res.ok) return { balances: {}, fulfilled: {} };
+    if (!res.ok) return empty;
     const data = await res.json();
     const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
-    return { balances: parsed.balances || {}, fulfilled: parsed.fulfilled || {} };
+    return { balances: parsed.balances || {}, fulfilled: parsed.fulfilled || {}, mealCounts: parsed.mealCounts || {} };
   } catch (e) {
     console.error('loadCreditsStore error:', e.message);
-    return { balances: {}, fulfilled: {} };
+    return empty;
   }
 }
 
@@ -1988,6 +2028,539 @@ app.delete('/api/meals/:id', requireAuth, async (req, res) => {
   }
 });
 
+// ============================================================
+// MEMBERSHIP — single subscription that unlocks everything
+// ============================================================
+// Member state lives on the user record (membership_* columns), kept in sync
+// by the Stripe webhook. Credits convert at $1 each (as a one-time coupon on
+// the subscription checkout) so early credit buyers aren't punished.
+
+// Like requireAuth but never 401s — attaches req.user when a valid token is
+// present, otherwise continues anonymously.
+async function optionalAuth(req, res, next) {
+  const token = (req.headers.authorization || '').replace(/^Bearer\s+/i, '');
+  if (!token || !db) return next();
+  try {
+    const { rows } = await db.query(
+      `SELECT u.* FROM sessions s JOIN users u ON u.id = s.user_id
+       WHERE s.token = $1 AND s.expires_at > now()`,
+      [token]
+    );
+    if (rows.length) req.user = rows[0];
+  } catch (e) { /* anonymous on any error */ }
+  next();
+}
+
+function isActiveMembership(userRow) {
+  if (!userRow) return false;
+  const status = userRow.membership_status;
+  if (status === 'active' || status === 'trialing') return true;
+  // Canceled-but-paid-through: honor until the period actually ends.
+  const end = userRow.membership_period_end;
+  return !!(end && new Date(end) > new Date());
+}
+
+async function getUserRow(userId) {
+  const { rows } = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
+  return rows[0] || null;
+}
+
+// Credit → membership conversion: only EXPLICIT balances convert (devices that
+// bought a pack, or spent from their free allotment, have an entry; untouched
+// free devices don't). Capped so the first invoice is never fully zeroed.
+function creditDiscountCents(deviceId, plan) {
+  const bal = creditsStore.balances[deviceId];
+  if (typeof bal !== 'number' || bal <= 0) return 0;
+  const planDef = MEMBERSHIP_PLANS[plan] || MEMBERSHIP_PLANS.monthly;
+  return Math.min(bal * 100, planDef.priceInCents - 100);
+}
+
+// Current membership state + what the user's credits are worth at subscribe time.
+app.get('/api/membership', requireAuth, async (req, res) => {
+  try {
+    const row = await getUserRow(req.user.id);
+    const deviceId = String(req.query.deviceId || row.device_id || '');
+    res.json({
+      active: isActiveMembership(row),
+      status: row.membership_status || null,
+      plan: row.membership_plan || null,
+      periodEnd: row.membership_period_end || null,
+      creditDiscountCents: isActiveMembership(row) ? 0 : creditDiscountCents(deviceId, 'monthly'),
+      plans: Object.fromEntries(Object.entries(MEMBERSHIP_PLANS).map(([k, v]) => [k, { priceInCents: v.priceInCents, interval: v.interval }])),
+    });
+  } catch (e) {
+    console.error('membership error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Create an embedded Stripe Checkout session for a membership subscription.
+app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res) => {
+  try {
+    const stripe = getStripe();
+    if (!stripe) return res.status(503).json({ error: 'Payments are not configured yet.' });
+    const { plan, deviceId } = req.body || {};
+    const planDef = MEMBERSHIP_PLANS[plan];
+    if (!planDef) return res.status(400).json({ error: 'Invalid plan' });
+
+    const row = await getUserRow(req.user.id);
+    if (isActiveMembership(row)) return res.status(400).json({ error: 'You already have an active membership.' });
+
+    const dev = String(deviceId || row.device_id || '');
+    const discountCents = creditDiscountCents(dev, plan);
+    const discounts = [];
+    if (discountCents > 0) {
+      const coupon = await stripe.coupons.create({
+        amount_off: discountCents,
+        currency: 'usd',
+        duration: 'once',
+        name: `Credit conversion (${Math.round(discountCents / 100)} credits)`,
+      });
+      discounts.push({ coupon: coupon.id });
+    }
+
+    const session = await stripe.checkout.sessions.create({
+      ui_mode: 'embedded',
+      mode: 'subscription',
+      redirect_on_completion: 'never',
+      customer_email: req.user.email,
+      line_items: [{
+        quantity: 1,
+        price_data: {
+          currency: 'usd',
+          unit_amount: planDef.priceInCents,
+          recurring: { interval: planDef.interval },
+          product_data: {
+            name: `Abs By AI ${planDef.label}`,
+            description: 'AI trainer, unlimited transformations & meal tracking. 7-day money-back guarantee.',
+          },
+        },
+      }],
+      ...(discounts.length ? { discounts } : {}),
+      metadata: {
+        kind: 'membership',
+        plan,
+        userId: String(req.user.id),
+        deviceId: dev,
+        creditDiscountCents: String(discountCents),
+      },
+    });
+
+    res.json({ clientSecret: session.client_secret, sessionId: session.id, discountCents });
+  } catch (err) {
+    console.error('create-membership-checkout error:', err.message);
+    res.status(500).json({ error: 'Could not start checkout. Please try again.' });
+  }
+});
+
+// Idempotently activate membership for a completed subscription checkout.
+async function fulfillMembershipSession(session) {
+  if (!session || !db) return false;
+  const sid = session.id;
+  if (creditsStore.fulfilled[`member_${sid}`]) return false;
+  const meta = session.metadata || {};
+  if (meta.kind !== 'membership' || !meta.userId) return false;
+  // Subscription checkouts report payment_status 'paid' (or 'no_payment_required'
+  // when a coupon covers the first invoice).
+  if (session.payment_status !== 'paid' && session.payment_status !== 'no_payment_required') return false;
+
+  const stripe = getStripe();
+  let periodEnd = null;
+  let subId = session.subscription || null;
+  try {
+    if (stripe && typeof subId === 'string') {
+      const sub = await stripe.subscriptions.retrieve(subId);
+      if (sub.current_period_end) periodEnd = new Date(sub.current_period_end * 1000).toISOString();
+    }
+  } catch (e) { console.warn('subscription retrieve failed:', e.message); }
+
+  await db.query(
+    `UPDATE users SET stripe_customer_id = $1, stripe_subscription_id = $2,
+       membership_status = 'active', membership_plan = $3, membership_period_end = $4
+     WHERE id = $5`,
+    [session.customer || null, subId, meta.plan || 'monthly', periodEnd, parseInt(meta.userId, 10)]
+  );
+
+  // Converted credits were spent as the checkout discount — zero the balance.
+  if (parseInt(meta.creditDiscountCents, 10) > 0 && meta.deviceId) {
+    creditsStore.balances[meta.deviceId] = 0;
+  }
+  creditsStore.fulfilled[`member_${sid}`] = true;
+  await persistCreditsStore();
+  console.log(`Membership activated for user ${meta.userId} (${meta.plan}, session ${sid})`);
+  return true;
+}
+
+// Keep users.membership_* in sync with subscription lifecycle events.
+async function syncSubscriptionState(sub) {
+  if (!db || !sub?.id) return;
+  const periodEnd = sub.current_period_end ? new Date(sub.current_period_end * 1000).toISOString() : null;
+  await db.query(
+    `UPDATE users SET membership_status = $1, membership_period_end = $2 WHERE stripe_subscription_id = $3`,
+    [sub.status || 'canceled', periodEnd, sub.id]
+  );
+}
+
+// ============================================================
+// AI TRAINER — intake → personalized 4-week program
+// ============================================================
+// Claude selects and sequences ONLY from the exercise whitelist (exercises.js),
+// filtered to the user's equipment. Structured JSON output (same approach as
+// /api/analyze-meal); invalid exercise ids are swapped server-side, never shown.
+
+const PROGRAM_EXERCISE_ITEM = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['exercise_id', 'sets', 'reps', 'rest_sec', 'cue', 'common_mistake'],
+  properties: {
+    exercise_id: { type: 'string', description: 'Must be an id from the provided exercise list.' },
+    sets: { type: 'integer' },
+    reps: { type: 'string', description: 'e.g. "8-10", "12", "30 sec"' },
+    rest_sec: { type: 'integer' },
+    cue: { type: 'string', description: 'One-line personalized form cue.' },
+    common_mistake: { type: 'string', description: 'One-line most common mistake to avoid.' },
+  },
+};
+
+const PROGRAM_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['why_this_works', 'weeks'],
+  properties: {
+    why_this_works: {
+      type: 'string',
+      description: "Personalized paragraph referencing the user's goal, schedule, injuries, quit-reason, and (if provided) their photo — why THIS program works for THEM.",
+    },
+    weeks: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['week', 'theme', 'days'],
+        properties: {
+          week: { type: 'integer' },
+          theme: { type: 'string', description: 'Short label, e.g. "Foundation", "Build", "Push", "Peak".' },
+          days: {
+            type: 'array',
+            items: {
+              type: 'object',
+              additionalProperties: false,
+              required: ['day', 'focus', 'warmup', 'main', 'abs_finisher'],
+              properties: {
+                day: { type: 'integer' },
+                focus: { type: 'string', description: 'e.g. "Full body + abs", "Upper body push"' },
+                warmup: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                    additionalProperties: false,
+                    required: ['exercise_id', 'prescription'],
+                    properties: {
+                      exercise_id: { type: 'string' },
+                      prescription: { type: 'string', description: 'e.g. "60 sec", "10 each side"' },
+                    },
+                  },
+                },
+                main: { type: 'array', items: PROGRAM_EXERCISE_ITEM },
+                abs_finisher: { type: 'array', items: PROGRAM_EXERCISE_ITEM },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+const TRAINER_SYSTEM_PROMPT = `You are an expert personal trainer designing a 4-week program for a fitness app called Abs By AI. Users have generated an AI image of their future physique — your program is the path to that photo.
+
+Rules:
+- You may ONLY use exercises from the provided whitelist, referenced by their exact id. Never invent an exercise or id.
+- Build exactly 4 weeks. Each week has exactly the user's chosen number of training days. Progress volume/intensity sensibly across weeks (e.g. week 1 learn, weeks 2-3 build, week 4 push) and name each week's theme.
+- Respect the session length: ~20 min ≈ 3-4 main exercises, ~30 min ≈ 4-5, ~45 min ≈ 5-6, ~60 min ≈ 6-7 (plus warm-up and a short abs finisher).
+- Every day ends with an abs finisher of 2-3 exercises — this is Abs By AI.
+- STRICTLY avoid exercises that load reported injured areas; prefer joint-friendly picks (e.g. knee pain → hinge and glute work over deep lunges; lower-back pain → avoid loaded spinal flexion and heavy hinging; shoulder pain → avoid overhead pressing; wrist pain → avoid loaded straight-arm plank positions).
+- Match experience level: beginners get simpler movements, fewer sets, and reps in the 8-15 range; experienced lifters get more volume and harder variations.
+- warmup: 2-4 light moves. Use warm-up category exercises or easy bodyweight moves.
+- cue: one short personalized coaching line. common_mistake: the single most likely error for THIS user.
+- why_this_works: 3-5 sentences, warm but direct, referencing their actual answers (goal, days, injuries, what made them quit before, and their before-photo/future-self image when provided). Address them as "you".
+- Reps for timed holds use e.g. "30 sec". rest_sec between 30 and 180.`;
+
+function buildTrainerUserContent(intake, photoBase64, photoMime) {
+  const allowed = exercisesForEquipment(intake.equipment);
+  const list = allowed.map((e) => `${e.id} | ${e.name} | ${e.cat} | ${e.muscles}`).join('\n');
+  const content = [];
+  if (photoBase64 && photoMime) {
+    content.push({ type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } });
+    content.push({ type: 'text', text: 'This is the user\'s current "before" photo (shared with consent). Use it only to gauge their rough starting point and to personalize why_this_works. Do not comment on appearance judgmentally.' });
+  }
+  content.push({
+    type: 'text',
+    text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\nExercise whitelist (id | name | category | muscles) — use ONLY these ids:\n${list}`,
+  });
+  return content;
+}
+
+// Replace any hallucinated/out-of-tier exercise id with its library swap (if
+// allowed) or a same-category fallback from the allowed list.
+function sanitizeProgram(program, equipment) {
+  const allowed = new Set(exercisesForEquipment(equipment).map((e) => e.id));
+  const allowedList = exercisesForEquipment(equipment);
+  const fix = (id, prefCat) => {
+    if (allowed.has(id)) return id;
+    const lib = EXERCISE_BY_ID[id];
+    if (lib && allowed.has(lib.swap)) return lib.swap;
+    const cat = lib?.cat || prefCat;
+    const sub = allowedList.find((e) => e.cat === cat) || allowedList[0];
+    return sub.id;
+  };
+  let replaced = 0;
+  for (const week of program.weeks || []) {
+    for (const day of week.days || []) {
+      for (const w of day.warmup || []) {
+        const fixed = fix(w.exercise_id, 'warmup');
+        if (fixed !== w.exercise_id) { w.exercise_id = fixed; replaced++; }
+      }
+      for (const ex of [...(day.main || []), ...(day.abs_finisher || [])]) {
+        const fixed = fix(ex.exercise_id, 'abs');
+        if (fixed !== ex.exercise_id) { ex.exercise_id = fixed; replaced++; }
+      }
+    }
+  }
+  if (replaced) console.warn(`sanitizeProgram: replaced ${replaced} out-of-whitelist exercise id(s)`);
+  return program;
+}
+
+// Free-preview shape: why-this-works + week/day structure at a glance + Day 1
+// fully unlocked. Everything else is visible-but-locked (focus only).
+function stripProgramForPreview(program) {
+  return {
+    why_this_works: program.why_this_works,
+    locked: true,
+    weeks: (program.weeks || []).map((week) => ({
+      week: week.week,
+      theme: week.theme,
+      days: (week.days || []).map((day) => {
+        if (week.week === 1 && day.day === 1) return { ...day, locked: false };
+        return { day: day.day, focus: day.focus, locked: true, exercise_count: (day.main || []).length };
+      }),
+    })),
+  };
+}
+
+const VALID_INTAKE = {
+  goal: ['lose_fat', 'build_muscle', 'abs_visible', 'general_fitness', 'recomp'],
+  equipment: ['none', 'db', 'gym'],
+  days_per_week: [2, 3, 4, 5],
+  session_minutes: [20, 30, 45, 60],
+  experience: ['never', 'on_and_off', 'consistent'],
+  quit_reason: ['no_time', 'got_bored', 'no_results', 'got_hurt', 'never_started'],
+};
+
+function validateIntake(raw) {
+  if (!raw || typeof raw !== 'object') return null;
+  const intake = {
+    goal: VALID_INTAKE.goal.includes(raw.goal) ? raw.goal : 'general_fitness',
+    equipment: VALID_INTAKE.equipment.includes(raw.equipment) ? raw.equipment : 'none',
+    days_per_week: VALID_INTAKE.days_per_week.includes(raw.days_per_week) ? raw.days_per_week : 3,
+    session_minutes: VALID_INTAKE.session_minutes.includes(raw.session_minutes) ? raw.session_minutes : 30,
+    experience: VALID_INTAKE.experience.includes(raw.experience) ? raw.experience : 'on_and_off',
+    injuries: Array.isArray(raw.injuries) ? raw.injuries.slice(0, 6).map((s) => String(s).slice(0, 40)) : [],
+    injury_notes: String(raw.injury_notes || '').slice(0, 300),
+    quit_reason: VALID_INTAKE.quit_reason.includes(raw.quit_reason) ? raw.quit_reason : 'never_started',
+    body: {
+      age_range: String(raw.body?.age_range || '').slice(0, 20),
+      height: String(raw.body?.height || '').slice(0, 20),
+      weight: String(raw.body?.weight || '').slice(0, 20),
+      sex: ['male', 'female'].includes(raw.body?.sex) ? raw.body.sex : '',
+    },
+  };
+  return intake;
+}
+
+async function callTrainerModel(systemPrompt, userContent) {
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': ANTHROPIC_API_KEY,
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({
+      // Sonnet-class reasoning: program design rewards reasoning quality, and
+      // it must read the before photo. Same structured-output pattern as
+      // /api/analyze-meal.
+      model: 'claude-sonnet-4-6',
+      max_tokens: 16000,
+      system: systemPrompt,
+      output_config: { format: { type: 'json_schema', schema: PROGRAM_SCHEMA } },
+      messages: [{ role: 'user', content: userContent }],
+    }),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    const err = new Error(data?.error?.message || 'Claude API error');
+    err.status = response.status;
+    throw err;
+  }
+  return JSON.parse(data?.content?.[0]?.text || '');
+}
+
+// Generate a program from intake. Free for everyone (the sunk-cost hook) —
+// members get the full block back; free users get the stripped preview.
+// Logged-in users get the FULL program persisted server-side, so subscribing
+// later unlocks it without regenerating.
+app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
+  try {
+    const intake = validateIntake(req.body?.intake);
+    if (!intake) return res.status(400).json({ error: 'Missing intake' });
+    const { photoBase64, photoMime, photoConsent } = req.body || {};
+
+    const userContent = buildTrainerUserContent(
+      intake,
+      photoConsent ? photoBase64 : null,
+      photoConsent ? photoMime : null
+    );
+
+    let program;
+    try {
+      program = await callTrainerModel(TRAINER_SYSTEM_PROMPT, userContent);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'Program generation failed. Please try again.' });
+    }
+    if (!program?.weeks?.length) {
+      return res.status(502).json({ error: 'Model returned an unusable program. Please try again.' });
+    }
+    sanitizeProgram(program, intake.equipment);
+
+    let programId = null;
+    let member = false;
+    if (req.user && db) {
+      member = isActiveMembership(req.user);
+      try {
+        const { rows } = await db.query(
+          `INSERT INTO programs (user_id, block_number, intake, program) VALUES ($1, 1, $2, $3) RETURNING id`,
+          [req.user.id, JSON.stringify(intake), JSON.stringify(program)]
+        );
+        programId = rows[0].id;
+      } catch (e) { console.error('program save error:', e.message); }
+    }
+
+    res.json({
+      programId,
+      blockNumber: 1,
+      locked: !member,
+      program: member ? { ...program, locked: false } : stripProgramForPreview(program),
+    });
+  } catch (err) {
+    console.error('generate-program error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Latest program for the logged-in user (full for members, preview otherwise).
+app.get('/api/program', requireAuth, async (req, res) => {
+  try {
+    const { rows } = await db.query(
+      'SELECT id, block_number, intake, program, progress FROM programs WHERE user_id = $1 ORDER BY id DESC LIMIT 1',
+      [req.user.id]
+    );
+    if (!rows.length) return res.json({ program: null });
+    const row = rows[0];
+    const userRow = await getUserRow(req.user.id);
+    const member = isActiveMembership(userRow);
+    res.json({
+      programId: row.id,
+      blockNumber: row.block_number,
+      intake: row.intake,
+      locked: !member,
+      program: member ? { ...row.program, locked: false } : stripProgramForPreview(row.program),
+      progress: row.progress || {},
+    });
+  } catch (e) {
+    console.error('get program error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Persist set check-offs and swaps. Client sends the full progress object
+// (small: keys like "w1d1m0s2" → true, swaps like "swap_w1d1m0" → exerciseId).
+app.post('/api/program/progress', requireAuth, async (req, res) => {
+  const { programId, progress } = req.body || {};
+  if (!programId || !progress || typeof progress !== 'object') {
+    return res.status(400).json({ error: 'Missing programId or progress' });
+  }
+  try {
+    await db.query(
+      'UPDATE programs SET progress = $1 WHERE id = $2 AND user_id = $3',
+      [JSON.stringify(progress), parseInt(programId, 10) || 0, req.user.id]
+    );
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('progress save error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Week-4 check-in → regenerate the next block using completion data. Members only.
+app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
+  try {
+    const userRow = await getUserRow(req.user.id);
+    if (!isActiveMembership(userRow)) {
+      return res.status(402).json({ error: 'Membership required', needsMembership: true });
+    }
+    const { programId, feedback } = req.body || {};
+    const { rows } = await db.query(
+      'SELECT id, block_number, intake, program, progress FROM programs WHERE id = $1 AND user_id = $2',
+      [parseInt(programId, 10) || 0, req.user.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Program not found' });
+    const prev = rows[0];
+
+    const fb = {
+      difficulty: ['too_easy', 'just_right', 'too_hard'].includes(feedback?.difficulty) ? feedback.difficulty : 'just_right',
+      skipped: String(feedback?.skipped || '').slice(0, 300),
+      notes: String(feedback?.notes || '').slice(0, 300),
+    };
+    const completedSets = Object.values(prev.progress || {}).filter((v) => v === true).length;
+
+    const userContent = buildTrainerUserContent(prev.intake, null, null);
+    userContent.push({
+      type: 'text',
+      text: `This user just FINISHED a 4-week block (block ${prev.block_number}) — design block ${prev.block_number + 1} that progresses from it.\n` +
+        `Previous block (for reference, do not repeat verbatim — progress it):\n${JSON.stringify(prev.program.weeks?.map((w) => ({ week: w.week, days: w.days?.map((d) => ({ day: d.day, focus: d.focus, main: d.main?.map((m) => m.exercise_id) })) })))}\n` +
+        `Completion: ${completedSets} sets checked off across the block.\n` +
+        `Check-in feedback: difficulty was "${fb.difficulty}"${fb.skipped ? `; they tended to skip: ${fb.skipped}` : ''}${fb.notes ? `; notes: ${fb.notes}` : ''}.\n` +
+        `Adjust accordingly: too_easy → harder variations/more volume; too_hard → dial back; swap in fresh exercises to fight boredom; drop or replace what they skipped. why_this_works should acknowledge that they completed a block and what changes this time.`,
+    });
+
+    let program;
+    try {
+      program = await callTrainerModel(TRAINER_SYSTEM_PROMPT, userContent);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'Program generation failed. Please try again.' });
+    }
+    if (!program?.weeks?.length) return res.status(502).json({ error: 'Model returned an unusable program.' });
+    sanitizeProgram(program, prev.intake.equipment);
+
+    const ins = await db.query(
+      `INSERT INTO programs (user_id, block_number, intake, program) VALUES ($1, $2, $3, $4) RETURNING id`,
+      [req.user.id, prev.block_number + 1, JSON.stringify(prev.intake), JSON.stringify(program)]
+    );
+    res.json({
+      programId: ins.rows[0].id,
+      blockNumber: prev.block_number + 1,
+      locked: false,
+      program: { ...program, locked: false },
+    });
+  } catch (err) {
+    console.error('checkin error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Public client config (Stripe publishable key).
 app.get('/api/config', (req, res) => {
   res.json({ stripePublishableKey: STRIPE_PUBLISHABLE_KEY || '' });
@@ -2048,10 +2621,12 @@ app.get('/api/stripe/session-status', async (req, res) => {
 
     const session = await stripe.checkout.sessions.retrieve(session_id);
     if (session.status === 'complete') {
-      // Fallback fulfillment in case the webhook hasn't landed yet. Both paths
-      // are idempotent. Route by metadata: product orders vs credit packs.
+      // Fallback fulfillment in case the webhook hasn't landed yet. All paths
+      // are idempotent. Route by metadata: products / memberships / credit packs.
       if (session.metadata?.productType) {
         await fulfillProductOrder(session);
+      } else if (session.metadata?.kind === 'membership') {
+        await fulfillMembershipSession(session);
       } else {
         await fulfillCreditsSession(session);
       }

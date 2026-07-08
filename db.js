@@ -58,7 +58,33 @@ async function initDb() {
       items     JSONB NOT NULL DEFAULT '[]'
     );
     CREATE INDEX IF NOT EXISTS meals_user_date_idx ON meals (user_id, date);
+    CREATE TABLE IF NOT EXISTS programs (
+      id           SERIAL PRIMARY KEY,
+      user_id      INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      block_number INTEGER NOT NULL DEFAULT 1,
+      intake       JSONB NOT NULL,
+      program      JSONB NOT NULL,
+      progress     JSONB NOT NULL DEFAULT '{}',
+      created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+    CREATE INDEX IF NOT EXISTS programs_user_idx ON programs (user_id, id);
   `);
+  // Membership columns (added after the users table shipped). ADD COLUMN IF NOT
+  // EXISTS keeps this idempotent across deploys; pg-mem supports it too.
+  for (const col of [
+    'stripe_customer_id TEXT',
+    'stripe_subscription_id TEXT',
+    'membership_status TEXT',
+    'membership_plan TEXT',
+    'membership_period_end TIMESTAMPTZ',
+  ]) {
+    try {
+      await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS ${col}`);
+    } catch (e) {
+      // pg-mem older versions lack IF NOT EXISTS on ADD COLUMN — retry plain.
+      try { await pool.query(`ALTER TABLE users ADD COLUMN ${col}`); } catch (_) {}
+    }
+  }
   console.log('Postgres schema ready');
 }
 
