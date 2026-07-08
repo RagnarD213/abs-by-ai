@@ -37,8 +37,7 @@
     "health::Brush teeth",
     "health::Floss",
     "health::Inject Zepbound",
-    "money::Write outlines for tomorrow's shoot",
-    "money::Add email capture to app"
+    "money::Write outlines for tomorrow's shoot"
   ],
   "log": {
     "health::Shower": [
