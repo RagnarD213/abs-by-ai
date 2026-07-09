@@ -2284,7 +2284,14 @@ Rules:
 - warmup: 2-4 light moves. Use warm-up category exercises or easy bodyweight moves.
 - cue: one short personalized coaching line. common_mistake: the single most likely error for THIS user.
 - why_this_works: 3-5 sentences, warm but direct, referencing their actual answers (goal, days, injuries, what made them quit before, and their before-photo/future-self image when provided). Address them as "you".
-- Reps for timed holds use e.g. "30 sec". rest_sec between 30 and 180.`;
+- Reps for timed holds use e.g. "30 sec". rest_sec between 30 and 180.
+
+Exercise selection rules (safety-first — these override everything else):
+- NEVER program barbell bench press, barbell deadlifts, barbell back squats, cleans, snatches, jerks, or ANY powerlifting/Olympic lift — they are not in the whitelist and must not appear even in cues, notes, or why_this_works.
+- Squat pattern: gym users → leg-press (advanced) or db-goblet-squat; beginners → db-goblet-squat or bw-squat.
+- Hamstrings: leg-curl (machine) is the DEFAULT for gym users. db-rdl (Dumbbell Hip Hinge) only when there is no machine access (home/dumbbell users), and NEVER in workouts under 15 minutes per day.
+- Rear delts: machine-rear-delt-fly is the default for gym users; db-rear-delt-fly when no machine.
+- Chest: dumbbell/machine presses and flies only (db-fly, cable-fly, pec-deck, machine-chest-press, db-bench-press, db-floor-press, and the push-up family).`;
 
 function buildTrainerUserContent(intake, photoBase64, photoMime) {
   const allowed = exercisesForEquipment(intake.equipment);
@@ -2301,6 +2308,15 @@ function buildTrainerUserContent(intake, photoBase64, photoMime) {
   return content;
 }
 
+// Exercises removed from the library (v2 safety pass) → their replacement.
+// Old stored programs may still reference them; without this map they would
+// fall through to a generic same-category pick.
+const REMOVED_EXERCISE_SWAPS = {
+  'bb-bench-press': 'db-bench-press',
+  'bb-deadlift': 'db-rdl',
+  'bb-back-squat': 'db-goblet-squat',
+};
+
 // Replace any hallucinated/out-of-tier exercise id with its library swap (if
 // allowed) or a same-category fallback from the allowed list.
 function sanitizeProgram(program, equipment) {
@@ -2308,6 +2324,8 @@ function sanitizeProgram(program, equipment) {
   const allowedList = exercisesForEquipment(equipment);
   const fix = (id, prefCat) => {
     if (allowed.has(id)) return id;
+    const legacy = REMOVED_EXERCISE_SWAPS[id];
+    if (legacy && allowed.has(legacy)) return legacy;
     const lib = EXERCISE_BY_ID[id];
     if (lib && allowed.has(lib.swap)) return lib.swap;
     const cat = lib?.cat || prefCat;

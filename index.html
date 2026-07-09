@@ -3176,6 +3176,12 @@ async function handleMembershipComplete(sessionId) {
 //  AI TRAINER — intake wizard, program generation & rendering
 // ============================================================
 const INTAKE_KEY = 'absbyai_trainer_intake';
+
+// Barbell lifts removed in the v2 safety pass — old stored programs may still
+// reference them; render the replacement instead of a raw id.
+EXERCISE_BY_ID['bb-bench-press'] = EXERCISE_BY_ID['db-bench-press'];
+EXERCISE_BY_ID['bb-deadlift'] = EXERCISE_BY_ID['db-rdl'];
+EXERCISE_BY_ID['bb-back-squat'] = EXERCISE_BY_ID['db-goblet-squat'];
 const PROGRAM_KEY = 'absbyai_trainer_program';
 const PROGRESS_KEY = 'absbyai_trainer_progress';
 
