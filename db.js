@@ -68,6 +68,15 @@ async function initDb() {
       created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
     );
     CREATE INDEX IF NOT EXISTS programs_user_idx ON programs (user_id, id);
+    CREATE TABLE IF NOT EXISTS meal_plans (
+      id          SERIAL PRIMARY KEY,
+      user_id     INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      plan_number INTEGER NOT NULL DEFAULT 1,
+      intake      JSONB NOT NULL,
+      plan        JSONB NOT NULL,
+      created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+    CREATE INDEX IF NOT EXISTS meal_plans_user_idx ON meal_plans (user_id, id);
   `);
   // Membership columns (added after the users table shipped). ADD COLUMN IF NOT
   // EXISTS keeps this idempotent across deploys; pg-mem supports it too.

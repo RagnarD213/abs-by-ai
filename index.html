@@ -1578,10 +1578,10 @@ html, body {
         <span class="hub-tile-body"><span class="hub-tile-name">AI Trainer</span><span class="hub-tile-sub">Your personalized 4-week program</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
-      <button class="hub-tile" data-feature="nutritionist" data-soon="Meal plans and food advice tuned to your macro history.">
+      <button class="hub-tile" data-feature="nutritionist">
         <span class="hub-tile-emoji">🥗</span>
-        <span class="hub-tile-body"><span class="hub-tile-name">AI Nutritionist</span><span class="hub-tile-sub">Eat right for your transformation</span></span>
-        <span class="hub-soon">Coming soon</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">AI Nutritionist</span><span class="hub-tile-sub">Your weekly meal-prep plan &amp; targets</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
       <button class="hub-tile" data-feature="sleep" data-soon="Sleep coaching to boost recovery and fat loss.">
         <span class="hub-tile-emoji">😴</span>
@@ -1735,6 +1735,42 @@ html, body {
     <div id="programContent"><!-- rendered by JS --></div>
   </div>
 
+  <!-- ════════════════ SCREEN: AI NUTRITIONIST — INTAKE ════════════════ -->
+  <div id="nutritionSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="nutritionBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Your AI Nutritionist</span>
+      <span style="width:26px"></span>
+    </div>
+    <div class="intake-progress"><div id="nutriProgressFill" class="intake-progress-fill" style="width:10%"></div></div>
+    <div id="nutriStep"><!-- rendered by JS --></div>
+    <button id="nutriBackStep" class="try-diff-btn intake-back" style="display:none">← Back</button>
+
+    <!-- Generating loader -->
+    <div id="mealPlanLoader" class="loading-status" style="display:none;margin-top:20px">
+      <div class="loading-spinner"></div>
+      <div>
+        <div class="loading-title">Building your meal plan…</div>
+        <div class="loading-sub">Calculating your targets &amp; designing your prep</div>
+      </div>
+    </div>
+    <div id="mealPlanGenError" class="error-toast" style="display:none;margin-top:14px"></div>
+  </div>
+
+  <!-- ════════════════ SCREEN: MY MEAL PLAN ════════════════ -->
+  <div id="mealPlanSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="mealPlanBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title" id="mealPlanNavTitle">My Meal Plan</span>
+      <span style="width:26px"></span>
+    </div>
+    <div id="mealPlanContent"><!-- rendered by JS --></div>
+  </div>
+
   <!-- ════════════════ SCREEN: MEMBERSHIP ════════════════ -->
   <div id="membershipSection" class="screen" style="display:none">
     <div class="nav-bar">
@@ -1752,6 +1788,7 @@ html, body {
       <li>Your full 4-week AI training program — and every block after it</li>
       <li>Unlimited future-self image generations</li>
       <li>Unlimited AI meal &amp; macro tracking</li>
+      <li>Your AI Nutritionist meal-prep plan — recipes, grocery lists &amp; check-ins</li>
       <li>Program check-ins that adapt to your progress</li>
     </ul>
 
@@ -2170,7 +2207,7 @@ Always honor the user's requested intensity at FULL strength regardless of start
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -2826,6 +2863,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   initMealTracker();
   initAccounts();
   initTrainer();
+  initNutritionist();
   restoreSession(); // routes returning logged-in users straight to the hub
 });
 
@@ -2896,6 +2934,7 @@ async function restoreSession() {
     syncMealsFromServer();
     refreshMembership();
     syncProgramFromServer();
+    syncMealPlanFromServer();
   } catch (e) {
     if (e.status === 401) clearLoggedIn(); // stale token; network errors keep it
   }
@@ -3073,6 +3112,7 @@ function initAccounts() {
       if (window.posthog) posthog.capture('hub_tile_clicked', { feature });
       if (feature === 'macro') return showMacroScreen();
       if (feature === 'trainer') return openTrainer();
+      if (feature === 'nutritionist') return openNutritionist();
       if (feature === 'generate') return showScreen('form');
       if (feature === 'support') return; // <a mailto> handles itself
       const note = $('hubSoonNote');
@@ -3169,6 +3209,7 @@ async function handleMembershipComplete(sessionId) {
   // Unlock the program: prefer the full server copy; regenerate from the saved
   // intake if this program was generated anonymously (server never stored it).
   await unlockProgramAfterSubscribe();
+  await unlockMealPlanAfterSubscribe();
   const dest = membershipReturnTo;
   membershipReturnTo = null;
   if (dest) dest(); else if (loadStoredProgram()) showProgram(); else showHub();
@@ -3863,6 +3904,611 @@ function initTrainer() {
 }
 
 // ============================================================
+//  AI NUTRITIONIST — intake wizard, meal plan generation & rendering
+// ============================================================
+const NUTRI_INTAKE_KEY = 'absbyai_nutrition_intake';
+const MEALPLAN_KEY = 'absbyai_mealplan';
+const NUTRI_TARGETS_KEY = 'absbyai_nutrition_targets';
+
+const nutriState = { step: 0, answers: {}, steps: [] };
+
+const NUTRI_STEP_DEFS = {
+  photo: {
+    key: 'photo', title: 'Let AI read your photos', type: 'photo',
+    sub: 'Your <b>before</b> photo tells us your starting point; your <b>after</b> photo tells us the goal. We build the eating plan that closes the gap.',
+  },
+  goal: {
+    key: 'goal', title: "What's your #1 goal?", sub: 'No photos on file, so tell us where you\'re headed.',
+    opts: [
+      { v: 'lose_fat', e: '🔥', n: 'Lose fat' },
+      { v: 'build_muscle', e: '💪', n: 'Build muscle' },
+      { v: 'abs_visible', e: '🎯', n: 'Get visible abs' },
+      { v: 'recomp', e: '⚖️', n: 'Lose fat + build muscle', s: 'Body recomposition' },
+      { v: 'general_fitness', e: '⚡', n: 'Just eat better & feel better' },
+    ],
+  },
+  body: { key: 'body', title: 'About you', sub: 'Four quick numbers — this is how we calculate your calories.', type: 'body' },
+  activity: {
+    key: 'activity', title: 'How active is your day, outside workouts?', sub: 'This swings your calorie needs by hundreds a day.',
+    opts: [
+      { v: 'desk', e: '💺', n: 'Mostly sitting', s: 'Desk job, driving, studying' },
+      { v: 'active', e: '🚶', n: 'On my feet a lot', s: 'Teaching, retail, parenting little ones' },
+      { v: 'very_active', e: '🔨', n: 'Physically demanding', s: 'Construction, warehouse, farm work' },
+    ],
+  },
+  health: {
+    key: 'health', title: 'What do you want beyond the look?', sub: "Food choices change depending on what you're after.", type: 'health',
+    chips: [
+      { v: 'energy', n: '⚡ Steady energy, no crashes' },
+      { v: 'heart_health', n: '❤️ Heart health' },
+      { v: 'digestion', n: '🌿 Less bloating, better digestion' },
+      { v: 'blood_sugar', n: '🩸 Steadier blood sugar' },
+      { v: 'sleep', n: '😴 Better sleep' },
+      { v: 'longevity', n: '🌳 Live longer, age well' },
+      { v: 'look_only', n: 'Just the look is fine' },
+    ],
+  },
+  foods: {
+    key: 'foods', title: 'What foods do you love?', sub: "Tap everything you'd happily eat every week — your meal prep gets built around these.", type: 'foods',
+    chips: [
+      { v: 'chicken', n: '🍗 Chicken' }, { v: 'beef', n: '🥩 Beef' }, { v: 'fish', n: '🐟 Fish & seafood' },
+      { v: 'eggs', n: '🍳 Eggs' }, { v: 'rice', n: '🍚 Rice' }, { v: 'pasta', n: '🍝 Pasta' },
+      { v: 'potatoes', n: '🥔 Potatoes' }, { v: 'mexican', n: '🌮 Mexican flavors' },
+      { v: 'asian', n: '🥡 Asian flavors' }, { v: 'mediterranean', n: '🫒 Mediterranean' },
+      { v: 'salads', n: '🥗 Big salads' }, { v: 'spicy', n: '🌶️ Spicy food' },
+    ],
+  },
+  avoid: { key: 'avoid', title: 'Anything we should keep off your plate?', sub: 'Allergies are treated as absolute — they will never appear in your plan.', type: 'avoid' },
+  cooking: {
+    key: 'cooking', title: 'How much do you want to cook?', sub: 'Be honest — the best plan is the one you\'ll actually prep.', type: 'cooking',
+    opts: [
+      { v: 'minimal', e: '⏱️', n: 'Bare minimum', s: 'Few ingredients, one pan, done fast' },
+      { v: 'simple', e: '🍳', n: 'Keep it simple', s: 'Easy recipes with real flavor' },
+      { v: 'love', e: '👨‍🍳', n: 'I like cooking', s: 'Happy to spend Sunday afternoon on it' },
+    ],
+  },
+};
+
+function buildNutriSteps() {
+  const hasPhotos = !!(localStorage.getItem(LAST_BEFORE_KEY) && localStorage.getItem(LAST_AFTER_KEY));
+  const D = NUTRI_STEP_DEFS;
+  return hasPhotos
+    ? [D.photo, D.body, D.activity, D.health, D.foods, D.avoid, D.cooking]
+    : [D.goal, D.body, D.activity, D.health, D.foods, D.avoid, D.cooking];
+}
+
+function openNutritionist() {
+  if (window.posthog) posthog.capture('nutritionist_opened');
+  const stored = loadStoredMealPlan();
+  if (stored) return showMealPlan();
+  startNutriIntake();
+}
+
+function startNutriIntake() {
+  nutriState.step = 0;
+  nutriState.answers = { health_goals: [], fav_foods: [], allergies: [], diet_style: 'none', glp1: 'no' };
+  nutriState.steps = buildNutriSteps();
+  $('mealPlanGenError').style.display = 'none';
+  $('mealPlanLoader').style.display = 'none';
+  renderNutriStep();
+  showScreen('nutrition');
+}
+
+function renderNutriStep() {
+  const steps = nutriState.steps;
+  const step = steps[nutriState.step];
+  const a = nutriState.answers;
+  const wrap = $('nutriStep');
+  $('nutriProgressFill').style.width = `${Math.round(((nutriState.step + 1) / steps.length) * 100)}%`;
+  $('nutriBackStep').style.display = nutriState.step > 0 ? '' : 'none';
+  wrap.style.display = '';
+
+  let inner = `<div class="hero-h1" style="font-size:23px;line-height:1.15;margin-bottom:5px">${step.title}</div>`;
+  inner += step.sub ? `<div class="hero-sub" style="margin-bottom:16px">${step.sub}</div>` : `<div style="margin-bottom:16px"></div>`;
+
+  if (step.opts && step.type !== 'cooking') {
+    inner += `<div class="intake-opts">` + step.opts.map(o => `
+      <button class="intake-opt" data-v="${o.v}">
+        <span class="intake-opt-emoji">${o.e}</span>
+        <span><span class="intake-opt-name">${o.n}</span>${o.s ? `<span class="intake-opt-sub" style="display:block">${o.s}</span>` : ''}</span>
+      </button>`).join('') + `</div>`;
+  } else if (step.type === 'photo') {
+    inner += `
+      <label class="consent-row"><input type="checkbox" id="nutriPhotoConsent" checked />
+        <span><span class="intake-opt-name">Use my photos to personalize my plan</span>
+        <span class="intake-opt-sub" style="display:block">Analyzed once to set your targets, never stored by the AI.</span></span></label>
+      <button class="cta-btn" id="nutriPhotoNext" style="margin-top:18px">Continue</button>`;
+  } else if (step.type === 'body') {
+    const sexes = [{ v: 'male', n: 'Male' }, { v: 'female', n: 'Female' }, { v: 'unspecified', n: 'Prefer not to say' }];
+    const hFt = a.height_ft ?? '', hIn = a.height_extra_in ?? '';
+    inner += `
+      <div class="lbl"><span class="lbl-text">Sex</span><span class="lbl-opt">Used only for the calorie math</span></div>
+      <div class="intake-chips" id="nutriSexChips">${sexes.map(s => `<button class="intake-chip${a.sex === s.v ? ' selected' : ''}" data-v="${s.v}">${s.n}</button>`).join('')}</div>
+      <div class="lbl" style="margin-top:14px"><span class="lbl-text">Age</span></div>
+      <input type="number" id="nutriAge" class="text-field" inputmode="numeric" min="16" max="90" placeholder="e.g. 34" value="${a.age ?? ''}" />
+      <div class="lbl" style="margin-top:14px"><span class="lbl-text">Height</span></div>
+      <div style="display:flex;gap:10px">
+        <input type="number" id="nutriHeightFt" class="text-field" inputmode="numeric" min="4" max="7" placeholder="ft" value="${hFt}" style="flex:1" />
+        <input type="number" id="nutriHeightIn" class="text-field" inputmode="numeric" min="0" max="11" placeholder="in" value="${hIn}" style="flex:1" />
+      </div>
+      <div class="lbl" style="margin-top:14px"><span class="lbl-text">Current weight (lbs)</span></div>
+      <input type="number" id="nutriWeight" class="text-field" inputmode="numeric" min="80" max="500" placeholder="e.g. 195" value="${a.weight_lb ?? ''}" />
+      <div id="nutriBodyError" class="error-toast" style="display:none;margin-top:12px"></div>
+      <button class="cta-btn" id="nutriBodyNext" style="margin-top:16px">Continue</button>`;
+  } else if (step.type === 'health') {
+    const sel = a.health_goals || [];
+    inner += `<div class="intake-chips">` + step.chips.map(c =>
+      `<button class="intake-chip${sel.includes(c.v) ? ' selected' : ''}" data-v="${c.v}">${c.n}</button>`).join('') + `</div>
+      <div class="lbl" style="margin-top:18px"><span class="lbl-text">Are you taking a GLP-1 (Ozempic, Wegovy, Zepbound, Mounjaro) or anything that affects appetite or weight?</span></div>
+      <div class="intake-chips" id="nutriGlp1Chips">
+        <button class="intake-chip${a.glp1 === 'yes' ? ' selected' : ''}" data-v="yes">Yes</button>
+        <button class="intake-chip${a.glp1 === 'no' ? ' selected' : ''}" data-v="no">No</button>
+        <button class="intake-chip${a.glp1 === 'prefer_not' ? ' selected' : ''}" data-v="prefer_not">Prefer not to say</button>
+      </div>
+      <div class="physique-wrap" style="margin-top:14px">
+        <div class="lbl"><span class="lbl-text">Other medications or conditions we should plan around?</span><span class="lbl-opt">Optional</span></div>
+        <input type="text" id="nutriMedsNotes" class="text-field" maxlength="300" placeholder="e.g. type 2 diabetes, blood pressure meds" value="${escapeHtml(a.meds_notes || '')}" />
+      </div>
+      <button class="cta-btn" id="nutriHealthNext" style="margin-top:16px">Continue</button>`;
+  } else if (step.type === 'foods') {
+    const sel = a.fav_foods || [];
+    inner += `<div class="intake-chips">` + step.chips.map(c =>
+      `<button class="intake-chip${sel.includes(c.v) ? ' selected' : ''}" data-v="${c.v}">${c.n}</button>`).join('') + `</div>
+      <div class="physique-wrap" style="margin-top:16px">
+        <div class="lbl"><span class="lbl-text">Anything else you love?</span><span class="lbl-opt">Optional</span></div>
+        <input type="text" id="nutriFoodNotes" class="text-field" maxlength="300" placeholder="e.g. Greek yogurt, peanut butter, sushi" value="${escapeHtml(a.food_notes || '')}" />
+      </div>
+      <button class="cta-btn" id="nutriFoodsNext" style="margin-top:16px">Continue</button>`;
+  } else if (step.type === 'avoid') {
+    const allergyChips = [
+      { v: 'dairy', n: 'Dairy' }, { v: 'gluten', n: 'Gluten' }, { v: 'nuts', n: 'Nuts' },
+      { v: 'shellfish', n: 'Shellfish' }, { v: 'eggs', n: 'Eggs' }, { v: 'soy', n: 'Soy' },
+    ];
+    const diets = [
+      { v: 'none', n: 'No restrictions' }, { v: 'vegetarian', n: 'Vegetarian' }, { v: 'vegan', n: 'Vegan' },
+      { v: 'pescatarian', n: 'Pescatarian' }, { v: 'halal', n: 'Halal' }, { v: 'kosher', n: 'Kosher' }, { v: 'dairy_free', n: 'Dairy-free' },
+    ];
+    inner += `
+      <div class="lbl"><span class="lbl-text">Food allergies</span><span class="lbl-opt">Tap all that apply</span></div>
+      <div class="intake-chips" id="nutriAllergyChips">${allergyChips.map(c => `<button class="intake-chip${(a.allergies || []).includes(c.v) ? ' selected' : ''}" data-v="${c.v}">${c.n}</button>`).join('')}</div>
+      <div class="lbl" style="margin-top:16px"><span class="lbl-text">Eating style</span></div>
+      <div class="intake-chips" id="nutriDietChips">${diets.map(d => `<button class="intake-chip${(a.diet_style || 'none') === d.v ? ' selected' : ''}" data-v="${d.v}">${d.n}</button>`).join('')}</div>
+      <div class="physique-wrap" style="margin-top:16px">
+        <div class="lbl"><span class="lbl-text">Foods you just don't like</span><span class="lbl-opt">Optional</span></div>
+        <input type="text" id="nutriDislikes" class="text-field" maxlength="300" placeholder="e.g. mushrooms, olives, cilantro" value="${escapeHtml(a.dislikes || '')}" />
+      </div>
+      <button class="cta-btn" id="nutriAvoidNext" style="margin-top:16px">Continue</button>`;
+  } else if (step.type === 'cooking') {
+    inner += `<div class="intake-opts">` + step.opts.map(o => `
+      <button class="intake-opt" data-v="${o.v}">
+        <span class="intake-opt-emoji">${o.e}</span>
+        <span><span class="intake-opt-name">${o.n}</span>${o.s ? `<span class="intake-opt-sub" style="display:block">${o.s}</span>` : ''}</span>
+      </button>`).join('') + `</div>`;
+  }
+
+  wrap.innerHTML = inner;
+
+  // Wire the step
+  if (step.key === 'goal') {
+    wrap.querySelectorAll('.intake-opt').forEach(btn => btn.addEventListener('click', () => {
+      a.goal = btn.dataset.v;
+      nextNutriStep();
+    }));
+  } else if (step.key === 'activity') {
+    wrap.querySelectorAll('.intake-opt').forEach(btn => btn.addEventListener('click', () => {
+      a.activity = btn.dataset.v;
+      nextNutriStep();
+    }));
+  } else if (step.type === 'photo') {
+    $('nutriPhotoNext').addEventListener('click', () => {
+      a.photo_consent = $('nutriPhotoConsent').checked;
+      nextNutriStep();
+    });
+  } else if (step.type === 'body') {
+    wrap.querySelectorAll('#nutriSexChips .intake-chip').forEach(c => c.addEventListener('click', () => {
+      a.sex = c.dataset.v;
+      wrap.querySelectorAll('#nutriSexChips .intake-chip').forEach(x => x.classList.toggle('selected', x.dataset.v === a.sex));
+    }));
+    $('nutriBodyNext').addEventListener('click', () => {
+      const age = parseInt($('nutriAge').value, 10);
+      const ft = parseInt($('nutriHeightFt').value, 10);
+      const inch = parseInt($('nutriHeightIn').value, 10) || 0;
+      const wt = parseFloat($('nutriWeight').value);
+      const err = $('nutriBodyError');
+      if (!(age >= 16 && age <= 90)) { err.textContent = 'Please enter your age (16–90).'; err.style.display = ''; return; }
+      if (!(ft >= 4 && ft <= 7)) { err.textContent = 'Please enter your height (feet + inches).'; err.style.display = ''; return; }
+      if (!(wt >= 80 && wt <= 500)) { err.textContent = 'Please enter your current weight in pounds.'; err.style.display = ''; return; }
+      a.age = age; a.height_ft = ft; a.height_extra_in = inch;
+      a.height_in = ft * 12 + inch; a.weight_lb = wt;
+      if (!a.sex) a.sex = 'unspecified';
+      nextNutriStep();
+    });
+  } else if (step.type === 'health') {
+    wrap.querySelectorAll('.intake-chips:not(#nutriGlp1Chips) .intake-chip').forEach(chip => chip.addEventListener('click', () => {
+      const v = chip.dataset.v;
+      let sel = a.health_goals || [];
+      if (v === 'look_only') sel = sel.includes('look_only') ? [] : ['look_only'];
+      else { sel = sel.filter(x => x !== 'look_only'); sel = sel.includes(v) ? sel.filter(x => x !== v) : [...sel, v]; }
+      a.health_goals = sel;
+      a.meds_notes = $('nutriMedsNotes').value.trim();
+      renderNutriStep();
+    }));
+    wrap.querySelectorAll('#nutriGlp1Chips .intake-chip').forEach(c => c.addEventListener('click', () => {
+      a.glp1 = c.dataset.v;
+      wrap.querySelectorAll('#nutriGlp1Chips .intake-chip').forEach(x => x.classList.toggle('selected', x.dataset.v === a.glp1));
+    }));
+    $('nutriHealthNext').addEventListener('click', () => {
+      a.meds_notes = $('nutriMedsNotes').value.trim();
+      nextNutriStep();
+    });
+  } else if (step.type === 'foods') {
+    wrap.querySelectorAll('.intake-chips .intake-chip').forEach(chip => chip.addEventListener('click', () => {
+      const v = chip.dataset.v;
+      let sel = a.fav_foods || [];
+      sel = sel.includes(v) ? sel.filter(x => x !== v) : [...sel, v];
+      a.fav_foods = sel;
+      chip.classList.toggle('selected', sel.includes(v));
+    }));
+    $('nutriFoodsNext').addEventListener('click', () => {
+      a.food_notes = $('nutriFoodNotes').value.trim();
+      nextNutriStep();
+    });
+  } else if (step.type === 'avoid') {
+    wrap.querySelectorAll('#nutriAllergyChips .intake-chip').forEach(chip => chip.addEventListener('click', () => {
+      const v = chip.dataset.v;
+      let sel = a.allergies || [];
+      sel = sel.includes(v) ? sel.filter(x => x !== v) : [...sel, v];
+      a.allergies = sel;
+      chip.classList.toggle('selected', sel.includes(v));
+    }));
+    wrap.querySelectorAll('#nutriDietChips .intake-chip').forEach(c => c.addEventListener('click', () => {
+      a.diet_style = c.dataset.v;
+      wrap.querySelectorAll('#nutriDietChips .intake-chip').forEach(x => x.classList.toggle('selected', x.dataset.v === a.diet_style));
+    }));
+    $('nutriAvoidNext').addEventListener('click', () => {
+      a.dislikes = $('nutriDislikes').value.trim();
+      nextNutriStep();
+    });
+  } else if (step.type === 'cooking') {
+    wrap.querySelectorAll('.intake-opt').forEach(btn => btn.addEventListener('click', () => {
+      a.cooking = btn.dataset.v;
+      generateMealPlan();
+    }));
+  }
+}
+
+function nextNutriStep() {
+  if (nutriState.step < nutriState.steps.length - 1) {
+    nutriState.step++;
+    renderNutriStep();
+  }
+}
+
+async function generateMealPlan() {
+  const a = nutriState.answers;
+  const intake = {
+    sex: a.sex || 'unspecified', age: a.age, height_in: a.height_in, weight_lb: a.weight_lb,
+    activity: a.activity, glp1: a.glp1 || 'no', meds_notes: a.meds_notes || '',
+    health_goals: (a.health_goals || []).filter(x => x !== 'look_only'),
+    fav_foods: a.fav_foods || [], food_notes: a.food_notes || '',
+    allergies: a.allergies || [], diet_style: a.diet_style || 'none',
+    dislikes: a.dislikes || '', cooking: a.cooking || 'simple',
+  };
+  if (a.goal) intake.goal = a.goal;
+  localStorage.setItem(NUTRI_INTAKE_KEY, JSON.stringify(intake));
+
+  const consent = a.photo_consent !== false && !!localStorage.getItem(LAST_BEFORE_KEY);
+  let photoBase64 = null, photoMime = null, afterPhotoBase64 = null, afterPhotoMime = null;
+  if (consent) {
+    const parse = (dataUrl) => {
+      const m = dataUrl && dataUrl.match(/^data:(.*?);base64,(.*)$/);
+      return m ? { mime: m[1], data: m[2] } : null;
+    };
+    const before = parse(localStorage.getItem(LAST_BEFORE_KEY));
+    const after = parse(localStorage.getItem(LAST_AFTER_KEY));
+    if (before) { photoMime = before.mime; photoBase64 = before.data; }
+    if (after) { afterPhotoMime = after.mime; afterPhotoBase64 = after.data; }
+  }
+
+  $('nutriStep').style.display = 'none';
+  $('nutriBackStep').style.display = 'none';
+  $('mealPlanGenError').style.display = 'none';
+  $('mealPlanLoader').style.display = '';
+  if (window.posthog) posthog.capture('mealplan_generation_started', { glp1: intake.glp1, diet_style: intake.diet_style });
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/generate-mealplan`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
+      },
+      body: JSON.stringify({ intake, photoBase64, photoMime, afterPhotoBase64, afterPhotoMime, photoConsent: consent }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
+
+    storeMealPlan(data);
+    if (window.posthog) posthog.capture('mealplan_generated', { locked: data.locked });
+    showMealPlan();
+  } catch (err) {
+    $('mealPlanGenError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('mealPlanGenError').style.display = '';
+    $('nutriStep').style.display = '';
+    $('nutriBackStep').style.display = '';
+  } finally {
+    $('mealPlanLoader').style.display = 'none';
+  }
+}
+
+// ── Meal plan storage ──
+function storeMealPlan(data) {
+  try { localStorage.setItem(MEALPLAN_KEY, JSON.stringify(data)); } catch (e) {}
+  // Feed the macro tracker: today's totals render against these targets.
+  const t = data?.plan?.targets;
+  if (t?.daily_calories) {
+    try { localStorage.setItem(NUTRI_TARGETS_KEY, JSON.stringify({ daily_calories: t.daily_calories, protein_g: t.protein_g })); } catch (e) {}
+  }
+}
+function loadStoredMealPlan() {
+  try { return JSON.parse(localStorage.getItem(MEALPLAN_KEY) || 'null'); } catch (e) { return null; }
+}
+function loadNutritionTargets() {
+  try { return JSON.parse(localStorage.getItem(NUTRI_TARGETS_KEY) || 'null'); } catch (e) { return null; }
+}
+
+// Pull the server's copy on login/restore (it may be fuller — e.g. unlocked).
+async function syncMealPlanFromServer() {
+  if (!isLoggedIn()) return;
+  try {
+    const data = await authApi('/api/mealplan');
+    if (data.plan) storeMealPlan(data);
+  } catch (e) { console.warn('meal plan sync failed:', e.message); }
+}
+
+async function unlockMealPlanAfterSubscribe() {
+  const stored = loadStoredMealPlan();
+  if (stored?.planId && isLoggedIn()) {
+    await syncMealPlanFromServer();
+    return;
+  }
+  const intake = (() => { try { return JSON.parse(localStorage.getItem(NUTRI_INTAKE_KEY) || 'null'); } catch (e) { return null; } })();
+  if (!intake || !isLoggedIn()) return;
+  try {
+    const data = await authApi('/api/generate-mealplan', {
+      method: 'POST',
+      body: JSON.stringify({ intake }),
+    });
+    storeMealPlan(data);
+  } catch (e) { console.warn('meal plan unlock regen failed:', e.message); }
+}
+
+// ── Meal plan rendering ──
+const mealPlanView = { recipe: 0 }; // which prep recipe tab is active
+
+function showMealPlan() {
+  renderMealPlan();
+  showScreen('mealPlan');
+}
+
+function renderMealPlan() {
+  const stored = loadStoredMealPlan();
+  const wrap = $('mealPlanContent');
+  if (!stored?.plan) { startNutriIntake(); return; }
+
+  const p = stored.plan;
+  const locked = !!stored.locked && !memberState.active;
+  $('mealPlanNavTitle').textContent = `My Meal Plan${stored.planNumber > 1 ? ` — Plan ${stored.planNumber}` : ''}`;
+
+  const t = p.targets || {};
+  const modeWord = t.calories_mode === 'floor' ? 'at least' : 'up to';
+  let html = '';
+
+  if (p.assessment) {
+    html += `<div class="why-card"><b>Here's what we saw 👀</b><br>${escapeHtml(p.assessment.starting_point || '')}
+      ${p.assessment.goal_summary ? `<br><br><b>The gap to your after photo:</b> ${escapeHtml(p.assessment.goal_summary)}` : ''}</div>`;
+  }
+
+  // Targets card — the headline numbers.
+  html += `<div class="why-card">
+    <b>Your daily targets 🎯</b><br>
+    <div style="display:flex;gap:22px;margin:10px 0 8px">
+      <div><div style="font-size:26px;font-weight:800;color:var(--ink)">${t.daily_calories || '—'}</div><div style="font-size:12px;color:var(--mute)">calories, eat ${modeWord}</div></div>
+      <div><div style="font-size:26px;font-weight:800;color:var(--ink)">${t.protein_g || '—'}g</div><div style="font-size:12px;color:var(--mute)">protein every day</div></div>
+    </div>
+    ${t.target_explanation ? `<span style="color:var(--mute)">${escapeHtml(t.target_explanation)}</span>` : ''}
+    ${t.calories_mode === 'floor' ? `<br><br><b>Why "at least"?</b> <span style="color:var(--mute)">Your medication handles the deficit — your job is protein and training, so what you lose is fat, not muscle.</span>` : ''}
+  </div>`;
+
+  html += `<div class="why-card"><b>Why this works for you</b><br>${escapeHtml(p.why_this_works || '')}</div>`;
+
+  // Sunday prep — recipe rotation tabs.
+  const recipes = p.prep_recipes || [];
+  if (mealPlanView.recipe >= recipes.length) mealPlanView.recipe = 0;
+  const r = recipes[mealPlanView.recipe] || {};
+  const ps = r.per_serving || {};
+  html += `<div class="wk-card">
+    <div class="wk-hdr"><span class="wk-title">Sunday meal prep 🍳</span><span class="wk-theme">Pick one, prep 10 portions</span></div>
+    <div class="intake-chips" style="padding:12px 14px 4px" id="recipeTabs">
+      ${recipes.map((rec, i) => `<button class="intake-chip${i === mealPlanView.recipe ? ' selected' : ''}" data-r="${i}">${rec.emoji || '🍽️'} ${escapeHtml(rec.name || `Recipe ${i + 1}`)}</button>`).join('')}
+    </div>
+    <div style="padding:8px 16px 16px">
+      <div style="font-weight:700;font-size:16px;margin:6px 0 3px">${r.emoji || ''} ${escapeHtml(r.name || '')}</div>
+      <div style="color:var(--mute);font-size:13.5px;margin-bottom:8px">${escapeHtml(r.description || '')}</div>
+      <div style="font-size:12.5px;color:var(--mute);margin-bottom:10px">
+        ${r.prep_time_min ? `⏱️ ~${r.prep_time_min} min prep · ` : ''}10 portions ·
+        <b style="color:var(--ink)">${ps.calories ?? '—'} cal</b> · ${ps.protein_g ?? '—'}P / ${ps.carbs_g ?? '—'}C / ${ps.fat_g ?? '—'}F per portion
+      </div>`;
+
+  if (locked || r.locked) {
+    html += `<div class="hero-sub" style="margin-bottom:0">🔒 Ingredients, grocery list &amp; prep steps are members-only.</div></div></div>`;
+  } else {
+    html += `<div class="lbl" style="margin-top:4px"><span class="lbl-text">Grocery list (all 10 portions)</span></div>
+      <div id="groceryList">${(r.ingredients || []).map((ing, i) => `
+        <label class="consent-row" style="margin:0;padding:5px 0"><input type="checkbox" data-g="${i}" />
+          <span><b>${escapeHtml(ing.quantity || '')}</b> ${escapeHtml(ing.item || '')}</span></label>`).join('')}
+      </div>
+      <button class="try-diff-btn" id="copyGroceryBtn" style="margin:10px 0 4px">📋 Copy grocery list</button>
+      <div class="lbl" style="margin-top:10px"><span class="lbl-text">Prep steps</span></div>
+      <ol style="margin:4px 0 0 18px;padding:0;font-size:13.5px;color:var(--ink);display:flex;flex-direction:column;gap:6px">
+        ${(r.steps || []).map(s => `<li>${escapeHtml(s)}</li>`).join('')}
+      </ol>
+      <button class="try-diff-btn" id="swapRecipeBtn" style="margin-top:14px">🔄 Don't like this one? Swap it</button>
+      <div id="swapWrap" style="display:none;margin-top:8px">
+        <input type="text" id="swapNote" class="text-field" maxlength="300" placeholder="What would you like instead? e.g. less chicken, something spicier" />
+        <button class="cta-btn" id="swapGoBtn" style="margin-top:8px">Generate replacement recipe</button>
+        <div id="swapError" class="error-toast" style="display:none;margin-top:8px"></div>
+      </div>
+    </div></div>`;
+  }
+
+  // Daily structure — the math, spelled out.
+  const ds = p.daily_structure || {};
+  html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">Your weekdays (Mon–Fri)</span></div>
+    <div style="padding:12px 16px 16px;font-size:13.5px">
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)"><span>🍱 2 prep portions (lunch + dinner)</span><b>${ds.prep_calories ?? '—'} cal</b></div>
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)"><span>🥣 Breakfast + snacks, your choice</span><b>${ds.flexible_calories ?? '—'} cal</b></div>
+      <div style="display:flex;justify-content:space-between;padding:6px 0"><span>Protein still needed outside prep</span><b>${ds.flexible_protein_g ?? '—'}g</b></div>
+      ${ds.note ? `<div style="color:var(--mute);margin-top:8px">${escapeHtml(ds.note)}</div>` : ''}
+      ${(ds.flexible_suggestions || []).length ? `
+        <div class="lbl" style="margin-top:12px"><span class="lbl-text">Easy go-tos that fit</span><span class="lbl-opt">Use them or ignore them</span></div>
+        ${ds.flexible_suggestions.map(s => `<div style="display:flex;justify-content:space-between;padding:5px 0;color:var(--mute)"><span>${escapeHtml(s.name)}</span><span>${s.calories} cal · ${s.protein_g}g P</span></div>`).join('')}` : ''}
+    </div></div>`;
+
+  // Weekend guidance.
+  const wg = p.weekend_guidance || {};
+  html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">Weekends 🎉</span><span class="wk-theme">${wg.calories ? `${wg.calories} cal/day` : ''}</span></div>
+    <div style="padding:12px 16px 16px;font-size:13.5px;color:var(--ink)">
+      ${(wg.tips || []).map(tip => `<div style="padding:4px 0">✓ ${escapeHtml(tip)}</div>`).join('')}
+    </div></div>`;
+
+  if (locked) {
+    html += `<div class="locked-cta-card">
+      <div class="locked-cta-h">Your plan is built. Your targets are free — the kitchen is members-only.</div>
+      <div class="locked-cta-sub">Unlock all 3 rotating prep recipes with grocery lists and step-by-step Sunday prep, plus recipe swaps and check-ins that adjust your calories as you lose.</div>
+      <button class="cta-btn" id="mealPlanUnlockBtn">Unlock My Full Meal Plan</button>
+      <div class="guarantee-note">$9.99/mo or $59.99/yr · 7-day money-back guarantee</div>
+    </div>`;
+  } else {
+    html += `<div class="checkin-card" id="nutriCheckinCard">
+      <div class="locked-cta-h" style="font-size:15px">Weekly check-in ⚖️</div>
+      <div class="locked-cta-sub" style="margin-bottom:10px">Weigh in and we'll adjust your calories and build fresh recipes as your body changes.</div>
+      <div class="lbl"><span class="lbl-text">Current weight (lbs)</span></div>
+      <input type="number" id="nutriCheckinWeight" class="text-field" inputmode="numeric" min="80" max="500" placeholder="e.g. 192" style="margin-bottom:10px" />
+      <div class="lbl"><span class="lbl-text">How's it going?</span><span class="lbl-opt">Optional</span></div>
+      <input type="text" id="nutriCheckinNotes" class="text-field" maxlength="300" placeholder="e.g. feeling great, weekends are hard" style="margin-bottom:12px" />
+      <div id="nutriCheckinError" class="error-toast" style="display:none;margin-bottom:10px"></div>
+      <button class="try-diff-btn" id="nutriCheckinBtn" style="margin:0">Update My Plan →</button>
+    </div>`;
+    html += `<button class="try-diff-btn" id="mealPlanRestartBtn" style="margin-top:14px">Start over with a new intake</button>`;
+  }
+
+  wrap.innerHTML = html;
+
+  // Wire it
+  wrap.querySelectorAll('#recipeTabs .intake-chip').forEach(tab => tab.addEventListener('click', () => {
+    mealPlanView.recipe = parseInt(tab.dataset.r, 10) || 0;
+    renderMealPlan();
+  }));
+  const copyBtn = $('copyGroceryBtn');
+  if (copyBtn) copyBtn.addEventListener('click', () => {
+    const text = `${r.name} — grocery list (10 portions)\n` +
+      (r.ingredients || []).map(ing => `• ${ing.quantity} ${ing.item}`).join('\n');
+    navigator.clipboard.writeText(text).then(() => {
+      copyBtn.textContent = '✓ Copied!';
+      setTimeout(() => { copyBtn.textContent = '📋 Copy grocery list'; }, 1600);
+    }).catch(() => {});
+  });
+  const swapBtn = $('swapRecipeBtn');
+  if (swapBtn) swapBtn.addEventListener('click', () => {
+    $('swapWrap').style.display = $('swapWrap').style.display === 'none' ? '' : 'none';
+  });
+  const swapGo = $('swapGoBtn');
+  if (swapGo) swapGo.addEventListener('click', () => submitRecipeSwap());
+  const unlockBtn = $('mealPlanUnlockBtn');
+  if (unlockBtn) unlockBtn.addEventListener('click', () => showMembershipScreen(() => showMealPlan()));
+  const restartBtn = $('mealPlanRestartBtn');
+  if (restartBtn) restartBtn.addEventListener('click', () => {
+    if (confirm('Start a brand new meal plan? Your current plan will be replaced.')) startNutriIntake();
+  });
+  const checkinBtn = $('nutriCheckinBtn');
+  if (checkinBtn) checkinBtn.addEventListener('click', () => submitNutriCheckin());
+}
+
+async function submitRecipeSwap() {
+  const stored = loadStoredMealPlan();
+  if (!stored?.planId || !isLoggedIn()) return startNutriIntake();
+  const btn = $('swapGoBtn');
+  btn.disabled = true;
+  btn.textContent = 'Cooking up a replacement…';
+  $('swapError').style.display = 'none';
+  try {
+    const data = await authApi('/api/mealplan/swap', {
+      method: 'POST',
+      body: JSON.stringify({
+        planId: stored.planId,
+        recipeIndex: mealPlanView.recipe,
+        note: $('swapNote').value.trim(),
+      }),
+    });
+    storeMealPlan(data);
+    if (window.posthog) posthog.capture('mealplan_recipe_swapped');
+    renderMealPlan();
+  } catch (err) {
+    if (err.status === 402) { showMembershipScreen(() => showMealPlan()); return; }
+    $('swapError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('swapError').style.display = '';
+    btn.disabled = false;
+    btn.textContent = 'Generate replacement recipe';
+  }
+}
+
+async function submitNutriCheckin() {
+  const stored = loadStoredMealPlan();
+  if (!stored?.planId || !isLoggedIn()) return startNutriIntake();
+  const weight = parseFloat($('nutriCheckinWeight').value);
+  const errEl = $('nutriCheckinError');
+  if (!(weight >= 80 && weight <= 500)) {
+    errEl.textContent = 'Please enter your current weight in pounds.';
+    errEl.style.display = '';
+    return;
+  }
+  const btn = $('nutriCheckinBtn');
+  btn.disabled = true;
+  btn.textContent = 'Updating your plan…';
+  errEl.style.display = 'none';
+  try {
+    const data = await authApi('/api/mealplan/checkin', {
+      method: 'POST',
+      body: JSON.stringify({
+        planId: stored.planId,
+        weight_lb: weight,
+        notes: $('nutriCheckinNotes').value.trim(),
+      }),
+    });
+    storeMealPlan(data);
+    if (window.posthog) posthog.capture('mealplan_checkin_completed');
+    fireConfetti();
+    showMealPlan();
+  } catch (err) {
+    if (err.status === 402) { showMembershipScreen(() => showMealPlan()); return; }
+    errEl.textContent = err.message || 'Something went wrong. Please try again.';
+    errEl.style.display = '';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Update My Plan →';
+  }
+}
+
+function initNutritionist() {
+  $('nutritionBackBtn').addEventListener('click', () => (isLoggedIn() ? showHub() : showMacroScreen()));
+  $('nutriBackStep').addEventListener('click', () => {
+    if (nutriState.step > 0) { nutriState.step--; renderNutriStep(); }
+  });
+  $('mealPlanBackBtn').addEventListener('click', () => (isLoggedIn() ? showHub() : showMacroScreen()));
+}
+
+// ============================================================
 //  PHOTO HANDLING
 // ============================================================
 function finalizePhoto({ data, mime, dataUrl }) {
@@ -4186,8 +4832,11 @@ function renderDailyTotals() {
     carbs_g: acc.carbs_g + (m.totals?.carbs_g || 0),
     fat_g: acc.fat_g + (m.totals?.fat_g || 0),
   }), { calories: 0, protein_g: 0, carbs_g: 0, fat_g: 0 });
-  $('dailyTotalsValues').textContent =
-    `${Math.round(totals.calories)} cal · ${r1(totals.protein_g)}P · ${r1(totals.carbs_g)}C · ${r1(totals.fat_g)}F`;
+  // If the AI Nutritionist has set targets, show progress against them.
+  const nt = loadNutritionTargets();
+  $('dailyTotalsValues').textContent = nt
+    ? `${Math.round(totals.calories)} / ${nt.daily_calories} cal · ${r1(totals.protein_g)} / ${nt.protein_g}g protein`
+    : `${Math.round(totals.calories)} cal · ${r1(totals.protein_g)}P · ${r1(totals.carbs_g)}C · ${r1(totals.fat_g)}F`;
 }
 
 function showMacroScreen() {

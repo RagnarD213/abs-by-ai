@@ -2657,6 +2657,501 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
   }
 });
 
+// ============================================================
+//  AI NUTRITIONIST — meal-prep plans built from the photo gap
+// ============================================================
+
+const RECIPE_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['name', 'emoji', 'description', 'prep_time_min', 'servings', 'ingredients', 'steps', 'per_serving'],
+  properties: {
+    name: { type: 'string', description: 'Appetizing recipe name, e.g. "Honey-Chipotle Chicken Bowls"' },
+    emoji: { type: 'string', description: 'One food emoji for the card' },
+    description: { type: 'string', description: '1-2 sentences selling the meal — why it tastes good AND fits their goal.' },
+    prep_time_min: { type: 'integer', description: 'Total Sunday prep time in minutes, including cooking.' },
+    servings: { type: 'integer', description: 'Always 10 — two meals a day, Monday through Friday.' },
+    ingredients: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['item', 'quantity'],
+        properties: {
+          item: { type: 'string' },
+          quantity: { type: 'string', description: 'Total quantity to buy for all 10 servings, e.g. "5 lbs", "3 cups dry"' },
+        },
+      },
+    },
+    steps: { type: 'array', items: { type: 'string' }, description: '4-8 numbered prep steps written for a home cook.' },
+    per_serving: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['calories', 'protein_g', 'carbs_g', 'fat_g'],
+      properties: {
+        calories: { type: 'integer' },
+        protein_g: { type: 'integer' },
+        carbs_g: { type: 'integer' },
+        fat_g: { type: 'integer' },
+      },
+    },
+  },
+};
+
+const MEALPLAN_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['why_this_works', 'assessment', 'targets', 'prep_recipes', 'daily_structure', 'weekend_guidance'],
+  properties: {
+    why_this_works: {
+      type: 'string',
+      description: "Personalized paragraph (3-5 sentences, address them as 'you') referencing their photos, health goals, favorite foods, and medication situation — why THIS eating plan closes the gap to their after photo.",
+    },
+    assessment: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['starting_point', 'goal_summary'],
+      properties: {
+        starting_point: { type: 'string', description: '2-3 encouraging, never judgmental sentences: rough body-fat range from the before photo and what that means for nutrition. If no photo, base it on their answers.' },
+        goal_summary: { type: 'string', description: '1-2 sentences on the gap between the before and after photos in nutrition terms: roughly how much fat to lose / muscle to support.' },
+      },
+    },
+    targets: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['daily_calories', 'protein_g', 'calories_mode', 'target_explanation'],
+      properties: {
+        daily_calories: { type: 'integer', description: 'The daily calorie target, chosen inside the allowed range given in the prompt.' },
+        protein_g: { type: 'integer', description: 'Daily protein target in grams, close to the computed guidance.' },
+        calories_mode: { type: 'string', enum: ['ceiling', 'floor'], description: 'ceiling = "eat no more than" (normal deficit). floor = "eat at least" (GLP-1 / appetite-suppressed users).' },
+        target_explanation: { type: 'string', description: 'One friendly sentence explaining the number, e.g. "Your maintenance is about 2,600 — 2,050 loses roughly 1 lb a week while keeping the muscle you\'re building."' },
+      },
+    },
+    prep_recipes: {
+      type: 'array',
+      description: 'Exactly 3 meal-prep recipes that ALL hit the same per-serving macros (within ~5%), so the user can rotate weeks without changing the math. Built around their favorite foods, respecting allergies/diet/dislikes as hard constraints.',
+      items: RECIPE_SCHEMA,
+    },
+    daily_structure: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['prep_meals_per_day', 'prep_calories', 'flexible_calories', 'flexible_protein_g', 'note', 'flexible_suggestions'],
+      properties: {
+        prep_meals_per_day: { type: 'integer', description: 'Always 2 (lunch + dinner from the prep), Monday-Friday.' },
+        prep_calories: { type: 'integer', description: 'Calories covered by the two prep meals (2 × per-serving calories).' },
+        flexible_calories: { type: 'integer', description: 'daily_calories minus prep_calories: what is left for breakfast and snacks.' },
+        flexible_protein_g: { type: 'integer', description: 'Protein grams still needed outside the prep meals.' },
+        note: { type: 'string', description: 'One sentence spelling out the daily math in plain words.' },
+        flexible_suggestions: {
+          type: 'array',
+          description: '3-4 easy go-to breakfasts/snacks that fit the flexible budget, respecting allergies and diet style.',
+          items: {
+            type: 'object',
+            additionalProperties: false,
+            required: ['name', 'calories', 'protein_g'],
+            properties: {
+              name: { type: 'string' },
+              calories: { type: 'integer' },
+              protein_g: { type: 'integer' },
+            },
+          },
+        },
+      },
+    },
+    weekend_guidance: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['calories', 'tips'],
+      properties: {
+        calories: { type: 'integer', description: 'Weekend daily calorie target (usually same as weekday, can be slightly higher).' },
+        tips: { type: 'array', items: { type: 'string' }, description: '2-4 realistic guardrails, e.g. "One restaurant meal fits if you keep it under ~1,200 — prioritize protein first."' },
+      },
+    },
+  },
+};
+
+const NUTRITIONIST_SYSTEM_PROMPT = `You are an expert nutritionist for a fitness app called Abs By AI. Users have generated an AI image of their future physique — your meal plan is the nutrition path from their before photo to that after photo.
+
+Photo assessment (when photos are provided):
+- The BEFORE photo shows their starting point: estimate a rough body-fat range. Be encouraging and factual — NEVER judgmental about their current body.
+- The AFTER photo is an AI-generated image of their goal physique: judge how much fat to lose and how much muscle the diet must support.
+- If no photos were provided, base the assessment on their stated goal and answers.
+
+The plan model (this is fixed — never propose a different structure):
+- Every Sunday the user meal-preps ONE recipe into 10 portions. They eat 2 portions per day Monday-Friday (lunch + dinner). Breakfast and snacks are flexible within a calorie/protein budget you spell out. Weekends are flexible within a calorie target plus a few guardrails.
+- You produce exactly 3 prep recipes that all hit the SAME per-serving macros (within ~5%), so the user rotates between them week to week without the math changing. Variety is what keeps this diet alive in week 3.
+- Each recipe: 10 servings, a complete grocery-quantity ingredient list (totals for all 10 servings), and simple numbered prep steps. Match the recipe complexity to their stated cooking effort (minimal = ~5 ingredients + a sauce; love cooking = more interesting).
+- Two prep portions should cover roughly 55-70% of daily calories, and the prep should be protein-dense: the two portions together should cover most of the protein target.
+
+Calorie and protein targets:
+- The prompt gives you server-computed maintenance calories, an ALLOWED calorie range, and protein guidance. Choose daily_calories INSIDE the allowed range — pick where in the range based on the photo gap (bigger fat-loss gap → lower in the range; lean user building muscle → top of the range). NEVER go outside the range.
+- protein_g should stay within ±10% of the protein guidance.
+- target_explanation must state maintenance and what the chosen number does, in plain words.
+
+GLP-1 / appetite-suppressing medication (when the intake says yes):
+- The medication already creates the deficit. Their real risk is under-eating and losing muscle, not overeating.
+- Set calories_mode to "floor" and daily_calories toward the BOTTOM of the allowed range as an "eat at least" number.
+- Make the prep recipes extra protein-dense with smaller, easier-to-finish portions.
+- Say this plainly in why_this_works: the medication handles the deficit; their job is protein and training so what they lose is fat, not muscle.
+- Otherwise calories_mode is "ceiling".
+
+Hard constraints (these override everything else):
+- Food allergies are absolute — the allergen must not appear in ANY recipe, suggestion, or tip, even as a garnish or optional item.
+- Diet style (vegetarian, vegan, pescatarian, halal, kosher, dairy-free) is absolute.
+- Disliked foods never appear. Favorite foods should visibly anchor the recipes — a plan built on foods they love is one they'll actually eat 10 times a week.
+- Free-text medication or health notes are treated as hard constraints (e.g. "kidney issues" → moderate protein; "diabetic" → steady carbs, mention checking with their doctor).
+- Never claim to treat, cure, or diagnose anything. For medical conditions, add a gentle "worth confirming with your doctor" where relevant.
+
+Tone: warm, direct, zero judgment. Their "beyond the look" health goals (energy, heart health, sleep, digestion, blood sugar) shape food choices and MUST be woven into why_this_works.`;
+
+// ── Server-side target math (deterministic — the model chooses within these) ──
+const NUTRITION_ACTIVITY_MULT = { desk: 1.35, active: 1.5, very_active: 1.7 };
+const CALORIE_FLOORS = { male: 1500, female: 1200, unspecified: 1350 };
+
+function computeNutritionTargets(intake) {
+  const kg = intake.weight_lb / 2.2046;
+  const cm = intake.height_in * 2.54;
+  const sexTerm = intake.sex === 'male' ? 5 : intake.sex === 'female' ? -161 : -78;
+  const bmr = 10 * kg + 6.25 * cm - 5 * intake.age + sexTerm;
+  const mult = NUTRITION_ACTIVITY_MULT[intake.activity] || 1.4;
+  const maintenance = Math.round((bmr * mult) / 10) * 10;
+  const floor = CALORIE_FLOORS[intake.sex] || CALORIE_FLOORS.unspecified;
+  // Allowed range: never deeper than a 25% deficit or below the floor; up to a
+  // small surplus for lean users whose after photo is mostly muscle.
+  const minCalories = Math.max(floor, Math.round((maintenance * 0.75) / 10) * 10);
+  const maxCalories = Math.round((maintenance + 300) / 10) * 10;
+  // Protein: ~0.9 g per lb of estimated GOAL body weight (Devine ideal weight
+  // +20% as the ceiling so heavy users aren't told to eat 280 g).
+  const ibw = intake.sex === 'female' ? 100 + 5 * (intake.height_in - 60) : 106 + 6 * (intake.height_in - 60);
+  const proteinRef = Math.min(intake.weight_lb, Math.max(ibw, 90) * 1.2);
+  const proteinG = Math.min(220, Math.max(90, Math.round((proteinRef * 0.9) / 5) * 5));
+  return { maintenance, minCalories, maxCalories, proteinG, floor };
+}
+
+const VALID_NUTRITION_INTAKE = {
+  sex: ['male', 'female', 'unspecified'],
+  activity: ['desk', 'active', 'very_active'],
+  glp1: ['yes', 'no', 'prefer_not'],
+  cooking: ['love', 'simple', 'minimal'],
+  diet_style: ['none', 'vegetarian', 'vegan', 'pescatarian', 'halal', 'kosher', 'dairy_free'],
+  allergies: ['dairy', 'gluten', 'nuts', 'shellfish', 'eggs', 'soy'],
+  goal: ['lose_fat', 'build_muscle', 'abs_visible', 'general_fitness', 'recomp'],
+  health_goals: ['heart_health', 'energy', 'digestion', 'blood_sugar', 'sleep', 'longevity', 'look_only'],
+};
+
+function validateNutritionIntake(raw) {
+  if (!raw || typeof raw !== 'object') return null;
+  const num = (v, lo, hi) => {
+    const n = parseFloat(v);
+    return Number.isFinite(n) && n >= lo && n <= hi ? n : null;
+  };
+  const age = num(raw.age, 16, 90);
+  const height_in = num(raw.height_in, 48, 90);
+  const weight_lb = num(raw.weight_lb, 80, 500);
+  if (age == null || height_in == null || weight_lb == null) return null;
+  const intake = {
+    sex: VALID_NUTRITION_INTAKE.sex.includes(raw.sex) ? raw.sex : 'unspecified',
+    age, height_in, weight_lb,
+    activity: VALID_NUTRITION_INTAKE.activity.includes(raw.activity) ? raw.activity : 'desk',
+    glp1: VALID_NUTRITION_INTAKE.glp1.includes(raw.glp1) ? raw.glp1 : 'no',
+    meds_notes: String(raw.meds_notes || '').slice(0, 300),
+    health_goals: Array.isArray(raw.health_goals)
+      ? raw.health_goals.filter((g) => VALID_NUTRITION_INTAKE.health_goals.includes(g)).slice(0, 7)
+      : [],
+    fav_foods: Array.isArray(raw.fav_foods) ? raw.fav_foods.slice(0, 12).map((s) => String(s).slice(0, 40)) : [],
+    food_notes: String(raw.food_notes || '').slice(0, 300),
+    allergies: Array.isArray(raw.allergies)
+      ? raw.allergies.filter((a) => VALID_NUTRITION_INTAKE.allergies.includes(a)).slice(0, 6)
+      : [],
+    diet_style: VALID_NUTRITION_INTAKE.diet_style.includes(raw.diet_style) ? raw.diet_style : 'none',
+    dislikes: String(raw.dislikes || '').slice(0, 300),
+    cooking: VALID_NUTRITION_INTAKE.cooking.includes(raw.cooking) ? raw.cooking : 'simple',
+  };
+  if (VALID_NUTRITION_INTAKE.goal.includes(raw.goal)) intake.goal = raw.goal;
+  return intake;
+}
+
+function buildNutritionistUserContent(intake, photos, targets) {
+  const content = [];
+  const { beforeBase64, beforeMime, afterBase64, afterMime } = photos || {};
+  if (beforeBase64 && beforeMime) {
+    content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
+    content.push({ type: 'text', text: "BEFORE photo — the user's current body (shared with consent). Estimate a rough body-fat range. Never judgmental." });
+  }
+  if (afterBase64 && afterMime) {
+    content.push({ type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } });
+    content.push({ type: 'text', text: 'AFTER photo — the AI-generated image of their goal physique. The nutrition goal is the gap between the before photo and this one.' });
+  }
+  content.push({
+    type: 'text',
+    text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\n` +
+      `Server-computed targets (Mifflin-St Jeor × activity):\n` +
+      `- Maintenance: ~${targets.maintenance} calories/day\n` +
+      `- ALLOWED daily_calories range: ${targets.minCalories}–${targets.maxCalories} (never outside this)\n` +
+      `- Protein guidance: ~${targets.proteinG} g/day (stay within ±10%)\n` +
+      (intake.glp1 === 'yes'
+        ? `- This user takes a GLP-1: calories_mode MUST be "floor" — daily_calories is an "eat at least" number near the bottom of the range, and protein is the headline of the whole plan.\n`
+        : '') +
+      `\nBuild the full plan: 3 rotating prep recipes (10 servings each, same macros), the daily structure, and weekend guidance.`,
+  });
+  return content;
+}
+
+// Clamp the model's numbers back inside the server-computed rails and make the
+// daily arithmetic self-consistent no matter what the model returned.
+function sanitizeMealPlan(plan, targets, intake) {
+  const t = plan.targets || (plan.targets = {});
+  t.maintenance_calories = targets.maintenance;
+  t.daily_calories = Math.min(targets.maxCalories, Math.max(targets.minCalories, parseInt(t.daily_calories, 10) || targets.minCalories));
+  t.protein_g = Math.min(Math.round(targets.proteinG * 1.15), Math.max(Math.round(targets.proteinG * 0.85), parseInt(t.protein_g, 10) || targets.proteinG));
+  t.calories_mode = intake.glp1 === 'yes' ? 'floor' : 'ceiling';
+  plan.prep_recipes = (plan.prep_recipes || []).slice(0, 3);
+  for (const r of plan.prep_recipes) r.servings = 10;
+  const ds = plan.daily_structure || (plan.daily_structure = {});
+  ds.prep_meals_per_day = 2;
+  const perServing = plan.prep_recipes[0]?.per_serving?.calories || Math.round(t.daily_calories * 0.3);
+  ds.prep_calories = perServing * 2;
+  ds.flexible_calories = Math.max(0, t.daily_calories - ds.prep_calories);
+  const perServingProtein = plan.prep_recipes[0]?.per_serving?.protein_g || Math.round(t.protein_g * 0.35);
+  ds.flexible_protein_g = Math.max(0, t.protein_g - perServingProtein * 2);
+  return plan;
+}
+
+// Free-preview shape: the assessment, the targets, and the daily math are the
+// hook — recipe names/macros visible, ingredients & steps members-only.
+function stripMealPlanForPreview(plan) {
+  return {
+    why_this_works: plan.why_this_works,
+    assessment: plan.assessment,
+    targets: plan.targets,
+    daily_structure: plan.daily_structure,
+    weekend_guidance: plan.weekend_guidance,
+    locked: true,
+    prep_recipes: (plan.prep_recipes || []).map((r) => ({
+      name: r.name, emoji: r.emoji, description: r.description,
+      prep_time_min: r.prep_time_min, servings: r.servings, per_serving: r.per_serving,
+      locked: true,
+    })),
+  };
+}
+
+// Generate a meal plan from intake. Free for everyone (same sunk-cost hook as
+// the trainer) — members get the full plan; free users get the preview.
+app.post('/api/generate-mealplan', aiLimiter, optionalAuth, async (req, res) => {
+  try {
+    const intake = validateNutritionIntake(req.body?.intake);
+    if (!intake) return res.status(400).json({ error: 'Missing or incomplete intake (age, height, and weight are required)' });
+    const { photoBase64, photoMime, afterPhotoBase64, afterPhotoMime, photoConsent } = req.body || {};
+
+    const targets = computeNutritionTargets(intake);
+    const userContent = buildNutritionistUserContent(intake, photoConsent ? {
+      beforeBase64: photoBase64, beforeMime: photoMime,
+      afterBase64: afterPhotoBase64, afterMime: afterPhotoMime,
+    } : null, targets);
+
+    let plan;
+    try {
+      plan = await callTrainerModel(NUTRITIONIST_SYSTEM_PROMPT, userContent);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'Meal plan generation failed. Please try again.' });
+    }
+    if (!plan?.prep_recipes?.length || !plan?.targets) {
+      return res.status(502).json({ error: 'Model returned an unusable plan. Please try again.' });
+    }
+    sanitizeMealPlan(plan, targets, intake);
+
+    let planId = null;
+    let member = false;
+    if (req.user && db) {
+      member = isActiveMembership(req.user);
+      try {
+        const { rows } = await db.query(
+          `INSERT INTO meal_plans (user_id, plan_number, intake, plan) VALUES ($1, 1, $2, $3) RETURNING id`,
+          [req.user.id, JSON.stringify(intake), JSON.stringify(plan)]
+        );
+        planId = rows[0].id;
+      } catch (e) { console.error('meal plan save error:', e.message); }
+    }
+
+    res.json({
+      planId,
+      planNumber: 1,
+      locked: !member,
+      plan: member ? { ...plan, locked: false } : stripMealPlanForPreview(plan),
+    });
+  } catch (err) {
+    console.error('generate-mealplan error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Latest meal plan for the logged-in user (full for members, preview otherwise).
+app.get('/api/mealplan', requireAuth, async (req, res) => {
+  try {
+    const { rows } = await db.query(
+      'SELECT id, plan_number, intake, plan FROM meal_plans WHERE user_id = $1 ORDER BY id DESC LIMIT 1',
+      [req.user.id]
+    );
+    if (!rows.length) return res.json({ plan: null });
+    const row = rows[0];
+    const userRow = await getUserRow(req.user.id);
+    const member = isActiveMembership(userRow);
+    res.json({
+      planId: row.id,
+      planNumber: row.plan_number,
+      intake: row.intake,
+      locked: !member,
+      plan: member ? { ...row.plan, locked: false } : stripMealPlanForPreview(row.plan),
+    });
+  } catch (e) {
+    console.error('get mealplan error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Swap one prep recipe the user doesn't like — regenerates a single recipe at
+// the same macros with their note. Members only.
+app.post('/api/mealplan/swap', aiLimiter, requireAuth, async (req, res) => {
+  try {
+    const userRow = await getUserRow(req.user.id);
+    if (!isActiveMembership(userRow)) {
+      return res.status(402).json({ error: 'Membership required', needsMembership: true });
+    }
+    const { planId, recipeIndex, note } = req.body || {};
+    const idx = parseInt(recipeIndex, 10);
+    const { rows } = await db.query(
+      'SELECT id, plan_number, intake, plan FROM meal_plans WHERE id = $1 AND user_id = $2',
+      [parseInt(planId, 10) || 0, req.user.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Meal plan not found' });
+    const row = rows[0];
+    const plan = row.plan;
+    if (!(idx >= 0 && idx < (plan.prep_recipes || []).length)) {
+      return res.status(400).json({ error: 'Invalid recipeIndex' });
+    }
+    const intake = validateNutritionIntake(row.intake) || row.intake;
+    const old = plan.prep_recipes[idx];
+    const others = plan.prep_recipes.filter((_, i) => i !== idx).map((r) => r.name);
+
+    const content = [{
+      type: 'text',
+      text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\n` +
+        `The user wants to REPLACE this meal-prep recipe:\n${JSON.stringify(old, null, 2)}\n\n` +
+        (note ? `Their note about why / what they want instead: "${String(note).slice(0, 300)}"\n\n` : '') +
+        `Create ONE new 10-serving prep recipe that:\n` +
+        `- hits the SAME per-serving macros within ~5% (${old.per_serving?.calories} cal, ${old.per_serving?.protein_g}g protein per serving)\n` +
+        `- is clearly different from the recipes they already have: ${others.join(', ')}\n` +
+        `- respects every allergy, diet style, and dislike in the intake as hard constraints, matches their cooking effort, and leans on their favorite foods.`,
+    }];
+
+    let recipe;
+    try {
+      recipe = await callNutritionRecipeModel(content);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'Recipe swap failed. Please try again.' });
+    }
+    if (!recipe?.name || !recipe?.per_serving) {
+      return res.status(502).json({ error: 'Model returned an unusable recipe. Please try again.' });
+    }
+    recipe.servings = 10;
+    plan.prep_recipes[idx] = recipe;
+    await db.query('UPDATE meal_plans SET plan = $1 WHERE id = $2 AND user_id = $3',
+      [JSON.stringify(plan), row.id, req.user.id]);
+    res.json({ planId: row.id, planNumber: row.plan_number, locked: false, plan: { ...plan, locked: false } });
+  } catch (err) {
+    console.error('mealplan swap error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+async function callNutritionRecipeModel(userContent) {
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': ANTHROPIC_API_KEY,
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 4000,
+      system: NUTRITIONIST_SYSTEM_PROMPT,
+      output_config: { format: { type: 'json_schema', schema: RECIPE_SCHEMA } },
+      messages: [{ role: 'user', content: userContent }],
+    }),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    const err = new Error(data?.error?.message || 'Claude API error');
+    err.status = response.status;
+    throw err;
+  }
+  return JSON.parse(data?.content?.[0]?.text || '');
+}
+
+// Check-in: new weight (and optional feedback) → recompute targets and build a
+// fresh plan. This is what makes it a nutritionist, not a calculator: static
+// targets stop working as people lose weight. Members only.
+app.post('/api/mealplan/checkin', aiLimiter, requireAuth, async (req, res) => {
+  try {
+    const userRow = await getUserRow(req.user.id);
+    if (!isActiveMembership(userRow)) {
+      return res.status(402).json({ error: 'Membership required', needsMembership: true });
+    }
+    const { planId, weight_lb, notes } = req.body || {};
+    const { rows } = await db.query(
+      'SELECT id, plan_number, intake, plan FROM meal_plans WHERE id = $1 AND user_id = $2',
+      [parseInt(planId, 10) || 0, req.user.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Meal plan not found' });
+    const prev = rows[0];
+
+    const intake = validateNutritionIntake({ ...prev.intake, weight_lb: weight_lb ?? prev.intake.weight_lb });
+    if (!intake) return res.status(400).json({ error: 'Invalid intake' });
+    const prevWeight = parseFloat(prev.intake.weight_lb) || intake.weight_lb;
+    const delta = Math.round((intake.weight_lb - prevWeight) * 10) / 10;
+
+    const targets = computeNutritionTargets(intake);
+    const userContent = buildNutritionistUserContent(intake, null, targets);
+    userContent.push({
+      type: 'text',
+      text: `CHECK-IN: this user has been on plan ${prev.plan_number} and just weighed in.\n` +
+        `Previous weight: ${prevWeight} lb → current weight: ${intake.weight_lb} lb (${delta > 0 ? '+' : ''}${delta} lb).\n` +
+        (notes ? `Their notes: "${String(notes).slice(0, 300)}"\n` : '') +
+        `Previous plan's recipes (build fresh ones — don't repeat): ${(prev.plan.prep_recipes || []).map((r) => r.name).join(', ')}.\n` +
+        `Previous calorie target: ${prev.plan.targets?.daily_calories}. Adjust based on progress: losing on pace → stay the course; stalled 2+ weeks → nudge down within the allowed range; losing too fast or feeling drained → nudge up. Acknowledge their progress warmly in why_this_works.`,
+    });
+
+    let plan;
+    try {
+      plan = await callTrainerModel(NUTRITIONIST_SYSTEM_PROMPT, userContent);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'Plan update failed. Please try again.' });
+    }
+    if (!plan?.prep_recipes?.length || !plan?.targets) {
+      return res.status(502).json({ error: 'Model returned an unusable plan.' });
+    }
+    sanitizeMealPlan(plan, targets, intake);
+
+    const ins = await db.query(
+      `INSERT INTO meal_plans (user_id, plan_number, intake, plan) VALUES ($1, $2, $3, $4) RETURNING id`,
+      [req.user.id, prev.plan_number + 1, JSON.stringify(intake), JSON.stringify(plan)]
+    );
+    res.json({
+      planId: ins.rows[0].id,
+      planNumber: prev.plan_number + 1,
+      locked: false,
+      plan: { ...plan, locked: false },
+    });
+  } catch (err) {
+    console.error('mealplan checkin error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Public client config (Stripe publishable key).
 app.get('/api/config', (req, res) => {
   res.json({ stripePublishableKey: STRIPE_PUBLISHABLE_KEY || '' });
