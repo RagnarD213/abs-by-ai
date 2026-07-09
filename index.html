@@ -912,6 +912,7 @@ html, body {
 }
 .intake-chip.selected { border-color: var(--acc); background: rgba(47,95,224,0.08); color: var(--acc); }
 .intake-back { margin-top: 18px; }
+.ex-anim-wrap { display: flex; justify-content: center; margin: 2px 0; }
 .consent-row { display: flex; align-items: flex-start; gap: 10px; padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 13px; margin-top: 14px; cursor: pointer; }
 .consent-row input { margin-top: 2px; }
 .consent-row .intake-opt-sub { margin-top: 3px; }
@@ -1821,6 +1822,7 @@ html, body {
 
 <script src="/vendor/cropperjs/cropper.min.js"></script>
 <script src="/exercises.js"></script>
+<script src="/exercise-anims.js"></script>
 <script>
 // ============================================================
 //  CONSTANTS
@@ -3684,11 +3686,13 @@ function renderDayView(stored) {
     const pills = Array.from({ length: sets }, (_, s) =>
       `<button class="set-pill${done[`${key}s${s}`] ? ' done' : ''}" data-key="${key}" data-set="${s}">${done[`${key}s${s}`] ? '✓' : `Set ${s + 1}`}</button>`
     ).join('');
+    const anim = typeof getExerciseAnim === 'function' ? getExerciseAnim(eff.id, 68) : '';
     return `<div class="ex-card">
       <div class="ex-card-top">
         <span class="ex-name" data-ex="${eff.id}" data-cue="${escapeHtml(ex.cue || '')}" data-mistake="${escapeHtml(ex.common_mistake || '')}">${escapeHtml(lib.name || eff.id)}${eff.swapped ? ' ·<span style="color:var(--acc);font-size:11.5px"> swapped</span>' : ''}</span>
         <span class="ex-rx">${sets} × ${escapeHtml(String(ex.reps))} · rest ${ex.rest_sec}s</span>
       </div>
+      ${anim ? `<div class="ex-anim-wrap" style="color:var(--acc)">${anim}</div>` : ''}
       ${ex.cue ? `<div class="ex-cue">💡 ${escapeHtml(ex.cue)}</div>` : ''}
       <div class="set-pills">${pills}</div>
       <div class="ex-actions">
@@ -3713,8 +3717,10 @@ function renderDayView(stored) {
   html += `<div class="ex-group-lbl">Warm-up</div>`;
   html += (day.warmup || []).map(w => {
     const lib = EXERCISE_BY_ID[w.exercise_id] || {};
+    const wAnim = typeof getExerciseAnim === 'function' ? getExerciseAnim(w.exercise_id, 52) : '';
     return `<div class="ex-card"><div class="ex-card-top">
       <span class="ex-name" data-detail-inline data-ex="${w.exercise_id}">${escapeHtml(lib.name || w.exercise_id)}</span>
+      ${wAnim ? `<span style="color:var(--acc)">${wAnim}</span>` : ''}
       <span class="ex-rx">${escapeHtml(w.prescription || '')}</span></div></div>`;
   }).join('');
 
@@ -3785,6 +3791,7 @@ function openExerciseSheet(exId, cue, mistake) {
       <button class="ex-sheet-close" id="exSheetClose"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     </div>
     <div class="ex-sheet-muscles">${escapeHtml(lib.muscles || '')}</div>
+    ${typeof getExerciseAnim === 'function' && getExerciseAnim(lib.id, 120) ? `<div style="text-align:center;color:var(--acc);margin:6px 0 2px">${getExerciseAnim(lib.id, 120)}</div>` : ''}
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Setup</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.setup)}</div></div>
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">How to do it</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.execution)}</div></div>
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Most common mistake</div><div class="ex-sheet-sec-txt">${escapeHtml(mistake || lib.mistake)}</div></div>
