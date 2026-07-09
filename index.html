@@ -3594,7 +3594,9 @@ function renderProgram() {
 
   html += (p.weeks || []).map(week => {
     const days = (week.days || []).map(day => {
-      const isLockedDay = locked && !(week.week === 1 && day.day <= 3);
+      // day.main is present only when the server actually unlocked the day
+      // (old stored previews may have only Day 1 free).
+      const isLockedDay = locked && !(week.week === 1 && day.day <= 3 && day.main);
       if (isLockedDay) {
         return `<button class="day-row day-row-locked" tabindex="-1">
           <span class="day-row-num">🔒</span>
