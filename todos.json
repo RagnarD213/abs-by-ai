@@ -77,6 +77,10 @@
       "text": "Salad",
       "priority": "high",
       "recurring": true
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
