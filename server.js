@@ -2225,11 +2225,22 @@ const PROGRAM_EXERCISE_ITEM = {
 const PROGRAM_SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['why_this_works', 'weeks'],
+  required: ['why_this_works', 'assessment', 'weeks'],
   properties: {
     why_this_works: {
       type: 'string',
-      description: "Personalized paragraph referencing the user's goal, schedule, injuries, quit-reason, and (if provided) their photo — why THIS program works for THEM.",
+      description: "Personalized paragraph referencing the user's photos (starting point → goal), health goals, and injuries — why THIS program works for THEM.",
+    },
+    assessment: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['starting_point', 'goal_summary', 'assigned_level', 'starting_phase'],
+      properties: {
+        starting_point: { type: 'string', description: "2-3 encouraging, never judgmental sentences on what the before photo shows: rough body-fat range, muscle base, apparent fitness level. If no photo was provided, base it on their answers." },
+        goal_summary: { type: 'string', description: "1-2 sentences on the gap between the before and after photos: how much muscle to gain and fat to lose. If no photos, base it on their stated goal." },
+        assigned_level: { type: 'string', enum: ['beginner', 'intermediate', 'advanced'], description: 'The MORE CONSERVATIVE of the photo assessment and their stated experience.' },
+        starting_phase: { type: 'integer', description: 'Phase 1-6 from the phase ladder, matching assigned_level.' },
+      },
     },
     weeks: {
       type: 'array',
@@ -2272,19 +2283,41 @@ const PROGRAM_SCHEMA = {
   },
 };
 
-const TRAINER_SYSTEM_PROMPT = `You are an expert personal trainer designing a 4-week program for a fitness app called Abs By AI. Users have generated an AI image of their future physique — your program is the path to that photo.
+const TRAINER_SYSTEM_PROMPT = `You are an expert personal trainer designing a 4-week program for a fitness app called Abs By AI. Users have generated an AI image of their future physique — your program is the path from their before photo to that after photo.
+
+Photo assessment (when photos are provided):
+- The BEFORE photo shows their starting point: estimate a rough body-fat range, muscle base, and apparent fitness level.
+- The AFTER photo is an AI-generated image of their goal physique: judge how much muscle to gain and fat to lose.
+- Derive the training goal from the GAP between the two photos. Be encouraging and factual — NEVER judgmental about their current body.
+- assessment.assigned_level: combine the photo assessment with their stated experience — the MORE CONSERVATIVE of the two wins (photo looks fit but they say beginner → beginner).
+- If no photos were provided, base the assessment on their answers (goal + body type).
+
+The phase ladder (assessment.starting_phase — everyone eventually ends at Phase 6):
+| Phase | Minutes/day | Where | Who starts here |
+| 1 | 10 | home, bodyweight | complete beginner |
+| 2 | 20 | home (dumbbells if available) | beginner, month 2 |
+| 3 | 30 | gym | beginner month 3 · intermediate month 1 |
+| 4 | 35-40 | gym | intermediate month 2 |
+| 5 | 45 | gym | intermediate month 3 · advanced month 1 |
+| 6 | 45 + 15 min zone-2 cardio warm-up | gym | advanced after 1 comfortable month — final phase |
+- starting_phase matches assigned_level: beginner → 1, intermediate → 3, advanced → 5 (never higher; go lower if the photo suggests it).
+- Home-only users (no gym) run the same phases with their equipment tier — a "gym" phase becomes its full home version.
+- This block is ONE phase: build all 4 weeks to that phase's daily time budget. The block prompt may pin the phase for you — if it does, use that phase.
 
 Rules:
 - You may ONLY use exercises from the provided whitelist, referenced by their exact id. Never invent an exercise or id.
-- Build exactly 4 weeks. Each week has exactly the user's chosen number of training days. Progress volume/intensity sensibly across weeks (e.g. week 1 learn, weeks 2-3 build, week 4 push) and name each week's theme.
-- Respect the session length: ~20 min ≈ 3-4 main exercises, ~30 min ≈ 4-5, ~45 min ≈ 5-6, ~60 min ≈ 6-7 (plus warm-up and a short abs finisher).
-- Every day ends with an abs finisher of 2-3 exercises — this is Abs By AI.
-- STRICTLY avoid exercises that load reported injured areas; prefer joint-friendly picks (e.g. knee pain → hinge and glute work over deep lunges; lower-back pain → avoid loaded spinal flexion and heavy hinging; shoulder pain → avoid overhead pressing; wrist pain → avoid loaded straight-arm plank positions).
-- Match experience level: beginners get simpler movements, fewer sets, and reps in the 8-15 range; experienced lifters get more volume and harder variations.
-- warmup: 2-4 light moves. Use warm-up category exercises or easy bodyweight moves.
+- Build exactly 4 weeks of 7 days each — everyone trains EVERY day. Days progress in intensity gently within the week; name each week's theme.
+- EVERY workout is TOTAL-BODY. Never program push/pull/leg or body-part splits. Daily training is sustainable because volume per muscle per day stays modest: spread the weekly volume across 7 light-to-moderate days, and no muscle is trained to failure two days in a row.
+- Daily time budgets: 10 min ≈ 2-3 compound moves + a short abs finisher; 20 min ≈ 3-4 moves; 30 min ≈ 4-5; 35-40 min ≈ 5-6; 45 min ≈ 6-7 (plus warm-up and abs finisher).
+- Under 30 min/day: COMPOUND moves only (squat pattern, push-up/press, row, hinge, carry, core). Isolation exercises (curls, lateral raises, flies, kickbacks, leg extension) are allowed ONLY at 30+ min/day.
+- Every day ends with an abs finisher of 2-3 exercises — this is Abs By AI. At Phase 1 keep it to 1-2 short ab moves.
+- STRICTLY avoid exercises that load reported injured areas; prefer joint-friendly picks (e.g. knee pain → hinge and glute work over deep lunges; lower-back pain → avoid loaded spinal flexion and heavy hinging; shoulder pain → avoid overhead pressing; wrist pain → avoid loaded straight-arm plank positions). Treat free-text health notes (e.g. "doctor said no jumping", "high blood pressure") as hard constraints.
+- Match assigned_level: beginners get simpler movements, fewer sets, and reps in the 8-15 range; experienced lifters get more volume and harder variations.
+- warmup: 2-4 light moves. Use warm-up category exercises or easy bodyweight moves. (At Phase 6 the app adds a separate 15-min zone-2 cardio block before your warm-up — do not include cardio machines in the exercise list.)
+- Their "beyond the look" health goals (heart health, energy, mental health, sleep, longevity, confidence) shape emphasis and MUST be woven into why_this_works — e.g. heart-health goals → frame the daily movement and future zone-2 cardio around lowering cardiovascular risk.
 - cue: one short personalized coaching line. common_mistake: the single most likely error for THIS user.
-- why_this_works: 3-5 sentences, warm but direct, referencing their actual answers (goal, days, injuries, what made them quit before, and their before-photo/future-self image when provided). Address them as "you".
-- Reps for timed holds use e.g. "30 sec". rest_sec between 30 and 180.
+- why_this_works: 3-5 sentences, warm but direct, referencing their photos (when provided), their health goals, and injuries. Address them as "you".
+- Reps for timed holds use e.g. "30 sec". rest_sec between 30 and 180 (short rests at low phases to fit the time budget).
 
 Exercise selection rules (safety-first — these override everything else):
 - NEVER program barbell bench press, barbell deadlifts, barbell back squats, cleans, snatches, jerks, or ANY powerlifting/Olympic lift — they are not in the whitelist and must not appear even in cues, notes, or why_this_works.
@@ -2293,17 +2326,43 @@ Exercise selection rules (safety-first — these override everything else):
 - Rear delts: machine-rear-delt-fly is the default for gym users; db-rear-delt-fly when no machine.
 - Chest: dumbbell/machine presses and flies only (db-fly, cable-fly, pec-deck, machine-chest-press, db-bench-press, db-floor-press, and the push-up family).`;
 
-function buildTrainerUserContent(intake, photoBase64, photoMime) {
+// Phase ladder: daily time budget per phase. Phase 6 adds a 15-min zone-2
+// cardio warm-up block (rendered by the app, not the model).
+const PHASES = {
+  1: { minutes: 10, label: '10 min/day · home' },
+  2: { minutes: 20, label: '20 min/day · home' },
+  3: { minutes: 30, label: '30 min/day · gym' },
+  4: { minutes: 40, label: '35–40 min/day · gym' },
+  5: { minutes: 45, label: '45 min/day · gym' },
+  6: { minutes: 45, label: '45 min/day + 15 min zone-2 cardio · gym', zone2: true },
+};
+const EXPERIENCE_START_PHASE = { beginner: 1, intermediate: 3, advanced: 5 };
+
+function clampPhase(p) {
+  const n = parseInt(p, 10);
+  return Number.isFinite(n) ? Math.min(6, Math.max(1, n)) : 1;
+}
+
+function buildTrainerUserContent(intake, photos, pinnedPhase) {
   const allowed = exercisesForEquipment(intake.equipment);
   const list = allowed.map((e) => `${e.id} | ${e.name} | ${e.cat} | ${e.muscles}`).join('\n');
   const content = [];
-  if (photoBase64 && photoMime) {
-    content.push({ type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } });
-    content.push({ type: 'text', text: 'This is the user\'s current "before" photo (shared with consent). Use it only to gauge their rough starting point and to personalize why_this_works. Do not comment on appearance judgmentally.' });
+  const { beforeBase64, beforeMime, afterBase64, afterMime } = photos || {};
+  if (beforeBase64 && beforeMime) {
+    content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
+    content.push({ type: 'text', text: 'BEFORE photo — the user\'s current body (shared with consent). Estimate their starting point: rough body-fat range, muscle base, apparent fitness level. Never judgmental.' });
+  }
+  if (afterBase64 && afterMime) {
+    content.push({ type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } });
+    content.push({ type: 'text', text: 'AFTER photo — the AI-generated image of their goal physique. The training goal is the gap between the before photo and this one.' });
   }
   content.push({
     type: 'text',
-    text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\nExercise whitelist (id | name | category | muscles) — use ONLY these ids:\n${list}`,
+    text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\n` +
+      (pinnedPhase
+        ? `This block is pinned to Phase ${pinnedPhase} (${PHASES[pinnedPhase].label}). Build every day to that time budget and set assessment.starting_phase to ${pinnedPhase}.\n\n`
+        : `Their stated experience caps the starting phase at Phase ${EXPERIENCE_START_PHASE[intake.experience] || 1}. Go lower if the before photo suggests it — never higher.\n\n`) +
+      `Exercise whitelist (id | name | category | muscles) — use ONLY these ids:\n${list}`,
   });
   return content;
 }
@@ -2349,17 +2408,20 @@ function sanitizeProgram(program, equipment) {
   return program;
 }
 
-// Free-preview shape: why-this-works + week/day structure at a glance + Day 1
-// fully unlocked. Everything else is visible-but-locked (focus only).
+// Free-preview shape: why-this-works + assessment + week/day structure at a
+// glance + the FIRST 3 DAYS fully unlocked. Everything else is
+// visible-but-locked (focus only).
 function stripProgramForPreview(program) {
   return {
     why_this_works: program.why_this_works,
+    assessment: program.assessment,
+    phase: program.phase,
     locked: true,
     weeks: (program.weeks || []).map((week) => ({
       week: week.week,
       theme: week.theme,
       days: (week.days || []).map((day) => {
-        if (week.week === 1 && day.day === 1) return { ...day, locked: false };
+        if (week.week === 1 && day.day <= 3) return { ...day, locked: false };
         return { day: day.day, focus: day.focus, locked: true, exercise_count: (day.main || []).length };
       }),
     })),
@@ -2368,31 +2430,32 @@ function stripProgramForPreview(program) {
 
 const VALID_INTAKE = {
   goal: ['lose_fat', 'build_muscle', 'abs_visible', 'general_fitness', 'recomp'],
+  body_type: ['slim', 'average', 'heavier', 'athletic'],
   equipment: ['none', 'db', 'gym'],
-  days_per_week: [2, 3, 4, 5],
-  session_minutes: [20, 30, 45, 60],
-  experience: ['never', 'on_and_off', 'consistent'],
-  quit_reason: ['no_time', 'got_bored', 'no_results', 'got_hurt', 'never_started'],
+  experience: ['beginner', 'intermediate', 'advanced'],
+  health_goals: ['heart_health', 'energy', 'mental_health', 'sleep', 'longevity', 'confidence', 'look_only'],
 };
+
+// Pre-v2 intakes stored a different experience scale.
+const LEGACY_EXPERIENCE = { never: 'beginner', on_and_off: 'intermediate', consistent: 'advanced' };
 
 function validateIntake(raw) {
   if (!raw || typeof raw !== 'object') return null;
+  const exp = LEGACY_EXPERIENCE[raw.experience] || raw.experience;
   const intake = {
-    goal: VALID_INTAKE.goal.includes(raw.goal) ? raw.goal : 'general_fitness',
     equipment: VALID_INTAKE.equipment.includes(raw.equipment) ? raw.equipment : 'none',
-    days_per_week: VALID_INTAKE.days_per_week.includes(raw.days_per_week) ? raw.days_per_week : 3,
-    session_minutes: VALID_INTAKE.session_minutes.includes(raw.session_minutes) ? raw.session_minutes : 30,
-    experience: VALID_INTAKE.experience.includes(raw.experience) ? raw.experience : 'on_and_off',
+    experience: VALID_INTAKE.experience.includes(exp) ? exp : 'beginner',
     injuries: Array.isArray(raw.injuries) ? raw.injuries.slice(0, 6).map((s) => String(s).slice(0, 40)) : [],
     injury_notes: String(raw.injury_notes || '').slice(0, 300),
-    quit_reason: VALID_INTAKE.quit_reason.includes(raw.quit_reason) ? raw.quit_reason : 'never_started',
-    body: {
-      age_range: String(raw.body?.age_range || '').slice(0, 20),
-      height: String(raw.body?.height || '').slice(0, 20),
-      weight: String(raw.body?.weight || '').slice(0, 20),
-      sex: ['male', 'female'].includes(raw.body?.sex) ? raw.body.sex : '',
-    },
+    health_goals: Array.isArray(raw.health_goals)
+      ? raw.health_goals.filter((g) => VALID_INTAKE.health_goals.includes(g)).slice(0, 7)
+      : [],
+    health_notes: String(raw.health_notes || '').slice(0, 300),
+    age_range: String(raw.age_range || raw.body?.age_range || '').slice(0, 20),
   };
+  // No-photo fallback answers (also present on old intakes — harmless to keep).
+  if (VALID_INTAKE.goal.includes(raw.goal)) intake.goal = raw.goal;
+  if (VALID_INTAKE.body_type.includes(raw.body_type)) intake.body_type = raw.body_type;
   return intake;
 }
 
@@ -2432,13 +2495,12 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
   try {
     const intake = validateIntake(req.body?.intake);
     if (!intake) return res.status(400).json({ error: 'Missing intake' });
-    const { photoBase64, photoMime, photoConsent } = req.body || {};
+    const { photoBase64, photoMime, afterPhotoBase64, afterPhotoMime, photoConsent } = req.body || {};
 
-    const userContent = buildTrainerUserContent(
-      intake,
-      photoConsent ? photoBase64 : null,
-      photoConsent ? photoMime : null
-    );
+    const userContent = buildTrainerUserContent(intake, photoConsent ? {
+      beforeBase64: photoBase64, beforeMime: photoMime,
+      afterBase64: afterPhotoBase64, afterMime: afterPhotoMime,
+    } : null);
 
     let program;
     try {
@@ -2451,6 +2513,12 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
       return res.status(502).json({ error: 'Model returned an unusable program. Please try again.' });
     }
     sanitizeProgram(program, intake.equipment);
+
+    // Pin the ladder phase: the stated experience caps it; the model's
+    // photo-based assessment can only lower it (conservative wins).
+    const expPhase = EXPERIENCE_START_PHASE[intake.experience] || 1;
+    program.phase = Math.min(clampPhase(program.assessment?.starting_phase ?? expPhase), expPhase);
+    if (program.assessment) program.assessment.starting_phase = program.phase;
 
     let programId = null;
     let member = false;
@@ -2541,12 +2609,20 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
       skipped: String(feedback?.skipped || '').slice(0, 300),
       notes: String(feedback?.notes || '').slice(0, 300),
     };
-    const completedSets = Object.values(prev.progress || {}).filter((v) => v === true).length;
+    const progressVals = Object.values(prev.progress?.done || prev.progress || {});
+    const completedSets = progressVals.filter((v) => v === true).length;
 
-    const userContent = buildTrainerUserContent(prev.intake, null, null);
+    // Phase ladder promotion: finishing a block normally moves up a phase.
+    // "Too hard" holds; "too hard" with almost nothing completed demotes.
+    const intake = validateIntake(prev.intake) || prev.intake;
+    const prevPhase = clampPhase(prev.program?.phase ?? EXPERIENCE_START_PHASE[intake.experience] ?? 1);
+    let nextPhase = Math.min(6, prevPhase + 1);
+    if (fb.difficulty === 'too_hard') nextPhase = completedSets < 20 ? Math.max(1, prevPhase - 1) : prevPhase;
+
+    const userContent = buildTrainerUserContent(intake, null, nextPhase);
     userContent.push({
       type: 'text',
-      text: `This user just FINISHED a 4-week block (block ${prev.block_number}) — design block ${prev.block_number + 1} that progresses from it.\n` +
+      text: `This user just FINISHED a 4-week block (block ${prev.block_number}, Phase ${prevPhase}) — design block ${prev.block_number + 1} at Phase ${nextPhase} (${PHASES[nextPhase].label}) that progresses from it.\n` +
         `Previous block (for reference, do not repeat verbatim — progress it):\n${JSON.stringify(prev.program.weeks?.map((w) => ({ week: w.week, days: w.days?.map((d) => ({ day: d.day, focus: d.focus, main: d.main?.map((m) => m.exercise_id) })) })))}\n` +
         `Completion: ${completedSets} sets checked off across the block.\n` +
         `Check-in feedback: difficulty was "${fb.difficulty}"${fb.skipped ? `; they tended to skip: ${fb.skipped}` : ''}${fb.notes ? `; notes: ${fb.notes}` : ''}.\n` +
@@ -2561,11 +2637,13 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
       return res.status(502).json({ error: 'Program generation failed. Please try again.' });
     }
     if (!program?.weeks?.length) return res.status(502).json({ error: 'Model returned an unusable program.' });
-    sanitizeProgram(program, prev.intake.equipment);
+    sanitizeProgram(program, intake.equipment);
+    program.phase = nextPhase;
+    if (program.assessment) program.assessment.starting_phase = nextPhase;
 
     const ins = await db.query(
       `INSERT INTO programs (user_id, block_number, intake, program) VALUES ($1, $2, $3, $4) RETURNING id`,
-      [req.user.id, prev.block_number + 1, JSON.stringify(prev.intake), JSON.stringify(program)]
+      [req.user.id, prev.block_number + 1, JSON.stringify(intake), JSON.stringify(program)]
     );
     res.json({
       programId: ins.rows[0].id,

@@ -3185,11 +3185,14 @@ EXERCISE_BY_ID['bb-back-squat'] = EXERCISE_BY_ID['db-goblet-squat'];
 const PROGRAM_KEY = 'absbyai_trainer_program';
 const PROGRESS_KEY = 'absbyai_trainer_progress';
 
-const intakeState = { step: 0, answers: {} };
+const intakeState = { step: 0, answers: {}, steps: [] };
 
-const INTAKE_STEPS = [
-  {
-    key: 'goal', title: "What's your #1 goal?", sub: 'Your whole program bends around this.',
+// Shared screens (photo users get 5 screens; no-photo users get 6 with the
+// goal + body-type fallbacks replacing the photo screen).
+const INTAKE_STEP_DEFS = {
+  photo: { key: 'photo', title: 'Let AI read your photos', type: 'photo' },
+  goal: {
+    key: 'goal', title: "What's your #1 goal?", sub: 'No photos on file, so tell us where you\'re headed.',
     opts: [
       { v: 'lose_fat', e: '🔥', n: 'Lose fat' },
       { v: 'build_muscle', e: '💪', n: 'Build muscle' },
@@ -3198,7 +3201,16 @@ const INTAKE_STEPS = [
       { v: 'general_fitness', e: '⚡', n: 'Just get fit & feel better' },
     ],
   },
-  {
+  body_type: {
+    key: 'body_type', title: 'Which is closest to your build today?', sub: 'A rough starting point is all we need.',
+    opts: [
+      { v: 'slim', e: '🪶', n: 'Slim', s: 'Lighter build, want to add muscle' },
+      { v: 'average', e: '🙂', n: 'Average', s: 'Bit of both to work on' },
+      { v: 'heavier', e: '🧸', n: 'Heavier', s: 'Fat loss is the bigger lever' },
+      { v: 'athletic', e: '🏃', n: 'Athletic', s: 'Trained before, base to build on' },
+    ],
+  },
+  equipment: {
     key: 'equipment', title: 'Where will you train?', sub: 'We only pick exercises you can actually do.',
     opts: [
       { v: 'none', e: '🏠', n: 'Home — no equipment', s: 'Bodyweight only' },
@@ -3206,51 +3218,41 @@ const INTAKE_STEPS = [
       { v: 'gym', e: '🏋️', n: 'Full gym' },
     ],
   },
-  {
-    key: 'days_per_week', title: 'How many days a week?', sub: 'Be honest — consistency beats ambition.',
-    opts: [
-      { v: 2, e: '2️⃣', n: '2 days' },
-      { v: 3, e: '3️⃣', n: '3 days', s: 'Most popular' },
-      { v: 4, e: '4️⃣', n: '4 days' },
-      { v: 5, e: '5️⃣', n: '5+ days' },
-    ],
-  },
-  {
-    key: 'session_minutes', title: 'How long per session?',
-    opts: [
-      { v: 20, e: '⏱️', n: '20 minutes' },
-      { v: 30, e: '⏱️', n: '30 minutes' },
-      { v: 45, e: '⏱️', n: '45 minutes' },
-      { v: 60, e: '⏱️', n: '60 minutes' },
-    ],
-  },
-  {
+  experience: {
     key: 'experience', title: "What's your training background?",
     opts: [
-      { v: 'never', e: '🌱', n: "I've never really trained" },
-      { v: 'on_and_off', e: '🔁', n: 'On and off over the years' },
-      { v: 'consistent', e: '🏆', n: "I lift consistently" },
+      { v: 'beginner', e: '🌱', n: 'Beginner', s: 'New to training, or a long break' },
+      { v: 'intermediate', e: '🔁', n: 'Intermediate', s: 'Trained on and off' },
+      { v: 'advanced', e: '🏆', n: 'Advanced', s: 'I train consistently and know my way around a gym' },
     ],
   },
-  { key: 'injuries', title: 'Any injuries or areas to protect?', sub: 'Tap all that apply.', type: 'chips',
+  injuries: {
+    key: 'injuries', title: 'Any injuries or areas to protect?', sub: 'Tap all that apply.', type: 'chips',
     chips: [
       { v: 'knees', n: 'Knees' }, { v: 'lower_back', n: 'Lower back' },
       { v: 'shoulders', n: 'Shoulders' }, { v: 'wrists', n: 'Wrists' }, { v: 'none', n: 'None' },
     ],
   },
-  { key: 'body', title: 'A few basics', sub: 'Helps us set the right starting volume.', type: 'body' },
-  {
-    key: 'quit_reason', title: 'What made you quit before?', sub: "We'll design around it.",
-    opts: [
-      { v: 'no_time', e: '⏳', n: 'No time' },
-      { v: 'got_bored', e: '🥱', n: 'Got bored' },
-      { v: 'no_results', e: '📉', n: "Didn't see results" },
-      { v: 'got_hurt', e: '🤕', n: 'Got hurt' },
-      { v: 'never_started', e: '🚀', n: 'Never really started' },
+  health: { key: 'health', title: 'What do you want beyond the look?', sub: "Your after photo shows the goal — this captures what a photo can't.", type: 'health',
+    chips: [
+      { v: 'heart_health', n: '❤️ Lower heart-disease risk' },
+      { v: 'energy', n: '⚡ More energy day to day' },
+      { v: 'mental_health', n: '🧠 Better mental health, less stress' },
+      { v: 'sleep', n: '😴 Better sleep' },
+      { v: 'longevity', n: '🌳 Live longer, age well' },
+      { v: 'confidence', n: '💪 Confidence' },
+      { v: 'look_only', n: 'Just the look is fine' },
     ],
   },
-  { key: 'photo', title: 'Build the plan toward your photo?', type: 'photo' },
-];
+};
+
+function buildIntakeSteps() {
+  const hasPhotos = !!(localStorage.getItem(LAST_BEFORE_KEY) && localStorage.getItem(LAST_AFTER_KEY));
+  const D = INTAKE_STEP_DEFS;
+  return hasPhotos
+    ? [D.photo, D.equipment, D.experience, D.injuries, D.health]
+    : [D.goal, D.body_type, D.equipment, D.experience, D.injuries, D.health];
+}
 
 function openTrainer() {
   if (window.posthog) posthog.capture('trainer_opened');
@@ -3261,7 +3263,8 @@ function openTrainer() {
 
 function startIntake() {
   intakeState.step = 0;
-  intakeState.answers = { injuries: [] };
+  intakeState.answers = { injuries: [], health_goals: [] };
+  intakeState.steps = buildIntakeSteps();
   $('programGenError').style.display = 'none';
   $('programLoader').style.display = 'none';
   renderIntakeStep();
@@ -3269,6 +3272,7 @@ function startIntake() {
 }
 
 function renderIntakeStep() {
+  const INTAKE_STEPS = intakeState.steps;
   const step = INTAKE_STEPS[intakeState.step];
   const wrap = $('intakeStep');
   $('intakeProgressFill').style.width = `${Math.round(((intakeState.step + 1) / INTAKE_STEPS.length) * 100)}%`;
@@ -3287,41 +3291,32 @@ function renderIntakeStep() {
       </button>`).join('') + `</div>`;
   } else if (step.type === 'chips') {
     const sel = intakeState.answers.injuries || [];
+    const ageChips = ['18–25', '26–35', '36–45', '46–55', '56+'];
     inner += `<div class="intake-chips">` + step.chips.map(c =>
       `<button class="intake-chip${sel.includes(c.v) ? ' selected' : ''}" data-v="${c.v}">${c.n}</button>`).join('') + `</div>
       <div class="physique-wrap" style="margin-top:16px">
         <div class="lbl"><span class="lbl-text">Anything else we should know?</span><span class="lbl-opt">Optional</span></div>
-        <input type="text" id="injuryNotes" class="text-field" maxlength="300" placeholder="e.g. recovering from a sprained ankle" value="${escapeHtml(intakeState.answers.injury_notes || '')}" />
+        <input type="text" id="injuryNotes" class="text-field" maxlength="300" placeholder="e.g. bad knee, doctor said no jumping, high blood pressure" value="${escapeHtml(intakeState.answers.injury_notes || '')}" />
       </div>
+      <div class="lbl" style="margin-top:16px"><span class="lbl-text">Age range</span><span class="lbl-opt">Optional</span></div>
+      <div class="intake-chips" id="ageChips">${ageChips.map(a => `<button class="intake-chip${intakeState.answers.age_range === a ? ' selected' : ''}" data-v="${a}">${a}</button>`).join('')}</div>
       <button class="cta-btn" id="intakeChipsNext" style="margin-top:16px">Continue</button>`;
-  } else if (step.type === 'body') {
-    const b = intakeState.answers.body || {};
-    const ageChips = ['18–25', '26–35', '36–45', '46–55', '56+'];
-    inner += `
-      <div class="lbl"><span class="lbl-text">Age range</span></div>
-      <div class="intake-chips" id="ageChips" style="margin-bottom:14px">${ageChips.map(a => `<button class="intake-chip${b.age_range === a ? ' selected' : ''}" data-v="${a}">${a}</button>`).join('')}</div>
-      <div class="lbl"><span class="lbl-text">Sex</span></div>
-      <div class="intake-chips" id="sexChips" style="margin-bottom:14px">
-        <button class="intake-chip${b.sex === 'male' ? ' selected' : ''}" data-v="male">Male</button>
-        <button class="intake-chip${b.sex === 'female' ? ' selected' : ''}" data-v="female">Female</button>
+  } else if (step.type === 'health') {
+    const sel = intakeState.answers.health_goals || [];
+    inner += `<div class="intake-chips">` + step.chips.map(c =>
+      `<button class="intake-chip${sel.includes(c.v) ? ' selected' : ''}" data-v="${c.v}">${c.n}</button>`).join('') + `</div>
+      <div class="physique-wrap" style="margin-top:16px">
+        <div class="lbl"><span class="lbl-text">Anything else?</span><span class="lbl-opt">Optional</span></div>
+        <input type="text" id="healthNotes" class="text-field" maxlength="300" placeholder="e.g. family history of heart disease" value="${escapeHtml(intakeState.answers.health_notes || '')}" />
       </div>
-      <div style="display:flex;gap:10px">
-        <div style="flex:1"><div class="lbl"><span class="lbl-text">Height</span><span class="lbl-opt">Optional</span></div>
-        <input type="text" id="bodyHeight" class="text-field" maxlength="20" value="${escapeHtml(b.height || '')}" placeholder="e.g. 5'10&quot;" /></div>
-        <div style="flex:1"><div class="lbl"><span class="lbl-text">Weight</span><span class="lbl-opt">Optional</span></div>
-        <input type="text" id="bodyWeight" class="text-field" maxlength="20" placeholder="e.g. 185 lb" value="${escapeHtml(b.weight || '')}" /></div>
-      </div>
-      <button class="cta-btn" id="intakeBodyNext" style="margin-top:16px">Continue</button>`;
+      <button class="cta-btn" id="intakeGenerateBtn" style="margin-top:18px">Build My Program</button>`;
   } else if (step.type === 'photo') {
-    const hasPhoto = !!(localStorage.getItem(LAST_BEFORE_KEY) && localStorage.getItem(LAST_AFTER_KEY));
-    inner += hasPhoto ? `
-      <div class="hero-sub" style="margin-bottom:8px">You already have your future-self photo. With your OK, our AI reads your <b>before</b> photo to gauge your starting point — and builds the plan that gets you to the <b>after</b>.</div>
+    inner += `
+      <div class="hero-sub" style="margin-bottom:8px">Let AI read your <b>before</b> photo (your starting point) and your <b>after</b> photo (the goal you generated) — and build the exact plan to get you there. No forms about height, weight, or goals: the photos say it better.</div>
       <label class="consent-row"><input type="checkbox" id="photoConsent" checked />
         <span><span class="intake-opt-name">Use my photos to personalize my program</span>
-        <span class="intake-opt-sub" style="display:block">Your before photo is analyzed once, never stored by the AI.</span></span></label>
-      <button class="cta-btn" id="intakeGenerateBtn" style="margin-top:18px">Build My Program</button>` : `
-      <div class="hero-sub" style="margin-bottom:16px">No photo on file — no problem. Your answers are plenty to build a strong program. (You can generate your future-self photo any time.)</div>
-      <button class="cta-btn" id="intakeGenerateBtn" style="margin-top:6px">Build My Program</button>`;
+        <span class="intake-opt-sub" style="display:block">Analyzed once to build your plan, never stored by the AI.</span></span></label>
+      <button class="cta-btn" id="intakePhotoNext" style="margin-top:18px">Continue</button>`;
   }
 
   wrap.innerHTML = inner;
@@ -3329,46 +3324,52 @@ function renderIntakeStep() {
   // Wire the step
   if (step.opts) {
     wrap.querySelectorAll('.intake-opt').forEach(btn => btn.addEventListener('click', () => {
-      let v = btn.dataset.v;
-      if (step.key === 'days_per_week' || step.key === 'session_minutes') v = parseInt(v, 10);
-      intakeState.answers[step.key] = v;
+      intakeState.answers[step.key] = btn.dataset.v;
       nextIntakeStep();
     }));
   } else if (step.type === 'chips') {
-    wrap.querySelectorAll('.intake-chip').forEach(chip => chip.addEventListener('click', () => {
+    wrap.querySelectorAll('.intake-chips:not(#ageChips) .intake-chip').forEach(chip => chip.addEventListener('click', () => {
       const v = chip.dataset.v;
       let sel = intakeState.answers.injuries || [];
       if (v === 'none') sel = sel.includes('none') ? [] : ['none'];
       else { sel = sel.filter(x => x !== 'none'); sel = sel.includes(v) ? sel.filter(x => x !== v) : [...sel, v]; }
       intakeState.answers.injuries = sel;
+      intakeState.answers.injury_notes = $('injuryNotes').value.trim();
       renderIntakeStep();
+    }));
+    wrap.querySelectorAll('#ageChips .intake-chip').forEach(c => c.addEventListener('click', () => {
+      intakeState.answers.age_range = intakeState.answers.age_range === c.dataset.v ? '' : c.dataset.v;
+      wrap.querySelectorAll('#ageChips .intake-chip').forEach(x => x.classList.toggle('selected', x.dataset.v === intakeState.answers.age_range));
     }));
     $('intakeChipsNext').addEventListener('click', () => {
       intakeState.answers.injury_notes = $('injuryNotes').value.trim();
       nextIntakeStep();
     });
-  } else if (step.type === 'body') {
-    const b = intakeState.answers.body = intakeState.answers.body || {};
-    wrap.querySelectorAll('#ageChips .intake-chip').forEach(c => c.addEventListener('click', () => {
-      b.age_range = c.dataset.v;
-      wrap.querySelectorAll('#ageChips .intake-chip').forEach(x => x.classList.toggle('selected', x === c));
+  } else if (step.type === 'health') {
+    wrap.querySelectorAll('.intake-chips .intake-chip').forEach(chip => chip.addEventListener('click', () => {
+      const v = chip.dataset.v;
+      let sel = intakeState.answers.health_goals || [];
+      // "Just the look is fine" is exclusive, like the injuries "None" chip.
+      if (v === 'look_only') sel = sel.includes('look_only') ? [] : ['look_only'];
+      else { sel = sel.filter(x => x !== 'look_only'); sel = sel.includes(v) ? sel.filter(x => x !== v) : [...sel, v]; }
+      intakeState.answers.health_goals = sel;
+      intakeState.answers.health_notes = $('healthNotes').value.trim();
+      renderIntakeStep();
     }));
-    wrap.querySelectorAll('#sexChips .intake-chip').forEach(c => c.addEventListener('click', () => {
-      b.sex = c.dataset.v;
-      wrap.querySelectorAll('#sexChips .intake-chip').forEach(x => x.classList.toggle('selected', x === c));
-    }));
-    $('intakeBodyNext').addEventListener('click', () => {
-      b.height = $('bodyHeight').value.trim();
-      b.weight = $('bodyWeight').value.trim();
-      nextIntakeStep();
+    $('intakeGenerateBtn').addEventListener('click', () => {
+      intakeState.answers.health_notes = $('healthNotes').value.trim();
+      generateProgram();
     });
   } else if (step.type === 'photo') {
-    $('intakeGenerateBtn').addEventListener('click', generateProgram);
+    $('intakePhotoNext').addEventListener('click', () => {
+      intakeState.answers.photo_consent = $('photoConsent').checked;
+      nextIntakeStep();
+    });
   }
 }
 
 function nextIntakeStep() {
-  if (intakeState.step < INTAKE_STEPS.length - 1) {
+  if (intakeState.step < intakeState.steps.length - 1) {
     intakeState.step++;
     renderIntakeStep();
   }
@@ -3377,21 +3378,28 @@ function nextIntakeStep() {
 async function generateProgram() {
   const a = intakeState.answers;
   const intake = {
-    goal: a.goal, equipment: a.equipment, days_per_week: a.days_per_week,
-    session_minutes: a.session_minutes, experience: a.experience,
+    equipment: a.equipment, experience: a.experience,
     injuries: (a.injuries || []).filter(x => x !== 'none'),
-    injury_notes: a.injury_notes || '', quit_reason: a.quit_reason,
-    body: a.body || {},
+    injury_notes: a.injury_notes || '',
+    health_goals: (a.health_goals || []).filter(x => x !== 'look_only'),
+    health_notes: a.health_notes || '',
+    age_range: a.age_range || '',
   };
+  if (a.goal) intake.goal = a.goal;
+  if (a.body_type) intake.body_type = a.body_type;
   localStorage.setItem(INTAKE_KEY, JSON.stringify(intake));
 
-  const consentEl = $('photoConsent');
-  const consent = !!(consentEl && consentEl.checked);
-  let photoBase64 = null, photoMime = null;
+  const consent = a.photo_consent !== false && !!localStorage.getItem(LAST_BEFORE_KEY);
+  let photoBase64 = null, photoMime = null, afterPhotoBase64 = null, afterPhotoMime = null;
   if (consent) {
-    const before = localStorage.getItem(LAST_BEFORE_KEY);
-    const m = before && before.match(/^data:(.*?);base64,(.*)$/);
-    if (m) { photoMime = m[1]; photoBase64 = m[2]; }
+    const parse = (dataUrl) => {
+      const m = dataUrl && dataUrl.match(/^data:(.*?);base64,(.*)$/);
+      return m ? { mime: m[1], data: m[2] } : null;
+    };
+    const before = parse(localStorage.getItem(LAST_BEFORE_KEY));
+    const after = parse(localStorage.getItem(LAST_AFTER_KEY));
+    if (before) { photoMime = before.mime; photoBase64 = before.data; }
+    if (after) { afterPhotoMime = after.mime; afterPhotoBase64 = after.data; }
   }
 
   $('intakeStep').style.display = 'none';
@@ -3407,7 +3415,7 @@ async function generateProgram() {
         'Content-Type': 'application/json',
         ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
       },
-      body: JSON.stringify({ intake, photoBase64, photoMime, photoConsent: consent }),
+      body: JSON.stringify({ intake, photoBase64, photoMime, afterPhotoBase64, afterPhotoMime, photoConsent: consent }),
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
@@ -3498,6 +3506,51 @@ function showProgram() {
 
 function slotKey(w, d, sec, i) { return `w${w}d${d}${sec}${i}`; }
 
+const PHASE_LABELS = {
+  1: '10 min/day at home', 2: '20 min/day at home', 3: '30 min/day',
+  4: '35–40 min/day', 5: '45 min/day', 6: '45 min/day + 15 min zone-2 cardio',
+};
+
+// ── Forgiving streaks ──
+// Daily workouts mean a missed day must never feel like failure. The streak
+// metric is "weeks with 5+ workouts"; a missed day just points at today.
+function localDateStr(d) {
+  const x = d || new Date();
+  return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, '0')}-${String(x.getDate()).padStart(2, '0')}`;
+}
+function weekStartStr(d) {
+  const x = new Date(d); // Monday-start weeks
+  x.setDate(x.getDate() - ((x.getDay() + 6) % 7));
+  return localDateStr(x);
+}
+function streakStats() {
+  const dates = Object.keys(loadProgress().dates || {});
+  const byWeek = {};
+  dates.forEach(ds => { const w = weekStartStr(ds + 'T12:00:00'); byWeek[w] = (byWeek[w] || 0) + 1; });
+  // Count consecutive qualifying weeks ending at this week or last week.
+  let streak = 0;
+  const cursor = new Date();
+  cursor.setDate(cursor.getDate() - ((cursor.getDay() + 6) % 7));
+  if ((byWeek[localDateStr(cursor)] || 0) < 5) cursor.setDate(cursor.getDate() - 7); // this week still in progress
+  while ((byWeek[localDateStr(cursor)] || 0) >= 5) { streak++; cursor.setDate(cursor.getDate() - 7); }
+  const today = localDateStr();
+  const y = new Date(); y.setDate(y.getDate() - 1);
+  const yesterday = localDateStr(y);
+  const doneDates = loadProgress().dates || {};
+  return { streak, thisWeek: byWeek[weekStartStr(new Date())] || 0, missedYesterday: !doneDates[yesterday] && !doneDates[today], doneToday: !!doneDates[today], anyEver: dates.length > 0 };
+}
+function renderStreakCard() {
+  const s = streakStats();
+  if (!s.anyEver) return '';
+  const line = s.doneToday ? "Today's workout: done ✓"
+    : s.missedYesterday ? 'Missed yesterday? Just do today.'
+    : "Keep it rolling — today's workout is ready.";
+  return `<div class="why-card" style="display:flex;gap:14px;align-items:center">
+    <div style="font-size:26px">🔥</div>
+    <div><b>${s.streak} week${s.streak === 1 ? '' : 's'} strong</b> — weeks with 5+ workouts count. ${s.thisWeek ? `${s.thisWeek}/5 this week.` : ''}<br>
+    <span style="color:var(--mute)">${line}</span></div></div>`;
+}
+
 function effectiveExercise(ex, key, progress) {
   const swapId = (progress.swaps || {})[key];
   const id = swapId || ex.exercise_id;
@@ -3526,11 +3579,20 @@ function renderProgram() {
   const progress = loadProgress();
   const locked = !!stored.locked && !memberState.active;
 
-  let html = `<div class="why-card"><b>Why this works for you</b><br>${escapeHtml(p.why_this_works || '')}</div>`;
+  let html = '';
+  const assess = p.assessment;
+  if (assess) {
+    const phase = p.phase || assess.starting_phase;
+    html += `<div class="why-card"><b>Here's what we saw 👀</b><br>${escapeHtml(assess.starting_point || '')}
+      ${assess.goal_summary ? `<br><br><b>The gap to your after photo:</b> ${escapeHtml(assess.goal_summary)}` : ''}
+      <br><br><b>Your level:</b> ${escapeHtml(assess.assigned_level || '')} · <b>Phase ${phase} of 6</b>${PHASE_LABELS[phase] ? ` — ${PHASE_LABELS[phase]}` : ''}</div>`;
+  }
+  html += renderStreakCard();
+  html += `<div class="why-card"><b>Why this works for you</b><br>${escapeHtml(p.why_this_works || '')}</div>`;
 
   html += (p.weeks || []).map(week => {
     const days = (week.days || []).map(day => {
-      const isLockedDay = locked && !(week.week === 1 && day.day === 1);
+      const isLockedDay = locked && !(week.week === 1 && day.day <= 3);
       if (isLockedDay) {
         return `<button class="day-row day-row-locked" tabindex="-1">
           <span class="day-row-num">🔒</span>
@@ -3556,7 +3618,7 @@ function renderProgram() {
 
   if (locked) {
     html += `<div class="locked-cta-card">
-      <div class="locked-cta-h">Your plan is built. Day 1 is on us.</div>
+      <div class="locked-cta-h">Your plan is built. The first 3 days are on us.</div>
       <div class="locked-cta-sub">This program was designed around your goal, schedule, and body — it already has your name on it. Unlock all 4 weeks, plus unlimited transformations and meal tracking.</div>
       <button class="cta-btn" id="programUnlockBtn">Unlock My Full Program</button>
       <div class="guarantee-note">$9.99/mo or $59.99/yr · 7-day money-back guarantee</div>
@@ -3639,6 +3701,15 @@ function renderDayView(stored) {
   let html = `<div class="hero-h1" style="font-size:22px;line-height:1.15;margin-bottom:2px">${escapeHtml(day.focus)}</div>
     <div class="hero-sub" style="margin-bottom:6px">Tap each set as you finish it.</div>`;
 
+  // Phase 6 opens every session with zone-2 cardio before the lifting.
+  if ((p.phase || p.assessment?.starting_phase) === 6) {
+    html += `<div class="ex-group-lbl">Zone 2 cardio — 15 min 🚴</div>
+      <div class="ex-card"><div class="ex-card-top">
+        <span class="ex-name">Bike, incline walk, or rower</span>
+        <span class="ex-rx">15 min · easy pace</span></div>
+        <div class="ex-cue">💡 Conversational pace — you should be able to talk in full sentences. This is heart-health work, not a race.</div></div>`;
+  }
+
   html += `<div class="ex-group-lbl">Warm-up</div>`;
   html += (day.warmup || []).map(w => {
     const lib = EXERCISE_BY_ID[w.exercise_id] || {};
@@ -3694,6 +3765,8 @@ function renderDayView(stored) {
     });
     markAll(day.main, 'm');
     markAll(day.abs_finisher, 'a');
+    progress2.dates = progress2.dates || {};
+    progress2.dates[localDateStr()] = true;
     saveProgress(progress2);
     if (window.posthog) posthog.capture('workout_completed', { week: week.week, day: day.day });
     fireConfetti();
