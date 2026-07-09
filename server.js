@@ -2957,7 +2957,8 @@ app.post('/api/generate-mealplan', aiLimiter, optionalAuth, async (req, res) => 
       return res.status(502).json({ error: 'Meal plan generation failed. Please try again.' });
     }
     if (!plan?.prep_recipes?.length || !plan?.targets) {
-      return res.status(502).json({ error: 'Model returned an unusable plan. Please try again.' });
+      console.error('unusable meal plan, keys:', plan && Object.keys(plan));
+      return res.status(502).json({ error: 'Model returned an unusable plan. Please try again.', debug_keys: plan ? Object.keys(plan) : null, debug_snippet: JSON.stringify(plan).slice(0, 400) });
     }
     sanitizeMealPlan(plan, targets, intake);
 
