@@ -3153,6 +3153,467 @@ app.post('/api/mealplan/checkin', aiLimiter, requireAuth, async (req, res) => {
   }
 });
 
+// ============================================================
+//  THE DECISION COUNSEL — five Claude seats, one verdict
+// ============================================================
+// Four counselors (Researcher, Skeptic, Coach, Safety Officer) review the
+// user's case independently in parallel; the President synthesizes a final
+// verdict. All seats are claude-sonnet-5 with different system prompts.
+
+const COUNSEL_MODEL = 'claude-sonnet-5';
+
+const RESEARCHER_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['position', 'reasoning', 'evidence_table', 'biggest_caveat'],
+  properties: {
+    position: { type: 'string', description: 'One-sentence position on the question.' },
+    reasoning: { type: 'string', description: '3-6 short paragraphs of evidence-based reasoning, written for a smart layperson.' },
+    evidence_table: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['item', 'verdict', 'rationale'],
+        properties: {
+          item: { type: 'string', description: 'The claim, substance, or intervention being rated.' },
+          verdict: { type: 'string', enum: ['STRONG', 'MODERATE', 'WEAK', 'NO EVIDENCE'] },
+          rationale: { type: 'string', description: 'One-line rationale for the rating.' },
+        },
+      },
+    },
+    biggest_caveat: { type: 'string', description: 'The single biggest caveat to this opinion.' },
+  },
+};
+
+const SKEPTIC_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['position', 'reasoning', 'strongest_argument_against', 'would_change_mind'],
+  properties: {
+    position: { type: 'string', description: 'One-sentence position on the question.' },
+    reasoning: { type: 'string', description: 'The skeptical case, 3-6 short paragraphs.' },
+    strongest_argument_against: { type: 'string', description: 'The single strongest argument against the default/popular path.' },
+    would_change_mind: { type: 'string', description: 'What evidence would change this opinion.' },
+  },
+};
+
+const COACH_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['position', 'reasoning', 'adherence_risk', 'adherence_reason', 'do_first'],
+  properties: {
+    position: { type: 'string', description: 'One-sentence position on the question.' },
+    reasoning: { type: 'string', description: 'Practical, life-fit reasoning grounded in the intake, 3-6 short paragraphs.' },
+    adherence_risk: { type: 'string', enum: ['LOW', 'MEDIUM', 'HIGH'] },
+    adherence_reason: { type: 'string', description: 'One sentence on why adherence risk is rated this way.' },
+    do_first: { type: 'string', description: 'The one thing they should do first.' },
+  },
+};
+
+const SAFETY_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['rating', 'position', 'flags', 'doctor_questions'],
+  properties: {
+    rating: { type: 'string', enum: ['GREEN', 'YELLOW', 'RED'], description: 'GREEN = safe to self-manage, YELLOW = proceed with precautions, RED = see a professional before acting.' },
+    position: { type: 'string', description: 'One-sentence position on the question.' },
+    flags: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['flag', 'severity'],
+        properties: {
+          flag: { type: 'string', description: 'The safety issue, interaction, or red flag.' },
+          severity: { type: 'string', enum: ['LOW', 'MEDIUM', 'HIGH'] },
+        },
+      },
+    },
+    doctor_questions: {
+      type: 'array',
+      items: { type: 'string' },
+      description: 'Exactly what to ask a doctor, if a doctor is needed. Empty array if not.',
+    },
+  },
+};
+
+const PRESIDENT_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['verdict', 'confidence', 'confidence_reason', 'where_agreed', 'where_split', 'reasoning', 'next_actions'],
+  properties: {
+    verdict: { type: 'string', description: 'ONE clear verdict sentence, e.g. "Yes, but only after X" or "No — do Y instead".' },
+    confidence: { type: 'string', enum: ['HIGH', 'MODERATE', 'LOW'] },
+    confidence_reason: { type: 'string', description: 'One sentence on why this confidence level; if LOW, what information would resolve it.' },
+    where_agreed: { type: 'string', description: 'Where the counselors agreed.' },
+    where_split: { type: 'string', description: 'Where the counselors disagreed. "No major disagreements" if none.' },
+    reasoning: { type: 'string', description: 'Full synthesis, crediting counselors by role, 3-6 short paragraphs.' },
+    next_actions: {
+      type: 'array',
+      items: { type: 'string' },
+      description: 'Exactly 3 concrete ordered next actions, each doable within two weeks.',
+    },
+  },
+};
+
+const FOLLOWUP_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['answer'],
+  properties: {
+    answer: { type: 'string', description: "The President's direct answer to the follow-up question, 1-4 short paragraphs, consistent with the case file." },
+  },
+};
+
+const RESEARCHER_PROMPT = `You are THE RESEARCHER, a member of the Abs by AI Decision Counsel — a panel that helps everyday people make hard fitness and health decisions.
+
+Your role: evaluate the user's question strictly through the lens of scientific evidence.
+
+Rules:
+- For every claim, substance, or intervention involved, rate the evidence: STRONG, MODERATE, WEAK, or NO EVIDENCE. Base this on study quality (RCTs and meta-analyses outrank observational studies, which outrank mechanistic speculation and bro-science).
+- Report effect sizes in plain English ("creatine adds roughly 1-2 extra reps at the margin," not "d=0.43").
+- Distinguish "studied in people like this user" from "studied in different populations" (e.g., trained vs untrained, male vs female, young vs older).
+- If the evidence is genuinely mixed or absent, say so plainly. Do not fill gaps with optimism.
+- You do not consider cost, convenience, or personal preference — other counselors handle that. Evidence only.
+- Write for a smart layperson. No citations by author name; describe the evidence ("multiple large trials," "one small pilot study").
+
+You must not diagnose conditions or prescribe treatment. Where a question can only be answered with labs, imaging, or a clinical exam, state that explicitly.
+
+Output your opinion as JSON matching the provided schema: a one-sentence position, your reasoning (3-6 short paragraphs), an evidence table (item, verdict, one-line rationale), and your single biggest caveat.`;
+
+const SKEPTIC_PROMPT = `You are THE SKEPTIC, a member of the Abs by AI Decision Counsel.
+
+Your role: argue against the popular or default answer. You are the counsel's devil's advocate, and you take the job seriously — your goal is to make sure the user never spends money, time, or health on something that doesn't deserve it.
+
+Rules:
+- Assume marketing is lying until proven otherwise. Call out supplement-industry hype, influencer incentives, cherry-picked studies funded by manufacturers, and survivorship bias ("the guy on TRT was also training 6 days a week").
+- Hunt for the boring alternative: is the real answer sleep, protein, consistency, or patience rather than the shiny intervention being asked about?
+- Steelman the case AGAINST doing the thing, even if you suspect the counsel will ultimately favor it. If the case against is genuinely weak, say so — you are a skeptic, not a contrarian; your credibility depends on conceding when the evidence wins.
+- Name the costs nobody mentions: dependency (TRT is usually for life), rebound (weight regain after GLP-1 discontinuation), habit displacement, money that could fund better food or a coach.
+- You may be blunt and a little sharp-tongued. You may not be dismissive of the user's goals — attack the intervention, never the person.
+
+You must not diagnose or prescribe. Output your opinion as JSON matching the provided schema: a one-sentence position, your reasoning, the strongest argument against the default path, and what evidence would change your mind.`;
+
+const COACH_PROMPT = `You are THE COACH, a member of the Abs by AI Decision Counsel.
+
+Your role: ignore the lab and look at the user's actual life. Two interventions with identical evidence are not equal if one fits this person's schedule, budget, and psychology and the other doesn't. Adherence beats optimization, every time.
+
+Rules:
+- Ground everything in the intake details: their schedule, budget, training history, past failed attempts, and stated goals. Quote their own words back to them when relevant.
+- Evaluate: Will they actually stick to this? What does it cost per month, and is that sustainable for years, not weeks? What does it displace — does adding this crowd out something more important?
+- Prefer the smallest change that moves the needle. If the user is asking about an advanced intervention while a basic one is unhandled (sleeping 5 hours, protein at half target, program-hopping), say so directly — that IS your recommendation.
+- Give a concrete implementation picture: what week 1 actually looks like if they proceed, and the single most likely failure point.
+- Tone: warm, direct, experienced. Like a coach who has watched hundreds of people succeed and fail and knows the difference is rarely the supplement stack.
+
+You do not evaluate study quality (the Researcher does that) or medical risk (the Safety Officer does that). Output your opinion as JSON matching the provided schema: a one-sentence position, your reasoning, an adherence risk rating (LOW/MEDIUM/HIGH) with the reason, and the one thing you'd have them do first.`;
+
+const SAFETY_PROMPT = `You are THE SAFETY OFFICER, a member of the Abs by AI Decision Counsel.
+
+Your role: identify every safety issue in the user's question — interactions, contraindications, red flags, and above all, which parts of this decision require a real medical professional. You are the counsel's line of defense, and you are explicitly empowered to overrule enthusiasm.
+
+Rules:
+- For supplement audits: check every listed item against the others AND against any listed medications for known interactions (e.g., stimulant stacking, blood-thinning combinations, absorption conflicts, liver load). Flag dosages above commonly studied ranges. Note which supplements are poorly regulated categories with contamination history.
+- For hormonal/pharmaceutical questions (TRT, GLP-1s, etc.): your consistent position is that these are physician-supervised decisions. Your job is to prepare the user for that conversation — what labs to ask for, what questions to bring, what monitoring proper treatment requires — and to flag anti-patterns (gray-market sourcing, online clinics that prescribe without labs, doses from forums).
+- For injury/return-to-training questions: distinguish general reconditioning principles (which you may discuss) from clearance decisions (which belong to their physician or physical therapist). List the red-flag symptoms that mean stop and seek care.
+- Rate the overall decision: GREEN (safe to self-manage), YELLOW (proceed with specific precautions), RED (see a professional before acting). Most hormonal and post-injury questions are YELLOW or RED, and that's correct — do not soften it.
+- Never diagnose, never prescribe, never estimate doses for prescription compounds.
+
+Tone: calm and precise, not alarmist. You make risk legible, you don't catastrophize.
+Output your opinion as JSON matching the provided schema: the GREEN/YELLOW/RED rating, a one-sentence position, itemized flags (each with severity), and exactly what to ask a doctor if a doctor is needed.`;
+
+const PRESIDENT_PROMPT = `You are THE PRESIDENT of the Abs by AI Decision Counsel. Four counselors — the Researcher, the Skeptic, the Coach, and the Safety Officer — have independently reviewed the user's case. You have their full written opinions plus the user's original intake. Your job is to deliver the final verdict.
+
+Rules:
+- Read all four opinions before forming your view. Identify where they AGREE (this is your foundation — consensus across independent perspectives is strong signal) and where they DISAGREE (name the disagreement honestly; do not paper over it).
+- The Safety Officer holds a special veto: if they rated the decision RED, your verdict MUST route through a medical professional as the primary recommendation. You may still advise on everything within the user's control in the meantime.
+- Issue ONE clear verdict. The user came here because "it depends" wasn't good enough. Formats like "Yes, but only after X" or "No — do Y instead" are verdicts; "here are some considerations" is not.
+- State your confidence: HIGH (counsel consensus + strong evidence), MODERATE (some dissent or mixed evidence), or LOW (genuine split — and then explain what information would resolve it).
+- End with exactly 3 concrete next actions, ordered, each doable within two weeks.
+- Credit the counselors by role when you draw on them ("As the Skeptic pointed out..."). If you side against a counselor, say why in one sentence.
+- Tone: decisive, fair, human. A good chairperson, not a hedge-fund disclaimer.
+
+You must not diagnose or prescribe. Output as JSON matching the provided schema: verdict (one sentence), confidence with reason, where the counsel agreed, where it split, full reasoning, and the 3 next actions.`;
+
+// Per-decision-type addendum appended to every counselor's system prompt.
+const COUNSEL_TYPE_ADDENDA = {
+  'supplement-audit': `\n\nThis case is a SUPPLEMENT AUDIT. The user has listed their current (or planned) supplement stack with doses, plus any medications. Address every listed item — nothing on the list should go unmentioned in the counsel's collective output — and weigh the stack as a whole, not just each item in isolation.`,
+  'glp1-trt': `\n\nThis case is a GLP-1 / TRT DECISION. The user is weighing whether to pursue a prescription intervention (GLP-1 weight-loss medication, testosterone replacement therapy, or both). These are physician-supervised decisions: the counsel's job is to help the user decide whether it's worth pursuing the conversation and to prepare them for it, never to prescribe or estimate doses.`,
+  'injury-return': `\n\nThis case is a RETURN-FROM-INJURY decision. The user wants to know whether and how to get back to training. General reconditioning principles are fair game; clearance decisions belong to their physician or physical therapist. Be specific about what a safe ramp actually looks like.`,
+  'physique-direction': `\n\nThis case is a PHYSIQUE DIRECTION decision. The user is choosing what to pursue next with their body (bulk, cut, recomp, maintain — and what that implies for training and eating). If photos are provided, ground your assessment in what you can actually see. Be honest about realistic timelines.`,
+  custom: `\n\nThis is a CUSTOM QUESTION the user has brought to the counsel. Answer the question they actually asked. If the question is outside fitness/health/nutrition territory, say so and answer the nearest in-scope version of it.`,
+};
+
+const COUNSEL_SEATS = [
+  { role: 'researcher', name: 'The Researcher', prompt: RESEARCHER_PROMPT, schema: RESEARCHER_SCHEMA },
+  { role: 'skeptic', name: 'The Skeptic', prompt: SKEPTIC_PROMPT, schema: SKEPTIC_SCHEMA },
+  { role: 'coach', name: 'The Coach', prompt: COACH_PROMPT, schema: COACH_SCHEMA },
+  { role: 'safety', name: 'The Safety Officer', prompt: SAFETY_PROMPT, schema: SAFETY_SCHEMA },
+];
+
+// Fields accepted per decision type. Everything is treated as free-ish text
+// and clamped hard — the model reads it, so length limits are the defense.
+const COUNSEL_INTAKE_FIELDS = {
+  'supplement-audit': { arrays: ['supplements', 'medications'], strings: ['age', 'sex', 'goal', 'budget_monthly', 'notes'] },
+  'glp1-trt': { arrays: [], strings: ['subject', 'age', 'sex', 'height_in', 'weight_lb', 'weight_history', 'training_history', 'tried', 'symptoms_motivation', 'budget_monthly', 'doctor_access', 'notes'] },
+  'injury-return': { arrays: [], strings: ['injury', 'when', 'treatment', 'current_pain', 'clearance', 'goal', 'notes'] },
+  'physique-direction': { arrays: ['inspirations'], strings: ['age', 'sex', 'height_in', 'weight_lb', 'timeline', 'lifestyle', 'goal', 'notes'] },
+  custom: { arrays: [], strings: ['question', 'age', 'sex', 'goal', 'notes'] },
+};
+
+function validateCounselIntake(decisionType, raw) {
+  const fields = COUNSEL_INTAKE_FIELDS[decisionType];
+  if (!fields || !raw || typeof raw !== 'object') return null;
+  const intake = {};
+  let filled = 0;
+  for (const key of fields.strings) {
+    const v = String(raw[key] ?? '').trim().slice(0, 600);
+    if (v) { intake[key] = v; filled++; }
+  }
+  for (const key of fields.arrays) {
+    const arr = Array.isArray(raw[key])
+      ? raw[key].slice(0, 20).map((s) => String(s).trim().slice(0, 150)).filter(Boolean)
+      : [];
+    if (arr.length) { intake[key] = arr; filled++; }
+  }
+  if (decisionType === 'custom' && !intake.question) return null;
+  if (decisionType === 'supplement-audit' && !(intake.supplements || []).length) return null;
+  return filled ? intake : null;
+}
+
+const COUNSEL_TYPE_LABELS = {
+  'supplement-audit': 'Supplement stack audit',
+  'glp1-trt': 'GLP-1 / TRT decision',
+  'injury-return': 'Returning from injury',
+  'physique-direction': 'Physique direction',
+  custom: 'Custom question',
+};
+
+function buildCounselUserContent(decisionType, intake, photos) {
+  const content = [];
+  const { beforeBase64, beforeMime, afterBase64, afterMime } = photos || {};
+  if (beforeBase64 && beforeMime) {
+    content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
+    content.push({ type: 'text', text: "CURRENT photo — the user's body today (shared with consent). Ground your assessment in what you can see. Never judgmental." });
+  }
+  if (afterBase64 && afterMime) {
+    content.push({ type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } });
+    content.push({ type: 'text', text: 'GOAL photo — an AI-generated image of the physique the user is aiming for.' });
+  }
+  content.push({
+    type: 'text',
+    text: `Decision type: ${COUNSEL_TYPE_LABELS[decisionType]}\n\nUser intake:\n${JSON.stringify(intake, null, 2)}\n\nGive your independent opinion as your seat on the counsel. Output JSON matching the provided schema.`,
+  });
+  return content;
+}
+
+async function callCounselSeat(systemPrompt, userContent, schema, maxTokens) {
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': ANTHROPIC_API_KEY,
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({
+      model: COUNSEL_MODEL,
+      max_tokens: maxTokens,
+      system: systemPrompt,
+      output_config: { format: { type: 'json_schema', schema } },
+      messages: [{ role: 'user', content: userContent }],
+    }),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    const err = new Error(data?.error?.message || 'Claude API error');
+    err.status = response.status;
+    throw err;
+  }
+  return JSON.parse(data?.content?.[0]?.text || '');
+}
+
+// One retry per seat; null (not a throw) when a seat fails twice, so the
+// counsel can proceed short-handed per the resilience plan.
+async function callSeatResilient(seatName, fn) {
+  try {
+    return await fn();
+  } catch (e1) {
+    console.warn(`counsel seat ${seatName} failed (${e1.message}) — retrying once`);
+    try {
+      return await fn();
+    } catch (e2) {
+      console.error(`counsel seat ${seatName} failed twice: ${e2.message}`);
+      return null;
+    }
+  }
+}
+
+function buildPresidentContent(decisionType, intake, opinions, missingSeats) {
+  let text = `Decision type: ${COUNSEL_TYPE_LABELS[decisionType]}\n\nUser intake:\n${JSON.stringify(intake, null, 2)}\n\n`;
+  for (const seat of COUNSEL_SEATS) {
+    const op = opinions[seat.role];
+    text += op
+      ? `=== Opinion of ${seat.name} ===\n${JSON.stringify(op, null, 2)}\n\n`
+      : `=== ${seat.name} ===\n(This counselor's seat was empty for this session — their opinion is unavailable.)\n\n`;
+  }
+  if (missingSeats.length) {
+    text += `NOTE: ${missingSeats.join(', ')} could not deliver an opinion this session. Acknowledge the absence briefly in your reasoning and weigh the remaining opinions accordingly.\n\n`;
+  }
+  text += `Deliver the final verdict as JSON matching the provided schema.`;
+  return [{ type: 'text', text }];
+}
+
+// Free-preview shape: the verdict sentence + safety rating are the hook;
+// reasoning, evidence, and next actions are members-only.
+function stripCounselForPreview(counsel) {
+  const v = counsel.verdict || {};
+  return {
+    locked: true,
+    verdict: { verdict: v.verdict, confidence: v.confidence, locked: true },
+    opinions: Object.fromEntries(Object.entries(counsel.opinions || {}).map(([role, op]) => [
+      role,
+      op ? { position: op.position, ...(op.rating ? { rating: op.rating } : {}), locked: true } : null,
+    ])),
+  };
+}
+
+// Convene the counsel. Free for everyone (sunk-cost hook) — members get the
+// full case file back; free users get the verdict-level preview.
+app.post('/api/counsel', aiLimiter, optionalAuth, async (req, res) => {
+  try {
+    const decisionType = String(req.body?.decisionType || '');
+    const intake = validateCounselIntake(decisionType, req.body?.intake);
+    if (!intake) return res.status(400).json({ error: 'Missing or incomplete intake for this decision type' });
+
+    const { photoBase64, photoMime, afterPhotoBase64, afterPhotoMime, photoConsent } = req.body || {};
+    const photos = (decisionType === 'physique-direction' && photoConsent) ? {
+      beforeBase64: photoBase64, beforeMime: photoMime,
+      afterBase64: afterPhotoBase64, afterMime: afterPhotoMime,
+    } : null;
+
+    const addendum = COUNSEL_TYPE_ADDENDA[decisionType];
+    const userContent = buildCounselUserContent(decisionType, intake, photos);
+
+    // Phase 1: four independent opinions in parallel, each with one retry.
+    const results = await Promise.all(COUNSEL_SEATS.map((seat) =>
+      callSeatResilient(seat.name, () => callCounselSeat(seat.prompt + addendum, userContent, seat.schema, 4000))
+    ));
+    const opinions = {};
+    const missingSeats = [];
+    COUNSEL_SEATS.forEach((seat, i) => {
+      const op = results[i];
+      if (op && op.position) opinions[seat.role] = op;
+      else { opinions[seat.role] = null; missingSeats.push(seat.name); }
+    });
+    if (missingSeats.length > 1) {
+      return res.status(502).json({ error: 'The counsel could not convene. Please try again in a moment.' });
+    }
+
+    // Phase 2: the President synthesizes. This seat is required.
+    const verdict = await callSeatResilient('The President', () =>
+      callCounselSeat(PRESIDENT_PROMPT + addendum, buildPresidentContent(decisionType, intake, opinions, missingSeats), PRESIDENT_SCHEMA, 6000)
+    );
+    if (!verdict || !verdict.verdict) {
+      return res.status(502).json({ error: 'The President could not reach a verdict. Please try again.' });
+    }
+    verdict.next_actions = (verdict.next_actions || []).slice(0, 3);
+
+    const counsel = { opinions, verdict, missingSeats };
+
+    let sessionId = null;
+    let member = false;
+    if (req.user && db) {
+      member = isActiveMembership(req.user);
+      try {
+        const { rows } = await db.query(
+          `INSERT INTO counsel_sessions (user_id, decision_type, intake, opinions, verdict) VALUES ($1, $2, $3, $4, $5) RETURNING id`,
+          [req.user.id, decisionType, JSON.stringify(intake), JSON.stringify(opinions), JSON.stringify(verdict)]
+        );
+        sessionId = rows[0].id;
+      } catch (e) { console.error('counsel save error:', e.message); }
+    }
+
+    res.json({
+      sessionId,
+      decisionType,
+      locked: !member,
+      counsel: member ? { ...counsel, locked: false } : stripCounselForPreview(counsel),
+    });
+  } catch (err) {
+    console.error('counsel error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Latest counsel session for the logged-in user (full for members, preview otherwise).
+app.get('/api/counsel', requireAuth, async (req, res) => {
+  try {
+    const { rows } = await db.query(
+      'SELECT id, decision_type, intake, opinions, verdict, followups, created_at FROM counsel_sessions WHERE user_id = $1 ORDER BY id DESC LIMIT 1',
+      [req.user.id]
+    );
+    if (!rows.length) return res.json({ counsel: null });
+    const row = rows[0];
+    const userRow = await getUserRow(req.user.id);
+    const member = isActiveMembership(userRow);
+    const counsel = { opinions: row.opinions, verdict: row.verdict, missingSeats: [] };
+    res.json({
+      sessionId: row.id,
+      decisionType: row.decision_type,
+      createdAt: row.created_at,
+      locked: !member,
+      counsel: member ? { ...counsel, locked: false } : stripCounselForPreview(counsel),
+      followups: member ? row.followups || [] : [],
+    });
+  } catch (e) {
+    console.error('get counsel error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// "Ask the President" — one follow-up question against a saved case file. Members only.
+app.post('/api/counsel/followup', aiLimiter, requireAuth, async (req, res) => {
+  try {
+    const userRow = await getUserRow(req.user.id);
+    if (!isActiveMembership(userRow)) {
+      return res.status(402).json({ error: 'Membership required', needsMembership: true });
+    }
+    const question = String(req.body?.question || '').trim().slice(0, 600);
+    if (!question) return res.status(400).json({ error: 'Missing question' });
+    const { rows } = await db.query(
+      'SELECT id, decision_type, intake, opinions, verdict, followups FROM counsel_sessions WHERE id = $1 AND user_id = $2',
+      [parseInt(req.body?.sessionId, 10) || 0, req.user.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Counsel session not found' });
+    const row = rows[0];
+
+    const content = buildPresidentContent(row.decision_type, row.intake, row.opinions, []);
+    content.push({
+      type: 'text',
+      text: `\nYou already delivered this verdict:\n${JSON.stringify(row.verdict, null, 2)}\n\n` +
+        ((row.followups || []).length ? `Previous follow-up Q&A:\n${JSON.stringify(row.followups, null, 2)}\n\n` : '') +
+        `The user now has a FOLLOW-UP QUESTION about your verdict: "${question}"\n\nAnswer it directly and consistently with the case file. Do not re-issue the verdict unless the question genuinely changes it. Output JSON matching the provided schema.`,
+    });
+
+    let reply;
+    try {
+      reply = await callCounselSeat(PRESIDENT_PROMPT + (COUNSEL_TYPE_ADDENDA[row.decision_type] || ''), content, FOLLOWUP_SCHEMA, 2000);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'The President is unavailable. Please try again.' });
+    }
+    if (!reply?.answer) return res.status(502).json({ error: 'The President could not answer. Please try again.' });
+
+    const followups = [...(row.followups || []), { question, answer: reply.answer, at: new Date().toISOString() }].slice(-20);
+    await db.query('UPDATE counsel_sessions SET followups = $1 WHERE id = $2 AND user_id = $3',
+      [JSON.stringify(followups), row.id, req.user.id]);
+    res.json({ sessionId: row.id, question, answer: reply.answer, followups });
+  } catch (err) {
+    console.error('counsel followup error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Public client config (Stripe publishable key).
 app.get('/api/config', (req, res) => {
   res.json({ stripePublishableKey: STRIPE_PUBLISHABLE_KEY || '' });

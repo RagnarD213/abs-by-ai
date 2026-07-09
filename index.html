@@ -1583,6 +1583,11 @@ html, body {
         <span class="hub-tile-body"><span class="hub-tile-name">AI Nutritionist</span><span class="hub-tile-sub">Your weekly meal-prep plan &amp; targets</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
+      <button class="hub-tile" data-feature="counsel">
+        <span class="hub-tile-emoji">🏛️</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">The Decision Counsel</span><span class="hub-tile-sub">Five AI experts rule on your hardest call</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
       <button class="hub-tile" data-feature="sleep" data-soon="Sleep coaching to boost recovery and fat loss.">
         <span class="hub-tile-emoji">😴</span>
         <span class="hub-tile-body"><span class="hub-tile-name">AI Sleep Coach</span><span class="hub-tile-sub">Recover better, progress faster</span></span>
@@ -1771,6 +1776,53 @@ html, body {
     <div id="mealPlanContent"><!-- rendered by JS --></div>
   </div>
 
+  <!-- ════════════════ SCREEN: DECISION COUNSEL — LANDING ════════════════ -->
+  <div id="counselSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="counselBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">The Decision Counsel</span>
+      <span style="width:26px"></span>
+    </div>
+    <div id="counselLanding"><!-- rendered by JS --></div>
+  </div>
+
+  <!-- ════════════════ SCREEN: DECISION COUNSEL — INTAKE ════════════════ -->
+  <div id="counselIntakeSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="counselIntakeBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title" id="counselIntakeTitle">Present your case</span>
+      <span style="width:26px"></span>
+    </div>
+    <div class="intake-progress"><div id="counselProgressFill" class="intake-progress-fill" style="width:10%"></div></div>
+    <div id="counselStep"><!-- rendered by JS --></div>
+    <button id="counselBackStep" class="try-diff-btn intake-back" style="display:none">← Back</button>
+
+    <div id="counselLoader" class="loading-status" style="display:none;margin-top:20px">
+      <div class="loading-spinner"></div>
+      <div>
+        <div class="loading-title">The counsel is deliberating…</div>
+        <div class="loading-sub">Four independent opinions, then the President's verdict — about a minute</div>
+      </div>
+    </div>
+    <div id="counselGenError" class="error-toast" style="display:none;margin-top:14px"></div>
+  </div>
+
+  <!-- ════════════════ SCREEN: DECISION COUNSEL — REPORT ════════════════ -->
+  <div id="counselReportSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="counselReportBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Counsel Report</span>
+      <span style="width:26px"></span>
+    </div>
+    <div id="counselReportContent"><!-- rendered by JS --></div>
+  </div>
+
   <!-- ════════════════ SCREEN: MEMBERSHIP ════════════════ -->
   <div id="membershipSection" class="screen" style="display:none">
     <div class="nav-bar">
@@ -1789,6 +1841,7 @@ html, body {
       <li>Unlimited future-self image generations</li>
       <li>Unlimited AI meal &amp; macro tracking</li>
       <li>Your AI Nutritionist meal-prep plan — recipes, grocery lists &amp; check-ins</li>
+      <li>The Decision Counsel — full verdicts from five AI experts, plus follow-up questions</li>
       <li>Program check-ins that adapt to your progress</li>
     </ul>
 
@@ -2207,7 +2260,7 @@ Always honor the user's requested intensity at FULL strength regardless of start
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -2864,6 +2917,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   initAccounts();
   initTrainer();
   initNutritionist();
+  initCounsel();
   restoreSession(); // routes returning logged-in users straight to the hub
 });
 
@@ -2935,6 +2989,7 @@ async function restoreSession() {
     refreshMembership();
     syncProgramFromServer();
     syncMealPlanFromServer();
+    syncCounselFromServer();
   } catch (e) {
     if (e.status === 401) clearLoggedIn(); // stale token; network errors keep it
   }
@@ -3113,6 +3168,7 @@ function initAccounts() {
       if (feature === 'macro') return showMacroScreen();
       if (feature === 'trainer') return openTrainer();
       if (feature === 'nutritionist') return openNutritionist();
+      if (feature === 'counsel') return openCounsel();
       if (feature === 'generate') return showScreen('form');
       if (feature === 'support') return; // <a mailto> handles itself
       const note = $('hubSoonNote');
@@ -3210,6 +3266,7 @@ async function handleMembershipComplete(sessionId) {
   // intake if this program was generated anonymously (server never stored it).
   await unlockProgramAfterSubscribe();
   await unlockMealPlanAfterSubscribe();
+  await unlockCounselAfterSubscribe();
   const dest = membershipReturnTo;
   membershipReturnTo = null;
   if (dest) dest(); else if (loadStoredProgram()) showProgram(); else showHub();
@@ -4506,6 +4563,530 @@ function initNutritionist() {
     if (nutriState.step > 0) { nutriState.step--; renderNutriStep(); }
   });
   $('mealPlanBackBtn').addEventListener('click', () => (isLoggedIn() ? showHub() : showMacroScreen()));
+}
+
+// ============================================================
+//  THE DECISION COUNSEL — landing, intake wizards, report
+// ============================================================
+const COUNSEL_KEY = 'absbyai_counsel';
+const COUNSEL_INTAKE_KEY = 'absbyai_counsel_intake';
+
+const COUNSEL_MEMBERS = [
+  { e: '🔬', n: 'The Researcher', s: 'Rates every claim by the actual evidence — no hype, no bro-science.' },
+  { e: '🧐', n: 'The Skeptic', s: "Argues against the popular answer so you never waste money on marketing." },
+  { e: '🏋️', n: 'The Coach', s: 'Ignores the lab and asks: will this fit YOUR life? Adherence beats optimization.' },
+  { e: '🩺', n: 'The Safety Officer', s: 'Flags interactions and red flags, and tells you when this needs a real doctor.' },
+  { e: '🏛️', n: 'The President', s: 'Reads all four opinions and delivers one clear verdict — no "it depends".' },
+];
+
+const COUNSEL_TYPES = [
+  { v: 'supplement-audit', e: '💊', n: 'Audit my supplement stack', s: 'Is what you\'re taking worth it — and safe together?' },
+  { v: 'glp1-trt', e: '💉', n: 'Should I consider a GLP-1 or TRT?', s: 'A clear-eyed ruling before you talk to a doctor.' },
+  { v: 'injury-return', e: '🩹', n: 'Coming back from an injury', s: 'When and how to return to training safely.' },
+  { v: 'physique-direction', e: '🧭', n: 'What should my physique goal be?', s: 'Bulk, cut, recomp — pick a direction with confidence.' },
+  { v: 'custom', e: '❓', n: 'Ask my own question', s: 'Bring any hard fitness or health decision to the counsel.' },
+];
+
+// Data-driven wizard: each step has fields; kinds are text | textarea |
+// number | chips (single-select) | list (add-your-own items).
+const COUNSEL_WIZARDS = {
+  'supplement-audit': [
+    { title: 'What are you taking?', sub: 'Add each supplement with its dose and timing — e.g. "Creatine 5g, morning".', fields: [
+      { key: 'supplements', kind: 'list', label: 'Your supplements', required: true, placeholder: 'e.g. Creatine 5g daily' }] },
+    { title: 'Any medications?', sub: 'The Safety Officer checks your stack against these. Skip if none.', fields: [
+      { key: 'medications', kind: 'list', label: 'Medications', placeholder: 'e.g. lisinopril 10mg' }] },
+    { title: 'About you', fields: [
+      { key: 'age', kind: 'number', label: 'Age', placeholder: 'e.g. 34', min: 16, max: 90 },
+      { key: 'sex', kind: 'chips', label: 'Sex', opts: [['male','Male'],['female','Female'],['unspecified','Prefer not to say']] },
+      { key: 'goal', kind: 'text', label: 'What are you optimizing for?', placeholder: 'e.g. muscle gain, fat loss, energy' }] },
+    { title: 'Budget & anything else', fields: [
+      { key: 'budget_monthly', kind: 'chips', label: 'Monthly supplement budget', opts: [['under $25','Under $25'],['$25–75','$25–75'],['$75–150','$75–150'],['$150+','$150+']] },
+      { key: 'notes', kind: 'textarea', label: 'Anything else the counsel should know?', optional: true, placeholder: 'e.g. I already eat 180g protein and sleep 8 hours' }] },
+  ],
+  'glp1-trt': [
+    { title: 'What are you weighing?', fields: [
+      { key: 'subject', kind: 'chips', label: 'The decision', required: true, opts: [['glp1','GLP-1 (Ozempic, Zepbound…)'],['trt','TRT (testosterone)'],['both','Both / not sure']] }] },
+    { title: 'About you', fields: [
+      { key: 'age', kind: 'number', label: 'Age', placeholder: 'e.g. 42', min: 16, max: 90 },
+      { key: 'sex', kind: 'chips', label: 'Sex', opts: [['male','Male'],['female','Female'],['unspecified','Prefer not to say']] },
+      { key: 'height_in', kind: 'height', label: 'Height' },
+      { key: 'weight_lb', kind: 'number', label: 'Current weight (lbs)', placeholder: 'e.g. 235', min: 80, max: 500 }] },
+    { title: 'Your history', fields: [
+      { key: 'weight_history', kind: 'textarea', label: 'Weight story so far', placeholder: 'e.g. Gained 40 lbs over 10 years; lost 20 twice and regained it' },
+      { key: 'training_history', kind: 'textarea', label: 'Training history', placeholder: 'e.g. Lift 2x/week for a year; walk most days' }] },
+    { title: "What you've tried & why now", fields: [
+      { key: 'tried', kind: 'textarea', label: "What have you already tried?", placeholder: 'e.g. Keto, calorie counting, a personal trainer' },
+      { key: 'symptoms_motivation', kind: 'textarea', label: 'Symptoms or motivation driving this', placeholder: 'e.g. Low energy, libido down, doctor mentioned pre-diabetes' }] },
+    { title: 'Practical constraints', fields: [
+      { key: 'budget_monthly', kind: 'chips', label: 'Monthly budget for this', opts: [['under $100','Under $100'],['$100–300','$100–300'],['$300+','$300+'],['insurance would need to cover it','Needs insurance coverage']] },
+      { key: 'doctor_access', kind: 'chips', label: 'Doctor access', opts: [['have a doctor I see regularly','Have a regular doctor'],['could get an appointment','Could get an appointment'],['hard for me to see a doctor','Hard to see a doctor']] },
+      { key: 'notes', kind: 'textarea', label: 'Anything else?', optional: true, placeholder: 'e.g. Family history, meds you take, fears' }] },
+  ],
+  'injury-return': [
+    { title: 'The injury', fields: [
+      { key: 'injury', kind: 'text', label: 'What happened?', required: true, placeholder: 'e.g. Herniated disc L4-L5 deadlifting' },
+      { key: 'when', kind: 'chips', label: 'When?', opts: [['less than a month ago','< 1 month ago'],['1–3 months ago','1–3 months'],['3–12 months ago','3–12 months'],['over a year ago','1+ year ago']] }] },
+    { title: 'Treatment so far', fields: [
+      { key: 'treatment', kind: 'textarea', label: 'What treatment have you had?', placeholder: 'e.g. 6 weeks of PT, MRI, just rest…' },
+      { key: 'clearance', kind: 'chips', label: 'Are you cleared to train?', opts: [['cleared by a professional','Cleared by a pro'],['not cleared yet','Not cleared yet'],['never saw a professional','Never saw anyone']] }] },
+    { title: 'Where you are now', fields: [
+      { key: 'current_pain', kind: 'chips', label: 'Pain today', opts: [['no pain','No pain'],['only on certain movements','Only certain movements'],['daily pain','Daily pain']] },
+      { key: 'goal', kind: 'textarea', label: 'What do you want to get back to?', placeholder: 'e.g. Deadlifting 315 again, or just pain-free workouts' },
+      { key: 'notes', kind: 'textarea', label: 'Anything else?', optional: true }] },
+  ],
+  'physique-direction': [
+    { title: 'About you', fields: [
+      { key: 'age', kind: 'number', label: 'Age', placeholder: 'e.g. 29', min: 16, max: 90 },
+      { key: 'sex', kind: 'chips', label: 'Sex', opts: [['male','Male'],['female','Female'],['unspecified','Prefer not to say']] },
+      { key: 'height_in', kind: 'height', label: 'Height' },
+      { key: 'weight_lb', kind: 'number', label: 'Current weight (lbs)', placeholder: 'e.g. 178', min: 80, max: 500 }] },
+    { title: 'The look you want', fields: [
+      { key: 'inspirations', kind: 'list', label: 'Physiques you admire', placeholder: 'e.g. lean athletic, swimmer build' },
+      { key: 'timeline', kind: 'chips', label: 'Timeline', opts: [['3 months','3 months'],['6 months','6 months'],['a year','A year'],['no rush','No rush']] }] },
+    { title: 'Your life', fields: [
+      { key: 'lifestyle', kind: 'textarea', label: 'Lifestyle constraints', placeholder: 'e.g. Desk job, 2 kids, can train 3x/week, travel monthly' },
+      { key: 'goal', kind: 'text', label: 'Your current lean (if you had to pick)', optional: true, placeholder: 'e.g. Leaning toward a slow bulk' },
+      { key: 'notes', kind: 'textarea', label: 'Anything else?', optional: true }] },
+  ],
+  custom: [
+    { title: 'Your question', sub: 'Ask it the way you\'d ask a brutally honest friend who happens to know everything.', fields: [
+      { key: 'question', kind: 'textarea', label: 'What should the counsel rule on?', required: true, placeholder: 'e.g. Is fasted cardio worth it, or should I just eat less?' }] },
+    { title: 'Quick context', fields: [
+      { key: 'age', kind: 'number', label: 'Age', optional: true, placeholder: 'e.g. 34', min: 16, max: 90 },
+      { key: 'sex', kind: 'chips', label: 'Sex', opts: [['male','Male'],['female','Female'],['unspecified','Prefer not to say']] },
+      { key: 'goal', kind: 'text', label: 'Your main goal right now', placeholder: 'e.g. Lose 20 lbs without losing muscle' },
+      { key: 'notes', kind: 'textarea', label: 'Anything else?', optional: true }] },
+  ],
+};
+
+const counselState = { type: null, step: 0, answers: {}, steps: [] };
+
+function loadStoredCounsel() {
+  try { return JSON.parse(localStorage.getItem(COUNSEL_KEY) || 'null'); } catch (e) { return null; }
+}
+function storeCounsel(data) {
+  try { localStorage.setItem(COUNSEL_KEY, JSON.stringify(data)); } catch (e) {}
+}
+
+function openCounsel() {
+  if (window.posthog) posthog.capture('counsel_opened');
+  renderCounselLanding();
+  showScreen('counsel');
+}
+
+function renderCounselLanding() {
+  const stored = loadStoredCounsel();
+  let html = `
+    <div class="hero-h1" style="font-size:25px;line-height:1.1;margin-bottom:6px">Five experts. One verdict.</div>
+    <div class="hero-sub" style="margin-bottom:18px">Bring the counsel a hard decision. Four AI counselors review your case independently — then the President rules.</div>`;
+  if (stored?.counsel) {
+    html += `<button class="hub-tile" id="counselLastReport" style="margin-bottom:16px">
+      <span class="hub-tile-emoji">📜</span>
+      <span class="hub-tile-body"><span class="hub-tile-name">Your last verdict</span><span class="hub-tile-sub">${escapeHtml((stored.counsel.verdict?.verdict || '').slice(0, 90))}</span></span>
+      <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>`;
+  }
+  html += `<div class="lbl" style="margin-bottom:8px"><span class="lbl-text">What's the decision?</span></div>
+    <div class="intake-opts">` + COUNSEL_TYPES.map(t => `
+      <button class="intake-opt" data-v="${t.v}">
+        <span class="intake-opt-emoji">${t.e}</span>
+        <span><span class="intake-opt-name">${t.n}</span><span class="intake-opt-sub" style="display:block">${t.s}</span></span>
+      </button>`).join('') + `</div>
+    <div class="lbl" style="margin:22px 0 8px"><span class="lbl-text">Meet your counsel</span></div>` +
+    COUNSEL_MEMBERS.map(m => `
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:7px 0">
+        <span style="font-size:20px">${m.e}</span>
+        <span style="font-size:13.5px"><b>${m.n}</b> — <span style="color:var(--mute)">${m.s}</span></span>
+      </div>`).join('') +
+    `<div class="hero-sub" style="margin-top:16px;font-size:12px">Educational guidance, not medical advice. The counsel will tell you when a question belongs to a real doctor.</div>`;
+  $('counselLanding').innerHTML = html;
+
+  $('counselLanding').querySelectorAll('.intake-opt').forEach(btn =>
+    btn.addEventListener('click', () => startCounselIntake(btn.dataset.v)));
+  const last = $('counselLastReport');
+  if (last) last.addEventListener('click', () => showCounselReport());
+}
+
+function startCounselIntake(type) {
+  counselState.type = type;
+  counselState.step = 0;
+  counselState.answers = {};
+  counselState.steps = COUNSEL_WIZARDS[type].slice();
+  // Physique direction can read the user's existing before/after photos.
+  if (type === 'physique-direction' && localStorage.getItem(LAST_BEFORE_KEY)) {
+    counselState.steps = [{ title: 'Let the counsel see your photos', type: 'photo',
+      sub: 'Your <b>before</b> and <b>goal</b> photos give the counselors a real starting point.', fields: [] }, ...counselState.steps];
+  }
+  $('counselIntakeTitle').textContent = COUNSEL_TYPES.find(t => t.v === type)?.n || 'Present your case';
+  $('counselGenError').style.display = 'none';
+  $('counselLoader').style.display = 'none';
+  renderCounselStep();
+  showScreen('counselIntake');
+}
+
+function renderCounselStep() {
+  const steps = counselState.steps;
+  const step = steps[counselState.step];
+  const a = counselState.answers;
+  const wrap = $('counselStep');
+  const isLast = counselState.step === steps.length - 1;
+  $('counselProgressFill').style.width = `${Math.round(((counselState.step + 1) / steps.length) * 100)}%`;
+  $('counselBackStep').style.display = counselState.step > 0 ? '' : 'none';
+  wrap.style.display = '';
+
+  let inner = `<div class="hero-h1" style="font-size:23px;line-height:1.15;margin-bottom:5px">${step.title}</div>`;
+  inner += step.sub ? `<div class="hero-sub" style="margin-bottom:16px">${step.sub}</div>` : `<div style="margin-bottom:14px"></div>`;
+
+  if (step.type === 'photo') {
+    inner += `
+      <label class="consent-row"><input type="checkbox" id="counselPhotoConsent" checked />
+        <span><span class="intake-opt-name">Share my photos with the counsel</span>
+        <span class="intake-opt-sub" style="display:block">Analyzed once for this session, never stored by the AI.</span></span></label>`;
+  } else {
+    for (const f of step.fields) {
+      inner += `<div class="lbl" style="margin-top:14px"><span class="lbl-text">${f.label}</span>${f.optional ? '<span class="lbl-opt">Optional</span>' : ''}</div>`;
+      if (f.kind === 'chips') {
+        inner += `<div class="intake-chips" data-key="${f.key}">${f.opts.map(([v, n]) =>
+          `<button class="intake-chip${a[f.key] === v ? ' selected' : ''}" data-v="${escapeHtml(v)}">${n}</button>`).join('')}</div>`;
+      } else if (f.kind === 'list') {
+        const items = a[f.key] || [];
+        inner += `<div style="display:flex;gap:8px">
+            <input type="text" class="text-field" id="cw_add_${f.key}" maxlength="150" placeholder="${f.placeholder || ''}" style="flex:1" />
+            <button class="try-diff-btn" data-add="${f.key}" style="margin:0;width:auto;padding:0 16px">Add</button>
+          </div>
+          <div class="intake-chips" data-list="${f.key}" style="margin-top:8px">${items.map((it, i) =>
+            `<button class="intake-chip selected" data-rm="${i}" title="Tap to remove">${escapeHtml(it)} ✕</button>`).join('')}</div>`;
+      } else if (f.kind === 'textarea') {
+        inner += `<textarea class="text-field" id="cw_${f.key}" maxlength="600" rows="3" placeholder="${f.placeholder || ''}" style="resize:vertical;min-height:64px">${escapeHtml(a[f.key] || '')}</textarea>`;
+      } else if (f.kind === 'number') {
+        inner += `<input type="number" class="text-field" id="cw_${f.key}" inputmode="numeric" ${f.min ? `min="${f.min}"` : ''} ${f.max ? `max="${f.max}"` : ''} placeholder="${f.placeholder || ''}" value="${escapeHtml(a[f.key] || '')}" />`;
+      } else if (f.kind === 'height') {
+        inner += `<div style="display:flex;gap:10px">
+          <input type="number" class="text-field" id="cw_${f.key}_ft" inputmode="numeric" min="4" max="7" placeholder="ft" value="${a[f.key + '_ft'] || ''}" style="flex:1" />
+          <input type="number" class="text-field" id="cw_${f.key}_in" inputmode="numeric" min="0" max="11" placeholder="in" value="${a[f.key + '_in'] || ''}" style="flex:1" /></div>`;
+      } else {
+        inner += `<input type="text" class="text-field" id="cw_${f.key}" maxlength="600" placeholder="${f.placeholder || ''}" value="${escapeHtml(a[f.key] || '')}" />`;
+      }
+    }
+  }
+
+  inner += `<div id="counselStepError" class="error-toast" style="display:none;margin-top:12px"></div>
+    <button class="cta-btn" id="counselStepNext" style="margin-top:18px">${isLast ? '🏛️ Convene the Counsel' : 'Continue'}</button>`;
+  wrap.innerHTML = inner;
+
+  // Wire chips (single-select)
+  wrap.querySelectorAll('.intake-chips[data-key]').forEach(group => {
+    group.querySelectorAll('.intake-chip').forEach(chip => chip.addEventListener('click', () => {
+      a[group.dataset.key] = chip.dataset.v;
+      group.querySelectorAll('.intake-chip').forEach(x => x.classList.toggle('selected', x === chip));
+    }));
+  });
+  // Wire list add/remove
+  wrap.querySelectorAll('[data-add]').forEach(btn => {
+    const key = btn.dataset.add;
+    const input = $(`cw_add_${key}`);
+    const add = () => {
+      const v = input.value.trim();
+      if (!v) return;
+      a[key] = [...(a[key] || []), v].slice(0, 20);
+      saveCounselStepInputs(step);
+      renderCounselStep();
+      const again = $(`cw_add_${key}`);
+      if (again) again.focus();
+    };
+    btn.addEventListener('click', add);
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); add(); } });
+  });
+  wrap.querySelectorAll('.intake-chips[data-list]').forEach(group => {
+    const key = group.dataset.list;
+    group.querySelectorAll('[data-rm]').forEach(chip => chip.addEventListener('click', () => {
+      a[key] = (a[key] || []).filter((_, i) => i !== parseInt(chip.dataset.rm, 10));
+      saveCounselStepInputs(step);
+      renderCounselStep();
+    }));
+  });
+
+  $('counselStepNext').addEventListener('click', () => {
+    if (step.type === 'photo') {
+      a.photo_consent = $('counselPhotoConsent').checked;
+    } else {
+      saveCounselStepInputs(step);
+      // Validate required fields
+      for (const f of step.fields) {
+        if (!f.required) continue;
+        const val = a[f.key];
+        if (f.kind === 'list' ? !(val || []).length : !String(val || '').trim()) {
+          const err = $('counselStepError');
+          err.textContent = f.kind === 'list' ? `Please add at least one item.` : `Please fill in "${f.label}".`;
+          err.style.display = '';
+          return;
+        }
+      }
+    }
+    if (isLast) return conveneCounsel();
+    counselState.step++;
+    renderCounselStep();
+  });
+}
+
+// Pull the current step's free-text inputs into answers (chips/lists are live).
+function saveCounselStepInputs(step) {
+  const a = counselState.answers;
+  for (const f of step.fields || []) {
+    if (f.kind === 'chips' || f.kind === 'list') continue;
+    if (f.kind === 'height') {
+      const ft = parseInt(($(`cw_${f.key}_ft`) || {}).value, 10);
+      const inch = parseInt(($(`cw_${f.key}_in`) || {}).value, 10) || 0;
+      if (ft >= 4 && ft <= 7) { a[f.key] = String(ft * 12 + inch); a[f.key + '_ft'] = ft; a[f.key + '_in'] = inch; }
+      continue;
+    }
+    const el = $(`cw_${f.key}`);
+    if (el) a[f.key] = el.value.trim();
+  }
+}
+
+async function conveneCounsel() {
+  const type = counselState.type;
+  const a = counselState.answers;
+  const intake = {};
+  for (const [k, v] of Object.entries(a)) {
+    if (k === 'photo_consent' || k.endsWith('_ft') || k.endsWith('_in')) continue;
+    if (Array.isArray(v) ? v.length : String(v || '').trim()) intake[k] = v;
+  }
+  try { localStorage.setItem(COUNSEL_INTAKE_KEY, JSON.stringify({ decisionType: type, intake })); } catch (e) {}
+
+  const body = { decisionType: type, intake };
+  if (type === 'physique-direction' && a.photo_consent && localStorage.getItem(LAST_BEFORE_KEY)) {
+    const parse = (dataUrl) => {
+      const m = dataUrl && dataUrl.match(/^data:(.*?);base64,(.*)$/);
+      return m ? { mime: m[1], data: m[2] } : null;
+    };
+    const before = parse(localStorage.getItem(LAST_BEFORE_KEY));
+    const after = parse(localStorage.getItem(LAST_AFTER_KEY));
+    if (before) { body.photoMime = before.mime; body.photoBase64 = before.data; }
+    if (after) { body.afterPhotoMime = after.mime; body.afterPhotoBase64 = after.data; }
+    body.photoConsent = true;
+  }
+
+  $('counselStep').style.display = 'none';
+  $('counselBackStep').style.display = 'none';
+  $('counselGenError').style.display = 'none';
+  $('counselLoader').style.display = '';
+  if (window.posthog) posthog.capture('counsel_started', { decision_type: type });
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/counsel`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
+    storeCounsel(data);
+    if (window.posthog) posthog.capture('counsel_completed', { decision_type: type, locked: data.locked });
+    fireConfetti();
+    showCounselReport();
+  } catch (err) {
+    $('counselGenError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('counselGenError').style.display = '';
+    $('counselStep').style.display = '';
+    $('counselBackStep').style.display = counselState.step > 0 ? '' : 'none';
+  } finally {
+    $('counselLoader').style.display = 'none';
+  }
+}
+
+// ── Report rendering ──
+const COUNSEL_SEAT_META = {
+  researcher: { e: '🔬', n: 'The Researcher' },
+  skeptic: { e: '🧐', n: 'The Skeptic' },
+  coach: { e: '🏋️', n: 'The Coach' },
+  safety: { e: '🩺', n: 'The Safety Officer' },
+};
+const SAFETY_COLORS = { GREEN: '#1d9e57', YELLOW: '#d99e00', RED: '#d64545' };
+const CONFIDENCE_LABEL = { HIGH: 'High confidence', MODERATE: 'Moderate confidence', LOW: 'Low confidence' };
+
+function showCounselReport() {
+  renderCounselReport();
+  showScreen('counselReport');
+}
+
+function renderCounselReport() {
+  const stored = loadStoredCounsel();
+  const wrap = $('counselReportContent');
+  if (!stored?.counsel) { openCounsel(); return; }
+  const c = stored.counsel;
+  const locked = !!stored.locked && !memberState.active;
+  const v = c.verdict || {};
+  const safetyRating = c.opinions?.safety?.rating;
+  const badge = (txt, color) => `<span style="display:inline-block;padding:3px 10px;border-radius:20px;font-size:11.5px;font-weight:800;letter-spacing:.4px;color:#fff;background:${color}">${txt}</span>`;
+
+  let html = `<div class="why-card" style="border:2px solid var(--ink);">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+      ${v.confidence ? badge(CONFIDENCE_LABEL[v.confidence] || v.confidence, '#2f5fe0') : ''}
+      ${safetyRating ? badge(`Safety: ${safetyRating}`, SAFETY_COLORS[safetyRating] || '#888') : ''}
+    </div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.6px;color:var(--mute);text-transform:uppercase">🏛️ The President's verdict</div>
+    <div style="font-size:19px;font-weight:800;line-height:1.3;margin:6px 0 8px">${escapeHtml(v.verdict || '')}</div>`;
+
+  if (locked) {
+    html += `<div class="hero-sub" style="margin:0">🔒 The full ruling — the President's reasoning, where the counsel agreed and split, and your 3 next steps — is members-only.</div></div>`;
+  } else {
+    html += `${v.confidence_reason ? `<div style="color:var(--mute);font-size:13px;margin-bottom:10px">${escapeHtml(v.confidence_reason)}</div>` : ''}
+      <div style="font-size:13.5px;white-space:pre-line;margin-bottom:10px">${escapeHtml(v.reasoning || '')}</div>
+      ${v.where_agreed ? `<div style="font-size:13.5px;margin-bottom:6px"><b>Where the counsel agreed:</b> <span style="color:var(--mute)">${escapeHtml(v.where_agreed)}</span></div>` : ''}
+      ${v.where_split ? `<div style="font-size:13.5px;margin-bottom:10px"><b>Where it split:</b> <span style="color:var(--mute)">${escapeHtml(v.where_split)}</span></div>` : ''}
+      ${(v.next_actions || []).length ? `<div class="lbl"><span class="lbl-text">Your next 3 moves</span><span class="lbl-opt">Each doable within two weeks</span></div>
+        <ol style="margin:4px 0 0 18px;padding:0;font-size:13.5px;display:flex;flex-direction:column;gap:6px">
+          ${v.next_actions.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ol>` : ''}</div>`;
+  }
+
+  // Four counselor cards
+  for (const [role, meta] of Object.entries(COUNSEL_SEAT_META)) {
+    const op = c.opinions?.[role];
+    const dissent = op && !locked && (v.where_split || '').toLowerCase().includes(meta.n.toLowerCase().replace('the ', ''));
+    html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">${meta.e} ${meta.n}</span>${dissent ? `<span class="wk-theme" style="color:#d64545;font-weight:700">Dissented</span>` : ''}</div>
+      <div style="padding:12px 16px 16px;font-size:13.5px">`;
+    if (!op) {
+      html += `<span style="color:var(--mute)">This seat was empty for your session — the President ruled on the remaining opinions.</span>`;
+    } else {
+      if (role === 'safety' && op.rating) html += `<div style="margin-bottom:8px">${badge(op.rating, SAFETY_COLORS[op.rating] || '#888')}</div>`;
+      html += `<div style="font-weight:700;margin-bottom:${locked ? 0 : 8}px">${escapeHtml(op.position || '')}</div>`;
+      if (locked || op.locked) {
+        html += `<div style="color:var(--mute);margin-top:8px">🔒 Full opinion is members-only.</div>`;
+      } else {
+        if (op.reasoning) html += `<div style="white-space:pre-line;color:var(--ink);margin-bottom:10px">${escapeHtml(op.reasoning)}</div>`;
+        if (role === 'researcher' && (op.evidence_table || []).length) {
+          html += `<div class="lbl"><span class="lbl-text">Evidence check</span></div>` + op.evidence_table.map(r => {
+            const col = { STRONG: '#1d9e57', MODERATE: '#d99e00', WEAK: '#d64545', 'NO EVIDENCE': '#888' }[r.verdict] || '#888';
+            return `<div style="padding:5px 0;border-bottom:1px solid var(--line)"><b>${escapeHtml(r.item)}</b> ${badge(r.verdict, col)}<div style="color:var(--mute);font-size:12.5px;margin-top:2px">${escapeHtml(r.rationale || '')}</div></div>`;
+          }).join('');
+          if (op.biggest_caveat) html += `<div style="margin-top:8px"><b>Biggest caveat:</b> <span style="color:var(--mute)">${escapeHtml(op.biggest_caveat)}</span></div>`;
+        }
+        if (role === 'skeptic') {
+          if (op.strongest_argument_against) html += `<div style="margin-bottom:6px"><b>Strongest case against:</b> <span style="color:var(--mute)">${escapeHtml(op.strongest_argument_against)}</span></div>`;
+          if (op.would_change_mind) html += `<div><b>What would change my mind:</b> <span style="color:var(--mute)">${escapeHtml(op.would_change_mind)}</span></div>`;
+        }
+        if (role === 'coach') {
+          if (op.adherence_risk) html += `<div style="margin-bottom:6px"><b>Adherence risk:</b> ${badge(op.adherence_risk, { LOW: '#1d9e57', MEDIUM: '#d99e00', HIGH: '#d64545' }[op.adherence_risk] || '#888')} <span style="color:var(--mute)">${escapeHtml(op.adherence_reason || '')}</span></div>`;
+          if (op.do_first) html += `<div><b>Do this first:</b> <span style="color:var(--mute)">${escapeHtml(op.do_first)}</span></div>`;
+        }
+        if (role === 'safety') {
+          if ((op.flags || []).length) {
+            html += `<div class="lbl"><span class="lbl-text">Flags</span></div>` + op.flags.map(f =>
+              `<div style="padding:4px 0">${badge(f.severity, { LOW: '#1d9e57', MEDIUM: '#d99e00', HIGH: '#d64545' }[f.severity] || '#888')} ${escapeHtml(f.flag)}</div>`).join('');
+          }
+          if ((op.doctor_questions || []).length) {
+            html += `<div class="lbl" style="margin-top:8px"><span class="lbl-text">Ask your doctor</span></div>
+              <ul style="margin:4px 0 0 18px;padding:0;display:flex;flex-direction:column;gap:5px">${op.doctor_questions.map(q => `<li>${escapeHtml(q)}</li>`).join('')}</ul>`;
+          }
+        }
+      }
+    }
+    html += `</div></div>`;
+  }
+
+  if (locked) {
+    html += `<div class="locked-cta-card">
+      <div class="locked-cta-h">The counsel has ruled. The full case file is members-only.</div>
+      <div class="locked-cta-sub">Unlock every counselor's full opinion, the President's complete reasoning, your 3 next moves — and follow-up questions to the President.</div>
+      <button class="cta-btn" id="counselUnlockBtn">Unlock the Full Ruling</button>
+      <div class="guarantee-note">$9.99/mo or $59.99/yr · 7-day money-back guarantee</div>
+    </div>`;
+  } else {
+    // Ask the President — follow-up (needs a saved server session)
+    if (stored.sessionId && isLoggedIn()) {
+      html += `<div class="checkin-card">
+        <div class="locked-cta-h" style="font-size:15px">Ask the President 🏛️</div>
+        <div class="locked-cta-sub" style="margin-bottom:10px">One thing still unclear? Ask a follow-up about your verdict.</div>
+        <div id="counselFollowups">${(stored.followups || []).map(f => `
+          <div style="padding:6px 0;border-bottom:1px solid var(--line);font-size:13.5px"><b>You:</b> ${escapeHtml(f.question)}<div style="color:var(--mute);margin-top:4px;white-space:pre-line"><b style="color:var(--ink)">President:</b> ${escapeHtml(f.answer)}</div></div>`).join('')}</div>
+        <input type="text" id="counselFollowupInput" class="text-field" maxlength="600" placeholder="e.g. What if my budget doubles?" style="margin:10px 0" />
+        <div id="counselFollowupError" class="error-toast" style="display:none;margin-bottom:10px"></div>
+        <button class="try-diff-btn" id="counselFollowupBtn" style="margin:0">Ask →</button>
+      </div>`;
+    }
+    html += `<button class="try-diff-btn" id="counselPrintBtn" style="margin-top:14px">🖨️ Print / save this report</button>`;
+  }
+  html += `<button class="try-diff-btn" id="counselNewBtn" style="margin-top:10px">Bring a new decision to the counsel</button>
+    <div class="footer" style="margin-top:22px">This report is educational guidance, not medical advice. Bring it to your doctor — it's built for that conversation.</div>`;
+
+  wrap.innerHTML = html;
+
+  const unlockBtn = $('counselUnlockBtn');
+  if (unlockBtn) unlockBtn.addEventListener('click', () => showMembershipScreen(() => showCounselReport()));
+  const newBtn = $('counselNewBtn');
+  if (newBtn) newBtn.addEventListener('click', () => { renderCounselLanding(); showScreen('counsel'); });
+  const printBtn = $('counselPrintBtn');
+  if (printBtn) printBtn.addEventListener('click', () => window.print());
+  const fuBtn = $('counselFollowupBtn');
+  if (fuBtn) fuBtn.addEventListener('click', () => submitCounselFollowup());
+}
+
+async function submitCounselFollowup() {
+  const stored = loadStoredCounsel();
+  const question = $('counselFollowupInput').value.trim();
+  const errEl = $('counselFollowupError');
+  if (!question) { errEl.textContent = 'Type your question first.'; errEl.style.display = ''; return; }
+  const btn = $('counselFollowupBtn');
+  btn.disabled = true;
+  btn.textContent = 'The President is considering…';
+  errEl.style.display = 'none';
+  try {
+    const data = await authApi('/api/counsel/followup', {
+      method: 'POST',
+      body: JSON.stringify({ sessionId: stored.sessionId, question }),
+    });
+    stored.followups = data.followups;
+    storeCounsel(stored);
+    if (window.posthog) posthog.capture('counsel_followup_asked');
+    renderCounselReport();
+  } catch (err) {
+    if (err.status === 402) { showMembershipScreen(() => showCounselReport()); return; }
+    errEl.textContent = err.message || 'Something went wrong. Please try again.';
+    errEl.style.display = '';
+    btn.disabled = false;
+    btn.textContent = 'Ask →';
+  }
+}
+
+// Pull the server's copy on login/restore (it may be fuller — e.g. unlocked).
+async function syncCounselFromServer() {
+  if (!isLoggedIn()) return;
+  try {
+    const data = await authApi('/api/counsel');
+    if (data.counsel) storeCounsel(data);
+  } catch (e) { console.warn('counsel sync failed:', e.message); }
+}
+
+async function unlockCounselAfterSubscribe() {
+  const stored = loadStoredCounsel();
+  if (stored?.sessionId && isLoggedIn()) {
+    await syncCounselFromServer();
+    return;
+  }
+  // Free-preview session was never saved server-side — re-run the saved intake.
+  const saved = (() => { try { return JSON.parse(localStorage.getItem(COUNSEL_INTAKE_KEY) || 'null'); } catch (e) { return null; } })();
+  if (!saved?.decisionType || !isLoggedIn()) return;
+  try {
+    const data = await authApi('/api/counsel', {
+      method: 'POST',
+      body: JSON.stringify(saved),
+    });
+    storeCounsel(data);
+  } catch (e) { console.warn('counsel unlock regen failed:', e.message); }
+}
+
+function initCounsel() {
+  $('counselBackBtn').addEventListener('click', () => (isLoggedIn() ? showHub() : showMacroScreen()));
+  $('counselIntakeBackBtn').addEventListener('click', () => { renderCounselLanding(); showScreen('counsel'); });
+  $('counselReportBackBtn').addEventListener('click', () => (isLoggedIn() ? showHub() : (renderCounselLanding(), showScreen('counsel'))));
+  $('counselBackStep').addEventListener('click', () => {
+    if (counselState.step > 0) { counselState.step--; renderCounselStep(); }
+  });
 }
 
 // ============================================================
