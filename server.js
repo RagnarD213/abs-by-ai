@@ -3429,7 +3429,13 @@ async function callCounselSeat(systemPrompt, userContent, schema, maxTokens) {
     err.status = response.status;
     throw err;
   }
-  return JSON.parse(data?.content?.[0]?.text || '');
+  // Sonnet 5 runs adaptive thinking by default, so content[0] can be a
+  // thinking block — find the text block instead of assuming position 0.
+  const text = (data?.content || []).find((b) => b.type === 'text')?.text;
+  if (!text) {
+    throw new Error(`empty counsel response (stop_reason: ${data?.stop_reason})`);
+  }
+  return JSON.parse(text);
 }
 
 // One retry per seat; null (not a throw) when a seat fails twice, so the
@@ -3496,7 +3502,7 @@ app.post('/api/counsel', aiLimiter, optionalAuth, async (req, res) => {
 
     // Phase 1: four independent opinions in parallel, each with one retry.
     const results = await Promise.all(COUNSEL_SEATS.map((seat) =>
-      callSeatResilient(seat.name, () => callCounselSeat(seat.prompt + addendum, userContent, seat.schema, 4000))
+      callSeatResilient(seat.name, () => callCounselSeat(seat.prompt + addendum, userContent, seat.schema, 8000))
     ));
     const opinions = {};
     const missingSeats = [];
@@ -3511,7 +3517,7 @@ app.post('/api/counsel', aiLimiter, optionalAuth, async (req, res) => {
 
     // Phase 2: the President synthesizes. This seat is required.
     const verdict = await callSeatResilient('The President', () =>
-      callCounselSeat(PRESIDENT_PROMPT + addendum, buildPresidentContent(decisionType, intake, opinions, missingSeats), PRESIDENT_SCHEMA, 6000)
+      callCounselSeat(PRESIDENT_PROMPT + addendum, buildPresidentContent(decisionType, intake, opinions, missingSeats), PRESIDENT_SCHEMA, 10000)
     );
     if (!verdict || !verdict.verdict) {
       return res.status(502).json({ error: 'The President could not reach a verdict. Please try again.' });
@@ -3597,7 +3603,7 @@ app.post('/api/counsel/followup', aiLimiter, requireAuth, async (req, res) => {
 
     let reply;
     try {
-      reply = await callCounselSeat(PRESIDENT_PROMPT + (COUNSEL_TYPE_ADDENDA[row.decision_type] || ''), content, FOLLOWUP_SCHEMA, 2000);
+      reply = await callCounselSeat(PRESIDENT_PROMPT + (COUNSEL_TYPE_ADDENDA[row.decision_type] || ''), content, FOLLOWUP_SCHEMA, 4000);
     } catch (e) {
       if (e.status) return res.status(e.status).json({ error: e.message });
       return res.status(502).json({ error: 'The President is unavailable. Please try again.' });
