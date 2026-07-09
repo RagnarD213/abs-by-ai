@@ -2459,7 +2459,7 @@ function validateIntake(raw) {
   return intake;
 }
 
-async function callTrainerModel(systemPrompt, userContent) {
+async function callTrainerModel(systemPrompt, userContent, schema = PROGRAM_SCHEMA) {
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -2474,7 +2474,7 @@ async function callTrainerModel(systemPrompt, userContent) {
       model: 'claude-sonnet-4-6',
       max_tokens: 16000,
       system: systemPrompt,
-      output_config: { format: { type: 'json_schema', schema: PROGRAM_SCHEMA } },
+      output_config: { format: { type: 'json_schema', schema } },
       messages: [{ role: 'user', content: userContent }],
     }),
   });
@@ -2951,14 +2951,14 @@ app.post('/api/generate-mealplan', aiLimiter, optionalAuth, async (req, res) => 
 
     let plan;
     try {
-      plan = await callTrainerModel(NUTRITIONIST_SYSTEM_PROMPT, userContent);
+      plan = await callTrainerModel(NUTRITIONIST_SYSTEM_PROMPT, userContent, MEALPLAN_SCHEMA);
     } catch (e) {
       if (e.status) return res.status(e.status).json({ error: e.message });
       return res.status(502).json({ error: 'Meal plan generation failed. Please try again.' });
     }
     if (!plan?.prep_recipes?.length || !plan?.targets) {
       console.error('unusable meal plan, keys:', plan && Object.keys(plan));
-      return res.status(502).json({ error: 'Model returned an unusable plan. Please try again.', debug_keys: plan ? Object.keys(plan) : null, debug_snippet: JSON.stringify(plan).slice(0, 400) });
+      return res.status(502).json({ error: 'Model returned an unusable plan. Please try again.' });
     }
     sanitizeMealPlan(plan, targets, intake);
 
@@ -3127,7 +3127,7 @@ app.post('/api/mealplan/checkin', aiLimiter, requireAuth, async (req, res) => {
 
     let plan;
     try {
-      plan = await callTrainerModel(NUTRITIONIST_SYSTEM_PROMPT, userContent);
+      plan = await callTrainerModel(NUTRITIONIST_SYSTEM_PROMPT, userContent, MEALPLAN_SCHEMA);
     } catch (e) {
       if (e.status) return res.status(e.status).json({ error: e.message });
       return res.status(502).json({ error: 'Plan update failed. Please try again.' });
