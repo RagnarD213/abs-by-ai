@@ -2502,6 +2502,13 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
       afterBase64: afterPhotoBase64, afterMime: afterPhotoMime,
     } : null);
 
+    // Sleep Coach cross-feature rule: bad night → longer warm-up, never a
+    // shorter or lighter workout.
+    if (req.user) {
+      const sleepLine = sleepContextForTrainer(await getTodaysSleep(req.user.id));
+      if (sleepLine) userContent.push({ type: 'text', text: sleepLine });
+    }
+
     let program;
     try {
       program = await callTrainerModel(TRAINER_SYSTEM_PROMPT, userContent);
@@ -2628,6 +2635,11 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
         `Check-in feedback: difficulty was "${fb.difficulty}"${fb.skipped ? `; they tended to skip: ${fb.skipped}` : ''}${fb.notes ? `; notes: ${fb.notes}` : ''}.\n` +
         `Adjust accordingly: too_easy → harder variations/more volume; too_hard → dial back; swap in fresh exercises to fight boredom; drop or replace what they skipped. why_this_works should acknowledge that they completed a block and what changes this time.`,
     });
+
+    // Sleep Coach cross-feature rule: bad night → longer warm-up, never a
+    // shorter or lighter workout.
+    const trainerSleepLine = sleepContextForTrainer(await getTodaysSleep(req.user.id));
+    if (trainerSleepLine) userContent.push({ type: 'text', text: trainerSleepLine });
 
     let program;
     try {
@@ -2949,6 +2961,13 @@ app.post('/api/generate-mealplan', aiLimiter, optionalAuth, async (req, res) => 
       afterBase64: afterPhotoBase64, afterMime: afterPhotoMime,
     } : null, targets);
 
+    // Sleep Coach cross-feature rule: bad night → extra calories from protein
+    // ONLY (craving control); great night → suggest a higher deficit today.
+    if (req.user) {
+      const sleepLine = sleepContextForNutrition(await getTodaysSleep(req.user.id));
+      if (sleepLine) userContent.push({ type: 'text', text: sleepLine });
+    }
+
     let plan;
     try {
       plan = await callTrainerModel(NUTRITIONIST_SYSTEM_PROMPT, userContent, MEALPLAN_SCHEMA);
@@ -3124,6 +3143,11 @@ app.post('/api/mealplan/checkin', aiLimiter, requireAuth, async (req, res) => {
         `Previous plan's recipes (build fresh ones — don't repeat): ${(prev.plan.prep_recipes || []).map((r) => r.name).join(', ')}.\n` +
         `Previous calorie target: ${prev.plan.targets?.daily_calories}. Adjust based on progress: losing on pace → stay the course; stalled 2+ weeks → nudge down within the allowed range; losing too fast or feeling drained → nudge up. Acknowledge their progress warmly in why_this_works.`,
     });
+
+    // Sleep Coach cross-feature rule: bad night → extra calories from protein
+    // ONLY (craving control); great night → suggest a higher deficit today.
+    const nutriSleepLine = sleepContextForNutrition(await getTodaysSleep(req.user.id));
+    if (nutriSleepLine) userContent.push({ type: 'text', text: nutriSleepLine });
 
     let plan;
     try {
@@ -3618,6 +3642,265 @@ app.post('/api/counsel/followup', aiLimiter, requireAuth, async (req, res) => {
     res.json({ sessionId: row.id, question, answer: reply.answer, followups });
   } catch (err) {
     console.error('counsel followup error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ============================================================
+//  AI SLEEP COACH — the "Go Hard Anyway" briefing
+// ============================================================
+// Whatever the sleep data says, the verdict is GO HARD — the sleep only
+// changes the justification and the tactics. Bad night → watch eating + stay
+// tight; great night → push a higher deficit. Trend escalation touches the
+// sleep fixes only, never the gym verdict.
+
+const SLEEP_COACH_SYSTEM_PROMPT = `You are the AI Sleep Coach for a fitness app called Abs By AI. Sleep trackers tell people to "take it easy" after a bad night — you do the opposite. Sleep data tells the user HOW to attack the day, never WHETHER to.
+
+THE IRON RULE (never break it):
+- verdict is ALWAYS "GO HARD". Every briefing tells the user to go extra hard in the gym today. There is NO rest-day, "listen to your body", or "take it easy" verdict, ever. Do not hedge the gym verdict for any sleep score.
+
+Persona: high-energy but evidence-grounded coach. Ground the justification in the real research framing: a single night of short sleep impairs perceived effort and mood far more than actual strength or power output, and hard morning training plus daylight exposure are among the strongest levers for the NEXT night's sleep.
+
+Briefing structure (every day, same skeleton): acknowledge the sleep honestly → justify going extra hard anyway → tactical adjustments → tonight's fix.
+
+BAD night (short, fragmented, low score, or feel 1-2):
+- Justification: one bad night doesn't reduce strength; training hard today is the fastest fix for tonight's sleep.
+- Tactics MUST include: "watch your eating today" (poor sleep spikes cravings and hunger hormones — name specific traps) and "stay tight" (form focus — reaction time is slightly down, so control every rep).
+- sleep_quality: "bad".
+
+GREAT night (long, solid, high score, or feel 4-5):
+- This is the day to really push a HIGHER deficit: fully recovered, so push harder in the gym AND eat leaner today. Say that explicitly.
+- sleep_quality: "great".
+
+OK night: still go hard; pick the most useful tactical angle. sleep_quality: "ok".
+
+TREND (when a multi-day history is provided): a clear downtrend gets honest escalation on the SLEEP FIXES in trend_note (e.g. "a 2-week average like this will stall fat loss — here's the protocol"), but the gym verdict stays GO HARD. If the trend is fine, trend_note is an empty string.
+
+SAFETY VALVE (kept minimal): only if the data/notes suggest possible sleep-disorder red flags (loud snoring + gasping/choking awake + chronically unrefreshing sleep despite adequate hours), put a single calm sentence in red_flag saying it's worth mentioning to a doctor. Otherwise red_flag is an empty string. Never diagnose.
+
+TONIGHT: 2-4 concrete, personalized fixes for tonight's sleep (timing anchors beat vague advice — compute a real target bedtime from their data when you can).
+
+SCREENSHOT INPUT: when the user message contains a screenshot of a sleep tracker (Oura, Whoop, Apple Health, Fitbit, Garmin, etc.), read every number you can see and fill "parsed" with what you found (0 or "" for anything not visible). Base the briefing on those numbers. If the image is NOT a sleep-data screen, set parsed.duration_min to 0 and say in headline that you couldn't read sleep data from the image, but still deliver a usable go-hard briefing from whatever context you have.
+
+MANUAL INPUT: normalize bedtime/wake time into parsed (compute duration_min from the times).
+
+Voice: punchy, second person, zero fluff. Numbers over vibes. Never judgmental — the bad night is an opportunity, not a failure.`;
+
+const SLEEP_BRIEFING_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['verdict', 'headline', 'sleep_quality', 'justification', 'tactics', 'tonight', 'trend_note', 'red_flag', 'parsed'],
+  properties: {
+    verdict: { type: 'string', description: 'Always exactly "GO HARD".' },
+    headline: { type: 'string', description: 'One punchy sentence: the sleep acknowledged + the go-hard call. e.g. "5h 40m — rough. Perfect day to prove it doesn\'t own you."' },
+    sleep_quality: { type: 'string', enum: ['bad', 'ok', 'great'], description: 'Your overall read of last night.' },
+    justification: { type: 'string', description: '2-4 sentences: why going extra hard TODAY is the right call given this exact sleep, grounded in the research framing.' },
+    tactics: { type: 'array', items: { type: 'string' }, description: '3-5 tactical adjustments for today. Bad night MUST include the watch-your-eating and stay-tight items. Great night MUST include pushing a higher deficit.' },
+    tonight: { type: 'array', items: { type: 'string' }, description: "2-4 concrete fixes for tonight's sleep, personalized to their numbers." },
+    trend_note: { type: 'string', description: 'Escalation on the sleep fixes when a multi-day downtrend shows; empty string otherwise.' },
+    red_flag: { type: 'string', description: 'One "worth mentioning to a doctor" sentence ONLY for genuine sleep-disorder red flags; empty string otherwise.' },
+    parsed: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['duration_min', 'bedtime', 'waketime', 'wakeups', 'feel_score', 'tracker_score', 'hrv', 'rhr', 'stages'],
+      properties: {
+        duration_min: { type: 'integer', description: 'Total sleep in minutes; 0 if unknown.' },
+        bedtime: { type: 'string', description: 'e.g. "11:20 PM"; empty if unknown.' },
+        waketime: { type: 'string', description: 'e.g. "6:45 AM"; empty if unknown.' },
+        wakeups: { type: 'integer', description: 'Number of wake-ups; 0 if unknown.' },
+        feel_score: { type: 'integer', description: 'User-reported feel 1-5; 0 if not given.' },
+        tracker_score: { type: 'integer', description: 'Tracker sleep score (e.g. Oura 0-100); 0 if unknown.' },
+        hrv: { type: 'integer', description: 'HRV in ms; 0 if unknown.' },
+        rhr: { type: 'integer', description: 'Resting heart rate in bpm; 0 if unknown.' },
+        stages: { type: 'string', description: 'e.g. "1h52m deep · 1h40m REM"; empty if unknown.' },
+      },
+    },
+  },
+};
+
+// Non-member preview: the verdict, headline, honest read, and parsed numbers
+// are free (that's the hook — "it read my ring"); the tactics, tonight
+// protocol, and trend coaching are members-only. red_flag is safety info and
+// is never paywalled.
+function stripBriefingForPreview(briefing) {
+  return {
+    verdict: briefing.verdict,
+    headline: briefing.headline,
+    sleep_quality: briefing.sleep_quality,
+    justification: briefing.justification,
+    red_flag: briefing.red_flag || '',
+    parsed: briefing.parsed,
+    locked: true,
+    tactics_count: (briefing.tactics || []).length,
+    tonight_count: (briefing.tonight || []).length,
+  };
+}
+
+// Today's normalized sleep entry for cross-feature prompts. Null when the user
+// hasn't checked in today (or isn't logged in / no DB).
+async function getTodaysSleep(userId) {
+  if (!db || !userId) return null;
+  try {
+    const { rows } = await db.query(
+      'SELECT data, briefing FROM sleep_entries WHERE user_id = $1 AND entry_date = CURRENT_DATE',
+      [userId]
+    );
+    if (!rows.length) return null;
+    const quality = rows[0].briefing?.sleep_quality || null;
+    return { quality, data: rows[0].data || {}, briefing: rows[0].briefing || null };
+  } catch (e) {
+    console.warn('getTodaysSleep error:', e.message);
+    return null;
+  }
+}
+
+// One prompt line per feature, per Dan's locked cross-feature rules.
+function sleepContextForTrainer(sleep) {
+  if (!sleep?.quality) return '';
+  if (sleep.quality === 'bad') {
+    return `\nSLEEP CONTEXT (from today's sleep check-in): the user slept POORLY last night. Extend the warm-up by ~5 minutes with extra activation work, but the workout does NOT get shorter or lighter — same volume, same intensity. Cue extra form focus.`;
+  }
+  if (sleep.quality === 'great') {
+    return `\nSLEEP CONTEXT (from today's sleep check-in): the user slept GREAT last night — fully recovered. This is a day they can push extra hard.`;
+  }
+  return '';
+}
+function sleepContextForNutrition(sleep) {
+  if (!sleep?.quality) return '';
+  if (sleep.quality === 'bad') {
+    return `\nSLEEP CONTEXT (from today's sleep check-in): the user slept POORLY last night, which spikes cravings today. For TODAY's guidance: raise calories slightly via PROTEIN ONLY — zero added carbs (the protein blunts the cravings). Mention this explicitly.`;
+  }
+  if (sleep.quality === 'great') {
+    return `\nSLEEP CONTEXT (from today's sleep check-in): the user slept GREAT last night — fully recovered. Suggest running a slightly higher calorie deficit today; mention it explicitly.`;
+  }
+  return '';
+}
+
+// pg returns DATE columns as JS Date objects; normalize to "YYYY-MM-DD".
+function sleepDateStr(d) {
+  return d instanceof Date ? d.toISOString().slice(0, 10) : String(d).slice(0, 10);
+}
+
+function formatSleepHistoryLine(row) {
+  const d = row.data || {};
+  const parts = [sleepDateStr(row.entry_date)];
+  if (d.duration_min) parts.push(`${Math.floor(d.duration_min / 60)}h${String(d.duration_min % 60).padStart(2, '0')}m`);
+  if (d.tracker_score) parts.push(`score ${d.tracker_score}`);
+  if (d.feel_score) parts.push(`felt ${d.feel_score}/5`);
+  if (d.wakeups) parts.push(`${d.wakeups} wake-up${d.wakeups === 1 ? '' : 's'}`);
+  return parts.join(' · ');
+}
+
+// Morning check-in → Go Hard briefing. Manual form or tracker screenshot
+// (one vision call extracts the numbers AND writes the briefing). Free preview
+// for everyone; tactics/tonight/trend are members-only. Saved per-day (upsert)
+// for logged-in users so re-submitting redoes the check-in.
+app.post('/api/sleep/checkin', aiLimiter, optionalAuth, async (req, res) => {
+  try {
+    const { manual, screenshotBase64, screenshotMime, note } = req.body || {};
+    const isScreenshot = !!(screenshotBase64 && screenshotMime);
+    if (!isScreenshot && !manual) {
+      return res.status(400).json({ error: 'Send either manual check-in fields or a tracker screenshot.' });
+    }
+
+    const userContent = [];
+    if (isScreenshot) {
+      userContent.push({ type: 'image', source: { type: 'base64', media_type: String(screenshotMime), data: String(screenshotBase64) } });
+      userContent.push({ type: 'text', text: "Screenshot of the user's sleep tracker from last night. Read every number you can see, fill parsed, and write today's Go Hard briefing." });
+    } else {
+      const m = {
+        bedtime: String(manual.bedtime || '').slice(0, 20),
+        waketime: String(manual.waketime || '').slice(0, 20),
+        wakeups: Math.max(0, Math.min(20, parseInt(manual.wakeups, 10) || 0)),
+        feel_score: Math.max(1, Math.min(5, parseInt(manual.feel_score, 10) || 3)),
+      };
+      if (!m.bedtime || !m.waketime) {
+        return res.status(400).json({ error: 'Bedtime and wake time are required.' });
+      }
+      userContent.push({
+        type: 'text',
+        text: `Manual morning check-in:\n- Went to bed: ${m.bedtime}\n- Woke up: ${m.waketime}\n- Wake-ups during the night: ${m.wakeups}\n- How they feel (1-5, 5 = fully rested): ${m.feel_score}\n\nNormalize these into parsed (compute duration_min from the times) and write today's Go Hard briefing.`,
+      });
+    }
+    if (note) userContent.push({ type: 'text', text: `User note: "${String(note).slice(0, 300)}"` });
+
+    // Trend context: the last 14 saved nights (excluding today).
+    if (req.user && db) {
+      try {
+        const { rows } = await db.query(
+          'SELECT entry_date, data FROM sleep_entries WHERE user_id = $1 AND entry_date < CURRENT_DATE ORDER BY entry_date DESC LIMIT 14',
+          [req.user.id]
+        );
+        if (rows.length) {
+          userContent.push({
+            type: 'text',
+            text: `Recent sleep history (most recent first) — use it for trend_note:\n${rows.map(formatSleepHistoryLine).join('\n')}`,
+          });
+        }
+      } catch (e) { console.warn('sleep history fetch error:', e.message); }
+    }
+
+    let briefing;
+    try {
+      briefing = await callTrainerModel(SLEEP_COACH_SYSTEM_PROMPT, userContent, SLEEP_BRIEFING_SCHEMA);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'Briefing generation failed. Please try again.' });
+    }
+    if (!briefing?.headline || !Array.isArray(briefing.tactics)) {
+      return res.status(502).json({ error: 'Model returned an unusable briefing. Please try again.' });
+    }
+    briefing.verdict = 'GO HARD'; // the iron rule, enforced server-side
+
+    let member = false;
+    let saved = false;
+    if (req.user && db) {
+      member = isActiveMembership(req.user);
+      try {
+        await db.query(
+          `INSERT INTO sleep_entries (user_id, entry_date, source, data, briefing)
+           VALUES ($1, CURRENT_DATE, $2, $3, $4)
+           ON CONFLICT (user_id, entry_date)
+           DO UPDATE SET source = EXCLUDED.source, data = EXCLUDED.data, briefing = EXCLUDED.briefing, created_at = now()`,
+          [req.user.id, isScreenshot ? 'screenshot' : 'manual', JSON.stringify(briefing.parsed || {}), JSON.stringify(briefing)]
+        );
+        saved = true;
+      } catch (e) { console.error('sleep entry save error:', e.message); }
+    }
+
+    res.json({
+      saved,
+      locked: !member,
+      briefing: member ? { ...briefing, locked: false } : stripBriefingForPreview(briefing),
+    });
+  } catch (err) {
+    console.error('sleep checkin error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Last 30 nights for the trend strip + restoring today's briefing.
+app.get('/api/sleep/history', requireAuth, async (req, res) => {
+  try {
+    const { rows } = await db.query(
+      'SELECT entry_date, source, data, briefing FROM sleep_entries WHERE user_id = $1 ORDER BY entry_date DESC LIMIT 30',
+      [req.user.id]
+    );
+    const userRow = await getUserRow(req.user.id);
+    const member = isActiveMembership(userRow);
+    res.json({
+      locked: !member,
+      entries: rows.map((r) => ({
+        date: sleepDateStr(r.entry_date),
+        source: r.source,
+        data: r.data,
+        briefing: r.briefing
+          ? (member ? { ...r.briefing, locked: false } : stripBriefingForPreview(r.briefing))
+          : null,
+      })),
+    });
+  } catch (e) {
+    console.error('sleep history error:', e.message);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

@@ -1588,9 +1588,10 @@ html, body {
         <span class="hub-tile-body"><span class="hub-tile-name">The Decision Counsel</span><span class="hub-tile-sub">Five AI experts rule on your hardest call</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
-      <button class="hub-tile" data-feature="sleep" data-soon="Sleep coaching to boost recovery and fat loss.">
+      <button class="hub-tile" data-feature="sleep">
         <span class="hub-tile-emoji">😴</span>
-        <span class="hub-tile-body"><span class="hub-tile-name">AI Sleep Coach</span><span class="hub-tile-sub">Recover better, progress faster</span></span>
+        <span class="hub-tile-body"><span class="hub-tile-name">AI Sleep Coach</span><span class="hub-tile-sub">Upload your tracker screenshot — we'll out-coach your ring</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
         <span class="hub-soon">Coming soon</span>
       </button>
       <button class="hub-tile" data-feature="transformations" data-soon="A gallery of every future-you image you've generated.">
@@ -1823,6 +1824,39 @@ html, body {
     <div id="counselReportContent"><!-- rendered by JS --></div>
   </div>
 
+  <!-- ════════════════ SCREEN: AI SLEEP COACH — LANDING / CHECK-IN ════════════════ -->
+  <div id="sleepSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="sleepBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">AI Sleep Coach</span>
+      <span style="width:26px"></span>
+    </div>
+    <div id="sleepLanding"><!-- rendered by JS --></div>
+
+    <div id="sleepLoader" class="loading-status" style="display:none;margin-top:20px">
+      <div class="loading-spinner"></div>
+      <div>
+        <div class="loading-title">Reading your night…</div>
+        <div class="loading-sub">Building today's Go Hard briefing</div>
+      </div>
+    </div>
+    <div id="sleepGenError" class="error-toast" style="display:none;margin-top:14px"></div>
+  </div>
+
+  <!-- ════════════════ SCREEN: AI SLEEP COACH — BRIEFING ════════════════ -->
+  <div id="sleepBriefingSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="sleepBriefingBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Today's Briefing</span>
+      <span style="width:26px"></span>
+    </div>
+    <div id="sleepBriefingContent"><!-- rendered by JS --></div>
+  </div>
+
   <!-- ════════════════ SCREEN: MEMBERSHIP ════════════════ -->
   <div id="membershipSection" class="screen" style="display:none">
     <div class="nav-bar">
@@ -1842,6 +1876,7 @@ html, body {
       <li>Unlimited AI meal &amp; macro tracking</li>
       <li>Your AI Nutritionist meal-prep plan — recipes, grocery lists &amp; check-ins</li>
       <li>The Decision Counsel — full verdicts from five AI experts, plus follow-up questions</li>
+      <li>The AI Sleep Coach — the full Go Hard briefing, tonight's protocol &amp; your trend</li>
       <li>Program check-ins that adapt to your progress</li>
     </ul>
 
@@ -2260,7 +2295,7 @@ Always honor the user's requested intensity at FULL strength regardless of start
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -2918,6 +2953,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   initTrainer();
   initNutritionist();
   initCounsel();
+  initSleepCoach();
   restoreSession(); // routes returning logged-in users straight to the hub
 });
 
@@ -3169,6 +3205,7 @@ function initAccounts() {
       if (feature === 'trainer') return openTrainer();
       if (feature === 'nutritionist') return openNutritionist();
       if (feature === 'counsel') return openCounsel();
+      if (feature === 'sleep') return openSleepCoach();
       if (feature === 'generate') return showScreen('form');
       if (feature === 'support') return; // <a mailto> handles itself
       const note = $('hubSoonNote');
@@ -3266,6 +3303,7 @@ async function handleMembershipComplete(sessionId) {
   // intake if this program was generated anonymously (server never stored it).
   await unlockProgramAfterSubscribe();
   await unlockMealPlanAfterSubscribe();
+  await unlockSleepAfterSubscribe();
   await unlockCounselAfterSubscribe();
   const dest = membershipReturnTo;
   membershipReturnTo = null;
@@ -5088,6 +5126,299 @@ function initCounsel() {
   $('counselBackStep').addEventListener('click', () => {
     if (counselState.step > 0) { counselState.step--; renderCounselStep(); }
   });
+}
+
+// ============================================================
+//  AI SLEEP COACH — morning check-in, Go Hard briefing, trend
+// ============================================================
+const SLEEP_KEY = 'absbyai_sleep_briefing';
+const sleepState = { mode: null }; // 'manual' form open or null
+
+function sleepTodayStr() { return new Date().toLocaleDateString('en-CA'); } // YYYY-MM-DD local
+
+function storeSleepBriefing(data) {
+  try { localStorage.setItem(SLEEP_KEY, JSON.stringify({ ...data, date: sleepTodayStr() })); } catch (e) {}
+}
+function loadTodaysSleepBriefing() {
+  try {
+    const s = JSON.parse(localStorage.getItem(SLEEP_KEY) || 'null');
+    return s && s.date === sleepTodayStr() ? s : null;
+  } catch (e) { return null; }
+}
+
+function openSleepCoach() {
+  if (window.posthog) posthog.capture('sleep_coach_opened');
+  const stored = loadTodaysSleepBriefing();
+  if (stored?.briefing) return showSleepBriefing();
+  sleepState.mode = null;
+  renderSleepLanding();
+  showScreen('sleep');
+}
+
+function renderSleepLanding() {
+  const wrap = $('sleepLanding');
+  $('sleepGenError').style.display = 'none';
+  $('sleepLoader').style.display = 'none';
+  wrap.style.display = '';
+
+  let html = `
+    <div class="hero-h1" style="font-size:25px;line-height:1.1;margin-bottom:6px">Your ring says take it easy.<br>We say go hard — here's why.</div>
+    <div class="hero-sub" style="margin-bottom:18px">Every morning: check in, get the Go Hard briefing — how to attack the day, what to watch, and how to fix tonight. Bad sleep changes the tactics, never the verdict.</div>
+    <div class="intake-opts">
+      <button class="intake-opt" id="sleepShotBtn">
+        <span class="intake-opt-emoji">📱</span>
+        <span><span class="intake-opt-name">Upload your tracker screenshot</span>
+        <span class="intake-opt-sub" style="display:block">Oura, Whoop, Apple Health, Fitbit, Garmin — we read the numbers off the screen.</span></span>
+      </button>
+      <button class="intake-opt" id="sleepManualBtn">
+        <span class="intake-opt-emoji">⏱️</span>
+        <span><span class="intake-opt-name">30-second check-in</span>
+        <span class="intake-opt-sub" style="display:block">No tracker needed — bedtime, wake time, how you feel.</span></span>
+      </button>
+    </div>
+    <input type="file" id="sleepShotInput" accept="image/*" style="display:none" />`;
+
+  if (sleepState.mode === 'manual') {
+    html += `
+    <div class="physique-wrap" style="margin-top:18px" id="sleepManualForm">
+      <div class="lbl"><span class="lbl-text">When did you go to bed?</span></div>
+      <input type="time" id="sleepBedtime" class="text-field" value="23:00" />
+      <div class="lbl" style="margin-top:12px"><span class="lbl-text">When did you wake up?</span></div>
+      <input type="time" id="sleepWaketime" class="text-field" value="06:30" />
+      <div class="lbl" style="margin-top:12px"><span class="lbl-text">Times you woke up during the night</span></div>
+      <div class="intake-chips" id="sleepWakeupChips">
+        ${[0, 1, 2, 3].map(n => `<button class="intake-chip${n === 0 ? ' selected' : ''}" data-v="${n}">${n === 3 ? '3+' : n}</button>`).join('')}
+      </div>
+      <div class="lbl" style="margin-top:12px"><span class="lbl-text">How do you feel?</span><span class="lbl-opt">1 = wrecked, 5 = fully charged</span></div>
+      <div class="intake-chips" id="sleepFeelChips">
+        ${[1, 2, 3, 4, 5].map(n => `<button class="intake-chip${n === 3 ? ' selected' : ''}" data-v="${n}">${n}</button>`).join('')}
+      </div>
+      <div id="sleepManualError" class="error-toast" style="display:none;margin-top:12px"></div>
+      <button class="cta-btn" id="sleepManualGo" style="margin-top:16px">Get today's briefing</button>
+    </div>`;
+  }
+
+  html += `<div class="footer" style="margin-top:26px">Not medical advice. If you suspect a sleep disorder, talk to a doctor.</div>`;
+  wrap.innerHTML = html;
+
+  $('sleepShotBtn').addEventListener('click', () => $('sleepShotInput').click());
+  $('sleepShotInput').addEventListener('change', async (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      $('sleepGenError').textContent = 'Please upload an image (a screenshot of your sleep screen).';
+      $('sleepGenError').style.display = '';
+      return;
+    }
+    const img = await downscaleImage(file) || await fileToBase64(file);
+    if (!img) {
+      $('sleepGenError').textContent = "Couldn't read that image. Please try another screenshot.";
+      $('sleepGenError').style.display = '';
+      return;
+    }
+    submitSleepCheckin({ screenshotBase64: img.data, screenshotMime: img.mime }, 'screenshot');
+  });
+  $('sleepManualBtn').addEventListener('click', () => {
+    sleepState.mode = sleepState.mode === 'manual' ? null : 'manual';
+    renderSleepLanding();
+    if (sleepState.mode === 'manual') $('sleepManualForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  const form = $('sleepManualForm');
+  if (form) {
+    ['sleepWakeupChips', 'sleepFeelChips'].forEach(id => {
+      form.querySelectorAll(`#${id} .intake-chip`).forEach(c => c.addEventListener('click', () => {
+        form.querySelectorAll(`#${id} .intake-chip`).forEach(x => x.classList.toggle('selected', x === c));
+      }));
+    });
+    $('sleepManualGo').addEventListener('click', () => {
+      const bed = $('sleepBedtime').value;
+      const wake = $('sleepWaketime').value;
+      const err = $('sleepManualError');
+      if (!bed || !wake) { err.textContent = 'Please enter your bedtime and wake time.'; err.style.display = ''; return; }
+      err.style.display = 'none';
+      const sel = (id) => parseInt(form.querySelector(`#${id} .intake-chip.selected`)?.dataset.v ?? '0', 10);
+      submitSleepCheckin({
+        manual: { bedtime: bed, waketime: wake, wakeups: sel('sleepWakeupChips'), feel_score: sel('sleepFeelChips') || 3 },
+      }, 'manual');
+    });
+  }
+}
+
+async function submitSleepCheckin(payload, source) {
+  $('sleepLanding').style.display = 'none';
+  $('sleepGenError').style.display = 'none';
+  $('sleepLoader').style.display = '';
+  if (window.posthog) posthog.capture('sleep_checkin_started', { source });
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/sleep/checkin`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
+      },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
+    storeSleepBriefing({ locked: data.locked, briefing: data.briefing, saved: data.saved, source });
+    if (window.posthog) posthog.capture('sleep_briefing_generated', { source, locked: data.locked, quality: data.briefing?.sleep_quality });
+    showSleepBriefing();
+  } catch (err) {
+    $('sleepGenError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('sleepGenError').style.display = '';
+    $('sleepLanding').style.display = '';
+  } finally {
+    $('sleepLoader').style.display = 'none';
+    const inp = $('sleepShotInput');
+    if (inp) inp.value = '';
+  }
+}
+
+function showSleepBriefing() {
+  renderSleepBriefing();
+  showScreen('sleepBriefing');
+  if (isLoggedIn()) renderSleepTrend(); // async fill-in below the briefing
+}
+
+function sleepDurationLabel(min) {
+  if (!min) return '';
+  return `${Math.floor(min / 60)}h ${String(min % 60).padStart(2, '0')}m`;
+}
+
+function renderSleepBriefing() {
+  const stored = loadTodaysSleepBriefing();
+  const wrap = $('sleepBriefingContent');
+  if (!stored?.briefing) { renderSleepLanding(); showScreen('sleep'); return; }
+  const b = stored.briefing;
+  const locked = !!stored.locked && !memberState.active;
+  const p = b.parsed || {};
+  const qualityBadge = { bad: '😵 Rough night', ok: '😐 OK night', great: '⚡ Great night' }[b.sleep_quality] || '';
+
+  // Verdict card
+  let html = `<div class="why-card" style="text-align:center">
+    <div style="font-size:12px;letter-spacing:2px;color:var(--mute);margin-bottom:4px">TODAY'S VERDICT</div>
+    <div style="font-size:38px;font-weight:900;letter-spacing:-1px;line-height:1">🔥 ${escapeHtml(b.verdict || 'GO HARD')}</div>
+    ${qualityBadge ? `<div style="font-size:12.5px;color:var(--mute);margin-top:8px">${qualityBadge}</div>` : ''}
+    <div style="font-size:15px;font-weight:700;margin-top:10px">${escapeHtml(b.headline || '')}</div>
+  </div>`;
+
+  // Parsed numbers — show what we read so misreads are visible.
+  const stats = [
+    p.duration_min ? ['Sleep', sleepDurationLabel(p.duration_min)] : null,
+    p.tracker_score ? ['Score', String(p.tracker_score)] : null,
+    p.feel_score ? ['Feel', `${p.feel_score}/5`] : null,
+    p.wakeups ? ['Wake-ups', String(p.wakeups)] : null,
+    p.hrv ? ['HRV', `${p.hrv} ms`] : null,
+    p.rhr ? ['RHR', `${p.rhr} bpm`] : null,
+  ].filter(Boolean);
+  if (stats.length) {
+    html += `<div class="why-card"><b>What we read from your night ${stored.source === 'screenshot' ? '📱' : '⏱️'}</b>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:10px">
+        ${stats.map(([k, v]) => `<div><div style="font-size:19px;font-weight:800">${escapeHtml(v)}</div><div style="font-size:11.5px;color:var(--mute)">${k}</div></div>`).join('')}
+      </div>
+      ${p.stages ? `<div style="font-size:12.5px;color:var(--mute);margin-top:8px">${escapeHtml(p.stages)}</div>` : ''}
+      <div style="font-size:11.5px;color:var(--mute);margin-top:8px">Numbers look off? Re-run the check-in with the 30-second form.</div>
+    </div>`;
+  }
+
+  html += `<div class="why-card"><b>Why you go hard anyway</b><br>${escapeHtml(b.justification || '')}</div>`;
+
+  if (b.red_flag) {
+    html += `<div class="why-card" style="border-color:#e0b34c"><b>🩺 One thing worth mentioning to a doctor</b><br>${escapeHtml(b.red_flag)}</div>`;
+  }
+
+  if (locked) {
+    html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">Today's tactics 🎯</span></div>
+      <div style="padding:12px 16px 16px;color:var(--mute);font-size:13.5px">🔒 ${b.tactics_count || 3} tactical adjustments for today's training and eating — members-only.</div></div>`;
+    html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">Tonight's fix 🌙</span></div>
+      <div style="padding:12px 16px 16px;color:var(--mute);font-size:13.5px">🔒 ${b.tonight_count || 3} personalized fixes to make tonight better — members-only.</div></div>`;
+    html += `<div class="locked-cta-card">
+      <div class="locked-cta-h">The verdict is free. The playbook is members-only.</div>
+      <div class="locked-cta-sub">Unlock today's tactics, tonight's sleep protocol, your 14-day trend — plus your trainer and nutritionist automatically adjusting to how you slept.</div>
+      <button class="cta-btn" id="sleepUnlockBtn">Unlock My Full Briefing</button>
+      <div class="guarantee-note">$9.99/mo or $59.99/yr · 7-day money-back guarantee</div>
+    </div>`;
+  } else {
+    html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">Today's tactics 🎯</span></div>
+      <div style="padding:12px 16px 16px;font-size:13.5px;display:flex;flex-direction:column;gap:8px">
+        ${(b.tactics || []).map(t => `<div>✅ ${escapeHtml(t)}</div>`).join('')}
+      </div></div>`;
+    html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">Tonight's fix 🌙</span></div>
+      <div style="padding:12px 16px 16px;font-size:13.5px;display:flex;flex-direction:column;gap:8px">
+        ${(b.tonight || []).map(t => `<div>💤 ${escapeHtml(t)}</div>`).join('')}
+      </div></div>`;
+    if (b.trend_note) {
+      html += `<div class="why-card"><b>📉 Trend check</b><br>${escapeHtml(b.trend_note)}</div>`;
+    }
+  }
+
+  html += `<div id="sleepTrendWrap"></div>`;
+  html += `<button class="try-diff-btn" id="sleepRedoBtn" style="margin-top:14px">Redo today's check-in</button>`;
+  if (!isLoggedIn()) {
+    html += `<div class="hero-sub" style="margin-top:10px;font-size:12.5px">Create a free account to save your nights and unlock the 14-day trend.</div>`;
+  }
+  html += `<div class="footer" style="margin-top:22px">Not medical advice. If you suspect a sleep disorder (loud snoring, gasping awake, always unrefreshed), talk to a doctor.</div>`;
+
+  wrap.innerHTML = html;
+
+  const unlockBtn = $('sleepUnlockBtn');
+  if (unlockBtn) unlockBtn.addEventListener('click', () => showMembershipScreen(() => showSleepBriefing()));
+  $('sleepRedoBtn').addEventListener('click', () => {
+    sleepState.mode = null;
+    renderSleepLanding();
+    showScreen('sleep');
+  });
+}
+
+// 14-day trend strip: duration bars + feel/score dots. Members only (the
+// server sends history to any logged-in user, but briefings are stripped —
+// the strip itself only needs the parsed numbers, so show it to everyone
+// who's logged in with 2+ nights).
+async function renderSleepTrend() {
+  const holder = $('sleepTrendWrap');
+  if (!holder) return;
+  try {
+    const data = await authApi('/api/sleep/history');
+    const entries = (data.entries || []).slice(0, 14).reverse();
+    if (entries.length < 2) return;
+    const maxMin = Math.max(...entries.map(e => e.data?.duration_min || 0), 480);
+    holder.innerHTML = `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">Your last ${entries.length} nights 📈</span><span class="wk-theme">bars = sleep · dots = how you felt</span></div>
+      <div style="padding:14px 16px 16px;display:flex;align-items:flex-end;gap:6px;height:110px">
+        ${entries.map(e => {
+          const min = e.data?.duration_min || 0;
+          const h = Math.max(6, Math.round((min / maxMin) * 80));
+          const feel = e.data?.feel_score || 0;
+          const score = e.data?.tracker_score || 0;
+          const good = feel >= 4 || score >= 80;
+          const bad = (feel && feel <= 2) || (score && score < 60);
+          const dot = good ? '#4caf7d' : bad ? '#e05c5c' : '#e0b34c';
+          return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px" title="${e.date}${min ? ` · ${sleepDurationLabel(min)}` : ''}">
+            <span style="width:7px;height:7px;border-radius:50%;background:${(feel || score) ? dot : 'transparent'}"></span>
+            <div style="width:100%;max-width:16px;height:${h}px;border-radius:4px 4px 0 0;background:var(--line2)"></div>
+          </div>`;
+        }).join('')}
+      </div></div>`;
+  } catch (e) { /* trend is a bonus — never block the briefing */ }
+}
+
+// After subscribing: today's entry is saved server-side for logged-in users —
+// re-pull it so the locked briefing becomes the full one.
+async function unlockSleepAfterSubscribe() {
+  const stored = loadTodaysSleepBriefing();
+  if (!stored || !isLoggedIn()) return;
+  try {
+    const data = await authApi('/api/sleep/history');
+    const latest = (data.entries || [])[0];
+    if (latest?.briefing && !latest.briefing.locked) {
+      storeSleepBriefing({ locked: false, briefing: latest.briefing, saved: true, source: latest.source });
+    }
+  } catch (e) { console.warn('sleep unlock sync failed:', e.message); }
+}
+
+function initSleepCoach() {
+  $('sleepBackBtn').addEventListener('click', () => (isLoggedIn() ? showHub() : showMacroScreen()));
+  $('sleepBriefingBackBtn').addEventListener('click', () => (isLoggedIn() ? showHub() : showMacroScreen()));
 }
 
 // ============================================================
