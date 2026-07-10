@@ -1057,33 +1057,16 @@ html, body {
   font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;
   background: rgba(52, 211, 153, 0.14); color: #34d399; margin-left: auto;
 }
-.transform-slider {
-  position: relative; overflow: hidden; border-radius: 12px; aspect-ratio: 3 / 4;
-  touch-action: none; user-select: none; -webkit-user-select: none; cursor: ew-resize;
-  background: var(--line);
-}
-.transform-slider img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; pointer-events: none; display: block;
-}
-.transform-slider .transform-after-wrap {
-  position: absolute; inset: 0; clip-path: inset(0 50% 0 0);
-}
-.transform-handle {
-  position: absolute; top: 0; bottom: 0; left: 50%; width: 2px;
-  background: #fff; box-shadow: 0 0 8px rgba(0,0,0,0.5); pointer-events: none;
-}
-.transform-handle::after {
-  content: '⇔'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 34px; height: 34px; border-radius: 50%; background: #fff; color: #111;
-  display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700;
+.transform-pair { display: flex; gap: 8px; }
+.transform-pair-col { flex: 1; min-width: 0; position: relative; }
+.transform-pair-col img {
+  display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover;
+  border-radius: 12px; background: var(--line);
 }
 .transform-pill {
-  position: absolute; bottom: 8px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.6px;
+  position: absolute; bottom: 8px; left: 8px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.6px;
   padding: 4px 9px; border-radius: 999px; background: rgba(0,0,0,0.55); color: #fff; pointer-events: none;
 }
-.transform-pill-after { left: 8px; }
-.transform-pill-before { right: 8px; }
 .transform-actions {
   display: flex; gap: 8px; margin-top: 10px;
 }
@@ -3337,31 +3320,23 @@ function buildTransformCard(item) {
   }
   card.appendChild(head);
 
-  // Slider viewer: before fills, after clipped on top
-  const slider = document.createElement('div');
-  slider.className = 'transform-slider';
-  const beforeImg = document.createElement('img');
-  beforeImg.src = item.before_image;
-  beforeImg.alt = 'Before';
-  beforeImg.loading = 'lazy';
-  const afterWrap = document.createElement('div');
-  afterWrap.className = 'transform-after-wrap';
-  const afterImg = document.createElement('img');
-  afterImg.src = item.after_image;
-  afterImg.alt = 'After';
-  afterImg.loading = 'lazy';
-  afterWrap.appendChild(afterImg);
-  const handle = document.createElement('div');
-  handle.className = 'transform-handle';
-  const pillA = document.createElement('span');
-  pillA.className = 'transform-pill transform-pill-after';
-  pillA.textContent = 'AFTER';
-  const pillB = document.createElement('span');
-  pillB.className = 'transform-pill transform-pill-before';
-  pillB.textContent = 'BEFORE';
-  slider.append(beforeImg, afterWrap, handle, pillA, pillB);
-  initTransformSlider(slider, afterWrap, handle);
-  card.appendChild(slider);
+  // Side-by-side before/after viewer (same layout as the hub hero)
+  const pair = document.createElement('div');
+  pair.className = 'transform-pair';
+  [['Before', item.before_image], ['After', item.after_image]].forEach(([label, src]) => {
+    const col = document.createElement('div');
+    col.className = 'transform-pair-col';
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = label;
+    img.loading = 'lazy';
+    const pill = document.createElement('span');
+    pill.className = 'transform-pill';
+    pill.textContent = label.toUpperCase();
+    col.append(img, pill);
+    pair.appendChild(col);
+  });
+  card.appendChild(pair);
 
   // Action row
   const actions = document.createElement('div');
@@ -3392,31 +3367,6 @@ function buildTransformCard(item) {
   card.appendChild(actions);
 
   return card;
-}
-
-// Drag slider: pointer events + capture, clamp 2–98%.
-function initTransformSlider(slider, afterWrap, handle) {
-  const setPos = (clientX) => {
-    const r = slider.getBoundingClientRect();
-    if (!r.width) return;
-    const pct = Math.max(2, Math.min(98, ((clientX - r.left) / r.width) * 100));
-    afterWrap.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-    handle.style.left = pct + '%';
-  };
-  slider.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    try { slider.setPointerCapture(e.pointerId); } catch (err) {}
-    setPos(e.clientX);
-    const move = (ev) => setPos(ev.clientX);
-    const up = () => {
-      slider.removeEventListener('pointermove', move);
-      slider.removeEventListener('pointerup', up);
-      slider.removeEventListener('pointercancel', up);
-    };
-    slider.addEventListener('pointermove', move);
-    slider.addEventListener('pointerup', up);
-    slider.addEventListener('pointercancel', up);
-  });
 }
 
 // ── Set as goal (hero swap) + program rebuild cross-sell ──
