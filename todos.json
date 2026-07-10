@@ -49,10 +49,6 @@
       "priority": "high"
     },
     {
-      "text": "Create calorie tracker",
-      "priority": "high"
-    },
-    {
       "text": "Reschedule next week's shoots",
       "priority": "high"
     }
@@ -60,26 +56,18 @@
   "health": [
     {
       "text": "Workout",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Supplements",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Shower",
-      "priority": "high",
-      "recurring": true
+      "priority": "high"
     },
     {
       "text": "Salad",
-      "priority": "high",
-      "recurring": true
-    },
-    {
-      "text": "Inject Zepbound",
       "priority": "high"
     }
   ],
@@ -122,8 +110,7 @@
     },
     {
       "text": "Hire someone to install artificial hedge panels",
-      "priority": "med",
-      "recurring": false
+      "priority": "med"
     }
   ]
 }
