@@ -37,7 +37,8 @@
     "health::Brush teeth",
     "health::Floss",
     "money::Create calorie tracker",
-    "health::Inject Zepbound"
+    "health::Inject Zepbound",
+    "personal::Send documents to AMEX"
   ],
   "log": {
     "health::Shower": [
