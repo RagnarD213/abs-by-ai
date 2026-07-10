@@ -36,7 +36,8 @@
     "health::Buy supplements",
     "health::Brush teeth",
     "health::Floss",
-    "money::Create calorie tracker"
+    "money::Create calorie tracker",
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
