@@ -1980,9 +1980,147 @@ app.post('/api/account/transformation', requireAuth, async (req, res) => {
   }
   try {
     await db.query('UPDATE users SET before_image = $1, after_image = $2 WHERE id = $3', [before, after, req.user.id]);
+    // Also record it in the gallery (dedupes internally — this endpoint fires
+    // on every login/hub load with the same localStorage pair).
+    await insertTransformation(req.user.id, before, after, {});
     res.json({ ok: true });
   } catch (e) {
     console.error('save transformation error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ── My Transformations gallery ──
+// Every generated before/after pair, newest-first. The is_hero row is the pair
+// shown on the member-hub home screen (mirrored into users.before/after_image
+// so legacy readers — renderHubHero fallback, trainer photo path — stay in sync).
+const TRANSFORMATIONS_CAP = 30;
+
+// Insert a pair as the new hero. Skips (dedupe) when the newest row already has
+// the identical after image. Returns the new row id, or null when deduped.
+async function insertTransformation(userId, before, after, settings) {
+  const { rows: newest } = await db.query(
+    'SELECT id, after_image FROM transformations WHERE user_id = $1 ORDER BY id DESC LIMIT 1',
+    [userId]
+  );
+  if (newest.length && newest[0].after_image === after) return null;
+  await db.query('UPDATE transformations SET is_hero = false WHERE user_id = $1 AND is_hero = true', [userId]);
+  const { rows } = await db.query(
+    `INSERT INTO transformations (user_id, before_image, after_image, settings, is_hero)
+     VALUES ($1, $2, $3, $4, true) RETURNING id`,
+    [userId, before, after, JSON.stringify(settings || {})]
+  );
+  // Cap the gallery: drop the oldest rows past the newest 30 (the hero is the
+  // newest row here, so it's never in the delete set).
+  const { rows: keep } = await db.query(
+    'SELECT id FROM transformations WHERE user_id = $1 ORDER BY id DESC LIMIT $2',
+    [userId, TRANSFORMATIONS_CAP]
+  );
+  if (keep.length >= TRANSFORMATIONS_CAP) {
+    const minId = keep[keep.length - 1].id;
+    await db.query('DELETE FROM transformations WHERE user_id = $1 AND id < $2', [userId, minId]);
+  }
+  return rows[0].id;
+}
+
+app.get('/api/transformations', requireAuth, async (req, res) => {
+  const PAGE = 10;
+  const before = parseInt(req.query.before, 10) || 0;
+  try {
+    // Lazy migration: users who saved a pair before the gallery existed get it
+    // as their first (hero) row on first open.
+    const { rows: countRows } = await db.query(
+      'SELECT COUNT(*)::int AS n FROM transformations WHERE user_id = $1', [req.user.id]
+    );
+    if (!countRows[0].n) {
+      const u = await getUserRow(req.user.id);
+      if (u?.before_image && u?.after_image) {
+        await db.query(
+          `INSERT INTO transformations (user_id, before_image, after_image, settings, is_hero)
+           VALUES ($1, $2, $3, $4, true)`,
+          [req.user.id, u.before_image, u.after_image, JSON.stringify({ migrated: true })]
+        );
+      }
+    }
+    const params = [req.user.id];
+    let where = 'user_id = $1';
+    if (before > 0) { params.push(before); where += ' AND id < $2'; }
+    const { rows } = await db.query(
+      `SELECT id, before_image, after_image, settings, is_hero, created_at
+       FROM transformations WHERE ${where} ORDER BY id DESC LIMIT ${PAGE + 1}`,
+      params
+    );
+    res.json({ transformations: rows.slice(0, PAGE), hasMore: rows.length > PAGE });
+  } catch (e) {
+    console.error('list transformations error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/transformations', requireAuth, async (req, res) => {
+  const before = String(req.body?.before || '');
+  const after = String(req.body?.after || '');
+  const settings = (req.body?.settings && typeof req.body.settings === 'object') ? req.body.settings : {};
+  if (!before.startsWith('data:image/') || !after.startsWith('data:image/')) {
+    return res.status(400).json({ error: 'Invalid image data' });
+  }
+  try {
+    const id = await insertTransformation(req.user.id, before, after, settings);
+    // Mirror to the legacy columns (latest generation is the hub hero).
+    if (id) {
+      await db.query('UPDATE users SET before_image = $1, after_image = $2 WHERE id = $3', [before, after, req.user.id]);
+    }
+    res.json({ id, deduped: !id });
+  } catch (e) {
+    console.error('create transformation error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/transformations/:id/hero', requireAuth, async (req, res) => {
+  const id = parseInt(req.params.id, 10) || 0;
+  try {
+    const { rows } = await db.query(
+      'SELECT id, before_image, after_image FROM transformations WHERE id = $1 AND user_id = $2', [id, req.user.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Not found' });
+    await db.query('UPDATE transformations SET is_hero = false WHERE user_id = $1 AND is_hero = true', [req.user.id]);
+    await db.query('UPDATE transformations SET is_hero = true WHERE id = $1', [id]);
+    await db.query('UPDATE users SET before_image = $1, after_image = $2 WHERE id = $3',
+      [rows[0].before_image, rows[0].after_image, req.user.id]);
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('set hero error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.delete('/api/transformations/:id', requireAuth, async (req, res) => {
+  const id = parseInt(req.params.id, 10) || 0;
+  try {
+    const { rows } = await db.query(
+      'SELECT is_hero FROM transformations WHERE id = $1 AND user_id = $2', [id, req.user.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Not found' });
+    const wasHero = rows[0].is_hero;
+    await db.query('DELETE FROM transformations WHERE id = $1 AND user_id = $2', [id, req.user.id]);
+    if (wasHero) {
+      // Promote the newest remaining pair to hero; empty gallery empties the hub hero.
+      const { rows: next } = await db.query(
+        'SELECT id, before_image, after_image FROM transformations WHERE user_id = $1 ORDER BY id DESC LIMIT 1',
+        [req.user.id]
+      );
+      if (next.length) {
+        await db.query('UPDATE transformations SET is_hero = true WHERE id = $1', [next[0].id]);
+        await db.query('UPDATE users SET before_image = $1, after_image = $2 WHERE id = $3',
+          [next[0].before_image, next[0].after_image, req.user.id]);
+      } else {
+        await db.query('UPDATE users SET before_image = NULL, after_image = NULL WHERE id = $1', [req.user.id]);
+      }
+    }
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('delete transformation error:', e.message);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

@@ -99,6 +99,16 @@ async function initDb() {
       UNIQUE (user_id, entry_date)
     );
     CREATE INDEX IF NOT EXISTS sleep_entries_user_idx ON sleep_entries (user_id, entry_date);
+    CREATE TABLE IF NOT EXISTS transformations (
+      id           SERIAL PRIMARY KEY,
+      user_id      INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      before_image TEXT NOT NULL,
+      after_image  TEXT NOT NULL,
+      settings     JSONB NOT NULL DEFAULT '{}',
+      is_hero      BOOLEAN NOT NULL DEFAULT false,
+      created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+    CREATE INDEX IF NOT EXISTS transformations_user_idx ON transformations (user_id, id);
   `);
   // Membership columns (added after the users table shipped). ADD COLUMN IF NOT
   // EXISTS keeps this idempotent across deploys; pg-mem supports it too.

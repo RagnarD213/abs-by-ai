@@ -1039,6 +1039,69 @@ html, body {
 .hub-tile-name { font-size: 14.5px; font-weight: 700; letter-spacing: -0.1px; }
 .hub-tile-sub { font-size: 12px; color: var(--mute); }
 .hub-tile-chev { color: var(--mute); flex-shrink: 0; }
+
+/* ── My Transformations gallery ── */
+.transform-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  padding: 12px; margin-bottom: 16px;
+}
+.transform-card-head {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;
+}
+.transform-date { font-size: 13px; font-weight: 700; }
+.transform-chip {
+  font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+  background: var(--line); color: var(--mute); text-transform: capitalize;
+}
+.transform-hero-badge {
+  font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+  background: rgba(52, 211, 153, 0.14); color: #34d399; margin-left: auto;
+}
+.transform-slider {
+  position: relative; overflow: hidden; border-radius: 12px; aspect-ratio: 3 / 4;
+  touch-action: none; user-select: none; -webkit-user-select: none; cursor: ew-resize;
+  background: var(--line);
+}
+.transform-slider img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; pointer-events: none; display: block;
+}
+.transform-slider .transform-after-wrap {
+  position: absolute; inset: 0; clip-path: inset(0 50% 0 0);
+}
+.transform-handle {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 2px;
+  background: #fff; box-shadow: 0 0 8px rgba(0,0,0,0.5); pointer-events: none;
+}
+.transform-handle::after {
+  content: '⇔'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 34px; height: 34px; border-radius: 50%; background: #fff; color: #111;
+  display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700;
+}
+.transform-pill {
+  position: absolute; bottom: 8px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.6px;
+  padding: 4px 9px; border-radius: 999px; background: rgba(0,0,0,0.55); color: #fff; pointer-events: none;
+}
+.transform-pill-after { left: 8px; }
+.transform-pill-before { right: 8px; }
+.transform-actions {
+  display: flex; gap: 8px; margin-top: 10px;
+}
+.transform-action-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 4px; border-radius: 10px; border: 1px solid var(--line);
+  background: transparent; color: var(--fg); font-size: 12.5px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+}
+.transform-action-btn:active { border-color: var(--line2); }
+.transform-action-btn.transform-delete { flex: 0 0 44px; color: var(--mute); }
+.transform-rebuild {
+  background: var(--card); border: 1px solid var(--line2); border-radius: 16px;
+  padding: 16px; margin-bottom: 16px;
+}
+.transform-rebuild-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.transform-rebuild-sub { font-size: 13px; color: var(--mute); margin-bottom: 12px; }
+.transform-rebuild-actions { display: flex; gap: 8px; }
 .hub-soon {
   flex-shrink: 0; font-size: 10.5px; font-weight: 800; letter-spacing: 0.3px; text-transform: uppercase;
   color: #2f5fe0; background: rgba(47,95,224,0.09); border-radius: 7px; padding: 4px 8px;
@@ -1594,10 +1657,10 @@ html, body {
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
         <span class="hub-soon">Coming soon</span>
       </button>
-      <button class="hub-tile" data-feature="transformations" data-soon="A gallery of every future-you image you've generated.">
+      <button class="hub-tile" data-feature="transformations">
         <span class="hub-tile-emoji">📸</span>
         <span class="hub-tile-body"><span class="hub-tile-name">My Transformations</span><span class="hub-tile-sub">Your before &amp; after gallery</span></span>
-        <span class="hub-soon">Coming soon</span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
       <button class="hub-tile" data-feature="weight" data-soon="Weekly weigh-ins charted against your nutrition.">
         <span class="hub-tile-emoji">📈</span>
@@ -1857,6 +1920,48 @@ html, body {
     <div id="sleepBriefingContent"><!-- rendered by JS --></div>
   </div>
 
+  <!-- ════════════════ SCREEN: MY TRANSFORMATIONS GALLERY ════════════════ -->
+  <div id="transformationsSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="transformBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">My Transformations</span>
+      <span style="width:26px"></span>
+    </div>
+
+    <div id="transformRebuildPrompt" class="transform-rebuild" style="display:none">
+      <div class="transform-rebuild-title">New goal, new plan?</div>
+      <div class="transform-rebuild-sub">Your training program was built for your old goal image. Rebuild it for this one.</div>
+      <div class="transform-rebuild-actions">
+        <button id="transformRebuildBtn" class="cta-btn" style="flex:1;padding:12px">Rebuild my program</button>
+        <button id="transformRebuildDismissBtn" class="try-diff-btn" style="flex:1;margin:0">Keep current program</button>
+      </div>
+      <div id="transformRebuildError" class="inline-warn" style="display:none;margin-top:10px"></div>
+    </div>
+    <div id="transformRebuildLoader" class="loading-status" style="display:none;margin-bottom:14px">
+      <div class="loading-spinner"></div>
+      <div>
+        <div class="loading-title">Rebuilding your program…</div>
+        <div class="loading-sub">Retargeting every week at your new goal</div>
+      </div>
+    </div>
+
+    <div id="transformList"><!-- cards rendered by JS --></div>
+    <div id="transformEmpty" style="display:none;text-align:center;padding:36px 16px">
+      <div style="font-size:40px;margin-bottom:10px">📸</div>
+      <div style="font-size:17px;font-weight:700;margin-bottom:6px">No transformations yet</div>
+      <div style="font-size:13.5px;color:var(--mute);margin-bottom:18px">Every future-you image you generate will show up here.</div>
+      <button id="transformEmptyGenBtn" class="cta-btn">Generate your first transformation</button>
+    </div>
+    <div id="transformLoading" class="loading-status" style="display:none;margin-top:20px">
+      <div class="loading-spinner"></div>
+      <div><div class="loading-title">Loading your gallery…</div></div>
+    </div>
+    <div id="transformError" class="inline-warn" style="display:none;margin-top:14px"></div>
+    <button id="transformLoadMoreBtn" class="try-diff-btn" style="display:none;margin-top:4px">Load more</button>
+  </div>
+
   <!-- ════════════════ SCREEN: MEMBERSHIP ════════════════ -->
   <div id="membershipSection" class="screen" style="display:none">
     <div class="nav-bar">
@@ -1954,7 +2059,7 @@ html, body {
 // ============================================================
 const INTENSITY_LADDER = ['subtle', 'moderate', 'dramatic', 'max'];
 const BACKEND_URL = window.location.hostname === 'localhost'
-  ? 'http://localhost:3000'
+  ? window.location.origin // the local server serves this page, whatever port it's on
   : 'https://abs-by-ai-production.up.railway.app';
 
 // Fetched from backend on load — set STRIPE_PUBLISHABLE_KEY in Railway env vars
@@ -2080,7 +2185,7 @@ async function handleCreditsPurchaseComplete(sessionId) {
   closeCreditsCheckout();
   unlockResult();   // reveal the already-generated image in place
   storeTransformationLocally();
-  saveTransformationIfLoggedIn();
+  saveTransformationIfLoggedIn({ intensity: state.effectiveIntensity, condition: state.condition });
   fireConfetti();   // celebrate 🎉
 
   const toast = $('creditsSuccessToast');
@@ -2150,6 +2255,8 @@ const upsell = {
   product: null,   // 'canvas' | 'poster'
   size: null,      // e.g. '8x10'
   framed: false,
+  imageDataUrl: null,  // set when entering from a gallery card (else state.lastAfterDataUrl)
+  returnScreen: null,  // where the product back button returns ('transformations' or null → email)
 };
 
 // ============================================================
@@ -2295,7 +2402,7 @@ Always honor the user's requested intensity at FULL strength regardless of start
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -2589,6 +2696,9 @@ function selectPick(gridId, value, stateKey) {
 //  EMAIL CAPTURE (LOCKSCREEN DOWNLOAD)
 // ============================================================
 function showEmailScreen() {
+  // Entering from the generation flow — reset any gallery print context.
+  upsell.imageDataUrl = null;
+  upsell.returnScreen = null;
   $('emailFutureImg').src = state.lastAfterDataUrl || '';
   showScreen('email');
 }
@@ -2597,7 +2707,7 @@ function showEmailScreen() {
 //  UPSELL: PRODUCT + CUSTOMIZE
 // ============================================================
 function showProductSection() {
-  const imgSrc = state.lastAfterDataUrl || '';
+  const imgSrc = upsell.imageDataUrl || state.lastAfterDataUrl || '';
   $('canvasMockupImg').src = imgSrc;
   $('posterMockupImg').src = imgSrc;
   showScreen('product');
@@ -2612,7 +2722,7 @@ function selectProduct(type) {
   $('customizeNavTitle').textContent = titles[type];
 
   // Render full mockup
-  const imgSrc = state.lastAfterDataUrl || '';
+  const imgSrc = upsell.imageDataUrl || state.lastAfterDataUrl || '';
   const wrap = $('fullMockupWrap');
   if (type === 'canvas') {
     wrap.innerHTML = `<div class="full-canvas"><img src="${imgSrc}" alt="Your future self" /></div>`;
@@ -2687,7 +2797,7 @@ async function handleCheckout() {
 
   try {
     // 1. Upload image to Printify
-    const imgBase64 = state.lastAfterDataUrl.split(',')[1];
+    const imgBase64 = (upsell.imageDataUrl || state.lastAfterDataUrl).split(',')[1];
     const uploadRes = await fetch(`${BACKEND_URL}/api/printify/upload-image`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -2893,7 +3003,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   $('emailSkipBtn').addEventListener('click', () => showProductSection());
 
   // Product screen
-  $('productBackBtn').addEventListener('click', () => showScreen('email'));
+  $('productBackBtn').addEventListener('click', () => {
+    if (upsell.returnScreen === 'transformations') return showTransformations();
+    showScreen('email');
+  });
   $('productSkipBtn').addEventListener('click', () => showMacroScreen());
   ['selectCanvas', 'selectPoster'].forEach(id => {
     $(id).addEventListener('click', () => selectProduct($(id).dataset.product));
@@ -2954,6 +3067,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   initNutritionist();
   initCounsel();
   initSleepCoach();
+  initTransformations();
   restoreSession(); // routes returning logged-in users straight to the hub
 });
 
@@ -3126,15 +3240,395 @@ function storeTransformationLocally() {
   } catch (e) {} // storage quota — non-fatal
 }
 
-function saveTransformationIfLoggedIn() {
+function saveTransformationIfLoggedIn(settings) {
   if (!isLoggedIn()) return;
   const before = localStorage.getItem(LAST_BEFORE_KEY);
   const after = localStorage.getItem(LAST_AFTER_KEY);
   if (!before || !after) return;
-  authApi('/api/account/transformation', {
+  // Saves to the gallery AND mirrors to the legacy users columns; the server
+  // dedupes, so the repeat fire on login/hub load never creates a second row.
+  authApi('/api/transformations', {
     method: 'POST',
-    body: JSON.stringify({ before, after }),
+    body: JSON.stringify({ before, after, settings: settings || {} }),
   }).catch(e => console.warn('Transformation save failed:', e.message));
+}
+
+// ============================================================
+//  MY TRANSFORMATIONS — before/after gallery
+// ============================================================
+const transformState = { items: [], hasMore: false, loading: false };
+
+async function showTransformations() {
+  showScreen('transformations');
+  $('transformRebuildPrompt').style.display = 'none';
+  $('transformError').style.display = 'none';
+  $('transformEmpty').style.display = 'none';
+  $('transformList').innerHTML = '';
+  $('transformLoadMoreBtn').style.display = 'none';
+  $('transformLoading').style.display = '';
+  transformState.items = [];
+  transformState.hasMore = false;
+  try {
+    const data = await authApi('/api/transformations');
+    transformState.items = data.transformations || [];
+    transformState.hasMore = !!data.hasMore;
+    renderTransformations();
+  } catch (e) {
+    $('transformError').textContent = e.message || 'Could not load your gallery. Please try again.';
+    $('transformError').style.display = '';
+  } finally {
+    $('transformLoading').style.display = 'none';
+  }
+}
+
+async function loadMoreTransformations() {
+  if (transformState.loading || !transformState.hasMore) return;
+  transformState.loading = true;
+  const btn = $('transformLoadMoreBtn');
+  btn.disabled = true;
+  btn.textContent = 'Loading…';
+  try {
+    const oldest = transformState.items[transformState.items.length - 1];
+    const data = await authApi(`/api/transformations?before=${oldest.id}`);
+    transformState.items = transformState.items.concat(data.transformations || []);
+    transformState.hasMore = !!data.hasMore;
+    renderTransformations();
+  } catch (e) {
+    $('transformError').textContent = e.message || 'Could not load more.';
+    $('transformError').style.display = '';
+  } finally {
+    transformState.loading = false;
+    btn.disabled = false;
+    btn.textContent = 'Load more';
+  }
+}
+
+function renderTransformations() {
+  const list = $('transformList');
+  list.innerHTML = '';
+  const items = transformState.items;
+  $('transformEmpty').style.display = items.length ? 'none' : '';
+  $('transformLoadMoreBtn').style.display = transformState.hasMore ? '' : 'none';
+  items.forEach(item => list.appendChild(buildTransformCard(item)));
+}
+
+function buildTransformCard(item) {
+  const card = document.createElement('div');
+  card.className = 'transform-card';
+
+  // Header: date + intensity chip + hero badge
+  const head = document.createElement('div');
+  head.className = 'transform-card-head';
+  const date = document.createElement('span');
+  date.className = 'transform-date';
+  date.textContent = new Date(item.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+  head.appendChild(date);
+  if (item.settings && item.settings.intensity) {
+    const chip = document.createElement('span');
+    chip.className = 'transform-chip';
+    chip.textContent = item.settings.intensity;
+    head.appendChild(chip);
+  }
+  if (item.is_hero) {
+    const badge = document.createElement('span');
+    badge.className = 'transform-hero-badge';
+    badge.textContent = '⭐ On your home screen';
+    head.appendChild(badge);
+  }
+  card.appendChild(head);
+
+  // Slider viewer: before fills, after clipped on top
+  const slider = document.createElement('div');
+  slider.className = 'transform-slider';
+  const beforeImg = document.createElement('img');
+  beforeImg.src = item.before_image;
+  beforeImg.alt = 'Before';
+  beforeImg.loading = 'lazy';
+  const afterWrap = document.createElement('div');
+  afterWrap.className = 'transform-after-wrap';
+  const afterImg = document.createElement('img');
+  afterImg.src = item.after_image;
+  afterImg.alt = 'After';
+  afterImg.loading = 'lazy';
+  afterWrap.appendChild(afterImg);
+  const handle = document.createElement('div');
+  handle.className = 'transform-handle';
+  const pillA = document.createElement('span');
+  pillA.className = 'transform-pill transform-pill-after';
+  pillA.textContent = 'AFTER';
+  const pillB = document.createElement('span');
+  pillB.className = 'transform-pill transform-pill-before';
+  pillB.textContent = 'BEFORE';
+  slider.append(beforeImg, afterWrap, handle, pillA, pillB);
+  initTransformSlider(slider, afterWrap, handle);
+  card.appendChild(slider);
+
+  // Action row
+  const actions = document.createElement('div');
+  actions.className = 'transform-actions';
+  if (!item.is_hero) {
+    const heroBtn = document.createElement('button');
+    heroBtn.className = 'transform-action-btn';
+    heroBtn.textContent = '⭐ Set as my goal';
+    heroBtn.addEventListener('click', () => setTransformHero(item));
+    actions.appendChild(heroBtn);
+  }
+  const shareBtn = document.createElement('button');
+  shareBtn.className = 'transform-action-btn';
+  shareBtn.textContent = '↗ Share';
+  shareBtn.addEventListener('click', () => shareTransformation(item, shareBtn));
+  actions.appendChild(shareBtn);
+  const printBtn = document.createElement('button');
+  printBtn.className = 'transform-action-btn';
+  printBtn.textContent = '🖼 Print';
+  printBtn.addEventListener('click', () => printTransformation(item));
+  actions.appendChild(printBtn);
+  const delBtn = document.createElement('button');
+  delBtn.className = 'transform-action-btn transform-delete';
+  delBtn.title = 'Delete';
+  delBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>';
+  delBtn.addEventListener('click', () => deleteTransformation(item));
+  actions.appendChild(delBtn);
+  card.appendChild(actions);
+
+  return card;
+}
+
+// Drag slider: pointer events + capture, clamp 2–98%.
+function initTransformSlider(slider, afterWrap, handle) {
+  const setPos = (clientX) => {
+    const r = slider.getBoundingClientRect();
+    if (!r.width) return;
+    const pct = Math.max(2, Math.min(98, ((clientX - r.left) / r.width) * 100));
+    afterWrap.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    handle.style.left = pct + '%';
+  };
+  slider.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    try { slider.setPointerCapture(e.pointerId); } catch (err) {}
+    setPos(e.clientX);
+    const move = (ev) => setPos(ev.clientX);
+    const up = () => {
+      slider.removeEventListener('pointermove', move);
+      slider.removeEventListener('pointerup', up);
+      slider.removeEventListener('pointercancel', up);
+    };
+    slider.addEventListener('pointermove', move);
+    slider.addEventListener('pointerup', up);
+    slider.addEventListener('pointercancel', up);
+  });
+}
+
+// ── Set as goal (hero swap) + program rebuild cross-sell ──
+async function setTransformHero(item) {
+  try {
+    await authApi(`/api/transformations/${item.id}/hero`, { method: 'POST' });
+  } catch (e) {
+    $('transformError').textContent = e.message || 'Could not update your goal. Please try again.';
+    $('transformError').style.display = '';
+    return;
+  }
+  if (window.posthog) posthog.capture('transformation_hero_swapped');
+  // Instant hub-hero swap on this device
+  try {
+    localStorage.setItem(LAST_BEFORE_KEY, item.before_image);
+    localStorage.setItem(LAST_AFTER_KEY, item.after_image);
+  } catch (e) {}
+  transformState.items.forEach(t => { t.is_hero = (t.id === item.id); });
+  renderTransformations();
+  // Cross-sell: offer a program rebuild targeted at the new goal image
+  try {
+    const data = await authApi('/api/program');
+    if (data.program) {
+      window._transformRebuildIntake = data.intake || null;
+      $('transformRebuildError').style.display = 'none';
+      $('transformRebuildPrompt').style.display = '';
+      $('transformRebuildPrompt').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  } catch (e) {}
+}
+
+async function rebuildProgramForNewGoal() {
+  // Full rebuild is members-only — same gate as the trainer.
+  if (!memberState.active) {
+    showMembershipScreen(() => showTransformations());
+    return;
+  }
+  const intake = window._transformRebuildIntake;
+  if (!intake) {
+    $('transformRebuildPrompt').style.display = 'none';
+    return;
+  }
+  $('transformRebuildPrompt').style.display = 'none';
+  $('transformRebuildLoader').style.display = '';
+  try {
+    const parse = (dataUrl) => {
+      const m = dataUrl && dataUrl.match(/^data:(.*?);base64,(.*)$/);
+      return m ? { mime: m[1], data: m[2] } : null;
+    };
+    const before = parse(localStorage.getItem(LAST_BEFORE_KEY));
+    const after = parse(localStorage.getItem(LAST_AFTER_KEY));
+    const consent = intake.photo_consent !== false && !!before;
+    const data = await authApi('/api/generate-program', {
+      method: 'POST',
+      body: JSON.stringify({
+        intake,
+        photoBase64: consent ? before?.data : null,
+        photoMime: consent ? before?.mime : null,
+        afterPhotoBase64: consent ? after?.data : null,
+        afterPhotoMime: consent ? after?.mime : null,
+        photoConsent: consent,
+      }),
+    });
+    storeProgram(data);
+    saveProgress({}); // fresh block, fresh progress
+    if (window.posthog) posthog.capture('program_rebuilt_for_new_goal');
+    showProgram();
+  } catch (e) {
+    $('transformRebuildPrompt').style.display = '';
+    $('transformRebuildError').textContent = e.message || 'Rebuild failed. Please try again.';
+    $('transformRebuildError').style.display = '';
+  } finally {
+    $('transformRebuildLoader').style.display = 'none';
+  }
+}
+
+// ── Share / download a branded before+after composite ──
+function loadImg(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+function drawCover(ctx, img, x, y, w, h) {
+  const scale = Math.max(w / img.width, h / img.height);
+  const sw = w / scale, sh = h / scale;
+  const sx = (img.width - sw) / 2, sy = (img.height - sh) / 2;
+  ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+}
+
+async function buildShareComposite(item) {
+  const W = 1200, H = 900, FOOTER = 78;
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#0b0d10';
+  ctx.fillRect(0, 0, W, H);
+  const [before, after] = await Promise.all([loadImg(item.before_image), loadImg(item.after_image)]);
+  const imgH = H - FOOTER;
+  drawCover(ctx, before, 0, 0, W / 2, imgH);
+  drawCover(ctx, after, W / 2, 0, W / 2, imgH);
+  // BEFORE / AFTER labels
+  const label = (text, cx) => {
+    ctx.font = '800 26px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+    const tw = ctx.measureText(text).width;
+    const pw = tw + 44, ph = 46, px = cx - pw / 2, py = imgH - 74;
+    ctx.fillStyle = 'rgba(0,0,0,0.62)';
+    ctx.beginPath();
+    ctx.roundRect(px, py, pw, ph, 23);
+    ctx.fill();
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, cx, py + ph / 2 + 1);
+  };
+  label('BEFORE', W / 4);
+  label('AFTER', (3 * W) / 4);
+  // Footer brand strip
+  ctx.fillStyle = '#0b0d10';
+  ctx.fillRect(0, imgH, W, FOOTER);
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#fff';
+  ctx.font = '800 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+  ctx.fillText('ABS BY AI', W / 2 - 110, imgH + FOOTER / 2);
+  ctx.fillStyle = '#9aa3ad';
+  ctx.font = '600 26px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+  ctx.fillText('· absbyai.com', W / 2 + 90, imgH + FOOTER / 2);
+  return new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+}
+
+async function shareTransformation(item, btn) {
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Preparing…';
+  try {
+    const blob = await buildShareComposite(item);
+    if (!blob) throw new Error('Could not build the image.');
+    const file = new File([blob], 'my-transformation.png', { type: 'image/png' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], text: 'My transformation — absbyai.com' });
+        if (window.posthog) posthog.capture('transformation_shared', { method: 'share' });
+        return;
+      } catch (e) {
+        if (e.name === 'AbortError') return; // user closed the share sheet
+        // fall through to download
+      }
+    }
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'my-transformation.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+    if (window.posthog) posthog.capture('transformation_shared', { method: 'download' });
+  } catch (e) {
+    $('transformError').textContent = 'Share failed — please try again.';
+    $('transformError').style.display = '';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = orig;
+  }
+}
+
+// ── Print (reuses the Printify upsell flow with this card's after image) ──
+function printTransformation(item) {
+  upsell.imageDataUrl = item.after_image;
+  upsell.returnScreen = 'transformations';
+  if (window.posthog) posthog.capture('print_upsell_opened_from_gallery');
+  showProductSection();
+}
+
+// ── Delete ──
+async function deleteTransformation(item) {
+  if (!confirm('Delete this transformation? This can\'t be undone.')) return;
+  try {
+    await authApi(`/api/transformations/${item.id}`, { method: 'DELETE' });
+    if (window.posthog) posthog.capture('transformation_deleted');
+    // If the hero changed (or the gallery emptied), the server already promoted
+    // a new pair — refresh the local cache so the hub hero matches.
+    if (item.is_hero) {
+      localStorage.removeItem(LAST_BEFORE_KEY);
+      localStorage.removeItem(LAST_AFTER_KEY);
+      try {
+        const t = await authApi('/api/account/transformation');
+        if (t.before && t.after) {
+          localStorage.setItem(LAST_BEFORE_KEY, t.before);
+          localStorage.setItem(LAST_AFTER_KEY, t.after);
+        }
+      } catch (e) {}
+    }
+    await showTransformations();
+  } catch (e) {
+    $('transformError').textContent = e.message || 'Delete failed. Please try again.';
+    $('transformError').style.display = '';
+  }
+}
+
+function initTransformations() {
+  $('transformBackBtn').addEventListener('click', () => showHub());
+  $('transformEmptyGenBtn').addEventListener('click', () => showScreen('form'));
+  $('transformLoadMoreBtn').addEventListener('click', loadMoreTransformations);
+  $('transformRebuildBtn').addEventListener('click', rebuildProgramForNewGoal);
+  $('transformRebuildDismissBtn').addEventListener('click', () => {
+    $('transformRebuildPrompt').style.display = 'none';
+  });
 }
 
 // ── Cloud meal sync ──
@@ -3206,6 +3700,7 @@ function initAccounts() {
       if (feature === 'nutritionist') return openNutritionist();
       if (feature === 'counsel') return openCounsel();
       if (feature === 'sleep') return openSleepCoach();
+      if (feature === 'transformations') return showTransformations();
       if (feature === 'generate') return showScreen('form');
       if (feature === 'support') return; // <a mailto> handles itself
       const note = $('hubSoonNote');
@@ -5591,7 +6086,7 @@ async function generate() {
     } else {
       unlockResult();
       storeTransformationLocally();
-      saveTransformationIfLoggedIn();
+      saveTransformationIfLoggedIn({ intensity: state.effectiveIntensity, condition: state.condition });
       // Sync credit count from server (server already deducted)
       state_credits.value = Math.max(0, state_credits.value - 1);
       updateCreditDisplay();
@@ -5642,7 +6137,7 @@ async function adjustIntensity(delta) {
     } else {
       unlockResult();
       storeTransformationLocally();
-      saveTransformationIfLoggedIn();
+      saveTransformationIfLoggedIn({ intensity: state.effectiveIntensity, condition: state.condition });
       state_credits.value = Math.max(0, state_credits.value - 1);
       updateCreditDisplay();
     }
