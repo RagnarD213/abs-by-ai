@@ -222,6 +222,38 @@ Rules: one offer per email, framed as a recommendation, always `[AFFILIATE_LINK]
 
 ---
 
+## 8. Member welcome email (transactional, ready to paste)
+
+One-off transactional email sent immediately after membership purchase.
+
+**Subject:** You're officially in
+**Preview text:** Everything's unlocked. Here's what to do first.
+
+> Hey — Dan here.
+>
+> Your membership is active. You've got everything:
+>
+> **✓ Your full 4-week AI training program** — and every block after it
+> **✓ Unlimited future-self image generations** — see yourself at every milestone
+> **✓ Unlimited AI meal & macro tracking** — snap, log, done
+> **✓ AI Nutritionist** — weekly meal-prep plans, grocery lists, check-ins
+> **✓ The Decision Counsel** — 10 expert verdicts a month. Bring your hardest calls.
+> **✓ AI Sleep Coach** — tonight's protocol and your sleep trend
+> **✓ Progress Log AI recap** — weekly checks that adapt to your progress
+>
+> Two first moves:
+>
+> **1. Generate your training program.** 60-second quiz, four-week program built for you. [→ Generate my program](https://absbyai.com)
+>
+> **2. Set up your Progress Log photo day.** Pick a day each week to snap your progress photos — same time, same lighting. The AI recap catches what you can't see in the mirror. [→ Set my photo day](https://absbyai.com)
+>
+> You've got seven days to decide if this is right — full refund, no questions. Just reply and I'll process it.
+>
+> This is gonna work,
+> — Dan
+
+---
+
 ## 6. Implementation checklist
 
 - [ ] Dan: MailerLite account created + approved
