@@ -2492,6 +2492,27 @@ app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res)
   }
 });
 
+// Create a Stripe billing portal session to manage subscription.
+app.post('/api/stripe/create-portal-session', requireAuth, async (req, res) => {
+  try {
+    const stripe = getStripe();
+    if (!stripe) return res.status(503).json({ error: 'Payments are not configured yet.' });
+
+    const row = await getUserRow(req.user.id);
+    if (!row.stripe_customer_id) return res.status(400).json({ error: 'No customer ID found. Subscribe first.' });
+
+    const session = await stripe.billingPortal.sessions.create({
+      customer: row.stripe_customer_id,
+      return_url: SITE_URL,
+    });
+
+    res.json({ url: session.url });
+  } catch (err) {
+    console.error('create-portal-session error:', err.message);
+    res.status(500).json({ error: 'Could not open billing portal. Please try again.' });
+  }
+});
+
 // Idempotently activate membership for a completed subscription checkout.
 async function fulfillMembershipSession(session) {
   if (!session || !db) return false;

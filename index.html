@@ -1603,6 +1603,18 @@ html, body {
     <div class="hero-h1" style="font-size:26px;line-height:1.1;margin-bottom:4px">Welcome back</div>
     <div class="hero-sub" id="hubEmail" style="margin-bottom:16px"></div>
 
+    <!-- Membership card -->
+    <div id="hubMembershipCard" class="hub-tile" style="display:none;margin-bottom:16px;flex-direction:column;gap:12px;align-items:stretch">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <div class="hub-tile-name" id="hubMembershipPlan"></div>
+        <div class="hub-tile-sub" id="hubMembershipDate"></div>
+        <div id="hubMembershipWarning" style="display:none;color:#b83a2a;font-size:12px;font-weight:600;margin-top:4px"></div>
+      </div>
+      <button id="hubMembershipManageBtn" class="cta-btn" style="margin:0;font-size:14px;padding:10px 16px">Manage membership</button>
+    </div>
+
+    <!-- "Become a member" tile within tiles section -->
+
     <!-- MEMBER-COPY -->
     <div id="hubMemberFaq" style="display:none;margin-bottom:16px">
       <div class="lbl"><span class="lbl-text">Member</span></div>
@@ -1629,6 +1641,11 @@ html, body {
     </div>
 
     <div class="hub-tiles">
+      <button id="hubBecomeMemBtn" class="hub-tile" style="display:none;background:var(--acc-soft);border-color:var(--acc-line)">
+        <span class="hub-tile-emoji">⭐</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">Become a member</span><span class="hub-tile-sub">Unlimited transformations, AI trainer &amp; meal plans</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
       <button class="hub-tile" data-feature="macro">
         <span class="hub-tile-emoji">🍽️</span>
         <span class="hub-tile-body"><span class="hub-tile-name">Macro Tracker</span><span class="hub-tile-sub">Snap a meal photo, get calories &amp; macros</span></span>
@@ -3304,6 +3321,7 @@ function showHub() {
   $('hubEmail').textContent = auth.email;
   $('hubSoonNote').style.display = 'none';
   renderHubHero();
+  renderHubMembership();
   showScreen('hub');
 }
 
@@ -3326,6 +3344,42 @@ async function renderHubHero() {
     $('hubHero').style.display = '';
   } else {
     $('hubHero').style.display = 'none';
+  }
+}
+
+function renderHubMembership() {
+  const memberCard = $('hubMembershipCard');
+  const becomeMemberBtn = $('hubBecomeMemBtn');
+  const memberFaq = $('hubMemberFaq');
+
+  if (memberState.active && memberState.plan && memberState.periodEnd) {
+    // Show membership card
+    const planLabel = memberState.plan.charAt(0).toUpperCase() + memberState.plan.slice(1) + ' Membership';
+    $('hubMembershipPlan').textContent = planLabel;
+
+    const periodDate = new Date(memberState.periodEnd).toLocaleDateString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric'
+    });
+    const dateLabel = memberState.status === 'canceled' ? `Ends ${periodDate}` : `Renews ${periodDate}`;
+    $('hubMembershipDate').textContent = dateLabel;
+
+    // Show past_due warning
+    const warningEl = $('hubMembershipWarning');
+    if (memberState.status === 'past_due') {
+      warningEl.textContent = 'Payment issue — update your card to keep your membership';
+      warningEl.style.display = '';
+    } else {
+      warningEl.style.display = 'none';
+    }
+
+    memberCard.style.display = '';
+    becomeMemberBtn.style.display = 'none';
+    if (memberFaq) memberFaq.style.display = '';
+  } else {
+    // Show become member button
+    memberCard.style.display = 'none';
+    becomeMemberBtn.style.display = '';
+    if (memberFaq) memberFaq.style.display = 'none';
   }
 }
 
@@ -3764,6 +3818,10 @@ function initAccounts() {
   $('hubLogoutBtn').addEventListener('click', handleLogout);
   $('macroBackBtn').addEventListener('click', () => { if (isLoggedIn()) showHub(); });
   $('macroAccountCta').addEventListener('click', () => showAuthScreen('signup'));
+
+  // Membership management
+  $('hubMembershipManageBtn').addEventListener('click', handleManageMembership);
+  $('hubBecomeMemBtn').addEventListener('click', () => showMembershipScreen(() => showHub()));
 
   document.querySelectorAll('#hubSection .hub-tile').forEach(tile => {
     tile.addEventListener('click', () => {
@@ -4301,7 +4359,7 @@ function initProgress() {
 // ============================================================
 //  MEMBERSHIP — plans, paywall, subscription checkout
 // ============================================================
-const memberState = { active: false, plan: null, discountCents: 0, loaded: false };
+const memberState = { active: false, plan: null, periodEnd: null, status: null, discountCents: 0, loaded: false };
 let selectedPlan = 'annual';
 let membershipReturnTo = null; // where to go after subscribing (or backing out)
 
@@ -4311,6 +4369,8 @@ async function refreshMembership() {
     const m = await authApi(`/api/membership?deviceId=${encodeURIComponent(getDeviceId())}`);
     memberState.active = !!m.active;
     memberState.plan = m.plan;
+    memberState.periodEnd = m.periodEnd || null;
+    memberState.status = m.status || null;
     memberState.discountCents = m.creditDiscountCents || 0;
     memberState.loaded = true;
   } catch (e) { console.warn('membership fetch failed:', e.message); }
@@ -4399,6 +4459,27 @@ async function handleMembershipComplete(sessionId) {
   const dest = membershipReturnTo;
   membershipReturnTo = null;
   if (dest) dest(); else if (loadStoredProgram()) showProgram(); else showHub();
+}
+
+async function handleManageMembership() {
+  const btn = $('hubMembershipManageBtn');
+  btn.disabled = true;
+  try {
+    const data = await authApi('/api/stripe/create-portal-session', {
+      method: 'POST',
+      body: JSON.stringify({}),
+    });
+    if (data.url) window.location.href = data.url;
+  } catch (err) {
+    const toast = $('creditsErrorToast');
+    if (toast) {
+      $('creditsErrorText').textContent = err.message || 'Could not open billing portal. Please try again.';
+      toast.style.display = 'flex';
+      setTimeout(() => { toast.style.display = 'none'; }, 4500);
+    }
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 // ============================================================
