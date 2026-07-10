@@ -36,7 +36,6 @@
     "health::Buy supplements",
     "health::Brush teeth",
     "health::Floss",
-    "health::Inject Zepbound",
     "money::Create calorie tracker"
   ],
   "log": {
