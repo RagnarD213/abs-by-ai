@@ -109,6 +109,38 @@ async function initDb() {
       created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
     );
     CREATE INDEX IF NOT EXISTS transformations_user_idx ON transformations (user_id, id);
+    CREATE TABLE IF NOT EXISTS weight_logs (
+      id         SERIAL PRIMARY KEY,
+      user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      entry_date DATE NOT NULL,
+      weight     REAL NOT NULL,
+      unit       TEXT NOT NULL DEFAULT 'lb',
+      flags      JSONB NOT NULL DEFAULT '[]',
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+      UNIQUE (user_id, entry_date)
+    );
+    CREATE INDEX IF NOT EXISTS weight_logs_user_idx ON weight_logs (user_id, entry_date);
+    CREATE TABLE IF NOT EXISTS progress_entries (
+      id          SERIAL PRIMARY KEY,
+      user_id     INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      entry_date  DATE NOT NULL,
+      photo_front TEXT NOT NULL,
+      thumb_front TEXT,
+      photo_side  TEXT,
+      photo_back  TEXT,
+      waist       REAL,
+      waist_unit  TEXT DEFAULT 'in',
+      recap       JSONB,
+      created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+      UNIQUE (user_id, entry_date)
+    );
+    CREATE INDEX IF NOT EXISTS progress_entries_user_idx ON progress_entries (user_id, entry_date);
+    CREATE TABLE IF NOT EXISTS password_reset_tokens (
+      token_hash TEXT PRIMARY KEY,
+      user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      expires_at TIMESTAMPTZ NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
   `);
   // Membership columns (added after the users table shipped). ADD COLUMN IF NOT
   // EXISTS keeps this idempotent across deploys; pg-mem supports it too.
@@ -118,6 +150,10 @@ async function initDb() {
     'membership_status TEXT',
     'membership_plan TEXT',
     'membership_period_end TIMESTAMPTZ',
+    // Progress Log settings + reminder bookkeeping
+    'photo_day INTEGER',
+    'weigh_reminder BOOLEAN DEFAULT false',
+    'last_photo_nudge DATE',
   ]) {
     try {
       await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS ${col}`);

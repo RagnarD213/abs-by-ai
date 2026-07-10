@@ -1583,9 +1583,11 @@ html, body {
       <input type="email" id="authEmail" class="text-field" placeholder="you@example.com" required autocomplete="email" style="margin-bottom:10px" />
       <input type="password" id="authPassword" class="text-field" placeholder="Password (8+ characters)" required minlength="8" autocomplete="current-password" style="margin-bottom:14px" />
       <div id="authError" class="inline-warn" style="display:none;margin-bottom:12px"></div>
+      <div id="authNotice" class="hero-sub" style="display:none;margin-bottom:12px"></div>
       <button type="submit" id="authSubmitBtn" class="cta-btn">Log In</button>
     </form>
-    <button id="authToggleBtn" class="try-diff-btn" style="margin-top:16px">New here? Create a free account</button>
+    <button id="authForgotBtn" class="try-diff-btn" style="margin-top:12px">Forgot your password?</button>
+    <button id="authToggleBtn" class="try-diff-btn" style="margin-top:8px">New here? Create a free account</button>
   </div>
 
   <!-- ════════════════ SCREEN: MEMBER HUB ════════════════ -->
@@ -1645,7 +1647,7 @@ html, body {
         <span class="hub-tile-body"><span class="hub-tile-name">My Transformations</span><span class="hub-tile-sub">Your before &amp; after gallery</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
-      <button class="hub-tile" data-feature="weight" data-soon="Weekly weigh-ins charted against your nutrition.">
+      <button class="hub-tile" data-feature="weight">
         <span class="hub-tile-emoji">📈</span>
         <span class="hub-tile-body"><span class="hub-tile-name">Weight &amp; Progress Log</span><span class="hub-tile-sub">Track your journey over time</span></span>
         <span class="hub-soon">Coming soon</span>
@@ -1903,6 +1905,35 @@ html, body {
     <div id="sleepBriefingContent"><!-- rendered by JS --></div>
   </div>
 
+  <!-- ════════════════ SCREEN: WEIGHT & PROGRESS LOG ════════════════ -->
+  <div id="progressSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="progressBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Progress Log</span>
+      <span style="width:26px"></span>
+    </div>
+    <div id="progressContent"><!-- rendered by JS --></div>
+    <div id="progressLoader" class="loading-status" style="display:none;margin-top:20px">
+      <div class="loading-spinner"></div>
+      <div><div class="loading-title">Loading your progress…</div></div>
+    </div>
+    <div id="progressError" class="inline-warn" style="display:none;margin-top:14px"></div>
+  </div>
+
+  <!-- ════════════════ SCREEN: PROGRESS PHOTO DETAIL ════════════════ -->
+  <div id="progressPhotoSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="progressPhotoBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title" id="progressPhotoTitle">Photo day</span>
+      <span style="width:26px"></span>
+    </div>
+    <div id="progressPhotoContent"><!-- rendered by JS --></div>
+  </div>
+
   <!-- ════════════════ SCREEN: MY TRANSFORMATIONS GALLERY ════════════════ -->
   <div id="transformationsSection" class="screen" style="display:none">
     <div class="nav-bar">
@@ -1963,7 +1994,7 @@ html, body {
       <li>Unlimited future-self image generations</li>
       <li>Unlimited AI meal &amp; macro tracking</li>
       <li>Your AI Nutritionist meal-prep plan — recipes, grocery lists &amp; check-ins</li>
-      <li>The Decision Counsel — full verdicts from five AI experts, plus follow-up questions</li>
+      <li>The Decision Counsel — 10 sessions a month: full verdicts from five AI experts, plus follow-up questions</li>
       <li>The AI Sleep Coach — the full Go Hard briefing, tonight's protocol &amp; your trend</li>
       <li>Program check-ins that adapt to your progress</li>
     </ul>
@@ -1989,6 +2020,28 @@ html, body {
     <div id="membershipError" class="error-toast" style="display:none;margin-top:12px"></div>
     <button id="membershipSubscribeBtn" class="cta-btn" style="margin-top:14px">Become a Member</button>
     <div class="guarantee-note">7-day money-back guarantee. Not feeling it? Email us within a week for a full refund.</div>
+
+    <!-- Pay-as-you-go alternative (shown when the user hit a credit-gated wall, e.g. meal analyses) -->
+    <div id="membershipCreditsAlt" style="display:none;margin-top:22px">
+      <div class="hero-sub" style="margin-bottom:10px">Not ready for a membership? Credits work too — 1 credit per meal analysis or image generation.</div>
+      <div class="pack-cards">
+        <div class="pack-card" data-pack="starter">
+          <div class="pack-card-info">
+            <div class="pack-card-name">Starter Pack</div>
+            <div class="pack-card-desc">5 credits</div>
+          </div>
+          <div class="pack-card-price">$4.99</div>
+        </div>
+        <div class="pack-card" data-pack="power">
+          <div class="pack-card-info">
+            <div class="pack-card-name">Power Pack</div>
+            <div class="pack-card-desc">20 credits</div>
+          </div>
+          <div class="pack-card-price">$14.99</div>
+        </div>
+      </div>
+      <div id="membershipCreditsAltError" class="error-toast" style="display:none;margin-top:10px"></div>
+    </div>
   </div>
 
 </div><!-- /.app -->
@@ -2136,8 +2189,11 @@ async function handleCreditsCheckout(pack) {
     window._stripeCheckout = checkout;
   } catch (err) {
     console.error('Credits checkout error:', err);
-    $('creditsCheckoutError').textContent = err.message || 'Something went wrong. Please try again.';
-    $('creditsCheckoutError').style.display = '';
+    // Surface the error on whichever screen hosts pack cards right now.
+    const errEl = $('membershipCreditsAlt')?.style.display !== 'none' && $('membershipCreditsAltError')
+      ? $('membershipCreditsAltError') : $('creditsCheckoutError');
+    errEl.textContent = err.message || 'Something went wrong. Please try again.';
+    errEl.style.display = '';
   } finally {
     document.querySelectorAll('.pack-card').forEach(c => c.classList.remove('pack-card-loading'));
   }
@@ -2166,6 +2222,16 @@ async function handleCreditsPurchaseComplete(sessionId) {
   updateCreditDisplay();
 
   closeCreditsCheckout();
+
+  // Purchases started outside the generator (e.g. the meal-analysis wall)
+  // return to their own flow instead of the result screen.
+  if (window._creditsPurchaseReturn) {
+    const back = window._creditsPurchaseReturn;
+    window._creditsPurchaseReturn = null;
+    fireConfetti();
+    back();
+    return;
+  }
   unlockResult();   // reveal the already-generated image in place
   storeTransformationLocally();
   saveTransformationIfLoggedIn({ intensity: state.effectiveIntensity, condition: state.condition });
@@ -2385,7 +2451,7 @@ Always honor the user's requested intensity at FULL strength regardless of start
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -3049,6 +3115,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   initTrainer();
   initNutritionist();
   initCounsel();
+  initProgress();
   initSleepCoach();
   initTransformations();
   restoreSession(); // routes returning logged-in users straight to the hub
@@ -3131,15 +3198,27 @@ async function restoreSession() {
 function setAuthMode(mode) {
   auth.mode = mode;
   const signup = mode === 'signup';
-  $('authNavTitle').textContent = signup ? 'Create account' : 'Log in';
-  $('authTitle').textContent = signup ? 'Create your free account' : 'Welcome back';
-  $('authSub').textContent = signup
-    ? 'Save your progress and unlock member features.'
-    : 'Log in to get back to your tracker and tools.';
-  $('authSubmitBtn').textContent = signup ? 'Create Account' : 'Log In';
+  const copy = {
+    login:  { nav: 'Log in', title: 'Welcome back', sub: 'Log in to get back to your tracker and tools.', btn: 'Log In' },
+    signup: { nav: 'Create account', title: 'Create your free account', sub: 'Save your progress and unlock member features.', btn: 'Create Account' },
+    forgot: { nav: 'Reset password', title: 'Forgot your password?', sub: 'Enter your email and we\'ll send you a reset link.', btn: 'Send Reset Link' },
+    reset:  { nav: 'New password', title: 'Choose a new password', sub: 'Enter a new password for your account.', btn: 'Set New Password' },
+  }[mode] || {};
+  $('authNavTitle').textContent = copy.nav;
+  $('authTitle').textContent = copy.title;
+  $('authSub').textContent = copy.sub;
+  $('authSubmitBtn').textContent = copy.btn;
   $('authToggleBtn').textContent = signup ? 'Already have an account? Log in' : 'New here? Create a free account';
-  $('authPassword').autocomplete = signup ? 'new-password' : 'current-password';
+  // forgot: email only. reset: password only (token came from the email link).
+  $('authEmail').style.display = mode === 'reset' ? 'none' : '';
+  $('authEmail').required = mode !== 'reset';
+  $('authPassword').style.display = mode === 'forgot' ? 'none' : '';
+  $('authPassword').required = mode !== 'forgot';
+  $('authPassword').autocomplete = mode === 'login' ? 'current-password' : 'new-password';
+  $('authForgotBtn').style.display = mode === 'login' ? '' : 'none';
+  $('authToggleBtn').style.display = (mode === 'login' || mode === 'signup') ? '' : 'none';
   $('authError').style.display = 'none';
+  $('authNotice').style.display = 'none';
 }
 
 function showAuthScreen(mode) {
@@ -3153,6 +3232,29 @@ async function handleAuthSubmit(e) {
   btn.disabled = true;
   $('authError').style.display = 'none';
   try {
+    if (auth.mode === 'forgot') {
+      await authApi('/api/auth/request-reset', {
+        method: 'POST',
+        body: JSON.stringify({ email: $('authEmail').value.trim() }),
+      });
+      $('authNotice').textContent = 'If that email has an account, a reset link is on its way. Check your inbox (and spam).';
+      $('authNotice').style.display = '';
+      btn.disabled = false;
+      return;
+    }
+    if (auth.mode === 'reset') {
+      const data = await authApi('/api/auth/reset-password', {
+        method: 'POST',
+        body: JSON.stringify({ token: window._resetToken || '', password: $('authPassword').value }),
+      });
+      window._resetToken = null;
+      setLoggedIn(data);
+      $('authPassword').value = '';
+      await syncMealsFromServer();
+      refreshMembership();
+      showHub();
+      return;
+    }
     const data = await authApi(`/api/auth/${auth.mode}`, {
       method: 'POST',
       body: JSON.stringify({
@@ -3636,6 +3738,15 @@ function initAccounts() {
   $('loginLink').addEventListener('click', () => (isLoggedIn() ? showHub() : showAuthScreen('login')));
   $('authBackBtn').addEventListener('click', () => showScreen('form'));
   $('authToggleBtn').addEventListener('click', () => setAuthMode(auth.mode === 'login' ? 'signup' : 'login'));
+  $('authForgotBtn').addEventListener('click', () => setAuthMode('forgot'));
+
+  // Arriving from a reset email: /?reset=TOKEN → straight to the new-password form.
+  const resetToken = new URLSearchParams(window.location.search).get('reset');
+  if (resetToken) {
+    window._resetToken = resetToken;
+    window.history.replaceState({}, '', window.location.pathname);
+    showAuthScreen('reset');
+  }
   $('authForm').addEventListener('submit', handleAuthSubmit);
   $('hubLogoutBtn').addEventListener('click', handleLogout);
   $('macroBackBtn').addEventListener('click', () => { if (isLoggedIn()) showHub(); });
@@ -3651,6 +3762,7 @@ function initAccounts() {
       if (feature === 'counsel') return openCounsel();
       if (feature === 'sleep') return openSleepCoach();
       if (feature === 'transformations') return showTransformations();
+      if (feature === 'weight') return openProgress();
       if (feature === 'generate') return showScreen('form');
       if (feature === 'support') return; // <a mailto> handles itself
       const note = $('hubSoonNote');
@@ -3658,6 +3770,519 @@ function initAccounts() {
       note.style.display = '';
     });
   });
+}
+
+// ============================================================
+//  WEIGHT & PROGRESS LOG
+// ============================================================
+const PROG_UNIT_KEY = 'progress_unit';
+const progState = { summary: null, range: 30, flags: [], photos: {}, compare: [], compareMode: false };
+const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+function progUnit() { return localStorage.getItem(PROG_UNIT_KEY) || 'lb'; }
+function todayLocal() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function openProgress() {
+  if (window.posthog) posthog.capture('progress_opened');
+  showScreen('progress');
+  $('progressError').style.display = 'none';
+  if (!isLoggedIn()) {
+    $('progressContent').innerHTML = `
+      <div class="hero-h1" style="font-size:25px;line-height:1.12;margin-bottom:6px">Watch the trend, not the scale</div>
+      <div class="hero-sub" style="margin-bottom:16px">Daily weigh-ins smoothed into a 7-day trend line — so one salty dinner never lies to you. Weekly photo day + waist check builds your transformation record.</div>
+      <div style="font-size:13.5px;color:var(--mute);line-height:1.6;margin-bottom:18px">
+        📉 Trend weight — the number that can't be spooked<br>
+        📸 Weekly photo day — same spot, same lighting<br>
+        📏 Waist tracking — catches wins the scale misses<br>
+        🤖 AI weekly recap for members — your week, explained
+      </div>
+      <button id="progressSignupBtn" class="cta-btn">Create a free account to start</button>`;
+    $('progressSignupBtn').addEventListener('click', () => {
+      window._afterAuth = () => openProgress();
+      showAuthScreen('signup');
+    });
+    return;
+  }
+  loadProgressSummary();
+}
+
+async function loadProgressSummary() {
+  $('progressLoader').style.display = '';
+  $('progressContent').innerHTML = '';
+  try {
+    progState.summary = await authApi(`/api/progress/summary?unit=${progUnit()}`);
+    renderProgress();
+  } catch (err) {
+    $('progressError').textContent = err.message || 'Could not load your progress.';
+    $('progressError').style.display = '';
+  } finally {
+    $('progressLoader').style.display = 'none';
+  }
+}
+
+function renderProgress() {
+  const s = progState.summary;
+  if (s.photoDay == null) return renderProgressSetup();
+  renderProgressMain();
+}
+
+// ── First-run setup ──
+function renderProgressSetup() {
+  let html = `
+    <div class="hero-h1" style="font-size:24px;line-height:1.12;margin-bottom:6px">Set up your Progress Log</div>
+    <div class="hero-sub" style="margin-bottom:16px">Pick your photo day — the one morning a week you're most consistently home. That's when you'll take your progress photo and waist measurement.</div>
+    <div class="lbl" style="margin-bottom:8px"><span class="lbl-text">Photo day</span></div>
+    <div class="seg" id="progDaySeg" style="flex-wrap:wrap">` +
+    DAY_NAMES.map((d, i) => `<button class="seg-opt${i === 0 ? ' active' : ''}" data-value="${i}">${d.slice(0, 3)}</button>`).join('') + `</div>
+    <label class="consent-row" style="margin-top:18px"><input type="checkbox" id="progWeighReminder" checked />
+      <span>Remind me to weigh in each morning (8 AM)</span></label>
+    <button id="progSetupBtn" class="cta-btn" style="margin-top:18px">Start logging</button>
+    <div class="hero-sub" style="margin-top:12px;font-size:12px">Your before starts today — you'll log your first weight (and photo, if today's the day) right after this.</div>`;
+  $('progressContent').innerHTML = html;
+  $('progDaySeg').querySelectorAll('.seg-opt').forEach(b =>
+    b.addEventListener('click', () => {
+      $('progDaySeg').querySelectorAll('.seg-opt').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+    }));
+  $('progSetupBtn').addEventListener('click', async () => {
+    const day = parseInt($('progDaySeg').querySelector('.seg-opt.active')?.dataset.value || '0', 10);
+    const weighReminder = $('progWeighReminder').checked;
+    $('progSetupBtn').disabled = true;
+    try {
+      await authApi('/api/progress/settings', { method: 'POST', body: JSON.stringify({ photoDay: day, weighReminder }) });
+      if (window.posthog) posthog.capture('progress_setup_completed', { photo_day: day, weigh_reminder: weighReminder });
+      // One permission grant covers all coach nudges: weigh-in, photo day,
+      // Sunday meal prep (if they have a plan), training days (if programmed).
+      requestProgressPush({ weigh: weighReminder, photo: true, mealPrep: true, workout: true }); // fire-and-forget
+      await loadProgressSummary();
+    } catch (err) {
+      $('progressError').textContent = err.message;
+      $('progressError').style.display = '';
+      $('progSetupBtn').disabled = false;
+    }
+  });
+}
+
+// ── Main screen ──
+function renderProgressMain() {
+  const s = progState.summary;
+  const unit = s.unit;
+  const last = s.entries[s.entries.length - 1];
+  const today = todayLocal();
+  const todayDow = new Date().getDay();
+  const hasPhotoToday = s.photoTimeline.some(p => p.date === today);
+  const yd = new Date(); yd.setDate(yd.getDate() - 1);
+  const ydStr = `${yd.getFullYear()}-${String(yd.getMonth() + 1).padStart(2, '0')}-${String(yd.getDate()).padStart(2, '0')}`;
+  const missedPhotoDay = s.photoDay === yd.getDay() && !s.photoTimeline.some(p => p.date === ydStr) && !hasPhotoToday;
+  const isPhotoDay = (s.photoDay === todayDow && !hasPhotoToday) || missedPhotoDay;
+
+  let html = '';
+  // Headline: trend weight, never raw.
+  if (last?.trend != null) {
+    html += `<div style="text-align:center;margin:6px 0 2px">
+      <div style="font-size:44px;font-weight:800;line-height:1">${last.trend}<span style="font-size:18px;font-weight:700;color:var(--mute)"> ${unit}</span></div>
+      <div class="hero-sub" style="margin-top:4px">7-day trend weight${last.date === today ? '' : ` · last logged ${last.date}`}</div>
+      <div style="font-size:13.5px;font-weight:700;margin-top:6px;color:${s.rate != null && s.rate < 0 ? 'var(--acc)' : 'var(--ink)'}">
+        ${s.rate != null ? `Trending ${s.rate > 0 ? '+' : ''}${s.rate} ${unit}/week over the last 30 days` : 'Keep logging to unlock your trend rate'}</div>
+      <div style="font-size:12.5px;color:var(--mute);margin-top:3px">Logged ${s.consistency.logged} of the last ${s.consistency.window} days</div>
+    </div>`;
+  } else {
+    html += `<div class="hero-sub" style="text-align:center;margin:10px 0">Log your first weight — your trend line starts today.</div>`;
+  }
+
+  // Log card
+  const lastRaw = last ? last.weight : '';
+  html += `
+    <div class="upload-card" style="padding:16px;margin-top:14px;cursor:default">
+      <div class="lbl" style="margin-bottom:8px"><span class="lbl-text">Today's weigh-in</span></div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <input type="number" inputmode="decimal" step="0.1" id="progWeightInput" class="text-field" placeholder="${lastRaw || 'Weight'}" value="" style="flex:1;font-size:20px;font-weight:700" />
+        <div class="seg" id="progUnitSeg" style="width:110px">
+          <button class="seg-opt${unit === 'lb' ? ' active' : ''}" data-value="lb">lb</button>
+          <button class="seg-opt${unit === 'kg' ? ' active' : ''}" data-value="kg">kg</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px">` +
+    [['high-sodium', '🧂 Salty day'], ['poor-sleep', '😵 Poor sleep'], ['period', '🩸 Period'], ['traveling', '✈️ Traveling']].map(([v, l]) =>
+      `<button class="seg-opt prog-flag" data-value="${v}" style="border:1px solid var(--line);border-radius:20px;padding:6px 11px;font-size:12.5px">${l}</button>`).join('') + `
+      </div>
+      <div id="progLogError" class="inline-warn" style="display:none;margin-top:10px"></div>
+      <button id="progSaveWeightBtn" class="cta-btn" style="margin-top:12px;padding:12px">Save weigh-in</button>
+    </div>`;
+
+  // Photo-day card
+  if (isPhotoDay) {
+    html += `
+    <div class="upload-card" style="padding:16px;margin-top:14px;cursor:default;border-color:var(--acc)">
+      <div class="lbl"><span class="lbl-text">📸 ${missedPhotoDay && s.photoDay !== todayDow ? 'Yesterday was photo day — 2 minutes now' : "It's photo day"}</span></div>
+      <div class="hero-sub" style="font-size:12.5px;margin:6px 0 10px">Same spot, same lighting, same pose. Front photo required; side &amp; back optional.</div>
+      <input type="file" id="progPhotoFront" accept="image/*" style="display:none" />
+      <input type="file" id="progPhotoSide" accept="image/*" style="display:none" />
+      <input type="file" id="progPhotoBack" accept="image/*" style="display:none" />
+      <div style="display:flex;gap:8px">
+        <button class="try-diff-btn prog-photo-btn" data-slot="front" style="flex:1;margin:0">Front *</button>
+        <button class="try-diff-btn prog-photo-btn" data-slot="side" style="flex:1;margin:0">Side</button>
+        <button class="try-diff-btn prog-photo-btn" data-slot="back" style="flex:1;margin:0">Back</button>
+      </div>
+      <div id="progPhotoPreviews" style="display:flex;gap:8px;margin-top:8px"></div>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+        <input type="number" inputmode="decimal" step="0.1" id="progWaistInput" class="text-field" placeholder="Waist (around the navel)" style="flex:1" />
+        <div class="seg" id="progWaistUnitSeg" style="width:110px">
+          <button class="seg-opt active" data-value="in">in</button>
+          <button class="seg-opt" data-value="cm">cm</button>
+        </div>
+      </div>
+      <div id="progPhotoError" class="inline-warn" style="display:none;margin-top:10px"></div>
+      <button id="progSavePhotoBtn" class="cta-btn" style="margin-top:12px;padding:12px">Save photo day</button>
+    </div>`;
+  }
+
+  // Chart
+  if (s.entries.length >= 2) {
+    html += `
+    <div style="margin-top:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div class="lbl" style="margin:0"><span class="lbl-text">Your trend</span></div>
+        <div class="seg" id="progRangeSeg" style="width:170px">
+          <button class="seg-opt${progState.range === 30 ? ' active' : ''}" data-value="30">30d</button>
+          <button class="seg-opt${progState.range === 90 ? ' active' : ''}" data-value="90">90d</button>
+          <button class="seg-opt${progState.range === 0 ? ' active' : ''}" data-value="0">All</button>
+        </div>
+      </div>
+      <div id="progChart">${renderProgressChart()}</div>
+    </div>`;
+  }
+
+  // Photo timeline
+  if (s.photoTimeline.length) {
+    html += `
+    <div style="margin-top:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div class="lbl" style="margin:0"><span class="lbl-text">Photo timeline</span></div>
+        <button id="progCompareBtn" class="try-diff-btn" style="margin:0;padding:6px 12px;font-size:12.5px">${progState.compareMode ? (progState.compare.length === 2 ? 'View compare' : `Pick ${2 - progState.compare.length} more`) : 'Compare'}</button>
+      </div>
+      <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:6px">` +
+      s.photoTimeline.slice().reverse().map(p => `
+        <div class="prog-thumb" data-id="${p.id}" style="flex:0 0 auto;text-align:center;cursor:pointer;${progState.compare.includes(p.id) ? 'outline:3px solid var(--acc);border-radius:10px' : ''}">
+          ${p.thumb ? `<img src="${p.thumb}" style="width:72px;height:96px;object-fit:cover;border-radius:10px;border:1px solid var(--line)" />`
+                    : `<div style="width:72px;height:96px;border-radius:10px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:24px">📸</div>`}
+          <div style="font-size:10.5px;color:var(--mute);margin-top:3px">${p.date.slice(5)}</div>
+          ${p.waist != null ? `<div style="font-size:10.5px;font-weight:700">${p.waist} ${p.waistUnit}</div>` : ''}
+        </div>`).join('') + `
+      </div>
+    </div>`;
+  }
+
+  // AI recap panel
+  if (s.photoTimeline.length) {
+    html += `<div id="progRecapWrap" style="margin-top:18px">
+      <div class="lbl" style="margin-bottom:8px"><span class="lbl-text">Weekly recap</span></div>
+      <div id="progRecapBody">
+        <button id="progRecapBtn" class="try-diff-btn" style="margin:0">🤖 ${memberState.active ? "Get this week's AI recap" : 'Unlock the AI weekly recap (members)'}</button>
+      </div>
+    </div>`;
+  }
+
+  $('progressContent').innerHTML = html;
+  bindProgressMain(isPhotoDay);
+}
+
+function bindProgressMain(isPhotoDay) {
+  progState.flags = [];
+  progState.photos = {};
+  document.querySelectorAll('.prog-flag').forEach(b => b.addEventListener('click', () => {
+    b.classList.toggle('active');
+    const v = b.dataset.value;
+    progState.flags = b.classList.contains('active') ? [...progState.flags, v] : progState.flags.filter(f => f !== v);
+    b.style.background = b.classList.contains('active') ? 'var(--acc)' : '';
+    b.style.color = b.classList.contains('active') ? '#fff' : '';
+  }));
+  $('progUnitSeg').querySelectorAll('.seg-opt').forEach(b => b.addEventListener('click', () => {
+    localStorage.setItem(PROG_UNIT_KEY, b.dataset.value);
+    loadProgressSummary();
+  }));
+  $('progSaveWeightBtn').addEventListener('click', saveProgressWeight);
+
+  const rangeSeg = $('progRangeSeg');
+  if (rangeSeg) rangeSeg.querySelectorAll('.seg-opt').forEach(b => b.addEventListener('click', () => {
+    progState.range = parseInt(b.dataset.value, 10);
+    renderProgressMain();
+  }));
+
+  if (isPhotoDay) {
+    document.querySelectorAll('.prog-photo-btn').forEach(b => b.addEventListener('click', () => {
+      $('progPhoto' + b.dataset.slot.charAt(0).toUpperCase() + b.dataset.slot.slice(1)).click();
+    }));
+    ['Front', 'Side', 'Back'].forEach(slot => {
+      $('progPhoto' + slot).addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const img = await downscaleImage(file);
+        if (!img) return;
+        progState.photos[slot.toLowerCase()] = img;
+        if (slot === 'Front') progState.photos.thumb = await makeProgressThumb(img);
+        renderProgPhotoPreviews();
+      });
+    });
+    $('progWaistUnitSeg').querySelectorAll('.seg-opt').forEach(b => b.addEventListener('click', () => {
+      $('progWaistUnitSeg').querySelectorAll('.seg-opt').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+    }));
+    $('progSavePhotoBtn').addEventListener('click', saveProgressPhoto);
+  }
+
+  document.querySelectorAll('.prog-thumb').forEach(t => t.addEventListener('click', () => {
+    const id = parseInt(t.dataset.id, 10);
+    if (progState.compareMode) {
+      progState.compare = progState.compare.includes(id)
+        ? progState.compare.filter(x => x !== id)
+        : [...progState.compare, id].slice(-2);
+      renderProgressMain();
+    } else {
+      openProgressPhoto(id);
+    }
+  }));
+  const cmp = $('progCompareBtn');
+  if (cmp) cmp.addEventListener('click', () => {
+    if (progState.compareMode && progState.compare.length === 2) return openProgressCompare();
+    progState.compareMode = !progState.compareMode;
+    if (!progState.compareMode) progState.compare = [];
+    renderProgressMain();
+  });
+
+  const recapBtn = $('progRecapBtn');
+  if (recapBtn) recapBtn.addEventListener('click', fetchProgressRecap);
+}
+
+function renderProgPhotoPreviews() {
+  const el = $('progPhotoPreviews');
+  if (!el) return;
+  el.innerHTML = ['front', 'side', 'back'].filter(k => progState.photos[k])
+    .map(k => `<img src="${progState.photos[k]}" style="width:56px;height:74px;object-fit:cover;border-radius:8px;border:1px solid var(--line)" title="${k}" />`).join('');
+}
+
+function makeProgressThumb(dataUrl) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const scale = 200 / Math.max(img.width, img.height);
+      const c = document.createElement('canvas');
+      c.width = Math.round(img.width * scale);
+      c.height = Math.round(img.height * scale);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      resolve(c.toDataURL('image/jpeg', 0.7));
+    };
+    img.onerror = () => resolve(null);
+    img.src = dataUrl;
+  });
+}
+
+async function saveProgressWeight() {
+  const weight = parseFloat($('progWeightInput').value);
+  if (!Number.isFinite(weight)) {
+    $('progLogError').textContent = 'Enter your weight first.';
+    $('progLogError').style.display = '';
+    return;
+  }
+  $('progSaveWeightBtn').disabled = true;
+  try {
+    progState.summary = await authApi('/api/progress/weight', {
+      method: 'POST',
+      body: JSON.stringify({ date: todayLocal(), weight, unit: progUnit(), flags: progState.flags }),
+    });
+    if (window.posthog) posthog.capture('progress_weight_logged', { flags: progState.flags.length });
+    renderProgressMain();
+  } catch (err) {
+    $('progLogError').textContent = err.message;
+    $('progLogError').style.display = '';
+    $('progSaveWeightBtn').disabled = false;
+  }
+}
+
+async function saveProgressPhoto() {
+  if (!progState.photos.front) {
+    $('progPhotoError').textContent = 'A front photo is required.';
+    $('progPhotoError').style.display = '';
+    return;
+  }
+  $('progSavePhotoBtn').disabled = true;
+  try {
+    const waistUnit = $('progWaistUnitSeg').querySelector('.seg-opt.active')?.dataset.value || 'in';
+    progState.summary = await authApi('/api/progress/photo', {
+      method: 'POST',
+      body: JSON.stringify({
+        date: todayLocal(),
+        photoFront: progState.photos.front,
+        photoSide: progState.photos.side,
+        photoBack: progState.photos.back,
+        thumbFront: progState.photos.thumb,
+        waist: $('progWaistInput').value || null,
+        waistUnit,
+      }),
+    });
+    if (window.posthog) posthog.capture('progress_photo_logged');
+    fireConfetti();
+    renderProgressMain();
+  } catch (err) {
+    $('progPhotoError').textContent = err.message;
+    $('progPhotoError').style.display = '';
+    $('progSavePhotoBtn').disabled = false;
+  }
+}
+
+// SVG chart: bold trend line over faint raw dots. No chart library.
+function renderProgressChart() {
+  const s = progState.summary;
+  let entries = s.entries.filter(e => e.trend != null);
+  if (progState.range) {
+    const cut = new Date(); cut.setDate(cut.getDate() - progState.range);
+    const cutStr = cut.toISOString().slice(0, 10);
+    entries = entries.filter(e => e.date >= cutStr);
+  }
+  if (entries.length < 2) return `<div class="hero-sub" style="font-size:12.5px">Not enough data in this range yet.</div>`;
+  const W = 340, H = 150, PAD = 8;
+  const vals = entries.flatMap(e => [e.weight, e.trend]);
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const span = Math.max(max - min, 1);
+  const t0 = new Date(entries[0].date).getTime();
+  const t1 = new Date(entries[entries.length - 1].date).getTime() || t0 + 1;
+  const x = (d) => PAD + ((new Date(d).getTime() - t0) / Math.max(t1 - t0, 1)) * (W - 2 * PAD);
+  const y = (v) => H - PAD - ((v - min) / span) * (H - 2 * PAD);
+  const dots = entries.map(e => `<circle cx="${x(e.date).toFixed(1)}" cy="${y(e.weight).toFixed(1)}" r="2.4" fill="currentColor" opacity="0.22"/>`).join('');
+  const line = entries.map((e, i) => `${i ? 'L' : 'M'}${x(e.date).toFixed(1)} ${y(e.trend).toFixed(1)}`).join(' ');
+  const first = entries[0], lastE = entries[entries.length - 1];
+  return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;color:var(--ink)">
+    ${dots}
+    <path d="${line}" fill="none" stroke="var(--acc, #2f5fe0)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="${PAD}" y="${(y(first.trend) - 6).toFixed(1)}" font-size="10" fill="currentColor" opacity="0.6">${first.trend}</text>
+    <text x="${W - PAD}" y="${(y(lastE.trend) - 6).toFixed(1)}" font-size="10" font-weight="700" fill="currentColor" text-anchor="end">${lastE.trend}</text>
+  </svg>`;
+}
+
+// ── Photo detail + compare ──
+async function fetchProgressPhoto(id) {
+  return authApi(`/api/progress/photo/${id}`);
+}
+
+async function openProgressPhoto(id) {
+  showScreen('progressPhoto');
+  $('progressPhotoTitle').textContent = 'Photo day';
+  $('progressPhotoContent').innerHTML = '<div class="loading-status"><div class="loading-spinner"></div><div><div class="loading-title">Loading…</div></div></div>';
+  try {
+    const p = await fetchProgressPhoto(id);
+    $('progressPhotoTitle').textContent = p.date;
+    let html = `<img src="${p.photoFront}" style="width:100%;border-radius:14px;border:1px solid var(--line)" />`;
+    if (p.photoSide || p.photoBack) {
+      html += `<div style="display:flex;gap:8px;margin-top:8px">` +
+        [p.photoSide, p.photoBack].filter(Boolean).map(x => `<img src="${x}" style="flex:1;min-width:0;border-radius:10px;border:1px solid var(--line)" />`).join('') + `</div>`;
+    }
+    if (p.waist != null) html += `<div style="font-size:14px;font-weight:700;margin-top:10px">📏 Waist: ${p.waist} ${p.waistUnit}</div>`;
+    if (p.recap) html += renderRecapCard(p.recap);
+    $('progressPhotoContent').innerHTML = html;
+  } catch (err) {
+    $('progressPhotoContent').innerHTML = `<div class="inline-warn">${escapeHtml(err.message || 'Could not load this photo.')}</div>`;
+  }
+}
+
+async function openProgressCompare() {
+  const [a, b] = progState.compare.slice().sort((x, y) => x - y);
+  showScreen('progressPhoto');
+  $('progressPhotoTitle').textContent = 'Compare';
+  $('progressPhotoContent').innerHTML = '<div class="loading-status"><div class="loading-spinner"></div><div><div class="loading-title">Loading…</div></div></div>';
+  try {
+    const [pa, pb] = await Promise.all([fetchProgressPhoto(a), fetchProgressPhoto(b)]);
+    const trendFor = (date) => progState.summary.entries.filter(e => e.date <= date && e.trend != null).pop()?.trend;
+    const cap = (p) => {
+      const t = trendFor(p.date);
+      return `<div style="font-size:11.5px;color:var(--mute);text-align:center;margin-top:4px">${p.date}${t ? ` · ${t} ${progState.summary.unit}` : ''}${p.waist != null ? ` · ${p.waist} ${p.waistUnit}` : ''}</div>`;
+    };
+    $('progressPhotoContent').innerHTML = `
+      <div style="display:flex;gap:8px">
+        <div style="flex:1;min-width:0"><img src="${pa.photoFront}" style="width:100%;border-radius:12px;border:1px solid var(--line)" />${cap(pa)}</div>
+        <div style="flex:1;min-width:0"><img src="${pb.photoFront}" style="width:100%;border-radius:12px;border:1px solid var(--line)" />${cap(pb)}</div>
+      </div>
+      <button id="progSaveTransformBtn" class="cta-btn" style="margin-top:16px">✨ Save as Transformation</button>
+      <div id="progCompareError" class="inline-warn" style="display:none;margin-top:10px"></div>`;
+    $('progSaveTransformBtn').addEventListener('click', async () => {
+      $('progSaveTransformBtn').disabled = true;
+      try {
+        await authApi('/api/transformations', {
+          method: 'POST',
+          body: JSON.stringify({ before: pa.photoFront, after: pb.photoFront, settings: { source: 'progress-log', beforeDate: pa.date, afterDate: pb.date } }),
+        });
+        fireConfetti();
+        $('progSaveTransformBtn').textContent = 'Saved to My Transformations ✓';
+      } catch (err) {
+        $('progCompareError').textContent = err.message;
+        $('progCompareError').style.display = '';
+        $('progSaveTransformBtn').disabled = false;
+      }
+    });
+  } catch (err) {
+    $('progressPhotoContent').innerHTML = `<div class="inline-warn">${escapeHtml(err.message || 'Could not load photos.')}</div>`;
+  }
+}
+
+// ── AI recap ──
+function renderRecapCard(r) {
+  return `<div class="upload-card" style="padding:16px;margin-top:14px;cursor:default;text-align:left">
+    <div style="font-size:16px;font-weight:800;margin-bottom:8px">${escapeHtml(r.headline || '')}</div>
+    <div style="font-size:13.5px;line-height:1.55;white-space:pre-wrap">${escapeHtml(r.week_story || '')}</div>
+    <div style="font-size:13.5px;line-height:1.55;margin-top:10px"><b>Scale vs. waist:</b> ${escapeHtml(r.scale_vs_waist || '')}</div>
+    ${(r.adjustments || []).length ? `<div style="margin-top:10px"><b style="font-size:13.5px">Adjustments:</b><ul style="margin:6px 0 0 18px;font-size:13.5px;line-height:1.5">${r.adjustments.map(a => `<li>${escapeHtml(a)}</li>`).join('')}</ul></div>` : ''}
+    <div style="font-size:12.5px;color:var(--mute);margin-top:10px">📸 ${escapeHtml(r.photo_note || '')}</div>
+    <div style="font-size:13.5px;font-weight:700;margin-top:10px">${escapeHtml(r.encouragement || '')}</div>
+  </div>`;
+}
+
+async function fetchProgressRecap() {
+  const btn = $('progRecapBtn');
+  btn.disabled = true;
+  btn.textContent = 'Writing your recap…';
+  try {
+    const data = await authApi('/api/progress/recap', { method: 'POST', body: JSON.stringify({}) });
+    $('progRecapBody').innerHTML = renderRecapCard(data.recap);
+    if (window.posthog) posthog.capture('progress_recap_viewed');
+  } catch (err) {
+    if (err.status === 402) { showMembershipScreen(() => openProgress()); return; }
+    btn.disabled = false;
+    btn.textContent = '🤖 Get this week\'s AI recap';
+    $('progressError').textContent = err.message;
+    $('progressError').style.display = '';
+  }
+}
+
+// ── Push opt-in (per-user reminders) ──
+async function requestProgressPush(prefs) {
+  try {
+    if (!('serviceWorker' in navigator) || !('PushManager' in window)) return;
+    const perm = await Notification.requestPermission();
+    if (perm !== 'granted') return;
+    const { key } = await (await fetch(`${BACKEND_URL}/api/push/public-key`)).json();
+    if (!key) return;
+    const reg = await navigator.serviceWorker.ready;
+    const sub = await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlB64ToUint8Array(key) });
+    await fetch(`${BACKEND_URL}/api/push/subscribe`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}) },
+      body: JSON.stringify({ subscription: sub.toJSON(), tzOffset: -new Date().getTimezoneOffset(), prefs }),
+    });
+  } catch (e) { console.warn('push opt-in failed:', e.message); }
+}
+
+function urlB64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const raw = window.atob(base64);
+  return Uint8Array.from([...raw].map(c => c.charCodeAt(0)));
+}
+
+function initProgress() {
+  $('progressBackBtn').addEventListener('click', () => showHub());
+  $('progressPhotoBackBtn').addEventListener('click', () => { showScreen('progress'); });
 }
 
 // ============================================================
@@ -3678,9 +4303,17 @@ async function refreshMembership() {
   } catch (e) { console.warn('membership fetch failed:', e.message); }
 }
 
-function showMembershipScreen(returnTo) {
+function showMembershipScreen(returnTo, opts) {
   membershipReturnTo = returnTo || membershipReturnTo;
   if (window.posthog) posthog.capture('membership_screen_viewed');
+  // Pay-as-you-go strip: only for walls where a single credit also unblocks
+  // (meal analysis). Hidden by default so the membership pitch stays clean.
+  const alt = $('membershipCreditsAlt');
+  if (alt) {
+    alt.style.display = opts?.creditsAlt ? '' : 'none';
+    const altErr = $('membershipCreditsAltError');
+    if (altErr) altErr.style.display = 'none';
+  }
   document.querySelectorAll('.plan-card').forEach(c => c.classList.toggle('selected', c.dataset.plan === selectedPlan));
   const note = $('creditConvertNote');
   if (!memberState.active && memberState.discountCents > 0) {
@@ -5181,7 +5814,15 @@ function renderCounselLanding() {
         <span style="font-size:20px">${m.e}</span>
         <span style="font-size:13.5px"><b>${m.n}</b> — <span style="color:var(--mute)">${m.s}</span></span>
       </div>`).join('') +
-    `<div class="hero-sub" style="margin-top:16px;font-size:12px">Educational guidance, not medical advice. The counsel will tell you when a question belongs to a real doctor.</div>`;
+    `<div class="lbl" style="margin:22px 0 8px"><span class="lbl-text">How it works</span></div>
+    <div style="font-size:13.5px;color:var(--mute);line-height:1.55">
+      1. Present your case — a short guided intake, 2 minutes.<br>
+      2. Four counselors review it independently, so no groupthink.<br>
+      3. The President weighs their opinions and delivers a verdict, a confidence level, and your 3 next actions.<br>
+      4. Members can cross-examine — ask follow-up questions on any verdict.
+    </div>
+    <div class="hero-sub" style="margin-top:14px;font-size:12.5px">Members get 10 full counsel sessions every month. Free users get a preview of their first verdict.</div>
+    <div class="hero-sub" style="margin-top:10px;font-size:12px">Educational guidance, not medical advice. The counsel will tell you when a question belongs to a real doctor.</div>`;
   $('counselLanding').innerHTML = html;
 
   $('counselLanding').querySelectorAll('.intake-opt').forEach(btn =>
@@ -6279,8 +6920,10 @@ async function analyzeMeal() {
     });
     const data = await res.json();
     if (res.status === 402 && data?.needsMembership) {
-      // Free analyses used up — the membership paywall takes it from here.
-      showMembershipScreen(() => showMacroScreen());
+      // Free analyses used up — membership pitch with a pay-as-you-go
+      // credit option; after a pack purchase, return to the macro screen.
+      window._creditsPurchaseReturn = () => showMacroScreen();
+      showMembershipScreen(() => showMacroScreen(), { creditsAlt: true });
       return;
     }
     if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);

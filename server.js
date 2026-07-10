@@ -90,6 +90,8 @@ const CREDITS_FILE         = 'credits-data.json'; // persists per-device credit 
 const FREE_CREDITS         = 3;  // free generations every new device starts with
 // Credit packs offered on the paywall. Prices in cents. Keys must match the
 // data-pack attributes in index.html (starter / power).
+const COUNSEL_MONTHLY_CAP = 10; // full Decision Counsel sessions per account per calendar month
+
 const CREDIT_PACKS = {
   starter: { credits: 5,  priceInCents: 499,  label: 'Starter Pack' },
   power:   { credits: 20, priceInCents: 1499, label: 'Power Pack' },
@@ -937,10 +939,23 @@ app.get('/api/push/public-key', (req, res) => {
   res.json({ key: VAPID_PUBLIC_KEY || null });
 });
 
-app.post('/api/push/subscribe', async (req, res) => {
+// Accepts either a raw PushSubscription (legacy dashboard) or
+// { subscription, tzOffset, prefs } — tzOffset is minutes east of UTC
+// (client sends -new Date().getTimezoneOffset()), prefs are per-user reminder
+// opt-ins { weigh, photo, mealPrep, workout }. A logged-in caller gets its
+// userId attached so the reminder sweep can look up their data.
+app.post('/api/push/subscribe', (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
   if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
-  const sub = req.body;
+  const raw = req.body || {};
+  const sub = raw.subscription || raw;
   if (!sub || !sub.endpoint) return res.status(400).json({ error: 'invalid subscription' });
+  if (raw.subscription) {
+    sub.meta = {
+      userId: req.user?.id || null,
+      tzOffset: Number.isFinite(Number(raw.tzOffset)) ? Number(raw.tzOffset) : 0,
+      prefs: typeof raw.prefs === 'object' && raw.prefs ? raw.prefs : {},
+    };
+  }
   try {
     for (let attempt = 0; attempt < 4; attempt++) {
       const cur = await loadPushSubs();
@@ -1024,6 +1039,100 @@ app.post('/api/send-push', async (req, res) => {
     res.json({ ok: true, sent, removed_stale: stale.length });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
+
+// ── Per-user reminder sweep ──
+// Every 15 minutes, find subscriptions whose LOCAL time just entered the
+// 8:00-8:59 AM window and send at most one reminder each, by priority:
+// photo day > missed-photo follow-up > weigh-in > Sunday meal prep > workout
+// day. In-memory dedupe per endpoint/kind/local-date (a restart can at worst
+// re-send once — acceptable).
+const REMINDER_WINDOW_START = 8; // 8 AM local
+const sentReminders = new Set();
+
+function localNow(tzOffset) {
+  return new Date(Date.now() + (tzOffset || 0) * 60000); // read via getUTC* below
+}
+
+async function pickReminder(userId, local) {
+  const localDate = local.toISOString().slice(0, 10);
+  const day = local.getUTCDay();
+  const { rows: u } = await db.query(
+    'SELECT photo_day, weigh_reminder, last_photo_nudge FROM users WHERE id = $1', [userId]
+  );
+  if (!u.length) return null;
+  const user = u[0];
+
+  const hasToday = async (table) => {
+    const { rows } = await db.query(
+      `SELECT 1 FROM ${table} WHERE user_id = $1 AND entry_date = $2 LIMIT 1`, [userId, localDate]
+    );
+    return rows.length > 0;
+  };
+
+  if (user.photo_day === day && !(await hasToday('progress_entries'))) {
+    return { kind: 'photo', title: '📸 It\'s photo day', body: 'Same spot, same lighting, same pose. 2 minutes.', url: '/#progress' };
+  }
+  // Missed photo day: ONE follow-up the day after, then stop.
+  const yesterday = new Date(local); yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+  if (user.photo_day != null && user.photo_day === yesterday.getUTCDay() &&
+      (!user.last_photo_nudge || dateStr(user.last_photo_nudge) < localDate)) {
+    const { rows } = await db.query(
+      'SELECT 1 FROM progress_entries WHERE user_id = $1 AND entry_date >= $2 LIMIT 1',
+      [userId, yesterday.toISOString().slice(0, 10)]
+    );
+    if (!rows.length) {
+      await db.query('UPDATE users SET last_photo_nudge = $1 WHERE id = $2', [localDate, userId]);
+      return { kind: 'photo-followup', title: '📸 Yesterday was photo day', body: '2 minutes, same spot, same lighting — your future self will thank you.', url: '/#progress' };
+    }
+  }
+  if (user.weigh_reminder && !(await hasToday('weight_logs'))) {
+    return { kind: 'weigh', title: '⚖️ Morning weigh-in', body: 'Step on, log it, done. The trend does the thinking.', url: '/#progress' };
+  }
+  return null;
+}
+
+async function reminderSweep() {
+  if (!db || !getWebPush() || !GITHUB_TOKEN) return;
+  try {
+    const { subs, sha } = await loadPushSubs();
+    const wp = getWebPush();
+    const stale = [];
+    for (const s of subs) {
+      const meta = s.meta;
+      if (!meta || !meta.userId) continue; // legacy dashboard subs: morning summary only
+      const local = localNow(meta.tzOffset);
+      if (local.getUTCHours() !== REMINDER_WINDOW_START) continue;
+      const localDate = local.toISOString().slice(0, 10);
+      try {
+        let reminder = await pickReminder(meta.userId, local);
+        // Feature nudges (opt-in): Sunday meal prep, Mon/Wed/Fri workout.
+        if (!reminder && meta.prefs?.mealPrep && local.getUTCDay() === 0) {
+          const { rows } = await db.query('SELECT 1 FROM meal_plans WHERE user_id = $1 LIMIT 1', [meta.userId]);
+          if (rows.length) reminder = { kind: 'mealprep', title: '🍱 Meal prep Sunday', body: 'One hour today buys a week of easy wins. Your plan has the grocery list.', url: '/#nutrition' };
+        }
+        if (!reminder && meta.prefs?.workout && [1, 3, 5].includes(local.getUTCDay())) {
+          const { rows } = await db.query('SELECT 1 FROM programs WHERE user_id = $1 LIMIT 1', [meta.userId]);
+          if (rows.length) reminder = { kind: 'workout', title: '🏋️ Training day', body: 'Your program is waiting. Go hard.', url: '/#trainer' };
+        }
+        if (!reminder) continue;
+        const dedupeKey = `${s.endpoint}:${reminder.kind}:${localDate}`;
+        if (sentReminders.has(dedupeKey)) continue;
+        sentReminders.add(dedupeKey);
+        await wp.sendNotification(s, JSON.stringify({ title: reminder.title, body: reminder.body, url: reminder.url }));
+      } catch (e) {
+        if (e.statusCode === 404 || e.statusCode === 410) stale.push(s.endpoint);
+        else console.warn('reminder send error:', e.message);
+      }
+    }
+    if (stale.length) {
+      const keep = subs.filter((s) => !stale.includes(s.endpoint));
+      await savePushSubs(keep, sha).catch(() => {});
+    }
+    // Keep the dedupe set from growing unbounded.
+    if (sentReminders.size > 5000) sentReminders.clear();
+  } catch (e) { console.warn('reminderSweep error:', e.message); }
+}
+setInterval(reminderSweep, 15 * 60 * 1000);
 
 let latestWatchData = null;
 let lastRawMetricNames = null; // parsed watch metrics, loaded from GitHub on startup
@@ -1431,16 +1540,24 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
       return res.status(400).json({ error: 'Missing photoBase64 or photoMime' });
     }
 
-    // Freemium taste: non-members get FREE_MEAL_ANALYSES total, members unlimited.
+    // Freemium taste: non-members get FREE_MEAL_ANALYSES total, then each
+    // analysis consumes a credit (same balance as image generations). Members
+    // unlimited. Refine stays free — it's cheap and resolves ambiguity we caused.
     const isMember = isActiveMembership(req.user);
     const dev = String(deviceId || req.user?.device_id || '');
+    let useCredit = false;
     if (!isMember && dev) {
       const used = creditsStore.mealCounts?.[dev] || 0;
       if (used >= FREE_MEAL_ANALYSES) {
-        return res.status(402).json({
-          error: 'You\'ve used your free meal analyses. Become a member for unlimited tracking.',
-          needsMembership: true,
-        });
+        if (getCredits(dev) > 0) {
+          useCredit = true; // consumed below only on a successful food read
+        } else {
+          return res.status(402).json({
+            error: 'You\'ve used your free meal analyses. Buy credits or become a member for unlimited tracking.',
+            needsMembership: true,
+            needsCredits: true,
+          });
+        }
       }
     }
 
@@ -1498,10 +1615,17 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
     const factor = calibrationFactorFor(analysis);
     const adjustedItems = applyCalibration(checkedItems, factor);
 
-    // Count this analysis against the free allowance (successful food reads only).
+    // Charge on successful food reads only: past the free allowance a credit
+    // is consumed, otherwise the analysis counts against the free allowance.
+    let creditsRemaining;
     if (!isMember && dev) {
-      if (!creditsStore.mealCounts) creditsStore.mealCounts = {};
-      creditsStore.mealCounts[dev] = (creditsStore.mealCounts[dev] || 0) + 1;
+      if (useCredit) {
+        creditsStore.balances[dev] = getCredits(dev) - 1;
+        creditsRemaining = creditsStore.balances[dev];
+      } else {
+        if (!creditsStore.mealCounts) creditsStore.mealCounts = {};
+        creditsStore.mealCounts[dev] = (creditsStore.mealCounts[dev] || 0) + 1;
+      }
       persistCreditsStore(); // fire-and-forget
     }
 
@@ -1517,6 +1641,7 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
       raw: { items: checkedItems, totals: sumTotals(checkedItems), calibrationFactor: factor },
       clarifyingQuestions: (analysis.clarifying_questions || []).slice(0, 2),
       needsClarification: analysis.confidence !== 'high' && (analysis.clarifying_questions || []).length > 0,
+      ...(creditsRemaining !== undefined ? { creditsRemaining, usedCredit: true } : {}),
     });
   } catch (err) {
     console.error('Meal analysis error:', err);
@@ -1947,6 +2072,82 @@ app.post('/api/auth/login', authLimiter, async (req, res) => {
     res.json({ token, email, deviceId: user.device_id });
   } catch (e) {
     console.error('login error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ── Password reset ──
+// Transactional email via Resend (RESEND_API_KEY). Token is random, stored
+// hashed, single-use, 60-minute expiry. request-reset always answers 200 so
+// the endpoint can't be used to enumerate which emails have accounts.
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const RESET_FROM     = process.env.RESET_FROM || 'Abs by AI <noreply@absbyai.com>';
+const SITE_URL       = process.env.SITE_URL || 'https://absbyai.com';
+
+async function sendResetEmail(email, token) {
+  if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — reset email skipped for', email); return; }
+  const link = `${SITE_URL}/?reset=${token}`;
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: RESET_FROM,
+      to: [email],
+      subject: 'Reset your Abs by AI password',
+      html: `<p>Someone (hopefully you) asked to reset the password for this Abs by AI account.</p>
+<p><a href="${link}" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Reset my password</a></p>
+<p>Or paste this link into your browser:<br>${link}</p>
+<p>This link expires in 60 minutes. If you didn't ask for this, you can safely ignore this email — your password hasn't changed.</p>`,
+    }),
+  });
+  if (!res.ok) console.error('Resend error:', res.status, (await res.text()).slice(0, 300));
+}
+
+const sha256 = (s) => crypto.createHash('sha256').update(s).digest('hex');
+
+app.post('/api/auth/request-reset', authLimiter, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  const email = String(req.body?.email || '').trim().toLowerCase();
+  res.json({ ok: true }); // always — no account enumeration
+  if (!EMAIL_RE.test(email)) return;
+  try {
+    const { rows } = await db.query('SELECT id FROM users WHERE email = $1', [email]);
+    if (!rows.length) return;
+    const token = crypto.randomBytes(32).toString('hex');
+    await db.query(
+      `INSERT INTO password_reset_tokens (token_hash, user_id, expires_at) VALUES ($1, $2, now() + interval '60 minutes')`,
+      [sha256(token), rows[0].id]
+    );
+    await sendResetEmail(email, token);
+    console.log(`Password reset requested: ${email}`);
+  } catch (e) {
+    console.error('request-reset error:', e.message);
+  }
+});
+
+app.post('/api/auth/reset-password', authLimiter, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  const token = String(req.body?.token || '');
+  const password = String(req.body?.password || '');
+  if (!token) return res.status(400).json({ error: 'Missing reset token' });
+  if (password.length < 8) return res.status(400).json({ error: 'Password must be at least 8 characters' });
+  try {
+    const { rows } = await db.query(
+      'SELECT user_id FROM password_reset_tokens WHERE token_hash = $1 AND expires_at > now()',
+      [sha256(token)]
+    );
+    if (!rows.length) return res.status(400).json({ error: 'This reset link is invalid or has expired. Request a new one.' });
+    const userId = rows[0].user_id;
+    const hash = await bcrypt.hash(password, 10);
+    await db.query('UPDATE users SET password_hash = $1 WHERE id = $2', [hash, userId]);
+    await db.query('DELETE FROM password_reset_tokens WHERE user_id = $1', [userId]); // single-use
+    await db.query('DELETE FROM sessions WHERE user_id = $1', [userId]); // log out everywhere
+    const { rows: u } = await db.query('SELECT email, device_id FROM users WHERE id = $1', [userId]);
+    const sessionToken = await createSession(userId); // sign the resetter straight in
+    console.log(`Password reset completed: ${u[0]?.email}`);
+    res.json({ token: sessionToken, email: u[0]?.email, deviceId: u[0]?.device_id });
+  } catch (e) {
+    console.error('reset-password error:', e.message);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -2645,6 +2846,8 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
     if (req.user) {
       const sleepLine = sleepContextForTrainer(await getTodaysSleep(req.user.id));
       if (sleepLine) userContent.push({ type: 'text', text: sleepLine });
+      const weightLine = await getWeightContext(req.user.id);
+      if (weightLine) userContent.push({ type: 'text', text: weightLine });
     }
 
     let program;
@@ -2778,6 +2981,8 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
     // shorter or lighter workout.
     const trainerSleepLine = sleepContextForTrainer(await getTodaysSleep(req.user.id));
     if (trainerSleepLine) userContent.push({ type: 'text', text: trainerSleepLine });
+    const trainerWeightLine = await getWeightContext(req.user.id);
+    if (trainerWeightLine) userContent.push({ type: 'text', text: trainerWeightLine });
 
     let program;
     try {
@@ -3104,6 +3309,8 @@ app.post('/api/generate-mealplan', aiLimiter, optionalAuth, async (req, res) => 
     if (req.user) {
       const sleepLine = sleepContextForNutrition(await getTodaysSleep(req.user.id));
       if (sleepLine) userContent.push({ type: 'text', text: sleepLine });
+      const weightLine = await getWeightContext(req.user.id);
+      if (weightLine) userContent.push({ type: 'text', text: weightLine });
     }
 
     let plan;
@@ -3286,6 +3493,8 @@ app.post('/api/mealplan/checkin', aiLimiter, requireAuth, async (req, res) => {
     // ONLY (craving control); great night → suggest a higher deficit today.
     const nutriSleepLine = sleepContextForNutrition(await getTodaysSleep(req.user.id));
     if (nutriSleepLine) userContent.push({ type: 'text', text: nutriSleepLine });
+    const nutriWeightLine = await getWeightContext(req.user.id);
+    if (nutriWeightLine) userContent.push({ type: 'text', text: nutriWeightLine });
 
     let plan;
     try {
@@ -3654,6 +3863,25 @@ app.post('/api/counsel', aiLimiter, optionalAuth, async (req, res) => {
     const decisionType = String(req.body?.decisionType || '');
     const intake = validateCounselIntake(decisionType, req.body?.intake);
     if (!intake) return res.status(400).json({ error: 'Missing or incomplete intake for this decision type' });
+
+    // Monthly cap: 10 counsel sessions per account per calendar month (each
+    // run is 5 model calls — this keeps membership economics sane). Checked
+    // before convening the seats so a capped request costs nothing.
+    if (req.user && db) {
+      try {
+        const { rows } = await db.query(
+          `SELECT COUNT(*)::int AS n FROM counsel_sessions
+           WHERE user_id = $1 AND created_at >= date_trunc('month', now())`,
+          [req.user.id]
+        );
+        if (rows[0].n >= COUNSEL_MONTHLY_CAP) {
+          return res.status(429).json({
+            error: `You've used all ${COUNSEL_MONTHLY_CAP} Decision Counsel sessions for this month. Your allowance resets on the 1st.`,
+            capReached: true,
+          });
+        }
+      } catch (e) { console.error('counsel cap check error:', e.message); }
+    }
 
     const { photoBase64, photoMime, afterPhotoBase64, afterPhotoMime, photoConsent } = req.body || {};
     const photos = (decisionType === 'physique-direction' && photoConsent) ? {
@@ -4042,6 +4270,289 @@ app.get('/api/sleep/history', requireAuth, async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// ============================================================
+// WEIGHT & PROGRESS LOG — daily weight, trend math, weekly photo day
+// ============================================================
+// Trend weight = trailing-7-day rolling mean of raw weights (per handoff:
+// simple mean, no exponential smoothing in v1). All math in the user's
+// current unit; mixed-unit history converted at read time.
+const LB_PER_KG = 2.20462;
+
+function toUnit(weight, fromUnit, toUnitStr) {
+  if (fromUnit === toUnitStr) return weight;
+  return fromUnit === 'kg' ? weight * LB_PER_KG : weight / LB_PER_KG;
+}
+
+function dateStr(d) {
+  return d instanceof Date ? d.toISOString().slice(0, 10) : String(d).slice(0, 10);
+}
+
+// rows: [{entry_date, weight, unit, flags}] ascending by date.
+// Returns { entries: [{date, weight, trend, flags}], rate, consistency }.
+function computeTrend(rows, unit) {
+  const entries = rows.map((r) => ({
+    date: dateStr(r.entry_date),
+    weight: Math.round(toUnit(Number(r.weight), r.unit, unit) * 10) / 10,
+    flags: r.flags || [],
+  }));
+  const byDate = new Map(entries.map((e) => [e.date, e.weight]));
+  for (const e of entries) {
+    // Mean of raw weights in the trailing 7-day calendar window.
+    const end = new Date(e.date + 'T00:00:00Z');
+    let sum = 0, n = 0;
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(end); d.setUTCDate(d.getUTCDate() - i);
+      const w = byDate.get(d.toISOString().slice(0, 10));
+      if (w !== undefined) { sum += w; n++; }
+    }
+    e.trend = n ? Math.round((sum / n) * 10) / 10 : null;
+  }
+
+  // Rate of change: linear-regression slope of trend over the last 30 days,
+  // expressed per week. Needs ≥7 logged days in the window, else null.
+  let rate = null;
+  const today = new Date();
+  const cutoff = new Date(today); cutoff.setUTCDate(cutoff.getUTCDate() - 30);
+  const win = entries.filter((e) => new Date(e.date + 'T00:00:00Z') >= cutoff && e.trend != null);
+  if (win.length >= 7) {
+    const xs = win.map((e) => new Date(e.date + 'T00:00:00Z').getTime() / 86400000);
+    const ys = win.map((e) => e.trend);
+    const mx = xs.reduce((a, b) => a + b, 0) / xs.length;
+    const my = ys.reduce((a, b) => a + b, 0) / ys.length;
+    let num = 0, den = 0;
+    for (let i = 0; i < xs.length; i++) { num += (xs[i] - mx) * (ys[i] - my); den += (xs[i] - mx) ** 2; }
+    if (den > 0) rate = Math.round((num / den) * 7 * 100) / 100; // per week
+  }
+
+  // Soft consistency: logged days in the last 14.
+  const cut14 = new Date(today); cut14.setUTCDate(cut14.getUTCDate() - 13);
+  const logged = entries.filter((e) => new Date(e.date + 'T00:00:00Z') >= cut14).length;
+
+  return { entries, rate, consistency: { logged, window: 14 } };
+}
+
+const VALID_FLAGS = new Set(['high-sodium', 'poor-sleep', 'period', 'traveling']);
+
+async function progressSummary(userId, unit) {
+  const { rows } = await db.query(
+    'SELECT entry_date, weight, unit, flags FROM weight_logs WHERE user_id = $1 ORDER BY entry_date ASC',
+    [userId]
+  );
+  const effectiveUnit = unit || rows[rows.length - 1]?.unit || 'lb';
+  const trend = computeTrend(rows, effectiveUnit);
+  const { rows: photos } = await db.query(
+    'SELECT id, entry_date, thumb_front, waist, waist_unit, (recap IS NOT NULL) AS has_recap FROM progress_entries WHERE user_id = $1 ORDER BY entry_date ASC',
+    [userId]
+  );
+  const { rows: u } = await db.query('SELECT photo_day, weigh_reminder FROM users WHERE id = $1', [userId]);
+  return {
+    ...trend,
+    unit: effectiveUnit,
+    photoDay: u[0]?.photo_day ?? null,
+    weighReminder: !!u[0]?.weigh_reminder,
+    photoTimeline: photos.map((p) => ({
+      id: p.id, date: dateStr(p.entry_date), thumb: p.thumb_front || null,
+      waist: p.waist != null ? Number(p.waist) : null, waistUnit: p.waist_unit || 'in', hasRecap: !!p.has_recap,
+    })),
+  };
+}
+
+app.post('/api/progress/weight', requireAuth, async (req, res) => {
+  const weight = Number(req.body?.weight);
+  const unit = req.body?.unit === 'kg' ? 'kg' : 'lb';
+  const date = DATE_RE.test(String(req.body?.date || '')) ? req.body.date : new Date().toISOString().slice(0, 10);
+  const flags = Array.isArray(req.body?.flags) ? req.body.flags.filter((f) => VALID_FLAGS.has(f)) : [];
+  if (!Number.isFinite(weight) || weight < 40 || weight > 1000) {
+    return res.status(400).json({ error: 'Enter a valid weight.' });
+  }
+  try {
+    await db.query(
+      `INSERT INTO weight_logs (user_id, entry_date, weight, unit, flags) VALUES ($1, $2, $3, $4, $5)
+       ON CONFLICT (user_id, entry_date) DO UPDATE SET weight = $3, unit = $4, flags = $5`,
+      [req.user.id, date, weight, unit, JSON.stringify(flags)]
+    );
+    res.json(await progressSummary(req.user.id, unit));
+  } catch (e) {
+    console.error('progress weight error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/api/progress/summary', requireAuth, async (req, res) => {
+  try {
+    const unit = req.query.unit === 'kg' ? 'kg' : req.query.unit === 'lb' ? 'lb' : null;
+    res.json(await progressSummary(req.user.id, unit));
+  } catch (e) {
+    console.error('progress summary error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/progress/photo', requireAuth, async (req, res) => {
+  const { photoFront, photoSide, photoBack, thumbFront, waist, waistUnit } = req.body || {};
+  const date = DATE_RE.test(String(req.body?.date || '')) ? req.body.date : new Date().toISOString().slice(0, 10);
+  if (!String(photoFront || '').startsWith('data:image/')) {
+    return res.status(400).json({ error: 'A front photo is required.' });
+  }
+  const w = waist != null && waist !== '' ? Number(waist) : null;
+  if (w != null && (!Number.isFinite(w) || w < 10 || w > 200)) {
+    return res.status(400).json({ error: 'Enter a valid waist measurement.' });
+  }
+  try {
+    await db.query(
+      `INSERT INTO progress_entries (user_id, entry_date, photo_front, thumb_front, photo_side, photo_back, waist, waist_unit)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+       ON CONFLICT (user_id, entry_date) DO UPDATE SET photo_front = $3, thumb_front = $4, photo_side = $5, photo_back = $6, waist = $7, waist_unit = $8, recap = NULL`,
+      [req.user.id, date, photoFront, String(thumbFront || '') || null,
+       String(photoSide || '').startsWith('data:image/') ? photoSide : null,
+       String(photoBack || '').startsWith('data:image/') ? photoBack : null,
+       w, waistUnit === 'cm' ? 'cm' : 'in']
+    );
+    res.json(await progressSummary(req.user.id, null));
+  } catch (e) {
+    console.error('progress photo error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Full photos are heavy — fetched lazily per entry, never in list payloads.
+app.get('/api/progress/photo/:id', requireAuth, async (req, res) => {
+  try {
+    const { rows } = await db.query(
+      'SELECT id, entry_date, photo_front, photo_side, photo_back, waist, waist_unit, recap FROM progress_entries WHERE id = $1 AND user_id = $2',
+      [parseInt(req.params.id, 10) || 0, req.user.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Not found' });
+    const r = rows[0];
+    res.json({
+      id: r.id, date: dateStr(r.entry_date), photoFront: r.photo_front, photoSide: r.photo_side,
+      photoBack: r.photo_back, waist: r.waist != null ? Number(r.waist) : null, waistUnit: r.waist_unit, recap: r.recap,
+    });
+  } catch (e) {
+    console.error('progress photo fetch error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/progress/settings', requireAuth, async (req, res) => {
+  const photoDay = req.body?.photoDay;
+  const weighReminder = !!req.body?.weighReminder;
+  const pd = Number.isInteger(photoDay) && photoDay >= 0 && photoDay <= 6 ? photoDay : null;
+  try {
+    await db.query('UPDATE users SET photo_day = $1, weigh_reminder = $2 WHERE id = $3', [pd, weighReminder, req.user.id]);
+    res.json({ ok: true, photoDay: pd, weighReminder });
+  } catch (e) {
+    console.error('progress settings error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ── AI weekly recap (members) ──
+const PROGRESS_RECAP_SCHEMA = {
+  type: 'object',
+  properties: {
+    headline: { type: 'string', description: 'One punchy sentence — the week in a line.' },
+    week_story: { type: 'string', description: '2-3 short paragraphs interpreting the TREND (never the daily number), tying in waist, flags, sleep, and training adherence.' },
+    scale_vs_waist: { type: 'string', description: 'One paragraph: what scale + waist together say. If weight stalled but waist dropped, call out recomposition as a win.' },
+    adjustments: { type: 'array', items: { type: 'string' }, description: '0-3 concrete, encouraging adjustments. Empty if the plan is working.' },
+    photo_note: { type: 'string', description: 'Pose/lighting-consistency coaching for next photo day (generic — no image analysis).' },
+    encouragement: { type: 'string', description: 'Closing line in the go-hard coach voice.' },
+  },
+  required: ['headline', 'week_story', 'scale_vs_waist', 'adjustments', 'photo_note', 'encouragement'],
+};
+
+const PROGRESS_RECAP_SYSTEM_PROMPT = `You are the Abs by AI progress coach — the same evidence-grounded, go-hard voice as the AI Trainer. You are writing the user's WEEKLY PROGRESS RECAP on their photo day.
+
+Iron rules:
+- Interpret the 7-day TREND weight, never a single daily reading. If contextual flags (high sodium, poor sleep, period, traveling) explain a spike, say so explicitly and defuse it.
+- If weight stalls but waist drops → that is recomposition. Call it a WIN, loudly.
+- If both weight and waist have stalled 2+ weeks → give a concrete, specific adjustment referencing their program or meal plan. Stay encouraging.
+- NEVER recommend under-eating, punishing cardio, or weighing more often.
+- Numbers: quote the trend weight, rate of change, and waist delta exactly as given.
+Output strict JSON matching the provided schema.`;
+
+async function buildRecapContext(userId) {
+  const summary = await progressSummary(userId, null);
+  const lines = [];
+  const last = summary.entries[summary.entries.length - 1];
+  if (last) lines.push(`Current 7-day trend weight: ${last.trend} ${summary.unit} (latest raw: ${last.weight} ${summary.unit} on ${last.date}).`);
+  if (summary.rate != null) lines.push(`Rate of change: ${summary.rate > 0 ? '+' : ''}${summary.rate} ${summary.unit}/week over the last 30 days.`);
+  lines.push(`Consistency: logged ${summary.consistency.logged} of the last ${summary.consistency.window} days.`);
+  const recent = summary.entries.slice(-30);
+  lines.push(`Last ${recent.length} weigh-ins (date, raw, trend, flags): ${recent.map((e) => `${e.date} ${e.weight}/${e.trend}${e.flags.length ? ' [' + e.flags.join(',') + ']' : ''}`).join('; ')}`);
+  const waists = summary.photoTimeline.filter((p) => p.waist != null).slice(-6);
+  if (waists.length) lines.push(`Waist history: ${waists.map((p) => `${p.date}: ${p.waist} ${p.waistUnit}`).join('; ')}`);
+
+  // Cross-feature context: training adherence + last week of sleep.
+  try {
+    const { rows } = await db.query('SELECT progress FROM programs WHERE user_id = $1 ORDER BY id DESC LIMIT 1', [userId]);
+    if (rows.length) {
+      const done = Object.values(rows[0].progress || {}).filter(Boolean).length;
+      lines.push(`Training program: active, ${done} workouts checked off so far.`);
+    }
+  } catch (e) {}
+  try {
+    const { rows } = await db.query(
+      'SELECT entry_date, data FROM sleep_entries WHERE user_id = $1 ORDER BY entry_date DESC LIMIT 7', [userId]
+    );
+    if (rows.length) lines.push(`Sleep, last ${rows.length} nights: ${rows.map(formatSleepHistoryLine).join(' | ')}`);
+  } catch (e) {}
+  return lines.join('\n');
+}
+
+app.post('/api/progress/recap', aiLimiter, requireAuth, async (req, res) => {
+  try {
+    const userRow = await getUserRow(req.user.id);
+    if (!isActiveMembership(userRow)) {
+      return res.status(402).json({ error: 'The weekly recap is a member feature.', needsMembership: true });
+    }
+    const { rows } = await db.query(
+      'SELECT id, recap FROM progress_entries WHERE user_id = $1 ORDER BY entry_date DESC LIMIT 1',
+      [req.user.id]
+    );
+    if (!rows.length) return res.status(400).json({ error: 'Log a progress photo first — the recap ties your week to photo day.' });
+    if (rows[0].recap && !req.body?.force) return res.json({ recap: rows[0].recap });
+
+    const context = await buildRecapContext(req.user.id);
+    const recap = await callTrainerModel(
+      PROGRESS_RECAP_SYSTEM_PROMPT,
+      [{ type: 'text', text: `Here is the user's progress data:\n${context}\n\nWrite this week's recap.` }],
+      PROGRESS_RECAP_SCHEMA
+    );
+    if (!recap?.headline) return res.status(502).json({ error: 'Recap generation failed. Please try again.' });
+    await db.query('UPDATE progress_entries SET recap = $1 WHERE id = $2', [JSON.stringify(recap), rows[0].id]);
+    res.json({ recap });
+  } catch (e) {
+    if (e.status) return res.status(e.status).json({ error: e.message });
+    console.error('progress recap error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Cross-feature: one prompt line for Trainer/Nutritionist (same pattern as sleep).
+async function getWeightContext(userId) {
+  if (!db || !userId) return '';
+  try {
+    const s = await progressSummary(userId, null);
+    const last = s.entries[s.entries.length - 1];
+    if (!last?.trend) return '';
+    let line = `\nWEIGHT CONTEXT (from the user's progress log): 7-day trend weight is ${last.trend} ${s.unit}`;
+    if (s.rate != null) line += `, moving ${s.rate > 0 ? '+' : ''}${s.rate} ${s.unit}/week`;
+    const waists = s.photoTimeline.filter((p) => p.waist != null);
+    if (waists.length >= 2) {
+      const delta = Math.round((waists[waists.length - 1].waist - waists[0].waist) * 10) / 10;
+      line += `; waist ${delta <= 0 ? 'down' : 'up'} ${Math.abs(delta)} ${waists[waists.length - 1].waistUnit} since ${waists[0].date}`;
+    }
+    line += s.rate != null && s.rate < 0
+      ? ' — the plan is working; do NOT cut calories further.'
+      : '.';
+    return line;
+  } catch (e) {
+    console.warn('getWeightContext error:', e.message);
+    return '';
+  }
+}
 
 // Public client config (Stripe publishable key).
 app.get('/api/config', (req, res) => {

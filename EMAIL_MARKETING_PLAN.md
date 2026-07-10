@@ -233,3 +233,39 @@ Rules: one offer per email, framed as a recommendation, always `[AFFILIATE_LINK]
 - [ ] Test: subscribe with a real address, verify sequence fires, check spam placement (Gmail + Outlook)
 - [ ] Legal: privacy policy page updated
 - [ ] Later: apply to affiliate programs (Factor/Trifecta, MacroFactor, Legion/MyProtein, Amazon Associates); append Emails 6–8
+
+---
+
+## 7. Announcement broadcast: The Decision Counsel (ready to paste)
+
+One-off campaign to the "Abs by AI Users" group. Send Tue–Thu morning.
+
+**Subject:** Five AI experts just ruled on my supplement stack
+**Preview text:** New in Abs by AI: bring your hardest fitness call to the Counsel.
+
+> Hey — Dan here.
+>
+> Every week someone asks me a version of the same thing: "Should I take creatine? Is my supplement stack overkill? Is a GLP-1 worth talking to my doctor about? Bulk or cut first?"
+>
+> These are real decisions with real money and real health on the line — and one opinion (even mine) isn't enough.
+>
+> So I built something different: **The Decision Counsel.**
+>
+> Bring it your hardest call, and five AI experts rule on it:
+>
+> 🔬 **The Researcher** — evidence only. What do the studies actually say?
+> 🧐 **The Skeptic** — argues against the popular answer, so hype never wins by default.
+> 🏋️ **The Coach** — what actually fits your training, budget, and life.
+> 🩺 **The Safety Officer** — flags interactions and knows when it's a real-doctor question.
+> 🏛️ **The President** — weighs all four and delivers the verdict, with a confidence level and your 3 next actions.
+>
+> Each counselor reviews your case independently — no groupthink — and if they disagree, you see exactly where and why.
+>
+> Your first verdict preview is free. Members get 10 full counsel sessions every month, plus follow-up cross-examination on any verdict.
+>
+> [→ Present your case](https://absbyai.com)
+>
+> — Dan
+>
+> P.S. It will tell you when a question belongs to an actual doctor. That's the Safety Officer's whole job.
+
