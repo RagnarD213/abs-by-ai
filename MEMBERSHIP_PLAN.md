@@ -17,9 +17,9 @@
 | 2 | Manage-membership: Stripe billing portal endpoint + "Manage membership" card in the hub (status, plan, renewal date, cancel link); `past_due` grace messaging | **Sonnet 5 · medium** | `HANDOFF_membership_sonnet_medium.md` |
 | 3 | Live-mode cutover runbook + prod verification of the full paid path (subscribe → gates open → cancel → gates close), incl. the two untested prod flows (member full meal plan, Counsel photo direction) | **Opus 4.8 · medium** | `HANDOFF_membership_opus_medium.md` |
 | 4 | iOS App Store: membership purchase strategy (Apple IAP vs. external-link entitlement), StoreKit/Capacitor design, entitlement sync with Stripe-side membership | **Opus 4.8 · high** (same doc as #3, part B) | `HANDOFF_membership_opus_medium.md` |
-| 5 | (Optional, only if issues suspected) Cross-cutting entitlement & payment-race audit: webhook idempotency, credit-linking on login, cap bypass vectors, downgrade timing | **Fable 5 · high** | `HANDOFF_membership_fable_high.md` |
+| 5 | (Optional, only if issues suspected) Billing & entitlement correctness review: webhook idempotency, credit-linking on login, cap counting, downgrade timing | **Opus 4.8 · high** | `HANDOFF_membership_fable_high.md` |
 
-**Model rationale:** copy tasks need no reasoning depth (Haiku). Item 2 follows existing, well-documented server/UI patterns — Sonnet executes patterned code reliably at a fraction of the cost. Item 3/4 require multi-system judgement (Stripe live mode, Apple policy) — Opus. Fable is reserved for the one task where a missed subtle bug costs real money (payments/entitlement audit), and it's optional.
+**Model rationale:** copy tasks need no reasoning depth (Haiku). Item 2 follows existing, well-documented server/UI patterns — Sonnet executes patterned code reliably at a fraction of the cost. Item 3/4 require multi-system judgement (Stripe live mode, Apple policy) — Opus. The billing review (item 5) was originally slated for Fable 5 but Fable's stricter dual-use screening flagged the audit framing; Opus 4.8 at high effort is sufficient — it's methodical review of known failure patterns, not novel design. It stays optional.
 
 **Order:** 1 and 2 can run in parallel → 3 (needs 2 deployed) → 4 → 5 last (audits the finished system).
 
