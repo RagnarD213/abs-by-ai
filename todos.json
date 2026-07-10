@@ -51,6 +51,11 @@
     {
       "text": "Reschedule next week's shoots",
       "priority": "high"
+    },
+    {
+      "text": "Send documents to AMEX",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
