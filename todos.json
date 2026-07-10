@@ -124,11 +124,6 @@
       "text": "Email Rachelle to end child support",
       "priority": "high",
       "recurring": false
-    },
-    {
-      "text": "Send documents to AMEX",
-      "priority": "high",
-      "recurring": false
     }
   ]
 }
