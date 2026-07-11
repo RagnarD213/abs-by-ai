@@ -5055,7 +5055,7 @@ const TRIAL_REMINDER_MS = 60 * 60 * 1000;
 setTimeout(() => { trialReminderSweep(); }, 30 * 1000).unref?.();
 setInterval(() => { trialReminderSweep(); }, TRIAL_REMINDER_MS).unref?.();
 
-// Exposed for tests (test/trial-reminder.test.js). Requiring this module also
-// starts the server; tests point DATABASE_URL at pgmem:// and stub global.fetch.
-module.exports = { app, db, trialReminderSweep };
+// Exposed for tests. Requiring this module also starts the server; tests point
+// DATABASE_URL at pgmem:// and stub the stripe / node-fetch modules.
+module.exports = { app, db, trialReminderSweep, fulfillMembershipSession };
 
