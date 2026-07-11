@@ -1,7 +1,6 @@
 {
   "checked": [
     "health::Shower",
-    "personal::Do dishes",
     "personal::Take out trash",
     "personal::Call fence company",
     "personal::Fold laundry",
