@@ -150,6 +150,8 @@ async function initDb() {
     'membership_status TEXT',
     'membership_plan TEXT',
     'membership_period_end TIMESTAMPTZ',
+    // Trial-ending reminder: set once the "2 days left" email goes out (idempotent).
+    'trial_reminder_sent_at TIMESTAMPTZ',
     // Progress Log settings + reminder bookkeeping
     'photo_day INTEGER',
     'weigh_reminder BOOLEAN DEFAULT false',

@@ -2151,6 +2151,40 @@ async function sendResetEmail(email, token) {
   if (!res.ok) console.error('Resend error:', res.status, (await res.text()).slice(0, 300));
 }
 
+// Trial-ending reminder (fires 2 days out via trialReminderSweep). Returns true
+// only when Resend accepted the email, so the sweep sets the "sent" flag only on
+// a real send and retries on the next pass otherwise (incl. when the key is unset).
+async function sendTrialEndingEmail(email, plan) {
+  if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — trial-ending email skipped for', email); return false; }
+  const planDef = MEMBERSHIP_PLANS[plan] || MEMBERSHIP_PLANS.monthly;
+  const priceStr = planDef.interval === 'year'
+    ? `$${(planDef.priceInCents / 100).toFixed(2)}/year`
+    : `$${(planDef.priceInCents / 100).toFixed(2)}/month`;
+  const link = SITE_URL;
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: RESET_FROM,
+        to: [email],
+        subject: 'Your Abs By AI free trial ends in 2 days',
+        html: `<p>Hey — a quick heads-up: your Abs By AI free trial ends in <strong>2 days</strong>.</p>
+<p>When it ends, your membership begins and you'll be charged <strong>${priceStr}</strong>. You'll keep everything you've been using: your AI trainer, AI nutritionist, sleep coach, and unlimited transformations &amp; meal tracking.</p>
+<p>Happy to keep going? You don't need to do anything. Changed your mind? You can <strong>manage or cancel anytime</strong> — cancel before the trial ends and you won't be charged.</p>
+<p><a href="${link}" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Manage or cancel my membership</a></p>
+<p>Or paste this link into your browser:<br>${link}</p>
+<p>Thanks for giving Abs By AI a try.</p>`,
+      }),
+    });
+    if (!res.ok) { console.error('Resend error (trial-ending):', res.status, (await res.text()).slice(0, 300)); return false; }
+    return true;
+  } catch (e) {
+    console.error('sendTrialEndingEmail error:', e.message);
+    return false;
+  }
+}
+
 const sha256 = (s) => crypto.createHash('sha256').update(s).digest('hex');
 
 app.post('/api/auth/request-reset', authLimiter, async (req, res) => {
@@ -2506,11 +2540,21 @@ app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res)
       discounts.push({ coupon: coupon.id });
     }
 
+    // One trial per user: brand-new subscribers get 7 free days; a returning
+    // member who previously subscribed (row has a prior subscription id) pays
+    // immediately. The credit-conversion coupon is duration:'once', so with a
+    // trial it discounts the first real invoice after the trial ends.
+    const isFirstSubscription = !row.stripe_subscription_id;
+
     const session = await stripe.checkout.sessions.create({
       ui_mode: 'embedded',
       mode: 'subscription',
       redirect_on_completion: 'never',
       customer_email: req.user.email,
+      // Require a card up front even during the trial, and keep it explicit so
+      // a future change can't silently make collection optional.
+      payment_method_collection: 'always',
+      ...(isFirstSubscription ? { subscription_data: { trial_period_days: 7 } } : {}),
       line_items: [{
         quantity: 1,
         price_data: {
@@ -2519,7 +2563,7 @@ app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res)
           recurring: { interval: planDef.interval },
           product_data: {
             name: `Abs By AI ${planDef.label}`,
-            description: 'AI trainer, unlimited transformations & meal tracking. 7-day money-back guarantee.',
+            description: '7-day free trial, then full access: AI trainer, unlimited transformations & meal tracking. Cancel anytime.',
           },
         },
       }],
@@ -2575,18 +2619,24 @@ async function fulfillMembershipSession(session) {
   const stripe = getStripe();
   let periodEnd = null;
   let subId = session.subscription || null;
+  // With a 7-day trial the real subscription status is 'trialing', not 'active',
+  // and its period end is the trial end — which the reminder sweep relies on.
+  // Read the actual status/period from Stripe instead of hard-coding 'active'.
+  let subStatus = 'active';
   try {
     if (stripe && typeof subId === 'string') {
       const sub = await stripe.subscriptions.retrieve(subId);
-      if (sub.current_period_end) periodEnd = new Date(sub.current_period_end * 1000).toISOString();
+      if (sub.status) subStatus = sub.status;
+      const endTs = sub.current_period_end || sub.trial_end;
+      if (endTs) periodEnd = new Date(endTs * 1000).toISOString();
     }
   } catch (e) { console.warn('subscription retrieve failed:', e.message); }
 
   await db.query(
     `UPDATE users SET stripe_customer_id = $1, stripe_subscription_id = $2,
-       membership_status = 'active', membership_plan = $3, membership_period_end = $4
-     WHERE id = $5`,
-    [session.customer || null, subId, meta.plan || 'monthly', periodEnd, parseInt(meta.userId, 10)]
+       membership_status = $3, membership_plan = $4, membership_period_end = $5
+     WHERE id = $6`,
+    [session.customer || null, subId, subStatus, meta.plan || 'monthly', periodEnd, parseInt(meta.userId, 10)]
   );
 
   // Converted credits were spent as the checkout discount — zero the balance.
@@ -2607,6 +2657,34 @@ async function syncSubscriptionState(sub) {
     `UPDATE users SET membership_status = $1, membership_period_end = $2 WHERE stripe_subscription_id = $3`,
     [sub.status || 'canceled', periodEnd, sub.id]
   );
+}
+
+// Trial-ending reminder sweep. Dan wants the email exactly 2 days out, so we
+// drive it ourselves rather than off Stripe's trial_will_end event (which fires
+// at 3 days). Idempotent by construction: a user is picked only while trialing,
+// with a period end inside the next 48h, and no reminder yet recorded. The flag
+// is set only after a real send, so an unset RESEND_API_KEY simply defers the
+// email until the key exists. Safe to run often; hourly is plenty.
+async function trialReminderSweep() {
+  if (!db) return;
+  try {
+    const { rows } = await db.query(
+      `SELECT id, email, membership_plan FROM users
+        WHERE membership_status = 'trialing'
+          AND trial_reminder_sent_at IS NULL
+          AND membership_period_end IS NOT NULL
+          AND membership_period_end > now()
+          AND membership_period_end <= now() + interval '48 hours'`
+    );
+    for (const u of rows) {
+      if (!u.email) continue;
+      const sent = await sendTrialEndingEmail(u.email, u.membership_plan || 'monthly');
+      if (sent) {
+        await db.query('UPDATE users SET trial_reminder_sent_at = now() WHERE id = $1', [u.id]);
+        console.log(`Trial-ending reminder sent to user ${u.id}`);
+      }
+    }
+  } catch (e) { console.warn('trialReminderSweep error:', e.message); }
 }
 
 // ============================================================
@@ -4970,4 +5048,14 @@ const KEEP_WARM_URL = process.env.RAILWAY_PUBLIC_DOMAIN
 setInterval(() => {
   fetch(KEEP_WARM_URL).catch(() => {});
 }, KEEP_WARM_MS).unref?.();
+
+// Trial-ending reminder sweep — hourly. Runs first pass shortly after boot so a
+// due reminder isn't delayed a full hour on deploy.
+const TRIAL_REMINDER_MS = 60 * 60 * 1000;
+setTimeout(() => { trialReminderSweep(); }, 30 * 1000).unref?.();
+setInterval(() => { trialReminderSweep(); }, TRIAL_REMINDER_MS).unref?.();
+
+// Exposed for tests (test/trial-reminder.test.js). Requiring this module also
+// starts the server; tests point DATABASE_URL at pgmem:// and stub global.fetch.
+module.exports = { app, db, trialReminderSweep };
 

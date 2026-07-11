@@ -1418,6 +1418,9 @@ html, body {
           <div class="pack-card-price">$14.99</div>
         </div>
       </div>
+      <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--mute)">
+        …or <button type="button" id="paywallGoUnlimitedBtn" style="background:none;border:none;padding:0;font:inherit;font-weight:800;color:var(--acc);cursor:pointer;text-decoration:underline">go unlimited for $5.83/mo</button> — start your 7-day free trial
+      </div>
       <div id="creditsCheckoutError" style="display:none" class="error-toast"></div>
     </div>
 
@@ -1670,7 +1673,6 @@ html, body {
         <span class="hub-tile-emoji">😴</span>
         <span class="hub-tile-body"><span class="hub-tile-name">AI Sleep Coach</span><span class="hub-tile-sub">Upload your tracker screenshot — we'll out-coach your ring</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-        <span class="hub-soon">Coming soon</span>
       </button>
       <button class="hub-tile" data-feature="transformations">
         <span class="hub-tile-emoji">📸</span>
@@ -1680,7 +1682,7 @@ html, body {
       <button class="hub-tile" data-feature="weight">
         <span class="hub-tile-emoji">📈</span>
         <span class="hub-tile-body"><span class="hub-tile-name">Weight &amp; Progress Log</span><span class="hub-tile-sub">Track your journey over time</span></span>
-        <span class="hub-soon">Coming soon</span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
       <button class="hub-tile" data-feature="generate">
         <span class="hub-tile-emoji">✨</span>
@@ -2032,24 +2034,24 @@ html, body {
     <div class="plan-cards">
       <button class="plan-card" data-plan="annual" id="planAnnual">
         <span>
-          <span class="plan-name">Annual<span class="plan-badge">BEST VALUE — $5/mo</span></span>
-          <span class="plan-sub" style="display:block">Billed $59.99/year</span>
+          <span class="plan-name">Annual<span class="plan-badge">BEST VALUE — $5.83/mo</span></span>
+          <span class="plan-sub" style="display:block">7 days free, then $69.99/year</span>
         </span>
-        <span class="plan-price">$59.99</span>
+        <span class="plan-price">$69.99</span>
       </button>
       <button class="plan-card" data-plan="monthly" id="planMonthly">
         <span>
           <span class="plan-name">Monthly</span>
-          <span class="plan-sub" style="display:block">Cancel anytime</span>
+          <span class="plan-sub" style="display:block">7 days free, then $19.99/mo</span>
         </span>
-        <span class="plan-price">$9.99</span>
+        <span class="plan-price">$19.99</span>
       </button>
     </div>
 
     <div id="creditConvertNote" class="credit-convert-note" style="display:none"></div>
     <div id="membershipError" class="error-toast" style="display:none;margin-top:12px"></div>
-    <button id="membershipSubscribeBtn" class="cta-btn" style="margin-top:14px">Become a Member</button>
-    <div class="guarantee-note">7-day money-back guarantee — changed your mind? Full refund.</div>
+    <button id="membershipSubscribeBtn" class="cta-btn" style="margin-top:14px">Start 7-day free trial</button>
+    <div class="guarantee-note">7 days free, then your plan price. Cancel anytime before it ends and you won't be charged.</div>
 
     <!-- Pay-as-you-go alternative (shown when the user hit a credit-gated wall, e.g. meal analyses) -->
     <div id="membershipCreditsAlt" style="display:none;margin-top:22px">
@@ -3139,6 +3141,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.querySelectorAll('.pack-card[data-pack]').forEach(card => {
     card.addEventListener('click', () => handleCreditsCheckout(card.dataset.pack));
   });
+  // Paywall upsell: jump to the membership plans; on success, reveal this result.
+  const goUnlimited = $('paywallGoUnlimitedBtn');
+  if (goUnlimited) goUnlimited.addEventListener('click', () => showMembershipScreen(() => { unlockResult(); showScreen('result'); }));
 
   initMealTracker();
   initAccounts();
@@ -4933,7 +4938,7 @@ function renderProgram() {
       <div class="locked-cta-h">Your plan is built. The first 3 days are on us.</div>
       <div class="locked-cta-sub">This program was designed around your goal, schedule, and body — it already has your name on it. Unlock all 4 weeks, plus unlimited transformations and meal tracking.</div>
       <button class="cta-btn" id="programUnlockBtn">Unlock My Full Program</button>
-      <div class="guarantee-note">$9.99/mo or $59.99/yr · 7-day money-back guarantee</div>
+      <div class="guarantee-note">Start your 7-day free trial · then $19.99/mo or $69.99/yr · cancel anytime</div>
     </div>`;
   } else {
     html += `<div class="checkin-card" id="checkinCard">
@@ -5654,7 +5659,7 @@ function renderMealPlan() {
       <div class="locked-cta-h">Your plan is built. Your targets are free — the kitchen is members-only.</div>
       <div class="locked-cta-sub">Unlock all 3 rotating prep recipes with grocery lists and step-by-step Sunday prep, plus recipe swaps and check-ins that adjust your calories as you lose.</div>
       <button class="cta-btn" id="mealPlanUnlockBtn">Unlock My Full Meal Plan</button>
-      <div class="guarantee-note">$9.99/mo or $59.99/yr · 7-day money-back guarantee</div>
+      <div class="guarantee-note">Start your 7-day free trial · then $19.99/mo or $69.99/yr · cancel anytime</div>
     </div>`;
   } else {
     html += `<div class="checkin-card" id="nutriCheckinCard">
@@ -6213,7 +6218,7 @@ function renderCounselReport() {
       <div class="locked-cta-h">The counsel has ruled. The full case file is members-only.</div>
       <div class="locked-cta-sub">Unlock every counselor's full opinion, the President's complete reasoning, your 3 next moves — and follow-up questions to the President.</div>
       <button class="cta-btn" id="counselUnlockBtn">Unlock the Full Ruling</button>
-      <div class="guarantee-note">$9.99/mo or $59.99/yr · 7-day money-back guarantee</div>
+      <div class="guarantee-note">Start your 7-day free trial · then $19.99/mo or $69.99/yr · cancel anytime</div>
     </div>`;
   } else {
     // Ask the President — follow-up (needs a saved server session)
@@ -6517,7 +6522,7 @@ function renderSleepBriefing() {
       <div class="locked-cta-h">The verdict is free. The playbook is members-only.</div>
       <div class="locked-cta-sub">Unlock today's tactics, tonight's sleep protocol, your 14-day trend — plus your trainer and nutritionist automatically adjusting to how you slept.</div>
       <button class="cta-btn" id="sleepUnlockBtn">Unlock My Full Briefing</button>
-      <div class="guarantee-note">$9.99/mo or $59.99/yr · 7-day money-back guarantee</div>
+      <div class="guarantee-note">Start your 7-day free trial · then $19.99/mo or $69.99/yr · cancel anytime</div>
     </div>`;
   } else {
     html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">Today's tactics 🎯</span></div>
