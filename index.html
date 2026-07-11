@@ -6873,6 +6873,9 @@ async function callGeminiText(systemPrompt, userMessage) {
 }
 
 async function callGeminiImage(prompt, photoBase64, photoMime) {
+  // Stable per-action id so the server can dedupe fetchWithRetry replays and
+  // avoid double-charging a credit when a response drops. Mint outside the retry.
+  const attemptId = (crypto.randomUUID?.() || (Date.now() + '-' + Math.random().toString(36).slice(2)));
   const res = await fetchWithRetry(`${BACKEND_URL}/api/generate-image`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -6880,6 +6883,7 @@ async function callGeminiImage(prompt, photoBase64, photoMime) {
       prompt, photoBase64, photoMime,
       distinctId: (window.posthog && typeof posthog.get_distinct_id === 'function') ? posthog.get_distinct_id() : 'anonymous',
       deviceId: getDeviceId(),
+      attemptId,
     }),
   }, 1);
   const data = await res.json();
@@ -6998,6 +7002,9 @@ async function analyzeMeal() {
 
   try {
     const recentMeals = loadLoggedMeals().slice(-15).map(m => m.name).filter(Boolean);
+    // Stable per-action id so the server can dedupe fetchWithRetry replays and
+    // avoid double-charging a credit when a response drops. Mint outside the retry.
+    const attemptId = (crypto.randomUUID?.() || (Date.now() + '-' + Math.random().toString(36).slice(2)));
     const res = await fetchWithRetry(`${BACKEND_URL}/api/analyze-meal`, {
       method: 'POST',
       headers: {
@@ -7010,6 +7017,7 @@ async function analyzeMeal() {
         note: $('mealNoteInput').value.trim() || undefined,
         recentMeals,
         deviceId: getDeviceId(),
+        attemptId,
       }),
     });
     const data = await res.json();

@@ -97,10 +97,10 @@ const CREDIT_PACKS = {
   power:   { credits: 20, priceInCents: 1499, label: 'Power Pack' },
 };
 // Membership plans (Stripe subscriptions). Keys must match data-plan
-// attributes in index.html. Annual ≈ $5/mo is the anti-churn lever.
+// attributes in index.html. Annual ≈ $5.83/mo is the anti-churn lever.
 const MEMBERSHIP_PLANS = {
-  monthly: { priceInCents: 999,  interval: 'month', label: 'Monthly Membership' },
-  annual:  { priceInCents: 5999, interval: 'year',  label: 'Annual Membership' },
+  monthly: { priceInCents: 1999, interval: 'month', label: 'Monthly Membership' },
+  annual:  { priceInCents: 6999, interval: 'year',  label: 'Annual Membership' },
 };
 // Free (non-member) allowance of meal-photo analyses — the freemium taste.
 const FREE_MEAL_ANALYSES = 3;
@@ -1536,6 +1536,12 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
   try {
     const { photoBase64, photoMime, note, recentMeals, deviceId } = req.body;
 
+    // Idempotency: a dropped response makes the client replay the same attemptId.
+    // Return the cached result (no second model call, no second decrement).
+    const attemptId = String(req.body.attemptId || '');
+    const cached = getCachedAttempt(attemptId);
+    if (cached) return res.status(cached.status).json(cached.body);
+
     if (!photoBase64 || !photoMime) {
       return res.status(400).json({ error: 'Missing photoBase64 or photoMime' });
     }
@@ -1552,11 +1558,13 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
         if (getCredits(dev) > 0) {
           useCredit = true; // consumed below only on a successful food read
         } else {
-          return res.status(402).json({
+          const payload = {
             error: 'You\'ve used your free meal analyses. Buy credits or become a member for unlimited tracking.',
             needsMembership: true,
             needsCredits: true,
-          });
+          };
+          cacheAttempt(attemptId, 402, payload);
+          return res.status(402).json(payload);
         }
       }
     }
@@ -1629,7 +1637,7 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
       persistCreditsStore(); // fire-and-forget
     }
 
-    res.json({
+    const payload = {
       isFood: true,
       mealName: analysis.meal_name,
       source: analysis.source,
@@ -1642,7 +1650,11 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
       clarifyingQuestions: (analysis.clarifying_questions || []).slice(0, 2),
       needsClarification: analysis.confidence !== 'high' && (analysis.clarifying_questions || []).length > 0,
       ...(creditsRemaining !== undefined ? { creditsRemaining, usedCredit: true } : {}),
-    });
+    };
+    // Cache synchronously right after the decrement (no await between them) so a
+    // replayed attemptId returns this exact result without re-charging.
+    cacheAttempt(attemptId, 200, payload);
+    res.json(payload);
   } catch (err) {
     console.error('Meal analysis error:', err);
     res.status(500).json({ error: 'Internal server error' });
@@ -1734,6 +1746,12 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
   try {
     const { prompt, photoBase64, photoMime, deviceId } = req.body;
 
+    // Idempotency: a dropped response makes the client replay the same attemptId.
+    // Return the cached result (no second model call, no second decrement).
+    const attemptId = String(req.body.attemptId || '');
+    const cached = getCachedAttempt(attemptId);
+    if (cached) return res.status(cached.status).json(cached.body);
+
     if (!prompt || !photoBase64 || !photoMime) {
       return res.status(400).json({
         error: 'Missing prompt, photoBase64, or photoMime',
@@ -1804,7 +1822,11 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       }
     }
 
-    res.json({ imageBase64, locked });
+    const payload = { imageBase64, locked };
+    // Cache synchronously right after the decrement (no await between them) so a
+    // replayed attemptId returns this exact image without re-charging.
+    cacheAttempt(attemptId, 200, payload);
+    res.json(payload);
   } catch (err) {
     console.error('Image generation error:', err);
     res.status(500).json({ error: 'Internal server error' });
@@ -1820,6 +1842,32 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
 // `fulfilled` makes crediting idempotent across the webhook + return-redirect
 // paths so a purchase is never double-counted.
 let creditsStore = { balances: {}, fulfilled: {}, mealCounts: {} };
+
+// Idempotency for charge-on-success endpoints: maps attemptId -> { at, status, body }.
+// A dropped response makes the client replay the same attemptId (fetchWithRetry
+// resends identical opts); we return the cached result instead of re-running the
+// (paid) model call and re-charging a credit. In-memory only — ephemeral and the
+// image payloads are large, so these never go through persistCreditsStore/the blob.
+// This is correct only at a single Railway replica (per-process); if the service is
+// ever scaled out, this must move to Postgres like creditsStore (see F4 in AUDIT_membership.md).
+const attemptCache = new Map();
+const ATTEMPT_TTL_MS = 10 * 60 * 1000;
+function getCachedAttempt(id) {
+  if (!id) return null;
+  const hit = attemptCache.get(id);
+  if (!hit) return null;
+  if (Date.now() - hit.at > ATTEMPT_TTL_MS) { attemptCache.delete(id); return null; }
+  return hit;
+}
+function cacheAttempt(id, status, body) {
+  if (!id) return;
+  attemptCache.set(id, { at: Date.now(), status, body });
+  // opportunistic sweep so the map can't grow unbounded
+  if (attemptCache.size > 500) {
+    const cutoff = Date.now() - ATTEMPT_TTL_MS;
+    for (const [k, v] of attemptCache) if (v.at < cutoff) attemptCache.delete(k);
+  }
+}
 
 async function loadCreditsStore() {
   const empty = { balances: {}, fulfilled: {}, mealCounts: {} };
