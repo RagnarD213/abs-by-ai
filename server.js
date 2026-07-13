@@ -2067,6 +2067,25 @@ async function requireAuth(req, res, next) {
   }
 }
 
+// ── Admin gate ──
+// Allowlisted emails on the existing session auth. No new password/secret — an
+// admin logs in with their normal account credentials. If ADMIN_EMAILS is unset
+// or empty, every /api/admin/* route returns 503 and the feature is inert.
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || '')
+  .split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+
+// Runs requireAuth first, then enforces the allowlist. Must be applied to every
+// /api/admin/* route — hiding the UI is not access control.
+function requireAdmin(req, res, next) {
+  requireAuth(req, res, () => {
+    if (!ADMIN_EMAILS.length) return res.status(503).json({ error: 'Admin not configured' });
+    if (!ADMIN_EMAILS.includes(String(req.user.email || '').toLowerCase())) {
+      return res.status(403).json({ error: 'Not authorized' });
+    }
+    next();
+  });
+}
+
 app.post('/api/auth/signup', authLimiter, async (req, res) => {
   if (!db) return dbUnavailable(res);
   const email = String(req.body?.email || '').trim().toLowerCase();
@@ -2475,6 +2494,8 @@ async function optionalAuth(req, res, next) {
 function isActiveMembership(userRow) {
   if (!userRow) return false;
   const status = userRow.membership_status;
+  // Comp = permanent free beta account (admin-granted). No expiry, no Stripe.
+  if (status === 'comp') return true;
   if (status === 'active' || status === 'trialing') return true;
   // Canceled-but-paid-through: honor until the period actually ends.
   const end = userRow.membership_period_end;
@@ -2525,7 +2546,12 @@ app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res)
     if (!planDef) return res.status(400).json({ error: 'Invalid plan' });
 
     const row = await getUserRow(req.user.id);
-    if (isActiveMembership(row)) return res.status(400).json({ error: 'You already have an active membership.' });
+    // A beta (comp) tester may still choose to pay; the webhook then overwrites
+    // comp with a real subscription (paying wins). Comp rows have no
+    // stripe_subscription_id, so isFirstSubscription stays true → 7-day trial.
+    if (isActiveMembership(row) && row.membership_status !== 'comp') {
+      return res.status(400).json({ error: 'You already have an active membership.' });
+    }
 
     const dev = String(deviceId || row.device_id || '');
     const discountCents = creditDiscountCents(dev, plan);
@@ -2602,6 +2628,110 @@ app.post('/api/stripe/create-portal-session', requireAuth, async (req, res) => {
   } catch (err) {
     console.error('create-portal-session error:', err.message);
     res.status(500).json({ error: 'Could not open billing portal. Please try again.' });
+  }
+});
+
+// ============================================================
+// ADMIN — free beta accounts (see HANDOFF_beta_admin_panel.md)
+// A beta account is a normal user row with membership_status='comp',
+// membership_plan='beta', membership_period_end=NULL. Permanent by design.
+// Every route below is gated by authLimiter + requireAdmin.
+// ============================================================
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
+// Create or grant a beta account.
+app.post('/api/admin/beta-members', authLimiter, requireAdmin, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  const email = String(req.body?.email || '').trim().toLowerCase();
+  if (!EMAIL_RE.test(email) || email.length > 254) return res.status(400).json({ error: 'Invalid email' });
+  const suppliedPassword = String(req.body?.password || '');
+  if (suppliedPassword && suppliedPassword.length < 8) {
+    return res.status(400).json({ error: 'Password must be at least 8 characters' });
+  }
+  try {
+    const { rows: existing } = await db.query(
+      'SELECT id, membership_status FROM users WHERE email = $1', [email]
+    );
+    if (existing.length) {
+      const cur = existing[0].membership_status;
+      // Never overwrite a real paying subscription with a comp.
+      if (cur === 'active' || cur === 'trialing') {
+        return res.status(409).json({ error: 'That account has a paid membership; not overwriting.' });
+      }
+      // Also sever any prior Stripe linkage: syncSubscriptionState keys off
+      // stripe_subscription_id, so a leftover id from a past (canceled)
+      // subscription could let a trailing webhook overwrite this comp grant.
+      // A comp account should have no Stripe linkage, same as a fresh one.
+      await db.query(
+        `UPDATE users SET membership_status='comp', membership_plan='beta', membership_period_end=NULL,
+         stripe_subscription_id=NULL, stripe_customer_id=NULL WHERE email=$1`,
+        [email]
+      );
+      console.log(`Beta access granted to existing account: ${email}`);
+      return res.json({ created: false, email });
+    }
+
+    // New user — create like signup does, then set the comp fields.
+    let tempPassword = suppliedPassword;
+    if (!tempPassword) tempPassword = crypto.randomBytes(9).toString('base64url');
+    const hash = await bcrypt.hash(tempPassword, 10);
+    const deviceId = 'beta-' + crypto.randomBytes(6).toString('hex');
+    // ON CONFLICT guards the SELECT→INSERT race (a concurrent signup/create for
+    // the same email): a lost race returns nothing → 409, not a raw 500.
+    const { rows: inserted } = await db.query(
+      `INSERT INTO users (email, password_hash, device_id, membership_status, membership_plan, membership_period_end)
+       VALUES ($1, $2, $3, 'comp', 'beta', NULL)
+       ON CONFLICT (email) DO NOTHING RETURNING id`,
+      [email, hash, deviceId]
+    );
+    if (!inserted.length) {
+      return res.status(409).json({ error: 'An account with that email already exists.' });
+    }
+    // Deliberately NOT pushed to MailerLite — testers didn't opt in.
+    console.log(`Beta account created: ${email}`); // never log passwords
+    // Return the temp password ONCE only when we generated it.
+    const payload = { created: true, email };
+    if (!suppliedPassword) payload.tempPassword = tempPassword;
+    return res.json(payload);
+  } catch (e) {
+    console.error('admin create beta-member error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// List current beta accounts.
+app.get('/api/admin/beta-members', authLimiter, requireAdmin, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  try {
+    const { rows } = await db.query(
+      `SELECT email, created_at FROM users WHERE membership_status='comp' ORDER BY created_at DESC`
+    );
+    res.json({ members: rows });
+  } catch (e) {
+    console.error('admin list beta-members error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Revoke a beta account. The status guard means this can never cancel a real
+// subscription — it only matches rows that are currently comp.
+app.delete('/api/admin/beta-members/:email', authLimiter, requireAdmin, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  const email = String(req.params.email || '').trim().toLowerCase();
+  try {
+    const { rowCount } = await db.query(
+      `UPDATE users SET membership_status=NULL, membership_plan=NULL, membership_period_end=NULL
+       WHERE email=$1 AND membership_status='comp'`,
+      [email]
+    );
+    if (!rowCount) return res.status(404).json({ error: 'No beta account with that email.' });
+    console.log(`Beta access revoked: ${email}`);
+    res.json({ revoked: true, email });
+  } catch (e) {
+    console.error('admin revoke beta-member error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

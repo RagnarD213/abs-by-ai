@@ -2031,6 +2031,10 @@ html, body {
       <li>Program check-ins that adapt to your progress</li>
     </ul>
 
+    <div id="membershipBetaNote" style="display:none;margin:18px 0;padding:16px;border-radius:12px;background:var(--acc-soft);border:1px solid var(--acc-line);text-align:center;font-weight:600">
+      You're a beta tester — full access, on the house. Nothing to buy or manage.
+    </div>
+
     <div class="plan-cards">
       <button class="plan-card" data-plan="annual" id="planAnnual">
         <span>
@@ -3357,8 +3361,20 @@ function renderHubMembership() {
   const becomeMemberBtn = $('hubBecomeMemBtn');
   const memberFaq = $('hubMemberFaq');
 
+  if (memberState.status === 'comp') {
+    // Beta tester: full access, no subscription to renew or manage.
+    $('hubMembershipPlan').textContent = 'Beta tester — full access';
+    $('hubMembershipDate').textContent = 'Complimentary access, no billing';
+    $('hubMembershipWarning').style.display = 'none';
+    memberCard.style.display = '';
+    $('hubMembershipManageBtn').style.display = 'none'; // no Stripe portal for comp
+    becomeMemberBtn.style.display = 'none';
+    if (memberFaq) memberFaq.style.display = '';
+    return;
+  }
   if (memberState.active && memberState.plan && memberState.periodEnd) {
     // Show membership card
+    $('hubMembershipManageBtn').style.display = ''; // reset in case a comp state hid it
     const planLabel = memberState.plan.charAt(0).toUpperCase() + memberState.plan.slice(1) + ' Membership';
     $('hubMembershipPlan').textContent = planLabel;
 
@@ -4392,6 +4408,17 @@ function showMembershipScreen(returnTo, opts) {
     const altErr = $('membershipCreditsAltError');
     if (altErr) altErr.style.display = 'none';
   }
+  // Beta (comp) testers have full access with no subscription — show a simple
+  // note instead of the plan cards / subscribe CTA / renewal controls.
+  const isComp = memberState.status === 'comp';
+  const betaNote = $('membershipBetaNote');
+  if (betaNote) betaNote.style.display = isComp ? '' : 'none';
+  $('membershipSubscribeBtn').style.display = isComp ? 'none' : '';
+  document.querySelector('.plan-cards').style.display = isComp ? 'none' : '';
+  const guarantee = document.querySelector('#membershipSection .guarantee-note');
+  if (guarantee) guarantee.style.display = isComp ? 'none' : '';
+  if (isComp && alt) alt.style.display = 'none';
+
   document.querySelectorAll('.plan-card').forEach(c => c.classList.toggle('selected', c.dataset.plan === selectedPlan));
   const note = $('creditConvertNote');
   if (!memberState.active && memberState.discountCents > 0) {
