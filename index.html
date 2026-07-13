@@ -3167,7 +3167,20 @@ const AUTH_TOKEN_KEY = 'absbyai_session_token';
 const AUTH_EMAIL_KEY = 'absbyai_account_email';
 const LAST_BEFORE_KEY = 'absbyai_last_before';
 const LAST_AFTER_KEY = 'absbyai_last_after';
+// The cached before/after pair is browser-global, so we tag it with the account
+// it belongs to ('anon' when generated logged-out). This stops one account's
+// images from showing up on — or being uploaded to — a different account that
+// later logs in on the same browser.
+const LAST_OWNER_KEY = 'absbyai_last_owner';
 const auth = { token: localStorage.getItem(AUTH_TOKEN_KEY) || null, email: localStorage.getItem(AUTH_EMAIL_KEY) || '', mode: 'login' };
+
+// Forget the browser-cached transformation pair (e.g. on logout, or when it
+// belongs to a different account than the one now logging in).
+function clearLocalTransformation() {
+  localStorage.removeItem(LAST_BEFORE_KEY);
+  localStorage.removeItem(LAST_AFTER_KEY);
+  localStorage.removeItem(LAST_OWNER_KEY);
+}
 
 function isLoggedIn() { return !!auth.token; }
 
@@ -3205,6 +3218,9 @@ function clearLoggedIn() {
   auth.email = '';
   localStorage.removeItem(AUTH_TOKEN_KEY);
   localStorage.removeItem(AUTH_EMAIL_KEY);
+  // Drop the cached transformation so the next account to log in on this browser
+  // starts fresh and can't inherit the previous account's images.
+  clearLocalTransformation();
   updateAuthUi();
 }
 
@@ -3306,8 +3322,16 @@ async function handleAuthSubmit(e) {
     setLoggedIn(data);
     $('authPassword').value = '';
     await syncMealsFromServer();
-    // First save of the transformation if this browser has one
-    saveTransformationIfLoggedIn();
+    // Carry a browser-cached transformation onto this account ONLY if it was
+    // made anonymously in this session (or already belongs to this account).
+    // Anything owned by a different account is discarded — never shown, never
+    // uploaded — so a new/other account starts fresh with only its own images.
+    const cachedOwner = localStorage.getItem(LAST_OWNER_KEY);
+    if (cachedOwner === 'anon' || cachedOwner === auth.email) {
+      saveTransformationIfLoggedIn();
+    } else {
+      clearLocalTransformation();
+    }
     refreshMembership();
     // Flows like the trainer paywall set a continuation to resume after auth.
     if (window._afterAuth) {
@@ -3335,6 +3359,13 @@ function showHub() {
 }
 
 async function renderHubHero() {
+  // Any legit same-account cache is tagged with the account email by the time we
+  // reach the hub (login carry-over retags it). So drop anything NOT owned by the
+  // current account — foreign, legacy-untagged, or stale anon — before display,
+  // then fall back to this account's own server copy. Never show someone else's.
+  if (isLoggedIn() && localStorage.getItem(LAST_OWNER_KEY) !== auth.email) {
+    clearLocalTransformation();
+  }
   let before = localStorage.getItem(LAST_BEFORE_KEY);
   let after = localStorage.getItem(LAST_AFTER_KEY);
   if ((!before || !after) && isLoggedIn()) {
@@ -3344,6 +3375,7 @@ async function renderHubHero() {
       try {
         if (before) localStorage.setItem(LAST_BEFORE_KEY, before);
         if (after) localStorage.setItem(LAST_AFTER_KEY, after);
+        if (before || after) localStorage.setItem(LAST_OWNER_KEY, auth.email);
       } catch (e) {} // quota — server copy is enough
     } catch (e) {}
   }
@@ -3410,6 +3442,7 @@ function storeTransformationLocally() {
   try {
     localStorage.setItem(LAST_BEFORE_KEY, `data:${state.photoMime};base64,${state.photoData}`);
     localStorage.setItem(LAST_AFTER_KEY, state.lastAfterDataUrl);
+    localStorage.setItem(LAST_OWNER_KEY, auth.email || 'anon');
   } catch (e) {} // storage quota — non-fatal
 }
 
@@ -3420,6 +3453,9 @@ function saveTransformationIfLoggedIn(settings) {
   if (!before || !after) return;
   // Saves to the gallery AND mirrors to the legacy users columns; the server
   // dedupes, so the repeat fire on login/hub load never creates a second row.
+  // The cached pair now lives on this account — retag it so it's no longer
+  // treated as anonymous carry-over material for a future different login.
+  try { localStorage.setItem(LAST_OWNER_KEY, auth.email); } catch (e) {}
   authApi('/api/transformations', {
     method: 'POST',
     body: JSON.stringify({ before, after, settings: settings || {} }),
@@ -3573,6 +3609,7 @@ async function setTransformHero(item) {
   try {
     localStorage.setItem(LAST_BEFORE_KEY, item.before_image);
     localStorage.setItem(LAST_AFTER_KEY, item.after_image);
+    localStorage.setItem(LAST_OWNER_KEY, auth.email);
   } catch (e) {}
   transformState.items.forEach(t => { t.is_hero = (t.id === item.id); });
   renderTransformations();
@@ -3751,6 +3788,7 @@ async function deleteTransformation(item) {
         if (t.before && t.after) {
           localStorage.setItem(LAST_BEFORE_KEY, t.before);
           localStorage.setItem(LAST_AFTER_KEY, t.after);
+          localStorage.setItem(LAST_OWNER_KEY, auth.email);
         }
       } catch (e) {}
     }
