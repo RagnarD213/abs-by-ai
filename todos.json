@@ -60,6 +60,11 @@
       "text": "Record Romaisa clips",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Install auto sync on desktop and laptop from Claude code task",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
