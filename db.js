@@ -135,6 +135,15 @@ async function initDb() {
       UNIQUE (user_id, entry_date)
     );
     CREATE INDEX IF NOT EXISTS progress_entries_user_idx ON progress_entries (user_id, entry_date);
+    CREATE TABLE IF NOT EXISTS coach_briefs (
+      id          SERIAL PRIMARY KEY,
+      user_id     INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      brief_date  DATE NOT NULL,
+      fingerprint TEXT NOT NULL,
+      brief       JSONB NOT NULL,
+      created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+      UNIQUE (user_id, brief_date)
+    );
     CREATE TABLE IF NOT EXISTS password_reset_tokens (
       token_hash TEXT PRIMARY KEY,
       user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,

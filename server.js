@@ -4831,6 +4831,197 @@ async function getWeightContext(userId) {
   }
 }
 
+// ============================================================
+// DAILY COACH BRIEF — one card, one coach voice, every morning
+// ============================================================
+// Fuses today's sleep check-in, the next workout, meal-plan targets, and the
+// weight trend into one short morning briefing on the member hub. Facts are
+// deterministic (free for all logged-in users); the AI coach text is
+// members-only. Cached per user-day; regenerated only when the underlying
+// facts change (new sleep check-in, workout done, new weigh-in).
+
+const COACH_BRIEF_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['headline', 'sleep_note', 'workout_note', 'nutrition_note', 'weight_note', 'focus'],
+  properties: {
+    headline: { type: 'string', description: "One energetic opening line for today, max ~14 words, built on the single most salient fact. Address the user as 'you'." },
+    sleep_note: { type: 'string', description: 'One short sentence (max ~20 words) on last night and what it means for today. Empty string when there is no sleep data.' },
+    workout_note: { type: 'string', description: "One short sentence firing them up for today's SPECIFIC workout (use its focus). Empty string when there is no program or the workout is already done." },
+    nutrition_note: { type: 'string', description: "One short sentence on hitting today's calorie/protein targets, quoting the numbers. Empty string when there is no meal plan." },
+    weight_note: { type: 'string', description: 'One short sentence interpreting the TREND weight (never a daily reading). Empty string when there is no weight data.' },
+    focus: { type: 'string', description: 'THE one thing to nail today, chosen from the facts — one punchy sentence.' },
+  },
+};
+
+const COACH_BRIEF_SYSTEM_PROMPT = `You are the Abs by AI head coach writing the user's DAILY MORNING BRIEF — the same warm, direct, evidence-grounded go-hard voice as the AI Trainer and Sleep Coach. One coach, one morning message.
+
+Iron rules:
+- Use ONLY the facts provided. Never invent data, numbers, or history. Quote numbers exactly as given.
+- Bad sleep NEVER shrinks the workout: the rule is a longer warm-up and extra form focus — same volume, same intensity. Great sleep = green light to push.
+- Weight: interpret the 7-day TREND only, never a single daily reading. A falling trend means the plan is working — say so and never suggest eating less.
+- NEVER recommend under-eating, punishing cardio, or extra weigh-ins.
+- If the workout is already done today, celebrate it in the headline or focus instead of prescribing it again.
+- Each note is ONE short sentence. A section with no data gets an empty string — never apologize for missing data or tell them to go log things in more than one gentle nudge.
+- focus: pick the single highest-leverage action for TODAY (usually the workout; protein if nutrition is the weak spot; the check-in if the block is complete).
+Output strict JSON matching the provided schema.`;
+
+// Server-side twin of the client's dayIsComplete(): first day whose main +
+// abs-finisher sets aren't all checked off. progress = { done, swaps, dates }.
+function firstIncompleteDay(program, progress) {
+  const done = (progress && progress.done) || {};
+  for (const week of program.weeks || []) {
+    for (const day of week.days || []) {
+      const complete = [['m', day.main], ['a', day.abs_finisher]].every(([sec, list]) =>
+        (list || []).every((ex, i) => {
+          const sets = ex.sets || 1;
+          for (let s = 0; s < sets; s++) {
+            if (!done[`w${week.week}d${day.day}${sec}${i}s${s}`]) return false;
+          }
+          return true;
+        })
+      );
+      if (!complete) {
+        return {
+          week: week.week, day: day.day, focus: day.focus || '', theme: week.theme || '',
+          exercises: (day.main || []).length + (day.abs_finisher || []).length,
+        };
+      }
+    }
+  }
+  return null; // whole block checked off
+}
+
+// Gather every fact the brief needs. Returns deterministic facts for the card,
+// prompt lines for the model, and a fingerprint so the cache regenerates only
+// when something actually changed.
+async function buildBriefFacts(userId, dayStr) {
+  const facts = { sleep: null, workout: null, nutrition: null, weight: null };
+  const lines = [`Today is ${dayStr}.`];
+
+  const sleep = await getTodaysSleep(userId);
+  if (sleep?.quality) {
+    facts.sleep = { quality: sleep.quality, headline: sleep.briefing?.headline || '' };
+    lines.push(`SLEEP: last night was "${sleep.quality}"${sleep.briefing?.headline ? ` — sleep coach said: "${sleep.briefing.headline}"` : ''}.`);
+  }
+
+  try {
+    const { rows } = await db.query(
+      'SELECT block_number, program, progress FROM programs WHERE user_id = $1 ORDER BY id DESC LIMIT 1', [userId]
+    );
+    if (rows.length) {
+      const { program, progress, block_number } = rows[0];
+      const doneToday = !!(progress?.dates && progress.dates[dayStr]);
+      const next = firstIncompleteDay(program, progress || {});
+      const phaseLabel = PHASES[program.phase]?.label || '';
+      facts.workout = {
+        blockNumber: block_number, doneToday, phaseLabel,
+        next: next ? { week: next.week, day: next.day, focus: next.focus, exercises: next.exercises } : null,
+        blockComplete: !next,
+      };
+      if (doneToday) lines.push(`WORKOUT: already DONE today. ✓`);
+      else if (next) lines.push(`WORKOUT: today is Block ${block_number}, Week ${next.week}, Day ${next.day} — "${next.focus}" (${next.exercises} exercises, ${phaseLabel}).`);
+      else lines.push(`WORKOUT: the 4-week block is fully checked off — their week-4 check-in builds the next block.`);
+    }
+  } catch (e) { console.warn('brief program fetch error:', e.message); }
+
+  try {
+    const { rows } = await db.query(
+      'SELECT plan FROM meal_plans WHERE user_id = $1 ORDER BY id DESC LIMIT 1', [userId]
+    );
+    const t = rows[0]?.plan?.targets;
+    if (t?.daily_calories) {
+      let logged = null;
+      try {
+        const { rows: meals } = await db.query('SELECT totals FROM meals WHERE user_id = $1 AND date = $2', [userId, dayStr]);
+        if (meals.length) {
+          logged = {
+            calories: Math.round(meals.reduce((s, m) => s + (Number(m.totals?.calories) || 0), 0)),
+            protein_g: Math.round(meals.reduce((s, m) => s + (Number(m.totals?.protein_g) || 0), 0)),
+            meals: meals.length,
+          };
+        }
+      } catch (e) {}
+      facts.nutrition = { calories: t.daily_calories, protein_g: t.protein_g, mode: t.calories_mode || 'ceiling', logged };
+      lines.push(`NUTRITION: daily target ${t.daily_calories} cal (${t.calories_mode === 'floor' ? 'eat AT LEAST — GLP-1 floor mode' : 'ceiling'}) and ${t.protein_g}g protein.${logged ? ` Logged so far today: ${logged.calories} cal, ${logged.protein_g}g protein across ${logged.meals} meal(s).` : ''}`);
+    }
+  } catch (e) { console.warn('brief mealplan fetch error:', e.message); }
+
+  try {
+    const s = await progressSummary(userId, null);
+    const last = s.entries[s.entries.length - 1];
+    if (last?.trend != null) {
+      facts.weight = { trend: last.trend, unit: s.unit, rate: s.rate, lastDate: last.date };
+      lines.push(`WEIGHT: 7-day trend is ${last.trend} ${s.unit}${s.rate != null ? `, moving ${s.rate > 0 ? '+' : ''}${s.rate} ${s.unit}/week` : ''} (last weigh-in ${last.date}).`);
+    }
+  } catch (e) {}
+
+  const fingerprint = crypto.createHash('sha1').update(JSON.stringify([
+    dayStr,
+    facts.sleep?.quality || null,
+    facts.workout ? [facts.workout.doneToday, facts.workout.next?.week, facts.workout.next?.day, facts.workout.blockNumber] : null,
+    facts.nutrition ? [facts.nutrition.calories, facts.nutrition.protein_g, facts.nutrition.logged?.meals || 0] : null,
+    facts.weight ? [facts.weight.trend, facts.weight.lastDate] : null,
+  ])).digest('hex');
+
+  return { facts, lines, fingerprint };
+}
+
+app.get('/api/coach/brief', aiLimiter, requireAuth, async (req, res) => {
+  try {
+    const dayStr = DATE_RE.test(String(req.query.date || '')) ? req.query.date : new Date().toISOString().slice(0, 10);
+    const userRow = await getUserRow(req.user.id);
+    const member = isActiveMembership(userRow);
+    const { facts, lines, fingerprint } = await buildBriefFacts(req.user.id, dayStr);
+    const hasAnyData = !!(facts.sleep || facts.workout || facts.nutrition || facts.weight);
+
+    // Non-members get the deterministic facts (the card still works) plus a
+    // lock; members without any data yet get facts only — nothing to coach on.
+    if (!member) return res.json({ locked: true, facts, brief: null });
+    if (!hasAnyData) return res.json({ locked: false, facts, brief: null });
+
+    let cached = null;
+    try {
+      const { rows } = await db.query(
+        'SELECT fingerprint, brief FROM coach_briefs WHERE user_id = $1 AND brief_date = $2',
+        [req.user.id, dayStr]
+      );
+      cached = rows[0] || null;
+    } catch (e) { console.warn('brief cache read error:', e.message); }
+    if (cached && cached.fingerprint === fingerprint) {
+      return res.json({ locked: false, facts, brief: cached.brief });
+    }
+
+    let brief;
+    try {
+      brief = await callTrainerModel(
+        COACH_BRIEF_SYSTEM_PROMPT,
+        [{ type: 'text', text: `Here are today's facts for this user:\n${lines.join('\n')}\n\nWrite today's brief.` }],
+        COACH_BRIEF_SCHEMA
+      );
+    } catch (e) {
+      // The card must never die on a model hiccup: fall back to yesterday's
+      // text (marked stale) or facts-only.
+      console.warn('coach brief model error:', e.message);
+      return res.json({ locked: false, facts, brief: cached ? cached.brief : null, stale: !!cached });
+    }
+    if (!brief?.headline) return res.json({ locked: false, facts, brief: cached ? cached.brief : null, stale: !!cached });
+
+    try {
+      await db.query(
+        `INSERT INTO coach_briefs (user_id, brief_date, fingerprint, brief) VALUES ($1, $2, $3, $4)
+         ON CONFLICT (user_id, brief_date) DO UPDATE SET fingerprint = $3, brief = $4, created_at = now()`,
+        [req.user.id, dayStr, fingerprint, JSON.stringify(brief)]
+      );
+    } catch (e) { console.warn('brief cache write error:', e.message); }
+
+    res.json({ locked: false, facts, brief });
+  } catch (e) {
+    console.error('coach brief error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Public client config (Stripe publishable key).
 app.get('/api/config', (req, res) => {
   res.json({ stripePublishableKey: STRIPE_PUBLISHABLE_KEY || '' });
