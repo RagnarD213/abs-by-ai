@@ -3493,6 +3493,13 @@ function paintBrief(data) {
   if (b?.focus) {
     html += `<div class="brief-focus">🎯 <b>Today's focus:</b> ${escapeHtml(b.focus)}</div>`;
   }
+  // Streak strip — same forgiving metric as the trainer (weeks with 5+ workouts).
+  try {
+    const s = streakStats();
+    if (s.anyEver) {
+      html += `<div style="margin-top:10px;font-size:12.5px;color:var(--mute)">🔥 <b style="color:var(--ink)">${s.streak} week${s.streak === 1 ? '' : 's'} strong</b>${s.thisWeek ? ` · ${s.thisWeek}/5 workouts this week` : ''}</div>`;
+    }
+  } catch (e) {}
   if (data.locked) {
     html += `<div class="brief-lock">🔒 Your coach reads all of this every morning and writes your game plan for the day.
       <button class="cta-btn" id="briefUnlockBtn" style="margin:10px 0 0;font-size:14px;padding:10px 16px;width:100%">Unlock your daily coach</button></div>`;
