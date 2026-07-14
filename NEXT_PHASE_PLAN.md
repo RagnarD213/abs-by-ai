@@ -94,10 +94,10 @@ No competitor has a literal AI-generated picture of the user's goal body.
 13. **Coach Chat.** A persistent conversational thread with full context (program, meals, sleep, weight) — "ask your coach anything." The membership anchor feature long-term; medium build.
 
 ### Recommended Phase 3 package (in order)
-1. Daily Coach Brief (A1) — the retention centerpiece
-2. Streaks + achievements (A2)
+1. ✅ Daily Coach Brief (A1) — SHIPPED July 14: `/api/coach/brief` + hub card (facts free, coach text members-only, cached per user-day). Verified on prod.
+2. Streaks + achievements (A2) — partially done: trainer streak + streak strip on the brief card (July 14); milestone badges/day-one achievement still open
 3. Distance-to-goal score (B4)
-4. Grocery list (D10) — quick win, ship alongside
+4. ✅ Grocery list (D10) — already existed in the Nutritionist recipe cards (checkboxes + copy button)
 5. Sunday Report email (A3) — once Resend is live
 6. Referral program (C7)
 
