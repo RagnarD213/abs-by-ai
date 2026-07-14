@@ -985,6 +985,16 @@ html, body {
 .member-benefits li::before { content: '✓'; color: #1e9e5a; font-weight: 800; }
 .credit-convert-note { font-size: 13px; font-weight: 700; color: #1e9e5a; background: rgba(30,158,90,0.08); border: 1px solid rgba(30,158,90,0.25); border-radius: 11px; padding: 10px 13px; margin-top: 12px; }
 .guarantee-note { font-size: 12px; color: var(--mute); text-align: center; margin-top: 12px; }
+
+/* ── In-app (iOS/Android) digital-purchase gating ──
+   Apple & Google require their own billing for digital goods, so inside the
+   native apps we hide credit-pack and membership purchase UI. Physical print
+   checkout (shipped Printify goods) is unaffected. Web/PWA users see everything
+   as normal. The .native-app class is set on <html> only inside the apps. */
+.native-app .app-hide-purchase { display: none !important; }
+.app-only-note { display: none; }
+.native-app .app-only-note { display: block; }
+.app-only-note.app-note-box { margin: 18px 0; padding: 16px; border-radius: 12px; background: var(--acc-soft); border: 1px solid var(--acc-line); text-align: center; font-weight: 600; }
 .locked-cta-card { border: 1.5px solid var(--acc); border-radius: 15px; padding: 17px 16px; margin: 16px 0; background: rgba(47,95,224,0.05); }
 .locked-cta-h { font-size: 16.5px; font-weight: 800; letter-spacing: -0.2px; margin-bottom: 5px; }
 .locked-cta-sub { font-size: 13px; color: var(--mute); line-height: 1.45; margin-bottom: 13px; }
@@ -1436,7 +1446,7 @@ html, body {
     <div id="paywallSection" style="display:none">
       <div class="paywall-headline">Your result is ready — unlock it</div>
       <div class="paywall-sub">Get more generations to see your future self in full.</div>
-      <div class="pack-cards">
+      <div class="pack-cards app-hide-purchase">
         <div class="pack-card" id="packStarter" data-pack="starter">
           <div class="pack-card-info">
             <div class="pack-card-name">Starter Pack</div>
@@ -1453,9 +1463,10 @@ html, body {
           <div class="pack-card-price">$14.99</div>
         </div>
       </div>
-      <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--mute)">
+      <div class="app-hide-purchase" style="text-align:center;margin-top:12px;font-size:13px;color:var(--mute)">
         …or <button type="button" id="paywallGoUnlimitedBtn" style="background:none;border:none;padding:0;font:inherit;font-weight:800;color:var(--acc);cursor:pointer;text-decoration:underline">go unlimited for $5.83/mo</button> — start your 7-day free trial
       </div>
+      <div class="app-only-note paywall-sub" style="margin-top:6px">You've used your free generations. More generations aren't available for purchase in the app.</div>
       <div id="creditsCheckoutError" style="display:none" class="error-toast"></div>
     </div>
 
@@ -1648,7 +1659,8 @@ html, body {
         <div class="hub-tile-sub" id="hubMembershipDate"></div>
         <div id="hubMembershipWarning" style="display:none;color:#b83a2a;font-size:12px;font-weight:600;margin-top:4px"></div>
       </div>
-      <button id="hubMembershipManageBtn" class="cta-btn" style="margin:0;font-size:14px;padding:10px 16px">Manage membership</button>
+      <button id="hubMembershipManageBtn" class="cta-btn app-hide-purchase" style="margin:0;font-size:14px;padding:10px 16px">Manage membership</button>
+      <div class="app-only-note hub-tile-sub">Manage your membership from the Abs by AI website.</div>
     </div>
 
     <!-- "Become a member" tile within tiles section -->
@@ -2073,7 +2085,11 @@ html, body {
       You're a beta tester — full access, on the house. Nothing to buy or manage.
     </div>
 
-    <div class="plan-cards">
+    <div id="membershipAppNote" style="display:none;margin:18px 0;padding:16px;border-radius:12px;background:var(--acc-soft);border:1px solid var(--acc-line);text-align:center;font-weight:600">
+      Memberships aren't available for purchase in the app. If you're already a member, sign in to unlock everything here.
+    </div>
+
+    <div class="plan-cards app-hide-purchase">
       <button class="plan-card" data-plan="annual" id="planAnnual">
         <span>
           <span class="plan-name">Annual<span class="plan-badge">BEST VALUE — $5.83/mo</span></span>
@@ -2090,13 +2106,13 @@ html, body {
       </button>
     </div>
 
-    <div id="creditConvertNote" class="credit-convert-note" style="display:none"></div>
+    <div id="creditConvertNote" class="credit-convert-note app-hide-purchase" style="display:none"></div>
     <div id="membershipError" class="error-toast" style="display:none;margin-top:12px"></div>
-    <button id="membershipSubscribeBtn" class="cta-btn" style="margin-top:14px">Start 7-day free trial</button>
-    <div class="guarantee-note">7 days free, then your plan price. Cancel anytime before it ends and you won't be charged.</div>
+    <button id="membershipSubscribeBtn" class="cta-btn app-hide-purchase" style="margin-top:14px">Start 7-day free trial</button>
+    <div class="guarantee-note app-hide-purchase">7 days free, then your plan price. Cancel anytime before it ends and you won't be charged.</div>
 
     <!-- Pay-as-you-go alternative (shown when the user hit a credit-gated wall, e.g. meal analyses) -->
-    <div id="membershipCreditsAlt" style="display:none;margin-top:22px">
+    <div id="membershipCreditsAlt" class="app-hide-purchase" style="display:none;margin-top:22px">
       <div class="hero-sub" style="margin-bottom:10px">Not ready for a membership? Credits work too — 1 credit per meal analysis or image generation.</div>
       <div class="pack-cards">
         <div class="pack-card" data-pack="starter">
@@ -2175,6 +2191,21 @@ const BACKEND_URL = window.location.hostname === 'localhost'
 // Fetched from backend on load — set STRIPE_PUBLISHABLE_KEY in Railway env vars
 let STRIPE_PUBLISHABLE_KEY = '';
 
+// ── Native app detection (iOS Capacitor + Android TWA) ──
+// Inside the iOS/Android apps we must not offer DIGITAL purchases (credits,
+// membership) — Apple/Google require their own in-app billing for those, so we
+// hide those CTAs in-app. Physical print checkout (shipped goods) stays.
+// iOS: Capacitor injects window.Capacitor. Android TWA: Chrome sets an
+// android-app:// referrer on launch — capture it once, since it clears on
+// later in-app navigations within the same session.
+if ((document.referrer || '').indexOf('android-app://com.absbyai.app') === 0) {
+  try { sessionStorage.setItem('absbyai_twa', '1'); } catch (e) {}
+}
+const IS_NATIVE_APP =
+  !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform())
+  || (function () { try { return sessionStorage.getItem('absbyai_twa') === '1'; } catch (e) { return false; } })();
+if (IS_NATIVE_APP) document.documentElement.classList.add('native-app');
+
 // ── Credits state ──
 const state_credits = { value: 3 }; // initialised from server on load
 
@@ -2231,6 +2262,7 @@ function unlockResult() {
 }
 
 async function handleCreditsCheckout(pack) {
+  if (IS_NATIVE_APP) return; // digital purchases are disabled in the native apps
   if (!STRIPE_PUBLISHABLE_KEY) {
     $('creditsCheckoutError').textContent = 'Checkout not yet configured — check back soon!';
     $('creditsCheckoutError').style.display = '';
@@ -4614,6 +4646,10 @@ function showMembershipScreen(returnTo, opts) {
   const isComp = memberState.status === 'comp';
   const betaNote = $('membershipBetaNote');
   if (betaNote) betaNote.style.display = isComp ? '' : 'none';
+  // In-app there's no purchase UI — show a neutral note for non-comp users so the
+  // screen still explains itself (comp users already get the beta note above).
+  const appNote = $('membershipAppNote');
+  if (appNote) appNote.style.display = (IS_NATIVE_APP && !isComp) ? '' : 'none';
   $('membershipSubscribeBtn').style.display = isComp ? 'none' : '';
   document.querySelector('.plan-cards').style.display = isComp ? 'none' : '';
   const guarantee = document.querySelector('#membershipSection .guarantee-note');
@@ -4634,6 +4670,7 @@ function showMembershipScreen(returnTo, opts) {
 }
 
 async function handleMembershipSubscribe() {
+  if (IS_NATIVE_APP) return; // digital purchases are disabled in the native apps
   if (!isLoggedIn()) {
     // Membership lives on the account — create one, then come right back.
     window._afterAuth = () => { refreshMembership().then(() => showMembershipScreen()); };
@@ -4695,6 +4732,7 @@ async function handleMembershipComplete(sessionId) {
 }
 
 async function handleManageMembership() {
+  if (IS_NATIVE_APP) return; // external billing portal is disabled in the native apps
   const btn = $('hubMembershipManageBtn');
   btn.disabled = true;
   try {
