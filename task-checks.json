@@ -10,7 +10,8 @@
     "health::Floss",
     "health::Inject Zepbound",
     "personal::Put away laundry.",
-    "personal::Put away dishes"
+    "personal::Put away dishes",
+    "personal::Make coffee"
   ],
   "log": {
     "health::Shower": [
