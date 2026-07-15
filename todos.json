@@ -163,6 +163,11 @@
       "text": "Put away dishes",
       "priority": "low",
       "recurring": false
+    },
+    {
+      "text": "Put away laundry.",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
