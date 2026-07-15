@@ -2967,16 +2967,16 @@ const PROGRAM_SCHEMA = {
   },
 };
 
-// Fast first call: the assessment + why-this-works + ONLY week 1. Weeks 2-4 are
-// generated afterward, one short call each (WEEK_SCHEMA).
-const ASSESS_WEEK1_SCHEMA = {
+// Fast first call: JUST the assessment + why-this-works (reads the photos,
+// picks the stage). Small + quick, so the endpoint returns almost immediately;
+// the deterministic weeks it seeds are then upgraded to AI in the background.
+const ASSESSMENT_ONLY_SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['why_this_works', 'assessment', 'week'],
+  required: ['why_this_works', 'assessment'],
   properties: {
     why_this_works: { type: 'string', description: "Personalized paragraph referencing the user's photos (starting point → goal), health goals, and injuries — why THIS program works for THEM." },
     assessment: PROGRAM_ASSESSMENT,
-    week: PROGRAM_WEEK_ITEM,
   },
 };
 
@@ -3148,16 +3148,12 @@ function sexTrackLine(sexTrack) {
       : 'SEX TRACK: unspecified — infer from the before photo; keep total-body balance.';
 }
 
-// Prompt for ONE week. isFirst also produces the assessment + why_this_works
-// (ASSESS_WEEK1_SCHEMA); later weeks get the prior weeks so progression and the
-// no-consecutive-repeat rule hold across week boundaries (WEEK_SCHEMA).
-function buildWeekUserContent(intake, opts) {
-  const { stage, sexTrack, equipmentTrack, equip, weekNumber, priorWeeks = [], photos, isFirst, extraLines = [] } = opts;
-  const st = STAGES[clampStage(stage)];
-  const allowed = exercisesForEquipment(equip);
-  const list = allowed.map((e) => `${e.id} | ${e.name} | ${e.cat} | ${e.muscles} | ${e.equip}`).join('\n');
+// Assessment-only prompt: read the photos, pick the stage, write the reveal +
+// why-this-works. No workouts — this is the small, fast call the endpoints block
+// on (the deterministic weeks are built from the stage it returns).
+function buildAssessmentContent(intake, { photos, pinnedStage, cap, extraLines = [] }) {
   const content = [];
-  if (isFirst && photos) {
+  if (photos) {
     const { beforeBase64, beforeMime, afterBase64, afterMime } = photos;
     if (beforeBase64 && beforeMime) {
       content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
@@ -3168,41 +3164,56 @@ function buildWeekUserContent(intake, opts) {
       content.push({ type: 'text', text: 'AFTER photo — the AI-generated image of their goal physique. The training goal is the gap between the before photo and this one.' });
     }
   }
+  const stageLine = pinnedStage
+    ? `The stage is PINNED to ${pinnedStage} (${STAGES[clampStage(pinnedStage)].label}) — set assessment.starting_stage to ${pinnedStage}.`
+    : `ASSESS the starting stage: set assessment.starting_stage in the range 1–${cap} (stated experience caps it; the BEFORE photo can only pull it LOWER — obese / severely deconditioned / elderly / a reported severe injury → Stage 1).`;
+  content.push({
+    type: 'text',
+    text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\n${stageLine}\n` +
+      `Write assessment (starting_point, goal_summary, assigned_level, starting_stage) and why_this_works (3-5 warm, direct sentences, address them as "you", weaving in their photos when provided, health goals, and injuries). Do NOT write any workouts.\n` +
+      extraLines.join('\n'),
+  });
+  return content;
+}
+
+async function generateAssessment(intake, opts) {
+  const content = buildAssessmentContent(intake, opts);
+  return callTrainerModel(TRAINER_SYSTEM_PROMPT, content, ASSESSMENT_ONLY_SCHEMA, { maxTokens: 1200, attempts: 2, perAttemptMs: 35000 });
+}
+
+// Prompt for ONE week at a pinned stage. Later weeks get the prior weeks so
+// progression and the no-consecutive-repeat rule hold across boundaries.
+function buildWeekUserContent(intake, opts) {
+  const { stage, sexTrack, equipmentTrack, equip, weekNumber, priorWeeks = [], extraLines = [] } = opts;
+  const st = STAGES[clampStage(stage)];
+  const allowed = exercisesForEquipment(equip);
+  const list = allowed.map((e) => `${e.id} | ${e.name} | ${e.cat} | ${e.muscles} | ${e.equip}`).join('\n');
   const equipLine = stage >= 4
     ? `EQUIPMENT TRACK: ${equipmentTrack === 'minimal' ? 'MINIMAL (build from the minimal-kit moves in the whitelist)' : 'FULL (full equipment)'}.`
     : 'EQUIPMENT: home stage — the whitelist is already filtered to what they have.';
   const priorSummary = priorWeeks.length
     ? `Prior weeks already built (exercise ids per day). Do NOT open week ${weekNumber} with the same main move that closed the previous week, keep alternating within each bucket, and progress load/volume slightly:\n${JSON.stringify(priorWeeks.map((w) => ({ week: w.week, days: (w.days || []).map((d) => ({ day: d.day, main: (d.main || []).map((m) => m.exercise_id) })) })))}`
     : '';
-  // Block-1 assess mode: the model picks the starting stage (1..cap) from the
-  // photos, then formats week 1 for it. Otherwise the stage is pinned.
-  const stageLine = opts.assess
-    ? `ASSESS the starting stage: set assessment.starting_stage in the range 1–${opts.cap} (stated experience caps it; the BEFORE photo can only pull it LOWER — obese/severely deconditioned/elderly/severe injury → Stage 1). Then format WEEK 1 for that stage: Stages 1–3 are TIMED home circuits (reps = work interval like "30 sec", no cardio block); Stages 4+ are SETS × REPS (the app adds the cardio block); isolation & functional only at 5–7; barbell/safety-bar squats only at 6–7. If you pick a home stage, use only bodyweight/minimal-kit moves.`
-    : `STAGE ${stage} — ${st.label}. Load method: ${st.mode === 'timed' ? 'TIMED circuit (reps = work interval like "30 sec", rest_sec = rest interval)' : 'SETS × REPS'}. ` +
-      `${st.functional ? 'Functional moves UNLOCKED.' : 'NO functional moves.'} ${stage >= 5 ? 'Isolation moves ALLOWED.' : 'COMPOUND-ONLY (no isolation).'} ` +
-      `${st.cardioMin ? `The app renders the ${st.cardioMin}-min cardio block itself — do not include it.` : 'No cardio block at this home stage.'}`;
-  content.push({
+  const stageLine = `STAGE ${stage} — ${st.label}. Load method: ${st.mode === 'timed' ? 'TIMED circuit (reps = work interval like "30 sec", rest_sec = rest interval)' : 'SETS × REPS'}. ` +
+    `${st.functional ? 'Functional moves UNLOCKED.' : 'NO functional moves.'} ${stage >= 5 ? 'Isolation moves ALLOWED.' : 'COMPOUND-ONLY (no isolation).'} ` +
+    `${st.cardioMin ? `The app renders the ${st.cardioMin}-min cardio block itself — do not include it.` : 'No cardio block at this home stage.'}`;
+  return [{
     type: 'text',
     text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\n` +
       `${stageLine}\n${sexTrackLine(sexTrack)}\n${equipLine}\n` +
-      (isFirst
-        ? `Generate assessment + why_this_works + ONLY WEEK 1: object "week" with "week":1, theme "${WEEK_THEMES[1]}", and 7 days. Every day is total-body and ends with an abs finisher.`
-        : `Generate ONLY WEEK ${weekNumber}: object "week" with "week":${weekNumber}, theme "${WEEK_THEMES[weekNumber] || 'Build'}", and 7 days, progressing from the prior weeks below. Every day is total-body and ends with an abs finisher.`) + '\n' +
+      `Generate ONLY WEEK ${weekNumber}: object "week" with "week":${weekNumber}, theme "${WEEK_THEMES[weekNumber] || 'Build'}", and 7 days${weekNumber > 1 ? ', progressing from the prior weeks below' : ''}. Every day is total-body and ends with an abs finisher.\n` +
       (priorSummary ? priorSummary + '\n' : '') +
       extraLines.join('\n') + (extraLines.length ? '\n' : '') +
       `\nExercise whitelist (id | name | category | muscles | tier) — use ONLY these ids:\n${list}`,
-  });
-  return content;
+  }];
 }
 
-// Generate one week via the model (short, retried call). Returns the parsed
-// object: { why_this_works, assessment, week } for week 1, else { week }.
+// Generate ONE week via the model (short, retried call) → { week }.
 async function generateOneWeek(intake, opts) {
-  const schema = opts.isFirst ? ASSESS_WEEK1_SCHEMA : WEEK_SCHEMA;
   const content = buildWeekUserContent(intake, opts);
-  // One week is short (~50s) — bound each call so a stalled request falls back
-  // to the deterministic week quickly instead of holding the client for minutes.
-  return callTrainerModel(TRAINER_SYSTEM_PROMPT, content, schema, { maxTokens: 7000, attempts: 2, perAttemptMs: 90000 });
+  // One week is short — bound each call so a stalled request falls back to the
+  // deterministic week quickly instead of holding on for minutes.
+  return callTrainerModel(TRAINER_SYSTEM_PROMPT, content, WEEK_SCHEMA, { maxTokens: 6000, attempts: 2, perAttemptMs: 90000 });
 }
 
 // ── Deterministic (no-AI) builder — the never-fail backbone ──
@@ -3315,40 +3326,29 @@ function detWhy(intake, stage) {
   return `This is your Stage ${clampStage(stage)} plan: total-body training every day, finishing with abs — the Abs By AI way. Volume stays sustainable so you can show up seven days a week, and it climbs as you do.${goals} Log your workouts and it keeps adapting to you.`;
 }
 
-// Build the whole initial program: AI week 1 (with the assessment) + three
-// deterministic weeks that the client upgrades to AI later. If week-1 AI fails,
-// week 1 is deterministic too — the user is NEVER left without a plan.
-async function buildInitialProgram({ intake, photos, pinnedStage = null, sexTrack, prevTrack = null, prevSummary = null }) {
-  const assess = !pinnedStage;
+// Build the whole initial program. Only a small, fast ASSESSMENT call blocks the
+// endpoint (reads the photos, picks the stage); all four weeks are seeded from
+// the deterministic builder and returned instantly, then upgraded to AI in the
+// background by the client. A total model outage still yields a full valid plan.
+async function buildInitialProgram({ intake, photos, pinnedStage = null, sexTrack, prevTrack = null, prevSummary = null, skipAssessment = false }) {
   const cap = Math.min(MAX_START_STAGE, EXPERIENCE_START_STAGE[intake.experience] || 3);
-  const firstEquip = assess ? intake.equipment : equipForStage(pinnedStage, trackForStage(pinnedStage, intake, prevTrack));
-  let w1 = null;
-  try {
-    w1 = await generateOneWeek(intake, {
-      stage: pinnedStage || cap, sexTrack, equipmentTrack: trackForStage(pinnedStage || cap, intake, prevTrack),
-      equip: firstEquip, weekNumber: 1, isFirst: true, photos, assess, cap,
-      extraLines: prevSummary ? [prevSummary] : [],
-    });
-  } catch (e) { console.warn('week1 generation failed — deterministic week 1:', e.message); }
+  let a = null;
+  if (!skipAssessment) {
+    try {
+      a = await generateAssessment(intake, { photos, pinnedStage, cap, extraLines: prevSummary ? [prevSummary] : [] });
+    } catch (e) { console.warn('assessment failed — deterministic assessment:', e.message); }
+  }
 
-  const stage = assess ? Math.min(clampStage(w1?.assessment?.starting_stage ?? cap), cap) : clampStage(pinnedStage);
+  const stage = pinnedStage ? clampStage(pinnedStage) : Math.min(clampStage(a?.assessment?.starting_stage ?? cap), cap);
   const track = trackForStage(stage, intake, prevTrack);
   const equip = equipForStage(stage, track);
   const ctx = { stage, sexTrack: sexTrack || intake.sex_track || null, equip };
 
-  let week1, why, assessment;
-  if (w1?.week?.days?.length) {
-    week1 = sanitizeWeek({ ...w1.week, week: 1, ai: true, source: 'ai' }, equip);
-    why = w1.why_this_works || detWhy(intake, stage);
-    assessment = w1.assessment || detAssessment(intake, stage);
-    assessment.starting_stage = stage;
-  } else {
-    week1 = buildDeterministicWeek(ctx, 1);
-    why = detWhy(intake, stage);
-    assessment = detAssessment(intake, stage);
-  }
-  const weeks = [week1];
-  for (let n = 2; n <= 4; n++) weeks.push(buildDeterministicWeek(ctx, n));
+  const assessment = a?.assessment || detAssessment(intake, stage);
+  assessment.starting_stage = stage;
+  const why = a?.why_this_works || detWhy(intake, stage);
+  const weeks = [];
+  for (let n = 1; n <= 4; n++) weeks.push(buildDeterministicWeek(ctx, n));
   return { why_this_works: why, assessment, stage, equipment_track: track, sex_track: ctx.sexTrack, weeks };
 }
 
@@ -3737,8 +3737,7 @@ app.post('/api/program/equipment-track', aiLimiter, requireAuth, async (req, res
     // Same person, same stage — only the equipment changes. Rebuild week 1 (AI)
     // + deterministic weeks 2-4 on the new track; keep the existing assessment.
     const program = await buildInitialProgram({
-      intake, photos: null, pinnedStage: stage, sexTrack, prevTrack: track,
-      prevSummary: `Rebuild on the ${track === 'full' ? 'FULL-equipment' : 'MINIMAL-kit'} track — same stage and sex emphasis, only the equipment changes.`,
+      intake, photos: null, pinnedStage: stage, sexTrack, prevTrack: track, skipAssessment: true,
     });
     if (prev.program?.assessment) program.assessment = prev.program.assessment;
     if (prev.program?.why_this_works) program.why_this_works = prev.program.why_this_works;
