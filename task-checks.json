@@ -12,7 +12,8 @@
     "personal::Put away dishes",
     "personal::Make coffee",
     "personal::Buy arencia face wash",
-    "personal::Respond to hoes"
+    "personal::Respond to hoes",
+    "money::Reschedule next week's shoots"
   ],
   "log": {
     "health::Shower": [
