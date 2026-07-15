@@ -9,7 +9,8 @@
     "health::Brush teeth",
     "health::Floss",
     "health::Inject Zepbound",
-    "personal::Put away laundry."
+    "personal::Put away laundry.",
+    "personal::Put away dishes"
   ],
   "log": {
     "health::Shower": [
