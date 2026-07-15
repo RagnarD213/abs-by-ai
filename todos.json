@@ -143,6 +143,11 @@
       "text": "Buy arencia face wash",
       "priority": "low",
       "recurring": false
+    },
+    {
+      "text": "Fix shower handle",
+      "priority": "med",
+      "recurring": false
     }
   ]
 }
