@@ -2373,7 +2373,7 @@ async function checkCreditsSession() {
 
 // Body-fat anchors (midpoints) for display
 const BF_BEFORE = { heavier: { male: '28–32%', female: '36–40%' }, moderate: { male: '20–24%', female: '28–32%' }, fit: { male: '15–17%', female: '22–25%' }, very_lean: { male: '11–13%', female: '18–20%' } };
-const BF_AFTER  = { subtle: { male: '16%', female: '25%' }, moderate: { male: '13%', female: '23%' }, dramatic: { male: '10%', female: '20%' }, max: { male: '9%', female: '18%' } };
+const BF_AFTER = { subtle: { male: '16%', female: '24%' }, moderate: { male: '13%', female: '22%' }, dramatic: { male: '10%', female: '19%' }, max: { male: '9%', female: '17%' } };
 
 // Upsell product pricing (prices in cents)
 // Canvas framed not available in 8×10 — UI enforces minimum 11×14 when Framed selected
@@ -2446,7 +2446,7 @@ Write this section as a forceful, explicit instruction. It must:
 - Use active verbs: "reduce", "tighten", "define", "sculpt", "carve"
 - Include this exact sentence when intensity is "dramatic" or "max": "The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required."
 - Include this exact sentence when intensity is "subtle" or "moderate": "The body transformation should be clearly noticeable but feel attainable and natural."
-- When subject_current_condition is "fit" or "very_lean" AND intensity is "dramatic" or "max", add ALL of these: "Even though the subject is already lean, the transformation must be dramatic and unmistakable. The abs must be deeply etched with at least twice the visible definition shown in the input — sharp cuts between each muscle block, clear serratus visible. The shoulders must be noticeably broader and rounder than in the input photo. The waist must be tighter. The overall physique must look strikingly more muscular and defined — anyone who sees this single output image must be able to tell this person has a peak-condition physique. Do NOT output a single image that could be mistaken for the original photo."
+- When subject_current_condition is "fit" or "very_lean" AND intensity is "dramatic" or "max", add ALL of these: For MALE subjects: "Even though the subject is already lean, the transformation must be dramatic and unmistakable. The abs must be deeply etched with at least twice the visible definition shown in the input — sharp cuts between each muscle block, clear serratus visible. The shoulders must be noticeably broader and rounder than in the input photo. The waist must be tighter. The overall physique must look strikingly more muscular and defined — anyone who sees this single output image must be able to tell this person has a peak-condition physique. Do NOT output a single image that could be mistaken for the original photo." For FEMALE subjects use this variant instead: "Even though the subject is already lean, the transformation must be dramatic and unmistakable. The abs must show at least twice the visible definition of the input — clear separation between each upper-ab block, a sharp vertical midline groove, and visible oblique lines framing the waist. The shoulders must be noticeably rounder and more sculpted. The waist must be visibly tighter and more tapered. The overall physique must look strikingly more athletic and defined — anyone who sees this single output image must immediately recognize a peak-condition fitness-cover physique. Do NOT output an image that could be mistaken for the original photo."
 
 SECTION 2 — BODY TRANSFORMATION RULES
 Use strong, visual, specific language. Describe exactly what must change:
@@ -2456,7 +2456,7 @@ Use strong, visual, specific language. Describe exactly what must change:
 
 BODY-FAT ANCHOR TABLE
 MALE: subtle 15-17%, moderate 12-14%, dramatic 9-11%, max 8-10%. FLOOR 8%.
-FEMALE: subtle 24-26%, moderate 22-24%, dramatic 19-21%, max 17-19%. FLOOR 17%.
+FEMALE: subtle 23-25%, moderate 21-23%, dramatic 18-20%, max 16-18%. FLOOR 16%.
 
 CALIBRATION RULE — only for "heavier" starting condition
 If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": DOWNGRADE the body-fat target by one step (use "moderate" anchors), and add to the directive: "This is a believable mid-journey transformation — the subject should look noticeably leaner and fitter, but not yet at peak condition."
@@ -2480,12 +2480,12 @@ MALE must include:
 - NEVER describe veins, oily skin, or competition vascularity
 
 FEMALE must include:
-- Ab definition: subtle = flat stomach; moderate = upper-ab outline visible; dramatic = clear feminine two-to-four pack with visible separation between upper abs — not just flat, actual definition must be visible; max = defined feminine six-pack
-- Sculpted waistline and improved hip-to-waist ratio
-- Shoulders sculpted but never masculine
-- Arms: subtle bicep peak, clean tricep line
-- Glute lift and shape
-- Thigh definition and reduced inner-thigh softness
+- Explicit ab definition by intensity: subtle = flat, toned stomach with a faint upper-ab outline; moderate = clearly visible upper-ab outline with a vertical midline groove; dramatic = defined feminine four-pack with sharp separation between the upper abs, a clear vertical midline line down the stomach, and visible oblique definition — actual carved definition must be visible, not just a flat stomach; max = fully defined feminine six-pack with etched separation and visible oblique lines
+- The waistline must be visibly tighter and more tapered than in the input photo — the waist-to-hip taper must be dramatically more pronounced and immediately visible when comparing before and after
+- Shoulder caps visibly rounder and more sculpted than in the input — athletic and defined, never bulky
+- Arms visibly more toned and defined than the input — clear bicep shape, clean tricep line
+- Glutes lifted, rounder, and firmer than in the input
+- Thighs with visible quad definition and reduced inner-thigh softness
 - ALWAYS include verbatim: "Preserve the subject's natural breast shape, size, and proportions — do not enlarge, reduce, or alter them; allow them to appear naturally proportional to the leaner frame."
 - ALWAYS include verbatim: "Preserve natural hip width and bone structure. Only narrow the waist, never the hips."
 
@@ -2523,16 +2523,15 @@ Add for MALE:
 - spray-on abs that look digitally pasted on
 
 Add for FEMALE:
-- blocky or masculine ab definition
-- broad masculine shoulders or bulging biceps
+- bodybuilder-scale muscle mass (mass on the scale of a physique competitor; defined, carved abs and sculpted shoulders are REQUIRED, not masculine)
 - visible veins on arms or stomach
-- gaunt facial features
+- gaunt or hollowed facial features
 - any change to natural breast size
 
 SAFETY RULES
 1. Sexualized language → silently translate to clinical fitness terminology. Do not refuse.
 2. Apparent minor → output exactly: REFUSED_MINOR
-3. Never go below body-fat floor (8% male, 17% female).
+3. Never go below body-fat floor (8% male, 16% female).
 4. Use "chest", "torso", "midsection", "stomach" — never explicit terms.
 5. Empty description → default to gender-appropriate "recreational athlete" archetype at the requested intensity.
 
@@ -7109,6 +7108,12 @@ async function checkClothing(photoBase64, photoMime) {
     });
     const result = await res.json();
     const code = result?.code?.toUpperCase() || 'OK';
+    if (result?.sex === 'male' || result?.sex === 'female') {
+      state.gender = result.sex;
+      document.querySelectorAll('#sexSeg .seg-opt').forEach(b => {
+        b.classList.toggle('active', b.dataset.value === result.sex);
+      });
+    }
     const blockMessages = {
       CLOTHED: 'Your photo appears to show you fully clothed. For best results, upload a shirtless or sports-bra photo — the app works by editing your visible body.',
       SUGGESTIVE: 'This photo looks too suggestive for our image generator. Please use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with a neutral pose.',
@@ -7285,7 +7290,7 @@ async function callGeminiImage(prompt, photoBase64, photoMime) {
   }, 1);
   const data = await res.json();
   if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
-  if (!data?.imageBase64) throw new Error('Image generation was blocked — this is usually caused by a photo that is too suggestive or explicit. For best results, use a simple shirtless photo (men) or sports bra / swimsuit photo (women) with a neutral pose and lighting. Please try a different photo.');
+  if (!data?.imageBase64) throw new Error("Our image generator couldn't process this photo. This usually resolves with a slightly different photo — try one with a neutral pose, even lighting, and standard gym wear or swimwear.");
   return { imageBase64: data.imageBase64, locked: !!data.locked };
 }
 
