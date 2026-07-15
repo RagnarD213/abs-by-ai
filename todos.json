@@ -153,6 +153,11 @@
       "text": "Fix shower handle",
       "priority": "med",
       "recurring": false
+    },
+    {
+      "text": "Make coffee",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
