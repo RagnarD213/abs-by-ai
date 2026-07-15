@@ -138,6 +138,11 @@
       "text": "Respond to hoes",
       "priority": "low",
       "recurring": false
+    },
+    {
+      "text": "Buy arencia face wash",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
