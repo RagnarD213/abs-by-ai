@@ -227,6 +227,37 @@
       P([90,58],[84,62],[52,64],[46,84],[46,104],[26,62],[8,60],[84,84],[84,104],[100,44],[114,40]),
       P([90,58],[84,62],[52,64],[46,84],[46,104],[28,66],[12,66],[84,84],[84,104],[98,50],[110,48]),
     ],
+    // ── v3 additions (hand-drawn) ──
+    // Goblet squat — bell held at the chest (arms bent in), squat down and up.
+    gobletsquat: [
+      P([60,18],[60,30],[60,66],[58,88],[56,110],[62,88],[64,110],[50,44],[54,34],[70,44],[66,34]),
+      P([54,42],[53,54],[46,80],[64,90],[56,110],[68,92],[66,110],[44,64],[50,54],[62,64],[56,54]),
+    ],
+    // Back squat (barbell / safety-bar) — bar across the shoulders, arms up gripping it.
+    backsquat: [
+      P([60,20],[60,32],[60,66],[58,88],[56,110],[62,88],[64,110],[46,34],[40,26],[74,34],[80,26]),
+      P([56,40],[55,52],[47,80],[66,90],[56,110],[70,92],[66,110],[42,54],[36,46],[70,54],[76,46]),
+    ],
+    // KB deadlift — hinge down to the bell between the feet, then stand tall.
+    kbdeadlift: [
+      P([86,52],[82,60],[54,72],[52,90],[50,110],[62,90],[64,110],[80,84],[80,104],[86,84],[86,104]),
+      P([60,20],[60,30],[60,66],[58,88],[56,110],[62,88],[64,110],[58,46],[58,64],[64,46],[64,64]),
+    ],
+    // Standing glute kickback / abduction — plant one leg, drive the other back & up.
+    kickbackglute: [
+      P([50,30],[52,40],[58,68],[58,90],[56,110],[62,86],[64,104],[46,50],[40,58],[52,52],[46,60]),
+      P([50,30],[52,40],[58,68],[58,90],[56,110],[74,72],[92,64],[46,50],[40,58],[52,52],[46,60]),
+    ],
+    // Sled push — deep forward lean, arms extended low, legs driving.
+    sledpush: [
+      P([30,50],[38,56],[62,74],[70,92],[62,110],[84,90],[100,106],[28,62],[14,66],[30,64],[16,70]),
+      P([28,52],[36,58],[60,76],[64,94],[54,110],[86,84],[104,98],[26,64],[12,68],[28,66],[14,72]),
+    ],
+    // Battle ropes — athletic quarter-squat, arms making alternating waves.
+    battleropes: [
+      P([60,30],[60,42],[58,72],[50,90],[46,110],[68,90],[72,110],[50,50],[46,34],[68,54],[72,70]),
+      P([60,30],[60,42],[58,72],[50,90],[46,110],[68,90],[72,110],[50,54],[46,70],[68,50],[72,34]),
+    ],
   };
 
   // exercise id → pose set (every id in exercises.js must appear here)
@@ -261,13 +292,13 @@
     'machine-rear-delt-fly': 'reardelt',
     'cable-tricep-pushdown': 'pushdown', 'ez-bar-curl': 'curl',
     'cable-crunch': 'crunch', 'hanging-knee-raise': 'hangknee', 'ab-wheel-rollout': 'rollout',
-    // ── v3 additions (reuse existing pose sets) ──
+    // ── v3 additions ──
     'towel-row': 'row', 'chair-squat': 'squat',
-    'kb-deadlift': 'swing', 'kb-swing': 'swing', 'kb-goblet-squat': 'squat',
+    'kb-deadlift': 'kbdeadlift', 'kb-swing': 'swing', 'kb-goblet-squat': 'gobletsquat',
     'kb-row': 'row', 'kb-press': 'ohp', 'deficit-pushup': 'pushup',
-    'safety-bar-squat': 'squat', 'bb-back-squat': 'squat',
-    'cable-glute-kickback': 'bridge', 'hip-abduction': 'bridge',
-    'sled-push': 'lunge', 'battle-ropes': 'jack',
+    'safety-bar-squat': 'backsquat', 'bb-back-squat': 'backsquat',
+    'cable-glute-kickback': 'kickbackglute', 'hip-abduction': 'kickbackglute',
+    'sled-push': 'sledpush', 'battle-ropes': 'battleropes',
   };
 
   const JOINTS = ['nk','hp']; // torso
