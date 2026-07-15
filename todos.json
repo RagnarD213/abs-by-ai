@@ -65,6 +65,11 @@
       "text": "Build iOS and Android apps",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Email Jeff to hire",
+      "priority": "med",
+      "recurring": false
     }
   ],
   "health": [
