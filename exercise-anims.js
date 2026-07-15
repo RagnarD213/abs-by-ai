@@ -261,6 +261,13 @@
     'machine-rear-delt-fly': 'reardelt',
     'cable-tricep-pushdown': 'pushdown', 'ez-bar-curl': 'curl',
     'cable-crunch': 'crunch', 'hanging-knee-raise': 'hangknee', 'ab-wheel-rollout': 'rollout',
+    // ── v3 additions (reuse existing pose sets) ──
+    'towel-row': 'row', 'chair-squat': 'squat',
+    'kb-deadlift': 'swing', 'kb-swing': 'swing', 'kb-goblet-squat': 'squat',
+    'kb-row': 'row', 'kb-press': 'ohp', 'deficit-pushup': 'pushup',
+    'safety-bar-squat': 'squat', 'bb-back-squat': 'squat',
+    'cable-glute-kickback': 'bridge', 'hip-abduction': 'bridge',
+    'sled-push': 'lunge', 'battle-ropes': 'jack',
   };
 
   const JOINTS = ['nk','hp']; // torso

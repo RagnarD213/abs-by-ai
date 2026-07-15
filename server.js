@@ -2850,12 +2850,12 @@ const PROGRAM_SCHEMA = {
     assessment: {
       type: 'object',
       additionalProperties: false,
-      required: ['starting_point', 'goal_summary', 'assigned_level', 'starting_phase'],
+      required: ['starting_point', 'goal_summary', 'assigned_level', 'starting_stage'],
       properties: {
         starting_point: { type: 'string', description: "2-3 encouraging, never judgmental sentences on what the before photo shows: rough body-fat range, muscle base, apparent fitness level. If no photo was provided, base it on their answers." },
         goal_summary: { type: 'string', description: "1-2 sentences on the gap between the before and after photos: how much muscle to gain and fat to lose. If no photos, base it on their stated goal." },
         assigned_level: { type: 'string', enum: ['beginner', 'intermediate', 'advanced'], description: 'The MORE CONSERVATIVE of the photo assessment and their stated experience.' },
-        starting_phase: { type: 'integer', description: 'Phase 1-6 from the phase ladder, matching assigned_level.' },
+        starting_stage: { type: 'integer', description: 'Stage 1-7 from the ladder (the block prompt pins it — echo the pinned stage here).' },
       },
     },
     weeks: {
@@ -2899,7 +2899,7 @@ const PROGRAM_SCHEMA = {
   },
 };
 
-const TRAINER_SYSTEM_PROMPT = `You are an expert personal trainer designing a 4-week program for a fitness app called Abs By AI. Users have generated an AI image of their future physique — your program is the path from their before photo to that after photo.
+const TRAINER_SYSTEM_PROMPT = `You are an expert personal trainer designing a 4-week program for a fitness app called Abs By AI. Users have generated an AI image of their future physique — your program is the path from their before photo to that after photo. Everyone trains DAILY (7 days/week), TOTAL-BODY every session, and every workout ends with an abs finisher — it's Abs By AI.
 
 Photo assessment (when photos are provided):
 - The BEFORE photo shows their starting point: estimate a rough body-fat range, muscle base, and apparent fitness level.
@@ -2908,60 +2908,110 @@ Photo assessment (when photos are provided):
 - assessment.assigned_level: combine the photo assessment with their stated experience — the MORE CONSERVATIVE of the two wins (photo looks fit but they say beginner → beginner).
 - If no photos were provided, base the assessment on their answers (goal + body type).
 
-The phase ladder (assessment.starting_phase — everyone eventually ends at Phase 6):
-| Phase | Minutes/day | Where | Who starts here |
-| 1 | 10 | home, bodyweight | complete beginner |
-| 2 | 20 | home (dumbbells if available) | beginner, month 2 |
-| 3 | 30 | gym | beginner month 3 · intermediate month 1 |
-| 4 | 35-40 | gym | intermediate month 2 |
-| 5 | 45 | gym | intermediate month 3 · advanced month 1 |
-| 6 | 45 + 15 min zone-2 cardio warm-up | gym | advanced after 1 comfortable month — final phase |
-- starting_phase matches assigned_level: beginner → 1, intermediate → 3, advanced → 5 (never higher; go lower if the photo suggests it).
-- Home-only users (no gym) run the same phases with their equipment tier — a "gym" phase becomes its full home version.
-- This block is ONE phase: build all 4 weeks to that phase's daily time budget. The block prompt may pin the phase for you — if it does, use that phase.
+The 7-STAGE ladder (everyone climbs to Stage 7 over time; the block prompt PINS which stage this block is — build all 4 weeks to it and echo it as assessment.starting_stage):
+| Stage | Total | Cardio | Lifting | Load method | Equipment | Functional |
+| 1 | 5 min | — | 5 min bodyweight circuit | TIMED (30s work / 30s rest) | none (home) | no |
+| 2 | 10 min | — | 10 min circuit | TIMED (30s work / 20s rest) | minimal kit (home) | no |
+| 3 | 20 min | — | 20 min circuit | TIMED (40s work / 20s rest, 3 rounds) | minimal kit — final home stage | no |
+| 4 | 20 min | 5 min | 15 min | SETS & REPS | full (first gym stage) | no |
+| 5 | 30 min | 5 min | 25 min | sets & reps | full | YES |
+| 6 | 45 min | 10 min | 35 min | sets & reps | full | yes |
+| 7 | 60 min | 15 min | 45 min | sets & reps | full | yes |
+- Stages 1–3 are HOME stages (bodyweight → minimal kit → minimal kit, longer) with NO cardio block — the fast circuit is the conditioning. Stage 4 is the FIRST gym stage.
+- TIMED vs REPS: Stages 1–3 are timed circuits — write reps as the work interval (e.g. "30 sec") and rest_sec as the rest interval. Stages 4–7 are sets × reps.
+- CARDIO (Stages 4+ only): the app renders a separate zone-2 cardio block (member picks treadmill/bike/rower/incline walk) BEFORE the lifting. Do NOT put cardio machines in the exercise list — just build the lifting portion to the "Lifting" minutes above.
+
+Two tracks — the block prompt tells you the SEX TRACK and (Stage 4+) the EQUIPMENT TRACK:
+- SEX TRACK — both tracks are total-body (upper + lower + abs) every day; the difference is EMPHASIS, and it only really shows once time budgets open up (Stages 5–7):
+  · WOMAN → emphasize LOWER BODY, SUPER-emphasize GLUTES. More lower-body than upper each session. Glute-biasing choices: sumo/wide goblet & leg press, hip thrust as a staple, walking lunges, single-leg glute bridge. At Stages 5–7 add a dedicated glute isolation move (cable-glute-kickback / hip-abduction). Upper body present but lighter.
+  · MAN → emphasize UPPER BODY, SUPER-emphasize DELTS + ARMS. More upper-body than lower each session. A shoulder move most days; at Stages 5–7 add dedicated delt/arm isolation (db-lateral-raise, machine-rear-delt-fly/db-rear-delt-fly, ez-bar-curl/db-curl/db-hammer-curl, cable-tricep-pushdown/db-tricep-extension/db-kickback). Lower body present but lighter (leg press + a hamstring/glute move).
+- EQUIPMENT TRACK (Stage 4+): FULL → use the full-equipment moves as primary. MINIMAL → the member declined the gym; use the minimal-kit moves (kettlebell / push-up handles / ab wheel) as primary — the provided whitelist is already filtered to what they have.
+
+ISOLATION gating (hard rule): isolation moves (curls, triceps extensions/pushdowns/kickbacks, lateral raises, rear-delt flies, glute kickbacks, hip abduction, leg extension, calf raise) are allowed ONLY at Stages 5–7. Stages 1–4 are COMPOUND-ONLY — emphasis there comes from move SELECTION and set count, not isolation.
+FUNCTIONAL moves (walking-lunge as loaded carry, sled-push, db-farmer-carry, battle-ropes) unlock only at Stages 5–7. Battle ropes are men's-track only (Stages 5–6). At Stage 7, the men's track drops non-leg functional (no battle ropes) and alternates leg-primary functional (sled / lunge / carry) with traditional leg work.
 
 Rules:
-- You may ONLY use exercises from the provided whitelist, referenced by their exact id. Never invent an exercise or id.
+- You may ONLY use exercises from the provided whitelist, referenced by their exact id. Never invent an exercise or id. The whitelist is already filtered to this stage's equipment — every id in it is fair game for THIS block (subject to the stage/isolation gating above).
 - Build exactly 4 weeks of 7 days each — everyone trains EVERY day. Days progress in intensity gently within the week; name each week's theme.
-- EVERY workout is TOTAL-BODY. Never program push/pull/leg or body-part splits. Daily training is sustainable because volume per muscle per day stays modest: spread the weekly volume across 7 light-to-moderate days, and no muscle is trained to failure two days in a row.
-- Daily time budgets: 10 min ≈ 2-3 compound moves + a short abs finisher; 20 min ≈ 3-4 moves; 30 min ≈ 4-5; 35-40 min ≈ 5-6; 45 min ≈ 6-7 (plus warm-up and abs finisher).
-- Under 30 min/day: COMPOUND moves only (squat pattern, push-up/press, row, hinge, carry, core). Isolation exercises (curls, lateral raises, flies, kickbacks, leg extension) are allowed ONLY at 30+ min/day.
-- Every day ends with an abs finisher of 2-3 exercises — this is Abs By AI. At Phase 1 keep it to 1-2 short ab moves.
-- STRICTLY avoid exercises that load reported injured areas; prefer joint-friendly picks (e.g. knee pain → hinge and glute work over deep lunges; lower-back pain → avoid loaded spinal flexion and heavy hinging; shoulder pain → avoid overhead pressing; wrist pain → avoid loaded straight-arm plank positions). Treat free-text health notes (e.g. "doctor said no jumping", "high blood pressure") as hard constraints.
-- Match assigned_level: beginners get simpler movements, fewer sets, and reps in the 8-15 range; experienced lifters get more volume and harder variations.
-- warmup: 2-4 light moves. Use warm-up category exercises or easy bodyweight moves. (At Phase 6 the app adds a separate 15-min zone-2 cardio block before your warm-up — do not include cardio machines in the exercise list.)
-- Their "beyond the look" health goals (heart health, energy, mental health, sleep, longevity, confidence) shape emphasis and MUST be woven into why_this_works — e.g. heart-health goals → frame the daily movement and future zone-2 cardio around lowering cardiovascular risk.
+- EVERY workout is TOTAL-BODY (upper + lower + abs whenever the time budget allows). Never program push/pull/leg or body-part splits. Daily training is sustainable because volume per muscle per day stays modest: spread weekly volume across 7 light-to-moderate days; never train a muscle to failure two days in a row.
+- NO SAME EXERCISE ON TWO CONSECUTIVE DAYS from Stage 3 up — alternate movements within their bucket (e.g. leg press → walking lunge → leg press). Stages 1–2 circuits are short enough that some moves may recur.
+- Rough move counts by lifting time: 5 min ≈ 4 moves (timed circuit); 10 min ≈ 6 moves; 20 min ≈ 6 moves; 15 min lift ≈ 4-5; 25 min ≈ ~7; 35 min ≈ ~9; 45 min ≈ ~10 (plus the abs finisher; warm-up is separate).
+- Every day ends with an abs finisher — this is Abs By AI. Stages 1–3 fold 1 ab/core move into the circuit; Stages 4 → 2 ab moves; Stages 5–6 → 2; Stage 7 → 3.
+- STRICTLY avoid exercises that load reported injured areas; prefer joint-friendly picks (knee pain → hinge and glute work over deep lunges; lower-back pain → avoid loaded spinal flexion and heavy hinging; shoulder pain → avoid overhead pressing; wrist pain → avoid loaded straight-arm plank positions). Treat free-text health notes ("doctor said no jumping", "high blood pressure") as hard constraints that can also remove movements.
+- warmup: 2-4 light moves (warm-up category or easy bodyweight). For Stages 1–3 keep the warm-up to 1-2 quick moves so it fits the short session; the app renders the cardio block itself at Stages 4+ — do not include cardio machines.
+- Their "beyond the look" health goals (heart health, energy, mental health, sleep, longevity, confidence) shape emphasis and MUST be woven into why_this_works — e.g. heart-health goals → frame the daily movement and the zone-2 cardio around lowering cardiovascular risk.
 - cue: one short personalized coaching line. common_mistake: the single most likely error for THIS user.
 - why_this_works: 3-5 sentences, warm but direct, referencing their photos (when provided), their health goals, and injuries. Address them as "you".
-- Reps for timed holds use e.g. "30 sec". rest_sec between 30 and 180 (short rests at low phases to fit the time budget).
+- rest_sec 30–180 (short rests on the timed circuit stages to fit the budget).
 
-Exercise selection rules (safety-first — these override everything else):
-- NEVER program barbell bench press, barbell deadlifts, barbell back squats, cleans, snatches, jerks, or ANY powerlifting/Olympic lift — they are not in the whitelist and must not appear even in cues, notes, or why_this_works.
-- Squat pattern: gym users → leg-press (advanced) or db-goblet-squat; beginners → db-goblet-squat or bw-squat.
-- Hamstrings: leg-curl (machine) is the DEFAULT for gym users. db-rdl (Dumbbell Hip Hinge) only when there is no machine access (home/dumbbell users), and NEVER in workouts under 15 minutes per day.
-- Rear delts: machine-rear-delt-fly is the default for gym users; db-rear-delt-fly when no machine.
-- Chest: dumbbell/machine presses and flies only (db-fly, cable-fly, pec-deck, machine-chest-press, db-bench-press, db-floor-press, and the push-up family).`;
+Exercise selection rules (safety-first — these OVERRIDE everything else):
+- NO barbell or dumbbell DEADLIFTS, ever. The kettlebell deadlift (kb-deadlift) and kettlebell swing (kb-swing) are the ONLY loaded floor hinges. Hamstrings otherwise come from leg-curl (full) and glute-bridge / single-leg-glute-bridge / bb-hip-thrust (both tracks).
+- NO flat or incline bench press, ever. Chest is FLY-DOMINANT (cable-fly, pec-deck, db-fly). "Pushing" appears only in later stages and only via SAFER pushes — machine-chest-press, db-floor-press, and the push-up family (pushup, incline-pushup, knee-pushup, deficit-pushup). Stages 3–4 use compound pushes (machine-chest-press / push-ups); Stages 5–7 go fly-dominant with a little pressing.
+- SQUAT hierarchy: primary = leg-press. Backup 1 = safety-bar-squat. Backup 2 (tertiary) = bb-back-squat. The safety-bar and barbell back squats are allowed ONLY at Stages 6–7. Below Stage 6 the squat is leg-press / db-goblet-squat / kb-goblet-squat / bw-squat only.
+- NEVER program cleans, snatches, jerks, or any Olympic lift — not in cues, notes, or why_this_works either.
+- Rear delts: machine-rear-delt-fly is the default; db-rear-delt-fly as the alternate. Both only at Stages 5–7.`;
 
-// Phase ladder: daily time budget per phase. Phase 6 adds a 15-min zone-2
-// cardio warm-up block (rendered by the app, not the model).
-const PHASES = {
-  1: { minutes: 10, label: '10 min/day · home' },
-  2: { minutes: 20, label: '20 min/day · home' },
-  3: { minutes: 30, label: '30 min/day · gym' },
-  4: { minutes: 40, label: '35–40 min/day · gym' },
-  5: { minutes: 45, label: '45 min/day · gym' },
-  6: { minutes: 45, label: '45 min/day + 15 min zone-2 cardio · gym', zone2: true },
+// v3 seven-stage ladder. mode = timed circuit vs sets×reps; equipFloor = the
+// equipment tier a stage runs on (Stage 4+ minimal-track members drop to 'min');
+// cardioMin = the zone-2 block the APP renders before lifting (not the model).
+const STAGES = {
+  1: { minutes: 5,  cardioMin: 0,  liftMin: 5,  mode: 'timed', equipFloor: 'none', functional: false, label: '5 min/day · home' },
+  2: { minutes: 10, cardioMin: 0,  liftMin: 10, mode: 'timed', equipFloor: 'min',  functional: false, label: '10 min/day · home' },
+  3: { minutes: 20, cardioMin: 0,  liftMin: 20, mode: 'timed', equipFloor: 'min',  functional: false, label: '20 min/day · home' },
+  4: { minutes: 20, cardioMin: 5,  liftMin: 15, mode: 'reps',  equipFloor: 'full', functional: false, label: '20 min/day · 5 min cardio + lift · gym' },
+  5: { minutes: 30, cardioMin: 5,  liftMin: 25, mode: 'reps',  equipFloor: 'full', functional: true,  label: '30 min/day · 5 min cardio + lift · gym' },
+  6: { minutes: 45, cardioMin: 10, liftMin: 35, mode: 'reps',  equipFloor: 'full', functional: true,  label: '45 min/day · 10 min cardio + lift · gym' },
+  7: { minutes: 60, cardioMin: 15, liftMin: 45, mode: 'reps',  equipFloor: 'full', functional: true,  label: '60 min/day · 15 min cardio + lift · gym' },
 };
-const EXPERIENCE_START_PHASE = { beginner: 1, intermediate: 3, advanced: 5 };
 
-function clampPhase(p) {
-  const n = parseInt(p, 10);
-  return Number.isFinite(n) ? Math.min(6, Math.max(1, n)) : 1;
+// Stated experience CAPS the starting stage; the before photo can only pull it
+// lower (conservative wins). Advanced users still cap at 5 — everyone gets a
+// ramp before the 45- and 60-min peaks.
+const EXPERIENCE_START_STAGE = { beginner: 3, intermediate: 4, advanced: 5 };
+const MAX_START_STAGE = 5;
+
+function clampStage(s) {
+  const n = parseInt(s, 10);
+  return Number.isFinite(n) ? Math.min(7, Math.max(1, n)) : 1;
 }
 
-function buildTrainerUserContent(intake, photos, pinnedPhase) {
-  const allowed = exercisesForEquipment(intake.equipment);
-  const list = allowed.map((e) => `${e.id} | ${e.name} | ${e.cat} | ${e.muscles}`).join('\n');
+// Back-compat: pre-v3 rows stored program.phase (1-6). Read either.
+function programStage(program) {
+  return clampStage(program?.stage ?? program?.phase ?? 1);
+}
+
+// The equipment tier a block actually runs on. Stages 1–3 are home (none/min);
+// Stage 4+ is 'full' unless the member declined the gym (minimal track).
+function equipForStage(stage, equipmentTrack) {
+  const floor = STAGES[clampStage(stage)]?.equipFloor || 'none';
+  if (floor === 'full' && equipmentTrack === 'minimal') return 'min';
+  return floor;
+}
+
+// The equipment_track is decided entering Stage 4. Seed it from intake: a full
+// gym / full home gym → 'full'; anything less → 'minimal' (re-nudged to upgrade
+// each promotion). Below Stage 4 there is no track yet (home stages).
+function trackForStage(stage, intake, prevTrack) {
+  if (clampStage(stage) < 4) return null;
+  if (prevTrack === 'full' || prevTrack === 'minimal') return prevTrack;
+  return intake?.equipment === 'full' ? 'full' : 'minimal';
+}
+
+// pinnedStage set → build one known stage (check-in / promotion). pinnedStage
+// null → ASSESS mode (block 1): the model reads the photos and PICKS the
+// starting stage in [1, experience-cap], then formats the block for it. The
+// whitelist spans everything the user owns; the server sanitizes to the chosen
+// stage's equipment tier afterward.
+function buildTrainerUserContent(intake, photos, pinnedStage, opts = {}) {
+  const assess = !pinnedStage;
+  const stage = clampStage(pinnedStage || EXPERIENCE_START_STAGE[intake.experience] || 1);
+  const st = STAGES[stage];
+  const sexTrack = opts.sexTrack || intake.sex_track || 'unspecified';
+  const equipmentTrack = opts.equipmentTrack || null;
+  const cap = Math.min(MAX_START_STAGE, EXPERIENCE_START_STAGE[intake.experience] || 3);
+  const equip = opts.equip || (assess ? intake.equipment : equipForStage(stage, equipmentTrack));
+  const allowed = exercisesForEquipment(equip);
+  const list = allowed.map((e) => `${e.id} | ${e.name} | ${e.cat} | ${e.muscles} | ${e.equip}`).join('\n');
   const content = [];
   const { beforeBase64, beforeMime, afterBase64, afterMime } = photos || {};
   if (beforeBase64 && beforeMime) {
@@ -2972,24 +3022,40 @@ function buildTrainerUserContent(intake, photos, pinnedPhase) {
     content.push({ type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } });
     content.push({ type: 'text', text: 'AFTER photo — the AI-generated image of their goal physique. The training goal is the gap between the before photo and this one.' });
   }
+  const trackLine = sexTrack === 'man'
+    ? 'SEX TRACK: MAN — emphasize upper body, super-emphasize delts + arms (see the two-track rules).'
+    : sexTrack === 'woman'
+      ? 'SEX TRACK: WOMAN — emphasize lower body, super-emphasize glutes (see the two-track rules).'
+      : 'SEX TRACK: unspecified — infer from the before photo; keep total-body balance.';
+  const stageLine = assess
+    ? `ASSESS the starting stage yourself: pick assessment.starting_stage in the range 1–${cap} (their stated experience caps it at ${cap}; the BEFORE photo can only pull it LOWER — obese / severely deconditioned / elderly / a reported severe injury → Stage 1). Then FORMAT the whole block for the stage you pick — Stages 1–3 are TIMED home circuits (reps = work interval like "30 sec", no cardio block); Stages 4+ are SETS × REPS with the app rendering the cardio block separately; isolation only at 5–7; functional only at 5–7; barbell/safety-bar squats only at 6–7.`
+    : `This block is PINNED to STAGE ${stage} — ${st.label}. Load method: ${st.mode === 'timed' ? 'TIMED circuit (reps = work interval like "30 sec", rest_sec = rest interval)' : 'SETS × REPS'}. ` +
+      `Build the ${st.liftMin}-min lifting portion${st.cardioMin ? ` (the app adds the ${st.cardioMin}-min zone-2 cardio block itself — do not include it)` : ' (no cardio block at this home stage)'}. ` +
+      `${st.functional ? 'Functional moves are UNLOCKED.' : 'NO functional moves yet.'} ${stage >= 5 ? 'Isolation moves ALLOWED.' : 'COMPOUND-ONLY (no isolation).'} ` +
+      `Set assessment.starting_stage to ${stage}.`;
+  const equipLine = assess
+    ? 'EQUIPMENT: the whitelist below is everything this user owns. If you assign a home stage (1–3), use only bodyweight/minimal-kit moves; full-equipment moves belong to Stage 4+.'
+    : stage >= 4
+      ? `EQUIPMENT TRACK: ${equipmentTrack === 'minimal' ? 'MINIMAL (declined the gym — build from the minimal-kit moves in the whitelist)' : 'FULL (full equipment)'}.`
+      : 'EQUIPMENT: home stage — the whitelist is already filtered to what they have.';
   content.push({
     type: 'text',
     text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\n` +
-      (pinnedPhase
-        ? `This block is pinned to Phase ${pinnedPhase} (${PHASES[pinnedPhase].label}). Build every day to that time budget and set assessment.starting_phase to ${pinnedPhase}.\n\n`
-        : `Their stated experience caps the starting phase at Phase ${EXPERIENCE_START_PHASE[intake.experience] || 1}. Go lower if the before photo suggests it — never higher.\n\n`) +
-      `Exercise whitelist (id | name | category | muscles) — use ONLY these ids:\n${list}`,
+      `${stageLine}\n${trackLine}\n${equipLine}\n\n` +
+      `Exercise whitelist (id | name | category | muscles | equip-tier) — use ONLY these ids:\n${list}`,
   });
   return content;
 }
 
-// Exercises removed from the library (v2 safety pass) → their replacement.
-// Old stored programs may still reference them; without this map they would
-// fall through to a generic same-category pick.
+// Exercises removed from selection → their replacement, for rendering OLD stored
+// programs. db-rdl / db-bench-press are still resolvable in the library but never
+// re-selected (v3 §5); bb-* lifts predate the whitelist. Without this map an old
+// id would fall through to a generic same-category pick.
 const REMOVED_EXERCISE_SWAPS = {
-  'bb-bench-press': 'db-bench-press',
-  'bb-deadlift': 'db-rdl',
-  'bb-back-squat': 'db-goblet-squat',
+  'bb-bench-press': 'machine-chest-press',
+  'bb-deadlift': 'kb-deadlift',
+  'db-rdl': 'kb-deadlift',
+  'db-bench-press': 'machine-chest-press',
 };
 
 // Replace any hallucinated/out-of-tier exercise id with its library swap (if
@@ -3031,7 +3097,9 @@ function stripProgramForPreview(program) {
   return {
     why_this_works: program.why_this_works,
     assessment: program.assessment,
-    phase: program.phase,
+    stage: program.stage ?? program.phase,
+    equipment_track: program.equipment_track ?? null,
+    sex_track: program.sex_track ?? null,
     locked: true,
     weeks: (program.weeks || []).map((week) => ({
       week: week.week,
@@ -3047,19 +3115,23 @@ function stripProgramForPreview(program) {
 const VALID_INTAKE = {
   goal: ['lose_fat', 'build_muscle', 'abs_visible', 'general_fitness', 'recomp'],
   body_type: ['slim', 'average', 'heavier', 'athletic'],
-  equipment: ['none', 'db', 'gym'],
+  equipment: ['none', 'min', 'full'],
   experience: ['beginner', 'intermediate', 'advanced'],
+  sex_track: ['woman', 'man'],
   health_goals: ['heart_health', 'energy', 'mental_health', 'sleep', 'longevity', 'confidence', 'look_only'],
 };
 
 // Pre-v2 intakes stored a different experience scale.
 const LEGACY_EXPERIENCE = { never: 'beginner', on_and_off: 'intermediate', consistent: 'advanced' };
+// v2 equipment tiers → v3 (dumbbells are 'full' equipment now, not minimal).
+const LEGACY_EQUIPMENT = { db: 'full', gym: 'full' };
 
 function validateIntake(raw) {
   if (!raw || typeof raw !== 'object') return null;
   const exp = LEGACY_EXPERIENCE[raw.experience] || raw.experience;
+  const equip = LEGACY_EQUIPMENT[raw.equipment] || raw.equipment;
   const intake = {
-    equipment: VALID_INTAKE.equipment.includes(raw.equipment) ? raw.equipment : 'none',
+    equipment: VALID_INTAKE.equipment.includes(equip) ? equip : 'none',
     experience: VALID_INTAKE.experience.includes(exp) ? exp : 'beginner',
     injuries: Array.isArray(raw.injuries) ? raw.injuries.slice(0, 6).map((s) => String(s).slice(0, 40)) : [],
     injury_notes: String(raw.injury_notes || '').slice(0, 300),
@@ -3069,6 +3141,9 @@ function validateIntake(raw) {
     health_notes: String(raw.health_notes || '').slice(0, 300),
     age_range: String(raw.age_range || raw.body?.age_range || '').slice(0, 20),
   };
+  // Sex track drives the emphasis (glutes vs delts+arms). Optional — the model
+  // infers from the before photo when it's missing.
+  if (VALID_INTAKE.sex_track.includes(raw.sex_track)) intake.sex_track = raw.sex_track;
   // No-photo fallback answers (also present on old intakes — harmless to keep).
   if (VALID_INTAKE.goal.includes(raw.goal)) intake.goal = raw.goal;
   if (VALID_INTAKE.body_type.includes(raw.body_type)) intake.body_type = raw.body_type;
@@ -3113,10 +3188,11 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
     if (!intake) return res.status(400).json({ error: 'Missing intake' });
     const { photoBase64, photoMime, afterPhotoBase64, afterPhotoMime, photoConsent } = req.body || {};
 
+    // Block 1 = ASSESS mode: the model picks the starting stage from the photos.
     const userContent = buildTrainerUserContent(intake, photoConsent ? {
       beforeBase64: photoBase64, beforeMime: photoMime,
       afterBase64: afterPhotoBase64, afterMime: afterPhotoMime,
-    } : null);
+    } : null, null, { sexTrack: intake.sex_track });
 
     // Sleep Coach cross-feature rule: bad night → longer warm-up, never a
     // shorter or lighter workout.
@@ -3137,13 +3213,19 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
     if (!program?.weeks?.length) {
       return res.status(502).json({ error: 'Model returned an unusable program. Please try again.' });
     }
-    sanitizeProgram(program, intake.equipment);
 
-    // Pin the ladder phase: the stated experience caps it; the model's
-    // photo-based assessment can only lower it (conservative wins).
-    const expPhase = EXPERIENCE_START_PHASE[intake.experience] || 1;
-    program.phase = Math.min(clampPhase(program.assessment?.starting_phase ?? expPhase), expPhase);
-    if (program.assessment) program.assessment.starting_phase = program.phase;
+    // Pin the stage: stated experience caps it (max 5); the model's photo-based
+    // assessment can only lower it (conservative wins). Equipment track + sex
+    // track ride on the program row; equipment for THIS block follows the stage.
+    const cap = Math.min(MAX_START_STAGE, EXPERIENCE_START_STAGE[intake.experience] || 3);
+    const stage = Math.min(clampStage(program.assessment?.starting_stage ?? cap), cap);
+    const equipmentTrack = trackForStage(stage, intake, null);
+    const sexTrack = intake.sex_track || null;
+    program.stage = stage;
+    program.equipment_track = equipmentTrack;
+    program.sex_track = sexTrack;
+    if (program.assessment) program.assessment.starting_stage = stage;
+    sanitizeProgram(program, equipForStage(stage, equipmentTrack));
 
     let programId = null;
     let member = false;
@@ -3236,20 +3318,36 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
     };
     const progressVals = Object.values(prev.progress?.done || prev.progress || {});
     const completedSets = progressVals.filter((v) => v === true).length;
+    // v3 progression is workout-based, not set-based: how many of the block's
+    // 28 daily workouts they actually logged (progress.dates keeps one per day).
+    const BLOCK_WORKOUTS = 28;
+    const completedDays = Math.min(BLOCK_WORKOUTS, Object.keys(prev.progress?.dates || {}).length);
+    const loggedHalf = completedDays >= BLOCK_WORKOUTS / 2;
 
-    // Phase ladder promotion: finishing a block normally moves up a phase.
-    // "Too hard" holds; "too hard" with almost nothing completed demotes.
+    // Stage ladder promotion: ≥50% of workouts logged → advance one stage.
+    // <50% → hold (repeat this stage a month). "Too hard" is a manual hold too.
+    // Cap at Stage 7 — the shared finish line.
     const intake = validateIntake(prev.intake) || prev.intake;
-    const prevPhase = clampPhase(prev.program?.phase ?? EXPERIENCE_START_PHASE[intake.experience] ?? 1);
-    let nextPhase = Math.min(6, prevPhase + 1);
-    if (fb.difficulty === 'too_hard') nextPhase = completedSets < 20 ? Math.max(1, prevPhase - 1) : prevPhase;
+    const prevStage = programStage(prev.program);
+    let nextStage;
+    if (fb.difficulty === 'too_hard' || !loggedHalf) nextStage = prevStage;
+    else nextStage = Math.min(7, prevStage + 1);
 
-    const userContent = buildTrainerUserContent(intake, null, nextPhase);
+    // Equipment track carries forward; it's first set entering Stage 4 (seeded
+    // from intake). Sex track carries from the stored program / intake.
+    const equipmentTrack = trackForStage(nextStage, intake, prev.program?.equipment_track);
+    const sexTrack = prev.program?.sex_track || intake.sex_track || null;
+    const equip = equipForStage(nextStage, equipmentTrack);
+
+    const userContent = buildTrainerUserContent(intake, null, nextStage, { sexTrack, equipmentTrack, equip });
+    const held = nextStage === prevStage;
     userContent.push({
       type: 'text',
-      text: `This user just FINISHED a 4-week block (block ${prev.block_number}, Phase ${prevPhase}) — design block ${prev.block_number + 1} at Phase ${nextPhase} (${PHASES[nextPhase].label}) that progresses from it.\n` +
+      text: `This user just FINISHED a 4-week block (block ${prev.block_number}, Stage ${prevStage}) — design block ${prev.block_number + 1} at STAGE ${nextStage} (${STAGES[nextStage].label}) that progresses from it.\n` +
+        (held
+          ? `They are REPEATING Stage ${prevStage} (they logged ${completedDays}/${BLOCK_WORKOUTS} workouts${fb.difficulty === 'too_hard' ? ' and said it was too hard' : ''}) — keep the same stage but refresh the movements and make it feel achievable.\n`
+          : `They EARNED the promotion (logged ${completedDays}/${BLOCK_WORKOUTS} workouts) — step up volume/complexity to the new stage.\n`) +
         `Previous block (for reference, do not repeat verbatim — progress it):\n${JSON.stringify(prev.program.weeks?.map((w) => ({ week: w.week, days: w.days?.map((d) => ({ day: d.day, focus: d.focus, main: d.main?.map((m) => m.exercise_id) })) })))}\n` +
-        `Completion: ${completedSets} sets checked off across the block.\n` +
         `Check-in feedback: difficulty was "${fb.difficulty}"${fb.skipped ? `; they tended to skip: ${fb.skipped}` : ''}${fb.notes ? `; notes: ${fb.notes}` : ''}.\n` +
         `Adjust accordingly: too_easy → harder variations/more volume; too_hard → dial back; swap in fresh exercises to fight boredom; drop or replace what they skipped. why_this_works should acknowledge that they completed a block and what changes this time.`,
     });
@@ -3269,9 +3367,11 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
       return res.status(502).json({ error: 'Program generation failed. Please try again.' });
     }
     if (!program?.weeks?.length) return res.status(502).json({ error: 'Model returned an unusable program.' });
-    sanitizeProgram(program, intake.equipment);
-    program.phase = nextPhase;
-    if (program.assessment) program.assessment.starting_phase = nextPhase;
+    sanitizeProgram(program, equip);
+    program.stage = nextStage;
+    program.equipment_track = equipmentTrack;
+    program.sex_track = sexTrack;
+    if (program.assessment) program.assessment.starting_stage = nextStage;
 
     const ins = await db.query(
       `INSERT INTO programs (user_id, block_number, intake, program) VALUES ($1, $2, $3, $4) RETURNING id`,
@@ -3281,10 +3381,68 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
       programId: ins.rows[0].id,
       blockNumber: prev.block_number + 1,
       locked: false,
+      promoted: !held,
+      // Entering a full-equipment stage on the minimal track → the UI shows the
+      // "upgrade to a gym / full home gym" nudge (stronger each promotion).
+      equipmentNudge: nextStage >= 4 && equipmentTrack === 'minimal',
       program: { ...program, locked: false },
     });
   } catch (err) {
     console.error('checkin error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Set the equipment track (full vs minimal) — the Stage-4 upgrade choice. Members
+// only; regenerates the current block on the chosen track so moves match.
+app.post('/api/program/equipment-track', aiLimiter, requireAuth, async (req, res) => {
+  try {
+    const userRow = await getUserRow(req.user.id);
+    if (!isActiveMembership(userRow)) {
+      return res.status(402).json({ error: 'Membership required', needsMembership: true });
+    }
+    const track = req.body?.track === 'full' ? 'full' : 'minimal';
+    const { rows } = await db.query(
+      'SELECT id, block_number, intake, program FROM programs WHERE id = $1 AND user_id = $2',
+      [parseInt(req.body?.programId, 10) || 0, req.user.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Program not found' });
+    const prev = rows[0];
+    const intake = validateIntake(prev.intake) || prev.intake;
+    const stage = programStage(prev.program);
+    // Track only applies at Stage 4+. Below that there's nothing to switch.
+    if (stage < 4) return res.status(400).json({ error: 'Equipment track applies from Stage 4' });
+    if (prev.program?.equipment_track === track) {
+      return res.json({ programId: prev.id, blockNumber: prev.block_number, unchanged: true, program: { ...prev.program, locked: false } });
+    }
+
+    const sexTrack = prev.program?.sex_track || intake.sex_track || null;
+    const equip = equipForStage(stage, track);
+    const userContent = buildTrainerUserContent(intake, null, stage, { sexTrack, equipmentTrack: track, equip });
+    userContent.push({
+      type: 'text',
+      text: `Rebuild this Stage ${stage} block on the ${track === 'full' ? 'FULL-equipment' : 'MINIMAL-kit'} track. Keep the same stage, sex emphasis, and structure — only the equipment changes.`,
+    });
+
+    let program;
+    try {
+      program = await callTrainerModel(TRAINER_SYSTEM_PROMPT, userContent);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'Program generation failed. Please try again.' });
+    }
+    if (!program?.weeks?.length) return res.status(502).json({ error: 'Model returned an unusable program.' });
+    sanitizeProgram(program, equip);
+    program.stage = stage;
+    program.equipment_track = track;
+    program.sex_track = sexTrack;
+    if (program.assessment) program.assessment.starting_stage = stage;
+
+    await db.query('UPDATE programs SET program = $1, progress = $2 WHERE id = $3 AND user_id = $4',
+      [JSON.stringify(program), JSON.stringify({}), prev.id, req.user.id]);
+    res.json({ programId: prev.id, blockNumber: prev.block_number, locked: false, program: { ...program, locked: false } });
+  } catch (err) {
+    console.error('equipment-track error:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -4913,14 +5071,14 @@ async function buildBriefFacts(userId, dayStr) {
       const { program, progress, block_number } = rows[0];
       const doneToday = !!(progress?.dates && progress.dates[dayStr]);
       const next = firstIncompleteDay(program, progress || {});
-      const phaseLabel = PHASES[program.phase]?.label || '';
+      const stageLabel = STAGES[programStage(program)]?.label || '';
       facts.workout = {
-        blockNumber: block_number, doneToday, phaseLabel,
+        blockNumber: block_number, doneToday, stageLabel,
         next: next ? { week: next.week, day: next.day, focus: next.focus, exercises: next.exercises } : null,
         blockComplete: !next,
       };
       if (doneToday) lines.push(`WORKOUT: already DONE today. ✓`);
-      else if (next) lines.push(`WORKOUT: today is Block ${block_number}, Week ${next.week}, Day ${next.day} — "${next.focus}" (${next.exercises} exercises, ${phaseLabel}).`);
+      else if (next) lines.push(`WORKOUT: today is Block ${block_number}, Week ${next.week}, Day ${next.day} — "${next.focus}" (${next.exercises} exercises, ${stageLabel}).`);
       else lines.push(`WORKOUT: the 4-week block is fully checked off — their week-4 check-in builds the next block.`);
     }
   } catch (e) { console.warn('brief program fetch error:', e.message); }

@@ -3485,7 +3485,7 @@ function paintBrief(data) {
     } else if (w.blockComplete) {
       rows.push({ emoji: '🏋️', fact: 'Block complete — check-in time!', note: b?.workout_note || 'Your check-in builds the next 4 weeks.', cta: true, feature: 'trainer' });
     } else if (w.next) {
-      rows.push({ emoji: '🏋️', fact: `Week ${w.next.week} · Day ${w.next.day} — ${w.next.focus}`, note: b?.workout_note || (w.phaseLabel || ''), feature: 'trainer' });
+      rows.push({ emoji: '🏋️', fact: `Week ${w.next.week} · Day ${w.next.day} — ${w.next.focus}`, note: b?.workout_note || (w.stageLabel || ''), feature: 'trainer' });
     }
   } else {
     rows.push({ emoji: '🏋️', fact: 'No training program yet', note: '60-second quiz, free program — tap to start', cta: true, feature: 'trainer' });
@@ -4758,11 +4758,11 @@ async function handleManageMembership() {
 // ============================================================
 const INTAKE_KEY = 'absbyai_trainer_intake';
 
-// Barbell lifts removed in the v2 safety pass — old stored programs may still
-// reference them; render the replacement instead of a raw id.
+// Old stored programs may reference ids no longer selectable — render a stand-in.
+// db-bench-press / db-rdl are still in the library (excluded from new selection,
+// but resolvable). bb-back-squat is a real move again in v3, so it is NOT aliased.
 EXERCISE_BY_ID['bb-bench-press'] = EXERCISE_BY_ID['db-bench-press'];
 EXERCISE_BY_ID['bb-deadlift'] = EXERCISE_BY_ID['db-rdl'];
-EXERCISE_BY_ID['bb-back-squat'] = EXERCISE_BY_ID['db-goblet-squat'];
 const PROGRAM_KEY = 'absbyai_trainer_program';
 const PROGRESS_KEY = 'absbyai_trainer_progress';
 
@@ -4792,11 +4792,18 @@ const INTAKE_STEP_DEFS = {
     ],
   },
   equipment: {
-    key: 'equipment', title: 'Where will you train?', sub: 'We only pick exercises you can actually do.',
+    key: 'equipment', title: 'Where will you train?', sub: 'Your first weeks are at home either way — this sets your options once you level up to the gym stages.',
     opts: [
-      { v: 'none', e: '🏠', n: 'Home — no equipment', s: 'Bodyweight only' },
-      { v: 'db', e: '🏠', n: 'Home — some dumbbells' },
-      { v: 'gym', e: '🏋️', n: 'Full gym' },
+      { v: 'none', e: '🏠', n: 'Home — no equipment', s: 'Bodyweight only to start' },
+      { v: 'min', e: '🧰', n: 'Home — minimal kit', s: 'Kettlebell, push-up handles, ab wheel, mat (~$200)' },
+      { v: 'full', e: '🏋️', n: 'Full gym or home gym', s: 'Machines, cables, barbells, dumbbells' },
+    ],
+  },
+  sex_track: {
+    key: 'sex_track', title: 'How should we shape your emphasis?', sub: 'Both plans train your whole body every day — this just decides where the extra volume goes.',
+    opts: [
+      { v: 'woman', e: '🍑', n: 'Training as a woman', s: 'Lower-body focus, glute emphasis' },
+      { v: 'man', e: '💪', n: 'Training as a man', s: 'Upper-body focus, delts & arms emphasis' },
     ],
   },
   experience: {
@@ -4831,8 +4838,8 @@ function buildIntakeSteps() {
   const hasPhotos = !!(localStorage.getItem(LAST_BEFORE_KEY) && localStorage.getItem(LAST_AFTER_KEY));
   const D = INTAKE_STEP_DEFS;
   return hasPhotos
-    ? [D.photo, D.equipment, D.experience, D.injuries, D.health]
-    : [D.goal, D.body_type, D.equipment, D.experience, D.injuries, D.health];
+    ? [D.photo, D.equipment, D.sex_track, D.experience, D.injuries, D.health]
+    : [D.goal, D.body_type, D.equipment, D.sex_track, D.experience, D.injuries, D.health];
 }
 
 function openTrainer() {
@@ -4960,6 +4967,7 @@ async function generateProgram() {
   const a = intakeState.answers;
   const intake = {
     equipment: a.equipment, experience: a.experience,
+    sex_track: a.sex_track,
     injuries: (a.injuries || []).filter(x => x !== 'none'),
     injury_notes: a.injury_notes || '',
     health_goals: (a.health_goals || []).filter(x => x !== 'look_only'),
@@ -5087,10 +5095,17 @@ function showProgram() {
 
 function slotKey(w, d, sec, i) { return `w${w}d${d}${sec}${i}`; }
 
-const PHASE_LABELS = {
-  1: '10 min/day at home', 2: '20 min/day at home', 3: '30 min/day',
-  4: '35–40 min/day', 5: '45 min/day', 6: '45 min/day + 15 min zone-2 cardio',
+const STAGE_LABELS = {
+  1: '5 min/day · home', 2: '10 min/day · home', 3: '20 min/day · home',
+  4: '20 min/day · 5 min cardio + lift', 5: '30 min/day · 5 min cardio + lift',
+  6: '45 min/day · 10 min cardio + lift', 7: '60 min/day · 15 min cardio + lift',
 };
+// Per-stage cardio block (minutes) rendered before the lifting. Home stages 1–3
+// have no cardio block — the timed circuit is the conditioning.
+const STAGE_CARDIO_MIN = { 1: 0, 2: 0, 3: 0, 4: 5, 5: 5, 6: 10, 7: 15 };
+const STAGE_IS_TIMED = { 1: true, 2: true, 3: true, 4: false, 5: false, 6: false, 7: false };
+// Back-compat: pre-v3 programs stored .phase (1–6); v3 stores .stage (1–7).
+function programStage(p) { return (p && (p.stage ?? p.phase)) || 1; }
 
 // ── Forgiving streaks ──
 // Daily workouts mean a missed day must never feel like failure. The streak
@@ -5149,6 +5164,7 @@ function dayIsComplete(week, day, progress) {
 }
 
 function renderProgram() {
+  stopCircuitTimer();
   const stored = loadStoredProgram();
   const wrap = $('programContent');
   if (!stored?.program) { startIntake(); return; }
@@ -5161,13 +5177,15 @@ function renderProgram() {
   const locked = !!stored.locked && !memberState.active;
 
   let html = '';
+  const stage = programStage(p);
   const assess = p.assessment;
   if (assess) {
-    const phase = p.phase || assess.starting_phase;
     html += `<div class="why-card"><b>Here's what we saw 👀</b><br>${escapeHtml(assess.starting_point || '')}
       ${assess.goal_summary ? `<br><br><b>The gap to your after photo:</b> ${escapeHtml(assess.goal_summary)}` : ''}
-      <br><br><b>Your level:</b> ${escapeHtml(assess.assigned_level || '')} · <b>Phase ${phase} of 6</b>${PHASE_LABELS[phase] ? ` — ${PHASE_LABELS[phase]}` : ''}</div>`;
+      <br><br><b>Your level:</b> ${escapeHtml(assess.assigned_level || '')} · <b>Stage ${stage} of 7</b>${STAGE_LABELS[stage] ? ` — ${STAGE_LABELS[stage]}` : ''}</div>`;
   }
+  // Stage-4+ minimal-track members: nudge them to upgrade to a gym / full home gym.
+  if (!locked && stage >= 4 && p.equipment_track === 'minimal') html += renderUpgradeNudge(stored);
   html += renderStreakCard();
   html += `<div class="why-card"><b>Why this works for you</b><br>${escapeHtml(p.why_this_works || '')}</div>`;
 
@@ -5234,6 +5252,10 @@ function renderProgram() {
   }));
   const unlockBtn = $('programUnlockBtn');
   if (unlockBtn) unlockBtn.addEventListener('click', () => showMembershipScreen(() => showProgram()));
+  const upFull = $('upgradeFullBtn');
+  if (upFull) upFull.addEventListener('click', () => chooseEquipmentTrack('full'));
+  const upStay = $('upgradeStayBtn');
+  if (upStay) upStay.addEventListener('click', () => { const n = $('upgradeNudge'); if (n) n.style.display = 'none'; });
   const restartBtn = $('programRestartBtn');
   if (restartBtn) restartBtn.addEventListener('click', () => {
     if (confirm('Start a brand new program? Your current block and progress will be replaced.')) startIntake();
@@ -5246,6 +5268,92 @@ function renderProgram() {
       checkinCard.querySelectorAll('[data-diff]').forEach(x => x.classList.toggle('selected', x === b));
     }));
     $('checkinBtn').addEventListener('click', () => submitCheckin(diff));
+  }
+}
+
+// ── Stage 1–3 timed-circuit guide ──
+const STAGE_TIMED_SPEC = {
+  1: { work: 30, rest: 30, rounds: 2 },
+  2: { work: 30, rest: 20, rounds: 2 },
+  3: { work: 40, rest: 20, rounds: 3 },
+};
+let circuitTimerHandle = null;
+function stopCircuitTimer() {
+  if (circuitTimerHandle) { clearInterval(circuitTimerHandle); circuitTimerHandle = null; }
+}
+function startCircuitTimer(stage, moveCount) {
+  const spec = STAGE_TIMED_SPEC[stage];
+  const box = $('circuitTimer');
+  if (!spec || !box) return;
+  stopCircuitTimer();
+  box.style.display = '';
+  $('circuitTimerBtn').style.display = 'none';
+  // Build the interval sequence: rounds × moves of work→rest (no rest after the
+  // very last move of the last round).
+  const seq = [];
+  for (let r = 0; r < spec.rounds; r++) {
+    for (let m = 0; m < moveCount; m++) {
+      seq.push({ kind: 'work', secs: spec.work, move: m + 1, round: r + 1 });
+      if (!(r === spec.rounds - 1 && m === moveCount - 1)) seq.push({ kind: 'rest', secs: spec.rest });
+    }
+  }
+  let idx = 0, remaining = seq[0].secs;
+  const paint = () => {
+    const cur = seq[idx];
+    if (!cur) {
+      box.innerHTML = `<div style="font-size:22px;font-weight:800;color:var(--acc)">Circuit done 🔥</div>
+        <button class="ex-action-btn" id="circuitRestart" style="margin-top:8px">Run it again</button>`;
+      $('circuitRestart').addEventListener('click', () => startCircuitTimer(stage, moveCount));
+      stopCircuitTimer();
+      return;
+    }
+    const isWork = cur.kind === 'work';
+    box.innerHTML = `<div style="font-size:13px;color:var(--mute);text-transform:uppercase;letter-spacing:1px">${isWork ? `Move ${cur.move} · Round ${cur.round}/${spec.rounds}` : 'Rest'}</div>
+      <div style="font-size:44px;font-weight:800;color:${isWork ? 'var(--acc)' : 'var(--mute)'};line-height:1.1">${remaining}s</div>
+      <div style="font-size:15px;font-weight:700">${isWork ? 'WORK' : 'REST'}</div>
+      <button class="ex-action-btn" id="circuitStop" style="margin-top:8px">Stop</button>`;
+    $('circuitStop').addEventListener('click', () => { stopCircuitTimer(); box.style.display = 'none'; $('circuitTimerBtn').style.display = ''; });
+  };
+  paint();
+  circuitTimerHandle = setInterval(() => {
+    remaining--;
+    if (remaining <= 0) { idx++; remaining = seq[idx] ? seq[idx].secs : 0; }
+    paint();
+  }, 1000);
+}
+
+// ── Stage-4+ equipment-track upgrade nudge (minimal-track members) ──
+function renderUpgradeNudge(stored) {
+  const block = stored.blockNumber || 1;
+  return `<div class="why-card" id="upgradeNudge" style="border:1px solid var(--acc)">
+    <b>🏋️ Ready for the gym?</b><br>
+    You're on the <b>home / minimal-kit</b> track. A gym or full home gym unlocks leg press, cables, hip thrusts and the machines that make the next stages really move — your plan swaps to full-equipment moves the moment you're in.
+    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+      <button class="try-diff-btn" id="upgradeFullBtn" style="margin:0;flex:1;min-width:150px">I've got full equipment →</button>
+      <button class="ex-action-btn" id="upgradeStayBtn">Stay on the home track</button>
+    </div>
+    <div id="upgradeErr" class="error-toast" style="display:none;margin-top:8px"></div>
+  </div>`;
+}
+async function chooseEquipmentTrack(track) {
+  const stored = loadStoredProgram();
+  if (!stored?.programId || !isLoggedIn()) { showMembershipScreen(() => showProgram()); return; }
+  const btn = $('upgradeFullBtn');
+  if (btn) { btn.disabled = true; btn.textContent = 'Rebuilding your block…'; }
+  try {
+    const data = await authApi('/api/program/equipment-track', {
+      method: 'POST',
+      body: JSON.stringify({ programId: stored.programId, track }),
+    });
+    storeProgram(data);
+    if (!data.unchanged) saveProgress({});
+    if (window.posthog) posthog.capture('equipment_track_chosen', { track });
+    showProgram();
+  } catch (err) {
+    if (err.status === 402) { showMembershipScreen(() => showProgram()); return; }
+    const e = $('upgradeErr');
+    if (e) { e.textContent = err.message || 'Something went wrong.'; e.style.display = ''; }
+    if (btn) { btn.disabled = false; btn.textContent = "I've got full equipment →"; }
   }
 }
 
@@ -5283,16 +5391,31 @@ function renderDayView(stored) {
     </div>`;
   };
 
-  let html = `<div class="hero-h1" style="font-size:22px;line-height:1.15;margin-bottom:2px">${escapeHtml(day.focus)}</div>
-    <div class="hero-sub" style="margin-bottom:6px">Tap each set as you finish it.</div>`;
+  const stage = programStage(p);
+  const timed = STAGE_IS_TIMED[stage];
+  const cardioMin = STAGE_CARDIO_MIN[stage] || 0;
 
-  // Phase 6 opens every session with zone-2 cardio before the lifting.
-  if ((p.phase || p.assessment?.starting_phase) === 6) {
-    html += `<div class="ex-group-lbl">Zone 2 cardio — 15 min 🚴</div>
+  let html = `<div class="hero-h1" style="font-size:22px;line-height:1.15;margin-bottom:2px">${escapeHtml(day.focus)}</div>
+    <div class="hero-sub" style="margin-bottom:6px">${timed ? 'Timed circuit — work each move for its interval, short rest, then the next.' : 'Tap each set as you finish it.'}</div>`;
+
+  // Stages 4+ open every session with a zone-2 cardio block (member picks the
+  // machine) before the lifting. Home stages 1–3 have no cardio block.
+  if (cardioMin) {
+    html += `<div class="ex-group-lbl">Zone 2 cardio — ${cardioMin} min 🚴</div>
       <div class="ex-card"><div class="ex-card-top">
-        <span class="ex-name">Bike, incline walk, or rower</span>
-        <span class="ex-rx">15 min · easy pace</span></div>
-        <div class="ex-cue">💡 Conversational pace — you should be able to talk in full sentences. This is heart-health work, not a race.</div></div>`;
+        <span class="ex-name">Treadmill, bike, rower, or incline walk</span>
+        <span class="ex-rx">${cardioMin} min · easy pace</span></div>
+        <div class="ex-cue">💡 Your pick — conversational pace you could talk through. This is heart-health work, not a race.</div></div>`;
+  }
+
+  // Stages 1–3 are timed circuits: give the work/rest interval up front.
+  if (timed) {
+    const intervals = { 1: '30s work / 30s rest · repeat the circuit ×1', 2: '30s work / 20s rest · repeat the circuit ×1', 3: '40s work / 20s rest · 3 rounds' };
+    html += `<div class="ex-card" style="background:rgba(47,95,224,0.06)"><div class="ex-card-top">
+      <span class="ex-name">⏱️ ${escapeHtml(intervals[stage] || 'Timed circuit')}</span></div>
+      <div class="ex-cue">Move straight down the list, resting only the interval shown. The pace is the workout — keep it moving.</div>
+      <button class="ex-action-btn" id="circuitTimerBtn" style="margin-top:8px">Start circuit timer</button>
+      <div id="circuitTimer" style="display:none;text-align:center;margin-top:10px"></div></div>`;
   }
 
   html += `<div class="ex-group-lbl">Warm-up</div>`;
@@ -5315,6 +5438,9 @@ function renderDayView(stored) {
 
   const wrap = $('programContent');
   wrap.innerHTML = html;
+
+  const circuitBtn = $('circuitTimerBtn');
+  if (circuitBtn) circuitBtn.addEventListener('click', () => startCircuitTimer(stage, (day.main || []).length || 4));
 
   wrap.querySelectorAll('.set-pill').forEach(pill => pill.addEventListener('click', () => {
     const progress2 = loadProgress();

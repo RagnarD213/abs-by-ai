@@ -1,8 +1,11 @@
 // ============================================================
 // EXERCISE LIBRARY — the authoritative whitelist for the AI trainer.
 // The model SELECTS and SEQUENCES from this list; it never invents moves.
-// equip: 'none' (bodyweight) | 'db' (dumbbells) | 'gym' (full gym).
-// A user's equipment unlocks tiers cumulatively: gym ⊃ db ⊃ none.
+// equip: 'none' (bodyweight + a towel everyone has)
+//      | 'min' (minimal ≤$200 home kit: kettlebell, push-up handles, ab wheel, mat)
+//      | 'full' (full gym / full home gym: dumbbells, barbells, machines, cables).
+// A user's equipment unlocks tiers cumulatively: full ⊃ min ⊃ none.
+// (v3: dumbbells are 'full' equipment now, not minimal — old 'db' moves are 'full'.)
 // swap: the pre-baked one-tap substitute (same or lower equipment tier,
 // joint-friendlier or simpler variation).
 // video: hand-curated YouTube URL (null until curated — UI hides the button).
@@ -40,6 +43,8 @@ const EXERCISES = [
     setup: 'Hands on the edge of a sturdy chair behind you, legs extended, hips off the seat.', execution: 'Bend elbows straight back to lower your hips, then press up until arms are straight.', mistake: 'Shrugging shoulders toward ears — keep them pulled down.', swap: 'knee-pushup', video: 'https://www.youtube.com/watch?v=AWz_7B1cch0' },
 
   // ── Bodyweight — legs & hinge ──
+  { id: 'chair-squat', name: 'Chair Sit-to-Stand', equip: 'none', cat: 'legs', muscles: 'quads, glutes',
+    setup: 'Sit tall on the edge of a sturdy chair, feet flat and shoulder-width, arms crossed or reaching forward.', execution: 'Stand up under control without using your hands, squeeze the glutes at the top, then sit back down slowly.', mistake: 'Flopping back into the seat — lower slowly, the descent is half the work.', swap: 'wall-sit', video: null },
   { id: 'bw-squat', name: 'Bodyweight Squat', equip: 'none', cat: 'legs', muscles: 'quads, glutes',
     setup: 'Feet shoulder-width, toes slightly out, arms forward for balance.', execution: 'Sit hips back and down until thighs are at least parallel, then drive up through mid-foot.', mistake: 'Knees caving inward — push them out in line with the toes.', swap: 'wall-sit', video: 'https://www.youtube.com/watch?v=cB0cOX7gePg' },
   { id: 'split-squat', name: 'Split Squat', equip: 'none', cat: 'legs', muscles: 'quads, glutes',
@@ -62,6 +67,8 @@ const EXERCISES = [
     setup: 'Stand tall, feet shoulder-width.', execution: 'Squat down, kick feet back to a plank, (optional push-up), hop feet in, and jump up.', mistake: 'Letting the hips sag in the plank phase — keep the core braced.', swap: 'mountain-climber', video: 'https://www.youtube.com/watch?v=G2hv_NYhM-A' },
 
   // ── Bodyweight — pull ──
+  { id: 'towel-row', name: 'Towel Row (self-resisted)', equip: 'none', cat: 'pull', muscles: 'back, biceps',
+    setup: 'Hold a towel at both ends in front of you, arms extended, sink into a slight squat and brace.', execution: 'Pull one end toward your chest while resisting hard with the other hand, squeezing the shoulder blade, then slowly let it return. Alternate sides.', mistake: 'No tension — the resisting hand must fight the whole way so the back actually works.', swap: 'superman', video: null },
   { id: 'table-row', name: 'Table / Doorframe Row', equip: 'none', cat: 'pull', muscles: 'back, biceps',
     setup: 'Lie under a sturdy table gripping its edge, or hold both sides of a doorframe leaning back.', execution: 'Pull your chest to your hands keeping the body in one line, then lower under control.', mistake: 'Hips sagging — brace like a plank throughout.', swap: 'superman', video: 'https://www.youtube.com/watch?v=dnpDUwqMX04' },
   { id: 'superman', name: 'Superman', equip: 'none', cat: 'pull', muscles: 'lower back, glutes',
@@ -91,118 +98,152 @@ const EXERCISES = [
   { id: 'russian-twist', name: 'Russian Twist', equip: 'none', cat: 'abs', muscles: 'obliques',
     setup: 'Seated, knees bent, heels lightly down (or lifted to advance), torso leaned back ~45°.', execution: 'Rotate the torso side to side, touching the floor beside your hip each side.', mistake: 'Just swinging the arms — rotate the ribcage, chest follows the hands.', swap: 'bicycle-crunch', video: 'https://www.youtube.com/watch?v=IJDOoVyVjhc' },
 
-  // ── Dumbbell ──
-  { id: 'db-goblet-squat', name: 'Goblet Squat', equip: 'db', cat: 'legs', muscles: 'quads, glutes, core',
+  // ── Minimal kit (kettlebell · push-up handles · ab wheel · mat) ──
+  { id: 'kb-deadlift', name: 'Kettlebell Deadlift', equip: 'min', cat: 'legs', muscles: 'hamstrings, glutes, back',
+    setup: 'Kettlebell on the floor between your feet, feet hip-width, soft knees, chest proud.', execution: 'Hinge at the hips to grip the bell, then drive the hips forward to stand tall, squeezing the glutes. Lower under control. This is the ONLY floor deadlift Abs By AI programs.', mistake: 'Rounding the back to reach the bell — hinge the hips and keep the spine long.', swap: 'single-leg-glute-bridge', video: null },
+  { id: 'kb-swing', name: 'Kettlebell Swing', equip: 'min', cat: 'conditioning', muscles: 'glutes, hamstrings, core',
+    setup: 'Kettlebell a foot in front of you, feet wide, hinge and grip it with both hands.', execution: 'Hike the bell back between your legs, then snap the hips forward to float it to chest height — the power is all hips, the arms are ropes.', mistake: 'Squatting and lifting with the arms — it is a hip hinge, not a front raise.', swap: 'glute-bridge', video: null },
+  { id: 'kb-goblet-squat', name: 'Kettlebell Goblet Squat', equip: 'min', cat: 'legs', muscles: 'quads, glutes, core',
+    setup: 'Hold the kettlebell by the horns against your chest, elbows tucked, feet shoulder-width (or wide/sumo for a glute bias).', execution: 'Squat between your knees keeping the torso tall and elbows inside the knees, then drive up.', mistake: 'Letting the bell pull you forward — keep it glued to the chest.', swap: 'bw-squat', video: null },
+  { id: 'kb-row', name: 'Kettlebell Row', equip: 'min', cat: 'pull', muscles: 'lats, upper back, biceps',
+    setup: 'Hinge forward with a flat back, kettlebell hanging in one hand, other hand on your thigh for support.', execution: 'Row the bell to your hip, driving the elbow back and squeezing the shoulder blade, then lower. Finish the set, then switch.', mistake: 'Twisting the torso to heave the bell — shoulders stay square to the floor.', swap: 'towel-row', video: null },
+  { id: 'kb-press', name: 'Kettlebell Overhead Press', equip: 'min', cat: 'push', muscles: 'shoulders, triceps',
+    setup: 'Kettlebell racked at one shoulder, bell resting on the back of the forearm, feet hip-width, glutes and abs braced.', execution: 'Press the bell overhead until the arm is straight, then lower to the rack under control. Finish the set, then switch.', mistake: 'Arching the lower back to press — squeeze the glutes and keep the ribs down.', swap: 'pike-pushup', video: null },
+  { id: 'deficit-pushup', name: 'Deep Push-Up (on handles)', equip: 'min', cat: 'push', muscles: 'chest, triceps, shoulders',
+    setup: 'Grip a push-up handle in each hand, shoulder-width, body in one straight line.', execution: 'Lower your chest below the level of the handles for a deep stretch, elbows ~45°, then press back up.', mistake: 'Sagging hips as you reach depth — squeeze glutes and brace abs the whole set.', swap: 'pushup', video: null },
+
+  // ── Dumbbell (full equipment in v3) ──
+  { id: 'db-goblet-squat', name: 'Goblet Squat', equip: 'full', cat: 'legs', muscles: 'quads, glutes, core',
     setup: 'Hold one dumbbell vertically against your chest, elbows tucked, feet shoulder-width.', execution: 'Squat between your knees keeping the torso tall, elbows tracking inside the knees, then stand.', mistake: 'Letting the weight pull you forward — keep it glued to the chest.', swap: 'bw-squat', video: 'https://www.youtube.com/watch?v=-utXQMqTuVA' },
-  { id: 'db-rdl', name: 'Dumbbell Hip Hinge', equip: 'db', cat: 'legs', muscles: 'hamstrings, glutes',
+  { id: 'db-rdl', name: 'Dumbbell Hip Hinge', equip: 'full', cat: 'legs', muscles: 'hamstrings, glutes',
     setup: 'Dumbbells in front of thighs, feet hip-width, soft knees.', execution: 'Hinge at the hips pushing them back, sliding the weights down the legs until you feel a hamstring stretch, then squeeze glutes to stand.', mistake: 'Rounding the back — chest proud, weights close to the legs.', swap: 'glute-bridge', video: 'https://www.youtube.com/watch?v=aa57T45iFSE' },
-  { id: 'db-lunge', name: 'Dumbbell Lunge', equip: 'db', cat: 'legs', muscles: 'quads, glutes',
+  { id: 'db-lunge', name: 'Dumbbell Lunge', equip: 'full', cat: 'legs', muscles: 'quads, glutes',
     setup: 'Dumbbell in each hand at your sides, standing tall.', execution: 'Step forward (or back) into a lunge until both knees hit ~90°, then drive back up.', mistake: 'Torso collapsing forward — the weights hang, the torso stays tall.', swap: 'reverse-lunge', video: 'https://www.youtube.com/watch?v=G4gAK8Bhyro' },
-  { id: 'db-step-up', name: 'Dumbbell Step-Up', equip: 'db', cat: 'legs', muscles: 'quads, glutes',
+  { id: 'db-step-up', name: 'Dumbbell Step-Up', equip: 'full', cat: 'legs', muscles: 'quads, glutes',
     setup: 'Dumbbells at sides, facing a knee-height step or bench.', execution: 'Drive through the top heel to step up, stand fully tall, lower under control.', mistake: 'Bouncing off the back leg — strict, top-leg-only reps.', swap: 'step-up', video: 'https://www.youtube.com/watch?v=9ZknEYboBOQ' },
-  { id: 'db-floor-press', name: 'Dumbbell Floor Press', equip: 'db', cat: 'push', muscles: 'chest, triceps',
+  { id: 'db-floor-press', name: 'Dumbbell Floor Press', equip: 'full', cat: 'push', muscles: 'chest, triceps',
     setup: 'Lie on the floor, knees bent, dumbbells pressed over the chest.', execution: 'Lower until the upper arms touch the floor, pause briefly, press back up.', mistake: 'Flaring elbows to 90° — keep them ~45° from the torso.', swap: 'pushup', video: 'https://www.youtube.com/watch?v=vagdk94bFn4' },
-  { id: 'db-bench-press', name: 'Dumbbell Bench Press', equip: 'db', cat: 'push', muscles: 'chest, triceps, shoulders',
+  { id: 'db-bench-press', name: 'Dumbbell Bench Press', equip: 'full', cat: 'push', muscles: 'chest, triceps, shoulders',
     setup: 'Lie on a bench, dumbbells over the chest, feet planted.', execution: 'Lower the weights to chest level with elbows ~45°, then press up and slightly together.', mistake: 'Bouncing out of the bottom — control down, drive up.', swap: 'db-floor-press', video: 'https://www.youtube.com/watch?v=xhEhjF5ozuY' },
-  { id: 'db-shoulder-press', name: 'Dumbbell Shoulder Press', equip: 'db', cat: 'push', muscles: 'shoulders, triceps',
+  { id: 'db-shoulder-press', name: 'Dumbbell Shoulder Press', equip: 'full', cat: 'push', muscles: 'shoulders, triceps',
     setup: 'Seated or standing tall, dumbbells at shoulder height, palms forward.', execution: 'Press overhead until arms are straight (biceps by ears), lower to shoulders under control.', mistake: 'Arching the lower back — squeeze glutes and ribs down.', swap: 'pike-pushup', video: 'https://www.youtube.com/watch?v=qEwKCR5JCog' },
-  { id: 'db-lateral-raise', name: 'Lateral Raise', equip: 'db', cat: 'push', muscles: 'side delts',
+  { id: 'db-lateral-raise', name: 'Lateral Raise', equip: 'full', cat: 'push', muscles: 'side delts',
     setup: 'Stand tall, light dumbbells at your sides, slight elbow bend.', execution: 'Raise the weights out to shoulder height like pouring two jugs, then lower slowly.', mistake: 'Swinging heavy weight up — lighter, slower, no shrug.', swap: 'pike-pushup', video: 'https://www.youtube.com/watch?v=nnH63icHYXY' },
-  { id: 'db-row', name: 'One-Arm Dumbbell Row', equip: 'db', cat: 'pull', muscles: 'lats, upper back, biceps',
+  { id: 'db-row', name: 'One-Arm Dumbbell Row', equip: 'full', cat: 'pull', muscles: 'lats, upper back, biceps',
     setup: 'One hand and knee on a bench (or hand on a chair), flat back, dumbbell hanging in the other hand.', execution: 'Pull the weight to your hip, driving the elbow back and squeezing the shoulder blade, then lower.', mistake: 'Twisting the torso to heave the weight — shoulders stay square to the floor.', swap: 'table-row', video: 'https://www.youtube.com/watch?v=pYcpY20QaE8' },
-  { id: 'db-renegade-row', name: 'Renegade Row', equip: 'db', cat: 'pull', muscles: 'back, core',
+  { id: 'db-renegade-row', name: 'Renegade Row', equip: 'full', cat: 'pull', muscles: 'back, core',
     setup: 'High plank with hands on dumbbells, feet wide.', execution: 'Row one dumbbell to the hip without rotating the hips, lower, alternate.', mistake: 'Hips swinging side to side — imagine headlights on your hips pointing at the floor.', swap: 'db-row', video: 'https://www.youtube.com/watch?v=NTl_ALR8Tlc' },
-  { id: 'db-pullover', name: 'Dumbbell Pullover', equip: 'db', cat: 'pull', muscles: 'lats, chest',
+  { id: 'db-pullover', name: 'Dumbbell Pullover', equip: 'full', cat: 'pull', muscles: 'lats, chest',
     setup: 'Lie on a bench (or floor), one dumbbell held with both hands above the chest.', execution: 'Lower the weight in an arc behind your head until you feel a lat stretch, then pull back over the chest.', mistake: 'Bending the elbows more as you lower — keep the arm angle fixed.', swap: 'db-row', video: 'https://www.youtube.com/watch?v=tcHaHIQStsk' },
-  { id: 'db-curl', name: 'Dumbbell Curl', equip: 'db', cat: 'pull', muscles: 'biceps',
+  { id: 'db-curl', name: 'Dumbbell Curl', equip: 'full', cat: 'pull', muscles: 'biceps',
     setup: 'Stand tall, dumbbells at sides, palms forward.', execution: 'Curl the weights to shoulder height keeping elbows pinned to your sides, lower slowly.', mistake: 'Swinging the hips to lift — if you must swing, the weight is too heavy.', swap: 'db-hammer-curl', video: 'https://www.youtube.com/watch?v=XE_pHwbst04' },
-  { id: 'db-hammer-curl', name: 'Hammer Curl', equip: 'db', cat: 'pull', muscles: 'biceps, forearms',
+  { id: 'db-hammer-curl', name: 'Hammer Curl', equip: 'full', cat: 'pull', muscles: 'biceps, forearms',
     setup: 'Stand tall, dumbbells at sides, palms facing each other.', execution: 'Curl with a neutral grip, elbows pinned, lower under control.', mistake: 'Elbows drifting forward — they stay at your sides.', swap: 'db-curl', video: 'https://www.youtube.com/watch?v=zC3nLlEvin4' },
-  { id: 'db-fly', name: 'Dumbbell Fly', equip: 'db', cat: 'push', muscles: 'chest',
+  { id: 'db-fly', name: 'Dumbbell Fly', equip: 'full', cat: 'push', muscles: 'chest',
     setup: 'Lie on a bench (or the floor), dumbbells pressed over the chest, palms facing each other, slight elbow bend.', execution: 'Open the arms in a wide arc until you feel a chest stretch, then squeeze the weights back together like hugging a tree.', mistake: 'Bending the elbows more as you lower — keep the arm angle fixed; it is a hug, not a press.', swap: 'db-floor-press', video: null },
-  { id: 'chest-supported-db-row', name: 'Chest-Supported Dumbbell Row', equip: 'db', cat: 'pull', muscles: 'mid-back, lats, biceps',
+  { id: 'chest-supported-db-row', name: 'Chest-Supported Dumbbell Row', equip: 'full', cat: 'pull', muscles: 'mid-back, lats, biceps',
     setup: 'Lie chest-down on an incline bench (or hinge with your chest braced), dumbbells hanging straight down.', execution: 'Row both weights to your hips, squeezing the shoulder blades together, then lower with control.', mistake: 'Lifting the chest off the pad to heave — the bench takes the momentum away; keep it there.', swap: 'db-row', video: null },
-  { id: 'db-rear-delt-fly', name: 'Bent-Over Dumbbell Rear Delt Fly', equip: 'db', cat: 'pull', muscles: 'rear delts, upper back',
+  { id: 'db-rear-delt-fly', name: 'Bent-Over Dumbbell Rear Delt Fly', equip: 'full', cat: 'pull', muscles: 'rear delts, upper back',
     setup: 'Hinge forward with a flat back, light dumbbells hanging under the shoulders, slight elbow bend.', execution: 'Raise the weights out to the sides like spreading wings, squeeze the rear shoulders, lower slowly.', mistake: 'Swinging heavy weight with the torso — go light and strict; the rear delts are small.', swap: 'superman', video: null },
-  { id: 'db-tricep-extension', name: 'Overhead Triceps Extension', equip: 'db', cat: 'push', muscles: 'triceps',
+  { id: 'db-tricep-extension', name: 'Overhead Triceps Extension', equip: 'full', cat: 'push', muscles: 'triceps',
     setup: 'Hold one dumbbell with both hands overhead, elbows pointing forward.', execution: 'Lower the weight behind your head by bending the elbows, then extend back to straight.', mistake: 'Elbows flaring wide — keep them narrow and pointed up.', swap: 'chair-dip', video: 'https://www.youtube.com/watch?v=DZgpCf5alfI' },
-  { id: 'db-kickback', name: 'Triceps Kickback', equip: 'db', cat: 'push', muscles: 'triceps',
+  { id: 'db-kickback', name: 'Triceps Kickback', equip: 'full', cat: 'push', muscles: 'triceps',
     setup: 'Hinge forward with a flat back, upper arms pinned parallel to the floor.', execution: 'Extend the forearms straight back until arms are fully straight, squeeze, return.', mistake: 'Dropping the upper arm — only the forearm moves.', swap: 'chair-dip', video: 'https://www.youtube.com/watch?v=6SS6K3lAwZ8' },
-  { id: 'db-shrug', name: 'Dumbbell Shrug', equip: 'db', cat: 'pull', muscles: 'traps',
+  { id: 'db-shrug', name: 'Dumbbell Shrug', equip: 'full', cat: 'pull', muscles: 'traps',
     setup: 'Stand tall, heavy-ish dumbbells at your sides.', execution: 'Shrug shoulders straight up toward your ears, pause, lower slowly.', mistake: 'Rolling the shoulders in circles — straight up and down only.', swap: 'db-row', video: 'https://www.youtube.com/watch?v=cJRVVxmytaM' },
-  { id: 'db-thruster', name: 'Dumbbell Thruster', equip: 'db', cat: 'conditioning', muscles: 'full body',
+  { id: 'db-thruster', name: 'Dumbbell Thruster', equip: 'full', cat: 'conditioning', muscles: 'full body',
     setup: 'Dumbbells at shoulders, feet shoulder-width.', execution: 'Squat to parallel, then drive up and press the weights overhead in one motion.', mistake: 'Splitting it into a slow squat then press — it is one fluid drive.', swap: 'db-goblet-squat', video: 'https://www.youtube.com/watch?v=eDNt3biU9I4' },
-  { id: 'db-swing', name: 'Dumbbell Swing', equip: 'db', cat: 'conditioning', muscles: 'glutes, hamstrings, core',
-    setup: 'Hold one dumbbell by the head with both hands, feet wide.', execution: 'Hinge and hike the weight back between your legs, then snap the hips forward to swing it to chest height.', mistake: 'Squatting and lifting with the arms — it is a hip hinge; the arms are ropes.', swap: 'db-rdl', video: 'https://www.youtube.com/watch?v=Y30kFfgW-bY' },
-  { id: 'db-farmer-carry', name: 'Farmer Carry', equip: 'db', cat: 'conditioning', muscles: 'grip, traps, core',
+  { id: 'db-swing', name: 'Dumbbell Swing', equip: 'full', cat: 'conditioning', muscles: 'glutes, hamstrings, core',
+    setup: 'Hold one dumbbell by the head with both hands, feet wide.', execution: 'Hinge and hike the weight back between your legs, then snap the hips forward to swing it to chest height.', mistake: 'Squatting and lifting with the arms — it is a hip hinge; the arms are ropes.', swap: 'kb-swing', video: 'https://www.youtube.com/watch?v=Y30kFfgW-bY' },
+  { id: 'db-farmer-carry', name: 'Farmer Carry', equip: 'full', cat: 'conditioning', muscles: 'grip, traps, core',
     setup: 'Heavy dumbbell in each hand, stand tall.', execution: 'Walk with short quick steps, shoulders back, core braced, for the given distance or time.', mistake: 'Leaning to one side — walk as if balancing a book on your head.', swap: 'plank', video: 'https://www.youtube.com/watch?v=62v48abT5-Y' },
-  { id: 'db-russian-twist', name: 'Weighted Russian Twist', equip: 'db', cat: 'abs', muscles: 'obliques',
+  { id: 'db-russian-twist', name: 'Weighted Russian Twist', equip: 'full', cat: 'abs', muscles: 'obliques',
     setup: 'Seated, lean back ~45°, hold one dumbbell at your chest, heels light on the floor.', execution: 'Rotate the torso side to side, moving the weight across your body under control.', mistake: 'Arms swinging while the torso stays still — the ribcage rotates.', swap: 'russian-twist', video: 'https://www.youtube.com/watch?v=p_dPOhhgovg' },
-  { id: 'db-crunch', name: 'Weighted Crunch', equip: 'db', cat: 'abs', muscles: 'upper abs',
+  { id: 'db-crunch', name: 'Weighted Crunch', equip: 'full', cat: 'abs', muscles: 'upper abs',
     setup: 'Lie on your back, knees bent, dumbbell held on the chest.', execution: 'Curl shoulder blades off the floor, pause hard at the top, lower slowly.', mistake: 'Sitting all the way up — a crunch is a short, intense range.', swap: 'crunch', video: 'https://www.youtube.com/watch?v=_nzyLUvtgvs' },
 
   // ── Gym ──
-  { id: 'bb-hip-thrust', name: 'Barbell Hip Thrust', equip: 'gym', cat: 'legs', muscles: 'glutes',
+  { id: 'bb-hip-thrust', name: 'Barbell Hip Thrust', equip: 'full', cat: 'legs', muscles: 'glutes',
     setup: 'Upper back on a bench, bar (padded) over the hips, feet flat.', execution: 'Drive hips up until the torso is level, chin tucked, squeeze glutes hard at the top.', mistake: 'Overarching at the top — finish with glutes, ribs stay down.', swap: 'single-leg-glute-bridge', video: 'https://www.youtube.com/watch?v=pF17m_CXfL0' },
-  { id: 'leg-press', name: 'Leg Press', equip: 'gym', cat: 'legs', muscles: 'quads, glutes',
+  { id: 'safety-bar-squat', name: 'Safety-Bar Back Squat', equip: 'full', cat: 'legs', muscles: 'quads, glutes',
+    setup: 'Safety-bar racked on the upper back, handles forward, feet shoulder-width in the rack. Stages 6–7 only — the backup to the leg press.', execution: 'Brace, sit hips back and down to at least parallel keeping the chest up, then drive up through mid-foot.', mistake: 'Chest collapsing forward — the padded yoke wants to fold you; fight to stay upright.', swap: 'leg-press', video: null },
+  { id: 'bb-back-squat', name: 'Barbell Back Squat', equip: 'full', cat: 'legs', muscles: 'quads, glutes',
+    setup: 'Bar on the upper back in a rack, feet shoulder-width. Stages 6–7 only — the tertiary squat, after leg press and safety-bar.', execution: 'Brace hard, sit down and back to at least parallel, then drive up keeping the bar over mid-foot.', mistake: 'Knees caving or heels lifting — push the knees out and keep the whole foot planted.', swap: 'safety-bar-squat', video: null },
+  { id: 'cable-glute-kickback', name: 'Cable Glute Kickback', equip: 'full', cat: 'legs', muscles: 'glutes',
+    setup: 'Ankle strap on a low cable, face the machine holding it for balance, slight hinge.', execution: 'Drive one leg straight back squeezing the glute at the top, then return under control. Finish the set, then switch.', mistake: 'Arching the lower back to swing the leg higher — the glute does the work, not the spine.', swap: 'single-leg-glute-bridge', video: null },
+  { id: 'hip-abduction', name: 'Hip Abduction', equip: 'full', cat: 'legs', muscles: 'glute medius',
+    setup: 'Seated hip-abduction machine, pads against the outer thighs (or a band around the knees).', execution: 'Press the knees outward against the resistance, squeeze at the widest point, then return slowly.', mistake: 'Leaning back to force the weight — sit tall and let the glutes push.', swap: 'glute-bridge', video: null },
+  { id: 'sled-push', name: 'Prowler Sled Push', equip: 'full', cat: 'conditioning', muscles: 'quads, glutes, full body',
+    setup: 'Load the sled, grip the high or low posts, arms long, torso leaning in. Functional work, Stages 5–7.', execution: 'Drive it forward with powerful, choppy steps for the given distance, staying low and braced.', mistake: 'Standing too upright — lean into it and push through the balls of the feet.', swap: 'walking-lunge', video: null },
+  { id: 'battle-ropes', name: 'Battle Ropes', equip: 'full', cat: 'conditioning', muscles: 'shoulders, arms, core',
+    setup: 'A rope end in each hand, feet shoulder-width, soft knees, athletic stance. Functional conditioning, Stages 5–7.', execution: 'Drive alternating waves down the ropes as fast as you can hold for the interval, bracing the core throughout.', mistake: 'Going all-arms and gassing out — use a little hip bounce and keep the whole body in it.', swap: 'mountain-climber', video: null },
+  { id: 'leg-press', name: 'Leg Press', equip: 'full', cat: 'legs', muscles: 'quads, glutes',
     setup: 'Feet shoulder-width on the platform, back and hips flat against the pads.', execution: 'Lower under control until knees near 90°, then press without locking the knees hard.', mistake: 'Letting the hips curl off the pad at the bottom — shorten the range.', swap: 'db-goblet-squat', video: 'https://www.youtube.com/watch?v=8nm863C0c60' },
-  { id: 'leg-extension', name: 'Leg Extension', equip: 'gym', cat: 'legs', muscles: 'quads',
+  { id: 'leg-extension', name: 'Leg Extension', equip: 'full', cat: 'legs', muscles: 'quads',
     setup: 'Sit with the pad on your lower shins, knees lined up with the machine pivot.', execution: 'Extend to straight, squeeze the quads for a beat, lower slowly.', mistake: 'Kicking the weight up fast — slow squeeze, slower lower.', swap: 'wall-sit', video: 'https://www.youtube.com/watch?v=F1JfmctnmTE' },
-  { id: 'leg-curl', name: 'Leg Curl', equip: 'gym', cat: 'legs', muscles: 'hamstrings',
-    setup: 'Position the pad just above the heels (lying or seated machine).', execution: 'Curl the heels toward the glutes, pause, and return slowly.', mistake: 'Hips lifting off the pad — keep them pinned.', swap: 'db-rdl', video: 'https://www.youtube.com/watch?v=lUH80pneL5w' },
-  { id: 'machine-chest-press', name: 'Machine Chest Press', equip: 'gym', cat: 'push', muscles: 'chest, triceps',
+  { id: 'leg-curl', name: 'Leg Curl', equip: 'full', cat: 'legs', muscles: 'hamstrings',
+    setup: 'Position the pad just above the heels (lying or seated machine).', execution: 'Curl the heels toward the glutes, pause, and return slowly.', mistake: 'Hips lifting off the pad — keep them pinned.', swap: 'kb-deadlift', video: 'https://www.youtube.com/watch?v=lUH80pneL5w' },
+  { id: 'machine-chest-press', name: 'Machine Chest Press', equip: 'full', cat: 'push', muscles: 'chest, triceps',
     setup: 'Adjust the seat so handles line up with mid-chest.', execution: 'Press to full extension without slamming the stack, return under control.', mistake: 'Shoulders rolling forward — keep the chest proud and shoulder blades back.', swap: 'db-floor-press', video: 'https://www.youtube.com/watch?v=pLofEAcfsO8' },
-  { id: 'cable-fly', name: 'Cable Fly / Crossover', equip: 'gym', cat: 'push', muscles: 'chest',
+  { id: 'cable-fly', name: 'Cable Fly / Crossover', equip: 'full', cat: 'push', muscles: 'chest',
     setup: 'Set both cable pulleys at chest height (or high for a downward sweep), grab a handle in each hand and step forward into a staggered stance.', execution: 'With a slight elbow bend, sweep the handles together in front of your chest, squeeze for a beat, and return under control.', mistake: 'Turning it into a press by bending the elbows — the arms stay long; the chest does the hugging.', swap: 'db-fly', video: null },
-  { id: 'pec-deck', name: 'Pec Deck Machine Fly', equip: 'gym', cat: 'push', muscles: 'chest',
+  { id: 'pec-deck', name: 'Pec Deck Machine Fly', equip: 'full', cat: 'push', muscles: 'chest',
     setup: 'Sit tall with your back against the pad, handles at chest height, slight bend in the elbows.', execution: 'Bring the handles together in front of your chest, squeeze, and open back until you feel a comfortable stretch.', mistake: 'Slamming the weight together — pause and squeeze at the middle instead.', swap: 'cable-fly', video: null },
-  { id: 'bb-ohp', name: 'Barbell Overhead Press', equip: 'gym', cat: 'push', muscles: 'shoulders, triceps',
+  { id: 'bb-ohp', name: 'Barbell Overhead Press', equip: 'full', cat: 'push', muscles: 'shoulders, triceps',
     setup: 'Bar at collarbone height, grip just outside shoulders, glutes and abs braced.', execution: 'Press the bar overhead moving the head slightly back then through, lockout over mid-foot.', mistake: 'Leaning way back to press — squeeze glutes; it is a press, not an incline bench.', swap: 'db-shoulder-press', video: 'https://www.youtube.com/watch?v=a81SaIpjGlA' },
-  { id: 'pullup', name: 'Pull-Up', equip: 'gym', cat: 'pull', muscles: 'lats, biceps',
+  { id: 'pullup', name: 'Pull-Up', equip: 'full', cat: 'pull', muscles: 'lats, biceps',
     setup: 'Hang from a bar with an overhand grip just outside shoulders.', execution: 'Pull your chin over the bar driving elbows down, lower to a full hang.', mistake: 'Kipping half reps — full hang to chin-over, every rep.', swap: 'lat-pulldown', video: 'https://www.youtube.com/watch?v=sIvJTfGxdFo' },
-  { id: 'chinup', name: 'Chin-Up', equip: 'gym', cat: 'pull', muscles: 'lats, biceps',
+  { id: 'chinup', name: 'Chin-Up', equip: 'full', cat: 'pull', muscles: 'lats, biceps',
     setup: 'Hang with an underhand, shoulder-width grip.', execution: 'Pull chin over the bar, lower to a full hang with control.', mistake: 'Shrugging into the ears at the top — pull the shoulder blades down.', swap: 'lat-pulldown', video: 'https://www.youtube.com/watch?v=e1YSApl-QcM' },
-  { id: 'lat-pulldown', name: 'Lat Pulldown', equip: 'gym', cat: 'pull', muscles: 'lats, biceps',
+  { id: 'lat-pulldown', name: 'Lat Pulldown', equip: 'full', cat: 'pull', muscles: 'lats, biceps',
     setup: 'Grip the bar wider than shoulders, thighs snug under the pads.', execution: 'Pull the bar to the top of the chest driving elbows down, return with a full stretch.', mistake: 'Leaning way back and heaving — slight lean, strict pull.', swap: 'table-row', video: 'https://www.youtube.com/watch?v=AOpi-p0cJkc' },
-  { id: 'seated-cable-row', name: 'Seated Cable Row', equip: 'gym', cat: 'pull', muscles: 'mid-back, lats, biceps',
+  { id: 'seated-cable-row', name: 'Seated Cable Row', equip: 'full', cat: 'pull', muscles: 'mid-back, lats, biceps',
     setup: 'Sit tall, feet on the platform, slight knee bend, neutral grip.', execution: 'Pull the handle to your stomach squeezing the shoulder blades together, return with a full reach.', mistake: 'Rocking the torso back and forth — the arms and back row, the torso stays tall.', swap: 'db-row', video: 'https://www.youtube.com/watch?v=EU7bOadUsNI' },
-  { id: 'machine-row', name: 'Machine Row', equip: 'gym', cat: 'pull', muscles: 'mid-back, lats, biceps',
+  { id: 'machine-row', name: 'Machine Row', equip: 'full', cat: 'pull', muscles: 'mid-back, lats, biceps',
     setup: 'Adjust the seat so the handles line up with your mid-chest, chest against the pad if there is one.', execution: 'Pull the handles to your torso driving the elbows back, squeeze the shoulder blades, and return with a full stretch.', mistake: 'Shrugging the shoulders up as you pull — pull the elbows back and down.', swap: 'seated-cable-row', video: null },
-  { id: 'straight-arm-pulldown', name: 'Straight-Arm Cable Pulldown', equip: 'gym', cat: 'pull', muscles: 'lats',
+  { id: 'straight-arm-pulldown', name: 'Straight-Arm Cable Pulldown', equip: 'full', cat: 'pull', muscles: 'lats',
     setup: 'Stand facing a high cable with a bar or rope, arms extended, slight hinge at the hips.', execution: 'Keeping the arms nearly straight, sweep the bar down to your thighs with the lats, then let it rise slowly to a full stretch.', mistake: 'Bending the elbows and turning it into a pushdown — the arms stay long; the lats pull.', swap: 'lat-pulldown', video: null },
-  { id: 'back-extension', name: '45° Back Extension', equip: 'gym', cat: 'pull', muscles: 'lower back, glutes, hamstrings',
+  { id: 'back-extension', name: '45° Back Extension', equip: 'full', cat: 'pull', muscles: 'lower back, glutes, hamstrings',
     setup: 'Set the pad at hip-crease height on the 45° bench, ankles locked in, arms crossed on your chest.', execution: 'Hinge down with a flat back, then squeeze the glutes to raise your torso until your body forms a straight line — no higher.', mistake: 'Hyperextending past straight at the top — finish in line with the legs, not arched.', swap: 'superman', video: null },
-  { id: 'machine-rear-delt-fly', name: 'Reverse Pec Deck (Rear Delt Fly)', equip: 'gym', cat: 'pull', muscles: 'rear delts, upper back',
+  { id: 'machine-rear-delt-fly', name: 'Reverse Pec Deck (Rear Delt Fly)', equip: 'full', cat: 'pull', muscles: 'rear delts, upper back',
     setup: 'Sit facing the pec deck pad with the handles set behind the machine, arms forward at shoulder height.', execution: 'Sweep the handles back and out until your arms are in line with your shoulders, squeeze the rear delts, return slowly.', mistake: 'Rocking backward to move more weight — stay glued to the pad and go lighter.', swap: 'db-rear-delt-fly', video: null },
-  { id: 'bb-row', name: 'Barbell Row', equip: 'gym', cat: 'pull', muscles: 'lats, mid-back',
+  { id: 'bb-row', name: 'Barbell Row', equip: 'full', cat: 'pull', muscles: 'lats, mid-back',
     setup: 'Hinge to ~45°, flat back, bar hanging at knee height.', execution: 'Row the bar to your lower ribs, squeeze, and lower under control without standing up.', mistake: 'Torso bouncing upright each rep — hold the hinge.', swap: 'db-row', video: 'https://www.youtube.com/watch?v=rqTOAM8WoeM' },
-  { id: 'face-pull', name: 'Face Pull', equip: 'gym', cat: 'pull', muscles: 'rear delts, upper back',
+  { id: 'face-pull', name: 'Face Pull', equip: 'full', cat: 'pull', muscles: 'rear delts, upper back',
     setup: 'Rope on a cable set at face height, grab with thumbs toward you.', execution: 'Pull the rope toward your face, spreading the ends beside your ears, squeeze the rear delts.', mistake: 'Turning it into a row to the chest — pull high, elbows flared.', swap: 'superman', video: 'https://www.youtube.com/watch?v=eTCBSFlCJ_s' },
-  { id: 'cable-tricep-pushdown', name: 'Cable Triceps Pushdown', equip: 'gym', cat: 'push', muscles: 'triceps',
+  { id: 'cable-tricep-pushdown', name: 'Cable Triceps Pushdown', equip: 'full', cat: 'push', muscles: 'triceps',
     setup: 'Cable set high with a bar or rope, elbows pinned to your sides.', execution: 'Push down to full extension, squeeze, and let the weight back up slowly.', mistake: 'Elbows drifting forward to press with the shoulders — elbows stay glued to the ribs.', swap: 'db-tricep-extension', video: 'https://www.youtube.com/watch?v=_w-HpW70nSQ' },
-  { id: 'ez-bar-curl', name: 'EZ-Bar Curl', equip: 'gym', cat: 'pull', muscles: 'biceps',
+  { id: 'ez-bar-curl', name: 'EZ-Bar Curl', equip: 'full', cat: 'pull', muscles: 'biceps',
     setup: 'Grip the EZ bar at the angled sections, elbows at your sides.', execution: 'Curl to shoulder height and lower over ~3 seconds.', mistake: 'Leaning back to swing the bar up — strict, or lighten it.', swap: 'db-curl', video: 'https://www.youtube.com/watch?v=5NsFLGUf0Fo' },
-  { id: 'cable-crunch', name: 'Cable Crunch', equip: 'gym', cat: 'abs', muscles: 'abs',
+  { id: 'cable-crunch', name: 'Cable Crunch', equip: 'full', cat: 'abs', muscles: 'abs',
     setup: 'Kneel below a high cable holding the rope beside your head.', execution: 'Crunch your ribs toward your hips against the cable, pause, and return under control.', mistake: 'Pulling with the arms or hinging at the hips — the spine flexes, the hips stay still.', swap: 'db-crunch', video: 'https://www.youtube.com/watch?v=809A_MuZ2PY' },
-  { id: 'hanging-knee-raise', name: 'Hanging Knee Raise', equip: 'gym', cat: 'abs', muscles: 'lower abs, hip flexors',
+  { id: 'hanging-knee-raise', name: 'Hanging Knee Raise', equip: 'full', cat: 'abs', muscles: 'lower abs, hip flexors',
     setup: 'Hang from a pull-up bar, shoulders active.', execution: 'Curl the knees up toward the chest tilting the pelvis, then lower slowly without swinging.', mistake: 'Swinging into momentum — pause at the bottom of every rep.', swap: 'lying-leg-raise', video: 'https://www.youtube.com/watch?v=l7OroezzX9k' },
-  { id: 'ab-wheel-rollout', name: 'Ab Wheel Rollout', equip: 'gym', cat: 'abs', muscles: 'entire core',
+  { id: 'ab-wheel-rollout', name: 'Ab Wheel Rollout', equip: 'min', cat: 'abs', muscles: 'entire core',
     setup: 'Kneel holding the wheel under your shoulders.', execution: 'Roll forward keeping the hips tucked and abs braced as far as you can control, then pull back.', mistake: 'Lower back sagging into an arch — shorten the rollout until you can keep the brace.', swap: 'plank', video: 'https://www.youtube.com/watch?v=rqiTPdK1c_I' },
 ];
 
-// Equipment tiers unlock cumulatively.
-const EQUIP_TIERS = { none: ['none'], db: ['none', 'db'], gym: ['none', 'db', 'gym'] };
+// Equipment tiers unlock cumulatively (v3: none ⊂ min ⊂ full).
+const EQUIP_TIERS = { none: ['none'], min: ['none', 'min'], full: ['none', 'min', 'full'] };
+
+// Kept in EXERCISE_BY_ID so old stored programs still render, but NEVER offered
+// to the model for new selection (v3 safety pass — §5 of the trainer handoff):
+//  - db-rdl: a dumbbell deadlift variant; the kettlebell deadlift is the only
+//    loaded floor hinge Abs By AI programs.
+//  - db-bench-press: a flat dumbbell bench; chest is fly-dominant with pushing
+//    only via machine press / floor press / push-ups.
+const EXCLUDED_FROM_SELECTION = new Set(['db-rdl', 'db-bench-press']);
 
 function exercisesForEquipment(equipLevel) {
   const allowed = EQUIP_TIERS[equipLevel] || EQUIP_TIERS.none;
-  return EXERCISES.filter((e) => allowed.includes(e.equip));
+  return EXERCISES.filter((e) => allowed.includes(e.equip) && !EXCLUDED_FROM_SELECTION.has(e.id));
 }
 
 const EXERCISE_BY_ID = Object.fromEntries(EXERCISES.map((e) => [e.id, e]));
 
 // Works as a Node module (server whitelist) and a browser <script> (UI).
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { EXERCISES, EXERCISE_BY_ID, EQUIP_TIERS, exercisesForEquipment };
+  module.exports = { EXERCISES, EXERCISE_BY_ID, EQUIP_TIERS, EXCLUDED_FROM_SELECTION, exercisesForEquipment };
 } else {
   window.EXERCISES = EXERCISES;
   window.EXERCISE_BY_ID = EXERCISE_BY_ID;
