@@ -2373,7 +2373,7 @@ async function checkCreditsSession() {
 
 // Body-fat anchors (midpoints) for display
 const BF_BEFORE = { heavier: { male: '28–32%', female: '36–40%' }, moderate: { male: '20–24%', female: '28–32%' }, fit: { male: '15–17%', female: '22–25%' }, very_lean: { male: '11–13%', female: '18–20%' } };
-const BF_AFTER = { subtle: { male: '16%', female: '24%' }, moderate: { male: '13%', female: '22%' }, dramatic: { male: '10%', female: '19%' }, max: { male: '9%', female: '17%' } };
+const BF_AFTER = { subtle: { male: '16%', female: '22%' }, moderate: { male: '13%', female: '20%' }, dramatic: { male: '10%', female: '17%' }, max: { male: '9%', female: '15%' } };
 
 // Upsell product pricing (prices in cents)
 // Canvas framed not available in 8×10 — UI enforces minimum 11×14 when Framed selected
@@ -2456,7 +2456,7 @@ Use strong, visual, specific language. Describe exactly what must change:
 
 BODY-FAT ANCHOR TABLE
 MALE: subtle 15-17%, moderate 12-14%, dramatic 9-11%, max 8-10%. FLOOR 8%.
-FEMALE: subtle 23-25%, moderate 21-23%, dramatic 18-20%, max 16-18%. FLOOR 16%.
+FEMALE: subtle 21-23%, moderate 19-21%, dramatic 16-18%, max 14-16%. FLOOR 14%.
 
 CALIBRATION RULE — only for "heavier" starting condition
 If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": DOWNGRADE the body-fat target by one step (use "moderate" anchors), and add to the directive: "This is a believable mid-journey transformation — the subject should look noticeably leaner and fitter, but not yet at peak condition."
@@ -2531,7 +2531,7 @@ Add for FEMALE:
 SAFETY RULES
 1. Sexualized language → silently translate to clinical fitness terminology. Do not refuse.
 2. Apparent minor → output exactly: REFUSED_MINOR
-3. Never go below body-fat floor (8% male, 16% female).
+3. Never go below body-fat floor (8% male, 14% female).
 4. Use "chest", "torso", "midsection", "stomach" — never explicit terms.
 5. Empty description → default to gender-appropriate "recreational athlete" archetype at the requested intensity.
 
@@ -5082,6 +5082,67 @@ async function unlockProgramAfterSubscribe() {
   } catch (e) { console.warn('program unlock regen failed:', e.message); }
 }
 
+// ── Progressive week generation ──
+// generate-program / checkin return week 1 (AI) immediately plus valid
+// deterministic weeks 2-4. For members we then upgrade each pending week to a
+// personalized AI week, one short call at a time, retrying and resuming — so no
+// request is ever long and the plan is always complete even if a call fails.
+let weekUpgradeRunning = false;
+function pendingWeeks() {
+  const s = loadStoredProgram();
+  return Array.isArray(s?.weeksPending) ? s.weeksPending.slice() : [];
+}
+async function upgradePendingWeeks() {
+  if (weekUpgradeRunning || !isLoggedIn() || !memberState.active) return;
+  let stored = loadStoredProgram();
+  if (!stored?.programId || !pendingWeeks().length) return;
+  weekUpgradeRunning = true;
+  try {
+    let pending = pendingWeeks();
+    while (pending.length) {
+      const wk = pending[0];
+      let ok = false;
+      for (let attempt = 0; attempt < 3 && !ok; attempt++) {
+        try {
+          const data = await authApi('/api/program/week', {
+            method: 'POST',
+            body: JSON.stringify({ programId: stored.programId, weekNumber: wk }),
+          });
+          const s = loadStoredProgram();
+          if (s?.program?.weeks && data.week) {
+            const i = s.program.weeks.findIndex(w => w.week === wk);
+            if (i >= 0) s.program.weeks[i] = data.week;
+            s.weeksPending = data.weeksPending || pending.filter(x => x !== wk);
+            storeProgram(s);
+          }
+          ok = true;
+        } catch (e) {
+          if (e.status === 402) return; // membership lapsed
+          await new Promise(r => setTimeout(r, 1500 * (attempt + 1)));
+        }
+      }
+      // Whether it succeeded or we gave up (the deterministic week stays), drop it.
+      const s2 = loadStoredProgram();
+      s2.weeksPending = (s2.weeksPending || pending).filter(x => x !== wk);
+      storeProgram(s2);
+      pending = pendingWeeks();
+      if (programView.week == null && $('programContent')) renderProgram();
+    }
+  } finally {
+    weekUpgradeRunning = false;
+    if (programView.week == null && $('programContent')) renderProgram();
+  }
+}
+function weekBuildingBannerHtml() {
+  const s = loadStoredProgram();
+  const pending = (memberState.active && Array.isArray(s?.weeksPending)) ? s.weeksPending : [];
+  if (!pending.length) return '';
+  return `<div class="why-card" style="display:flex;gap:12px;align-items:center;border:1px solid var(--acc)">
+    <div style="width:18px;height:18px;border:2.5px solid var(--line);border-top-color:var(--acc);border-radius:50%;animation:spin 0.8s linear infinite;flex-shrink:0"></div>
+    <div><b>Personalizing week ${pending[0]} of 4…</b><br><span style="color:var(--mute)">Your plan is ready to train now — the rest is tailoring itself in the background.</span></div>
+  </div>`;
+}
+
 // ── Program rendering ──
 const programView = { week: null, day: null }; // null = block overview
 
@@ -5090,6 +5151,7 @@ function showProgram() {
   programView.day = null;
   renderProgram();
   showScreen('program');
+  upgradePendingWeeks(); // resume/continue AI personalization of weeks 2-4
 }
 
 function slotKey(w, d, sec, i) { return `w${w}d${d}${sec}${i}`; }
@@ -5185,6 +5247,7 @@ function renderProgram() {
   }
   // Stage-4+ minimal-track members: nudge them to upgrade to a gym / full home gym.
   if (!locked && stage >= 4 && p.equipment_track === 'minimal') html += renderUpgradeNudge(stored);
+  html += weekBuildingBannerHtml();
   html += renderStreakCard();
   html += `<div class="why-card"><b>Why this works for you</b><br>${escapeHtml(p.why_this_works || '')}</div>`;
 
@@ -7157,7 +7220,7 @@ async function generate() {
     if (generatedPrompt.trim() === 'REFUSED_MINOR') {
       throw new Error('This app is for adults only. Please use a photo of someone 18 or older.');
     }
-    const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
+    const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
 
@@ -7211,7 +7274,7 @@ async function adjustIntensity(delta) {
   try {
     const generatedPrompt = await callGeminiText(GOAL_SYSTEM_PROMPT, makeUserJson());
     if (generatedPrompt.trim() === 'REFUSED_MINOR') throw new Error('Refused.');
-    const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime);
+    const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
     await finishResultLoader(); // land the bar at 100% before swapping the image in
@@ -7274,7 +7337,7 @@ async function callGeminiText(systemPrompt, userMessage) {
   return data.prompt.trim();
 }
 
-async function callGeminiImage(prompt, photoBase64, photoMime) {
+async function callGeminiImage(prompt, photoBase64, photoMime, intensity) {
   // Stable per-action id so the server can dedupe fetchWithRetry replays and
   // avoid double-charging a credit when a response drops. Mint outside the retry.
   const attemptId = (crypto.randomUUID?.() || (Date.now() + '-' + Math.random().toString(36).slice(2)));
@@ -7282,7 +7345,7 @@ async function callGeminiImage(prompt, photoBase64, photoMime) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      prompt, photoBase64, photoMime,
+      prompt, photoBase64, photoMime, intensity,
       distinctId: (window.posthog && typeof posthog.get_distinct_id === 'function') ? posthog.get_distinct_id() : 'anonymous',
       deviceId: getDeviceId(),
       attemptId,

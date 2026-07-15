@@ -1745,7 +1745,7 @@ app.post('/api/refine-meal', aiLimiter, async (req, res) => {
 // ============================================================
 app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
   try {
-    const { prompt, photoBase64, photoMime, deviceId } = req.body;
+    const { prompt, photoBase64, photoMime, deviceId, intensity } = req.body;
 
     // Idempotency: a dropped response makes the client replay the same attemptId.
     // Return the cached result (no second model call, no second decrement).
@@ -1799,13 +1799,66 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       const imgPart = parts.find((p) => p.inline_data || p.inlineData);
       if (!imgPart) return { ok: false, status: 400, data };
 
-      return { ok: true, imageBase64: (imgPart.inline_data || imgPart.inlineData).data };
+      const inline = imgPart.inline_data || imgPart.inlineData;
+      return { ok: true, imageBase64: inline.data, imageMime: inline.mime_type || inline.mimeType || 'image/png' };
+    };
+
+    // Haiku vision compares before/after and flags edits so subtle they'd read as
+    // "looks the same" — Gemini's image editor sometimes barely touches an already-
+    // lean photo even when the prompt demands a dramatic change. Only worth the
+    // extra round trip for dramatic/max, where a near-no-op is a real failure (subtle/
+    // moderate intentionally target a smaller, more natural-looking change).
+    const looksDramaticallyChanged = async (afterBase64, afterMime) => {
+      try {
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': ANTHROPIC_API_KEY,
+            'anthropic-version': '2023-06-01',
+          },
+          body: JSON.stringify({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 8,
+            messages: [
+              {
+                role: 'user',
+                content: [
+                  { type: 'text', text: 'BEFORE photo:' },
+                  { type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } },
+                  { type: 'text', text: 'AFTER photo:' },
+                  { type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } },
+                  {
+                    type: 'text',
+                    text: 'Compare these two photos of the same person. Does the AFTER photo show a clearly and dramatically leaner, more muscular, more athletically defined body than the BEFORE photo — visible abs/waist/shoulder changes, not just lighting or tan differences? Reply with only YES or NO.',
+                  },
+                ],
+              },
+            ],
+          }),
+        });
+        const data = await response.json();
+        const text = data?.content?.[0]?.text?.trim().toUpperCase() || '';
+        return text.startsWith('YES');
+      } catch (err) {
+        console.error('Change verification error:', err);
+        return true; // fail open — never block the flow on a verification hiccup
+      }
     };
 
     let result = await callGemini(prompt);
     if (!result.ok) {
       const retryPreamble = `SAFE FITNESS EDIT: This is a routine body-composition edit for a fitness progress app. The subject is a consenting adult. Keep the exact same clothing and coverage as the input photo. Nothing about this edit is sexual.\n\n`;
       result = await callGemini(retryPreamble + prompt);
+    }
+
+    if (result.ok && (intensity === 'dramatic' || intensity === 'max')) {
+      const changed = await looksDramaticallyChanged(result.imageBase64, result.imageMime);
+      if (!changed) {
+        const intensifyPreamble = `Your previous attempt at this edit was too subtle and barely visible — that is a failure. This time you MUST push much harder: make the body-fat reduction, ab definition, and waist tightening dramatically more visible than a typical edit, even if it means a bigger departure from the input photo's body shape. The face, clothing, pose, and framing must still stay exactly the same — only push the body transformation itself much further.\n\n`;
+        const retried = await callGemini(intensifyPreamble + prompt);
+        if (retried.ok) result = retried;
+      }
     }
 
     if (!result.ok) {
@@ -2854,65 +2907,84 @@ const PROGRAM_EXERCISE_ITEM = {
   },
 };
 
+// One training day. Shared by the full-program schema and the per-week schema
+// (the trainer now generates one week at a time for reliability).
+const PROGRAM_DAY_ITEM = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['day', 'focus', 'warmup', 'main', 'abs_finisher'],
+  properties: {
+    day: { type: 'integer' },
+    focus: { type: 'string', description: 'e.g. "Full body + abs", "Upper body push"' },
+    warmup: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['exercise_id', 'prescription'],
+        properties: {
+          exercise_id: { type: 'string' },
+          prescription: { type: 'string', description: 'e.g. "60 sec", "10 each side"' },
+        },
+      },
+    },
+    main: { type: 'array', items: PROGRAM_EXERCISE_ITEM },
+    abs_finisher: { type: 'array', items: PROGRAM_EXERCISE_ITEM },
+  },
+};
+
+const PROGRAM_WEEK_ITEM = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['week', 'theme', 'days'],
+  properties: {
+    week: { type: 'integer' },
+    theme: { type: 'string', description: 'Short label, e.g. "Foundation", "Build", "Push", "Peak".' },
+    days: { type: 'array', items: PROGRAM_DAY_ITEM },
+  },
+};
+
+const PROGRAM_ASSESSMENT = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['starting_point', 'goal_summary', 'assigned_level', 'starting_stage'],
+  properties: {
+    starting_point: { type: 'string', description: "2-3 encouraging, never judgmental sentences on what the before photo shows: rough body-fat range, muscle base, apparent fitness level. If no photo was provided, base it on their answers." },
+    goal_summary: { type: 'string', description: "1-2 sentences on the gap between the before and after photos: how much muscle to gain and fat to lose. If no photos, base it on their stated goal." },
+    assigned_level: { type: 'string', enum: ['beginner', 'intermediate', 'advanced'], description: 'The MORE CONSERVATIVE of the photo assessment and their stated experience.' },
+    starting_stage: { type: 'integer', description: 'Stage 1-7 from the ladder (the block prompt pins it — echo the pinned stage here).' },
+  },
+};
+
 const PROGRAM_SCHEMA = {
   type: 'object',
   additionalProperties: false,
   required: ['why_this_works', 'assessment', 'weeks'],
   properties: {
-    why_this_works: {
-      type: 'string',
-      description: "Personalized paragraph referencing the user's photos (starting point → goal), health goals, and injuries — why THIS program works for THEM.",
-    },
-    assessment: {
-      type: 'object',
-      additionalProperties: false,
-      required: ['starting_point', 'goal_summary', 'assigned_level', 'starting_stage'],
-      properties: {
-        starting_point: { type: 'string', description: "2-3 encouraging, never judgmental sentences on what the before photo shows: rough body-fat range, muscle base, apparent fitness level. If no photo was provided, base it on their answers." },
-        goal_summary: { type: 'string', description: "1-2 sentences on the gap between the before and after photos: how much muscle to gain and fat to lose. If no photos, base it on their stated goal." },
-        assigned_level: { type: 'string', enum: ['beginner', 'intermediate', 'advanced'], description: 'The MORE CONSERVATIVE of the photo assessment and their stated experience.' },
-        starting_stage: { type: 'integer', description: 'Stage 1-7 from the ladder (the block prompt pins it — echo the pinned stage here).' },
-      },
-    },
-    weeks: {
-      type: 'array',
-      items: {
-        type: 'object',
-        additionalProperties: false,
-        required: ['week', 'theme', 'days'],
-        properties: {
-          week: { type: 'integer' },
-          theme: { type: 'string', description: 'Short label, e.g. "Foundation", "Build", "Push", "Peak".' },
-          days: {
-            type: 'array',
-            items: {
-              type: 'object',
-              additionalProperties: false,
-              required: ['day', 'focus', 'warmup', 'main', 'abs_finisher'],
-              properties: {
-                day: { type: 'integer' },
-                focus: { type: 'string', description: 'e.g. "Full body + abs", "Upper body push"' },
-                warmup: {
-                  type: 'array',
-                  items: {
-                    type: 'object',
-                    additionalProperties: false,
-                    required: ['exercise_id', 'prescription'],
-                    properties: {
-                      exercise_id: { type: 'string' },
-                      prescription: { type: 'string', description: 'e.g. "60 sec", "10 each side"' },
-                    },
-                  },
-                },
-                main: { type: 'array', items: PROGRAM_EXERCISE_ITEM },
-                abs_finisher: { type: 'array', items: PROGRAM_EXERCISE_ITEM },
-              },
-            },
-          },
-        },
-      },
-    },
+    why_this_works: { type: 'string', description: "Personalized paragraph referencing the user's photos (starting point → goal), health goals, and injuries — why THIS program works for THEM." },
+    assessment: PROGRAM_ASSESSMENT,
+    weeks: { type: 'array', items: PROGRAM_WEEK_ITEM },
   },
+};
+
+// Fast first call: the assessment + why-this-works + ONLY week 1. Weeks 2-4 are
+// generated afterward, one short call each (WEEK_SCHEMA).
+const ASSESS_WEEK1_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['why_this_works', 'assessment', 'week'],
+  properties: {
+    why_this_works: { type: 'string', description: "Personalized paragraph referencing the user's photos (starting point → goal), health goals, and injuries — why THIS program works for THEM." },
+    assessment: PROGRAM_ASSESSMENT,
+    week: PROGRAM_WEEK_ITEM,
+  },
+};
+
+const WEEK_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['week'],
+  properties: { week: PROGRAM_WEEK_ITEM },
 };
 
 const TRAINER_SYSTEM_PROMPT = `You are an expert personal trainer designing a 4-week program for a fitness app called Abs By AI. Users have generated an AI image of their future physique — your program is the path from their before photo to that after photo. Everyone trains DAILY (7 days/week), TOTAL-BODY every session, and every workout ends with an abs finisher — it's Abs By AI.
@@ -3013,56 +3085,6 @@ function trackForStage(stage, intake, prevTrack) {
   return intake?.equipment === 'full' ? 'full' : 'minimal';
 }
 
-// pinnedStage set → build one known stage (check-in / promotion). pinnedStage
-// null → ASSESS mode (block 1): the model reads the photos and PICKS the
-// starting stage in [1, experience-cap], then formats the block for it. The
-// whitelist spans everything the user owns; the server sanitizes to the chosen
-// stage's equipment tier afterward.
-function buildTrainerUserContent(intake, photos, pinnedStage, opts = {}) {
-  const assess = !pinnedStage;
-  const stage = clampStage(pinnedStage || EXPERIENCE_START_STAGE[intake.experience] || 1);
-  const st = STAGES[stage];
-  const sexTrack = opts.sexTrack || intake.sex_track || 'unspecified';
-  const equipmentTrack = opts.equipmentTrack || null;
-  const cap = Math.min(MAX_START_STAGE, EXPERIENCE_START_STAGE[intake.experience] || 3);
-  const equip = opts.equip || (assess ? intake.equipment : equipForStage(stage, equipmentTrack));
-  const allowed = exercisesForEquipment(equip);
-  const list = allowed.map((e) => `${e.id} | ${e.name} | ${e.cat} | ${e.muscles} | ${e.equip}`).join('\n');
-  const content = [];
-  const { beforeBase64, beforeMime, afterBase64, afterMime } = photos || {};
-  if (beforeBase64 && beforeMime) {
-    content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
-    content.push({ type: 'text', text: 'BEFORE photo — the user\'s current body (shared with consent). Estimate their starting point: rough body-fat range, muscle base, apparent fitness level. Never judgmental.' });
-  }
-  if (afterBase64 && afterMime) {
-    content.push({ type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } });
-    content.push({ type: 'text', text: 'AFTER photo — the AI-generated image of their goal physique. The training goal is the gap between the before photo and this one.' });
-  }
-  const trackLine = sexTrack === 'man'
-    ? 'SEX TRACK: MAN — emphasize upper body, super-emphasize delts + arms (see the two-track rules).'
-    : sexTrack === 'woman'
-      ? 'SEX TRACK: WOMAN — emphasize lower body, super-emphasize glutes (see the two-track rules).'
-      : 'SEX TRACK: unspecified — infer from the before photo; keep total-body balance.';
-  const stageLine = assess
-    ? `ASSESS the starting stage yourself: pick assessment.starting_stage in the range 1–${cap} (their stated experience caps it at ${cap}; the BEFORE photo can only pull it LOWER — obese / severely deconditioned / elderly / a reported severe injury → Stage 1). Then FORMAT the whole block for the stage you pick — Stages 1–3 are TIMED home circuits (reps = work interval like "30 sec", no cardio block); Stages 4+ are SETS × REPS with the app rendering the cardio block separately; isolation only at 5–7; functional only at 5–7; barbell/safety-bar squats only at 6–7.`
-    : `This block is PINNED to STAGE ${stage} — ${st.label}. Load method: ${st.mode === 'timed' ? 'TIMED circuit (reps = work interval like "30 sec", rest_sec = rest interval)' : 'SETS × REPS'}. ` +
-      `Build the ${st.liftMin}-min lifting portion${st.cardioMin ? ` (the app adds the ${st.cardioMin}-min zone-2 cardio block itself — do not include it)` : ' (no cardio block at this home stage)'}. ` +
-      `${st.functional ? 'Functional moves are UNLOCKED.' : 'NO functional moves yet.'} ${stage >= 5 ? 'Isolation moves ALLOWED.' : 'COMPOUND-ONLY (no isolation).'} ` +
-      `Set assessment.starting_stage to ${stage}.`;
-  const equipLine = assess
-    ? 'EQUIPMENT: the whitelist below is everything this user owns. If you assign a home stage (1–3), use only bodyweight/minimal-kit moves; full-equipment moves belong to Stage 4+.'
-    : stage >= 4
-      ? `EQUIPMENT TRACK: ${equipmentTrack === 'minimal' ? 'MINIMAL (declined the gym — build from the minimal-kit moves in the whitelist)' : 'FULL (full equipment)'}.`
-      : 'EQUIPMENT: home stage — the whitelist is already filtered to what they have.';
-  content.push({
-    type: 'text',
-    text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\n` +
-      `${stageLine}\n${trackLine}\n${equipLine}\n\n` +
-      `Exercise whitelist (id | name | category | muscles | equip-tier) — use ONLY these ids:\n${list}`,
-  });
-  return content;
-}
-
 // Exercises removed from selection → their replacement, for rendering OLD stored
 // programs. db-rdl / db-bench-press are still resolvable in the library but never
 // re-selected (v3 §5); bb-* lifts predate the whitelist. Without this map an old
@@ -3076,10 +3098,10 @@ const REMOVED_EXERCISE_SWAPS = {
 
 // Replace any hallucinated/out-of-tier exercise id with its library swap (if
 // allowed) or a same-category fallback from the allowed list.
-function sanitizeProgram(program, equipment) {
+function makeExerciseFix(equipment) {
   const allowed = new Set(exercisesForEquipment(equipment).map((e) => e.id));
   const allowedList = exercisesForEquipment(equipment);
-  const fix = (id, prefCat) => {
+  return (id, prefCat) => {
     if (allowed.has(id)) return id;
     const legacy = REMOVED_EXERCISE_SWAPS[id];
     if (legacy && allowed.has(legacy)) return legacy;
@@ -3089,21 +3111,269 @@ function sanitizeProgram(program, equipment) {
     const sub = allowedList.find((e) => e.cat === cat) || allowedList[0];
     return sub.id;
   };
-  let replaced = 0;
-  for (const week of program.weeks || []) {
-    for (const day of week.days || []) {
-      for (const w of day.warmup || []) {
-        const fixed = fix(w.exercise_id, 'warmup');
-        if (fixed !== w.exercise_id) { w.exercise_id = fixed; replaced++; }
-      }
-      for (const ex of [...(day.main || []), ...(day.abs_finisher || [])]) {
-        const fixed = fix(ex.exercise_id, 'abs');
-        if (fixed !== ex.exercise_id) { ex.exercise_id = fixed; replaced++; }
-      }
+}
+
+function sanitizeWeek(week, equipment, fix = makeExerciseFix(equipment)) {
+  for (const day of week?.days || []) {
+    for (const w of day.warmup || []) {
+      const fixed = fix(w.exercise_id, 'warmup');
+      if (fixed !== w.exercise_id) w.exercise_id = fixed;
+    }
+    for (const ex of [...(day.main || []), ...(day.abs_finisher || [])]) {
+      const fixed = fix(ex.exercise_id, 'abs');
+      if (fixed !== ex.exercise_id) ex.exercise_id = fixed;
     }
   }
-  if (replaced) console.warn(`sanitizeProgram: replaced ${replaced} out-of-whitelist exercise id(s)`);
+  return week;
+}
+
+function sanitizeProgram(program, equipment) {
+  const fix = makeExerciseFix(equipment);
+  for (const week of program.weeks || []) sanitizeWeek(week, equipment, fix);
   return program;
+}
+
+// ============================================================
+//  RELIABLE GENERATION — one short call PER WEEK, retried, with a
+//  deterministic (no-AI) fallback so the user ALWAYS ends up with a full,
+//  valid 4-week plan even if the model/API is unavailable.
+// ============================================================
+const WEEK_THEMES = { 1: 'Foundation', 2: 'Build', 3: 'Push', 4: 'Peak' };
+
+function sexTrackLine(sexTrack) {
+  return sexTrack === 'man'
+    ? 'SEX TRACK: MAN — emphasize upper body, super-emphasize delts + arms (see the two-track rules).'
+    : sexTrack === 'woman'
+      ? 'SEX TRACK: WOMAN — emphasize lower body, super-emphasize glutes (see the two-track rules).'
+      : 'SEX TRACK: unspecified — infer from the before photo; keep total-body balance.';
+}
+
+// Prompt for ONE week. isFirst also produces the assessment + why_this_works
+// (ASSESS_WEEK1_SCHEMA); later weeks get the prior weeks so progression and the
+// no-consecutive-repeat rule hold across week boundaries (WEEK_SCHEMA).
+function buildWeekUserContent(intake, opts) {
+  const { stage, sexTrack, equipmentTrack, equip, weekNumber, priorWeeks = [], photos, isFirst, extraLines = [] } = opts;
+  const st = STAGES[clampStage(stage)];
+  const allowed = exercisesForEquipment(equip);
+  const list = allowed.map((e) => `${e.id} | ${e.name} | ${e.cat} | ${e.muscles} | ${e.equip}`).join('\n');
+  const content = [];
+  if (isFirst && photos) {
+    const { beforeBase64, beforeMime, afterBase64, afterMime } = photos;
+    if (beforeBase64 && beforeMime) {
+      content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
+      content.push({ type: 'text', text: 'BEFORE photo — the user\'s current body (shared with consent). Estimate their starting point: rough body-fat range, muscle base, apparent fitness level. Never judgmental.' });
+    }
+    if (afterBase64 && afterMime) {
+      content.push({ type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } });
+      content.push({ type: 'text', text: 'AFTER photo — the AI-generated image of their goal physique. The training goal is the gap between the before photo and this one.' });
+    }
+  }
+  const equipLine = stage >= 4
+    ? `EQUIPMENT TRACK: ${equipmentTrack === 'minimal' ? 'MINIMAL (build from the minimal-kit moves in the whitelist)' : 'FULL (full equipment)'}.`
+    : 'EQUIPMENT: home stage — the whitelist is already filtered to what they have.';
+  const priorSummary = priorWeeks.length
+    ? `Prior weeks already built (exercise ids per day). Do NOT open week ${weekNumber} with the same main move that closed the previous week, keep alternating within each bucket, and progress load/volume slightly:\n${JSON.stringify(priorWeeks.map((w) => ({ week: w.week, days: (w.days || []).map((d) => ({ day: d.day, main: (d.main || []).map((m) => m.exercise_id) })) })))}`
+    : '';
+  // Block-1 assess mode: the model picks the starting stage (1..cap) from the
+  // photos, then formats week 1 for it. Otherwise the stage is pinned.
+  const stageLine = opts.assess
+    ? `ASSESS the starting stage: set assessment.starting_stage in the range 1–${opts.cap} (stated experience caps it; the BEFORE photo can only pull it LOWER — obese/severely deconditioned/elderly/severe injury → Stage 1). Then format WEEK 1 for that stage: Stages 1–3 are TIMED home circuits (reps = work interval like "30 sec", no cardio block); Stages 4+ are SETS × REPS (the app adds the cardio block); isolation & functional only at 5–7; barbell/safety-bar squats only at 6–7. If you pick a home stage, use only bodyweight/minimal-kit moves.`
+    : `STAGE ${stage} — ${st.label}. Load method: ${st.mode === 'timed' ? 'TIMED circuit (reps = work interval like "30 sec", rest_sec = rest interval)' : 'SETS × REPS'}. ` +
+      `${st.functional ? 'Functional moves UNLOCKED.' : 'NO functional moves.'} ${stage >= 5 ? 'Isolation moves ALLOWED.' : 'COMPOUND-ONLY (no isolation).'} ` +
+      `${st.cardioMin ? `The app renders the ${st.cardioMin}-min cardio block itself — do not include it.` : 'No cardio block at this home stage.'}`;
+  content.push({
+    type: 'text',
+    text: `User intake:\n${JSON.stringify(intake, null, 2)}\n\n` +
+      `${stageLine}\n${sexTrackLine(sexTrack)}\n${equipLine}\n` +
+      (isFirst
+        ? `Generate assessment + why_this_works + ONLY WEEK 1: object "week" with "week":1, theme "${WEEK_THEMES[1]}", and 7 days. Every day is total-body and ends with an abs finisher.`
+        : `Generate ONLY WEEK ${weekNumber}: object "week" with "week":${weekNumber}, theme "${WEEK_THEMES[weekNumber] || 'Build'}", and 7 days, progressing from the prior weeks below. Every day is total-body and ends with an abs finisher.`) + '\n' +
+      (priorSummary ? priorSummary + '\n' : '') +
+      extraLines.join('\n') + (extraLines.length ? '\n' : '') +
+      `\nExercise whitelist (id | name | category | muscles | tier) — use ONLY these ids:\n${list}`,
+  });
+  return content;
+}
+
+// Generate one week via the model (short, retried call). Returns the parsed
+// object: { why_this_works, assessment, week } for week 1, else { week }.
+async function generateOneWeek(intake, opts) {
+  const schema = opts.isFirst ? ASSESS_WEEK1_SCHEMA : WEEK_SCHEMA;
+  const content = buildWeekUserContent(intake, opts);
+  // One week is short (~50s) — bound each call so a stalled request falls back
+  // to the deterministic week quickly instead of holding the client for minutes.
+  return callTrainerModel(TRAINER_SYSTEM_PROMPT, content, schema, { maxTokens: 7000, attempts: 2, perAttemptMs: 90000 });
+}
+
+// ── Deterministic (no-AI) builder — the never-fail backbone ──
+// Rule-correct programming assembled straight from the whitelist + the stage /
+// sex / equipment rules, so a full valid week exists even with zero API calls.
+// Powers the locked-week teasers AND the fallback when the model can't deliver.
+const DET_ROLES = {
+  squat: ['leg-press', 'kb-goblet-squat', 'db-goblet-squat', 'bw-squat', 'chair-squat', 'wall-sit'],
+  hinge: ['kb-deadlift', 'kb-swing', 'single-leg-glute-bridge', 'glute-bridge'],
+  glute: ['bb-hip-thrust', 'single-leg-glute-bridge', 'glute-bridge', 'step-up'],
+  gluteIso: ['cable-glute-kickback', 'hip-abduction'],
+  lunge: ['walking-lunge', 'reverse-lunge', 'split-squat'],
+  pushC: ['machine-chest-press', 'deficit-pushup', 'pushup', 'incline-pushup', 'knee-pushup'],
+  pushFly: ['cable-fly', 'pec-deck', 'db-fly'],
+  shoulder: ['db-shoulder-press', 'kb-press', 'pike-pushup'],
+  shoulderIso: ['db-lateral-raise', 'machine-rear-delt-fly', 'db-rear-delt-fly'],
+  pull: ['lat-pulldown', 'seated-cable-row', 'machine-row', 'kb-row', 'towel-row', 'table-row'],
+  bicepsIso: ['ez-bar-curl', 'db-curl', 'db-hammer-curl'],
+  tricepsIso: ['cable-tricep-pushdown', 'db-tricep-extension', 'db-kickback', 'chair-dip'],
+  calf: ['calf-raise'],
+  func: ['sled-push', 'walking-lunge', 'db-farmer-carry', 'battle-ropes'],
+  abs: ['plank', 'dead-bug', 'bicycle-crunch', 'lying-leg-raise', 'hollow-hold', 'reverse-crunch', 'side-plank', 'hanging-knee-raise', 'ab-wheel-rollout', 'cable-crunch', 'mountain-climber', 'bird-dog'],
+  warmup: ['march-in-place', 'arm-circles', 'leg-swings', 'cat-cow', 'jumping-jack', 'hip-circles'],
+};
+
+function detPick(role, poolSet, dayIdx, avoid) {
+  const cands = (DET_ROLES[role] || []).filter((id) => poolSet.has(id));
+  if (!cands.length) return null;
+  for (let i = 0; i < cands.length; i++) {
+    const id = cands[(dayIdx + i) % cands.length];
+    if (!avoid.has(id)) return id;
+  }
+  return cands[dayIdx % cands.length];
+}
+
+// Movement slots per stage & sex (women lean glute, men lean upper/arms).
+function detSlots(stage, sex) {
+  const w = sex !== 'man';
+  switch (clampStage(stage)) {
+    case 1: return { main: ['squat', 'pull', 'pushC'], abs: ['abs'] };
+    case 2: return { main: ['hinge', 'squat', 'glute', 'pushC', 'pull'], abs: ['abs'] };
+    case 3: return w ? { main: ['squat', 'hinge', 'lunge', 'pushC', 'pull'], abs: ['abs'] }
+                     : { main: ['squat', 'pushC', 'pull', 'shoulder', 'lunge'], abs: ['abs'] };
+    case 4: return w ? { main: ['squat', 'glute', 'pushC', 'pull'], abs: ['abs', 'abs'] }
+                     : { main: ['squat', 'pushC', 'pull', 'shoulder'], abs: ['abs', 'abs'] };
+    case 5: return w ? { main: ['squat', 'glute', 'gluteIso', 'pushFly', 'pull', 'func'], abs: ['abs'] }
+                     : { main: ['squat', 'pushC', 'pull', 'shoulderIso', 'bicepsIso', 'tricepsIso'], abs: ['abs'] };
+    case 6: return w ? { main: ['squat', 'glute', 'gluteIso', 'calf', 'pushFly', 'pull', 'func'], abs: ['abs', 'abs'] }
+                     : { main: ['squat', 'pushC', 'pushFly', 'pull', 'shoulder', 'bicepsIso', 'tricepsIso', 'func'], abs: ['abs', 'abs'] };
+    default: return w ? { main: ['squat', 'glute', 'gluteIso', 'hinge', 'pushFly', 'pull', 'calf', 'func'], abs: ['abs', 'abs', 'abs'] }
+                      : { main: ['squat', 'pushC', 'pull', 'shoulder', 'shoulderIso', 'bicepsIso', 'tricepsIso', 'func'], abs: ['abs', 'abs', 'abs'] };
+  }
+}
+
+function detRx(stage, role) {
+  const s = clampStage(stage);
+  if (s <= 3) return { sets: 1, reps: s === 3 ? '40 sec' : '30 sec', rest_sec: s === 2 ? 20 : (s === 3 ? 20 : 30) };
+  if (role === 'abs') return { sets: 3, reps: '15', rest_sec: 45 };
+  if (role === 'func') return { sets: 3, reps: '40 sec', rest_sec: 60 };
+  if (role === 'calf') return { sets: 3, reps: '20', rest_sec: 45 };
+  if (/Iso$/.test(role)) return { sets: 3, reps: '12', rest_sec: 45 };
+  return { sets: s >= 6 ? 4 : 3, reps: '12', rest_sec: 60 };
+}
+
+function detDay(dayNum, dayIdx, stage, sex, poolSet, avoid) {
+  const slots = detSlots(stage, sex);
+  const used = new Set();
+  const mk = (role) => {
+    const id = detPick(role, poolSet, dayIdx, new Set([...avoid, ...used]));
+    if (!id) return null;
+    used.add(id);
+    const lib = EXERCISE_BY_ID[id] || {};
+    const rx = detRx(stage, role);
+    return { exercise_id: id, sets: rx.sets, reps: rx.reps, rest_sec: rx.rest_sec, cue: 'Move with control — full range beats speed.', common_mistake: lib.mistake || 'Rushing the reps — slow down and own each rep.' };
+  };
+  const main = slots.main.map(mk).filter(Boolean);
+  const abs = slots.abs.map(mk).filter(Boolean);
+  const warmId = detPick('warmup', poolSet, dayIdx, new Set());
+  const warmup = warmId ? [{ exercise_id: warmId, prescription: '45 sec' }] : [];
+  const focus = `Total-body — ${sex === 'man' ? 'upper + arms' : 'lower + glutes'} + abs`;
+  return { day: dayNum, focus, warmup, main, abs_finisher: abs, _used: [...used] };
+}
+
+function buildDeterministicWeek(ctx, weekNumber) {
+  const poolSet = new Set(exercisesForEquipment(ctx.equip).map((e) => e.id));
+  const days = [];
+  let prev = new Set();
+  for (let d = 1; d <= 7; d++) {
+    const dayIdx = (weekNumber - 1) * 7 + (d - 1);
+    const day = detDay(d, dayIdx, ctx.stage, ctx.sexTrack, poolSet, clampStage(ctx.stage) >= 3 ? prev : new Set());
+    prev = new Set(day._used);
+    delete day._used;
+    days.push(day);
+  }
+  return { week: weekNumber, theme: WEEK_THEMES[weekNumber] || 'Build', days, ai: false, source: 'fallback' };
+}
+
+function detAssessment(intake, stage) {
+  const level = ['beginner', 'intermediate', 'advanced'].includes(intake.experience) ? intake.experience : 'beginner';
+  return {
+    starting_point: 'Built from your intake. As you log workouts and add progress photos, your plan sharpens to exactly what your body responds to.',
+    goal_summary: 'Steady, sustainable progress toward your after photo — a little every day, seven days a week.',
+    assigned_level: level,
+    starting_stage: clampStage(stage),
+  };
+}
+
+function detWhy(intake, stage) {
+  const goals = (intake.health_goals || []).length ? ' It also supports your goals beyond the look — the daily movement builds real health, not just the mirror.' : '';
+  return `This is your Stage ${clampStage(stage)} plan: total-body training every day, finishing with abs — the Abs By AI way. Volume stays sustainable so you can show up seven days a week, and it climbs as you do.${goals} Log your workouts and it keeps adapting to you.`;
+}
+
+// Build the whole initial program: AI week 1 (with the assessment) + three
+// deterministic weeks that the client upgrades to AI later. If week-1 AI fails,
+// week 1 is deterministic too — the user is NEVER left without a plan.
+async function buildInitialProgram({ intake, photos, pinnedStage = null, sexTrack, prevTrack = null, prevSummary = null }) {
+  const assess = !pinnedStage;
+  const cap = Math.min(MAX_START_STAGE, EXPERIENCE_START_STAGE[intake.experience] || 3);
+  const firstEquip = assess ? intake.equipment : equipForStage(pinnedStage, trackForStage(pinnedStage, intake, prevTrack));
+  let w1 = null;
+  try {
+    w1 = await generateOneWeek(intake, {
+      stage: pinnedStage || cap, sexTrack, equipmentTrack: trackForStage(pinnedStage || cap, intake, prevTrack),
+      equip: firstEquip, weekNumber: 1, isFirst: true, photos, assess, cap,
+      extraLines: prevSummary ? [prevSummary] : [],
+    });
+  } catch (e) { console.warn('week1 generation failed — deterministic week 1:', e.message); }
+
+  const stage = assess ? Math.min(clampStage(w1?.assessment?.starting_stage ?? cap), cap) : clampStage(pinnedStage);
+  const track = trackForStage(stage, intake, prevTrack);
+  const equip = equipForStage(stage, track);
+  const ctx = { stage, sexTrack: sexTrack || intake.sex_track || null, equip };
+
+  let week1, why, assessment;
+  if (w1?.week?.days?.length) {
+    week1 = sanitizeWeek({ ...w1.week, week: 1, ai: true, source: 'ai' }, equip);
+    why = w1.why_this_works || detWhy(intake, stage);
+    assessment = w1.assessment || detAssessment(intake, stage);
+    assessment.starting_stage = stage;
+  } else {
+    week1 = buildDeterministicWeek(ctx, 1);
+    why = detWhy(intake, stage);
+    assessment = detAssessment(intake, stage);
+  }
+  const weeks = [week1];
+  for (let n = 2; n <= 4; n++) weeks.push(buildDeterministicWeek(ctx, n));
+  return { why_this_works: why, assessment, stage, equipment_track: track, sex_track: ctx.sexTrack, weeks };
+}
+
+// Regenerate ONE week of a stored program with the model, falling back to the
+// deterministic week on failure. Mutates and returns the program.
+async function regenerateWeek(program, intake, weekNumber) {
+  const stage = programStage(program);
+  const track = program.equipment_track || null;
+  const equip = equipForStage(stage, track);
+  const sexTrack = program.sex_track || intake.sex_track || null;
+  const priorWeeks = (program.weeks || []).slice(0, weekNumber - 1);
+  let week;
+  try {
+    const out = await generateOneWeek(intake, {
+      stage, sexTrack, equipmentTrack: track, equip, weekNumber, priorWeeks, isFirst: false,
+    });
+    if (!out?.week?.days?.length) throw new Error('empty week');
+    week = sanitizeWeek({ ...out.week, week: weekNumber, ai: true, source: 'ai' }, equip);
+  } catch (e) {
+    console.warn(`week ${weekNumber} generation failed — deterministic:`, e.message);
+    week = buildDeterministicWeek({ stage, sexTrack, equip }, weekNumber);
+  }
+  const idx = (program.weeks || []).findIndex((w) => w.week === weekNumber);
+  if (idx >= 0) program.weeks[idx] = week; else (program.weeks = program.weeks || []).push(week);
+  return week;
 }
 
 // Free-preview shape: why-this-works + assessment + week/day structure at a
@@ -3166,32 +3436,54 @@ function validateIntake(raw) {
   return intake;
 }
 
-async function callTrainerModel(systemPrompt, userContent, schema = PROGRAM_SCHEMA) {
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify({
-      // Sonnet-class reasoning: program design rewards reasoning quality, and
-      // it must read the before photo. Same structured-output pattern as
-      // /api/analyze-meal.
-      model: 'claude-sonnet-4-6',
-      max_tokens: 16000,
-      system: systemPrompt,
-      output_config: { format: { type: 'json_schema', schema } },
-      messages: [{ role: 'user', content: userContent }],
-    }),
-  });
-  const data = await response.json();
-  if (!response.ok) {
-    const err = new Error(data?.error?.message || 'Claude API error');
-    err.status = response.status;
-    throw err;
+// One structured-output call to Claude, hardened for reliability:
+//  • a per-attempt abort deadline so a stalled request is retried, not hung
+//    forever behind a proxy that will eventually kill the connection;
+//  • retry-with-backoff on transient failures (network resets, 429, 5xx);
+//  • 4xx (bad request) fails fast — retrying won't help.
+// The trainer now calls this once PER WEEK (short calls), so no single request
+// runs long enough to trip the ~4-min timeout that broke the old 28-day call.
+async function callTrainerModel(systemPrompt, userContent, schema = PROGRAM_SCHEMA, opts = {}) {
+  const maxTokens = opts.maxTokens || 16000;
+  const attempts = opts.attempts || 3;
+  const perAttemptMs = opts.perAttemptMs || 150000; // 2.5 min per try
+  let lastErr;
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), perAttemptMs);
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: maxTokens,
+          system: systemPrompt,
+          output_config: { format: { type: 'json_schema', schema } },
+          messages: [{ role: 'user', content: userContent }],
+        }),
+        signal: controller.signal,
+      });
+      const data = await response.json();
+      if (response.ok) return JSON.parse(data?.content?.[0]?.text || '');
+      const err = new Error(data?.error?.message || 'Claude API error');
+      err.status = response.status;
+      // Client errors (bad request/auth) are not transient — fail immediately.
+      if (response.status < 500 && response.status !== 429) throw err;
+      lastErr = err;
+    } catch (e) {
+      if (e.status && e.status < 500 && e.status !== 429) { clearTimeout(timer); throw e; }
+      lastErr = e; // AbortError / network reset / 5xx / 429 — retryable
+    } finally {
+      clearTimeout(timer);
+    }
+    if (attempt < attempts) await new Promise((r) => setTimeout(r, 1200 * attempt));
   }
-  return JSON.parse(data?.content?.[0]?.text || '');
+  throw lastErr || new Error('Claude API error');
 }
 
 // Generate a program from intake. Free for everyone (the sunk-cost hook) —
@@ -3203,45 +3495,28 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
     const intake = validateIntake(req.body?.intake);
     if (!intake) return res.status(400).json({ error: 'Missing intake' });
     const { photoBase64, photoMime, afterPhotoBase64, afterPhotoMime, photoConsent } = req.body || {};
-
-    // Block 1 = ASSESS mode: the model picks the starting stage from the photos.
-    const userContent = buildTrainerUserContent(intake, photoConsent ? {
+    const photos = photoConsent ? {
       beforeBase64: photoBase64, beforeMime: photoMime,
       afterBase64: afterPhotoBase64, afterMime: afterPhotoMime,
-    } : null, null, { sexTrack: intake.sex_track });
+    } : null;
 
     // Sleep Coach cross-feature rule: bad night → longer warm-up, never a
-    // shorter or lighter workout.
+    // shorter or lighter workout. Woven into the week-1 prompt.
+    const extraLines = [];
     if (req.user) {
       const sleepLine = sleepContextForTrainer(await getTodaysSleep(req.user.id));
-      if (sleepLine) userContent.push({ type: 'text', text: sleepLine });
+      if (sleepLine) extraLines.push(sleepLine);
       const weightLine = await getWeightContext(req.user.id);
-      if (weightLine) userContent.push({ type: 'text', text: weightLine });
+      if (weightLine) extraLines.push(weightLine);
     }
 
-    let program;
-    try {
-      program = await callTrainerModel(TRAINER_SYSTEM_PROMPT, userContent);
-    } catch (e) {
-      if (e.status) return res.status(e.status).json({ error: e.message });
-      return res.status(502).json({ error: 'Program generation failed. Please try again.' });
-    }
-    if (!program?.weeks?.length) {
-      return res.status(502).json({ error: 'Model returned an unusable program. Please try again.' });
-    }
-
-    // Pin the stage: stated experience caps it (max 5); the model's photo-based
-    // assessment can only lower it (conservative wins). Equipment track + sex
-    // track ride on the program row; equipment for THIS block follows the stage.
-    const cap = Math.min(MAX_START_STAGE, EXPERIENCE_START_STAGE[intake.experience] || 3);
-    const stage = Math.min(clampStage(program.assessment?.starting_stage ?? cap), cap);
-    const equipmentTrack = trackForStage(stage, intake, null);
-    const sexTrack = intake.sex_track || null;
-    program.stage = stage;
-    program.equipment_track = equipmentTrack;
-    program.sex_track = sexTrack;
-    if (program.assessment) program.assessment.starting_stage = stage;
-    sanitizeProgram(program, equipForStage(stage, equipmentTrack));
+    // Fast + reliable: AI week 1 (with the assessment) now; weeks 2-4 come back
+    // as valid deterministic weeks that the client upgrades to AI one by one.
+    // Even a total model outage yields a complete, usable plan.
+    const program = await buildInitialProgram({
+      intake, photos, pinnedStage: null, sexTrack: intake.sex_track,
+      prevSummary: extraLines.length ? extraLines.join('\n') : null,
+    });
 
     let programId = null;
     let member = false;
@@ -3260,10 +3535,46 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
       programId,
       blockNumber: 1,
       locked: !member,
+      // weeksPending tells the client which weeks still need AI upgrading.
+      weeksPending: program.weeks.filter((w) => !w.ai).map((w) => w.week),
       program: member ? { ...program, locked: false } : stripProgramForPreview(program),
     });
   } catch (err) {
     console.error('generate-program error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Upgrade ONE week from its deterministic placeholder to a personalized AI week.
+// The client calls this for each pending week after generate-program/checkin, so
+// no single request is ever long. regenerateWeek never throws (it falls back to
+// the deterministic week), so the member always gets a usable week back.
+app.post('/api/program/week', aiLimiter, requireAuth, async (req, res) => {
+  try {
+    const userRow = await getUserRow(req.user.id);
+    if (!isActiveMembership(userRow)) {
+      return res.status(402).json({ error: 'Membership required', needsMembership: true });
+    }
+    const weekNumber = Math.min(4, Math.max(1, parseInt(req.body?.weekNumber, 10) || 0));
+    if (!weekNumber) return res.status(400).json({ error: 'Missing weekNumber' });
+    const { rows } = await db.query(
+      'SELECT id, intake, program FROM programs WHERE id = $1 AND user_id = $2',
+      [parseInt(req.body?.programId, 10) || 0, req.user.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Program not found' });
+    const row = rows[0];
+    const program = row.program;
+    const intake = validateIntake(row.intake) || row.intake;
+    const existing = (program.weeks || []).find((w) => w.week === weekNumber);
+    if (existing?.ai) {
+      return res.json({ programId: row.id, weekNumber, week: existing, alreadyAI: true, weeksPending: program.weeks.filter((w) => !w.ai).map((w) => w.week) });
+    }
+    const week = await regenerateWeek(program, intake, weekNumber);
+    await db.query('UPDATE programs SET program = $1 WHERE id = $2 AND user_id = $3',
+      [JSON.stringify(program), row.id, req.user.id]);
+    res.json({ programId: row.id, weekNumber, week, weeksPending: program.weeks.filter((w) => !w.ai).map((w) => w.week) });
+  } catch (err) {
+    console.error('program week error:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -3284,6 +3595,8 @@ app.get('/api/program', requireAuth, async (req, res) => {
       blockNumber: row.block_number,
       intake: row.intake,
       locked: !member,
+      // Which weeks still need AI upgrading — lets the client resume on reload.
+      weeksPending: member ? (row.program.weeks || []).filter((w) => !w.ai).map((w) => w.week) : [],
       program: member ? { ...row.program, locked: false } : stripProgramForPreview(row.program),
       progress: row.progress || {},
     });
@@ -3349,45 +3662,31 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
     if (fb.difficulty === 'too_hard' || !loggedHalf) nextStage = prevStage;
     else nextStage = Math.min(7, prevStage + 1);
 
-    // Equipment track carries forward; it's first set entering Stage 4 (seeded
-    // from intake). Sex track carries from the stored program / intake.
-    const equipmentTrack = trackForStage(nextStage, intake, prev.program?.equipment_track);
+    // Sex track carries from the stored program / intake.
     const sexTrack = prev.program?.sex_track || intake.sex_track || null;
-    const equip = equipForStage(nextStage, equipmentTrack);
-
-    const userContent = buildTrainerUserContent(intake, null, nextStage, { sexTrack, equipmentTrack, equip });
     const held = nextStage === prevStage;
-    userContent.push({
-      type: 'text',
-      text: `This user just FINISHED a 4-week block (block ${prev.block_number}, Stage ${prevStage}) — design block ${prev.block_number + 1} at STAGE ${nextStage} (${STAGES[nextStage].label}) that progresses from it.\n` +
-        (held
-          ? `They are REPEATING Stage ${prevStage} (they logged ${completedDays}/${BLOCK_WORKOUTS} workouts${fb.difficulty === 'too_hard' ? ' and said it was too hard' : ''}) — keep the same stage but refresh the movements and make it feel achievable.\n`
-          : `They EARNED the promotion (logged ${completedDays}/${BLOCK_WORKOUTS} workouts) — step up volume/complexity to the new stage.\n`) +
-        `Previous block (for reference, do not repeat verbatim — progress it):\n${JSON.stringify(prev.program.weeks?.map((w) => ({ week: w.week, days: w.days?.map((d) => ({ day: d.day, focus: d.focus, main: d.main?.map((m) => m.exercise_id) })) })))}\n` +
-        `Check-in feedback: difficulty was "${fb.difficulty}"${fb.skipped ? `; they tended to skip: ${fb.skipped}` : ''}${fb.notes ? `; notes: ${fb.notes}` : ''}.\n` +
-        `Adjust accordingly: too_easy → harder variations/more volume; too_hard → dial back; swap in fresh exercises to fight boredom; drop or replace what they skipped. why_this_works should acknowledge that they completed a block and what changes this time.`,
-    });
 
     // Sleep Coach cross-feature rule: bad night → longer warm-up, never a
-    // shorter or lighter workout.
-    const trainerSleepLine = sleepContextForTrainer(await getTodaysSleep(req.user.id));
-    if (trainerSleepLine) userContent.push({ type: 'text', text: trainerSleepLine });
-    const trainerWeightLine = await getWeightContext(req.user.id);
-    if (trainerWeightLine) userContent.push({ type: 'text', text: trainerWeightLine });
+    // shorter or lighter workout. Plus the "you finished a block" context.
+    const extraLines = [
+      held
+        ? `They are REPEATING Stage ${prevStage} (logged ${completedDays}/${BLOCK_WORKOUTS} workouts${fb.difficulty === 'too_hard' ? ' and said it was too hard' : ''}) — keep the same stage but refresh the movements and make it achievable.`
+        : `They EARNED a promotion to Stage ${nextStage} (logged ${completedDays}/${BLOCK_WORKOUTS} workouts) — step up volume/complexity.`,
+      `Check-in feedback: difficulty was "${fb.difficulty}"${fb.skipped ? `; they tended to skip: ${fb.skipped}` : ''}${fb.notes ? `; notes: ${fb.notes}` : ''}. Adjust: too_easy → harder/more volume; too_hard → dial back; swap in fresh moves to fight boredom; drop what they skipped.`,
+      `Previous block (progress it, do not repeat verbatim): ${JSON.stringify((prev.program.weeks || []).map((w) => ({ week: w.week, main: (w.days || []).flatMap((d) => (d.main || []).map((m) => m.exercise_id)) })))}`,
+    ];
+    const sleepLine = sleepContextForTrainer(await getTodaysSleep(req.user.id));
+    if (sleepLine) extraLines.push(sleepLine);
+    const weightLine = await getWeightContext(req.user.id);
+    if (weightLine) extraLines.push(weightLine);
 
-    let program;
-    try {
-      program = await callTrainerModel(TRAINER_SYSTEM_PROMPT, userContent);
-    } catch (e) {
-      if (e.status) return res.status(e.status).json({ error: e.message });
-      return res.status(502).json({ error: 'Program generation failed. Please try again.' });
-    }
-    if (!program?.weeks?.length) return res.status(502).json({ error: 'Model returned an unusable program.' });
-    sanitizeProgram(program, equip);
-    program.stage = nextStage;
-    program.equipment_track = equipmentTrack;
-    program.sex_track = sexTrack;
-    if (program.assessment) program.assessment.starting_stage = nextStage;
+    // Fast + reliable: AI week 1 of the new block now, deterministic weeks 2-4
+    // that the client upgrades. Carries the equipment track forward.
+    const program = await buildInitialProgram({
+      intake, photos: null, pinnedStage: nextStage, sexTrack,
+      prevTrack: prev.program?.equipment_track || null,
+      prevSummary: extraLines.join('\n'),
+    });
 
     const ins = await db.query(
       `INSERT INTO programs (user_id, block_number, intake, program) VALUES ($1, $2, $3, $4) RETURNING id`,
@@ -3398,9 +3697,10 @@ app.post('/api/program/checkin', aiLimiter, requireAuth, async (req, res) => {
       blockNumber: prev.block_number + 1,
       locked: false,
       promoted: !held,
+      weeksPending: program.weeks.filter((w) => !w.ai).map((w) => w.week),
       // Entering a full-equipment stage on the minimal track → the UI shows the
       // "upgrade to a gym / full home gym" nudge (stronger each promotion).
-      equipmentNudge: nextStage >= 4 && equipmentTrack === 'minimal',
+      equipmentNudge: nextStage >= 4 && program.equipment_track === 'minimal',
       program: { ...program, locked: false },
     });
   } catch (err) {
@@ -3433,30 +3733,23 @@ app.post('/api/program/equipment-track', aiLimiter, requireAuth, async (req, res
     }
 
     const sexTrack = prev.program?.sex_track || intake.sex_track || null;
-    const equip = equipForStage(stage, track);
-    const userContent = buildTrainerUserContent(intake, null, stage, { sexTrack, equipmentTrack: track, equip });
-    userContent.push({
-      type: 'text',
-      text: `Rebuild this Stage ${stage} block on the ${track === 'full' ? 'FULL-equipment' : 'MINIMAL-kit'} track. Keep the same stage, sex emphasis, and structure — only the equipment changes.`,
-    });
 
-    let program;
-    try {
-      program = await callTrainerModel(TRAINER_SYSTEM_PROMPT, userContent);
-    } catch (e) {
-      if (e.status) return res.status(e.status).json({ error: e.message });
-      return res.status(502).json({ error: 'Program generation failed. Please try again.' });
-    }
-    if (!program?.weeks?.length) return res.status(502).json({ error: 'Model returned an unusable program.' });
-    sanitizeProgram(program, equip);
-    program.stage = stage;
-    program.equipment_track = track;
-    program.sex_track = sexTrack;
-    if (program.assessment) program.assessment.starting_stage = stage;
+    // Same person, same stage — only the equipment changes. Rebuild week 1 (AI)
+    // + deterministic weeks 2-4 on the new track; keep the existing assessment.
+    const program = await buildInitialProgram({
+      intake, photos: null, pinnedStage: stage, sexTrack, prevTrack: track,
+      prevSummary: `Rebuild on the ${track === 'full' ? 'FULL-equipment' : 'MINIMAL-kit'} track — same stage and sex emphasis, only the equipment changes.`,
+    });
+    if (prev.program?.assessment) program.assessment = prev.program.assessment;
+    if (prev.program?.why_this_works) program.why_this_works = prev.program.why_this_works;
 
     await db.query('UPDATE programs SET program = $1, progress = $2 WHERE id = $3 AND user_id = $4',
       [JSON.stringify(program), JSON.stringify({}), prev.id, req.user.id]);
-    res.json({ programId: prev.id, blockNumber: prev.block_number, locked: false, program: { ...program, locked: false } });
+    res.json({
+      programId: prev.id, blockNumber: prev.block_number, locked: false,
+      weeksPending: program.weeks.filter((w) => !w.ai).map((w) => w.week),
+      program: { ...program, locked: false },
+    });
   } catch (err) {
     console.error('equipment-track error:', err);
     res.status(500).json({ error: 'Internal server error' });
