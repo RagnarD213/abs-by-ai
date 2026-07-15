@@ -163,11 +163,6 @@
       "text": "Put away dishes",
       "priority": "low",
       "recurring": false
-    },
-    {
-      "text": "Put away dishes",
-      "priority": "low",
-      "recurring": false
     }
   ]
 }
