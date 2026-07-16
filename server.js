@@ -136,6 +136,7 @@ app.get('/api/morning-data', async (req, res) => {
     watch: null,
     todos: { business: [], health: [], personal: [] },
     task_checks: { checked: [], log: {} },
+    plan: { date: null, order: [], excluded: [] },
     business_events: null,
     rel_events: null,
     news: [],
@@ -153,6 +154,7 @@ app.get('/api/morning-data', async (req, res) => {
     fetchNews().then(d => { result.news = d; }),
     loadTodos().then(d => { result.todos = d; }),
     loadTaskChecks().then(d => { result.task_checks = { checked: d.checked, log: d.log }; }),
+    loadPlan().then(d => { result.plan = d; }),
   ]);
 
   result.watch = loadWatch();
@@ -755,6 +757,73 @@ app.post('/api/todos', async (req, res) => {
   }
 });
 
+// ── Today's Plan (stored in GitHub plan.json so it survives Railway deploys) ──
+// Shape: { date: "YYYY-MM-DD", order: [checkId...], excluded: [checkId...] }
+//   order    — the arranged sequence of tasks pinned into Today's Plan (key tasks
+//              plus lighter tasks the user dragged in).
+//   excluded — key-task ids the user dragged OUT today, so they don't auto-return.
+// The client rebuilds the plan fresh each new LOCAL day (drag-ins/exclusions clear),
+// so no server-side cron is needed — the stored `date` just tells the client which
+// day this arrangement belongs to.
+const PLAN_FILE = 'plan.json';
+const EMPTY_PLAN = { date: null, order: [], excluded: [] };
+
+async function loadPlan() {
+  if (!GITHUB_TOKEN) return EMPTY_PLAN;
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${PLAN_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return EMPTY_PLAN;
+    const data = await res.json();
+    const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+    return {
+      date:     typeof parsed.date === 'string' ? parsed.date : null,
+      order:    Array.isArray(parsed.order) ? parsed.order : [],
+      excluded: Array.isArray(parsed.excluded) ? parsed.excluded : [],
+    };
+  } catch (e) {
+    console.error('loadPlan error:', e.message);
+    return EMPTY_PLAN;
+  }
+}
+
+async function savePlanToGitHub(plan) {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const content = Buffer.from(JSON.stringify(plan, null, 2)).toString('base64');
+    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${PLAN_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const body = { message: 'Update today\'s plan', content };
+    if (getRes.ok) { const cur = await getRes.json(); body.sha = cur.sha; }
+    await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${PLAN_FILE}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    console.log('Plan saved to GitHub');
+  } catch (e) { console.error('GitHub plan save error:', e.message); }
+}
+
+app.get('/api/plan', async (req, res) => {
+  res.json(await loadPlan());
+});
+
+app.post('/api/plan', async (req, res) => {
+  try {
+    const { date, order, excluded } = req.body || {};
+    await savePlanToGitHub({
+      date:     typeof date === 'string' ? date : null,
+      order:    Array.isArray(order) ? order : [],
+      excluded: Array.isArray(excluded) ? excluded : [],
+    });
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // ── AI priority triage (for the dashboard's "Claude's choice" quick-add) ──
 app.post('/api/assign-priority', aiLimiter, async (req, res) => {
   try {
@@ -847,8 +916,8 @@ app.get('/api/task-checks', async (req, res) => {
 // Lightweight combined endpoint for cross-device auto-sync (tasks + their state),
 // without the heavy external fetches in /api/morning-data.
 app.get('/api/tasks-state', async (req, res) => {
-  const [todos, checks] = await Promise.all([loadTodos(), loadTaskChecks()]);
-  res.json({ todos, task_checks: { checked: checks.checked, log: checks.log } });
+  const [todos, checks, plan] = await Promise.all([loadTodos(), loadTaskChecks(), loadPlan()]);
+  res.json({ todos, task_checks: { checked: checks.checked, log: checks.log }, plan });
 });
 
 app.post('/api/task-checks', async (req, res) => {
@@ -2562,6 +2631,7 @@ async function optionalAuth(req, res, next) {
 
 function isActiveMembership(userRow) {
   if (!userRow) return false;
+  if (ADMIN_EMAILS.includes(String(userRow.email || '').toLowerCase())) return true;
   const status = userRow.membership_status;
   // Comp = permanent free beta account (admin-granted). No expiry, no Stripe.
   if (status === 'comp') return true;
