@@ -50,7 +50,8 @@
     },
     {
       "text": "Email Jeff to hire",
-      "priority": "med"
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Review Claude scheduled task output",
@@ -131,10 +132,6 @@
     {
       "text": "Spray weeds with roundup",
       "priority": "low"
-    },
-    {
-      "text": "Buy new date clothes",
-      "priority": "high"
     },
     {
       "text": "Hire someone to install artificial hedge panels",
