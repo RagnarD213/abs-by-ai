@@ -54,7 +54,7 @@
     },
     {
       "text": "Review Claude scheduled task output",
-      "priority": "low",
+      "priority": "high",
       "recurring": false
     }
   ],
