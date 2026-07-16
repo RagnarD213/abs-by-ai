@@ -11,8 +11,7 @@
     "health::Inject Zepbound",
     "personal::Put away dishes",
     "personal::Make coffee",
-    "personal::Buy arencia face wash",
-    "personal::Respond to hoes"
+    "personal::Buy arencia face wash"
   ],
   "log": {
     "health::Shower": [
