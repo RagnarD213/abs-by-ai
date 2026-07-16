@@ -1,8 +1,8 @@
 {
-  "net_worth": 4604719,
-  "nw_change_1m": 3569,
-  "nw_change_3m": 197858,
-  "nw_change_all": 4636512,
+  "net_worth": 4619965,
+  "nw_change_1m": 13441,
+  "nw_change_3m": 179587,
+  "nw_change_all": 4651758,
   "nw_history_since": "2026-02-26",
   "nw_history": [
     {
@@ -86,8 +86,8 @@
       "balance": 4331928
     },
     {
-      "date": "2026-04-13",
-      "balance": 4330974
+      "date": "2026-04-14",
+      "balance": 4358403
     },
     {
       "date": "2026-04-16",
@@ -98,8 +98,8 @@
       "balance": 4447409
     },
     {
-      "date": "2026-04-20",
-      "balance": 4435633
+      "date": "2026-04-21",
+      "balance": 4415697
     },
     {
       "date": "2026-04-23",
@@ -110,8 +110,8 @@
       "balance": 4440395
     },
     {
-      "date": "2026-04-27",
-      "balance": 4455800
+      "date": "2026-04-28",
+      "balance": 4453815
     },
     {
       "date": "2026-04-30",
@@ -122,8 +122,8 @@
       "balance": 4467664
     },
     {
-      "date": "2026-05-04",
-      "balance": 4471187
+      "date": "2026-05-05",
+      "balance": 4475043
     },
     {
       "date": "2026-05-07",
@@ -134,8 +134,8 @@
       "balance": 4538948
     },
     {
-      "date": "2026-05-11",
-      "balance": 4538114
+      "date": "2026-05-12",
+      "balance": 4546859
     },
     {
       "date": "2026-05-14",
@@ -146,8 +146,8 @@
       "balance": 4531452
     },
     {
-      "date": "2026-05-18",
-      "balance": 4531061
+      "date": "2026-05-19",
+      "balance": 4531728
     },
     {
       "date": "2026-05-21",
@@ -158,101 +158,101 @@
       "balance": 4570938
     },
     {
-      "date": "2026-05-25",
-      "balance": 4580202
+      "date": "2026-05-26",
+      "balance": 4579774
     },
     {
       "date": "2026-05-28",
       "balance": 4593190
     },
     {
-      "date": "2026-05-30",
-      "balance": 4607751
+      "date": "2026-05-31",
+      "balance": 4608174
     },
     {
-      "date": "2026-06-01",
-      "balance": 4604485
+      "date": "2026-06-02",
+      "balance": 4609236
     },
     {
       "date": "2026-06-04",
       "balance": 4600942
     },
     {
-      "date": "2026-06-06",
-      "balance": 4534305
+      "date": "2026-06-07",
+      "balance": 4533985
     },
     {
-      "date": "2026-06-08",
-      "balance": 4537700
+      "date": "2026-06-09",
+      "balance": 4519623
     },
     {
       "date": "2026-06-11",
       "balance": 4541812
     },
     {
-      "date": "2026-06-13",
-      "balance": 4568902
+      "date": "2026-06-14",
+      "balance": 4568640
     },
     {
-      "date": "2026-06-15",
-      "balance": 4601150
+      "date": "2026-06-16",
+      "balance": 4606524
     },
     {
       "date": "2026-06-18",
       "balance": 4546234
     },
     {
-      "date": "2026-06-20",
-      "balance": 4579017
+      "date": "2026-06-21",
+      "balance": 4578724
     },
     {
-      "date": "2026-06-22",
-      "balance": 4579457
+      "date": "2026-06-23",
+      "balance": 4571952
     },
     {
       "date": "2026-06-25",
       "balance": 4528746
     },
     {
-      "date": "2026-06-27",
-      "balance": 4537913
+      "date": "2026-06-28",
+      "balance": 4534655
     },
     {
-      "date": "2026-06-29",
-      "balance": 4539324
+      "date": "2026-06-30",
+      "balance": 4597524
     },
     {
       "date": "2026-07-02",
       "balance": 4587312
     },
     {
-      "date": "2026-07-04",
-      "balance": 4589143
+      "date": "2026-07-05",
+      "balance": 4589014
     },
     {
-      "date": "2026-07-06",
-      "balance": 4591276
+      "date": "2026-07-07",
+      "balance": 4595437
     },
     {
       "date": "2026-07-09",
       "balance": 4589197
     },
     {
-      "date": "2026-07-11",
-      "balance": 4622793
+      "date": "2026-07-12",
+      "balance": 4622320
     },
     {
-      "date": "2026-07-13",
-      "balance": 4624130
-    },
-    {
-      "date": "2026-07-15",
+      "date": "2026-07-14",
       "balance": 4604719
+    },
+    {
+      "date": "2026-07-16",
+      "balance": 4619965
     }
   ],
-  "spending_yesterday": 15,
-  "spending_week": 2630,
-  "spending_month": 12794,
+  "spending_yesterday": 164,
+  "spending_week": 2664,
+  "spending_month": 12799,
   "spending_categories": [
     {
       "category": "Shopping",
@@ -268,7 +268,7 @@
     },
     {
       "category": "Groceries",
-      "amount": 1019
+      "amount": 1079
     },
     {
       "category": "Cash & ATM",
@@ -289,11 +289,17 @@
   ],
   "yesterday_transactions": [
     {
-      "merchant": "Instacart",
+      "merchant": "Mexican Sugar",
       "category": "Groceries",
-      "amount": 15.16,
+      "amount": 154.23,
+      "is_transfer": false
+    },
+    {
+      "merchant": "Harris County Toll Road Authority",
+      "category": "Parking & Tolls",
+      "amount": 10,
       "is_transfer": false
     }
   ],
-  "synced_at": "2026-07-15T11:00:04.657Z"
+  "synced_at": "2026-07-16T11:39:39.895Z"
 }
