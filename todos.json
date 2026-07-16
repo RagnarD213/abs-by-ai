@@ -61,6 +61,11 @@
       "text": "Rework dashboard with keystone tasks and today's plan",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Create supplement audit functionality. Eliminate decision council",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
