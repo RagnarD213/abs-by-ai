@@ -18,6 +18,7 @@
 --orange: #f97316;
 --red: #ef4444;
 --yellow: #eab308;
+--brown: #b7793f;
 --money: #22c55e;
 --health: #3b82f6;
 --rel: #a855f7;
@@ -243,10 +244,11 @@ margin-left: auto;
 align-self: center;
 }
 
-.tag-key { background: rgba(245,166,35,0.18); color: #f5a623; box-shadow: 0 0 0 1px rgba(245,166,35,0.35); text-transform: uppercase; letter-spacing: 0.04em; }
-.tag-high { background: rgba(34,197,94,0.15); color: var(--green); }
-.tag-med { background: rgba(234,179,8,0.15); color: var(--yellow); }
-.tag-low { background: rgba(239,68,68,0.15); color: var(--red); }
+.tag-key { background: rgba(34,197,94,0.15); color: var(--green); box-shadow: 0 0 0 1px rgba(34,197,94,0.35); text-transform: uppercase; letter-spacing: 0.04em; }
+.tag-high { background: rgba(234,179,8,0.15); color: var(--yellow); }
+.tag-med { background: rgba(239,68,68,0.15); color: var(--red); }
+.tag-low { background: rgba(183,121,63,0.18); color: var(--brown); }
+.todo-item.priority-key .todo-text { font-weight: 700; }
 
 /* ── TODAY'S PLAN (full-width band above the 3 columns) ── */
 .plan-band {
@@ -295,6 +297,7 @@ cursor: pointer;
 .plan-item.done { opacity: 0.55; }
 .plan-item.done .plan-text { text-decoration: line-through; color: var(--muted); }
 .plan-item .todo-cb { width: 20px; height: 20px; min-width: 20px; }
+.plan-item:not(.done) .todo-cb { border-color: #fff; }
 .plan-item.done .todo-cb { background: var(--green); border-color: var(--green); }
 .plan-item.done .todo-cb::after { content: '✓'; font-size: 12px; color: #000; font-weight: 700; }
 .plan-text {
@@ -1491,7 +1494,7 @@ function tagClassFor(p) {
 return p === 'key' ? 'tag-key' : p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med' : 'tag-low';
 }
 function tagLabelFor(p) {
-return p === 'key' ? 'Key' : p === 'high' ? 'High' : p === 'med' ? 'Med' : 'Low';
+return p === 'key' ? 'Key' : p === 'high' ? 'High' : p === 'med' ? 'Med' : 'Low 💩';
 }
 
 // Load task lists into editable state, then render. One single Money Tasks list:
@@ -1729,7 +1732,7 @@ const streak = rec ? calcStreak(id) : 0;
 const tagClass = tagClassFor(t.priority);
 const tagLabel = tagLabelFor(t.priority);
 return `
-<li class="todo-item${done ? ' done' : ''}" draggable="true" data-list="${listKey}" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}" data-idx="${i}">
+<li class="todo-item priority-${escapeHtml(t.priority)}${done ? ' done' : ''}" draggable="true" data-list="${listKey}" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}" data-idx="${i}">
 <div class="todo-cb"></div>
 <span class="todo-text">${escapeHtml(t.text)}${rec ? ' <span title="Daily" style="opacity:0.7">🔁</span>' : ''}</span>
 ${streak > 1 ? `<span class="streak">🔥${streak}</span>` : ''}
