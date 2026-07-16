@@ -56,6 +56,11 @@
       "text": "Review Claude scheduled task output",
       "priority": "high",
       "recurring": false
+    },
+    {
+      "text": "Rework dashboard with keystone tasks and today's plan",
+      "priority": "high",
+      "recurring": false
     }
   ],
   "health": [
