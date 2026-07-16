@@ -77,6 +77,11 @@
       "text": "Finalize female transformations feature",
       "priority": "key",
       "recurring": false
+    },
+    {
+      "text": "Fix supplement audit problems",
+      "priority": "key",
+      "recurring": false
     }
   ],
   "health": [
