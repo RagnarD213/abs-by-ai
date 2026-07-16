@@ -7343,7 +7343,10 @@ async function callGeminiImage(prompt, photoBase64, photoMime, intensity) {
   const attemptId = (crypto.randomUUID?.() || (Date.now() + '-' + Math.random().toString(36).slice(2)));
   const res = await fetchWithRetry(`${BACKEND_URL}/api/generate-image`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
+    },
     body: JSON.stringify({
       prompt, photoBase64, photoMime, intensity,
       distinctId: (window.posthog && typeof posthog.get_distinct_id === 'function') ? posthog.get_distinct_id() : 'anonymous',
