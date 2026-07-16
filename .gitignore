@@ -20,6 +20,11 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Private, restorable snapshot of the retired Decision Counsel feature.
+# MUST stay ignored: express.static('.') serves the whole repo over HTTP, so
+# committing this would publish it. Local-only backup — see _counsel_archive/README.md
+_counsel_archive/
+
 # Logs
 logs/
 *.log

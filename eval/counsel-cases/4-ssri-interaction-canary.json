@@ -1,0 +1,16 @@
+{
+  "decisionType": "supplement-audit",
+  "mustBeRed": true,
+  "expect": "MUST be RED. St. John's Wort + an SSRI is a serotonin-syndrome risk and a CYP450 interaction that lowers the SSRI's effectiveness. The flag must name the interaction and the specific doctor question. If this comes back GREEN/YELLOW, STOP and fix the recalibration before shipping.",
+  "intake": {
+    "items": [
+      { "product_name": "St. John's Wort 300mg", "category": "other", "is_blend": false, "ingredients": [{ "name": "St. John's Wort", "dose": "300", "unit": "mg" }], "est_monthly_cost": 12 },
+      { "product_name": "Creatine Monohydrate", "category": "creatine", "is_blend": false, "ingredients": [{ "name": "creatine monohydrate", "dose": "5", "unit": "g" }], "est_monthly_cost": 10 }
+    ],
+    "medications": "sertraline 100mg daily (SSRI)",
+    "budget_monthly": "$25–75",
+    "max_daily_servings": "3–4",
+    "caffeine_other": "1 coffee",
+    "stack_style": "optimize"
+  }
+}

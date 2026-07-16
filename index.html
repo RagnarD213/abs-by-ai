@@ -1769,8 +1769,8 @@ html, body {
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
       <button class="hub-tile" data-feature="counsel">
-        <span class="hub-tile-emoji">🏛️</span>
-        <span class="hub-tile-body"><span class="hub-tile-name">The Decision Counsel</span><span class="hub-tile-sub">Five AI experts rule on your hardest call</span></span>
+        <span class="hub-tile-emoji">💊</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">Supplement Audit</span><span class="hub-tile-sub">Photograph your stack — find out what's wasted money</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
       <button class="hub-tile" data-feature="sleep">
@@ -1967,7 +1967,7 @@ html, body {
       <button class="nav-icon-btn" id="counselBackBtn" title="Back">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
-      <span class="nav-title">The Decision Counsel</span>
+      <span class="nav-title">Supplement Audit</span>
       <span style="width:26px"></span>
     </div>
     <div id="counselLanding"><!-- rendered by JS --></div>
@@ -1979,7 +1979,7 @@ html, body {
       <button class="nav-icon-btn" id="counselIntakeBackBtn" title="Back">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
-      <span class="nav-title" id="counselIntakeTitle">Present your case</span>
+      <span class="nav-title" id="counselIntakeTitle">Your stack</span>
       <span style="width:26px"></span>
     </div>
     <div class="intake-progress"><div id="counselProgressFill" class="intake-progress-fill" style="width:10%"></div></div>
@@ -2002,7 +2002,7 @@ html, body {
       <button class="nav-icon-btn" id="counselReportBackBtn" title="Back">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
-      <span class="nav-title">Counsel Report</span>
+      <span class="nav-title">Your audit</span>
       <span style="width:26px"></span>
     </div>
     <div id="counselReportContent"><!-- rendered by JS --></div>
@@ -2130,7 +2130,7 @@ html, body {
       <li>Unlimited future-self image generations</li>
       <li>Unlimited AI meal &amp; macro tracking</li>
       <li>Your AI Nutritionist meal-prep plan — recipes, grocery lists &amp; check-ins</li>
-      <li>The Decision Counsel — 10 sessions a month: full verdicts from five AI experts, plus follow-up questions</li>
+      <li>Supplement Audits — 10 a month: photograph your stack, get a full keep/drop verdict from five AI experts, plus brand picks and follow-ups</li>
       <li>The AI Sleep Coach — the full Go Hard briefing, tonight's protocol &amp; your trend</li>
       <li>Program check-ins that adapt to your progress</li>
     </ul>
@@ -6346,95 +6346,26 @@ function initNutritionist() {
 const COUNSEL_KEY = 'absbyai_counsel';
 const COUNSEL_INTAKE_KEY = 'absbyai_counsel_intake';
 
+// The Decision Counsel was retired (2026-07-16). Its five-seat engine now powers
+// the AI Supplement Audit. The multi-decision wizard is preserved in
+// _counsel_archive/ for restore. COUNSEL_* names are kept for the shared plumbing.
 const COUNSEL_MEMBERS = [
-  { e: '🔬', n: 'The Researcher', s: 'Rates every claim by the actual evidence — no hype, no bro-science.' },
-  { e: '🧐', n: 'The Skeptic', s: "Argues against the popular answer so you never waste money on marketing." },
-  { e: '🏋️', n: 'The Coach', s: 'Ignores the lab and asks: will this fit YOUR life? Adherence beats optimization.' },
-  { e: '🩺', n: 'The Safety Officer', s: 'Flags interactions and red flags, and tells you when this needs a real doctor.' },
-  { e: '🏛️', n: 'The President', s: 'Reads all four opinions and delivers one clear verdict — no "it depends".' },
+  { e: '🔬', n: 'The Researcher', s: 'Rates every ingredient by the actual evidence — no hype, no bro-science.' },
+  { e: '🧐', n: 'The Skeptic', s: "Attacks the marketing so you never pay for an underdosed proprietary blend." },
+  { e: '🏋️', n: 'The Coach (Lead Counselor)', s: 'Asks what actually fits your life and budget — food first, supplements last.' },
+  { e: '🩺', n: 'The Safety Officer', s: 'Checks every item against your meds and each other.' },
+  { e: '🏛️', n: 'The President', s: 'Delivers one keep/drop verdict and the stack that replaces the waste.' },
 ];
 
-const COUNSEL_TYPES = [
-  { v: 'supplement-audit', e: '💊', n: 'Audit my supplement stack', s: 'Is what you\'re taking worth it — and safe together?' },
-  { v: 'glp1-trt', e: '💉', n: 'Should I consider a GLP-1 or TRT?', s: 'A clear-eyed ruling before you talk to a doctor.' },
-  { v: 'injury-return', e: '🩹', n: 'Coming back from an injury', s: 'When and how to return to training safely.' },
-  { v: 'physique-direction', e: '🧭', n: 'What should my physique goal be?', s: 'Bulk, cut, recomp — pick a direction with confidence.' },
-  { v: 'custom', e: '❓', n: 'Ask my own question', s: 'Bring any hard fitness or health decision to the counsel.' },
-];
+// Audit flow state: the photographed/typed items + the intake answers.
+// phase: 'photos' → 'intake'. brandCache memoizes Recommend-a-Brand results.
+const counselState = { items: [], intake: {}, phase: 'photos', brandCache: {} };
 
-// Data-driven wizard: each step has fields; kinds are text | textarea |
-// number | chips (single-select) | list (add-your-own items).
-const COUNSEL_WIZARDS = {
-  'supplement-audit': [
-    { title: 'What are you taking?', sub: 'Add each supplement with its dose and timing — e.g. "Creatine 5g, morning".', fields: [
-      { key: 'supplements', kind: 'list', label: 'Your supplements', required: true, placeholder: 'e.g. Creatine 5g daily' }] },
-    { title: 'Any medications?', sub: 'The Safety Officer checks your stack against these. Skip if none.', fields: [
-      { key: 'medications', kind: 'list', label: 'Medications', placeholder: 'e.g. lisinopril 10mg' }] },
-    { title: 'About you', fields: [
-      { key: 'age', kind: 'number', label: 'Age', placeholder: 'e.g. 34', min: 16, max: 90 },
-      { key: 'sex', kind: 'chips', label: 'Sex', opts: [['male','Male'],['female','Female'],['unspecified','Prefer not to say']] },
-      { key: 'goal', kind: 'text', label: 'What are you optimizing for?', placeholder: 'e.g. muscle gain, fat loss, energy' }] },
-    { title: 'Budget & anything else', fields: [
-      { key: 'budget_monthly', kind: 'chips', label: 'Monthly supplement budget', opts: [['under $25','Under $25'],['$25–75','$25–75'],['$75–150','$75–150'],['$150+','$150+']] },
-      { key: 'notes', kind: 'textarea', label: 'Anything else the counsel should know?', optional: true, placeholder: 'e.g. I already eat 180g protein and sleep 8 hours' }] },
-  ],
-  'glp1-trt': [
-    { title: 'What are you weighing?', fields: [
-      { key: 'subject', kind: 'chips', label: 'The decision', required: true, opts: [['glp1','GLP-1 (Ozempic, Zepbound…)'],['trt','TRT (testosterone)'],['both','Both / not sure']] }] },
-    { title: 'About you', fields: [
-      { key: 'age', kind: 'number', label: 'Age', placeholder: 'e.g. 42', min: 16, max: 90 },
-      { key: 'sex', kind: 'chips', label: 'Sex', opts: [['male','Male'],['female','Female'],['unspecified','Prefer not to say']] },
-      { key: 'height_in', kind: 'height', label: 'Height' },
-      { key: 'weight_lb', kind: 'number', label: 'Current weight (lbs)', placeholder: 'e.g. 235', min: 80, max: 500 }] },
-    { title: 'Your history', fields: [
-      { key: 'weight_history', kind: 'textarea', label: 'Weight story so far', placeholder: 'e.g. Gained 40 lbs over 10 years; lost 20 twice and regained it' },
-      { key: 'training_history', kind: 'textarea', label: 'Training history', placeholder: 'e.g. Lift 2x/week for a year; walk most days' }] },
-    { title: "What you've tried & why now", fields: [
-      { key: 'tried', kind: 'textarea', label: "What have you already tried?", placeholder: 'e.g. Keto, calorie counting, a personal trainer' },
-      { key: 'symptoms_motivation', kind: 'textarea', label: 'Symptoms or motivation driving this', placeholder: 'e.g. Low energy, libido down, doctor mentioned pre-diabetes' }] },
-    { title: 'Practical constraints', fields: [
-      { key: 'budget_monthly', kind: 'chips', label: 'Monthly budget for this', opts: [['under $100','Under $100'],['$100–300','$100–300'],['$300+','$300+'],['insurance would need to cover it','Needs insurance coverage']] },
-      { key: 'doctor_access', kind: 'chips', label: 'Doctor access', opts: [['have a doctor I see regularly','Have a regular doctor'],['could get an appointment','Could get an appointment'],['hard for me to see a doctor','Hard to see a doctor']] },
-      { key: 'notes', kind: 'textarea', label: 'Anything else?', optional: true, placeholder: 'e.g. Family history, meds you take, fears' }] },
-  ],
-  'injury-return': [
-    { title: 'The injury', fields: [
-      { key: 'injury', kind: 'text', label: 'What happened?', required: true, placeholder: 'e.g. Herniated disc L4-L5 deadlifting' },
-      { key: 'when', kind: 'chips', label: 'When?', opts: [['less than a month ago','< 1 month ago'],['1–3 months ago','1–3 months'],['3–12 months ago','3–12 months'],['over a year ago','1+ year ago']] }] },
-    { title: 'Treatment so far', fields: [
-      { key: 'treatment', kind: 'textarea', label: 'What treatment have you had?', placeholder: 'e.g. 6 weeks of PT, MRI, just rest…' },
-      { key: 'clearance', kind: 'chips', label: 'Are you cleared to train?', opts: [['cleared by a professional','Cleared by a pro'],['not cleared yet','Not cleared yet'],['never saw a professional','Never saw anyone']] }] },
-    { title: 'Where you are now', fields: [
-      { key: 'current_pain', kind: 'chips', label: 'Pain today', opts: [['no pain','No pain'],['only on certain movements','Only certain movements'],['daily pain','Daily pain']] },
-      { key: 'goal', kind: 'textarea', label: 'What do you want to get back to?', placeholder: 'e.g. Deadlifting 315 again, or just pain-free workouts' },
-      { key: 'notes', kind: 'textarea', label: 'Anything else?', optional: true }] },
-  ],
-  'physique-direction': [
-    { title: 'About you', fields: [
-      { key: 'age', kind: 'number', label: 'Age', placeholder: 'e.g. 29', min: 16, max: 90 },
-      { key: 'sex', kind: 'chips', label: 'Sex', opts: [['male','Male'],['female','Female'],['unspecified','Prefer not to say']] },
-      { key: 'height_in', kind: 'height', label: 'Height' },
-      { key: 'weight_lb', kind: 'number', label: 'Current weight (lbs)', placeholder: 'e.g. 178', min: 80, max: 500 }] },
-    { title: 'The look you want', fields: [
-      { key: 'inspirations', kind: 'list', label: 'Physiques you admire', placeholder: 'e.g. lean athletic, swimmer build' },
-      { key: 'timeline', kind: 'chips', label: 'Timeline', opts: [['3 months','3 months'],['6 months','6 months'],['a year','A year'],['no rush','No rush']] }] },
-    { title: 'Your life', fields: [
-      { key: 'lifestyle', kind: 'textarea', label: 'Lifestyle constraints', placeholder: 'e.g. Desk job, 2 kids, can train 3x/week, travel monthly' },
-      { key: 'goal', kind: 'text', label: 'Your current lean (if you had to pick)', optional: true, placeholder: 'e.g. Leaning toward a slow bulk' },
-      { key: 'notes', kind: 'textarea', label: 'Anything else?', optional: true }] },
-  ],
-  custom: [
-    { title: 'Your question', sub: 'Ask it the way you\'d ask a brutally honest friend who happens to know everything.', fields: [
-      { key: 'question', kind: 'textarea', label: 'What should the counsel rule on?', required: true, placeholder: 'e.g. Is fasted cardio worth it, or should I just eat less?' }] },
-    { title: 'Quick context', fields: [
-      { key: 'age', kind: 'number', label: 'Age', optional: true, placeholder: 'e.g. 34', min: 16, max: 90 },
-      { key: 'sex', kind: 'chips', label: 'Sex', opts: [['male','Male'],['female','Female'],['unspecified','Prefer not to say']] },
-      { key: 'goal', kind: 'text', label: 'Your main goal right now', placeholder: 'e.g. Lose 20 lbs without losing muscle' },
-      { key: 'notes', kind: 'textarea', label: 'Anything else?', optional: true }] },
-  ],
+const AUDIT_CAT_LABELS = {
+  creatine: 'creatine', protein: 'protein', 'pre-workout': 'pre-workout', 'fat-burner': 'fat burner',
+  multivitamin: 'multivitamin', 'fish-oil': 'fish oil', 'vitamin-d': 'vitamin D', magnesium: 'magnesium',
+  greens: 'greens', 'test-booster': 'test booster', bcaa: 'BCAAs',
 };
-
-const counselState = { type: null, step: 0, answers: {}, steps: [] };
 
 function loadStoredCounsel() {
   try { return JSON.parse(localStorage.getItem(COUNSEL_KEY) || 'null'); } catch (e) { return null; }
@@ -6452,22 +6383,19 @@ function openCounsel() {
 function renderCounselLanding() {
   const stored = loadStoredCounsel();
   let html = `
-    <div class="hero-h1" style="font-size:25px;line-height:1.1;margin-bottom:6px">Five experts. One verdict.</div>
-    <div class="hero-sub" style="margin-bottom:18px">Bring the counsel a hard decision. Four AI counselors review your case independently — then the President rules.</div>`;
+    <div class="hero-h1" style="font-size:25px;line-height:1.1;margin-bottom:6px">Audit your supplement stack.</div>
+    <div class="hero-sub" style="margin-bottom:18px">Photograph everything you take. Five AI experts read the labels, check them against your meds and each other, and rule on what to keep, what to bin, and the cheaper stack that actually works.</div>`;
   if (stored?.counsel) {
+    const saved = stored.counsel.verdict?.monthly_savings;
     html += `<button class="hub-tile" id="counselLastReport" style="margin-bottom:16px">
       <span class="hub-tile-emoji">📜</span>
-      <span class="hub-tile-body"><span class="hub-tile-name">Your last verdict</span><span class="hub-tile-sub">${escapeHtml((stored.counsel.verdict?.verdict || '').slice(0, 90))}</span></span>
+      <span class="hub-tile-body"><span class="hub-tile-name">Your last audit</span><span class="hub-tile-sub">${escapeHtml(saved ? `Found ${saved} of waste` : (stored.counsel.verdict?.verdict || '').slice(0, 90))}</span></span>
       <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
     </button>`;
   }
-  html += `<div class="lbl" style="margin-bottom:8px"><span class="lbl-text">What's the decision?</span></div>
-    <div class="intake-opts">` + COUNSEL_TYPES.map(t => `
-      <button class="intake-opt" data-v="${t.v}">
-        <span class="intake-opt-emoji">${t.e}</span>
-        <span><span class="intake-opt-name">${t.n}</span><span class="intake-opt-sub" style="display:block">${t.s}</span></span>
-      </button>`).join('') + `</div>
-    <div class="lbl" style="margin:22px 0 8px"><span class="lbl-text">Meet your counsel</span></div>` +
+  html += `<button class="cta-btn" id="auditStartBtn" style="margin-bottom:6px">📷 Start my audit</button>
+    <div class="hero-sub" style="text-align:center;margin:0 0 18px;font-size:12px">Free to see how much you're wasting. Members get the full keep/drop list.</div>
+    <div class="lbl" style="margin:8px 0 8px"><span class="lbl-text">Meet your counsel</span></div>` +
     COUNSEL_MEMBERS.map(m => `
       <div style="display:flex;gap:10px;align-items:flex-start;padding:7px 0">
         <span style="font-size:20px">${m.e}</span>
@@ -6475,208 +6403,282 @@ function renderCounselLanding() {
       </div>`).join('') +
     `<div class="lbl" style="margin:22px 0 8px"><span class="lbl-text">How it works</span></div>
     <div style="font-size:13.5px;color:var(--mute);line-height:1.55">
-      1. Present your case — a short guided intake, 2 minutes.<br>
-      2. Four counselors review it independently, so no groupthink.<br>
-      3. The President weighs their opinions and delivers a verdict, a confidence level, and your 3 next actions.<br>
-      4. Members can cross-examine — ask follow-up questions on any verdict.
+      1. Snap the front label of each supplement — I read it on the spot.<br>
+      2. A few quick questions: your meds, budget, and how many pills a day you'll take.<br>
+      3. Five experts review it independently, then rule: keep / drop / swap, the dollars you save, and the stack that replaces the junk.<br>
+      4. Members can ask for a specific brand on any recommendation, and cross-examine the verdict.
     </div>
-    <div class="hero-sub" style="margin-top:14px;font-size:12.5px">Members get 10 full counsel sessions every month. Free users get a preview of their first verdict.</div>
-    <div class="hero-sub" style="margin-top:10px;font-size:12px">Educational guidance, not medical advice. The counsel will tell you when a question belongs to a real doctor.</div>`;
+    <div class="hero-sub" style="margin-top:14px;font-size:12.5px">Members get 10 full audits every month. Free users see the savings total and a preview.</div>
+    <div class="hero-sub" style="margin-top:10px;font-size:12px">Educational guidance, not medical advice. The audit will tell you when something belongs to a real doctor.</div>`;
   $('counselLanding').innerHTML = html;
 
-  $('counselLanding').querySelectorAll('.intake-opt').forEach(btn =>
-    btn.addEventListener('click', () => startCounselIntake(btn.dataset.v)));
+  $('auditStartBtn').addEventListener('click', startAudit);
   const last = $('counselLastReport');
   if (last) last.addEventListener('click', () => showCounselReport());
 }
 
-function startCounselIntake(type) {
-  counselState.type = type;
-  counselState.step = 0;
-  counselState.answers = {};
-  counselState.steps = COUNSEL_WIZARDS[type].slice();
-  // Physique direction can read the user's existing before/after photos.
-  if (type === 'physique-direction' && localStorage.getItem(LAST_BEFORE_KEY)) {
-    counselState.steps = [{ title: 'Let the counsel see your photos', type: 'photo',
-      sub: 'Your <b>before</b> and <b>goal</b> photos give the counselors a real starting point.', fields: [] }, ...counselState.steps];
-  }
-  $('counselIntakeTitle').textContent = COUNSEL_TYPES.find(t => t.v === type)?.n || 'Present your case';
+// ── Phase A: the photo loop ──────────────────────────────────────────
+function startAudit() {
+  counselState.items = [];
+  counselState.intake = {};
+  counselState.phase = 'photos';
+  counselState.brandCache = {};
+  $('counselIntakeTitle').textContent = 'Your stack';
   $('counselGenError').style.display = 'none';
   $('counselLoader').style.display = 'none';
-  renderCounselStep();
   showScreen('counselIntake');
+  renderAuditPhotoLoop();
 }
 
-function renderCounselStep() {
-  const steps = counselState.steps;
-  const step = steps[counselState.step];
-  const a = counselState.answers;
+function auditItemCardHtml(it, i) {
+  const cat = it.category && AUDIT_CAT_LABELS[it.category] ? ` · ${AUDIT_CAT_LABELS[it.category]}` : '';
+  const ings = (it.ingredients || []).filter(g => g.name).slice(0, 4)
+    .map(g => escapeHtml(g.name + (g.dose ? ` ${g.dose}${g.unit || ''}` : ''))).join(', ');
+  let card = `<div class="wk-card" style="margin-bottom:10px"><div style="padding:12px 14px">
+    <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start">
+      <div style="min-width:0"><b>${escapeHtml(it.product_name)}</b><span style="color:var(--mute);font-size:12.5px">${cat}${it.source === 'typed' ? ' · typed' : ''}</span>
+      ${ings ? `<div style="color:var(--mute);font-size:12.5px;margin-top:2px">${ings}</div>` : ''}</div>
+      <button class="try-diff-btn" data-rmitem="${i}" style="margin:0;width:auto;padding:2px 10px;font-size:12px;flex:none">Remove</button>
+    </div>`;
+  if (it.needs_panel && !it.panel_skipped) {
+    card += `<div style="margin-top:8px;padding:9px 11px;border-radius:9px;background:rgba(217,158,0,.12);border:1px solid rgba(217,158,0,.35);font-size:12.5px">
+      This one's a blend — snap the ingredients panel so I can check the actual doses.
+      <div style="display:flex;gap:8px;margin-top:7px">
+        <button class="try-diff-btn" data-panel="${i}" style="margin:0;width:auto;padding:3px 12px;font-size:12px">📷 Add panel</button>
+        <button class="try-diff-btn" data-skippanel="${i}" style="margin:0;width:auto;padding:3px 12px;font-size:12px">Skip</button>
+      </div></div>`;
+  } else if (it.panel_skipped) {
+    card += `<div style="margin-top:6px;color:#b07d00;font-size:12px">⚠️ Doses not verified — panel skipped. The audit will flag this.</div>`;
+  }
+  card += `</div></div>`;
+  return card;
+}
+
+function renderAuditPhotoLoop() {
+  counselState.phase = 'photos';
+  $('counselProgressFill').style.width = '45%';
+  $('counselBackStep').style.display = 'none';
   const wrap = $('counselStep');
-  const isLast = counselState.step === steps.length - 1;
-  $('counselProgressFill').style.width = `${Math.round(((counselState.step + 1) / steps.length) * 100)}%`;
-  $('counselBackStep').style.display = counselState.step > 0 ? '' : 'none';
   wrap.style.display = '';
-
-  let inner = `<div class="hero-h1" style="font-size:23px;line-height:1.15;margin-bottom:5px">${step.title}</div>`;
-  inner += step.sub ? `<div class="hero-sub" style="margin-bottom:16px">${step.sub}</div>` : `<div style="margin-bottom:14px"></div>`;
-
-  if (step.type === 'photo') {
-    inner += `
-      <label class="consent-row"><input type="checkbox" id="counselPhotoConsent" checked />
-        <span><span class="intake-opt-name">Share my photos with the counsel</span>
-        <span class="intake-opt-sub" style="display:block">Analyzed once for this session, never stored by the AI.</span></span></label>`;
+  const items = counselState.items;
+  let html = `
+    <div class="hero-h1" style="font-size:23px;line-height:1.15;margin-bottom:5px">Photograph your stack</div>
+    <div class="hero-sub" style="margin-bottom:16px">Snap the front label of each supplement, one at a time. I'll read it and add it below.</div>
+    <input type="file" id="auditLabelInput" accept="image/*" capture="environment" style="display:none" />
+    <input type="file" id="auditPanelInput" accept="image/*" capture="environment" style="display:none" />
+    <button class="cta-btn" id="auditSnapBtn" style="margin-bottom:10px">📷 Snap a label</button>
+    <button class="try-diff-btn" id="auditTypeBtn" style="margin:0 0 8px">⌨️ Type one in instead</button>
+    <div id="auditTypeForm" style="display:none"></div>
+    <div id="auditScanStatus" class="loading-status" style="display:none;margin:6px 0 12px"></div>
+    <div id="auditPhotoError" class="error-toast" style="display:none;margin-bottom:12px"></div>
+    <div id="auditItems" style="margin-top:6px">${items.map((it, i) => auditItemCardHtml(it, i)).join('')}</div>`;
+  if (items.length) {
+    html += `<div class="lbl" style="margin-top:12px"><span class="lbl-text">${items.length} item${items.length === 1 ? '' : 's'} added</span></div>
+      <button class="cta-btn" id="auditToIntakeBtn" style="margin-top:6px">Continue →</button>`;
   } else {
-    for (const f of step.fields) {
-      inner += `<div class="lbl" style="margin-top:14px"><span class="lbl-text">${f.label}</span>${f.optional ? '<span class="lbl-opt">Optional</span>' : ''}</div>`;
-      if (f.kind === 'chips') {
-        inner += `<div class="intake-chips" data-key="${f.key}">${f.opts.map(([v, n]) =>
-          `<button class="intake-chip${a[f.key] === v ? ' selected' : ''}" data-v="${escapeHtml(v)}">${n}</button>`).join('')}</div>`;
-      } else if (f.kind === 'list') {
-        const items = a[f.key] || [];
-        inner += `<div style="display:flex;gap:8px">
-            <input type="text" class="text-field" id="cw_add_${f.key}" maxlength="150" placeholder="${f.placeholder || ''}" style="flex:1" />
-            <button class="try-diff-btn" data-add="${f.key}" style="margin:0;width:auto;padding:0 16px">Add</button>
-          </div>
-          <div class="intake-chips" data-list="${f.key}" style="margin-top:8px">${items.map((it, i) =>
-            `<button class="intake-chip selected" data-rm="${i}" title="Tap to remove">${escapeHtml(it)} ✕</button>`).join('')}</div>`;
-      } else if (f.kind === 'textarea') {
-        inner += `<textarea class="text-field" id="cw_${f.key}" maxlength="600" rows="3" placeholder="${f.placeholder || ''}" style="resize:vertical;min-height:64px">${escapeHtml(a[f.key] || '')}</textarea>`;
-      } else if (f.kind === 'number') {
-        inner += `<input type="number" class="text-field" id="cw_${f.key}" inputmode="numeric" ${f.min ? `min="${f.min}"` : ''} ${f.max ? `max="${f.max}"` : ''} placeholder="${f.placeholder || ''}" value="${escapeHtml(a[f.key] || '')}" />`;
-      } else if (f.kind === 'height') {
-        inner += `<div style="display:flex;gap:10px">
-          <input type="number" class="text-field" id="cw_${f.key}_ft" inputmode="numeric" min="4" max="7" placeholder="ft" value="${a[f.key + '_ft'] || ''}" style="flex:1" />
-          <input type="number" class="text-field" id="cw_${f.key}_in" inputmode="numeric" min="0" max="11" placeholder="in" value="${a[f.key + '_in'] || ''}" style="flex:1" /></div>`;
-      } else {
-        inner += `<input type="text" class="text-field" id="cw_${f.key}" maxlength="600" placeholder="${f.placeholder || ''}" value="${escapeHtml(a[f.key] || '')}" />`;
-      }
-    }
+    html += `<button class="try-diff-btn" id="auditEmptyBtn" style="margin-top:6px">I take nothing — just recommend me a stack →</button>`;
   }
+  wrap.innerHTML = html;
 
-  inner += `<div id="counselStepError" class="error-toast" style="display:none;margin-top:12px"></div>
-    <button class="cta-btn" id="counselStepNext" style="margin-top:18px">${isLast ? '🏛️ Convene the Counsel' : 'Continue'}</button>`;
-  wrap.innerHTML = inner;
+  $('auditSnapBtn').addEventListener('click', () => $('auditLabelInput').click());
+  $('auditLabelInput').addEventListener('change', (e) => {
+    const file = e.target.files[0]; e.target.value = '';
+    if (file) scanAuditLabel(file, null);
+  });
+  $('auditPanelInput').addEventListener('change', (e) => {
+    const file = e.target.files[0]; const idx = counselState._panelFor; e.target.value = '';
+    if (file && idx != null) scanAuditLabel(file, idx);
+  });
+  $('auditTypeBtn').addEventListener('click', showAuditTypeForm);
+  wrap.querySelectorAll('[data-rmitem]').forEach(b => b.addEventListener('click', () => {
+    counselState.items.splice(parseInt(b.dataset.rmitem, 10), 1); renderAuditPhotoLoop();
+  }));
+  wrap.querySelectorAll('[data-panel]').forEach(b => b.addEventListener('click', () => {
+    counselState._panelFor = parseInt(b.dataset.panel, 10); $('auditPanelInput').click();
+  }));
+  wrap.querySelectorAll('[data-skippanel]').forEach(b => b.addEventListener('click', () => {
+    counselState.items[parseInt(b.dataset.skippanel, 10)].panel_skipped = true; renderAuditPhotoLoop();
+  }));
+  const toIntake = $('auditToIntakeBtn');
+  if (toIntake) toIntake.addEventListener('click', renderAuditIntake);
+  const empty = $('auditEmptyBtn');
+  if (empty) empty.addEventListener('click', renderAuditIntake);
+}
 
-  // Wire chips (single-select)
-  wrap.querySelectorAll('.intake-chips[data-key]').forEach(group => {
-    group.querySelectorAll('.intake-chip').forEach(chip => chip.addEventListener('click', () => {
-      a[group.dataset.key] = chip.dataset.v;
-      group.querySelectorAll('.intake-chip').forEach(x => x.classList.toggle('selected', x === chip));
-    }));
-  });
-  // Wire list add/remove
-  wrap.querySelectorAll('[data-add]').forEach(btn => {
-    const key = btn.dataset.add;
-    const input = $(`cw_add_${key}`);
-    const add = () => {
-      const v = input.value.trim();
-      if (!v) return;
-      a[key] = [...(a[key] || []), v].slice(0, 20);
-      saveCounselStepInputs(step);
-      renderCounselStep();
-      const again = $(`cw_add_${key}`);
-      if (again) again.focus();
-    };
-    btn.addEventListener('click', add);
-    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); add(); } });
-  });
-  wrap.querySelectorAll('.intake-chips[data-list]').forEach(group => {
-    const key = group.dataset.list;
-    group.querySelectorAll('[data-rm]').forEach(chip => chip.addEventListener('click', () => {
-      a[key] = (a[key] || []).filter((_, i) => i !== parseInt(chip.dataset.rm, 10));
-      saveCounselStepInputs(step);
-      renderCounselStep();
-    }));
-  });
+function showAuditPhotoError(msg) {
+  const el = $('auditPhotoError');
+  if (!el) return;
+  el.textContent = msg; el.style.display = '';
+}
 
-  $('counselStepNext').addEventListener('click', () => {
-    if (step.type === 'photo') {
-      a.photo_consent = $('counselPhotoConsent').checked;
+function showAuditTypeForm() {
+  const box = $('auditTypeForm');
+  box.style.display = '';
+  box.innerHTML = `<div class="wk-card" style="margin-bottom:12px"><div style="padding:12px 14px">
+    <div class="lbl"><span class="lbl-text">Product name</span></div>
+    <input type="text" id="auditTypeName" class="text-field" maxlength="120" placeholder="e.g. ON Micronized Creatine" />
+    <div class="lbl" style="margin-top:10px"><span class="lbl-text">What's in it? <span class="lbl-opt">Optional</span></span></div>
+    <input type="text" id="auditTypeIng" class="text-field" maxlength="200" placeholder="e.g. creatine monohydrate 5g" />
+    <button class="cta-btn" id="auditTypeAdd" style="margin-top:12px">Add item</button>
+  </div></div>`;
+  $('auditTypeName').focus();
+  $('auditTypeAdd').addEventListener('click', () => {
+    const name = $('auditTypeName').value.trim();
+    if (!name) { $('auditTypeName').focus(); return; }
+    const ing = $('auditTypeIng').value.trim();
+    counselState.items.push({
+      product_name: name, source: 'typed', category: 'other', is_blend: false,
+      ingredients: ing ? [{ name: ing, dose: '', unit: '' }] : [],
+      serving_info: null, caffeine_mg_per_serving: null, est_monthly_cost: null,
+      needs_panel: false, panel_skipped: false,
+    });
+    renderAuditPhotoLoop();
+  });
+}
+
+async function scanAuditLabel(file, panelForIndex) {
+  const img = await downscaleImage(file);
+  if (!img) { showAuditPhotoError("Couldn't read that image — try again."); return; }
+  const status = $('auditScanStatus');
+  if (status) { status.style.display = ''; status.textContent = panelForIndex != null ? 'Reading the ingredients panel…' : 'Reading the label…'; }
+  const body = { attemptId: `${Date.now()}-${Math.random().toString(36).slice(2)}` };
+  if (panelForIndex != null) {
+    const base = counselState.items[panelForIndex];
+    const front = base && base._photo;
+    if (front) { body.photoBase64 = front.data; body.photoMime = front.mime; }
+    else { body.photoBase64 = img.data; body.photoMime = img.mime; }
+    body.panelBase64 = img.data; body.panelMime = img.mime;
+  } else {
+    body.photoBase64 = img.data; body.photoMime = img.mime;
+  }
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/supplement/label`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}) },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data?.error || 'Could not read the label.');
+    const a = data.analysis || {};
+    if (a.unreadable) { showAuditPhotoError("Hmm — I couldn't read that. Try better lighting, or type it in instead."); return; }
+    if (window.posthog) posthog.capture('supplement_label_scanned', { category: a.category, is_blend: !!a.is_blend });
+    if (panelForIndex != null) {
+      const prev = counselState.items[panelForIndex];
+      counselState.items[panelForIndex] = { ...prev, ...a, needs_panel: false, panel_skipped: false, source: 'photo', _photo: prev._photo };
     } else {
-      saveCounselStepInputs(step);
-      // Validate required fields
-      for (const f of step.fields) {
-        if (!f.required) continue;
-        const val = a[f.key];
-        if (f.kind === 'list' ? !(val || []).length : !String(val || '').trim()) {
-          const err = $('counselStepError');
-          err.textContent = f.kind === 'list' ? `Please add at least one item.` : `Please fill in "${f.label}".`;
-          err.style.display = '';
-          return;
-        }
-      }
+      counselState.items.push({ ...a, source: 'photo', _photo: { data: img.data, mime: img.mime } });
     }
-    if (isLast) return conveneCounsel();
-    counselState.step++;
-    renderCounselStep();
+    renderAuditPhotoLoop();
+  } catch (e) {
+    showAuditPhotoError(e.message || 'Something went wrong. Please try again.');
+  } finally {
+    if ($('auditScanStatus')) $('auditScanStatus').style.display = 'none';
+  }
+}
+
+// ── Phase B: the intake ──────────────────────────────────────────────
+function renderAuditIntake() {
+  counselState.phase = 'intake';
+  $('counselProgressFill').style.width = '85%';
+  $('counselBackStep').style.display = '';
+  const wrap = $('counselStep');
+  wrap.style.display = '';
+  const a = counselState.intake;
+  const chip = (key, opts) => `<div class="intake-chips" data-key="${key}">${opts.map(([v, n]) =>
+    `<button class="intake-chip${a[key] === v ? ' selected' : ''}" data-v="${escapeHtml(v)}">${n}</button>`).join('')}</div>`;
+  wrap.innerHTML = `
+    <div class="hero-h1" style="font-size:23px;line-height:1.15;margin-bottom:5px">A few questions</div>
+    <div class="hero-sub" style="margin-bottom:8px">These make the audit safe and specific to you.</div>
+
+    <div class="lbl" style="margin-top:14px"><span class="lbl-text">Any medications?</span></div>
+    <div class="hero-sub" style="margin:0 0 6px;font-size:12.5px">The Safety Officer checks your stack against these — it's the most important field.</div>
+    <input type="text" id="ai_meds" class="text-field" maxlength="300" placeholder="e.g. sertraline 50mg, lisinopril" value="${escapeHtml(a.medications && a.medications !== 'none' ? a.medications : '')}" />
+    <label class="consent-row" style="margin-top:6px"><input type="checkbox" id="ai_meds_none" ${a.medications === 'none' ? 'checked' : ''} /><span><span class="intake-opt-name">I take no medications</span></span></label>
+
+    <div class="lbl" style="margin-top:14px"><span class="lbl-text">Monthly supplement budget</span></div>
+    ${chip('budget_monthly', [['under $25', 'Under $25'], ['$25–75', '$25–75'], ['$75–150', '$75–150'], ['$150+', '$150+']])}
+
+    <div class="lbl" style="margin-top:14px"><span class="lbl-text">Max pills/servings a day you'll actually take</span></div>
+    ${chip('max_daily_servings', [['1–2', '1–2'], ['3–4', '3–4'], ['5–6', '5–6'], ['no limit', 'No limit']])}
+
+    <div class="lbl" style="margin-top:14px"><span class="lbl-text">What do you want out of this?</span></div>
+    ${chip('stack_style', [['simplify', 'Simplify — cheapest stack that works'], ['optimize', 'Optimize — best stack under budget']])}
+
+    <div class="lbl" style="margin-top:14px"><span class="lbl-text">Other daily caffeine <span class="lbl-opt">Optional</span></span></div>
+    <input type="text" id="ai_caffeine_other" class="text-field" maxlength="120" placeholder="e.g. 2 coffees + an energy drink" value="${escapeHtml(a.caffeine_other || '')}" />
+
+    <div class="lbl" style="margin-top:14px"><span class="lbl-text">Anything that doesn't sit right with you? <span class="lbl-opt">Optional</span></span></div>
+    <input type="text" id="ai_sensitivities" class="text-field" maxlength="200" placeholder="e.g. stims make me anxious, creatine bloats me" value="${escapeHtml(a.sensitivities || '')}" />
+
+    <div class="lbl" style="margin-top:14px"><span class="lbl-text">Pregnant or nursing? <span class="lbl-opt">Optional</span></span></div>
+    ${chip('pregnant_nursing', [['no', 'No'], ['yes', 'Yes'], ['na', 'Not applicable']])}
+
+    <label class="consent-row" style="margin-top:16px"><input type="checkbox" id="ai_adult" ${a._adult ? 'checked' : ''} /><span><span class="intake-opt-name">I'm 18 or older</span></span></label>
+
+    <div id="auditIntakeError" class="error-toast" style="display:none;margin-top:12px"></div>
+    <button class="cta-btn" id="auditRunBtn" style="margin-top:16px">💊 Run my audit</button>`;
+
+  wrap.querySelectorAll('.intake-chips[data-key]').forEach(group => {
+    group.querySelectorAll('.intake-chip').forEach(c => c.addEventListener('click', () => {
+      a[group.dataset.key] = c.dataset.v;
+      group.querySelectorAll('.intake-chip').forEach(x => x.classList.toggle('selected', x === c));
+    }));
   });
+  $('ai_meds_none').addEventListener('change', (e) => { if (e.target.checked) $('ai_meds').value = ''; });
+  $('auditRunBtn').addEventListener('click', conveneAudit);
 }
 
-// Pull the current step's free-text inputs into answers (chips/lists are live).
-function saveCounselStepInputs(step) {
-  const a = counselState.answers;
-  for (const f of step.fields || []) {
-    if (f.kind === 'chips' || f.kind === 'list') continue;
-    if (f.kind === 'height') {
-      const ft = parseInt(($(`cw_${f.key}_ft`) || {}).value, 10);
-      const inch = parseInt(($(`cw_${f.key}_in`) || {}).value, 10) || 0;
-      if (ft >= 4 && ft <= 7) { a[f.key] = String(ft * 12 + inch); a[f.key + '_ft'] = ft; a[f.key + '_in'] = inch; }
-      continue;
-    }
-    const el = $(`cw_${f.key}`);
-    if (el) a[f.key] = el.value.trim();
-  }
-}
+async function conveneAudit() {
+  const a = counselState.intake;
+  const err = $('auditIntakeError');
+  const showErr = (m) => { err.textContent = m; err.style.display = ''; };
+  a.medications = $('ai_meds_none').checked ? 'none' : $('ai_meds').value.trim();
+  a.caffeine_other = $('ai_caffeine_other').value.trim();
+  a.sensitivities = $('ai_sensitivities').value.trim();
+  a._adult = $('ai_adult').checked;
 
-async function conveneCounsel() {
-  const type = counselState.type;
-  const a = counselState.answers;
-  const intake = {};
-  for (const [k, v] of Object.entries(a)) {
-    if (k === 'photo_consent' || k.endsWith('_ft') || k.endsWith('_in')) continue;
-    if (Array.isArray(v) ? v.length : String(v || '').trim()) intake[k] = v;
-  }
-  try { localStorage.setItem(COUNSEL_INTAKE_KEY, JSON.stringify({ decisionType: type, intake })); } catch (e) {}
+  if (!a._adult) return showErr('Please confirm you are 18 or older.');
+  if (!a.medications) return showErr('List your medications, or check "I take no medications".');
+  if (!a.budget_monthly) return showErr('Pick a monthly budget.');
+  if (!a.max_daily_servings) return showErr("Pick how many servings a day you'll take.");
+  if (!a.stack_style) return showErr('Pick Simplify or Optimize.');
 
-  const body = { decisionType: type, intake };
-  if (type === 'physique-direction' && a.photo_consent && localStorage.getItem(LAST_BEFORE_KEY)) {
-    const parse = (dataUrl) => {
-      const m = dataUrl && dataUrl.match(/^data:(.*?);base64,(.*)$/);
-      return m ? { mime: m[1], data: m[2] } : null;
-    };
-    const before = parse(localStorage.getItem(LAST_BEFORE_KEY));
-    const after = parse(localStorage.getItem(LAST_AFTER_KEY));
-    if (before) { body.photoMime = before.mime; body.photoBase64 = before.data; }
-    if (after) { body.afterPhotoMime = after.mime; body.afterPhotoBase64 = after.data; }
-    body.photoConsent = true;
-  }
+  const items = counselState.items.map(it => ({
+    product_name: it.product_name, source: it.source || 'photo', brand: it.brand || null,
+    category: it.category || 'other', is_blend: !!it.is_blend, ingredients: it.ingredients || [],
+    serving_info: it.serving_info || null, caffeine_mg_per_serving: it.caffeine_mg_per_serving ?? null,
+    est_monthly_cost: it.est_monthly_cost ?? null, needs_panel: !!it.needs_panel, panel_skipped: !!it.panel_skipped,
+  }));
+  const intake = { items, medications: a.medications, budget_monthly: a.budget_monthly, max_daily_servings: a.max_daily_servings, stack_style: a.stack_style };
+  if (a.caffeine_other) intake.caffeine_other = a.caffeine_other;
+  if (a.sensitivities) intake.sensitivities = a.sensitivities;
+  if (a.pregnant_nursing && a.pregnant_nursing !== 'na') intake.pregnant_nursing = a.pregnant_nursing;
+  const body = { decisionType: 'supplement-audit', intake };
+  try { localStorage.setItem(COUNSEL_INTAKE_KEY, JSON.stringify(body)); } catch (e) {}
 
   $('counselStep').style.display = 'none';
   $('counselBackStep').style.display = 'none';
   $('counselGenError').style.display = 'none';
   $('counselLoader').style.display = '';
-  if (window.posthog) posthog.capture('counsel_started', { decision_type: type });
+  if (window.posthog) posthog.capture('counsel_started', { decision_type: 'supplement-audit', items: items.length });
 
   try {
     const res = await fetch(`${BACKEND_URL}/api/counsel`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
-      },
+      headers: { 'Content-Type': 'application/json', ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}) },
       body: JSON.stringify(body),
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
     storeCounsel(data);
-    if (window.posthog) posthog.capture('counsel_completed', { decision_type: type, locked: data.locked });
+    if (window.posthog) posthog.capture('counsel_completed', { decision_type: 'supplement-audit', locked: data.locked });
     fireConfetti();
     showCounselReport();
-  } catch (err) {
-    $('counselGenError').textContent = err.message || 'Something went wrong. Please try again.';
+  } catch (e) {
+    $('counselGenError').textContent = e.message || 'Something went wrong. Please try again.';
     $('counselGenError').style.display = '';
     $('counselStep').style.display = '';
-    $('counselBackStep').style.display = counselState.step > 0 ? '' : 'none';
+    $('counselBackStep').style.display = '';
   } finally {
     $('counselLoader').style.display = 'none';
   }
@@ -6686,11 +6688,12 @@ async function conveneCounsel() {
 const COUNSEL_SEAT_META = {
   researcher: { e: '🔬', n: 'The Researcher' },
   skeptic: { e: '🧐', n: 'The Skeptic' },
-  coach: { e: '🏋️', n: 'The Coach' },
+  coach: { e: '🏋️', n: 'The Coach (Lead Counselor)' },
   safety: { e: '🩺', n: 'The Safety Officer' },
 };
 const SAFETY_COLORS = { GREEN: '#1d9e57', YELLOW: '#d99e00', RED: '#d64545' };
 const CONFIDENCE_LABEL = { HIGH: 'High confidence', MODERATE: 'Moderate confidence', LOW: 'Low confidence' };
+const AUDIT_ACTION_COLORS = { KEEP: '#1d9e57', DROP: '#d64545', DOWNGRADE: '#d99e00', SWAP: '#2f5fe0', ADD: '#7a3ff2' };
 
 function showCounselReport() {
   renderCounselReport();
@@ -6712,12 +6715,12 @@ function renderCounselReport() {
       ${v.confidence ? badge(CONFIDENCE_LABEL[v.confidence] || v.confidence, '#2f5fe0') : ''}
       ${safetyRating ? badge(`Safety: ${safetyRating}`, SAFETY_COLORS[safetyRating] || '#888') : ''}
     </div>
-    <div style="font-size:12px;font-weight:700;letter-spacing:.6px;color:var(--mute);text-transform:uppercase">🏛️ The President's verdict</div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.6px;color:var(--mute);text-transform:uppercase">🏛️ The verdict</div>
     <div style="font-size:19px;font-weight:800;line-height:1.3;margin:6px 0 8px">${escapeHtml(v.verdict || '')}</div>`;
 
-  const verdictDisclaimer = `<div style="font-size:11.5px;color:var(--mute);margin-top:10px;padding-top:8px;border-top:1px solid var(--line)">This is not medical advice. Talk to your doctor before starting, stopping, or changing any medication or treatment.</div>`;
+  const verdictDisclaimer = `<div style="font-size:11.5px;color:var(--mute);margin-top:10px;padding-top:8px;border-top:1px solid var(--line)">This is not medical advice. Talk to your doctor before starting, stopping, or changing any medication or supplement.</div>`;
   if (locked) {
-    html += `<div class="hero-sub" style="margin:0">🔒 The full ruling — the President's reasoning, where the counsel agreed and split, and your 3 next steps — is members-only.</div>${verdictDisclaimer}</div>`;
+    html += `<div class="hero-sub" style="margin:0">🔒 The full audit — the complete keep/drop list, your new stack, and the counsel's reasoning — is members-only.</div>${verdictDisclaimer}</div>`;
   } else {
     html += `${v.confidence_reason ? `<div style="color:var(--mute);font-size:13px;margin-bottom:10px">${escapeHtml(v.confidence_reason)}</div>` : ''}
       <div style="font-size:13.5px;white-space:pre-line;margin-bottom:10px">${escapeHtml(v.reasoning || '')}</div>
@@ -6728,7 +6731,58 @@ function renderCounselReport() {
           ${v.next_actions.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ol>` : ''}${verdictDisclaimer}</div>`;
   }
 
-  // Four counselor cards
+  // ── Savings banner — the shareable hook, visible even when locked ──
+  if (v.monthly_savings) {
+    html += `<div style="background:linear-gradient(135deg,#1d9e57,#127d43);color:#fff;border-radius:16px;padding:18px 16px;text-align:center;margin:0 0 14px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;opacity:.85">This audit frees up</div>
+      <div style="font-size:34px;font-weight:900;line-height:1.1;margin:2px 0">${escapeHtml(v.monthly_savings)}</div>
+      <div style="font-size:12.5px;opacity:.9">a month — money for better food, not junk powder</div>
+    </div>`;
+  }
+
+  // ── Keep / Drop table — the audit's core artifact ──
+  const table = v.keep_drop_table || [];
+  html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">📋 Keep / Drop</span></div>
+    <div style="padding:8px 14px 14px">`;
+  if (locked) {
+    html += `<div style="color:var(--mute);font-size:13.5px;padding:8px 0">🔒 Members see the full keep/drop verdict on every item — this audit found <b>${escapeHtml(v.monthly_savings || 'real money')}</b> of waste.</div>`;
+  } else if (!table.length) {
+    html += `<div style="color:var(--mute);font-size:13.5px;padding:8px 0">No items to rate.</div>`;
+  } else {
+    html += table.map((r, i) => {
+      const col = AUDIT_ACTION_COLORS[r.action] || '#888';
+      const key = `keep_${i}`;
+      const brandable = memberState.active && (r.action === 'KEEP' || r.action === 'ADD');
+      return `<div style="padding:9px 0;border-bottom:1px solid var(--line)">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <span style="flex:none;margin-top:1px">${badge(r.action || '', col)}</span>
+          <div style="font-size:13.5px"><b>${escapeHtml(r.item || '')}</b><div style="color:var(--mute);margin-top:2px">${escapeHtml(r.reason || '')}</div></div>
+        </div>
+        ${brandable ? `<button class="try-diff-btn" data-brand-ing="${escapeHtml(r.item || '')}" data-brand-dose="" data-brand-key="${key}" style="margin:8px 0 0 34px;width:auto;padding:4px 12px;font-size:12px">🏷️ Recommend a brand</button>
+        <div class="brandBox" id="brand_${key}" style="margin-left:34px"></div>` : ''}
+      </div>`;
+    }).join('');
+  }
+  html += `</div></div>`;
+
+  // ── Your new stack — generic ingredients + Recommend-a-Brand ──
+  const stack = v.new_stack || [];
+  if (!locked && stack.length) {
+    html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">🧾 Your new stack</span></div>
+      <div style="padding:8px 14px 14px">`;
+    stack.forEach((s, i) => {
+      const key = `stack_${i}`;
+      html += `<div style="padding:10px 0;border-bottom:1px solid var(--line)">
+        <div style="display:flex;justify-content:space-between;gap:8px"><b style="font-size:14px">${escapeHtml(s.ingredient || '')}</b><span style="color:var(--mute);font-size:13px;flex:none">${escapeHtml(s.monthly_cost || '')}</span></div>
+        <div style="color:var(--mute);font-size:12.5px;margin-top:2px">${escapeHtml(s.dose || '')}${s.timing ? ' · ' + escapeHtml(s.timing) : ''}</div>
+        ${memberState.active ? `<button class="try-diff-btn" data-brand-ing="${escapeHtml(s.ingredient || '')}" data-brand-dose="${escapeHtml(s.dose || '')}" data-brand-key="${key}" style="margin:8px 0 0;width:auto;padding:4px 12px;font-size:12px">🏷️ Recommend a brand</button>
+        <div class="brandBox" id="brand_${key}"></div>` : ''}
+      </div>`;
+    });
+    html += `</div></div>`;
+  }
+
+  // Counselor cards
   for (const [role, meta] of Object.entries(COUNSEL_SEAT_META)) {
     const op = c.opinions?.[role];
     const dissent = op && !locked && (v.where_split || '').toLowerCase().includes(meta.n.toLowerCase().replace('the ', ''));
@@ -6775,39 +6829,76 @@ function renderCounselReport() {
 
   if (locked) {
     html += `<div class="locked-cta-card">
-      <div class="locked-cta-h">The counsel has ruled. The full case file is members-only.</div>
-      <div class="locked-cta-sub">Unlock every counselor's full opinion, the President's complete reasoning, your 3 next moves — and follow-up questions to the President.</div>
-      <button class="cta-btn" id="counselUnlockBtn">Unlock the Full Ruling</button>
+      <div class="locked-cta-h">The counsel has ruled. Your full audit is members-only.</div>
+      <div class="locked-cta-sub">Unlock the complete keep/drop list, your new stack with brand picks, every expert's full opinion — and follow-up questions to the panel.</div>
+      <button class="cta-btn" id="counselUnlockBtn">See the full audit</button>
       <div class="guarantee-note">Start your 7-day free trial · then $19.99/mo or $69.99/yr · cancel anytime</div>
     </div>`;
   } else {
     // Ask the President — follow-up (needs a saved server session)
     if (stored.sessionId && isLoggedIn()) {
       html += `<div class="checkin-card">
-        <div class="locked-cta-h" style="font-size:15px">Ask the President 🏛️</div>
-        <div class="locked-cta-sub" style="margin-bottom:10px">One thing still unclear? Ask a follow-up about your verdict.</div>
+        <div class="locked-cta-h" style="font-size:15px">Ask the counsel 🏛️</div>
+        <div class="locked-cta-sub" style="margin-bottom:10px">One thing still unclear? Ask a follow-up about your audit.</div>
         <div id="counselFollowups">${(stored.followups || []).map(f => `
           <div style="padding:6px 0;border-bottom:1px solid var(--line);font-size:13.5px"><b>You:</b> ${escapeHtml(f.question)}<div style="color:var(--mute);margin-top:4px;white-space:pre-line"><b style="color:var(--ink)">President:</b> ${escapeHtml(f.answer)}</div></div>`).join('')}</div>
-        <input type="text" id="counselFollowupInput" class="text-field" maxlength="600" placeholder="e.g. What if my budget doubles?" style="margin:10px 0" />
+        <input type="text" id="counselFollowupInput" class="text-field" maxlength="600" placeholder="e.g. Is the creatine safe with my blood pressure meds?" style="margin:10px 0" />
         <div id="counselFollowupError" class="error-toast" style="display:none;margin-bottom:10px"></div>
         <button class="try-diff-btn" id="counselFollowupBtn" style="margin:0">Ask →</button>
       </div>`;
     }
-    html += `<button class="try-diff-btn" id="counselPrintBtn" style="margin-top:14px">🖨️ Print / save this report</button>`;
+    html += `<button class="try-diff-btn" id="counselPrintBtn" style="margin-top:14px">🖨️ Print / save this audit</button>`;
   }
-  html += `<button class="try-diff-btn" id="counselNewBtn" style="margin-top:10px">Bring a new decision to the counsel</button>
-    <div class="footer" style="margin-top:22px">This report is educational guidance, not medical advice. Bring it to your doctor — it's built for that conversation.</div>`;
+  html += `<button class="try-diff-btn" id="counselNewBtn" style="margin-top:10px">Run another audit</button>
+    <div class="footer" style="margin-top:22px">This audit is educational guidance, not medical advice. Bring it to your doctor — it's built for that conversation.</div>`;
 
   wrap.innerHTML = html;
 
   const unlockBtn = $('counselUnlockBtn');
   if (unlockBtn) unlockBtn.addEventListener('click', () => showMembershipScreen(() => showCounselReport()));
   const newBtn = $('counselNewBtn');
-  if (newBtn) newBtn.addEventListener('click', () => { renderCounselLanding(); showScreen('counsel'); });
+  if (newBtn) newBtn.addEventListener('click', startAudit);
   const printBtn = $('counselPrintBtn');
   if (printBtn) printBtn.addEventListener('click', () => window.print());
   const fuBtn = $('counselFollowupBtn');
   if (fuBtn) fuBtn.addEventListener('click', () => submitCounselFollowup());
+  // Recommend-a-Brand buttons (members)
+  wrap.querySelectorAll('[data-brand-key]').forEach(btn => btn.addEventListener('click', () =>
+    recommendBrand(btn.dataset.brandIng, btn.dataset.brandDose, btn.dataset.brandKey, btn)));
+}
+
+async function recommendBrand(ingredient, dose, key, btn) {
+  const box = $(`brand_${key}`);
+  if (!box) return;
+  const cacheKey = `${ingredient}|${dose}`;
+  const renderPick = (p) => {
+    box.innerHTML = `<div style="margin-top:8px;padding:10px 12px;border-radius:10px;background:rgba(122,63,242,.08);border:1px solid rgba(122,63,242,.28);font-size:13px">
+      <div style="font-weight:800">${escapeHtml(p.brand_pick || '')}${p.product_name ? ` — ${escapeHtml(p.product_name)}` : ''}</div>
+      ${p.why ? `<div style="color:var(--mute);margin-top:3px">${escapeHtml(p.why)}</div>` : ''}
+      ${p.price_note ? `<div style="color:var(--mute);margin-top:3px">${escapeHtml(p.price_note)}</div>` : ''}
+      ${p.runner_up ? `<div style="margin-top:4px"><b>Runner-up:</b> <span style="color:var(--mute)">${escapeHtml(p.runner_up)}</span></div>` : ''}
+    </div>`;
+  };
+  if (counselState.brandCache[cacheKey]) { renderPick(counselState.brandCache[cacheKey]); return; }
+  const stored = loadStoredCounsel();
+  btn.disabled = true;
+  const label = btn.textContent;
+  btn.textContent = 'Finding a brand…';
+  try {
+    const data = await authApi('/api/supplement/brand', {
+      method: 'POST',
+      body: JSON.stringify({ ingredient, dose, sessionId: stored?.sessionId }),
+    });
+    if (window.posthog) posthog.capture('supplement_brand_requested', { ingredient });
+    counselState.brandCache[cacheKey] = data.pick;
+    renderPick(data.pick);
+    btn.style.display = 'none';
+  } catch (err) {
+    if (err.status === 402) { showMembershipScreen(() => showCounselReport()); return; }
+    box.innerHTML = `<div class="error-toast" style="margin-top:8px">${escapeHtml(err.message || 'Could not fetch a brand pick.')}</div>`;
+    btn.disabled = false;
+    btn.textContent = label;
+  }
 }
 
 async function submitCounselFollowup() {
@@ -6869,7 +6960,8 @@ function initCounsel() {
   $('counselIntakeBackBtn').addEventListener('click', () => { renderCounselLanding(); showScreen('counsel'); });
   $('counselReportBackBtn').addEventListener('click', () => (isLoggedIn() ? showHub() : (renderCounselLanding(), showScreen('counsel'))));
   $('counselBackStep').addEventListener('click', () => {
-    if (counselState.step > 0) { counselState.step--; renderCounselStep(); }
+    // Intake phase → back to the photo loop.
+    if (counselState.phase === 'intake') renderAuditPhotoLoop();
   });
 }
 

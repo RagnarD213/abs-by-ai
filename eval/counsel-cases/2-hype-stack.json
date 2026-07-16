@@ -1,0 +1,17 @@
+{
+  "decisionType": "supplement-audit",
+  "expect": "Mostly DROP with big monthly_savings, a sharp Skeptic. BCAAs redundant if protein is adequate; fat burner + test booster are low-evidence; greens powder is expensive produce insurance. new_stack should collapse to creatine (+ maybe protein).",
+  "intake": {
+    "items": [
+      { "product_name": "BCAA 2:1:1", "category": "bcaa", "is_blend": false, "ingredients": [{ "name": "BCAAs", "dose": "7", "unit": "g" }], "est_monthly_cost": 30 },
+      { "product_name": "Shred-X Fat Burner", "category": "fat-burner", "is_blend": true, "ingredients": [], "needs_panel": true, "panel_skipped": true, "caffeine_mg_per_serving": 200, "est_monthly_cost": 45 },
+      { "product_name": "TestoMax Booster", "category": "test-booster", "is_blend": true, "ingredients": [{ "name": "tribulus", "dose": "", "unit": "" }, { "name": "D-aspartic acid", "dose": "", "unit": "" }], "est_monthly_cost": 55 },
+      { "product_name": "Super Greens Powder", "category": "greens", "is_blend": true, "ingredients": [], "needs_panel": true, "panel_skipped": true, "est_monthly_cost": 50 }
+    ],
+    "medications": "none",
+    "budget_monthly": "$150+",
+    "max_daily_servings": "no limit",
+    "caffeine_other": "2 coffees",
+    "stack_style": "optimize"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "decisionType": "supplement-audit",
+  "mustBeGreen": true,
+  "expect": "\"Food first, creatine only\" verdict. DROP the junk test booster; new_stack must fit $25 (creatine ~$10, optionally cheap vitamin D). simplify style => the Coach leads with the basics, no doctor-hedging.",
+  "intake": {
+    "items": [
+      { "product_name": "AlphaTest Booster", "category": "test-booster", "is_blend": true, "ingredients": [], "needs_panel": true, "panel_skipped": true, "est_monthly_cost": 40 }
+    ],
+    "medications": "none",
+    "budget_monthly": "under $25",
+    "max_daily_servings": "1–2",
+    "caffeine_other": "1 coffee",
+    "stack_style": "simplify"
+  }
+}

@@ -18,7 +18,7 @@ Everything below is built, committed, and deployed to absbyai.com unless noted.
 - AI Nutritionist: meal-prep plans from photo gap, GLP-1 floor mode, swap/check-in.
 - Macro tracker: photo meal analysis, 3 free then credit-gated; meal eval harness in `eval/`.
 - Sleep Coach: manual or screenshot check-in → "GO HARD" briefing; sleep context feeds trainer + nutritionist prompts.
-- Decision Counsel: 5-seat AI panel, 10 sessions/month cap.
+- Supplement Audit: photo-based, 5-seat AI panel reads labels → keep/drop verdict + new stack + dollars saved, 10 audits/month cap. (Replaced the Decision Counsel July 2026; the panel engine is reused. Old feature archived in `_counsel_archive/`.)
 - Weight & Progress Log: trends, photos, AI recap; weight context feeds other features.
 - My Transformations: gallery, share composite, hero swap, program rebuild, per-card print.
 
@@ -39,7 +39,7 @@ Everything below is built, committed, and deployed to absbyai.com unless noted.
 2. **Resend**: create account, set `RESEND_API_KEY` + `RESET_FROM` on Railway, verify absbyai.com sending domain. Until then password-reset emails silently don't send.
 
 **CLAUDE (after Dan's #1):**
-3. Full prod verification of the paid path (subscribe → every gate opens → cancel → gates close), incl. the untested flows: member full meal plan, Counsel photo direction, program rebuild, progress recap, credit-pack purchase from the meal wall, Counsel 11th-session 429. Write `PROD_VERIFICATION_LOG.md`. (This is `HANDOFF_membership_opus_medium.md` Part A.)
+3. Full prod verification of the paid path (subscribe → every gate opens → cancel → gates close), incl. the untested flows: member full meal plan, Supplement Audit photo loop + label reader, program rebuild, progress recap, credit-pack purchase from the meal wall, Supplement Audit 11th-audit 429. Write `PROD_VERIFICATION_LOG.md`. (This is `HANDOFF_membership_opus_medium.md` Part A.)
 
 ### 🟠 P1 — Growth engine + app stores
 
@@ -50,7 +50,7 @@ Everything below is built, committed, and deployed to absbyai.com unless noted.
 
 **CLAUDE:**
 7. iOS: once Xcode is in — simulator build, native integration test, external purchase link button, App Store assets/submission prep.
-8. Counsel marketing page + MailerLite announcement email.
+8. Supplement Audit marketing page + MailerLite announcement email (copy in `EMAIL_MARKETING_PLAN.md` §7).
 9. PostHog funnel review: where do people drop between landing → generate → signup → subscribe (I can query PostHog directly).
 
 ### 🟡 P2 — Polish / hardening
@@ -59,7 +59,7 @@ Everything below is built, committed, and deployed to absbyai.com unless noted.
 10. Optional Fable entitlement/payment-race audit (`HANDOFF_membership_fable_high.md`) — run after go-live.
 11. Exercise demo videos: all 77 exercises have `video: null` (button hidden until filled).
 12. Verify push-reminder sweep fires at correct local times on prod.
-13. Legal pass on Counsel/Sleep disclaimers.
+13. Legal pass on Supplement Audit/Sleep disclaimers.
 14. Google sign-in (deferred; password reset covers the main lockout risk once Resend is live).
 
 ---

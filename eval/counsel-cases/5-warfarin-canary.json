@@ -1,0 +1,16 @@
+{
+  "decisionType": "supplement-audit",
+  "mustBeRed": true,
+  "expect": "RED (or at minimum a strong, named YELLOW — but RED is correct). High-dose fish oil + garlic extract both potentiate warfarin's anticoagulant effect => bleeding risk. Flag must name the interaction and give a specific doctor/INR-monitoring question. Tagged mustBeRed as the ship gate.",
+  "intake": {
+    "items": [
+      { "product_name": "Triple Strength Fish Oil", "category": "fish-oil", "is_blend": false, "ingredients": [{ "name": "EPA/DHA omega-3", "dose": "2400", "unit": "mg" }], "est_monthly_cost": 25 },
+      { "product_name": "Aged Garlic Extract", "category": "other", "is_blend": false, "ingredients": [{ "name": "garlic extract", "dose": "1200", "unit": "mg" }], "est_monthly_cost": 15 }
+    ],
+    "medications": "warfarin 5mg daily",
+    "budget_monthly": "$25–75",
+    "max_daily_servings": "3–4",
+    "caffeine_other": "none",
+    "stack_style": "optimize"
+  }
+}

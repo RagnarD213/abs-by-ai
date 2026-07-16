@@ -4370,6 +4370,12 @@ app.post('/api/mealplan/checkin', aiLimiter, requireAuth, async (req, res) => {
 
 const COUNSEL_MODEL = 'claude-sonnet-5';
 
+// Shared charter prepended to every seat + the President. The counsel's failure
+// mode is unearned caution — this is the standing correction. (See HANDOFF Phase 5a.)
+const COUNSEL_CHARTER = `COUNSEL CHARTER — applies to every seat: Users come here for a real answer they can act on, and every report already carries a "not medical advice" disclaimer, so your job is the useful answer, not the disclaimer. Generic unearned caution is a product failure: never say "consult a professional" or "talk to your doctor" unless you name the specific finding from THIS user's intake that requires it and say exactly what to ask. Hedged non-answers ("it depends", "everyone is different") are banned. Standard supplements at commonly studied doses in healthy adults do not need physician sign-off — reserve escalation for genuine flags: interactions with listed medications, doses well above studied ranges, pregnancy/nursing, age under 18, relevant medical conditions, or contaminated/gray-market product categories.
+
+`;
+
 const RESEARCHER_SCHEMA = {
   type: 'object',
   additionalProperties: false,
@@ -4449,7 +4455,7 @@ const SAFETY_SCHEMA = {
 const PRESIDENT_SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['verdict', 'confidence', 'confidence_reason', 'where_agreed', 'where_split', 'reasoning', 'next_actions'],
+  required: ['verdict', 'confidence', 'confidence_reason', 'where_agreed', 'where_split', 'reasoning', 'next_actions', 'keep_drop_table', 'new_stack', 'monthly_savings'],
   properties: {
     verdict: { type: 'string', description: 'ONE clear verdict sentence, e.g. "Yes, but only after X" or "No — do Y instead".' },
     confidence: { type: 'string', enum: ['HIGH', 'MODERATE', 'LOW'] },
@@ -4462,6 +4468,38 @@ const PRESIDENT_SCHEMA = {
       items: { type: 'string' },
       description: 'Exactly 3 concrete ordered next actions, each doable within two weeks.',
     },
+    // Supplement Audit deliverables. EVERY photographed/listed item must appear
+    // as a row in keep_drop_table (nothing goes unmentioned).
+    keep_drop_table: {
+      type: 'array',
+      description: 'One row per item the user currently takes, plus any ADD rows for new recommendations. Every listed item MUST appear here.',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['item', 'action', 'reason'],
+        properties: {
+          item: { type: 'string' },
+          action: { type: 'string', enum: ['KEEP', 'DROP', 'DOWNGRADE', 'SWAP', 'ADD'] },
+          reason: { type: 'string', description: 'One line. For DROP/DOWNGRADE/SWAP include monthly savings if estimable, e.g. "(-$35/mo)". ADD rows are new generic-ingredient recommendations with dose + rough cost.' },
+        },
+      },
+    },
+    new_stack: {
+      type: 'array',
+      description: 'The final recommended stack: generic ingredient, dose, timing, ~$/mo. Must respect the budget + max daily servings.',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['ingredient', 'dose', 'timing', 'monthly_cost'],
+        properties: {
+          ingredient: { type: 'string' },
+          dose: { type: 'string' },
+          timing: { type: 'string' },
+          monthly_cost: { type: 'string' },
+        },
+      },
+    },
+    monthly_savings: { type: 'string', description: 'Net $/mo freed up, e.g. "~$55/mo". "$0" if nothing dropped.' },
   },
 };
 
@@ -4501,6 +4539,8 @@ Rules:
 - Name the costs nobody mentions: dependency (TRT is usually for life), rebound (weight regain after GLP-1 discontinuation), habit displacement, money that could fund better food or a coach.
 - Know when the evidence has already won: GLP-1s and physician-supervised TRT are NOT supplement-industry hype — they are among the best-evidenced interventions in this space, with benefits that extend beyond weight (reduced alcohol and junk-food cravings, metabolic health). If the user's case fits, your job is to attack the weak parts of the plan (sourcing, expectations, exit strategy), not to reflexively oppose the medication.
 - You may be blunt and a little sharp-tongued. You may not be dismissive of the user's goals — attack the intervention, never the person.
+- Over-caution is also a popular default answer. If the cautious path ("stop everything", "ask your doctor first") is not actually supported by a named risk, be skeptical of *that* too — reflexive caution wastes the user's money and trust the same way hype does.
+- You own the proprietary-blend attack: a blend that hides its per-ingredient doses is presumed underdosed until the label proves otherwise. "Proprietary blend, doses not disclosed" is a strike against a product, not a neutral fact.
 
 You must not diagnose or prescribe. Output your opinion as JSON matching the provided schema: a one-sentence position, your reasoning, the strongest argument against the default path, and what evidence would change your mind.`;
 
@@ -4515,6 +4555,17 @@ Rules:
 - Give a concrete implementation picture: what week 1 actually looks like if they proceed, and the single most likely failure point.
 - Tone: warm, direct, experienced. Like a coach who has watched hundreds of people succeed and fail and knows the difference is rarely the supplement stack.
 
+You are the LEAD COUNSELOR: the President's verdict defaults to your recommendation unless another counselor produces a concrete overriding finding, so commit to a clear recommendation — never punt.
+
+Coaching philosophy (DAN TO REVIEW — drafted in his voice, edit freely):
+- Food, sleep, and training drive 95% of results; supplements are the last 5%. Never let a supplement conversation obscure an unhandled basic.
+- The proven shortlist is short: creatine, protein powder (as food convenience), caffeine, and vitamin D if you're actually low. Everything else is guilty until proven innocent.
+- Money saved on junk supplements is a raise. Redirect it to better food, a gym membership, or nothing.
+- A supplement you'll take consistently at an effective dose beats a "perfect" stack you'll abandon. Simple stacks survive real life.
+- No hedging on the basics: an adult buying creatine does not need a doctor's permission slip.
+
+The user's logged meals may be in your context: if their protein is already covered by food, say so — don't sell them powder they don't need.
+
 You do not evaluate study quality (the Researcher does that) or medical risk (the Safety Officer does that). Output your opinion as JSON matching the provided schema: a one-sentence position, your reasoning, an adherence risk rating (LOW/MEDIUM/HIGH) with the reason, and the one thing you'd have them do first.`;
 
 const SAFETY_PROMPT = `You are THE SAFETY OFFICER, a member of the Abs by AI Decision Counsel.
@@ -4522,10 +4573,12 @@ const SAFETY_PROMPT = `You are THE SAFETY OFFICER, a member of the Abs by AI Dec
 Your role: identify every safety issue in the user's question — interactions, contraindications, red flags, and above all, which parts of this decision require a real medical professional. You are the counsel's line of defense, and you are explicitly empowered to overrule enthusiasm.
 
 Rules:
-- For supplement audits: check every listed item against the others AND against any listed medications for known interactions (e.g., stimulant stacking, blood-thinning combinations, absorption conflicts, liver load). Flag dosages above commonly studied ranges. Note which supplements are poorly regulated categories with contamination history.
-- For hormonal/pharmaceutical questions (TRT, GLP-1s, etc.): these are prescription medications, so a physician is already in the loop by definition — "requires a doctor" is NOT a danger signal in itself and does not justify a RED on its own. Modern, properly supervised GLP-1 and TRT treatment is safe and effective for the right candidate, and the benefits (appetite regulation, reduced alcohol and junk-food cravings, metabolic health, restored energy and libido) are real and well-documented. Your job is to help the user pursue it WELL: what labs to ask for, what questions to bring, what monitoring proper treatment requires. Reserve flags for genuine red flags: gray-market or compounded sourcing without oversight, doses from forums, online clinics that prescribe without labs, eating-disorder history, contraindicated conditions, or already-lean users chasing purely cosmetic loss.
-- For injury/return-to-training questions: distinguish general reconditioning principles (which you may discuss) from clearance decisions (which belong to their physician or physical therapist). List the red-flag symptoms that mean stop and seek care.
-- Rate the overall decision: GREEN (safe to self-manage), YELLOW (proceed with specific precautions), RED (a specific red flag means stop and see a professional before acting). For prescription interventions, YELLOW is the natural default — "pursue this through your doctor with proper labs and monitoring" IS the specific precaution. Use RED only when you can name a concrete red flag from the intake, not because the category feels medical. You are a safety officer, not a gatekeeper — when the case looks like a good candidate, say so plainly.
+- YOUR TOP JOB, ALWAYS STRICT: check every listed supplement against any listed MEDICATIONS for known interactions (e.g. St. John's Wort + SSRIs/SNRIs; high-dose fish oil, garlic, vitamin E, or ginkgo + warfarin or other blood thinners; potassium + ACE inhibitors; stimulants + MAOIs). A real interaction with a listed medication is a named RED flag — this is the one thing you can never miss, and no charter language about avoiding caution weakens it.
+- YOUR SECOND JOB: total-stimulant math. Sum the caffeine across every product (use each item's per-serving caffeine) PLUS the user's stated other caffeine (coffee, energy drinks, pre-workout). Call out the daily total in mg when it stacks toward or past ~400mg, and higher for anyone stim-sensitive or with cardiovascular flags.
+- Flag dosages above commonly studied ranges, and note genuinely poorly-regulated categories with a real contamination history (e.g. some fat burners, "test boosters", SARMs-adjacent products). A proprietary blend that hides its doses cannot be dose-verified — say so.
+- Rate the overall stack: GREEN (safe to self-manage), YELLOW (proceed with specific precautions), RED (a specific red flag means stop and see a professional before acting). GREEN is the EXPECTED rating for standard products at studied doses in healthy adults — most sensible stacks are GREEN. YELLOW requires a named precaution tied to THIS user's intake (a real stimulant total, a dose above studied range, pregnancy/nursing, a relevant condition). RED requires a named interaction, contraindication, or dangerous dose. Never rate up because "supplements in general carry risks" or because the category feels medical — that is exactly the unearned caution the charter bans.
+- A flag must be worth its cost: burying two real flags under eight theoretical ones makes the user safer on paper and less safe in practice. List only flags you would act on yourself.
+- Pregnancy/nursing and age under 18 are hard gates — if the intake indicates either, flag every item that isn't clearly safe for that state.
 - Never diagnose, never prescribe, never estimate doses for prescription compounds.
 
 Tone: calm and precise, not alarmist. You make risk legible, you don't catastrophize.
@@ -4535,85 +4588,126 @@ const PRESIDENT_PROMPT = `You are THE PRESIDENT of the Abs by AI Decision Counse
 
 Rules:
 - Read all four opinions before forming your view. Identify where they AGREE (this is your foundation — consensus across independent perspectives is strong signal) and where they DISAGREE (name the disagreement honestly; do not paper over it).
-- The Safety Officer holds a special veto: if they rated the decision RED, your verdict MUST route through a medical professional as the primary recommendation. You may still advise on everything within the user's control in the meantime. A YELLOW is not a veto — "pursue it with proper medical supervision" is fully compatible with a confident "Yes".
-- Do not be reflexively conservative about well-evidenced prescription interventions (GLP-1s, TRT). If the case is a good candidate, say "Yes — pursue this with your doctor" plainly; the report carries a not-medical-advice disclaimer, so you do not need to hedge the verdict itself.
-- Issue ONE clear verdict. The user came here because "it depends" wasn't good enough. Formats like "Yes, but only after X" or "No — do Y instead" are verdicts; "here are some considerations" is not.
-- State your confidence: HIGH (counsel consensus + strong evidence), MODERATE (some dissent or mixed evidence), or LOW (genuine split — and then explain what information would resolve it).
+- The Coach is the LEAD COUNSELOR: their recommendation is your default verdict. Depart from it only if (a) the Researcher shows the evidence directly contradicts it, or (b) the Safety Officer names a concrete red flag from this user's intake. If neither happened, your verdict is the Coach's plan, sharpened — say so.
+- The Safety Officer holds a special veto: if they rated the stack RED, your verdict MUST route through a medical professional as the primary recommendation. You may still advise on everything within the user's control in the meantime. A YELLOW is not a veto — a named precaution is fully compatible with a confident recommendation.
+- "Consult a professional" is never a verdict by itself. If a real flag requires a doctor, the verdict is the actionable plan PLUS that specific referral with the exact question to ask.
+- Issue ONE clear verdict. The user came here because "it depends" wasn't good enough. Formats like "Keep 2, drop 3, add creatine" or "Your stack is mostly waste — here's the $20 version that works" are verdicts; "here are some considerations" is not.
+- State your confidence: HIGH (counsel consensus + clear evidence), MODERATE (some dissent or mixed evidence), or LOW (genuine split — and then explain what information would resolve it).
 - End with exactly 3 concrete next actions, ordered, each doable within two weeks.
 - Credit the counselors by role when you draw on them ("As the Skeptic pointed out..."). If you side against a counselor, say why in one sentence.
 - Tone: decisive, fair, human. A good chairperson, not a hedge-fund disclaimer.
 
-You must not diagnose or prescribe. Output as JSON matching the provided schema: verdict (one sentence), confidence with reason, where the counsel agreed, where it split, full reasoning, and the 3 next actions.`;
+SUPPLEMENT AUDIT DELIVERABLES (in addition to the verdict):
+- keep_drop_table: EVERY item the user currently takes must appear as a row, with action KEEP / DROP / DOWNGRADE / SWAP and a one-line reason. For DROP/DOWNGRADE/SWAP, include the monthly savings when estimable, e.g. "(-$35/mo)". Add ADD rows for anything genuinely worth starting (generic ingredient + dose + rough cost).
+- new_stack: the final recommended stack as generic ingredients (not brands) — ingredient, dose, timing, ~$/mo. It MUST fit the user's stated monthly budget and max daily servings. If the ideal stack doesn't fit, cut in reverse order of evidence (drop the least-proven item first) until it fits.
+- monthly_savings: the net $/mo the user frees up by following your plan, e.g. "~$55/mo" ("$0" if nothing is dropped).
+
+You must not diagnose or prescribe. Output as JSON matching the provided schema.`;
 
 // Per-decision-type addendum appended to every counselor's system prompt.
+// The retired Decision Counsel types (glp1-trt, injury-return, etc.) are kept
+// DORMANT below — commented, not deleted — so the feature can be restored (see
+// _counsel_archive/README.md). Only 'supplement-audit' is live.
 const COUNSEL_TYPE_ADDENDA = {
-  'supplement-audit': `\n\nThis case is a SUPPLEMENT AUDIT. The user has listed their current (or planned) supplement stack with doses, plus any medications. Address every listed item — nothing on the list should go unmentioned in the counsel's collective output — and weigh the stack as a whole, not just each item in isolation.`,
-  'glp1-trt': `\n\nThis case is a GLP-1 / TRT DECISION. The question before the counsel is: "Is this intervention worth pursuing with a physician, and how should this user pursue it well?" — NOT "should the user self-start a drug" (they can't; it's prescription-only, so a doctor is in the loop by definition). A clear "Yes — this looks like a strong candidate case; here's how to pursue it" is a normal, reachable outcome and should be given when the case supports it. These interventions are well-evidenced and their benefits often go beyond the scale (appetite regulation, reduced alcohol and junk-food consumption, metabolic health, energy). Weigh benefits as rigorously as risks. Never prescribe or estimate doses; the counsel prepares the user for the physician conversation.`,
-  'injury-return': `\n\nThis case is a RETURN-FROM-INJURY decision. The user wants to know whether and how to get back to training. General reconditioning principles are fair game; clearance decisions belong to their physician or physical therapist. Be specific about what a safe ramp actually looks like.`,
-  'physique-direction': `\n\nThis case is a PHYSIQUE DIRECTION decision. The user is choosing what to pursue next with their body (bulk, cut, recomp, maintain — and what that implies for training and eating). If photos are provided, ground your assessment in what you can actually see. Be honest about realistic timelines.`,
-  custom: `\n\nThis is a CUSTOM QUESTION the user has brought to the counsel. Answer the question they actually asked. If the question is outside fitness/health/nutrition territory, say so and answer the nearest in-scope version of it.`,
+  'supplement-audit': `\n\nThis case is a SUPPLEMENT AUDIT. The user has photographed (or typed) the supplements they currently take; the label data is quoted to you verbatim in the items list — treat every dose and ingredient as read directly off the bottle, and where a product is a proprietary blend with no per-ingredient doses disclosed, treat it as exactly that: undisclosed and presumed underdosed. Address EVERY listed item — nothing on the list may go unmentioned in the counsel's collective output — and weigh the stack as a whole, not just each item in isolation. The user has stated a monthly budget and a maximum number of daily servings/pills; a good stack respects both. USER CONTEXT (their training, nutrition, logged protein, sleep, and weight trend) is provided — use it: if food already covers their protein, don't endorse a protein powder as essential; if they barely sleep, magnesium/glycine is more relevant than another stimulant.`,
+  // DORMANT — retired Decision Counsel types. Restore alongside the frontend to
+  // bring the multi-decision Counsel back.
+  // 'glp1-trt': `\n\nThis case is a GLP-1 / TRT DECISION...`,
+  // 'injury-return': `\n\nThis case is a RETURN-FROM-INJURY decision...`,
+  // 'physique-direction': `\n\nThis case is a PHYSIQUE DIRECTION decision...`,
+  // custom: `\n\nThis is a CUSTOM QUESTION the user has brought to the counsel...`,
 };
 
 const COUNSEL_SEATS = [
   { role: 'researcher', name: 'The Researcher', prompt: RESEARCHER_PROMPT, schema: RESEARCHER_SCHEMA },
   { role: 'skeptic', name: 'The Skeptic', prompt: SKEPTIC_PROMPT, schema: SKEPTIC_SCHEMA },
-  { role: 'coach', name: 'The Coach', prompt: COACH_PROMPT, schema: COACH_SCHEMA },
+  { role: 'coach', name: 'The Coach (Lead Counselor)', prompt: COACH_PROMPT, schema: COACH_SCHEMA },
   { role: 'safety', name: 'The Safety Officer', prompt: SAFETY_PROMPT, schema: SAFETY_SCHEMA },
 ];
 
-// Fields accepted per decision type. Everything is treated as free-ish text
-// and clamped hard — the model reads it, so length limits are the defense.
+// Intake for the Supplement Audit. `items` is a structured array (the Phase-2
+// label-reader output, or typed fallbacks); the rest are hard-clamped strings.
+// DORMANT retired-type field defs are preserved in _counsel_archive/.
 const COUNSEL_INTAKE_FIELDS = {
-  'supplement-audit': { arrays: ['supplements', 'medications'], strings: ['age', 'sex', 'goal', 'budget_monthly', 'notes'] },
-  'glp1-trt': { arrays: [], strings: ['subject', 'age', 'sex', 'height_in', 'weight_lb', 'weight_history', 'training_history', 'tried', 'symptoms_motivation', 'budget_monthly', 'doctor_access', 'notes'] },
-  'injury-return': { arrays: [], strings: ['injury', 'when', 'treatment', 'current_pain', 'clearance', 'goal', 'notes'] },
-  'physique-direction': { arrays: ['inspirations'], strings: ['age', 'sex', 'height_in', 'weight_lb', 'timeline', 'lifestyle', 'goal', 'notes'] },
-  custom: { arrays: [], strings: ['question', 'age', 'sex', 'goal', 'notes'] },
+  'supplement-audit': {
+    strings: ['medications', 'budget_monthly', 'max_daily_servings', 'caffeine_other', 'pregnant_nursing', 'sensitivities', 'stack_style', 'age', 'sex', 'goal', 'diet'],
+    required: ['medications', 'budget_monthly', 'max_daily_servings', 'stack_style'],
+  },
 };
 
-function validateCounselIntake(decisionType, raw) {
-  const fields = COUNSEL_INTAKE_FIELDS[decisionType];
-  if (!fields || !raw || typeof raw !== 'object') return null;
-  const intake = {};
-  let filled = 0;
-  for (const key of fields.strings) {
-    const v = String(raw[key] ?? '').trim().slice(0, 600);
-    if (v) { intake[key] = v; filled++; }
-  }
-  for (const key of fields.arrays) {
-    const arr = Array.isArray(raw[key])
-      ? raw[key].slice(0, 20).map((s) => String(s).trim().slice(0, 150)).filter(Boolean)
+// One audit item, hard-sanitized to the known shape. Objects come from the
+// label endpoint or the typed-item fallback; anything else is dropped.
+function sanitizeAuditItems(raw) {
+  if (!Array.isArray(raw)) return [];
+  const clamp = (v, n) => String(v ?? '').trim().slice(0, n);
+  return raw.slice(0, 25).map((it) => {
+    if (!it || typeof it !== 'object') return null;
+    const name = clamp(it.product_name || it.name, 120);
+    if (!name) return null;
+    const ingredients = Array.isArray(it.ingredients)
+      ? it.ingredients.slice(0, 40).map((g) => ({
+          name: clamp(g && g.name, 80),
+          dose: clamp(g && g.dose, 24),
+          unit: clamp(g && g.unit, 16),
+        })).filter((g) => g.name)
       : [];
-    if (arr.length) { intake[key] = arr; filled++; }
+    const num = (v) => (Number.isFinite(+v) ? +v : null);
+    return {
+      product_name: name,
+      source: it.source === 'typed' ? 'typed' : 'photo',
+      brand: it.brand ? clamp(it.brand, 80) : null,
+      category: clamp(it.category, 40) || 'other',
+      is_blend: !!it.is_blend,
+      ingredients,
+      serving_info: it.serving_info ? clamp(it.serving_info, 120) : null,
+      caffeine_mg_per_serving: num(it.caffeine_mg_per_serving),
+      est_monthly_cost: num(it.est_monthly_cost),
+      needs_panel: !!it.needs_panel,
+      panel_skipped: !!it.panel_skipped,
+      item_goal: it.item_goal ? clamp(it.item_goal, 200) : null,
+    };
+  }).filter(Boolean);
+}
+
+function validateCounselIntake(decisionType, raw) {
+  // Live product accepts only the Supplement Audit; retired types are rejected
+  // upstream (Phase 1 gate) but this stays defensive.
+  if (decisionType !== 'supplement-audit') return null;
+  const spec = COUNSEL_INTAKE_FIELDS['supplement-audit'];
+  if (!raw || typeof raw !== 'object') return null;
+  const intake = { items: sanitizeAuditItems(raw.items) };
+  for (const key of spec.strings) {
+    const v = String(raw[key] ?? '').trim().slice(0, 600);
+    if (v) intake[key] = v;
   }
-  if (decisionType === 'custom' && !intake.question) return null;
-  if (decisionType === 'supplement-audit' && !(intake.supplements || []).length) return null;
-  return filled ? intake : null;
+  // Required intake fields must be present. `items` MAY be empty — the
+  // "empty-handed, recommend me a stack" case is valid.
+  for (const key of spec.required) {
+    if (!intake[key]) return null;
+  }
+  return intake;
 }
 
 const COUNSEL_TYPE_LABELS = {
   'supplement-audit': 'Supplement stack audit',
-  'glp1-trt': 'GLP-1 / TRT decision',
-  'injury-return': 'Returning from injury',
-  'physique-direction': 'Physique direction',
-  custom: 'Custom question',
 };
 
-function buildCounselUserContent(decisionType, intake, photos) {
+function buildCounselUserContent(decisionType, intake, photos, contextBlock) {
   const content = [];
-  const { beforeBase64, beforeMime, afterBase64, afterMime } = photos || {};
+  const { beforeBase64, beforeMime } = photos || {};
   if (beforeBase64 && beforeMime) {
     content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
-    content.push({ type: 'text', text: "CURRENT photo — the user's body today (shared with consent). Ground your assessment in what you can see. Never judgmental." });
+    content.push({ type: 'text', text: "The user's CURRENT physique photo (from their account, shared with consent). Use it only as backdrop for judging whether the stack matches their real situation. Never judgmental." });
   }
-  if (afterBase64 && afterMime) {
-    content.push({ type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } });
-    content.push({ type: 'text', text: 'GOAL photo — an AI-generated image of the physique the user is aiming for.' });
+  const { items, ...rest } = intake || {};
+  let text = `Decision type: ${COUNSEL_TYPE_LABELS[decisionType] || decisionType}\n\n`;
+  if (contextBlock) {
+    text += `USER CONTEXT (pulled from their account — do NOT re-ask for any of this):\n${contextBlock}\n\n`;
   }
-  content.push({
-    type: 'text',
-    text: `Decision type: ${COUNSEL_TYPE_LABELS[decisionType]}\n\nUser intake:\n${JSON.stringify(intake, null, 2)}\n\nGive your independent opinion as your seat on the counsel. Output JSON matching the provided schema.`,
-  });
+  text += `SUPPLEMENTS THE USER CURRENTLY TAKES — read off their labels, quoted verbatim. A "proprietary blend" with no per-ingredient doses is undisclosed and presumed underdosed:\n${JSON.stringify(items || [], null, 2)}\n\n`;
+  text += `AUDIT INTAKE (budget, servings cap, meds, style, etc.):\n${JSON.stringify(rest, null, 2)}\n\n`;
+  text += `Give your independent opinion as your seat on the counsel. Output JSON matching the provided schema.`;
+  content.push({ type: 'text', text });
   return content;
 }
 
@@ -4664,8 +4758,10 @@ async function callSeatResilient(seatName, fn) {
   }
 }
 
-function buildPresidentContent(decisionType, intake, opinions, missingSeats) {
-  let text = `Decision type: ${COUNSEL_TYPE_LABELS[decisionType]}\n\nUser intake:\n${JSON.stringify(intake, null, 2)}\n\n`;
+function buildPresidentContent(decisionType, intake, opinions, missingSeats, contextBlock) {
+  let text = `Decision type: ${COUNSEL_TYPE_LABELS[decisionType] || decisionType}\n\n`;
+  if (contextBlock) text += `USER CONTEXT (from their account):\n${contextBlock}\n\n`;
+  text += `User intake (includes the full items list — every item here MUST appear in your keep_drop_table):\n${JSON.stringify(intake, null, 2)}\n\n`;
   for (const seat of COUNSEL_SEATS) {
     const op = opinions[seat.role];
     text += op
@@ -4679,13 +4775,15 @@ function buildPresidentContent(decisionType, intake, opinions, missingSeats) {
   return [{ type: 'text', text }];
 }
 
-// Free-preview shape: the verdict sentence + safety rating are the hook;
-// reasoning, evidence, and next actions are members-only.
+// Free-preview shape: the verdict sentence + safety rating + the dollars-saved
+// total are the hook; reasoning, the keep/drop list, the new stack, and next
+// actions are members-only.
 function stripCounselForPreview(counsel) {
   const v = counsel.verdict || {};
   return {
     locked: true,
-    verdict: { verdict: v.verdict, confidence: v.confidence, locked: true },
+    // monthly_savings stays visible — it's the teaser ("this audit found ~$55/mo of waste").
+    verdict: { verdict: v.verdict, confidence: v.confidence, monthly_savings: v.monthly_savings, locked: true },
     opinions: Object.fromEntries(Object.entries(counsel.opinions || {}).map(([role, op]) => [
       role,
       op ? { position: op.position, ...(op.rating ? { rating: op.rating } : {}), locked: true } : null,
@@ -4693,17 +4791,100 @@ function stripCounselForPreview(counsel) {
   };
 }
 
-// Convene the counsel. Free for everyone (sunk-cost hook) — members get the
-// full case file back; free users get the verdict-level preview.
+// Assemble the USER CONTEXT block for an audit from what we already know about
+// this user — so the seats never re-ask for training, nutrition, protein,
+// sleep, or weight. Every pull is best-effort and defensive: a missing table or
+// unexpected shape just drops that line, never fails the audit. Also returns the
+// user's stored physique photo so the counsel can ground its read in reality.
+async function assembleAuditContext(userId) {
+  const out = { text: '', beforeImage: null, beforeMime: null };
+  if (!db || !userId) return out;
+  const lines = [];
+  const clean = (s) => String(s).replace(/_/g, ' ');
+  try {
+    const { rows } = await db.query('SELECT before_image FROM users WHERE id = $1', [userId]);
+    const m = rows[0]?.before_image && rows[0].before_image.match(/^data:(.*?);base64,(.*)$/);
+    if (m) { out.beforeMime = m[1]; out.beforeImage = m[2]; }
+  } catch (e) { /* no photo */ }
+  try {
+    const { rows } = await db.query('SELECT intake FROM programs WHERE user_id = $1 ORDER BY id DESC LIMIT 1', [userId]);
+    const i = rows[0]?.intake;
+    if (i) {
+      const b = [];
+      if (i.age_range) b.push(`age ${i.age_range}`);
+      if (i.sex_track) b.push(i.sex_track === 'woman' ? 'female' : 'male');
+      if (i.goal) b.push(`goal ${clean(i.goal)}`);
+      if (i.experience) b.push(`${i.experience} lifter`);
+      if (i.equipment) b.push(`${i.equipment} equipment`);
+      if (Array.isArray(i.injuries) && i.injuries.length) b.push(`injuries: ${i.injuries.join(', ')}`);
+      if (b.length) lines.push(`Training profile: ${b.join(', ')}.`);
+    }
+  } catch (e) { /* no program */ }
+  try {
+    const { rows } = await db.query('SELECT intake FROM meal_plans WHERE user_id = $1 ORDER BY id DESC LIMIT 1', [userId]);
+    const i = rows[0]?.intake;
+    if (i) {
+      const b = [];
+      if (i.sex) b.push(i.sex);
+      if (i.age) b.push(`age ${i.age}`);
+      if (i.weight_lb) b.push(`${i.weight_lb} lb`);
+      if (i.goal) b.push(`nutrition goal ${clean(i.goal)}`);
+      if (i.diet_style && i.diet_style !== 'none') b.push(clean(i.diet_style));
+      if (Array.isArray(i.allergies) && i.allergies.length) b.push(`allergies: ${i.allergies.join(', ')}`);
+      if (i.glp1 === 'yes') b.push('currently on a GLP-1');
+      if (i.meds_notes) b.push(`meds noted: ${i.meds_notes}`);
+      if (b.length) lines.push(`Nutrition profile: ${b.join(', ')}.`);
+    }
+  } catch (e) { /* no meal plan */ }
+  try {
+    const { rows } = await db.query(
+      `SELECT date, totals FROM meals WHERE user_id = $1 AND logged_at >= now() - interval '14 days'`, [userId]);
+    if (rows.length) {
+      const byDay = {};
+      for (const r of rows) byDay[r.date] = (byDay[r.date] || 0) + (r.totals?.protein_g || 0);
+      const days = Object.keys(byDay).length;
+      const avg = Math.round(Object.values(byDay).reduce((a, b) => a + b, 0) / days);
+      lines.push(`Logged food (last 14 days): ${days} day${days === 1 ? '' : 's'} logged, averaging ~${avg}g protein/day — use this to decide whether a protein powder is real food convenience or redundant.`);
+    }
+  } catch (e) { /* no meals */ }
+  try {
+    const { rows } = await db.query(
+      `SELECT weight, unit FROM weight_logs WHERE user_id = $1 AND entry_date >= CURRENT_DATE - 30 ORDER BY entry_date ASC`, [userId]);
+    if (rows.length >= 2) {
+      const delta = Math.round((rows[rows.length - 1].weight - rows[0].weight) * 10) / 10;
+      const dir = delta < -0.5 ? 'losing weight' : delta > 0.5 ? 'gaining weight' : 'holding steady';
+      lines.push(`Weight trend (30d): ${dir} (${delta > 0 ? '+' : ''}${delta} ${rows[0].unit || 'lb'}).`);
+    }
+  } catch (e) { /* no weight logs */ }
+  try {
+    const { rows } = await db.query(
+      `SELECT data FROM sleep_entries WHERE user_id = $1 ORDER BY entry_date DESC LIMIT 7`, [userId]);
+    const durs = rows.map((r) => r.data?.duration_min).filter(Boolean);
+    if (durs.length) {
+      const avg = Math.round(durs.reduce((a, b) => a + b, 0) / durs.length);
+      lines.push(`Sleep (recent avg): ~${Math.floor(avg / 60)}h${String(avg % 60).padStart(2, '0')}m/night — relevant to magnesium/glycine/melatonin-type items.`);
+    }
+  } catch (e) { /* no sleep entries */ }
+  out.text = lines.join('\n');
+  return out;
+}
+
+// Convene the counsel (Supplement Audit). Free for everyone (sunk-cost hook) —
+// members get the full case file back; free users get the verdict-level preview.
 app.post('/api/counsel', aiLimiter, optionalAuth, async (req, res) => {
   try {
     const decisionType = String(req.body?.decisionType || '');
+    // Phase 1: the Decision Counsel is retired. The five-seat engine now serves
+    // the Supplement Audit only — refuse any other type before any work is done.
+    if (decisionType !== 'supplement-audit') {
+      return res.status(400).json({ error: 'This feature has been replaced by the Supplement Audit.' });
+    }
     const intake = validateCounselIntake(decisionType, req.body?.intake);
-    if (!intake) return res.status(400).json({ error: 'Missing or incomplete intake for this decision type' });
+    if (!intake) return res.status(400).json({ error: 'Missing or incomplete audit intake.' });
 
-    // Monthly cap: 10 counsel sessions per account per calendar month (each
-    // run is 5 model calls — this keeps membership economics sane). Checked
-    // before convening the seats so a capped request costs nothing.
+    // Monthly cap: 10 audits per account per calendar month (each run is 5 model
+    // calls — this keeps membership economics sane). Checked before convening the
+    // seats so a capped request costs nothing.
     if (req.user && db) {
       try {
         const { rows } = await db.query(
@@ -4713,25 +4894,31 @@ app.post('/api/counsel', aiLimiter, optionalAuth, async (req, res) => {
         );
         if (rows[0].n >= COUNSEL_MONTHLY_CAP) {
           return res.status(429).json({
-            error: `You've used all ${COUNSEL_MONTHLY_CAP} Decision Counsel sessions for this month. Your allowance resets on the 1st.`,
+            error: `You've used all ${COUNSEL_MONTHLY_CAP} Supplement Audits for this month. Your allowance resets on the 1st.`,
             capReached: true,
           });
         }
       } catch (e) { console.error('counsel cap check error:', e.message); }
     }
 
-    const { photoBase64, photoMime, afterPhotoBase64, afterPhotoMime, photoConsent } = req.body || {};
-    const photos = (decisionType === 'physique-direction' && photoConsent) ? {
-      beforeBase64: photoBase64, beforeMime: photoMime,
-      afterBase64: afterPhotoBase64, afterMime: afterPhotoMime,
-    } : null;
+    // Pull everything we already know about this user (members/logged-in only)
+    // into a USER CONTEXT block + their stored physique photo.
+    let contextBlock = '';
+    let photos = null;
+    if (req.user && db) {
+      try {
+        const ctx = await assembleAuditContext(req.user.id);
+        contextBlock = ctx.text;
+        if (ctx.beforeImage && ctx.beforeMime) photos = { beforeBase64: ctx.beforeImage, beforeMime: ctx.beforeMime };
+      } catch (e) { console.error('audit context error:', e.message); }
+    }
 
-    const addendum = COUNSEL_TYPE_ADDENDA[decisionType];
-    const userContent = buildCounselUserContent(decisionType, intake, photos);
+    const addendum = COUNSEL_TYPE_ADDENDA[decisionType] || '';
+    const userContent = buildCounselUserContent(decisionType, intake, photos, contextBlock);
 
     // Phase 1: four independent opinions in parallel, each with one retry.
     const results = await Promise.all(COUNSEL_SEATS.map((seat) =>
-      callSeatResilient(seat.name, () => callCounselSeat(seat.prompt + addendum, userContent, seat.schema, 8000))
+      callSeatResilient(seat.name, () => callCounselSeat(COUNSEL_CHARTER + seat.prompt + addendum, userContent, seat.schema, 8000))
     ));
     const opinions = {};
     const missingSeats = [];
@@ -4746,12 +4933,14 @@ app.post('/api/counsel', aiLimiter, optionalAuth, async (req, res) => {
 
     // Phase 2: the President synthesizes. This seat is required.
     const verdict = await callSeatResilient('The President', () =>
-      callCounselSeat(PRESIDENT_PROMPT + addendum, buildPresidentContent(decisionType, intake, opinions, missingSeats), PRESIDENT_SCHEMA, 10000)
+      callCounselSeat(COUNSEL_CHARTER + PRESIDENT_PROMPT + addendum, buildPresidentContent(decisionType, intake, opinions, missingSeats, contextBlock), PRESIDENT_SCHEMA, 10000)
     );
     if (!verdict || !verdict.verdict) {
       return res.status(502).json({ error: 'The President could not reach a verdict. Please try again.' });
     }
     verdict.next_actions = (verdict.next_actions || []).slice(0, 3);
+    verdict.keep_drop_table = verdict.keep_drop_table || [];
+    verdict.new_stack = verdict.new_stack || [];
 
     const counsel = { opinions, verdict, missingSeats };
 
@@ -4832,7 +5021,7 @@ app.post('/api/counsel/followup', aiLimiter, requireAuth, async (req, res) => {
 
     let reply;
     try {
-      reply = await callCounselSeat(PRESIDENT_PROMPT + (COUNSEL_TYPE_ADDENDA[row.decision_type] || ''), content, FOLLOWUP_SCHEMA, 4000);
+      reply = await callCounselSeat(COUNSEL_CHARTER + PRESIDENT_PROMPT + (COUNSEL_TYPE_ADDENDA[row.decision_type] || ''), content, FOLLOWUP_SCHEMA, 4000);
     } catch (e) {
       if (e.status) return res.status(e.status).json({ error: e.message });
       return res.status(502).json({ error: 'The President is unavailable. Please try again.' });
@@ -4845,6 +5034,146 @@ app.post('/api/counsel/followup', aiLimiter, requireAuth, async (req, res) => {
     res.json({ sessionId: row.id, question, answer: reply.answer, followups });
   } catch (err) {
     console.error('counsel followup error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ── Supplement Audit: label reader (Phase 2) ──────────────────────────
+// One vision call per photographed product. Free + uncapped by design — it's
+// the hook that pulls users into the audit. Modeled on /api/analyze-meal.
+const SUPPLEMENT_LABEL_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['product_name', 'brand', 'category', 'is_blend', 'ingredients', 'serving_info', 'caffeine_mg_per_serving', 'est_monthly_cost', 'needs_panel', 'read_confidence', 'unreadable'],
+  properties: {
+    product_name: { type: 'string', description: 'The product name as printed. "Unknown" if unreadable.' },
+    brand: { type: ['string', 'null'], description: 'Brand/manufacturer if printed, else null.' },
+    category: { type: 'string', description: "One of: creatine, protein, pre-workout, fat-burner, multivitamin, fish-oil, vitamin-d, magnesium, greens, test-booster, bcaa, other." },
+    is_blend: { type: 'boolean', description: 'True if a multi-ingredient product or proprietary blend (pre-workout, fat burner, greens, "test booster").' },
+    ingredients: {
+      type: 'array',
+      description: 'Every ingredient legible on THIS photo with its dose. Empty array if none legible (e.g. a proprietary blend hides them).',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['name', 'dose', 'unit'],
+        properties: {
+          name: { type: 'string' },
+          dose: { type: 'string', description: 'The number only, e.g. "5". Empty string if a blend hides it.' },
+          unit: { type: 'string', description: 'e.g. "g", "mg", "mcg", "IU". Empty string if unknown.' },
+        },
+      },
+    },
+    serving_info: { type: ['string', 'null'], description: 'Serving size / servings per container as printed, else null.' },
+    caffeine_mg_per_serving: { type: ['number', 'null'], description: 'Caffeine mg per serving if stated, else null.' },
+    est_monthly_cost: { type: ['number', 'null'], description: 'Only if a price is visible OR a confident category-typical figure; else null.' },
+    needs_panel: { type: 'boolean', description: 'True if is_blend AND the per-ingredient doses are NOT legible from this photo (ask for the ingredients-panel photo).' },
+    read_confidence: { type: 'string', enum: ['high', 'medium', 'low'] },
+    unreadable: { type: 'boolean', description: "True if this photo isn't a supplement label or is too blurry to read." },
+  },
+};
+
+const SUPPLEMENT_LABEL_PROMPT = `You are the supplement-label reader for a fitness app. Given a photo (or two — front label plus an ingredients/Supplement Facts panel) of ONE supplement product, extract exactly what the label says.
+
+Hard rules:
+- Read ONLY what is printed on the label in front of you. NEVER fill in a formula, dose, or ingredient from memory or from what the brand "usually" contains — brands reformulate constantly, and the whole point of the audit is to quote the ACTUAL label. If you can't read a dose, leave it blank; do not guess it.
+- Proprietary blends: if the label shows a "proprietary blend" with a single combined weight and no per-ingredient doses, list the ingredient names you can see with empty dose strings, set is_blend true, and set needs_panel true unless a full panel with per-ingredient doses is actually visible.
+- is_blend is true for any multi-ingredient product (pre-workout, fat burner, greens, "test booster", most "complex" products). Single-ingredient staples (plain creatine, a single-ingredient protein, fish oil, vitamin D, magnesium) are is_blend false.
+- caffeine_mg_per_serving: only if the number is printed. Do not infer it.
+- est_monthly_cost: null unless a price is visibly printed, or you are genuinely confident of a category-typical monthly cost.
+- If the image is not a supplement label, or is too blurry/dark to read, set unreadable true and read_confidence "low".
+
+Output JSON matching the provided schema.`;
+
+app.post('/api/supplement/label', aiLimiter, optionalAuth, async (req, res) => {
+  try {
+    const { photoBase64, photoMime, panelBase64, panelMime } = req.body || {};
+    const attemptId = String(req.body?.attemptId || '');
+    const cached = getCachedAttempt(attemptId);
+    if (cached) return res.status(cached.status).json(cached.body);
+
+    if (!photoBase64 || !photoMime) {
+      return res.status(400).json({ error: 'Missing photoBase64 or photoMime' });
+    }
+
+    const userContent = [
+      { type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } },
+      { type: 'text', text: 'This is the FRONT label of one supplement product.' },
+    ];
+    if (panelBase64 && panelMime) {
+      userContent.push({ type: 'image', source: { type: 'base64', media_type: panelMime, data: panelBase64 } });
+      userContent.push({ type: 'text', text: 'This second image is the ingredients / Supplement Facts panel for the SAME product — read per-ingredient doses from it.' });
+    }
+    userContent.push({ type: 'text', text: 'Read this product. Output JSON matching the provided schema.' });
+
+    let analysis;
+    try {
+      analysis = await callCounselSeat(SUPPLEMENT_LABEL_PROMPT, userContent, SUPPLEMENT_LABEL_SCHEMA, 1500);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'Could not read the label. Please retake the photo.' });
+    }
+    // If a panel was supplied, the doses should now be legible — don't keep asking.
+    if (panelBase64 && panelMime) analysis.needs_panel = false;
+
+    const payload = { analysis };
+    cacheAttempt(attemptId, 200, payload);
+    res.json(payload);
+  } catch (err) {
+    console.error('supplement label error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ── Supplement Audit: "Recommend a Brand" (Phase 6) ───────────────────
+// On-demand, members-only, uncapped. Keeps the main audit unbiased (generic
+// ingredients); this names a specific product only when the user asks. Response
+// shape is stable so a "where to buy" / affiliate layer can bolt on later.
+const SUPPLEMENT_BRAND_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['brand_pick', 'product_name', 'why', 'price_note', 'runner_up'],
+  properties: {
+    brand_pick: { type: 'string', description: 'The recommended brand.' },
+    product_name: { type: 'string', description: 'The specific product name for this ingredient + dose.' },
+    why: { type: 'string', description: 'One or two sentences: why this pick — third-party testing, single-ingredient, value.' },
+    price_note: { type: 'string', description: 'Rough price/value note. Always remind that prices change.' },
+    runner_up: { type: 'string', description: 'A widely available alternative brand + product.' },
+  },
+};
+
+const SUPPLEMENT_BRAND_PROMPT = `You are a no-nonsense supplement buyer for a fitness app. The user has been recommended a GENERIC ingredient at a specific dose and now wants a specific product to buy.
+
+Rules:
+- Recommend a widely available, reputable brand that is THIRD-PARTY TESTED (NSF Certified for Sport, Informed Sport/Choice, USP, or equivalent) for this exact ingredient at this dose.
+- Strongly prefer SINGLE-INGREDIENT products over blends — the user wants this ingredient, not a proprietary mix.
+- Give one runner-up that is also easy to find (a major retailer / Amazon-tier brand).
+- Prices change and availability varies — always say so and tell the user to compare at purchase.
+- No affiliate links, no coupon codes, no invented SKUs. If you are not confident a specific product exists, describe the category leader instead of inventing a name.
+
+Output JSON matching the provided schema.`;
+
+app.post('/api/supplement/brand', aiLimiter, requireAuth, async (req, res) => {
+  try {
+    const userRow = await getUserRow(req.user.id);
+    if (!isActiveMembership(userRow)) {
+      return res.status(402).json({ error: 'Membership required', needsMembership: true });
+    }
+    const ingredient = String(req.body?.ingredient || '').trim().slice(0, 120);
+    const dose = String(req.body?.dose || '').trim().slice(0, 60);
+    if (!ingredient) return res.status(400).json({ error: 'Missing ingredient' });
+
+    const content = [{ type: 'text', text: `Recommend a specific product for:\nIngredient: ${ingredient}\nDose: ${dose || 'a standard effective dose'}\n\nOutput JSON matching the provided schema.` }];
+    let pick;
+    try {
+      pick = await callCounselSeat(SUPPLEMENT_BRAND_PROMPT, content, SUPPLEMENT_BRAND_SCHEMA, 800);
+    } catch (e) {
+      if (e.status) return res.status(e.status).json({ error: e.message });
+      return res.status(502).json({ error: 'Could not fetch a brand pick. Please try again.' });
+    }
+    res.json({ ingredient, dose, pick });
+  } catch (err) {
+    console.error('supplement brand error:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

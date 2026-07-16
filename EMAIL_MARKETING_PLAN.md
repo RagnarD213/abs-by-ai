@@ -237,7 +237,7 @@ One-off transactional email sent immediately after membership purchase.
 > **✓ Unlimited future-self image generations** — see yourself at every milestone
 > **✓ Unlimited AI meal & macro tracking** — snap, log, done
 > **✓ AI Nutritionist** — weekly meal-prep plans, grocery lists, check-ins
-> **✓ The Decision Counsel** — 10 expert verdicts a month. Bring your hardest calls.
+> **✓ The Supplement Audit** — 10 a month. Photograph your stack; five experts rule on what to keep, what to bin, and the cheaper stack that works.
 > **✓ AI Sleep Coach** — tonight's protocol and your sleep trend
 > **✓ Progress Log AI recap** — weekly checks that adapt to your progress
 >
@@ -268,36 +268,34 @@ One-off transactional email sent immediately after membership purchase.
 
 ---
 
-## 7. Announcement broadcast: The Decision Counsel (ready to paste)
+## 7. Announcement broadcast: The Supplement Audit (ready to paste)
 
 One-off campaign to the "Abs by AI Users" group. Send Tue–Thu morning.
 
-**Subject:** Five AI experts just ruled on my supplement stack
-**Preview text:** New in Abs by AI: bring your hardest fitness call to the Counsel.
+**Subject:** Five AI experts just audited my supplement stack
+**Preview text:** Photograph your supplements. Find out what's wasted money.
 
 > Hey — Dan here.
 >
-> Every week someone asks me a version of the same thing: "Should I take creatine? Is my supplement stack overkill? Is a GLP-1 worth talking to my doctor about? Bulk or cut first?"
+> Go grab your supplements. All of them — the tub of pre-workout, the fish oil, that "test booster" a guy at the gym swore by.
 >
-> These are real decisions with real money and real health on the line — and one opinion (even mine) isn't enough.
+> Most people are spending $80, $120, sometimes $180 a month on that shelf, and a big chunk of it does nothing. The audit pays for itself the day it kills one useless $40 powder.
 >
-> So I built something different: **The Decision Counsel.**
+> So I built the **Supplement Audit.** You photograph each label; the app reads it and hands it to five AI experts:
 >
-> Bring it your hardest call, and five AI experts rule on it:
+> 🔬 **The Researcher** — evidence only. Does this ingredient, at this dose, actually do anything?
+> 🧐 **The Skeptic** — attacks the marketing, so you never pay for an underdosed "proprietary blend."
+> 🏋️ **The Coach** — food first, supplements last. What actually fits your budget and life?
+> 🩺 **The Safety Officer** — checks every item against your medications and each other.
+> 🏛️ **The President** — delivers the verdict: keep this, bin that, and the cheaper stack that replaces the junk.
 >
-> 🔬 **The Researcher** — evidence only. What do the studies actually say?
-> 🧐 **The Skeptic** — argues against the popular answer, so hype never wins by default.
-> 🏋️ **The Coach** — what actually fits your training, budget, and life.
-> 🩺 **The Safety Officer** — flags interactions and knows when it's a real-doctor question.
-> 🏛️ **The President** — weighs all four and delivers the verdict, with a confidence level and your 3 next actions.
+> You get a keep/drop list, the dollars you free up every month, and a clean stack to buy instead — generic ingredients, with a specific brand pick on request.
 >
-> Each counselor reviews your case independently — no groupthink — and if they disagree, you see exactly where and why.
+> Seeing how much you're wasting is free. Members get 10 full audits a month, plus follow-up questions to the panel.
 >
-> Your first verdict preview is free. Members get 10 full counsel sessions every month, plus follow-up cross-examination on any verdict.
->
-> [→ Present your case](https://absbyai.com)
+> [→ Audit my stack](https://absbyai.com)
 >
 > — Dan
 >
-> P.S. It will tell you when a question belongs to an actual doctor. That's the Safety Officer's whole job.
+> P.S. It'll tell you when something belongs to an actual doctor — checking your stack against your meds is the Safety Officer's whole job.
 
