@@ -69,7 +69,7 @@
     },
     {
       "text": "Review Romaisa video",
-      "priority": "high",
+      "priority": "key",
       "recurring": false
     }
   ],
