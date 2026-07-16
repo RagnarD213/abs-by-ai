@@ -1899,7 +1899,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
                   { type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } },
                   {
                     type: 'text',
-                    text: 'Compare these two photos of the same person. Does the AFTER photo show a clearly and dramatically leaner, more muscular, more athletically defined body than the BEFORE photo — visible abs/waist/shoulder changes, not just lighting or tan differences? Reply with only YES or NO.',
+                    text: 'Compare these two photos of the same person. In the AFTER photo, is there CLEARLY VISIBLE ab muscle definition (actual separation lines on the stomach, not just a flatter stomach) AND a visibly tighter/more tapered waist compared to the BEFORE photo? A tan, better lighting, or a slightly flatter stomach alone do NOT count — you must be able to see actual muscle definition lines. Reply with only YES or NO.',
                   },
                 ],
               },
@@ -1922,10 +1922,14 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     }
 
     if (result.ok && (intensity === 'dramatic' || intensity === 'max')) {
-      const changed = await looksDramaticallyChanged(result.imageBase64, result.imageMime);
-      if (!changed) {
-        const intensifyPreamble = `Your previous attempt at this edit was too subtle and barely visible — that is a failure. This time you MUST push much harder: make the body-fat reduction, ab definition, and waist tightening dramatically more visible than a typical edit, even if it means a bigger departure from the input photo's body shape. The face, clothing, pose, and framing must still stay exactly the same — only push the body transformation itself much further.\n\n`;
-        const retried = await callGemini(intensifyPreamble + prompt);
+      const intensifyPreambles = [
+        `Your previous attempt at this edit was too subtle and barely visible — that is a failure. This time you MUST push much harder: make the body-fat reduction, ab definition, and waist tightening dramatically more visible than a typical edit, even if it means a bigger departure from the input photo's body shape. The face, clothing, pose, and framing must still stay exactly the same — only push the body transformation itself much further.\n\n`,
+        `Two previous attempts at this edit were both too subtle. This is the final attempt and it MUST show unmistakable, obvious ab muscle definition (visible separation lines, not just a flatter stomach) and a clearly tighter waist. Be aggressive with the transformation — the viewer must be able to see the change instantly without comparing closely to the original. The face, clothing, pose, and framing must still stay exactly the same — only the body transformation itself gets much more dramatic.\n\n`,
+      ];
+      for (const preamble of intensifyPreambles) {
+        const changed = await looksDramaticallyChanged(result.imageBase64, result.imageMime);
+        if (changed) break;
+        const retried = await callGemini(preamble + prompt);
         if (retried.ok) result = retried;
       }
     }
