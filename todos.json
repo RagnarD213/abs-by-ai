@@ -151,6 +151,11 @@
     {
       "text": "Put away laundry.",
       "priority": "low"
+    },
+    {
+      "text": "Buy Proper Cloth shirt",
+      "priority": "low",
+      "recurring": false
     }
   ]
 }
