@@ -7,8 +7,7 @@
     "health::Make salads",
     "health::Buy supplements",
     "health::Brush teeth",
-    "health::Floss",
-    "health::Inject Zepbound"
+    "health::Floss"
   ],
   "log": {
     "health::Shower": [
