@@ -45,27 +45,12 @@
       "priority": "high"
     },
     {
-      "text": "Reschedule next week's shoots",
-      "priority": "high"
-    },
-    {
       "text": "Send documents to AMEX",
       "priority": "high"
     },
     {
-      "text": "Record Romaisa clips",
-      "priority": "high",
-      "recurring": false
-    },
-    {
-      "text": "Build iOS and Android apps",
-      "priority": "high",
-      "recurring": false
-    },
-    {
       "text": "Email Jeff to hire",
-      "priority": "med",
-      "recurring": false
+      "priority": "med"
     }
   ],
   "health": [
@@ -88,6 +73,10 @@
       "text": "Salad",
       "priority": "high",
       "recurring": true
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
@@ -136,34 +125,12 @@
       "priority": "high"
     },
     {
-      "text": "Respond to hoes",
-      "priority": "low",
-      "recurring": false
-    },
-    {
-      "text": "Buy arencia face wash",
-      "priority": "low",
-      "recurring": false
-    },
-    {
       "text": "Fix shower handle",
-      "priority": "med",
-      "recurring": false
-    },
-    {
-      "text": "Make coffee",
-      "priority": "low",
-      "recurring": false
-    },
-    {
-      "text": "Put away dishes",
-      "priority": "low",
-      "recurring": false
+      "priority": "med"
     },
     {
       "text": "Put away laundry.",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     }
   ]
 }
