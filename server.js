@@ -1814,7 +1814,7 @@ app.post('/api/refine-meal', aiLimiter, async (req, res) => {
 // ============================================================
 app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
   try {
-    const { prompt, photoBase64, photoMime, deviceId, intensity } = req.body;
+    const { prompt, photoBase64, photoMime, deviceId, intensity, prevImageBase64, isFix } = req.body;
 
     // Idempotency: a dropped response makes the client replay the same attemptId.
     // Return the cached result (no second model call, no second decrement).
@@ -1846,6 +1846,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
                     data: photoBase64,
                   },
                 },
+                ...(prevImageBase64 ? [{ inline_data: { mime_type: 'image/png', data: prevImageBase64 } }] : []),
               ],
             },
           ],
@@ -1954,7 +1955,11 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // Requests without a deviceId (e.g. legacy clients) are left unlocked.
     // Members generate without consuming credits.
     let locked = false;
-    if (deviceId && !isActiveMembership(req.user)) {
+    // A legitimate fix pass (isFix + an actual prevImageBase64 to edit) is free,
+    // subject to allowFreeFix's per-device daily cap. Note allowFreeFix increments
+    // its counter as a side effect, so it's called at most once per request.
+    const freeFix = isFix === true && !!prevImageBase64 && allowFreeFix(deviceId);
+    if (deviceId && !isActiveMembership(req.user) && !freeFix) {
       const balance = getCredits(deviceId);
       if (balance > 0) {
         creditsStore.balances[deviceId] = balance - 1;
@@ -1992,6 +1997,21 @@ let creditsStore = { balances: {}, fulfilled: {}, mealCounts: {} };
 // image payloads are large, so these never go through persistCreditsStore/the blob.
 // This is correct only at a single Railway replica (per-process); if the service is
 // ever scaled out, this must move to Postgres like creditsStore (see F4 in AUDIT_membership.md).
+// Free "fix my result" passes: per-device daily cap so the isFix flag can't be
+// used to generate unlimited free images. In-memory, same single-replica caveat
+// as attemptCache below.
+const fixCounts = new Map(); // deviceId -> { day: 'YYYY-MM-DD', count }
+const FIX_DAILY_CAP = 4;
+function allowFreeFix(deviceId) {
+  if (!deviceId) return false;
+  const day = new Date().toISOString().slice(0, 10);
+  const rec = fixCounts.get(deviceId);
+  if (!rec || rec.day !== day) { fixCounts.set(deviceId, { day, count: 1 }); return true; }
+  if (rec.count >= FIX_DAILY_CAP) return false;
+  rec.count += 1;
+  return true;
+}
+
 const attemptCache = new Map();
 const ATTEMPT_TTL_MS = 10 * 60 * 1000;
 function getCachedAttempt(id) {
