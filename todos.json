@@ -51,6 +51,11 @@
     {
       "text": "Email Jeff to hire",
       "priority": "med"
+    },
+    {
+      "text": "Review Claude scheduled task output",
+      "priority": "low",
+      "recurring": false
     }
   ],
   "health": [
