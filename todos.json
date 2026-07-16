@@ -50,7 +50,8 @@
     },
     {
       "text": "Email Jeff to hire",
-      "priority": "med"
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Review Claude scheduled task output",
