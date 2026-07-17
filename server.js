@@ -90,7 +90,7 @@ const CREDITS_FILE         = 'credits-data.json'; // persists per-device credit 
 const FREE_CREDITS         = 3;  // free generations every new device starts with
 // Credit packs offered on the paywall. Prices in cents. Keys must match the
 // data-pack attributes in index.html (starter / power).
-const COUNSEL_MONTHLY_CAP = 10; // full Decision Counsel sessions per account per calendar month
+const COUNSEL_MONTHLY_CAP = 25; // full Supplement Audits per account per calendar month
 
 const CREDIT_PACKS = {
   starter: { credits: 5,  priceInCents: 499,  label: 'Starter Pack' },
@@ -4706,12 +4706,12 @@ function buildCounselUserContent(decisionType, intake, photos, contextBlock) {
   }
   text += `SUPPLEMENTS THE USER CURRENTLY TAKES — read off their labels, quoted verbatim. A "proprietary blend" with no per-ingredient doses is undisclosed and presumed underdosed:\n${JSON.stringify(items || [], null, 2)}\n\n`;
   text += `AUDIT INTAKE (budget, servings cap, meds, style, etc.):\n${JSON.stringify(rest, null, 2)}\n\n`;
-  text += `Give your independent opinion as your seat on the counsel. Output JSON matching the provided schema.`;
+  text += `Give a genuinely independent opinion for each lens, then the final verdict. Output JSON matching the provided schema.`;
   content.push({ type: 'text', text });
   return content;
 }
 
-async function callCounselSeat(systemPrompt, userContent, schema, maxTokens) {
+async function callCounselSeat(systemPrompt, userContent, schema, maxTokens, effort) {
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -4723,7 +4723,7 @@ async function callCounselSeat(systemPrompt, userContent, schema, maxTokens) {
       model: COUNSEL_MODEL,
       max_tokens: maxTokens,
       system: systemPrompt,
-      output_config: { format: { type: 'json_schema', schema } },
+      output_config: { ...(effort ? { effort } : {}), format: { type: 'json_schema', schema } },
       messages: [{ role: 'user', content: userContent }],
     }),
   });
@@ -4758,21 +4758,45 @@ async function callSeatResilient(seatName, fn) {
   }
 }
 
-function buildPresidentContent(decisionType, intake, opinions, missingSeats, contextBlock) {
+// Reconstructs the case-file text for a saved session — used only by the
+// follow-up endpoint now that the main audit is a single call (see
+// buildMasterSystemPrompt / MASTER_SCHEMA below).
+function buildPresidentContent(decisionType, intake, opinions) {
   let text = `Decision type: ${COUNSEL_TYPE_LABELS[decisionType] || decisionType}\n\n`;
-  if (contextBlock) text += `USER CONTEXT (from their account):\n${contextBlock}\n\n`;
   text += `User intake (includes the full items list — every item here MUST appear in your keep_drop_table):\n${JSON.stringify(intake, null, 2)}\n\n`;
   for (const seat of COUNSEL_SEATS) {
     const op = opinions[seat.role];
-    text += op
-      ? `=== Opinion of ${seat.name} ===\n${JSON.stringify(op, null, 2)}\n\n`
-      : `=== ${seat.name} ===\n(This counselor's seat was empty for this session — their opinion is unavailable.)\n\n`;
-  }
-  if (missingSeats.length) {
-    text += `NOTE: ${missingSeats.join(', ')} could not deliver an opinion this session. Acknowledge the absence briefly in your reasoning and weigh the remaining opinions accordingly.\n\n`;
+    if (op) text += `=== Opinion of ${seat.name} ===\n${JSON.stringify(op, null, 2)}\n\n`;
   }
   text += `Deliver the final verdict as JSON matching the provided schema.`;
   return [{ type: 'text', text }];
+}
+
+// Single-call engine: one model call reasons through all four lenses plus the
+// final verdict, replacing the old 5-call Phase 1 (seats) + Phase 2
+// (President) orchestration. Cuts cost ~80% and collapses 5 failure points to 1.
+const MASTER_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['opinions', 'verdict'],
+  properties: {
+    opinions: {
+      type: 'object',
+      additionalProperties: false,
+      required: COUNSEL_SEATS.map((s) => s.role),
+      properties: Object.fromEntries(COUNSEL_SEATS.map((s) => [s.role, s.schema])),
+    },
+    verdict: PRESIDENT_SCHEMA,
+  },
+};
+
+function buildMasterSystemPrompt(addendum) {
+  const lenses = COUNSEL_SEATS.map((s) => `=== LENS: ${s.name.toUpperCase()} ===\n${s.prompt}`).join('\n\n');
+  return COUNSEL_CHARTER +
+    `You are producing the ENTIRE Abs by AI Supplement Audit in a single pass. Below are four expert lenses plus a final verdict role that used to run as five separate calls — you now inhabit all five in one response. Reason through each lens genuinely and independently before moving to the next; do not let the verdict's conclusion leak backward and flatten real disagreement between lenses. The verdict role then reviews all four lenses (which you just wrote) and delivers one synthesis.\n\n` +
+    `${lenses}\n\n=== FINAL VERDICT (HEAD AUDITOR) ===\n${PRESIDENT_PROMPT}\n\n` +
+    `${addendum}\n\n` +
+    `Output ONE JSON object matching the provided schema: opinions.researcher, opinions.skeptic, opinions.coach, opinions.safety (each matching its lens's schema above), and verdict (matching the final-verdict schema above).`;
 }
 
 // Free-preview shape: the verdict sentence + safety rating + the dollars-saved
@@ -4869,22 +4893,104 @@ async function assembleAuditContext(userId) {
   return out;
 }
 
-// Convene the counsel (Supplement Audit). Free for everyone (sunk-cost hook) —
-// members get the full case file back; free users get the verdict-level preview.
+// Audit jobs: Postgres-backed so they survive Railway restarts; an in-memory
+// Map is only a fallback for local dev without DATABASE_URL.
+const auditJobsMem = new Map();
+
+async function createAuditJob(userId) {
+  const id = crypto.randomUUID();
+  if (db) {
+    await db.query('INSERT INTO audit_jobs (id, user_id, status) VALUES ($1, $2, $3)', [id, userId || null, 'running']);
+  } else {
+    auditJobsMem.set(id, { user_id: userId || null, status: 'running', result: null, error: null });
+  }
+  return id;
+}
+
+async function finishAuditJob(id, status, result, error) {
+  if (db) {
+    try {
+      await db.query('UPDATE audit_jobs SET status = $1, result = $2, error = $3 WHERE id = $4',
+        [status, result ? JSON.stringify(result) : null, error || null, id]);
+      return;
+    } catch (e) { console.error('audit job update error:', e.message); }
+  }
+  const job = auditJobsMem.get(id);
+  if (job) { job.status = status; job.result = result; job.error = error || null; }
+}
+
+async function getAuditJob(id) {
+  if (db) {
+    const { rows } = await db.query('SELECT id, user_id, status, result, error FROM audit_jobs WHERE id = $1', [id]);
+    return rows[0] || null;
+  }
+  const job = auditJobsMem.get(id);
+  return job ? { id, ...job } : null;
+}
+
+// Runs the single-call audit engine in the background and stores the outcome
+// on the job row. POST /api/counsel has already responded with the job id by
+// the time this runs, so no HTTP request rides on the model call.
+async function runSupplementAuditJob(jobId, decisionType, intake, photos, contextBlock, userRow) {
+  try {
+    const addendum = COUNSEL_TYPE_ADDENDA[decisionType] || '';
+    const systemPrompt = buildMasterSystemPrompt(addendum);
+    const userContent = buildCounselUserContent(decisionType, intake, photos, contextBlock);
+    const report = await callSeatResilient('Supplement Audit', () =>
+      callCounselSeat(systemPrompt, userContent, MASTER_SCHEMA, 24000, 'high')
+    );
+    if (!report || !report.verdict || !report.verdict.verdict) {
+      throw new Error("The audit couldn't be completed. Please try again in a moment.");
+    }
+    const opinions = report.opinions || {};
+    const verdict = report.verdict;
+    verdict.next_actions = (verdict.next_actions || []).slice(0, 3);
+    verdict.keep_drop_table = verdict.keep_drop_table || [];
+    verdict.new_stack = verdict.new_stack || [];
+    const counsel = { opinions, verdict, missingSeats: [] };
+
+    let sessionId = null;
+    const member = isActiveMembership(userRow);
+    if (userRow && db) {
+      try {
+        const { rows } = await db.query(
+          `INSERT INTO counsel_sessions (user_id, decision_type, intake, opinions, verdict) VALUES ($1, $2, $3, $4, $5) RETURNING id`,
+          [userRow.id, decisionType, JSON.stringify(intake), JSON.stringify(opinions), JSON.stringify(verdict)]
+        );
+        sessionId = rows[0].id;
+      } catch (e) { console.error('counsel save error:', e.message); }
+    }
+
+    const result = {
+      sessionId,
+      decisionType,
+      locked: !member,
+      counsel: member ? { ...counsel, locked: false } : stripCounselForPreview(counsel),
+    };
+    await finishAuditJob(jobId, 'done', result, null);
+  } catch (err) {
+    console.error('supplement audit job error:', err);
+    await finishAuditJob(jobId, 'error', null, err.message || "The audit couldn't be completed. Please try again in a moment.");
+  }
+}
+
+// Convene the audit (Supplement Audit). Free for everyone (sunk-cost hook) —
+// members get the full case file back; free users get the verdict-level
+// preview. Responds with a job id immediately; the single-call engine runs
+// detached so no request rides on the model call (mobile Safari killed the
+// connection on 12-item stacks before this fix — see AI_COORDINATION.md).
 app.post('/api/counsel', aiLimiter, optionalAuth, async (req, res) => {
   try {
     const decisionType = String(req.body?.decisionType || '');
-    // Phase 1: the Decision Counsel is retired. The five-seat engine now serves
-    // the Supplement Audit only — refuse any other type before any work is done.
+    // The Decision Counsel is retired. This engine now serves the Supplement
+    // Audit only — refuse any other type before any work is done.
     if (decisionType !== 'supplement-audit') {
       return res.status(400).json({ error: 'This feature has been replaced by the Supplement Audit.' });
     }
     const intake = validateCounselIntake(decisionType, req.body?.intake);
     if (!intake) return res.status(400).json({ error: 'Missing or incomplete audit intake.' });
 
-    // Monthly cap: 10 audits per account per calendar month (each run is 5 model
-    // calls — this keeps membership economics sane). Checked before convening the
-    // seats so a capped request costs nothing.
+    // Monthly cap, checked before any model call so a capped request costs nothing.
     if (req.user && db) {
       try {
         const { rows } = await db.query(
@@ -4913,58 +5019,33 @@ app.post('/api/counsel', aiLimiter, optionalAuth, async (req, res) => {
       } catch (e) { console.error('audit context error:', e.message); }
     }
 
-    const addendum = COUNSEL_TYPE_ADDENDA[decisionType] || '';
-    const userContent = buildCounselUserContent(decisionType, intake, photos, contextBlock);
-
-    // Phase 1: four independent opinions in parallel, each with one retry.
-    const results = await Promise.all(COUNSEL_SEATS.map((seat) =>
-      callSeatResilient(seat.name, () => callCounselSeat(COUNSEL_CHARTER + seat.prompt + addendum, userContent, seat.schema, 8000))
-    ));
-    const opinions = {};
-    const missingSeats = [];
-    COUNSEL_SEATS.forEach((seat, i) => {
-      const op = results[i];
-      if (op && op.position) opinions[seat.role] = op;
-      else { opinions[seat.role] = null; missingSeats.push(seat.name); }
-    });
-    if (missingSeats.length > 1) {
-      return res.status(502).json({ error: 'The counsel could not convene. Please try again in a moment.' });
-    }
-
-    // Phase 2: the President synthesizes. This seat is required.
-    const verdict = await callSeatResilient('The President', () =>
-      callCounselSeat(COUNSEL_CHARTER + PRESIDENT_PROMPT + addendum, buildPresidentContent(decisionType, intake, opinions, missingSeats, contextBlock), PRESIDENT_SCHEMA, 10000)
+    const jobId = await createAuditJob(req.user?.id);
+    res.json({ jobId });
+    runSupplementAuditJob(jobId, decisionType, intake, photos, contextBlock, req.user || null).catch((e) =>
+      console.error('supplement audit job uncaught error:', e)
     );
-    if (!verdict || !verdict.verdict) {
-      return res.status(502).json({ error: 'The President could not reach a verdict. Please try again.' });
-    }
-    verdict.next_actions = (verdict.next_actions || []).slice(0, 3);
-    verdict.keep_drop_table = verdict.keep_drop_table || [];
-    verdict.new_stack = verdict.new_stack || [];
-
-    const counsel = { opinions, verdict, missingSeats };
-
-    let sessionId = null;
-    let member = false;
-    if (req.user && db) {
-      member = isActiveMembership(req.user);
-      try {
-        const { rows } = await db.query(
-          `INSERT INTO counsel_sessions (user_id, decision_type, intake, opinions, verdict) VALUES ($1, $2, $3, $4, $5) RETURNING id`,
-          [req.user.id, decisionType, JSON.stringify(intake), JSON.stringify(opinions), JSON.stringify(verdict)]
-        );
-        sessionId = rows[0].id;
-      } catch (e) { console.error('counsel save error:', e.message); }
-    }
-
-    res.json({
-      sessionId,
-      decisionType,
-      locked: !member,
-      counsel: member ? { ...counsel, locked: false } : stripCounselForPreview(counsel),
-    });
   } catch (err) {
     console.error('counsel error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Poll an audit job. { status: 'running' } while working; { status: 'done',
+// ...result } once finished; { status: 'error', error } on failure. Jobs tied
+// to a user may only be read by that user; anonymous (free-preview) jobs are
+// readable by the unguessable id alone.
+app.get('/api/counsel/job/:id', optionalAuth, async (req, res) => {
+  try {
+    const job = await getAuditJob(String(req.params.id || ''));
+    if (!job) return res.status(404).json({ error: 'Job not found' });
+    if (job.user_id && (!req.user || req.user.id !== job.user_id)) {
+      return res.status(404).json({ error: 'Job not found' });
+    }
+    if (job.status === 'running') return res.json({ status: 'running' });
+    if (job.status === 'error') return res.json({ status: 'error', error: job.error });
+    return res.json({ status: 'done', ...job.result });
+  } catch (e) {
+    console.error('get audit job error:', e.message);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -5011,7 +5092,7 @@ app.post('/api/counsel/followup', aiLimiter, requireAuth, async (req, res) => {
     if (!rows.length) return res.status(404).json({ error: 'Counsel session not found' });
     const row = rows[0];
 
-    const content = buildPresidentContent(row.decision_type, row.intake, row.opinions, []);
+    const content = buildPresidentContent(row.decision_type, row.intake, row.opinions);
     content.push({
       type: 'text',
       text: `\nYou already delivered this verdict:\n${JSON.stringify(row.verdict, null, 2)}\n\n` +
@@ -5021,12 +5102,12 @@ app.post('/api/counsel/followup', aiLimiter, requireAuth, async (req, res) => {
 
     let reply;
     try {
-      reply = await callCounselSeat(COUNSEL_CHARTER + PRESIDENT_PROMPT + (COUNSEL_TYPE_ADDENDA[row.decision_type] || ''), content, FOLLOWUP_SCHEMA, 4000);
+      reply = await callCounselSeat(COUNSEL_CHARTER + PRESIDENT_PROMPT + (COUNSEL_TYPE_ADDENDA[row.decision_type] || ''), content, FOLLOWUP_SCHEMA, 4000, 'high');
     } catch (e) {
       if (e.status) return res.status(e.status).json({ error: e.message });
-      return res.status(502).json({ error: 'The President is unavailable. Please try again.' });
+      return res.status(502).json({ error: "The audit couldn't be completed. Please try again in a moment." });
     }
-    if (!reply?.answer) return res.status(502).json({ error: 'The President could not answer. Please try again.' });
+    if (!reply?.answer) return res.status(502).json({ error: "The audit couldn't be completed. Please try again in a moment." });
 
     const followups = [...(row.followups || []), { question, answer: reply.answer, at: new Date().toISOString() }].slice(-20);
     await db.query('UPDATE counsel_sessions SET followups = $1 WHERE id = $2 AND user_id = $3',

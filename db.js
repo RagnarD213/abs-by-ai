@@ -150,6 +150,14 @@ async function initDb() {
       expires_at TIMESTAMPTZ NOT NULL,
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
+    CREATE TABLE IF NOT EXISTS audit_jobs (
+      id         TEXT PRIMARY KEY,
+      user_id    INTEGER,
+      status     TEXT NOT NULL DEFAULT 'running',
+      result     JSONB,
+      error      TEXT,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
   `);
   // Membership columns (added after the users table shipped). ADD COLUMN IF NOT
   // EXISTS keeps this idempotent across deploys; pg-mem supports it too.

@@ -1989,8 +1989,8 @@ html, body {
     <div id="counselLoader" class="loading-status" style="display:none;margin-top:20px">
       <div class="loading-spinner"></div>
       <div>
-        <div class="loading-title">The counsel is deliberating…</div>
-        <div class="loading-sub">Four independent opinions, then the President's verdict — about a minute</div>
+        <div class="loading-title">Your Supplement Audit is in progress…</div>
+        <div class="loading-sub">Five expert lenses on your stack — about a minute</div>
       </div>
     </div>
     <div id="counselGenError" class="error-toast" style="display:none;margin-top:14px"></div>
@@ -2130,7 +2130,7 @@ html, body {
       <li>Unlimited future-self image generations</li>
       <li>Unlimited AI meal &amp; macro tracking</li>
       <li>Your AI Nutritionist meal-prep plan — recipes, grocery lists &amp; check-ins</li>
-      <li>Supplement Audits — 10 a month: photograph your stack, get a full keep/drop verdict from five AI experts, plus brand picks and follow-ups</li>
+      <li>Supplement Audits — 25 a month: photograph your stack, get a full keep/drop verdict from five AI experts, plus brand picks and follow-ups</li>
       <li>The AI Sleep Coach — the full Go Hard briefing, tonight's protocol &amp; your trend</li>
       <li>Program check-ins that adapt to your progress</li>
     </ul>
@@ -3333,6 +3333,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   initSleepCoach();
   initTransformations();
   restoreSession(); // routes returning logged-in users straight to the hub
+  resumeAuditJobIfPending(); // reopens the audit loader if one was left running
 });
 
 // ============================================================
@@ -3413,8 +3414,9 @@ async function restoreSession() {
   try {
     const me = await authApi('/api/auth/me');
     setLoggedIn({ token: auth.token, email: me.email, deviceId: me.deviceId });
-    // Don't hijack Stripe-checkout return flows
-    if (!new URLSearchParams(window.location.search).get('session_id')) showHub();
+    // Don't hijack Stripe-checkout return flows, or a resumed audit loader
+    let pendingAuditJob; try { pendingAuditJob = localStorage.getItem(AUDIT_JOB_KEY); } catch (e) { pendingAuditJob = null; }
+    if (!new URLSearchParams(window.location.search).get('session_id') && !pendingAuditJob) showHub();
     syncMealsFromServer();
     refreshMembership();
     syncProgramFromServer();
@@ -6345,6 +6347,7 @@ function initNutritionist() {
 // ============================================================
 const COUNSEL_KEY = 'absbyai_counsel';
 const COUNSEL_INTAKE_KEY = 'absbyai_counsel_intake';
+const AUDIT_JOB_KEY = 'absbyai_audit_job';
 
 // The Decision Counsel was retired (2026-07-16). Its five-seat engine now powers
 // the AI Supplement Audit. The multi-decision wizard is preserved in
@@ -6352,9 +6355,9 @@ const COUNSEL_INTAKE_KEY = 'absbyai_counsel_intake';
 const COUNSEL_MEMBERS = [
   { e: '🔬', n: 'The Researcher', s: 'Rates every ingredient by the actual evidence — no hype, no bro-science.' },
   { e: '🧐', n: 'The Skeptic', s: "Attacks the marketing so you never pay for an underdosed proprietary blend." },
-  { e: '🏋️', n: 'The Coach (Lead Counselor)', s: 'Asks what actually fits your life and budget — food first, supplements last.' },
+  { e: '🏋️', n: 'The Coach (Lead Auditor)', s: 'Asks what actually fits your life and budget — food first, supplements last.' },
   { e: '🩺', n: 'The Safety Officer', s: 'Checks every item against your meds and each other.' },
-  { e: '🏛️', n: 'The President', s: 'Delivers one keep/drop verdict and the stack that replaces the waste.' },
+  { e: '🏛️', n: 'The Head Auditor', s: 'Delivers one keep/drop verdict and the stack that replaces the waste.' },
 ];
 
 // Audit flow state: the photographed/typed items + the intake answers.
@@ -6395,7 +6398,7 @@ function renderCounselLanding() {
   }
   html += `<button class="cta-btn" id="auditStartBtn" style="margin-bottom:6px">📷 Start my audit</button>
     <div class="hero-sub" style="text-align:center;margin:0 0 18px;font-size:12px">Free to see how much you're wasting. Members get the full keep/drop list.</div>
-    <div class="lbl" style="margin:8px 0 8px"><span class="lbl-text">Meet your counsel</span></div>` +
+    <div class="lbl" style="margin:8px 0 8px"><span class="lbl-text">Meet your audit team</span></div>` +
     COUNSEL_MEMBERS.map(m => `
       <div style="display:flex;gap:10px;align-items:flex-start;padding:7px 0">
         <span style="font-size:20px">${m.e}</span>
@@ -6406,9 +6409,9 @@ function renderCounselLanding() {
       1. Snap the front label of each supplement — I read it on the spot.<br>
       2. A few quick questions: your meds, budget, and how many pills a day you'll take.<br>
       3. Five experts review it independently, then rule: keep / drop / swap, the dollars you save, and the stack that replaces the junk.<br>
-      4. Members can ask for a specific brand on any recommendation, and cross-examine the verdict.
+      4. Members can ask for a specific brand on any recommendation, and follow up on the verdict.
     </div>
-    <div class="hero-sub" style="margin-top:14px;font-size:12.5px">Members get 10 full audits every month. Free users see the savings total and a preview.</div>
+    <div class="hero-sub" style="margin-top:14px;font-size:12.5px">Members get 25 full audits every month. Free users see the savings total and a preview.</div>
     <div class="hero-sub" style="margin-top:10px;font-size:12px">Educational guidance, not medical advice. The audit will tell you when something belongs to a real doctor.</div>`;
   $('counselLanding').innerHTML = html;
 
@@ -6628,6 +6631,27 @@ function renderAuditIntake() {
   $('auditRunBtn').addEventListener('click', conveneAudit);
 }
 
+// Polls a running audit job every 4s until it's done, errors, or ~5 minutes
+// pass. A dropped/failed poll is ignored (keeps polling); a 404 (job unknown —
+// e.g. resuming with a stale id) throws a tagged error so callers can handle
+// it silently instead of showing a scary error message.
+async function pollAuditJobLoop(jobId) {
+  const started = Date.now();
+  while (Date.now() - started < 5 * 60 * 1000) {
+    await new Promise((r) => setTimeout(r, 4000));
+    let data;
+    try {
+      data = await authApi(`/api/counsel/job/${jobId}`);
+    } catch (e) {
+      if (e.status === 404) { const err = new Error('Audit job not found'); err.notFound = true; throw err; }
+      continue;
+    }
+    if (data.status === 'done') return data;
+    if (data.status === 'error') throw new Error(data.error || 'Something went wrong. Please try again.');
+  }
+  throw new Error("This is taking longer than expected. Check back in a few minutes — your audit is still running.");
+}
+
 async function conveneAudit() {
   const a = counselState.intake;
   const err = $('auditIntakeError');
@@ -6668,27 +6692,61 @@ async function conveneAudit() {
       headers: { 'Content-Type': 'application/json', ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}) },
       body: JSON.stringify(body),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
+    const started = await res.json();
+    if (!res.ok) throw new Error(started?.error || `Backend error (HTTP ${res.status})`);
+    if (!started?.jobId) throw new Error('Something went wrong. Please try again.');
+    try { localStorage.setItem(AUDIT_JOB_KEY, started.jobId); } catch (e) {}
+
+    const data = await pollAuditJobLoop(started.jobId);
+    try { localStorage.removeItem(AUDIT_JOB_KEY); } catch (e) {}
     storeCounsel(data);
     if (window.posthog) posthog.capture('counsel_completed', { decision_type: 'supplement-audit', locked: data.locked });
     fireConfetti();
     showCounselReport();
   } catch (e) {
+    try { localStorage.removeItem(AUDIT_JOB_KEY); } catch (e2) {}
     $('counselGenError').textContent = e.message || 'Something went wrong. Please try again.';
     $('counselGenError').style.display = '';
     $('counselStep').style.display = '';
     $('counselBackStep').style.display = '';
-  } finally {
     $('counselLoader').style.display = 'none';
   }
+}
+
+// Resume: if the app was reloaded (phone locked/backgrounded) while an audit
+// job was running, jump straight back to the loader and keep polling instead
+// of losing the result. Called on every page load.
+function resumeAuditJobIfPending() {
+  let jobId;
+  try { jobId = localStorage.getItem(AUDIT_JOB_KEY); } catch (e) { jobId = null; }
+  if (!jobId) return;
+  showScreen('counselIntake');
+  $('counselStep').style.display = 'none';
+  $('counselBackStep').style.display = 'none';
+  $('counselGenError').style.display = 'none';
+  $('counselLoader').style.display = '';
+  pollAuditJobLoop(jobId).then((data) => {
+    try { localStorage.removeItem(AUDIT_JOB_KEY); } catch (e) {}
+    storeCounsel(data);
+    if (window.posthog) posthog.capture('counsel_completed', { decision_type: 'supplement-audit', locked: data.locked });
+    fireConfetti();
+    showCounselReport();
+  }).catch((e) => {
+    try { localStorage.removeItem(AUDIT_JOB_KEY); } catch (e2) {}
+    if (e.notFound) { renderCounselLanding(); showScreen('counsel'); return; }
+    $('counselGenError').textContent = e.message || 'Something went wrong. Please try again.';
+    $('counselGenError').style.display = '';
+    $('counselStep').style.display = '';
+    $('counselBackStep').style.display = '';
+    $('counselLoader').style.display = 'none';
+  });
 }
 
 // ── Report rendering ──
 const COUNSEL_SEAT_META = {
   researcher: { e: '🔬', n: 'The Researcher' },
   skeptic: { e: '🧐', n: 'The Skeptic' },
-  coach: { e: '🏋️', n: 'The Coach (Lead Counselor)' },
+  coach: { e: '🏋️', n: 'The Coach (Lead Auditor)' },
   safety: { e: '🩺', n: 'The Safety Officer' },
 };
 const SAFETY_COLORS = { GREEN: '#1d9e57', YELLOW: '#d99e00', RED: '#d64545' };
@@ -6720,11 +6778,11 @@ function renderCounselReport() {
 
   const verdictDisclaimer = `<div style="font-size:11.5px;color:var(--mute);margin-top:10px;padding-top:8px;border-top:1px solid var(--line)">This is not medical advice. Talk to your doctor before starting, stopping, or changing any medication or supplement.</div>`;
   if (locked) {
-    html += `<div class="hero-sub" style="margin:0">🔒 The full audit — the complete keep/drop list, your new stack, and the counsel's reasoning — is members-only.</div>${verdictDisclaimer}</div>`;
+    html += `<div class="hero-sub" style="margin:0">🔒 The full audit — the complete keep/drop list, your new stack, and the full reasoning — is members-only.</div>${verdictDisclaimer}</div>`;
   } else {
     html += `${v.confidence_reason ? `<div style="color:var(--mute);font-size:13px;margin-bottom:10px">${escapeHtml(v.confidence_reason)}</div>` : ''}
       <div style="font-size:13.5px;white-space:pre-line;margin-bottom:10px">${escapeHtml(v.reasoning || '')}</div>
-      ${v.where_agreed ? `<div style="font-size:13.5px;margin-bottom:6px"><b>Where the counsel agreed:</b> <span style="color:var(--mute)">${escapeHtml(v.where_agreed)}</span></div>` : ''}
+      ${v.where_agreed ? `<div style="font-size:13.5px;margin-bottom:6px"><b>Where the experts agreed:</b> <span style="color:var(--mute)">${escapeHtml(v.where_agreed)}</span></div>` : ''}
       ${v.where_split ? `<div style="font-size:13.5px;margin-bottom:10px"><b>Where it split:</b> <span style="color:var(--mute)">${escapeHtml(v.where_split)}</span></div>` : ''}
       ${(v.next_actions || []).length ? `<div class="lbl"><span class="lbl-text">Your next 3 moves</span><span class="lbl-opt">Each doable within two weeks</span></div>
         <ol style="margin:4px 0 0 18px;padding:0;font-size:13.5px;display:flex;flex-direction:column;gap:6px">
@@ -6789,7 +6847,7 @@ function renderCounselReport() {
     html += `<div class="wk-card"><div class="wk-hdr"><span class="wk-title">${meta.e} ${meta.n}</span>${dissent ? `<span class="wk-theme" style="color:#d64545;font-weight:700">Dissented</span>` : ''}</div>
       <div style="padding:12px 16px 16px;font-size:13.5px">`;
     if (!op) {
-      html += `<span style="color:var(--mute)">This seat was empty for your session — the President ruled on the remaining opinions.</span>`;
+      html += `<span style="color:var(--mute)">This expert was unavailable — the verdict was reached from the remaining opinions.</span>`;
     } else {
       if (role === 'safety' && op.rating) html += `<div style="margin-bottom:8px">${badge(op.rating, SAFETY_COLORS[op.rating] || '#888')}</div>`;
       html += `<div style="font-weight:700;margin-bottom:${locked ? 0 : 8}px">${escapeHtml(op.position || '')}</div>`;
@@ -6829,19 +6887,19 @@ function renderCounselReport() {
 
   if (locked) {
     html += `<div class="locked-cta-card">
-      <div class="locked-cta-h">The counsel has ruled. Your full audit is members-only.</div>
+      <div class="locked-cta-h">Your audit is complete. The full report is members-only.</div>
       <div class="locked-cta-sub">Unlock the complete keep/drop list, your new stack with brand picks, every expert's full opinion — and follow-up questions to the panel.</div>
       <button class="cta-btn" id="counselUnlockBtn">See the full audit</button>
       <div class="guarantee-note">Start your 7-day free trial · then $19.99/mo or $69.99/yr · cancel anytime</div>
     </div>`;
   } else {
-    // Ask the President — follow-up (needs a saved server session)
+    // Ask a follow-up question against the saved case file (needs a saved server session)
     if (stored.sessionId && isLoggedIn()) {
       html += `<div class="checkin-card">
-        <div class="locked-cta-h" style="font-size:15px">Ask the counsel 🏛️</div>
+        <div class="locked-cta-h" style="font-size:15px">Ask a follow-up 🔎</div>
         <div class="locked-cta-sub" style="margin-bottom:10px">One thing still unclear? Ask a follow-up about your audit.</div>
         <div id="counselFollowups">${(stored.followups || []).map(f => `
-          <div style="padding:6px 0;border-bottom:1px solid var(--line);font-size:13.5px"><b>You:</b> ${escapeHtml(f.question)}<div style="color:var(--mute);margin-top:4px;white-space:pre-line"><b style="color:var(--ink)">President:</b> ${escapeHtml(f.answer)}</div></div>`).join('')}</div>
+          <div style="padding:6px 0;border-bottom:1px solid var(--line);font-size:13.5px"><b>You:</b> ${escapeHtml(f.question)}<div style="color:var(--mute);margin-top:4px;white-space:pre-line"><b style="color:var(--ink)">Answer:</b> ${escapeHtml(f.answer)}</div></div>`).join('')}</div>
         <input type="text" id="counselFollowupInput" class="text-field" maxlength="600" placeholder="e.g. Is the creatine safe with my blood pressure meds?" style="margin:10px 0" />
         <div id="counselFollowupError" class="error-toast" style="display:none;margin-bottom:10px"></div>
         <button class="try-diff-btn" id="counselFollowupBtn" style="margin:0">Ask →</button>
@@ -6908,7 +6966,7 @@ async function submitCounselFollowup() {
   if (!question) { errEl.textContent = 'Type your question first.'; errEl.style.display = ''; return; }
   const btn = $('counselFollowupBtn');
   btn.disabled = true;
-  btn.textContent = 'The President is considering…';
+  btn.textContent = 'Considering your question…';
   errEl.style.display = 'none';
   try {
     const data = await authApi('/api/counsel/followup', {
@@ -6947,12 +7005,19 @@ async function unlockCounselAfterSubscribe() {
   const saved = (() => { try { return JSON.parse(localStorage.getItem(COUNSEL_INTAKE_KEY) || 'null'); } catch (e) { return null; } })();
   if (!saved?.decisionType || !isLoggedIn()) return;
   try {
-    const data = await authApi('/api/counsel', {
+    const started = await authApi('/api/counsel', {
       method: 'POST',
       body: JSON.stringify(saved),
     });
+    if (!started?.jobId) return;
+    try { localStorage.setItem(AUDIT_JOB_KEY, started.jobId); } catch (e) {}
+    const data = await pollAuditJobLoop(started.jobId);
+    try { localStorage.removeItem(AUDIT_JOB_KEY); } catch (e) {}
     storeCounsel(data);
-  } catch (e) { console.warn('counsel unlock regen failed:', e.message); }
+  } catch (e) {
+    try { localStorage.removeItem(AUDIT_JOB_KEY); } catch (e2) {}
+    console.warn('counsel unlock regen failed:', e.message);
+  }
 }
 
 function initCounsel() {
