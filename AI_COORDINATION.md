@@ -20,21 +20,14 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Status:** `Implementation in progress`
+**Status:** `No active task`
 
-**Owner:** Codex
+### Recently shipped — Bridge + hub preview + trial gate (COMPLETE, live-verified 2026-07-17)
 
-**Task:** Bridge screen + logged-out hub preview + membership trial gate, per `handoff-20260717-bridge-hub-trial-gate.md`.
+The post-generation funnel now routes email submit/skip → benefits bridge → logged-out/inactive-member hub preview. The preview shows the user's transformation, the full feature list, and the existing print flow as the first card. Feature taps route through a feature-specific signup gate and the existing 7-day Stripe membership screen; successful checkout resumes the selected feature. Active members keep their normal hub. Native apps show the existing purchase-unavailable treatment. `server.js` and Stripe trial mechanics were unchanged. All six requested PostHog events are present. Shipped in commit `f6edbee`.
 
-**Goal:** Route the post-email funnel through a benefits bridge and hub preview, demote the existing print flow to a hub card, and gate feature taps behind the existing signup + 7-day Stripe trial checkout without server changes.
-
-**Acceptance criteria:** Add and instrument the bridge; preserve both email exits; render the full hub safely for logged-out preview users; preserve the print selector/customizer and return navigation; gate feature taps for logged-out and inactive users; prefill and retitle signup; resume the selected feature after trial checkout; respect native purchase gating; verify locally and in production; commit and push only task files to `main`.
-
-**Completed locally:** Added the benefits bridge and all six requested PostHog events; rewired both email exits; added a safe logged-out/inactive-member hub preview with the print upsell first; preserved the print selector/customizer and hub return path; added feature-specific signup/trial continuation with captured-email prefill and a clean future-questionnaire boundary; kept active members on the normal hub; gated native-app purchase paths; left `server.js` unchanged.
-
-**Verification:** Inline JavaScript parses; new HTML ids are unique; `git diff --check` passes; browser QA passed at 390×844 for bridge layout, bridge → preview, print card → selector → preview, logged-out tool → prefilled trial signup → preview back, and inactive-member tool → existing membership plans → preview back. No browser console errors were observed. No live Stripe purchase was submitted.
-
-**Next action:** Commit only `index.html` plus this coordination update, push `main`, confirm Railway deploy, verify the same safe paths on `https://absbyai.com`, then reset the active task to `No active task`.
+- **Local verification:** JavaScript syntax, unique new ids, and `git diff --check` passed. Browser QA at 390×844 passed bridge layout, bridge → preview, print selector round-trip, logged-out prefilled trial signup/back, and inactive-member membership plans/back with no console errors.
+- **Production verification:** Railway direct URL and `https://absbyai.com` served the new markers. A fresh live flow using the fictional male proof asset passed generation → email "No Thanks" → bridge → hub preview → trial signup gate; print card → existing selector → hub preview also passed. No console errors, email send, account creation, Stripe checkout, or charge occurred.
 
 ### Recently shipped — Macro Tracker v2 (COMPLETE, live-verified 2026-07-17)
 
