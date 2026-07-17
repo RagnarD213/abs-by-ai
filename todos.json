@@ -63,6 +63,11 @@
     {
       "text": "Fix supplement audit problems",
       "priority": "key"
+    },
+    {
+      "text": "Get Zepbound prescription",
+      "priority": "key",
+      "recurring": false
     }
   ],
   "health": [
