@@ -1706,21 +1706,33 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
     }
     userContent.push({ type: 'text', text: textParts.join('\n') });
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 2000,
-        system: MEAL_SYSTEM_PROMPT + (isMealPrep ? MEAL_PREP_ADDENDUM : ''),
-        output_config: { format: { type: 'json_schema', schema: MEAL_SCHEMA } },
-        messages: [{ role: 'user', content: userContent }],
-      }),
-    });
+    // A stalled connection to Anthropic would otherwise hang this fetch
+    // forever (node-fetch has no default timeout) — bound every attempt so
+    // the client's error handling can actually kick in. Same pattern as the
+    // supplement-audit fix (commit 751fe7b) and /api/refine-leftovers above.
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 240000); // Sonnet, up to 3 images — 4 min
+    let response;
+    try {
+      response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 2000,
+          system: MEAL_SYSTEM_PROMPT + (isMealPrep ? MEAL_PREP_ADDENDUM : ''),
+          output_config: { format: { type: 'json_schema', schema: MEAL_SCHEMA } },
+          messages: [{ role: 'user', content: userContent }],
+        }),
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timer);
+    }
 
     const data = await response.json();
 
@@ -1786,6 +1798,9 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
     res.json(payload);
   } catch (err) {
     console.error('Meal analysis error:', err);
+    if (err.name === 'AbortError') {
+      return res.status(504).json({ error: 'Meal analysis timed out. Please try again.' });
+    }
     res.status(500).json({ error: 'Internal server error' });
   }
 });
