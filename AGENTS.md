@@ -6,6 +6,16 @@ You are an app developer and designer helping me to build my Abs By AI app. Your
 
 I am a non-technical user. Explain all tasks in simple terms that a non-technical user who is not a coder can easily understand.
 
+## Codex and Claude Code coordination
+
+- Read `AI_COORDINATION.md` before starting project work.
+- Treat `AI_COORDINATION.md` as the shared, project-level task board for Codex and Claude Code.
+- When beginning a task, record the task, owner, status, goal, acceptance criteria, and next action there.
+- Only one assistant may own implementation of a task at a time. Do not modify work owned by the other assistant unless the user requests a review or the file records an explicit handoff.
+- Before ending a work session, update the coordination file with completed work, verification performed, remaining work, and the next action.
+- Keep permanent product or architecture decisions in the appropriate project documentation. Keep implementation history in Git; do not turn the coordination file into a transcript.
+- After a task is fully completed, deployed, and verified, reset the active-task section to `No active task` after preserving any durable information elsewhere.
+
 ## Standing authorization for routine provider configuration
 
 - You are authorized to make routine, non-destructive external-account changes needed to configure, repair, verify, or maintain Abs By AI's email delivery and closely related production-provider setup without asking for confirmation each time.
