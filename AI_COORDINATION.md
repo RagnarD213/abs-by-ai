@@ -62,9 +62,13 @@ Every new email signup — and the 4 existing real subscribers (backfilled) — 
 
 Verify the `mail.absbyai.com` subdomain in Resend and add its DNS records at Namecheap; then set the Railway env vars (with Dan's real address) and flip `WELCOME_ENABLED=true`; then verify a real signup end-to-end on absbyai.com.
 
-### Prior task (Supplement Audit) — status
+### Prior task (Supplement Audit) — COMPLETE (2026-07-17)
 
-Code complete and pushed (commit `baf25f6`, single async engine). Live-verified a small audit end-to-end. A 12-item live test then exposed a real bug: `callCounselSeat`'s fetch to Anthropic had no timeout (unlike the sibling helper at server.js:3795), so a stalled connection hangs the await forever — the job sat at `status:"running"` for 15+ minutes with no error. Fixed by adding an `AbortController` with a 4-min-per-attempt timeout (same pattern as the existing helper), pushed in a follow-up commit. Still need to re-run a 12-item live audit against the fixed code to confirm it now completes or fails cleanly within ~8 minutes (2 attempts × 4 min) instead of hanging. Not blocking the Welcome Autoresponder task above.
+Done: single-call engine + async job/polling + counsel-language rebrand shipped (commit `baf25f6`), then a live 12-item test exposed a real hang bug — `callCounselSeat`'s fetch to Anthropic had no timeout (unlike the sibling helper at server.js:3795), so a stalled connection could hang the await forever (observed: one job sat at `status:"running"` for 15+ minutes with no error). Fixed with an `AbortController` 4-min-per-attempt timeout, same pattern as the existing helper (commit `751fe7b`).
+
+**Live-verified after the fix:** re-ran the same 12-item stack (meds, budget, 12 supplements incl. a proprietary blend and a stimulant) end-to-end against production. Completed in 445s (first attempt hit the new 4-min timeout as the connection stalled again, retry succeeded) — confirms the fix converts an infinite hang into a bounded ~8-minute-worst-case retry instead. Result was well-formed: correct free-preview locking, safety officer flagged a RED interaction and named it in the verdict, savings math and next steps present. No JSON truncation across the 12-item stack.
+
+Known follow-up (not a blocker, noted for awareness): the client gives up polling and shows "taking longer than expected" after 5 minutes, which is shorter than the ~8-minute worst case if both attempts stall. In that rare case the server-side job still finishes, but the client has already cleared the job id from localStorage, so the user would need to re-run rather than see the already-finished result. Low probability (requires both attempts to hit the connection stall) — only worth revisiting if it shows up in real usage.
 
 ### Last updated
 
