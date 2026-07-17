@@ -20,66 +20,61 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Task:** Supplement Audit — replace five-call counsel engine with a single Sonnet 5 call, fix large-stack failure ("Load failed") via async job + polling, and remove all remaining Decision Counsel language
+**Task:** Welcome Autoresponder on Resend — 5-email welcome sequence sent over ~10 days from a dedicated marketing subdomain. Full spec: `HANDOFF_resend_autoresponder.md`.
 
-**Owner:** Claude Code (Sonnet 5, medium effort) — full implementation spec in `HANDOFF_supplement_audit_async_fix.md` (updated 2026-07-17 to include the single-call redesign; audit runs on claude-sonnet-5 at effort high, cap raised 10→25)
+**Owner:** Claude Code (Opus 4.8, medium effort)
 
-**Status:** Implementation in progress — code complete and tested locally, not yet pushed/deployed/verified live
+**Status:** Implementation in progress — server code complete, tested locally (integration test passes), committed + pushed. Provider config (Resend subdomain + Namecheap DNS + Railway env) and live verification still pending.
 
 **Branch:** `main`
 
 ### Goal
 
-1. A 12-supplement audit completes reliably on mobile Safari. 2. All user-facing copy says "Supplement Audit" — no "counsel", "counselors", "deliberating", or "President's verdict" visible to users.
+Every new email signup — and the 4 existing real subscribers (backfilled) — automatically receives a 5-email welcome sequence (day 0/2/4/7/10) via Resend, from `mail.absbyai.com`, with a working unsubscribe. Test `@example.com` rows are never emailed.
 
-### Root cause (diagnosed 2026-07-17 by Claude Code)
+### Work completed (code)
 
-`POST /api/counsel` (server.js:4874) runs all 5 Claude calls (4 seats @ 8000 max_tokens with one retry each, then the President @ 10000) inside ONE HTTP request with no client timeout handling (index.html:6666, `conveneAudit`). A 12-item stack makes each seat's output much longer; Sonnet 5 adaptive thinking counts toward max_tokens, so long runs can truncate → JSON.parse fails → retry doubles seat time. Dan's test ran ~5 minutes before mobile Safari showed "Load failed" — the connection was killed (proxy/browser timeout) before the server finished. The server work may even have completed after the client gave up; the result was just never delivered.
+- `server.js`: `WELCOME_EMAILS` (5 emails ported from `MAILERLITE_BUILD.md`), `sendWelcomeEmail` (Resend, `MARKETING_FROM`, `Reply-To: dan@absbyai.com`, `List-Unsubscribe` one-click headers), `welcomeSweep()` (clone of `trialReminderSweep` send-then-advance, hourly + first pass 45s after boot), sequence fields (`welcomeStep`/`welcomeNextAt`/`welcomeSentAt`/`unsubscribed`) initialized on `/api/subscribe` and lazily backfilled on boot + in-sweep (excludes `@example.com`), `GET|POST /api/unsubscribe` with HMAC-signed non-enumerable token + confirmation page, CAN-SPAM postal-address footer.
+- **Safety gate:** the sweep is a no-op unless `WELCOME_ENABLED=true` (defaults off), so the deployed code sends nothing until the subdomain is verified and the switch is flipped. `MARKETING_FROM` falls back to the transactional identity if unset.
+- Local integration test (mocked Resend): Email 1 sends to a real user, `@example.com` excluded, correct from/reply-to/headers/footer, idempotent re-sweep, one-click unsubscribe works, forged token rejected, unsubscribed user gets nothing further. All pass.
 
-### Acceptance criteria
+### New env vars (Railway — set before enabling)
 
-- Audit runs as an async job: POST starts it and returns a job id immediately; the client polls (~every 3–5 s) a status endpoint until done, then renders the report. No HTTP request lasts longer than a few seconds.
-- If the phone locks or the tab backgrounds mid-run, reopening the page resumes polling (job id kept in localStorage) instead of failing.
-- Seat max_tokens raised (suggest 12000 seats / 16000 President) so a 12-item stack doesn't truncate.
-- All user-facing counsel language replaced ("The counsel is deliberating…" → "Your Supplement Audit is in progress…", "Meet your counsel" → e.g. "Meet your audit team", "Ask the counsel", "The counsel has ruled", counselor/President card labels reworded, membership blurb at index.html:2133). Internal variable/endpoint names (COUNSEL_*, /api/counsel, counsel_sessions) may stay.
-- Verified live at absbyai.com with a 12-item stack.
+- `MARKETING_FROM` = `Dan from Abs by AI <dan@mail.absbyai.com>`
+- `MARKETING_ADDRESS` = real business mailing address (Dan to provide; placeholder in code until then)
+- `WELCOME_ENABLED` = `true` (flip ON only after `mail.absbyai.com` is verified in Resend)
+- Optional: `MARKETING_REPLY_TO` (defaults `dan@absbyai.com`), `UNSUBSCRIBE_SECRET` (falls back to an existing secret)
+- Remove/rotate `MAILERLITE_API_KEY` (was pasted in chat; sync already no-ops without it).
 
-### Work completed
+### Remaining work
 
-- Single-call engine: `MASTER_SCHEMA` + `buildMasterSystemPrompt` (server.js) merge the four seat schemas/prompts + `PRESIDENT_SCHEMA`/`PRESIDENT_PROMPT` into one call (`claude-sonnet-5`, `effort: 'high'`, `max_tokens: 24000`). Old Phase 1 (parallel seats) + Phase 2 (President) orchestration deleted. `COUNSEL_MONTHLY_CAP` raised 10→25.
-- Async job: new `audit_jobs` Postgres table (db.js) + in-memory `Map` fallback for local dev without `DATABASE_URL`. `POST /api/counsel` now validates/checks the cap, creates a job row, responds `{ jobId }` immediately, then runs `runSupplementAuditJob` detached. New `GET /api/counsel/job/:id` polls status (`running` / `done` + result / `error` + message), scoped to the owning user or anonymous-by-unguessable-id.
-- Client (`index.html`): `conveneAudit` now POSTs, stores the job id in `localStorage` (`absbyai_audit_job`), and polls via new `pollAuditJobLoop` every 4s (drops ignored, gives up after ~5 min). `resumeAuditJobIfPending()` runs on every page load and reopens the loader if a job was left running; `restoreSession()`'s `showHub()` is now guarded so it doesn't clobber a resumed loader. `unlockCounselAfterSubscribe` (re-run after a free user subscribes) updated to the same job/poll pattern.
-- Copy rebrand: loader text, "Meet your audit team", seat labels ("Lead Auditor" / "Head Auditor"), locked/unlocked report copy, follow-up card + button + answer label, membership blurb (index.html:2133) and landing footnote both now say 25/month. Server-side follow-up error strings reworded too. Grepped both files for residual counsel/President/deliberat strings — only internal identifiers, code comments, and console.warn text remain (explicitly allowed to stay per the handoff).
-- Followup endpoint moved to `effort: 'high'`; `buildPresidentContent` simplified (dropped the now-dead `missingSeats` branch, kept as the case-file builder for follow-ups only).
+1. Resend: add & verify sending subdomain `mail.absbyai.com` → get DKIM/SPF/MX records.
+2. Namecheap → absbyai.com → Advanced DNS: add those records (do NOT touch the root `@` SPF). Standing DNS auth covers this.
+3. Railway: set the env vars above (incl. real `MARKETING_ADDRESS` from Dan), remove `MAILERLITE_API_KEY`, set `WELCOME_ENABLED=true`.
+4. Verify live on absbyai.com: real signup receives Email 1 in the inbox (not spam); unsubscribe works. Optionally shorten delays to watch 1→5 (spec §6), then restore.
 
-### Files changed
+### Blocked on / needs from Dan
 
-- `server.js` — single-call engine, async job table/endpoints, followup tweaks
-- `db.js` — `audit_jobs` table
-- `index.html` — job-polling client, resume-on-reload, copy rebrand
-- `AI_COORDINATION.md` (this plan)
-
-### Verification performed
-
-- `node -c` on server.js/db.js and a full inline-JS syntax check on index.html — clean.
-- Local run with dummy Anthropic key (`.claude/launch.json` preview): confirmed `POST /api/counsel` returns `{jobId}` immediately, the job retries once then fails gracefully with a friendly error, `GET /api/counsel/job/:id` returns 404 for unknown ids, and the browser flow (loader copy, polling, error surfaced, form restored, localStorage cleared) all work end to end. Also confirmed the resume-on-reload path: a job id left in localStorage reopens the loader screen (not the hub) and silently returns to the landing screen on a 404.
-- NOT yet verified: a real multi-item audit against the live Anthropic API (needs the real key — only available on Railway/production per prior notes on this repo).
-
-### Remaining work or blockers
-
-- Push to `main`, confirm Railway auto-deploy, then run a real multi-item (ideally 12-item) Supplement Audit live at absbyai.com to confirm the single Claude call succeeds and the full report renders for a member.
-
-### Decisions or context the next assistant needs
-
-- The async-job design and single-call redesign are both implemented as specified in `HANDOFF_supplement_audit_async_fix.md` — no open design questions remain, only live verification.
+- Real physical mailing address for the CAN-SPAM footer (`MARKETING_ADDRESS`).
+- Confirmed: backfill all 4 real subscribers into the sequence.
 
 ### Next action
 
-Push to main, confirm Railway deploy, and verify a multi-item Supplement Audit end-to-end on absbyai.com (as a logged-in member, to see the full unlocked report). Once verified, reset this section to `No active task`.
+Verify the `mail.absbyai.com` subdomain in Resend and add its DNS records at Namecheap; then set the Railway env vars (with Dan's real address) and flip `WELCOME_ENABLED=true`; then verify a real signup end-to-end on absbyai.com.
+
+### Prior task (Supplement Audit) — status
+
+Code complete, committed, and pushed (commit `baf25f6`, single async engine). Only remaining item: live end-to-end verification of a multi-item audit on absbyai.com as a logged-in member. Not blocking this task.
 
 ### Last updated
 
 2026-07-17 by Claude Code
+
+---
+
+## Queued (next up after the active task)
+
+**Task:** None currently queued. (The Welcome Autoresponder moved to the active-task section above; the Supplement Audit's remaining live verification is tracked there too.)
 
 ---
 

@@ -2168,15 +2168,59 @@ app.post('/api/subscribe', async (req, res) => {
   if (existing?.synced) return res.json({ ok: true }); // already captured + synced
 
   const synced = await pushToMailerLite(email);
-  subscribersStore.emails[email] = {
+  const entry = {
     subscribedAt: existing?.subscribedAt || new Date().toISOString(),
     deviceId: existing?.deviceId || deviceId,
     synced,
   };
+  // Preserve any existing welcome-sequence progress on a retry; initialize it
+  // (welcomeStep 0, due now) only for a genuinely new subscriber.
+  if (existing && existing.welcomeStep !== undefined) {
+    entry.welcomeStep   = existing.welcomeStep;
+    entry.welcomeNextAt = existing.welcomeNextAt;
+    entry.welcomeSentAt = existing.welcomeSentAt;
+    entry.unsubscribed  = existing.unsubscribed;
+    if (existing.excluded) entry.excluded = true;
+  } else {
+    ensureWelcomeFields(email, entry); // new subscriber → Email 1 on next sweep
+  }
+  subscribersStore.emails[email] = entry;
   persistSubscribersStore(); // fire-and-forget; in-memory copy is source of truth
   console.log(`Subscriber ${existing ? 'retried' : 'added'}: ${email} (MailerLite sync: ${synced})`);
   res.json({ ok: true });
 });
+
+// One-click / link unsubscribe from the welcome sequence. GET is used by the
+// footer link; POST is used by Gmail/Apple Mail one-click (List-Unsubscribe-Post).
+// The token is an HMAC of the email so the link can't be guessed or enumerated.
+function unsubscribePage(message) {
+  return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abs by AI</title></head>
+<body style="font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#fafafa;color:#111;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0">
+<div style="max-width:440px;text-align:center;padding:32px">
+<h1 style="font-size:22px;margin:0 0 12px">${message}</h1>
+<p style="color:#666;font-size:15px;line-height:1.5">You can still use everything on <a href="${SITE_URL}" style="color:#111">absbyai.com</a> — this only affects the welcome emails.</p>
+</div></body></html>`;
+}
+
+async function handleUnsubscribe(req, res) {
+  const email = String(req.query?.email || '').trim().toLowerCase();
+  const token = String(req.query?.token || '');
+  if (!email || !unsubTokenValid(email, token)) {
+    return res.status(400).send(unsubscribePage("That unsubscribe link isn't valid."));
+  }
+  const entry = subscribersStore.emails[email];
+  if (entry && !entry.unsubscribed) {
+    entry.unsubscribed = true;
+    entry.unsubscribedAt = new Date().toISOString();
+    persistSubscribersStore();
+    console.log(`Unsubscribed from welcome sequence: ${email}`);
+  }
+  res.status(200).send(unsubscribePage("You're unsubscribed."));
+}
+
+app.get('/api/unsubscribe', handleUnsubscribe);
+app.post('/api/unsubscribe', handleUnsubscribe);
 
 // ============================================================
 // ACCOUNTS — email/password auth, sessions, meal sync (Postgres)
@@ -2313,6 +2357,27 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const RESET_FROM     = process.env.RESET_FROM || 'Abs by AI <noreply@absbyai.com>';
 const SITE_URL       = process.env.SITE_URL || 'https://absbyai.com';
 
+// ── Marketing (welcome autoresponder) sending identity ──
+// Sent from a DEDICATED subdomain (mail.absbyai.com) so a marketing spam
+// complaint can never taint password-reset / trial deliverability on the root
+// domain. MARKETING_FROM must be a Resend-verified sender on that subdomain;
+// until it's set we fall back to the transactional identity so nothing breaks,
+// but the sweep is also gated on WELCOME_ENABLED so it stays off until DNS is
+// verified. Reply-To routes real replies to Dan's inbox (Namecheap forwarding).
+const MARKETING_FROM     = process.env.MARKETING_FROM || RESET_FROM;
+const MARKETING_REPLY_TO = process.env.MARKETING_REPLY_TO || 'dan@absbyai.com';
+// Master on/off switch for the welcome sequence. Off by default so the sweep
+// can't send from an unverified subdomain; flip WELCOME_ENABLED=true on Railway
+// only after mail.absbyai.com is verified in Resend.
+const WELCOME_ENABLED    = process.env.WELCOME_ENABLED === 'true';
+// Signs unsubscribe links so they can't be guessed/enumerated. Falls back to an
+// existing always-set server secret so links are stable without new config.
+const UNSUB_SECRET       = process.env.UNSUBSCRIBE_SECRET || STRIPE_WEBHOOK_SECRET || GITHUB_TOKEN || 'absbyai-unsub';
+// CAN-SPAM requires a real physical postal address in every marketing email.
+// TODO(Dan): replace this placeholder with the real business mailing address
+// before enabling the sequence live.
+const MARKETING_ADDRESS  = process.env.MARKETING_ADDRESS || 'Abs by AI — [MAILING ADDRESS PENDING]';
+
 async function sendResetEmail(email, token) {
   if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — reset email skipped for', email); return; }
   const link = `${SITE_URL}/?reset=${token}`;
@@ -2364,6 +2429,195 @@ async function sendTrialEndingEmail(email, plan) {
     console.error('sendTrialEndingEmail error:', e.message);
     return false;
   }
+}
+
+// ============================================================
+// WELCOME AUTORESPONDER — 5-email sequence over ~10 days (Resend)
+// ============================================================
+// Every new email-capture (and the existing backfilled subscribers) receives a
+// short 5-email welcome sequence: day 0 / 2 / 4 / 7 / 10. Copy lives here (ported
+// from MAILERLITE_BUILD.md). Sending is idempotent — welcomeSweep advances a
+// subscriber's step ONLY after Resend accepts the send, so an outage defers
+// rather than skips, and no step is ever sent twice.
+
+// Days to wait AFTER sending email index i (0-based) before the next is due.
+// [after E1 → 2d, after E2 → 2d, after E3 → 3d, after E4 → 3d]; after E5 → done.
+const WELCOME_DELAYS_DAYS = [2, 2, 3, 3];
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+// Signed, non-enumerable unsubscribe token (HMAC of the lowercased email).
+function unsubToken(email) {
+  return crypto.createHmac('sha256', UNSUB_SECRET).update(String(email).toLowerCase()).digest('hex');
+}
+function unsubTokenValid(email, token) {
+  const expected = unsubToken(email);
+  const a = Buffer.from(String(token || ''), 'utf8');
+  const b = Buffer.from(expected, 'utf8');
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+function unsubscribeUrl(email) {
+  return `${SITE_URL}/api/unsubscribe?email=${encodeURIComponent(email)}&token=${unsubToken(email)}`;
+}
+
+// The 5 emails. `body` is the inner HTML; the footer (unsubscribe + postal
+// address) is appended by wrapWelcomeHtml. Plain-text-style markup only (no
+// images) for best inboxing on a warming subdomain.
+const WELCOME_EMAILS = [
+  {
+    subject: 'Your future self is ready 💪',
+    body: `
+<p>Hey — it's Dan from Abs by AI.</p>
+<p>You just did something most people never do: you actually <em>looked</em> at where you're headed. That image isn't a fantasy — it's a target.</p>
+<p>Here's what to do with it right now:</p>
+<p><strong>1. Set it as your lockscreen.</strong> You unlock your phone ~150 times a day. That's 150 reminders of where you're going. (Your watermark-free download is unlocked on <a href="${SITE_URL}">absbyai.com</a> — grab it if you haven't.)</p>
+<p><strong>2. Tell one person.</strong> Goals you say out loud are the ones that happen.</p>
+<p>Over the next week I'll send you a few short emails on how people actually close the gap between the before and the after photo. No fluff, no 45-minute YouTube videos — just the stuff that works.</p>
+<p><strong>Do me one favor:</strong> hit reply and tell me your goal — even one line. I read every single one, and it makes sure these emails land in your inbox instead of promotions. (While you're at it, add dan@absbyai.com to your contacts.)</p>
+<p>Talk soon,<br>Dan</p>`,
+  },
+  {
+    subject: 'Put your future self on the wall',
+    body: `
+<p>Quick question: where's your image right now?</p>
+<p>If the answer is "buried in my camera roll," it's already losing power. Motivation research is boringly consistent on this — visual cues in your environment beat willpower every time. Out of sight, out of mind isn't a cliché, it's how your brain works.</p>
+<p>That's why we print them.</p>
+<p><strong>Your future self, on canvas, on your wall.</strong> Gym corner, home office, bathroom mirror wall — wherever you'll see it when the 6am alarm goes off and you're negotiating with yourself.</p>
+<ul>
+<li>Poster from <strong>$18</strong></li>
+<li>Gallery canvas from <strong>$34</strong></li>
+<li>Framed canvas from <strong>$75</strong></li>
+</ul>
+<p>→ <a href="${SITE_URL}">Print my future self</a></p>
+<p>Every morning it asks you one question: <em>are we doing this or not?</em></p>
+<p>— Dan</p>`,
+  },
+  {
+    subject: 'The 3 levers (ignore everything else)',
+    body: `
+<p>The fitness industry makes money by making this complicated. It isn't. Getting from your before to your after is three levers:</p>
+<p><strong>1. Calorie deficit.</strong> You cannot out-train a surplus. A modest deficit (300–500 cal/day) loses fat without wrecking your energy.</p>
+<p><strong>2. Protein.</strong> Roughly 0.7–1g per pound of goal bodyweight. It protects muscle while you cut and keeps you full. Most people are at half that.</p>
+<p><strong>3. Consistency over intensity.</strong> Four okay workouts a week for a year beats two perfect weeks followed by quitting. Every time.</p>
+<p>That's it. Lever 1 and 2 are won or lost in the kitchen, which is why we built a <strong>free macro tracker</strong> into Abs by AI — snap your meal, get calories and protein instantly. No accounts, no BS.</p>
+<p>→ <a href="${SITE_URL}">Track a meal in 10 seconds</a></p>
+<p>— Dan</p>`,
+  },
+  {
+    subject: 'What does 6 months vs. 2 years look like?',
+    body: `
+<p>Here's something interesting from our data: the people most likely to actually follow through generate <strong>more than one</strong> future self.</p>
+<p>Makes sense when you think about it —</p>
+<ul>
+<li>The <strong>6-month version</strong>: realistic, near, keeps you honest</li>
+<li>The <strong>2-year version</strong>: the full transformation, keeps you dreaming</li>
+<li>The <strong>"what if I really committed"</strong> version: your ceiling</li>
+</ul>
+<p>One image is a picture. A progression is a plan.</p>
+<p>You've got credits waiting at <a href="${SITE_URL}">absbyai.com</a> — and if you're out, the Starter Pack is <strong>5 generations for $4.99</strong> (Power Pack: 20 for $14.99). Try different timeframes, different goals, even different styles.</p>
+<p>→ <a href="${SITE_URL}">Generate my 2-year self</a></p>
+<p>— Dan</p>`,
+  },
+  {
+    subject: 'You\'re not "trying to lose weight"',
+    body: `
+<p>Ten days since you saw your future self. Here's the mental trick that separates people who make it from people who don't:</p>
+<p>Stop saying "I'm trying to lose weight." Start saying "I'm becoming <em>that guy/girl</em>" — the one in the image.</p>
+<p>James Clear calls it identity-based habits: you don't chase outcomes, you vote for an identity. Every workout is a vote. Every tracked meal is a vote. Skipping one isn't failure, it's just a vote the other way — win the count, not every ballot.</p>
+<p>This is exactly why a printed future self works so well. It's not decor. It's your identity, staring back at you, asking for your vote today.</p>
+<p>If you didn't grab one last week: posters from $18, canvas from $34 → <a href="${SITE_URL}">absbyai.com</a></p>
+<p>Proud of you for still being here. Most people's motivation died 6 days ago.</p>
+<p>— Dan</p>`,
+  },
+];
+
+// Wrap an email body with the compliant footer (unsubscribe + postal address).
+function wrapWelcomeHtml(email, innerHtml) {
+  return `<div style="font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;color:#111;max-width:560px">
+${innerHtml}
+<hr style="border:none;border-top:1px solid #e5e5e5;margin:28px 0 14px">
+<p style="font-size:12px;color:#888;line-height:1.5">
+You're receiving this because you signed up at absbyai.com.<br>
+<a href="${unsubscribeUrl(email)}" style="color:#888">Unsubscribe</a> from these emails at any time.<br>
+${MARKETING_ADDRESS}
+</p>
+</div>`;
+}
+
+// Send welcome email index `idx` (0-based). Returns true only when Resend
+// accepts it, so the sweep advances the subscriber only on a real send.
+async function sendWelcomeEmail(email, idx) {
+  const tmpl = WELCOME_EMAILS[idx];
+  if (!tmpl) return false;
+  if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — welcome email skipped for', email); return false; }
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: MARKETING_FROM,
+        to: [email],
+        reply_to: MARKETING_REPLY_TO,
+        subject: tmpl.subject,
+        html: wrapWelcomeHtml(email, tmpl.body),
+        // One-click unsubscribe for Gmail/Apple Mail (RFC 8058).
+        headers: {
+          'List-Unsubscribe': `<${unsubscribeUrl(email)}>`,
+          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+        },
+      }),
+    });
+    if (!res.ok) { console.error('Resend error (welcome):', res.status, (await res.text()).slice(0, 300)); return false; }
+    return true;
+  } catch (e) {
+    console.error('sendWelcomeEmail error:', e.message);
+    return false;
+  }
+}
+
+// Ensure a subscriber entry has the welcome-sequence fields. Test/junk addresses
+// (@example.com) are marked excluded so they never enter the sequence. Returns
+// true if it mutated the entry (so the caller can persist).
+function ensureWelcomeFields(email, entry) {
+  if (!entry || entry.welcomeStep !== undefined) return false;
+  if (/@example\.com$/i.test(email)) {
+    entry.welcomeStep = WELCOME_EMAILS.length; // done
+    entry.excluded = true;
+    return true;
+  }
+  entry.welcomeStep = 0;
+  entry.welcomeNextAt = new Date().toISOString();
+  entry.welcomeSentAt = {};
+  entry.unsubscribed = false;
+  return true;
+}
+
+// The welcome sweep — clone of trialReminderSweep's send-then-advance pattern.
+async function welcomeSweep() {
+  if (!WELCOME_ENABLED) return;
+  let changed = false;
+  const now = Date.now();
+  for (const [email, entry] of Object.entries(subscribersStore.emails)) {
+    if (!entry) continue;
+    // Lazily backfill sequence fields on any entry that predates this feature.
+    if (ensureWelcomeFields(email, entry)) changed = true;
+    if (entry.excluded || entry.unsubscribed) continue;
+    if (entry.welcomeStep >= WELCOME_EMAILS.length) continue;
+    if (/@example\.com$/i.test(email)) continue;
+    if (entry.welcomeNextAt && new Date(entry.welcomeNextAt).getTime() > now) continue;
+
+    const idx = entry.welcomeStep; // 0-based index of the email to send
+    const sent = await sendWelcomeEmail(email, idx);
+    if (!sent) continue; // defer to next pass on any failure
+
+    entry.welcomeStep = idx + 1;
+    entry.welcomeSentAt = entry.welcomeSentAt || {};
+    entry.welcomeSentAt[String(idx + 1)] = new Date().toISOString();
+    const delayDays = WELCOME_DELAYS_DAYS[idx];
+    entry.welcomeNextAt = delayDays ? new Date(now + delayDays * DAY_MS).toISOString() : null;
+    changed = true;
+    console.log(`Welcome email ${idx + 1}/${WELCOME_EMAILS.length} sent to ${email}`);
+  }
+  if (changed) persistSubscribersStore();
 }
 
 const sha256 = (s) => crypto.createHash('sha256').update(s).digest('hex');
@@ -6074,6 +6328,14 @@ loadCreditsStore().then(s => { creditsStore = s; console.log('Credits store load
 loadSubscribersStore().then(async s => {
   subscribersStore = s;
   console.log('Subscribers store loaded');
+  // Backfill welcome-sequence fields onto any subscriber captured before this
+  // feature existed (the 4 real signups). @example.com test rows are marked
+  // excluded so they never get emailed. New signups init on capture instead.
+  let backfilled = 0;
+  for (const [email, entry] of Object.entries(subscribersStore.emails)) {
+    if (ensureWelcomeFields(email, entry)) backfilled++;
+  }
+  if (backfilled) { persistSubscribersStore(); console.log(`Backfilled welcome fields for ${backfilled} subscriber(s)`); }
   // Heal addresses captured while MailerLite was unconfigured or unreachable.
   if (!MAILERLITE_API_KEY) return;
   let healed = 0;
@@ -6346,7 +6608,13 @@ const TRIAL_REMINDER_MS = 60 * 60 * 1000;
 setTimeout(() => { trialReminderSweep(); }, 30 * 1000).unref?.();
 setInterval(() => { trialReminderSweep(); }, TRIAL_REMINDER_MS).unref?.();
 
+// Welcome-autoresponder sweep — hourly, first pass shortly after boot. No-op
+// until WELCOME_ENABLED=true (set on Railway once mail.absbyai.com is verified).
+const WELCOME_SWEEP_MS = 60 * 60 * 1000;
+setTimeout(() => { welcomeSweep(); }, 45 * 1000).unref?.();
+setInterval(() => { welcomeSweep(); }, WELCOME_SWEEP_MS).unref?.();
+
 // Exposed for tests. Requiring this module also starts the server; tests point
 // DATABASE_URL at pgmem:// and stub the stripe / node-fetch modules.
-module.exports = { app, db, trialReminderSweep, fulfillMembershipSession };
+module.exports = { app, db, trialReminderSweep, welcomeSweep, fulfillMembershipSession };
 
