@@ -20,7 +20,11 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Status:** `No active task`
+**Status:** `Implementation in progress`
+
+**Owner:** Claude Code
+
+**Task:** Macro Tracker v2 — multi-photo meal analysis, meal-prep saved meals, uneaten-food subtraction. Full decided plan: `handoff-20260717-macro-tracker-v2.md` (project root). Starting Part A (multi-photo) in `server.js` + `index.html`, then B, C, D per the handoff.
 
 ### Recently shipped — Welcome Autoresponder on Resend (COMPLETE, live-verified 2026-07-17)
 
@@ -50,6 +54,14 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 ## Queued (next up after the active task)
 
 **Task:** Macro Tracker v2 — multi-photo meal analysis, meal-prep saved meals (batch photo ÷ servings, one-tap logging), and uneaten-food subtraction (quick chips + leftover-photo Haiku endpoint). Full decided plan: `handoff-20260717-macro-tracker-v2.md` (project root). All product decisions are made in that doc; implementation not started. A separate follow-on task (eval harness + calibration retune, waiting on Dan weighing ~20 meals) is intentionally excluded from it.
+
+**Task:** Onboarding funnel revamp — approved 2026-07-17, split into three handoffs (1 and 2 independent of each other; 3 depends on 2):
+
+1. `handoff-20260717-proof-strip-locked-teaser.md` — screen-1 proof strip + blurred-abs locked-result teaser. Routine UI; Codex-eligible. Needs Dan's approval on example images.
+2. `handoff-20260717-bridge-hub-trial-gate.md` — replace print-first screens 4–5 with a benefits bridge screen → logged-out hub preview (print upsell demoted to a top card) → trial gate reusing the existing Stripe 7-day trial. Codex-eligible.
+3. `handoff-20260717-member-profile-questionnaire.md` — shared per-account member profile + 5–6 question pre-trial quiz; all features read/write it. Claude-owned (cross-feature architecture + Anthropic prompt code).
+
+Each handoff contains all settled decisions, model/effort recommendations, and a ready-to-paste starter prompt. Implementation not started.
 
 ---
 
