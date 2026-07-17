@@ -3,32 +3,52 @@
     "absbyai-prod-test@example.com": {
       "subscribedAt": "2026-07-03T22:09:57.849Z",
       "deviceId": "prod-check",
-      "synced": true
+      "synced": true,
+      "welcomeStep": 5,
+      "excluded": true
     },
     "deploy-verify@example.com": {
       "subscribedAt": "2026-07-03T22:21:05.923Z",
       "deviceId": "dv1",
-      "synced": true
+      "synced": true,
+      "welcomeStep": 5,
+      "excluded": true
     },
     "dan@socialresponsemarketing.com": {
       "subscribedAt": "2026-07-04T02:07:47.645Z",
       "deviceId": "dev-1783035492121-rr3he75n",
-      "synced": true
+      "synced": true,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-07-17T15:48:37.969Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     },
     "danroseconsulting@gmail.com": {
       "subscribedAt": "2026-07-07T23:46:27.492Z",
       "deviceId": "dev-1781745122020-mnwdv5nv",
-      "synced": true
+      "synced": true,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-07-17T15:48:37.969Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     },
     "edobediting@gmail.com": {
       "subscribedAt": "2026-07-11T23:14:56.930Z",
       "deviceId": "dev-1783811135817-lzzfbo8w",
-      "synced": true
+      "synced": true,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-07-17T15:48:37.969Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     },
     "maceylinden@gmail.com": {
       "subscribedAt": "2026-07-16T23:06:01.297Z",
       "deviceId": "dev-1783798589023-wkcy6i0e",
-      "synced": true
+      "synced": true,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-07-17T15:48:37.969Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
