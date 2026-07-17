@@ -20,7 +20,21 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Status:** `No active task`
+**Status:** `Implementation in progress`
+
+**Owner:** Codex
+
+**Task:** Bridge screen + logged-out hub preview + membership trial gate, per `handoff-20260717-bridge-hub-trial-gate.md`.
+
+**Goal:** Route the post-email funnel through a benefits bridge and hub preview, demote the existing print flow to a hub card, and gate feature taps behind the existing signup + 7-day Stripe trial checkout without server changes.
+
+**Acceptance criteria:** Add and instrument the bridge; preserve both email exits; render the full hub safely for logged-out preview users; preserve the print selector/customizer and return navigation; gate feature taps for logged-out and inactive users; prefill and retitle signup; resume the selected feature after trial checkout; respect native purchase gating; verify locally and in production; commit and push only task files to `main`.
+
+**Completed locally:** Added the benefits bridge and all six requested PostHog events; rewired both email exits; added a safe logged-out/inactive-member hub preview with the print upsell first; preserved the print selector/customizer and hub return path; added feature-specific signup/trial continuation with captured-email prefill and a clean future-questionnaire boundary; kept active members on the normal hub; gated native-app purchase paths; left `server.js` unchanged.
+
+**Verification:** Inline JavaScript parses; new HTML ids are unique; `git diff --check` passes; browser QA passed at 390×844 for bridge layout, bridge → preview, print card → selector → preview, logged-out tool → prefilled trial signup → preview back, and inactive-member tool → existing membership plans → preview back. No browser console errors were observed. No live Stripe purchase was submitted.
+
+**Next action:** Commit only `index.html` plus this coordination update, push `main`, confirm Railway deploy, verify the same safe paths on `https://absbyai.com`, then reset the active task to `No active task`.
 
 ### Recently shipped — Macro Tracker v2 (COMPLETE, live-verified 2026-07-17)
 

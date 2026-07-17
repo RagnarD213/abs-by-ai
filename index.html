@@ -1141,6 +1141,17 @@ html, body {
   margin-bottom: 18px;
 }
 
+/* ── Post-generation benefits bridge ── */
+.bridge-benefits { display: flex; flex-direction: column; gap: 9px; margin: 18px 0 22px; }
+.bridge-benefit {
+  display: flex; align-items: flex-start; gap: 12px; padding: 14px;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
+}
+.bridge-benefit-icon { font-size: 22px; line-height: 1.2; flex-shrink: 0; }
+.bridge-benefit-name { font-size: 14.5px; font-weight: 800; letter-spacing: -0.1px; margin-bottom: 2px; }
+.bridge-benefit-copy { font-size: 12.5px; color: var(--mute); line-height: 1.42; }
+.bridge-section .ba-img { height: 190px; }
+
 /* ── Accounts: login link, hub ── */
 .login-link, .hub-logout-btn {
   background: none; border: none; cursor: pointer;
@@ -1174,6 +1185,16 @@ html, body {
 .hub-tile-name { font-size: 14.5px; font-weight: 700; letter-spacing: -0.1px; }
 .hub-tile-sub { font-size: 12px; color: var(--mute); }
 .hub-tile-chev { color: var(--mute); flex-shrink: 0; }
+.hub-print-card { overflow: hidden; border-color: var(--acc-line); background: var(--acc-soft); }
+.hub-print-thumb {
+  width: 48px; height: 58px; object-fit: cover; flex-shrink: 0;
+  border-radius: 8px; background: #f1efea; border: 1px solid var(--line2);
+}
+.hub-preview-note {
+  margin-bottom: 16px; padding: 12px 14px; border-radius: 12px;
+  background: var(--acc-soft); border: 1px solid var(--acc-line);
+  color: var(--mute); font-size: 13px; line-height: 1.45;
+}
 
 /* ── Daily Coach Brief ── */
 .brief-card {
@@ -1680,7 +1701,48 @@ html, body {
     <button id="emailSkipBtn" class="try-diff-btn" style="margin-top:16px">No Thanks</button>
   </div>
 
-  <!-- ════════════════ SCREEN 4: PRODUCT SELECTOR ════════════════ -->
+  <!-- ════════════════ SCREEN 4: BENEFITS BRIDGE ════════════════ -->
+  <div id="bridgeSection" class="screen bridge-section" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="bridgeBackBtn" title="Back">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Your plan</span>
+      <span style="width:26px"></span>
+    </div>
+
+    <div class="before-after-grid">
+      <div>
+        <div class="ba-col-label">Today</div>
+        <img id="bridgeBeforeImg" class="ba-img" alt="You today" />
+      </div>
+      <div>
+        <div class="ba-col-label after-lbl">Your goal</div>
+        <img id="bridgeAfterImg" class="ba-img" alt="Your AI-generated goal" />
+      </div>
+    </div>
+
+    <div class="hero-h1" style="font-size:27px;line-height:1.08;margin-bottom:6px">Here's how Abs by AI helps you build your dream body</div>
+
+    <div class="bridge-benefits">
+      <div class="bridge-benefit">
+        <span class="bridge-benefit-icon">🏋️</span>
+        <span><div class="bridge-benefit-name">AI Trainer</div><div class="bridge-benefit-copy">A personalized workout program built to get you to that photo</div></span>
+      </div>
+      <div class="bridge-benefit">
+        <span class="bridge-benefit-icon">🍽️</span>
+        <span><div class="bridge-benefit-name">Macro Tracker + AI Nutritionist</div><div class="bridge-benefit-copy">Snap a photo of any meal, get calories and macros instantly</div></span>
+      </div>
+      <div class="bridge-benefit">
+        <span class="bridge-benefit-icon">📈</span>
+        <span><div class="bridge-benefit-name">Progress Log</div><div class="bridge-benefit-copy">Track your body next to your goal photo and watch yourself close the gap</div></span>
+      </div>
+    </div>
+
+    <button id="bridgeContinueBtn" class="cta-btn">Continue</button>
+  </div>
+
+  <!-- ════════════════ PRINT PRODUCT SELECTOR ════════════════ -->
   <div id="productSection" class="screen" style="display:none">
     <div class="nav-bar">
       <button class="nav-icon-btn" id="productBackBtn" title="Back">
@@ -1823,8 +1885,15 @@ html, body {
       <button id="hubLogoutBtn" class="hub-logout-btn">Log out</button>
     </div>
 
-    <div class="hero-h1" style="font-size:26px;line-height:1.1;margin-bottom:4px">Welcome back</div>
+    <div class="hero-h1" id="hubWelcomeTitle" style="font-size:26px;line-height:1.1;margin-bottom:4px">Welcome back</div>
     <div class="hero-sub" id="hubEmail" style="margin-bottom:16px"></div>
+
+    <div id="hubPreviewNote" class="hub-preview-note app-hide-purchase" style="display:none">
+      Explore everything built to help you reach your goal. Tap any tool to start your 7-day free trial and unlock it.
+    </div>
+    <div id="hubPreviewAppNote" class="app-only-note app-note-box" style="display:none">
+      Explore the tools below. Memberships aren't available for purchase in the app; sign in if you're already a member.
+    </div>
 
     <!-- Membership card -->
     <div id="hubMembershipCard" class="hub-tile" style="display:none;margin-bottom:16px;flex-direction:column;gap:12px;align-items:stretch">
@@ -1868,6 +1937,11 @@ html, body {
     </div>
 
     <div class="hub-tiles">
+      <button id="hubPrintUpsell" class="hub-tile hub-print-card" style="display:none">
+        <img id="hubPrintThumb" class="hub-print-thumb" alt="Your future self" />
+        <span class="hub-tile-body"><span class="hub-tile-name">Print your future self — from $18</span><span class="hub-tile-sub">Turn your goal photo into a poster or canvas</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
       <button id="hubBecomeMemBtn" class="hub-tile" style="display:none;background:var(--acc-soft);border-color:var(--acc-line)">
         <span class="hub-tile-emoji">⭐</span>
         <span class="hub-tile-body"><span class="hub-tile-name">Become a member</span><span class="hub-tile-sub">Unlimited transformations, AI trainer &amp; meal plans</span></span>
@@ -2825,7 +2899,7 @@ Output ONLY the final image-editing prompt as plain text. No preamble, no JSON, 
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'emailSection', 'bridgeSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -3207,6 +3281,16 @@ function showEmailScreen() {
   showScreen('email');
 }
 
+function showBridgeScreen() {
+  const before = localStorage.getItem(LAST_BEFORE_KEY)
+    || (state.photoData ? `data:${state.photoMime};base64,${state.photoData}` : '');
+  const after = localStorage.getItem(LAST_AFTER_KEY) || state.lastAfterDataUrl || '';
+  $('bridgeBeforeImg').src = before;
+  $('bridgeAfterImg').src = after;
+  if (window.posthog) posthog.capture('bridge_seen', { logged_in: isLoggedIn() });
+  showScreen('bridge');
+}
+
 // ============================================================
 //  UPSELL: PRODUCT + CUSTOMIZE
 // ============================================================
@@ -3519,23 +3603,34 @@ window.addEventListener('DOMContentLoaded', async () => {
       // embed the user's own transformation. Best-effort; omitted if absent.
       const before = localStorage.getItem(LAST_BEFORE_KEY) || undefined;
       const after = localStorage.getItem(LAST_AFTER_KEY) || undefined;
-      // Fire-and-forget: never block the user's path to products on a network hiccup.
+      // Fire-and-forget: never block the user's path to the benefits bridge on a network hiccup.
       fetch(`${BACKEND_URL}/api/subscribe`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, deviceId: getDeviceId(), before, after }),
       }).catch(() => {});
     }
-    showProductSection();
+    showBridgeScreen();
   });
-  $('emailSkipBtn').addEventListener('click', () => showProductSection());
+  $('emailSkipBtn').addEventListener('click', showBridgeScreen);
+
+  // Benefits bridge
+  $('bridgeBackBtn').addEventListener('click', () => showScreen('email'));
+  $('bridgeContinueBtn').addEventListener('click', () => {
+    if (window.posthog) posthog.capture('bridge_continue', { logged_in: isLoggedIn() });
+    showHub();
+  });
 
   // Product screen
   $('productBackBtn').addEventListener('click', () => {
     if (upsell.returnScreen === 'transformations') return showTransformations();
+    if (upsell.returnScreen === 'hub') return showHub();
     showScreen('email');
   });
-  $('productSkipBtn').addEventListener('click', () => showMacroScreen());
+  $('productSkipBtn').addEventListener('click', () => {
+    if (upsell.returnScreen === 'hub') return showHub();
+    showMacroScreen();
+  });
   ['selectCanvas', 'selectPoster'].forEach(id => {
     $(id).addEventListener('click', () => selectProduct($(id).dataset.product));
   });
@@ -3578,7 +3673,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Confirmation screen
-  $('confirmContinueBtn').addEventListener('click', () => showMacroScreen());
+  $('confirmContinueBtn').addEventListener('click', () => (upsell.returnScreen === 'hub' ? showHub() : showMacroScreen()));
   $('confirmStartOverBtn').addEventListener('click', () => {
     state.lastAfterDataUrl = null;
     showScreen('form');
@@ -3617,6 +3712,8 @@ const LAST_AFTER_KEY = 'absbyai_last_after';
 // later logs in on the same browser.
 const LAST_OWNER_KEY = 'absbyai_last_owner';
 const auth = { token: localStorage.getItem(AUTH_TOKEN_KEY) || null, email: localStorage.getItem(AUTH_EMAIL_KEY) || '', mode: 'login' };
+let authEntryContext = null;
+let pendingTrialFeature = null;
 
 // Forget the browser-cached transformation pair (e.g. on logout, or when it
 // belongs to a different account than the one now logging in).
@@ -3649,6 +3746,13 @@ async function authApi(path, opts = {}) {
 function setLoggedIn({ token, email, deviceId }) {
   auth.token = token;
   auth.email = email;
+  // Never carry one account's membership access into a different login while
+  // the fresh account status is loading.
+  memberState.active = false;
+  memberState.plan = null;
+  memberState.periodEnd = null;
+  memberState.status = null;
+  memberState.loaded = false;
   localStorage.setItem(AUTH_TOKEN_KEY, token);
   localStorage.setItem(AUTH_EMAIL_KEY, email);
   // Adopt the account's canonical device id so credits follow the account.
@@ -3660,6 +3764,11 @@ function setLoggedIn({ token, email, deviceId }) {
 function clearLoggedIn() {
   auth.token = null;
   auth.email = '';
+  memberState.active = false;
+  memberState.plan = null;
+  memberState.periodEnd = null;
+  memberState.status = null;
+  memberState.loaded = true;
   localStorage.removeItem(AUTH_TOKEN_KEY);
   localStorage.removeItem(AUTH_EMAIL_KEY);
   // Drop the cached transformation so the next account to log in on this browser
@@ -3682,12 +3791,12 @@ async function restoreSession() {
   try {
     const me = await authApi('/api/auth/me');
     setLoggedIn({ token: auth.token, email: me.email, deviceId: me.deviceId });
+    await refreshMembership();
     // Don't hijack Stripe-checkout return flows, or a resumed audit loader
     let pendingAuditJob; try { pendingAuditJob = localStorage.getItem(AUDIT_JOB_KEY); } catch (e) { pendingAuditJob = null; }
     if (!new URLSearchParams(window.location.search).get('session_id') && !pendingAuditJob) showHub();
     syncMealsFromServer();
     syncSavedPrepsFromServer();
-    refreshMembership();
     syncProgramFromServer();
     syncMealPlanFromServer();
     syncCounselFromServer();
@@ -3699,12 +3808,19 @@ async function restoreSession() {
 function setAuthMode(mode) {
   auth.mode = mode;
   const signup = mode === 'signup';
+  const trialSignup = signup && authEntryContext === 'trial';
   const copy = {
     login:  { nav: 'Log in', title: 'Welcome back', sub: 'Log in to get back to your tracker and tools.', btn: 'Log In' },
     signup: { nav: 'Create account', title: 'Create your free account', sub: 'Save your progress and unlock member features.', btn: 'Create Account' },
     forgot: { nav: 'Reset password', title: 'Forgot your password?', sub: 'Enter your email and we\'ll send you a reset link.', btn: 'Send Reset Link' },
     reset:  { nav: 'New password', title: 'Choose a new password', sub: 'Enter a new password for your account.', btn: 'Set New Password' },
   }[mode] || {};
+  if (trialSignup) {
+    copy.nav = 'Start free trial';
+    copy.title = 'Create your account to start your free trial';
+    copy.sub = 'Save your goal, then choose your plan. Your first 7 days are free.';
+    copy.btn = 'Create Account & Continue';
+  }
   $('authNavTitle').textContent = copy.nav;
   $('authTitle').textContent = copy.title;
   $('authSub').textContent = copy.sub;
@@ -3722,8 +3838,14 @@ function setAuthMode(mode) {
   $('authNotice').style.display = 'none';
 }
 
-function showAuthScreen(mode) {
+function showAuthScreen(mode, opts) {
+  authEntryContext = opts?.trialGate ? 'trial' : null;
   setAuthMode(mode || 'login');
+  if (authEntryContext === 'trial' && mode === 'signup') {
+    const capturedEmail = localStorage.getItem('absbyai_email') || '';
+    if (capturedEmail) $('authEmail').value = capturedEmail;
+    if (window.posthog) posthog.capture('trial_signup_started', { feature: pendingTrialFeature });
+  }
   showScreen('auth');
 }
 
@@ -3753,7 +3875,7 @@ async function handleAuthSubmit(e) {
       $('authPassword').value = '';
       await syncMealsFromServer();
       syncSavedPrepsFromServer();
-      refreshMembership();
+      await refreshMembership();
       showHub();
       return;
     }
@@ -3780,7 +3902,7 @@ async function handleAuthSubmit(e) {
     } else {
       clearLocalTransformation();
     }
-    refreshMembership();
+    await refreshMembership();
     // Flows like the trainer paywall set a continuation to resume after auth.
     if (window._afterAuth) {
       const cont = window._afterAuth;
@@ -3798,12 +3920,76 @@ async function handleAuthSubmit(e) {
 }
 
 // ── Member hub ──
+function hasMemberAccess() {
+  return !!memberState.active || memberState.status === 'comp';
+}
+
+function isHubPreviewMode() {
+  return !isLoggedIn() || !hasMemberAccess();
+}
+
+function openHubFeature(feature) {
+  if (feature === 'macro') return showMacroScreen();
+  if (feature === 'trainer') return openTrainer();
+  if (feature === 'nutritionist') return openNutritionist();
+  if (feature === 'counsel') return openCounsel();
+  if (feature === 'sleep') return openSleepCoach();
+  if (feature === 'transformations') return showTransformations();
+  if (feature === 'weight') return openProgress();
+  if (feature === 'generate') return showScreen('form');
+  if (feature === 'support') window.location.href = 'mailto:support@absbyai.com';
+}
+
+function openPendingTrialFeature() {
+  const feature = pendingTrialFeature;
+  pendingTrialFeature = null;
+  if (feature) openHubFeature(feature);
+}
+
+// Deliberate insertion point for the future member-profile questionnaire.
+async function continueTrialAfterAccountCreation() {
+  authEntryContext = null;
+  await refreshMembership();
+  if (hasMemberAccess()) return openPendingTrialFeature();
+  showMembershipScreen(openPendingTrialFeature, { trialGate: true });
+}
+
+function showTrialGate(feature) {
+  pendingTrialFeature = feature;
+  if (window.posthog) posthog.capture('trial_gate_shown', { feature, logged_in: isLoggedIn() });
+  if (IS_NATIVE_APP) {
+    $('hubPreviewAppNote').style.display = '';
+    $('hubPreviewAppNote').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  if (isLoggedIn()) return showMembershipScreen(openPendingTrialFeature, { trialGate: true });
+  window._afterAuth = continueTrialAfterAccountCreation;
+  showAuthScreen('signup', { trialGate: true });
+}
+
+function showHubPrintUpsell() {
+  upsell.imageDataUrl = localStorage.getItem(LAST_AFTER_KEY) || state.lastAfterDataUrl || null;
+  upsell.returnScreen = 'hub';
+  if (window.posthog) posthog.capture('print_upsell_clicked', { logged_in: isLoggedIn() });
+  showProductSection();
+}
+
 function showHub() {
-  $('hubEmail').textContent = auth.email;
+  const preview = isHubPreviewMode();
+  $('hubLogoutBtn').style.display = isLoggedIn() ? '' : 'none';
+  $('hubWelcomeTitle').textContent = preview ? 'Your AI fitness team' : 'Welcome back';
+  $('hubEmail').textContent = preview
+    ? (isLoggedIn() ? auth.email : 'Everything you need to turn your goal photo into a plan.')
+    : auth.email;
+  $('hubPreviewNote').style.display = preview && !IS_NATIVE_APP ? '' : 'none';
+  $('hubPreviewAppNote').style.display = preview && IS_NATIVE_APP ? '' : 'none';
+  $('hubPrintUpsell').style.display = preview ? '' : 'none';
+  $('hubPrintThumb').src = localStorage.getItem(LAST_AFTER_KEY) || state.lastAfterDataUrl || '';
   $('hubSoonNote').style.display = 'none';
   renderHubHero();
   renderHubMembership();
   renderHubBrief();
+  if (preview && window.posthog) posthog.capture('hub_preview_seen', { logged_in: isLoggedIn() });
   showScreen('hub');
 }
 
@@ -3815,7 +4001,7 @@ const briefState = { painted: null };
 
 async function renderHubBrief() {
   const card = $('hubBriefCard');
-  if (!isLoggedIn()) { card.style.display = 'none'; return; }
+  if (isHubPreviewMode()) { card.style.display = 'none'; return; }
   card.style.display = '';
   // Keep yesterday's paint on screen while refreshing; skeleton only when empty.
   if (!briefState.painted) {
@@ -3965,6 +4151,13 @@ function renderHubMembership() {
   const memberCard = $('hubMembershipCard');
   const becomeMemberBtn = $('hubBecomeMemBtn');
   const memberFaq = $('hubMemberFaq');
+
+  if (isHubPreviewMode()) {
+    memberCard.style.display = 'none';
+    becomeMemberBtn.style.display = 'none';
+    if (memberFaq) memberFaq.style.display = 'none';
+    return;
+  }
 
   if (memberState.status === 'comp') {
     // Beta tester: full access, no subscription to renew or manage.
@@ -4435,7 +4628,14 @@ async function handleLogout() {
 
 function initAccounts() {
   $('loginLink').addEventListener('click', () => (isLoggedIn() ? showHub() : showAuthScreen('login')));
-  $('authBackBtn').addEventListener('click', () => showScreen('form'));
+  $('authBackBtn').addEventListener('click', () => {
+    if (authEntryContext === 'trial') {
+      authEntryContext = null;
+      window._afterAuth = null;
+      return showHub();
+    }
+    showScreen('form');
+  });
   $('authToggleBtn').addEventListener('click', () => setAuthMode(auth.mode === 'login' ? 'signup' : 'login'));
   $('authForgotBtn').addEventListener('click', () => setAuthMode('forgot'));
 
@@ -4454,23 +4654,17 @@ function initAccounts() {
   // Membership management
   $('hubMembershipManageBtn').addEventListener('click', handleManageMembership);
   $('hubBecomeMemBtn').addEventListener('click', () => showMembershipScreen(() => showHub()));
+  $('hubPrintUpsell').addEventListener('click', showHubPrintUpsell);
 
-  document.querySelectorAll('#hubSection .hub-tile').forEach(tile => {
-    tile.addEventListener('click', () => {
+  document.querySelectorAll('#hubSection .hub-tile[data-feature]').forEach(tile => {
+    tile.addEventListener('click', (e) => {
       const feature = tile.dataset.feature;
       if (window.posthog) posthog.capture('hub_tile_clicked', { feature });
-      if (feature === 'macro') return showMacroScreen();
-      if (feature === 'trainer') return openTrainer();
-      if (feature === 'nutritionist') return openNutritionist();
-      if (feature === 'counsel') return openCounsel();
-      if (feature === 'sleep') return openSleepCoach();
-      if (feature === 'transformations') return showTransformations();
-      if (feature === 'weight') return openProgress();
-      if (feature === 'generate') return showScreen('form');
-      if (feature === 'support') return; // <a mailto> handles itself
-      const note = $('hubSoonNote');
-      note.textContent = `${tile.querySelector('.hub-tile-name').textContent} is coming soon — ${tile.dataset.soon || ''} You'll get an email when it's live.`;
-      note.style.display = '';
+      // Support stays reachable for everyone; member tools are what the trial unlocks.
+      if (feature === 'support') return;
+      e.preventDefault();
+      if (isHubPreviewMode()) return showTrialGate(feature);
+      return openHubFeature(feature);
     });
   });
 }
@@ -4994,6 +5188,7 @@ function initProgress() {
 const memberState = { active: false, plan: null, periodEnd: null, status: null, discountCents: 0, loaded: false };
 let selectedPlan = 'annual';
 let membershipReturnTo = null; // where to go after subscribing (or backing out)
+let membershipGateBackToHub = false;
 
 async function refreshMembership() {
   if (!isLoggedIn()) { memberState.active = false; memberState.loaded = true; return; }
@@ -5010,6 +5205,7 @@ async function refreshMembership() {
 
 function showMembershipScreen(returnTo, opts) {
   membershipReturnTo = returnTo || membershipReturnTo;
+  membershipGateBackToHub = !!opts?.trialGate;
   if (window.posthog) posthog.capture('membership_screen_viewed');
   // Pay-as-you-go strip: only for walls where a single credit also unblocks
   // (meal analysis). Hidden by default so the membership pitch stays clean.
@@ -5106,6 +5302,7 @@ async function handleMembershipComplete(sessionId) {
   await unlockCounselAfterSubscribe();
   const dest = membershipReturnTo;
   membershipReturnTo = null;
+  membershipGateBackToHub = false;
   if (dest) dest(); else if (loadStoredProgram()) showProgram(); else showHub();
 }
 
@@ -5997,6 +6194,10 @@ function initTrainer() {
   $('membershipBackBtn').addEventListener('click', () => {
     const dest = membershipReturnTo;
     membershipReturnTo = null;
+    if (membershipGateBackToHub) {
+      membershipGateBackToHub = false;
+      return showHub();
+    }
     if (dest) dest(); else if (isLoggedIn()) showHub(); else showScreen('form');
   });
   document.querySelectorAll('.plan-card').forEach(card => card.addEventListener('click', () => {
