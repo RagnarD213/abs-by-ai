@@ -20,11 +20,23 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Status:** `Implementation in progress`
+**Status:** `No active task`
 
-**Owner:** Claude Code
+### Recently shipped — Macro Tracker v2 (COMPLETE, live-verified 2026-07-17)
 
-**Task:** Macro Tracker v2 — multi-photo meal analysis, meal-prep saved meals, uneaten-food subtraction. Full decided plan: `handoff-20260717-macro-tracker-v2.md` (project root). Starting Part A (multi-photo) in `server.js` + `index.html`, then B, C, D per the handoff.
+Three upgrades to the photo-based macro tracker, shipped as one batch per `handoff-20260717-macro-tracker-v2.md` (project root): multi-photo meal analysis, meal-prep saved meals, and uneaten-food subtraction. Commit `a64a98d` (rebased on top of unrelated subscriber-update commits from a concurrent session).
+
+- **Part A — multi-photo:** `/api/analyze-meal` now accepts up to 3 photos (`photos: [{base64, mime}]`), still accepts the legacy single-photo `photoBase64`/`photoMime` shape for the deployed native wrappers. Prompt instructs the model to itemize once across angles (overhead for contents, side for depth) and use the plate/fork as a visual ruler. Client has add/remove-angle UI capped at 3.
+- **Part B — meal prep:** `mealPrep: true` + `servings` (2–20) on the same endpoint estimates the whole batch, then divides items/totals down to a single serving (order: `enforceMacroMath` → calibration → divide, so `MEAL_CALIBRATION` stays untouched). New `saved_preps` Postgres table + `GET/POST/PUT/DELETE /api/saved-preps` mirror the existing `/api/meals` sync pattern. Client: "Meal prep (batch)" mode toggle, servings input, saved-prep cards with one-tap logging (no photo, no AI call, free), reset/delete controls.
+- **Part C — uneaten food:** client-only chips (¼/½/¾ fractions + per-item "left it" toggles) scale a logged meal instantly with no AI cost; new free `POST /api/refine-leftovers` (Haiku 4.5, 60s AbortController timeout) estimates `fraction_remaining` per line item from a leftover photo, server multiplies by `(1 − fraction)` and re-runs `enforceMacroMath`. Both paths keep the pre-adjustment snapshot for undo.
+- **Live-verified on absbyai.com** (synthetic test images generated locally, not real food — model still correctly interpreted shapes/colors as food and gave sensible itemization):
+  - Multi-photo: 2-angle request → one itemization referencing both "overhead footprint" and "side view" language, confirming the model actually used both angles rather than duplicating items.
+  - Meal-prep math: batch totals 2631 cal ÷ 4 servings = 658 cal/serving (exact match); 735g chicken ÷ 4 = 184g/serving (exact match).
+  - One-tap logging: saved a prep, logged 1 serving on the live page — remaining went 4→3, "Today's total" widget updated to the correct 658 cal.
+  - Chips subtraction: applied "left half" to the same logged meal — 658 → 329 cal (exact 50%), daily total widget recalculated correctly, undo restored 658.
+  - Leftover-photo endpoint: two live calls to `/api/refine-leftovers` both returned well-formed per-item fractions; verified the `(1 − fraction) × original` math against the returned numbers in both cases (e.g. fraction 0.3 on a 205-cal item → 144 cal, exact).
+- **Deviation from plan:** none in scope/architecture. One pre-existing, out-of-scope issue noticed and *not* fixed here: the main `/api/analyze-meal` fetch call still has no AbortController timeout (same bug class as the Supplement Audit hang, commit `751fe7b`) — flagged as a separate follow-up task, not touched in this commit since it predates this diff.
+- **Pending / not done:** account-sync live-verification for `/api/saved-preps` (requires a logged-in test account; the localStorage-only path was fully verified, sync code follows the exact pattern of the already-working `/api/meals` sync). Eval harness + calibration retune remains a separate future task per the handoff (waiting on Dan weighing ~20 real meals).
 
 ### Recently shipped — Welcome Autoresponder on Resend (COMPLETE, live-verified 2026-07-17)
 
@@ -51,9 +63,27 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 
 ---
 
-## Queued (next up after the active task)
+## User-authorized parallel task
 
-**Task:** Macro Tracker v2 — multi-photo meal analysis, meal-prep saved meals (batch photo ÷ servings, one-tap logging), and uneaten-food subtraction (quick chips + leftover-photo Haiku endpoint). Full decided plan: `handoff-20260717-macro-tracker-v2.md` (project root). All product decisions are made in that doc; implementation not started. A separate follow-on task (eval harness + calibration retune, waiting on Dan weighing ~20 meals) is intentionally excluded from it.
+**Status:** `Blocked`
+
+**Owner:** Codex
+
+**Task:** Screen-1 proof strip + locked-result teaser, per `handoff-20260717-proof-strip-locked-teaser.md`.
+
+**Goal:** Improve top-of-funnel upload confidence and make the out-of-credits result/paywall more compelling without changing generation, credits, or Stripe logic.
+
+**Acceptance criteria:** Shortlist 2–3 mixed-gender before/after pairs for Dan's approval; add an honest, compact, lazy-loaded rotating proof strip; add the torso-blurred locked teaser and dynamic body-fat paywall headline; add the three specified PostHog events; verify locally. Do not commit or push until Dan explicitly authorizes it because Claude Code is concurrently modifying the repository.
+
+**Completed:** Implemented and locally verified the locked-result teaser, dynamic body-fat headline, accessible click/keyboard paywall focus, and `locked_teaser_shown` analytics. Mobile visual QA passed at 390×844. No generation, credits, Stripe, native-app purchase classes, or Macro Tracker code was changed.
+
+**Remaining / next action:** Dan must approve the shortlisted example pairs (Dan, Brittany, and/or the flexing male pair). Then Codex will export approved web assets, implement and verify the rotating proof strip plus `proof_strip_seen`, and add the final `locked_teaser_shown`/proof-strip verification. Do not commit or push until Dan explicitly authorizes it.
+
+**Coordination caution:** This parallel task was explicitly requested by Dan on 2026-07-17. Preserve Claude Code's active-task ownership and avoid its Macro Tracker code areas.
+
+---
+
+## Queued (next up after the active task)
 
 **Task:** Onboarding funnel revamp — approved 2026-07-17, split into three handoffs (1 and 2 independent of each other; 3 depends on 2):
 
