@@ -148,7 +148,8 @@
     },
     {
       "text": "Buy Proper Cloth shirt",
-      "priority": "low"
+      "priority": "high",
+      "recurring": false
     }
   ]
 }
