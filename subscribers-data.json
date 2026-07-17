@@ -62,9 +62,11 @@
       "subscribedAt": "2026-07-17T21:42:45.236Z",
       "deviceId": "welcome-image-live-test",
       "synced": false,
-      "welcomeStep": 0,
-      "welcomeNextAt": "2026-07-17T21:42:45.236Z",
-      "welcomeSentAt": {},
+      "welcomeStep": 1,
+      "welcomeNextAt": "2026-07-19T21:43:55.774Z",
+      "welcomeSentAt": {
+        "1": "2026-07-17T21:43:56.013Z"
+      },
       "unsubscribed": false
     }
   }
