@@ -41,8 +41,8 @@ Every new email signup — and the 4 existing real subscribers (backfilled) — 
 ### New env vars (Railway — set before enabling)
 
 - `MARKETING_FROM` = `Dan from Abs by AI <dan@mail.absbyai.com>`
-- `MARKETING_ADDRESS` = real business mailing address (Dan to provide; placeholder in code until then)
 - `WELCOME_ENABLED` = `true` (flip ON only after `mail.absbyai.com` is verified in Resend)
+- `MARKETING_ADDRESS` — optional now; the real CAN-SPAM address is baked into code (Abs By AI, 3520 Cavu Rd., Georgetown, TX 78628, commit c216c44)
 - Optional: `MARKETING_REPLY_TO` (defaults `dan@absbyai.com`), `UNSUBSCRIBE_SECRET` (falls back to an existing secret)
 - Remove/rotate `MAILERLITE_API_KEY` (was pasted in chat; sync already no-ops without it).
 
@@ -55,8 +55,9 @@ Every new email signup — and the 4 existing real subscribers (backfilled) — 
 
 ### Blocked on / needs from Dan
 
-- Real physical mailing address for the CAN-SPAM footer (`MARKETING_ADDRESS`).
+- CAN-SPAM mailing address: RESOLVED — provided and baked into code (commit c216c44).
 - Confirmed: backfill all 4 real subscribers into the sequence.
+- Remaining external steps (Resend subdomain / Namecheap DNS / Railway env) need dashboard access Claude can't reach from the Mac (no Railway CLI, no Resend key, Chrome extension not connected). Dan to run them, or connect the Chrome extension so Claude can drive the dashboards.
 
 ### Next action
 
