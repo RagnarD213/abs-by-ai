@@ -49,7 +49,7 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 
 ## Queued (next up after the active task)
 
-**Task:** None currently queued. (The Welcome Autoresponder moved to the active-task section above; the Supplement Audit's remaining live verification is tracked there too.)
+**Task:** Macro Tracker v2 — multi-photo meal analysis, meal-prep saved meals (batch photo ÷ servings, one-tap logging), and uneaten-food subtraction (quick chips + leftover-photo Haiku endpoint). Full decided plan: `handoff-20260717-macro-tracker-v2.md` (project root). All product decisions are made in that doc; implementation not started. A separate follow-on task (eval harness + calibration retune, waiting on Dan weighing ~20 meals) is intentionally excluded from it.
 
 ---
 
