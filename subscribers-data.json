@@ -67,7 +67,8 @@
       "welcomeSentAt": {
         "1": "2026-07-17T21:43:56.013Z"
       },
-      "unsubscribed": false
+      "unsubscribed": true,
+      "unsubscribedAt": "2026-07-17T21:48:03.586Z"
     }
   }
 }
