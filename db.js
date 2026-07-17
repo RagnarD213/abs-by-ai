@@ -58,6 +58,17 @@ async function initDb() {
       items     JSONB NOT NULL DEFAULT '[]'
     );
     CREATE INDEX IF NOT EXISTS meals_user_date_idx ON meals (user_id, date);
+    CREATE TABLE IF NOT EXISTS saved_preps (
+      id           SERIAL PRIMARY KEY,
+      user_id      INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      name         TEXT NOT NULL,
+      servings     INTEGER NOT NULL,
+      remaining    INTEGER NOT NULL,
+      per_serving  JSONB NOT NULL,
+      batch_totals JSONB,
+      created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+    CREATE INDEX IF NOT EXISTS saved_preps_user_idx ON saved_preps (user_id, id);
     CREATE TABLE IF NOT EXISTS programs (
       id           SERIAL PRIMARY KEY,
       user_id      INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,

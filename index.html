@@ -1834,6 +1834,12 @@ html, body {
       <span class="bodyfat-values" id="dailyTotalsValues" style="font-size:13px;font-weight:700;color:var(--ink)">0 cal</span>
     </div>
 
+    <!-- Single meal vs meal-prep batch mode -->
+    <div class="portion-seg" id="mealModeSeg" style="margin-bottom:14px">
+      <button class="portion-opt active" id="mealModeSingleBtn" type="button">Single meal</button>
+      <button class="portion-opt" id="mealModePrepBtn" type="button">Meal prep (batch)</button>
+    </div>
+
     <!-- Meal photo upload -->
     <input type="file" id="mealPhotoInput" accept="image/*" style="display:none" />
     <div id="mealUploadCard" class="upload-card">
@@ -1843,13 +1849,23 @@ html, body {
             <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/>
           </svg>
         </div>
-        <div class="upload-title">Add a meal photo</div>
-        <div class="upload-caption">Tap, drag, or paste a photo of your food.</div>
+        <div class="upload-title" id="mealUploadTitle">Add a meal photo</div>
+        <div class="upload-caption" id="mealUploadCaption">Tap, drag, or paste a photo of your food.</div>
       </div>
       <div id="mealUploadPreview" style="display:none">
         <img id="mealPreviewImg" class="upload-preview-img" alt="Your meal" />
         <button id="removeMealPhoto" class="remove-photo">Remove photo</button>
       </div>
+    </div>
+
+    <!-- Extra angles (up to 3 photos total, same meal from a different view) -->
+    <input type="file" id="mealExtraPhotoInput" accept="image/*" style="display:none" />
+    <div id="mealExtraPhotosRow" style="display:none"></div>
+
+    <!-- Meal prep: how many servings the batch divides into -->
+    <div id="mealPrepServingsWrap" class="physique-wrap" style="display:none">
+      <div class="lbl"><span class="lbl-text">How many meals does this make?</span></div>
+      <input type="number" id="mealPrepServingsInput" class="text-field" placeholder="e.g. 12" min="2" max="20" step="1" />
     </div>
 
     <div class="physique-wrap">
@@ -1881,10 +1897,24 @@ html, body {
 
     <!-- Itemized receipt -->
     <div id="mealReceiptWrap" style="display:none;margin-top:18px"></div>
+    <div id="mealBatchNote" style="display:none;margin-top:8px;font-size:12px;color:var(--mute)"></div>
 
     <div id="mealLogSuccess" style="display:none"></div>
 
     <button id="mealLogBtn" class="cta-btn" style="display:none;margin-top:16px">Log Meal</button>
+    <button id="mealSavePrepBtn" class="cta-btn" style="display:none;margin-top:16px">Save Meal Prep</button>
+
+    <!-- Saved meal preps: one-tap logging, no photo, no AI call -->
+    <div id="savedPrepsWrap" style="display:none;margin-top:26px">
+      <div class="lbl" style="margin-bottom:8px"><span class="lbl-text">Your meal preps</span></div>
+      <div id="savedPrepsList"></div>
+    </div>
+
+    <!-- Today's logged meals: uneaten-food subtraction lives here -->
+    <div id="todaysMealsWrap" style="display:none;margin-top:26px">
+      <div class="lbl" style="margin-bottom:8px"><span class="lbl-text">Today's meals</span></div>
+      <div id="todaysMealsList"></div>
+    </div>
 
     <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/privacy" style="color:inherit">Privacy</a></div>
   </div>
@@ -3422,6 +3452,7 @@ async function restoreSession() {
     let pendingAuditJob; try { pendingAuditJob = localStorage.getItem(AUDIT_JOB_KEY); } catch (e) { pendingAuditJob = null; }
     if (!new URLSearchParams(window.location.search).get('session_id') && !pendingAuditJob) showHub();
     syncMealsFromServer();
+    syncSavedPrepsFromServer();
     refreshMembership();
     syncProgramFromServer();
     syncMealPlanFromServer();
@@ -3487,6 +3518,7 @@ async function handleAuthSubmit(e) {
       setLoggedIn(data);
       $('authPassword').value = '';
       await syncMealsFromServer();
+      syncSavedPrepsFromServer();
       refreshMembership();
       showHub();
       return;
@@ -3503,6 +3535,7 @@ async function handleAuthSubmit(e) {
     setLoggedIn(data);
     $('authPassword').value = '';
     await syncMealsFromServer();
+    syncSavedPrepsFromServer();
     // Carry a browser-cached transformation onto this account ONLY if it was
     // made anonymously in this session (or already belongs to this account).
     // Anything owned by a different account is discarded — never shown, never
@@ -7710,6 +7743,8 @@ async function callGeminiImage(prompt, photoBase64, photoMime, intensity, opts =
 //  MACRO TRACKER
 // ============================================================
 const MEAL_STORAGE_KEY = 'absbyai_logged_meals';
+const SAVED_PREPS_STORAGE_KEY = 'absbyai_saved_preps';
+const MAX_MEAL_PHOTOS = 3;
 
 function escapeHtml(str) {
   return String(str ?? '').replace(/[&<>"']/g, c => ({
@@ -7734,6 +7769,14 @@ function getTodaysMeals() {
   return loadLoggedMeals().filter(m => m.date === key);
 }
 
+function loadSavedPreps() {
+  try { return JSON.parse(localStorage.getItem(SAVED_PREPS_STORAGE_KEY) || '[]'); }
+  catch (e) { return []; }
+}
+function saveSavedPreps(preps) {
+  localStorage.setItem(SAVED_PREPS_STORAGE_KEY, JSON.stringify(preps));
+}
+
 function renderDailyTotals() {
   const meals = getTodaysMeals();
   const r1 = n => Math.round(n * 10) / 10;
@@ -7748,6 +7791,8 @@ function renderDailyTotals() {
   $('dailyTotalsValues').textContent = nt
     ? `${Math.round(totals.calories)} / ${nt.daily_calories} cal · ${r1(totals.protein_g)} / ${nt.protein_g}g protein`
     : `${Math.round(totals.calories)} cal · ${r1(totals.protein_g)}P · ${r1(totals.carbs_g)}C · ${r1(totals.fat_g)}F`;
+  renderTodaysMealsList();
+  renderSavedPreps();
 }
 
 function showMacroScreen() {
@@ -7757,12 +7802,12 @@ function showMacroScreen() {
 
 // ── Meal analysis state (current in-progress meal, not yet logged) ──
 const meal = {
-  photoData: null,
-  photoMime: null,
-  analysis: null,  // last analyze/refine response (mealName, source, context, raw, ...)
-  items: null,     // editable working copy of items
-  answers: [],     // [{question, answer}] accumulated for /api/refine-meal
-  editIndex: null, // index of the item currently showing its edit row
+  photos: [],       // [{data, mime, dataUrl}], order = order taken, max 3
+  mode: 'single',   // 'single' | 'prep'
+  analysis: null,   // last analyze/refine response (mealName, source, context, raw, ...)
+  items: null,      // editable working copy of items (per-serving when mode === 'prep')
+  answers: [],      // [{question, answer}] accumulated for /api/refine-meal
+  editIndex: null,  // index of the item currently showing its edit row
 };
 
 function computeMealTotals(items) {
@@ -7787,29 +7832,85 @@ function resetMealAnalysisUI() {
   $('mealClarifyWrap').innerHTML = '';
   $('mealReceiptWrap').style.display = 'none';
   $('mealReceiptWrap').innerHTML = '';
+  $('mealBatchNote').style.display = 'none';
+  $('mealBatchNote').innerHTML = '';
   $('mealLogBtn').style.display = 'none';
+  $('mealSavePrepBtn').style.display = 'none';
   $('mealLogSuccess').style.display = 'none';
   $('mealLogSuccess').innerHTML = '';
 }
 
-function finalizeMealPhoto({ data, mime, dataUrl }) {
-  meal.photoData = data;
-  meal.photoMime = mime;
-  $('mealPreviewImg').src = dataUrl;
-  $('mealUploadPreview').style.display = '';
-  $('mealUploadPlaceholder').style.display = 'none';
-  $('mealAnalyzeBtn').disabled = false;
-  resetMealAnalysisUI();
+function getServingsInput() {
+  const n = parseInt($('mealPrepServingsInput').value, 10);
+  return n >= 2 && n <= 20 ? n : 0;
 }
 
-async function handleMealPhoto(file) {
-  if (!file.type.startsWith('image/')) return;
+function renderMealPhotosUI() {
+  const hasPhoto = meal.photos.length > 0;
+  if (hasPhoto) {
+    $('mealPreviewImg').src = meal.photos[0].dataUrl;
+    $('mealUploadPreview').style.display = '';
+    $('mealUploadPlaceholder').style.display = 'none';
+  } else {
+    $('mealUploadPreview').style.display = 'none';
+    $('mealUploadPlaceholder').style.display = '';
+  }
+  $('mealAnalyzeBtn').disabled = !hasPhoto || (meal.mode === 'prep' && !getServingsInput());
+
+  const extraRow = $('mealExtraPhotosRow');
+  if (!hasPhoto) { extraRow.style.display = 'none'; extraRow.innerHTML = ''; return; }
+
+  const thumbs = meal.photos.slice(1).map((p, i) => `
+    <div style="position:relative;width:64px;height:64px;flex:none">
+      <img src="${p.dataUrl}" style="width:100%;height:100%;object-fit:cover;border-radius:10px" />
+      <button class="remove-extra-photo" data-idx="${i + 1}" style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;font-size:12px;line-height:1;cursor:pointer">×</button>
+    </div>
+  `).join('');
+  const addTile = meal.photos.length < MAX_MEAL_PHOTOS
+    ? `<button id="addAnglePhotoBtn" type="button" style="width:64px;height:64px;flex:none;border:1.5px dashed var(--line2);border-radius:10px;background:none;color:var(--acc);font-size:22px;cursor:pointer">＋</button>`
+    : '';
+  extraRow.innerHTML = `
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${thumbs}${addTile}</div>
+    ${meal.photos.length < MAX_MEAL_PHOTOS ? '<div class="upload-caption" style="margin-top:6px">＋ Add another angle (helps me judge portion size)</div>' : ''}
+  `;
+  extraRow.style.display = '';
+}
+
+function setMealMode(mode) {
+  meal.mode = mode;
+  meal.photos = [];
+  $('mealPhotoInput').value = '';
+  resetMealAnalysisUI();
+  renderMealPhotosUI();
+  $('mealModeSingleBtn').classList.toggle('active', mode === 'single');
+  $('mealModePrepBtn').classList.toggle('active', mode === 'prep');
+  $('mealPrepServingsWrap').style.display = mode === 'prep' ? '' : 'none';
+  $('mealUploadTitle').textContent = mode === 'prep' ? 'Add photos of your batch' : 'Add a meal photo';
+  $('mealUploadCaption').textContent = mode === 'prep'
+    ? 'Lay out everything for the week — include the packages, labels beat guesses.'
+    : 'Tap, drag, or paste a photo of your food.';
+}
+
+async function addMealPhoto(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+  if (meal.photos.length >= MAX_MEAL_PHOTOS) return;
   const resized = await downscaleImage(file) || await fileToBase64(file);
-  finalizeMealPhoto(resized);
+  meal.photos.push(resized);
+  resetMealAnalysisUI();
+  renderMealPhotosUI();
+}
+
+function removeMealPhotoAt(idx) {
+  meal.photos.splice(idx, 1);
+  resetMealAnalysisUI();
+  renderMealPhotosUI();
 }
 
 async function analyzeMeal() {
-  if (!meal.photoData) return;
+  if (!meal.photos.length) return;
+  const isPrep = meal.mode === 'prep';
+  const servings = isPrep ? getServingsInput() : null;
+  if (isPrep && !servings) return;
   resetMealAnalysisUI();
   $('mealAnalyzeLoader').style.display = '';
   $('mealAnalyzeBtn').disabled = true;
@@ -7826,12 +7927,12 @@ async function analyzeMeal() {
         ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
       },
       body: JSON.stringify({
-        photoBase64: meal.photoData,
-        photoMime: meal.photoMime,
+        photos: meal.photos.map(p => ({ base64: p.data, mime: p.mime })),
         note: $('mealNoteInput').value.trim() || undefined,
         recentMeals,
         deviceId: getDeviceId(),
         attemptId,
+        ...(isPrep ? { mealPrep: true, servings } : {}),
       }),
     });
     const data = await res.json();
@@ -7865,7 +7966,13 @@ async function analyzeMeal() {
     if (data.needsClarification && data.clarifyingQuestions?.length) {
       renderClarify(data.clarifyingQuestions);
     }
-    $('mealLogBtn').style.display = '';
+    if (isPrep && data.batchTotals) {
+      $('mealBatchNote').textContent = `Whole batch: ${data.batchTotals.calories} cal ÷ ${data.servings} servings = ${data.totals.calories} cal/serving`;
+      $('mealBatchNote').style.display = '';
+      $('mealSavePrepBtn').style.display = '';
+    } else {
+      $('mealLogBtn').style.display = '';
+    }
   } catch (err) {
     $('mealAnalyzeError').textContent = err.message || 'Something went wrong. Please try again.';
     $('mealAnalyzeError').style.display = '';
@@ -8002,17 +8109,341 @@ function logMeal() {
   renderDailyTotals();
 
   // Reset for the next meal
-  meal.photoData = null;
-  meal.photoMime = null;
-  $('mealPhotoInput').value = '';
-  $('mealUploadPreview').style.display = 'none';
-  $('mealUploadPlaceholder').style.display = '';
+  setMealMode(meal.mode); // clears photos/analysis, keeps current mode
   $('mealNoteInput').value = '';
-  $('mealAnalyzeBtn').disabled = true;
-  resetMealAnalysisUI();
 
   $('mealLogSuccess').innerHTML = `<div class="log-success-msg">✓ ${escapeHtml(entry.name)} logged</div>`;
   $('mealLogSuccess').style.display = '';
+}
+
+function saveMealPrep() {
+  if (!meal.items || !meal.items.length || !meal.analysis) return;
+  const cleanItems = meal.items.map(({ _origGrams, _origCalories, _origProtein, _origCarbs, _origFat, ...rest }) => rest);
+  const servings = meal.analysis.servings || getServingsInput();
+  const prep = {
+    id: (crypto.randomUUID?.() || (Date.now() + '-' + Math.random().toString(36).slice(2))),
+    name: meal.analysis.mealName || 'Meal prep',
+    createdAt: Date.now(),
+    servings,
+    remaining: servings,
+    perServing: { items: cleanItems, totals: computeMealTotals(meal.items) },
+    batchTotals: meal.analysis.batchTotals || null,
+  };
+  const all = loadSavedPreps();
+  all.push(prep);
+  saveSavedPreps(all);
+  pushPrepToServer(prep);
+
+  // Reset for the next batch (stay in prep mode so another batch is easy to add)
+  setMealMode('prep');
+  $('mealNoteInput').value = '';
+  $('mealLogSuccess').innerHTML = `<div class="log-success-msg">✓ ${escapeHtml(prep.name)} saved — ${servings} servings</div>`;
+  $('mealLogSuccess').style.display = '';
+  renderSavedPreps();
+}
+
+function pushPrepToServer(prep) {
+  if (!isLoggedIn()) return;
+  authApi('/api/saved-preps', {
+    method: 'POST',
+    body: JSON.stringify({ name: prep.name, servings: prep.servings, remaining: prep.remaining, perServing: prep.perServing, batchTotals: prep.batchTotals }),
+  }).then(({ id }) => {
+    const all = loadSavedPreps();
+    const match = all.find(p => p.id === prep.id);
+    if (match) { match.serverId = id; saveSavedPreps(all); }
+  }).catch(e => console.warn('Meal prep push failed:', e.message));
+}
+
+function renderSavedPreps() {
+  const preps = loadSavedPreps();
+  const wrap = $('savedPrepsWrap');
+  if (!preps.length) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+  $('savedPrepsList').innerHTML = preps.map(p => `
+    <div class="receipt-card" style="margin-bottom:10px" data-prep-id="${escapeHtml(p.id)}">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+        <div>
+          <div class="receipt-item-name">${escapeHtml(p.name)}</div>
+          <div class="receipt-item-sub">${p.perServing.totals.calories} cal/serving · ${p.remaining} of ${p.servings} left</div>
+        </div>
+        <button class="try-diff-btn log-prep-btn" data-id="${escapeHtml(p.id)}" ${p.remaining <= 0 ? 'disabled' : ''}>Log 1</button>
+      </div>
+      <div style="display:flex;gap:14px;margin-top:8px;font-size:12px">
+        <button class="reset-prep-btn" data-id="${escapeHtml(p.id)}" style="background:none;border:none;color:var(--acc);padding:0;cursor:pointer">Reset (new week)</button>
+        <button class="delete-prep-btn" data-id="${escapeHtml(p.id)}" style="background:none;border:none;color:#c33;padding:0;cursor:pointer">Delete</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function logPrepServing(id) {
+  const preps = loadSavedPreps();
+  const prep = preps.find(p => p.id === id);
+  if (!prep || prep.remaining <= 0) return;
+  const entry = {
+    date: todayKey(),
+    loggedAt: Date.now(),
+    name: prep.name,
+    items: JSON.parse(JSON.stringify(prep.perServing.items)),
+    totals: prep.perServing.totals,
+  };
+  const meals = loadLoggedMeals();
+  meals.push(entry);
+  saveLoggedMeals(meals);
+  pushMealToServer(entry);
+  prep.remaining -= 1;
+  saveSavedPreps(preps);
+  if (prep.serverId) updatePrepRemainingOnServer(prep.serverId, prep.remaining);
+  renderDailyTotals();
+}
+
+function resetPrepRemaining(id) {
+  const preps = loadSavedPreps();
+  const prep = preps.find(p => p.id === id);
+  if (!prep) return;
+  prep.remaining = prep.servings;
+  saveSavedPreps(preps);
+  if (prep.serverId) updatePrepRemainingOnServer(prep.serverId, prep.remaining);
+  renderSavedPreps();
+}
+
+function deletePrep(id) {
+  const preps = loadSavedPreps();
+  const prep = preps.find(p => p.id === id);
+  saveSavedPreps(preps.filter(p => p.id !== id));
+  if (prep?.serverId && isLoggedIn()) {
+    authApi(`/api/saved-preps/${prep.serverId}`, { method: 'DELETE' }).catch(e => console.warn('Delete prep failed:', e.message));
+  }
+  renderSavedPreps();
+}
+
+function updatePrepRemainingOnServer(serverId, remaining) {
+  if (!isLoggedIn()) return;
+  authApi(`/api/saved-preps/${serverId}`, { method: 'PUT', body: JSON.stringify({ remaining }) })
+    .catch(e => console.warn('Prep remaining sync failed:', e.message));
+}
+
+async function syncSavedPrepsFromServer() {
+  if (!isLoggedIn()) return;
+  try {
+    const local = loadSavedPreps();
+    for (const p of local.filter(p => !p.serverId)) {
+      try {
+        const { id } = await authApi('/api/saved-preps', {
+          method: 'POST',
+          body: JSON.stringify({ name: p.name, servings: p.servings, remaining: p.remaining, perServing: p.perServing, batchTotals: p.batchTotals }),
+        });
+        p.serverId = id;
+      } catch (e) { break; } // retry the rest next load
+    }
+    saveSavedPreps(local);
+    const { preps } = await authApi('/api/saved-preps');
+    saveSavedPreps(preps.map(r => ({
+      id: 'srv-' + r.id,
+      serverId: r.id,
+      name: r.name,
+      createdAt: new Date(r.created_at).getTime(),
+      servings: r.servings,
+      remaining: r.remaining,
+      perServing: r.per_serving,
+      batchTotals: r.batch_totals,
+    })));
+    if ($('macroSection').style.display !== 'none') renderSavedPreps();
+  } catch (e) {
+    console.warn('Saved-preps sync failed:', e.message);
+  }
+}
+
+// ── Uneaten food (Part C): chips + per-item toggles (client-only, free) and
+// a leftover-photo path (server call, free, modeled on refine-meal). ──
+let leftoverOpenKey = null; // loggedAt of the today's-meal card currently showing the editor
+window._leftoverPreview = window._leftoverPreview || {}; // loggedAt -> pending photo-path preview
+
+function renderTodaysMealsList() {
+  const meals = getTodaysMeals();
+  const wrap = $('todaysMealsWrap');
+  if (!meals.length) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+  $('todaysMealsList').innerHTML = meals.map(m => {
+    const isOpen = leftoverOpenKey === m.loggedAt;
+    return `
+    <div class="receipt-card" style="margin-bottom:10px" data-logged-at="${m.loggedAt}">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+        <div>
+          <div class="receipt-item-name">${escapeHtml(m.name)}</div>
+          <div class="receipt-item-sub">${m.totals.calories} cal${m.preAdjustment ? ' · adjusted' : ''}</div>
+        </div>
+        <button class="try-diff-btn didnt-finish-btn" data-logged-at="${m.loggedAt}">${isOpen ? 'Close' : "Didn't finish?"}</button>
+      </div>
+      ${isOpen ? renderLeftoverEditor(m) : ''}
+    </div>`;
+  }).join('');
+}
+
+function renderLeftoverEditor(m) {
+  const baseItems = m.preAdjustment ? m.preAdjustment.items : m.items;
+  const itemChips = baseItems.map((it, i) => `
+    <button class="size-chip leftover-item-chip${it._leftIt ? ' active' : ''}" data-logged-at="${m.loggedAt}" data-item-idx="${i}">${it._leftIt ? '✓ ' : ''}${escapeHtml(it.name)}</button>
+  `).join('');
+  return `
+    <div style="margin-top:12px;border-top:1px solid var(--line);padding-top:12px">
+      <div class="upload-caption" style="margin-bottom:8px">Leaving food is a win — log it and bank the calories.</div>
+      <div class="chips-row" style="margin-bottom:10px">
+        <button class="size-chip leftover-fraction-chip" data-logged-at="${m.loggedAt}" data-left="0.25">Left ~¼</button>
+        <button class="size-chip leftover-fraction-chip" data-logged-at="${m.loggedAt}" data-left="0.5">Left ~½</button>
+        <button class="size-chip leftover-fraction-chip" data-logged-at="${m.loggedAt}" data-left="0.75">Left ~¾</button>
+      </div>
+      <div class="upload-caption" style="margin-bottom:6px">Or tap what you left:</div>
+      <div class="chips-row" style="margin-bottom:10px">${itemChips}</div>
+      <button class="try-diff-btn leftover-photo-btn" data-logged-at="${m.loggedAt}">📷 Add a photo of what's left instead</button>
+      ${m.preAdjustment ? `<button class="try-diff-btn leftover-undo-btn" data-logged-at="${m.loggedAt}" style="margin-top:8px">Undo adjustment</button>` : ''}
+      <div id="leftoverPhotoPreview-${m.loggedAt}"></div>
+    </div>
+  `;
+}
+
+function updateMealOnServer(entry) {
+  if (!isLoggedIn() || !entry.serverId) return;
+  authApi(`/api/meals/${entry.serverId}`, { method: 'DELETE' }).catch(() => {}).then(() =>
+    authApi('/api/meals', {
+      method: 'POST',
+      body: JSON.stringify({ date: entry.date, loggedAt: new Date(entry.loggedAt).toISOString(), mealName: entry.name, totals: entry.totals, items: entry.items }),
+    })
+  ).then(({ id }) => {
+    const all = loadLoggedMeals();
+    const match = all.find(m => m.loggedAt === entry.loggedAt);
+    if (match) { match.serverId = id; saveLoggedMeals(all); }
+  }).catch(e => console.warn('Meal update sync failed:', e.message));
+}
+
+function applyLeftoverFraction(loggedAt, leftFraction) {
+  const meals = loadLoggedMeals();
+  const m = meals.find(x => x.loggedAt === loggedAt);
+  if (!m) return;
+  if (!m.preAdjustment) m.preAdjustment = JSON.parse(JSON.stringify({ items: m.items, totals: m.totals }));
+  const eaten = 1 - leftFraction;
+  const items = m.preAdjustment.items.map(it => ({
+    ...it,
+    _leftIt: false,
+    estimated_grams: Math.round(it.estimated_grams * eaten),
+    calories: Math.round(it.calories * eaten),
+    protein_g: Math.round(it.protein_g * eaten * 10) / 10,
+    carbs_g: Math.round(it.carbs_g * eaten * 10) / 10,
+    fat_g: Math.round(it.fat_g * eaten * 10) / 10,
+    alcohol_g: Math.round((it.alcohol_g || 0) * eaten * 10) / 10,
+  }));
+  m.items = items;
+  m.totals = computeMealTotals(items);
+  saveLoggedMeals(meals);
+  updateMealOnServer(m);
+  renderDailyTotals();
+}
+
+function toggleLeftoverItem(loggedAt, itemIdx) {
+  const meals = loadLoggedMeals();
+  const m = meals.find(x => x.loggedAt === loggedAt);
+  if (!m) return;
+  if (!m.preAdjustment) m.preAdjustment = JSON.parse(JSON.stringify({ items: m.items, totals: m.totals }));
+  const base = m.preAdjustment;
+  base.items[itemIdx]._leftIt = !base.items[itemIdx]._leftIt;
+  const items = base.items.map(it => it._leftIt
+    ? { ...it, estimated_grams: 0, calories: 0, protein_g: 0, carbs_g: 0, fat_g: 0, alcohol_g: 0 }
+    : { ...it, _leftIt: false });
+  m.items = items;
+  m.totals = computeMealTotals(items);
+  saveLoggedMeals(meals);
+  updateMealOnServer(m);
+  renderDailyTotals();
+}
+
+function undoLeftoverAdjustment(loggedAt) {
+  const meals = loadLoggedMeals();
+  const m = meals.find(x => x.loggedAt === loggedAt);
+  if (!m || !m.preAdjustment) return;
+  m.items = m.preAdjustment.items.map(({ _leftIt, ...rest }) => rest);
+  m.totals = m.preAdjustment.totals;
+  delete m.preAdjustment;
+  saveLoggedMeals(meals);
+  updateMealOnServer(m);
+  renderDailyTotals();
+}
+
+async function openLeftoverPhotoPicker(loggedAt) {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.multiple = true;
+  input.onchange = async (e) => {
+    const files = Array.from(e.target.files || []).slice(0, MAX_MEAL_PHOTOS);
+    if (!files.length) return;
+    const previewEl = $(`leftoverPhotoPreview-${loggedAt}`);
+    if (previewEl) previewEl.innerHTML = `<div class="loading-status" style="margin-top:10px"><div class="loading-spinner"></div><div><div class="loading-sub">Reading what's left…</div></div></div>`;
+    try {
+      const photos = [];
+      for (const f of files) {
+        photos.push(await downscaleImage(f) || await fileToBase64(f));
+      }
+      const meals = loadLoggedMeals();
+      const m = meals.find(x => x.loggedAt === loggedAt);
+      if (!m) return;
+      const baseItems = m.preAdjustment ? m.preAdjustment.items : m.items;
+      const res = await fetchWithRetry(`${BACKEND_URL}/api/refine-leftovers`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          analysis: { items: baseItems, mealName: m.name },
+          photos: photos.map(p => ({ base64: p.data, mime: p.mime })),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
+      renderLeftoverPhotoPreview(loggedAt, data.items, data.totals);
+    } catch (err) {
+      const el = $(`leftoverPhotoPreview-${loggedAt}`);
+      if (el) el.innerHTML = `<div class="error-toast" style="margin-top:10px">${escapeHtml(err.message || 'Something went wrong.')}</div>`;
+      console.error('Leftover photo analysis error:', err);
+    }
+  };
+  input.click();
+}
+
+function renderLeftoverPhotoPreview(loggedAt, items, totals) {
+  window._leftoverPreview[loggedAt] = { items, totals };
+  const previewEl = $(`leftoverPhotoPreview-${loggedAt}`);
+  if (!previewEl) return;
+  const r1 = n => Math.round(n * 10) / 10;
+  previewEl.innerHTML = `
+    <div class="receipt-card" style="margin-top:10px">
+      <div class="upload-caption" style="margin-bottom:6px">You ate:</div>
+      ${items.map(it => `<div class="receipt-item"><div><div class="receipt-item-name">${escapeHtml(it.name)}</div></div><div class="receipt-item-macros"><div class="r-cal">${Math.round(it.calories)} cal</div></div></div>`).join('')}
+      <div class="receipt-totals-row"><span class="receipt-totals-cal">${totals.calories} cal</span><span class="receipt-totals-macros">${r1(totals.protein_g)}P · ${r1(totals.carbs_g)}C · ${r1(totals.fat_g)}F</span></div>
+      <div style="display:flex;gap:10px;margin-top:10px">
+        <button class="cta-btn leftover-confirm-btn" data-logged-at="${loggedAt}" style="flex:1;padding:10px">Confirm</button>
+        <button class="try-diff-btn leftover-cancel-btn" data-logged-at="${loggedAt}" style="flex:1">Cancel</button>
+      </div>
+    </div>
+  `;
+}
+
+function confirmLeftoverPhoto(loggedAt) {
+  const preview = window._leftoverPreview[loggedAt];
+  if (!preview) return;
+  const meals = loadLoggedMeals();
+  const m = meals.find(x => x.loggedAt === loggedAt);
+  if (!m) return;
+  if (!m.preAdjustment) m.preAdjustment = JSON.parse(JSON.stringify({ items: m.items, totals: m.totals }));
+  m.items = preview.items;
+  m.totals = preview.totals;
+  saveLoggedMeals(meals);
+  updateMealOnServer(m);
+  delete window._leftoverPreview[loggedAt];
+  leftoverOpenKey = null;
+  renderDailyTotals();
+}
+
+function cancelLeftoverPhoto(loggedAt) {
+  delete window._leftoverPreview[loggedAt];
+  renderTodaysMealsList();
 }
 
 function initMealTracker() {
@@ -8027,21 +8458,32 @@ function initMealTracker() {
   uploadCard.addEventListener('drop', async (e) => {
     e.preventDefault();
     uploadCard.classList.remove('dragover');
-    if (e.dataTransfer.files[0]) await handleMealPhoto(e.dataTransfer.files[0]);
+    if (e.dataTransfer.files[0]) await addMealPhoto(e.dataTransfer.files[0]);
   });
   photoInput.addEventListener('change', async (e) => {
-    if (e.target.files[0]) await handleMealPhoto(e.target.files[0]);
+    if (e.target.files[0]) await addMealPhoto(e.target.files[0]);
+    photoInput.value = '';
   });
 
   $('removeMealPhoto').addEventListener('click', (e) => {
     e.stopPropagation();
-    meal.photoData = null;
-    meal.photoMime = null;
-    $('mealUploadPreview').style.display = 'none';
-    $('mealUploadPlaceholder').style.display = '';
-    photoInput.value = '';
-    $('mealAnalyzeBtn').disabled = true;
-    resetMealAnalysisUI();
+    removeMealPhotoAt(0);
+  });
+
+  $('mealExtraPhotosRow').addEventListener('click', (e) => {
+    const rmBtn = e.target.closest('.remove-extra-photo');
+    if (rmBtn) { removeMealPhotoAt(Number(rmBtn.dataset.idx)); return; }
+    if (e.target.closest('#addAnglePhotoBtn')) $('mealExtraPhotoInput').click();
+  });
+  $('mealExtraPhotoInput').addEventListener('change', async (e) => {
+    if (e.target.files[0]) await addMealPhoto(e.target.files[0]);
+    e.target.value = '';
+  });
+
+  $('mealModeSingleBtn').addEventListener('click', () => setMealMode('single'));
+  $('mealModePrepBtn').addEventListener('click', () => setMealMode('prep'));
+  $('mealPrepServingsInput').addEventListener('input', () => {
+    $('mealAnalyzeBtn').disabled = !meal.photos.length || !getServingsInput();
   });
 
   $('mealAnalyzeBtn').addEventListener('click', analyzeMeal);
@@ -8086,6 +8528,43 @@ function initMealTracker() {
   });
 
   $('mealLogBtn').addEventListener('click', logMeal);
+  $('mealSavePrepBtn').addEventListener('click', saveMealPrep);
+
+  $('savedPrepsList').addEventListener('click', (e) => {
+    const logBtn = e.target.closest('.log-prep-btn');
+    if (logBtn) { logPrepServing(logBtn.dataset.id); return; }
+    const resetBtn = e.target.closest('.reset-prep-btn');
+    if (resetBtn) { resetPrepRemaining(resetBtn.dataset.id); return; }
+    const delBtn = e.target.closest('.delete-prep-btn');
+    if (delBtn) { deletePrep(delBtn.dataset.id); return; }
+  });
+
+  $('todaysMealsList').addEventListener('click', (e) => {
+    const finishBtn = e.target.closest('.didnt-finish-btn');
+    if (finishBtn) {
+      const key = Number(finishBtn.dataset.loggedAt);
+      leftoverOpenKey = leftoverOpenKey === key ? null : key;
+      renderTodaysMealsList();
+      return;
+    }
+    const fracChip = e.target.closest('.leftover-fraction-chip');
+    if (fracChip) { applyLeftoverFraction(Number(fracChip.dataset.loggedAt), Number(fracChip.dataset.left)); return; }
+
+    const itemChip = e.target.closest('.leftover-item-chip');
+    if (itemChip) { toggleLeftoverItem(Number(itemChip.dataset.loggedAt), Number(itemChip.dataset.itemIdx)); return; }
+
+    const photoBtn = e.target.closest('.leftover-photo-btn');
+    if (photoBtn) { openLeftoverPhotoPicker(Number(photoBtn.dataset.loggedAt)); return; }
+
+    const undoBtn = e.target.closest('.leftover-undo-btn');
+    if (undoBtn) { undoLeftoverAdjustment(Number(undoBtn.dataset.loggedAt)); return; }
+
+    const confirmBtn = e.target.closest('.leftover-confirm-btn');
+    if (confirmBtn) { confirmLeftoverPhoto(Number(confirmBtn.dataset.loggedAt)); return; }
+
+    const cancelBtn = e.target.closest('.leftover-cancel-btn');
+    if (cancelBtn) { cancelLeftoverPhoto(Number(cancelBtn.dataset.loggedAt)); return; }
+  });
 }
 </script>
 <script>

@@ -1537,17 +1537,61 @@ const MEAL_SCHEMA = {
   },
 };
 
-const MEAL_SYSTEM_PROMPT = `You are the meal-analysis engine for a fitness app. Given a photo of food, itemize everything edible and estimate nutrition per item.
+const MEAL_SYSTEM_PROMPT = `You are the meal-analysis engine for a fitness app. Given one or more photos of food, itemize everything edible and estimate nutrition per item.
 
 Rules:
+- If more than one photo is provided, they are the SAME meal from different angles (e.g. an overhead shot and a side shot) — itemize the meal ONCE, not once per photo. Use overhead angles to see what's on the plate and side/angled shots to judge height and depth for volume.
+- Estimate each item's volume or weight FIRST using visual references, then convert to macros via standard food densities — don't jump straight to a calorie guess. Use the plate as a ruler: a standard dinner plate is about 10.5in/27cm across, a dinner fork is about 7in/18cm long.
 - One entry per distinct food item. Include cooking fats, oils, dressings, and sauces as their own line items when they are plausibly present, even if not directly visible (e.g. "cooking oil" for pan-fried food, "dressing" for a glossy salad).
-- estimated_grams is the edible portion as served. Use visual references (plate ~27cm, fork, hands) to judge scale. Do not default to "standard serving" sizes when the photo shows more or less.
+- estimated_grams is the edible portion as served. Do not default to "standard serving" sizes when the photo shows more or less.
 - calories, protein_g, carbs_g, fat_g are for the estimated portion, not per 100g. Keep calories consistent with energy math: 4 kcal/g protein and carbs, 9 kcal/g fat, 7 kcal/g alcohol.
 - For alcoholic drinks, set alcohol_g to the grams of pure ethanol in the portion — most of their calories come from alcohol, not macros. Set alcohol_g to 0 for everything else.
-- If the photo shows a nutrition label, read it verbatim and set source to "label" with a single item.
+- If a photo shows a nutrition label, read it verbatim and set source to "label" with a single item.
 - List every assumption that materially moves the numbers (e.g. "assumed whole milk", "assumed cooked in 1 tbsp oil").
 - clarifying_questions: at most 2, only questions whose answer would change calories by >10%. Each needs 2-4 short tap-friendly options, most likely option first. If confidence is high, return an empty array.
-- If the image contains no food or drink, set is_food to false and return an empty items array.`;
+- If none of the photos contain food or drink, set is_food to false and return an empty items array.`;
+
+// Appended to the system prompt only when the request is flagged mealPrep —
+// tells the model these photos are a whole batch to divide later, not a plate.
+const MEAL_PREP_ADDENDUM = `
+
+These photos show an ENTIRE WEEK'S MEAL-PREP BATCH, not a single plated portion — raw ingredients and/or packaged items meant to be divided into several servings. Itemize and estimate nutrition for the WHOLE BATCH shown (everything combined across all photos/containers), and read any visible nutrition labels verbatim rather than guessing. The batch will be divided into per-serving numbers after your response, so estimate the full batch quantities as photographed.`;
+
+// Accepts either the new multi-photo shape { photos: [{ base64, mime }] } or
+// the legacy single-photo shape { photoBase64, photoMime } (deployed iOS/
+// Android wrappers call prod with the legacy shape — never remove it).
+function normalizeMealPhotos(body) {
+  if (Array.isArray(body.photos) && body.photos.length) {
+    return body.photos.slice(0, 3).map((p) => ({ data: p.base64 || p.data, mime: p.mime }));
+  }
+  if (body.photoBase64 && body.photoMime) {
+    return [{ data: body.photoBase64, mime: body.photoMime }];
+  }
+  return [];
+}
+
+// One text label + image block per photo, in the order taken.
+function buildMealPhotoContent(photos) {
+  const content = [];
+  photos.forEach((p, i) => {
+    if (photos.length > 1) content.push({ type: 'text', text: `Photo ${i + 1}:` });
+    content.push({ type: 'image', source: { type: 'base64', media_type: p.mime, data: p.data } });
+  });
+  return content;
+}
+
+// Scale every item's grams/macros/calories by 1/n (meal-prep batch -> per serving).
+function divideItems(items, n) {
+  return items.map((item) => ({
+    ...item,
+    estimated_grams: Math.round(item.estimated_grams / n),
+    calories: Math.round(item.calories / n),
+    protein_g: Math.round((item.protein_g / n) * 10) / 10,
+    carbs_g: Math.round((item.carbs_g / n) * 10) / 10,
+    fat_g: Math.round((item.fat_g / n) * 10) / 10,
+    alcohol_g: Math.round(((item.alcohol_g || 0) / n) * 10) / 10,
+  }));
+}
 
 // Enforce calories = 4p + 4c + 9f + 7a per item (a = alcohol grams). If the
 // model's calorie figure disagrees with its own macros by >15%, the macros win
@@ -1604,7 +1648,7 @@ function calibrationFactorFor(analysis) {
 
 app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
   try {
-    const { photoBase64, photoMime, note, recentMeals, deviceId } = req.body;
+    const { note, recentMeals, deviceId, mealPrep, servings } = req.body;
 
     // Idempotency: a dropped response makes the client replay the same attemptId.
     // Return the cached result (no second model call, no second decrement).
@@ -1612,8 +1656,19 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
     const cached = getCachedAttempt(attemptId);
     if (cached) return res.status(cached.status).json(cached.body);
 
-    if (!photoBase64 || !photoMime) {
-      return res.status(400).json({ error: 'Missing photoBase64 or photoMime' });
+    if (Array.isArray(req.body.photos) && req.body.photos.length > 3) {
+      return res.status(400).json({ error: 'Maximum 3 photos per analysis' });
+    }
+    const photos = normalizeMealPhotos(req.body);
+    if (!photos.length) {
+      return res.status(400).json({ error: 'Missing photoBase64/photoMime or photos' });
+    }
+
+    const isMealPrep = !!mealPrep;
+    const rawServings = parseInt(servings, 10);
+    const servingsCount = isMealPrep ? (rawServings >= 2 && rawServings <= 20 ? rawServings : 0) : null;
+    if (isMealPrep && !servingsCount) {
+      return res.status(400).json({ error: 'Meal prep requires servings between 2 and 20' });
     }
 
     // Freemium taste: non-members get FREE_MEAL_ANALYSES total, then each
@@ -1639,14 +1694,9 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
       }
     }
 
-    const userContent = [
-      {
-        type: 'image',
-        source: { type: 'base64', media_type: photoMime, data: photoBase64 },
-      },
-    ];
+    const userContent = buildMealPhotoContent(photos);
 
-    let textParts = ['Analyze this meal.'];
+    let textParts = [isMealPrep ? 'Analyze this meal-prep batch.' : 'Analyze this meal.'];
     if (note && typeof note === 'string') {
       textParts.push(`User note about the meal: "${note.slice(0, 300)}"`);
     }
@@ -1666,7 +1716,7 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 2000,
-        system: MEAL_SYSTEM_PROMPT,
+        system: MEAL_SYSTEM_PROMPT + (isMealPrep ? MEAL_PREP_ADDENDUM : ''),
         output_config: { format: { type: 'json_schema', schema: MEAL_SCHEMA } },
         messages: [{ role: 'user', content: userContent }],
       }),
@@ -1707,6 +1757,14 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
       persistCreditsStore(); // fire-and-forget
     }
 
+    // Meal prep: the model estimated the WHOLE batch. Divide items/totals down
+    // to a single serving so the existing receipt/clarify/refine/log UI can
+    // treat it exactly like a regular meal; batchTotals/batchItems carry the
+    // whole-batch numbers alongside for display. `raw` stays at serving scale
+    // (matching `items`) so /api/refine-meal's math keeps working unmodified.
+    const perServingItems = isMealPrep ? divideItems(adjustedItems, servingsCount) : adjustedItems;
+    const perServingRawItems = isMealPrep ? divideItems(checkedItems, servingsCount) : checkedItems;
+
     const payload = {
       isFood: true,
       mealName: analysis.meal_name,
@@ -1714,11 +1772,12 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
       context: analysis.context,
       confidence: analysis.confidence,
       matchesRecent: analysis.matches_recent,
-      items: adjustedItems,
-      totals: sumTotals(adjustedItems),
-      raw: { items: checkedItems, totals: sumTotals(checkedItems), calibrationFactor: factor },
+      items: perServingItems,
+      totals: sumTotals(perServingItems),
+      raw: { items: perServingRawItems, totals: sumTotals(perServingRawItems), calibrationFactor: factor },
       clarifyingQuestions: (analysis.clarifying_questions || []).slice(0, 2),
       needsClarification: analysis.confidence !== 'high' && (analysis.clarifying_questions || []).length > 0,
+      ...(isMealPrep ? { mealPrep: true, servings: servingsCount, batchItems: adjustedItems, batchTotals: sumTotals(adjustedItems) } : {}),
       ...(creditsRemaining !== undefined ? { creditsRemaining, usedCredit: true } : {}),
     };
     // Cache synchronously right after the decrement (no await between them) so a
@@ -1805,6 +1864,133 @@ app.post('/api/refine-meal', aiLimiter, async (req, res) => {
     });
   } catch (err) {
     console.error('Meal refinement error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ============================================================
+// MACRO TRACKER: Refine "what's left" from a leftover photo (Haiku, free)
+// ============================================================
+// Uneaten-food subtraction, photo path. Free like refine-meal — charging
+// twice for one meal (once for the original analysis, again for the
+// leftovers) was explicitly rejected in planning. Modeled on /api/refine-meal.
+const LEFTOVER_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['items'],
+  properties: {
+    items: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['name', 'fraction_remaining'],
+        properties: {
+          name: { type: 'string' },
+          fraction_remaining: {
+            type: 'number',
+            description: '0 to 1: the fraction of this line item, by weight, still visible uneaten in the leftover photo(s). 0 if fully eaten / not present.',
+          },
+        },
+      },
+    },
+  },
+};
+
+const LEFTOVER_SYSTEM_PROMPT = `You are shown an itemized estimate of a meal AS SERVED, and one or more photos of what was LEFT UNEATEN after the person finished eating. For each line item in the original estimate, estimate the fraction (0 to 1) of that item, by weight, that is visible remaining in the leftover photo(s). An item completely gone (eaten, or simply not present in the leftover photo) is 0. An item still fully there is close to 1. Return exactly one entry per original item, in the same order, using the same name.`;
+
+app.post('/api/refine-leftovers', aiLimiter, async (req, res) => {
+  try {
+    const { analysis, photos: rawPhotos } = req.body;
+    if (!analysis?.items?.length) {
+      return res.status(400).json({ error: 'Missing analysis' });
+    }
+    if (Array.isArray(rawPhotos) && rawPhotos.length > 3) {
+      return res.status(400).json({ error: 'Maximum 3 photos per analysis' });
+    }
+    const photos = normalizeMealPhotos({ photos: rawPhotos });
+    if (!photos.length) {
+      return res.status(400).json({ error: 'Missing photos' });
+    }
+
+    const userContent = buildMealPhotoContent(photos);
+    userContent.push({
+      type: 'text',
+      text: `Meal as served (in order): ${JSON.stringify(analysis.items.map((it) => ({ name: it.name })))}`,
+    });
+
+    // A stalled connection to Anthropic would otherwise hang this fetch
+    // forever (node-fetch has no default timeout) — bound every attempt so
+    // the client's error handling can actually kick in. Same pattern as the
+    // supplement-audit fix (commit 751fe7b).
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 60000); // Haiku, small payload — 1 min
+    let response;
+    try {
+      response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+        },
+        body: JSON.stringify({
+          model: 'claude-haiku-4-5-20251001',
+          max_tokens: 1000,
+          system: LEFTOVER_SYSTEM_PROMPT,
+          output_config: { format: { type: 'json_schema', schema: LEFTOVER_SCHEMA } },
+          messages: [{ role: 'user', content: userContent }],
+        }),
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timer);
+    }
+
+    const data = await response.json();
+    if (!response.ok) {
+      return res.status(response.status).json({ error: data?.error?.message || 'Claude API error' });
+    }
+
+    let leftover;
+    try {
+      leftover = JSON.parse(data?.content?.[0]?.text || '');
+    } catch {
+      return res.status(502).json({ error: 'Model returned unparseable leftovers analysis' });
+    }
+
+    const fractionByName = new Map(
+      (leftover.items || []).map((it) => [String(it.name || '').toLowerCase(), it.fraction_remaining])
+    );
+    // Multiply each original item by (1 - fraction_remaining) — the model only
+    // ever supplies a fraction, never a calorie figure, so macro math never
+    // has to be "corrected" against a model number here; enforceMacroMath
+    // below just re-squares rounding drift after the scaling.
+    const revisedItems = analysis.items.map((item, i) => {
+      const modelItem = leftover.items?.[i];
+      const fraction = typeof modelItem?.fraction_remaining === 'number'
+        ? modelItem.fraction_remaining
+        : (fractionByName.get(String(item.name || '').toLowerCase()) ?? 0);
+      const eatenFraction = Math.max(0, Math.min(1, 1 - fraction));
+      return {
+        ...item,
+        estimated_grams: Math.round(item.estimated_grams * eatenFraction),
+        calories: Math.round(item.calories * eatenFraction),
+        protein_g: Math.round(item.protein_g * eatenFraction * 10) / 10,
+        carbs_g: Math.round(item.carbs_g * eatenFraction * 10) / 10,
+        fat_g: Math.round(item.fat_g * eatenFraction * 10) / 10,
+        alcohol_g: Math.round((item.alcohol_g || 0) * eatenFraction * 10) / 10,
+        fractionRemaining: fraction,
+      };
+    });
+    const checkedItems = enforceMacroMath(revisedItems);
+
+    res.json({ items: checkedItems, totals: sumTotals(checkedItems) });
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      return res.status(504).json({ error: 'Leftover analysis timed out. Please try again.' });
+    }
+    console.error('Leftover refinement error:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -2995,6 +3181,62 @@ app.delete('/api/meals/:id', requireAuth, async (req, res) => {
     res.json({ ok: true });
   } catch (e) {
     console.error('delete meal error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ============================================================
+// MEAL PREP: saved batch recipes (mirrors the /api/meals trio)
+// ============================================================
+app.get('/api/saved-preps', requireAuth, async (req, res) => {
+  try {
+    const { rows } = await db.query(
+      'SELECT id, name, servings, remaining, per_serving, batch_totals, created_at FROM saved_preps WHERE user_id = $1 ORDER BY created_at ASC',
+      [req.user.id]
+    );
+    res.json({ preps: rows });
+  } catch (e) {
+    console.error('get saved-preps error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/saved-preps', requireAuth, async (req, res) => {
+  const p = req.body || {};
+  if (!p.name || !p.perServing || !p.servings) return res.status(400).json({ error: 'Missing meal prep data' });
+  try {
+    const servings = parseInt(p.servings, 10) || 1;
+    const remaining = Number.isFinite(parseInt(p.remaining, 10)) ? parseInt(p.remaining, 10) : servings;
+    const { rows } = await db.query(
+      `INSERT INTO saved_preps (user_id, name, servings, remaining, per_serving, batch_totals)
+       VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
+      [req.user.id, String(p.name), servings, remaining, JSON.stringify(p.perServing), JSON.stringify(p.batchTotals || null)]
+    );
+    res.json({ id: rows[0].id });
+  } catch (e) {
+    console.error('save prep error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.put('/api/saved-preps/:id', requireAuth, async (req, res) => {
+  try {
+    const remaining = parseInt(req.body?.remaining, 10);
+    if (!Number.isFinite(remaining)) return res.status(400).json({ error: 'Missing remaining' });
+    await db.query('UPDATE saved_preps SET remaining = $1 WHERE id = $2 AND user_id = $3', [remaining, parseInt(req.params.id, 10) || 0, req.user.id]);
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('update prep error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.delete('/api/saved-preps/:id', requireAuth, async (req, res) => {
+  try {
+    await db.query('DELETE FROM saved_preps WHERE id = $1 AND user_id = $2', [parseInt(req.params.id, 10) || 0, req.user.id]);
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('delete prep error:', e.message);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
