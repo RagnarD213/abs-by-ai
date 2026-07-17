@@ -63,39 +63,9 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 
 ---
 
-## User-authorized parallel task
-
-**Status:** `Ready for review`
-
-**Owner:** Codex
-
-**Task:** Screen-1 proof strip + locked-result teaser, per `handoff-20260717-proof-strip-locked-teaser.md`.
-
-**Goal:** Improve top-of-funnel upload confidence and make the out-of-credits result/paywall more compelling without changing generation, credits, or Stripe logic.
-
-**Acceptance criteria:** Shortlist 2–3 mixed-gender before/after pairs for Dan's approval; add an honest, compact, lazy-loaded rotating proof strip; add the torso-blurred locked teaser and dynamic body-fat paywall headline; add the three specified PostHog events; verify locally. Do not commit or push until Dan explicitly authorizes it because Claude Code is concurrently modifying the repository.
-
-**Completed:** Implemented and locally verified the locked-result teaser, dynamic body-fat headline, accessible click/keyboard paywall focus, and `locked_teaser_shown` analytics. Mobile visual QA passed at 390×844. No generation, credits, Stripe, native-app purchase classes, or Macro Tracker code was changed.
-
-**Asset decision:** Dan rejected the personal Dan/Brittany photos. Codex confirmed there was no other female transformation asset, then generated a new fictional male pair and fictional female pair with matching before/after identity, pose, clothing, and background. WebP exports are in `img/proof/` at 11–12KB each.
-
-**Completed:** Added the compact first-screen proof strip using the new fictional male/female pairs, honest AI labeling, delayed image loading, four-second crossfade rotation, accessible manual dots, reduced-motion handling, and once-per-session `proof_strip_seen`. Locked teaser work remains complete with `locked_teaser_shown`. Local mobile QA at 390×844 passed: strip height 157px, upload card begins at 356px, all four assets loaded at 375×500, auto-rotation and manual switching passed, and the browser reported no errors. Inline JavaScript syntax and `git diff --check` passed.
-
-**Remaining / next action:** Dan reviews the finished local changes and explicitly authorizes commit/push. Then commit only `index.html`, `img/proof/*`, and this coordination update; push `main`, verify Railway deployment, verify both flows on `https://absbyai.com`, and reset this task to `No active task` after production verification.
-
-**Coordination caution:** This parallel task was explicitly requested by Dan on 2026-07-17. Preserve Claude Code's active-task ownership and avoid its Macro Tracker code areas.
-
----
-
 ## Queued (next up after the active task)
 
-**Task:** Onboarding funnel revamp — approved 2026-07-17, split into three handoffs (1 and 2 independent of each other; 3 depends on 2):
-
-1. `handoff-20260717-proof-strip-locked-teaser.md` — screen-1 proof strip + blurred-abs locked-result teaser. Routine UI; Codex-eligible. Needs Dan's approval on example images.
-2. `handoff-20260717-bridge-hub-trial-gate.md` — replace print-first screens 4–5 with a benefits bridge screen → logged-out hub preview (print upsell demoted to a top card) → trial gate reusing the existing Stripe 7-day trial. Codex-eligible.
-3. `handoff-20260717-member-profile-questionnaire.md` — shared per-account member profile + 5–6 question pre-trial quiz; all features read/write it. Claude-owned (cross-feature architecture + Anthropic prompt code).
-
-Each handoff contains all settled decisions, model/effort recommendations, and a ready-to-paste starter prompt. Implementation not started.
+**Task:** `handoff-20260717-member-profile-questionnaire.md` — shared per-account member profile + 5–6 question pre-trial quiz; all features read/write it. Claude-owned (cross-feature architecture + Anthropic prompt code). This follows the currently active bridge/hub/trial-gate task.
 
 ---
 
