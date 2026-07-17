@@ -50,38 +50,19 @@
     },
     {
       "text": "Email Jeff to hire",
-      "priority": "key",
-      "recurring": false
+      "priority": "key"
     },
     {
       "text": "Review Claude scheduled task output",
-      "priority": "high",
-      "recurring": false
+      "priority": "high"
     },
     {
       "text": "Rework dashboard with keystone tasks and today's plan",
-      "priority": "high",
-      "recurring": false
-    },
-    {
-      "text": "Create supplement audit functionality. Eliminate decision council",
-      "priority": "key",
-      "recurring": false
-    },
-    {
-      "text": "Review Romaisa video",
-      "priority": "key",
-      "recurring": false
-    },
-    {
-      "text": "Finalize female transformations feature",
-      "priority": "key",
-      "recurring": false
+      "priority": "high"
     },
     {
       "text": "Fix supplement audit problems",
-      "priority": "key",
-      "recurring": false
+      "priority": "key"
     }
   ],
   "health": [
@@ -104,10 +85,6 @@
       "text": "Salad",
       "priority": "high",
       "recurring": true
-    },
-    {
-      "text": "Inject Zepbound",
-      "priority": "high"
     }
   ],
   "personal": [
@@ -161,8 +138,7 @@
     },
     {
       "text": "Buy Proper Cloth shirt",
-      "priority": "low",
-      "recurring": false
+      "priority": "low"
     }
   ]
 }
