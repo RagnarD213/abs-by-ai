@@ -9,7 +9,8 @@
     "health::Brush teeth",
     "health::Floss",
     "health::Inject Zepbound",
-    "money::Create supplement audit functionality. Eliminate decision council"
+    "money::Create supplement audit functionality. Eliminate decision council",
+    "money::Review Romaisa video"
   ],
   "log": {
     "health::Shower": [
