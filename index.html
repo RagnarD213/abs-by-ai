@@ -3251,11 +3251,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (email) {
       localStorage.setItem('absbyai_email', email);
       if (window.posthog) posthog.capture('email_subscribed');
+      // Send the freshly-generated before/after along so the welcome email can
+      // embed the user's own transformation. Best-effort; omitted if absent.
+      const before = localStorage.getItem(LAST_BEFORE_KEY) || undefined;
+      const after = localStorage.getItem(LAST_AFTER_KEY) || undefined;
       // Fire-and-forget: never block the user's path to products on a network hiccup.
       fetch(`${BACKEND_URL}/api/subscribe`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, deviceId: getDeviceId() }),
+        body: JSON.stringify({ email, deviceId: getDeviceId(), before, after }),
       }).catch(() => {});
     }
     showProductSection();

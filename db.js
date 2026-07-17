@@ -158,6 +158,15 @@ async function initDb() {
       error      TEXT,
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
+    -- Before/after images captured at email-signup, keyed by email (accounts and
+    -- anonymous signups alike). Used to embed the user's own transformation in
+    -- the welcome email. Stored as data-URI strings; served via /api/welcome-image.
+    CREATE TABLE IF NOT EXISTS welcome_images (
+      email        TEXT PRIMARY KEY,
+      before_image TEXT,
+      after_image  TEXT,
+      created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
   `);
   // Membership columns (added after the users table shipped). ADD COLUMN IF NOT
   // EXISTS keeps this idempotent across deploys; pg-mem supports it too.

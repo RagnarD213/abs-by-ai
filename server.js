@@ -2164,6 +2164,11 @@ app.post('/api/subscribe', async (req, res) => {
     return res.status(400).json({ error: 'Invalid email' });
   }
 
+  // Capture the user's freshly-generated before/after (sent by the download
+  // screen) so the welcome email can embed it. Best-effort, keyed by email;
+  // runs before the early-return so a repeat submit can still backfill images.
+  saveWelcomeImages(email, String(req.body?.before || ''), String(req.body?.after || '')).catch(() => {});
+
   const existing = subscribersStore.emails[email];
   if (existing?.synced) return res.json({ ok: true }); // already captured + synced
 
@@ -2221,6 +2226,30 @@ async function handleUnsubscribe(req, res) {
 
 app.get('/api/unsubscribe', handleUnsubscribe);
 app.post('/api/unsubscribe', handleUnsubscribe);
+
+// Serves a subscriber's stored before/after image for the welcome email.
+// Public + token-gated (email clients can't send auth headers). Streams the
+// stored data-URI as a real image so inboxes render it (they strip inline
+// data-URIs). No watermark — this is the clean original by design.
+app.get('/api/welcome-image', async (req, res) => {
+  const email = String(req.query.e || '').trim().toLowerCase();
+  const kind = req.query.k === 'before' ? 'before_image' : 'after_image';
+  const token = String(req.query.t || '');
+  if (!email || !welcomeImgTokenValid(email, token)) return res.status(403).end();
+  if (!db) return res.status(404).end();
+  try {
+    const { rows } = await db.query(`SELECT ${kind} AS img FROM welcome_images WHERE email = $1`, [email]);
+    const dataUri = rows[0]?.img;
+    const m = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.*)$/s.exec(dataUri || '');
+    if (!m) return res.status(404).end();
+    res.set('Content-Type', m[1]);
+    res.set('Cache-Control', 'public, max-age=86400');
+    res.send(Buffer.from(m[2], 'base64'));
+  } catch (e) {
+    console.error('welcome-image error:', e.message);
+    res.status(500).end();
+  }
+});
 
 // ============================================================
 // ACCOUNTS — email/password auth, sessions, meal sync (Postgres)
@@ -2459,6 +2488,51 @@ function unsubscribeUrl(email) {
   return `${SITE_URL}/api/unsubscribe?email=${encodeURIComponent(email)}&token=${unsubToken(email)}`;
 }
 
+// ── Welcome-email images (the user's own before/after) ──
+// Email clients strip data-URI <img>, so the stored images are served from a
+// public, token-gated endpoint that the email references by URL. Token is an
+// HMAC (distinct salt from unsubscribe) so links aren't guessable/enumerable.
+function welcomeImgToken(email) {
+  return crypto.createHmac('sha256', UNSUB_SECRET).update('welcome-img:' + String(email).toLowerCase()).digest('hex');
+}
+function welcomeImgTokenValid(email, token) {
+  const a = Buffer.from(String(token || ''), 'utf8');
+  const b = Buffer.from(welcomeImgToken(email), 'utf8');
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+function welcomeImageUrl(email, kind) {
+  return `${SITE_URL}/api/welcome-image?e=${encodeURIComponent(email)}&k=${kind}&t=${welcomeImgToken(email)}`;
+}
+
+// Cap stored images so a giant payload can't bloat the DB (data-URI chars).
+const MAX_WELCOME_IMG_CHARS = 12 * 1024 * 1024; // ~9 MB decoded
+
+// Upsert the before/after captured at signup. Best-effort; never throws to the caller.
+async function saveWelcomeImages(email, before, after) {
+  if (!db) return;
+  if (!before?.startsWith('data:image/') || !after?.startsWith('data:image/')) return;
+  if (before.length > MAX_WELCOME_IMG_CHARS || after.length > MAX_WELCOME_IMG_CHARS) return;
+  try {
+    await db.query(
+      `INSERT INTO welcome_images (email, before_image, after_image) VALUES ($1, $2, $3)
+       ON CONFLICT (email) DO UPDATE SET before_image = EXCLUDED.before_image,
+         after_image = EXCLUDED.after_image, created_at = now()`,
+      [email, before, after]
+    );
+  } catch (e) { console.warn('saveWelcomeImages error:', e.message); }
+}
+
+// True if we have both images for this email (so Email 1 can embed them).
+async function hasWelcomeImages(email) {
+  if (!db) return false;
+  try {
+    const { rows } = await db.query(
+      'SELECT 1 FROM welcome_images WHERE email = $1 AND before_image IS NOT NULL AND after_image IS NOT NULL', [email]
+    );
+    return rows.length > 0;
+  } catch (e) { return false; }
+}
+
 // The 5 emails. `body` is the inner HTML; the footer (unsubscribe + postal
 // address) is appended by wrapWelcomeHtml. Plain-text-style markup only (no
 // images) for best inboxing on a warming subdomain.
@@ -2543,6 +2617,46 @@ ${MARKETING_ADDRESS}
 </div>`;
 }
 
+// The user's own transformation, for the top of Email 1: a big "after" hero
+// ("your future self") followed by a labeled before → after pair. Images are
+// referenced by URL (inboxes strip inline data). Email-safe table markup.
+function welcomeImageBlockHtml(email) {
+  const afterUrl = welcomeImageUrl(email, 'after');
+  const beforeUrl = welcomeImageUrl(email, 'before');
+  return `
+<div style="margin:24px 0 4px">
+  <img src="${afterUrl}" alt="Your future self" width="560" style="width:100%;max-width:560px;height:auto;border-radius:14px;display:block">
+  <p style="font-size:13px;color:#888;margin:8px 0 0;text-align:center">Your future self 💪</p>
+</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:14px 0 6px;border-collapse:collapse"><tr>
+  <td width="50%" style="padding-right:5px;vertical-align:top">
+    <img src="${beforeUrl}" alt="Before" width="275" style="width:100%;height:auto;border-radius:10px;display:block">
+    <p style="font-size:11px;color:#999;margin:6px 0 0;text-align:center;text-transform:uppercase;letter-spacing:.06em">Before</p>
+  </td>
+  <td width="50%" style="padding-left:5px;vertical-align:top">
+    <img src="${afterUrl}" alt="After" width="275" style="width:100%;height:auto;border-radius:10px;display:block">
+    <p style="font-size:11px;color:#999;margin:6px 0 0;text-align:center;text-transform:uppercase;letter-spacing:.06em">After</p>
+  </td>
+</tr></table>`;
+}
+
+// Build the final HTML for email `idx`. For Email 1, embeds the user's own
+// before/after (hero + pair) when we captured it at signup; otherwise falls
+// back to the text-only body unchanged.
+async function buildWelcomeEmailHtml(email, idx) {
+  const tmpl = WELCOME_EMAILS[idx];
+  let body = tmpl.body;
+  if (idx === 0 && await hasWelcomeImages(email)) {
+    // Insert the images right after the "…it's a target." opener, so "That
+    // image" points at the real picture.
+    body = body.replace(
+      "<p>Here's what to do with it right now:</p>",
+      welcomeImageBlockHtml(email) + "\n<p>Here's what to do with it right now:</p>"
+    );
+  }
+  return wrapWelcomeHtml(email, body);
+}
+
 // Send welcome email index `idx` (0-based). Returns true only when Resend
 // accepts it, so the sweep advances the subscriber only on a real send.
 async function sendWelcomeEmail(email, idx) {
@@ -2550,6 +2664,7 @@ async function sendWelcomeEmail(email, idx) {
   if (!tmpl) return false;
   if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — welcome email skipped for', email); return false; }
   try {
+    const html = await buildWelcomeEmailHtml(email, idx);
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
@@ -2558,7 +2673,7 @@ async function sendWelcomeEmail(email, idx) {
         to: [email],
         reply_to: MARKETING_REPLY_TO,
         subject: tmpl.subject,
-        html: wrapWelcomeHtml(email, tmpl.body),
+        html,
         // One-click unsubscribe for Gmail/Apple Mail (RFC 8058).
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl(email)}>`,
