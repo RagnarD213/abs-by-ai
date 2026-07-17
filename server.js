@@ -2374,9 +2374,9 @@ const WELCOME_ENABLED    = process.env.WELCOME_ENABLED === 'true';
 // existing always-set server secret so links are stable without new config.
 const UNSUB_SECRET       = process.env.UNSUBSCRIBE_SECRET || STRIPE_WEBHOOK_SECRET || GITHUB_TOKEN || 'absbyai-unsub';
 // CAN-SPAM requires a real physical postal address in every marketing email.
-// TODO(Dan): replace this placeholder with the real business mailing address
-// before enabling the sequence live.
-const MARKETING_ADDRESS  = process.env.MARKETING_ADDRESS || 'Abs by AI — [MAILING ADDRESS PENDING]';
+// Baked in as the default so it's always present; MARKETING_ADDRESS on Railway
+// can override it without a code change.
+const MARKETING_ADDRESS  = process.env.MARKETING_ADDRESS || 'Abs By AI<br>3520 Cavu Rd.<br>Georgetown, TX 78628';
 
 async function sendResetEmail(email, token) {
   if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — reset email skipped for', email); return; }
