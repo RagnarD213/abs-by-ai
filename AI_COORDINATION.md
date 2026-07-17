@@ -20,48 +20,18 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Task:** Welcome Autoresponder on Resend — 5-email welcome sequence sent over ~10 days from a dedicated marketing subdomain. Full spec: `HANDOFF_resend_autoresponder.md`.
+**Status:** `No active task`
 
-**Owner:** Claude Code (Opus 4.8, medium effort)
+### Recently shipped — Welcome Autoresponder on Resend (COMPLETE, live-verified 2026-07-17)
 
-**Status:** Implementation in progress — server code complete, tested locally (integration test passes), committed + pushed. Provider config (Resend subdomain + Namecheap DNS + Railway env) and live verification still pending.
+5-email welcome sequence (day 0/2/4/7/10) now sending live via Resend. Full spec: `HANDOFF_resend_autoresponder.md`.
 
-**Branch:** `main`
+- **Live-verified:** flipped on 2026-07-17; the first sweep delivered Email 1 ("Your future self is ready") to all 4 backfilled real subscribers — dan@socialresponsemarketing.com, danroseconsulting@gmail.com, edobediting@gmail.com, maceylinden@gmail.com — all "Delivered" in the Resend log. The 2 `@example.com` rows were correctly excluded. Confirmed the live send's From (`Dan from Abs by AI <dan@absbyai.com>`), Reply-To (`dan@absbyai.com`), body copy, working `absbyai.com` link, and unsubscribe footer. Emails 2–5 auto-send on cadence via the hourly sweep.
+- **Sending identity:** sends from the already-verified root domain `absbyai.com`, NOT a `mail.absbyai.com` subdomain. Resend's free plan allows only 1 domain; a 2nd needs Pro ($20/mo), so Dan chose the free route. No Namecheap DNS changes were needed.
+- **Code (commits `b9ff12e`, `c216c44`):** `WELCOME_EMAILS`, `sendWelcomeEmail` (Resend + RFC 8058 `List-Unsubscribe`), `welcomeSweep()` (send-then-advance, idempotent; hourly + 45s after boot, no-op unless `WELCOME_ENABLED=true`), sequence fields on `/api/subscribe` + boot backfill (excludes `@example.com`), `GET|POST /api/unsubscribe` (HMAC token + page), CAN-SPAM footer (Abs By AI, 3520 Cavu Rd., Georgetown, TX 78628).
+- **Railway env set live:** `WELCOME_ENABLED=true`, `MARKETING_FROM=Dan from Abs by AI <dan@absbyai.com>`; `MAILERLITE_API_KEY` deleted (GROUP_ID left, harmless). To pause: set `WELCOME_ENABLED=false`.
+- **Open security follow-up (non-blocking):** the old MailerLite API key was pasted in chat and only removed from Railway — it still exists in the unused MailerLite account. Rotate/delete it in MailerLite when convenient.
 
-### Goal
-
-Every new email signup — and the 4 existing real subscribers (backfilled) — automatically receives a 5-email welcome sequence (day 0/2/4/7/10) via Resend, from `mail.absbyai.com`, with a working unsubscribe. Test `@example.com` rows are never emailed.
-
-### Work completed (code)
-
-- `server.js`: `WELCOME_EMAILS` (5 emails ported from `MAILERLITE_BUILD.md`), `sendWelcomeEmail` (Resend, `MARKETING_FROM`, `Reply-To: dan@absbyai.com`, `List-Unsubscribe` one-click headers), `welcomeSweep()` (clone of `trialReminderSweep` send-then-advance, hourly + first pass 45s after boot), sequence fields (`welcomeStep`/`welcomeNextAt`/`welcomeSentAt`/`unsubscribed`) initialized on `/api/subscribe` and lazily backfilled on boot + in-sweep (excludes `@example.com`), `GET|POST /api/unsubscribe` with HMAC-signed non-enumerable token + confirmation page, CAN-SPAM postal-address footer.
-- **Safety gate:** the sweep is a no-op unless `WELCOME_ENABLED=true` (defaults off), so the deployed code sends nothing until the subdomain is verified and the switch is flipped. `MARKETING_FROM` falls back to the transactional identity if unset.
-- Local integration test (mocked Resend): Email 1 sends to a real user, `@example.com` excluded, correct from/reply-to/headers/footer, idempotent re-sweep, one-click unsubscribe works, forged token rejected, unsubscribed user gets nothing further. All pass.
-
-### New env vars (Railway — set before enabling)
-
-- `MARKETING_FROM` = `Dan from Abs by AI <dan@mail.absbyai.com>`
-- `WELCOME_ENABLED` = `true` (flip ON only after `mail.absbyai.com` is verified in Resend)
-- `MARKETING_ADDRESS` — optional now; the real CAN-SPAM address is baked into code (Abs By AI, 3520 Cavu Rd., Georgetown, TX 78628, commit c216c44)
-- Optional: `MARKETING_REPLY_TO` (defaults `dan@absbyai.com`), `UNSUBSCRIBE_SECRET` (falls back to an existing secret)
-- Remove/rotate `MAILERLITE_API_KEY` (was pasted in chat; sync already no-ops without it).
-
-### Remaining work
-
-1. Resend: add & verify sending subdomain `mail.absbyai.com` → get DKIM/SPF/MX records.
-2. Namecheap → absbyai.com → Advanced DNS: add those records (do NOT touch the root `@` SPF). Standing DNS auth covers this.
-3. Railway: set the env vars above (incl. real `MARKETING_ADDRESS` from Dan), remove `MAILERLITE_API_KEY`, set `WELCOME_ENABLED=true`.
-4. Verify live on absbyai.com: real signup receives Email 1 in the inbox (not spam); unsubscribe works. Optionally shorten delays to watch 1→5 (spec §6), then restore.
-
-### Blocked on / needs from Dan
-
-- CAN-SPAM mailing address: RESOLVED — provided and baked into code (commit c216c44).
-- Confirmed: backfill all 4 real subscribers into the sequence.
-- Remaining external steps (Resend subdomain / Namecheap DNS / Railway env) need dashboard access Claude can't reach from the Mac (no Railway CLI, no Resend key, Chrome extension not connected). Dan to run them, or connect the Chrome extension so Claude can drive the dashboards.
-
-### Next action
-
-Verify the `mail.absbyai.com` subdomain in Resend and add its DNS records at Namecheap; then set the Railway env vars (with Dan's real address) and flip `WELCOME_ENABLED=true`; then verify a real signup end-to-end on absbyai.com.
 
 ### Prior task (Supplement Audit) — COMPLETE (2026-07-17)
 
