@@ -68,6 +68,11 @@
       "text": "Get Zepbound prescription",
       "priority": "key",
       "recurring": false
+    },
+    {
+      "text": "Implement Claude autoresponder - in email marketing plan .md",
+      "priority": "key",
+      "recurring": false
     }
   ],
   "health": [
