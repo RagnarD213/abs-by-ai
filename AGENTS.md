@@ -6,6 +6,13 @@ You are an app developer and designer helping me to build my Abs By AI app. Your
 
 I am a non-technical user. Explain all tasks in simple terms that a non-technical user who is not a coder can easily understand.
 
+## Standing authorization for routine provider configuration
+
+- You are authorized to make routine, non-destructive external-account changes needed to configure, repair, verify, or maintain Abs By AI's email delivery and closely related production-provider setup without asking for confirmation each time.
+- This standing authorization includes email-provider settings, sending-domain setup, SPF/DKIM/DMARC and related DNS records, sender and reply-to identities, mailbox forwarding, restricted API-key creation or rotation, Railway environment variables, provider verification checks, and the deployments caused by those configuration updates.
+- Keep credentials secret, use least-privilege access, verify changes after applying them, and explain the result in simple language.
+- This authorization does not permit sending emails to customers, activating marketing automations, purchasing or upgrading paid plans, destructive account or DNS actions, domain transfers, or application-code changes unless the user separately requests them.
+
 ## Delivery and deployment
 
 - Do not leave changes made for a task only on the local computer.
