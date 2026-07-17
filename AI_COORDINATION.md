@@ -65,7 +65,7 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 
 ## User-authorized parallel task
 
-**Status:** `Blocked`
+**Status:** `Ready for review`
 
 **Owner:** Codex
 
@@ -77,7 +77,11 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 
 **Completed:** Implemented and locally verified the locked-result teaser, dynamic body-fat headline, accessible click/keyboard paywall focus, and `locked_teaser_shown` analytics. Mobile visual QA passed at 390×844. No generation, credits, Stripe, native-app purchase classes, or Macro Tracker code was changed.
 
-**Remaining / next action:** Dan must approve the shortlisted example pairs (Dan, Brittany, and/or the flexing male pair). Then Codex will export approved web assets, implement and verify the rotating proof strip plus `proof_strip_seen`, and add the final `locked_teaser_shown`/proof-strip verification. Do not commit or push until Dan explicitly authorizes it.
+**Asset decision:** Dan rejected the personal Dan/Brittany photos. Codex confirmed there was no other female transformation asset, then generated a new fictional male pair and fictional female pair with matching before/after identity, pose, clothing, and background. WebP exports are in `img/proof/` at 11–12KB each.
+
+**Completed:** Added the compact first-screen proof strip using the new fictional male/female pairs, honest AI labeling, delayed image loading, four-second crossfade rotation, accessible manual dots, reduced-motion handling, and once-per-session `proof_strip_seen`. Locked teaser work remains complete with `locked_teaser_shown`. Local mobile QA at 390×844 passed: strip height 157px, upload card begins at 356px, all four assets loaded at 375×500, auto-rotation and manual switching passed, and the browser reported no errors. Inline JavaScript syntax and `git diff --check` passed.
+
+**Remaining / next action:** Dan reviews the finished local changes and explicitly authorizes commit/push. Then commit only `index.html`, `img/proof/*`, and this coordination update; push `main`, verify Railway deployment, verify both flows on `https://absbyai.com`, and reset this task to `No active task` after production verification.
 
 **Coordination caution:** This parallel task was explicitly requested by Dan on 2026-07-17. Preserve Claude Code's active-task ownership and avoid its Macro Tracker code areas.
 

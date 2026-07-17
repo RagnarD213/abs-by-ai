@@ -96,6 +96,64 @@ html, body {
   margin-bottom: 22px;
 }
 
+/* ── First-screen AI proof strip ── */
+.proof-strip {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 10px;
+  margin: -6px 0 16px;
+  overflow: hidden;
+}
+.proof-strip-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin: 0 2px 8px;
+}
+.proof-strip-caption {
+  font-size: 11px; font-weight: 800; color: var(--acc);
+  letter-spacing: 0.02em;
+}
+.proof-dots { display: flex; gap: 5px; }
+.proof-dot {
+  width: 6px; height: 6px; padding: 0;
+  border: 0; border-radius: 999px;
+  background: var(--line2); cursor: pointer;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+.proof-dot.active { width: 16px; background: var(--acc); }
+.proof-stage { position: relative; height: 112px; }
+.proof-slide {
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 7px;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+.proof-slide.active { opacity: 1; visibility: visible; }
+.proof-image-wrap {
+  position: relative; min-width: 0;
+  overflow: hidden; border-radius: 11px;
+  background: #eceae5;
+}
+.proof-image {
+  display: block; width: 100%; height: 112px;
+  object-fit: cover; object-position: center 28%;
+}
+.proof-image-label {
+  position: absolute; left: 7px; top: 7px;
+  z-index: 1; padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(20,18,15,0.68); color: #fff;
+  font-size: 9px; font-weight: 800;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.proof-image-label.after { background: rgba(47,95,224,0.88); }
+@media (prefers-reduced-motion: reduce) {
+  .proof-slide, .proof-dot { transition: none; }
+}
+
 /* ── Backend status ── */
 .backend-error {
   background: rgba(220,70,50,0.07);
@@ -824,24 +882,51 @@ html, body {
   margin-bottom: -8px;
 }
 
-/* ── After image lock overlay ── */
-.after-img-wrap { position: relative; }
+/* ── After image lock teaser ── */
+.after-img-wrap { position: relative; overflow: hidden; border-radius: 16px; }
+.after-img-wrap.teaser-locked { cursor: pointer; }
 .after-lock-overlay {
   position: absolute; inset: 0;
-  background: rgba(0,0,0,0.52);
-  border-radius: 12px;
-  display: flex; flex-direction: column;
+  background: linear-gradient(to bottom, rgba(15,15,15,0) 24%, rgba(15,15,15,0.18) 42%, rgba(15,15,15,0.62) 100%);
+  border-radius: 16px;
+  display: flex;
   align-items: center; justify-content: center;
-  gap: 7px;
+  padding-top: 72px;
   color: white;
   font-size: 13px; font-weight: 700;
   pointer-events: none;
 }
+.after-lock-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(20,18,15,0.82);
+  border: 1px solid rgba(255,255,255,0.28);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
 .after-locked {
-  filter: blur(14px);
-  transform: scale(1.06); /* hides blur edges */
+  filter: blur(18px);
+  transform: scale(1.08); /* hides blur edges */
   transition: filter 0.35s ease, transform 0.35s ease;
 }
+.after-teaser-sharp {
+  position: absolute; inset: 0;
+  width: 100%; height: 230px;
+  object-fit: contain;
+  background: #f1efea;
+  border-radius: 16px;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.08);
+  clip-path: inset(0 0 54% 0);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  transition: opacity 0.25s ease;
+}
+.after-img-wrap.teaser-locked .after-teaser-sharp { opacity: 1; }
 /* Scan overlay for the result-screen regenerate (reuses the gen-* scan parts) */
 .after-scan {
   position: absolute; inset: 0;
@@ -1253,6 +1338,38 @@ html, body {
     <div class="hero-h1">Visualize Yourself With Abs</div>
     <div class="hero-sub">See how good you’d look with abs. Motivate yourself to hit your fitness goal.</div>
 
+    <section id="proofStrip" class="proof-strip" aria-label="Abs by AI example visualizations">
+      <div class="proof-strip-meta">
+        <span class="proof-strip-caption">✦ Created with Abs by AI</span>
+        <div class="proof-dots" aria-label="Choose an example">
+          <button type="button" class="proof-dot active" data-proof-index="0" aria-label="Show male example" aria-current="true"></button>
+          <button type="button" class="proof-dot" data-proof-index="1" aria-label="Show female example" aria-current="false"></button>
+        </div>
+      </div>
+      <div class="proof-stage">
+        <div class="proof-slide active" data-proof-slide="0" aria-hidden="false">
+          <div class="proof-image-wrap">
+            <span class="proof-image-label">Before</span>
+            <img class="proof-image" data-src="img/proof/male-before.webp" loading="lazy" width="375" height="500" alt="Fictional male example before AI visualization" />
+          </div>
+          <div class="proof-image-wrap">
+            <span class="proof-image-label after">AI after</span>
+            <img class="proof-image" data-src="img/proof/male-after.webp" loading="lazy" width="375" height="500" alt="Fictional male example after AI visualization" />
+          </div>
+        </div>
+        <div class="proof-slide" data-proof-slide="1" aria-hidden="true">
+          <div class="proof-image-wrap">
+            <span class="proof-image-label">Before</span>
+            <img class="proof-image" data-src="img/proof/female-before.webp" loading="lazy" width="375" height="500" alt="Fictional female example before AI visualization" />
+          </div>
+          <div class="proof-image-wrap">
+            <span class="proof-image-label after">AI after</span>
+            <img class="proof-image" data-src="img/proof/female-after.webp" loading="lazy" width="375" height="500" alt="Fictional female example after AI visualization" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Backend error -->
     <div id="backendStatus" class="backend-error" style="display:none">
       <div class="backend-error-dot"></div>
@@ -1433,8 +1550,9 @@ html, body {
       </div>
       <div>
         <div class="ba-col-label after-lbl">After</div>
-        <div class="after-img-wrap">
+        <div id="afterImgWrap" class="after-img-wrap">
           <img id="afterImg" class="ba-img" alt="After — AI generated" />
+          <img id="afterTeaserSharp" class="after-teaser-sharp" alt="" aria-hidden="true" />
           <div id="afterScan" class="after-scan" style="display:none">
             <div class="gen-loader-veil"></div>
             <div class="gen-grid"></div>
@@ -1443,8 +1561,10 @@ html, body {
             <span class="gen-bracket bl"></span><span class="gen-bracket br"></span>
           </div>
           <div id="afterLockOverlay" class="after-lock-overlay" style="display:none">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-            <span>Unlock to reveal</span>
+            <span class="after-lock-pill">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <span>Unlock to see your abs</span>
+            </span>
           </div>
         </div>
       </div>
@@ -1483,8 +1603,8 @@ html, body {
     <div id="resultErrorSection" style="display:none" class="error-toast"></div>
 
     <!-- Paywall (shown when credits = 0) -->
-    <div id="paywallSection" style="display:none">
-      <div class="paywall-headline">Your result is ready — unlock it</div>
+    <div id="paywallSection" style="display:none" tabindex="-1">
+      <div id="paywallHeadline" class="paywall-headline">Your result is ready — unlock it</div>
       <div class="paywall-sub">Get more generations to see your future self in full.</div>
       <div class="pack-cards app-hide-purchase">
         <div class="pack-card" id="packStarter" data-pack="starter">
@@ -2329,20 +2449,45 @@ function updateCreditDisplay() {
 }
 
 function showLockedResult() {
-  $('afterImg').classList.add('after-locked');
+  const afterImg = $('afterImg');
+  const afterWrap = $('afterImgWrap');
+  afterImg.classList.add('after-locked');
+  $('afterTeaserSharp').src = afterImg.currentSrc || afterImg.src;
+  afterWrap.classList.add('teaser-locked');
+  afterWrap.setAttribute('role', 'button');
+  afterWrap.setAttribute('tabindex', '0');
+  afterWrap.setAttribute('aria-label', 'Unlock to see your abs');
   $('afterLockOverlay').style.display = '';
   $('resultActionsSection').style.display = 'none';
   $('resultDownloadBtn').style.visibility = 'hidden';
   $('paywallSection').style.display = '';
+  const bodyFat = ($('bfAfter').textContent || '').trim();
+  $('paywallHeadline').textContent = bodyFat && bodyFat !== '—'
+    ? `Your transformation is done. See yourself at ${bodyFat} body fat`
+    : 'Your transformation is done. Unlock your result';
+  if (window.posthog) posthog.capture('locked_teaser_shown', { estimated_body_fat: bodyFat || null });
   showScreen('result');
 }
 
 function unlockResult() {
+  const afterWrap = $('afterImgWrap');
   $('afterImg').classList.remove('after-locked');
+  $('afterTeaserSharp').removeAttribute('src');
+  afterWrap.classList.remove('teaser-locked');
+  afterWrap.removeAttribute('role');
+  afterWrap.removeAttribute('tabindex');
+  afterWrap.removeAttribute('aria-label');
   $('afterLockOverlay').style.display = 'none';
   $('resultActionsSection').style.display = '';
   $('resultDownloadBtn').style.visibility = '';
   $('paywallSection').style.display = 'none';
+}
+
+function focusLockedPaywall() {
+  if (!$('afterImgWrap').classList.contains('teaser-locked')) return;
+  const paywall = $('paywallSection');
+  paywall.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  window.setTimeout(() => paywall.focus({ preventScroll: true }), 350);
 }
 
 function updateFixItVisibility(locked) {
@@ -2689,6 +2834,87 @@ function showScreen(name) {
   document.querySelectorAll('.dot').forEach((d, i) => {
     d.className = 'dot ' + (i === dotMap[name] ? 'active' : 'inactive');
   });
+}
+
+function initProofStrip() {
+  const strip = $('proofStrip');
+  if (!strip) return;
+
+  const slides = Array.from(strip.querySelectorAll('[data-proof-slide]'));
+  const dots = Array.from(strip.querySelectorAll('[data-proof-index]'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeIndex = 0;
+  let rotationTimer = null;
+
+  function showProof(index) {
+    activeIndex = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const active = i === activeIndex;
+      slide.classList.toggle('active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+    });
+    dots.forEach((dot, i) => {
+      const active = i === activeIndex;
+      dot.classList.toggle('active', active);
+      dot.setAttribute('aria-current', String(active));
+    });
+  }
+
+  function stopRotation() {
+    if (rotationTimer) window.clearInterval(rotationTimer);
+    rotationTimer = null;
+  }
+
+  function startRotation() {
+    stopRotation();
+    if (!reduceMotion && slides.length > 1) {
+      rotationTimer = window.setInterval(() => showProof(activeIndex + 1), 4000);
+    }
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      showProof(Number(dot.dataset.proofIndex));
+      startRotation();
+    });
+  });
+  strip.addEventListener('mouseenter', stopRotation);
+  strip.addEventListener('mouseleave', startRotation);
+  strip.addEventListener('focusin', stopRotation);
+  strip.addEventListener('focusout', (e) => {
+    if (!strip.contains(e.relatedTarget)) startRotation();
+  });
+
+  function captureProofSeen() {
+    const key = 'absbyai_proof_strip_seen';
+    try {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, '1');
+    } catch (e) {}
+    if (window.posthog) posthog.capture('proof_strip_seen', { example_count: slides.length });
+  }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= 0.35)) return;
+      captureProofSeen();
+      observer.disconnect();
+    }, { threshold: 0.35 });
+    observer.observe(strip);
+  } else {
+    captureProofSeen();
+  }
+
+  window.requestAnimationFrame(() => {
+    window.setTimeout(() => {
+      strip.querySelectorAll('img[data-src]').forEach(img => {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+      });
+    }, 0);
+  });
+  showProof(0);
+  startRotation();
 }
 
 async function updateBackendStatus() {
@@ -3156,6 +3382,8 @@ async function checkOrderSession() {
 //  EVENT WIRING
 // ============================================================
 window.addEventListener('DOMContentLoaded', async () => {
+  initProofStrip();
+
   // Fetch public config (Stripe publishable key) from backend
   try {
     const cfg = await fetch(`${BACKEND_URL}/api/config`).then(r => r.json());
@@ -3260,6 +3488,12 @@ window.addEventListener('DOMContentLoaded', async () => {
   $('moreDramaticBtn').addEventListener('click', () => adjustIntensity(1));
   $('moreSubtleBtn').addEventListener('click', () => adjustIntensity(-1));
   $('tryAgainBtn').addEventListener('click', () => showScreen('form'));
+  $('afterImgWrap').addEventListener('click', focusLockedPaywall);
+  $('afterImgWrap').addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    focusLockedPaywall();
+  });
   document.querySelectorAll('.fix-chip').forEach(chip => {
     chip.addEventListener('click', () => {
       const code = chip.dataset.chip;
