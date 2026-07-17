@@ -64,7 +64,7 @@ Verify the `mail.absbyai.com` subdomain in Resend and add its DNS records at Nam
 
 ### Prior task (Supplement Audit) — status
 
-Code complete, committed, and pushed (commit `baf25f6`, single async engine). Only remaining item: live end-to-end verification of a multi-item audit on absbyai.com as a logged-in member. Not blocking this task.
+Code complete and pushed (commit `baf25f6`, single async engine). Live-verified a small audit end-to-end. A 12-item live test then exposed a real bug: `callCounselSeat`'s fetch to Anthropic had no timeout (unlike the sibling helper at server.js:3795), so a stalled connection hangs the await forever — the job sat at `status:"running"` for 15+ minutes with no error. Fixed by adding an `AbortController` with a 4-min-per-attempt timeout (same pattern as the existing helper), pushed in a follow-up commit. Still need to re-run a 12-item live audit against the fixed code to confirm it now completes or fails cleanly within ~8 minutes (2 attempts × 4 min) instead of hanging. Not blocking the Welcome Autoresponder task above.
 
 ### Last updated
 

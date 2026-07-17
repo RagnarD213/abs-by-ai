@@ -4966,21 +4966,33 @@ function buildCounselUserContent(decisionType, intake, photos, contextBlock) {
 }
 
 async function callCounselSeat(systemPrompt, userContent, schema, maxTokens, effort) {
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify({
-      model: COUNSEL_MODEL,
-      max_tokens: maxTokens,
-      system: systemPrompt,
-      output_config: { ...(effort ? { effort } : {}), format: { type: 'json_schema', schema } },
-      messages: [{ role: 'user', content: userContent }],
-    }),
-  });
+  // A stalled connection to Anthropic would otherwise hang this fetch forever —
+  // node-fetch has no default timeout — leaving an audit_jobs row stuck at
+  // "running" indefinitely. Bound every attempt so callSeatResilient's retry
+  // (and the job's error state) can actually kick in.
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 240000); // 4 min/attempt
+  let response;
+  try {
+    response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: COUNSEL_MODEL,
+        max_tokens: maxTokens,
+        system: systemPrompt,
+        output_config: { ...(effort ? { effort } : {}), format: { type: 'json_schema', schema } },
+        messages: [{ role: 'user', content: userContent }],
+      }),
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
   const data = await response.json();
   if (!response.ok) {
     const err = new Error(data?.error?.message || 'Claude API error');
