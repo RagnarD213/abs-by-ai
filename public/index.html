@@ -1665,6 +1665,7 @@ html, body {
         <button class="ghost-btn" id="moreDramaticBtn">More dramatic</button>
         <button class="ghost-btn" id="moreSubtleBtn">More subtle</button>
       </div>
+      <button type="button" id="shareBeforeAfterBtn" class="try-diff-btn" style="margin-top:10px">📸 Share your before &amp; after</button>
       <div id="fixItSection" style="display:none">
         <div class="lbl" style="margin-top:14px"><span class="lbl-text">Still not right? Tell us what to fix</span></div>
         <div id="fixChipRow">
@@ -3598,6 +3599,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   $('loveItBtn').addEventListener('click', () => { fireConfetti(); showEmailScreen(); });
   $('moreDramaticBtn').addEventListener('click', () => adjustIntensity(1));
   $('weakChangeStrongerBtn').addEventListener('click', () => { $('weakChangeNudge').style.display = 'none'; adjustIntensity(1); });
+  $('shareBeforeAfterBtn').addEventListener('click', shareResultCard);
   $('moreSubtleBtn').addEventListener('click', () => adjustIntensity(-1));
   $('tryAgainBtn').addEventListener('click', () => showScreen('form'));
   $('afterImgWrap').addEventListener('click', focusLockedPaywall);
@@ -4761,6 +4763,52 @@ async function shareTransformation(item, btn) {
   } catch (e) {
     $('transformError').textContent = 'Share failed — please try again.';
     $('transformError').style.display = '';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = orig;
+  }
+}
+
+// Item 5: one-tap branded before/after share card straight from the result screen.
+// Reuses buildShareComposite (same layout + "ABS BY AI · absbyai.com" strip) built for
+// the transformations gallery. before = the user's uploaded photo, after = the current
+// result. navigator.share on mobile, else a PNG download. No server, no cost.
+async function shareResultCard() {
+  const btn = $('shareBeforeAfterBtn');
+  if (!btn || !state.lastAfterDataUrl || !state.photoData) return;
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Preparing…';
+  try {
+    const item = {
+      before_image: `data:${state.photoMime};base64,${state.photoData}`,
+      after_image: state.lastAfterDataUrl,
+    };
+    const blob = await buildShareComposite(item);
+    if (!blob) throw new Error('Could not build the image.');
+    const file = new File([blob], 'abs-by-ai-before-after.png', { type: 'image/png' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], text: 'My transformation — absbyai.com' });
+        if (window.posthog) posthog.capture('result_shared', { method: 'share' });
+        return;
+      } catch (e) {
+        if (e.name === 'AbortError') return; // user closed the share sheet
+        // fall through to download
+      }
+    }
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'abs-by-ai-before-after.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+    if (window.posthog) posthog.capture('result_shared', { method: 'download' });
+  } catch (e) {
+    showResultError('Share failed — please try again.');
+    console.error(e);
   } finally {
     btn.disabled = false;
     btn.textContent = orig;
