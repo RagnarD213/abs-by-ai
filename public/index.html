@@ -3812,6 +3812,7 @@ async function restoreSession() {
     const me = await authApi('/api/auth/me');
     setLoggedIn({ token: auth.token, email: me.email, deviceId: me.deviceId });
     await refreshMembership();
+    refreshProfile(); // loads the shared profile + backfills existing users
     // Don't hijack Stripe-checkout return flows, or a resumed audit loader
     let pendingAuditJob; try { pendingAuditJob = localStorage.getItem(AUDIT_JOB_KEY); } catch (e) { pendingAuditJob = null; }
     if (!new URLSearchParams(window.location.search).get('session_id') && !pendingAuditJob) showHub();
@@ -4165,7 +4166,10 @@ async function finishQuiz() {
   if (fill) fill.style.width = '100%';
   if (window.posthog) posthog.capture('quiz_completed', { fields: Object.keys(profile) });
   // Best-effort — never block the funnel on a profile write.
-  try { await authApi('/api/profile', { method: 'PATCH', body: JSON.stringify({ profile, source: 'quiz' }) }); } catch (e) {}
+  try {
+    const r = await authApi('/api/profile', { method: 'PATCH', body: JSON.stringify({ profile, source: 'quiz' }) });
+    profileState.data = r.profile || profile; profileState.loaded = true;
+  } catch (e) {}
   proceedToTrialGate(true);
 }
 
@@ -5428,6 +5432,23 @@ async function refreshMembership() {
   } catch (e) { console.warn('membership fetch failed:', e.message); }
 }
 
+// ── Shared member profile cache ──
+// Fetched once per session (and after the quiz writes it). Features read it to
+// pre-fill their intakes. The GET also triggers server-side backfill for
+// existing users, so opening any feature populates their profile.
+const profileState = { data: null, loaded: false };
+async function refreshProfile() {
+  if (!isLoggedIn()) { profileState.data = null; profileState.loaded = true; return; }
+  try {
+    const r = await authApi('/api/profile');
+    profileState.data = r.profile || {};
+    profileState.loaded = true;
+  } catch (e) { console.warn('profile fetch failed:', e.message); }
+}
+function getProfile() { return profileState.data || {}; }
+// Ensure the profile is loaded before a feature pre-fills from it.
+async function ensureProfile() { if (!profileState.loaded) await refreshProfile(); return getProfile(); }
+
 function showMembershipScreen(returnTo, opts) {
   membershipReturnTo = returnTo || membershipReturnTo;
   membershipGateBackToHub = !!opts?.trialGate;
@@ -5646,16 +5667,33 @@ function buildIntakeSteps() {
     : [D.goal, D.body_type, D.equipment, D.sex_track, D.experience, D.injuries, D.health];
 }
 
-function openTrainer() {
+async function openTrainer() {
   if (window.posthog) posthog.capture('trainer_opened');
   const stored = loadStoredProgram();
   if (stored) return showProgram();
+  await ensureProfile(); // so the intake pre-fills from the shared profile
   startIntake();
+}
+
+// Map the shared profile onto the Trainer's own intake vocab so answered
+// questions arrive pre-selected (the user still confirms each — no step is
+// removed). Only maps fields we're confident about; anything else is left blank.
+function trainerPrefillFromProfile(p) {
+  const seed = {};
+  const equipMap = { none: 'none', minimal: 'min', full: 'full' };
+  const sexMap = { male: 'man', female: 'woman' };
+  const ageMap = { '18-24': '18–25', '25-34': '26–35', '35-44': '36–45', '45-54': '46–55', '55+': '56+' };
+  const goalMap = { lose_fat: 'lose_fat', build_muscle: 'build_muscle', both: 'recomp' };
+  if (equipMap[p.equipment]) seed.equipment = equipMap[p.equipment];
+  if (sexMap[p.sex]) seed.sex_track = sexMap[p.sex];
+  if (ageMap[p.ageRange]) seed.age_range = ageMap[p.ageRange];
+  if (goalMap[p.goal]) seed.goal = goalMap[p.goal];
+  return seed;
 }
 
 function startIntake() {
   intakeState.step = 0;
-  intakeState.answers = { injuries: [], health_goals: [] };
+  intakeState.answers = { injuries: [], health_goals: [], ...trainerPrefillFromProfile(getProfile()) };
   intakeState.steps = buildIntakeSteps();
   $('programGenError').style.display = 'none';
   $('programLoader').style.display = 'none';
@@ -6518,16 +6556,33 @@ function buildNutriSteps() {
     : [D.goal, D.body, D.activity, D.health, D.foods, D.avoid, D.cooking];
 }
 
-function openNutritionist() {
+async function openNutritionist() {
   if (window.posthog) posthog.capture('nutritionist_opened');
   const stored = loadStoredMealPlan();
   if (stored) return showMealPlan();
+  await ensureProfile(); // so the intake pre-fills from the shared profile
   startNutriIntake();
+}
+
+// Map the shared profile onto the Nutritionist's intake vocab. Only the fields
+// we're confident about; the user still reviews every screen.
+function nutriPrefillFromProfile(p) {
+  const seed = {};
+  if (p.sex === 'male' || p.sex === 'female') seed.sex = p.sex;
+  if (Number(p.heightIn)) { const h = Number(p.heightIn); seed.height_in = h; seed.height_ft = Math.floor(h / 12); seed.height_extra_in = h % 12; }
+  if (Number(p.weight)) seed.weight_lb = p.weightUnit === 'kg' ? Math.round(Number(p.weight) * 2.20462) : Number(p.weight);
+  const goalMap = { lose_fat: 'lose_fat', build_muscle: 'build_muscle', both: 'recomp' };
+  if (goalMap[p.goal]) seed.goal = goalMap[p.goal];
+  // diet is a list in the profile but a single style here — take the first that maps.
+  const dietMap = { vegetarian: 'vegetarian', vegan: 'vegan', pescatarian: 'pescatarian', halal: 'halal', kosher: 'kosher', no_dairy: 'dairy_free' };
+  const firstDiet = (Array.isArray(p.diet) ? p.diet : []).map(d => dietMap[d]).find(Boolean);
+  if (firstDiet) seed.diet_style = firstDiet;
+  return seed;
 }
 
 function startNutriIntake() {
   nutriState.step = 0;
-  nutriState.answers = { health_goals: [], fav_foods: [], allergies: [], diet_style: 'none', glp1: 'no' };
+  nutriState.answers = { health_goals: [], fav_foods: [], allergies: [], diet_style: 'none', glp1: 'no', ...nutriPrefillFromProfile(getProfile()) };
   nutriState.steps = buildNutriSteps();
   $('mealPlanGenError').style.display = 'none';
   $('mealPlanLoader').style.display = 'none';
