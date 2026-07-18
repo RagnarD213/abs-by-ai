@@ -1330,17 +1330,6 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// TEMP diagnostic (remove after verifying the per-IP free cap): returns only the
-// caller's own IP-resolution so we can confirm X-Forwarded-For is populated on
-// Railway (otherwise the cap would collapse to one global bucket).
-app.get('/api/_ipcheck', (req, res) => {
-  res.json({
-    resolved: clientIp(req),
-    xff: req.headers['x-forwarded-for'] || null,
-    socket: req.socket?.remoteAddress || null,
-  });
-});
-
 // ============================================================
 // ENDPOINT 1: Photo check (Claude Haiku)
 // ============================================================
