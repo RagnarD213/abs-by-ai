@@ -193,6 +193,12 @@ async function initDb() {
     'photo_day INTEGER',
     'weigh_reminder BOOLEAN DEFAULT false',
     'last_photo_nudge DATE',
+    // Shared member profile: one JSONB record per account that every AI feature
+    // reads (pre-fill intakes) and writes back to (factual updates only). Filled
+    // by the pre-trial "Let's build your plan" quiz + seeded from the generation
+    // funnel. A `_meta` sub-object holds per-field-group provenance. Behind auth
+    // only — never expose in URLs or logs (holds age/weight/diet).
+    "profile JSONB DEFAULT '{}'",
   ]) {
     try {
       await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS ${col}`);

@@ -3042,6 +3042,104 @@ app.get('/api/auth/me', requireAuth, (req, res) => {
   res.json({ email: req.user.email, deviceId: req.user.device_id });
 });
 
+// ============================================================
+// SHARED MEMBER PROFILE (users.profile JSONB)
+// One record per account. Every AI feature reads it to pre-fill intakes and
+// writes back factual updates. All fields optional; unknown keys and invalid
+// values are dropped so callers (the pre-trial quiz + feature write-backs) can
+// PATCH partial data safely. Behind auth only — never put in URLs or logs.
+// ============================================================
+const PROFILE_ENUMS = {
+  sex: ['male', 'female'],
+  bodyType: ['heavier', 'moderate', 'fit', 'very_lean'], // matches generation "condition"
+  intensity: ['subtle', 'moderate', 'dramatic', 'max'],
+  ageRange: ['18-24', '25-34', '35-44', '45-54', '55+'],
+  goal: ['lose_fat', 'build_muscle', 'both'],
+  equipment: ['none', 'minimal', 'full'], // maps to Trainer v3 equipment tiers
+  weightUnit: ['lb', 'kg'],
+};
+const PROFILE_DIET_TAGS = [
+  'none', 'vegetarian', 'vegan', 'pescatarian', 'no_dairy', 'no_gluten',
+  'no_pork', 'halal', 'kosher', 'keto', 'high_protein',
+];
+
+// Coerce/validate an incoming patch into a clean object of only the fields we
+// recognize. Invalid values are dropped rather than rejected, so a feature
+// write-back never fails the whole request over one bad field.
+function sanitizeProfilePatch(patch) {
+  const out = {};
+  if (!patch || typeof patch !== 'object') return out;
+  for (const [k, allowed] of Object.entries(PROFILE_ENUMS)) {
+    if (patch[k] != null) {
+      const v = String(patch[k]);
+      if (allowed.includes(v)) out[k] = v;
+    }
+  }
+  if (patch.heightIn != null) {
+    const n = Math.round(Number(patch.heightIn));
+    if (Number.isFinite(n) && n >= 36 && n <= 96) out.heightIn = n; // 3'0"–8'0"
+  }
+  if (patch.weight != null) {
+    const n = Number(patch.weight);
+    if (Number.isFinite(n) && n >= 50 && n <= 1500) out.weight = Math.round(n * 10) / 10;
+  }
+  if (patch.diet != null) {
+    const arr = Array.isArray(patch.diet) ? patch.diet : [patch.diet];
+    out.diet = [...new Set(arr.map(String).filter(t => PROFILE_DIET_TAGS.includes(t)))];
+  }
+  if (patch.dietNote != null) out.dietNote = String(patch.dietNote).slice(0, 200).trim();
+  return out;
+}
+
+async function readProfile(userId) {
+  if (!db) return {};
+  try {
+    const { rows } = await db.query('SELECT profile FROM users WHERE id = $1', [userId]);
+    const p = rows[0]?.profile;
+    return (p && typeof p === 'object' && !Array.isArray(p)) ? p : {};
+  } catch (e) {
+    console.error('readProfile error:', e.message);
+    return {};
+  }
+}
+
+// Merge a sanitized patch into the stored profile. Read-modify-write in JS so
+// `_meta` (per-field provenance) merges safely and we don't depend on pg jsonb
+// operators (pg-mem lacks `||`). `source` tags where the data came from.
+async function writeProfileMerge(userId, rawPatch, source) {
+  if (!db) return {};
+  const patch = sanitizeProfilePatch(rawPatch);
+  if (!Object.keys(patch).length) return await readProfile(userId);
+  const current = await readProfile(userId);
+  const meta = (current._meta && typeof current._meta === 'object') ? { ...current._meta } : {};
+  const at = new Date().toISOString();
+  for (const k of Object.keys(patch)) meta[k] = { source: source || 'unknown', at };
+  const next = { ...current, ...patch, _meta: meta };
+  await db.query('UPDATE users SET profile = $1 WHERE id = $2', [JSON.stringify(next), userId]);
+  return next;
+}
+
+app.get('/api/profile', requireAuth, async (req, res) => {
+  try {
+    res.json({ profile: await readProfile(req.user.id) });
+  } catch (e) {
+    console.error('get profile error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Merge-patch. Body: { profile: {…fields…}, source?: 'quiz'|'funnel'|… }.
+app.patch('/api/profile', requireAuth, async (req, res) => {
+  try {
+    const source = String(req.body?.source || 'client').slice(0, 24);
+    const patch = (req.body && typeof req.body.profile === 'object') ? req.body.profile : req.body;
+    res.json({ profile: await writeProfileMerge(req.user.id, patch, source) });
+  } catch (e) {
+    console.error('patch profile error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // ── Latest transformation (before = uploaded photo, after = generated image) ──
 app.get('/api/account/transformation', requireAuth, async (req, res) => {
   try {
