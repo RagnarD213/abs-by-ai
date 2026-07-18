@@ -2077,11 +2077,29 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     };
 
     // Haiku vision compares before/after and flags edits so subtle they'd read as
-    // "looks the same" — Gemini's image editor sometimes barely touches an already-
-    // lean photo even when the prompt demands a dramatic change. Only worth the
-    // extra round trip for dramatic/max, where a near-no-op is a real failure (subtle/
-    // moderate intentionally target a smaller, more natural-looking change).
-    const looksDramaticallyChanged = async (afterBase64, afterMime) => {
+    // "looks the same" — Gemini's image editor sometimes barely touches a photo even
+    // when the prompt demands change. A near-identical "after" is the most damaging
+    // failure (it reads as a broken product) and it hits WOMEN hardest, because the
+    // old verifier asked only about a male six-pack — so it both missed weak female
+    // results and burned retries rejecting legitimately feminine ones. The verifier
+    // is now GENDER-AWARE and its bar scales with intensity: a strong (dramatic/max)
+    // result must show real definition; a gentle (subtle/moderate) result only has to
+    // clearly beat a true no-op. For women the target is a FEMININE midsection
+    // (four-pack / vertical midline / oblique lines / tighter waist-to-hip taper),
+    // never a male six-pack. Fail-open on any error — never block a paid generation.
+    const buildVerifierQuestion = (who, intens) => {
+      const strong = (intens === 'dramatic' || intens === 'max');
+      if (who === 'female') {
+        return strong
+          ? 'Compare these two photos of the same woman. In the AFTER photo, is there CLEARLY VISIBLE feminine abdominal definition (a defined four-pack, a vertical midline groove down the stomach, and/or visible oblique lines) AND a visibly tighter, more tapered waist compared to the BEFORE photo? A tan, better lighting, or a slightly flatter stomach alone do NOT count. Reply with only YES or NO.'
+          : 'Compare these two photos of the same woman. In the AFTER photo, is the midsection VISIBLY leaner and tighter than the BEFORE photo — a flatter, firmer stomach with at least a faint feminine ab outline and/or a noticeably tighter waist? A near-identical photo with barely any change is NO; a real but gentle improvement is YES. A tan or better lighting alone is NO. Reply with only YES or NO.';
+      }
+      return strong
+        ? 'Compare these two photos of the same person. In the AFTER photo, is there CLEARLY VISIBLE ab muscle definition (actual separation lines on the stomach, not just a flatter stomach) AND a visibly tighter/more tapered waist compared to the BEFORE photo? A tan, better lighting, or a slightly flatter stomach alone do NOT count — you must be able to see actual muscle definition lines. Reply with only YES or NO.'
+        : 'Compare these two photos of the same person. In the AFTER photo, is the midsection VISIBLY leaner and tighter than the BEFORE photo — a flatter, firmer stomach with at least an upper-ab outline and a tighter waist? A near-identical photo with barely any change is NO; a real but moderate improvement is YES. A tan or better lighting alone is NO. Reply with only YES or NO.';
+    };
+
+    const looksChanged = async (afterBase64, afterMime, who, intens) => {
       try {
         const response = await fetch('https://api.anthropic.com/v1/messages', {
           method: 'POST',
@@ -2101,10 +2119,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
                   { type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } },
                   { type: 'text', text: 'AFTER photo:' },
                   { type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } },
-                  {
-                    type: 'text',
-                    text: 'Compare these two photos of the same person. In the AFTER photo, is there CLEARLY VISIBLE ab muscle definition (actual separation lines on the stomach, not just a flatter stomach) AND a visibly tighter/more tapered waist compared to the BEFORE photo? A tan, better lighting, or a slightly flatter stomach alone do NOT count — you must be able to see actual muscle definition lines. Reply with only YES or NO.',
-                  },
+                  { type: 'text', text: buildVerifierQuestion(who, intens) },
                 ],
               },
             ],
@@ -2125,38 +2140,61 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       result = await callGemini(retryPreamble + prompt);
     }
 
-    // Telemetry for the change-verifier / intensify-retry ladder (A1). Measures how
-    // often a generation reads as a near-no-op ("after looks the same as before" —
-    // the worst, most demoralizing failure, and worst for women) and how hard we had
-    // to push to fix it. All fail-open: telemetry must never throw into the paid flow.
+    // Change-verifier + intensify-retry ladder (A1 telemetry + A2 gender-aware fix).
+    // The old ladder ran ONLY on dramatic/max, so a female subtle/moderate no-op was
+    // handed back to the user with no check and no retry. It now runs across intensities:
+    //   • female → every intensity (women get the "looks the same" failure most)
+    //   • male   → moderate and up (subtle-male opts out; a gentle male edit that
+    //              barely changes is acceptable and not worth the extra model spend)
+    // When the verifier says the result is still a near-no-op, we re-call Gemini with a
+    // gender-specific "you were too subtle, push harder" preamble. Fail-open throughout,
+    // and the whole loop runs BEFORE cacheAttempt so retries never re-charge a credit.
     let verifierRan = false;
     let verifierPassedFirstTry = null;
     let retryRungsUsed = 0;
     let finalVerifierPassed = null;
 
-    if (result.ok && (intensity === 'dramatic' || intensity === 'max')) {
+    const rungBudget = sex === 'female' ? 2
+      : (intensity === 'dramatic' || intensity === 'max') ? 2
+      : (intensity === 'moderate') ? 1
+      : 0; // subtle male: no verifier / no retry
+
+    if (result.ok && rungBudget > 0) {
       verifierRan = true;
-      const intensifyPreambles = [
+      // Female preambles push toward a FEMININE result (four-pack / midline / tighter
+      // taper) and explicitly forbid a near-identical image or masculine morphology;
+      // male preambles keep the existing six-pack wording.
+      const femalePreambles = [
+        `Your previous attempt barely changed the body — it looks almost identical to the input, which reads as a broken result. Do NOT output a near-identical image. Reduce midsection body fat and reveal a defined FEMININE midsection: a visible four-pack with a clear vertical midline down the stomach and soft oblique lines, plus a tighter waist for a stronger waist-to-hip taper. Keep her unmistakably feminine — NO bulky or blocky muscle, NO veins or vascularity, sculpted-not-bulky shoulders. The face, hair, pose, clothing and coverage, background, framing, and lighting must stay exactly the same — only push the body composition further.\n\n`,
+        `Two previous attempts were still too close to the original. This is the final attempt and the change MUST be obvious at a glance: a clearly defined feminine four-pack (vertical midline and oblique definition, not just a flat stomach) and a distinctly tighter, more tapered waist. Stay unmistakably feminine — no vascularity, no blocky or masculine muscle. Keep the face, hair, pose, clothing, framing, and lighting exactly the same — only the body composition gets much more defined.\n\n`,
+      ];
+      const malePreambles = [
         `Your previous attempt at this edit was too subtle and barely visible — that is a failure. This time you MUST push much harder: make the body-fat reduction, ab definition, and waist tightening dramatically more visible than a typical edit, even if it means a bigger departure from the input photo's body shape. The face, clothing, pose, and framing must still stay exactly the same — only push the body transformation itself much further.\n\n`,
         `Two previous attempts at this edit were both too subtle. This is the final attempt and it MUST show unmistakable, obvious ab muscle definition (visible separation lines, not just a flatter stomach) and a clearly tighter waist. Be aggressive with the transformation — the viewer must be able to see the change instantly without comparing closely to the original. The face, clothing, pose, and framing must still stay exactly the same — only the body transformation itself gets much more dramatic.\n\n`,
       ];
+      const intensifyPreambles = sex === 'female' ? femalePreambles : malePreambles;
       let changed = false;
-      for (let i = 0; i < intensifyPreambles.length; i++) {
-        changed = await looksDramaticallyChanged(result.imageBase64, result.imageMime);
+      for (let i = 0; i < rungBudget; i++) {
+        changed = await looksChanged(result.imageBase64, result.imageMime, sex, intensity);
         if (i === 0) verifierPassedFirstTry = changed;
         if (changed) break;
-        const retried = await callGemini(intensifyPreambles[i] + prompt);
+        const preamble = intensifyPreambles[i] || intensifyPreambles[intensifyPreambles.length - 1];
+        const retried = await callGemini(preamble + prompt);
         retryRungsUsed++;
         if (retried.ok) result = retried;
       }
       finalVerifierPassed = changed;
       // If the last rung was used without re-checking it, verify once more so the
       // "still weak after every retry" signal is accurate — that's the case we most
-      // want to see in the data.
+      // want to see in the data (and it drives the weakChange nudge below).
       if (!changed && retryRungsUsed > 0) {
-        finalVerifierPassed = await looksDramaticallyChanged(result.imageBase64, result.imageMime);
+        finalVerifierPassed = await looksChanged(result.imageBase64, result.imageMime, sex, intensity);
       }
     }
+
+    // Still reads as a near-no-op after every retry: tell the client so it can nudge
+    // the user toward a stronger redo instead of silently handing back a same-as-before.
+    const weakChange = verifierRan && finalVerifierPassed === false;
 
     if (!result.ok) {
       const parts = result.data?.candidates?.[0]?.content?.parts || [];
@@ -2213,13 +2251,14 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       verifierPassedFirstTry,
       retryRungsUsed,
       finalVerifierPassed,
+      weakChange,
       locked,
     };
     try {
       console.log('GEN_TELEMETRY ' + JSON.stringify({ ...telemetry, distinctId: distinctId || null, isFix: !!isFix }));
     } catch (e) {}
 
-    const payload = { imageBase64, locked, telemetry };
+    const payload = { imageBase64, locked, weakChange, telemetry };
     // Cache synchronously right after the decrement (no await between them) so a
     // replayed attemptId returns this exact image without re-charging.
     cacheAttempt(attemptId, 200, payload);

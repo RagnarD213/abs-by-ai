@@ -1654,6 +1654,13 @@ html, body {
     <!-- Normal action buttons (hidden when locked) -->
     <div id="resultActionsSection">
       <button id="loveItBtn" class="cta-btn" style="margin-bottom:10px">Lock in this goal</button>
+      <!-- Shown when the change-verifier says the result still reads as a near-no-op
+           ("after looks the same") and a stronger intensity step is available. Gives a
+           one-tap stronger redo instead of silently handing back a same-as-before. -->
+      <div id="weakChangeNudge" style="display:none;margin-bottom:10px;padding:11px 13px;border-radius:12px;background:var(--acc-soft);border:1px solid var(--acc-line);text-align:center">
+        <div style="font-size:13px;font-weight:700;color:var(--acc);margin-bottom:7px">That came out subtle — want a bigger change?</div>
+        <button type="button" id="weakChangeStrongerBtn" class="cta-btn" style="margin:0;padding:9px 14px;font-size:14px">Make it more dramatic →</button>
+      </div>
       <div class="ghost-row">
         <button class="ghost-btn" id="moreDramaticBtn">More dramatic</button>
         <button class="ghost-btn" id="moreSubtleBtn">More subtle</button>
@@ -3590,6 +3597,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   $('resultBackBtn').addEventListener('click', () => showScreen('form'));
   $('loveItBtn').addEventListener('click', () => { fireConfetti(); showEmailScreen(); });
   $('moreDramaticBtn').addEventListener('click', () => adjustIntensity(1));
+  $('weakChangeStrongerBtn').addEventListener('click', () => { $('weakChangeNudge').style.display = 'none'; adjustIntensity(1); });
   $('moreSubtleBtn').addEventListener('click', () => adjustIntensity(-1));
   $('tryAgainBtn').addEventListener('click', () => showScreen('form'));
   $('afterImgWrap').addEventListener('click', focusLockedPaywall);
@@ -8259,7 +8267,7 @@ async function generate() {
     if (generatedPrompt.trim() === 'REFUSED_MINOR') {
       throw new Error('This app is for adults only. Please use a photo of someone 18 or older.');
     }
-    const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
+    const { imageBase64, locked, weakChange } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
 
@@ -8281,6 +8289,7 @@ async function generate() {
       updateCreditDisplay();
       showScreen('result');
     }
+    updateWeakChangeNudge(weakChange, locked);
     updateFixItVisibility(locked);
   } catch (err) {
     clearGenLoader();
@@ -8297,6 +8306,16 @@ function updateIntensityButtons() {
   $('moreSubtleBtn').disabled = idx <= 0;
 }
 
+// A2: when the server's change-verifier says the result still reads as a near-no-op
+// ("after looks the same"), offer a one-tap stronger redo — but only when it isn't
+// paywalled and there's actually a stronger intensity step to jump to.
+function updateWeakChangeNudge(weak, locked) {
+  const el = $('weakChangeNudge');
+  if (!el) return;
+  const canGoStronger = INTENSITY_LADDER.indexOf(state.effectiveIntensity) < INTENSITY_LADDER.length - 1;
+  el.style.display = (weak && !locked && canGoStronger) ? '' : 'none';
+}
+
 async function adjustIntensity(delta) {
   const currentIdx = INTENSITY_LADDER.indexOf(state.effectiveIntensity);
   const newIdx = Math.max(0, Math.min(INTENSITY_LADDER.length - 1, currentIdx + delta));
@@ -8306,6 +8325,7 @@ async function adjustIntensity(delta) {
   state.effectiveIntensity = INTENSITY_LADDER[newIdx];
 
   clearResultError();
+  $('weakChangeNudge').style.display = 'none';
   $('moreDramaticBtn').disabled = true;
   $('moreSubtleBtn').disabled = true;
   $('loveItBtn').disabled = true;
@@ -8314,7 +8334,7 @@ async function adjustIntensity(delta) {
   try {
     const generatedPrompt = await callGeminiText(GOAL_SYSTEM_PROMPT, makeUserJson());
     if (generatedPrompt.trim() === 'REFUSED_MINOR') throw new Error('Refused.');
-    const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
+    const { imageBase64, locked, weakChange } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
     await finishResultLoader(); // land the bar at 100% before swapping the image in
@@ -8333,6 +8353,7 @@ async function adjustIntensity(delta) {
       state_credits.value = Math.max(0, state_credits.value - 1);
       updateCreditDisplay();
     }
+    updateWeakChangeNudge(weakChange, locked);
     updateFixItVisibility(locked);
   } catch (err) {
     clearResultLoader();
@@ -8471,7 +8492,7 @@ async function callGeminiImage(prompt, photoBase64, photoMime, intensity, opts =
       posthog.capture('generation_verifier', data.telemetry);
     }
   } catch (e) {}
-  return { imageBase64: data.imageBase64, locked: !!data.locked };
+  return { imageBase64: data.imageBase64, locked: !!data.locked, weakChange: !!data.weakChange };
 }
 
 // ============================================================
