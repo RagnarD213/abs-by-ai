@@ -2337,6 +2337,21 @@ html, body {
   </div>
 
   <!-- ════════════════ SCREEN: MEMBERSHIP ════════════════ -->
+  <!-- Pre-trial "Let's build your plan" questionnaire. Mounts after account
+       creation, before the membership/trial gate. Body is rendered by JS
+       (renderQuiz) one question per step. -->
+  <div id="quizSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="quizBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Build your plan</span>
+      <button id="quizSkipBtn" style="background:none;border:none;color:var(--mute);font:inherit;font-size:13px;font-weight:600;cursor:pointer;padding:6px">Skip</button>
+    </div>
+    <div class="intake-progress"><div class="intake-progress-fill" id="quizProgressFill" style="width:0%"></div></div>
+    <div id="quizBody"></div>
+  </div>
+
   <div id="membershipSection" class="screen" style="display:none">
     <div class="nav-bar">
       <button class="nav-icon-btn" id="membershipBackBtn" title="Back">
@@ -2344,6 +2359,11 @@ html, body {
       </button>
       <span class="nav-title">Membership</span>
       <span style="width:26px"></span>
+    </div>
+
+    <div id="membershipPlanReady" style="display:none;margin-bottom:16px;padding:14px 16px;border-radius:13px;background:var(--acc-soft);border:1px solid var(--acc-line);text-align:center">
+      <div style="font-weight:800;font-size:15px;color:var(--acc)">✦ Your personalized plan is ready</div>
+      <div style="font-size:13px;color:var(--mute);margin-top:3px">Start your free trial to unlock it.</div>
     </div>
 
     <div class="hero-h1" style="font-size:25px;line-height:1.12;margin-bottom:6px">Everything, unlocked</div>
@@ -2899,7 +2919,7 @@ Output ONLY the final image-editing prompt as plain text. No preamble, no JSON, 
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'bridgeSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'emailSection', 'bridgeSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -3946,12 +3966,217 @@ function openPendingTrialFeature() {
   if (feature) openHubFeature(feature);
 }
 
-// Deliberate insertion point for the future member-profile questionnaire.
 async function continueTrialAfterAccountCreation() {
   authEntryContext = null;
   await refreshMembership();
   if (hasMemberAccess()) return openPendingTrialFeature();
-  showMembershipScreen(openPendingTrialFeature, { trialGate: true });
+  seedProfileFromFunnel();            // fire-and-forget: sex/body type/intensity
+  startQuiz();                        // "Let's build your plan" → trial gate
+}
+
+// ============================================================
+// PRE-TRIAL "LET'S BUILD YOUR PLAN" QUIZ
+// Fills the shared member profile's essentials right after account creation,
+// before the trial gate. Sex / body type / intensity are already known from the
+// generation funnel (seeded separately), so we never re-ask them here. Keep this
+// to ~5 questions — friction at the paywall is paid at the highest-value moment.
+// ============================================================
+
+// Seed the profile from the anonymous generation funnel at account creation.
+// Best-effort and additive — the quiz PATCH (source 'quiz') merges on top.
+async function seedProfileFromFunnel() {
+  if (!isLoggedIn()) return;
+  const profile = {};
+  if (state.gender === 'male' || state.gender === 'female') profile.sex = state.gender;
+  if (['heavier', 'moderate', 'fit', 'very_lean'].includes(state.condition)) profile.bodyType = state.condition;
+  if (['subtle', 'moderate', 'dramatic', 'max'].includes(state.intensity)) profile.intensity = state.intensity;
+  if (!Object.keys(profile).length) return;
+  try { await authApi('/api/profile', { method: 'PATCH', body: JSON.stringify({ profile, source: 'funnel' }) }); } catch (e) {}
+}
+
+const quizState = { step: 0, answers: {} };
+
+const QUIZ_STEPS = [
+  {
+    key: 'ageRange', title: "What's your age range?",
+    sub: 'Tailors intensity and recovery to your stage.', type: 'single',
+    options: [
+      { value: '18-24', name: '18–24' },
+      { value: '25-34', name: '25–34' },
+      { value: '35-44', name: '35–44' },
+      { value: '45-54', name: '45–54' },
+      { value: '55+', name: '55 or older' },
+    ],
+  },
+  { key: 'body', title: 'Your height & weight', sub: 'Sets realistic targets and macro math.', type: 'body' },
+  {
+    key: 'goal', title: "What's your main goal?",
+    sub: 'Shapes your training and nutrition plan.', type: 'single',
+    options: [
+      { value: 'lose_fat', name: 'Lose fat', emoji: '🔥' },
+      { value: 'build_muscle', name: 'Build muscle', emoji: '💪' },
+      { value: 'both', name: 'Both — recomposition', emoji: '⚖️' },
+    ],
+  },
+  {
+    key: 'equipment', title: 'What can you train with?',
+    sub: 'Your workouts are built around this.', type: 'single',
+    options: [
+      { value: 'none', name: 'No equipment', sub: 'Bodyweight only' },
+      { value: 'minimal', name: 'Minimal', sub: 'Dumbbells or bands at home' },
+      { value: 'full', name: 'Full gym', sub: 'Machines & free weights' },
+    ],
+  },
+  {
+    key: 'diet', title: 'Any dietary preferences?',
+    sub: 'Pick any that apply — or skip.', type: 'multi',
+    options: [
+      { value: 'vegetarian', name: 'Vegetarian' },
+      { value: 'vegan', name: 'Vegan' },
+      { value: 'pescatarian', name: 'Pescatarian' },
+      { value: 'no_dairy', name: 'No dairy' },
+      { value: 'no_gluten', name: 'No gluten' },
+      { value: 'no_pork', name: 'No pork' },
+      { value: 'keto', name: 'Keto / low-carb' },
+      { value: 'high_protein', name: 'High protein' },
+    ],
+  },
+];
+
+function startQuiz() {
+  quizState.step = 0;
+  quizState.answers = { weightUnit: 'lb', heightFt: 5, heightIn: 8 };
+  if (window.posthog) posthog.capture('quiz_started');
+  renderQuiz();
+  showScreen('quiz');
+}
+
+function renderQuiz() {
+  const total = QUIZ_STEPS.length;
+  const i = quizState.step;
+  const step = QUIZ_STEPS[i];
+  const a = quizState.answers;
+  const fill = $('quizProgressFill');
+  if (fill) fill.style.width = `${Math.round((i / total) * 100)}%`;
+
+  let inner = `<div class="hero-h1" style="font-size:23px;line-height:1.15;margin-bottom:6px">${step.title}</div>
+               <div class="hero-sub" style="margin-bottom:20px">${step.sub}</div>`;
+
+  if (step.type === 'single') {
+    inner += '<div class="intake-opts">' + step.options.map(o => `
+      <button class="intake-opt${a[step.key] === o.value ? ' selected' : ''}" data-quiz-opt="${o.value}">
+        ${o.emoji ? `<span class="intake-opt-emoji">${o.emoji}</span>` : ''}
+        <span><span class="intake-opt-name">${o.name}</span>${o.sub ? `<span class="intake-opt-sub">${o.sub}</span>` : ''}</span>
+      </button>`).join('') + '</div>';
+  } else if (step.type === 'multi') {
+    const sel = a.diet || [];
+    inner += '<div class="intake-chips">' + step.options.map(o => `
+      <button class="intake-chip${sel.includes(o.value) ? ' selected' : ''}" data-quiz-chip="${o.value}">${o.name}</button>`).join('') + '</div>'
+      + '<button class="cta-btn" id="quizContinue" style="margin-top:26px">Build my plan</button>';
+  } else if (step.type === 'body') {
+    const ftOpts = [3, 4, 5, 6, 7, 8].map(f => `<option value="${f}"${a.heightFt == f ? ' selected' : ''}>${f} ft</option>`).join('');
+    const inOpts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(n => `<option value="${n}"${a.heightIn == n ? ' selected' : ''}>${n} in</option>`).join('');
+    inner += `
+      <div style="margin-bottom:20px">
+        <div class="chips-label">Height</div>
+        <div style="display:flex;gap:10px">
+          <select id="quizHeightFt" class="text-field" style="flex:1">${ftOpts}</select>
+          <select id="quizHeightIn" class="text-field" style="flex:1">${inOpts}</select>
+        </div>
+      </div>
+      <div style="margin-bottom:6px">
+        <div class="chips-label">Weight</div>
+        <div style="display:flex;gap:10px;align-items:stretch">
+          <input id="quizWeight" type="number" inputmode="decimal" class="text-field" placeholder="e.g. 175" style="flex:1" value="${a.weight != null ? a.weight : ''}">
+          <div class="seg" style="flex:0 0 auto">
+            <button class="seg-opt${a.weightUnit !== 'kg' ? ' active' : ''}" data-quiz-unit="lb" style="padding:11px 16px">lb</button>
+            <button class="seg-opt${a.weightUnit === 'kg' ? ' active' : ''}" data-quiz-unit="kg" style="padding:11px 16px">kg</button>
+          </div>
+        </div>
+      </div>
+      <div id="quizBodyErr" class="error-toast" style="display:none;margin-top:12px"></div>
+      <button class="cta-btn" id="quizContinue" style="margin-top:24px">Continue</button>`;
+  }
+
+  $('quizBody').innerHTML = inner;
+  wireQuizStep(step);
+}
+
+function wireQuizStep(step) {
+  const a = quizState.answers;
+  if (step.type === 'single') {
+    document.querySelectorAll('#quizBody [data-quiz-opt]').forEach(btn => {
+      btn.addEventListener('click', () => { a[step.key] = btn.dataset.quizOpt; advanceQuiz(step.key); });
+    });
+  } else if (step.type === 'multi') {
+    document.querySelectorAll('#quizBody [data-quiz-chip]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.quizChip;
+        const sel = new Set(a.diet || []);
+        sel.has(v) ? sel.delete(v) : sel.add(v);
+        a.diet = [...sel];
+        btn.classList.toggle('selected');
+      });
+    });
+    $('quizContinue').addEventListener('click', () => advanceQuiz(step.key));
+  } else if (step.type === 'body') {
+    $('quizHeightFt').addEventListener('change', e => { a.heightFt = parseInt(e.target.value, 10); });
+    $('quizHeightIn').addEventListener('change', e => { a.heightIn = parseInt(e.target.value, 10); });
+    $('quizWeight').addEventListener('input', e => { a.weight = e.target.value; });
+    document.querySelectorAll('#quizBody [data-quiz-unit]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        a.weightUnit = btn.dataset.quizUnit;
+        document.querySelectorAll('#quizBody [data-quiz-unit]').forEach(b => b.classList.toggle('active', b === btn));
+      });
+    });
+    $('quizContinue').addEventListener('click', () => {
+      const w = parseFloat(a.weight);
+      const err = $('quizBodyErr');
+      if (!Number.isFinite(w) || w < 50 || w > 1500) {
+        err.textContent = 'Please enter your weight to continue.';
+        err.style.display = '';
+        return;
+      }
+      advanceQuiz(step.key);
+    });
+  }
+}
+
+function advanceQuiz(key) {
+  if (window.posthog) posthog.capture('quiz_step_completed', { step: key, index: quizState.step });
+  if (quizState.step >= QUIZ_STEPS.length - 1) return finishQuiz();
+  quizState.step++;
+  renderQuiz();
+}
+
+async function finishQuiz() {
+  const a = quizState.answers;
+  const profile = {};
+  if (a.ageRange) profile.ageRange = a.ageRange;
+  if (a.goal) profile.goal = a.goal;
+  if (a.equipment) profile.equipment = a.equipment;
+  const heightIn = (Number(a.heightFt) || 0) * 12 + (Number(a.heightIn) || 0);
+  if (heightIn >= 36) profile.heightIn = heightIn;
+  const w = parseFloat(a.weight);
+  if (Number.isFinite(w)) { profile.weight = w; profile.weightUnit = a.weightUnit || 'lb'; }
+  if (Array.isArray(a.diet)) profile.diet = a.diet;
+
+  const fill = $('quizProgressFill');
+  if (fill) fill.style.width = '100%';
+  if (window.posthog) posthog.capture('quiz_completed', { fields: Object.keys(profile) });
+  // Best-effort — never block the funnel on a profile write.
+  try { await authApi('/api/profile', { method: 'PATCH', body: JSON.stringify({ profile, source: 'quiz' }) }); } catch (e) {}
+  proceedToTrialGate(true);
+}
+
+function skipQuiz() {
+  if (window.posthog) posthog.capture('quiz_skipped', { step: quizState.step });
+  proceedToTrialGate(false);
+}
+
+function proceedToTrialGate(planReady) {
+  if (hasMemberAccess()) return openPendingTrialFeature();
+  showMembershipScreen(openPendingTrialFeature, { trialGate: true, planReady });
 }
 
 function showTrialGate(feature) {
@@ -5207,6 +5432,10 @@ function showMembershipScreen(returnTo, opts) {
   membershipReturnTo = returnTo || membershipReturnTo;
   membershipGateBackToHub = !!opts?.trialGate;
   if (window.posthog) posthog.capture('membership_screen_viewed');
+  // "Your personalized plan is ready" banner — shown when the user arrives from
+  // the just-completed pre-trial quiz (not on plain paywalls).
+  const planReady = $('membershipPlanReady');
+  if (planReady) planReady.style.display = opts?.planReady ? '' : 'none';
   // Pay-as-you-go strip: only for walls where a single credit also unblocks
   // (meal analysis). Hidden by default so the membership pitch stays clean.
   const alt = $('membershipCreditsAlt');
@@ -6205,6 +6434,12 @@ function initTrainer() {
     document.querySelectorAll('.plan-card').forEach(c => c.classList.toggle('selected', c === card));
   }));
   $('membershipSubscribeBtn').addEventListener('click', handleMembershipSubscribe);
+  // Pre-trial quiz nav: Back steps within the quiz (skips out on the first step);
+  // Skip jumps straight to the trial gate. Both keep the profile graceful.
+  $('quizBackBtn').addEventListener('click', () => {
+    if (quizState.step > 0) { quizState.step--; renderQuiz(); } else { skipQuiz(); }
+  });
+  $('quizSkipBtn').addEventListener('click', skipQuiz);
   $('macroTrainerPromo').addEventListener('click', openTrainer);
   $('exSheetOverlay').addEventListener('click', (e) => { if (e.target === $('exSheetOverlay')) closeExerciseSheet(); });
 }
