@@ -3104,6 +3104,33 @@ async function readProfile(userId) {
   }
 }
 
+// Render the shared profile as a compact, labeled block to inject into feature
+// prompts. ADDITIVE background only — the feature's own inputs/photos/questions
+// take precedence. Returns '' when there's nothing useful, so every feature
+// degrades gracefully to its current ask-the-user behavior when the profile is
+// empty. Never reword a feature's existing instructions — only append this.
+const PROFILE_GOAL_LABEL = { lose_fat: 'lose fat', build_muscle: 'build muscle', both: 'lose fat + build muscle (body recomposition)' };
+const PROFILE_EQUIP_LABEL = { none: 'no equipment (bodyweight only)', minimal: 'minimal home kit (dumbbells / bands / kettlebell)', full: 'full gym' };
+const PROFILE_DIET_LABEL = {
+  vegetarian: 'vegetarian', vegan: 'vegan', pescatarian: 'pescatarian', no_dairy: 'no dairy',
+  no_gluten: 'no gluten', no_pork: 'no pork', halal: 'halal', kosher: 'kosher', keto: 'keto / low-carb', high_protein: 'high protein',
+};
+function profileContextBlock(profile, opts = {}) {
+  const p = profile || {};
+  const lines = [];
+  if (p.sex) lines.push(`- Sex: ${p.sex}`);
+  if (p.ageRange) lines.push(`- Age range: ${p.ageRange}`);
+  if (p.heightIn) { const ft = Math.floor(p.heightIn / 12), inch = p.heightIn % 12; lines.push(`- Height: ${ft}'${inch}" (${p.heightIn} in)`); }
+  if (p.weight) lines.push(`- Weight: ${p.weight} ${p.weightUnit || 'lb'}`);
+  if (p.goal && PROFILE_GOAL_LABEL[p.goal]) lines.push(`- Primary goal: ${PROFILE_GOAL_LABEL[p.goal]}`);
+  if (p.equipment && PROFILE_EQUIP_LABEL[p.equipment]) lines.push(`- Equipment available: ${PROFILE_EQUIP_LABEL[p.equipment]}`);
+  if (Array.isArray(p.diet) && p.diet.length) lines.push(`- Dietary preferences: ${p.diet.map(d => PROFILE_DIET_LABEL[d] || d).join(', ')}`);
+  if (p.dietNote) lines.push(`- Dietary notes: ${String(p.dietNote).slice(0, 200)}`);
+  if (!lines.length) return '';
+  const header = opts.header || "MEMBER PROFILE (shared background context — the user's own inputs, photos, and this feature's own questions always take precedence):";
+  return `${header}\n${lines.join('\n')}`;
+}
+
 // Merge a sanitized patch into the stored profile. Read-modify-write in JS so
 // `_meta` (per-field provenance) merges safely and we don't depend on pg jsonb
 // operators (pg-mem lacks `||`). `source` tags where the data came from.
@@ -6776,15 +6803,21 @@ async function buildBriefFacts(userId, dayStr) {
     }
   } catch (e) {}
 
+  // Shared member profile as additive background (goal / age / diet / equipment
+  // the brief's own facts don't carry). Folded into the fingerprint so a profile
+  // change regenerates the cached brief.
+  const profileBlock = profileContextBlock(await readProfile(userId));
+
   const fingerprint = crypto.createHash('sha1').update(JSON.stringify([
     dayStr,
     facts.sleep?.quality || null,
     facts.workout ? [facts.workout.doneToday, facts.workout.next?.week, facts.workout.next?.day, facts.workout.blockNumber] : null,
     facts.nutrition ? [facts.nutrition.calories, facts.nutrition.protein_g, facts.nutrition.logged?.meals || 0] : null,
     facts.weight ? [facts.weight.trend, facts.weight.lastDate] : null,
+    profileBlock || null,
   ])).digest('hex');
 
-  return { facts, lines, fingerprint };
+  return { facts, lines, fingerprint, profileBlock };
 }
 
 app.get('/api/coach/brief', aiLimiter, requireAuth, async (req, res) => {
@@ -6792,7 +6825,7 @@ app.get('/api/coach/brief', aiLimiter, requireAuth, async (req, res) => {
     const dayStr = DATE_RE.test(String(req.query.date || '')) ? req.query.date : new Date().toISOString().slice(0, 10);
     const userRow = await getUserRow(req.user.id);
     const member = isActiveMembership(userRow);
-    const { facts, lines, fingerprint } = await buildBriefFacts(req.user.id, dayStr);
+    const { facts, lines, fingerprint, profileBlock } = await buildBriefFacts(req.user.id, dayStr);
     const hasAnyData = !!(facts.sleep || facts.workout || facts.nutrition || facts.weight);
 
     // Non-members get the deterministic facts (the card still works) plus a
@@ -6816,7 +6849,7 @@ app.get('/api/coach/brief', aiLimiter, requireAuth, async (req, res) => {
     try {
       brief = await callTrainerModel(
         COACH_BRIEF_SYSTEM_PROMPT,
-        [{ type: 'text', text: `Here are today's facts for this user:\n${lines.join('\n')}\n\nWrite today's brief.` }],
+        [{ type: 'text', text: `${profileBlock ? profileBlock + '\n\n' : ''}Here are today's facts for this user:\n${lines.join('\n')}\n\nWrite today's brief.` }],
         COACH_BRIEF_SCHEMA
       );
     } catch (e) {
