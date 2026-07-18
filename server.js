@@ -2619,6 +2619,7 @@ app.post('/api/auth/login', authLimiter, async (req, res) => {
     }
 
     const token = await createSession(user.id);
+    backfillProfile(user.id).catch(() => {}); // fill profile essentials from existing intakes
     res.json({ token, email, deviceId: user.device_id });
   } catch (e) {
     console.error('login error:', e.message);
@@ -3119,9 +3120,75 @@ async function writeProfileMerge(userId, rawPatch, source) {
   return next;
 }
 
+// ── Backfill for existing users ──
+// Existing accounts (pre-quiz) have per-feature intakes but no profile. On next
+// login (and lazily on first profile read) we derive the essentials from those
+// rows and fill only the MISSING fields — never overwrite quiz/funnel data. All
+// values pass back through sanitizeProfilePatch, so any vocab we map wrong is
+// dropped rather than stored, and the feature simply asks for it later.
+const BF_SEX = { man: 'male', male: 'male', woman: 'female', female: 'female' };
+const BF_EQUIP = { none: 'none', min: 'minimal', minimal: 'minimal', full: 'full' };
+// Trainer age chips use en-dash and slightly different buckets than the profile.
+const BF_AGE = {
+  '18–25': '18-24', '26–35': '25-34', '36–45': '35-44', '46–55': '45-54', '56+': '55+',
+  '18-25': '18-24', '26-35': '25-34', '36-45': '35-44', '46-55': '45-54',
+};
+const BF_DIET = {
+  vegetarian: 'vegetarian', vegan: 'vegan', pescatarian: 'pescatarian',
+  halal: 'halal', kosher: 'kosher', dairy_free: 'no_dairy', keto: 'keto',
+};
+function bfGoal(v) {
+  const s = String(v || '').toLowerCase();
+  if (!s) return null;
+  if (s.includes('recomp') || s === 'both') return 'both';
+  if (s.includes('muscle') || s.includes('build') || s.includes('gain')) return 'build_muscle';
+  if (s.includes('fat') || s.includes('lose') || s.includes('loss') || s.includes('cut')) return 'lose_fat';
+  return null;
+}
+
+async function backfillProfile(userId) {
+  if (!db) return;
+  try {
+    const current = await readProfile(userId);
+    const has = k => {
+      const v = current[k];
+      return v != null && !(Array.isArray(v) && v.length === 0);
+    };
+    const patch = {};
+    // Newest AI Nutritionist intake — the richest source.
+    const { rows: mp } = await db.query('SELECT intake FROM meal_plans WHERE user_id = $1 ORDER BY id DESC LIMIT 1', [userId]);
+    const ni = mp[0]?.intake || {};
+    if (!has('sex') && BF_SEX[ni.sex]) patch.sex = BF_SEX[ni.sex];
+    if (!has('heightIn') && Number(ni.height_in)) patch.heightIn = Number(ni.height_in);
+    if (!has('weight') && Number(ni.weight_lb)) { patch.weight = Number(ni.weight_lb); patch.weightUnit = 'lb'; }
+    if (!has('goal') && bfGoal(ni.goal)) patch.goal = bfGoal(ni.goal);
+    if (!has('diet') && BF_DIET[ni.diet_style]) patch.diet = [BF_DIET[ni.diet_style]];
+    // Newest AI Trainer intake — fills equipment/age and anything nutrition lacked.
+    const { rows: pg } = await db.query('SELECT intake FROM programs WHERE user_id = $1 ORDER BY id DESC LIMIT 1', [userId]);
+    const ti = pg[0]?.intake || {};
+    if (!has('sex') && !patch.sex && BF_SEX[ti.sex_track]) patch.sex = BF_SEX[ti.sex_track];
+    if (!has('equipment') && BF_EQUIP[ti.equipment]) patch.equipment = BF_EQUIP[ti.equipment];
+    if (!has('ageRange') && BF_AGE[ti.age_range]) patch.ageRange = BF_AGE[ti.age_range];
+    if (!has('goal') && !patch.goal && bfGoal(ti.goal)) patch.goal = bfGoal(ti.goal);
+    // Latest weigh-in as a last resort for weight.
+    if (!has('weight') && patch.weight == null) {
+      const { rows: wl } = await db.query('SELECT weight, unit FROM weight_logs WHERE user_id = $1 ORDER BY entry_date DESC LIMIT 1', [userId]);
+      if (wl[0] && Number(wl[0].weight)) { patch.weight = Number(wl[0].weight); patch.weightUnit = wl[0].unit === 'kg' ? 'kg' : 'lb'; }
+    }
+    if (Object.keys(patch).length) await writeProfileMerge(userId, patch, 'backfill');
+  } catch (e) {
+    console.error('backfillProfile error:', e.message);
+  }
+}
+
 app.get('/api/profile', requireAuth, async (req, res) => {
   try {
-    res.json({ profile: await readProfile(req.user.id) });
+    let profile = await readProfile(req.user.id);
+    // Lazy backfill for untouched profiles (existing users who haven't taken the
+    // quiz). `_meta` exists once anything has been written, so this runs at most
+    // once per account.
+    if (!profile._meta) { await backfillProfile(req.user.id); profile = await readProfile(req.user.id); }
+    res.json({ profile });
   } catch (e) {
     console.error('get profile error:', e.message);
     res.status(500).json({ error: 'Internal server error' });
