@@ -6759,6 +6759,15 @@ const PRODUCT_CONFIG = {
   },
 };
 
+// Resolve a printed-product variant from its type/size/framed selection.
+// This is the single source of truth for both pricing the Stripe session and
+// building the Printify order, so the amount charged can never disagree with
+// the amount fulfilled. Returns null for any combination not in the catalog.
+function productVariant(productType, size, framed) {
+  const key = productType === 'canvas' ? `${size}_${framed ? 'framed' : 'unframed'}` : size;
+  return PRODUCT_CONFIG[productType]?.variants[key] || null;
+}
+
 // Parse a product's aspect ratio (width/height) from a size key like "11x14".
 // Returns null for sizes without parseable dimensions.
 function productAspectFromSize(size) {
@@ -6825,9 +6834,18 @@ app.post('/api/stripe/create-checkout', async (req, res) => {
   const stripe = getStripe();
   if (!stripe) return res.status(503).json({ error: 'Stripe not configured. Add STRIPE_SECRET_KEY to environment variables.' });
   try {
-    const { productType, size, framed, priceInCents, imageId, imagePreviewUrl, imgWidth, imgHeight, productLabel, returnUrl } = req.body || {};
-    if (!productType || !size || !priceInCents || !returnUrl) {
+    // priceInCents is intentionally ignored — the price is looked up server-side
+    // so the client can never dictate what it pays (see N1 in the July 17 audit).
+    const { productType, size, framed, imageId, imgWidth, imgHeight, productLabel, returnUrl } = req.body || {};
+    if (!productType || !size || !returnUrl) {
       return res.status(400).json({ error: 'Missing required fields' });
+    }
+    if (!imageId) {
+      return res.status(400).json({ error: 'Missing imageId' });
+    }
+    const variant = productVariant(productType, size, !!framed);
+    if (!variant) {
+      return res.status(400).json({ error: 'Unknown product or size' });
     }
     const displayName = `${productLabel || productType} — ${size}${framed ? ' (Framed)' : ''}`;
     const session = await stripe.checkout.sessions.create({
@@ -6838,7 +6856,7 @@ app.post('/api/stripe/create-checkout', async (req, res) => {
         quantity: 1,
         price_data: {
           currency: 'usd',
-          unit_amount: priceInCents,
+          unit_amount: variant.price,
           product_data: {
             name: displayName,
             description: 'Your AI-generated future self, printed and shipped to you.',
@@ -6853,8 +6871,10 @@ app.post('/api/stripe/create-checkout', async (req, res) => {
       },
       automatic_tax: { enabled: false },
       metadata: {
+        // imagePreviewUrl is deliberately NOT stored — the printed artwork is
+        // rebuilt from imageId server-side so it can only be an image uploaded
+        // through our own Printify account, never an attacker-supplied URL.
         imageId: imageId || '',
-        imagePreviewUrl: imagePreviewUrl || '',
         imgWidth: String(imgWidth || ''),
         imgHeight: String(imgHeight || ''),
         productType,
@@ -6886,7 +6906,11 @@ async function fulfillProductOrder(session) {
   const framedBool = meta.framed === 'true';
   const email = full.customer_details?.email;
   const shipping = full.shipping_details?.address;
-  const imageSrc = imagePreviewUrl || (imageId ? `https://images-api.printify.com/${imageId}` : '');
+  // Rebuild the artwork source from imageId (an image uploaded through our own
+  // Printify account) rather than trusting any client-supplied URL. imagePreviewUrl
+  // is only read as a fallback for sessions created before this fix, which still
+  // carry it in their metadata.
+  const imageSrc = (imageId ? `https://images-api.printify.com/${imageId}` : '') || imagePreviewUrl || '';
 
   if (!PRINTIFY_API_KEY || !PRINTIFY_SHOP_ID) {
     console.warn('Printify not configured — product order recorded but not submitted');
@@ -6898,9 +6922,18 @@ async function fulfillProductOrder(session) {
   }
 
   const variantKey = productType === 'canvas' ? `${size}_${framedBool ? 'framed' : 'unframed'}` : size;
-  const variant = PRODUCT_CONFIG[productType]?.variants[variantKey];
+  const variant = productVariant(productType, size, framedBool);
   if (!variant || !variant.variantId) {
     console.warn(`Printify variant not configured for ${productType}/${variantKey} — order NOT submitted`);
+    return false;
+  }
+
+  // Belt-and-braces price gate: the last line before money is spent with Printify.
+  // Never fulfill an order that paid less than the catalog price (or a non-USD
+  // amount we can't compare). This protects against any future create-checkout
+  // regression as well as pre-fix attacker-priced sessions still in flight.
+  if ((full.currency && full.currency !== 'usd') || (full.amount_total ?? 0) < variant.price) {
+    console.error(`Print order ${sid} paid ${full.amount_total} ${full.currency} < required ${variant.price} — NOT submitted to Printify`);
     return false;
   }
 
