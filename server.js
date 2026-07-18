@@ -104,7 +104,9 @@ const MEMBERSHIP_PLANS = {
 };
 // Free (non-member) allowance of meal-photo analyses — the freemium taste.
 const FREE_MEAL_ANALYSES = 3;
-const { EXERCISE_BY_ID, exercisesForEquipment } = require('./exercises');
+// exercises.js lives in public/ (browser loads it at /exercises.js); the server
+// also uses its exports here, so require it from the new location.
+const { EXERCISE_BY_ID, exercisesForEquipment } = require('./public/exercises');
 const MONARCH_PUSH_SECRET  = process.env.MONARCH_PUSH_SECRET;
 const MONARCH_DATA_FILE    = 'monarch-data.json';
 const GITHUB_REPO          = 'RagnarD213/abs-by-ai';
@@ -6990,11 +6992,19 @@ async function fulfillProductOrder(session) {
 // ============================================================
 // STATIC FILES & FALLBACK
 // ============================================================
-app.use(express.static('.'));
+// Serve ONLY the curated public/ folder. This is an allowlist: the project root
+// (server.js, db.js, *-data.json with customer PII, internal *.md handoffs) is
+// NEVER exposed over HTTP. Do not revert to express.static('.').
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Explicit route for the privacy page (linked as /privacy without .html).
+app.get('/privacy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
+});
 
 // Serve index.html for all non-API, non-dashboard routes (SPA fallback)
 app.get('*', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // ============================================================
