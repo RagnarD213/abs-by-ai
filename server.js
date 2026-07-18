@@ -2164,9 +2164,19 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     const freeFix = isFix === true && !!prevImageBase64 && allowFreeFix(deviceId);
     if (deviceId && !isActiveMembership(req.user) && !freeFix) {
       const balance = getCredits(deviceId);
+      // A device is a paying customer if it has ever purchased credits (persisted
+      // flag) or currently holds more than the free grant. Payers spend the credits
+      // they bought without any per-IP cap; only free-allowance spends are capped.
+      const isPurchaser = !!creditsStore.purchasers?.[deviceId] || balance > FREE_CREDITS;
       if (balance > 0) {
-        creditsStore.balances[deviceId] = balance - 1;
-        persistCreditsStore(); // fire-and-forget; in-memory copy is source of truth
+        if (!isPurchaser && !allowFreeGenByIp(req)) {
+          // This IP has hit its daily free-generation ceiling — a fresh-deviceId
+          // farm. Paywall the image instead of spending the free credit.
+          locked = true;
+        } else {
+          creditsStore.balances[deviceId] = balance - 1;
+          persistCreditsStore(); // fire-and-forget; in-memory copy is source of truth
+        }
       } else {
         locked = true;
       }
@@ -2191,7 +2201,10 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
 //   { balances: { [deviceId]: number }, fulfilled: { [sessionId]: true } }
 // `fulfilled` makes crediting idempotent across the webhook + return-redirect
 // paths so a purchase is never double-counted.
-let creditsStore = { balances: {}, fulfilled: {}, mealCounts: {} };
+// `purchasers[deviceId] = true` once a device has completed a paid credit
+// purchase. Used to exempt paying customers from the per-IP free-generation cap
+// (they must never be locked out of credits they paid for).
+let creditsStore = { balances: {}, fulfilled: {}, mealCounts: {}, purchasers: {} };
 
 // Idempotency for charge-on-success endpoints: maps attemptId -> { at, status, body }.
 // A dropped response makes the client replay the same attemptId (fetchWithRetry
@@ -2215,6 +2228,36 @@ function allowFreeFix(deviceId) {
   return true;
 }
 
+// Free-generation abuse cap. Free credits are keyed to a browser-generated
+// deviceId, so a farmer can mint unlimited fresh ids (each implicitly starting
+// with FREE_CREDITS) and burn real Gemini/Claude money on free generations. This
+// adds a per-IP daily ceiling on generations spent from the FREE allowance only
+// (non-member, non-fix, non-purchaser). Paid credits and members are never
+// affected. In-memory, single-replica caveat (same as fixCounts/attemptCache —
+// move to Postgres if the service ever scales out; see F4 in AUDIT_membership.md).
+const freeIpCounts = new Map(); // 'ip|YYYY-MM-DD' -> count
+const FREE_IP_DAILY_CAP = 6;    // ~2 devices' worth of free generations per IP/day
+// Best-effort client IP. Global `trust proxy` is intentionally NOT enabled (that
+// would also change the existing express-rate-limit buckets — the separate N2
+// audit finding), so we read the forwarded client IP here just for this cap.
+// Falls back to the socket address; it never returns a constant, so the cap can
+// never collapse into one global bucket that would lock out all users at once.
+function clientIp(req) {
+  const xff = req.headers['x-forwarded-for'];
+  if (xff) { const first = String(xff).split(',')[0].trim(); if (first) return first; }
+  return req.socket?.remoteAddress || req.ip || 'unknown';
+}
+// Returns true if this IP may still spend a FREE generation today, counting it.
+// Only called on the free-allowance path, so the counter tracks free gens only.
+function allowFreeGenByIp(req) {
+  const day = new Date().toISOString().slice(0, 10);
+  const key = `${clientIp(req)}|${day}`;
+  const n = freeIpCounts.get(key) || 0;
+  if (n >= FREE_IP_DAILY_CAP) return false;
+  freeIpCounts.set(key, n + 1);
+  return true;
+}
+
 const attemptCache = new Map();
 const ATTEMPT_TTL_MS = 10 * 60 * 1000;
 function getCachedAttempt(id) {
@@ -2235,7 +2278,7 @@ function cacheAttempt(id, status, body) {
 }
 
 async function loadCreditsStore() {
-  const empty = { balances: {}, fulfilled: {}, mealCounts: {} };
+  const empty = { balances: {}, fulfilled: {}, mealCounts: {}, purchasers: {} };
   if (!GITHUB_TOKEN) return empty;
   try {
     const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${CREDITS_FILE}`, {
@@ -2244,7 +2287,7 @@ async function loadCreditsStore() {
     if (!res.ok) return empty;
     const data = await res.json();
     const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
-    return { balances: parsed.balances || {}, fulfilled: parsed.fulfilled || {}, mealCounts: parsed.mealCounts || {} };
+    return { balances: parsed.balances || {}, fulfilled: parsed.fulfilled || {}, mealCounts: parsed.mealCounts || {}, purchasers: parsed.purchasers || {} };
   } catch (e) {
     console.error('loadCreditsStore error:', e.message);
     return empty;
@@ -2288,6 +2331,8 @@ async function fulfillCreditsSession(session) {
 
   creditsStore.balances[deviceId] = getCredits(deviceId) + credits;
   creditsStore.fulfilled[sid] = true;
+  creditsStore.purchasers = creditsStore.purchasers || {};
+  creditsStore.purchasers[deviceId] = true; // exempt paying customers from the per-IP free cap
   await persistCreditsStore();
   console.log(`Credited ${credits} to ${deviceId} (session ${sid})`);
   return true;
