@@ -2017,7 +2017,7 @@ app.post('/api/refine-leftovers', aiLimiter, async (req, res) => {
 // ============================================================
 app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
   try {
-    const { prompt, photoBase64, photoMime, deviceId, intensity, prevImageBase64, isFix } = req.body;
+    const { prompt, photoBase64, photoMime, deviceId, intensity, prevImageBase64, isFix, sex, startCondition, distinctId } = req.body;
 
     // Idempotency: a dropped response makes the client replay the same attemptId.
     // Return the cached result (no second model call, no second decrement).
@@ -2125,16 +2125,36 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       result = await callGemini(retryPreamble + prompt);
     }
 
+    // Telemetry for the change-verifier / intensify-retry ladder (A1). Measures how
+    // often a generation reads as a near-no-op ("after looks the same as before" —
+    // the worst, most demoralizing failure, and worst for women) and how hard we had
+    // to push to fix it. All fail-open: telemetry must never throw into the paid flow.
+    let verifierRan = false;
+    let verifierPassedFirstTry = null;
+    let retryRungsUsed = 0;
+    let finalVerifierPassed = null;
+
     if (result.ok && (intensity === 'dramatic' || intensity === 'max')) {
+      verifierRan = true;
       const intensifyPreambles = [
         `Your previous attempt at this edit was too subtle and barely visible — that is a failure. This time you MUST push much harder: make the body-fat reduction, ab definition, and waist tightening dramatically more visible than a typical edit, even if it means a bigger departure from the input photo's body shape. The face, clothing, pose, and framing must still stay exactly the same — only push the body transformation itself much further.\n\n`,
         `Two previous attempts at this edit were both too subtle. This is the final attempt and it MUST show unmistakable, obvious ab muscle definition (visible separation lines, not just a flatter stomach) and a clearly tighter waist. Be aggressive with the transformation — the viewer must be able to see the change instantly without comparing closely to the original. The face, clothing, pose, and framing must still stay exactly the same — only the body transformation itself gets much more dramatic.\n\n`,
       ];
-      for (const preamble of intensifyPreambles) {
-        const changed = await looksDramaticallyChanged(result.imageBase64, result.imageMime);
+      let changed = false;
+      for (let i = 0; i < intensifyPreambles.length; i++) {
+        changed = await looksDramaticallyChanged(result.imageBase64, result.imageMime);
+        if (i === 0) verifierPassedFirstTry = changed;
         if (changed) break;
-        const retried = await callGemini(preamble + prompt);
+        const retried = await callGemini(intensifyPreambles[i] + prompt);
+        retryRungsUsed++;
         if (retried.ok) result = retried;
+      }
+      finalVerifierPassed = changed;
+      // If the last rung was used without re-checking it, verify once more so the
+      // "still weak after every retry" signal is accurate — that's the case we most
+      // want to see in the data.
+      if (!changed && retryRungsUsed > 0) {
+        finalVerifierPassed = await looksDramaticallyChanged(result.imageBase64, result.imageMime);
       }
     }
 
@@ -2182,7 +2202,24 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       }
     }
 
-    const payload = { imageBase64, locked };
+    // Per-generation telemetry (A1). Emitted to Railway logs for immediate visibility
+    // and returned to the client so it can forward a PostHog event under the real
+    // distinctId (retry-rung counts are only known here on the server). Fail-open.
+    const telemetry = {
+      sex: (sex === 'male' || sex === 'female') ? sex : null,
+      intensity: intensity || null,
+      startCondition: startCondition || null,
+      verifierRan,
+      verifierPassedFirstTry,
+      retryRungsUsed,
+      finalVerifierPassed,
+      locked,
+    };
+    try {
+      console.log('GEN_TELEMETRY ' + JSON.stringify({ ...telemetry, distinctId: distinctId || null, isFix: !!isFix }));
+    } catch (e) {}
+
+    const payload = { imageBase64, locked, telemetry };
     // Cache synchronously right after the decrement (no await between them) so a
     // replayed attemptId returns this exact image without re-charging.
     cacheAttempt(attemptId, 200, payload);

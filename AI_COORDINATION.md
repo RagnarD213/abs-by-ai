@@ -21,9 +21,22 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Ready for review` — all 5 phases built, committed, pushed, local-verified end-to-end; prod boots healthy. One remaining item needs Dan: eyeball live AI output (Sleep/Supplement/Brief) on a comp account to confirm the profile visibly lands in the generated text (build is done + verified by construction; only the AI-output eyeball is pending).
+**Status:** `Implementation in progress`
 
-### Member profile + pre-trial questionnaire (started 2026-07-18)
+### Female-dramatic no-op fix + Items 3–7 (started 2026-07-18)
+
+Executing `handoff-20260718-female-dramatic-and-items-3-7.md`. **PRIMARY goal:** eliminate the "after looks the same as the before" failure and make FEMALE transformations meaningfully more dramatic (Dan: ~zero users, and zero women, have ever complained a result was *too* dramatic → bias every call toward MORE change, while keeping women unmistakably feminine — no vascularity, feminine four-pack not blocky, sculpted-not-bulky). Started only after the member-profile task finished + pushed, because both tasks edit `public/index.html` (this one also edits `server.js`).
+
+**Ship order** (each = its own commit + live-verify on absbyai.com with REAL photos before the next; local env has dummy Gemini/Anthropic keys so transformation quality can only be judged on prod): A1 send `sex` + per-generation telemetry → A2 gender-aware verifier + intensify-retry on ALL intensities (+ `weakChange` client nudge) → A3 female body-fat anchor retune (highest regression risk — isolate, compare vs current prod) → Item 4 realistic/dream toggle → Item 5 before/after share card → Item 6 trim redundant prompt (CONSTRAINED — must not soften female output) → Item 7 tailored Gemini-block copy.
+
+**Progress (2026-07-18):**
+- **A1 — send `sex` + per-generation telemetry: code committed, prod verify pending.** Client `callGeminiImage` now sends `sex`/`startCondition`; server destructures them, instruments the verifier/intensify-retry ladder (`verifierRan`, `verifierPassedFirstTry`, `retryRungsUsed`, `finalVerifierPassed`), logs `GEN_TELEMETRY {…}` to Railway, and returns a `telemetry` object the client forwards to PostHog as `generation_verifier`. Purely additive — no change to image output, credit gating, or verifier image behavior (adds one extra final Haiku check only in the rare "every rung exhausted" case). Local: server `node --check` OK, page parses with no console errors, server boots clean. **Next:** after deploy, run a female `moderate` + female `dramatic` on prod, confirm the telemetry fields log and the image still returns.
+
+---
+
+### Member profile + pre-trial questionnaire — READY FOR REVIEW (pending Dan eyeball only)
+
+**Status:** `Ready for review` — all 5 phases built, committed, pushed, local-verified end-to-end; prod boots healthy. One remaining item needs Dan: eyeball live AI output (Sleep/Supplement/Brief) on a comp account to confirm the profile visibly lands in the generated text (build is done + verified by construction; only the AI-output eyeball is pending).
 
 Executing `handoff-20260717-member-profile-questionnaire.md`. User directed: the two CRITICAL security items (1, 2) were already committed, pushed, and live-verified — nothing was in-flight/uncommitted — so per Dan's instruction ("start on this as soon as the other tasks commit, push, and finish") I switched to the member-profile task now. Security Items 3–7 (quality/product polish, never started) are deferred to Queued.
 

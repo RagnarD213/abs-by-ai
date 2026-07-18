@@ -8451,6 +8451,8 @@ async function callGeminiImage(prompt, photoBase64, photoMime, intensity, opts =
     },
     body: JSON.stringify({
       prompt, photoBase64, photoMime, intensity,
+      sex: state.gender,
+      startCondition: state.condition,
       distinctId: (window.posthog && typeof posthog.get_distinct_id === 'function') ? posthog.get_distinct_id() : 'anonymous',
       deviceId: getDeviceId(),
       attemptId,
@@ -8461,6 +8463,14 @@ async function callGeminiImage(prompt, photoBase64, photoMime, intensity, opts =
   const data = await res.json();
   if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
   if (!data?.imageBase64) throw new Error("Our image generator couldn't process this photo. This usually resolves with a slightly different photo — try one with a neutral pose, even lighting, and standard gym wear or swimwear.");
+  // Forward the server's per-generation telemetry to PostHog under the real
+  // distinctId so we can measure how often results read as "same as before"
+  // (worst for women) and how hard the retry ladder had to push. Fail-open.
+  try {
+    if (data.telemetry && window.posthog && typeof posthog.capture === 'function') {
+      posthog.capture('generation_verifier', data.telemetry);
+    }
+  } catch (e) {}
   return { imageBase64: data.imageBase64, locked: !!data.locked };
 }
 
