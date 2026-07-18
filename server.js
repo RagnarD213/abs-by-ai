@@ -4487,6 +4487,7 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
           [req.user.id, JSON.stringify(intake), JSON.stringify(program)]
         );
         programId = rows[0].id;
+        backfillProfile(req.user.id).catch(() => {}); // fill profile gaps from this intake
       } catch (e) { console.error('program save error:', e.message); }
     }
 
@@ -5038,6 +5039,7 @@ app.post('/api/generate-mealplan', aiLimiter, optionalAuth, async (req, res) => 
           [req.user.id, JSON.stringify(intake), JSON.stringify(plan)]
         );
         planId = rows[0].id;
+        backfillProfile(req.user.id).catch(() => {}); // fill profile gaps from this intake
       } catch (e) { console.error('meal plan save error:', e.message); }
     }
 
@@ -6514,6 +6516,11 @@ app.post('/api/progress/weight', requireAuth, async (req, res) => {
        ON CONFLICT (user_id, entry_date) DO UPDATE SET weight = $3, unit = $4, flags = $5`,
       [req.user.id, date, weight, unit, JSON.stringify(flags)]
     );
+    // Write-back: keep the shared profile's weight fresh from a today weigh-in
+    // (factual; skip backdated entries so an old log can't clobber current weight).
+    if (date === new Date().toISOString().slice(0, 10)) {
+      writeProfileMerge(req.user.id, { weight, weightUnit: unit }, 'progress').catch(() => {});
+    }
     res.json(await progressSummary(req.user.id, unit));
   } catch (e) {
     console.error('progress weight error:', e.message);
