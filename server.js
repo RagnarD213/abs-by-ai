@@ -5707,6 +5707,19 @@ async function assembleAuditContext(userId) {
     const m = rows[0]?.before_image && rows[0].before_image.match(/^data:(.*?);base64,(.*)$/);
     if (m) { out.beforeMime = m[1]; out.beforeImage = m[2]; }
   } catch (e) { /* no photo */ }
+  // Shared member profile — the only context source for quiz-only members who
+  // never filled the Trainer/Nutritionist intakes below. Terse to match style.
+  try {
+    const p = await readProfile(userId);
+    const b = [];
+    if (p.sex) b.push(p.sex);
+    if (p.ageRange) b.push(`age ${p.ageRange}`);
+    if (p.weight) b.push(`${p.weight} ${p.weightUnit || 'lb'}`);
+    if (p.goal && PROFILE_GOAL_LABEL[p.goal]) b.push(`goal ${PROFILE_GOAL_LABEL[p.goal]}`);
+    if (p.equipment && PROFILE_EQUIP_LABEL[p.equipment]) b.push(PROFILE_EQUIP_LABEL[p.equipment]);
+    if (Array.isArray(p.diet) && p.diet.length) b.push(`diet: ${p.diet.map(d => PROFILE_DIET_LABEL[d] || d).join(', ')}`);
+    if (b.length) lines.push(`Member profile: ${b.join(', ')}.`);
+  } catch (e) { /* no profile */ }
   try {
     const { rows } = await db.query('SELECT intake FROM programs WHERE user_id = $1 ORDER BY id DESC LIMIT 1', [userId]);
     const i = rows[0]?.intake;
@@ -6328,6 +6341,11 @@ app.post('/api/sleep/checkin', aiLimiter, optionalAuth, async (req, res) => {
           });
         }
       } catch (e) { console.warn('sleep history fetch error:', e.message); }
+
+      // Shared member profile as additive background (age/goal help the coach
+      // pitch tonight's protocol to the person). The user's own inputs win.
+      const pc = profileContextBlock(await readProfile(req.user.id));
+      if (pc) userContent.push({ type: 'text', text: pc });
     }
 
     let briefing;
