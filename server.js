@@ -2199,13 +2199,26 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     if (!result.ok) {
       const parts = result.data?.candidates?.[0]?.content?.parts || [];
       const textBlock = parts.find((p) => p.text)?.text;
+      const blockReason = (result.data?.promptFeedback?.blockReason || '').toString().toUpperCase();
+      const finishReason = (result.data?.candidates?.[0]?.finishReason || '').toString().toUpperCase();
       console.error('Image generation blocked after retry:', textBlock, result.data?.promptFeedback, result.data?.candidates?.[0]?.finishReason);
       if (result.status && result.status !== 400) {
         return res.status(result.status).json({ error: result.error || 'Image generation error' });
       }
-      return res.status(400).json({
-        error: "Our image generator couldn't process this photo. This usually resolves with a slightly different photo — try one with a neutral pose, even lighting, and standard gym wear or swimwear.",
-      });
+      // Item 7: turn the raw block reason into specific, actionable guidance instead of
+      // one catch-all message. A safety block is almost always a clothing/pose issue; an
+      // IMAGE_* failure is usually a photo-quality issue; anything else keeps the generic
+      // fallback. (IMAGE_SAFETY is caught by the safety branch first — that's intended.)
+      const reason = `${blockReason} ${finishReason}`;
+      let error;
+      if (/SAFETY|PROHIBITED|BLOCKLIST|SPII|SEXUAL/.test(reason)) {
+        error = "Our image generator's safety filter blocked this photo. It usually works with a photo in standard gym wear or swimwear, a neutral straight-on pose, and even lighting.";
+      } else if (/IMAGE/.test(reason)) {
+        error = "Our image generator couldn't get a clear read on this photo. Try a brighter, front-facing photo where your torso is clearly visible, in standard gym wear or swimwear.";
+      } else {
+        error = "Our image generator couldn't process this photo. This usually resolves with a slightly different photo — try one with a neutral pose, even lighting, and standard gym wear or swimwear.";
+      }
+      return res.status(400).json({ error });
     }
 
     const imageBase64 = result.imageBase64;
