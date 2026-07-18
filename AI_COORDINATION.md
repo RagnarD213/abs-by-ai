@@ -20,7 +20,22 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Status:** `No active task`
+**Owner:** Claude Code
+**Status:** `Implementation in progress`
+
+### Member profile + pre-trial questionnaire (started 2026-07-17, scheduled-task run)
+
+**Goal:** One shared server-side member profile per account feeding all six AI features (Trainer, Nutritionist, Macro Tracker, Sleep Coach, Supplement Audit, Daily Brief), plus a 5–6 question "Let's build your plan" quiz inserted between account creation and the membership checkout screen (the boundary the bridge/hub/trial-gate task left). Full spec: `handoff-20260717-member-profile-questionnaire.md`.
+
+**Prerequisite check:** confirmed — bridge/hub/trial-gate shipped and live-verified 2026-07-17, commit `f6edbee` (see entry below and git log).
+
+**Acceptance criteria:** profiles table/column + GET/PATCH `/api/profile`; quiz UI at the post-signup/pre-checkout boundary with PostHog events; funnel data seeds the profile at account creation; each of the 6 features reads profile context additively (no prompt rewording, no model/safety/output-contract changes) with graceful degradation when profile data is missing; write-back hooks for factual updates only; backfill for existing users on next login; each feature verified live on absbyai.com before moving to the next; one full new-user run verified (generate → trial gate → quiz → checkout → feature pre-filled).
+
+**Next action:** implement per Detailed Plan in the handoff doc, starting with schema + API.
+
+### Completed — Fresh money & security audit (read-only, 2026-07-17)
+
+Full post-revenue audit of `server.js`/`db.js`/client payment paths in `AUDIT_money_security_20260717.md`. No code changed. Top findings, ranked: **N1 CRITICAL** — `/api/stripe/create-checkout` (printed products) trusts client-supplied `priceInCents` and `fulfillProductOrder` never checks the paid amount, so a 50¢ payment ships a ~$54-cost canvas (fix: server-side price lookup + amount check); **N2** — no `trust proxy`, so all rate limits are one sitewide bucket (10 AI calls/min total, 20 auth attempts/15min total); **N3** — webhook 200s on fulfillment errors so Stripe never retries (charged-but-inactive risk). July 10's F1 credit double-spend is confirmed FIXED; F2–F5/F7 remain open (low). New endpoints (Macro Tracker v2, Supplement Audit, autoresponder) verified clean on auth/ownership/idempotency. **Next action:** Dan to approve fixes; N1 should be fixed before anything else.
 
 ### Recently shipped — Bridge + hub preview + trial gate (COMPLETE, live-verified 2026-07-17)
 
