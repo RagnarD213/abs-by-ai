@@ -23,7 +23,18 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 **Owner:** Claude Code
 **Status:** `Implementation in progress`
 
-### Member profile + pre-trial questionnaire (started 2026-07-17, scheduled-task run)
+### Security hardening + prompt/product improvements (started 2026-07-18)
+
+Executing `handoff-20260717-security-and-prompt-improvements.md` (7 items, separate commit + live-verify each). User-directed; takes precedence over the member-profile task (moved to Queued).
+
+**Item 1 — stop serving project folder publicly: COMPLETE, live-verified 2026-07-18, commit `1a63e6c`.** This also fixed a **live production outage**: the prior deploy (`1e7f9b5`, the N1 fix) had moved the browser assets into the tracked `public/` folder but left `server.js` pointing at the project root — so production was crashing on boot with `Cannot find module './exercises'` (502 on absbyai.com) AND `express.static('.')` was exposing the whole root over HTTP (real subscriber emails in `subscribers-data.json`, `credits-data.json`, `server.js`/`db.js` source, internal `*.md`). Fix: require exercises from `./public/exercises`, serve only `path.join(__dirname,'public')`, add `/privacy` route + SPA fallback to `public/index.html`. Live-verified: homepage/assets/`/dashboard`/`/admin` all 200; `/server.js`, `/subscribers-data.json`, `/credits-data.json`, `/db.js`, `/package.json`, `/AI_COORDINATION.md` all return the SPA HTML with zero real-data markers (content-type text/html).
+  - **Deviation from handoff (intentional):** did NOT `.gitignore`/untrack the `*-data.json` files. They are the persistence layer — the server reads/writes them via the GitHub contents API, so untracking would 404 the load and wipe all credit balances + the subscriber list on next boot. The HTTP leak is fully closed by not *serving* them; removing them is unnecessary and destructive. `analytics.html` (dead — calls a nonexistent `/api/posthog-query`) and other root HTML are now unreachable over HTTP, which is fine.
+
+**Next action:** Item 2 — per-IP daily cap on free generations in `/api/generate-image` (own commit, live-verify).
+
+---
+
+### Member profile + pre-trial questionnaire (PAUSED — moved to Queued, resume after security handoff)
 
 **Goal:** One shared server-side member profile per account feeding all six AI features (Trainer, Nutritionist, Macro Tracker, Sleep Coach, Supplement Audit, Daily Brief), plus a 5–6 question "Let's build your plan" quiz inserted between account creation and the membership checkout screen (the boundary the bridge/hub/trial-gate task left). Full spec: `handoff-20260717-member-profile-questionnaire.md`.
 
