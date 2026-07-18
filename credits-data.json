@@ -11,7 +11,8 @@
     "dev-1784240619270-qvsaxd9y": 1,
     "dev-1783798589023-wkcy6i0e": 0,
     "dev-1782065029587-gbmgo3us": 2,
-    "dev-1784250211468-arlipgwn": 2
+    "dev-1784250211468-arlipgwn": 2,
+    "a1-verify-4b3zf0l": 2
   },
   "fulfilled": {
     "cs_live_a1twQmW1btR3Kp9LKE30b4yeXLBlv2mF5p3RoGgYyxQQ6yY60dZUjsVdl1": true,
@@ -24,5 +25,6 @@
     "dev-1783798589023-wkcy6i0e": 3,
     "verify-test-device-multiphoto-001": 1,
     "verify-test-device-mealprep-002": 1
-  }
+  },
+  "purchasers": {}
 }
