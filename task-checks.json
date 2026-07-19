@@ -4,7 +4,6 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Make salads",
     "health::Buy supplements",
     "health::Brush teeth",
     "health::Floss",
