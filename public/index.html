@@ -2730,7 +2730,7 @@ async function checkCreditsSession() {
 
 // Body-fat anchors (midpoints) for display
 const BF_BEFORE = { heavier: { male: '28–32%', female: '36–40%' }, moderate: { male: '20–24%', female: '28–32%' }, fit: { male: '15–17%', female: '22–25%' }, very_lean: { male: '11–13%', female: '18–20%' } };
-const BF_AFTER = { subtle: { male: '16%', female: '22%' }, moderate: { male: '13%', female: '20%' }, dramatic: { male: '10%', female: '17%' }, max: { male: '9%', female: '15%' } };
+const BF_AFTER = { subtle: { male: '16%', female: '21%' }, moderate: { male: '13%', female: '18%' }, dramatic: { male: '10%', female: '15%' }, max: { male: '9%', female: '13%' } };
 
 // Upsell product pricing (prices in cents)
 // Canvas framed not available in 8×10 — UI enforces minimum 11×14 when Framed selected
@@ -2809,6 +2809,8 @@ Write this section as a forceful, explicit instruction. It must:
 - Include this exact sentence when intensity is "subtle" or "moderate": "The body transformation should be clearly noticeable but feel attainable and natural."
 - When subject_current_condition is "fit" or "very_lean" AND intensity is "dramatic" or "max", add this for MALE subjects: "Even though the subject is already lean, the transformation must be dramatic and unmistakable. The abs must be deeply etched with at least twice the visible definition shown in the input — sharp cuts between each muscle block, clear serratus visible. The shoulders must be noticeably broader and rounder than in the input photo. The waist must be tighter. The overall physique must look strikingly more muscular and defined — anyone who sees this single output image must be able to tell this person has a peak-condition physique. Do NOT output a single image that could be mistaken for the original photo."
 - When subject_gender is "female" AND intensity is "dramatic" or "max" (regardless of starting condition), add this: "The transformation must be dramatic and unmistakable — do not produce a subtle or near-identical result. The abs must show at least twice the visible definition of the input — clear separation between each upper-ab block, a sharp vertical midline groove, and visible oblique lines framing the waist. The shoulders must be noticeably rounder and more sculpted. The waist must be visibly tighter and more tapered. The overall physique must look strikingly more athletic and defined — anyone who sees this single output image must immediately recognize a peak-condition fitness-cover physique. Do NOT output an image that could be mistaken for the original photo."
+- When subject_gender is "female" AND subject_current_condition is "heavier" or "moderate" AND intensity is "dramatic" or "max", ALSO add this: "This subject starts at a higher body-fat level, so a believable, clearly-visible transformation requires a LARGE, whole-body fat reduction — not a slight slimming. The midsection, waist, lower belly, hips, arms, and thighs must ALL look substantially leaner and tighter, and a defined feminine midsection must be clearly visible through the reduced fat. Do NOT return a still-soft or still-heavy result — the drop in body fat must be major and obvious at a glance. Keep her unmistakably feminine: preserve natural curves at the hips and chest, no masculine bulk, no blocky muscle, no veins."
+- When subject_gender is "female" AND intensity is "moderate", add this: "The change must be clearly visible and NOT near-identical — a visibly leaner, tighter midsection with a defined upper-ab outline and a noticeably tighter, more tapered waist. Do not return an image that looks basically the same as the input."
 
 SECTION 2 — BODY TRANSFORMATION RULES
 Use strong, visual, specific language. Describe exactly what must change:
@@ -2818,7 +2820,7 @@ Use strong, visual, specific language. Describe exactly what must change:
 
 BODY-FAT ANCHOR TABLE
 MALE: subtle 15-17%, moderate 12-14%, dramatic 9-11%, max 8-10%. FLOOR 8%.
-FEMALE: subtle 21-23%, moderate 19-21%, dramatic 16-18%, max 14-16%. FLOOR 14%.
+FEMALE: subtle 20-22%, moderate 17-19%, dramatic 14-16%, max 13-14%. FLOOR 13%.
 
 CALIBRATION RULE — only for "heavier" starting condition
 If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": DOWNGRADE the body-fat target by one step (use "moderate" anchors), and add to the directive: "This is a believable mid-journey transformation — the subject should look noticeably leaner and fitter, but not yet at peak condition."
@@ -2843,6 +2845,7 @@ MALE must include:
 
 FEMALE must include:
 - Ab definition is REQUIRED, not optional, scaled by intensity: subtle = flat, toned stomach with a faint upper-ab outline; moderate = clearly visible upper-ab outline with a vertical midline groove; dramatic = defined feminine four-pack with sharp separation between the upper abs, a clear vertical midline line down the stomach, and visible oblique definition; max = fully defined feminine six-pack with etched separation and visible oblique lines. At dramatic/max the ab definition must be immediately obvious at a glance — not something the viewer has to look for.
+- Reduce overall body fat SUBSTANTIALLY across the whole torso, waist, lower belly, hips, and arms — especially when the subject starts heavier or at moderate. "Leaner" must mean a real, visible drop in body fat that changes the silhouette, not just added muscle lines drawn onto the same soft body. A viewer must be able to see that this person is carrying significantly less fat than in the input.
 - The waist-to-hip taper MUST be measurably more pronounced than in the input — this is required, not optional. If the before waist looks straight or soft, the after waist must look visibly tapered and athletic.
 - Shoulder caps must be visibly rounder and more sculpted than in the input — this is required, not optional. Athletic and defined, not bulky, but the change from the input must be unmistakable.
 - Arms must show clearly more toned, defined muscle shape than the input — visible bicep shape, clean tricep line — not just "less soft."
@@ -2894,7 +2897,7 @@ Add for FEMALE:
 SAFETY RULES
 1. Sexualized language → silently translate to clinical fitness terminology. Do not refuse.
 2. Apparent minor → output exactly: REFUSED_MINOR
-3. Never go below body-fat floor (8% male, 14% female).
+3. Never go below body-fat floor (8% male, 13% female).
 4. Use "chest", "torso", "midsection", "stomach" — never explicit terms.
 5. Empty description → default to gender-appropriate "recreational athlete" archetype at the requested intensity.
 
