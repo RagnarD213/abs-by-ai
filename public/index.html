@@ -110,10 +110,20 @@ html, body {
   display: flex; align-items: center; justify-content: space-between;
   gap: 10px; margin: 0 2px 8px;
 }
+.proof-strip-label { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .proof-strip-caption {
   font-size: 11px; font-weight: 800; color: var(--acc);
   letter-spacing: 0.02em;
 }
+.proof-strip-thumb {
+  display: none;
+  width: 20px; height: 20px; border-radius: 6px;
+  object-fit: cover; flex-shrink: 0;
+}
+.proof-strip.collapsed .proof-strip-thumb { display: block; }
+.proof-strip.collapsed .proof-dots { display: none; }
+.proof-strip.collapsed { cursor: pointer; }
+.proof-strip.no-anim, .proof-strip.no-anim .proof-collapsible { transition: none !important; }
 .proof-dots { display: flex; gap: 5px; }
 .proof-dot {
   width: 6px; height: 6px; padding: 0;
@@ -122,7 +132,13 @@ html, body {
   transition: width 0.2s ease, background 0.2s ease;
 }
 .proof-dot.active { width: 16px; background: var(--acc); }
-.proof-stage { position: relative; display: grid; }
+.proof-collapsible {
+  display: grid; grid-template-rows: 1fr;
+  transition: grid-template-rows 0.4s ease;
+}
+.proof-strip.collapsed .proof-collapsible { grid-template-rows: 0fr; }
+.proof-collapsible-inner { overflow: hidden; min-height: 0; }
+.proof-stage { position: relative; display: grid; touch-action: pan-y; }
 .proof-slide {
   grid-area: 1 / 1;
   display: grid; grid-template-columns: 1fr 1fr; gap: 7px;
@@ -135,6 +151,9 @@ html, body {
   overflow: hidden; border-radius: 11px;
   background: #eceae5;
   aspect-ratio: 3 / 4;
+}
+.proof-image-wrap:nth-child(2) {
+  box-shadow: 0 0 0 2px var(--acc-line), 0 6px 16px rgba(47,95,224,0.16);
 }
 .proof-image {
   display: block; width: 100%; height: 100%;
@@ -151,8 +170,12 @@ html, body {
   -webkit-backdrop-filter: blur(5px);
 }
 .proof-image-label.after { background: rgba(47,95,224,0.88); }
+.proof-caption {
+  margin: 8px 2px 0; font-size: 12px; font-weight: 600;
+  color: var(--mute); text-align: center;
+}
 @media (prefers-reduced-motion: reduce) {
-  .proof-slide, .proof-dot { transition: none; }
+  .proof-slide, .proof-dot, .proof-collapsible { transition: none; }
 }
 
 /* ── Backend status ── */
@@ -1362,43 +1385,51 @@ html, body {
 
     <section id="proofStrip" class="proof-strip" aria-label="Abs by AI example visualizations">
       <div class="proof-strip-meta">
-        <span class="proof-strip-caption">✦ Created with Abs by AI</span>
+        <div class="proof-strip-label">
+          <img id="proofStripThumb" class="proof-strip-thumb" src="img/proof/male-after.webp" alt="" aria-hidden="true" />
+          <span class="proof-strip-caption" id="proofStripCaptionText">✦ Created with Abs by AI</span>
+        </div>
         <div class="proof-dots" aria-label="Choose an example">
           <button type="button" class="proof-dot active" data-proof-index="0" aria-label="Show male example" aria-current="true"></button>
           <button type="button" class="proof-dot" data-proof-index="1" aria-label="Show female example" aria-current="false"></button>
           <button type="button" class="proof-dot" data-proof-index="2" aria-label="Show second male example" aria-current="false"></button>
         </div>
       </div>
-      <div class="proof-stage">
-        <div class="proof-slide active" data-proof-slide="0" aria-hidden="false">
-          <div class="proof-image-wrap">
-            <span class="proof-image-label">Before</span>
-            <img class="proof-image" src="img/proof/male-before.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example before AI visualization" />
+      <div class="proof-collapsible" id="proofCollapsible">
+        <div class="proof-collapsible-inner">
+          <div class="proof-stage">
+            <div class="proof-slide active" data-proof-slide="0" aria-hidden="false" data-caption="Everyday guy, real gym">
+              <div class="proof-image-wrap">
+                <span class="proof-image-label">Before</span>
+                <img class="proof-image" src="img/proof/male-before.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example before AI visualization" />
+              </div>
+              <div class="proof-image-wrap">
+                <span class="proof-image-label after">AI after</span>
+                <img class="proof-image" src="img/proof/male-after.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example after AI visualization" />
+              </div>
+            </div>
+            <div class="proof-slide" data-proof-slide="1" aria-hidden="true" data-caption="Busy mom, real gym">
+              <div class="proof-image-wrap">
+                <span class="proof-image-label">Before</span>
+                <img class="proof-image" data-src="img/proof/female-before.webp" loading="lazy" width="375" height="500" alt="Fictional female example before AI visualization" />
+              </div>
+              <div class="proof-image-wrap">
+                <span class="proof-image-label after">AI after</span>
+                <img class="proof-image" data-src="img/proof/female-after.webp" loading="lazy" width="375" height="500" alt="Fictional female example after AI visualization" />
+              </div>
+            </div>
+            <div class="proof-slide" data-proof-slide="2" aria-hidden="true" data-caption="Busy dad, late 40s">
+              <div class="proof-image-wrap">
+                <span class="proof-image-label">Before</span>
+                <img class="proof-image" data-src="img/proof/male2-before.webp" loading="lazy" width="375" height="500" alt="Fictional male example before AI visualization, heavier build" />
+              </div>
+              <div class="proof-image-wrap">
+                <span class="proof-image-label after">AI after</span>
+                <img class="proof-image" data-src="img/proof/male2-after.webp" loading="lazy" width="375" height="500" alt="Fictional male example after AI visualization, heavier build" />
+              </div>
+            </div>
           </div>
-          <div class="proof-image-wrap">
-            <span class="proof-image-label after">AI after</span>
-            <img class="proof-image" src="img/proof/male-after.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example after AI visualization" />
-          </div>
-        </div>
-        <div class="proof-slide" data-proof-slide="1" aria-hidden="true">
-          <div class="proof-image-wrap">
-            <span class="proof-image-label">Before</span>
-            <img class="proof-image" data-src="img/proof/female-before.webp" loading="lazy" width="375" height="500" alt="Fictional female example before AI visualization" />
-          </div>
-          <div class="proof-image-wrap">
-            <span class="proof-image-label after">AI after</span>
-            <img class="proof-image" data-src="img/proof/female-after.webp" loading="lazy" width="375" height="500" alt="Fictional female example after AI visualization" />
-          </div>
-        </div>
-        <div class="proof-slide" data-proof-slide="2" aria-hidden="true">
-          <div class="proof-image-wrap">
-            <span class="proof-image-label">Before</span>
-            <img class="proof-image" data-src="img/proof/male2-before.webp" loading="lazy" width="375" height="500" alt="Fictional male example before AI visualization, heavier build" />
-          </div>
-          <div class="proof-image-wrap">
-            <span class="proof-image-label after">AI after</span>
-            <img class="proof-image" data-src="img/proof/male2-after.webp" loading="lazy" width="375" height="500" alt="Fictional male example after AI visualization, heavier build" />
-          </div>
+          <div class="proof-caption" id="proofCaption"></div>
         </div>
       </div>
     </section>
@@ -3006,9 +3037,26 @@ function initProofStrip() {
 
   const slides = Array.from(strip.querySelectorAll('[data-proof-slide]'));
   const dots = Array.from(strip.querySelectorAll('[data-proof-index]'));
+  const stage = strip.querySelector('.proof-stage');
+  const captionEl = $('proofCaption');
+  const summaryCaptionEl = $('proofStripCaptionText');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   let activeIndex = 0;
   let rotationTimer = null;
+  // Which reasons are currently blocking auto-rotation. A Set means one
+  // reason clearing (e.g. the strip scrolling back into view) can't
+  // accidentally resume rotation while another reason (e.g. still hovered)
+  // is still active.
+  const pauseReasons = new Set();
+  // Collapse-to-strip bookkeeping (see setCollapsed below).
+  const rotationSeen = new Set();
+  let rotationComplete = false;
+  let collapsed = false;
+  let lastInteraction = 0;
+  let collapseCheckTimer = null;
+  let swipeStartX = null;
+  let swipeStartY = null;
 
   function hydrateSlide(slide) {
     if (!slide) return;
@@ -3031,6 +3079,12 @@ function initProofStrip() {
       dot.classList.toggle('active', active);
       dot.setAttribute('aria-current', String(active));
     });
+    if (captionEl) captionEl.textContent = slides[activeIndex].dataset.caption || '';
+    rotationSeen.add(activeIndex);
+    if (!rotationComplete && rotationSeen.size === slides.length) {
+      rotationComplete = true;
+      scheduleCollapseCheck();
+    }
   }
 
   function stopRotation() {
@@ -3040,23 +3094,122 @@ function initProofStrip() {
 
   function startRotation() {
     stopRotation();
-    if (!reduceMotion && slides.length > 1) {
+    if (!reduceMotion && !collapsed && slides.length > 1) {
       rotationTimer = window.setInterval(() => showProof(activeIndex + 1), 4000);
     }
   }
+
+  function pause(reason) {
+    pauseReasons.add(reason);
+    stopRotation();
+  }
+
+  function resume(reason) {
+    pauseReasons.delete(reason);
+    if (pauseReasons.size === 0) startRotation();
+  }
+
+  // Any deliberate user action (dot tap, swipe, hover/focus ending) resets the
+  // collapse grace period so we never shrink the banner mid-interaction.
+  function registerInteraction() {
+    lastInteraction = Date.now();
+    if (rotationComplete) scheduleCollapseCheck();
+  }
+
+  function scheduleCollapseCheck() {
+    window.clearTimeout(collapseCheckTimer);
+    collapseCheckTimer = window.setTimeout(maybeCollapse, COLLAPSE_GRACE_MS);
+  }
+
+  function maybeCollapse() {
+    if (collapsed || !rotationComplete) return;
+    if (pauseReasons.has('hover') || pauseReasons.has('focus')) return;
+    if (Date.now() - lastInteraction < COLLAPSE_GRACE_MS) return;
+    setCollapsed(true);
+  }
+
+  function setCollapsed(next, opts) {
+    const silent = !!(opts && opts.silent);
+    collapsed = next;
+    strip.classList.toggle('collapsed', collapsed);
+    if (collapsed) {
+      strip.setAttribute('tabindex', '0');
+      strip.setAttribute('role', 'button');
+      strip.setAttribute('aria-expanded', 'false');
+      if (summaryCaptionEl) summaryCaptionEl.textContent = '✦ See examples ▸';
+      stopRotation();
+      if (!silent) {
+        try { sessionStorage.setItem(COLLAPSE_KEY, '1'); } catch (e) {}
+        if (window.posthog) posthog.capture('proof_collapsed');
+      }
+    } else {
+      strip.removeAttribute('tabindex');
+      strip.removeAttribute('role');
+      strip.removeAttribute('aria-expanded');
+      if (summaryCaptionEl) summaryCaptionEl.textContent = '✦ Created with Abs by AI';
+      try { sessionStorage.removeItem(COLLAPSE_KEY); } catch (e) {}
+      if (!silent) {
+        // Give it a full fresh rotation before it's eligible to collapse again —
+        // otherwise it would immediately re-arm the grace timer and shrink back
+        // within one COLLAPSE_GRACE_MS of the user asking to see it.
+        rotationSeen.clear();
+        rotationSeen.add(activeIndex);
+        rotationComplete = false;
+        window.clearTimeout(collapseCheckTimer);
+        registerInteraction();
+        startRotation();
+        if (window.posthog) posthog.capture('proof_reexpanded');
+      }
+    }
+  }
+
+  const COLLAPSE_KEY = 'absbyai_proof_strip_collapsed';
+  const COLLAPSE_GRACE_MS = 2500;
 
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       showProof(Number(dot.dataset.proofIndex));
       startRotation();
+      registerInteraction();
     });
   });
-  strip.addEventListener('mouseenter', stopRotation);
-  strip.addEventListener('mouseleave', startRotation);
-  strip.addEventListener('focusin', stopRotation);
+  strip.addEventListener('mouseenter', () => pause('hover'));
+  strip.addEventListener('mouseleave', () => { resume('hover'); registerInteraction(); });
+  strip.addEventListener('focusin', () => pause('focus'));
   strip.addEventListener('focusout', (e) => {
-    if (!strip.contains(e.relatedTarget)) startRotation();
+    if (!strip.contains(e.relatedTarget)) { resume('focus'); registerInteraction(); }
   });
+
+  // Tapping the collapsed strip re-expands it. Dots/stage are hidden while
+  // collapsed, so there's nothing else in the strip a click could conflict with.
+  strip.addEventListener('click', () => { if (collapsed) setCollapsed(false); });
+  strip.addEventListener('keydown', (e) => {
+    if (collapsed && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); setCollapsed(false); }
+  });
+
+  // Touch/pointer swipe on the image stage. touch-action:pan-y (in CSS) lets
+  // vertical page scrolling pass through untouched; only a clearly horizontal
+  // drag past the threshold switches slides.
+  if (stage) {
+    stage.addEventListener('pointerdown', (e) => {
+      swipeStartX = e.clientX;
+      swipeStartY = e.clientY;
+    });
+    stage.addEventListener('pointerup', (e) => {
+      if (swipeStartX === null) return;
+      const dx = e.clientX - swipeStartX;
+      const dy = e.clientY - swipeStartY;
+      swipeStartX = null;
+      swipeStartY = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        showProof(activeIndex + (dx < 0 ? 1 : -1));
+        startRotation();
+        registerInteraction();
+        if (window.posthog) posthog.capture('proof_swiped', { direction: dx < 0 ? 'next' : 'prev' });
+      }
+    });
+    stage.addEventListener('pointercancel', () => { swipeStartX = null; swipeStartY = null; });
+  }
 
   function captureProofSeen() {
     const key = 'absbyai_proof_strip_seen';
@@ -3068,12 +3221,22 @@ function initProofStrip() {
   }
 
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
+    const seenObserver = new IntersectionObserver(entries => {
       if (!entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= 0.35)) return;
       captureProofSeen();
-      observer.disconnect();
+      seenObserver.disconnect();
     }, { threshold: 0.35 });
-    observer.observe(strip);
+    seenObserver.observe(strip);
+
+    // Separate, persistent observer: pause rotation whenever the strip
+    // scrolls fully off-screen, resume when it's back (unless still
+    // hover/focus-paused, which resume() already accounts for).
+    const visibilityObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) resume('offscreen'); else pause('offscreen');
+      });
+    }, { threshold: 0 });
+    visibilityObserver.observe(strip);
   } else {
     captureProofSeen();
   }
@@ -3086,8 +3249,18 @@ function initProofStrip() {
   } else {
     window.setTimeout(hydrateRemaining, 1500);
   }
+
+  let startCollapsed = false;
+  try { startCollapsed = sessionStorage.getItem(COLLAPSE_KEY) === '1'; } catch (e) {}
+
   showProof(0);
-  startRotation();
+  if (startCollapsed) {
+    strip.classList.add('no-anim');
+    setCollapsed(true, { silent: true });
+    window.requestAnimationFrame(() => strip.classList.remove('no-anim'));
+  } else {
+    startRotation();
+  }
 }
 
 async function updateBackendStatus() {
