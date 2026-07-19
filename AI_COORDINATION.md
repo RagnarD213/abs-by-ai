@@ -169,6 +169,8 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 
 ## Queued (next up after the active task)
 
+**Task:** `handoff-20260719-proof-banner-upgrade.md` — landing-page proof banner: head-crop fix (aspect-ratio), low-bandwidth hardening, third slide (late-40s overweight man → abs; generate After first then add weight — Gemini can't slim heavy bodies, see A3.1), swipe/captions/pause/emphasis extras, collapse-to-strip after one rotation with upload moving to top. Fully planned 2026-07-19, zero code written; client-side `public/index.html` only. Dan must pick the winning image pair before slide 3 ships.
+
 **Task:** `handoff-20260717-member-profile-questionnaire.md` — shared per-account member profile + 5–6 question pre-trial quiz; all features read/write it. Claude-owned (cross-feature architecture + Anthropic prompt code). This follows the currently active bridge/hub/trial-gate task.
 
 ---
