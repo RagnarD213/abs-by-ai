@@ -2731,6 +2731,11 @@ async function checkCreditsSession() {
 // Body-fat anchors (midpoints) for display
 const BF_BEFORE = { heavier: { male: '28–32%', female: '36–40%' }, moderate: { male: '20–24%', female: '28–32%' }, fit: { male: '15–17%', female: '22–25%' }, very_lean: { male: '11–13%', female: '18–20%' } };
 const BF_AFTER = { subtle: { male: '16%', female: '21%' }, moderate: { male: '13%', female: '18%' }, dramatic: { male: '10%', female: '15%' }, max: { male: '9%', female: '13%' } };
+// The image model (Gemini) will not realistically render a shredded peak physique on a
+// HEAVIER female body — asking for it yields a barely-changed image plus an overpromised
+// number that reads as "broken." For heavier women show an honest, achievable target (a
+// strong but believable transformation) so the number matches what the image can deliver.
+const BF_AFTER_HEAVIER_FEMALE = { subtle: '33%', moderate: '30%', dramatic: '27%', max: '25%' };
 
 // Upsell product pricing (prices in cents)
 // Canvas framed not available in 8×10 — UI enforces minimum 11×14 when Framed selected
@@ -2826,6 +2831,9 @@ CALIBRATION RULE — only for "heavier" starting condition
 If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": DOWNGRADE the body-fat target by one step (use "moderate" anchors), and add to the directive: "This is a believable mid-journey transformation — the subject should look noticeably leaner and fitter, but not yet at peak condition."
 All other starting conditions (moderate, fit, very_lean): honor the requested intensity at full strength. Do NOT downgrade fit or lean subjects.
 
+FEMALE HEAVIER REALISM RULE — HIGHEST PRIORITY, overrides the calibration / Goal-Vision rule above for this one case
+When subject_gender is "female" AND subject_current_condition is "heavier": do NOT target a shredded peak or contest physique — a realistic image edit cannot render that on a heavier female body, and attempting it produces a barely-changed result. Instead target a strong but BELIEVABLE, clearly-visible transformation. Target body-fat approximately: subtle 33%, moderate 30%, dramatic 27%, max 25% (down from a ~36-40% start). Add to the directive: "This is a strong, realistic transformation — a noticeably flatter stomach, a visibly tighter and more tapered waist, leaner arms, and a firmer overall shape, so she looks clearly leaner and fitter than the input — but a believable mid-journey stage, not a shredded peak physique." The change must still be clearly VISIBLE (flatter stomach, tighter waist) — never a near-identical image. Keep her unmistakably feminine (preserve hip and chest curves, do not change breast size, no masculine bulk, no veins). This rule applies in BOTH Dream and Realistic modes.
+
 REFERENCE ARCHETYPE LIBRARY
 MALE: soccer player / endurance athlete, fit recreational athlete, fitness magazine cover model, Hollywood action-star prep, natural bodybuilder (off-stage), swimmer, rock climber, CrossFit athlete.
 FEMALE: Pilates instructor / yoga teacher, fitness influencer, fitness magazine cover model, bikini athlete (off-stage), Sports Illustrated swim model, dancer / ballerina, CrossFit athlete.
@@ -2913,7 +2921,7 @@ const GOAL_SYSTEM_PROMPT = SYSTEM_PROMPT.replace(
 If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": DOWNGRADE the body-fat target by one step (use "moderate" anchors), and add to the directive: "This is a believable mid-journey transformation — the subject should look noticeably leaner and fitter, but not yet at peak condition."
 All other starting conditions (moderate, fit, very_lean): honor the requested intensity at full strength. Do NOT downgrade fit or lean subjects.`,
   `CALIBRATION RULE — DISABLED FOR THIS PROMPT
-Always honor the user's requested intensity at FULL strength regardless of starting condition. Do NOT downgrade. Even for a very heavy starting condition, apply the full dramatic or peak body-fat target. This is the "Goal Vision" — show exactly what the user asked for.`
+Always honor the user's requested intensity at FULL strength regardless of starting condition. Do NOT downgrade. This is the "Goal Vision" — show exactly what the user asked for. (EXCEPTION: a heavier FEMALE subject still follows the FEMALE HEAVIER REALISM RULE above — a realistic edit cannot render a peak physique on a heavier female body, so a believable strong transformation is used instead.)`
 );
 
 // Item 4: "Realistic 90-day" mode. Same base prompt, but the calibration rule tempers
@@ -3324,7 +3332,10 @@ function updateBodyFatDisplay() {
   const sex = state.gender || 'male';
   const intens = state.effectiveIntensity || state.intensity || 'dramatic';
   const before = (BF_BEFORE[cond] || BF_BEFORE.moderate)[sex] || '—';
-  const after = (BF_AFTER[intens] || BF_AFTER.dramatic)[sex] || '—';
+  let after = (BF_AFTER[intens] || BF_AFTER.dramatic)[sex] || '—';
+  if (sex === 'female' && cond === 'heavier') {
+    after = BF_AFTER_HEAVIER_FEMALE[intens] || BF_AFTER_HEAVIER_FEMALE.dramatic;
+  }
   $('bfBefore').textContent = before;
   $('bfAfter').textContent = after;
 }
