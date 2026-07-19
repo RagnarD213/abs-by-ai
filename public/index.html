@@ -1372,11 +1372,11 @@ html, body {
         <div class="proof-slide active" data-proof-slide="0" aria-hidden="false">
           <div class="proof-image-wrap">
             <span class="proof-image-label">Before</span>
-            <img class="proof-image" data-src="img/proof/male-before.webp" loading="lazy" width="375" height="500" alt="Fictional male example before AI visualization" />
+            <img class="proof-image" src="img/proof/male-before.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example before AI visualization" />
           </div>
           <div class="proof-image-wrap">
             <span class="proof-image-label after">AI after</span>
-            <img class="proof-image" data-src="img/proof/male-after.webp" loading="lazy" width="375" height="500" alt="Fictional male example after AI visualization" />
+            <img class="proof-image" src="img/proof/male-after.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example after AI visualization" />
           </div>
         </div>
         <div class="proof-slide" data-proof-slide="1" aria-hidden="true">
@@ -2999,8 +2999,17 @@ function initProofStrip() {
   let activeIndex = 0;
   let rotationTimer = null;
 
+  function hydrateSlide(slide) {
+    if (!slide) return;
+    slide.querySelectorAll('img[data-src]').forEach(img => {
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+    });
+  }
+
   function showProof(index) {
     activeIndex = (index + slides.length) % slides.length;
+    hydrateSlide(slides[activeIndex]);
     slides.forEach((slide, i) => {
       const active = i === activeIndex;
       slide.classList.toggle('active', active);
@@ -3058,14 +3067,14 @@ function initProofStrip() {
     captureProofSeen();
   }
 
-  window.requestAnimationFrame(() => {
-    window.setTimeout(() => {
-      strip.querySelectorAll('img[data-src]').forEach(img => {
-        img.src = img.dataset.src;
-        img.removeAttribute('data-src');
-      });
-    }, 0);
-  });
+  function hydrateRemaining() {
+    slides.forEach(hydrateSlide);
+  }
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(hydrateRemaining, { timeout: 3000 });
+  } else {
+    window.setTimeout(hydrateRemaining, 1500);
+  }
   showProof(0);
   startRotation();
 }
