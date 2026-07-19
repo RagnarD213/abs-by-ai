@@ -23,7 +23,15 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 **Owner:** Claude Code
 **Status:** `Implementation in progress`
 
-### Female-dramatic no-op fix + Items 3–7 (started 2026-07-18)
+### Proof-banner upgrade (started 2026-07-19)
+
+Executing `handoff-20260719-proof-banner-upgrade.md`. Client-side only, `public/index.html`. Plan: (1) crop fix, (2) load-time hardening, (3) third before/after slide (needs Dan's pick of image pair — STOP point), (4) swipe/captions/pause/emphasis extras, (5) collapse-to-strip. Each step its own commit + push + live absbyai.com verify before the next.
+
+**Progress (2026-07-19):**
+- **Step 1 — crop fix: COMPLETE, live-verified, commit `f0e9382`.** Root cause was `.proof-stage`/`.proof-image` locked to a fixed 112px height, so tall portrait photos got squeezed and `object-fit:cover` cropped heads off (worst on wide screens). Fix: `.proof-stage` and `.proof-slide` now grid-stack (`grid-area: 1/1`) instead of absolute-inset, and `.proof-image-wrap` gets `aspect-ratio: 3/4` so the box height follows its width — full head always fits, banner naturally grows taller on wider screens (intended). Verified no cropping at 375px, 768px, and 1280px both locally and live on absbyai.com; no console errors.
+- **Next: Step 2 (load-time hardening)** — eager-hydrate only slide 0, defer slides 2–3 to idle/first-rotation.
+
+### Female-dramatic no-op fix + Items 3–7 (started 2026-07-18, PAUSED — blocked on Dan)
 
 Executing `handoff-20260718-female-dramatic-and-items-3-7.md`. **PRIMARY goal:** eliminate the "after looks the same as the before" failure and make FEMALE transformations meaningfully more dramatic (Dan: ~zero users, and zero women, have ever complained a result was *too* dramatic → bias every call toward MORE change, while keeping women unmistakably feminine — no vascularity, feminine four-pack not blocky, sculpted-not-bulky). Started only after the member-profile task finished + pushed, because both tasks edit `public/index.html` (this one also edits `server.js`).
 
@@ -168,8 +176,6 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 ---
 
 ## Queued (next up after the active task)
-
-**Task:** `handoff-20260719-proof-banner-upgrade.md` — landing-page proof banner: head-crop fix (aspect-ratio), low-bandwidth hardening, third slide (late-40s overweight man → abs; generate After first then add weight — Gemini can't slim heavy bodies, see A3.1), swipe/captions/pause/emphasis extras, collapse-to-strip after one rotation with upload moving to top. Fully planned 2026-07-19, zero code written; client-side `public/index.html` only. Dan must pick the winning image pair before slide 3 ships.
 
 **Task:** `handoff-20260717-member-profile-questionnaire.md` — shared per-account member profile + 5–6 question pre-trial quiz; all features read/write it. Claude-owned (cross-feature architecture + Anthropic prompt code). This follows the currently active bridge/hub/trial-gate task.
 
