@@ -29,7 +29,8 @@ Executing `handoff-20260719-proof-banner-upgrade.md`. Client-side only, `public/
 
 **Progress (2026-07-19):**
 - **Step 1 — crop fix: COMPLETE, live-verified, commit `f0e9382`.** Root cause was `.proof-stage`/`.proof-image` locked to a fixed 112px height, so tall portrait photos got squeezed and `object-fit:cover` cropped heads off (worst on wide screens). Fix: `.proof-stage` and `.proof-slide` now grid-stack (`grid-area: 1/1`) instead of absolute-inset, and `.proof-image-wrap` gets `aspect-ratio: 3/4` so the box height follows its width — full head always fits, banner naturally grows taller on wider screens (intended). Verified no cropping at 375px, 768px, and 1280px both locally and live on absbyai.com; no console errors.
-- **Next: Step 2 (load-time hardening)** — eager-hydrate only slide 0, defer slides 2–3 to idle/first-rotation.
+- **Step 2 — load-time hardening: COMPLETE, live-verified, commit `3767adb`.** Slide 0's two images now load eagerly (`fetchpriority="high"`, real `src` in HTML — no `loading="lazy"` since it's above-the-fold). Other slides keep `data-src` until `requestIdleCallback` fires (1.5s `setTimeout` fallback) or the user rotates/taps to that slide, whichever comes first — a visitor who never advances past slide 1 never fetches the rest. Verified locally (network log showed only 2 image requests on fresh load, vs 4 before; confirmed idle-hydration assigns real `src` to the deferred slide; rotation still advances correctly) and live on absbyai.com (no console errors, first slide renders correctly).
+- **Next: Step 3 (third slide) — generate 2–3 candidate image pairs, then STOP for Dan's pick before wiring the slide in.**
 
 ### Female-dramatic no-op fix + Items 3–7 (started 2026-07-18, PAUSED — blocked on Dan)
 
