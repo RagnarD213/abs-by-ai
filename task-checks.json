@@ -4,7 +4,6 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Brush teeth",
     "health::Floss",
     "health::Inject Zepbound"
   ],
