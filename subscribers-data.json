@@ -18,10 +18,11 @@
       "subscribedAt": "2026-07-04T02:07:47.645Z",
       "deviceId": "dev-1783035492121-rr3he75n",
       "synced": true,
-      "welcomeStep": 1,
-      "welcomeNextAt": "2026-07-19T21:05:54.433Z",
+      "welcomeStep": 2,
+      "welcomeNextAt": "2026-07-21T21:13:43.271Z",
       "welcomeSentAt": {
-        "1": "2026-07-17T21:05:54.620Z"
+        "1": "2026-07-17T21:05:54.620Z",
+        "2": "2026-07-19T21:13:43.463Z"
       },
       "unsubscribed": false
     },
@@ -29,10 +30,11 @@
       "subscribedAt": "2026-07-07T23:46:27.492Z",
       "deviceId": "dev-1781745122020-mnwdv5nv",
       "synced": true,
-      "welcomeStep": 1,
-      "welcomeNextAt": "2026-07-19T21:05:54.433Z",
+      "welcomeStep": 2,
+      "welcomeNextAt": "2026-07-21T21:13:43.271Z",
       "welcomeSentAt": {
-        "1": "2026-07-17T21:05:54.760Z"
+        "1": "2026-07-17T21:05:54.760Z",
+        "2": "2026-07-19T21:13:43.639Z"
       },
       "unsubscribed": false
     },
@@ -40,10 +42,11 @@
       "subscribedAt": "2026-07-11T23:14:56.930Z",
       "deviceId": "dev-1783811135817-lzzfbo8w",
       "synced": true,
-      "welcomeStep": 1,
-      "welcomeNextAt": "2026-07-19T21:05:54.433Z",
+      "welcomeStep": 2,
+      "welcomeNextAt": "2026-07-21T21:13:43.271Z",
       "welcomeSentAt": {
-        "1": "2026-07-17T21:05:54.917Z"
+        "1": "2026-07-17T21:05:54.917Z",
+        "2": "2026-07-19T21:13:43.778Z"
       },
       "unsubscribed": false
     },
@@ -51,10 +54,11 @@
       "subscribedAt": "2026-07-16T23:06:01.297Z",
       "deviceId": "dev-1783798589023-wkcy6i0e",
       "synced": true,
-      "welcomeStep": 1,
-      "welcomeNextAt": "2026-07-19T21:05:54.433Z",
+      "welcomeStep": 2,
+      "welcomeNextAt": "2026-07-21T21:13:43.271Z",
       "welcomeSentAt": {
-        "1": "2026-07-17T21:05:55.120Z"
+        "1": "2026-07-17T21:05:55.120Z",
+        "2": "2026-07-19T21:13:43.950Z"
       },
       "unsubscribed": false
     },
