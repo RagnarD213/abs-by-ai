@@ -205,6 +205,8 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 
 ## Queued (next up after the active task)
 
+**Task:** `handoff-20260720-lean-male-muscle-axis.md` — lean/fit MALE transformations return near-identical images. Root cause found in code 2026-07-20 and it is NOT the Gemini ceiling that blocked heavier-female (A3.1): the prompt specifies the transformation purely as a body-fat drop, so `very_lean` (11–13%) + `max` asks for only a ~3-point change and Gemini renders it faithfully. Three fixes, in order, each its own commit + live-verify: (1) add a muscularity axis to `SYSTEM_PROMPT` so intensity drives added muscle mass for fit/very_lean males + stop the result card advertising a 3-point BF drop; (2) rewrite the male dramatic/max verifier question in `server.js` (~2090) to be fully comparative — the current presence-check passes trivially on anyone who already has abs, so the A2 retry ladder never fires for them; (3) hide the Realistic 90-day toggle (guaranteed no-op for lean users; code left dormant). Dan approved all three 2026-07-20. Claude-owned (touches the Anthropic verifier + image-output quality).
+
 **Task:** `handoff-20260717-member-profile-questionnaire.md` — shared per-account member profile + 5–6 question pre-trial quiz; all features read/write it. Claude-owned (cross-feature architecture + Anthropic prompt code). This follows the currently active bridge/hub/trial-gate task.
 
 ---
