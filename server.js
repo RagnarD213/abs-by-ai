@@ -4111,6 +4111,15 @@ function clampStage(s) {
   return Number.isFinite(n) ? Math.min(7, Math.max(1, n)) : 1;
 }
 
+// Workouts are labelled by weekday (Day 1 = Monday … Day 7 = Sunday). A block
+// built mid-week starts on TODAY's weekday rather than making the member wait
+// for Monday: week 1 runs start_dow→Sunday, every later week is a full week.
+// 1 = Monday … 7 = Sunday.
+function todayDow() {
+  const js = new Date().getDay(); // 0 = Sunday
+  return js === 0 ? 7 : js;
+}
+
 // Back-compat: pre-v3 rows stored program.phase (1-6). Read either.
 function programStage(program) {
   return clampStage(program?.stage ?? program?.phase ?? 1);
@@ -4399,7 +4408,7 @@ async function buildInitialProgram({ intake, photos, pinnedStage = null, sexTrac
   const why = a?.why_this_works || detWhy(intake, stage);
   const weeks = [];
   for (let n = 1; n <= 4; n++) weeks.push(buildDeterministicWeek(ctx, n));
-  return { why_this_works: why, assessment, stage, equipment_track: track, sex_track: ctx.sexTrack, weeks };
+  return { why_this_works: why, assessment, stage, equipment_track: track, sex_track: ctx.sexTrack, start_dow: todayDow(), weeks };
 }
 
 // Regenerate ONE week of a stored program with the model, falling back to the
@@ -6833,8 +6842,12 @@ Output strict JSON matching the provided schema.`;
 // abs-finisher sets aren't all checked off. progress = { done, swaps, dates }.
 function firstIncompleteDay(program, progress) {
   const done = (progress && progress.done) || {};
+  const startDow = parseInt(program.start_dow, 10);
+  const skipEarly = Number.isFinite(startDow) && startDow >= 2 && startDow <= 7;
   for (const week of program.weeks || []) {
     for (const day of week.days || []) {
+      // Week 1 of a mid-week block begins on the day it was generated.
+      if (skipEarly && week.week === 1 && day.day < startDow) continue;
       const complete = [['m', day.main], ['a', day.abs_finisher]].every(([sec, list]) =>
         (list || []).every((ex, i) => {
           const sets = ex.sets || 1;

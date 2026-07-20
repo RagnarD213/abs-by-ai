@@ -6319,6 +6319,24 @@ const STAGE_LABELS = {
 // have no cardio block — the timed circuit is the conditioning.
 const STAGE_CARDIO_MIN = { 1: 0, 2: 0, 3: 0, 4: 5, 5: 5, 6: 10, 7: 15 };
 const STAGE_IS_TIMED = { 1: true, 2: true, 3: true, 4: false, 5: false, 6: false, 7: false };
+
+// Workouts are named by weekday instead of "Day 3" — Day 1 is always Monday, so
+// the week always reads Mon→Sun. A block generated mid-week stores start_dow and
+// simply begins on that weekday (see weekDays()), rather than making someone
+// start "Monday's workout" on a Thursday.
+const DOW_FULL = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const DOW_SHORT = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+function dowFull(d) { return DOW_FULL[(Math.max(1, d) - 1) % 7]; }
+function dowShort(d) { return DOW_SHORT[(Math.max(1, d) - 1) % 7]; }
+
+// Week 1 of a block starts on the weekday the block was generated; every later
+// week is a full Mon→Sun. Missing start_dow (older programs) = full week.
+function weekDays(program, week) {
+  const start = parseInt(program && program.start_dow, 10);
+  const days = week.days || [];
+  if (week.week !== 1 || !Number.isFinite(start) || start < 2 || start > 7) return days;
+  return days.filter(d => d.day >= start);
+}
 // Back-compat: pre-v3 programs stored .phase (1–6); v3 stores .stage (1–7).
 function programStage(p) { return (p && (p.stage ?? p.phase)) || 1; }
 
@@ -6406,23 +6424,23 @@ function renderProgram() {
   html += `<div class="why-card"><b>Why this works for you</b><br>${escapeHtml(p.why_this_works || '')}</div>`;
 
   html += (p.weeks || []).map(week => {
-    const days = (week.days || []).map(day => {
+    const days = weekDays(p, week).map(day => {
       // day.main is present only when the server actually unlocked the day
       // (old stored previews may have only Day 1 free).
       const isLockedDay = locked && !(week.week === 1 && day.day <= 3 && day.main);
       if (isLockedDay) {
         return `<button class="day-row day-row-locked" tabindex="-1">
           <span class="day-row-num">🔒</span>
-          <span class="day-row-body"><span class="day-row-focus">${escapeHtml(day.focus)}</span>
+          <span class="day-row-body"><span class="day-row-focus">${dowFull(day.day)}'s Workout</span>
           <span class="day-row-sub">${day.exercise_count ? `${day.exercise_count} exercises · ` : ''}Members only</span></span>
         </button>`;
       }
       const complete = dayIsComplete(week, day, progress);
       const freeBadge = locked ? `<span class="day-free-badge">FREE</span>` : '';
       return `<button class="day-row" data-week="${week.week}" data-day="${day.day}">
-        <span class="day-row-num">D${day.day}</span>
-        <span class="day-row-body"><span class="day-row-focus">${escapeHtml(day.focus)}</span>
-        <span class="day-row-sub">${(day.main || []).length} exercises + abs finisher</span></span>
+        <span class="day-row-num">${dowShort(day.day)}</span>
+        <span class="day-row-body"><span class="day-row-focus">${dowFull(day.day)}'s Workout</span>
+        <span class="day-row-sub">${escapeHtml(day.focus)} · ${(day.main || []).length} exercises</span></span>
         ${freeBadge}
         ${complete ? `<svg class="day-row-check" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`
         : `<svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>`}
@@ -6579,7 +6597,7 @@ function renderDayView(stored) {
   const day = week && (week.days || []).find(d => d.day === programView.day);
   if (!day || day.locked) { programView.week = null; return renderProgram(); }
 
-  $('programNavTitle').textContent = `Week ${week.week} · Day ${day.day}`;
+  $('programNavTitle').textContent = `Week ${week.week} · ${dowFull(day.day)}`;
   const progress = loadProgress();
   const done = progress.done || {};
 
@@ -6611,8 +6629,8 @@ function renderDayView(stored) {
   const timed = STAGE_IS_TIMED[stage];
   const cardioMin = STAGE_CARDIO_MIN[stage] || 0;
 
-  let html = `<div class="hero-h1" style="font-size:22px;line-height:1.15;margin-bottom:2px">${escapeHtml(day.focus)}</div>
-    <div class="hero-sub" style="margin-bottom:6px">${timed ? 'Timed circuit — work each move for its interval, short rest, then the next.' : 'Tap each set as you finish it.'}</div>`;
+  let html = `<div class="hero-h1" style="font-size:22px;line-height:1.15;margin-bottom:2px">${dowFull(day.day)}'s Workout</div>
+    <div class="hero-sub" style="margin-bottom:6px">${escapeHtml(day.focus)} — ${timed ? 'timed circuit, work each move for its interval.' : 'tap each set as you finish it.'}</div>`;
 
   // Stages 4+ open every session with a zone-2 cardio block (member picks the
   // machine) before the lifting. Home stages 1–3 have no cardio block.
