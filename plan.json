@@ -1,8 +1,13 @@
 {
-  "date": "2026-07-16",
+  "date": "2026-07-20",
   "order": [
-    "money::Create supplement audit functionality. Eliminate decision council",
-    "personal::Buy Proper Cloth shirt"
+    "money::Email Jeff to hire",
+    "money::Fix supplement audit problems",
+    "money::Review Romaisa videos",
+    "money::Test supplement audit functionality",
+    "money::Contact vasectomy doctor - stitches, pain during intercourse"
   ],
-  "excluded": []
+  "excluded": [
+    "money::Implement Claude autoresponder - in email marketing plan .md"
+  ]
 }
