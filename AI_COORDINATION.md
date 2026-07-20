@@ -21,9 +21,35 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Blocked`
+**Status:** `Implementation in progress`
 
-### Female-dramatic no-op fix + Items 3–7 (started 2026-07-18, PAUSED — blocked on Dan)
+### AI Trainer — later-phase difficulty overhaul + workout UX (started 2026-07-20)
+
+Dan (advanced lifter, assigned Stage 5) reported the later phases read as a beginner program he would never do himself, and flagged refund risk from advanced users. Named specifics: march-in-place warm-up, "15 sec" planks, dead bug, bicycles, crunches, goblet squats he can't load, knee push-ups. Also: warm-up rendering on top of cardio, inaccurate stick figures (leg press), and every workout sharing the identical name.
+
+**Root causes found (in code, not guesses):**
+1. `EXPERIENCE_START_STAGE.advanced = 5` and `MAX_START_STAGE = 5` — Stage 7 (15 min cardio + 45 min lift) is exactly Dan's real workout, but an advanced member grinds 8 weeks of Stages 5→6 first.
+2. The trainer prompt gates *isolation* and *functional* moves by stage but has NO rule against beginner regressions (knee-pushup, chair-squat, march-in-place, dead-bug, crunch, bicycle) at Stage 5+. The model defaults to the safest pick in each bucket.
+3. `detRx` writes `3 × 12` for nearly everything and abs as `3 × 15` — plank's "reps" is the number 15, so it renders "3 × 15" and reads as a 15-second plank.
+
+**Dan's decisions (2026-07-20):** advanced caps at **Stage 6** (not 7). Weekday naming = fixed Day 1=Monday…Day 7=Sunday, but a block **starts on today's real weekday** rather than always at Day 1.
+
+**Dan's own training template** (the target for Stages 6–7): 15 min cardio (bike/stairs) → legs (leg press / hamstring curl / hip bridge) → chest *or* shoulders (alternating: flies or press / side laterals or military press) → back, vertical *or* horizontal alternating (lat pulldown/pull-ups vs machine row/T-bar row) → arms, 3 sets biceps *or* triceps (pushdowns, dips, tricep press machine) → abs rotating through 3 (1-min circuit of 10 toe touches + 10 V-sit twists + 10 spiderman planks · leg-raise machine · decline sit-ups + planks).
+
+**Ship order (each = own commit + live-verify):**
+1. ✅ **Warm-up removed on cardio stages — SHIPPED, live-verified, commit `fc20b63`.** Client hides the warm-up section whenever a cardio block renders (so already-stored programs are fixed without regenerating); det builder emits no warmup when `cardioMin > 0`; prompt says warmup is home-stages-1–3 only, empty array at 4–7. Verified in-browser: Stage 5 → cardio present, warm-up section + move gone, main work intact; Stage 2 → warm-up still renders. Live marker confirmed on absbyai.com.
+2. ✅ **Weekday naming + today's-weekday start — SHIPPED, commit `49de9f6`.** `dowFull`/`dowShort`/`weekDays` helpers; title "Thursday's Workout" with the total-body focus demoted to the subtitle; day rows show Mon/Tue pills. Program stores `start_dow`; week 1 of a Thursday block = Thu–Sun, week 2+ = full Mon–Sun; programs without `start_dow` keep all 7 days (back-compat). `firstIncompleteDay` skips pre-start week-1 days so the Daily Brief points at the right workout. Verified in-browser (all assertions passed, no console errors).
+3. ⬜ **Stage 5–7 difficulty overhaul — NOT STARTED (the main fix).** Add a difficulty tier to every exercise + a hard ban on beginner regressions at Stage 5+, enforced in the prompt AND re-checked server-side after the model responds (the prompt alone already failed to hold the leg-press-first squat rule). Add missing moves: T-bar row, real dips (assisted/weighted), tricep press machine, decline sit-up, captain's-chair leg raise, straight-leg hanging leg raise, toe touch, V-sit twist, spiderman plank; stair climber as a cardio option. Encode Dan's template as the Stage 6–7 spine (glute-forward equivalent for women). Fix `detRx`: 4 × 8–12 on heavy compounds with an explicit progression rule, ab holds in seconds not reps.
+4. ⬜ **Advanced start cap → Stage 6** + a per-workout "too easy, move me up" control. (A "Too easy" check-in already exists but only at the END of a 4-week block — too late.)
+5. ⬜ **Stick-figure fixes.** 97 exercises share 60 drawings. Confirmed wrong: leg-press (illegible), knee-pushup + incline-pushup (both use the standard push-up — the regression IS the exercise), db-renegade-row (uses mountain climber), back-extension (uses Superman), hip-abduction (uses the standing kickback), straight-arm-pulldown (uses lat pulldown — arms bend, the exact mistake it warns against), cable-crunch (uses the floor crunch), chair-squat (no chair), face-pull (uses rear-delt fly). Plus drawings for any moves added in step 3.
+
+**Early stages 1–4 — reviewed, recommend leaving 1–3 alone** (5/10/20-min home circuits are the "start tomorrow with nothing" promise). Two open suggestions for Dan: the Stage 3→4 jump is a cliff (living-room kettlebell → full gym overnight, no bridge), and beginners cap at Stage 3 so they spend a full block at home even if they already have a gym membership.
+
+**Also proposed, not yet approved:** per-set weight logging with last-session numbers (the biggest "app I'd actually use at the gym" gap — set pills are checkmarks only today), a per-workout easy/right/brutal prompt that auto-bumps the stage, and ramp sets on the first heavy lift at Stages 6–7.
+
+---
+
+### PAUSED — Female-dramatic no-op fix + Items 3–7 (started 2026-07-18, blocked on Dan)
 
 Executing `handoff-20260718-female-dramatic-and-items-3-7.md`. **PRIMARY goal:** eliminate the "after looks the same as the before" failure and make FEMALE transformations meaningfully more dramatic (Dan: ~zero users, and zero women, have ever complained a result was *too* dramatic → bias every call toward MORE change, while keeping women unmistakably feminine — no vascularity, feminine four-pack not blocky, sculpted-not-bulky). Started only after the member-profile task finished + pushed, because both tasks edit `public/index.html` (this one also edits `server.js`).
 
