@@ -88,6 +88,11 @@
       "text": "Hire someone to power wash",
       "priority": "key",
       "recurring": false
+    },
+    {
+      "text": "Hire someone to replace artificial hedge panels.",
+      "priority": "key",
+      "recurring": false
     }
   ],
   "health": [
