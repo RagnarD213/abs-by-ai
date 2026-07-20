@@ -4,7 +4,8 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Inject Zepbound"
+    "health::Inject Zepbound",
+    "money::Implement Claude autoresponder - in email marketing plan .md"
   ],
   "log": {
     "health::Shower": [
