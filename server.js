@@ -4074,7 +4074,7 @@ Rules:
 - Rough move counts by lifting time: 5 min ≈ 4 moves (timed circuit); 10 min ≈ 6 moves; 20 min ≈ 6 moves; 15 min lift ≈ 4-5; 25 min ≈ ~7; 35 min ≈ ~9; 45 min ≈ ~10 (plus the abs finisher; warm-up is separate).
 - Every day ends with an abs finisher — this is Abs By AI. Stages 1–3 fold 1 ab/core move into the circuit; Stages 4 → 2 ab moves; Stages 5–6 → 2; Stage 7 → 3.
 - STRICTLY avoid exercises that load reported injured areas; prefer joint-friendly picks (knee pain → hinge and glute work over deep lunges; lower-back pain → avoid loaded spinal flexion and heavy hinging; shoulder pain → avoid overhead pressing; wrist pain → avoid loaded straight-arm plank positions). Treat free-text health notes ("doctor said no jumping", "high blood pressure") as hard constraints that can also remove movements.
-- warmup: 2-4 light moves (warm-up category or easy bodyweight). For Stages 1–3 keep the warm-up to 1-2 quick moves so it fits the short session; the app renders the cardio block itself at Stages 4+ — do not include cardio machines.
+- warmup: HOME STAGES 1–3 ONLY — 1-2 quick light moves (warm-up category or easy bodyweight) so it fits the short session. At Stages 4–7 the app renders a zone-2 cardio block before the lifting and THAT IS the warm-up: return warmup as an EMPTY ARRAY []. Never program a separate warm-up on top of cardio, and never include cardio machines in any list.
 - Their "beyond the look" health goals (heart health, energy, mental health, sleep, longevity, confidence) shape emphasis and MUST be woven into why_this_works — e.g. heart-health goals → frame the daily movement and the zone-2 cardio around lowering cardiovascular risk.
 - cue: one short personalized coaching line. common_mistake: the single most likely error for THIS user.
 - why_this_works: 3-5 sentences, warm but direct, referencing their photos (when provided), their health goals, and injuries. Address them as "you".
@@ -4339,7 +4339,9 @@ function detDay(dayNum, dayIdx, stage, sex, poolSet, avoid) {
   };
   const main = slots.main.map(mk).filter(Boolean);
   const abs = slots.abs.map(mk).filter(Boolean);
-  const warmId = detPick('warmup', poolSet, dayIdx, new Set());
+  // Stages 4+ open with the app's zone-2 cardio block — that IS the warm-up, so
+  // no separate warm-up section (the client hides it too).
+  const warmId = STAGES[clampStage(stage)]?.cardioMin ? null : detPick('warmup', poolSet, dayIdx, new Set());
   const warmup = warmId ? [{ exercise_id: warmId, prescription: '45 sec' }] : [];
   const focus = `Total-body — ${sex === 'man' ? 'upper + arms' : 'lower + glutes'} + abs`;
   return { day: dayNum, focus, warmup, main, abs_finisher: abs, _used: [...used] };

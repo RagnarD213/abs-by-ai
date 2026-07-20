@@ -6634,6 +6634,9 @@ function renderDayView(stored) {
       <div id="circuitTimer" style="display:none;text-align:center;margin-top:10px"></div></div>`;
   }
 
+  // The cardio block IS the warm-up. Only the no-cardio home stages (1–3) get a
+  // separate warm-up section — otherwise the member warms up twice.
+  if (!cardioMin && (day.warmup || []).length) {
   html += `<div class="ex-group-lbl">Warm-up</div>`;
   html += (day.warmup || []).map(w => {
     const lib = EXERCISE_BY_ID[w.exercise_id] || {};
@@ -6643,6 +6646,7 @@ function renderDayView(stored) {
       ${wAnim ? `<span style="color:var(--acc)">${wAnim}</span>` : ''}
       <span class="ex-rx">${escapeHtml(w.prescription || '')}</span></div></div>`;
   }).join('');
+  }
 
   html += `<div class="ex-group-lbl">Main work</div>`;
   html += (day.main || []).map((ex, i) => exCard(ex, 'm', i)).join('');
