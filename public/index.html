@@ -2886,19 +2886,23 @@ Use strong, visual, specific language. Describe exactly what must change:
 - Always name the reference archetype
 
 BODY-FAT ANCHOR TABLE
-MALE: subtle 15-17%, moderate 12-14%, dramatic 9-10%, max 8-9%. FLOOR 8%. (dramatic/max tightened toward the lean end of their old ranges; the 8% floor is hard — never go under it.)
+MALE: subtle 15-17%, moderate 12-14%, dramatic 9-11%, max 8-10%. FLOOR 8%.
 FEMALE: subtle 20-22%, moderate 17-19%, dramatic 14-16%, max 13-14%. FLOOR 13%.
 
-[[MUSCLE_AXIS_START]]
+[[MUSCLE_TABLE_START]]
 MUSCULARITY ANCHOR TABLE — the SECOND axis. Body fat is not the only dial: intensity also drives ADDED LEAN MUSCLE MASS.
 MALE added lean mass compared to the input photo: subtle ≈ +5 lb, moderate ≈ +8 lb, dramatic ≈ +12 lb, max ≈ +15 lb.
 Express added mass through the structures that read instantly in a photograph, scaled to the intensity above: a fuller, squarer chest with a defined lower-pec line; visibly larger, rounder shoulder caps (front and side delts); wider lats flaring out from the armpits; a thicker upper back; and noticeably thicker arms with a fuller bicep belly and a clear tricep sweep.
 FEMALE: do NOT apply these male mass targets. Female subjects follow the existing female rules — a sculpted, toned, athletic shape, never added bulk.
-
+[[MUSCLE_TABLE_END]]
+[[MUSCLE_PRIMARY_START]]
 PRIMARY-AXIS RULE — MALE subjects who are already "fit" or "very_lean"
 When subject_gender is "male" AND subject_current_condition is "fit" or "very_lean": MUSCULARITY IS THE PRIMARY AXIS and body fat is the secondary one. This subject has very little fat left to lose, so a fat-loss-only edit returns an image nearly identical to the input — that is a failure. The BODY TRANSFORMATION section must demand visibly ADDED MUSCLE MASS at the level given in the MUSCULARITY ANCHOR TABLE, in addition to the body-fat target. Add this sentence to the directive, substituting the added-mass number for the requested intensity: "The subject must look visibly BIGGER and more muscular than in the input photo, not merely leaner — a fuller, squarer chest, distinctly larger and rounder shoulder caps, wider lats creating an obvious V-taper, a thicker upper back, and noticeably thicker arms, as if the subject had added roughly N pounds of lean muscle while staying lean. Placed side by side with the input, the output body must read as a more developed physique, not the same body with sharper lines." A "very_lean" subject is almost entirely a muscle change; a "fit" subject uses both axes — added mass AND a real drop in body fat. The target is a fitness-magazine-cover build: athletic, full, and impressive — never a mass-monster bodybuilder, never cartoonish or comically oversized, never vascular.
-SCOPE LIMIT — this rule is ONLY for male "fit" and "very_lean" subjects. For MALE "heavier" or "moderate" subjects, body fat remains the primary and dominant axis exactly as before: do NOT add the "visibly BIGGER" sentence above, do NOT state an added-pounds-of-muscle figure, and do NOT reframe their transformation around added size. Those subjects have real fat to lose and that fat loss IS the transformation. They keep only the long-standing muscle bullets already listed under "MALE must include" (rounder/wider shoulder caps, V-taper, bicep peak and tricep sweep), described as definition and shape rather than added mass.
-[[MUSCLE_AXIS_END]]
+[[MUSCLE_PRIMARY_END]]
+[[MUSCLE_SECOND_START]]
+SECONDARY-MASS RULE — MALE "moderate" subjects at "dramatic" or "max"
+This subject has real fat to lose, so FAT LOSS REMAINS THE PRIMARY AXIS and must lead the directive. But fat loss alone leaves a smaller, flatter-looking body, which reads as an underwhelming result. So ALSO require added muscle size underneath it, per the MUSCULARITY ANCHOR TABLE. Add this to the directive: "As the body fat comes off, the physique underneath must also be visibly more muscular and more developed than the input — a fuller, squarer chest, distinctly larger and rounder shoulder caps, wider lats creating an obvious V-taper, a thicker upper back, and noticeably thicker arms. The result must look like someone who both lost the fat AND built real muscle, not simply a smaller, softer version of the same body." The target is a fitness-magazine-cover build — athletic, full and impressive, never a mass-monster bodybuilder, never cartoonish or comically oversized, never vascular.
+[[MUSCLE_SECOND_END]]
 
 CALIBRATION RULE — only for "heavier" starting condition
 If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": DOWNGRADE the body-fat target by one step (use "moderate" anchors), and add to the directive: "This is a believable mid-journey transformation — the subject should look noticeably leaner and fitter, but not yet at peak condition."
@@ -2923,7 +2927,6 @@ MALE must include:
 - The width difference between shoulders and waist must be dramatic and immediately visible when comparing before and after
 - Arms must show clear bicep peak and tricep sweep — visibly more defined than the input photo
 - Obliques and love-handle area must be tightened and defined — no softness at the sides of the waist
-- At "dramatic" or "max" intensity, spell out LOWER-BODY-FAT leanness explicitly, because that is where a transformation actually reads as lean: the area BELOW the navel must be flat and tight, the lower two ab blocks must be clearly separated (not just the upper abs), and a visible V-cut / adonis belt must run from the hips into the waistband. There must be no soft roll or overhang at the waistband, no remaining fullness at the flanks or love-handle area, and no soft pocket of fat below the navel. State this as an explicit instruction — an output with sharp upper abs but a soft lower belly does NOT read as the target body fat and is a failure.
 - Waist should appear narrower and tighter than in the input, especially from the navel downward
 - NEVER describe veins, oily skin, or competition vascularity
 
@@ -3019,31 +3022,48 @@ This is a believable ~90-day transformation, NOT a peak/"dream" physique. For EV
 // and applied the added-mass language to moderate males anyway. So instead of asking,
 // we physically remove those sections from the system prompt when they don't apply.
 // Deterministic, and a subject can never be given a rule that isn't in their prompt.
-const MUSCLE_AXIS_BLOCKS = [
-  ['[[MUSCLE_AXIS_START]]', '[[MUSCLE_AXIS_END]]'],
-  ['[[MUSCLE_BULLET_START]]', '[[MUSCLE_BULLET_END]]'],
-  ['[[MUSCLE_REMINDER_START]]', '[[MUSCLE_REMINDER_END]]'],
-];
-function applyMuscleAxis(prompt, include) {
+const MUSCLE_BLOCKS = {
+  table:     ['[[MUSCLE_TABLE_START]]', '[[MUSCLE_TABLE_END]]'],
+  primary:   ['[[MUSCLE_PRIMARY_START]]', '[[MUSCLE_PRIMARY_END]]'],
+  secondary: ['[[MUSCLE_SECOND_START]]', '[[MUSCLE_SECOND_END]]'],
+  bullet:    ['[[MUSCLE_BULLET_START]]', '[[MUSCLE_BULLET_END]]'],
+  reminder:  ['[[MUSCLE_REMINDER_START]]', '[[MUSCLE_REMINDER_END]]'],
+};
+function applyMuscleAxis(prompt, keep) {
   let out = prompt;
-  for (const [open, close] of MUSCLE_AXIS_BLOCKS) {
+  for (const [name, [open, close]] of Object.entries(MUSCLE_BLOCKS)) {
     const i = out.indexOf(open);
     const j = out.indexOf(close);
     if (i === -1 || j === -1) continue;               // marker missing → leave text alone
-    out = include
+    out = keep[name]
       ? out.slice(0, i) + out.slice(i + open.length, j) + out.slice(j + close.length)
       : out.slice(0, i) + out.slice(j + close.length);
   }
   return out;
 }
-function muscleAxisApplies() {
-  return (state.gender || 'male') === 'male' && (state.condition === 'fit' || state.condition === 'very_lean');
+// Three tiers. Lean/fit males: muscle is the PRIMARY axis (they have no fat left to lose).
+// Moderate males at dramatic/max: fat loss still leads, but require built muscle underneath
+// it — fat loss alone leaves a smaller, flatter body that reads as an underwhelming result.
+// Everyone else (heavier males, all females): no mass language at all.
+function muscleAxisPlan() {
+  const male = (state.gender || 'male') === 'male';
+  const cond = state.condition;
+  const intens = state.effectiveIntensity || state.intensity || 'dramatic';
+  const lean = male && (cond === 'fit' || cond === 'very_lean');
+  const moderateStrong = male && cond === 'moderate' && (intens === 'dramatic' || intens === 'max');
+  return {
+    table: lean || moderateStrong,
+    primary: lean,
+    secondary: moderateStrong,
+    bullet: lean,
+    reminder: lean,
+  };
 }
 
 // Item 4: Dream (default) uses the full "Goal Vision"; Realistic 90-day tempers it.
 function goalSystemPrompt() {
   const base = state.mode === 'realistic' ? REALISTIC_SYSTEM_PROMPT : GOAL_SYSTEM_PROMPT;
-  return applyMuscleAxis(base, muscleAxisApplies());
+  return applyMuscleAxis(base, muscleAxisPlan());
 }
 
 const FIX_SYSTEM_PROMPT = `You are the prompt-engineering layer for Abs By AI, a fitness visualization app. A user generated a "future you" fitness transformation image and was not satisfied. Your job is to write a single image-EDITING prompt for Gemini image generation that FIXES the user's specific complaints while keeping everything else.
