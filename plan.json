@@ -1,13 +1,18 @@
 {
-  "date": "2026-07-20",
+  "date": "2026-07-21",
   "order": [
-    "money::Email Jeff to hire",
-    "money::Fix supplement audit problems",
-    "money::Review Romaisa videos",
+    "money::Eyeball lean/fit male transformation on absbyai.com",
     "money::Test supplement audit functionality",
-    "money::Contact vasectomy doctor - stitches, pain during intercourse"
+    "money::Contact vasectomy doctor - stitches, pain during intercourse",
+    "money::Hire someone to replace artificial hedge panels.",
+    "money::Make the new job for RoMesa",
+    "money::Review videos RoMesa sent",
+    "money::Finalize Android app",
+    "money::Finalize iOS app",
+    "money::Rotate or delete old MailerLite API key",
+    "money::Place one real Printify print order to verify fulfillment",
+    "personal::Follow up with power washing contractors",
+    "personal::Follow up with pool tile contractors"
   ],
-  "excluded": [
-    "money::Implement Claude autoresponder - in email marketing plan .md"
-  ]
+  "excluded": []
 }
