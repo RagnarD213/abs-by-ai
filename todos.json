@@ -49,30 +49,12 @@
       "priority": "high"
     },
     {
-      "text": "Email Jeff to hire",
-      "priority": "key"
-    },
-    {
       "text": "Review Claude scheduled task output",
       "priority": "high"
     },
     {
       "text": "Rework dashboard with keystone tasks and todays plan",
       "priority": "high"
-    },
-    {
-      "text": "Fix supplement audit problems",
-      "priority": "key"
-    },
-    {
-      "text": "Implement Claude autoresponder - in email marketing plan .md",
-      "priority": "key",
-      "recurring": false
-    },
-    {
-      "text": "Review Romaisa videos",
-      "priority": "key",
-      "recurring": false
     },
     {
       "text": "Test supplement audit functionality",
