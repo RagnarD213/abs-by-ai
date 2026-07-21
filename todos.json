@@ -67,12 +67,27 @@
       "recurring": false
     },
     {
-      "text": "Hire someone to power wash",
+      "text": "Hire someone to replace artificial hedge panels.",
       "priority": "key",
       "recurring": false
     },
     {
-      "text": "Hire someone to replace artificial hedge panels.",
+      "text": "Make the new job for RoMesa",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Review videos RoMesa sent",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Finalize Android app",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Finalize iOS app",
       "priority": "key",
       "recurring": false
     }
@@ -117,10 +132,6 @@
       "priority": "med"
     },
     {
-      "text": "Find powerwashing company",
-      "priority": "med"
-    },
-    {
       "text": "Organize kitchen cabinets",
       "priority": "low"
     },
@@ -151,6 +162,16 @@
     {
       "text": "Buy Proper Cloth shirt",
       "priority": "high",
+      "recurring": false
+    },
+    {
+      "text": "Follow up with power washing contractors",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Follow up with pool tile contractors",
+      "priority": "key",
       "recurring": false
     }
   ]
