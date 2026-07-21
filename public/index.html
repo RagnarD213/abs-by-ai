@@ -1656,7 +1656,7 @@ html, body {
     </div>
 
     <div class="bodyfat-row">
-      <span class="bodyfat-label">Estimated body fat</span>
+      <span id="bodyfatLabel" class="bodyfat-label">Estimated body fat</span>
       <span class="bodyfat-values">
         <span id="bfBefore" style="color:var(--faint)">—</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2f5fe0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -2636,10 +2636,14 @@ function showLockedResult() {
   $('resultDownloadBtn').style.visibility = 'hidden';
   $('paywallSection').style.display = '';
   const bodyFat = ($('bfAfter').textContent || '').trim();
-  $('paywallHeadline').textContent = bodyFat && bodyFat !== '—'
-    ? `Your transformation is done. See yourself at ${bodyFat} body fat`
+  const hasValue = bodyFat && bodyFat !== '—';
+  // bfAfter holds a build name (not a %) for lean/fit males — phrase the headline accordingly.
+  $('paywallHeadline').textContent = hasValue
+    ? (bfDisplayIsBuild
+        ? `Your transformation is done. See yourself with a ${bodyFat.toLowerCase()}`
+        : `Your transformation is done. See yourself at ${bodyFat} body fat`)
     : 'Your transformation is done. Unlock your result';
-  if (window.posthog) posthog.capture('locked_teaser_shown', { estimated_body_fat: bodyFat || null });
+  if (window.posthog) posthog.capture('locked_teaser_shown', { estimated_body_fat: bfDisplayIsBuild ? null : (bodyFat || null), build_target: bfDisplayIsBuild ? bodyFat : null });
   showScreen('result');
 }
 
@@ -2787,6 +2791,13 @@ const BF_AFTER = { subtle: { male: '16%', female: '21%' }, moderate: { male: '13
 // number that reads as "broken." For heavier women show an honest, achievable target (a
 // strong but believable transformation) so the number matches what the image can deliver.
 const BF_AFTER_HEAVIER_FEMALE = { subtle: '33%', moderate: '30%', dramatic: '27%', max: '25%' };
+// A lean/fit MALE has almost no fat left to lose, so a body-fat delta ("11–13% → 9%") advertises a
+// tiny change before the user even looks at the image. For those users the transformation is driven
+// by added muscle instead, so the card shows a BUILD change rather than a body-fat number.
+const BUILD_BEFORE_MALE = { fit: 'Fit', very_lean: 'Lean' };
+const BUILD_AFTER_MALE = { subtle: 'Athletic build', moderate: 'Fitness build', dramatic: 'Fitness-model build', max: 'Cover-model build' };
+// True when the result card is currently showing a build change instead of a body-fat %.
+let bfDisplayIsBuild = false;
 
 // Upsell product pricing (prices in cents)
 // Canvas framed not available in 8×10 — UI enforces minimum 11×14 when Framed selected
@@ -2863,7 +2874,7 @@ Write this section as a forceful, explicit instruction. It must:
 - Use active verbs: "reduce", "tighten", "define", "sculpt", "carve"
 - Include this exact sentence when intensity is "dramatic" or "max": "The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required."
 - Include this exact sentence when intensity is "subtle" or "moderate": "The body transformation should be clearly noticeable but feel attainable and natural."
-- When subject_current_condition is "fit" or "very_lean" AND intensity is "dramatic" or "max", add this for MALE subjects: "Even though the subject is already lean, the transformation must be dramatic and unmistakable. The abs must be deeply etched with at least twice the visible definition shown in the input — sharp cuts between each muscle block, clear serratus visible. The shoulders must be noticeably broader and rounder than in the input photo. The waist must be tighter. The overall physique must look strikingly more muscular and defined — anyone who sees this single output image must be able to tell this person has a peak-condition physique. Do NOT output a single image that could be mistaken for the original photo."
+- When subject_current_condition is "fit" or "very_lean" AND intensity is "dramatic" or "max", add this for MALE subjects: "Even though the subject is already lean, the transformation must be dramatic and unmistakable. Because there is very little fat left to lose, the change must come primarily from ADDED MUSCLE SIZE: the chest must be visibly fuller, squarer, and thicker; the shoulder caps must be distinctly larger, rounder, and wider; the lats must flare noticeably wider from the armpits; the upper back must be thicker; and the arms must be clearly thicker with a fuller bicep and a pronounced tricep sweep. The subject must look like he added roughly 12-15 pounds of lean muscle while staying lean. On top of that added size, the abs must be deeply etched with at least twice the visible definition shown in the input — sharp cuts between each muscle block, clear serratus visible — and the waist must be tighter. The output must read as a BIGGER, more developed physique, not the same body with sharper lines. Anyone who sees this single output image must be able to tell this person has a peak-condition, fitness-cover physique. Do NOT output a single image that could be mistaken for the original photo."
 - When subject_gender is "female" AND intensity is "dramatic" or "max" (regardless of starting condition), add this: "The transformation must be dramatic and unmistakable — do not produce a subtle or near-identical result. The abs must show at least twice the visible definition of the input — clear separation between each upper-ab block, a sharp vertical midline groove, and visible oblique lines framing the waist. The shoulders must be noticeably rounder and more sculpted. The waist must be visibly tighter and more tapered. The overall physique must look strikingly more athletic and defined — anyone who sees this single output image must immediately recognize a peak-condition fitness-cover physique. Do NOT output an image that could be mistaken for the original photo."
 - When subject_gender is "female" AND subject_current_condition is "heavier" or "moderate" AND intensity is "dramatic" or "max", ALSO add this: "This subject starts at a higher body-fat level, so a believable, clearly-visible transformation requires a LARGE, whole-body fat reduction — not a slight slimming. The midsection, waist, lower belly, hips, arms, and thighs must ALL look substantially leaner and tighter, and a defined feminine midsection must be clearly visible through the reduced fat. Do NOT return a still-soft or still-heavy result — the drop in body fat must be major and obvious at a glance. Keep her unmistakably feminine: preserve natural curves at the hips and chest, no masculine bulk, no blocky muscle, no veins."
 - When subject_gender is "female" AND intensity is "moderate", add this: "The change must be clearly visible and NOT near-identical — a visibly leaner, tighter midsection with a defined upper-ab outline and a noticeably tighter, more tapered waist. Do not return an image that looks basically the same as the input."
@@ -2877,6 +2888,15 @@ Use strong, visual, specific language. Describe exactly what must change:
 BODY-FAT ANCHOR TABLE
 MALE: subtle 15-17%, moderate 12-14%, dramatic 9-11%, max 8-10%. FLOOR 8%.
 FEMALE: subtle 20-22%, moderate 17-19%, dramatic 14-16%, max 13-14%. FLOOR 13%.
+
+MUSCULARITY ANCHOR TABLE — the SECOND axis. Body fat is not the only dial: intensity also drives ADDED LEAN MUSCLE MASS.
+MALE added lean mass compared to the input photo: subtle ≈ +5 lb, moderate ≈ +8 lb, dramatic ≈ +12 lb, max ≈ +15 lb.
+Express added mass through the structures that read instantly in a photograph, scaled to the intensity above: a fuller, squarer chest with a defined lower-pec line; visibly larger, rounder shoulder caps (front and side delts); wider lats flaring out from the armpits; a thicker upper back; and noticeably thicker arms with a fuller bicep belly and a clear tricep sweep.
+FEMALE: do NOT apply these male mass targets. Female subjects follow the existing female rules — a sculpted, toned, athletic shape, never added bulk.
+
+PRIMARY-AXIS RULE — MALE subjects who are already "fit" or "very_lean"
+When subject_gender is "male" AND subject_current_condition is "fit" or "very_lean": MUSCULARITY IS THE PRIMARY AXIS and body fat is the secondary one. This subject has very little fat left to lose, so a fat-loss-only edit returns an image nearly identical to the input — that is a failure. The BODY TRANSFORMATION section must demand visibly ADDED MUSCLE MASS at the level given in the MUSCULARITY ANCHOR TABLE, in addition to the body-fat target. Add this sentence to the directive, substituting the added-mass number for the requested intensity: "The subject must look visibly BIGGER and more muscular than in the input photo, not merely leaner — a fuller, squarer chest, distinctly larger and rounder shoulder caps, wider lats creating an obvious V-taper, a thicker upper back, and noticeably thicker arms, as if the subject had added roughly N pounds of lean muscle while staying lean. Placed side by side with the input, the output body must read as a more developed physique, not the same body with sharper lines." A "very_lean" subject is almost entirely a muscle change; a "fit" subject uses both axes — added mass AND a real drop in body fat. The target is a fitness-magazine-cover build: athletic, full, and impressive — never a mass-monster bodybuilder, never cartoonish or comically oversized, never vascular.
+For MALE "heavier" or "moderate" subjects, body fat remains the primary axis exactly as before; added mass is secondary and must not weaken the fat-loss framing.
 
 CALIBRATION RULE — only for "heavier" starting condition
 If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": DOWNGRADE the body-fat target by one step (use "moderate" anchors), and add to the directive: "This is a believable mid-journey transformation — the subject should look noticeably leaner and fitter, but not yet at peak condition."
@@ -2892,6 +2912,7 @@ Name the archetype explicitly in the BODY TRANSFORMATION section.
 
 GENDER-SPECIFIC BODY TRANSFORMATION RULES
 MALE must include:
+- Added muscle SIZE scaled by intensity per the MUSCULARITY ANCHOR TABLE — state it explicitly as fuller chest, larger/rounder shoulder caps, wider lats, thicker upper back, thicker arms. For "fit" and "very_lean" subjects this is the headline change, not a footnote.
 - Explicit ab definition by intensity: subtle = upper-ab outline visible; moderate = four-pack defined; dramatic = sharp six-pack with serratus visible; max = deeply etched six-pack with intercostal separation
 - Chest/pec definition and upper-body development with clear pec-delt separation
 - Shoulder caps must be visibly rounder, more prominent, and WIDER than in the input — this is required, not optional
@@ -2965,6 +2986,7 @@ FINAL REMINDERS
 - The transformation MUST be visible. An output that looks the same as the input is a failure.
 - For dramatic/max intensity, the change should be striking and unmistakable.
 - For fit/very_lean subjects at dramatic/max: push harder, not softer. They want more definition, not a copy of themselves.
+- For fit/very_lean MALE subjects, remember there is almost no fat left to remove — if the prompt only asks for leanness the output will be a near-copy of the input. Ask for visibly MORE MUSCLE. That is the change they are paying for.
 - Never sexualize. Never describe minors. Never lecture.`;
 
 const GOAL_SYSTEM_PROMPT = SYSTEM_PROMPT.replace(
@@ -3533,11 +3555,19 @@ function updateBodyFatDisplay() {
   const cond = state.condition || 'moderate';
   const sex = state.gender || 'male';
   const intens = state.effectiveIntensity || state.intensity || 'dramatic';
-  const before = (BF_BEFORE[cond] || BF_BEFORE.moderate)[sex] || '—';
+  let before = (BF_BEFORE[cond] || BF_BEFORE.moderate)[sex] || '—';
   let after = (BF_AFTER[intens] || BF_AFTER.dramatic)[sex] || '—';
   if (sex === 'female' && cond === 'heavier') {
     after = BF_AFTER_HEAVIER_FEMALE[intens] || BF_AFTER_HEAVIER_FEMALE.dramatic;
   }
+  // Lean/fit males: the change is added muscle, not lost fat — show the build, not a 3-point BF drop.
+  bfDisplayIsBuild = (sex === 'male' && (cond === 'fit' || cond === 'very_lean'));
+  if (bfDisplayIsBuild) {
+    before = BUILD_BEFORE_MALE[cond];
+    after = BUILD_AFTER_MALE[intens] || BUILD_AFTER_MALE.dramatic;
+  }
+  const label = $('bodyfatLabel');
+  if (label) label.textContent = bfDisplayIsBuild ? 'Your build' : 'Estimated body fat';
   $('bfBefore').textContent = before;
   $('bfAfter').textContent = after;
 }
