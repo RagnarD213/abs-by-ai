@@ -21,9 +21,28 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Implementation in progress`
+**Status:** `Ready for review`
 
-### AI Trainer — later-phase difficulty overhaul + workout UX (started 2026-07-20)
+### Lean/fit MALE muscle axis — Step 1 SHIPPED, awaiting Dan's eyeball (started 2026-07-20)
+
+Executing `handoff-20260720-lean-male-muscle-axis.md`. Lean/fit male transformations returned near-identical images because the prompt specified the change purely as a body-fat drop (11–13% → 9% = ~3 points, which Gemini rendered faithfully). Not a model ceiling — our spec.
+
+**Step 1 COMPLETE, live-verified on absbyai.com.** Four commits:
+- `5943874` — MUSCULARITY ANCHOR TABLE (male +5/+8/+12/+15 lb by intensity, expressed as chest/delt/lat/upper-back/arm size) + PRIMARY-AXIS RULE making muscle primary for male fit/very_lean; strengthened the fit/very_lean dramatic/max directive; result card shows a build change ("Lean → Cover-model build") instead of a 3-point BF drop, with the paywall headline and `locked_teaser_shown` telemetry updated to match. Caught locally: `before` was `const` and the new code reassigns it — would have thrown on every lean/fit male result card.
+- `7e3f2f4` + `3a0ebcd` — **the prose scope limit did not hold.** A live prod check showed the MODERATE-male prompt had picked up the "visibly BIGGER" directive and a +15 lb figure, i.e. the exact path the handoff says must not change. Adding stronger wording ("SCOPE LIMIT — this rule is ONLY for…") still failed. Same failure mode as the trainer's leg-press rule. Fixed deterministically: the three muscle-axis sections are wrapped in `[[MUSCLE_*]]` markers and physically removed by `goalSystemPrompt()` unless the subject is male + fit/very_lean. Verified across 7 gender/condition/mode combos; markers never survive into a sent prompt; both generation sites go through `goalSystemPrompt()`.
+- `8a7c4a4` — **found while verifying, not in the handoff:** the assembled prompt was being TRUNCATED. `max_tokens` on `/api/generate-prompt` had been trimmed 2048→1024 as a latency saving; the longer muscle-axis prompts blew past it, cutting off mid-AVOID and silently dropping the male "no bulging veins / no comically oversized muscles / no spray-on abs" bullets AND the CLOSING block — on exactly the prompts asking for the most added muscle. Restored to 2048 and added a loud `PROMPT_TRUNCATED` log on `stop_reason=max_tokens`. Live prod now returns a complete 5051-char prompt with all guardrails present.
+
+**Live prod verification (real pipeline, generate-prompt):** male/very_lean/max → mass language present, +15 lb figure, no fat-loss-only framing, all guardrails + CLOSING intact. male/moderate/max → clean fat-loss framing, NO mass language, no pounds figure (unchanged from before). female/heavier/max → FEMALE HEAVIER REALISM RULE intact, believable/feminine language, 25% target, no male mass targets. Result card correct for all four cases live; no console errors.
+
+**NEXT ACTION — Dan:** eyeball a real Lean + Peak generation on absbyai.com with your own photo. Confirm visibly more muscle (not just sharper abs), identity/face/pose/framing preserved, no vascularity or cartoonish bulk. Also spot-check one Average + Peak male to confirm no regression. Per the handoff, Step 1 stops here for that eyeball.
+
+**THEN (Steps 2–3, not started):** (2) rewrite the male dramatic/max verifier question in `server.js` (~2090) so every clause compares against the BEFORE photo — the current presence check ("is there visible ab definition?") passes trivially on anyone who already has abs, so the A2 retry ladder never fires for them; (3) hide the Realistic 90-day toggle (`#modeGrid`, `public/index.html` ~1543), leaving the code path dormant.
+
+---
+
+### PAUSED — AI Trainer later-phase difficulty overhaul + workout UX (started 2026-07-20)
+
+
 
 Dan (advanced lifter, assigned Stage 5) reported the later phases read as a beginner program he would never do himself, and flagged refund risk from advanced users. Named specifics: march-in-place warm-up, "15 sec" planks, dead bug, bicycles, crunches, goblet squats he can't load, knee push-ups. Also: warm-up rendering on top of cardio, inaccurate stick figures (leg press), and every workout sharing the identical name.
 
