@@ -90,6 +90,21 @@
       "text": "Finalize iOS app",
       "priority": "key",
       "recurring": false
+    },
+    {
+      "text": "Eyeball lean/fit male transformation on absbyai.com",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Rotate or delete old MailerLite API key",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Place one real Printify print order to verify fulfillment",
+      "priority": "key",
+      "recurring": false
     }
   ],
   "health": [
