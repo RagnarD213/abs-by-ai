@@ -1,22 +1,24 @@
 {
-  "date": "2026-07-21",
+  "date": "2026-07-22",
   "order": [
-    "money::Eyeball lean/fit male transformation on absbyai.com",
-    "money::Test supplement audit functionality",
-    "money::Contact vasectomy doctor - stitches, pain during intercourse",
-    "money::Hire someone to replace artificial hedge panels.",
-    "money::Make the new job for RoMesa",
-    "money::Review videos RoMesa sent",
-    "money::Finalize iOS app",
-    "money::Place one real Printify print order to verify fulfillment",
-    "personal::Follow up with power washing contractors",
-    "money::Rotate or delete old MailerLite API key",
-    "personal::Follow up with pool tile contractors",
     "money::Create Google Play Console account ($25 one-time) at play.google.com/console",
     "money::Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
     "money::Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
     "money::Add self as internal tester, install app on phone via Join link",
-    "money::Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works"
+    "money::Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
+    "money::Finalize iOS app",
+    "money::Review videos RoMesa sent",
+    "personal::Follow up with power washing contractors",
+    "personal::Follow up with pool tile contractors",
+    "personal::Book haircut"
   ],
-  "excluded": []
+  "excluded": [
+    "money::Test supplement audit functionality",
+    "money::Contact vasectomy doctor - stitches, pain during intercourse",
+    "money::Hire someone to replace artificial hedge panels.",
+    "money::Make the new job for RoMesa",
+    "money::Eyeball lean/fit male transformation on absbyai.com",
+    "money::Rotate or delete old MailerLite API key",
+    "money::Place one real Printify print order to verify fulfillment"
+  ]
 }

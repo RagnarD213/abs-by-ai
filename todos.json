@@ -208,6 +208,11 @@
       "text": "Follow up with pool tile contractors",
       "priority": "key",
       "recurring": false
+    },
+    {
+      "text": "Book haircut",
+      "priority": "key",
+      "recurring": false
     }
   ]
 }
