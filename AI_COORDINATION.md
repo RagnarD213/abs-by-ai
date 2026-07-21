@@ -23,6 +23,18 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 **Owner:** Claude Code
 **Status:** `Ready for review`
 
+### Recently shipped — Android TWA verification fix (COMPLETE, live-verified 2026-07-21)
+
+Dan asked to get the Android app live. Found and fixed two real bugs blocking Digital Asset Links verification (which the app needs to open full-screen instead of showing a Chrome address bar):
+1. `.well-known/assetlinks.json` lived in the project root, but the Item-1 security fix (2026-07-18) restricted serving to `public/` only — the file was never reachable over HTTP. Moved it to `public/.well-known/assetlinks.json` (commit `8f9821c`), removed the now-dead root copy (`0d1cb9d`).
+2. Even after the move, Express's static middleware ignores dotfile paths by default (`dotfiles:'ignore'`), so `/.well-known/` still fell through to the SPA fallback. Set `dotfiles:'allow'` on the `public/` static middleware (commit `815ad0a`) — confirmed `public/` has no other dotfiles, so this doesn't reopen the Item-1 exposure.
+
+**Live-verified:** `https://absbyai.com/.well-known/assetlinks.json` now returns `200 application/json` with the correct package name + cert fingerprint.
+
+**Existing build assets confirmed good, no rebuild needed:** signed `.aab`/`.apk` from June 10 in `android/app/build/outputs/`, keystore intact at `android/keystore/`. The AAB just wraps the live site, so this server-side fix applies automatically.
+
+**Next action — Dan, not Claude (requires a Google account + payment + phone in hand):** follow `HANDOFF_ANDROID_INTERNAL_TESTING.md` — create Play Console account, create the app, upload the existing `app-release.aab`, add self as internal tester, install on phone. The Section 6 "address bar" caveat in that doc is now resolved for the *local* signing key; if Dan enables Play App Signing, Google will re-sign with its own key and Claude will need one more fingerprint added to `assetlinks.json`.
+
 ### Lean/fit MALE muscle axis — Step 1 SHIPPED, awaiting Dan's eyeball (started 2026-07-20)
 
 Executing `handoff-20260720-lean-male-muscle-axis.md`. Lean/fit male transformations returned near-identical images because the prompt specified the change purely as a body-fat drop (11–13% → 9% = ~3 points, which Gemini rendered faithfully). Not a model ceiling — our spec.
