@@ -2100,8 +2100,17 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // clearly beat a true no-op. For women the target is a FEMININE midsection
     // (four-pack / vertical midline / oblique lines / tighter waist-to-hip taper),
     // never a male six-pack. Fail-open on any error — never block a paid generation.
-    const buildVerifierQuestion = (who, intens) => {
+    const buildVerifierQuestion = (who, intens, cond) => {
       const strong = (intens === 'dramatic' || intens === 'max');
+      // A man who STARTS with visible abs is promised a genuinely shredded result, so
+      // for him the bar is an actual sharply-cut six-pack — not merely "more than
+      // before", which a marginal change can satisfy. Men starting heavier/average are
+      // NOT held to this; their win is the fat loss, and demanding a six-pack there
+      // would burn retries chasing something the promise never made.
+      const leanStart = (cond === 'fit' || cond === 'very_lean');
+      if (who !== 'female' && strong && leanStart) {
+        return 'Compare these two photos of the same person. Ignore tan, lighting, camera quality, and background — judge only the body. This subject already had some abdominal definition in the BEFORE photo, so answer YES only if BOTH are true of the AFTER photo: (1) the AFTER shows a FULLY VISIBLE, SHARPLY CUT SIX-PACK — all six abdominal blocks distinctly separated by crisp shadow lines, with no softness left on the torso, and (2) the abs and overall leanness are CLEARLY MORE PRONOUNCED than in the BEFORE photo. A partial two- or four-pack, a flat but undefined stomach, or definition roughly equal to the BEFORE photo are all NO. If the AFTER could plausibly be mistaken for the BEFORE, answer NO. Reply with only YES or NO.';
+      }
       if (who === 'female') {
         return strong
           ? 'Compare these two photos of the same woman. In the AFTER photo, is there CLEARLY VISIBLE feminine abdominal definition (a defined four-pack, a vertical midline groove down the stomach, and/or visible oblique lines) AND a visibly tighter, more tapered waist compared to the BEFORE photo? A tan, better lighting, or a slightly flatter stomach alone do NOT count. Reply with only YES or NO.'
@@ -2116,7 +2125,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
         : 'Compare these two photos of the same person. In the AFTER photo, is the midsection VISIBLY leaner and tighter than the BEFORE photo — a flatter, firmer stomach with at least an upper-ab outline and a tighter waist? A near-identical photo with barely any change is NO; a real but moderate improvement is YES. A tan or better lighting alone is NO. Reply with only YES or NO.';
     };
 
-    const looksChanged = async (afterBase64, afterMime, who, intens) => {
+    const looksChanged = async (afterBase64, afterMime, who, intens, cond) => {
       try {
         const response = await fetch('https://api.anthropic.com/v1/messages', {
           method: 'POST',
@@ -2136,7 +2145,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
                   { type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } },
                   { type: 'text', text: 'AFTER photo:' },
                   { type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } },
-                  { type: 'text', text: buildVerifierQuestion(who, intens) },
+                  { type: 'text', text: buildVerifierQuestion(who, intens, cond) },
                 ],
               },
             ],
@@ -2186,13 +2195,13 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
         `Two previous attempts were still too close to the original. This is the final attempt and the change MUST be obvious at a glance: a clearly defined feminine four-pack (vertical midline and oblique definition, not just a flat stomach) and a distinctly tighter, more tapered waist. Stay unmistakably feminine — no vascularity, no blocky or masculine muscle. Keep the face, hair, pose, clothing, framing, and lighting exactly the same — only the body composition gets much more defined.\n\n`,
       ];
       const malePreambles = [
-        `Your previous attempt at this edit was too subtle and barely visible — that is a failure. This time you MUST push much harder on BOTH axes: ADD VISIBLE MUSCLE SIZE (a fuller and thicker chest, distinctly larger and rounder shoulder caps, wider lats, noticeably thicker arms) and make the body-fat reduction, ab definition, and waist tightening dramatically more visible, even if it means a bigger departure from the input photo's body shape. If the subject was already lean and athletic, added SIZE is the change that must show. The face, clothing, pose, and framing must still stay exactly the same — only push the body transformation itself much further.\n\n`,
-        `Two previous attempts at this edit were both too subtle. This is the final attempt and the body MUST look unmistakably bigger and more developed than the input — a visibly thicker chest, clearly larger and wider shoulders, wider lats, noticeably thicker arms — together with obvious ab muscle definition (visible separation lines, not just a flatter stomach) and a clearly tighter waist. Be aggressive: the viewer must see the change instantly without comparing closely to the original. Do not return an image that could be mistaken for the input. The face, clothing, pose, and framing must still stay exactly the same — only the body transformation itself gets much more dramatic.\n\n`,
+        `Your previous attempt at this edit was too subtle and barely visible — that is a failure. This time you MUST strip the torso down to a genuinely SHREDDED, contest-lean condition: a fully visible, sharply cut SIX-PACK with all six blocks separated by crisp shadow lines, a sharp vertical midline, defined obliques, a visible V-cut into the waistband, and tight thin skin with NO softness anywhere on the torso. Also widen the shoulders, fill out the chest, and widen the lats for a clear V-taper — but keep the build lean and aesthetic, never thick or bulky. Even if the subject's torso is angled, partly turned, or partly covered by an arm in this photo, the visible portion of the torso MUST still be fully transformed. The face, clothing, pose, and framing must stay exactly the same — only push the body transformation much further.\n\n`,
+        `Two previous attempts at this edit were both too subtle. This is the FINAL attempt and it MUST show a dramatically shredded torso: a fully visible, deeply cut six-pack with crisp separation between every abdominal block, a sharp midline, defined obliques, visible serratus, a clean V-cut into the waistband, and zero softness left — especially below the navel. Add a modest amount of muscle to widen the shoulders and fill the chest, staying lean and aesthetic rather than bulky. Redraw the torso as much as it takes: a partly angled, turned, or arm-obscured torso is NOT a reason to leave the body unchanged. Do not return an image that could be mistaken for the input. The face, clothing, pose, and framing must stay exactly the same — only the body transformation gets much more dramatic.\n\n`,
       ];
       const intensifyPreambles = sex === 'female' ? femalePreambles : malePreambles;
       let changed = false;
       for (let i = 0; i < rungBudget; i++) {
-        changed = await looksChanged(result.imageBase64, result.imageMime, sex, intensity);
+        changed = await looksChanged(result.imageBase64, result.imageMime, sex, intensity, startCondition);
         if (i === 0) verifierPassedFirstTry = changed;
         if (changed) break;
         const preamble = intensifyPreambles[i] || intensifyPreambles[intensifyPreambles.length - 1];
@@ -2205,7 +2214,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       // "still weak after every retry" signal is accurate — that's the case we most
       // want to see in the data (and it drives the weakChange nudge below).
       if (!changed && retryRungsUsed > 0) {
-        finalVerifierPassed = await looksChanged(result.imageBase64, result.imageMime, sex, intensity);
+        finalVerifierPassed = await looksChanged(result.imageBase64, result.imageMime, sex, intensity, startCondition);
       }
     }
 
