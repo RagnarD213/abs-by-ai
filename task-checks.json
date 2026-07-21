@@ -4,7 +4,8 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Inject Zepbound"
+    "health::Inject Zepbound",
+    "money::Make the new job for RoMesa"
   ],
   "log": {
     "health::Shower": [
