@@ -1,8 +1,8 @@
 {
-  "net_worth": 4577300,
-  "nw_change_1m": -1717,
-  "nw_change_3m": 161603,
-  "nw_change_all": 4609093,
+  "net_worth": 4552926,
+  "nw_change_1m": -25798,
+  "nw_change_3m": 144470,
+  "nw_change_all": 4584719,
   "nw_history_since": "2026-02-26",
   "nw_history": [
     {
@@ -34,8 +34,8 @@
       "balance": 4305756
     },
     {
-      "date": "2026-03-14",
-      "balance": 4252439
+      "date": "2026-03-15",
+      "balance": 4252337
     },
     {
       "date": "2026-03-17",
@@ -62,8 +62,8 @@
       "balance": 4168266
     },
     {
-      "date": "2026-03-31",
-      "balance": 4159362
+      "date": "2026-04-01",
+      "balance": 4236133
     },
     {
       "date": "2026-04-03",
@@ -82,16 +82,16 @@
       "balance": 4319200
     },
     {
-      "date": "2026-04-12",
-      "balance": 4331928
+      "date": "2026-04-13",
+      "balance": 4330974
     },
     {
       "date": "2026-04-15",
       "balance": 4381951
     },
     {
-      "date": "2026-04-17",
-      "balance": 4440378
+      "date": "2026-04-18",
+      "balance": 4447409
     },
     {
       "date": "2026-04-20",
@@ -110,157 +110,157 @@
       "balance": 4455800
     },
     {
-      "date": "2026-04-29",
-      "balance": 4428643
+      "date": "2026-04-30",
+      "balance": 4426462
     },
     {
       "date": "2026-05-02",
       "balance": 4467664
     },
     {
-      "date": "2026-05-04",
-      "balance": 4471187
+      "date": "2026-05-05",
+      "balance": 4475043
     },
     {
       "date": "2026-05-07",
       "balance": 4533072
     },
     {
-      "date": "2026-05-09",
-      "balance": 4538948
+      "date": "2026-05-10",
+      "balance": 4538812
     },
     {
-      "date": "2026-05-11",
-      "balance": 4538114
+      "date": "2026-05-12",
+      "balance": 4546859
     },
     {
       "date": "2026-05-14",
       "balance": 4576132
     },
     {
-      "date": "2026-05-16",
-      "balance": 4531452
+      "date": "2026-05-17",
+      "balance": 4531160
     },
     {
       "date": "2026-05-19",
       "balance": 4531728
     },
     {
-      "date": "2026-05-21",
-      "balance": 4548257
+      "date": "2026-05-22",
+      "balance": 4554161
     },
     {
       "date": "2026-05-24",
       "balance": 4570871
     },
     {
-      "date": "2026-05-26",
-      "balance": 4579774
+      "date": "2026-05-27",
+      "balance": 4598798
     },
     {
-      "date": "2026-05-28",
-      "balance": 4593190
+      "date": "2026-05-29",
+      "balance": 4608403
     },
     {
       "date": "2026-05-31",
       "balance": 4608174
     },
     {
-      "date": "2026-06-02",
-      "balance": 4609236
+      "date": "2026-06-03",
+      "balance": 4622379
     },
     {
       "date": "2026-06-05",
       "balance": 4617334
     },
     {
-      "date": "2026-06-07",
-      "balance": 4533985
+      "date": "2026-06-08",
+      "balance": 4537700
     },
     {
-      "date": "2026-06-09",
-      "balance": 4519623
+      "date": "2026-06-10",
+      "balance": 4521903
     },
     {
-      "date": "2026-06-12",
-      "balance": 4551713
+      "date": "2026-06-13",
+      "balance": 4568902
     },
     {
-      "date": "2026-06-14",
-      "balance": 4568640
+      "date": "2026-06-15",
+      "balance": 4601150
     },
     {
       "date": "2026-06-17",
       "balance": 4604753
     },
     {
-      "date": "2026-06-19",
-      "balance": 4578731
+      "date": "2026-06-20",
+      "balance": 4579017
     },
     {
       "date": "2026-06-22",
       "balance": 4579457
     },
     {
-      "date": "2026-06-24",
-      "balance": 4536150
+      "date": "2026-06-25",
+      "balance": 4528746
     },
     {
-      "date": "2026-06-26",
-      "balance": 4538020
+      "date": "2026-06-27",
+      "balance": 4537913
     },
     {
-      "date": "2026-06-29",
-      "balance": 4539324
+      "date": "2026-06-30",
+      "balance": 4597524
     },
     {
-      "date": "2026-07-01",
-      "balance": 4598115
+      "date": "2026-07-02",
+      "balance": 4587312
     },
     {
       "date": "2026-07-04",
       "balance": 4589143
     },
     {
-      "date": "2026-07-06",
-      "balance": 4591276
+      "date": "2026-07-07",
+      "balance": 4595437
     },
     {
-      "date": "2026-07-08",
-      "balance": 4602701
+      "date": "2026-07-09",
+      "balance": 4589197
     },
     {
-      "date": "2026-07-11",
-      "balance": 4622793
+      "date": "2026-07-12",
+      "balance": 4622320
     },
     {
-      "date": "2026-07-13",
-      "balance": 4624130
+      "date": "2026-07-14",
+      "balance": 4604719
     },
     {
-      "date": "2026-07-16",
-      "balance": 4621959
+      "date": "2026-07-17",
+      "balance": 4616016
     },
     {
-      "date": "2026-07-18",
-      "balance": 4587800
+      "date": "2026-07-19",
+      "balance": 4587700
     },
     {
-      "date": "2026-07-20",
-      "balance": 4577300
+      "date": "2026-07-21",
+      "balance": 4552926
     }
   ],
-  "spending_yesterday": 543,
-  "spending_week": 1725,
-  "spending_month": 13524,
+  "spending_yesterday": 32,
+  "spending_week": 1636,
+  "spending_month": 13305,
   "spending_categories": [
     {
       "category": "Shopping",
-      "amount": 3357
+      "amount": 3275
     },
     {
       "category": "Restaurants & Bars",
-      "amount": 1658
+      "amount": 1673
     },
     {
       "category": "Auto Payment",
@@ -268,7 +268,7 @@
     },
     {
       "category": "Groceries",
-      "amount": 1229
+      "amount": 1248
     },
     {
       "category": "Cash & ATM",
@@ -289,65 +289,17 @@
   ],
   "yesterday_transactions": [
     {
-      "merchant": "Ghama Zone",
-      "category": "Shopping",
-      "amount": 146.21,
-      "is_transfer": false
-    },
-    {
-      "merchant": "Whiskey Cake Kitchen & Bar",
-      "category": "Restaurants & Bars",
-      "amount": 92.24,
-      "is_transfer": false
-    },
-    {
       "merchant": "Instacart",
       "category": "Groceries",
-      "amount": 90.51,
+      "amount": 31.87,
       "is_transfer": false
     },
     {
-      "merchant": "H-E-B",
-      "category": "Groceries",
-      "amount": 67.98,
-      "is_transfer": false
-    },
-    {
-      "merchant": "Instacart",
-      "category": "Groceries",
-      "amount": 43.04,
-      "is_transfer": false
-    },
-    {
-      "merchant": "Amazon",
-      "category": "Shopping",
-      "amount": 41.14,
-      "is_transfer": false
-    },
-    {
-      "merchant": "Round Rock Tavern",
-      "category": "Restaurants & Bars",
-      "amount": 26.75,
-      "is_transfer": false
-    },
-    {
-      "merchant": "Lucky Corner",
-      "category": "Shopping",
-      "amount": 19.47,
-      "is_transfer": false
-    },
-    {
-      "merchant": "Amazon",
-      "category": "Shopping",
-      "amount": 14.59,
-      "is_transfer": false
-    },
-    {
-      "merchant": "Round Rock Tavern",
-      "category": "Restaurants & Bars",
-      "amount": 1.01,
-      "is_transfer": false
+      "merchant": "Capital One",
+      "category": "Credit Card Payment",
+      "amount": 873.92,
+      "is_transfer": true
     }
   ],
-  "synced_at": "2026-07-20T11:14:11.914Z"
+  "synced_at": "2026-07-21T11:39:04.972Z"
 }
