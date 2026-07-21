@@ -82,7 +82,27 @@
       "recurring": false
     },
     {
-      "text": "Finalize Android app",
+      "text": "Create Google Play Console account ($25 one-time) at play.google.com/console",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Add self as internal tester, install app on phone via Join link",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
       "priority": "key",
       "recurring": false
     },
