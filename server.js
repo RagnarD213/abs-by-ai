@@ -7393,7 +7393,10 @@ async function fulfillProductOrder(session) {
 // Serve ONLY the curated public/ folder. This is an allowlist: the project root
 // (server.js, db.js, *-data.json with customer PII, internal *.md handoffs) is
 // NEVER exposed over HTTP. Do not revert to express.static('.').
-app.use(express.static(path.join(__dirname, 'public')));
+// dotfiles:'allow' is required for /.well-known/assetlinks.json (Android TWA
+// verification) — express ignores dotfile paths by default. Safe here: the
+// only dotfile under public/ is .well-known/.
+app.use(express.static(path.join(__dirname, 'public'), { dotfiles: 'allow' }));
 
 // Explicit route for the privacy page (linked as /privacy without .html).
 app.get('/privacy', (req, res) => {
