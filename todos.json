@@ -125,6 +125,11 @@
       "text": "Place one real Printify print order to verify fulfillment",
       "priority": "key",
       "recurring": false
+    },
+    {
+      "text": "Order zepbound",
+      "priority": "key",
+      "recurring": false
     }
   ],
   "health": [
