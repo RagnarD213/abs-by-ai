@@ -35,6 +35,21 @@ Dan asked to get the Android app live. Found and fixed two real bugs blocking Di
 
 **Next action — Dan, not Claude (requires a Google account + payment + phone in hand):** follow `HANDOFF_ANDROID_INTERNAL_TESTING.md` — create Play Console account, create the app, upload the existing `app-release.aab`, add self as internal tester, install on phone. The Section 6 "address bar" caveat in that doc is now resolved for the *local* signing key; if Dan enables Play App Signing, Google will re-sign with its own key and Claude will need one more fingerprint added to `assetlinks.json`.
 
+### Shredded-abs lighting + skin sheen — SHIPPED, live-verified, awaiting Dan's eyeball (2026-07-21)
+
+Executed `handoff-20260721-shredded-abs-lighting-and-sheen.md` (the handoff itself had been committed earlier today in `98921c6` but the actual code edit was never done — picked it up and shipped it). Diagnosis: the prompt preserved the input photo's flat lighting verbatim and banned all skin shine; definition in a photo is contrast, and both of those bans suppressed exactly the contrast that reads as "shredded."
+
+**Shipped in one commit, `77d52fe`.** In `public/index.html` `SYSTEM_PROMPT`: (1) PRESERVE EXACTLY block no longer preserves "lighting" verbatim — now keeps light direction/color temp/exposure (same photo) but explicitly allows deep shadow in ab grooves and highlights on the blocks; (2) AVOID list narrowed from a blanket "oily, shiny, or wet-looking skin" ban to "heavily oiled, greasy, wet, or sweat-drenched" only; (3) added two new MALE bullets — light-and-shadow contrast on ab definition, and a positive "taut, dry skin with a subtle natural sheen" instruction; (4) also narrowed the MALE "NEVER describe veins, oily skin..." line to "oiled/wet/sweat-drenched" (not in the handoff's two named strings, but left as-is it would have directly contradicted lever 2, so included in the same commit). Female paths and the SKIN TONE tan-by-intensity logic untouched.
+
+**Live-verified on production (real pipeline, fixed proof photos):**
+- Baseline captured BEFORE the change (very_lean/max, `male-after.webp`): `verifierPassedFirstTry:true, retryRungsUsed:0`, image visibly flat/matte per Dan's prior read ("real close, but not shredded enough").
+- Same generation AFTER deploy: prompt not truncated (CLOSING sentence + male AVOID bullets `bulging veins`/`comically oversized` all present), `verifierPassedFirstTry:true, retryRungsUsed:0` — **no cost regression**, new image visibly shows real shadow in the ab grooves and a subtle sheen vs. the flat baseline.
+- Regression check (`male/moderate/max` "Average" on `male-before.webp`): `verifierPassedFirstTry:true, retryRungsUsed:0`, strong well-defined result, no softening.
+
+**NEXT ACTION — Dan:** eyeball the live site (Lean/Fit + Peak) and confirm the shredded look is now there. Per the handoff, do NOT proceed to the body-fat-floor drop or reference-image work without his call.
+
+---
+
 ### Lean/fit MALE muscle axis — Step 1 SHIPPED, awaiting Dan's eyeball (started 2026-07-20)
 
 Executing `handoff-20260720-lean-male-muscle-axis.md`. Lean/fit male transformations returned near-identical images because the prompt specified the change purely as a body-fat drop (11–13% → 9% = ~3 points, which Gemini rendered faithfully). Not a model ceiling — our spec.
