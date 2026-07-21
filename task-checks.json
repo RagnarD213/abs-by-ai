@@ -4,8 +4,7 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Inject Zepbound",
-    "money::Review Romaisa videos"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
