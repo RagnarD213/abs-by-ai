@@ -1429,9 +1429,14 @@ app.post('/api/generate-prompt', aiLimiter, async (req, res) => {
         // Haiku 4.5 instead of Sonnet 4.6 for the prompt-assembly step: this is
         // templated structured-text generation (Haiku's wheelhouse), and it
         // responds ~2x faster, shaving several seconds off every generation.
-        // max_tokens trimmed 2048→1024 (the prompt never approaches 2048).
+        // max_tokens raised back to 2048: with the muscle-axis sections added for
+        // lean/fit males, assembled prompts now exceed 1024 and were being truncated
+        // mid-AVOID — silently dropping the "no veins / no comically oversized muscles /
+        // no spray-on abs" guardrails and the CLOSING block on exactly the prompts that
+        // ask for the most added muscle. Truncating guardrails is not an acceptable
+        // latency saving.
         model: 'claude-haiku-4-5-20251001',
-        max_tokens: 1024,
+        max_tokens: 2048,
         temperature: 0.4,
         system: systemPrompt,
         messages: [
@@ -1460,6 +1465,14 @@ app.post('/api/generate-prompt', aiLimiter, async (req, res) => {
     if (!prompt) {
       return res.status(400).json({
         error: 'Claude returned no text. The prompt may have been blocked by safety filters.',
+      });
+    }
+
+    // A truncated prompt loses its trailing AVOID guardrails and CLOSING block, which is
+    // silent and invisible in the resulting image. Log it loudly so it can't regress again.
+    if (data?.stop_reason === 'max_tokens') {
+      console.error('PROMPT_TRUNCATED max_tokens hit — AVOID/CLOSING guardrails may be missing', {
+        outputTokens: data?.usage?.output_tokens ?? null,
       });
     }
 
