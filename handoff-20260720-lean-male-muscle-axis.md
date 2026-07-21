@@ -130,8 +130,8 @@ In `public/index.html`:
 
 | Scenario | Recommendation |
 |---|---|
-| **If Claude usage is low right now** | **Claude Opus, extended thinking**, for Steps 1 and 2. This is prompt engineering against a model whose behavior we've repeatedly misjudged, it directly touches the Anthropic API verifier code, and the output quality *is* the product. Step 3 is trivial — drop to Sonnet 5 or just do it inline. |
-| **If Claude usage is high / approaching a limit** | **Claude Sonnet 5, standard thinking.** Steps 1–2 stay on Claude regardless (see override). The plan above is specified concretely enough that Sonnet can execute it. Step 3 (hiding one markup block) is genuinely routine and is fine on Codex mini-tier, low effort, if you want to spend nothing on it. |
+| **If Claude usage is low right now** | **Claude Opus at `high` effort** for Steps 1 and 2 (not xhigh/max — the diagnosis is already done and the plan below is concrete, so the remaining work is careful execution, not exploration. Escalate to xhigh only if Step 1's live result fails for reasons that aren't obvious). This is prompt engineering against a model whose behavior we've repeatedly misjudged, it directly touches the Anthropic API verifier code, and the output quality *is* the product. Step 3 is trivial — drop to Sonnet 5 or just do it inline. |
+| **If Claude usage is high / approaching a limit** | **Claude Sonnet 5 at `medium` effort.** Steps 1–2 stay on Claude regardless (see override). The plan above is specified concretely enough that Sonnet can execute it. Step 3 (hiding one markup block) is genuinely routine and is fine on Codex mini-tier, low effort, if you want to spend nothing on it. |
 
 **Task-type override:** Steps 1 and 2 are **always-Claude regardless of usage** — Step 2 modifies the Anthropic API integration (`looksChanged` / `buildVerifierQuestion`), and Step 1 is a brand-voice-adjacent quality decision where being wrong is expensive to unwind (it changes the image every fit/lean user sees). Only Step 3 is safe to hand to Codex.
 
