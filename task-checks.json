@@ -7,7 +7,8 @@
     "health::Inject Zepbound",
     "money::Make the new job for RoMesa",
     "money::Create Google Play Console account ($25 one-time) at play.google.com/console",
-    "money::Hire someone to replace artificial hedge panels."
+    "money::Hire someone to replace artificial hedge panels.",
+    "personal::Book haircut"
   ],
   "log": {
     "health::Shower": [
