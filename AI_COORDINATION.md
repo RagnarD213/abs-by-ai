@@ -21,7 +21,29 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Ready for review`
+**Status:** `Planning`
+
+### NEW — Generation overhaul planning (started 2026-07-22)
+
+Dan reports transformations have gotten WORSE on re-tested photos and wants: (1) reassess/revert recent prompt changes, (2) remove the Realistic 90-day toggle, (3) consolidate 4 intensities to 2 options ("subtle polish" = current dramatic prompt; "Ripped" = max pushed as hard as possible), (4) a real fix for after-looks-like-before. Claude presented a preliminary plan in chat 2026-07-22; awaiting Dan's decisions before handoff docs are written. Telemetry supporting the regression: on 2026-07-22 every male generation (heavier/max, moderate/dramatic, moderate/max) failed the verifier first try AND stayed `weakChange:true` after both retries, vs 2026-07-21 when moderate/max passed 5/5 first try. Prime revert candidate: `ca2e5b9` (cut muscle targets ~1/3 and softened the "visibly bigger" framing); also the male retry preambles now demand a shredded six-pack even for heavier/moderate men, which A3.1 proved Gemini refuses on heavier bodies.
+
+### Recently shipped — Inbound mailbox for dan@absbyai.com (2026-07-22)
+
+Executed `handoff-20260722-absbyai-email-mailbox.md`. Unblocks the paused Play Console Personal→Organization conversion, which requires a contact address on the org's domain that can actually receive Google's verification email.
+
+**Root cause:** a forwarder (`dan` → `danroseconsulting@gmail.com`) already existed in Namecheap, but the domain's Mail Settings mode was **`Custom MX`**, under which Namecheap ignores the forwarder list entirely (Domain tab read "Your domain is using other email service"). Fix was to switch Mail Settings to **`Email Forwarding`** and re-save the forwarder. No new alias content was needed — only the mode.
+
+**Handoff assumption proved WRONG — worth remembering.** The doc said MX and TXT records "shouldn't conflict" because they're different record types. In fact, changing the Mail Settings mode stages a rewrite of the **entire MX table plus the root SPF TXT**: the staged diff would have deleted the `send` MX (`feedback-smtp.us-east-1.amazonses.com`, Resend/SES bounce handling) and stripped `include:_spf.mlsend.com` from the root SPF. Full record snapshot was taken before saving; all records re-verified against `dns1.registrar-servers.com` after. **Nothing was lost** — root MX (eforward1–5), `send` MX, root SPF, `resend._domainkey` DKIM, `send` SPF, and the Railway A/CNAME all intact, and no duplicate SPF record was created. Resend sending is unaffected (it authenticates via the separate `send.absbyai.com` subdomain + root DKIM, neither touched).
+
+**Also note:** the first save silently rolled back — the page still showed `Custom MX` on reload. Caught only by re-checking the Domain tab instead of trusting the save click. Second attempt persisted (TTL committed from `Automatic` to `30 min`). Verify Namecheap saves by reloading, not by the click succeeding.
+
+**Verified by bounce-signature comparison** (port 25 is blocked from the dev machine, so no direct SMTP probe was possible): a test at 19:58 UTC, pre-fix, hard-bounced in 16 seconds with `554 5.7.1 <dan@absbyai.com>: Relay access denied` from `eforward3.registrar-servers.com` — the exact signature of MX-without-alias. An identical test at 20:02 UTC, post-fix, produced **no bounce**, i.e. the relay accepted it.
+
+**Gmail self-test caveat (cost time — don't repeat):** testing by mailing `dan@absbyai.com` *from* `danroseconsulting@gmail.com` is a false negative. The forwarded copy carries the same Message-ID as the Sent copy, and Gmail silently drops duplicate Message-IDs, so a working forward still shows nothing in the inbox (confirmed absent from Spam/All Mail too). Test from a different sender.
+
+**Next action — Dan:** return to the Play Console "Confirm how Google should contact you" screen and click "Verify email address". Google's mail comes from Google's servers, so the dedupe issue does not apply and it will arrive normally. After the Organization conversion completes, remember Google's **72-hour wait** before uploading the `.aab`.
+
+**Open, non-urgent cleanup (deliberately not done mid-flow):** root SPF still carries an unused `include:_spf.mlsend.com` (MailerLite is retired), and DMARC is still `v=DMARC1; p=none;` (no enforcement).
 
 ### Recently shipped — Android TWA verification fix (COMPLETE, live-verified 2026-07-21)
 
