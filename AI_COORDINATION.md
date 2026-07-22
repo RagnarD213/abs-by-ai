@@ -35,6 +35,25 @@ Dan asked to get the Android app live. Found and fixed two real bugs blocking Di
 
 **Next action — Dan, not Claude (requires a Google account + payment + phone in hand):** follow `HANDOFF_ANDROID_INTERNAL_TESTING.md` — create Play Console account, create the app, upload the existing `app-release.aab`, add self as internal tester, install on phone. The Section 6 "address bar" caveat in that doc is now resolved for the *local* signing key; if Dan enables Play App Signing, Google will re-sign with its own key and Claude will need one more fingerprint added to `assetlinks.json`.
 
+### Recently shipped — Account deletion, App Store compliance (2026-07-22)
+
+Executed `handoff-20260722-account-deletion.md`. Adds in-product permanent account deletion, required by Apple guideline 5.1.1(v) and Google's matching Play policy — the iOS app could not be submitted without it. Web-only change (`server.js` + `public/index.html`); both native wrappers load the live site, so one Railway deploy satisfies iOS and Android.
+
+**Two schema gaps found during verification that the cascade does NOT cover** (the handoff flagged these as "verify"; both were real):
+- `audit_jobs.user_id` is a plain `INTEGER` with **no foreign key** → supplement-audit results (health data) would have been orphaned.
+- `welcome_images` is keyed by **email**, not `user_id` → the user's before/after photos would have survived deletion.
+Both are now deleted explicitly before the user row. Everything else (sessions, meals, saved_preps, programs, meal_plans, counsel_sessions, sleep_entries, transformations, weight_logs, progress_entries, coach_briefs, password_reset_tokens) is covered by `ON DELETE CASCADE` — confirmed by populating all 14 tables and asserting zero rows after.
+
+**Server — `POST /api/auth/delete-account`** (`authLimiter` + `requireAuth`, next to logout). Order is deliberate: verify the current password with bcrypt (a stolen session token alone must not destroy an account) → cancel Stripe → unsubscribe from marketing → delete non-cascading rows → delete user. **Billing is cancelled before deletion on purpose:** if Stripe fails, the handler 502s and leaves the account fully intact and retryable rather than deleting the row while Stripe keeps billing. The cancel is gated on `membership_status` in active/trialing/past_due/unpaid, so comp/beta accounts never reach Stripe — same protection as the beta-revoke guard, not inverted. Device credit balances in `credits-data.json` are deliberately untouched (device-keyed and paid for).
+
+**Client** — "Account → Delete my account" at the bottom of the member hub, opening an inline confirmation that itemizes what is deleted, warns about membership cancellation only for paying members, and requires the password. On success: clears local session, returns to the logged-out home with a toast (added a small self-removing `showToast` helper — none existed). PostHog `account_delete_started` / `_confirmed` / `_completed`. **Deliberately carries no `app-hide-purchase` class** — verified that inside `.native-app`, "Manage membership" hides while the delete entry stays visible, which is the entire point of the requirement.
+
+**Verified locally** (real `server.js` on pg-mem with a stubbed Stripe, driven over HTTP — 23 assertions, 0 failures): wrong password → 401 and the account survives; missing password → 400; no auth header → 401; correct password → 200, all rows gone, session invalidated, re-signup with the same email works; active and trialing subs → `subscriptions.cancel` called; comp member → Stripe never called but the account still deletes; already-cancelled sub (`resource_missing`) → tolerated, deletion proceeds; **Stripe outage → 502 and the account is preserved with its session still valid.** Browser: full UI flow at 375×812, inline error on wrong password, toast + logged-out home on success, login afterwards 401s, no console errors.
+
+**Live-verified on absbyai.com** — see the deploy verification below.
+
+**Next action — Dan:** when submitting to the App Store, mention account deletion in the App Store Review Notes (Apple reviewers look for the path). It's at Member hub → Account → Delete my account.
+
 ### Shredded-abs lighting + skin sheen — SHIPPED, live-verified, awaiting Dan's eyeball (2026-07-21)
 
 Executed `handoff-20260721-shredded-abs-lighting-and-sheen.md` (the handoff itself had been committed earlier today in `98921c6` but the actual code edit was never done — picked it up and shipped it). Diagnosis: the prompt preserved the input photo's flat lighting verbatim and banned all skin shine; definition in a photo is contrast, and both of those bans suppressed exactly the contrast that reads as "shredded."

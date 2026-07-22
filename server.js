@@ -3153,6 +3153,99 @@ app.post('/api/auth/logout', requireAuth, async (req, res) => {
   res.json({ ok: true });
 });
 
+// Permanent account deletion. Required by Apple guideline 5.1.1(v) and Google's
+// matching Play policy: an app that lets users create an account must let them
+// delete it from inside the app. Both native wrappers load the live site, so
+// shipping this here satisfies the requirement on every platform.
+//
+// The current password is re-checked even though the caller already holds a
+// valid session — a stolen token alone must not be able to destroy an account.
+//
+// Deletion order matters: cancel billing first (so a failure leaves the account
+// intact and retryable rather than deleting the row while Stripe keeps charging),
+// then drop the rows the FK cascade cannot reach, then the user.
+app.post('/api/auth/delete-account', authLimiter, requireAuth, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  const userId = req.user.id;
+  const email = String(req.user.email || '').toLowerCase();
+  const password = String(req.body?.password || '');
+  if (!password) return res.status(400).json({ error: 'Enter your password to confirm.' });
+
+  try {
+    const { rows } = await db.query(
+      `SELECT password_hash, stripe_subscription_id, membership_status
+         FROM users WHERE id = $1`,
+      [userId]
+    );
+    const user = rows[0];
+    if (!user) return res.status(404).json({ error: 'Account not found.' });
+    const ok = await bcrypt.compare(password, user.password_hash);
+    if (!ok) return res.status(401).json({ error: 'That password is incorrect.' });
+
+    // (a) Cancel a live Stripe subscription so deleting the account can't leave
+    // an orphaned recurring charge. 'comp' (beta) members have no real
+    // subscription — the status check keeps us from touching anything else.
+    let subscriptionCancelled = false;
+    const subId = user.stripe_subscription_id;
+    const billable = ['active', 'trialing', 'past_due', 'unpaid'].includes(
+      String(user.membership_status || '').toLowerCase()
+    );
+    if (subId && billable) {
+      const stripe = getStripe();
+      if (stripe) {
+        try {
+          await stripe.subscriptions.cancel(subId);
+          subscriptionCancelled = true;
+          console.log(`Subscription ${subId} cancelled for account deletion (user ${userId})`);
+        } catch (e) {
+          // Already cancelled / not found: nothing left to bill, so deletion proceeds.
+          const code = e?.code || e?.raw?.code || '';
+          const gone = code === 'resource_missing' || /no such subscription|already canceled/i.test(e.message || '');
+          if (!gone) {
+            console.error('delete-account: subscription cancel failed:', e.message);
+            return res.status(502).json({
+              error: "We couldn't cancel your membership billing, so we didn't delete your account. Please email support@absbyai.com.",
+            });
+          }
+          console.warn(`delete-account: subscription ${subId} already gone at Stripe — continuing.`);
+        }
+      }
+    }
+
+    // (b) Drop them from the welcome/marketing sequence. Same flag the
+    // unsubscribe link sets, so the sweep skips them and no email is ever sent
+    // to a deleted account.
+    const sub = subscribersStore.emails[email];
+    if (sub && !sub.unsubscribed) {
+      sub.unsubscribed = true;
+      sub.unsubscribedAt = new Date().toISOString();
+      sub.deletedAccount = true;
+      persistSubscribersStore();
+    }
+
+    // (c) Rows the cascade cannot reach:
+    //   - audit_jobs.user_id has no FK constraint (holds supplement-audit health data)
+    //   - welcome_images is keyed by email, not user_id (holds their before/after photos)
+    try { await db.query('DELETE FROM audit_jobs WHERE user_id = $1', [userId]); }
+    catch (e) { console.error('delete-account: audit_jobs cleanup failed:', e.message); }
+    try { await db.query('DELETE FROM welcome_images WHERE email = $1', [email]); }
+    catch (e) { console.error('delete-account: welcome_images cleanup failed:', e.message); }
+
+    // (d) The user row — ON DELETE CASCADE wipes sessions, meals, saved_preps,
+    // programs, meal_plans, counsel_sessions, sleep_entries, transformations,
+    // weight_logs, progress_entries, coach_briefs, password_reset_tokens.
+    await db.query('DELETE FROM users WHERE id = $1', [userId]);
+
+    // Device credit balances in credits-data.json are deliberately left alone:
+    // they're keyed by device, not account, and were paid for.
+    console.log(`Account deleted: ${email} (user ${userId}, subscription cancelled: ${subscriptionCancelled})`);
+    res.json({ deleted: true, subscriptionCancelled });
+  } catch (e) {
+    console.error('delete-account error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Session restore on page load. Excludes images (large) — hub fetches those separately.
 app.get('/api/auth/me', requireAuth, (req, res) => {
   res.json({ email: req.user.email, deviceId: req.user.device_id });

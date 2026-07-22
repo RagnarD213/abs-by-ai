@@ -2077,6 +2077,40 @@ html, body {
 
     <div id="hubSoonNote" class="hub-soon-note" style="display:none"></div>
 
+    <!-- Account deletion. Required in-app by Apple 5.1.1(v) + Play policy, so this
+         must stay visible inside the native wrappers — never add app-hide-purchase. -->
+    <div id="hubAccountSection" style="display:none;margin-top:28px">
+      <div class="lbl"><span class="lbl-text">Account</span></div>
+      <button id="hubDeleteAccountBtn" type="button"
+        style="margin-top:8px;background:none;border:none;padding:8px 0;font:inherit;font-size:13px;color:var(--mute);text-decoration:underline;cursor:pointer">
+        Delete my account
+      </button>
+
+      <div id="hubDeleteConfirm" style="display:none;margin-top:10px;padding:16px;border:1px solid #e6b3ab;border-radius:12px;background:#fdf4f2">
+        <div style="font-weight:700;font-size:15px;color:#b83a2a;margin-bottom:8px">Permanently delete your account?</div>
+        <div style="font-size:13px;color:var(--mute);line-height:1.55;margin-bottom:6px">
+          This cannot be undone. We will permanently delete:
+        </div>
+        <ul style="font-size:13px;color:var(--mute);line-height:1.55;margin:0 0 10px;padding-left:20px">
+          <li>Your account and login</li>
+          <li>Your saved transformations and progress photos</li>
+          <li>Your workout programs, meal plans and logged meals</li>
+          <li>Your sleep, weight and progress history</li>
+        </ul>
+        <div id="hubDeleteMemberNote" style="display:none;font-size:13px;color:#b83a2a;font-weight:600;line-height:1.5;margin-bottom:10px">
+          Your membership will be cancelled immediately and you will not be billed again.
+        </div>
+        <input type="password" id="hubDeletePassword" class="text-field" placeholder="Enter your password to confirm"
+          autocomplete="current-password" style="margin-bottom:10px" />
+        <div id="hubDeleteError" style="display:none;color:#b83a2a;font-size:13px;font-weight:600;margin-bottom:10px"></div>
+        <button id="hubDeleteSubmitBtn" class="cta-btn" style="margin:0;font-size:14px;padding:11px 16px;background:#b83a2a;border-color:#b83a2a">Permanently delete my account</button>
+        <button id="hubDeleteCancelBtn" type="button"
+          style="display:block;width:100%;margin-top:8px;background:none;border:none;padding:8px 0;font:inherit;font-size:13px;color:var(--mute);cursor:pointer">
+          Keep my account
+        </button>
+      </div>
+    </div>
+
     <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/privacy" style="color:inherit">Privacy</a></div>
   </div>
 
@@ -4571,6 +4605,10 @@ function showHubPrintUpsell() {
 function showHub() {
   const preview = isHubPreviewMode();
   $('hubLogoutBtn').style.display = isLoggedIn() ? '' : 'none';
+  // Deletion is offered to every logged-in account (member or not), on web and
+  // inside the native apps. Reset the panel so it never reopens pre-filled.
+  $('hubAccountSection').style.display = isLoggedIn() ? '' : 'none';
+  resetDeleteAccountPanel();
   $('hubWelcomeTitle').textContent = preview ? 'Your AI fitness team' : 'Welcome back';
   $('hubEmail').textContent = preview
     ? (isLoggedIn() ? auth.email : 'Everything you need to turn your goal photo into a plan.')
@@ -5266,6 +5304,75 @@ async function handleLogout() {
   showScreen('form');
 }
 
+// Brief confirmation message pinned to the bottom of the screen. Self-removing,
+// so it needs no markup in the page.
+function showToast(message, ms = 4000) {
+  const el = document.createElement('div');
+  el.textContent = message;
+  el.setAttribute('role', 'status');
+  el.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);' +
+    'max-width:min(88vw,420px);padding:12px 18px;border-radius:10px;background:#111;color:#fff;' +
+    'font-size:14px;font-weight:600;text-align:center;z-index:9999;box-shadow:0 6px 24px rgba(0,0,0,.28);' +
+    'opacity:0;transition:opacity .2s ease';
+  document.body.appendChild(el);
+  requestAnimationFrame(() => { el.style.opacity = '1'; });
+  setTimeout(() => {
+    el.style.opacity = '0';
+    setTimeout(() => el.remove(), 250);
+  }, ms);
+}
+
+// ── Account deletion (Apple 5.1.1(v) / Play policy) ──
+// Collapses the confirmation panel and clears anything typed into it.
+function resetDeleteAccountPanel() {
+  const panel = $('hubDeleteConfirm');
+  if (!panel) return;
+  panel.style.display = 'none';
+  $('hubDeletePassword').value = '';
+  $('hubDeleteError').style.display = 'none';
+  $('hubDeleteSubmitBtn').disabled = false;
+  $('hubDeleteSubmitBtn').textContent = 'Permanently delete my account';
+}
+
+function openDeleteAccountPanel() {
+  $('hubDeleteConfirm').style.display = '';
+  // Only warn about billing when there's actually a paid membership to cancel.
+  $('hubDeleteMemberNote').style.display = memberState.active && memberState.status !== 'comp' ? '' : 'none';
+  $('hubDeletePassword').focus();
+  if (window.posthog) posthog.capture('account_delete_started', { member: !!memberState.active });
+}
+
+async function handleDeleteAccount() {
+  const password = $('hubDeletePassword').value;
+  const errEl = $('hubDeleteError');
+  const btn = $('hubDeleteSubmitBtn');
+  errEl.style.display = 'none';
+  if (!password) {
+    errEl.textContent = 'Enter your password to confirm.';
+    errEl.style.display = '';
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = 'Deleting…';
+  if (window.posthog) posthog.capture('account_delete_confirmed');
+  try {
+    const out = await authApi('/api/auth/delete-account', {
+      method: 'POST',
+      body: JSON.stringify({ password }),
+    });
+    if (window.posthog) posthog.capture('account_delete_completed', { subscription_cancelled: !!out.subscriptionCancelled });
+    resetDeleteAccountPanel();
+    clearLoggedIn();
+    showScreen('form');
+    showToast('Your account has been deleted.');
+  } catch (e) {
+    errEl.textContent = e.message || 'Something went wrong. Please try again.';
+    errEl.style.display = '';
+    btn.disabled = false;
+    btn.textContent = 'Permanently delete my account';
+  }
+}
+
 function initAccounts() {
   $('loginLink').addEventListener('click', () => (isLoggedIn() ? showHub() : showAuthScreen('login')));
   $('authBackBtn').addEventListener('click', () => {
@@ -5288,6 +5395,9 @@ function initAccounts() {
   }
   $('authForm').addEventListener('submit', handleAuthSubmit);
   $('hubLogoutBtn').addEventListener('click', handleLogout);
+  $('hubDeleteAccountBtn').addEventListener('click', openDeleteAccountPanel);
+  $('hubDeleteCancelBtn').addEventListener('click', resetDeleteAccountPanel);
+  $('hubDeleteSubmitBtn').addEventListener('click', handleDeleteAccount);
   $('macroBackBtn').addEventListener('click', () => { if (isLoggedIn()) showHub(); });
   $('macroAccountCta').addEventListener('click', () => showAuthScreen('signup'));
 
