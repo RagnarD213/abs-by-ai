@@ -67,22 +67,7 @@
       "recurring": false
     },
     {
-      "text": "Hire someone to replace artificial hedge panels.",
-      "priority": "key",
-      "recurring": false
-    },
-    {
-      "text": "Make the new job for RoMesa",
-      "priority": "key",
-      "recurring": false
-    },
-    {
       "text": "Review videos RoMesa sent",
-      "priority": "key",
-      "recurring": false
-    },
-    {
-      "text": "Create Google Play Console account ($25 one-time) at play.google.com/console",
       "priority": "key",
       "recurring": false
     },
@@ -211,11 +196,6 @@
     },
     {
       "text": "Follow up with pool tile contractors",
-      "priority": "key",
-      "recurring": false
-    },
-    {
-      "text": "Book haircut",
       "priority": "key",
       "recurring": false
     }
