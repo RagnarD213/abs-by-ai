@@ -4,8 +4,7 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Inject Zepbound",
-    "personal::Book haircut"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
