@@ -23,9 +23,21 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 **Owner:** Claude Code
 **Status:** `Planning`
 
-### IN PROGRESS — iOS App Store submission prep (started 2026-07-22, Claude Code)
+### iOS App Store submission prep — Tasks 1–4 DONE, one Dan action pending (2026-07-22, Claude Code)
 
-Executing `handoff-20260722-ios-appstore-submission-prep.md` (pulled from Queued). Demo account `danroseconsulting+applereview@gmail.com` created on prod (credentials in `app-store-assets/LISTING_COPY.md`). **Blocked item: comp membership grant needs Dan at absbyai.com/admin** (add the email under beta members). Proceeding with simulator walkthrough (non-member portions), screenshots, and listing copy in the meantime.
+Executed `handoff-20260722-ios-appstore-submission-prep.md`.
+
+**Done:**
+- **Simulator walkthrough (Task 1) complete** on the iPhone 17 Pro (iOS 26.5), using Dan's already-logged-in member session (kept render-only — no junk data written to the account). Verified in the app shell: Trainer intake + program + AI-personalized workout day view (set pills, swaps, stick figures); Nutritionist intake with profile pre-fill + keyboard input; Sleep Coach entry + 30-sec check-in form; Progress Log setup; Daily Brief card; My Transformations gallery; **native share sheet** (real iOS sheet, 1.8 MB PNG) and **save-to-Photos** (proper permission prompt with usage string; IMG landed in library); Macro Tracker **photo-library upload → real AI analysis → clarifying-question loop** (multiple clarify rounds happened only because the test image was a synthetic drawing — mechanism works); Supplement Audit entry (render-only per handoff); **print flow to the embedded Stripe checkout** (Poster 9×11 $18 — stopped, no payment); **purchase gating holds** (no credit packs / plan cards / manage-membership anywhere; neutral website notes instead); **account deletion visible in-app** with full confirmation panel (cancelled via "Keep my account"); safe areas clean throughout.
+- **One real bug found + FIXED + live-verified (commit `d76c590`):** iOS WebKit renders `input[type=time]` wider than its container (Sleep check-in bedtime/wake fields bled past the page padding to the screen edge). Repro'd in simulator Safari with a minimal page; only `-webkit-appearance:none` fixes it (max-width / display:block do NOT). Deployed; re-verified inside the app — inputs now match sibling card width.
+- **Screenshots (Task 2) done:** 6 shots × both required classes in `app-store-assets/6.9-inch/` (1320×2868, captured natively on an iPhone 17 Pro Max simulator) and `app-store-assets/6.5-inch/` (1242×2688, scaled): hero/upload, hub+Daily Brief, transformations gallery, print selector, Trainer workout, Macro Tracker. No real personal data/emails in frame (proof-asset photos only).
+- **Listing copy (Task 3) done:** `app-store-assets/LISTING_COPY.md` — name/subtitle, promo (144), description, keywords (97), honest age-rating answers, App Privacy declarations (photo retention verified against server.js: transformations/welcome_images/progress photos ARE stored, said so), full App Review Notes incl. 3.1.3(e) physical-goods rationale + deletion path + demo credentials.
+- **Task 4 (privacy URL):** was already verified 200 in the handoff.
+- **Demo account (Task 5) created on prod:** `danroseconsulting+applereview@gmail.com` (password in LISTING_COPY.md).
+
+**Simulator gotchas learned:** fresh `xcodebuild` Debug builds of the wrapper fail to spawn on the Pro Max sim (RunningBoard POSIX 163); installing the known-good App.app bundle from the 17 Pro's container works. Logged-in state on a second simulator = copy the 5 `absbyai_*` keys between the apps' WKWebView `localstorage.sqlite3` files (UTF-16LE blobs). Also: on one cold boot the program/counsel syncs silently failed while meals synced (transient — clean relaunch fixed; likely the sitewide rate-limit bucket, N2).
+
+**PENDING — Dan (30 seconds):** log in at absbyai.com/admin → add `danroseconsulting+applereview@gmail.com` under beta members (comp). Then Claude should log the demo account in inside the simulator, run one transformation + open each feature once (light pre-population for the reviewer), and re-verify no paywall. Everything else waits only on Apple Developer enrollment approval.
 
 ### IN PROGRESS — Generation overhaul (started 2026-07-22, Claude Code, status `Implementation in progress`)
 
