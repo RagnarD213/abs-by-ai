@@ -3,7 +3,6 @@
   "order": [
     "money::Review videos RoMesa sent",
     "money::Eyeball lean/fit male transformation on absbyai.com",
-    "money::Place one real Printify print order to verify fulfillment",
     "money::Order zepbound",
     "money::Finish generation overhaul phase one task in Claude. Make the replicate account and finish the task.",
     "money::Restart the app store submission prep task and complete this."
@@ -18,6 +17,7 @@
     "money::Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
     "money::Finalize iOS app",
     "money::Test supplement audit functionality",
-    "money::Rotate or delete old MailerLite API key"
+    "money::Rotate or delete old MailerLite API key",
+    "money::Place one real Printify print order to verify fulfillment"
   ]
 }
