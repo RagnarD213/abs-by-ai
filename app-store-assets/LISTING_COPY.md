@@ -9,21 +9,25 @@ App Store Connect. Screenshots live in `app-store-assets/6.9-inch/` (1320×2868)
 ## 1. App name and subtitle
 
 - **App name** (30 chars max): `Abs by AI` (9 chars)
-- **Subtitle** (30 chars max, pick one):
-  - `See your after. Then earn it.` (29 chars) ← recommended
-  - `Your future body + the plan` (27 chars)
+- **Subtitle** (30 chars max): `Visualize Yourself With Abs` (27 chars)
 
 ## 2. Promotional text (170 chars max, editable anytime without review)
 
-> Snap one photo and see the after you're training for. Then let your AI coaches — trainer, nutrition, macros, sleep, supplements — get you there. (144 chars)
+> Create an image of yourself with your dream physique. Then generate a custom workout and nutrition plan to make it a reality using our powerful AI tools. (153 chars)
 
-## 3. Description (4000 chars max — this draft ≈1900)
+## 3. Description (4000 chars max — this draft ≈2350)
 
-> **See the body you're training for — then follow the plan that gets you there.**
+> Visualize yourself with the abs you've always wanted. Then generate a personalized AI fitness plan to make your goal image a reality.
 >
-> Upload one photo and Abs by AI shows you your after: your face, your body, transformed. Not a stock model. Not a filter. A realistic picture of what you could look like — the single most motivating image you'll ever put on your phone.
+> Upload a photo of yourself, and our AI will transform it into an image of YOU with a ripped body and six pack abs. Not a stock model. Not a filter. An ultra-realistic image of exactly what you would look like if you lost your belly fat and got defined abs.
 >
-> Then the real work starts, and you won't do it alone.
+> Once you see how good you look with abs, you'll be incredibly motivated to make your dream body a reality.
+>
+> And that's only the beginning.
+>
+> Abs By AI doesn't just generate an image of you with abs. It also generates a personalized fitness program specifically designed to build the body you generated in your goal image.
+>
+> Here's how Abs By AI helps you build your dream body:
 >
 > **YOUR AI COACHING TEAM**
 >
@@ -53,9 +57,12 @@ App Store Connect. Screenshots live in `app-store-assets/6.9-inch/` (1320×2868)
 
 ## 4. Keywords (100 chars max, comma-separated, no spaces)
 
-> abs,body,transformation,fitness,ai,workout,coach,macro,calorie,tracker,meal,plan,gym,weight,sleep (97 chars)
+> sixpack,sixpackabs,sixpackabs.com,fitness,workout,coach,macro,calorie,tracker,meal,plan,gym,weight (98 chars)
 
-(Don't repeat "Abs by AI" words — the app name already ranks for them. "abs" kept for the standalone term.)
+Notes on what's in and out:
+- `sixpackabs`, `sixpackabs.com`, `sixpack` — brand carry-over terms from Dan's prior company, added per Dan.
+- Removed `abs` and `ai` — Apple already indexes every word in the app name ("Abs by AI") and subtitle ("Visualize Yourself With Abs"), so repeating them in the keyword field wastes characters.
+- Removed `sleep`, `body`, `transformation` — lowest search relevance per character; `transformation` alone cost 15 chars.
 
 ## 5. Age-rating questionnaire (answer honestly — expect 12+/13+)
 
