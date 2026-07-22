@@ -115,6 +115,11 @@
       "text": "Order zepbound",
       "priority": "key",
       "recurring": false
+    },
+    {
+      "text": "Finish generation overhaul phase one task in Claude. Make the replicate account and finish the task.",
+      "priority": "key",
+      "recurring": false
     }
   ],
   "health": [
