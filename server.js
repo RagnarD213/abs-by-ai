@@ -7403,6 +7403,12 @@ app.get('/privacy', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
 });
 
+// Explicit route for the morning brief (linked as /morningbrief without .html).
+// Regenerated daily by a scheduled task; file lives in public/ like everything else served here.
+app.get('/morningbrief', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'morningbrief.html'));
+});
+
 // Serve index.html for all non-API, non-dashboard routes (SPA fallback)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
