@@ -1178,12 +1178,12 @@ html, body {
 .bridge-section .ba-img { height: 190px; }
 
 /* ── Accounts: login link, hub ── */
-.login-link, .hub-logout-btn {
+.login-link, .hub-logout-btn, .hub-login-btn {
   background: none; border: none; cursor: pointer;
   font: inherit; font-size: 13px; font-weight: 700; color: var(--mute);
   padding: 4px 2px; letter-spacing: -0.1px;
 }
-.login-link:hover, .hub-logout-btn:hover { color: var(--ink); }
+.login-link:hover, .hub-logout-btn:hover, .hub-login-btn:hover { color: var(--ink); }
 .hub-hero {
   display: flex; gap: 10px; margin-bottom: 18px;
 }
@@ -1964,6 +1964,7 @@ html, body {
         <span class="app-name">Abs by AI</span>
       </div>
       <button id="hubLogoutBtn" class="hub-logout-btn">Log out</button>
+      <button id="hubLoginBtn" class="hub-login-btn" style="display:none">Log in</button>
     </div>
 
     <div class="hero-h1" id="hubWelcomeTitle" style="font-size:26px;line-height:1.1;margin-bottom:4px">Welcome back</div>
@@ -4605,6 +4606,7 @@ function showHubPrintUpsell() {
 function showHub() {
   const preview = isHubPreviewMode();
   $('hubLogoutBtn').style.display = isLoggedIn() ? '' : 'none';
+  $('hubLoginBtn').style.display = isLoggedIn() ? 'none' : '';
   // Deletion is offered to every logged-in account (member or not), on web and
   // inside the native apps. Reset the panel so it never reopens pre-filled.
   $('hubAccountSection').style.display = isLoggedIn() ? '' : 'none';
@@ -5395,6 +5397,7 @@ function initAccounts() {
   }
   $('authForm').addEventListener('submit', handleAuthSubmit);
   $('hubLogoutBtn').addEventListener('click', handleLogout);
+  $('hubLoginBtn').addEventListener('click', () => showAuthScreen('login'));
   $('hubDeleteAccountBtn').addEventListener('click', openDeleteAccountPanel);
   $('hubDeleteCancelBtn').addEventListener('click', resetDeleteAccountPanel);
   $('hubDeleteSubmitBtn').addEventListener('click', handleDeleteAccount);
