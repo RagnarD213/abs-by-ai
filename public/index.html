@@ -1508,58 +1508,24 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       </div>
     </div>
 
-    <!-- Intensity -->
+    <!-- Intensity: two options. Internal values stay dramatic/max so the server,
+         verifier rungBudget, telemetry, and body-fat anchor tables keep working. -->
     <div class="pick-group">
       <div class="lbl"><span class="lbl-text">How dramatic</span></div>
       <div class="pick-grid" id="intensityGrid">
-        <div class="pick-card" data-value="subtle">
+        <div class="pick-card" data-value="dramatic">
           <div class="pick-header">
             <span class="pick-label">Subtle</span>
             <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
           </div>
-          <div class="pick-sub">Polished you</div>
-        </div>
-        <div class="pick-card" data-value="moderate">
-          <div class="pick-header">
-            <span class="pick-label">Moderate</span>
-            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
-          </div>
-          <div class="pick-sub">Clearly fit</div>
-        </div>
-        <div class="pick-card active" data-value="dramatic">
-          <div class="pick-header">
-            <span class="pick-label">Dramatic</span>
-            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
-          </div>
           <div class="pick-sub">Fitness model</div>
         </div>
-        <div class="pick-card" data-value="max">
+        <div class="pick-card active" data-value="max">
           <div class="pick-header">
-            <span class="pick-label">Peak</span>
+            <span class="pick-label">Ripped</span>
             <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
           </div>
           <div class="pick-sub">Photoshoot ready</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Result style (Item 4): Dream = full requested goal (default); Realistic = believable ~90-day -->
-    <div class="pick-group">
-      <div class="lbl"><span class="lbl-text">Result style</span></div>
-      <div class="pick-grid" id="modeGrid">
-        <div class="pick-card active" data-value="dream">
-          <div class="pick-header">
-            <span class="pick-label">Dream physique</span>
-            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
-          </div>
-          <div class="pick-sub">Your full goal</div>
-        </div>
-        <div class="pick-card" data-value="realistic">
-          <div class="pick-header">
-            <span class="pick-label">Realistic 90-day</span>
-            <span class="pick-radio"><svg class="check-svg" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>
-          </div>
-          <div class="pick-sub">Believable progress</div>
         </div>
       </div>
     </div>
@@ -2599,7 +2565,10 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 // ============================================================
 //  CONSTANTS
 // ============================================================
-const INTENSITY_LADDER = ['subtle', 'moderate', 'dramatic', 'max'];
+// Two-option picker: Subtle = dramatic internals, Ripped = max. The old
+// subtle/moderate tiers are gone from the UI; the server still accepts them
+// from cached clients.
+const INTENSITY_LADDER = ['dramatic', 'max'];
 const BACKEND_URL = window.location.hostname === 'localhost'
   ? window.location.origin // the local server serves this page, whatever port it's on
   : 'https://abs-by-ai-production.up.railway.app';
@@ -2862,9 +2831,8 @@ const state = {
   photoBlockMsg: '',
   gender: 'male',
   condition: null,
-  intensity: 'dramatic',
-  effectiveIntensity: 'dramatic',
-  mode: 'dream', // Item 4: 'dream' = full requested goal (default, today's behavior) | 'realistic' = believable ~90-day
+  intensity: 'max',
+  effectiveIntensity: 'max',
   description: '',
   lastAfterDataUrl: null,
   attemptCount: 0,
@@ -2929,7 +2897,7 @@ If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": 
 All other starting conditions (moderate, fit, very_lean): honor the requested intensity at full strength. Do NOT downgrade fit or lean subjects.
 
 FEMALE HEAVIER REALISM RULE — HIGHEST PRIORITY, overrides the calibration / Goal-Vision rule above for this one case
-When subject_gender is "female" AND subject_current_condition is "heavier": do NOT target a shredded peak — a realistic image edit cannot render that on a heavier female body, and attempting it produces a barely-changed result. Target a strong but BELIEVABLE transformation: body fat approximately subtle 33%, moderate 30%, dramatic 27%, max 25% (down from a ~36-40% start). Add to the directive: "This is a strong, realistic transformation — a noticeably flatter stomach, a visibly tighter and more tapered waist, leaner arms, and a firmer overall shape, so she looks clearly leaner and fitter than the input — but a believable mid-journey stage, not a shredded peak physique." The change must still be clearly VISIBLE — never a near-identical image. Keep her unmistakably feminine (preserve hip and chest curves, do not change breast size, no masculine bulk, no veins). This rule applies in BOTH Dream and Realistic modes.
+When subject_gender is "female" AND subject_current_condition is "heavier": do NOT target a shredded peak — a realistic image edit cannot render that on a heavier female body, and attempting it produces a barely-changed result. Target a strong but BELIEVABLE transformation: body fat approximately subtle 33%, moderate 30%, dramatic 27%, max 25% (down from a ~36-40% start). Add to the directive: "This is a strong, realistic transformation — a noticeably flatter stomach, a visibly tighter and more tapered waist, leaner arms, and a firmer overall shape, so she looks clearly leaner and fitter than the input — but a believable mid-journey stage, not a shredded peak physique." The change must still be clearly VISIBLE — never a near-identical image. Keep her unmistakably feminine (preserve hip and chest curves, do not change breast size, no masculine bulk, no veins).
 
 REFERENCE ARCHETYPE LIBRARY
 MALE: soccer player / endurance athlete, fit recreational athlete, fitness magazine cover model, Hollywood action-star prep, natural bodybuilder (off-stage), swimmer, rock climber, CrossFit athlete.
@@ -3015,18 +2983,6 @@ All other starting conditions (moderate, fit, very_lean): honor the requested in
 Always honor the user's requested intensity at FULL strength regardless of starting condition. Do NOT downgrade. This is the "Goal Vision" — show exactly what the user asked for. (EXCEPTION: a heavier FEMALE subject still follows the FEMALE HEAVIER REALISM RULE above — a realistic edit cannot render a peak physique on a heavier female body, so a believable strong transformation is used instead.)`
 );
 
-// Item 4: "Realistic 90-day" mode. Same base prompt, but the calibration rule tempers
-// EVERY starting condition down one step to a believable mid-journey result (not peak),
-// while still demanding a clearly VISIBLE change (so it never collapses into a no-op).
-// Dream stays the default and untouched (GOAL_SYSTEM_PROMPT above).
-const REALISTIC_SYSTEM_PROMPT = SYSTEM_PROMPT.replace(
-  `CALIBRATION RULE — only for "heavier" starting condition
-If subject_current_condition is "heavier" AND intensity is "dramatic" or "max": DOWNGRADE the body-fat target by one step (use "moderate" anchors), and add to the directive: "This is a believable mid-journey transformation — the subject should look noticeably leaner and fitter, but not yet at peak condition."
-All other starting conditions (moderate, fit, very_lean): honor the requested intensity at full strength. Do NOT downgrade fit or lean subjects.`,
-  `CALIBRATION RULE — REALISTIC 90-DAY MODE
-This is a believable ~90-day transformation, NOT a peak/"dream" physique. For EVERY starting condition, DOWNGRADE the body-fat target by one step from the requested intensity (a heavier subject lands near the "moderate" look, moderate near "fit"), and cap the result at a fit/athletic stage — do NOT render peak or contest leanness. Add to the directive: "This is a realistic mid-journey transformation — the subject looks noticeably leaner, tighter, and clearly fitter than the input, but at a believable ~90-day stage, not yet at peak condition." The change MUST still be clearly visible — realistic does NOT mean unchanged.`
-);
-
 // The muscle-axis instructions apply ONLY to male fit/very_lean subjects. Telling the
 // prompt-assembly model "only use this section when X" does not hold — it read the rule
 // and applied the added-mass language to moderate males anyway. So instead of asking,
@@ -3070,10 +3026,8 @@ function muscleAxisPlan() {
   };
 }
 
-// Item 4: Dream (default) uses the full "Goal Vision"; Realistic 90-day tempers it.
 function goalSystemPrompt() {
-  const base = state.mode === 'realistic' ? REALISTIC_SYSTEM_PROMPT : GOAL_SYSTEM_PROMPT;
-  return applyMuscleAxis(base, muscleAxisPlan());
+  return applyMuscleAxis(GOAL_SYSTEM_PROMPT, muscleAxisPlan());
 }
 
 const FIX_SYSTEM_PROMPT = `You are the prompt-engineering layer for Abs By AI, a fitness visualization app. A user generated a "future you" fitness transformation image and was not satisfied. Your job is to write a single image-EDITING prompt for Gemini image generation that FIXES the user's specific complaints while keeping everything else.
@@ -3934,14 +3888,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.querySelectorAll('#intensityGrid .pick-card').forEach(card => {
     card.addEventListener('click', () => {
       selectPick('intensityGrid', card.dataset.value, 'intensity');
-    });
-  });
-
-  // Result-style picks (Item 4: dream vs realistic 90-day)
-  document.querySelectorAll('#modeGrid .pick-card').forEach(card => {
-    card.addEventListener('click', () => {
-      selectPick('modeGrid', card.dataset.value, 'mode');
-      if (window.posthog) posthog.capture('result_mode_selected', { mode: card.dataset.value });
     });
   });
 
