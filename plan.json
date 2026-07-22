@@ -11,11 +11,11 @@
     "money::Eyeball lean/fit male transformation on absbyai.com",
     "money::Rotate or delete old MailerLite API key",
     "money::Place one real Printify print order to verify fulfillment",
-    "money::Order zepbound",
-    "personal::Follow up with pool tile contractors"
+    "money::Order zepbound"
   ],
   "excluded": [
     "money::Contact vasectomy doctor - stitches, pain during intercourse",
-    "personal::Follow up with power washing contractors"
+    "personal::Follow up with power washing contractors",
+    "personal::Follow up with pool tile contractors"
   ]
 }
