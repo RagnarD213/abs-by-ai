@@ -19,15 +19,15 @@ App Store Connect. Screenshots live in `app-store-assets/6.9-inch/` (1320×2868)
 
 > Visualize yourself with the abs you've always wanted. Then generate a personalized AI fitness plan to make your goal image a reality.
 >
-> Upload a photo of yourself, and our AI will transform it into an image of YOU with a ripped body and six pack abs. Not a stock model. Not a filter. An ultra-realistic image of exactly what you would look like if you lost your belly fat and got defined abs.
+> Upload a photo of yourself, and our AI will transform it into an image of YOU with a ripped body and six pack abs. Not a stock model. Not a filter. An ultra-realistic image of what you could look like if you lost your belly fat and got defined abs.
 >
 > Once you see how good you look with abs, you'll be incredibly motivated to make your dream body a reality.
 >
 > And that's only the beginning.
 >
-> Abs By AI doesn't just generate an image of you with abs. It also generates a personalized fitness program specifically designed to build the body you generated in your goal image.
+> Abs by AI doesn't just generate an image of you with abs. It also generates a personalized fitness program specifically designed to build the body you generated in your goal image.
 >
-> Here's how Abs By AI helps you build your dream body:
+> Here's how Abs by AI helps you build your dream body:
 >
 > **YOUR AI COACHING TEAM**
 >
@@ -57,12 +57,14 @@ App Store Connect. Screenshots live in `app-store-assets/6.9-inch/` (1320×2868)
 
 ## 4. Keywords (100 chars max, comma-separated, no spaces)
 
-> sixpack,sixpackabs,sixpackabs.com,fitness,workout,coach,macro,calorie,tracker,meal,plan,gym,weight (98 chars)
+> sixpack,sixpackabs,six,pack,fitness,workout,coach,macro,calorie,tracker,meal,plan,gym,weight (92 chars)
 
 Notes on what's in and out:
-- `sixpackabs`, `sixpackabs.com`, `sixpack` — brand carry-over terms from Dan's prior company, added per Dan.
+- `sixpack`, `sixpackabs` — brand carry-over terms from Dan's prior company.
+- `six`, `pack` — separate tokens so multi-word searches like "six pack" and "six pack abs" match (Apple combines keyword tokens with name/subtitle words; `abs` comes from the subtitle).
 - Removed `abs` and `ai` — Apple already indexes every word in the app name ("Abs by AI") and subtitle ("Visualize Yourself With Abs"), so repeating them in the keyword field wastes characters.
-- Removed `sleep`, `body`, `transformation` — lowest search relevance per character; `transformation` alone cost 15 chars.
+- Removed `sixpackabs.com` (searchers don't type ".com") and `sleep`, `body`, `transformation` — lowest search relevance per character.
+- 8 characters spare if another term is ever wanted (e.g. `diet` fits).
 
 ## 5. Age-rating questionnaire (answer honestly — expect 12+/13+)
 
