@@ -1039,6 +1039,8 @@ html, body {
 }
 .text-field::placeholder { color: var(--faint); }
 .text-field:focus { border-color: var(--acc-line); }
+/* iOS WebKit renders time inputs wider than their container unless appearance is reset */
+input[type="time"].text-field { -webkit-appearance: none; appearance: none; color: var(--ink); }
 
 /* ── AI Trainer: intake wizard ── */
 .intake-progress { height: 5px; background: var(--line); border-radius: 3px; margin-bottom: 22px; overflow: hidden; }
