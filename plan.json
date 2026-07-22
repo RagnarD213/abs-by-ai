@@ -3,7 +3,6 @@
   "order": [
     "money::Test supplement audit functionality",
     "money::Review videos RoMesa sent",
-    "money::Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
     "money::Finalize iOS app",
     "money::Eyeball lean/fit male transformation on absbyai.com",
     "money::Rotate or delete old MailerLite API key",
@@ -16,6 +15,7 @@
     "personal::Follow up with pool tile contractors",
     "money::Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
     "money::Add self as internal tester, install app on phone via Join link",
-    "money::Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track"
+    "money::Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
+    "money::Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works"
   ]
 }
