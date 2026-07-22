@@ -71,6 +71,10 @@ const aiLimiter = rateLimit({
 // API Keys from environment variables
 const ANTHROPIC_API_KEY   = process.env.ANTHROPIC_API_KEY;
 const GEMINI_API_KEY      = process.env.GEMINI_API_KEY;
+// Phase 3 two-model ensemble: FLUX.1 Kontext via api.bfl.ai. Optional — when the
+// key is unset every generation runs the single-model (Gemini) path exactly as
+// before, so deploys never depend on this being configured.
+const BFL_API_KEY         = process.env.BFL_API_KEY || '';
 const POSTHOG_API_KEY     = process.env.POSTHOG_API_KEY;
 const POSTHOG_PROJECT_ID  = process.env.POSTHOG_PROJECT_ID;
 const OURA_ACCESS_TOKEN   = process.env.OURA_ACCESS_TOKEN;
@@ -2160,10 +2164,89 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       }
     };
 
+    // ── Phase 3: second candidate from FLUX.1 Kontext (api.bfl.ai) ──
+    // Kontext follows short instructions best, so it gets a condensed prompt:
+    // the assembled prompt's opening TRANSFORMATION DIRECTIVE paragraph (the
+    // loudest change-language) plus one fixed preserve/framing clause.
+    const condenseForKontext = (fullPrompt) => {
+      const firstPara = String(fullPrompt).split(/\n\s*\n/)[0] || String(fullPrompt);
+      return firstPara.slice(0, 1800)
+        + '\n\nKeep the exact same face, identity, hairstyle, expression, clothing, pose, camera framing, background, and lighting as the input photo — only the body composition changes. No veins, no comically oversized muscles. The result must look like a natural, unretouched smartphone photograph of the same person.';
+    };
+
+    // Submit → poll → download. Bounded end to end by an AbortController (the
+    // Supplement Audit lesson: never an unbounded await). Any failure returns
+    // {ok:false} and the request degrades to the single-model path.
+    const callFluxKontext = async (promptText) => {
+      if (!BFL_API_KEY) return { ok: false, skipped: true };
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 90000);
+      try {
+        const submit = await fetch('https://api.bfl.ai/v1/flux-kontext-pro', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-key': BFL_API_KEY },
+          body: JSON.stringify({
+            prompt: promptText,
+            input_image: photoBase64,
+            output_format: 'jpeg',
+            // aspect_ratio omitted on purpose: Kontext then matches the input
+            // photo's dimensions, which is exactly the FRAMING contract.
+          }),
+          signal: controller.signal,
+        });
+        const job = await submit.json().catch(() => null);
+        if (!submit.ok || !job?.polling_url) {
+          console.error('FLUX submit failed:', submit.status, job?.detail || job?.error || '');
+          return { ok: false, status: submit.status };
+        }
+        for (;;) {
+          await new Promise((r) => setTimeout(r, 1500));
+          const poll = await fetch(job.polling_url, { headers: { 'x-key': BFL_API_KEY }, signal: controller.signal });
+          const st = await poll.json().catch(() => null);
+          const status = st?.status;
+          if (status === 'Ready') {
+            const sampleUrl = st?.result?.sample;
+            if (!sampleUrl) return { ok: false };
+            const imgRes = await fetch(sampleUrl, { signal: controller.signal });
+            if (!imgRes.ok) return { ok: false };
+            const buf = Buffer.from(await imgRes.arrayBuffer());
+            return { ok: true, imageBase64: buf.toString('base64'), imageMime: 'image/jpeg', model: 'flux' };
+          }
+          if (status !== 'Pending' && status !== 'Queued' && status !== 'Processing') {
+            // Error / Request Moderated / Content Moderated / unknown → give up.
+            console.error('FLUX terminal status:', status);
+            return { ok: false, blockedStatus: status };
+          }
+        }
+      } catch (e) {
+        if (e.name !== 'AbortError') console.error('FLUX error:', e.message);
+        return { ok: false };
+      } finally {
+        clearTimeout(timer);
+      }
+    };
+
+    // Fix passes edit a previous output (a different contract) and stay
+    // single-model; normal generations run both models in parallel.
+    const ensembleEligible = !isFix && !prevImageBase64 && !!BFL_API_KEY;
+    const fluxPromise = ensembleEligible
+      ? callFluxKontext(condenseForKontext(prompt)).catch(() => ({ ok: false }))
+      : Promise.resolve({ ok: false, skipped: true });
+
     let result = await callGemini(prompt);
     if (!result.ok) {
       const retryPreamble = `SAFE FITNESS EDIT: This is a routine body-composition edit for a fitness progress app. The subject is a consenting adult. Keep the exact same clothing and coverage as the input photo. Nothing about this edit is sexual.\n\n`;
       result = await callGemini(retryPreamble + prompt);
+    }
+    if (result.ok) result = { ...result, model: 'gemini' };
+    const fluxResult = await fluxPromise;
+
+    // Gemini blocked but Kontext delivered → ship the Kontext image instead of
+    // an error. Reliability strictly improves; it never degrades.
+    let geminiBlocked = false;
+    if (!result.ok && fluxResult.ok) {
+      geminiBlocked = true;
+      result = fluxResult;
     }
 
     // Change-verifier + intensify-retry ladder (A1 telemetry + A2 gender-aware fix).
@@ -2175,6 +2258,99 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // When the verifier says the result is still a near-no-op, we re-call Gemini with a
     // gender-specific "you were too subtle, push harder" preamble. Fail-open throughout,
     // and the whole loop runs BEFORE cacheAttempt so retries never re-charge a credit.
+    // ── Phase 3 judge: one vision call, BEFORE + both candidates ──
+    // Routing (approved 2026-07-22): identity broken → that image is never
+    // shown; one survivor → single result; two survivors + clear winner with
+    // both identities good → auto-pick; otherwise → client chooser ("the user
+    // is the best judge of their own face"). Judge error → null → Gemini image
+    // through the existing verifier ladder, exactly as today (fail-open).
+    const judgeCandidates = async (candA, candB) => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 60000);
+      try {
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': ANTHROPIC_API_KEY,
+            'anthropic-version': '2023-06-01',
+          },
+          body: JSON.stringify({
+            model: 'claude-sonnet-5',
+            max_tokens: 300,
+            temperature: 0,
+            messages: [
+              {
+                role: 'user',
+                content: [
+                  { type: 'text', text: 'BEFORE photo (the real person):' },
+                  { type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } },
+                  { type: 'text', text: 'Candidate A:' },
+                  { type: 'image', source: { type: 'base64', media_type: candA.imageMime, data: candA.imageBase64 } },
+                  { type: 'text', text: 'Candidate B:' },
+                  { type: 'image', source: { type: 'base64', media_type: candB.imageMime, data: candB.imageBase64 } },
+                  { type: 'text', text: 'Candidates A and B are AI fitness-transformation edits of the BEFORE photo. Judge them.\n\nFor each candidate assess:\n- identity: "good" (clearly the same person — same face, recognizably them), "borderline" (mostly the same person but something about the face is slightly off), or "broken" (looks like a different person, or the face/body is distorted or artifact-ridden)\n- photoreal: true if it reads as a real unretouched photograph, false if it looks AI-generated, painted, or uncanny\n\nThen pick the winner: the candidate showing the MORE dramatic, more impressive body transformation versus the BEFORE (leaner, more muscular, more defined) among those with acceptable identity and photorealism. Set margin to "clear" only if one candidate is decisively better overall; use "close" when they are near-equal or the call is debatable.\n\nReply with ONLY this JSON, no other text:\n{"a":{"identity":"good|borderline|broken","photoreal":true},"b":{"identity":"good|borderline|broken","photoreal":true},"winner":"a|b","margin":"clear|close"}' },
+                ],
+              },
+            ],
+          }),
+          signal: controller.signal,
+        });
+        const data = await response.json();
+        if (!response.ok) {
+          console.error('Judge HTTP error:', response.status, data?.error?.message);
+          return null;
+        }
+        const text = (data?.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('\n');
+        const m = text.match(/\{[\s\S]*\}/);
+        if (!m) return null;
+        const raw = JSON.parse(m[0]);
+        const norm = (x) => ({
+          identity: ['good', 'borderline', 'broken'].includes(x?.identity) ? x.identity : 'borderline',
+          photoreal: x?.photoreal !== false,
+        });
+        return {
+          a: norm(raw.a),
+          b: norm(raw.b),
+          winner: raw.winner === 'b' ? 'b' : 'a',
+          margin: raw.margin === 'clear' ? 'clear' : 'close',
+        };
+      } catch (e) {
+        if (e.name !== 'AbortError') console.error('Judge error:', e.message);
+        return null;
+      } finally {
+        clearTimeout(timer);
+      }
+    };
+
+    let judgeVerdict = null;      // parsed judge JSON (or null when not run / failed)
+    let judgeWinnerModel = null;  // 'gemini' | 'flux' when the judge produced a best pick
+    let chooserCandidates = null; // [{model,imageBase64,imageMime}, ...] when the user should choose
+    if (result.ok && fluxResult.ok && !geminiBlocked) {
+      const candA = result;      // gemini
+      const candB = fluxResult;  // flux
+      judgeVerdict = await judgeCandidates(candA, candB);
+      if (judgeVerdict) {
+        const byKey = { a: candA, b: candB };
+        const alive = ['a', 'b'].filter((k) => judgeVerdict[k].identity !== 'broken' && judgeVerdict[k].photoreal);
+        if (alive.length === 1) {
+          result = byKey[alive[0]];
+          judgeWinnerModel = result.model;
+        } else if (alive.length === 2) {
+          judgeWinnerModel = byKey[judgeVerdict.winner].model;
+          if (judgeVerdict.margin === 'clear' && judgeVerdict.a.identity === 'good' && judgeVerdict.b.identity === 'good') {
+            result = byKey[judgeVerdict.winner];
+          } else {
+            // Near-tie or a borderline identity → the user decides. Keep the
+            // judge's best pick around for the locked/paywalled path.
+            chooserCandidates = [candA, candB].map((c) => ({ model: c.model, imageBase64: c.imageBase64, imageMime: c.imageMime }));
+          }
+        }
+        // alive.length === 0: both rejected → fall through to the Gemini image
+        // + verifier ladder exactly as today (the ladder is the safety net).
+      }
+    }
+
     let verifierRan = false;
     let verifierPassedFirstTry = null;
     let retryRungsUsed = 0;
@@ -2185,7 +2361,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       : (intensity === 'moderate') ? 1
       : 0; // subtle male: no verifier / no retry
 
-    if (result.ok && rungBudget > 0) {
+    if (result.ok && rungBudget > 0 && !chooserCandidates) {
       verifierRan = true;
       // Female preambles push toward a FEMININE result (four-pack / midline / tighter
       // taper) and explicitly forbid a near-identical image or masculine morphology;
@@ -2258,7 +2434,13 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       return res.status(400).json({ error });
     }
 
-    const imageBase64 = result.imageBase64;
+    // Single-image case: whatever survived the ensemble routing + ladder.
+    // Chooser case: the judge's best pick — used only when the result turns out
+    // to be locked (paywalled users never see the chooser, just the best image).
+    const winnerCandidate = chooserCandidates
+      ? chooserCandidates.find((c) => c.model === judgeWinnerModel) || chooserCandidates[0]
+      : null;
+    const imageBase64 = winnerCandidate ? winnerCandidate.imageBase64 : result.imageBase64;
 
     // Credit gating: if the device has credits left, consume one and return the
     // image unlocked. If it's out of credits, still return the image but flag it
@@ -2293,6 +2475,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // Per-generation telemetry (A1). Emitted to Railway logs for immediate visibility
     // and returned to the client so it can forward a PostHog event under the real
     // distinctId (retry-rung counts are only known here on the server). Fail-open.
+    const chooserShown = !!(chooserCandidates && !locked);
     const telemetry = {
       sex: (sex === 'male' || sex === 'female') ? sex : null,
       intensity: intensity || null,
@@ -2303,12 +2486,27 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       finalVerifierPassed,
       weakChange,
       locked,
+      // Phase 3 ensemble/bake-off fields (the standing per-segment model comparison)
+      models_run: fluxResult.ok ? 'gemini+flux' : 'gemini',
+      gemini_blocked: geminiBlocked,
+      judge_ran: !!judgeVerdict,
+      judge_identity_a: judgeVerdict?.a?.identity ?? null,
+      judge_identity_b: judgeVerdict?.b?.identity ?? null,
+      judge_winner: judgeVerdict ? judgeWinnerModel : null,
+      judge_margin: judgeVerdict?.margin ?? null,
+      chooser_shown: chooserShown,
+      served_model: chooserShown ? null : (winnerCandidate ? winnerCandidate.model : (result.model || 'gemini')),
     };
     try {
       console.log('GEN_TELEMETRY ' + JSON.stringify({ ...telemetry, distinctId: distinctId || null, isFix: !!isFix }));
     } catch (e) {}
 
-    const payload = { imageBase64, locked, weakChange, telemetry };
+    // Chooser payload carries BOTH candidates and no top-level image; everything
+    // else keeps the existing single-image shape. Both model calls and the judge
+    // ran BEFORE cacheAttempt, so a replayed attemptId never re-charges.
+    const payload = chooserShown
+      ? { chooser: true, candidates: chooserCandidates, locked, weakChange, telemetry }
+      : { imageBase64, locked, weakChange, telemetry };
     // Cache synchronously right after the decrement (no await between them) so a
     // replayed attemptId returns this exact image without re-charging.
     cacheAttempt(attemptId, 200, payload);

@@ -1718,6 +1718,51 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
   </div>
 
   <!-- ════════════════ SCREEN 3: EMAIL CAPTURE / LOCKSCREEN DOWNLOAD ════════════════ -->
+  <!-- Phase 3 chooser: both ensemble candidates survived the judge as a near-tie
+       (or a borderline identity) — the user picks. Locked results never come here. -->
+  <div id="chooserSection" class="screen" style="display:none">
+    <div style="text-align:center;margin-bottom:14px">
+      <div style="font-size:26px;font-weight:800;letter-spacing:-0.5px;margin-bottom:4px">Which future you?</div>
+      <div class="hero-sub">We made two versions. Tap a photo to compare it with your before, then keep your favorite.</div>
+    </div>
+    <div style="display:flex;justify-content:center;margin-bottom:14px">
+      <div style="text-align:center">
+        <img id="chooserBeforeImg" alt="Before" style="width:96px;aspect-ratio:3/4;object-fit:cover;border-radius:12px;background:var(--line)">
+        <div style="font-size:10.5px;font-weight:800;letter-spacing:0.6px;color:var(--mute);margin-top:4px">YOUR BEFORE</div>
+      </div>
+    </div>
+    <div class="transform-pair">
+      <div class="transform-pair-col">
+        <div style="position:relative">
+          <img id="chooserImgA" alt="Version 1" style="cursor:pointer">
+          <span class="transform-pill">VERSION 1</span>
+        </div>
+        <button type="button" class="cta-btn chooser-keep-btn" data-idx="0" style="margin-top:8px;margin-bottom:0;padding:11px 8px;font-size:14px;width:100%">Keep this one</button>
+      </div>
+      <div class="transform-pair-col">
+        <div style="position:relative">
+          <img id="chooserImgB" alt="Version 2" style="cursor:pointer">
+          <span class="transform-pill">VERSION 2</span>
+        </div>
+        <button type="button" class="cta-btn chooser-keep-btn" data-idx="1" style="margin-top:8px;margin-bottom:0;padding:11px 8px;font-size:14px;width:100%">Keep this one</button>
+      </div>
+    </div>
+    <div class="hero-sub" style="text-align:center;margin-top:12px;font-size:12.5px">One credit covers both — the version you keep becomes your result.</div>
+
+    <!-- Full-screen compare: tapped candidate next to the before photo -->
+    <div id="chooserCompare" style="display:none;position:fixed;inset:0;z-index:200;background:var(--bg);padding:20px 14px;overflow-y:auto">
+      <div style="max-width:520px;margin:0 auto">
+        <div style="font-size:19px;font-weight:800;text-align:center;margin-bottom:12px" id="chooserCmpTitle">Version 1</div>
+        <div class="transform-pair">
+          <div class="transform-pair-col"><img id="chooserCmpBefore" alt="Before"><span class="transform-pill">BEFORE</span></div>
+          <div class="transform-pair-col"><img id="chooserCmpAfter" alt="After"><span class="transform-pill">AFTER</span></div>
+        </div>
+        <button type="button" id="chooserCmpKeepBtn" class="cta-btn" style="margin-top:14px;width:100%">Keep this one</button>
+        <button type="button" id="chooserCmpBackBtn" class="try-diff-btn" style="margin-top:8px;width:100%">Back to both versions</button>
+      </div>
+    </div>
+  </div>
+
   <div id="emailSection" class="screen" style="display:none">
     <div class="nav-bar">
       <button class="nav-icon-btn" id="emailBackBtn" title="Back">
@@ -3066,7 +3111,7 @@ Output ONLY the final image-editing prompt as plain text. No preamble, no JSON, 
 const $ = (id) => document.getElementById(id);
 
 function showScreen(name) {
-  ['formSection', 'resultSection', 'emailSection', 'bridgeSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'chooserSection', 'emailSection', 'bridgeSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -3894,6 +3939,15 @@ window.addEventListener('DOMContentLoaded', async () => {
   $('description').addEventListener('input', (e) => { state.description = e.target.value; });
 
   $('generateBtn').addEventListener('click', generate);
+
+  // Phase 3 chooser
+  document.querySelectorAll('.chooser-keep-btn').forEach(btn => {
+    btn.addEventListener('click', () => keepChooserCandidate(Number(btn.dataset.idx)));
+  });
+  $('chooserImgA').addEventListener('click', () => openChooserCompare(0));
+  $('chooserImgB').addEventListener('click', () => openChooserCompare(1));
+  $('chooserCmpKeepBtn').addEventListener('click', () => keepChooserCandidate(chooserState.cmpIdx));
+  $('chooserCmpBackBtn').addEventListener('click', () => { $('chooserCompare').style.display = 'none'; });
 
   // Result screen
   $('resultBackBtn').addEventListener('click', () => showScreen('form'));
@@ -8702,6 +8756,59 @@ function makeFixJson() {
   });
 }
 
+// ── Phase 3: "Which future you?" chooser ──
+// Server sent two judge-approved candidates (near-tie or borderline identity).
+// The user's pick becomes THE result; the other image is discarded client-side.
+const chooserState = { candidates: [], cmpIdx: null };
+const candDataUrl = (c) => `data:${c.imageMime || 'image/png'};base64,${c.imageBase64}`;
+
+function showChooser(candidates) {
+  chooserState.candidates = candidates;
+  chooserState.cmpIdx = null;
+  $('chooserBeforeImg').src = `data:${state.photoMime};base64,${state.photoData}`;
+  $('chooserImgA').src = candDataUrl(candidates[0]);
+  $('chooserImgB').src = candDataUrl(candidates[1]);
+  $('chooserCompare').style.display = 'none';
+  showScreen('chooser');
+  if (window.posthog) posthog.capture('chooser_shown', { models: candidates.map(c => c.model).join('+'), intensity: state.effectiveIntensity, sex: state.gender, condition: state.condition });
+}
+
+function openChooserCompare(idx) {
+  chooserState.cmpIdx = idx;
+  $('chooserCmpTitle').textContent = `Version ${idx + 1}`;
+  $('chooserCmpBefore').src = `data:${state.photoMime};base64,${state.photoData}`;
+  $('chooserCmpAfter').src = candDataUrl(chooserState.candidates[idx]);
+  $('chooserCompare').style.display = '';
+}
+
+function keepChooserCandidate(idx) {
+  const c = chooserState.candidates[idx];
+  if (!c) return;
+  if (window.posthog) posthog.capture('chooser_choice', { model: c.model, version: idx + 1, intensity: state.effectiveIntensity, sex: state.gender, condition: state.condition });
+  $('chooserCompare').style.display = 'none';
+  chooserState.candidates = [];
+  applyUnlockedResult(candDataUrl(c));
+}
+
+// Shared tail of the unlocked-result flow (normal generations and chooser picks).
+// The server already deducted the credit — this only syncs the local count.
+function applyUnlockedResult(afterDataUrl) {
+  state.lastAfterDataUrl = afterDataUrl;
+  $('beforeImg').src = `data:${state.photoMime};base64,${state.photoData}`;
+  $('afterImg').src = afterDataUrl;
+  $('resultDownloadBtn').href = afterDataUrl;
+  updateBodyFatDisplay();
+  updateIntensityButtons();
+  unlockResult();
+  storeTransformationLocally();
+  saveTransformationIfLoggedIn({ intensity: state.effectiveIntensity, condition: state.condition });
+  state_credits.value = Math.max(0, state_credits.value - 1);
+  updateCreditDisplay();
+  showScreen('result');
+  updateWeakChangeNudge(false, false);
+  updateFixItVisibility(false);
+}
+
 async function generate() {
   state.effectiveIntensity = state.intensity;
   state.attemptCount = 1;
@@ -8716,7 +8823,13 @@ async function generate() {
     if (generatedPrompt.trim() === 'REFUSED_MINOR') {
       throw new Error('This app is for adults only. Please use a photo of someone 18 or older.');
     }
-    const { imageBase64, locked, weakChange } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
+    const genRes = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
+    if (genRes.chooser) {
+      await finishGenLoader();
+      showChooser(genRes.candidates);
+      return;
+    }
+    const { imageBase64, locked, weakChange } = genRes;
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
 
@@ -8783,7 +8896,14 @@ async function adjustIntensity(delta) {
   try {
     const generatedPrompt = await callGeminiText(goalSystemPrompt(), makeUserJson());
     if (generatedPrompt.trim() === 'REFUSED_MINOR') throw new Error('Refused.');
-    const { imageBase64, locked, weakChange } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
+    const genRes = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
+    if (genRes.chooser) {
+      await finishResultLoader();
+      state.attemptCount += 1;
+      showChooser(genRes.candidates);
+      return;
+    }
+    const { imageBase64, locked, weakChange } = genRes;
     const afterDataUrl = `data:image/png;base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
     await finishResultLoader(); // land the bar at 100% before swapping the image in
@@ -8932,7 +9052,9 @@ async function callGeminiImage(prompt, photoBase64, photoMime, intensity, opts =
   }, 1);
   const data = await res.json();
   if (!res.ok) throw new Error(data?.error || `Backend error (HTTP ${res.status})`);
-  if (!data?.imageBase64) throw new Error("Our image generator couldn't process this photo. This usually resolves with a slightly different photo — try one with a neutral pose, even lighting, and standard gym wear or swimwear.");
+  // Phase 3: a chooser payload carries two candidates instead of one image.
+  const isChooser = !!data?.chooser && Array.isArray(data?.candidates) && data.candidates.length >= 2;
+  if (!data?.imageBase64 && !isChooser) throw new Error("Our image generator couldn't process this photo. This usually resolves with a slightly different photo — try one with a neutral pose, even lighting, and standard gym wear or swimwear.");
   // Forward the server's per-generation telemetry to PostHog under the real
   // distinctId so we can measure how often results read as "same as before"
   // (worst for women) and how hard the retry ladder had to push. Fail-open.
@@ -8941,7 +9063,7 @@ async function callGeminiImage(prompt, photoBase64, photoMime, intensity, opts =
       posthog.capture('generation_verifier', data.telemetry);
     }
   } catch (e) {}
-  return { imageBase64: data.imageBase64, locked: !!data.locked, weakChange: !!data.weakChange };
+  return { imageBase64: data.imageBase64, locked: !!data.locked, weakChange: !!data.weakChange, chooser: isChooser, candidates: isChooser ? data.candidates : null };
 }
 
 // ============================================================
