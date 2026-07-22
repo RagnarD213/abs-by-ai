@@ -120,6 +120,11 @@
       "text": "Finish generation overhaul phase one task in Claude. Make the replicate account and finish the task.",
       "priority": "key",
       "recurring": false
+    },
+    {
+      "text": "Restart the app store submission prep task and complete this.",
+      "priority": "key",
+      "recurring": false
     }
   ],
   "health": [
