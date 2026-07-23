@@ -120,7 +120,7 @@
     },
     {
       "text": "Place one real Printify print order to verify fulfillment",
-      "priority": "high",
+      "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-23"
     },
@@ -168,6 +168,18 @@
     },
     {
       "text": "Play Console: click 'Verify email address' on the org-conversion contact screen (dan@absbyai.com now works) — starts Google's 72-hour clock",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-23"
+    },
+    {
+      "text": "Verify the two-model image upgrade on live site (Claude runs it, Dan eyeballs results)",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-23"
+    },
+    {
+      "text": "Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-23"
