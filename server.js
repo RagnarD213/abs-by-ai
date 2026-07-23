@@ -7648,6 +7648,28 @@ app.post('/api/stripe/create-checkout', async (req, res) => {
   }
 });
 
+// Look up the real preview_url Printify assigned to a previously-uploaded
+// image, straight from Printify's own API — never trusts a client-supplied
+// URL. imageId only resolves to something if it was actually uploaded
+// through our own Printify account via /api/printify/upload-image.
+async function fetchPrintifyImagePreviewUrl(imageId) {
+  if (!imageId) return '';
+  try {
+    const res = await fetch(`https://api.printify.com/v1/uploads/${imageId}.json`, {
+      headers: { Authorization: `Bearer ${PRINTIFY_API_KEY}` },
+    });
+    if (!res.ok) {
+      console.error(`Printify image lookup failed for ${imageId}:`, await res.text());
+      return '';
+    }
+    const data = await res.json();
+    return data.preview_url || '';
+  } catch (err) {
+    console.error(`Printify image lookup error for ${imageId}:`, err.message);
+    return '';
+  }
+}
+
 // Submit a paid printed-product order to Printify. Idempotent via the same
 // `fulfilled` map used for credits, so the webhook + return-redirect paths
 // never double-submit. Builds the order from the session metadata and the
@@ -7669,7 +7691,7 @@ async function fulfillProductOrder(session) {
   // Printify account) rather than trusting any client-supplied URL. imagePreviewUrl
   // is only read as a fallback for sessions created before this fix, which still
   // carry it in their metadata.
-  const imageSrc = (imageId ? `https://images-api.printify.com/${imageId}` : '') || imagePreviewUrl || '';
+  const imageSrc = (imageId ? await fetchPrintifyImagePreviewUrl(imageId) : '') || imagePreviewUrl || '';
 
   if (!PRINTIFY_API_KEY || !PRINTIFY_SHOP_ID) {
     console.warn('Printify not configured — product order recorded but not submitted');
