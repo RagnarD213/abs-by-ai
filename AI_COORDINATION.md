@@ -23,6 +23,18 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 **Owner:** Claude Code
 **Status:** `Planning`
 
+### Victory Dashboard "Work Session Focus Tasks" rework — COMPLETE, live-verified (2026-07-23, Claude Code)
+
+Executed `handoff-20260723-work-session-focus-dashboard.md` in full, commit `12fe1b4`, pushed and Railway-deployed.
+
+**Shipped:** renamed "Today's Plan" → "Work Session Focus Tasks" (`dashboard.html`); capped the section at **7 open tasks** (`PLAN_OPEN_CAP`) — completed tasks stay visible below and don't count against the cap; new tasks (drag-in or auto-included Key tasks) always land in the open group above the done ones (stable order within each group); dragging in past the cap shows a toast ("Focus is full — finish something first") instead of adding; optional per-task `why` line renders under the task text in the focus band only; sessions-completed-today counter ("⚡ N sessions today", hidden at 0) increments when the last open focus task is checked off, stored in `plan.json`/`planState.sessionsCompleted` and resets on the daily plan rebuild; 7-day stale-task ⏳ badge on non-recurring column tasks, backed by a new `addedAt` field (auto-set on task creation, one-time-backfilled for existing tasks missing it). `saveTask`'s edit form now explicitly preserves `why`/`addedAt` (previously would have silently dropped them on any edit — caught before shipping). `server.js` `/api/plan` now round-trips `sessionsCompleted`.
+
+**Verified:** local dev server (`node --check` both files, seeded fake task data via browser console since local env has no `GITHUB_TOKEN` to load real todos) — cap enforcement (7 shown of 8 key tasks), drag-in-blocked toast, check-off-keeps-visible-and-sinks-below, session counter incrementing exactly once, stale badges, why-line, mobile width (375px), no console errors. **Live on absbyai.com/dashboard** post-deploy: real data shows 3 open + 5 already-done Key tasks in the section (8 total, correctly under/at the cap since 5 are done and don't count), rename live, no console errors. Confirmed the local test writes never reached the real GitHub-persisted `todos.json`/`plan.json` (no `GITHUB_TOKEN` in the local shell during testing) by diffing local files (unchanged) and curling the live `/api/todos`/`/api/plan` endpoints before pushing (Dan's real tasks intact).
+
+**Also updated:** `~/.claude/scheduled-tasks/abs-by-ai-morning-brief/SKILL.md` — new STEP 2B has the morning routine clear yesterday's Key priorities, pick 3 fresh ones with a one-line `why` each, write a fresh `plan.json` (with `sessionsCompleted:0`), and surface any 7-day-stale backlog tasks as a small "🧹 Backlog check" sub-list in the brief. Step 4's git-add line now includes `todos.json plan.json` alongside `public/morningbrief.html`.
+
+**Next action:** none — task complete. First real run of the updated morning brief (next scheduled firing) will be the first live exercise of STEP 2B; worth a spot-check that it picked sensible tasks and wrote `plan.json` correctly.
+
 ### iOS App Store submission prep — Tasks 1–4 DONE, one Dan action pending (2026-07-22, Claude Code)
 
 Executed `handoff-20260722-ios-appstore-submission-prep.md`.
