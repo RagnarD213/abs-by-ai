@@ -776,7 +776,7 @@ app.post('/api/todos', async (req, res) => {
 // so no server-side cron is needed — the stored `date` just tells the client which
 // day this arrangement belongs to.
 const PLAN_FILE = 'plan.json';
-const EMPTY_PLAN = { date: null, order: [], excluded: [] };
+const EMPTY_PLAN = { date: null, order: [], excluded: [], sessionsCompleted: 0 };
 
 async function loadPlan() {
   if (!GITHUB_TOKEN) return EMPTY_PLAN;
@@ -791,6 +791,7 @@ async function loadPlan() {
       date:     typeof parsed.date === 'string' ? parsed.date : null,
       order:    Array.isArray(parsed.order) ? parsed.order : [],
       excluded: Array.isArray(parsed.excluded) ? parsed.excluded : [],
+      sessionsCompleted: Number.isFinite(parsed.sessionsCompleted) ? parsed.sessionsCompleted : 0,
     };
   } catch (e) {
     console.error('loadPlan error:', e.message);
@@ -822,11 +823,12 @@ app.get('/api/plan', async (req, res) => {
 
 app.post('/api/plan', async (req, res) => {
   try {
-    const { date, order, excluded } = req.body || {};
+    const { date, order, excluded, sessionsCompleted } = req.body || {};
     await savePlanToGitHub({
       date:     typeof date === 'string' ? date : null,
       order:    Array.isArray(order) ? order : [],
       excluded: Array.isArray(excluded) ? excluded : [],
+      sessionsCompleted: Number.isFinite(sessionsCompleted) ? sessionsCompleted : 0,
     });
     res.json({ ok: true });
   } catch (e) {

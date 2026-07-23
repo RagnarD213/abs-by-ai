@@ -250,7 +250,7 @@ align-self: center;
 .tag-low { background: rgba(183,121,63,0.18); color: var(--brown); }
 .todo-item.priority-key .todo-text { font-weight: 700; }
 
-/* ── TODAY'S PLAN (full-width band above the 3 columns) ── */
+/* ── WORK SESSION FOCUS TASKS (full-width band above the 3 columns) ── */
 .plan-band {
 background: linear-gradient(180deg, rgba(245,166,35,0.06), var(--surface));
 border-bottom: 1px solid var(--border);
@@ -272,6 +272,12 @@ line-height: 1;
 text-align: center;
 }
 .plan-band-title .accent { color: #21d07a; }
+.plan-sessions {
+font-size: 16px;
+font-weight: 700;
+color: var(--muted);
+white-space: nowrap;
+}
 #plan-todos {
 list-style: none;
 display: grid;
@@ -300,12 +306,24 @@ cursor: pointer;
 .plan-item:not(.done) .todo-cb { border-color: #fff; }
 .plan-item.done .todo-cb { background: var(--green); border-color: var(--green); }
 .plan-item.done .todo-cb::after { content: '✓'; font-size: 12px; color: #000; font-weight: 700; }
+.plan-text-col {
+flex: 1;
+display: flex;
+flex-direction: column;
+gap: 2px;
+min-width: 0;
+}
 .plan-text {
 font-size: 25px;
 font-weight: 600;
 line-height: 1.3;
 color: var(--text);
-flex: 1;
+}
+.plan-why {
+font-size: 13px;
+font-weight: 500;
+line-height: 1.3;
+color: var(--muted);
 }
 .plan-item .todo-tag { font-size: 14px; }
 .plan-item.dragging { opacity: 0.4; }
@@ -333,9 +351,16 @@ padding: 14px 2px;
 }
 .todo-item[draggable="true"] { cursor: grab; }
 .col.drop-out-active { background: rgba(239,68,68,0.05); }
+.stale-badge {
+font-size: 13px;
+margin-left: 2px;
+cursor: help;
+opacity: 0.85;
+}
 @media (max-width: 640px) {
 .plan-band { padding: 16px 18px 18px; }
 .plan-band-title { font-size: 24px; }
+.plan-band-head { flex-direction: column; gap: 4px; }
 #plan-todos { grid-template-columns: 1fr; }
 }
 
@@ -791,10 +816,11 @@ transition: all 0.15s; }
 </div>
 </div>
 
-<!-- ════════════════════════ TODAY'S PLAN ════════════════════════ -->
+<!-- ════════════════════════ WORK SESSION FOCUS TASKS ════════════════════════ -->
 <section class="plan-band" id="plan-band">
 <div class="plan-band-head">
-<div class="plan-band-title">Today&rsquo;s <span class="accent">Plan</span></div>
+<div class="plan-band-title">Work Session <span class="accent">Focus Tasks</span></div>
+<div class="plan-sessions" id="plan-sessions" style="display:none"></div>
 </div>
 <ul id="plan-todos">
 <li class="plan-empty">Loading…</li>
@@ -1342,6 +1368,15 @@ frame();
 async function toggleTodo(id, recurring, el) {
 const nowChecked = !isDone(id, recurring);
 if (nowChecked) fireConfetti(); // celebrate the win 🎉
+
+// Session-complete detection: checking off the LAST open focus task ends a session.
+let sessionJustCompleted = false;
+if (nowChecked) {
+const idMap = buildPlanIdMap();
+const { openIds } = planDisplaySeq(idMap);
+if (openIds.length === 1 && openIds[0] === id) sessionJustCompleted = true;
+}
+
 if (recurring) {
 const arr = new Set(taskLog[id] || []);
 if (nowChecked) arr.add(localToday()); else arr.delete(localToday());
@@ -1350,6 +1385,11 @@ if (arr.size) taskLog[id] = [...arr]; else delete taskLog[id];
 if (nowChecked) checkedTodos.add(id); else checkedTodos.delete(id);
 }
 cacheChecks();
+if (sessionJustCompleted) {
+ensurePlanDay();
+planState.sessionsCompleted = (planState.sessionsCompleted || 0) + 1;
+savePlan();
+}
 renderAllTasks(); // refresh streaks + progress
 try {
 await fetch('/api/task-checks', {
@@ -1489,12 +1529,34 @@ function taskCheckId(listKey, text) {
 return `${listKey}::${text}`;
 }
 
-// Priority → tag styling, shared by the columns and Today's Plan.
+// Priority → tag styling, shared by the columns and Work Session Focus Tasks.
 function tagClassFor(p) {
 return p === 'key' ? 'tag-key' : p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med' : 'tag-low';
 }
 function tagLabelFor(p) {
 return p === 'key' ? 'Key' : p === 'high' ? 'High' : p === 'med' ? 'Med' : 'Low 💩';
+}
+
+// Days between an ISO "YYYY-MM-DD" date and today (local).
+function daysSince(dateStr) {
+if (!dateStr) return 0;
+const [y, m, d] = dateStr.split('-').map(Number);
+const then = new Date(y, m - 1, d);
+const now = new Date(); now.setHours(0, 0, 0, 0);
+return Math.round((now - then) / 86400000);
+}
+
+// One-time migration: give any task missing `addedAt` today's date, so the
+// stale-task alarm has something to measure against. Triggers a save if anything changed.
+function backfillAddedAt(state) {
+let changed = false;
+const today = localToday();
+Object.keys(state).forEach(listKey => {
+(state[listKey] || []).forEach(t => {
+if (!t.addedAt) { t.addedAt = today; changed = true; }
+});
+});
+return changed;
 }
 
 // Load task lists into editable state, then render. One single Money Tasks list:
@@ -1505,6 +1567,7 @@ money:    [...(data?.business || []), ...(data?.money || [])],
 health:   data?.health || [],
 personal: data?.personal || [],
 };
+if (backfillAddedAt(todosState)) saveTodos();
 renderAllTasks();
 }
 // Back-compat alias for existing call sites.
@@ -1525,34 +1588,44 @@ renderList(listKey, todosState[listKey] || [], document.getElementById(el), prog
 renderPlan();
 }
 
-// ══════════════════════ TODAY'S PLAN ══════════════════════
+// ══════════════════════ WORK SESSION FOCUS TASKS ══════════════════════
 // Per-day arrangement of tasks. Key tasks auto-populate; the user can drag other
 // tasks in to interleave lighter work, or drag key tasks out (they stay Key in
 // their column but won't auto-return today). Rebuilds fresh each new LOCAL day.
 //
-//   planState.order    — arranged sequence of check-ids (pinned + dragged-in)
-//   planState.excluded — key-task ids dragged OUT today (won't auto-return)
+//   planState.order            — arranged sequence of check-ids (pinned + dragged-in)
+//   planState.excluded         — key-task ids dragged OUT today (won't auto-return)
+//   planState.sessionsCompleted — count of times the section emptied out today
 // Completion is content-id keyed (taskCheckId), so a task checked here shows done
 // in its column and vice-versa for free — no separate done-sync.
 let dragCtx = null; // { id, source: 'plan' | 'column' } during an active drag
+
+// Max OPEN (unchecked) tasks in the focus section. Completed tasks stay visible
+// underneath and don't count against this.
+const PLAN_OPEN_CAP = 7;
 
 function loadPlanLocal() {
 try {
 const p = JSON.parse(localStorage.getItem('planState') || 'null');
 if (p && typeof p === 'object' && p.date) {
-return { date: p.date, order: Array.isArray(p.order) ? p.order : [], excluded: Array.isArray(p.excluded) ? p.excluded : [] };
+return {
+date: p.date,
+order: Array.isArray(p.order) ? p.order : [],
+excluded: Array.isArray(p.excluded) ? p.excluded : [],
+sessionsCompleted: Number.isFinite(p.sessionsCompleted) ? p.sessionsCompleted : 0,
+};
 }
 } catch (e) { /* ignore */ }
-return { date: localToday(), order: [], excluded: [] };
+return { date: localToday(), order: [], excluded: [], sessionsCompleted: 0 };
 }
 let planState = loadPlanLocal();
 
 function cachePlan() { localStorage.setItem('planState', JSON.stringify(planState)); }
 
-// Daily rebuild: on a new local day, clear the day's drag-ins/reorders/exclusions.
+// Daily rebuild: on a new local day, clear the day's drag-ins/reorders/exclusions/count.
 function ensurePlanDay() {
 if (planState.date !== localToday()) {
-planState = { date: localToday(), order: [], excluded: [] };
+planState = { date: localToday(), order: [], excluded: [], sessionsCompleted: 0 };
 cachePlan();
 }
 }
@@ -1564,6 +1637,7 @@ planState = {
 date: server.date,
 order: Array.isArray(server.order) ? server.order : [],
 excluded: Array.isArray(server.excluded) ? server.excluded : [],
+sessionsCompleted: Number.isFinite(server.sessionsCompleted) ? server.sessionsCompleted : 0,
 };
 cachePlan();
 }
@@ -1590,16 +1664,40 @@ map.set(taskCheckId(listKey, task.text), { listKey, task });
 return map;
 }
 
+// Is this check-id currently "done" (per its task's recurring/one-off rule)?
+function isPlanIdDone(id, idMap) {
+const info = idMap.get(id);
+return info ? isDone(id, !!info.task.recurring) : false;
+}
+
 // The ids shown in the plan, in order: honored `order` first (skipping deleted
-// tasks), then any Key task not excluded and not already placed.
+// tasks), then any Key task not excluded and not already placed. Auto-included
+// Key tasks stop once the OPEN cap is reached (already-placed order items are
+// never dropped by the cap — that's enforced at add-time instead).
 function buildPlanSeq(idMap) {
 idMap = idMap || buildPlanIdMap();
 const seq = [];
 planState.order.forEach(id => { if (idMap.has(id) && !seq.includes(id)) seq.push(id); });
+let openCount = seq.filter(id => !isPlanIdDone(id, idMap)).length;
 idMap.forEach((info, id) => {
-if (info.task.priority === 'key' && !planState.excluded.includes(id) && !seq.includes(id)) seq.push(id);
+if (info.task.priority === 'key' && !planState.excluded.includes(id) && !seq.includes(id)) {
+const wouldBeOpen = !isPlanIdDone(id, idMap);
+if (wouldBeOpen && openCount >= PLAN_OPEN_CAP) return; // cap reached — stays Key in its column only
+seq.push(id);
+if (wouldBeOpen) openCount++;
+}
 });
 return seq;
+}
+
+// Split the sequence into open (unchecked, on top) and done (checked, below) —
+// stable within each group. Completed tasks stay visible; anything new lands
+// above them because it always lands in the open group.
+function planDisplaySeq(idMap) {
+const seq = buildPlanSeq(idMap);
+const openIds = seq.filter(id => !isPlanIdDone(id, idMap));
+const doneIds = seq.filter(id => isPlanIdDone(id, idMap));
+return { openIds, doneIds, all: [...openIds, ...doneIds] };
 }
 
 function renderPlan() {
@@ -1607,27 +1705,37 @@ const el = document.getElementById('plan-todos');
 if (!el) return;
 ensurePlanDay();
 const idMap = buildPlanIdMap();
-const seq = buildPlanSeq(idMap);
+const { all: displaySeq } = planDisplaySeq(idMap);
 
-if (!seq.length) {
-el.innerHTML = '<li class="plan-empty">No key tasks yet — mark a task <strong>Key</strong> (or drag one here) to build today’s plan.</li>';
+if (!displaySeq.length) {
+el.innerHTML = '<li class="plan-empty">No focus tasks yet — pick what you\'ll knock out this block, or drag one in.</li>';
 } else {
-el.innerHTML = seq.map(id => {
+el.innerHTML = displaySeq.map(id => {
 const info = idMap.get(id);
 const t = info.task;
 const rec = !!t.recurring;
 const done = isDone(id, rec);
 const streak = rec ? calcStreak(id) : 0;
 return `
-<li class="plan-item${done ? ' done' : ''}" draggable="true" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}">
+<li class="plan-item${done ? ' done' : ''}" draggable="true" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}" data-done="${done ? 1 : 0}">
 <span class="plan-drag" title="Drag to reorder">⠿</span>
 <div class="todo-cb"></div>
+<div class="plan-text-col">
 <span class="plan-text">${escapeHtml(t.text)}${rec ? ' <span title="Daily" style="opacity:0.7">🔁</span>' : ''}</span>
+${t.why ? `<div class="plan-why">${escapeHtml(t.why)}</div>` : ''}
+</div>
 ${streak > 1 ? `<span class="streak">🔥${streak}</span>` : ''}
 <span class="todo-tag ${tagClassFor(t.priority)}">${tagLabelFor(t.priority)}</span>
-<button class="plan-remove" data-act="remove" title="Remove from today's plan">✕</button>
+<button class="plan-remove" data-act="remove" title="Remove from Work Session Focus Tasks">✕</button>
 </li>`;
 }).join('');
+}
+
+const sessEl = document.getElementById('plan-sessions');
+if (sessEl) {
+const n = planState.sessionsCompleted || 0;
+sessEl.style.display = n > 0 ? '' : 'none';
+sessEl.textContent = `⚡ ${n} session${n === 1 ? '' : 's'} today`;
 }
 
 // Click: toggle done, or remove from plan via the ✕.
@@ -1663,9 +1771,10 @@ dropIntoPlan(dragCtx.id, e.clientY);
 };
 }
 
-// Find the plan item the cursor is above, so we can insert before it.
-function planAfterElement(container, y) {
-const els = [...container.querySelectorAll('.plan-item:not(.dragging)')];
+// Find the plan item (within the same open/done group as the dragged item) the
+// cursor is above, so we can insert before it. Keeps reordering inside its group.
+function planAfterElement(container, y, doneFlag) {
+const els = [...container.querySelectorAll(`.plan-item:not(.dragging)[data-done="${doneFlag ? 1 : 0}"]`)];
 let closest = { offset: -Infinity, element: null };
 for (const child of els) {
 const box = child.getBoundingClientRect();
@@ -1676,16 +1785,28 @@ return closest.element;
 }
 
 // Insert id into the plan at the drop position; un-exclude if it was dragged out.
+// New/dragged-in tasks always land in the OPEN group (above the done ones).
+// Blocked with a toast if the open section is already at the 7-task cap.
 function dropIntoPlan(id, clientY) {
 const idMap = buildPlanIdMap();
 if (!idMap.has(id)) return; // task no longer exists
+const { openIds, doneIds } = planDisplaySeq(idMap);
+const wouldBeOpen = !isPlanIdDone(id, idMap);
+const curOpen = openIds.filter(x => x !== id);
+const curDone = doneIds.filter(x => x !== id);
+if (wouldBeOpen && curOpen.length >= PLAN_OPEN_CAP) {
+toast('Focus is full — finish something first', 'err');
+return;
+}
 const container = document.getElementById('plan-todos');
-const afterEl = planAfterElement(container, clientY);
-const seq = buildPlanSeq(idMap).filter(x => x !== id);
-let insertIdx = afterEl ? seq.indexOf(afterEl.dataset.checkId) : seq.length;
-if (insertIdx < 0) insertIdx = seq.length;
-seq.splice(insertIdx, 0, id);
-planState.order = seq; // materialize full sequence so positions stick
+const afterEl = planAfterElement(container, clientY, wouldBeOpen ? 0 : 1);
+const group = wouldBeOpen ? curOpen : curDone;
+let insertIdx = afterEl ? group.indexOf(afterEl.dataset.checkId) : group.length;
+if (insertIdx < 0) insertIdx = group.length;
+group.splice(insertIdx, 0, id);
+const newOpen = wouldBeOpen ? group : curOpen;
+const newDone = wouldBeOpen ? curDone : group;
+planState.order = [...newOpen, ...newDone]; // materialize full sequence so positions stick
 planState.excluded = planState.excluded.filter(x => x !== id);
 savePlan();
 renderAllTasks();
@@ -1731,11 +1852,14 @@ const done = isDone(id, rec);
 const streak = rec ? calcStreak(id) : 0;
 const tagClass = tagClassFor(t.priority);
 const tagLabel = tagLabelFor(t.priority);
+const age = t.addedAt ? daysSince(t.addedAt) : 0;
+const stale = !rec && t.addedAt && age >= 7;
 return `
 <li class="todo-item priority-${escapeHtml(t.priority)}${done ? ' done' : ''}" draggable="true" data-list="${listKey}" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}" data-idx="${i}">
 <div class="todo-cb"></div>
 <span class="todo-text">${escapeHtml(t.text)}${rec ? ' <span title="Daily" style="opacity:0.7">🔁</span>' : ''}</span>
 ${streak > 1 ? `<span class="streak">🔥${streak}</span>` : ''}
+${stale ? `<span class="stale-badge" title="Added ${age} days ago — do it, delete it, or delegate it">⏳</span>` : ''}
 <span class="todo-tag ${tagClass}">${tagLabel}</span>
 <span class="todo-actions">
 <button class="todo-act" data-act="edit" title="Edit">✎</button>
@@ -1759,7 +1883,7 @@ return;
 toggleTodo(li.dataset.checkId, li.dataset.recurring === '1', li);
 };
 
-// Drag a column task → can be dropped into Today's Plan to pin it for today.
+// Drag a column task → can be dropped into Work Session Focus Tasks to pin it for today.
 el.ondragstart = (e) => {
 const li = e.target.closest('.todo-item');
 if (!li) return;
@@ -1830,7 +1954,12 @@ const text = document.getElementById(`tf-text-${listKey}`).value.trim();
 if (!text) return;
 const priority = document.getElementById(`tf-pri-${listKey}`).value;
 const recurring = document.getElementById(`tf-rec-${listKey}`).checked;
+// Preserve fields the edit form has no controls for (why/addedAt) — this form
+// only edits text/priority/recurring, it must not silently drop the rest.
+const existing = (idx != null && idx >= 0) ? todosState[listKey][idx] : null;
 const task = { text, priority, recurring };
+task.addedAt = existing?.addedAt || localToday();
+if (existing?.why) task.why = existing.why;
 if (idx == null || idx < 0) todosState[listKey].push(task);
 else todosState[listKey][idx] = task;
 cancelForm(listKey);
@@ -1862,7 +1991,7 @@ btn.disabled = false;
 btn.textContent = prev;
 }
 todosState[listKey] = todosState[listKey] || [];
-todosState[listKey].push({ text, priority, recurring: false });
+todosState[listKey].push({ text, priority, recurring: false, addedAt: localToday() });
 input.value = '';
 priSel.value = 'auto';
 renderAllTasks();
