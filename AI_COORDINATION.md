@@ -21,7 +21,7 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Blocked`
+**Status:** `Implementation in progress`
 
 ### Ensemble prod verification — DONE; judge bug FIXED; blocked on 2 Dan actions (2026-07-23, Claude Code)
 
@@ -43,6 +43,14 @@ Ran 20 real prod generations (2 rounds × 10: 8 male / 2 female across all four 
 **Open follow-ups (not blockers):** (1) chooser frequency is high (4/7) because FLUX faces often read "borderline" to the judge — watch PostHog `chooser_shown`/`chooser_choice` once real traffic flows and tune the judge threshold if users find it tiresome; (2) FLUX unreliable on female photos (moderation) — Gemini fallback covers it, but female users get fewer ensemble wins; (3) testing gotcha worth keeping: requests WITHOUT a deviceId skip the credit block (no credits commit, chooser reachable) — the clean way to run prod verification batches.
 
 **Next action:** none for this task — ensemble is live, verified, and telemetry is flowing. Watch the first real-traffic PostHog `generation_verifier` events for `models_run`/`judge_*`/`chooser_*` distribution.
+
+### Bake-off continuation (2026-07-23, Claude Code, in progress) — batch running + female-moderation finding
+
+Executing `handoff-20260723-ensemble-bakeoff-continuation.md`. Rebuilt the test harness (extracts real `goalSystemPrompt()` from `public/index.html`, drives prod `/api/generate-prompt` + `/api/generate-image` with proof photos, no `deviceId`). Running a 20-generation batch (16 male / 4 female, varied conditions/intensities across all 4 proof photos) — results + artifact to follow.
+
+**Female-photo FLUX finding (step 3 of the handoff): confirmed a hard ceiling, not a fixable setting.** Pulled Replicate's live OpenAPI schema for `black-forest-labs/flux-kontext-pro`: `safety_tolerance` maxes at **2 when an input image is used** (6 is text-only), and the server already runs at the default of 2 — i.e. already at the ceiling, nothing to loosen. Also: both current female proof photos (`female-before.webp`, `female-after.webp`) are sports bra + athletic shorts, not swimwear as previously assumed — already fairly modest coverage — and Replicate's moderation (E005 "flagged as sensitive") still rejects them. So option (a) from the handoff (raise `safety_tolerance`) is a dead end, and option (b) (test more-covered photo) doesn't look promising either since the current photos are already moderate coverage. Verdict forming: FLUX-via-Replicate may just not be usable for female bodies in fitted athletic wear at all; Gemini fallback covers it (fail-open works), but women get no ensemble upside. Have not yet tried BFL direct API (option c) — that's a real spend/setup decision for Dan, not attempted without his go-ahead.
+
+**Next action:** finish the 20-run batch, tally judge win-rate vs round-3 baseline (FLUX 6/7), confirm female E005 pattern holds across both female jobs in the batch, deliver a side-by-side artifact to Dan, and report the safety_tolerance dead-end + recommend Dan's call on BFL direct API vs accepting Gemini-only for women.
 
 ### Three unblocking account actions — ALL COMPLETE (2026-07-23, Claude Code, concierge walkthrough)
 
