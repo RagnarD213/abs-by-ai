@@ -7674,6 +7674,13 @@ async function fetchPrintifyImagePreviewUrl(imageId) {
 // `fulfilled` map used for credits, so the webhook + return-redirect paths
 // never double-submit. Builds the order from the session metadata and the
 // no-crop placement computed from the artwork + product aspect ratios.
+// Guards the webhook and session-status-fallback paths from both calling
+// fulfillProductOrder for the same session at nearly the same instant — the
+// `fulfilled` flag alone isn't enough since both checks can pass before
+// either write lands. Released once this attempt finishes, win or lose, so a
+// genuinely failed order can still be retried by a later, separate call.
+const inFlightProductOrders = new Set();
+
 async function fulfillProductOrder(session) {
   if (!session || session.payment_status !== 'paid') return false;
   const stripe = getStripe();
@@ -7681,7 +7688,16 @@ async function fulfillProductOrder(session) {
   const full = (stripe && session.id) ? await stripe.checkout.sessions.retrieve(session.id) : session;
   const sid = full.id;
   if (creditsStore.fulfilled[`order_${sid}`]) return false; // already submitted
+  if (inFlightProductOrders.has(sid)) return false; // a concurrent call is already handling this session
+  inFlightProductOrders.add(sid);
+  try {
+    return await fulfillProductOrderInner(full, sid);
+  } finally {
+    inFlightProductOrders.delete(sid);
+  }
+}
 
+async function fulfillProductOrderInner(full, sid) {
   const meta = full.metadata || {};
   const { imageId, imagePreviewUrl, productType, size } = meta;
   const framedBool = meta.framed === 'true';
@@ -7766,12 +7782,22 @@ async function fulfillProductOrder(session) {
   persistCreditsStore();
   console.log(`Printify order created: ${printifyData.id} (${productType} ${size}${framedBool ? ' framed' : ''}) for ${email}`);
 
-  const submitRes = await fetch(
-    `https://api.printify.com/v1/shops/${PRINTIFY_SHOP_ID}/orders/${printifyData.id}/send_to_production.json`,
-    { method: 'POST', headers: { Authorization: `Bearer ${PRINTIFY_API_KEY}` } }
-  );
-  if (!submitRes.ok) {
-    const submitErr = await submitRes.text();
+  // A freshly created order briefly sits in Printify's own "pending" status
+  // before it accepts send_to_production (confirmed live: immediate submission
+  // gets "It is not allowed to sent order to production with status pending.").
+  // Retry with backoff instead of giving up on the first attempt.
+  let submitOk = false, submitErr = '';
+  for (let attempt = 1; attempt <= 5 && !submitOk; attempt++) {
+    if (attempt > 1) await new Promise(r => setTimeout(r, attempt * 2000));
+    const submitRes = await fetch(
+      `https://api.printify.com/v1/shops/${PRINTIFY_SHOP_ID}/orders/${printifyData.id}/send_to_production.json`,
+      { method: 'POST', headers: { Authorization: `Bearer ${PRINTIFY_API_KEY}` } }
+    );
+    if (submitRes.ok) { submitOk = true; break; }
+    submitErr = await submitRes.text();
+    if (!submitErr.includes('status pending')) break; // different failure — no point retrying
+  }
+  if (!submitOk) {
     console.error(`Printify order ${printifyData.id} created but send_to_production FAILED — sitting on hold, needs manual submit in Printify dashboard:`, submitErr);
   } else {
     console.log(`Printify order ${printifyData.id} submitted to production`);
