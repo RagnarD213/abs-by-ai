@@ -36,7 +36,13 @@ Ran 20 real prod generations (2 rounds × 10: 8 male / 2 female across all four 
 
 **Verdict: keep FLUX — do not revert.** With the judge fixed it demonstrably wins the hardest case, the identity gate protects users from bad faces, and the fallback means it can only add quality, never break generations. But it was net-negative until today (pure cost, zero benefit) and is currently OFF due to the empty Replicate balance.
 
-**Next action — Dan:** (1) add Replicate credit, (2) set the Railway Watch Paths above. Then Claude re-runs a small batch to confirm ensemble win-rate and chooser frequency with both models live.
+**UPDATE (same day, ~4:50 PM): both Dan actions DONE, round-3 batch run with both models live.** Dan added $20 Replicate credit and applied the Watch Paths (`/**` + 8 `!/…json` negations, verified correctly entered one-per-line). Round 3 (10 runs): 7 got both models (1 fired before credit processed; both FEMALE runs came back Gemini-only — Replicate moderation refuses the female swimwear proof photos, consistent E005). Judge results on the 7 two-model runs: **FLUX won 6 of 7** (Gemini won only when FLUX's face drifted — identity gate working), FLUX auto-served twice (clear margin), **chooser shown 4 of 7** (near-tie/borderline). **Headline: FLUX broke the Gemini heavier-body ceiling** — on the heavier male at max, Gemini returned its usual tan-plus-faint-abs (A3.1 ceiling), FLUX returned a genuine transformation (fat gone, muscular, identity preserved). Report with all side-by-sides: https://claude.ai/code/artifact/36d7819f-550d-4b47-8ee2-80ad9db77f11
+
+**Watch-paths verification:** this commit doubles as the code-deploys test (AI_COORDINATION.md is not excluded → must trigger a deploy); a deviceId credit-spend generation right after must NOT trigger one. Result recorded in the session; if anything looked wrong it would be flagged here.
+
+**Open follow-ups (not blockers):** (1) chooser frequency is high (4/7) because FLUX faces often read "borderline" to the judge — watch PostHog `chooser_shown`/`chooser_choice` once real traffic flows and tune the judge threshold if users find it tiresome; (2) FLUX unreliable on female photos (moderation) — Gemini fallback covers it, but female users get fewer ensemble wins; (3) testing gotcha worth keeping: requests WITHOUT a deviceId skip the credit block (no credits commit, chooser reachable) — the clean way to run prod verification batches.
+
+**Next action:** none for this task — ensemble is live, verified, and telemetry is flowing. Watch the first real-traffic PostHog `generation_verifier` events for `models_run`/`judge_*`/`chooser_*` distribution.
 
 ### Three unblocking account actions — ALL COMPLETE (2026-07-23, Claude Code, concierge walkthrough)
 
