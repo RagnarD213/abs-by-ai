@@ -7743,6 +7743,17 @@ async function fulfillProductOrder(session) {
   creditsStore.fulfilled[`order_${sid}`] = true;
   persistCreditsStore();
   console.log(`Printify order created: ${printifyData.id} (${productType} ${size}${framedBool ? ' framed' : ''}) for ${email}`);
+
+  const submitRes = await fetch(
+    `https://api.printify.com/v1/shops/${PRINTIFY_SHOP_ID}/orders/${printifyData.id}/send_to_production.json`,
+    { method: 'POST', headers: { Authorization: `Bearer ${PRINTIFY_API_KEY}` } }
+  );
+  if (!submitRes.ok) {
+    const submitErr = await submitRes.text();
+    console.error(`Printify order ${printifyData.id} created but send_to_production FAILED — sitting on hold, needs manual submit in Printify dashboard:`, submitErr);
+  } else {
+    console.log(`Printify order ${printifyData.id} submitted to production`);
+  }
   return true;
 }
 
