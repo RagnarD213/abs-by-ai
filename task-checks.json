@@ -8,7 +8,8 @@
     "money::Research makeup for photo shoot",
     "money::Buy swimsuits and posing trunks",
     "money::Schedule tanning",
-    "money::Buy makeup"
+    "money::Buy makeup",
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
