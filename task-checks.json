@@ -5,8 +5,7 @@
     "health::Supplements",
     "health::Salad",
     "health::Inject Zepbound",
-    "money::Order zepbound",
-    "money::Eyeball lean/fit male transformation on absbyai.com"
+    "money::Order zepbound"
   ],
   "log": {
     "health::Shower": [
