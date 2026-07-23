@@ -1186,8 +1186,9 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
   padding: 4px 2px; letter-spacing: -0.1px;
 }
 .login-link:hover, .hub-logout-btn:hover, .hub-login-btn:hover { color: var(--ink); }
+.hub-hero-wrap { margin-bottom: 18px; }
 .hub-hero {
-  display: flex; gap: 10px; margin-bottom: 18px;
+  display: flex; gap: 10px;
 }
 .hub-hero-col { flex: 1; position: relative; }
 .hub-hero-col img {
@@ -1200,6 +1201,12 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
   color: #fff; background: rgba(20,18,15,0.55); border-radius: 7px; padding: 3px 8px;
 }
 .hub-hero-lbl-goal { background: #2f5fe0; }
+.hub-hero-print-link {
+  display: block; margin: 10px auto 0; padding: 2px 8px;
+  border: 0; background: none; color: var(--acc); cursor: pointer;
+  font: inherit; font-size: 13.5px; font-weight: 600; letter-spacing: -0.1px;
+}
+.hub-hero-print-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 .hub-tiles { display: flex; flex-direction: column; gap: 9px; }
 .hub-tile {
   display: flex; align-items: center; gap: 12px; width: 100%;
@@ -2020,15 +2027,18 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <div id="hubBriefCard" class="brief-card" style="display:none"></div>
 
     <!-- Before / after transformation hero -->
-    <div id="hubHero" class="hub-hero" style="display:none">
-      <div class="hub-hero-col">
-        <img id="hubBeforeImg" alt="You today" />
-        <div class="hub-hero-lbl">Today</div>
+    <div id="hubHeroWrap" class="hub-hero-wrap" style="display:none">
+      <div id="hubHero" class="hub-hero" style="display:none">
+        <div class="hub-hero-col">
+          <img id="hubBeforeImg" alt="You today" />
+          <div class="hub-hero-lbl">Today</div>
+        </div>
+        <div class="hub-hero-col">
+          <img id="hubAfterImg" alt="Your future self" />
+          <div class="hub-hero-lbl hub-hero-lbl-goal">Your Goal</div>
+        </div>
       </div>
-      <div class="hub-hero-col">
-        <img id="hubAfterImg" alt="Your future self" />
-        <div class="hub-hero-lbl hub-hero-lbl-goal">Your Goal</div>
-      </div>
+      <button id="hubHeroPrintLink" class="hub-hero-print-link">Print My Future Self</button>
     </div>
 
     <div class="hub-tiles">
@@ -4561,10 +4571,10 @@ function showTrialGate(feature) {
   showAuthScreen('signup', { trialGate: true });
 }
 
-function showHubPrintUpsell() {
+function showHubPrintUpsell(source = 'tile') {
   upsell.imageDataUrl = localStorage.getItem(LAST_AFTER_KEY) || state.lastAfterDataUrl || null;
   upsell.returnScreen = 'hub';
-  if (window.posthog) posthog.capture('print_upsell_clicked', { logged_in: isLoggedIn() });
+  if (window.posthog) posthog.capture('print_upsell_clicked', { logged_in: isLoggedIn(), source });
   showProductSection();
 }
 
@@ -4741,8 +4751,10 @@ async function renderHubHero() {
     $('hubBeforeImg').src = before;
     $('hubAfterImg').src = after;
     $('hubHero').style.display = '';
+    $('hubHeroWrap').style.display = '';
   } else {
     $('hubHero').style.display = 'none';
+    $('hubHeroWrap').style.display = 'none';
   }
 }
 
@@ -5372,7 +5384,8 @@ function initAccounts() {
   // Membership management
   $('hubMembershipManageBtn').addEventListener('click', handleManageMembership);
   $('hubBecomeMemBtn').addEventListener('click', () => showMembershipScreen(() => showHub()));
-  $('hubPrintUpsell').addEventListener('click', showHubPrintUpsell);
+  $('hubPrintUpsell').addEventListener('click', () => showHubPrintUpsell('tile'));
+  $('hubHeroPrintLink').addEventListener('click', () => showHubPrintUpsell('hero_link'));
 
   document.querySelectorAll('#hubSection .hub-tile[data-feature]').forEach(tile => {
     tile.addEventListener('click', (e) => {

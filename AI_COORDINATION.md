@@ -20,8 +20,20 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Owner:** Claude Code
-**Status:** `Blocked`
+**Owner:** Codex
+**Status:** `Implementation in progress`
+
+### Printify upsell improvements (started 2026-07-23, Codex)
+
+**Goal:** Execute `handoff-20260723-print-upsell-improvements.md`: add a member-hub hero print link, replace the misleading fixed-size product preview with a true-scale wall mockup, and preserve the hub return destination across Stripe’s page reload.
+
+**Acceptance criteria:** The three client-only items are implemented as separate commits; locally verified at 375×812 and desktop; pushed to `main`; Railway deployment completes; the live member flow and mockups are verified on `absbyai.com`; no server pricing or fulfillment code changes.
+
+**Completed so far:** Item 1 implemented and locally verified at 375×812 and desktop. The link is centered under the hero, is hidden with the hero when no transformation exists, opens the existing print selector with the goal image, records `source: 'hero_link'`, and the back button returns to the hub.
+
+**Current work:** Commit, push, deploy, and live-verify item 1; then begin item 2’s true-scale wall mockup.
+
+**Next action:** Verify Railway and `absbyai.com`, then implement item 2.
 
 ### Printify order fulfillment verification — bug found + FIXED, one manual step left for Dan (2026-07-23, Claude Code)
 
