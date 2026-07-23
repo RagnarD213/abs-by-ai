@@ -3,8 +3,7 @@
     "health::Shower",
     "health::Workout",
     "health::Supplements",
-    "health::Salad",
-    "health::Inject Zepbound"
+    "health::Salad"
   ],
   "log": {
     "health::Shower": [
