@@ -20,24 +20,30 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Owner:** Codex
-**Status:** `Implementation in progress`
+**Owner:** —
+**Status:** `No active task`
 
-### Printify upsell improvements (started 2026-07-23, Codex)
+---
+
+## Latest completed task
+
+### Printify upsell improvements — COMPLETE (2026-07-23, Codex)
 
 **Goal:** Execute `handoff-20260723-print-upsell-improvements.md`: add a member-hub hero print link, replace the misleading fixed-size product preview with a true-scale wall mockup, and preserve the hub return destination across Stripe’s page reload.
 
-**Acceptance criteria:** The three client-only items are implemented as separate commits; locally verified at 375×812 and desktop; pushed to `main`; Railway deployment completes; the live member flow and mockups are verified on `absbyai.com`; no server pricing or fulfillment code changes.
-
-**Completed so far:**
+**Completed:**
 - Item 1 implemented, committed (`bcfc6f6`), pushed, Railway-deployed, and live source-verified. The link is centered under the hero, is hidden with the hero when no transformation exists, opens the existing print selector with the goal image, records `source: 'hero_link'`, and the back button returns to the hub.
 - Railway deployment blocker repaired: the Watch Paths saved earlier with leading `/` marked every later GitHub release `SKIPPED`, including real `server.js` and `public/index.html` changes. Updated the patterns to root-relative `**` plus the same eight root-relative JSON negations, verified the saved configuration, then deployed exact commit `bcfc6f6` successfully.
 - Item 2 implemented, committed (`4aaccd5`), pushed, automatically Railway-deployed (proving the Watch Paths repair), and live source-verified. Local 375×812 + desktop visual QA confirmed poster 9×11 → 11×14 and canvas 8×10 → 16×20 visibly change at one shared pixels-per-inch scale; the 16×20 stays inside the scene; artwork uses honest top-biased cover cropping; poster/canvas treatments and framed canvas are distinct; the price and checkout CTA remain in the first mobile viewport; product thumbnails have no letterboxing; no browser console errors.
-- Item 3 implemented and locally verified with a simulated full page reload: the hub destination survives through `sessionStorage`, is restored and cleared on a completed order, and Continue returns to the member hub. A logged-in user with no saved destination defaults to the hub; logged-out still defaults to Macro Tracker; gallery entry/skip returns to Transformations. The checkout query stays in the URL until status succeeds, preventing session restoration from racing and hiding the confirmation.
+- Item 3 implemented, committed (`fa3f97c`), pushed, automatically Railway-deployed, live source-verified, and production health-checked. Local simulation of Stripe’s full page reload confirmed the hub destination survives through `sessionStorage`, is restored and cleared on a completed order, and Continue returns to the member hub. A logged-in user with no saved destination defaults to the hub; logged-out still defaults to Macro Tracker; gallery entry/skip returns to Transformations. The checkout query stays in the URL until status succeeds, preventing session restoration from racing and hiding the confirmation.
 
-**Current work:** Commit, push, deploy, and live source-verify item 3.
+**Verification:** Inline JavaScript syntax and `git diff --check` passed for all three items. Local browser QA covered 375×812 and desktop, all poster/canvas sizes, framed canvas, product thumbnails, hero/no-hero states, back/skip/confirmation destinations, and browser console errors. Railway deployments `48ee5d15...`, `d64f0cf9...`, and `b1ae2e55...` succeeded; `https://absbyai.com/health` returned `{"status":"ok"}` after the final release.
 
-**Next action:** After item 3 is live, reset this active task to `No active task`.
+**Open live proof:** Item 3’s real paid Stripe return was not re-purchased; its full-reload behavior was simulated locally as allowed by the handoff. The next real order is the final no-cost confirmation.
+
+---
+
+## Project history and open follow-ups
 
 ### Printify order fulfillment verification — bug found + FIXED, one manual step left for Dan (2026-07-23, Claude Code)
 
