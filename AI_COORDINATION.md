@@ -21,7 +21,22 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Planning`
+**Status:** `Blocked`
+
+### Ensemble prod verification — DONE; judge bug FIXED; blocked on 2 Dan actions (2026-07-23, Claude Code)
+
+Ran 20 real prod generations (2 rounds × 10: 8 male / 2 female across all four proof body types) to verify the Replicate/FLUX ensemble end-to-end. Side-by-side report: https://claude.ai/code/artifact/36d7819f-550d-4b47-8ee2-80ad9db77f11
+
+**Three production bugs found:**
+1. **Judge 100% broken since Phase 3 shipped** — the `claude-sonnet-5` judge call sent `temperature: 0`, which the Claude 5 family rejects with a 400 (`Judge HTTP error: 400 'temperature' is deprecated for this model` in Railway logs). Every generation ran FLUX (~4¢), then silently discarded it and served Gemini. **FIXED, commit `e39ac7c`, deployed.** After the fix: judge runs, and on the hard case (lean male / Ripped) it picked FLUX over Gemini with clear margin — the FLUX image is visibly better (bigger build, deeper ab shadow, real skin texture vs Gemini's airbrushed look). On another run it correctly rejected a FLUX candidate with borderline face identity. Routing verified live: auto-pick, identity gate, and single-model fallback all work.
+2. **Every free-credit spend triggers a full Railway redeploy** — `persistCreditsStore` commits `credits-data.json` to GitHub; Railway auto-deploys every push to main; in-flight generations die with 502 "Application failed to respond" during the container swap (~40% of requests during busy testing; also explains the "transient" 502s of Jul 21). Same applies to ALL 8 server-committed data files (todos.json, plan.json, task-checks.json, subscribers-data.json, credits-data.json, monarch-data.json, watch-data.json, push-subs.json) — every dashboard task-check redeploys prod. Railway does NOT support `[skip ci]`. **Fix = Railway Watch Paths (service Settings), needs Dan** (permission classifier blocked Claude from editing the setting): add patterns `/**` then `!/credits-data.json` `!/subscribers-data.json` `!/todos.json` `!/plan.json` `!/task-checks.json` `!/monarch-data.json` `!/watch-data.json` `!/push-subs.json` (one per line). After saving, verify the next code push still deploys.
+3. **Replicate account out of credit** — after ~9 FLUX runs the starting credit was exhausted; every call since gets `402 insufficient credit` and generations fall back to Gemini-only (fail-open works, no user-visible errors). **Needs Dan:** add credit at replicate.com/account/billing (~$10–20 = 250–500 images at ~4¢).
+
+**Also observed:** Replicate flagged the heavier-female swimwear proof photo as "sensitive" (E005) even with credit — FLUX may be unreliable for female users (Gemini fallback covers it). Heavier-male at Ripped still under-delivers on Gemini (1 verifier retry, modest change — the A3.1 ceiling confirmed for men); that's the segment where FLUX should help most once credited. Testing workaround worth remembering: requests WITHOUT a deviceId skip the credit block → no credits commit → no redeploy loop, and the chooser path stays reachable.
+
+**Verdict: keep FLUX — do not revert.** With the judge fixed it demonstrably wins the hardest case, the identity gate protects users from bad faces, and the fallback means it can only add quality, never break generations. But it was net-negative until today (pure cost, zero benefit) and is currently OFF due to the empty Replicate balance.
+
+**Next action — Dan:** (1) add Replicate credit, (2) set the Railway Watch Paths above. Then Claude re-runs a small batch to confirm ensemble win-rate and chooser frequency with both models live.
 
 ### Three unblocking account actions — ALL COMPLETE (2026-07-23, Claude Code, concierge walkthrough)
 
