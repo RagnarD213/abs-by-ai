@@ -2336,7 +2336,6 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
           body: JSON.stringify({
             model: 'claude-sonnet-5',
             max_tokens: 300,
-            temperature: 0,
             messages: [
               {
                 role: 'user',
