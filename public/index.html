@@ -718,50 +718,119 @@ html, body {
 
 /* ── Mini mockups (product card thumbnails) ── */
 .mini-canvas {
-  width: 60px; height: 60px; flex-shrink: 0;
-  background: #ece6dc;
-  border: 2px solid #c8bcac;
+  width: 48px; height: 60px; flex-shrink: 0;
+  background: #bcae9d;
+  border: 2px solid #aa9b89;
   border-radius: 3px;
-  box-shadow: inset 0 0 0 7px #fff, 0 2px 8px rgba(0,0,0,0.14);
+  box-shadow: 0 3px 10px rgba(20,18,15,0.18);
   position: relative;
 }
 .mini-canvas img {
-  position: absolute; inset: 7px;
-  width: calc(100% - 14px); height: calc(100% - 14px);
-  object-fit: contain; background: #fff; border-radius: 1px; display: block;
+  position: absolute; inset: 3px;
+  width: calc(100% - 6px); height: calc(100% - 6px);
+  object-fit: cover; object-position: 50% 0%; border-radius: 1px; display: block;
 }
 .mini-poster {
-  width: 44px; height: 60px; flex-shrink: 0;
+  width: 49px; height: 60px; flex-shrink: 0;
   border-radius: 2px; overflow: hidden;
   box-shadow: 0 3px 12px rgba(0,0,0,0.2);
 }
-.mini-poster img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
+.mini-poster img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; display: block; }
 
 /* ── Full mockups (customize screen) ── */
 .mockup-center {
-  display: flex; justify-content: center;
-  padding: 20px 0 6px;
-  margin-bottom: 4px;
+  display: block;
+  padding: 4px 0 12px;
+}
+.mockup-scene {
+  position: relative;
+  width: 100%; height: 248px;
+  overflow: hidden; border-radius: 18px;
+  background:
+    radial-gradient(circle at 28% 12%, rgba(255,255,255,0.74), transparent 40%),
+    linear-gradient(145deg, #eeeae3 0%, #e4ded5 72%, #d8d0c5 100%);
+  border: 1px solid rgba(70,61,51,0.09);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 8px 24px rgba(45,38,30,0.07);
+}
+.mockup-baseboard {
+  position: absolute; left: 0; right: 0; bottom: 17px; height: 4px;
+  background: linear-gradient(#c9c0b5, #bfb5a9);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.55);
+}
+.mockup-floor {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 17px;
+  background: linear-gradient(180deg, #d8cec1, #cfc3b5);
+}
+.mockup-art {
+  position: absolute; top: 12px; left: 42%;
+  width: var(--mockup-w); height: var(--mockup-h);
+  transform: translateX(-50%);
+  transition: width 0.22s ease, height 0.22s ease, border-width 0.16s ease;
 }
 .full-canvas {
-  width: 170px; height: 170px;
-  background: #ece6dc;
-  border: 3px solid #c8bcac;
-  border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.16), inset 0 0 0 13px #fff;
-  position: relative;
+  --art-inset: 3px;
+  background: #b8aa98;
+  border: 2px solid #a69987;
+  border-radius: 3px;
+  box-shadow: 0 11px 22px rgba(45,37,29,0.2), 2px 2px 0 rgba(91,77,61,0.12);
+  box-sizing: border-box;
 }
+.full-canvas.framed { --art-inset: 7px; border: 6px solid #302a25; border-radius: 2px; }
 .full-canvas img {
-  position: absolute; inset: 13px;
-  width: calc(100% - 26px); height: calc(100% - 26px);
-  object-fit: contain; background: #fff; border-radius: 2px; display: block;
+  position: absolute; inset: var(--art-inset);
+  width: calc(100% - (var(--art-inset) * 2)); height: calc(100% - (var(--art-inset) * 2));
+  object-fit: cover; object-position: 50% 0%; border-radius: 1px; display: block;
 }
 .full-poster {
-  width: 146px; height: 204px;
-  border-radius: 3px; overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+  border: 1px solid rgba(65,57,48,0.18);
+  border-radius: 1px; overflow: hidden;
+  box-shadow: 0 11px 22px rgba(45,37,29,0.22);
+  box-sizing: border-box;
+  background: #f7f4ef;
 }
-.full-poster img { width: 100%; height: 100%; object-fit: contain; background: #fff; display: block; }
+.full-poster img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 0%; display: block;
+}
+.mockup-console {
+  position: absolute; right: 15px; bottom: 18px;
+  width: 70px; height: 62px;
+  border-top: 5px solid #9b8e7e;
+  opacity: 0.72;
+}
+.mockup-console::before, .mockup-console::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(90deg, #a99b8b, #8e8172);
+}
+.mockup-console::before { left: 7px; }
+.mockup-console::after { right: 7px; }
+.mockup-plant-pot {
+  position: absolute; right: 33px; bottom: 80px;
+  width: 31px; height: 24px;
+  background: linear-gradient(145deg, #aaa095, #8f8478);
+  clip-path: polygon(8% 0, 92% 0, 78% 100%, 22% 100%);
+  opacity: 0.78;
+}
+.mockup-plant-stem {
+  position: absolute; right: 47px; bottom: 102px;
+  width: 3px; height: 31px; border-radius: 3px;
+  background: #7e8d75; opacity: 0.72;
+}
+.mockup-leaf {
+  position: absolute; width: 23px; height: 11px;
+  border-radius: 100% 0 100% 0;
+  background: #819078; opacity: 0.72;
+}
+.mockup-leaf.l1 { right: 45px; bottom: 124px; transform: rotate(-27deg); }
+.mockup-leaf.l2 { right: 26px; bottom: 116px; transform: scaleX(-1) rotate(-22deg); }
+.mockup-leaf.l3 { right: 51px; bottom: 106px; transform: rotate(-8deg) scale(0.84); }
+.mockup-size-note {
+  position: absolute; left: 12px; bottom: 29px;
+  padding: 5px 8px; border-radius: 8px;
+  background: rgba(255,255,255,0.68); color: rgba(58,51,44,0.72);
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.1px;
+  backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+}
 
 /* ── Size/style chips ── */
 .chips-wrap { margin-bottom: 22px; }
@@ -3685,6 +3754,41 @@ function showProductSection() {
   showScreen('product');
 }
 
+const MOCKUP_PX_PER_INCH = 10.3;
+
+function getPrintDimensions(size) {
+  const match = /^(\d+)x(\d+)$/.exec(size || '');
+  if (!match) return null;
+  return { width: Number(match[1]), height: Number(match[2]) };
+}
+
+function renderMockup() {
+  const dimensions = getPrintDimensions(upsell.size);
+  if (!upsell.product || !dimensions) return;
+  const imgSrc = upsell.imageDataUrl || state.lastAfterDataUrl || '';
+  const widthPx = dimensions.width * MOCKUP_PX_PER_INCH;
+  const heightPx = dimensions.height * MOCKUP_PX_PER_INCH;
+  const productClass = upsell.product === 'canvas'
+    ? `full-canvas${upsell.framed ? ' framed' : ''}`
+    : 'full-poster';
+  const sizeLabel = UPSELL_PRICES[upsell.product][upsell.size].label;
+  $('fullMockupWrap').innerHTML = `
+    <div class="mockup-scene" aria-label="${dimensions.width} by ${dimensions.height} inch ${upsell.product} shown to scale on a wall">
+      <div class="mockup-floor"></div>
+      <div class="mockup-baseboard"></div>
+      <div class="mockup-art ${productClass}" style="--mockup-w:${widthPx}px;--mockup-h:${heightPx}px">
+        <img src="${imgSrc}" alt="Your future self" />
+      </div>
+      <div class="mockup-console"></div>
+      <div class="mockup-plant-pot"></div>
+      <div class="mockup-plant-stem"></div>
+      <div class="mockup-leaf l1"></div>
+      <div class="mockup-leaf l2"></div>
+      <div class="mockup-leaf l3"></div>
+      <div class="mockup-size-note">${sizeLabel} · shown to scale</div>
+    </div>`;
+}
+
 function selectProduct(type) {
   upsell.product = type;
   upsell.size = null;
@@ -3692,15 +3796,6 @@ function selectProduct(type) {
 
   const titles = { canvas: 'Canvas Print', poster: 'Poster' };
   $('customizeNavTitle').textContent = titles[type];
-
-  // Render full mockup
-  const imgSrc = upsell.imageDataUrl || state.lastAfterDataUrl || '';
-  const wrap = $('fullMockupWrap');
-  if (type === 'canvas') {
-    wrap.innerHTML = `<div class="full-canvas"><img src="${imgSrc}" alt="Your future self" /></div>`;
-  } else {
-    wrap.innerHTML = `<div class="full-poster"><img src="${imgSrc}" alt="Your future self" /></div>`;
-  }
 
   // Render size chips
   const sizeGrid = $('sizeGrid');
@@ -3714,6 +3809,7 @@ function selectProduct(type) {
       sizeGrid.querySelectorAll('.size-chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       upsell.size = chip.dataset.size;
+      renderMockup();
       updateCustomizePrice();
       $('checkoutBtn').disabled = false;
     });
@@ -4036,6 +4132,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     $('frameUnframed').classList.add('active');
     $('frameFramed').classList.remove('active');
     upsell.framed = false;
+    renderMockup();
     updateCustomizePrice();
   });
   $('frameFramed').addEventListener('click', () => {
@@ -4050,6 +4147,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     $('frameFramed').classList.add('active');
     $('frameUnframed').classList.remove('active');
     upsell.framed = true;
+    renderMockup();
     updateCustomizePrice();
   });
   $('checkoutBtn').addEventListener('click', handleCheckout);
