@@ -71,10 +71,14 @@ const aiLimiter = rateLimit({
 // API Keys from environment variables
 const ANTHROPIC_API_KEY   = process.env.ANTHROPIC_API_KEY;
 const GEMINI_API_KEY      = process.env.GEMINI_API_KEY;
-// Phase 3 two-model ensemble: FLUX.1 Kontext via api.bfl.ai. Optional — when the
-// key is unset every generation runs the single-model (Gemini) path exactly as
-// before, so deploys never depend on this being configured.
+// Phase 3 two-model ensemble: FLUX.1 Kontext, reachable through either Black
+// Forest Labs directly (BFL_API_KEY, api.bfl.ai) or Replicate
+// (REPLICATE_API_TOKEN, black-forest-labs/flux-kontext-pro — Dan's choice, one
+// account shared with other tasks). BFL wins if both are set. With neither set
+// every generation runs the single-model (Gemini) path exactly as before, so
+// deploys never depend on this being configured.
 const BFL_API_KEY         = process.env.BFL_API_KEY || '';
+const REPLICATE_API_TOKEN = process.env.REPLICATE_API_TOKEN || '';
 const POSTHOG_API_KEY     = process.env.POSTHOG_API_KEY;
 const POSTHOG_PROJECT_ID  = process.env.POSTHOG_PROJECT_ID;
 const OURA_ACCESS_TOKEN   = process.env.OURA_ACCESS_TOKEN;
@@ -2174,11 +2178,63 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
         + '\n\nKeep the exact same face, identity, hairstyle, expression, clothing, pose, camera framing, background, and lighting as the input photo — only the body composition changes. No veins, no comically oversized muscles. The result must look like a natural, unretouched smartphone photograph of the same person.';
     };
 
+    // Same model via Replicate. `Prefer: wait` blocks up to ~60s and usually
+    // returns the finished prediction in one round trip; otherwise poll
+    // urls.get. Output is a URL to the finished image.
+    const callFluxViaReplicate = async (promptText) => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 90000);
+      const authHeaders = { 'Content-Type': 'application/json', Authorization: `Bearer ${REPLICATE_API_TOKEN}` };
+      try {
+        const submit = await fetch('https://api.replicate.com/v1/models/black-forest-labs/flux-kontext-pro/predictions', {
+          method: 'POST',
+          headers: { ...authHeaders, Prefer: 'wait' },
+          body: JSON.stringify({
+            input: {
+              prompt: promptText,
+              input_image: `data:${photoMime};base64,${photoBase64}`,
+              aspect_ratio: 'match_input_image',
+              output_format: 'jpg',
+            },
+          }),
+          signal: controller.signal,
+        });
+        let pred = await submit.json().catch(() => null);
+        if (!submit.ok || !pred) {
+          console.error('Replicate submit failed:', submit.status, pred?.detail || pred?.title || '');
+          return { ok: false, status: submit.status };
+        }
+        while (pred.status === 'starting' || pred.status === 'processing') {
+          await new Promise((r) => setTimeout(r, 1500));
+          const poll = await fetch(pred.urls?.get, { headers: authHeaders, signal: controller.signal });
+          pred = await poll.json().catch(() => null);
+          if (!pred) return { ok: false };
+        }
+        if (pred.status !== 'succeeded' || !pred.output) {
+          console.error('Replicate terminal status:', pred.status, pred.error || '');
+          return { ok: false, blockedStatus: pred.status };
+        }
+        const imgUrl = Array.isArray(pred.output) ? pred.output[0] : pred.output;
+        const imgRes = await fetch(imgUrl, { signal: controller.signal });
+        if (!imgRes.ok) return { ok: false };
+        const buf = Buffer.from(await imgRes.arrayBuffer());
+        return { ok: true, imageBase64: buf.toString('base64'), imageMime: 'image/jpeg', model: 'flux' };
+      } catch (e) {
+        if (e.name !== 'AbortError') console.error('Replicate error:', e.message);
+        return { ok: false };
+      } finally {
+        clearTimeout(timer);
+      }
+    };
+
     // Submit → poll → download. Bounded end to end by an AbortController (the
     // Supplement Audit lesson: never an unbounded await). Any failure returns
     // {ok:false} and the request degrades to the single-model path.
     const callFluxKontext = async (promptText) => {
-      if (!BFL_API_KEY) return { ok: false, skipped: true };
+      if (!BFL_API_KEY) {
+        if (REPLICATE_API_TOKEN) return callFluxViaReplicate(promptText);
+        return { ok: false, skipped: true };
+      }
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 90000);
       try {
@@ -2228,7 +2284,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
 
     // Fix passes edit a previous output (a different contract) and stay
     // single-model; normal generations run both models in parallel.
-    const ensembleEligible = !isFix && !prevImageBase64 && !!BFL_API_KEY;
+    const ensembleEligible = !isFix && !prevImageBase64 && !!(BFL_API_KEY || REPLICATE_API_TOKEN);
     const fluxPromise = ensembleEligible
       ? callFluxKontext(condenseForKontext(prompt)).catch(() => ({ ok: false }))
       : Promise.resolve({ ok: false, skipped: true });
