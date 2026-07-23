@@ -4,8 +4,7 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Inject Zepbound",
-    "money::Order zepbound"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
