@@ -23,6 +23,16 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 **Owner:** Claude Code
 **Status:** `Planning`
 
+### Three unblocking account actions — ALL COMPLETE (2026-07-23, Claude Code, concierge walkthrough)
+
+Executed `handoff-20260723-three-unblock-actions.md` — walked Dan through all three in one session, screen-share style (Dan drove, Claude read screenshots and gave click-by-click steps). No code changed.
+
+- **Task A (Apple):** Developer Program membership confirmed ACTIVE via developer.apple.com/account → Membership details (Enrolled as: Individual, renews July 21, 2027, auto-renew on). **iOS submission is now fully unblocked** — everything else (screenshots, listing copy, demo account, simulator walkthrough) was already done per `ios-appstore-prep` memory. Next Claude Code session prompt: *"Apple Developer enrollment is approved. Start the iOS App Store submission — signing in Xcode, App Store Connect listing from app-store-assets/LISTING_COPY.md, screenshot upload, archive, upload, submit."*
+- **Task B (Google Play):** Found ALREADY DONE — Play Console showed "Abs By AI — Organization account" with dan@absbyai.com verified (green check) in Developer account → Contact details. No pending "confirm how Google should contact you" screen existed; conversion + email verification had already completed (notification timestamp Jul 22, "Your identity has been verified successfully"). **72-hour upload wait counts from Jul 22 → safe to upload the signed `.aab` starting ~July 25 evening/26.** Next Claude Code session prompt (after the wait): *"The 72-hour Google Play wait is over. Follow HANDOFF_ANDROID_INTERNAL_TESTING.md to upload the .aab."*
+- **Task C (Replicate):** Created a new dedicated token `absbyai-prod` on Dan's existing Replicate account (did NOT roll/reuse the pre-existing "Default" token, to avoid breaking whatever else uses it) and Dan pasted it into Railway → abs-by-ai service → Variables as `REPLICATE_API_TOKEN`. Confirmed present in the variable list; Railway auto-redeployed; `https://absbyai.com/` returns 200 post-deploy. **Two-model generation ensemble (Gemini + FLUX Kontext via Replicate, Claude judge) is now armed.** Next Claude Code session prompt: *"REPLICATE_API_TOKEN is set in Railway. Run real two-model prod generations on the proof photos to verify the ensemble + chooser end-to-end."* (This is the recorded next action in the generation-overhaul section below — do that verification next.)
+
+**Next action:** pick any of the three unblocked next-session prompts above — all are ready to execute now except the Android upload, which waits on the 72-hour clock (~July 25-26).
+
 ### Victory Dashboard "Work Session Focus Tasks" rework — COMPLETE, live-verified (2026-07-23, Claude Code)
 
 Executed `handoff-20260723-work-session-focus-dashboard.md` in full, commit `12fe1b4`, pushed and Railway-deployed.
