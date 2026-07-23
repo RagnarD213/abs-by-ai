@@ -102,8 +102,8 @@
       "recurring": false
     },
     {
-      "text": "Finish generation overhaul phase one task in Claude. Make the replicate account and finish the task.",
-      "priority": "high",
+      "text": "Set REPLICATE_API_TOKEN in Railway (paste API token from replicate.com/account) so Claude can verify the two-model generation upgrade",
+      "priority": "key",
       "recurring": false
     },
     {
@@ -128,6 +128,16 @@
     },
     {
       "text": "Buy makeup",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Check Apple Developer enrollment status at developer.apple.com \u2014 if approved, tell Claude to start the iOS App Store submission",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Play Console: click 'Verify email address' on the org-conversion contact screen (dan@absbyai.com now works) \u2014 starts Google's 72-hour clock",
       "priority": "key",
       "recurring": false
     }
