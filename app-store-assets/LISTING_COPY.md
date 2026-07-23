@@ -127,4 +127,4 @@ Privacy policy URL: `https://absbyai.com/privacy` (live, returns 200 — re-chec
 
 - Email: `danroseconsulting+applereview@gmail.com`
 - Password: `AppleReview-70edff12010a`
-- Status: account created on production 2026-07-22. **PENDING: comp membership grant** — Dan: log in at https://absbyai.com/admin and add this email under beta members (30 seconds). Member AI features stay paywalled until then. After the grant, the account also needs light pre-population (one transformation + open each feature once) so the reviewer lands on a living app — Claude can do that in the simulator once the grant is in.
+- Status: READY (2026-07-22). Comp membership granted by Dan via the admin panel; verified `active:true, status:"comp", plan:"beta"` via the API. Pre-populated in the iOS simulator: one real transformation (pool proof photo, Lean/Ripped, passed first try, locked in as the goal — shows on the hub and in My Transformations) and one real AI Trainer program (full gym, intermediate, Stage 4 of 7, photo-based analysis, week 1 AI-personalized). Daily Brief renders against the live program. No paywall or purchase UI anywhere in the app for this account.
