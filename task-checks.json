@@ -4,7 +4,8 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Follow up on Zepbound"
+    "health::Follow up on Zepbound",
+    "money::Research makeup for photo shoot"
   ],
   "log": {
     "health::Shower": [
