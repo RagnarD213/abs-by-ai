@@ -279,10 +279,6 @@ color: var(--muted);
 white-space: nowrap;
 }
 #plan-todos {
-list-style: none;
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-gap: 6px 24px;
 min-height: 52px;
 }
 #plan-todos.drop-active {
@@ -290,15 +286,28 @@ outline: 2px dashed rgba(245,166,35,0.5);
 outline-offset: 6px;
 border-radius: 8px;
 }
+.plan-grid {
+list-style: none;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+gap: 6px 24px;
+}
+.plan-grid + .plan-grid {
+margin-top: 14px;
+padding-top: 14px;
+border-top: 1px dashed var(--border);
+}
 .plan-item {
 display: flex;
 align-items: center;
 gap: 12px;
-padding: 12px 14px;
+padding: 10px 14px;
 background: var(--surface2);
 border: 1px solid var(--border);
 border-radius: 10px;
 cursor: pointer;
+max-height: 159px;
+overflow: hidden;
 }
 .plan-item.done { opacity: 0.55; }
 .plan-item.done .plan-text { text-decoration: line-through; color: var(--muted); }
@@ -312,6 +321,9 @@ display: flex;
 flex-direction: column;
 gap: 2px;
 min-width: 0;
+max-height: 139px;
+overflow: hidden;
+justify-content: center;
 }
 .plan-text {
 font-size: 25px;
@@ -361,7 +373,7 @@ opacity: 0.85;
 .plan-band { padding: 16px 18px 18px; }
 .plan-band-title { font-size: 24px; }
 .plan-band-head { flex-direction: column; gap: 4px; }
-#plan-todos { grid-template-columns: 1fr; }
+.plan-grid { grid-template-columns: 1fr; }
 }
 
 /* ── CALENDAR EVENTS ── */
@@ -822,9 +834,12 @@ transition: all 0.15s; }
 <div class="plan-band-title">Work Session <span class="accent">Focus Tasks</span></div>
 <div class="plan-sessions" id="plan-sessions" style="display:none"></div>
 </div>
-<ul id="plan-todos">
+<div id="plan-todos">
+<ul id="plan-open-list" class="plan-grid">
 <li class="plan-empty">Loading…</li>
 </ul>
+<ul id="plan-done-list" class="plan-grid"></ul>
+</div>
 </section>
 
 <!-- ════════════════════════ GRID ════════════════════════ -->
@@ -1700,17 +1715,26 @@ const doneIds = seq.filter(id => isPlanIdDone(id, idMap));
 return { openIds, doneIds, all: [...openIds, ...doneIds] };
 }
 
-function renderPlan() {
-const el = document.getElementById('plan-todos');
-if (!el) return;
-ensurePlanDay();
-const idMap = buildPlanIdMap();
-const { all: displaySeq } = planDisplaySeq(idMap);
+// Shrink a plan-item's text to fit inside the height-capped block (max-height
+// is set in CSS so blocks never grow past ~50% of their old tallest size).
+// Only kicks in when the text is long enough to overflow — short tasks are untouched.
+function fitPlanText(li) {
+const col = li.querySelector('.plan-text-col');
+const textEl = li.querySelector('.plan-text');
+if (!col || !textEl) return;
+const whyEl = li.querySelector('.plan-why');
+textEl.style.fontSize = '';
+if (whyEl) whyEl.style.fontSize = '';
+let size = 25;
+const minSize = 12;
+while (col.scrollHeight > col.clientHeight && size > minSize) {
+size -= 1;
+textEl.style.fontSize = size + 'px';
+if (whyEl) whyEl.style.fontSize = Math.max(10, size - 11) + 'px';
+}
+}
 
-if (!displaySeq.length) {
-el.innerHTML = '<li class="plan-empty">No focus tasks yet — pick what you\'ll knock out this block, or drag one in.</li>';
-} else {
-el.innerHTML = displaySeq.map(id => {
+function planItemHtml(id, idMap) {
 const info = idMap.get(id);
 const t = info.task;
 const rec = !!t.recurring;
@@ -1728,8 +1752,33 @@ ${streak > 1 ? `<span class="streak">🔥${streak}</span>` : ''}
 <span class="todo-tag ${tagClassFor(t.priority)}">${tagLabelFor(t.priority)}</span>
 <button class="plan-remove" data-act="remove" title="Remove from Work Session Focus Tasks">✕</button>
 </li>`;
-}).join('');
 }
+
+function renderPlan() {
+const el = document.getElementById('plan-todos');
+const openEl = document.getElementById('plan-open-list');
+const doneEl = document.getElementById('plan-done-list');
+if (!el || !openEl || !doneEl) return;
+ensurePlanDay();
+const idMap = buildPlanIdMap();
+const { openIds, doneIds } = planDisplaySeq(idMap);
+
+if (!openIds.length && !doneIds.length) {
+openEl.innerHTML = '<li class="plan-empty">No focus tasks yet — pick what you\'ll knock out this block, or drag one in.</li>';
+doneEl.innerHTML = '';
+doneEl.style.display = 'none';
+} else {
+openEl.innerHTML = openIds.length
+? openIds.map(id => planItemHtml(id, idMap)).join('')
+: '<li class="plan-empty">All caught up — drag a task in to start a new session.</li>';
+doneEl.innerHTML = doneIds.map(id => planItemHtml(id, idMap)).join('');
+doneEl.style.display = doneIds.length ? '' : 'none';
+}
+
+// Current session (open) on top, previous session's finished tasks below —
+// each its own grid so they always land in separate rows, then shrink any
+// block whose text overflows the height cap.
+el.querySelectorAll('.plan-item').forEach(fitPlanText);
 
 const sessEl = document.getElementById('plan-sessions');
 if (sessEl) {
@@ -1770,6 +1819,15 @@ if (!dragCtx) return;
 dropIntoPlan(dragCtx.id, e.clientY);
 };
 }
+
+// Column width changes affect how the text wraps, so re-fit on resize.
+let planFitResizeTimer = null;
+window.addEventListener('resize', () => {
+clearTimeout(planFitResizeTimer);
+planFitResizeTimer = setTimeout(() => {
+document.querySelectorAll('#plan-todos .plan-item').forEach(fitPlanText);
+}, 150);
+});
 
 // Find the plan item (within the same open/done group as the dragged item) the
 // cursor is above, so we can insert before it. Keeps reordering inside its group.
