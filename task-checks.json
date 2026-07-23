@@ -13,7 +13,8 @@
     "money::Play Console: click 'Verify email address' on the org-conversion contact screen (dan@absbyai.com now works) — starts Google's 72-hour clock",
     "money::Check Apple Developer enrollment status at developer.apple.com — if approved, tell Claude to start the iOS App Store submission",
     "money::Set REPLICATE_API_TOKEN in Railway (paste API token from replicate.com/account) so Claude can verify the two-model generation upgrade",
-    "money::Set up email autoresponder"
+    "money::Set up email autoresponder",
+    "money::Rework dashboard with keystone tasks and todays plan"
   ],
   "log": {
     "health::Shower": [
