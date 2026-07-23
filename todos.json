@@ -58,56 +58,76 @@
     },
     {
       "text": "Test supplement audit functionality",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Contact vasectomy doctor - stitches, pain during intercourse",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Add self as internal tester, install app on phone via Join link",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Finalize iOS app",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Rotate or delete old MailerLite API key",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Place one real Printify print order to verify fulfillment",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Finish generation overhaul phase one task in Claude. Make the replicate account and finish the task.",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Restart the app store submission prep task and complete this.",
+      "priority": "high",
+      "recurring": false
+    },
+    {
+      "text": "Schedule tanning",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Buy swimsuits and posing trunks",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Research makeup for photo shoot",
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Buy makeup",
       "priority": "key",
       "recurring": false
     }
@@ -136,6 +156,11 @@
     {
       "text": "Inject Zepbound",
       "priority": "high"
+    },
+    {
+      "text": "Follow up on Zepbound",
+      "priority": "key",
+      "recurring": false
     }
   ],
   "personal": [
@@ -190,12 +215,12 @@
     },
     {
       "text": "Follow up with power washing contractors",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     },
     {
       "text": "Follow up with pool tile contractors",
-      "priority": "key",
+      "priority": "high",
       "recurring": false
     }
   ]
