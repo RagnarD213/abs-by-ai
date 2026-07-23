@@ -23,6 +23,20 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 **Owner:** Claude Code
 **Status:** `Implementation in progress`
 
+### Printify order fulfillment verification — bug found + FIXED, one manual step left for Dan (2026-07-23, Claude Code)
+
+Dan placed a real paid print order (poster, `#27805654.11`) through the live print flow to verify Printify fulfillment end-to-end. Order creation succeeded (artwork/`imageId` path, price, address all correct — confirms the N1 audit's open item), but the order sat stuck in Printify with status "On hold — Submit order."
+
+**Root cause:** `fulfillProductOrder` (server.js ~7651) only calls `POST /shops/{shop_id}/orders.json`, which creates the order in Printify's draft/on-hold state. Confirmed via the Printify OpenAPI spec that a separate `POST /shops/{shop_id}/orders/{order_id}/send_to_production.json` call is required to advance it — Printify does not auto-submit. As shipped, **every real customer order would have sat on hold indefinitely** unless Dan manually clicked "Submit order" in the Printify dashboard for each one.
+
+**Fixed, commit `4edd3a6`, pushed + deployed.** Added the `send_to_production` call immediately after successful order creation, with logging on both outcomes (`Printify order {id} submitted to production` / `... send_to_production FAILED — sitting on hold, needs manual submit`). Verified: `node --check` clean; Printify's own approval-workflow behavior confirmed via their OpenAPI spec (not guessed). Did NOT flip the Printify store's "Approval: Manual" dashboard setting — that would also auto-approve orders placed manually through the Printify UI with no review step; the code-level fix only auto-submits orders that passed our own payment/price validation.
+
+**Two loose ends:**
+1. Order `#27805654.11` is still on hold in Printify — needs one manual "Submit order" click from Dan (no local access to the real `PRINTIFY_API_KEY`/`PRINTIFY_SHOP_ID` to do it via API from this environment).
+2. The fix itself is not yet live-verified end-to-end — confirmed by code + Printify API docs, not by an actual order auto-advancing to "In production." Next real print order (test or customer) will be the live proof; check Printify Orders for "In production" with no manual click needed.
+
+**Next action:** Dan submits `.11` manually; next real order placed is the live verification of the fix.
+
 ### Ensemble prod verification — DONE; judge bug FIXED; blocked on 2 Dan actions (2026-07-23, Claude Code)
 
 Ran 20 real prod generations (2 rounds × 10: 8 male / 2 female across all four proof body types) to verify the Replicate/FLUX ensemble end-to-end. Side-by-side report: https://claude.ai/code/artifact/36d7819f-550d-4b47-8ee2-80ad9db77f11
