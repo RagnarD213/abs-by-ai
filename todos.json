@@ -2,236 +2,287 @@
   "business": [
     {
       "text": "Set up email autoresponder",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Write outlines for test shoot",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Write more outlines for YouTube videos",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Fix Printify store name and picture issue",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Add shipping costs to app",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Create workout program",
-      "priority": "low"
+      "priority": "low",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Update Monarch money transactions",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Write script for HOG commercial",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Write YouTube ad scripts",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Rebalance retirement accounts",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Email HOG to buy advertising",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Send documents to AMEX",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Review Claude scheduled task output",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Rework dashboard with keystone tasks and todays plan",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Test supplement audit functionality",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Contact vasectomy doctor - stitches, pain during intercourse",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Add self as internal tester, install app on phone via Join link",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Finalize iOS app",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Rotate or delete old MailerLite API key",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Place one real Printify print order to verify fulfillment",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Set REPLICATE_API_TOKEN in Railway (paste API token from replicate.com/account) so Claude can verify the two-model generation upgrade",
       "priority": "key",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Restart the app store submission prep task and complete this.",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Schedule tanning",
       "priority": "key",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Buy swimsuits and posing trunks",
       "priority": "key",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Research makeup for photo shoot",
       "priority": "key",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Buy makeup",
       "priority": "key",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
-      "text": "Check Apple Developer enrollment status at developer.apple.com \u2014 if approved, tell Claude to start the iOS App Store submission",
+      "text": "Check Apple Developer enrollment status at developer.apple.com — if approved, tell Claude to start the iOS App Store submission",
       "priority": "key",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
-      "text": "Play Console: click 'Verify email address' on the org-conversion contact screen (dan@absbyai.com now works) \u2014 starts Google's 72-hour clock",
+      "text": "Play Console: click 'Verify email address' on the org-conversion contact screen (dan@absbyai.com now works) — starts Google's 72-hour clock",
       "priority": "key",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Inject Zepbound",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Follow up on Zepbound",
       "priority": "key",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     }
   ],
   "personal": [
     {
       "text": "Call title company",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Find best mechanic to fix car",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Take Audi to mechanic",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Clean office",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Organize kitchen cabinets",
-      "priority": "low"
+      "priority": "low",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Organize bathroom cabinets",
-      "priority": "low"
+      "priority": "low",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Spray weeds with roundup",
-      "priority": "low"
+      "priority": "low",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Hire someone to install artificial hedge panels",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Email Rachelle to end child support",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Fix shower handle",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Put away laundry.",
-      "priority": "low"
+      "priority": "low",
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Buy Proper Cloth shirt",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Follow up with power washing contractors",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     },
     {
       "text": "Follow up with pool tile contractors",
       "priority": "high",
-      "recurring": false
+      "recurring": false,
+      "addedAt": "2026-07-23"
     }
   ]
 }
