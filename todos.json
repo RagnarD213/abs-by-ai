@@ -67,11 +67,6 @@
       "recurring": false
     },
     {
-      "text": "Review videos RoMesa sent",
-      "priority": "key",
-      "recurring": false
-    },
-    {
       "text": "Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
       "priority": "key",
       "recurring": false
@@ -97,22 +92,12 @@
       "recurring": false
     },
     {
-      "text": "Eyeball lean/fit male transformation on absbyai.com",
-      "priority": "key",
-      "recurring": false
-    },
-    {
       "text": "Rotate or delete old MailerLite API key",
       "priority": "key",
       "recurring": false
     },
     {
       "text": "Place one real Printify print order to verify fulfillment",
-      "priority": "key",
-      "recurring": false
-    },
-    {
-      "text": "Order zepbound",
       "priority": "key",
       "recurring": false
     },
@@ -147,6 +132,10 @@
       "text": "Salad",
       "priority": "high",
       "recurring": true
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
