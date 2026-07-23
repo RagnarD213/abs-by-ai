@@ -35,7 +35,8 @@
     "verify-646534de-9054-495c-9dd4-332fb3078195": 2,
     "verify-29608305-a8a4-4bd6-b060-602316fd5919": 2,
     "verify-6f29621f-34e7-41ac-85c0-a7caa75f1c20": 2,
-    "verify-bc69a495-8f0d-428f-8100-badbbc54eeea": 2
+    "verify-bc69a495-8f0d-428f-8100-badbbc54eeea": 2,
+    "claude-probe-82a51079": 2
   },
   "fulfilled": {
     "cs_live_a1twQmW1btR3Kp9LKE30b4yeXLBlv2mF5p3RoGgYyxQQ6yY60dZUjsVdl1": true,
