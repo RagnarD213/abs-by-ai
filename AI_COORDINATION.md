@@ -32,11 +32,12 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 **Completed so far:**
 - Item 1 implemented, committed (`bcfc6f6`), pushed, Railway-deployed, and live source-verified. The link is centered under the hero, is hidden with the hero when no transformation exists, opens the existing print selector with the goal image, records `source: 'hero_link'`, and the back button returns to the hub.
 - Railway deployment blocker repaired: the Watch Paths saved earlier with leading `/` marked every later GitHub release `SKIPPED`, including real `server.js` and `public/index.html` changes. Updated the patterns to root-relative `**` plus the same eight root-relative JSON negations, verified the saved configuration, then deployed exact commit `bcfc6f6` successfully.
-- Item 2 implemented and locally verified at 375×812 and desktop. Poster 9×11 → 11×14 and canvas 8×10 → 16×20 visibly change at one shared pixels-per-inch scale; the 16×20 stays inside the scene; artwork uses honest top-biased cover cropping; poster/canvas treatments and framed canvas are distinct; the price and checkout CTA remain in the first mobile viewport; product thumbnails have no letterboxing; no browser console errors.
+- Item 2 implemented, committed (`4aaccd5`), pushed, automatically Railway-deployed (proving the Watch Paths repair), and live source-verified. Local 375×812 + desktop visual QA confirmed poster 9×11 → 11×14 and canvas 8×10 → 16×20 visibly change at one shared pixels-per-inch scale; the 16×20 stays inside the scene; artwork uses honest top-biased cover cropping; poster/canvas treatments and framed canvas are distinct; the price and checkout CTA remain in the first mobile viewport; product thumbnails have no letterboxing; no browser console errors.
+- Item 3 implemented and locally verified with a simulated full page reload: the hub destination survives through `sessionStorage`, is restored and cleared on a completed order, and Continue returns to the member hub. A logged-in user with no saved destination defaults to the hub; logged-out still defaults to Macro Tracker; gallery entry/skip returns to Transformations. The checkout query stays in the URL until status succeeds, preventing session restoration from racing and hiding the confirmation.
 
-**Current work:** Commit, push, deploy, and live-verify item 2; then begin item 3’s persisted return destination.
+**Current work:** Commit, push, deploy, and live source-verify item 3.
 
-**Next action:** Verify the wall mockups on `absbyai.com`, then implement item 3.
+**Next action:** After item 3 is live, reset this active task to `No active task`.
 
 ### Printify order fulfillment verification — bug found + FIXED, one manual step left for Dan (2026-07-23, Claude Code)
 

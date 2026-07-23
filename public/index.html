@@ -2971,6 +2971,7 @@ const upsell = {
   imageDataUrl: null,  // set when entering from a gallery card (else state.lastAfterDataUrl)
   returnScreen: null,  // where the product back button returns ('transformations' or null → email)
 };
+const UPSELL_RETURN_KEY = 'absbyai_upsell_return';
 
 // ============================================================
 //  SYSTEM PROMPTS
@@ -3847,6 +3848,30 @@ function updateCustomizePrice() {
   $('customizePrice').textContent = cents > 0 ? Math.round(cents / 100) : '--';
 }
 
+function persistUpsellReturnDestination() {
+  try {
+    if (upsell.returnScreen === 'hub' || upsell.returnScreen === 'transformations') {
+      sessionStorage.setItem(UPSELL_RETURN_KEY, upsell.returnScreen);
+    } else {
+      sessionStorage.removeItem(UPSELL_RETURN_KEY);
+    }
+  } catch (e) {}
+}
+
+function restoreUpsellReturnDestination() {
+  try {
+    const stored = sessionStorage.getItem(UPSELL_RETURN_KEY);
+    if (stored === 'hub' || stored === 'transformations') upsell.returnScreen = stored;
+    sessionStorage.removeItem(UPSELL_RETURN_KEY);
+  } catch (e) {}
+}
+
+function returnFromUpsell() {
+  if (upsell.returnScreen === 'transformations') return showTransformations();
+  if (upsell.returnScreen === 'hub' || isLoggedIn()) return showHub();
+  return showMacroScreen();
+}
+
 // ============================================================
 //  UPSELL: STRIPE CHECKOUT
 // ============================================================
@@ -3862,6 +3887,7 @@ async function handleCheckout() {
   btn.disabled = true;
   btn.innerHTML = '<div class="btn-spinner"></div><span>Setting up checkout…</span>';
   $('checkoutError').style.display = 'none';
+  persistUpsellReturnDestination();
 
   try {
     // 1. Upload image to Printify
@@ -3928,13 +3954,12 @@ async function checkOrderSession() {
   const sessionId = params.get('session_id');
   if (!sessionId) return;
 
-  // Clean the URL immediately
-  window.history.replaceState({}, '', window.location.pathname);
-
   try {
     const res = await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(sessionId)}`);
     const data = await res.json();
     if (data.status === 'complete') {
+      restoreUpsellReturnDestination();
+      window.history.replaceState({}, '', window.location.pathname);
       showScreen('confirmation');
     }
   } catch (e) {
@@ -4118,10 +4143,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (upsell.returnScreen === 'hub') return showHub();
     showScreen('email');
   });
-  $('productSkipBtn').addEventListener('click', () => {
-    if (upsell.returnScreen === 'hub') return showHub();
-    showMacroScreen();
-  });
+  $('productSkipBtn').addEventListener('click', returnFromUpsell);
   ['selectCanvas', 'selectPoster'].forEach(id => {
     $(id).addEventListener('click', () => selectProduct($(id).dataset.product));
   });
@@ -4166,7 +4188,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Confirmation screen
-  $('confirmContinueBtn').addEventListener('click', () => (upsell.returnScreen === 'hub' ? showHub() : showMacroScreen()));
+  $('confirmContinueBtn').addEventListener('click', returnFromUpsell);
   $('confirmStartOverBtn').addEventListener('click', () => {
     state.lastAfterDataUrl = null;
     showScreen('form');
