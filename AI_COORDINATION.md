@@ -21,7 +21,7 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Implementation in progress`
+**Status:** `Blocked`
 
 ### Printify order fulfillment verification — bug found + FIXED, one manual step left for Dan (2026-07-23, Claude Code)
 
@@ -58,13 +58,17 @@ Ran 20 real prod generations (2 rounds × 10: 8 male / 2 female across all four 
 
 **Next action:** none for this task — ensemble is live, verified, and telemetry is flowing. Watch the first real-traffic PostHog `generation_verifier` events for `models_run`/`judge_*`/`chooser_*` distribution.
 
-### Bake-off continuation (2026-07-23, Claude Code, in progress) — batch running + female-moderation finding
+### Bake-off continuation — round 4 batch COMPLETE (2026-07-23, Claude Code)
 
-Executing `handoff-20260723-ensemble-bakeoff-continuation.md`. Rebuilt the test harness (extracts real `goalSystemPrompt()` from `public/index.html`, drives prod `/api/generate-prompt` + `/api/generate-image` with proof photos, no `deviceId`). Running a 20-generation batch (16 male / 4 female, varied conditions/intensities across all 4 proof photos) — results + artifact to follow.
+Executed `handoff-20260723-ensemble-bakeoff-continuation.md` steps 1–3. Rebuilt the test harness (extracts the real `goalSystemPrompt()` from `public/index.html`, drives prod `/api/generate-prompt` + `/api/generate-image` with proof photos, no `deviceId`) and ran a 20-generation batch (16 male / 4 female, all 4 proof photos, mixed conditions/intensities). Side-by-side report: https://claude.ai/code/artifact/1b7632c4-8ae2-42f4-86f2-8d426b542dec
 
-**Female-photo FLUX finding (step 3 of the handoff): confirmed a hard ceiling, not a fixable setting.** Pulled Replicate's live OpenAPI schema for `black-forest-labs/flux-kontext-pro`: `safety_tolerance` maxes at **2 when an input image is used** (6 is text-only), and the server already runs at the default of 2 — i.e. already at the ceiling, nothing to loosen. Also: both current female proof photos (`female-before.webp`, `female-after.webp`) are sports bra + athletic shorts, not swimwear as previously assumed — already fairly modest coverage — and Replicate's moderation (E005 "flagged as sensitive") still rejects them. So option (a) from the handoff (raise `safety_tolerance`) is a dead end, and option (b) (test more-covered photo) doesn't look promising either since the current photos are already moderate coverage. Verdict forming: FLUX-via-Replicate may just not be usable for female bodies in fitted athletic wear at all; Gemini fallback covers it (fail-open works), but women get no ensemble upside. Have not yet tried BFL direct API (option c) — that's a real spend/setup decision for Dan, not attempted without his go-ahead.
+**Result: FLUX won 10 of 14 two-model runs (71%)** — same direction as round 3 (6/7 = 86%), slightly lower rate on a wider/harder photo mix, confirming the finding generalizes rather than being a round-3 fluke. Chooser shown on 7/14 (50%) — consistent with round 3's high chooser rate; still worth watching in real traffic (open follow-up below).
 
-**Next action:** finish the 20-run batch, tally judge win-rate vs round-3 baseline (FLUX 6/7), confirm female E005 pattern holds across both female jobs in the batch, deliver a side-by-side artifact to Dan, and report the safety_tolerance dead-end + recommend Dan's call on BFL direct API vs accepting Gemini-only for women.
+**Two new findings, both real:**
+1. **Female-photo FLUX block is NOT absolute.** Pulled Replicate's live OpenAPI schema for `black-forest-labs/flux-kontext-pro`: `safety_tolerance` maxes at **2 when an input image is used** (6 is text-only), and the server already runs at that default — i.e. already at the ceiling, no dial to raise. Also, both female proof photos (`female-before.webp`, `female-after.webp`) are sports-bra-and-shorts, not swimwear as previously assumed — already modest coverage. 3 of 4 female batch runs still hit E005 ("flagged as sensitive"), but **1 of 4 got through and FLUX won it** — so it's a probabilistic/content-dependent moderation call, not a hard per-account or per-body-type ban. Recommend: leave as-is (Gemini fallback covers the misses, fail-open works), don't spend on BFL-direct-API research unless the real-traffic miss rate turns out to matter more than this ~25% sample suggests.
+2. **Replicate balance dropped under $5 during this batch, triggering rate-limit throttling (429 "reduced to 6 requests/min, burst of 1") — separate from moderation, and it caused 3 of the 16 male jobs to silently fall back to Gemini-only.** This is NOT a moderation issue and would affect real users too under load. **Needs Dan:** check current balance at replicate.com/account/billing and top up, or better, enable auto-reload so this can't recur unnoticed — the $20 added earlier today is already most of the way gone (round 3 + this batch = ~21 FLUX calls at a nominal 4¢ that plainly cost more than that in practice; worth Dan glancing at the actual per-call price on the billing page).
+
+**Next action:** Dan — check/top up Replicate balance (ideally enable auto-reload). Otherwise this task is done: harness is reusable (lives in this session's scratchpad, trivial to recreate per the handoff's step 1 recipe) for any future round. Chooser-rate tuning (handoff step 4) still open but not urgent — revisit after a week of real PostHog traffic.
 
 ### Three unblocking account actions — ALL COMPLETE (2026-07-23, Claude Code, concierge walkthrough)
 
