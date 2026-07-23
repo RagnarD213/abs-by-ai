@@ -10,7 +10,8 @@
     "money::Schedule tanning",
     "money::Buy makeup",
     "health::Inject Zepbound",
-    "money::Play Console: click 'Verify email address' on the org-conversion contact screen (dan@absbyai.com now works) — starts Google's 72-hour clock"
+    "money::Play Console: click 'Verify email address' on the org-conversion contact screen (dan@absbyai.com now works) — starts Google's 72-hour clock",
+    "money::Check Apple Developer enrollment status at developer.apple.com — if approved, tell Claude to start the iOS App Store submission"
   ],
   "log": {
     "health::Shower": [
