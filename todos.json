@@ -153,6 +153,12 @@
       "recurring": false,
       "addedAt": "2026-07-24",
       "why": "FLUX wins most bake-offs but the chooser shows too often and female photos often fail moderation — needs a roadmap"
+    },
+    {
+      "text": "Finish the model bake-off harness rebuild task.",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-24"
     }
   ],
   "health": [
