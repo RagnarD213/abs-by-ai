@@ -6,7 +6,8 @@
     "health::Salad",
     "health::Follow up on Zepbound",
     "health::Inject Zepbound",
-    "money::Verify the two-model image upgrade on live site (Claude runs it, Dan eyeballs results)"
+    "money::Verify the two-model image upgrade on live site (Claude runs it, Dan eyeballs results)",
+    "money::Implement handoff-20260723-ios-appstore-submit.md — confirm build processing, update screenshots around candidate E, EU trader status, then Submit for Review"
   ],
   "log": {
     "health::Shower": [
