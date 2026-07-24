@@ -970,10 +970,12 @@ html, body {
   letter-spacing: 0.01em;
 }
 .credit-counter.low { color: #d97706; }
-/* When credit-counter sits right after a nav-bar, give it breathing room */
+/* When credit-counter sits right after a nav-bar, give it breathing room.
+   Keep the bottom margin non-negative — a negative value pulls the following
+   headline up into this line and the two collide. */
 .nav-bar + .credit-indicator {
   margin-top: 6px;
-  margin-bottom: -8px;
+  margin-bottom: 4px;
 }
 
 /* ── After image lock teaser ── */
