@@ -1,0 +1,669 @@
+{
+ "lean-male__dramatic:A": {
+  "best": false,
+  "acceptable": true,
+  "tags": [],
+  "note": "slightly too much change for subtle"
+ },
+ "lean-male__dramatic:B": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "skin tone right",
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "lean-male__dramatic:C": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "lean-male__dramatic:D": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan",
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "lean-male__dramatic:E": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "lean-male__dramatic:F": {
+  "best": true,
+  "acceptable": false,
+  "tags": [
+   "skin tone right",
+   "just right"
+  ],
+  "note": ""
+ },
+ "lean-male__max:A": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too tan",
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "lean-male__max:B": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "face drifted",
+   "looks fake",
+   "too muscular",
+   "too tan"
+  ],
+  "note": ""
+ },
+ "lean-male__max:C": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "face drifted",
+   "too muscular",
+   "too tan",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "lean-male__max:D": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "lean-male__max:E": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "lean-male__max:F": {
+  "best": true,
+  "acceptable": false,
+  "tags": [
+   "skin tone right"
+  ],
+  "note": "even more ab definition would be ideal. best ab definition without excessive muscularlity or tan"
+ },
+ "lean-male__max:G": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "lean-male__max:H": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "lean-male__max:I": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "lean-male__max:J": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan",
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "lean-male__max:K": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "lean-male__max:L": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too muscular"
+  ],
+  "note": "very close with other option. Slightly too muscular. Not enough ab definition"
+ },
+ "moderate-male__dramatic:A": {
+  "best": true,
+  "acceptable": false,
+  "tags": [
+   "skin tone right",
+   "just right"
+  ],
+  "note": ""
+ },
+ "moderate-male__dramatic:B": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "moderate-male__dramatic:C": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too tan"
+  ],
+  "note": ""
+ },
+ "moderate-male__dramatic:D": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "looks fake",
+   "face drifted",
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "moderate-male__dramatic:E": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "moderate-male__dramatic:F": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "moderate-male__max:A": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change",
+   "too tan",
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "moderate-male__max:B": {
+  "best": true,
+  "acceptable": false,
+  "tags": [
+   "skin tone right",
+   "just right"
+  ],
+  "note": ""
+ },
+ "moderate-male__max:C": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "moderate-male__max:D": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too tan"
+  ],
+  "note": ""
+ },
+ "moderate-male__max:E": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too tan"
+  ],
+  "note": ""
+ },
+ "moderate-male__max:F": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "face drifted",
+   "looks fake",
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "heavier-male__dramatic:A": {
+  "best": true,
+  "acceptable": false,
+  "tags": [
+   "skin tone right"
+  ],
+  "note": "Best option but ideally slightly more subtle"
+ },
+ "heavier-male__dramatic:B": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan",
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "heavier-male__dramatic:C": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too tan"
+  ],
+  "note": "only slightly too tan, very close to other option"
+ },
+ "heavier-male__dramatic:D": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "heavier-male__dramatic:E": {
+  "best": false,
+  "acceptable": true,
+  "tags": [],
+  "note": ""
+ },
+ "heavier-male__max:A": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "skin tone right"
+  ],
+  "note": ""
+ },
+ "heavier-male__max:B": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "skin tone right",
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "heavier-male__max:C": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan"
+  ],
+  "note": ""
+ },
+ "heavier-male__max:D": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": "this would be ideal for subtle"
+ },
+ "heavier-male__max:E": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "skin tone right"
+  ],
+  "note": ""
+ },
+ "heavier-male__max:F": {
+  "best": true,
+  "acceptable": false,
+  "tags": [
+   "skin tone right"
+  ],
+  "note": "even more ab definition would be ideal"
+ },
+ "heavier-male__max:G": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan",
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "heavier-male__max:H": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too tan"
+  ],
+  "note": ""
+ },
+ "heavier-male__max:I": {
+  "best": false,
+  "acceptable": true,
+  "tags": [],
+  "note": ""
+ },
+ "heavier-male__max:J": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "heavier-male__max:K": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "looks fake",
+   "too tan"
+  ],
+  "note": ""
+ },
+ "heavier-male__max:L": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan",
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "heavier-female__dramatic:A": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "heavier-female__dramatic:B": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "heavier-female__dramatic:C": {
+  "best": false,
+  "acceptable": true,
+  "tags": [],
+  "note": ""
+ },
+ "heavier-female__dramatic:D": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "heavier-female__dramatic:E": {
+  "best": true,
+  "acceptable": false,
+  "tags": [],
+  "note": "abs are defined. noticeable but still subtle change"
+ },
+ "heavier-female__max:A": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too tan"
+  ],
+  "note": ""
+ },
+ "heavier-female__max:B": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "heavier-female__max:C": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "skin tone right"
+  ],
+  "note": ""
+ },
+ "heavier-female__max:D": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "skin tone right"
+  ],
+  "note": ""
+ },
+ "heavier-female__max:E": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "heavier-female__max:F": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "too tan"
+  ],
+  "note": ""
+ },
+ "heavier-female__max:G": {
+  "best": true,
+  "acceptable": false,
+  "tags": [],
+  "note": "most ab definition without being excessively muscular or tan"
+ },
+ "heavier-female__max:H": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "heavier-female__max:I": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan",
+   "too muscular"
+  ],
+  "note": ""
+ },
+ "dan-real__dramatic:A": {
+  "best": true,
+  "acceptable": false,
+  "tags": [
+   "skin tone right",
+   "just right"
+  ],
+  "note": "most ab definition without being excessively muscular or tan or oiled"
+ },
+ "dan-real__dramatic:B": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "dan-real__dramatic:C": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "dan-real__dramatic:D": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": ""
+ },
+ "dan-real__dramatic:E": {
+  "best": false,
+  "acceptable": true,
+  "tags": [],
+  "note": "too oily but everything else is good"
+ },
+ "dan-real__max:A": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "not enough change"
+  ],
+  "note": "would have been best option for subtle, better than the one I chose"
+ },
+ "dan-real__max:B": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan",
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "dan-real__max:C": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan",
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "dan-real__max:D": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too tan",
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "dan-real__max:E": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "dan-real__max:F": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "dan-real__max:G": {
+  "best": false,
+  "acceptable": true,
+  "tags": [],
+  "note": ""
+ },
+ "dan-real__max:H": {
+  "best": false,
+  "acceptable": true,
+  "tags": [
+   "too tan"
+  ],
+  "note": ""
+ },
+ "dan-real__max:I": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "dan-real__max:J": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "dan-real__max:K": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "too muscular",
+   "looks fake"
+  ],
+  "note": ""
+ },
+ "heavier-male-dark__dramatic:A": {
+  "best": true,
+  "acceptable": false,
+  "tags": [
+   "skin tone right",
+   "just right"
+  ],
+  "note": ""
+ },
+ "heavier-male-dark__dramatic:B": {
+  "best": false,
+  "acceptable": true,
+  "tags": [],
+  "note": "would be ideal for ripped"
+ },
+ "heavier-male-dark__max:A": {
+  "best": false,
+  "acceptable": false,
+  "tags": [
+   "not enough change"
+  ],
+  "note": "Needs more definition and fat loss for ripped intensity. Previous subtle intensity option was better for ripped. This would be acceptable for subtle"
+ }
+}
