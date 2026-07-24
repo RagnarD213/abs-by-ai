@@ -1,8 +1,8 @@
 {
   "date": "2026-07-24",
   "order": [
-    "money::Plan the next phase of image generation improvements (with Claude)",
     "money::Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
+    "money::Plan the next phase of image generation improvements (with Claude)",
     "money::Implement handoff-20260723-ios-appstore-submit.md — confirm build processing, update screenshots around candidate E, EU trader status, then Submit for Review",
     "money::Verify the two-model image upgrade on live site (Claude runs it, Dan eyeballs results)",
     "money::Check Replicate balance, top up, and turn on auto-reload at replicate.com/account/billing"
