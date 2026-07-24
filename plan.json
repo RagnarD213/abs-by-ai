@@ -1,5 +1,10 @@
 {
-  "date": "2026-07-23",
-  "order": [],
-  "excluded": []
+  "date": "2026-07-24",
+  "order": [
+    "money::Implement handoff-20260723-ios-appstore-submit.md — confirm build processing, update screenshots around candidate E, EU trader status, then Submit for Review",
+    "money::Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
+    "money::Verify the two-model image upgrade on live site (Claude runs it, Dan eyeballs results)"
+  ],
+  "excluded": [],
+  "sessionsCompleted": 0
 }
