@@ -132,6 +132,27 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-23"
+    },
+    {
+      "text": "Submit stuck Printify order #27805654.13 (one 'Submit order' click in the Printify dashboard)",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-24",
+      "why": "Pre-fix test order sitting on hold — it won't auto-retry"
+    },
+    {
+      "text": "Check Replicate balance, top up, and turn on auto-reload at replicate.com/account/billing",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-24",
+      "why": "Balance ran under $5 last week and throttling silently degraded paid image generations"
+    },
+    {
+      "text": "Plan the next phase of image generation improvements (with Claude)",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-24",
+      "why": "FLUX wins most bake-offs but the chooser shows too often and female photos often fail moderation — needs a roadmap"
     }
   ],
   "health": [
