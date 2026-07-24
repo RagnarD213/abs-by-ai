@@ -1,0 +1,130 @@
+
+=== primary:lean-male__dramatic (1/16)
+  ok   gemini-2.5-flash-image   full       9.9s
+  ok   nano-banana-pro          full       85.6s
+  ok   gpt-image-1.5            condensed  58.6s
+  ok   flux-kontext-pro         condensed  9.3s
+  ok   flux-2-pro               condensed  8.5s
+  ok   seedream-4.5             condensed  13.4s
+
+=== primary:lean-male__max (2/16)
+  ok   gemini-2.5-flash-image   full       8.5s
+  ok   nano-banana-pro          full       17.0s
+  ok   gpt-image-1.5            condensed  55.2s
+  ok   flux-kontext-pro         condensed  10.6s
+  ok   flux-2-pro               condensed  8.3s
+  ok   seedream-4.5             condensed  34.9s
+
+=== primary:moderate-male__dramatic (3/16)
+  ok   gemini-2.5-flash-image   full       7.8s
+  ok   nano-banana-pro          full       18.5s
+  ok   gpt-image-1.5            condensed  50.9s
+  ok   flux-kontext-pro         condensed  8.9s
+  ok   flux-2-pro               condensed  9.6s
+  ok   seedream-4.5             condensed  25.4s
+
+=== primary:moderate-male__max (4/16)
+  ok   gemini-2.5-flash-image   full       7.4s
+  ok   nano-banana-pro          full       15.7s
+  ok   gpt-image-1.5            condensed  53.6s
+  ok   flux-kontext-pro         condensed  10.4s
+  ok   flux-2-pro               condensed  8.6s
+  ok   seedream-4.5             condensed  14.6s
+
+=== primary:heavier-male__dramatic (5/16)
+  ok   gemini-2.5-flash-image   full       7.5s
+  FAIL nano-banana-pro          full       no image (IMAGE_SAFETY) [BLOCKED]
+  ok   gpt-image-1.5            condensed  57.7s
+  ok   flux-kontext-pro         condensed  10.8s
+  ok   flux-2-pro               condensed  9.9s
+  ok   seedream-4.5             condensed  26.1s
+
+=== primary:heavier-male__max (6/16)
+  ok   gemini-2.5-flash-image   full       8.1s
+  ok   nano-banana-pro          full       17.3s
+  ok   gpt-image-1.5            condensed  62.4s
+  ok   flux-kontext-pro         condensed  15.1s
+  ok   flux-2-pro               condensed  8.9s
+  ok   seedream-4.5             condensed  17.2s
+
+=== primary:heavier-female__dramatic (7/16)
+  ok   gemini-2.5-flash-image   full       8.7s
+  ok   nano-banana-pro          full       17.8s
+  ok   gpt-image-1.5            condensed  55.0s
+  FAIL flux-kontext-pro         condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  ok   flux-2-pro               condensed  9.3s
+  ok   seedream-4.5             condensed  15.6s
+
+=== primary:heavier-female__max (8/16)
+  ok   gemini-2.5-flash-image   full       8.5s
+  ok   nano-banana-pro          full       18.9s
+  ok   gpt-image-1.5            condensed  57.7s
+  FAIL flux-kontext-pro         condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  ok   flux-2-pro               condensed  9.6s
+  ok   seedream-4.5             condensed  18.4s
+
+=== primary:dan-real__dramatic (9/16)
+  ok   gemini-2.5-flash-image   full       8.4s
+  ok   nano-banana-pro          full       17.6s
+  ok   gpt-image-1.5            condensed  57.5s
+  ok   flux-kontext-pro         condensed  11.2s
+  FAIL flux-2-pro               condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  ok   seedream-4.5             condensed  18.2s
+
+=== primary:dan-real__max (10/16)
+  ok   gemini-2.5-flash-image   full       9.1s
+  ok   nano-banana-pro          full       17.6s
+  ok   gpt-image-1.5            condensed  68.8s
+  ok   flux-kontext-pro         condensed  10.7s
+  FAIL flux-2-pro               condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  ok   seedream-4.5             condensed  28.9s
+
+=== primary:heavier-male-dark__dramatic (11/16)
+  FAIL gemini-2.5-flash-image   full       no image (IMAGE_OTHER)
+  ok   nano-banana-pro          full       19.4s
+  FAIL gpt-image-1.5            condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  FAIL flux-kontext-pro         condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  FAIL flux-2-pro               condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  ok   seedream-4.5             condensed  12.9s
+
+=== primary:heavier-male-dark__max (12/16)
+  FAIL gemini-2.5-flash-image   full       no image (IMAGE_OTHER)
+  FAIL nano-banana-pro          full       no image (IMAGE_SAFETY) [BLOCKED]
+  FAIL gpt-image-1.5            condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  FAIL flux-kontext-pro         condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  FAIL flux-2-pro               condensed  The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  ok   seedream-4.5             condensed  15.9s
+
+=== variant:lean-male__max (13/16)
+  ok   gemini-2.5-flash-image   condensed  8.2s
+  ok   nano-banana-pro          condensed  16.9s
+  ok   gpt-image-1.5            full       56.1s
+  ok   flux-kontext-pro         full       9.9s
+  ok   flux-2-pro               full       8.3s
+  FAIL seedream-4.5             full       422 - input.prompt: String length must be less than or equal to 4000
+
+=== variant:heavier-male__max (14/16)
+  ok   gemini-2.5-flash-image   condensed  7.7s
+  ok   nano-banana-pro          condensed  21.6s
+  ok   gpt-image-1.5            full       55.0s
+  ok   flux-kontext-pro         full       10.1s
+  ok   flux-2-pro               full       8.3s
+  FAIL seedream-4.5             full       422 - input.prompt: String length must be less than or equal to 4000
+
+=== variant:heavier-female__max (15/16)
+  ok   gemini-2.5-flash-image   condensed  8.8s
+  ok   nano-banana-pro          condensed  18.2s
+  FAIL gpt-image-1.5            full       The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  FAIL flux-kontext-pro         full       The input or output was flagged as sensitive. Please try again with different inputs. (E005) (uIJ6l3ruRD) [BLOCKED]
+  ok   flux-2-pro               full       7.9s
+  FAIL seedream-4.5             full       422 - input.prompt: String length must be less than or equal to 4000
+
+=== variant:dan-real__max (16/16)
+  ok   gemini-2.5-flash-image   condensed  8.4s
+  ok   nano-banana-pro          condensed  17.0s
+  ok   gpt-image-1.5            full       66.7s
+  ok   flux-kontext-pro         full       13.2s
+  ok   flux-2-pro               full       12.1s
+  FAIL seedream-4.5             full       422 - input.prompt: String length must be less than or equal to 4000
+
+DONE 76/96 images, nominal spend ~$6.17

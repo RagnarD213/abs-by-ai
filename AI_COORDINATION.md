@@ -20,8 +20,37 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Active task
 
-**Owner:** —
-**Status:** `No active task`
+**Owner:** Claude Code
+**Status:** `Implementation in progress`
+
+### Extended model bake-off v2 — Phase 1 + 2 (round-1 grid)
+
+**Goal:** Execute `handoff-20260724-model-bakeoff-v2.md`. Phase 1 = rebuild the bake-off harness with adapters for all six roster models and verify each returns an image. Phase 2 = run the round-1 grid and publish a blind-labeled gallery for Dan. No production code changes in these phases.
+
+**Harness (scratchpad, not committed):** extracts the real `SYSTEM_PROMPT`/`goalSystemPrompt()` out of `public/index.html`, drives prod `/api/generate-prompt` for the 12 case prompts, then calls each model provider directly. No `deviceId` on any call, so no credit spend, no data-file commit, no redeploy. Provider keys were read from Railway into a 0600 scratchpad env file.
+
+**Roster:** Gemini 2.5 Flash Image (control), Nano Banana Pro (`gemini-3-pro-image-preview`), GPT Image 1.5 via Replicate (`input_fidelity: "high"`), FLUX Kontext Pro (control), FLUX 2 Pro edit, Seedream 4.5 edit.
+
+**Grid:** 6 photos × 2 intensities (Subtle/Ripped) = 12 cases × 6 models, plus a prompt-variant A/B (full vs condensed) on 4 representative cases. Photos: the four proof assets, Dan's own outdoor photo, and a heavier dark-skinned male (skin-tone fidelity).
+
+**Phase 1 — DONE.** All six adapters verified on the lean-male proof photo, one good image each. One real adapter bug found: **GPT Image 1.5 returned a before/after diptych**, because the production prompt contains the sentence "Placed side by side with the input, the output must read as…" and GPT Image read it as a layout instruction. Fixed with an explicit single-image output clause (its prompting guide calls for stating the output artifact). Two further model constraints found: **Seedream 4.5 hard-rejects prompts over 4000 chars** (422 — the full production prompt is ~4.8k, so it must be trimmed), and **GPT Image 1.5 has no `match_input_image` aspect ratio** (only 1:1 / 3:2 / 2:3), so its framing can never exactly match the input.
+
+**Phase 2 — DONE. 76 of 96 cells produced an image; nominal spend ~$6.17** (~$3.75 Replicate, ~$2.4 Google). Full log in `bakeoff/round1/run-log.txt`, per-cell records in `bakeoff/round1/results.json`, blind key in `bakeoff/round1/key.json`. Blind galleries published for Dan: part 1 https://claude.ai/code/artifact/a7324148-3b4d-475a-ae41-15132c6b9de2 · part 2 https://claude.ai/code/artifact/75d72d4a-b557-4baa-b5fe-9504484fcbed
+
+**Moderation is the headline finding (handoff §4 was right to make it a first-class dimension):**
+- `seedream-4.5` — **zero moderation blocks**, the only model that never refused a photo (its 4 failures were the 4000-char prompt limit, since fixed).
+- `flux-kontext-pro` — **0 of 3 female cells**, confirming the known E005 refusal, plus blocks on the dark-skin heavier male.
+- `flux-2-pro` — passed all 3 female cells but **blocked Dan's own real outdoor photo at both intensities**, which Kontext passed. Moderation posture differs by model in ways that do not follow body type.
+- `gpt-image-1.5` — 13/16, blocked on one female cell and the dark-skin case.
+- `nano-banana-pro` — 2 `IMAGE_SAFETY` refusals on heavier males; **stricter than `gemini-2.5-flash-image`**, which passed the same photos. A straight upgrade of the Gemini leg would lose coverage.
+- `gemini-2.5-flash-image` — 0 blocks, but 2 `IMAGE_OTHER` non-safety failures on the dark-skin photo. Note prod retries Gemini with a safe-fitness preamble; the harness does not, so prod would likely recover these.
+- **The underwear-only dark-skin stock photo was refused by 5 of 6 models** — that photo *type* is close to unusable across the market, not a per-model quirk.
+
+**Latency/cost per image (median):** gemini-2.5-flash 8.4s / $0.039 · flux-2-pro 8.9s / $0.03 · flux-kontext 10.6s / $0.04 · nano-banana-pro 17.8s / $0.134 · seedream-4.5 18.2s / $0.04 · gpt-image-1.5 **57.5s** / ~$0.19. GPT Image is ~6× the latency and ~5× the cost of the current pair — a real production-fit problem regardless of how it labels.
+
+**Not yet answered (deliberately):** which model *wins on looks*. That is Dan's blind labeling, and no judge was run on these images — running the current judge first would have biased nothing, but the handoff wants Dan's labels as the ground truth before the judge is measured against them.
+
+**Next action:** Dan labels both gallery pages and pastes the JSON back. Then Phase 3 — baseline the current judge against his labels, then rebuild it (rubric scores, position-bias swap, few-shot exemplars, judge-model comparison) to ≥80% agreement.
 
 ---
 
@@ -88,7 +117,7 @@ Executed `handoff-20260723-ensemble-bakeoff-continuation.md` steps 1–3. Rebuil
 
 **Two new findings, both real:**
 1. **Female-photo FLUX block is NOT absolute.** Pulled Replicate's live OpenAPI schema for `black-forest-labs/flux-kontext-pro`: `safety_tolerance` maxes at **2 when an input image is used** (6 is text-only), and the server already runs at that default — i.e. already at the ceiling, no dial to raise. Also, both female proof photos (`female-before.webp`, `female-after.webp`) are sports-bra-and-shorts, not swimwear as previously assumed — already modest coverage. 3 of 4 female batch runs still hit E005 ("flagged as sensitive"), but **1 of 4 got through and FLUX won it** — so it's a probabilistic/content-dependent moderation call, not a hard per-account or per-body-type ban. Recommend: leave as-is (Gemini fallback covers the misses, fail-open works), don't spend on BFL-direct-API research unless the real-traffic miss rate turns out to matter more than this ~25% sample suggests.
-2. **Replicate balance dropped under $5 during this batch, triggering rate-limit throttling (429 "reduced to 6 requests/min, burst of 1") — separate from moderation, and it caused 3 of the 16 male jobs to silently fall back to Gemini-only.** This is NOT a moderation issue and would affect real users too under load. **Needs Dan:** check current balance at replicate.com/account/billing and top up, or better, enable auto-reload so this can't recur unnoticed — the $20 added earlier today is already most of the way gone (round 3 + this batch = ~21 FLUX calls at a nominal 4¢ that plainly cost more than that in practice; worth Dan glancing at the actual per-call price on the billing page).
+2. **CORRECTED 2026-07-24: the 429 throttling ("reduced to 6 requests/min, burst of 1") was NOT balance exhaustion.** Dan checked: $18 remained (the $20 top-up minus ~28 FLUX calls at ~4¢ — nominal pricing is accurate after all). Per Replicate's rate-limit docs, accounts get dropped to the 6/min throttle tier when (a) they hold credit with no payment method on file, or (b) the balance approaches running out — Replicate explicitly says to keep the balance **above $20** (auto-reload) for normal limits. $18 < $20 → throttle tier → parallel batch requests 429'd. Single requests still work (verified live 2026-07-24: real prod generation ran gemini+flux, judge picked flux, served flux). **Fix: top up comfortably above $20 (or enable auto-reload with a ≥$20 floor) and confirm a card is on file.**
 
 **Next action:** Dan — check/top up Replicate balance (ideally enable auto-reload). Otherwise this task is done: harness is reusable (lives in this session's scratchpad, trivial to recreate per the handoff's step 1 recipe) for any future round. Chooser-rate tuning (handoff step 4) still open but not urgent — revisit after a week of real PostHog traffic.
 
@@ -432,6 +461,8 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 ---
 
 ## Queued (next up after the active task)
+
+**Task:** `handoff-20260724-model-bakeoff-v2.md` — extended multi-model bake-off (6 models incl. GPT Image 1.5 high-fidelity, Nano Banana Pro, Seedream 4.5, FLUX 2), blind gallery of ALL candidates for Dan to label, judge retrained/evaluated against Dan's labels (current judge is misaligned by instruction — it's told "more muscular = better"), tan removed from SYSTEM_PROMPT (the bronze tan is our own instruction, dropped from the condensed FLUX prompt — which is why FLUX preserved skin tone), Kino-body aesthetic target. Planned 2026-07-24 by Claude Code; awaiting Dan's go + Replicate top-up. Claude-owned.
 
 **Task:** `handoff-20260722-ios-appstore-submission-prep.md` — everything for the iOS App Store submission that does NOT wait on Apple Developer enrollment approval: finish the simulator walkthrough (Trainer/Nutritionist/Sleep/Progress/Brief/Transformations/print flow/native share-save/account-deletion visibility), take 6.9"+6.5" screenshots into `app-store-assets/`, draft all App Store Connect listing copy incl. App Privacy answers + Review Notes, and create the Apple-reviewer demo account (comp grant via `/api/admin/beta-members` — needs Dan or admin creds). Environment ready: Xcode 26.6 + iPhone 17 Pro simulator booted. Note: the app loads production absbyai.com, so AI-feature tests are real spend — one run per feature.
 

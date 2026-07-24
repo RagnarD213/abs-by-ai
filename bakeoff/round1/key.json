@@ -1,0 +1,482 @@
+{
+  "lean-male__dramatic:A": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 85551
+  },
+  "lean-male__dramatic:B": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 58639
+  },
+  "lean-male__dramatic:C": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "condensed",
+    "latencyMs": 9341
+  },
+  "lean-male__dramatic:D": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "condensed",
+    "latencyMs": 8490
+  },
+  "lean-male__dramatic:E": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 13377
+  },
+  "lean-male__dramatic:F": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 9901
+  },
+  "lean-male__max:A": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 16958
+  },
+  "lean-male__max:B": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "condensed",
+    "latencyMs": 8309
+  },
+  "lean-male__max:C": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "full",
+    "latencyMs": 8290
+  },
+  "lean-male__max:D": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 34892
+  },
+  "lean-male__max:E": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "full",
+    "latencyMs": 9904
+  },
+  "lean-male__max:F": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "condensed",
+    "latencyMs": 16882
+  },
+  "lean-male__max:G": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "condensed",
+    "latencyMs": 8202
+  },
+  "lean-male__max:H": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 8515
+  },
+  "lean-male__max:I": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 55188
+  },
+  "lean-male__max:J": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "full",
+    "latencyMs": 25975
+  },
+  "lean-male__max:K": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "condensed",
+    "latencyMs": 10624
+  },
+  "lean-male__max:L": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "full",
+    "latencyMs": 56108
+  },
+  "moderate-male__dramatic:A": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 50879
+  },
+  "moderate-male__dramatic:B": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "condensed",
+    "latencyMs": 8881
+  },
+  "moderate-male__dramatic:C": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 18476
+  },
+  "moderate-male__dramatic:D": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "condensed",
+    "latencyMs": 9572
+  },
+  "moderate-male__dramatic:E": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 25446
+  },
+  "moderate-male__dramatic:F": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7769
+  },
+  "moderate-male__max:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 14608
+  },
+  "moderate-male__max:B": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 53613
+  },
+  "moderate-male__max:C": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "condensed",
+    "latencyMs": 10431
+  },
+  "moderate-male__max:D": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7426
+  },
+  "moderate-male__max:E": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 15666
+  },
+  "moderate-male__max:F": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "condensed",
+    "latencyMs": 8629
+  },
+  "heavier-male__dramatic:A": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "condensed",
+    "latencyMs": 10793
+  },
+  "heavier-male__dramatic:B": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "condensed",
+    "latencyMs": 9931
+  },
+  "heavier-male__dramatic:C": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 26128
+  },
+  "heavier-male__dramatic:D": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7493
+  },
+  "heavier-male__dramatic:E": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 57677
+  },
+  "heavier-male__max:A": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "full",
+    "latencyMs": 55001
+  },
+  "heavier-male__max:B": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "condensed",
+    "latencyMs": 15135
+  },
+  "heavier-male__max:C": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 17260
+  },
+  "heavier-male__max:D": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "condensed",
+    "latencyMs": 21649
+  },
+  "heavier-male__max:E": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 62406
+  },
+  "heavier-male__max:F": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "full",
+    "latencyMs": 10120
+  },
+  "heavier-male__max:G": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "full",
+    "latencyMs": 8270
+  },
+  "heavier-male__max:H": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "full",
+    "latencyMs": 18321
+  },
+  "heavier-male__max:I": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 17174
+  },
+  "heavier-male__max:J": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "condensed",
+    "latencyMs": 7657
+  },
+  "heavier-male__max:K": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "condensed",
+    "latencyMs": 8883
+  },
+  "heavier-male__max:L": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 8123
+  },
+  "heavier-female__dramatic:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 15581
+  },
+  "heavier-female__dramatic:B": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "condensed",
+    "latencyMs": 9348
+  },
+  "heavier-female__dramatic:C": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 17817
+  },
+  "heavier-female__dramatic:D": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 8654
+  },
+  "heavier-female__dramatic:E": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 54963
+  },
+  "heavier-female__max:A": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 18851
+  },
+  "heavier-female__max:B": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "condensed",
+    "latencyMs": 9561
+  },
+  "heavier-female__max:C": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "condensed",
+    "latencyMs": 18240
+  },
+  "heavier-female__max:D": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 18365
+  },
+  "heavier-female__max:E": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "condensed",
+    "latencyMs": 8835
+  },
+  "heavier-female__max:F": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "full",
+    "latencyMs": 7885
+  },
+  "heavier-female__max:G": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 57675
+  },
+  "heavier-female__max:H": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 8455
+  },
+  "heavier-female__max:I": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "full",
+    "latencyMs": 18284
+  },
+  "dan-real__dramatic:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 18163
+  },
+  "dan-real__dramatic:B": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 57549
+  },
+  "dan-real__dramatic:C": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "condensed",
+    "latencyMs": 11239
+  },
+  "dan-real__dramatic:D": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 8436
+  },
+  "dan-real__dramatic:E": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 17605
+  },
+  "dan-real__max:A": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "condensed",
+    "latencyMs": 8376
+  },
+  "dan-real__max:B": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "full",
+    "latencyMs": 19127
+  },
+  "dan-real__max:C": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 17614
+  },
+  "dan-real__max:D": {
+    "model": "flux-2-pro",
+    "label": "FLUX 2 Pro (edit)",
+    "variant": "full",
+    "latencyMs": 12102
+  },
+  "dan-real__max:E": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "condensed",
+    "latencyMs": 68818
+  },
+  "dan-real__max:F": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 28858
+  },
+  "dan-real__max:G": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "condensed",
+    "latencyMs": 17001
+  },
+  "dan-real__max:H": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 9142
+  },
+  "dan-real__max:I": {
+    "model": "gpt-image-1.5",
+    "label": "GPT Image 1.5 (high fidelity)",
+    "variant": "full",
+    "latencyMs": 66718
+  },
+  "dan-real__max:J": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "full",
+    "latencyMs": 13215
+  },
+  "dan-real__max:K": {
+    "model": "flux-kontext-pro",
+    "label": "FLUX Kontext Pro",
+    "variant": "condensed",
+    "latencyMs": 10694
+  },
+  "heavier-male-dark__dramatic:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 12936
+  },
+  "heavier-male-dark__dramatic:B": {
+    "model": "nano-banana-pro",
+    "label": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "variant": "full",
+    "latencyMs": 19425
+  },
+  "heavier-male-dark__max:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 15858
+  }
+}

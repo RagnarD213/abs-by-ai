@@ -25,6 +25,13 @@ Thumbs.db
 # committing this would publish it. Local-only backup — see _counsel_archive/README.md
 _counsel_archive/
 
+# Bake-off test images (55MB+ of generated candidates and source photos).
+# The harness code, prompts, results.json and the blind key ARE committed —
+# only the image bytes stay local so the deploy repo doesn't carry them.
+bakeoff/round1/images/
+bakeoff/round1/photos/
+bakeoff/**/.env
+
 # Logs
 logs/
 *.log
