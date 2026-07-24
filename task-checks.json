@@ -8,7 +8,8 @@
     "health::Inject Zepbound",
     "money::Verify the two-model image upgrade on live site (Claude runs it, Dan eyeballs results)",
     "money::Implement handoff-20260723-ios-appstore-submit.md — confirm build processing, update screenshots around candidate E, EU trader status, then Submit for Review",
-    "money::Check Replicate balance, top up, and turn on auto-reload at replicate.com/account/billing"
+    "money::Check Replicate balance, top up, and turn on auto-reload at replicate.com/account/billing",
+    "money::Plan the next phase of image generation improvements (with Claude)"
   ],
   "log": {
     "health::Shower": [
