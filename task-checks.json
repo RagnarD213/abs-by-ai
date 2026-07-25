@@ -5,8 +5,7 @@
     "health::Supplements",
     "health::Salad",
     "health::Follow up on Zepbound",
-    "health::Inject Zepbound",
-    "money::Plan the next phase of image generation improvements (with Claude)"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
