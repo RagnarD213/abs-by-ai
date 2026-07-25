@@ -21,9 +21,41 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Implementation in progress`
+**Status:** `Complete — pending reset` (awaiting Apple's review verdict; no further Claude work queued)
 
-### Extended model bake-off v2 — Phase 1 + 2 (round-1 grid)
+### iOS App Store 1.0 — SUBMITTED to Apple (2026-07-25)
+
+**Goal:** Execute `handoff-20260725-ios-screenshots-finish.md` — two screenshot swaps, then upload + submit.
+
+**Result: submitted 2026-07-25 ~4:50 PM CT. App Store Connect shows `1.0 Waiting for Review`, "1 Item Submitted", up to 48h for a verdict.** No export-compliance/encryption prompt appeared.
+
+**Screenshot changes shipped:**
+- **Screen 3 (`6.9-inch/02-transformations-gallery.png`)** — both cards are now the SAME gym guy from the identical before photo; bottom card is the more shredded result. Pool guy removed, so he appears only on screen 2. Used `lean-male__max__nano-banana-pro__condensed.jpg`, **not** the handoff's suggested `moderate-male__max__gpt-image-1.5__condensed.jpg`: the gallery forces `aspect-ratio:3/4` + `object-fit:cover`, and the GPT image is 2:3, so a centred crop put the subject at a visibly different scale from the before (reads as two different photos). Nano-banana is 896×1195 ≈ 3:4 and matches the before framing exactly.
+- **Screen 4 (`6.9-inch/03-daily-brief.png`)** — brand-new male, generated this session from `example pictures/indian before.png` (Dan chose this over the ready-made "pool man" pair on disk). Beach man, heavy → full six-pack; the most dramatic pair in the set.
+
+**Model finding worth keeping (heavier bodies):** ran the beach photo through 4 models with the condensed prompt. **seedream-4.5 barely changed him** (same heavier-body hedge as A3.1), **nano-banana-pro was good**, **gpt-image-1.5 was clearly strongest** and is what shipped; flux-kontext-pro hard-refused (E005). On heavy starting bodies the model choice matters far more than on lean ones — the opposite of the lean-male case where all six were usable.
+
+**iPad blocker found at submit time (not in the handoff).** "Add for Review" failed with *"You must upload a screenshot for 13-inch iPad displays"* — the app is built universal, so Apple requires iPad shots. Verified the app renders **well** on a 13" iPad (clean centred column, nothing stretched), so iPad support was kept rather than making the app iPhone-only. Captured 6 new shots at **2064×2752** on the iPad Pro 13-inch (M5) sim (UDID `7C5DCDAF-52DC-459A-B448-00D2E4E1D354`), saved to `app-store-assets/13-inch-ipad/`. **Macro Tracker was deliberately excluded** — on iPad the demo account has no meals logged today so it renders as a mostly-empty "0 / 2100 cal" screen; replaced with the member-hub feature list. Dan reordered the hub shot to position 4 to break up two text-heavy screens.
+
+**Reviewer demo account state (`danroseconsulting+applereview@gmail.com`):** verified live at submit time — login OK, `active:true, status:"comp", plan:"beta"`, zero paywalls. Gallery now holds 3 transformations (beach man = hero, plus the two gym-guy cards). Old ids 81/82 deleted; backup of their images is in this session's scratchpad only.
+
+**Also configured this session (all were missing and would each have blocked submission):**
+- **EU DSA trader status → "not a trader / not distributing in the EU."** Dan's Apple account is an **Individual** enrolment ("Daniel Rose", home address), so declaring trader would have published his **home address publicly** on EU App Store pages. Apple's docs give **no self-serve way to edit trader contact info after verification** (they say "contact us"), and forum reports confirm support won't change it — but changing trader **status** later *is* documented. So the safe sequencing was non-trader now, trader later once a PO box exists. **Note for later: the trader form's address fields are blank and editable, and P.O. boxes are accepted — but Apple requires a document proving the PO box is yours (receipt/bill).**
+- **Price = Free**, base US, all 175 regions. **Availability = All Countries or Regions** (Apple gates the EU itself off the DSA status, so no manual deselection — and it flips on automatically if trader status is added later).
+- App Review Information: demo sign-in + contact (Daniel Rose / 1-737-290-9944 / danroseconsulting@gmail.com) + §7 review notes + build 1.0 (1) attached.
+- Removed 6 **old** screenshots already sitting in the 6.9" slot from a prior session (they were the superseded set, and had uploaded out of order). Also removed 5 stray `… 2.png` duplicate files from `app-store-assets/6.9-inch/` that would have made hand-dragging error-prone.
+
+**PRODUCTION INCIDENT found and resolved mid-task:** the Anthropic account hit $0, so prod `/api/generate-prompt` returned Anthropic's raw credit error and **`callGeminiText` throws with no fallback — i.e. every visitor's transformation failed** while `/health` stayed 200 and the site looked fine. Also breaks Macro Tracker, Nutritionist, Sleep Coach, Supplement Audit, Daily Brief and the judge (11 call sites). Dan topped up; verified fixed live. **This is the second time an empty provider balance silently broke production (Replicate before, Anthropic now) — recommend auto-reload with a floor on both accounts.** Replicate had credit throughout today.
+
+**Next action:** none for Claude — wait for Apple's email. On rejection, read the resolution centre note before changing anything. Queued follow-ups unchanged (bake-off Phase 4 below; Android upload).
+
+---
+
+### PAUSED — Extended model bake-off v2 (Phase 4 not started, needs Dan's go)
+
+**Owner:** Claude Code · **Status:** `Ready for implementation` — paused while the iOS submission took priority.
+
+#### Extended model bake-off v2 — Phase 1 + 2 (round-1 grid)
 
 **Goal:** Execute `handoff-20260724-model-bakeoff-v2.md`. Phase 1 = rebuild the bake-off harness with adapters for all six roster models and verify each returns an image. Phase 2 = run the round-1 grid and publish a blind-labeled gallery for Dan. No production code changes in these phases.
 

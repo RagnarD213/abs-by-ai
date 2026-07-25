@@ -45,3 +45,7 @@ android/local.properties
 android/keystore/
 android/keystore.properties
 bakeoff/round1/scaled/
+
+# Live API/session tokens written by helper scripts — never commit
+.demotoken
+**/.demotoken

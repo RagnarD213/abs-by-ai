@@ -1,0 +1,22 @@
+Transform this heavier male physique into a peak-condition fitness archetype at maximum intensity. Reduce body fat to 8-10%, carve a deeply etched six-pack with sharp intercostal separation, and sculpt an unmistakable inverted-triangle silhouette. The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required. This is a complete body recomposition: the midsection, waist, lower belly, chest, arms, and thighs must ALL look substantially leaner and tighter. The transformation must be striking and obvious at a glance — anyone viewing this single image must recognize a peak-condition fitness magazine cover model physique.
+
+• Reduce overall body fat dramatically across the entire torso, midsection, lower belly, waist, hips, arms, and thighs — a major, whole-body fat reduction that visibly changes the silhouette and muscularity
+• Carve a deeply etched, fully defined masculine six-pack with sharp separation between each upper and lower ab block, a prominent vertical midline groove, and visible intercostal muscle definition between the ribs
+• Define obliques and serratus anterior with sharp, carved lines framing the waist and lower ribs — no softness at the sides or lower abdomen
+• Sculpt shoulder caps to be visibly rounder, more prominent, and WIDER than the input, with clear pec-delt separation and a defined, muscular chest — create a strong V-taper / inverted-triangle silhouette whose shoulder-to-waist difference is immediately striking
+• Tighten and define the waist and lower abdomen, narrower and more tapered than the input, with a sharp V-cut descending from the chest to the waist
+• Define arms with a prominent bicep peak and full tricep sweep, visibly more muscular and toned than the input
+• Render definition with real light-and-shadow contrast — each ab block catching light with a distinct shadow in the groove beside it, never flat low-contrast lines drawn on the skin
+• Skin taut and dry, drawn tight over the muscle, with a subtle natural sheen on the ab blocks, chest, shoulders, and arms — an athletic, competition-ready look, explicitly NOT an oiled or greasy bodybuilder-stage appearance
+• Thighs visibly leaner and more defined, with clear quadriceps separation and reduced inner-thigh softness
+• Reference archetype: fitness magazine cover model or natural bodybuilder (off-stage) — a peak-condition, shredded physique that reads as elite athletic condition
+
+PRESERVE EXACTLY: the same face, facial features, jawline, hairstyle, hair color, hair length, eye color, ethnicity, age, smile, expression, clothing, jewelry, watch, accessories, shoes, pose, and background from the original photo. Keep the same light direction, color temperature, time of day, and overall exposure so it reads as the same photograph — but let that light model the new muscle: allow deeper shadow inside the ab separations, the oblique lines, and the V-cut, and brighter highlights across the ab blocks, chest, and shoulders, so the physique is sculpted by light rather than flattened. The subject must be immediately recognizable as the same person. Only the body composition changes.
+
+FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo, with the entire subject — full head, face, torso, abs, and waistline — completely visible with the same margins as the input. Do NOT crop, zoom in, cut off, re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed.
+
+Add a warm sun-kissed bronze tan — approximately 2 shades deeper than the natural skin tone. If the subject has naturally deep brown, dark brown, or darker complexion, preserve the exact natural skin tone with NO lightening or darkening. Add only a healthy, vibrant glow. Never make any skin tone change that could alter the subject's apparent ethnicity.
+
+AVOID: any alteration to face, identity, apparent ethnicity, or age; heavily oiled, greasy, wet, or sweat-drenched skin; exaggerated or cartoonish proportions; cropping, zooming, re-framing, changing camera distance or aspect ratio, or cutting off any part of the head or body; an output identical or nearly identical to the input; bulging veins or competition vascularity; comically oversized muscles; spray-on abs that look digitally pasted on.
+
+The final image should look like a natural, unretouched smartphone photograph of the same person at their new physical condition.
