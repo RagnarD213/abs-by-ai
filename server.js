@@ -2068,6 +2068,280 @@ app.post('/api/refine-leftovers', aiLimiter, async (req, res) => {
 });
 
 // ============================================================
+// GENERATION JUDGE (bake-off Phase 4) — ported from bakeoff/judge-v2.js
+// ============================================================
+// The previous judge asked for "the MORE dramatic, more impressive… (leaner,
+// more muscular, more defined)" candidate. Measured against Dan's 80 labelled
+// candidates that instruction was actively wrong: it agreed with him on only
+// 61.0% of held-out pairings, and the images it preferred over his own pick
+// were tagged "too muscular" 18 times. Three changes fix it:
+//
+//   1. Per-candidate 1–5 rubric instead of a bare winner, with the tie-break
+//      computed by judgeComposite() in OUR code — so the aesthetic is a set of
+//      weights we control, and it generalises to N candidates.
+//   2. The spec is Dan's actual taste: ab definition is the prize, muscle
+//      volume beyond a lean athlete is a DEMERIT, any added tan is a serious
+//      fault, and airbrushed/oiled reads as fake.
+//   3. Position-bias control: every comparison runs twice with the candidate
+//      order swapped and the dimension scores averaged. The old judge flipped
+//      its answer on 17.2% of pairings from ordering alone, which is why its
+//      self-reported `margin` was never trustworthy — a disagreement between
+//      the two runs is now the real "this is a close call" signal.
+//
+// Held-out agreement with Dan's labels: 80.5% pairwise (was 61.0%) and 100%
+// case-level (was 60%). Model, weights and exemplars are all settled — see
+// AI_COORDINATION.md before changing any of them.
+const JUDGE_MODEL = 'claude-sonnet-5';
+
+const JUDGE_SYSTEM = `You are the quality judge for an AI fitness-transformation product. Users upload a photo of themselves and the product returns an edited photo of how they could look after getting in shape. Your job is to pick the candidate edit the product owner would ship.
+
+The product owner has labelled hundreds of candidates. His taste is specific and it is NOT "the most dramatic transformation wins". The target physique is a lean, shredded, natural athlete — sometimes called a "Kino" build:
+
+- VERY LOW body fat with a sharply cut, clearly separated six-pack, visible obliques, a tight waist and a V-taper. Ab definition is the single most valuable quality.
+- Muscle volume stays ATHLETIC. Added size beyond a lean athlete — inflated chest, capped/boulder delts, blown-up arms, flared lats, bodybuilder or comic-book mass — is a DEMERIT, not a win. His most common complaint by far is "too muscular".
+- SKIN TONE MUST MATCH THE BEFORE PHOTO EXACTLY. Any added tan, bronzing, warming, darkening or golden cast is a serious fault, even when it makes the abs pop. His second most common complaint is "too tan".
+- The result must look like a REAL UNRETOUCHED PHOTOGRAPH of that same person: natural skin texture, natural lighting, dry skin. Airbrushed/plastic/CGI/rendered looks, and oiled or wet-looking skin, are faults. His third most common complaint is "looks fake".
+- It must still be CLEARLY CHANGED from the BEFORE. A result that could be mistaken for the original is a failure ("not enough change"). But magnitude is subordinate to the aesthetic above: overshooting into bodybuilder mass is worse than undershooting slightly.
+
+Score each candidate independently on these dimensions. Use the FULL 1–5 range; do not cluster everything at 3–4.
+
+identity  — "good" (clearly the same person, same face), "borderline" (mostly them but the face is subtly off), "broken" (a different person, or distorted/artifact-ridden).
+
+photoreal (1–5) — 5 = indistinguishable from a real unretouched photo; 3 = slightly processed but plausible; 1 = obviously AI-generated, plastic, airbrushed, rendered or uncanny. Oiled/wet/sweaty skin caps this at 3.
+
+skin_tone (1–5) — 5 = skin colour and warmth are identical to the BEFORE; 4 = a barely perceptible shift; 3 = noticeably warmer or more bronzed; 1 = obviously tanned, golden or darkened versus the BEFORE. Judge the skin ONLY, ignoring how lighting affects muscle shadow.
+
+definition (1–5) — 5 = sharply cut, deeply separated six-pack with visible obliques and a tight waist; 3 = some visible ab outline; 1 = soft midsection, no ab separation.
+
+bulk (1–5) — how much muscle VOLUME the body carries relative to the BEFORE. 1 = same frame as the BEFORE, no added size; 2 = slightly fuller, natural; 3 = lean athlete / fitness model — THIS IS THE TARGET; 4 = noticeably bigger than a lean athlete, heading toward bodybuilder; 5 = bodybuilder or comic-book mass. Higher is NOT better. 4 and 5 are faults.
+
+change (1–5) — how clearly different from the BEFORE. 5 = unmistakably transformed; 3 = clearly different on a close look; 1 = could be mistaken for the BEFORE photo.
+
+Reply with ONLY a JSON object, no other text:
+{"candidates":[{"id":"A","identity":"good|borderline|broken","photoreal":1-5,"skin_tone":1-5,"definition":1-5,"bulk":1-5,"change":1-5,"note":"one short clause"}, ...]}
+Include one entry per candidate shown, keyed by the letter label given.`;
+
+// Maximise definition subject to the fault penalties. These weights were chosen
+// a priori, BEFORE any result was seen. A 4,320-setting offline sweep
+// (bakeoff/judge-tune.js) puts them on the median of the distribution, with 62%
+// of settings reaching >=80%. Settings that score higher do it by zeroing
+// bulkPenalty and underPenalty — i.e. by deleting the demerits that encode the
+// taste — and their N-way accuracy collapses. Do not "tune" these.
+const JUDGE_WEIGHTS = {
+  definition: 2.0,
+  skin: 1.0,
+  photoreal: 1.0,
+  change: 0.6,
+  bulkPenalty: 2.5,   // per point of bulk above the athletic target (3)
+  underPenalty: 1.5,  // per point of change below 3 ("not enough change")
+  borderlineId: 2.0,
+};
+
+function judgeComposite(m, w = JUDGE_WEIGHTS) {
+  let s = w.definition * m.definition
+    + w.skin * m.skin_tone
+    + w.photoreal * m.photoreal
+    + w.change * m.change
+    - w.bulkPenalty * Math.max(0, m.bulk - 3)
+    - w.underPenalty * Math.max(0, 3 - m.change);
+  if (m.identity === 'borderline') s -= w.borderlineId;
+  if (m.identity === 'broken') s -= 100;
+  return +s.toFixed(3);
+}
+
+// Few-shot exemplars: three of Dan's own labelled cases — the BEFORE photo, the
+// candidate he chose, one he rejected, and his one-line reason for each. Removing
+// them costs real accuracy (ablation: 78.0% pairwise and 5-of-7 case-level,
+// versus 80.5% and 7-of-7 with them). Pre-downscaled to 768px at build time;
+// they only calibrate, so they don't need full resolution.
+const JUDGE_EXEMPLAR_DIR = path.join(__dirname, 'assets', 'judge-exemplars');
+const JUDGE_EXEMPLARS = [
+  {
+    before: 'ex1-before.jpg', chosen: 'ex1-chosen.jpg', rejected: 'ex1-rejected.jpg',
+    chosenWhy: 'CHOSEN: the most ab definition of any candidate while staying natural — skin tone identical to the BEFORE, no bronzing, no oil sheen, and the frame is still an ordinary fit guy rather than a bodybuilder.',
+    rejectedWhy: 'REJECTED: too muscular — chest, delts and arms are inflated well past athletic — and the whole image reads fake/rendered rather than like a real photo of this man.',
+  },
+  {
+    before: 'ex2-before.jpg', chosen: 'ex2-chosen.jpg', rejected: 'ex2-rejected.jpg',
+    chosenWhy: 'CHOSEN: exactly right — clearly leaner with a real six-pack, skin tone unchanged from the BEFORE, and the added muscle stays in athletic proportion.',
+    rejectedWhy: 'REJECTED: three faults at once — not enough actual change from the BEFORE, skin has been warmed/bronzed, and what muscle was added is overblown.',
+  },
+  {
+    before: 'ex3-before.jpg', chosen: 'ex3-chosen.jpg', rejected: 'ex3-rejected.jpg',
+    chosenWhy: 'CHOSEN: the most ab definition available without becoming excessively muscular or tan; still unmistakably her, still feminine.',
+    rejectedWhy: 'REJECTED: muscled far past what was asked for, and the skin has been given a tan the BEFORE photo does not have.',
+  },
+];
+
+// Built once on first use, then reused for the life of the process. The block
+// list is a stable prefix, so cache_control on the final block prompt-caches the
+// system spec plus all nine images. If the assets are missing for any reason the
+// judge simply runs without exemplars rather than failing.
+let judgeExemplarBlocks = null;
+function getJudgeExemplarBlocks() {
+  if (judgeExemplarBlocks) return judgeExemplarBlocks;
+  try {
+    const img = (name) => ({
+      type: 'image',
+      source: { type: 'base64', media_type: 'image/jpeg', data: fs.readFileSync(path.join(JUDGE_EXEMPLAR_DIR, name)).toString('base64') },
+    });
+    const blocks = [{
+      type: 'text',
+      text: "Before you judge, here are worked examples of the product owner's actual choices. Each shows a BEFORE photo, the candidate he chose, and a candidate he rejected, with his reason. Calibrate your scores so that his chosen images score highest.",
+    }];
+    JUDGE_EXEMPLARS.forEach((ex, i) => {
+      blocks.push({ type: 'text', text: `EXAMPLE ${i + 1} — BEFORE photo:` });
+      blocks.push(img(ex.before));
+      blocks.push({ type: 'text', text: `EXAMPLE ${i + 1} — the candidate he CHOSE:` });
+      blocks.push(img(ex.chosen));
+      blocks.push({ type: 'text', text: ex.chosenWhy });
+      blocks.push({ type: 'text', text: `EXAMPLE ${i + 1} — a candidate he REJECTED:` });
+      blocks.push(img(ex.rejected));
+      blocks.push({ type: 'text', text: ex.rejectedWhy });
+    });
+    blocks[blocks.length - 1].cache_control = { type: 'ephemeral' };
+    judgeExemplarBlocks = blocks;
+  } catch (e) {
+    console.error('Judge exemplars unavailable, running without few-shot:', e.message);
+    judgeExemplarBlocks = [];
+  }
+  return judgeExemplarBlocks;
+}
+
+const JUDGE_LETTERS = 'ABCDEFGH'.split('');
+
+// One scoring pass over the candidates in the given order. Returns a per-letter
+// rubric, or null on any failure (the caller fails open).
+async function judgeScoreOnce({ photo, candidates }) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 60000);
+  try {
+    const content = [...getJudgeExemplarBlocks()];
+    content.push({ type: 'text', text: 'Now judge this case.\n\nBEFORE photo (the real person):' });
+    content.push({ type: 'image', source: { type: 'base64', media_type: photo.imageMime, data: photo.imageBase64 } });
+    candidates.forEach((c, i) => {
+      content.push({ type: 'text', text: `Candidate ${JUDGE_LETTERS[i]}:` });
+      content.push({ type: 'image', source: { type: 'base64', media_type: c.imageMime, data: c.imageBase64 } });
+    });
+    content.push({ type: 'text', text: `Score all ${candidates.length} candidate(s) (${candidates.map((_, i) => JUDGE_LETTERS[i]).join(', ')}) on the rubric. JSON only.` });
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      // NEVER send temperature/top_p/top_k here — the Claude 5 family hard-400s
+      // on them, and because the judge fails open a broken judge is invisible
+      // without reading the Railway logs. That bug ran for days once (e39ac7c).
+      body: JSON.stringify({
+        model: JUDGE_MODEL,
+        max_tokens: 1200,
+        system: JUDGE_SYSTEM,
+        messages: [{ role: 'user', content }],
+      }),
+      signal: controller.signal,
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      console.error('Judge HTTP error:', response.status, data?.error?.message);
+      return null;
+    }
+    const text = (data?.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('\n');
+    const m = text.match(/\{[\s\S]*\}/);
+    if (!m) return null;
+    let raw = null;
+    try { raw = JSON.parse(m[0]); } catch (e) { return null; }
+    if (!raw || !Array.isArray(raw.candidates)) return null;
+    // Clamp/normalise defensively: a missing or out-of-range dimension becomes a
+    // neutral 3 rather than poisoning the composite.
+    const clamp = (x) => (Number.isFinite(+x) ? Math.min(5, Math.max(1, Math.round(+x))) : 3);
+    const out = {};
+    for (const c of raw.candidates) {
+      const letter = String(c?.id || '').trim().toUpperCase();
+      if (!JUDGE_LETTERS.includes(letter)) continue;
+      out[letter] = {
+        identity: ['good', 'borderline', 'broken'].includes(c.identity) ? c.identity : 'borderline',
+        photoreal: clamp(c.photoreal),
+        skin_tone: clamp(c.skin_tone),
+        definition: clamp(c.definition),
+        bulk: clamp(c.bulk),
+        change: clamp(c.change),
+        note: typeof c.note === 'string' ? c.note.slice(0, 160) : '',
+      };
+    }
+    return out;
+  } catch (e) {
+    if (e.name !== 'AbortError') console.error('Judge error:', e.message);
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// Score the candidates with the position-bias swap: one pass forward, one with
+// the order reversed, run in parallel, dimension scores averaged across the two.
+// Each candidate must carry a unique `model` — that is the identifier used to
+// map verdicts back to images. Returns null when both passes fail (fail open).
+async function judgeScoreCandidates({ photo, candidates }) {
+  const n = candidates.length;
+  const [fwd, bwd] = await Promise.all([
+    judgeScoreOnce({ photo, candidates }),
+    judgeScoreOnce({ photo, candidates: [...candidates].reverse() }),
+  ]);
+  if (!fwd && !bwd) return null;
+
+  const merged = candidates.map((cand, i) => {
+    const a = fwd ? fwd[JUDGE_LETTERS[i]] : null;            // forward position
+    const b = bwd ? bwd[JUDGE_LETTERS[n - 1 - i]] : null;    // reversed position
+    const runs = [a, b].filter(Boolean);
+    if (!runs.length) return null;
+    const avg = (k) => runs.reduce((s, r) => s + r[k], 0) / runs.length;
+    // Identity is the pessimistic merge: one "broken" read is enough to reject,
+    // and "good" requires both passes to agree.
+    const identity = runs.some((r) => r.identity === 'broken') ? 'broken'
+      : runs.every((r) => r.identity === 'good') ? 'good' : 'borderline';
+    return {
+      model: cand.model,
+      identity,
+      photoreal: avg('photoreal'),
+      skin_tone: avg('skin_tone'),
+      definition: avg('definition'),
+      bulk: avg('bulk'),
+      change: avg('change'),
+      notes: runs.map((r) => r.note).filter(Boolean),
+    };
+  });
+  if (merged.some((m) => !m)) return null;
+  for (const m of merged) m.score = judgeComposite(m);
+
+  // Per-pass winners, used only to detect order disagreement.
+  const winnerOf = (src, reversed) => {
+    if (!src) return null;
+    const scored = candidates.map((cand, i) => {
+      const r = src[JUDGE_LETTERS[reversed ? n - 1 - i : i]];
+      return r ? { model: cand.model, score: judgeComposite(r) } : null;
+    }).filter(Boolean);
+    if (!scored.length) return null;
+    return scored.sort((x, y) => y.score - x.score)[0].model;
+  };
+  const wFwd = winnerOf(fwd, false);
+  const wBwd = winnerOf(bwd, true);
+
+  const ranked = [...merged].sort((x, y) => y.score - x.score);
+  const alive = ranked.filter((m) => m.identity !== 'broken');
+  return {
+    ranked,
+    alive,
+    byModel: Object.fromEntries(merged.map((m) => [m.model, m])),
+    winner: (alive.length ? alive : ranked)[0],
+    orderDisagreement: !!(wFwd && wBwd && wFwd !== wBwd),
+    margin: alive.length > 1 ? +(alive[0].score - alive[1].score).toFixed(3) : null,
+  };
+}
+
+// ============================================================
 // ENDPOINT 3: Generate image (Gemini)
 // ============================================================
 app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
@@ -2348,90 +2622,44 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // When the verifier says the result is still a near-no-op, we re-call Gemini with a
     // gender-specific "you were too subtle, push harder" preamble. Fail-open throughout,
     // and the whole loop runs BEFORE cacheAttempt so retries never re-charge a credit.
-    // ── Phase 3 judge: one vision call, BEFORE + both candidates ──
-    // Routing (approved 2026-07-22): identity broken → that image is never
-    // shown; one survivor → single result; two survivors + clear winner with
-    // both identities good → auto-pick; otherwise → client chooser ("the user
-    // is the best judge of their own face"). Judge error → null → Gemini image
-    // through the existing verifier ladder, exactly as today (fail-open).
-    const judgeCandidates = async (candA, candB) => {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 60000);
-      try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': ANTHROPIC_API_KEY,
-            'anthropic-version': '2023-06-01',
-          },
-          body: JSON.stringify({
-            model: 'claude-sonnet-5',
-            max_tokens: 300,
-            messages: [
-              {
-                role: 'user',
-                content: [
-                  { type: 'text', text: 'BEFORE photo (the real person):' },
-                  { type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } },
-                  { type: 'text', text: 'Candidate A:' },
-                  { type: 'image', source: { type: 'base64', media_type: candA.imageMime, data: candA.imageBase64 } },
-                  { type: 'text', text: 'Candidate B:' },
-                  { type: 'image', source: { type: 'base64', media_type: candB.imageMime, data: candB.imageBase64 } },
-                  { type: 'text', text: 'Candidates A and B are AI fitness-transformation edits of the BEFORE photo. Judge them.\n\nFor each candidate assess:\n- identity: "good" (clearly the same person — same face, recognizably them), "borderline" (mostly the same person but something about the face is slightly off), or "broken" (looks like a different person, or the face/body is distorted or artifact-ridden)\n- photoreal: true if it reads as a real unretouched photograph, false if it looks AI-generated, painted, or uncanny\n\nThen pick the winner: the candidate showing the MORE dramatic, more impressive body transformation versus the BEFORE (leaner, more muscular, more defined) among those with acceptable identity and photorealism. Set margin to "clear" only if one candidate is decisively better overall; use "close" when they are near-equal or the call is debatable.\n\nReply with ONLY this JSON, no other text:\n{"a":{"identity":"good|borderline|broken","photoreal":true},"b":{"identity":"good|borderline|broken","photoreal":true},"winner":"a|b","margin":"clear|close"}' },
-                ],
-              },
-            ],
-          }),
-          signal: controller.signal,
-        });
-        const data = await response.json();
-        if (!response.ok) {
-          console.error('Judge HTTP error:', response.status, data?.error?.message);
-          return null;
-        }
-        const text = (data?.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('\n');
-        const m = text.match(/\{[\s\S]*\}/);
-        if (!m) return null;
-        const raw = JSON.parse(m[0]);
-        const norm = (x) => ({
-          identity: ['good', 'borderline', 'broken'].includes(x?.identity) ? x.identity : 'borderline',
-          photoreal: x?.photoreal !== false,
-        });
-        return {
-          a: norm(raw.a),
-          b: norm(raw.b),
-          winner: raw.winner === 'b' ? 'b' : 'a',
-          margin: raw.margin === 'clear' ? 'clear' : 'close',
-        };
-      } catch (e) {
-        if (e.name !== 'AbortError') console.error('Judge error:', e.message);
-        return null;
-      } finally {
-        clearTimeout(timer);
-      }
-    };
-
-    let judgeVerdict = null;      // parsed judge JSON (or null when not run / failed)
+    // ── The judge (rubric scoring, two order-swapped passes — see above) ──
+    // Routing keeps the shape approved 2026-07-22, with one change: the
+    // "is this a close call?" test is now whether the two order-swapped passes
+    // disagree on the winner, instead of the model's own `margin` field. That
+    // field was never validated and the old judge flipped on ordering alone
+    // 17.2% of the time, so "clear" frequently meant nothing.
+    //   • identity broken           → that image is never shown
+    //   • one survivor              → serve it
+    //   • two survivors, the passes agree, both identities good → auto-pick the
+    //                                 higher composite
+    //   • otherwise                 → client chooser ("the user is the best
+    //                                 judge of their own face")
+    // Judge error → null → Gemini image through the existing verifier ladder,
+    // exactly as today (fail-open).
+    let judgeVerdict = null;      // scored verdict (or null when not run / failed)
     let judgeWinnerModel = null;  // 'gemini' | 'flux' when the judge produced a best pick
     let chooserCandidates = null; // [{model,imageBase64,imageMime}, ...] when the user should choose
     if (result.ok && fluxResult.ok && !geminiBlocked) {
       const candA = result;      // gemini
       const candB = fluxResult;  // flux
-      judgeVerdict = await judgeCandidates(candA, candB);
+      const byModel = { [candA.model]: candA, [candB.model]: candB };
+      judgeVerdict = await judgeScoreCandidates({
+        photo: { imageBase64: photoBase64, imageMime: photoMime },
+        candidates: [candA, candB],
+      });
       if (judgeVerdict) {
-        const byKey = { a: candA, b: candB };
-        const alive = ['a', 'b'].filter((k) => judgeVerdict[k].identity !== 'broken' && judgeVerdict[k].photoreal);
+        const alive = judgeVerdict.alive;
         if (alive.length === 1) {
-          result = byKey[alive[0]];
+          result = byModel[alive[0].model] || result;
           judgeWinnerModel = result.model;
         } else if (alive.length === 2) {
-          judgeWinnerModel = byKey[judgeVerdict.winner].model;
-          if (judgeVerdict.margin === 'clear' && judgeVerdict.a.identity === 'good' && judgeVerdict.b.identity === 'good') {
-            result = byKey[judgeVerdict.winner];
+          judgeWinnerModel = judgeVerdict.winner.model;
+          const bothGood = alive.every((c) => c.identity === 'good');
+          if (!judgeVerdict.orderDisagreement && bothGood) {
+            result = byModel[judgeWinnerModel] || result;
           } else {
-            // Near-tie or a borderline identity → the user decides. Keep the
-            // judge's best pick around for the locked/paywalled path.
+            // The two passes disagreed, or an identity is borderline → the user
+            // decides. Keep the judge's best pick for the locked/paywalled path.
             chooserCandidates = [candA, candB].map((c) => ({ model: c.model, imageBase64: c.imageBase64, imageMime: c.imageMime }));
           }
         }
@@ -2567,6 +2795,10 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // and returned to the client so it can forward a PostHog event under the real
     // distinctId (retry-rung counts are only known here on the server). Fail-open.
     const chooserShown = !!(chooserCandidates && !locked);
+    const servedModel = chooserShown ? null : (winnerCandidate ? winnerCandidate.model : (result.model || 'gemini'));
+    // Rubric scores for the image the user actually gets, so real-traffic
+    // behaviour can be compared against bakeoff/round1/labels.json later.
+    const servedScores = (judgeVerdict && servedModel) ? (judgeVerdict.byModel[servedModel] || null) : null;
     const telemetry = {
       sex: (sex === 'male' || sex === 'female') ? sex : null,
       intensity: intensity || null,
@@ -2581,12 +2813,22 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       models_run: fluxResult.ok ? 'gemini+flux' : 'gemini',
       gemini_blocked: geminiBlocked,
       judge_ran: !!judgeVerdict,
-      judge_identity_a: judgeVerdict?.a?.identity ?? null,
-      judge_identity_b: judgeVerdict?.b?.identity ?? null,
+      judge_identity_a: judgeVerdict?.byModel?.gemini?.identity ?? null,
+      judge_identity_b: judgeVerdict?.byModel?.flux?.identity ?? null,
       judge_winner: judgeVerdict ? judgeWinnerModel : null,
-      judge_margin: judgeVerdict?.margin ?? null,
+      // Replaces the old string `judge_margin` ("clear"|"close"). The routing
+      // signal is now the order-swap disagreement; the margin is the real
+      // composite-score gap between the two survivors.
+      judge_order_disagreement: judgeVerdict ? judgeVerdict.orderDisagreement : null,
+      judge_score_margin: judgeVerdict?.margin ?? null,
+      judge_photoreal: servedScores?.photoreal ?? null,
+      judge_skin_tone: servedScores?.skin_tone ?? null,
+      judge_definition: servedScores?.definition ?? null,
+      judge_bulk: servedScores?.bulk ?? null,
+      judge_change: servedScores?.change ?? null,
+      judge_composite: servedScores?.score ?? null,
       chooser_shown: chooserShown,
-      served_model: chooserShown ? null : (winnerCandidate ? winnerCandidate.model : (result.model || 'gemini')),
+      served_model: servedModel,
     };
     try {
       console.log('GEN_TELEMETRY ' + JSON.stringify({ ...telemetry, distinctId: distinctId || null, isFix: !!isFix }));
