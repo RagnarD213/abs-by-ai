@@ -111,6 +111,20 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ## Project history and open follow-ups
 
+### Android app PUBLISHED to Play internal testing — waiting on store propagation (2026-07-25, Claude Code)
+
+**NEXT ACTION — DAN (2026-07-26 morning):** re-check whether the Abs by AI internal-testing build is finally downloadable on the phone. Open the join link on the Android phone: `https://play.google.com/apps/internaltest/4700579003000125158` → **Download test app**. If it still says "Item not found" more than ~12 hours after the 2026-07-25 3:49 PM release, that is no longer normal propagation and needs investigation (start with Play Store → Clear cache, then the direct listing `https://play.google.com/store/apps/details?id=com.absbyai.app`). Meanwhile the identical APK was sent to Dan for sideloading, so functional testing is not blocked.
+
+Play Console app created (`com.absbyai.app`, app id 4974398073942667839, Organization account). `app-release.aab` (v1/1.0, 494 KB, targetSdk 35) uploaded and **published to the Internal testing track at 3:49 PM** — console confirms "Available to internal testers". Tester list "Me" = danroseconsulting@gmail.com, invite accepted ("You're a tester" confirmed on the phone). Store shows the temporary name `com.absbyai.app (unreviewed)` until the listing is done — expected, not a defect.
+
+**Address-bar fix shipped pre-emptively, commit `448ca32`.** Play App Signing re-signs with Google's own key, so the site trusted only the local upload key. Added Google's app signing SHA-256 (`88:0C:A1:C9:…:DB:DC:77`) alongside the existing upload-key fingerprint (`2D:99:A8:35:…:A6:75:E9`) in `public/.well-known/assetlinks.json`; both kept so locally signed APKs still verify. Live in 45s and **validated by Google's Digital Asset Links API with zero errors** — so the TWA should be full-screen on first launch, no reinstall needed.
+
+**Ruled out as causes of the "Item not found" error:** wrong join link (extracted verbatim from the console DOM), unaccepted invite, unpublished release, missing assetlinks, and hardware requirements (manifest declares only `INTERNET`; the bundle's "Required features: 1" is the implicit touchscreen). Everything verifiable is correct — remaining cause is Play propagation only.
+
+**Gotcha worth remembering:** a scheduled task (`submit-android-app-after-org-wait`) fired mid-session at 3:23 PM and drove the same Chrome, silently creating the tester list and draft release while Dan and Claude were working the same flow. Two agents in one browser fight over navigation. It did NOT create a duplicate app. Also note both Claude and that task are blocked from uploading files outside the session folder, so the `.aab` upload always needs Dan's hands.
+
+**Still outstanding for PUBLIC release (none block internal testing):** setup is 4 of 11 — done are privacy policy, sign-in details, ads, target audience; open are **Content rating**, **Data safety**, **Health declaration**, **Financial features**, app category/contact details, and the full store listing. Content rating and Health are Dan's own declarations — walk him through, do not self-certify. Separately: **targetSdk 35 is only accepted until 2026-08-31**, after which new apps need API 36, so ship before then or rebuild.
+
 ### Printify order fulfillment verification — DONE, three bugs found + fixed + live-verified end-to-end (2026-07-23, Claude Code)
 
 Dan ran a series of real paid print orders through the live print flow to verify Printify fulfillment end-to-end. Surfaced three separate, real bugs, each fixed and confirmed live via Railway logs before moving to the next.
@@ -498,6 +512,8 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 ---
 
 ## Queued (next up after the active task)
+
+**Task (DAN ACTION, 2026-07-26):** Re-check the Abs by AI Android internal-testing install. It was published to Play 2026-07-25 at 3:49 PM and every setting verified correct, but the Play Store still returned "Item not found" ~30 min later — expected propagation at that point. Open `https://play.google.com/apps/internaltest/4700579003000125158` on the phone → **Download test app**. If it still fails more than ~12 hours after release, it's no longer normal and needs investigation. Then run the on-device checklist: full-screen with no address bar, photo upload + generation, Stripe print checkout, **purchase gating (no buy buttons, "not available for purchase in the app" note)**, login, back-button behavior. Full context in the Android entry under Project history. Dan-owned.
 
 **Task:** `handoff-20260724-model-bakeoff-v2.md` — extended multi-model bake-off (6 models incl. GPT Image 1.5 high-fidelity, Nano Banana Pro, Seedream 4.5, FLUX 2), blind gallery of ALL candidates for Dan to label, judge retrained/evaluated against Dan's labels (current judge is misaligned by instruction — it's told "more muscular = better"), tan removed from SYSTEM_PROMPT (the bronze tan is our own instruction, dropped from the condensed FLUX prompt — which is why FLUX preserved skin tone), Kino-body aesthetic target. Planned 2026-07-24 by Claude Code; awaiting Dan's go + Replicate top-up. Claude-owned.
 
