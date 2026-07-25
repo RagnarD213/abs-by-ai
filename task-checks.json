@@ -6,7 +6,8 @@
     "health::Salad",
     "health::Follow up on Zepbound",
     "health::Inject Zepbound",
-    "money::Android app: confirm it opens full-screen with no address bar"
+    "money::Android app: confirm it opens full-screen with no address bar",
+    "money::Android app: upload a photo and generate one result"
   ],
   "log": {
     "health::Shower": [
