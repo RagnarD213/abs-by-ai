@@ -21,7 +21,41 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` (generate-screen fix shipped and live; iOS awaiting Apple's review verdict; no further Claude work queued)
+**Status:** `Complete — pending reset` (bake-off Phase 4 shipped and live-verified; iOS awaiting Apple's review verdict; one Dan eyeball outstanding)
+
+### Bake-off Phase 4 — judge + prompt BOTH SHIPPED and live-verified (2026-07-25, commits `4996b1a` and `14b4790`)
+
+Executed `handoff-20260725-bakeoff-phase4-ship-judge-and-prompt.md`. Two independent changes to the same user-visible outcome, deliberately shipped and verified as separate commits so a regression is attributable.
+
+**Commit `4996b1a` — the rebuilt judge is now production.** Ported `bakeoff/judge-v2.js` into `server.js`: rubric prompt as the API `system` field, per-candidate JSON contract, position-bias order swap (two passes in parallel, dimension scores averaged), `composite()` + `DEFAULT_WEIGHTS` unchanged. Verified programmatically that the shipped `JUDGE_SYSTEM` is **byte-identical** to `judge-v2.js` `SYSTEM`, the weights match exactly, and `judgeComposite()` agrees with `composite()` on 400 random rubrics — so the 80.5% number describes what actually ships.
+
+**Routing rewired to `orderDisagreement`, not the model's `margin`** (which was never validated and flipped 17.2% of the time on ordering alone): broken identity → never shown; one survivor → serve it; two survivors + passes agree + both identities good → auto-pick the higher composite; otherwise → the 2-way chooser. **Identity gate and fail-open are unchanged.** One deliberate behaviour change: `photoreal` is no longer a hard gate — it is a scored dimension folded into the composite, exactly as `judge-v2` does it. Only `identity === 'broken'` excludes a candidate now.
+
+**Exemplar images ship in the repo.** `assets/judge-exemplars/` holds the 9 images (3 BEFORE + 3 chosen + 3 rejected) downscaled to 768px, ~830 KB total, read lazily at first judge call and cached for the process; `cache_control` on the last block prompt-caches system + all nine. Missing assets degrade to no-few-shot rather than breaking the judge. **Dan explicitly approved committing `dan-real` (his own photo + two AI edits of it) to the public GitHub repo** after being told the repo is public; they are not reachable over HTTP because the server serves only `public/`.
+
+**Telemetry:** the old string `judge_margin` ("clear"|"close") is **replaced** by `judge_order_disagreement` (bool) and `judge_score_margin` (number), plus the six rubric scores and the composite for the served candidate (`judge_photoreal`/`judge_skin_tone`/`judge_definition`/`judge_bulk`/`judge_change`/`judge_composite`). Any PostHog view referencing `judge_margin` needs updating. The client forwards the whole telemetry object blindly, so no client change was needed.
+
+**Verified:** 57 assertions against the real server over HTTP with stubbed providers (auto-pick both directions, bulk penalty overriding raw definition, order disagreement → chooser, borderline identity → chooser, each single-survivor case, both-broken fall-through, judge 500 and unparseable output both failing open, flux down, gemini blocked, both down, cross-pass averaging, fix passes staying single-model). Confirmed on the wire: `system` field set, **no `temperature`/`top_p`/`top_k`**, two parallel passes, 9 exemplar images, `cache_control` on the last. Live on absbyai.com: two real generations, 19.7s and 17.3s (no latency regression), judge picked gemini on one and flux on the other, averaged non-integer scores prove both passes returned. Zero judge errors in the Railway logs.
+
+**Commit `14b4790` — the SYSTEM_PROMPT retune** (`public/index.html`), justified by Dan's tag totals (too muscular 33, too tan 23, looks fake 20) and by 8 of his 10 best picks coming from the condensed variant that already drops these instructions:
+- **Tan block gone.** The three intensity-scaled lines (up to "a warm sun-kissed bronze tan, ~2 shades deeper" at max) are replaced by one rule preserving the input's exact skin tone at every intensity, plus an AVOID entry. The deep/dark-complexion clause is kept **byte-identical**.
+- **Muscle anchors cut roughly in half:** +5/+8/+12/+15 lb → **+2/+4/+6/+8 lb**, and added size is reframed as *supporting* the abs in the anchor table, both `[[MUSCLE_*]]` blocks, the male bullet and the final reminder. The universal V-taper bullet now builds the taper from a **tighter waist** rather than wider delts — it sat outside the markers and so had been pushing size onto heavier males it was never scoped to.
+- **Kino language:** "natural bodybuilder (off-stage)" removed from the male archetypes, lean leading-man added, the Kino target named in the lean/very-lean directive, and AVOID gains bodybuilder-scale mass (male) + an airbrushed-look entry.
+- Also removed *"Placed side by side with the input, the output must read as…"* — Phase 1 found GPT Image 1.5 reads that as an instruction to render a **before/after diptych**.
+
+**`[[MUSCLE_*]]` markers untouched** — `muscleAxisPlan()` still strips the blocks deterministically. Prose-only scoping has leaked twice; do not replace it.
+
+**Verified:** 662 assertions across all 32 gender/condition/intensity combinations (no marker leak, `GOAL_SYSTEM_PROMPT` replace still matches, no tan instruction anywhere, female paths + FEMALE HEAVIER REALISM RULE unchanged, PRESERVE/FRAMING/CLOSING/safety intact). Live on absbyai.com: 55 checks against the **served** `index.html` driving real `/api/generate-prompt` on male very_lean/fit/moderate/heavier and female heavier — all complete, no `PROMPT_TRUNCATED`, longest assembled prompt 5,889 chars. Three real end-to-end generations, all passing the verifier first try with `weakChange:false`.
+
+**The judge's own scores confirm the prompt fix worked**, same photos and settings before vs after: lean male `skin_tone` 4 → **5**, `bulk` 3.5 → **2**, composite 17.15 → 19.9; moderate male `skin_tone` 3.5 → 4, `photoreal` 3.5 → 4, composite 17.7 → 18.4. Visually the moderate male came back clearly less bulky, with skin tone much closer to the input and a more photographic texture — slightly softer abs is the accepted trade.
+
+**Regression eval re-run and unchanged:** `CACHE_ONLY=1 HELD_OUT_ONLY=1 node judge-eval.js` → **80.5% held-out pairwise, 100% case-level (7/7)**, N-way top-1 42.9%. Fully cache-served, $0. `labels.json` remains the permanent regression test.
+
+**Known weakness carried forward:** N-way top-1 is 42.9% held-out, so **do not expand production beyond 2 candidate models** on this evidence. 5 of the 9 remaining pairwise misses are the single case `heavier-male__max`, which needs a heavier-male exemplar or more labels, not a formula change.
+
+**Next action — Dan (2 items, both eyeballs):** (1) run a few real transformations on absbyai.com on your own photos and confirm the new look — less muscle, no tan — is what you want; if abs now read too soft, the dial to turn is the body-fat anchors, not the muscle anchors. (2) **OPEN decision deferred from the handoff:** whether the condensed prompt should simply replace the full one for all models. The cheapest test is re-running the harness prompt-variant A/B now that fixes 1–3 have landed, to see whether full and condensed have converged. Also still open: ~20 minutes of labelling ~10 more heavier-male candidates would likely close the judge's one real blind spot.
+
+---
 
 ### Member generate-screen cleanup — SHIPPED + live-verified (2026-07-25, commit `28319b7`)
 
@@ -65,9 +99,9 @@ Executed `handoff-20260725-member-generate-screen-cleanup.md`. Logged-in members
 
 ---
 
-### PAUSED — Extended model bake-off v2 (Phase 4 not started, needs Dan's go)
+### Extended model bake-off v2 — Phases 1–4 ALL COMPLETE (record below kept for context)
 
-**Owner:** Claude Code · **Status:** `Ready for implementation` — paused while the iOS submission took priority.
+**Owner:** Claude Code · **Status:** `Complete` — Phase 4 shipped 2026-07-25, see the Phase 4 entry above. The Phase 1–3 record that follows is retained because it holds the evidence behind decisions that must not be re-litigated (model choice, weights, exemplars, the 2-candidate ceiling).
 
 #### Extended model bake-off v2 — Phase 1 + 2 (round-1 grid)
 
@@ -561,7 +595,7 @@ Known follow-up (not a blocker, noted for awareness): the client gives up pollin
 
 **Task (DAN ACTION, 2026-07-26):** Re-check the Abs by AI Android internal-testing install. It was published to Play 2026-07-25 at 3:49 PM and every setting verified correct, but the Play Store still returned "Item not found" ~30 min later — expected propagation at that point. Open `https://play.google.com/apps/internaltest/4700579003000125158` on the phone → **Download test app**. If it still fails more than ~12 hours after release, it's no longer normal and needs investigation. Then run the on-device checklist: full-screen with no address bar, photo upload + generation, Stripe print checkout, **purchase gating (no buy buttons, "not available for purchase in the app" note)**, login, back-button behavior. Full context in the Android entry under Project history. Dan-owned.
 
-**Task:** `handoff-20260724-model-bakeoff-v2.md` — extended multi-model bake-off (6 models incl. GPT Image 1.5 high-fidelity, Nano Banana Pro, Seedream 4.5, FLUX 2), blind gallery of ALL candidates for Dan to label, judge retrained/evaluated against Dan's labels (current judge is misaligned by instruction — it's told "more muscular = better"), tan removed from SYSTEM_PROMPT (the bronze tan is our own instruction, dropped from the condensed FLUX prompt — which is why FLUX preserved skin tone), Kino-body aesthetic target. Planned 2026-07-24 by Claude Code; awaiting Dan's go + Replicate top-up. Claude-owned.
+**DONE 2026-07-25 — no longer queued.** ~~**Task:** `handoff-20260724-model-bakeoff-v2.md` — extended multi-model bake-off (6 models incl. GPT Image 1.5 high-fidelity, Nano Banana Pro, Seedream 4.5, FLUX 2), blind gallery of ALL candidates for Dan to label, judge retrained/evaluated against Dan's labels (current judge is misaligned by instruction — it's told "more muscular = better"), tan removed from SYSTEM_PROMPT (the bronze tan is our own instruction, dropped from the condensed FLUX prompt — which is why FLUX preserved skin tone), Kino-body aesthetic target. Planned 2026-07-24 by Claude Code; awaiting Dan's go + Replicate top-up. Claude-owned.~~ All four phases are shipped — see the Phase 4 entry under Active task.
 
 **Task:** `handoff-20260722-ios-appstore-submission-prep.md` — everything for the iOS App Store submission that does NOT wait on Apple Developer enrollment approval: finish the simulator walkthrough (Trainer/Nutritionist/Sleep/Progress/Brief/Transformations/print flow/native share-save/account-deletion visibility), take 6.9"+6.5" screenshots into `app-store-assets/`, draft all App Store Connect listing copy incl. App Privacy answers + Review Notes, and create the Apple-reviewer demo account (comp grant via `/api/admin/beta-members` — needs Dan or admin creds). Environment ready: Xcode 26.6 + iPhone 17 Pro simulator booted. Note: the app loads production absbyai.com, so AI-feature tests are real spend — one run per feature.
 
