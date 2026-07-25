@@ -3007,7 +3007,7 @@ SECTION 1 — TRANSFORMATION DIRECTIVE TEMPLATE
 Write this as a forceful, explicit instruction. State the target body-fat % and archetype name, using active verbs ("reduce", "tighten", "define", "sculpt", "carve").
 - Include this exact sentence when intensity is "dramatic" or "max": "The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required."
 - Include this exact sentence when intensity is "subtle" or "moderate": "The body transformation should be clearly noticeable but feel attainable and natural."
-[[MUSCLE_PRIMARY_START]]- PRIMARY-AXIS RULE for this MALE subject: he is already "fit" or "very_lean", with very little fat left to lose — a fat-loss-only edit returns a near-copy of the input, which is a failure. MUSCLE IS THE PRIMARY AXIS. Add this to the directive, substituting the added-mass number from the MUSCULARITY ANCHOR TABLE for the requested intensity: "The subject must look visibly BIGGER and more muscular than in the input photo, not merely leaner — a fuller, squarer chest, distinctly larger and rounder shoulder caps, wider lats creating an obvious V-taper, a thicker upper back, and noticeably thicker arms, as if he added roughly N pounds of lean muscle while staying lean. On top of that added size, a fully visible, sharply cut SIX-PACK is REQUIRED — all six abdominal blocks separated by crisp shadow lines, a sharp vertical midline, defined obliques, and a visible V-cut running into the waistband, with no softness left on the torso. Placed side by side with the input, the output must read as a BIGGER, more developed, dramatically leaner physique — anyone who sees this single image must recognize a peak-condition, fitness-cover physique. Do NOT output an image that could be mistaken for the original photo." The target is a fitness-magazine-cover build: athletic, full, and impressive.
+[[MUSCLE_PRIMARY_START]]- SHREDDED-ATHLETE RULE for this MALE subject: he is already "fit" or "very_lean", with very little fat left to lose — a fat-loss-only edit returns a near-copy of the input, which is a failure. The headline change is EXTREME LEANNESS AND AB DEFINITION; a small amount of added muscle supports it. Add this to the directive, substituting the added-mass number from the MUSCULARITY ANCHOR TABLE for the requested intensity: "The subject must come back genuinely shredded: a fully visible, sharply cut SIX-PACK with all six abdominal blocks separated by crisp shadow lines, a sharp vertical midline, defined obliques, visible serratus, a tight waist, and a clear V-cut running into the waistband, with no softness left anywhere on the torso. Supporting that leanness, the frame carries roughly N pounds more lean muscle than the input — a slightly fuller chest, slightly rounder shoulder caps, and a slightly wider back giving a clean V-taper — but he must still read as a lean natural athlete, NEVER a bodybuilder: no inflated chest, no boulder shoulders, no blown-up arms, no comic-book mass. Do NOT output an image that could be mistaken for the original photo." The target is the classic "Kino" build — lean, sharply defined, and proportional, the physique of a fit leading man rather than a competitive bodybuilder.
 [[MUSCLE_PRIMARY_END]]- When subject_gender is "female" AND intensity is "dramatic" or "max" (any starting condition), add this: "The transformation must be dramatic and unmistakable — the abs must show at least twice the visible definition of the input: clear separation between each upper-ab block, a sharp vertical midline groove, and visible oblique lines framing the waist. The shoulders must be noticeably rounder and more sculpted, the waist visibly tighter and more tapered. Anyone who sees this single output image must recognize a peak-condition fitness-cover physique. Do NOT output an image that could be mistaken for the original photo."
 - When subject_gender is "female" AND subject_current_condition is "heavier" or "moderate" AND intensity is "dramatic" or "max", ALSO add this: "This subject starts at a higher body-fat level, so the transformation requires a LARGE, whole-body fat reduction — the midsection, waist, lower belly, hips, arms, and thighs must ALL look substantially leaner and tighter, with a defined feminine midsection clearly visible through the reduced fat. Do NOT return a still-soft or still-heavy result — the drop must be major and obvious at a glance. Keep her unmistakably feminine: natural curves at the hips and chest, no masculine bulk, no blocky muscle, no veins."
 - When subject_gender is "female" AND intensity is "moderate", add this: "The change must be clearly visible and NOT near-identical — a visibly leaner, tighter midsection with a defined upper-ab outline and a noticeably tighter, more tapered waist."
@@ -3020,14 +3020,14 @@ MALE: subtle 15-17%, moderate 12-14%, dramatic 9-11%, max 8-10%. FLOOR 8%.
 FEMALE: subtle 20-22%, moderate 17-19%, dramatic 14-16%, max 13-14%. FLOOR 13%.
 
 [[MUSCLE_TABLE_START]]
-MUSCULARITY ANCHOR TABLE — the SECOND axis. Body fat is not the only dial: intensity also drives ADDED LEAN MUSCLE MASS.
-MALE added lean mass compared to the input photo: subtle ≈ +5 lb, moderate ≈ +8 lb, dramatic ≈ +12 lb, max ≈ +15 lb.
-Express added mass through the structures that read instantly in a photograph: a fuller, squarer chest with a defined lower-pec line; visibly larger, rounder shoulder caps; wider lats flaring out from the armpits; a thicker upper back; noticeably thicker arms with a fuller bicep belly and a clear tricep sweep.
+MUSCULARITY ANCHOR TABLE — the SUPPORTING axis. Leanness and ab definition are the headline; added muscle exists only to frame them.
+MALE added lean mass compared to the input photo: subtle ≈ +2 lb, moderate ≈ +4 lb, dramatic ≈ +6 lb, max ≈ +8 lb.
+These numbers are deliberately small. Express the added mass only as a slightly fuller chest, slightly rounder shoulder caps, and a slightly wider upper back — enough for a clean V-taper, never an inflated chest, boulder shoulders, blown-up arms, or flared lats. If in doubt, add LESS: over-muscled is a worse failure than slightly under-muscled.
 FEMALE: never apply these mass targets — female subjects stay sculpted, toned, and athletic, never added bulk.
 [[MUSCLE_TABLE_END]]
 [[MUSCLE_SECOND_START]]
 SECONDARY-MASS RULE — MALE "moderate" subjects at "dramatic" or "max"
-This subject has real fat to lose, so FAT LOSS LEADS the directive — but fat loss alone leaves a smaller, flatter-looking body that reads as an underwhelming result. ALSO require added muscle underneath it, per the MUSCULARITY ANCHOR TABLE. Add this to the directive: "As the body fat comes off, the physique underneath must be visibly more muscular and more developed than the input — a fuller, squarer chest, distinctly larger and rounder shoulder caps, wider lats creating an obvious V-taper, and noticeably thicker arms. The result must look like someone who both lost the fat AND built real muscle, not simply a smaller, softer version of the same body."
+This subject has real fat to lose, so FAT LOSS LEADS the directive — but fat loss alone leaves a smaller, flatter-looking body that reads as an underwhelming result. ALSO require a modest amount of built muscle underneath it, per the MUSCULARITY ANCHOR TABLE. Add this to the directive: "As the body fat comes off, the physique underneath must be visibly more developed than the input — a slightly fuller chest, slightly rounder shoulder caps, and a wider back giving a clean V-taper. The result must look like someone who both lost the fat AND built real muscle, not simply a smaller, softer version of the same body — but the build stays that of a lean natural athlete, never a bodybuilder: no inflated chest, no boulder shoulders, no blown-up arms."
 [[MUSCLE_SECOND_END]]
 
 CALIBRATION RULE — only for "heavier" starting condition
@@ -3038,16 +3038,16 @@ FEMALE HEAVIER REALISM RULE — HIGHEST PRIORITY, overrides the calibration / Go
 When subject_gender is "female" AND subject_current_condition is "heavier": do NOT target a shredded peak — a realistic image edit cannot render that on a heavier female body, and attempting it produces a barely-changed result. Target a strong but BELIEVABLE transformation: body fat approximately subtle 33%, moderate 30%, dramatic 27%, max 25% (down from a ~36-40% start). Add to the directive: "This is a strong, realistic transformation — a noticeably flatter stomach, a visibly tighter and more tapered waist, leaner arms, and a firmer overall shape, so she looks clearly leaner and fitter than the input — but a believable mid-journey stage, not a shredded peak physique." The change must still be clearly VISIBLE — never a near-identical image. Keep her unmistakably feminine (preserve hip and chest curves, do not change breast size, no masculine bulk, no veins).
 
 REFERENCE ARCHETYPE LIBRARY
-MALE: soccer player / endurance athlete, fit recreational athlete, fitness magazine cover model, Hollywood action-star prep, natural bodybuilder (off-stage), swimmer, rock climber, CrossFit athlete.
+MALE: lean leading-man / "Kino" build, soccer player / endurance athlete, fit recreational athlete, Hollywood action-star prep, swimmer, rock climber, CrossFit athlete. Never a bodybuilder — that archetype is off the table for male subjects.
 FEMALE: Pilates instructor / yoga teacher, fitness influencer, fitness magazine cover model, bikini athlete (off-stage), Sports Illustrated swim model, dancer / ballerina, CrossFit athlete.
 Name the archetype explicitly in the BODY TRANSFORMATION section.
 
 GENDER-SPECIFIC BODY TRANSFORMATION RULES
 MALE must include:
-[[MUSCLE_BULLET_START]]- Added muscle SIZE per the MUSCULARITY ANCHOR TABLE — fuller chest, larger/rounder shoulder caps, wider lats, thicker upper back, thicker arms. For this subject the size increase is the headline change, together with a fully visible, sharply cut six-pack.
+[[MUSCLE_BULLET_START]]- A small amount of added muscle SIZE per the MUSCULARITY ANCHOR TABLE — slightly fuller chest, slightly rounder shoulder caps, slightly wider back. For this subject the headline change is the shredded, sharply cut six-pack; the added size only frames it.
 [[MUSCLE_BULLET_END]]
 - Ab definition by intensity: subtle = upper-ab outline visible; moderate = four-pack defined; dramatic = sharp six-pack with serratus visible; max = deeply etched six-pack with intercostal separation
-- Shoulder caps visibly rounder, more prominent, and WIDER than in the input, with clear pec-delt separation and a defined chest — a strong V-taper / inverted-triangle silhouette whose shoulder-to-waist difference is immediately visible side by side with the input
+- A clean V-taper: shoulders reading clearly broader than the waist. Build it primarily by tightening and narrowing the waist, with only a modest increase in shoulder and upper-back width — lean-athlete proportions with clear pec-delt separation, never inflated delts or a barrel chest
 - Arms with a clear bicep peak and tricep sweep, visibly more defined than the input
 - Obliques and waist tightened, defined, and narrower than the input, especially from the navel downward — no softness at the sides
 - Render definition with real light-and-shadow contrast — each ab block catching light with a distinct shadow in the groove beside it, never flat low-contrast lines drawn on the skin
@@ -3071,10 +3071,8 @@ PRESERVE EXACTLY block:
 FRAMING block — ALWAYS include verbatim:
 "FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo, with the entire subject — full head, face, torso, abs, and waistline — completely visible with the same margins as the input. Do NOT crop, zoom in, cut off, re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed."
 
-SKIN TONE RULES block — scale the tan by intensity:
-- subtle/moderate: "add a very subtle warm glow — no more than 1 shade deeper than the natural skin tone"
-- dramatic: "add a light sun-kissed warmth — no more than 1-2 shades deeper than the natural skin tone. Do NOT dramatically darken fair or light skin."
-- max/peak: "add a warm sun-kissed bronze tan — approximately 2 shades deeper than the natural skin tone"
+SKIN TONE RULES block — the skin tone NEVER changes, at any intensity:
+- ALWAYS include verbatim, regardless of intensity: "Preserve the subject's exact natural skin tone from the input photo — the same colour, the same warmth, the same depth. Do NOT add a tan, bronzing, golden cast, or sun-kissed warmth, and do NOT darken or lighten the skin. The only permissible difference is the healthy look that comes from the light modelling the new muscle; the skin colour itself must be identical to the input."
 Always append: "If the subject has naturally deep brown, dark brown, or darker complexion, preserve the exact natural skin tone with NO lightening or darkening. Add only a healthy, vibrant glow. Never make any skin tone change that could alter the subject's apparent ethnicity."
 
 CLOSING block:
@@ -3085,11 +3083,14 @@ Always include:
 - any alteration to face, identity, apparent ethnicity, or age
 - heavily oiled, greasy, wet, or sweat-drenched skin (a natural, dry sheen on athletic skin under good light is fine and expected)
 - exaggerated or cartoonish proportions; anything sexualized in pose, framing, or clothing
+- any tan, bronzing, golden cast, or darkening of the skin versus the input photo — the skin tone must not change
+- an airbrushed, plastic, or rendered look — keep real skin texture and natural asymmetry
 - cropping, zooming, re-framing, changing camera distance or aspect ratio, or cutting off any part of the head or body — the full subject stays in frame
 - an output identical or nearly identical to the input — visible change is required
 
 Add for MALE:
 - bulging veins or competition vascularity
+- bodybuilder-scale mass — an inflated chest, boulder shoulders, blown-up arms, or heavily flared lats. The target is a lean natural athlete; extra muscle is the most common way this transformation fails
 - comically oversized muscles
 - spray-on abs that look digitally pasted on
 
@@ -3109,7 +3110,7 @@ SAFETY RULES
 FINAL REMINDERS
 - Output ONLY the prompt.
 - The transformation MUST be visible. An output that looks the same as the input is a failure. For dramatic/max the change should be striking and unmistakable; for fit/very_lean subjects push harder, not softer.
-[[MUSCLE_REMINDER_START]]- This subject has almost no fat left to remove — if the prompt only asks for leanness the output will be a near-copy of the input. Ask for visibly MORE MUSCLE plus a sharply cut six-pack. That is the change he is paying for.
+[[MUSCLE_REMINDER_START]]- This subject has almost no fat left to remove — if the prompt only asks for leanness the output will be a near-copy of the input. Ask for a genuinely shredded, sharply cut six-pack, with a small amount of added muscle supporting it. Shredded, not bigger, is the change he is paying for.
 [[MUSCLE_REMINDER_END]]
 - Never sexualize. Never describe minors. Never lecture.`;
 
