@@ -6,7 +6,6 @@
     "health::Salad",
     "health::Follow up on Zepbound",
     "health::Inject Zepbound",
-    "money::Check Replicate balance, top up, and turn on auto-reload at replicate.com/account/billing",
     "money::Plan the next phase of image generation improvements (with Claude)"
   ],
   "log": {
