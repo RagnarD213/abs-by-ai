@@ -1217,6 +1217,15 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .native-app .app-hide-purchase { display: none !important; }
 .app-only-note { display: none; }
 .native-app .app-only-note { display: block; }
+/* ── Member mode ──
+   A logged-in member with active access who taps "Generate New Image" should
+   land on the upload card, not on the acquisition marketing at the top of the
+   generate screen. The .member-mode class is set on <html> whenever membership
+   resolves to active/comp. Scoped to #formSection on purpose: .hero-h1 and
+   .hero-sub are reused on the result, chooser and email-capture screens. */
+.member-mode #formSection #formMarketingHero,
+.member-mode #formSection #proofStrip { display: none; }
+
 .app-only-note.app-note-box { margin: 18px 0; padding: 16px; border-radius: 12px; background: var(--acc-soft); border: 1px solid var(--acc-line); text-align: center; font-weight: 600; }
 .locked-cta-card { border: 1.5px solid var(--acc); border-radius: 15px; padding: 17px 16px; margin: 16px 0; background: rgba(47,95,224,0.05); }
 .locked-cta-h { font-size: 16.5px; font-weight: 800; letter-spacing: -0.2px; margin-bottom: 5px; }
@@ -1461,8 +1470,10 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       </div>
     </div>
 
-    <div class="hero-h1">Visualize Yourself With Abs</div>
-    <div class="hero-sub">See how good you’d look with abs. Motivate yourself to hit your fitness goal.</div>
+    <div id="formMarketingHero">
+      <div class="hero-h1">Visualize Yourself With Abs</div>
+      <div class="hero-sub">See how good you’d look with abs. Motivate yourself to hit your fitness goal.</div>
+    </div>
 
     <section id="proofStrip" class="proof-strip" aria-label="Abs by AI example visualizations">
       <div class="proof-strip-meta">
@@ -4299,6 +4310,7 @@ function updateAuthUi() {
   $('loginLink').textContent = logged ? 'My account' : 'Log in';
   $('macroAccountCta').style.display = logged ? 'none' : '';
   $('macroBackBtn').style.visibility = logged ? 'visible' : 'hidden';
+  applyMemberMode();
 }
 
 // On load: validate any stored token; if good, land on the hub.
@@ -4444,6 +4456,15 @@ function hasMemberAccess() {
 
 function isHubPreviewMode() {
   return !isLoggedIn() || !hasMemberAccess();
+}
+
+// Members get the tool, not the ad: hide the generate screen's marketing hero +
+// proof banner so the upload card is the first thing they see. Logged-out and
+// logged-in-but-inactive users keep the full sales page (they're still in the
+// funnel). Called wherever membership state can change.
+function applyMemberMode() {
+  const on = isLoggedIn() && hasMemberAccess();
+  document.documentElement.classList.toggle('member-mode', on);
 }
 
 function openHubFeature(feature) {
@@ -6044,7 +6065,7 @@ let membershipReturnTo = null; // where to go after subscribing (or backing out)
 let membershipGateBackToHub = false;
 
 async function refreshMembership() {
-  if (!isLoggedIn()) { memberState.active = false; memberState.loaded = true; return; }
+  if (!isLoggedIn()) { memberState.active = false; memberState.loaded = true; applyMemberMode(); return; }
   try {
     const m = await authApi(`/api/membership?deviceId=${encodeURIComponent(getDeviceId())}`);
     memberState.active = !!m.active;
@@ -6054,6 +6075,7 @@ async function refreshMembership() {
     memberState.discountCents = m.creditDiscountCents || 0;
     memberState.loaded = true;
   } catch (e) { console.warn('membership fetch failed:', e.message); }
+  applyMemberMode();
 }
 
 // ── Shared member profile cache ──
