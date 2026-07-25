@@ -81,6 +81,38 @@ const BFL_API_KEY         = process.env.BFL_API_KEY || '';
 const REPLICATE_API_TOKEN = process.env.REPLICATE_API_TOKEN || '';
 const POSTHOG_API_KEY     = process.env.POSTHOG_API_KEY;
 const POSTHOG_PROJECT_ID  = process.env.POSTHOG_PROJECT_ID;
+
+// ── Upstream AI error → safe, user-facing copy ──────────────────────────────
+// The client renders whatever `error` string we return (`throw new Error(data.error)`),
+// so forwarding Anthropic's raw message verbatim put OUR account problems on the
+// USER's screen. On 2026-07-25 the credit balance hit zero and every visitor to
+// absbyai.com was shown "Your credit balance is too low to access the Anthropic
+// API. Please go to Plans & Billing to upgrade or purchase credits." — billing
+// text, addressed to us, that reads to a customer like their own payment failed.
+//
+// Map upstream failures onto copy that tells the user what to DO, and keep the
+// real reason in the server log where it belongs. Never return upstream text.
+function friendlyAIError(status, rawMessage) {
+  const raw = String(rawMessage || '');
+  const isCredit = /credit balance|billing|quota|payment/i.test(raw);
+
+  // Loud, greppable server-side signal: this class of failure is invisible to
+  // uptime checks (/health stays 200) and needs a human, not a retry.
+  if (isCredit || status === 401 || status === 403) {
+    console.error('AI_PROVIDER_ACCOUNT_ERROR — needs attention, not a retry:', status, raw);
+  } else {
+    console.error('AI provider error:', status, raw);
+  }
+
+  if (isCredit || status === 401 || status === 403) {
+    // Deliberately vague to the user: this is our problem to fix, and there is
+    // nothing they can do differently. Do not imply their payment failed.
+    return "Our AI service is temporarily unavailable. We've been alerted and are on it — please try again shortly.";
+  }
+  if (status === 429) return 'Lots of people are generating right now. Please wait a moment and try again.';
+  if (status === 529 || status >= 500) return 'Our AI service is having a moment. Please try again in a few seconds.';
+  return 'Something went wrong on our end. Please try again.';
+}
 const OURA_ACCESS_TOKEN   = process.env.OURA_ACCESS_TOKEN;
 const GOOGLE_CLIENT_ID     = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
@@ -861,7 +893,7 @@ app.post('/api/assign-priority', aiLimiter, async (req, res) => {
     });
 
     const data = await response.json();
-    if (!response.ok) return res.status(response.status).json({ error: data?.error?.message || 'Claude API error', priority: 'med' });
+    if (!response.ok) return res.status(response.status).json({ error: friendlyAIError(response.status, data?.error?.message), priority: 'med' });
 
     const raw = (data?.content?.[0]?.text || '').trim().toLowerCase();
     const priority = ['high', 'med', 'low'].find(p => raw.includes(p)) || 'med';
@@ -1403,7 +1435,7 @@ Reply with the single code word, then a space, then the subject's apparent sex: 
 
     if (!response.ok) {
       return res.status(response.status).json({
-        error: data?.error?.message || 'Claude API error',
+        error: friendlyAIError(response.status, data?.error?.message),
       });
     }
 
@@ -1462,7 +1494,7 @@ app.post('/api/generate-prompt', aiLimiter, async (req, res) => {
 
     if (!response.ok) {
       return res.status(response.status).json({
-        error: data?.error?.message || 'Claude API error',
+        error: friendlyAIError(response.status, data?.error?.message),
       });
     }
 
@@ -1762,7 +1794,7 @@ app.post('/api/analyze-meal', aiLimiter, (req, res, next) => optionalAuth(req, r
     const data = await response.json();
 
     if (!response.ok) {
-      return res.status(response.status).json({ error: data?.error?.message || 'Claude API error' });
+      return res.status(response.status).json({ error: friendlyAIError(response.status, data?.error?.message) });
     }
 
     let analysis;
@@ -1882,7 +1914,7 @@ app.post('/api/refine-meal', aiLimiter, async (req, res) => {
     const data = await response.json();
 
     if (!response.ok) {
-      return res.status(response.status).json({ error: data?.error?.message || 'Claude API error' });
+      return res.status(response.status).json({ error: friendlyAIError(response.status, data?.error?.message) });
     }
 
     let refined;
@@ -1989,7 +2021,7 @@ app.post('/api/refine-leftovers', aiLimiter, async (req, res) => {
 
     const data = await response.json();
     if (!response.ok) {
-      return res.status(response.status).json({ error: data?.error?.message || 'Claude API error' });
+      return res.status(response.status).json({ error: friendlyAIError(response.status, data?.error?.message) });
     }
 
     let leftover;
@@ -2473,7 +2505,9 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       const finishReason = (result.data?.candidates?.[0]?.finishReason || '').toString().toUpperCase();
       console.error('Image generation blocked after retry:', textBlock, result.data?.promptFeedback, result.data?.candidates?.[0]?.finishReason);
       if (result.status && result.status !== 400) {
-        return res.status(result.status).json({ error: result.error || 'Image generation error' });
+        // Same leak class as the Anthropic path: a Google quota/billing failure
+        // would otherwise put our account problem on the user's screen.
+        return res.status(result.status).json({ error: friendlyAIError(result.status, result.error) });
       }
       // Item 7: turn the raw block reason into specific, actionable guidance instead of
       // one catch-all message. A safety block is almost always a clothing/pose issue; an
@@ -4914,7 +4948,8 @@ async function callTrainerModel(systemPrompt, userContent, schema = PROGRAM_SCHE
       });
       const data = await response.json();
       if (response.ok) return JSON.parse(data?.content?.[0]?.text || '');
-      const err = new Error(data?.error?.message || 'Claude API error');
+      const err = new Error(friendlyAIError(response.status, data?.error?.message));
+      err.rawMessage = data?.error?.message || '';
       err.status = response.status;
       // Client errors (bad request/auth) are not transient — fail immediately.
       if (response.status < 500 && response.status !== 429) throw err;
@@ -5638,7 +5673,8 @@ async function callNutritionRecipeModel(userContent) {
   });
   const data = await response.json();
   if (!response.ok) {
-    const err = new Error(data?.error?.message || 'Claude API error');
+    const err = new Error(friendlyAIError(response.status, data?.error?.message));
+    err.rawMessage = data?.error?.message || '';
     err.status = response.status;
     throw err;
   }
@@ -6093,7 +6129,8 @@ async function callCounselSeat(systemPrompt, userContent, schema, maxTokens, eff
   }
   const data = await response.json();
   if (!response.ok) {
-    const err = new Error(data?.error?.message || 'Claude API error');
+    const err = new Error(friendlyAIError(response.status, data?.error?.message));
+    err.rawMessage = data?.error?.message || '';
     err.status = response.status;
     throw err;
   }
