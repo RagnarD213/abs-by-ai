@@ -1,271 +1,203 @@
 {
   "business": [
     {
+      "text": "Set up email autoresponder",
+      "priority": "med"
+    },
+    {
       "text": "Write outlines for test shoot",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Write more outlines for YouTube videos",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Fix Printify store name and picture issue",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Add shipping costs to app",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Create workout program",
-      "priority": "low",
-      "addedAt": "2026-07-23"
+      "priority": "low"
     },
     {
       "text": "Update Monarch money transactions",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Write script for HOG commercial",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Write YouTube ad scripts",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Rebalance retirement accounts",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Email HOG to buy advertising",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Send documents to AMEX",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Review Claude scheduled task output",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
+    },
+    {
+      "text": "Rework dashboard with keystone tasks and todays plan",
+      "priority": "high"
     },
     {
       "text": "Test supplement audit functionality",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Contact vasectomy doctor - stitches, pain during intercourse",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Review videos RoMesa sent",
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Add self as internal tester, install app on phone via Join link",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Finalize iOS app",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "recurring": false
+    },
+    {
+      "text": "Eyeball lean/fit male transformation on absbyai.com",
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Rotate or delete old MailerLite API key",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
-    },
-    {
-      "text": "Restart the app store submission prep task and complete this.",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
-    },
-    {
-      "text": "Verify the two-model image upgrade on live site (Claude runs it, Dan eyeballs results)",
       "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "recurring": false
     },
     {
-      "text": "Implement handoff-20260723-ios-appstore-submit.md — confirm build processing, update screenshots around candidate E, EU trader status, then Submit for Review",
+      "text": "Place one real Printify print order to verify fulfillment",
       "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-23",
-      "why": "Final step to get the iOS app live"
+      "recurring": false
     },
     {
-      "text": "Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
+      "text": "Order zepbound",
       "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-23"
-    },
-    {
-      "text": "Submit stuck Printify order #27805654.13 (one 'Submit order' click in the Printify dashboard)",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-24",
-      "why": "Pre-fix test order sitting on hold — it won't auto-retry"
-    },
-    {
-      "text": "Check Replicate balance, top up, and turn on auto-reload at replicate.com/account/billing",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-24",
-      "why": "Balance ran under $5 last week and throttling silently degraded paid image generations"
-    },
-    {
-      "text": "Plan the next phase of image generation improvements (with Claude)",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-24",
-      "why": "FLUX wins most bake-offs but the chooser shows too often and female photos often fail moderation — needs a roadmap"
-    },
-    {
-      "text": "Finish the model bake-off harness rebuild task.",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-24"
-    },
-    {
-      "text": "Finish the AbsByAI iOS App Store submission task.",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-24"
+      "recurring": false
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-24"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-24"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-24"
+      "recurring": true
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-24"
+      "recurring": true
     }
   ],
   "personal": [
     {
       "text": "Call title company",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Find best mechanic to fix car",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Take Audi to mechanic",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Clean office",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Organize kitchen cabinets",
-      "priority": "low",
-      "addedAt": "2026-07-23"
+      "priority": "low"
     },
     {
       "text": "Organize bathroom cabinets",
-      "priority": "low",
-      "addedAt": "2026-07-23"
+      "priority": "low"
     },
     {
       "text": "Spray weeds with roundup",
-      "priority": "low",
-      "addedAt": "2026-07-23"
+      "priority": "low"
     },
     {
       "text": "Hire someone to install artificial hedge panels",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Email Rachelle to end child support",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Fix shower handle",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Put away laundry.",
-      "priority": "low",
-      "addedAt": "2026-07-23"
+      "priority": "low"
     },
     {
       "text": "Buy Proper Cloth shirt",
       "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "recurring": false
     },
     {
       "text": "Follow up with power washing contractors",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "recurring": false
     },
     {
       "text": "Follow up with pool tile contractors",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "recurring": false
     }
   ]
 }
