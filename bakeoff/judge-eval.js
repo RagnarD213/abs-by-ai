@@ -24,7 +24,11 @@ const OUT = process.env.EVAL_OUT || `judge-v2-${MODEL}${USE_FEWSHOT ? '' : '-nof
 const WEIGHTS = process.env.WEIGHTS ? { ...DEFAULT_WEIGHTS, ...JSON.parse(process.env.WEIGHTS) } : DEFAULT_WEIGHTS;
 
 (async () => {
-  const cases = buildCases().filter((c) => c.best);
+  // HELD_OUT_ONLY=1 skips the three exemplar cases. The held-out number is the
+  // one that decides anything, so a costlier judge model can be compared on it
+  // alone rather than paying for cases whose result we already know.
+  const heldOutOnly = process.env.HELD_OUT_ONLY === '1';
+  const cases = buildCases().filter((c) => c.best && (!heldOutOnly || !EXEMPLAR_CASE_IDS.includes(c.caseId)));
   const noBest = buildCases().filter((c) => !c.best).map((c) => c.caseId);
 
   console.log(`Judge v2 eval — model=${MODEL} fewShot=${USE_FEWSHOT}`);
