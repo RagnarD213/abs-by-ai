@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.absbyai.app",
       "sha256_cert_fingerprints": [
-        "2D:99:A8:35:0B:C6:EE:3F:19:BA:95:FF:2A:22:7D:9B:8A:5A:A7:B1:CD:8E:F5:BF:8F:00:7A:76:1F:A6:75:E9"
+        "2D:99:A8:35:0B:C6:EE:3F:19:BA:95:FF:2A:22:7D:9B:8A:5A:A7:B1:CD:8E:F5:BF:8F:00:7A:76:1F:A6:75:E9",
+        "88:0C:A1:C9:82:0D:A8:FA:36:A8:CE:F9:49:B7:21:AF:4E:01:40:32:3D:A3:44:0F:BF:28:3C:07:63:DB:DC:77"
       ]
     }
   }
