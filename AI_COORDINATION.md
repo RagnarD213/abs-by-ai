@@ -21,7 +21,21 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` (awaiting Apple's review verdict; no further Claude work queued)
+**Status:** `Complete — pending reset` (generate-screen fix shipped and live; iOS awaiting Apple's review verdict; no further Claude work queued)
+
+### Member generate-screen cleanup — SHIPPED + live-verified (2026-07-25, commit `28319b7`)
+
+Executed `handoff-20260725-member-generate-screen-cleanup.md`. Logged-in members tapping **Generate New Image** landed on the acquisition marketing at the top of `#formSection`, pushing `#uploadCard` to 467px on an 812px viewport (bottom past the fold on a fresh session, since the proof banner only collapses after a full auto-rotation) — members read it as "the button did nothing."
+
+**Shipped (web-only, `public/index.html`):** wrapped the form screen's hero h1 + sub in `#formMarketingHero`; new `.member-mode` class on `<html>` set by `applyMemberMode()`, called from `updateAuthUi()` (covers login/logout) and `refreshMembership()` (covers restore-session and post-checkout, both branches) — so state resolving after first paint still hides the marketing, no flash. CSS is `.member-mode #formSection #formMarketingHero, .member-mode #formSection #proofStrip { display:none }`. **Scoping is load-bearing:** `.hero-h1`/`.hero-sub` are reused on eleven other screens (result, chooser, email-capture, bridge, product, confirmation, auth, hub, macro, membership) — verified all still `display:block` with `member-mode` on.
+
+**`initProofStrip()` degrades safely, no guard needed** — with the strip `display:none` its threshold-0 IntersectionObserver reports not-intersecting and calls `pause('offscreen')`, so the 4s rotation timer stops on its own. Measured: active slide unchanged after 6.7s. No console errors anywhere.
+
+**Live-verified on absbyai.com** with the real comp demo account already signed in (`danroseconsulting+applereview@gmail.com`, `status:"comp"`), fresh `sessionStorage`, 375×812, via a real click on the hub button: `member-mode` applied automatically once membership resolved, hero + proof banner hidden, **`#uploadCard` top 63px / bottom 244px — fully above the fold** (was 467/647). Logged-out and logged-in-inactive both keep the full sales page unchanged (hero top 55px, strip and card present). Desktop spot-checked.
+
+**Next action — Dan (last open Android acceptance item):** in the Play-installed app, tap Generate New Image (should now land on the upload card), burn the remaining credits, and confirm the **credits paywall shows no buy buttons** and displays the "not available for purchase in the app" note. Then check off dashboard key task `money::Android app: confirm NO buy buttons on the credits and membership screens`.
+
+---
 
 ### iOS App Store 1.0 — SUBMITTED to Apple (2026-07-25)
 
