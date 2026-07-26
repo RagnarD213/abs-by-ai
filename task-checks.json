@@ -5,7 +5,8 @@
     "health::Supplements",
     "health::Salad",
     "health::Inject Zepbound",
-    "personal::Send text messages and emails to higher power washer"
+    "personal::Send text messages and emails to higher power washer",
+    "personal::Send text messages and emails to higher artificial hedge installer"
   ],
   "log": {
     "health::Shower": [
