@@ -4,8 +4,7 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Inject Zepbound",
-    "money::Android app: upload a photo and generate one result"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
