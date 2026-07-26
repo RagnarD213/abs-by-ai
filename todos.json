@@ -239,6 +239,30 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-07-23"
+    },
+    {
+      "text": "Send text messages and emails to higher power washer",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-26"
+    },
+    {
+      "text": "Send text messages and emails to higher artificial hedge installer",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-26"
+    },
+    {
+      "text": "Take pictures of artificial hedge",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-26"
+    },
+    {
+      "text": "Hire plumber or contractor to fix shower handle and sink faucet",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-26"
     }
   ]
 }
