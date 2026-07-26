@@ -138,27 +138,6 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-24"
-    },
-    {
-      "text": "Android app: confirm it opens full-screen with no address bar",
-      "why": "Proves today's assetlinks fix landed on-device — a visible Chrome URL bar means the app reads as a browser, not an app.",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-25"
-    },
-    {
-      "text": "Android app: upload a photo and generate one result",
-      "why": "Photo picker and camera permissions behave differently inside the wrapper than in normal Chrome, and upload is the core flow.",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-25"
-    },
-    {
-      "text": "Android app: confirm NO buy buttons on the credits and membership screens",
-      "why": "Highest risk of the three. Google requires digital goods to use Play billing; the in-app detection has never run on a real Android device. Visible buy buttons risk rejection or removal.",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-25"
     }
   ],
   "health": [
