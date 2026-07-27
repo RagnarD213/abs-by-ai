@@ -14,7 +14,8 @@
     "personal::Put away salmon",
     "personal::Put away Brussels sprouts",
     "personal::Clean kitchen",
-    "personal::Make Britney meals"
+    "personal::Make Britney meals",
+    "personal::Put away rice"
   ],
   "log": {
     "health::Shower": [
