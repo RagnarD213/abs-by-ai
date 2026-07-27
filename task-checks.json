@@ -6,7 +6,8 @@
     "health::Salad",
     "health::Inject Zepbound",
     "personal::Hire plumber or contractor to fix shower handle and sink faucet",
-    "personal::Cancel 1-800 Plumber Appointment"
+    "personal::Cancel 1-800 Plumber Appointment",
+    "personal::Cancel Parabec Plumbing Appointment"
   ],
   "log": {
     "health::Shower": [
