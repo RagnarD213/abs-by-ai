@@ -97,6 +97,16 @@ Combined with the device-id loss this was a repeatable top-up: relaunch for a fr
 
 **Second line of defence unchanged:** `FREE_IP_DAILY_CAP = 6` still caps free generations per IP per day, which is what bounded the exposure while this bug was live.
 
+### "Paywall not working — infinite generations" — NOT A DEFECT, it is the admin bypass (2026-07-27)
+
+Dan reported that after running out he could keep generating with no limit. **Investigated with real generations against production: the server-side gate is correct.** A fresh device walked 3 → 2 → 1 → 0 and every request after that returned `locked: true` with the balance pinned at 0. Cost ~5 real generations (~40¢) to establish.
+
+**Cause: `isActiveMembership()` (`server.js:4286`) returns true for any email in `ADMIN_EMAILS` (line 4288).** Dan signs into `absbyai.com/admin` with his normal account, so his account is an admin and the entire credit block in `/api/generate-image` is skipped — no decrement, never locked, unlimited generations. This is **intended behaviour**, and it also explains the sequence exactly: Dan hit the paywall correctly earlier **while logged out**, then logged in once the session-persistence fix landed, and from that point on was unlimited. The `ADMIN_EMAILS` value is a Railway env var and could not be read from the dev machine (no Railway CLI), so this rests on the code path plus the matching symptom timeline, not a direct read.
+
+**How Dan confirms in 30 seconds:** log out in the app and burn the free generations. The paywall will appear. Nothing to fix.
+
+**REAL weakness found while testing, NOT yet fixed — needs Dan's call.** The server returns the **full, unblurred image even when `locked: true`** (`server.js:2842` sends `imageBase64` regardless). The paywall is purely a client-side blur, so the finished image is recoverable straight out of the network response by anyone who looks. Confirmed empirically — every locked response in the test carried a complete image. Fixing it properly means sending only a downscaled/blurred teaser when locked, which touches `showLockedResult()`'s sharp-teaser strip and the unlock flow, so it was deliberately not changed unilaterally.
+
 ### Credits dead-end — DECIDED and SHIPPED (commit on 2026-07-27, live-verified)
 
 **Dan chose "Continue to hub only."** Shipped: a `#paywallContinueHubBtn` "Continue to my hub →" button on the credits paywall, shown only inside the apps (`.app-only-note`), with a `paywall_continue_to_hub` PostHog event. Web is unchanged — the pack cards there are still the way forward. Live-verified on absbyai.com: in-app shows the button with buy buttons hidden, tapping lands on the hub, and it records a history entry so the new back-button handling still works; on web the button stays hidden and the pack cards stay visible.
