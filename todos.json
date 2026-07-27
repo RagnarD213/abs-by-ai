@@ -245,6 +245,24 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-26"
+    },
+    {
+      "text": "Cancel 1-800 Plumber Appointment",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Cancel Parabec Plumbing Appointment",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Double Check Time and Date for Spray Tan",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-27"
     }
   ]
 }
