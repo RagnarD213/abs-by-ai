@@ -19,6 +19,11 @@
 #   scripts/native-smoke-test.sh android    # Android only
 #
 # Screenshots + a summary land in ./native-smoke-out/ (git-ignored).
+#
+# LOCAL PREREQUISITES (not in this repo)
+#   - ios-app/  ... the Capacitor wrapper, untracked; iOS run needs it
+#   - Xcode + an iPhone simulator; Android SDK + an AVD (default Pixel_8)
+#   - pip3 install websocket-client   (enables the Android gating assertions)
 
 set -uo pipefail
 
