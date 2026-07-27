@@ -125,7 +125,7 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-24",
-      "why": "Pre-fix test order sitting on hold — it won't auto-retry"
+      "why": "Pre-fix test order sitting on hold \u2014 it won't auto-retry"
     },
     {
       "text": "Finish the model bake-off harness rebuild task.",
@@ -138,6 +138,11 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-24"
+    },
+    {
+      "text": "Review videos from Romeysa",
+      "priority": "key",
+      "addedAt": "2026-07-27"
     }
   ],
   "health": [
