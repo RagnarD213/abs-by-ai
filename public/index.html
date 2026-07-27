@@ -2911,7 +2911,7 @@ async function checkCreditsSession() {
   const params = new URLSearchParams(window.location.search);
   const creditsSessionId = params.get('credits_session_id');
   if (!creditsSessionId) return;
-  window.history.replaceState({}, '', window.location.pathname);
+  window.history.replaceState(window.history.state || {}, '', window.location.pathname);
   try {
     const res = await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(creditsSessionId)}`);
     const data = await res.json();
@@ -3204,7 +3204,7 @@ Output ONLY the final image-editing prompt as plain text. No preamble, no JSON, 
 // ============================================================
 const $ = (id) => document.getElementById(id);
 
-function showScreen(name) {
+function renderScreen(name) {
   ['formSection', 'resultSection', 'chooserSection', 'emailSection', 'bridgeSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
@@ -3215,6 +3215,57 @@ function showScreen(name) {
     d.className = 'dot ' + (i === dotMap[name] ? 'active' : 'inactive');
   });
 }
+
+// ── Screen history, so the Android back button works ──
+// The whole app is one page with 25 stacked <section>s that we show/hide, so
+// the browser only ever held ONE history entry. Inside the Android app the
+// system back button navigates web history, found nothing to go back to, and
+// closed the app instead. We now push a history entry per screen change and
+// re-render from popstate. At the first screen there is deliberately nothing
+// left to pop, so back exits the app — which is the expected Android
+// behaviour, not a bug.
+const screenStack = ['form'];
+let poppingScreen = false;
+
+function screenHistoryState(name) {
+  return { absScreen: name, depth: screenStack.length };
+}
+
+function showScreen(name) {
+  // Rendering triggered by popstate must never write history back.
+  if (poppingScreen) { renderScreen(name); return; }
+
+  const current = screenStack[screenStack.length - 1];
+  if (current === name) { renderScreen(name); return; }
+
+  // An in-app "Back" button returning to the screen we just came from should
+  // pop the real history entry rather than push a new one — otherwise the
+  // stack grows every time the user bounces between two screens and the
+  // system back button then has to be pressed repeatedly.
+  if (screenStack.length > 1 && screenStack[screenStack.length - 2] === name) {
+    history.back();
+    return;
+  }
+
+  screenStack.push(name);
+  try { history.pushState(screenHistoryState(name), '', location.href); } catch (e) {}
+  renderScreen(name);
+}
+
+window.addEventListener('popstate', (event) => {
+  const st = event.state || {};
+  // No marker means we've popped out of the app's own screens entirely —
+  // let the browser (or the Android app) handle it and close.
+  if (!st.absScreen) return;
+  const depth = Math.max(1, st.depth || 1);
+  screenStack.length = depth;
+  screenStack[depth - 1] = st.absScreen;
+  poppingScreen = true;
+  try { renderScreen(st.absScreen); } finally { poppingScreen = false; }
+});
+
+// Seed the first entry so the very first screen is identifiable on popstate.
+try { history.replaceState(screenHistoryState('form'), '', location.href); } catch (e) {}
 
 function initProofStrip() {
   const strip = $('proofStrip');
@@ -3973,7 +4024,7 @@ async function checkOrderSession() {
     const data = await res.json();
     if (data.status === 'complete') {
       restoreUpsellReturnDestination();
-      window.history.replaceState({}, '', window.location.pathname);
+      window.history.replaceState(window.history.state || {}, '', window.location.pathname);
       showScreen('confirmation');
     }
   } catch (e) {
@@ -4240,7 +4291,59 @@ const LAST_AFTER_KEY = 'absbyai_last_after';
 // images from showing up on — or being uploaded to — a different account that
 // later logs in on the same browser.
 const LAST_OWNER_KEY = 'absbyai_last_owner';
-const auth = { token: localStorage.getItem(AUTH_TOKEN_KEY) || null, email: localStorage.getItem(AUTH_EMAIL_KEY) || '', mode: 'login' };
+// ── Keeping the login alive between app launches ──
+// Server sessions last 90 days and nothing in the client drops the token
+// except an explicit logout or a 401, so a user being logged out on every
+// launch means the BROWSER threw the stored token away. Two defences:
+//
+//  1. Ask Chrome to mark this origin's storage "persistent" so localStorage
+//     is exempt from automatic eviction. Installed apps are normally granted
+//     this without a prompt.
+//  2. Mirror the token into a long-lived cookie. Cookies live in a different
+//     store from localStorage and survive several eviction paths that clear
+//     it, so if localStorage comes back empty we can still restore the
+//     session instead of showing the login screen.
+//
+// The cookie is no more exposed than localStorage was — same origin, same
+// scripts can read both — so this does not widen the blast radius of an XSS.
+try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
+
+const AUTH_COOKIE = 'absbyai_sess';
+const AUTH_COOKIE_DAYS = 90; // matches SESSION_DAYS on the server
+
+function readAuthCookie() {
+  try {
+    const hit = document.cookie.split('; ').find(c => c.indexOf(AUTH_COOKIE + '=') === 0);
+    return hit ? decodeURIComponent(hit.slice(AUTH_COOKIE.length + 1)) : '';
+  } catch (e) { return ''; }
+}
+
+function writeAuthCookie(token) {
+  try {
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `${AUTH_COOKIE}=${encodeURIComponent(token)}; Max-Age=${AUTH_COOKIE_DAYS * 86400}; Path=/; SameSite=Lax${secure}`;
+  } catch (e) {}
+}
+
+function clearAuthCookie() {
+  try { document.cookie = `${AUTH_COOKIE}=; Max-Age=0; Path=/; SameSite=Lax`; } catch (e) {}
+}
+
+// Prefer localStorage; fall back to the cookie when it has been wiped.
+function loadStoredToken() {
+  let token = null;
+  try { token = localStorage.getItem(AUTH_TOKEN_KEY); } catch (e) {}
+  if (token) return token;
+  const cookieToken = readAuthCookie();
+  if (cookieToken) {
+    // Re-seed localStorage so the rest of the app behaves exactly as before.
+    try { localStorage.setItem(AUTH_TOKEN_KEY, cookieToken); } catch (e) {}
+    return cookieToken;
+  }
+  return null;
+}
+
+const auth = { token: loadStoredToken(), email: localStorage.getItem(AUTH_EMAIL_KEY) || '', mode: 'login' };
 let authEntryContext = null;
 let pendingTrialFeature = null;
 
@@ -4284,6 +4387,7 @@ function setLoggedIn({ token, email, deviceId }) {
   memberState.loaded = false;
   localStorage.setItem(AUTH_TOKEN_KEY, token);
   localStorage.setItem(AUTH_EMAIL_KEY, email);
+  writeAuthCookie(token); // survives localStorage eviction (see loadStoredToken)
   // Adopt the account's canonical device id so credits follow the account.
   if (deviceId) localStorage.setItem('absbyai_device_id', deviceId);
   loadCredits();
@@ -4299,6 +4403,7 @@ function clearLoggedIn() {
   memberState.status = null;
   memberState.loaded = true;
   localStorage.removeItem(AUTH_TOKEN_KEY);
+  clearAuthCookie(); // logout must clear BOTH stores or the session revives
   localStorage.removeItem(AUTH_EMAIL_KEY);
   // Drop the cached transformation so the next account to log in on this browser
   // starts fresh and can't inherit the previous account's images.
@@ -5513,7 +5618,7 @@ function initAccounts() {
   const resetToken = new URLSearchParams(window.location.search).get('reset');
   if (resetToken) {
     window._resetToken = resetToken;
-    window.history.replaceState({}, '', window.location.pathname);
+    window.history.replaceState(window.history.state || {}, '', window.location.pathname);
     showAuthScreen('reset');
   }
   $('authForm').addEventListener('submit', handleAuthSubmit);
