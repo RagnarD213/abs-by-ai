@@ -15,7 +15,8 @@
     "personal::Put away Brussels sprouts",
     "personal::Clean kitchen",
     "personal::Make Britney meals",
-    "personal::Put away rice"
+    "personal::Put away rice",
+    "money::Review videos from Romeysa"
   ],
   "log": {
     "health::Shower": [
