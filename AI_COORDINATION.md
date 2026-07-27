@@ -18,6 +18,32 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 ---
 
+## Standing rule — cross-platform testing after every change
+
+**Architecture:** all three platforms run the same live website. `ios-app/capacitor.config.json` sets `server.url = https://absbyai.com`, and the Android TWA `.aab` wraps the same URL. Neither native app contains a copy of the site. **A push to `main` + a successful Railway deploy updates web, iOS, and Android simultaneously — no App Store or Play resubmission is needed for web/server changes.**
+
+**Baseline testing (every change):** verify on absbyai.com in a browser at mobile width (375×812) plus desktop. This is sufficient for most changes.
+
+**Native retest triggers — if a change touches ANY of the following, it can pass on web and still be broken inside the apps:**
+
+| Change touches | Retest on | Why |
+|---|---|---|
+| Any form input (`time`, `date`, `number`, file/photo pickers) | iOS (min) | iOS WebKit sizes/renders inputs differently — the real `input[type=time]` overflow bug, commit `d76c590` |
+| Photo upload / camera | iOS + Android | Native picker + permission prompts |
+| Share button / save-to-Photos | iOS + Android | Routed through native OS sheets |
+| **Anything showing a price, buy button, credit pack, plan card, or "Manage membership"** | **iOS + Android — MANDATORY** | Apple 3.1.1 / Play policy. A visible digital-purchase control inside the app risks rejection or removal. `app-hide-purchase` gating must still hide it, and account deletion must stay visible |
+| Layout at the top or bottom of a screen | iOS + Android | Safe areas, notch, home indicator |
+| Login, session handling, account deletion | iOS + Android | WebView storage behaves differently |
+| Navigation flow / new screens / back behavior | Android (esp.) | Hardware back button can exit the app |
+
+**Never affected by a web deploy** (needs a native rebuild + resubmission): app icon, splash screen, permission strings, bundle id, wrapper config.
+
+**Cache caveat:** server-side changes apply instantly everywhere; client-side changes can be served from a stale WebView cache. Old behaviour on the phone right after a deploy is usually cache — force-close and reopen, and confirm the new markers are live in a browser before treating it as a defect.
+
+**Assistant obligation (Dan's explicit instruction, 2026-07-27):** when a change hits any trigger row above, **say so explicitly in the response** — name the platform and what to check. Dan's standing assumption is that **silence means no native retest is needed**, so an un-flagged native risk will go untested.
+
+---
+
 ## Active task
 
 **Owner:** Claude Code
