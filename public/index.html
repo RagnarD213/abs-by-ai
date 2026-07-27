@@ -2745,12 +2745,54 @@ if (IS_NATIVE_APP) document.documentElement.classList.add('native-app');
 // ── Credits state ──
 const state_credits = { value: 3 }; // initialised from server on load
 
+// ── Cookie helpers ──
+// Some browsers — notably inside the installed Android app — throw away this
+// origin's localStorage between launches. Cookies live in a separate store and
+// survive that, so anything whose loss costs us money or logs the user out is
+// mirrored into one. Declared here (before the first caller) on purpose.
+function readCookie(name) {
+  try {
+    const hit = document.cookie.split('; ').find(c => c.indexOf(name + '=') === 0);
+    return hit ? decodeURIComponent(hit.slice(name.length + 1)) : '';
+  } catch (e) { return ''; }
+}
+
+function writeCookie(name, value, days) {
+  try {
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `${name}=${encodeURIComponent(value)}; Max-Age=${days * 86400}; Path=/; SameSite=Lax${secure}`;
+  } catch (e) {}
+}
+
+function deleteCookie(name) {
+  try { document.cookie = `${name}=; Max-Age=0; Path=/; SameSite=Lax`; } catch (e) {}
+}
+
+const DEVICE_ID_KEY = 'absbyai_device_id';
+const DEVICE_ID_DAYS = 400; // browser cap on cookie lifetime
+
+// The device id is what the server counts free generations against. If it is
+// lost the server sees a brand-new device and hands out another FREE_CREDITS,
+// so a user could close and reopen the app to farm unlimited free generations
+// at our expense. Backed by a cookie for exactly that reason — losing it is a
+// revenue hole, not just an inconvenience. (The per-IP daily cap on the server
+// is the second line of defence, not the first.)
 function getDeviceId() {
-  let id = localStorage.getItem('absbyai_device_id');
+  let id = null;
+  try { id = localStorage.getItem(DEVICE_ID_KEY); } catch (e) {}
+  if (!id) {
+    const fromCookie = readCookie(DEVICE_ID_KEY);
+    if (fromCookie) {
+      id = fromCookie;
+      try { localStorage.setItem(DEVICE_ID_KEY, id); } catch (e) {} // re-seed
+    }
+  }
   if (!id) {
     id = 'dev-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
-    localStorage.setItem('absbyai_device_id', id);
+    try { localStorage.setItem(DEVICE_ID_KEY, id); } catch (e) {}
   }
+  // Refresh the cookie on every read so an active user's id never expires.
+  writeCookie(DEVICE_ID_KEY, id, DEVICE_ID_DAYS);
   return id;
 }
 
@@ -4331,23 +4373,9 @@ try { if (navigator.storage && navigator.storage.persist) navigator.storage.pers
 const AUTH_COOKIE = 'absbyai_sess';
 const AUTH_COOKIE_DAYS = 90; // matches SESSION_DAYS on the server
 
-function readAuthCookie() {
-  try {
-    const hit = document.cookie.split('; ').find(c => c.indexOf(AUTH_COOKIE + '=') === 0);
-    return hit ? decodeURIComponent(hit.slice(AUTH_COOKIE.length + 1)) : '';
-  } catch (e) { return ''; }
-}
-
-function writeAuthCookie(token) {
-  try {
-    const secure = location.protocol === 'https:' ? '; Secure' : '';
-    document.cookie = `${AUTH_COOKIE}=${encodeURIComponent(token)}; Max-Age=${AUTH_COOKIE_DAYS * 86400}; Path=/; SameSite=Lax${secure}`;
-  } catch (e) {}
-}
-
-function clearAuthCookie() {
-  try { document.cookie = `${AUTH_COOKIE}=; Max-Age=0; Path=/; SameSite=Lax`; } catch (e) {}
-}
+function readAuthCookie() { return readCookie(AUTH_COOKIE); }
+function writeAuthCookie(token) { writeCookie(AUTH_COOKIE, token, AUTH_COOKIE_DAYS); }
+function clearAuthCookie() { deleteCookie(AUTH_COOKIE); }
 
 // Prefer localStorage; fall back to the cookie when it has been wiped.
 function loadStoredToken() {
@@ -4409,7 +4437,12 @@ function setLoggedIn({ token, email, deviceId }) {
   localStorage.setItem(AUTH_EMAIL_KEY, email);
   writeAuthCookie(token); // survives localStorage eviction (see loadStoredToken)
   // Adopt the account's canonical device id so credits follow the account.
-  if (deviceId) localStorage.setItem('absbyai_device_id', deviceId);
+  // The cookie must move with it, or a later localStorage wipe would restore
+  // the stale pre-login id and detach the user from their own credits.
+  if (deviceId) {
+    try { localStorage.setItem(DEVICE_ID_KEY, deviceId); } catch (e) {}
+    writeCookie(DEVICE_ID_KEY, deviceId, DEVICE_ID_DAYS);
+  }
   loadCredits();
   updateAuthUi();
 }
