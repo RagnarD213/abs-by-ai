@@ -77,6 +77,20 @@ Dan installed the Play internal-testing build and tested on his phone. **Install
 
 **Purchase gating CONFIRMED WORKING (Dan, on device):** out of credits showed no buy buttons and the "not available for purchase in the app" note. This closes the last open Android acceptance item from the 2026-07-25 member-generate-screen task.
 
+### Free credits reset on every app relaunch — FIXED and live-verified (2026-07-27)
+
+**Dan found the app granted a fresh set of free generations every time he closed and reopened it.** Same root cause as the logout bug, and it confirms that root cause: **the Android app's localStorage really is being wiped between launches.** The login now survives only because of the cookie mirror shipped earlier this session; the device id had no such backing.
+
+`getDeviceId()` read `absbyai_device_id` from localStorage only, so a wipe minted a brand-new id, the server saw an unknown device and granted `FREE_CREDITS` (3) again — unlimited free generations at our Gemini/Replicate expense for anyone who relaunches the app.
+
+**Fixed:** device id mirrored into a 400-day cookie and restored from it when localStorage comes back empty. Generalised the cookie handling into `readCookie`/`writeCookie`/`deleteCookie` and pointed the auth helpers at them instead of duplicating. `setLoggedIn()` now moves the cookie to the account's canonical device id too — otherwise a later wipe would restore the stale pre-login id and detach the user from their own credits. A genuinely new device still mints a new id, so real first-time users are unaffected.
+
+**Verified:** 8 local assertions (survives wipe, re-seeds localStorage, new device still gets a new id, login moves both stores, stale id does not resurrect) plus a live check against production — the device id is unchanged across a simulated wipe and the same id is presented to `/api/credits`, so a partially-spent balance carries over instead of resetting. Note the balance comparison in that live check was not discriminating on its own (the test device had spent nothing, so all reads returned 3); the load-bearing proof is the id persistence. **Dan's own relaunch on the phone is the end-to-end confirmation.**
+
+**Open question for Dan:** he reported "four new credits" but `FREE_CREDITS = 3` and there are no bonus grants in `server.js`. If he genuinely saw 4, something else is unaccounted for and is worth a look.
+
+**Second line of defence unchanged:** `FREE_IP_DAILY_CAP = 6` still caps free generations per IP per day, which is what bounded the exposure while this bug was live.
+
 ### Credits dead-end — DECIDED and SHIPPED (commit on 2026-07-27, live-verified)
 
 **Dan chose "Continue to hub only."** Shipped: a `#paywallContinueHubBtn` "Continue to my hub →" button on the credits paywall, shown only inside the apps (`.app-only-note`), with a `paywall_continue_to_hub` PostHog event. Web is unchanged — the pack cards there are still the way forward. Live-verified on absbyai.com: in-app shows the button with buy buttons hidden, tapping lands on the hub, and it records a history entry so the new back-button handling still works; on web the button stays hidden and the pack cards stay visible.
