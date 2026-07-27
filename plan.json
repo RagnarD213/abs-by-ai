@@ -1,15 +1,16 @@
 {
-  "date": "2026-07-26",
-  "order": [],
-  "excluded": [
-    "money::Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
+  "date": "2026-07-27",
+  "order": [
     "money::Submit stuck Printify order #27805654.13 (one 'Submit order' click in the Printify dashboard)",
     "money::Finish the model bake-off harness rebuild task.",
     "money::Finish the AbsByAI iOS App Store submission task.",
-    "money::Android app: confirm it opens full-screen with no address bar",
-    "money::Android app: upload a photo and generate one result",
-    "money::Android app: confirm NO buy buttons on the credits and membership screens",
-    "personal::Hire plumber or contractor to fix shower handle and sink faucet"
+    "personal::Hire plumber or contractor to fix shower handle and sink faucet",
+    "personal::Cancel 1-800 Plumber Appointment",
+    "personal::Cancel Parabec Plumbing Appointment",
+    "personal::Double Check Time and Date for Spray Tan"
+  ],
+  "excluded": [
+    "money::Submit iOS app to the App Store (with Claude, ~1-2 hrs)"
   ],
   "sessionsCompleted": 0
 }
