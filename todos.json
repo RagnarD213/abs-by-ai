@@ -275,6 +275,36 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Put away salmon",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Put away Brussels sprouts",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Put away rice",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Make Britney meals",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Clean kitchen",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-27"
     }
   ]
 }
