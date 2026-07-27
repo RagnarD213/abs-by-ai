@@ -3266,13 +3266,28 @@ app.post('/api/auth/login', authLimiter, async (req, res) => {
     // Credit linking: fold this device's explicit balance into the account's
     // canonical device, then the client adopts the canonical device id so all
     // existing credit/Stripe code keeps working, now effectively per-account.
+    // Only PURCHASED credits follow a device onto an account. Folding any
+    // leftover balance grants the free allowance TWICE — getCredits() below
+    // hands the account its own implicit FREE_CREDITS, and the stray device's
+    // remainder is its own free allowance. Spending 2 of 3 free credits on a
+    // signed-out device and then logging in produced a 4-credit account, which
+    // is exactly what Dan hit on Android once the app started losing its
+    // device id between launches: relaunch for a fresh 3, spend, log in, and
+    // the remainder tops the account up again, repeatable indefinitely.
     if (deviceId && deviceId !== user.device_id) {
       const stray = creditsStore.balances[deviceId];
-      if (typeof stray === 'number') {
+      const strayPaid = !!creditsStore.purchasers?.[deviceId];
+      if (typeof stray === 'number' && strayPaid) {
         creditsStore.balances[user.device_id] = getCredits(user.device_id) + stray;
+        creditsStore.purchasers = creditsStore.purchasers || {};
+        creditsStore.purchasers[user.device_id] = true; // the exemption moves too
         delete creditsStore.balances[deviceId];
         persistCreditsStore(); // fire-and-forget, in-memory copy is source of truth
       }
+      // A free-only stray balance is deliberately LEFT IN PLACE rather than
+      // deleted: the record is what remembers the device already spent its
+      // allowance, so removing it would hand that device a fresh FREE_CREDITS
+      // the next time it is used signed-out.
     }
 
     const token = await createSession(user.id);
