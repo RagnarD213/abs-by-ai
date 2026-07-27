@@ -23,6 +23,19 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 **Owner:** Claude Code
 **Status:** `Complete — pending reset` (bake-off Phase 4 shipped and live-verified; iOS awaiting Apple's review verdict; one Dan eyeball outstanding)
 
+### Session plan 2026-07-27 (afternoon, until ~6 PM) — content-focused work session
+
+Reviewed the whole board with Dan. **Verdict: no urgent app work exists right now** — iOS is in Apple's review queue (nothing to do until their email), the bake-off/judge/prompt work is fully shipped and verified, and the remaining app items are small verifications. The only real deadline is Dan's **video shoot in ~1 week**, so this session is content, in this order:
+
+1. Quick win: check the Android internal-test install on the phone (link in the Queued section). If still "Item not found" ~2 days after publish, that needs investigation.
+2. **Review videos from Romeysa** — added as a pinned Key task at the top of Work Session Focus Tasks (commit `3355066`).
+3. **Write shoot outlines** — the bulk of the session. "Write outlines for test shoot" has been on the board since 2026-07-23; the shoot is ~2026-08-03. Claude offered to draft hook/structure/talking-point outlines. Raw material on disk: `abs by ai gemini clips/` ("6 ways to get abs with AI" intros) and `B roll/` (ab workout, deadlift, jump rope, m-100s, interview b-roll).
+4. If time remains: Dan's two outstanding eyeballs — real transformations on his own photos to confirm the new less-muscle/no-tan look (also unblocks the condensed-vs-full prompt decision), and the Android no-buy-buttons check.
+
+Deliberately deferred (real but not deadline-driven): Printify store name/picture fix, shipping costs, HOG/YouTube ad scripts, ~20 min of heavier-male judge labeling.
+
+**Printify stuck order `#27805654.13` — CLOSED.** Dan canceled it 2026-07-27 (test order, not needed; another order incoming). Task removed from the dashboard board; no action remains.
+
 ### Bake-off Phase 4 — judge + prompt BOTH SHIPPED and live-verified (2026-07-25, commits `4996b1a` and `14b4790`)
 
 Executed `handoff-20260725-bakeoff-phase4-ship-judge-and-prompt.md`. Two independent changes to the same user-visible outcome, deliberately shipped and verified as separate commits so a regression is attributable.
@@ -215,7 +228,7 @@ Dan ran a series of real paid print orders through the live print flow to verify
 
 **Live-verified end-to-end, order `#27805654.14`:** real $18 Stripe payment → Railway logs show exactly one `Printify order created: ...` followed by exactly one `Printify order ... submitted to production` → Printify dashboard shows the order at "Pre-production" (past the on-hold/manual-submit stage) with zero manual clicks. This is the first real order to go the full distance automatically.
 
-**One unrelated loose end:** order `#27805654.13` is still sitting on hold in Printify — it was marked "fulfilled" in our system before the retry fix existed, so it won't auto-retry. Needs one manual "Submit order" click from Dan whenever convenient; not urgent (test order, no real customer waiting on it).
+**One unrelated loose end — RESOLVED 2026-07-27:** order `#27805654.13` had been sitting on hold in Printify (marked "fulfilled" in our system before the retry fix existed, so it never auto-retried). Dan **canceled it** — it was a test order he doesn't need, and another real order is on the way. Removed from the dashboard task board. No action remains.
 
 **Next action:** none — task complete. Normal real orders going forward should fulfill and submit automatically with no manual steps.
 
