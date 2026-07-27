@@ -2,8 +2,9 @@
   "business": [
     {
       "text": "Write outlines for test shoot",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "key",
+      "addedAt": "2026-07-23",
+      "why": "Main time investment this session — drives new video content for Abs By AI"
     },
     {
       "text": "Write more outlines for YouTube videos",
@@ -135,6 +136,24 @@
     {
       "text": "Review videos from Romeysa",
       "priority": "key",
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Check Android internal-test install on phone (Download test app link)",
+      "priority": "key",
+      "why": "Been ~2 days since publish — confirm it installs or investigate",
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Submit stuck Printify order #27805654.13",
+      "priority": "key",
+      "why": "One-click fix in Printify dashboard, quick win",
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Run 2-3 real transformations on absbyai.com to eyeball new look",
+      "priority": "key",
+      "why": "Confirm less-muscular, no-tan prompt fix is right — unblocks condensed-prompt decision",
       "addedAt": "2026-07-27"
     }
   ],
