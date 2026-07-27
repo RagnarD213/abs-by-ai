@@ -4,8 +4,7 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "health::Inject Zepbound",
-    "personal::Take pictures of artificial hedge"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
