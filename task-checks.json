@@ -13,7 +13,8 @@
     "personal::Review Hinge",
     "personal::Put away salmon",
     "personal::Put away Brussels sprouts",
-    "personal::Clean kitchen"
+    "personal::Clean kitchen",
+    "personal::Make Britney meals"
   ],
   "log": {
     "health::Shower": [
