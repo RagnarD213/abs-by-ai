@@ -1778,6 +1778,12 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
         …or <button type="button" id="paywallGoUnlimitedBtn" style="background:none;border:none;padding:0;font:inherit;font-weight:800;color:var(--acc);cursor:pointer;text-decoration:underline">go unlimited for $5.83/mo</button> — start your 7-day free trial
       </div>
       <div class="app-only-note paywall-sub" style="margin-top:6px">You've used your free generations. More generations aren't available for purchase in the app.</div>
+      <!-- Running out of GENERATION credits must not dead-end the whole app: the
+           other tools are a separate thing entirely. Inside the apps there is no
+           purchase path here, so without this the user is simply stuck. Shown
+           only in the apps (.app-only-note) — on the web the buy buttons above
+           are the way forward. -->
+      <button type="button" id="paywallContinueHubBtn" class="app-only-note try-diff-btn" style="margin-top:12px">Continue to my hub →</button>
       <div id="creditsCheckoutError" style="display:none" class="error-toast"></div>
     </div>
 
@@ -4274,6 +4280,12 @@ window.addEventListener('DOMContentLoaded', async () => {
   // Paywall upsell: jump to the membership plans; on success, reveal this result.
   const goUnlimited = $('paywallGoUnlimitedBtn');
   if (goUnlimited) goUnlimited.addEventListener('click', () => showMembershipScreen(() => { unlockResult(); showScreen('result'); }));
+  // In-app escape hatch from the credits paywall (see the button's comment).
+  const paywallHub = $('paywallContinueHubBtn');
+  if (paywallHub) paywallHub.addEventListener('click', () => {
+    if (window.posthog) posthog.capture('paywall_continue_to_hub');
+    showHub();
+  });
 
   initMealTracker();
   initAccounts();
