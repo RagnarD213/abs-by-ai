@@ -105,6 +105,25 @@ Dan installed the Play internal-testing build and tested on his phone. **Install
 
 **Purchase gating CONFIRMED WORKING (Dan, on device):** out of credits showed no buy buttons and the "not available for purchase in the app" note. This closes the last open Android acceptance item from the 2026-07-25 member-generate-screen task.
 
+### On-device Android sweep on Dan's real phone — ALL PASS; earlier storage-eviction claim RETRACTED (2026-07-27)
+
+Dan enabled USB debugging and plugged in a **Samsung Galaxy A14 5G (SM-A146U), Android 15, Chrome 150**. Claude drove it entirely over `adb` + Chrome DevTools Protocol (`adb forward tcp:9222 localabstract:chrome_devtools_remote`, CDP `Runtime.evaluate` from a small Node script — Node 24 has a built-in WebSocket client, no dependencies needed). **This setup needs nothing installed that Dan did not already have** (Android SDK, platform-tools, and a JDK bundled inside Android Studio are all present).
+
+**RETRACTION — the storage-eviction root cause recorded earlier was WRONG.** On-device inspection shows the device id is `dev-1781745122020-…`, **created 2026-06-18 and still intact ~6 weeks later**, `navigator.storage.persisted()` is `true`, quota 10 GB with ~0 used, and **both the device id and session token survive a force-stop of the app AND Chrome**. localStorage was never being wiped. The "logged out every launch / fresh credits" symptoms do **not** reproduce, and the cause remains unknown. The cookie mirror and `persist()` call shipped earlier are harmless hardening, **not a proven fix** — do not treat that bug as explained.
+
+**Detection shipped instead of another guess.** New `storage_anomaly` PostHog event with four distinguishable kinds: `device_id_recovered_from_cookie` and `session_recovered_from_cookie` (either proves localStorage really was cleared while cookies survived), `device_id_minted_fresh` with a count of other localStorage keys (normal for a new visitor, the bug recurring for anyone else), and `session_rejected_401` (a server-rejected token — silent logout that is *not* storage loss and would need a different fix). Buffered because they fire before PostHog loads; flushed from `restoreSession()`. Verified live on the phone: new code present, **0 anomalies** on a cold launch. **Watch this event in PostHog.**
+
+**Full sweep — everything passed, no new defects found:**
+- **Back button** works. Real tap on a hub tile → depth 3; physical BACK → depth 2, app stays open. At the first screen BACK exits, as designed. **Testing gotcha worth remembering:** navigating via injected CDP JavaScript makes back *exit* the app, because Chrome's history-manipulation intervention marks history entries created without user activation as skippable. **Always drive navigation with real `input tap` events, never `Runtime.evaluate`, when testing back behaviour.**
+- **Purchase gating (Play compliance):** 9 `.app-hide-purchase` blocks present, **0 visible**, no pack cards, no "go unlimited" button, and no visible price text anywhere in the DOM.
+- **`memberMode: true` on Dan's account — independently confirms the paywall finding.** He is a member/admin, which is why generations are unlimited for him.
+- **Generate New Image** → lands on `form` with the upload card at 55–235px, fully on screen (the `.native-app` fix, confirmed on real hardware).
+- **Console:** 0 errors, 0 warnings, 0 failed network requests on a cache-bypassing reload.
+- **Background → resume:** page not reloaded, screen preserved, still logged in, device id intact.
+- **Landscape:** no horizontal overflow, upload card centred within the viewport.
+- **Photo picker** opens the Android photopicker correctly; no crashes in logcat.
+- **Primary CTA** ("Generate my future self") fully visible, clear of Samsung's nav bar.
+
 ### Free credits reset on every app relaunch — FIXED and live-verified (2026-07-27)
 
 **Dan found the app granted a fresh set of free generations every time he closed and reopened it.** Same root cause as the logout bug, and it confirms that root cause: **the Android app's localStorage really is being wiped between launches.** The login now survives only because of the cookie mirror shipped earlier this session; the device id had no such backing.
