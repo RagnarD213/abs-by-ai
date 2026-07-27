@@ -7,7 +7,8 @@
     "health::Inject Zepbound",
     "personal::Hire plumber or contractor to fix shower handle and sink faucet",
     "personal::Cancel 1-800 Plumber Appointment",
-    "personal::Cancel Parabec Plumbing Appointment"
+    "personal::Cancel Parabec Plumbing Appointment",
+    "personal::Double Check Time and Date for Spray Tan"
   ],
   "log": {
     "health::Shower": [
