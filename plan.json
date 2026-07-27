@@ -5,12 +5,23 @@
     "personal::Hire plumber or contractor to fix shower handle and sink faucet",
     "personal::Cancel 1-800 Plumber Appointment",
     "personal::Cancel Parabec Plumbing Appointment",
-    "personal::Double Check Time and Date for Spray Tan"
+    "personal::Double Check Time and Date for Spray Tan",
+    "money::Write outlines for test shoot",
+    "money::Check Android internal-test install on phone (Download test app link)",
+    "money::Run 2-3 real transformations on absbyai.com to eyeball new look",
+    "personal::Review Bumble",
+    "personal::Review Hinge",
+    "personal::Put away salmon",
+    "personal::Put away Brussels sprouts",
+    "personal::Put away rice",
+    "personal::Make Britney meals",
+    "personal::Clean kitchen"
   ],
   "excluded": [
     "money::Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
     "money::Finish the model bake-off harness rebuild task.",
-    "money::Finish the AbsByAI iOS App Store submission task."
+    "money::Finish the AbsByAI iOS App Store submission task.",
+    "money::Submit stuck Printify order #27805654.13"
   ],
   "sessionsCompleted": 2
 }
