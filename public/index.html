@@ -1222,9 +1222,17 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
    land on the upload card, not on the acquisition marketing at the top of the
    generate screen. The .member-mode class is set on <html> whenever membership
    resolves to active/comp. Scoped to #formSection on purpose: .hero-h1 and
-   .hero-sub are reused on the result, chooser and email-capture screens. */
+   .hero-sub are reused on the result, chooser and email-capture screens.
+
+   The same hiding applies to EVERY user inside the iOS/Android apps, logged in
+   or not: they have already installed the app, so the acquisition pitch is
+   dead weight that pushed the upload card below the fold and made "Generate
+   New Image" look like it did nothing. Web visitors still get the full sales
+   page, which is what it is there for. */
 .member-mode #formSection #formMarketingHero,
-.member-mode #formSection #proofStrip { display: none; }
+.member-mode #formSection #proofStrip,
+.native-app #formSection #formMarketingHero,
+.native-app #formSection #proofStrip { display: none; }
 
 .app-only-note.app-note-box { margin: 18px 0; padding: 16px; border-radius: 12px; background: var(--acc-soft); border: 1px solid var(--acc-line); text-align: center; font-weight: 600; }
 .locked-cta-card { border: 1.5px solid var(--acc); border-radius: 15px; padding: 17px 16px; margin: 16px 0; background: rgba(47,95,224,0.05); }
