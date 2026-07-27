@@ -144,22 +144,26 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-07-27"
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-07-27"
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-07-27"
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-07-27"
     }
   ],
   "personal": [
