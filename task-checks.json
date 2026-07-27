@@ -8,7 +8,8 @@
     "personal::Hire plumber or contractor to fix shower handle and sink faucet",
     "personal::Cancel 1-800 Plumber Appointment",
     "personal::Cancel Parabec Plumbing Appointment",
-    "personal::Double Check Time and Date for Spray Tan"
+    "personal::Double Check Time and Date for Spray Tan",
+    "personal::Review Bumble"
   ],
   "log": {
     "health::Shower": [
