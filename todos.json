@@ -121,13 +121,6 @@
       "addedAt": "2026-07-23"
     },
     {
-      "text": "Submit stuck Printify order #27805654.13 (one 'Submit order' click in the Printify dashboard)",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-24",
-      "why": "Pre-fix test order sitting on hold \u2014 it won't auto-retry"
-    },
-    {
       "text": "Finish the model bake-off harness rebuild task.",
       "priority": "key",
       "recurring": false,
