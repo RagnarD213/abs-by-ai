@@ -2777,6 +2777,15 @@ const DEVICE_ID_DAYS = 400; // browser cap on cookie lifetime
 // at our expense. Backed by a cookie for exactly that reason — losing it is a
 // revenue hole, not just an inconvenience. (The per-IP daily cap on the server
 // is the second line of defence, not the first.)
+// Storage anomalies worth knowing about, buffered here because they happen
+// before PostHog has loaded. Flushed by flushStorageAnomalies() on startup.
+// These exist because a reported "logged out and given fresh credits on every
+// launch" could NOT be reproduced afterwards: on the affected phone the device
+// id turned out to be six weeks old and intact, so the storage-eviction theory
+// was never actually confirmed. Rather than guess again, record the evidence
+// if it recurs.
+const storageAnomalies = [];
+
 function getDeviceId() {
   let id = null;
   try { id = localStorage.getItem(DEVICE_ID_KEY); } catch (e) {}
@@ -2785,15 +2794,34 @@ function getDeviceId() {
     if (fromCookie) {
       id = fromCookie;
       try { localStorage.setItem(DEVICE_ID_KEY, id); } catch (e) {} // re-seed
+      // Direct evidence that localStorage was cleared while cookies survived.
+      storageAnomalies.push({ kind: 'device_id_recovered_from_cookie' });
     }
   }
   if (!id) {
+    // Both stores empty. Normal for a genuinely new visitor, but if this fires
+    // for someone who has used the app before, that is the bug recurring.
     id = 'dev-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
     try { localStorage.setItem(DEVICE_ID_KEY, id); } catch (e) {}
+    let hadOtherKeys = 0;
+    try { hadOtherKeys = Object.keys(localStorage).length; } catch (e) {}
+    storageAnomalies.push({ kind: 'device_id_minted_fresh', other_keys_present: hadOtherKeys });
   }
   // Refresh the cookie on every read so an active user's id never expires.
   writeCookie(DEVICE_ID_KEY, id, DEVICE_ID_DAYS);
   return id;
+}
+
+// Emitted once per load, after PostHog exists. Silent when nothing is wrong.
+function flushStorageAnomalies() {
+  if (!storageAnomalies.length) return;
+  try {
+    if (!window.posthog || typeof posthog.capture !== 'function') return;
+    storageAnomalies.splice(0).forEach(a => posthog.capture('storage_anomaly', {
+      ...a,
+      native_app: document.documentElement.classList.contains('native-app'),
+    }));
+  } catch (e) {}
 }
 
 async function fetchCreditsFromServer() {
@@ -4386,6 +4414,9 @@ function loadStoredToken() {
   if (cookieToken) {
     // Re-seed localStorage so the rest of the app behaves exactly as before.
     try { localStorage.setItem(AUTH_TOKEN_KEY, cookieToken); } catch (e) {}
+    // The login survived only because of the cookie — i.e. localStorage really
+    // was cleared. This is the event that would confirm the eviction theory.
+    storageAnomalies.push({ kind: 'session_recovered_from_cookie' });
     return cookieToken;
   }
   return null;
@@ -4475,6 +4506,7 @@ function updateAuthUi() {
 // On load: validate any stored token; if good, land on the hub.
 async function restoreSession() {
   updateAuthUi();
+  flushStorageAnomalies(); // PostHog is loaded by now
   if (!auth.token) return;
   try {
     const me = await authApi('/api/auth/me');
@@ -4490,7 +4522,19 @@ async function restoreSession() {
     syncMealPlanFromServer();
     syncCounselFromServer();
   } catch (e) {
-    if (e.status === 401) clearLoggedIn(); // stale token; network errors keep it
+    if (e.status === 401) {
+      // The other way a user gets silently logged out: the server rejected a
+      // token we still held. Worth distinguishing from storage loss.
+      try {
+        if (window.posthog && typeof posthog.capture === 'function') {
+          posthog.capture('storage_anomaly', {
+            kind: 'session_rejected_401',
+            native_app: document.documentElement.classList.contains('native-app'),
+          });
+        }
+      } catch (err) {}
+      clearLoggedIn(); // stale token; network errors keep it
+    }
   }
 }
 
