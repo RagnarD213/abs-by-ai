@@ -1,0 +1,74 @@
+{
+  "fem-heavier__dramatic:A": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7977
+  },
+  "fem-heavier__dramatic:B": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 21153
+  },
+  "fem-heavier__max:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 15559
+  },
+  "fem-heavier__max:B": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 8694
+  },
+  "fem-moderate__dramatic:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 24961
+  },
+  "fem-moderate__dramatic:B": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7733
+  },
+  "fem-moderate__max:A": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 10617
+  },
+  "fem-moderate__max:B": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 25806
+  },
+  "fem-fit__dramatic:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 15895
+  },
+  "fem-fit__dramatic:B": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 8095
+  },
+  "fem-fit__max:A": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 8473
+  },
+  "fem-fit__max:B": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 22741
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "caseId": "fem-heavier__max",
+  "modelKey": "gemini-2.5-flash-image",
+  "variant": "full",
+  "label": "Gemini 2.5 Flash Image",
+  "provider": "google",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 8694,
+  "promptChars": 5062,
+  "nominalCost": 0.039,
+  "image": "fem-heavier__max__gemini-2.5-flash-image__full.jpg",
+  "meta": null,
+  "ts": "2026-07-27T22:33:11.090Z"
+}

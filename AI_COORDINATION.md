@@ -61,7 +61,35 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Implementation in progress` (Android on-device testing — 3 defects found and fixed live; 1 product decision open with Dan)
+**Status:** `Blocked` — female Seedream swap, steps 1–2 done; waiting on Dan's blind labels before any production code changes
+
+### Female Seedream swap — steps 1–2 COMPLETE, BLOCKED on Dan's labels (2026-07-27)
+
+Executing `handoff-20260727-female-seedream-swap.md`. **No production code changed** — the handoff's step-3 gate is Dan's labels, and it has not been passed.
+
+**Blind gallery for Dan to label:** https://claude.ai/code/artifact/5d7450e4-8a08-4b33-bf18-abdadd68e8f1
+
+**Step 1 — slug confirmed against the live Replicate schema, not guessed.** The round-1 adapter *is* committed (`bakeoff/adapters.js`, not a scratchpad as the handoff assumed): `bytedance/seedream-4.5`. Pulled the live OpenAPI schema and confirmed every input field the adapter sends — `prompt` (**maxLength 4000**, the documented 422), `image_input` (array), `size` (default `2K`), `aspect_ratio` (default `match_input_image`), `sequential_image_generation` (default `disabled`). A `disable_safety_checker` field exists and was deliberately left alone.
+
+**Plan step 4's open assertion is already answered:** the longest condensed female prompt is **1,391 chars** (`fem-moderate__max`), far under 4,000 — so `condenseForKontext` can feed Seedream unchanged and **no extra trim is needed in `server.js`**. Asserted programmatically in `build-prompts.js`, which fails loudly if a future prompt change breaks it.
+
+**Step 2 — batch run, 12/12 images, nominal spend ~$0.47** (well under the $1–2 budget). Harness in `bakeoff/round2-female/` (own README). No `deviceId`, so no credits spent and no data-file commit/redeploy churn. Prompts come from prod `/api/generate-prompt` driven by the real `SYSTEM_PROMPT`/`goalSystemPrompt()`, so the FEMALE HEAVIER REALISM RULE is genuinely exercised (verified in the condensed text: 25% target, "believable mid-journey stage", feminine guards intact). Gemini got the full prompt, Seedream the condensed one — matching what production sends each leg. Single-shot both, no verifier/retry ladder, same as round 1.
+
+**Headline finding: Seedream returned zero moderation blocks on female photos — 6 of 6, vs FLUX's ~25% pass rate.** That alone is the entire reason for the swap and it reproduced.
+
+**Two deviations from the handoff, both forced by what is actually on disk:**
+1. **The handoff names three female photos; only ONE female identity exists.** Round-1's `heavier-female.jpg` is byte-for-byte the same subject as `public/img/proof/female-before.webp`, and `female-after.webp` is the same woman leaner. The grid therefore varies **starting body state and declared condition** (heavier / moderate on the softer photo, fit on the leaner one) × 2 intensities. **No dark-skinned female subject was tested** — and round 1 found skin tone is exactly where Seedream won, and that dark-skinned subjects were the hardest moderation cases. **This gap should be closed before the result is treated as covering all women.** A real second female subject exists on disk (`abs by ai images/brittany/`) but it is an identifiable private individual in swimwear and **the repo is public**, so it was deliberately not used or committed — Dan's call.
+2. **Intensities are `dramatic` + `max`, not the handoff's "moderate + max"** — Phase 2 reduced the product to two pickable intensities (Subtle=`dramatic`, Ripped=`max`), so `moderate` is a tier no user can select. `moderate` is covered as a declared *start condition* instead.
+
+**Gallery blinding is verified, not assumed.** The first build put Seedream in slot A on all 6 rows (the round-1 shuffle collides on 2-element arrays), which would have leaked identity across rows and stacked every candidate against the same position bias. Replaced with a salt search that **asserts** a 3/3 slot-A balance. Page verified in-browser: pick/acceptable/tags/notes persist, progress counter correct, no console errors, no horizontal overflow.
+
+**Claude's own read (Dan's eye is still the gate):** across all three conditions Seedream produced a visibly leaner, more defined result while holding identity, clothing, pose, room and lighting; Gemini under-changed, most starkly on the already-fit photo where it barely moved. This is the expected shape of the finding, which is a reason to be *more* careful about the one-identity limitation, not less.
+
+**Exact next action — DAN:** open the gallery link above, pick the better image in each of the 6 rows (or neither, with a note — that is a real answer), hit **Copy labels**, paste the text back. Then Claude decodes against `bakeoff/round2-female/out/key.json` and either proceeds to step 4 (routing in `server.js`) or records the finding and ships nothing.
+
+---
+
+### Android on-device testing (previous active task — complete, retained for context)
 
 ### Android on-device testing — 3 fixes SHIPPED and live-verified (2026-07-27, commits `91e5bc4`, `8ba8a88`)
 

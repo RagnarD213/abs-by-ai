@@ -1,0 +1,18 @@
+{
+  "caseId": "fem-fit__max",
+  "modelKey": "gemini-2.5-flash-image",
+  "variant": "full",
+  "label": "Gemini 2.5 Flash Image",
+  "provider": "google",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 8473,
+  "promptChars": 5298,
+  "nominalCost": 0.039,
+  "image": "fem-fit__max__gemini-2.5-flash-image__full.jpg",
+  "meta": null,
+  "ts": "2026-07-27T22:35:32.573Z"
+}
