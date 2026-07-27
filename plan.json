@@ -1,7 +1,6 @@
 {
   "date": "2026-07-27",
   "order": [
-    "money::Finish the AbsByAI iOS App Store submission task.",
     "personal::Hire plumber or contractor to fix shower handle and sink faucet",
     "personal::Cancel 1-800 Plumber Appointment",
     "personal::Cancel Parabec Plumbing Appointment",
@@ -10,7 +9,8 @@
   "excluded": [
     "money::Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
     "money::Submit stuck Printify order #27805654.13 (one 'Submit order' click in the Printify dashboard)",
-    "money::Finish the model bake-off harness rebuild task."
+    "money::Finish the model bake-off harness rebuild task.",
+    "money::Finish the AbsByAI iOS App Store submission task."
   ],
   "sessionsCompleted": 0
 }
