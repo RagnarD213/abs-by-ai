@@ -16,7 +16,8 @@
     "personal::Clean kitchen",
     "personal::Make Britney meals",
     "personal::Put away rice",
-    "money::Review videos from Romeysa"
+    "money::Review videos from Romeysa",
+    "money::Check Android internal-test install on phone (Download test app link)"
   ],
   "log": {
     "health::Shower": [
