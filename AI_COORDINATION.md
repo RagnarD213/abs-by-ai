@@ -40,7 +40,21 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 **Cache caveat:** server-side changes apply instantly everywhere; client-side changes can be served from a stale WebView cache. Old behaviour on the phone right after a deploy is usually cache — force-close and reopen, and confirm the new markers are live in a browser before treating it as a defect.
 
-**Assistant obligation (Dan's explicit instruction, 2026-07-27):** when a change hits any trigger row above, **say so explicitly in the response** — name the platform and what to check. Dan's standing assumption is that **silence means no native retest is needed**, so an un-flagged native risk will go untested.
+**Assistant obligation (Dan's explicit instruction, 2026-07-27):** when a change hits any trigger row above, **say so explicitly in the response** — name the platform and what to check. Dan's standing assumption is that **silence means no native retest is needed**, so an un-flagged native risk will go untested. Preferred discharge of this obligation is to **run the smoke test and show the result**, not to hand Dan a to-do.
+
+### Automated native smoke test — `scripts/native-smoke-test.sh`
+
+Boots an iPhone simulator and a Pixel emulator against **production** absbyai.com, installs the current builds, captures screenshots to `native-smoke-out/` (git-ignored), and asserts purchase gating programmatically. `ios` / `android` args run one platform. **Makes zero AI calls** — the apps hit prod, so generations cost real money; keep it that way.
+
+Android assertions run over the Chrome DevTools protocol (`adb forward` → `Runtime.evaluate`, needs `websocket-client`): TWA flag set, `native-app` class applied, and **0 visible `.app-hide-purchase` controls** — including on `membershipSection` and `paywallSection`, which are force-shown in the DOM because they are otherwise unreachable without paying for a real generation. iOS gating stays a screenshot check (WKWebView has no CLI inspector).
+
+**Baseline run 2026-07-27: 7/7 script checks + 7/7 Android gating assertions passed, cold start.** iOS: hub renders correctly, no purchase controls, "Delete my account" present, safe areas clean. Android: full-screen, no address bar (asset links good), 9 purchase elements present and 0 visible.
+
+**Two gotchas worth keeping:**
+- **Build iOS Release, never Debug.** Xcode 26 Debug builds use a separate `App.debug.dylib` and are refused by `SBMainWorkspace` on launch (`simctl install` succeeds, `simctl launch` fails). Release launches fine. This is the real cause of the "RunningBoard POSIX 163" note in earlier sessions.
+- **Chrome's first-run screen** ("Make Chrome your own") can sit in front of the TWA on a fresh emulator; the script taps "Use without an account" past it.
+
+**What the simulators do NOT prove:** real camera behaviour, real Stripe payments, Play/App Store install paths, or Dan's specific handset. Those stay manual. A real Android phone *can* be driven over `adb` if plugged in with USB debugging on; a real iPhone cannot.
 
 ---
 
