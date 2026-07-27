@@ -63,7 +63,13 @@ Dan installed the Play internal-testing build and tested on his phone. **Install
 
 **Purchase gating CONFIRMED WORKING (Dan, on device):** out of credits showed no buy buttons and the "not available for purchase in the app" note. This closes the last open Android acceptance item from the 2026-07-25 member-generate-screen task.
 
-### OPEN DECISION — what happens when an app user runs out of credits
+### Credits dead-end — DECIDED and SHIPPED (commit on 2026-07-27, live-verified)
+
+**Dan chose "Continue to hub only."** Shipped: a `#paywallContinueHubBtn` "Continue to my hub →" button on the credits paywall, shown only inside the apps (`.app-only-note`), with a `paywall_continue_to_hub` PostHog event. Web is unchanged — the pack cards there are still the way forward. Live-verified on absbyai.com: in-app shows the button with buy buttons hidden, tapping lands on the hub, and it records a history entry so the new back-button handling still works; on web the button stays hidden and the pack cards stay visible.
+
+**Deliberately NOT done yet (Dan's call, revisit after Apple's verdict):** external link-out to the web checkout, and full Play Billing. Do not change purchase behaviour in either app while iOS sits in Apple's review queue.
+
+### Context behind that decision — what happens when an app user runs out of credits
 
 Dan's finding: the gating works, but it dead-ends the user — no credits, no purchase path, and the rest of the app is membership-gated too, so the app currently cannot monetize at all and a free user hits a wall.
 
