@@ -47,7 +47,29 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` (bake-off Phase 4 shipped and live-verified; iOS awaiting Apple's review verdict; one Dan eyeball outstanding)
+**Status:** `Implementation in progress` (Android on-device testing — 3 defects found and fixed live; 1 product decision open with Dan)
+
+### Android on-device testing — 3 fixes SHIPPED and live-verified (2026-07-27, commits `91e5bc4`, `8ba8a88`)
+
+Dan installed the Play internal-testing build and tested on his phone. **Install worked, full-screen with no address bar (assetlinks fix confirmed good), generation works and the image looks right.** Three defects found; all three fixed, deployed and live-verified on absbyai.com the same session.
+
+**1. Android back button exited the app instead of navigating back (commit `91e5bc4`).** Root cause: the whole product is one page with 25 stacked `<section>`s that `showScreen()` shows/hides, so the browser only ever held ONE history entry. The TWA back button navigates web history, found nothing to pop, and closed the app. `showScreen()` now pushes a history entry per screen change and re-renders from `popstate`; returning to the screen we came from calls `history.back()` instead of pushing, so bouncing between two screens can't inflate the stack (verified: depth stays 1 across 3 bounce cycles). At the first screen there is deliberately nothing left to pop, so back exits the app — expected Android behaviour, not a regression. Also fixed the three existing `replaceState({}, …)` calls that strip query params, which would otherwise erase the screen marker.
+
+**2. Users were logged out on every app launch (same commit).** Server sessions last 90 days (`SESSION_DAYS = 90`) and nothing in the client drops the token except an explicit logout or a 401 — `restoreSession()` deliberately keeps the token on network errors — so the browser itself was discarding it. **Root cause not confirmed on-device**; two defences shipped: `navigator.storage.persist()` so Chrome exempts the origin from storage eviction, and a 90-day cookie mirror of the token that survives eviction paths which clear localStorage (`loadStoredToken()` prefers localStorage, falls back to the cookie, and re-seeds localStorage). Logout clears both stores or the session would revive. Cookie is `SameSite=Lax; Secure`, no wider XSS exposure than localStorage already had. **Note:** `navigator.storage.persisted()` returns false in a normal desktop tab; installed apps are normally granted it without a prompt, so the real test is Dan's phone.
+
+**3. "Generate New Image" appeared to do nothing when logged out (commit `8ba8a88`).** `openHubFeature('generate')` just calls `showScreen('form')`, which for a logged-out user is the full acquisition sales page: hero + proof strip fill the first 459px and the upload card sits at **475–655px**, below the fold once a phone's status/nav bars eat into the viewport. The page scrolled to the top, showed marketing, and read as "the button did nothing." The `.member-mode` rule from 2026-07-25 already solved this but only for logged-in members. Extended the same hiding to `.native-app` — everyone inside the iOS/Android apps has already installed it, so the pitch is dead weight there regardless of login state. Upload card now at **63–244px**. Web visitors still get the full sales page (verified unchanged).
+
+**Verified live on absbyai.com at 375×812:** back trail walks transformations → hub → macro → form correctly; a real `#loginLink` click pushes history and back returns to the form; cookie fallback recovers a token after simulated localStorage eviction and logout clears both stores; in-app upload card at top while the web sales page is untouched. Zero console errors. Inline-JS `node --check` clean.
+
+**Purchase gating CONFIRMED WORKING (Dan, on device):** out of credits showed no buy buttons and the "not available for purchase in the app" note. This closes the last open Android acceptance item from the 2026-07-25 member-generate-screen task.
+
+### OPEN DECISION — what happens when an app user runs out of credits
+
+Dan's finding: the gating works, but it dead-ends the user — no credits, no purchase path, and the rest of the app is membership-gated too, so the app currently cannot monetize at all and a free user hits a wall.
+
+**Policy verified against Google's own docs this session (not from memory):** following the Epic injunction, Google **no longer requires Play Billing for US users** — developers may use alternative in-app payment methods, link out to external purchases, and communicate external pricing. Three programs launched 2025-12-09 (Payments policy, Alternative billing, External content links); enrolled developers must report transactions and **pay service fees starting 2026-10-01**. In effect through 2027-11-01, US-only, and a revised settlement was before the court as of 2026-03-04. iOS rules are separate and stricter.
+
+**Claude's recommendation (awaiting Dan):** (1) ship the no-dead-end fix now — the credits paywall should offer "Continue to my hub" so users land somewhere useful; (2) add an external link-out to the web checkout for **Android only**, after iOS clears Apple review — do not change iOS purchase behaviour while it is in the review queue; (3) do not build full Play Billing yet — not justified at current volume.
 
 ### Session plan 2026-07-27 (afternoon, until ~6 PM) — content-focused work session
 
