@@ -1,0 +1,22 @@
+{
+  "caseId": "fem-dark-heavier__dramatic",
+  "modelKey": "seedream-4.5",
+  "variant": "condensed",
+  "label": "Seedream 4.5 (edit)",
+  "provider": "replicate",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 15937,
+  "geminiSafetyRetry": false,
+  "promptChars": 1406,
+  "nominalCost": 0.04,
+  "image": "fem-dark-heavier__dramatic__seedream-4.5__condensed.jpg",
+  "meta": {
+    "predictTime": 14.853392798,
+    "predictionId": "s4ejk6yd19rmt0czncevr6m3jm"
+  },
+  "ts": "2026-07-28T23:45:00.070Z"
+}

@@ -1,0 +1,50 @@
+{
+  "fem-dark-heavier__dramatic:A": {
+    "version": "new"
+  },
+  "fem-dark-heavier__dramatic:B": {
+    "version": "old"
+  },
+  "fem-dark-heavier__max:A": {
+    "version": "old"
+  },
+  "fem-dark-heavier__max:B": {
+    "version": "new"
+  },
+  "fem-moderate__dramatic:A": {
+    "version": "new"
+  },
+  "fem-moderate__dramatic:B": {
+    "version": "old"
+  },
+  "fem-moderate__max:A": {
+    "version": "old"
+  },
+  "fem-moderate__max:B": {
+    "version": "new"
+  },
+  "fem-pale__dramatic:A": {
+    "version": "old"
+  },
+  "fem-pale__dramatic:B": {
+    "version": "new"
+  },
+  "fem-pale__max:A": {
+    "version": "new"
+  },
+  "fem-pale__max:B": {
+    "version": "old"
+  },
+  "fem-lean-real__dramatic:A": {
+    "version": "new"
+  },
+  "fem-lean-real__dramatic:B": {
+    "version": "old"
+  },
+  "fem-lean-real__max:A": {
+    "version": "old"
+  },
+  "fem-lean-real__max:B": {
+    "version": "new"
+  }
+}
