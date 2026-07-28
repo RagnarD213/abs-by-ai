@@ -922,6 +922,17 @@ PostHog not connected. Add <code>POSTHOG_API_KEY</code> and <code>POSTHOG_PROJEC
 </div>
 </div>
 
+<!-- Gmail Digest -->
+<div class="card">
+<div class="card-title">Inbox</div>
+<ul class="todo-list" id="gmail-items">
+<li class="loading pulse">Loading…</li>
+</ul>
+<div id="gmail-notice" class="setup-notice" style="display:none;margin-top:8px">
+No Gmail digest yet — the morning brief job writes this once a day.
+</div>
+</div>
+
 <!-- Business Calendar -->
 <div class="card">
 <div class="card-title">Today's Schedule</div>
@@ -1497,6 +1508,29 @@ svg.innerHTML =
 }
 
 // ── RENDER FUNCTIONS ──
+function renderGmail(data) {
+const list = document.getElementById('gmail-items');
+const notice = document.getElementById('gmail-notice');
+const items = data && Array.isArray(data.items) ? data.items : [];
+if (!items.length) {
+list.innerHTML = '';
+notice.textContent = data && data.generatedAt
+? 'Nothing new since the last check.'
+: 'No Gmail digest yet — the morning brief job writes this once a day.';
+notice.style.display = 'block';
+return;
+}
+notice.style.display = 'none';
+list.innerHTML = items.map(it => `
+<li class="todo-item" style="cursor:default">
+<div style="flex:1;min-width:0">
+<span class="todo-tag" style="margin-left:0;margin-right:6px;background:var(--border);color:var(--muted)">${escapeHtml(it.label || 'Gmail')}</span>
+<span class="todo-text" style="font-weight:600">${escapeHtml(it.subject || '(no subject)')}</span>
+<div style="font-size:11px;color:var(--muted);margin-top:2px">${escapeHtml(it.from || '')}${it.snippet ? ' — ' + escapeHtml(it.snippet) : ''}</div>
+</div>
+</li>`).join('');
+}
+
 function renderStripe(data) {
 const box = document.getElementById('stripe-metrics');
 const notice = document.getElementById('stripe-notice');
@@ -2555,6 +2589,7 @@ renderNews(d.news);
 renderOura(d.oura);
 renderWatch(d.watch);
 renderMonarch(d.monarch);
+renderGmail(d.gmail);
 
 } catch (e) {
 console.error('Dashboard load error:', e);
@@ -2568,6 +2603,7 @@ renderNews([]);
 renderOura(null);
 renderWatch(null);
 renderMonarch(null);
+renderGmail(null);
 }
 }
 

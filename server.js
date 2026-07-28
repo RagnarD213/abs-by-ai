@@ -151,6 +151,7 @@ const MONARCH_PUSH_SECRET  = process.env.MONARCH_PUSH_SECRET;
 const MONARCH_DATA_FILE    = 'monarch-data.json';
 const GITHUB_REPO          = 'RagnarD213/abs-by-ai';
 const WATCH_DATA_FILE      = 'watch-data.json'; // persists parsed watch data across deploys
+const GMAIL_DIGEST_FILE    = 'gmail-digest.json'; // daily business-relevant Gmail digest, written by the morning-brief job
 
 if (!ANTHROPIC_API_KEY || !GEMINI_API_KEY) {
   console.error('ERROR: Missing ANTHROPIC_API_KEY or GEMINI_API_KEY environment variables');
@@ -197,6 +198,7 @@ app.get('/api/morning-data', async (req, res) => {
     loadTodos().then(d => { result.todos = d; }),
     loadTaskChecks().then(d => { result.task_checks = { checked: d.checked, log: d.log }; }),
     loadPlan().then(d => { result.plan = d; }),
+    loadGmailDigest().then(d => { result.gmail = d; }),
   ]);
 
   result.watch = loadWatch();
@@ -797,6 +799,35 @@ app.post('/api/todos', async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
+});
+
+// ── Gmail digest (written directly to GitHub by the morning-brief scheduled
+// job, which has session-level Gmail MCP access the server itself does not
+// have — this just reads whatever that job last committed) ──
+// Shape: { generatedAt: ISOString, items: [{ label, from, subject, snippet, date, threadId }] }
+const EMPTY_GMAIL_DIGEST = { generatedAt: null, items: [] };
+
+async function loadGmailDigest() {
+  if (!GITHUB_TOKEN) return EMPTY_GMAIL_DIGEST;
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${GMAIL_DIGEST_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return EMPTY_GMAIL_DIGEST;
+    const data = await res.json();
+    const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+    return {
+      generatedAt: typeof parsed.generatedAt === 'string' ? parsed.generatedAt : null,
+      items: Array.isArray(parsed.items) ? parsed.items : [],
+    };
+  } catch (e) {
+    console.error('loadGmailDigest error:', e.message);
+    return EMPTY_GMAIL_DIGEST;
+  }
+}
+
+app.get('/api/gmail-digest', async (req, res) => {
+  res.json(await loadGmailDigest());
 });
 
 // ── Today's Plan (stored in GitHub plan.json so it survives Railway deploys) ──
