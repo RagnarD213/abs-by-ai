@@ -71,11 +71,13 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 
 | | Seedream | Gemini | neither |
 |---|---|---|---|
-| **All 12 rows** | **9** | 2 | 1 |
-| Ripped (`max`) | **6 of 6** | 0 | 0 |
-| Subtle (`dramatic`) | 3 | 2 | 1 |
+| **All 14 rows** | **10** | 2 | 2 |
+| Ripped (`max`) | **7 of 7** | 0 | 0 |
+| Subtle (`dramatic`) | 3 | 2 | 2 |
 
-**The two models fail in OPPOSITE directions, which is the real finding and the justification for keeping both.** Gemini was tagged "not enough change" **7 times** (never once at Ripped did it win). Seedream was tagged too-much/too-muscular/looks-fake **5 times, concentrated at the Subtle tier**. Skin tone was tagged right on essentially every candidate from both models — the dark-skin worry did not materialise. Dan's recurring note across both rounds: *"leaner, more ab definition, without more muscle"* — that is a PROMPT observation and applies to whichever model serves.
+Final tally after the real lean subject was added 2026-07-28 (`fem-lean-real`, replacing the excluded AI-generated one). **Gemini has now never won a single Ripped row across 5 subjects.** The lean case landed exactly on the predicted pattern: at Subtle NEITHER was acceptable (Seedream too muscular, Gemini not enough change); at Ripped Seedream won but was still tagged "slightly less muscular would be ideal".
+
+**The two models fail in OPPOSITE directions, which is the real finding and the justification for keeping both.** Across all 14 rows Gemini was tagged "not enough change" **9 times** vs 1 over-change; Seedream was tagged too-much/too-muscular/looks-fake **8 times** vs 1 under-change — an almost perfect mirror image, concentrated at the Subtle tier. Skin tone was tagged right on essentially every candidate from both models — the dark-skin worry did not materialise. Dan's recurring note across both rounds: *"leaner, more ab definition, without more muscle"* — that is a PROMPT observation and applies to whichever model serves.
 
 **Seedream moderation: 0 blocks in 16 female cells**, reproducing round 1 and confirming the swap's entire premise.
 
@@ -91,7 +93,10 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 
 **Two things deliberately NOT done, both needing Dan:**
 1. **Seedream overshoots at the Subtle tier** (Dan: "too much change for subtle", "too muscular"). The judge should absorb this per-generation, but **the judge was validated on round-1 MALE labels only** — its female behaviour is unvalidated. The 12 female labels now on disk are the obvious eval set for that.
-2. **No LEAN woman is covered.** The round-3 lean subject was Brittany, and Dan identified her "before" as itself AI-generated, so she was excluded (`cases.js` `excluded: true`; images kept on disk). Lean is where Gemini under-changes most, so it is the most informative missing case — worth adding a real lean/athletic woman (~16¢, 2 rows).
+2. ~~No LEAN woman is covered.~~ **CLOSED 2026-07-28** — Dan supplied a real lean subject (`example pictures/lean white girl before.webp` → `fem-lean-real`) and labelled both rows. Result above.
+3. **Seedream needs dialling back at the Subtle tier — this is now the highest-value open item.** Dan's notes across all 14 rows converge on one instruction: *leaner, more ab definition, WITHOUT more muscle.* That is a `SYSTEM_PROMPT` change (the same axis as the 2026-07-25 muscle-anchor retune, which only touched male paths), not a model change. Both Subtle NEITHER verdicts were Seedream overshooting.
+
+**Gallery-builder invariant worth keeping:** `build-gallery.js` now PINS the letter assignment of any row already present in `key.json`. Labels live in localStorage keyed by `case:letter`, so letting the salt search reshuffle an already-answered row silently re-points a verdict at the other model. Adding rows to a published gallery is only safe because of this.
 
 **Privacy:** round-3 uses photos of real identifiable private individuals authorized by Dan for testing. The repo is public, so `bakeoff/round3-female/.gitignore` keeps `photos/` and all generated `.jpg`s OUT of git — only code, prompts and result metadata are committed.
 
