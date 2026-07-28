@@ -61,9 +61,47 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Blocked` — female Seedream swap, steps 1–2 done; waiting on Dan's blind labels before any production code changes
+**Status:** `Complete — pending reset` — female Seedream swap SHIPPED and live-verified (commit `8bee66c`, 2026-07-28)
 
-### Female Seedream swap — steps 1–2 COMPLETE, BLOCKED on Dan's labels (2026-07-27)
+### Female Seedream swap — SHIPPED, live-verified (2026-07-28, commit `8bee66c`)
+
+**Female generations now run Gemini 2.5 Flash Image + Seedream 4.5; males keep Gemini + FLUX Kontext.** Executed `handoff-20260727-female-seedream-swap.md` end to end. Dan's blind labels cleared the step-3 gate decisively.
+
+**Dan's labels — 12 blind rows, 4 women, two batches (`bakeoff/round2-female/`, `bakeoff/round3-female/`, both with `out/labels.json` + `out/key.json`):**
+
+| | Seedream | Gemini | neither |
+|---|---|---|---|
+| **All 12 rows** | **9** | 2 | 1 |
+| Ripped (`max`) | **6 of 6** | 0 | 0 |
+| Subtle (`dramatic`) | 3 | 2 | 1 |
+
+**The two models fail in OPPOSITE directions, which is the real finding and the justification for keeping both.** Gemini was tagged "not enough change" **7 times** (never once at Ripped did it win). Seedream was tagged too-much/too-muscular/looks-fake **5 times, concentrated at the Subtle tier**. Skin tone was tagged right on essentially every candidate from both models — the dark-skin worry did not materialise. Dan's recurring note across both rounds: *"leaner, more ab definition, without more muscle"* — that is a PROMPT observation and applies to whichever model serves.
+
+**Seedream moderation: 0 blocks in 16 female cells**, reproducing round 1 and confirming the swap's entire premise.
+
+**Implementation (`server.js`):** new `callSeedream` mirrors `callFluxViaReplicate` exactly — `bytedance/seedream-4.5`, `Prefer: wait` + poll, 90s AbortController, `{ok:false}` degrade contract. Leg selected at the ensemble kickoff by `sex === 'female' && REPLICATE_API_TOKEN`; **unknown/absent sex routes as male** (least-change default). `fluxResult` renamed `challengerResult`. Judge, identity gate, verifier ladder, credit logic and fail-open are **untouched** — the judge already treats `cand.model` as a pass-through label, and the client has **zero** `flux`/`seedream` references, so no client change was needed. Telemetry: `models_run` now `gemini+seedream` vs `gemini+flux`, `served_model` carries `seedream`.
+
+**No trim needed for Seedream's 4000-char limit, and it is structurally impossible to need one:** `condenseForKontext` caps output at 1800 chars of directive + a fixed ~250-char tail. Longest real female prompt measured **1,458**. Asserted in `bakeoff/round3-female/build-prompts.js`.
+
+**Verified — 25 assertions against the real server with stubbed providers** (`node-fetch` is stubbed via the require cache; a `globalThis.fetch` patch does NOT reach `server.js`, which does `const fetch = require('node-fetch')` at line 4 — worth remembering for future harnesses): female→seedream never flux, male→flux never seedream, unknown→male, seedream failure fails open to Gemini-only, Gemini block serves Seedream, fix passes stay single-model, and the judge scores both candidates and serves the winner in BOTH the female and male configurations.
+
+**Live on absbyai.com** (3 real generations, no `deviceId` so no credits/redeploy churn): female heavier → `gemini+seedream`, judge ran, judge picked seedream, chooser shown (borderline — designed behaviour), 39.6s. female moderate → `gemini+seedream`, served seedream, composite 18.4, 21.0s. male moderate → `gemini+flux`, served gemini, 15.1s — **FLUX path untouched**. Site clean at 375×812 and desktop, no console errors, no visible change (server-side routing only).
+
+**Watch in PostHog:** `models_run` should now show `gemini+seedream` on ~100% of female runs (vs FLUX's ~25%), plus `judge_winner` split and `chooser_shown` rate. **Latency note:** the female heavier run took 39.6s — Seedream is slower than FLUX (median 18.2s vs 10.6s) and returns a 2K image. Worth watching; if it hurts, `size` is the dial.
+
+**Two things deliberately NOT done, both needing Dan:**
+1. **Seedream overshoots at the Subtle tier** (Dan: "too much change for subtle", "too muscular"). The judge should absorb this per-generation, but **the judge was validated on round-1 MALE labels only** — its female behaviour is unvalidated. The 12 female labels now on disk are the obvious eval set for that.
+2. **No LEAN woman is covered.** The round-3 lean subject was Brittany, and Dan identified her "before" as itself AI-generated, so she was excluded (`cases.js` `excluded: true`; images kept on disk). Lean is where Gemini under-changes most, so it is the most informative missing case — worth adding a real lean/athletic woman (~16¢, 2 rows).
+
+**Privacy:** round-3 uses photos of real identifiable private individuals authorized by Dan for testing. The repo is public, so `bakeoff/round3-female/.gitignore` keeps `photos/` and all generated `.jpg`s OUT of git — only code, prompts and result metadata are committed.
+
+**Harness gotcha worth keeping:** an iPhone portrait photo carries an EXIF orientation tag. `sips -r` rotates the pixels but does NOT clear the tag, so the file then contradicts itself — Gemini ignores the tag, Seedream honours it, and the result looked like a serious Seedream defect (upside-down output). Use PIL `ImageOps.exif_transpose` + save without EXIF. Production is unaffected: the client's canvas downscale normalises orientation before upload.
+
+**Also fixed in the harness:** it now replicates production's Gemini safety retry (`SAFE FITNESS EDIT` preamble, `server.js` ~2601) verbatim. Without it the harness overstated Gemini's block rate. **Related finding: Gemini's female safety blocks are non-deterministic** — 3 of 8 cells blocked on one run and the same photo+prompt succeeded on the very next attempt with no retry needed.
+
+---
+
+### Female Seedream swap — steps 1–2 record (2026-07-27)
 
 Executing `handoff-20260727-female-seedream-swap.md`. **No production code changed** — the handoff's step-3 gate is Dan's labels, and it has not been passed.
 
