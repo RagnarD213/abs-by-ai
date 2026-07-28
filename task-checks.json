@@ -15,8 +15,7 @@
     "personal::Put away Brussels sprouts",
     "personal::Clean kitchen",
     "personal::Make Britney meals",
-    "personal::Put away rice",
-    "money::Check Android internal-test install on phone (Download test app link)"
+    "personal::Put away rice"
   ],
   "log": {
     "health::Shower": [
