@@ -70,12 +70,31 @@ const caseBlocks = [];
 const cellsFor = (id) => results.filter((r) => r.caseId === id && r.ok);
 // Excluded cases keep their generated images on disk but never reach the gallery.
 const SHOWN = CASES.filter((c) => !c.excluded);
-const SALT = findBalancedSalt(SHOWN.map((c) => c.id), cellsFor);
+
+// Letters already published MUST NOT move. Dan's labels live in localStorage
+// keyed by `case:letter`, so reshuffling a row he has already answered would
+// silently re-point his verdict at the other model. Existing rows keep their
+// assignment; only genuinely new rows get a letter, chosen to keep the overall
+// slot-A split as even as the already-fixed rows allow.
+const keyPath = path.join(OUT, 'key.json');
+const priorKey = fs.existsSync(keyPath) ? JSON.parse(fs.readFileSync(keyPath, 'utf8')) : {};
+const pinnedFirst = (id) => priorKey[`${id}:A`]?.model || null;
+
+const newIds = SHOWN.filter((c) => cellsFor(c.id).length === 2 && !pinnedFirst(c.id)).map((c) => c.id);
+const slotA = {};
+for (const c of SHOWN) {
+  const m = pinnedFirst(c.id);
+  if (m) slotA[m] = (slotA[m] || 0) + 1;
+}
+const SALT = findBalancedSalt(newIds, cellsFor);
 
 for (const c of SHOWN) {
   const cells = cellsFor(c.id);
   if (!cells.length) continue;
-  const ordered = orderFor(cells, c.id, SALT);
+  const pinned = pinnedFirst(c.id);
+  const ordered = pinned
+    ? [...cells].sort((x, y) => (x.modelKey === pinned ? -1 : y.modelKey === pinned ? 1 : 0))
+    : orderFor(cells, c.id, SALT);
   const cands = ordered.map((cell, i) => {
     const letter = LETTERS[i];
     key[`${c.id}:${letter}`] = { model: cell.modelKey, label: cell.label, variant: cell.variant, latencyMs: cell.latencyMs };
@@ -162,8 +181,8 @@ const html = `<title>Abs By AI - female model test (blind)</title>
   @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
 </style>
 <div class="wrap">
-  <h1>Female model test - round 2, three different women</h1>
-  <p class="lede">Same question as last time, on <strong>three different women</strong> instead of one - different builds and different skin tones, which is the coverage the first round was missing. Each row shows one woman transformed by <strong>two different models</strong>. Names are hidden and the letters are shuffled per row, so A in one row is not the same model as A in the next. Your answers from the first gallery are not affected.</p>
+  <h1>Female model test - round 2, four different women</h1>
+  <p class="lede">Same question as last time, on <strong>four different women</strong> instead of one - different builds, skin tones and lighting, which is the coverage the first round was missing. Each row shows one woman transformed by <strong>two different models</strong>. Names are hidden and the letters are shuffled per row, so A in one row is not the same model as A in the next. <strong>Rows you have already answered keep their answers and their letters</strong> - only the two new lean rows at the bottom need labelling.</p>
   <ol class="steps">
     <li><strong>Pick the one you would rather show a paying customer</strong> (green button).</li>
     <li>Mark the other <strong>Acceptable</strong> (blue) if you would also be happy shipping it.</li>

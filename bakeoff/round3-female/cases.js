@@ -8,6 +8,7 @@ const PHOTOS = {
   'fem-dark-heavier': { file: 'fem-dark-heavier.jpg', condition: 'heavier',  desc: 'Woman, dark skin tone, heavier build - the case round 1 found hardest for every model, and where Seedream is claimed strongest' },
   'fem-moderate':     { file: 'fem-moderate.jpg',     condition: 'moderate', desc: 'Woman, average build, medium skin tone, indoor (proof asset) - the tier most women self-select' },
   'fem-pale':         { file: 'fem-pale.jpg',         condition: 'moderate', desc: 'Woman, average build, pale skin, outdoor beach daylight - real photo, hard lighting' },
+  'fem-lean-real':    { file: 'fem-lean-real.jpg',    condition: 'fit',      desc: 'Woman, already lean, pale skin, studio daylight - the hard case: little fat left to lose, and where Gemini under-changes most' },
   // EXCLUDED 2026-07-28: Dan identified this "before" as itself AI-generated, so
   // it tests the models on synthetic input rather than a real photo. Images stay
   // on disk but are kept out of the gallery; a real lean subject replaces her.

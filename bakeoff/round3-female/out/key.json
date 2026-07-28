@@ -70,5 +70,29 @@
     "label": "Gemini 2.5 Flash Image",
     "variant": "full",
     "latencyMs": 7678
+  },
+  "fem-lean-real__dramatic:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 16215
+  },
+  "fem-lean-real__dramatic:B": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 9948
+  },
+  "fem-lean-real__max:A": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 9813
+  },
+  "fem-lean-real__max:B": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 21552
   }
 }
