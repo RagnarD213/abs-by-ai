@@ -134,17 +134,6 @@
       "addedAt": "2026-07-24"
     },
     {
-      "text": "Review videos from Romeysa",
-      "priority": "key",
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Check Android internal-test install on phone (Download test app link)",
-      "priority": "key",
-      "why": "Been ~2 days since publish — confirm it installs or investigate",
-      "addedAt": "2026-07-27"
-    },
-    {
       "text": "Submit stuck Printify order #27805654.13",
       "priority": "key",
       "why": "One-click fix in Printify dashboard, quick win",
@@ -256,72 +245,6 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-07-23"
-    },
-    {
-      "text": "Hire plumber or contractor to fix shower handle and sink faucet",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-26"
-    },
-    {
-      "text": "Cancel 1-800 Plumber Appointment",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Cancel Parabec Plumbing Appointment",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Double Check Time and Date for Spray Tan",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Review Bumble",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Review Hinge",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Put away salmon",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Put away Brussels sprouts",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Put away rice",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Make Britney meals",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Clean kitchen",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-27"
     }
   ]
 }
