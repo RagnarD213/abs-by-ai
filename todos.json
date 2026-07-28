@@ -4,7 +4,7 @@
       "text": "Write outlines for test shoot",
       "priority": "key",
       "addedAt": "2026-07-23",
-      "why": "Main time investment this session — drives new video content for Abs By AI"
+      "why": "Main time investment this session \u2014 drives new video content for Abs By AI"
     },
     {
       "text": "Write more outlines for YouTube videos",
@@ -142,7 +142,7 @@
     {
       "text": "Run 2-3 real transformations on absbyai.com to eyeball new look",
       "priority": "key",
-      "why": "Confirm less-muscular, no-tan prompt fix is right — unblocks condensed-prompt decision",
+      "why": "Confirm less-muscular, no-tan prompt fix is right \u2014 unblocks condensed-prompt decision",
       "addedAt": "2026-07-27"
     }
   ],
@@ -173,6 +173,11 @@
     }
   ],
   "personal": [
+    {
+      "text": "Request unemployment payment",
+      "priority": "key",
+      "addedAt": "2026-07-28"
+    },
     {
       "text": "Call title company",
       "priority": "high",
