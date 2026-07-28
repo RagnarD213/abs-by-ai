@@ -1,0 +1,14 @@
+{
+ "fem-dark-heavier__dramatic:A": {"best": true,"acceptable": false,"tags": ["skin tone right"],"note": ""},
+ "fem-dark-heavier__dramatic:B": {"best": false,"acceptable": true,"tags": [],"note": "slightly too much change for subtle. Would be ideal for ripped"},
+ "fem-dark-heavier__max:A": {"best": false,"acceptable": false,"tags": ["not enough change","skin tone right"],"note": ""},
+ "fem-dark-heavier__max:B": {"best": true,"acceptable": false,"tags": ["not enough change","skin tone right"],"note": "Subtle better image above would be better for ripped. Ideally significantly leaner and more ab definition than this and slightly more than the subtle pic chosen as better"},
+ "fem-moderate__dramatic:A": {"best": false,"acceptable": true,"tags": ["too much / unrealistic","skin tone right"],"note": ""},
+ "fem-moderate__dramatic:B": {"best": true,"acceptable": false,"tags": ["skin tone right"],"note": "slightly leaner would be ideal for subtle"},
+ "fem-moderate__max:A": {"best": false,"acceptable": false,"tags": ["not enough change","skin tone right"],"note": ""},
+ "fem-moderate__max:B": {"best": true,"acceptable": false,"tags": ["too muscular / masculine","skin tone right"],"note": "Leanness ideal, slightly too muscular"},
+ "fem-pale__dramatic:A": {"best": true,"acceptable": false,"tags": ["skin tone right"],"note": ""},
+ "fem-pale__dramatic:B": {"best": false,"acceptable": false,"tags": ["too much / unrealistic","skin tone right","looks fake"],"note": ""},
+ "fem-pale__max:A": {"best": true,"acceptable": false,"tags": ["body shape wrong","skin tone right"],"note": "Nearly ideal. Love handle should be trimmed in slightly to match very defined abs. Abs and leanness are ideal"},
+ "fem-pale__max:B": {"best": false,"acceptable": false,"tags": ["not enough change","skin tone right"],"note": ""}
+}

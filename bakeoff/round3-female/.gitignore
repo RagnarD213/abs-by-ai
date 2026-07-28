@@ -1,0 +1,8 @@
+# This round uses photos of real, identifiable private individuals (authorized
+# by Dan for testing on 2026-07-27). The GitHub repo is PUBLIC, so neither the
+# source photos nor the generated transformations are committed — only the code,
+# the prompts, and the per-cell result metadata.
+photos/
+out/*.jpg
+out/thumbs/
+out/gallery.html

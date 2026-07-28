@@ -1,0 +1,14 @@
+{
+ "fem-heavier__dramatic:A": {"best": false,"acceptable": false,"tags": ["not enough change","skin tone right"],"note": ""},
+ "fem-heavier__dramatic:B": {"best": true,"acceptable": false,"tags": ["skin tone right","just right"],"note": "Perfect for subtle change"},
+ "fem-heavier__max:A": {"best": true,"acceptable": false,"tags": ["skin tone right"],"note": "Best of two but ideally slightly leaner and more ab definition"},
+ "fem-heavier__max:B": {"best": false,"acceptable": true,"tags": ["not enough change","skin tone right"],"note": ""},
+ "fem-moderate__dramatic:A": {"best": false,"acceptable": false,"tags": ["skin tone right","too muscular / masculine"],"note": "Too muscular and too much definition for subtle"},
+ "fem-moderate__dramatic:B": {"best": false,"acceptable": true,"tags": ["skin tone right"],"note": "Better than alternative but ideally slightly leaner and more ab definition"},
+ "fem-moderate__max:A": {"best": false,"acceptable": false,"tags": ["not enough change","skin tone right"],"note": ""},
+ "fem-moderate__max:B": {"best": true,"acceptable": false,"tags": ["skin tone right"],"note": "Ideally leaner than this, more ab definition without more muscle"},
+ "fem-fit__dramatic:A": {"best": true,"acceptable": false,"tags": ["skin tone right","just right"],"note": "Pefect for subtle"},
+ "fem-fit__dramatic:B": {"best": false,"acceptable": false,"tags": ["looks fake","skin tone right"],"note": "line in stomach, looks like AI"},
+ "fem-fit__max:A": {"best": false,"acceptable": false,"tags": ["not enough change","skin tone right"],"note": ""},
+ "fem-fit__max:B": {"best": true,"acceptable": false,"tags": ["skin tone right"],"note": "Ideally slightly leaner"}
+}

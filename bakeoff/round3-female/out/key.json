@@ -1,0 +1,74 @@
+{
+  "fem-dark-heavier__dramatic:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 17746
+  },
+  "fem-dark-heavier__dramatic:B": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7681
+  },
+  "fem-dark-heavier__max:A": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7675
+  },
+  "fem-dark-heavier__max:B": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 14661
+  },
+  "fem-moderate__dramatic:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 17496
+  },
+  "fem-moderate__dramatic:B": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 8034
+  },
+  "fem-moderate__max:A": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7710
+  },
+  "fem-moderate__max:B": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 14392
+  },
+  "fem-pale__dramatic:A": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7781
+  },
+  "fem-pale__dramatic:B": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 16750
+  },
+  "fem-pale__max:A": {
+    "model": "seedream-4.5",
+    "label": "Seedream 4.5 (edit)",
+    "variant": "condensed",
+    "latencyMs": 25543
+  },
+  "fem-pale__max:B": {
+    "model": "gemini-2.5-flash-image",
+    "label": "Gemini 2.5 Flash Image",
+    "variant": "full",
+    "latencyMs": 7678
+  }
+}

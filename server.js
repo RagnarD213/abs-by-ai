@@ -2566,6 +2566,61 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       }
     };
 
+    // ── Seedream 4.5 (Replicate) — the FEMALE second candidate ──
+    // Same submit → poll → download shape as callFluxViaReplicate, same 90s
+    // AbortController, same {ok:false} degrade-to-single-model contract.
+    // Seedream hard-rejects prompts over 4000 chars with a 422. condenseForKontext
+    // caps its output at 1800 chars of directive plus a fixed ~250-char tail, so
+    // it can never approach that ceiling — the longest real female prompt measured
+    // 1458. No extra trim is needed, and this comment is why.
+    const callSeedream = async (promptText) => {
+      if (!REPLICATE_API_TOKEN) return { ok: false, skipped: true };
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 90000);
+      const authHeaders = { 'Content-Type': 'application/json', Authorization: `Bearer ${REPLICATE_API_TOKEN}` };
+      try {
+        const submit = await fetch('https://api.replicate.com/v1/models/bytedance/seedream-4.5/predictions', {
+          method: 'POST',
+          headers: { ...authHeaders, Prefer: 'wait' },
+          body: JSON.stringify({
+            input: {
+              prompt: promptText,
+              image_input: [`data:${photoMime};base64,${photoBase64}`],
+              size: '2K',
+              aspect_ratio: 'match_input_image',
+              sequential_image_generation: 'disabled',
+            },
+          }),
+          signal: controller.signal,
+        });
+        let pred = await submit.json().catch(() => null);
+        if (!submit.ok || !pred) {
+          console.error('Seedream submit failed:', submit.status, pred?.detail || pred?.title || '');
+          return { ok: false, status: submit.status };
+        }
+        while (pred.status === 'starting' || pred.status === 'processing') {
+          await new Promise((r) => setTimeout(r, 1500));
+          const poll = await fetch(pred.urls?.get, { headers: authHeaders, signal: controller.signal });
+          pred = await poll.json().catch(() => null);
+          if (!pred) return { ok: false };
+        }
+        if (pred.status !== 'succeeded' || !pred.output) {
+          console.error('Seedream terminal status:', pred.status, pred.error || '');
+          return { ok: false, blockedStatus: pred.status };
+        }
+        const imgUrl = Array.isArray(pred.output) ? pred.output[0] : pred.output;
+        const imgRes = await fetch(imgUrl, { signal: controller.signal });
+        if (!imgRes.ok) return { ok: false };
+        const buf = Buffer.from(await imgRes.arrayBuffer());
+        return { ok: true, imageBase64: buf.toString('base64'), imageMime: 'image/jpeg', model: 'seedream' };
+      } catch (e) {
+        if (e.name !== 'AbortError') console.error('Seedream error:', e.message);
+        return { ok: false };
+      } finally {
+        clearTimeout(timer);
+      }
+    };
+
     // Submit → poll → download. Bounded end to end by an AbortController (the
     // Supplement Audit lesson: never an unbounded await). Any failure returns
     // {ok:false} and the request degrades to the single-model path.
@@ -2624,8 +2679,20 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // Fix passes edit a previous output (a different contract) and stay
     // single-model; normal generations run both models in parallel.
     const ensembleEligible = !isFix && !prevImageBase64 && !!(BFL_API_KEY || REPLICATE_API_TOKEN);
-    const fluxPromise = ensembleEligible
-      ? callFluxKontext(condenseForKontext(prompt)).catch(() => ({ ok: false }))
+
+    // WOMEN get Seedream 4.5 as the second candidate; MEN keep FLUX Kontext.
+    // FLUX's safety filter refuses ~75% of female photos (E005) and its
+    // safety_tolerance is already pinned at the image-input maximum of 2, so
+    // women were silently falling back to a one-model product. Seedream blocked
+    // 0 of 16 female cells across two test batches and won 9 of Dan's 12 blind
+    // rows against Gemini — including 6 of 6 at the Ripped tier, where Gemini
+    // reliably under-changes. Men keep FLUX because it demonstrably wins their
+    // hard cases (it broke the Gemini heavier-male ceiling).
+    // Unknown/absent sex routes as male: least-change default.
+    const useSeedream = sex === 'female' && !!REPLICATE_API_TOKEN;
+    const challengerPromise = ensembleEligible
+      ? (useSeedream ? callSeedream(condenseForKontext(prompt)) : callFluxKontext(condenseForKontext(prompt)))
+          .catch(() => ({ ok: false }))
       : Promise.resolve({ ok: false, skipped: true });
 
     let result = await callGemini(prompt);
@@ -2634,14 +2701,14 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       result = await callGemini(retryPreamble + prompt);
     }
     if (result.ok) result = { ...result, model: 'gemini' };
-    const fluxResult = await fluxPromise;
+    const challengerResult = await challengerPromise;
 
     // Gemini blocked but Kontext delivered → ship the Kontext image instead of
     // an error. Reliability strictly improves; it never degrades.
     let geminiBlocked = false;
-    if (!result.ok && fluxResult.ok) {
+    if (!result.ok && challengerResult.ok) {
       geminiBlocked = true;
-      result = fluxResult;
+      result = challengerResult;
     }
 
     // Change-verifier + intensify-retry ladder (A1 telemetry + A2 gender-aware fix).
@@ -2668,11 +2735,11 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // Judge error → null → Gemini image through the existing verifier ladder,
     // exactly as today (fail-open).
     let judgeVerdict = null;      // scored verdict (or null when not run / failed)
-    let judgeWinnerModel = null;  // 'gemini' | 'flux' when the judge produced a best pick
+    let judgeWinnerModel = null;  // 'gemini' | 'flux' | 'seedream' when the judge produced a best pick
     let chooserCandidates = null; // [{model,imageBase64,imageMime}, ...] when the user should choose
-    if (result.ok && fluxResult.ok && !geminiBlocked) {
+    if (result.ok && challengerResult.ok && !geminiBlocked) {
       const candA = result;      // gemini
-      const candB = fluxResult;  // flux
+      const candB = challengerResult;  // flux (men) or seedream (women)
       const byModel = { [candA.model]: candA, [candB.model]: candB };
       judgeVerdict = await judgeScoreCandidates({
         photo: { imageBase64: photoBase64, imageMime: photoMime },
@@ -2841,7 +2908,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       weakChange,
       locked,
       // Phase 3 ensemble/bake-off fields (the standing per-segment model comparison)
-      models_run: fluxResult.ok ? 'gemini+flux' : 'gemini',
+      models_run: challengerResult.ok ? `gemini+${challengerResult.model || (useSeedream ? 'seedream' : 'flux')}` : 'gemini',
       gemini_blocked: geminiBlocked,
       judge_ran: !!judgeVerdict,
       judge_identity_a: judgeVerdict?.byModel?.gemini?.identity ?? null,
