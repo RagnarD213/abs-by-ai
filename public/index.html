@@ -3089,11 +3089,17 @@ OUTPUT: ONLY the image-editing prompt — no preamble, no commentary, no markdow
 
 SECTION 1 — TRANSFORMATION DIRECTIVE TEMPLATE
 Write this as a forceful, explicit instruction. State the target body-fat % and archetype name, using active verbs ("reduce", "tighten", "define", "sculpt", "carve").
-- Include this exact sentence when intensity is "dramatic" or "max": "The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required."
-- Include this exact sentence when intensity is "subtle" or "moderate": "The body transformation should be clearly noticeable but feel attainable and natural."
+[[MAXCHANGE_START]]- Include this exact sentence when intensity is "dramatic" or "max": "The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required."
+[[MAXCHANGE_END]][[ATTAINABLE_START]]- Include this exact sentence when intensity is "subtle" or "moderate": "The body transformation should be clearly noticeable but feel attainable and natural."
+[[ATTAINABLE_END]]
 [[MUSCLE_PRIMARY_START]]- SHREDDED-ATHLETE RULE for this MALE subject: he is already "fit" or "very_lean", with very little fat left to lose — a fat-loss-only edit returns a near-copy of the input, which is a failure. The headline change is EXTREME LEANNESS AND AB DEFINITION; a small amount of added muscle supports it. Add this to the directive, substituting the added-mass number from the MUSCULARITY ANCHOR TABLE for the requested intensity: "The subject must come back genuinely shredded: a fully visible, sharply cut SIX-PACK with all six abdominal blocks separated by crisp shadow lines, a sharp vertical midline, defined obliques, visible serratus, a tight waist, and a clear V-cut running into the waistband, with no softness left anywhere on the torso. Supporting that leanness, the frame carries roughly N pounds more lean muscle than the input — a slightly fuller chest, slightly rounder shoulder caps, and a slightly wider back giving a clean V-taper — but he must still read as a lean natural athlete, NEVER a bodybuilder: no inflated chest, no boulder shoulders, no blown-up arms, no comic-book mass. Do NOT output an image that could be mistaken for the original photo." The target is the classic "Kino" build — lean, sharply defined, and proportional, the physique of a fit leading man rather than a competitive bodybuilder.
-[[MUSCLE_PRIMARY_END]]- When subject_gender is "female" AND intensity is "dramatic" or "max" (any starting condition), add this: "The transformation must be dramatic and unmistakable — the abs must show at least twice the visible definition of the input: clear separation between each upper-ab block, a sharp vertical midline groove, and visible oblique lines framing the waist. The shoulders must be noticeably rounder and more sculpted, the waist visibly tighter and more tapered. Anyone who sees this single output image must recognize a peak-condition fitness-cover physique. Do NOT output an image that could be mistaken for the original photo."
-- When subject_gender is "female" AND subject_current_condition is "heavier" or "moderate" AND intensity is "dramatic" or "max", ALSO add this: "This subject starts at a higher body-fat level, so the transformation requires a LARGE, whole-body fat reduction — the midsection, waist, lower belly, hips, arms, and thighs must ALL look substantially leaner and tighter, with a defined feminine midsection clearly visible through the reduced fat. Do NOT return a still-soft or still-heavy result — the drop must be major and obvious at a glance. Keep her unmistakably feminine: natural curves at the hips and chest, no masculine bulk, no blocky muscle, no veins."
+[[MUSCLE_PRIMARY_END]][[FEM_RIPPED_START]]- When subject_gender is "female" AND intensity is "max" (any starting condition), add this: "The transformation must be dramatic and unmistakable — the abs must show at least twice the visible definition of the input: clear separation between each upper-ab block, a sharp vertical midline groove, and visible oblique lines framing the waist. The waist must be visibly tighter and more tapered and the whole midsection visibly leaner. Anyone who sees this single output image must recognize a peak-condition fitness-cover physique. Every bit of that comes from LOWER BODY FAT AND SHARPER DEFINITION on the frame she already has — do NOT broaden, thicken, or add size to her shoulders, arms, or back. Do NOT output an image that could be mistaken for the original photo."
+[[FEM_RIPPED_END]][[FEM_SUBTLE_START]]- When subject_gender is "female" AND intensity is "dramatic" (any starting condition), add this: "The change must be clearly visible at a glance — a visibly leaner, tighter midsection with a defined feminine upper-ab outline, a clear vertical midline, and a noticeably tighter, more tapered waist. Achieve ALL of it through lower body fat and sharper definition: her frame, shoulder width, arm size, and overall build must stay exactly as they are in the input. This is a lean, toned, attainable result — NOT a peak-condition or competition physique, and never a bigger or broader one. Do NOT output an image that could be mistaken for the original photo."
+For this tier, use this exact intensity sentence: "The body transformation should be clearly noticeable but feel attainable and natural." Subtle is the gentler of the two tiers a user can actually pick, and asking it for a maximal change is what makes it overshoot.
+[[FEM_SUBTLE_END]]
+[[FEM_LARGE_START]]- This female subject starts at a higher body-fat level, so ALSO add this: "The transformation requires a LARGE, whole-body fat reduction — the midsection, waist, lower belly, hips, arms, and thighs must ALL look substantially leaner and tighter, with a defined feminine midsection clearly visible through the reduced fat. Do NOT return a still-soft or still-heavy result — the drop must be major and obvious at a glance. Keep her unmistakably feminine: natural curves at the hips and chest, no masculine bulk, no blocky muscle, no veins."
+[[FEM_LARGE_END]][[FEM_MODSUB_START]]- This female subject is at a moderate starting body fat on the gentler of the two tiers, so ALSO add this: "Reduce body fat genuinely across the whole torso, waist, lower belly, hips, and arms so the silhouette itself changes — never just ab lines drawn onto the same soft body. The result is a believable mid-journey stage: clearly leaner and tighter than the input at a glance, but NOT a peak or competition condition. Keep her unmistakably feminine: natural curves at the hips and chest, no masculine bulk, no blocky muscle, no veins."
+[[FEM_MODSUB_END]]
 - When subject_gender is "female" AND intensity is "moderate", add this: "The change must be clearly visible and NOT near-identical — a visibly leaner, tighter midsection with a defined upper-ab outline and a noticeably tighter, more tapered waist."
 
 SECTION 2 — BODY TRANSFORMATION RULES
@@ -3107,7 +3113,7 @@ FEMALE: subtle 20-22%, moderate 17-19%, dramatic 14-16%, max 13-14%. FLOOR 13%.
 MUSCULARITY ANCHOR TABLE — the SUPPORTING axis. Leanness and ab definition are the headline; added muscle exists only to frame them.
 MALE added lean mass compared to the input photo: subtle ≈ +2 lb, moderate ≈ +4 lb, dramatic ≈ +6 lb, max ≈ +8 lb.
 These numbers are deliberately small. Express the added mass only as a slightly fuller chest, slightly rounder shoulder caps, and a slightly wider upper back — enough for a clean V-taper, never an inflated chest, boulder shoulders, blown-up arms, or flared lats. If in doubt, add LESS: over-muscled is a worse failure than slightly under-muscled.
-FEMALE: never apply these mass targets — female subjects stay sculpted, toned, and athletic, never added bulk.
+FEMALE: never apply these mass targets — the female no-added-mass rule lives in the FEMALE section below, because this table is stripped from female prompts.
 [[MUSCLE_TABLE_END]]
 [[MUSCLE_SECOND_START]]
 SECONDARY-MASS RULE — MALE "moderate" subjects at "dramatic" or "max"
@@ -3138,10 +3144,11 @@ MALE must include:
 - Skin taut and dry, drawn tight over the muscle, with a subtle natural sheen on the ab blocks, chest, and shoulders — an athletic look, explicitly NOT an oiled bodybuilder-stage look
 
 FEMALE must include:
+- NO ADDED MASS RULE — the headline for every female subject: the ENTIRE visible change is lower body fat plus sharper definition on the frame she already has. Never add muscle size, never broaden the shoulders, never thicken the arms or back. If a female output reads as stronger because it reads as BIGGER, that is a failure, not a success.
 - Ab definition is REQUIRED, scaled by intensity: subtle = flat, toned stomach with a faint upper-ab outline; moderate = clear upper-ab outline with a vertical midline groove; dramatic = defined feminine four-pack with sharp upper-ab separation, a clear vertical midline, and visible oblique definition; max = fully defined feminine six-pack with etched separation. At dramatic/max the definition must be obvious at a glance.
 - Reduce overall body fat SUBSTANTIALLY across the whole torso, waist, lower belly, hips, and arms — a real, visible drop that changes the silhouette, not muscle lines drawn onto the same soft body
 - Waist-to-hip taper measurably more pronounced than in the input — required, not optional
-- Shoulder caps visibly rounder and more sculpted; arms clearly more toned with visible bicep shape and a clean tricep line
+- Shoulders and arms: sharpen the shape she ALREADY has — a cleaner deltoid outline and a visible tricep line emerging as the fat comes down. Do NOT add width, roundness, thickness, or size to her shoulders, arms, or back; her frame stays her frame
 - Glutes visibly lifted, rounder, and firmer; thighs with visible quad definition and reduced inner-thigh softness
 - The before/after difference must be immediately obvious when the two images are placed side by side
 - ALWAYS include verbatim: "Preserve the subject's natural breast shape, size, and proportions — do not enlarge, reduce, or alter them; allow them to appear naturally proportional to the leaner frame."
@@ -3179,7 +3186,8 @@ Add for MALE:
 - spray-on abs that look digitally pasted on
 
 Add for FEMALE:
-- bodybuilder-scale muscle mass (defined, carved abs and sculpted shoulders are REQUIRED, not masculine)
+- bodybuilder-scale muscle mass (defined, carved abs are REQUIRED, and are not masculine)
+- ANY added muscle size or width versus the input — broader or rounder shoulders, thicker arms, a wider back, or a heavier overall build. Sharper definition on the same frame is the goal; added size is the most common way this transformation fails for women, and it reads as masculine
 - visible veins on arms or stomach
 - gaunt or hollowed facial features
 - any change to natural breast size
@@ -3217,6 +3225,32 @@ const MUSCLE_BLOCKS = {
   secondary: ['[[MUSCLE_SECOND_START]]', '[[MUSCLE_SECOND_END]]'],
   bullet:    ['[[MUSCLE_BULLET_START]]', '[[MUSCLE_BULLET_END]]'],
   reminder:  ['[[MUSCLE_REMINDER_START]]', '[[MUSCLE_REMINDER_END]]'],
+  // The two female intensity directives are scoped the same deterministic way.
+  // They used to be one prose-conditional block covering dramatic AND max, so a
+  // woman on Subtle was being asked for a "peak-condition fitness-cover physique"
+  // with "noticeably rounder and more sculpted" shoulders — which is exactly the
+  // overshoot Dan's blind labels flagged (too muscular / too much / looks fake,
+  // 8 times across 14 rows, concentrated at Subtle).
+  femRipped: ['[[FEM_RIPPED_START]]', '[[FEM_RIPPED_END]]'],
+  femSubtle: ['[[FEM_SUBTLE_START]]', '[[FEM_SUBTLE_END]]'],
+  // The two starting-body-fat clauses are scoped the same way, and for the same
+  // reason: as prose conditionals the assembly model applied the gentler
+  // "believable mid-journey" line to a moderate woman on RIPPED, directly
+  // contradicting the peak directive in the same paragraph, while simultaneously
+  // dropping the LARGE-reduction line it was supposed to include there.
+  femLarge:  ['[[FEM_LARGE_START]]', '[[FEM_LARGE_END]]'],
+  femModSub: ['[[FEM_MODSUB_START]]', '[[FEM_MODSUB_END]]'],
+  // The maximal-change sentence is prescribed for "dramatic" or "max", but
+  // "dramatic" IS the user-facing Subtle tier. Retracting it lower down did not
+  // hold — the assembly model obeyed the earlier positive instruction and emitted
+  // it anyway. Two contradictory instructions are unreliable; one is not, so the
+  // sentence is physically removed for the tier that must not receive it.
+  maxChange: ['[[MAXCHANGE_START]]', '[[MAXCHANGE_END]]'],
+  // Mirror image of the above. "subtle" and "moderate" are tiers no user can pick
+  // any more, so this line is dead text — but leaving it in a female RIPPED prompt
+  // gave the assembly model a gentler sentence to reach for, and it took it,
+  // ending a peak-condition directive on "attainable and natural".
+  attainable: ['[[ATTAINABLE_START]]', '[[ATTAINABLE_END]]'],
 };
 function applyMuscleAxis(prompt, keep) {
   let out = prompt;
@@ -3238,6 +3272,7 @@ function muscleAxisPlan() {
   const male = (state.gender || 'male') === 'male';
   const cond = state.condition;
   const intens = state.effectiveIntensity || state.intensity || 'dramatic';
+  const female = state.gender === 'female';
   const lean = male && (cond === 'fit' || cond === 'very_lean');
   const moderateStrong = male && cond === 'moderate' && (intens === 'dramatic' || intens === 'max');
   return {
@@ -3246,6 +3281,26 @@ function muscleAxisPlan() {
     secondary: moderateStrong,
     bullet: lean,
     reminder: lean,
+    // Ripped (max) and Subtle (dramatic) are the only two tiers a user can pick.
+    femRipped: female && intens === 'max',
+    femSubtle: female && intens === 'dramatic',
+    // A heavier woman keeps the LARGE-reduction ask at both tiers — the FEMALE
+    // HEAVIER REALISM RULE caps her target, so it cannot run away, and both of
+    // Dan's heavier Subtle rows were labelled "perfect for subtle". A moderate
+    // woman has no such cap, so she gets it only at Ripped; at Subtle she gets
+    // the proportionate mid-journey clause instead. Every moderate subject Dan
+    // labelled at Subtle was tagged too much / too muscular under the old rule.
+    // The LARGE whole-body-reduction ask belongs to Ripped only. A heavier woman
+    // on Subtle already reads correctly from the FEMALE HEAVIER REALISM RULE alone
+    // — that is the exact prompt shape behind the two rows Dan labelled "perfect
+    // for subtle", so it is deliberately left as it was. A moderate woman has no
+    // realism cap, so on Subtle she gets the proportionate clause instead; every
+    // moderate subject Dan labelled at Subtle was tagged too much / too muscular.
+    femLarge: female && intens === 'max' && (cond === 'heavier' || cond === 'moderate'),
+    femModSub: female && cond === 'moderate' && intens === 'dramatic',
+    // Male paths keep both intensity sentences at both tiers, unchanged.
+    maxChange: !(female && intens === 'dramatic'),
+    attainable: !(female && intens === 'max'),
   };
 }
 
