@@ -20,12 +20,15 @@
 const fs = require('fs');
 const path = require('path');
 const { pmap, anthropic } = require('./judge-lib');
-const { scoreCandidates, DEFAULT_WEIGHTS } = require('./judge-v2');
+const { scoreCandidates, DEFAULT_WEIGHTS, SUBTLE_WEIGHTS, FEMALE_SUBTLE_EXEMPLAR } = require('./judge-v2');
 
 const MODEL = process.env.JUDGE_MODEL || 'claude-sonnet-5';
 const USE_FEWSHOT = process.env.NO_FEWSHOT !== '1';
+// TIER_FIX=1 turns on the female-Subtle tier context (exemplar + tier note) for
+// Subtle rows. The exemplar's own row is then excluded from the headline.
+const TIER_FIX = process.env.TIER_FIX === '1';
 const WEIGHTS = process.env.WEIGHTS ? { ...DEFAULT_WEIGHTS, ...JSON.parse(process.env.WEIGHTS) } : DEFAULT_WEIGHTS;
-const OUT = process.env.EVAL_OUT || `judge-v2-female-${MODEL}${USE_FEWSHOT ? '' : '-nofewshot'}.json`;
+const OUT = process.env.EVAL_OUT || `judge-v2-female-${MODEL}${USE_FEWSHOT ? '' : '-nofewshot'}${TIER_FIX ? '-tierfix' : ''}.json`;
 
 const ROUNDS = [
   { tag: 'r2', dir: path.join(__dirname, 'round2-female') },
@@ -82,9 +85,11 @@ function buildFemaleCases() {
 
 (async () => {
   const cases = buildFemaleCases();
-  const scored = cases.filter((c) => c.best);
-  console.log(`Female judge eval — model=${MODEL} fewShot=${USE_FEWSHOT}`);
-  console.log(`${cases.length} labelled rows; ${scored.length} scoreable (${scored.filter((c) => c.proxy).length} via acceptable-proxy on "neither" rows)`);
+  // With the tier fix on, the female-Subtle exemplar's own row is training data,
+  // not eval data — hold it out of the run entirely (male-eval protocol).
+  const scored = cases.filter((c) => c.best && !(TIER_FIX && c.caseId === FEMALE_SUBTLE_EXEMPLAR.caseId));
+  console.log(`Female judge eval — model=${MODEL} fewShot=${USE_FEWSHOT} tierFix=${TIER_FIX}`);
+  console.log(`${cases.length} labelled rows; ${scored.length} scoreable (${scored.filter((c) => c.proxy).length} via acceptable-proxy on "neither" rows)${TIER_FIX ? `; exemplar row ${FEMALE_SUBTLE_EXEMPLAR.caseId} held out` : ''}`);
 
   const pairJobs = [];
   for (const c of scored) {
@@ -97,13 +102,15 @@ function buildFemaleCases() {
 
   let done = 0;
   const pairResults = await pmap(pairJobs, 3, async ({ c, other }) => {
+    const femaleSubtle = TIER_FIX && c.intensity === 'dramatic';
     const res = await scoreCandidates({
       model: MODEL,
       photoFile: c.photoFile,
       candidates: [c.best, other],
       useFewShot: USE_FEWSHOT,
-      weights: WEIGHTS,
+      weights: femaleSubtle ? SUBTLE_WEIGHTS : WEIGHTS,
       tag: `pair-female|${c.caseId}|${c.best.letter}v${other.letter}`,
+      femaleSubtle,
     });
     done++;
     console.log(`  ${done}/${pairJobs.length} ${c.caseId}`);
@@ -120,7 +127,8 @@ function buildFemaleCases() {
       scores: res ? res.ranked.map((m) => ({
         letter: m.letter, model: m.model, score: m.score,
         identity: m.identity, photoreal: m.photoreal, skin_tone: m.skin_tone,
-        definition: m.definition, bulk: m.bulk, change: m.change, notes: m.notes,
+        definition: m.definition, bulk: m.bulk, change: m.change,
+        overshoot: m.overshoot || 0, notes: m.notes,
       })) : null,
     };
   });
@@ -166,7 +174,7 @@ function buildFemaleCases() {
   console.log('\nPer-pairing detail:');
   for (const r of pairResults) {
     const s = Object.fromEntries((r.scores || []).map((x) => [x.letter, x]));
-    const fmt = (l, m) => s[l] ? `${m.split('-')[0]} ${s[l].score.toFixed(1)} (def ${s[l].definition} bulk ${s[l].bulk} chg ${s[l].change})` : '?';
+    const fmt = (l, m) => s[l] ? `${m.split('-')[0]} ${s[l].score.toFixed(1)} (def ${s[l].definition} bulk ${s[l].bulk} chg ${s[l].change}${s[l].overshoot ? ` OVER ${s[l].overshoot}` : ''})` : '?';
     console.log(`  ${r.caseId.padEnd(28)} ${r.intensity === 'dramatic' ? 'Subtle' : 'Ripped'}  Dan=${r.bestModel.split('-')[0]}${r.proxy ? '(proxy)' : ''}  ${r.preferredBest ? 'HIT ' : 'MISS'}${r.orderDisagreement ? ' [flip]' : ''}  ${fmt(r.bestLetter, r.bestModel)} vs ${fmt(r.otherLetter, r.otherModel)}`);
   }
   console.log(`\nSaved → bakeoff/${OUT}`);

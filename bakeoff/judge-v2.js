@@ -101,14 +101,56 @@ function exemplarBlocks() {
 }
 let EXEMPLAR_BLOCKS = null;
 
+// ── female-Subtle tier context (2026-07-29) ──────────────────────────────────
+// The female eval showed the judge is tier-blind: 85.7% agreement at Ripped but
+// 42.9% at Subtle, with every miss preferring a Seedream overshoot Dan rejected
+// as "too muscular / too much for subtle". Fix: when the case is a FEMALE
+// SUBTLE generation, append (a) one worked Subtle example — Dan's acceptable
+// pick vs the overshoot he rejected on the same woman — and (b) a tier note
+// changing the target. Scoped female-Subtle only, so male judging and female
+// Ripped stay byte-identical to the validated baseline (and cache-hit for $0).
+// These blocks sit AFTER the cache_control breakpoint, so the cached prefix
+// (system + 3 exemplars) is still shared with every other judge call.
+// The exemplar row (round2 fem-moderate__dramatic) must be EXCLUDED from any
+// eval headline that uses these blocks.
+const FEMALE_SUBTLE_EXEMPLAR = {
+  caseId: 'r2:fem-moderate__dramatic',
+  photo: path.join(__dirname, 'round2-female', 'photos', 'fem-before.jpg'),
+  good: path.join(__dirname, 'round2-female', 'out', 'fem-moderate__dramatic__gemini-2.5-flash-image__full.jpg'),
+  bad: path.join(__dirname, 'round2-female', 'out', 'fem-moderate__dramatic__seedream-4.5__condensed.jpg'),
+  goodWhy: 'CHOSEN for the SUBTLE tier: a modest, believable improvement — slightly leaner waist with a soft hint of ab definition, her frame and muscle size unchanged from the BEFORE. The owner picked this even though the change is small, because the user asked for Subtle.',
+  badWhy: 'REJECTED for the SUBTLE tier: too muscular and too much definition for a Subtle request. As a maximum-tier result it would be fine, but the user asked for a modest change and this overshoots into a full athletic transformation.',
+};
+
+const FEMALE_SUBTLE_NOTE = `TIER NOTE — this user requested the SUBTLE tier, the product's modest option (the maximum tier, "Ripped", is a separate choice she did not make). For a female Subtle request the product owner's standard changes: the ideal result keeps her frame and muscle size exactly as the BEFORE and shows a clearly but MODERATELY leaner midsection — soft, natural ab definition, not a sharply cut six-pack. A candidate that returns a peak-condition, competition-lean or visibly more-muscular body has OVERSHOT this request; at Subtle, overshoot is a WORSE fault than a change that is slightly too small. Reflect this in your scores: any visible added muscle size versus the BEFORE scores bulk 4+, and sharpness or transformation magnitude clearly beyond a modest natural improvement is overshoot — do not reward it with top definition marks here.`;
+
+function femaleSubtleBlocks() {
+  return [
+    { type: 'text', text: 'EXTRA EXAMPLE for THIS case (Subtle tier) — BEFORE photo:' },
+    imageBlock(FEMALE_SUBTLE_EXEMPLAR.photo, EXEMPLAR_EDGE),
+    { type: 'text', text: 'The candidate the owner CHOSE for a Subtle request:' },
+    imageBlock(FEMALE_SUBTLE_EXEMPLAR.good, EXEMPLAR_EDGE),
+    { type: 'text', text: FEMALE_SUBTLE_EXEMPLAR.goodWhy },
+    { type: 'text', text: 'The candidate he REJECTED for a Subtle request:' },
+    imageBlock(FEMALE_SUBTLE_EXEMPLAR.bad, EXEMPLAR_EDGE),
+    { type: 'text', text: FEMALE_SUBTLE_EXEMPLAR.badWhy },
+    { type: 'text', text: FEMALE_SUBTLE_NOTE },
+  ];
+}
+let FEMALE_SUBTLE_BLOCKS = null;
+
 const LETTERS = 'ABCDEFGHIJKL'.split('');
 
 // One scoring call over N candidates in a fixed order. Returns per-letter rubric.
-async function scoreOnce({ model, photoFile, candFiles, useFewShot, tag }) {
+async function scoreOnce({ model, photoFile, candFiles, useFewShot, tag, femaleSubtle = false }) {
   const content = [];
   if (useFewShot) {
     EXEMPLAR_BLOCKS = EXEMPLAR_BLOCKS || exemplarBlocks();
     content.push(...EXEMPLAR_BLOCKS);
+  }
+  if (femaleSubtle) {
+    FEMALE_SUBTLE_BLOCKS = FEMALE_SUBTLE_BLOCKS || femaleSubtleBlocks();
+    content.push(...FEMALE_SUBTLE_BLOCKS);
   }
   content.push({ type: 'text', text: 'Now judge this case.\n\nBEFORE photo (the real person):' });
   content.push(imageBlock(photoFile));
@@ -123,7 +165,9 @@ async function scoreOnce({ model, photoFile, candFiles, useFewShot, tag }) {
     maxTokens: 8000,
     system: SYSTEM,
     content,
-    cacheKey: `judge-v2|v4|${model}|${useFewShot ? 'fs' : 'nofs'}|${tag}|${photoFile}|${candFiles.join('|')}`,
+    // femaleSubtle changes the prompt content, so it must change the cache key;
+    // non-femaleSubtle keys are byte-identical to before, keeping old cache hits.
+    cacheKey: `judge-v2|v4|${model}|${useFewShot ? 'fs' : 'nofs'}|${femaleSubtle ? 'femsub1|' : ''}${tag}|${photoFile}|${candFiles.join('|')}`,
   });
   const raw = parseJson(text);
   if (!raw || !Array.isArray(raw.candidates)) return null;
@@ -148,12 +192,12 @@ async function scoreOnce({ model, photoFile, candFiles, useFewShot, tag }) {
 // Score a set of candidates with the position-bias swap: run forward, run
 // reversed, average each candidate's dimension scores across the two runs.
 // `orderDisagreement` is true when the two runs pick different winners.
-async function scoreCandidates({ model, photoFile, candidates, useFewShot = true, weights = DEFAULT_WEIGHTS, tag = '' }) {
+async function scoreCandidates({ model, photoFile, candidates, useFewShot = true, weights = DEFAULT_WEIGHTS, tag = '', femaleSubtle = false }) {
   const files = candidates.map((c) => c.file);
   const rev = [...files].reverse();
   const [fwd, bwd] = await Promise.all([
-    scoreOnce({ model, photoFile, candFiles: files, useFewShot, tag: `${tag}|fwd` }),
-    scoreOnce({ model, photoFile, candFiles: rev, useFewShot, tag: `${tag}|rev` }),
+    scoreOnce({ model, photoFile, candFiles: files, useFewShot, tag: `${tag}|fwd`, femaleSubtle }),
+    scoreOnce({ model, photoFile, candFiles: rev, useFewShot, tag: `${tag}|rev`, femaleSubtle }),
   ]);
   if (!fwd && !bwd) return null;
 
@@ -218,16 +262,24 @@ const DEFAULT_WEIGHTS = {
   borderlineId: 2.0,
 };
 
+// Female-Subtle only: same formula, but the rewards stop above the modest
+// target the way underPenalty already punishes below it — definition earns
+// nothing past defCap, and change above 3 is penalized instead of rewarded.
+// Chosen from the plateau of an offline sweep (judge-tune-female-subtle.js)
+// anchored on the a-priori symmetric prior overPenalty == underPenalty.
+const SUBTLE_WEIGHTS = { ...DEFAULT_WEIGHTS, defCap: 4, overPenalty: 1.5 };
+
 function composite(m, w = DEFAULT_WEIGHTS) {
-  let s = w.definition * m.definition
+  let s = w.definition * Math.min(m.definition, w.defCap || 5)
     + w.skin * m.skin_tone
     + w.photoreal * m.photoreal
     + w.change * m.change
     - w.bulkPenalty * Math.max(0, m.bulk - 3)
-    - w.underPenalty * Math.max(0, 3 - m.change);
+    - w.underPenalty * Math.max(0, 3 - m.change)
+    - (w.overPenalty || 0) * Math.max(0, m.change - 3);
   if (m.identity === 'borderline') s -= w.borderlineId;
   if (m.identity === 'broken') s -= 100;
   return +s.toFixed(3);
 }
 
-module.exports = { scoreCandidates, scoreOnce, composite, DEFAULT_WEIGHTS, EXEMPLAR_CASE_IDS, SYSTEM };
+module.exports = { scoreCandidates, scoreOnce, composite, DEFAULT_WEIGHTS, SUBTLE_WEIGHTS, EXEMPLAR_CASE_IDS, SYSTEM, FEMALE_SUBTLE_EXEMPLAR, FEMALE_SUBTLE_NOTE };

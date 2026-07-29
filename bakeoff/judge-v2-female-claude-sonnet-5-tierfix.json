@@ -1,0 +1,783 @@
+{
+  "summary": {
+    "model": "claude-sonnet-5",
+    "fewShot": true,
+    "weights": {
+      "definition": 2,
+      "skin": 1,
+      "photoreal": 1,
+      "change": 0.6,
+      "bulkPenalty": 2.5,
+      "underPenalty": 1.5,
+      "borderlineId": 2
+    },
+    "all": {
+      "pairings": 13,
+      "pairwise": 0.8462,
+      "pairwiseRaw": "11.0/13",
+      "caseLevel": 0.8462,
+      "caseLevelRaw": "11/13",
+      "flips": 2,
+      "flipRate": 0.1538
+    },
+    "bestOnly": {
+      "pairings": 12,
+      "pairwise": 0.8333,
+      "pairwiseRaw": "10.0/12",
+      "caseLevel": 0.8333,
+      "caseLevelRaw": "10/12",
+      "flips": 1,
+      "flipRate": 0.0833
+    },
+    "subtle": {
+      "pairings": 6,
+      "pairwise": 0.8333,
+      "pairwiseRaw": "5.0/6",
+      "caseLevel": 0.8333,
+      "caseLevelRaw": "5/6",
+      "flips": 2,
+      "flipRate": 0.3333
+    },
+    "ripped": {
+      "pairings": 7,
+      "pairwise": 0.8571,
+      "pairwiseRaw": "6.0/7",
+      "caseLevel": 0.8571,
+      "caseLevelRaw": "6/7",
+      "flips": 0,
+      "flipRate": 0
+    }
+  },
+  "pairResults": [
+    {
+      "caseId": "r2:fem-heavier__dramatic",
+      "intensity": "dramatic",
+      "condition": "heavier",
+      "proxy": false,
+      "bestLetter": "B",
+      "bestModel": "seedream-4.5",
+      "bestNote": "Perfect for subtle change",
+      "bestTags": [
+        "skin tone right",
+        "just right"
+      ],
+      "otherLetter": "A",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [
+        "not enough change",
+        "skin tone right"
+      ],
+      "otherNote": "",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 4.1,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "seedream-4.5",
+          "score": 17.8,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 3,
+          "bulk": 1.5,
+          "change": 3,
+          "overshoot": 0,
+          "notes": [
+            "modest waist slimming with slight ab hint, frame mostly unchanged",
+            "modest leaner waist with soft ab hint, frame unchanged"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "gemini-2.5-flash-image",
+          "score": 13.7,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 2,
+          "bulk": 1,
+          "change": 2,
+          "overshoot": 0,
+          "notes": [
+            "very slight change, minimal ab definition, closest to before",
+            "very slight waist tightening, minimal change"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r2:fem-heavier__max",
+      "intensity": "max",
+      "condition": "heavier",
+      "proxy": false,
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestNote": "Best of two but ideally slightly leaner and more ab definition",
+      "bestTags": [
+        "skin tone right"
+      ],
+      "otherLetter": "B",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [
+        "not enough change",
+        "skin tone right"
+      ],
+      "otherNote": "",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 5.4,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "score": 18.6,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 3.5,
+          "bulk": 2,
+          "change": 3.5,
+          "overshoot": 0,
+          "notes": [
+            "clear ab definition, natural skin tone, athletic not overdone",
+            "visible ab definition, lean athletic look, natural tone"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "gemini-2.5-flash-image",
+          "score": 13.2,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 2,
+          "bulk": 1,
+          "change": 2,
+          "overshoot": 0,
+          "notes": [
+            "minimal change, faint ab hint, waist barely slimmer",
+            "minimal change, slight ab hint, natural skin"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r2:fem-moderate__max",
+      "intensity": "max",
+      "condition": "moderate",
+      "proxy": false,
+      "bestLetter": "B",
+      "bestModel": "seedream-4.5",
+      "bestNote": "Ideally leaner than this, more ab definition without more muscle",
+      "bestTags": [
+        "skin tone right"
+      ],
+      "otherLetter": "A",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [
+        "not enough change",
+        "skin tone right"
+      ],
+      "otherNote": "",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 1.6,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "seedream-4.5",
+          "score": 18.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "overshoot": 0,
+          "notes": [
+            "clear abs and lean athletic build, skin tone matches, slight arm/shoulder firming",
+            "clear ab definition and leaner waist, slight warming of skin, athletic not overbuilt"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "gemini-2.5-flash-image",
+          "score": 17.3,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "overshoot": 0,
+          "notes": [
+            "modest ab definition, minimal bulk change, still fairly close to before",
+            "modest ab definition, natural skin tone, slight change from before"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r2:fem-fit__dramatic",
+      "intensity": "dramatic",
+      "condition": "fit",
+      "proxy": false,
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestNote": "Pefect for subtle",
+      "bestTags": [
+        "skin tone right",
+        "just right"
+      ],
+      "otherLetter": "B",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [
+        "looks fake",
+        "skin tone right"
+      ],
+      "otherNote": "line in stomach, looks like AI",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 0.6,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "score": 16.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "overshoot": 0,
+          "notes": [
+            "visible added muscle and sharp abs overshoot the Subtle request",
+            "more defined abs and toned arms/shoulders than before, overshoots subtle tier"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "gemini-2.5-flash-image",
+          "score": 16.3,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "overshoot": 0,
+          "notes": [
+            "modest leaner waist with soft ab hint, frame close to before, fits Subtle tier",
+            "modest leaner waist, soft ab hint, frame unchanged, natural look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r2:fem-fit__max",
+      "intensity": "max",
+      "condition": "fit",
+      "proxy": false,
+      "bestLetter": "B",
+      "bestModel": "seedream-4.5",
+      "bestNote": "Ideally slightly leaner",
+      "bestTags": [
+        "skin tone right"
+      ],
+      "otherLetter": "A",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [
+        "not enough change",
+        "skin tone right"
+      ],
+      "otherNote": "",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 4.7,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "seedream-4.5",
+          "score": 18.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 4,
+          "overshoot": 0,
+          "notes": [
+            "leaner with visible abs, slight arm/shoulder firming, tone close to original",
+            "clear ab definition, still athletic and natural tone"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "gemini-2.5-flash-image",
+          "score": 14.2,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 2.5,
+          "bulk": 1.5,
+          "change": 2,
+          "overshoot": 0,
+          "notes": [
+            "barely different from before, minimal ab definition change",
+            "subtle ab tightening, minimal change from before"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r3:fem-dark-heavier__dramatic",
+      "intensity": "dramatic",
+      "condition": "heavier",
+      "proxy": false,
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestNote": "",
+      "bestTags": [
+        "skin tone right"
+      ],
+      "otherLetter": "B",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [],
+      "otherNote": "slightly too much change for subtle. Would be ideal for ripped",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 1.45,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "score": 17.8,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 3,
+          "overshoot": 0,
+          "notes": [
+            "natural lean look, skin tone close to original, moderate ab definition",
+            "similar to A, slightly softer waist and less dramatic change"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "gemini-2.5-flash-image",
+          "score": 16.35,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 3.5,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 3.5,
+          "overshoot": 0,
+          "notes": [
+            "slightly more bronzed/oily skin and sharper abs than before, borderline overshoot",
+            "tighter waist, sharper abs, tone close to before"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r3:fem-dark-heavier__max",
+      "intensity": "max",
+      "condition": "heavier",
+      "proxy": false,
+      "bestLetter": "B",
+      "bestModel": "seedream-4.5",
+      "bestNote": "Subtle better image above would be better for ripped. Ideally significantly leaner and more ab definition than this and slightly more than the subtle pic chosen as better",
+      "bestTags": [
+        "not enough change",
+        "skin tone right"
+      ],
+      "otherLetter": "A",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [
+        "not enough change",
+        "skin tone right"
+      ],
+      "otherNote": "",
+      "preferredBest": false,
+      "orderDisagreement": false,
+      "margin": 3.35,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "gemini-2.5-flash-image",
+          "score": 17.1,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 3.5,
+          "bulk": 2,
+          "change": 3.5,
+          "overshoot": 0,
+          "notes": [
+            "slightly tighter waist and more visible ab lines, still natural",
+            "tighter waist, visible abs, skin tone close to original"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "seedream-4.5",
+          "score": 13.75,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 2.5,
+          "bulk": 1.5,
+          "change": 2.5,
+          "overshoot": 0,
+          "notes": [
+            "nearly identical to before, minimal change",
+            "slight ab definition, less waist change than A, still natural tone"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r3:fem-moderate__dramatic",
+      "intensity": "dramatic",
+      "condition": "moderate",
+      "proxy": false,
+      "bestLetter": "B",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestNote": "slightly leaner would be ideal for subtle",
+      "bestTags": [
+        "skin tone right"
+      ],
+      "otherLetter": "A",
+      "otherModel": "seedream-4.5",
+      "otherTags": [
+        "too much / unrealistic",
+        "skin tone right"
+      ],
+      "otherNote": "",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 0.55,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "gemini-2.5-flash-image",
+          "score": 15.75,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 2.5,
+          "bulk": 1.5,
+          "change": 2.5,
+          "overshoot": 0,
+          "notes": [
+            "modest leaner waist, soft ab hint, frame unchanged - fits subtle tier",
+            "very modest leaner waist, frame unchanged, fits Subtle tier well"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "score": 15.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 4.5,
+          "overshoot": 0,
+          "notes": [
+            "visible added muscle and sharp abs, overshoots subtle request",
+            "overshoot: visible six-pack and toned arms, too much for Subtle tier"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r3:fem-moderate__max",
+      "intensity": "max",
+      "condition": "moderate",
+      "proxy": false,
+      "bestLetter": "B",
+      "bestModel": "seedream-4.5",
+      "bestNote": "Leanness ideal, slightly too muscular",
+      "bestTags": [
+        "too muscular / masculine",
+        "skin tone right"
+      ],
+      "otherLetter": "A",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [
+        "not enough change",
+        "skin tone right"
+      ],
+      "otherNote": "",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 4.7,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "seedream-4.5",
+          "score": 18.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "overshoot": 0,
+          "notes": [
+            "clear ab definition, athletic build, slight bronzing/muscular arms",
+            "clear ab definition, athletic build, slight warm tone shift"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "gemini-2.5-flash-image",
+          "score": 13.7,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 2,
+          "bulk": 1.5,
+          "change": 2,
+          "overshoot": 0,
+          "notes": [
+            "minimal change, only faint ab hint, matches skin tone well",
+            "very slight ab hint, barely changed from before"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r3:fem-pale__dramatic",
+      "intensity": "dramatic",
+      "condition": "moderate",
+      "proxy": false,
+      "bestLetter": "A",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestNote": "",
+      "bestTags": [
+        "skin tone right"
+      ],
+      "otherLetter": "B",
+      "otherModel": "seedream-4.5",
+      "otherTags": [
+        "too much / unrealistic",
+        "skin tone right",
+        "looks fake"
+      ],
+      "otherNote": "",
+      "preferredBest": false,
+      "orderDisagreement": true,
+      "margin": 0.55,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "seedream-4.5",
+          "score": 17.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 5,
+          "bulk": 2,
+          "change": 4,
+          "overshoot": 0,
+          "notes": [
+            "sharper deeper ab separation, still athletic frame, natural skin tone",
+            "sharp six-pack, same skin tone, athletic not bulky"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "gemini-2.5-flash-image",
+          "score": 16.85,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 3.5,
+          "bulk": 2,
+          "change": 3.5,
+          "overshoot": 0,
+          "notes": [
+            "leaner waist with visible abs, slight background artifact, tone unchanged",
+            "modest waist slimming, softer ab outline, natural look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r3:fem-pale__max",
+      "intensity": "max",
+      "condition": "moderate",
+      "proxy": false,
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestNote": "Nearly ideal. Love handle should be trimmed in slightly to match very defined abs. Abs and leanness are ideal",
+      "bestTags": [
+        "body shape wrong",
+        "skin tone right"
+      ],
+      "otherLetter": "B",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [
+        "not enough change",
+        "skin tone right"
+      ],
+      "otherNote": "",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 9.3,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "score": 18.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "overshoot": 0,
+          "notes": [
+            "visible abs, athletic not bulky, minor skin warmth",
+            "clear ab definition, athletic not bulky, slight skin warmth"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "gemini-2.5-flash-image",
+          "score": 9.1,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 1,
+          "bulk": 1,
+          "change": 1,
+          "overshoot": 0,
+          "notes": [
+            "virtually identical to before, no ab definition change",
+            "virtually identical to before, no real transformation"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r3:fem-lean-real__dramatic",
+      "intensity": "dramatic",
+      "condition": "fit",
+      "proxy": true,
+      "bestLetter": "B",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestNote": "Slightly leaner and more ab definition would be ideal",
+      "bestTags": [
+        "not enough change"
+      ],
+      "otherLetter": "A",
+      "otherModel": "seedream-4.5",
+      "otherTags": [
+        "too muscular / masculine",
+        "too much / unrealistic"
+      ],
+      "otherNote": "",
+      "preferredBest": true,
+      "orderDisagreement": true,
+      "margin": 0.15,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "gemini-2.5-flash-image",
+          "score": 10.65,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 1.5,
+          "bulk": 1,
+          "change": 1.5,
+          "overshoot": 0,
+          "notes": [
+            "virtually identical to before, no midsection change",
+            "skin tone and frame nearly identical to BEFORE, only a faint waist/ab hint — very modest change"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "score": 10.5,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 2,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "overshoot": 0,
+          "notes": [
+            "overshoot: shredded abs, visible arm muscle, warmer/tanned skin",
+            "deep six-pack, added arm/shoulder muscle, and a strong bronze tan — overshoots a subtle request"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "r3:fem-lean-real__max",
+      "intensity": "max",
+      "condition": "fit",
+      "proxy": false,
+      "bestLetter": "B",
+      "bestModel": "seedream-4.5",
+      "bestNote": "Slightly less muscular would be ideal. Leanness and abs are good",
+      "bestTags": [
+        "too muscular / masculine"
+      ],
+      "otherLetter": "A",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherTags": [
+        "not enough change"
+      ],
+      "otherNote": "",
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 7.3,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "seedream-4.5",
+          "score": 17.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 3.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "overshoot": 0,
+          "notes": [
+            "clear athletic definition, minimal skin tone shift",
+            "clear six-pack and lean athletic tone, but skin noticeably more tanned"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "gemini-2.5-flash-image",
+          "score": 10.6,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 1.5,
+          "bulk": 1,
+          "change": 1,
+          "overshoot": 0,
+          "notes": [
+            "essentially unchanged from before",
+            "almost identical to before, minimal definition change"
+          ]
+        }
+      ]
+    }
+  ]
+}

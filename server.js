@@ -2180,13 +2180,26 @@ const JUDGE_WEIGHTS = {
   borderlineId: 2.0,
 };
 
+// Female-Subtle only (2026-07-29): the female eval found the judge tier-blind —
+// 85.7% agreement with Dan at Ripped but 42.9% at Subtle, every miss preferring
+// an overshoot Dan rejected as "too muscular / too much for subtle". Same
+// formula, but the rewards stop above the modest target the way underPenalty
+// already punishes below it: definition earns nothing past defCap, and change
+// above 3 is penalized instead of rewarded. With the tier note + exemplar this
+// scored 83.3% on the female Subtle labels while male and female-Ripped calls
+// stay byte-identical (bakeoff/judge-eval-female.js). The values sit on a broad
+// sweep plateau anchored on the a-priori prior overPenalty == underPenalty; do
+// not fine-tune them to the one remaining miss (it order-flips to the chooser).
+const JUDGE_SUBTLE_WEIGHTS = { ...JUDGE_WEIGHTS, defCap: 4, overPenalty: 1.5 };
+
 function judgeComposite(m, w = JUDGE_WEIGHTS) {
-  let s = w.definition * m.definition
+  let s = w.definition * Math.min(m.definition, w.defCap || 5)
     + w.skin * m.skin_tone
     + w.photoreal * m.photoreal
     + w.change * m.change
     - w.bulkPenalty * Math.max(0, m.bulk - 3)
-    - w.underPenalty * Math.max(0, 3 - m.change);
+    - w.underPenalty * Math.max(0, 3 - m.change)
+    - (w.overPenalty || 0) * Math.max(0, m.change - 3);
   if (m.identity === 'borderline') s -= w.borderlineId;
   if (m.identity === 'broken') s -= 100;
   return +s.toFixed(3);
@@ -2251,15 +2264,53 @@ function getJudgeExemplarBlocks() {
   return judgeExemplarBlocks;
 }
 
+// Female-Subtle tier context: one worked Subtle example (Dan's acceptable pick
+// vs the overshoot he rejected on the same woman, round-2 proof assets) plus a
+// tier note changing the target. Appended AFTER the cache_control breakpoint,
+// so the cached prefix stays shared with every other judge call, and only on
+// female sub-max generations — male and female-Ripped judging is byte-identical
+// to the validated baseline. Text must stay in sync with bakeoff/judge-v2.js
+// (FEMALE_SUBTLE_NOTE / FEMALE_SUBTLE_EXEMPLAR), where it was evaluated.
+const JUDGE_FEMALE_SUBTLE_NOTE = `TIER NOTE — this user requested the SUBTLE tier, the product's modest option (the maximum tier, "Ripped", is a separate choice she did not make). For a female Subtle request the product owner's standard changes: the ideal result keeps her frame and muscle size exactly as the BEFORE and shows a clearly but MODERATELY leaner midsection — soft, natural ab definition, not a sharply cut six-pack. A candidate that returns a peak-condition, competition-lean or visibly more-muscular body has OVERSHOT this request; at Subtle, overshoot is a WORSE fault than a change that is slightly too small. Reflect this in your scores: any visible added muscle size versus the BEFORE scores bulk 4+, and sharpness or transformation magnitude clearly beyond a modest natural improvement is overshoot — do not reward it with top definition marks here.`;
+
+let judgeFemaleSubtleBlocks = null;
+function getJudgeFemaleSubtleBlocks() {
+  if (judgeFemaleSubtleBlocks) return judgeFemaleSubtleBlocks;
+  try {
+    const img = (name) => ({
+      type: 'image',
+      source: { type: 'base64', media_type: 'image/jpeg', data: fs.readFileSync(path.join(JUDGE_EXEMPLAR_DIR, name)).toString('base64') },
+    });
+    judgeFemaleSubtleBlocks = [
+      { type: 'text', text: 'EXTRA EXAMPLE for THIS case (Subtle tier) — BEFORE photo:' },
+      img('ex4-before.jpg'),
+      { type: 'text', text: 'The candidate the owner CHOSE for a Subtle request:' },
+      img('ex4-chosen.jpg'),
+      { type: 'text', text: 'CHOSEN for the SUBTLE tier: a modest, believable improvement — slightly leaner waist with a soft hint of ab definition, her frame and muscle size unchanged from the BEFORE. The owner picked this even though the change is small, because the user asked for Subtle.' },
+      { type: 'text', text: 'The candidate he REJECTED for a Subtle request:' },
+      img('ex4-rejected.jpg'),
+      { type: 'text', text: 'REJECTED for the SUBTLE tier: too muscular and too much definition for a Subtle request. As a maximum-tier result it would be fine, but the user asked for a modest change and this overshoots into a full athletic transformation.' },
+      { type: 'text', text: JUDGE_FEMALE_SUBTLE_NOTE },
+    ];
+  } catch (e) {
+    // Missing assets degrade to the tier note alone rather than losing the tier
+    // context (or the whole judge) — same fail-soft posture as the exemplars.
+    console.error('Female-Subtle judge exemplar unavailable, using tier note only:', e.message);
+    judgeFemaleSubtleBlocks = [{ type: 'text', text: JUDGE_FEMALE_SUBTLE_NOTE }];
+  }
+  return judgeFemaleSubtleBlocks;
+}
+
 const JUDGE_LETTERS = 'ABCDEFGH'.split('');
 
 // One scoring pass over the candidates in the given order. Returns a per-letter
 // rubric, or null on any failure (the caller fails open).
-async function judgeScoreOnce({ photo, candidates }) {
+async function judgeScoreOnce({ photo, candidates, femaleSubtle = false }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 60000);
   try {
     const content = [...getJudgeExemplarBlocks()];
+    if (femaleSubtle) content.push(...getJudgeFemaleSubtleBlocks());
     content.push({ type: 'text', text: 'Now judge this case.\n\nBEFORE photo (the real person):' });
     content.push({ type: 'image', source: { type: 'base64', media_type: photo.imageMime, data: photo.imageBase64 } });
     candidates.forEach((c, i) => {
@@ -2327,11 +2378,12 @@ async function judgeScoreOnce({ photo, candidates }) {
 // the order reversed, run in parallel, dimension scores averaged across the two.
 // Each candidate must carry a unique `model` — that is the identifier used to
 // map verdicts back to images. Returns null when both passes fail (fail open).
-async function judgeScoreCandidates({ photo, candidates }) {
+async function judgeScoreCandidates({ photo, candidates, femaleSubtle = false }) {
   const n = candidates.length;
+  const weights = femaleSubtle ? JUDGE_SUBTLE_WEIGHTS : JUDGE_WEIGHTS;
   const [fwd, bwd] = await Promise.all([
-    judgeScoreOnce({ photo, candidates }),
-    judgeScoreOnce({ photo, candidates: [...candidates].reverse() }),
+    judgeScoreOnce({ photo, candidates, femaleSubtle }),
+    judgeScoreOnce({ photo, candidates: [...candidates].reverse(), femaleSubtle }),
   ]);
   if (!fwd && !bwd) return null;
 
@@ -2357,14 +2409,14 @@ async function judgeScoreCandidates({ photo, candidates }) {
     };
   });
   if (merged.some((m) => !m)) return null;
-  for (const m of merged) m.score = judgeComposite(m);
+  for (const m of merged) m.score = judgeComposite(m, weights);
 
   // Per-pass winners, used only to detect order disagreement.
   const winnerOf = (src, reversed) => {
     if (!src) return null;
     const scored = candidates.map((cand, i) => {
       const r = src[JUDGE_LETTERS[reversed ? n - 1 - i : i]];
-      return r ? { model: cand.model, score: judgeComposite(r) } : null;
+      return r ? { model: cand.model, score: judgeComposite(r, weights) } : null;
     }).filter(Boolean);
     if (!scored.length) return null;
     return scored.sort((x, y) => y.score - x.score)[0].model;
@@ -2756,6 +2808,10 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       judgeVerdict = await judgeScoreCandidates({
         photo: { imageBase64: photoBase64, imageMime: photoMime },
         candidates: [candA, candB],
+        // Any sub-max female generation gets the Subtle tier context (legacy
+        // cached clients can still send 'subtle'/'moderate'). Unknown sex stays
+        // on the baseline path, matching the male-default model routing.
+        femaleSubtle: sex === 'female' && intensity !== 'max',
       });
       if (judgeVerdict) {
         const alive = judgeVerdict.alive;
