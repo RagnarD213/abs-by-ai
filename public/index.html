@@ -2850,11 +2850,16 @@ function updateCreditDisplay() {
   });
 }
 
-function showLockedResult() {
+// `sharpStripUrl` is a server-rendered crop of the TOP of the frame (face + chest),
+// padded back to the source aspect ratio. It replaces what used to be a second copy
+// of the full sharp image: the paywalled region simply is not in the page any more,
+// so there is nothing for a curious user to recover by removing the CSS blur.
+function showLockedResult(sharpStripUrl) {
   const afterImg = $('afterImg');
   const afterWrap = $('afterImgWrap');
   afterImg.classList.add('after-locked');
-  $('afterTeaserSharp').src = afterImg.currentSrc || afterImg.src;
+  if (sharpStripUrl) $('afterTeaserSharp').src = sharpStripUrl;
+  else $('afterTeaserSharp').removeAttribute('src');
   afterWrap.classList.add('teaser-locked');
   afterWrap.setAttribute('role', 'button');
   afterWrap.setAttribute('tabindex', '0');
@@ -2887,6 +2892,49 @@ function unlockResult() {
   $('resultActionsSection').style.display = '';
   $('resultDownloadBtn').style.visibility = '';
   $('paywallSection').style.display = 'none';
+}
+
+// The sharp result of a paywalled generation never reached this page — the server
+// held it back and sent a blurred teaser. Once the user is entitled (bought credits
+// or started the membership trial) fetch the real image and swap it in. Returns true
+// when the sharp image is on screen; false means the hold is gone (a deploy or the
+// 1-hour TTL), which the callers surface as "generate it again".
+// No credit is spent here: the locked generation never charged one.
+async function releaseLockedImage() {
+  const token = state.lockedUnlockToken;
+  if (!token) return true; // nothing was held — normal unlocked flow
+  try {
+    const res = await fetch(`${BACKEND_URL}/api/generate-image/unlock`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}),
+      },
+      body: JSON.stringify({ unlockToken: token, deviceId: getDeviceId() }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.imageBase64) {
+      const err = new Error(data.error || `Unlock failed (HTTP ${res.status})`);
+      err.expired = !!data.expired;
+      err.status = res.status;
+      throw err;
+    }
+    const url = `data:${data.imageMime || 'image/png'};base64,${data.imageBase64}`;
+    // Set state.lastAfterDataUrl BEFORE the callers run their save hooks —
+    // storeTransformationLocally() and saveTransformationIfLoggedIn() read it, and
+    // would otherwise persist the teaser into the gallery and the print flow.
+    state.lastAfterDataUrl = url;
+    $('afterImg').src = url;
+    $('resultDownloadBtn').href = url;
+    $('afterTeaserSharp').removeAttribute('src');
+    state.lockedUnlockToken = null;
+    if (window.posthog) posthog.capture('locked_image_retrieved', {});
+    return true;
+  } catch (err) {
+    console.error('Locked image release failed:', err);
+    if (window.posthog) posthog.capture('locked_image_retrieve_failed', { expired: !!err.expired, status: err.status || null });
+    return false;
+  }
 }
 
 function focusLockedPaywall() {
@@ -2978,9 +3026,17 @@ async function handleCreditsPurchaseComplete(sessionId) {
     back();
     return;
   }
+  // Fetch the sharp image the server held back, THEN reveal. On failure the low-res
+  // teaser stays on screen and we point the user at a regenerate instead of silently
+  // saving a blurred placeholder into their gallery.
+  const released = await releaseLockedImage();
   unlockResult();   // reveal the already-generated image in place
-  storeTransformationLocally();
-  saveTransformationIfLoggedIn({ intensity: state.effectiveIntensity, condition: state.condition });
+  if (released) {
+    storeTransformationLocally();
+    saveTransformationIfLoggedIn({ intensity: state.effectiveIntensity, condition: state.condition });
+  } else {
+    showResultError('Your generations are ready, but this preview expired before we could unlock it. Tap "Try a different look" to make it again.');
+  }
   fireConfetti();   // celebrate 🎉
 
   const toast = $('creditsSuccessToast');
@@ -3056,6 +3112,9 @@ const state = {
   effectiveIntensity: 'max',
   description: '',
   lastAfterDataUrl: null,
+  // Set when the current result is paywalled: the server holds the sharp image and
+  // this is the token that redeems it once the user is entitled. Null otherwise.
+  lockedUnlockToken: null,
   attemptCount: 0,
   fixCount: 0,
   fixChips: [],
@@ -4395,6 +4454,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   $('confirmContinueBtn').addEventListener('click', returnFromUpsell);
   $('confirmStartOverBtn').addEventListener('click', () => {
     state.lastAfterDataUrl = null;
+    state.lockedUnlockToken = null;
     showScreen('form');
   });
 
@@ -4404,7 +4464,13 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
   // Paywall upsell: jump to the membership plans; on success, reveal this result.
   const goUnlimited = $('paywallGoUnlimitedBtn');
-  if (goUnlimited) goUnlimited.addEventListener('click', () => showMembershipScreen(() => { unlockResult(); showScreen('result'); }));
+  if (goUnlimited) goUnlimited.addEventListener('click', () => showMembershipScreen(async () => {
+    // Membership makes them entitled, so the held sharp image can be released.
+    const released = await releaseLockedImage();
+    unlockResult();
+    showScreen('result');
+    if (!released) showResultError('You\'re a member now, but this preview expired before we could unlock it. Tap "Try a different look" to make it again.');
+  }));
   // In-app escape hatch from the credits paywall (see the button's comment).
   const paywallHub = $('paywallContinueHubBtn');
   if (paywallHub) paywallHub.addEventListener('click', () => {
@@ -9209,6 +9275,7 @@ function keepChooserCandidate(idx) {
 // The server already deducted the credit — this only syncs the local count.
 function applyUnlockedResult(afterDataUrl) {
   state.lastAfterDataUrl = afterDataUrl;
+  state.lockedUnlockToken = null; // the chooser is never shown for a locked result
   $('beforeImg').src = `data:${state.photoMime};base64,${state.photoData}`;
   $('afterImg').src = afterDataUrl;
   $('resultDownloadBtn').href = afterDataUrl;
@@ -9244,9 +9311,12 @@ async function generate() {
       showChooser(genRes.candidates);
       return;
     }
-    const { imageBase64, locked, weakChange } = genRes;
-    const afterDataUrl = `data:image/png;base64,${imageBase64}`;
+    const { imageBase64, imageMime, locked, weakChange, teaserSharpBase64, unlockToken } = genRes;
+    // When locked this is the blurred teaser, not the result — the sharp image stays
+    // on the server until releaseLockedImage() redeems the token.
+    const afterDataUrl = `data:${imageMime};base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
+    state.lockedUnlockToken = locked ? unlockToken : null;
 
     $('beforeImg').src = `data:${state.photoMime};base64,${state.photoData}`;
     $('afterImg').src = afterDataUrl;
@@ -9256,7 +9326,7 @@ async function generate() {
     await finishGenLoader(); // snap bar to 100% and let it land before revealing
 
     if (locked) {
-      showLockedResult();
+      showLockedResult(teaserSharpBase64 ? `data:image/jpeg;base64,${teaserSharpBase64}` : null);
     } else {
       unlockResult();
       storeTransformationLocally();
@@ -9318,9 +9388,10 @@ async function adjustIntensity(delta) {
       showChooser(genRes.candidates);
       return;
     }
-    const { imageBase64, locked, weakChange } = genRes;
-    const afterDataUrl = `data:image/png;base64,${imageBase64}`;
+    const { imageBase64, imageMime, locked, weakChange, teaserSharpBase64, unlockToken } = genRes;
+    const afterDataUrl = `data:${imageMime};base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
+    state.lockedUnlockToken = locked ? unlockToken : null;
     await finishResultLoader(); // land the bar at 100% before swapping the image in
     $('afterImg').src = afterDataUrl;
     $('resultDownloadBtn').href = afterDataUrl;
@@ -9329,7 +9400,7 @@ async function adjustIntensity(delta) {
     state.attemptCount += 1;
 
     if (locked) {
-      showLockedResult();
+      showLockedResult(teaserSharpBase64 ? `data:image/jpeg;base64,${teaserSharpBase64}` : null);
     } else {
       unlockResult();
       storeTransformationLocally();
@@ -9371,10 +9442,15 @@ async function runFixPass() {
   try {
     const generatedPrompt = await callGeminiText(FIX_SYSTEM_PROMPT, makeFixJson());
     if (generatedPrompt.trim() === 'REFUSED_MINOR') throw new Error('Refused.');
+    // A locked result only holds the blurred teaser locally, which must never be fed
+    // back in as the image to edit. The fix control is hidden while locked, so this is
+    // belt-and-braces.
+    if (state.lockedUnlockToken) throw new Error('Unlock your result before fixing it.');
     const prevImageBase64 = state.lastAfterDataUrl.split(',')[1];
-    const { imageBase64, locked } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity, { prevImageBase64, isFix: true });
-    const afterDataUrl = `data:image/png;base64,${imageBase64}`;
+    const { imageBase64, imageMime, locked, teaserSharpBase64, unlockToken } = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity, { prevImageBase64, isFix: true });
+    const afterDataUrl = `data:${imageMime};base64,${imageBase64}`;
     state.lastAfterDataUrl = afterDataUrl;
+    state.lockedUnlockToken = locked ? unlockToken : null;
     await finishResultLoader(); // land the bar at 100% before swapping the image in
     $('afterImg').src = afterDataUrl;
     $('resultDownloadBtn').href = afterDataUrl;
@@ -9384,7 +9460,7 @@ async function runFixPass() {
     state.fixCount += 1;
 
     if (locked) {
-      showLockedResult();
+      showLockedResult(teaserSharpBase64 ? `data:image/jpeg;base64,${teaserSharpBase64}` : null);
     } else {
       unlockResult();
       storeTransformationLocally();
@@ -9478,7 +9554,20 @@ async function callGeminiImage(prompt, photoBase64, photoMime, intensity, opts =
       posthog.capture('generation_verifier', data.telemetry);
     }
   } catch (e) {}
-  return { imageBase64: data.imageBase64, locked: !!data.locked, weakChange: !!data.weakChange, chooser: isChooser, candidates: isChooser ? data.candidates : null };
+  // A locked response carries the server-rendered teaser in `imageBase64` (the field
+  // an older client also reads), the sharp top-of-frame slice in `teaserSharpBase64`,
+  // and `unlockToken` to redeem the real image after payment.
+  return {
+    imageBase64: data.imageBase64,
+    imageMime: data.imageMime || 'image/png',
+    locked: !!data.locked,
+    weakChange: !!data.weakChange,
+    teaser: !!data.teaser,
+    teaserSharpBase64: data.teaserSharpBase64 || null,
+    unlockToken: data.unlockToken || null,
+    chooser: isChooser,
+    candidates: isChooser ? data.candidates : null,
+  };
 }
 
 // ============================================================

@@ -8,6 +8,18 @@ const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const { pool: db, initDb } = require('./db');
 
+// Used only to render the degraded teaser for a paywalled (locked) generation, so
+// the finished image never reaches an unpaid client. Guarded because it is the one
+// native dependency in the service: if it ever fails to load we must still boot,
+// and the locked path then sends NO image rather than the sharp one (fail safe, not
+// fail open — see buildLockedTeaser).
+let sharp = null;
+try {
+  sharp = require('sharp');
+} catch (e) {
+  console.error('SHARP_UNAVAILABLE — locked generations will ship no image at all:', e.message);
+}
+
 const app = express();
 
 // Middleware
@@ -2928,6 +2940,28 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       chooser_shown: chooserShown,
       served_model: servedModel,
     };
+
+    // A locked result must not leave the server. Hold the full image, render the
+    // degraded teaser, and hand the client an unlock token instead. No credit was
+    // spent on a locked generation (locked means the balance was already 0), and
+    // releasing it later must not charge one either — so nothing here touches the
+    // decrement above.
+    let lockedTeaser = null;
+    let unlockToken = null;
+    if (locked) {
+      try {
+        lockedTeaser = await buildLockedTeaser(imageBase64);
+      } catch (e) {
+        console.error('LOCKED_TEASER_FAILED', e.message);
+      }
+      if (!lockedTeaser) {
+        // Fail SAFE, not fail open: with no way to degrade the image we send none.
+        // Only reachable if sharp is unavailable or the buffer is undecodable.
+        console.error('LOCKED_TEASER_UNAVAILABLE — sending no image with the paywall');
+      }
+      unlockToken = holdLockedImage(deviceId, imageBase64, winnerCandidate?.imageMime || result.imageMime);
+    }
+    telemetry.locked_teaser_served = locked ? !!lockedTeaser : null;
     try {
       console.log('GEN_TELEMETRY ' + JSON.stringify({ ...telemetry, distinctId: distinctId || null, isFix: !!isFix }));
     } catch (e) {}
@@ -2935,16 +2969,80 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // Chooser payload carries BOTH candidates and no top-level image; everything
     // else keeps the existing single-image shape. Both model calls and the judge
     // ran BEFORE cacheAttempt, so a replayed attemptId never re-charges.
+    // A locked payload deliberately reuses `imageBase64` for the blurred teaser:
+    // a client left over from before this deploy reads that field and shows the
+    // teaser instead of breaking — and it still cannot recover the sharp image.
     const payload = chooserShown
       ? { chooser: true, candidates: chooserCandidates, locked, weakChange, telemetry }
-      : { imageBase64, locked, weakChange, telemetry };
+      : locked
+        ? {
+            imageBase64: lockedTeaser ? lockedTeaser.teaserBase64 : null,
+            imageMime: lockedTeaser ? lockedTeaser.teaserMime : null,
+            teaser: true,
+            teaserSharpBase64: lockedTeaser ? lockedTeaser.sharpStripBase64 : null,
+            unlockToken,
+            locked, weakChange, telemetry,
+          }
+        : { imageBase64, locked, weakChange, telemetry };
     // Cache synchronously right after the decrement (no await between them) so a
-    // replayed attemptId returns this exact image without re-charging.
+    // replayed attemptId returns this exact image without re-charging. The teaser
+    // render above is the only await in between and it runs ONLY on the locked
+    // branch — where no credit was decremented — so that invariant still holds.
     cacheAttempt(attemptId, 200, payload);
     res.json(payload);
   } catch (err) {
     console.error('Image generation error:', err);
     res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Release the full-resolution result that was held back from a locked (paywalled)
+// generation. Entitlement check only — this endpoint NEVER touches a credit balance.
+// A locked generation is by definition one where the balance was already 0, so no
+// credit was spent on it, and today's post-purchase flow reveals that image without
+// charging. Keeping the decrement exactly where it is (in /api/generate-image) is the
+// F1 double-spend lesson.
+//
+// Repeat calls by the same entitled device return the same image until the hold
+// expires. That is deliberate rather than one-shot: releasing exactly once would turn
+// a dropped response into a permanently lost image, and re-reading gives an already
+// entitled caller nothing they do not have.
+app.post('/api/generate-image/unlock', (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
+  try {
+    const token = String(req.body?.unlockToken || '');
+    const deviceId = String(req.body?.deviceId || '');
+    const held = getHeldImage(token);
+    if (!held) {
+      // Restart/TTL gap: the process that generated it was replaced by a deploy, or
+      // the hold aged out. Retrying cannot fix it, so tell the client to regenerate
+      // rather than dead-end on the paywall.
+      return res.status(410).json({
+        error: 'This result is no longer available to unlock. Generate it again — your generations are ready.',
+        expired: true,
+      });
+    }
+    const member = isActiveMembership(req.user);
+    // Buying credits does not change the deviceId, but starting the membership trial
+    // signs the user in, and setLoggedIn() moves the device id to the account's
+    // canonical one — so the device match is only enforced on the non-member path.
+    if (!member && held.deviceId && held.deviceId !== deviceId) {
+      return res.status(403).json({ error: 'Not authorized to unlock this result.' });
+    }
+    const balance = getCredits(deviceId);
+    // Deliberately NOT a bare `balance > 0`. A fresh deviceId starts with an implicit
+    // free grant, so a balance check alone would let anyone mint a new id and unlock
+    // for free; it would also hand the image to a device that got locked by the per-IP
+    // free-generation cap while still holding free credits. Only a member, or a device
+    // that has actually bought credits and still holds some, is entitled.
+    const isPurchaser = !!creditsStore.purchasers?.[deviceId] || balance > FREE_CREDITS;
+    if (!member && !(isPurchaser && balance > 0)) {
+      return res.status(402).json({ error: 'Add generations to unlock this result.' });
+    }
+    console.log(`LOCKED_IMAGE_RELEASED device=${deviceId ? deviceId.slice(0, 14) : 'none'} member=${member} balance=${balance}`);
+    return res.json({ imageBase64: held.imageBase64, imageMime: held.imageMime });
+  } catch (err) {
+    console.error('Locked image unlock error:', err);
+    return res.status(500).json({ error: 'Internal server error' });
   }
 });
 
@@ -3011,6 +3109,96 @@ function allowFreeGenByIp(req) {
   if (n >= FREE_IP_DAILY_CAP) return false;
   freeIpCounts.set(key, n + 1);
   return true;
+}
+
+// ── Locked-result teaser + server-side hold ──
+// A paywalled generation used to ship the complete, full-resolution image and rely
+// on a CSS blur to hide it, so the finished result was recoverable straight out of
+// the network response — the paywall was cosmetic. The server now renders the two
+// things the locked screen actually displays and keeps the real image back:
+//   • teaser     — the whole frame downscaled to 200px wide AND gaussian-blurred, so
+//                  the pixels themselves carry no ab definition. The client's
+//                  existing blur(18px) still sits on top of it.
+//   • sharpStrip — the TOP 46% of the frame at 480px wide, padded back out to the
+//                  original aspect ratio with the same #f1efea letterbox colour the
+//                  CSS uses. That is exactly the slice the client's clip-path reveals
+//                  today, so Dan's sharp-teaser conversion hook is unchanged — but
+//                  the abdominal region, the thing being sold, is not in the payload.
+// Padding back to the source aspect ratio is what keeps the client CSS untouched:
+// both layers are `object-fit: contain` in the same 230px box, so identical aspect
+// ratios means the sharp slice still lines up pixel-for-pixel with the blurred frame.
+const TEASER_BLUR_WIDTH = 200;
+const TEASER_BLUR_SIGMA = 9;
+const TEASER_SHARP_WIDTH = 480;
+const TEASER_SHARP_KEEP = 0.46; // keep in sync with .after-teaser-sharp clip-path: inset(0 0 54% 0)
+const TEASER_LETTERBOX = '#f1efea'; // matches .ba-img / .after-teaser-sharp background
+async function buildLockedTeaser(imageBase64) {
+  if (!sharp) return null;
+  const src = Buffer.from(imageBase64, 'base64');
+  const meta = await sharp(src).metadata();
+  const w = meta.width, h = meta.height;
+  if (!w || !h) return null;
+
+  const teaser = await sharp(src)
+    .resize({ width: Math.min(TEASER_BLUR_WIDTH, w), withoutEnlargement: true })
+    .blur(TEASER_BLUR_SIGMA)
+    .jpeg({ quality: 45 })
+    .toBuffer();
+
+  const sw = Math.min(TEASER_SHARP_WIDTH, w);
+  const sh = Math.max(2, Math.round(sw * (h / w)));
+  const keep = Math.max(1, Math.min(sh - 1, Math.round(sh * TEASER_SHARP_KEEP)));
+  // Two passes on purpose: crop-then-pad in one sharp pipeline depends on operation
+  // ordering that is easy to get subtly wrong. Compositing onto an explicit canvas
+  // states the intent, and the intermediate is lossless PNG so nothing is degraded twice.
+  const top = await sharp(src)
+    .resize({ width: sw, height: sh, fit: 'fill' })
+    .extract({ left: 0, top: 0, width: sw, height: keep })
+    .png()
+    .toBuffer();
+  const sharpStrip = await sharp({ create: { width: sw, height: sh, channels: 3, background: TEASER_LETTERBOX } })
+    .composite([{ input: top, top: 0, left: 0 }])
+    .jpeg({ quality: 72 })
+    .toBuffer();
+
+  return {
+    teaserBase64: teaser.toString('base64'),
+    sharpStripBase64: sharpStrip.toString('base64'),
+    teaserMime: 'image/jpeg',
+  };
+}
+
+// Full-resolution results held back from a locked response until the requester is
+// entitled to them. Keyed by a SERVER-minted token, never by the client-supplied
+// attemptId: an attemptId is chosen by the client, so keying on it would let a
+// caller address someone else's held image by picking a colliding id.
+// In-memory, single-replica caveat (same as attemptCache/fixCounts/freeIpCounts). The
+// TTL has to outlive a Stripe checkout, so it is much longer than ATTEMPT_TTL_MS —
+// hence its own store with its own hard entry cap, because these entries are whole
+// images. A deploy or restart drops them; /api/generate-image/unlock answers 410 and
+// the client falls back to regenerating (it has credits by then).
+const heldImages = new Map(); // token -> { at, deviceId, imageBase64, imageMime }
+const HELD_TTL_MS = 60 * 60 * 1000;
+const HELD_MAX = 60;
+function holdLockedImage(deviceId, imageBase64, imageMime) {
+  const now = Date.now();
+  for (const [k, v] of heldImages) if (now - v.at > HELD_TTL_MS) heldImages.delete(k);
+  // Map iteration is insertion order, so the first key is always the oldest hold.
+  while (heldImages.size >= HELD_MAX) {
+    const oldest = heldImages.keys().next().value;
+    if (oldest === undefined) break;
+    heldImages.delete(oldest);
+  }
+  const token = crypto.randomBytes(18).toString('hex');
+  heldImages.set(token, { at: now, deviceId: deviceId || null, imageBase64, imageMime: imageMime || 'image/png' });
+  return token;
+}
+function getHeldImage(token) {
+  if (!token) return null;
+  const hit = heldImages.get(token);
+  if (!hit) return null;
+  if (Date.now() - hit.at > HELD_TTL_MS) { heldImages.delete(token); return null; }
+  return hit;
 }
 
 const attemptCache = new Map();
