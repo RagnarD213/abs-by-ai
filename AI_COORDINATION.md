@@ -11,6 +11,7 @@ This is the shared, project-level task board for Codex and Claude Code. It descr
 5. Keep entries short and factual. Record what another assistant needs to continue, not a transcript of the conversation.
 6. Preserve durable product and architecture decisions in the appropriate permanent documentation. Git remains the permanent record of code changes.
 7. When a task is fully completed, committed, pushed, deployed, and verified, clear the active-task details and set the status to `No active task`.
+8. **Whenever a handoff document is created** (`handoff-*.md` or `HANDOFF_*.md`, whether via the `/handoff` skill or written by hand) **for work that has not yet been executed**, immediately add a Key-priority task to the dashboard so it doesn't get created and forgotten: fetch `GET /api/todos`, append `{ "text": "Execute handoff: <short description>", "priority": "key", "why": "<filename> — created but not yet run", "addedAt": "<today, YYYY-MM-DD>" }` to the `business` list, and `POST /api/todos` the updated object back. Dan checks the task off once the handoff's work is actually shipped and verified — do not mark it done yourself just because the handoff exists. If a handoff turns out to be fully executed in the same session it was created, this task can be marked `done: true` immediately rather than left dangling.
 
 ## Status options
 
