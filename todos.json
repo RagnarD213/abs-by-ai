@@ -158,7 +158,8 @@
       "text": "Execute handoff: Close locked-image leak on paywall",
       "priority": "key",
       "why": "handoff-20260729-locked-image-leak-fix.md — created but not yet run",
-      "addedAt": "2026-07-29"
+      "addedAt": "2026-07-29",
+      "done": true
     },
     {
       "text": "Execute handoff: Repo housekeeping (duplicate files, DNS/key rotation)",
