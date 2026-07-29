@@ -61,7 +61,43 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` — female Seedream swap SHIPPED and live-verified (commit `8bee66c`, 2026-07-28)
+**Status:** `Complete — pending reset` — female Subtle-tier retune SHIPPED and live-verified (commit `d948f93`, 2026-07-29); female Seedream swap before it (commit `8bee66c`, 2026-07-28)
+
+### Female Subtle overshoot — FIXED, SHIPPED, live-verified (2026-07-29, commit `d948f93`)
+
+Closes open item 3 from the Seedream swap ("Seedream needs dialling back at the Subtle tier — the highest-value open item"). **It was not a model-tuning problem. It was our own prompt, and the evidence is on disk.**
+
+**Root cause: the Subtle tier was asking for the Ripped result.** "Subtle" is internally `dramatic`, and `SYSTEM_PROMPT` was written when four tiers were pickable, so it still paired `dramatic` with `max` in every rule. Decoding the archived prompts that produced Dan's labelled images (`bakeoff/round*-female/prompts/*.condensed.txt`) shows **5 of 7 Subtle prompts were near-identical to their Ripped counterparts** — asking for a "peak-condition fitness-cover physique", "twice the visible definition", and shoulders "noticeably rounder and more sculpted" (added mass, directly against the female no-added-mass intent).
+
+**The 2 Subtle prompts that were NOT collapsed are the 2 heavier subjects** — capped by the FEMALE HEAVIER REALISM RULE — **and those are exactly the two rows Dan labelled "Perfect for subtle."** Correlation across all 7 Subtle rows:
+
+| condition | Subtle prompt collapsed into Ripped? | Dan's Seedream verdict |
+|---|---|---|
+| heavier ×2 | no (realism-rule capped) | **BEST, "perfect for subtle"** |
+| fit | yes | BEST (less room to overshoot) |
+| moderate ×3 | yes, and uncapped | **too muscular / too much / looks fake** |
+| fit (lean-real) | yes | too muscular / too much |
+
+**Every `moderate` subject failed at Subtle**: moderate has no realism cap, so it got max-tier magnitude language *plus* the "LARGE, whole-body fat reduction … major and obvious at a glance" clause *plus* a 14-16% target.
+
+**Shipped (`public/index.html`, prompt text + gating only):**
+- Split the combined female `dramatic or max` directive into `[[FEM_RIPPED]]` (max) and `[[FEM_SUBTLE]]` (dramatic). Subtle now holds her frame, shoulder width and arm size at the input and is explicitly "NOT a peak-condition or competition physique".
+- Removed "shoulders must be noticeably rounder and more sculpted" from the Ripped directive — added size is now forbidden at **both** tiers.
+- `[[FEM_LARGE]]` (the LARGE whole-body ask) is **Ripped-only**. A heavier woman on Subtle keeps the realism-rule shape Dan already approved; a moderate woman gets a proportionate `[[FEM_MODSUB]]` mid-journey clause instead.
+- `[[MAXCHANGE]]` / `[[ATTAINABLE]]`: the maximal-change sentence is stripped for female Subtle, the "attainable" sentence for female Ripped.
+- `NO ADDED MASS RULE` as the headline female rule + a matching AVOID entry; the female shoulders/arms bullet now sharpens her existing frame instead of adding width.
+
+**Two lessons worth keeping.**
+1. **Retracting an instruction does not work — remove it.** The first attempt kept "include the maximal-change sentence when dramatic or max" and added "…but not for female dramatic" lower down. The assembly model obeyed the earlier positive instruction and emitted it anyway. Two contradictory instructions are unreliable; one is not.
+2. **Prose scoping leaked for the third time in this file.** The moderate-at-Subtle clause, written as a prose conditional, appeared in a moderate **Ripped** prompt and contradicted the peak directive in the same paragraph — while the LARGE clause it replaced was simultaneously dropped where it *was* wanted. Everything is now `[[MARKER]]`-scoped and stripped in `muscleAxisPlan()`. **Do not reintroduce prose-only scoping here.**
+
+**Body-fat anchors deliberately UNCHANGED.** Dan asks for *more* leanness at both tiers ("leaner, more ab definition, without more muscle"); the overshoot is on the muscle axis. Lowering the leanness target would worsen Gemini, whose failure is the exact opposite (`not enough change` ×9).
+
+**Verified:** 112 assertions over the real `goalSystemPrompt()` across every gender/condition/intensity combination; the same matrix re-run against the shipped functions **in the loaded page**; all 16 male prompts differ from HEAD **only** by female-scoped text (no male instruction changed); **120 assertions against the deployed `index.html` fetched from absbyai.com**; and live prod `/api/generate-prompt` calls confirming that what `condenseForKontext` hands Seedream now carries **zero** peak/mass language at Subtle, while Ripped keeps its magnitude and its anti-no-op floor. No console errors; no visual change (prompt text only). No native retest needed — this touches no trigger row.
+
+**Exact next action — DAN (the gate):** run real female generations on absbyai.com at **Subtle** (a moderate/average-build woman is the case that failed twice) and confirm the result is leaner-but-not-bigger. The prompt is now demonstrably asking for the right thing; whether Seedream *renders* it correctly is an eyeball only Dan can give. If it still overshoots, the next dial is the female `dramatic` body-fat anchor (currently 14-16%), which was left alone on purpose.
+
+**Still open, unchanged:** the judge was validated on round-1 MALE labels only — its female behaviour is unvalidated, and the 14 female labels now on disk are the obvious eval set for that.
 
 ### Female Seedream swap — SHIPPED, live-verified (2026-07-28, commit `8bee66c`)
 
