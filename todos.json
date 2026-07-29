@@ -119,25 +119,22 @@
       "text": "Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
       "priority": "key",
       "recurring": false,
-      "addedAt": "2026-07-23"
+      "addedAt": "2026-07-23",
+      "done": true
     },
     {
       "text": "Finish the model bake-off harness rebuild task.",
       "priority": "key",
       "recurring": false,
-      "addedAt": "2026-07-24"
+      "addedAt": "2026-07-24",
+      "done": true
     },
     {
       "text": "Finish the AbsByAI iOS App Store submission task.",
       "priority": "key",
       "recurring": false,
-      "addedAt": "2026-07-24"
-    },
-    {
-      "text": "Submit stuck Printify order #27805654.13",
-      "priority": "key",
-      "why": "One-click fix in Printify dashboard, quick win",
-      "addedAt": "2026-07-27"
+      "addedAt": "2026-07-24",
+      "done": true
     },
     {
       "text": "Run 2-3 real transformations on absbyai.com to eyeball new look",
