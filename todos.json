@@ -144,6 +144,30 @@
       "priority": "key",
       "why": "Confirm less-muscular, no-tan prompt fix is right — unblocks condensed-prompt decision",
       "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Execute handoff: Condensed-vs-full prompt A/B",
+      "priority": "key",
+      "why": "handoff-20260729-condensed-vs-full-prompt-ab.md — created but not yet run",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "text": "Execute handoff: Validate judge on female labels",
+      "priority": "key",
+      "why": "handoff-20260729-judge-female-validation.md — created but not yet run",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "text": "Execute handoff: Close locked-image leak on paywall",
+      "priority": "key",
+      "why": "handoff-20260729-locked-image-leak-fix.md — created but not yet run",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "text": "Execute handoff: Repo housekeeping (duplicate files, DNS/key rotation)",
+      "priority": "key",
+      "why": "handoff-20260729-repo-housekeeping.md — created but not yet run",
+      "addedAt": "2026-07-29"
     }
   ],
   "health": [
