@@ -62,7 +62,25 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` — female Subtle-tier retune SHIPPED and live-verified (commit `d948f93`, 2026-07-29); female Seedream swap before it (commit `8bee66c`, 2026-07-28)
+**Status:** `Complete — pending reset` — judge female validation MEASURED (2026-07-29, below); female Subtle-tier retune SHIPPED and live-verified before it (commit `d948f93`, 2026-07-29); female Seedream swap before that (commit `8bee66c`, 2026-07-28)
+
+### Judge female validation — MEASURED, nothing shipped (2026-07-29)
+
+Executed `handoff-20260729-judge-female-validation.md`. Ran the exact production judge configuration (`judge-v2`: claude-sonnet-5, 9 male few-shot exemplars, shipped weights, order-swapped double pass) over Dan's 14 female blind labels via a new reusable harness `bakeoff/judge-eval-female.js` (+ `bakeoff/judge-tune-female.js` offline sweep). Every call is disk-cached in `bakeoff/round1/judge-cache/` — re-runs are $0. The 2 "neither" rows were scored using Dan's sole acceptable candidate as a proxy pick (flagged in the output). Male regression re-confirmed from cache: **80.5% / 100% unchanged**.
+
+| | female (14 rows) | male baseline (held-out) |
+|---|---|---|
+| pairwise | **64.3%** (60.7% counting the one 0-margin tie as ½) | 80.5% |
+| case-level | 64.3% | 100% |
+| order flips | **0%** | 13.8% |
+| **Ripped (`max`) only** | **85.7%** (6/7) | — |
+| **Subtle (`dramatic`) only** | **42.9%** (3/7) — coin flip | — |
+
+**The headline is not "the judge is bad at women" — it is "the judge is blind to the Subtle tier."** At Ripped it matches or beats the male baseline. **All 5 misses are on the restraint axis**: in 4, Dan rejected the Seedream candidate as "too muscular / too much for subtle" and picked the modest Gemini result, while the judge scored the same Seedream image `bulk 2.5–3` ("athletic, at target") and rewarded its `definition 4–5, change 4–4.5`. The judge never receives the requested intensity, so it judges every image against one Ripped-flavored ideal — and Dan himself confirmed the images are tier-relative, not bad ("slightly too much change for subtle. Would be ideal for ripped"). The starkest miss (`fem-lean-real__dramatic`) is pure arithmetic: the judge **saw every fault** (bulk 4, skin 2, "overbuilt, tanned/oiled") and still ranked the overshoot above Gemini's near-no-op, because `underPenalty` punishes a no-op harder than the composite punishes overshoot. At Subtle, Dan's revealed preference is the opposite: modest-change beats overshoot. The single Ripped miss (`fem-dark-heavier__max`) is a low-confidence label — Dan tagged BOTH candidates "not enough change" and preferred one on a note.
+
+**Weights cannot fix this — verified, not assumed.** A 17,280-setting offline sweep (free, cached scores) including a new `overPenalty` axis: best female agreement reachable while holding male ≥80% is **75.0% (Subtle 64.3%)**, and only via settings that halve `definition` and zero `bulkPenalty` — i.e. by deleting Dan's taste, the exact move the Phase-3 record forbids. No weight change is proposed.
+
+**Recommended fix (needs Dan's go, touches `server.js` — deliberately NOT done):** pass the requested intensity to the judge and make the target tier-conditional — at Subtle, `change ≥ 4` / maximal definition is overshoot and a modest visible change is the ideal; at Ripped the current spec stands. Optionally add one female Subtle exemplar: round-2's `fem-moderate__dramatic` pair (Gemini acceptable vs Seedream "too muscular and too much definition for subtle") uses committable proof-asset images — **round-3 subjects stay out of the public repo**. Production impact while unfixed: on a female Subtle generation where Seedream overshoots, the judge auto-picks the overshoot instead of the restrained Gemini — the exact case Dan's `d948f93` prompt retune reduces but cannot guarantee away. Both the judge fix and re-validation against these same 14 labels are cheap (the harness + cache exist).
 
 ### Female Subtle overshoot — FIXED, SHIPPED, live-verified (2026-07-29, commit `d948f93`)
 
@@ -98,7 +116,7 @@ Closes open item 3 from the Seedream swap ("Seedream needs dialling back at the 
 
 **Exact next action — DAN (the gate):** run real female generations on absbyai.com at **Subtle** (a moderate/average-build woman is the case that failed twice) and confirm the result is leaner-but-not-bigger. The prompt is now demonstrably asking for the right thing; whether Seedream *renders* it correctly is an eyeball only Dan can give. If it still overshoots, the next dial is the female `dramatic` body-fat anchor (currently 14-16%), which was left alone on purpose.
 
-**Still open, unchanged:** the judge was validated on round-1 MALE labels only — its female behaviour is unvalidated, and the 14 female labels now on disk are the obvious eval set for that.
+**Still open — UPDATE 2026-07-29:** the judge's female behaviour is now MEASURED (see "Judge female validation" above): 64.3% pairwise overall, 85.7% at Ripped, 42.9% at Subtle — the judge is tier-blind, not female-blind. Fix proposal recorded there; awaiting Dan's go.
 
 ### Female Seedream swap — SHIPPED, live-verified (2026-07-28, commit `8bee66c`)
 
