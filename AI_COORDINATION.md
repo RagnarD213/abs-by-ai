@@ -63,7 +63,25 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` — locked-image leak fix SHIPPED, live-verified and native-retested (commit `66638b4`, 2026-07-29). Prior work below is unchanged: judge female validation MEASURED (2026-07-29); female Subtle-tier retune SHIPPED (commit `d948f93`); female Seedream swap (commit `8bee66c`).
+**Status:** `Complete — pending reset` — tier-aware judge SHIPPED and live-verified (commit `cec8020`, 2026-07-29, below); locked-image leak fix SHIPPED same day (commit `66638b4`). Prior work below is unchanged: judge female validation MEASURED (2026-07-29); female Subtle-tier retune SHIPPED (commit `d948f93`); female Seedream swap (commit `8bee66c`).
+
+### Tier-aware judge for female Subtle — SHIPPED, live-verified (2026-07-29, commit `cec8020`)
+
+Dan approved the fix proposed by the validation entry below. **Female Subtle agreement with Dan's labels: 42.9% → 83.3%, with male and female-Ripped judging byte-identical to the validated baseline.**
+
+**What shipped (`server.js` + `assets/judge-exemplars/ex4-*.jpg`):** when a generation is `sex === 'female' && intensity !== 'max'` (legacy `subtle`/`moderate` intensities included), the judge call gets two additions:
+1. **Tier context in the prompt** — one worked female Subtle exemplar (round-2 proof-asset images, committed as `ex4-before/chosen/rejected.jpg`: Dan's acceptable Gemini pick vs the Seedream he rejected as "too muscular and too much definition for subtle") plus a TIER NOTE stating that at Subtle, overshoot is a worse fault than a slightly-too-small change. Appended AFTER the prompt-cache breakpoint, so the cached system+exemplar prefix stays shared with every judge call.
+2. **A Subtle composite** — `JUDGE_SUBTLE_WEIGHTS = { ...JUDGE_WEIGHTS, defCap: 4, overPenalty: 1.5 }`: definition earns nothing past 4, and change above 3 is penalized at the same rate underPenalty punishes change below 3 (symmetric a-priori prior, sitting on a broad sweep plateau; the single 6/6 sweep cell was deliberately NOT adopted — that would be fitting 6 rows).
+
+**Two approaches were tried and rejected first** (in git history only): the tier note alone moved perception the right way but flipped nothing (Subtle stayed 3/6); an explicit per-candidate `overshoot: true|false` JSON field was WORSE (2/6 — the flag misfired on Dan's own picks). The scoring-note + deterministic-composite combination is what worked.
+
+**Eval protocol:** the exemplar row (`r2:fem-moderate__dramatic`) is held out of the female headline (male-eval protocol), leaving 13 rows. Results: female overall 84.6% pairwise/case-level, Subtle 5/6, Ripped 6/7 unchanged. The one remaining Subtle miss (`r3:fem-pale__dramatic`, margin 0.5) order-flips — in production that routes to the user chooser, not a wrong auto-pick. Male regression: `CACHE_ONLY=1 HELD_OUT_ONLY=1 node judge-eval.js` unchanged at **80.5% / 100%**.
+
+**Verified:** 6 byte-identity assertions (server tier note, exemplar texts, weights and `JUDGE_SYSTEM` byte-identical to the evaluated `bakeoff/judge-v2.js`; `judgeComposite` agrees with the harness composite on 800 random rubric×weight-set draws) + 21 behavioral checks executing the real `server.js` judge section with a stubbed provider (tier blocks only on femaleSubtle and only after the cache breakpoint, exactly one `cache_control`, the same rubric produces different winners under the two weight sets, baseline request byte-identical across calls, ex4 assets load, both-passes-fail → null fail-open, call-site flag expression). **Live on absbyai.com** (2 real generations, no deviceId): female moderate/dramatic → `gemini+seedream`, judge ran, served seedream, composite 15.9 — arithmetic proof the overPenalty applied on the wire (the baseline formula would give 17.4); male moderate/max → `gemini+flux`, served flux, composite 18.4 — exactly the baseline formula, no leak into the male path. No errors, normal latency (25.1s / 18.1s). No native retest needed — server-side judge routing only, no trigger row touched.
+
+**Watch in PostHog:** female Subtle `judge_winner` split and `chooser_shown` rate. The fix should reduce "too muscular" female Subtle serves; if the chooser rate at female Subtle rises, that is the order-flip signal routing close calls to the user (by design — tune only with new labels).
+
+**Caveat recorded honestly:** the 83.3% is measured on Subtle candidates generated under the OLD pre-`d948f93` prompts, which over-asked at Subtle. Post-retune Seedream should overshoot less often, so the judge's live Subtle task is easier than the eval's. The harness + disk cache make re-validation against any future labels ~$0.
 
 ### Locked-image leak — CLOSED, SHIPPED, live-verified (2026-07-29, commit `66638b4`)
 
@@ -95,7 +113,7 @@ Then, because the locked *result* screen is the screen this change actually touc
 
 **Watch in PostHog:** new `locked_image_retrieved` / `locked_image_retrieve_failed` (a rising `expired:true` rate would mean holds are aging out or deploys are landing mid-checkout — the dial is `HELD_TTL_MS`), and the new `locked_teaser_served` field on `generation_verifier` (should be `true` on every locked generation; a `false` means `SHARP_UNAVAILABLE` and the user got no image).
 
-### Judge female validation — MEASURED, nothing shipped (2026-07-29)
+### Judge female validation — MEASURED (2026-07-29); fix shipped same day, see the entry above
 
 Executed `handoff-20260729-judge-female-validation.md`. Ran the exact production judge configuration (`judge-v2`: claude-sonnet-5, 9 male few-shot exemplars, shipped weights, order-swapped double pass) over Dan's 14 female blind labels via a new reusable harness `bakeoff/judge-eval-female.js` (+ `bakeoff/judge-tune-female.js` offline sweep). Every call is disk-cached in `bakeoff/round1/judge-cache/` — re-runs are $0. The 2 "neither" rows were scored using Dan's sole acceptable candidate as a proxy pick (flagged in the output). Male regression re-confirmed from cache: **80.5% / 100% unchanged**.
 
@@ -111,7 +129,7 @@ Executed `handoff-20260729-judge-female-validation.md`. Ran the exact production
 
 **Weights cannot fix this — verified, not assumed.** A 17,280-setting offline sweep (free, cached scores) including a new `overPenalty` axis: best female agreement reachable while holding male ≥80% is **75.0% (Subtle 64.3%)**, and only via settings that halve `definition` and zero `bulkPenalty` — i.e. by deleting Dan's taste, the exact move the Phase-3 record forbids. No weight change is proposed.
 
-**Recommended fix (needs Dan's go, touches `server.js` — deliberately NOT done):** pass the requested intensity to the judge and make the target tier-conditional — at Subtle, `change ≥ 4` / maximal definition is overshoot and a modest visible change is the ideal; at Ripped the current spec stands. Optionally add one female Subtle exemplar: round-2's `fem-moderate__dramatic` pair (Gemini acceptable vs Seedream "too muscular and too much definition for subtle") uses committable proof-asset images — **round-3 subjects stay out of the public repo**. Production impact while unfixed: on a female Subtle generation where Seedream overshoots, the judge auto-picks the overshoot instead of the restrained Gemini — the exact case Dan's `d948f93` prompt retune reduces but cannot guarantee away. Both the judge fix and re-validation against these same 14 labels are cheap (the harness + cache exist).
+**Recommended fix — APPROVED by Dan and SHIPPED same day (see the tier-aware judge entry above). Original proposal:** pass the requested intensity to the judge and make the target tier-conditional — at Subtle, `change ≥ 4` / maximal definition is overshoot and a modest visible change is the ideal; at Ripped the current spec stands. Optionally add one female Subtle exemplar: round-2's `fem-moderate__dramatic` pair (Gemini acceptable vs Seedream "too muscular and too much definition for subtle") uses committable proof-asset images — **round-3 subjects stay out of the public repo**. Production impact while unfixed: on a female Subtle generation where Seedream overshoots, the judge auto-picks the overshoot instead of the restrained Gemini — the exact case Dan's `d948f93` prompt retune reduces but cannot guarantee away. Both the judge fix and re-validation against these same 14 labels are cheap (the harness + cache exist).
 
 ### Female Subtle overshoot — FIXED, SHIPPED, live-verified (2026-07-29, commit `d948f93`)
 
@@ -147,7 +165,7 @@ Closes open item 3 from the Seedream swap ("Seedream needs dialling back at the 
 
 **Exact next action — DAN (the gate):** run real female generations on absbyai.com at **Subtle** (a moderate/average-build woman is the case that failed twice) and confirm the result is leaner-but-not-bigger. The prompt is now demonstrably asking for the right thing; whether Seedream *renders* it correctly is an eyeball only Dan can give. If it still overshoots, the next dial is the female `dramatic` body-fat anchor (currently 14-16%), which was left alone on purpose.
 
-**Still open — UPDATE 2026-07-29:** the judge's female behaviour is now MEASURED (see "Judge female validation" above): 64.3% pairwise overall, 85.7% at Ripped, 42.9% at Subtle — the judge is tier-blind, not female-blind. Fix proposal recorded there; awaiting Dan's go.
+**Still open — RESOLVED 2026-07-29:** the judge's female behaviour was MEASURED (64.3% overall, 85.7% Ripped, 42.9% Subtle — tier-blind, not female-blind) and the tier-aware fix SHIPPED the same day (commit `cec8020`, female Subtle now 83.3%). See the "Tier-aware judge" entry above.
 
 ### Female Seedream swap — SHIPPED, live-verified (2026-07-28, commit `8bee66c`)
 
