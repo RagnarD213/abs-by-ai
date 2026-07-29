@@ -1,13 +1,15 @@
 {
   "date": "2026-07-29",
   "order": [
-    "personal::Request unemployment payment"
+    "money::Write outlines for test shoot"
   ],
   "excluded": [
     "money::Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
     "money::Finish the model bake-off harness rebuild task.",
     "money::Finish the AbsByAI iOS App Store submission task.",
-    "money::Submit stuck Printify order #27805654.13"
+    "money::Submit stuck Printify order #27805654.13",
+    "money::Run 2-3 real transformations on absbyai.com to eyeball new look",
+    "personal::Request unemployment payment"
   ],
   "sessionsCompleted": 0
 }
