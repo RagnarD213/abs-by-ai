@@ -68,7 +68,37 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` — tier-aware judge SHIPPED and live-verified (commit `cec8020`, 2026-07-29, below); locked-image leak fix SHIPPED same day (commit `66638b4`).
+**Status:** `Blocked` — condensed-vs-full prompt A/B batch is RUN and the blind gallery is published; **blocked on Dan's labels** (see the entry directly below). Other threads unchanged: tier-aware judge SHIPPED and live-verified (commit `cec8020`, 2026-07-29, below); locked-image leak fix SHIPPED same day (commit `66638b4`).
+
+### Condensed-vs-full prompt A/B — batch RUN, gallery PUBLISHED, blocked on Dan's labels (2026-07-29, commit `22f2288`)
+
+Executes `handoff-20260729-condensed-vs-full-prompt-ab.md` steps 1–3. **No production code changed** — step 4's decision rule requires Dan's blind labels and they have not been given.
+
+**Gallery for Dan to label:** https://claude.ai/code/artifact/26772cd0-d79d-4875-8b12-f24d7099da7a
+
+**Harness:** `bakeoff/round5-prompt-ab/` (own `cases.js` / `build-prompts.js` / `run.js` / `build-gallery.js` / `decode.js`). 36 images, **no `deviceId` on any call**, nominal spend **~$1.42** (well under the $2–6 budget). 36/36 produced, **zero moderation blocks, zero throttling**. Prompts come from prod `/api/generate-prompt` driven by the real `SYSTEM_PROMPT`/`goalSystemPrompt()`.
+
+**A structural fact that reshaped the grid — measured, not assumed.** Every assembled full prompt runs **4,027–6,472 chars**, and Seedream hard-rejects anything over 4,000 with a 422. So the **female challenger leg cannot receive the full prompt at all** — it is condensed-only by construction, not by choice. The male challenger (FLUX) has no such ceiling but is already sent condensed by design. That leaves the **Gemini leg as the only place the full prompt is actually in use, and the only place "replace full with condensed" is a shippable change.** Grid follows: **set 1 = Gemini, all 12 cases** (male lean/moderate/heavier × female moderate/lean/heavier, both tiers) is the primary arm; **set 2 = FLUX male, 6 cases** is a control on whether any condensed advantage is model-specific. Rows are ordered set 1 first and Dan is told set 1 alone decides it.
+
+**Design is a paired comparison:** every gallery row holds one photo, one model, one tier, and the ONLY difference between its two candidates is full vs condensed — so a pick is a direct vote on the prompt variant with **no model-identity confound**. This is why the arms are not pooled.
+
+**Pre-registered prediction, recorded BEFORE any image was generated (so the result cannot be rationalised after the fact): the expected direction has FLIPPED.** Round 1's "condensed won 8 of Dan's 10 best picks" came from condensed *dropping a positive tan instruction* ("bronze tan, ~2 shades deeper"). Post-retune the full prompt instead carries a tan **prohibition** ("Do NOT add a tan, bronzing, golden cast, or sun-kissed warmth") plus a skin-tone-preservation rule — and `condenseForKontext` **drops both in all 14 cases**, because they sit past the first paragraph. Measured per case: the no-tan guard and skin-tone rule are present in 14/14 full prompts and **0/14 condensed**. So full should now be equal-or-better on skin tone, and the gallery copy pushes Dan specifically at the `too tan` / `skin tone right` tags. (The female Subtle no-added-mass guard *does* survive condensing — it lives in the directive paragraph.)
+
+**Retune presence confirmed in these prompts, not assumed:** zero positive tan language, muscle anchors at 6/8 lb (halved, no +12/+15 anywhere), and female Subtle carrying "NOT a peak-condition or competition physique". Two greps looked like leaks and were **false positives** — they matched the retune's own *prohibition* text; worth remembering before re-flagging.
+
+**Harness fidelity asserted against the real `server.js`, 4 assertions:** the harness `condense()` is **byte-identical** to `condenseForKontext` across 4 prompt shapes (multi-paragraph, >1800-char first para, short, whitespace-only separator), the Gemini `SAFE FITNESS EDIT` retry preamble is verbatim, the condensed tail clause is present, and female→Seedream routing is intact. If any of these drift the A/B stops testing production.
+
+**Gallery invariants asserted, not hoped for** (all PASS): **per-set slot-A balance 6/6 and 3/3**; letters **pinned** for any row already in `key.json` (labels live in localStorage keyed `row:letter`, so a reshuffle would silently re-point an answered verdict at the other variant); every row pairs exactly one full against one condensed; 36 key entries for 18 rows. **Blinding verified in the built page:** 0 of 36 `key.json` entries appear in the HTML, no candidate block leaks variant wording, and all 18 rows hold two genuinely distinct images. Known, accepted leak: `data-case` contains the model slug, so devtools would reveal *which model* a row used — it cannot reveal which candidate is full vs condensed, which is the blinded variable.
+
+**Verified in-browser** on the exact published file (local static server, 375×812 + desktop): 18 rows, 36 candidates, 54/55 images decode (the 55th is the empty zoom placeholder), Better/Acceptable/tags/notes persist, progress counter correct, no horizontal overflow, no console errors. **`decode.js` proven end-to-end** on two synthetic label sets — it round-trips letters→variants through `key.json` and produces every breakdown. **Not verified:** the published artifact URL itself — artifacts are private and the test browser has no session on Dan's account, so the hosted render rests on it being a byte-identical publish of the locally verified file.
+
+**`decode.js` will not oversell a small sample.** It applies the handoff's rule but refuses to call convergence on a lopsided-but-underpowered split: a 7–1 result is p=0.070, which is a *lean*, not parity. That guard exists because the synthetic test produced exactly that case and the first version of the text called it "converged". It also breaks results out by **sex × tier**, because a clean sweep for full in one cell is a real regression even when the pooled test is flat.
+
+**Exact next action — DAN (the gate):** open the gallery link above, do **Set 1** (12 rows; Set 2 is optional), pick the better image per row — **"they look the same" is a real answer, mark both Acceptable** — tag skin tone freely, hit **Copy labels**, paste the text back. Then: `node bakeoff/round5-prompt-ab/decode.js <labels.json>` decodes against `key.json` and applies the decision rule. If the variants have converged, the proposal is to replace the full prompt with the condensed one on the Gemini leg (one prompt, lower latency, one thing to tune); if full still wins anywhere, record where and ship nothing.
+
+**Dashboard task `money::Execute handoff: Condensed-vs-full prompt A/B` is deliberately LEFT UNCHECKED** — Rule 9's bar is fully executed, and this is blocked mid-flow with nothing shipped. Check it off only after a decision lands (including a decision to ship nothing).
+
+**Still open, cheap:** the handoff's step 5 secondary signal — run the shipped judge over these same 36 images and note agreement with Dan. Doubles as extra judge-validation data; the harness and disk cache make it near-$0.
 
 ### AI ad factory — skill + pilot handoff CREATED, pilot NOT yet run (2026-07-29)
 
