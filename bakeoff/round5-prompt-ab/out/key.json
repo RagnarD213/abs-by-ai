@@ -1,0 +1,326 @@
+{
+  "fem-dark-heavier__dramatic__gemini-2.5-flash-image:A": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-dark-heavier__dramatic",
+    "gender": "female",
+    "condition": "heavier",
+    "intensity": "dramatic"
+  },
+  "fem-dark-heavier__dramatic__gemini-2.5-flash-image:B": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-dark-heavier__dramatic",
+    "gender": "female",
+    "condition": "heavier",
+    "intensity": "dramatic"
+  },
+  "fem-dark-heavier__max__gemini-2.5-flash-image:A": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-dark-heavier__max",
+    "gender": "female",
+    "condition": "heavier",
+    "intensity": "max"
+  },
+  "fem-dark-heavier__max__gemini-2.5-flash-image:B": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-dark-heavier__max",
+    "gender": "female",
+    "condition": "heavier",
+    "intensity": "max"
+  },
+  "fem-lean-real__dramatic__gemini-2.5-flash-image:A": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-lean-real__dramatic",
+    "gender": "female",
+    "condition": "fit",
+    "intensity": "dramatic"
+  },
+  "fem-lean-real__dramatic__gemini-2.5-flash-image:B": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-lean-real__dramatic",
+    "gender": "female",
+    "condition": "fit",
+    "intensity": "dramatic"
+  },
+  "fem-lean-real__max__gemini-2.5-flash-image:A": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-lean-real__max",
+    "gender": "female",
+    "condition": "fit",
+    "intensity": "max"
+  },
+  "fem-lean-real__max__gemini-2.5-flash-image:B": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-lean-real__max",
+    "gender": "female",
+    "condition": "fit",
+    "intensity": "max"
+  },
+  "fem-moderate__dramatic__gemini-2.5-flash-image:A": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-moderate__dramatic",
+    "gender": "female",
+    "condition": "moderate",
+    "intensity": "dramatic"
+  },
+  "fem-moderate__dramatic__gemini-2.5-flash-image:B": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-moderate__dramatic",
+    "gender": "female",
+    "condition": "moderate",
+    "intensity": "dramatic"
+  },
+  "fem-moderate__max__gemini-2.5-flash-image:A": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-moderate__max",
+    "gender": "female",
+    "condition": "moderate",
+    "intensity": "max"
+  },
+  "fem-moderate__max__gemini-2.5-flash-image:B": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "fem-moderate__max",
+    "gender": "female",
+    "condition": "moderate",
+    "intensity": "max"
+  },
+  "heavier-male__dramatic__gemini-2.5-flash-image:A": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "heavier-male__dramatic",
+    "gender": "male",
+    "condition": "heavier",
+    "intensity": "dramatic"
+  },
+  "heavier-male__dramatic__gemini-2.5-flash-image:B": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "heavier-male__dramatic",
+    "gender": "male",
+    "condition": "heavier",
+    "intensity": "dramatic"
+  },
+  "heavier-male__max__gemini-2.5-flash-image:A": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "heavier-male__max",
+    "gender": "male",
+    "condition": "heavier",
+    "intensity": "max"
+  },
+  "heavier-male__max__gemini-2.5-flash-image:B": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "heavier-male__max",
+    "gender": "male",
+    "condition": "heavier",
+    "intensity": "max"
+  },
+  "lean-male__dramatic__gemini-2.5-flash-image:A": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "lean-male__dramatic",
+    "gender": "male",
+    "condition": "very_lean",
+    "intensity": "dramatic"
+  },
+  "lean-male__dramatic__gemini-2.5-flash-image:B": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "lean-male__dramatic",
+    "gender": "male",
+    "condition": "very_lean",
+    "intensity": "dramatic"
+  },
+  "lean-male__max__gemini-2.5-flash-image:A": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "lean-male__max",
+    "gender": "male",
+    "condition": "very_lean",
+    "intensity": "max"
+  },
+  "lean-male__max__gemini-2.5-flash-image:B": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "lean-male__max",
+    "gender": "male",
+    "condition": "very_lean",
+    "intensity": "max"
+  },
+  "moderate-male__dramatic__gemini-2.5-flash-image:A": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "moderate-male__dramatic",
+    "gender": "male",
+    "condition": "moderate",
+    "intensity": "dramatic"
+  },
+  "moderate-male__dramatic__gemini-2.5-flash-image:B": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "moderate-male__dramatic",
+    "gender": "male",
+    "condition": "moderate",
+    "intensity": "dramatic"
+  },
+  "moderate-male__max__gemini-2.5-flash-image:A": {
+    "variant": "full",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "moderate-male__max",
+    "gender": "male",
+    "condition": "moderate",
+    "intensity": "max"
+  },
+  "moderate-male__max__gemini-2.5-flash-image:B": {
+    "variant": "condensed",
+    "modelKey": "gemini-2.5-flash-image",
+    "set": 1,
+    "caseId": "moderate-male__max",
+    "gender": "male",
+    "condition": "moderate",
+    "intensity": "max"
+  },
+  "heavier-male__dramatic__flux-kontext-pro:A": {
+    "variant": "condensed",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "heavier-male__dramatic",
+    "gender": "male",
+    "condition": "heavier",
+    "intensity": "dramatic"
+  },
+  "heavier-male__dramatic__flux-kontext-pro:B": {
+    "variant": "full",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "heavier-male__dramatic",
+    "gender": "male",
+    "condition": "heavier",
+    "intensity": "dramatic"
+  },
+  "heavier-male__max__flux-kontext-pro:A": {
+    "variant": "full",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "heavier-male__max",
+    "gender": "male",
+    "condition": "heavier",
+    "intensity": "max"
+  },
+  "heavier-male__max__flux-kontext-pro:B": {
+    "variant": "condensed",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "heavier-male__max",
+    "gender": "male",
+    "condition": "heavier",
+    "intensity": "max"
+  },
+  "lean-male__dramatic__flux-kontext-pro:A": {
+    "variant": "condensed",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "lean-male__dramatic",
+    "gender": "male",
+    "condition": "very_lean",
+    "intensity": "dramatic"
+  },
+  "lean-male__dramatic__flux-kontext-pro:B": {
+    "variant": "full",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "lean-male__dramatic",
+    "gender": "male",
+    "condition": "very_lean",
+    "intensity": "dramatic"
+  },
+  "lean-male__max__flux-kontext-pro:A": {
+    "variant": "full",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "lean-male__max",
+    "gender": "male",
+    "condition": "very_lean",
+    "intensity": "max"
+  },
+  "lean-male__max__flux-kontext-pro:B": {
+    "variant": "condensed",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "lean-male__max",
+    "gender": "male",
+    "condition": "very_lean",
+    "intensity": "max"
+  },
+  "moderate-male__dramatic__flux-kontext-pro:A": {
+    "variant": "full",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "moderate-male__dramatic",
+    "gender": "male",
+    "condition": "moderate",
+    "intensity": "dramatic"
+  },
+  "moderate-male__dramatic__flux-kontext-pro:B": {
+    "variant": "condensed",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "moderate-male__dramatic",
+    "gender": "male",
+    "condition": "moderate",
+    "intensity": "dramatic"
+  },
+  "moderate-male__max__flux-kontext-pro:A": {
+    "variant": "condensed",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "moderate-male__max",
+    "gender": "male",
+    "condition": "moderate",
+    "intensity": "max"
+  },
+  "moderate-male__max__flux-kontext-pro:B": {
+    "variant": "full",
+    "modelKey": "flux-kontext-pro",
+    "set": 2,
+    "caseId": "moderate-male__max",
+    "gender": "male",
+    "condition": "moderate",
+    "intensity": "max"
+  }
+}
