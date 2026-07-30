@@ -11,10 +11,11 @@ description: >
 
 # Make-Ad: AI Video Ad Production for Abs By AI
 
-**STATUS: v1 — written before the first pilot.** Steps 1–7 are settled process; steps
-8–9 contain assumptions marked ⚠️ that the pilot must verify. After the pilot (and
-every ad after), update the Lessons section at the bottom — this skill is supposed to
-get smarter with every ad.
+**STATUS: v2 — updated 2026-07-30 after the completed "The Upload" pilot** (two
+finished ads: narrator cut + first-person cut, total spend ~$40, both in
+`ad-factory/the-upload/final/`). Every ⚠️ assumption was tested; the answers live in
+the Lessons section at the bottom — READ IT BEFORE GENERATING ANYTHING. Keep updating
+Lessons after every ad — this skill is supposed to get smarter each time.
 
 ## The one-paragraph mental model
 
@@ -40,18 +41,20 @@ gates is Claude's to execute autonomously.
 - **Approval gates are hard stops.** Never proceed past a gate on an old approval —
   a script change after clips exist means regenerating clips.
 
-## Model routing (verified on Replicate 2026-07-29)
+## Model routing (verified in production during the pilot, 2026-07-30)
 
-| Job | Model (slug) | Notes | Rough cost |
+| Job | Model (slug) | Notes | Verified cost |
 |---|---|---|---|
-| Character stills | `google/nano-banana-pro` or `bytedance/seedream-4.5` | Same models as the app; known behavior | ~$0.04–0.13/image |
-| Dialogue clips (character speaks on camera) | `google/veo-3.1` (`-fast` for drafts) | Native lip-synced speech, takes reference images, 9:16 | ~$1–4 per 8s clip |
-| B-roll clips (no dialogue: montage, walking, scenery) | `kwaivgi/kling-v3-video` or `bytedance/seedance-2.0` | Kling: multi-shot subject consistency. Seedance 2.0: up to 9 reference images | well under Veo |
-| Voiceover | MiniMax speech model on Replicate (⚠️ confirm exact slug against live catalog before first use) | One continuous MP3 for the whole ad. ElevenLabs only if quality disappoints (needs new account + API key from Dan) | cents |
+| Character stills + B-roll start frames | `google/nano-banana-pro` | Face consistency = pass the close-up still as `image_input` on every call | ~$0.13/image |
+| Dialogue clips (character speaks on camera) | `google/veo-3.1` | The ONLY way to do talking scenes (lip-sync repaint is banned — see Lessons). Output geometry unpredictable: ALWAYS cropdetect | $0.40/s with audio ($3.20 per 8s take) |
+| B-roll clips | `kwaivgi/kling-v3-video`, mode `standard` (720p) | **NO reference-image input — consistency comes ENTIRELY from `start_image`** (a nano-banana frame). Flexible integer durations incl. 3s | ~$0.17/s no-audio (49s of pilot B-roll ≈ $8.35) |
+| Voiceover | `minimax/speech-02-hd` (slug confirmed) | `<#seconds#>` pause markers work; `subtitle_enable` returned nothing — get timing from Whisper instead | cents |
+| Voice clone (narrator == on-camera voice) | `minimax/voice-cloning` | Sample as **data URI** (Replicate file URLs fail "invalid file ext"); needs 10s–5min of audio; set `model: speech-02-hd` | ~$3 per clone |
+| Caption timing | `vaibhavs10/incredibly-fast-whisper` with `timestamp: word` | Community model → use generic `/v1/predictions` with a version id, not the models endpoint | ~1¢ |
 
-⚠️ Pull each model's live OpenAPI schema from Replicate before first use instead of
-guessing input fields — this caught real issues in the bake-off (Seedream's 4000-char
-limit, GPT Image's missing aspect ratio).
+Pull each model's live OpenAPI schema from Replicate before first use instead of
+guessing input fields — this caught real issues again in the pilot (Kling's missing
+reference input, Veo's duration enum, the voice-clone file-ext check).
 
 ## The 11-step workflow
 
@@ -82,14 +85,14 @@ Steps marked **[GATE]** stop and wait for Dan.
 8. **Clips.** Generate per the shot list: Veo for dialogue shots (pass the character
    stills as reference images + the bible in the prompt), Kling/Seedance for B-roll.
    QC each clip by extracting 3–4 frames (ffmpeg) and inspecting them: anatomy,
-   outfit match, setting match, no text artifacts. Auto-retry duds — ⚠️ expect
-   roughly 1 in 3 to need a retry (pilot to verify). Only surviving clips go to Dan.
+   outfit match, setting match, no text artifacts. Auto-retry duds — pilot measured 10/10
+   first-try passes when every clip animates from a face-locked start frame. Only surviving clips go to Dan.
 9. **Assembly (ffmpeg, NOT CapCut).** Build `assembly/build.sh` per ad: concat clips
    in shot order, trim cuts to narration beats, lay the VO, duck a royalty-free
    music bed under it, burn bold captions (ASS subtitles, MadMuscles style: large,
    centered-low, word-emphasis), append end card. The script IS the timeline —
    any tweak is a one-line change + re-render, which is what makes variants cheap.
-   ⚠️ Caption style spec is unwritten; pilot defines it. If a cut feels flat,
+   Caption spec + word-timestamp method: see Lessons (canonical). If a cut feels flat,
    the clips + VO folder can go to a human editor (Romeysa) for polish instead.
 10. **[GATE] Dan approves the assembled ad** (send the MP4). He judges motion, lip
     sync, and pacing — frame QC can't catch those.
@@ -108,4 +111,27 @@ youtu.be/HZLYJPGi8gI, youtu.be/3-dC0_qRXd0 (male tai chi). Full data in memory
 
 ## Lessons learned (append after every ad)
 
-- (none yet — pilot pending)
+### From "The Upload" pilot (2026-07-29/30 — two finished ads, ~$40 all-in incl. every retake; a clean rerun of both would be ~$20-25)
+
+**The five rules that were paid for in retakes — do not relearn these:**
+
+1. **NEVER use lip-sync repaint models (`kwaivgi/kling-lip-sync`, latentsync, etc.) for talking scenes.** Dan rejected the result on sight ("obviously AI... not really getting it"). Mouth-repainting decouples lips from jaw/cheeks/head and the eye catches it instantly. Talking scenes = **Veo 3.1 native dialogue only** — it generates voice + face together with real speech physics. That's what "looks like a guy talking."
+2. **Narrator voice == character voice via voice cloning, not the other way around.** Flow: generate the Veo talking takes first → extract their audio → clone it (`minimax/voice-cloning`, data-URI sample, ~$3) → synthesize ALL narration with the clone (`voice_id` saved in `vo/clone-voice-id.txt`). First-person ads (character narrates own story) are Dan's preferred format over third-person narrator.
+3. **Captions are ALWAYS generated from Whisper word-level timestamps of the FINAL mixed audio** (`assembly/captions-from-words.js`) — never from estimated line windows. Estimates drift the moment the voice changes; Dan caught it immediately. The transcript's sentence map is also the cut sheet: realign scene boundaries so lines land on matching visuals ("lock screen" line over the phone shot, etc.).
+4. **The after-photo is the product being sold — be pickiest there, and the target is the KINO BODY**: lean, sharp abs, deliberately NOT bulky ("a 40-year-old on the Kinobody plan"). Winning recipe through the LIVE pipeline: dream-physique description "lean and athletic, sharp defined abs, slim waist, not bulky — not a bodybuilder" + the app's real "Fix my result" pass ("not enough change" chip + "sharpen abs, add ZERO muscle size"). The plain male Ripped tier reads too muscular for ad use.
+5. **Veo's output geometry is a lottery — cropdetect every take.** `aspect_ratio: 9:16` is IGNORED in reference-images mode (true 16:9 out). Image-to-video mode returns 9:16 content PILLARBOXED inside 1920x1080 with varying bars (602 or 608 wide, once ~square 1036) — crop with the measured values, never assumed ones.
+
+**Costs & reliability actually measured:**
+- Kling B-roll first-try success: **10/10** (the skill predicted 1-in-3 retries). The consistency workflow is what does it: every clip animates from a nano-banana start frame built from the character stills; Kling prompts describe MOTION only. Kling ≈ 133s/clip wall time; Veo ≈ 80-130s.
+- Character sheet: still 1 from text, stills 2-4 with still 1 as `image_input` — zero drift, zero retries. Same trick for every start frame (face-locked close-up as first ref).
+- MiniMax voices: the three "storyteller" voices didn't match a solid 40s everyman; deeper set fit. **ManWithDeepVoice** chosen for the pilot's character. PatientMan reads ~30% slower (80s vs 58s for the same script) — voice choice changes ad length; re-transcribe + re-time after ANY voice change.
+- Full pilot spend ≈ $40: nano images ×~22 ≈ $2.90, Kling 49s+16s regen ≈ $11, Veo ×5 takes $16, MiniMax TTS ~$0.40, clone $3, product generations ~$0.35, lip-sync experiments $0.25 (dead end), Whisper ~2¢.
+
+**Caption spec (defined from MadMuscles' $224.8k ad, now canonical):** Arial Bold 86px at 1080x1920, white, black outline 7, shadow 3, bottom-center with MarginV 690 (~62% height), 2-4 word chunks broken at punctuation and >0.6s audio gaps, uppercase for punch words (ABS, YOU, FREE, WEIGHTS/WALKS/PROTEIN). Persistent micro-disclaimer, 26px translucent at ~82%: "AI-generated actor. Story for illustration purposes only. / Results are not guaranteed." (they burn one into every ad; so do we). ASS gotcha: the Events Format line MUST include the `Effect` field or every caption gains a leading comma. Fonts: copy Arial Bold/Black from /System/Library/Fonts/Supplemental into assembly/fonts and pass `fontsdir` (no Homebrew on this Mac — ffmpeg comes from `npm i ffmpeg-static`, has libass).
+- No captions over the end card (the card text collides) and keep the AI-GENERATED label clear of the caption band (y≈1345 works).
+
+**Assembly architecture that made 6+ re-renders cheap:** per-segment intermediate MP4s (uniform 1080x1920@30 h264+aac) → concat → burn ASS → single audio bed. Mute ALL segment audio except Veo talking scenes; lay the VO MP3s at exact offsets. Every revision (new voice, new scene timing, caption fix) = edit `build*.js` + 2-min re-render, zero regeneration. Timelines in `timeline*.json`; silencedetect (`-35dB:d=0.3`) maps VO pauses; Whisper maps words/sentences.
+
+**Product-capture recipe (S5 app-demo segment):** run the REAL flow in the iOS Simulator — `xcrun simctl addmedia` the character's photo, drive the actual photo picker, real generation, `simctl io screenshot` at retina (1206x2622), Ken-Burns the stills with zoompan. 100% genuine UI. **MANDATORY cleanup: the generation saves into the logged-in demo account (danroseconsulting+applereview@gmail.com — the Apple-review account!) and STEALS ITS HOME-SCREEN HERO. Delete the stray transformation from My Transformations and verify the curated beach-man hero is restored** (bit us twice; the app was Waiting for Review both times).
+
+**Misc that will bite again if forgotten:** Replicate community models need `POST /v1/predictions` + `version` (models endpoint 404s). The Replicate files API loses filename extensions — pass media as data URIs. Balance has no API — check replicate.com/account/billing via Dan's Chrome (was $22.97 pre-pilot, card on file). The AI-reveal effect (scan flash + AI-GENERATED drawtext) is pure ffmpeg on the hook — free, reusable. MadMuscles reference pacing: long 5-10s conversational shots, 2 settings intercut, direct-to-camera close. Wispr voice-dictation: "abs" transcribes as "ads", "Kino body" as "keno body".
