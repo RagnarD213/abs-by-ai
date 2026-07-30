@@ -3,7 +3,8 @@
     "health::Shower",
     "health::Workout",
     "health::Supplements",
-    "health::Salad"
+    "health::Salad",
+    "money::Write outlines for test shoot"
   ],
   "log": {
     "health::Shower": [
