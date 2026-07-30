@@ -68,11 +68,44 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Blocked` — condensed-vs-full prompt A/B batch is RUN and the blind gallery is published; **blocked on Dan's labels** (see the entry directly below). Other threads unchanged: tier-aware judge SHIPPED and live-verified (commit `cec8020`, 2026-07-29, below); locked-image leak fix SHIPPED same day (commit `66638b4`).
+**Status:** `Complete — pending reset` — condensed-vs-full prompt A/B is MEASURED against Dan's 18 blind labels; **verdict: variants have converged (3–3, p=1.000) but SHIP NOTHING** — see the entry directly below. Other threads unchanged: tier-aware judge SHIPPED and live-verified (commit `cec8020`, 2026-07-29, below); locked-image leak fix SHIPPED same day (commit `66638b4`).
 
-### Condensed-vs-full prompt A/B — batch RUN, gallery PUBLISHED, blocked on Dan's labels (2026-07-29, commit `22f2288`)
+### Condensed-vs-full prompt A/B — MEASURED, verdict SHIP NOTHING (2026-07-29, commits `22f2288` + labels)
 
-Executes `handoff-20260729-condensed-vs-full-prompt-ab.md` steps 1–3. **No production code changed** — step 4's decision rule requires Dan's blind labels and they have not been given.
+Executes `handoff-20260729-condensed-vs-full-prompt-ab.md` end to end. **No production code changed, and none should be** — see the verdict.
+
+**Dan's 18 blind labels are on disk at `bakeoff/round5-prompt-ab/out/labels.json`** (permanent regression set, like `round1/labels.json`). Decode with `node bakeoff/round5-prompt-ab/decode.js out/labels.json`.
+
+| Set 1 — Gemini (the only shippable change) | result |
+|---|---|
+| decisive rows | **full 3 · condensed 3** |
+| two-sided sign test | **p = 1.000** |
+| both-candidates-rejected | **6 of 12 rows** |
+| no per-cell sweep for either variant | female dramatic 1–2, female max 1–1, male dramatic 1–0, male max 0–0 |
+
+**Verdict: the variants have converged, and the recommendation is still to SHIP NOTHING.** Three reasons, in order of weight:
+
+1. **Zero measured upside.** 3–3 at p=1.000. There is no evidence condensed is better on the Gemini leg.
+2. **A real, verified, asymmetric downside.** Both `looks fake` tags in the whole study landed on **condensed**, both on women, both the *same specific defect* — a spurious thin vertical line down the abdominal midline (`fem-moderate__dramatic`, `fem-lean-real__max`; Dan: "line down middle looks like AI"). Claude confirmed it visually and the **full-prompt counterpart of the same case is clean**. 2 of 12 condensed vs 0 of 12 full. Small n and Gemini is stochastic, so this is a signal, not proven causation — but it is the only quality asymmetry in the data and it points against condensed.
+3. **The handoff's stated benefit does not exist.** The plan sells "one prompt, one thing to tune" — but **`condenseForKontext` is a TRANSFORM of the full prompt**, so a condensed-everywhere world still assembles the full marker-scoped prompt via `goalSystemPrompt()` and derives from it. Nothing would be deleted or stop being maintained. The real upside is a modest token/latency saving on one leg, not a simplification. **Do not re-litigate this on the "simplification" premise.**
+
+Set 2 (FLUX male control) also **leans full 3–1** (not significant, n=4 decisive) — same direction as the artifact signal.
+
+**The pre-registered prediction was WRONG, recorded plainly.** Claude predicted full would now win on skin tone because condensing drops the new no-tan prohibition and the skin-tone-preservation rule (present in 14/14 full, 0/14 condensed). Actual: **`too tan` = 0 for BOTH variants, and `skin tone right` = 13 vs 13 — exactly tied.** The lesson is worth keeping: **the tan problem was never Gemini's instinct, it was our instruction.** Once `14b4790` stopped *telling* Gemini to add a tan, Gemini holds skin tone on its own, and the prohibition is belt-and-braces that carries no measurable weight. Condensed dropping it costs nothing. (Counter-signal in condensed's favour, for completeness: **all 4 `just right` tags went to condensed.** Condensed is higher-variance — it produced both the best results and the only artifacts.)
+
+### The far bigger finding this A/B surfaced — Gemini is failing MEN at both tiers
+
+This is a product problem, not a prompt-variant problem, and it is the highest-value open item on the generation path.
+
+- **Dan rejected BOTH candidates in 5 of 6 male Gemini rows** (lean dramatic + max, heavier dramatic + max, moderate max). Every one tagged `not enough change`. Only `moderate-male__dramatic` produced a pick, and even that was tagged `not enough change` + `not enough ab definition` ("slightly more dramatic would be ideal").
+- **Gemini under-changed 19 of its 24 candidates; FLUX over-changed 8 of its 12** (`too muscular` / `too much change`). The two male legs fail in **exact opposite directions** — the same mirror-image pattern already recorded for women (Gemini under / Seedream over) is now **confirmed for men**.
+- Consequence for production: on a male generation the judge is often choosing between an under-change and an over-change with **no good option**. Dan's ideal sits between them.
+- Female Gemini was much healthier by contrast — 5 of 6 rows produced a pick, and `fem-dark-heavier` was tagged `just right` at both tiers.
+- Dan's recurring written note across the study, unchanged from earlier rounds: **more ab definition** (`not enough ab definition` 6 full / 4 condensed, plus three separate "slightly more ab definition / more dramatic would be ideal" notes).
+
+**Recommended next action (needs Dan's go):** raise male change magnitude on the **Gemini** path — this is the male mirror of the female Subtle retune, and the same technique applies (`[[MARKER]]`-scoped, deterministic stripping in `muscleAxisPlan()`, never prose-only scoping). Note the tension to respect: the 2026-07-25 retune deliberately *halved* the muscle anchors because Dan's round-1 labels said "too muscular" 33×. Those complaints were overwhelmingly about **FLUX-style over-change**, and this round shows FLUX still over-changes men 8/12 while Gemini under-changes 19/24. So the fix is **not** a global anchor increase — it is leaner/more-defined on the Gemini male path without adding mass, exactly the axis Dan keeps naming. Do not undo `14b4790` wholesale.
+
+**Still open, cheap:** the handoff's step 5 secondary signal — run the shipped judge over these 36 images and score agreement with `labels.json`. Near-$0 (harness + disk cache exist) and doubles as male-judge validation data on a set where Dan rejected both candidates 6 times, which is itself informative about the judge's fail-open behaviour.
 
 **Gallery for Dan to label:** https://claude.ai/code/artifact/26772cd0-d79d-4875-8b12-f24d7099da7a
 
@@ -94,11 +127,9 @@ Executes `handoff-20260729-condensed-vs-full-prompt-ab.md` steps 1–3. **No pro
 
 **`decode.js` will not oversell a small sample.** It applies the handoff's rule but refuses to call convergence on a lopsided-but-underpowered split: a 7–1 result is p=0.070, which is a *lean*, not parity. That guard exists because the synthetic test produced exactly that case and the first version of the text called it "converged". It also breaks results out by **sex × tier**, because a clean sweep for full in one cell is a real regression even when the pooled test is flat.
 
-**Exact next action — DAN (the gate):** open the gallery link above, do **Set 1** (12 rows; Set 2 is optional), pick the better image per row — **"they look the same" is a real answer, mark both Acceptable** — tag skin tone freely, hit **Copy labels**, paste the text back. Then: `node bakeoff/round5-prompt-ab/decode.js <labels.json>` decodes against `key.json` and applies the decision rule. If the variants have converged, the proposal is to replace the full prompt with the condensed one on the Gemini leg (one prompt, lower latency, one thing to tune); if full still wins anywhere, record where and ship nothing.
+**Labelling gallery (all 18 rows answered):** https://claude.ai/code/artifact/26772cd0-d79d-4875-8b12-f24d7099da7a
 
-**Dashboard task `money::Execute handoff: Condensed-vs-full prompt A/B` is deliberately LEFT UNCHECKED** — Rule 9's bar is fully executed, and this is blocked mid-flow with nothing shipped. Check it off only after a decision lands (including a decision to ship nothing).
-
-**Still open, cheap:** the handoff's step 5 secondary signal — run the shipped judge over these same 36 images and note agreement with Dan. Doubles as extra judge-validation data; the harness and disk cache make it near-$0.
+**Dashboard task `money::Execute handoff: Condensed-vs-full prompt A/B` checked off** — the handoff is fully executed and answered. "Ship nothing" is a completed outcome, not an unfinished one. If Dan overrides the recommendation and wants condensed shipped anyway, that is a new task.
 
 ### AI ad factory — pilot: Gate 1 PASSED, character sheet GENERATED, at Gate 2 (2026-07-29, Claude Code)
 
