@@ -116,48 +116,9 @@
       "addedAt": "2026-07-23"
     },
     {
-      "text": "Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-23",
-      "done": true
-    },
-    {
-      "text": "Finish the model bake-off harness rebuild task.",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-24",
-      "done": true
-    },
-    {
-      "text": "Finish the AbsByAI iOS App Store submission task.",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-24",
-      "done": true
-    },
-    {
-      "text": "Run 2-3 real transformations on absbyai.com to eyeball new look",
-      "priority": "key",
-      "why": "Confirm less-muscular, no-tan prompt fix is right — unblocks condensed-prompt decision",
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Execute handoff: Condensed-vs-full prompt A/B",
-      "priority": "key",
-      "why": "handoff-20260729-condensed-vs-full-prompt-ab.md — created but not yet run",
-      "addedAt": "2026-07-29"
-    },
-    {
       "text": "Execute handoff: Validate judge on female labels",
       "priority": "key",
       "why": "handoff-20260729-judge-female-validation.md — created but not yet run",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "text": "Execute handoff: Close locked-image leak on paywall",
-      "priority": "key",
-      "why": "handoff-20260729-locked-image-leak-fix.md — created but not yet run",
       "addedAt": "2026-07-29"
     },
     {
@@ -203,14 +164,14 @@
       "priority": "high",
       "recurring": true,
       "addedAt": "2026-07-29"
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high",
+      "addedAt": "2026-07-30"
     }
   ],
   "personal": [
-    {
-      "text": "Request unemployment payment",
-      "priority": "key",
-      "addedAt": "2026-07-28"
-    },
     {
       "text": "Call title company",
       "priority": "high",
