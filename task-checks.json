@@ -6,7 +6,6 @@
     "health::Salad",
     "health::Inject Zepbound",
     "personal::Request unemployment payment",
-    "money::Execute handoff: Close locked-image leak on paywall",
     "money::Execute handoff: Condensed-vs-full prompt A/B"
   ],
   "log": {
