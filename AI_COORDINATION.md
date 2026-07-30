@@ -68,7 +68,11 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` — tier-aware judge SHIPPED and live-verified (commit `cec8020`, 2026-07-29, below); locked-image leak fix SHIPPED same day (commit `66638b4`). Prior work below is unchanged: judge female validation MEASURED (2026-07-29); female Subtle-tier retune SHIPPED (commit `d948f93`); female Seedream swap (commit `8bee66c`).
+**Status:** `Complete — pending reset` — tier-aware judge SHIPPED and live-verified (commit `cec8020`, 2026-07-29, below); locked-image leak fix SHIPPED same day (commit `66638b4`).
+
+### AI ad factory — skill + pilot handoff CREATED, pilot NOT yet run (2026-07-29)
+
+Planning session with Dan (research + brainstorm + tooling decisions in memory `ai-ad-creation-research`). Deliverables on disk: **`.claude/skills/make-ad/SKILL.md`** (v1 — 11-step MadMuscles-style AI video ad workflow with Dan's approval gates; steps 8–9 carry ⚠️ unverified assumptions the pilot must test) and **`handoff-20260729-ai-ad-pilot-the-upload.md`** (pilot = "The Upload" concept; all decisions settled — Replicate-only generation, Veo 3.1 dialogue / Kling-Seedance B-roll, ffmpeg assembly not CapCut, MiniMax VO first). Dashboard Key task added per Rule 8 (`money::Execute handoff: Produce "The Upload" pilot AI video ad` — verified persisted). Pilot output dir `ad-factory/` must be git-ignored when created (public repo). After the pilot, write actuals (retry rate, costs, caption spec) into the skill's Lessons section — that's a deliverable of the pilot, not optional. Prior work below is unchanged: judge female validation MEASURED (2026-07-29); female Subtle-tier retune SHIPPED (commit `d948f93`); female Seedream swap (commit `8bee66c`).
 
 ### Tier-aware judge for female Subtle — SHIPPED, live-verified (2026-07-29, commit `cec8020`)
 
