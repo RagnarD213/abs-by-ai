@@ -150,6 +150,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-30"
+    },
+    {
+      "text": "Execute handoff: Google Ads compliance pages",
+      "priority": "key",
+      "why": "handoff-20260730-google-ads-compliance-pages.md — created but not yet run; blocks opening the Google Ads account",
+      "addedAt": "2026-07-30"
     }
   ],
   "health": [
