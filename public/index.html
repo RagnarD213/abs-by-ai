@@ -175,6 +175,11 @@ html, body {
   margin: 8px 2px 0; font-size: 12px; font-weight: 600;
   color: var(--mute); text-align: center;
 }
+.proof-disclosure {
+  margin: 4px 2px 0; font-size: 10.5px; font-weight: 500;
+  color: var(--mute); text-align: center; opacity: 0.85;
+}
+.proof-disclosure a { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   .proof-slide, .proof-dot, .proof-collapsible { transition: none; }
 }
@@ -1504,7 +1509,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
                 <img class="proof-image" src="img/proof/male-before.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example before AI visualization" />
               </div>
               <div class="proof-image-wrap">
-                <span class="proof-image-label after">AI after</span>
+                <span class="proof-image-label after">AI-generated</span>
                 <img class="proof-image" src="img/proof/male-after.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example after AI visualization" />
               </div>
             </div>
@@ -1514,7 +1519,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
                 <img class="proof-image" data-src="img/proof/female-before.webp" loading="lazy" width="375" height="500" alt="Fictional female example before AI visualization" />
               </div>
               <div class="proof-image-wrap">
-                <span class="proof-image-label after">AI after</span>
+                <span class="proof-image-label after">AI-generated</span>
                 <img class="proof-image" data-src="img/proof/female-after.webp" loading="lazy" width="375" height="500" alt="Fictional female example after AI visualization" />
               </div>
             </div>
@@ -1524,12 +1529,13 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
                 <img class="proof-image" data-src="img/proof/male2-before.webp" loading="lazy" width="375" height="500" alt="Fictional male example before AI visualization, heavier build" />
               </div>
               <div class="proof-image-wrap">
-                <span class="proof-image-label after">AI after</span>
+                <span class="proof-image-label after">AI-generated</span>
                 <img class="proof-image" data-src="img/proof/male2-after.webp" loading="lazy" width="375" height="500" alt="Fictional male example after AI visualization, heavier build" />
               </div>
             </div>
           </div>
           <div class="proof-caption" id="proofCaption"></div>
+          <div class="proof-disclosure">Fictional examples. "AI-generated" photos are AI visualizations, not real results — see our <a href="/disclaimer" style="color:inherit">Disclaimer</a>.</div>
         </div>
       </div>
     </section>
@@ -2045,7 +2051,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <button id="confirmStartOverBtn" class="try-diff-btn" style="margin-top:14px">Generate another look</button>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/privacy" style="color:inherit">Privacy</a></div>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
   </div>
 
   <!-- ════════════════ SCREEN: LOG IN / SIGN UP ════════════════ -->
@@ -2231,7 +2237,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       </div>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/privacy" style="color:inherit">Privacy</a></div>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
   </div>
 
   <!-- ════════════════ SCREEN 6: MACRO TRACKER ════════════════ -->
@@ -2345,7 +2351,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div id="todaysMealsList"></div>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/privacy" style="color:inherit">Privacy</a></div>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
   </div>
 
   <!-- ════════════════ SCREEN: AI TRAINER — INTAKE ════════════════ -->
@@ -2641,8 +2647,8 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 
     <div id="creditConvertNote" class="credit-convert-note app-hide-purchase" style="display:none"></div>
     <div id="membershipError" class="error-toast" style="display:none;margin-top:12px"></div>
-    <button id="membershipSubscribeBtn" class="cta-btn app-hide-purchase" style="margin-top:14px">Start 7-day free trial</button>
-    <div class="guarantee-note app-hide-purchase">7 days free, then your plan price. Cancel anytime before it ends and you won't be charged.</div>
+    <div class="guarantee-note app-hide-purchase" style="margin-top:14px;margin-bottom:0">7 days free, then your plan price ($19.99/mo or $69.99/yr) billed automatically and renewed each period until canceled. Cancel anytime before the trial ends and you won't be charged. See our <a href="/terms" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Terms</a>.</div>
+    <button id="membershipSubscribeBtn" class="cta-btn app-hide-purchase" style="margin-top:10px">Start 7-day free trial</button>
 
     <!-- Pay-as-you-go alternative (shown when the user hit a credit-gated wall, e.g. meal analyses) -->
     <div id="membershipCreditsAlt" class="app-hide-purchase" style="display:none;margin-top:22px">

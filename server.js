@@ -8457,6 +8457,14 @@ app.get('/privacy', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
 });
 
+// Explicit routes for the Google Ads compliance pages (linked without .html).
+// Must stay registered before the SPA fallback below, or they'd be swallowed by it.
+for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works']) {
+  app.get(`/${slug}`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', `${slug}.html`));
+  });
+}
+
 // Explicit route for the morning brief (linked as /morningbrief without .html).
 // Regenerated daily by a scheduled task; file lives in public/ like everything else served here.
 app.get('/morningbrief', (req, res) => {
