@@ -68,7 +68,23 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` — condensed-vs-full prompt A/B is MEASURED against Dan's 18 blind labels; **verdict: variants have converged (3–3, p=1.000) but SHIP NOTHING** — see the entry directly below. Other threads unchanged: tier-aware judge SHIPPED and live-verified (commit `cec8020`, 2026-07-29, below); locked-image leak fix SHIPPED same day (commit `66638b4`).
+**Status:** `Implementation in progress` — repo housekeeping (below) is partway done, blocked on Dan for two logins. Other threads unchanged: condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (commit `cec8020`, 2026-07-29); locked-image leak fix SHIPPED same day (commit `66638b4`). Full detail on all three in the entries below.
+
+### Repo housekeeping — duplicates + gitignore DONE; DNS/key rotation BLOCKED on Dan (2026-07-30)
+
+Executes `handoff-20260729-repo-housekeeping.md`.
+
+**Duplicates — DONE, commit `301bd44` (pushed).** Enumerated all untracked ` [2-9].ext` sync-conflict copies in the project root, `.claude/`, and `scripts/` (147 + 5 + 1 = 153 files). Every one was verified byte-identical to its base file via `cmp` before deletion, and verified untracked via `git ls-files` before deletion — no base file or tracked file was ever touched, and the root `*-data.json` production files were untouched (diffed clean before/after). Two files were flagged instead of deleted per the handoff's safety rule (a suffixed copy newer than its base may hold unsynced edits): `scripts/native-smoke-test 2.sh` and `4.sh` have newer mtimes than `scripts/native-smoke-test.sh`, though a diff shows they're actually missing 5 comment lines the base later gained (no unique content) — left on disk for Dan to eyeball/delete manually, now gitignored so they don't clutter `git status`.
+
+**Deliberately out of scope, not touched:** `ios-app/` (~692 similarly-suffixed files — Xcode `ModuleCache.noindex`/build-product duplicates, not mentioned in the handoff, regenerates automatically, risky to touch mid-build) and `app-store-assets/` (~90 similarly-suffixed screenshot/tool duplicates — real product assets, higher risk, not mentioned in the handoff). Both are candidates for a future, separately-scoped cleanup if Dan wants one — flagging here rather than guessing.
+
+**`.gitignore` — DONE, commit `ee04060`/`301bd44` (pushed).** Added patterns for the ` [0-9].md/json/js/sh/txt` sync-conflict class and `B roll/` (gitignore is the handoff's stated safe default for media dirs). Verified via `git ls-files` that no tracked file matches the new patterns before committing.
+
+**SPF/DMARC — BLOCKED, needs Dan to log into Namecheap.** Full DNS snapshot taken first (public `dig` query, no login needed) — saved in this session's scratchpad. **Real finding, not something I caused:** the root TXT records currently hold **two competing SPF records** — `v=spf1 include:spf.efwd.registrar-servers.com ~all` (clean) and `v=spf1 include:_spf.mlsend.com include:spf.efwd.registrar-servers.com ~all` (the retired MailerLite one) — which is itself an SPF permerror-causing misconfiguration, predating this task. The fix is a straight deletion of the second record (not an edit), which simultaneously removes the dead MailerLite include AND resolves the duplicate-SPF problem. DMARC is still `v=DMARC1; p=none;`; plan is `p=quarantine; pct=100; rua=mailto:dan@absbyai.com`, not straight to `p=reject`. **Could not proceed:** the in-session browser has no saved Namecheap login, and I do not enter credentials on Dan's behalf even on request. Needs Dan to log into Namecheap in the browser tab (or hand off session cookies), then I can make the two verified, surgical DNS edits and confirm via `dig` + a page reload (Namecheap silently rolled back a save once before, per the 2026-07-22 lesson — always reload to confirm).
+
+**MailerLite key rotation — BLOCKED, needs Dan to log into the retired MailerLite account.** Same issue — no saved login in-session, and I won't handle the credential myself. `MAILERLITE_API_KEY` was already deleted from Railway 2026-07-17 so nothing depends on the old key; this is a pure cleanup/security item (an unrotated key that was pasted in chat once). Needs Dan's 30 seconds: log into the MailerLite account → Integrations/API → delete or regenerate the old key.
+
+**Exact next action:** Dan logs into Namecheap (and separately, MailerLite) in this session's browser tab, then Claude Code finishes the SPF deletion + DMARC change + key rotation, verifies each with `dig`/a page reload, and updates this section to close out.
 
 ### Condensed-vs-full prompt A/B — MEASURED, verdict SHIP NOTHING (2026-07-29, commits `22f2288` + labels)
 
