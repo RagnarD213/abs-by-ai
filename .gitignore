@@ -50,3 +50,6 @@ bakeoff/round1/scaled/
 .demotoken
 **/.demotoken
 native-smoke-out/
+
+# AI ad factory work files (video/audio/images — public repo, keep out of git)
+ad-factory/
