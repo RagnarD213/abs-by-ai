@@ -144,6 +144,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-30"
+    },
+    {
+      "text": "Set up remarketing pixel and conversion pixel",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-30"
     }
   ],
   "health": [
