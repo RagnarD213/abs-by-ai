@@ -171,6 +171,12 @@
       "priority": "key",
       "why": "handoff-20260729-ai-ad-pilot-the-upload.md — created but not yet run",
       "addedAt": "2026-07-29"
+    },
+    {
+      "text": "Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
+      "priority": "key",
+      "why": "handoff-20260729-ab-visibility-anchor-ladder.md — created but not yet run",
+      "addedAt": "2026-07-29"
     }
   ],
   "health": [
