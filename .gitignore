@@ -53,3 +53,14 @@ native-smoke-out/
 
 # AI ad factory work files (video/audio/images — public repo, keep out of git)
 ad-factory/
+
+# macOS/iCloud/Drive sync-conflict duplicate copies ("file 2.md", "file 7.json", etc.)
+# Verified against `git ls-files` before adding — no tracked file matches this pattern.
+* [0-9].md
+* [0-9].json
+* [0-9].js
+* [0-9].sh
+* [0-9].txt
+
+# Local-only working media, not part of the deployed app
+B roll/
