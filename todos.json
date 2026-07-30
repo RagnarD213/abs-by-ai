@@ -138,6 +138,12 @@
       "priority": "key",
       "why": "handoff-20260729-ab-visibility-anchor-ladder.md — created but not yet run",
       "addedAt": "2026-07-29"
+    },
+    {
+      "text": "Create Google Ads account",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-07-30"
     }
   ],
   "health": [
