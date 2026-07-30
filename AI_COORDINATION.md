@@ -70,6 +70,18 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 **Owner:** Claude Code
 **Status:** `Implementation in progress` — repo housekeeping (below) is partway done, blocked on Dan for two logins. Other threads unchanged: condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (commit `cec8020`, 2026-07-29); locked-image leak fix SHIPPED same day (commit `66638b4`). Full detail on all three in the entries below.
 
+### Google Ads compliance pages — HANDOFF WRITTEN, not executed (2026-07-30)
+
+`handoff-20260730-google-ads-compliance-pages.md`. Dan is opening a Google Ads account and asked what compliance pages the site needs. Policy research is DONE and captured in the handoff (8 official Google policy pages cited) — **do not re-research, and do not go looking for an official "required pages" checklist; Google publishes none.** The requirements are behavioral (disclose billing, don't overpromise results, be reachable); pages are the evidence.
+
+Scope: 8 new standalone pages (terms, refunds, contact, disclaimer, faq, about, how-it-works + an expanded privacy), explicit routes in `server.js` registered **before** the `app.get('*')` SPA fallback at `:8467`, a real legal footer replacing the Privacy-only one, AI-generated labels on the before/after proof imagery, and the trial→auto-renew terms surfaced above the payment field.
+
+**Three findings that must not be re-derived:** (1) the pages are NOT the top suspension risk — the **AI before/after imagery is**, since Google names *Manipulated media* as its own Misrepresentation sub-policy and treats weight loss as a restricted health category; (2) the "thin site" problem is real but structural — the whole product is one URL because it's a SPA, so **new pages must be separate crawlable URLs, never more hidden SPA screens**; (3) the refund/billing/cancellation copy **already exists** at `public/index.html:2114-2118` but is behind login, so it needs surfacing, not writing.
+
+**One OPEN item needing Dan:** the in-app FAQ points users at `support@absbyai.com`, and it is unconfirmed that a `support@` forwarder exists (only `dan@` is known to forward, per the 2026-07-22 mailbox work). A dead support address on a subscription site is a genuine misrepresentation problem. Cheapest fix is changing the copy to `dan@absbyai.com`.
+
+Dashboard Key task added per Rule 8 (`money::Execute handoff: Google Ads compliance pages` — verified persisted). It blocks the existing `Create Google Ads account` Key task. Native retest not needed for the new pages; it IS needed if the checkout-screen billing disclosure changes anything visible on `#membershipSection` (mandatory price/buy-button trigger row).
+
 ### Repo housekeeping — duplicates + gitignore DONE; DNS/key rotation BLOCKED on Dan (2026-07-30)
 
 Executes `handoff-20260729-repo-housekeeping.md`.
