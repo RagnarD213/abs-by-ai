@@ -70,6 +70,17 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 **Owner:** Claude Code
 **Status:** `Implementation in progress` — repo housekeeping (below) is partway done, blocked on Dan for two logins. Other threads unchanged: condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (commit `cec8020`, 2026-07-29); locked-image leak fix SHIPPED same day (commit `66638b4`). Full detail on all three in the entries below.
 
+### SixPackABS.com growth plan — FOUR handoffs written, none executed yet (2026-07-31, Claude Code)
+
+Planning session with Dan on driving traffic to sixpackabs.com and converting it to Abs By AI revenue. Site facts pulled live: WordPress.com Atomic (blog_id `253647467`, Twenty Twenty-Five theme, WP MCP access confirmed), 113 posts / 44 pages, ~533 views/month, **zero Abs By AI mention, zero monetization, zero email capture** today. Four sequenced handoffs, each with its own Rule-8 dashboard Key task (all four verified persisted):
+
+1. `handoff-20260731-sixpackabs-conversion-layer.md` — homepage hero, programmatic inline/end-of-post CTAs via a `the_content` filter (NOT 113 manual edits), email capture into the existing Resend sequence (needs a small CORS change on `/api/subscribe` in `server.js`), PostHog + UTM plumbing. **Do this first — it monetizes all future traffic.**
+2. `handoff-20260731-sixpackabs-ai-keyword-content.md` — content pivot to AI-transformation queries ("what would I look like with abs" family) + a "When will my abs show?" calculator page as the link magnet. Settled: result NOT gated behind email.
+3. `handoff-20260731-sixpackabs-video-centerpiece.md` — post-shoot (shoot ~2026-08-03): YouTube channel launch, per-video SEO packaging, Shorts cutdowns via the ad-factory Whisper caption pipeline, companion blog posts, hero swap. OPEN: channel branding (rec: single "Abs By AI" channel, Dan the face).
+4. `handoff-20260731-sixpackabs-paid-amplification.md` — spend rules: never buy blog traffic, boost only organic winners (or one controlled test of "The Upload" v1 vs v2), $50–100 cap per test, PostHog paid-traffic dashboard required BEFORE any spend. OPEN: platform for test #1 (rec: TikTok/Meta, not Google, first).
+
+Settled across all four (do not relitigate): keep the informational content — the conversion layer changes, not the 113 posts; no display ads under ~50k views; one email list only (Resend); AI-generated imagery always labeled, matching the 2026-07-30 compliance treatment. No code changed this session.
+
 ### Google Ads compliance pages — SHIPPED, live-verified, native-verified (2026-07-30, commit `ae92324`)
 
 Executes `handoff-20260730-google-ads-compliance-pages.md` end to end, all 8 steps.
