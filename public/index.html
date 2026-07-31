@@ -179,10 +179,6 @@ html, body {
   -webkit-backdrop-filter: blur(5px);
 }
 .proof-image-label.after { background: rgba(47,95,224,0.88); }
-.proof-caption {
-  margin: 8px 2px 0; font-size: 12px; font-weight: 600;
-  color: var(--mute); text-align: center;
-}
 .proof-disclosure {
   margin: 4px 2px 0; font-size: 10.5px; font-weight: 500;
   color: var(--mute); text-align: center; opacity: 0.85;
@@ -1511,7 +1507,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div class="proof-collapsible" id="proofCollapsible">
         <div class="proof-collapsible-inner">
           <div class="proof-stage">
-            <div class="proof-slide active" data-proof-slide="0" aria-hidden="false" data-caption="John, 31, AI developer">
+            <div class="proof-slide active" data-proof-slide="0" aria-hidden="false">
               <div class="proof-image-wrap">
                 <span class="proof-image-label">Before</span>
                 <img class="proof-image" src="img/proof/male-before.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example before AI visualization" />
@@ -1521,7 +1517,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
                 <img class="proof-image" src="img/proof/male-after.webp" fetchpriority="high" width="375" height="500" alt="Fictional male example after AI visualization" />
               </div>
             </div>
-            <div class="proof-slide" data-proof-slide="1" aria-hidden="true" data-caption="Elisa, 38, mother">
+            <div class="proof-slide" data-proof-slide="1" aria-hidden="true">
               <div class="proof-image-wrap">
                 <span class="proof-image-label">Before</span>
                 <img class="proof-image" data-src="img/proof/female-before.webp" loading="lazy" width="375" height="500" alt="Fictional female example before AI visualization" />
@@ -1531,7 +1527,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
                 <img class="proof-image" data-src="img/proof/female-after.webp" loading="lazy" width="375" height="500" alt="Fictional female example after AI visualization" />
               </div>
             </div>
-            <div class="proof-slide" data-proof-slide="2" aria-hidden="true" data-caption="Joe, 49, executive">
+            <div class="proof-slide" data-proof-slide="2" aria-hidden="true">
               <div class="proof-image-wrap">
                 <span class="proof-image-label">Before</span>
                 <img class="proof-image" data-src="img/proof/male2-before.webp" loading="lazy" width="375" height="500" alt="Fictional male example before AI visualization, heavier build" />
@@ -1542,7 +1538,6 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
               </div>
             </div>
           </div>
-          <div class="proof-caption" id="proofCaption"></div>
           <div class="proof-disclosure">Fictional examples. "AI-generated" photos are AI visualizations, not real results — see our <a href="/disclaimer" style="color:inherit">Disclaimer</a>.</div>
         </div>
       </div>
@@ -1691,6 +1686,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div class="cta-note">Two AI steps · about 20 seconds</div>
     </div>
 
+    <div style="font-size:12px;color:#8a877f;text-align:center;margin-top:20px;line-height:1.5">AbsByAI is an app for generating an image of your fitness goal. <strong>The examples shown above are not real fitness transformations.</strong> They are examples of the type of images our app can make.</div>
     <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
   </div>
 
@@ -1904,6 +1900,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <div style="font-size:12px;color:#8a877f;margin-top:10px">We'll email you your image plus fitness tips and offers. Unsubscribe anytime.</div>
 
     <button id="emailSkipBtn" class="try-diff-btn" style="margin-top:16px">No Thanks</button>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
   </div>
 
   <!-- ════════════════ SCREEN 4: BENEFITS BRIDGE ════════════════ -->
@@ -1948,7 +1945,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       </div>
       <div class="bridge-benefit">
         <span class="bridge-benefit-icon">💊</span>
-        <span><div class="bridge-benefit-name">AI Supplement Audit</div><div class="bridge-benefit-copy">Find out which supplements can help you hit your goal and which ones you should stop taking.</div></span>
+        <span><div class="bridge-benefit-name">AI Supplement Audit</div><div class="bridge-benefit-copy">Find out which supplements can help you hit your goal and which ones aren't worth your money.</div></span>
       </div>
     </div>
 
@@ -3527,7 +3524,6 @@ function initProofStrip() {
   const slides = Array.from(strip.querySelectorAll('[data-proof-slide]'));
   const dots = Array.from(strip.querySelectorAll('[data-proof-index]'));
   const stage = strip.querySelector('.proof-stage');
-  const captionEl = $('proofCaption');
   const summaryCaptionEl = $('proofStripCaptionText');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -3568,7 +3564,6 @@ function initProofStrip() {
       dot.classList.toggle('active', active);
       dot.setAttribute('aria-current', String(active));
     });
-    if (captionEl) captionEl.textContent = slides[activeIndex].dataset.caption || '';
     rotationSeen.add(activeIndex);
     if (!rotationComplete && rotationSeen.size === slides.length) {
       rotationComplete = true;
