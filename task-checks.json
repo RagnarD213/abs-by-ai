@@ -1,6 +1,7 @@
 {
   "checked": [
-    "health::Inject Zepbound"
+    "health::Inject Zepbound",
+    "money::Execute handoff: SixPackABS conversion layer (hero, inline CTAs, email capture)"
   ],
   "log": {
     "health::Shower": [
