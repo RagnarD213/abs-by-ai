@@ -1,7 +1,6 @@
 {
   "checked": [
     "health::Shower",
-    "health::Workout",
     "health::Supplements",
     "health::Salad"
   ],
