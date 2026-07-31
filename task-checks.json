@@ -1,15 +1,6 @@
 {
   "checked": [
-    "health::Shower",
-    "health::Workout",
-    "health::Supplements",
-    "health::Salad",
-    "money::Write outlines for test shoot",
-    "money::Execute handoff: Produce \"The Upload\" pilot AI video ad",
-    "money::Execute handoff: Validate judge on female labels",
-    "money::Execute handoff: Repo housekeeping (duplicate files, DNS/key rotation)",
-    "money::Create workout program",
-    "money::Execute handoff: Google Ads compliance pages"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
@@ -32,7 +23,8 @@
       "2026-07-26",
       "2026-07-27",
       "2026-07-29",
-      "2026-07-30"
+      "2026-07-30",
+      "2026-07-31"
     ],
     "health::Salad": [
       "2026-06-25",
@@ -52,7 +44,8 @@
       "2026-07-26",
       "2026-07-27",
       "2026-07-29",
-      "2026-07-30"
+      "2026-07-30",
+      "2026-07-31"
     ],
     "health::Workout": [
       "2026-06-30",
@@ -72,7 +65,8 @@
       "2026-07-26",
       "2026-07-27",
       "2026-07-29",
-      "2026-07-30"
+      "2026-07-30",
+      "2026-07-31"
     ],
     "health::Supplements": [
       "2026-07-01",
@@ -89,7 +83,8 @@
       "2026-07-26",
       "2026-07-27",
       "2026-07-29",
-      "2026-07-30"
+      "2026-07-30",
+      "2026-07-31"
     ]
   }
 }
