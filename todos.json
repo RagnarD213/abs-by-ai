@@ -1,12 +1,6 @@
 {
   "business": [
     {
-      "text": "Write outlines for test shoot",
-      "priority": "key",
-      "addedAt": "2026-07-23",
-      "why": "Main time investment this session — drives new video content for Abs By AI"
-    },
-    {
       "text": "Write more outlines for YouTube videos",
       "priority": "med",
       "addedAt": "2026-07-23"
@@ -19,11 +13,6 @@
     {
       "text": "Add shipping costs to app",
       "priority": "med",
-      "addedAt": "2026-07-23"
-    },
-    {
-      "text": "Create workout program",
-      "priority": "low",
       "addedAt": "2026-07-23"
     },
     {
@@ -116,34 +105,22 @@
       "addedAt": "2026-07-23"
     },
     {
-      "text": "Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
+      "text": "Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
+      "priority": "key",
+      "why": "handoff-20260729-ab-visibility-anchor-ladder.md — created but not yet run",
+      "addedAt": "2026-07-29"
+    },
+    {
+      "text": "Create Google Ads account",
       "priority": "key",
       "recurring": false,
-      "addedAt": "2026-07-23"
+      "addedAt": "2026-07-30"
     },
     {
-      "text": "Finish the model bake-off harness rebuild task.",
+      "text": "Set up remarketing pixel and conversion pixel",
       "priority": "key",
       "recurring": false,
-      "addedAt": "2026-07-24"
-    },
-    {
-      "text": "Finish the AbsByAI iOS App Store submission task.",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-24"
-    },
-    {
-      "text": "Submit stuck Printify order #27805654.13",
-      "priority": "key",
-      "why": "One-click fix in Printify dashboard, quick win",
-      "addedAt": "2026-07-27"
-    },
-    {
-      "text": "Run 2-3 real transformations on absbyai.com to eyeball new look",
-      "priority": "key",
-      "why": "Confirm less-muscular, no-tan prompt fix is right — unblocks condensed-prompt decision",
-      "addedAt": "2026-07-27"
+      "addedAt": "2026-07-30"
     }
   ],
   "health": [
@@ -151,33 +128,33 @@
       "text": "Workout",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-07-31"
+      "addedAt": "2026-07-29"
     },
     {
       "text": "Supplements",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-07-31"
+      "addedAt": "2026-07-29"
     },
     {
       "text": "Shower",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-07-31"
+      "addedAt": "2026-07-29"
     },
     {
       "text": "Salad",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-07-31"
+      "addedAt": "2026-07-29"
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high",
+      "addedAt": "2026-07-30"
     }
   ],
   "personal": [
-    {
-      "text": "Request unemployment payment",
-      "priority": "key",
-      "addedAt": "2026-07-28"
-    },
     {
       "text": "Call title company",
       "priority": "high",
