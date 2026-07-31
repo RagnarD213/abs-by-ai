@@ -116,80 +116,64 @@
       "addedAt": "2026-07-23"
     },
     {
-      "text": "Execute handoff: Validate judge on female labels",
-      "priority": "key",
-      "why": "handoff-20260729-judge-female-validation.md — created but not yet run",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "text": "Execute handoff: Repo housekeeping (duplicate files, DNS/key rotation)",
-      "priority": "key",
-      "why": "handoff-20260729-repo-housekeeping.md — created but not yet run",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "text": "Execute handoff: Produce \"The Upload\" pilot AI video ad",
-      "priority": "key",
-      "why": "handoff-20260729-ai-ad-pilot-the-upload.md — created but not yet run",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "text": "Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
-      "priority": "key",
-      "why": "handoff-20260729-ab-visibility-anchor-ladder.md — created but not yet run",
-      "addedAt": "2026-07-29"
-    },
-    {
-      "text": "Create Google Ads account",
+      "text": "Submit iOS app to the App Store (with Claude, ~1-2 hrs)",
       "priority": "key",
       "recurring": false,
-      "addedAt": "2026-07-30"
+      "addedAt": "2026-07-23"
     },
     {
-      "text": "Set up remarketing pixel and conversion pixel",
+      "text": "Finish the model bake-off harness rebuild task.",
       "priority": "key",
       "recurring": false,
-      "addedAt": "2026-07-30"
+      "addedAt": "2026-07-24"
     },
     {
-      "text": "Execute handoff: Google Ads compliance pages",
+      "text": "Finish the AbsByAI iOS App Store submission task.",
       "priority": "key",
-      "why": "handoff-20260730-google-ads-compliance-pages.md — created but not yet run; blocks opening the Google Ads account",
-      "addedAt": "2026-07-30"
+      "recurring": false,
+      "addedAt": "2026-07-24"
+    },
+    {
+      "text": "Submit stuck Printify order #27805654.13",
+      "priority": "key",
+      "why": "One-click fix in Printify dashboard, quick win",
+      "addedAt": "2026-07-27"
+    },
+    {
+      "text": "Run 2-3 real transformations on absbyai.com to eyeball new look",
+      "priority": "key",
+      "why": "Confirm less-muscular, no-tan prompt fix is right — unblocks condensed-prompt decision",
+      "addedAt": "2026-07-27"
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-29"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-29"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-29"
+      "recurring": true
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-29"
-    },
-    {
-      "text": "Inject Zepbound",
-      "priority": "high",
-      "addedAt": "2026-07-30"
+      "recurring": true
     }
   ],
   "personal": [
+    {
+      "text": "Request unemployment payment",
+      "priority": "key",
+      "addedAt": "2026-07-28"
+    },
     {
       "text": "Call title company",
       "priority": "high",
