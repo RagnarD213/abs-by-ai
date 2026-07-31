@@ -121,6 +121,30 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-07-30"
+    },
+    {
+      "text": "Execute handoff: SixPackABS conversion layer (hero, inline CTAs, email capture)",
+      "priority": "key",
+      "why": "handoff-20260731-sixpackabs-conversion-layer.md — created but not yet run",
+      "addedAt": "2026-07-31"
+    },
+    {
+      "text": "Execute handoff: SixPackABS AI-keyword content + abs calculator",
+      "priority": "key",
+      "why": "handoff-20260731-sixpackabs-ai-keyword-content.md — created but not yet run",
+      "addedAt": "2026-07-31"
+    },
+    {
+      "text": "Execute handoff: Video centerpiece — YouTube launch + blog integration",
+      "priority": "key",
+      "why": "handoff-20260731-sixpackabs-video-centerpiece.md — created but not yet run",
+      "addedAt": "2026-07-31"
+    },
+    {
+      "text": "Execute handoff: Paid amplification playbook (boost proven creative only)",
+      "priority": "key",
+      "why": "handoff-20260731-sixpackabs-paid-amplification.md — created but not yet run",
+      "addedAt": "2026-07-31"
     }
   ],
   "health": [
