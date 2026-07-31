@@ -82,7 +82,9 @@ Executes `handoff-20260730-google-ads-compliance-pages.md` end to end, all 8 ste
 
 **Native retest — done, both platforms, per the mandatory trigger row (the membership-screen edit touches `#membershipSection`).** `scripts/native-smoke-test.sh both`: 7/7 script checks passed. Android DOM assertions against the real edited element: **`membershipSection`: 0 of 5 purchase controls visible, `paywallSection`: 0 of 2** — matching the 2026-07-27 baseline exactly, confirming the disclosure reorder didn't expose anything `app-hide-purchase` should hide. iOS screenshot: hub renders correctly, "Manage your membership from the Abs by AI website" neutral note, no purchase controls.
 
-**One OPEN item needing Dan (flagged to him directly, not resolved here):** the new pages' contact/support copy reuses `support@absbyai.com`, matching the site's existing FAQ — but it's unconfirmed whether a `support@` forwarder actually exists in Namecheap (only `dan@` is confirmed forwarding, per the 2026-07-22 mailbox work). Needs Dan's Namecheap login to add the forwarder, or a copy change to `dan@absbyai.com` across the new pages + existing FAQ.
+**Support-email item — CLOSED (2026-07-31).** Dan logged into Namecheap; Claude Code added the missing forwarder. Found it lives under Domain List → domain → **Domain tab → Redirect Email** (not the Advanced DNS "Mail Settings" panel, which only shows the SPF TXT record and no mailbox list). Added `support → danroseconsulting@gmail.com` alongside the existing `dan` forwarder, verified persisted after a page reload. `support@absbyai.com`, as referenced across the FAQ and the new compliance pages, now actually receives mail.
+
+**Note for later:** the SPF/DMARC cleanup item recorded elsewhere in this file (root TXT still carries two competing SPF records, one from the retired MailerLite integration) is still open and unrelated to this fix — not touched here.
 
 Dashboard Key task `money::Execute handoff: Google Ads compliance pages` should be checked off per Rule 9 — the handoff is fully executed, committed, pushed, deployed, and verified.
 
