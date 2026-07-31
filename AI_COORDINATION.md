@@ -70,6 +70,18 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 **Owner:** Claude Code
 **Status:** `Implementation in progress` — repo housekeeping (below) is partway done, blocked on Dan for two logins. Other threads unchanged: condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (commit `cec8020`, 2026-07-29); locked-image leak fix SHIPPED same day (commit `66638b4`). Full detail on all three in the entries below.
 
+### Google Ads pre-review compliance tweaks — SHIPPED, live-verified (2026-07-31, commit `59e943b`)
+
+Executes `handoff-20260731-google-ads-prereview-tweaks.md`. Four small, Dan-approved edits to `public/index.html` ahead of Google's first human review of the ad account (part of the same compliance audit that produced the conversion-tracking entry below).
+
+**Shipped:** (1) added the standard footer (Terms/Privacy/Refunds/Contact) to `#emailSection` (the email-capture screen was the only one of the four post-generation screens missing it); (2) softened the Supplement Audit blurb from "which ones you should stop taking" to "which ones aren't worth your money" (avoids medical-advice-flavored language); (3) removed the fictional names/ages/careers (`data-caption="John, 31, AI developer"` etc.) from the three proof-strip slides — deleted the `data-caption` attributes, the `#proofCaption` element, its CSS rule, and the two JS lines that populated it; the existing "Fictional examples… not real results — see our Disclaimer" line and the `data-proof-slide` attributes (rotation JS keys on those) were left untouched; (4) added a second disclaimer, Dan's verbatim copy, directly above the landing-page (`#formSection`) footer: "AbsByAI is an app for generating an image of your fitness goal. **The examples shown above are not real fitness transformations.** They are examples of the type of images our app can make."
+
+**Verified:** all 5 inline `<script>` blocks pass `node --check` after the caption-removal JS surgery. Local static-server browser check at 375×812: no caption text under any proof slide, disclaimer renders directly above the formSection footer with the exact verbatim text, emailSection now shows the footer with working links, zero console errors — and the regression this handoff specifically flagged (the proof-strip's stateful `initProofStrip` collapse/re-expand cycle, which had a previously-fixed re-arm bug) was exercised directly: auto-rotation advanced through all 3 slides, auto-collapsed to the strip after a full rotation, and a tap correctly re-expanded it with no errors. **Live on absbyai.com** post-deploy: `grep` counts confirm zero `data-caption`/`proofCaption` remaining, exactly one occurrence of the new disclaimer text, zero remaining "stop taking", the new "aren't worth your money" copy present, `/health` ok, live browser pass with zero console errors.
+
+**Native retest note (per the standing cross-platform rule):** this touches layout at the bottom of two screens, technically a trigger row, but the risk is minimal — normal document-flow text added above/below existing elements, no inputs, no purchase UI. Not run separately; flagging per the rule rather than treating silence as "no retest needed."
+
+**Dashboard Key task `money::Execute handoff: Google Ads pre-review site tweaks (4 edits)` checked off** — confirmed present in the `checked` array.
+
 ### Google Ads conversion tracking — VERIFIED FIRING + retuned as a lead signal (2026-07-31, commit `0f737ea`)
 
 Dan was mid-setup on his first YouTube video campaign and asked which conversion goal to optimize for. Answered, then verified the tags actually work and made three changes.
