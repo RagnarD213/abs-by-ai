@@ -2784,6 +2784,45 @@ function deleteCookie(name) {
   try { document.cookie = `${name}=; Max-Age=0; Path=/; SameSite=Lax`; } catch (e) {}
 }
 
+const AD_CONVERSION_ID = 'AW-18361229851';
+const AD_CONVERSION_DEDUPE_DAYS = 400;
+
+// Reports a Google Ads conversion. Pass `once` to make it a LEAD-style signal
+// that fires at most one time per browser: someone who generates thirty images
+// is not thirty leads, and without the cap Smart Bidding learns to chase heavy
+// repeat users instead of new ones. Deduped in localStorage AND a cookie for
+// the same reason getDeviceId() is — Android WebViews have been observed
+// clearing localStorage between launches, which would re-fire the conversion
+// on every relaunch and quietly inflate the number we bid against.
+// Storage failures (private mode, blocked cookies) deliberately fall through to
+// firing: over-reporting a rare edge case beats losing the signal entirely.
+function fireAdConversion(label, opts) {
+  opts = opts || {};
+  // Bail before touching the dedupe record. Marking it first would mean a user
+  // whose first generation happened behind an ad blocker burns their one shot
+  // and can never report the conversion afterwards.
+  if (!window.gtag) return false;
+  const key = opts.once ? `absbyai_adconv_${opts.once}` : '';
+  if (key) {
+    let already = '';
+    try { already = localStorage.getItem(key) || ''; } catch (e) {}
+    if (!already) already = readCookie(key);
+    if (already) return false;
+  }
+  const payload = { send_to: `${AD_CONVERSION_ID}/${label}` };
+  if (typeof opts.value === 'number') {
+    payload.value = opts.value;
+    payload.currency = opts.currency || 'USD';
+  }
+  try { gtag('event', 'conversion', payload); } catch (e) { return false; }
+  if (key) {
+    const stamp = String(Date.now());
+    try { localStorage.setItem(key, stamp); } catch (e) {}
+    writeCookie(key, stamp, AD_CONVERSION_DEDUPE_DAYS);
+  }
+  return true;
+}
+
 const DEVICE_ID_KEY = 'absbyai_device_id';
 const DEVICE_ID_DAYS = 400; // browser cap on cookie lifetime
 
@@ -6521,7 +6560,7 @@ async function handleMembershipComplete(sessionId) {
   } catch (e) {}
   closeCreditsCheckout();
   if (window.posthog) posthog.capture('membership_subscribed', { plan: selectedPlan });
-  if (window.gtag) gtag('event', 'conversion', {'send_to': 'AW-18361229851/AqLTCMnl4dkcEJvEqLNE'});
+  fireAdConversion('AqLTCMnl4dkcEJvEqLNE', { value: 20, currency: 'USD' }); // ~1 month of membership revenue
   await refreshMembership();
   loadCredits(); // converted credits were zeroed
   fireConfetti();
@@ -9323,7 +9362,7 @@ async function generate() {
       throw new Error('This app is for adults only. Please use a photo of someone 18 or older.');
     }
     const genRes = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
-    if (window.gtag) gtag('event', 'conversion', {'send_to': 'AW-18361229851/KqDxCMzl4dkcEJvEqLNE'});
+    fireAdConversion('KqDxCMzl4dkcEJvEqLNE', { once: 'freegen' }); // lead signal: first generation only
     if (genRes.chooser) {
       await finishGenLoader();
       showChooser(genRes.candidates);
