@@ -3,8 +3,7 @@
     "health::Shower",
     "health::Workout",
     "health::Supplements",
-    "health::Salad",
-    "money::Execute handoff: Google Ads compliance pages"
+    "health::Salad"
   ],
   "log": {
     "health::Shower": [
