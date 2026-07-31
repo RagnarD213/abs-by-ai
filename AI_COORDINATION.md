@@ -70,6 +70,27 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 **Owner:** Claude Code
 **Status:** `Implementation in progress` — repo housekeeping (below) is partway done, blocked on Dan for two logins. Other threads unchanged: condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (commit `cec8020`, 2026-07-29); locked-image leak fix SHIPPED same day (commit `66638b4`). Full detail on all three in the entries below.
 
+### Google Ads conversion tracking — VERIFIED FIRING + retuned as a lead signal (2026-07-31, commit `0f737ea`)
+
+Dan was mid-setup on his first YouTube video campaign and asked which conversion goal to optimize for. Answered, then verified the tags actually work and made three changes.
+
+**Campaign advice given (settled, don't relitigate):** optimize the video campaign on the **`Submit lead forms` goal**, which is where **Free Generation Started** sits — NOT the trial. Smart Bidding needs ~30 conversions/30 days to learn; trials will produce a handful a month at first-test budgets, free generations produce far more. Trial Signup stays as a measured secondary. Note Google's goal folders are counter-intuitively assigned here: **Sign-ups = Trial Signup**, **Submit lead forms = Free Generation Started**. The folder label is cosmetic; the action inside it is what matters.
+
+**Tag verification — both tags CONFIRMED transmitting on live absbyai.com.** The "Unverified / inactive" warning in the campaign builder meant only "Google has received no data yet", not a broken setup. Proven by loading prod in-browser and reading `performance.getEntriesByType('resource')`: the base tag loads, `gtag.config` fires, and both conversion labels reach all three Google endpoints (`googleadservices.com/pagead/conversion/`, `/ccm/conversion/`, `googleads.g.doubleclick.net/pagead/viewthroughconversion/`). **Method worth reusing: the Browser pane's `read_network_requests` returned nothing on this page — read `performance.getEntriesByType('resource')` via `javascript_tool` instead.** A conversion tag is a network beacon, so verifying it necessarily fires it: **4 test conversions were sent into the account this session** (2 Trial Signup, 2 Free Generation). Expect them in the data; they are not real.
+
+**Shipped (`public/index.html` + 8 standalone pages):**
+- **New `fireAdConversion(label, opts)` helper.** `opts.once` makes a conversion a one-per-browser LEAD signal; `opts.value`/`currency` attach a value.
+- **Free Generation Started is now capped at once per browser** (Dan's call, and the right one): a user who generates 30 images is one lead, not 30, and uncapped the bidder learns to chase heavy repeat users instead of new ones. Deduped in **localStorage AND a cookie**, deliberately mirroring `getDeviceId()`'s defence — Android WebViews have been observed clearing localStorage between launches, which would re-fire the conversion on every relaunch and inflate the number we bid against.
+- **The dedupe record is written only AFTER a successful send.** The first version marked it first; a test caught that a first generation behind an ad blocker would burn the user's one shot forever. Do not reorder this.
+- **Trial Signup now sends `value: 20, currency: USD`** (~1 month of membership) instead of sharing the free tier's $1 default.
+- **Base tag added to all 8 standalone public pages** (about, contact, disclaimer, faq, how-it-works, privacy, refunds, terms), which carried no tag at all and so contributed nothing to remarketing audiences. `morningbrief.html` (internal) and `offline.html` (SW fallback) deliberately skipped.
+
+**Verified:** 17 assertions executing the real shipped function with stubbed storage/gtag (30-generation cap, localStorage wipe, cookie wipe, fresh browser, trial value, private mode, blocked-gtag recovery); inline-JS `node --check` clean; tag confirmed inside `<head>` on all 8 pages. **Live on absbyai.com** after a ~45s Railway deploy: all 9 pages serve the tag, `/health` ok, and in-browser on prod — 3 consecutive `fireAdConversion(..., {once})` calls produced **exactly one conversion** (3 pings = 1 conversion × 3 endpoints, not 9), both storage marks set, and the trial ping carries **`value=20&currency=USD` on the wire**. FAQ page renders correctly, no console errors.
+
+**OPEN — needs Dan in the Google Ads UI (30 seconds, after the campaign is created):** the `$20` only takes effect if the Trial Signup conversion action is set to **"Use different values for each conversion"**. If it stays on "Use the same value", Google ignores the tag-supplied value and keeps applying the $1 default. Goals → Conversions → Trial Signup → Value.
+
+**Dashboard task `money::Set up remarketing pixel and conversion pixel` checked off** per Rule 9 — verified present in the `checked` array.
+
 ### SixPackABS.com growth plan — FOUR handoffs written, none executed yet (2026-07-31, Claude Code)
 
 Planning session with Dan on driving traffic to sixpackabs.com and converting it to Abs By AI revenue. Site facts pulled live: WordPress.com Atomic (blog_id `253647467`, Twenty Twenty-Five theme, WP MCP access confirmed), 113 posts / 44 pages, ~533 views/month, **zero Abs By AI mention, zero monetization, zero email capture** today. Four sequenced handoffs, each with its own Rule-8 dashboard Key task (all four verified persisted):
