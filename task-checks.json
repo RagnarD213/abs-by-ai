@@ -4,7 +4,6 @@
     "health::Workout",
     "health::Supplements",
     "health::Salad",
-    "money::Create workout program",
     "money::Execute handoff: Google Ads compliance pages"
   ],
   "log": {
