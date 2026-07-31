@@ -3407,6 +3407,10 @@ async function pushToMailerLite(email) {
 app.post('/api/subscribe', async (req, res) => {
   const email = String(req.body?.email || '').trim().toLowerCase();
   const deviceId = String(req.body?.deviceId || '');
+  // Optional attribution tag (e.g. "sixpackabs") for list-growth reporting.
+  // Whitelisted to short alnum/dash/underscore so an arbitrary string can't be stashed here.
+  const sourceRaw = String(req.body?.source || '').trim().toLowerCase();
+  const source = /^[a-z0-9_-]{1,40}$/.test(sourceRaw) ? sourceRaw : undefined;
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
     return res.status(400).json({ error: 'Invalid email' });
   }
@@ -3425,6 +3429,7 @@ app.post('/api/subscribe', async (req, res) => {
     deviceId: existing?.deviceId || deviceId,
     synced,
   };
+  if (existing?.source || source) entry.source = existing?.source || source;
   // Preserve any existing welcome-sequence progress on a retry; initialize it
   // (welcomeStep 0, due now) only for a genuinely new subscriber.
   if (existing && existing.welcomeStep !== undefined) {
