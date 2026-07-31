@@ -85,6 +85,13 @@
       },
       "unsubscribed": true,
       "unsubscribedAt": "2026-07-17T21:48:03.586Z"
+    },
+    "deploy-verify-test+source@example.com": {
+      "subscribedAt": "2026-07-31T21:33:07.642Z",
+      "deviceId": "",
+      "synced": false,
+      "welcomeStep": 5,
+      "excluded": true
     }
   }
 }
