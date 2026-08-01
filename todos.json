@@ -117,18 +117,6 @@
       "addedAt": "2026-07-30"
     },
     {
-      "text": "Set up remarketing pixel and conversion pixel",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-30"
-    },
-    {
-      "text": "Execute handoff: SixPackABS conversion layer (hero, inline CTAs, email capture)",
-      "priority": "key",
-      "why": "handoff-20260731-sixpackabs-conversion-layer.md — created but not yet run",
-      "addedAt": "2026-07-31"
-    },
-    {
       "text": "Execute handoff: SixPackABS AI-keyword content + abs calculator",
       "priority": "key",
       "why": "handoff-20260731-sixpackabs-ai-keyword-content.md — created but not yet run",
@@ -145,43 +133,28 @@
       "priority": "key",
       "why": "handoff-20260731-sixpackabs-paid-amplification.md — created but not yet run",
       "addedAt": "2026-07-31"
-    },
-    {
-      "text": "Execute handoff: Google Ads pre-review site tweaks (4 edits)",
-      "priority": "key",
-      "why": "handoff-20260731-google-ads-prereview-tweaks.md — created but not yet run",
-      "addedAt": "2026-07-31"
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-29"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-29"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-29"
+      "recurring": true
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-07-29"
-    },
-    {
-      "text": "Inject Zepbound",
-      "priority": "high",
-      "addedAt": "2026-07-30"
+      "recurring": true
     }
   ],
   "personal": [
