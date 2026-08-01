@@ -1,7 +1,6 @@
 {
   "checked": [
-    "health::Inject Zepbound",
-    "money::Execute handoff: Google Ads pre-review site tweaks (4 edits)"
+    "health::Inject Zepbound"
   ],
   "log": {
     "health::Shower": [
