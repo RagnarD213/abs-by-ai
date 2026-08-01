@@ -1,7 +1,5 @@
 {
-  "checked": [
-    "health::Inject Zepbound"
-  ],
+  "checked": [],
   "log": {
     "health::Shower": [
       "2026-06-25",
