@@ -2,238 +2,179 @@
   "business": [
     {
       "text": "Write more outlines for YouTube videos",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Fix Printify store name and picture issue",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Add shipping costs to app",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Update Monarch money transactions",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Write script for HOG commercial",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Write YouTube ad scripts",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Rebalance retirement accounts",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Email HOG to buy advertising",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Send documents to AMEX",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Review Claude scheduled task output",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Test supplement audit functionality",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Contact vasectomy doctor - stitches, pain during intercourse",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Add self as internal tester, install app on phone via Join link",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Finalize iOS app",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Rotate or delete old MailerLite API key",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Restart the app store submission prep task and complete this.",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
-      "priority": "key",
-      "why": "handoff-20260729-ab-visibility-anchor-ladder.md — created but not yet run",
-      "addedAt": "2026-07-29"
+      "priority": "key"
     },
     {
       "text": "Create Google Ads account",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-07-30"
+      "priority": "key"
     },
     {
       "text": "Execute handoff: SixPackABS AI-keyword content + abs calculator",
-      "priority": "key",
-      "why": "handoff-20260731-sixpackabs-ai-keyword-content.md — created but not yet run",
-      "addedAt": "2026-07-31"
+      "priority": "key"
     },
     {
       "text": "Execute handoff: Video centerpiece — YouTube launch + blog integration",
-      "priority": "key",
-      "why": "handoff-20260731-sixpackabs-video-centerpiece.md — created but not yet run",
-      "addedAt": "2026-07-31"
+      "priority": "key"
     },
     {
       "text": "Execute handoff: Paid amplification playbook (boost proven creative only)",
-      "priority": "key",
-      "why": "handoff-20260731-sixpackabs-paid-amplification.md — created but not yet run",
-      "addedAt": "2026-07-31"
+      "priority": "key"
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-02"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-02"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-02"
+      "recurring": true
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-02"
+      "recurring": true
     }
   ],
   "personal": [
     {
       "text": "Call title company",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Find best mechanic to fix car",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Take Audi to mechanic",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Clean office",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Organize kitchen cabinets",
-      "priority": "low",
-      "addedAt": "2026-07-23"
+      "priority": "low"
     },
     {
       "text": "Organize bathroom cabinets",
-      "priority": "low",
-      "addedAt": "2026-07-23"
+      "priority": "low"
     },
     {
       "text": "Spray weeds with roundup",
-      "priority": "low",
-      "addedAt": "2026-07-23"
+      "priority": "low"
     },
     {
       "text": "Hire someone to install artificial hedge panels",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Email Rachelle to end child support",
-      "priority": "high",
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Fix shower handle",
-      "priority": "med",
-      "addedAt": "2026-07-23"
+      "priority": "med"
     },
     {
       "text": "Put away laundry.",
-      "priority": "low",
-      "addedAt": "2026-07-23"
+      "priority": "low"
     },
     {
       "text": "Buy Proper Cloth shirt",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Follow up with power washing contractors",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     },
     {
       "text": "Follow up with pool tile contractors",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-07-23"
+      "priority": "high"
     }
   ]
 }
