@@ -2,179 +2,221 @@
   "business": [
     {
       "text": "Write more outlines for YouTube videos",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Fix Printify store name and picture issue",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Add shipping costs to app",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Update Monarch money transactions",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Write script for HOG commercial",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Write YouTube ad scripts",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Rebalance retirement accounts",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Email HOG to buy advertising",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Send documents to AMEX",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Review Claude scheduled task output",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Test supplement audit functionality",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Contact vasectomy doctor - stitches, pain during intercourse",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Add self as internal tester, install app on phone via Join link",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Finalize iOS app",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Rotate or delete old MailerLite API key",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Restart the app store submission prep task and complete this.",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
-      "priority": "key"
+      "priority": "key",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Create Google Ads account",
-      "priority": "key"
+      "priority": "key",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Execute handoff: SixPackABS AI-keyword content + abs calculator",
-      "priority": "key"
+      "priority": "key",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Execute handoff: Video centerpiece — YouTube launch + blog integration",
-      "priority": "key"
+      "priority": "key",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Execute handoff: Paid amplification playbook (boost proven creative only)",
-      "priority": "key"
+      "priority": "key",
+      "addedAt": "2026-08-03"
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-03"
     }
   ],
   "personal": [
     {
       "text": "Call title company",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Find best mechanic to fix car",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Take Audi to mechanic",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Clean office",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Organize kitchen cabinets",
-      "priority": "low"
+      "priority": "low",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Organize bathroom cabinets",
-      "priority": "low"
+      "priority": "low",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Spray weeds with roundup",
-      "priority": "low"
+      "priority": "low",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Hire someone to install artificial hedge panels",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Email Rachelle to end child support",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Fix shower handle",
-      "priority": "med"
+      "priority": "med",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Put away laundry.",
-      "priority": "low"
+      "priority": "low",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Buy Proper Cloth shirt",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Follow up with power washing contractors",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     },
     {
       "text": "Follow up with pool tile contractors",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-03"
     }
   ]
 }
