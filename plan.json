@@ -1,13 +1,14 @@
 {
-  "date": "2026-07-30",
+  "date": "2026-08-04",
   "order": [
-    "money::Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
-    "money::Set up remarketing pixel and conversion pixel",
-    "money::Create Google Ads account",
-    "money::Write outlines for test shoot",
-    "money::Execute handoff: Validate judge on female labels",
-    "money::Execute handoff: Repo housekeeping (duplicate files, DNS/key rotation)",
-    "money::Execute handoff: Produce \"The Upload\" pilot AI video ad"
+    "money::Touch up photos with Facetune and/or AI.",
+    "money::Create YouTube channel banner and avatar.",
+    "money::Create Instagram profile and graphics.",
+    "money::Create Facebook profile and graphics.",
+    "money::Create TikTok profile and graphics.",
+    "personal::Add new pictures to Hinge.",
+    "personal::Add new pictures to Bumble.",
+    "personal::Thank Mindy for doing a great job and schedule next shoot."
   ],
   "excluded": [],
   "sessionsCompleted": 0
