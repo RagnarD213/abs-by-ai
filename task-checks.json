@@ -1,7 +1,8 @@
 {
   "checked": [
     "money::Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
-    "money::Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track"
+    "money::Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
+    "money::Add self as internal tester, install app on phone via Join link"
   ],
   "log": {
     "health::Shower": [
