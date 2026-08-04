@@ -97,28 +97,53 @@
     },
     {
       "text": "Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
-      "priority": "key",
+      "priority": "high",
       "addedAt": "2026-08-03"
     },
     {
       "text": "Create Google Ads account",
-      "priority": "key",
+      "priority": "high",
       "addedAt": "2026-08-03"
     },
     {
       "text": "Execute handoff: SixPackABS AI-keyword content + abs calculator",
-      "priority": "key",
+      "priority": "high",
       "addedAt": "2026-08-03"
     },
     {
       "text": "Execute handoff: Video centerpiece — YouTube launch + blog integration",
-      "priority": "key",
+      "priority": "high",
       "addedAt": "2026-08-03"
     },
     {
       "text": "Execute handoff: Paid amplification playbook (boost proven creative only)",
-      "priority": "key",
+      "priority": "high",
       "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Touch up photos with Facetune and/or AI.",
+      "priority": "key",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Create YouTube channel banner and avatar.",
+      "priority": "key",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Create Instagram profile and graphics.",
+      "priority": "key",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Create Facebook profile and graphics.",
+      "priority": "key",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Create TikTok profile and graphics.",
+      "priority": "key",
+      "addedAt": "2026-08-04"
     }
   ],
   "health": [
@@ -217,6 +242,21 @@
       "text": "Follow up with pool tile contractors",
       "priority": "high",
       "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Add new pictures to Hinge.",
+      "priority": "key",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Add new pictures to Bumble.",
+      "priority": "key",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Thank Mindy for doing a great job and schedule next shoot.",
+      "priority": "key",
+      "addedAt": "2026-08-04"
     }
   ]
 }
