@@ -4,7 +4,8 @@
     "money::Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
     "money::Add self as internal tester, install app on phone via Join link",
     "money::Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
-    "personal::Thank Mindy for doing a great job and schedule next shoot."
+    "personal::Thank Mindy for doing a great job and schedule next shoot.",
+    "money::Execute handoff: Retouch remaining 9 top-10 pool-shoot photos"
   ],
   "log": {
     "health::Shower": [
