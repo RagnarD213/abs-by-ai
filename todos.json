@@ -186,6 +186,18 @@
       "priority": "key",
       "why": "Blotato requires 4 weeks of manual activity before connecting — the clock starts the day the account exists",
       "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Link Instagram (abs.by.ai) to the Abs By AI Facebook Page as a Business account",
+      "priority": "key",
+      "why": "Last structural blocker — the publishing API requires a professional IG account connected to a Page",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Connect Blotato and start scheduled posting (TikTok warm-up ends ~2026-09-02)",
+      "priority": "high",
+      "why": "Do not connect before Sept 2 — early third-party connection risks a bot flag. Generating the API key starts $29/mo billing.",
+      "addedAt": "2026-08-05"
     }
   ],
   "health": [
