@@ -151,6 +151,18 @@
       "priority": "high",
       "recurring": true,
       "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Eat meals 1 and 2 before Jiu Jitsu (last food by ~9 PM)",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "No political news before the morning brief — AG1, then Claude",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-08-05"
     }
   ],
   "personal": [
