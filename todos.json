@@ -174,6 +174,18 @@
       "priority": "med",
       "why": "Hold until after the shoot — multi-day build",
       "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Create Facebook Page for Abs By AI (a Page, NOT a personal profile)",
+      "priority": "key",
+      "why": "Blotato/API can only post to a Page — a personal profile cannot be posted to, so getting this wrong means starting over",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Create TikTok account and begin the 4-week manual warm-up",
+      "priority": "key",
+      "why": "Blotato requires 4 weeks of manual activity before connecting — the clock starts the day the account exists",
+      "addedAt": "2026-08-05"
     }
   ],
   "health": [
