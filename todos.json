@@ -1,6 +1,138 @@
 {
   "business": [
     {
+      "text": "Buy iPad teleprompter (needs Jeff approval + shipping before next shoot)",
+      "priority": "key",
+      "why": "Only item with a hard external dependency chain before the next shoot",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Finish Google Ads campaign setup and launch video campaign",
+      "priority": "high",
+      "why": "Tracking verified firing; set Trial Signup to 'Use different values for each conversion' in Goals → Conversions",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Send documents to AMEX",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Write YouTube ad scripts",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Write script for HOG commercial",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Email HOG to buy advertising",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Finish Android app Play Console setup and publish",
+      "priority": "high",
+      "why": "targetSdk 35 only accepted for new apps until 2026-08-31",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Check iOS App Store review status (submitted July 25)",
+      "priority": "high",
+      "why": "11+ days in Waiting for Review — longer than Apple's usual 48h",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Review Claude scheduled task output",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Test supplement audit functionality",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Contact vasectomy doctor - stitches, pain during intercourse",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Rotate or delete old MailerLite API key",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Execute handoff: SixPackABS AI-keyword content + abs calculator",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Execute handoff: Video centerpiece — YouTube launch + blog integration",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Execute handoff: Paid amplification playbook (boost proven creative only)",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Execute handoff: Retouch batch 2 pool-shoot photos (10 new picks)",
+      "priority": "high",
+      "why": "handoff-20260804-pool-shoot-next10-retouch.md — created but not yet run",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Create YouTube channel banner and avatar.",
+      "priority": "high",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Create Facebook profile and graphics.",
+      "priority": "high",
+      "why": "Also required for Meta ads / Business Manager",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Create TikTok profile and graphics.",
+      "priority": "high",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Post next photo to Instagram",
+      "priority": "med",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Fix Namecheap SPF/DMARC records (needs Dan's login, Claude finishes)",
+      "priority": "med",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Film and post second YouTube video",
+      "priority": "med",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Cut Reels/Shorts from second YouTube video for TikTok/IG",
+      "priority": "med",
+      "why": "Gated on the video existing",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Produce new AI ad variants (hook variants of The Upload + new concepts)",
+      "priority": "med",
+      "addedAt": "2026-08-05"
+    },
+    {
       "text": "Write more outlines for YouTube videos",
       "priority": "med",
       "addedAt": "2026-08-03"
@@ -21,110 +153,15 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Write script for HOG commercial",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Write YouTube ad scripts",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Rebalance retirement accounts",
       "priority": "med",
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Email HOG to buy advertising",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Send documents to AMEX",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Review Claude scheduled task output",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Test supplement audit functionality",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Contact vasectomy doctor - stitches, pain during intercourse",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Finalize iOS app",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Rotate or delete old MailerLite API key",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Restart the app store submission prep task and complete this.",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Create Google Ads account",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Execute handoff: SixPackABS AI-keyword content + abs calculator",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Execute handoff: Video centerpiece — YouTube launch + blog integration",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Execute handoff: Paid amplification playbook (boost proven creative only)",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Create YouTube channel banner and avatar.",
-      "priority": "key",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Create Instagram profile and graphics.",
-      "priority": "key",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Create Facebook profile and graphics.",
-      "priority": "key",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Create TikTok profile and graphics.",
-      "priority": "key",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Execute handoff: Retouch batch 2 pool-shoot photos (10 new picks)",
-      "priority": "key",
-      "why": "handoff-20260804-pool-shoot-next10-retouch.md — created but not yet run",
-      "addedAt": "2026-08-04"
+      "text": "Redo AI Trainer workout program (consider manual programming)",
+      "priority": "med",
+      "why": "Hold until after the shoot — multi-day build",
+      "addedAt": "2026-08-05"
     }
   ],
   "health": [
@@ -167,9 +204,55 @@
   ],
   "personal": [
     {
+      "text": "Pay off Capital One card",
+      "priority": "high",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Conservative retouch pass of dating-app photos (light edit, no body changes)",
+      "priority": "high",
+      "why": "Do before uploading to Hinge/Bumble — Instagram-grade edits risk reading as filtered",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Add new pictures to Hinge.",
+      "priority": "high",
+      "addedAt": "2026-08-04"
+    },
+    {
+      "text": "Add new pictures to Bumble.",
+      "priority": "high",
+      "addedAt": "2026-08-04"
+    },
+    {
       "text": "Call title company",
       "priority": "high",
       "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Email Rachelle to end child support",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Buy Proper Cloth shirt",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Follow up with power washing contractors",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Follow up with pool tile contractors",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Buy more SpaceX stock",
+      "priority": "med",
+      "addedAt": "2026-08-05"
     },
     {
       "text": "Find best mechanic to fix car",
@@ -183,6 +266,16 @@
     },
     {
       "text": "Clean office",
+      "priority": "med",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Hire someone to install artificial hedge panels",
+      "priority": "med",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Fix shower handle",
       "priority": "med",
       "addedAt": "2026-08-03"
     },
@@ -202,49 +295,9 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Hire someone to install artificial hedge panels",
-      "priority": "med",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Email Rachelle to end child support",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Fix shower handle",
-      "priority": "med",
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Put away laundry.",
       "priority": "low",
       "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Buy Proper Cloth shirt",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Follow up with power washing contractors",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Follow up with pool tile contractors",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Add new pictures to Hinge.",
-      "priority": "key",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Add new pictures to Bumble.",
-      "priority": "key",
-      "addedAt": "2026-08-04"
     }
   ]
 }
