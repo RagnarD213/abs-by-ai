@@ -1,8 +1,8 @@
 {
   "date": "2026-08-05",
-  "order": [
+  "order": [],
+  "excluded": [
     "money::Buy iPad teleprompter (needs Jeff approval + shipping before next shoot)"
   ],
-  "excluded": [],
   "sessionsCompleted": 0
 }
