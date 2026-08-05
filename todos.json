@@ -1,6 +1,18 @@
 {
   "business": [
     {
+      "text": "Post the video-editor job (Romeysa or new editor) for the filmed videos",
+      "priority": "key",
+      "why": "Footage is shot but unedited — editing is the bottleneck for the YouTube launch",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Dump shoot notes into the video outline file (which videos were filmed)",
+      "priority": "key",
+      "why": "Dan's memory of the last filming batch is fading — capture before it's gone",
+      "addedAt": "2026-08-05"
+    },
+    {
       "text": "Buy iPad teleprompter (needs Jeff approval + shipping before next shoot)",
       "priority": "key",
       "why": "Only item with a hard external dependency chain before the next shoot",
