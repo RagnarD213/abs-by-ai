@@ -1152,6 +1152,19 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 /* ── AI Trainer: program view ── */
 .why-card { background: rgba(47,95,224,0.06); border: 1px solid rgba(47,95,224,0.25); border-radius: 14px; padding: 15px 16px; font-size: 14px; line-height: 1.55; margin-bottom: 18px; }
 .why-card b { color: var(--acc); }
+
+/* Citations for the health/medical guidance our AI features produce.
+   Apple guideline 1.4.1 requires apps that present medical or health
+   information to cite their sources, and requires the citations to be
+   easy for the user to find — so this renders expanded, at the end of
+   every report that contains calculations or health recommendations. */
+.src-card { border: 1px solid var(--line); border-radius: 14px; padding: 13px 15px; font-size: 12.5px; line-height: 1.5; margin: 18px 0 0; background: var(--card); }
+.src-card-h { font-weight: 800; font-size: 13px; margin-bottom: 4px; color: var(--ink); }
+.src-card-intro { color: var(--mute); margin-bottom: 9px; }
+.src-card ol { margin: 0; padding-left: 18px; color: var(--mute); }
+.src-card li { margin-bottom: 6px; }
+.src-card a { color: var(--acc); text-decoration: underline; overflow-wrap: anywhere; }
+.src-card-all { margin-top: 10px; font-weight: 600; }
 .wk-card { border: 1px solid var(--line); border-radius: 14px; margin-bottom: 12px; overflow: hidden; background: var(--card); }
 .wk-hdr { display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; background: rgba(0,0,0,0.02); border-bottom: 1px solid var(--line); }
 .wk-title { font-size: 13.5px; font-weight: 800; letter-spacing: -0.1px; }
@@ -1687,7 +1700,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     </div>
 
     <div style="font-size:12px;color:#8a877f;text-align:center;margin-top:20px;line-height:1.5">AbsByAI is an app for generating an image of your fitness goal. <strong>The examples shown above are not real fitness transformations.</strong> They are examples of the type of images our app can make.</div>
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ RESULT SCREEN ════════════════ -->
@@ -1789,13 +1802,15 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div class="app-hide-purchase" style="text-align:center;margin-top:12px;font-size:13px;color:var(--mute)">
         …or <button type="button" id="paywallGoUnlimitedBtn" style="background:none;border:none;padding:0;font:inherit;font-weight:800;color:var(--acc);cursor:pointer;text-decoration:underline">go unlimited for $5.83/mo</button> — start your 7-day free trial
       </div>
-      <div class="app-only-note paywall-sub" style="margin-top:6px">You've used your free generations. More generations aren't available for purchase in the app.</div>
+      <div class="app-only-note paywall-sub" style="margin-top:6px">You've used your free generations. Get more on our website — it opens in your browser and your new balance appears here automatically.</div>
+      <button type="button" id="paywallBuyExternalBtn" class="app-only-note cta-btn" style="margin-top:10px">Get more generations →</button>
+      <button type="button" id="paywallJoinExternalBtn" class="app-only-note try-diff-btn" style="margin-top:8px">…or go unlimited with a membership →</button>
       <!-- Running out of GENERATION credits must not dead-end the whole app: the
-           other tools are a separate thing entirely. Inside the apps there is no
-           purchase path here, so without this the user is simply stuck. Shown
-           only in the apps (.app-only-note) — on the web the buy buttons above
-           are the way forward. -->
-      <button type="button" id="paywallContinueHubBtn" class="app-only-note try-diff-btn" style="margin-top:12px">Continue to my hub →</button>
+           other tools are a separate thing entirely, so this stays as a way out
+           even now that the two purchase links above exist. Shown only in the
+           apps (.app-only-note) — on the web the buy buttons above are the way
+           forward. -->
+      <button type="button" id="paywallContinueHubBtn" class="app-only-note try-diff-btn" style="margin-top:8px">Continue to my hub →</button>
       <div id="creditsCheckoutError" style="display:none" class="error-toast"></div>
     </div>
 
@@ -1900,7 +1915,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <div style="font-size:12px;color:#8a877f;margin-top:10px">We'll email you your image plus fitness tips and offers. Unsubscribe anytime.</div>
 
     <button id="emailSkipBtn" class="try-diff-btn" style="margin-top:16px">No Thanks</button>
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ SCREEN 4: BENEFITS BRIDGE ════════════════ -->
@@ -2058,7 +2073,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <button id="confirmStartOverBtn" class="try-diff-btn" style="margin-top:14px">Generate another look</button>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ SCREEN: LOG IN / SIGN UP ════════════════ -->
@@ -2103,7 +2118,9 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       Explore everything built to help you reach your goal. Tap any tool to start your 7-day free trial and unlock it.
     </div>
     <div id="hubPreviewAppNote" class="app-only-note app-note-box" style="display:none">
-      Explore the tools below. Memberships aren't available for purchase in the app; sign in if you're already a member.
+      <div>Explore everything below. Start your 7-day free trial to unlock it all.</div>
+      <button type="button" id="hubPreviewJoinBtn" class="cta-btn" style="margin:12px 0 0;font-size:14px;padding:10px 16px">Start 7-day free trial →</button>
+      <div style="margin-top:8px;font-size:12px;font-weight:500;color:var(--mute)">Opens absbyai.com in your browser to complete the purchase.</div>
     </div>
 
     <!-- Membership card -->
@@ -2114,7 +2131,8 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
         <div id="hubMembershipWarning" style="display:none;color:#b83a2a;font-size:12px;font-weight:600;margin-top:4px"></div>
       </div>
       <button id="hubMembershipManageBtn" class="cta-btn app-hide-purchase" style="margin:0;font-size:14px;padding:10px 16px">Manage membership</button>
-      <div class="app-only-note hub-tile-sub">Manage your membership from the Abs by AI website.</div>
+      <button type="button" id="hubMembershipManageAppBtn" class="app-only-note cta-btn" style="margin:0;font-size:14px;padding:10px 16px">Manage membership</button>
+      <div class="app-only-note hub-tile-sub">Opens absbyai.com in your browser.</div>
     </div>
 
     <!-- "Become a member" tile within tiles section -->
@@ -2244,7 +2262,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       </div>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ SCREEN 6: MACRO TRACKER ════════════════ -->
@@ -2358,7 +2376,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div id="todaysMealsList"></div>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a></div>
+    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ SCREEN: AI TRAINER — INTAKE ════════════════ -->
@@ -2632,7 +2650,9 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     </div>
 
     <div id="membershipAppNote" style="display:none;margin:18px 0;padding:16px;border-radius:12px;background:var(--acc-soft);border:1px solid var(--acc-line);text-align:center;font-weight:600">
-      Memberships aren't available for purchase in the app. If you're already a member, sign in to unlock everything here.
+      <div>7 days free, then $19.99/mo or $69.99/yr. Cancel anytime.</div>
+      <button type="button" id="membershipJoinExternalBtn" class="cta-btn" style="margin:12px 0 0;font-size:15px">Start 7-day free trial →</button>
+      <div style="margin-top:8px;font-size:12px;font-weight:500;color:var(--mute)">Opens absbyai.com in your browser to complete the purchase. Come back here and your membership will be active — already a member? Just sign in.</div>
     </div>
 
     <div class="plan-cards app-hide-purchase">
@@ -2754,6 +2774,50 @@ const IS_NATIVE_APP =
   !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform())
   || (function () { try { return sessionStorage.getItem('absbyai_twa') === '1'; } catch (e) { return false; } })();
 if (IS_NATIVE_APP) document.documentElement.classList.add('native-app');
+
+// ============================================================
+//  EXTERNAL PURCHASE LINK  (App Store guideline 3.1.1)
+// ------------------------------------------------------------
+//  Apps on the United States storefront may link out to the default
+//  browser for payment mechanisms other than in-app purchase. That is
+//  the mechanism this app uses: there is no in-app purchase, so every
+//  membership and credit purchase path inside the native apps is a
+//  link out to the checkout on absbyai.com.
+//
+//  WHY IT MUST BE target="_blank" / window.open, and not a normal
+//  same-origin navigation: the rule requires the DEFAULT BROWSER, not
+//  an embedded web view. Capacitor's WebViewDelegationHandler routes
+//  window.open / target=_blank through UIApplication.shared.open,
+//  which hands the URL to Safari. A plain <a href> to absbyai.com
+//  would instead navigate inside the app's own web view (absbyai.com
+//  is in `allowNavigation`), which would NOT satisfy the guideline.
+//  Do not "simplify" these into ordinary links.
+//
+//  Previously these surfaces just said memberships "aren't available
+//  for purchase in the app" and told the user to go to the website
+//  themselves. That is what got version 1.0 rejected on 2026-08-05:
+//  the app was accessing content bought outside the app with no
+//  purchase path of any kind.
+// ============================================================
+const EXTERNAL_CHECKOUT_URL = 'https://absbyai.com/?join=1';
+const EXTERNAL_CREDITS_URL = 'https://absbyai.com/?buy=credits';
+const EXTERNAL_ACCOUNT_URL = 'https://absbyai.com/?manage=1';
+
+function openExternalPurchase(url, where) {
+  try {
+    if (window.posthog && typeof posthog.capture === 'function') {
+      posthog.capture('external_purchase_link_opened', { where, native_app: IS_NATIVE_APP });
+    }
+  } catch (e) {}
+  // noopener is required: without it the opened page gets a handle back
+  // to this window via window.opener.
+  try {
+    window.open(url, '_blank', 'noopener');
+  } catch (e) {
+    // Last resort. Should not be reachable in either wrapper.
+    location.href = url;
+  }
+}
 
 // ── Credits state ──
 const state_credits = { value: 3 }; // initialised from server on load
@@ -4528,6 +4592,21 @@ window.addEventListener('DOMContentLoaded', async () => {
     showHub();
   });
 
+  // External purchase links — the native apps' only purchase path.
+  // See the EXTERNAL PURCHASE LINK block for why these must open the
+  // default browser rather than navigating in place.
+  const extLinks = [
+    ['paywallBuyExternalBtn', EXTERNAL_CREDITS_URL, 'paywall_credits'],
+    ['paywallJoinExternalBtn', EXTERNAL_CHECKOUT_URL, 'paywall_membership'],
+    ['membershipJoinExternalBtn', EXTERNAL_CHECKOUT_URL, 'membership_screen'],
+    ['hubPreviewJoinBtn', EXTERNAL_CHECKOUT_URL, 'hub_preview'],
+    ['hubMembershipManageAppBtn', EXTERNAL_ACCOUNT_URL, 'hub_manage'],
+  ];
+  for (const [id, url, where] of extLinks) {
+    const el = $(id);
+    if (el) el.addEventListener('click', () => openExternalPurchase(url, where));
+  }
+
   initMealTracker();
   initAccounts();
   initTrainer();
@@ -4538,6 +4617,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   initTransformations();
   restoreSession(); // routes returning logged-in users straight to the hub
   resumeAuditJobIfPending(); // reopens the audit loader if one was left running
+  // A logged-OUT visitor arriving on a purchase deep link (the native apps'
+  // external checkout link, opened in the browser) still has to land on the
+  // right screen. restoreSession handles the logged-in case itself, after
+  // membership has resolved — doing it here too would race that.
+  if (!isLoggedIn()) applyPurchaseDeepLink();
 });
 
 // ============================================================
@@ -4686,7 +4770,9 @@ async function restoreSession() {
     refreshProfile(); // loads the shared profile + backfills existing users
     // Don't hijack Stripe-checkout return flows, or a resumed audit loader
     let pendingAuditJob; try { pendingAuditJob = localStorage.getItem(AUDIT_JOB_KEY); } catch (e) { pendingAuditJob = null; }
-    if (!new URLSearchParams(window.location.search).get('session_id') && !pendingAuditJob) showHub();
+    if (!new URLSearchParams(window.location.search).get('session_id') && !pendingAuditJob) {
+      if (!applyPurchaseDeepLink()) showHub();
+    }
     syncMealsFromServer();
     syncSavedPrepsFromServer();
     syncProgramFromServer();
@@ -5226,6 +5312,9 @@ function paintBrief(data) {
     html += `<div class="brief-lock">🔒 Your coach reads all of this every morning and writes your game plan for the day.
       <button class="cta-btn" id="briefUnlockBtn" style="margin:10px 0 0;font-size:14px;padding:10px 16px;width:100%">Unlock your daily coach</button></div>`;
   }
+  // The brief is a compact summary card, so it links to the citations
+  // rather than listing them inline the way the full reports do.
+  html += `<div style="margin-top:10px;font-size:11.5px;color:var(--mute)">Guidance based on published research — <a href="/sources" target="_blank" rel="noopener noreferrer" style="color:var(--acc);text-decoration:underline">see sources</a>.</div>`;
   card.innerHTML = html;
 
   card.querySelectorAll('.brief-row').forEach(row => row.addEventListener('click', () => {
@@ -5275,6 +5364,15 @@ async function renderHubHero() {
   }
 }
 
+// The in-app "Manage membership" external link shares the .app-only-note
+// class, so it must be reset to '' (not 'block') when shown — otherwise a
+// web visitor whose hub state passed through the comp branch would keep an
+// inline display that the .app-only-note rule can no longer hide.
+function setManageAppBtnVisible(visible) {
+  const el = $('hubMembershipManageAppBtn');
+  if (el) el.style.display = visible ? '' : 'none';
+}
+
 function renderHubMembership() {
   const memberCard = $('hubMembershipCard');
   const becomeMemberBtn = $('hubBecomeMemBtn');
@@ -5294,6 +5392,10 @@ function renderHubMembership() {
     $('hubMembershipWarning').style.display = 'none';
     memberCard.style.display = '';
     $('hubMembershipManageBtn').style.display = 'none'; // no Stripe portal for comp
+    // Same for the in-app external link — a comp account has no billing to
+    // manage, so sending them to the website would just confuse them. Inline
+    // display beats the .native-app .app-only-note rule, which is not !important.
+    setManageAppBtnVisible(false);
     becomeMemberBtn.style.display = 'none';
     if (memberFaq) memberFaq.style.display = '';
     return;
@@ -5301,6 +5403,7 @@ function renderHubMembership() {
   if (memberState.active && memberState.plan && memberState.periodEnd) {
     // Show membership card
     $('hubMembershipManageBtn').style.display = ''; // reset in case a comp state hid it
+    setManageAppBtnVisible(true);
     const planLabel = memberState.plan.charAt(0).toUpperCase() + memberState.plan.slice(1) + ' Membership';
     $('hubMembershipPlan').textContent = planLabel;
 
@@ -6469,6 +6572,38 @@ function getProfile() { return profileState.data || {}; }
 // Ensure the profile is loaded before a feature pre-fills from it.
 async function ensureProfile() { if (!profileState.loaded) await refreshProfile(); return getProfile(); }
 
+// Landing spots for the native apps' external purchase links. The app opens
+// one of these URLs in the default browser; this is what makes the browser
+// arrive on the checkout instead of the marketing home page.
+//
+// Returns true if it routed, so the caller knows not to also call showHub().
+// The query string is left in the URL deliberately — showScreen() pushes
+// history entries and a reload should land in the same place.
+function applyPurchaseDeepLink() {
+  let params;
+  try { params = new URLSearchParams(window.location.search); } catch (e) { return false; }
+
+  if (params.get('join') === '1') {
+    // On the web this screen shows the real plan cards and Stripe checkout.
+    showMembershipScreen(() => showHub());
+    showScreen('membership');
+    return true;
+  }
+  if (params.get('buy') === 'credits') {
+    showMembershipScreen(() => showHub(), { creditsAlt: true });
+    showScreen('membership');
+    return true;
+  }
+  if (params.get('manage') === '1') {
+    // Manage is only meaningful for a signed-in member; anyone else gets the
+    // hub, which prompts them to sign in.
+    showHub();
+    if (isLoggedIn() && memberState.active && memberState.status !== 'comp') handleManageMembership();
+    return true;
+  }
+  return false;
+}
+
 function showMembershipScreen(returnTo, opts) {
   membershipReturnTo = returnTo || membershipReturnTo;
   membershipGateBackToHub = !!opts?.trialGate;
@@ -6490,8 +6625,8 @@ function showMembershipScreen(returnTo, opts) {
   const isComp = memberState.status === 'comp';
   const betaNote = $('membershipBetaNote');
   if (betaNote) betaNote.style.display = isComp ? '' : 'none';
-  // In-app there's no purchase UI — show a neutral note for non-comp users so the
-  // screen still explains itself (comp users already get the beta note above).
+  // In-app there is no in-app purchase, so non-comp users get the external
+  // purchase link instead of the plan cards (comp users get the beta note above).
   const appNote = $('membershipAppNote');
   if (appNote) appNote.style.display = (IS_NATIVE_APP && !isComp) ? '' : 'none';
   $('membershipSubscribeBtn').style.display = isComp ? 'none' : '';
@@ -7185,6 +7320,8 @@ function renderProgram() {
     </div>`;
     html += `<button class="try-diff-btn" id="programRestartBtn" style="margin-top:14px">Start over with a new intake</button>`;
   }
+
+  html += sourcesCard('training', 'Your training volume, weekly frequency and protein guidance follow the published exercise and nutrition recommendations below.');
 
   wrap.innerHTML = html;
 
@@ -8042,6 +8179,8 @@ function renderMealPlan() {
     html += `<button class="try-diff-btn" id="mealPlanRestartBtn" style="margin-top:14px">Start over with a new intake</button>`;
   }
 
+  html += sourcesCard('nutrition', 'Your calorie target, protein target and the expected rate of fat loss are calculated from published equations and public health guidance, listed below.');
+
   wrap.innerHTML = html;
 
   // Wire it
@@ -8714,6 +8853,7 @@ function renderCounselReport() {
   }
   html += `<button class="try-diff-btn" id="counselNewBtn" style="margin-top:10px">Run another audit</button>
     <div class="footer" style="margin-top:22px">This audit is educational guidance, not medical advice. Bring it to your doctor — it's built for that conversation.</div>`;
+  html += sourcesCard('supplements', 'Ingredient, dosing and interaction guidance in this audit is based on the public regulatory and research sources below. Always confirm with your doctor or pharmacist.');
 
   wrap.innerHTML = html;
 
@@ -9065,6 +9205,7 @@ function renderSleepBriefing() {
   if (!isLoggedIn()) {
     html += `<div class="hero-sub" style="margin-top:10px;font-size:12.5px">Create a free account to save your nights and unlock the 14-day trend.</div>`;
   }
+  html += sourcesCard('sleep', 'Your briefing applies published sleep-science guidance to the night you logged — how much sleep adults need, and the measured effects of short sleep on training performance, testosterone, insulin sensitivity and fat loss.');
   html += `<div class="footer" style="margin-top:22px">Not medical advice. If you suspect a sleep disorder (loud snoring, gasping awake, always unrefreshed), talk to a doctor.</div>`;
 
   wrap.innerHTML = html;
@@ -9633,6 +9774,69 @@ function escapeHtml(str) {
   return String(str ?? '').replace(/[&<>"']/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   }[c]));
+}
+
+// ============================================================
+//  CITATIONS  (App Store guideline 1.4.1)
+// ------------------------------------------------------------
+//  Every feature that presents a health calculation or a health
+//  recommendation has to show where that guidance comes from, and the
+//  citation has to be easy to find. Each entry is a real, checkable
+//  source — government/health-authority guidance for the general
+//  claims, peer-reviewed papers for the specific numbers. The full
+//  list also lives at /sources as a normal crawlable page.
+//
+//  Every URL here was loaded and verified before shipping. If you add
+//  one, verify it the same way — a dead citation is worse than none.
+// ============================================================
+const SOURCE_LIBRARY = {
+  calories: { t: 'Mifflin MD, et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr. 1990;51(2):241–7.', u: 'https://pubmed.ncbi.nlm.nih.gov/2305711/' },
+  weightRate: { t: 'CDC — Steps for Losing Weight (a gradual 1–2 lb per week is the rate associated with keeping it off).', u: 'https://www.cdc.gov/healthy-weight-growth/losing-weight/index.html' },
+  weightMgmt: { t: 'NIH NIDDK — Weight Management.', u: 'https://www.niddk.nih.gov/health-information/weight-management' },
+  dga: { t: 'U.S. Departments of Agriculture and Health and Human Services — Dietary Guidelines for Americans.', u: 'https://www.dietaryguidelines.gov/' },
+  protein: { t: 'Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. Br J Sports Med. 2018;52(6):376–84.', u: 'https://pubmed.ncbi.nlm.nih.gov/28698222/' },
+  cutting: { t: 'Helms ER, et al. Evidence-based recommendations for natural bodybuilding contest preparation: nutrition and supplementation. J Int Soc Sports Nutr. 2014;11:20.', u: 'https://pubmed.ncbi.nlm.nih.gov/24864135/' },
+  bodyFat: { t: 'American Council on Exercise — body fat percentage ranges.', u: 'https://www.acefitness.org/resources/everyone/blog/112/what-are-the-guidelines-for-percentage-of-body-fat-loss/' },
+  sleepAmount: { t: 'Watson NF, et al. Recommended Amount of Sleep for a Healthy Adult: A Joint Consensus Statement of the American Academy of Sleep Medicine and Sleep Research Society. Sleep. 2015;38(6):843–4.', u: 'https://pubmed.ncbi.nlm.nih.gov/26039963/' },
+  sleepCdc: { t: 'CDC — About Sleep.', u: 'https://www.cdc.gov/sleep/about/index.html' },
+  sleepAthlete: { t: 'Walsh NP, et al. Sleep and the athlete: narrative review and 2021 expert consensus recommendations. Br J Sports Med. 2021;55(7):356–68.', u: 'https://pubmed.ncbi.nlm.nih.gov/33144349/' },
+  sleepTesto: { t: 'Leproult R, Van Cauter E. Effect of 1 week of sleep restriction on testosterone levels in young healthy men. JAMA. 2011;305(21):2173–4.', u: 'https://pubmed.ncbi.nlm.nih.gov/21632481/' },
+  sleepInsulin: { t: 'Spiegel K, et al. Impact of sleep debt on metabolic and endocrine function. Lancet. 1999;354(9188):1435–9.', u: 'https://pubmed.ncbi.nlm.nih.gov/10543671/' },
+  sleepFatLoss: { t: 'Nedeltcheva AV, et al. Insufficient sleep undermines dietary efforts to reduce adiposity. Ann Intern Med. 2010;153(7):435–41.', u: 'https://pubmed.ncbi.nlm.nih.gov/20921542/' },
+  sleepDeprivation: { t: 'NIH NHLBI — Sleep Deprivation and Deficiency.', u: 'https://www.nhlbi.nih.gov/health/sleep-deprivation' },
+  paGuidelines: { t: 'U.S. Department of Health and Human Services — Physical Activity Guidelines for Americans, 2nd edition.', u: 'https://health.gov/paguidelines' },
+  trainingVolume: { t: 'Schoenfeld BJ, et al. Dose-response relationship between weekly resistance training volume and increases in muscle mass. J Sports Sci. 2017;35(11):1073–82.', u: 'https://pubmed.ncbi.nlm.nih.gov/27433992/' },
+  odsFacts: { t: 'NIH Office of Dietary Supplements — Dietary Supplement Fact Sheets.', u: 'https://ods.od.nih.gov/factsheets/list-all/' },
+  fdaSupp: { t: 'U.S. Food and Drug Administration — Dietary Supplements.', u: 'https://www.fda.gov/food/dietary-supplements' },
+  creatine: { t: 'Kreider RB, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation. J Int Soc Sports Nutr. 2017;14:18.', u: 'https://pubmed.ncbi.nlm.nih.gov/28615996/' },
+};
+
+// Which sources back which feature's output.
+const SOURCE_SETS = {
+  nutrition: ['calories', 'weightRate', 'protein', 'cutting', 'bodyFat', 'dga', 'weightMgmt'],
+  sleep: ['sleepAmount', 'sleepCdc', 'sleepAthlete', 'sleepTesto', 'sleepInsulin', 'sleepFatLoss', 'sleepDeprivation'],
+  training: ['paGuidelines', 'trainingVolume', 'protein'],
+  supplements: ['odsFacts', 'fdaSupp', 'creatine'],
+  brief: ['sleepAmount', 'sleepAthlete', 'calories', 'protein', 'paGuidelines'],
+};
+
+// Renders the citation card appended to a report. `intro` names what
+// on THIS screen the sources actually support, so the citation is
+// tied to the claim rather than being a generic bibliography.
+function sourcesCard(setKey, intro) {
+  const keys = SOURCE_SETS[setKey] || [];
+  if (!keys.length) return '';
+  const items = keys.map(k => {
+    const s = SOURCE_LIBRARY[k];
+    if (!s) return '';
+    return `<li>${escapeHtml(s.t)} <a href="${escapeHtml(s.u)}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.u)}</a></li>`;
+  }).join('');
+  return `<div class="src-card">
+    <div class="src-card-h">Sources &amp; references</div>
+    <div class="src-card-intro">${escapeHtml(intro || 'The guidance on this screen is based on the published sources below.')}</div>
+    <ol>${items}</ol>
+    <div class="src-card-all"><a href="/sources" target="_blank" rel="noopener noreferrer">See all sources used across Abs by AI →</a></div>
+  </div>`;
 }
 
 function todayKey() {

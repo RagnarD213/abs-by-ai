@@ -8464,7 +8464,10 @@ app.get('/privacy', (req, res) => {
 
 // Explicit routes for the Google Ads compliance pages (linked without .html).
 // Must stay registered before the SPA fallback below, or they'd be swallowed by it.
-for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works']) {
+// `sources` carries the medical/health citations required by App Store
+// guideline 1.4.1 — it is linked from every in-app report that contains a
+// health calculation or recommendation, and must stay reachable.
+for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works', 'sources']) {
   app.get(`/${slug}`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', `${slug}.html`));
   });
