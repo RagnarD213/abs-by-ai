@@ -96,6 +96,9 @@
     ],
     "health::Salad by 2 PM · large meal by 6 PM · small meal by 9 PM": [
       "2026-08-05"
+    ],
+    "health::Salad by 2:00 PM": [
+      "2026-08-05"
     ]
   }
 }
