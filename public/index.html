@@ -1754,6 +1754,9 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
         <span id="bfAfter" style="color:var(--acc)">—</span>
       </span>
     </div>
+    <!-- 1.4.1: the body-fat figures above are visual estimates, and the reviewer
+         flagged uncited body-fat numbers on the Meal Plan — qualify them here too. -->
+    <div id="bodyfatNote" style="font-size:11px;color:var(--faint);margin:-4px 0 10px;text-align:center">Visual estimate for motivation — not a medical measurement. Based on published body-fat ranges (<a href="/sources" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">sources</a>).</div>
 
     <!-- Result loading state (progress bar + synced copy; scan overlays the after image) -->
     <div id="resultGenLoader" class="gen-loader" style="display:none">
@@ -4086,6 +4089,10 @@ function updateBodyFatDisplay() {
   }
   const label = $('bodyfatLabel');
   if (label) label.textContent = bfDisplayIsBuild ? 'Your build' : 'Estimated body fat';
+  // The measurement qualifier only makes sense against % figures — the
+  // build-name display ("Lean → Cover-model build") makes no numeric claim.
+  const bfNote = $('bodyfatNote');
+  if (bfNote) bfNote.style.display = bfDisplayIsBuild ? 'none' : '';
   $('bfBefore').textContent = before;
   $('bfAfter').textContent = after;
 }
@@ -7321,6 +7328,7 @@ function renderProgram() {
     html += `<button class="try-diff-btn" id="programRestartBtn" style="margin-top:14px">Start over with a new intake</button>`;
   }
 
+  html += `<div class="footer" style="margin-top:22px">Not medical advice. Check with your doctor before starting a new exercise program — especially with an injury, heart condition, or other medical concern.</div>`;
   html += sourcesCard('training', 'Your training volume, weekly frequency and protein guidance follow the published exercise and nutrition recommendations below.');
 
   wrap.innerHTML = html;
@@ -8179,6 +8187,7 @@ function renderMealPlan() {
     html += `<button class="try-diff-btn" id="mealPlanRestartBtn" style="margin-top:14px">Start over with a new intake</button>`;
   }
 
+  html += `<div class="footer" style="margin-top:22px">This plan is general fitness guidance, not medical advice. Talk to your doctor before starting a new diet — especially if you take medication, are pregnant, or have a medical condition.</div>`;
   html += sourcesCard('nutrition', 'Your calorie target, protein target and the expected rate of fat loss are calculated from published equations and public health guidance, listed below.');
 
   wrap.innerHTML = html;
