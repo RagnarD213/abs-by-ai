@@ -92,6 +92,15 @@
       "synced": false,
       "welcomeStep": 5,
       "excluded": true
+    },
+    "sudhanshusaw48@gmail.com": {
+      "subscribedAt": "2026-08-05T02:36:02.979Z",
+      "deviceId": "dev-1785896526999-xhe5wxhc",
+      "synced": false,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-08-05T02:36:02.979Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
