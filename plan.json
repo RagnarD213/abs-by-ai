@@ -1,12 +1,12 @@
 {
   "date": "2026-08-05",
   "order": [
-    "money::Finish Google Ads campaign setup and launch video campaign",
-    "money::Dump shoot notes into the video outline file (which videos were filmed)"
+    "money::Finish Google Ads campaign setup and launch video campaign"
   ],
   "excluded": [
     "money::Buy iPad teleprompter (needs Jeff approval + shipping before next shoot)",
-    "money::Post the video-editor job (Romeysa or new editor) for the filmed videos"
+    "money::Post the video-editor job (Romeysa or new editor) for the filmed videos",
+    "money::Dump shoot notes into the video outline file (which videos were filmed)"
   ],
   "sessionsCompleted": 0
 }
