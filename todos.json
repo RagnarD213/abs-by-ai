@@ -61,26 +61,6 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Create Abs by AI app listing in Play Console + fill Internal testing checklist (privacy policy, content rating, data safety)",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Upload android/app/build/outputs/bundle/release/app-release.aab to Internal testing track",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Add self as internal tester, install app on phone via Join link",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Test on phone: full-screen (no address bar), generate a result, print checkout, no buy-buttons shown, login works",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Finalize iOS app",
       "priority": "high",
       "addedAt": "2026-08-03"
@@ -121,11 +101,6 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Touch up photos with Facetune and/or AI.",
-      "priority": "key",
-      "addedAt": "2026-08-04"
-    },
-    {
       "text": "Create YouTube channel banner and avatar.",
       "priority": "key",
       "addedAt": "2026-08-04"
@@ -143,12 +118,6 @@
     {
       "text": "Create TikTok profile and graphics.",
       "priority": "key",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Execute handoff: Retouch remaining 9 top-10 pool-shoot photos",
-      "priority": "key",
-      "why": "handoff-20260804-top10-photo-retouch-batch.md — created but not yet run",
       "addedAt": "2026-08-04"
     },
     {
@@ -262,11 +231,6 @@
     },
     {
       "text": "Add new pictures to Bumble.",
-      "priority": "key",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Thank Mindy for doing a great job and schedule next shoot.",
       "priority": "key",
       "addedAt": "2026-08-04"
     }
