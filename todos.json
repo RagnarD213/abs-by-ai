@@ -184,19 +184,25 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Salad",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "No political news before the morning brief — AG1, then Claude",
+      "text": "Salad by 2:00 PM",
       "priority": "high",
       "recurring": true,
       "addedAt": "2026-08-05"
     },
     {
-      "text": "Salad by 2 PM · large meal by 6 PM · small meal by 9 PM",
+      "text": "Large meal by 6:00 PM",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Small meal by 9:00 PM",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "No political news before the morning brief — AG1, then Claude",
       "priority": "high",
       "recurring": true,
       "addedAt": "2026-08-05"
