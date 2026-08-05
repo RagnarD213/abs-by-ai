@@ -178,7 +178,7 @@
     {
       "text": "Create Facebook Page for Abs By AI (a Page, NOT a personal profile)",
       "priority": "key",
-      "why": "Blotato/API can only post to a Page — a personal profile cannot be posted to, so getting this wrong means starting over",
+      "why": "You already manage 3 Pages (BecomeSharp, SixPackAbs.com, Social Response Marketing-deactivated) but none for Abs By AI. Decide: new Abs By AI Page, or reuse the SixPackAbs.com Page. API cannot post to a personal profile.",
       "addedAt": "2026-08-05"
     },
     {
