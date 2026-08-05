@@ -198,6 +198,12 @@
       "priority": "high",
       "why": "Do not connect before Sept 2 — early third-party connection risks a bot flag. Generating the API key starts $29/mo billing.",
       "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Execute handoff: Finish Android Play Store public listing (content rating, health, store listing)",
+      "priority": "key",
+      "why": "handoff-20260805-android-play-store-public-launch.md — created but not yet run",
+      "addedAt": "2026-08-05"
     }
   ],
   "health": [
