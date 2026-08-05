@@ -23,6 +23,31 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 - Keep credentials secret, use least-privilege access, verify changes after applying them, and explain the result in simple language.
 - This authorization does not permit sending emails to customers, activating marketing automations, purchasing or upgrading paid plans, destructive account or DNS actions, domain transfers, or application-code changes unless the user separately requests them.
 
+## Standing authorization for SixPackAbs.com content and site changes
+
+- You are authorized to create, edit, and publish content and site changes on sixpackabs.com (WordPress.com) without asking for confirmation each time: blog posts, pages, templates, template parts, CTAs, email-capture forms, tracking snippets, and SEO metadata.
+- Follow the settled decisions already recorded in AI_COORDINATION.md (keep the informational content, label AI-generated imagery, one email list on Resend, no display ads under ~50k views).
+- Verify every change on the live site after publishing and record it in the coordination file.
+- This authorization does not permit deleting existing posts or pages, changing the domain or DNS for sixpackabs.com, purchasing plans or plugins, or sending email to the list.
+
+## Standing authorization for analytics and telemetry configuration
+
+- You are authorized to create and modify PostHog dashboards, insights, annotations, and event definitions, and to add or adjust analytics tracking code (PostHog events, Google Ads tags, UTM conventions) in the product and on project sites, without asking for confirmation each time.
+- Any tracking-code change to production follows the normal delivery rules: commit, push, deploy, live-verify, and flag native-retest triggers.
+- This authorization does not permit deleting historical analytics data, changing feature flags that alter app behavior for users, granting other people access to analytics accounts, or purchasing paid analytics plans.
+
+## Standing authorization for small AI-generation spend
+
+- You are authorized to spend up to **$10 per work session** on AI generation calls (Replicate, Gemini, MiniMax, Anthropic, and similar metered providers) for testing, evals, bake-offs, marketing assets, and ad production, without asking for confirmation each time.
+- State the estimated cost before a batch run, keep a running total when a session's spend is material, and never run generation batches through paths that consume user credits or trigger production redeploys (no `deviceId` on test calls).
+- Spend above $10 in a session, or any single batch estimated over $5, still requires an explicit go-ahead with a stated budget.
+- This authorization does not permit topping up provider balances, adding payment methods, or upgrading plans.
+
+## Standing authorization for dashboard and task-board updates
+
+- You are authorized to read and write the Victory Dashboard's task data (`/api/todos`, `/api/task-checks`, `/api/plan`) without asking for confirmation each time: adding Key tasks for new handoffs, checking off completed tasks, and updating the focus list, per the rules in AI_COORDINATION.md.
+- This authorization does not permit deleting tasks Dan created or rewriting task text he wrote.
+
 ## Delivery and deployment
 
 - Do not leave changes made for a task only on the local computer.
