@@ -1,6 +1,8 @@
 {
   "date": "2026-08-05",
-  "order": [],
+  "order": [
+    "money::Finish Google Ads campaign setup and launch video campaign"
+  ],
   "excluded": [
     "money::Buy iPad teleprompter (needs Jeff approval + shipping before next shoot)"
   ],
