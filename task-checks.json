@@ -1,6 +1,7 @@
 {
   "checked": [
-    "money::Execute handoff: Finish Android Play Store public listing (content rating, health, store listing)"
+    "money::Execute handoff: Finish Android Play Store public listing (content rating, health, store listing)",
+    "money::Execute handoff: Write finalized ad scripts from remaining batch-1 outlines"
   ],
   "log": {
     "health::Shower": [
