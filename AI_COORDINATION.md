@@ -114,7 +114,9 @@ Executes `handoff-20260805-android-play-store-public-launch.md` in full. **All t
 
 **Time-sensitive, unchanged:** Google's targetSdk deadline is **2026-08-31** (~3.5 weeks out). The existing `app-release.aab` (June 10, v1/1.0, targetSdk 35) is accepted until then; after that a new app needs API 36 and the bundle must be re-targeted and rebuilt.
 
-**EXACT NEXT ACTION — DAN'S GO/NO-GO:** everything up to the release is done. Publishing is `Test and release → Production → Create new release → attach app-release.aab → Preview and confirm → Send for review → Publish`. That is an outward-facing, consequential action (makes the app publicly discoverable and starts Google's review), so it was deliberately NOT taken — same treatment as the iOS "Submit" press. Confirm country/region selection at that point too.
+**Release prep STARTED then BLOCKED on a login (2026-08-06).** Dan gave the go to prep the production release and stop before "Send for review". Two decisions settled at that point, do not relitigate: **availability = United States only** (matches the iOS narrowing of 2026-08-05, and Google's external-offers allowance is US-focused — reversible later), and the final **Send for review / Publish press stays Dan's**, same treatment as the iOS Submit. The `app-release.aab` was staged for upload (447 KB, v1/1.0, targetSdk 35) using the localhost-fetch technique described above, which also works for `.aab`, not just images. **Blocked because the Play Console browser session expired to a Google sign-in screen, and Claude does not enter Dan's password.** Nothing was lost — content rating, health declaration and the store listing are all persisted server-side, checklist still 11/11.
+
+**EXACT NEXT ACTION:** Dan signs back into Play Console (`danroseconsulting@gmail.com`) in the browser panel. Then Claude does `Test and release → Production → Create new release → attach app-release.aab → set availability to United States only → Preview and confirm`, and **stops** — Dan presses Send for review.
 
 ### (superseded) Android Play Store public launch — 8/11 setup items done, handoff written for the rest (2026-08-05)
 
