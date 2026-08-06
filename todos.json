@@ -1,24 +1,6 @@
 {
   "business": [
     {
-      "text": "Post the video-editor job (Romeysa or new editor) for the filmed videos",
-      "priority": "key",
-      "why": "Footage is shot but unedited — editing is the bottleneck for the YouTube launch",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Dump shoot notes into the video outline file (which videos were filmed)",
-      "priority": "key",
-      "why": "Dan's memory of the last filming batch is fading — capture before it's gone",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Buy iPad teleprompter (needs Jeff approval + shipping before next shoot)",
-      "priority": "key",
-      "why": "Only item with a hard external dependency chain before the next shoot",
-      "addedAt": "2026-08-05"
-    },
-    {
       "text": "Finish Google Ads campaign setup and launch video campaign",
       "priority": "high",
       "why": "Tracking verified firing; set Trial Signup to 'Use different values for each conversion' in Goals → Conversions",
@@ -48,12 +30,6 @@
       "text": "Finish Android app Play Console setup and publish",
       "priority": "high",
       "why": "targetSdk 35 only accepted for new apps until 2026-08-31",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Check iOS App Store review status (submitted July 25)",
-      "priority": "high",
-      "why": "11+ days in Waiting for Review — longer than Apple's usual 48h",
       "addedAt": "2026-08-05"
     },
     {
@@ -176,24 +152,6 @@
       "addedAt": "2026-08-05"
     },
     {
-      "text": "Create Facebook Page for Abs By AI (a Page, NOT a personal profile)",
-      "priority": "key",
-      "why": "You already manage 3 Pages (BecomeSharp, SixPackAbs.com, Social Response Marketing-deactivated) but none for Abs By AI. Decide: new Abs By AI Page, or reuse the SixPackAbs.com Page. API cannot post to a personal profile.",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Create TikTok account and begin the 4-week manual warm-up",
-      "priority": "key",
-      "why": "Blotato requires 4 weeks of manual activity before connecting — the clock starts the day the account exists",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Link Instagram (abs.by.ai) to the Abs By AI Facebook Page as a Business account",
-      "priority": "key",
-      "why": "Last structural blocker — the publishing API requires a professional IG account connected to a Page",
-      "addedAt": "2026-08-05"
-    },
-    {
       "text": "Connect Blotato and start scheduled posting (TikTok warm-up ends ~2026-09-02)",
       "priority": "high",
       "why": "Do not connect before Sept 2 — early third-party connection risks a bot flag. Generating the API key starts $29/mo billing.",
@@ -226,77 +184,18 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Salad by 2:00 PM",
+      "text": "Salad",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-05"
+      "addedAt": "2026-08-03"
     },
     {
-      "text": "Large meal by 6:00 PM",
+      "text": "Inject Zepbound",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Small meal by 9:00 PM",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "No political news before the morning brief — AG1, then Claude",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-05"
+      "addedAt": "2026-08-06"
     }
   ],
   "personal": [
-    {
-      "text": "Pay off Capital One card",
-      "priority": "high",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Conservative retouch pass of dating-app photos (light edit, no body changes)",
-      "priority": "high",
-      "why": "Do before uploading to Hinge/Bumble — Instagram-grade edits risk reading as filtered",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Add new pictures to Hinge.",
-      "priority": "high",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Add new pictures to Bumble.",
-      "priority": "high",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Call title company",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Email Rachelle to end child support",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Buy Proper Cloth shirt",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Follow up with power washing contractors",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Follow up with pool tile contractors",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
     {
       "text": "Buy more SpaceX stock",
       "priority": "med",
