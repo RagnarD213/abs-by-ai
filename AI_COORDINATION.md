@@ -88,7 +88,7 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Blocked` — iOS 1.0 was REJECTED by Apple 2026-08-05; both fixes are SHIPPED and live-verified (commit `5f45501`), App Store availability is now US-only, and the review notes are updated. **Waiting only on Dan's go-ahead to press "Resubmit to App Review".** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
+**Status:** `Implementation in progress` (Android) — iOS 1.0 was REJECTED by Apple 2026-08-05, both fixes SHIPPED and live-verified (commit `5f45501`), and **Dan RESUBMITTED to App Review 2026-08-05 at 10:12 AM — status is back to "Waiting for Review" (verified in App Store Connect 2026-08-06). Nothing left to do on iOS but wait for Apple's verdict; do NOT prompt Dan to press Resubmit again.** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
 
 ### Android Play Store public launch — 8/11 setup items done, handoff written for the rest (2026-08-05)
 
@@ -104,7 +104,9 @@ Dan asked to make the Android app publicly available on the Play Store (it has b
 
 **Exact next action:** Dan sits with Claude Code (new session, per the handoff) for ~10 minutes to answer Content rating + Health live, then Claude finishes the store listing assets and the release can be created.
 
-### iOS 1.0 REJECTED — both guidelines fixed, live-verified, awaiting resubmit (2026-08-05, commit `5f45501`)
+### iOS 1.0 REJECTED — both guidelines fixed, live-verified, RESUBMITTED 2026-08-05 10:12 AM (commit `5f45501`)
+
+**RESUBMISSION DONE.** Dan pressed "Resubmit to App Review" on 2026-08-05 at 10:12 AM; App Store Connect shows the submission (1 item, iOS 1.0) as **Waiting for Review**, verified 2026-08-06. The only remaining iOS action is waiting for Apple's verdict — on a new rejection, read the resolution-center note before changing anything. The record below is the history of the rejection and the fixes.
 
 Apple rejected `1.0 (1)` on 2026-08-05 (submission `c4dc7f48-72d6-4ecd-b809-65be264fce85`, reviewed on an iPad Air 11-inch M3) under **two** guidelines. Four reviewer screenshots are attached to the submission; they were downloaded and read, and they pin both causes exactly.
 
@@ -129,7 +131,7 @@ Apple rejected `1.0 (1)` on 2026-08-05 (submission `c4dc7f48-72d6-4ecd-b809-65be
 
 **App Store Connect changes made:** availability **175 countries → United States only** (Dan approved; the link-out permission is US-storefront, and it's reversible at any time), verified after a reload. App Review notes rewritten — the old 3.1.3(e) "no digital purchases in the app" paragraph is gone, replaced with the 1.4.1 citation walkthrough and the 3.1.1 external-link explanation, plus an **IMPORTANT note that the demo account is comp and therefore shows the beta-tester note rather than the purchase prompt** — the reviewer must stay signed out or make a free account to see the CTA. Saved and verified after a reload.
 
-**EXACT NEXT ACTION — Dan:** press **Resubmit to App Review** on the submission page (and optionally send the drafted reply to Apple's message). Everything else is done. Not pressed by Claude because resubmission is an outward-facing submission.
+**~~EXACT NEXT ACTION — Dan: press Resubmit to App Review~~ — DONE 2026-08-05 10:12 AM (see the RESUBMISSION DONE note at the top of this section).**
 
 **Independent QA pass on the rejection fixes — 3 residual 1.4.1 gaps found and SHIPPED, live-verified (2026-08-05, commit `bcf8142`, Claude Code).** Dan asked for a critical second-eyes review of the `5f45501` fixes before resubmitting. The 3.1.1 fix audited clean: all 5 link-outs wired through `openExternalPurchase` → `window.open(_blank, noopener)`, web Stripe path untouched, no leftover "aren't available for purchase" copy anywhere (only in a code comment), deep links guarded, and the citation cards render **below the locked CTA** on the Meal Plan / Sleep / Audit — load-bearing, because the reviewer uses a **free** account and only sees the locked previews. Three gaps the first fix missed, all now live:
 1. **The result screen's "Estimated body fat 20–24% → 9%" row had no qualifier or citation** — it is the first health number a reviewer sees (right after their first free generation) and the exact category (body-fat ranges) flagged on the Meal Plan screenshot. New `#bodyfatNote` line: "Visual estimate for motivation — not a medical measurement" + `/sources` link, toggled off in `updateBodyFatDisplay()` when the display shows a build name ("Lean → Cover-model build") instead of percentages, since that makes no numeric claim.
