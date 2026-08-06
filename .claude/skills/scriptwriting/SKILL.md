@@ -155,3 +155,30 @@ finalized scripts for teleprompter"
   entire ad plus a stray text fragment welded onto the previous ad's `[END]` line.
   Both resolved on their own once the edits settled. Wait, re-read, and only then
   fix anything; chasing the phantom nearly deleted real copy.
+- **Clipboard verification is NOT sufficient (Ad 3, 2026-08-06).** `clipboard info`
+  showed the correct `«class HTML»` and Docs *still* pasted a stale block twice —
+  once the previous session's whole ad, once an unrelated outline. Docs keeps its own
+  internal clipboard and falls back to it. Always set **both** the `«class HTML»` and
+  `«class utf8»` flavors, and for anything short (a note, a single paragraph)
+  **type it instead of pasting** — typing on a blank line next to an existing note
+  also inherits that note's styling for free.
+- **Images paste at natural pixel size; `width=` and CSS `width` are both ignored.**
+  Pre-scale the source files (`sips --resampleWidth 300`, 340 for landscape) before
+  base64-encoding. Bonus: payload dropped 2.8 MB → 551 KB, which also made the paste
+  more reliable.
+- **A pasted `<h2>` does not match the doc's Heading 2** — it keeps its own gray
+  character formatting. Fix: cursor in the heading → style dropdown → hover
+  `Heading 2` → **Apply 'Heading 2'**.
+- **Pasting after a bold-italic paragraph makes everything bold-italic.** Put
+  explicit `font-weight:normal;font-style:normal;text-decoration:none` on every body
+  paragraph, not just `color`.
+- **Count undo operations before pressing.** A paste + a `Return` + a style change is
+  three operations; three `cmd+z` to remove one bad paste also wiped the good ad.
+  Recover with `cmd+shift+z`, and screenshot after every undo batch.
+- **The Drive MCP text export can be badly stale**, and a freshly-opened Docs tab
+  renders that stale version before syncing. On Ad 3 it hid an entire existing ad and
+  caused the first wrong paste. Confirm structure in the live editor first; use a
+  Drive re-read only as the *final* verification, after edits settle.
+- **Numbering:** number a new ad by what the output doc already contains, not by the
+  outline's position in the outlines doc. Don't renumber another session's block
+  unless asked — say so instead.
