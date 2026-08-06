@@ -184,7 +184,7 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Salad",
+      "text": "Salad by 2:00pm",
       "priority": "high",
       "recurring": true,
       "addedAt": "2026-08-03"
@@ -192,6 +192,18 @@
     {
       "text": "Inject Zepbound",
       "priority": "high",
+      "addedAt": "2026-08-06"
+    },
+    {
+      "text": "Big meal by 6:00pm",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-08-06"
+    },
+    {
+      "text": "Small meal by 9:30pm",
+      "priority": "high",
+      "recurring": true,
       "addedAt": "2026-08-06"
     }
   ],
