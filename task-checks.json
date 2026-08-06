@@ -1,5 +1,7 @@
 {
-  "checked": [],
+  "checked": [
+    "money::Execute handoff: Finish Android Play Store public listing (content rating, health, store listing)"
+  ],
   "log": {
     "health::Shower": [
       "2026-06-25",
