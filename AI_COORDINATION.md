@@ -65,6 +65,26 @@ Android assertions run over the Chrome DevTools protocol (`adb forward` → `Run
 
 ---
 
+## Standing note — project root was reorganized 2026-08-05 (commit `a6b6cd2`)
+
+**Paths referenced elsewhere in this file and in older handoffs have moved.** No code, data file, or served route changed — only documents and working media. Translate as follows:
+
+| Old path | New path |
+|---|---|
+| `handoff-*.md`, `HANDOFF_*.md` (root) | `Handoffs/` (all 75, indexed in `Handoffs/README.md`) |
+| `AUDIT_*.md`, `*_PLAN.md`, `DEPLOYMENT.md`, `QUICK_START.md`, `README_BACKEND.md`, `WHAT_WAS_BUILT.md`, `TRAINER_V3_WORKOUTS.md`, `EMAIL_MARKETING_PLAN.md`, `MAILERLITE_BUILD.md` | `Docs/` |
+| `example pictures/`, `abs by ai images/`, `abs by ai images for future videos/`, `abs by ai gemini clips/`, `dan future visualizations/`, `B roll/`, `video_edit/`, `photos/` | `Media/` (same subfolder names) |
+| `llc documents/`, `legal forms/` | `Business/` |
+| `analytics.html`, `todo.html`, `todo-state.json`, `abs-by-ai-updated.html` | `Archive/` — all four were unreachable over HTTP and referenced by nothing |
+
+**Unchanged and load-bearing — do not move:** `server.js`, `db.js`, `dashboard.html` and `admin.html` (both served from the root by name via `path.join(__dirname, …)`), every `*-data.json` store, `public/`, `assets/judge-exemplars/`. Also deliberately left in place: `YouTube Content/`, `social media graphics/`, `logos/`, `_counsel_archive/`, `ad-factory/`.
+
+**The `.gitignore` trap this exposed, worth remembering:** `B roll/` and `photos/` were ignored by exact root path, so moving them under `Media/` silently stopped the rules matching and would have staged ~8 GB of personal media into a **public** repo. Replaced with a single `Media/` rule. The same audit found `llc documents/` and `legal forms/` had **never** been ignored at all — now covered by `Business/`. **Whenever a folder moves, re-run `git check-ignore -v` on it before staging anything.**
+
+Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboard`, `/admin`, `/sources`, `/privacy`, `/terms` all 200 with correct titles; same 6 routes re-checked 200 on live absbyai.com after the deploy. No dashboard task matched this work, so none was checked off (Rule 9).
+
+---
+
 ## Active task
 
 **Owner:** Claude Code
