@@ -136,7 +136,13 @@ Dan asked for scripts for "the four outlines from the last /ad-outlines task" �
 
 **Compliance calls baked into the four scripts:** supplements framed purely as value-for-money (never treating or preventing anything) with the "talk to your doctor" line marked do-not-cut; the crude-photoshop visual in Ad 7 must be a generic fake, never a real person's face; the crossed-out diet list in Ad 5 must be a plain phone note, not a real brand's app; Ad 6's ages (thirty-eight / thirty-nine / forty) flagged in its note as load-bearing and factually true. No sleep angle anywhere, per the settled rule.
 
-`money::Execute handoff: Write finalized ad scripts from remaining batch-1 outlines` **left UNCHECKED** — the "Two Futures" outline still has no script, so the task is not fully executed.
+**AD 8 "AI Showed Me My Two Futures" DELIVERED same session — batch 1 is now COMPLETE, all 8 outlines have scripts.** Dan asked for it immediately after seeing it flagged. ~626 spoken words ≈ 4:00–4:38, sitting between Ad 7's note and the Production notes. His locked skip stopper is verbatim; the later "general directions" sections were fleshed out, and the outline's own product-detail block reuses Ad 1's almost verbatim as it instructs. Structure re-verified in the live editor: AD 1–8 then Production notes.
+
+**AD 8 needs an asset that does not exist yet — the only one in the whole batch.** The LEFT "warning" picture: an AI image of Dan noticeably heavier, generated at the same shirt-off framing, background and lighting as the goal image so the body is the only difference. Both split-screen images carry an "AI-GENERATED" tag.
+
+**Deliberate compliance shaping of that concept, recorded so it isn't undone:** the warning picture appears only in the skip stopper plus one one-second callback, and the script explicitly discards it ("The warning picture stops working in about a week. Fear fades… So I deleted the warning"). That is the outline's own beat and it is load-bearing — a two-futures ad that dwells on the heavier image is the one concept in this batch that can trip **Google's and Meta's personal-attributes / negative-body-image rules**. Selling the goal rather than the fear keeps it clean, and the per-ad note in the doc says so.
+
+**Dashboard: `money::Execute handoff: Write finalized ad scripts from remaining batch-1 outlines` is now CHECKED OFF** (Rule 9) — every batch-1 outline has a finalized script. Verified present in the `checked` array after the POST.
 
 ### Outline variations from an existing outline — nutritionist outline DELIVERED + /ad-outlines skill created (2026-08-06, Claude Code)
 
