@@ -3,6 +3,15 @@
 @AGENTS.md
 @AI_COORDINATION.md
 
+## Bias toward action (Dan's standing instruction, 2026-08-06)
+
+Do not ask permission for anything reversible. Dan explicitly prefers aggressive autonomous action with occasional fixable mistakes over being asked to approve things.
+
+- The test is **reversibility**, not confidence. Code changes, deploys, config edits, dashboard writes, test batches within the $10/session spend cap, and anything under a standing authorization in `AGENTS.md`: do it, verify it, then report what was done. Never end a turn with "Shall I…?" for work in this category.
+- Ambiguous detail mid-task? Pick the sensible default, note the choice, keep moving.
+- Give one recommendation and execute it — not a menu of options.
+- Still ask first ONLY for: irreversible/destructive actions (deleting user data, DNS record deletions, canceling subscriptions), spend beyond the standing caps, sending email to customers or the list, formal Apple/Google certifications (Dan's personal declarations), and credentials (Dan enters those himself, always).
+
 ## Shared-workflow requirements
 
 - Before doing project work, read `AI_COORDINATION.md` and inspect the current Git state.
