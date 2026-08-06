@@ -37,6 +37,10 @@ below) is the worked example. Voice traits:
 - Short declarative sentences. One idea per sentence. Em-dash pivots.
 - Personal specifics over generalities (200 pounds, 38-year-old dad, lockscreen for
   a year, meal prep, tracking calories). Never replace his specifics with generic ones.
+- **His real numbers — use these, don't guess.** The before picture was taken in
+  2024 when he was **38** and two hundred pounds; he got the abs back at
+  **thirty-nine**; he is **40** now (2026). Keep the before-photo age at thirty-eight
+  so it stays honest against the picture on screen.
 - Core phrase pair: "lose your belly fat" + "six-pack abs" — used constantly, keep it.
 - Honest, no-hype framing. He'll say "reasonably accurate", he won't overpromise.
 - Numbers written out for the teleprompter ("two hundred pounds", "thirty-eight").
@@ -56,6 +60,14 @@ below) is the worked example. Voice traits:
    goal/after image shown on screen keeps an "AI-GENERATED" label; Dan's real photos
    need none. Keep claims positive-framed (aspiration, not body-shaming) for ad
    policy safety. Add a short "Production notes" block for anything the editor needs.
+   Two hard rules from 2026-08-06:
+   - **Never say "GLP-1", or any brand or generic name of a weight-loss drug.**
+     Always write **"weight loss medication"** — the drug names get flagged by ad
+     review systems, the generic phrase doesn't. If a source outline still contains
+     one, change it in the script and tell Dan.
+   - **Never sell sleep coaching or sleep tracking.** Not as an angle, not as a
+     named benefit. Men don't believe sleep is the answer to belly fat, so it kills
+     the ad no matter how true it is. The feature exists; it just never sells.
 5. **Show the script in chat for Dan's approval BEFORE putting it in the Google Doc**
    (first time each ad). Then deliver into the doc.
 

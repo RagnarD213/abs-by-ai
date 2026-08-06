@@ -63,12 +63,31 @@ Dan's real transcripts). For outlines specifically:
 
 ## Settled compliance calls (don't relitigate)
 
-- **GLP-1 stays generic** — "if you're on a GLP-1 medication", never naming Dan's own
-  use, unless he asks for it.
+- **NEVER sell sleep.** Do not write an outline whose angle, hook, or promise is
+  sleep coaching or sleep tracking — and don't make sleep a named benefit bullet
+  either. Dan's verdict (2026-08-06, killing a drafted sleep outline): *"people,
+  especially men, do not think that sleep is the solution to their belly fat and
+  getting six-pack abs, even if it is. I've never seen an ad selling sleep be
+  successful for any fitness company."* The prospect doesn't believe the mechanism,
+  so the ad dies regardless of whether the science is right. The app HAS sleep
+  features; they just never carry an ad.
+- **NEVER say "GLP-1", or any brand or generic name of a weight-loss drug.** Always
+  write **"weight loss medication"**. Dan's reasoning (2026-08-06): the drug names
+  are flagged by the ad platforms' review systems; the generic phrase isn't. This
+  applies to every outline, every script, and any edit to already-delivered copy.
 - **Supplement language stays softened** — "which ones aren't worth your money", NOT
   "which ones you should stop taking" (the Google Ads pre-review wording shipped on
   the site, commit `59e943b`).
 - Positive/aspirational framing, no body-shaming, no medical claims.
+
+## Dan's facts (use these, don't guess)
+
+- **Before picture: taken 2024, Dan was 38** and two hundred pounds. Any outline
+  referencing the before photo says thirty-eight.
+- **Current age: 40** (as of 2026). He got the abs back at thirty-nine.
+- Credentials: personal trainer and nutrition coach; SixPackAbs.com was at one point
+  the most viewed fitness channel on YouTube; today a dad running a successful ad
+  agency. Never invent a credential beyond these.
 
 ## Delivery into the Google Doc — the exact mechanics that work
 
