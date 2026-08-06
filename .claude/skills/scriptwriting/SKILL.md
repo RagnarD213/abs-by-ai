@@ -125,3 +125,21 @@ finalized scripts for teleprompter"
   always pull the .docx export to find them.
 - Runtime math: his relaxed narration is ~2.3–2.5 words/sec; a ~600-word ad reads
   3:45–4:15.
+- **Appending a text-only ad (Ad 2, 2026-08-06) — the reliable recipe.** Write the
+  ad as HTML, put it on the clipboard with `osascript -e 'set the clipboard to
+  {«class HTML»:«data HTML<hex>», «class utf8»:«data utf8<hex>»}'`, click at the end
+  of the previous ad's `[END]` cue, `cmd+Right`, `Return`, `cmd+v`. That lands the
+  new ad above the Production notes section, which stays last.
+- **Re-set the clipboard immediately before pasting and verify it.** The HTML flavor
+  got silently clobbered between setting and pasting, and Docs pasted a stale
+  Google Docs URL into the document instead. `osascript -e 'clipboard info'` must
+  show `«class HTML»`. Recover from a bad paste with `Escape` then `cmd+z`.
+- **Never paste at the start of a Heading paragraph** — every pasted paragraph
+  inherits that heading's paragraph style (body came in blue and would have shown up
+  in the document outline as headings). Paste into a Normal-text context, and set
+  explicit `color:#000000` on body paragraphs so nothing is inherited.
+- **Docs' undo/save is eventually consistent — do not act on a mid-flight read.** A
+  Drive read taken seconds after an undo+paste showed a phantom duplicate of the
+  entire ad plus a stray text fragment welded onto the previous ad's `[END]` line.
+  Both resolved on their own once the edits settled. Wait, re-read, and only then
+  fix anything; chasing the phantom nearly deleted real copy.
