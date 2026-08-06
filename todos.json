@@ -162,6 +162,12 @@
       "priority": "key",
       "why": "handoff-20260805-android-play-store-public-launch.md — created but not yet run",
       "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Execute handoff: Write finalized ad scripts from remaining batch-1 outlines",
+      "priority": "key",
+      "why": "handoff-20260806-ad-scripts-from-outlines.md — created but not yet run; waits on Dan filling in outlines 2+ in the batch-1 Google Doc",
+      "addedAt": "2026-08-06"
     }
   ],
   "health": [
