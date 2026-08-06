@@ -144,6 +144,28 @@ Dan asked for scripts for "the four outlines from the last /ad-outlines task" �
 
 **Dashboard: `money::Execute handoff: Write finalized ad scripts from remaining batch-1 outlines` is now CHECKED OFF** (Rule 9) — every batch-1 outline has a finalized script. Verified present in the `checked` array after the POST.
 
+### Images and clips for AD 2 — 13 assets PLACED + /imagesandclips skill created (2026-08-06, Claude Code)
+
+Dan asked for a new `/imagesandclips` skill and, first, for AD 2 (nutritionist) to have its assets filled in. **Done: AD 2 now holds exactly 13 images, each under its correct cue in script order; AD 1 (7) and AD 3 (6) byte-unchanged, section order and Production notes intact** — verified by re-downloading the .docx after the edits settled and counting images per section against the cue above each. Assets + a full cue→file→source map (incl. clip timecodes) in `Media/ad-assets/ad2-nutritionist/` (gitignored — Dan's personal media, public repo). Method captured in **`.claude/skills/imagesandclips/SKILL.md`**.
+
+**Dan's settled rule for what to add: only assets the editor could not have chosen just as well herself.** No generic stock. That means SixPackAbs clips, Dan's own footage, his before/photo-shoot pictures, our AI generations, and real app screens. Where the script implies a clip that doesn't exist, generate a **still that works as a start frame**, let Dan approve it, and only then make the clip — finished clips go to Drive and are **linked**, never embedded.
+
+**The B-roll was identified by looking, not guessing, and the obvious pick was wrong.** `sixpackabs.com rebrand b roll.mov` is mostly **Mike Chang and Thomas DeLauer**; Dan appears only as a lower-third title card. The real asset is **`interview b roll.mov` @ 0:18** — SixPackAbs.com "How To Lose Your Belly Fat" (3.3M views), Dan solo close-up, other host out of frame, and on-topic for a nutrition ad. Also used **`youtube ad agency b roll.mov` @ 0:04** (Dan's own agency channel) on the "running a successful ad agency" line. Recipe: 1 fps contact sheet, then crop the YouTube player out of the browser chrome (`crop=1990:1180:200:330` on the 3840×2160 sources).
+
+**Three real app screenshots, retina, live prod, ZERO AI spend.** The Apple-review comp account already had a saved meal plan and logged meals, so nothing was generated and **the reviewer's gallery was not touched** (the app is in App Store review — this was checked before acting, not after). Headless Chrome over CDP at 390×844 @3× → 1170×2532. The account email was cropped out of the Daily Brief shot.
+
+**Two AI stills via `google/nano-banana-pro`** (9:16, 2K, ~27¢ total): the stick-figure-shoves-the-nutritionist gag and a new "identical chicken-broccoli-rice plans handed to five different-shaped guys" frame for the generic-meal-plan line.
+
+**REAL FINDING, flagged and acted on: the script asks for "the ChatGPT logo as its head" in three ads (2, 3, 4).** That is OpenAI's trademark, and a competitor's mark in a paid ad is a genuine Google/Meta review risk. The Ad 2 still was generated with a **generic glowing "AI" badge** instead, and the per-ad note says so. Ads 3 and 4 still carry the same cue text — decide before their assets are made.
+
+**Google Docs insertion — the recipe, and the traps that cost time.** Insert **per cue**; never rewrite the ad (that would delete Dan-approved copy). Order is load-bearing: **position the cursor first, THEN set the clipboard, then paste immediately** — positioning in between is what lets Docs substitute its own internal clipboard. New traps for the skill's Lessons, on top of the ones the scriptwriting skill already records:
+- **`cmd+F` is unusable.** Keystrokes after opening Docs' find box land in the **document**, at any delay, and clicking the box first steals focus back. It typed the search string into the H1 title twice. Navigate by the left-hand outline + scroll + click.
+- **Reading the clipboard's HTML flavor BACK and comparing bytes is now the check** — `clipboard info` reporting `«class HTML»` stays true for a stale payload. Even with a verified-correct system clipboard, Docs pasted the previous image once and an unrelated outline from an earlier session once. **Screenshot after every paste; `cmd+z` + re-paste fixed both.**
+- **Insert bottom-up** when two targets share a screen, and **anchor on the last line of a paragraph** — `End` goes to the end of the visual line, not the paragraph.
+- PNG→JPEG q86 took the payload 1.2 MB → 412 KB, under the 551 KB known-good size.
+
+**Open for Dan:** (1) the **Macro Tracker result screen** (itemized macros after an analysis) is the one missing asset — it needs one real photo of a real plate of food; (2) approve the two cartoon stills so the clips can be generated; (3) the ChatGPT-logo call for Ads 3 and 4. No dashboard task matched this work and no handoff was created, so nothing was checked off (Rules 8/9).
+
 ### Outline variations from an existing outline — nutritionist outline DELIVERED + /ad-outlines skill created (2026-08-06, Claude Code)
 
 Dan asked for "Stop Paying Human Nutritionists! Use AI Instead" as a variation of his own "Stop Paying Human Trainers!" outline, inserted into **"Abs By AI ad outlines - batch 1"** (`160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw`) directly below the trainer outline and above the blank TEMPLATE blocks. **Done and verified in place; Dan: "This outline looks excellent."** Method captured in the new project skill **`.claude/skills/ad-outlines/SKILL.md`** (`/ad-outlines`) at his explicit request ("do it exactly like this").
