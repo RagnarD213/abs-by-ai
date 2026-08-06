@@ -62,5 +62,15 @@ ad-factory/
 * [0-9].sh
 * [0-9].txt
 
-# Local-only working media, not part of the deployed app
-B roll/
+# Local-only working media, not part of the deployed app.
+# Covers Media/B roll, Media/video_edit, Media/abs by ai images, Media/example
+# pictures, Media/dan future visualizations, and Media/photos (real personal
+# photos). One rule instead of per-folder rules: the repo is public, so the
+# default for this tree is "never commit". Production art lives in public/img/
+# and assets/judge-exemplars/, which are outside Media/ and stay tracked.
+Media/
+
+# Company formation and legal paperwork — repo is public, never commit.
+Business/
+
+YouTube Content/
