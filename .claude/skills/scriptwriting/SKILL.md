@@ -61,6 +61,9 @@ below) is the worked example. Voice traits:
 
 ## Ad outline structure (his template)
 
+*(To WRITE a new outline as a variation of an existing one — rather than turn a
+finished outline into a script — use `/ad-outlines`.)*
+
 Skip stopper → Believable promise → Conditioning content → CTA 1 → Conditioning
 content → CTA 2 (+ optional product-detail section → CTA 3). The skip stopper is
 the first 5 seconds; the believable promise sets up "in today's episode…" so the ad

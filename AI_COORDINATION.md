@@ -98,6 +98,16 @@ Dan's new workflow: he writes detailed ad outlines in Google Docs ("Abs By AI ad
 
 **Hard-won mechanics recorded in the skill (do not re-derive):** Drive MCP can't edit existing Docs and can't carry multi-MB base64; upload goes through Dan's Chrome via `HTMLInputElement.prototype.click` interception + DataTransfer `change` (synthetic drops are ignored by Drive; the claude-in-chrome `file_upload` tool's `paths` param is broken); localhost fetches from HTTPS pages need Private Network Access preflight headers or they hang; uploaded .docx → File → Save as Google Docs converts (new id, trash the intermediate); long awaits in `javascript_tool` time out — fire-and-forget + poll `window.__state`.
 
+### Outline variations from an existing outline — nutritionist outline DELIVERED + /ad-outlines skill created (2026-08-06, Claude Code)
+
+Dan asked for "Stop Paying Human Nutritionists! Use AI Instead" as a variation of his own "Stop Paying Human Trainers!" outline, inserted into **"Abs By AI ad outlines - batch 1"** (`160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw`) directly below the trainer outline and above the blank TEMPLATE blocks. **Done and verified in place; Dan: "This outline looks excellent."** Method captured in the new project skill **`.claude/skills/ad-outlines/SKILL.md`** (`/ad-outlines`) at his explicit request ("do it exactly like this").
+
+**The method that worked:** mirror the source outline beat-for-beat (same headers, same bullet nesting, same number of arguments in the same order, same cue points), swap the noun while keeping Dan's credentials factually true, and upgrade only the one section where the new angle is genuinely stronger (here: "with you at every meal" — photo-logging a plate, ordering off a menu, GLP-1 protein adjustments). Compliance calls carried over: GLP-1 references stay generic (never naming Dan's own use), supplement line stays "aren't worth your money" per `59e943b`.
+
+**Load-bearing delivery mechanic, recorded so it isn't re-derived:** Drive MCP can't edit an existing Doc, so delivery is via Chrome — and **`cmd+c` driven through the browser extension does NOT populate the macOS clipboard** (it silently pasted a stale Google Docs URL into the doc on the first attempt; `Escape` + `cmd+z`×2 recovered cleanly). The reliable path is writing the outline as HTML and putting it on the clipboard with the HTML flavor via `osascript -e 'set the clipboard to «data HTML<hex>»'`, then clicking the plain `–` separator line, `cmd+Right`, `Return`, `cmd+v`. Docs then renders the nested `<ul>` as native bullets at the right depth. Verified afterwards by re-reading the doc through the Drive MCP: new outline correctly between the trainer outline and the first TEMPLATE, trainer outline byte-unchanged, no stray URL.
+
+No dashboard task matched this work and no handoff was created, so nothing was checked off (Rules 8/9).
+
 ### Android Play Store public launch — CHECKLIST 11/11 COMPLETE, production release unlocked, awaiting Dan's go/no-go (2026-08-06)
 
 Executes `handoff-20260805-android-play-store-public-launch.md` in full. **All three remaining checklist items are done and the "X of 11 complete" section has disappeared entirely — every release track (Closed / Open / Pre-registration / Production) is now unlocked.** Play Console → Store listings reports **"Ready to send for review."**
