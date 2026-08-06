@@ -179,6 +179,14 @@ finalized scripts for teleprompter"
   renders that stale version before syncing. On Ad 3 it hid an entire existing ad and
   caused the first wrong paste. Confirm structure in the live editor first; use a
   Drive re-read only as the *final* verification, after edits settle.
+- **When a copy rule is settled, grep the ALREADY-DELIVERED scripts for it.** New rules
+  are not applied retroactively by themselves. Ad 2 sat in the doc for a day saying
+  "one of the GLP-1 medications" after the no-drug-names rule landed. Before adding a
+  new ad, Find-and-replace the banned terms across the whole doc.
+- **Setting both clipboard flavors + pasting into Normal text + explicit
+  `color/font-weight/font-style` on every paragraph works first try.** Four ads went in
+  with zero undos. The only trap that still fires is the `<h2>` character formatting —
+  fix each heading via the style dropdown after pasting.
 - **Numbering:** number a new ad by what the output doc already contains, not by the
   outline's position in the outlines doc. Don't renumber another session's block
   unless asked — say so instead.
