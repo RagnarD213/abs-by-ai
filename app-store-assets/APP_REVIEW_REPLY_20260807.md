@@ -1,6 +1,6 @@
 # App Review reply — submission c4dc7f48 (rejection of 2026-08-07)
 
-Paste the text below into "Reply to App Review" in App Store Connect, and mirror the face-data answers into App Review Information notes. The 3.1.1 paragraph depends on Dan's decision (IAP build vs. reply-only) — see AI_COORDINATION.md.
+Paste the text below into "Reply to App Review" in App Store Connect, and mirror the face-data answers into App Review Information notes. All three guideline sections are complete. The 3.1.1 answer reflects the decision taken 2026-08-07: build the membership as a real auto-renewable In-App Purchase (option a). Send this reply with the 1.0 (2) submission, once both subscriptions are attached to the version.
 
 ---
 
@@ -46,8 +46,17 @@ From the "Face data" section:
 
 ## Guideline 3.1.1 — Payments
 
-[PENDING DAN'S DECISION — either:
-(a) "We are adding the membership as an auto-renewable In-App Purchase subscription in the next binary (1.0 (2)) so the digital content is available for purchase in the app using In-App Purchase, alongside the US-storefront external purchase link." — if the IAP build is approved; or
-(b) a clarification request/appeal citing the US external-link allowance. Draft only after the decision.]
+Thank you for the clarification. The membership is now available for purchase inside the app using In-App Purchase.
+
+Build **1.0 (2)** includes two auto-renewable subscriptions in a single subscription group, purchasable in the app via StoreKit:
+
+- **Monthly Membership** — `com.absbyai.app.membership.monthly`, $19.99/month, with a 7-day free trial
+- **Annual Membership** — `com.absbyai.app.membership.annual`, $69.99/year, with a 7-day free trial
+
+Both are attached to this version for review. The purchase screen displays the title, duration and price of each subscription — read from StoreKit at runtime, so it always matches what Apple charges — together with the auto-renewal disclosure, a **Restore Purchases** control, and tappable **Terms of Use** and **Privacy Policy** links. A completed purchase unlocks the membership immediately; entitlements are verified server-side against the App Store receipt, and the app itself is never trusted to grant access. Subscriptions are managed and cancelled through the user's Apple ID, and the app links there for management.
+
+**To reach the purchase screen:** create a free account (or sign in), then open **Member Hub → Membership**. Please note that the demo account provided in App Review Information is a complimentary member account, so it intentionally displays no purchase UI. To see the In-App Purchase flow, please create a new free account in the app or remain signed out.
+
+The US-storefront external purchase link remains available alongside In-App Purchase, as permitted, but In-App Purchase is now offered for the same content.
 
 Thank you — we believe the app now fully addresses the privacy guidelines, and we're happy to provide any further detail.
