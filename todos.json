@@ -162,26 +162,31 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-07"
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-07"
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-07"
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-07"
     },
     {
       "text": "Inject Zepbound",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-07"
     }
   ],
   "personal": [
