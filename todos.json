@@ -184,7 +184,19 @@
       "addedAt": "2026-08-07"
     },
     {
-      "text": "Salad",
+      "text": "Salad by 2:00 PM",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-08-07"
+    },
+    {
+      "text": "Large meal by 6:00 PM",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-08-07"
+    },
+    {
+      "text": "Small meal by 9:30 PM",
       "priority": "high",
       "recurring": true,
       "addedAt": "2026-08-07"
