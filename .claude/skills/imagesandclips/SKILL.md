@@ -241,6 +241,15 @@ the text for residue from any bad paste and for the banned copy rules.
 
 ## Copy and compliance rules that apply to assets
 
+- **Never a side-by-side before/after in an ad frame** (Dan's rule, 2026-08-07). No
+  two-up before/after, no split screen, no "before | after" pair — not even with an
+  "AI-GENERATED" label. Meta prohibits before/after imagery in health and wellness
+  outright, the label does not cure it, and on a new Google Ads account it is the
+  single highest-risk composition in the ad. **The one exception:** a before/after
+  that appears *inside the app's own UI* in a real screenshot or screen recording —
+  there it reads as a product demo, not an advertising claim. Where a script needs
+  to connect the plan to the pictures, show the **goal image alone**, tagged, or cut
+  between shots instead of placing them side by side.
 - **Never render the ChatGPT logo** (or any competitor's mark) in an asset, even
   when the cue asks for it. Use a generic glowing "AI" badge and say so in the note.
   A competitor trademark in a paid ad is a real Google/Meta review risk.
