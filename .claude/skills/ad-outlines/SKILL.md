@@ -17,6 +17,10 @@ Nutritionists! Use AI Instead" outline, written as a variation of Dan's "Stop
 Paying Human Trainers!" outline. Dan's verdict: "This outline looks excellent.
 Great work… I want you to do it exactly like this."**
 
+**v2 — 2026-08-06: added the SKIP STOPPER section below after Dan rejected four of
+five outlines in one batch purely on their first five seconds. Read that section
+before writing anything.**
+
 ## The job
 
 Dan writes an outline he likes, then asks for the same outline aimed at a different
@@ -24,6 +28,69 @@ target ("same thing but about nutritionists"). The deliverable is a new outline 
 his doc, indistinguishable in structure and voice from the one he wrote, placed
 **directly below the source outline and above the blank TEMPLATE blocks** unless he
 says otherwise.
+
+## THE SKIP STOPPER DECIDES EVERYTHING — write it first, hardest
+
+**Dan's verdict on the 2026-08-06 batch: the ideas were fine and four of five
+outlines were rejected on the skip stopper alone.** If a viewer doesn't stay past
+five seconds, nothing else in the outline exists. Treat the first five seconds as
+the deliverable and the rest as support — not the other way around.
+
+**Write the skip stopper first, then stress-test it before writing a single other
+line.** Read it back and ask literally: *at second four, does he keep watching, or
+does his thumb move?* If the answer isn't obviously "keeps watching," throw it out
+and write another. Rewriting one hook is cheap; a rejected outline is not.
+
+**The payoff has to land INSIDE five seconds, not after it.** Dan, 2026-08-07, on an
+outline whose hook was otherwise fine: *"'I look awful in this picture, two hundred
+pounds, thirty-eight years old' — that's five seconds right there,"* and the
+interesting turn arrived at second eight. **If the surprising thing shows up at 8 or
+9 seconds, it is too late even if it's good.** Count the words. At his pace that's
+~12–14 spoken words total before the turn must have happened. Compress the setup into
+the visual and spend the words on the turn.
+
+### What has to be true in the first five seconds
+
+1. **Something happens on screen.** A picture, a contradiction, a reveal, a joke.
+   Not a claim being asserted while Dan talks.
+2. **A gap opens that only watching can close.** "Same dad, a year apart" and "AI
+   made both of these pictures — one's a warning, one's a goal" both create a
+   question. "Dad bod is a marketing term" answers itself and ends.
+3. **The proof is up front, not saved for later.** His strongest hooks put the
+   before picture or the current abs in the first two seconds. That's the asset
+   nobody else has — lead with it.
+4. **It works with the sound off.** Most of the audience sees the frame before they
+   hear the line.
+
+### Anti-patterns — Dan has explicitly killed all four
+
+- **The abstract thesis.** "Dad bod is a marketing term." True, clever, and a skip —
+  it's a statement about language, not a reason to keep watching.
+- **Describing the viewer's behavior instead of showing something.** "You already
+  have your before picture. You just call it a bad photo and scroll past it."
+  Dan: *"too slow developing, people are going to skip it."* Nothing is on screen
+  that he needs an explanation for.
+- **Opening on dialogue or a quote.** "'You look great, man.'" Reads as a setup and
+  buys no attention.
+- **Contradicting what the prospect knows to be true about himself.** The first
+  weight-loss-medication draft opened "the scale is going down, so why does your
+  stomach still look like that?" — but his stomach IS getting smaller, so the hook
+  argues with his own mirror and he leaves. **Never open by telling a man something
+  about his body he can disprove by looking down.** Acknowledge the win he's already
+  getting, then sell the bigger one.
+
+### Patterns that have earned Dan's approval
+
+- **Real proof, hard cut.** Before picture → current abs, with one line naming what
+  didn't change (same job, same kids, same age bracket).
+- **A picture that shouldn't exist.** "This picture got me abs. And it's not even
+  real." / the split-screen two futures.
+- **The absurd/funny artifact held on screen.** The crude 2010 photoshop; a Grok
+  roast of his own dad bod. Let it be funny for a beat before the pivot.
+- **The named enemy, stated as a command.** "Stop wasting your money on personal
+  trainers!" — works because it's an instruction, not an observation, and it
+  promises a payoff (get better results for free).
+- **The obviously-wrong AI output.** Showing the failure first earns the fix.
 
 ## Method — mirror the source beat-for-beat, then upgrade one section
 
@@ -79,12 +146,26 @@ Dan's real transcripts). For outlines specifically:
   "which ones you should stop taking" (the Google Ads pre-review wording shipped on
   the site, commit `59e943b`).
 - Positive/aspirational framing, no body-shaming, no medical claims.
+- **Never write "humiliating."** Dan's read (2026-08-07): it's a negative trigger word
+  for Google Ads review. "Embarrassing" is fine.
+- **The weight-loss-medication angle is SHELVED, not dead** (Dan, 2026-08-07): an ad
+  about weight loss medication is too likely to be disapproved on a brand-new ad
+  account. Revisit once the account has an approval history. Do not write one, and do
+  not delete the concept — a full drafted outline exists in the 2026-08-07 session.
 
 ## Dan's facts (use these, don't guess)
 
 - **Before picture: taken 2024, Dan was 38** and two hundred pounds. Any outline
   referencing the before photo says thirty-eight.
-- **Current age: 40** (as of 2026). He got the abs back at thirty-nine.
+- **Current age: 40** (as of 2026), and **he got the abs back at 40** — so the
+  before-to-after span is **about two years**. Revised by Dan 2026-08-07; outlines
+  already in the doc that say "thirty-nine" predate this. Use 40 / two years.
+- **He has ONE child, a daughter.** Never write "my kids" or "my son" when referring
+  to his child specifically — it's "my daughter." Generic phrasing in a hook ("same
+  business, same kid, same stress") is fine.
+- **Which photos:** the before is the slightly-enhanced version with a bit more fat,
+  not the raw file. The after is the outdoor photo-shoot frame (trees background,
+  hands on hips) Dan pointed to on 2026-08-07.
 - Credentials: personal trainer and nutrition coach; SixPackAbs.com was at one point
   the most viewed fitness channel on YouTube; today a dad running a successful ad
   agency. Never invent a credential beyond these.
@@ -135,11 +216,19 @@ error-prone. Paste formatted HTML instead:
 - **The find box swallows the first typed string** if you type immediately after
   `cmd+f`. Screenshot, click into the field, then type.
 - **`scroll_amount` on the Chrome computer tool maxes at 10.**
+- **The first `cmd+v` can paste an IMAGE out of Docs' own internal clipboard** even
+  when `clipboard info` correctly reports `«class HTML»` at the right byte count
+  (2026-08-06: Docs inserted a photo of Dan that had been copied inside that doc in
+  an earlier session). Fix that worked: one `cmd+z`, clear and re-write both clipboard
+  flavors, click back on the empty paragraph, paste again — the second attempt took
+  the HTML. Always screenshot immediately after pasting; never assume it landed.
 - Paste into the plain `–` paragraph, never into a bullet — pasting inside a list
   makes the new content inherit the list level.
 
 ## Checklist before telling Dan it's done
 
+- [ ] **Skip stopper stress-tested against the section above** — something on screen,
+      a gap only watching closes, nothing the prospect can disprove by looking down
 - [ ] New outline reads as a sibling of the source, not a rewrite of it
 - [ ] Same section headers, same order, same nesting depth
 - [ ] Cues present at the same beats as the source

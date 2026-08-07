@@ -166,6 +166,31 @@ Dan asked for a new `/imagesandclips` skill and, first, for AD 2 (nutritionist) 
 
 **Open for Dan:** (1) the **Macro Tracker result screen** (itemized macros after an analysis) is the one missing asset — it needs one real photo of a real plate of food; (2) approve the two cartoon stills so the clips can be generated; (3) the ChatGPT-logo call for Ads 3 and 4. No dashboard task matched this work and no handoff was created, so nothing was checked off (Rules 8/9).
 
+### Batch-3 outlines — 4 DELIVERED, 1 shelved, skill upgraded to v2 on the SKIP STOPPER (2026-08-07, Claude Code)
+
+Dan asked for 5 more outlines, reviewed in chat first. **4 are now in "Abs By AI ad outlines - batch 1" between the 2010-Photoshop outline and the first FABLE outline** (a concurrent session added 20 FABLE outlines below them; doc now holds 32 outlines + 13 TEMPLATEs, verified by a post-settle Drive re-read — one copy of each, no duplicates, earlier outlines byte-unchanged):
+
+1. *I Tried to Get Abs With ChatGPT. Here's What Happened.* — approved as first drafted.
+2. *My Dad Bod at 38. My Dad Bod at 40.* — rev 2.
+3. *This Embarrassing Picture Is the Reason I Have Abs* — rev 2.
+4. *I Asked Grok to Roast My Dad Bod. Then I Asked for the Truth.* — rev 2.
+
+**THE REAL LESSON, and it is now the top section of the skill: Dan rejected 4 of 5 outlines on the skip stopper alone, not the concept.** Every rejected idea was workable. `.claude/skills/ad-outlines/SKILL.md` is **v2** with a mandatory "THE SKIP STOPPER DECIDES EVERYTHING — write it first, hardest" section: write and stress-test the hook before any other line, the payoff must land **inside** five seconds (~12–14 spoken words — Dan killed a hook whose turn arrived at second eight), plus four named anti-patterns he explicitly killed and five patterns he has approved.
+
+**Anti-pattern worth quoting, because it generalizes:** *never open by telling a man something about his body he can disprove by looking down.* The first weight-loss-medication hook asked "the scale is going down, so why does your stomach still look like that?" — his stomach IS getting smaller, so the hook argues with his mirror and he leaves. The fix is to grant the win he's already getting, then sell the bigger one.
+
+**Outline 5 (weight loss medication) is SHELVED, not dead — Dan's call.** A medication ad is too likely to be disapproved on a brand-new Google Ads account; revisit once the account has approval history. The full drafted outline (hook: "your medication is working — you're still leaving half the results behind", protein/muscle-retention angle, no drug names) exists only in the 2026-08-07 session transcript, not on disk.
+
+**Dan's facts REVISED, and the skill now says so:** he got his abs back at **40**, not thirty-nine, so the before→after span is **about two years**. He has **ONE child, a daughter** — never "my kids" or "my son" when referring to his child. The before shot to use is the slightly-enhanced version with a bit more fat, not the raw file; the after is the outdoor photo-shoot frame (trees, hands on hips). Outlines already in the doc that say "thirty-nine" predate this revision.
+
+**"Humiliating" is now a banned word** (Dan: negative trigger for Google Ads review); "embarrassing" is fine.
+
+**Compliance call made and accepted:** Dan's spec for the Grok outline's serious AI assessment included "on track for heart disease and diabetes." Disease names were pulled and replaced with fat-distribution + trajectory lines — naming diseases turns it into a health claim, the same risk class that shelved the medication ad. Dan: *"good call with removing those disease words."* The outline's Production notes record the removal, the exact assessment prompt, and the routing decision (**roast = Grok** because it will actually be mean; **serious assessment = Claude, not ChatGPT**, which hedges and pads with encouragement even when told not to).
+
+**Delivery trap fired TWICE and the recorded fix is the fix: the first `cmd+v` pasted an IMAGE out of Docs' own internal clipboard** — a photo of Dan copied inside that doc in an earlier session — even though `clipboard info` correctly reported `«class HTML»` at the right byte count. One `cmd+z`, clear and re-write both clipboard flavors, click back on the empty paragraph, paste again: the second attempt took the HTML both times. Screenshot after every paste; never assume it landed. Now in the skill's Gotchas.
+
+**Dashboard: `money::Write more outlines for YouTube videos` checked off** (Rule 9) and verified present in the `checked` array. No handoff was created, so Rule 8 doesn't apply.
+
 ### Outline variations from an existing outline — nutritionist outline DELIVERED + /ad-outlines skill created (2026-08-06, Claude Code)
 
 Dan asked for "Stop Paying Human Nutritionists! Use AI Instead" as a variation of his own "Stop Paying Human Trainers!" outline, inserted into **"Abs By AI ad outlines - batch 1"** (`160O1s3xcUGlVU_BjtZR5u_V2WgE9JSREUftUTPuZQEw`) directly below the trainer outline and above the blank TEMPLATE blocks. **Done and verified in place; Dan: "This outline looks excellent."** Method captured in the new project skill **`.claude/skills/ad-outlines/SKILL.md`** (`/ad-outlines`) at his explicit request ("do it exactly like this").
