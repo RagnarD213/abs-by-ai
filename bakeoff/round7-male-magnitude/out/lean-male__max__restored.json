@@ -1,0 +1,16 @@
+{
+  "caseId": "lean-male__max",
+  "arm": "restored",
+  "condition": "very_lean",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "desc": "Lean athletic male",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 8465,
+  "safetyRetry": false,
+  "promptChars": 4971,
+  "image": "lean-male__max__restored.jpg",
+  "ts": "2026-08-07T22:40:36.864Z"
+}

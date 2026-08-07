@@ -1,0 +1,38 @@
+{
+ "lean-male__dramatic:A": {
+  "version": "current"
+ },
+ "lean-male__dramatic:B": {
+  "version": "restored"
+ },
+ "lean-male__max:A": {
+  "version": "restored"
+ },
+ "lean-male__max:B": {
+  "version": "current"
+ },
+ "moderate-male__dramatic:A": {
+  "version": "restored"
+ },
+ "moderate-male__dramatic:B": {
+  "version": "current"
+ },
+ "moderate-male__max:A": {
+  "version": "current"
+ },
+ "moderate-male__max:B": {
+  "version": "restored"
+ },
+ "heavier-male__dramatic:A": {
+  "version": "current"
+ },
+ "heavier-male__dramatic:B": {
+  "version": "restored"
+ },
+ "heavier-male__max:A": {
+  "version": "restored"
+ },
+ "heavier-male__max:B": {
+  "version": "current"
+ }
+}
