@@ -30,7 +30,7 @@ function buildSystemPrompt({ gender, condition, intensity }) {
   vm.createContext(sandbox);
   vm.runInContext(source + '\n;__out = goalSystemPrompt();', sandbox);
   const out = sandbox.__out;
-  if (!out || out.includes('[[MUSCLE_')) throw new Error('marker leak or empty prompt');
+  if (!out || out.includes('[[')) throw new Error('marker leak or empty prompt');
   return out;
 }
 
