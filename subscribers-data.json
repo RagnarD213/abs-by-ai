@@ -97,10 +97,11 @@
       "subscribedAt": "2026-08-05T02:36:02.979Z",
       "deviceId": "dev-1785896526999-xhe5wxhc",
       "synced": false,
-      "welcomeStep": 1,
-      "welcomeNextAt": "2026-08-07T02:45:30.319Z",
+      "welcomeStep": 2,
+      "welcomeNextAt": "2026-08-09T03:34:47.874Z",
       "welcomeSentAt": {
-        "1": "2026-08-05T02:45:30.580Z"
+        "1": "2026-08-05T02:45:30.580Z",
+        "2": "2026-08-07T03:34:48.048Z"
       },
       "unsubscribed": false
     }
