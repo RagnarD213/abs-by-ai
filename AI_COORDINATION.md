@@ -49,6 +49,14 @@ Use one of: `No active task`, `Planning`, `Ready for implementation`, `Implement
 
 **Assistant obligation (Dan's explicit instruction, 2026-07-27):** when a change hits any trigger row above, **say so explicitly in the response** — name the platform and what to check. Dan's standing assumption is that **silence means no native retest is needed**, so an un-flagged native risk will go untested. Preferred discharge of this obligation is to **run the smoke test and show the result**, not to hand Dan a to-do.
 
+### Standing rule — App Store / Play compliance changes are PLATFORM-SCOPED by default (Dan's explicit instruction, 2026-08-07)
+
+**Any change made to satisfy an Apple or Google requirement ships to THAT platform only, unless Dan says otherwise.** Gate it on `IS_NATIVE_APP` (or an iOS/Android-specific check) so the web is untouched. **Ask Dan before applying a compliance change to every platform — that is his call, not the assistant's.**
+
+The shared-site architecture above is exactly why this rule exists: all three platforms load the same absbyai.com, so "ship it once" silently pushes a store-mandated screen onto the web funnel. On 2026-08-07 the Apple-required AI-consent modal (5.1.1(i)/5.1.2(i)) landed in front of every first-time WEB visitor as a blocking gate; Dan found it live and objected. Fixed in `db7c6db` by making it native-only. **Compliance surface ≠ product surface** — Apple's rule is about Apple's app, and the acquisition funnel pays a real conversion cost for obeying it everywhere.
+
+Practical form: when writing the change, ask "does the web need this, or only the store build?" and default to the store build. **State explicitly in the response which platforms the change is visible on** — same reasoning as the retest obligation above, silence reads as "it went everywhere and that was intended". Where the web should still carry something, prefer a lighter equivalent (the consent fix kept a one-line disclosure under the Generate button plus `/privacy` on web, while the full modal stayed native-only).
+
 ### Automated native smoke test — `scripts/native-smoke-test.sh`
 
 Boots an iPhone simulator and a Pixel emulator against **production** absbyai.com, installs the current builds, captures screenshots to `native-smoke-out/` (git-ignored), and asserts purchase gating programmatically. `ios` / `android` args run one platform. **Makes zero AI calls** — the apps hit prod, so generations cost real money; keep it that way.
