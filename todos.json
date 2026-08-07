@@ -162,6 +162,12 @@
       "priority": "key",
       "why": "Found 2026-08-07 during ab-ladder validation; also unblocks the round-6 Gemini re-validation batch",
       "addedAt": "2026-08-07"
+    },
+    {
+      "text": "Execute handoff: iOS IAP subscription + resubmission",
+      "priority": "key",
+      "why": "handoff-20260807-ios-iap-and-resubmission.md — created but not yet run",
+      "addedAt": "2026-08-07"
     }
   ],
   "health": [
