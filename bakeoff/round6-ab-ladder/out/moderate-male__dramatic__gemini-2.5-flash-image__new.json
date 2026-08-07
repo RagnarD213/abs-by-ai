@@ -9,13 +9,13 @@
   "set": 1,
   "variant": "full",
   "promptVersion": "new",
-  "ok": false,
+  "ok": true,
   "blocked": false,
-  "error": "HTTP 429: Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
-  "latencyMs": 112,
-  "geminiSafetyRetry": true,
+  "error": null,
+  "latencyMs": 15374,
+  "geminiSafetyRetry": false,
   "promptChars": 4982,
-  "nominalCost": 0,
-  "image": null,
-  "ts": "2026-08-07T15:28:53.298Z"
+  "nominalCost": 0.039,
+  "image": "moderate-male__dramatic__gemini-2.5-flash-image__new.jpg",
+  "ts": "2026-08-07T19:05:58.438Z"
 }
