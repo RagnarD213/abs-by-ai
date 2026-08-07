@@ -2,7 +2,8 @@
   "checked": [
     "health::Inject Zepbound",
     "money::Write more outlines for YouTube videos",
-    "money::Top up Google AI Studio (Gemini) prepay credits — production Gemini image leg is DOWN (fail-open serving FLUX/Seedream only)"
+    "money::Top up Google AI Studio (Gemini) prepay credits — production Gemini image leg is DOWN (fail-open serving FLUX/Seedream only)",
+    "money::Execute handoff: iOS IAP subscription + resubmission"
   ],
   "log": {
     "health::Shower": [
