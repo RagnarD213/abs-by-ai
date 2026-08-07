@@ -164,7 +164,42 @@ Each subscription needs, before it can be submitted:
 
 ---
 
-## Phase 2 — RevenueCat configuration (Claude, after 0.3/0.4 and Phase 1)
+## Phase 2 — RevenueCat configuration — ✅ BUILT 2026-08-07
+
+| Object | Identifier |
+|---|---|
+| Project | `355f4b52` |
+| App Store app | `app8dc788721e` — "Abs by AI (App Store)", bundle `com.absbyai.app` |
+| **Public SDK key** (client-side, safe to ship) | `appl_wOFATUkLsmNUZDSiiJCpHBawVBW` |
+| Entitlement | `membership` (`entl689a10ae6c`) — both products attached |
+| Offering | `default` (`ofrng3795653438`), packages `$rc_monthly` + `$rc_annual` |
+| Webhook | `whintgr586428ba9f` → `https://absbyai.com/api/revenuecat/webhook`, **Both Production and Sandbox**, all events |
+| In-App Purchase key | `SubscriptionKey_NXTW65949J.p8`, Key ID `NXTW65949J` |
+
+**Products had to be created MANUALLY, not imported.** RevenueCat's "Import"
+returned *"No new products available to import"* because App Store Connect was
+under Apple maintenance and the products are still `Prepare for Submission`.
+Store Status on both reads **"Could not check"** for the same reason — that is
+expected and should clear on its own. Adding them by product ID works fine and
+reconciles later.
+
+**Two browser traps worth knowing for any future RevenueCat work:**
+- The **Authorization header field is `type=password`**, so LastPass hijacks it
+  on click and the whole tab becomes un-scriptable ("Cannot access a
+  chrome-extension:// URL of different extension"). Fill it through the native
+  `HTMLInputElement.prototype.value` setter + bubbling `input`/`change` events
+  instead of clicking. Reloading the page clears the hijack.
+- **"+ New Package" inserts the new package ABOVE the existing one**, so after
+  adding the second package the empty card is the one at the top, not the bottom.
+
+### Remaining env vars (Dan pastes — credentials)
+
+| Railway variable | Value |
+|---|---|
+| `REVENUECAT_WEBHOOK_SECRET` | `whsec_absbyai_4998f654d52395ca561552ed86d148fa6ff4938601efe43e` |
+| `REVENUECAT_SECRET_KEY` | Create at RevenueCat → API keys → **+ New secret API key** (none exists yet) |
+
+### Original spec (kept for reference)
 
 ### RevenueCat dashboard
 
