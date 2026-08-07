@@ -6,6 +6,20 @@
 
 ---
 
+> ## ⚠️ READ FIRST — added hours after this doc was written, and it changes the running order
+>
+> Dan asked *"why did our Gemini generations get worse? They were good before."* He is right, and the cause is **ours**, not the model's.
+>
+> Commit **`14b4790` (2026-07-25)** halved the male muscle anchors (`+5/+8/+12/+15 lb` → `+2/+4/+6/+8`), replaced "visibly BIGGER / distinctly larger / noticeably thicker" with "**slightly** fuller / rounder / wider", added *"NEVER a bodybuilder…"*, and **dropped the pounds figure from the moderate-male path entirely.** It was justified by round 1's 33 `too muscular` tags — of which **Gemini contributed exactly ZERO**, while contributing the **most** `not enough change` complaints (11). The anchors are global, so we tuned away FLUX's failure on the model with the opposite failure.
+>
+> Dan's labels on the same 3 photos: `not enough change` went **75% → 100%**, and the one image he ever picked BEST and tagged `just right` (`lean-male__dramatic`) is now rejected. A same-day A/B holding the model constant and varying only the prompt era confirms the pre-retune prompt produces a visibly bigger, more V-tapered result on the lean case.
+>
+> **Therefore: do the cheap prompt-magnitude restoration FIRST (~$0.24, one commit to revert), and only run this model swap if that fails.** Details in `AI_COORDINATION.md` → "WE CAUSED THE MALE GEMINI REGRESSION OURSELVES".
+>
+> **Do NOT revert `14b4790` wholesale** — it also removed the tan instruction, and that fix worked (3 `too tan` tags on Gemini male in round 1, **zero** since; today `skin tone right` on 6 of 6). Restore muscle magnitude only; keep the no-tan rule and the no-bodybuilder ceiling.
+>
+> This also **retracts** the "prompt lever is exhausted" claim in Key Decisions below: all three failed attempts tried to ADD ab-definition language, and none restored the muscle magnitude that was deleted. That is a different lever and it is untested.
+
 ## Objective
 
 Find a replacement for **Gemini 2.5 Flash Image on the MALE generation path**, using blind Dan-labelled A/B batches, and ship the swap only if it beats the current Gemini baseline. This is the male mirror of the female Seedream swap shipped 2026-07-28 (commit `8bee66c`).

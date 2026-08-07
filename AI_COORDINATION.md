@@ -107,9 +107,55 @@ Dan labelled all 12 rows; permanent regression set at `bakeoff/round6-ab-ladder/
 
 **Set 2 (FLUX control): old 3, new 1, 2 both-rejected — leans old, p=0.625 (n=4, underpowered, not significant).** The feared regression did NOT appear: `too muscular` is 3 vs 3 and `too much change` 2 vs 2, so the ladder did not push the already-over-changing leg further over. But there is no upside here either, and the direction is unfavourable — which removes the last reason to keep it.
 
-**What this settles, and it is the valuable part.** This is now the THIRD independent, measured attempt to fix male Gemini under-change through prompt text, after (1) more/denser ab language and (2) the prose `CALIBRATION RULE` the assembler silently ignored. This one was scoped correctly (deterministic `[[MARKER]]` stripping, verbatim directive after the body-fat target, verified present in both the full and condensed prompts and confirmed on the wire) — i.e. **the instruction demonstrably reached the model and the model demonstrably did not act on it.** That removes "the prompt was badly built" as an explanation. **Treat the prompt lever on the male Gemini path as EXHAUSTED. The next attempt must not be another prompt edit.**
+**What this settles, and it is the valuable part.** This is now the THIRD independent, measured attempt to fix male Gemini under-change through prompt text, after (1) more/denser ab language and (2) the prose `CALIBRATION RULE` the assembler silently ignored. This one was scoped correctly (deterministic `[[MARKER]]` stripping, verbatim directive after the body-fat target, verified present in both the full and condensed prompts and confirmed on the wire) — i.e. **the instruction demonstrably reached the model and the model demonstrably did not act on it.** That removes "the prompt was badly built" as an explanation for the ADD-MORE-AB-LANGUAGE approach.
+
+**CORRECTION, same day, prompted by Dan asking "why did our Gemini generations get worse? They were good before."** The claim originally written here — *"treat the prompt lever on the male Gemini path as exhausted"* — **was too broad and is retracted.** All three failed attempts tried to ADD ab-definition language. **None of them restored the male muscle magnitude we deliberately DELETED on 2026-07-25.** That is a different, untested lever, and the evidence below says it is live. See the next section.
 
 **The mirror-image finding, which points at the actual fix.** In the same 12 rows, FLUX produced **4 picks and 3 `just right` tags**; Gemini produced **zero of each**. Gemini under-changes men; FLUX over-changes them but at least lands sometimes. This is the exact shape of the FEMALE problem that was solved on 2026-07-28 — not by prompt tuning, but by **swapping the challenger model** (FLUX → Seedream).
+
+### WE CAUSED THE MALE GEMINI REGRESSION OURSELVES — measured 2026-08-07, and it is reversible
+
+Dan asked why Gemini generations look worse than they did at the beginning. **He is right, it is our prompt, and the mechanism is specific.**
+
+**1. His own labels show the regression.** Same three male photos, Gemini only:
+
+| | round 1 (2026-07-24, PRE-retune) | round 6 (2026-08-07, POST-retune) |
+|---|---|---|
+| `not enough change` | 6 of 8 (75%) | **12 of 12 (100%)** |
+| Dan picked BEST | **1** | **0** |
+| `just right` tags | **1** | **0** |
+
+The single round-1 winner was **`lean-male__dramatic`, tagged `skin tone right` + `just right`** — the exact case that is now rejected in both arms.
+
+**2. The cause is commit `14b4790` (2026-07-25, "Retune the generation prompt to Dan's labelled aesthetic").** Verified by diffing the assembled prompts, not by reading the commit message:
+- MALE added-mass anchors **halved**: `subtle +5 / moderate +8 / dramatic +12 / max +15 lb` → **`+2 / +4 / +6 / +8`**.
+- Magnitude verbs inverted: *"visibly BIGGER"*, *"distinctly larger"*, *"noticeably thicker"* → **"slightly fuller", "slightly rounder", "slightly wider"** (the word `slightly` appears **6×** in today's lean-male prompt, **0×** in the pre-retune one).
+- Three new negative constraints added: *"NEVER a bodybuilder: no inflated chest, no boulder shoulders, no blown-up arms, no comic-book mass."*
+- **The moderate-male max prompt lost its quantitative anchor ENTIRELY** — pre-retune it said *"approximately 15 pounds of added muscle"*; today it contains **no pounds figure at all**, only "slightly" language plus the three prohibitions.
+
+**3. THE ROOT ERROR, and it is the lesson worth keeping: we retuned Gemini for a failure Gemini never had.** The retune was justified by round 1's **33 `too muscular` tags**. Attribution by model, from `round1/labels.json`:
+
+| model | candidates | `too muscular` | `not enough change` |
+|---|---|---|---|
+| flux-2-pro | 12 | **12** | 0 |
+| flux-kontext-pro | 11 | 8 | 1 |
+| gpt-image-1.5 | 13 | 6 | 0 |
+| seedream-4.5 | 16 | 5 | 4 |
+| nano-banana-pro | 14 | 2 | 1 |
+| **gemini-2.5-flash-image** | 14 | **0** | **11 (the most of any model)** |
+
+**Gemini contributed ZERO of the 33 complaints and the MOST under-change complaints — and we halved its muscle ask anyway,** because the anchors are global and not per-model. We tuned away FLUX's failure mode on the one model that had the opposite failure mode. This file already warned about exactly this trap on 2026-07-29 (*"the fix is not a global anchor increase"*) — the inverse trap, a global anchor **decrease**, had already been sprung four days earlier and nobody noticed.
+
+**4. Direct same-day test isolating prompt-vs-model** (scratchpad `prompt-era-test.js`, 4 generations, ~$0.16, no deviceId). Same photo, same settings, **same Gemini model on the same day** — only the prompt era differs (`9cfe3d6` = live during round 1, vs HEAD):
+- **`lean-male__dramatic`: the PRE-RETUNE prompt is clearly stronger** — visibly wider shoulders, fuller chest, thicker arms, real V-taper, defined abs. Today's prompt returns something very close to the input, which is precisely Dan's complaint.
+- **`moderate-male__max`: today's prompt is LEANER and more defined, but flatter and smaller.** The leanness directive still works; the size is gone.
+- **So the regression is concentrated on the LEAN/FIT male path**, where muscle is supposed to be the primary axis — exactly where the `+12/+15 lb` "visibly BIGGER" language lived before it was halved to `+6/+8` "slightly".
+
+**Caveat stated plainly:** the image half of this is **n=1 per case** and Gemini is stochastic, so it is corroboration, not proof. The label half (20 candidates across two rounds) and the prompt-text diff are solid.
+
+**RECOMMENDED NEXT STEP, and it now comes BEFORE the model swap because it is ~10× cheaper and reversible in one commit:** restore male muscle magnitude on the Gemini path — `[[MARKER]]`-scoped and stripped in `muscleAxisPlan()`, never prose-scoped — and blind-label 6 male rows against the existing round-6 Gemini images (~$0.24). **Do NOT simply revert `14b4790` wholesale:** that commit also removed the tan instruction, and the tan fix WORKED (round 1 had 3 `too tan` tags on Gemini male; rounds 5 and 6 had **zero**, and today's labels tagged `skin tone right` on 6 of 6). Restore the muscle anchors and the magnitude verbs; keep the no-tan rule and the Kino/no-bodybuilder ceiling.
+
+**If that fails too, the model swap handoff below is still the answer.** It is not wasted — it is now the fallback rather than the first move.
 
 **HANDOFF WRITTEN 2026-08-07: `Handoffs/handoff-20260807-male-gemini-model-swap.md`** — scopes the male-slot model swap end to end. Dashboard Key task added per Rule 8 (`money::Execute handoff: Test replacement models for the male Gemini slot`, verified persisted, `business` list 32 → 33 with all prior tasks intact). **Four things in that doc that must not be re-derived:** (1) **it must be a SWAP, never a third candidate** — the judge is 2-way validated (held-out pairwise 80.5%) but **N-way top-1 is only 42.9%**, so a third model puts it near chance; (2) **Gemini is the ANCHOR, not the challenger, so this is a bigger change than the female swap** — it receives the FULL prompt while challengers get the condensed one, it is the fallback when the challenger fails, and it is the partner that rescues a safety-blocked challenger; any replacement must preserve all three roles or consciously re-architect them; (3) **the Gemini baseline arm is FREE** — current-production-prompt male Gemini images are already generated AND already Dan-labelled in `round5-prompt-ab/out` and `round6-ab-ladder/out`, so only challengers need generating (~$2.18 for 3 models × 6 cases); (4) **candidate-specific production risks are already known from round 1** and are not "test it and see": Seedream has a hard 4000-char prompt ceiling so it CANNOT take the full anchor prompt (male full prompts run 4,027–6,472 chars), nano-banana-pro is *stricter* than Gemini on heavier males (2 `IMAGE_SAFETY` refusals Gemini passed, so a swap could LOSE coverage), and gpt-image-1.5 is 57.5s/~$0.19 with no `match_input_image` aspect ratio — likely a production-fit failure even if it wins on looks.
 
