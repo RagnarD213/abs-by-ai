@@ -3189,6 +3189,12 @@ function hasAiConsent() {
 }
 
 function ensureAiConsent() {
+  // Apple 5.1.1(i)/5.1.2(i) requires the in-app disclosure + permission INSIDE
+  // the app, before any data leaves the device. That is an App Store rule about
+  // their app, not a web requirement — and a blocking modal in front of a
+  // first-time web visitor costs conversions. On the web the standing
+  // disclosure line under the Generate button plus /privacy carries it.
+  if (!IS_NATIVE_APP) return Promise.resolve(true);
   if (hasAiConsent()) return Promise.resolve(true);
   return new Promise((resolve) => {
     const ov = document.getElementById('aiConsentOverlay');
