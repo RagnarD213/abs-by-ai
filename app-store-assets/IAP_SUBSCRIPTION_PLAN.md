@@ -58,7 +58,44 @@ server notifications:
 
 ---
 
-## Phase 1 — App Store Connect products
+## Phase 1 — App Store Connect products — ✅ BUILT 2026-08-07
+
+Everything below is created and saved. Apple IDs and the group id, recorded so
+they never have to be looked up again:
+
+| Object | Identifier |
+|---|---|
+| Subscription group | **22294450** — "Abs by AI Membership" |
+| Annual | Apple ID **6799227966** — `com.absbyai.app.membership.annual`, 1 year, $19.99→**$69.99** US, free first week, level 1 |
+| Monthly | Apple ID **6799231479** — `com.absbyai.app.membership.monthly`, 1 month, **$19.99** US, free first week, level 2 |
+
+**Three things that differed from this plan and are worth knowing:**
+
+1. **Subscription descriptions are capped at 55 characters** (display names at 35).
+   Both products use `Unlimited AI transformations, training & nutrition.` (51).
+   The longer marketing descriptions originally drafted here do not fit.
+2. **Apple has no "7 days" free-trial option** — the durations are 3 days, 1 week,
+   2 weeks, 1 month, … We used **1 Week**, which is exactly 7 days and matches the
+   web copy ("7 days free").
+3. **Annual is level 1, Monthly level 2**, deliberately. Level order defines
+   upgrade vs downgrade, so monthly→annual is an upgrade (immediate, prorated) and
+   annual→monthly is a downgrade (applies at renewal).
+
+**Still outstanding on these products:** each needs a **review screenshot of the
+in-app purchase screen**, which cannot be captured until the Phase 2 UI exists.
+Also note Apple's banner: *"Your first subscription group must be submitted with
+a new app version"* — confirming build 1.0 (2) is required, as planned.
+
+**App Store Connect UI trap, cost several minutes:** the `Subscription Duration`
+and `Localization` dropdowns are real `<select>` elements, but clicking them or
+driving them with synthetic keystrokes does **not** register — the value stays
+"Choose" and the Create button stays disabled. The fix is to set the value through
+the native `HTMLSelectElement.prototype.value` setter and then dispatch bubbling
+`input` + `change` events. The price and country pickers are *custom* components
+with no `<select>` at all, and those must be clicked normally (type into the
+search box, click the result).
+
+### Original spec (kept for reference)
 
 App Store Connect → **Abs by AI** → **Monetization** → **Subscriptions**.
 
