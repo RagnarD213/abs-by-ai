@@ -1,0 +1,21 @@
+{
+  "caseId": "moderate-male__max",
+  "photoKey": "moderate-male",
+  "gender": "male",
+  "condition": "moderate",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "gemini-2.5-flash-image",
+  "set": 1,
+  "variant": "full",
+  "promptVersion": "new",
+  "ok": false,
+  "blocked": false,
+  "error": "HTTP 429: Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+  "latencyMs": 105,
+  "geminiSafetyRetry": true,
+  "promptChars": 5178,
+  "nominalCost": 0,
+  "image": null,
+  "ts": "2026-08-07T15:29:11.627Z"
+}

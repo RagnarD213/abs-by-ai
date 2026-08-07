@@ -1,0 +1,38 @@
+{
+  "lean-male__dramatic__flux-kontext-pro:A": {
+    "version": "old"
+  },
+  "lean-male__dramatic__flux-kontext-pro:B": {
+    "version": "new"
+  },
+  "lean-male__max__flux-kontext-pro:A": {
+    "version": "new"
+  },
+  "lean-male__max__flux-kontext-pro:B": {
+    "version": "old"
+  },
+  "moderate-male__dramatic__flux-kontext-pro:A": {
+    "version": "new"
+  },
+  "moderate-male__dramatic__flux-kontext-pro:B": {
+    "version": "old"
+  },
+  "moderate-male__max__flux-kontext-pro:A": {
+    "version": "old"
+  },
+  "moderate-male__max__flux-kontext-pro:B": {
+    "version": "new"
+  },
+  "heavier-male__dramatic__flux-kontext-pro:A": {
+    "version": "old"
+  },
+  "heavier-male__dramatic__flux-kontext-pro:B": {
+    "version": "new"
+  },
+  "heavier-male__max__flux-kontext-pro:A": {
+    "version": "new"
+  },
+  "heavier-male__max__flux-kontext-pro:B": {
+    "version": "old"
+  }
+}

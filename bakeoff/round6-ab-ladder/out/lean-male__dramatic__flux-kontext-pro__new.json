@@ -1,0 +1,21 @@
+{
+  "caseId": "lean-male__dramatic",
+  "photoKey": "lean-male",
+  "gender": "male",
+  "condition": "very_lean",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "modelKey": "flux-kontext-pro",
+  "set": 2,
+  "variant": "condensed",
+  "promptVersion": "new",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 8868,
+  "geminiSafetyRetry": false,
+  "promptChars": 1412,
+  "nominalCost": 0.04,
+  "image": "lean-male__dramatic__flux-kontext-pro__new.jpg",
+  "ts": "2026-08-07T15:28:31.991Z"
+}
