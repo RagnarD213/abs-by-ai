@@ -4675,6 +4675,11 @@ app.get('/api/membership', requireAuth, async (req, res) => {
     const row = await getUserRow(req.user.id);
     const deviceId = String(req.query.deviceId || row.device_id || '');
     res.json({
+      // The caller's own id, behind auth. The iOS app needs it as the
+      // RevenueCat appUserID — that is the key the purchase webhook uses to
+      // find this account, so an Apple purchase cannot be attached to a
+      // membership without it.
+      userId: row.id,
       active: isActiveMembership(row),
       status: row.membership_status || null,
       plan: row.membership_plan || null,

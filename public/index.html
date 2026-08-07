@@ -2659,6 +2659,32 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div style="margin-top:8px;font-size:12px;font-weight:500;color:var(--mute)">Opens absbyai.com in your browser to complete the purchase. Come back here and your membership will be active — already a member? Just sign in.</div>
     </div>
 
+    <!-- Apple In-App Purchase (App Store guideline 3.1.1).
+         Shown INSTEAD of #membershipAppNote once StoreKit reports real
+         products. Prices, the trial wording and the renewal period are all
+         read from the App Store at runtime rather than hard-coded, so this
+         screen can never contradict what Apple actually charges — a
+         mismatch there is itself a rejection reason.
+         #membershipAppNote stays as the fallback for the case where
+         StoreKit is unreachable, so the app is never a dead end. -->
+    <div id="iapSection" style="display:none">
+      <div class="plan-cards" id="iapPlanCards"></div>
+      <div id="iapError" class="error-toast" style="display:none;margin-top:12px"></div>
+      <div class="guarantee-note" id="iapDisclosure" style="margin-top:14px;margin-bottom:0"></div>
+      <button id="iapSubscribeBtn" class="cta-btn" style="margin-top:10px">Start free trial</button>
+      <!-- Apple requires a restore path for any non-consumable / subscription. -->
+      <button type="button" id="iapRestoreBtn" class="try-diff-btn" style="margin-top:10px">Restore purchases</button>
+      <div style="margin-top:14px;text-align:center;font-size:12px;color:var(--mute)">
+        <a href="/terms" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Terms of Use</a>
+        &nbsp;·&nbsp;
+        <a href="/privacy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Privacy Policy</a>
+      </div>
+      <div style="margin-top:14px;text-align:center;font-size:12px;color:var(--mute)">
+        Prefer to pay on the website?
+        <button type="button" id="iapWebAltBtn" style="background:none;border:none;padding:0;color:inherit;text-decoration:underline;font:inherit;cursor:pointer">Open absbyai.com →</button>
+      </div>
+    </div>
+
     <div class="plan-cards app-hide-purchase">
       <button class="plan-card" data-plan="annual" id="planAnnual">
         <span>
@@ -2837,6 +2863,286 @@ function openExternalPurchase(url, where) {
   } catch (e) {
     // Last resort. Should not be reachable in either wrapper.
     location.href = url;
+  }
+}
+
+// ============================================================
+//  APPLE IN-APP PURCHASE  (App Store guideline 3.1.1)
+// ------------------------------------------------------------
+//  Version 1.0 was rejected twice on 3.1.1. Apple's second rejection was
+//  explicit: the membership must be purchasable with In-App Purchase.
+//  So inside the iOS app the membership is bought through StoreKit,
+//  brokered by RevenueCat's native Capacitor plugin.
+//
+//  The plugin registers natively as `Purchases`, and Capacitor injects its
+//  bridge into this remotely-loaded page, so we can call it straight off
+//  window.Capacitor.Plugins without bundling the plugin's own JS here.
+//
+//  THE LOAD-BEARING PART — appUserID. RevenueCat is told our own users.id,
+//  and that is the ONLY key the purchase webhook has to find the account to
+//  unlock. A purchase made while anonymous cannot be attached to anyone,
+//  which is why buying is gated behind having an account (below).
+//
+//  Nothing here runs on the web: every entry point is guarded on
+//  iapSupported(), and the web Stripe path is untouched.
+// ============================================================
+const RC_PUBLIC_KEY = 'appl_wOFATUkLsmNUZDSiiJCpHBawVBW'; // publishable SDK key
+const RC_ENTITLEMENT = 'membership';
+const iapState = {
+  configured: false,
+  identifiedAs: null,   // the users.id we last called logIn with
+  packages: [],
+  selectedId: null,
+  busy: false,
+};
+
+function rcPlugin() {
+  try { return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Purchases) || null; }
+  catch (e) { return null; }
+}
+// iOS only. Android keeps its current treatment until Play billing is sorted.
+function iapSupported() {
+  try { return IS_NATIVE_APP && !!rcPlugin() && window.Capacitor.getPlatform() === 'ios'; }
+  catch (e) { return false; }
+}
+
+// Configure once per app launch, then keep RevenueCat's identity in sync with
+// ours. logIn is cheap and idempotent, but we skip it when the id is unchanged.
+async function iapSync() {
+  const P = rcPlugin();
+  if (!P) return false;
+  try {
+    if (!iapState.configured) {
+      await P.configure({ apiKey: RC_PUBLIC_KEY, appUserID: memberState.userId ? String(memberState.userId) : null });
+      iapState.configured = true;
+      iapState.identifiedAs = memberState.userId ? String(memberState.userId) : null;
+    }
+    const want = memberState.userId ? String(memberState.userId) : null;
+    if (want && want !== iapState.identifiedAs) {
+      await P.logIn({ appUserID: want });
+      iapState.identifiedAs = want;
+    }
+    return true;
+  } catch (e) {
+    console.warn('RevenueCat sync failed:', (e && e.message) || e);
+    return false;
+  }
+}
+
+// On sign-out, hand RevenueCat back an anonymous id so the next person on this
+// device cannot inherit the previous account's entitlements.
+async function iapLogOut() {
+  const P = rcPlugin();
+  if (!P || !iapState.configured) return;
+  try { await P.logOut(); } catch (e) { /* already anonymous */ }
+  iapState.identifiedAs = null;
+}
+
+// Human-readable renewal period straight from StoreKit, so the disclosure can
+// never disagree with what Apple bills.
+function iapPeriodLabel(pkg) {
+  const t = String((pkg && pkg.packageType) || '').toUpperCase();
+  if (t === 'ANNUAL') return 'year';
+  if (t === 'MONTHLY') return 'month';
+  if (t === 'WEEKLY') return 'week';
+  if (t === 'SIX_MONTH') return '6 months';
+  if (t === 'THREE_MONTH') return '3 months';
+  if (t === 'TWO_MONTH') return '2 months';
+  return 'period';
+}
+function iapTrialLabel(pkg) {
+  const intro = pkg && pkg.product && pkg.product.introPrice;
+  if (!intro) return '';
+  const isFree = Number(intro.price) === 0;
+  const n = Number(intro.periodNumberOfUnits || 0);
+  const unit = String(intro.periodUnit || '').toLowerCase();
+  if (!isFree || !n || !unit) return '';
+  const days = unit === 'week' ? n * 7 : unit === 'month' ? n * 30 : n;
+  return `${days} days free`;
+}
+
+// Fetch the real products. Rendering is driven entirely by what the App Store
+// returns — if it returns nothing we show the website fallback instead of an
+// empty or invented price list.
+async function iapLoadOfferings() {
+  const P = rcPlugin();
+  if (!P) return false;
+  try {
+    const offerings = await P.getOfferings();
+    const current = offerings && offerings.current;
+    const pkgs = (current && current.availablePackages) || [];
+    if (!pkgs.length) return false;
+    // Annual first: it is the better value and the better retention.
+    const order = { ANNUAL: 0, SIX_MONTH: 1, THREE_MONTH: 2, TWO_MONTH: 3, MONTHLY: 4, WEEKLY: 5 };
+    iapState.packages = pkgs.slice().sort((a, b) =>
+      (order[String(a.packageType).toUpperCase()] ?? 9) - (order[String(b.packageType).toUpperCase()] ?? 9));
+    if (!iapState.packages.some(p => p.identifier === iapState.selectedId)) {
+      iapState.selectedId = iapState.packages[0].identifier;
+    }
+    return true;
+  } catch (e) {
+    console.warn('RevenueCat offerings failed:', (e && e.message) || e);
+    return false;
+  }
+}
+
+function iapSelectedPackage() {
+  return iapState.packages.find(p => p.identifier === iapState.selectedId) || iapState.packages[0] || null;
+}
+
+function iapRender() {
+  const wrap = $('iapPlanCards');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  const best = iapState.packages.length > 1 ? iapState.packages[0].identifier : null;
+  for (const pkg of iapState.packages) {
+    const price = (pkg.product && pkg.product.priceString) || '';
+    const per = iapPeriodLabel(pkg);
+    const trial = iapTrialLabel(pkg);
+    const name = per === 'year' ? 'Annual' : per === 'month' ? 'Monthly' : (pkg.product && pkg.product.title) || 'Membership';
+    // "$5.83/mo" equivalent, computed from the real annual price.
+    let badge = '';
+    if (per === 'year' && Number(pkg.product && pkg.product.price) > 0) {
+      const monthly = Number(pkg.product.price) / 12;
+      badge = `<span class="plan-badge">BEST VALUE — $${monthly.toFixed(2)}/mo</span>`;
+    }
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'plan-card' + (pkg.identifier === iapState.selectedId ? ' selected' : '');
+    btn.dataset.rcPackage = pkg.identifier;
+    btn.innerHTML =
+      `<span><span class="plan-name">${name}${pkg.identifier === best ? badge : ''}</span>` +
+      `<span class="plan-sub" style="display:block">${trial ? trial + ', then ' : ''}${price}/${per}</span></span>` +
+      `<span class="plan-price">${price}</span>`;
+    btn.addEventListener('click', () => {
+      iapState.selectedId = pkg.identifier;
+      iapRender();
+    });
+    wrap.appendChild(btn);
+  }
+
+  const pkg = iapSelectedPackage();
+  const disclosure = $('iapDisclosure');
+  const cta = $('iapSubscribeBtn');
+  if (pkg && disclosure) {
+    const price = (pkg.product && pkg.product.priceString) || '';
+    const per = iapPeriodLabel(pkg);
+    const trial = iapTrialLabel(pkg);
+    // Apple requires title, length and price adjacent to the buy button,
+    // plus the auto-renewal terms.
+    disclosure.innerHTML =
+      (trial ? `${trial}, then ` : '') +
+      `${price} per ${per}. Payment is charged to your Apple ID at confirmation of purchase. ` +
+      `Your subscription renews automatically for ${price} per ${per} unless auto-renew is turned off ` +
+      `at least 24 hours before the end of the current period. Manage or cancel it any time in your ` +
+      `Apple ID Settings.`;
+  }
+  if (cta) cta.textContent = iapTrialLabel(pkg) ? `Start ${iapTrialLabel(pkg)}` : 'Subscribe';
+}
+
+function iapShowError(msg) {
+  const el = $('iapError');
+  if (!el) return;
+  el.textContent = msg;
+  el.style.display = '';
+}
+
+// Decide which treatment the membership screen shows inside the app:
+// real IAP when StoreKit gives us products, the website link otherwise.
+async function iapPrepareMembershipScreen(isComp) {
+  const iapSec = $('iapSection');
+  const appNote = $('membershipAppNote');
+  if (!iapSec || !appNote) return;
+  if (!IS_NATIVE_APP || isComp) { iapSec.style.display = 'none'; return; }
+  if (!iapSupported()) { iapSec.style.display = 'none'; appNote.style.display = ''; return; }
+
+  const ok = await iapSync() && await iapLoadOfferings();
+  if (!ok) {
+    iapSec.style.display = 'none';
+    appNote.style.display = '';   // never a dead end
+    return;
+  }
+  $('iapError').style.display = 'none';
+  iapRender();
+  appNote.style.display = 'none';
+  iapSec.style.display = '';
+  if (window.posthog) posthog.capture('iap_screen_shown', { packages: iapState.packages.length });
+}
+
+async function handleIapSubscribe() {
+  if (iapState.busy) return;
+  const pkg = iapSelectedPackage();
+  if (!pkg) return;
+
+  // A purchase has to belong to an account — RevenueCat is keyed on our
+  // users.id, and an anonymous buy could never be matched to anyone. Same
+  // gate the web checkout uses.
+  if (!isLoggedIn()) {
+    window._afterAuth = () => { refreshMembership().then(() => showMembershipScreen()); };
+    showAuthScreen('signup');
+    return;
+  }
+
+  const btn = $('iapSubscribeBtn');
+  iapState.busy = true;
+  if (btn) btn.disabled = true;
+  $('iapError').style.display = 'none';
+  try {
+    await iapSync();
+    const P = rcPlugin();
+    await P.purchasePackage({ aPackage: pkg });
+    // StoreKit says it succeeded — but we still ask our own server, which
+    // asks RevenueCat. The app's word is never what unlocks a membership.
+    await authApi('/api/apple/sync', { method: 'POST', body: JSON.stringify({}) });
+    if (window.posthog) posthog.capture('iap_purchase_completed', { package: pkg.identifier });
+    await handleMembershipComplete(null);
+  } catch (err) {
+    const cancelled = !!(err && (err.userCancelled || err.code === '1' ||
+      /cancel/i.test(String((err && err.message) || ''))));
+    if (!cancelled) {
+      console.error('IAP purchase failed:', err);
+      iapShowError((err && err.message) || "That purchase didn't go through. Please try again.");
+      if (window.posthog) posthog.capture('iap_purchase_failed', { message: String((err && err.message) || '') });
+    } else if (window.posthog) {
+      posthog.capture('iap_purchase_cancelled', { package: pkg.identifier });
+    }
+  } finally {
+    iapState.busy = false;
+    if (btn) btn.disabled = false;
+  }
+}
+
+// Apple requires this for subscriptions: a user who reinstalls, or who is on a
+// second device, must be able to get their membership back without paying twice.
+async function handleIapRestore() {
+  if (iapState.busy) return;
+  if (!isLoggedIn()) {
+    window._afterAuth = () => { refreshMembership().then(() => showMembershipScreen()); };
+    showAuthScreen('login');
+    return;
+  }
+  const btn = $('iapRestoreBtn');
+  iapState.busy = true;
+  if (btn) { btn.disabled = true; btn.textContent = 'Restoring…'; }
+  $('iapError').style.display = 'none';
+  try {
+    await iapSync();
+    await rcPlugin().restorePurchases();
+    await authApi('/api/apple/sync', { method: 'POST', body: JSON.stringify({}) });
+    await refreshMembership();
+    if (memberState.active) {
+      if (window.posthog) posthog.capture('iap_restore_succeeded');
+      await handleMembershipComplete(null);
+    } else {
+      iapShowError('No previous purchase found on this Apple ID.');
+      if (window.posthog) posthog.capture('iap_restore_empty');
+    }
+  } catch (err) {
+    console.error('IAP restore failed:', err);
+    iapShowError((err && err.message) || "We couldn't restore your purchases. Please try again.");
+  } finally {
+    iapState.busy = false;
+    if (btn) { btn.disabled = false; btn.textContent = 'Restore purchases'; }
   }
 }
 
@@ -4662,12 +4968,27 @@ window.addEventListener('DOMContentLoaded', async () => {
     ['paywallJoinExternalBtn', EXTERNAL_CHECKOUT_URL, 'paywall_membership'],
     ['membershipJoinExternalBtn', EXTERNAL_CHECKOUT_URL, 'membership_screen'],
     ['hubPreviewJoinBtn', EXTERNAL_CHECKOUT_URL, 'hub_preview'],
-    ['hubMembershipManageAppBtn', EXTERNAL_ACCOUNT_URL, 'hub_manage'],
   ];
+  // Manage is routed at click time, not wired to a fixed URL: an Apple-billed
+  // member must land on Apple's subscription screen (the only place they can
+  // cancel), everyone else on our own account page.
+  const manageAppBtn = $('hubMembershipManageAppBtn');
+  if (manageAppBtn) manageAppBtn.addEventListener('click', () => {
+    if (memberState.source === 'apple') openExternalPurchase(APPLE_MANAGE_URL, 'apple_manage');
+    else openExternalPurchase(EXTERNAL_ACCOUNT_URL, 'hub_manage');
+  });
   for (const [id, url, where] of extLinks) {
     const el = $(id);
     if (el) el.addEventListener('click', () => openExternalPurchase(url, where));
   }
+
+  // In-App Purchase controls (iOS only; the handlers no-op elsewhere).
+  const iapBuy = $('iapSubscribeBtn');
+  if (iapBuy) iapBuy.addEventListener('click', handleIapSubscribe);
+  const iapRestore = $('iapRestoreBtn');
+  if (iapRestore) iapRestore.addEventListener('click', handleIapRestore);
+  const iapWebAlt = $('iapWebAltBtn');
+  if (iapWebAlt) iapWebAlt.addEventListener('click', () => openExternalPurchase(EXTERNAL_CHECKOUT_URL, 'iap_web_alt'));
 
   initMealTracker();
   initAccounts();
@@ -4802,7 +5123,12 @@ function clearLoggedIn() {
   memberState.plan = null;
   memberState.periodEnd = null;
   memberState.status = null;
+  memberState.userId = null;
+  memberState.source = null;
   memberState.loaded = true;
+  // Hand RevenueCat back an anonymous id, or the next person to use this phone
+  // would inherit the previous account's entitlements.
+  if (iapSupported()) iapLogOut();
   localStorage.removeItem(AUTH_TOKEN_KEY);
   clearAuthCookie(); // logout must clear BOTH stores or the session revives
   localStorage.removeItem(AUTH_EMAIL_KEY);
@@ -6598,7 +6924,7 @@ function initProgress() {
 // ============================================================
 //  MEMBERSHIP — plans, paywall, subscription checkout
 // ============================================================
-const memberState = { active: false, plan: null, periodEnd: null, status: null, discountCents: 0, loaded: false };
+const memberState = { active: false, plan: null, periodEnd: null, status: null, discountCents: 0, loaded: false, userId: null, source: null };
 let selectedPlan = 'annual';
 let membershipReturnTo = null; // where to go after subscribing (or backing out)
 let membershipGateBackToHub = false;
@@ -6612,7 +6938,12 @@ async function refreshMembership() {
     memberState.periodEnd = m.periodEnd || null;
     memberState.status = m.status || null;
     memberState.discountCents = m.creditDiscountCents || 0;
+    // userId is the RevenueCat appUserID; source tells us who bills this
+    // member, so "Manage membership" goes to Apple rather than Stripe.
+    memberState.userId = m.userId || null;
+    memberState.source = m.source || null;
     memberState.loaded = true;
+    if (iapSupported()) iapSync();
   } catch (e) { console.warn('membership fetch failed:', e.message); }
   applyMemberMode();
 }
@@ -6687,10 +7018,11 @@ function showMembershipScreen(returnTo, opts) {
   const isComp = memberState.status === 'comp';
   const betaNote = $('membershipBetaNote');
   if (betaNote) betaNote.style.display = isComp ? '' : 'none';
-  // In-app there is no in-app purchase, so non-comp users get the external
-  // purchase link instead of the plan cards (comp users get the beta note above).
+  // In-app, non-comp users get real In-App Purchase when StoreKit gives us
+  // products, and the external website link when it doesn't. Web is unaffected.
   const appNote = $('membershipAppNote');
   if (appNote) appNote.style.display = (IS_NATIVE_APP && !isComp) ? '' : 'none';
+  iapPrepareMembershipScreen(isComp);
   $('membershipSubscribeBtn').style.display = isComp ? 'none' : '';
   document.querySelector('.plan-cards').style.display = isComp ? 'none' : '';
   const guarantee = document.querySelector('#membershipSection .guarantee-note');
@@ -6774,7 +7106,17 @@ async function handleMembershipComplete(sessionId) {
   if (dest) dest(); else if (loadStoredProgram()) showProgram(); else showHub();
 }
 
+// Apple's subscription management screen. An Apple-billed subscription can
+// ONLY be cancelled by the user here — Apple gives developers no API for it,
+// and sending them to the Stripe portal would show them nothing.
+const APPLE_MANAGE_URL = 'https://apps.apple.com/account/subscriptions';
+
 async function handleManageMembership() {
+  if (memberState.source === 'apple') {
+    if (window.posthog) posthog.capture('manage_membership_apple');
+    openExternalPurchase(APPLE_MANAGE_URL, 'apple_manage');
+    return;
+  }
   if (IS_NATIVE_APP) return; // external billing portal is disabled in the native apps
   const btn = $('hubMembershipManageBtn');
   btn.disabled = true;
