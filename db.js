@@ -187,6 +187,12 @@ async function initDb() {
     'membership_status TEXT',
     'membership_plan TEXT',
     'membership_period_end TIMESTAMPTZ',
+    // Which billing system owns this membership: 'stripe' (web checkout) or
+    // 'apple' (In-App Purchase, via RevenueCat). NULL on legacy rows, which are
+    // all Stripe or comp. Load-bearing: it is what stops the Stripe cancel path
+    // (account deletion, billing portal) from ever touching an Apple-billed
+    // subscription, and vice versa.
+    'membership_source TEXT',
     // Trial-ending reminder: set once the "2 days left" email goes out (idempotent).
     'trial_reminder_sent_at TIMESTAMPTZ',
     // Progress Log settings + reminder bookkeeping

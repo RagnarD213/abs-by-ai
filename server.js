@@ -133,6 +133,13 @@ const GITHUB_TOKEN         = process.env.GITHUB_TOKEN;
 const STRIPE_SECRET_KEY    = process.env.STRIPE_SECRET_KEY;
 const STRIPE_PUBLISHABLE_KEY = process.env.STRIPE_PUBLISHABLE_KEY;
 const STRIPE_WEBHOOK_SECRET  = process.env.STRIPE_WEBHOOK_SECRET;
+// RevenueCat — Apple In-App Purchase membership (App Store guideline 3.1.1).
+// SECRET key is server-only and used for REST entitlement lookups; the client
+// carries a separate PUBLIC sdk key. WEBHOOK_SECRET is the shared string we set
+// as RevenueCat's Authorization header, and is the only thing proving an
+// inbound webhook is really from RevenueCat.
+const REVENUECAT_SECRET_KEY     = process.env.REVENUECAT_SECRET_KEY || '';
+const REVENUECAT_WEBHOOK_SECRET = process.env.REVENUECAT_WEBHOOK_SECRET || '';
 const PRINTIFY_API_KEY     = process.env.PRINTIFY_API_KEY;
 const PRINTIFY_SHOP_ID     = process.env.PRINTIFY_SHOP_ID;
 const MAILERLITE_API_KEY   = process.env.MAILERLITE_API_KEY;
@@ -4077,7 +4084,7 @@ app.post('/api/auth/delete-account', authLimiter, requireAuth, async (req, res) 
 
   try {
     const { rows } = await db.query(
-      `SELECT password_hash, stripe_subscription_id, membership_status
+      `SELECT password_hash, stripe_subscription_id, membership_status, membership_source
          FROM users WHERE id = $1`,
       [userId]
     );
@@ -4094,7 +4101,12 @@ app.post('/api/auth/delete-account', authLimiter, requireAuth, async (req, res) 
     const billable = ['active', 'trialing', 'past_due', 'unpaid'].includes(
       String(user.membership_status || '').toLowerCase()
     );
-    if (subId && billable) {
+    // An Apple-billed membership has no Stripe subscription to cancel, and its
+    // subscription can only be cancelled by the user in their Apple ID settings
+    // — Apple gives developers no API to do it. The membership_source check is
+    // belt-and-braces on top of the stripe_subscription_id check.
+    const appleBilled = String(user.membership_source || '') === 'apple';
+    if (subId && billable && !appleBilled) {
       const stripe = getStripe();
       if (stripe) {
         try {
@@ -4667,6 +4679,9 @@ app.get('/api/membership', requireAuth, async (req, res) => {
       status: row.membership_status || null,
       plan: row.membership_plan || null,
       periodEnd: row.membership_period_end || null,
+      // 'apple' members are billed through the App Store, so "Manage
+      // membership" must send them to Apple, not the Stripe billing portal.
+      source: row.membership_source || null,
       creditDiscountCents: isActiveMembership(row) ? 0 : creditDiscountCents(deviceId, 'monthly'),
       plans: Object.fromEntries(Object.entries(MEMBERSHIP_PLANS).map(([k, v]) => [k, { priceInCents: v.priceInCents, interval: v.interval }])),
     });
@@ -4928,6 +4943,268 @@ async function syncSubscriptionState(sub) {
     [sub.status || 'canceled', periodEnd, sub.id]
   );
 }
+
+// ============================================================
+//  APPLE IN-APP PURCHASE MEMBERSHIP  (App Store guideline 3.1.1)
+// ------------------------------------------------------------
+//  Version 1.0 was rejected twice on 3.1.1: first for hiding the purchase
+//  UI (the reader-app carve-out does not cover a fitness app), then for
+//  offering only a US-storefront external link. Apple's second rejection
+//  said it plainly: the membership must be available for purchase using
+//  In-App Purchase. So iOS buyers now go through StoreKit, brokered by
+//  RevenueCat, and land here.
+//
+//  Two ways a purchase reaches us, deliberately:
+//    1. RevenueCat's webhook — the authoritative, asynchronous path that
+//       also carries renewals, cancellations and expirations forever after.
+//    2. POST /api/apple/sync — called by the app right after a purchase, so
+//       the buyer is unlocked in the same second rather than waiting on
+//       webhook latency. It does NOT trust the client's claim; it asks
+//       RevenueCat's REST API, server side, what this user actually owns.
+//
+//  The client is never believed about entitlements. Same lesson as the F1
+//  credit double-spend and the locked-image unlock token.
+// ============================================================
+
+// Apple product id → our internal plan key. Product ids are permanent once
+// created in App Store Connect, so this table is effectively append-only.
+const APPLE_PRODUCT_PLANS = {
+  'com.absbyai.app.membership.monthly': 'monthly',
+  'com.absbyai.app.membership.annual':  'annual',
+};
+const REVENUECAT_ENTITLEMENT = 'membership';
+
+// RevenueCat's app_user_id is set by the client to our own users.id. Anything
+// that is not a plain positive integer (notably RevenueCat's anonymous
+// "$RCAnonymousID:…" form, used before the user signs in) cannot be mapped to
+// an account and is ignored rather than guessed at.
+function parseAppUserId(raw) {
+  const s = String(raw || '');
+  if (!/^[0-9]{1,15}$/.test(s)) return null;
+  const n = parseInt(s, 10);
+  return n > 0 ? n : null;
+}
+
+// Write an Apple-derived membership onto a user row.
+//
+// Two guards, both load-bearing:
+//   - A live Stripe subscription is never re-labelled as Apple-billed. If it
+//     were, account deletion would stop cancelling the Stripe sub and the
+//     customer would keep being charged after deleting their account. In that
+//     (shouldn't-happen) double-subscription case we still grant access — they
+//     paid — but leave membership_source alone and log loudly for reconciling.
+//   - A revocation only ever applies to a row we already own. An Apple
+//     expiration must not strip a comp/beta account or a paying web member.
+async function applyAppleMembership(userId, ent, reason) {
+  if (!db || !userId) return false;
+  const { rows } = await db.query(
+    `SELECT id, email, membership_status, membership_source, stripe_subscription_id
+       FROM users WHERE id = $1`,
+    [userId]
+  );
+  const user = rows[0];
+  if (!user) {
+    console.warn(`APPLE_MEMBERSHIP: no such user ${userId} (${reason})`);
+    return false;
+  }
+
+  const ownedByApple = user.membership_source === 'apple';
+  const stripeLive = !!user.stripe_subscription_id &&
+    ['active', 'trialing', 'past_due', 'unpaid'].includes(String(user.membership_status || '').toLowerCase());
+
+  if (!ent.active) {
+    // Revocation. Only ours to revoke.
+    if (!ownedByApple) {
+      console.log(`APPLE_MEMBERSHIP: ignoring ${reason} for user ${userId} — membership_source=${user.membership_source || 'null'}`);
+      return false;
+    }
+    await db.query(
+      `UPDATE users SET membership_status = $1, membership_period_end = $2 WHERE id = $3`,
+      [ent.status, ent.periodEnd, userId]
+    );
+    console.log(`APPLE_MEMBERSHIP: user ${userId} → ${ent.status} (${reason})`);
+    return true;
+  }
+
+  // Grant / refresh.
+  if (stripeLive && !ownedByApple) {
+    console.error(
+      `DOUBLE_BILLED_MEMBERSHIP: user ${userId} bought an Apple subscription while Stripe subscription ` +
+      `${user.stripe_subscription_id} is ${user.membership_status}. Granting access, leaving ` +
+      `membership_source=${user.membership_source || 'null'} so Stripe cancellation still works. Reconcile manually.`
+    );
+    await db.query(
+      `UPDATE users SET membership_status = $1, membership_period_end = $2 WHERE id = $3`,
+      [ent.status, ent.periodEnd, userId]
+    );
+    return true;
+  }
+
+  await db.query(
+    `UPDATE users SET membership_status = $1, membership_plan = $2,
+       membership_period_end = $3, membership_source = 'apple'
+     WHERE id = $4`,
+    [ent.status, ent.plan, ent.periodEnd, userId]
+  );
+  console.log(`APPLE_MEMBERSHIP: user ${userId} → ${ent.status} ${ent.plan} until ${ent.periodEnd} (${reason})`);
+  return true;
+}
+
+// Ask RevenueCat what this user actually owns. Server-side, secret key, never
+// the client's word. Returns null when we cannot get an authoritative answer,
+// which callers must treat as "don't change anything" rather than "no access".
+async function fetchAppleEntitlement(appUserId) {
+  if (!REVENUECAT_SECRET_KEY) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 15000);
+  try {
+    const r = await fetch(`https://api.revenuecat.com/v1/subscribers/${encodeURIComponent(appUserId)}`, {
+      headers: { Authorization: `Bearer ${REVENUECAT_SECRET_KEY}` },
+      signal: controller.signal,
+    });
+    if (!r.ok) {
+      console.warn(`RevenueCat lookup failed for ${appUserId}: HTTP ${r.status}`);
+      return null;
+    }
+    const body = await r.json();
+    const sub = body?.subscriber || {};
+    const entitlement = sub.entitlements?.[REVENUECAT_ENTITLEMENT];
+    if (!entitlement) return { active: false, status: 'expired', plan: null, periodEnd: null };
+
+    const productId = entitlement.product_identifier || '';
+    const plan = APPLE_PRODUCT_PLANS[productId] || null;
+    // Grace period counts as still-entitled: Apple is retrying the card.
+    const expires = entitlement.grace_period_expires_date || entitlement.expires_date || null;
+    const active = !!expires && new Date(expires) > new Date();
+    const detail = sub.subscriptions?.[productId] || {};
+
+    let status = 'active';
+    if (!active) status = 'expired';
+    else if (detail.billing_issues_detected_at) status = 'past_due';
+    else if (detail.unsubscribe_detected_at) status = 'canceled'; // access runs to period end
+    else if (String(detail.period_type || '').toLowerCase() === 'trial') status = 'trialing';
+
+    return { active, status, plan, periodEnd: expires };
+  } catch (e) {
+    console.warn(`RevenueCat lookup error for ${appUserId}:`, e.message);
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// RevenueCat webhook. Authenticated by a shared secret we choose and set as the
+// Authorization header in the RevenueCat dashboard — RevenueCat sends it back
+// verbatim on every call. Compared in constant time.
+app.post('/api/revenuecat/webhook', async (req, res) => {
+  if (!REVENUECAT_WEBHOOK_SECRET) {
+    console.warn('RevenueCat webhook hit but REVENUECAT_WEBHOOK_SECRET is unset — ignoring.');
+    return res.status(503).json({ error: 'Not configured' });
+  }
+  const provided = Buffer.from(String(req.headers.authorization || ''));
+  const expected = Buffer.from(REVENUECAT_WEBHOOK_SECRET);
+  if (provided.length !== expected.length || !crypto.timingSafeEqual(provided, expected)) {
+    console.warn('RevenueCat webhook: bad Authorization header');
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  const event = req.body?.event || {};
+  const type = String(event.type || '').toUpperCase();
+  const userId = parseAppUserId(event.app_user_id) || parseAppUserId(event.original_app_user_id);
+
+  // Always 200 on a well-authenticated event we simply don't act on, so
+  // RevenueCat doesn't retry it forever.
+  if (!userId) {
+    console.log(`RevenueCat ${type}: no mappable app_user_id (${event.app_user_id}) — ignored`);
+    return res.json({ ok: true, ignored: 'unmapped_user' });
+  }
+
+  const plan = APPLE_PRODUCT_PLANS[event.product_id] || null;
+  const periodEnd = event.expiration_at_ms ? new Date(event.expiration_at_ms).toISOString() : null;
+  const stillEntitled = !!periodEnd && new Date(periodEnd) > new Date();
+  const isTrial = String(event.period_type || '').toUpperCase() === 'TRIAL';
+
+  try {
+    switch (type) {
+      // Bought, renewed, switched plan, or resubscribed before expiry.
+      case 'INITIAL_PURCHASE':
+      case 'RENEWAL':
+      case 'PRODUCT_CHANGE':
+      case 'UNCANCELLATION':
+      case 'SUBSCRIPTION_EXTENDED':
+        await applyAppleMembership(userId, {
+          active: true,
+          status: isTrial ? 'trialing' : 'active',
+          plan, periodEnd,
+        }, type);
+        break;
+
+      // Auto-renew switched off. NOT a revocation — Apple's rules (and ours,
+      // matching the Stripe path) give the member access through the period
+      // they already paid for. isActiveMembership() honours a future
+      // membership_period_end even when the status reads 'canceled'.
+      case 'CANCELLATION':
+        await applyAppleMembership(userId, {
+          active: true, status: 'canceled', plan, periodEnd,
+        }, type);
+        break;
+
+      // Card declined. Apple retries during a grace period; keep access while
+      // the period end is still in the future.
+      case 'BILLING_ISSUE':
+        await applyAppleMembership(userId, {
+          active: true, status: 'past_due', plan, periodEnd,
+        }, type);
+        break;
+
+      // The real end of access, plus Apple-side refunds.
+      case 'EXPIRATION':
+      case 'REFUND':
+      case 'REFUND_REVERSED':
+        await applyAppleMembership(userId, {
+          active: stillEntitled,
+          status: stillEntitled ? 'active' : 'expired',
+          plan, periodEnd,
+        }, type);
+        break;
+
+      // TRANSFER moves a purchase between app_user_ids; TEST is RevenueCat's
+      // dashboard button. Neither should mutate a membership on our side.
+      default:
+        console.log(`RevenueCat ${type}: no action taken (user ${userId})`);
+    }
+    res.json({ ok: true });
+  } catch (e) {
+    console.error(`RevenueCat webhook error (${type}, user ${userId}):`, e.message);
+    // 500 so RevenueCat retries — a dropped purchase event means an unfulfilled
+    // paying customer.
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Immediate post-purchase unlock. The app calls this the moment StoreKit
+// reports success; we then ask RevenueCat directly what this account owns.
+// Never grants on the client's say-so.
+app.post('/api/apple/sync', requireAuth, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  if (!REVENUECAT_SECRET_KEY) return res.status(503).json({ error: 'Purchases are not configured yet.' });
+  try {
+    const ent = await fetchAppleEntitlement(String(req.user.id));
+    if (!ent) return res.status(502).json({ error: "We couldn't confirm your purchase with the App Store. It will unlock automatically in a moment." });
+    if (ent.active) await applyAppleMembership(req.user.id, ent, 'client_sync');
+    const row = await getUserRow(req.user.id);
+    res.json({
+      ok: true,
+      active: isActiveMembership(row),
+      status: row.membership_status || null,
+      plan: row.membership_plan || null,
+      periodEnd: row.membership_period_end || null,
+    });
+  } catch (e) {
+    console.error('apple sync error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 // Trial-ending reminder sweep. Dan wants the email exactly 2 days out, so we
 // drive it ourselves rather than off Stripe's trial_will_end event (which fires
