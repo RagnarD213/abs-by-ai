@@ -156,61 +156,32 @@
       "priority": "high",
       "why": "Do not connect before Sept 2 — early third-party connection risks a bot flag. Generating the API key starts $29/mo billing.",
       "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Execute handoff: Finish Android Play Store public listing (content rating, health, store listing)",
-      "priority": "key",
-      "why": "handoff-20260805-android-play-store-public-launch.md — created but not yet run",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Execute handoff: Write finalized ad scripts from remaining batch-1 outlines",
-      "priority": "key",
-      "why": "handoff-20260806-ad-scripts-from-outlines.md — created but not yet run; waits on Dan filling in outlines 2+ in the batch-1 Google Doc",
-      "addedAt": "2026-08-06"
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-03"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-03"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-03"
+      "recurring": true
     },
     {
-      "text": "Salad by 2:00pm",
+      "text": "Salad",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-03"
+      "recurring": true
     },
     {
       "text": "Inject Zepbound",
-      "priority": "high",
-      "addedAt": "2026-08-06"
-    },
-    {
-      "text": "Big meal by 6:00pm",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-06"
-    },
-    {
-      "text": "Small meal by 9:30pm",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-06"
+      "priority": "high"
     }
   ],
   "personal": [
