@@ -183,10 +183,19 @@ text-decoration:none;color:#7A6A2E`. Body paragraphs need explicit
   into the H1 title twice. **Navigate by outline + scroll + click. Never by find.**
 - **`clipboard info` showing `«class HTML»` proves nothing** — it stays true for a
   stale payload. Read the HTML flavor **back** and compare bytes. Even then, Docs
-  can still paste from its own internal clipboard: on Ad 2 it pasted the previous
-  image once, and an unrelated outline from an earlier session once, while the
-  system clipboard verifiably held the right bytes. **Always screenshot after every
-  paste. A simple `cmd+z` + re-paste fixed it both times.**
+  can still paste from its own internal clipboard while the system clipboard
+  verifiably holds the right bytes.
+- **The internal-clipboard trap gets WORSE the longer the editing session runs.**
+  On the Ad 2 revision pass it fired on roughly one paste in three, and what it
+  pasted came from the user's wider clipboard history — a bank/tax admin screenshot
+  and an Apple Developer page — not from the document. Two consequences:
+  1. **Re-set the clipboard immediately before EVERY paste**, even when pasting the
+     same asset repeatedly, and **screenshot after every paste**. `cmd+z` + re-set +
+     re-paste fixed it every time, on the first retry.
+  2. **A bad paste can inject sensitive content into the document.** After any long
+     pass, export the .docx and enumerate every embedded image (size + which cue it
+     sits under), not just the ones you meant to add. A stray screenshot of someone's
+     bank page is a much worse defect than a missing picture.
 - **Undo is per-operation.** A `Return` plus a paste is two. Undo one at a time and
   screenshot between. After undoing a bad paste, the empty paragraph is usually
   still there and correctly positioned — re-paste into it rather than pressing
