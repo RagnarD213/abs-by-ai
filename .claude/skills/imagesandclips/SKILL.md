@@ -58,10 +58,16 @@ clip gets made only after he approves.
 
 The B-roll files are **screen recordings of YouTube**, not raw footage.
 
+- **`sixpackabs can diet alone get you abs.mp4`** — SixPackAbs.com "Can DIET ALONE
+  get you abs?" (1.1M views), downloaded 2026-08-07 at 1080p. **This is the go-to for
+  `[SHOW CLIP OF DAN FROM SIX PACK SHORTCUTS]` on any nutrition/diet script** — it is
+  the most diet-focused video in the Mike Chang + Daniel Rose playlist. **Dan is on
+  the RIGHT** in the plain black v-neck; Mike Chang is on the LEFT in the Nutrition
+  Depot tank. There is exactly one Dan-solo stretch: **0:33–1:08.6**. 1:08.6–2:00 is
+  Chang solo (avoid); the rest is two-shot.
 - **`interview b roll.mov`** — SixPackAbs.com "How To Lose Your Belly Fat" (3.3M
-  views). **Dan is the man on the LEFT.** Best solo close-up of him is at **0:18**.
-  This is the go-to for `[SHOW CLIP OF DAN FROM SIX PACK SHORTCUTS]`, especially on
-  nutrition ads (the video is about belly fat).
+  views). **Dan is the man on the LEFT.** Best solo close-up at **0:18**. Fallback
+  for the SixPackAbs cue if the diet video doesn't suit the script.
 - **`youtube ad agency b roll.mov`** — Dan's own "How To Set Up Your First YouTube
   Ad Campaign", channel *Daniel Rose – Social Response*. Dan alone, on camera,
   whole clip. Use it for the "running a successful ad agency" line.
@@ -70,6 +76,17 @@ The B-roll files are **screen recordings of YouTube**, not raw footage.
   ("Dan Rose · Six Pack Shortcuts Co-Founder & CEO"). Use only if you specifically
   want the title card; it breaks Dan's "keep the focus on me" rule otherwise.
 - 3 min ab workout / deadlift / m-100s / jump rope — training B-roll, pick by topic.
+
+**To download a SixPackAbs video from YouTube:** the `yt_dlp` Python module is
+installed (no CLI). YouTube blocks the default client — use
+`extractor_args={'youtube':{'player_client':['android_vr']}}`, which works where
+`tv`, `ios`, `web_safari` and `mweb` all fail.
+
+**To make a "watching it on YouTube" screen-capture clip:** don't screen-record.
+Capture the real watch page in headless Chrome at 1600×900 @2× (pause the video,
+hide the player chrome), read the `<video>` element's rect, then composite the
+downloaded footage into that rect with ffmpeg `overlay`. Full quality, deterministic,
+and the page shows the correct title, channel, view count and playlist sidebar.
 
 **Pick frames by looking, never by guessing.** Contact sheet at 1 fps, then crop
 the player region out of the browser chrome:
