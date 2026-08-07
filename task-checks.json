@@ -1,7 +1,5 @@
 {
-  "checked": [
-    "money::Execute handoff: Write finalized ad scripts from remaining batch-1 outlines"
-  ],
+  "checked": [],
   "log": {
     "health::Shower": [
       "2026-06-25",
