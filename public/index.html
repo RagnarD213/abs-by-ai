@@ -1697,6 +1697,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       </button>
       <div id="creditCounter" class="credit-indicator credit-counter" style="display:none"></div>
       <div class="cta-note">Two AI steps · about 20 seconds</div>
+      <div style="font-size:11.5px;color:#a29e95;text-align:center;margin-top:8px;line-height:1.5">Your photo and details are sent securely to our AI partners (Anthropic, Google, Replicate) to create your result — never sold, delete anytime. <a href="/privacy" style="color:inherit;text-decoration:underline">Privacy Policy</a></div>
     </div>
 
     <div style="font-size:12px;color:#8a877f;text-align:center;margin-top:20px;line-height:1.5">AbsByAI is an app for generating an image of your fitness goal. <strong>The examples shown above are not real fitness transformations.</strong> They are examples of the type of images our app can make.</div>
@@ -2729,6 +2730,23 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
   </div>
 </div>
 
+<!-- One-time AI-processing consent (App Store guidelines 5.1.1(i)/5.1.2(i):
+     disclose what data is sent to third-party AI services, name the services,
+     and get the user's permission BEFORE any data is sent) -->
+<div id="aiConsentOverlay" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(20,19,17,.55);align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:20px;max-width:430px;width:100%;max-height:86vh;overflow-y:auto;padding:26px 22px;box-shadow:0 24px 60px rgba(0,0,0,.35)">
+    <div style="font-size:21px;font-weight:800;color:#1b1a18;margin-bottom:10px">Your data &amp; AI</div>
+    <div style="font-size:14px;color:#6e6b64;line-height:1.6;margin-bottom:12px">Abs by AI uses trusted AI services to create your results. When you use an AI feature, here is exactly what is sent — always over an encrypted connection:</div>
+    <ul style="padding-left:18px;margin:0 0 12px">
+      <li style="font-size:14px;color:#6e6b64;line-height:1.6;margin-bottom:8px"><strong style="color:#1b1a18">Your photo</strong> (which may include your face) goes to <strong>Anthropic (Claude)</strong> to check that it's usable, and to <strong>Google (Gemini)</strong> — and for some images <strong>ByteDance Seedream via Replicate</strong> — to create your image.</li>
+      <li style="font-size:14px;color:#6e6b64;line-height:1.6"><strong style="color:#1b1a18">Fitness details you enter</strong> (body info, goals, meals, sleep, supplements) go to <strong>Anthropic (Claude)</strong> to build your plans and analyses.</li>
+    </ul>
+    <div style="font-size:13px;color:#6e6b64;line-height:1.6;margin-bottom:18px">These providers process your data only to create your results. We never sell your data, and you can delete everything stored about you at any time. Full details in our <a href="/privacy" target="_blank" rel="noopener" style="color:#2f5fe0">Privacy Policy</a>.</div>
+    <button id="aiConsentAgree" class="cta-btn" style="width:100%">I agree — continue</button>
+    <button id="aiConsentDecline" style="display:block;width:100%;margin-top:10px;background:none;border:none;font:inherit;font-size:14px;font-weight:600;color:#8a877f;padding:10px;cursor:pointer">Not now</button>
+  </div>
+</div>
+
 <div id="cropOverlay" style="display:none">
   <div class="crop-hdr">
     <button id="cropCancelBtn" class="crop-cancel-btn">Cancel</button>
@@ -2846,6 +2864,43 @@ function writeCookie(name, value, days) {
 
 function deleteCookie(name) {
   try { document.cookie = `${name}=; Max-Age=0; Path=/; SameSite=Lax`; } catch (e) {}
+}
+
+// ── One-time AI-processing consent (Apple 5.1.1(i)/5.1.2(i)) ─────────────────
+// The app may not send a user's photo or personal details to a third-party AI
+// service until the user has been told what is sent and to whom, and agreed.
+// Called at every AI entry point; resolves immediately once consent is stored.
+// Mirrored into a cookie like the device id — losing it only re-shows the
+// dialog, but the dialog is friction we don't want to repeat.
+const AI_CONSENT_KEY = 'absbyai_ai_consent';
+const AI_CONSENT_DAYS = 400;
+
+function hasAiConsent() {
+  let v = '';
+  try { v = localStorage.getItem(AI_CONSENT_KEY) || ''; } catch (e) {}
+  if (!v) v = readCookie(AI_CONSENT_KEY);
+  return !!v;
+}
+
+function ensureAiConsent() {
+  if (hasAiConsent()) return Promise.resolve(true);
+  return new Promise((resolve) => {
+    const ov = document.getElementById('aiConsentOverlay');
+    if (!ov) { resolve(true); return; }
+    ov.style.display = 'flex';
+    const done = (ok) => {
+      ov.style.display = 'none';
+      if (ok) {
+        const stamp = new Date().toISOString();
+        try { localStorage.setItem(AI_CONSENT_KEY, stamp); } catch (e) {}
+        writeCookie(AI_CONSENT_KEY, stamp, AI_CONSENT_DAYS);
+      }
+      try { if (window.posthog) posthog.capture(ok ? 'ai_consent_granted' : 'ai_consent_declined'); } catch (e) {}
+      resolve(ok);
+    };
+    document.getElementById('aiConsentAgree').onclick = () => done(true);
+    document.getElementById('aiConsentDecline').onclick = () => done(false);
+  });
 }
 
 const AD_CONVERSION_ID = 'AW-18361229851';
@@ -7004,6 +7059,7 @@ function nextIntakeStep() {
 }
 
 async function generateProgram() {
+  if (!(await ensureAiConsent())) return;
   const a = intakeState.answers;
   const intake = {
     equipment: a.equipment, experience: a.experience,
@@ -8004,6 +8060,7 @@ function nextNutriStep() {
 }
 
 async function generateMealPlan() {
+  if (!(await ensureAiConsent())) return;
   const a = nutriState.answers;
   const intake = {
     sex: a.sex || 'unspecified', age: a.age, height_in: a.height_in, weight_lb: a.weight_lb,
@@ -8528,6 +8585,7 @@ function showAuditTypeForm() {
 }
 
 async function scanAuditLabel(file, panelForIndex) {
+  if (!(await ensureAiConsent())) return;
   const img = await downscaleImage(file);
   if (!img) { showAuditPhotoError("Couldn't read that image — try again."); return; }
   const status = $('auditScanStatus');
@@ -8641,6 +8699,7 @@ async function pollAuditJobLoop(jobId) {
 }
 
 async function conveneAudit() {
+  if (!(await ensureAiConsent())) return;
   const a = counselState.intake;
   const err = $('auditIntakeError');
   const showErr = (m) => { err.textContent = m; err.style.display = ''; };
@@ -9137,6 +9196,7 @@ function renderSleepLanding() {
 }
 
 async function submitSleepCheckin(payload, source) {
+  if (!(await ensureAiConsent())) return;
   $('sleepLanding').style.display = 'none';
   $('sleepGenError').style.display = 'none';
   $('sleepLoader').style.display = '';
@@ -9332,6 +9392,12 @@ function finalizePhoto({ data, mime, dataUrl }) {
 async function handlePhoto(file) {
   if (!file.type.startsWith('image/')) {
     showError('Please upload an image file.');
+    return;
+  }
+  // Consent must come before finalizePhoto: it fires /api/check-photo, which
+  // sends the photo to Anthropic — data leaves the device at selection time.
+  if (!(await ensureAiConsent())) {
+    try { $('photoInput').value = ''; } catch (e) {}
     return;
   }
   // Cropper.js failed to load (network hiccup) — don't block generation, fall
@@ -10039,6 +10105,7 @@ function removeMealPhotoAt(idx) {
 
 async function analyzeMeal() {
   if (!meal.photos.length) return;
+  if (!(await ensureAiConsent())) return;
   const isPrep = meal.mode === 'prep';
   const servings = isPrep ? getServingsInput() : null;
   if (isPrep && !servings) return;
