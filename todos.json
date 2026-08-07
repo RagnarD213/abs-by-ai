@@ -168,6 +168,12 @@
       "priority": "key",
       "why": "handoff-20260807-ios-iap-and-resubmission.md — created but not yet run",
       "addedAt": "2026-08-07"
+    },
+    {
+      "text": "Execute handoff: Test replacement models for the male Gemini slot",
+      "priority": "key",
+      "why": "handoff-20260807-male-gemini-model-swap.md — created but not yet run. Male Gemini under-changes: Dan rejected BOTH candidates in 6 of 6 blind rows; prompt lever exhausted after 3 measured failures",
+      "addedAt": "2026-08-07"
     }
   ],
   "health": [
