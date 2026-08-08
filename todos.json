@@ -236,6 +236,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-08"
+    },
+    {
+      "text": "Wash, dry, and fold 2 laundry loads",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-08-08"
     }
   ]
 }
