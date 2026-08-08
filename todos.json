@@ -243,6 +243,13 @@
       "recurring": false,
       "addedAt": "2026-08-08",
       "addedBy": "assistant"
+    },
+    {
+      "text": "SYNCTEST beta",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-08",
+      "addedBy": "assistant"
     }
   ]
 }
