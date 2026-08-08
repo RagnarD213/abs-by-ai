@@ -252,7 +252,7 @@
     },
     {
       "text": "Clean robot vaccuum tray (ask Dan to show you how)",
-      "priority": "low",
+      "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-08"
     },
