@@ -230,5 +230,12 @@
       "addedAt": "2026-08-07"
     }
   ],
-  "assistant": []
+  "assistant": [
+    {
+      "text": "Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-08"
+    }
+  ]
 }
