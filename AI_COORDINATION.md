@@ -158,6 +158,18 @@ Dan is hiring a personal assistant (Brittney) and asked for a dedicated lane for
 
 `CLAUDE.md` records the fourth list and warns against putting handoff/agent work orders in it. **No dashboard task matched this work** (searched for assistant/delegate/Brittney/dashboard across all lists), so nothing was checked off per Rule 9, and no handoff was created, so Rule 8 does not apply.
 
+### New "unassigned" priority + priority shown on the assistant page — SHIPPED, live-verified (2026-08-08, Claude Code, commits `06f42b0`, `ec06dca`)
+
+Dan's reasoning, and it is the point of the change: forcing her additions to **Low** reads as him having judged her suggestion unimportant. **`unassigned` is a fifth priority level that sorts BELOW `low` and means only "not triaged yet".** Styled deliberately neutral (grey, no colour) on both surfaces so it does not look like a demotion. `POST /api/assistant-tasks` now stamps `priority: 'unassigned'`.
+
+**No migration was needed and none was done** — checked rather than assumed: all 9 assistant tasks on the list were added by Dan with his own priorities, so his `low` items are his own judgement and stay `Low`. Only *her* additions get `unassigned`.
+
+**Her page now shows a priority badge on every task**, using the same words Dan sees so "the high priority one" means the same thing to both of them. Sort order is unchanged (Key → High → Med → Low → Unassigned) and now visible. **One deliberate divergence: the dashboard renders Low as "Low 💩"; her page renders a plain "Low".** That emoji is Dan's shorthand for his own tasks and would read as a dig at her work. The "Added by you — waiting on Dan to prioritize" note now hides once he has triaged the task, since the badge then carries the meaning and the note would be stale.
+
+**A bug the new level would have exposed, fixed in the same commit:** the dashboard's edit-form and quick-add dropdowns only offered key/high/med/low, so opening the edit form on an `unassigned` task preselected the **first** option (`Key`) and a save with an untouched dropdown would have silently promoted it. Both dropdowns now carry Unassigned. Asserted: the form preselects `unassigned` and a no-op save preserves it.
+
+**Verified** locally across all five levels (correct order and badge on both surfaces, add forces `unassigned` and appends last, edit-form preselect and no-op save, other lists' tags unchanged) and **live on absbyai.com** against Dan's real 9 tasks: correct order and badges on both surfaces, server forces `unassigned` on a real add, no `💩` anywhere in the assistant page (including its source — the first version leaked it in a code comment), no horizontal overflow, no console errors, the only failing request being a pre-existing third-party `ipapi.co` 429 on the dashboard. Test task removed afterwards. The morning-brief skill's assistant-queue step now keys on `priority: "unassigned"` instead of `"low"`.
+
 ### Unified task status across /dashboard and /assistant — SHIPPED, live-verified (2026-08-08, Claude Code, commits `77d5522` + `49e07a7`)
 
 Dan reported that checking a task off on one surface did not show on the other. Reproduced with two live tabs, then fixed at three layers. **Do not "simplify" any one of them away — each covers a different failure.**
