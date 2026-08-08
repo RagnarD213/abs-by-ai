@@ -1,9 +1,6 @@
 {
-  "date": "2026-08-07",
+  "date": "2026-08-08",
   "order": [],
-  "excluded": [
-    "money::Top up Google AI Studio (Gemini) prepay credits — production Gemini image leg is DOWN (fail-open serving FLUX/Seedream only)",
-    "money::Execute handoff: iOS IAP subscription + resubmission"
-  ],
-  "sessionsCompleted": 2
+  "excluded": [],
+  "sessionsCompleted": 0
 }
