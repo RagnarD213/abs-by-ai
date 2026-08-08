@@ -1,7 +1,8 @@
 {
   "checked": [
     "health::Inject Zepbound",
-    "money::Execute handoff: Retouch batch 2 pool-shoot photos (10 new picks)"
+    "money::Execute handoff: Retouch batch 2 pool-shoot photos (10 new picks)",
+    "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice"
   ],
   "log": {
     "health::Shower": [
