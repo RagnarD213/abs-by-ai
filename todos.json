@@ -273,13 +273,6 @@
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08"
-    },
-    {
-      "text": "PRIOTEST delete me",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-08",
-      "addedBy": "assistant"
     }
   ]
 }
