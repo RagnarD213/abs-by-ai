@@ -236,6 +236,13 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-08"
+    },
+    {
+      "text": "SYNCTEST alpha",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-08",
+      "addedBy": "assistant"
     }
   ]
 }
