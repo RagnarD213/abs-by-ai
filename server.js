@@ -756,6 +756,41 @@ app.get('/api/monarch', async (req, res) => {
   res.json(data);
 });
 
+// ── Task-state cache + live push ──────────────────────────────────────────────
+// Both task files live in GitHub, whose contents API is CDN-backed and only
+// EVENTUALLY consistent: measured on production 2026-08-08, a write takes ~1.2s
+// and stays invisible to a subsequent read for up to ~2.4s after that. Reads are
+// also a ~1.2s round trip. So every dashboard refresh was slow AND could serve a
+// value older than a check the user had just made.
+//
+// Fix: a write-through memory cache. After we write, memory is authoritative for
+// TRUST_MS (comfortably past the observed lag) so a read can never regress to a
+// pre-write value; otherwise memory is reused for a short TTL and refreshed from
+// GitHub after that. `fresh: true` bypasses both — used when we need a live sha.
+//
+// Single-replica caveat, same as attemptCache/freeIpCounts elsewhere in this file:
+// with more than one Railway instance each would hold its own copy. GitHub remains
+// the durable store, so the worst case is a slower cross-instance convergence, not
+// lost data.
+const CACHE_TTL_MS = 5000;
+const CACHE_TRUST_MS = 20000;
+let checksCache = null; // { checked, log, sha, fetchedAt, trustUntil }
+let todosCache = null;  // { data, fetchedAt, trustUntil }
+
+const cacheUsable = (c) => c && (Date.now() < c.trustUntil || Date.now() - c.fetchedAt < CACHE_TTL_MS);
+
+// Clients holding an open Server-Sent Events connection. Any task write is pushed
+// to all of them immediately, which is what makes a check on /assistant show up on
+// /dashboard (and the reverse) without waiting for a poll.
+const taskStreamClients = new Set();
+
+function broadcastTaskState(payload) {
+  const frame = `event: tasks\ndata: ${JSON.stringify(payload)}\n\n`;
+  for (const res of [...taskStreamClients]) {
+    try { res.write(frame); } catch (e) { taskStreamClients.delete(res); }
+  }
+}
+
 // ── Todos (stored in GitHub todos.json so they survive Railway deploys) ──
 const TODOS_FILE = 'todos.json';
 const EMPTY_TODOS = { business: [], health: [], personal: [], assistant: [] };
@@ -773,18 +808,27 @@ function normalizeTodos(raw) {
   };
 }
 
-async function loadTodos() {
+async function loadTodos(opts) {
   if (!GITHUB_TOKEN) return EMPTY_TODOS;
+  // Same write-through cache as task-checks. Note todos.json is ALSO written straight to GitHub by the
+  // morning-brief scheduled job, bypassing this process — so outside our own
+  // write window the cache is only held for the short TTL, and that job's
+  // once-a-day edit surfaces within seconds rather than being pinned.
+  if (!opts?.fresh && cacheUsable(todosCache)) return todosCache.data;
   try {
     const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TODOS_FILE}`, {
       headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
     });
-    if (!res.ok) return EMPTY_TODOS;
+    if (!res.ok) return todosCache ? todosCache.data : EMPTY_TODOS;
     const data = await res.json();
-    return normalizeTodos(JSON.parse(Buffer.from(data.content, 'base64').toString('utf8')));
+    const parsed = normalizeTodos(JSON.parse(Buffer.from(data.content, 'base64').toString('utf8')));
+    // Never let a stale CDN read undo a list we just wrote ourselves.
+    if (todosCache && Date.now() < todosCache.trustUntil) return todosCache.data;
+    todosCache = { data: parsed, fetchedAt: Date.now(), trustUntil: 0 };
+    return parsed;
   } catch (e) {
     console.error('loadTodos error:', e.message);
-    return EMPTY_TODOS;
+    return todosCache ? todosCache.data : EMPTY_TODOS;
   }
 }
 
@@ -802,6 +846,9 @@ async function saveTodosToGitHub(todos) {
       headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
+    const saved = normalizeTodos(todos);
+    todosCache = { data: saved, fetchedAt: Date.now(), trustUntil: Date.now() + CACHE_TRUST_MS };
+    broadcastTaskState({ todos: saved });
     console.log('Todos saved to GitHub');
   } catch (e) { console.error('GitHub todos save error:', e.message); }
 }
@@ -1007,25 +1054,36 @@ app.post('/api/assign-priority', aiLimiter, async (req, res) => {
 //             any server-side cron.
 const TASK_CHECKS_FILE = 'task-checks.json';
 
-async function loadTaskChecks() {
+async function loadTaskChecks(opts) {
   const empty = { checked: [], log: {}, sha: null };
   if (!GITHUB_TOKEN) return empty;
+  if (!opts?.fresh && cacheUsable(checksCache)) {
+    return { checked: checksCache.checked, log: checksCache.log, sha: checksCache.sha };
+  }
   try {
     const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TASK_CHECKS_FILE}`, {
       headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
     });
-    if (!res.ok) return empty;
+    if (!res.ok) return cacheUsable(checksCache) || checksCache ? snapshotChecks() : empty;
     const data = await res.json();
     const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
-    return {
+    const next = {
       checked: Array.isArray(parsed.checked) ? parsed.checked : [],
       log: (parsed.log && typeof parsed.log === 'object') ? parsed.log : {},
       sha: data.sha,
     };
+    // Never let a stale CDN read overwrite a value we just wrote ourselves.
+    if (checksCache && Date.now() < checksCache.trustUntil) return snapshotChecks();
+    checksCache = { ...next, fetchedAt: Date.now(), trustUntil: 0 };
+    return next;
   } catch (e) {
     console.error('loadTaskChecks error:', e.message);
-    return empty;
+    return checksCache ? snapshotChecks() : empty;
   }
+}
+
+function snapshotChecks() {
+  return { checked: checksCache.checked, log: checksCache.log, sha: checksCache.sha };
 }
 
 async function putTaskChecks(checked, log, sha) {
@@ -1053,6 +1111,32 @@ app.get('/api/tasks-state', async (req, res) => {
   res.json({ todos, task_checks: { checked: checks.checked, log: checks.log }, plan });
 });
 
+// Live task-state stream. Every open dashboard and /assistant page holds one of
+// these; any write below pushes to all of them, so a check made on one surface
+// lands on the other within a fraction of a second instead of on the next poll.
+app.get('/api/tasks-events', async (req, res) => {
+  res.set({
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache, no-transform',
+    'Connection': 'keep-alive',
+    'X-Accel-Buffering': 'no', // stop any proxy from buffering the stream
+  });
+  res.flushHeaders?.();
+  res.write('retry: 3000\n\n');
+  taskStreamClients.add(res);
+
+  // Send the current state straight away so a page that just connected (or
+  // reconnected after a dropped connection) is correct without waiting.
+  try {
+    const [todos, checks] = await Promise.all([loadTodos(), loadTaskChecks()]);
+    res.write(`event: tasks\ndata: ${JSON.stringify({ todos, task_checks: { checked: checks.checked, log: checks.log } })}\n\n`);
+  } catch (e) { /* the client will fall back to polling */ }
+
+  // Proxies drop idle connections; a comment frame keeps this one alive.
+  const beat = setInterval(() => { try { res.write(': ping\n\n'); } catch (e) { /* closed */ } }, 25000);
+  req.on('close', () => { clearInterval(beat); taskStreamClients.delete(res); });
+});
+
 app.post('/api/task-checks', async (req, res) => {
   if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
   const { id, checked, recurring, date } = req.body || {};
@@ -1064,7 +1148,11 @@ app.post('/api/task-checks', async (req, res) => {
   }
   try {
     for (let attempt = 0; attempt < 4; attempt++) {
-      const cur = await loadTaskChecks();
+      // A retry means our sha lost a race, so go back to GitHub for a live one.
+      // Likewise if the cached entry has no sha (the PUT response didn't parse) —
+      // writing without one is a guaranteed 422 against an existing file.
+      const needFresh = attempt > 0 || (checksCache && !checksCache.sha);
+      const cur = await loadTaskChecks(needFresh ? { fresh: true } : undefined);
       const set = new Set(cur.checked);
       const log = { ...cur.log };
       if (recurring) {
@@ -1076,7 +1164,15 @@ app.post('/api/task-checks', async (req, res) => {
       }
       const nextChecked = [...set];
       const putRes = await putTaskChecks(nextChecked, log, cur.sha);
-      if (putRes.ok) return res.json({ ok: true, checked: nextChecked, log });
+      if (putRes.ok) {
+        // Trust memory over GitHub for the next few seconds — a read during the
+        // CDN's consistency window would otherwise hand back the pre-write value.
+        let sha = null;
+        try { sha = (await putRes.json())?.content?.sha || null; } catch (_) { /* body already consumed or not JSON */ }
+        checksCache = { checked: nextChecked, log, sha, fetchedAt: Date.now(), trustUntil: Date.now() + CACHE_TRUST_MS };
+        broadcastTaskState({ task_checks: { checked: nextChecked, log } });
+        return res.json({ ok: true, checked: nextChecked, log });
+      }
       if (putRes.status === 409 || putRes.status === 422) continue; // sha race — reload & retry
       const txt = await putRes.text().catch(() => '');
       return res.status(502).json({ error: `github ${putRes.status}: ${txt}` });

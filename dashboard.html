@@ -1359,10 +1359,48 @@ while (set.has(cursor)) { n++; cursor = shiftDate(cursor, -1); }
 return n;
 }
 
-// Replace local state with the server's source of truth.
+// Toggles the server has not confirmed yet. Clearing these when the POST returns
+// is NOT enough: the write resolves before the stored value is readable, so a
+// sync landing in that gap serves the pre-write state and the checkbox visibly
+// flips back under the user's finger. Measured on production 2026-08-08 — the
+// write takes ~1.2s and the old value can still be read for ~2.4s after that.
+// So an entry survives until a server snapshot AGREES with it, with a hard
+// backstop so a permanently disagreeing server can't pin a value forever.
+const pendingChecks = new Map(); // id → { checked, recurring, at, inFlight }
+const PENDING_MAX_MS = 30000;
+
+// Drop pending entries the server has now confirmed (or that have aged out).
+function reconcilePendingChecks(serverChecked, serverLog) {
+const now = Date.now();
+pendingChecks.forEach((p, id) => {
+if (now - p.at > PENDING_MAX_MS) { pendingChecks.delete(id); return; }
+if (p.inFlight) return; // our write hasn't even returned yet
+const serverSays = p.recurring
+? (serverLog?.[id] || []).includes(localToday())
+: (serverChecked || []).includes(id);
+if (serverSays === p.checked) pendingChecks.delete(id);
+});
+}
+
+function applyPendingChecks() {
+pendingChecks.forEach((p, id) => {
+if (p.recurring) {
+const days = new Set(taskLog[id] || []);
+if (p.checked) days.add(localToday()); else days.delete(localToday());
+if (days.size) taskLog[id] = [...days].sort(); else delete taskLog[id];
+} else {
+if (p.checked) checkedTodos.add(id); else checkedTodos.delete(id);
+}
+});
+}
+
+// Replace local state with the server's source of truth, keeping our own
+// in-flight writes on top.
 function seedChecks(serverChecked, serverLog) {
+reconcilePendingChecks(serverChecked, serverLog);
 if (Array.isArray(serverChecked)) checkedTodos = new Set(serverChecked);
 if (serverLog && typeof serverLog === 'object') taskLog = serverLog;
+applyPendingChecks();
 cacheChecks();
 }
 
@@ -1462,14 +1500,21 @@ planState.sessionsCompleted = (planState.sessionsCompleted || 0) + 1;
 savePlan();
 }
 renderAllTasks(); // refresh streaks + progress
+const pending = { checked: nowChecked, recurring: !!recurring, at: Date.now(), inFlight: true };
+pendingChecks.set(id, pending);
 try {
-await fetch('/api/task-checks', {
+const r = await fetch('/api/task-checks', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify({ id, checked: nowChecked, recurring: !!recurring, date: localToday() }),
 });
+if (!r.ok) throw new Error('save failed');
+// Written, but not necessarily readable yet — keep holding the value until a
+// server snapshot confirms it (see reconcilePendingChecks).
+pending.inFlight = false;
 } catch (e) {
 console.warn('task-check sync failed (kept locally):', e);
+pendingChecks.delete(id);
 }
 }
 
@@ -2683,6 +2728,34 @@ setTodos(d.todos);
 }
 setInterval(() => { if (document.visibilityState === 'visible') syncTasks(); }, 60000);
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncTasks(); });
+
+// ── LIVE PUSH ──
+// The poll above only runs while this tab is in front, so a check made on
+// /assistant (or on another device) used to sit unseen here until the tab was
+// focused. This stream delivers task changes the moment they happen, including
+// to a background tab, so both surfaces always show one unified status.
+// EventSource reconnects on its own; the poll stays as a belt-and-braces
+// fallback for environments where the stream can't be held open.
+function applyTaskState(d) {
+if (!d) return;
+if (d.task_checks) seedChecks(d.task_checks.checked, d.task_checks.log);
+if (d.todos) setTodos(d.todos); // setTodos calls renderAllTasks()
+else renderAllTasks();
+}
+function openTaskStream() {
+if (!('EventSource' in window)) return;
+let es;
+try { es = new EventSource('/api/tasks-events'); }
+catch (e) { return; }
+es.addEventListener('tasks', (e) => {
+try { applyTaskState(JSON.parse(e.data)); }
+catch (err) { console.warn('bad task stream frame:', err); }
+});
+// Don't stack reconnect handlers — EventSource retries by itself, and the
+// server sends `retry: 3000`. Only log so a dead stream is visible in console.
+es.onerror = () => { /* transient; EventSource will retry */ };
+}
+openTaskStream();
 
 // ── MAIN LOAD ──
 function skel(n) {

@@ -148,6 +148,12 @@ let tasks = [];
 let checked = new Set();
 let taskLog = {};
 let busy = false;
+// Toggles the server has not confirmed yet. A write resolves BEFORE the stored
+// value is readable, so a snapshot landing in that gap would revert the checkbox
+// under her finger. An entry therefore survives until a server snapshot agrees
+// with it, with a hard backstop so a disagreeing server can't pin it forever.
+const pendingChecks = new Map(); // id → { checked, recurring, at, inFlight }
+const PENDING_MAX_MS = 30000;
 
 function today() {
   const d = new Date();
@@ -207,14 +213,53 @@ function render() {
   }
 }
 
+// Drop pending entries the server has now confirmed (or that have aged out).
+function reconcilePendingChecks(serverChecked, serverLog) {
+  const now = Date.now();
+  pendingChecks.forEach((p, id) => {
+    if (now - p.at > PENDING_MAX_MS) { pendingChecks.delete(id); return; }
+    if (p.inFlight) return;
+    const serverSays = p.recurring
+      ? (serverLog?.[id] || []).includes(today())
+      : (serverChecked || []).includes(id);
+    if (serverSays === p.checked) pendingChecks.delete(id);
+  });
+}
+
+function applyPendingChecks() {
+  pendingChecks.forEach((p, id) => {
+    if (p.recurring) {
+      const days = new Set(taskLog[id] || []);
+      if (p.checked) days.add(today()); else days.delete(today());
+      if (days.size) taskLog[id] = [...days].sort(); else delete taskLog[id];
+    } else {
+      if (p.checked) checked.add(id); else checked.delete(id);
+    }
+  });
+}
+
+// Adopt a server snapshot (from a poll or from the live stream), keeping our own
+// in-flight writes on top.
+function applyServerState({ tasks: t, checked: c, log }) {
+  reconcilePendingChecks(c, log);
+  if (Array.isArray(t)) tasks = t;
+  if (Array.isArray(c)) checked = new Set(c);
+  if (log && typeof log === 'object') taskLog = log;
+  applyPendingChecks();
+  localStorage.setItem('assistantCache', JSON.stringify({ tasks, checked: [...checked], log: taskLog }));
+  render();
+}
+
 async function load() {
   try {
     const r = await fetch('/api/assistant-tasks', { cache: 'no-store' });
     if (!r.ok) throw new Error('load failed');
     const d = await r.json();
+    reconcilePendingChecks(d.checked, d.log);
     tasks = Array.isArray(d.tasks) ? d.tasks : [];
     checked = new Set(Array.isArray(d.checked) ? d.checked : []);
     taskLog = (d.log && typeof d.log === 'object') ? d.log : {};
+    applyPendingChecks();
     document.getElementById('offline').style.display = 'none';
     localStorage.setItem('assistantCache', JSON.stringify({ tasks, checked: [...checked], log: taskLog }));
   } catch (e) {
@@ -245,6 +290,8 @@ async function toggle(text) {
   }
   render();
 
+  const pending = { checked: nowChecked, recurring: rec, at: Date.now(), inFlight: true };
+  pendingChecks.set(id, pending);
   try {
     const r = await fetch('/api/task-checks', {
       method: 'POST',
@@ -252,7 +299,11 @@ async function toggle(text) {
       body: JSON.stringify({ id, checked: nowChecked, recurring: rec, date: today() }),
     });
     if (!r.ok) throw new Error('save failed');
+    // Written, but not necessarily readable yet — hold the value until a server
+    // snapshot confirms it (see reconcilePendingChecks).
+    pending.inFlight = false;
   } catch (e) {
+    pendingChecks.delete(id);
     toast("Couldn't save that — check your connection", 'err');
     load(); // resync to the truth
   }
@@ -298,7 +349,31 @@ document.getElementById('new-text').addEventListener('keydown', (e) => {
 });
 
 load();
-// Keep in step with Dan's dashboard without a manual refresh.
+
+// ── LIVE PUSH ──
+// One unified status across both surfaces: this stream delivers a change the
+// moment it is made on Dan's dashboard (or another device), including while
+// this tab is in the background. The poll below is only a fallback for when the
+// stream can't be held open; EventSource handles its own reconnection.
+function openTaskStream() {
+  if (!('EventSource' in window)) return;
+  let es;
+  try { es = new EventSource('/api/tasks-events'); } catch (e) { return; }
+  es.addEventListener('tasks', (e) => {
+    try {
+      const d = JSON.parse(e.data);
+      applyServerState({
+        tasks: d.todos ? (d.todos.assistant || []) : undefined,
+        checked: d.task_checks?.checked,
+        log: d.task_checks?.log,
+      });
+      document.getElementById('offline').style.display = 'none';
+    } catch (err) { console.warn('bad task stream frame:', err); }
+  });
+  es.onerror = () => { /* transient; EventSource will retry */ };
+}
+openTaskStream();
+
 setInterval(() => { if (!busy && !document.hidden) load(); }, 60000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
 </script>
