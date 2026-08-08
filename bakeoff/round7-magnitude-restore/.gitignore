@@ -1,0 +1,5 @@
+# Generated images and the gallery stay out of git (public repo; and the
+# gallery embeds full-size photos). Code, prompts, metadata and key.json commit.
+out/*.jpg
+out/thumbs/
+out/gallery.html

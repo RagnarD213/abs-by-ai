@@ -1,0 +1,21 @@
+{
+  "caseId": "moderate-male__max",
+  "photoKey": "moderate-male",
+  "gender": "male",
+  "condition": "moderate",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "gemini-2.5-flash-image",
+  "set": 1,
+  "variant": "full",
+  "promptVersion": "new",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 7346,
+  "geminiSafetyRetry": false,
+  "promptChars": 5058,
+  "nominalCost": 0.039,
+  "image": "moderate-male__max__gemini-2.5-flash-image__new.jpg",
+  "ts": "2026-08-08T19:21:57.119Z"
+}
