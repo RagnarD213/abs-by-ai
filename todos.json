@@ -261,6 +261,12 @@
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08"
+    },
+    {
+      "text": "Clean exterior of all windows",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-08"
     }
   ]
 }
