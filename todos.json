@@ -243,6 +243,12 @@
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08"
+    },
+    {
+      "text": "Get 3 quotes to fix Audi. Review with Dan and have Audi fixed when vendor chosen",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-08-08"
     }
   ]
 }
