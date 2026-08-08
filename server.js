@@ -758,7 +758,7 @@ app.get('/api/monarch', async (req, res) => {
 
 // ── Todos (stored in GitHub todos.json so they survive Railway deploys) ──
 const TODOS_FILE = 'todos.json';
-const EMPTY_TODOS = { business: [], health: [], personal: [] };
+const EMPTY_TODOS = { business: [], health: [], personal: [], assistant: [] };
 
 // Normalize raw todos.json into the lists the dashboard renders. The legacy
 // `money` list is folded into `business` so there is one single Money Tasks
@@ -766,9 +766,10 @@ const EMPTY_TODOS = { business: [], health: [], personal: [] };
 function normalizeTodos(raw) {
   const t = raw || {};
   return {
-    business: [...(t.business || []), ...(t.money || [])],
-    health:   t.health   || [],
-    personal: t.personal || [],
+    business:  [...(t.business || []), ...(t.money || [])],
+    health:    t.health    || [],
+    personal:  t.personal  || [],
+    assistant: t.assistant || [],
   };
 }
 
@@ -815,6 +816,44 @@ app.post('/api/todos', async (req, res) => {
     const todos = req.body;
     await saveTodosToGitHub(todos);
     res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ── Assistant surface (absbyai.com/assistant) ──
+// A deliberately narrow API for the personal assistant's own page. It reads and
+// writes ONLY the `assistant` list, and it does a server-side read-modify-write
+// so that page can never clobber the money/health/personal lists — the general
+// POST /api/todos replaces the whole file, which would be a foot-gun here.
+// Priority is forced to "low" and new items append to the end: the assistant
+// proposes work, Dan prioritizes it.
+app.get('/assistant', (req, res) => {
+  res.sendFile(path.join(__dirname, 'assistant.html'));
+});
+
+app.get('/api/assistant-tasks', async (req, res) => {
+  const [todos, checks] = await Promise.all([loadTodos(), loadTaskChecks()]);
+  res.json({ tasks: todos.assistant || [], checked: checks.checked, log: checks.log });
+});
+
+app.post('/api/assistant-tasks', async (req, res) => {
+  if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
+  const text = typeof req.body?.text === 'string' ? req.body.text.trim() : '';
+  if (!text) return res.status(400).json({ error: 'expected { text: string }' });
+  if (text.length > 300) return res.status(400).json({ error: 'task text too long' });
+  try {
+    const todos = await loadTodos();
+    const list = todos.assistant || [];
+    if (list.some(t => t.text === text)) {
+      return res.status(409).json({ error: 'that task is already on the list' });
+    }
+    const d = new Date();
+    const addedAt = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    list.push({ text, priority: 'low', recurring: false, addedAt, addedBy: 'assistant' });
+    todos.assistant = list;
+    await saveTodosToGitHub(todos);
+    res.json({ ok: true, tasks: list });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }

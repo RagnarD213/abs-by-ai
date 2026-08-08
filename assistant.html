@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Assistant Tasks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d0d;
+  --surface: #141414;
+  --surface2: #1c1c1c;
+  --border: #2a2a2a;
+  --text: #f0f0f0;
+  --muted: #7a7a7a;
+  --green: #22c55e;
+  --red: #ef4444;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  padding: max(20px, env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom));
+}
+.wrap { max-width: 640px; margin: 0 auto; }
+
+.head { margin-bottom: 20px; }
+.title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+.summary {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 14px; margin-bottom: 16px;
+  font-size: 13px; color: var(--muted);
+}
+.summary strong { color: var(--text); font-weight: 700; }
+.bar { flex: 1; height: 6px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0%; background: var(--green); transition: width .3s; }
+
+.section-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--muted); font-weight: 700; margin: 22px 0 8px;
+}
+
+ul { list-style: none; }
+.task {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px; margin-bottom: 8px;
+  cursor: pointer; transition: border-color .15s, opacity .15s;
+}
+.task:active { border-color: var(--muted); }
+.cb {
+  flex-shrink: 0; width: 22px; height: 22px; margin-top: 1px;
+  border: 2px solid var(--muted); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: var(--bg);
+}
+.task.done { opacity: 0.45; }
+.task.done .cb { background: var(--green); border-color: var(--green); }
+.task.done .cb::after { content: '✓'; }
+.task.done .txt { text-decoration: line-through; }
+.txt { font-size: 15px; line-height: 1.4; word-break: break-word; }
+.why { display: block; color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+.mine { display: inline-block; color: var(--muted); font-size: 11px; margin-top: 5px; }
+
+.empty { color: var(--muted); font-size: 14px; padding: 18px 2px; }
+
+.add {
+  display: flex; gap: 8px; margin-top: 24px;
+  border-top: 1px solid var(--border); padding-top: 18px;
+}
+.add input {
+  flex: 1; min-width: 0;
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text); border-radius: 9px; padding: 12px 13px;
+  font-family: inherit; font-size: 15px;
+}
+.add input:focus { outline: none; border-color: var(--muted); }
+.add button {
+  flex-shrink: 0; background: var(--text); color: var(--bg);
+  border: none; border-radius: 9px; padding: 0 18px;
+  font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+}
+.add button:disabled { opacity: 0.45; cursor: default; }
+.add-note { color: var(--muted); font-size: 12px; margin-top: 8px; line-height: 1.45; }
+
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text); padding: 11px 18px; border-radius: 9px;
+  font-size: 14px; box-shadow: 0 6px 24px rgba(0,0,0,.5); z-index: 50;
+}
+.toast.err { border-color: var(--red); }
+.offline { color: var(--red); font-size: 13px; margin-bottom: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="title">Assistant Tasks</div>
+    <div class="sub">Tap a task to mark it done.</div>
+  </div>
+
+  <div id="offline" class="offline" style="display:none">
+    Couldn't reach the server — showing the last list loaded. Changes may not save.
+  </div>
+
+  <div class="summary" id="summary" style="display:none">
+    <span><strong id="count-done">0</strong> of <strong id="count-total">0</strong> done</span>
+    <span class="bar"><i id="bar-fill"></i></span>
+  </div>
+
+  <div id="open-wrap">
+    <ul id="open-list"></ul>
+  </div>
+
+  <div id="done-wrap" style="display:none">
+    <div class="section-label">Completed</div>
+    <ul id="done-list"></ul>
+  </div>
+
+  <div class="add">
+    <input type="text" id="new-text" placeholder="Add a task…" maxlength="300" autocomplete="off">
+    <button id="add-btn">Add</button>
+  </div>
+  <div class="add-note">Anything you add goes to the bottom of the list for Dan to review and prioritize.</div>
+
+</div>
+
+<script>
+// ── Assistant page ────────────────────────────────────────────────────────────
+// Reads/writes ONLY the `assistant` task list, through /api/assistant-tasks (which
+// does a server-side merge so this page can never overwrite the other lists) and
+// the shared /api/task-checks completion store. Check ids are `assistant::<text>`,
+// the same scheme the main dashboard uses, so a task ticked here shows struck
+// through on Dan's dashboard and vice-versa.
+
+let tasks = [];
+let checked = new Set();
+let taskLog = {};
+let busy = false;
+
+function today() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function checkId(text) { return `assistant::${text}`; }
+function isDone(t) {
+  const id = checkId(t.text);
+  return t.recurring ? (taskLog[id] || []).includes(today()) : checked.has(id);
+}
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function toast(msg, type) {
+  const el = document.createElement('div');
+  el.className = 'toast' + (type ? ' ' + type : '');
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 3200);
+}
+
+// Dan's priorities decide the order; the assistant never sees or sets one.
+const PRI_ORDER = { key: 0, high: 1, med: 2, low: 3 };
+
+function render() {
+  const sorted = tasks.slice().sort((a, b) =>
+    (PRI_ORDER[a.priority] ?? 3) - (PRI_ORDER[b.priority] ?? 3));
+  const open = sorted.filter(t => !isDone(t));
+  const done = sorted.filter(t => isDone(t));
+
+  const row = (t, isDoneRow) => `
+    <li class="task${isDoneRow ? ' done' : ''}" data-text="${esc(t.text)}">
+      <div class="cb"></div>
+      <div>
+        <span class="txt">${esc(t.text)}${t.recurring ? ' <span title="Every day">🔁</span>' : ''}</span>
+        ${t.why ? `<span class="why">${esc(t.why)}</span>` : ''}
+        ${t.addedBy === 'assistant' ? '<span class="mine">Added by you — waiting on Dan to prioritize</span>' : ''}
+      </div>
+    </li>`;
+
+  document.getElementById('open-list').innerHTML = open.length
+    ? open.map(t => row(t, false)).join('')
+    : `<li class="empty">${tasks.length ? 'All done. Nice work. 🎉' : 'No tasks right now.'}</li>`;
+
+  document.getElementById('done-wrap').style.display = done.length ? '' : 'none';
+  document.getElementById('done-list').innerHTML = done.map(t => row(t, true)).join('');
+
+  const summary = document.getElementById('summary');
+  if (tasks.length) {
+    summary.style.display = '';
+    document.getElementById('count-done').textContent = done.length;
+    document.getElementById('count-total').textContent = tasks.length;
+    document.getElementById('bar-fill').style.width = Math.round(done.length / tasks.length * 100) + '%';
+  } else {
+    summary.style.display = 'none';
+  }
+}
+
+async function load() {
+  try {
+    const r = await fetch('/api/assistant-tasks', { cache: 'no-store' });
+    if (!r.ok) throw new Error('load failed');
+    const d = await r.json();
+    tasks = Array.isArray(d.tasks) ? d.tasks : [];
+    checked = new Set(Array.isArray(d.checked) ? d.checked : []);
+    taskLog = (d.log && typeof d.log === 'object') ? d.log : {};
+    document.getElementById('offline').style.display = 'none';
+    localStorage.setItem('assistantCache', JSON.stringify({ tasks, checked: [...checked], log: taskLog }));
+  } catch (e) {
+    // Fall back to the last good list so the page is still usable offline.
+    document.getElementById('offline').style.display = '';
+    try {
+      const c = JSON.parse(localStorage.getItem('assistantCache') || 'null');
+      if (c) { tasks = c.tasks || []; checked = new Set(c.checked || []); taskLog = c.log || {}; }
+    } catch (_) { /* ignore */ }
+  }
+  render();
+}
+
+async function toggle(text) {
+  const t = tasks.find(x => x.text === text);
+  if (!t) return;
+  const id = checkId(text);
+  const rec = !!t.recurring;
+  const nowChecked = !isDone(t);
+
+  // Optimistic: flip locally and repaint, then persist.
+  if (rec) {
+    const days = new Set(taskLog[id] || []);
+    if (nowChecked) days.add(today()); else days.delete(today());
+    if (days.size) taskLog[id] = [...days].sort(); else delete taskLog[id];
+  } else {
+    if (nowChecked) checked.add(id); else checked.delete(id);
+  }
+  render();
+
+  try {
+    const r = await fetch('/api/task-checks', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, checked: nowChecked, recurring: rec, date: today() }),
+    });
+    if (!r.ok) throw new Error('save failed');
+  } catch (e) {
+    toast("Couldn't save that — check your connection", 'err');
+    load(); // resync to the truth
+  }
+}
+
+async function addTask() {
+  const input = document.getElementById('new-text');
+  const btn = document.getElementById('add-btn');
+  const text = input.value.trim();
+  if (!text || busy) return;
+  busy = true; btn.disabled = true;
+  try {
+    const r = await fetch('/api/assistant-tasks', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text }),
+    });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(d.error || 'add failed');
+    tasks = Array.isArray(d.tasks) ? d.tasks : tasks;
+    input.value = '';
+    render();
+    toast('Added — Dan will review it');
+  } catch (e) {
+    toast(e.message || "Couldn't add that task", 'err');
+  } finally {
+    busy = false; btn.disabled = false;
+    input.focus();
+  }
+}
+
+document.getElementById('open-list').addEventListener('click', (e) => {
+  const li = e.target.closest('.task');
+  if (li) toggle(li.dataset.text);
+});
+document.getElementById('done-list').addEventListener('click', (e) => {
+  const li = e.target.closest('.task');
+  if (li) toggle(li.dataset.text);
+});
+document.getElementById('add-btn').addEventListener('click', addTask);
+document.getElementById('new-text').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') addTask();
+});
+
+load();
+// Keep in step with Dan's dashboard without a manual refresh.
+setInterval(() => { if (!busy && !document.hidden) load(); }, 60000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
+</script>
+</body>
+</html>

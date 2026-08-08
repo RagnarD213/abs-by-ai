@@ -27,7 +27,7 @@ Do not ask permission for anything reversible. Dan explicitly prefers aggressive
 Finishing a task means checking it off at `absbyai.com/dashboard` in the same session. Dan should not have to click it himself — an unchecked task reads as unfinished work. Do this after the change is committed, pushed, deployed and verified, as the last step of the task.
 
 ```bash
-# 1. Find the task's exact text.  Stored lists are business / health / personal.
+# 1. Find the task's exact text.  Stored lists are business / health / personal / assistant.
 curl -s https://absbyai.com/api/todos | python3 -m json.tool
 # 2. Check it off.  The id is "<displayKey>::<exact text>" — see the mapping note below.
 curl -s -X POST https://absbyai.com/api/task-checks -H 'Content-Type: application/json' \
@@ -37,7 +37,9 @@ curl -s -X POST https://absbyai.com/api/task-checks -H 'Content-Type: applicatio
 Three things that are easy to get wrong here, all verified on 2026-07-29:
 
 - **Done state lives in `/api/task-checks`, not in `todos.json`.** Setting a `done` field on the todo object does nothing — no surface reads it. `POST /api/task-checks` with `{ id, checked: true }` is the only mechanism.
-- **The `business` list is displayed as `money`, and check ids use the DISPLAY key.** `dashboard.html` merges the stored `business` list into `todosState.money` (line ~1615) and writes it back as `business` (~2111), while `taskCheckId()` builds `<displayKey>::<text>`. So a money-column task is `money::…`, never `business::…`. `health` and `personal` are the same in both.
+- **The `business` list is displayed as `money`, and check ids use the DISPLAY key.** `dashboard.html` merges the stored `business` list into `todosState.money` (line ~1615) and writes it back as `business` (~2111), while `taskCheckId()` builds `<displayKey>::<text>`. So a money-column task is `money::…`, never `business::…`. `health`, `personal` and `assistant` are the same in both.
+
+- **`assistant` is delegated work — Dan's personal assistant's list, not Dan's** (added 2026-08-08). It renders as its own "Assistant Tasks" card in the Health column and is mirrored to `absbyai.com/assistant`, an unauthenticated page the assistant uses. It is deliberately excluded from the Work Session Focus band's auto-population, so **do not put agent work orders or Dan's own tasks in it**, and do not add Rule-8 handoff tasks there — those still go in `business`.
 - **The text must match exactly**, including punctuation — the id is the raw text. Fetch it, don't retype it.
 
 For a recurring task, `POST` also needs `{ recurring: true, date: "YYYY-MM-DD" }`. Then reload the dashboard and confirm the row is struck through — a 200 from the endpoint is not proof the right id was used. If no matching task exists, say so rather than inventing one.

@@ -694,6 +694,24 @@ gap: 8px;
 margin-bottom: 8px;
 }
 .card-head .card-title { margin-bottom: 0; }
+.assistant-link {
+color: var(--muted);
+font-size: 11px;
+text-decoration: none;
+border: 1px solid var(--border);
+border-radius: 6px;
+padding: 2px 7px;
+flex-shrink: 0;
+white-space: nowrap;
+}
+.assistant-link:hover { color: var(--text); border-color: var(--muted); }
+/* A task list becomes a drop target while a task from ANOTHER list is dragged. */
+.todo-list.list-drop-active {
+outline: 2px dashed var(--blue);
+outline-offset: 3px;
+border-radius: 8px;
+background: rgba(255,255,255,0.03);
+}
 .task-add-btn {
 background: none;
 border: 1px solid var(--border);
@@ -996,6 +1014,33 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 </div>
 </div>
 
+<!-- Assistant Tasks — delegated work. Mirrored to absbyai.com/assistant. -->
+<div class="card">
+<div class="card-head">
+<div class="card-title">Assistant Tasks</div>
+<a class="assistant-link" href="/assistant" target="_blank" title="Open the assistant's own page">her page ↗</a>
+</div>
+<div class="progress-wrap" id="progress-assistant" style="display:none">
+<div class="progress-track"><div class="progress-fill"></div></div>
+<div class="progress-label"></div>
+</div>
+<div id="form-assistant"></div>
+<ul class="todo-list" id="assistant-todos">
+<li class="loading pulse">Loading…</li>
+</ul>
+<div class="task-add-row">
+<input type="text" id="qa-text-assistant" placeholder="Delegate a task…" onkeydown="if(event.key==='Enter')quickAddTask('assistant')">
+<select id="qa-pri-assistant" title="Priority">
+<option value="auto">Claude's choice</option>
+<option value="key">Key</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+</select>
+<button class="task-add-go" id="qa-go-assistant" onclick="quickAddTask('assistant')" title="Add task">+</button>
+</div>
+</div>
+
 <!-- Sleep Score -->
 <div class="card">
 <div class="card-title">Oura — Last Night's Sleep</div>
@@ -1276,11 +1321,11 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').cat
 //   checkedTodos — sticky one-off completions (ids); stay until unchecked.
 //   taskLog      — recurring completion dates { id: [yyyy-mm-dd] } → drives
 //                  "done today" + streaks, with automatic daily reset.
-//   todosState   — editable task lists {money,health,personal} of {text,priority,recurring}.
+//   todosState   — editable task lists {money,health,personal,assistant} of {text,priority,recurring}.
 // localStorage mirrors all three so the UI is instant and works offline.
 let checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
 let taskLog = JSON.parse(localStorage.getItem('taskLog') || '{}');
-let todosState = { money: [], health: [], personal: [] };
+let todosState = { money: [], health: [], personal: [], assistant: [] };
 
 function cacheChecks() {
 localStorage.setItem('checkedTodos', JSON.stringify([...checkedTodos]));
@@ -1612,9 +1657,10 @@ return changed;
 // legacy `money` items fold in with `business`.
 function setTodos(data) {
 todosState = {
-money:    [...(data?.business || []), ...(data?.money || [])],
-health:   data?.health || [],
-personal: data?.personal || [],
+money:     [...(data?.business || []), ...(data?.money || [])],
+health:    data?.health || [],
+personal:  data?.personal || [],
+assistant: data?.assistant || [],
 };
 if (backfillAddedAt(todosState)) saveTodos();
 renderAllTasks();
@@ -1624,9 +1670,10 @@ function renderTodos(data) { setTodos(data); }
 
 const PRI_ORDER = { key: 0, high: 1, med: 2, low: 3 };
 const LIST_TARGETS = {
-money:    { el: 'business-todos', progress: 'progress-money' },
-health:   { el: 'health-todos',   progress: 'progress-health' },
-personal: { el: 'personal-todos', progress: 'progress-personal' },
+money:     { el: 'business-todos',  progress: 'progress-money' },
+health:    { el: 'health-todos',    progress: 'progress-health' },
+personal:  { el: 'personal-todos',  progress: 'progress-personal' },
+assistant: { el: 'assistant-todos', progress: 'progress-assistant' },
 };
 
 function renderAllTasks() {
@@ -1729,6 +1776,10 @@ const seq = [];
 planState.order.forEach(id => { if (idMap.has(id) && !seq.includes(id)) seq.push(id); });
 let openCount = seq.filter(id => !isPlanIdDone(id, idMap)).length;
 idMap.forEach((info, id) => {
+// Assistant tasks are delegated work, not Dan's own — they never auto-populate
+// the focus band, even at Key. Dragging one in by hand still works (it lands in
+// planState.order, which is honoured above).
+if (info.listKey === 'assistant') return;
 if (info.task.priority === 'key' && !planState.excluded.includes(id) && !seq.includes(id)) {
 const wouldBeOpen = !isPlanIdDone(id, idMap);
 if (wouldBeOpen && openCount >= PLAN_OPEN_CAP) return; // cap reached — stays Key in its column only
@@ -1979,14 +2030,35 @@ toggleTodo(li.dataset.checkId, li.dataset.recurring === '1', li);
 el.ondragstart = (e) => {
 const li = e.target.closest('.todo-item');
 if (!li) return;
-dragCtx = { id: li.dataset.checkId, source: 'column' };
+dragCtx = { id: li.dataset.checkId, source: 'column', listKey: li.dataset.list, idx: +li.dataset.idx };
 li.classList.add('dragging');
 if (e.dataTransfer) { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', li.dataset.checkId); }
 };
 el.ondragend = (e) => {
 const li = e.target.closest('.todo-item');
 if (li) li.classList.remove('dragging');
+document.querySelectorAll('.todo-list.list-drop-active').forEach(u => u.classList.remove('list-drop-active'));
 dragCtx = null;
+};
+
+// A list is ALSO a drop target: dropping a task dragged from a DIFFERENT list
+// moves it here. This is what lets any task be delegated into Assistant Tasks.
+// stopPropagation keeps the column-level "drag out of the focus band" handler
+// from also firing on the same drop.
+el.ondragover = (e) => {
+if (!dragCtx || dragCtx.source !== 'column' || dragCtx.listKey === listKey) return;
+e.preventDefault();
+e.stopPropagation();
+if (e.dataTransfer) e.dataTransfer.dropEffect = 'move';
+el.classList.add('list-drop-active');
+};
+el.ondragleave = (e) => { if (!el.contains(e.relatedTarget)) el.classList.remove('list-drop-active'); };
+el.ondrop = (e) => {
+el.classList.remove('list-drop-active');
+if (!dragCtx || dragCtx.source !== 'column' || dragCtx.listKey === listKey) return;
+e.preventDefault();
+e.stopPropagation();
+moveTaskBetweenLists(dragCtx.listKey, dragCtx.idx, listKey);
 };
 
 updateProgress(listKey, items, progressId);
@@ -2003,6 +2075,63 @@ wrap.style.display = 'flex';
 wrap.querySelector('.progress-fill').style.width = pct + '%';
 wrap.querySelector('.progress-label').textContent = `${done}/${items.length} done`;
 }
+
+// Move a task from one list to another (drag a task onto another list's card).
+// The check-id is list-scoped (`<list>::<text>`), so a completed task would come
+// back open in its new home unless the completion is migrated too — do that,
+// locally and on the server, and carry any focus-band placement across as well.
+async function moveTaskBetweenLists(fromKey, idx, toKey) {
+const src = todosState[fromKey];
+const task = src && src[idx];
+if (!task || fromKey === toKey) return;
+todosState[toKey] = todosState[toKey] || [];
+if (todosState[toKey].some(t => t.text === task.text)) {
+toast('That task is already in that list', 'err');
+return;
+}
+
+const oldId = taskCheckId(fromKey, task.text);
+const newId = taskCheckId(toKey, task.text);
+const rec = !!task.recurring;
+const wasDone = isDone(oldId, rec);
+
+src.splice(idx, 1);
+todosState[toKey].push(task);
+
+// Migrate completion state. For a recurring task only TODAY's completion moves —
+// /api/task-checks writes one date at a time, so the historical streak log can't
+// follow it across lists. Keeping the local copy in step with what the server can
+// actually store avoids a value that flickers back on the next sync.
+if (rec) {
+const days = new Set(taskLog[oldId] || []);
+if (days.delete(localToday())) taskLog[newId] = [localToday()];
+if (days.size) taskLog[oldId] = [...days].sort(); else delete taskLog[oldId];
+} else if (checkedTodos.has(oldId)) {
+checkedTodos.delete(oldId);
+checkedTodos.add(newId);
+}
+cacheChecks();
+
+// Keep it in the focus band / exclusion list if it was there under the old id.
+planState.order = planState.order.map(x => (x === oldId ? newId : x));
+planState.excluded = planState.excluded.map(x => (x === oldId ? newId : x));
+
+renderAllTasks();
+saveTodos();
+savePlan();
+toast(`Moved to ${LIST_LABELS[toKey] || toKey}`, 'ok');
+
+// Persist the completion migration (clear the old id, set the new one).
+if (wasDone) {
+const body = (id, checked) => JSON.stringify({ id, checked, recurring: rec, date: localToday() });
+try {
+await fetch('/api/task-checks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body(oldId, false) });
+await fetch('/api/task-checks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body(newId, true) });
+} catch (e) { console.warn('check migration sync failed (kept locally):', e); }
+}
+}
+
+const LIST_LABELS = { money: 'Money', health: 'Health', personal: 'Personal', assistant: 'Assistant' };
 
 // ── TASK CRUD ──
 function taskFormHtml(listKey, idx) {
@@ -2108,9 +2237,10 @@ async function saveTodos() {
 // Persist the editable lists. Money maps back to the `business` key so the
 // single merged Money Tasks list stays consolidated server-side.
 const payload = {
-business: todosState.money,
-health:   todosState.health,
-personal: todosState.personal,
+business:  todosState.money,
+health:    todosState.health,
+personal:  todosState.personal,
+assistant: todosState.assistant,
 };
 try {
 const r = await fetch('/api/todos', {
