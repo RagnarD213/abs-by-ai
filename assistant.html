@@ -197,8 +197,9 @@ function toast(msg, type) {
 // priority but never set one. "unassigned" sorts last — it means he hasn't
 // triaged it yet, which is why it is distinct from (and below) "low".
 const PRI_ORDER = { key: 0, high: 1, med: 2, low: 3, unassigned: 4 };
-// No "Low 💩" here — that emoji is Dan's own shorthand on his private dashboard
-// and would read as a dig at her work on hers.
+// Plain "Low" here. Dan's dashboard decorates that label with an emoji that is
+// his own shorthand for his own tasks; on her list it would read as a dig at
+// her work, so this page keeps the wording neutral.
 const PRI_LABEL = { key: 'Key', high: 'High', med: 'Medium', low: 'Low', unassigned: 'Unassigned' };
 const priClass = (p) => 'tag-' + (PRI_LABEL[p] ? p : 'low');
 const priLabel = (p) => PRI_LABEL[p] || 'Low';
