@@ -70,6 +70,23 @@ ul { list-style: none; }
 .why { display: block; color: var(--muted); font-size: 12.5px; margin-top: 4px; }
 .mine { display: inline-block; color: var(--muted); font-size: 11px; margin-top: 5px; }
 
+/* Priority badge. Same words Dan sees on his dashboard, so "the high priority
+   one" means the same thing to both of them. Tasks are sorted by this. */
+.body { flex: 1; min-width: 0; }
+.tag {
+  flex-shrink: 0; margin-top: 2px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 99px;
+  white-space: nowrap;
+}
+.tag-key  { background: rgba(34,197,94,0.15);  color: #22c55e; box-shadow: 0 0 0 1px rgba(34,197,94,0.35); }
+.tag-high { background: rgba(234,179,8,0.15);  color: #eab308; }
+.tag-med  { background: rgba(239,68,68,0.15);  color: #ef4444; }
+.tag-low  { background: rgba(183,121,63,0.18); color: #b7793f; }
+/* Below Low on purpose — it means Dan hasn't triaged it yet, NOT that he
+   ranked it unimportant. Kept visually neutral for exactly that reason. */
+.tag-unassigned { background: rgba(255,255,255,0.06); color: var(--muted); box-shadow: 0 0 0 1px rgba(255,255,255,0.09); }
+
 .empty { color: var(--muted); font-size: 14px; padding: 18px 2px; }
 
 .add {
@@ -176,8 +193,15 @@ function toast(msg, type) {
   setTimeout(() => el.remove(), 3200);
 }
 
-// Dan's priorities decide the order; the assistant never sees or sets one.
-const PRI_ORDER = { key: 0, high: 1, med: 2, low: 3 };
+// Dan's priorities decide the order and are shown on each task; she can read a
+// priority but never set one. "unassigned" sorts last — it means he hasn't
+// triaged it yet, which is why it is distinct from (and below) "low".
+const PRI_ORDER = { key: 0, high: 1, med: 2, low: 3, unassigned: 4 };
+// No "Low 💩" here — that emoji is Dan's own shorthand on his private dashboard
+// and would read as a dig at her work on hers.
+const PRI_LABEL = { key: 'Key', high: 'High', med: 'Medium', low: 'Low', unassigned: 'Unassigned' };
+const priClass = (p) => 'tag-' + (PRI_LABEL[p] ? p : 'low');
+const priLabel = (p) => PRI_LABEL[p] || 'Low';
 
 function render() {
   const sorted = tasks.slice().sort((a, b) =>
@@ -188,11 +212,13 @@ function render() {
   const row = (t, isDoneRow) => `
     <li class="task${isDoneRow ? ' done' : ''}" data-text="${esc(t.text)}">
       <div class="cb"></div>
-      <div>
+      <div class="body">
         <span class="txt">${esc(t.text)}${t.recurring ? ' <span title="Every day">🔁</span>' : ''}</span>
         ${t.why ? `<span class="why">${esc(t.why)}</span>` : ''}
-        ${t.addedBy === 'assistant' ? '<span class="mine">Added by you — waiting on Dan to prioritize</span>' : ''}
+        ${t.addedBy === 'assistant' && t.priority === 'unassigned'
+          ? '<span class="mine">Added by you — waiting on Dan to prioritize</span>' : ''}
       </div>
+      <span class="tag ${priClass(t.priority)}">${priLabel(t.priority)}</span>
     </li>`;
 
   document.getElementById('open-list').innerHTML = open.length

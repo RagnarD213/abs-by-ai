@@ -248,6 +248,9 @@ align-self: center;
 .tag-high { background: rgba(234,179,8,0.15); color: var(--yellow); }
 .tag-med { background: rgba(239,68,68,0.15); color: var(--red); }
 .tag-low { background: rgba(183,121,63,0.18); color: var(--brown); }
+/* Below Low, and deliberately neutral-looking: it means "not triaged yet",
+   not "judged unimportant". Used for tasks the assistant adds herself. */
+.tag-unassigned { background: rgba(255,255,255,0.06); color: var(--muted); box-shadow: 0 0 0 1px rgba(255,255,255,0.08); }
 .todo-item.priority-key .todo-text { font-weight: 700; }
 
 /* ── WORK SESSION FOCUS TASKS (full-width band above the 3 columns) ── */
@@ -891,6 +894,7 @@ transition: all 0.15s; }
 <option value="high">High</option>
 <option value="med">Med</option>
 <option value="low">Low</option>
+<option value="unassigned">Unassigned</option>
 </select>
 <button class="task-add-go" id="qa-go-money" onclick="quickAddTask('money')" title="Add task">+</button>
 </div>
@@ -1009,6 +1013,7 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 <option value="high">High</option>
 <option value="med">Med</option>
 <option value="low">Low</option>
+<option value="unassigned">Unassigned</option>
 </select>
 <button class="task-add-go" id="qa-go-health" onclick="quickAddTask('health')" title="Add task">+</button>
 </div>
@@ -1036,6 +1041,7 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 <option value="high">High</option>
 <option value="med">Med</option>
 <option value="low">Low</option>
+<option value="unassigned">Unassigned</option>
 </select>
 <button class="task-add-go" id="qa-go-assistant" onclick="quickAddTask('assistant')" title="Add task">+</button>
 </div>
@@ -1268,6 +1274,7 @@ Then add <code>HEALTH_WEBHOOK_SECRET</code> to your env vars.
 <option value="high">High</option>
 <option value="med">Med</option>
 <option value="low">Low</option>
+<option value="unassigned">Unassigned</option>
 </select>
 <button class="task-add-go" id="qa-go-personal" onclick="quickAddTask('personal')" title="Add task">+</button>
 </div>
@@ -1678,10 +1685,12 @@ return `${listKey}::${text}`;
 
 // Priority → tag styling, shared by the columns and Work Session Focus Tasks.
 function tagClassFor(p) {
-return p === 'key' ? 'tag-key' : p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med' : 'tag-low';
+return p === 'key' ? 'tag-key' : p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med'
+: p === 'unassigned' ? 'tag-unassigned' : 'tag-low';
 }
 function tagLabelFor(p) {
-return p === 'key' ? 'Key' : p === 'high' ? 'High' : p === 'med' ? 'Med' : 'Low 💩';
+return p === 'key' ? 'Key' : p === 'high' ? 'High' : p === 'med' ? 'Med'
+: p === 'unassigned' ? 'Unassigned' : 'Low 💩';
 }
 
 // Days between an ISO "YYYY-MM-DD" date and today (local).
@@ -1721,7 +1730,7 @@ renderAllTasks();
 // Back-compat alias for existing call sites.
 function renderTodos(data) { setTodos(data); }
 
-const PRI_ORDER = { key: 0, high: 1, med: 2, low: 3 };
+const PRI_ORDER = { key: 0, high: 1, med: 2, low: 3, unassigned: 4 };
 const LIST_TARGETS = {
 money:     { el: 'business-todos',  progress: 'progress-money' },
 health:    { el: 'health-todos',    progress: 'progress-health' },
@@ -2199,6 +2208,7 @@ return `
 <option value="high"${t.priority === 'high' ? ' selected' : ''}>High</option>
 <option value="med"${t.priority === 'med' ? ' selected' : ''}>Med</option>
 <option value="low"${t.priority === 'low' ? ' selected' : ''}>Low</option>
+<option value="unassigned"${t.priority === 'unassigned' ? ' selected' : ''}>Unassigned</option>
 </select>
 <label><input type="checkbox" id="tf-rec-${listKey}"${t.recurring ? ' checked' : ''}> Daily</label>
 <span class="spacer"></span>

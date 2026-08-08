@@ -873,7 +873,7 @@ app.post('/api/todos', async (req, res) => {
 // writes ONLY the `assistant` list, and it does a server-side read-modify-write
 // so that page can never clobber the money/health/personal lists — the general
 // POST /api/todos replaces the whole file, which would be a foot-gun here.
-// Priority is forced to "low" and new items append to the end: the assistant
+// Priority is forced to "unassigned" and new items append to the end: the assistant
 // proposes work, Dan prioritizes it.
 app.get('/assistant', (req, res) => {
   res.sendFile(path.join(__dirname, 'assistant.html'));
@@ -897,7 +897,10 @@ app.post('/api/assistant-tasks', async (req, res) => {
     }
     const d = new Date();
     const addedAt = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-    list.push({ text, priority: 'low', recurring: false, addedAt, addedBy: 'assistant' });
+    // "unassigned" sorts below "low" and is deliberately NOT a judgement: it means
+    // Dan hasn't triaged it yet, where "low" would read as him having ranked her
+    // suggestion as unimportant.
+    list.push({ text, priority: 'unassigned', recurring: false, addedAt, addedBy: 'assistant' });
     todos.assistant = list;
     await saveTodosToGitHub(todos);
     res.json({ ok: true, tasks: list });
