@@ -2,8 +2,7 @@
   "checked": [
     "health::Inject Zepbound",
     "money::Execute handoff: Retouch batch 2 pool-shoot photos (10 new picks)",
-    "assistant::SYNCTEST alpha",
-    "assistant::LAGPROBE2-2"
+    "assistant::SYNCTEST alpha"
   ],
   "log": {
     "health::Shower": [
