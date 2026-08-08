@@ -12,11 +12,6 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Write YouTube ad scripts",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Write script for HOG commercial",
       "priority": "high",
       "addedAt": "2026-08-03"
@@ -49,26 +44,6 @@
     },
     {
       "text": "Rotate or delete old MailerLite API key",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Execute handoff: SixPackABS AI-keyword content + abs calculator",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Execute handoff: Video centerpiece — YouTube launch + blog integration",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Execute handoff: Paid amplification playbook (boost proven creative only)",
       "priority": "high",
       "addedAt": "2026-08-03"
     },
@@ -156,24 +131,6 @@
       "priority": "high",
       "why": "Do not connect before Sept 2 — early third-party connection risks a bot flag. Generating the API key starts $29/mo billing.",
       "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Top up Google AI Studio (Gemini) prepay credits — production Gemini image leg is DOWN (fail-open serving FLUX/Seedream only)",
-      "priority": "key",
-      "why": "Found 2026-08-07 during ab-ladder validation; also unblocks the round-6 Gemini re-validation batch",
-      "addedAt": "2026-08-07"
-    },
-    {
-      "text": "Execute handoff: iOS IAP subscription + resubmission",
-      "priority": "key",
-      "why": "handoff-20260807-ios-iap-and-resubmission.md — created but not yet run",
-      "addedAt": "2026-08-07"
-    },
-    {
-      "text": "Execute handoff: Test replacement models for the male Gemini slot",
-      "priority": "key",
-      "why": "handoff-20260807-male-gemini-model-swap.md — created but not yet run. Male Gemini under-changes: Dan rejected BOTH candidates in 6 of 6 blind rows; prompt lever exhausted after 3 measured failures",
-      "addedAt": "2026-08-07"
     }
   ],
   "health": [
@@ -211,11 +168,6 @@
       "text": "Small meal by 9:30 PM",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-07"
-    },
-    {
-      "text": "Inject Zepbound",
-      "priority": "high",
       "addedAt": "2026-08-07"
     }
   ],
