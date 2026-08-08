@@ -1,7 +1,8 @@
 {
   "checked": [
     "health::Inject Zepbound",
-    "money::Execute handoff: Retouch batch 2 pool-shoot photos (10 new picks)"
+    "money::Execute handoff: Retouch batch 2 pool-shoot photos (10 new picks)",
+    "money::Execute handoff: Fix Instagram transformation post image (skewed panels)"
   ],
   "log": {
     "health::Shower": [
