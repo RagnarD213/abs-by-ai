@@ -219,11 +219,6 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Put away laundry.",
-      "priority": "low",
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Hire someone to powerwash",
       "priority": "low",
       "recurring": false,
