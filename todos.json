@@ -137,6 +137,12 @@
       "priority": "key",
       "why": "handoff-20260808-male-gemini-magnitude-restore.md — created but not yet run",
       "addedAt": "2026-08-08"
+    },
+    {
+      "text": "Execute handoff: Fix Instagram transformation post image (skewed panels)",
+      "priority": "key",
+      "why": "handoff-20260808-instagram-transformation-post.md — created but not yet run",
+      "addedAt": "2026-08-08"
     }
   ],
   "health": [
