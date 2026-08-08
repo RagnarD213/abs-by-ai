@@ -204,16 +204,6 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Organize kitchen cabinets",
-      "priority": "low",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Organize bathroom cabinets",
-      "priority": "low",
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Spray weeds with roundup",
       "priority": "low",
       "addedAt": "2026-08-03"
@@ -249,6 +239,16 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-08"
+    },
+    {
+      "text": "Organize kitchen cabinets",
+      "priority": "low",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Organize bathroom cabinets",
+      "priority": "low",
+      "addedAt": "2026-08-03"
     }
   ]
 }
