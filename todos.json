@@ -235,13 +235,5 @@
       "addedAt": "2026-08-07"
     }
   ],
-  "assistant": [
-    {
-      "text": "TEST — delete me (deploy check)",
-      "priority": "low",
-      "recurring": false,
-      "addedAt": "2026-08-08",
-      "addedBy": "assistant"
-    }
-  ]
+  "assistant": []
 }
