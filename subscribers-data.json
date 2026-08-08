@@ -104,6 +104,16 @@
         "2": "2026-08-07T03:34:48.048Z"
       },
       "unsubscribed": false
+    },
+    "destinyp66311@gmail.com": {
+      "subscribedAt": "2026-08-08T03:25:36.016Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-08-08T03:25:36.016Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
