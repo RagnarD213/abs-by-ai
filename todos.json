@@ -224,7 +224,7 @@
     },
     {
       "text": "Wash, dry, and fold 2 laundry loads",
-      "priority": "med",
+      "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-08"
     },
