@@ -73,7 +73,12 @@ Media/
 # Company formation and legal paperwork — repo is public, never commit.
 Business/
 
-YouTube Content/
+# Video working folders (public repo — never commit; these hold shirtless footage).
+# NOTE: match by prefix, not exact name. "YouTube Content/" alone silently stopped
+# matching when the folder was renamed to "YouTube Long Form Video Content/", leaving
+# 8.3 GB unignored (found 2026-08-08). Re-run `git check-ignore -v` after any rename.
+YouTube*Content/
+YouTube Long Form Video Content/
 Short-form video content/
 
 # Personal before-photo candidates and derived edits (public repo — never commit)
@@ -81,3 +86,6 @@ before-photo-candidates/
 
 # Dan's personal photos (public repo — never commit)
 photos/
+
+# Thumbnails/graphics built from Dan's personal photos (public repo — never commit)
+social media graphics/
