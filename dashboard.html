@@ -1509,9 +1509,17 @@ headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify({ id, checked: nowChecked, recurring: !!recurring, date: localToday() }),
 });
 if (!r.ok) throw new Error('save failed');
-// Written, but not necessarily readable yet — keep holding the value until a
-// server snapshot confirms it (see reconcilePendingChecks).
 pending.inFlight = false;
+// The response body IS the post-write state, so use it as the confirming
+// snapshot. Waiting for the next broadcast instead does NOT work: our own
+// write is broadcast BEFORE its response is sent, so that frame arrives while
+// this is still in flight and is skipped — and if nothing else changes, no
+// further snapshot ever comes and the entry would keep overriding a later
+// change made on the other surface until the 30s backstop expired.
+const d = await r.json().catch(() => null);
+if (d && Array.isArray(d.checked)) seedChecks(d.checked, d.log);
+else pendingChecks.delete(id);
+renderAllTasks();
 } catch (e) {
 console.warn('task-check sync failed (kept locally):', e);
 pendingChecks.delete(id);
