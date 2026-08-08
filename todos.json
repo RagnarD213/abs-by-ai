@@ -242,6 +242,12 @@
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-08-08"
+    },
+    {
+      "text": "Clean spiderwebs throughout house",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-08"
     }
   ]
 }
