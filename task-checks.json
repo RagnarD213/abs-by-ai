@@ -2,7 +2,6 @@
   "checked": [
     "health::Inject Zepbound",
     "money::Execute handoff: iOS IAP subscription + resubmission",
-    "money::Execute handoff: Ab-visibility anchor ladder + male Gemini magnitude",
     "money::Execute handoff: Test replacement models for the male Gemini slot"
   ],
   "log": {
