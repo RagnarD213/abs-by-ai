@@ -11,7 +11,8 @@
     "assistant::Put away dishes",
     "assistant::Robot vacuum bedroom",
     "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice",
-    "assistant::Load dishwasher"
+    "assistant::Load dishwasher",
+    "assistant::Take out trash and replace liners"
   ],
   "log": {
     "health::Shower": [
