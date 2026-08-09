@@ -273,6 +273,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-09"
+    },
+    {
+      "text": "Get Dan's iPad screen repaired at Apple Store (see Dan for training)",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-08-09"
     }
   ]
 }
