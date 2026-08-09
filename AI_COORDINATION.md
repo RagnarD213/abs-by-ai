@@ -96,7 +96,57 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Blocked` — **The male muscle-magnitude restore MEASURED, FAILED its pre-registered bar, and is REVERTED (`92c7e77`) and live-verified (2026-08-09). The next open action on the generation path is the male Gemini model-swap handoff (`Handoffs/handoff-20260807-male-gemini-model-swap.md`) — that is now the recommended next step, not yet started.** The ab-ladder before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`feb94e0`) and live-verified. The Gemini production outage is RESOLVED and verified on prod. **iOS REJECTED A SECOND TIME 2026-08-07** (see the entry below: privacy fixes SHIPPED `f07b2f5`, reply drafted, 3.1.1 now demands real In-App Purchase — decision pending with Dan; do NOT resubmit until 3.1.1 is resolved). Android still in Google review. **Android: SUBMITTED to Google 2026-08-06** — checklist 11/11, production release `1.0` sent for review, US-only, `Managed publishing` off so it self-publishes on approval (~7 days). Nothing to do but wait; do NOT re-submit. iOS 1.0 was REJECTED by Apple 2026-08-05, both fixes SHIPPED and live-verified (commit `5f45501`), and **Dan RESUBMITTED to App Review 2026-08-05 at 10:12 AM — status is back to "Waiting for Review" (verified in App Store Connect 2026-08-06). Nothing left to do on iOS but wait for Apple's verdict; do NOT prompt Dan to press Resubmit again.** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
+**Status:** `Blocked` — **The male Gemini MODEL SWAP (round 8) is IN PROGRESS: roster refreshed, harness built, ship/no-ship bar pre-registered below, batch pending. See the round-8 entry immediately below.** The male muscle-magnitude restore before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`92c7e77`) and live-verified (2026-08-09). The ab-ladder before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`feb94e0`) and live-verified. The Gemini production outage is RESOLVED and verified on prod. **iOS REJECTED A SECOND TIME 2026-08-07** (see the entry below: privacy fixes SHIPPED `f07b2f5`, reply drafted, 3.1.1 now demands real In-App Purchase — decision pending with Dan; do NOT resubmit until 3.1.1 is resolved). Android still in Google review. **Android: SUBMITTED to Google 2026-08-06** — checklist 11/11, production release `1.0` sent for review, US-only, `Managed publishing` off so it self-publishes on approval (~7 days). Nothing to do but wait; do NOT re-submit. iOS 1.0 was REJECTED by Apple 2026-08-05, both fixes SHIPPED and live-verified (commit `5f45501`), and **Dan RESUBMITTED to App Review 2026-08-05 at 10:12 AM — status is back to "Waiting for Review" (verified in App Store Connect 2026-08-06). Nothing left to do on iOS but wait for Apple's verdict; do NOT prompt Dan to press Resubmit again.** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
+
+### Male Gemini MODEL SWAP (round 8) — roster refreshed, bar PRE-REGISTERED, batch pending (2026-08-09, Claude Code)
+
+Executes `Handoffs/handoff-20260807-male-gemini-model-swap.md`. **Everything below the bar was written BEFORE a single batch image was generated, so the result cannot be rationalised after the fact.**
+
+**Step 1 finding that changes the candidate list: there ARE newer Gemini image models, and the handoff did not know about them.** Pulled live from `generativelanguage.googleapis.com/v1beta/models` (not assumed):
+
+| model | display name | status | measured latency | price/image |
+|---|---|---|---|---|
+| `gemini-2.5-flash-image` | Nano Banana | **current production anchor** | ~8–15s | $0.039 |
+| **`gemini-3.1-flash-image`** | **Nano Banana 2** | **GA — new** | **8.8s (smoke)** | $0.067 (1K) |
+| `gemini-3-pro-image` | Nano Banana Pro | **GA** (adapter pointed at the `-preview` alias) | 17–36s | $0.134 |
+| `gemini-3.1-flash-lite-image` | Nano Banana 2 Lite | GA | not tested | $0.034 |
+
+**Nano Banana 2 is the highest-prior candidate and was not on the handoff's list.** It is the direct successor to the failing model, in the same tier, from the same provider, on the same API shape — so it drops straight into the ANCHOR role and preserves all three anchor properties (full-prompt receiver, challenger-failure fallback, safety-block rescue partner) with a one-line adapter change. Both new models were smoke-tested with a real call on a real male photo before being trusted: Nano Banana 2 returned an image in 8.8s first try; **`gemini-3-pro-image` returned a transient `HTTP 503 Unable to process input image` on its first call and succeeded on all three retries** — a reliability note worth keeping, since the anchor is the leg that must not fail.
+
+**`gpt-image-1.5` is DROPPED, deliberately, and this is a judgement call worth stating.** It fails pre-registered criterion (c) **by construction**: round 1 measured its median at **57.5s** against a <25s bar, and it has no `match_input_image` aspect ratio so its framing can never match the input. Generating it would spend $1.14 and — more importantly — six rows of Dan's labelling attention on a model that cannot ship under the bar even if it wins on looks. If a future decision relaxes the latency requirement, it can be added; the harness supports it unchanged.
+
+**Final roster — 3 challengers against a FREE baseline:** `gemini-3.1-flash-image`, `gemini-3-pro-image`, `seedream-4.5` (already integrated in production as `callSeedream`, so a swap to it is routing, not new code).
+
+**Estimated spend, stated before running:** 18 images = Nano Banana 2 6×$0.067 ($0.40) + Nano Banana Pro 6×$0.134 ($0.80) + Seedream 6×$0.04 ($0.24) = **~$1.44**, plus ~$0.47 already spent on the four roster smoke-test calls ≈ **$1.91 session total.** Under the $5 single-batch and $10 session caps. **Below the handoff's own $2.18 estimate**, because dropping gpt-image-1.5 saves more than adding Nano Banana 2 costs. **No `deviceId` on any call.**
+
+**The baseline arm is FREE and is never regenerated** — the six current-production-prompt male Gemini images already exist and are already Dan-labelled in `bakeoff/round5-prompt-ab/out/`.
+
+**Design decision: the prompt is held BYTE-CONSTANT, not regenerated.** Round 8 reuses `round5-prompt-ab/prompts/*.txt` verbatim rather than re-calling `/api/generate-prompt`. `/api/generate-prompt` runs the assembly through Claude and is therefore stochastic, so regenerating would inject prompt variance into a test whose whole purpose is to isolate the model. Reusing the bytes means **every arm in every row sees literally the same characters**, and those characters are the ones that produced the control images. Asserted, not assumed: each baseline cell's recorded `promptChars` matches the reused file exactly (4911/5060/4166/4967/4027/4411).
+
+**Free pre-flight (`verify-prompts.js`, zero API calls) proves the control is still a control** — if the ab ladder or the magnitude restore were secretly still live in `public/index.html`, the round-5 images would no longer represent what production ships and the entire comparison would be invalid. All 6 male combos assert: `visibly BIGGER` absent (restore reverted), `AB-DEFINITION`/`AB_TABLE` absent (ladder reverted), `Do NOT add a tan` present (the 14b4790 fix that worked is still live), and the restrained `These numbers are deliberately small` / `If in doubt, add LESS` anchors present on exactly the mass-carrying combos. **Heavier males are asserted to LACK the anchor sentence** — `muscleAxisPlan()` strips `[[MUSCLE_*]]` for them, so asserting it everywhere would have been asserting a falsehood about the assembler. All assertions pass.
+
+**The round-6/7 caching bug is FIXED in this harness and the fix is TESTED, not just written.** `run.js` treated any existing `.json` as cached, including `{ok:false}` failure records — which is how the 2026-08-07 Gemini outage produced a re-run that reported `cached` for six failures and generated nothing. A cell now counts as cached only if the record parses, `ok` is true, **and** the image is on disk; anything else is deleted and regenerated. Verified with planted fixtures: a `{ok:false}` cell and an `{ok:true}`-with-missing-image cell were both re-planned and cleaned up, while a genuinely complete pair was correctly skipped.
+
+**Gallery shape: 6 rows × 4 blinded candidates (baseline + 3 challengers), not 18 paired rows.** This is the round-1 N-way shape, which is the shape the bar's wording ("produces a pick in more than 1 of 6 rows") already assumes, and it is one third of the labelling work. It also **closes a blinding leak the paired shape would have opened**: with 18 A/B rows the baseline image would appear three times, and a repeated image tells the labeller which candidate is the control.
+
+---
+
+## PRE-REGISTERED SHIP/NO-SHIP BAR — round 8 (written 2026-08-09 before any batch image existed)
+
+A candidate replaces Gemini 2.5 Flash Image on the male path **only if it clears all four**:
+
+- **(a) Looks — Dan's blind labels.** It must produce a **best pick in MORE THAN 1 of the 6 rows**. Baselines to beat: Gemini scored **1 of 6** in round 5 and **0 of 6** in round 6. A candidate tying that is not an improvement.
+- **(b) Moderation coverage.** **No increase in blocks or safety-retries versus the Gemini baseline's male rate.** A model that looks better but refuses heavier males is a coverage regression — `nano-banana-pro` already showed 2 `IMAGE_SAFETY` refusals in round 1 on photos plain Gemini passed. Measured automatically per arm by `run.js`.
+- **(c) Production fit.** **Median latency under ~25s.** A model that wins on looks and takes 57s does not ship.
+- **(d) Anchor-role compatibility.** It must be able to hold all three of Gemini's anchor roles: receive the FULL prompt, act as the fallback when the challenger fails, and rescue a safety-blocked challenger. **Seedream cannot fully satisfy this** — its hard 4000-char API ceiling means it can never take the full anchor prompt (male full prompts run 4,027–6,472 chars). If Seedream wins on (a)–(c), that is a real result but shipping it requires a **conscious re-architecture** of the anchor/challenger split, stated explicitly, not a silent one-line swap.
+
+**Also pre-registered, so it cannot be reinterpreted later:**
+- **This must be a SWAP, never a third production candidate.** The judge is validated 2-way only (held-out pairwise 80.5%, **N-way top-1 42.9%** — near chance). Non-negotiable.
+- **If NO candidate clears the bar, ship nothing and say so.** A measured "ship nothing" is a completed outcome, per the round-5/6/7 precedent in this file — it is not a licence to go back and try a fifth prompt edit. **The prompt lever on male Gemini is exhausted: four independent measured failures, every one verified to reach the model on the wire.**
+- **Women stay on Gemini + Seedream regardless of this result.** Female Gemini is healthy (5 of 6 rows produced a pick in round 5). Scope is `sex === 'male'` only.
+- **Dan's labels are the ground truth.** No model, including the judge, overrules his picks.
+
+---
 
 ### Male muscle-magnitude restore — MEASURED, FAILED ITS PRE-REGISTERED BAR, REVERTED and live-verified (2026-08-09, Claude Code)
 

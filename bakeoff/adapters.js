@@ -132,6 +132,20 @@ const MODELS = {
     label: 'Nano Banana Pro (gemini-3-pro-image-preview)', provider: 'google', nominalCost: 0.134, promptVariant: 'full',
     run: (job) => geminiAdapter('gemini-3-pro-image-preview', job),
   },
+  // Added 2026-08-09 (round 8). Both are GA on generativelanguage.googleapis.com
+  // and were confirmed live in the model list + a real smoke-test call, not
+  // assumed. `gemini-3-pro-image` is the GA endpoint for the same Nano Banana Pro
+  // model the `-preview` alias above points at — prefer the GA one for anything
+  // that could ship. Prices are per-image from ai.google.dev/gemini-api/docs/pricing
+  // at the DEFAULT (1K) output resolution these calls request.
+  'gemini-3.1-flash-image': {
+    label: 'Nano Banana 2 (gemini-3.1-flash-image)', provider: 'google', nominalCost: 0.067, promptVariant: 'full',
+    run: (job) => geminiAdapter('gemini-3.1-flash-image', job),
+  },
+  'gemini-3-pro-image': {
+    label: 'Nano Banana Pro (gemini-3-pro-image, GA)', provider: 'google', nominalCost: 0.134, promptVariant: 'full',
+    run: (job) => geminiAdapter('gemini-3-pro-image', job),
+  },
   'gpt-image-1.5': {
     label: 'GPT Image 1.5 (high fidelity)', provider: 'replicate', nominalCost: 0.19, promptVariant: 'condensed',
     run: (job) => replicateRun('openai/gpt-image-1.5', {
