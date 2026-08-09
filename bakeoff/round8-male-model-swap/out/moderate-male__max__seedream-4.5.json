@@ -1,0 +1,22 @@
+{
+  "caseId": "moderate-male__max",
+  "photoKey": "moderate-male",
+  "gender": "male",
+  "condition": "moderate",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "seedream-4.5",
+  "modelLabel": "Seedream 4.5 (already integrated as callSeedream)",
+  "variant": "condensed",
+  "arm": "challenger",
+  "ok": true,
+  "blocked": false,
+  "firstAttemptBlocked": false,
+  "error": null,
+  "latencyMs": 19441,
+  "safetyRetry": false,
+  "promptChars": 1144,
+  "nominalCost": 0.04,
+  "image": "moderate-male__max__seedream-4.5.jpg",
+  "ts": "2026-08-09T20:46:01.358Z"
+}

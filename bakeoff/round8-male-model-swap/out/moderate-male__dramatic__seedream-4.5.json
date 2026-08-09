@@ -1,0 +1,22 @@
+{
+  "caseId": "moderate-male__dramatic",
+  "photoKey": "moderate-male",
+  "gender": "male",
+  "condition": "moderate",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "modelKey": "seedream-4.5",
+  "modelLabel": "Seedream 4.5 (already integrated as callSeedream)",
+  "variant": "condensed",
+  "arm": "challenger",
+  "ok": true,
+  "blocked": false,
+  "firstAttemptBlocked": false,
+  "error": null,
+  "latencyMs": 13520,
+  "safetyRetry": false,
+  "promptChars": 1068,
+  "nominalCost": 0.04,
+  "image": "moderate-male__dramatic__seedream-4.5.jpg",
+  "ts": "2026-08-09T20:45:38.888Z"
+}

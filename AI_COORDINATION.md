@@ -148,6 +148,33 @@ A candidate replaces Gemini 2.5 Flash Image on the male path **only if it clears
 
 ---
 
+### Round-8 batch RESULT — 18/18 generated, bars (b) and (c) ALREADY CLEARED by all three candidates (2026-08-09)
+
+**Gallery for Dan to label: https://claude.ai/code/artifact/efe69956-1ccd-419c-8a5c-8fde8982ee30**
+
+**18/18 cells ok. Zero moderation blocks, zero safety retries, on every arm.** Nominal spend **$1.44**, session total ~$1.91 including the roster smoke tests — under the $5 batch and $10 session caps and under the handoff's own $2.18 estimate.
+
+| candidate | ok | blocks | safety retries | median latency | bar (b) coverage | bar (c) <25s | bar (d) anchor role |
+|---|---|---|---|---|---|---|---|
+| `gemini-3.1-flash-image` (Nano Banana 2) | 6/6 | **0** | **0** | **9.3s** | ✅ | ✅ | ✅ full prompt, drop-in |
+| `gemini-3-pro-image` (Nano Banana Pro) | 6/6 | **0** | **0** | 16.3s | ✅ | ✅ | ✅ full prompt, but see 503 note |
+| `seedream-4.5` | 6/6 | **0** | **0** | 14.4s | ✅ | ✅ | ⚠️ **cannot take the full prompt** (4000-char ceiling) |
+
+**Three things this settles independently of Dan's labels:**
+1. **The round-1 fear about `nano-banana-pro` being stricter than Gemini did NOT reproduce.** It refused 2 heavier males in round 1; here it passed all 6 including both heavier cases, first try, no safety preamble needed. Coverage is not a reason to reject it.
+2. **Latency is a non-issue for all three.** Every candidate is inside the 25s bar. Nano Banana 2 is essentially at parity with the current anchor (9.3s vs ~8–15s) despite being a newer, better model.
+3. **Dropping `gpt-image-1.5` cost nothing** — it was the only candidate that would have failed (c).
+
+**Reliability note that matters because this is the ANCHOR slot:** `gemini-3-pro-image` returned a transient `HTTP 503 Unable to process input image` on the very first smoke call and then succeeded on three consecutive retries and all 6 batch cells. Nano Banana 2 has shown zero failures across 7 calls. The anchor is the leg whose failure degrades every generation, so an intermittent 503 is a real (if small) mark against the Pro model that a looks-only comparison would miss.
+
+**Gallery build — invariants asserted, not hoped for:** 6 rows × 4 candidates = 24 blinded cells; **every model appears in every slot position 1–2 times** across the 6 rows (printed matrix: 1/2/2/1, 2/1/1/2, 1/2/2/1, 2/1/1/2), so no model is systematically first or last; letters pinned via `out/key.json`; **blinding check passes with zero key entries, zero model slugs and zero model names** (`Gemini`/`Seedream`/`Nano Banana`/`baseline`/`challenger`) anywhere in the built HTML. Exercised in a real browser at two widths: 6 rows / 24 candidates, all 30 real images decode (the 31st is the empty `.zoom` placeholder with no `src` until a tap — same as rounds 5–7), mutual exclusion within a row works, picks + Acceptable + tags + notes **survive a real reload**, storage keys match `key.json` exactly (24 entries, 6 per model), progress counter correct, no horizontal overflow, **zero console errors**. Test answers were cleared before publishing and verified clean on reload; the published file contains no answer state (answers are per-browser localStorage).
+
+**Claude's pre-label observation, recorded before Dan looks and deliberately naming no letters so it cannot bias him:** in at least one heavier-male row, one of the four candidates is visually near-identical to the BEFORE photo while the other three show clear abdominal definition. That is the exact under-change signature the last four experiments failed to move. **If that near-identical candidate decodes to `gemini-2.5-flash-image`, it is direct visual confirmation that the ceiling is the MODEL and not the prompt** — which is the whole premise of this round. It is n=1 per cell and the models are stochastic, so this is a hypothesis for Dan's labels to confirm or kill, not a result.
+
+**EXACT NEXT ACTION — DAN:** open the gallery above, and in each of the 6 rows pick the **best** image (or none, with a note — "none of these" is a real answer), mark any others Acceptable, tag `not enough change` / `not enough ab definition`, hit **Copy labels** and paste the text back. Then Claude decodes against `bakeoff/round8-male-model-swap/out/key.json`, applies the four-part bar above, and either ships a swap (Step 6: leg selection only, `sex === 'male'` only, stubbed-provider HTTP tests against the real `server.js` before any prod call) or records "ship nothing". The dashboard task `money::Execute handoff: Test replacement models for the male Gemini slot` is **NOT** checked off until that decode lands (Rule 9 — an unlabelled gallery is not a completed outcome).
+
+---
+
 ### Male muscle-magnitude restore — MEASURED, FAILED ITS PRE-REGISTERED BAR, REVERTED and live-verified (2026-08-09, Claude Code)
 
 **VERDICT: the restore is a NO-OP on the Gemini male leg, same as the ab-ladder before it — reverted (`92c7e77`, reverting `9ee1320`). Do not re-litigate; re-read this section first.**
