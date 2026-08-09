@@ -321,6 +321,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-09"
+    },
+    {
+      "text": "Clean shower",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-08-09"
     }
   ]
 }
