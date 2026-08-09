@@ -288,10 +288,9 @@
     },
     {
       "text": "Make Coffee",
-      "priority": "unassigned",
+      "priority": "key",
       "recurring": false,
-      "addedAt": "2026-08-09",
-      "addedBy": "assistant"
+      "addedAt": "2026-08-09"
     }
   ]
 }
