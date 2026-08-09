@@ -1,7 +1,8 @@
 {
   "checked": [
     "health::Inject Zepbound",
-    "assistant::Empty and clean Yeti cooler"
+    "assistant::Empty and clean Yeti cooler",
+    "assistant::Make Coffee"
   ],
   "log": {
     "health::Shower": [
