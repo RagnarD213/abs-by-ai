@@ -2709,7 +2709,37 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       });
     }
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key=${encodeURIComponent(GEMINI_API_KEY)}`;
+    // ── ANCHOR MODEL ──────────────────────────────────────────────────────────
+    // MEN run Nano Banana Pro (gemini-3-pro-image); WOMEN keep Gemini 2.5 Flash
+    // Image. Same Google API, same request shape, same safety settings — only the
+    // model id differs, so every anchor role is preserved unchanged: it still
+    // receives the FULL prompt, still gets the safety-retry preamble, still acts
+    // as the fallback when the challenger fails, and is still rescued BY the
+    // challenger when it is blocked.
+    //
+    // Why: four independent measured attempts to fix male under-change through
+    // prompt text all failed, each verified to reach the model on the wire. Round 8
+    // held the prompt BYTE-CONSTANT and varied only the model. On Dan's blind
+    // labels across 6 male rows (3 body types x 2 tiers):
+    //     Gemini 2.5 Flash Image  0 best · 0 acceptable · 6 REJECTED
+    //                             tagged "not enough change" 6/6
+    //     Nano Banana Pro         5 best · 1 acceptable · 0 rejected
+    //                             tagged "just right" x2, never rejected once
+    // It also cleared the pre-registered coverage bar (0 blocks, 0 safety retries
+    // on 6/6 including both heavier males, where round 1 had feared it was
+    // STRICTER than Gemini) and the latency bar (16.3s median, under ~25s).
+    //
+    // WOMEN ARE DELIBERATELY UNCHANGED. Female Gemini is healthy (5 of 6 rows
+    // produced a pick in round 5) and round 8 tested men only. Do not widen this
+    // to women without their own labelled batch.
+    //
+    // Cost note, stated because it is real: Nano Banana Pro is $0.134/image vs
+    // $0.039, so a male generation's anchor leg costs ~3.4x more. Cost was
+    // deliberately NOT part of the pre-registered bar. Reversible in one line.
+    const ANCHOR_MODEL_ID = sex === 'male' ? 'gemini-3-pro-image' : 'gemini-2.5-flash-image';
+    const ANCHOR_LABEL = sex === 'male' ? 'nanobananapro' : 'gemini';
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${ANCHOR_MODEL_ID}:generateContent?key=${encodeURIComponent(GEMINI_API_KEY)}`;
 
     const callGemini = async (promptText) => {
       const response = await fetch(url, {
@@ -3018,7 +3048,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       const retryPreamble = `SAFE FITNESS EDIT: This is a routine body-composition edit for a fitness progress app. The subject is a consenting adult. Keep the exact same clothing and coverage as the input photo. Nothing about this edit is sexual.\n\n`;
       result = await callGemini(retryPreamble + prompt);
     }
-    if (result.ok) result = { ...result, model: 'gemini' };
+    if (result.ok) result = { ...result, model: ANCHOR_LABEL };
     const challengerResult = await challengerPromise;
 
     // Gemini blocked but Kontext delivered → ship the Kontext image instead of
@@ -3056,7 +3086,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     let judgeWinnerModel = null;  // 'gemini' | 'flux' | 'seedream' when the judge produced a best pick
     let chooserCandidates = null; // [{model,imageBase64,imageMime}, ...] when the user should choose
     if (result.ok && challengerResult.ok && !geminiBlocked) {
-      const candA = result;      // gemini
+      const candA = result;      // the ANCHOR: Nano Banana Pro (men) or Gemini 2.5 Flash (women)
       const candB = challengerResult;  // flux (men) or seedream (women)
       const byModel = { [candA.model]: candA, [candB.model]: candB };
       judgeVerdict = await judgeScoreCandidates({
@@ -3215,7 +3245,7 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
     // and returned to the client so it can forward a PostHog event under the real
     // distinctId (retry-rung counts are only known here on the server). Fail-open.
     const chooserShown = !!(chooserCandidates && !locked);
-    const servedModel = chooserShown ? null : (winnerCandidate ? winnerCandidate.model : (result.model || 'gemini'));
+    const servedModel = chooserShown ? null : (winnerCandidate ? winnerCandidate.model : (result.model || ANCHOR_LABEL));
     // Rubric scores for the image the user actually gets, so real-traffic
     // behaviour can be compared against bakeoff/round1/labels.json later.
     const servedScores = (judgeVerdict && servedModel) ? (judgeVerdict.byModel[servedModel] || null) : null;
@@ -3230,7 +3260,11 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       weakChange,
       locked,
       // Phase 3 ensemble/bake-off fields (the standing per-segment model comparison)
-      models_run: challengerResult.ok ? `gemini+${challengerResult.model || (useSeedream ? 'seedream' : 'flux')}` : 'gemini',
+      // Values are now `nanobananapro+flux` for men and `gemini+seedream` for
+      // women — the male pairing changed on 2026-08-09. Any PostHog view filtering
+      // on the literal string `gemini+flux` will go empty and needs updating.
+      models_run: challengerResult.ok ? `${ANCHOR_LABEL}+${challengerResult.model || (useSeedream ? 'seedream' : 'flux')}` : ANCHOR_LABEL,
+      anchor_model: ANCHOR_MODEL_ID,
       gemini_blocked: geminiBlocked,
       judge_ran: !!judgeVerdict,
       judge_identity_a: judgeVerdict?.byModel?.gemini?.identity ?? null,
