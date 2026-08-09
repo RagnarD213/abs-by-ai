@@ -48,12 +48,6 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Execute handoff: Retouch batch 2 pool-shoot photos (10 new picks)",
-      "priority": "high",
-      "why": "handoff-20260804-pool-shoot-next10-retouch.md — created but not yet run",
-      "addedAt": "2026-08-04"
-    },
-    {
       "text": "Create YouTube channel banner and avatar.",
       "priority": "high",
       "addedAt": "2026-08-04"
@@ -139,12 +133,6 @@
       "addedAt": "2026-08-08"
     },
     {
-      "text": "Execute handoff: Fix Instagram transformation post image (skewed panels)",
-      "priority": "key",
-      "why": "handoff-20260808-instagram-transformation-post.md — created but not yet run",
-      "addedAt": "2026-08-08"
-    },
-    {
       "text": "Request Unemployment Payment",
       "priority": "high",
       "why": "Biweekly unemployment claim window",
@@ -155,38 +143,32 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-07"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-07"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-07"
+      "recurring": true
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-07"
+      "recurring": true
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-07"
+      "recurring": true
     },
     {
       "text": "Small meal by 9:30 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-07"
+      "recurring": true
     }
   ],
   "personal": [
