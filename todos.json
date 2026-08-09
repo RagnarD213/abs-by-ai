@@ -133,12 +133,6 @@
       "addedAt": "2026-08-08"
     },
     {
-      "text": "Request Unemployment Payment",
-      "priority": "high",
-      "why": "Biweekly unemployment claim window",
-      "addedAt": "2026-08-09"
-    },
-    {
       "text": "Train Brittany for Assistant Tasks",
       "priority": "key",
       "recurring": false,
