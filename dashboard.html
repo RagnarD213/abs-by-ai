@@ -708,6 +708,32 @@ flex-shrink: 0;
 white-space: nowrap;
 }
 .assistant-link:hover { color: var(--text); border-color: var(--muted); }
+.assistant-timer {
+color: var(--muted);
+font-size: 11px;
+border: 1px solid var(--border);
+border-radius: 6px;
+padding: 2px 7px;
+flex-shrink: 0;
+white-space: nowrap;
+display: none;
+align-items: center;
+gap: 5px;
+}
+.assistant-timer.on {
+display: inline-flex;
+color: var(--health);
+border-color: var(--health);
+}
+.assistant-timer .dot {
+width: 6px; height: 6px; border-radius: 50%;
+background: var(--muted); flex-shrink: 0;
+}
+.assistant-timer.on .dot {
+background: var(--health);
+animation: assistant-timer-pulse 1.5s infinite;
+}
+@keyframes assistant-timer-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
 /* A task list becomes a drop target while a task from ANOTHER list is dragged. */
 .todo-list.list-drop-active {
 outline: 2px dashed var(--blue);
@@ -1023,6 +1049,7 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 <div class="card">
 <div class="card-head">
 <div class="card-title">Assistant Tasks</div>
+<span class="assistant-timer" id="assistant-timer" title="Current work session"><span class="dot"></span><span id="assistant-timer-text"></span></span>
 <a class="assistant-link" href="/assistant" target="_blank" title="Open the assistant's own page">her page ↗</a>
 </div>
 <div class="progress-wrap" id="progress-assistant" style="display:none">
@@ -2742,10 +2769,35 @@ const d = await res.json();
 seedChecks(d.task_checks?.checked, d.task_checks?.log);
 seedPlan(d.plan);
 setTodos(d.todos);
+if (d.timesheet) applyAssistantTimer(d.timesheet.active);
 } catch (e) { /* transient; ignore */ }
 }
 setInterval(() => { if (document.visibilityState === 'visible') syncTasks(); }, 60000);
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncTasks(); });
+
+// ── Assistant's live work-session clock ──
+// Hours + minutes only, deliberately no seconds — this reads at a glance
+// without becoming a distraction. Server-timestamped, so this stays correct
+// even if the dashboard tab was closed while she was clocked in.
+let assistantTimerActive = null; // { startedAt: ISOString } | null
+let assistantTimerTick = null;
+
+function renderAssistantTimer() {
+const el = document.getElementById('assistant-timer');
+const text = document.getElementById('assistant-timer-text');
+if (!el || !text) return;
+if (!assistantTimerActive) { el.classList.remove('on'); return; }
+const elapsedMin = Math.floor((Date.now() - new Date(assistantTimerActive.startedAt).getTime()) / 60000);
+const h = Math.floor(elapsedMin / 60), m = elapsedMin % 60;
+text.textContent = h ? `${h}h ${m}m` : `${m}m`;
+el.classList.add('on');
+}
+function applyAssistantTimer(active) {
+assistantTimerActive = active || null;
+if (assistantTimerTick) { clearInterval(assistantTimerTick); assistantTimerTick = null; }
+if (assistantTimerActive) assistantTimerTick = setInterval(renderAssistantTimer, 20000);
+renderAssistantTimer();
+}
 
 // ── LIVE PUSH ──
 // The poll above only runs while this tab is in front, so a check made on
@@ -2759,6 +2811,7 @@ if (!d) return;
 if (d.task_checks) seedChecks(d.task_checks.checked, d.task_checks.log);
 if (d.todos) setTodos(d.todos); // setTodos calls renderAllTasks()
 else renderAllTasks();
+if (d.timesheet) applyAssistantTimer(d.timesheet.active);
 }
 function openTaskStream() {
 if (!('EventSource' in window)) return;

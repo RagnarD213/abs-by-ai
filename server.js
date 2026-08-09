@@ -909,6 +909,115 @@ app.post('/api/assistant-tasks', async (req, res) => {
   }
 });
 
+// ── Time tracker (the assistant's work-session clock) ──
+// One active session at a time, server-timestamped so the elapsed time is
+// correct even if her browser closes, refreshes, or she opens it on another
+// device — the client never owns the clock, it only displays `now - startedAt`.
+// Data shape: { active: { startedAt: ISOString } | null, entries: [{ start, end, seconds }] }
+const TIMESHEET_FILE = 'timesheet.json';
+const EMPTY_TIMESHEET = { active: null, entries: [] };
+let timesheetCache = null; // { data, sha, fetchedAt, trustUntil }
+
+function snapshotTimesheet() {
+  return { ...timesheetCache.data, sha: timesheetCache.sha };
+}
+
+async function loadTimesheet(opts) {
+  const empty = { ...EMPTY_TIMESHEET, sha: null };
+  if (!GITHUB_TOKEN) return empty;
+  if (!opts?.fresh && cacheUsable(timesheetCache)) return snapshotTimesheet();
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TIMESHEET_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return timesheetCache ? snapshotTimesheet() : empty;
+    const meta = await res.json();
+    const parsed = JSON.parse(Buffer.from(meta.content, 'base64').toString('utf8'));
+    const data = {
+      active: (parsed.active && typeof parsed.active.startedAt === 'string') ? { startedAt: parsed.active.startedAt } : null,
+      entries: Array.isArray(parsed.entries) ? parsed.entries : [],
+    };
+    // Never let a stale CDN read undo a write we just made ourselves.
+    if (timesheetCache && Date.now() < timesheetCache.trustUntil) return snapshotTimesheet();
+    timesheetCache = { data, sha: meta.sha, fetchedAt: Date.now(), trustUntil: 0 };
+    return { ...data, sha: meta.sha };
+  } catch (e) {
+    console.error('loadTimesheet error:', e.message);
+    return timesheetCache ? snapshotTimesheet() : empty;
+  }
+}
+
+async function saveTimesheetToGitHub(data, sha) {
+  const content = Buffer.from(JSON.stringify(data, null, 2)).toString('base64');
+  const body = { message: 'Update timesheet', content };
+  if (sha) body.sha = sha;
+  const putRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TIMESHEET_FILE}`, {
+    method: 'PUT',
+    headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (putRes.ok) {
+    let newSha = null;
+    try { newSha = (await putRes.json())?.content?.sha || null; } catch (_) { /* body already consumed */ }
+    timesheetCache = { data, sha: newSha, fetchedAt: Date.now(), trustUntil: Date.now() + CACHE_TRUST_MS };
+    // Only `active` needs to be live-pushed — entries are read on the next poll/load.
+    broadcastTaskState({ timesheet: { active: data.active } });
+  }
+  return putRes;
+}
+
+app.get('/api/timesheet', async (req, res) => {
+  const { active, entries } = await loadTimesheet();
+  res.json({ active, entries });
+});
+
+app.post('/api/timesheet/start', async (req, res) => {
+  if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
+  try {
+    for (let attempt = 0; attempt < 4; attempt++) {
+      // A retry means our sha lost a race, so go back to GitHub for a live one.
+      // Likewise if the cached entry has no sha (the PUT response didn't parse) —
+      // writing without one is a guaranteed 422 against an existing file.
+      const needFresh = attempt > 0 || (timesheetCache && !timesheetCache.sha);
+      const cur = await loadTimesheet(needFresh ? { fresh: true } : undefined);
+      if (cur.active) return res.json({ ok: true, active: cur.active, alreadyActive: true });
+      const next = { active: { startedAt: new Date().toISOString() }, entries: cur.entries };
+      const putRes = await saveTimesheetToGitHub(next, cur.sha);
+      if (putRes.ok) return res.json({ ok: true, active: next.active });
+      if (putRes.status === 409 || putRes.status === 422) continue; // sha race — reload & retry
+      const txt = await putRes.text().catch(() => '');
+      return res.status(502).json({ error: `github ${putRes.status}: ${txt}` });
+    }
+    return res.status(503).json({ error: 'write conflict, please retry' });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.post('/api/timesheet/stop', async (req, res) => {
+  if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
+  try {
+    for (let attempt = 0; attempt < 4; attempt++) {
+      const needFresh = attempt > 0 || (timesheetCache && !timesheetCache.sha);
+      const cur = await loadTimesheet(needFresh ? { fresh: true } : undefined);
+      if (!cur.active) return res.status(400).json({ error: 'no active session' });
+      const start = cur.active.startedAt;
+      const end = new Date().toISOString();
+      const seconds = Math.max(0, Math.round((new Date(end) - new Date(start)) / 1000));
+      const entry = { start, end, seconds };
+      const next = { active: null, entries: [...cur.entries, entry] };
+      const putRes = await saveTimesheetToGitHub(next, cur.sha);
+      if (putRes.ok) return res.json({ ok: true, entry, entries: next.entries });
+      if (putRes.status === 409 || putRes.status === 422) continue; // sha race — reload & retry
+      const txt = await putRes.text().catch(() => '');
+      return res.status(502).json({ error: `github ${putRes.status}: ${txt}` });
+    }
+    return res.status(503).json({ error: 'write conflict, please retry' });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // ── Gmail digest (written directly to GitHub by the morning-brief scheduled
 // job, which has session-level Gmail MCP access the server itself does not
 // have — this just reads whatever that job last committed) ──
@@ -1110,8 +1219,8 @@ app.get('/api/task-checks', async (req, res) => {
 // Lightweight combined endpoint for cross-device auto-sync (tasks + their state),
 // without the heavy external fetches in /api/morning-data.
 app.get('/api/tasks-state', async (req, res) => {
-  const [todos, checks, plan] = await Promise.all([loadTodos(), loadTaskChecks(), loadPlan()]);
-  res.json({ todos, task_checks: { checked: checks.checked, log: checks.log }, plan });
+  const [todos, checks, plan, timesheet] = await Promise.all([loadTodos(), loadTaskChecks(), loadPlan(), loadTimesheet()]);
+  res.json({ todos, task_checks: { checked: checks.checked, log: checks.log }, plan, timesheet: { active: timesheet.active, entries: timesheet.entries } });
 });
 
 // Live task-state stream. Every open dashboard and /assistant page holds one of
@@ -1131,8 +1240,8 @@ app.get('/api/tasks-events', async (req, res) => {
   // Send the current state straight away so a page that just connected (or
   // reconnected after a dropped connection) is correct without waiting.
   try {
-    const [todos, checks] = await Promise.all([loadTodos(), loadTaskChecks()]);
-    res.write(`event: tasks\ndata: ${JSON.stringify({ todos, task_checks: { checked: checks.checked, log: checks.log } })}\n\n`);
+    const [todos, checks, timesheet] = await Promise.all([loadTodos(), loadTaskChecks(), loadTimesheet()]);
+    res.write(`event: tasks\ndata: ${JSON.stringify({ todos, task_checks: { checked: checks.checked, log: checks.log }, timesheet: { active: timesheet.active } })}\n\n`);
   } catch (e) { /* the client will fall back to polling */ }
 
   // Proxies drop idle connections; a comment frame keeps this one alive.

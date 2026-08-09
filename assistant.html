@@ -108,6 +108,32 @@ ul { list-style: none; }
 .add button:disabled { opacity: 0.45; cursor: default; }
 .add-note { color: var(--muted); font-size: 12px; margin-top: 8px; line-height: 1.45; }
 
+.timer-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px; margin-bottom: 18px;
+  text-align: center;
+}
+.timer-display {
+  font-size: 42px; font-weight: 800; font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em; margin-bottom: 6px; color: var(--text);
+}
+.timer-display.active { color: var(--green); }
+.timer-status {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  color: var(--muted); font-size: 12.5px; margin-bottom: 16px;
+}
+.timer-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+.timer-status.active .timer-dot { background: var(--green); animation: timer-pulse 1.5s infinite; }
+@keyframes timer-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+.timer-btn {
+  width: 100%; border: none; border-radius: 10px; padding: 15px;
+  font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer;
+  background: var(--green); color: #062011;
+}
+.timer-btn.stop { background: var(--red); color: #200606; }
+.timer-btn:disabled { opacity: 0.5; cursor: default; }
+.timer-today { color: var(--muted); font-size: 12px; margin-top: 14px; }
+
 .toast {
   position: fixed; left: 50%; transform: translateX(-50%);
   bottom: calc(20px + env(safe-area-inset-bottom));
@@ -129,6 +155,13 @@ ul { list-style: none; }
 
   <div id="offline" class="offline" style="display:none">
     Couldn't reach the server — showing the last list loaded. Changes may not save.
+  </div>
+
+  <div class="timer-card">
+    <div class="timer-display" id="timer-display">00:00:00</div>
+    <div class="timer-status" id="timer-status"><span class="timer-dot"></span><span id="timer-status-text">Not clocked in</span></div>
+    <button class="timer-btn" id="timer-btn">▶ Start working</button>
+    <div class="timer-today" id="timer-today" style="display:none"></div>
   </div>
 
   <div class="summary" id="summary" style="display:none">
@@ -345,6 +378,121 @@ async function toggle(text) {
   }
 }
 
+// ── Time tracker ──
+// The server timestamps start/stop, so the elapsed time shown here is always
+// `now - startedAt` against the SERVER's clock — closing the tab, refreshing,
+// or opening this page on another device never loses or resets it.
+let tsActive = null;   // { startedAt: ISOString } | null
+let tsEntries = [];    // [{ start, end, seconds }]
+let tsTick = null;
+let tsBusy = false;
+
+function fmtHMS(sec) {
+  sec = Math.max(0, Math.floor(sec));
+  const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+  return [h, m, s].map(n => String(n).padStart(2, '0')).join(':');
+}
+function fmtHM(sec) {
+  sec = Math.max(0, Math.floor(sec));
+  const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
+  return h ? `${h}h ${m}m` : `${m}m`;
+}
+
+function renderTimer() {
+  const display = document.getElementById('timer-display');
+  const status = document.getElementById('timer-status');
+  const statusText = document.getElementById('timer-status-text');
+  const btn = document.getElementById('timer-btn');
+  if (tsActive) {
+    const elapsed = (Date.now() - new Date(tsActive.startedAt).getTime()) / 1000;
+    display.textContent = fmtHMS(elapsed);
+    display.classList.add('active');
+    status.classList.add('active');
+    statusText.textContent = 'Clocked in';
+    btn.textContent = '⏸ Stop working';
+    btn.classList.add('stop');
+  } else {
+    display.textContent = '00:00:00';
+    display.classList.remove('active');
+    status.classList.remove('active');
+    statusText.textContent = 'Not clocked in';
+    btn.textContent = '▶ Start working';
+    btn.classList.remove('stop');
+  }
+  renderTodayTotal();
+}
+
+function renderTodayTotal() {
+  const el = document.getElementById('timer-today');
+  const t = today();
+  // Entry timestamps are server-generated ISO (UTC); comparing the date
+  // substring is close enough for a work log, not exact at the UTC boundary.
+  const todays = tsEntries.filter(e => (e.start || '').slice(0, 10) === t);
+  const activeCountsToday = tsActive && (tsActive.startedAt || '').slice(0, 10) === t;
+  const sessionCount = todays.length + (activeCountsToday ? 1 : 0);
+  if (!sessionCount) { el.style.display = 'none'; return; }
+  let totalSec = todays.reduce((sum, e) => sum + (e.seconds || 0), 0);
+  if (activeCountsToday) totalSec += (Date.now() - new Date(tsActive.startedAt).getTime()) / 1000;
+  el.style.display = '';
+  el.textContent = `Today: ${fmtHM(totalSec)} across ${sessionCount} session${sessionCount === 1 ? '' : 's'}`;
+}
+
+function startTick() { stopTick(); tsTick = setInterval(renderTimer, 1000); }
+function stopTick() { if (tsTick) { clearInterval(tsTick); tsTick = null; } }
+
+// Applied from the initial load, the live stream, and the 60s poll fallback.
+// `active` may arrive alone (from the stream); `entries` only on a full load.
+function applyTimesheetState(ts) {
+  if (!ts) return;
+  if ('active' in ts) tsActive = ts.active || null;
+  if (Array.isArray(ts.entries)) tsEntries = ts.entries;
+  if (tsActive) startTick(); else stopTick();
+  renderTimer();
+}
+
+async function loadTimesheet() {
+  try {
+    const r = await fetch('/api/timesheet', { cache: 'no-store' });
+    if (!r.ok) throw new Error('load failed');
+    applyTimesheetState(await r.json());
+  } catch (e) { /* keep whatever state we already have */ }
+}
+
+async function toggleTimer() {
+  if (tsBusy) return;
+  tsBusy = true;
+  const btn = document.getElementById('timer-btn');
+  btn.disabled = true;
+  try {
+    if (tsActive) {
+      const r = await fetch('/api/timesheet/stop', { method: 'POST' });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(d.error || 'stop failed');
+      tsActive = null;
+      if (Array.isArray(d.entries)) tsEntries = d.entries;
+      stopTick();
+      renderTimer();
+      if (d.entry) toast(`Logged ${fmtHM(d.entry.seconds)}`);
+    } else {
+      const r = await fetch('/api/timesheet/start', { method: 'POST' });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(d.error || 'start failed');
+      tsActive = d.active;
+      startTick();
+      renderTimer();
+      if (!d.alreadyActive) toast('Clocked in');
+    }
+  } catch (e) {
+    toast(e.message || "Couldn't reach the server", 'err');
+  } finally {
+    tsBusy = false;
+    btn.disabled = false;
+  }
+}
+
+document.getElementById('timer-btn').addEventListener('click', toggleTimer);
+loadTimesheet();
+
 async function addTask() {
   const input = document.getElementById('new-text');
   const btn = document.getElementById('add-btn');
@@ -403,6 +551,7 @@ function openTaskStream() {
         checked: d.task_checks?.checked,
         log: d.task_checks?.log,
       });
+      if (d.timesheet) applyTimesheetState(d.timesheet);
       document.getElementById('offline').style.display = 'none';
     } catch (err) { console.warn('bad task stream frame:', err); }
   });
@@ -410,8 +559,8 @@ function openTaskStream() {
 }
 openTaskStream();
 
-setInterval(() => { if (!busy && !document.hidden) load(); }, 60000);
-document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
+setInterval(() => { if (!busy && !document.hidden) { load(); loadTimesheet(); } }, 60000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) { load(); loadTimesheet(); } });
 </script>
 </body>
 </html>
