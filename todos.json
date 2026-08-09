@@ -267,6 +267,12 @@
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08"
+    },
+    {
+      "text": "Empty and clean Yeti cooler",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-08-09"
     }
   ]
 }
