@@ -297,6 +297,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-09"
+    },
+    {
+      "text": "Load dishwasher",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-08-09"
     }
   ]
 }
