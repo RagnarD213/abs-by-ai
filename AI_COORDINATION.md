@@ -96,9 +96,34 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ## Active task
 
 **Owner:** Claude Code
-**Status:** `Blocked` — **The male muscle-magnitude RESTORE is SHIPPED and live (`9ee1320`), the round-7 blind test is GENERATED, and the gallery is WITH DAN awaiting his 12 labels. That is the one open action on the generation path — do NOT start the model swap, and do NOT touch male prompts until the labels come back.** The ab-ladder before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`feb94e0`) and live-verified. The Gemini production outage is RESOLVED and verified on prod. **iOS REJECTED A SECOND TIME 2026-08-07** (see the entry below: privacy fixes SHIPPED `f07b2f5`, reply drafted, 3.1.1 now demands real In-App Purchase — decision pending with Dan; do NOT resubmit until 3.1.1 is resolved). Android still in Google review. **Android: SUBMITTED to Google 2026-08-06** — checklist 11/11, production release `1.0` sent for review, US-only, `Managed publishing` off so it self-publishes on approval (~7 days). Nothing to do but wait; do NOT re-submit. iOS 1.0 was REJECTED by Apple 2026-08-05, both fixes SHIPPED and live-verified (commit `5f45501`), and **Dan RESUBMITTED to App Review 2026-08-05 at 10:12 AM — status is back to "Waiting for Review" (verified in App Store Connect 2026-08-06). Nothing left to do on iOS but wait for Apple's verdict; do NOT prompt Dan to press Resubmit again.** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
+**Status:** `Blocked` — **The male muscle-magnitude restore MEASURED, FAILED its pre-registered bar, and is REVERTED (`92c7e77`) and live-verified (2026-08-09). The next open action on the generation path is the male Gemini model-swap handoff (`Handoffs/handoff-20260807-male-gemini-model-swap.md`) — that is now the recommended next step, not yet started.** The ab-ladder before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`feb94e0`) and live-verified. The Gemini production outage is RESOLVED and verified on prod. **iOS REJECTED A SECOND TIME 2026-08-07** (see the entry below: privacy fixes SHIPPED `f07b2f5`, reply drafted, 3.1.1 now demands real In-App Purchase — decision pending with Dan; do NOT resubmit until 3.1.1 is resolved). Android still in Google review. **Android: SUBMITTED to Google 2026-08-06** — checklist 11/11, production release `1.0` sent for review, US-only, `Managed publishing` off so it self-publishes on approval (~7 days). Nothing to do but wait; do NOT re-submit. iOS 1.0 was REJECTED by Apple 2026-08-05, both fixes SHIPPED and live-verified (commit `5f45501`), and **Dan RESUBMITTED to App Review 2026-08-05 at 10:12 AM — status is back to "Waiting for Review" (verified in App Store Connect 2026-08-06). Nothing left to do on iOS but wait for Apple's verdict; do NOT prompt Dan to press Resubmit again.** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
 
-### Male muscle-magnitude restore — SHIPPED and live (`9ee1320`); round-7 blind test GENERATED; AWAITING DAN'S 12 LABELS (2026-08-08, Claude Code)
+### Male muscle-magnitude restore — MEASURED, FAILED ITS PRE-REGISTERED BAR, REVERTED and live-verified (2026-08-09, Claude Code)
+
+**VERDICT: the restore is a NO-OP on the Gemini male leg, same as the ab-ladder before it — reverted (`92c7e77`, reverting `9ee1320`). Do not re-litigate; re-read this section first.**
+
+Dan labelled all 12 rows. Decoded against `bakeoff/round7-magnitude-restore/out/key.json`:
+
+| Set 1 — Gemini (the decider) | result |
+|---|---|
+| rows where BOTH candidates were rejected | **6 of 6** (identical to round 6's 6/6 — the bar required below 5) |
+| new wins / old wins on decisive rows | **0 / 0** (zero decisive rows — nobody picked anything) |
+| new-arm picked up a fresh `too muscular` tag | `lean-male__max` (new), didn't have it before |
+
+Three of Dan's own notes call the result "no change whatsoever. awful. total fail" — landing on both old and new versions of the same row. The restored magnitude language did not move Gemini's output at all.
+
+**Set 2 (FLUX control): leans against too.** Old arm 3 clean `best` picks (lean-dramatic, moderate-dramatic, heavier-max) vs new arm 0. New arm tagged `too muscular` 3 times vs old arm's 1 — the pre-registered bar states this pattern counts against shipping.
+
+**This is now the THIRD independent, measured, failed attempt to fix male Gemini under-change through prompt text** (denser ab language → the CALIBRATION RULE → this magnitude restore). All three demonstrably reached the model (verified on the wire each time) and none changed its behavior. **The prompt-text lever on this specific failure is exhausted — the next move is the model swap, not another prompt variant.**
+
+**Live-verified:** `git revert 9ee1320` → commit `92c7e77`, isolated to `public/index.html` (7 lines each way), pushed after rebasing past 30 unrelated data-file commits from concurrent sessions (verified `git log origin/main..HEAD` was exactly 1 commit before pushing). Deployed and polled on the reverted content marker (`deliberately small`, not present in the restore) — present; the restore's markers (`visibly BIGGER`, `structures that read instantly...`) — absent. `/health` ok.
+
+**Dashboard: `money::Execute handoff: Restore male Gemini muscle magnitude + blind test` CHECKED OFF** — measured, reverted, and verified is a completed outcome per the round-5/round-6 precedent in this file.
+
+**EXACT NEXT ACTION:** hand off to `Handoffs/handoff-20260807-male-gemini-model-swap.md` (already written, dashboard Key task already added — see that handoff's entry elsewhere in this file for the four things it says must not be re-derived: swap not a third candidate, Gemini's anchor/fallback/rescue roles, the free baseline arm, and per-candidate production risks).
+
+---
+<!-- superseded-below: original entry retained for context, not current status -->
 
 Executes `Handoffs/handoff-20260808-male-gemini-magnitude-restore.md` Steps 1–5. **The verdict is NOT in — the pre-registered bar is decided by Dan's labels, and nothing ships or reverts until they arrive.**
 
