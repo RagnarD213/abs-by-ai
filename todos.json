@@ -333,6 +333,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-09"
+    },
+    {
+      "text": "Clean toilets",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-09"
     }
   ]
 }
