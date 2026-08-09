@@ -3,7 +3,8 @@
     "health::Inject Zepbound",
     "assistant::Empty and clean Yeti cooler",
     "assistant::Make Coffee",
-    "assistant::Change robot mop water"
+    "assistant::Change robot mop water",
+    "assistant::Clean robot vaccuum tray (ask Dan to show you how)"
   ],
   "log": {
     "health::Shower": [
