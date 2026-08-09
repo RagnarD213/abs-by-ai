@@ -5,7 +5,8 @@
     "assistant::Make Coffee",
     "assistant::Change robot mop water",
     "assistant::Clean robot vaccuum tray (ask Dan to show you how)",
-    "assistant::Throw away old food from fridge"
+    "assistant::Throw away old food from fridge",
+    "money::Execute handoff: Restore male Gemini muscle magnitude + blind test"
   ],
   "log": {
     "health::Shower": [
