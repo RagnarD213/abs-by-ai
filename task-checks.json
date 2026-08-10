@@ -11,7 +11,8 @@
     "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice",
     "assistant::Load dishwasher",
     "assistant::Take out trash and replace liners",
-    "assistant::Wash, dry, and fold 2 laundry loads"
+    "assistant::Wash, dry, and fold 2 laundry loads",
+    "money::Reschedule Friday shoot to 11 - 6"
   ],
   "log": {
     "health::Shower": [
