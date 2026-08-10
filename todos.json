@@ -149,6 +149,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-10"
+    },
+    {
+      "text": "Post carousel on Instagram",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-10"
     }
   ],
   "health": [
