@@ -111,10 +111,11 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 1,
-      "welcomeNextAt": "2026-08-10T04:16:14.793Z",
+      "welcomeStep": 2,
+      "welcomeNextAt": "2026-08-12T04:56:57.407Z",
       "welcomeSentAt": {
-        "1": "2026-08-08T04:16:15.036Z"
+        "1": "2026-08-08T04:16:15.036Z",
+        "2": "2026-08-10T04:56:57.606Z"
       },
       "unsubscribed": false
     },
