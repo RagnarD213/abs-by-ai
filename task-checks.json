@@ -12,7 +12,8 @@
     "assistant::Robot vacuum bedroom",
     "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice",
     "assistant::Load dishwasher",
-    "assistant::Take out trash and replace liners"
+    "assistant::Take out trash and replace liners",
+    "assistant::Wash, dry, and fold 2 laundry loads"
   ],
   "log": {
     "health::Shower": [
