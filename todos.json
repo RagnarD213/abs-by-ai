@@ -125,6 +125,12 @@
       "priority": "high",
       "why": "Do not connect before Sept 2 — early third-party connection risks a bot flag. Generating the API key starts $29/mo billing.",
       "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Reschedule Friday shoot to 11 - 6",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-10"
     }
   ],
   "health": [
