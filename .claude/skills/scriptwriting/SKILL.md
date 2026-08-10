@@ -12,8 +12,90 @@ description: >
 
 # Scriptwriting: Outline → Finalized Teleprompter Script
 
-**STATUS: v1 — created 2026-08-06 after the approved Ad 1 script ("How AI Got Me
-Abs"). Dan's verdict: "really, really good, excellent work."**
+**STATUS: v2 — updated 2026-08-10 after Dan's full human line-edit of all 15
+batch-1 scripts. The finalized doc IS the style reference now: match how those
+ads read after his edits, not how they read before.**
+
+## THE FIRST MINUTE DECIDES EVERYTHING (v2 — Dan's #1 feedback)
+
+Dan's verdict on the batch: beyond the first minute, pretty good — but the first
+minute repeatedly dragged, and a dragging first minute means a skip, which means
+the whole ad is wasted. Rules, all from his line edits:
+
+- **Obsess over the first 30 seconds, and especially the first 5.** Write the
+  opening, then do MULTIPLE separate editing passes over just the first minute —
+  the same final-polish pass Dan did by hand. Word-level cuts matter here: he
+  changed "stop wasting your money" to "stop wasting money" because at second
+  two, one word is real time.
+- **No throat-clearing.** Never open with "To begin with —", "So let's talk
+  about...", or any warm-up words before the hook. His note: "EVERY SECOND IS
+  PRECIOUS BEFORE THE SKIP."
+- **The skip stopper must be controversial and attention-getting.** He rewrote a
+  benefit-framed stopper ("Here's how to save over a thousand dollars a month…")
+  into a spikier first-person one ("Here's why I FIRED my personal trainer and
+  nutritionist, and saved $1000 a month by using AI"). Bold claims are the
+  register: "YouTube fitness videos make you fat!", "you're probably getting
+  scammed."
+- **Bio = one line, and it must tie into the ad.** The multi-sentence
+  SixPackAbs credential paragraph + channel clip got struck from EVERY ad it
+  appeared in (8 of them) — it reads as forced bragging and drags the open.
+  One sentence of credibility, then move.
+- **Say early and explicitly why the PROSPECT should keep watching.** A
+  personal story alone is not a reason ("SEEMS LIKE IT'S JUST A PERSONAL STORY,
+  NOT SOMETHING THE PROSPECT BENEFITS FROM"). Name the benefit they get by
+  staying.
+- **Tease a simple trick early, then deliver on it.** "One strange AI trick" /
+  "one simple AI trick" promised in the open, explicitly called back later
+  ("That's where my simple AI trick comes in"). Always make the solution seem
+  simple and easy for the prospect — even when it isn't really.
+
+## Persuasion rules (v2 — from Dan's rewrites, apply to the whole script)
+
+- **Never assign fault to the prospect — even when it really is their fault.**
+  The diet failed THEM; the program failed THEM. Align with their current
+  beliefs first; conversion comes later. (Softening like "trainers aren't bad
+  people" survives; "be honest, you quit" framing does not — except where Dan
+  himself writes it, e.g. the Ad 15 dad-talk, which is his call to make.)
+- **Motivation is the product. Structure the argument around it:** connect the
+  prospect's failures to a lack of motivation → have them IMAGINE having
+  fitness-model-level motivation and what results that would buy → then reveal
+  the AI trick as the source of that motivation. Get them valuing motivation
+  BEFORE the pitch.
+- **Sell the goal, never the fear.** Dan struck every "muscle-loss clock" /
+  "maintaining is a myth" / "doing nothing is choosing the left picture"
+  passage. Negative-trajectory content got cut in Ads 6, 8, and 10. Fear gets
+  one beat at most; the dwell time goes to how amazing the goal feels.
+- **Results beat savings.** Money-saving is a supporting argument, never the
+  emphasis — "THE PROSPECT DOESN'T CARE AS MUCH ABOUT SAVING MONEY IF RESULTS
+  ARE INFERIOR." Claim BETTER results from AI first, cheaper second.
+- **Write for the real prospect: an average guy eating fast food and doing
+  nothing** — not someone already meal-prepping or living a fitness lifestyle.
+  Examples must land for him (steak vs chicken breast, family dinners, no time
+  to cook), and Dan's own before-story is the relatability anchor.
+- **Explain the benefits of generating the image BEFORE pitching the app**, and
+  pitch generating as life-changing in itself ("I promise that seeing this
+  image will change your life").
+- **Quick mid-ad CTAs are good.** A two-line "generate yours free — tap below"
+  can drop in wherever the moment is hot, in addition to the structural CTAs.
+  Spoken "Go to AbsByAI.com" CTAs are also in the register now.
+
+## Killed concepts (do not re-pitch)
+
+- **Ad 11 "This Embarrassing Picture…" and Ad 12 "Grok Roast" are dead** — Dan's
+  verdict after review: weak marketing appeal AND too risky for Google Ads
+  compliance; other ads deliver the same message better. Don't propose
+  embarrassment/roast/honest-assessment hooks again unless Dan raises them.
+
+## Markup convention (v2 — mandatory going forward)
+
+Everything that is NOT spoken teleprompter copy must be **[BRACKETED, ALL CAPS,
+BOLD]** and highlighted, so it can be stripped for the teleprompter at a glance:
+
+- **Dan's own notes → ORANGE highlight.**
+- **Filming/editing directions written by Claude → YELLOW highlight.**
+
+No un-bracketed, un-highlighted direction text anywhere. When touching an older
+ad, bring its cues up to this convention.
 
 ## The job
 
@@ -39,8 +121,9 @@ below) is the worked example. Voice traits:
   a year, meal prep, tracking calories). Never replace his specifics with generic ones.
 - **His real numbers — use these, don't guess.** The before picture was taken in
   2024 when he was **38** and two hundred pounds; he got the abs back at
-  **thirty-nine**; he is **40** now (2026). Keep the before-photo age at thirty-eight
-  so it stays honest against the picture on screen.
+  **forty** (Dan's 2026-08-07 revision — about two years after the before photo);
+  he is **40** now (2026). One child, a **daughter** — never "my kids" for his own.
+  Keep the before-photo age at thirty-eight so it stays honest against the picture.
 - Core phrase pair: "lose your belly fat" + "six-pack abs" — used constantly, keep it.
 - Honest, no-hype framing. He'll say "reasonably accurate", he won't overpromise.
 - Numbers written out for the teleprompter ("two hundred pounds", "thirty-eight").
