@@ -1,14 +1,14 @@
 {
   "date": "2026-08-10",
   "order": [
-    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
-    "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
     "money::Hire septic tank pump guy",
     "money::Post carousel on Instagram",
     "money::Post carousel on Facebook"
   ],
   "excluded": [
-    "money::Reschedule Friday shoot to 11 - 6"
+    "money::Reschedule Friday shoot to 11 - 6",
+    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
+    "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)"
   ],
   "sessionsCompleted": 1
 }
