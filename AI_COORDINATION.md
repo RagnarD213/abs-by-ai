@@ -136,6 +136,76 @@ Executes `Handoffs/handoff-20260810-sixpackabs-content-batch2.md`. All on sixpac
 
 ---
 
+### V2 Shorts — 7 cut, QC'd and DELIVERED (2026-08-10, Claude Code)
+
+Seven Shorts cut from **V2 "How To Get Real Six Pack Abs With AI"**, the first video mined
+for Shorts since V4. In `Short-form video content/` as `v2-short1..7_*.mp4` (the `v2-`
+prefix keeps them distinct from short1..short5, which are V4's). 1080x1920, 24fps, word-timed
+captions, `AbsByAI.com` on every frame. Full record + post copy: `YouTube Long Form Video
+Content/six-ways-ai-abs/SHORTS.md`; everything reproducible from that folder
+(`segments.js` cut points, `plan.js` per-shot treatment, `layout.json` geometry,
+`captions.js`, `render.js`, `qc.js`).
+
+**Dan picked the segments from the sentence-timestamped transcript (the skill's rule); he
+chose A, B, D, E, G, I, J from a shortlist of 11.**
+
+**The hard part was graphics: V2 is far more produced than V4 — 56 distinct shots across the
+7 segments**, with stock B-roll, full-frame graphics, lower thirds, phone UI and
+picture-in-picture. Every shot was classified:
+- **talk (26)** full-bleed 9:16 crop at x=0.478 — one offset covers every talking-head shot
+  in the video (locked kitchen camera).
+- **broll (23)** full-bleed crop at a per-shot offset. Auto-picked by image energy, then
+  **hand-corrected on 9** where the detector locked onto background (a window, an empty
+  chair, trees) instead of the subject.
+- **card (5)** anything with text/numbers/UI — the whole 16:9 frame scaled into the vertical
+  frame on the J2 tactical background with an olive mission chip beneath, so nothing is
+  sliced through.
+- **pip (2)** Sean Ray + Mike Chang photos, which sit top-left in 16:9 and fall COMPLETELY
+  outside a 9:16 crop — repositioned into the top of the vertical frame with Dan below.
+
+**Five traps worth keeping, all found by testing rather than by reading:**
+1. **`execFileSync` returns stdout only, and ffmpeg logs `showinfo` to STDERR** — scene
+   detection silently reported "0 cuts" for every segment. Use `spawnSync` and assert the
+   log is non-empty.
+2. **PiP repositioning renders the graphic TWICE** unless the subject's crop starts to the
+   right of the PiP box. That is why `pip.danW` is 800, not full width.
+3. **`-loop 1` stills are INFINITE streams.** The finishing pass had no `-t`, so ffmpeg
+   encoded forever (killed at 10 min for a 21s clip). Needs `shortest=1` + `-t`.
+4. **`-loop 1` stills default to 25fps and `overlay` adopts its FIRST input's rate**, so
+   card/pip shots came out 25fps and `concat -c copy` stamped the whole short 25fps whenever
+   it opened on one. Pin `-framerate 24` on every still and `-r 24` on both passes.
+5. **Cut points must snap to measured silence, not to Whisper word timestamps.** Whisper's
+   timestamps are contiguous, so any padding clips a syllable; and the bound must not cross
+   a neighbouring word or a sub-threshold gap sends the search back a whole phrase. All 18
+   cut points asserted inside silencedetect intervals (-26dB/0.05s — the first pass at
+   -32dB/0.12s found silence for only 7 of 18, because Dan barely pauses).
+
+**QC automated in `qc.js` and green on all 7:** dims/fps/audio spec, duration vs plan,
+no black frames, captions inside the video, and a splice test. **The splice check was wrong
+twice before it was right** — comparing loudness either side of a join always looks like a
+huge step, because the cut is deliberately placed in silence and speech follows. The correct
+measure is discontinuity: max sample-to-sample jump at the join vs. controls elsewhere in the
+same file. Both stitched shorts (B and I) score **0.11x** — the joins are ~9x SMOOTHER than
+typical audio in the file. No clicks.
+
+**Two editorial calls, both flagged to Dan:** the gum short (B) deliberately skips the
+marijuana/alcohol clause that sat in its hook position, rebuilt as setup -> hard cut ->
+payoff; and the supplements short (E) contains "of course they're using steroids" about
+Ronnie Coleman and Jay Cutler — true and in Dan's voice, but the spiciest claim in the set
+and worth knowing before it runs anywhere paid.
+
+**Dashboard: `money::Cut Reels/Shorts from second YouTube video for TikTok/IG` CHECKED OFF**
+(Rule 9, verified present in the `checked` array). No handoff was created, so Rule 8 does
+not apply. All media stays out of git — `YouTube Long Form Video Content/` and
+`Short-form video content/` are both ignored (verified with `git check-ignore`).
+
+**Still unmined for Shorts:** **V3 "My Top 10 Tips"** — the biggest remaining yield (up to 10
+standalone Shorts) but it has no transcript, so it needs a Whisper pass first; then **V6/V7**
+(3-minute total body home workout). V1 (channel intro) is deliberately excluded — Dan's call
+2026-08-04, the intro is promise, not payload.
+
+---
+
 ### SixPackABS AI-keyword content pivot + abs calculator — SHIPPED, live-verified (2026-08-09, Claude Code)
 
 Executes `Handoffs/handoff-20260731-sixpackabs-ai-keyword-content.md`. All on sixpackabs.com (WordPress.com, blog_id `253647467`); **no change to the abs-by-ai repo or to absbyai.com.**
