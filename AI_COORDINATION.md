@@ -102,6 +102,40 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 Hostname-gated second brand on the existing app: `try.sixpackabs.com` renders the same product as SixPackAbs (logo/hero/title/footer swap only), default Abs By AI everywhere else, double-gated against native apps. Decided in chat with Dan 2026-08-10: **skin, not clone; no bridge page.** The handoff's Key Decisions section contains three hard copy constraints and pre-drafted hero copy — **read that section before writing or editing any SixPackAbs-branded copy; do not draft fresh copy from scratch.** Rule-8 dashboard Key task added and verified persisted (`money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)`). Needs Claude Code (WP.com MCP for DNS + browser for Railway custom domain); recommended executor Claude Sonnet 5. The SixPackAbs brand-keyword search campaign is a separate follow-up task after the skin ships.
 
+### SixPackABS AI-keyword content BATCH 2 — 5 posts SHIPPED, live-verified (2026-08-10, Claude Code)
+
+Executes `Handoffs/handoff-20260810-sixpackabs-content-batch2.md`. All on sixpackabs.com (blog_id `253647467`); **no change to the abs-by-ai repo or absbyai.com.** Two live now, three scheduled to continue the 2–3/week cadence past batch 1's last scheduled post (2026-08-15):
+
+| slug | id | status |
+|---|---|---|
+| `how-long-to-get-visible-abs` | 597 | **live** |
+| `what-would-i-look-like-with-muscles` | 598 | **live** |
+| `fitness-goal-visualization` | 600 | scheduled 2026-08-18 |
+| `abs-before-and-after-real-vs-ai` | 602 | scheduled 2026-08-20 |
+| `body-fat-percentage-to-see-abs-women` | 606 | scheduled 2026-08-22 |
+
+**One query SWAP, made under the handoff's own "executor's call" clause and recorded here as it requires.** The handoff's slot 5 was "a second angle on the money query" (`what would I look like with a six pack`). Swapped to **`what would I look like with muscles`** for two reasons: search shows a competitor (GigaBody) already ranking a blog post on that exact sibling, so it has real volume; and a second post targeting 591's own query would **cannibalise it** — two pages competing for one term is a self-inflicted SEO loss. The muscle-gain angle is genuinely distinct (realistic gain rates, why leanness reads as muscularity faster than mass) rather than a rewrite.
+
+**Two content bugs found and fixed before publishing, both worth keeping:**
+- **A stray closing block tag makes WordPress silently emit `<!-- /wp:post-content -->` into the post body.** Post 598 had one mismatched `<!-- /wp:paragraph -->` next to a table; WP "repaired" it into a stray `post-content` comment rather than erroring. Invisible when rendered, malformed in the editor. `_content_warnings` was **empty** — it does not catch this. **The check that does catch it is `post-sections.list`**, which shows the parsed top-level block array; run it on any post created with hand-written block markup.
+- **A factual claim about our own image provenance was wrong.** The first draft of post 602 (whose entire subject is honesty about AI imagery) called the BEFORE half of the proof pair "a real photo". It is not: `public/index.html:1554` discloses the whole proof strip as **"Fictional examples."** Corrected to "an illustrative example" and the sitewide-scope disclaimer narrowed to batch 1's exact wording. **Do not describe any `img/proof/*` asset as a real photograph** — including the before frames.
+
+**Also fixed:** post 600 was drafted with British "visualisation" while its title, slug and target query use "visualization" — the keyword appeared zero times in the body. Corrected.
+
+**Verified on the SERVED HTML, not the editor.** Both live posts 200; `AI-GENERATED EXAMPLE` present ×2 each (body + conversion-layer CTA, matching batch 1); calculator link and `utm_campaign=post_<slug>` correct; **zero double-encoded entities, zero `&#038;`, zero stray block comments**. Real browser at 375×812 and 1280×860: no horizontal overflow and **zero elements wider than the viewport** on either width, tables fit (315px / 645px), before/after columns stack on mobile and sit 2-up on desktop, all proof images decode, **zero console errors**. Every internal link that must resolve today returns 200; the two links to `ai-body-transformation-app` (8/11) and `abs-filter-vs-ai-transformation` (8/13) 404 today **by design** — they are only linked from posts publishing on 8/18 and 8/20. No live post forward-links to unpublished content.
+
+**Batch 1 confirmed untouched:** posts 591–595 `modified` timestamps unchanged, and the calculator (page 584) still `modified 2026-08-09T19:47:09`, with **zero `&` characters in its script** (the immunity property holds) and `node --check` passing on the script extracted from the served page.
+
+**One deliberate omission, and it needs a date-gated follow-up.** The handoff's §4 asks the two body-fat posts to link to *each other*, but §5 requires batch-1 posts byte-unchanged, and a link added today to the women's post would 404 until 2026-08-22. Batch-1 posts were left untouched. **On/after 2026-08-22, add one contextual link from post 592 → `/body-fat-percentage-to-see-abs-women/`** to complete the reciprocal pair. The women's post already links back to 592.
+
+**Pre-existing, not a regression:** the site's footer logo (`sixpackabs-current-logo-symbol50-text130.webp`) fails to load — reproduced identically on untouched batch-1 post 591. Same class as the pre-existing `/about-us/` console `SyntaxError` noted in batch 1.
+
+**Dashboard: `money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)` CHECKED OFF** (Rule 9) and verified present in the `checked` array.
+
+**Still open from the original content handoff:** the "six pack photo editor" query family, and confirming a real UTM click-through lands in PostHog once organic traffic arrives.
+
+---
+
 ### SixPackABS AI-keyword content pivot + abs calculator — SHIPPED, live-verified (2026-08-09, Claude Code)
 
 Executes `Handoffs/handoff-20260731-sixpackabs-ai-keyword-content.md`. All on sixpackabs.com (WordPress.com, blog_id `253647467`); **no change to the abs-by-ai repo or to absbyai.com.**
