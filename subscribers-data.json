@@ -125,6 +125,14 @@
       "source": "sixpackabs",
       "welcomeStep": 5,
       "excluded": true
+    },
+    "abscalc-browser@example.com": {
+      "subscribedAt": "2026-08-10T00:54:38.690Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 5,
+      "excluded": true
     }
   }
 }
