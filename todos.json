@@ -125,56 +125,28 @@
       "priority": "high",
       "why": "Do not connect before Sept 2 — early third-party connection risks a bot flag. Generating the API key starts $29/mo billing.",
       "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Execute handoff: Restore male Gemini muscle magnitude + blind test",
-      "priority": "key",
-      "why": "handoff-20260808-male-gemini-magnitude-restore.md — created but not yet run",
-      "addedAt": "2026-08-08"
-    },
-    {
-      "text": "Train Brittany for Assistant Tasks",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-09"
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-09"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-09"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-09"
+      "recurring": true
     },
     {
-      "text": "Salad by 2:00 PM",
+      "text": "Salad",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-09"
-    },
-    {
-      "text": "Large meal by 6:00 PM",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-09"
-    },
-    {
-      "text": "Small meal by 9:30 PM",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-09"
+      "recurring": true
     }
   ],
   "personal": [
