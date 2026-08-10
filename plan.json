@@ -1,9 +1,6 @@
 {
-  "date": "2026-08-09",
-  "order": [
-    "money::Train Brittany for Assistant Tasks",
-    "money::Execute handoff: Restore male Gemini muscle magnitude + blind test"
-  ],
+  "date": "2026-08-10",
+  "order": [],
   "excluded": [],
-  "sessionsCompleted": 0
+  "sessionsCompleted": 1
 }
