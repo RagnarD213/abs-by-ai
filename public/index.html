@@ -104,6 +104,17 @@ html, body {
   line-height: 1.45;
   margin-bottom: 22px;
 }
+/* Plain statement of what the product is, directly under the hero. Kept above the
+   proof strip on purpose: the full disclaimer lower down the page is ~1200px away,
+   past the fold, so the first thing a visitor (or an ad reviewer) reads should
+   already say the images are AI-generated rather than real transformations. */
+#formMarketingHero .hero-sub { margin-bottom: 10px; }
+.hero-product-note {
+  font-size: 12.5px;
+  color: #8a877f;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
 
 /* ── First-screen AI proof strip ── */
 .proof-strip {
@@ -1503,6 +1514,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <div id="formMarketingHero">
       <div class="hero-h1">Visualize Yourself With Abs</div>
       <div class="hero-sub">See how good you’d look with abs. Motivate yourself to hit your fitness goal.</div>
+      <div class="hero-product-note">Upload a photo and Abs By AI generates an AI image of your goal. It’s a visualization and motivation tool — the images are AI-generated, not real results.</div>
     </div>
 
     <section id="proofStrip" class="proof-strip" aria-label="Abs by AI example visualizations">
