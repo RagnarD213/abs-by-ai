@@ -117,6 +117,14 @@
         "1": "2026-08-08T04:16:15.036Z"
       },
       "unsubscribed": false
+    },
+    "abscalc-verify@example.com": {
+      "subscribedAt": "2026-08-10T00:54:15.092Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 5,
+      "excluded": true
     }
   }
 }
