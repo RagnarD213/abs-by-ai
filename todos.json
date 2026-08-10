@@ -137,6 +137,12 @@
       "priority": "key",
       "why": "handoff-20260810-sixpackabs-content-batch2.md - created but not yet run",
       "addedAt": "2026-08-10"
+    },
+    {
+      "text": "Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
+      "priority": "key",
+      "why": "handoff-20260810-sixpackabs-skin.md — created but not yet run",
+      "addedAt": "2026-08-10"
     }
   ],
   "health": [
