@@ -167,6 +167,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-09"
+    },
+    {
+      "text": "Schedule next photo shoot",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-10"
     }
   ],
   "health": [
