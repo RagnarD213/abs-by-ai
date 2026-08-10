@@ -173,6 +173,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-10"
+    },
+    {
+      "text": "Submit Google Ads suspension appeal (account 342-717-0837)",
+      "priority": "key",
+      "why": "Business/google-ads-appeal-20260810.md — draft written, needs Dan to fill 3 bracketed facts + verify identity, then submit. Ads cannot be edited until reinstated.",
+      "addedAt": "2026-08-10"
     }
   ],
   "health": [
