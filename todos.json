@@ -131,6 +131,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-10"
+    },
+    {
+      "text": "Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
+      "priority": "key",
+      "why": "handoff-20260810-sixpackabs-content-batch2.md - created but not yet run",
+      "addedAt": "2026-08-10"
     }
   ],
   "health": [
