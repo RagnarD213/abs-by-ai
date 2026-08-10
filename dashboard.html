@@ -1777,7 +1777,11 @@ health:    data?.health || [],
 personal:  data?.personal || [],
 assistant: data?.assistant || [],
 };
-if (backfillAddedAt(todosState)) saveTodos();
+// In-memory only, deliberately. This used to save immediately, which made the
+// page WRITE THE WHOLE TASK FILE on every load — so a tab holding a stale copy
+// clobbered the live lists just by being open. Every task carries addedAt now;
+// any real edit persists the backfill along with it.
+backfillAddedAt(todosState);
 renderAllTasks();
 }
 // Back-compat alias for existing call sites.
@@ -2301,13 +2305,20 @@ if (idx == null || idx < 0) todosState[listKey].push(task);
 else todosState[listKey][idx] = task;
 cancelForm(listKey);
 renderAllTasks();
-saveTodos();
+// A rename removes the old text, so declare it — otherwise renaming a
+// recurring task would leave the old one restored alongside the new one.
+const renamed = existing && existing.text !== text
+? [`${PAYLOAD_LIST_KEY[listKey]}::${existing.text}`] : undefined;
+saveTodos(renamed);
 toast('Task saved', 'ok');
 }
 function deleteTask(listKey, idx) {
+const removed = todosState[listKey][idx];
 todosState[listKey].splice(idx, 1);
 renderAllTasks();
-saveTodos();
+// Name the removal so the server reads it as intent, not as a stale-copy
+// accident — otherwise deleting a recurring task would be undone.
+saveTodos(removed ? [`${PAYLOAD_LIST_KEY[listKey]}::${removed.text}`] : undefined);
 toast('Task deleted', 'ok');
 }
 
@@ -2349,19 +2360,34 @@ const d = await r.json();
 return ['high', 'med', 'low'].includes(d.priority) ? d.priority : 'med';
 } catch (e) { return 'med'; }
 }
-async function saveTodos() {
-// Persist the editable lists. Money maps back to the `business` key so the
-// single merged Money Tasks list stays consolidated server-side.
+// Server list key for each column. Money maps back to `business` so the single
+// merged Money Tasks list stays consolidated server-side.
+const PAYLOAD_LIST_KEY = { money: 'business', health: 'health', personal: 'personal', assistant: 'assistant' };
+
+// `allowDeletes` names tasks this save is deliberately removing, as
+// `<serverListKey>::<exact text>`. The server restores any recurring task that
+// goes missing without being named, which is what stops a stale tab from
+// quietly deleting a daily habit.
+async function saveTodos(allowDeletes) {
 const payload = {
 business:  todosState.money,
 health:    todosState.health,
 personal:  todosState.personal,
 assistant: todosState.assistant,
 };
+if (allowDeletes && allowDeletes.length) payload.allowDeletes = allowDeletes;
 try {
 const r = await fetch('/api/todos', {
 method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
 });
+if (r.status === 409) {
+// This page's copy is out of date and the write was refused rather than
+// applied. Reload the live list so the user is editing reality again.
+const d = await r.json().catch(() => null);
+if (d?.todos) setTodos(d.todos);
+toast('Your task list was out of date — reloaded it. Please redo that change.', 'err');
+return;
+}
 if (!r.ok) throw new Error('save failed');
 } catch (e) { toast('Could not save tasks (will retry on next edit)', 'err'); }
 }

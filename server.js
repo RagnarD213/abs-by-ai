@@ -858,11 +858,78 @@ app.get('/api/todos', async (req, res) => {
   res.json(await loadTodos());
 });
 
+// Guard against a whole-file overwrite from a caller holding a stale copy.
+// POST /api/todos replaces todos.json outright, so anyone who read the file
+// minutes (or days) ago and posts their copy back silently deletes everything
+// added since. That is not hypothetical: on 2026-08-10 08:07 a stale write
+// removed Dan's three recurring meal-timing tasks plus two business tasks, and
+// the same class of write ate the meal tasks on 08-06 and 08-07 as well.
+//
+// Two rules, both measured against a FRESH read of the current file:
+//   1. A recurring task can never vanish by accident. Recurring tasks are
+//      permanent daily habits, so one missing from the payload is put back —
+//      unless the caller names it in `allowDeletes`, which is how the
+//      dashboard's own delete and rename express real intent.
+//   2. A single write that drops several other tasks is not a plausible edit
+//      (every UI action saves one change at a time), so it is refused with a
+//      409 rather than applied.
+// A task that moved between lists is not a deletion, so presence is tested on
+// the task text across ALL lists rather than per-list.
+const TODO_LISTS = ['business', 'health', 'personal', 'assistant'];
+const STALE_WRITE_DELETE_LIMIT = 3;
+
+function todoTextSet(todos) {
+  const seen = new Set();
+  for (const list of TODO_LISTS) {
+    for (const t of todos?.[list] || []) if (t?.text) seen.add(t.text);
+  }
+  return seen;
+}
+
+// Tasks in `current` whose text appears nowhere in `next`.
+function droppedTodos(current, next) {
+  const keep = todoTextSet(next);
+  const gone = [];
+  for (const list of TODO_LISTS) {
+    for (const t of current?.[list] || []) {
+      if (t?.text && !keep.has(t.text)) gone.push({ list, task: t });
+    }
+  }
+  return gone;
+}
+
 app.post('/api/todos', async (req, res) => {
   try {
-    const todos = req.body;
-    await saveTodosToGitHub(todos);
-    res.json({ ok: true });
+    const incoming = normalizeTodos(req.body);
+    const allow = new Set(Array.isArray(req.body?.allowDeletes) ? req.body.allowDeletes : []);
+    const current = await loadTodos({ fresh: true });
+
+    const dropped = droppedTodos(current, incoming)
+      .filter(d => !allow.has(`${d.list}::${d.task.text}`));
+    const label = (d) => `${d.list}::${d.task.text}`;
+    const restored = dropped.filter(d => d.task.recurring);
+    const lost = dropped.filter(d => !d.task.recurring);
+
+    if (lost.length >= STALE_WRITE_DELETE_LIMIT) {
+      console.warn(`STALE_TODOS_WRITE rejected — would have deleted ${lost.length} tasks: ${lost.map(label).join(' | ')}`);
+      return res.status(409).json({
+        error: 'stale_write_rejected',
+        message: 'This copy of the task list is out of date. Re-read /api/todos and apply your change to the current list.',
+        wouldDelete: lost.map(label),
+        todos: current,
+      });
+    }
+
+    for (const d of restored) {
+      incoming[d.list] = incoming[d.list] || [];
+      incoming[d.list].push(d.task);
+    }
+    if (restored.length) {
+      console.warn(`RECURRING_TODOS_RESTORED — a write omitted ${restored.length} recurring task(s), put back: ${restored.map(label).join(' | ')}`);
+    }
+
+    await saveTodosToGitHub(incoming);
+    res.json({ ok: true, restored: restored.map(label) });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
