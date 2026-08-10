@@ -170,7 +170,7 @@
     },
     {
       "text": "Schedule next photo shoot",
-      "priority": "low",
+      "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-10"
     }
