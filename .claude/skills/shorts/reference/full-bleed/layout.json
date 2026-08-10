@@ -1,0 +1,37 @@
+{
+  "canvas": [1080, 1920],
+  "note": "Single source of truth for frame geometry. preview.py and render.js BOTH read this, so what is reviewed is what is rendered.",
+
+  "talk": {
+    "cropW": 608,
+    "note": "9:16 window on a 1920x1080 frame is 607.5px; 608 keeps it even. 0.09% aspect error."
+  },
+
+  "card": {
+    "w": 1000, "h": 562, "x": 40, "y": 420,
+    "chipY": 1012, "chipH": 64,
+    "note": "Whole 16:9 frame, nothing cropped. Enlarged from the J2 spec's 968-wide. Sits at y=420 rather than centred because the caption band (ASS MarginV 690) starts around y=1150 — a centred card ran underneath it.",
+    "labels": {
+      "B-p1-s01": "ALARM: 11:00 PM",
+      "I-p0-s00": "STRATEGY 02: TRACK MACROS",
+      "I-p0-s05": "OUTPUT: FULL MACRO BREAKDOWN",
+      "I-p1-s01": "THE OLD WAY: SCALE + CALCULATOR",
+      "J-p0-s00": "INPUT: ONE PHOTO"
+    }
+  },
+
+  "pip": {
+    "gfxTop": 88, "gfxH": 700,
+    "danX": 140, "danY": 826, "danW": 800, "danH": 1000,
+    "note": "Graphic repositioned into the top of the vertical frame; Dan below. danW is 800 (not full width) ON PURPOSE: Dan's crop must start to the RIGHT of the PiP box or the poster appears a second time inside his block, and a narrower block is the only way to do that while keeping his face near centre."
+  },
+
+  "wordmark": { "x": 74, "y": 1786 },
+
+  "titleSeconds": 3.2,
+
+  "pipBoxes": {
+    "A-p0-s06": { "box": [113, 73, 483, 610], "from": null, "srcX0": 490 },
+    "A-p0-s09": { "box": [110, 62, 497, 645], "from": 158.10, "srcX0": 505 }
+  }
+}
