@@ -143,6 +143,12 @@
       "priority": "key",
       "why": "handoff-20260810-sixpackabs-skin.md — created but not yet run",
       "addedAt": "2026-08-10"
+    },
+    {
+      "text": "Hire septic tank pump guy",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-10"
     }
   ],
   "health": [
