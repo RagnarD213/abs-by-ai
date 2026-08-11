@@ -401,6 +401,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-11"
+    },
+    {
+      "text": "Remove calcium stains from pool tiles (waiting for supplies to be delivered) (see Dan for training)",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-11"
     }
   ]
 }
