@@ -366,15 +366,6 @@
       "addedAt": "2026-08-09"
     },
     {
-      "text": "Robot vacuum bedroom",
-      "priority": "key",
-      "recurring": true,
-      "addedAt": "2026-08-09",
-      "days": [
-        0
-      ]
-    },
-    {
       "text": "Clean toilets",
       "priority": "med",
       "recurring": false,
