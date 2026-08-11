@@ -221,6 +221,77 @@ Executes `Handoffs/handoff-20260810-sixpackabs-content-batch2.md`. All on sixpac
 
 ---
 
+### V3 + V6 Shorts — 16 cut, QC'd and DELIVERED; the longform back catalogue is now FULLY MINED (2026-08-10, Claude Code)
+
+**11 Shorts from V3 "My Top 10 Tips" and 5 from V6 "3 Minute Total Body Home Workout"**, in
+`Short-form video content/` as `v3-short1..11_*` and `v6-short1..5_*`. 1080x1920, 24fps,
+word-timed captions, `AbsByAI.com` on every frame. 13.9 minutes of finished vertical video.
+Full records: `YouTube Long Form Video Content/v3-top10-tips/SHORTS.md` and
+`.../v6-3min-home-workout/SHORTS.md`; everything reproducible from those folders.
+
+**Dan picked the segments** (the standing rule) and approved the set. **There is nothing
+left to mine** — V1 is deliberately excluded (Dan 2026-08-04), V2 and V4 were done earlier,
+and **V5 and V7 are the workout-only cuts of V4 and V6 with no narration at all** — their
+Whisper transcripts come back as pages of `"Hey. Hey. Hey."`, which is music and rep counts,
+not a failed transcription. They hold clean exercise demos usable as b-roll, nothing more.
+
+**Prerequisite fixed first:** a prior session's V3 and V6 transcripts had FAILED on CUDA
+OOM. Chunking the audio into 5-minute pieces (the V4 approach) fixed both.
+
+**Two editorial decisions, both Dan's:**
+- **Tip 8 (weight loss medication) was NOT cut.** It names Zepbound and Retatrutide directly,
+  against the standing no-drug-names rule, and the muscle-loss point lands as *"We don't want
+  to just look like an Auschwitz survivor."* A Short is the most clippable format we make.
+- **The bubble-gut short ships with "steroids" bleeped** (twice) — 1 kHz tone plus `[BLEEP]`
+  in the burned-in captions, since bleeping audio while printing the word is pointless. Both
+  are asserted in QC.
+
+**Also preserved deliberately:** two third-party clips in the vacuum short carry on-screen
+credits (`@FraserWilsonFit`, `@ChrisBumstead`). They are rendered as full-frame cards
+specifically so the vertical crop cannot delete the attribution.
+
+**Five traps found by testing rather than reading, all now in the skill and in git:**
+1. **Whisper inflates short words across real pauses, so its timestamps deny gaps that
+   silencedetect measures** (V6 times `"the"` 148.28-149.00 while the audio is silent
+   148.44-148.63). Seven cut points failed the silence assertion for this reason. Measured
+   silence is ground truth. **Widening the snap to compensate is strictly WORSE** — it clips
+   the first word instead ("This" 48%, "use" 47%).
+2. **Some sentences have no cut point at all** — `"deadlifts."` runs into `"All right"` with a
+   ZERO-length gap. Three shorts end earlier than first planned, and are better for it.
+3. **V3 burns a chapter lower-third at source rows 888-978** over each tip's opening shot; a
+   full-height 9:16 window slices it mid-sentence under our own captions. New `zoom`
+   treatment crops 496x880 from the top. **Do not judge a shot from one frame** — the contact
+   sheet samples the midpoint and missed this on two long takes where the bar is only up for
+   4-5s; an end-to-end scan found them and also threw 6 false positives (white rocks,
+   glassware, lab coats) that had to be rejected by eye.
+4. **ffmpeg's `sine` source emits at amplitude 0.125 (-18 dBFS), not full scale** — a naive
+   `volume=0.20` made the bleep 11x quieter than the dialogue.
+5. **A caption chunk boundary can strand a tokenised abbreviation.** Whisper splits "2 p.m."
+   into `["2","p",".m."]`; one short opened on a caption reading just `.m.`. Punctuation-
+   leading tokens are now merged before chunking.
+
+**The reference pipeline's per-shot audio cutting was fixed**, not just documented: audio is
+now pulled once per PIECE and laid over the concatenated video (shots render `-an`).
+Measured splice discontinuity **0.03-0.70x** of control points in the same file.
+
+**QC green on all 16:** specs, duration within 0.25s of plan, no black frames, captions
+inside the video, splice test, and the bleep assertions. One QC metric was wrong before it
+was right — a Hann window's 0.5 coherent gain made a verified-pure 1 kHz tone score 0.707 on
+a naive `magnitude/rms`; normalised properly a tone reads 1.00 and speech 0.01. **When a QC
+metric fails, confirm the metric before "fixing" the media.**
+
+**`.claude/skills/shorts` updated and pushed (`bf5d9f4`)** — the V3 pipeline is promoted into
+`reference/full-bleed` (both media folders are git-ignored, and the original V4 pipeline was
+already lost that way once). **No media was staged** — verified.
+
+**Dashboard: NOTHING checked off, and that is correct.** All four lists were searched; the
+only shorts-cutting task is `money::Cut Reels/Shorts from second YouTube video for TikTok/IG`,
+which covers **V2** and was already checked off earlier on 2026-08-10. This work is V3 and V6,
+and no task describes it. Per Rule 9 a missing task is reported, not recreated. No handoff was
+created, so Rule 8 does not apply.
+
+---
+
 ### V2 Shorts — 7 cut, QC'd and DELIVERED (2026-08-10, Claude Code)
 
 Seven Shorts cut from **V2 "How To Get Real Six Pack Abs With AI"**, the first video mined
