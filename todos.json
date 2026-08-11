@@ -408,7 +408,8 @@
     },
     {
       "text": "Clean office",
-      "priority": "med",
+      "priority": "high",
+      "recurring": false,
       "addedAt": "2026-08-03"
     }
   ]
