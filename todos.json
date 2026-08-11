@@ -262,8 +262,11 @@
     {
       "text": "Wash, dry, and fold 2 laundry loads",
       "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-08-08"
+      "recurring": true,
+      "addedAt": "2026-08-08",
+      "days": [
+        0
+      ]
     },
     {
       "text": "Clean spiderwebs throughout house",
@@ -314,20 +317,31 @@
     {
       "text": "Make Coffee",
       "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-09"
+      "recurring": true,
+      "addedAt": "2026-08-09",
+      "days": [
+        0
+      ]
     },
     {
       "text": "Put away dishes",
       "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-08-09"
+      "recurring": true,
+      "addedAt": "2026-08-09",
+      "days": [
+        0,
+        4
+      ]
     },
     {
       "text": "Load dishwasher",
       "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-08-09"
+      "recurring": true,
+      "addedAt": "2026-08-09",
+      "days": [
+        0,
+        4
+      ]
     },
     {
       "text": "Throw away old food from fridge",
@@ -338,8 +352,12 @@
     {
       "text": "Change robot mop water",
       "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-09"
+      "recurring": true,
+      "addedAt": "2026-08-09",
+      "days": [
+        0,
+        4
+      ]
     },
     {
       "text": "Clean shower",
@@ -350,8 +368,11 @@
     {
       "text": "Robot vacuum bedroom",
       "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-09"
+      "recurring": true,
+      "addedAt": "2026-08-09",
+      "days": [
+        0
+      ]
     },
     {
       "text": "Clean toilets",
@@ -361,7 +382,7 @@
     },
     {
       "text": "Clean bathrooms",
-      "priority": "med",
+      "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-09"
     },
