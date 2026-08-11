@@ -377,6 +377,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-11"
+    },
+    {
+      "text": "Change blades on robot lawn mower",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-08-11"
     }
   ]
 }
