@@ -12,6 +12,10 @@ Do not ask permission for anything reversible. Dan explicitly prefers aggressive
 - Give one recommendation and execute it — not a menu of options.
 - Still ask first ONLY for: irreversible/destructive actions (deleting user data, DNS record deletions, canceling subscriptions), spend beyond the standing caps, sending email to customers or the list, formal Apple/Google certifications (Dan's personal declarations), and credentials (Dan enters those himself, always).
 
+### Exception: brainstorming / prioritization sessions (Dan's instruction, 2026-08-11)
+
+When Dan asks a "what should we work on" / "what should I use my limit for" / "help me prioritize" type of question, the deliverable is the **prioritized recommendation itself — do NOT start executing the recommended work in that session.** Dan executes handoffs and recommended tasks in separate sessions on purpose, to save tokens and keep each execution session's context window clean. In a brainstorming session: read whatever is needed to ground the recommendation (board, coordination file, handoffs), give the priorities with reasoning, and stop. Bias toward action still applies fully once a session IS the execution session.
+
 ## Shared-workflow requirements
 
 - Before doing project work, read `AI_COORDINATION.md` and inspect the current Git state.
