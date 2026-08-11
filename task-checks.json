@@ -18,7 +18,8 @@
     "money::Train Brittany for Assistant Tasks",
     "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
     "money::Schedule next photo shoot",
-    "money::Book spray tan"
+    "money::Book spray tan",
+    "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs"
   ],
   "log": {
     "health::Shower": [
@@ -156,6 +157,7 @@
     "assistant::Throw away old food from fridge": "2026-08-11",
     "assistant::Take out trash and replace liners": "2026-08-11",
     "money::Schedule next photo shoot": "2026-08-11",
-    "money::Book spray tan": "2026-08-11"
+    "money::Book spray tan": "2026-08-11",
+    "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs": "2026-08-11"
   }
 }
