@@ -273,6 +273,24 @@ The dashboard's delete and rename paths now send `allowDeletes`, so intentional 
 
 **No native retest trigger row touched** — task-board API and dashboard-only, no product surface. **No dashboard task matched this work** (all four lists searched), so nothing was checked off per Rule 9, and no handoff was created, so Rule 8 does not apply.
 
+### SixPackAbs skin REVISIONS — SHIPPED, both domains live-verified (2026-08-11, Claude Code, commit `233c8a7`)
+
+Executes `Handoffs/handoff-20260811-sixpackabs-skin-revisions.md` — Dan's six revisions to the skin below. **Every edit is inside `applyBrandSkin()`; the diff touches nothing else**, so absbyai.com is a no-op by construction.
+
+**Header (items 1–2):** the `.app-icon` now carries **`img/sixpackabs-logo.webp`** — the real SixPackAbs wordmark, i.e. the brand's own lettering instead of "SixPackAbs.com" typed in Manrope — and `.app-name` is hidden. **The webp is genuinely transparent** (checked, not assumed: alpha spans 0–255, marks are near-black `rgb(1,1,1)`, bbox 4,4→1185,143), so no asset regeneration was needed — the gray plate is CSS: `background:#e3e1db; padding:7px 11px; border-radius:9px` around a 19px-tall mark, rendering **176×33** in the topbar. **Sizing is inline rather than in the `.app-icon` rule** so absbyai.com's 22px square icon is untouched.
+
+**Copy (items 3–6):** H1 → `Welcome To The New, AI Powered SixPackAbs.com`; the trust line "Same company. Same mission. New technology." is gone (the element is no longer created at all, not hidden); "From the original founder of SixPackAbs.com." is gone from the sub; and the product note gains, **outside the `<strong>` so it renders in normal weight**, `Created by Daniel Rose, one of the original founders of Six Pack Shortcuts and SixPackAbs.com.` Copy constraints from the 2019 closing docs hold — the sentence names only Dan.
+
+**Verified:** all 5 inline script blocks `node --check` clean. Local **forced-hostname scratch copy** (sed'd in the scratchpad, never committed) at 375×812: all six revisions asserted programmatically — new H1, wordmark `src` + `naturalWidth 1189` + computed bg `rgb(227,225,219)`, `.app-name` `display:none`, `Daniel Rose` present and **not** inside the `<strong>`, trust line and founder line both absent, no horizontal overflow, zero console errors. Local **default brand** on the same edited file: `BRAND=absbyai`, icon `img/icon.png` with **no inline style**, `.app-name` visible, original H1 and note, zero injected canonical/meta — proving the skin stays a no-op.
+
+**Live on try.sixpackabs.com** (polled on the `Welcome To The New, AI Powered` content marker, ~48s): same assertions all pass in a real browser at 375×812 and 1280, wordmark decodes, zero console errors. **Live on absbyai.com:** title/H1/logo/name/note unchanged, no canonical injected, "Daniel Rose" appears nowhere, zero console errors, `/health` ok.
+
+**No native retest trigger row touched** — the skin is double-gated and unreachable inside the iOS/Android apps.
+
+**Dashboard: `money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)` CHECKED OFF** (Rule 9) and confirmed **struck through on the rendered dashboard** (`todo-item priority-key done`), not just accepted by the endpoint.
+
+**Note for whoever picks this up:** the handoff records that items 7–8 of Dan's dictation came through empty, so he may have more revisions pending. The favicon is still `sixpackabs-icon-192.png` (deliberately left — his revision was about the header). Push required a `--rebase --autostash` past concurrent data-file commits; `git log origin/main..HEAD` confirmed exactly one commit before pushing.
+
 ### SixPackAbs skin — SHIPPED, both domains live-verified (2026-08-11, Claude Code, commit `0035782`)
 
 Executes `Handoffs/handoff-20260810-sixpackabs-skin.md` end to end. **`https://try.sixpackabs.com` is LIVE and serves the full Abs By AI app skinned as SixPackAbs; absbyai.com is provably unchanged.** Dashboard task `money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)` **checked off** (Rule 9, verified in the `checked` array).
