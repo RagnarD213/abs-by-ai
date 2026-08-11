@@ -158,6 +158,9 @@
     ],
     "assistant::Load dishwasher": [
       "2026-08-11"
+    ],
+    "assistant::Put away dishes": [
+      "2026-08-11"
     ]
   },
   "checkedAt": {
