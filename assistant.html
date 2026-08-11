@@ -197,6 +197,7 @@ ul { list-style: none; }
 let tasks = [];
 let checked = new Set();
 let taskLog = {};
+let checkedAt = {};   // id → "YYYY-MM-DD" it was checked off
 let busy = false;
 // Toggles the server has not confirmed yet. A write resolves BEFORE the stored
 // value is readable, so a snapshot landing in that gap would revert the checkbox
@@ -214,6 +215,21 @@ function isDone(t) {
   const id = checkId(t.text);
   return t.recurring ? (taskLog[id] || []).includes(today()) : checked.has(id);
 }
+// A finished task clears off this page at 8am the morning AFTER it was checked
+// off, so the list doesn't accumulate — but a wrong tap is still undoable for the
+// rest of the day it happened. Measured against HER clock, not the server's.
+// Recurring tasks need no rule here: they un-check themselves at midnight and
+// come back as open work on their own.
+const CLEAR_HOUR = 8;
+function clearsFromView(t) {
+  if (t.recurring || !isDone(t)) return false;
+  const on = checkedAt[checkId(t.text)];
+  if (!on) return true; // checked before completion dates were recorded — it's old
+  const [y, m, d] = on.split('-').map(Number);
+  const cutoff = new Date(y, m - 1, d + 1, CLEAR_HOUR, 0, 0, 0);
+  return Date.now() >= cutoff.getTime();
+}
+
 function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -238,8 +254,9 @@ const priClass = (p) => 'tag-' + (PRI_LABEL[p] ? p : 'low');
 const priLabel = (p) => PRI_LABEL[p] || 'Low';
 
 function render() {
-  const sorted = tasks.slice().sort((a, b) =>
-    (PRI_ORDER[a.priority] ?? 3) - (PRI_ORDER[b.priority] ?? 3));
+  const sorted = tasks.slice()
+    .filter(t => !clearsFromView(t))
+    .sort((a, b) => (PRI_ORDER[a.priority] ?? 3) - (PRI_ORDER[b.priority] ?? 3));
   const open = sorted.filter(t => !isDone(t));
   const done = sorted.filter(t => isDone(t));
 
@@ -257,17 +274,19 @@ function render() {
 
   document.getElementById('open-list').innerHTML = open.length
     ? open.map(t => row(t, false)).join('')
-    : `<li class="empty">${tasks.length ? 'All done. Nice work. 🎉' : 'No tasks right now.'}</li>`;
+    : `<li class="empty">${sorted.length ? 'All done. Nice work. 🎉' : 'No tasks right now.'}</li>`;
 
   document.getElementById('done-wrap').style.display = done.length ? '' : 'none';
   document.getElementById('done-list').innerHTML = done.map(t => row(t, true)).join('');
 
+  // Counts follow what she can actually SEE — a total that included cleared-off
+  // tasks would never reach 100%.
   const summary = document.getElementById('summary');
-  if (tasks.length) {
+  if (sorted.length) {
     summary.style.display = '';
     document.getElementById('count-done').textContent = done.length;
-    document.getElementById('count-total').textContent = tasks.length;
-    document.getElementById('bar-fill').style.width = Math.round(done.length / tasks.length * 100) + '%';
+    document.getElementById('count-total').textContent = sorted.length;
+    document.getElementById('bar-fill').style.width = Math.round(done.length / sorted.length * 100) + '%';
   } else {
     summary.style.display = 'none';
   }
@@ -294,20 +313,32 @@ function applyPendingChecks() {
       if (days.size) taskLog[id] = [...days].sort(); else delete taskLog[id];
     } else {
       if (p.checked) checked.add(id); else checked.delete(id);
+      // Keep the completion date in step with the optimistic flip, or a task she
+      // just ticked would have no date and read as an old one — i.e. vanish on
+      // the spot instead of staying put until tomorrow morning.
+      if (p.checked) checkedAt[id] = checkedAt[id] || today();
+      else delete checkedAt[id];
     }
   });
 }
 
 // Adopt a server snapshot (from a poll or from the live stream), keeping our own
 // in-flight writes on top.
-function applyServerState({ tasks: t, checked: c, log }) {
+function applyServerState({ tasks: t, checked: c, log, checkedAt: at }) {
   reconcilePendingChecks(c, log);
   if (Array.isArray(t)) tasks = t;
   if (Array.isArray(c)) checked = new Set(c);
   if (log && typeof log === 'object') taskLog = log;
+  if (at && typeof at === 'object') checkedAt = at;
   applyPendingChecks();
-  localStorage.setItem('assistantCache', JSON.stringify({ tasks, checked: [...checked], log: taskLog }));
+  cacheState();
   render();
+}
+
+function cacheState() {
+  localStorage.setItem('assistantCache', JSON.stringify({
+    tasks, checked: [...checked], log: taskLog, checkedAt,
+  }));
 }
 
 async function load() {
@@ -319,15 +350,19 @@ async function load() {
     tasks = Array.isArray(d.tasks) ? d.tasks : [];
     checked = new Set(Array.isArray(d.checked) ? d.checked : []);
     taskLog = (d.log && typeof d.log === 'object') ? d.log : {};
+    checkedAt = (d.checkedAt && typeof d.checkedAt === 'object') ? d.checkedAt : {};
     applyPendingChecks();
     document.getElementById('offline').style.display = 'none';
-    localStorage.setItem('assistantCache', JSON.stringify({ tasks, checked: [...checked], log: taskLog }));
+    cacheState();
   } catch (e) {
     // Fall back to the last good list so the page is still usable offline.
     document.getElementById('offline').style.display = '';
     try {
       const c = JSON.parse(localStorage.getItem('assistantCache') || 'null');
-      if (c) { tasks = c.tasks || []; checked = new Set(c.checked || []); taskLog = c.log || {}; }
+      if (c) {
+        tasks = c.tasks || []; checked = new Set(c.checked || []);
+        taskLog = c.log || {}; checkedAt = c.checkedAt || {};
+      }
     } catch (_) { /* ignore */ }
   }
   render();
@@ -347,6 +382,7 @@ async function toggle(text) {
     if (days.size) taskLog[id] = [...days].sort(); else delete taskLog[id];
   } else {
     if (nowChecked) checked.add(id); else checked.delete(id);
+    if (nowChecked) checkedAt[id] = today(); else delete checkedAt[id];
   }
   render();
 
@@ -367,7 +403,7 @@ async function toggle(text) {
     // change made on the dashboard until the 30s backstop expired.
     const d = await r.json().catch(() => null);
     if (d && Array.isArray(d.checked)) {
-      applyServerState({ checked: d.checked, log: d.log });
+      applyServerState({ checked: d.checked, log: d.log, checkedAt: d.checkedAt });
     } else {
       pendingChecks.delete(id);
     }
@@ -550,6 +586,7 @@ function openTaskStream() {
         tasks: d.todos ? (d.todos.assistant || []) : undefined,
         checked: d.task_checks?.checked,
         log: d.task_checks?.log,
+        checkedAt: d.task_checks?.checkedAt,
       });
       if (d.timesheet) applyTimesheetState(d.timesheet);
       document.getElementById('offline').style.display = 'none';

@@ -2101,8 +2101,15 @@ if (dragCtx && dragCtx.source === 'plan') { e.preventDefault(); removeFromPlan(d
 
 function renderList(listKey, items, el, progressId) {
 if (!el) return;
+// Assistant Tasks only: finished work sinks to the bottom of the card instead of
+// sitting among the open items, so what's still outstanding reads at a glance.
+// It stays checked and visible here (that is Dan's record of what she got done)
+// until the server's 7-day sweep removes it — her own page clears it sooner.
+const doneLast = listKey === 'assistant';
+const doneRank = (t) => (doneLast && isDone(taskCheckId(listKey, t.text), !!t.recurring) ? 1 : 0);
 const withIdx = items.map((t, i) => ({ t, i }))
-.sort((a, b) => (PRI_ORDER[a.t.priority] ?? 3) - (PRI_ORDER[b.t.priority] ?? 3));
+.sort((a, b) => (doneRank(a.t) - doneRank(b.t))
+|| ((PRI_ORDER[a.t.priority] ?? 3) - (PRI_ORDER[b.t.priority] ?? 3)));
 
 if (!withIdx.length) {
 el.innerHTML = '<li class="empty">No to-dos</li>';

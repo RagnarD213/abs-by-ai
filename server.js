@@ -215,7 +215,7 @@ app.get('/api/morning-data', async (req, res) => {
     }),
     fetchNews().then(d => { result.news = d; }),
     loadTodos().then(d => { result.todos = d; }),
-    loadTaskChecks().then(d => { result.task_checks = { checked: d.checked, log: d.log }; }),
+    loadTaskChecks().then(d => { result.task_checks = { checked: d.checked, log: d.log, checkedAt: d.checkedAt }; }),
     loadPlan().then(d => { result.plan = d; }),
     loadGmailDigest().then(d => { result.gmail = d; }),
   ]);
@@ -948,7 +948,7 @@ app.get('/assistant', (req, res) => {
 
 app.get('/api/assistant-tasks', async (req, res) => {
   const [todos, checks] = await Promise.all([loadTodos(), loadTaskChecks()]);
-  res.json({ tasks: todos.assistant || [], checked: checks.checked, log: checks.log });
+  res.json({ tasks: todos.assistant || [], checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt });
 });
 
 app.post('/api/assistant-tasks', async (req, res) => {
@@ -975,6 +975,84 @@ app.post('/api/assistant-tasks', async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
+// ── Completed assistant work: hide next morning, delete after a week ──
+// Two different lifetimes on purpose, both Dan's call (2026-08-11):
+//   • HER page (/assistant) hides a finished task at 8am the NEXT day. Same-day
+//     it stays struck through so a mis-tap is undoable by her, not only by Dan.
+//     That rule is enforced client-side against HER clock — see assistant.html.
+//   • DAN'S dashboard keeps it, checked, at the bottom of the Assistant card so
+//     he can see what she got done, until this sweep deletes it 7 days later.
+// Recurring assistant tasks are never deleted — they are permanent habits, and
+// they un-check themselves each morning anyway.
+const ASSISTANT_DONE_TTL_DAYS = 7;
+const ASSISTANT_SWEEP_MS = 60 * 60 * 1000;
+
+function serverToday() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function daysBetween(fromDate, toDate) {
+  const [y1, m1, d1] = fromDate.split('-').map(Number);
+  const [y2, m2, d2] = toDate.split('-').map(Number);
+  return Math.round((Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 86400000);
+}
+
+async function assistantDoneSweep() {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const [todos, cur] = await Promise.all([loadTodos({ fresh: true }), loadTaskChecks({ fresh: true })]);
+    const list = todos.assistant || [];
+    if (!list.length) return;
+
+    const today = serverToday();
+    const set = new Set(cur.checked);
+    const checkedAt = { ...cur.checkedAt };
+    const keep = [];
+    const expired = [];
+    let stamped = 0;
+
+    for (const t of list) {
+      const id = `assistant::${t.text}`;
+      if (t.recurring || !set.has(id)) { keep.push(t); continue; }
+      if (!checkedAt[id]) {
+        // Checked before this feature existed, so its completion date is unknown.
+        // Start the clock now rather than deleting work of unknown age.
+        checkedAt[id] = today;
+        stamped++;
+        keep.push(t);
+        continue;
+      }
+      if (daysBetween(checkedAt[id], today) >= ASSISTANT_DONE_TTL_DAYS) {
+        expired.push(t.text);
+        set.delete(id);
+        delete checkedAt[id];
+      } else keep.push(t);
+    }
+
+    if (!expired.length && !stamped) return;
+
+    if (expired.length) {
+      todos.assistant = keep;
+      await saveTodosToGitHub(todos);
+      console.log(`ASSISTANT_DONE_SWEEP removed ${expired.length} task(s) completed ${ASSISTANT_DONE_TTL_DAYS}+ days ago: ${expired.join(' | ')}`);
+    }
+
+    const nextChecked = [...set];
+    const putRes = await putTaskChecks(nextChecked, cur.log, checkedAt, cur.sha);
+    if (putRes.ok) {
+      let sha = null;
+      try { sha = (await putRes.json())?.content?.sha || null; } catch (_) { /* not JSON */ }
+      checksCache = { checked: nextChecked, log: cur.log, checkedAt, sha, fetchedAt: Date.now(), trustUntil: Date.now() + CACHE_TRUST_MS };
+      broadcastTaskState({ task_checks: { checked: nextChecked, log: cur.log, checkedAt } });
+    } else {
+      console.warn('ASSISTANT_DONE_SWEEP could not write task checks:', putRes.status);
+    }
+  } catch (e) {
+    console.error('assistantDoneSweep error:', e.message);
+  }
+}
 
 // ── Time tracker (the assistant's work-session clock) ──
 // One active session at a time, server-timestamped so the elapsed time is
@@ -1234,11 +1312,9 @@ app.post('/api/assign-priority', aiLimiter, async (req, res) => {
 const TASK_CHECKS_FILE = 'task-checks.json';
 
 async function loadTaskChecks(opts) {
-  const empty = { checked: [], log: {}, sha: null };
+  const empty = { checked: [], log: {}, checkedAt: {}, sha: null };
   if (!GITHUB_TOKEN) return empty;
-  if (!opts?.fresh && cacheUsable(checksCache)) {
-    return { checked: checksCache.checked, log: checksCache.log, sha: checksCache.sha };
-  }
+  if (!opts?.fresh && cacheUsable(checksCache)) return snapshotChecks();
   try {
     const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TASK_CHECKS_FILE}`, {
       headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
@@ -1249,6 +1325,9 @@ async function loadTaskChecks(opts) {
     const next = {
       checked: Array.isArray(parsed.checked) ? parsed.checked : [],
       log: (parsed.log && typeof parsed.log === 'object') ? parsed.log : {},
+      // id → "YYYY-MM-DD" the one-off task was checked off. Drives the assistant
+      // page's next-morning hide and the 7-day cleanup of finished assistant work.
+      checkedAt: (parsed.checkedAt && typeof parsed.checkedAt === 'object') ? parsed.checkedAt : {},
       sha: data.sha,
     };
     // Never let a stale CDN read overwrite a value we just wrote ourselves.
@@ -1262,11 +1341,16 @@ async function loadTaskChecks(opts) {
 }
 
 function snapshotChecks() {
-  return { checked: checksCache.checked, log: checksCache.log, sha: checksCache.sha };
+  return {
+    checked: checksCache.checked,
+    log: checksCache.log,
+    checkedAt: checksCache.checkedAt || {},
+    sha: checksCache.sha,
+  };
 }
 
-async function putTaskChecks(checked, log, sha) {
-  const content = Buffer.from(JSON.stringify({ checked, log }, null, 2)).toString('base64');
+async function putTaskChecks(checked, log, checkedAt, sha) {
+  const content = Buffer.from(JSON.stringify({ checked, log, checkedAt }, null, 2)).toString('base64');
   const body = { message: 'Update task checks', content };
   if (sha) body.sha = sha;
   return fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${TASK_CHECKS_FILE}`, {
@@ -1279,15 +1363,15 @@ async function putTaskChecks(checked, log, sha) {
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 app.get('/api/task-checks', async (req, res) => {
-  const { checked, log } = await loadTaskChecks();
-  res.json({ checked, log });
+  const { checked, log, checkedAt } = await loadTaskChecks();
+  res.json({ checked, log, checkedAt });
 });
 
 // Lightweight combined endpoint for cross-device auto-sync (tasks + their state),
 // without the heavy external fetches in /api/morning-data.
 app.get('/api/tasks-state', async (req, res) => {
   const [todos, checks, plan, timesheet] = await Promise.all([loadTodos(), loadTaskChecks(), loadPlan(), loadTimesheet()]);
-  res.json({ todos, task_checks: { checked: checks.checked, log: checks.log }, plan, timesheet: { active: timesheet.active, entries: timesheet.entries } });
+  res.json({ todos, task_checks: { checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt }, plan, timesheet: { active: timesheet.active, entries: timesheet.entries } });
 });
 
 // Live task-state stream. Every open dashboard and /assistant page holds one of
@@ -1308,7 +1392,7 @@ app.get('/api/tasks-events', async (req, res) => {
   // reconnected after a dropped connection) is correct without waiting.
   try {
     const [todos, checks, timesheet] = await Promise.all([loadTodos(), loadTaskChecks(), loadTimesheet()]);
-    res.write(`event: tasks\ndata: ${JSON.stringify({ todos, task_checks: { checked: checks.checked, log: checks.log }, timesheet: { active: timesheet.active } })}\n\n`);
+    res.write(`event: tasks\ndata: ${JSON.stringify({ todos, task_checks: { checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt }, timesheet: { active: timesheet.active } })}\n\n`);
   } catch (e) { /* the client will fall back to polling */ }
 
   // Proxies drop idle connections; a comment frame keeps this one alive.
@@ -1334,23 +1418,29 @@ app.post('/api/task-checks', async (req, res) => {
       const cur = await loadTaskChecks(needFresh ? { fresh: true } : undefined);
       const set = new Set(cur.checked);
       const log = { ...cur.log };
+      const checkedAt = { ...cur.checkedAt };
       if (recurring) {
         const dates = new Set(log[id] || []);
         if (checked) dates.add(date); else dates.delete(date);
         if (dates.size) log[id] = [...dates].sort(); else delete log[id];
       } else {
         if (checked) set.add(id); else set.delete(id);
+        // Record WHEN, from the caller's own local date (both surfaces send it).
+        // Un-checking clears it, so a mis-tap that gets undone starts clean.
+        if (checked) checkedAt[id] = (typeof date === 'string' && DATE_RE.test(date)) ? date : serverToday();
+        else delete checkedAt[id];
       }
       const nextChecked = [...set];
-      const putRes = await putTaskChecks(nextChecked, log, cur.sha);
+      for (const k of Object.keys(checkedAt)) if (!set.has(k)) delete checkedAt[k];
+      const putRes = await putTaskChecks(nextChecked, log, checkedAt, cur.sha);
       if (putRes.ok) {
         // Trust memory over GitHub for the next few seconds — a read during the
         // CDN's consistency window would otherwise hand back the pre-write value.
         let sha = null;
         try { sha = (await putRes.json())?.content?.sha || null; } catch (_) { /* body already consumed or not JSON */ }
-        checksCache = { checked: nextChecked, log, sha, fetchedAt: Date.now(), trustUntil: Date.now() + CACHE_TRUST_MS };
-        broadcastTaskState({ task_checks: { checked: nextChecked, log } });
-        return res.json({ ok: true, checked: nextChecked, log });
+        checksCache = { checked: nextChecked, log, checkedAt, sha, fetchedAt: Date.now(), trustUntil: Date.now() + CACHE_TRUST_MS };
+        broadcastTaskState({ task_checks: { checked: nextChecked, log, checkedAt } });
+        return res.json({ ok: true, checked: nextChecked, log, checkedAt });
       }
       if (putRes.status === 409 || putRes.status === 422) continue; // sha race — reload & retry
       const txt = await putRes.text().catch(() => '');
@@ -9148,7 +9238,11 @@ const WELCOME_SWEEP_MS = 60 * 60 * 1000;
 setTimeout(() => { welcomeSweep(); }, 45 * 1000).unref?.();
 setInterval(() => { welcomeSweep(); }, WELCOME_SWEEP_MS).unref?.();
 
+// Completed-assistant-task cleanup — hourly, first pass shortly after boot.
+setTimeout(() => { assistantDoneSweep(); }, 75 * 1000).unref?.();
+setInterval(() => { assistantDoneSweep(); }, ASSISTANT_SWEEP_MS).unref?.();
+
 // Exposed for tests. Requiring this module also starts the server; tests point
 // DATABASE_URL at pgmem:// and stub the stripe / node-fetch modules.
-module.exports = { app, db, trialReminderSweep, welcomeSweep, fulfillMembershipSession };
+module.exports = { app, db, trialReminderSweep, welcomeSweep, assistantDoneSweep, fulfillMembershipSession };
 
