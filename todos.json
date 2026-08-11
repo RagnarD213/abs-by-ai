@@ -197,6 +197,12 @@
       "priority": "key",
       "why": "handoff-20260811-sixpackabs-skin-revisions.md — created but not yet run",
       "addedAt": "2026-08-11"
+    },
+    {
+      "text": "Post on: Instagram, Facebook, TikTok",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-11"
     }
   ],
   "health": [
