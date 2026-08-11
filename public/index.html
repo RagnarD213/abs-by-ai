@@ -2879,22 +2879,28 @@ try { if (window.posthog && typeof posthog.register === 'function') posthog.regi
   canon.href = 'https://absbyai.com/';
   document.head.appendChild(canon);
   document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]').forEach(function (l) { l.href = '/img/sixpackabs-icon-192.png'; });
-  document.querySelectorAll('.app-icon').forEach(function (img) { img.src = 'img/sixpackabs-icon-192.png'; });
-  document.querySelectorAll('.app-name').forEach(function (el) { el.textContent = 'SixPackAbs.com'; });
+  // The header carries the real SixPackAbs wordmark image rather than the name
+  // typed in Manrope, so the brand's own lettering is what people see. The
+  // wordmark webp is transparent with near-black marks, which reads as a
+  // floating smudge on the page's warm off-white — hence the soft grey plate.
+  // Sizing is set inline here so the shared .app-icon rule (a 22px square
+  // icon on absbyai.com) is left completely untouched.
+  document.querySelectorAll('.app-icon').forEach(function (img) {
+    img.src = 'img/sixpackabs-logo.webp';
+    img.alt = 'SixPackAbs.com';
+    img.style.cssText = 'height:19px;width:auto;background:#e3e1db;padding:7px 11px;border-radius:9px;box-sizing:content-box';
+  });
+  document.querySelectorAll('.app-name').forEach(function (el) { el.style.display = 'none'; });
   var hero = document.getElementById('formMarketingHero');
   if (hero) {
     var h1 = hero.querySelector('.hero-h1');
     var sub = hero.querySelector('.hero-sub');
-    if (h1) h1.textContent = 'SixPackAbs is back.';
+    if (h1) h1.textContent = 'Welcome To The New, AI Powered SixPackAbs.com';
     if (sub) {
-      sub.innerHTML = 'From the original founder of SixPackAbs.com. Upload one photo and our AI shows you <em>yourself</em> with a six-pack — then builds the training and nutrition plan to make it real.';
-      var trust = document.createElement('div');
-      trust.style.cssText = 'font-size:12px;color:var(--faint);font-weight:600;margin-bottom:10px';
-      trust.textContent = 'Same company. Same mission. New technology.';
-      sub.insertAdjacentElement('afterend', trust);
+      sub.innerHTML = 'Upload one photo and our AI shows you <em>yourself</em> with a six-pack — then builds the training and nutrition plan to make it real.';
     }
     var note = hero.querySelector('.hero-product-note');
-    if (note) note.innerHTML = 'Upload a photo and SixPackAbs generates an AI image of your goal. It’s a visualization and motivation tool — <strong>the images are AI-generated, not real results.</strong>';
+    if (note) note.innerHTML = 'Upload a photo and SixPackAbs generates an AI image of your goal. It’s a visualization and motivation tool — <strong>the images are AI-generated, not real results.</strong> Created by Daniel Rose, one of the original founders of Six Pack Shortcuts and SixPackAbs.com.';
   }
   var formFooter = document.querySelector('#formSection .footer');
   if (formFooter) {
