@@ -133,6 +133,22 @@ Finished work piled up forever on `absbyai.com/assistant`. Dan's spec, given in 
 
 **No native retest trigger row touched** — task-board API and two internal pages, no product surface. **No dashboard task matched this work** (all four lists searched — the only near hit, `business::Train Brittany for Assistant Tasks`, is her training, not this feature), so nothing was checked off per Rule 9, and no handoff was created, so Rule 8 does not apply.
 
+### Orphaned Supplement Audit jobs — FIXED, SHIPPED, live-verified (2026-08-11, Claude Code, commit `062d1e6`)
+
+Executes `Handoffs/handoff-20260811-audit-orphaned-jobs-sweep.md`. Closes the failure mode the entry below found: a Railway restart mid-audit killed the detached job while its `audit_jobs` row stayed `running` **forever**, so the app polled something that could never finish. Two changes, `server.js` only.
+
+**1. `sweepOrphanedAuditJobs()`** — one `UPDATE` marking `running` rows older than **15 minutes** as `error` with *"The audit was interrupted by a server restart — please run it again."* (the audit is free, so a retry costs the user nothing). Runs 20s after boot — a restart is exactly what orphans a row — **and every 10 minutes**, which is the part that matters: a job orphaned less than 15 minutes before the restart is invisible to the boot pass and would otherwise sit stuck until some *later* deploy. The query is idempotent, so the interval is free. Postgres path only; `auditJobsMem` needs no sweep because a restart empties it along with the jobs. **Deliberately does NOT re-run the audit** — the intake payload isn't on the job row and a silent re-run would double the model spend.
+
+**2. The 4-minute abort bound now covers the response BODY.** `clearTimeout(timer)` sat in a `finally` **before** `await response.json()`, so a response whose headers arrived but whose body stalled hung unboundedly — the same bug class `751fe7b` was meant to close, and the likely reason the orphaned prod job was already past its ~8-min two-attempt worst case before the deploy killed it. The parse moved inside the guarded block; an aborted body read now rejects, which is what engages `callSeatResilient`'s retry and then the job's error state.
+
+**Verified — 16 assertions driving the real `server.js` over HTTP** with `node-fetch` stubbed in the **require cache** (a `globalThis.fetch` patch does not reach it) and pg-mem: the sweep errors a 20-min-old row while leaving a 2-min-old one `running` and an old `done` row untouched, the poll endpoint returns the retry copy, a second sweep reports 0, a user-owned stale row is still 404 to an anonymous caller, a stalled body aborts on **both** attempts and lands the job at `error`, and a normal audit still completes and is not swept. **The body-stall test was proven discriminating** by re-running it against the pre-fix ordering: the job stayed at `running` and zero aborts fired. Harness gotchas: pg-mem's AST-coverage check rejects the real `users` DDL (`newDb({ noAstCoverageCheck: true })`), and the 240000 ms bound has to be shrunk via a `global.setTimeout` wrapper or the stall case takes 8 real minutes.
+
+**Live on production.** The still-orphaned row `25a3b890-797d-444d-a6c8-c96c27e8c9b9` was the fixture: `{"status":"running"}` before the deploy, `{"status":"error","error":"The audit was interrupted by a server restart — please run it again."}` ~45s after it booted. Then a real anonymous 3-item audit end to end: **112s, `status:"done"`, `locked:true`** with a sensible verdict — happy path unaffected. `/health` ok.
+
+**No native retest trigger row touched** — server-side job plumbing, no UI, inputs, layout or purchase surface. **Dashboard: `money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs` CHECKED OFF** (Rule 9), verified in the `checked` array.
+
+**Still open, deliberately not touched** (recorded in the handoff as out of scope): `pollAuditJobLoop` gives up at 5 minutes while the server worst case is ~8, so a slow-but-healthy audit can still outlive the client's patience.
+
 ### Supplement Audit end-to-end test — PASSED on production; one orphaned-job failure mode found (2026-08-11, Claude Code)
 
 Executes the dashboard task `money::Test supplement audit functionality`. **No product code changed.** Three real anonymous audits were run against prod `/api/counsel` (the audit is free for everyone, so no credits and no deviceId are involved — nothing to avoid consuming).
