@@ -21,7 +21,8 @@
     "money::Book spray tan",
     "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs",
     "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)",
-    "money::Post on: Instagram, Facebook, TikTok"
+    "money::Post on: Instagram, Facebook, TikTok",
+    "assistant::Find tiles to match tiles we are removing from shower. Have Dan approve then order"
   ],
   "log": {
     "health::Shower": [
@@ -162,6 +163,7 @@
     "money::Book spray tan": "2026-08-11",
     "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs": "2026-08-11",
     "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)": "2026-08-11",
-    "money::Post on: Instagram, Facebook, TikTok": "2026-08-11"
+    "money::Post on: Instagram, Facebook, TikTok": "2026-08-11",
+    "assistant::Find tiles to match tiles we are removing from shower. Have Dan approve then order": "2026-08-11"
   }
 }
