@@ -411,6 +411,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Find tiles to match tiles we are removing from shower. Have Dan approve then order",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-11"
     }
   ]
 }
