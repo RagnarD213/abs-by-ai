@@ -1,6 +1,9 @@
 {
   "date": "2026-08-11",
-  "order": [],
+  "order": [
+    "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)",
+    "money::Post on: Instagram, Facebook, TikTok"
+  ],
   "excluded": [
     "money::Reschedule Friday shoot to 11 - 6",
     "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
@@ -11,7 +14,8 @@
     "money::Submit Google Ads suspension appeal (account 342-717-0837)",
     "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
     "money::Schedule next photo shoot",
-    "money::Book spray tan"
+    "money::Book spray tan",
+    "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs"
   ],
-  "sessionsCompleted": 3
+  "sessionsCompleted": 4
 }
