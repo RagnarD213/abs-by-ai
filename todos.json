@@ -454,6 +454,13 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-11"
+    },
+    {
+      "text": "Clean master bathroom toilet",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-08-11",
+      "addedBy": "assistant"
     }
   ]
 }
