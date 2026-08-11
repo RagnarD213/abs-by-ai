@@ -84,6 +84,12 @@ for m in man:
             [(TH_W - cw) // 2 - 3, (TH_H - card.height) // 2 - 3,
              (TH_W + cw) // 2 + 2, (TH_H + card.height) // 2 + 2],
             outline=(140, 152, 88), width=2)
+    elif spec.get('zoom'):
+        # 87% of the height from the top; 9:16 of that height for the width
+        ch = H * 940 / 1080
+        cw = ch * 9 / 16
+        x0 = min(max(chosen[m['name']] * W - cw / 2, 0), W - cw)
+        tile = im.crop((round(x0), 0, round(x0 + cw), round(ch))).resize((TH_W, TH_H), Image.LANCZOS)
     else:
         cw = W * CROP_FRAC
         x0 = min(max(chosen[m['name']] * W - cw / 2, 0), W - cw)
@@ -94,8 +100,11 @@ for m in man:
     d = ImageDraw.Draw(out)
     colour = {'talk': (150, 220, 150), 'broll': (230, 230, 230),
               'card': (255, 200, 90), 'pip': (255, 120, 120)}[spec['t']]
+    if spec.get('zoom'):
+        colour = (120, 200, 255)
     d.text((4, TH_H + 2), m['name'][:14], font=font, fill=colour)
-    d.text((4, TH_H + 17), f"{spec['t']} x={chosen[m['name']]:.2f}", font=font, fill=colour)
+    tag = spec['t'] + ('/zoom' if spec.get('zoom') else '')
+    d.text((4, TH_H + 17), f"{tag} x={chosen[m['name']]:.2f}", font=font, fill=colour)
     tiles.append(out)
 
 rows = (len(tiles) + COLS - 1) // COLS

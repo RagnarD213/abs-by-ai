@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const words = JSON.parse(
-  fs.readFileSync(path.join(__dirname, 'v2-words.json'), 'utf8')
+  fs.readFileSync(path.join(__dirname, '<slug>-words.json'  // set per video), 'utf8')
 ).chunks;
 
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -58,6 +58,12 @@ const SILENCE = (() => {
 // Cut point just BEFORE speech starts at `t`. `floor` is the end of the previous word:
 // the snap may never cross it, or a sub-threshold gap between two sentences sends the
 // search back past a whole phrase (this is what dragged "...they get started" into D).
+//
+// The lookahead is deliberately TIGHT (0.20). Widening it to catch pauses hidden inside
+// Whisper-inflated words was tried and is WORSE: it starts the clip 0.3-0.5s late and
+// clips the first word instead ("This" 48%, "use" 47%). Where a boundary has no measured
+// silence, move the editorial in/out point to where Dan actually breathes -- or set
+// inAt/outAt explicitly -- rather than loosening this.
 function snapIn(t, floor, preroll = 0.22) {
   let best = null;
   for (const [a, b] of SILENCE) {
@@ -78,67 +84,120 @@ function snapOut(t, ceil, tail = 0.34) {
   return Math.min(t + 0.12, ceil + 0.05);
 }
 
+const BAD = [];
 // A piece = continuous run of source video, from the START of `from` to the END of `to`.
-function piece(from, to = from, { nthFrom = 0, nthTo = 0 } = {}) {
+// `inAt` forces an explicit in-point. Needed where Whisper inflates a short word
+// across a real pause (V6 "the" = 148.28-149.00 hides a measured 148.44-148.63 gap),
+// so the word timestamp says "no silence here" while the audio plainly has one.
+// The silence assertion below still applies, so this can't smuggle in a bad cut.
+function piece(from, to = from, { nthFrom = 0, nthTo = 0, tail = 0.34, preroll = 0.22, inAt = null, outAt = null } = {}) {
   const f = find(from, nthFrom);
   const t = find(to, nthTo);
   if (t.t1 <= f.t0) throw new Error(`"${to}" ends before "${from}" starts`);
   const prev = words[f.a - 1];
   const next = words[t.b + 1];
-  const start = snapIn(f.t0, prev ? prev.timestamp[1] : 0);
-  const end = snapOut(t.t1, next ? next.timestamp[0] : t.t1 + 0.4);
+  const start = inAt !== null ? inAt : snapIn(f.t0, prev ? prev.timestamp[1] : 0, preroll);
+  const end = outAt !== null ? outAt : snapOut(t.t1, next ? next.timestamp[0] : t.t1 + 0.4, tail);
   if (end <= start) throw new Error(`snapped cut collapsed for "${from}"`);
+  // Step 3 of the skill: a cut that is NOT inside measured silence clips a syllable.
+  // Assert it rather than trusting the snap helpers' fallback branches.
+  const inSilence = (t) => SILENCE.some(([a, b]) => t >= a - 0.02 && t <= b + 0.02);
+  if (!inSilence(start)) { const m = `IN cut ${start.toFixed(2)}s not in silence: "${from}"`;
+    if (process.env.REPORT) BAD.push(m); else throw new Error(m); }
+  if (!inSilence(end)) { const m = `OUT cut ${end.toFixed(2)}s not in silence: "${to}"`;
+    if (process.env.REPORT) BAD.push(m); else throw new Error(m); }
   return { start: +start.toFixed(2), end: +end.toFixed(2), from, to };
 }
 
 const SEGMENTS = [
   {
-    id: 'A', slug: 'sean-ray-vision-board',
-    title: 'The Vision Board That Built Mike Chang',
-    pieces: [piece('I remember when I met Mike Chang', 'this is real')],
-  },
-  {
-    id: 'B', slug: 'sugar-free-gum-trick',
-    title: 'The AI Trick That Killed My Late-Night Snacking',
-    // Deliberately skips the marijuana/alcohol clause: setup line, hard cut, then the payoff.
+    id: 'A', slug: 'no-abs-until-you-see-abs',
+    title: 'Stop Doing Ab Exercises',
     pieces: [
-      piece('You can also tell AI about the cheap foods that are the biggest problem for you'),
-      piece('So what I do now, based on the advice of AI', 'that AI has helped me'),
+      piece("don't do any ab exercises until you can see your abs",
+            'to save you a whole lot of time', { inAt: 126.14 }),
+      piece("But if you're fat, on the other hand", "that's what generates that effect"),
     ],
   },
   {
-    id: 'D', slug: 'ask-ai-to-interview-you',
-    title: 'Ask The AI To Interview YOU',
-    pieces: [piece('Not only that, after they answer all those questions',
-                   'the key to designing a great workout program with AI, deep context')],
+    id: 'B', slug: 'vacuum-exercises',
+    title: 'Do This Instead Of Crunches',
+    pieces: [piece('use vacuum exercises instead of traditional ab exercises',
+                   'that will make your belly fat look smaller', { inAt: 247.88 })],
   },
   {
-    id: 'E', slug: 'supplements-3-percent',
-    title: 'Supplements Are Only 3% Of Your Results',
-    pieces: [piece('Back in the 80s and the 90s', 'and still getting great results')],
+    id: 'C', slug: 'bubble-gut-vacuums',
+    title: 'Why Bodybuilders Suck Their Stomach In',
+    pieces: [piece('Furthermore, the type of people who do this ab exercise are typically bodybuilders',
+                   "it's just that beginners typically don't do it")],
   },
   {
-    id: 'G', slug: 'hire-a-maid-not-a-trainer',
-    title: 'Hire A Maid, Not A Personal Trainer',
-    pieces: [piece('Human personal trainers are extremely expensive', 'Use free AI tools instead')],
+    id: 'D', slug: 'liquid-calories-milk',
+    title: 'Milk Is Not A Health Food',
+    pieces: [piece('avoid all liquid calories, including protein shakes',
+                   "That's why I don't consume any milk")],
   },
   {
-    id: 'I', slug: 'macro-tracking-obsolete',
-    title: 'The Old Way To Track Macros Is Obsolete',
+    id: 'E', slug: 'whey-protein-insulin',
+    title: 'Whey Protein Is Making You Fat',
+    // Must include the leading "Now," -- without it the previous-word floor sits AFTER
+    // the 477.43-477.70 pause and snapIn falls through to its no-silence fallback.
+    pieces: [piece("Now, a lot of people don't know this, but whey protein can actually spike your insulin",
+                   'you should avoid the whey protein and any kind of liquid calorie')],
+  },
+  {
+    id: 'F', slug: 'jelly-bean-vs-soda',
+    title: 'Jelly Beans Beat Soda',
+    pieces: [piece("And here's a study to kind of drive this home for you guys",
+                   'the same amount of sugar and solid calories')],
+  },
+  {
+    id: 'G', slug: 'fast-until-2pm',
+    title: 'Why I Skip Breakfast Every Day',
     pieces: [
-      piece('AI can track your macros', 'all your macros in one place'),
-      piece('I personally, however, have always been an opponent', 'doing no tracking at all'),
+      piece('fast until 2 p.m.', 'come down to consuming fewer calories'),
+      piece('On the other hand, if you fast until 2 p.m., skip breakfast',
+            'to sustain a lean body and six pack abs'),
     ],
   },
   {
-    id: 'J', slug: 'chicken-soup-trick',
-    title: 'Make AI Macro Estimates Way More Accurate',
-    pieces: [piece("Here's another way that you can make these AI macro estimates more accurate",
-                   "what's in the soup")],
+    id: 'H', slug: 'break-fast-low-carb',
+    title: 'Never Start Your Day With Carbs',
+    pieces: [
+      piece('break your fast with a low-carb meal or salad',
+            "here's why you want to do this"),
+      piece('If you break your fast with a low carb meal', 'you break that cycle'),
+    ],
+  },
+  {
+    id: 'I', slug: 'weigh-yourself-every-day',
+    title: 'If You Ain\'t Tracking, You\'re Slacking',
+    pieces: [
+      piece('weigh yourself every day, even on vacation, no exceptions',
+            'what gets measured gets managed'),
+      // Must start at the Brandon Carter attribution: opening on "What he says..."
+      // leaves the pronoun with no antecedent in a standalone short.
+      piece("So I've changed that to a new way of saying it that I learned from Brandon Carter",
+            'if you let things slide to that point'),
+    ],
+  },
+  {
+    id: 'K', slug: 'eight-hours-is-not-sleep',
+    title: '8 Hours In Bed Is Not 8 Hours Of Sleep',
+    pieces: [piece('use a sleep tracker to track and improve your sleep',
+                   'or these more sophisticated metrics')],
+  },
+  {
+    id: 'L', slug: 'train-abs-every-day',
+    title: 'Train Abs EVERY Single Day',
+    pieces: [piece('Once you are lean, train abs every day to maximize your ab definition',
+                   'with my drop sets as well')],
   },
 ];
 
-module.exports = { SEGMENTS, words, find };
+module.exports = { SEGMENTS, words, find, BAD, SILENCE };
+if (process.env.REPORT && BAD.length) { console.log('\nUNSNAPPED:'); BAD.forEach(b=>console.log('  '+b)); }
+
 
 if (require.main === module) {
   let total = 0;

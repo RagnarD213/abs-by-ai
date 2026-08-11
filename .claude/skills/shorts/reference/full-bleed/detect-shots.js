@@ -7,7 +7,7 @@ const { execFileSync, spawnSync } = require('child_process');
 const { SEGMENTS } = require('./segments.js');
 
 const FF = path.join(__dirname, '../../ad-factory/the-upload/node_modules/ffmpeg-static/ffmpeg');
-const SRC = path.join(__dirname, '../V2 - How To Get Real Six Pack Abs With AI(2) - READY FOR UPLOAD.mp4');
+const SRC = path.join(__dirname, '../<SOURCE VIDEO>.mp4');  // set per video
 const OUT = path.join(__dirname, 'shots');
 fs.mkdirSync(OUT, { recursive: true });
 

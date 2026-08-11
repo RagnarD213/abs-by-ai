@@ -30,16 +30,22 @@ Paths inside them are relative to `YouTube Long Form Video Content/<slug>/` — 
 
 ## Step 0 — what has already been mined
 
-Check before starting. As of 2026-08-10:
+Check before starting. As of 2026-08-10 **every long-form video has been mined; there is
+nothing left to cut** unless a new video is shot.
 
 | Video | Status |
 |---|---|
 | V1 channel intro | **Deliberately none** — Dan 2026-08-04, "the intro is promise, not payload" |
 | V2 six ways AI abs | 7 shorts, delivered `v2-short1..7_*` |
-| V3 My Top 10 Tips | **unmined — biggest remaining yield (up to 10), needs a Whisper pass first** |
+| V3 My Top 10 Tips | **11 shorts, `v3-short1..11_*`** (2026-08-10) |
 | V4 1-minute ab workout | 5 shorts, `short1..5_*`; short1 rebuilt with the band layout |
-| V5 | skip — same footage as V4 |
-| V6 / V7 3-min home workout | unmined |
+| V5 | skip — workout-only cut of V4, no narration |
+| V6 3-min home workout | **5 shorts, `v6-short1..5_*`** (2026-08-10) |
+| V7 | skip — workout-only cut of V6, no narration |
+
+**V5 and V7 are music/rep-count only.** Their Whisper transcripts come back as pages of
+`"Hey. Hey. Hey."` — that is not a transcription failure, there is no speech. They cannot
+yield a talking Short, but they do hold clean uninterrupted exercise demos usable as b-roll.
 
 ## Step 1 — transcript with WORD timestamps
 
@@ -77,7 +83,24 @@ ffmpeg -i SRC -vn -af "silencedetect=noise=-26dB:d=0.05" -f null -
 - **Bound the snap to the neighbouring word.** Without a bound, a sub-threshold gap between
   two sentences sends the search back past a whole phrase — on V2 this dragged
   "…they get started" into the front of a short.
-- **Assert every cut lands inside a silence interval** before rendering. `segments.js` does.
+- **Assert every cut lands inside a silence interval** before rendering, and run the
+  assertion in a REPORT mode that lists every failure at once. Fixing them one-per-run is
+  slow: V3+V6 had seven.
+
+**Whisper inflates short words across real pauses, and its timestamps then deny the pause
+exists.** V6 times `"the"` at 148.28–149.00 while the audio is measurably silent
+148.44–148.63. This is the single biggest source of failed cut points. **Measured silence is
+ground truth; the word timestamp is not.** Give `piece()` `inAt`/`outAt` overrides for these
+— the silence assertion still applies to an override, so it cannot smuggle in a bad cut.
+
+**Do NOT fix it by widening the snap lookahead.** Tried on V3+V6 and it is strictly worse:
+it starts the clip 0.3–0.5s late and clips the FIRST word instead ("This" 48%, "use" 47%).
+Keep the snap tight and move the editorial in/out point.
+
+**Some sentences have no cut point at all.** `"deadlifts."` runs into `"All right"` with a
+*zero-length* gap; `"excuses."` into `"If"`. When that happens, end the short on an earlier
+complete thought rather than forcing a cut through speech. Three of the 16 V3/V6 shorts
+ended earlier than first planned for exactly this reason, and all three are better for it.
 
 ## Step 4 — shot-detect and classify EVERY shot
 
@@ -95,6 +118,34 @@ window drawn on**, and classify every one:
 **Never crop through a graphic.** Cropping plain footage looks like a vertical video;
 cropping through text looks broken. If meaning depends on seeing the whole frame — a
 lower third, a phone UI, a readout, or a **horizontal pose like a plank** — it is a card.
+
+**A third-party clip with an on-screen credit is a card, always.** V3 uses footage carrying
+`@FraserWilsonFit` and `@ChrisBumstead` in the bottom-right; a 9:16 crop deletes the
+attribution. Preserving it is both the safer and the honest call.
+
+**Crop a card to its real content if the frame is mostly flat fill.** V3's bubble-gut photo
+is 70% white surround and a designed graphic was 65% black, so scaling the whole frame put a
+postage stamp inside a big empty card. Measure the non-flat bounding box, crop to it, and
+scale with `force_original_aspect_ratio=decrease` so a cropped card is never stretched.
+
+**Do not judge a shot from one frame.** The contact sheet samples the shot MIDPOINT, which
+missed a burned-in lower-third on two long V3 takes where the bar is only up for the first
+4–5s. Scan candidate shots end-to-end. Expect false positives too — the same scan flagged
+six bright-but-clean b-roll shots (white rocks, glassware, lab coats) that had to be
+rejected by eye.
+
+### `zoom` — the variant for a burned-in bottom lower-third
+
+V3 burns a chapter lower-third across the bottom of each tip's opening shot. It occupies
+source rows **888–978** (measured on five separate tips, identical every time), so a
+full-height 9:16 window slices it mid-sentence, half-visible under our own captions.
+
+`zoom: true` crops **496x880 from the TOP** instead of the full height, dropping the band
+entirely for ~18% of the headroom. Measure the band before picking the number — an
+initial 940 (87%) still included it and looked fine on the sheet until asserted.
+
+Zoom the WHOLE shot, even a 43s one. A mid-shot pull-out reads as a mistake; the viewer
+never sees the wider framing, so a consistently tighter shot costs nothing.
 
 ## Step 5 — crop offsets: automate, then LOOK
 
@@ -157,6 +208,26 @@ punctuation or a >0.6s gap. Uppercase `ABS` and `AI`.
   get captions for audio nobody hears.
 - **Close spaced punctuation.** Whisper tokenises "p.m." as `["p", ".m."]`, which joins to
   "11 p .m.". Regex `\s+([.,!?%])` → `$1`.
+- **That regex is not enough on its own — a chunk boundary can fall between the two tokens.**
+  A V3 short opened on a caption reading just `.m.`, because "2 p" ended one chunk and ".m."
+  began the next, so the within-chunk regex never saw them together. **Merge any token that
+  begins with punctuation into the previous token BEFORE chunking.** The same fix cleaned up
+  "90%" and "sixpackabs.com".
+
+## Step 8b — bleeping a word
+
+Dan may ask for a word to be censored (V3 short 11, "steroids", his call). Two halves, both
+required:
+
+- **Audio.** Mute the span and mix in a 1 kHz tone. **ffmpeg's `sine` source emits at
+  amplitude 0.125 (−18 dBFS), not full scale** — a naive `volume=0.20` produced a bleep 11x
+  quieter than the dialogue. `volume=2.0` puts it just above speech.
+- **Captions.** Replace the word with `[BLEEP]`. Bleeping the audio while printing the word
+  in 86pt letters defeats the entire point.
+
+Keep the windows in SOURCE time in a `bleeps.js` and shift them into piece-local time at
+render, so re-cutting a segment cannot silently move a bleep off its word. Pad the Whisper
+span by ~50ms — under-covering the target is the worse failure.
 
 ## Step 9 — render architecture
 
@@ -179,7 +250,15 @@ no black frames, last caption inside the video, and no click at any splice.
 either side of a join always looks like a huge step, because the cut is deliberately in
 silence and speech follows. Peak-across-the-join fails the same way. The correct measure is
 **discontinuity**: max sample-to-sample jump at the join vs. the same measure at four
-control points in the same file. Healthy joins score **~0.1×** control.
+control points in the same file. Healthy joins score **~0.1×** control (V3/V6 measured
+0.03–0.70×).
+
+**Assert the bleeps too**, in the finished file: a ~1 kHz tone at the right output times,
+and the word absent from the `.ass`. Use a Goertzel at 1 kHz — but **normalise it correctly**:
+a Hann window has coherent gain 0.5, so a pure sine scores 0.707 on a naive `magnitude/rms`
+and a verified-pure tone gets flagged as impure. Against `rms*sqrt(1/2)` a pure tone reads
+1.00 and speech 0.01. The first version of this check failed a bleep that was already
+perfect — when a QC metric fails, confirm the metric before "fixing" the media.
 
 Then look at a contact sheet of every card/pip moment from the **finished file**. That is
 the check against the actual requirement.

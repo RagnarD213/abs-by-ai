@@ -6,6 +6,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const { SEGMENTS } = require('./segments.js');
 const { loadShots } = require('./plan.js');
+const { BLEEPS, BLEEP_WORDS } = require('./bleeps.js');
 
 const FF = path.join(__dirname, '../../ad-factory/the-upload/node_modules/ffmpeg-static/ffmpeg');
 const FP = path.join(__dirname, '../../Media/video_edit/bin/ffprobe');
@@ -78,7 +79,48 @@ for (const seg of SEGMENTS) {
     }
   }
 
+  // Bleeps: assert the censored window really is a ~1kHz tone in the FINISHED file, and
+  // that the word never appears in the burned-in captions.
+  const segBleeps = BLEEPS[seg.id] || [];
+  if (segBleeps.length) {
+    let off = 0, outWins = [];
+    for (const p of seg.pieces) {
+      for (const b of segBleeps) {
+        if (b[1] > p.start && b[0] < p.end) {
+          outWins.push([off + Math.max(0, b[0] - p.start), off + Math.min(p.end - p.start, b[1] - p.start)]);
+        }
+      }
+      off += p.end - p.start;
+    }
+    for (const [a0, b0] of outWins) {
+      const r = spawnSync(FF, ['-hide_banner', '-loglevel', 'error', '-ss', String(a0 + 0.04),
+        '-i', f, '-t', String(Math.max(0.12, b0 - a0 - 0.08)), '-vn', '-ac', '1', '-ar', '48000',
+        '-f', 's16le', '-'], { maxBuffer: 32 * 1024 * 1024 });
+      const buf = r.stdout; const N = Math.floor(buf.length / 2);
+      const x = new Float64Array(N);
+      for (let k = 0; k < N; k++) x[k] = buf.readInt16LE(k * 2) / 32768;
+      // Goertzel at 1000 Hz vs total energy — a cheap purity test, no FFT needed.
+      const w = 2 * Math.PI * 1000 / 48000; const coeff = 2 * Math.cos(w);
+      let s1 = 0, s2 = 0, tot = 0;
+      for (let k = 0; k < N; k++) { const v = x[k] * (0.5 - 0.5 * Math.cos(2 * Math.PI * k / (N - 1)));
+        const s0 = v + coeff * s1 - s2; s2 = s1; s1 = s0; tot += x[k] * x[k]; }
+      const mag = Math.sqrt(s1 * s1 + s2 * s2 - coeff * s1 * s2) / (N / 2);
+      const rms = Math.sqrt(tot / N);
+      // A Hann window has coherent gain 0.5, so a PURE sine of rms R yields a Goertzel
+      // magnitude of R*sqrt(2)*0.5 = 0.707R, not R. Normalising against that puts a pure
+      // tone at 1.0 and broadband speech near 0. (The first version compared mag/rms and
+      // flagged a verified-pure 1kHz tone as impure at 0.71 -- the metric was wrong, not
+      // the audio.)
+      const purity = mag / Math.max(1e-9, rms * Math.SQRT1_2);
+      console.log(`   bleep ${a0.toFixed(2)}-${b0.toFixed(2)}s: 1kHz mag ${mag.toFixed(3)}, rms ${rms.toFixed(3)}, purity ${purity.toFixed(2)}`);
+      check(purity > 0.85 && rms > 0.03, `bleep at ${a0.toFixed(2)}s is not a clear audible 1kHz tone`);
+    }
+  }
+
   const ass = fs.readFileSync(path.join(__dirname, 'build', seg.id, `${seg.id}.ass`), 'utf8');
+  for (const w of (BLEEP_WORDS[seg.id] || [])) {
+    check(!new RegExp(`\\b${w}\\b`, 'i').test(ass), `captions still print the bleeped word "${w}"`);
+  }
   const n = (ass.match(/^Dialogue:/gm) || []).length;
   const last = [...ass.matchAll(/^Dialogue: 0,\d:(\d\d):(\d\d\.\d\d)/gm)].pop();
   const lastT = last ? +last[1] * 60 + +last[2] : 0;

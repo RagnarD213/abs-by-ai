@@ -5,6 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const { SEGMENTS, words } = require('./segments.js');
+const { BLEEP_WORDS } = require('./bleeps.js');
 
 const t2ass = (t) => {
   const h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60);
@@ -35,7 +36,21 @@ function segWords(seg) {
 }
 
 function buildAss(seg) {
-  const ws = segWords(seg);
+  const raw = segWords(seg);
+  // Whisper tokenises "2 p.m." as ["2", "p", ".m."]. The existing regex re-closes the
+  // space only WITHIN a caption chunk; when the chunk boundary fell between "p" and
+  // ".m." the short opened on a caption reading just ".m.". Merge any token that begins
+  // with punctuation into the one before it, before chunking.
+  const ws = [];
+  for (const w of raw) {
+    const prev = ws[ws.length - 1];
+    if (prev && /^\s*[.,!?%]/.test(w.text)) {
+      prev.text = prev.text.replace(/\s+$/, '') + w.text.trim();
+      prev.timestamp = [prev.timestamp[0], w.timestamp[1]];
+    } else {
+      ws.push({ text: w.text, timestamp: [...w.timestamp] });
+    }
+  }
   const chunks = [];
   let cur = [];
   const flush = () => { if (cur.length) { chunks.push(cur); cur = []; } };
@@ -62,6 +77,11 @@ function buildAss(seg) {
     // punctuation that ended up with a space in front of it.
     text = text.replace(/\s+([.,!?%])/g, '$1').replace(/\s{2,}/g, ' ').trim();
     text = text.replace(/\babs\b/gi, 'ABS').replace(/\bai\b/gi, 'AI');
+    // Bleeping the audio but printing the word in 86pt captions would defeat the point.
+    // BLEEP_WORDS is per-segment so it only masks where the audio is actually bleeped.
+    for (const w of (BLEEP_WORDS[seg.id] || [])) {
+      text = text.replace(new RegExp(`\\b${w}\\b`, 'gi'), '[BLEEP]');
+    }
     events.push(`Dialogue: 0,${t2ass(start)},${t2ass(end)},Cap,,0,0,0,,${text}`);
   });
 

@@ -1,37 +1,50 @@
 {
-  "canvas": [1080, 1920],
+  "canvas": [
+    1080,
+    1920
+  ],
   "note": "Single source of truth for frame geometry. preview.py and render.js BOTH read this, so what is reviewed is what is rendered.",
-
   "talk": {
     "cropW": 608,
-    "note": "9:16 window on a 1920x1080 frame is 607.5px; 608 keeps it even. 0.09% aspect error."
+    "note": "9:16 window on a 1920x1080 frame is 607.5px; 608 keeps it even. 0.09% aspect error.",
+    "zoomH": 880,
+    "zoomW": 496,
+    "zoomNote": "zoom:true crops 880 of the 1080 source height from the TOP. MEASURED, not guessed: V3's chapter lower-third occupies rows 888-978 on every tip's opening shot, so any crop taller than 888 leaves it half-visible under our captions. 496x880 is 9:16 to within 0.2%. The framing has the headroom to spare - the presenter's head starts around row 137."
   },
-
   "card": {
-    "w": 1000, "h": 562, "x": 40, "y": 420,
-    "chipY": 1012, "chipH": 64,
-    "note": "Whole 16:9 frame, nothing cropped. Enlarged from the J2 spec's 968-wide. Sits at y=420 rather than centred because the caption band (ASS MarginV 690) starts around y=1150 — a centred card ran underneath it.",
+    "w": 1000,
+    "h": 562,
+    "x": 40,
+    "y": 420,
+    "chipY": 1012,
+    "chipH": 64,
+    "note": "Whole 16:9 frame, nothing cropped. Enlarged from the J2 spec's 968-wide. Sits at y=420 rather than centred because the caption band (ASS MarginV 690) starts around y=1150 \u2014 a centred card ran underneath it.",
     "labels": {
-      "B-p1-s01": "ALARM: 11:00 PM",
-      "I-p0-s00": "STRATEGY 02: TRACK MACROS",
-      "I-p0-s05": "OUTPUT: FULL MACRO BREAKDOWN",
-      "I-p1-s01": "THE OLD WAY: SCALE + CALCULATOR",
-      "J-p0-s00": "INPUT: ONE PHOTO"
+      "B-p0-s00": "THE VACUUM",
+      "B-p0-s02": "TYPICAL AB EXERCISE",
+      "B-p0-s03": "CRUNCHES",
+      "B-p0-s05": "TRANSVERSE ABDOMINIS",
+      "B-p0-s07": "THE MUSCLE UNDERNEATH",
+      "C-p0-s02": "BUBBLE GUT",
+      "G-p1-s07": "INTERMITTENT FASTING",
+      "L-p0-s05": "AB DROP SET",
+      "L-p0-s06": "AB DROP SET",
+      "L-p0-s07": "AB DROP SET"
     }
   },
-
   "pip": {
-    "gfxTop": 88, "gfxH": 700,
-    "danX": 140, "danY": 826, "danW": 800, "danH": 1000,
+    "gfxTop": 88,
+    "gfxH": 700,
+    "danX": 140,
+    "danY": 826,
+    "danW": 800,
+    "danH": 1000,
     "note": "Graphic repositioned into the top of the vertical frame; Dan below. danW is 800 (not full width) ON PURPOSE: Dan's crop must start to the RIGHT of the PiP box or the poster appears a second time inside his block, and a narrower block is the only way to do that while keeping his face near centre."
   },
-
-  "wordmark": { "x": 74, "y": 1786 },
-
+  "wordmark": {
+    "x": 74,
+    "y": 1786
+  },
   "titleSeconds": 3.2,
-
-  "pipBoxes": {
-    "A-p0-s06": { "box": [113, 73, 483, 610], "from": null, "srcX0": 490 },
-    "A-p0-s09": { "box": [110, 62, 497, 645], "from": 158.10, "srcX0": 505 }
-  }
+  "pipBoxes": {}
 }
