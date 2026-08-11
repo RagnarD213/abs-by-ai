@@ -42,6 +42,10 @@
   --ink: #1b1a18;
   --mute: #6e6b64;
   --faint: #a29e95;
+  /* One uniform dark grey for every piece of secondary and disclosure text on the
+     acquisition screen. It used to be four different greys, which made the
+     AI-generated disclosures read as de-emphasised fine print. */
+  --disc: #45423d;
   --acc: #2f5fe0;
   --acc-soft: rgba(47,95,224,0.08);
   --acc-line: rgba(47,95,224,0.35);
@@ -111,12 +115,19 @@ html, body {
 #formMarketingHero .hero-sub { margin-bottom: 10px; }
 .hero-product-note {
   font-size: 12.5px;
-  /* Deliberately darker than --mute. This is the first thing an ad reviewer reads
-     and it must be plainly legible against the #f6f5f2 page, not a soft grey. */
-  color: #45423d;
+  color: var(--disc);
   line-height: 1.5;
   margin-bottom: 20px;
 }
+.hero-product-note strong { font-weight: 800; }
+/* Every run of text on the acquisition screen shares one shade. Scoped to
+   #formSection so the eleven other screens that reuse .hero-sub / .upload-caption
+   keep their existing lighter treatment. */
+#formSection .hero-sub,
+#formSection .upload-caption,
+#formSection .cta-note,
+#formSection .footer,
+#formSection .form-legal { color: var(--disc); }
 
 /* ── First-screen AI proof strip ── */
 .proof-strip {
@@ -186,15 +197,14 @@ html, body {
    as before/after pills, which read as a real before-and-after transformation. */
 .proof-image-label {
   display: block; margin-top: 6px;
-  text-align: center; color: #45423d;
+  text-align: center; color: var(--disc);
   font-size: 10px; font-weight: 800;
   letter-spacing: 0.03em; text-transform: uppercase;
   line-height: 1.3;
 }
-.proof-image-label.after { color: var(--acc); }
 .proof-disclosure {
   margin: 10px 2px 0; font-size: 11px; font-weight: 600;
-  color: #45423d; text-align: center;
+  color: var(--disc); text-align: center;
 }
 .proof-disclosure a { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
@@ -1516,7 +1526,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <div id="formMarketingHero">
       <div class="hero-h1">Visualize Yourself With Abs</div>
       <div class="hero-sub">See how good you’d look with abs. Motivate yourself to hit your fitness goal.</div>
-      <div class="hero-product-note">Upload a photo and Abs By AI generates an AI image of your goal. It’s a visualization and motivation tool — the images are AI-generated, not real results.</div>
+      <div class="hero-product-note">Upload a photo and Abs By AI generates an AI image of your goal. It’s a visualization and motivation tool — <strong>the images are AI-generated, not real results.</strong></div>
     </div>
 
     <section id="proofStrip" class="proof-strip" aria-label="Abs by AI example visualizations">
@@ -1701,7 +1711,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
           <span id="genPct" class="gen-pct">0%</span>
         </div>
         <div class="gen-bar-track"><div id="genBarFill" class="gen-bar-fill"></div></div>
-        <div class="gen-sub">Creating your future self — about 20 seconds</div>
+        <div class="gen-sub">Creating your goal image — about 20 seconds</div>
       </div>
     </div>
     <!-- Legacy minimal status (kept as hidden fallback for setStatus) -->
@@ -1719,15 +1729,15 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <!-- CTA -->
     <div>
       <button id="generateBtn" class="cta-btn" disabled>
-        <span id="generateBtnLabel">Generate my future self</span>
+        <span id="generateBtnLabel">Generate my goal image</span>
       </button>
       <div id="creditCounter" class="credit-indicator credit-counter" style="display:none"></div>
       <div class="cta-note">Two AI steps · about 20 seconds</div>
-      <div style="font-size:11.5px;color:#57544e;text-align:center;margin-top:8px;line-height:1.5">Your photo and details are sent securely to our AI partners (Anthropic, Google, Replicate) to create your result — never sold, delete anytime. <a href="/privacy" style="color:inherit;text-decoration:underline">Privacy Policy</a></div>
+      <div class="form-legal" style="font-size:11.5px;text-align:center;margin-top:8px;line-height:1.5">Your photo and details are sent securely to our AI partners (Anthropic, Google, Replicate) to create your result — never sold, delete anytime. <a href="/privacy" style="color:inherit;text-decoration:underline">Privacy Policy</a></div>
     </div>
 
-    <div style="font-size:12px;color:#45423d;text-align:center;margin-top:20px;line-height:1.5">AbsByAI is an app for generating an image of your fitness goal. <strong>The examples shown above are not real fitness transformations.</strong> They are examples of the type of images our app can make. Abs By AI does not change your body and does not promise any physical result.</div>
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
+    <div class="form-legal" style="font-size:12px;text-align:center;margin-top:20px;line-height:1.5">AbsByAI is an app for generating an image of your fitness goal. <strong>The examples shown above are not real fitness transformations.</strong> They are examples of the type of images our app can make. Abs By AI does not change your body and does not promise any physical result.</div>
+    <div class="footer" style="margin-top:28px"><a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ RESULT SCREEN ════════════════ -->
@@ -1736,23 +1746,23 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <button class="nav-icon-btn" id="resultBackBtn" title="Back">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
-      <span class="nav-title">Your future self</span>
+      <span class="nav-title">Your goal image</span>
       <a id="resultDownloadBtn" download="my-future-self.png" class="nav-icon-btn" title="Save image">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>
       </a>
     </div>
     <div class="credit-indicator credit-counter" style="display:none"></div>
 
-    <div class="hero-h1" style="font-size:30px;line-height:1.05;margin-bottom:6px">Meet the new you.</div>
-    <div class="hero-sub" style="margin-bottom:22px">Same you — leaner, stronger, sharper.</div>
+    <div class="hero-h1" style="font-size:30px;line-height:1.05;margin-bottom:6px">Here’s your goal image.</div>
+    <div class="hero-sub" style="margin-bottom:22px">An AI visualization of the goal you selected — not a real result.</div>
 
     <div class="before-after-grid">
       <div>
-        <div class="ba-col-label">Before</div>
+        <div class="ba-col-label">Your photo</div>
         <img id="beforeImg" class="ba-img" alt="Before" />
       </div>
       <div>
-        <div class="ba-col-label after-lbl">After</div>
+        <div class="ba-col-label after-lbl">AI-generated image</div>
         <div id="afterImgWrap" class="after-img-wrap">
           <img id="afterImg" class="ba-img" alt="After — AI generated" />
           <img id="afterTeaserSharp" class="after-teaser-sharp" alt="" aria-hidden="true" />
@@ -1811,7 +1821,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <!-- Paywall (shown when credits = 0) -->
     <div id="paywallSection" style="display:none" tabindex="-1">
       <div id="paywallHeadline" class="paywall-headline">Your result is ready — unlock it</div>
-      <div class="paywall-sub">Get more generations to see your future self in full.</div>
+      <div class="paywall-sub">Get more generations to see your goal image in full.</div>
       <div class="pack-cards app-hide-purchase">
         <div class="pack-card" id="packStarter" data-pack="starter">
           <div class="pack-card-info">
@@ -1858,7 +1868,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
         <button class="ghost-btn" id="moreDramaticBtn">More dramatic</button>
         <button class="ghost-btn" id="moreSubtleBtn">More subtle</button>
       </div>
-      <button type="button" id="shareBeforeAfterBtn" class="try-diff-btn" style="margin-top:10px">📸 Share your before &amp; after</button>
+      <button type="button" id="shareBeforeAfterBtn" class="try-diff-btn" style="margin-top:10px">📸 Share your goal image</button>
       <div id="fixItSection" style="display:none">
         <div class="lbl" style="margin-top:14px"><span class="lbl-text">Still not right? Tell us what to fix</span></div>
         <div id="fixChipRow">
@@ -1928,13 +1938,13 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <button class="nav-icon-btn" id="emailBackBtn" title="Back">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
-      <span class="nav-title">Your future self</span>
+      <span class="nav-title">Your goal image</span>
       <span style="width:26px"></span>
     </div>
 
     <div class="hero-h1" style="font-size:25px;line-height:1.15;margin-bottom:16px">Download Your Future Self. Make It Your Phone Lockscreen.</div>
 
-    <img id="emailFutureImg" class="email-future-img" alt="Your future self" />
+    <img id="emailFutureImg" class="email-future-img" alt="Your goal image" />
 
     <div class="hero-sub" style="margin-bottom:18px">Enter Your Email To Download A High Quality Image Of Your Future Self With No Watermark.</div>
 
@@ -1945,7 +1955,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <div style="font-size:12px;color:#8a877f;margin-top:10px">We'll email you your image plus fitness tips and offers. Unsubscribe anytime.</div>
 
     <button id="emailSkipBtn" class="try-diff-btn" style="margin-top:16px">No Thanks</button>
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
+    <div class="footer" style="margin-top:28px"><a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ SCREEN 4: BENEFITS BRIDGE ════════════════ -->
@@ -2103,7 +2113,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <button id="confirmStartOverBtn" class="try-diff-btn" style="margin-top:14px">Generate another look</button>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
+    <div class="footer" style="margin-top:28px"><a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ SCREEN: LOG IN / SIGN UP ════════════════ -->
@@ -2191,7 +2201,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
           <div class="hub-hero-lbl">Today</div>
         </div>
         <div class="hub-hero-col">
-          <img id="hubAfterImg" alt="Your future self" />
+          <img id="hubAfterImg" alt="Your goal image" />
           <div class="hub-hero-lbl hub-hero-lbl-goal">Your Goal</div>
         </div>
       </div>
@@ -2200,8 +2210,8 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 
     <div class="hub-tiles">
       <button id="hubPrintUpsell" class="hub-tile hub-print-card" style="display:none">
-        <img id="hubPrintThumb" class="hub-print-thumb" alt="Your future self" />
-        <span class="hub-tile-body"><span class="hub-tile-name">Print your future self — from $18</span><span class="hub-tile-sub">Turn your goal photo into a poster or canvas</span></span>
+        <img id="hubPrintThumb" class="hub-print-thumb" alt="Your goal image" />
+        <span class="hub-tile-body"><span class="hub-tile-name">Print your goal image — from $18</span><span class="hub-tile-sub">Turn your goal photo into a poster or canvas</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
       <button id="hubBecomeMemBtn" class="hub-tile" style="display:none;background:var(--acc-soft);border-color:var(--acc-line)">
@@ -2236,7 +2246,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       </button>
       <button class="hub-tile" data-feature="transformations">
         <span class="hub-tile-emoji">📸</span>
-        <span class="hub-tile-body"><span class="hub-tile-name">My Transformations</span><span class="hub-tile-sub">Your before &amp; after gallery</span></span>
+        <span class="hub-tile-body"><span class="hub-tile-name">My Transformations</span><span class="hub-tile-sub">Your saved goal images</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
       <button class="hub-tile" data-feature="weight">
@@ -2292,7 +2302,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       </div>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
+    <div class="footer" style="margin-top:28px"><a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ SCREEN 6: MACRO TRACKER ════════════════ -->
@@ -2406,7 +2416,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div id="todaysMealsList"></div>
     </div>
 
-    <div class="footer" style="margin-top:28px">Powered by Claude + Gemini &middot; <a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
+    <div class="footer" style="margin-top:28px"><a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ SCREEN: AI TRAINER — INTAKE ════════════════ -->
@@ -4292,7 +4302,7 @@ const GEN_STAGES = [
   [68,  'Etching ab & core detail…'],
   [80,  'Refining your silhouette…'],
   [88,  'Tuning skin tone & lighting…'],
-  [94,  'Rendering your future self…'],
+  [94,  'Rendering your goal image…'],
   [101, 'Adding the finishing touches…'],
 ];
 // Regenerate (result screen) has its own context-aware copy — it's adjusting an
@@ -4460,7 +4470,7 @@ function setGenerating(loading) {
     btn.disabled = true;
     btn.innerHTML = '<div class="btn-spinner"></div><span>Generating…</span>';
   } else {
-    btn.innerHTML = '<span id="generateBtnLabel">Generate my future self</span>';
+    btn.innerHTML = '<span id="generateBtnLabel">Generate my goal image</span>';
     validateForm();
   }
 }
@@ -4555,7 +4565,7 @@ function renderMockup() {
       <div class="mockup-floor"></div>
       <div class="mockup-baseboard"></div>
       <div class="mockup-art ${productClass}" style="--mockup-w:${widthPx}px;--mockup-h:${heightPx}px">
-        <img src="${imgSrc}" alt="Your future self" />
+        <img src="${imgSrc}" alt="Your goal image" />
       </div>
       <div class="mockup-console"></div>
       <div class="mockup-plant-pot"></div>
@@ -11169,7 +11179,7 @@ function initMealTracker() {
           data: base64,
           directory: 'CACHE'
         });
-        await P.Share.share({ title: 'My future self', files: [file.uri] });
+        await P.Share.share({ title: 'My goal image', files: [file.uri] });
       } catch (e) {
         if (!/cancel/i.test(String(e && e.message))) console.error('Native share failed', e);
       }
