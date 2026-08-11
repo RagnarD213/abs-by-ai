@@ -206,7 +206,29 @@ The dashboard's delete and rename paths now send `allowDeletes`, so intentional 
 
 **No native retest trigger row touched** — task-board API and dashboard-only, no product surface. **No dashboard task matched this work** (all four lists searched), so nothing was checked off per Rule 9, and no handoff was created, so Rule 8 does not apply.
 
-### HANDOFF WRITTEN 2026-08-10: `Handoffs/handoff-20260810-sixpackabs-skin.md` — SixPackAbs skin (NOT YET EXECUTED)
+### SixPackAbs skin — SHIPPED, both domains live-verified (2026-08-11, Claude Code, commit `0035782`)
+
+Executes `Handoffs/handoff-20260810-sixpackabs-skin.md` end to end. **`https://try.sixpackabs.com` is LIVE and serves the full Abs By AI app skinned as SixPackAbs; absbyai.com is provably unchanged.** Dashboard task `money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)` **checked off** (Rule 9, verified in the `checked` array).
+
+**What shipped (`public/index.html`, ~45 lines, strictly additive):** one `BRAND` constant + one `applyBrandSkin()` IIFE placed immediately after `IS_NATIVE_APP`. `BRAND = (!IS_NATIVE_APP && /(^|\.)sixpackabs\.com$/.test(location.hostname)) ? 'sixpackabs' : 'absbyai'` — double-gated exactly as the handoff specifies (regex rejects `notsixpackabs.com`; a simulated TWA on the sixpackabs hostname renders Abs By AI, asserted in a real browser). When active it swaps: title ("SixPackAbs — See Yourself With a Six-Pack"), JS-injected meta description + `<link rel=canonical>` → absbyai.com, favicon/apple-touch icon, both `.app-brand` header marks (icon + "SixPackAbs.com"), the pre-drafted hero (H1 "SixPackAbs is back." / founder sub / "Same company. Same mission. New technology." trust line), the hero product note, and appends the "SixPackAbs is operated by Abs By AI · absbyai.com" footer line. **PostHog `brand` super property registers on BOTH brands** — segment on `brand = sixpackabs|absbyai`. All three contract-derived copy constraints honored (no Mike Chang, no old-company financials, no 2019-sale mention).
+
+**Logo assets:** pulled from the live sixpackabs.com header → `public/img/sixpackabs-logo.webp` (wordmark, unused in v1 but on disk) and `public/img/sixpackabs-icon-192.png` (square symbol, used in header + favicon).
+
+**Infrastructure:** Railway custom domain `try.sixpackabs.com` added to the abs-by-ai service (port 8080) via Dan's Chrome. **Railway requires TWO DNS records for a subdomain, not one** — the CNAME (`try` → `cnr588l8.up.railway.app`) plus a TXT verify (`_railway-verify.try` → `railway-verify=96e8…ce6c`). Both added via the WP.com MCP with a pre-write dig snapshot; post-write dig on the authoritative NS confirms both new records AND every pre-existing record (apex A ×2, MX, SPF, DKIM CNAMEs, www, dmarc) intact. Cert issued and `/health` 200 in ~3 min.
+
+**Two Railway-UI gotchas worth keeping:** (1) the Add Custom Domain form REQUIRES a port selection before the button enables — the "Select a port" dropdown offers the auto-detected 8080; (2) **synthetic React events (`dispatchEvent` on inputs) crash Railway's SPA** ("page derailed") — drive it with real clicks/typing only. Also on screen: **"You have hit the custom domain limit for your plan"** — this domain made it in, but the NEXT custom domain needs a plan upgrade.
+
+**Note for whoever reads the client code:** `BACKEND_URL` on any non-localhost host is the Railway URL, so the subdomain's API calls are cross-origin to `abs-by-ai-production.up.railway.app` — the *exact same path absbyai.com uses in production* (CORS `*`, Bearer-token auth). Deliberately not changed.
+
+**Blog nav:** "Try the AI App" → try.sixpackabs.com added to the sixpackabs.com navigation (position 2, after Blog), all other items verified byte-identical in the raw block markup and on the served HTML.
+
+**Verified:** all 5 inline script blocks `node --check` clean; local default-brand run (localhost renders Abs By AI byte-identically, no injected elements); forced-hostname scratch copy (full skin applied, mobile 375×812 clean); TWA-simulation double-gate; **live try.sixpackabs.com in a real browser** — skin correct, PostHog `brand=sixpackabs` firing, login screen renders, Stripe.js + live publishable key load, compliance pages 200, `/api/generate-prompt` responds (no generation spent), zero console errors, no horizontal overflow; **live absbyai.com** — title/hero/logo/footer unchanged, `brand=absbyai`, no canonical injected, zero console errors, `/health` ok.
+
+**No native retest trigger row touched** — the apps load absbyai.com and the skin is double-gated; stated per the standing rule.
+
+**OPEN (Dan, non-blocking):** (1) **Stripe wallet payments on the subdomain** — Apple Pay/Google Pay need `try.sixpackabs.com` registered under Stripe → Settings → Payment method domains; card payments work regardless. Skipped per the handoff's "skip unless trivial". (2) Railway says the custom-domain limit is now hit — a future extra domain needs a plan upgrade. (3) The Google Ads search campaign on SixPackAbs brand keywords is the separate follow-up task the handoff names.
+
+### (executed 2026-08-11, see above) HANDOFF WRITTEN 2026-08-10: `Handoffs/handoff-20260810-sixpackabs-skin.md` — SixPackAbs skin
 
 Hostname-gated second brand on the existing app: `try.sixpackabs.com` renders the same product as SixPackAbs (logo/hero/title/footer swap only), default Abs By AI everywhere else, double-gated against native apps. Decided in chat with Dan 2026-08-10: **skin, not clone; no bridge page.** The handoff's Key Decisions section contains three hard copy constraints and pre-drafted hero copy — **read that section before writing or editing any SixPackAbs-branded copy; do not draft fresh copy from scratch.** Rule-8 dashboard Key task added and verified persisted (`money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)`). Needs Claude Code (WP.com MCP for DNS + browser for Railway custom domain); recommended executor Claude Sonnet 5. The SixPackAbs brand-keyword search campaign is a separate follow-up task after the skin ships.
 
