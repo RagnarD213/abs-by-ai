@@ -343,7 +343,7 @@
     },
     {
       "text": "Clean shower",
-      "priority": "med",
+      "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-09"
     },
