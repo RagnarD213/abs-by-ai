@@ -69,6 +69,7 @@ ul { list-style: none; }
 .txt { font-size: 15px; line-height: 1.4; word-break: break-word; }
 .why { display: block; color: var(--muted); font-size: 12.5px; margin-top: 4px; }
 .mine { display: inline-block; color: var(--muted); font-size: 11px; margin-top: 5px; }
+.sched { display: block; color: var(--muted); font-size: 11.5px; margin-top: 4px; }
 
 /* Priority badge. Same words Dan sees on his dashboard, so "the high priority
    one" means the same thing to both of them. Tasks are sorted by this. */
@@ -215,6 +216,29 @@ function isDone(t) {
   const id = checkId(t.text);
   return t.recurring ? (taskLog[id] || []).includes(today()) : checked.has(id);
 }
+// ── Scheduled recurrence (day-of-week) ──
+// `recurring: true` alone means every day. `days: [0,4]` (0=Sun … 6=Sat) narrows
+// it to those weekdays: the task is simply not on her list the rest of the week,
+// and comes back on its next scheduled morning. Absent/empty `days` = daily, so
+// tasks written before this existed behave exactly as they did.
+// Spelled out, not "Tue" + "days" — that produces "Tuedays".
+const DAY_PLURAL = ['Sundays', 'Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays'];
+function taskDays(t) {
+  const d = Array.isArray(t?.days) ? t.days.filter(n => Number.isInteger(n) && n >= 0 && n <= 6) : [];
+  return d.length === 7 ? [] : d;
+}
+function isScheduledToday(t) {
+  if (!t?.recurring) return true;
+  const d = taskDays(t);
+  return !d.length || d.includes(new Date().getDay());
+}
+function scheduleLabel(t) {
+  const d = taskDays(t);
+  if (!d.length) return 'Every day';
+  const names = [...new Set(d)].sort().map(n => DAY_PLURAL[n]);
+  return names.length === 1 ? names[0] : names.slice(0, -1).join(', ') + ' & ' + names[names.length - 1];
+}
+
 // A finished task clears off this page at 8am the morning AFTER it was checked
 // off, so the list doesn't accumulate — but a wrong tap is still undoable for the
 // rest of the day it happened. Measured against HER clock, not the server's.
@@ -255,7 +279,7 @@ const priLabel = (p) => PRI_LABEL[p] || 'Low';
 
 function render() {
   const sorted = tasks.slice()
-    .filter(t => !clearsFromView(t))
+    .filter(t => isScheduledToday(t) && !clearsFromView(t))
     .sort((a, b) => (PRI_ORDER[a.priority] ?? 3) - (PRI_ORDER[b.priority] ?? 3));
   const open = sorted.filter(t => !isDone(t));
   const done = sorted.filter(t => isDone(t));
@@ -264,7 +288,8 @@ function render() {
     <li class="task${isDoneRow ? ' done' : ''}" data-text="${esc(t.text)}">
       <div class="cb"></div>
       <div class="body">
-        <span class="txt">${esc(t.text)}${t.recurring ? ' <span title="Every day">🔁</span>' : ''}</span>
+        <span class="txt">${esc(t.text)}${t.recurring ? ` <span title="${esc(scheduleLabel(t))}">🔁</span>` : ''}</span>
+        ${t.recurring && taskDays(t).length ? `<span class="sched">Repeats ${esc(scheduleLabel(t))}</span>` : ''}
         ${t.why ? `<span class="why">${esc(t.why)}</span>` : ''}
         ${t.addedBy === 'assistant' && t.priority === 'unassigned'
           ? '<span class="mine">Added by you — waiting on Dan to prioritize</span>' : ''}

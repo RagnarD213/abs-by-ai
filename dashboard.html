@@ -365,6 +365,24 @@ font-size: 14px;
 padding: 14px 2px;
 }
 .todo-item[draggable="true"] { cursor: grab; }
+/* Day-of-week recurrence: the schedule chip on a task, the day picker in the
+   edit form, and the muted "not due today" footer. */
+.sched-badge {
+flex-shrink: 0; font-size: 10px; font-weight: 700; letter-spacing: .03em;
+padding: 2px 6px; border-radius: 99px; white-space: nowrap;
+background: rgba(255,255,255,.06); color: var(--muted);
+box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+}
+.offday-note { opacity: .55; font-size: 12px; cursor: pointer; }
+.offday-note:hover { opacity: .8; }
+.offday-row { opacity: .5; }
+.tf-days { display: inline-flex; gap: 3px; }
+.tf-day {
+width: 22px; height: 22px; padding: 0; border-radius: 6px; cursor: pointer;
+font-family: inherit; font-size: 11px; font-weight: 700;
+background: transparent; color: var(--muted); border: 1px solid var(--border);
+}
+.tf-day.on { background: var(--accent, #21d07a); color: #062011; border-color: transparent; }
 .col.drop-out-active { background: rgba(239,68,68,0.05); }
 .stale-badge {
 font-size: 13px;
@@ -1403,6 +1421,38 @@ const dt = new Date(y, m-1, d); dt.setDate(dt.getDate()+days);
 return `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`;
 }
 
+// ── SCHEDULED RECURRENCE (day-of-week) ──
+// `recurring: true` on its own still means EVERY day — that is what Dan's health
+// habits are, and it must keep working untouched. Adding `days: [0,4]` (0=Sun …
+// 6=Sat) narrows it: the task only appears on those weekdays and is off the list
+// the rest of the week, which is what "put it back on the list every Sunday"
+// means. An empty or absent `days` is daily, so old tasks are unaffected.
+const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+// Spelled out, not DAY_NAMES + "days" — that produces "Tuedays".
+const DAY_PLURAL = ['Sundays', 'Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays'];
+const DAY_INITIALS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
+function taskDays(t) {
+const d = Array.isArray(t?.days) ? t.days.filter(n => Number.isInteger(n) && n >= 0 && n <= 6) : [];
+return d.length === 7 ? [] : d; // all seven days IS daily
+}
+function isScheduledToday(t) {
+if (!t?.recurring) return true;
+const d = taskDays(t);
+return !d.length || d.includes(new Date().getDay());
+}
+// "Sundays" / "Sundays & Thursdays" / "Every day"
+function scheduleLabel(t) {
+const d = taskDays(t);
+if (!d.length) return 'Every day';
+const names = [...new Set(d)].sort().map(n => DAY_PLURAL[n]);
+return names.length === 1 ? names[0] : names.slice(0, -1).join(', ') + ' & ' + names[names.length - 1];
+}
+// Compact chip form: "Sun" / "Sun · Thu"
+function scheduleChip(t) {
+return [...new Set(taskDays(t))].sort().map(n => DAY_NAMES[n]).join(' · ');
+}
+
 // Recurring task: "done" means completed today. One-off: in the checked set.
 function isDone(id, recurring) {
 if (recurring) return (taskLog[id] || []).includes(localToday());
@@ -1795,6 +1845,10 @@ personal:  { el: 'personal-todos',  progress: 'progress-personal' },
 assistant: { el: 'assistant-todos', progress: 'progress-assistant' },
 };
 
+// Lists whose not-due-today tasks are temporarily revealed. View state only —
+// never persisted, so every load starts with the clean today-only list.
+const offDayOpen = new Set();
+
 function renderAllTasks() {
 Object.keys(LIST_TARGETS).forEach(listKey => {
 const { el, progress } = LIST_TARGETS[listKey];
@@ -1899,6 +1953,8 @@ idMap.forEach((info, id) => {
 // the focus band, even at Key. Dragging one in by hand still works (it lands in
 // planState.order, which is honoured above).
 if (info.listKey === 'assistant') return;
+// Nor does a task that isn't due today — it isn't in its column either.
+if (!isScheduledToday(info.task)) return;
 if (info.task.priority === 'key' && !planState.excluded.includes(id) && !seq.includes(id)) {
 const wouldBeOpen = !isPlanIdDone(id, idMap);
 if (wouldBeOpen && openCount >= PLAN_OPEN_CAP) return; // cap reached — stays Key in its column only
@@ -2107,12 +2163,25 @@ if (!el) return;
 // until the server's 7-day sweep removes it — her own page clears it sooner.
 const doneLast = listKey === 'assistant';
 const doneRank = (t) => (doneLast && isDone(taskCheckId(listKey, t.text), !!t.recurring) ? 1 : 0);
+// A day-scheduled task is simply not on the list today. It stays reachable via
+// the footer toggle below — otherwise a Sunday task could not be edited or
+// deleted for six days at a time — and is counted so a task that has gone quiet
+// for a week never reads as one that got deleted.
+const offDay = items.filter(t => !isScheduledToday(t));
+const showOffDay = offDayOpen.has(listKey);
 const withIdx = items.map((t, i) => ({ t, i }))
+.filter(({ t }) => showOffDay || isScheduledToday(t))
 .sort((a, b) => (doneRank(a.t) - doneRank(b.t))
 || ((PRI_ORDER[a.t.priority] ?? 3) - (PRI_ORDER[b.t.priority] ?? 3)));
 
+// Muted footer so an off-day task is visibly "scheduled", never "missing".
+// Clicking it reveals them for editing.
+const offDayNote = offDay.length
+? `<li class="empty offday-note" data-offday-toggle="${listKey}" title="${escapeHtml(offDay.map(t => t.text + ' — ' + scheduleLabel(t)).join('\n'))}">${showOffDay ? '▴ hide the ' + offDay.length + ' scheduled for another day' : `＋${offDay.length} scheduled for another day`}</li>`
+: '';
+
 if (!withIdx.length) {
-el.innerHTML = '<li class="empty">No to-dos</li>';
+el.innerHTML = `<li class="empty">No to-dos</li>${offDayNote}`;
 } else {
 el.innerHTML = withIdx.map(({ t, i }) => {
 const rec = !!t.recurring;
@@ -2123,10 +2192,14 @@ const tagClass = tagClassFor(t.priority);
 const tagLabel = tagLabelFor(t.priority);
 const age = t.addedAt ? daysSince(t.addedAt) : 0;
 const stale = !rec && t.addedAt && age >= 7;
+// Only ever true while the off-day group is expanded — dimmed so a revealed
+// task never looks like it is due today.
+const offToday = !isScheduledToday(t);
 return `
-<li class="todo-item priority-${escapeHtml(t.priority)}${done ? ' done' : ''}" draggable="true" data-list="${listKey}" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}" data-idx="${i}">
+<li class="todo-item priority-${escapeHtml(t.priority)}${done ? ' done' : ''}${offToday ? ' offday-row' : ''}" draggable="true" data-list="${listKey}" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}" data-idx="${i}">
 <div class="todo-cb"></div>
-<span class="todo-text">${escapeHtml(t.text)}${rec ? ' <span title="Daily" style="opacity:0.7">🔁</span>' : ''}</span>
+<span class="todo-text">${escapeHtml(t.text)}${rec ? ` <span title="${escapeHtml(scheduleLabel(t))}" style="opacity:0.7">🔁</span>` : ''}</span>
+${rec && taskDays(t).length ? `<span class="sched-badge" title="Repeats ${escapeHtml(scheduleLabel(t))}">${escapeHtml(scheduleChip(t))}</span>` : ''}
 ${streak > 1 ? `<span class="streak">🔥${streak}</span>` : ''}
 ${stale ? `<span class="stale-badge" title="Added ${age} days ago — do it, delete it, or delegate it">⏳</span>` : ''}
 <span class="todo-tag ${tagClass}">${tagLabel}</span>
@@ -2135,11 +2208,18 @@ ${stale ? `<span class="stale-badge" title="Added ${age} days ago — do it, del
 <button class="todo-act" data-act="del" title="Delete">✕</button>
 </span>
 </li>`;
-}).join('');
+}).join('') + offDayNote;
 }
 
 // Event delegation handles checkbox toggle + edit/delete (robust vs special chars).
 el.onclick = (e) => {
+const toggle = e.target.closest('[data-offday-toggle]');
+if (toggle) {
+const k = toggle.dataset.offdayToggle;
+if (offDayOpen.has(k)) offDayOpen.delete(k); else offDayOpen.add(k);
+renderAllTasks();
+return;
+}
 const li = e.target.closest('.todo-item');
 if (!li) return;
 const actBtn = e.target.closest('.todo-act');
@@ -2187,7 +2267,9 @@ e.stopPropagation();
 moveTaskBetweenLists(dragCtx.listKey, dragCtx.idx, listKey);
 };
 
-updateProgress(listKey, items, progressId);
+// Progress counts only what's actually on the list today, or a list could never
+// reach 100% because of tasks that aren't due.
+updateProgress(listKey, items.filter(isScheduledToday), progressId);
 }
 
 function updateProgress(listKey, items, progressId) {
@@ -2274,7 +2356,10 @@ return `
 <option value="low"${t.priority === 'low' ? ' selected' : ''}>Low</option>
 <option value="unassigned"${t.priority === 'unassigned' ? ' selected' : ''}>Unassigned</option>
 </select>
-<label><input type="checkbox" id="tf-rec-${listKey}"${t.recurring ? ' checked' : ''}> Daily</label>
+<label><input type="checkbox" id="tf-rec-${listKey}"${t.recurring ? ' checked' : ''} onchange="toggleDayPicker('${listKey}')"> Repeats</label>
+<span class="tf-days" id="tf-days-${listKey}" style="display:${t.recurring ? '' : 'none'}" title="Pick the days it repeats on. None selected = every day.">
+${DAY_INITIALS.map((ini, n) => `<button type="button" class="tf-day${taskDays(t).includes(n) ? ' on' : ''}" data-day="${n}" title="${DAY_NAMES[n]}" onclick="this.classList.toggle('on')">${ini}</button>`).join('')}
+</span>
 <span class="spacer"></span>
 <button class="btn-sm" onclick="cancelForm('${listKey}')">Cancel</button>
 <button class="btn-sm primary" onclick="saveTask('${listKey}', ${editing ? idx : 'null'})">Save</button>
@@ -2296,6 +2381,10 @@ inp.focus();
 inp.onkeydown = (e) => { if (e.key === 'Enter') saveTask(listKey, idx); if (e.key === 'Escape') cancelForm(listKey); };
 }
 function cancelForm(listKey) { document.getElementById(`form-${listKey}`).innerHTML = ''; }
+function toggleDayPicker(listKey) {
+const on = document.getElementById(`tf-rec-${listKey}`).checked;
+document.getElementById(`tf-days-${listKey}`).style.display = on ? '' : 'none';
+}
 
 function saveTask(listKey, idx) {
 const text = document.getElementById(`tf-text-${listKey}`).value.trim();
@@ -2306,6 +2395,11 @@ const recurring = document.getElementById(`tf-rec-${listKey}`).checked;
 // only edits text/priority/recurring, it must not silently drop the rest.
 const existing = (idx != null && idx >= 0) ? todosState[listKey][idx] : null;
 const task = { text, priority, recurring };
+// Selected weekdays, only meaningful while Repeats is on. All seven (or none)
+// is plain daily, so no `days` field is written — that keeps daily tasks in the
+// exact shape they have always had.
+const days = [...document.querySelectorAll(`#tf-days-${listKey} .tf-day.on`)].map(b => +b.dataset.day).sort();
+if (recurring && days.length && days.length < 7) task.days = days;
 task.addedAt = existing?.addedAt || localToday();
 if (existing?.why) task.why = existing.why;
 if (idx == null || idx < 0) todosState[listKey].push(task);
