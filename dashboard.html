@@ -2395,11 +2395,13 @@ const recurring = document.getElementById(`tf-rec-${listKey}`).checked;
 // only edits text/priority/recurring, it must not silently drop the rest.
 const existing = (idx != null && idx >= 0) ? todosState[listKey][idx] : null;
 const task = { text, priority, recurring };
-// Selected weekdays, only meaningful while Repeats is on. All seven (or none)
-// is plain daily, so no `days` field is written — that keeps daily tasks in the
-// exact shape they have always had.
-const days = [...document.querySelectorAll(`#tf-days-${listKey} .tf-day.on`)].map(b => +b.dataset.day).sort();
-if (recurring && days.length && days.length < 7) task.days = days;
+// Selected weekdays, only meaningful while Repeats is on. "Daily" is written as
+// all seven rather than as an absent field, so the server can tell a deliberate
+// daily task apart from a stale client that doesn't know `days` exists and would
+// otherwise silently wipe a weekly schedule. taskDays() reads all-seven back as
+// daily, so nothing about the display changes.
+const picked = [...document.querySelectorAll(`#tf-days-${listKey} .tf-day.on`)].map(b => +b.dataset.day).sort();
+if (recurring) task.days = picked.length ? picked : [0, 1, 2, 3, 4, 5, 6];
 task.addedAt = existing?.addedAt || localToday();
 if (existing?.why) task.why = existing.why;
 if (idx == null || idx < 0) todosState[listKey].push(task);

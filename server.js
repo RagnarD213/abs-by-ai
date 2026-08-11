@@ -898,6 +898,35 @@ function droppedTodos(current, next) {
   return gone;
 }
 
+// Third guard, same family as the two above. A weekly schedule lives in `days`,
+// which any client older than that feature knows nothing about — and the
+// dashboard's edit form REBUILDS the task object, so one edit from a stale tab
+// silently turns a Sundays-only chore back into a daily one. Observed on
+// 2026-08-11 within minutes of the feature shipping.
+//
+// A current client always states its intent: it writes all seven days for a
+// plain daily task, and drops `recurring` entirely when repetition is turned
+// off. So "recurring, but no `days` at all" can only come from a client that
+// does not know the field exists, and the stored schedule is put back.
+function restoreSchedules(current, incoming) {
+  const known = new Map();
+  for (const list of TODO_LISTS) {
+    for (const t of current?.[list] || []) {
+      if (t?.text && Array.isArray(t.days) && t.days.length) known.set(t.text, t.days);
+    }
+  }
+  const restored = [];
+  for (const list of TODO_LISTS) {
+    for (const t of incoming?.[list] || []) {
+      if (t?.recurring && !Array.isArray(t.days) && known.has(t.text)) {
+        t.days = known.get(t.text);
+        restored.push(`${list}::${t.text}`);
+      }
+    }
+  }
+  return restored;
+}
+
 app.post('/api/todos', async (req, res) => {
   try {
     const incoming = normalizeTodos(req.body);
@@ -928,8 +957,13 @@ app.post('/api/todos', async (req, res) => {
       console.warn(`RECURRING_TODOS_RESTORED — a write omitted ${restored.length} recurring task(s), put back: ${restored.map(label).join(' | ')}`);
     }
 
+    const schedulesKept = restoreSchedules(current, incoming);
+    if (schedulesKept.length) {
+      console.warn(`SCHEDULES_RESTORED — a write dropped the weekly schedule on ${schedulesKept.length} task(s), put back: ${schedulesKept.join(' | ')}`);
+    }
+
     await saveTodosToGitHub(incoming);
-    res.json({ ok: true, restored: restored.map(label) });
+    res.json({ ok: true, restored: restored.map(label), schedulesKept });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
