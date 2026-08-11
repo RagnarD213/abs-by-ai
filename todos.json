@@ -359,7 +359,7 @@
     },
     {
       "text": "Clean bathrooms",
-      "priority": "low",
+      "priority": "med",
       "recurring": false,
       "addedAt": "2026-08-09"
     },
