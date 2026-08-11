@@ -273,6 +273,24 @@ The dashboard's delete and rename paths now send `allowDeletes`, so intentional 
 
 **No native retest trigger row touched** — task-board API and dashboard-only, no product surface. **No dashboard task matched this work** (all four lists searched), so nothing was checked off per Rule 9, and no handoff was created, so Rule 8 does not apply.
 
+### SixPackAbs skin REVISIONS ROUND 2 — SHIPPED, both domains live-verified (2026-08-11, Claude Code, commit `787ca0a`)
+
+Four more revisions from Dan, immediately after round 1 below. **One of them is the first change in this thread that ships to BOTH brands**, so the split matters:
+
+- **Both domains (base markup, NOT the skin):** the Subtle intensity card's subtitle is now **"Polished you"** (was "Polish"), pairing with Ripped's "Photoshoot ready". Dan asked for this one on absbyai.com as well, and said explicitly that it was the *only* one to go to both — so it lives in the `#intensityGrid` markup at ~line 1676, not in `applyBrandSkin()`.
+- **SixPackAbs only:** the gray plate behind the wordmark is **gone** — Dan's words were that it "shouldn't appear like a separate background for that logo", so the whole inline style was dropped and the transparent webp now sits directly on the page background, inheriting the shared `.app-icon` rule (height 22px → 178×22, `background-color: rgba(0,0,0,0)`). Round 1's `#e3e1db` plate is retired.
+- **SixPackAbs only:** the hero note drops its opening sentence "Upload a photo and SixPackAbs generates an AI image of your goal." The remaining note is "It's a visualization and motivation tool — **the images are AI-generated, not real results.** Created by Daniel Rose…"
+
+**Deliberately NOT changed: absbyai.com keeps its own "Upload a photo and Abs By AI generates an AI image of your goal." sentence.** That line is the Google Ads compliance copy added above the fold in `fd23801` after the account suspension, and Dan scoped only the Subtle-card change to both domains. Asserted live that it is still present on absbyai.com.
+
+**Verified:** all 5 inline blocks `node --check` clean. Local forced-hostname scratch copy at 375×812 — plate gone (computed background transparent, zero padding, zero radius, no inline style at all), opening sentence gone while the AI disclosure and the Daniel Rose credit both survive, "Polished you" rendering next to "Photoshoot ready", no horizontal overflow. Local default brand on the same file: **"Polished you" present, everything else Abs By AI byte-unchanged** — icon `img/icon.png` with no inline style, `.app-name` visible, original H1/note, no canonical, no "Daniel Rose" anywhere. **Live on both domains** in a real browser at 375×812 after a ~64s deploy (polled on the `Polished you` marker), same assertions, zero console errors, `/health` ok.
+
+**Console-error gotcha worth keeping:** the Browser pane's post-Edit hook opens the raw `public/index.html` over `file://`, which throws `EXERCISE_BY_ID is not defined` plus service-worker and `ERR_BLOCKED_BY_CLIENT` errors — none of them real, and they **stay in that tab's console buffer across navigations**, so they can be misread as defects on the served page. Read console errors in a fresh tab.
+
+**One open item for Dan: "Polished you" is an interpretation of dictated audio** — the instruction transcribed as "Polished U", and that reads as the phonetic spelling of "you". If he meant it stylised as "Polished U", it is a one-character change in the base markup.
+
+**No native retest trigger row touched** — the intensity card is a static text label with no layout, input or purchase surface, and the skin is unreachable inside the apps. The Subtle subtitle IS visible on iOS and Android (shared-site architecture); that is intended, since it is product copy Dan asked for on every surface, not a store-mandated gate.
+
 ### SixPackAbs skin REVISIONS — SHIPPED, both domains live-verified (2026-08-11, Claude Code, commit `233c8a7`)
 
 Executes `Handoffs/handoff-20260811-sixpackabs-skin-revisions.md` — Dan's six revisions to the skin below. **Every edit is inside `applyBrandSkin()`; the diff touches nothing else**, so absbyai.com is a no-op by construction.
