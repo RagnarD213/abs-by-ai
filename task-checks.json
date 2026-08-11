@@ -5,7 +5,6 @@
     "assistant::Change robot mop water",
     "assistant::Clean robot vaccuum tray (ask Dan to show you how)",
     "assistant::Throw away old food from fridge",
-    "assistant::Robot vacuum bedroom",
     "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice",
     "assistant::Take out trash and replace liners",
     "assistant::Wash, dry, and fold 2 laundry loads",
@@ -157,7 +156,6 @@
     "assistant::Empty and clean Yeti cooler": "2026-08-11",
     "assistant::Throw away old food from fridge": "2026-08-11",
     "assistant::Change robot mop water": "2026-08-11",
-    "assistant::Robot vacuum bedroom": "2026-08-11",
     "assistant::Take out trash and replace liners": "2026-08-11"
   }
 }
