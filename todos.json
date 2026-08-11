@@ -383,6 +383,12 @@
       "recurring": false,
       "addedAt": "2026-08-09",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Get iPad repaired at Apple Store Domain",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-11"
     }
   ]
 }
