@@ -315,15 +315,6 @@
       "addedAt": "2026-08-09"
     },
     {
-      "text": "Make Coffee",
-      "priority": "key",
-      "recurring": true,
-      "addedAt": "2026-08-09",
-      "days": [
-        0
-      ]
-    },
-    {
       "text": "Put away dishes",
       "priority": "high",
       "recurring": true,
