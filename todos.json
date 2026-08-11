@@ -191,6 +191,12 @@
       "priority": "key",
       "why": "handoff-20260811-audit-orphaned-jobs-sweep.md — created but not yet run",
       "addedAt": "2026-08-11"
+    },
+    {
+      "text": "Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)",
+      "priority": "key",
+      "why": "handoff-20260811-sixpackabs-skin-revisions.md — created but not yet run",
+      "addedAt": "2026-08-11"
     }
   ],
   "health": [
