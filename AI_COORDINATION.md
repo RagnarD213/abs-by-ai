@@ -287,6 +287,8 @@ Four more revisions from Dan, immediately after round 1 below. **One of them is 
 
 **Console-error gotcha worth keeping:** the Browser pane's post-Edit hook opens the raw `public/index.html` over `file://`, which throws `EXERCISE_BY_ID is not defined` plus service-worker and `ERR_BLOCKED_BY_CLIENT` errors — none of them real, and they **stay in that tab's console buffer across navigations**, so they can be misread as defects on the served page. Read console errors in a fresh tab.
 
+**Follow-up in the same session (commit `b295e30`), live-verified:** the founder credit **moved out of the hero** down to the CTA block — Dan's spec was "directly above Two AI steps and directly below 3 free generations remaining", and that is exactly where it sits, asserted by walking the DOM order of the Generate button's parent: `generateBtn` → `creditCounter` → **credit** → `cta-note` → privacy line. Styled as a second `.cta-note`. It appears **once** on the page (moved, not duplicated) and absbyai.com never renders it at all — its CTA block is unchanged and "Daniel Rose" appears nowhere. The hero note is now just the AI disclosure.
+
 **One open item for Dan: "Polished you" is an interpretation of dictated audio** — the instruction transcribed as "Polished U", and that reads as the phonetic spelling of "you". If he meant it stylised as "Polished U", it is a one-character change in the base markup.
 
 **No native retest trigger row touched** — the intensity card is a static text label with no layout, input or purchase surface, and the skin is unreachable inside the apps. The Subtle subtitle IS visible on iOS and Android (shared-site architecture); that is intended, since it is product copy Dan asked for on every surface, not a store-mandated gate.
