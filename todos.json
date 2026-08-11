@@ -444,7 +444,7 @@
     },
     {
       "text": "Take high quality pictures of shower fixtures to replace (body nozzles, shower handle holder) following Claude's directions",
-      "priority": "key",
+      "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-11"
     },
