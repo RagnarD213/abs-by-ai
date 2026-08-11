@@ -153,7 +153,29 @@ set `localStorage.absbyai_session_token`, reload, click hub tiles via
 `google/nano-banana-pro` on Replicate, `aspect_ratio: "9:16"`, `resolution: "2K"`.
 The token is not on this machine — read it from Railway → abs-by-ai → Variables
 (Dan copies it; `pbpaste > <scratch>/.keys.env`, chmod 600; never into chat).
-~13¢ per image. Prompt style that worked: *"a simple, funny hand-drawn 2D cartoon
+~13¢ per image.
+
+**Draft on Nano Banana 2, finish on Pro (cost rule, 2026-08-10).** A cue usually
+takes several attempts to find the right composition, and those exploratory takes
+do not need the expensive model. `gemini-3.1-flash-image` (Nano Banana 2) is about
+half the price and roughly twice as fast (8.5s vs 17s measured), which makes it the
+right tool for "which of these four framings works". Then regenerate **only the
+chosen composition** on `gemini-3-pro-image`:
+
+```bash
+node ../_shared/gemini-image.js generate --prompt-file cue.txt --out draft.jpg \
+  --model gemini-3.1-flash-image --tier draft --env <keys>     # exploration
+node ../_shared/gemini-image.js generate --prompt-file cue.txt --out final.jpg \
+  --tier final --env <keys>                                    # the keeper
+```
+
+**This applies ONLY to brand-new images.** Anything that edits an existing photo —
+a retouch, a "same shot but…" variant, anything with an `--image` input that must
+be preserved — must stay on Nano Banana Pro: Nano Banana 2 re-renders rather than
+edits (it changed a subject's shorts colour and shifted framing in the 2026-08-10
+test). Full evidence in the `photo-edit` skill, §3a.
+
+Prompt style that worked: *"a simple, funny hand-drawn 2D cartoon
 illustration on a clean off-white background, vertical composition with lots of
 empty space … flat colors, bold clean ink lines, no text."* Say **no text** — the
 model will otherwise letter it badly.
@@ -276,3 +298,49 @@ Write a `PLACEMENT.md` next to the assets mapping every cue → file → source
   cost $0 because the demo account already had a meal plan and logged meals.
 - **A missing asset is a finding, not a failure.** The Macro Tracker *result* screen
   needs one real photo of real food — say so plainly rather than faking a plate.
+
+### Placing 50+ assets: drive it with Apps Script, not the clipboard (2026-08-10)
+
+Clipboard pasting is fine for one ad. For a whole batch (Ads 1–13 needed **115 images
+and 59 note lines**) it is hours of work with a mis-paste roughly one time in three.
+The reliable route is a throwaway **Apps Script** bound to Dan's account:
+
+1. Export the doc as .docx and build a spec of `{paragraphIndex, images[], notes[]}`.
+2. **Verify the index alignment first.** Apps Script `body.getChild(i)` lined up
+   exactly with the .docx paragraph order in this document — but prove it with a
+   `verifyDoc()` that logs the text at a handful of known indices before writing.
+3. **Insert in DESCENDING paragraph index.** Insertions below never shift the indices
+   above, so every original index stays valid for the whole run.
+4. Images: `p.appendInlineImage(blob)` then `setWidth(225)` (points) — that is 300 px
+   at 96 dpi and matches the images already in the doc.
+5. One run did 88 cues with 0 errors in ~70 seconds.
+
+**Getting the files into Drive.** Drive **ignores synthetic drop events** and its
+upload button opens a native picker with no `<input type=file>` to target, so neither
+the drop trick nor `file_upload` works. What does: deploy the script as a **web app**
+with a `doPost` that writes `Utilities.base64Decode(payload)` to a folder, then from a
+Google page `fetch()` each file off a local HTTP server and POST it (`mode:'no-cors'`,
+`Content-Type: text/plain`). 29 images and 9 clips (48 MB) went up this way.
+**Archive the deployment the moment you're done** — it is a public endpoint that
+writes to Dan's Drive. Guard it with a random secret in the payload meanwhile.
+
+**Three traps, all of which fired:**
+
+- **`pbcopy` mangled every non-ASCII character.** Em dashes, en dashes, curly quotes
+  and middle dots went into the doc as `‚Äî`, `‚Äì`, `‚Äú`, `¬∑` — 144 characters of
+  mojibake. Fix: generate the spec with `json.dumps(..., ensure_ascii=True)` so the
+  pasted source is **pure ASCII** and JavaScript decodes the `\uXXXX` escapes itself.
+  To repair after the fact, build the bad strings with `String.fromCharCode(...)` (so
+  the repair script is ASCII too) and `body.replaceText`. **Audit by diffing the set
+  of non-ASCII characters against the original export** — that is what caught the
+  middle dot after the first repair pass looked clean.
+- **A failed private-network preflight is cached per port.** Once a hung localhost
+  fetch poisons a port, every later fetch from that origin silently hangs with no
+  error and the request never reaches the server. **Move to a fresh port.** Also
+  serve with `ThreadingHTTPServer` — a single-threaded server deadlocks on the first
+  held-open connection, which is what caused the hang in the first place.
+- **The Apps Script editor page blocks localhost fetches** (CSP). Run the upload loop
+  from a `drive.google.com` or `docs.google.com` tab instead.
+
+**The OAuth consent is Dan's call, not yours.** Running the script needs him to click
+through an "unverified app" warning. Ask before doing it.

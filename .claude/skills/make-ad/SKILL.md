@@ -82,7 +82,9 @@ Steps marked **[GATE]** stop and wait for Dan.
 6. **Voiceover.** One continuous MP3 of all narration lines. Note the duration — it
    is the ad's skeleton.
 7. **[GATE] Dan approves the voiceover** (send the MP3 with SendUserFile).
-8. **Clips.** Generate per the shot list: Veo for dialogue shots (pass the character
+8. **Clips.** **Draft in the Gemini app first (free), then generate approved shots
+   through the API** — see "Free drafting on Dan's Gemini subscription" below.
+   Generate per the shot list: Veo for dialogue shots (pass the character
    stills as reference images + the bible in the prompt), Kling/Seedance for B-roll.
    QC each clip by extracting 3–4 frames (ffmpeg) and inspecting them: anatomy,
    outfit match, setting match, no text artifacts. Auto-retry duds — pilot measured 10/10
@@ -99,6 +101,47 @@ Steps marked **[GATE]** stop and wait for Dan.
 11. **Variants.** Swap ONLY the hook (new 5s opening clip and/or first narration
     line), re-render via the assembly script. Name `<slug>_v1..vN` like MadMuscles.
     **[GATE] Dan approves variants.** Deliver finals from `final/`.
+
+## Free drafting on Dan's Gemini subscription (measured 2026-08-10)
+
+Video is the single biggest line item in ad production — the pilot spent $16 on five
+Veo takes and ~$33 on Kling in one month, and **most of those takes were iteration,
+not the finished shot.** Dan pays for **Google AI Pro** ($19.99/mo), which includes
+Veo generation in the Gemini app at zero marginal cost. Use it for the deciding pass.
+
+**How:** drive `gemini.google.com/app` with the claude-in-chrome tools (Dan is already
+signed in; no OAuth grant is needed, unlike `labs.google` Flow which prompts for one).
+`+` → **Create video** → type the shot prompt → Enter. Poll with screenshots; the tab
+title flips to "…Ready" when done. Download with the download button, which needs Dan's
+one-time OK because it writes to his Downloads folder.
+
+**What you get, measured on a real generation:**
+
+| | Gemini app (subscription) | API (Replicate/Google) |
+|---|---|---|
+| Cost | **$0** | ~$3.20 per Veo take |
+| Wall time | ~7 min | ~2 min |
+| Output | 1280×720 landscape, 24fps, h264 + real AAC audio | full-res, native vertical |
+| Watermark | **yes** — persistent Gemini sparkle | none |
+
+**The watermark is real but does not block drafting.** It is a translucent
+four-point sparkle roughly 45×45 px in a 1280×720 frame, inset about 10% from the
+right edge and 80% down, present on **every** frame. It landed on the subject's
+shoulder in the test, not in a safe corner. Two consequences:
+- A **9:16 centre crop excludes it entirely** (the crop spans x 437–842; the mark
+  sits at x≈1105–1155), so a vertical draft comes out clean with no retouching.
+- **It is still not usable for finals — but resolution is the real reason, not the
+  watermark.** A 9:16 crop of 720p is only 405 px wide, a 2.7× upscale to reach
+  1080×1920. Visibly soft, and the whole pitch of these ads is that they look real.
+
+**So: draft in the app, finish through the API.** Use it to answer "does this shot
+idea work, is the motion right, does the composition read" — then spend the $3.20
+only on shots that survived. On the pilot's numbers that is roughly 30 of 40 takes.
+
+**The binding constraint is a daily cap, not the monthly credit pool.** Pro is ~1,000
+Flow credits/month but is reported to allow only ~3 quality videos/day. **Not yet
+measured** — find out on the first real batch and record the number here. If it
+bites, that caps drafting throughput regardless of budget.
 
 ## MadMuscles reference patterns (why these choices)
 
@@ -120,6 +163,7 @@ youtu.be/HZLYJPGi8gI, youtu.be/3-dC0_qRXd0 (male tai chi). Full data in memory
 3. **Captions are ALWAYS generated from Whisper word-level timestamps of the FINAL mixed audio** (`assembly/captions-from-words.js`) — never from estimated line windows. Estimates drift the moment the voice changes; Dan caught it immediately. The transcript's sentence map is also the cut sheet: realign scene boundaries so lines land on matching visuals ("lock screen" line over the phone shot, etc.).
 4. **The after-photo is the product being sold — be pickiest there, and the target is the KINO BODY**: lean, sharp abs, deliberately NOT bulky ("a 40-year-old on the Kinobody plan"). Winning recipe through the LIVE pipeline: dream-physique description "lean and athletic, sharp defined abs, slim waist, not bulky — not a bodybuilder" + the app's real "Fix my result" pass ("not enough change" chip + "sharpen abs, add ZERO muscle size"). The plain male Ripped tier reads too muscular for ad use.
 5. **Veo's output geometry is a lottery — cropdetect every take.** `aspect_ratio: 9:16` is IGNORED in reference-images mode (true 16:9 out). Image-to-video mode returns 9:16 content PILLARBOXED inside 1920x1080 with varying bars (602 or 608 wide, once ~square 1036) — crop with the measured values, never assumed ones.
+6. **Export the finished ad at 1.2x speed, not the raw assembled pace.** Both v1 and v2 of the pilot were produced at normal (1.0x) pacing; Dan asked for both to be sped up afterward and confirmed he prefers the 1.2x cut — that faster pacing is now the target, not a post-hoc tweak. Build the ad normally start to finish, THEN apply a final speed pass: `setpts=PTS/1.2` on video + `atempo=1.2` on audio in the same ffmpeg call (pitch-corrected, no chipmunk voice, stays lip-synced). Use the bundled `ffmpeg-static` binary at `ad-factory/the-upload/node_modules/ffmpeg-static/ffmpeg` (no Homebrew needed). This is the very last step, after captions are burned in — captions are timed off the final mixed audio (rule 3) and setpts/atempo scale them proportionally, so speeding up post-caption-burn keeps everything in sync; do not try to build at 1.2x from the start.
 
 **Costs & reliability actually measured:**
 - Kling B-roll first-try success: **10/10** (the skill predicted 1-in-3 retries). The consistency workflow is what does it: every clip animates from a nano-banana start frame built from the character stills; Kling prompts describe MOTION only. Kling ≈ 133s/clip wall time; Veo ≈ 80-130s.
