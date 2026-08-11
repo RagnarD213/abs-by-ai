@@ -2858,6 +2858,53 @@ const IS_NATIVE_APP =
   || (function () { try { return sessionStorage.getItem('absbyai_twa') === '1'; } catch (e) { return false; } })();
 if (IS_NATIVE_APP) document.documentElement.classList.add('native-app');
 
+// ── SixPackAbs brand skin (hostname-gated second brand) ──
+// try.sixpackabs.com serves this same app skinned as SixPackAbs. Strictly
+// additive and opt-in by hostname: absbyai.com, localhost, Railway previews
+// and the native apps all render Abs By AI exactly as before. Double-gated:
+// the IS_NATIVE_APP guard keeps the skin unreachable inside the iOS/Android
+// wrappers even if one ever pointed at the subdomain. All brand logic lives
+// in this one constant + one function — never scatter hostname checks.
+const BRAND = (!IS_NATIVE_APP && /(^|\.)sixpackabs\.com$/.test(location.hostname)) ? 'sixpackabs' : 'absbyai';
+try { if (window.posthog && typeof posthog.register === 'function') posthog.register({ brand: BRAND }); } catch (e) {}
+(function applyBrandSkin() {
+  if (BRAND !== 'sixpackabs') return;
+  document.title = 'SixPackAbs — See Yourself With a Six-Pack';
+  var meta = document.createElement('meta');
+  meta.name = 'description';
+  meta.content = 'SixPackAbs is back. Upload one photo and our AI shows you yourself with a six-pack — then builds the training and nutrition plan to make it real.';
+  document.head.appendChild(meta);
+  var canon = document.createElement('link');
+  canon.rel = 'canonical';
+  canon.href = 'https://absbyai.com/';
+  document.head.appendChild(canon);
+  document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]').forEach(function (l) { l.href = '/img/sixpackabs-icon-192.png'; });
+  document.querySelectorAll('.app-icon').forEach(function (img) { img.src = 'img/sixpackabs-icon-192.png'; });
+  document.querySelectorAll('.app-name').forEach(function (el) { el.textContent = 'SixPackAbs.com'; });
+  var hero = document.getElementById('formMarketingHero');
+  if (hero) {
+    var h1 = hero.querySelector('.hero-h1');
+    var sub = hero.querySelector('.hero-sub');
+    if (h1) h1.textContent = 'SixPackAbs is back.';
+    if (sub) {
+      sub.innerHTML = 'From the original founder of SixPackAbs.com. Upload one photo and our AI shows you <em>yourself</em> with a six-pack — then builds the training and nutrition plan to make it real.';
+      var trust = document.createElement('div');
+      trust.style.cssText = 'font-size:12px;color:var(--faint);font-weight:600;margin-bottom:10px';
+      trust.textContent = 'Same company. Same mission. New technology.';
+      sub.insertAdjacentElement('afterend', trust);
+    }
+    var note = hero.querySelector('.hero-product-note');
+    if (note) note.innerHTML = 'Upload a photo and SixPackAbs generates an AI image of your goal. It’s a visualization and motivation tool — <strong>the images are AI-generated, not real results.</strong>';
+  }
+  var formFooter = document.querySelector('#formSection .footer');
+  if (formFooter) {
+    var op = document.createElement('div');
+    op.className = 'footer';
+    op.textContent = 'SixPackAbs is operated by Abs By AI · absbyai.com';
+    formFooter.insertAdjacentElement('afterend', op);
+  }
+})();
+
 // ============================================================
 //  EXTERNAL PURCHASE LINK  (App Store guideline 3.1.1)
 // ------------------------------------------------------------
