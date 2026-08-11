@@ -1,17 +1,17 @@
 {
   "date": "2026-08-11",
   "order": [
-    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
-    "money::Train Brittany for Assistant Tasks",
-    "money::Schedule next photo shoot",
-    "money::Submit Google Ads suspension appeal (account 342-717-0837)"
+    "money::Schedule next photo shoot"
   ],
   "excluded": [
     "money::Reschedule Friday shoot to 11 - 6",
     "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
     "money::Hire septic tank pump guy",
     "money::Post carousel on Instagram",
-    "money::Post carousel on Facebook"
+    "money::Post carousel on Facebook",
+    "money::Train Brittany for Assistant Tasks",
+    "money::Submit Google Ads suspension appeal (account 342-717-0837)",
+    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)"
   ],
   "sessionsCompleted": 0
 }
