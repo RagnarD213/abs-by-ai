@@ -2,7 +2,6 @@
   "checked": [
     "health::Inject Zepbound",
     "assistant::Empty and clean Yeti cooler",
-    "assistant::Change robot mop water",
     "assistant::Clean robot vaccuum tray (ask Dan to show you how)",
     "assistant::Throw away old food from fridge",
     "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice",
@@ -155,7 +154,6 @@
     "assistant::Clean robot vaccuum tray (ask Dan to show you how)": "2026-08-11",
     "assistant::Empty and clean Yeti cooler": "2026-08-11",
     "assistant::Throw away old food from fridge": "2026-08-11",
-    "assistant::Change robot mop water": "2026-08-11",
     "assistant::Take out trash and replace liners": "2026-08-11"
   }
 }
