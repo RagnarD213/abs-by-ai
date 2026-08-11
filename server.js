@@ -7465,6 +7465,7 @@ async function callCounselSeat(systemPrompt, userContent, schema, maxTokens, eff
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 240000); // 4 min/attempt
   let response;
+  let data;
   try {
     response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -7482,10 +7483,15 @@ async function callCounselSeat(systemPrompt, userContent, schema, maxTokens, eff
       }),
       signal: controller.signal,
     });
+    // The bound must also cover the BODY read. clearTimeout used to sit before
+    // this line, so a response whose headers arrived but whose body stalled hung
+    // forever — leaving the audit_jobs row stuck at "running". Aborting mid-body
+    // makes response.json() reject, which is what engages callSeatResilient's
+    // retry and, failing that, the job's error state.
+    data = await response.json();
   } finally {
     clearTimeout(timer);
   }
-  const data = await response.json();
   if (!response.ok) {
     const err = new Error(friendlyAIError(response.status, data?.error?.message));
     err.rawMessage = data?.error?.message || '';
@@ -7689,6 +7695,27 @@ async function finishAuditJob(id, status, result, error) {
   }
   const job = auditJobsMem.get(id);
   if (job) { job.status = status; job.result = result; job.error = error || null; }
+}
+
+// A Railway restart mid-audit kills the detached job while its row stays at
+// "running" forever, so the app polls something that can never finish. Nothing
+// legitimately runs this long (worst case is two 4-minute attempts), so a row
+// still "running" after 15 minutes is dead. Mark it errored and invite a retry;
+// the audit is free, so a retry costs the user nothing. Deliberately does NOT
+// re-run the audit — the intake payload isn't on the job row, and a silent
+// re-run would double the model spend. auditJobsMem needs no sweep: a restart
+// empties it along with the jobs.
+const AUDIT_JOB_STALE_MINUTES = 15;
+const AUDIT_SWEEP_MS = 10 * 60 * 1000;
+async function sweepOrphanedAuditJobs() {
+  if (!db) return 0;
+  const { rowCount } = await db.query(
+    `UPDATE audit_jobs SET status = 'error', error = $1
+       WHERE status = 'running' AND created_at < now() - ($2 || ' minutes')::interval`,
+    ['The audit was interrupted by a server restart — please run it again.', String(AUDIT_JOB_STALE_MINUTES)]
+  );
+  if (rowCount > 0) console.log(`AUDIT_JOBS_SWEPT ${rowCount} stale running job(s) marked errored`);
+  return rowCount;
 }
 
 async function getAuditJob(id) {
@@ -9272,11 +9299,18 @@ const WELCOME_SWEEP_MS = 60 * 60 * 1000;
 setTimeout(() => { welcomeSweep(); }, 45 * 1000).unref?.();
 setInterval(() => { welcomeSweep(); }, WELCOME_SWEEP_MS).unref?.();
 
+// Orphaned Supplement Audit jobs — first pass shortly after boot (a restart is
+// exactly what orphans them), then every 10 minutes so a job orphaned less than
+// 15 minutes before the restart isn't left stuck until some later deploy. The
+// query is idempotent and cheap. A sweep failure must never take down boot.
+setTimeout(() => { sweepOrphanedAuditJobs().catch((e) => console.error('audit job sweep error:', e.message)); }, 20 * 1000).unref?.();
+setInterval(() => { sweepOrphanedAuditJobs().catch((e) => console.error('audit job sweep error:', e.message)); }, AUDIT_SWEEP_MS).unref?.();
+
 // Completed-assistant-task cleanup — hourly, first pass shortly after boot.
 setTimeout(() => { assistantDoneSweep(); }, 75 * 1000).unref?.();
 setInterval(() => { assistantDoneSweep(); }, ASSISTANT_SWEEP_MS).unref?.();
 
 // Exposed for tests. Requiring this module also starts the server; tests point
 // DATABASE_URL at pgmem:// and stub the stripe / node-fetch modules.
-module.exports = { app, db, trialReminderSweep, welcomeSweep, assistantDoneSweep, fulfillMembershipSession };
+module.exports = { app, db, trialReminderSweep, welcomeSweep, assistantDoneSweep, sweepOrphanedAuditJobs, fulfillMembershipSession };
 
