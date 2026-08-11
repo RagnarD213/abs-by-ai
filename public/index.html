@@ -2898,7 +2898,18 @@ try { if (window.posthog && typeof posthog.register === 'function') posthog.regi
       sub.innerHTML = 'Upload one photo and our AI shows you <em>yourself</em> with a six-pack — then builds the training and nutrition plan to make it real.';
     }
     var note = hero.querySelector('.hero-product-note');
-    if (note) note.innerHTML = 'It’s a visualization and motivation tool — <strong>the images are AI-generated, not real results.</strong> Created by Daniel Rose, one of the original founders of Six Pack Shortcuts and SixPackAbs.com.';
+    if (note) note.innerHTML = 'It’s a visualization and motivation tool — <strong>the images are AI-generated, not real results.</strong>';
+  }
+  // The founder credit sits down by the Generate button rather than in the
+  // hero — between the free-generation counter and the "Two AI steps" note —
+  // so the top of the page gets to the product faster and the credit lands
+  // where someone is deciding whether to trust it enough to upload a photo.
+  var ctaNote = document.querySelector('#formSection .cta-note');
+  if (ctaNote) {
+    var credit = document.createElement('div');
+    credit.className = 'cta-note';
+    credit.textContent = 'Created by Daniel Rose, one of the original founders of Six Pack Shortcuts and SixPackAbs.com.';
+    ctaNote.insertAdjacentElement('beforebegin', credit);
   }
   var formFooter = document.querySelector('#formSection .footer');
   if (formFooter) {
