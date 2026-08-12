@@ -1,6 +1,34 @@
 {
   "business": [
     {
+      "text": "Post on Facebook",
+      "priority": "key",
+      "recurring": true,
+      "why": "Daily manual social media posting",
+      "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Post on Instagram",
+      "priority": "key",
+      "recurring": true,
+      "why": "Daily manual social media posting",
+      "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Post on TikTok",
+      "priority": "key",
+      "recurring": true,
+      "why": "Daily manual social media posting",
+      "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Post on YouTube",
+      "priority": "key",
+      "recurring": true,
+      "why": "Daily manual social media posting",
+      "addedAt": "2026-08-12"
+    },
+    {
       "text": "Create new ad for shorts video within existing Demand Gen campaign",
       "priority": "key",
       "why": "New Shorts video posted to YouTube — add as its own new ad (not merged into existing ad) inside the current Demand Gen video campaign",
