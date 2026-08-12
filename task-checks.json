@@ -13,7 +13,8 @@
     "money::Post carousel on Instagram",
     "money::Post on: Instagram, Facebook, TikTok",
     "money::Reschedule Friday shoot to 11 - 6",
-    "money::Schedule next photo shoot"
+    "money::Schedule next photo shoot",
+    "money::Test supplement audit functionality"
   ],
   "log": {
     "health::Shower": [
@@ -169,6 +170,7 @@
     "money::Post carousel on Instagram": "2026-08-11",
     "money::Post on: Instagram, Facebook, TikTok": "2026-08-11",
     "money::Reschedule Friday shoot to 11 - 6": "2026-08-11",
-    "money::Schedule next photo shoot": "2026-08-11"
+    "money::Schedule next photo shoot": "2026-08-11",
+    "money::Test supplement audit functionality": "2026-08-11"
   }
 }
