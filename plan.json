@@ -2,9 +2,10 @@
   "date": "2026-08-12",
   "order": [
     "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
-    "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
     "money::Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review",
-    "money::Post on YouTube"
+    "money::Post on YouTube",
+    "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
+    "money::Execute handoff: Let users purchase before creating an account (iOS)"
   ],
   "excluded": [
     "money::Submit Google Ads suspension appeal (account 342-717-0837)",
@@ -24,7 +25,8 @@
     "money::Post on Facebook",
     "money::Post on Instagram",
     "money::Post on TikTok",
-    "money::Create new ad for shorts video within existing Demand Gen campaign"
+    "money::Create new ad for shorts video within existing Demand Gen campaign",
+    "money::Execute handoff: Queue Instagram + Facebook content via Blotato"
   ],
   "sessionsCompleted": 0
 }
