@@ -33,7 +33,8 @@
     "money::Create YouTube channel banner and avatar.",
     "money::Create Facebook profile and graphics.",
     "money::Post next photo to Instagram",
-    "money::Film and post second YouTube video"
+    "money::Film and post second YouTube video",
+    "money::Cut Reels/Shorts from second YouTube video for TikTok/IG"
   ],
   "log": {
     "health::Shower": [
@@ -209,6 +210,7 @@
     "money::Create YouTube channel banner and avatar.": "2026-08-12",
     "money::Create Facebook profile and graphics.": "2026-08-12",
     "money::Post next photo to Instagram": "2026-08-12",
-    "money::Film and post second YouTube video": "2026-08-12"
+    "money::Film and post second YouTube video": "2026-08-12",
+    "money::Cut Reels/Shorts from second YouTube video for TikTok/IG": "2026-08-12"
   }
 }
