@@ -256,6 +256,18 @@
       "priority": "key",
       "why": "handoff-20260812-ios-iap-purchase-audit.md — created but not yet run",
       "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
+      "priority": "key",
+      "why": "handoff-20260812-revenuecat-restore-behavior-audit.md — created but not yet run; AFTER App Review approval",
+      "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Execute handoff: Let users purchase before creating an account (iOS)",
+      "priority": "key",
+      "why": "handoff-20260812-purchase-before-account.md — created but not yet run; AFTER approval + after the RevenueCat audit",
+      "addedAt": "2026-08-12"
     }
   ],
   "health": [
