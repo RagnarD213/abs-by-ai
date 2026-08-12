@@ -267,11 +267,6 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Spray weeds with roundup",
-      "priority": "low",
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Hire someone to powerwash",
       "priority": "low",
       "recurring": false,
@@ -488,6 +483,11 @@
       "recurring": false,
       "addedAt": "2026-08-12",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Spray weeds with roundup",
+      "priority": "low",
+      "addedAt": "2026-08-03"
     }
   ]
 }
