@@ -25,7 +25,8 @@
     "assistant::Clean spiderwebs throughout house",
     "assistant::Clean toilets",
     "assistant::Organize bathroom cabinets",
-    "assistant::Sort through recycling"
+    "assistant::Sort through recycling",
+    "assistant::Take trash and recycle bins to curb"
   ],
   "log": {
     "health::Shower": [
@@ -193,6 +194,7 @@
     "assistant::Clean spiderwebs throughout house": "2026-08-11",
     "assistant::Clean toilets": "2026-08-11",
     "assistant::Organize bathroom cabinets": "2026-08-11",
-    "assistant::Sort through recycling": "2026-08-11"
+    "assistant::Sort through recycling": "2026-08-11",
+    "assistant::Take trash and recycle bins to curb": "2026-08-11"
   }
 }
