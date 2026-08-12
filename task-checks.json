@@ -28,7 +28,8 @@
     "assistant::Clean master bathroom toilet",
     "assistant::Organize bathroom cabinets",
     "assistant::Clean bathrooms",
-    "assistant::Clean spiderwebs throughout house"
+    "assistant::Clean spiderwebs throughout house",
+    "assistant::Clean interior of all windows"
   ],
   "log": {
     "health::Shower": [
@@ -185,6 +186,7 @@
     "assistant::Clean master bathroom toilet": "2026-08-11",
     "assistant::Organize bathroom cabinets": "2026-08-11",
     "assistant::Clean bathrooms": "2026-08-11",
-    "assistant::Clean spiderwebs throughout house": "2026-08-11"
+    "assistant::Clean spiderwebs throughout house": "2026-08-11",
+    "assistant::Clean interior of all windows": "2026-08-11"
   }
 }
