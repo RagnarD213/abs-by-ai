@@ -475,6 +475,13 @@
       "recurring": false,
       "addedAt": "2026-08-12",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Take trash and recycle bins to curb",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-08-12",
+      "addedBy": "assistant"
     }
   ]
 }
