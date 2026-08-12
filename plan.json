@@ -1,7 +1,6 @@
 {
   "date": "2026-08-12",
   "order": [
-    "money::Create new ad for shorts video within existing Demand Gen campaign",
     "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
     "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
     "money::Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review",
@@ -24,7 +23,8 @@
     "money::Post carousel on Instagram",
     "money::Post on Facebook",
     "money::Post on Instagram",
-    "money::Post on TikTok"
+    "money::Post on TikTok",
+    "money::Create new ad for shorts video within existing Demand Gen campaign"
   ],
   "sessionsCompleted": 0
 }
