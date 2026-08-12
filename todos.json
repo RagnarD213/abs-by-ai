@@ -204,6 +204,12 @@
       "priority": "key",
       "why": "handoff-20260811-youtube-channel-setup-finish.md — created but not yet run",
       "addedAt": "2026-08-11"
+    },
+    {
+      "text": "Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
+      "priority": "key",
+      "why": "handoff-20260812-ios-second-rejection-resolution.md — created but not yet run",
+      "addedAt": "2026-08-12"
     }
   ],
   "health": [
