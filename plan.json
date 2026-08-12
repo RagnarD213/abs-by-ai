@@ -1,8 +1,6 @@
 {
   "date": "2026-08-12",
   "order": [
-    "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
-    "money::Hire septic tank pump guy",
     "money::Post carousel on Instagram",
     "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
     "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
@@ -19,7 +17,9 @@
     "money::Book spray tan",
     "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs",
     "money::Reschedule Friday shoot to 11 - 6",
-    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)"
+    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
+    "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
+    "money::Hire septic tank pump guy"
   ],
   "sessionsCompleted": 0
 }
