@@ -2160,7 +2160,6 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <div id="hubPreviewAppNote" class="app-only-note app-note-box" style="display:none">
       <div>Explore everything below. Start your 7-day free trial to unlock it all.</div>
       <button type="button" id="hubPreviewJoinBtn" class="cta-btn" style="margin:12px 0 0;font-size:14px;padding:10px 16px">Start 7-day free trial →</button>
-      <div style="margin-top:8px;font-size:12px;font-weight:500;color:var(--mute)">Opens absbyai.com in your browser to complete the purchase.</div>
     </div>
 
     <!-- Membership card -->
@@ -5069,10 +5068,23 @@ window.addEventListener('DOMContentLoaded', async () => {
   // default browser rather than navigating in place.
   const extLinks = [
     ['paywallBuyExternalBtn', EXTERNAL_CREDITS_URL, 'paywall_credits'],
-    ['paywallJoinExternalBtn', EXTERNAL_CHECKOUT_URL, 'paywall_membership'],
     ['membershipJoinExternalBtn', EXTERNAL_CHECKOUT_URL, 'membership_screen'],
-    ['hubPreviewJoinBtn', EXTERNAL_CHECKOUT_URL, 'hub_preview'],
   ];
+  // These two are membership entry points that must go through the real
+  // membership screen (which shows Apple In-App Purchase when StoreKit is
+  // available, per iapPrepareMembershipScreen) rather than jumping straight
+  // to the external browser checkout — that direct-to-browser shortcut was
+  // the exact Guideline 3.1.1 rejection.
+  const hubPreviewJoin = $('hubPreviewJoinBtn');
+  if (hubPreviewJoin) hubPreviewJoin.addEventListener('click', () => showMembershipScreen());
+  const paywallJoin = $('paywallJoinExternalBtn');
+  if (paywallJoin) paywallJoin.addEventListener('click', () => showMembershipScreen(() => {
+    releaseLockedImage().then(released => {
+      unlockResult();
+      showScreen('result');
+      if (!released) showResultError('You\'re a member now, but this preview expired before we could unlock it. Tap "Try a different look" to make it again.');
+    });
+  }));
   // Manage is routed at click time, not wired to a fixed URL: an Apple-billed
   // member must land on Apple's subscription screen (the only place they can
   // cancel), everyone else on our own account page.
@@ -5656,11 +5668,6 @@ function proceedToTrialGate(planReady) {
 function showTrialGate(feature) {
   pendingTrialFeature = feature;
   if (window.posthog) posthog.capture('trial_gate_shown', { feature, logged_in: isLoggedIn() });
-  if (IS_NATIVE_APP) {
-    $('hubPreviewAppNote').style.display = '';
-    $('hubPreviewAppNote').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
   if (isLoggedIn()) return showMembershipScreen(openPendingTrialFeature, { trialGate: true });
   window._afterAuth = continueTrialAfterAccountCreation;
   showAuthScreen('signup', { trialGate: true });
