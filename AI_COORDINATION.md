@@ -95,6 +95,38 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 ## Active task
 
+### iOS purchase-path audit COMPLETE + credit packs RETIRED on every platform — SHIPPED, live-verified; resubmission BLOCKED on Dan (2026-08-12, Claude Code, commit `067bbcd`)
+
+Executes `Handoffs/handoff-20260812-ios-iap-purchase-audit.md` steps 1–3. **The audit is finished and the second 3.1.1 gap is closed. Steps 4–6 (reply to Apple, press Resubmit) are NOT done — they need Dan; see EXACT NEXT ACTION.**
+
+**The audit found exactly one gap, and nothing else — every purchase-capable path in the native app was enumerated, not sampled:**
+
+| Path | Native visibility | Verdict |
+|---|---|---|
+| Credit pack cards (`.pack-card`, $4.99/$14.99) | `app-hide-purchase` → `display:none !important` | safe — `handleCreditsCheckout` **also** hard-returned on `IS_NATIVE_APP`, so it was double-gated |
+| `membershipSubscribeBtn` (Stripe) | `app-hide-purchase` | safe — handler also returned early natively |
+| `membershipCreditsAlt` pay-as-you-go strip | `app-hide-purchase`, **survives even the `?buy=credits` deep link** (`!important` beats the inline `display:''`) | safe |
+| `paywallGoUnlimitedBtn` | inside `app-hide-purchase` | safe |
+| Printify print checkout (`checkoutBtn`) | visible | safe — physical goods, Apple *requires* non-IAP |
+| `membershipJoinExternalBtn` / `hubMembershipManageAppBtn` / `iapWebAltBtn` | visible | safe (already cleared in the handoff) |
+| **`paywallBuyExternalBtn` — "Get more generations →"** | **visible, opened the browser to buy a credit pack** | **the one real gap** |
+
+**Dan's call, and it went further than the handoff's two options: RETIRE CREDIT PACKS ENTIRELY, ON EVERY PLATFORM.** Not iOS-scoped, not a hidden button — one-time credit purchases are gone from web, iOS and Android alike, and the 7-day free trial is now the only way to get more generations. **This is a deliberate exception to the platform-scoped-compliance standing rule** (an Apple-driven change defaulting to the store build only): Dan chose the product simplification on its merits, so the web funnel changes too. Do not "restore" it to web as a compliance-scoping fix.
+
+**What shipped (`public/index.html`, `server.js`, `terms.html`, `refunds.html`, `faq.html` — 64 insertions, 241 deletions):** the paywall's pack cards and the `paywallBuyExternalBtn` link-out are gone; the paywall now reads *"You've used your free generations. Start your 7-day free trial…"* with **two buttons on all platforms** — `paywallJoinBtn` (renamed from the misnamed `paywallJoinExternalBtn`; routes through `showMembershipScreen()`, i.e. real IAP) and `paywallContinueHubBtn` (the escape hatch, no longer `app-only-note` since there's no buy path anywhere now). Also removed: `membershipCreditsAlt`, `handleCreditsCheckout`, `handleCreditsPurchaseComplete`, `EXTERNAL_CREDITS_URL`, the `creditsAlt` option on `showMembershipScreen`, `window._creditsPurchaseReturn`, and the `.pack-card*`/`.pack-badge` CSS. `paywallGoUnlimitedBtn` was folded into the single trial CTA.
+
+**Everything DOWNSTREAM of a purchase is deliberately intact — this is the part not to "clean up" later.** `CREDIT_PACKS`, `fulfillCreditsSession()`, the Stripe webhook and `checkCreditsSession()` all still run, so a checkout already in flight when this deployed still credits the buyer **and still sets `creditsStore.purchasers[deviceId]`** — that flag is what exempts a past payer from the `FREE_IP_DAILY_CAP`, so deleting it would have silently degraded paying customers. Free credits, existing balances and `creditConvertNote` (unused credits → dollars off the first membership payment) are untouched. `/api/stripe/create-credits-checkout` **returns 410 rather than being deleted**, so a stale cached client gets a clear answer instead of the SPA fallback HTML. `?buy=credits` still resolves — it now lands on the membership screen, which matters because **the already-uploaded binary `1.0 (2)` still contains a button pointing at it**; the shared-site architecture means the button itself vanished from the native app on this deploy with no new binary.
+
+**Verified.** All 5 inline `<script>` blocks + `server.js` pass `node --check`. Real browser at 375×812, **on production**: web paywall shows the two buttons, zero `$` strings, zero pack cards in the DOM; with `native-app` simulated, clicking the trial CTA **opened no external URL** (`window.open` intercepted → `null`) and landed on `membershipSection` with **0 visible prices and 0 of 6 `.app-hide-purchase` elements visible**; the `?buy=credits` deep link lands on membership with no credit strip; no horizontal overflow; **zero console errors**. On the wire: `/health` ok, the credits endpoint returns **410** with the retirement message, and the served `index.html` has **0** occurrences of `Starter Pack` / `Power Pack` / `pack-card"` / `paywallBuyExternalBtn` / `Get more generations` / `membershipCreditsAlt`. `/terms`, `/refunds`, `/faq` all 200 with the discontinued-pack wording.
+
+**NATIVE RETEST TRIGGER ROW HIT — "anything showing a price, buy button, credit pack, or Manage membership" is the MANDATORY iOS + Android row.** The programmatic gating assertions above were run against production and pass, but **Dan must force-close and reopen the TestFlight build** to confirm on a real device before anything is sent to Apple. Android is equally affected (same shared site) and its buy path was also an unenrolled external-offers link — retiring packs removes that exposure too, which is a side benefit worth noting given the open Play external-offers gap recorded elsewhere in this file.
+
+**EXACT NEXT ACTION — DAN, then Claude:**
+1. **Dan:** force-close and reopen the TestFlight build `1.0 (2)`, run the free generations out on the fresh non-comp account, and confirm the paywall shows only "Start 7-day free trial" + "Continue to my hub" — **no "Get more generations"**.
+2. **Then Claude** can do handoff steps 4–6 in App Store Connect: paste the drafted 2.1 face-data answers from `app-store-assets/APP_REVIEW_REPLY_20260807.md` into submission `c4dc7f48-72d6-4ecd-b809-65be264fce85` → Messages, note that both 3.1.1 fixes are live, and resubmit. **The formal Resubmit press and the statement to Apple are Dan's declarations about his business** — same rule that kept Claude from submitting the Google Ads appeal — so Claude drafts and stages, Dan confirms.
+
+**Dashboard: `money::Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review` deliberately NOT checked off.** The audit and the code fix are done, but the task text says "+ resubmit to App Review" and that has not happened. Check it off when the submission flips to Waiting for Review (Rule 9's completion bar), not before.
+
 ### Non-recurring completed tasks reappearing unchecked — ROOT-CAUSED, DATA RESTORED, GUARD SHIPPED (2026-08-12, Claude Code)
 
 Dan reported that non-recurring completed Money-list/Work Session Focus tasks (`Post carousel on Instagram`, `Post carousel on Facebook`, `Hire septic tank pump guy`, and 10 more) — checked off the day before — showed up unchecked again the next morning.
