@@ -461,6 +461,13 @@
       "recurring": false,
       "addedAt": "2026-08-11",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Have Dan approve an order for a broom, dustpan and duster",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-08-12",
+      "addedBy": "assistant"
     }
   ]
 }
