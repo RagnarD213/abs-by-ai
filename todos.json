@@ -468,6 +468,13 @@
       "recurring": false,
       "addedAt": "2026-08-12",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Sort through recycling",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-08-12",
+      "addedBy": "assistant"
     }
   ]
 }
