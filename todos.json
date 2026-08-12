@@ -210,6 +210,12 @@
       "priority": "key",
       "why": "handoff-20260812-ios-second-rejection-resolution.md — created but not yet run",
       "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Execute handoff: Queue Instagram + Facebook content via Blotato",
+      "priority": "key",
+      "why": "handoff-20260812-instagram-facebook-content-queue.md — created but not yet run",
+      "addedAt": "2026-08-12"
     }
   ],
   "health": [
