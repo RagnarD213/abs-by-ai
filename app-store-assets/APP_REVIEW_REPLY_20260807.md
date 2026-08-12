@@ -2,6 +2,8 @@
 
 Paste the text below into "Reply to App Review" in App Store Connect, and mirror the face-data answers into App Review Information notes. All three guideline sections are complete. The 3.1.1 answer reflects the decision taken 2026-08-07: build the membership as a real auto-renewable In-App Purchase (option a). Send this reply with the 1.0 (2) submission, once both subscriptions are attached to the version.
 
+**Updated 2026-08-12** — the 3.1.1 section was rewritten after the full purchase-path audit (`Handoffs/handoff-20260812-ios-iap-purchase-audit.md`). Three things changed since the first draft and all three are live: the subscription IAP was sandbox-tested end to end on a real device; two membership buttons that still jumped straight to the browser were fixed (commit `1df0d01`); and one-time credit packs were retired on every platform (commit `067bbcd`), removing the last in-app link to a non-IAP digital purchase. Do not send the pre-2026-08-12 wording — it understated the fix and left the credit-pack link-out undisclosed.
+
 ---
 
 Hello,
@@ -53,10 +55,15 @@ Build **1.0 (2)** includes two auto-renewable subscriptions in a single subscrip
 - **Monthly Membership** — `com.absbyai.app.membership.monthly`, $19.99/month, with a 7-day free trial
 - **Annual Membership** — `com.absbyai.app.membership.annual`, $69.99/year, with a 7-day free trial
 
-Both are attached to this version for review. The purchase screen displays the title, duration and price of each subscription — read from StoreKit at runtime, so it always matches what Apple charges — together with the auto-renewal disclosure, a **Restore Purchases** control, and tappable **Terms of Use** and **Privacy Policy** links. A completed purchase unlocks the membership immediately; entitlements are verified server-side against the App Store receipt, and the app itself is never trusted to grant access. Subscriptions are managed and cancelled through the user's Apple ID, and the app links there for management.
+Both are attached to this version for review. The purchase screen displays the title, duration and price of each subscription — read from StoreKit at runtime, so it always matches what Apple charges — together with the auto-renewal disclosure, a **Restore Purchases** control, and tappable **Terms of Use** and **Privacy Policy** links. A completed purchase unlocks the membership immediately; entitlements are verified server-side against the App Store receipt, and the app itself is never trusted to grant access. Subscriptions are managed and cancelled through the user's Apple ID, and the app links there for management. We have completed a full sandbox purchase on a physical device to confirm the flow end to end.
+
+**We also audited every remaining purchase path in the app, and closed two further gaps.** Both fixes are server-delivered and already live in build 1.0 (2), with no new binary required:
+
+1. **Two membership entry points still opened the browser directly.** The "Start 7-day free trial" button in the member-hub preview, and the membership link on the out-of-generations screen, were left over from the previous submission and bypassed the new purchase screen. Both now open the In-App Purchase screen described above.
+2. **One-time credit packs have been discontinued entirely, on every platform.** The app previously offered a link out to our website to buy one-off image-generation packs. That content is no longer sold anywhere — to us or to any user, on iOS, Android or the web — and the link has been removed. Users who run out of free generations are now offered only the In-App Purchase subscription, or the option to continue to the rest of the app.
+
+As a result, **there is no digital content or functionality purchasable in the app by any means other than In-App Purchase.** The only external links that remain are ones we understand to be permitted, and we would welcome correction if any is not: a link to manage or cancel an existing subscription in Apple ID Settings; a "prefer to pay on the website" alternative offered *alongside* In-App Purchase on the same screen under the US-storefront allowance; and a fallback link shown only in the event StoreKit is unavailable and no In-App Purchase can be offered. Printed posters and canvases remain a physical-goods purchase handled outside In-App Purchase, as required.
 
 **To reach the purchase screen:** create a free account (or sign in), then open **Member Hub → Membership**. Please note that the demo account provided in App Review Information is a complimentary member account, so it intentionally displays no purchase UI. To see the In-App Purchase flow, please create a new free account in the app or remain signed out.
-
-The US-storefront external purchase link remains available alongside In-App Purchase, as permitted, but In-App Purchase is now offered for the same content.
 
 Thank you — we believe the app now fully addresses the privacy guidelines, and we're happy to provide any further detail.
