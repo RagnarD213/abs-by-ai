@@ -1616,7 +1616,7 @@ try {
 const r = await fetch('/api/task-checks', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ id, checked: nowChecked, recurring: !!recurring, date: localToday() }),
+body: JSON.stringify({ id, checked: nowChecked, recurring: !!recurring, date: localToday(), confirmUncheck: true }),
 });
 if (!r.ok) throw new Error('save failed');
 pending.inFlight = false;
@@ -2331,7 +2331,7 @@ toast(`Moved to ${LIST_LABELS[toKey] || toKey}`, 'ok');
 
 // Persist the completion migration (clear the old id, set the new one).
 if (wasDone) {
-const body = (id, checked) => JSON.stringify({ id, checked, recurring: rec, date: localToday() });
+const body = (id, checked) => JSON.stringify({ id, checked, recurring: rec, date: localToday(), confirmUncheck: true });
 try {
 await fetch('/api/task-checks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body(oldId, false) });
 await fetch('/api/task-checks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body(newId, true) });

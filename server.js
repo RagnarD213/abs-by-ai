@@ -1436,7 +1436,7 @@ app.get('/api/tasks-events', async (req, res) => {
 
 app.post('/api/task-checks', async (req, res) => {
   if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
-  const { id, checked, recurring, date } = req.body || {};
+  const { id, checked, recurring, date, confirmUncheck } = req.body || {};
   if (typeof id !== 'string' || typeof checked !== 'boolean') {
     return res.status(400).json({ error: 'expected { id: string, checked: boolean }' });
   }
@@ -1450,6 +1450,25 @@ app.post('/api/task-checks', async (req, res) => {
       // writing without one is a guaranteed 422 against an existing file.
       const needFresh = attempt > 0 || (checksCache && !checksCache.sha);
       const cur = await loadTaskChecks(needFresh ? { fresh: true } : undefined);
+      // Guard against an unconfirmed uncheck of a non-recurring task completed on
+      // an earlier day. Real dashboard/assistant checkbox clicks always set
+      // confirmUncheck, so this never blocks a genuine user action — it only
+      // blocks a caller (stray script, external automation) blindly clearing
+      // sticky completion state. Root cause: 2026-08-12, a stale external
+      // "delete completed tasks" automation had its /api/todos deletion
+      // correctly refused by the delete-guard below, but its separate
+      // /api/task-checks uncheck calls went through unguarded, leaving
+      // yesterday's completed tasks on the board looking undone.
+      if (!recurring && !checked && !confirmUncheck) {
+        const priorDate = cur.checkedAt[id];
+        if (priorDate && priorDate < serverToday()) {
+          return res.status(409).json({
+            error: 'unconfirmed_uncheck',
+            message: `"${id}" was completed on ${priorDate}, not today — resend with confirmUncheck:true to actually uncheck it.`,
+            checkedAt: priorDate,
+          });
+        }
+      }
       const set = new Set(cur.checked);
       const log = { ...cur.log };
       const checkedAt = { ...cur.checkedAt };
