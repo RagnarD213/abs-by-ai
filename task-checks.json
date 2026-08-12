@@ -2,7 +2,8 @@
   "checked": [
     "health::Inject Zepbound",
     "personal::Fix shower handle",
-    "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)"
+    "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
+    "money::Book spray tan"
   ],
   "log": {
     "health::Shower": [
@@ -147,6 +148,7 @@
   },
   "checkedAt": {
     "personal::Fix shower handle": "2026-08-12",
-    "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)": "2026-08-12"
+    "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)": "2026-08-12",
+    "money::Book spray tan": "2026-08-11"
   }
 }
