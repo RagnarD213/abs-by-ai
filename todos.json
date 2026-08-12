@@ -1,6 +1,12 @@
 {
   "business": [
     {
+      "text": "Create new ad for shorts video within existing Demand Gen campaign",
+      "priority": "key",
+      "why": "New Shorts video posted to YouTube — add as its own new ad (not merged into existing ad) inside the current Demand Gen video campaign",
+      "addedAt": "2026-08-12"
+    },
+    {
       "text": "Finish Google Ads campaign setup and launch video campaign",
       "priority": "high",
       "why": "Tracking verified firing; set Trial Signup to 'Use different values for each conversion' in Goals → Conversions",
