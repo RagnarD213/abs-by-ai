@@ -6,7 +6,8 @@
     "money::Book spray tan",
     "money::Create TikTok profile and graphics.",
     "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs",
-    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)"
+    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
+    "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)"
   ],
   "log": {
     "health::Shower": [
@@ -155,6 +156,7 @@
     "money::Book spray tan": "2026-08-11",
     "money::Create TikTok profile and graphics.": "2026-08-04",
     "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs": "2026-08-11",
-    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)": "2026-08-11"
+    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)": "2026-08-11",
+    "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)": "2026-08-11"
   }
 }
