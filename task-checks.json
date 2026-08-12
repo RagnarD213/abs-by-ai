@@ -10,7 +10,8 @@
     "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)",
     "money::Hire septic tank pump guy",
     "money::Post carousel on Facebook",
-    "money::Post carousel on Instagram"
+    "money::Post carousel on Instagram",
+    "money::Post on: Instagram, Facebook, TikTok"
   ],
   "log": {
     "health::Shower": [
@@ -163,6 +164,7 @@
     "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)": "2026-08-11",
     "money::Hire septic tank pump guy": "2026-08-11",
     "money::Post carousel on Facebook": "2026-08-11",
-    "money::Post carousel on Instagram": "2026-08-11"
+    "money::Post carousel on Instagram": "2026-08-11",
+    "money::Post on: Instagram, Facebook, TikTok": "2026-08-11"
   }
 }
