@@ -2,7 +2,6 @@
   "date": "2026-08-12",
   "order": [
     "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
-    "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
     "money::Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review"
   ],
   "excluded": [
@@ -19,7 +18,8 @@
     "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
     "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
     "money::Hire septic tank pump guy",
-    "money::Post carousel on Instagram"
+    "money::Post carousel on Instagram",
+    "money::Execute handoff: Queue Instagram + Facebook content via Blotato"
   ],
   "sessionsCompleted": 0
 }
