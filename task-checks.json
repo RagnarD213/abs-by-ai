@@ -35,7 +35,8 @@
     "money::Post next photo to Instagram",
     "money::Film and post second YouTube video",
     "money::Cut Reels/Shorts from second YouTube video for TikTok/IG",
-    "money::Write more outlines for YouTube videos"
+    "money::Write more outlines for YouTube videos",
+    "money::Create new ad for shorts video within existing Demand Gen campaign"
   ],
   "log": {
     "health::Shower": [
@@ -217,6 +218,7 @@
     "money::Post next photo to Instagram": "2026-08-12",
     "money::Film and post second YouTube video": "2026-08-12",
     "money::Cut Reels/Shorts from second YouTube video for TikTok/IG": "2026-08-12",
-    "money::Write more outlines for YouTube videos": "2026-08-12"
+    "money::Write more outlines for YouTube videos": "2026-08-12",
+    "money::Create new ad for shorts video within existing Demand Gen campaign": "2026-08-12"
   }
 }
