@@ -1,7 +1,6 @@
 {
   "checked": [
     "health::Inject Zepbound",
-    "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice",
     "assistant::Clean shower",
     "assistant::Clean toilets",
     "assistant::Clean master bathroom toilet",
@@ -154,7 +153,6 @@
     ]
   },
   "checkedAt": {
-    "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice": "2026-08-11",
     "assistant::Clean shower": "2026-08-11",
     "assistant::Clean toilets": "2026-08-11",
     "assistant::Clean master bathroom toilet": "2026-08-11",
