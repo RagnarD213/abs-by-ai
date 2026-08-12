@@ -211,19 +211,25 @@
       "text": "Workout",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-10"
+      "addedAt": "2026-08-12"
     },
     {
       "text": "Supplements",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-10"
+      "addedAt": "2026-08-12"
     },
     {
       "text": "Shower",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-10"
+      "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Salad",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-08-12"
     },
     {
       "text": "Salad by 2:00 PM",
