@@ -8858,42 +8858,18 @@ app.get('/api/credits', (req, res) => {
 });
 
 // Create an embedded Stripe Checkout session for a credit pack.
-app.post('/api/stripe/create-credits-checkout', async (req, res) => {
-  try {
-    const stripe = getStripe();
-    if (!stripe) return res.status(503).json({ error: 'Payments are not configured yet.' });
-
-    const { pack, deviceId } = req.body || {};
-    const packDef = CREDIT_PACKS[pack];
-    if (!packDef) return res.status(400).json({ error: 'Invalid pack' });
-    if (!deviceId) return res.status(400).json({ error: 'Missing deviceId' });
-
-    // redirect_on_completion:'never' keeps the buyer on the SPA after paying —
-    // the client handles completion via Stripe's onComplete callback instead of
-    // a full-page return_url redirect (which would lose the generated image).
-    const session = await stripe.checkout.sessions.create({
-      ui_mode: 'embedded',
-      mode: 'payment',
-      redirect_on_completion: 'never',
-      line_items: [{
-        quantity: 1,
-        price_data: {
-          currency: 'usd',
-          unit_amount: packDef.priceInCents,
-          product_data: {
-            name: `${packDef.label} — ${packDef.credits} generations`,
-            description: 'Abs By AI image generations',
-          },
-        },
-      }],
-      metadata: { kind: 'credits', pack, deviceId, credits: String(packDef.credits) },
-    });
-
-    res.json({ clientSecret: session.client_secret, sessionId: session.id });
-  } catch (err) {
-    console.error('create-credits-checkout error:', err.message);
-    res.status(500).json({ error: 'Could not start checkout. Please try again.' });
-  }
+// RETIRED 2026-08-12 (Dan's call, all platforms). One-time credit packs are no
+// longer sold anywhere — the 7-day free trial is the only way to get more
+// generations. The endpoint stays mounted and refuses rather than being deleted
+// so an old cached client gets a clear answer instead of the SPA fallback HTML.
+//
+// Everything DOWNSTREAM of a purchase is deliberately left intact:
+// CREDIT_PACKS, fulfillCreditsSession() and the Stripe webhook still run, so a
+// checkout that was already in flight when this shipped still credits the buyer
+// and still sets creditsStore.purchasers[deviceId] (their exemption from the
+// per-IP free cap). Existing balances spend exactly as before.
+app.post('/api/stripe/create-credits-checkout', (req, res) => {
+  res.status(410).json({ error: 'Credit packs are no longer sold. Start a 7-day free trial for unlimited generations.' });
 });
 
 // Verify a checkout session on return from Stripe. Doubles as a fulfillment
