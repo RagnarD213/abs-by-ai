@@ -777,6 +777,23 @@ const CACHE_TRUST_MS = 20000;
 let checksCache = null; // { checked, log, sha, fetchedAt, trustUntil }
 let todosCache = null;  // { data, fetchedAt, trustUntil }
 
+// Serializes every read-modify-write against todos.json / task-checks.json in
+// this process. Without it, two overlapping requests (e.g. a user checking a
+// box while an assistant-task add or the 7-day sweep is mid-flight) each read
+// the same snapshot, compute their own next-state, and the later write silently
+// discards whatever the earlier one added — a classic lost update. Confirmed
+// live 2026-08-12: nine assistant:: completions vanished from `checked` in one
+// write that was only ever supposed to touch a single unrelated id. Single
+// mutex (not two) because assistantDoneSweep touches both files in one pass and
+// two separate locks taken in different orders elsewhere would risk deadlock.
+// Single-replica caveat applies, same as the caches above.
+let taskDataLock = Promise.resolve();
+function withTaskDataLock(fn) {
+  const run = taskDataLock.then(fn, fn);
+  taskDataLock = run.then(() => {}, () => {});
+  return run;
+}
+
 const cacheUsable = (c) => c && (Date.now() < c.trustUntil || Date.now() - c.fetchedAt < CACHE_TTL_MS);
 
 // Clients holding an open Server-Sent Events connection. Any task write is pushed
@@ -927,7 +944,7 @@ function restoreSchedules(current, incoming) {
   return restored;
 }
 
-app.post('/api/todos', async (req, res) => {
+app.post('/api/todos', async (req, res) => { await withTaskDataLock(async () => {
   try {
     const incoming = normalizeTodos(req.body);
     const allow = new Set(Array.isArray(req.body?.allowDeletes) ? req.body.allowDeletes : []);
@@ -967,7 +984,7 @@ app.post('/api/todos', async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
-});
+}); });
 
 // ── Assistant surface (absbyai.com/assistant) ──
 // A deliberately narrow API for the personal assistant's own page. It reads and
@@ -985,13 +1002,13 @@ app.get('/api/assistant-tasks', async (req, res) => {
   res.json({ tasks: todos.assistant || [], checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt });
 });
 
-app.post('/api/assistant-tasks', async (req, res) => {
+app.post('/api/assistant-tasks', async (req, res) => { await withTaskDataLock(async () => {
   if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
   const text = typeof req.body?.text === 'string' ? req.body.text.trim() : '';
   if (!text) return res.status(400).json({ error: 'expected { text: string }' });
   if (text.length > 300) return res.status(400).json({ error: 'task text too long' });
   try {
-    const todos = await loadTodos();
+    const todos = await loadTodos({ fresh: true });
     const list = todos.assistant || [];
     if (list.some(t => t.text === text)) {
       return res.status(409).json({ error: 'that task is already on the list' });
@@ -1008,7 +1025,7 @@ app.post('/api/assistant-tasks', async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
-});
+}); });
 
 // ── Completed assistant work: hide next morning, delete after a week ──
 // Two different lifetimes on purpose, both Dan's call (2026-08-11):
@@ -1033,7 +1050,7 @@ function daysBetween(fromDate, toDate) {
   return Math.round((Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 86400000);
 }
 
-async function assistantDoneSweep() {
+async function assistantDoneSweep() { return withTaskDataLock(async () => {
   if (!GITHUB_TOKEN) return;
   try {
     const [todos, cur] = await Promise.all([loadTodos({ fresh: true }), loadTaskChecks({ fresh: true })]);
@@ -1086,7 +1103,7 @@ async function assistantDoneSweep() {
   } catch (e) {
     console.error('assistantDoneSweep error:', e.message);
   }
-}
+}); }
 
 // ── Time tracker (the assistant's work-session clock) ──
 // One active session at a time, server-timestamped so the elapsed time is
@@ -1434,7 +1451,7 @@ app.get('/api/tasks-events', async (req, res) => {
   req.on('close', () => { clearInterval(beat); taskStreamClients.delete(res); });
 });
 
-app.post('/api/task-checks', async (req, res) => {
+app.post('/api/task-checks', async (req, res) => { await withTaskDataLock(async () => {
   if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
   const { id, checked, recurring, date, confirmUncheck } = req.body || {};
   if (typeof id !== 'string' || typeof checked !== 'boolean') {
@@ -1503,7 +1520,7 @@ app.post('/api/task-checks', async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
-});
+}); });
 
 
 // ââ Apple Watch data â stored in GitHub so it survives Railway deploys ââ
