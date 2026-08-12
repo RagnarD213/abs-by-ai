@@ -30,8 +30,7 @@
     "assistant::Clean spiderwebs throughout house",
     "assistant::Clean interior of all windows",
     "assistant::Sort through recycling",
-    "assistant::Take trash and recycle bins to curb",
-    "assistant::Have Dan approve an order for a broom, dustpan and duster"
+    "assistant::Take trash and recycle bins to curb"
   ],
   "log": {
     "health::Shower": [
@@ -190,7 +189,6 @@
     "assistant::Clean spiderwebs throughout house": "2026-08-11",
     "assistant::Clean interior of all windows": "2026-08-11",
     "assistant::Sort through recycling": "2026-08-11",
-    "assistant::Take trash and recycle bins to curb": "2026-08-11",
-    "assistant::Have Dan approve an order for a broom, dustpan and duster": "2026-08-11"
+    "assistant::Take trash and recycle bins to curb": "2026-08-11"
   }
 }
