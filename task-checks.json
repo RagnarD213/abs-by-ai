@@ -1,6 +1,7 @@
 {
   "checked": [
-    "health::Inject Zepbound"
+    "health::Inject Zepbound",
+    "personal::Fix shower handle"
   ],
   "log": {
     "health::Shower": [
@@ -143,5 +144,7 @@
       "2026-08-11"
     ]
   },
-  "checkedAt": {}
+  "checkedAt": {
+    "personal::Fix shower handle": "2026-08-12"
+  }
 }
