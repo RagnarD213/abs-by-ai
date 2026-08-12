@@ -216,6 +216,12 @@
       "priority": "key",
       "why": "handoff-20260812-instagram-facebook-content-queue.md — created but not yet run",
       "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review",
+      "priority": "key",
+      "why": "handoff-20260812-ios-iap-purchase-audit.md — created but not yet run",
+      "addedAt": "2026-08-12"
     }
   ],
   "health": [
