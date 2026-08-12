@@ -1,6 +1,22 @@
 {
   "date": "2026-08-12",
-  "order": [],
-  "excluded": [],
+  "order": [
+    "money::Reschedule Friday shoot to 11 - 6",
+    "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
+    "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
+    "money::Hire septic tank pump guy",
+    "money::Post carousel on Instagram",
+    "money::Post carousel on Facebook",
+    "money::Train Brittany for Assistant Tasks",
+    "money::Schedule next photo shoot",
+    "money::Book spray tan",
+    "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs",
+    "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)",
+    "money::Post on: Instagram, Facebook, TikTok",
+    "money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)"
+  ],
+  "excluded": [
+    "money::Submit Google Ads suspension appeal (account 342-717-0837)"
+  ],
   "sessionsCompleted": 0
 }
