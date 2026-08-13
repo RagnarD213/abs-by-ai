@@ -38,7 +38,8 @@
     "money::Create new ad for shorts video within existing Demand Gen campaign",
     "money::Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review",
     "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
-    "money::Advertise toe touch video on Google Ads"
+    "money::Advertise toe touch video on Google Ads",
+    "money::Advertise toe touch video on Meta"
   ],
   "log": {
     "health::Shower": [
@@ -240,6 +241,7 @@
     "money::Create new ad for shorts video within existing Demand Gen campaign": "2026-08-12",
     "money::Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review": "2026-08-12",
     "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)": "2026-08-12",
-    "money::Advertise toe touch video on Google Ads": "2026-08-13"
+    "money::Advertise toe touch video on Google Ads": "2026-08-13",
+    "money::Advertise toe touch video on Meta": "2026-08-13"
   }
 }
