@@ -95,6 +95,10 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 ## Active task
 
+### HANDOFF WRITTEN 2026-08-13: `Handoffs/handoff-20260813-longform-edit-pipeline.md` — /longform-edit video pipeline (NOT yet executed)
+
+Output of a research session on Claude video editing (ButterCut.io, Selects MCP, video-use, Hyperframes V2, color-grade-ai, audio/reframe tooling). **The tool landscape and architecture decisions are settled in the handoff — do not re-research them.** Four phases: (1) rough-cut bake-off of video-use vs Selects (vs ButterCut free, optional) on one real shoot — the bake-off, not opinion, picks the rough-cut engine; (2) adopt + validate Hyperframes V2 (motion graphics) and color-grade-ai (LUT color) independently, plus a free/local audio chain (DeepFilterNet/resemble-enhance + loudnorm −14 LUFS); (3) build `.claude/skills/longform-edit/` extending the `/shorts` architecture with a plan-file revision surface, B-roll index over `Media/B roll/`, and AI-clip hooks into the existing runners; (4) first full video with a real revision round as the acceptance test. Settled: finished-MP4 model, NOT ButterCut's timeline-handoff model (ButterCut Pro only if Romeysa wants it — Dan's separate call). Rule-8 Key task added and verified persisted (`money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)`). Recommended executor: phases in separate sessions; Phase 3 always-Claude (see the handoff's model table).
+
 ### Yesterday's completed tasks reappearing in Work Session Focus — FIXED, live-verified (2026-08-13, Claude Code, commit `2e22f63`)
 
 Dan dragged ~17 completed Key tasks out of the focus band yesterday; they were all back this morning, struck through, filling the band.
