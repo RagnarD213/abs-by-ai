@@ -95,6 +95,26 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 ## Active task
 
+### Yesterday's completed tasks reappearing in Work Session Focus — FIXED, live-verified (2026-08-13, Claude Code, commit `2e22f63`)
+
+Dan dragged ~17 completed Key tasks out of the focus band yesterday; they were all back this morning, struck through, filling the band.
+
+**Root cause, and it is by construction, not a data bug.** `ensurePlanDay()` clears `planState.order` **and `excluded`** on a new local day, then `buildPlanSeq()` auto-populates every Key task that isn't excluded — with **no check on whether it is already done**. Completed tasks deliberately don't count against `PLAN_OPEN_CAP`, so *all* of them come back, every morning, forever. Dragging one out only sets `excluded` for that day, which is wiped at midnight — so **the manual fix could never stick**. (Today's `plan.json` also had all 17 materialized into `order`, so they'd have persisted today regardless.)
+
+**Fix (`dashboard.html` only, no server change).** The dashboard now consumes **`checkedAt`** — the id → `YYYY-MM-DD` completion date the server has stamped on every check since 2026-08-11 and already returns from `/api/task-checks`, `/api/tasks-state` and the SSE stream; it was simply never read here. New `completedOnEarlierDay()` / `isPlanIdStale()` filter any one-off whose completion date isn't today out of the focus band, applied in **both** `buildPlanSeq` passes (the `order` pass and auto-population). Threaded through `seedChecks` (all 4 call sites), `applyPendingChecks`, `toggleTodo` and the cross-list rename migration, mirrored to localStorage.
+
+**Three properties deliberately preserved:**
+- **Today's completions still show**, in the done group under the open tasks — verified by checking a task off and watching it move down rather than vanish. Without the local `checkedAt` stamp in `toggleTodo` it would disappear under his finger, the same trap the assistant-page work hit.
+- **Recurring tasks are never stale** — their done state already resets each local day.
+- **Nothing is removed from a column list.** The tasks stay in Money/Health/Personal with their completed state; only the focus band changes.
+- A completion with **no** recorded date predates `checkedAt` and is treated as old, which is what cleared the 17 today.
+
+**Verified** against a read-only local stub serving the edited `dashboard.html` with **production** task data proxied in (writes 403'd): 17 stale ids filtered, band 22 → 5 open / 0 done, a fresh check-off lands in the done group with `checkedAt` = today, and a simulated next-morning rebuild (`order: []`, completion dated yesterday) does **not** re-add it while the task stays on the Money list marked done. Then **live on absbyai.com** after the deploy: same 5 open / 0 done, `staleFilteredFromOrder: 17`, Money list still 47 items, zero horizontal overflow at 375×812 and desktop, no console errors, `/health` ok.
+
+**No native retest trigger row touched** — internal dashboard page, not loaded by the iOS/Android apps. **No dashboard task matched this work** (all four lists searched), so nothing was checked off per Rule 9, and no handoff was created, so Rule 8 does not apply.
+
+**Left alone deliberately:** the 17 stale ids still sitting in `plan.json`'s `order`. They are filtered on every render and drop out the next time a drag rewrites the order; hand-editing that file risks clobbering a concurrent write for no gain.
+
 ### iOS purchase-path audit COMPLETE + credit packs RETIRED on every platform — SHIPPED, live-verified; resubmission BLOCKED on Dan (2026-08-12, Claude Code, commit `067bbcd`)
 
 Executes `Handoffs/handoff-20260812-ios-iap-purchase-audit.md` steps 1–3. **The audit is finished and the second 3.1.1 gap is closed. Steps 4–6 (reply to Apple, press Resubmit) are NOT done — they need Dan; see EXACT NEXT ACTION.**
