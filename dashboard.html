@@ -1399,15 +1399,20 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').cat
 //   checkedTodos — sticky one-off completions (ids); stay until unchecked.
 //   taskLog      — recurring completion dates { id: [yyyy-mm-dd] } → drives
 //                  "done today" + streaks, with automatic daily reset.
+//   checkedAtMap — { id: "yyyy-mm-dd" } the day a one-off was checked off. Set by
+//                  the server on every check; used to keep a task that was
+//                  finished on an EARLIER day out of the focus band.
 //   todosState   — editable task lists {money,health,personal,assistant} of {text,priority,recurring}.
-// localStorage mirrors all three so the UI is instant and works offline.
+// localStorage mirrors all of them so the UI is instant and works offline.
 let checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
 let taskLog = JSON.parse(localStorage.getItem('taskLog') || '{}');
+let checkedAtMap = JSON.parse(localStorage.getItem('checkedAtMap') || '{}');
 let todosState = { money: [], health: [], personal: [], assistant: [] };
 
 function cacheChecks() {
 localStorage.setItem('checkedTodos', JSON.stringify([...checkedTodos]));
 localStorage.setItem('taskLog', JSON.stringify(taskLog));
+localStorage.setItem('checkedAtMap', JSON.stringify(checkedAtMap));
 }
 
 // Local (device-timezone) date helpers — daily reset must follow the user's day.
@@ -1459,6 +1464,19 @@ if (recurring) return (taskLog[id] || []).includes(localToday());
 return checkedTodos.has(id);
 }
 
+// Was this one-off finished on an EARLIER day? Yesterday's wins belong in their
+// column's completed pile, not in today's focus band — so this gate keeps them
+// out of the band both today (they're already sitting in planState.order) and on
+// every future day (auto-population re-adds Key tasks each morning).
+// Recurring tasks are never "old": their done state resets each local day.
+// A completion with no recorded date predates checkedAt, so it is old by
+// definition — a task checked off today always carries today's date.
+function completedOnEarlierDay(id, recurring) {
+if (recurring) return false;
+if (!checkedTodos.has(id)) return false;
+return checkedAtMap[id] !== localToday();
+}
+
 // Consecutive-day streak, counting back from today (or yesterday if not yet done today).
 function calcStreak(id) {
 const set = new Set(taskLog[id] || []);
@@ -1499,17 +1517,19 @@ const days = new Set(taskLog[id] || []);
 if (p.checked) days.add(localToday()); else days.delete(localToday());
 if (days.size) taskLog[id] = [...days].sort(); else delete taskLog[id];
 } else {
-if (p.checked) checkedTodos.add(id); else checkedTodos.delete(id);
+if (p.checked) { checkedTodos.add(id); checkedAtMap[id] = checkedAtMap[id] || localToday(); }
+else { checkedTodos.delete(id); delete checkedAtMap[id]; }
 }
 });
 }
 
 // Replace local state with the server's source of truth, keeping our own
 // in-flight writes on top.
-function seedChecks(serverChecked, serverLog) {
+function seedChecks(serverChecked, serverLog, serverCheckedAt) {
 reconcilePendingChecks(serverChecked, serverLog);
 if (Array.isArray(serverChecked)) checkedTodos = new Set(serverChecked);
 if (serverLog && typeof serverLog === 'object') taskLog = serverLog;
+if (serverCheckedAt && typeof serverCheckedAt === 'object') checkedAtMap = { ...serverCheckedAt };
 applyPendingChecks();
 cacheChecks();
 }
@@ -1601,7 +1621,8 @@ const arr = new Set(taskLog[id] || []);
 if (nowChecked) arr.add(localToday()); else arr.delete(localToday());
 if (arr.size) taskLog[id] = [...arr]; else delete taskLog[id];
 } else {
-if (nowChecked) checkedTodos.add(id); else checkedTodos.delete(id);
+if (nowChecked) { checkedTodos.add(id); checkedAtMap[id] = localToday(); }
+else { checkedTodos.delete(id); delete checkedAtMap[id]; }
 }
 cacheChecks();
 if (sessionJustCompleted) {
@@ -1627,7 +1648,7 @@ pending.inFlight = false;
 // further snapshot ever comes and the entry would keep overriding a later
 // change made on the other surface until the 30s backstop expired.
 const d = await r.json().catch(() => null);
-if (d && Array.isArray(d.checked)) seedChecks(d.checked, d.log);
+if (d && Array.isArray(d.checked)) seedChecks(d.checked, d.log, d.checkedAt);
 else pendingChecks.delete(id);
 renderAllTasks();
 } catch (e) {
@@ -1939,6 +1960,16 @@ const info = idMap.get(id);
 return info ? isDone(id, !!info.task.recurring) : false;
 }
 
+// A task finished on an earlier day never belongs in today's focus band, whether
+// it is still sitting in planState.order from the day it was completed or would
+// be auto-populated fresh this morning as a Key task. Today's completions are
+// deliberately NOT filtered — they stay visible under the open group as the
+// record of this session's wins, and drop out on their own tomorrow.
+function isPlanIdStale(id, idMap) {
+const info = idMap.get(id);
+return info ? completedOnEarlierDay(id, !!info.task.recurring) : false;
+}
+
 // The ids shown in the plan, in order: honored `order` first (skipping deleted
 // tasks), then any Key task not excluded and not already placed. Auto-included
 // Key tasks stop once the OPEN cap is reached (already-placed order items are
@@ -1946,7 +1977,9 @@ return info ? isDone(id, !!info.task.recurring) : false;
 function buildPlanSeq(idMap) {
 idMap = idMap || buildPlanIdMap();
 const seq = [];
-planState.order.forEach(id => { if (idMap.has(id) && !seq.includes(id)) seq.push(id); });
+planState.order.forEach(id => {
+if (idMap.has(id) && !seq.includes(id) && !isPlanIdStale(id, idMap)) seq.push(id);
+});
 let openCount = seq.filter(id => !isPlanIdDone(id, idMap)).length;
 idMap.forEach((info, id) => {
 // Assistant tasks are delegated work, not Dan's own — they never auto-populate
@@ -1955,6 +1988,9 @@ idMap.forEach((info, id) => {
 if (info.listKey === 'assistant') return;
 // Nor does a task that isn't due today — it isn't in its column either.
 if (!isScheduledToday(info.task)) return;
+// Nor one that was already finished on an earlier day — the win is recorded in
+// its column; re-adding it makes yesterday's work look like today's backlog.
+if (isPlanIdStale(id, idMap)) return;
 if (info.task.priority === 'key' && !planState.excluded.includes(id) && !seq.includes(id)) {
 const wouldBeOpen = !isPlanIdDone(id, idMap);
 if (wouldBeOpen && openCount >= PLAN_OPEN_CAP) return; // cap reached — stays Key in its column only
@@ -2317,6 +2353,7 @@ if (days.size) taskLog[oldId] = [...days].sort(); else delete taskLog[oldId];
 } else if (checkedTodos.has(oldId)) {
 checkedTodos.delete(oldId);
 checkedTodos.add(newId);
+if (checkedAtMap[oldId]) { checkedAtMap[newId] = checkedAtMap[oldId]; delete checkedAtMap[oldId]; }
 }
 cacheChecks();
 
@@ -2921,7 +2958,7 @@ try {
 const res = await fetch('/api/tasks-state');
 if (!res.ok) return;
 const d = await res.json();
-seedChecks(d.task_checks?.checked, d.task_checks?.log);
+seedChecks(d.task_checks?.checked, d.task_checks?.log, d.task_checks?.checkedAt);
 seedPlan(d.plan);
 setTodos(d.todos);
 if (d.timesheet) applyAssistantTimer(d.timesheet.active, d.timesheet.entries);
@@ -3001,7 +3038,7 @@ renderAssistantTimer();
 // fallback for environments where the stream can't be held open.
 function applyTaskState(d) {
 if (!d) return;
-if (d.task_checks) seedChecks(d.task_checks.checked, d.task_checks.log);
+if (d.task_checks) seedChecks(d.task_checks.checked, d.task_checks.log, d.task_checks.checkedAt);
 if (d.todos) setTodos(d.todos); // setTodos calls renderAllTasks()
 else renderAllTasks();
 if (d.timesheet) applyAssistantTimer(d.timesheet.active);
@@ -3057,7 +3094,7 @@ const d = await res.json();
 
 renderPosthog(d.posthog);
 renderStripe(d.stripe);
-seedChecks(d.task_checks?.checked, d.task_checks?.log); // sync state before render
+seedChecks(d.task_checks?.checked, d.task_checks?.log, d.task_checks?.checkedAt); // sync state before render
 seedPlan(d.plan);
 setTodos(d.todos);
 renderCalendar(d.business_events, 'business-calendar', 'event-bar-money', 'calendar-notice');
