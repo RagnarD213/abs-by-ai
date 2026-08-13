@@ -1,9 +1,6 @@
 {
   "date": "2026-08-13",
   "order": [
-    "money::Post toe touch short on Instagram",
-    "money::Advertise toe touch video on Google Ads",
-    "money::Advertise toe touch video on Meta",
     "money::Advertise toe touch video on TikTok"
   ],
   "excluded": [
@@ -16,7 +13,10 @@
     "money::Post on TikTok",
     "money::Post on YouTube",
     "money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)",
-    "money::Post toe touch short on TikTok"
+    "money::Post toe touch short on TikTok",
+    "money::Post toe touch short on Instagram",
+    "money::Advertise toe touch video on Google Ads",
+    "money::Advertise toe touch video on Meta"
   ],
   "sessionsCompleted": 1
 }
