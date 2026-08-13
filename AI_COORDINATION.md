@@ -95,6 +95,31 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 ## Active task
 
+### YouTube channel setup — FINISHED and fully verified (2026-08-13, Claude Code)
+
+Executes `Handoffs/handoff-20260811-youtube-channel-setup-finish.md`. **No product code touched, no AI spend ($0.00).** The channel is now completely configured: **28 Shorts and 7 long-form videos, zero drafts, zero blocks, zero `®` anywhere.**
+
+**Most of the handoff's Steps 1, 2 and 4 turned out to be ALREADY DONE by an unrecorded 2026-08-12 session** — the 16 Shorts were scheduled, the V5/V6/V7 thumbnail pairs were built and installed with A/B tests, and the `®` was already stripped from the two unlisted ad creatives. Nothing was re-done; everything was verified instead. **The lesson is procedural: that session updated neither `SHORTS_UPLOAD_PROGRESS.md` nor this file, so the handoff read as ~16 videos of work when it was ~3 items. Check live state before executing a handoff written 2 days earlier.**
+
+**The verification technique is the reusable part, and it is far better than clicking through 28 pages.** On the Studio content list every row exposes its full model at `row.polymerController.__data.video`; reading `scheduledPublishingDetails.scheduledPublishings[0].scheduledTimeSeconds` and converting to `America/Chicago` gives the true scheduled time for every video **in one call**. This matters because the content list's Date column shows the date but **not the time**, which is exactly how the handoff's documented silent-12:00-AM defect hides. **Result: all 26 scheduled Shorts sit at exactly 5:00 PM Central on the right Tue/Thu/Sat dates — 0 wrong times, 0 wrong dates.** Long-form re-checked the same way: V1/V2/V4 published, V3 Aug 16 / V5 Aug 23 / V6 Aug 30 / V7 Sep 6, all 9:00 AM CT Sundays.
+
+**THE V3 DRUG-NAME FIX — the handoff named the wrong field, and this is worth remembering.** It said V3's *description* contained "Zepbound / Retatrutide" in the Tip 8 chapter line. It did not; that line already read `14:33 Tip 8 — Consider weight loss medication`. The drug names were **two TAGS** (`zepbound`, `retatrutide`), which are collapsed behind **Show more** and therefore invisible to a `document.body.innerText` scan — the first check came back clean and was wrong. Both removed, saved, verified persisted (27 tags remain). **When auditing for banned copy, expand the tag list; a page-text scan misses it.** V3 publishes Sun Aug 16, so this was the date-critical item and it is closed.
+
+**THE COPYRIGHT BLOCK IS RESOLVED — `short5_1-minute-workout` / `I_trw1PaMhc` is no longer blocked and is scheduled.** It carried a global audio claim ("Hard Rap Beat" by Artiss), no strike. Fixed with Studio's **Replace song**, and the choice between Replace and Erase was made on evidence, not preference: the V4 transcript for this segment reads *"I'm going to run you through this workout one time through the series. Let's do it."* … `so so so` … *"All right, so that's today's workout."* — the `so so so` is Whisper hallucinating on **music**, i.e. ~5s speech / ~70s music-only / ~5s speech, which the Studio timeline confirmed (the claimed track spans the entire 1:22). **"Erase song" would have left ~70 seconds of silence in a workout follow-along**, failing the handoff's own bar. Replace kept the speech at both ends.
+- Replacement is **"Get A Move On" by Audionautix, CC-BY 4.0**, which **carries a live licence obligation**: the attribution line is now in the description and must not be removed.
+- YouTube marks the edit **permanent**. Accepted because the source MP4 is on disk (`Short-form video content/short5_1-minute-workout.mp4`, so a re-upload fully restores it) and the video was worth nothing while blocked worldwide.
+- Block confirmed lifted by the upload wizard reporting **"Checks complete. No issues found."**
+- Title/description/tags written from `SHORTS_UPLOAD_PLAN.json`, made-for-kids answered, **scheduled Oct 15, 2026 5:00 PM CT** (appended to the end of the calendar rather than reshuffling, per the handoff). Confirmation dialog read *"public on October 15, 2026 at 5:00 PM"* — both documented silent failure modes actively guarded against and avoided.
+- Setting its metadata also removed the last `Abs By AI ®` row on the channel, which was the handoff's Step 5 acceptance criterion.
+
+**ONE THING DAN CHANGED MID-SESSION, DELIBERATELY LEFT ALONE.** `short2_toe-touches` (`I_IpdKpT2-0`) was Scheduled for Aug 15 titled *"How To Do Toe Touches For Your Six Pack"* at the start of this session and ~30 minutes later was **Public** and retitled **"Killer Six Pack Abs Home Exercise - The Toe Touch"**. Claude never opened that video. Almost certainly Dan publishing it early / trying an old-SixPackAbs-style title. **Not reverted** — it is his copy, per the standing rule. Its Aug 15 slot is now vacant and the calendar was deliberately not reshuffled.
+
+**Dan's decision this session:** the Studio AI-disclosure question ("Was AI used to generate or edit your content") is **left unanswered** on all Shorts — it does not block scheduling and matches how the first 11 were left. Not self-certified.
+
+**Deliberately NOT done:** no thumbnails were rebuilt (all five pairs already installed and their A/B tests verified live by reopening each dialog for the "Your current test will be deleted" warning), and no Short's copy was re-authored (the 16 already matched `SHORTS_UPLOAD_PLAN.json`).
+
+**No native retest trigger row touched** — YouTube Studio and content metadata only; no product surface, no server, no client. Full record, including five newly-found Studio automation traps (zero-size rects on the time dropdown, the 45s CDP timeout on tag entry, and screenshot-timeouts on a tab whose JS still responds), is in `YouTube Long Form Video Content/SHORTS_UPLOAD_PROGRESS.md`. **Dashboard: `money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)` CHECKED OFF** (Rule 9) and verified present in the `checked` array.
+
 ### /longform-edit PHASE 1 (rough-cut bake-off) — COMPLETE, VERDICT BELOW (2026-08-13, Claude Code)
 
 Executes Phase 1 of `Handoffs/handoff-20260813-longform-edit-pipeline.md`. **No production code touched; no AI spend ($0.00 — everything used was free/local).** Phases 2–4 remain.
