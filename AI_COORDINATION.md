@@ -95,7 +95,49 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 ## Active task
 
-### HANDOFF WRITTEN 2026-08-13: `Handoffs/handoff-20260813-longform-edit-pipeline.md` — /longform-edit video pipeline (NOT yet executed)
+### /longform-edit PHASE 1 (rough-cut bake-off) — COMPLETE, VERDICT BELOW (2026-08-13, Claude Code)
+
+Executes Phase 1 of `Handoffs/handoff-20260813-longform-edit-pipeline.md`. **No production code touched; no AI spend ($0.00 — everything used was free/local).** Phases 2–4 remain.
+
+**VERDICT: adopt `video-use` as the Phase 3 substrate, but keep the `/shorts` silence-snapping rule for cut placement and add a segment cache. Do NOT buy or build a take-selection engine.**
+
+**The framing "which rough-cut engine" turned out to be slightly wrong, and that is the main finding.** `video-use` is **not** a take-selection algorithm. Its own SKILL.md states the design: *"LLM reasons from raw transcript + on-demand visuals. The only derived artifact that earns its keep is a packed phrase-level transcript."* Take selection is done by **Claude reading `takes_packed.md`** — which is exactly what "build our own" would also do. So the real choice is **adopt video-use's infrastructure vs. rewrite it**, and on that the evidence is one-sided: `render.py` already implements, correctly, the exact Phase 3 finish chain the handoff specifies (per-segment extract → grade → 30ms audio fades → lossless concat → 2-pass loudnorm → subtitle compositing), plus HDR→SDR tonemapping and portrait handling we hadn't scoped.
+
+**Test input (Dan chose the Drive folder): `abs by ai 8/3 jeff chagrin shoot` → `main camera/C1541.MP4`** — Sony ILME-FX30, 1920×1080 29.97p, s-cinetone, LPCM 48k, 54 Mbps, 5:45. A meal-prep/Macro-Tracker tutorial. Downloaded to `Media/longform-raw/absbyai-0803-shoot/` (gitignored — verified with `git check-ignore` **before** staging, per the standing public-repo rule).
+
+**This clip is a near-perfect bake-off fixture and should be kept as the permanent regression input.** It contains three *ground-truth* retakes, including an explicit verbal one — at 277.9 Dan says *"hold on… I'm going to redo that last bit"* then slates *"Rolling."* at 283.7 and re-delivers the line. Ground truth locked in `roughcuts/ground_truth.json`: 3 retakes (bad vs good spans), 1 slate to drop, 19 gaps >2s totalling 85.1s of dead air (longest 20.2s, waiting for the AI analysis). Ideal cut ≈ 228s of the 345s source — **both engines landed 221–229s**, i.e. on target.
+
+**MEASURED RESULTS (identical editorial keep-list in both arms; the ONLY variable is where cut edges land):**
+
+| | A: video-use rule (word boundaries) | B: /shorts rule (snap into measured silence) |
+|---|---|---|
+| output length | 228.8s | 221.7s |
+| **real clipped words** | **0** | **0** |
+| splice discontinuity at joins | **1.20×** control | **1.09×** control (>3× = audible pop) |
+| output loudness | **−14.5 LUFS** | **−14.5 LUFS** |
+| edges inside measured silence | 30/40 (75%) | 40/40 (100%) |
+
+**Cut cleanliness is a TIE at zero defects — and the QC metric that said otherwise was wrong twice.** A word-presence check initially flagged one missing boundary word per arm. Both were **re-transcription artifacts, not clips**: Whisper rendered `"proteins."` as `"protein."` in A, and `"And it's set."` as `"And it's **saved**."` in B. The audio is intact in both. This is the third time this project has paid for the rule *"when a QC metric fails, verify the metric before fixing the media"* — it fired again here and saved a false defect report.
+
+**Why B's rule still wins for Phase 3 despite the tie — a specific, reproducible fragility in A.** Whisper emitted **3 zero-length word timestamps out of 882** (`'good'` @82.80, `'to'` @110.72, `'set.'` @305.00–305.00). At `set.` the true word runs to ~305.27 (silence starts there), so A's word-boundary edge sat **190ms short of the real word end** and only survived because of its 80ms pad. Silence-snapping is immune to this **by construction**. Confirms the standing lesson — Whisper timestamps lie; measured `silencedetect` is ground truth — and shows the failure mode is *degenerate/inflated timestamps*, not just inflation across pauses. **Phase 3 rule: use word boundaries as the candidate generator, then snap into measured silence.**
+
+**ELEVENLABS IS NOT NEEDED — the local-Whisper swap works, unmodified.** `transcribe_one()` returns early when `edit/transcripts/<stem>.json` exists, so writing a Scribe-shaped file there means Scribe is never called. Converter: `scratchpad .../whisper_to_scribe.py` (Whisper word timestamps → `words[]` of `{text,start,end,type,speaker_id}` with explicit `spacing` tokens). video-use's **unmodified** `pack_transcripts.py` consumed it and produced a correct 47-phrase `takes_packed.md`. **Local Whisper `small` transcribed 5:45 in 41s on the M2 Pro.** Cost of transcription: **$0**, forever. Fold the converter into the Phase 3 skill.
+
+**Two install facts that contradict the handoff's assumptions (save the next session the time):**
+- **`uv` and Python 3.10+ are NOT required.** video-use declares `requires-python = ">=3.10"`, but all six helpers carry `from __future__ import annotations` and **compile and run clean on the system Python 3.9.6**. Only `requests`/`numpy`/`PIL` are needed (already present). `librosa`+`matplotlib` are needed *only* by the optional `timeline_view.py` waveform view — skip them.
+- **`ffmpeg` is not on `$PATH` on this Mac** (no Homebrew). The static ffmpeg/ffprobe 6.0 at `Media/video_edit/bin/` work fine — symlink them into a dir and prepend to `PATH`. **Whisper shells out to `ffmpeg` itself**, so the PATH must be exported *into* any background/nohup invocation or it dies with `FileNotFoundError: 'ffmpeg'`.
+
+**THE ONE REAL GAP TO CLOSE IN PHASE 3: `render.py` has no segment cache.** A revision that dropped a single beat re-rendered in **1:45.8 vs 1:46.9 for the full render** — i.e. a revision costs a *full* re-render, because `extract_all_segments()` re-extracts every range every time. The handoff explicitly wants "re-render only affected pieces." Fix is small and well-scoped: key each segment on `hash(source, start, end, grade, preview/draft)` and skip extraction when the file exists. On a 30-min video this is the difference between a ~10-minute revision and a ~10-second one — and the revision loop is Phase 4's acceptance test.
+
+**SELECTS — NOT TESTED, blocked on Dan, and probably not worth it.** It requires (a) installing a Mac desktop app and (b) creating an account to get the key ("Connect your agent through Selects Home → Profile"). Claude does neither unilaterally. **Independently of that, its advertised export targets are Premiere / Final Cut / DaVinci Resolve — the timeline-handoff model the handoff already settled as the wrong model for this goal** (same reason ButterCut was ruled out). Recommendation: **skip it**, or spend 5 minutes only if Dan wants a take-selection *quality reference*. ButterCut free was likewise not run (optional, same architecture mismatch). **Neither is on the critical path.**
+
+**Deliverables for Dan's eyeball (gate before Phase 2):** `Media/longform-raw/absbyai-0803-shoot/roughcuts/` — `A_videouse_wordsnap.mp4` (228.8s), `B_ownpipeline_silencesnap.mp4` (221.7s), both EDLs and `ground_truth.json`. Sent in chat. Both drop all 3 retakes, the "Rolling" slate and the 85s of dead air.
+
+**No native retest trigger row touched** — content tooling only, no product surface, no server, no client. **No dashboard task checked off:** the Rule-8 task `money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)` covers all four phases and only Phase 1 is done, so per Rule 9's completion bar it stays open. **Spend: $0.00** (local Whisper, static ffmpeg, open-source video-use — no metered provider was called).
+
+**EXACT NEXT ACTION:** Dan watches A and B and says whether the rough-cut quality clears the bar. Then Phase 2 (Hyperframes V2 + color-grade-ai + audio chain) in a fresh session — Phase 2 does **not** depend on the Phase 1 verdict and can start immediately if he prefers.
+
+### (superseded by the Phase 1 record above) HANDOFF WRITTEN 2026-08-13: `Handoffs/handoff-20260813-longform-edit-pipeline.md` — /longform-edit video pipeline
 
 Output of a research session on Claude video editing (ButterCut.io, Selects MCP, video-use, Hyperframes V2, color-grade-ai, audio/reframe tooling). **The tool landscape and architecture decisions are settled in the handoff — do not re-research them.** Four phases: (1) rough-cut bake-off of video-use vs Selects (vs ButterCut free, optional) on one real shoot — the bake-off, not opinion, picks the rough-cut engine; (2) adopt + validate Hyperframes V2 (motion graphics) and color-grade-ai (LUT color) independently, plus a free/local audio chain (DeepFilterNet/resemble-enhance + loudnorm −14 LUFS); (3) build `.claude/skills/longform-edit/` extending the `/shorts` architecture with a plan-file revision surface, B-roll index over `Media/B roll/`, and AI-clip hooks into the existing runners; (4) first full video with a real revision round as the acceptance test. Settled: finished-MP4 model, NOT ButterCut's timeline-handoff model (ButterCut Pro only if Romeysa wants it — Dan's separate call). Rule-8 Key task added and verified persisted (`money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)`). Recommended executor: phases in separate sessions; Phase 3 always-Claude (see the handoff's model table).
 
