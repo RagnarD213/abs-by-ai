@@ -13,6 +13,7 @@ Retouch Dan's own photos so he looks like the best version of himself on the sam
 - **Retouch, not re-render.** Same framing, pose, background, clothing, lighting. The model edits the photo; it does not reinterpret it.
 - **Never commit personal photos** — the repo is public. `photos/` is gitignored; keep it that way. Finals go in `photos/finalized photos/`.
 - **Dan's eyeball is the gate.** Always deliver candidates + before/after crop strips and let him pick. Recommend one, but he decides.
+- **Run interactively by default; batch is Dan's call, never yours** — under $10 of interactive spend just run it, over $10 ask first, before editing anything. Full rule in §3b.
 
 ## Workflow
 
@@ -68,7 +69,23 @@ Re-run **only the approved prompt** at `--tier final`. On a typical 6-take photo
 
 **Do NOT swap models to save money — this is now measured, not assumed.** `gemini-3.1-flash-image` (Nano Banana 2) is about half the price and **fails the same way Seedream and FLUX do**: on `public/img/proof/male-before.webp` it changed the subject's shorts from black to grey and shifted the framing. Nano Banana Pro held garment, background, framing and identity exactly. Resolution is the cost dial for retouching; the model is not. (Nano Banana 2 *is* fine for generating **new** images, where there is no original to preserve — see the `imagesandclips` skill.)
 
-**Batch mode — 50% off, and far faster than advertised.** Google's Batch API is a flat half price ($0.24 → $0.12 at 4K, $0.134 → $0.067 at 2K). The documented SLA is "up to 24 hours", but a 2-image batch measured **under 4 minutes end to end** on 2026-08-10, and the output was byte-for-byte equivalent in quality to the synchronous call (verified side by side: same in-place retouch, garment and background preserved). **Treat the 24-hour figure as a worst case, not the expected case** — but never promise Dan a turnaround based on the 4-minute observation either; a large batch or a busy queue can genuinely take hours, and there is no way to tell in advance. Ideal for a batch of approved finals or a bake-off grid:
+### 3b. INTERACTIVE IS THE DEFAULT. Batch is never your call — Dan's standing rule, 2026-08-13
+
+**Run every photo job interactively (synchronously) unless Dan has explicitly approved batch for that job.** Speed is worth more to him than the 50% saving; he said plainly he doesn't mind paying more to have the photos now.
+
+The one decision rule, applied to the **whole job you are about to run**:
+
+1. Work out the interactive cost — `photos × $0.24` at `--tier final` (`× $0.134` at draft).
+2. **Under $10 → just run it interactively. Do not mention batch, do not ask.**
+3. **Over $10 → stop BEFORE editing anything, state the interactive cost and the batch cost, and ask.** If he approves batch, use batch. If he declines or wants it now anyway, run interactively at full price — his call, and "over budget" is not a veto you hold.
+
+This also cleanly satisfies the `AGENTS.md` $10-per-session spend rule: any job big enough to need that conversation is the same job that triggers this one, so have it once, up front, and cover both.
+
+**The mistake this rule exists to prevent (2026-08-13, cost a wasted ~$5).** On a 41-photo job I chose batch *silently*, reasoning that interactive would breach the $10 session cap. Two things were wrong. The spend cap is a prompt to **ask Dan**, not licence to quietly pick the slower product; and I'd made the tradeoff for him after he'd said speed mattered. He rejected it, and the switch cost real money because **there is no working way to cancel a running Google batch — `POST batches/{id}:cancel` returns 404.** The only lever is `DELETE /v1beta/batches/{id}` (200), which stops the job and discards the output but may still bill for work already done. So a batch chosen wrongly cannot be taken back for free: **decide before submitting, not after.**
+
+Practical notes when batch IS approved: say explicitly that you've used it, so Dan knows results may not land in this session; and never promise a turnaround off the 4-minute observation below.
+
+**Batch mode mechanics — 50% off, and usually far faster than advertised.** Google's Batch API is a flat half price ($0.24 → $0.12 at 4K, $0.134 → $0.067 at 2K). The documented SLA is "up to 24 hours", but a 2-image batch measured **under 4 minutes end to end** on 2026-08-10, and the output was byte-for-byte equivalent in quality to the synchronous call (verified side by side: same in-place retouch, garment and background preserved). **Treat the 24-hour figure as a worst case, not the expected case** — but a large batch or a busy queue can genuinely take hours, and there is no way to tell in advance:
 
 ```bash
 node ../_shared/gemini-image.js batch-submit --spec jobs.json --tier final --env <keys>
@@ -76,7 +93,7 @@ node ../_shared/gemini-image.js batch-status --job batches/<id> --env <keys>
 node ../_shared/gemini-image.js batch-collect --job batches/<id> --out-dir out/ --env <keys>
 ```
 
-`jobs.json` is `[{ "key": "photo-44", "promptFile": "p44.txt", "image": "in44.jpg" }, ...]`. Keys become output filenames. Inline batches are capped near 20 MB of encoded payload — the runner refuses oversized specs up front rather than failing after the encode. **Say explicitly when you have used batch**, so Dan knows results may not land in this session.
+`jobs.json` is `[{ "key": "photo-44", "promptFile": "p44.txt", "image": "in44.jpg" }, ...]`. Keys become output filenames. Inline batches are capped near 20 MB of encoded payload — the runner refuses oversized specs up front rather than failing after the encode. At 2048px/q90 inputs that is **roughly 14 photos per batch** (41 photos needed splitting into 3), so size the chunks from the actual file sizes before submitting. **Say explicitly when you have used batch**, so Dan knows results may not land in this session.
 
 ### 3b. Reverse direction — making Dan look HEAVIER (verified 2026-08-06)
 
