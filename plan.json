@@ -1,32 +1,32 @@
 {
-  "date": "2026-08-12",
+  "date": "2026-08-13",
   "order": [
-    "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
-    "money::Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review",
+    "money::Post on Facebook",
+    "money::Post on Instagram",
+    "money::Post on TikTok",
     "money::Post on YouTube",
-    "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
-    "money::Execute handoff: Let users purchase before creating an account (iOS)"
-  ],
-  "excluded": [
-    "money::Submit Google Ads suspension appeal (account 342-717-0837)",
-    "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)",
-    "money::Post on: Instagram, Facebook, TikTok",
-    "money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)",
-    "money::Post carousel on Facebook",
-    "money::Train Brittany for Assistant Tasks",
-    "money::Schedule next photo shoot",
-    "money::Book spray tan",
-    "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs",
+    "money::Create new ad for shorts video within existing Demand Gen campaign",
     "money::Reschedule Friday shoot to 11 - 6",
     "money::Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
     "money::Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
     "money::Hire septic tank pump guy",
     "money::Post carousel on Instagram",
-    "money::Post on Facebook",
-    "money::Post on Instagram",
-    "money::Post on TikTok",
-    "money::Create new ad for shorts video within existing Demand Gen campaign",
-    "money::Execute handoff: Queue Instagram + Facebook content via Blotato"
+    "money::Post carousel on Facebook",
+    "money::Train Brittany for Assistant Tasks",
+    "money::Schedule next photo shoot",
+    "money::Submit Google Ads suspension appeal (account 342-717-0837)",
+    "money::Book spray tan",
+    "money::Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs",
+    "money::Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)",
+    "money::Post on: Instagram, Facebook, TikTok",
+    "money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)",
+    "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
+    "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
+    "money::Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review",
+    "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)"
+  ],
+  "excluded": [
+    "money::Execute handoff: Let users purchase before creating an account (iOS)"
   ],
   "sessionsCompleted": 0
 }
