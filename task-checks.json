@@ -40,7 +40,8 @@
     "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
     "money::Advertise toe touch video on Google Ads",
     "money::Advertise toe touch video on Meta",
-    "money::Post toe touch short on Instagram"
+    "money::Post toe touch short on Instagram",
+    "money::Post toe touch short on TikTok"
   ],
   "log": {
     "health::Shower": [
@@ -244,6 +245,7 @@
     "money::Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)": "2026-08-12",
     "money::Advertise toe touch video on Google Ads": "2026-08-13",
     "money::Advertise toe touch video on Meta": "2026-08-13",
-    "money::Post toe touch short on Instagram": "2026-08-13"
+    "money::Post toe touch short on Instagram": "2026-08-13",
+    "money::Post toe touch short on TikTok": "2026-08-13"
   }
 }
