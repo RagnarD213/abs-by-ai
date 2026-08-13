@@ -3682,6 +3682,56 @@ function allowFreeGenByIp(req) {
   return true;
 }
 
+// ── TikTok Events API (server-side mirror of the browser ttq pixel) ──
+// Pixel-only tracking loses a lot of iOS Safari / in-app-browser traffic to
+// ITP and ad blockers. The client fires ttq.track() AND posts here with the
+// same event_id, so TikTok can dedupe the two deliveries instead of double-
+// counting. TIKTOK_ACCESS_TOKEN is optional — unset or a failed call is a
+// silent no-op, so a marketing-tag hiccup never breaks signup/checkout/
+// generation for the user.
+const TIKTOK_PIXEL_CODE = 'D9V3D6JC77U31VPN3O90';
+const TIKTOK_ACCESS_TOKEN = process.env.TIKTOK_ACCESS_TOKEN || '';
+const TIKTOK_EVENT_ALLOWLIST = new Set(['CompleteRegistration', 'StartTrial', 'FreeGenerationStarted']);
+
+async function sendTikTokEvent({ event, eventId, url, req }) {
+  if (!TIKTOK_ACCESS_TOKEN) return;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 5000);
+  try {
+    const body = {
+      event_source: 'web',
+      event_source_id: TIKTOK_PIXEL_CODE,
+      data: [{
+        event,
+        event_time: Math.floor(Date.now() / 1000),
+        event_id: eventId,
+        user: { ip: clientIp(req), user_agent: req.headers['user-agent'] || '' },
+        page: { url: url || '' },
+      }],
+    };
+    const resp = await fetch('https://business-api.tiktok.com/open_api/v1.3/event/track/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Access-Token': TIKTOK_ACCESS_TOKEN },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+    if (!resp.ok) console.error('TIKTOK_EVENT_HTTP_ERROR', resp.status, await resp.text().catch(() => ''));
+  } catch (e) {
+    console.error('TIKTOK_EVENT_ERROR', e.message);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+app.post('/api/tiktok-event', (req, res) => {
+  const event = String(req.body?.event || '');
+  const eventId = String(req.body?.eventId || '').slice(0, 100);
+  const url = String(req.body?.url || '').slice(0, 500);
+  res.json({ ok: true }); // always 200 immediately — never block the client on a marketing call
+  if (!TIKTOK_EVENT_ALLOWLIST.has(event) || !eventId) return;
+  sendTikTokEvent({ event, eventId, url, req }).catch(() => {});
+});
+
 // ── Locked-result teaser + server-side hold ──
 // A paywalled generation used to ship the complete, full-resolution image and rely
 // on a CSS blur to hide it, so the finished result was recoverable straight out of

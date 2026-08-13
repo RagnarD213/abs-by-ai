@@ -48,6 +48,15 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=908268999001961&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D9V3D6JC77U31VPN3O90');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -3308,6 +3317,43 @@ function fireAdConversion(label, opts) {
   return true;
 }
 
+// Same dedupe design as fireAdConversion, mirrored for TikTok. ttq.track()
+// fires the browser-side pixel; the same event, tagged with the same
+// event_id, is also POSTed to our own server so it can relay to TikTok's
+// Events API — pixel-only tracking silently loses a lot of iOS Safari /
+// in-app-browser traffic to ITP and ad blockers, and a shared event_id lets
+// TikTok dedupe the two deliveries instead of double-counting.
+function fireTikTokEvent(eventName, opts) {
+  opts = opts || {};
+  const key = opts.once ? `absbyai_ttconv_${opts.once}` : '';
+  if (key) {
+    let already = '';
+    try { already = localStorage.getItem(key) || ''; } catch (e) {}
+    if (!already) already = readCookie(key);
+    if (already) return false;
+  }
+  const eventId = `tt_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+  const props = {};
+  if (typeof opts.value === 'number') {
+    props.value = opts.value;
+    props.currency = opts.currency || 'USD';
+  }
+  try { if (window.ttq) ttq.track(eventName, props, { event_id: eventId }); } catch (e) {}
+  try {
+    fetch(`${BACKEND_URL}/api/tiktok-event`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ event: eventName, eventId, url: location.href }),
+    }).catch(() => {});
+  } catch (e) {}
+  if (key) {
+    const stamp = String(Date.now());
+    try { localStorage.setItem(key, stamp); } catch (e) {}
+    writeCookie(key, stamp, AD_CONVERSION_DEDUPE_DAYS);
+  }
+  return true;
+}
+
 const DEVICE_ID_KEY = 'absbyai_device_id';
 const DEVICE_ID_DAYS = 400; // browser cap on cookie lifetime
 
@@ -5250,6 +5296,7 @@ async function handleAuthSubmit(e) {
       }),
     });
     if (window.posthog) posthog.capture(auth.mode === 'signup' ? 'account_signup' : 'account_login');
+    if (auth.mode === 'signup') fireTikTokEvent('CompleteRegistration');
     setLoggedIn(data);
     $('authPassword').value = '';
     await syncMealsFromServer();
@@ -7060,6 +7107,7 @@ async function handleMembershipComplete(sessionId) {
   closeCreditsCheckout();
   if (window.posthog) posthog.capture('membership_subscribed', { plan: selectedPlan });
   fireAdConversion('AqLTCMnl4dkcEJvEqLNE', { value: 20, currency: 'USD' }); // ~1 month of membership revenue
+  fireTikTokEvent('StartTrial', { value: 20, currency: 'USD' });
   await refreshMembership();
   loadCredits(); // converted credits were zeroed
   fireConfetti();
@@ -9891,6 +9939,7 @@ async function generate() {
     }
     const genRes = await callGeminiImage(generatedPrompt, state.photoData, state.photoMime, state.effectiveIntensity);
     fireAdConversion('KqDxCMzl4dkcEJvEqLNE', { once: 'freegen' }); // lead signal: first generation only
+    fireTikTokEvent('FreeGenerationStarted', { once: 'freegen' });
     if (genRes.chooser) {
       await finishGenLoader();
       showChooser(genRes.candidates);
