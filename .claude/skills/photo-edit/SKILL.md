@@ -100,6 +100,28 @@ Two crops make the alignment trivial: upscale the 2048 original to the candidate
 
 When Dan rejects a face as distorted/not-him (happened on the towel-wipe frame, 2026-08-06), another nano attempt is the wrong move — every AI pass re-renders the face and rolls the identity dice again. Instead: upscale the original to the candidate's 4K size, alpha-blend the original face over the retouched body inside a feathered ellipse (PIL, feather over d≈0.85→1.30 of the normalized ellipse), then match tone by multiplying inside the same mask with per-channel `chest_mean/face_mean` gains (clip to ~[0.85, 1.18]). Verify alignment first with an ffmpeg `blend=difference` crop — single edges mean aligned, doubled edges mean don't composite. Result is pixel-identical identity with the retouched body kept. The same local-gain trick (no paste) fixes "face slightly too dark/light" requests in seconds and is also the fallback when nano's tone-match pass keeps warming the whole scene instead of just the face (it did, on 1 of 9).
 
+### 4c. DATING-APP edits are a DIFFERENT, MUCH LIGHTER recipe — do not use the social-media edit
+
+Dan keeps two separate outputs from the same shoot: `photos/finalized social media photos/` (the full retouch above) and `photos/finalized dating photos/` (`photo-<N>_FINAL_DATING.jpg`). **The dating edit is deliberately conservative — the stated target is "photos that don't look edited at all", so nothing reads as catfishing and nothing gets flagged on the apps.** Established 2026-08-05, re-run at scale 2026-08-13 (all 64 pool-shoot photos).
+
+The recipe, and the differences that matter:
+
+- **Face only:** de-shine to a NATURAL (never matte) finish, remove temporary blemishes, very lightly soften harsh forehead/under-eye lines. Keep pores, stubble, and his real lines — he must still read as a man in his forties.
+- **Body: ZERO changes.** No ab enhancement, no muscle sharpening, no waist slimming. This is the single biggest departure from the social recipe, which does the opposite.
+- **No warp, ever** — the briefs/speedo bulge warp that is a *standing default* on social shots is explicitly skipped here.
+- **No IG 4:5 crop** — deliver the full-res final only.
+- Everything else stays locked as usual: moles, expression, clothing, props, framing, tan depth, global exposure.
+
+**Run it as one take per photo at `--tier final`.** There is no direction to decide, so the two-body-intensity bake-off doesn't apply and drafting at 2K just adds a step. 61 photos went 59/61 clean first try.
+
+**The two failure modes that DO survive this prompt, both caught only at zoom — check for them specifically:**
+1. **Closed eyes get opened on lying-down / exertion frames** (photo-42: eyes squeezed shut → open, plus a slimmed jaw). The generic expression lock is not enough; name the literal eye state and mark opening them a FAILURE, and separately forbid slimming the face — a face compressed by lying down reads to the model as something to fix.
+2. **A relaxed seated belly gets "corrected"** (photo-241: soft stomach flattened, waist crease erased, abs sharpened — a full social-level edit). When he is seated or the midsection is relaxed, add an explicit clause that the softness and the waist crease must remain and that a flatter/harder midsection is a FAILURE.
+
+Both were fixed by re-running that single photo with the base prompt plus a photo-specific paragraph. Per-photo prompt files, not a change to the shared one.
+
+**QC shortcut that works well here:** since the only intended change is the face, the *epicentre of the diff map is a defect detector*. Compute `|input − output|`, mask to skin tone, blur, and crop around the peak — on a good photo it lands on the face; when it lands on the torso, that photo changed the body and needs a look. That is exactly how 241 was caught. Pair it with an aspect-ratio + whole-frame mean-diff check to catch recomposition (mean diff ran 3.9–6.2 across 61 clean photos).
+
 ### 5. Geometry edits the AI refuses or botches → local warp
 
 For pure shape changes (fuller bulge in shorts, slimming a spot), AI models either return nothing or swap the garment for a different one. Use the bundled reshape tool on the approved 4K output instead — it changes ONLY the ellipse you aim it at, pixel-identical elsewhere:
