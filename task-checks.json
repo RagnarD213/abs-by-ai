@@ -16,7 +16,6 @@
     "money::Advertise toe touch video on Google Ads",
     "money::Advertise toe touch video on Meta",
     "money::Post toe touch short on Instagram",
-    "money::Post toe touch short on TikTok",
     "money::Advertise toe touch video on TikTok"
   ],
   "log": {
@@ -197,7 +196,6 @@
     "money::Advertise toe touch video on Google Ads": "2026-08-13",
     "money::Advertise toe touch video on Meta": "2026-08-13",
     "money::Post toe touch short on Instagram": "2026-08-13",
-    "money::Post toe touch short on TikTok": "2026-08-13",
     "money::Advertise toe touch video on TikTok": "2026-08-13"
   }
 }
