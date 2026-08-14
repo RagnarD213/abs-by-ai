@@ -29,12 +29,6 @@
       "addedAt": "2026-08-12"
     },
     {
-      "text": "Create new ad for shorts video within existing Demand Gen campaign",
-      "priority": "key",
-      "why": "New Shorts video posted to YouTube — add as its own new ad (not merged into existing ad) inside the current Demand Gen video campaign",
-      "addedAt": "2026-08-12"
-    },
-    {
       "text": "Finish Google Ads campaign setup and launch video campaign",
       "priority": "high",
       "why": "Tracking verified firing; set Trial Signup to 'Use different values for each conversion' in Goals → Conversions",
@@ -62,11 +56,6 @@
       "addedAt": "2026-08-05"
     },
     {
-      "text": "Test supplement audit functionality",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Contact vasectomy doctor - stitches, pain during intercourse",
       "priority": "high",
       "addedAt": "2026-08-03"
@@ -77,51 +66,14 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Create YouTube channel banner and avatar.",
-      "priority": "high",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Create Facebook profile and graphics.",
-      "priority": "high",
-      "why": "Also required for Meta ads / Business Manager",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Create TikTok profile and graphics.",
-      "priority": "high",
-      "addedAt": "2026-08-04"
-    },
-    {
-      "text": "Post next photo to Instagram",
-      "priority": "med",
-      "addedAt": "2026-08-05"
-    },
-    {
       "text": "Fix Namecheap SPF/DMARC records (needs Dan's login, Claude finishes)",
       "priority": "med",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Film and post second YouTube video",
-      "priority": "med",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Cut Reels/Shorts from second YouTube video for TikTok/IG",
-      "priority": "med",
-      "why": "Gated on the video existing",
       "addedAt": "2026-08-05"
     },
     {
       "text": "Produce new AI ad variants (hook variants of The Upload + new concepts)",
       "priority": "med",
       "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Write more outlines for YouTube videos",
-      "priority": "med",
-      "addedAt": "2026-08-03"
     },
     {
       "text": "Fix Printify store name and picture issue",
@@ -156,105 +108,9 @@
       "addedAt": "2026-08-05"
     },
     {
-      "text": "Reschedule Friday shoot to 11 - 6",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-10"
-    },
-    {
-      "text": "Execute handoff: SixPackABS content batch 2 (5 more AI-keyword posts)",
-      "priority": "key",
-      "why": "handoff-20260810-sixpackabs-content-batch2.md - created but not yet run",
-      "addedAt": "2026-08-10"
-    },
-    {
-      "text": "Execute handoff: SixPackAbs skin (hostname second brand + subdomain)",
-      "priority": "key",
-      "why": "handoff-20260810-sixpackabs-skin.md — created but not yet run",
-      "addedAt": "2026-08-10"
-    },
-    {
-      "text": "Hire septic tank pump guy",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-10"
-    },
-    {
-      "text": "Post carousel on Instagram",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-10"
-    },
-    {
-      "text": "Post carousel on Facebook",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-10"
-    },
-    {
-      "text": "Train Brittany for Assistant Tasks",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-09"
-    },
-    {
-      "text": "Schedule next photo shoot",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-10"
-    },
-    {
-      "text": "Submit Google Ads suspension appeal (account 342-717-0837)",
-      "priority": "key",
-      "why": "Business/google-ads-appeal-20260810.md — draft written, needs Dan to fill 3 bracketed facts + verify identity, then submit. Ads cannot be edited until reinstated.",
-      "addedAt": "2026-08-10"
-    },
-    {
-      "text": "Book spray tan",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-11"
-    },
-    {
-      "text": "Execute handoff: Boot-time sweep for orphaned Supplement Audit jobs",
-      "priority": "key",
-      "why": "handoff-20260811-audit-orphaned-jobs-sweep.md — created but not yet run",
-      "addedAt": "2026-08-11"
-    },
-    {
-      "text": "Execute handoff: SixPackAbs skin revisions (logo, font, hero copy)",
-      "priority": "key",
-      "why": "handoff-20260811-sixpackabs-skin-revisions.md — created but not yet run",
-      "addedAt": "2026-08-11"
-    },
-    {
-      "text": "Post on: Instagram, Facebook, TikTok",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-11"
-    },
-    {
-      "text": "Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)",
-      "priority": "key",
-      "why": "handoff-20260811-youtube-channel-setup-finish.md — created but not yet run",
-      "addedAt": "2026-08-11"
-    },
-    {
-      "text": "Execute handoff: Resolve iOS second rejection (IAP sandbox test + resubmit)",
-      "priority": "key",
-      "why": "handoff-20260812-ios-second-rejection-resolution.md — created but not yet run",
-      "addedAt": "2026-08-12"
-    },
-    {
       "text": "Execute handoff: Queue Instagram + Facebook content via Blotato",
       "priority": "key",
       "why": "handoff-20260812-instagram-facebook-content-queue.md — created but not yet run",
-      "addedAt": "2026-08-12"
-    },
-    {
-      "text": "Execute handoff: Finish iOS IAP purchase audit + resubmit to App Review",
-      "priority": "key",
-      "why": "handoff-20260812-ios-iap-purchase-audit.md — created but not yet run",
       "addedAt": "2026-08-12"
     },
     {
@@ -273,33 +129,6 @@
       "text": "Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
       "priority": "key",
       "why": "handoff-20260813-longform-edit-pipeline.md — created but not yet run",
-      "addedAt": "2026-08-13"
-    },
-    {
-      "text": "Post toe touch short on TikTok",
-      "priority": "key",
-      "why": "Sync platforms — same short released on YouTube",
-      "addedAt": "2026-08-13"
-    },
-    {
-      "text": "Post toe touch short on Instagram",
-      "priority": "key",
-      "why": "Sync platforms — same short released on YouTube",
-      "addedAt": "2026-08-13"
-    },
-    {
-      "text": "Advertise toe touch video on Google Ads",
-      "priority": "key",
-      "addedAt": "2026-08-13"
-    },
-    {
-      "text": "Advertise toe touch video on Meta",
-      "priority": "key",
-      "addedAt": "2026-08-13"
-    },
-    {
-      "text": "Advertise toe touch video on TikTok",
-      "priority": "key",
       "addedAt": "2026-08-13"
     }
   ],
@@ -347,11 +176,6 @@
     },
     {
       "text": "Hire someone to install artificial hedge panels",
-      "priority": "med",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Fix shower handle",
       "priority": "med",
       "addedAt": "2026-08-03"
     },
