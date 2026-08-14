@@ -15,7 +15,6 @@
     "assistant::Throw away old food from fridge",
     "money::Advertise toe touch video on Google Ads",
     "money::Advertise toe touch video on Meta",
-    "money::Post toe touch short on Instagram",
     "money::Advertise toe touch video on TikTok"
   ],
   "log": {
@@ -195,7 +194,6 @@
     "assistant::Throw away old food from fridge": "2026-08-11",
     "money::Advertise toe touch video on Google Ads": "2026-08-13",
     "money::Advertise toe touch video on Meta": "2026-08-13",
-    "money::Post toe touch short on Instagram": "2026-08-13",
     "money::Advertise toe touch video on TikTok": "2026-08-13"
   }
 }
