@@ -395,6 +395,13 @@
       "text": "Spray weeds with roundup",
       "priority": "low",
       "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Drain yeti cooler, clean and put away",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-08-16",
+      "addedBy": "assistant"
     }
   ]
 }
