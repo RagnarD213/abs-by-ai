@@ -11,7 +11,8 @@
     "assistant::Take trash and recycle bins to curb",
     "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice",
     "assistant::Empty and clean Yeti cooler",
-    "assistant::Throw away old food from fridge"
+    "assistant::Throw away old food from fridge",
+    "assistant::Drain yeti cooler, clean and put away"
   ],
   "log": {
     "health::Shower": [
@@ -188,6 +189,7 @@
     "assistant::Take trash and recycle bins to curb": "2026-08-11",
     "assistant::Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice": "2026-08-11",
     "assistant::Empty and clean Yeti cooler": "2026-08-11",
-    "assistant::Throw away old food from fridge": "2026-08-11"
+    "assistant::Throw away old food from fridge": "2026-08-11",
+    "assistant::Drain yeti cooler, clean and put away": "2026-08-16"
   }
 }
