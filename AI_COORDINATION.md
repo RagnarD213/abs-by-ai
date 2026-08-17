@@ -95,6 +95,55 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 ## Active task
 
+### Shorts cover images — 24 BUILT, revised twice, and INSTALLED on YouTube (2026-08-17, Claude Code)
+
+Every Short that lacked a cover now has one: `short5` plus all of V2 (7), V3 (11) and
+V6 (5). **No product code touched, $0.00 AI spend** — every cover is a real shoot
+photograph from `photos/finalized social media photos/`, composited locally. Files in
+`Short-form video content/covers/posted covers/` (git-ignored, verified before staging);
+builder committed alongside as `_build-covers-batch2-final.py`.
+
+**Copy came from each short's own burned-in title card**, read by sampling a frame at
+1.2s from all 24 and contact-sheeting them — not written fresh. That is the cheapest
+way to stay on-voice and it is now the skill's default.
+
+**Dan's three revision rules, and the reason they are now enforced in code rather than
+by eye — he had to ask twice for the head-cropping one:**
+- **Never crop the top of his head.** A `HEAD_TOP` table stores his hairline position
+  per source photo and the builder refuses a crop that starts below it.
+- **Headline on two lines, never three**, shrinking the type as needed.
+- **Type centred in the black, never touching the photo.** The panel is now sized to
+  the type block and the block centred inside it; previously the text ran ~30px into
+  the photo, which is what read as "parked at the bottom".
+
+**THE INSTALL PATH IS THE REUSABLE PART — YouTube Studio takes a 1080×1920 cover as a
+Shorts thumbnail UNCROPPED**, no 16:9 conversion. Per video: navigate to
+`/video/<ytId>/edit`, `find` the thumbnail file input (**its ref changes on every page
+load — it cannot be cached**), `file_upload` with a local path, then save via
+`document.querySelector('ytcp-button#save').click()`.
+
+**Two traps, one of which cost a redo.** (1) **The save takes 6–13 s.** Navigating away
+early raises a "Leave site?" block; answering it with `force: true` **silently discards
+the thumbnail** — that happened to `v3-short4` and it had to be redone. Always assert
+`#save` went `disabled` first. Some blocks are a stale `beforeunload` after a save that
+DID land, so check the button state before deciding rather than trusting the dialog.
+(2) **Fetching the image from a local `http://127.0.0.1` server inside the Studio page
+does not work and never will** — Chrome's Private Network Access rules make the request
+hang forever with no error, proven with a 5-byte file, even with the PNA headers set.
+Base64 injection is also out (~354 KB per cover). `file_upload` with `paths` is the only
+route, and it works despite an older note in this file calling it broken. Convert to
+JPEG q88 first (~250–310 KB vs ~1.6 MB PNG).
+
+**Verified by eye on `studio.youtube.com/channel/UC/videos/short`** — all 24 rows render
+the new covers, including the redone one. Reading the thumbnail URL off the row model is
+a dead end: the browser tool blocks the string, and a `custom` substring test is
+meaningless.
+
+**No native retest trigger row touched** — YouTube metadata only, no product surface.
+**No dashboard task matched this work** (all four lists searched), so nothing was checked
+off per Rule 9, and no handoff was created, so Rule 8 does not apply. Skill updated and
+pushed (`c3cc164`).
+
 ### iOS THIRD rejection (2026-08-14) — Guideline 2.1 Information Needed. Answers WRITTEN and device testing DONE; BLOCKED on Dan for the screen recording (2026-08-17, Claude Code)
 
 **This rejection is NOT a code defect and nothing in the app needs fixing.** Apple's message is the standard Guideline 2.1 "Information Needed - New App Submission" request: seven items of information, no bug, no guideline violation alleged. **No product code was touched, no deploy, no AI spend ($0.00 — the device matrix ran zero generations).** Reviewed on the submission `c4dc7f48-72d6-4ecd-b809-65be264fce85`; the version item shows `2.1.0 Performance: App Completeness`.
