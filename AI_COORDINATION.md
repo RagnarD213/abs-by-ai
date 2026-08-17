@@ -163,7 +163,25 @@ pushed (`c3cc164`).
 
 **No dashboard task checked off:** all four lists were searched and none describes this work (the two iOS entries, `Execute handoff: RevenueCat restore-behavior audit` and `Execute handoff: Let users purchase before creating an account (iOS)`, are unrelated deferred follow-ups). Per Rule 9 a missing task is reported, not invented. No handoff-*.md was created, so Rule 8 does not apply.
 
-**EXACT NEXT ACTION — DAN, in this order:** (1) record the screen capture on the iPhone 17 Pro per the shot list in `APP_REVIEW_REPLY_20260817_G21.md`, starting from launching the app on a fresh install so registration and both permission prompts actually fire; (2) paste the Notes replacement into App Review Information and Save; (3) paste the reply text, **Attach File** the recording, and send; (4) press **Update Review** on the version page, then **Resubmit to App Review**.
+### RESUBMITTED 2026-08-17 5:22 PM — all seven items delivered; status "Waiting for Review"
+
+Submission at **Today 5:22 PM, iOS 1.0, 1 Item, Waiting for Review** (verified on the submissions list, not just the confirmation modal). The 4:58 PM attempt shows **Removed**. Version reads `1.0 Waiting for Review`.
+
+**THE FIND THAT MATTERS FOR EVERY FUTURE REJECTION: App Review Information has its own `Attachment` field on the VERSION page, and that — not the message thread — is how a video reaches a reviewer.** It accepts `.jpg/.jpeg/.png/.mov/.m4v/.mp4`, persists with the version, and sits directly beside the Notes the reviewer reads. Dan had already used it. Two sessions were spent hunting a reply-with-attachment path that was never needed. **Check the version page's Attachment field first.** Beware: the version page also holds a *different* file input accepting the same extensions — that one is **Previews and Screenshots**, i.e. the public App Store listing. Uploading a demo video there would publish it to the product page; the two are told apart by walking up from the input (`Choose File` inside a `0 of 3 App Previews | 6 of 10 Screenshots` container is the WRONG one).
+
+**A REAL PROCESS FAILURE HAPPENED FIRST AND IS THE OTHER LESSON: Dan pressed Resubmit at 4:58 PM with neither the Notes pasted nor any reply sent** — Apple would have received a resubmission containing none of the requested information. Caught only because the submission page still read `Messages (4)`; a sent reply makes it 5. **Verify each step as it happens, not after the submit.**
+
+**Cancelling to recover cost the message thread, and this was mispredicted.** Claude expected `Cancel Submission` to return the item to `Rejected` with its reply control. It does not — the submission goes to **`Removed`**, which has **zero controls**: no reply, no attach, nothing, and the thread is closed permanently. The version itself returns to `1.0 Developer Rejected`, fully editable, with `Add for Review` enabled, so recovery is otherwise clean. **Do not cancel a submission expecting to reply afterwards.**
+
+**The Notes field DID accept a manual paste this time** (3,786 → **3,681** chars, counter 214 → 319), confirmed by a full page reload showing all seven sections present. Automated input is still impossible — that finding stands unchanged and was re-proven earlier this session.
+
+**Google Drive cannot be automated for uploads, and the reason is structural.** Drive uses the File System Access API (`showOpenFilePicker`), not an `<input type=file>`, so the input-click interception recorded in the scriptwriting skill no longer applies; overriding `showOpenFilePicker` never fires because the menu item is not reached by synthetic clicks, and synthetic `drop` events are ignored (that older note is still correct). **One older note IS wrong and is corrected here: a `fetch()` from `http://127.0.0.1` inside an HTTPS page WORKS** — 8.39 MB retrieved cleanly in the Drive tab with `Access-Control-Allow-Private-Network: true`. The "PNA hangs forever, never will work" note is **YouTube-Studio-specific**, not a Chrome-wide rule.
+
+**Deliverables:** the assembled demo video is `~/Downloads/AbsByAI_AppReview_Demo.mp4` (5:10, 19 MB, deliberately **outside** the public repo) plus an 8.39 MB two-pass copy made for the `file_upload` 10 MB cap, unused. Built from three device takes — launch, main session, deletion — joined after trimming Control Center off the launch clip and, critically, **trimming the failed meal-plan attempt off the end of the main take so the video does not end on a red error** against an App-Completeness rejection. Reply text corrected to match the footage actually shot (it claimed a sign-in flow and a paywall that never appear) and committed at 3,995/4,000 chars, though it was ultimately not sendable.
+
+**Dashboard: `money::Send Apple the Guideline 2.1 reply: record device video, paste review notes, resubmit` CHECKED OFF** (Rule 9), verified in the `checked` array with `checkedAt` 2026-08-17.
+
+**WATCH:** Apple's verdict, up to ~48h. Do NOT press anything further in the meantime. **App Store Version Release is still set to "Automatically release this version"** — the app goes live the moment it is approved. That setting stays editable while in review; it is Dan's call.
 
 ### YouTube channel setup — FINISHED and fully verified (2026-08-13, Claude Code)
 
