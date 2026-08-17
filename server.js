@@ -104,6 +104,25 @@ const POSTHOG_PROJECT_ID  = process.env.POSTHOG_PROJECT_ID;
 //
 // Map upstream failures onto copy that tells the user what to DO, and keep the
 // real reason in the server log where it belongs. Never return upstream text.
+// Anthropic hard-rejects an image whose declared media_type disagrees with its
+// actual bytes: 400 "The image was specified using the image/png media type,
+// but the image appears to be a image/jpeg image". Neither the client nor the
+// image providers can be trusted to label correctly — on 2026-08-17 Nano Banana
+// Pro returned JPEG bytes tagged image/png, which broke the AI Nutritionist for
+// every user who let it see their transformation. The bytes are the only source
+// of truth, so sniff them and ignore the label.
+function sniffImageMime(base64, fallback = 'image/jpeg') {
+  let head;
+  try { head = Buffer.from(String(base64 || '').slice(0, 24), 'base64'); }
+  catch (e) { return fallback; }
+  if (head.length < 12) return fallback;
+  if (head[0] === 0xff && head[1] === 0xd8 && head[2] === 0xff) return 'image/jpeg';
+  if (head[0] === 0x89 && head[1] === 0x50 && head[2] === 0x4e && head[3] === 0x47) return 'image/png';
+  if (head[0] === 0x47 && head[1] === 0x49 && head[2] === 0x46) return 'image/gif';
+  if (head.slice(0, 4).toString('latin1') === 'RIFF' && head.slice(8, 12).toString('latin1') === 'WEBP') return 'image/webp';
+  return fallback; // unknown container — leave the caller's label alone
+}
+
 function friendlyAIError(status, rawMessage) {
   const raw = String(rawMessage || '');
   const isCredit = /credit balance|billing|quota|payment/i.test(raw);
@@ -1925,7 +1944,7 @@ app.post('/api/check-photo', aiLimiter, async (req, res) => {
                 type: 'image',
                 source: {
                   type: 'base64',
-                  media_type: photoMime,
+                  media_type: sniffImageMime(photoBase64, photoMime),
                   data: photoBase64,
                 },
               },
@@ -2156,7 +2175,7 @@ function buildMealPhotoContent(photos) {
   const content = [];
   photos.forEach((p, i) => {
     if (photos.length > 1) content.push({ type: 'text', text: `Photo ${i + 1}:` });
-    content.push({ type: 'image', source: { type: 'base64', media_type: p.mime, data: p.data } });
+    content.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(p.data, p.mime), data: p.data } });
   });
   return content;
 }
@@ -2793,10 +2812,10 @@ async function judgeScoreOnce({ photo, candidates, femaleSubtle = false }) {
     const content = [...getJudgeExemplarBlocks()];
     if (femaleSubtle) content.push(...getJudgeFemaleSubtleBlocks());
     content.push({ type: 'text', text: 'Now judge this case.\n\nBEFORE photo (the real person):' });
-    content.push({ type: 'image', source: { type: 'base64', media_type: photo.imageMime, data: photo.imageBase64 } });
+    content.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(photo.imageBase64, photo.imageMime), data: photo.imageBase64 } });
     candidates.forEach((c, i) => {
       content.push({ type: 'text', text: `Candidate ${JUDGE_LETTERS[i]}:` });
-      content.push({ type: 'image', source: { type: 'base64', media_type: c.imageMime, data: c.imageBase64 } });
+      content.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(c.imageBase64, c.imageMime), data: c.imageBase64 } });
     });
     content.push({ type: 'text', text: `Score all ${candidates.length} candidate(s) (${candidates.map((_, i) => JUDGE_LETTERS[i]).join(', ')}) on the rubric. JSON only.` });
 
@@ -3064,9 +3083,9 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
                 role: 'user',
                 content: [
                   { type: 'text', text: 'BEFORE photo:' },
-                  { type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } },
+                  { type: 'image', source: { type: 'base64', media_type: sniffImageMime(photoBase64, photoMime), data: photoBase64 } },
                   { type: 'text', text: 'AFTER photo:' },
-                  { type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } },
+                  { type: 'image', source: { type: 'base64', media_type: sniffImageMime(afterBase64, afterMime), data: afterBase64 } },
                   { type: 'text', text: buildVerifierQuestion(who, intens, cond) },
                 ],
               },
@@ -6076,11 +6095,11 @@ function buildAssessmentContent(intake, { photos, pinnedStage, cap, extraLines =
   if (photos) {
     const { beforeBase64, beforeMime, afterBase64, afterMime } = photos;
     if (beforeBase64 && beforeMime) {
-      content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
+      content.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(beforeBase64, beforeMime), data: beforeBase64 } });
       content.push({ type: 'text', text: 'BEFORE photo — the user\'s current body (shared with consent). Estimate their starting point: rough body-fat range, muscle base, apparent fitness level. Never judgmental.' });
     }
     if (afterBase64 && afterMime) {
-      content.push({ type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } });
+      content.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(afterBase64, afterMime), data: afterBase64 } });
       content.push({ type: 'text', text: 'AFTER photo — the AI-generated image of their goal physique. The training goal is the gap between the before photo and this one.' });
     }
   }
@@ -6897,11 +6916,11 @@ function buildNutritionistUserContent(intake, photos, targets) {
   const content = [];
   const { beforeBase64, beforeMime, afterBase64, afterMime } = photos || {};
   if (beforeBase64 && beforeMime) {
-    content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
+    content.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(beforeBase64, beforeMime), data: beforeBase64 } });
     content.push({ type: 'text', text: "BEFORE photo — the user's current body (shared with consent). Estimate a rough body-fat range. Never judgmental." });
   }
   if (afterBase64 && afterMime) {
-    content.push({ type: 'image', source: { type: 'base64', media_type: afterMime, data: afterBase64 } });
+    content.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(afterBase64, afterMime), data: afterBase64 } });
     content.push({ type: 'text', text: 'AFTER photo — the AI-generated image of their goal physique. The nutrition goal is the gap between the before photo and this one.' });
   }
   content.push({
@@ -7528,7 +7547,7 @@ function buildCounselUserContent(decisionType, intake, photos, contextBlock) {
   const content = [];
   const { beforeBase64, beforeMime } = photos || {};
   if (beforeBase64 && beforeMime) {
-    content.push({ type: 'image', source: { type: 'base64', media_type: beforeMime, data: beforeBase64 } });
+    content.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(beforeBase64, beforeMime), data: beforeBase64 } });
     content.push({ type: 'text', text: "The user's CURRENT physique photo (from their account, shared with consent). Use it only as backdrop for judging whether the stack matches their real situation. Never judgmental." });
   }
   const { items, ...rest } = intake || {};
@@ -8063,11 +8082,11 @@ app.post('/api/supplement/label', aiLimiter, optionalAuth, async (req, res) => {
     }
 
     const userContent = [
-      { type: 'image', source: { type: 'base64', media_type: photoMime, data: photoBase64 } },
+      { type: 'image', source: { type: 'base64', media_type: sniffImageMime(photoBase64, photoMime), data: photoBase64 } },
       { type: 'text', text: 'This is the FRONT label of one supplement product.' },
     ];
     if (panelBase64 && panelMime) {
-      userContent.push({ type: 'image', source: { type: 'base64', media_type: panelMime, data: panelBase64 } });
+      userContent.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(panelBase64, panelMime), data: panelBase64 } });
       userContent.push({ type: 'text', text: 'This second image is the ingredients / Supplement Facts panel for the SAME product — read per-ingredient doses from it.' });
     }
     userContent.push({ type: 'text', text: 'Read this product. Output JSON matching the provided schema.' });
@@ -8303,7 +8322,7 @@ app.post('/api/sleep/checkin', aiLimiter, optionalAuth, async (req, res) => {
 
     const userContent = [];
     if (isScreenshot) {
-      userContent.push({ type: 'image', source: { type: 'base64', media_type: String(screenshotMime), data: String(screenshotBase64) } });
+      userContent.push({ type: 'image', source: { type: 'base64', media_type: sniffImageMime(String(screenshotBase64), String(screenshotMime)), data: String(screenshotBase64) } });
       userContent.push({ type: 'text', text: "Screenshot of the user's sleep tracker from last night. Read every number you can see, fill parsed, and write today's Go Hard briefing." });
     } else {
       const m = {
