@@ -102,9 +102,21 @@ everything below 1680 is gone. On a lying-down subject the abs drift low; check
 where they land before committing.
 
 ### 5. Build it
-Copy `Short-form video content/covers/posted covers/_build-cover-short2.py` and
-adapt `SRC`, the crop dict, and the copy. Do not rewrite it — it carries the locked
-geometry and the asserts.
+For a batch, copy `Short-form video content/covers/posted covers/_build-cover-batch2-final.py`
+— it holds the locked geometry, the asserts, a `HEAD_TOP` table and one config row
+per short. For a single cover `_build-cover-short2.py` is the smaller template.
+Do not rewrite either; adapt the config.
+
+**Three rules Dan set on 2026-08-17, all enforced in code, not by eye:**
+- **Never crop the top of his head.** `HEAD_TOP` stores where his hairline sits in
+  each source as a fraction of image height, and `photo()` refuses to build a cover
+  whose crop starts below it. Add a row when you introduce a new photo.
+- **Headline on two lines, never three.** Raise `head_size` and let `fit()` shrink
+  each line to the column; three lines eats the panel and shrinks the photo.
+- **The type block is CENTRED in the black and never touches the photo.** Size the
+  panel to the block (`panel_y = TILE_TOP + h + 2*PAD`), then centre the block in
+  `TILE_TOP → panel_y`. Parking the text at the bottom of a tall black band was the
+  single thing Dan rejected most.
 
 **Locked type hierarchy (Dan shipped this as cover D, 2026-08-13):**
 
@@ -113,6 +125,9 @@ geometry and the asserts.
 | eyebrow — attention-getting category | `KILLER SIX-PACK ABS EXERCISE` | Copperplate 36, olive, letterspaced |
 | headline — the specific, descriptive thing | `THE TOE TOUCH` | Impact ~150, white |
 | subtitle | `TARGET: LOWER ABS` | Impact ~74, olive |
+
+Eyebrow and subtitle are both optional. Dropping them is the right move when one
+long headline needs the room (Dan did exactly that on the milk cover).
 
 The **specific** line is the big one. A generic category phrase as the headline
 tests worse and looks like every other fitness account — that is why the variant
@@ -140,6 +155,39 @@ Save to `Short-form video content/covers/posted covers/` as
 `<shortslug>_cover-<X>.png`, and copy the build script beside it as
 `_build-cover-<shortslug>.py`. Delete superseded variants so the folder stays
 unambiguous when Dan is picking a file in Finder.
+
+### 7. Install on YouTube (only when Dan asks)
+YouTube Studio takes the 1080×1920 cover as a Shorts thumbnail **uncropped** — no
+16:9 conversion, no letterboxing. Per video, in Dan's own Chrome (Studio needs his
+session; the in-app Browser pane has none):
+
+1. `navigate` to `studio.youtube.com/video/<ytId>/edit` — ids are in
+   `SHORTS_UPLOAD_PLAN.json`.
+2. `find` "thumbnail file input" → ref. **The ref changes on every page load**, so
+   find it each time; it cannot be cached.
+3. `file_upload` with that ref and the local path.
+4. Save with `document.querySelector('ytcp-button#save').click()` in
+   `javascript_tool`, then **wait ~13s and assert the button went `disabled`**.
+
+**The save timing is the trap.** Saving takes 6–13s. Navigating away early raises a
+"Leave site?" block, and answering it with `force: true` **discards the thumbnail**
+— that happened once and the cover had to be redone. Never force-navigate without
+first confirming `#save` is disabled. Some blocks are a stale `beforeunload` firing
+after a save that did land, so check the button state before deciding.
+
+**What does NOT work, so don't retry it:** fetching the image from a local
+`http://127.0.0.1` server inside the Studio page. Chrome's Private Network Access
+rules make the request hang forever with no error, even with the PNA headers set —
+a 5-byte file never resolves. Injecting base64 through `javascript_tool` is also
+out; one cover is ~354 KB of base64. `file_upload` with a `paths` argument is the
+only route that works, and it does work despite older notes saying otherwise.
+
+Convert to JPEG q88 first (`~250-310 KB` vs `~1.6 MB` PNG) — well under the 2 MB
+limit and visually identical at thumbnail scale.
+
+Verify on `studio.youtube.com/channel/UC/videos/short` by eye: the row thumbnails
+render the covers. Do not try to read the thumbnail URL from the row model — the
+browser tool blocks the string, and a `custom` substring test is meaningless.
 
 ## Geometry that must not drift
 
