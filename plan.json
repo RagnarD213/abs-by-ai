@@ -1,7 +1,6 @@
 {
   "date": "2026-08-17",
   "order": [
-    "money::Post on YouTube",
     "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
     "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
     "money::Execute handoff: Let users purchase before creating an account (iOS)",
@@ -10,7 +9,8 @@
   "excluded": [
     "money::Post on Facebook",
     "money::Post on Instagram",
-    "money::Post on TikTok"
+    "money::Post on TikTok",
+    "money::Post on YouTube"
   ],
   "sessionsCompleted": 0
 }
