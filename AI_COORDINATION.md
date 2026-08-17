@@ -95,6 +95,51 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 ## Active task
 
+### Google Ads Search campaign build — RESUMED 2026-08-17, BLOCKED on a wedged Ads UI; two real findings (Claude Code)
+
+Continues `Business/google-ads-campaign-build-20260813.md`, whose **08-17 status section is now the
+authoritative one — read it first.** **No account changes were made this session** (verified against
+change history), **no code touched, $0.00 AI spend.**
+
+**FINDING 1 — the account IS spending; this file's "no spend has resumed" is wrong.** Dan built a
+Demand Gen campaign himself on 2026-08-17: `[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed only | geo
+tier 1 | ultimate 1 minute ab workout`, $20/day, **$90.28 spent**, 18,004 impressions, 1,099
+clicks/engagements. `Brand - Search - US` is Eligible but near-dormant (26 impr, $0.72). Perf Max
+`Campaign #1` paused at $0.01/day.
+
+**FINDING 2, the one that matters — the 89 "conversions" are YOUTUBE CHANNEL SUBSCRIPTIONS, not
+product actions.** Read off the conversion-actions table: `YouTube channel subscriptions` **89**,
+`Free Generation Started` **1**, `Trial Signup` **0** ("No recent conversions"), `Subscribe`
+(membership) **0 and `Inactive`**, `YouTube follow-on views` 0. So **$91 bought ~89 YouTube subs at
+$1.01 each, 1 free generation and 0 trials.** The campaign is on Target CPA against the Engagements
+goal, so Google is correctly optimizing toward *more subscribers*. Fair price for channel growth;
+it is **not** customer acquisition, and the "89 conversions / $1.03 CPA" headline must not be read
+as such. **`Subscribe` being Inactive means membership revenue is currently unmeasurable and
+un-optimizable** — this file records only Trial Signup and Free Generation Started as shipped tags
+(2026-07-31), so `Subscribe` looks like an auto-created goal that was never wired to a real tag.
+Worth closing before any revenue-based bidding.
+
+**BLOCKED:** the negative keyword list was **not** created. The account still has **zero** negative
+keyword lists. The create form opened once, then the Ads SPA wedged — 8–10 spinners that never
+resolve, reproduced across a hard reload and two fresh tabs, while earlier pages had loaded fine.
+App-side degradation, not access. Retry later.
+
+**TRAP worth keeping — Google Ads has single-letter keyboard shortcuts.** Clicking a field and
+typing in one batch is unsafe: when the click missed (constant reflow, plus a Quick help panel that
+opens itself and shifts the layout), the typed text was swallowed as navigation shortcuts and `G`+`A`
+jumped to the Ads page, abandoning the form. **Verify `document.activeElement` before any `type`,
+and use `find` refs over coordinates.** No damage — shortcuts are navigation-only.
+
+**Defaults taken, pending Dan:** $25/day cold-traffic budget; AGs 5–6 start paused; no "Official" in
+SixPackAbs copy and no bidding on `six pack shortcuts` (NANOTEST LLC holds that mark — the exact risk
+class behind the suspension).
+
+**Dashboard:** `money::Finish Google Ads campaign setup and launch video campaign` deliberately left
+**unchecked** — the build is unfinished. Per Rule 9 nothing is checked off until it is done.
+
+**No native retest trigger row touched** — Google Ads console and one project doc only.
+
+
 ### Shorts cover images — 24 BUILT, revised twice, and INSTALLED on YouTube (2026-08-17, Claude Code)
 
 Every Short that lacked a cover now has one: `short5` plus all of V2 (7), V3 (11) and
