@@ -1,8 +1,6 @@
 {
   "date": "2026-08-17",
-  "order": [
-    "money::Send Apple the Guideline 2.1 reply: record device video, paste review notes, resubmit"
-  ],
+  "order": [],
   "excluded": [
     "money::Post on Facebook",
     "money::Post on Instagram",
@@ -12,7 +10,8 @@
     "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
     "money::Execute handoff: Let users purchase before creating an account (iOS)",
     "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
-    "money::Call TWC"
+    "money::Call TWC",
+    "money::Send Apple the Guideline 2.1 reply: record device video, paste review notes, resubmit"
   ],
   "sessionsCompleted": 0
 }
