@@ -205,6 +205,15 @@ async function initDb() {
     // funnel. A `_meta` sub-object holds per-field-group provenance. Behind auth
     // only — never expose in URLs or logs (holds age/weight/diet).
     "profile JSONB DEFAULT '{}'",
+    // Google Ads click id (gclid, or gbraid/wbraid on iOS app campaigns), captured
+    // from the landing URL and carried through signup and membership checkout.
+    // Without this a paid membership can never be attributed back to the ad click
+    // that produced it: the trial converts to paid ~7 days later, server-side, with
+    // no browser present, so the only ways to report the sale are gtag's own
+    // _gcl_aw cookie (same browser only) or an offline conversion upload keyed on
+    // this id. Stored latest-wins, matching Google's last-click attribution.
+    'ads_click_id TEXT',
+    'ads_click_at TIMESTAMPTZ',
   ]) {
     try {
       await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS ${col}`);

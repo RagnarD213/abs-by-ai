@@ -4157,6 +4157,32 @@ function requireAdmin(req, res, next) {
   });
 }
 
+// Google Ads click id (gclid on web; gbraid/wbraid when Apple's ATT applies).
+// Recorded so a membership that converts from trial to PAID a week later —
+// server-side, from a Stripe webhook, with no browser present — can still be
+// attributed back to the ad click that produced it. That gap is why the
+// account's "Subscribe" conversion has sat Inactive with zero data.
+// Latest click wins, matching Google's last-click attribution; a request that
+// carries no id never clears one we already hold.
+const ADS_CLICK_RE = /^[A-Za-z0-9_-]{1,200}$/;
+function sanitizeAdClickId(raw) {
+  const id = String(raw || '');
+  return ADS_CLICK_RE.test(id) ? id : '';
+}
+async function recordAdClickId(userId, rawId) {
+  const id = sanitizeAdClickId(rawId);
+  if (!db || !userId || !id) return;
+  try {
+    await db.query(
+      'UPDATE users SET ads_click_id = $1, ads_click_at = NOW() WHERE id = $2',
+      [id, userId]
+    );
+  } catch (e) {
+    // Never let attribution bookkeeping break signup or checkout.
+    console.error('recordAdClickId failed:', e.message);
+  }
+}
+
 app.post('/api/auth/signup', authLimiter, async (req, res) => {
   if (!db) return dbUnavailable(res);
   const email = String(req.body?.email || '').trim().toLowerCase();
@@ -4173,6 +4199,7 @@ app.post('/api/auth/signup', authLimiter, async (req, res) => {
       [email, hash, deviceId]
     );
     if (!rows.length) return res.status(409).json({ error: 'An account with that email already exists. Log in instead.' });
+    await recordAdClickId(rows[0].id, req.body?.adClickId);
     const token = await createSession(rows[0].id);
     pushToMailerLite(email).catch(() => {}); // join the email list, same as the capture screen
     console.log(`Account created: ${email}`);
@@ -5281,6 +5308,10 @@ app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res)
     const { plan, deviceId } = req.body || {};
     const planDef = MEMBERSHIP_PLANS[plan];
     if (!planDef) return res.status(400).json({ error: 'Invalid plan' });
+    // Capture here as well as at signup: an existing account that clicks an ad
+    // and only then subscribes would otherwise carry the click id from whenever
+    // it first registered, or none at all.
+    await recordAdClickId(req.user.id, req.body?.adClickId);
 
     const row = await getUserRow(req.user.id);
     // A beta (comp) tester may still choose to pay; the webhook then overwrites

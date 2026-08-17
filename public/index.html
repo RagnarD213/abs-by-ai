@@ -3281,6 +3281,51 @@ function ensureAiConsent() {
 const AD_CONVERSION_ID = 'AW-18361229851';
 const AD_CONVERSION_DEDUPE_DAYS = 400;
 
+// ── Google Ads click id ──
+// gclid on web, gbraid/wbraid on iOS app campaigns. Captured from the landing
+// URL and persisted so it can be attached to the account at signup and to the
+// membership checkout.
+//
+// Why this has to be stored rather than read at purchase time: the 7-day trial
+// converts to a PAID membership about a week later, server-side, from a Stripe
+// webhook with no browser present. That is precisely why the account's
+// "Subscribe" conversion has never fired once. Reporting that sale needs either
+// gtag's own _gcl_aw cookie (works only if the member returns in the same
+// browser — never for the iOS/Android WebViews) or an offline conversion upload
+// keyed on this id, which is the only route that survives a device change.
+//
+// Latest click wins, matching Google's last-click attribution. Mirrored into a
+// cookie for the same reason getDeviceId() is: Android WebViews have been seen
+// clearing localStorage between launches.
+const AD_CLICK_KEY = 'absbyai_ad_click';
+const AD_CLICK_DAYS = 90; // Google's maximum click-to-conversion window
+const AD_CLICK_RE = /^[A-Za-z0-9_-]{1,200}$/;
+
+function captureAdClickId() {
+  let params;
+  try { params = new URLSearchParams(location.search); } catch (e) { return; }
+  // gclid is the normal web click id; gbraid/wbraid replace it when Apple's
+  // ATT blocks user-level tracking, so all three have to be accepted.
+  const id = params.get('gclid') || params.get('gbraid') || params.get('wbraid') || '';
+  if (!id || !AD_CLICK_RE.test(id)) return;
+  try { localStorage.setItem(AD_CLICK_KEY, id); } catch (e) {}
+  writeCookie(AD_CLICK_KEY, id, AD_CLICK_DAYS);
+}
+
+function getAdClickId() {
+  let id = '';
+  try { id = localStorage.getItem(AD_CLICK_KEY) || ''; } catch (e) {}
+  if (!id) id = readCookie(AD_CLICK_KEY);
+  return AD_CLICK_RE.test(id || '') ? id : '';
+}
+
+// Run immediately, at module top level. This MUST happen before the
+// checkCreditsSession() / product-confirmation / membership-return paths, which
+// each call history.replaceState(..., location.pathname) and throw the whole
+// query string away — capturing later would silently miss every click that
+// lands on one of those returns.
+captureAdClickId();
+
 // Reports a Google Ads conversion. Pass `once` to make it a LEAD-style signal
 // that fires at most one time per browser: someone who generates thirty images
 // is not thirty leads, and without the cap Smart Bidding learns to chase heavy
@@ -5293,6 +5338,7 @@ async function handleAuthSubmit(e) {
         email: $('authEmail').value.trim(),
         password: $('authPassword').value,
         deviceId: getDeviceId(),
+        adClickId: getAdClickId(),
       }),
     });
     if (window.posthog) posthog.capture(auth.mode === 'signup' ? 'account_signup' : 'account_login');
@@ -7078,7 +7124,7 @@ async function handleMembershipSubscribe() {
   try {
     const data = await authApi('/api/stripe/create-membership-checkout', {
       method: 'POST',
-      body: JSON.stringify({ plan: selectedPlan, deviceId: getDeviceId() }),
+      body: JSON.stringify({ plan: selectedPlan, deviceId: getDeviceId(), adClickId: getAdClickId() }),
     });
     const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
     const sessionId = data.sessionId;
