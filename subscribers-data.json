@@ -138,6 +138,16 @@
       "source": "sixpackabs",
       "welcomeStep": 5,
       "excluded": true
+    },
+    "adityarajkumar2006@gmail.com": {
+      "subscribedAt": "2026-08-17T18:40:25.399Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-08-17T18:40:25.399Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
