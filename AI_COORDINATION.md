@@ -119,6 +119,50 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Google Ads Search campaign — BUILT AS A BULK CSV, waiting on Dan to upload (2026-08-17, Claude Code)
+
+**HARD ENVIRONMENTAL FINDING, and it is the reusable part: Google Ads will NOT render in a browser
+tab the Claude Chrome extension is driving.** Reproduced exhaustively — stuck `material-spinner`
+elements and zero table rows across a hard reload, three fresh tabs, and both connected extension
+instances, **while Dan's own tabs in the same Chrome window loaded the same URLs perfectly**. Note
+some Ads pages (campaigns, conversions, change history) DID load early in the session before heavy
+JS injection, then stopped; disconnecting the second extension instance improved it (19 spinners →
+5) but never fixed it. **Do not burn another session clicking at this.** Two extension instances
+being connected at once made it worse and is worth checking first (`list_connected_browsers`).
+
+**THE WAY THROUGH IS BULK UPLOAD.** Tools → Bulk actions → Uploads accepts a Google-Ads-Editor-style
+CSV, previews errors before applying, and needs no UI automation at all. Files (in `Business/`, which
+is **gitignored** — they live locally only, so regenerate from the build spec if lost):
+- `Business/google-ads-bulk/absbyai-search-nonbrand.csv` — 147 rows: the campaign, **80 campaign-level
+  negatives**, 6 ad groups, 54 exact/phrase keywords, 6 responsive search ads.
+- `Business/google-ads-bulk/absbyai-brand-sixpackabs.csv` — the `Brand - SixPackAbs` ad group appended
+  to the **existing** `Brand - Search - US` campaign, pointing at try.sixpackabs.com.
+- `Business/google-ads-bulk/HOW-TO-UPLOAD.md` — the steps, plus the post-import checklist.
+
+**Everything imports PAUSED**, so nothing can spend until Dan switches it on. Generated
+programmatically with assertions: every headline ≤30 chars, every description ≤90, and the word
+"Official" is asserted absent from the SixPackAbs copy (NANOTEST LLC holds the SIXPACKABS.COM mark).
+
+**TWO THINGS THAT WILL BITE IF MISSED:**
+1. **Discard the existing half-built draft first** (`draftId 10209101529`, same campaign name) or the
+   upload creates a duplicate campaign whose keywords bid against it.
+2. **Four settings the CSV cannot carry**, all on the new campaign after import: **US-only with
+   "Presence"** (default is all countries + "presence or interest", i.e. worldwide), **Search
+   Partners AND Display both OFF** (both default ON), Maximize clicks with the $2.00 cap, and
+   **auto-applied recommendations OFF**. Also do not accept the "Use Display Expansion" or "Add
+   broad match keywords" recommendations currently on the Overview page — both undo guardrails set
+   here deliberately.
+
+**Also seen on Dan's Overview (unactioned):** `Brand - Search - US` is **Eligible (Limited) — "Ad
+strength is poor, targeting fewer searches"**, consistent with the 08-13 note that its ad group is
+missing a Final URL. Optimization score 85.6%.
+
+**Still blocked, unchanged:** the `Subscribe` conversion label could not be read, so the
+paid-membership conversion wiring (the last piece of revenue tracking) is still pending. Its settings
+are also wrong for a sale — `Count: Every` on a 30-day window, where it wants **Count: One**, 90 days,
+"use different values". Bulk upload cannot fix conversion actions; that one genuinely needs the UI.
+
+
 ### Google Ads click-id capture — SHIPPED, live-verified (2026-08-17, Claude Code, commit `72f5697`)
 
 Dan's instruction was "fix the conversion tracking first", before resuming the Search campaign build.
