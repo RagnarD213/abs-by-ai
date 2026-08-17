@@ -14,7 +14,8 @@
     "assistant::Throw away old food from fridge",
     "assistant::Drain yeti cooler, clean and put away",
     "assistant::Take out trash and replace liners",
-    "personal::Respond to hoes"
+    "personal::Respond to hoes",
+    "money::Send Apple the Guideline 2.1 reply: record device video, paste review notes, resubmit"
   ],
   "log": {
     "health::Shower": [
@@ -196,6 +197,7 @@
     "assistant::Throw away old food from fridge": "2026-08-11",
     "assistant::Drain yeti cooler, clean and put away": "2026-08-16",
     "assistant::Take out trash and replace liners": "2026-08-16",
-    "personal::Respond to hoes": "2026-08-17"
+    "personal::Respond to hoes": "2026-08-17",
+    "money::Send Apple the Guideline 2.1 reply: record device video, paste review notes, resubmit": "2026-08-17"
   }
 }
