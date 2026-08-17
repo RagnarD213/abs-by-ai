@@ -95,6 +95,81 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 ## Active task
 
+### Google Ads click-id capture — SHIPPED, live-verified (2026-08-17, Claude Code, commit `72f5697`)
+
+Dan's instruction was "fix the conversion tracking first", before resuming the Search campaign build.
+
+**ROOT CAUSE of the dead `Subscribe` conversion, and it is structural, not a broken tag.** The
+7-day trial converts to a PAID membership ~7 days later, **server-side, from a Stripe
+`customer.subscription.updated` webhook, with no browser present**. There is no moment at which a
+client-side conversion could fire, which is exactly why that action has sat `Inactive` with zero
+data since it was created. Membership revenue has therefore been invisible to Google and impossible
+to bid toward. **The two live tags are fine** — `Free Generation Started` is Active (1 conversion,
+so the tag demonstrably works) and `Trial Signup` reads "No recent conversions" simply because no
+ad-attributed trial has happened yet. Nothing needed repairing there.
+
+**The blocker was that we captured NO click identifier anywhere** — `grep` for `gclid|gbraid|wbraid`
+across `public/index.html`, `server.js` and `db.js` returned nothing. Without one, a sale that
+happens a week later can never be tied back to the click that produced it.
+
+**What shipped:**
+- **Client** reads `gclid` (plus `gbraid`/`wbraid`, which replace it when Apple's ATT applies) from
+  the landing URL into localStorage **and a 90-day cookie** — same dual-store reasoning as
+  `getDeviceId()`, since Android WebViews have been seen clearing localStorage between launches.
+  **Capture runs at module top level**, which is load-bearing: `checkCreditsSession()` and the
+  product-confirmation and membership-return paths each `replaceState(..., location.pathname)` and
+  throw the query string away, so capturing any later would silently miss every click landing on
+  one of those returns.
+- **Sent on signup AND on membership checkout.** Both are needed — an existing account that clicks
+  an ad and only then subscribes would otherwise carry the click from whenever it first registered,
+  or none at all.
+- **Server** validates against `/^[A-Za-z0-9_-]{1,200}$/` and stores **latest-wins** (matching
+  Google's last-click attribution) on new `users.ads_click_id` / `ads_click_at`. A request carrying
+  no id **never clears** one already held, and `recordAdClickId()` **fails open** so attribution
+  bookkeeping can never break signup or checkout.
+- **Privacy policy gained an `Advertising` section.** Pre-existing gap found while doing this: the
+  Google Ads and TikTok tags were already live sitewide (the TikTok pixel is embedded in
+  `privacy.html` itself) but only PostHog was disclosed.
+
+**Verified.** 10 assertions driving the real `server.js` over pg-mem with `node-fetch` stubbed in the
+require cache: a valid id is stored and stamped, malformed and >200-char ids are rejected, an absent
+id leaves the column null, and **signup still returns 200 when the column write fails outright**
+(proven by dropping the column mid-run). Then a real browser: capture from `gclid` and from
+`gbraid`, survival of a localStorage wipe via the cookie, garbage rejected, and an end-to-end signup
+carrying the id. **Live on absbyai.com** after a ~40s deploy (polled on the `AD_CLICK_KEY` content
+marker, not the status code): capture works on production, `/health` ok, **zero console errors**, and
+the new privacy section renders between Analytics and Age requirement with no horizontal overflow at
+375x812. Note `_gcl_aw` is present on production too, confirming gtag stores its own copy — that is
+the other half of the attribution story.
+
+**NATIVE RETEST FLAG (standing rule):** this adds one field to the **signup/login request body**,
+which touches the "Login, session handling" trigger row. Risk is minimal — the login handler ignores
+the extra field and the server only records it on signup and checkout — but it is flagged rather than
+left silent. **Known limitation worth recording: the iOS/Android WebViews will not hold the `_gcl_aw`
+cookie set in the user's external browser**, so app-only members cannot be attributed client-side.
+That is precisely why the stored `ads_click_id` matters — it is the only route that survives a device
+or browser change, via an offline conversion upload.
+
+**STILL OPEN — the Google Ads side could NOT be done: the Ads UI is wedged.** Reproduced across a
+hard reload and three fresh tabs, 19 `material-spinner` elements that never resolve and zero table
+rows, while earlier pages had loaded normally. So the `Subscribe` conversion action was **not**
+reconfigured and its conversion label could not be read. **When the UI recovers:**
+1. Read the `Subscribe` action's label, or create a purpose-built "Membership Paid" action. Note the
+   existing `Subscribe` is configured **`Count: Every`, 30-day window**, which is wrong for a
+   membership sale — it wants **Count: One**, a 90-day window, and "use different values".
+2. Then wire the client to fire it once when a member returns after their trial converts to paid
+   (server exposes a pending-sale flag; client dedupes per subscription, not per browser).
+3. Separately decide whether the live Demand Gen campaign should keep optimizing toward
+   **Engagements (YouTube channel subscriptions)** or be repointed at Free Generation Started —
+   **Dan's business call, not the assistant's**, since it changes what the budget is buying and
+   resets bid-strategy learning.
+
+**No dashboard task matched this work** (`money::Set up remarketing pixel and conversion pixel` was
+already checked off 2026-07-31; `money::Finish Google Ads campaign setup and launch video campaign`
+is a different, unfinished task). Per Rule 9 that is reported, not invented. No handoff was created,
+so Rule 8 does not apply.
+
+
 ### Google Ads Search campaign build — RESUMED 2026-08-17, BLOCKED on a wedged Ads UI; two real findings (Claude Code)
 
 Continues `Business/google-ads-campaign-build-20260813.md`, whose **08-17 status section is now the
@@ -565,7 +640,7 @@ Full asset inventory (8 headlines, 4 descriptions) and replacement copy are reco
 
 **Dashboard:** Key task **added** — `money::Submit Google Ads suspension appeal (account 342-717-0837)`, verified persisted (business 32 → 33, other lists unchanged at 6/6/22, `restored: []`). `money::Finish Google Ads campaign setup and launch video campaign` was **deliberately left unchecked** — it is now blocked, not done. No handoff-*.md was created, so Rule 8 does not apply.
 
-**Honest framing for whoever picks this up:** Unacceptable Business Practices is Google's most severe bucket and their own help text calls violations "egregious" and reinstatement reserved for "compelling circumstances." A specific, fixable, admitted cause is the best possible shape for an appeal, but do not plan the quarter around Google paid traffic returning. (**Note:** this section was written believing the `®` was that cause. It was not — see the corrected causal analysis at the top of this entry. The account was reinstated in ~2 days, consistent with an identity/billing verification hold rather than a claims finding.) Meta is not a clean substitute — its policies ban before/after body imagery outright. The realistic near-term channels are the ones already in flight: YouTube long-form + Shorts, sixpackabs.com SEO, and email.
+**Honest framing for whoever picks this up:** Unacceptable Business Practices is Google's most severe bucket and their own help text calls violations "egregious" and reinstatement reserved for "compelling circumstances." A specific, fixable, admitted cause is the best possible shape for an appeal, but do not plan the quarter around Google paid traffic returning. (**Note:** this section was written believing the `®` was that cause. It was not — see the corrected causal analysis at the top of this entry. The account was reinstated in ~2 days, consistent with an identity/billing verification hold rather than a claims finding.) Meta is not a clean substitute — ~~its policies ban before/after body imagery outright~~ **CORRECTED 2026-08-17: this claim is WRONG, read the Meta policy note below before acting on it.** The realistic near-term channels are the ones already in flight: YouTube long-form + Shorts, sixpackabs.com SEO, and email.
 
 **No native retest trigger row touched** — one line of static text at the top of the web acquisition screen, hidden for members, no input, no layout edge, no purchase surface. Visible on web, iOS and Android alike (shared-site architecture); that is intended here, since the statement is accurate product description rather than a store-mandated compliance gate.
 
