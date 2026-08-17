@@ -130,6 +130,12 @@
       "priority": "key",
       "why": "handoff-20260813-longform-edit-pipeline.md — created but not yet run",
       "addedAt": "2026-08-13"
+    },
+    {
+      "text": "Send Apple the Guideline 2.1 reply: record device video, paste review notes, resubmit",
+      "priority": "key",
+      "why": "app-store-assets/APP_REVIEW_REPLY_20260817_G21.md - answers written, blocked on the physical-device screen recording",
+      "addedAt": "2026-08-17"
     }
   ],
   "health": [
