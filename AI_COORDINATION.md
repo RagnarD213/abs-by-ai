@@ -183,10 +183,12 @@ reconfigured and its conversion label could not be read. **When the UI recovers:
    membership sale — it wants **Count: One**, a 90-day window, and "use different values".
 2. Then wire the client to fire it once when a member returns after their trial converts to paid
    (server exposes a pending-sale flag; client dedupes per subscription, not per browser).
-3. Separately decide whether the live Demand Gen campaign should keep optimizing toward
-   **Engagements (YouTube channel subscriptions)** or be repointed at Free Generation Started —
-   **Dan's business call, not the assistant's**, since it changes what the budget is buying and
-   resets bid-strategy learning.
+3. ~~Decide whether the Demand Gen campaign should be repointed.~~ **SETTLED 2026-08-17 — Dan's
+   call: LEAVE THE DEMAND GEN CAMPAIGN EXACTLY AS IT IS.** It stays on the Engagements goal, buying
+   YouTube channel subscribers at ~$1.01 each. It is an audience-growth play and is deliberately NOT
+   a customer-acquisition campaign; do not "fix" its optimization target, do not repoint it at Free
+   Generation Started, and do not read its conversion count as app signups. Customer acquisition is
+   the Search campaign's job.
 
 **No dashboard task matched this work** (`money::Set up remarketing pixel and conversion pixel` was
 already checked off 2026-07-31; `money::Finish Google Ads campaign setup and launch video campaign`
