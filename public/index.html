@@ -3362,6 +3362,34 @@ function fireAdConversion(label, opts) {
   return true;
 }
 
+// ── Virtual pageviews, so funnel stages are addressable in Google Ads ──
+// The whole product is ONE url: showScreen() swaps stacked <section>s and
+// pushes history with location.href unchanged, so every funnel stage — paywall,
+// membership, hub — shares the same address. Google Ads rule-based audiences
+// anchor on a page visit and its URL, so without this every visitor collapses
+// into a single undifferentiated "All visitors" list and no funnel-stage
+// remarketing is possible at all.
+//
+// Sending a page_view with an explicit page_location gives each stage its own
+// synthetic address under /vp/, which the audience rule builder can then match
+// on ("URL contains /vp/paywall"). Nothing about real navigation, history, or
+// the address bar changes — this is a reporting beacon only.
+//
+// Deliberately NOT deduped: unlike a conversion, list membership wants every
+// visit, and repeated views are how recency-based audiences stay fresh.
+function fireAdVirtualPageview(path) {
+  if (!window.gtag || !path) return false;
+  try {
+    gtag('event', 'page_view', {
+      send_to: AD_CONVERSION_ID,
+      page_location: location.origin + path,
+      page_path: path,
+      page_title: 'AbsByAI' + path.replace(/\//g, ' ')
+    });
+  } catch (e) { return false; }
+  return true;
+}
+
 // Same dedupe design as fireAdConversion, mirrored for TikTok. ttq.track()
 // fires the browser-side pixel; the same event, tagged with the same
 // event_id, is also POSTed to our own server so it can relay to TikTok's
@@ -3509,6 +3537,10 @@ function showLockedResult(sharpStripUrl) {
     : 'Your transformation is done. Unlock your result';
   if (window.posthog) posthog.capture('locked_teaser_shown', { estimated_body_fat: bfDisplayIsBuild ? null : (bodyFat || null), build_target: bfDisplayIsBuild ? bodyFat : null });
   showScreen('result');
+  // The paywall lives INSIDE the result screen, so renderScreen's /vp/result
+  // beacon cannot distinguish "saw their result" from "hit the paywall" — the
+  // single highest-intent moment in the funnel gets its own address.
+  fireAdVirtualPageview('/vp/paywall');
 }
 
 function unlockResult() {
@@ -3966,6 +3998,10 @@ function renderScreen(name) {
   document.querySelectorAll('.dot').forEach((d, i) => {
     d.className = 'dot ' + (i === dotMap[name] ? 'active' : 'inactive');
   });
+  // Give every screen its own synthetic address for Google Ads audiences.
+  // Fired from renderScreen rather than showScreen so a back-navigation
+  // re-registers the stage too — recency is what keeps an audience fresh.
+  fireAdVirtualPageview('/vp/' + name);
 }
 
 // ── Screen history, so the Android back button works ──
@@ -9965,6 +10001,9 @@ function applyUnlockedResult(afterDataUrl) {
   state_credits.value = Math.max(0, state_credits.value - 1);
   updateCreditDisplay();
   showScreen('result');
+  // Distinguishes "saw a finished, unlocked transformation" from the locked
+  // paywall view, which shares the same /vp/result address.
+  fireAdVirtualPageview('/vp/generation-complete');
   updateWeakChangeNudge(false, false);
   updateFixItVisibility(false);
 }
