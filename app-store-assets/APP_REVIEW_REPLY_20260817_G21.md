@@ -14,27 +14,27 @@ Hello,
 Thank you. All seven items are answered below, and the screen recording is attached to this reply.
 
 1. SCREEN RECORDING
-Attached. Captured on a physical iPhone 17 Pro running iOS 26, using the TestFlight build of 1.0 (2). It begins at app launch and shows: account registration and sign-in; the AI-processing consent prompt and the photo library permission prompt; uploading a photo and generating a transformation; the free-generation limit and paywall; the In-App Purchase subscription screen with title, duration, price, auto-renewal disclosure and Restore Purchases; the member features; and permanent account deletion. The app has no user-to-user content, so no reporting or blocking mechanism exists to show.
+Attached (5:10). Captured on a physical iPhone 17 Pro running iOS 26 on the TestFlight build of 1.0 (2), in three consecutive segments joined into one file. It begins by launching the app from the Home screen, then shows: creating an account; the In-App Purchase subscription screen with title, duration, price, auto-renewal disclosure, Restore Purchases and Terms/Privacy links, followed by a completed sandbox purchase; the AI-processing consent prompt and the photo library permission prompt; uploading a photo and generating a transformation; the AI Trainer and AI Nutritionist each producing a full plan with its Sources and references card; and permanently deleting the account. The app has no user-to-user content, so there is no reporting or blocking mechanism to show.
 
 2. DEVICES AND OPERATING SYSTEMS TESTED
 Physical: iPhone 17 Pro, iOS 26 (TestFlight, build 1.0 (2)).
 Simulator, iOS 26.5: iPhone 17 Pro, iPhone 17 Pro Max, iPhone 17e, iPhone Air, iPad Pro 13-inch (M5), iPad Air 11-inch (M4), iPad mini (A17 Pro).
 
 3. FUNCTION AND TARGET AUDIENCE
-Abs by AI is a fitness motivation and planning app for adults who want to lose body fat and get in shape. The problem it solves: an abstract goal is hard to stick to. The user uploads a photo of themselves and the app generates an AI image of how they could look at their goal - a personal target rather than a stock model - then builds the plan to get there: an AI workout program, an AI meal plan, photo-based meal and macro logging, a sleep briefing, a supplement review and a daily brief. Users may also order a printed poster or canvas of their goal image. Audience: adults, primarily men aged 25-55.
+Abs by AI is a fitness motivation and planning app for adults who want to lose body fat. The problem it solves: an abstract goal is hard to stick to. The user uploads a photo and the app generates an AI image of how they could look at their goal - a personal target, not a stock model - then builds the plan to get there: an AI workout program, an AI meal plan, photo-based meal and macro logging, a sleep briefing, a supplement review and a daily brief. A printed poster or canvas of the goal image can also be ordered. Audience: adults, primarily men aged 25-55.
 
 4. SETUP AND ACCESS
-No special setup or sample files are needed. Demo credentials are in App Review Information; that account is a complimentary full member, so every feature is reachable without payment. IMPORTANT: for that reason it deliberately shows no purchase UI. To see the In-App Purchase flow, sign out or create a new free account, then open Member Hub > Membership. Main flow: home screen > Add your photo > choose options > Generate my goal image. After the result, "Continue to my hub" reaches AI Trainer, AI Nutritionist, Macro Tracker, Sleep Coach, Supplement Audit, Daily Brief, Progress Log and My Transformations. Account deletion: Member Hub > Account > Delete my account.
+No special setup or sample files are needed. Demo credentials are in App Review Information; that account is a complimentary full member, so every feature is reachable without payment. IMPORTANT: for that reason it deliberately shows no purchase UI. To see the In-App Purchase flow, sign out or create a free account, then open Member Hub > Membership. Main flow: home > Add your photo > choose options > Generate my goal image. Then "Continue to my hub" reaches AI Trainer, AI Nutritionist, Macro Tracker, Sleep Coach, Supplement Audit, Daily Brief, Progress Log and My Transformations. Deletion: Member Hub > Account > Delete my account.
 
 5. EXTERNAL SERVICES
 - Anthropic (Claude): checks the uploaded photo is usable; generates workout, nutrition, sleep and supplement text.
 - Google (Gemini): generates the transformation image.
-- Replicate, running ByteDance Seedream and Black Forest Labs FLUX: generates the transformation image on some requests.
-- Apple StoreKit with RevenueCat: subscription purchase and server-side entitlement verification.
+- Replicate, running ByteDance Seedream and Black Forest Labs FLUX: the same, on some requests.
+- Apple StoreKit with RevenueCat: subscriptions and server-side entitlement checks.
 - Stripe: payment for printed posters and canvases only (physical goods).
-- Printify: printing and shipping of those physical goods.
-- Resend: account and transactional email. PostHog: product analytics. Railway: our backend and database, hosted in the United States.
-Each acts as a processor on our behalf. No data broker or ad network receives user data.
+- Printify: prints and ships those goods.
+- Resend: account email. PostHog: analytics. Railway: our backend and database, hosted in the US.
+Each acts as a processor for us. No data broker or ad network receives user data.
 
 6. REGIONAL DIFFERENCES
 None. The app is offered on the United States storefront only, and every feature, price and piece of content is identical for all users. No region-gated content or behaviour.
@@ -42,7 +42,7 @@ None. The app is offered on the United States storefront only, and every feature
 7. REGULATED INDUSTRY / THIRD-PARTY MATERIAL
 General fitness and wellness. Not a medical device; it does not diagnose or treat any condition, so no licence or regulatory authorisation is required. Health screens carry a "not medical advice - talk to your doctor" disclaimer and a Sources and references card citing the published research and CDC/NIH/FDA/HHS guidance behind each figure, consolidated at https://absbyai.com/sources. No protected third-party material is used: transformation images are generated from the user's own photo, and all other imagery is ours or AI-generated and labelled as such.
 
-This information has also been added to the Notes field in App Review Information. Happy to provide anything further.
+This information is also in the Notes field in App Review Information. Happy to provide anything further.
 ```
 
 ---
