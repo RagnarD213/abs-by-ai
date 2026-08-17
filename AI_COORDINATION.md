@@ -93,6 +93,30 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 
 ---
 
+## Standing note — Meta ad policy on body image, RESEARCHED 2026-08-17 (corrects an earlier wrong claim)
+
+**The Google-suspension entry below states "Meta's policies ban before/after body imagery outright." That is FALSE and was never checked against Meta's own text.** Corrected here from `transparency.meta.com` so it is not reused as a reason to avoid Meta.
+
+**What Meta actually PERMITS** (Health and Wellness ad standard), for audiences targeted **18+**: showing "people using the product or the service, and its impact of using it, and clearly indicate the time taken to achieve noticeable results." Before/after transformation imagery is permitted outright for cosmetic procedures.
+
+**What is actually PROHIBITED:**
+- "statements of inferiority about physical appearance"
+- "close up on specific body area by pinching fat" (named explicitly)
+- content "implying or attempting to generate negative self-perception in order to promote diet, weight loss or other health related products"
+- highlighting a specific body or figure as desirable or **idealized**
+- clickbait — "sensational language with exaggerated or extreme claims, or promises of specific outcomes within a set timeframe without disclaimers or qualifiers"
+
+**The trigger is the FRAMING, not the body.** Showing a fit person is fine; making the viewer feel bad in order to sell them the fix is not. Same axis as the Google "Negative Events and Imagery" limitation already on the Demand Gen creative.
+
+**Two operational consequences:**
+- **Weight-loss / dietary / cosmetic ads MUST target 18+.** Fitness services, equipment, health clubs and general food/protein products are **NOT** age-restricted — so a pure workout-tactic Reel is arguably outside the restricted class entirely. **Check the current ad set's age targeting; if it is not 18+ that is a live exposure.**
+- **Our AI-generated goal imagery is the sharpest risk**, since an AI "after" shown as an outcome reads as an exaggerated claim. The existing `AI-generated example — not a real transformation` label is the correct mitigation and **must appear on the ad creative itself**, not only on the landing page.
+
+**Not fully verified:** Meta's dedicated `objectionable-content/personal-health-and-appearance` page sits behind a login, so its verbatim text was not read — the above comes from Meta's other official standards pages plus third-party summaries. Read that page from inside Dan's account if exact wording ever matters.
+
+**Enforcement hygiene:** do not bulk-create a large batch of ads at once. A dense cluster of rejections in one window is itself an account-integrity signal, worse than the same rejections spread over time. Probe with 1–2 ads per creative category first.
+
+---
 ## Active task
 
 ### Google Ads click-id capture — SHIPPED, live-verified (2026-08-17, Claude Code, commit `72f5697`)
