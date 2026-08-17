@@ -1,22 +1,16 @@
 {
-  "date": "2026-08-13",
+  "date": "2026-08-17",
   "order": [
-    "money::Advertise toe touch video on TikTok"
+    "money::Post on YouTube",
+    "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
+    "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
+    "money::Execute handoff: Let users purchase before creating an account (iOS)",
+    "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)"
   ],
   "excluded": [
-    "money::Execute handoff: Let users purchase before creating an account (iOS)",
-    "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
-    "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
-    "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
     "money::Post on Facebook",
     "money::Post on Instagram",
-    "money::Post on TikTok",
-    "money::Post on YouTube",
-    "money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)",
-    "money::Post toe touch short on TikTok",
-    "money::Post toe touch short on Instagram",
-    "money::Advertise toe touch video on Google Ads",
-    "money::Advertise toe touch video on Meta"
+    "money::Post on TikTok"
   ],
-  "sessionsCompleted": 1
+  "sessionsCompleted": 0
 }
