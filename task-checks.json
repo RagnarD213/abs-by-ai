@@ -6,7 +6,8 @@
     "money::Call TWC",
     "money::Finish Google Ads campaign setup and launch video campaign",
     "money::Finish Android app Play Console setup and publish",
-    "money::Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)"
+    "money::Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)",
+    "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit"
   ],
   "log": {
     "health::Shower": [
@@ -185,6 +186,7 @@
     "money::Call TWC": "2026-08-18",
     "money::Finish Google Ads campaign setup and launch video campaign": "2026-08-18",
     "money::Finish Android app Play Console setup and publish": "2026-08-18",
-    "money::Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)": "2026-08-18"
+    "money::Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)": "2026-08-18",
+    "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit": "2026-08-18"
   }
 }
