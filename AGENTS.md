@@ -38,9 +38,9 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 
 ## Standing authorization for small AI-generation spend
 
-- You are authorized to spend up to **$10 per work session** on AI generation calls (Replicate, Gemini, MiniMax, Anthropic, and similar metered providers) for testing, evals, bake-offs, marketing assets, and ad production, without asking for confirmation each time.
+- You are authorized to spend up to **$25 per work session** on AI generation calls (Replicate, Gemini, MiniMax, Anthropic, and similar metered providers) for testing, evals, bake-offs, marketing assets, and ad production, without asking for confirmation each time. (Raised from $10 on 2026-08-18 at Dan's instruction to cut unnecessary permission stops.)
 - State the estimated cost before a batch run, keep a running total when a session's spend is material, and never run generation batches through paths that consume user credits or trigger production redeploys (no `deviceId` on test calls).
-- Spend above $10 in a session, or any single batch estimated over $5, still requires an explicit go-ahead with a stated budget.
+- Spend above $25 in a session, or any single batch estimated over $15, still requires an explicit go-ahead with a stated budget.
 - This authorization does not permit topping up provider balances, adding payment methods, or upgrading plans.
 
 ## Standing authorization for dashboard and task-board updates
