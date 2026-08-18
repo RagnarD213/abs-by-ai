@@ -152,6 +152,32 @@ do kettlebell swings (high risk — write the **deadlift**); **never** tell peop
 (it undermines the app's macro feature — the angle is that AI made tracking easy, not optional); and
 **cardio goes first thing in the morning, before lifting**, which is how he actually trains.
 
+**FOLLOW-UP, same session — the long-form catch-up is DONE too (10 more posts, 194 scheduled total).**
+Dan said "do both". Matching **durations** against the local masters — not post counts, which mislead —
+settled what is actually where: **Facebook already had V1 and V2**, so its real gap versus YouTube was
+**V3 and V4**; and **Instagram already had every Short**, because the "extra" Facebook reel is a *second
+copy* of `short1_4-ab-muscles`. Queued at **9:00 AM Central** so long-form never lands on a 5:00 PM slot:
+V1→IG Aug 19, V4→both Aug 21, V3→FB Aug 22, and V5/V6/V7→both on Aug 23 / Aug 30 / Sep 6, mirroring their
+YouTube publish times, which starts Dan's "same time on all platforms" rule. Verified: **194 = 130 photo +
+54 reel + 10 video, zero day+time slots with mixed content types.**
+
+**TWO PLATFORM LIMITS THAT DECIDE WHERE A VIDEO CAN GO — check these before promising a cross-post.**
+**Instagram Reels cap at 15 minutes**, so V2 (38:25) and V3 (21:12) can never go to Instagram at all;
+V6/V7 fit at ~13:15 with under two minutes to spare. **Facebook Reels cap at 90 seconds**, so long-form
+must post with **`mediaType` omitted** (a plain video post) — only the ~60s Shorts use `mediaType:"reel"`
+there. Business Suite calling every video a "Reel" in its UI is cosmetic and misleading. Separately, the
+**masters (690 MB–3.1 GB) cannot be uploaded**: re-encode with `h264_videotoolbox` 1080p/3500k/AAC/faststart
+(8 min of video in ~60 s of hardware encoding), then use the **presigned-URL PUT** flow, not the base64
+data-URI route that works for images. A 197 MB PUT took 44 s.
+
+**Deliberately NOT done, and it is a judgement call Dan can overrule:** the two Instagram-only photo posts
+were not mirrored to Facebook. The Aug 4 one **has no caption**, so mirroring it would break the
+reason-to-watch rule; the Aug 13 jump-rope tip **could not be extracted — Instagram's CSP blocks every
+route** (cross-origin POST to Blotato, a local bridge server, and the CDN URL itself all fail), the graphic
+is not on disk, and the same tactic is already covered three times in the new photo queue. Worth recording
+that this **contradicts the Google Drive finding elsewhere in this file** that a `http://127.0.0.1` fetch
+from an HTTPS page works — whether it works depends entirely on the host page's CSP, not on Chrome.
+
 **No native retest trigger row touched** — social scheduling only, no product surface. **Dashboard:**
 `money::Execute handoff: Queue Instagram + Facebook content via Blotato` **CHECKED OFF** (Rule 9), verified
 in the `checked` array with `checkedAt` 2026-08-18.
