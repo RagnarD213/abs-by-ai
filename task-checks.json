@@ -4,7 +4,8 @@
     "assistant::Take out trash and replace liners",
     "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
     "money::Call TWC",
-    "money::Finish Google Ads campaign setup and launch video campaign"
+    "money::Finish Google Ads campaign setup and launch video campaign",
+    "money::Finish Android app Play Console setup and publish"
   ],
   "log": {
     "health::Shower": [
@@ -181,6 +182,7 @@
     "assistant::Take out trash and replace liners": "2026-08-16",
     "money::Execute handoff: Queue Instagram + Facebook content via Blotato": "2026-08-18",
     "money::Call TWC": "2026-08-18",
-    "money::Finish Google Ads campaign setup and launch video campaign": "2026-08-18"
+    "money::Finish Google Ads campaign setup and launch video campaign": "2026-08-18",
+    "money::Finish Android app Play Console setup and publish": "2026-08-18"
   }
 }
