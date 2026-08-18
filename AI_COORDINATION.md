@@ -128,6 +128,38 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 - **TWC unemployment call made by Dan** — `money::Call TWC` checked off.
 - Blotato photo + long-form queues were completed earlier the same day (see the two entries below).
 
+### Android public listing VERIFIED + gating smoke test 8/8 PASS (2026-08-18, Claude Code)
+
+**The public Play listing is live and correct**, read off `play.google.com/store/apps/details?id=com.absbyai.app`:
+title **Abs by AI** (the `(unreviewed)` suffix is gone), short description *"See yourself with a six-pack.
+Then get the AI plan to make it real."*, category **Health & Fitness**, content rating **Everyone**, developer
+**Rose Digital Holdings LLC** with the support email/address/phone published. Assets fetched at `=s0` and
+measured, not eyeballed: **6 screenshots at exactly 1350x2400**, **feature graphic 1024x500**, **icon 512x512** —
+byte-matching what was uploaded, so the 9:16 padding survived Play's processing.
+
+**Gating smoke test: 3/3 script checks + 5/5 page assertions + 2/2 forced-screen assertions, all PASS**
+(`scripts/native-smoke-test.sh android`, Pixel_8 / Android 17, against production, zero AI calls).
+TWA flag set, `native-app` class applied, **0 visible `.app-hide-purchase` controls**, `membershipSection`
+**0 of 4** visible, `paywallSection` **0 of 0**. App renders full-screen with **no address bar**, so assetlinks
+verifies. Screenshot: `native-smoke-out/android-01-launch.png`.
+
+**The gated-element count dropped 9 -> 6 since the 2026-07-27 baseline and that is EXPECTED, not a regression:**
+the credit-pack retirement (`067bbcd`, 2026-08-12) **deleted** the pack cards and `paywallBuyExternalBtn` outright,
+which is why `paywallSection` now reports `0 of 0` — there is nothing left to hide there.
+
+**BLOCKED, and it needs Dan: the app could NOT be installed FROM Play on the emulator.** The emulator's Play Store
+sits on its "Sign in" gate (`UnauthenticatedMainActivity`) and installing requires a Google account password, which
+Claude cannot type (platform restriction). The assertions above therefore ran against the **sideloaded**
+`app-release.apk` — same package, same version code 1, and the TWA wraps the same live absbyai.com, so page-level
+gating is identical. **The one thing a Play install would additionally prove is that the GOOGLE-signed build passes
+Digital Asset Links.** Both fingerprints (upload key + Google's app-signing key `88:0C:A1:C9:...:DB:DC:77`) are in
+`public/.well-known/assetlinks.json` and Google's API validated it with zero errors on 2026-07-25, so the risk is
+low — but it is unproven on a real Play install. **Dan can close it in ~2 minutes: install from Play on his own
+phone and confirm the app opens full-screen with no Chrome address bar.**
+
+**Dashboard:** `money::Finish Android app Play Console setup and publish` was already checked off earlier today and
+was re-confirmed present in the `checked` array. No new task matched this verification, so none was created (Rule 9).
+
 ### Instagram + Facebook photo queue — 130 posts SCHEDULED and verified (2026-08-18, Claude Code)
 
 Finishes the `NOT DONE` section of `BLOTATO_QUEUE_PROGRESS.md` (read that file for the full record).
