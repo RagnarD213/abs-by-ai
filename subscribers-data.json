@@ -156,9 +156,11 @@
       "subscribedAt": "2026-08-18T21:57:31.119Z",
       "deviceId": "dev-1787089954658-nq8b83m9",
       "synced": false,
-      "welcomeStep": 0,
-      "welcomeNextAt": "2026-08-18T21:57:31.119Z",
-      "welcomeSentAt": {},
+      "welcomeStep": 1,
+      "welcomeNextAt": "2026-08-20T22:13:40.143Z",
+      "welcomeSentAt": {
+        "1": "2026-08-18T22:13:40.425Z"
+      },
       "unsubscribed": false
     }
   }
