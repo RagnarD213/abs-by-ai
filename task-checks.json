@@ -3,7 +3,8 @@
     "assistant::Drain yeti cooler, clean and put away",
     "assistant::Take out trash and replace liners",
     "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
-    "money::Call TWC"
+    "money::Call TWC",
+    "money::Finish Google Ads campaign setup and launch video campaign"
   ],
   "log": {
     "health::Shower": [
@@ -179,6 +180,7 @@
     "assistant::Drain yeti cooler, clean and put away": "2026-08-16",
     "assistant::Take out trash and replace liners": "2026-08-16",
     "money::Execute handoff: Queue Instagram + Facebook content via Blotato": "2026-08-18",
-    "money::Call TWC": "2026-08-18"
+    "money::Call TWC": "2026-08-18",
+    "money::Finish Google Ads campaign setup and launch video campaign": "2026-08-18"
   }
 }
