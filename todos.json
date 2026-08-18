@@ -208,12 +208,6 @@
   ],
   "assistant": [
     {
-      "text": "Cook weekly meal prep: Korean BBQ salmon, brussells sprouts, rice",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-08"
-    },
-    {
       "text": "Wash, dry, and fold 2 laundry loads",
       "priority": "high",
       "recurring": true,
@@ -221,12 +215,6 @@
       "days": [
         0
       ]
-    },
-    {
-      "text": "Clean spiderwebs throughout house",
-      "priority": "low",
-      "recurring": false,
-      "addedAt": "2026-08-08"
     },
     {
       "text": "Get quote to fix Audi from Audi North Austin (dealer) — 13045 Research Blvd, Austin, TX 78750 (full diagnosis of issue and chance that it may be covered by Audi)",
@@ -240,27 +228,10 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Organize bathroom cabinets",
-      "priority": "low",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Clean interior of all windows",
-      "priority": "low",
-      "recurring": false,
-      "addedAt": "2026-08-08"
-    },
-    {
       "text": "Clean exterior of all windows",
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08"
-    },
-    {
-      "text": "Empty and clean Yeti cooler",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-09"
     },
     {
       "text": "Put away dishes",
@@ -283,12 +254,6 @@
       ]
     },
     {
-      "text": "Throw away old food from fridge",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-09"
-    },
-    {
       "text": "Change robot mop water",
       "priority": "high",
       "recurring": true,
@@ -297,24 +262,6 @@
         0,
         4
       ]
-    },
-    {
-      "text": "Clean shower",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-08-09"
-    },
-    {
-      "text": "Clean toilets",
-      "priority": "med",
-      "recurring": false,
-      "addedAt": "2026-08-09"
-    },
-    {
-      "text": "Clean bathrooms",
-      "priority": "med",
-      "recurring": false,
-      "addedAt": "2026-08-09"
     },
     {
       "text": "Take out trash and replace liners",
@@ -384,28 +331,7 @@
       "addedAt": "2026-08-11"
     },
     {
-      "text": "Clean master bathroom toilet",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-11",
-      "addedBy": "assistant"
-    },
-    {
       "text": "Have Dan approve an order for a broom, dustpan and duster",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-12",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Sort through recycling",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-12",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Take trash and recycle bins to curb",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-08-12",
