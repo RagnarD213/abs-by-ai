@@ -1,7 +1,8 @@
 {
   "checked": [
     "assistant::Drain yeti cooler, clean and put away",
-    "assistant::Take out trash and replace liners"
+    "assistant::Take out trash and replace liners",
+    "money::Execute handoff: Queue Instagram + Facebook content via Blotato"
   ],
   "log": {
     "health::Shower": [
@@ -171,6 +172,7 @@
   },
   "checkedAt": {
     "assistant::Drain yeti cooler, clean and put away": "2026-08-16",
-    "assistant::Take out trash and replace liners": "2026-08-16"
+    "assistant::Take out trash and replace liners": "2026-08-16",
+    "money::Execute handoff: Queue Instagram + Facebook content via Blotato": "2026-08-18"
   }
 }
