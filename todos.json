@@ -132,12 +132,6 @@
       "addedAt": "2026-08-13"
     },
     {
-      "text": "Send Apple the Guideline 2.1 reply: record device video, paste review notes, resubmit",
-      "priority": "key",
-      "why": "app-store-assets/APP_REVIEW_REPLY_20260817_G21.md - answers written, blocked on the physical-device screen recording",
-      "addedAt": "2026-08-17"
-    },
-    {
       "text": "Call TWC",
       "priority": "key",
       "recurring": false,
@@ -148,38 +142,32 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-17"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-17"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-17"
+      "recurring": true
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-17"
+      "recurring": true
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-17"
+      "recurring": true
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-17"
+      "recurring": true
     }
   ],
   "personal": [
@@ -198,12 +186,6 @@
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-07"
-    },
-    {
-      "text": "Respond to hoes",
-      "priority": "med",
-      "recurring": false,
-      "addedAt": "2026-08-17"
     }
   ],
   "assistant": [
