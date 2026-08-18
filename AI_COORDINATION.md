@@ -119,6 +119,33 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Google Ads audiences ROUND 2 — 20 more built, but a DURATION DEFECT affects most lists (2026-08-18, Claude Code)
+
+**READ THIS FIRST: the membership DURATIONS did not save on the programmatically created lists. Names, segment types, actions and video/URL rules are correct; the day counts are mostly stuck at Google's default of 30.** Confirmed on two independent lists — `website | visited absbyai.com | 540 day` saved its rule as "Web page visit in the past **30** days", and `youtube | watched any video | 540 day` showed `Membership: Open (**30** days)`. Any list whose intended duration is not 30 should be assumed wrong until checked.
+
+**ROOT CAUSE AND THE PROVEN FIX.** Setting a value with the native setter + `input`/`change` works for the NAME field but silently fails for the numeric duration field — the DOM input reads back the new value while AngularDart's model keeps the default, so `check()`-style read-back verification gives a FALSE PASS. **Adding a `blur` (both `el.blur()` and a dispatched `blur` event) makes it persist.** Verified end to end: `youtube | watched any video | 540 day` was edited this way and now reads `Membership: Open (540 days)`.
+
+**Durations ARE editable after creation** via the segment detail page → `more_vert` → **Edit list** → set duration (with blur) → Continue → Done. **Actions are NOT editable after creation** — in edit mode the action renders as plain text, so a wrong action requires recreating the list.
+
+**REPAIR PASS STILL OWED: every list whose name says 7 / 14 / 365 / 540 day needs its duration corrected** (~24 of the 35). The 30-day ones are correct by luck.
+
+**40 segments now exist = 5 auto-created + 35 created here.** Round 2 added: `website | hit paywall | {30,365,540} day` (rule: Page URL contains `/vp/paywall`), `website | completed generation | {30,365,540} day` (`/vp/generation-complete`), `website | hit paywall did not convert | {30,365,540} day` (**custom combination**: hit-paywall list AND **None of** `All Converters (Google Ads)`), `youtube | subscribed to channel | {30,365,540} day`, `youtube | visited channel page | {30,365,540} day`, and `youtube | watched long-form video | {30,365,540} day`.
+
+**`youtube | watched long-form video` deliberately scopes to the 3 substantial long-form uploads** — `1 Minute Ab Workout…` (08:15), `My Top 10 Tips…` (21:10), `Use AI To Get REAL Six Pack Abs` (38:25) — to separate real interest from Shorts scroll-past. The 5 Shorts and the 04:05 `Welcome to Abs by AI!` channel trailer are excluded on purpose (a trailer can autoplay on the channel page, which would conflate it with the visited-channel-page list). **Adding a video later requires recreating the list**, since actions are immutable.
+
+**A DUD LIST EXISTS AND IS DELIBERATELY LEFT IN PLACE: `zz | UNUSED duplicate of watched any video 30 day | do not use`.** It was created as "subscribed to channel | 540 day" before Claude realised the action dropdown **resets to `View any video` on every freshly opened form** (it is sticky within a session but NOT across form opens). Because the action cannot be edited, it was renamed rather than fixed. **It could not be removed:** `Remove list` is greyed out on the detail page, and the table's bulk `Edit → Remove` warns *"The selected audience **and any similar audiences** will be removed"* — an unbounded blast radius that could take out the correctly-built lists, so it was cancelled rather than confirmed. Dan can remove it by hand if he wants.
+
+**Also still present: `All site visitors - 540 days`**, a functional duplicate of `website | visited absbyai.com | 540 day`, flagged previously and still not removed.
+
+**FOUR MORE UI TRAPS, on top of the five recorded in the previous entry:**
+1. **Read-back verification of a numeric field is NOT proof it saved** — see the root cause above. Always re-open the saved segment, or blur before submitting.
+2. **The action dropdown resets to `View any video` on each new form.** Set it explicitly every time; never rely on the previous form's value.
+3. **The `Show rows: 100` view VIRTUALISES rows**, so `document.body.innerText` only contains ~5 of them and a full-name audit silently under-reports. Page through at 10 rows instead.
+4. **The segment count in the footer is briefly wrong right after a create** (observed 41 then settling to 40). Re-read after the table finishes loading before concluding a duplicate exists.
+
+**Funnel virtual pageviews from the previous entry are live and verified** — `/vp/paywall` and `/vp/generation-complete` are what the new website lists key on, so those lists cannot fill with data older than commit `d1d575c`.
+
+
 ### Google Ads Search campaign — BUILT AND POSTED via Google Ads Editor (2026-08-17, Claude Code)
 
 **The campaign is live in account 342-717-0837, PAUSED, with everything in place.** Posted from
