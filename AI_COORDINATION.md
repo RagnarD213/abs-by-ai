@@ -147,15 +147,36 @@ verifies. Screenshot: `native-smoke-out/android-01-launch.png`.
 the credit-pack retirement (`067bbcd`, 2026-08-12) **deleted** the pack cards and `paywallBuyExternalBtn` outright,
 which is why `paywallSection` now reports `0 of 0` — there is nothing left to hide there.
 
-**BLOCKED, and it needs Dan: the app could NOT be installed FROM Play on the emulator.** The emulator's Play Store
-sits on its "Sign in" gate (`UnauthenticatedMainActivity`) and installing requires a Google account password, which
-Claude cannot type (platform restriction). The assertions above therefore ran against the **sideloaded**
-`app-release.apk` — same package, same version code 1, and the TWA wraps the same live absbyai.com, so page-level
-gating is identical. **The one thing a Play install would additionally prove is that the GOOGLE-signed build passes
-Digital Asset Links.** Both fingerprints (upload key + Google's app-signing key `88:0C:A1:C9:...:DB:DC:77`) are in
-`public/.well-known/assetlinks.json` and Google's API validated it with zero errors on 2026-07-25, so the risk is
-low — but it is unproven on a real Play install. **Dan can close it in ~2 minutes: install from Play on his own
-phone and confirm the app opens full-screen with no Chrome address bar.**
+**The emulator could not install FROM Play** — its Play Store sits on a "Sign in" gate
+(`UnauthenticatedMainActivity`) and installing needs a Google password, which Claude cannot type. So the emulator
+assertions ran against the sideloaded APK. **That gap was then CLOSED on Dan's real phone the same session — see below.**
+
+### CLOSED on the real device: the Play-signed build passes assetlinks, 9/9 gating assertions (2026-08-18)
+
+Dan plugged in his **Galaxy A14 5G (SM-A146U, Android 15)** and asked Claude to install it. **No install was needed —
+the app was ALREADY on the phone with `installerPackageName=com.android.vending`**, i.e. Play-installed on 2026-07-25,
+so it is the **Google-app-signing-key** build, which is exactly what the emulator could not produce.
+
+**THE OPEN ITEM IS ANSWERED: launched from the Play page, the app renders FULL-SCREEN WITH NO CHROME ADDRESS BAR.**
+Digital Asset Links verifies against Google's re-signing key, not just the upload key. Nothing further is owed here.
+
+**9/9 assertions PASS over CDP against the live production site on the physical handset:** TWA flag set, `native-app`
+class applied, 6 gated elements present and **0 visible**, **no `$` price text on any visible screen**,
+`membershipSection` **0 of 4** visible with **no prices**, `paywallSection` **0 of 0**, and the **account-deletion
+control is present and visible** (the Apple/Play 5.1.1(v) requirement). Screenshots: `native-smoke-out/phone-01-play-listing.png`,
+`phone-02-app-launch.png`. The forced-visible sections were undone with a page reload, leaving his app on the normal hub.
+
+**FINDING DAN SHOULD KNOW: his Play page reads "Abs by AI (Internal Beta)" with "You're an internal tester", NOT the
+public production listing.** His account is still enrolled in the internal-testing track, so Play serves him the test
+build (both are version code 1 and identically Play-signed, so nothing above is invalidated). **To see what a real new
+user sees he has to leave the internal test programme** — Claude did not opt him out, since that changes his own tester
+enrolment and is his call.
+
+**Also observed, not a new defect:** the hub shows a visible **"Manage membership"** button on Android. It is
+`hubMembershipManageAppBtn`, the app-variant control that opens absbyai.com in the browser to manage an EXISTING
+subscription; the Stripe-portal twin `hubMembershipManageBtn` correctly carries `app-hide-purchase` and is hidden.
+The 2026-08-12 iOS purchase-path audit already cleared this control as management, not purchase. Worth re-reading
+alongside the still-open **Play external-offers enrolment gap** recorded elsewhere in this file.
 
 **Dashboard:** `money::Finish Android app Play Console setup and publish` was already checked off earlier today and
 was re-confirmed present in the `checked` array. No new task matched this verification, so none was created (Rule 9).
