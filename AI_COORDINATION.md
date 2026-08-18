@@ -264,9 +264,14 @@ control is present and visible** (the Apple/Play 5.1.1(v) requirement). Screensh
 
 **FINDING DAN SHOULD KNOW: his Play page reads "Abs by AI (Internal Beta)" with "You're an internal tester", NOT the
 public production listing.** His account is still enrolled in the internal-testing track, so Play serves him the test
-build (both are version code 1 and identically Play-signed, so nothing above is invalidated). **To see what a real new
-user sees he has to leave the internal test programme** — Claude did not opt him out, since that changes his own tester
-enrolment and is his call.
+build (both are version code 1 and identically Play-signed, so nothing above is invalidated). **OPTED OUT the same session at Dan's explicit request** — Google's page confirms
+*"You have left the testing program for Abs by AI (com.absbyai.app)"*. **The phone is NOT yet on the public build:**
+Google's own instruction is *remove the test version, then install the public version*, and the device Play page still
+rendered "Internal Beta" through **four re-checks over ~7 minutes** (leaving a test track can take hours to propagate).
+**Claude deliberately did NOT uninstall** — uninstalling before the public build is offered to his account would strand
+him with no app for an unknown window, which is a worse outcome than waiting. **Remaining step: once his Play page drops
+the "Internal Beta" label, Uninstall then Install.** His absbyai.com login should survive, because a TWA keeps site data
+in Chrome's storage for the origin rather than in the wrapper — expected, not verified.
 
 **Also observed, not a new defect:** the hub shows a visible **"Manage membership"** button on Android. It is
 `hubMembershipManageAppBtn`, the app-variant control that opens absbyai.com in the browser to manage an EXISTING
