@@ -119,6 +119,33 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### HANDOFF WRITTEN 2026-08-18: `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` — Phase B offline conversion upload
+
+Scopes the server-to-server reporting of trial→paid sales keyed on the already-stored `users.ads_click_id`,
+recovering the three groups the shipped Phase A structurally cannot reach: **app members** (the WebViews
+cannot hold the external browser's `_gcl_aw` cookie), members who never reopen the app after their trial
+converts, and ad-blocked browsers. **Three things in that doc must not be re-derived:**
+
+1. **Do the CREDENTIAL-FREE route first.** Google Ads can fetch a CSV from an HTTPS URL on a schedule — no
+   developer token, no OAuth, no API review. It gets essentially all of Phase B's value and validates that
+   our stored click ids actually match, *before* anyone spends days on API access. The full API build is
+   step 8 and is explicitly gated on the CSV route proving insufficient.
+2. **A new developer token starts at *Test Access*, which can only call TEST accounts.** Production needs
+   **Basic Access**, a Google review measured in days, applied for through a manager account (Dan has
+   `Social Response Marketing MCC` 963-322-0811). This single fact is why the ordering above is not optional.
+3. **The existing `Subscribe` action has source `Website` and probably CANNOT receive click uploads** —
+   offline import generally requires an import/API-type action. Step 0 is to confirm this in the UI before
+   building anything, because the answer decides the shape of the rest.
+
+**Open decision deliberately left for Dan (step 6):** once the feed lands conversions, does the Phase A
+browser fire stay on? Recommended answer in the doc is to keep it **only for members with no `ads_click_id`**
+(organic signups, who have nothing to upload), so the two channels never report the same sale twice.
+
+**Urgency framing:** the Search campaign is on **Maximize Clicks**, which uses no conversion data at all, so
+Phase B is measurement today and bidding only once Dan switches to Smart Bidding. Build it before that
+switch, not after. Rule-8 Key task added and verified persisted (`money::Execute handoff: Google Ads offline
+conversion upload (Phase B)`; business 25 → 26, other lists unchanged at 6/3/22, `restored: []`).
+
 ### Google Ads "Subscribe" conversion WIRED — SHIPPED, live-verified end to end (2026-08-18, Claude Code, commit `24d9b18`)
 
 Executes `Handoffs/handoff-20260818-subscribe-conversion-wiring.md` steps 1–7. **Membership revenue is now
