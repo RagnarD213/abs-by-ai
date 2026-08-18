@@ -225,6 +225,16 @@ async function initDb() {
     // second device can neither lose nor double-report the sale.
     'paid_conversion_pending_at TIMESTAMPTZ',
     'paid_conversion_fired_at TIMESTAMPTZ',
+    // Phase B: the same sale, reported the other way — a scheduled Google Ads
+    // fetch of /api/ads/offline-conversions.csv keyed on ads_click_id, which
+    // reaches the members the browser tag structurally cannot (app WebViews
+    // can't hold the external browser's _gcl_aw cookie, members who never
+    // return after their trial converts, ad-blocked browsers). Kept SEPARATE
+    // from paid_conversion_fired_at on purpose: the client fire and the offline
+    // upload are two independent delivery channels, and collapsing them makes
+    // it impossible to measure which one actually reported a given sale — the
+    // exact ratio that decides whether the full API build is worth doing.
+    'ads_offline_uploaded_at TIMESTAMPTZ',
   ]) {
     try {
       await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS ${col}`);

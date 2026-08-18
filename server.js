@@ -186,6 +186,18 @@ const FREE_MEAL_ANALYSES = 3;
 // also uses its exports here, so require it from the new location.
 const { EXERCISE_BY_ID, exercisesForEquipment } = require('./public/exercises');
 const MONARCH_PUSH_SECRET  = process.env.MONARCH_PUSH_SECRET;
+// Google Ads offline-conversion feed (Phase B). Google Data Manager's HTTPS
+// source authenticates with HTTP Basic — username AND password are both
+// required fields in its setup form — so this is a user/pass pair, not a
+// bearer secret in the query string.
+const ADS_FEED_USER        = process.env.ADS_FEED_USER || 'googleads';
+const ADS_FEED_SECRET      = process.env.ADS_FEED_SECRET;
+// Must match the Google Ads conversion action name EXACTLY, including case,
+// spacing and parentheses — a mismatch imports zero rows silently. Created
+// 2026-08-18 in account 342-717-0837 as an offline/"Import from clicks" action
+// (a website-source action such as `Subscribe` cannot receive click uploads;
+// verified in the Data Manager wizard, which lists only offline actions there).
+const ADS_OFFLINE_ACTION   = process.env.ADS_OFFLINE_ACTION || 'Membership Paid (offline)';
 const MONARCH_DATA_FILE    = 'monarch-data.json';
 const GITHUB_REPO          = 'RagnarD213/abs-by-ai';
 const WATCH_DATA_FILE      = 'watch-data.json'; // persists parsed watch data across deploys
@@ -5328,6 +5340,123 @@ app.post('/api/ads/paid-conversion-ack', requireAuth, async (req, res) => {
   }
 });
 
+// ── Google Ads offline conversion feed (Phase B) ──────────────────────────────
+// Google Ads fetches this URL on a schedule (Tools -> Data manager -> HTTPS ->
+// Conversions -> offline) and imports every row as a conversion against the
+// stored ad click. This is the only channel that survives a device or browser
+// change, so it reaches the three groups the Phase A browser fire cannot: app
+// members (the WebViews can't hold the external browser's _gcl_aw cookie),
+// members who never reopen the app after their trial converts, and ad-blocked
+// browsers.
+//
+// Read-only from the caller's point of view apart from the upload bookkeeping
+// stamp. Google gives no per-row success callback, so "uploaded" is inferred:
+// the rows this response emitted are stamped in the same request, AFTER the CSV
+// has been serialized. The trade-off — a fetch Google starts and abandons marks
+// rows uploaded that never landed — is bounded by the conversion action being
+// Count: One, which means re-uploading the same click id can never produce a
+// second conversion. That also makes a failed stamp harmless rather than a
+// double-count risk, so the CSV is still served if the stamp throws.
+const ADS_FEED_MAX_ROWS = 5000;
+
+function csvCell(v) {
+  const s = String(v == null ? '' : v);
+  return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+// Google's required shape: yyyy-MM-dd HH:mm:ss+|-HH:mm. Built deliberately in
+// UTC rather than via toISOString(), which emits a 'T' separator and 'Z' — both
+// rejected — and rather than relying on a Parameters:TimeZone preamble, which
+// the field-mapping importer would read as a header row.
+function adsConversionTime(d) {
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getUTCFullYear()}-${p(d.getUTCMonth() + 1)}-${p(d.getUTCDate())} ` +
+         `${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:${p(d.getUTCSeconds())}+00:00`;
+}
+function adsFeedAuthorized(req) {
+  if (!ADS_FEED_SECRET) return false;
+  const header = String(req.headers.authorization || '');
+  if (!/^Basic /i.test(header)) return false;
+  let decoded = '';
+  try { decoded = Buffer.from(header.slice(6), 'base64').toString('utf8'); } catch (e) { return false; }
+  const idx = decoded.indexOf(':');
+  if (idx < 0) return false;
+  const user = decoded.slice(0, idx);
+  const pass = decoded.slice(idx + 1);
+  const uOk = Buffer.from(user, 'utf8').length === Buffer.from(ADS_FEED_USER, 'utf8').length &&
+    crypto.timingSafeEqual(Buffer.from(user, 'utf8'), Buffer.from(ADS_FEED_USER, 'utf8'));
+  const pBuf = Buffer.from(pass, 'utf8');
+  const sBuf = Buffer.from(ADS_FEED_SECRET, 'utf8');
+  const pOk = pBuf.length === sBuf.length && crypto.timingSafeEqual(pBuf, sBuf);
+  return uOk && pOk;
+}
+
+app.get('/api/ads/offline-conversions.csv', async (req, res) => {
+  if (!ADS_FEED_SECRET) return res.status(503).send('Feed not configured');
+  if (!adsFeedAuthorized(req)) {
+    res.set('WWW-Authenticate', 'Basic realm="ads-feed"');
+    return res.status(401).send('Unauthorized');
+  }
+  if (!db) return res.status(503).send('Database unavailable');
+  // dry=1 previews the exact bytes Google would receive without consuming the
+  // rows, so the feed can be inspected before and after a real fetch.
+  const dry = String(req.query.dry || '') === '1';
+  try {
+    const { rows } = await db.query(
+      `SELECT id, ads_click_id, membership_plan, paid_conversion_pending_at
+         FROM users
+        WHERE paid_conversion_pending_at IS NOT NULL
+          AND paid_conversion_fired_at IS NULL
+          AND ads_offline_uploaded_at IS NULL
+          AND ads_click_id IS NOT NULL
+          AND ads_click_at IS NOT NULL
+          -- Conversions outside the action's 90-day click-through window are
+          -- rejected by Google. Our funnel (click -> free generations -> trial
+          -- -> +7 days -> paid) genuinely approaches that, so filter here
+          -- rather than shipping rows we know will bounce.
+          AND ads_click_at > paid_conversion_pending_at - INTERVAL '90 days'
+        ORDER BY paid_conversion_pending_at
+        LIMIT $1`,
+      [ADS_FEED_MAX_ROWS]
+    );
+
+    const lines = ['Google Click ID,Conversion Name,Conversion Time,Conversion Value,Conversion Currency'];
+    for (const r of rows) {
+      const planDef = MEMBERSHIP_PLANS[r.membership_plan] || MEMBERSHIP_PLANS.monthly;
+      lines.push([
+        csvCell(r.ads_click_id),
+        csvCell(ADS_OFFLINE_ACTION),
+        csvCell(adsConversionTime(new Date(r.paid_conversion_pending_at))),
+        csvCell((planDef.priceInCents / 100).toFixed(2)),
+        'USD',
+      ].join(','));
+    }
+    const body = lines.join('\n') + '\n';
+
+    if (!dry && rows.length) {
+      try {
+        const ids = rows.map((r) => r.id);
+        await db.query(
+          `UPDATE users SET ads_offline_uploaded_at = NOW()
+            WHERE id IN (${ids.map((_, i) => '$' + (i + 1)).join(',')})`,
+          ids
+        );
+        console.log(`PAID_CONVERSION_UPLOADED: ${ids.length} row(s) [${ids.join(',')}]`);
+      } catch (e) {
+        // Count: One makes a repeat upload a no-op, so serving the rows again
+        // tomorrow is strictly better than withholding them today.
+        console.error('ads feed stamp failed:', e.message);
+      }
+    }
+
+    res.set('Content-Type', 'text/csv; charset=utf-8');
+    res.set('Cache-Control', 'no-store');
+    res.send(body);
+  } catch (e) {
+    console.error('ads offline feed error:', e.message);
+    res.status(500).send('Internal server error');
+  }
+});
+
 // Create an embedded Stripe Checkout session for a membership subscription.
 app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res) => {
   try {
@@ -5614,7 +5743,13 @@ async function markPaidConversionPending(userId, reason) {
 // home; a row with no plan recorded falls back to monthly, which under-reports
 // an annual sale rather than inventing revenue.
 function paidConversionPayload(row) {
-  const pending = !!(row && row.paid_conversion_pending_at && !row.paid_conversion_fired_at);
+  // ads_offline_uploaded_at is the mutual exclusion between the two delivery
+  // channels: once the Phase B feed has handed this sale to Google keyed on the
+  // click id, the browser must NOT also fire it, or the same membership is
+  // reported twice. The two channels never overlap on one sale by construction.
+  const pending = !!(row && row.paid_conversion_pending_at
+    && !row.paid_conversion_fired_at
+    && !row.ads_offline_uploaded_at);
   if (!pending) return { paidConversionPending: false };
   const planDef = MEMBERSHIP_PLANS[row.membership_plan] || MEMBERSHIP_PLANS.monthly;
   return {
