@@ -119,6 +119,102 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Google Ads "Subscribe" conversion WIRED — SHIPPED, live-verified end to end (2026-08-18, Claude Code, commit `24d9b18`)
+
+Executes `Handoffs/handoff-20260818-subscribe-conversion-wiring.md` steps 1–7. **Membership revenue is now
+reportable to Google Ads for the first time.** Phase B (offline upload) deliberately NOT started.
+
+**THE STRUCTURAL PROBLEM, restated because it explains the whole design: the 7-day trial converts to a PAID
+membership ~7 days after checkout, server-side, from a Stripe or RevenueCat webhook, with no browser open.**
+There is no moment at which a client-side tag could fire, which is exactly why the `Subscribe` action has sat
+`Inactive` with zero data since it was created on 7/30. So the sale is **recorded, then reported on the
+member's next visit**: `syncSubscriptionState()` reads the PREVIOUS `membership_status` before overwriting it
+(trial→paid is only visible in the transition, never in the new value alone) and stamps a new
+`paid_conversion_pending_at`; `/api/membership` hands the flag plus the plan's dollar value to the client on
+the call `refreshMembership()` **already** makes on session restore (no new poll); the client fires and POSTs
+`/api/ads/paid-conversion-ack`, which stamps `paid_conversion_fired_at`. `applyAppleMembership()` does the
+same, covering both the RevenueCat webhook and `/api/apple/sync`.
+
+**THE DEDUPE IS PER-SUBSCRIPTION AND LIVES ON THE USER ROW — deliberately NOT `fireAdConversion`'s `once:`
+localStorage record.** That per-browser dedupe is wrong in *both* directions here: a member returning on a
+second device would be blocked from reporting a sale that was never reported, and one who cleared storage
+would report it twice. Verified both ways in a real browser. An in-memory latch additionally stops two
+overlapping `refreshMembership()` calls (it has 6 call sites) double-firing inside one page load — the one
+gap the server flag cannot close.
+
+**Every conversion write is FAIL-OPEN.** This is attribution bookkeeping sitting in the middle of billing
+sync, so a failure must never stop a member's access from being updated (same principle as
+`recordAdClickId`). Proven, not asserted: with `paid_conversion_pending_at` **dropped mid-run**, the webhook
+still returns 200 and `membership_status` still syncs to `active`.
+
+**Ads UI (account 342-717-0837 → Goals → Conversions → `Subscribe`, conversion type ID `7703335439`):**
+Count `Every` → **One**, click-through window `30 days` → **90 days** (the funnel — click → free gens →
+trial → +7 days → paid — regularly outruns 30). **The handoff's third item needed no change: Value was
+ALREADY "Use different values. If there's no value, use $1."** Both edits confirmed by a **full page reload**
+of the saved settings, not by read-back — the numeric-field false-pass trap recorded 2026-08-18 does not
+apply to these two (a radio and a dropdown), but it was checked the safe way anyway.
+
+**CONVERSION LABEL — the thing the next session will want: `dQUqCI-kntkcEJvEqLNE`**, i.e.
+`send_to: 'AW-18361229851/dQUqCI-kntkcEJvEqLNE'`. Read off the live event snippet and confirmed
+programmatically, not by eye. It joins Free Generation Started (`KqDxCMzl4dkcEJvEqLNE`) and Trial Signup
+(`AqLTCMnl4dkcEJvEqLNE`); **all three share the `EJvEqLNE` account suffix**, which is a useful sanity check
+on any label read in future. The two live tags were not touched.
+
+**Two Ads-console notes worth keeping.** (1) The account is **not listed** under `danroseconsulting@gmail.com`'s
+default account picker — you must **search "342"** in the picker; a direct `?__c=<cid>` deep link bounces to
+the sign-in chooser. (2) **The UI did NOT wedge this session** (one extension instance connected). Coordinate
+clicks were unreliable (innerWidth 2111 vs a 1568 screenshot = 0.743 scale), so everything went through
+`find` refs; the one dropdown that needed it took the recorded full `pointerdown→mousedown→pointerup→
+mouseup→click` dispatch, since the menu closes between tool calls.
+
+**Verified: 35 assertions driving the real `server.js` over HTTP** with pg-mem and **stripe + node-fetch
+stubbed in the require cache** (a `globalThis.fetch` patch does not reach `server.js` — it binds `node-fetch`
+at line 4). Covers both stamp paths; **every transition that must NOT stamp** — `.deleted`, `past_due`,
+`active→active` renewal, `trialing→trialing`, and **`canceled→active` win-back** (not a trial conversion);
+annual $69.99 / monthly $19.99 / missing-plan-falls-back-to-monthly; auth on the ack; replay; and
+never-re-arms-after-firing. **Both arms were proven discriminating by breaking them** (Stripe detection off
+→ 7 failures, Apple detection off → 1).
+
+**Live on absbyai.com** after a slow ~9-minute deploy (build, not a failure — `railway status` said
+`Building (7m)`; polled on the label as a content marker, never a status code): schema migrated
+(`paid_conversion_pending_at`/`fired_at` present), `/health` ok, ack 401s unauthenticated and with a bad
+token, and a **real end-to-end run on a throwaway prod account** seeded to the post-transition state —
+`/api/membership` returned `paidConversionPending:true, paidConversionValue:19.99`, the browser fired
+**exactly one** conversion carrying the right label and value, **3 pings across `googleadservices.com` and
+`googleads.g.doubleclick.net` (3 pings = 1 conversion, not 3)**, the DB flipped to `fired_at` set /
+`pending_at` null, and a reload fired **nothing**. Zero console errors. **The test account was deleted
+afterwards and prod is back to its exact baseline: 17 users, 0 leftover rows, 0 conversion stamps.**
+
+**DISCLOSED: that live test sent ONE REAL $19.99 conversion into the Ads account.** It is unattributed (no
+gclid) and is the precedent from 2026-07-31's 4 test conversions — a conversion tag is a network beacon, so
+verifying it necessarily fires it. It also has a side benefit: it should move `Subscribe` off `Inactive`,
+proving the pipe works before real money depends on it. **Do not read it as a real sale.**
+
+**No regression:** one real prod generation (no `deviceId`, so no credit spend and no data-file commit) came
+back in 30.7s with 2 candidates, `models_run: nanobananapro+flux`, `anchor_model: gemini-3-pro-image`, judge
+ran, no block. Note `/api/generate-prompt` returned an empty prompt once mid-session — that was the sitewide
+`aiLimiter` (10/min, one bucket) throttling a burst of test calls, **not a defect**; it returned a full
+4,917-char prompt on the retry.
+
+**No native retest trigger row touched** — no UI, layout, input, or purchase surface changed; the client edit
+is an invisible reporting beacon inside `refreshMembership()`. Visible on web, iOS and Android alike (shared
+site), which is correct: an Apple/Android member whose trial converts is the same sale. **Known limitation,
+unchanged from the click-id work:** the app WebViews will not hold the external browser's `_gcl_aw` cookie,
+so app-only members attribute weakly client-side. Fire anyway — the per-subscription dedupe makes it
+harmless, and that is precisely what `users.ads_click_id` and Phase B are for.
+
+**Session AI spend: ~$0.17** (one male generation), far under the $25 cap.
+
+**WATCH:** `Subscribe` should leave `Inactive` within days of the first real trial converting. In the server
+logs, `PAID_CONVERSION_PENDING` (stamped) should always be followed by `PAID_CONVERSION_FIRED` (reported) —
+a growing gap between the two counts means members are converting but not returning, which is the signal that
+Phase B is worth building. In PostHog, the new `paid_conversion_reported` event carries `fired:false` when
+gtag was blocked, which sizes the ad-blocker loss directly.
+
+**Dashboard:** `money::Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)` **CHECKED OFF**
+(Rule 9) — verified in the `checked` array with `checkedAt` 2026-08-18 **and confirmed struck through on the
+rendered dashboard** (`todo-item priority-key done`, computed `line-through`).
+
 ### Status roll-up 2026-08-18 (Dan + Claude Code) — Android LIVE, Google Ads search RUNNING, editor ad posted
 
 - **ANDROID IS APPROVED AND LIVE ON GOOGLE PLAY** (Dan confirmed 2026-08-18). The Play review thread is CLOSED — do not treat Android as "in review" anywhere below; older entries saying so are stale. The feared external-offers rejection did not happen. Dashboard task `money::Finish Android app Play Console setup and publish` CHECKED OFF (Rule 9, verified).
@@ -839,7 +935,7 @@ Dan reported that non-recurring completed Money-list/Work Session Focus tasks (`
 ---
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` — **The male Gemini MODEL SWAP (round 8) is MEASURED, PASSED its pre-registered bar, SHIPPED (`492d5d6`) and live-verified on production. Men now generate on Nano Banana Pro (`gemini-3-pro-image`); women are unchanged. This is the FIRST of the five male-generation experiments to pass its bar — the four before it were prompt edits and all failed. See the round-8 entry immediately below.** The male muscle-magnitude restore before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`92c7e77`) and live-verified (2026-08-09). The ab-ladder before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`feb94e0`) and live-verified. The Gemini production outage is RESOLVED and verified on prod. **iOS REJECTED A SECOND TIME 2026-08-07** (see the entry below: privacy fixes SHIPPED `f07b2f5`, reply drafted, 3.1.1 now demands real In-App Purchase — decision pending with Dan; do NOT resubmit until 3.1.1 is resolved). **Android APPROVED and LIVE on Google Play (confirmed 2026-08-18 — see the Status roll-up at the top of Active task; ignore any "in review" language below).** Android was submitted 2026-08-06 (checklist 11/11, production release `1.0`, US-only, `Managed publishing` off) and self-published on approval. iOS 1.0 was REJECTED by Apple 2026-08-05, both fixes SHIPPED and live-verified (commit `5f45501`), and **Dan RESUBMITTED to App Review 2026-08-05 at 10:12 AM — status is back to "Waiting for Review" (verified in App Store Connect 2026-08-06). Nothing left to do on iOS but wait for Apple's verdict; do NOT prompt Dan to press Resubmit again.** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
+**Status:** `Complete — pending reset` — **The Google Ads `Subscribe` conversion is WIRED, shipped (`24d9b18`) and live-verified end to end (2026-08-18): trial→paid memberships are now reportable to Google for the first time, and the conversion label is `dQUqCI-kntkcEJvEqLNE`. Phase B (offline conversion upload via `users.ads_click_id`) is deliberately NOT started — see the entry at the top of Active task.** The male Gemini MODEL SWAP (round 8) is MEASURED, PASSED its pre-registered bar, SHIPPED (`492d5d6`) and live-verified on production. Men now generate on Nano Banana Pro (`gemini-3-pro-image`); women are unchanged. This is the FIRST of the five male-generation experiments to pass its bar — the four before it were prompt edits and all failed. See the round-8 entry immediately below.** The male muscle-magnitude restore before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`92c7e77`) and live-verified (2026-08-09). The ab-ladder before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`feb94e0`) and live-verified. The Gemini production outage is RESOLVED and verified on prod. **iOS REJECTED A SECOND TIME 2026-08-07** (see the entry below: privacy fixes SHIPPED `f07b2f5`, reply drafted, 3.1.1 now demands real In-App Purchase — decision pending with Dan; do NOT resubmit until 3.1.1 is resolved). **Android APPROVED and LIVE on Google Play (confirmed 2026-08-18 — see the Status roll-up at the top of Active task; ignore any "in review" language below).** Android was submitted 2026-08-06 (checklist 11/11, production release `1.0`, US-only, `Managed publishing` off) and self-published on approval. iOS 1.0 was REJECTED by Apple 2026-08-05, both fixes SHIPPED and live-verified (commit `5f45501`), and **Dan RESUBMITTED to App Review 2026-08-05 at 10:12 AM — status is back to "Waiting for Review" (verified in App Store Connect 2026-08-06). Nothing left to do on iOS but wait for Apple's verdict; do NOT prompt Dan to press Resubmit again.** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
 
 ### SixPackAbs top navigation decluttered — SHIPPED, live-verified (2026-08-11, Claude Code)
 
