@@ -119,6 +119,43 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Instagram + Facebook photo queue — 130 posts SCHEDULED and verified (2026-08-18, Claude Code)
+
+Finishes the `NOT DONE` section of `BLOTATO_QUEUE_PROGRESS.md` (read that file for the full record).
+**No product code touched, no deploy, $0.00 AI spend.** All 65 finalized shoot photos are queued to
+Instagram and Facebook, **Mon/Wed/Fri 5:00 PM Central, Aug 19 2026 → Jan 15 2027**, threading between the
+existing Tue/Thu/Sat Reels queue. Verified against Blotato after creation: **184 scheduled = 130 photo +
+54 reel**, 65 IG + 65 FB, all 65 date buckets match the plan, every post at 17:00 CT, **zero days carry
+both a photo and a reel**, 0 posts missing media, IG capped at 5 hashtags with the link in `firstComment`.
+Dan reviewed every caption against the image before anything was queued.
+
+**THE FINDING THAT MATTERS AND IS NOT WHAT WAS ASSUMED: the Facebook/Instagram gap runs the other way.**
+Dan asked for an accelerated **Facebook** catch-up. Counted off both accounts, **Facebook has 15 posts
+(7 reels + 8 photos) and Instagram has 10 (4 reels + 6 photos)** — Facebook is *ahead*, and a FB backfill
+would post duplicates. **Instagram is the account ~5 items behind.** On long-form, YouTube has 4 published,
+FB has 1, IG has 0 — and **IG structurally cannot take them** (Reels cap at 3 minutes), so IG's version of
+"caught up to YouTube" is the Shorts queue, already scheduled to both. **Nothing was backfilled; Dan's
+direction was requested first, since posting to a live account is not cleanly reversible.**
+
+**THE REUSABLE MECHANICAL WIN: use Blotato's REST API, not the MCP, for bulk work.** An API key was
+generated (standing auth for restricted key creation) and stored at **`Business/blotato-api-key.txt`**
+(gitignored — the repo is public); Blotato displays it once, regenerate from Settings → API if lost.
+`POST /v2/media` accepts a **base64 data URI**, so local files need no presigned-URL dance;
+`POST /v2/posts` takes `{post:{accountId,target,content},scheduledTime}`; `DELETE /v2/schedules/<id>` → 204.
+**Over MCP this task was ~250 individual tool calls; over REST it is two scripts.** Traps, all hit for real:
+the rate limit allows ~28 uploads then 429s with a `retry in N seconds` you must honour; **Blotato refuses
+any schedule more than 9 months out** (`code 20011`); a feed photo takes **no** `mediaType` (that field is
+`reel|story` only); and two concurrent upload scripts writing one cache file silently lost entries.
+
+**Dan's four caption revisions are corrections of fact and should shape future content:** he does **not**
+do kettlebell swings (high risk — write the **deadlift**); **never** tell people to stop tracking calories
+(it undermines the app's macro feature — the angle is that AI made tracking easy, not optional); and
+**cardio goes first thing in the morning, before lifting**, which is how he actually trains.
+
+**No native retest trigger row touched** — social scheduling only, no product surface. **Dashboard:**
+`money::Execute handoff: Queue Instagram + Facebook content via Blotato` **CHECKED OFF** (Rule 9), verified
+in the `checked` array with `checkedAt` 2026-08-18.
+
 ### Google Ads audiences ROUND 2 — 20 more built, but a DURATION DEFECT affects most lists (2026-08-18, Claude Code)
 
 **READ THIS FIRST: the membership DURATIONS did not save on the programmatically created lists. Names, segment types, actions and video/URL rules are correct; the day counts are mostly stuck at Google's default of 30.** Confirmed on two independent lists — `website | visited absbyai.com | 540 day` saved its rule as "Web page visit in the past **30** days", and `youtube | watched any video | 540 day` showed `Membership: Open (**30** days)`. Any list whose intended duration is not 30 should be assumed wrong until checked.
