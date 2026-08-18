@@ -5409,11 +5409,17 @@ app.get('/api/ads/offline-conversions.csv', async (req, res) => {
           AND ads_offline_uploaded_at IS NULL
           AND ads_click_id IS NOT NULL
           AND ads_click_at IS NOT NULL
-          -- Conversions outside the action's 90-day click-through window are
-          -- rejected by Google. Our funnel (click -> free generations -> trial
-          -- -> +7 days -> paid) genuinely approaches that, so filter here
-          -- rather than shipping rows we know will bounce.
+          -- Two separate 90-day limits, and the second is the binding one.
+          -- (a) the action's click-through window: the sale must fall within
+          --     90 days of the click, or it is outside the attribution window;
+          -- (b) Google's import rule, which is measured from UPLOAD time, not
+          --     sale time: "offline conversions that were uploaded more than
+          --     90 days after the associated last click won't be imported".
+          -- Filtering here rather than shipping rows we know will bounce
+          -- matters because an emitted row is stamped uploaded and never
+          -- offered again — a rejected row would be a silently lost sale.
           AND ads_click_at > paid_conversion_pending_at - INTERVAL '90 days'
+          AND ads_click_at > NOW() - INTERVAL '90 days'
         ORDER BY paid_conversion_pending_at
         LIMIT $1`,
       [ADS_FEED_MAX_ROWS]
