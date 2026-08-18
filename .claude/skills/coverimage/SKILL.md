@@ -156,7 +156,36 @@ Save to `Short-form video content/covers/posted covers/` as
 `_build-cover-<shortslug>.py`. Delete superseded variants so the folder stays
 unambiguous when Dan is picking a file in Finder.
 
-### 7. Install on YouTube (only when Dan asks)
+### 7. Two layouts — Instagram and YouTube are NOT the same file
+Settled with Dan 2026-08-17: **maintain both, and use each on its own platform.**
+Instagram centre-crops the profile tile to 3:4 and throws away `y<240`, so the
+Instagram build reserves that band. **YouTube shows the whole 1080×1920 frame**, so
+that reservation is dead black there.
+
+| | Instagram | YouTube |
+|---|---|---|
+| builder | `_build-covers-batch2-final.py` | `_build-covers-youtube.py` |
+| top of type | y 240 | y 96 |
+| panel_y | 560–762 | 470–620 |
+| wordmark | y 1540 | y 1758 |
+| output | `posted covers/` | `posted covers/youtube/` |
+
+**The YouTube builder IMPORTS the Instagram config** rather than copying it, so copy
+and crops cannot drift; only the layout differs. Keep it that way.
+
+**The trap when porting a crop:** the YouTube panel is TALLER, and crop width is
+`ch * 1080 / panel_height`, so the same crop is **narrower** on YouTube. A crop tuned
+for Instagram can push a head or an arm out of frame sideways with nothing changed
+vertically — it turned short4 into an extreme face crop. Re-check wide/landscape
+sources by eye after any retune. (An automated "head must clear the feather" rule was
+tried and removed: it flagged covers Dan had already approved, and short4's head was
+never actually inside the feather — the crop tightness was the real cause.)
+
+If a cover's original photo source is gone, `panel_from_png()` lifts the approved
+photo panel straight out of the finished file and re-lays the type around it — same
+image, new layout, no redesign. That is how short1 was ported.
+
+### 8. Install on YouTube (only when Dan asks)
 YouTube Studio takes the 1080×1920 cover as a Shorts thumbnail **uncropped** — no
 16:9 conversion, no letterboxing. Per video, in Dan's own Chrome (Studio needs his
 session; the in-app Browser pane has none):
@@ -188,6 +217,13 @@ limit and visually identical at thumbnail scale.
 Verify on `studio.youtube.com/channel/UC/videos/short` by eye: the row thumbnails
 render the covers. Do not try to read the thumbnail URL from the row model — the
 browser tool blocks the string, and a `custom` substring test is meaningless.
+
+**Do NOT verify a published Short against `i.ytimg.com/vi/<id>/oardefault.jpg`.** That
+path is heavily CDN-cached and kept serving the OLD thumbnail long after the new one
+was saved, cache-buster query included — it reads as a failed install when nothing
+failed. Studio's own preview is the authority. That same URL IS useful for the
+opposite job: reading what is *currently* live on a published video, which is how the
+short1–4 covers were identified as an older design generation.
 
 ## Geometry that must not drift
 
