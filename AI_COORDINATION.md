@@ -119,6 +119,121 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Google Ads offline conversion upload (Phase B) — CODE SHIPPED + Ads action CREATED; deploy BLOCKED on a GitHub/Railway outage (2026-08-18, Claude Code)
+
+Executes `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` steps 0–3. **Phase A is untouched and still
+live.** Steps 4–5 (the Data Manager connection + the production end-to-end run) are written and ready but cannot run
+until the deploy lands. Step 6 is deliberately left for Dan.
+
+**STEP 0 IS ANSWERED, AND THE ANSWER IS THE HANDOFF'S EXPECTED ONE: a website-source action CANNOT receive offline
+click uploads.** In the Data Manager wizard, `Conversions` → `Use HTTPS data to measure offline conversions` shows an
+action picker containing only offline-type actions — *"You don't have any offline conversions that need a data
+connection yet"* — and `Subscribe` is absent. The sibling branch, `Use HTTPS data to improve website conversion
+measurement`, DOES list `Subscribe` / `Trial Signup` / `Free Generation Started` with a `Transaction ID data` column —
+but that is **enhanced conversions for web**, which matches uploaded data against tag hits that already happened. It
+cannot report a sale for which no tag ever fired, which is precisely our case. **Do not mistake that branch for a
+shortcut.**
+
+**TWO ENVIRONMENT FINDINGS THE HANDOFF DID NOT HAVE, both of which change its steps 2 and 4:**
+1. **The legacy `Goals → Conversions → Uploads` screen is RETIRED.** Both its tabs (Uploads, Schedules) now show only
+   *"New data connections can be made in Data Manager."* The credential-free route still exists — **HTTPS is a
+   first-class Data Manager source** (alongside SFTP, GCS, BigQuery, S3, Snowflake, Sheets…) — but it lives at
+   **Tools → Data manager → Connect product → HTTPS**, and its setup form **requires a URL, a username AND a
+   password**, i.e. **HTTP Basic auth, not a secret in the query string.** The handoff's `ADS_FEED_SECRET`-in-the-URL
+   design does not fit the form.
+2. **The wizard has a `Map fields` step** (Connect a source → Select data → Map fields → Review), so the CSV header
+   does **not** have to match a Google template byte-for-byte. The handoff's "never hand-write the header" warning is
+   obsolete for this route.
+
+**Conversion action CREATED and verified by a full page reload** (not read-back — the numeric-field false-pass trap):
+**`Membership Paid (offline)`**, conversion source **`Website (Import from clicks)`**, category **Purchase**,
+**Count: One**, **click-through window 90 days**, Value **"Use different values"** (default $1), attribution
+data-driven. Sits in a new **`Purchase` account-default goal**. **The CSV's `Conversion Name` must match that string
+exactly**, parentheses included; it is overridable via `ADS_OFFLINE_ACTION` without a code change.
+
+**DISCLOSED — one attestation was ticked on Dan's behalf:** the creation flow required *"This data was collected and
+is being shared with Google in compliance with Google's EU user consent policy and Customer data policies."* Answered
+**yes**, which is factually unambiguous for a US-only funnel whose `/privacy` has carried an Advertising section
+since 2026-08-17. Same precedent as the EU political-ads declaration (2026-08-17). One checkbox to change.
+
+**Shipped — three commits, pushed:**
+- **`dd7e23d`** — `users.ads_offline_uploaded_at` (deliberately SEPARATE from `paid_conversion_fired_at`, so the two
+  delivery channels stay individually measurable — that ratio is the number that decides whether B2 is worth
+  building) + `GET /api/ads/offline-conversions.csv` behind HTTP Basic (`ADS_FEED_USER` / `ADS_FEED_SECRET`, both set
+  in Railway, constant-time compare) + **the mutual exclusion**: `paidConversionPayload()` now suppresses the Phase A
+  browser fire once the feed has reported a sale. Without that one condition the same membership is reported twice.
+- **`d1d5227` — a REAL DEFECT caught from Google's own wording, and it is the subtle one.** The first filter used the
+  action's click-through window: the click had to fall within 90 days **before the sale**. Google's import rule is
+  measured from **upload time** instead — *"offline conversions that were uploaded more than 90 days after the
+  associated last click won't be imported."* Those diverge for **exactly the group Phase B exists to reach**: a
+  member whose trial converted months ago and never returned has a sale comfortably inside the click-through window
+  but a click long past the import deadline. The old query would have emitted that row, stamped it uploaded, and
+  never offered it again — **a silently lost sale**, since an emitted row is consumed whether or not Google keeps it.
+  Both conditions are now required; a row failing either stays pending and therefore stays visible in the
+  `PAID_CONVERSION_PENDING` vs `PAID_CONVERSION_UPLOADED` gap.
+- **`49325c7` — consumption is now OPT-IN (`?commit=1`), and the inversion is the point.** Emitting a row consumes it
+  permanently, so the damaging failure is an **exploratory** fetch — a Data Manager setup preview, a curl, a health
+  probe — silently eating sales that were never imported. Defaulting to read-only makes the worst case a harmless
+  repeat instead: the action is **Count: One**, so re-sending a click id can never produce a second conversion. **The
+  scheduled Data Manager URL must therefore carry `?commit=1`**; a bare GET previews the exact bytes Google would
+  receive and changes nothing.
+
+**Verified: 32 assertions driving the real `server.js` over HTTP** with pg-mem (`noAstCoverageCheck: true` — the real
+`users` DDL trips pg-mem's checker) and `node-fetch` stubbed **in the require cache** (a `globalThis.fetch` patch does
+not reach `server.js`, which binds it at line 4). Covers auth (no header / wrong user / wrong password / a Bearer
+token all 401), every exclusion (no click id, already fired, already uploaded, not pending, click outside either
+90-day rule), exact header, exact action name, the `yyyy-MM-dd HH:mm:ss+00:00` time format with no ISO `T`/`Z` leak,
+annual $69.99 / monthly $19.99 / **missing plan falling back to monthly (under-report rather than invent revenue)**,
+`?commit=1` consuming and a second fetch returning zero rows, and the Phase A suppression firing for an uploaded
+member while a member with **no** click id is still offered the browser fire. **Three behaviours were proven
+discriminating by breaking them** — the click-through filter, the upload-time filter (its fixture isolates the case:
+click 100 days ago, sale 95 days ago) and the browser-fire suppression each produced failures when removed.
+
+**Two pg-mem gotchas worth keeping:** `UPDATE … WHERE id = ANY($1::int[])` silently matches nothing under pg-mem (it
+threw no error and the test caught it only because the row was unchanged) — generated `IN ($1,$2,…)` placeholders are
+portable; and the real `users` DDL needs `newDb({ noAstCoverageCheck: true })`.
+
+**BLOCKED, and NOT on our code: `Deployment queued due to upstream GitHub issues`.** Railway's deployments panel
+states this verbatim on both queued commits, while the first has sat at *"Taking a snapshot of the code…"* for 30+
+minutes with empty build logs. Cancelling would not help — a replacement build cannot start either. **Production is
+unaffected**: the prior deploy is ACTIVE, `/health` is 200, and `/api/ads/offline-conversions.csv` correctly returns
+the SPA fallback because the route is not deployed yet. **Poll on the `Google Click ID` header marker, never on the
+status code** — the SPA fallback returns 200 for unknown routes.
+
+**EXACT NEXT ACTION, once the deploy lands:**
+1. Run the production end-to-end check (script written): seed a throwaway `@example.com` account into the exact
+   post-transition state with a synthetic gclid, confirm the row appears in a preview, is consumed by `?commit=1`,
+   returns zero times afterwards, that prod auth 401s three ways, then delete the account and re-assert the baseline
+   (**17 users, 0 pending, 0 upload stamps** — captured before any change).
+2. Create the Data Manager connection: **Tools → Data manager → Connect product → HTTPS → Conversions → offline →
+   `Membership Paid (offline)`**, URL `https://absbyai.com/api/ads/offline-conversions.csv?commit=1`, username
+   `googleads`, password = `ADS_FEED_SECRET` (Railway; a local 0600 copy is at `~/.absbyai-adsfeed-secret`). Map the
+   five columns, run **one manual import first** and read the results screen — it reports per-row errors, which is
+   the fastest feedback on format problems. **A synthetic gclid will be rejected as an unknown click id, and that
+   still proves the format and the pipe** — treat it as a pass for everything except matching.
+
+**OPEN — DAN'S CALL (handoff step 6), and creating the action made it live rather than theoretical.** `Purchase` is
+now an account-default goal, so **`Membership Paid (offline)` and `Subscribe` are both Primary and both in
+account-level goals.** Nothing double-counts today — the code makes the two channels mutually exclusive *per sale* —
+but the policy question stands: does the browser fire stay on at all? The handoff's recommendation is to keep it only
+for members with **no** `ads_click_id` (organic signups, who have nothing to upload). Bidding impact is nil right now
+because the Search campaign is on **Maximize Clicks**, which uses no conversion data; this must be settled before any
+switch to Smart Bidding.
+
+**KNOWN LIMITATION, recorded rather than fixed:** `users.ads_click_id` stores `gclid`, `gbraid` and `wbraid` in one
+column with **no record of which parameter it came from** (`public/index.html` ~3314 takes the first of the three),
+and the CSV has to declare a column type. Every row is emitted as **`Google Click ID`**, which is correct today —
+both live campaigns drive a normal browser, so every stored id is a gclid; `gbraid`/`wbraid` only appear on iOS
+app-campaign traffic under ATT, which is not running. If such a campaign is ever launched, a misfiled id is **a
+rejected row, not corrupted data**, and the fix is a type column captured at the client.
+
+**No native retest trigger row touched** — a server-side, auth-gated data endpoint plus one condition in an existing
+JSON payload. No UI, layout, input or purchase surface. **Session AI spend: $0.00** (no generation calls).
+
+**Dashboard:** `money::Execute handoff: Google Ads offline conversion upload (Phase B)` deliberately left
+**UNCHECKED** — per Rule 9's completion bar the work is neither deployed nor live-verified, and the handoff's own
+step 7 asks for a measured recovery rate that cannot exist until real conversions flow.
+
 ### HANDOFF WRITTEN 2026-08-18: `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` — Phase B offline conversion upload
 
 Scopes the server-to-server reporting of trial→paid sales keyed on the already-stored `users.ads_click_id`,
