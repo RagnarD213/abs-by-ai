@@ -3280,6 +3280,11 @@ function ensureAiConsent() {
 
 const AD_CONVERSION_ID = 'AW-18361229851';
 const AD_CONVERSION_DEDUPE_DAYS = 400;
+// The account's "Subscribe" action — a trial that converted to a PAID
+// membership. Distinct from Trial Signup (AqLTCMnl4dkcEJvEqLNE) and Free
+// Generation Started (KqDxCMzl4dkcEJvEqLNE): they are different funnel stages,
+// and firing one another's label corrupts both signals.
+const AD_SUBSCRIBE_LABEL = 'dQUqCI-kntkcEJvEqLNE';
 
 // ── Google Ads click id ──
 // gclid on web, gbraid/wbraid on iOS app campaigns. Captured from the landing
@@ -7051,9 +7056,44 @@ async function refreshMembership() {
     memberState.userId = m.userId || null;
     memberState.source = m.source || null;
     memberState.loaded = true;
+    // The member's trial converted to a paid membership while no browser was
+    // open (Stripe/RevenueCat webhook), so the sale could not be reported when
+    // it happened. This is that return visit — report it now.
+    if (m.paidConversionPending) {
+      reportPaidMembershipConversion(m.paidConversionValue, m.paidConversionCurrency);
+    }
     if (iapSupported()) iapSync();
   } catch (e) { console.warn('membership fetch failed:', e.message); }
   applyMemberMode();
+}
+
+// Fires the Google Ads Subscribe conversion for a trial→paid membership, then
+// tells the server it has been reported.
+//
+// Deliberately does NOT pass `once:` to fireAdConversion. That dedupe is
+// per-BROWSER, which is wrong in both directions here: a member returning on a
+// second device would be blocked from reporting a sale that was never reported,
+// and one who cleared storage would report it twice. The server's
+// paid_conversion_fired_at is per-subscription and is the authoritative guard.
+//
+// The ack runs whether or not the fire succeeded — see the endpoint's comment.
+//
+// The in-memory latch guards the one gap the server flag cannot: refreshMembership()
+// has several call sites, so two of them overlapping would both see pending=true
+// before either ack landed and report the same sale twice in one page load.
+let paidConversionReported = false;
+async function reportPaidMembershipConversion(value, currency) {
+  if (paidConversionReported) return;
+  paidConversionReported = true;
+  try {
+    const fired = fireAdConversion(AD_SUBSCRIBE_LABEL, {
+      value: typeof value === 'number' ? value : 19.99,
+      currency: currency || 'USD',
+    });
+    if (window.posthog) posthog.capture('paid_conversion_reported', { fired: !!fired, value: value || null });
+  } catch (e) { /* never let reporting break the hub */ }
+  try { await authApi('/api/ads/paid-conversion-ack', { method: 'POST' }); }
+  catch (e) { console.warn('paid conversion ack failed:', e.message); }
 }
 
 // ── Shared member profile cache ──

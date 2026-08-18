@@ -5293,9 +5293,37 @@ app.get('/api/membership', requireAuth, async (req, res) => {
       source: row.membership_source || null,
       creditDiscountCents: isActiveMembership(row) ? 0 : creditDiscountCents(deviceId, 'monthly'),
       plans: Object.fromEntries(Object.entries(MEMBERSHIP_PLANS).map(([k, v]) => [k, { priceInCents: v.priceInCents, interval: v.interval }])),
+      // This member's trial converted to a paid membership while no browser was
+      // open. The client fires the Google Ads Subscribe conversion once and then
+      // acks; until it does, the flag keeps being handed back on every visit.
+      // Rides on this existing call rather than a new poll — refreshMembership()
+      // already runs on session restore, which is exactly the return we want.
+      ...paidConversionPayload(row),
     });
   } catch (e) {
     console.error('membership error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// The client reports it has fired the Google Ads Subscribe conversion for this
+// member's trial→paid sale. Acks unconditionally, including when the fire was
+// swallowed by an ad blocker or a missing gtag: re-offering the flag forever
+// would eventually double-report through some other browser, and a conversion
+// lost to an ad blocker is recoverable later by offline upload (Phase B) from
+// users.ads_click_id. Idempotent — a replayed ack is a no-op.
+app.post('/api/ads/paid-conversion-ack', requireAuth, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  try {
+    const { rowCount } = await db.query(
+      `UPDATE users SET paid_conversion_fired_at = NOW(), paid_conversion_pending_at = NULL
+        WHERE id = $1 AND paid_conversion_fired_at IS NULL`,
+      [req.user.id]
+    );
+    if (rowCount) console.log(`PAID_CONVERSION_FIRED: user ${req.user.id}`);
+    res.json({ ok: true, recorded: rowCount > 0 });
+  } catch (e) {
+    console.error('paid-conversion-ack error:', e.message);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -5547,14 +5575,84 @@ async function fulfillMembershipSession(session) {
   return true;
 }
 
+// ── Google Ads "Subscribe" conversion: the trial → PAID moment ──────────────
+// A 7-day trial converts to a paid membership about a week after checkout,
+// server-side, from a webhook, with no browser present. There is no moment at
+// which a client-side conversion tag could fire, which is exactly why the
+// account's Subscribe action sat Inactive with zero data since it was created.
+//
+// So the sale is recorded, not reported: the transition stamps
+// paid_conversion_pending_at, /api/membership hands the flag to the client the
+// next time the member opens the site or the app, the client fires the
+// conversion, and the ack stamps paid_conversion_fired_at.
+//
+// Two properties are load-bearing:
+//   - fired_at is the dedupe, and it lives on the USER ROW, not in the browser.
+//     fireAdConversion's `once:` record is per-browser, so it would both lose
+//     the sale (storage cleared) and double-report it (second device).
+//   - every call here is fail-open. This is attribution bookkeeping sitting in
+//     the middle of billing sync; a failure must never stop a member's access
+//     from being updated. Same principle as recordAdClickId().
+async function markPaidConversionPending(userId, reason) {
+  if (!db || !userId) return;
+  try {
+    const { rowCount } = await db.query(
+      `UPDATE users SET paid_conversion_pending_at = NOW()
+        WHERE id = $1
+          AND paid_conversion_fired_at IS NULL
+          AND paid_conversion_pending_at IS NULL`,
+      [userId]
+    );
+    if (rowCount) console.log(`PAID_CONVERSION_PENDING: user ${userId} (${reason})`);
+  } catch (e) {
+    console.error('markPaidConversionPending failed:', e.message);
+  }
+}
+
+// What /api/membership tells the client about an unreported paid sale. The
+// value is resolved here rather than in the browser so the price table has one
+// home; a row with no plan recorded falls back to monthly, which under-reports
+// an annual sale rather than inventing revenue.
+function paidConversionPayload(row) {
+  const pending = !!(row && row.paid_conversion_pending_at && !row.paid_conversion_fired_at);
+  if (!pending) return { paidConversionPending: false };
+  const planDef = MEMBERSHIP_PLANS[row.membership_plan] || MEMBERSHIP_PLANS.monthly;
+  return {
+    paidConversionPending: true,
+    paidConversionValue: planDef.priceInCents / 100,
+    paidConversionCurrency: 'USD',
+  };
+}
+
 // Keep users.membership_* in sync with subscription lifecycle events.
 async function syncSubscriptionState(sub) {
   if (!db || !sub?.id) return;
   const periodEnd = sub.current_period_end ? new Date(sub.current_period_end * 1000).toISOString() : null;
+  const nextStatus = sub.status || 'canceled';
+
+  // Read the PREVIOUS status before overwriting it — trial→paid is only visible
+  // in the transition, never in the new value alone. Deliberately its own
+  // try/catch: if this read fails we simply don't stamp, and the billing sync
+  // below still runs untouched.
+  let prev = null;
+  try {
+    const { rows } = await db.query(
+      'SELECT id, membership_status FROM users WHERE stripe_subscription_id = $1',
+      [sub.id]
+    );
+    prev = rows[0] || null;
+  } catch (e) {
+    console.error('paid-conversion prev-status read failed:', e.message);
+  }
+
   await db.query(
     `UPDATE users SET membership_status = $1, membership_period_end = $2 WHERE stripe_subscription_id = $3`,
-    [sub.status || 'canceled', periodEnd, sub.id]
+    [nextStatus, periodEnd, sub.id]
   );
+
+  if (prev && prev.membership_status === 'trialing' && nextStatus === 'active') {
+    await markPaidConversionPending(prev.id, 'stripe_trial_to_paid');
+  }
 }
 
 // ============================================================
@@ -5639,7 +5737,11 @@ async function applyAppleMembership(userId, ent, reason) {
     return true;
   }
 
-  // Grant / refresh.
+  // Grant / refresh. An Apple trial converting to paid is the same sale as the
+  // Stripe one — RevenueCat sends it as a RENEWAL whose period_type is no
+  // longer TRIAL, which reaches us as trialing → active.
+  const trialToPaid = user.membership_status === 'trialing' && ent.status === 'active';
+
   if (stripeLive && !ownedByApple) {
     console.error(
       `DOUBLE_BILLED_MEMBERSHIP: user ${userId} bought an Apple subscription while Stripe subscription ` +
@@ -5650,6 +5752,7 @@ async function applyAppleMembership(userId, ent, reason) {
       `UPDATE users SET membership_status = $1, membership_period_end = $2 WHERE id = $3`,
       [ent.status, ent.periodEnd, userId]
     );
+    if (trialToPaid) await markPaidConversionPending(userId, `apple_trial_to_paid (${reason})`);
     return true;
   }
 
@@ -5660,6 +5763,7 @@ async function applyAppleMembership(userId, ent, reason) {
     [ent.status, ent.plan, ent.periodEnd, userId]
   );
   console.log(`APPLE_MEMBERSHIP: user ${userId} → ${ent.status} ${ent.plan} until ${ent.periodEnd} (${reason})`);
+  if (trialToPaid) await markPaidConversionPending(userId, `apple_trial_to_paid (${reason})`);
   return true;
 }
 

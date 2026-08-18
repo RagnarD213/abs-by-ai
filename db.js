@@ -214,6 +214,17 @@ async function initDb() {
     // this id. Stored latest-wins, matching Google's last-click attribution.
     'ads_click_id TEXT',
     'ads_click_at TIMESTAMPTZ',
+    // Trial → PAID membership, reported to Google Ads as the "Subscribe"
+    // conversion. That moment happens server-side (Stripe webhook / RevenueCat
+    // webhook) with no browser open, so it cannot be reported when it happens.
+    // Instead the transition stamps `pending`, /api/membership hands the flag to
+    // the client on the member's next visit, the client fires the conversion,
+    // and the ack stamps `fired`. `fired` is the dedupe: it is per SUBSCRIPTION
+    // (one row per account), deliberately not the per-browser localStorage
+    // dedupe fireAdConversion() uses, so clearing storage or returning on a
+    // second device can neither lose nor double-report the sale.
+    'paid_conversion_pending_at TIMESTAMPTZ',
+    'paid_conversion_fired_at TIMESTAMPTZ',
   ]) {
     try {
       await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS ${col}`);
