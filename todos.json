@@ -142,6 +142,12 @@
       "priority": "key",
       "why": "handoff-20260818-subscribe-conversion-wiring.md — created but not yet run",
       "addedAt": "2026-08-18"
+    },
+    {
+      "text": "Execute handoff: Google Ads offline conversion upload (Phase B)",
+      "priority": "key",
+      "why": "handoff-20260818-phase-b-offline-conversion-upload.md — created but not yet run",
+      "addedAt": "2026-08-18"
     }
   ],
   "health": [
