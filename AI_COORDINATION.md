@@ -413,6 +413,50 @@ class behind the suspension).
 **No native retest trigger row touched** — Google Ads console and one project doc only.
 
 
+### Shorts covers — TWO layouts now, and ALL 28 are installed on YouTube (2026-08-17, Claude Code)
+
+**Settled with Dan: Instagram and YouTube get DIFFERENT files, each used on its own
+platform.** Instagram centre-crops the profile tile to 3:4 and discards `y<240`, so the
+Instagram covers reserve that band; **YouTube renders the whole 1080×1920 frame**, where
+that reservation is dead black. The YouTube build starts the type at y=96 and hands the
+rest to the photo: **panel_y 560–762 → 470–620**, so the photo is 13–20% taller and,
+because panel aspect drives crop width, the subject is bigger too.
+
+- Instagram: `posted covers/` (24 covers, unchanged — **verified hash-identical**, not
+  assumed). YouTube: `posted covers/youtube/` (28). Builders sit beside them; the
+  YouTube one **imports** the Instagram config so copy and crops cannot drift.
+- **All 28 installed on YouTube, published Shorts included** (Dan's explicit ask), each
+  save asserted via the `#save` disabled state, then all 28 eyeballed on the Studio
+  Shorts list.
+
+**THE FIND THAT PROMPTED "including published": short1–4 were never wearing these covers
+on YouTube at all.** Their live thumbnails were an older design generation — video
+frames with the burned-in word captions still visible. The J2 covers built 2026-08-13
+had gone to Instagram only. All four are now on the current design.
+
+**Three things worth keeping:**
+1. **A crop tuned for Instagram narrows on YouTube.** Crop width is
+   `ch * 1080 / panel_height`, so a taller panel means a *narrower* window — the same
+   crop turned short4 into an extreme face crop with his hair at the edge. Re-check
+   wide/landscape sources by eye after any port. An automated "head must clear the
+   feather" assert was written and then **removed**: it flagged covers Dan had already
+   approved, and re-measuring showed short4's head was never inside the feather.
+2. **`i.ytimg.com/vi/<id>/oardefault.jpg` is useless for verifying an install** — it is
+   heavily CDN-cached and served the OLD thumbnail long after the save, cache-buster
+   included. Studio's own preview is the authority. That URL IS the right tool for the
+   opposite job: reading what is currently live, which is how short1–4 were caught.
+3. **A cover whose photo source is gone can still be relaid** — `panel_from_png()` lifts
+   the approved photo panel out of the finished file and re-lays the type around it.
+   short1's source frames (`hi88.png`) no longer exist; it was ported this way.
+
+**Two picks made from evidence, not guessed:** short3's eyebrow (`GET RIPPED OBLIQUES
+WITH`) and short4's photo (the elevated-plank action shot) were read off the live
+thumbnails and the old build script's own note recording Dan's choice.
+
+**No native retest trigger row touched** — YouTube metadata only. **No dashboard task
+matched** (all four lists searched), so nothing checked off per Rule 9; no handoff, so
+Rule 8 does not apply. Skill updated and pushed (`3781628`).
+
 ### Shorts cover images — 24 BUILT, revised twice, and INSTALLED on YouTube (2026-08-17, Claude Code)
 
 Every Short that lacked a cover now has one: `short5` plus all of V2 (7), V3 (11) and
