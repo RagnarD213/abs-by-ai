@@ -136,6 +136,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-17"
+    },
+    {
+      "text": "Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)",
+      "priority": "key",
+      "why": "handoff-20260818-subscribe-conversion-wiring.md — created but not yet run",
+      "addedAt": "2026-08-18"
     }
   ],
   "health": [
