@@ -285,7 +285,7 @@
     },
     {
       "text": "Have Dan select Audi repair vendor and have car repaired",
-      "priority": "high",
+      "priority": "med",
       "recurring": false,
       "addedAt": "2026-08-11"
     },
