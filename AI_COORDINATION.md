@@ -119,6 +119,40 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Google Ads remarketing audiences — 15 BUILT + funnel virtual pageviews SHIPPED (2026-08-17, Claude Code, commit `d1d575c`)
+
+**THE FINDING THAT MADE THIS NECESSARY, and it applies to any future Ads/analytics work: absbyai.com is a single-page app whose URL NEVER CHANGES.** `showScreen()` calls `history.pushState(state, '', location.href)` — same address for every screen. Google Ads rule-based audiences anchor on a page visit and its URL, so before this change every visitor collapsed into one undifferentiated "All visitors" list and **no funnel-stage remarketing was possible at all**. There is also **no GA4 property** (zero `G-` tags anywhere), so that alternative route does not exist either, and the only event previously sent to the Ads tag was `conversion`.
+
+**Fix shipped (`public/index.html` only, additive):** `fireAdVirtualPageview(path)` sends a `page_view` to `AW-18361229851` with an explicit `page_location` under `/vp/`, giving each funnel stage its own synthetic address the rule builder can match (`URL contains /vp/paywall`). **Real navigation, history and the address bar are untouched** — this is a reporting beacon only, and it is deliberately NOT deduped (unlike a conversion, list membership wants every visit; repeat views are how recency-based audiences stay fresh). Three call sites: `/vp/<screen>` for all 25 screens fired from **`renderScreen`** (not `showScreen`) so a back-navigation re-registers the stage; `/vp/paywall`, which lives INSIDE the result screen and would otherwise be indistinguishable from a normal result view; and `/vp/generation-complete` for a finished unlocked transformation.
+- **Live-verified on production**, not just deployed: loading absbyai.com and calling `showScreen('hub')` took Google ad-network requests from **4 → 10**, with **4 matching the `/vp/` pattern**. All 7 inline script blocks pass `node --check`. **No native retest trigger row touched** — no UI, layout, input or purchase surface changed; the beacon is invisible to users. Visible on web, iOS and Android alike (shared-site architecture), which is correct here.
+
+**YouTube was ALREADY LINKED — do not re-link.** Data manager → Connected products shows **YouTube ✓ 1 linked**: channel **"Abs by AI"** (126 subscribers, 8 public videos), linked **Aug 11 2026**, permissions **View counts + Remarketing + Engagement**. Remarketing permission is what makes the YouTube lists legal to build. A second channel, "Daniel Rose - Social Response" (12.9K subs), is visible in Dan's Google account but is **not** linked and was deliberately not used.
+
+**15 audiences created to Dan's exact naming spec** (verified across all 3 pages of the list, 21 segments total = 15 new + 6 auto-created):
+- `website | visited absbyai.com | {7,14,30,365,540} day` — Website visitors, rule-based, plain page visit.
+- `youtube | watched any video | {7,14,30,365,540} day` — YouTube users, action **View any video**.
+- `youtube | liked any video | {7,14,30,365,540} day` — YouTube users, action **Like any video**.
+- Spot-verified on the detail page for `liked | 30 day`: `Segment members: Like any video`, `Membership: Open (30 days)`, eligible for Search/YouTube/Display/Gmail.
+
+**EVERYTHING IS "Too small to serve" AND THAT IS EXPECTED — Dan asked for these deliberately, to be in place before traffic arrives.** The remarketing pool is **8 people**; All converters is **0**. Google's thresholds are ~100 for Search and ~1,000 for Display/YouTube/Gmail. Do not read the empty sizes as a defect.
+
+**The other 8 YouTube action types are available and are the obvious next audiences** (seen in the live dropdown): View certain videos, View any video (as ads), View certain videos (as ads), **Subscribe to the channel**, **Visit the channel page**, Add any video to a playlist.
+
+**Deliberately left in place: `All site visitors - 540 days`**, created earlier in the same session before Dan supplied his naming convention. It is now an exact functional duplicate of `website | visited absbyai.com | 540 day`. Not deleted, because removing an audience list is not cleanly reversible and Dan did not ask for it — flagged to him instead.
+
+**FIVE Google Ads UI automation traps, all of which cost real time — read before automating this console again:**
+1. **The console renders at a ~0.528 screenshot scale** (`innerWidth` 2375 → visible 1255px), so screenshot coordinates are NOT page coordinates. Verify a mapping with `document.elementFromPoint(sx/s, sy/s)` before trusting a click.
+2. **The `+` create menu's items are only 56px wide** — far narrower than the visible row — so a click on the row text lands on the backdrop and closes the menu.
+3. **The menu closes between tool calls**, so open-and-select must happen inside ONE call.
+4. **`.click()` does not work on AngularDart `material-select-item` / `material-dropdown-select`.** A full `pointerdown → mousedown → pointerup → mouseup → click` dispatch does. For a dropdown, the real target is the inner **`[buttondecorator]`** div, not the `material-dropdown-select` element.
+5. **Form values CAN be set programmatically** with the native value setter + `input`/`change` events — this is what made bulk creation practical. Long multi-step JS times out at 45s over CDP, so split into `open+fill` and `submit` calls.
+6. **The channel picker is sticky:** after the first YouTube list, the channel stays selected and the search input is not rendered at all, so a routine that requires it fails with a misleading error.
+
+**No dashboard task checked off** — all four lists searched; the only Google Ads task, `money::Finish Google Ads campaign setup and launch video campaign`, is genuinely not done (no spend has resumed). Per Rule 9 that is reported, not invented. No handoff was created, so Rule 8 does not apply.
+
+**Still open (Dan's call):** the account was reinstated 2026-08-11, so let lists fill before resuming spend rather than ramping fast on a freshly-reviewed account.
+
+
 ### Google Ads Search campaign — BUILT AS A BULK CSV, waiting on Dan to upload (2026-08-17, Claude Code)
 
 **HARD ENVIRONMENTAL FINDING, and it is the reusable part: Google Ads will NOT render in a browser
