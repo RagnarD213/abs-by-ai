@@ -148,6 +148,12 @@
       "priority": "key",
       "why": "handoff-20260818-phase-b-offline-conversion-upload.md — created but not yet run",
       "addedAt": "2026-08-18"
+    },
+    {
+      "text": "Execute handoff: Swap Dan's phone to the public Play build",
+      "priority": "key",
+      "why": "handoff-20260818-android-public-build-swap.md — created but not yet run",
+      "addedAt": "2026-08-18"
     }
   ],
   "health": [
