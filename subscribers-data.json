@@ -151,6 +151,15 @@
         "1": "2026-08-17T19:17:30.712Z"
       },
       "unsubscribed": false
+    },
+    "judelegg@icloud.com": {
+      "subscribedAt": "2026-08-18T21:57:31.119Z",
+      "deviceId": "dev-1787089954658-nq8b83m9",
+      "synced": false,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-08-18T21:57:31.119Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
