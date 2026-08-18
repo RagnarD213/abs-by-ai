@@ -119,6 +119,73 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Google Ads Search campaign — BUILT AND POSTED via Google Ads Editor (2026-08-17, Claude Code)
+
+**The campaign is live in account 342-717-0837, PAUSED, with everything in place.** Posted from
+Google Ads Editor and re-verified by a fresh full download from Google afterwards:
+**Campaigns 3 · Ad groups 9 · Keywords 75 · Negative keywords 80 · Locations 2.**
+
+| Posted | Result |
+|---|---|
+| Campaign `Search - US - Non-Brand - AI Abs Preview` | 1/1 |
+| Ad groups | 6/6 (1–4 enabled, 5–6 paused as specified) |
+| Keywords | 54/54 (exact + phrase only, no broad) |
+| **Negative keywords** | **80/80** |
+| Locations (targeting) | 1/1 — United States |
+| **Responsive search ads** | **6/6** |
+| `Brand - SixPackAbs` ad group into the existing `Brand - Search - US` | 1 ad group + 7 keywords + 1 RSA, paused |
+
+**Campaign settings verified in Editor:** Status Paused · Budget $25.00/day avg · Bid strategy
+**Maximize clicks with a $2.00 max CPC** · **Search Partners Disabled · Display Network Disabled** ·
+Location **United States** · Targeting method **"People in or regularly in your targeted locations"**
+(presence-only, NOT the default presence-or-interest) · Language English · Broad match keywords Off.
+
+**THE DECISIVE FINDING: Google Ads Editor succeeds at exactly what the web bulk uploader cannot.**
+The web uploader rejected `Criterion Type = "Campaign Negative Broad"` as invalid AND failed all 6
+responsive search ads with a contentless "An error occurred. Please try again later." The identical
+CSV imported into **Editor** with **zero errors and zero warnings** — `Campaign Negative Broad` is
+Editor's own syntax, and the ads it refused went in untouched. **Use Editor for campaign builds on
+this account; the web uploader is only good for simple keyword/ad-group rows.**
+
+**Two Editor traps that cost real time and will recur:**
+1. **Editor's campaign-list filter hides PAUSED campaigns by default.** After a successful post the
+   new campaign vanished from the tree and did not come back after a full re-download, which looked
+   exactly like a failed post. It was a view filter — the funnel icon by the campaign search box,
+   where `Paused campaigns` is unchecked while Enabled/Pending/Ended/Draft are checked. Dan's own
+   paused `Campaign #1` was hidden the same way. **Check the filter before concluding anything is
+   missing.**
+2. **The app's real bundle id is `com.google.googleadseditor`, NOT the launcher's
+   `com.google.googleadseditorlauncher`.** Granting the launcher leaves the running window filtered
+   out of screenshots entirely, which reads as "the app isn't open". The inner app lives at
+   `…/Google Ads Editor.app/Contents/Versions/<ver>/Google Ads Editor.app`.
+
+**One declaration was set on Dan's behalf and is flagged here:** the campaign could not post until
+**EU political ads** was answered; it was set to **"No, doesn't have EU political ads."** That is
+factually unambiguous for a US-targeted fitness app, and it is one dropdown to change.
+
+**The earlier web bulk upload did NOT create a live campaign.** Its 61 "successfully applied" rows
+appear to have landed on the pre-existing draft (`draftId 10209101529`) — the preview said "campaign
+status changed from enabled to paused" rather than "added", and no such campaign existed on
+download. **That draft should still be discarded** so it cannot later be promoted into a duplicate.
+
+**STILL OPEN:**
+1. **Auto-applied recommendations OFF** — account-level, web-UI only, not exposed in Editor. Google
+   will otherwise add broad-match keywords and rewrite the ads by itself, which on a reinstated
+   account is unacceptable. Also do not accept the "Use Display Expansion" or "Add broad match
+   keywords" cards on the Overview page.
+2. **`Brand - Search - US` is `Eligible (Limited)` — "Ad strength is poor, targeting fewer searches."**
+   Its RSA carries only 8 headlines and 4 descriptions where Google wants 15/4. **Deliberately not
+   touched** — it means rewriting a live ad Dan owns, which is his copy call, not the assistant's.
+3. **The `Subscribe` conversion is still Inactive** and its settings are wrong for a sale
+   (`Count: Every`, 30-day window; wants **Count: One**, 90 days, "use different values"). Bulk
+   upload and Editor both cannot touch conversion actions — that one needs the web UI.
+4. Dan presses the switch when he wants the campaign to start spending. **Nothing spends until then.**
+
+**No native retest trigger row touched** — Google Ads console and Editor only, no product surface.
+**Dashboard:** `money::Finish Google Ads campaign setup and launch video campaign` deliberately left
+**unchecked** — the build is done but "launch" has not happened; Dan enables it.
+
+
 ### Google Ads remarketing audiences — 15 BUILT + funnel virtual pageviews SHIPPED (2026-08-17, Claude Code, commit `d1d575c`)
 
 **THE FINDING THAT MADE THIS NECESSARY, and it applies to any future Ads/analytics work: absbyai.com is a single-page app whose URL NEVER CHANGES.** `showScreen()` calls `history.pushState(state, '', location.href)` — same address for every screen. Google Ads rule-based audiences anchor on a page visit and its URL, so before this change every visitor collapsed into one undifferentiated "All visitors" list and **no funnel-stage remarketing was possible at all**. There is also **no GA4 property** (zero `G-` tags anywhere), so that alternative route does not exist either, and the only event previously sent to the Ads tag was `conversion`.
