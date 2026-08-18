@@ -119,6 +119,15 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Status roll-up 2026-08-18 (Dan + Claude Code) — Android LIVE, Google Ads search RUNNING, editor ad posted
+
+- **ANDROID IS APPROVED AND LIVE ON GOOGLE PLAY** (Dan confirmed 2026-08-18). The Play review thread is CLOSED — do not treat Android as "in review" anywhere below; older entries saying so are stale. The feared external-offers rejection did not happen. Dashboard task `money::Finish Android app Play Console setup and publish` CHECKED OFF (Rule 9, verified).
+- **Google Ads Search campaign is ENABLED and running** (Dan flipped it on 2026-08-18). Dashboard task `money::Finish Google Ads campaign setup and launch video campaign` CHECKED OFF. Watch spend/serving on the reinstated account; the account-integrity guidance elsewhere in this file (slow ramp, no bulk ad creation) still applies.
+- **iOS: still `WAITING_FOR_REVIEW`** — verified 2026-08-18 via the App Store Connect API (app 6794097836, version 1.0), ~18h after the 2026-08-17 5:22 PM resubmission. Wait; do not press anything.
+- **AI-first video editor job ad POSTED by Dan** (2026-08-18) — awaiting applicants; batch-2 editing is downstream of the hire.
+- **TWC unemployment call made by Dan** — `money::Call TWC` checked off.
+- Blotato photo + long-form queues were completed earlier the same day (see the two entries below).
+
 ### Instagram + Facebook photo queue — 130 posts SCHEDULED and verified (2026-08-18, Claude Code)
 
 Finishes the `NOT DONE` section of `BLOTATO_QUEUE_PROGRESS.md` (read that file for the full record).
@@ -777,7 +786,7 @@ Dan reported that non-recurring completed Money-list/Work Session Focus tasks (`
 ---
 
 **Owner:** Claude Code
-**Status:** `Complete — pending reset` — **The male Gemini MODEL SWAP (round 8) is MEASURED, PASSED its pre-registered bar, SHIPPED (`492d5d6`) and live-verified on production. Men now generate on Nano Banana Pro (`gemini-3-pro-image`); women are unchanged. This is the FIRST of the five male-generation experiments to pass its bar — the four before it were prompt edits and all failed. See the round-8 entry immediately below.** The male muscle-magnitude restore before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`92c7e77`) and live-verified (2026-08-09). The ab-ladder before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`feb94e0`) and live-verified. The Gemini production outage is RESOLVED and verified on prod. **iOS REJECTED A SECOND TIME 2026-08-07** (see the entry below: privacy fixes SHIPPED `f07b2f5`, reply drafted, 3.1.1 now demands real In-App Purchase — decision pending with Dan; do NOT resubmit until 3.1.1 is resolved). Android still in Google review. **Android: SUBMITTED to Google 2026-08-06** — checklist 11/11, production release `1.0` sent for review, US-only, `Managed publishing` off so it self-publishes on approval (~7 days). Nothing to do but wait; do NOT re-submit. iOS 1.0 was REJECTED by Apple 2026-08-05, both fixes SHIPPED and live-verified (commit `5f45501`), and **Dan RESUBMITTED to App Review 2026-08-05 at 10:12 AM — status is back to "Waiting for Review" (verified in App Store Connect 2026-08-06). Nothing left to do on iOS but wait for Apple's verdict; do NOT prompt Dan to press Resubmit again.** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
+**Status:** `Complete — pending reset` — **The male Gemini MODEL SWAP (round 8) is MEASURED, PASSED its pre-registered bar, SHIPPED (`492d5d6`) and live-verified on production. Men now generate on Nano Banana Pro (`gemini-3-pro-image`); women are unchanged. This is the FIRST of the five male-generation experiments to pass its bar — the four before it were prompt edits and all failed. See the round-8 entry immediately below.** The male muscle-magnitude restore before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`92c7e77`) and live-verified (2026-08-09). The ab-ladder before it MEASURED, FAILED its pre-registered bar, and is REVERTED (`feb94e0`) and live-verified. The Gemini production outage is RESOLVED and verified on prod. **iOS REJECTED A SECOND TIME 2026-08-07** (see the entry below: privacy fixes SHIPPED `f07b2f5`, reply drafted, 3.1.1 now demands real In-App Purchase — decision pending with Dan; do NOT resubmit until 3.1.1 is resolved). **Android APPROVED and LIVE on Google Play (confirmed 2026-08-18 — see the Status roll-up at the top of Active task; ignore any "in review" language below).** Android was submitted 2026-08-06 (checklist 11/11, production release `1.0`, US-only, `Managed publishing` off) and self-published on approval. iOS 1.0 was REJECTED by Apple 2026-08-05, both fixes SHIPPED and live-verified (commit `5f45501`), and **Dan RESUBMITTED to App Review 2026-08-05 at 10:12 AM — status is back to "Waiting for Review" (verified in App Store Connect 2026-08-06). Nothing left to do on iOS but wait for Apple's verdict; do NOT prompt Dan to press Resubmit again.** Android Play Store public-launch task IN PROGRESS, handoff written (see below). Older threads unchanged: repo housekeeping partway done (blocked on two logins); condensed-vs-full prompt A/B MEASURED, verdict SHIP NOTHING; tier-aware judge SHIPPED (`cec8020`); locked-image leak fix SHIPPED (`66638b4`).
 
 ### SixPackAbs top navigation decluttered — SHIPPED, live-verified (2026-08-11, Claude Code)
 
@@ -1829,7 +1838,9 @@ Executes `handoff-20260805-android-play-store-public-launch.md` in full. **All t
 
 **Time-sensitive, unchanged:** Google's targetSdk deadline is **2026-08-31** (~3.5 weeks out). The existing `app-release.aab` (June 10, v1/1.0, targetSdk 35) is accepted until then; after that a new app needs API 36 and the bundle must be re-targeted and rebuilt.
 
-### SUBMITTED TO GOOGLE FOR REVIEW — 2026-08-06
+### SUBMITTED TO GOOGLE FOR REVIEW — 2026-08-06 — **RESOLVED: APPROVED AND LIVE (confirmed 2026-08-18)**
+
+**Google approved the app and it self-published to the public Play Store (`Managed publishing` was off).** Dan confirmed 2026-08-18. The external-offers rejection risk in WATCH FOR item (2) did NOT materialize. Nothing remains on this thread; `money::Finish Android app Play Console setup and publish` is checked off. The record below is history.
 
 **Dan explicitly instructed "go ahead and submit it," overriding the earlier plan to stop before Send for review. 10 changes were sent; Publishing overview now reads "Changes in review."** Reviews typically complete within 7 days. **`Managed publishing` is OFF, so the app goes live automatically on approval — no further press is needed from anyone.**
 
