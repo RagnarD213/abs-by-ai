@@ -5397,9 +5397,15 @@ app.get('/api/ads/offline-conversions.csv', async (req, res) => {
     return res.status(401).send('Unauthorized');
   }
   if (!db) return res.status(503).send('Database unavailable');
-  // dry=1 previews the exact bytes Google would receive without consuming the
-  // rows, so the feed can be inspected before and after a real fetch.
-  const dry = String(req.query.dry || '') === '1';
+  // Consumption is OPT-IN (?commit=1), and that default is deliberate.
+  // Emitting a row stamps it uploaded and never offers it again, so the
+  // damaging failure is an exploratory fetch — a setup preview, a curl, a
+  // health probe — silently eating sales that were never actually imported.
+  // Defaulting to preview makes the worst case a harmless repeat instead:
+  // the conversion action is Count: One, so re-sending a click id can never
+  // produce a second conversion. The scheduled Data Manager URL carries
+  // ?commit=1; everything else is read-only.
+  const commit = String(req.query.commit || '') === '1';
   try {
     const { rows } = await db.query(
       `SELECT id, ads_click_id, membership_plan, paid_conversion_pending_at
@@ -5438,7 +5444,7 @@ app.get('/api/ads/offline-conversions.csv', async (req, res) => {
     }
     const body = lines.join('\n') + '\n';
 
-    if (!dry && rows.length) {
+    if (commit && rows.length) {
       try {
         const ids = rows.map((r) => r.id);
         await db.query(
