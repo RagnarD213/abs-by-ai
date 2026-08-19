@@ -209,6 +209,191 @@ if (!ANTHROPIC_API_KEY || !GEMINI_API_KEY) {
 }
 
 // ============================================================
+// INTERNAL SURFACE GATE — /dashboard, /admin, /morningbrief + their data APIs
+// ============================================================
+// Until 2026-08-19 every one of these answered an anonymous request. A friend of
+// Dan's guessed /dashboard and told him; the page was never the real exposure.
+// Verified live that day: /api/monarch returned net worth plus its full history,
+// /api/morning-data returned Stripe revenue, Oura sleep, Google Calendar and every
+// todo, /api/gmail-digest returned his mail digest — and /api/todos, /api/plan and
+// /api/task-checks all accepted POST, so a stranger could rewrite or erase the
+// whole task board. Hiding the URL fixes none of that; the APIs are the hole.
+//
+// Two ways in, one secret (DASH_SECRET):
+//   • Browser — POST the password once to /dash-login and get a signed cookie good
+//     for a year. Dan never sees a login screen again on that device. That is the
+//     point, not a nicety: a gate that interrupts him daily is one he routes around.
+//   • Scripts — send `X-Dash-Key: <secret>` (or `Authorization: Bearer`). The
+//     morning-brief job, the /prioritize skill and the Rule-9 check-off curl in
+//     CLAUDE.md all call these endpoints, and a cookie-only gate silently breaks
+//     every one of them.
+//
+// FAILS CLOSED. With DASH_SECRET unset nothing here is reachable. The tempting
+// alternative — fall back to open so nothing breaks — reproduces this exact bug and
+// does it invisibly. ADMIN_EMAILS already sets the precedent by 503-ing unconfigured.
+//
+// NOT gated, deliberately: /assistant, /api/assistant-tasks and /api/timesheet stay
+// public. That is Dan's standing decision (his assistant has no login) and they carry
+// only her own list. But her page ALSO reads /api/task-checks and /api/tasks-events,
+// which carry every list — so those two are SCOPED rather than gated: an
+// unauthenticated caller sees, and can write, `assistant::` ids only. Scoping beats a
+// second parallel endpoint here because the write path holds the sha-retry loop, the
+// stale-uncheck guard and the SSE broadcast; a copy of it would drift.
+//
+// Ingest endpoints (/api/monarch-push, /api/health-data, /api/send-push) keep their
+// own header secrets — the Mac sync script and the watch webhook have no cookie.
+const DASH_SECRET     = process.env.DASH_SECRET || '';
+const DASH_COOKIE     = 'absbyai_dash';
+const DASH_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
+
+// Exact paths only — no prefix matching, so adding a route never silently inherits
+// or escapes the gate. A new internal endpoint must be listed here on purpose.
+const DASH_PAGES = ['/dashboard', '/admin', '/morningbrief'];
+const DASH_APIS  = [
+  '/api/morning-data', '/api/monarch', '/api/calendar-debug', '/api/gmail-digest',
+  '/api/health-debug', '/api/todos', '/api/plan', '/api/assign-priority',
+  '/api/tasks-state',
+];
+
+const dashSign = (expMs) => crypto.createHmac('sha256', DASH_SECRET).update(String(expMs)).digest('hex');
+
+// Constant-time compare that tolerates a length mismatch: timingSafeEqual THROWS on
+// unequal lengths, which would turn a wrong password into a 500 instead of a refusal.
+function safeEq(a, b) {
+  const ab = Buffer.from(String(a)), bb = Buffer.from(String(b));
+  if (ab.length !== bb.length) return false;
+  return crypto.timingSafeEqual(ab, bb);
+}
+
+function dashCookieValid(req) {
+  const hit = (req.headers.cookie || '').split(';')
+    .map(s => s.trim())
+    .find(s => s.startsWith(DASH_COOKIE + '='));
+  if (!hit) return false;
+  const [expStr, sig] = decodeURIComponent(hit.slice(DASH_COOKIE.length + 1)).split('.');
+  const exp = Number(expStr);
+  // The expiry is inside the signed payload, so a client cannot extend its own
+  // session by editing the cookie — the signature is over the expiry itself.
+  if (!exp || !sig || Date.now() > exp) return false;
+  return safeEq(sig, dashSign(exp));
+}
+
+function dashKeyValid(req) {
+  const given = req.headers['x-dash-key']
+    || (String(req.headers.authorization || '').match(/^Bearer\s+(.+)$/i) || [])[1]
+    || '';
+  return !!given && safeEq(given, DASH_SECRET);
+}
+
+function dashAuthed(req) {
+  if (!DASH_SECRET) return false;
+  return dashCookieValid(req) || dashKeyValid(req);
+}
+
+// Reduce a task-state payload to what an unauthenticated (assistant) client may see.
+// Whitelist shape, not a delete-list: a new field added to the broadcast upstream is
+// dropped here by default rather than leaking until someone remembers this function.
+const isAssistantId = (id) => String(id).startsWith('assistant::');
+function scopeTasksForAssistant(payload) {
+  const out = {};
+  if (payload.todos) {
+    out.todos = { business: [], health: [], personal: [], assistant: payload.todos.assistant || [] };
+  }
+  if (payload.task_checks) {
+    const tc = payload.task_checks;
+    const pick = (obj) => Object.fromEntries(Object.entries(obj || {}).filter(([k]) => isAssistantId(k)));
+    out.task_checks = {
+      checked:   (tc.checked || []).filter(isAssistantId),
+      log:       pick(tc.log),
+      checkedAt: pick(tc.checkedAt),
+    };
+  }
+  if (payload.timesheet) out.timesheet = payload.timesheet;
+  return out; // `plan` is intentionally never forwarded — that is Dan's focus band.
+}
+
+const dashLoginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  message: { error: 'Too many attempts, please wait 15 minutes.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.get('/dash-login', (req, res) => {
+  if (dashAuthed(req)) return res.redirect('/dashboard');
+  res.set('Cache-Control', 'no-store').type('html').send(`<!doctype html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Sign in</title>
+<style>
+  :root{color-scheme:dark}
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0f1115;
+       color:#e8e6e3;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  form{width:min(88vw,320px);display:grid;gap:12px}
+  h1{font-size:17px;font-weight:600;margin:0 0 4px;text-align:center;color:#9aa0a6}
+  input,button{font:inherit;padding:13px 14px;border-radius:10px;border:1px solid #2a2f37}
+  input{background:#171a20;color:#e8e6e3}
+  input:focus{outline:none;border-color:#4f8cff}
+  button{background:#4f8cff;color:#fff;border-color:transparent;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.6;cursor:default}
+  p{margin:0;min-height:20px;font-size:13px;color:#ff6b6b;text-align:center}
+</style>
+<form id="f">
+  <h1>Abs By AI</h1>
+  <input id="pw" type="password" autocomplete="current-password" placeholder="Password" autofocus required>
+  <button id="go">Sign in</button>
+  <p id="msg"></p>
+</form>
+<script>
+const f=document.getElementById('f'),pw=document.getElementById('pw'),
+      go=document.getElementById('go'),msg=document.getElementById('msg');
+f.addEventListener('submit',async e=>{
+  e.preventDefault(); go.disabled=true; msg.textContent='';
+  try{
+    const r=await fetch('/dash-login',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({password:pw.value})});
+    if(r.ok){ location.href=new URLSearchParams(location.search).get('next')||'/dashboard'; return; }
+    const d=await r.json().catch(()=>({}));
+    msg.textContent=d.error||'Incorrect password'; pw.value=''; pw.focus();
+  }catch(_){ msg.textContent='Network error'; }
+  go.disabled=false;
+});
+</script>`);
+});
+
+app.post('/dash-login', dashLoginLimiter, (req, res) => {
+  if (!DASH_SECRET) return res.status(503).json({ error: 'Not configured' });
+  const given = String((req.body || {}).password || '');
+  if (!safeEq(given, DASH_SECRET)) return res.status(401).json({ error: 'Incorrect password' });
+  const exp = Date.now() + DASH_MAX_AGE_MS;
+  // Secure is unconditional: absbyai.com is HTTPS-only, and a cookie that would ride
+  // a plaintext request is worse than one that simply refuses to set.
+  res.set('Set-Cookie', `${DASH_COOKIE}=${exp}.${dashSign(exp)}; Path=/; Max-Age=${Math.floor(DASH_MAX_AGE_MS / 1000)}; HttpOnly; Secure; SameSite=Lax`);
+  res.json({ ok: true });
+});
+
+app.post('/dash-logout', (req, res) => {
+  res.set('Set-Cookie', `${DASH_COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax`);
+  res.json({ ok: true });
+});
+
+app.use((req, res, next) => {
+  const p = req.path;
+  if (DASH_APIS.includes(p)) {
+    return dashAuthed(req) ? next() : res.status(401).json({ error: 'Unauthorized' });
+  }
+  if (DASH_PAGES.includes(p)) {
+    if (dashAuthed(req)) return next();
+    // Serve exactly what an unknown path serves (the SPA fallback, 200 + index.html)
+    // so /dashboard is indistinguishable from a URL that was never a route. A login
+    // form here, or a redirect to one, would confirm to the next curious visitor
+    // that something is worth finding. Dan signs in at /dash-login directly.
+    return res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  }
+  next();
+});
+
+// ============================================================
 // DASHBOARD â serve at /dashboard
 // ============================================================
 app.get('/dashboard', (req, res) => {
@@ -833,9 +1018,16 @@ const cacheUsable = (c) => c && (Date.now() < c.trustUntil || Date.now() - c.fet
 const taskStreamClients = new Set();
 
 function broadcastTaskState(payload) {
+  // Two audiences hold these streams: Dan's dashboard and the public /assistant page.
+  // The scoped frame is built lazily because most writes have no assistant listener.
   const frame = `event: tasks\ndata: ${JSON.stringify(payload)}\n\n`;
+  let scoped = null;
   for (const res of [...taskStreamClients]) {
-    try { res.write(frame); } catch (e) { taskStreamClients.delete(res); }
+    try {
+      if (res.dashAuthed) { res.write(frame); continue; }
+      if (scoped === null) scoped = `event: tasks\ndata: ${JSON.stringify(scopeTasksForAssistant(payload))}\n\n`;
+      res.write(scoped);
+    } catch (e) { taskStreamClients.delete(res); }
   }
 }
 
@@ -1446,6 +1638,11 @@ const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 app.get('/api/task-checks', async (req, res) => {
   const { checked, log, checkedAt } = await loadTaskChecks();
+  // Shared with the deliberately public /assistant page, so this endpoint is scoped
+  // rather than gated: without the dashboard cookie or key a caller sees only
+  // `assistant::` ids. Dan's completed business/health/personal task TEXT is the id,
+  // so an unscoped read here would leak the board this gate exists to close.
+  if (!dashAuthed(req)) return res.json(scopeTasksForAssistant({ task_checks: { checked, log, checkedAt } }).task_checks);
   res.json({ checked, log, checkedAt });
 });
 
@@ -1468,13 +1665,18 @@ app.get('/api/tasks-events', async (req, res) => {
   });
   res.flushHeaders?.();
   res.write('retry: 3000\n\n');
+  // Authorisation is decided ONCE, at connect time, and remembered on the response:
+  // broadcasts happen later with no request in hand, so there is nothing to re-check
+  // then. A stream therefore cannot gain scope after it is opened.
+  res.dashAuthed = dashAuthed(req);
   taskStreamClients.add(res);
 
   // Send the current state straight away so a page that just connected (or
   // reconnected after a dropped connection) is correct without waiting.
   try {
     const [todos, checks, timesheet] = await Promise.all([loadTodos(), loadTaskChecks(), loadTimesheet()]);
-    res.write(`event: tasks\ndata: ${JSON.stringify({ todos, task_checks: { checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt }, timesheet: { active: timesheet.active } })}\n\n`);
+    const state = { todos, task_checks: { checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt }, timesheet: { active: timesheet.active } };
+    res.write(`event: tasks\ndata: ${JSON.stringify(res.dashAuthed ? state : scopeTasksForAssistant(state))}\n\n`);
   } catch (e) { /* the client will fall back to polling */ }
 
   // Proxies drop idle connections; a comment frame keeps this one alive.
@@ -1483,8 +1685,14 @@ app.get('/api/tasks-events', async (req, res) => {
 });
 
 app.post('/api/task-checks', async (req, res) => { await withTaskDataLock(async () => {
-  if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
   const { id, checked, recurring, date, confirmUncheck } = req.body || {};
+  // Write half of the scoping above, and it runs BEFORE every other guard. The
+  // /assistant page has no login by design, so it reaches this endpoint
+  // unauthenticated — but only for its own list. Without this an anonymous POST
+  // could check off, or un-check, anything on Dan's board. Authorise first: a
+  // storage or validation error must never be the reason a caller is turned away.
+  if (!isAssistantId(id) && !dashAuthed(req)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
   if (typeof id !== 'string' || typeof checked !== 'boolean') {
     return res.status(400).json({ error: 'expected { id: string, checked: boolean }' });
   }

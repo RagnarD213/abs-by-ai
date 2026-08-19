@@ -30,15 +30,28 @@ When Dan asks a "what should we work on" / "what should I use my limit for" / "h
 
 Finishing a task means checking it off at `absbyai.com/dashboard` in the same session. Dan should not have to click it himself — an unchecked task reads as unfinished work. Do this after the change is committed, pushed, deployed and verified, as the last step of the task.
 
+**These endpoints now require a key** (added 2026-08-19, after a friend of Dan's found `/dashboard` and
+every API behind it answered an anonymous curl). Send `X-Dash-Key: $DASH_SECRET` on every call below.
+The value is in Railway and in `~/.absbyai-secrets.env` — fetch it yourself per the secrets section
+below, never ask Dan for it. Without the header these return **401**, which is the single most likely
+reason a check-off silently stops working.
+
 ```bash
+DASH=$(grep '^DASH_SECRET=' ~/.absbyai-secrets.env | cut -d= -f2-)
 # 1. Find the task's exact text.  Stored lists are business / health / personal / assistant.
-curl -s https://absbyai.com/api/todos | python3 -m json.tool
+curl -s -H "X-Dash-Key: $DASH" https://absbyai.com/api/todos | python3 -m json.tool
 # 2. Check it off.  The id is "<displayKey>::<exact text>" — see the mapping note below.
-curl -s -X POST https://absbyai.com/api/task-checks -H 'Content-Type: application/json' \
+curl -s -X POST https://absbyai.com/api/task-checks -H "X-Dash-Key: $DASH" \
+  -H 'Content-Type: application/json' \
   -d '{"id":"money::Execute handoff: Close locked-image leak on paywall","checked":true}'
 ```
 
-Three things that are easy to get wrong here, all verified on 2026-07-29:
+Four things that are easy to get wrong here, the first three verified on 2026-07-29:
+
+- **A 401 means the key is missing or stale, not that the id was wrong.** `/api/todos`, `/api/task-checks`,
+  `/api/plan`, `/api/tasks-state`, `/api/morning-data` and `/api/monarch` are all gated. The one exception is
+  an `assistant::` check-off, which the public `/assistant` page must be able to make and so needs no key.
+  If the key looks stale, refresh the cache: `railway variables --kv > ~/.absbyai-secrets.env`.
 
 - **Done state lives in `/api/task-checks`, not in `todos.json`.** Setting a `done` field on the todo object does nothing — no surface reads it. `POST /api/task-checks` with `{ id, checked: true }` is the only mechanism.
 - **The `business` list is displayed as `money`, and check ids use the DISPLAY key.** `dashboard.html` merges the stored `business` list into `todosState.money` (line ~1615) and writes it back as `business` (~2111), while `taskCheckId()` builds `<displayKey>::<text>`. So a money-column task is `money::…`, never `business::…`. `health`, `personal` and `assistant` are the same in both.

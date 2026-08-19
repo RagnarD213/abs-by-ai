@@ -22,7 +22,7 @@ The only writes allowed in this session: updating this skill, memory, or the coo
 
 ## What to read before recommending (all cheap, do in parallel)
 
-1. **Dashboard tasks:** `curl -s https://absbyai.com/api/todos` and `curl -s https://absbyai.com/api/task-checks` — what's open, what priority, what's already done. Remember `business` displays as `money`.
+1. **Dashboard tasks:** these endpoints are key-gated as of 2026-08-19 — set `DASH=$(grep '^DASH_SECRET=' ~/.absbyai-secrets.env | cut -d= -f2-)` first, then `curl -s -H "X-Dash-Key: $DASH" https://absbyai.com/api/todos` and `curl -s -H "X-Dash-Key: $DASH" https://absbyai.com/api/task-checks` (a bare curl now returns 401) — what's open, what priority, what's already done. Remember `business` displays as `money`.
 2. **`AI_COORDINATION.md`** — the active task, anything another session owns right now (do not recommend work that would collide with it), and "EXACT NEXT ACTION" lines.
 3. **Unexecuted handoffs:** Key tasks whose `why` names a `handoff-*.md` file, cross-checked against the coordination file for whether they already ran.
 4. **Anything time-sensitive:** deadlines recorded in task `why` fields or the coordination file (store-review windows, targetSdk dates, ad-account states, shoot dates).
