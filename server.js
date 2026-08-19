@@ -5390,22 +5390,27 @@ function adsFeedAuthorized(req) {
   return uOk && pOk;
 }
 
-app.get('/api/ads/offline-conversions.csv', async (req, res) => {
+// Two paths, one handler. Google Data Manager validates the URL by EXTENSION
+// ("Unable to read file format. Make sure you select a CSV or TSV file with
+// '.csv' or '.tsv' extension"), so a `?commit=1` query string disqualifies the
+// URL outright — the flag has to live in the PATH and the URL has to END in
+// .csv. `-commit.csv` consumes; the plain `.csv` path stays read-only.
+app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commit.csv'], async (req, res) => {
   if (!ADS_FEED_SECRET) return res.status(503).send('Feed not configured');
   if (!adsFeedAuthorized(req)) {
     res.set('WWW-Authenticate', 'Basic realm="ads-feed"');
     return res.status(401).send('Unauthorized');
   }
   if (!db) return res.status(503).send('Database unavailable');
-  // Consumption is OPT-IN (?commit=1), and that default is deliberate.
+  // Consumption is OPT-IN (the -commit.csv path), and that default is deliberate.
   // Emitting a row stamps it uploaded and never offers it again, so the
   // damaging failure is an exploratory fetch — a setup preview, a curl, a
   // health probe — silently eating sales that were never actually imported.
   // Defaulting to preview makes the worst case a harmless repeat instead:
   // the conversion action is Count: One, so re-sending a click id can never
-  // produce a second conversion. The scheduled Data Manager URL carries
-  // ?commit=1; everything else is read-only.
-  const commit = String(req.query.commit || '') === '1';
+  // produce a second conversion. The scheduled Data Manager URL is the
+  // -commit.csv one; everything else is read-only.
+  const commit = /-commit\.csv$/.test(req.path) || String(req.query.commit || '') === '1';
   try {
     const { rows } = await db.query(
       `SELECT id, ads_click_id, membership_plan, paid_conversion_pending_at
