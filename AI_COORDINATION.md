@@ -119,6 +119,81 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Dashboard/admin surfaces GATED behind one shared secret — SHIPPED, live-verified (2026-08-19, Claude Code, commits `35e8881` + `b19f312`)
+
+A friend of Dan's (Matt) guessed `/dashboard` and told him. **The page was never the real exposure — every
+API behind it answered an anonymous `curl`, and Dan's reply to Matt that "there isn't anything confidential
+there" was wrong.** Verified live before the fix: `/api/monarch` returned **net worth plus its full history**,
+`/api/morning-data` returned Stripe revenue + Oura sleep + Google Calendar + every todo, `/api/gmail-digest`
+returned his mail digest, `/api/calendar-debug` raw calendar — and `/api/todos`, `/api/plan` and
+`/api/task-checks` **accepted POST**, so a stranger could rewrite or erase the whole task board. Moving the
+page to another host would have fixed none of it.
+
+**One secret (`DASH_SECRET`, set by Dan in Railway on the `abs-by-ai` service), two ways in.** Browser: POST it
+once to **`/dash-login`** → signed cookie, `HttpOnly; Secure; SameSite=Lax`, **1-year** expiry (the expiry is
+inside the HMAC payload, so a client cannot extend its own session). Scripts: **`X-Dash-Key`** header, or
+`Authorization: Bearer`. **The header path is not optional** — the morning-brief job, the unemployment
+reminder, the `/prioritize` skill and the Rule-9 check-off curl in `CLAUDE.md` all call these endpoints, and a
+cookie-only gate breaks all four silently. All four are updated to read the key from `~/.absbyai-secrets.env`.
+
+**Gated pages return the SPA fallback byte-for-byte**, so `/dashboard` is indistinguishable from a URL that
+was never a route — no login form, no redirect, nothing confirming there is something to find. **Dan
+bookmarks `/dash-login`, not `/dashboard`.** **Fails closed:** with `DASH_SECRET` unset nothing is reachable,
+deliberately — falling back to open reproduces this exact bug invisibly (same precedent as `ADMIN_EMAILS`
+503-ing when unconfigured).
+
+**`/assistant` stays public (Dan's standing decision — she has no login), so the endpoints it SHARES with the
+dashboard are SCOPED rather than gated:** an anonymous caller reads and writes `assistant::` ids only, via
+`scopeTasksForAssistant()` (a whitelist, so a field added upstream is dropped rather than leaked by default).
+Scoping beat a parallel endpoint because the write path holds the sha-retry loop, the stale-uncheck guard and
+the SSE broadcast. Her page needed **zero** changes — the response key set is unchanged.
+
+**THE LESSON WORTH KEEPING, and it cost a second commit: scoping the obvious endpoint is not enough.** After
+`35e8881` shipped, reading the LIVE response rather than trusting the design found **`/api/assistant-tasks`
+still returning the entire check store anonymously** — `checked`/`log`/`checkedAt` for every list, and **a
+check id IS the task's text**, so two of Dan's completed tasks were exposed at that moment. The `POST
+/api/task-checks` **reply** had the same shape, handing the whole board back for an anonymous `assistant::`
+toggle. Fixed in `b19f312`. **Rule: any endpoint reachable without the key that touches the shared check store
+must go through `scopeTasksForAssistant`, including on the way OUT.**
+
+**A DEPLOY-VERIFICATION TRAP THAT PRODUCED 18 FALSE FAILURES — this refines the existing content-marker rule.**
+The first production run reported the gate wholly absent (APIs 200, `POST /dash-login` 404) while pages were
+correctly gated. Nothing was wrong: **old and new containers were serving simultaneously**, and the standing
+advice to "poll on a content marker, not a status code" is *insufficient* — one successful marker hit proves
+only that *a* new container is up, not that the swap is complete. **Assert the new behaviour on ~8–10
+consecutive requests before running a verification suite.** A second false failure came from a bad assertion,
+not bad code: the dashboard's `Victory Dashboard` heading is rendered by JS and is **not** in the served HTML
+(`grep` it in `dashboard.html` → 0). Use `Morning Dashboard` (the `<title>`) or `todo-item` as markers.
+
+**Also worth knowing: `railway variables` without `--service` reads the LINKED service, which is Postgres, not
+the app.** That produced a confident-but-wrong "DASH_SECRET is not set" after Dan had set it correctly. Always
+pass **`--service abs-by-ai`**.
+
+**Verified.** Local: 46 HTTP assertions against the real server (gating, header + cookie auth, forged/expired/
+tampered cookies, assistant scoping on read, write and SSE), 22 unit assertions on the scoping whitelist, and
+fail-closed with the secret unset. **Production: 24/24 after a confirmed-stable swap** — every listed endpoint
+401s anonymously; no `money::`/`personal::`/`health::` id and no `net_worth` appears on ANY anonymous surface
+(all five endpoints plus the SSE stream concatenated and grepped); her 25 tasks and her own completions still
+served with an unchanged key set; the key still reaches the full board; `/dashboard` byte-identical to an
+unknown route; `/`, `/privacy`, `/health` unaffected. Browser: `/assistant` renders her 12 open tasks on
+production with **zero console errors**, and the cookie opens the real dashboard (114 KB vs the 558 KB SPA).
+The service-worker console warning is **pre-existing** — isolated against unmodified `server.js`.
+
+**No native retest trigger row touched** — server-side middleware on internal surfaces only. `/dashboard`,
+`/admin` and `/morningbrief` are not loaded by the iOS or Android apps, and no customer-facing route,
+input, layout or purchase surface changed.
+
+**Dashboard: nothing checked off.** All four lists were searched; no task describes this work (the only
+security-adjacent entry is the unrelated Namecheap SPF/DMARC item). Per Rule 9 that is reported, not invented.
+No handoff was created, so Rule 8 does not apply.
+
+**Open, small, Dan's call:** `/api/push/subscribe` and `/api/push/public-key` are deliberately left ungated —
+low value (registering for his morning push needs VAPID keys and a real browser subscription) and gating them
+carried more regression risk than it removed. The ingest endpoints (`/api/monarch-push`, `/api/health-data`,
+`/api/send-push`) keep their own header secrets and were not touched, since the Mac sync script and the watch
+webhook have no cookie.
+
+
 ### HANDOFF WRITTEN 2026-08-19: `Handoffs/handoff-20260819-exercise-demo-videos.md` — replace stick figures with AI exercise demo videos (Claude Code)
 
 Research + proof-of-concept session, **no production code changed, ~$1.60 AI spend.** Dan wants the 97 SVG
