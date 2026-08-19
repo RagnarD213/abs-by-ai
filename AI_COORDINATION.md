@@ -201,8 +201,13 @@ looped video first, then mux with plain `adelay`, no apad. VO cost pennies.
 **Flagged to Dan, pending his word:** his "toes parallel" cue contradicts the library copy's "toes
 slightly out" (`public/exercises.js` bw-squat setup) — the VO follows Dan; if he confirms parallel, the
 library text should be edited to match so app copy and narration agree.
-NEXT: Dan's verdict on the narrated video → then batch 2 (rest of bodyweight `none` tier, 38 moves) in a
-fresh session with a stated budget; narration per exercise is now a proven ~$0.01 add-on.
+**V2 NARRATION — Dan's revisions, delivered same session (`bw-squat-rep-narrated-v2.mp4`, 18.9s, 6 reps):**
+he REJECTED his own cloned voice for the library ("put-you-to-sleep", not a trainer) — **the library
+narrator is now the stock MiniMax `English_ManWithDeepVoice` at speed 1.1** (energetic/deep; reads ~25%
+faster than the clone, 17.1s for the same script + intro). And every demo VO must OPEN with
+**"Here's how to do the [exercise name]."** before the technique cues — bake both into the batch runner.
+NEXT: Dan's verdict on v2 → then batch 2 (rest of bodyweight `none` tier, 38 moves) in a fresh session
+with a stated budget; narration per exercise is a proven ~$0.01 add-on.
 
 ### Google Ads offline conversion upload (Phase B) — COMPLETE: feed live, Data Manager connection built, first import runs nightly (2026-08-18/19, Claude Code)
 
