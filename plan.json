@@ -1,15 +1,17 @@
 {
   "date": "2026-08-19",
   "order": [
-    "money::Post on Instagram",
-    "money::Post on TikTok",
     "money::Post on YouTube",
     "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
     "money::Execute handoff: Let users purchase before creating an account (iOS)",
-    "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)"
+    "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
+    "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
+    "money::Execute handoff: Swap Dan's phone to the public Play build"
   ],
   "excluded": [
-    "money::Post on Facebook"
+    "money::Post on Facebook",
+    "money::Post on Instagram",
+    "money::Post on TikTok"
   ],
   "sessionsCompleted": 0
 }
