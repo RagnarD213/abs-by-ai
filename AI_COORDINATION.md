@@ -231,8 +231,19 @@ at -35dB found ONE true gap in all 8:14 of V4) — cloning from them raw would b
 stems show real inter-sentence silences (4 in 22s vs 0 raw), proof the bed is gone, ~2 min per clip and
 pennies. **Voice clone v2 = `R8_NE3EBC2N`** (id in `bw-squat/dan-real-voice-id-v2.txt`), trained on 44s
 of demucs-cleaned V4+V6 intro narration, TTS at speed 1.0 (down from 1.1). 19.3s sample sent to Dan —
-AWAITING his ear. If still too high-pitched, `minimax/speech-02-hd` has a `pitch` dial to try before
-another reclone. Then: regenerate bw-squat with AI-Dan (~$2.70) + the approved voice.
+**Dan APPROVED voice v2 ("sounds great") — `R8_NE3EBC2N` is the production narrator voice.**
+
+**FINAL AI-DAN SQUAT DELIVERED (`bw-squat/bw-squat-AIDAN-narrated.mp4`, 22.2s = 7 loops of a 3.1s clean
+rep + the v2 VO):** start still regenerated from `ai-dan-canonical.jpg` (2 candidates, likeness + gym
+held on both), bottom still needed ONE depth retry (first edit came back a half squat — the fix was
+explicit "FULLY PARALLEL — hips at knee height, NOT a shallow half squat" language; keep that phrasing
+in the batch prompts), ONE 6s Veo descent leg per the single-leg finding, clean rep extracted at
+t0.8→3.9 (the loop-join frames needed two recut iterations to land on matching standing poses — diff
+the first/last frames before accepting a cut). AWAITING Dan's verdict on the finished video. Session
+spend: ~$16 total (incl. ~$3 clone v2 + demucs pennies + $0.67 stills + $2.40 Veo).
+**LOCKED RECIPE FOR THE 97:** AI-Dan canonical still as reference → 2 start candidates → depth-explicit
+bottom edit → 1 Veo 6s leg → extract clean rep (verify join frames) → loop under `R8_NE3EBC2N` VO
+(script = "Here's how to do the [name]." + cues from `public/exercises.js`, speed 1.0) ≈ $3/exercise.
 
 ### Google Ads offline conversion upload (Phase B) — COMPLETE: feed live, Data Manager connection built, first import runs nightly (2026-08-18/19, Claude Code)
 
