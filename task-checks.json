@@ -2,7 +2,6 @@
   "checked": [
     "assistant::Drain yeti cooler, clean and put away",
     "assistant::Take out trash and replace liners",
-    "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
     "money::Call TWC",
     "money::Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)",
     "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit",
@@ -186,7 +185,6 @@
   "checkedAt": {
     "assistant::Drain yeti cooler, clean and put away": "2026-08-16",
     "assistant::Take out trash and replace liners": "2026-08-16",
-    "money::Execute handoff: Queue Instagram + Facebook content via Blotato": "2026-08-18",
     "money::Call TWC": "2026-08-18",
     "money::Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)": "2026-08-18",
     "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit": "2026-08-18",
