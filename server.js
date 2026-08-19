@@ -377,8 +377,19 @@ app.post('/dash-logout', (req, res) => {
   res.json({ ok: true });
 });
 
+// Express routes case-insensitively and ignores a trailing slash by default, so an
+// exact string match on req.path is NOT the same test the router applied. Found on
+// production 2026-08-19: /DASHBOARD and /dashboard/ both reached the real dashboard,
+// and /api/TODOS and /api/todos/ both returned the live task board, straight past
+// this gate. Normalise the same way the router does before comparing. (Repeated and
+// leading slashes are left alone deliberately — those do NOT match the route either,
+// so they fall through to the SPA, which is already the safe outcome.)
+function dashPath(req) {
+  return (req.path || '').toLowerCase().replace(/\/+$/, '') || '/';
+}
+
 app.use((req, res, next) => {
-  const p = req.path;
+  const p = dashPath(req);
   if (DASH_APIS.includes(p)) {
     return dashAuthed(req) ? next() : res.status(401).json({ error: 'Unauthorized' });
   }
@@ -9862,7 +9873,11 @@ for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about',
 // Explicit route for the morning brief (linked as /morningbrief without .html).
 // Regenerated daily by a scheduled task; file lives in public/ like everything else served here.
 app.get('/morningbrief', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'morningbrief.html'));
+  // Root, NOT public/. While this file sat in public/, express.static served it at
+  // /morningbrief.html — full brief, revenue, sleep, calendar — completely bypassing
+  // the gate on this route. dashboard.html and admin.html live in the root for this
+  // exact reason. Never put an internal page in public/.
+  res.sendFile(path.join(__dirname, 'morningbrief.html'));
 });
 
 // Serve index.html for all non-API, non-dashboard routes (SPA fallback)
