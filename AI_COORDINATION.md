@@ -159,6 +159,17 @@ in each starter prompt), and the model recommendation (Fable/Opus medium for sti
 + gym reference stills and working scripts preserved at `Media/exercise-demos/` (verified gitignored).
 Session AI spend: ~$10.80 total.
 
+**EXECUTION SESSION 1 (2026-08-19 evening, Claude Code): `bw-squat` still pair GENERATED, sent to Dan,
+AWAITING HIS APPROVAL before any video is generated** (the handoff's stills-approved-before-video gate).
+Assets in `Media/exercise-demos/bw-squat/` (gitignored under `Media/`): `start-cand1.jpg` + `start-cand2.jpg`
+(2 candidates, both mechanically correct; **cand2 chosen** — all-black shoes match the canonical trainer,
+centered framing), `bottom-cand1.jpg` (edit of cand2 — thighs parallel, feet flat and planted in place,
+knees tracking over toes, arms forward, scene pixel-consistent), plus the two prompt files. Recipe followed
+exactly: Google-direct `gemini-3-pro-image` runner, `_character/lp-start-1.jpg` as the character/gym
+reference on the start stills, edit-not-regenerate for the bottom frame. Spend this session: **$0.40**
+(3 stills). NEXT: on Dan's approval → two Veo 3.1 `image`+`last_frame` legs (A→B, B→A, 1280x720, ~$4.80),
+ffmpeg concat, frame-by-frame QC, send the finished looping rep.
+
 ### Google Ads offline conversion upload (Phase B) — SHIPPED and LIVE-VERIFIED on production; ONE manual step left for Dan (2026-08-18/19, Claude Code)
 
 Executes `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` steps 0–3. **Phase A is untouched and still
