@@ -146,7 +146,7 @@ sent to Dan). Revised cost math (~$310–430 all-Veo, ~$150–200 with a Kling-s
 override section are at the top of the handoff. Awaiting Dan's verdict on the clip before batch 1.
 Session AI spend: ~$4.80 total.
 
-### Google Ads offline conversion upload (Phase B) — CODE SHIPPED + Ads action CREATED; deploy BLOCKED on a GitHub/Railway outage (2026-08-18, Claude Code)
+### Google Ads offline conversion upload (Phase B) — SHIPPED and LIVE-VERIFIED on production; ONE manual step left for Dan (2026-08-18/19, Claude Code)
 
 Executes `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` steps 0–3. **Phase A is untouched and still
 live.** Steps 4–5 (the Data Manager connection + the production end-to-end run) are written and ready but cannot run
@@ -220,24 +220,54 @@ click 100 days ago, sale 95 days ago) and the browser-fire suppression each prod
 threw no error and the test caught it only because the row was unchanged) — generated `IN ($1,$2,…)` placeholders are
 portable; and the real `users` DDL needs `newDb({ noAstCoverageCheck: true })`.
 
-**BLOCKED, and NOT on our code: `Deployment queued due to upstream GitHub issues`.** Railway's deployments panel
-states this verbatim on both queued commits, while the first has sat at *"Taking a snapshot of the code…"* for 30+
-minutes with empty build logs. Cancelling would not help — a replacement build cannot start either. **Production is
-unaffected**: the prior deploy is ACTIVE, `/health` is 200, and `/api/ads/offline-conversions.csv` correctly returns
-the SPA fallback because the route is not deployed yet. **Poll on the `Google Click ID` header marker, never on the
-status code** — the SPA fallback returns 200 for unknown routes.
+**DEPLOY WAS BLOCKED OVERNIGHT AND IT WAS NOT OUR CODE: `Deployment queued due to upstream GitHub issues`,**
+stated verbatim in Railway's deployments panel while the first build sat at *"Taking a snapshot of the code…"* for
+30+ minutes with empty build logs. Cancelling would not have helped — a replacement build could not start either.
+Production stayed healthy throughout. It cleared on its own; the deploy landed 2026-08-19 09:12 CT. **Poll on the
+`Google Click ID` header marker, never on the status code** — the SPA fallback returns 200 for unknown routes, which
+is exactly what the endpoint returned for the whole outage.
 
-**EXACT NEXT ACTION, once the deploy lands:**
-1. Run the production end-to-end check (script written): seed a throwaway `@example.com` account into the exact
-   post-transition state with a synthetic gclid, confirm the row appears in a preview, is consumed by `?commit=1`,
-   returns zero times afterwards, that prod auth 401s three ways, then delete the account and re-assert the baseline
-   (**17 users, 0 pending, 0 upload stamps** — captured before any change).
-2. Create the Data Manager connection: **Tools → Data manager → Connect product → HTTPS → Conversions → offline →
-   `Membership Paid (offline)`**, URL `https://absbyai.com/api/ads/offline-conversions.csv?commit=1`, username
-   `googleads`, password = `ADS_FEED_SECRET` (Railway; a local 0600 copy is at `~/.absbyai-adsfeed-secret`). Map the
-   five columns, run **one manual import first** and read the results screen — it reports per-row errors, which is
-   the fastest feedback on format problems. **A synthetic gclid will be rejected as an unknown click id, and that
-   still proves the format and the pipe** — treat it as a pass for everything except matching.
+**LIVE-VERIFIED ON PRODUCTION 2026-08-19: 21 assertions, all passed.** A throwaway `@example.com` account was seeded
+into the exact post-transition state (annual plan, click 9 days old, sale 1 hour old, synthetic gclid): the row
+appeared in a preview with the right value, the exact action name, and the `yyyy-MM-dd HH:mm:ss+00:00` time format
+with no ISO leak; **a bare GET did not consume it**; `?commit=1` returned byte-identical output AND stamped it; a
+second `?commit=1` returned it **zero** times; `paid_conversion_pending_at` was preserved and `paid_conversion_fired_at`
+stayed null, so the two channels remain individually measurable; prod auth 401'd with no credentials, a wrong
+password and a wrong username. The account was then deleted and **prod re-asserted at its exact baseline — 17 users,
+0 pending, 0 upload stamps.**
+
+**THE LAST STEP NEEDS DAN'S HANDS, and the reason is a hard tool limitation, not a mistake.** The Data Manager
+"Set up connection" wizard runs in a **cross-origin iframe**. A click lands correctly (verified:
+`document.activeElement` becomes the `IFRAME`), but neither synthetic typing nor `cmd+v` crosses into it, and
+`find` / `read_page` / `javascript_tool` cannot see inside it. OS-level computer-use is not a fallback — browsers are
+granted at tier "read", so typing into Chrome is blocked by design. **Same wall as the App Store Connect Notes field
+(2026-08-12 and 2026-08-17). Do not burn a session re-attempting it.** Everything up to that form is already done:
+HTTPS source selected, `Conversions` selected, `Use HTTPS data to measure offline conversions` selected, and
+**`Membership Paid (offline)` selected from the action picker** — which incidentally re-confirms step 0, since it is
+the ONLY action the offline picker offers.
+
+**A TEST ROW IS DELIBERATELY LEFT PENDING IN PRODUCTION so the first import validates the format.** User id 28,
+`datamgr-verify-…@example.com`, synthetic gclid `TESTgclidDataMgr1787149192476`, $19.99 monthly. Prod therefore reads
+**18 users / 1 pending / 0 uploaded** rather than the 17/0/0 baseline. **Google will reject it as an unknown click
+id, and that still proves the format and the pipe** — treat it as a pass for everything except matching. **Delete
+that account once the first import has been read.**
+
+**EXACT NEXT ACTION — DAN, ~2 minutes.** In Google Ads → Tools → Data manager → Connect product → HTTPS →
+Conversions → offline → `Membership Paid (offline)` → the **Connect to HTTPS** form, type the three values:
+
+| field | value |
+|---|---|
+| URL | `https://absbyai.com/api/ads/offline-conversions.csv?commit=1` |
+| Username | `googleads` |
+| Password | the `ADS_FEED_SECRET` Railway variable — local 0600 copy at `~/.absbyai-adsfeed-secret`, and `cat ~/.absbyai-adsfeed-secret \| pbcopy` puts it on the clipboard |
+
+Then Next → **Select data** → **Map fields** (five columns: Google Click ID, Conversion Name, Conversion Time,
+Conversion Value, Conversion Currency — the wizard maps them, so no byte-exact template is needed) → Review →
+**run one manual import and read the results screen**, which reports per-row errors and is the fastest feedback on
+format problems. **`?commit=1` on that URL is load-bearing** — without it the feed never marks rows uploaded and
+re-sends them daily (harmless under Count: One, but the measurement in step 7 stops working).
+
+Afterwards: delete the seeded test account (user id 28) and re-assert **17 users / 0 pending / 0 uploaded**.
 
 **OPEN — DAN'S CALL (handoff step 6), and creating the action made it live rather than theoretical.** `Purchase` is
 now an account-default goal, so **`Membership Paid (offline)` and `Subscribe` are both Primary and both in
@@ -258,8 +288,13 @@ rejected row, not corrupted data**, and the fix is a type column captured at the
 JSON payload. No UI, layout, input or purchase surface. **Session AI spend: $0.00** (no generation calls).
 
 **Dashboard:** `money::Execute handoff: Google Ads offline conversion upload (Phase B)` deliberately left
-**UNCHECKED** — per Rule 9's completion bar the work is neither deployed nor live-verified, and the handoff's own
-step 7 asks for a measured recovery rate that cannot exist until real conversions flow.
+**UNCHECKED** — the code is deployed and live-verified, but the Data Manager connection is not created, step 6 is an
+open Dan decision, and the handoff's own step 7 asks for a measured recovery rate that cannot exist until real
+conversions flow. Per Rule 9 that is reported, not checked off early.
+
+**WATCH once the connection is live:** in the server logs, `PAID_CONVERSION_UPLOADED` (the feed reported a sale) vs
+`PAID_CONVERSION_FIRED` (the browser reported one). That ratio is the measured recovery rate — the number that
+justifies or kills the full API build (B2), and it is why the two stamps are separate columns.
 
 ### HANDOFF WRITTEN 2026-08-18: `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` — Phase B offline conversion upload
 
