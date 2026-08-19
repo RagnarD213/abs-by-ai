@@ -119,6 +119,24 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### HANDOFF WRITTEN 2026-08-19: `Handoffs/handoff-20260819-exercise-demo-videos.md` — replace stick figures with AI exercise demo videos (Claude Code)
+
+Research + proof-of-concept session, **no production code changed, ~$1.60 AI spend.** Dan wants the 97 SVG
+stick figures in the AI Trainer replaced with photorealistic AI videos of HIMSELF in an "ABS BY AI" tank
+top demonstrating each exercise. **Proven live, first try:** (1) `gemini-3-pro-image` via the Google-direct
+runner produced a full-body AI-Dan in the tank top in a consistent gym from two pool-shoot reference photos
+($0.134 — Replicate's nano-banana-pro was E003 rate-limited for 5 straight retries; the direct runner is
+the reliable door); (2) Kling v3 i2v animated it into squats (identity + shirt text held; depth shallow —
+the pure-generative weakness); (3) **`wan-video/wan-2.2-animate-replace` motion transfer swapped AI-Dan
+into his REAL jump-rope footage — correct form by construction. This is the recommended engine for all
+form-critical moves,** with `kwaivgi/kling-v2.6-motion-control` (~$0.07/s std, re-renders a uniform gym
+from the character image) as the library-consistency variant. Full plan, traps (Wan resolution enum is
+`"720"` not `"720p"`; Wan needs an audio stream on the driving video; most of `Media/B roll/` is YouTube
+screen recordings, NOT usable driving footage; the jump-rope filenames contain a non-breaking space),
+budget (~$85–110 staged), QC gate, and 4 open Dan decisions (film reference clips? budget? AI label? VO in
+his cloned voice R8_OIYNERQ3?) are in the handoff. Rule-8 Key task added and verified persisted
+(`money::Execute handoff: Replace stick figures with AI exercise demo videos`, business 32 → 33).
+
 ### Google Ads offline conversion upload (Phase B) — CODE SHIPPED + Ads action CREATED; deploy BLOCKED on a GitHub/Railway outage (2026-08-18, Claude Code)
 
 Executes `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` steps 0–3. **Phase A is untouched and still
