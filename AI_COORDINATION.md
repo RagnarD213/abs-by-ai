@@ -219,8 +219,20 @@ handoff is WRONG: that id was cloned from the Veo ad character's audio, not Dan.
   REAL logo `logos/03-symbol-left-text.png` on a white panel) with a prompt demanding high-fidelity face
   reproduction + the exact logo printed in white on the black tank. All three hold likeness + legible
   logo. The dedicated face-crop panel is the accuracy fix for the drift Dan saw in `char-tank-gym.jpg`.
-Session spend now ~$11.60 total. AWAITING Dan: pick a character still + voice verdict → then regenerate
-bw-squat with AI-Dan (2 stills + 1 Veo leg ≈ $2.70 under the single-leg finding) and his voice.
+Session spend now ~$11.60 total.
+
+**Dan's verdicts on the above: character = candidate 1 APPROVED** (now the canonical reference at
+`Media/exercise-demos/_character/ai-dan-canonical.jpg` — all 97 exercises anchor on it). **Voice clone
+v1 REJECTED** ("doesn't sound like me — faster and higher-pitched than I talk"); he directed recloning
+from the V4 + V6 finished workout videos in `YouTube Long Form Video Content/`, slower and lower.
+**Trap + fix worth keeping: the READY-FOR-UPLOAD videos carry a CONTINUOUS MUSIC BED** (silencedetect
+at -35dB found ONE true gap in all 8:14 of V4) — cloning from them raw would bake music into the model.
+**Fix: demucs vocal isolation on Replicate (`ryan5453/demucs`, `stem:'vocals'`) first** — the isolated
+stems show real inter-sentence silences (4 in 22s vs 0 raw), proof the bed is gone, ~2 min per clip and
+pennies. **Voice clone v2 = `R8_NE3EBC2N`** (id in `bw-squat/dan-real-voice-id-v2.txt`), trained on 44s
+of demucs-cleaned V4+V6 intro narration, TTS at speed 1.0 (down from 1.1). 19.3s sample sent to Dan —
+AWAITING his ear. If still too high-pitched, `minimax/speech-02-hd` has a `pitch` dial to try before
+another reclone. Then: regenerate bw-squat with AI-Dan (~$2.70) + the approved voice.
 
 ### Google Ads offline conversion upload (Phase B) — COMPLETE: feed live, Data Manager connection built, first import runs nightly (2026-08-18/19, Claude Code)
 
