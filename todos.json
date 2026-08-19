@@ -130,6 +130,54 @@
       "priority": "key",
       "why": "handoff-20260818-ad-outlines-batch4-and-20-ideas.md — created but not yet run",
       "addedAt": "2026-08-18"
+    },
+    {
+      "text": "Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
+      "priority": "key",
+      "why": "2026-08-19 planning — fresh video, also explore automating Demand Gen engagement campaigns via Claude",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Catch TikTok up to the posting schedule (manual backfill)",
+      "priority": "high",
+      "why": "2026-08-19 planning — TikTok behind other platforms; post manually, do NOT connect Blotato before ~Sept 2 warm-up",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Investigate last month's spending ($24k on dashboard vs $10–15k target — verify accuracy first)",
+      "priority": "high",
+      "why": "2026-08-19 planning — number may be wrong (credit card bills don't match); audit Monarch data + dashboard source",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Write scripts for the next shoot (≥half workout content)",
+      "priority": "key",
+      "why": "2026-08-19 planning — Dan in peak shape with tan; prioritize workout content this shoot",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Write workout outlines for the next shoot",
+      "priority": "key",
+      "why": "2026-08-19 planning — feeds the shoot scripts; workout-content-heavy shoot",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Plan the next photo shoot",
+      "priority": "med",
+      "why": "2026-08-19 planning",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Create beta tester account for Ty String (Aces coach)",
+      "priority": "high",
+      "why": "2026-08-19 planning — comp grant via admin/DB; needs his email from Dan",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Build AI animations for the workout program exercises",
+      "priority": "med",
+      "why": "2026-08-19 planning — Dan ranks this ABOVE the program redo; both after the shoot",
+      "addedAt": "2026-08-19"
     }
   ],
   "health": [
@@ -186,6 +234,12 @@
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-07"
+    },
+    {
+      "text": "Generate new life-visualization desktop backgrounds",
+      "priority": "med",
+      "why": "2026-08-19 planning — a couple of current ones aren't ideal",
+      "addedAt": "2026-08-19"
     }
   ],
   "assistant": [
