@@ -374,6 +374,13 @@
       "recurring": false,
       "addedAt": "2026-08-19",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Empty/load dishwasher",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-08-19",
+      "addedBy": "assistant"
     }
   ]
 }
