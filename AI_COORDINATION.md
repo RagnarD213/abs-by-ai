@@ -151,7 +151,13 @@ gemini-3-pro-image (start pose, then EDIT it into the bottom-of-rep pose so the 
 then Veo 3.1 `image` + `last_frame` interpolation.** Feet stayed planted, sled rode the rails. Also
 settled: Veo invents a different voice per clip, so the library voice must be a post-overlay narrator
 (MiniMax), not native Veo dialogue. ~$5–7/exercise → ~$500–700 for all 97. Full recipe + costs in the
-handoff's item 5–7. Session AI spend: ~$10.80 total.
+handoff's item 5–7. **THIRD UPDATE — Dan APPROVED the v3 keyframe-locked clip ("exactly what we need")
+and green-lit producing ALL 97 exercises in this style.** The handoff now carries a final, authoritative
+"EXECUTION PLAN" section: per-exercise recipe, stills-approved-before-video gate, batch order starting
+with a single `bw-squat` first-look session, costs (~$5–7/exercise, ~$500–700 total, session budget stated
+in each starter prompt), and the model recommendation (Fable/Opus medium for still/QC judgment). Character
++ gym reference stills and working scripts preserved at `Media/exercise-demos/` (verified gitignored).
+Session AI spend: ~$10.80 total.
 
 ### Google Ads offline conversion upload (Phase B) — SHIPPED and LIVE-VERIFIED on production; ONE manual step left for Dan (2026-08-18/19, Claude Code)
 
