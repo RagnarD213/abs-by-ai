@@ -9,7 +9,16 @@ description: Brainstorm and rank what Dan should work on next — "what should I
 
 **This session's deliverable is the recommendation, not the work.** Do NOT start executing anything recommended — no browser driving, no code edits, no content drafting, no handoff execution. Dan deliberately runs execution in separate sessions to save tokens and keep each execution session's context clean. This is the standing exception to the bias-toward-action rule (CLAUDE.md, 2026-08-11). Reading and light verification (a curl, a grep, a status check) to *ground* the recommendation is fine and encouraged; producing the deliverable of a recommended task is not.
 
-The only writes allowed in this session: updating this skill, memory, or the coordination/task boards if Dan asks.
+The only writes allowed in this session: updating this skill, memory, or the coordination/task boards if Dan asks — plus the dashboard intake rule below, which is a standing ask.
+
+## Dashboard intake (Dan's instruction, 2026-08-19)
+
+**Any task Dan mentions in a /prioritize conversation that is not already on the dashboard gets ADDED to the dashboard by Claude in that session, with the priority Claude judges best.** This is now the PRIMARY way tasks enter the dashboard — Dan prefers surfacing tasks in these morning conversations over typing them into the board himself. Mechanics:
+
+- Fetch `GET /api/todos` fresh, append the new tasks (never drop or rewrite existing ones), `POST /api/todos` the whole object back, and re-read to verify the adds persisted. Include `addedAt` (today) and a short `why` capturing the context Dan gave.
+- Pick the list (`business`/`health`/`personal`) and priority yourself; say what you chose so Dan can override. Do not put Dan's own work in `assistant`.
+- Dedupe against existing tasks by meaning, not exact text — if a task already covers it, say so instead of adding a duplicate.
+- Same-day appointments (doctor, calls) are calendar items, not dashboard tasks — mention them in the plan but only add them if they carry follow-up work.
 
 ## What to read before recommending (all cheap, do in parallel)
 
