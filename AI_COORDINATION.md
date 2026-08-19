@@ -1137,6 +1137,38 @@ Executes `Handoffs/handoff-20260811-youtube-channel-setup-finish.md`. **No produ
 
 **No native retest trigger row touched** — YouTube Studio and content metadata only; no product surface, no server, no client. Full record, including five newly-found Studio automation traps (zero-size rects on the time dropdown, the 45s CDP timeout on tag entry, and screenshot-timeouts on a tab whose JS still responds), is in `YouTube Long Form Video Content/SHORTS_UPLOAD_PROGRESS.md`. **Dashboard: `money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)` CHECKED OFF** (Rule 9) and verified present in the `checked` array.
 
+### /longform-edit — J2 GRAPHICS SHIPPED on the 8/3 video (2026-08-13, Claude Code)
+
+`roughcuts/SPLITSCREEN_v3_graphics.mp4` — 1920×1080, 228.6s, −14.6 LUFS, 186 MB. **$0.00 spend.**
+Builders preserved beside it as `build_gfx.py` (assets) and `composite.py` (overlay pass).
+
+**Constants lifted VERBATIM from `.claude/skills/shorts/reference/band/assets.py` — the J2 system was not
+re-invented:** `BG=(13,14,11)`, `OLIVE=(140,152,88)`, Impact for headlines, Copperplate for letter-spaced
+eyebrows, the `spaced()` tracking helper copied as-is. **8 lower-third chips** (olive-bordered square-cornered
+box, white Impact headline, olive eyebrow) marking the six steps plus a **`PER SERVING / 683 CALORIES` callout
+timed to the word** (render t=176.0–182.4; he says it at 176.6), each with a 0.35s alpha fade in/out, plus a
+persistent `AbsByAI.com` watermark for rip protection.
+
+**Dan's standing rule "No static intro title cards" was honoured** — the video opens on his face, and the
+branding is a lower-third chip at t=2.0 instead of a full-screen card.
+
+**TWO REAL DEFECTS CAUGHT BY PREVIEWING A CHIP ON A REAL FRAME BEFORE RENDERING — do this every time:**
+1. **Copperplate is a SMALL-CAPS face, so `AbsByAI.com` rendered as `ABSBYAI.COM`** — a direct violation of the
+   J2 rule *"camel case … Never all-caps."* **Fix: the watermark uses Manrope** (the brand font, installed at
+   `~/Library/Fonts/Manrope.ttf`), which renders true camel case, with a 2px shadow for legibility.
+   **Copperplate remains correct for eyebrows, which ARE all-caps by design — the bug is only lowercase text.**
+2. **The olive eyebrow was illegible over bright footage.** In the shorts reference it sits on the dark J2
+   background; over granite and glass bowls it disappeared. **Fix: each eyebrow now gets its own `BG@225` dark
+   bar**, consistent with the tactical look.
+
+**QC method that matters here: sample frames mid-chip AND between chips.** Verified all 8 chips render with
+eyebrow + headline, the watermark is on every frame, and chips correctly **clear** at t=155 and t=220 (proving
+the `enable=between()` windows close). Duration and loudness are unchanged from v2, confirming the overlay pass
+did not disturb the cut or the audio (`-c:a copy`).
+
+**Graphics are a single overlay pass over the finished cut at CRF 18**, not baked per-segment — chips span beat
+boundaries, so per-segment baking would fragment them. One extra encode generation, deliberately accepted.
+
 ### /longform-edit — COLOR GRADE SHIPPED on the 8/3 video (2026-08-13, Claude Code)
 
 `roughcuts/SPLITSCREEN_v2_graded.mp4` — 1920×1080, 228.6s, −14.6 LUFS, 163 MB. **$0.00 spend.**
