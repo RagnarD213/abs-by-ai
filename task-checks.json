@@ -8,7 +8,8 @@
     "assistant::Get iPad repaired at Apple Store Monday",
     "assistant::Have Dan approve an order for a broom, dustpan and duster",
     "assistant::Empty/load dishwasher",
-    "assistant::Clean both bathroom toilets"
+    "assistant::Clean both bathroom toilets",
+    "money::Create beta tester account for Ty String (Aces coach)"
   ],
   "log": {
     "health::Shower": [
@@ -189,6 +190,7 @@
     "assistant::Get iPad repaired at Apple Store Monday": "2026-08-18",
     "assistant::Have Dan approve an order for a broom, dustpan and duster": "2026-08-18",
     "assistant::Empty/load dishwasher": "2026-08-18",
-    "assistant::Clean both bathroom toilets": "2026-08-18"
+    "assistant::Clean both bathroom toilets": "2026-08-18",
+    "money::Create beta tester account for Ty String (Aces coach)": "2026-08-19"
   }
 }
