@@ -11,7 +11,8 @@
     "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit",
     "assistant::Take out trash",
     "assistant::Get iPad repaired at Apple Store Monday",
-    "assistant::Have Dan approve an order for a broom, dustpan and duster"
+    "assistant::Have Dan approve an order for a broom, dustpan and duster",
+    "assistant::Empty/load dishwasher"
   ],
   "log": {
     "health::Shower": [
@@ -195,6 +196,7 @@
     "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit": "2026-08-18",
     "assistant::Take out trash": "2026-08-18",
     "assistant::Get iPad repaired at Apple Store Monday": "2026-08-18",
-    "assistant::Have Dan approve an order for a broom, dustpan and duster": "2026-08-18"
+    "assistant::Have Dan approve an order for a broom, dustpan and duster": "2026-08-18",
+    "assistant::Empty/load dishwasher": "2026-08-18"
   }
 }
