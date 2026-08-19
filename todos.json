@@ -190,6 +190,12 @@
       "priority": "key",
       "why": "handoff-20260819-exercise-demo-videos.md — created but not yet run",
       "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Decide the video-editing stack: Upwork trial results vs /longform-edit pipeline vs Grokbot (evaluate/sign up)",
+      "priority": "high",
+      "why": "2026-08-19 planning — one decision Thursday when Upwork trials return; don't advance three editing bets in parallel. 'Grokbot' from voice — confirm product name",
+      "addedAt": "2026-08-19"
     }
   ],
   "health": [
