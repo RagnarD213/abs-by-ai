@@ -187,8 +187,22 @@ clean rep (cheaper — one leg instead of two), or match `duration` to the move'
 ascent leg is unnecessary for moves whose single leg already contains the full cycle.
 
 Session spend: **$7.60** (3 stills $0.40 + 3 Veo legs $7.20, incl. one rejected ascent retry). Rejected
-takes kept on disk (`leg-up-REJECT-bounce.mp4`, `leg-up.mp4`). NEXT: Dan's verdict on the finished loop →
-then batch 2 (rest of bodyweight `none` tier, 38 moves) in a fresh session with a stated budget.
+takes kept on disk (`leg-up-REJECT-bounce.mp4`, `leg-up.mp4`).
+
+**Dan approved the reps and asked for a NARRATED version — DELIVERED same session:
+`bw-squat-rep-narrated.mp4` (22.0s = 7 loops of the rep stretched 5% to 3.15s each, VO with 0.4s
+lead-in).** VO = MiniMax `speech-02-hd` with **Dan's cloned voice `R8_OIYNERQ3`** (the handoff left
+clone-vs-stock open; clone taken as the default — one regenerate swaps it), speed 1.05, ~21.2s script
+covering his four cues (toes about parallel, ~90°, chest up/back flat, don't bend forward) + drive up
+through mid-foot. **The clone reads slow: the first 4-line take came out 24s; trimming one line + speed
+1.05 landed 21s — budget ~30% over word-count estimates for this voice.** Two ffmpeg traps on this Mac's
+static 6.0 build: `apad`+`-shortest`+filter_complex HANGS, and `apad=whole_dur` SEGFAULTS — build the
+looped video first, then mux with plain `adelay`, no apad. VO cost pennies.
+**Flagged to Dan, pending his word:** his "toes parallel" cue contradicts the library copy's "toes
+slightly out" (`public/exercises.js` bw-squat setup) — the VO follows Dan; if he confirms parallel, the
+library text should be edited to match so app copy and narration agree.
+NEXT: Dan's verdict on the narrated video → then batch 2 (rest of bodyweight `none` tier, 38 moves) in a
+fresh session with a stated budget; narration per exercise is now a proven ~$0.01 add-on.
 
 ### Google Ads offline conversion upload (Phase B) — COMPLETE: feed live, Data Manager connection built, first import runs nightly (2026-08-18/19, Claude Code)
 
