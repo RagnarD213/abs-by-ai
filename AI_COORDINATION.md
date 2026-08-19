@@ -1106,6 +1106,51 @@ Executes `Handoffs/handoff-20260811-youtube-channel-setup-finish.md`. **No produ
 
 **No native retest trigger row touched** — YouTube Studio and content metadata only; no product surface, no server, no client. Full record, including five newly-found Studio automation traps (zero-size rects on the time dropdown, the 45s CDP timeout on tag entry, and screenshot-timeouts on a tab whose JS still responds), is in `YouTube Long Form Video Content/SHORTS_UPLOAD_PROGRESS.md`. **Dashboard: `money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)` CHECKED OFF** (Rule 9) and verified present in the `checked` array.
 
+### /longform-edit — SPLIT-SCREEN v1 BUILT on the 8/3 meal-prep video (2026-08-13, Claude Code)
+
+Dan approved rough cut **A** ("A looks fine") — Phase 1's gate is passed. He then supplied two iPhone screen
+recordings and asked which matched; the edit is now assembled. **No production code touched, $0.00 AI spend.**
+
+**SCREEN RECORDING: use `screen_capture_TAKE2.MP4` (from `ScreenRecording_08-03-2026 17-19-29_1.MP4`), NOT the
+17-13-16 one.** Dan's hunch was right and the evidence is unambiguous: take 2 shows **683 cal**, matching his
+narration verbatim; take 1 shows **711 cal**. Take 1's dictated note came out garbled ("Seven salads in total 80%
+of chickens, consumed"), which fed the AI different context and produced the wrong number — that is why he redid
+it. Take 2 also matches both clarifying questions **and the answers he speaks** ("Just a few olives per salad",
+"Yes, full bag"), and ends with the **"Didn't finish?"** control he references in his last line. Take 1 instead
+resets to an empty form. Copied into the shoot folder (gitignored, verified).
+
+**LAYOUT DECISION — SPLIT SCREEN, not picture-in-picture.** The screen recording is 1320×2868 (vertical); the video
+is 1920×1080. **Scaled to full frame height a phone screen is only ~500px = 26% of the width**, so it can never fill
+a horizontal frame — something must occupy the other 74%. Three mockups were built from real frames and Dan chose
+**A: phone left at native size, Dan cropped to fill the right.** Nothing is upscaled: screen `crop=1320:2500:0:175`
+(removes the iOS status bar AND the Safari address bar, so it reads as an app not a website) → `scale=570:1080`;
+camera `crop=1350:1080:375:0`, which keeps him centered because he is framed center-right. 570+1350 = 1920 exactly.
+True PiP and a phone-zoom variant were both built and rejected — PiP shrinks Dan to a box and wastes 40% on blur.
+
+**Built:** `roughcuts/SPLITSCREEN_v1.mp4` — 1920×1080, **228.6s (3:48.6), −14.6 LUFS**, 139 MB. The INTRO beat stays
+**full-frame camera** (no app is on screen yet); beats 2–20 are split. Each beat pulls its **own window** from the
+screen recording rather than one continuous offset — Dan narrates at a different pace than he tapped, so a single
+offset drifts badly. Per-beat windows jump-cut between actions, which reads as normal tutorial editing.
+
+**Two sync misses were found by QC and fixed — worth keeping as the method.** Spot-checking frames against what he
+is *saying* at that instant caught (1) the itemized-results beat showing the top of the list while he says **"683
+total calories per salad"** — screen start moved 205 → **214.5** so the 683 total is on screen on the word; and (2)
+the clarifying-questions beat, where the answer taps landed ~22s after he narrated them — screen start moved
+168 → **183** so "Nope, just a few olives per salad" coincides with that option highlighting. **Frame-vs-narration
+spot checks are the QC that matters here; duration and loudness assertions cannot catch a sync error.**
+
+**A blooper to avoid on any re-cut: at screen ~248s an iOS "Undo Typing" dialog appears** (accidental shake-to-undo).
+The accuracy beat deliberately pulls from 255s to sit past it.
+
+**NEXT:** color correction. Measured on a real frame — the footage is **not** washed out from flatness (saturation
+0.311 is normal); it carries a **warm cast, R/B ratio 1.39**, from tungsten kitchen light on travertine. A
+conservative `colorbalance` pull took it to 1.22 with skin tone intact; Phase 2's color-grade-ai should generate a
+proper LUT and apply it per segment during extraction. Then graphics (J2), captions, QC, and Dan's revision round.
+
+**PRODUCTION NOTE FOR FUTURE SHOOTS: this shoot was recorded 1920×1080, not 4K.** There is therefore **no resolution
+headroom for punch-ins or reframing** — any crop softens. Shooting 4K would give the edit three usable framings from
+one locked wide at no cost. Flagged to Dan.
+
 ### /longform-edit PHASE 1 (rough-cut bake-off) — COMPLETE, VERDICT BELOW (2026-08-13, Claude Code)
 
 Executes Phase 1 of `Handoffs/handoff-20260813-longform-edit-pipeline.md`. **No production code touched; no AI spend ($0.00 — everything used was free/local).** Phases 2–4 remain.
