@@ -5393,6 +5393,19 @@ function adsFeedAuthorized(req) {
 // .csv. `-commit.csv` records the upload stamp; the plain `.csv` path does not.
 // Both return the same rows.
 app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commit.csv'], async (req, res) => {
+  // Every hit is logged. Google's Data Manager gives no visibility into what its
+  // fetcher actually sent or saw, so when a connection will not validate this is
+  // the only way to tell "Google never reached us" from "Google reached us and
+  // disliked the response".
+  console.log('ADS_FEED_HIT', JSON.stringify({
+    path: req.path,
+    method: req.method,
+    auth: /^Basic /i.test(String(req.headers.authorization || '')) ? 'basic' : (req.headers.authorization ? 'other' : 'none'),
+    ua: String(req.headers['user-agent'] || '').slice(0, 120),
+    ip: String(req.headers['x-forwarded-for'] || '').split(',')[0].trim(),
+    range: req.headers.range || null,
+    accept: String(req.headers.accept || '').slice(0, 80),
+  }));
   if (!ADS_FEED_SECRET) return res.status(503).send('Feed not configured');
   if (!adsFeedAuthorized(req)) {
     res.set('WWW-Authenticate', 'Basic realm="ads-feed"');
