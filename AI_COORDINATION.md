@@ -1118,6 +1118,42 @@ Executes `Handoffs/handoff-20260811-youtube-channel-setup-finish.md`. **No produ
 
 **No native retest trigger row touched** — YouTube Studio and content metadata only; no product surface, no server, no client. Full record, including five newly-found Studio automation traps (zero-size rects on the time dropdown, the 45s CDP timeout on tag entry, and screenshot-timeouts on a tab whose JS still responds), is in `YouTube Long Form Video Content/SHORTS_UPLOAD_PROGRESS.md`. **Dashboard: `money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)` CHECKED OFF** (Rule 9) and verified present in the `checked` array.
 
+### /longform-edit — COLOR GRADE SHIPPED on the 8/3 video (2026-08-13, Claude Code)
+
+`roughcuts/SPLITSCREEN_v2_graded.mp4` — 1920×1080, 228.6s, −14.6 LUFS, 163 MB. **$0.00 spend.**
+
+**MY FIRST DIAGNOSIS WAS WRONG AND THE CORRECTION IS THE REUSABLE LESSON.** I told Dan the footage had a
+**warm cast (R/B 1.39)** and proposed a white-balance pull. That number came from a **naive whole-frame channel
+average**, which reads a genuinely warm *scene* — wood cabinets, travertine, terracotta — as a *cast*.
+`color-grade-ai`'s Shades-of-Gray estimator (Finlayson & Trezzi, Minkowski p=6) puts **WB deviation at just
+0.015**, i.e. essentially neutral. Checked against the best in-frame neutral reference (the stainless
+microwave): **R/B 1.14–1.20**, not 1.39. **Never diagnose white balance from a whole-frame channel mean — use a
+robust estimator, and sanity-check against a known-neutral object.**
+
+**What is actually wrong is CONTRAST, not colour, and it is consistent across all 8 frames sampled spanning the
+video: black point median 0.060 (milky/lifted) and median luminance 0.388 (dark, wants ~0.45).** Lifted blacks
+plus dark mids is exactly what reads as "washed out" — which is the word Dan used.
+
+**The grade (applied per-segment during extraction, never post-concat):**
+`colorchannelmixer=rr=0.984:gg=1.000:bb=1.017,curves=all='0/0 0.050/0.004 0.25/0.27 0.50/0.565 0.80/0.855 1/1'`
+
+**Validated closed-loop by re-running the analyser on the graded frames** (the "adjust one thing, look again"
+method): black point **0.060 → 0.009**, median luminance lifted toward target on every frame, WB deviation
+improved on every frame, **milky blacks YES → NO**, and — the thing grades usually ruin — **skin hue moved
+TOWARD the 20° target** (19.5→20.6, 19.6→19.9, 18.8→19.4), saturation left alone.
+
+**THE TRAP THAT MATTERS FOR ANY SPLIT-SCREEN GRADE: grade the CAMERA SIDE ONLY.** The screen recording is a
+digital capture and is already neutral (**R/B 0.958**); running a warm-correction over it tints the app UI blue
+and misrepresents the product. Verified in the output: screen half **0.953 → 0.951** (untouched) while the
+camera half moved 1.176 → 1.161 and its black point went 14.0 → 0.7.
+
+**`color-grade-ai` INSTALL NOTE, contradicting the handoff's stated prerequisites:** its analysis path
+(`auto_grade.py` → `footage_type.py`, `grade_metrics.py`) needs **only numpy and runs fine on the system Python
+3.9**. **Ruby 2.7+ is NOT required** for it (this Mac has 2.6.10), and PyYAML is not needed either — those are
+for the `.rb` LUT bakers and the Resolve preset exporters, which we do not use because we apply the grade as an
+ffmpeg filter chain in our own render. Cloned at `/tmp/sc/color-grade-ai`; re-clone from GitHub when Phase 3
+formalises it.
+
 ### /longform-edit — SPLIT-SCREEN v1 BUILT on the 8/3 meal-prep video (2026-08-13, Claude Code)
 
 Dan approved rough cut **A** ("A looks fine") — Phase 1's gate is passed. He then supplied two iPhone screen
