@@ -1137,6 +1137,38 @@ Executes `Handoffs/handoff-20260811-youtube-channel-setup-finish.md`. **No produ
 
 **No native retest trigger row touched** — YouTube Studio and content metadata only; no product surface, no server, no client. Full record, including five newly-found Studio automation traps (zero-size rects on the time dropdown, the 45s CDP timeout on tag entry, and screenshot-timeouts on a tab whose JS still responds), is in `YouTube Long Form Video Content/SHORTS_UPLOAD_PROGRESS.md`. **Dashboard: `money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)` CHECKED OFF** (Rule 9) and verified present in the `checked` array.
 
+### /longform-edit — SUBTITLES SHIPPED; the 8/3 video is PRODUCTION-COMPLETE (2026-08-13, Claude Code)
+
+`roughcuts/SPLITSCREEN_v3_graphics.srt` — **82 cues, 6.7 KB**, generator preserved as `make_srt.py`. **$0.00.**
+
+**Dan's call, and it is the right default for longform: NOT burned in.** This is a desktop/TV YouTube tutorial,
+not a phone-scroll Short, and burned captions would fight the app UI occupying the left 570px. The SRT uploads
+to YouTube (Subtitles → Add → Upload file → **With timing**) so viewers toggle them and nothing covers the
+screen recording. **The `/shorts` burned-ASS caption spec deliberately does NOT apply to longform.**
+
+**THE LOAD-BEARING POINT: subtitles must be timed to the FINAL EDIT, not the source.** Source word timestamps
+are meaningless after cutting — 114 of the 882 words (the three retakes, the "Rolling" slate, the dead air) no
+longer exist, and every surviving word has shifted. `make_srt.py` maps each word through the EDL
+(`render_t = beat_offset + (word_t - beat_start)`), **accumulating offsets from the same 3-dp-rounded durations
+the build used** so it cannot drift, and drops any word that falls outside a kept beat. 768 words survive.
+
+**Validated the same closed-loop way the sync errors were caught: transcribe the FINISHED video and compare the
+SRT against its own audio. 82 of 82 cues aligned (100%) at ≥60% word overlap, zero misaligned.** Independently
+confirmed the "683" cue lands at 2:56.6–3:02.5, matching the on-screen `683 CALORIES` chip at 2:56.0. **Never
+validate a subtitle file against the source transcript — that only proves the mapping matches itself.**
+
+**One defect caught and fixed:** the final cue ended at 228.32s while the last audible word runs to 228.7s
+(the sum of rounded beat durations is fractionally short of the real container duration), clipping the closing
+line. Final cue extended to 00:03:48,640.
+
+Formatting: max 2 lines, max 45 chars/line (median 38), breaks on measured pauses ≥0.45s, sentence ends, or
+5.5s, minimum 0.5s per cue, no overlaps.
+
+**STATUS: the 8/3 meal-prep video is production-complete** — rough cut → split screen → colour → J2 graphics →
+subtitles. Remaining before publish is Dan's revision round (Phase 4's real acceptance test) and YouTube
+packaging (title/description/thumbnail via `/youtube-packaging`). **The segment-cache gap found in Phase 1 is
+still unfixed, so each revision currently costs a full re-render — fix that before the revision round.**
+
 ### /longform-edit — J2 GRAPHICS SHIPPED on the 8/3 video (2026-08-13, Claude Code)
 
 `roughcuts/SPLITSCREEN_v3_graphics.mp4` — 1920×1080, 228.6s, −14.6 LUFS, 186 MB. **$0.00 spend.**
