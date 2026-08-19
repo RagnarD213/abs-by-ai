@@ -196,6 +196,12 @@
       "priority": "high",
       "why": "2026-08-19 planning — one decision Thursday when Upwork trials return; don't advance three editing bets in parallel. 'Grokbot' from voice — confirm product name",
       "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline",
+      "priority": "key",
+      "why": "2026-08-19 planning — Romeysa backed out; editing is now the constraint on the content engine",
+      "addedAt": "2026-08-19"
     }
   ],
   "health": [
