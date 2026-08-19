@@ -202,6 +202,12 @@
       "priority": "key",
       "why": "2026-08-19 planning — Romeysa backed out; editing is now the constraint on the content engine",
       "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Execute handoff: Exercise demo videos batch 1 (3-exercise review set)",
+      "priority": "key",
+      "why": "handoff-20260819-exercise-demo-batch1.md — created but not yet run",
+      "addedAt": "2026-08-19"
     }
   ],
   "health": [
