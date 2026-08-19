@@ -1,16 +1,15 @@
 {
-  "date": "2026-08-18",
-  "order": [],
-  "excluded": [
-    "money::Post on Facebook",
+  "date": "2026-08-19",
+  "order": [
     "money::Post on Instagram",
     "money::Post on TikTok",
     "money::Post on YouTube",
-    "money::Call TWC",
-    "money::Execute handoff: Queue Instagram + Facebook content via Blotato",
     "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
     "money::Execute handoff: Let users purchase before creating an account (iOS)",
     "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)"
+  ],
+  "excluded": [
+    "money::Post on Facebook"
   ],
   "sessionsCompleted": 0
 }
