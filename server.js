@@ -1222,7 +1222,13 @@ app.get('/assistant', (req, res) => {
 
 app.get('/api/assistant-tasks', async (req, res) => {
   const [todos, checks] = await Promise.all([loadTodos(), loadTaskChecks()]);
-  res.json({ tasks: todos.assistant || [], checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt });
+  // This endpoint is public (her page has no login) and was returning the ENTIRE
+  // check store — every completed money/health/personal task, whose id IS its text.
+  // Found on production 2026-08-19 right after the gate shipped: scoping
+  // /api/task-checks closed the front door and left this sibling wide open. Any
+  // endpoint that touches the shared check store needs the same treatment.
+  const tc = { checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt };
+  res.json({ tasks: todos.assistant || [], ...(dashAuthed(req) ? tc : scopeTasksForAssistant({ task_checks: tc }).task_checks) });
 });
 
 app.post('/api/assistant-tasks', async (req, res) => { await withTaskDataLock(async () => {
@@ -1749,7 +1755,10 @@ app.post('/api/task-checks', async (req, res) => { await withTaskDataLock(async 
         try { sha = (await putRes.json())?.content?.sha || null; } catch (_) { /* body already consumed or not JSON */ }
         checksCache = { checked: nextChecked, log, checkedAt, sha, fetchedAt: Date.now(), trustUntil: Date.now() + CACHE_TRUST_MS };
         broadcastTaskState({ task_checks: { checked: nextChecked, log, checkedAt } });
-        return res.json({ ok: true, checked: nextChecked, log, checkedAt });
+        // Same trap as the GET above: an anonymous `assistant::` toggle is allowed,
+        // but its RESPONSE must not hand back Dan's whole board.
+        const reply = { checked: nextChecked, log, checkedAt };
+        return res.json({ ok: true, ...(dashAuthed(req) ? reply : scopeTasksForAssistant({ task_checks: reply }).task_checks) });
       }
       if (putRes.status === 409 || putRes.status === 422) continue; // sha race — reload & retry
       const txt = await putRes.text().catch(() => '');
