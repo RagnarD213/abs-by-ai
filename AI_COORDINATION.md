@@ -206,8 +206,21 @@ he REJECTED his own cloned voice for the library ("put-you-to-sleep", not a trai
 narrator is now the stock MiniMax `English_ManWithDeepVoice` at speed 1.1** (energetic/deep; reads ~25%
 faster than the clone, 17.1s for the same script + intro). And every demo VO must OPEN with
 **"Here's how to do the [exercise name]."** before the technique cues — bake both into the batch runner.
-NEXT: Dan's verdict on v2 → then batch 2 (rest of bodyweight `none` tier, 38 moves) in a fresh session
-with a stated budget; narration per exercise is a proven ~$0.01 add-on.
+**DIRECTION CHANGE (same evening, Dan): the trainer character must be AI-DAN (his likeness) and the
+narrator must be a clone of HIS REAL voice** — the earlier `R8_OIYNERQ3` "Dan's clone" label in the
+handoff is WRONG: that id was cloned from the Veo ad character's audio, not Dan. Delivered for approval:
+- **Real-Dan voice clone `R8_YOSQDGW7`** (in `Media/exercise-demos/bw-squat/dan-real-voice-id.txt`),
+  trained on 33s of clean LPCM speech cut from the 8/3 shoot `C1541.MP4` (segments 0.86–15.06 +
+  112.68–131.58, picked from the transcript for energy). ~$3 one-time. Squat script rendered with it
+  (`vo-squat-danreal.mp3`, 15.5s at speed 1.1) — Dan to judge energy vs the stock trainer voice.
+- **3 AI-Dan character stills** (`Media/exercise-demos/char-dan-cand{1,2,3}.jpg`): built from a 4-panel
+  composite reference (`char-dan-ref-sheet.jpg` — tight frontal face crop from
+  `dan-pool-shoot-towel-smile-retouched-final.jpg`, that full-body shot, `photo-103` physique, and the
+  REAL logo `logos/03-symbol-left-text.png` on a white panel) with a prompt demanding high-fidelity face
+  reproduction + the exact logo printed in white on the black tank. All three hold likeness + legible
+  logo. The dedicated face-crop panel is the accuracy fix for the drift Dan saw in `char-tank-gym.jpg`.
+Session spend now ~$11.60 total. AWAITING Dan: pick a character still + voice verdict → then regenerate
+bw-squat with AI-Dan (2 stills + 1 Veo leg ≈ $2.70 under the single-leg finding) and his voice.
 
 ### Google Ads offline conversion upload (Phase B) — COMPLETE: feed live, Data Manager connection built, first import runs nightly (2026-08-18/19, Claude Code)
 
