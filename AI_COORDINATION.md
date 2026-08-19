@@ -187,6 +187,33 @@ input, layout or purchase surface changed.
 security-adjacent entry is the unrelated Namecheap SPF/DMARC item). Per Rule 9 that is reported, not invented.
 No handoff was created, so Rule 8 does not apply.
 
+**FOUR MORE BYPASSES FOUND AFTER THE FIRST FIX, by probing production instead of re-reading the code
+(commit `833cf9d`) — this is the third time in one session that the design was right and the live response
+was not.** Two independent causes:
+
+1. **Express routes case-insensitively and ignores a trailing slash; the gate compared `req.path` exactly.**
+   So **`/DASHBOARD` and `/dashboard/` served the real dashboard**, and **`/api/TODOS` and `/api/todos/`
+   returned the live task board**, straight past the gate. The middleware now normalises the path the same
+   way the router does (`toLowerCase()` + strip trailing slashes) before matching. Leading and repeated
+   slashes are deliberately NOT normalised — `//dashboard` does not match the route either, so it already
+   falls through to the SPA, which is the safe outcome. **Any exact-match path gate in Express has this bug
+   unless it normalises.**
+2. **`morningbrief.html` lived in `public/`, so `express.static` served the whole brief at
+   `/morningbrief.html`** — revenue, sleep, calendar, tasks — to anyone, regardless of what the gate did to
+   the `/morningbrief` route. **Moved to the repo root**, which is exactly why `dashboard.html` and
+   `admin.html` are not in `public/`. `public/` now holds no internal page (audited: the other 11 files are
+   genuinely public — about/contact/terms/privacy/faq/etc.). **Never write an internal page into `public/`.**
+   `git check-ignore` was run on the moved file before staging, per the standing rule.
+
+**The morning-brief scheduled task wrote `public/morningbrief.html` every morning and would have recreated
+the hole tomorrow.** Its SKILL.md now writes the root path, and its verify step sends `X-Dash-Key` — **a bare
+curl of `/morningbrief` now returns the marketing page, and that is correct, not a failed publish.** Its
+Step 5 opens the brief in Dan's Chrome, which carries the cookie once he has signed in there.
+
+Verified on production after a confirmed-stable swap: **32/32** — all seven anonymous spellings of the brief
+return the SPA with zero brief content, the key serves today's brief, all four original bypasses are closed,
+the first gate still holds, her 25 tasks still serve, and 8 public routes are unaffected.
+
 **Open, small, Dan's call:** `/api/push/subscribe` and `/api/push/public-key` are deliberately left ungated —
 low value (registering for his morning push needs VAPID keys and a real browser subscription) and gating them
 carried more regression risk than it removed. The ingest endpoints (`/api/monarch-push`, `/api/health-data`,
