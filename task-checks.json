@@ -8,7 +8,8 @@
     "money::Finish Android app Play Console setup and publish",
     "money::Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)",
     "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit",
-    "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit"
+    "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit",
+    "assistant::Take out trash"
   ],
   "log": {
     "health::Shower": [
@@ -189,6 +190,7 @@
     "money::Finish Android app Play Console setup and publish": "2026-08-18",
     "money::Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)": "2026-08-18",
     "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit": "2026-08-18",
-    "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit": "2026-08-18"
+    "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit": "2026-08-18",
+    "assistant::Take out trash": "2026-08-18"
   }
 }
