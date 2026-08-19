@@ -5349,14 +5349,10 @@ app.post('/api/ads/paid-conversion-ack', requireAuth, async (req, res) => {
 // members who never reopen the app after their trial converts, and ad-blocked
 // browsers.
 //
-// Read-only from the caller's point of view apart from the upload bookkeeping
-// stamp. Google gives no per-row success callback, so "uploaded" is inferred:
-// the rows this response emitted are stamped in the same request, AFTER the CSV
-// has been serialized. The trade-off — a fetch Google starts and abandons marks
-// rows uploaded that never landed — is bounded by the conversion action being
-// Count: One, which means re-uploading the same click id can never produce a
-// second conversion. That also makes a failed stamp harmless rather than a
-// double-count risk, so the CSV is still served if the stamp throws.
+// This endpoint is IDEMPOTENT: what it returns depends only on the data, never
+// on who fetched it last. Google gives no per-row success callback, so the
+// upload stamp is inferred and kept for measurement alone — see the comment on
+// `commit` below for why making it an exclusion filter broke connection setup.
 const ADS_FEED_MAX_ROWS = 5000;
 
 function csvCell(v) {
@@ -5394,7 +5390,8 @@ function adsFeedAuthorized(req) {
 // ("Unable to read file format. Make sure you select a CSV or TSV file with
 // '.csv' or '.tsv' extension"), so a `?commit=1` query string disqualifies the
 // URL outright — the flag has to live in the PATH and the URL has to END in
-// .csv. `-commit.csv` consumes; the plain `.csv` path stays read-only.
+// .csv. `-commit.csv` records the upload stamp; the plain `.csv` path does not.
+// Both return the same rows.
 app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commit.csv'], async (req, res) => {
   if (!ADS_FEED_SECRET) return res.status(503).send('Feed not configured');
   if (!adsFeedAuthorized(req)) {
@@ -5402,22 +5399,29 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
     return res.status(401).send('Unauthorized');
   }
   if (!db) return res.status(503).send('Database unavailable');
-  // Consumption is OPT-IN (the -commit.csv path), and that default is deliberate.
-  // Emitting a row stamps it uploaded and never offers it again, so the
-  // damaging failure is an exploratory fetch — a setup preview, a curl, a
-  // health probe — silently eating sales that were never actually imported.
-  // Defaulting to preview makes the worst case a harmless repeat instead:
-  // the conversion action is Count: One, so re-sending a click id can never
-  // produce a second conversion. The scheduled Data Manager URL is the
-  // -commit.csv one; everything else is read-only.
+  // The stamp is BOOKKEEPING ONLY — it never removes a row from this feed.
+  //
+  // That is the hard-won part. An earlier version excluded already-stamped rows,
+  // which made every fetch destructive: Google fetches the URL during connection
+  // SETUP, that fetch consumed the only row, and the schema step then failed with
+  // "Failed to determine the data type or schema of the data source... make sure
+  // you have correct headers and at least one row of valid data". A feed whose
+  // contents depend on who read it last cannot be set up, previewed or debugged.
+  //
+  // So every eligible sale is emitted on every fetch until it ages out of the
+  // 90-day window, and re-sending is harmless by construction: the conversion
+  // action is Count: One, so the same click id can never produce a second
+  // conversion however many times it is uploaded. ads_offline_uploaded_at records
+  // the FIRST time a sale was handed to Google — which is what suppresses the
+  // Phase A browser fire and what makes the two channels individually
+  // measurable — and nothing else.
   const commit = /-commit\.csv$/.test(req.path) || String(req.query.commit || '') === '1';
   try {
     const { rows } = await db.query(
-      `SELECT id, ads_click_id, membership_plan, paid_conversion_pending_at
+      `SELECT id, ads_click_id, membership_plan, paid_conversion_pending_at, ads_offline_uploaded_at
          FROM users
         WHERE paid_conversion_pending_at IS NOT NULL
           AND paid_conversion_fired_at IS NULL
-          AND ads_offline_uploaded_at IS NULL
           AND ads_click_id IS NOT NULL
           AND ads_click_at IS NOT NULL
           -- Two separate 90-day limits, and the second is the binding one.
@@ -5426,9 +5430,9 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
           -- (b) Google's import rule, which is measured from UPLOAD time, not
           --     sale time: "offline conversions that were uploaded more than
           --     90 days after the associated last click won't be imported".
-          -- Filtering here rather than shipping rows we know will bounce
-          -- matters because an emitted row is stamped uploaded and never
-          -- offered again — a rejected row would be a silently lost sale.
+          -- Filtering here rather than shipping rows Google would bounce keeps
+          -- its import report readable: every row we send should be a row it
+          -- can actually use.
           AND ads_click_at > paid_conversion_pending_at - INTERVAL '90 days'
           AND ads_click_at > NOW() - INTERVAL '90 days'
         ORDER BY paid_conversion_pending_at
@@ -5449,9 +5453,12 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
     }
     const body = lines.join('\n') + '\n';
 
-    if (commit && rows.length) {
+    // Stamp only rows seen for the first time, so uploaded_at keeps meaning
+    // "first reported to Google" rather than "last fetched".
+    const unstamped = rows.filter((r) => !r.ads_offline_uploaded_at);
+    if (commit && unstamped.length) {
       try {
-        const ids = rows.map((r) => r.id);
+        const ids = unstamped.map((r) => r.id);
         await db.query(
           `UPDATE users SET ads_offline_uploaded_at = NOW()
             WHERE id IN (${ids.map((_, i) => '$' + (i + 1)).join(',')})`,
