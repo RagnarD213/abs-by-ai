@@ -184,6 +184,12 @@
       "priority": "key",
       "why": "2026-08-19 planning — job posted 8/18; batch-2 editing is downstream of the hire; trial task beats portfolio-picking",
       "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Execute handoff: Replace stick figures with AI exercise demo videos",
+      "priority": "key",
+      "why": "handoff-20260819-exercise-demo-videos.md — created but not yet run",
+      "addedAt": "2026-08-19"
     }
   ],
   "health": [
