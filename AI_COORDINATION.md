@@ -1137,6 +1137,32 @@ Executes `Handoffs/handoff-20260811-youtube-channel-setup-finish.md`. **No produ
 
 **No native retest trigger row touched** — YouTube Studio and content metadata only; no product surface, no server, no client. Full record, including five newly-found Studio automation traps (zero-size rects on the time dropdown, the 45s CDP timeout on tag entry, and screenshot-timeouts on a tab whose JS still responds), is in `YouTube Long Form Video Content/SHORTS_UPLOAD_PROGRESS.md`. **Dashboard: `money::Execute handoff: Finish YouTube channel setup (16 Shorts + V5/V6/V7 thumbnails)` CHECKED OFF** (Rule 9) and verified present in the `checked` array.
 
+### /longform-edit SKILL WRITTEN — Phase 3 done, pipeline is now repeatable (2026-08-13, Claude Code)
+
+`.claude/skills/longform-edit/SKILL.md` (382 lines) + `reference/` with **10 working scripts**, all compiling.
+Dan signed off on the finished 8/3 video ("everything looks great") — Phase 4's quality bar is met on video one.
+
+**The scripts were RESCUED, not just referenced.** They had been living in
+`Media/longform-raw/.../roughcuts/` and a session scratchpad — **both git-ignored**, and the scratchpad's
+`work/` dir was already auto-cleaned twice mid-session (`whisper_run.py` had to be rewritten from memory).
+This is the exact failure that lost the original `/shorts` V4 pipeline. **Code now lives in the skill folder,
+in git; media stays out.**
+
+**The skill encodes the corrected rules, not the first drafts** — three findings in it reverse what was
+believed earlier in the same session, and each says so explicitly so it cannot be re-relitigated: cut
+placement (word boundaries PLACE, silence VALIDATES — silence-snapping clipped 17 of 20 opening words), the
+colour diagnosis (contrast, not the "warm cast" a whole-frame channel average wrongly reported), and the QC
+metric that was circular. Also carries the split-screen layout math, the camera-only grading rule, the J2
+Copperplate small-caps trap, the SRT-through-EDL mapping, six ffmpeg traps, and the 4K/S-Cinetone/grey-card
+shoot notes.
+
+**Phases 1–4 of `Handoffs/handoff-20260813-longform-edit-pipeline.md` are now complete except Hyperframes V2
+and the audio-cleanup chain** (Phase 2 items never needed on this video — `render.py`'s two-pass loudnorm hit
+−14.6 LUFS unaided and no motion graphics were required). Pick them up only when a video actually needs them.
+
+**STILL THE TOP TECHNICAL DEBT: `render.py` has no segment cache** (a one-beat revision costs a full
+re-render, 1:45.8 vs 1:46.9). Fix before the first real revision round.
+
 ### /longform-edit — SUBTITLES SHIPPED; the 8/3 video is PRODUCTION-COMPLETE (2026-08-13, Claude Code)
 
 `roughcuts/SPLITSCREEN_v3_graphics.srt` — **82 cues, 6.7 KB**, generator preserved as `make_srt.py`. **$0.00.**

@@ -1,0 +1,19 @@
+{
+  "source": "C1541.MP4",
+  "duration": 345.345,
+  "speech_end": 340.2,
+  "retakes": [
+    {"id":"R1","bad":[22.2,30.7],"good":[33.8,43.1],
+     "why":"Dan starts 'we're here on the Abs by AI app', trails off mid-sentence ('...is you see...'), restarts the same two lines verbatim."},
+    {"id":"R2","bad":[168.1,171.7],"good":[172.7,179.4],
+     "why":"Flubbed 'expect it to take it a little bit'; immediately re-delivers cleanly."},
+    {"id":"R3","bad":[265.9,275.0],"good":[288.2,296.2],
+     "why":"Explicit verbal retake: 'hold on... I'm going to redo that last bit' + slate 'Rolling.'"}
+  ],
+  "junk": [
+    {"span":[277.9,284.1],"why":"the 'hold on / redo that / Rolling' slate itself - must never appear in a cut"}
+  ],
+  "dead_air_over_2s": 19,
+  "dead_air_total_s": 85.1,
+  "longest_gap": {"span":[181.9,202.1],"s":20.2,"why":"waiting for the AI analysis to finish"}
+}
