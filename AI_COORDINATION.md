@@ -137,6 +137,15 @@ budget (~$85–110 staged), QC gate, and 4 open Dan decisions (film reference cl
 his cloned voice R8_OIYNERQ3?) are in the handoff. Rule-8 Key task added and verified persisted
 (`money::Execute handoff: Replace stick figures with AI exercise demo videos`, business 32 → 33).
 
+**REVISED same day — Dan REJECTED motion transfer** (the Wan output looked bad, and filming reference
+clips defeats the purpose: the value is footage that never had to be filmed) **and dropped the
+must-be-Dan requirement. New direction: PURE GENERATION with a generic trainer.** Feasibility test on
+the hardest case PASSED first try: **Veo 3.1, $3.20, 8s, 1080p — generic trainer in a 45° leg press,
+correct machine geometry, controlled rep, lip-synced spoken form cues** (`exvid-pilot/legpress-veo.mp4`,
+sent to Dan). Revised cost math (~$310–430 all-Veo, ~$150–200 with a Kling-silent-loop mix) and the
+override section are at the top of the handoff. Awaiting Dan's verdict on the clip before batch 1.
+Session AI spend: ~$4.80 total.
+
 ### Google Ads offline conversion upload (Phase B) — CODE SHIPPED + Ads action CREATED; deploy BLOCKED on a GitHub/Railway outage (2026-08-18, Claude Code)
 
 Executes `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` steps 0–3. **Phase A is untouched and still
