@@ -245,6 +245,14 @@ spend: ~$16 total (incl. ~$3 clone v2 + demucs pennies + $0.67 stills + $2.40 Ve
 bottom edit → 1 Veo 6s leg → extract clean rep (verify join frames) → loop under `R8_NE3EBC2N` VO
 (script = "Here's how to do the [name]." + cues from `public/exercises.js`, speed 1.0) ≈ $3/exercise.
 
+**Dan APPROVED the AI-Dan squat. The recipe is now a SKILL: `/exercisegeneration`**
+(`.claude/skills/exercisegeneration/SKILL.md` — fixed assets, per-exercise steps, static-hold variant,
+all traps). **HANDOFF WRITTEN: `Handoffs/handoff-20260819-exercise-demo-batch1.md`** — Dan's explicit
+scope: **batch 1 = THREE exercises only (recommended: pushup, reverse-lunge, plank — three pose
+classes), sent as a review set, STOP for his approval; only then the remaining ~93** in later sessions.
+Rule-8 Key task added and verified persisted (`money::Execute handoff: Exercise demo videos batch 1
+(3-exercise review set)`, business 35 → 36). This session's total spend: ~$16.
+
 ### Google Ads offline conversion upload (Phase B) — COMPLETE: feed live, Data Manager connection built, first import runs nightly (2026-08-18/19, Claude Code)
 
 Executes `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` steps 0–3. **Phase A is untouched and still
