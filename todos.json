@@ -29,12 +29,6 @@
       "addedAt": "2026-08-12"
     },
     {
-      "text": "Finish Google Ads campaign setup and launch video campaign",
-      "priority": "high",
-      "why": "Tracking verified firing; set Trial Signup to 'Use different values for each conversion' in Goals → Conversions",
-      "addedAt": "2026-08-05"
-    },
-    {
       "text": "Send documents to AMEX",
       "priority": "high",
       "addedAt": "2026-08-03"
@@ -48,12 +42,6 @@
       "text": "Email HOG to buy advertising",
       "priority": "high",
       "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Finish Android app Play Console setup and publish",
-      "priority": "high",
-      "why": "targetSdk 35 only accepted for new apps until 2026-08-31",
-      "addedAt": "2026-08-05"
     },
     {
       "text": "Contact vasectomy doctor - stitches, pain during intercourse",
@@ -108,12 +96,6 @@
       "addedAt": "2026-08-05"
     },
     {
-      "text": "Execute handoff: Queue Instagram + Facebook content via Blotato",
-      "priority": "key",
-      "why": "handoff-20260812-instagram-facebook-content-queue.md — created but not yet run",
-      "addedAt": "2026-08-12"
-    },
-    {
       "text": "Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
       "priority": "key",
       "why": "handoff-20260812-revenuecat-restore-behavior-audit.md — created but not yet run; AFTER App Review approval",
@@ -130,18 +112,6 @@
       "priority": "key",
       "why": "handoff-20260813-longform-edit-pipeline.md — created but not yet run",
       "addedAt": "2026-08-13"
-    },
-    {
-      "text": "Call TWC",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-17"
-    },
-    {
-      "text": "Execute handoff: Wire Google Ads Subscribe conversion (trial→paid)",
-      "priority": "key",
-      "why": "handoff-20260818-subscribe-conversion-wiring.md — created but not yet run",
-      "addedAt": "2026-08-18"
     },
     {
       "text": "Execute handoff: Google Ads offline conversion upload (Phase B)",
@@ -167,37 +137,37 @@
       "text": "Workout",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-18"
+      "addedAt": "2026-08-19"
     },
     {
       "text": "Supplements",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-18"
+      "addedAt": "2026-08-19"
     },
     {
       "text": "Shower",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-18"
+      "addedAt": "2026-08-19"
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-18"
+      "addedAt": "2026-08-19"
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-18"
+      "addedAt": "2026-08-19"
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
       "recurring": true,
-      "addedAt": "2026-08-18"
+      "addedAt": "2026-08-19"
     }
   ],
   "personal": [
