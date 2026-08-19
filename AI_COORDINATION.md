@@ -167,8 +167,28 @@ centered framing), `bottom-cand1.jpg` (edit of cand2 — thighs parallel, feet f
 knees tracking over toes, arms forward, scene pixel-consistent), plus the two prompt files. Recipe followed
 exactly: Google-direct `gemini-3-pro-image` runner, `_character/lp-start-1.jpg` as the character/gym
 reference on the start stills, edit-not-regenerate for the bottom frame. Spend this session: **$0.40**
-(3 stills). NEXT: on Dan's approval → two Veo 3.1 `image`+`last_frame` legs (A→B, B→A, 1280x720, ~$4.80),
-ffmpeg concat, frame-by-frame QC, send the finished looping rep.
+(3 stills). Dan approved the pair same session.
+
+**FINISHED CLIP DELIVERED same session — `bw-squat-rep.mp4` (3.0s single clean rep, 1080p, silent,
+loop-join frames verified matching) + a 3x loop preview, sent to Dan for the final eyeball.**
+
+**RECIPE FINDING THAT CHANGES THE FAST-TEMPO BODYWEIGHT BATCHES: Veo 3.1 `image`+`last_frame`
+interpolation obeys the ENDPOINTS but NOT the rep count.** A bodyweight squat's natural tempo is ~3s/rep,
+so a 6s interpolation fills the time with ~2 reps — the "ascent" leg bounced (rise→dip→rise) on BOTH
+attempts, including one with explicit "rises EXACTLY ONCE / height only ever increases" language, and
+dense-frame QC showed the "descent" leg also contained a full extra rep (the first 5-frame sheet sampled
+points that happened to look monotonic — **sample at ≤0.5s intervals before trusting a leg**). The leg-press
+pilot never hit this because a loaded machine rep IS ~6s. **The fix that shipped: don't fight it — the
+6s descent leg contained one complete clean rep (standing t1.0 → parallel bottom t2.6 → standing t4.0),
+cut it out with ffmpeg and the endpoints self-match** (loop-join frames diffed visually — clean). A
+palindrome build (descent + reversed descent, join at the zero-velocity bottom) is on disk as backup
+(`bw-squat-palindrome.mp4`). **For future fast-tempo moves: either generate ONE 6s leg and extract the
+clean rep (cheaper — one leg instead of two), or match `duration` to the move's real tempo.** The B→A
+ascent leg is unnecessary for moves whose single leg already contains the full cycle.
+
+Session spend: **$7.60** (3 stills $0.40 + 3 Veo legs $7.20, incl. one rejected ascent retry). Rejected
+takes kept on disk (`leg-up-REJECT-bounce.mp4`, `leg-up.mp4`). NEXT: Dan's verdict on the finished loop →
+then batch 2 (rest of bodyweight `none` tier, 38 moves) in a fresh session with a stated budget.
 
 ### Google Ads offline conversion upload (Phase B) — COMPLETE: feed live, Data Manager connection built, first import runs nightly (2026-08-18/19, Claude Code)
 
