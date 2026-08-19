@@ -170,7 +170,7 @@ reference on the start stills, edit-not-regenerate for the bottom frame. Spend t
 (3 stills). NEXT: on Dan's approval → two Veo 3.1 `image`+`last_frame` legs (A→B, B→A, 1280x720, ~$4.80),
 ffmpeg concat, frame-by-frame QC, send the finished looping rep.
 
-### Google Ads offline conversion upload (Phase B) — SHIPPED and LIVE-VERIFIED on production; ONE manual step left for Dan (2026-08-18/19, Claude Code)
+### Google Ads offline conversion upload (Phase B) — COMPLETE: feed live, Data Manager connection built, first import runs nightly (2026-08-18/19, Claude Code)
 
 Executes `Handoffs/handoff-20260818-phase-b-offline-conversion-upload.md` steps 0–3. **Phase A is untouched and still
 live.** Steps 4–5 (the Data Manager connection + the production end-to-end run) are written and ready but cannot run
@@ -260,38 +260,68 @@ stayed null, so the two channels remain individually measurable; prod auth 401'd
 password and a wrong username. The account was then deleted and **prod re-asserted at its exact baseline — 17 users,
 0 pending, 0 upload stamps.**
 
-**THE LAST STEP NEEDS DAN'S HANDS, and the reason is a hard tool limitation, not a mistake.** The Data Manager
-"Set up connection" wizard runs in a **cross-origin iframe**. A click lands correctly (verified:
-`document.activeElement` becomes the `IFRAME`), but neither synthetic typing nor `cmd+v` crosses into it, and
-`find` / `read_page` / `javascript_tool` cannot see inside it. OS-level computer-use is not a fallback — browsers are
-granted at tier "read", so typing into Chrome is blocked by design. **Same wall as the App Store Connect Notes field
-(2026-08-12 and 2026-08-17). Do not burn a session re-attempting it.** Everything up to that form is already done:
-HTTPS source selected, `Conversions` selected, `Use HTTPS data to measure offline conversions` selected, and
-**`Membership Paid (offline)` selected from the action picker** — which incidentally re-confirms step 0, since it is
-the ONLY action the offline picker offers.
+**THE CONNECTION IS BUILT AND GOOGLE IS FETCHING — confirmed from our own request log, not from the UI.** Data
+Manager → HTTPS → connection `offline-conversions-commit.csv`, **runs daily 02:00–03:00 America/Chicago**, 4 fields
+mapped (`Google_Click_ID`→GCLID, `Conversion_Time`→Conversion date/time, `Conversion_Value`→Conversion value,
+`Conversion_Currency`→Currency code). Google's fetcher is `Apache-HttpClient/4.5.9 (Java/1.8.0_342)` from
+`34.x` Google Cloud IPs; it probes once **unauthenticated**, takes the 401 + `WWW-Authenticate`, then retries with
+Basic — so the challenge/response handshake is load-bearing and must not be replaced with a silent 403.
 
-**A TEST ROW IS DELIBERATELY LEFT PENDING IN PRODUCTION so the first import validates the format.** User id 28,
-`datamgr-verify-…@example.com`, synthetic gclid `TESTgclidDataMgr1787149192476`, $19.99 monthly. Prod therefore reads
-**18 users / 1 pending / 0 uploaded** rather than the 17/0/0 baseline. **Google will reject it as an unknown click
-id, and that still proves the format and the pipe** — treat it as a pass for everything except matching. **Delete
-that account once the first import has been read.**
+**THREE DEFECTS WERE FOUND BY ACTUALLY DRIVING GOOGLE'S WIZARD, and all three are now fixed in code:**
+1. **`?commit=1` made the URL fail Google's file-extension check** — *"Unable to read file format. Make sure you
+   select a CSV or TSV file with '.csv' or '.tsv' extension."* The flag had to move into the PATH. The consuming URL
+   is now **`/api/ads/offline-conversions-commit.csv`** (commit `db229c0`'s successor); the plain `.csv` path stays
+   read-only. `?commit=1` is still honoured.
+2. **THE BIG ONE — a consuming feed cannot be set up at all.** Google fetches the URL **during connection setup**,
+   that fetch consumed the only pending row, and `Select data` then failed with *"Failed to determine the data type
+   or schema of the data source… make sure you have correct headers and at least one row of valid data."* The stamp
+   is now **bookkeeping only and never excludes a row**: every eligible sale is emitted on every fetch until it ages
+   out of the 90-day window, which is safe because the action is **Count: One** — the same click id can never produce
+   a second conversion however many times it is uploaded. `ads_offline_uploaded_at` records the FIRST report, which
+   is still what suppresses the Phase A browser fire and still what makes the two channels individually measurable.
+   **Do not reintroduce `AND ads_offline_uploaded_at IS NULL` into that query.**
+3. **`ADS_FEED_HIT` request logging was added** (method, path, auth scheme, UA, client IP, Range, Accept) because
+   Data Manager reports nothing about what its fetcher sent or saw. That log is what proved the difference between
+   "Google reached us and disliked the response" and "Google never called at all".
 
-**EXACT NEXT ACTION — DAN, ~2 minutes.** In Google Ads → Tools → Data manager → Connect product → HTTPS →
-Conversions → offline → `Membership Paid (offline)` → the **Connect to HTTPS** form, type the three values:
+**A STUCK WIZARD WASTED ~45 MINUTES AND THE LOG IS WHAT DIAGNOSED IT.** After the schema failure, the wizard kept
+showing the file as selected with `Next` greyed out, and Previous/Next/Replace changed nothing — because **Google was
+never re-fetching**; it was replaying a cached client-side failure. Expanding the HTTPS product showed the truth: the
+product was linked but its connection list was empty. **The fix is to abandon the half-built wizard and start a fresh
+connection from Data manager → HTTPS row → `+ Add`.** Do not keep clicking Retry.
 
-| field | value |
-|---|---|
-| URL | `https://absbyai.com/api/ads/offline-conversions.csv?commit=1` |
-| Username | `googleads` |
-| Password | the `ADS_FEED_SECRET` Railway variable — local 0600 copy at `~/.absbyai-adsfeed-secret`, and `cat ~/.absbyai-adsfeed-secret \| pbcopy` puts it on the clipboard |
+**THE CONVERSION-ACTION BINDING WORKS THE OPPOSITE WAY ROUND FROM STEP 0'S EXPECTATION, and this is the finding to
+carry forward.** A Data Manager connection's `Usage` column offers only **`+ Add conversion action`**, and that flow
+**creates a NEW action from the data source** — there is no option to point a connection at an existing action. The
+`Membership Paid (offline)` action created earlier (ctId `7703335439`… see the action list) is therefore **inert and
+redundant**: it can never receive this feed. The live action is:
 
-Then Next → **Select data** → **Map fields** (five columns: Google Click ID, Conversion Name, Conversion Time,
-Conversion Value, Conversion Currency — the wizard maps them, so no byte-exact template is needed) → Review →
-**run one manual import and read the results screen**, which reports per-row errors and is the fastest feedback on
-format problems. **`?commit=1` on that URL is load-bearing** — without it the feed never marks rows uploaded and
-re-sends them daily (harmless under Count: One, but the measurement in step 7 stops working).
+- **`offline-conversions-commit.csv - All records from offline-conversions-commit.csv`**, conversion type ID
+  **`7727033697`**, source **Website (Import from clicks)**, category **Purchase**, **Primary**, in account-default
+  goals, **Count: One** (defaulted to *Every* — **changed and re-verified by a full page reload**), click-through
+  window 90 days, Value *"Use different values. If there's no value, use $1."*, attribution data-driven.
 
-Afterwards: delete the seeded test account (user id 28) and re-assert **17 users / 0 pending / 0 uploaded**.
+**The CSV still emits `Conversion Name = Membership Paid (offline)`, which is now a DEAD COLUMN** — it was never
+mapped in the field-mapping step, so Google ignores it and binds by connection instead. Harmless, but do not assume
+`ADS_OFFLINE_ACTION` controls anything any more.
+
+**THREE TEST ROWS ARE DELIBERATELY LEFT PENDING IN PRODUCTION so the first import validates the format.** User id 28
+plus two more `datamgr-verify-…@example.com` rows (synthetic gclids `TESTgclidDataMgr…`, `TESTgclidSchema…`; one
+annual, two monthly). Prod therefore reads **20 users / 3 pending / 0 uploaded** rather than the 17/0/0 baseline.
+Two of them were added specifically to rule out single-row schema detection. **Google will reject all three as
+unknown click ids, and that still proves the format and the pipe** — treat it as a pass for everything except
+matching.
+
+**EXACT NEXT ACTION (Claude, next session):** read the first import's results in Data Manager, confirm the rows were
+received and rejected only for unknown click id, then **delete the three `datamgr-verify-%@example.com` accounts and
+re-assert 17 users / 0 pending / 0 uploaded.** Two cosmetic follow-ups, both optional: rename the live action to
+something readable, and set the redundant `Membership Paid (offline)` action to **Secondary** so it stops appearing
+in account-default goals.
+
+**Process note worth keeping: two of this session's detours were self-inflicted.** A liveness probe pointed at the
+CONSUMING url ate the test row (the exact failure the opt-in default existed to prevent), and a stray coordinate
+click inside the iframe triggered Chrome's Reading Mode overlay. **Poll read-only endpoints; do not drive Google's
+embedded wizard by coordinates.**
 
 **OPEN — DAN'S CALL (handoff step 6), and creating the action made it live rather than theoretical.** `Purchase` is
 now an account-default goal, so **`Membership Paid (offline)` and `Subscribe` are both Primary and both in
