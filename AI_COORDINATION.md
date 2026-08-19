@@ -119,6 +119,41 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Exercise demo batch 1 (pushup / reverse-lunge / plank) — GENERATED and DELIVERED, awaiting Dan's approval (2026-08-19, Claude Code)
+
+Executes `Handoffs/handoff-20260819-exercise-demo-batch1.md` via `/exercisegeneration`. **All three finished
+narrated MP4s were sent to Dan in one message; per the handoff, the dashboard task
+(`money::Execute handoff: Exercise demo videos batch 1 (3-exercise review set)`) stays UNCHECKED until he
+approves the batch — his approval IS the completion bar.** No production code touched, no deploy. **Session AI
+spend: ~$6.65** (11 stills × $0.134 = $1.47 · 2 Veo legs $4.80 · 1 Kling 5s hold ~$0.35 · 3 VO clips pennies)
+— under the $15 authorization.
+
+Deliverables (all under `Media/exercise-demos/<id>/`, gitignored — verified with `git check-ignore`):
+- `pushup/pushup-AIDAN-narrated.mp4` — 19.6s, 10 loops of a 1.96s clean rep (cut t0.2→t2.12 from one Veo leg).
+- `reverse-lunge/reverse-lunge-AIDAN-narrated.mp4` — 17.0s, 3 loops of a 5.67s **palindrome** rep.
+- `plank/plank-AIDAN-narrated.mp4` — 20.2s, static-hold variant: Kling v3 i2v breathing clip, palindromed ×2.
+All three: AI-Dan from the canonical still, VO in clone `R8_NE3EBC2N` opening "Here's how to do the [name].",
+cues from `public/exercises.js` copy, loop joins frame-diffed, VO ends inside the video on all three.
+
+**Recipe findings worth carrying into the remaining ~93:**
+1. **The depth-explicit language is needed on EVERY bottom edit, and once wasn't enough for the push-up.** The
+   polite bottom prompt returned a barely-lowered frame; the aggressive retry ("upper arms PARALLEL to the
+   floor, chest ONE INCH above the floor") still stopped at ~120° elbows. **The fix was an ITERATIVE edit —
+   edit the partially-lowered frame itself to "lower him the REST of the way"** — which landed a true
+   full-depth bottom on the next try. Budget 1–2 bottom retries per pressing/lowering movement.
+2. **The reverse lunge confirmed the fast-tempo finding AND added a wrinkle: the Veo leg never returns to
+   standing at all** (down by t3.8, partial rise, back down into the last_frame). No clean full cycle exists
+   to extract — **the palindrome build (descent + reversed descent, joined at the zero-velocity bottom) is
+   the correct default for step-based moves**, and its loop join is seamless by construction.
+3. **Two simultaneous Veo submissions 429-throttle on Replicate** — run legs sequentially.
+4. Kling v3 (`kwaivgi/kling-v3-video`, 5s standard, ~$0.35) holds a plank perfectly still with natural
+   breathing, first try — the static-hold variant is cheap and reliable.
+
+Working scripts preserved: `Media/exercise-demos/run-batch1-videos.js` (Veo + Kling invocations) and
+`gen-vo-batch1.js` (three-script VO runner). **Next action — DAN: review the three videos.** On approval:
+check off the Rule-8 task, then the remaining ~93 run in follow-on sessions per the handoff (~$3.50/exercise).
+Do NOT start app integration, labels, or hosting — separate tasks.
+
 ### Dashboard/admin surfaces GATED behind one shared secret — SHIPPED, live-verified (2026-08-19, Claude Code, commits `35e8881` + `b19f312`)
 
 A friend of Dan's (Matt) guessed `/dashboard` and told him. **The page was never the real exposure — every
