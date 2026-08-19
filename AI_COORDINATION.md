@@ -143,8 +143,15 @@ must-be-Dan requirement. New direction: PURE GENERATION with a generic trainer.*
 the hardest case PASSED first try: **Veo 3.1, $3.20, 8s, 1080p — generic trainer in a 45° leg press,
 correct machine geometry, controlled rep, lip-synced spoken form cues** (`exvid-pilot/legpress-veo.mp4`,
 sent to Dan). Revised cost math (~$310–430 all-Veo, ~$150–200 with a Kling-silent-loop mix) and the
-override section are at the top of the handoff. Awaiting Dan's verdict on the clip before batch 1.
-Session AI spend: ~$4.80 total.
+override section are at the top of the handoff. **SECOND REVISION same evening — Dan approved v1's
+realism + voice but caught wrong leg-press physics (pushing INTO the machine). Plain i2v from a correct
+start still (v2) STILL broke physics mid-rep (feet detached from the platform). The recipe that finally
+held, verified frame-by-frame: "keyframe-locked generation" — generate BOTH endpoint stills with
+gemini-3-pro-image (start pose, then EDIT it into the bottom-of-rep pose so the machine cannot drift),
+then Veo 3.1 `image` + `last_frame` interpolation.** Feet stayed planted, sled rode the rails. Also
+settled: Veo invents a different voice per clip, so the library voice must be a post-overlay narrator
+(MiniMax), not native Veo dialogue. ~$5–7/exercise → ~$500–700 for all 97. Full recipe + costs in the
+handoff's item 5–7. Session AI spend: ~$10.80 total.
 
 ### Google Ads offline conversion upload (Phase B) — SHIPPED and LIVE-VERIFIED on production; ONE manual step left for Dan (2026-08-18/19, Claude Code)
 
