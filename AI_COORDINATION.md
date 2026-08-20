@@ -119,6 +119,50 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Exercise demo BATCH 3 — 10 NEW exercises GENERATED and DELIVERED, awaiting Dan's verdict (2026-08-20, Claude Code)
+
+**All 10 finished narrated MP4s sent to Dan in two messages** (leg-press, db-bench-press, db-row, db-rdl,
+db-goblet-squat, cable-tricep-pushdown, face-pull, incline-pushup, dead-bug, bird-dog — none previously
+generated; the r2 REVISION session running the same day covered only already-generated exercises, verified
+by transcript + disk before starting). Per the batch precedent Dan's approval IS the completion bar — nothing
+checked off. **Session AI spend ≈ $30** (40 stills $5.36 · 12 Veo legs $24 · 12 VO clips ~$0.15), authorized
+by the starter prompt (10 exercises). Working scripts at `Media/exercise-demos/_batch3/` (spec.js has all 10
+definitions + prompts + VO), assets under `Media/exercise-demos/<id>/b3-*` — all gitignored, verified.
+
+**qc.py 10/10 pass**: 1920x1080/24 AAC, loop-join diff 0.36-0.60 (<3.0 bar), range diff 4.1-11.3 (>2.0),
+VO ends inside video on all. Durations 22.0-27.7s. Prompts were written against Dan's r2 revision bar
+(full ROM to a named endpoint, joint-safe positions, no cheating, name-the-wrong-answer, physical analogies),
+with per-exercise form research (NASM/PureGym/Gravitus/ATHLEAN-X) done before writing.
+
+**New findings (also appended to /exercisegeneration SKILL.md):**
+1. **Google Veo shed load ALL session (gRPC code 8 / E004)** — 20+ transient failures across every exercise;
+   failures are free, plain retry is the fix, and a `retry-loop.sh` (rounds every ~2.5 min) eventually landed
+   every leg. **4s legs consistently got through while 6s legs failed** in the same windows — when congested,
+   drop to VEODUR=4.
+2. **Veo SYMMETRIZES asymmetric limb choreography** (dead bug: both legs extended on 2 attempts, both arms
+   on the flip; bird-dog: spurious leg-only lift then a chest-dip floor-sweep). Fixes that worked: bird-dog —
+   4s leg + "the hand never sweeps along the floor, chest never dips, arm and leg move together from the
+   first instant"; dead bug — FLIP the leg (start from the asymmetric END still, animate the return; the
+   initial state pins which limbs move) and cut the clean 1.0s return segment.
+3. **The keep-and-reverse trick works prospectively too**: both leg-press start candidates came back at the
+   BOTTOM (Veo/Gemini bias toward the loaded pose) — used c2 as the END and edited backward to the extended
+   START, no regeneration.
+4. **Two new still-failure axes**: profile-view requests come back FRONTAL for standing dumbbell moves
+   (db-rdl, goblet — fix: "the camera is directly at his LEFT side, his chest faces the RIGHT edge of frame,
+   this is NOT a front view"), and a hanging dumbbell gets RESTED on the bench (db-row — fix: "suspended in
+   MID-AIR clearly BELOW the bench top, NOT resting on anything"). Also: an end-still edit RE-RIGGED the
+   cable to a low pulley (pushdown — fix: "the cable runs UPWARD from the rope to the same high pulley;
+   do NOT re-attach it to a low pulley").
+5. **The clone reads slow (~+30% over estimate, again)** — two VOs trimmed and re-rendered; final videos
+   22-27.7s.
+
+**No native retest trigger row touched** — media production only. **Dashboard: nothing checked off** (no
+Rule-8 task exists; batch not from a handoff; completion bar is Dan's approval).
+
+**EXACT NEXT ACTION — DAN: review the 10 videos.** Remaining after this batch: ~40 exercises — mostly
+step-based moves (walking-lunge, step-up, burpee — two-leg + xfade class, ~$4.50-5.50 each), kettlebell
+family, barbell lifts, and warm-ups. App integration, AI label, hosting remain separate tasks.
+
 ### Exercise demo BATCH 2 — 20 exercises GENERATED and DELIVERED, awaiting Dan's verdict (2026-08-19, Claude Code)
 
 **All 20 finished narrated MP4s were sent to Dan in two messages.** Per the batch-1 precedent his approval

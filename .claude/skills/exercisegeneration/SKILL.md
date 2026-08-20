@@ -213,3 +213,59 @@ is the odd one out — worth re-exporting whenever that file is next touched.)
 60 start stills ($8.04) · 22 end stills ($2.95) · 20 Veo legs ($47.20) · 3 Kling holds ($1.05) ·
 20 VO clips ($0.20). Veo is **80% of the bill**, so every avoided leg retry is worth several still
 retries — QC the stills hard, they are 5% of the cost.
+
+---
+
+## Batch 3 findings (10 exercises, 2026-08-20) — read before the next batch
+
+Batch 3 ran 10 in-place exercises (leg-press, db-bench-press, db-row, db-rdl, db-goblet-squat,
+cable-tricep-pushdown, face-pull, incline-pushup, dead-bug, bird-dog). Scripts at
+`Media/exercise-demos/_batch3/` (`spec.js`, `retry-loop.sh`, `run-deadbug-flip.js`, adapted
+`gen-stills/gen-ends/run-veo/gen-vo/buildrep/assemble/qc`). All 10 passed qc.py first try after the
+per-leg fixes below. ~$30 total (~$3/exercise despite heavy congestion — failed Veo runs are free).
+
+### Veo congestion: code 8 / E004 is free, and 4s legs squeeze through
+Google shed load for the entire session (gRPC code 8 "high load" + E004), 20+ failures. Failed
+predictions are NOT billed. A dumb retry loop (`retry-loop.sh`, one round every ~2.5 min, re-checking
+which legs exist on disk) eventually landed everything. **When congested, 4s submissions consistently
+succeeded while 6s ones failed in the same window** — drop to `VEODUR=4` for any move whose one-way
+motion is under ~2s (most arm moves: row, pushdown, curls, incline push-up).
+
+### Veo SYMMETRIZES asymmetric limb choreography — plan for it
+Dead bug (opposite arm + opposite leg) failed twice: Veo extended BOTH legs, then BOTH arms, wandering
+through wrong poses before landing the end pose. Bird-dog added a spurious leg-only lift then a
+chest-dip floor-sweep. What worked:
+- **bird-dog**: 4s leg + explicit anti-choreography language — "the hand never sweeps along the floor,
+  his chest never dips, his leg never lifts on its own first — the arm and the leg move together from
+  the first instant". Clean direct extension 0→2.0.
+- **dead bug**: **FLIP the leg** — start from the asymmetric END still (extended pose) and animate the
+  RETURN to tabletop; the initial state pins which limbs are in motion. Even then only a ~1s window was
+  clean (the return, cut 2.6→3.6 of a 4s leg); palindrome makes it extend-and-return. Expect to burn
+  2-3 legs on any opposite-arm/opposite-leg move, or shoot these as real footage someday.
+
+### Keep-and-reverse works prospectively
+Both leg-press START candidates came back at the BOTTOM of the rep (the models bias toward the loaded,
+"interesting" pose on machines). Instead of re-prompting, use the good bottom frame as the END still
+and edit BACKWARD to the extended start ("EXTEND his legs... platform pushed far away") — same recipe
+as batch 2's wrong-phase trick, applied by choice.
+
+### Three new still-failure axes (add to the batch-2 table)
+| failure | fix language |
+|---|---|
+| **profile request comes back FRONTAL** (standing dumbbell moves: rdl, goblet) | "TRUE SIDE PROFILE — the camera is directly at his LEFT side, his chest and the logo face the RIGHT edge of the frame, away from the camera. This is NOT a front view." |
+| **hanging dumbbell RESTED on the bench** (db-row, both candidates) | "suspended in MID-AIR clearly BELOW the level of the bench top... absolutely NOT resting on the bench, NOT touching anything. Do NOT draw the dumbbell lying on the bench — that is wrong." |
+| **end-still edit RE-RIGS the cable** (pushdown lockout moved the rope to a low pulley) | "the rope stays connected to the SAME HIGH PULLEY... the cable runs UPWARD from his hands... do NOT re-attach the cable to a low pulley — that is wrong." |
+
+### Write prompts against Dan's r2 revision bar from the start
+The r2 revision session's fix list (in `_r2/spec.js`) IS the quality spec: full ROM to a NAMED endpoint
+(row touches the stomach, heels to glutes, chin over the bar with daylight), joint-safe positions (no
+dead hangs, press bottoms stop just below 90°), zero cheating (elbows pinned, no hip swing, no shrug,
+no torso rock), name-the-wrong-answer, and physical analogies ("closing a door behind you with your
+butt", "tipping out two jugs of water"). Batch 3 wrote every prompt this way and needed no form
+revisions at the still stage beyond the axes above.
+
+### Misc
+- The clone still reads ~30% slow — a 5-cue script lands 23-26s spoken; trim to 4 cues for tight moves.
+- buildrep's `sig()` hardcodes a 6.0s scan window — it crashes on 4s legs; pass the manual `t0 t1` args.
+- SendUserFile has a 30 MiB phone limit — a ~26s narrated MP4 can exceed it; re-encode a crf-22 review
+  copy for delivery and keep the master on disk.
