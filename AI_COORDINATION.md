@@ -119,6 +119,42 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### AD 1 "How AI Got Me Abs" — CUT, QC'd, TWO STYLE VARIANTS DELIVERED; awaiting Dan's 3 verdicts (2026-08-20, Claude Code)
+
+First run of /ad-edit. Source: the 8/14 shoot (already synced to the Seagate; roll **C1591** is the
+only Ad-1 roll — probe-identification mapped the whole shoot: C1591–C1604 = ads 1–15 one roll each,
+C1605–C1613 = indoor talking content incl. Zepbound-muscle + Oura review + abs-at-40, C1614–C1633 =
+vacuum/ab-wheel videos). **$0.00 AI spend** — all inserts were existing assets from the batch1/ad2
+libraries; zero generations run.
+
+**Deliverables:** `/Volumes/Seagate 4TB/abs by ai 8:14 shoot …/EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`
+— `ad1_v1-J2_16x9.mp4` and `ad1_v2-MadMuscles_16x9.mp4` (same 4:31 cut, two graphics+captions styles,
+the skill's ad-#1 A/B), plus take-reel, pre-graphics `CUT_v1_graded.mp4` rollback, and the full recipe
+(`ranges.py`/`edl.json`/`layout.py`/`prep_assets.py`/`make_captions.py`/both `.ass`) — recipe also
+preserved in git at `.claude/skills/ad-edit/reference/ad1/`. 720p review copies + the first-minute
+take reel sent to Dan in chat. `notes.md` in the delivery folder is the full record.
+
+**Cut:** 5 ranges off the master pass (built with the longform EDL builder — all joints re-transcribed
+clean from the finished render). Inline retakes resolved later-take-wins; ending uses the clean pickup
+retake (CTA 3 therefore says "To START losing", spoken wins, flagged). Zero jump cuts — punch-in
+alternation 1.0x↔1.22x anchored on his eyeline, switch at every join + every ~10–15s, snapped to word
+onsets. Every cue in the filming-notes doc shipped except the RECORD SCRATCH SFX (no licensed SFX on
+hand — flagged). Compliance: AI-GENERATED tags on every AI asset window, no side-by-side outside the
+in-app UI clip, no drug names, negative-imagery scan clean, "Results are not guaranteed" micro-
+disclaimer added (skill's pending item — Dan can veto). Loudness −14.3 LUFS; captions word-timed from
+the FINAL mix, above the persistent CTA bar (bar runs CTA-1 → end card, per the ad study).
+
+**THE SHOOT REQUIREMENT WAS NOT MET: the 8/14 footage is 1080p29.97, NOT 4K.** Punch-ins capped at
+~1.22x and the 9:16 export will be a 608→1080 upscale. Re-flag 4K to Jeff before the next ad batch.
+
+**AWAITING DAN (all three cheap to apply off the segment cache):** (1) first-minute take pick from the
+reel (v1 assumes Take 2, the slated master); (2) the J2-vs-MadMuscles style verdict — locks the skill's
+Step 5/6 and rewrites its pending items; (3) revision notes. 9:16 export builds AFTER the 16:9 is
+approved, per the skill. Take-selection + graphics-placement learning sections get their first entries
+from his replies. **Dashboard: nothing checked off, correctly** — the nearest task
+(`money::Clear editing backlog: batches 2-4`) is advanced, not finished; no handoff involved.
+
+
 ### /ad-edit SKILL WRITTEN — filmed-ad editing pipeline, built on an 11-ad study (2026-08-20, Claude Code)
 
 New skill `.claude/skills/ad-edit/` (SKILL.md + `reference/AD_STUDY.md` + `reference/study_ad.py`)
