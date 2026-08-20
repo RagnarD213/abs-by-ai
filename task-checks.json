@@ -10,8 +10,7 @@
     "assistant::Empty/load dishwasher",
     "assistant::Clean both bathroom toilets",
     "money::Create beta tester account for Ty String (Aces coach)",
-    "personal::Hire someone to install artificial hedge panels",
-    "money::Execute handoff: Exercise demo videos batch 1 (3-exercise review set)"
+    "personal::Hire someone to install artificial hedge panels"
   ],
   "log": {
     "health::Shower": [
@@ -198,7 +197,6 @@
     "assistant::Empty/load dishwasher": "2026-08-18",
     "assistant::Clean both bathroom toilets": "2026-08-18",
     "money::Create beta tester account for Ty String (Aces coach)": "2026-08-19",
-    "personal::Hire someone to install artificial hedge panels": "2026-08-19",
-    "money::Execute handoff: Exercise demo videos batch 1 (3-exercise review set)": "2026-08-20"
+    "personal::Hire someone to install artificial hedge panels": "2026-08-19"
   }
 }
