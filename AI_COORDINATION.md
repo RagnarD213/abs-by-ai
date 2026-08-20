@@ -154,6 +154,29 @@ Working scripts preserved: `Media/exercise-demos/run-batch1-videos.js` (Veo + Kl
 check off the Rule-8 task, then the remaining ~93 run in follow-on sessions per the handoff (~$3.50/exercise).
 Do NOT start app integration, labels, or hosting — separate tasks.
 
+**REVISION ROUND (same day, Dan's verdicts): plank APPROVED as-is; push-up and reverse-lunge REDONE and
+redelivered as `pushup-AIDAN-narrated-v2.mp4` and `reverse-lunge-AIDAN-narrated-v2.mp4` (~$6.30 more,
+session total ~$13).** Dan's notes: push-up stopped too far from the floor; lunge had a hesitation/double
+move on the way back, an unsmooth return, and too-shallow depth — he supplied a reference
+(youtube xrPteyQLGAo, PureGym "How To Reverse Lunge": rear knee ~1 inch off the floor, one smooth ~3s
+down-up, torso upright, hands on hips). Saved at `reverse-lunge/` QC frames; yt-dlp is blocked by YouTube
+SABR — frames were read via the Browser pane (pause loop + `currentTime` seeks; kill autoplay or it
+navigates away mid-study).
+
+**Recipe findings from the revision, for the ~93:**
+1. **The reversed-descent palindrome FAILED for the step-back move** — reverse playback of a step-back
+   reads wrong (Dan: "needs to step forward back to the starting position smoother"). **Step-based moves
+   need TWO Veo legs** (descent + genuine ascent, `last_frame` = the start still), cut and joined at the
+   bottom. 4s legs suffice (~$1.60 each) and leave less room for extra reps than 6s.
+2. **The two legs render the subject at slightly different scale**, so a hard cut at the bottom pops —
+   **join with a 0.3s `xfade` at the zero-velocity turnaround**, which reads as motion blur.
+3. **Depth needs TWO iterative still edits for floor-proximity bottoms** (push-up took start→~120°→full
+   depth; polite language never gets there). When re-editing an already-edited still, **anchor the camera
+   explicitly** ("background must remain in exactly the same place in the frame") — one edit drifted the
+   camera lower and had to be redone.
+4. The deeper last_frame propagates depth into the whole Veo leg — the v2 push-up leg's mid-rep bottom
+   matched the new still without extra prompting.
+
 ### Dashboard/admin surfaces GATED behind one shared secret — SHIPPED, live-verified (2026-08-19, Claude Code, commits `35e8881` + `b19f312`)
 
 A friend of Dan's (Matt) guessed `/dashboard` and told him. **The page was never the real exposure — every
