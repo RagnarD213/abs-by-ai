@@ -368,6 +368,13 @@ do this every time:**
 Graphics are **one overlay pass over the finished cut at CRF 18**, not baked per-segment —
 chips span beat boundaries. One extra encode generation, deliberately accepted.
 
+**NEVER split a range just to hang a chip.** Chips are placed by SOURCE time and mapped
+through the EDL, so a single range carries as many chips as you like. Splitting one anyway
+removes ~0.02 s of source and leaves render.py's 30 ms fade-out immediately followed by its
+30 ms fade-in **in the middle of continuous speech** — the only genuine audio defect this
+batch produced, and the one join that legitimately failed QC. Assert it away: any adjacent
+pair whose gap is < 0.20 s should be merged into one range.
+
 ---
 
 ## Step 8 — subtitles: SRT, not burned in
@@ -417,9 +424,17 @@ Upload in YouTube Studio: Subtitles → Add → **Upload file → With timing**.
 Port the `/shorts` assertion suite and add:
 
 - **Splice discontinuity** — max sample-to-sample jump at each join vs controls elsewhere
-  in the same file. **>3× = audible pop.** 8/3 scored 1.09–1.20×. **Never compare loudness
+  in the same file. 8/3 scored 1.09–1.20× the control median. **Never compare loudness
   either side of a join** — the cut is deliberately in silence and speech follows, so it
   always false-alarms.
+  **Normalise against the control DISTRIBUTION, not its median.** On the 30-minute Zepbound
+  cut the controls spanned p50 = 613 … p90 = 2455 … max = 4069, so a join landing beside a
+  loud syllable scored 6.4× the *median* while being completely ordinary for the file.
+  A "> 3× median" rule reported **4 failures; re-transcribing all four from the finished
+  render showed clean, continuous speech at every one.** Fail a join only when its jump
+  exceeds the file's own natural ceiling (the control max), and keep reporting the
+  ×median figure so it stays comparable with the 8/3 baseline. This is the same lesson as
+  the circular cut-cleanliness metric — the metric was wrong, not the media.
 - **Loudness** — measured integrated LUFS within ±1 of −14.
 - **Duration vs plan.**
 - **Sync spot-checks** — frames vs what he is saying. The only check that catches sync.

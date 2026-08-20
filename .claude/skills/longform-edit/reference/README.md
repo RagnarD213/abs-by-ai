@@ -20,6 +20,7 @@ one-off scripts below.
 | `build_gfx_generic.py` | J2 chips (SOURCE time → OUTPUT time via the EDL) + Manrope watermark |
 | `composite_generic.py` | chips with 0.35 s alpha fades over the graded cut, CRF 18, audio copied |
 | `make_srt_generic.py` | SRT timed to the FINAL edit; punctuation-aware joins, balanced 2-line wrap |
+| `srt_validate.py` | re-transcribe N windows of the FINISHED render, measure SRT overlap |
 | `qc_generic.py` | duration, stream spec, LUFS, splice discontinuity, graphics on/off, joint re-transcription |
 | `parse_grade.py` | run color-grade-ai's auto_grade over N frames, print the medians |
 | `make_chapters.py` | YouTube chapter markers from the chip timings |
