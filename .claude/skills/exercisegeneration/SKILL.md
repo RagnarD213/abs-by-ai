@@ -269,3 +269,54 @@ revisions at the still stage beyond the axes above.
 - buildrep's `sig()` hardcodes a 6.0s scan window — it crashes on 4s legs; pass the manual `t0 t1` args.
 - SendUserFile has a 30 MiB phone limit — a ~26s narrated MP4 can exceed it; re-encode a crf-22 review
   copy for delivery and keep the master on disk.
+
+---
+
+## Batch 2 revision round (10 exercises, 2026-08-20) — Dan's form notes and what fixed them
+
+Dan revised 10 of the 20. Scripts preserved at `Media/exercise-demos/_r2/` (spec.js, run-veo.js with
+transient auto-retry, buildrep.py with manual-segment override, calf-kling.js). All his form standards
+below are SETTLED — bake them into future prompts so they never recur:
+
+- **Lying leg raise: legs to 45°, never vertical.**
+- **Pull-up: chin clearly OVER the bar at the top, and a slight elbow bend at the bottom — never a
+  dead hang at full extension** (shoulder safety, and he wants the VO to say so).
+- **Seated cable row: pull until the handle TOUCHES the stomach** — full back contraction, not near it.
+- **Leg curl: full range, heels close to the glutes, well past 90°.** A 2-inch partial is a reject.
+- **Shoulder press: SEATED, and the bottom stops just below 90°** — deep elbows are a reject.
+- **Curls: elbows tucked against the ribs and torso dead vertical** — any hip swing is a reject, and
+  the demo must not contradict its own VO.
+- **"Side Lateral" (renamed from Lateral Raise): elbows bent near 90°, elbows LEAD and finish slightly
+  ABOVE shoulder height, hands below elbows — the jugs-of-water pour. VO carries that cue.**
+- **Calf raise: on the edge of a step/box holding something for balance, heels below the step at the
+  bottom, knees locked straight throughout.**
+- **When Dan says "look it up on YouTube": actually do it** (Browser pane, pause loop, seek) and match
+  the reference — it settles the target pose before any spend.
+
+### Technique findings this round
+1. **A wrong REP CUT can masquerade as a wrong generation.** The lat-pulldown "double-take" was the cut
+   running past the bottom into a partial second rise; the fix was a recut, $0. Before regenerating a
+   flagged rep, re-inspect the leg — the clean movement may already be in it.
+2. **Veo CANNOT do the superman lift** — three attempts all became press-ups/cobras (hands planted). The
+   fix that worked: generate the LOWERING direction (image = the correct hold still, last_frame = flat),
+   which Veo can't reinterpret, then reverse the segment for the lift. **When Veo repeatedly misreads a
+   lift, generate the descent and play it backwards** — valid for any slow symmetric motion.
+3. **Veo CANNOT do a calf raise on a box** — two attempts wandered/stepped off/marched, even with
+   stay-planted language and last_frame set. **Kling v3 (10s standard, ~$0.70) nailed it first try**:
+   slow full-range reps, feet glued. For small-footprint in-place motion where Veo restages, Kling with
+   a precise "never steps, never lifts a knee, only the ankles move" prompt is the better engine.
+   Kling appearance drifts over 10s, so direct-loop cuts pop (~6.1 frame diff) — palindrome a single
+   rise instead.
+4. **Overshoot in the leg is recoverable in the cut**: the 45° leg-raise leg went to vertical, but
+   crossing 45° happened at t=1.0 — cutting there gave exactly Dan's spec. Generate generous, cut precise.
+5. **Editing a still to add a partner object (machine post to grip) works cleanly** as a second pass on
+   an approved still — don't cram every prop requirement into one generation.
+6. **Toes-on/heels-off a box defeated 3 straight still generations** (model kept reversing it). What
+   fixed it: an explicit COMMON-MISTAKE negative example in the prompt ("do NOT draw toes hanging off
+   and heels on the box — that is backwards"). Name the wrong answer when a spatial relation keeps flipping.
+7. **Google Veo "high load" (code 8) days happen** — this round hit ~10 transient failures. The runner
+   retries with 90s+ backoff automatically; a watchdog monitor relaunches an exhausted runner. Budget
+   real wall-clock time on such days; the money cost is nil (failed creates don't bill).
+
+Cost of the revision round: ~$13 (11 stills ~$1.50 · 10 Veo legs incl. 2 discards ~$10.40 · 1 Kling 10s
+~$0.70 · 6 VO clips ~$0.06). Running total for batch 2 + revisions: ~$72.

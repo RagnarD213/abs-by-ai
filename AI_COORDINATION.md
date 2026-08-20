@@ -224,6 +224,19 @@ the video. Loudness landed at **−23.4 to −24.9 dB mean with no normalization
 **Dashboard: nothing checked off** (Rule 9) — batch 2 was not created from a handoff, so no Rule-8 task
 exists, and the work is not complete until Dan approves the set.
 
+**REVISION ROUND (2026-08-20, same batch): Dan revised 10 of the 20; all 10 regenerated and
+redelivered same day (~$13 more, batch total ~$72).** His fixes: lying-leg-raise capped at 45°;
+superman rebuilt (Veo could NOT produce the lift — 3 attempts became press-ups; the fix was generating
+the LOWERING from the correct hold and reversing it); pull-up chin now clears the bar + soft-elbow
+bottom; lat-pulldown "double-take" was a bad rep CUT, fixed free; cable row pulls to stomach contact;
+leg-curl full range past 90°; shoulder press now SEATED with a short just-below-90° bottom;
+db-curl elbows tucked + zero hip swing; lateral raise renamed **Side Lateral** (bent elbows ~90°,
+elbows lead and finish above the hands, jugs-of-water VO cue); calf raise now on an aerobics step
+holding a machine post, heels below the step, knees locked — **Veo failed this twice (wandered/stepped
+off); Kling v3 10s nailed it first try**. Dan's form standards + all engine findings are recorded in
+/exercisegeneration ("Batch 2 revision round"). `public/exercises.js` still says 'Lateral Raise' —
+rename deferred to app integration. AWAITING Dan's verdict on the revised 10.
+
 **EXACT NEXT ACTION — DAN: review the 20 videos.** On approval: the remaining ~73 exercises run in
 follow-on batches (step-based moves should get their own batch, since they need two legs each at
 ~$4.50–5.50 rather than ~$2.95). App integration, the AI-generated label, and hosting all remain
