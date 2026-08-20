@@ -17,6 +17,14 @@ Built from one full pass: the **2026-08-03 meal-prep / Macro Tracker tutorial**
 (`C1541.MP4`, 5:45 raw → 3:48 finished), taken end to end — bake-off, rough cut,
 split screen, color, graphics, subtitles. Dan approved every stage.
 
+**Proven again 2026-08-20 on a THREE-VIDEO batch from the same 8/3 shoot** — spray tan
+(`C1512`, 30:42 → 19:00), Zepbound update (`C1513`, 40:16 → 30:26) and supplements
+(`C1514`, 37:39 → 23:28), cut start-to-finish in one session for **$0.00**. That batch is
+where the generic scripts in `reference/` come from: give them a `ranges.py` and a
+`chips.py` per video and the rest of the pipeline is unchanged. It also added Step 0.5
+(identify the videos before transcribing), three more Whisper-timestamp rules in Step 3,
+per-roll grading in Step 6, and the SRT token rules in Step 8.
+
 **Working scripts are preserved in `reference/`. Copy one and adapt; do NOT rewrite
 from scratch.** They are in git on purpose: `Media/` and `YouTube Long Form Video
 Content/` are git-ignored, and the original `/shorts` V4 pipeline was **lost** that
@@ -50,6 +58,29 @@ long continuous rolls (the teleprompter takes); the short clips are b-roll.
 
 `ffmpeg`/`ffprobe` are **not on PATH** on this Mac (no Homebrew). Use the static 6.0
 builds at `Media/video_edit/bin/`. Symlink them into a dir and prepend to `PATH`.
+
+### Step 0.5 — identify WHICH VIDEO each clip is, before transcribing anything
+
+A shoot folder is unlabelled: 84 clips named `C1444…C1587`. Do **not** guess from
+file size or read a whole transcript to find out. Extract a **100-second audio probe**
+from every clip over ~55 s and transcribe the probes with Whisper **`base`**
+(`reference/probe_identify.py`). Dan opens every take by saying what the video is
+("Today I'm going to show you my full supplement stack"), so 40 probes map an entire
+shoot in one pass, in minutes, for $0. Only then pull full audio for the chosen rolls.
+
+`-t 100` after `-i` reads just the head of each file, so this costs ~1 % of the I/O
+of decoding 118 GB.
+
+**Two ffmpeg-in-a-loop traps, both hit here:**
+- **ffmpeg eats stdin** and will swallow a `while read` loop's input, consuming the
+  clip list and emitting `Parse error, at least 3 arguments were expected`. Pass
+  `-nostdin` (and `</dev/null`) on every ffmpeg call inside a loop.
+- **zsh does not word-split unquoted parameters.** `for p in "C1512 1842"; do set -- $p`
+  leaves `$1` holding the whole string and `$2` empty. Pipe into `while read a b` instead.
+
+**The long continuous rolls are the talking videos; everything else is b-roll.**
+On the 8/3 shoot four rolls over 30 min held four complete videos, and the ~60 short
+clips were the kitchen and workout demos.
 
 ---
 
@@ -130,6 +161,26 @@ places, one checks.
 3. **Clamp every in-point to the previous word's end.** The −0.12 pad otherwise bites
    the tail of the CUT take's last word and puts an audible fragment at the segment head.
    Symmetrically, an out-point snapped forward must never cross the next word's onset.
+4. **Do NOT clamp the in-point to a STRETCHED previous word.** Rule 3 backfires when the
+   preceding word is itself stretched: Whisper set its `end` to the *next* word's onset,
+   so clamping there starts the beat 10–20 ms INSIDE the word you meant to keep. Skip the
+   clamp when the previous word's duration is > 0.8 s.
+5. **A stretched LAST word is the mirror of trap 2 — its `end` is equally fake.** An
+   end-based filter then drops the word entirely and the out-point lands on the word
+   *before* it, clipping real speech ("…it should be nearly" instead of "…nearly
+   painless"). Admit a stretched last word on its START, then snap the out-point to the
+   first measured silence ≥ 0.25 s after that start.
+6. **Measured silence outranks Whisper's claimed next-word onset.** Whisper has no
+   silence model and routinely starts the next word early; clamping the out-point to that
+   claim chops the tail off the last KEPT word ("nothing." cut 0.2 s short because "But"
+   claimed to begin 0.12 s before the measured silence did). If the out-point already sits
+   inside a measured silence, the silence is ground truth — skip the clamp entirely.
+
+All six rules are implemented in **`reference/build_edl_generic.py`**, which takes a
+`ranges.py` of approximate `(start, end, beat)` triples plus the grade and source path,
+resolves every edge, prints the head/tail text of each beat, and **flags** every edge it
+could not place in silence. Read the flags: on this batch they caught six genuinely
+clipped words across three videos, and the rest were benign Whisper inflation.
 
 **Validate flagged joints by transcribing 6 s of the FINISHED render around each one**
 (qc script does this) — it caught the clipped joint that every duration/loudness metric
@@ -262,6 +313,26 @@ curves=all='0/0 0.050/0.004 0.25/0.27 0.50/0.565 0.80/0.855 1/1'
 0.060 → 0.009, milky blacks YES → NO, and — the thing grades usually ruin — **skin hue
 moved TOWARD the 20° target** (19.5→20.6, 19.6→19.9, 18.8→19.4). Saturation untouched.
 
+**GRADE PER ROLL, NOT PER SHOOT.** Three rolls shot the same night in the same doorway
+had black points **0.079 / 0.069 / 0.054** and median luminance 0.244 / 0.225 / 0.308.
+One grade for the shoot would have crushed one roll and left another milky. Anchor the
+curve's crush point on *that roll's* measured black point:
+
+```
+curves=all='0/0 <black_point>/0.006 0.25/0.262 0.50/0.552 0.80/0.862 1/1'
+```
+
+Measured closed-loop on all three (8 frames each): black point → 0.004–0.008,
+**milky blacks YES → no on every frame**, highlight clip ≤ 0.3 %, skin hue held or moved
+toward the 20° target, colorfulness lifted into the plausible 25–95 band.
+
+**A WARM SUBJECT IS NOT A WARM CAST — and on a spray-tan video the warmth IS the product.**
+C1512's WB deviation read 0.051, triple the other two rolls. That was Dan's fresh spray
+tan, the literal subject of the video. Correcting it would have graded away the thing the
+viewer is there to judge. **Never apply a white-balance correction to a video whose
+subject is skin tone**; check the skin-tone node first (it read "skin natural, 21.7°"),
+and fix contrast only. The black crush alone pulled WB deviation 0.0425 → 0.0344 anyway.
+
 **GRADE THE CAMERA SIDE ONLY.** The screen recording is a digital capture and is already
 neutral (**R/B 0.958**); running a warm-correction over it tints the app UI blue and
 misrepresents the product. Verified: screen half 0.953 → 0.951 (untouched) while the
@@ -319,6 +390,17 @@ cannot drift, and dropping any word outside a kept beat.
 **Validate by transcribing the FINISHED video and comparing the SRT against its own
 audio** — 82/82 cues aligned on 8/3. **Never validate against the source transcript;
 that only proves the mapping matches itself.**
+
+**Never `" ".join()` Whisper tokens.** Whisper splits `y'all` into `["y", "'all"]` and
+`0.8` into `["0", ".8"]`, so a naive join renders **"What do y 'all guys think?"** and
+**"0 .8 grams per pound"** in the finished captions. Suppress the space before any token
+opening with `'`, `.`, `,`, `%`, `)` or `-`.
+
+**Close a cue BEFORE appending a word that would overrun the character cap**, and wrap on
+the word boundary nearest the MIDPOINT. Checking the cap after appending lets a cue run a
+whole word past it, and a greedy first-line fill leaves the second line uncapped — that
+combination produced 65-character lines. Closing early + balanced wrap took the worst line
+from 65 → 48 chars with zero 3-line cues.
 
 Format: max 2 lines, ≤45 chars/line, break on measured pauses ≥0.45 s, sentence ends, or
 5.5 s; min 0.5 s per cue; no overlaps. **Extend the final cue to the true container
@@ -386,6 +468,16 @@ roughcuts/
 
 Media stays out of git — **run `git check-ignore -v` on the output folder before staging
 anything.** Copy any new script into this skill's `reference/`.
+
+**Work on the external drive, not the boot disk.** The 8/3 shoot is 118 GB and the finished
+files run 0.8–1.8 GB each; the invest-health session left 41 GB of intermediates (including
+a 27.5 GB duplicate of the source roll) on the internal disk, which is now 99 % full.
+Point every working directory at the Seagate and only the ~50 KB of recipe files come back.
+
+**Ship the recipe next to the video.** Each delivered folder carries `FINAL_*.mp4`,
+`FINAL_*.srt`, the pre-graphics `CUT_v1_graded.mp4` as a rollback point, plus `edl.json`,
+`ranges.py` and `chips.py`. With the segment cache working, those three text files are all
+a revision needs.
 
 Then `/youtube-packaging` for title, description, chapters and thumbnail.
 
