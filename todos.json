@@ -168,12 +168,6 @@
       "addedAt": "2026-08-19"
     },
     {
-      "text": "Create beta tester account for Ty String (Aces coach)",
-      "priority": "high",
-      "why": "2026-08-19 planning — comp grant via admin/DB; needs his email from Dan",
-      "addedAt": "2026-08-19"
-    },
-    {
       "text": "Build AI animations for the workout program exercises",
       "priority": "med",
       "why": "2026-08-19 planning — Dan ranks this ABOVE the program redo; both after the shoot",
@@ -214,38 +208,26 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-19"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-19"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-19"
+      "recurring": true
     },
     {
-      "text": "Salad by 2:00 PM",
+      "text": "Salad",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-19"
+      "recurring": true
     },
     {
-      "text": "Large meal by 6:00 PM",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Small meal by 9:00 PM",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-19"
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
@@ -253,11 +235,6 @@
       "text": "Buy more SpaceX stock",
       "priority": "med",
       "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Hire someone to install artificial hedge panels",
-      "priority": "med",
-      "addedAt": "2026-08-03"
     },
     {
       "text": "Hire someone to powerwash",
