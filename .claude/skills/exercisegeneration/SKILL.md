@@ -6,7 +6,9 @@ description: Generate a photorealistic AI exercise demo video for the Abs By AI 
 # Exercise demo generation ("keyframe-locked" AI-Dan demos)
 
 Produces one finished asset per exercise: a 15–25s MP4 of AI-Dan performing clean looping reps with
-Dan's cloned voice coaching the form. Proven end to end on `bw-squat` (2026-08-19, Dan-approved).
+Dan's cloned voice coaching the form. Proven end to end on `bw-squat` (2026-08-19, Dan-approved) and on
+batch 1 — `pushup`, `reverse-lunge`, `plank` (2026-08-19/20, all three Dan-approved after one revision
+round; finals at `Media/exercise-demos/<id>/<id>-AIDAN-narrated-FINAL.mp4`).
 
 ## Fixed assets — never regenerate these
 
@@ -17,6 +19,7 @@ Dan's cloned voice coaching the form. Proven end to end on `bw-squat` (2026-08-1
 | Exercise copy (setup / execution / mistake per exercise) | `public/exercises.js` |
 | Image runner (Google-direct; do NOT use Replicate nano-banana-pro — it rate-limits) | `.claude/skills/_shared/gemini-image.js` |
 | Working scripts from the proven run (Veo invocation, VO gen, demucs reclone) | `Media/exercise-demos/bw-squat/*.js` |
+| Batch runners from batch 1 (multi-exercise Veo/Kling + multi-script VO) | `Media/exercise-demos/run-batch1-videos*.js`, `gen-vo-batch1.js` |
 | Static ffmpeg/ffprobe (no Homebrew on this Mac) | `Media/video_edit/bin/` |
 
 All of `Media/` is gitignored (public repo) — verify with `git check-ignore` before staging anything.
@@ -35,20 +38,42 @@ All of `Media/` is gitignored (public repo) — verify with `git check-ignore` b
    exact same scene… change ONLY his position…"). **State depth/range EXPLICITLY and aggressively** —
    "until his thighs are FULLY PARALLEL — hips at knee height, NOT a shallow half squat" was required;
    a polite "about 90 degrees" produced a half squat. Name what stays planted ("both feet remain
-   completely FLAT in the exact same spot — heels never rise").
+   completely FLAT in the exact same spot — heels never rise"). **Floor-proximity bottoms (push-up,
+   lunge rear knee) take TWO iterative edits**: even the aggressive language stops ~half way on the
+   first try — edit the partially-lowered frame itself with "lower him the REST of the way / the FINAL
+   inch, chest barely ONE INCH above the floor". Budget 1–2 bottom retries for any pressing or
+   kneeling-depth movement. **When editing an already-edited still, anchor the camera explicitly**
+   ("the camera does NOT move — the background machines, windows and floor remain in exactly the same
+   place in the frame") — chained edits drift the camera lower otherwise, and a drifted end frame makes
+   Veo morph the camera mid-rep.
 3. **QC stills yourself frame-level** (likeness vs canonical, joint angles, contact points, scene
    consistency) — Dan reviews finished videos in batch mode, but a wrong still is a 13¢ fix and a wrong
    video is $2.40, so gate hard here.
-4. **ONE Veo leg, not two** — `google/veo-3.1` on Replicate: `image` = start still, `last_frame` = end
-   still (both resized to exactly 1280x720 with `sips -z 720 1280`), `duration: 6`, `resolution:
-   '1080p'`, `aspect_ratio: '16:9'`. Exact invocation: `bw-squat/run-veo-dan.js`. Motion prompt states
-   the coupling ("feet stay planted… the camera and background never move").
+4. **Veo legs — one for in-place moves, TWO for step-based moves** — `google/veo-3.1` on Replicate:
+   `image` = start still, `last_frame` = end still (both resized to exactly 1280x720 with
+   `sips -z 720 1280`), `resolution: '1080p'`, `aspect_ratio: '16:9'`. Exact invocation:
+   `bw-squat/run-veo-dan.js`. Motion prompt states the coupling ("feet stay planted… the camera and
+   background never move") and demands "ONE single continuous smooth movement with absolutely no
+   pauses, stutters or hesitation".
+   - **In-place moves (squat, push-up)**: ONE 6s leg; the clip usually contains a full down-up cycle
+     to extract.
+   - **Step-based moves (reverse lunge, split squat, step-up): TWO legs, 4s each** — descent
+     (start→bottom) AND ascent (bottom→start, `last_frame` = the start still). **Reversed-footage
+     palindromes are BANNED for step moves** — Dan rejected the v1: reverse playback of a step-back
+     reads visibly wrong as a "return". 4s legs (~$1.60) leave less room for extra reps than 6s.
+   - **Submit Veo jobs SEQUENTIALLY** — two simultaneous creates 429-throttle on Replicate.
 5. **Extract the clean rep** — Veo obeys the ENDPOINTS but NOT the rep count: fast bodyweight tempo
    (~3s/rep) means a 6s clip contains ~2 reps, often with a bounce. **Sample frames at ≤0.5s intervals**
    (a sparse sheet lied twice), find one full cycle standing→bottom→standing, cut it with ffmpeg, then
    **diff the cut's first and last frames** and nudge the boundaries until the poses match (bw-squat
-   took two recut iterations). Fallback if no clean cycle exists: palindrome (segment + its reverse,
-   join at the zero-velocity bottom) — seamless by construction.
+   took two recut iterations). Cut BEFORE any mid-clip bounce (batch 1's lunge descent bounced at
+   ~t3.2; cutting at the first full-depth frame avoided it).
+   - **Two-leg builds: join descent + ascent with a 0.3s `xfade` at the zero-velocity bottom**, not a
+     hard cut — the two legs render the subject at slightly different scale, so a hard cut pops; the
+     crossfade reads as motion blur at the turnaround. Loop join is free: the ascent's `last_frame` IS
+     the start still, so the rep ends where it begins.
+   - Palindrome (segment + reverse) remains fine for SYMMETRIC in-place motion and for static-hold
+     clips — just never for steps.
 6. **Voiceover** — `minimax/speech-02-hd`, `voice_id: 'R8_NE3EBC2N'`, `speed: 1.0`, `emotion: 'auto'`.
    Script: **open with "Here's how to do the [exercise name]."** then 3–5 cues built from the
    exercise's `setup`/`execution`/`mistake` copy in `public/exercises.js`, `<#0.3#>` pauses between
@@ -61,14 +86,19 @@ All of `Media/` is gitignored (public repo) — verify with `git check-ignore` b
    nothing ships unapproved.
 
 ### Static holds (plank, wall-sit, side plank…)
-No rep to interpolate: generate ONE still of the hold, then a single short i2v clip ("holds the
-position, subtle natural breathing, camera static") — Kling v3 i2v (~$1/5s) is fine here; keyframe
-locking is unnecessary. Loop it under the VO the same way.
+No rep to interpolate: generate ONE still of the hold, then a single short i2v clip ("HOLDS the
+position completely still… the only movement is subtle natural breathing, camera static") —
+**`kwaivgi/kling-v3-video`, `duration: 5`, `mode: 'standard'`, `generate_audio: false` (~$0.35)**;
+keyframe locking is unnecessary and it works first try (proven on plank, approved unrevised).
+**Palindrome the 5s clip (fwd + reverse) for a guaranteed-seamless 10s loop unit**, then loop under
+the VO the same way — breathing is symmetric, so reversal is invisible here.
 
 ## Costs
 2 stills $0.27 + 1 edit $0.13 + 1 Veo leg $2.40 + VO ~$0.01 ≈ **$2.85/exercise one-take, ~$3.50 with a
-still retry**. State the estimated batch cost before running; the standing cap is $25/session unless
-Dan authorizes more in the starter prompt.
+still retry**. Step-based moves: add a second bottom edit + a second 4s leg ≈ **$4.50–5.50**. Static
+holds are the cheapest: 1 still + 1 Kling clip ≈ **$0.50**. Batch 1 measured: 3 exercises incl. one
+full revision round ≈ $13. State the estimated batch cost before running; the standing cap is
+$25/session unless Dan authorizes more in the starter prompt.
 
 ## Traps (each cost real money or a redo — do not re-derive)
 - Replicate's `google/nano-banana-pro` hard rate-limits (E003); the Google-direct runner is the door.
@@ -81,6 +111,14 @@ Dan authorizes more in the starter prompt.
   out" — unresolved discrepancy, flag when generating squat-family VO), ~90°, chest up/back flat, don't
   bend forward.
 - Sparse QC frames (5–6 across 6s) missed a bounce twice; always sample ≤0.5s.
+- **A deeper `last_frame` propagates depth into the whole leg** — the v2 push-up's mid-rep bottom
+  matched the deepened still with no prompt change. If a rep looks shallow, fix the END STILL, not the
+  motion prompt.
+- **Dan's revision bar is the reference-video standard**: reverse lunge = PureGym `xrPteyQLGAo` (rear
+  knee ~1 inch off the floor, one smooth ~3s down-up, torso upright). When he supplies a reference,
+  study it frame-by-frame BEFORE regenerating. `yt-dlp` is blocked by YouTube SABR on this Mac — use
+  the Browser pane instead: pause the player, arm a `setInterval` re-pause loop, kill autoplay (or it
+  navigates away mid-study), then seek `video.currentTime` and screenshot each pose.
 
 ## Later phases (separate tasks, not this skill)
 App integration (lazy `<video muted loop playsinline>` behind the stick-figure fallback, 3 call sites

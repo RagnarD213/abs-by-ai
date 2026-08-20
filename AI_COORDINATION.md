@@ -119,7 +119,22 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
-### Exercise demo batch 1 (pushup / reverse-lunge / plank) — GENERATED and DELIVERED, awaiting Dan's approval (2026-08-19, Claude Code)
+### Exercise demo batch 1 (pushup / reverse-lunge / plank) — COMPLETE, Dan-APPROVED all three (2026-08-19/20, Claude Code)
+
+**BATCH 1 IS DONE.** Dan approved the plank as delivered and the push-up + reverse-lunge v2s after the
+revision round below. Finals: `Media/exercise-demos/<id>/<id>-AIDAN-narrated-FINAL.mp4` (pushup 19.2s ·
+reverse-lunge 17.0s · plank 20.2s). **Dashboard task
+`money::Execute handoff: Exercise demo videos batch 1 (3-exercise review set)` CHECKED OFF** (Rule 9,
+verified in the `checked` array with `checkedAt` 2026-08-20; the id was built from the exact task text
+fetched from `/api/todos`). The `/exercisegeneration` skill is updated with every batch-1 lesson
+(two-leg + xfade recipe for step moves, iterative depth edits with camera anchoring, sequential Veo
+submits, Kling static-hold variant costs, deeper-last_frame depth propagation, browser-based
+reference-video study). **Note: the DASH_SECRET cache went stale mid-session — a 401 on `/api/todos`
+means refresh with `railway variables --service abs-by-ai --kv > ~/.absbyai-secrets.env`, not a wrong
+id.** Next: the remaining ~93 exercises in follow-on sessions (Dan sizes the batches); app integration,
+AI label, and hosting remain separate tasks. Original session record follows.
+
+### (superseded — batch approved) Exercise demo batch 1 — GENERATED and DELIVERED (2026-08-19, Claude Code)
 
 Executes `Handoffs/handoff-20260819-exercise-demo-batch1.md` via `/exercisegeneration`. **All three finished
 narrated MP4s were sent to Dan in one message; per the handoff, the dashboard task
