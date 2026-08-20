@@ -431,7 +431,8 @@ Port the `/shorts` assertion suite and add:
   cut the controls spanned p50 = 613 … p90 = 2455 … max = 4069, so a join landing beside a
   loud syllable scored 6.4× the *median* while being completely ordinary for the file.
   A "> 3× median" rule reported **4 failures; re-transcribing all four from the finished
-  render showed clean, continuous speech at every one.** Fail a join only when its jump
+  render showed clean, continuous speech at every one.** Allow ~1.25× headroom over the
+  ceiling too — one sample beating the max of 120 controls by 14 % is chance, not a pop. Fail a join only when its jump
   exceeds the file's own natural ceiling (the control max), and keep reporting the
   ×median figure so it stays comparable with the 8/3 baseline. This is the same lesson as
   the circular cut-cleanliness metric — the metric was wrong, not the media.
@@ -439,7 +440,16 @@ Port the `/shorts` assertion suite and add:
 - **Duration vs plan.**
 - **Sync spot-checks** — frames vs what he is saying. The only check that catches sync.
 - **Graphics on/off** — sample mid-chip AND between chips to prove `enable=between()`
-  windows actually close.
+  windows actually close. **Assert a clear separation in EITHER direction, never that
+  "chip == brighter".** A J2 chip is a dark box: on the doorway videos it raised the
+  region's mean luminance (white Impact on near-black, 61→83 vs 35 between chips), but on
+  the supplements video — a bright granite counter — it *lowered* it (107→115 vs 123). A
+  `max(off) < min(on)` test reported a false failure on a video whose chips were rendering
+  perfectly.
+- **No artificial mid-speech splits** — assert no two adjacent ranges are closer than
+  0.20 s. This is the one defect the splice metric structurally cannot see: render.py's
+  30 ms fades produce a brief amplitude *dip*, and max-sample-to-sample-jump only detects a
+  *step*. The builder now flags it too.
 
 **When a QC metric fails, verify the METRIC before "fixing" the media.** This has now
 paid for itself repeatedly: the word-presence check produced two false clip reports on

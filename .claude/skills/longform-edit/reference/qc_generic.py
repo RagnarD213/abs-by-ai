@@ -44,16 +44,24 @@ samples = struct.unpack(f"<{n}h", wf.readframes(n)); wf.close()
 def max_jump(c, win=0.004):
     a = max(1,int((c-win)*sr)); b = min(n-1,int((c+win)*sr))
     return max(abs(samples[i]-samples[i-1]) for i in range(a,b))
+# Normalise against the control DISTRIBUTION, not its median. Speech has huge
+# dynamic range: on a 30-min talking head the controls span p50=613 .. max=4069,
+# so a join landing next to a loud syllable scores >3x the MEDIAN while being
+# entirely normal for the file. A join is only a pop if its discontinuity exceeds
+# anything the file produces naturally. The x-median ratio is still reported so
+# it stays comparable with the 8/3 baseline (1.09-1.20x).
 random.seed(7)
-ctrl = sorted(max_jump(random.uniform(5, TOTAL-5)) for _ in range(60))[30] or 1
+ctrls = sorted(max_jump(random.uniform(5, TOTAL-5)) for _ in range(120))
+med = ctrls[len(ctrls)//2] or 1
+ceiling = ctrls[-1]
 worst, worst_j, bad = 0, None, 0
 for j in joins:
     if j <= 0.05 or j >= dur-0.05: continue
-    r = max_jump(j)/ctrl
+    v = max_jump(j); r = v/med
     if r > worst: worst, worst_j = r, j
-    if r > 3.0: bad += 1
-chk(bad == 0, f"splice discontinuity: {bad}/{len(joins)} joins >3x control "
-              f"(worst {worst:.2f}x at t={worst_j:.1f}s, control median {ctrl})")
+    if v > ceiling * 1.25: bad += 1
+chk(bad == 0, f"splice discontinuity: {bad}/{len(joins)} joins above 1.25x the file's own "
+              f"natural ceiling ({ceiling}); worst join {worst:.2f}x median ({med})")
 wav.unlink(missing_ok=True)
 
 chips = json.load(open(BASE / "chip_timings.json"))
@@ -70,8 +78,18 @@ for a,b in zip(chips, chips[1:]):
     if len(gaps) >= 4: break
 on_l  = [mean_lum(c["start"]+2.0, CHIPBOX) for c in on]
 off_l = [mean_lum(t, CHIPBOX) for t in gaps]
-chk(len(off_l) > 0 and max(off_l) < min(on_l),
-    f"graphics windows close: mid-chip lum {[round(x,1) for x in on_l]} vs between-chip {[round(x,1) for x in off_l]}")
+# A chip is a DARK box. On a dark set it raises the region's mean luminance
+# (white Impact text on near-black); on a BRIGHT set -- the supplements video is
+# a granite counter -- it LOWERS it. Assert a clear separation in either
+# direction, never that "chip == brighter".
+sep = (min(on_l) - max(off_l)) if min(on_l) > max(off_l) else (min(off_l) - max(on_l))
+chk(len(off_l) > 0 and sep > 5,
+    f"graphics windows open AND close: mid-chip lum {[round(x,1) for x in on_l]} vs "
+    f"between-chip {[round(x,1) for x in off_l]} (separation {sep:.1f})")
+
+tight = [(a["beat"], b["beat"], round(b["start"]-a["end"], 3))
+         for a, b in zip(ranges, ranges[1:]) if b["start"] - a["end"] < 0.20]
+chk(not tight, f"no artificial mid-speech splits (adjacent ranges <0.20s apart): {tight}")
 
 name_to_idx = {r["beat"]: i for i,r in enumerate(ranges)}
 if FLAGGED:

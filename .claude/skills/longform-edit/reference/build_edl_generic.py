@@ -83,6 +83,14 @@ for (a, b, beat) in RANGES:
     tail = " ".join(w["text"] for w in words if out_t - 3.2 < w["end"] <= out_t)[-58:]
     print(f"{beat:24s} {in_t:8.2f}-{out_t:8.2f} ({out_t-in_t:6.2f}s) | {head} … {tail}")
 
+# An adjacent pair with almost no source removed is not an edit, it is an
+# artificial split -- render.py's 30ms fade-out then fade-in lands mid-speech and
+# dips the audio. max-jump QC cannot see it (a dip is not a step), so assert here.
+for x, y in zip(out, out[1:]):
+    if y["start"] - x["end"] < 0.20:
+        flags.append(f"ARTIFICIAL SPLIT: {x['beat']} -> {y['beat']} removes only "
+                     f"{y['start']-x['end']:.3f}s -- merge these two ranges")
+
 total = sum(r["end"] - r["start"] for r in out)
 print(f"\n{len(out)} ranges  kept {total:.1f}s = {total/60:.1f} min")
 print("FLAGS:" if flags else "FLAGS: none")
