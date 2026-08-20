@@ -320,3 +320,33 @@ below are SETTLED — bake them into future prompts so they never recur:
 
 Cost of the revision round: ~$13 (11 stills ~$1.50 · 10 Veo legs incl. 2 discards ~$10.40 · 1 Kling 10s
 ~$0.70 · 6 VO clips ~$0.06). Running total for batch 2 + revisions: ~$72.
+
+---
+
+## THE DOUBLE-PUMP RULE (Dan's #1 complaint, 2026-08-20) — MANDATORY on every rep build
+
+Dan rejected 6 of 10 revised demos for one defect: the rep goes "up, then down, then up again" —
+reading as a glitching AI loop, not a real person. **Root cause: rep cuts that include ANY
+non-monotonic wobble get that wobble MIRRORED by the palindrome, so it plays twice back-to-back at
+every loop boundary.** Veo legs almost always contain settling jitter before the real movement (the
+pull-up leg had a full partial rise before the true pull; the press leg had two bounces at the bottom).
+
+**The fix, now tooled in `_r2/mono.py` — use it on EVERY rep:**
+1. `analyze <id> <leg> [x w y h]` — dense 12fps frame-diff signal vs frame 0, with an optional region
+   crop (**whole-frame diff saturates once the body leaves the start pose; scope to where the moving
+   part travels** — the overhead zone for presses, the heel arc for curls).
+2. Cut ONLY a **strictly monotonic** run: from the true zero-velocity turnaround (a local minimum,
+   often NOT t=0) to the first frame of the peak. `cut` refuses >8% dips; `qcunit` then verifies the
+   built unit is one smooth unimodal pulse (≤10% secondary bumps) — run it on every unit before
+   assembling.
+3. Boundary check on the FINAL video: frame diff across the loop seam should be ≤~20% of the mid-rep
+   motion range (this round measured 5–18% on all six).
+4. **Short monotonic runs are fine** — slow them with
+   `setpts=N*PTS,minterpolate=fps=24:mi_mode=mci:mc_mode=aobmc:vsbmc=1` (motion-interpolated slow-mo,
+   artifact-free on static-camera gym footage up to ~3.5x). Cut precise, then stretch into the
+   2.5–4s tempo band. Never keep a wobble just to make the rep longer.
+5. The bottom cut point also SETS the rep's visible depth — the seated press's "slightly below 90°"
+   bottom was chosen this way from a deeper leg, free.
+
+Also from this round: a real cycle inside one leg (Kling calf raise) still cannot be direct-loop cut
+— appearance drift makes even matching poses differ (~6.1 frame-diff); palindrome the rise instead.

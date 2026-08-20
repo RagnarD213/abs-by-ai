@@ -306,6 +306,18 @@ off); Kling v3 10s nailed it first try**. Dan's form standards + all engine find
 /exercisegeneration ("Batch 2 revision round"). `public/exercises.js` still says 'Lateral Raise' —
 rename deferred to app integration. AWAITING Dan's verdict on the revised 10.
 
+**REVISION ROUND 2 (2026-08-20): Dan approved superman/row/curl/calf but rejected 6 for a "DOUBLE
+PUMP" — the rep rising, dipping, rising again at the loop boundary, reading as an AI glitch. ROOT
+CAUSE FOUND AND TOOLED AWAY: rep cuts containing any non-monotonic settling jitter get that jitter
+mirrored by the palindrome and played twice back-to-back. `_r2/mono.py` now cuts only strictly
+monotonic runs (dense region-scoped frame-diff signal), QCs every unit for a single unimodal pulse,
+and verifies the loop seam (all six measured 5–18% of motion range). Short precise cuts are stretched
+with minterpolate motion-interpolated slow-mo. Also fixed per Dan: lat-pulldown now descends to the
+chest (deeper end still + new leg), side-lateral rebuilt with true 90° bent arms per a bodybuilder
+reference (elbows lead, hands below elbows), seated press bottom shortened to just-below-90° by
+choosing the cut point. All six redelivered; ~$4 more (running batch-2 total ~$76). The DOUBLE-PUMP
+RULE is now a mandatory section in /exercisegeneration. AWAITING Dan's verdict.**
+
 **EXACT NEXT ACTION — DAN: review the 20 videos.** On approval: the remaining ~73 exercises run in
 follow-on batches (step-based moves should get their own batch, since they need two legs each at
 ~$4.50–5.50 rather than ~$2.95). App integration, the AI-generated label, and hosting all remain
