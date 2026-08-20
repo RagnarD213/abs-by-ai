@@ -309,16 +309,6 @@
       ]
     },
     {
-      "text": "Change robot mop water",
-      "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-09",
-      "days": [
-        0,
-        4
-      ]
-    },
-    {
       "text": "Take out trash and replace liners",
       "priority": "unassigned",
       "recurring": false,
