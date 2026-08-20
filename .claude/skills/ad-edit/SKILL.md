@@ -150,18 +150,22 @@ These carry the marketing message; be pickiest here. Dan's rule set (2026-08-20)
   number/moment (longform rule). In the 9:16 export, demo recordings go
   full-frame — they're native vertical.
 - **Compliance on every demo/AI asset:** the AI-GENERATED label on every AI
-  goal/after image; never a side-by-side before/after EXCEPT inside the app's own
-  UI in a real screenshot/recording (the one sanctioned exception); never a drug
-  name on screen.
+  goal/after image; never a drug name on screen. **NEVER a side-by-side
+  before/after ANYWHERE — the in-app-UI exception is REVOKED (Dan, 2026-08-20,
+  after ad #1 shipped the app's "Meet the new you" screen and he called it the
+  most serious mistake in the video — account-suspension class).** The pattern is
+  always: before → something else → after, with the after clearly tagged
+  AI-GENERATED. An app screen that renders before+after together (e.g. "Meet the
+  new you") is unusable; use the flow's before-alone / generating / after-alone
+  screens instead.
 
 ## Step 5 — graphics
 
-⏳ **AD #1 IS A STYLE TEST — build TWO variants of the finished ad:** (a) the
-**J2 tactical system** (constants verbatim from the /shorts + /longform-edit
-reference — brand-consistent with all our content), and (b) the **MadMuscles/
-modern ad style** (per the /make-ad caption spec and the V Shred 2026 look).
-Dan picks after watching both; the winner becomes THE locked style and this
-section gets rewritten around it.
+**LOCKED (ad #1 verdict, 2026-08-20): the J2 tactical system for graphics —
+panels, tags, green/olive outlines, and the J2 CTA bar — with MadMuscles-style
+captions (see Step 6).** Dan explicitly kept the olive-outlined J2 panel frames
+and the J2 lower-third CTA bar and rejected the MadMuscles red-pill/blur-panel
+look for everything except captions.
 
 **Minimal-first policy (Dan's instruction):** for the first few ads, place only
 the graphics that are *clearly* called for — the script doc's bracketed cues,
@@ -198,11 +202,16 @@ Burned, word-timed from Whisper on the **final mixed audio** — never estimated
 windows (the /make-ad rule Dan enforced; `captions-from-words.js` is the model).
 Never `" ".join()` Whisper tokens (longform Step 8 token rules).
 
-⏳ **Ad #1 caption A/B, paired with the style test:** (a) the canonical
-MadMuscles spec from /make-ad (scaled to the frame: at 1080p 16:9 use ~64px
-Arial Bold, centered, low third, clear of the CTA bar — the 1920-height spec
-numbers are for 9:16), vs (b) a J2-matched caption style (Manrope/Impact family,
-J2 palette). Lock after Dan's verdict.
+**LOCKED (ad #1 verdict, 2026-08-20): MadMuscles-style captions — Arial Bold
+~64px at 1080p 16:9, white with black outline, centered, low third, above the
+CTA bar — on top of J2 graphics.** Dan's caption rules, non-negotiable:
+- **"abs" is ALWAYS lowercase in captions** (never ABS), every occurrence — it is
+  the central recurring word of every ad. "AI" stays uppercase. (J2 Impact
+  headlines on cards/end-cards are all-caps by design and are exempt.)
+- **The first 30 seconds must be word-for-word accurate** — proof them manually
+  against the audio (Whisper misheard "goal picture" as "gold picture" on ad #1).
+  Outside the first 30s, small mishears are tolerable.
+- Keep a per-ad corrections dict for recurring Whisper mishears.
 
 Layout rule regardless of variant: captions sit ABOVE the persistent CTA bar and
 never collide with it, with side-inserts, or with the AI-GENERATED labels; no
@@ -239,7 +248,8 @@ Not a center crop. Rebuild the frame:
 ## Step 9 — compliance scan (before delivery, every ad)
 
 1. AI-GENERATED label on every AI image/clip, in both aspect ratios.
-2. No side-by-side before/after outside real app UI.
+2. No side-by-side before/after ANYWHERE, including inside real app UI (rule
+   hardened 2026-08-20 — scan every insert frame for it explicitly).
 3. No drug names spoken or on screen ("weight loss medication" only).
 4. **Negative-imagery scan (Dan's rule, 2026-08-20):** sample frames across the
    finished cut and check for Google's "Negative Events and Imagery" triggers —
@@ -297,14 +307,40 @@ No human editor is in this loop — this skill is the entire pipeline.
 
 ## Take-selection lessons (LEARNING — append every divergence)
 
-*(empty — populate from ad #1's first-minute picks: line, Dan's pick, what
-Claude would have picked, Dan's reason. Graduate to Claude-picks-all when these
-converge.)*
+Ad #1: Dan did not overrule any pick. The take reel offered the prompter-test
+pass vs the slated master; v1 shipped the master (Claude's default) and his
+revision notes accepted it silently. One correction that IS take-selection
+signal: the kept 2nd instance of a repeated sentence contained a 2s-pause
+faltering re-attempt (he heard it at 1:33 as "junk footage") — **when Whisper
+shows a stretched word inside a candidate take, LISTEN to the isolated span
+before keeping it; a later take with internal silences loses to a clean earlier
+take.** Rule updated: later-take-wins only when the later take is fluent.
 
 ## Graphics-placement lessons (LEARNING — append every Dan-directed placement)
 
-*(empty — populate from ad #1's revision rounds: timestamp/beat, what Dan asked
-for, the pattern behind it. Goal: place motion graphics and AI clips unprompted.)*
+Ad #1 rev-1 (2026-08-20), Dan's directed placements and the patterns behind them:
+1. **Static photos are never left static** — he asked for motion on the shoot-photo
+   run ("add motion effect so they're not static"). Default: Ken Burns (zoompan
+   ~1.0↔1.09 over the window, alternate in/out per consecutive image) on EVERY
+   still insert.
+2. **A benefit enumeration gets one insert PER benefit** — "more attractive to
+   women / men respect you / feel better-energy-health-live longer" got three
+   clips, cut on the phrase boundaries. Pattern: when the script lists concrete
+   life benefits, cover each with its own literal clip.
+3. **A pain/struggle line gets a literal struggle clip** — "finding motivation is
+   really hard" got an overweight-man-straining insert. Match the demographic
+   (overweight, male) or it doesn't land.
+4. **Stock-first sourcing works**: Pexels (free, no key needed —
+   `https://www.pexels.com/download/video/<ID>/` curls straight to the CDN;
+   search HTML greps for `/video/slug-ID/`). Dan's bar: stock if a GREAT clip
+   exists, AI-generate only otherwise. Ad #1 filled all four slots from Pexels, $0.
+5. **"Made it my phone lockscreen" beats want the goal image ON A PHONE** — he
+   replaced a reused AI b-roll clip with a phone-mockup of the goal image
+   (bezel + lockscreen clock + AI-GENERATED tag, slow push-in). Reusing the same
+   AI clip twice in one ad was rejected the second time.
+6. **Crop discipline on photo inserts: never cut the top of the head or the
+   shorts line** — fit the whole figure on the J2 panel instead of cover-cropping
+   (same rule as /coverimage).
 
 ## Decisions locked vs pending
 
@@ -317,6 +353,7 @@ for, the pattern behind it. Goal: place motion graphics and AI clips unprompted.
 | No 1.2x pass, no music bed, no hook variants (for now) | LOCKED |
 | Minimal graphics first; Dan directs placements; learn | LOCKED |
 | Negative-imagery scan; remove certain violations, flag unsure ones | LOCKED |
-| J2 vs MadMuscles style (graphics + captions) | ⏳ ad #1 A/B |
-| "Results are not guaranteed" disclaimer on filmed ads | ⏳ ad #1 |
+| NO before/after anywhere, incl. in-app UI; before → other → tagged after | LOCKED (2026-08-20, Dan's #1) |
+| Style: J2 graphics + CTA bar, MadMuscles captions, "abs" lowercase | LOCKED (2026-08-20) |
+| "Results are not guaranteed" micro-disclaimer (photo run + end card) | shipped on ad #1, not vetoed |
 | CTA bar exact copy/geometry per style | ⏳ ad #1 |

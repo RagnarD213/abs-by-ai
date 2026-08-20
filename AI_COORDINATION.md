@@ -119,6 +119,23 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### AD 1 REV-1 — all of Dan's revisions applied and redelivered; style LOCKED (2026-08-20, Claude Code)
+
+Dan's verdict on v1: "very strong overall". Style locked: **J2 tactical graphics + J2 CTA bar with
+MadMuscles-style captions (Arial Bold)** — written into the skill. All revision items shipped in
+`ad1_rev1_16x9.mp4`: "abs" ALWAYS lowercase in captions (+"goal" mishear fixed, first 30s proofed
+word-for-word), photo inserts uncropped (full head-to-shorts, /coverimage rule) with Ken Burns motion,
+the 1:33 junk cut (kept take contained a 2s-pause faltering re-attempt — the later-take-wins rule is now
+"later take wins only when fluent"), four Pexels stock inserts ($0 — tire-flip strain / gym couple /
+respect clasp / beach-run vitality; Pexels download recipe in the skill), a built goal-image-on-phone
+lockscreen mockup replacing the reused AI clip, and the product demo rebuilt before → generating →
+tagged-after-alone. **RULE CHANGE (Dan's #1, account-suspension class): NEVER before/after on screen,
+the in-app-UI exception is REVOKED** — v1 had shipped the app's "Meet the new you" screen; SKILL.md
+Step 4/9, the demo-clip log and PLACEMENT conventions are updated, and every future ad must frame-scan
+for it. Junk pass clean (0 gaps >1.2s, no retake residue), joints re-transcribed clean, −14.3 LUFS.
+**$0.00 AI spend across both rounds.** Awaiting Dan's rev-1 review; 9:16 builds on 16:9 approval.
+
+
 ### AD 1 "How AI Got Me Abs" — CUT, QC'd, TWO STYLE VARIANTS DELIVERED; awaiting Dan's 3 verdicts (2026-08-20, Claude Code)
 
 First run of /ad-edit. Source: the 8/14 shoot (already synced to the Seagate; roll **C1591** is the
