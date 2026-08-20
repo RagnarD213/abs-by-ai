@@ -379,3 +379,34 @@ Other fine-detail rules settled this round:
   DOWNWARD… pinky rotates up").
 - The VO must match the video's numbers — the leg-raise video was capped at 45° while the VO still
   said "vertical". When a movement spec changes, re-read the VO script for stale numbers.
+
+---
+
+## Batch 3 revision round (2026-08-20) — new settled rules
+
+Dan's revisions on batch 3 (8 of 10; face-pull and incline-pushup approved as generated). New standards:
+- **Machines must look like REAL equipment** — the leg press v1 had a nonsense frame (inert bar above
+  the shoulders, no plates, no stack). Name the commercial archetype in the prompt ("plate-loaded
+  45-degree leg press exactly like a Hammer Strength", "45-pound plates on each side sleeve") and name
+  the wrong answers ("NO cable, NO pulley, NO weight stack, NO bar above his shoulders").
+- **Dumbbell bench grip: handles run ACROSS the body like a barbell**, palms toward the feet — never
+  fore-aft. A 90° rotate is a clean still edit ("the hexagonal end face of the near dumbbell points at
+  the camera").
+- **Row: dumbbell to the lower ribs, elbow ABOVE the back line, hard shoulder-blade squeeze — and the
+  VO carries the "pulling the starter cord on a lawnmower" cue with a back-contraction focus.**
+- **Alternating-limb moves (dead bug, bird dog) must SHOW BOTH SIDES**: generate a mirrored side-B end
+  still (edit of the same start still — swap which limbs extend), a second Veo leg, and build the loop
+  unit as [side-A rep]+[side-B rep]. Two reps per unit, ~3s each.
+- **Cross-leg seams need xfade**: when a unit joins segments from two different Veo legs, the shared
+  pose renders slightly differently per leg (dead-bug tabletop measured 8.6 frame-diff). Build the
+  looped video with 0.3s xfades at every boundary (xfade chain, not -stream_loop) — reads as settling.
+  (bird-dog joined at 1.27 without help because BOTH legs used the same b3-start still as their
+  all-fours anchor — anchor multi-leg builds on one shared still when possible.)
+- **The ANTIPUMP motion-prompt block works** — append to every motion prompt: "from the very first
+  frame to the very last frame the movement progresses in ONE direction only, at a steady controlled
+  speed. He NEVER pauses partway, NEVER reverses slightly and continues, NEVER does a partial
+  repetition first, NEVER bounces, and NEVER makes any small preparatory or adjustment movements."
+  With it, 8/8 revision legs passed mono.py's strictly-monotonic gate on the first attempt.
+- **The mono.py + qcunit + ghost.py pipeline is now MANDATORY on every rep** (see THE DOUBLE-PUMP RULE
+  and BACKGROUND-GHOST SCAN sections above). Never accept a cut from a 0.4-0.5s frame sheet again —
+  round 1's three double-pumps all hid between sparse samples.

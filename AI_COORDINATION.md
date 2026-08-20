@@ -319,6 +319,22 @@ with per-exercise form research (NASM/PureGym/Gravitus/ATHLEAN-X) done before wr
 **No native retest trigger row touched** — media production only. **Dashboard: nothing checked off** (no
 Rule-8 task exists; batch not from a handoff; completion bar is Dan's approval).
 
+**REVISION ROUND (2026-08-20, same day): all 8 of Dan's batch-3 revisions applied and redelivered
+(~$15 more; batch-3 total ~$45).** Face-pull and incline-pushup were approved unchanged. Fixes:
+leg-press rebuilt on a realistic PLATE-LOADED 45° machine (45-lb plates on sled sleeves, no cables/
+overhead bar — keep-and-reverse again since both candidates rendered the bottom pose); bench dumbbells
+rotated 90° to the standard across-the-body grip (still edit, both keyframes); row pulled higher with a
+hard shoulder-blade squeeze + new VO with Dan's lawnmower-pull-start cue; goblet foot shuffle
+eliminated; RDL and pushdown double-pumps eliminated; pushdown top raised to ~45° elbows; dead-bug and
+bird-dog now ALTERNATE sides (side-B mirror end stills + second Veo legs, units = sideA rep + sideB rep).
+**The anti-double-pump discipline is now tooling, not vigilance:** every rep cut ran through
+`_r2/mono.py` (strictly-monotonic gate — all 8 passed, worst dip 4.2%) + `qcunit` (all unimodal) +
+`_r2/ghost.py` background scan (all stray flags eyeballed static; pushdown's moving weight stack is his
+own machine, allowed). Dead-bug's cross-leg tabletop seam (8.6 frame-diff) was smoothed by building the
+looped video with 0.3s xfades at every A|B boundary instead of -stream_loop. The new ANTIPUMP motion-
+prompt block (never pauses/reverses/partial-reps/adjusts) produced dramatically cleaner legs — 8/8
+passed the monotonic gate first try vs round 1's constant wandering. AWAITING Dan's verdict on the 8.
+
 **EXACT NEXT ACTION — DAN: review the 10 videos.** Remaining after this batch: ~40 exercises — mostly
 step-based moves (walking-lunge, step-up, burpee — two-leg + xfade class, ~$4.50-5.50 each), kettlebell
 family, barbell lifts, and warm-ups. App integration, AI label, hosting remain separate tasks.
