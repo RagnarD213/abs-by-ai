@@ -353,7 +353,7 @@
     },
     {
       "text": "Clean office",
-      "priority": "high",
+      "priority": "med",
       "recurring": false,
       "addedAt": "2026-08-03"
     },
