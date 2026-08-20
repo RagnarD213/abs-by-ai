@@ -252,7 +252,7 @@ const DASH_PAGES = ['/dashboard', '/admin', '/morningbrief'];
 const DASH_APIS  = [
   '/api/morning-data', '/api/monarch', '/api/calendar-debug', '/api/gmail-digest',
   '/api/health-debug', '/api/todos', '/api/plan', '/api/assign-priority',
-  '/api/tasks-state',
+  '/api/tasks-state', '/api/personal-lists',
 ];
 
 const dashSign = (expMs) => crypto.createHmac('sha256', DASH_SECRET).update(String(expMs)).digest('hex');
@@ -9878,6 +9878,23 @@ app.get('/morningbrief', (req, res) => {
   // the gate on this route. dashboard.html and admin.html live in the root for this
   // exact reason. Never put an internal page in public/.
   res.sendFile(path.join(__dirname, 'morningbrief.html'));
+});
+
+// List of Hate / List of Great (Brandon Carter concept) for the morning brief.
+// The names and the aspirational items are private — one entry is a live legal
+// dispute — so they live ONLY in the PERSONAL_LISTS_JSON Railway env var, never in
+// morningbrief.html or any committed file. This repo is public, so anything baked
+// into the static page gets published in git history forever. The page instead
+// fetches this endpoint client-side once the dashboard cookie/key has already
+// authenticated it, so no secret is ever embedded in the committed HTML.
+app.get('/api/personal-lists', (req, res) => {
+  const raw = process.env.PERSONAL_LISTS_JSON;
+  if (!raw) return res.status(404).json({ error: 'PERSONAL_LISTS_JSON not set' });
+  try {
+    res.json(JSON.parse(raw));
+  } catch {
+    res.status(500).json({ error: 'PERSONAL_LISTS_JSON is not valid JSON' });
+  }
 });
 
 // Serve index.html for all non-API, non-dashboard routes (SPA fallback)

@@ -78,19 +78,34 @@ html, body {
   margin: 0 0 30px;
 }
 .headline .caps { text-transform: uppercase; }
-.quote-block { margin: 0 0 34px; }
-.quote-text {
-  font-family: 'Fraunces', serif;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 1.4;
-  color: var(--ink);
-  margin: 0 0 8px;
+.hg-block { margin: 0 0 34px; }
+.hg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.hg-col { padding: 0 20px; }
+.hg-col:first-child { padding-left: 0; border-right: 1px solid var(--hairline); }
+.hg-col:last-child { padding-right: 0; }
+.hg-label {
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
 }
-.quote-attr {
-  font-size: 14px;
-  color: var(--ink-soft);
+.hg-label.hate { color: var(--clay); }
+.hg-label.great { color: var(--ink); }
+.hg-sub {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-grey);
+  margin: 14px 0 6px;
 }
+.hg-sub:first-of-type { margin-top: 0; }
+.hg-list { list-style: none; margin: 0; padding: 0; }
+.hg-list li { font-size: 14px; line-height: 1.5; color: var(--ink-soft); padding: 4px 0; }
+.hg-list.hate li { color: var(--ink); font-weight: 500; }
+.hg-empty { font-size: 13px; color: var(--ink-grey); font-weight: 400 !important; }
 .cal-label {
   font-family: 'Lexend Deca', sans-serif;
   font-weight: 500;
@@ -220,6 +235,8 @@ section:last-child { border-bottom: none; padding-bottom: 60px; }
   .wrap { padding: 0 20px; }
   .headline { font-size: 30px; }
   .top-band { padding: 34px 0 28px; }
+  .hg-grid { grid-template-columns: 1fr; gap: 20px; }
+  .hg-col:first-child { border-right: none; padding-right: 0; padding-bottom: 18px; border-bottom: 1px solid var(--hairline); }
   .cal-row { grid-template-columns: 1fr; gap: 16px; }
   .cal-col { border-left: none; padding-left: 0; padding-top: 12px; border-top: 1px solid var(--hairline); }
   .cal-col:first-child { border-top: none; padding-top: 0; }
@@ -233,9 +250,20 @@ section:last-child { border-bottom: none; padding-bottom: 60px; }
     <div class="day-date">Thursday &middot; August 20 2026</div>
     <h1 class="headline"><span class="caps">Today's key task:</span> review the 20 new AI exercise demo videos.</h1>
 
-    <div class="quote-block">
-      <p class="quote-text">&ldquo;Discipline is basically doing what you're supposed to do when you're supposed to do it regardless of whether you feel like it or not.&rdquo;</p>
-      <div class="quote-attr">&mdash; Brandon Carter</div>
+    <div class="hg-block" id="hgBlock">
+      <div class="hg-grid">
+        <div class="hg-col">
+          <div class="hg-label hate">List of hate</div>
+          <ol class="hg-list hate" id="hgHateList"><li class="hg-empty">Loading&hellip;</li></ol>
+        </div>
+        <div class="hg-col">
+          <div class="hg-label great">List of great</div>
+          <div class="hg-sub">How I live &mdash; today</div>
+          <ol class="hg-list" id="hgGreatDailyList"><li class="hg-empty">Loading&hellip;</li></ol>
+          <div class="hg-sub">Where this goes</div>
+          <ol class="hg-list" id="hgGreatIdentityList"></ol>
+        </div>
+      </div>
     </div>
 
     <div class="cal-label">Today's calendar</div>
@@ -383,6 +411,36 @@ section:last-child { border-bottom: none; padding-bottom: 60px; }
   </section>
 
 </div>
+
+<script>
+(function () {
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+  function fill(id, items) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (!items || !items.length) { el.innerHTML = '<li class="hg-empty">Nothing set yet.</li>'; return; }
+    el.innerHTML = items.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+  }
+  function fail() {
+    fill('hgHateList', null);
+    fill('hgGreatDailyList', null);
+    fill('hgGreatIdentityList', null);
+  }
+  // Private — names and personal goals never live in this committed file. They come
+  // from a Railway env var behind the same dashboard auth this page itself is gated
+  // by, so the fetch rides the already-authenticated cookie with no secret embedded
+  // here.
+  fetch('/api/personal-lists', { credentials: 'same-origin' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      if (!data) { fail(); return; }
+      fill('hgHateList', data.hate);
+      fill('hgGreatDailyList', data.great_daily);
+      fill('hgGreatIdentityList', data.great_identity);
+    })
+    .catch(fail);
+})();
+</script>
 
 </body>
 </html>
