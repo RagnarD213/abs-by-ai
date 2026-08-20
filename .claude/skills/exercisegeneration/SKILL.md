@@ -350,3 +350,32 @@ pull-up leg had a full partial rise before the true pull; the press leg had two 
 
 Also from this round: a real cycle inside one leg (Kling calf raise) still cannot be direct-loop cut
 — appearance drift makes even matching poses differ (~6.1 frame-diff); palindrome the rise instead.
+
+---
+
+## THE BACKGROUND-GHOST SCAN (Dan's instruction, 2026-08-20) — MANDATORY before delivery
+
+Dan caught weight stacks on background cable machines pumping up and down in time with the seated
+press — nobody on the machines. **Video models animate sympathetic background motion; QC must look at
+the whole frame, not just the exercise.** Tooling: `_r2/ghost.py <id>` builds a per-pixel motion
+heatmap across the unit, finds the subject's motion box, and flags any stray motion outside it.
+Run it on EVERY unit; eyeball each flag (his own head/feet micro-shifts flag too — that's fine;
+machinery moving is not).
+
+**Fixing a ghost costs $0 when the camera is locked off:** overlay a static patch cropped from frame 0
+over the offending region for the whole unit (`overlay` of `crop`s from a frame-0 PNG) — seams are
+invisible because it is the same pixels. Verify with a second heatmap (press: stack regions dropped
+from sd~30 to sd~1). Exception: equipment the subject is actually USING should keep moving (the
+row/pulldown stacks he pulls).
+
+Other fine-detail rules settled this round:
+- **Pull-up bottom: a FEW degrees of elbow bend** — visibly more straight than "soft", never locked.
+  Found for free by cutting the rep from the leg's DESCENT (reversed), whose bottom frames pass
+  through exactly that pose.
+- **Leg curl finishes slightly PAST 90°** — shin beyond vertical, and Veo often creeps deeper after
+  the first "top": extend the cut to the true depth peak rather than the first plateau.
+- **Side-lateral top: elbows clearly above the shoulder line AND dumbbells tipped nose-down 45-60°**
+  (the pour). Wrist-tilt asks work as a still edit ("front head of each dumbbell points steeply
+  DOWNWARD… pinky rotates up").
+- The VO must match the video's numbers — the leg-raise video was capped at 45° while the VO still
+  said "vertical". When a movement spec changes, re-read the VO script for stale numbers.

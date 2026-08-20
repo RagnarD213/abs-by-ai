@@ -409,6 +409,17 @@ reference (elbows lead, hands below elbows), seated press bottom shortened to ju
 choosing the cut point. All six redelivered; ~$4 more (running batch-2 total ~$76). The DOUBLE-PUMP
 RULE is now a mandatory section in /exercisegeneration. AWAITING Dan's verdict.**
 
+**REVISION ROUND 3 (2026-08-20 evening): double pumps CONFIRMED ELIMINATED by Dan ("great job… no
+double pumps at all"); five fine-detail fixes delivered same evening (~$2.70): leg-raise VO now says
+45° (video untouched); pull-up bottom rebuilt at a few degrees short of straight (cut from the leg's
+reversed descent, $0); leg-curl extended past 90° (the leg crept deeper after its first plateau — cut
+to the true depth peak, $0); seated-press GHOST WEIGHT STACKS frozen (background cable-machine stacks
+pumped with his reps — fixed by compositing static frame-0 patches over the stack regions, $0,
+verified by motion heatmap); side-lateral top regenerated with elbows above the shoulder line and
+dumbbells tipped nose-down mid-pour. **New mandatory QC from Dan's feedback: `_r2/ghost.py` motion-
+heatmap scan for background artifacts on every unit** — ran it across all 20; the press was the only
+ghost. AWAITING Dan's verdict.**
+
 **EXACT NEXT ACTION — DAN: review the 20 videos.** On approval: the remaining ~73 exercises run in
 follow-on batches (step-based moves should get their own batch, since they need two legs each at
 ~$4.50–5.50 rather than ~$2.95). App integration, the AI-generated label, and hosting all remain
