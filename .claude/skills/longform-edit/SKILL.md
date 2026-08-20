@@ -116,6 +116,27 @@ timestamps out of 882** (`'set.'` at 305.00–305.00), leaving one edge 190 ms s
 the real word end. That is exactly what the silence *assertion* catches. Use both — one
 places, one checks.
 
+**Three more Whisper-timestamp traps, all paid for on the 8/19 invest-health cut
+(69-min roll, 98-range EDL — builder preserved as `reference/build_edl_investhealth.py`):**
+1. **A CLUSTER of zero-length words is hallucinated text — never cut inside it.**
+   Whisper emitted "not just a lot of stuff. And" as six zero-length words where the
+   audio contains no such phrase; a different cluster around "Just electricity" carried
+   garbage boundaries, and cutting on them rendered *"utility, tricity"*. When the words
+   around a planned cut are degenerate, keep the region contiguous (a half-word
+   self-correction in the audio beats a clipped joint) and listen-QC it.
+2. **A stretched first word (>0.8 s) means Whisper folded the pre-retake pause INTO
+   the retake's first word** — an in-point at `word.start − 0.12` lands mid-pause or
+   clips the aborted take. Refine: last `silence_end` inside the word span − 0.10.
+3. **Clamp every in-point to the previous word's end.** The −0.12 pad otherwise bites
+   the tail of the CUT take's last word and puts an audible fragment at the segment head.
+   Symmetrically, an out-point snapped forward must never cross the next word's onset.
+
+**Validate flagged joints by transcribing 6 s of the FINISHED render around each one**
+(qc script does this) — it caught the clipped joint that every duration/loudness metric
+missed. Also: the full-roll transcript can *miss real words* inside a stretched-word
+pause (a whole "a maid service" surfaced at a joint that looked like residue but was
+genuine speech) — judge joints by the re-transcription, not by the source transcript.
+
 **A cut-cleanliness QC metric must compare the render against the INTENDED editorial
 span, never against the engine's own output ranges.** The first version derived expected
 words from each engine's own EDL, so a word the engine had already chopped was never in
@@ -145,11 +166,21 @@ Installed at `~/Developer/video-use`, symlinked into `~/.claude/skills/video-use
 creation, and both export **Premiere/FCP/Resolve timelines** — the timeline-handoff model
 Dan's plan explicitly rejects. Do not revisit without new evidence.
 
-**KNOWN GAP — fix this before any revision round:** `render.py` has **no segment cache**.
-`extract_all_segments()` re-extracts every range on every render, so a one-beat revision
-cost **1:45.8 vs 1:46.9 for the full render**. Key each segment on
-`hash(source, start, end, grade, preview/draft)` and skip extraction when the file exists.
-On a 30-minute video this is a ~10-minute revision versus ~10 seconds.
+**Segment cache — FIXED 2026-08-19** in `~/Developer/video-use/helpers/render.py`:
+each segment is keyed on `sha1(source|start|end|grade|mode)` and the hash is in the
+FILENAME (not the range index), so inserting or deleting one beat re-extracts only
+that beat. Extraction writes to a `.tmp.mp4` and renames on success, so an interrupted
+run can never leave a truncated file the cache would trust. Verified: a two-range EDL
+rendered, one beat edited, re-render printed `[cached]` for the untouched beat and
+`segment cache: 1/2 reused`. Production-proven on the 8/19 invest-health revision:
+**97/98 segments reused, one merged beat re-extracted — minutes instead of an hour.**
+Note `clips_*` dirs accumulate stale hashed segments across revisions — harmless;
+delete the dir to reclaim space after delivery.
+
+`render.py` also now honors an optional **`"fps"` field in the EDL** (string, ratios
+allowed — `"30000/1001"`). It used to hardcode `-r 24`, which silently retimed 29.97p
+Sony footage; set the EDL fps to the source rate for talking-head longform. Default
+stays 24 when the field is absent.
 
 ---
 
