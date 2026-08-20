@@ -202,36 +202,43 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-20"
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-20"
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-20"
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-20"
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-20"
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-20"
     },
     {
       "text": "Inject Zepbound",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-20"
     }
   ],
   "personal": [
@@ -423,6 +430,12 @@
       "recurring": false,
       "addedAt": "2026-08-19",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Do laundry",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-20"
     }
   ]
 }
