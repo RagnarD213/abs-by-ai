@@ -420,6 +420,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-20"
+    },
+    {
+      "text": "Cut up boxes from artificial hedge install and put in empty room",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-20"
     }
   ]
 }
