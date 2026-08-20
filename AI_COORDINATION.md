@@ -119,6 +119,44 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### /ad-edit SKILL WRITTEN — filmed-ad editing pipeline, built on an 11-ad study (2026-08-20, Claude Code)
+
+New skill `.claude/skills/ad-edit/` (SKILL.md + `reference/AD_STUDY.md` + `reference/study_ad.py`)
+for editing FILMED ads — Dan reading the teleprompter scripts — as distinct from /make-ad (AI ads)
+and /longform-edit (content). Built after an extended interview with Dan plus a measured study of
+**11 winning direct-response ads**: 7 of his own green-marked SixPackAbs-era winners (decoded from
+the "Copy of SixPackAbs.com Channel YouTube Commercials" sheet — green fill `FF00FF00` = best,
+red = worst), V Shred's #1 all-time ($5.3M) and 2026 winner ($2M, the VidTao link Dan shared), and
+MadMuscles' $224.8k creative. Each was downloaded, scene-detected and read as per-shot contact
+sheets; stats + patterns are in `reference/AD_STUDY.md`, raw media preserved at
+`/Volumes/Seagate 4TB/ad-edit-research/`. **$0.00 AI spend** — local ffmpeg/PIL analysis only.
+
+**Two reusable findings:** (1) **yt-dlp's SABR block is bypassed by
+`--extractor-args "youtube:player_client=android"`** (returns format 18, 360p — enough for cut
+study; the 2026-08-17 "yt-dlp is blocked" note stands only for default clients). (2) On VidTao's
+free tier the embed/thumbnail HTML leaks YouTube ids (`regex (?:embed/|vi/)IDs`), and brand pages
+are reached by clicking the brand name on an ad page — the Brands search box returns nothing.
+
+**Dan's decisions encoded in the skill (locked):** teleprompter script = 99% ground truth
+(spoken corrections win, drift flagged); take selection hybrid — Dan picks the first minute from
+a labeled take reel, Claude picks the rest and LEARNS his picks toward full handoff; 16:9 primary
++ 9:16 secondary this batch, both must be strong; cut the whole script, no length ceiling; no
+1.2x pass / no music bed / no hook variants for now; zero jump cuts (punch-in alternation or
+insert coverage); demo clips reused until ~3–4 uses then freshly captured from the real app;
+graphics minimal-first with Dan directing placements into a learning log; negative-imagery scan
+(zoomed-in fat-body-part shame shots removed outright, unsure cases flagged). **Pending on ad #1:
+J2-vs-MadMuscles style A/B (graphics AND captions — two variants of the first ad), the
+results-disclaimer question, exact CTA-bar geometry.** Color/audio/QC inherit /longform-edit
+verbatim. **New shoot requirement flagged: ads must be shot 4K** — punch-in zoom cuts and the
+9:16 export both depend on crop headroom.
+
+**Dashboard: nothing checked off, correctly** — all lists searched; no task describes building
+this skill. The nearest matches are different work: `money::Clear editing backlog: batches 2-4
+(~10 ads + ~25 content videos)` is the EXECUTION this skill will serve (advanced, not finished),
+and `money::Decide the video-editing stack` is Dan's decision (this skill is an input to it).
+No handoff was created, so Rule 8 does not apply. **EXACT NEXT ACTION — when Dan films the ad
+batch (shoot 4K), run `/ad-edit` on ad #1 and deliver the two style variants.**
+
 ### Three longform videos CUT, QC'd and DELIVERED from the 8/3 shoot (2026-08-20, Claude Code)
 
 **Deliverables:** `/Volumes/Seagate 4TB/abs by ai 8:3 jeff chagrin shoot/EDITED 8-20-26/` — three
