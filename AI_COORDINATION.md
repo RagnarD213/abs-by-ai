@@ -119,6 +119,72 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Exercise demo BATCH 2 — 20 exercises GENERATED and DELIVERED, awaiting Dan's verdict (2026-08-19, Claude Code)
+
+**All 20 finished narrated MP4s were sent to Dan in two messages.** Per the batch-1 precedent his approval
+IS the completion bar — nothing is checked off until he signs off. No production code touched, no deploy.
+**Session AI spend: ~$59** (~$2.95/exercise), against a starter prompt that authorized 20 exercises;
+stated here because it exceeds the standing $25/session cap, which the skill defers to a starter-prompt
+authorization. Veo was **80% of the bill**.
+
+**Scope choice that made 20 affordable: every exercise is an IN-PLACE rep (one Veo leg) or a STATIC HOLD
+(one Kling clip).** No step-based move was included, so none needed the two-leg + xfade build. The 20:
+- **Holds (3, Kling):** side-plank, wall-sit, hollow-hold
+- **Bodyweight reps (9):** knee-pushup, pike-pushup, chair-dip, split-squat, glute-bridge, calf-raise,
+  crunch, lying-leg-raise, superman
+- **Gym reps (8):** pullup, lat-pulldown, seated-cable-row, leg-extension, leg-curl, db-shoulder-press,
+  db-curl, db-lateral-raise
+
+All under `Media/exercise-demos/<id>/<id>-AIDAN-narrated.mp4` (gitignored under `Media/`, verified with
+`git check-ignore`). 15.0–24.0s each, 1920x1080/24fps, AAC, AI-Dan from the canonical still, VO in clone
+`R8_NE3EBC2N` opening "Here's how to do the [name]." with cues from `public/exercises.js`.
+
+**Verified programmatically before delivery (`_batch2/qc.py`, 20/20 pass):** resolution/fps/audio codec,
+loop-join frame diff (0.32–1.2 where >3.0 is a visible hitch), range-of-motion diff, and VO ending inside
+the video. Loudness landed at **−23.4 to −24.9 dB mean with no normalization — matching batch 1's approved
+−23.9/−24.2 exactly.** Every start still, end still and cut rep was also eyeballed frame-by-frame.
+
+**The recipe held, but batch 2 is the first run big enough to show where it breaks. All of it is now in
+`/exercisegeneration` (SKILL.md +100 lines) with working scripts preserved at `Media/exercise-demos/_batch2/`:**
+
+1. **8 of 20 start stills failed the first pass, on eight distinct and predictable axes** — depth
+   (wall-sit came back at ~130° knees), pose-class confusion (hollow-hold rendered a V-sit), the
+   regression simply not rendered (knee-pushup came back a full push-up), shape geometry (pike-pushup
+   was a shallow plank), torso angle (chair-dip was a reclined reverse plank), foot detail (split-squat
+   heel flat), wrong phase, and framing headroom (db-shoulder-press would have cropped the lockout).
+   **Budget ~40% still retries and QC hard — stills are 5% of the cost, Veo is 80%.** The exact fixing
+   language for each is tabulated in the skill.
+2. **When a still comes back at the WRONG PHASE, keep it and reverse the pipeline** — glute-bridge and
+   superman returned the finished position, so it becomes the END still, the edit prompt moves BACKWARD,
+   and the Veo leg is flipped. Same cost, camera anchoring just as good.
+3. **Rep extraction is now automated** (`buildrep.py`: frame-diff motion signal → t=0 to first prominent
+   peak → palindrome). It handled 14 of 17 unattended. **It under-triggers when only the limbs move
+   against a busy gym background** — if `peak_val < ~70% of global_max`, pull a contact sheet and pass
+   the segment in by hand.
+4. **Palindrome is the correct default for EVERY in-place move** (push/press/curl/raise/extension/crunch)
+   — symmetric motion, seamless by construction. Only step-based moves need two genuine legs.
+5. **Small-range moves need tight framing AND a SHORTER Veo leg.** calf-raise failed twice at the standard
+   wide framing (Veo produced a body sway instead of a heel lift); reframing so he fills the frame plus
+   dropping to `duration: 4` fixed it — the shorter leg reached the `last_frame` pose far more completely
+   than the 6s one, which wandered.
+6. **Normalize rep tempo after cutting.** Raw units ranged 1.8s–9.2s; anything outside ~2.5–4s reads
+   frantic or sluggish. `setpts` on the silent unit before the mux.
+7. **Kling returns 720p, Veo returns 1080p** — upscale hold units with lanczos so the library is uniform.
+   (Batch 1's approved plank is 1284x716 and is the odd one out; worth re-exporting when next touched.)
+8. **Veo `E005` on a create is transient** — knee-pushup was flagged once and passed unchanged on a plain
+   retry. Don't rewrite the prompt on a first refusal.
+9. **Staggering Veo creates ~40s apart and polling concurrently** ran 17 legs in ~25 min with zero 429s,
+   versus ~60 min fully sequential. Google's image API rate-limits at ~8 concurrent edits.
+
+**No native retest trigger row touched** — media production only, no product surface, server or client.
+**Dashboard: nothing checked off** (Rule 9) — batch 2 was not created from a handoff, so no Rule-8 task
+exists, and the work is not complete until Dan approves the set.
+
+**EXACT NEXT ACTION — DAN: review the 20 videos.** On approval: the remaining ~73 exercises run in
+follow-on batches (step-based moves should get their own batch, since they need two legs each at
+~$4.50–5.50 rather than ~$2.95). App integration, the AI-generated label, and hosting all remain
+separate tasks and were deliberately not started.
+
 ### Exercise demo batch 1 (pushup / reverse-lunge / plank) — COMPLETE, Dan-APPROVED all three (2026-08-19/20, Claude Code)
 
 **BATCH 1 IS DONE.** Dan approved the plank as delivered and the push-up + reverse-lunge v2s after the
