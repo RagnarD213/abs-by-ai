@@ -101,6 +101,11 @@ claude edited*/
 YouTube Long Form Video Content/
 Short-form video content/
 
+# Exception: compressed web-delivery exercise demo clips ARE meant to be served
+# from public/ and tracked (small, ~1-1.4MB each) — distinct from the raw masters
+# in gitignored Media/exercise-demos/.
+!public/exercise-demos/*.mp4
+
 # Personal before-photo candidates and derived edits (public repo — never commit)
 before-photo-candidates/
 
