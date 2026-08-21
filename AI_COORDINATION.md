@@ -38,17 +38,16 @@ and commit messages remain the permanent record of code changes.
 `Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/INVEST_HEALTH_v2.mp4` (53:30) + SRT
 delivered; Dan's second review found remaining junk + new inserts. Full v3 spec with his confirmed
 answers: `Handoffs/HANDOFF_invest_health_v3.md` (Key task on dashboard; Opus session recommended).
-Junk-detection lessons now in the longform-edit skill — read them before editing. Still open after
-v3: cut-down variants (conservative ~40 / aggressive <30 min) before any b-roll/AI-clip dressing;
-no baked-in speed-up (recommended against).
+Junk-detection lessons now in the longform-edit skill — read them before editing. Cut-down variants are now a SECOND
+handoff — `Handoffs/HANDOFF_invest_health_cutdowns.md` (Key task on dashboard), gated on Dan
+approving v3; it carries the full beat-by-beat compression map, so Opus/medium can execute.
+Dressing (b-roll/AI clips) happens only on the variant Dan picks. No baked-in speed-up.
 
-### AD 1 — REV-4 HANDED OFF to a new session; this session closes (2026-08-21, Claude Code)
+### AD 1 — REV-4 in progress (2026-08-21, Claude Code)
 
-Dan's rev-4 items (busy-dad AI clip replacing the tire flip at 0:46 — frames-first approval; tags
-upper-left +50% on full-frame AI clips) + the eventual 9:16 build are written up in
-**Handoffs/HANDOFF_ad1_rev4_and_9x16.md** (recommended: Sonnet 5 / medium — pure recipe execution).
-Key dashboard task added per Rule 8. Rev-3 remains the latest delivered cut. Do NOT execute rev-4 in
-this session — Dan is conserving tokens.
+Executing `Handoffs/HANDOFF_ad1_rev4_and_9x16.md`: (1) busy-dad AI clip replacing the tire flip at
+0:46, (2) AI-GENERATED tag upper-left +50% on full-frame AI clips. Generating start/end frames for
+Dan's approval before the video-gen step. Owner: Claude Code.
 
 
 ### Exercise demo batch 3 — second revision COMPLETE, all 10 delivered (2026-08-21, Claude Code)
