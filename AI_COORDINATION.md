@@ -33,6 +33,19 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 1 REV-2 — second revision round shipped (2026-08-21, Claude Code)
+
+All 10 of Dan's rev-2 items applied and redelivered (`ad1_rev2_16x9.mp4`, 4:31): smooth
+supersampled Ken Burns (shake fixed), three AI-generated benefit clips (frames Dan-approved, then
+**Veo 3.1 Fast via Gemini API** because **Replicate credit is DRAINED — Dan to top up**; safety-filter
+workaround recorded in the skill), the two iCloud dad photos with motion, clean phone-image mockup,
+gen-screen-with-photo slice, oversized AI-GENERATED box hiding the email form (Dan's rule: never show
+email capture in an ad), custom scan+stats animation ("Goal Muscle GAIN" — confirmed via question;
+plan not revealed), "lagging" caption fix, and the end card replaced by the real sample-person
+generation flow (after ALONE). Session AI spend ≈ $5. Lessons 7–13 appended to the skill's
+graphics-placement learning log. Awaiting Dan's rev-2 review; 9:16 builds on approval.
+
+
 No active task.
 
 ---

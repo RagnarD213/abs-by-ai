@@ -342,6 +342,38 @@ Ad #1 rev-1 (2026-08-20), Dan's directed placements and the patterns behind them
    shorts line** — fit the whole figure on the J2 panel instead of cover-cropping
    (same rule as /coverimage).
 
+Ad #1 rev-2 (2026-08-21), second round of directed placements:
+7. **Ken Burns must be SUPERSAMPLED or it shakes.** zoompan on a ~2K input
+   jitters (integer x/y rounding) and Dan called it out immediately. Recipe:
+   `scale=7680:4320` before zoompan, output s=1920x1080 — verified smooth
+   (consistent inter-frame diffs). Applies to every still insert and the opener.
+8. **Benefit-clip casting matters as much as content**: the person must look like
+   the PROSPECT'S GOAL (his future-self demo: ripped six-pack, late 30s/40s,
+   matched ethnicity) — a generic fit person isn't enough, and an unclear
+   emotional read ("she's just running away") fails. Each clip must legibly act
+   out its sentence.
+9. **AI-clip protocol when stock fails: start/end frames first for Dan's approval
+   (nano-banana via `_shared/gemini-image.js`, ~$0.13/frame), then image-to-video.**
+   Replicate Kling drained mid-session (again); **Veo 3.1 Fast via the same
+   GEMINI_API_KEY is the working fallback** (`:predictLongRunning`, image + prompt,
+   6s/720p/16:9 ≈ $0.90/clip). Veo traps: `lastFrame` is NOT supported on the
+   Gemini API (400 "use case not supported"); bikini/flirtation content trips the
+   RAI filter — restyle the scene (sundress) and neutralize the prompt ("talk and
+   laugh together"), retry; safety-filtered attempts are not charged.
+10. **Never show an email-capture form in an ad** — Dan had the after-screen's
+   email field hidden under an oversized black AI-GENERATED box (dual purpose:
+   disclosure + hiding the ask). Cover the WHOLE form incl. its explainer text.
+11. **The "AI reads your pictures" idea gets a custom animation, not a real app
+   screen**: scan line sweeping the (tagged) after image once, then invented-but-
+   coherent stats appearing (Current/Goal weight + BF%, fat loss, muscle gain),
+   ending in "Recommended Workout Plan" as the bottom line, plan NOT revealed.
+   Built as PIL frame-sequence → mp4 (`reference/ad1/prep_assets3.py`).
+12. **End card → live product flow.** Dan replaced the static end card with the
+   sample person's real flow: photo-in-generation-screen → generating → after
+   alone (covered email box). Show prospects what they'll actually experience.
+13. **Captions must clear graphics text**: per-event ASS MarginV override (field 8)
+   lifts cues over an insert's on-screen text windows.
+
 ## Decisions locked vs pending
 
 | decision | status |

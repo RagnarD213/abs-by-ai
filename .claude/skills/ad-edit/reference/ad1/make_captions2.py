@@ -49,6 +49,7 @@ for i, c in enumerate(chunks):
     text = re.sub(r"\babs\b", "abs", text, flags=re.I)   # Dan: "abs" ALWAYS lowercase
     text = re.sub(r"\bai\b", "AI", text, flags=re.I)
     text = text.replace("gold picture", "goal picture").replace("Gold picture", "Goal picture")
+    text = text.replace("lacking body parts", "lagging body parts").replace("lacking", "lagging")
     events.append("Dialogue: 0,%s,%s,Cap,,0,0,0,,%s" % (t2ass(start), t2ass(end), text))
 
 HEADER = """[Script Info]

@@ -23,7 +23,7 @@ for rg in edl:
             rwords.append((off + w["start"] - rg["start"], off + w["end"] - rg["start"]))
     off += rg["end"] - rg["start"]
 END = round(off, 3)
-CARD_END = round(END + 3.3, 3)
+CARD_END = round(END + 5.5, 3)
 
 def r(src):
     for a, b, o in offs:
@@ -40,7 +40,7 @@ CTA_START = r(168.12)            # "Just tap the button below" (CTA 1)
 STK1 = (46.00, 50.00)            # frustrated overweight man (render, unchanged region)
 STK2 = (r(176.95), r(178.70))    # "You're more attractive to women."
 STK3 = (r(178.70), r(180.40))    # "Men respect you more."
-STK4 = (r(180.40), r(186.90))    # "You feel better ... live longer too."
+STK4 = (r(180.40), round(r(180.40)+5.90,2))  # "You feel better ... live longer too." (clip is 6.0s)
 BEFORE2 = (r(208.26), r(211.40))
 PHONEMOCK = (r(220.82), r(225.00))
 SEQ = (r(275.94), r(282.60))     # before -> generating -> after
@@ -111,8 +111,7 @@ AFCROP = "crop=1320:2500:0:175,"
 IMG = [
  (6.40, 9.30, "p_before"),
  (79.90, 84.00, "p_goal"),
- (BEFORE2[0], BEFORE2[1], "p_before"),
- (ASSESS[0], ASSESS[1], "p_app_assess"),
+ (BEFORE2[0], 146.00, "p_before"),
  (WORKOUT[0], WORKOUT[1], "p_app_workout"),
  (NUTRI[0], NUTRI[1], "p_app_nutri"),
 ]
@@ -120,6 +119,7 @@ IMG = [
 KB = [
  (17.20, 19.75, "p_shot1", "in"), (19.75, 22.30, "p_shot2", "out"),
  (22.30, 24.85, "p_shot3", "in"), (24.85, 27.40, "p_shot4", "out"),
+ (146.00, 150.00, "p_dad1", "in"), (150.00, 154.00, "p_dad2", "out"),
  (PHONEMOCK[0], PHONEMOCK[1], "p_phone_mock", "in"),
 ]
 # video inserts: (start, end, src, src_in, width, crop, tag?)  full-frame stock use w=0
@@ -127,21 +127,27 @@ VID = [
  (9.30, 14.30, PHONE, 5.0, 608, "", True),
  (STK1[0], STK1[1], STK % "3802827", 2.0, 0, "", False),
  (64.00, 69.00, CRUDE, 0.0, 602, "", True),
- (STK2[0], STK2[1], STK % "4866855", 0.7, 0, "", False),
- (STK3[0], STK3[1], STK % "6296483", 2.5, 0, "", False),
- (STK4[0], STK4[1], STK % "9184994", 15.0, 0, "", False),
- (SEQ[0], round(SEQ[0]+2.2,2), APPFLOW, 0.6, 570, AFCROP, False),   # before alone
+ (STK2[0], STK2[1], "aiframes/clip_a.mp4", 0.3, 0, "", True),
+ (STK3[0], STK3[1], "aiframes/clip_b.mp4", 0.5, 0, "", True),
+ (STK4[0], STK4[1], "aiframes/clip_c.mp4", 0.0, 0, "", True),
+ (SEQ[0], round(SEQ[0]+2.2,2), APPFLOW, 2.5, 570, AFCROP, False),   # cropped photo in generation screen
  (round(SEQ[0]+2.2,2), round(SEQ[0]+4.4,2), APPFLOW, 20.0, 570, AFCROP, False),  # generating
- (round(SEQ[0]+4.4,2), SEQ[1], APPFLOW, 29.4, 570, AFCROP, True),   # after alone, tagged
+ (round(SEQ[0]+4.4,2), SEQ[1], APPFLOW, 29.4, 570, AFCROP, False),  # after alone (big cover added below)
+ (ASSESS[0], ASSESS[1], "assets_v1/stats_scan.mp4", 0.0, 0, "", False),  # scan + stats animation
+ (END, round(END+1.8,3), APPFLOW, 2.5, 570, AFCROP, False),          # end flow: photo in gen screen
+ (round(END+1.8,3), round(END+3.6,3), APPFLOW, 20.0, 570, AFCROP, False),  # generating
+ (round(END+3.6,3), CARD_END, APPFLOW, 29.4, 570, AFCROP, False),    # after alone
+
 ]
 
 def pass2():
     inputs = ["-i", "punched2.mp4"]
     fc, idx = [], 1
-    cur = "[0:v]"
+    fc.append(f"[0:v]tpad=stop_mode=clone:stop_duration={round(CARD_END-END,3)}[base]")
+    cur = "[base]"
     # opener with push-in
     inputs += ["-loop", "1", "-t", "2.35", "-i", f"{AV}/p_goal.jpg"]
-    fc.append(f"[{idx}:v]scale=2304:1296,zoompan=z='1+0.10*on/66':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps={FPS},setsar=1[op]")
+    fc.append(f"[{idx}:v]scale=7680:4320,zoompan=z='1+0.10*on/66':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps={FPS},setsar=1[op]")
     fc.append(f"{cur}[op]overlay=0:0:enable='between(t,0,2.18)'[s{idx}]"); cur = f"[s{idx}]"; idx += 1
     for (a, b, key) in IMG:
         inputs += ["-loop", "1", "-t", str(round(b - a + 0.3, 2)), "-i", f"{AV}/{key}.jpg"]
@@ -151,7 +157,7 @@ def pass2():
         n = max(2, int((b - a) * 29.97))
         z = f"1+0.09*on/{n}" if direc == "in" else f"1.09-0.09*on/{n}"
         inputs += ["-loop", "1", "-t", str(round(b - a + 0.3, 2)), "-i", f"{AV}/{key}.jpg"]
-        fc.append(f"[{idx}:v]scale=2304:1296,zoompan=z='{z}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps={FPS},setsar=1,setpts=PTS+{a}/TB[k{idx}]")
+        fc.append(f"[{idx}:v]scale=7680:4320,zoompan=z='{z}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps={FPS},setsar=1,setpts=PTS+{a}/TB[k{idx}]")
         fc.append(f"{cur}[k{idx}]overlay=0:0:enable='between(t,{a},{b})'[s{idx}]"); cur = f"[s{idx}]"; idx += 1
     for (a, b, src, si, wid, cropf, tag) in VID:
         dur = round(b - a, 3)
@@ -172,11 +178,11 @@ def pass2():
             inputs += ["-loop", "1", "-t", str(dur + 0.3), "-i", f"{AV}/tag.png"]
             fc.append(f"[{idx}:v]setpts=PTS+{a}/TB[t{idx}]")
             fc.append(f"{cur}[t{idx}]overlay=(main_w-overlay_w)/2:{ty}:enable='between(t,{a},{b})'[s{idx}]"); cur = f"[s{idx}]"; idx += 1
-    # end card
-    inputs += ["-loop", "1", "-t", str(round(CARD_END - END + 0.3, 2)), "-i", f"{AV}/end_card.jpg"]
-    fc.append(f"{cur}tpad=stop_mode=clone:stop_duration={round(CARD_END-END,3)}[pad]")
-    fc.append(f"[{idx}:v]setsar=1,setpts=PTS+{END}/TB[ec]")
-    fc.append(f"[pad][ec]overlay=0:0:enable='between(t,{END},{CARD_END})'[s{idx}]"); cur = f"[s{idx}]"; idx += 1
+    # big AI-GENERATED covers over both 'after' windows (email capture hidden + disclosure)
+    for (ca, cb) in [(round(SEQ[0]+4.4,2), SEQ[1]), (round(END+3.6,3), CARD_END)]:
+        inputs += ["-loop", "1", "-t", str(round(cb - ca + 0.3, 2)), "-i", f"{AV}/big_ai_cover.png"]
+        fc.append(f"[{idx}:v]setpts=PTS+{ca}/TB[cv{idx}]")
+        fc.append(f"{cur}[cv{idx}]overlay=675:690:enable='between(t,{ca},{cb})'[s{idx}]"); cur = f"[s{idx}]"; idx += 1
     # CTA bar
     inputs += ["-loop", "1", "-t", str(round(CARD_END - CTA_START + 0.3, 2)), "-i", f"{AV}/cta_bar.png"]
     fc.append(f"[{idx}:v]setpts=PTS+{CTA_START}/TB[bar]")
