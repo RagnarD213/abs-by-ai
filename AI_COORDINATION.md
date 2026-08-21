@@ -119,6 +119,26 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### Longform "Why You Should Invest More In Your Health" — v2 CUT DELIVERED, awaiting Dan's review + variant decision (2026-08-20, Claude Code)
+
+Edited from the 8/3 shoot's 69-min roll C1511 (main camera) via /longform-edit. **v2 is the current
+deliverable: `Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/INVEST_HEALTH_v2.mp4`
+(53:30, 1080p29.97, -14.3 LUFS) + matching SRT.** All 12 of Dan's junk-footage flags fixed and
+verified by re-transcribing each joint from the finished render; zoom-cut transitions (alternating
+6% top-anchored punch-in) replace jump cuts; soup Macro-Tracker split-screen insert at ~19:51;
+two Ultimate-Home-Workout placeholders at ~24:1x. J2 chips (27) + watermark. EDL/scripts in
+`.../invest-health/edit/`; everything (chips, inserts, SRT) is SOURCE-time-keyed so re-cuts inherit
+them automatically. render.py (video-use) now has the content-hash segment cache + EDL fps field.
+
+**Three Whisper-timestamp traps recorded in the longform-edit skill** (zero-length clusters =
+hallucinated text; stretched words hide pauses AND sometimes whole aborted retakes; clamp in-points
+to the previous word's end). **Open — Dan's decisions:** conservative (~40 min) vs aggressive
+(<30 min) cut-down variants (recommended: cut-downs BEFORE b-roll/AI clips, aggressive as primary);
+1.1-1.2x speed-up (recommended against); soup insert sits viewer-left (flip if "my left" meant
+screen-right). B-roll/graphics/AI-clip dressing deliberately not started pending the variant call.
+Spend: $0.00 (all local).
+
+
 ### AD 1 REV-1 — all of Dan's revisions applied and redelivered; style LOCKED (2026-08-20, Claude Code)
 
 Dan's verdict on v1: "very strong overall". Style locked: **J2 tactical graphics + J2 CTA bar with
