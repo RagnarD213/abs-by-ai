@@ -33,15 +33,24 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
-### Invest-health longform — v2 delivered, v3 revision round HANDED OFF (2026-08-20, Claude Code)
+### Invest-health longform — v3 DELIVERED, awaiting Dan's review (2026-08-21, Claude Code)
 
-`Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/INVEST_HEALTH_v2.mp4` (53:30) + SRT
-delivered; Dan's second review found remaining junk + new inserts. Full v3 spec with his confirmed
-answers: `Handoffs/HANDOFF_invest_health_v3.md` (Key task on dashboard; Opus session recommended).
-Junk-detection lessons now in the longform-edit skill — read them before editing. Cut-down variants are now a SECOND
-handoff — `Handoffs/HANDOFF_invest_health_cutdowns.md` (Key task on dashboard), gated on Dan
-approving v3; it carries the full beat-by-beat compression map, so Opus/medium can execute.
-Dressing (b-roll/AI clips) happens only on the variant Dan picks. No baked-in speed-up.
+`Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/INVEST_HEALTH_v3.mp4` (53:17) +
+`INVEST_HEALTH_v3.srt` (1015 cues). All 6 items of `Handoffs/HANDOFF_invest_health_v3.md` executed
+in ONE render (52/110 segments cache-reused): repeated "all kinds of problems" sentence cut whole,
+zoom 6%->10%, doubled Oura intro cut, "if you're middle class" dropped from the supplements intro,
+Oura Ring 4 + WHOOP 5.0 J2 product cards from official press renders, Bryan Johnson 7.8s attributed
+PiP, and the SRT drug/brand fix table with a hard no-"GOP" gate. QC v3 passes: 3197.45s, -14.3 LUFS,
+0/109 splices above the control ceiling, all 4 changed joints re-transcribed clean, no fade notch
+above the p90 control, zoom contrast verified on 6 join pairs.
+SUBSTITUTION to confirm with Dan: item 5's "supplement bottles" graphic is a J2 SUPPLEMENTS card —
+no usable bottle photography exists locally (the only ad-asset candidate is dominated by the ad's
+robot arm). Also: the Bryan Johnson clip is 360p-sourced (YouTube 403s every HD format), so it is
+shown at 600x338, a downscale rather than an upscale.
+NEXT after Dan approves v3: `Handoffs/HANDOFF_invest_health_cutdowns.md` (conservative ~40 min +
+aggressive <30 min variants) before any b-roll/AI-clip dressing. No baked-in speed-up.
+New lessons 7-12 + the card-placement rule are in the `/longform-edit` skill; v3 scripts are in its
+`reference/`.
 
 ### AD 1 REV-4 shipped (2026-08-21, Claude Code)
 

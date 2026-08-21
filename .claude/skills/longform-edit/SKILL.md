@@ -247,6 +247,41 @@ off-center. Lessons that became mandatory passes:
    its traceback and a **stale edl.json rode through a full re-render**. Run builders
    bare with `set -e`, and verify the changed range values in edl.json before
    rendering.
+7. **Cut the whole repeated SENTENCE, not the aborted take inside it.** v2 cut only the
+   flub out of "There's all kinds of problems that you have to deal with [abort] if you
+   don't take care of your health." — and Dan flagged it again, because the *sentence*
+   restates "all kinds of problems" from 6 s earlier. When a phrase-repeat hit is a
+   restatement, the fix is to delete the restatement, not to clean up its delivery.
+8. **A cut point Whisper says is impossible may still exist — measure the envelope.**
+   Dropping "if you're middle class." meant cutting between "in" and "if", and Whisper
+   had them butted at 3058.20/3058.21 with no gap. A 20 ms RMS profile (`-45 dB` floor)
+   showed a real 0.12 s trough at 3058.13–3058.25: speech ends, then "if" starts at
+   −27 dB. `silencedetect` never reports a gap that short. Profile the region before
+   concluding a word can't be dropped.
+9. **The SRT must drop words that STRADDLE a new cut, or the caption shows deleted
+   speech.** `to_render()`'s ±0.02 s tolerance mapped the first word of a deleted
+   sentence ("Your" from "Your three options are…") and the last word before a deletion
+   ("if"), so the captions read text that is no longer in the audio. Map a word only
+   when its **midpoint** is strictly inside a kept range.
+10. **Never ship a political term Whisper invented.** It renders "GLP-1" as "GOP"
+   throughout. Keep a brand/drug fix table in `make_srt.py` applied to the JOINED cue
+   text (so multi-token names like "Aura ring" → "Oura Ring" are caught) and assert the
+   forbidden strings are absent from the written SRT before the run exits.
+11. **The <0.20 s "artificial mid-speech split" test is a PROXY — measure the notch
+   before re-rendering.** It flagged two joins on v3. A 2 ms RMS envelope put their
+   notches at 14.0 and 19.6 dB below the local median, against a 50-sample control
+   distribution of p50 **18.6** / p90 **35.9** dB at ordinary non-join points — i.e. both
+   joins were quieter-than-average dips, and re-transcribing them returned clean
+   continuous speech. Fail on a **measured notch above the file's own p90**, and use
+   **≥40 controls**: at N=6 the ceiling swung from 18.4 to 165.9 dB between seeds and
+   produced a false failure. Same lesson as the splice metric — verify the metric first.
+12. **Third-party b-roll: expect only 360p from YouTube.** Every DASH format for the
+   Bryan Johnson clip 403'd at ~8 % of the download across every client and chunk size;
+   only the `android` progressive 640×360 completed. Size the insert to the source
+   (600×338 window, a slight DOWNscale) instead of blowing a soft 360p frame up to a
+   large PiP. `composite.py` grew a `video_pip` overlay kind (placed at x,y instead of
+   0:0) plus a separate full-frame PNG carrying the olive frame and the persistent
+   "Bryan Johnson / YouTube" attribution.
 
 **A cut-cleanliness QC metric must compare the render against the INTENDED editorial
 span, never against the engine's own output ranges.** The first version derived expected
@@ -441,6 +476,16 @@ do this every time:**
 
 Graphics are **one overlay pass over the finished cut at CRF 18**, not baked per-segment —
 chips span beat boundaries. One extra encode generation, deliberately accepted.
+
+**Product/insert cards go viewer-LEFT over the door, and must clear the lower-third
+chips.** At this framing Dan sits centre-right; x = 55…495 is free. But a 440×520 card at
+y=300 collides with a chip's eyebrow bar at y=796 — the first pass overlapped the SLEEP
+TRACKER chip. Card top at **y=225** leaves a 50 px gap. Also: a Copperplate eyebrow at 22 pt
+overflows a 440 px card at ~24 characters ("SLEEP TRACKER // OPTION 01" was clipped) — put
+the distinction in the Impact title, not the eyebrow. Official press renders work well
+inside a J2 frame with a light product well; a near-black product (the navy WHOOP band)
+disappears on a dark well, so the well is near-white and the J2 branding comes from the
+frame and name plate. `reference/build_product_cards.py`.
 
 **NEVER split a range just to hang a chip.** Chips are placed by SOURCE time and mapped
 through the EDL, so a single range carries as many chips as you like. Splitting one anyway

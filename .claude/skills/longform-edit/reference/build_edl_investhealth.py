@@ -27,7 +27,10 @@ RANGES = [
     (111.16, 156.44, "job-partnership"),
     (178.00, 268.02, "relationship"),
     (274.20, 291.68, "single-dating"),
-    (294.18, 363.80, "online-dating"),
+    # v2.1: drop the restated "In the modern online dating environment," — it is
+    # redundant with the previous sentence and its stretched-word region rendered
+    # garbled. Resume directly on "looks are paramount."
+    (300.16, 363.80, "online-dating"),
     (364.24, 366.90, "top10-a"),
     (372.60, 377.68, "top10-b"),
     (387.72, 420.90, "productivity-intro"),
@@ -48,11 +51,15 @@ RANGES = [
     (944.32, 972.26, "heirs"),
     (986.14, 1002.00, "family-suing"),
     (1006.66, 1082.66, "young-activities"),
-    (1088.44, 1109.28, "kids"),
+    # v2: start on "Let's say the kids come first" — he is off-center /
+    # recomposing during the first sentence (Dan's 14:30 junk flag)
+    (1093.46, 1109.28, "kids"),
     (1111.72, 1125.26, "wife"),
     (1127.78, 1148.82, "stress-point"),
     (1173.66, 1201.38, "brokie-transition"),
-    (1206.98, 1247.36, "dont-cut-food"),
+    # v2: drop the stranded "All right." + 3.9s pause (Dan's 16:03-16:07 flag)
+    (1206.98, 1221.60, "cut-bullshit"),
+    (1227.08, 1247.36, "dont-cut-food"),
     # merged: Whisper's degenerate zero-length words around "Just electricity"
     # made the internal cut untrustworthy — the rendered joint clipped to
     # "utility, tricity". Keep the tiny spoken self-correction instead.
@@ -105,11 +112,15 @@ RANGES = [
     (3233.91, 3246.89, "ballers-intro"),
     (3251.39, 3313.05, "home-gym"),
     (3316.07, 3358.11, "baller-benefits"),
-    (3360.21, 3404.75, "both-worlds"),
+    # v2: start on the second "now" — stuttered "Now, ... now" (44:49 flag)
+    (3362.31, 3404.75, "both-worlds"),
     (3415.31, 3440.79, "mealprep-intro"),
     (3450.65, 3456.77, "clean-eats"),
     (3465.29, 3502.79, "120-week"),
-    (3506.57, 3537.43, "personal-chef"),
+    # v2: drop the "That's the guys," stumble (47:02 flag); the capper below
+    # tightens the pause after the resumed "that's"
+    (3506.57, 3524.15, "personal-chef-a"),
+    (3524.99, 3537.43, "personal-chef-b"),
     (3546.97, 3555.59, "outsource"),
     (3555.93, 3586.99, "maid-laundry"),
     (3595.35, 3681.93, "trainer-nutri"),
@@ -123,6 +134,10 @@ RANGES = [
     (3927.90, 3962.59, "summary-c"),
     (4062.33, 4126.51, "outro"),
 ]
+
+# Beats whose snapped OUT edge must be overridden (Whisper under-reported the
+# word end — "fitness." truly ends 1221.80, silence starts 1221.94)
+OUT_OVERRIDES = {"cut-bullshit": 1222.00}
 
 def in_silence(t, tol=0.08):
     for a, b in silences:
@@ -165,6 +180,8 @@ for (a, b, beat) in RANGES:
     nxt = next((w for w in words if w["start"] >= last["end"] - 0.01), None)
     if nxt and out_t > nxt["start"]:
         out_t = max(last["end"], nxt["start"] - 0.01)
+    if beat in OUT_OVERRIDES:
+        out_t = OUT_OVERRIDES[beat]
     ok_in = in_silence(in_t)
     ok_out = in_silence(out_t)
     if not ok_in:
@@ -178,6 +195,97 @@ for (a, b, beat) in RANGES:
     head = " ".join(w["text"] for w in words if in_t <= w["start"] < in_t + 3)[:70]
     tail = " ".join(w["text"] for w in words if out_t - 3 < w["end"] <= out_t)[-70:]
     print(f"{beat:22s} {in_t:8.2f}-{out_t:8.2f} ({out_t-in_t:6.2f}s) | {head} ... {tail}")
+
+# ---- v2: PAUSE CAPPER ----
+# Junk footage lives in the pauses (Dan's 8/20 revision: look-aways, glasses
+# adjustments, drinks all happen mid-pause). Any measured silence >= 1.3s fully
+# inside a kept range is tightened to ~0.5s: keep 0.30s of tail room + 0.20s of
+# lead-in. Boundaries are placed BY silencedetect so no word snapping is needed.
+CAP_MIN = 1.3
+WORDGAP_MIN = 1.5  # the kitchen room tone defeats -32dB silencedetect on several
+                   # pauses (e.g. the 4.1s hold at 527-531) — word gaps catch them
+EXTRA_SPLITS = [
+    (2773.85, 2774.55, "whoop-hesitation"),   # 0.8s "you're ... a little" hold (36:25 flag)
+    # v3 item 2 (Dan's 6:42 flag): the WHOLE repeated sentence goes, not just the
+    # aborted take inside it. Source reads "...resulting from being overweight."
+    # / "There's all kinds of problems that you have to deal with [4s abort+retake]
+    # if you don't take care of your health." / "So a lot of people think..."
+    # "all kinds of problems" already appeared 6s earlier at 519.3, so the whole
+    # second sentence is a repeat. Cut 524.98 (silence 524.68-525.25) -> 533.17
+    # (silence 532.84-533.37); kept audio joins "overweight." to "So a lot of".
+    (524.98, 533.17, "repeat-all-kinds-of-problems"),
+    # v3 item 4a (Dan's doubled-Oura flag): "Your three options are the Aura ring,
+    # my preferred option, the whoop." re-introduces the Oura ring 26s after he
+    # already called it the best and most accurate, AND doubles "the whoop. The
+    # whoop is a thin wearable". Cut the whole sentence: 2712.32 (silence
+    # 2712.17-2712.45, after "...you need to get that.") -> 2716.68 (silence
+    # 2716.45-2716.73, before "The whoop is a thin wearable").
+    (2712.32, 2716.68, "doubled-oura-intro"),
+    # v3 item 5 (Dan's 39:54 flag): drop "if you're middle class." from the
+    # supplements intro. Fine-grained RMS at 20ms shows "investing in" ends 3058.12
+    # with a real -45dB gap 3058.13-3058.25 before the short "if"; resume in the
+    # silence 3062.12-3062.50 just before "Supplements." at 3062.52.
+    (3058.20, 3062.38, "drop-middle-class"),
+]
+
+word_gaps = []
+for w_prev, w_next in zip(words, words[1:]):
+    g = w_next["start"] - w_prev["end"]
+    if g >= WORDGAP_MIN:
+        word_gaps.append((w_prev["end"], w_next["start"]))
+# Whisper also FOLDS pauses into a stretched word ("with" spanning 527.10-531.30
+# is 0.4s of speech + 3.8s of hold). Keep 0.65s for the spoken word, cut the rest.
+for w in words:
+    if w["end"] - w["start"] >= 1.5:
+        word_gaps.append((w["start"] + 0.65, w["end"] - 0.10))
+
+capped = []
+cap_report = []
+for r in ranges_out:
+    pieces = [(r["start"], r["end"])]
+    cuts = [(a + 0.30, b - 0.20) for (a, b) in silences
+            if b - a >= CAP_MIN and a > r["start"] + 0.25 and b < r["end"] - 0.25]
+    cuts += [(a + 0.30, b - 0.20) for (a, b) in word_gaps
+             if a > r["start"] + 0.25 and b < r["end"] - 0.25]
+    extras = [(a, b) for (a, b, _n) in EXTRA_SPLITS if a > r["start"] + 0.2 and b < r["end"] - 0.2]
+    # an EXTRA_SPLIT takes precedence: drop auto cuts that overlap one (a merged
+    # auto cut here would swallow the retake the split deliberately preserves)
+    cuts = [c for c in cuts if not any(c[0] < eb and c[1] > ea for (ea, eb) in extras)]
+    cuts += extras
+    # merge overlapping cut candidates (silence + word gap often agree)
+    cuts.sort()
+    merged = []
+    for c in cuts:
+        if merged and c[0] <= merged[-1][1] + 0.05:
+            merged[-1] = (merged[-1][0], max(merged[-1][1], c[1]))
+        else:
+            merged.append(c)
+    cuts = [c for c in merged if c[1] - c[0] >= 0.35]
+    for (ca, cb) in cuts:
+        new = []
+        for (pa, pb) in pieces:
+            if ca > pa + 0.2 and cb < pb - 0.2:
+                new += [(pa, ca), (cb, pb)]
+                cap_report.append(f"{r['beat']}: pause {ca:.2f}-{cb:.2f} ({cb-ca:.2f}s removed)")
+            else:
+                new.append((pa, pb))
+        pieces = new
+    for k, (pa, pb) in enumerate(pieces):
+        beat = r["beat"] if len(pieces) == 1 else f"{r['beat']}.{k}"
+        capped.append({"source": "C1511", "start": round(pa, 3), "end": round(pb, 3), "beat": beat})
+ranges_out = capped
+print(f"\npause capper: {len(cap_report)} pauses tightened")
+for line in cap_report:
+    print("  -", line)
+
+# ---- v2: ZOOM-CUT TRANSITIONS ----
+# Alternate a 10% punch-in across ranges so every cut reads as a deliberate zoom
+# cut instead of a jump cut. Crop is anchored to the TOP of the frame (y=0) —
+# Dan's head sits ~10px from the top edge, so a centered crop would clip his hair.
+ZOOM_VF = "crop=1728:972:96:0,scale=1920:1080:flags=lanczos"
+for i, r in enumerate(ranges_out):
+    if i % 2 == 1:
+        r["vf"] = ZOOM_VF
 
 total = sum(r["end"] - r["start"] for r in ranges_out)
 print(f"\nranges: {len(ranges_out)}  kept: {total:.1f}s = {total/60:.1f} min  (raw 4131s)")
