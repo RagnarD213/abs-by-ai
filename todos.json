@@ -196,6 +196,48 @@
       "priority": "key",
       "why": "2026-08-19 planning — Romeysa backed out; editing is now the constraint on the content engine",
       "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
+      "priority": "key",
+      "why": "2026-08-21 planning — 4 editors started 8/20; keep them unblocked so results land on time",
+      "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Reconnect Google Calendar to the dashboard (refresh token is dead — invalid_grant)",
+      "priority": "key",
+      "why": "2026-08-21 planning — code + dashboard columns already built; the OAuth refresh token returns invalid_grant, so calendar is blank everywhere. Needs Dan's Google sign-in, then Claude finishes",
+      "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Rebuild the morning brief so it changes what Dan actually does",
+      "priority": "high",
+      "why": "2026-08-21 planning — Dan: 'it's become totally useless'; scope as a behavior-change rewrite, not a redesign",
+      "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Approve Ad 1 rev-1, apply final revisions, finalize the /ad-edit skill",
+      "priority": "key",
+      "why": "2026-08-21 planning — gates the 9:16 build, the skill's pending items, AND the gold-standard benchmark for judging the Upwork editors",
+      "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Review the 5 parked video deliverables (3x 8/3 longform, invest-health v2, ab-wheel)",
+      "priority": "key",
+      "why": "2026-08-21 planning — finished work sitting idle waiting on Dan's eyeball; revisions are cheap now via the segment cache",
+      "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Check Google Ads performance since the 8/18 search launch (spend, clicks, conversions)",
+      "priority": "high",
+      "why": "2026-08-21 planning — campaign live since 8/18 on a reinstated account, unwatched; money moving",
+      "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Confirm the next video shoot date does NOT collide with the photo shoot",
+      "priority": "high",
+      "why": "2026-08-21 planning — Dan thinks he did it right but wants it verified; blocked on the calendar reconnect",
+      "addedAt": "2026-08-21"
     }
   ],
   "health": [
@@ -258,6 +300,24 @@
       "priority": "med",
       "why": "2026-08-19 planning — a couple of current ones aren't ideal",
       "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Retouch dating-app photos (/photo-edit) and upload them to the apps",
+      "priority": "med",
+      "why": "2026-08-21 planning — Claude retouches, Dan uploads",
+      "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Confirm tonight's dates",
+      "priority": "high",
+      "why": "2026-08-21 planning — confirm or cancel cleanly rather than leaving it open",
+      "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Schedule the Ulta makeup appointment",
+      "priority": "med",
+      "why": "2026-08-21 planning — for the upcoming shoot",
+      "addedAt": "2026-08-21"
     }
   ],
   "assistant": [
