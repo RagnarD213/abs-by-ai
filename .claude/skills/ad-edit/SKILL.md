@@ -390,6 +390,21 @@ Ad #1 rev-3 (2026-08-21):
    then app-style teaser body text that describes where they're at and what
    it takes, without revealing the plan.
 
+Ad #1 rev-4 (2026-08-21):
+17. **AI-GENERATED tag placement differs by insert type.** On a FULL-FRAME AI
+   clip (no panel background, the clip fills 1920x1080) a centered tag sits mid-
+   frame and blocks the subject — Dan called this out at ~2:00. Fix: upper-left
+   corner (overlay 40:40) at 1.5x size for full-frame AI inserts. PANEL-style
+   inserts (phone mock, crude-photoshop clip — a clip scaled to <1920 width on a
+   background panel) keep the original centered small tag; nothing is blocked
+   there since the clip doesn't fill the frame. Decide by insert type (`wid==0`
+   in layout2.py's VID list = full-frame), not by clip content.
+18. **A stock clip that isn't a literal match to the script line gets replaced,
+   not kept as "good enough."** The tire-flip clip at 0:46 illustrated a fit
+   goal, not the "finding motivation is hard" pain point on screen at that
+   moment — Dan wanted the demographic-matched struggle clip (lesson 3) instead,
+   even though a fit-guy tire flip is visually strong on its own.
+
 ## Decisions locked vs pending
 
 | decision | status |

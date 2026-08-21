@@ -43,11 +43,14 @@ handoff — `Handoffs/HANDOFF_invest_health_cutdowns.md` (Key task on dashboard)
 approving v3; it carries the full beat-by-beat compression map, so Opus/medium can execute.
 Dressing (b-roll/AI clips) happens only on the variant Dan picks. No baked-in speed-up.
 
-### AD 1 — REV-4 in progress (2026-08-21, Claude Code)
+### AD 1 REV-4 shipped (2026-08-21, Claude Code)
 
-Executing `Handoffs/HANDOFF_ad1_rev4_and_9x16.md`: (1) busy-dad AI clip replacing the tire flip at
-0:46, (2) AI-GENERATED tag upper-left +50% on full-frame AI clips. Generating start/end frames for
-Dan's approval before the video-gen step. Owner: Claude Code.
+Both rev-4 items applied and delivered as `ad1_rev4_16x9.mp4`: (1) busy-dad AI clip (frames
+Dan-approved, Veo 3.1 Fast on Gemini API, no lastFrame) replaces the tire-flip stock clip at
+0:46, (2) AI-GENERATED tag moved upper-left + 50% larger on every full-frame AI clip (dad clip
++ the three benefit clips ~2:00); panel-style inserts keep the centered small tag. Lessons
+17–18 appended to the ad-edit skill. Session AI spend ≈ $1.20. Awaiting Dan's rev-4 review;
+9:16 build on approval (per `Handoffs/HANDOFF_ad1_rev4_and_9x16.md` Step 8).
 
 
 ### Exercise demo batch 3 — second revision COMPLETE, all 10 delivered (2026-08-21, Claude Code)

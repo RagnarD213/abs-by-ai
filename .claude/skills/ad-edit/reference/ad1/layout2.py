@@ -125,7 +125,7 @@ KB = [
 # video inserts: (start, end, src, src_in, width, crop, tag?)  full-frame stock use w=0
 VID = [
  (9.30, 14.30, PHONE, 5.0, 608, "", True),
- (STK1[0], STK1[1], STK % "3802827", 2.0, 0, "", False),
+ (STK1[0], STK1[1], "aiframes/dad/clip_dad.mp4", 0.2, 0, "", True),
  (64.00, 69.00, CRUDE, 0.0, 602, "", True),
  (STK2[0], STK2[1], "aiframes/clip_a.mp4", 0.3, 0, "", True),
  (STK3[0], STK3[1], "aiframes/clip_b.mp4", 0.5, 0, "", True),
@@ -174,10 +174,15 @@ def pass2():
             fc.append(f"[{idx}:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,setpts=PTS-STARTPTS+{a}/TB[c{idx}]")
             fc.append(f"{cur}[c{idx}]overlay=0:0:enable='between(t,{a},{b})'[s{idx}]"); cur = f"[s{idx}]"; idx += 1
         if tag:
-            ty = 300 if src == APPFLOW else 40
-            inputs += ["-loop", "1", "-t", str(dur + 0.3), "-i", f"{AV}/tag.png"]
-            fc.append(f"[{idx}:v]setpts=PTS+{a}/TB[t{idx}]")
-            fc.append(f"{cur}[t{idx}]overlay=(main_w-overlay_w)/2:{ty}:enable='between(t,{a},{b})'[s{idx}]"); cur = f"[s{idx}]"; idx += 1
+            if wid == 0:  # full-frame AI clip: tag upper-left, 50% larger
+                inputs += ["-loop", "1", "-t", str(dur + 0.3), "-i", f"{AV}/tag_big.png"]
+                fc.append(f"[{idx}:v]setpts=PTS+{a}/TB[t{idx}]")
+                fc.append(f"{cur}[t{idx}]overlay=40:40:enable='between(t,{a},{b})'[s{idx}]"); cur = f"[s{idx}]"; idx += 1
+            else:  # panel insert: keep centered small tag
+                ty = 300 if src == APPFLOW else 40
+                inputs += ["-loop", "1", "-t", str(dur + 0.3), "-i", f"{AV}/tag.png"]
+                fc.append(f"[{idx}:v]setpts=PTS+{a}/TB[t{idx}]")
+                fc.append(f"{cur}[t{idx}]overlay=(main_w-overlay_w)/2:{ty}:enable='between(t,{a},{b})'[s{idx}]"); cur = f"[s{idx}]"; idx += 1
     # big AI-GENERATED covers over both 'after' windows (email capture hidden + disclosure)
     for (ca, cb) in [(round(SEQ[0]+4.4,2), SEQ[1]), (round(END+3.6,3), CARD_END)]:
         inputs += ["-loop", "1", "-t", str(round(cb - ca + 0.3, 2)), "-i", f"{AV}/big_ai_cover.png"]
