@@ -202,6 +202,36 @@ generation flow (after ALONE). Session AI spend ≈ $5. Lessons 7–13 appended 
 graphics-placement learning log. Awaiting Dan's rev-2 review; 9:16 builds on approval.
 
 
+### Exercise demo videos wired into the trainer app; 6 more await finalization (2026-08-21, Claude Code)
+
+All 13 Dan-approved AI-Dan demo videos installed into the exercise detail sheet only (52px/68px
+card icons keep stick figures; the other 84 exercises keep stick figures too). Encoded
+`Media/exercise-demos/*/…-FINAL.mp4` → `public/exercise-demos/<id>.mp4` (960x540, ~1-1.4MB each,
+15MB total) + poster JPGs. `public/index.html`: `EXERCISE_DEMO_IDS` set + `openExerciseSheet()`
+renders `<video controls playsinline preload="none">` for the 13, suppresses the YouTube
+"Watch form video" CTA for those 13 only, fires `exercise_demo_played` PostHog event on play.
+Added a scoped `.gitignore` exception (`!public/exercise-demos/*.mp4`) since the global `*.mp4`
+belt-and-braces rule (added for raw longform masters) was also blocking these small tracked
+web-delivery encodes. Committed, pushed, Railway deploy verified live on absbyai.com (MP4s return
+200 `video/mp4`, `EXERCISE_DEMO_IDS`/`.ex-demo` present in the deployed HTML).
+
+Captured the new App Store trainer screenshot (AI-Dan mid-plank, gym clearly readable) in the iOS
+Simulator via a native `xcrun simctl io screenshot` (exact resolution match, no scaling artifacts).
+Overwrote `app-store-assets/6.9-inch/06-ai-trainer-workout.png` (1320x2868, native capture) and
+`app-store-assets/6.5-inch/04-ai-trainer-workout.png` (1242x2688, resized from the 6.9-inch capture
+— no 6.5-inch simulator exists in current Xcode, and the aspect ratios are near-identical so this is
+a faithful match). **13-inch iPad variant NOT delivered**: the iPad Pro 13" (M5) simulator's WKWebView
+stopped accepting ANY tap input after a fresh install/launch (confirmed with a dead-simple large
+button, not a coordinate issue) — worth a look in a future session, possibly a Capacitor/WKWebView-
+on-iPad quirk. Did not fabricate a composited iPad screenshot rather than risk misrepresenting the
+real iPad UI. Frames sent to Dan for review; **not uploaded to App Store Connect**.
+
+**Native retest needed**: this changes what the iOS and Android trainer screens display (video
+instead of stick figure for 13 exercises) — flagged to Dan per the cross-platform retest rule.
+
+**Dan said mid-session**: a few more exercises are being finalized — install what's ready now, more
+to follow in a later session once finalized.
+
 No active task.
 
 ---
