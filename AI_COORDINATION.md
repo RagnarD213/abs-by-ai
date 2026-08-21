@@ -73,8 +73,12 @@ elbows past 90°), goblet (no foot shuffle), pushdown (true lockout). **Replicat
 left open in his Chrome by the ad session). Workaround used: Veo 3.1 Fast via the Gemini API**
 (`_batch3/run-gveo.js`) — `lastFrame` unsupported there, so legs were generated as ASCENTS from the
 bottom still (flip trick: depth/lockout guaranteed by construction) and reversed. 8s/1080p (4s+1080p
-rejected); audio-directive words in prompts trip a safety filter — strip them. All 10 pass qc.py;
-awaiting Dan's verdict on the last 3. AI spend this session ≈ $3 (stills + 4 Gemini Veo fast legs).
+rejected); audio-directive words in prompts trip a safety filter — strip them. Round 3 same day: bench double pump root-caused (settle wobble at the segment boundary — new
+VELOCITY-BOUNDARY RULE in the skill: every rep must be one clean velocity bell, trim boundary hovers,
+tpad-hold at overshot extremums), goblet + bench backgrounds FROZEN via full frame-0 overlay outside
+the subject corridor (ghost.py STRAY=NONE on both), pushdown REGENERATED keyframe-locked on Replicate
+(credit restored by Dan) — acute top to full lockout with a 0.2s squeeze hold. All pass qc.py;
+awaiting Dan's verdict on the round-3 trio. AI spend this session ≈ $3 (stills + 4 Gemini Veo fast legs).
 
 ### AD 1 REV-3 shipped; import-time asset-clobber root cause fixed (2026-08-21, Claude Code)
 

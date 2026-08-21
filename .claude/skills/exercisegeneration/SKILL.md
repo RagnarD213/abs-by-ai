@@ -441,3 +441,27 @@ unavailable, generate the leg as an ASCENT from the bottom/lockout still (flip t
 guaranteed, then reverse for the descent; expect multiple reps + appearance drift in 8s — region-gate
 and cut ONE clean ascent. ~$0.15/s (8s ≈ $1.20) — cheaper than Replicate Veo. Also: on 8s multi-rep
 legs the LAST frames drift from the anchor still — prefer runs that include t=0 (the exact still).
+
+### THE VELOCITY-BOUNDARY RULE (2026-08-21) — the actual root cause of double pumps
+The monotonic-distance gate misses the killer case: **a settle wobble or hover at the segment
+boundary**. Distance-vs-frame0 can pass while frame-to-frame VELOCITY shows motion decaying to zero,
+wobbling, then the real rep starting — and the palindrome MIRRORS that boundary wobble into a visible
+double-touch at every loop turnaround. Mandatory final check on every rep segment:
+1. Compute frame-to-frame velocity (24fps consecutive diffs, region-cropped).
+2. The segment must be one clean velocity BELL: accelerate from ~0 at one boundary, decelerate to the
+   true minimum at the other. TRIM any leading/trailing frames where velocity decays/oscillates
+   before the bell (bench: frames 0-0.17 were a settle; cutting [0.17,1.33] fixed the pump).
+3. If the distance peak arrives while velocity is still high (Veo overshoots then backslides — the
+   pushdown's lockout at t=1.0 with v=4.5 then a 6% backslide): cut AT the peak and append a
+   ~0.17s tpad clone HOLD of the extremum frame before the reversed half. Reads as a deliberate
+   squeeze/pause at the contraction and kills both the bounce and the backslide.
+4. Verify the finished unit: min velocity across the loop junction should be a SINGLE dip (bench:
+   0.46→0.03→0.30 = one touch-and-go).
+
+### Background freeze > spot patches (goblet/bench, 2026-08-21)
+When ghost.py flags stray machine motion, don't patch cells — **freeze the entire background**:
+overlay the live video cropped to the subject's corridor onto a full-res frame-0 still
+(`crop=W:1080:X:0` + `overlay=X:0`). Camera is locked so the seam is invisible; one command kills
+every ghost at once. Size the corridor from the motion heatmap and REMEMBER the hips swing BACKWARD
+in squats/hinges — cells just outside the torso may be his glutes, not a machine. Verify with a
+second heatmap (STRAY=NONE) and eyeball 3 frames for seam clipping.
