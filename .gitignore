@@ -78,6 +78,26 @@ Business/
 # matching when the folder was renamed to "YouTube Long Form Video Content/", leaving
 # 8.3 GB unignored (found 2026-08-08). Re-run `git check-ignore -v` after any rename.
 YouTube*Content/
+
+# Dan's finished longform deliverables. He moved these OFF the Seagate and INTO the
+# project folder on 2026-08-21, so the tree now holds multi-GB masters of shirtless
+# footage in a PUBLIC repo. Prefix match, per the YouTube*Content lesson above.
+claude edited*/
+
+# BELT AND BRACES: no video file, anywhere in this tree, ever. Folder-name rules keep
+# failing when a folder is renamed (YouTube Content -> YouTube Long Form Video Content
+# leaked 8.3 GB in 2026-08; "EDITED 8-20-26" -> "claude edited long form content"
+# arrived unignored in 2026-08). Extensions do not get renamed. Verified safe:
+# `git ls-files` tracked ZERO video files when this was added, so nothing is orphaned.
+# Deliverables live on disk and in the delivery README, never in git.
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.m4v
+*.avi
+*.mkv
+*.webm
 YouTube Long Form Video Content/
 Short-form video content/
 

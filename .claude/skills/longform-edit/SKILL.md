@@ -623,10 +623,23 @@ roughcuts/
 Media stays out of git — **run `git check-ignore -v` on the output folder before staging
 anything.** Copy any new script into this skill's `reference/`.
 
-**Work on the external drive, not the boot disk.** The 8/3 shoot is 118 GB and the finished
-files run 0.8–1.8 GB each; the invest-health session left 41 GB of intermediates (including
-a 27.5 GB duplicate of the source roll) on the internal disk, which is now 99 % full.
-Point every working directory at the Seagate and only the ~50 KB of recipe files come back.
+**Intermediates on the external drive; FINISHED VIDEOS in the project folder.**
+Dan's standing instruction (2026-08-21): *"Going forward, save your final videos in the
+project folder rather than on the hard drive."* So:
+- **Working dirs → Seagate.** Raw rolls, extracted audio, `clips_graded/` and the pre-loudnorm
+  intermediates are tens of GB. The 8/3 shoot alone is 118 GB and the boot disk sits near
+  99 % full — never point a working directory at it.
+- **`FINAL_*.mp4` + `.srt` + chapters + the recipe files → the project folder**, in
+  `claude edited long form content/<NN - Title>/`.
+- **NEVER delete `clips_graded/`.** It IS the segment cache — deleting it turns a
+  one-beat revision back into a full re-render. That is the whole point of the cache.
+
+**The repo is PUBLIC, and finished videos now live inside it.** `.gitignore` carries a
+global `*.mp4` / `*.mov` / … rule for exactly this reason: two folder-name rules have
+already failed after a rename (`YouTube Content/` leaked 8.3 GB in 2026-08;
+`EDITED 8-20-26/` arrived unignored when Dan renamed it). Extensions don't get renamed.
+**Still run `git check-ignore -v` on the delivery folder after any rename** — the rule is a
+backstop, not a licence to skip the check.
 
 **Ship the recipe next to the video.** Each delivered folder carries `FINAL_*.mp4`,
 `FINAL_*.srt`, the pre-graphics `CUT_v1_graded.mp4` as a rollback point, plus `edl.json`,
