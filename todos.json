@@ -241,6 +241,12 @@
       "priority": "key",
       "why": "Handoffs/HANDOFF_invest_health_cutdowns.md — gated on Dan approving v3",
       "addedAt": "2026-08-20"
+    },
+    {
+      "text": "Execute handoff: Install the 13 AI-Dan exercise demo videos in the app + App Store trainer screenshot",
+      "priority": "key",
+      "why": "handoff-20260821-exercise-demos-in-app.md — created but not yet run",
+      "addedAt": "2026-08-21"
     }
   ],
   "health": [
