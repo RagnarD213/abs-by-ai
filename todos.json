@@ -1,28 +1,7 @@
 {
   "business": [
     {
-      "text": "Post on Facebook",
-      "priority": "key",
-      "recurring": true,
-      "why": "Daily manual social media posting",
-      "addedAt": "2026-08-12"
-    },
-    {
-      "text": "Post on Instagram",
-      "priority": "key",
-      "recurring": true,
-      "why": "Daily manual social media posting",
-      "addedAt": "2026-08-12"
-    },
-    {
       "text": "Post on TikTok",
-      "priority": "key",
-      "recurring": true,
-      "why": "Daily manual social media posting",
-      "addedAt": "2026-08-12"
-    },
-    {
-      "text": "Post on YouTube",
       "priority": "key",
       "recurring": true,
       "why": "Daily manual social media posting",
@@ -238,6 +217,27 @@
       "priority": "high",
       "why": "2026-08-21 planning — Dan thinks he did it right but wants it verified; blocked on the calendar reconnect",
       "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Post on Facebook",
+      "priority": "key",
+      "recurring": true,
+      "why": "Daily manual social media posting",
+      "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Post on Instagram",
+      "priority": "key",
+      "recurring": true,
+      "why": "Daily manual social media posting",
+      "addedAt": "2026-08-12"
+    },
+    {
+      "text": "Post on YouTube",
+      "priority": "key",
+      "recurring": true,
+      "why": "Daily manual social media posting",
+      "addedAt": "2026-08-12"
     }
   ],
   "health": [
