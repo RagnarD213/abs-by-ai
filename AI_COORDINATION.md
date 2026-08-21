@@ -33,6 +33,56 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### SPRAY TAN longform REV 1 DELIVERED — clips/graphics pass + fixes (2026-08-21, Claude Code)
+
+`Handoffs/handoff-20260821-spraytan-rev1.md` executed. **19:00 → 18:53**, delivered over the same
+filename in `claude edited long form content/01 - My First Spray Tan/`. **$0.00 AI spend** — the 71
+stock cutaways are Pexels (free, no key), graphics are PIL, everything else local Whisper + static
+ffmpeg. **No production code touched, no deploy, no native-retest trigger.**
+
+**`qc_generic.py` PASSES all six checks** (−14.49 LUFS, 0/43 splices over the file's own ceiling,
+0 artificial splits) and **`srt_validate.py` scored 12/12 windows, mean 98.0 %**. A 7th check was
+added and passes: all 71 cutaways verified present on the timeline by frame correlation.
+
+Six of Dan's seven notes are done in full. **95 inserts** (71 Pexels cutaways, 19 J2 cards, 5
+before/after panels) on top of the 26 chips ⇒ **longest bare stretch 18.8 s** against his 30 s rule,
+built deliberately over-full so he can prune by deleting lines from `inserts.py`. Item 2 removed the
+4:00 junk take **and the sentence it restarted into** (a restatement, Step-3 junk rule 7); both edges
+placed from a 10 ms RMS envelope because Whisper's word times there are fiction. 35 of 43 joins got
+10 % zoom cuts — the other 8 are already hidden by a cutaway.
+
+**NOTE 7 (deodorant residue) IS PARTLY DONE AND DAN NEEDS TO KNOW WHY.** The handoff's measured
+recipe is right and is applied at **three** moments (0:12.9–0:13.7 and two around 7:50), each A/B'd
+losslessly: residue reduced, texture kept, **zero pixels changed outside the box**. It is NOT applied
+at the other three arms-spread moments (≈5:36, ≈14:19, ≈16:18). The armpit is on screen for well
+under a second at a time: a static box over 2–3 s lands on his tank/forearm and does nothing, and a
+box generous enough for the whole gesture reaches onto the white fridge (value 0.55–0.62, inside the
+filter's own gate) and paints a **grey smudge worse than the residue**. Per-frame tracking is what
+the handoff rules out. **The real fix is at the shoot — clear/invisible-solid deodorant, or wipe down
+before rolling. Put it on Jeff's checklist.**
+
+**THREE SRT CUES WERE CAPTIONING SENTENCES WHISPER INVENTED** — found while rebuilding, all three
+proved absent by re-transcribing the source audio ("…getting a shower before you get into bed at
+night", "the amount of money you get to spend on a spray tan is", "you want to get the best effect.
+So, really,"). Zero-length timestamp clusters are hallucinated text; the de-clumping rule and the
+"break ties on reading order, never alphabetically" fix are now in the skill and in
+`reference/make_srt_declump.py`. **Worth re-checking the Zepbound and supplements SRTs for the same
+defect — they were built by the same generic script.**
+
+Skill updated (`f8cf865`): Step 5.5 (cutaways and cards, incl. reaching Pexels search through a
+same-origin `fetch` in the in-app browser, since the search pages 403 to curl), the SRT rules in
+Step 8, and lessons 22–27. 15 new scripts in `reference/`. A second commit (`6a43358`) picked up the
+`cutdown_*.py` files an earlier session left untracked while SKILL.md already referenced them.
+
+**True peak is +1.58 dBTP** (rev-0 was +2.12, so this is better). The clipping is baked into the
+camera recording — **tell Jeff to drop the mic gain**; chasing −1 dBTP with a limiter costs a dB of
+loudness per dB of peak control.
+
+**EXACT NEXT ACTION — DAN: watch it and prune.** Revisions stay cheap: dropping a clip is a one-line
+edit in `inserts.py` plus the two composite passes (~9 min each); the cut itself never re-renders.
+Then `/youtube-packaging` (chapters already generated, 25 of them).
+
+
 ### MODERN-EDIT 60s SAMPLE DELIVERED — the head-to-head vs the Upwork trial edit (2026-08-21, Claude Code)
 
 Executed `Handoffs/HANDOFF_modern_edit_60s_sample.md`. Ad-1's first minute rebuilt with all five
