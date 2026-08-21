@@ -14,7 +14,8 @@
     "money::Review Upwork editor applicants — shortlist top 3-5 and send paid trial task (hire ~Thu)",
     "money::Reconnect Google Calendar to the dashboard (refresh token is dead — invalid_grant)",
     "money::Execute handoff: Invest-health longform v3 revisions",
-    "money::Execute handoff: Install the 13 AI-Dan exercise demo videos in the app + App Store trainer screenshot"
+    "money::Execute handoff: Install the 13 AI-Dan exercise demo videos in the app + App Store trainer screenshot",
+    "money::Execute handoff: Build 60s modern-edit sample (head-to-head vs Muhammad trial)"
   ],
   "log": {
     "health::Shower": [
@@ -209,6 +210,7 @@
     "money::Review Upwork editor applicants — shortlist top 3-5 and send paid trial task (hire ~Thu)": "2026-08-21",
     "money::Reconnect Google Calendar to the dashboard (refresh token is dead — invalid_grant)": "2026-08-21",
     "money::Execute handoff: Invest-health longform v3 revisions": "2026-08-21",
-    "money::Execute handoff: Install the 13 AI-Dan exercise demo videos in the app + App Store trainer screenshot": "2026-08-21"
+    "money::Execute handoff: Install the 13 AI-Dan exercise demo videos in the app + App Store trainer screenshot": "2026-08-21",
+    "money::Execute handoff: Build 60s modern-edit sample (head-to-head vs Muhammad trial)": "2026-08-21"
   }
 }
