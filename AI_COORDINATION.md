@@ -33,6 +33,21 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### Muhammad A (Upwork trial) edit ANALYZED — feeds the editing-stack decision (2026-08-21, Claude Code)
+
+Dan rated Muhammad's 61s trial edit (ad-1 script, YouTube-episode format) above our rev-4. Measured
+drivers: airtight pause removal (ZERO gaps ≥0.25s in 61s; no speed-up — word-level timing matches
+source 1:1), a prominent music bed (~-20dB RMS under voice, runs full length), whoosh/pop SFX on every
+graphic, animated MOGRT-style graphics (pastel-cyan explainer theme: progressive bullet builds,
+lower-third label chips, title cards, dashed-arrow before→after cards), an animated highlight box
+around the physical door photo synced to "THIS picture," brighter grade (luma 67 vs our 55), and fast
+phrase-synced punch-ins. Encoder tag = Mainconcept → **Adobe Premiere Pro** (likely text-based
+editing for pause removal + template pack + stock music). His edit has NO burned captions. Flaws: a
+stray backtick typo in his bullet list, a black "Broll assets folder" placeholder card at ~46s, and
+side-by-side before/after usage that is BANNED in our paid ads (fine for organic YouTube). Every
+technique is replicable in the existing PIL/ffmpeg pipeline; plan delivered to Dan in the ad-1 rev-4
+session. AD 1 rev-4 itself is still awaiting Dan's review (9:16 on approval).
+
 ### Exercise demo BATCH 2 — round-5 revisions delivered, awaiting Dan (2026-08-20 night, Claude Code)
 
 Four fixes redelivered: pull-up (new almost-locked-hang bottom still + 6s re-roll; the winning cut has
