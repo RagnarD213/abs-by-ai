@@ -216,6 +216,38 @@ missed. Also: the full-roll transcript can *miss real words* inside a stretched-
 pause (a whole "a maid service" surfaced at a joint that looked like residue but was
 genuine speech) — judge joints by the re-transcription, not by the source transcript.
 
+## Junk-footage detection — run ALL of these before calling a cut done
+
+Dan reviewed two rounds of the 8/19 invest-health cut and found junk both times.
+The giveaways he listed: looking away from camera, immediately repeating the previous
+take's line, adjusting glasses, >1 s pause then repeating, drinking, burping, drifting
+off-center. Lessons that became mandatory passes:
+
+1. **Pause-capper** — tighten every hold ≥1.3 s inside kept ranges to ~0.5 s
+   (keep 0.30 s tail + 0.20 s lead-in). Use THREE detectors together, because each
+   misses cases: `silencedetect -32dB` (defeated by kitchen room tone), word-timestamp
+   gaps ≥1.5 s, and **stretched words ≥1.5 s** (Whisper folds the pause INTO a word —
+   keep 0.65 s for the spoken word, cut the rest). Auto cuts must never merge across a
+   hand-placed EXTRA_SPLIT — a merged cut swallowed a retake once.
+2. **Re-transcribe every stretched-word region FROM SOURCE AUDIO** before cutting near
+   it. A 4 s "word" at 527 s turned out to contain an entire aborted take ("deal with
+   if you don't kee—") followed by its retake — invisible in the full-roll transcript.
+3. **Phrase-level repeat scan, not sentence-level.** Sentence-fuzzy-matching found no
+   repeats while Dan found several: "all kinds of problems" twice in 8 s, a doubled
+   Oura-ring introduction. Scan for repeated 3-5-word shingles within a ±30 s window
+   across the KEPT timeline and inspect each hit; his rhetorical repeats (anaphora)
+   are deliberate, re-INTRODUCTIONS of the same item are junk.
+4. **Visual junk pass**: 1 fps contact sheets around every joint and every capped
+   pause — look for off-center framing, look-aways, glasses adjustments. The 14:30
+   junk (off-center recomposure while already talking) had NO audio signature.
+5. **Zoom cuts must be ≥10%.** A 6% alternating punch-in still read as a jump cut to
+   Dan wherever his posture shifted between takes. Anchor the crop top (y=0) — his
+   head sits ~10 px from the frame edge at this framing.
+6. Shell hygiene that burned an hour: piping the EDL builder through `grep` swallowed
+   its traceback and a **stale edl.json rode through a full re-render**. Run builders
+   bare with `set -e`, and verify the changed range values in edl.json before
+   rendering.
+
 **A cut-cleanliness QC metric must compare the render against the INTENDED editorial
 span, never against the engine's own output ranges.** The first version derived expected
 words from each engine's own EDL, so a word the engine had already chopped was never in
