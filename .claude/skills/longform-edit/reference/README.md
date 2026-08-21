@@ -37,6 +37,28 @@ Order: `probe_identify` → `tx_runner` → `silences` → `dump_segments` → (
 → `build_edl_generic` → fix flags with `words`/`diag` → `render.py` → `build_gfx_generic`
 → `composite_generic` → `make_srt_generic` → `qc_generic`.
 
+## Multi-source (2026-08-20, built on the 8/14 ab-wheel video) — a video cut from SEVERAL ROLLS
+
+The 8/14 outdoor shoot recorded one video across **four separate rolls**, not one long take.
+Every generic script above assumes a single source and silently breaks: identical timecodes
+exist in all four rolls, so a chip, an SRT word or a "mid-speech split" check can match the
+wrong roll. These take a `ranges.py` whose entries are `(source, start, end, beat[, mode])`
+plus `SOURCES` / `GRADES` dicts, and resolve everything **inside** the owning roll.
+
+| file | what it does |
+|---|---|
+| `build_edl_multisource.py` | per-roll words + silences; adds `raw` / `rawin` / `rawout` modes |
+| `build_gfx_multisource.py` | chips carry their roll, so `src_to_out` cannot match the wrong one |
+| `composite_multisource.py` | chips + watermark + **video PiP inserts** (see `pip_abwheel.py`) |
+| `make_srt_multisource.py` | per-roll word mapping + a brand re-spell pass |
+| `tailcheck.py` | re-transcribes EVERY beat's tail from the FINISHED render — the only test that catches a clipped trailing fricative |
+| `sil45.py` | re-measures silence at −45 dB (a −30 dB pass calls a trailing fricative "silent") |
+| `ranges_abwheel.py` · `chips_abwheel.py` · `pip_abwheel.py` | the worked 4-roll inputs |
+
+**`raw` / `rawin` / `rawout` exist because a SILENT range has no words to snap to.** A 60-second
+live workout set would otherwise have its in-point resolved forward to the next spoken word,
+deleting the whole set. `rawout` is also the fix for a clipped fricative.
+
 ## One-off originals (2026-08-03 meal-prep, 2026-08-19 invest-health)
 
 | file | what it does |

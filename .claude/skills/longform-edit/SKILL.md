@@ -17,6 +17,13 @@ Built from one full pass: the **2026-08-03 meal-prep / Macro Tracker tutorial**
 (`C1541.MP4`, 5:45 raw → 3:48 finished), taken end to end — bake-off, rough cut,
 split screen, color, graphics, subtitles. Dan approved every stage.
 
+**Proven again 2026-08-20 on the 8/14 ab-wheel video — the first cut assembled from FOUR SEPARATE
+ROLLS** (`C1630`–`C1633`, 17:27 raw → 8:58). Every generic script here assumes ONE source and
+breaks silently on a multi-roll video, because identical timecodes exist in every roll; the
+multi-source variants are in `reference/` and are documented in its README. That video also added
+the trailing-fricative rule and `tailcheck.py` in Step 3, the bright-outdoor grade in Step 6, and
+the clipped-source loudness reality in Step 9.
+
 **Proven again 2026-08-20 on a THREE-VIDEO batch from the same 8/3 shoot** — spray tan
 (`C1512`, 30:42 → 19:00), Zepbound update (`C1513`, 40:16 → 30:26) and supplements
 (`C1514`, 37:39 → 23:28), cut start-to-finish in one session for **$0.00**. That batch is
@@ -176,11 +183,32 @@ places, one checks.
    claimed to begin 0.12 s before the measured silence did). If the out-point already sits
    inside a measured silence, the silence is ground truth — skip the clamp entirely.
 
+7. **A trailing FRICATIVE is the mirror of the soft-onset trap in rule (1), and `silencedetect`
+   at −30 dB cannot see it.** On the 8/14 ab-wheel cut, "…beats crunches." had a −30 dB silence
+   starting at 25.70 s, so the out-point at 25.75 passed every assertion — and the finished render
+   said **"crunch"**. Re-measured at −45 dB, speech actually runs to 25.99: the unvoiced "-es" sits
+   *between* −30 and −45 dB. Whenever the **stretched-last-word** rule fires and the word ends in
+   s / sh / f / th / ch, snap the out past the −45 dB boundary (`reference/sil45.py`), or set it by
+   hand with `rawout`. **Do NOT promote −45 dB to a general assertion** — on outdoor footage almost
+   nothing is that quiet, and a blanket −45 dB audit on this video flagged 19 of 36 edges, nearly
+   all room tone.
+
 All six rules are implemented in **`reference/build_edl_generic.py`**, which takes a
 `ranges.py` of approximate `(start, end, beat)` triples plus the grade and source path,
 resolves every edge, prints the head/tail text of each beat, and **flags** every edge it
 could not place in silence. Read the flags: on this batch they caught six genuinely
 clipped words across three videos, and the rest were benign Whisper inflation.
+
+**Re-transcribe EVERY beat's tail from the finished render, not just the flagged ones**
+(`reference/tailcheck.py`). It is the only check that sees a clipped trailing fricative, and on
+the ab-wheel cut it found the one real defect among 18 beats after every other metric passed.
+
+**The window MUST extend ~1.5 s PAST the join.** Ending it at the join truncates Whisper's audio
+and it silently drops the final word — that produced **7 false "last word missing" reports** on a
+clean cut. The same truncation makes Whisper *stutter*: a 6 s window that ended mid-phrase
+reported "So I'm going to run you. So I'm going to run you." and read as a doubled take; an 11 s
+window over the identical audio was clean. **With trailing context the real signature is
+different — the word is PRESENT but mis-spelled** (crunches → crunch).
 
 **Validate flagged joints by transcribing 6 s of the FINISHED render around each one**
 (qc script does this) — it caught the clipped joint that every duration/loudness metric
@@ -333,6 +361,20 @@ viewer is there to judge. **Never apply a white-balance correction to a video wh
 subject is skin tone**; check the skin-tone node first (it read "skin natural, 21.7°"),
 and fix contrast only. The black crush alone pulled WB deviation 0.0425 → 0.0344 anyway.
 
+**A BRIGHT OUTDOOR ROLL NEEDS THE OPPOSITE CURVE FROM A DARK INTERIOR — read the numbers, do not
+reuse the 8/3 curve.** The 8/14 pool footage measured black point **0.104–0.112** (much milkier
+than 8/3), median luminance **0.52–0.55** (already at target, NOT dark) and **highlight clip
+already 6.2 %**. The 8/3 curve lifts mids (0.50→0.552) and highlights (0.80→0.862), which here
+would blow out an already-clipping sky for no gain. What shipped crushes the blacks and holds
+everything else near identity:
+
+```
+curves=all='0/0 <black_point>/0.005 0.30/0.294 0.55/0.550 0.85/0.848 1/1'
+```
+
+Closed-loop: black point 0.108 → 0.006, **milky blacks YES → no on all 8 frames**, median
+luminance 0.548 → 0.549 (unmoved), highlight clip +0.15 pp, skin hue held, colorfulness 36.9 → 37.8.
+
 **GRADE THE CAMERA SIDE ONLY.** The screen recording is a digital capture and is already
 neutral (**R/B 0.958**); running a warm-correction over it tints the app UI blue and
 misrepresents the product. Verified: screen half 0.953 → 0.951 (untouched) while the
@@ -436,7 +478,15 @@ Port the `/shorts` assertion suite and add:
   exceeds the file's own natural ceiling (the control max), and keep reporting the
   ×median figure so it stays comparable with the 8/3 baseline. This is the same lesson as
   the circular cut-cleanliness metric — the metric was wrong, not the media.
-- **Loudness** — measured integrated LUFS within ±1 of −14.
+- **Loudness** — measured integrated LUFS within ±1 of −14. **When the SOURCE audio clips,
+  render.py's own loudnorm will undershoot** — the 8/14 rolls peak at **+2.94 dBTP in camera**, so
+  the −1 dBTP ceiling dragged the programme to −15.09 LUFS. Fix with a corrective measured-value
+  pass on the finished cut (`-c:v copy`, audio only), feeding back the measured I/TP/LRA/thresh and
+  `linear=true`; that landed −14.59 LUFS / +0.54 dBTP, better than the render on both axes.
+  **Do not chase −1 dBTP with `alimiter`** — measured on this cut, every dB of true-peak control
+  cost a dB of loudness (limit 0.79 → −15.08 LUFS, 0.63 → −16.25), because the clipping is baked
+  into the recording. Hit the loudness target, report the true peak, and tell the shooter to drop
+  the mic gain.
 - **Duration vs plan.**
 - **Sync spot-checks** — frames vs what he is saying. The only check that catches sync.
 - **Graphics on/off** — sample mid-chip AND between chips to prove `enable=between()`
@@ -447,7 +497,9 @@ Port the `/shorts` assertion suite and add:
   `max(off) < min(on)` test reported a false failure on a video whose chips were rendering
   perfectly.
 - **No artificial mid-speech splits** — assert no two adjacent ranges are closer than
-  0.20 s. This is the one defect the splice metric structurally cannot see: render.py's
+  0.20 s. **Guard this on `source` when the video is cut from several rolls**: across a roll change
+  the arithmetic is meaningless and reports gaps like −72 s as "artificial splits" (it did, three
+  times, on the ab-wheel cut). This is the one defect the splice metric structurally cannot see: render.py's
   30 ms fades produce a brief amplitude *dip*, and max-sample-to-sample-jump only detects a
   *step*. The builder now flags it too.
 

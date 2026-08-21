@@ -88,7 +88,8 @@ chk(len(off_l) > 0 and sep > 5,
     f"between-chip {[round(x,1) for x in off_l]} (separation {sep:.1f})")
 
 tight = [(a["beat"], b["beat"], round(b["start"]-a["end"], 3))
-         for a, b in zip(ranges, ranges[1:]) if b["start"] - a["end"] < 0.20]
+         for a, b in zip(ranges, ranges[1:])
+         if a.get("source") == b.get("source") and b["start"] - a["end"] < 0.20]
 chk(not tight, f"no artificial mid-speech splits (adjacent ranges <0.20s apart): {tight}")
 
 name_to_idx = {r["beat"]: i for i,r in enumerate(ranges)}
