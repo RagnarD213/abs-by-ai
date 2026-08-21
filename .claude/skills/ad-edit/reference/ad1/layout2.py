@@ -130,11 +130,11 @@ VID = [
  (STK2[0], STK2[1], "aiframes/clip_a.mp4", 0.3, 0, "", True),
  (STK3[0], STK3[1], "aiframes/clip_b.mp4", 0.5, 0, "", True),
  (STK4[0], STK4[1], "aiframes/clip_c.mp4", 0.0, 0, "", True),
- (SEQ[0], round(SEQ[0]+2.2,2), APPFLOW, 2.5, 570, AFCROP, False),   # cropped photo in generation screen
+ (SEQ[0], round(SEQ[0]+2.2,2), APPFLOW, 3.2, 570, AFCROP, False),   # cropped photo in generation screen
  (round(SEQ[0]+2.2,2), round(SEQ[0]+4.4,2), APPFLOW, 20.0, 570, AFCROP, False),  # generating
  (round(SEQ[0]+4.4,2), SEQ[1], APPFLOW, 29.4, 570, AFCROP, False),  # after alone (big cover added below)
  (ASSESS[0], ASSESS[1], "assets_v1/stats_scan.mp4", 0.0, 0, "", False),  # scan + stats animation
- (END, round(END+1.8,3), APPFLOW, 2.5, 570, AFCROP, False),          # end flow: photo in gen screen
+ (END, round(END+1.8,3), APPFLOW, 3.2, 570, AFCROP, False),          # end flow: photo in gen screen
  (round(END+1.8,3), round(END+3.6,3), APPFLOW, 20.0, 570, AFCROP, False),  # generating
  (round(END+3.6,3), CARD_END, APPFLOW, 29.4, 570, AFCROP, False),    # after alone
 

@@ -51,20 +51,21 @@ cov.save("assets_v1/big_ai_cover.png")
 pa.compose_panel(1, "icloud_photo1.jpg", "assets_v1/p_dad1.jpg")
 pa.compose_panel(1, "icloud_photo2.jpg", "assets_v1/p_dad2.jpg")
 
-# ---- 4. stats scan animation ----
+# ---- 4. stats scan animation (rev-3 layout: tag below image, stats, plan line, teaser body) ----
 FPS = 30000 / 1001
 DUR = 4.64
-N = int(DUR * FPS)  # 139
+N = int(DUR * FPS)
 after = Image.open("assets_v1/sample_after.jpg").convert("RGB")
 scr_w, scr_h = 570, 1080
 img_h = 430
-img_w = int(after.width * img_h / after.height)  # ~368
+img_w = int(after.width * img_h / after.height)
 img_x = (scr_w - img_w) // 2
-img_y = 26
+img_y = 22
 after = after.resize((img_w, img_h), Image.LANCZOS)
-fL = ImageFont.truetype(pa.MANROPE, 26)
-fV = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 26)
-fB = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 40)
+fL = ImageFont.truetype(pa.MANROPE, 24)
+fV = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 24)
+fB = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 34)
+fT = ImageFont.truetype(pa.MANROPE, 20)
 STATS = [
     ("Current Weight", "205 lb"),
     ("Current Body Fat", "29%"),
@@ -73,26 +74,39 @@ STATS = [
     ("Goal Fat Loss", "28 lb"),
     ("Goal Muscle Gain", "+3 lb"),
 ]
+BODY = ("Here’s what we saw: you’re starting near 29% body fat with a solid "
+"muscle base underneath. To hit your goal you’ll drop 28 lb of fat while adding "
+"lean muscle — a high-protein diet plus progressive strength training, 3–4 "
+"days a week. Your week-by-week workout program is built for exactly this — "
+"every session, every set, mapped to your goal…")
+# wrap body text to the screen width
+tmp = ImageDraw.Draw(Image.new("RGB",(10,10)))
+words_b = BODY.split(); lines_b=[]; cur=""
+for wd in words_b:
+    t2=(cur+" "+wd).strip()
+    if tmp.textlength(t2,font=fT) > scr_w-88: lines_b.append(cur); cur=wd
+    else: cur=t2
+if cur: lines_b.append(cur)
 tagS = Image.open("assets_v1/tag.png").convert("RGBA")
 tagS = tagS.resize((int(tagS.width * 0.72), int(tagS.height * 0.72)))
 bg_full = pa.panel_bg(1)
 
 os.makedirs("statsframes", exist_ok=True)
 SCAN_END = 1.6
-ROW_T0, ROW_DT = 1.75, 0.28
-BOT_T = 3.55
+ROW_T0, ROW_DT = 1.75, 0.26
+BOT_T = 3.45
 for i in range(N):
     t = i / FPS
     scr = Image.new("RGB", (scr_w, scr_h), (250, 250, 252))
     scr.paste(after, (img_x, img_y))
     d = ImageDraw.Draw(scr, "RGBA")
     d.rectangle([img_x - 1, img_y - 1, img_x + img_w, img_y + img_h], outline=(210, 210, 215), width=1)
-    if t < SCAN_END:  # scan line sweeping the AFTER picture once
+    if t < SCAN_END:
         yy = img_y + int((t / SCAN_END) * img_h)
         d.rectangle([img_x, img_y, img_x + img_w, yy], fill=(120, 180, 255, 46))
         d.rectangle([img_x, yy - 3, img_x + img_w, yy + 3], fill=(70, 140, 255, 230))
         d.rectangle([img_x, yy - 14, img_x + img_w, yy - 3], fill=(120, 180, 255, 90))
-    y = img_y + img_h + 26
+    y = 512
     for r, (lab, val) in enumerate(STATS):
         if t >= ROW_T0 + r * ROW_DT:
             a = min(1.0, (t - (ROW_T0 + r * ROW_DT)) / 0.22)
@@ -101,19 +115,24 @@ for i in range(N):
             vw = d.textlength(val, font=fV)
             d.text((scr_w - 44 - vw, y), val, font=fV, fill=colv)
             if a >= 1:
-                d.line([44, y + 40, scr_w - 44, y + 40], fill=(228, 228, 232, 255), width=1)
-        y += 52
+                d.line([44, y + 36, scr_w - 44, y + 36], fill=(228, 228, 232, 255), width=1)
+        y += 46
     if t >= BOT_T:
         a = min(1.0, (t - BOT_T) / 0.25)
         bt = "Recommended Workout Plan"
         bw = d.textlength(bt, font=fB)
-        d.text(((scr_w - bw) / 2, 900), bt, font=fB, fill=(15, 15, 20, int(255 * a)))
+        d.text(((scr_w - bw) / 2, 800), bt, font=fB, fill=(15, 15, 20, int(255 * a)))
+        ty = 852
+        for ln in lines_b:
+            if ty > 952: break
+            d.text((44, ty), ln, font=fT, fill=(96, 96, 104, int(255 * a)))
+            ty += 26
     frame = bg_full.copy()
     frame.paste(scr, ((W - scr_w) // 2, 0))
-    frame.paste(tagS, (W // 2 - tagS.width // 2, img_y + 10), tagS)
+    frame.paste(tagS, (W // 2 - tagS.width // 2, img_y + img_h + 8), tagS)  # tag BELOW the picture
     frame.save("statsframes/f%04d.png" % i)
 
 subprocess.run([FF, "-nostdin", "-y", "-v", "error", "-framerate", "30000/1001",
     "-i", "statsframes/f%04d.png", "-c:v", "libx264", "-preset", "fast", "-crf", "18",
     "-pix_fmt", "yuv420p", "assets_v1/stats_scan.mp4"], check=True)
-print("rev2 assets done, stats_scan frames:", N)
+print("rev3 stats screen done, frames:", N)

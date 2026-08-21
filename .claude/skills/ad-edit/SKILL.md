@@ -374,6 +374,22 @@ Ad #1 rev-2 (2026-08-21), second round of directed placements:
 13. **Captions must clear graphics text**: per-event ASS MarginV override (field 8)
    lifts cues over an insert's on-screen text windows.
 
+Ad #1 rev-3 (2026-08-21):
+14. **A module that builds assets at import time WILL silently regress fixes.**
+   prep_assets.py rebuilt ALL panels on every `exec_module` import from later
+   asset scripts, restoring cover-cropped photos Dan had already rejected —
+   the same defect shipped twice. Asset builders must guard their build loop
+   under `if __name__ == "__main__":`; per-revision fix scripts write the final
+   files LAST. Also: Ken Burns headroom — compose stills within the max-zoom-safe
+   window (image ≤1650x900 on the 1920x1080 panel at 1.09x zoom).
+15. **Never show the app's photo-crop screen in a demo** — start flows at the
+   generation screen with the photo already in place (Dan, twice: mid-video and
+   end flow). Demo-flow slices: appflow si=3.2.
+16. **The stats screen pattern locked**: tag directly BELOW the after image
+   (never covering it), stats, "Recommended Workout Plan" immediately after,
+   then app-style teaser body text that describes where they're at and what
+   it takes, without revealing the plan.
+
 ## Decisions locked vs pending
 
 | decision | status |

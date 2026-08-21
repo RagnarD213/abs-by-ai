@@ -33,6 +33,17 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 1 REV-3 shipped; import-time asset-clobber root cause fixed (2026-08-21, Claude Code)
+
+Rev-3 items: zoom-safe uncropped shoot photos (root cause: prep_assets.py built assets at import
+time, silently restoring rejected cover-crops — now guarded under __main__; lesson 14 in the skill),
+crop screen eliminated from both demo flows (start at generation screen, si=3.2; lesson 15), stats
+screen v3 (tag below picture / stats / plan line / teaser body text; lesson 16). Redelivered as
+`ad1_rev3_16x9.mp4`. ALSO: checked Replicate per Dan — auto-reload is NOT topping up (402 persists
+40+ min); billing page needs his GitHub sign-in (tab left open). Veo covers video gen meanwhile.
+Awaiting rev-3 review; 9:16 on approval.
+
+
 ### AD 1 REV-2 — second revision round shipped (2026-08-21, Claude Code)
 
 All 10 of Dan's rev-2 items applied and redelivered (`ad1_rev2_16x9.mp4`, 4:31): smooth

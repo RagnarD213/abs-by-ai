@@ -146,7 +146,8 @@ def end_card(variant, path):
         d.text(((W - d.textlength(t2, font=f2)) / 2, 1000), t2, font=f2, fill=(255, 90, 90))
     canvas.save(path, quality=92)
 
-for v in (1, 2):
+if __name__ == "__main__":
+  for v in (1, 2):
     os.makedirs(f"assets_v{v}", exist_ok=True)
     tag_png(v, f"assets_v{v}/tag.png")
     # goal image panel (opener + mid inserts)
