@@ -217,6 +217,12 @@
       "priority": "high",
       "why": "2026-08-21 planning — Dan thinks he did it right but wants it verified; blocked on the calendar reconnect",
       "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Execute handoff: iOS third-rejection fix (1.1 body-morphing + IAP submission)",
+      "priority": "key",
+      "why": "handoff-20260821-ios-third-rejection-fix.md — created but not yet run",
+      "addedAt": "2026-08-21"
     }
   ],
   "health": [
