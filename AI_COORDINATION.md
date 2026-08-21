@@ -33,6 +33,16 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### Exercise demo BATCH 2 — round-5 revisions delivered, awaiting Dan (2026-08-20 night, Claude Code)
+
+Four fixes redelivered: pull-up (new almost-locked-hang bottom still + 6s re-roll; the winning cut has
+BOTH the nearly-straight hang and the chin-over-with-daylight top), leg-curl (keyframe-locked regen,
+full extension to past-90), press + side-lateral backgrounds FULLY locked (Dan caught stacks the ghost
+scan missed inside the arm-sweep zone — new `_r2/bglock.py` validated-rectangle freezes and
+`_r2/keyfreeze.py` per-pixel keyed composite are in the skill, verified on arm-free frames ≤3 gray
+levels). Leg raise FINALIZED by Dan. ~$5 this round; batch-2 total ~$84. Batch-2 finals await Dan's
+verdict; approved ones are NOT yet stamped -FINAL.
+
 ### Three longform videos CUT, QC'd and DELIVERED from the 8/3 shoot (2026-08-20, Claude Code)
 
 **Deliverables (RELOCATED 2026-08-21 on Dan's instruction — finished videos live in the PROJECT
