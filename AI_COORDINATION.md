@@ -33,6 +33,90 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### Three longform videos CUT, QC'd and DELIVERED from the 8/3 shoot (2026-08-20, Claude Code)
+
+**Deliverables (RELOCATED 2026-08-21 on Dan's instruction — finished videos live in the PROJECT
+folder now, not the Seagate):** `claude edited long form content/` — three
+finished MP4s + SRT + YouTube chapters + the pre-graphics rollback cut + `edl.json`/`ranges.py`/
+`chips.py` each, plus a `README.md` with QC results and Dan's review list. **$0.00 AI spend** (local
+Whisper, static ffmpeg, open-source colour analysis — no metered provider called). **No production
+code touched, no deploy.**
+
+| video | roll | raw → final | ranges | chips |
+|---|---|---|---|---|
+| My First Spray Tan | `C1512` | 30:42 → **19:00** | 42 | 26 |
+| My Honest Zepbound Update | `C1513` | 40:16 → **30:28** | 49 | 23 |
+| The Supplements I Actually Take | `C1514` | 37:39 → **23:30** | 62 | 27 |
+
+**All three PASS all six QC checks**, and each SRT was validated by re-transcribing 10 windows of the
+**finished render** (98.3 / 97.7 / 97.9 % word overlap). All 16 builder-flagged joints were
+re-transcribed from the finished files and read as clean continuous speech.
+
+**THE SEGMENT CACHE WORKS AND THAT IS THE HEADLINE FOR REVISIONS.** It was already fixed
+(`~/Developer/video-use`, commit `efbfe69`) — verified rather than rebuilt: a beat edited AND a beat
+inserted still reported `[cached]` for the untouched beats, including one whose index shifted 2→3, so
+it keys on content not position. Production-proven three times today: **49/50, 40/42, 48/49 reused.**
+Concat is lossless and loudnorm is `-c:v copy`, so a one-beat revision costs one segment extraction
+plus a graphics pass. **Dan's revision notes are cheap now.**
+
+**Three QC metrics were wrong before the media ever was** (skill updated, commits `74eae0a`,
+`8fac0bf`, `3d233a1`): a splice rule normalised on the control *median* failed 4 clean joins on a
+long talking head (controls span 613…4069, so a join beside a loud syllable "fails"); a graphics rule
+assuming a chip makes the region *brighter* failed a video whose chips were perfect (a J2 chip is a
+DARK box, and the supplements video is shot over bright granite); and the splice rule structurally
+**cannot** see the one defect that was real — render.py's 30 ms fades make an amplitude *dip*, not a
+*step*. That real defect was self-inflicted: two ranges split a continuous passage with 0.02 s
+removed, purely to hang a chip. Chips map by SOURCE time, so the split was never needed. Merged;
+worst join went 6.41× → 3.84×. Both the EDL builder and QC now assert no adjacent pair under 0.20 s.
+
+**Other skill additions:** Step 0.5 (identify which video each unlabelled clip is with 100 s audio
+probes + Whisper `base` — 84 clips mapped in one pass) and three more Whisper-timestamp rules (don't
+clamp an in-point to a *stretched* previous word; a stretched *last* word is the mirror trap; measured
+silence outranks Whisper's claimed next-word onset).
+
+**Colour: graded PER ROLL, not per shoot** — three rolls from the same doorway on the same night had
+black points 0.079 / 0.069 / 0.054. **The spray-tan roll got NO white-balance correction on purpose:**
+its WB deviation read 3× the others because that is the actual spray tan, which is the video's subject.
+
+**TWO THINGS DAN DECIDES, both listed with exact final-edit timecodes in the delivery README:**
+1. **On-screen photos are still owed** — spray tan `00:03` and `09:21`, Zepbound `08:51` (192 lb) and
+   `09:12` (181 lb). I did **not** guess which photo is which; asserting "this is Dan at 192 lb" is a
+   claim about his body I cannot verify, and a wrong photo burned into a finished video is worse than
+   an empty slot. Each beat carries a J2 chip with the numbers so it lands either way. The Zepbound
+   injection-site callouts (`16:12`, `18:35`, `19:05`, `19:16`) are optional — he demonstrates on
+   camera. Supplements needs nothing; he holds every bottle up.
+2. **Seven lines flagged, none removed** — profanity ×4, the "injected my ex-girlfriend" line
+   (Zepbound `03:37`), the Donald Trump tan joke (spray tan `12:35`), and "You are not smart enough to
+   understand scientific research" (supplements `01:00`). All are his words and stay in; each is a
+   one-line change in `ranges.py`. **No chip in the Zepbound video prints the drug name**, per his
+   standing copy rule, and the "not medical advice" beat is kept in full at `07:09` — do not trim it.
+
+**No native retest trigger row touched** — video files only; no product surface, server or client.
+
+**Dashboard: nothing checked off, correctly.** All four lists searched. The nearest match,
+`money::Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos)`, is genuinely **advanced,
+not finished** (3 of ~25 content videos). `money::Execute handoff: Build /longform-edit video pipeline`
+covers building the pipeline, which earlier sessions did; today used it. Per Rule 9 that is reported,
+not checked off early. **Useful input for `money::Decide the video-editing stack`: three finished
+longform videos, one session, $0.00, zero human editor hours.**
+
+**EXACT NEXT ACTION — DAN: watch the three videos** and send revision notes; they are cheap now. Then
+`/youtube-packaging` for titles, descriptions and thumbnails (chapters are already generated).
+
+**CONSOLIDATED 2026-08-21:** every earlier Claude-edited longform moved into the same folder —
+`04 - Why You Should Invest More In Your Health` (INVEST_HEALTH_v3, 53:17, + a chapters file generated
+from its chip timings) and `05 - Meal Prep Macro Tracking (app demo)` (SPLITSCREEN_v3, 3:48, no
+chapters — under YouTube's 3-chapter minimum). Five videos, 14 GB, one README. Superseded
+invest-health v1/v2 masters deliberately left in `Media/longform-raw/…/roughcuts/`.
+**The repo is PUBLIC and that folder is now inside it** — `.gitignore` gained `claude edited*/` plus a
+global `*.mp4`/`*.mov`/… rule (`a23ad9a`). Folder-name rules have failed twice after renames;
+extensions don't get renamed. Verified zero tracked video files first, so nothing was orphaned.
+Working files + `_edit_work/clips_graded/` (**the segment cache — never delete it**) stay on the Seagate.
+
+**⚠ THIS ENTRY WAS DROPPED ONCE ALREADY** (commit `c4fb797`, wiped by a concurrent session's
+whole-file rewrite — the same failure `0ca72b5` records). If you are another session: re-read this
+file from disk immediately before writing it, and edit your own section only.
+
 ### Invest-health longform — v3 DELIVERED, awaiting Dan's review (2026-08-21, Claude Code)
 
 `Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/INVEST_HEALTH_v3.mp4` (53:17) +
