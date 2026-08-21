@@ -28,49 +28,11 @@ When Dan asks a "what should we work on" / "what should I use my limit for" / "h
 
 ## Check the task off on the Victory Dashboard when you finish it
 
-Finishing a task means checking it off at `absbyai.com/dashboard` in the same session. Dan should not have to click it himself — an unchecked task reads as unfinished work. Do this after the change is committed, pushed, deployed and verified, as the last step of the task.
+Finishing a task means checking it off at `absbyai.com/dashboard` in the same session — Dan should not have to click it himself; an unchecked task reads as unfinished work. Do this after the change is committed, pushed, deployed and verified, as the last step of the task. Same rule for adding a Rule-8 Key task whenever a handoff doc is created. **Invoke the `/dashboard-tasks` skill for the mechanics** (gated endpoints, `X-Dash-Key` auth, the id format and the `money`-vs-`business` trap) — do not work these endpoints from memory.
 
-**These endpoints now require a key** (added 2026-08-19, after a friend of Dan's found `/dashboard` and
-every API behind it answered an anonymous curl). Send `X-Dash-Key: $DASH_SECRET` on every call below.
-The value is in Railway and in `~/.absbyai-secrets.env` — fetch it yourself per the secrets section
-below, never ask Dan for it. Without the header these return **401**, which is the single most likely
-reason a check-off silently stops working.
+## Secrets and env vars — NEVER ask Dan to fetch these (Dan's instruction, 2026-08-18)
 
-```bash
-DASH=$(grep '^DASH_SECRET=' ~/.absbyai-secrets.env | cut -d= -f2-)
-# 1. Find the task's exact text.  Stored lists are business / health / personal / assistant.
-curl -s -H "X-Dash-Key: $DASH" https://absbyai.com/api/todos | python3 -m json.tool
-# 2. Check it off.  The id is "<displayKey>::<exact text>" — see the mapping note below.
-curl -s -X POST https://absbyai.com/api/task-checks -H "X-Dash-Key: $DASH" \
-  -H 'Content-Type: application/json' \
-  -d '{"id":"money::Execute handoff: Close locked-image leak on paywall","checked":true}'
-```
-
-Four things that are easy to get wrong here, the first three verified on 2026-07-29:
-
-- **A 401 means the key is missing or stale, not that the id was wrong.** `/api/todos`, `/api/task-checks`,
-  `/api/plan`, `/api/tasks-state`, `/api/morning-data` and `/api/monarch` are all gated. The one exception is
-  an `assistant::` check-off, which the public `/assistant` page must be able to make and so needs no key.
-  If the key looks stale, refresh the cache: `railway variables --kv > ~/.absbyai-secrets.env`.
-
-- **Done state lives in `/api/task-checks`, not in `todos.json`.** Setting a `done` field on the todo object does nothing — no surface reads it. `POST /api/task-checks` with `{ id, checked: true }` is the only mechanism.
-- **The `business` list is displayed as `money`, and check ids use the DISPLAY key.** `dashboard.html` merges the stored `business` list into `todosState.money` (line ~1615) and writes it back as `business` (~2111), while `taskCheckId()` builds `<displayKey>::<text>`. So a money-column task is `money::…`, never `business::…`. `health`, `personal` and `assistant` are the same in both.
-
-- **`assistant` is delegated work — Dan's personal assistant's list, not Dan's** (added 2026-08-08). It renders as its own "Assistant Tasks" card in the Health column and is mirrored to `absbyai.com/assistant`, an unauthenticated page the assistant uses. It is deliberately excluded from the Work Session Focus band's auto-population, so **do not put agent work orders or Dan's own tasks in it**, and do not add Rule-8 handoff tasks there — those still go in `business`.
-- **The text must match exactly**, including punctuation — the id is the raw text. Fetch it, don't retype it.
-
-For a recurring task, `POST` also needs `{ recurring: true, date: "YYYY-MM-DD" }`. Then reload the dashboard and confirm the row is struck through — a 200 from the endpoint is not proof the right id was used. If no matching task exists, say so rather than inventing one.
-
-## Secrets and env vars — NEVER ask Dan to fetch these (added 2026-08-18, Dan's instruction)
-
-Dan explicitly eliminated the "go into Railway, grab the variable, paste it" loop. Get secrets yourself:
-
-1. **Railway CLI is installed and authenticated**: `~/.npm-global/bin/railway` (not on default PATH — use the full path or export `PATH="$HOME/.npm-global/bin:$PATH"`). The project is already linked. `railway variables --kv` prints every production variable; auth auto-refreshes.
-2. **Local cache**: `~/.absbyai-secrets.env` (0600, outside the repo) holds a snapshot of all prod variables. Source it or grep it. Refresh it with `railway variables --kv > ~/.absbyai-secrets.env && chmod 600 ~/.absbyai-secrets.env` whenever a key looks stale.
-3. **`DATABASE_URL` is in there** — direct production Postgres access. This replaces the old "needs Dan's admin login" blocker for comp/beta grants and data inspection. Reversible row updates (membership_status grants, test-account cleanup) fall under bias-toward-action; destructive deletions of real user data still require asking.
-4. Never commit the secrets file or paste full key values into chat, artifacts, or the coordination file.
-
-Only ask Dan for a secret when it genuinely does not exist yet anywhere (a brand-new provider account) — and then have him paste it once so it can be added to Railway and the cache, never per-session.
+Get them yourself: `~/.npm-global/bin/railway variables --service abs-by-ai --kv` (CLI authenticated, project linked; `--service` is required — without it you read the Postgres service). Local cache: `~/.absbyai-secrets.env` (0600, outside the repo) — grep/source it, refresh from the CLI when a key looks stale. `DATABASE_URL` is in there (direct prod Postgres; reversible row updates fall under bias-toward-action, destructive deletions of real user data still require asking). Never commit the file or paste key values into chat, artifacts, or the coordination file. Only ask Dan for a secret that genuinely doesn't exist anywhere yet.
 
 ## Voice input (Wispr Flow)
 
