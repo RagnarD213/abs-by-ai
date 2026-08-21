@@ -253,6 +253,12 @@
       "priority": "key",
       "why": "handoff-20260821-spraytan-rev1.md — created but not yet run",
       "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Execute handoff: Build 60s modern-edit sample (head-to-head vs Muhammad trial)",
+      "priority": "key",
+      "why": "HANDOFF_modern_edit_60s_sample.md — created but not yet run",
+      "addedAt": "2026-08-21"
     }
   ],
   "health": [
