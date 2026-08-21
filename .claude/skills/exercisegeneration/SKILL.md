@@ -537,3 +537,23 @@ adjacent to him and merges into his component — verify it still animates after
 compare full frames — every fixture must be pixel-identical between them. A stdev heatmap CANNOT tell
 "his arm passed in front of a tower" from "the tower moved", and a fixed subject bounding box gives
 false alarms whenever his limbs travel wide (the side lateral). Look at frames.
+
+### Measuring rep phase: use a REAL body landmark, not frame-diff, when diff lies
+
+Frame-diff-vs-frame-0 is fine for most reps but becomes useless when frame 0 sits mid-range (as it
+does on a reverse-generated descent) or when the subject drifts horizontally — it then reports
+oscillation that isn't vertical movement, and cost several wasted cut attempts on the pull-up.
+**Fall back to tracking an actual landmark.** What worked: skin-tone detection in the central column
+band, taking the topmost skin row per frame as head height —
+`skin = (R>110) & (R-B>22) & (R-G>8)`, sampled at 24fps on 320-wide frames. That produced an
+unambiguous height curve, from which the strictly monotonic descent (2.54→3.46s) was obvious. Other
+proxies that FAILED here: topmost dark pixel (catches the dark rack/ceiling), bright-logo centroid
+(catches bright windows).
+
+### Reverse-generated legs drift — constrain position explicitly
+
+The first pull-up descent leg had him sliding sideways along the bar and setting his feet on the
+floor. Adding to the prompt fixed it: *"his hands stay CLAMPED on the exact same spot on the bar and
+never slide sideways along it; his whole body travels straight DOWN on a vertical line and never
+drifts left or right across the frame; his FEET NEVER TOUCH THE FLOOR."* For any hanging or standing
+movement, state the anti-drift and floor-contact constraints — Veo will otherwise re-stage the subject.
