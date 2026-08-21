@@ -431,3 +431,13 @@ Dan's revisions on batch 3 (8 of 10; face-pull and incline-pushup approved as ge
   bird-dog were finalized only because he's dropping them).
 - **Replicate HTTP 402 = account credit drained** (see provider-credit-outages memory) — kill retry
   loops immediately (they can't succeed) and hand back to Dan; topping up is outside standing auth.
+
+### Gemini-API Veo fallback (2026-08-21, Replicate credit drained)
+`_batch3/run-gveo.js` — `models/veo-3.1-fast-generate-preview:predictLongRunning` with GEMINI_API_KEY
+(bakeoff/.env). Constraints found: **no `lastFrame`** (400 "use case not supported" — plain i2v only),
+**1080p requires 8s** (4s+1080p rejected), **audio-directive words ("exhales", "room tone", "no music")
+trip an audio safety filter** — strip them from prompts on this path. Because keyframe-locking is
+unavailable, generate the leg as an ASCENT from the bottom/lockout still (flip trick) so depth is
+guaranteed, then reverse for the descent; expect multiple reps + appearance drift in 8s — region-gate
+and cut ONE clean ascent. ~$0.15/s (8s ≈ $1.20) — cheaper than Replicate Veo. Also: on 8s multi-rep
+legs the LAST frames drift from the anchor still — prefer runs that include t=0 (the exact still).

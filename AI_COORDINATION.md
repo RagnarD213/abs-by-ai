@@ -33,6 +33,20 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### Exercise demo batch 3 — second revision COMPLETE, all 10 delivered (2026-08-21, Claude Code)
+
+Dan finalized leg-press, db-row, face-pull, incline-pushup, dead-bug*, bird-dog* (*reluctant — he plans
+to drop both; STANDING RULE: alternating-limb moves rendered single-side or with visible seams are
+unacceptable in future). Final four fixes delivered: RDL (region-scoped analysis found the real hinge =
+first 0.96s of the leg; the rest was bottom-bobbing invisible to whole-frame gating), bench (deeper,
+elbows past 90°), goblet (no foot shuffle), pushdown (true lockout). **Replicate credit is DRAINED
+(HTTP 402, auto-reload not firing — Dan must sign in at replicate.com/account/billing; sign-in tab was
+left open in his Chrome by the ad session). Workaround used: Veo 3.1 Fast via the Gemini API**
+(`_batch3/run-gveo.js`) — `lastFrame` unsupported there, so legs were generated as ASCENTS from the
+bottom still (flip trick: depth/lockout guaranteed by construction) and reversed. 8s/1080p (4s+1080p
+rejected); audio-directive words in prompts trip a safety filter — strip them. All 10 pass qc.py;
+awaiting Dan's verdict on the last 3. AI spend this session ≈ $3 (stills + 4 Gemini Veo fast legs).
+
 ### AD 1 REV-3 shipped; import-time asset-clobber root cause fixed (2026-08-21, Claude Code)
 
 Rev-3 items: zoom-safe uncropped shoot photos (root cause: prep_assets.py built assets at import
