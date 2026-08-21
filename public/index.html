@@ -1232,6 +1232,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .ex-sheet-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
 .ex-sheet-title { font-size: 19px; font-weight: 800; letter-spacing: -0.3px; }
 .ex-sheet-muscles { font-size: 12.5px; color: var(--mute); font-weight: 600; margin-bottom: 14px; }
+.ex-demo { width: 100%; aspect-ratio: 16/9; border-radius: 12px; display: block; background: #000; margin: 6px 0 14px; }
 .ex-sheet-sec { margin-bottom: 13px; }
 .ex-sheet-sec-lbl { font-size: 11px; font-weight: 800; letter-spacing: 0.7px; text-transform: uppercase; color: var(--mute); margin-bottom: 3px; }
 .ex-sheet-sec-txt { font-size: 13.5px; line-height: 1.5; }
@@ -7293,6 +7294,8 @@ const INTAKE_KEY = 'absbyai_trainer_intake';
 // but resolvable). bb-back-squat is a real move again in v3, so it is NOT aliased.
 EXERCISE_BY_ID['bb-bench-press'] = EXERCISE_BY_ID['db-bench-press'];
 EXERCISE_BY_ID['bb-deadlift'] = EXERCISE_BY_ID['db-rdl'];
+
+const EXERCISE_DEMO_IDS = new Set(['bird-dog', 'cable-tricep-pushdown', 'db-bench-press', 'db-goblet-squat', 'db-rdl', 'db-row', 'dead-bug', 'face-pull', 'incline-pushup', 'leg-press', 'plank', 'pushup', 'reverse-lunge']);
 const PROGRAM_KEY = 'absbyai_trainer_program';
 const PROGRESS_KEY = 'absbyai_trainer_progress';
 
@@ -8134,15 +8137,21 @@ function openExerciseSheet(exId, cue, mistake) {
       <button class="ex-sheet-close" id="exSheetClose"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     </div>
     <div class="ex-sheet-muscles">${escapeHtml(lib.muscles || '')}</div>
-    ${typeof getExerciseAnim === 'function' && getExerciseAnim(lib.id, 120) ? `<div style="text-align:center;color:var(--acc);margin:6px 0 2px">${getExerciseAnim(lib.id, 120)}</div>` : ''}
+    ${EXERCISE_DEMO_IDS.has(lib.id)
+      ? `<video class="ex-demo" id="exSheetDemo" src="/exercise-demos/${lib.id}.mp4" poster="/exercise-demos/${lib.id}.jpg" controls playsinline preload="none"></video>`
+      : (typeof getExerciseAnim === 'function' && getExerciseAnim(lib.id, 120) ? `<div style="text-align:center;color:var(--acc);margin:6px 0 2px">${getExerciseAnim(lib.id, 120)}</div>` : '')}
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Setup</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.setup)}</div></div>
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">How to do it</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.execution)}</div></div>
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Most common mistake</div><div class="ex-sheet-sec-txt">${escapeHtml(mistake || lib.mistake)}</div></div>
     ${cue ? `<div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Your cue</div><div class="ex-sheet-sec-txt">💡 ${escapeHtml(cue)}</div></div>` : ''}
-    ${lib.video ? `<a class="cta-btn" style="display:block;text-align:center;text-decoration:none" href="${lib.video}" target="_blank" rel="noopener">▶ Watch form video</a>` : ''}
+    ${(!EXERCISE_DEMO_IDS.has(lib.id) && lib.video) ? `<a class="cta-btn" style="display:block;text-align:center;text-decoration:none" href="${lib.video}" target="_blank" rel="noopener">▶ Watch form video</a>` : ''}
   `;
   $('exSheetOverlay').style.display = 'flex';
   $('exSheetClose').addEventListener('click', closeExerciseSheet);
+  const demoEl = $('exSheetDemo');
+  if (demoEl) demoEl.addEventListener('play', () => {
+    if (window.posthog) posthog.capture('exercise_demo_played', { exercise_id: exId });
+  }, { once: true });
 }
 function closeExerciseSheet() { $('exSheetOverlay').style.display = 'none'; }
 
