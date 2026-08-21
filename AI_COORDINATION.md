@@ -33,6 +33,40 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### MODERN-EDIT 60s SAMPLE DELIVERED — the head-to-head vs the Upwork trial edit (2026-08-21, Claude Code)
+
+Executed `Handoffs/HANDOFF_modern_edit_60s_sample.md`. Ad-1's first minute rebuilt with all five
+gap-closers in Abs By AI CONTENT style. **$0.00 AI spend** (local Whisper/ffmpeg/PIL/numpy).
+Delivered to `EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`: `SAMPLE_modern-edit-60s_16x9.mp4` (65.8s),
+a 720p review copy, `SAMPLE_compare_trial-vs-pipeline.mp4` (his left / ours right, our audio),
+the pre-graphics rollback `SAMPLE_tight60_pre-graphics.mov`, every script, and
+`notes_modern_sample.md`. **rev-4's chain was NOT touched.**
+
+Measured: 70.7s span → 65.8s, 21 cuts, **no speed-up**, 194 wpm (his 206); **zero residual silence
+runs ≥0.22s below −40 dB** — same profile as his (8 runs/2.09s vs his 7/1.98s at −38 dB). **Zero
+visible splices**: 20 of 21 sit under a graphic or land exactly on a punch change, the one bare
+splice measures 3.3 vs a p99 of 31. Script fidelity on the finished mix 97.9% (the 4 diffs are known
+Whisper artifacts, no lost words). Grade lifted 90 → 99 luma. −14.5 LUFS. Visual change every 3.3s.
+
+**The reusable output, and the point of the task: `.claude/skills/ad-edit/reference/motionlib.py`**
+(animated graphics: `card_in`, `bullets_build`, `lower_third`, `title_card`, `callout_box`,
+`pop_text`, `photo_swap`, `panel_plate` + easing) and **`sfxlib.py`** (whooshes/pops/risers
+SYNTHESISED — no licence to track). Complete worked example in `reference/modern60/`. Skill lessons
+19–24 appended.
+
+**Music = *Werq* (Kevin MacLeod, incompetech) — CC BY 4.0, so a description credit is required.**
+Fine for a sample; budget a paid library if this becomes house style. One constant to swap.
+
+Compliance: AI-GENERATED on all three AI assets; before/after **sequenced not side-by-side**
+(verified frame-by-frame across the swap) — deliberately, so the banned pattern never enters the
+library. Flagged for Dan's call: his own ~200 lb before photo on screen 6.1–7.8s (already shipped in
+rev-1…rev-4, neutral shot, left in).
+
+**EXACT NEXT ACTION — DAN: play the side-by-side and decide the editing stack.** Honest gaps
+remaining: he is 4.3s shorter on the same words (his extra cuts are inside words, ours only in
+measured silence) and his grade is ~6 luma brighter. Ours fills the beat where he left a black
+"Broll assets folder" placeholder. No native retest trigger — video files only, no product surface.
+
 ### Muhammad A (Upwork trial) edit ANALYZED — feeds the editing-stack decision (2026-08-21, Claude Code)
 
 Dan rated Muhammad's 61s trial edit (ad-1 script, YouTube-episode format) above our rev-4. Measured

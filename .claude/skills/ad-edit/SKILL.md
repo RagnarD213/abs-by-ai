@@ -191,6 +191,15 @@ winners — details and examples in `reference/AD_STUDY.md`):
 - **End card:** goal-physique imagery (labeled) + "Tap below — or go to
   AbsByAI.com" + the persistent bar still running.
 
+**Animated graphics live in `reference/motionlib.py`** (added 2026-08-21). It renders PIL
+frame sequences to alpha MOVs that ffmpeg overlays: `card_in`, `bullets_build`,
+`lower_third`, `title_card`, `callout_box`, `number_pop`/`pop_text`, `photo_swap`, plus
+primitives (`panel_plate`, `stroke_box`, `dashed_arrow`, `chip`, `rounded_photo`) and
+easing helpers. Its palette is the CONTENT style (bright paper, near-black ink, brand
+red, Manrope) — for PAID ads keep the locked dark J2 look and use the components with a
+J2 palette. `reference/sfxlib.py` generates the matching transition one-shots.
+`reference/modern60/` is a complete worked example (tight cut → graphics → audio → QC).
+
 Graphics are one overlay pass over the finished cut at CRF 18 (longform Step 7),
 chips/graphics burned per the same PIL-not-drawtext rule, previewed composited
 on a REAL frame before rendering — both longform traps (Copperplate small-caps,
@@ -390,6 +399,42 @@ Ad #1 rev-3 (2026-08-21):
    then app-style teaser body text that describes where they're at and what
    it takes, without revealing the plan.
 
+Modern-edit 60s sample (2026-08-21) — built to close the gap against the Upwork trial
+edit; the reusable output is `reference/motionlib.py` + `reference/sfxlib.py`, and the
+whole sample is reproducible from `reference/modern60/`:
+19. **Graphics must MOVE.** Static PNG overlays are the single biggest reason our cuts
+   read as cheaper than a Premiere-template edit. Every element now animates:
+   `card_in` (scale 0.90→1.0 with a spring, ~0.42s), `bullets_build` (bullets appear on
+   the word that introduces them), `lower_third` (chip slides, red strip grows out of
+   it, statement wipes in), `title_card`, `callout_box` (stroke draws itself clockwise
+   then breathes), `pop_text` (letter-by-letter snap). Alpha is carried by **QTRLE MOV**
+   — libx264 has no alpha channel, and pre-multiplying against a guessed background is
+   how graphics get grey fringes.
+20. **Pause removal is a MEASUREMENT job, not a Whisper job.** Cut placement comes from
+   a 5 ms RMS envelope of the real audio. Whisper timestamps a word up to 0.4s before
+   any audio exists, and starts fricatives ("Fitness") before the /f/ — clamping cuts to
+   its word bounds either eats onsets or blocks two thirds of the valid cuts. Whisper's
+   only role is the re-transcription QC afterwards.
+21. **Every pause cut needs cover, and a punch change is the cheapest cover.** Assign
+   punch levels so their boundaries land ON the splices; the layout change masks the
+   jump and doubles as pacing. Protect the hook completely (no splice in the opening
+   line) — a micro-jump under a static overlay reads as a glitch, not an edit.
+22. **A video panel gets rounded corners from a PLATE, not a mask.** Composite order:
+   base → clip (square corners, filling the window) → `panel_plate` (opaque brand paper
+   with a rounded hole punched in it, shadow baked around the hole). One static PNG per
+   panel, no per-frame masking.
+23. **Synthesise the transition SFX.** `sfxlib.py` generates whooshes/pops/risers from
+   filtered noise and decaying sines — no account wall, no per-asset licence to track,
+   and the timbre is tunable. Two cascaded band-pass stages, not one: a single 6 dB/oct
+   skirt leaks enough broadband noise that a whoosh reads as hiss (centroid 7 kHz vs
+   3 kHz). Mix them ~10 dB under the speech RMS; normalised one-shots summed raw land AT
+   dialogue level and are jarring.
+24. **PIL's 'lt' anchor is the ascender top, not the ink top.** A rule placed at
+   `y + text_height` lands inside the glyphs — that shipped a strikethrough headline
+   once. Position from `textbbox()[3]`. And scale a glyph in its OWN small tile:
+   `scale_about` on a canvas-sized layer with an off-centre anchor translates the whole
+   frame instead of scaling in place.
+
 Ad #1 rev-4 (2026-08-21):
 17. **AI-GENERATED tag placement differs by insert type.** On a FULL-FRAME AI
    clip (no panel background, the clip fills 1920x1080) a centered tag sits mid-
@@ -420,3 +465,6 @@ Ad #1 rev-4 (2026-08-21):
 | Style: J2 graphics + CTA bar, MadMuscles captions, "abs" lowercase | LOCKED (2026-08-20) |
 | "Results are not guaranteed" micro-disclaimer (photo run + end card) | shipped on ad #1, not vetoed |
 | CTA bar exact copy/geometry per style | ⏳ ad #1 |
+| CONTENT style (YouTube episodes): bright paper / near-black ink / brand red, Manrope, animated via `motionlib.py`; no captions | proposed 2026-08-21, ⏳ Dan's verdict on the 60s sample |
+| Airtight pause removal + music bed + transition SFX for CONTENT cuts | proposed 2026-08-21, ⏳ same verdict |
+| Music: track choice is a measured decision (least mid-band energy, flattest energy over the needed window); CC-BY needs a description credit — budget a paid library if it becomes house style | ⏳ Dan |
