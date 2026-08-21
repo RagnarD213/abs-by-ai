@@ -235,6 +235,12 @@
       "priority": "key",
       "why": "Handoffs/HANDOFF_invest_health_v3.md — created but not yet run",
       "addedAt": "2026-08-20"
+    },
+    {
+      "text": "Execute handoff: Invest-health cut-down variants (after v3 approved)",
+      "priority": "key",
+      "why": "Handoffs/HANDOFF_invest_health_cutdowns.md — gated on Dan approving v3",
+      "addedAt": "2026-08-20"
     }
   ],
   "health": [
