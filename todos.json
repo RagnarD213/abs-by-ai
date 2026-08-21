@@ -223,6 +223,12 @@
       "priority": "key",
       "why": "handoff-20260821-ios-third-rejection-fix.md — created but not yet run",
       "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build",
+      "priority": "key",
+      "why": "HANDOFF_ad1_rev4_and_9x16.md — created but not yet run",
+      "addedAt": "2026-08-21"
     }
   ],
   "health": [
