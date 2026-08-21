@@ -33,6 +33,15 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 1 — REV-4 HANDED OFF to a new session; this session closes (2026-08-21, Claude Code)
+
+Dan's rev-4 items (busy-dad AI clip replacing the tire flip at 0:46 — frames-first approval; tags
+upper-left +50% on full-frame AI clips) + the eventual 9:16 build are written up in
+**Handoffs/HANDOFF_ad1_rev4_and_9x16.md** (recommended: Sonnet 5 / medium — pure recipe execution).
+Key dashboard task added per Rule 8. Rev-3 remains the latest delivered cut. Do NOT execute rev-4 in
+this session — Dan is conserving tokens.
+
+
 ### Exercise demo batch 3 — second revision COMPLETE, all 10 delivered (2026-08-21, Claude Code)
 
 Dan finalized leg-press, db-row, face-pull, incline-pushup, dead-bug*, bird-dog* (*reluctant — he plans
