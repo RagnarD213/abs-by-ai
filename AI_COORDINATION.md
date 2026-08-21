@@ -119,6 +119,86 @@ Verified: 56 renames / 0 deletions; local boot serves `/health`, `/`, `/dashboar
 ---
 ## Active task
 
+### AB WHEEL longform CUT, QC'd and DELIVERED from the 8/14 shoot (2026-08-20, Claude Code)
+
+**Deliverable:** `/Volumes/Seagate 4TB/abs by ai 8:14 shoot …/EDITED LONGFORM 8-20-26/`
+`abwheel-17-dollar-ab-wheel/` — `FINAL_ab-wheel-beats-every-crunch.mp4` (**8:58**, 1920x1080
+29.97p, −14.59 LUFS) + SRT + YouTube chapters + a 540p review copy + the pre-graphics
+`CUT_v2_graded.mp4` rollback + the full recipe (`ranges.py`/`chips.py`/`pip.py`/`edl.json` and
+every builder). `notes.md` in that folder is the complete record. **$0.00 AI spend** — local
+Whisper, static ffmpeg, open-source colour analysis. No production code, no deploy.
+
+**Raw 17:27 → 8:58, 18 beats, from FOUR ROLLS: `C1630` `C1631` `C1632` `C1633`.** This is the
+first longform assembled from multiple rolls, and **every generic /longform-edit script assumes a
+single source and breaks silently on one** — identical timecodes exist in all four rolls, so a
+chip, an SRT word or a mid-speech-split check can match the wrong roll. Multi-source variants are
+now in the skill (commit `8e260a6`), along with `raw`/`rawin`/`rawout` modes: **a 60-second SILENT
+live workout set has no words to snap to**, so the resolver would otherwise reach forward to the
+next spoken word and delete the whole set.
+
+**QC 6/6 PASS**: duration +0.40s of plan · h264 1920x1080 29.97 · −14.59 LUFS · 0/17 joins above
+the file's own natural discontinuity ceiling · graphics windows open AND close · no artificial
+splits. **All 18 beat tails re-transcribed from the finished render read clean**, and the SRT
+validated against the render's own audio at **98–100% overlap on 9 of 10 windows** (the tenth sits
+inside a silent workout set — the only sound is an exertion grunt, correctly uncaptioned).
+
+**ONE REAL DEFECT FOUND AND FIXED, and it is a new trap: a trailing FRICATIVE is the mirror of the
+documented soft-ONSET trap, and −30 dB `silencedetect` cannot see it.** "…beats crunches." had a
+−30 dB silence starting at 25.70, so the out-point passed every assertion — and the finished render
+said **"crunch"**. Measured at −45 dB, speech runs to 25.99: the unvoiced "-es" sits *between* the
+two thresholds. Fixed with `rawout`, re-verified in the render. **Do NOT promote −45 dB to a
+general assertion** — outdoors almost nothing is that quiet (a blanket audit flagged 19 of 36 edges,
+nearly all room tone). The check that actually works is **`tailcheck.py`, which re-transcribes EVERY
+beat tail from the finished render** — and **its window must extend ~1.5 s PAST the join**, or
+Whisper drops final words (7 false "missing word" reports) and *stutters* (one phantom "doubled
+take" that an 11 s window proved clean). With trailing context the real signature is different:
+the word is PRESENT but mis-spelled.
+
+**Colour: a bright outdoor roll needs the OPPOSITE curve from the 8/3 doorway videos.** Measured
+black point 0.104–0.112 (milkier), median luminance **0.52–0.55 (already at target, not dark)** and
+**highlights already clipping ~6%**. The 8/3 curve lifts mids and highlights, which here would blow
+out the sky for nothing. Shipped curve crushes blacks and holds the rest near identity; closed-loop
+milky blacks YES → no on every frame, median luminance unmoved, highlight clip +0.15 pp.
+
+**AUDIO PROBLEM FOR JEFF: the 8/14 camera audio CLIPS IN CAMERA at +2.94 dBTP.** That is why
+render.py's loudnorm undershot to −15.09 LUFS (the −1 dBTP ceiling dragged the programme down). A
+corrective measured-value pass landed **−14.59 LUFS / +0.54 dBTP**, better than the render on both
+axes. **Chasing −1 dBTP with `alimiter` is a dead end** — measured, every dB of peak control costs a
+dB of loudness (limit 0.79 → −15.08, 0.63 → −16.25). Ask for ~6 dB more mic headroom.
+**The 4K request also still stands — this shoot is 1080p again.**
+
+**THREE OUTLINE ITEMS WERE NEVER FILMED — flagged, not invented:** (1) the **beginner warning**
+("not a beginner exercise, not for you if you still have belly fat, do vacuums first") is entirely
+absent and is the one worth a pickup — it is what ties this video to the vacuum video; (2) the
+**lower-back consequence** is never said, so the title promise is not explicitly paid off (the
+flat-back cue itself is taught well); (3) no **programming frequency** on camera. Item 3 is covered
+by the only editor-added text in the video — a chip at 7:59 reading `3 SETS - 3 TO 4X PER WEEK`,
+verbatim from Dan's outline, one line in `chips.py` to delete.
+
+**Also added: a picture-in-picture insert at 0:29.** He says *"as you can see from the video on the
+screen right now"* while standing empty-handed — nothing was on screen. An inset of his own live
+rollout (C1633, graded to match) now runs top-right for 5.7 s. Geometry in `pip.py`.
+
+**Take calls:** intro uses **take 2, not take 3** (take 3 is later but stalls 1.3 s and drops a
+plural — later-take-wins only when fluent); the pace section is **spliced from two takes** so it
+carries take 1's teaching and take 2's demos with no repetition; the "three **vacuums**" misspeak is
+cut and only the corrected "three ab wheel rollouts" ships; outro is take 5 of 5. All three live
+sets run in full per the outline (verified continuous work, no dead time). Four lines kept
+deliberately and listed in `notes.md` for Dan to veto — including "I'm not strong enough to do this
+standing ab wheel" and the sunglasses aside. No profanity survives into the cut.
+
+**No native retest trigger row touched** — video files only; no product surface, server or client.
+
+**Dashboard: nothing checked off, correctly.** All four lists searched; no task describes this
+video. The nearest, `money::Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos)`, is
+**advanced, not finished**. No handoff was created, so Rule 8 does not apply.
+
+**EXACT NEXT ACTION — DAN: watch the 540p review copy and send revision notes** (cheap — the
+segment cache reused 17 of 18 beats on this video's one re-cut). Then the outline's separate
+**"Ab Wheel — Workout Only"** cut, which is C1633's three sets plus a short intro and is already
+beat-split in the delivered recipe. Then `/youtube-packaging` for title, description and thumbnail.
+
+
 ### Longform "Why You Should Invest More In Your Health" — v2 CUT DELIVERED, awaiting Dan's review + variant decision (2026-08-20, Claude Code)
 
 Edited from the 8/3 shoot's 69-min roll C1511 (main camera) via /longform-edit. **v2 is the current
