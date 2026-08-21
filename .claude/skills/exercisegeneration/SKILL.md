@@ -480,3 +480,33 @@ overlay the live video cropped to the subject's corridor onto a full-res frame-0
 every ghost at once. Size the corridor from the motion heatmap and REMEMBER the hips swing BACKWARD
 in squats/hinges — cells just outside the torso may be his glutes, not a machine. Verify with a
 second heatmap (STRAY=NONE) and eyeball 3 frames for seam clipping.
+
+---
+
+## Background lock, round 2 (2026-08-20 late) — what the ghost scan MISSES and the tools that close it
+
+Dan caught pumping stacks in the press and side-lateral AFTER `ghost.py` said clean. **Why the scan
+missed them: ghost.py excludes the subject's whole bounding box, and machinery INSIDE that box (behind
+his arm sweep) is never checked — and a stack pumping only while his arm passes near it registers as
+"arm motion."** Fixes, all in `_r2/`:
+
+1. **`bglock.py validate <id> x y w h`** — before freezing any rectangle, measure per-frame how much
+   of the box ever differs >50 gray levels from frame 0. <8% = he never enters, plain-freeze safe
+   (`bglock.py apply`). His arm sweep zones fail this test — rectangles are NOT usable there.
+2. **`keyfreeze.py <id> "x,y,w,h;…"`** — the fix for stacks BEHIND the arm's path: per-pixel keyed
+   composite inside the box — plate (frame-0) pixels unless the current frame differs strongly
+   (threshold 45, dilate 9, blur 3), so his arm stays live while the machinery behind it is pinned to
+   the plate. Verify with arm-free frames: max diff vs plate ≤3 gray levels = locked.
+3. **Verification standard**: check background stillness on ARM-FREE frames (diff vs plate ≈0), not
+   via stdev, which cannot distinguish "arm passes in front of tower" from "tower stack moves."
+
+Rep-cut findings this round:
+- **A 4s "one rep" ask still returned 2 partial pulls, and a 6s "EXACTLY ONE repetition" ask returned
+  3 pulls.** Veo simply does not obey rep count (batch-1 finding, reconfirmed twice) — but MORE
+  attempts per leg means more candidate pulls, and the winning cut ([2.27→2.98] of the 6s leg) had
+  BOTH the almost-straight bottom and the chin-over top in one monotonic run. Generate 6s, expect to
+  shop among the reps for the one that hits every form beat.
+- **When neither rep in a leg satisfies all form requirements, re-roll the leg before compositing
+  anything** — a fresh roll that contains the right rep beats surgery across takes.
+- Pull-up bottom spec (FINAL, Dan-settled): arms within a FEW degrees of locked — visibly nearly
+  straight, never fully locked, never obviously bent.
