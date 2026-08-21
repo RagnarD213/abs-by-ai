@@ -32,6 +32,13 @@ where the generic scripts in `reference/` come from: give them a `ranges.py` and
 (identify the videos before transcribing), three more Whisper-timestamp rules in Step 3,
 per-roll grading in Step 6, and the SRT token rules in Step 8.
 
+**Proven again 2026-08-21 on the SPRAY-TAN REVISION — the first cut to get a full
+clip-and-graphics pass.** 19:00 -> 18:53 with **95 inserts** (71 Pexels cutaways, 19 J2
+cards, 5 before/after panels) on top of the existing 26 chips, so no gap exceeds 18.8 s;
+10 % zoom cuts on every join not already hidden by a cutaway; three hallucinated
+sentences removed from the SRT. **$0.00** — Pexels needs no key. That round added
+Step 5.5 (cutaways and cards), the SRT de-clumping rule in Step 8, and lessons 22-27.
+
 **Working scripts are preserved in `reference/`. Copy one and adapt; do NOT rewrite
 from scratch.** They are in git on purpose: `Media/` and `YouTube Long Form Video
 Content/` are git-ignored, and the original `/shorts` V4 pipeline was **lost** that
@@ -283,6 +290,134 @@ off-center. Lessons that became mandatory passes:
    0:0) plus a separate full-frame PNG carrying the olive frame and the persistent
    "Bryan Johnson / YouTube" attribution.
 
+## Cut-downs: deriving a shorter variant from an APPROVED edit
+
+Proven 2026-08-21 on the invest-health video: **53:15 approved → 43:31 conservative +
+28:25 sub-30**, ~260 new cut points, one render each, $0.00. Scripts are
+`reference/cutdown_*.py`; `cutdown_cutlib.py` is the engine.
+
+13. **Subtract intervals from the approved `edl.json`. Never re-derive the cut.** The
+   variant builder loads the shipped EDL, subtracts resolved deletion spans, drops any
+   leftover sliver under ~0.6 s, and re-applies zoom parity. Every approved decision —
+   ranges, pause-capper, EXTRA_SPLITS, out-overrides, grade, `fps` — rides through
+   untouched, and the diff you review is only what the variant removes.
+14. **Resolve prev/next against KEPT words only.** A deletion that swallows a whole
+   approved range sits next to source words that were ALREADY cut; using the raw word
+   list picks a join Dan will never hear, and makes non-overlapping deletions look like
+   they collide. Merge deletions that resolve into each other and re-resolve the union.
+15. **Snap every edge to a SENTENCE boundary, not just to silence.** Dan speaks
+   continuously — on this roll 49 of 180 first-pass edges had no measured pause at ANY
+   threshold within the search window. Scoring sentence-end far above pause-present
+   (6 vs 2) and searching ±8 kept words fixed both problems at once: a cut-down reads
+   as writing rather than as an edit, AND the edge lands in real silence. Cap the shift
+   per cut (`snap=(head, tail)`) for the few cuts that must stay word-exact.
+16. **The snapper will happily produce a grammatical wreck — read every join.** Printing
+   9 kept words either side of each join surfaced ~30 broken joins out of ~260 that all
+   automated checks passed: orphaned "I'm not.", a dangling "But even if…", "such as
+   rent. I'm ]|[ I'm talking about…". There is no metric for this. Read them.
+17. **Protect chip anchors by ASSERTION, not by interval overlap.** "This cut interval
+   overlaps the chip's 6.4 s window" false-alarms every time a cut merely ends where a
+   chip's sentence begins. Assert instead that each chip's source time still falls
+   inside a kept range of the finished EDL — exact, and it correctly reported the ONE
+   chip legitimately dropped with its section.
+18. **A cut-down's targets collide with the never-cut list — say so, don't quietly
+   obey one.** The sub-30 beat map asked for 45 s of the restaurants section whose
+   AbsByAI plug alone is 43 s, and 50 s of a 64 s outro marked "conversion, light touch".
+   Both targets were computed without the protection. Keep the protected material,
+   land over target, and flag the contradiction.
+19. **`silencedetect` at −45 dB is not a fallback — the room tone is often above it.**
+   At three suspected clipped fricatives on this roll, −45 dB reported no silence at
+   all. Build the whole-roll −45 dB map anyway (one pass, seconds) to PLACE edges where
+   it does see a trough, but expect to fall back to a 10 ms RMS envelope.
+
+### Revision lessons (spray-tan rev 1, 2026-08-21)
+
+22. **A per-range `vf` that changes PIXEL FORMAT changes the whole frame, not just
+   your box.** The deodorant fix as `format=gbrp,geq,format=yuv420p` was measured
+   end-to-end against an identical render without it: **~560,000 pixels changed
+   OUTSIDE the box, max delta 199.** That is the yuv->rgb->yuv chroma round trip, and
+   it would have made six beats visibly different from the other 38. Two fixes,
+   both needed: apply the effect as an **alpha-masked patch** (`split`, `crop` to the
+   region, compute `a='255*W'`, `overlay`) so every pixel with W=0 passes through
+   byte for byte; and **pin `format=yuv420p` at the end of the grade for EVERY
+   range**, so the patched ranges and the plain ones take the identical scaler path.
+   With both, the measured change outside the box is exactly **0**.
+23. **Never A/B a filter through a lossy encode.** Comparing two CRF-20 encodes showed
+   1.3M changed pixels outside the box — x264's rate allocation is global, so a
+   19k-pixel edit in one corner changes every macroblock in the frame. Encode both
+   sides with `-c:v ffv1` and the same difference reads 0. This wasted two cycles.
+   Equally: a PNG dumped mid-chain measures the PNG conversion, not the edit.
+24. **A colour-keyed fix needs a box, and a box needs the subject to hold still.**
+   The residue key (sat<0.45, val<0.62) separates residue from skin and hair
+   perfectly *inside an armpit*, and fires happily on doorway wood (sat 0.19), the
+   wall (sat 0.42) and a shadowed white fridge (val 0.55-0.62) outside one. On a
+   talking head the armpit is on screen for well under a second at a time: a static
+   box over 2-3 s lands on the tank top or the palm and does nothing, and a box
+   generous enough for the whole gesture paints a grey smudge on the background —
+   worse than the blemish. **Ship it only on windows <=0.8 s with a tight box, and
+   verify every one.** Say plainly which moments you did not fix.
+25. **Use the filter as a filter, not as a locator.** Scoring the key's mass over a
+   wide band to FIND the blemish reported 1043 of 1140 frames as hits. What actually
+   located the shots was an unrelated, cheap signal — bare forearm skin reaching the
+   outer thirds of the frame, 0.199-0.223 arms-spread against 0.010-0.011 arms-down,
+   a 20x gap. **Then extract those frames and look at them**: half the "left armpit"
+   detections were the white door frame.
+26. **Zoom-cut parity should skip joins a cutaway already hides.** Walk the ranges
+   keeping a zoom state; flip it at each join UNLESS a full-frame insert spans that
+   join, in which case both sides keep the same framing. On this cut 35 joins flipped
+   and 8 were left alone. A zoom nobody can see is a wasted flip. Cards do not count
+   as cover — they are side panels and the cut is fully visible beside them.
+27. **Changing the grade string blows the whole segment cache.** The grade is in the
+   cache key, so pinning `format=yuv420p` onto it re-extracted all 44 segments
+   (0 cached). That is the correct trade here, but know the cost before you touch the
+   grade in a revision: a cut-only change reuses everything, a grade change reuses
+   nothing.
+
+### The clipped-word check needs a control set, or it lies
+
+**Word-presence on a joint re-transcription is not evidence.** On this pair of cut-downs
+it flagged 9 joints — goals→goal, tracker→track, injections→injection, proteins→protein,
+thighs→thigh. Every single one was intact. Whisper re-spells the last word of a phrase
+whenever the phrase AFTER it changed, which is exactly what a cut-down does to every
+joint. (The skill already recorded `proteins→protein` as a false positive on 8/3; it
+recurs at scale here.)
+
+**What actually decides it** (`reference/cutdown_tailtest.py`, folded into
+`cutdown_final_gate.py`):
+1. **Correct for render drift first.** Per-segment frame rounding at 29.97 accumulates —
+   ~1.1 s by mid-file on a 163-range cut, ~2.9 s total on a 167-range one. A window at the
+   planned out-time compares the wrong audio entirely. Cross-correlate the render's
+   envelope against the source envelope leading into the cut to find the true offset.
+2. **Compare the last 150 ms** of the render against the source, gain-aligned.
+3. **Score against joints INHERITED from the approved edit, in the SAME file** — same
+   encoder, same loudnorm, same 30 ms fade. Control band here: −3.8…−56 dB, median −8.
+   All 9 flagged joints measured −2.5…−13.2 dB, i.e. inside it. The dip is render.py's
+   deliberate 30 ms fade, present at every joint Dan already signed off.
+Fail only below the control floor. **Same lesson as the splice metric, the notch metric
+and the circular cut-cleanliness metric — the metric was wrong, not the media, five
+times running now. Build the control set before you believe a failure.**
+
+**The chips on/off test is a third instance.** A raw luminance comparison failed on both
+variants; an olive-pixel test failed too, because the dark-olive door panel behind Dan
+matches the J2 olive within any usable tolerance. What works is a difference of
+differences (chip box minus a chip-free box in the SAME frame, on a chip-up frame vs a
+chip-down frame) — and even that flips sign legitimately, because a J2 chip raises
+luminance over the dark doorway and lowers it over a bright frame. **Write an on/off PNG
+pair per chip and look at them.** Six checked visually here, including the two worst
+scorers: all correct.
+
+### Two SRT defects inherited from the approved edit
+
+Both were shipped in v3 and only surfaced when a stricter gate was applied:
+20. **`wrap()` was greedy, not midpoint-balanced** — it packed line 1 to the 45-char cap
+   and left line 2 uncapped. Minimise the LONGER line instead.
+21. **The cue cap is measured on RAW Whisper tokens, but the cue is written AFTER
+   `fix_text()`, and every substitution LENGTHENS it** (GOP→GLP-1, Aura ring→Oura Ring,
+   Set Down→Zepbound). Capping at the full 90 shipped 53-character lines. Cap at 84.
+Together: worst line 53 → **46 chars, zero over 48, zero 3-line cues.**
+
+---
+
 **A cut-cleanliness QC metric must compare the render against the INTENDED editorial
 span, never against the engine's own output ranges.** The first version derived expected
 words from each engine's own EDL, so a word the engine had already chopped was never in
@@ -376,6 +511,56 @@ answer taps landing ~22 s after he narrated them (168 → 183).
 **Picking between multiple screen-recording takes: match the NUMBERS in the narration.**
 Dan's take 1 showed 711 cal, take 2 showed 683, and he says "683" on camera. Also match
 the on-screen answers to the answers he speaks aloud.
+
+---
+
+## Step 5.5 — cutaways and cards: breaking up a talking head
+
+Dan's rule, given on the spray-tan revision: **"generally there shouldn't be more than
+30 seconds without a clip or some kind of graphic… I'd rather have a little bit too much
+and eliminate them than not enough."** On a 19-minute video that is ~40 inserts minimum.
+What shipped was 95, covering 51 % of the running time, with the longest bare stretch at
+18.8 s. `reference/verify_cover.py` asserts the rule and prints the longest gaps.
+
+**Map the EXISTING chips first, then fill the gaps.** Chips count toward the rule and they
+are already timed to the narration; starting from zero re-does that work and produces
+collisions. `reference/plan_map.py` prints the output timeline, the chip windows, and
+every gap with the transcript text inside it, so each insert can be chosen for the line it
+illustrates rather than for a slot. `reference/out_transcript.py` gives sentence-level
+output-time text for placing an insert on the word.
+
+- **Pexels, no key.** `https://www.pexels.com/download/video/<ID>/` curls straight to the
+  CDN at full resolution. The SEARCH pages are Cloudflare-gated and 403 to curl at any
+  user-agent, and the internal `api/v3` endpoint wants a key — but a page loaded in the
+  in-app browser can `fetch('/search/videos/<term>/')` **same-origin**, which returns the
+  HTML with the cookies attached. One `javascript_tool` call sweeps a dozen search terms
+  and returns slug+id for each; the slugs are descriptive enough to pick from. 70 clips,
+  1.9 GB, $0.
+- **Pre-render every insert to an exact-duration 1920x1080 MP4** (`build_inserts.py`)
+  before compositing. The composite opens one decoder per insert; a 4-second file costs
+  nothing to hold open, a 30-second 4K source does.
+- **Vertical stock gets a blurred-fill background, not a centre-crop** — cropping 9:16 to
+  16:9 cuts the subject's head off. Landscape gets cover-scale + centre-crop.
+- **Alpha lives in the GRAPH, not on disk.** `format=rgba,fade=alpha=1` on the decoded
+  clip gives the dissolve; storing 70 four-second inserts as ProRes 4444 would be 11 GB
+  for a 0.15 s fade.
+- **Two composite passes, not one.** Pass 1 = video cutaways (CRF 17), pass 2 = every PNG
+  (cards, panels, chips, watermark, CRF 18). ~9 minutes each at this length. One extra
+  encode generation, deliberately accepted, and it keeps the two input types separate.
+- **Cards go viewer-LEFT and must clear the chip band.** x 44-610, top at y 168, bottom
+  asserted above y 796. Then a card and a lower-third chip can share the screen. A phone
+  screenshot inside a 610 px card is unreadable — give app cards the FULL frame instead,
+  and place them where no chip is running.
+- **A full-frame insert HIDES a chip.** Assert it: `composite_gfx.py` refuses to run if a
+  chip window intersects a full-frame photo panel. On this pass the title chip had to move
+  from source 138.0 to 147.4 to get out from under the item-1 panels.
+- **Panels that hand over to each other must not cross-fade through the video.** Give the
+  outgoing panel NO fade-out and start the incoming one 0.3 s early: it is later in the
+  overlay chain, so it draws on top and the handover is clean. Fading both dips to the
+  live footage for a third of a second.
+- **Prune by deleting lines.** Keep the insert list as a data file (`inserts_spraytan.py`)
+  with the line of narration each insert illustrates in a comment. Removing one is a
+  one-line edit plus the two composite passes — the cut never re-renders.
 
 ---
 
@@ -516,6 +701,25 @@ cannot drift, and dropping any word outside a kept beat.
 **Validate by transcribing the FINISHED video and comparing the SRT against its own
 audio** — 82/82 cues aligned on 8/3. **Never validate against the source transcript;
 that only proves the mapping matches itself.**
+
+**A CLUSTER of zero-length word timestamps is text Whisper INVENTED — drop it, or the
+captions narrate a sentence that was never spoken.** Three shipped in the spray-tan rev-0
+SRT and all three were proved absent by re-transcribing the source audio: "you're going
+to be getting a shower before you get into bed at night.", "the amount of money you get to
+spend on a spray tan is", and "you want to get the best effect. So, really,". Each is an
+echo of a nearby real sentence. The rule that removes them without touching real speech
+(`reference/make_srt_declump.py`): a **clump** is >=3 consecutive words that each last
+<=0.05 s and together span <0.10 s. Drop the clump; drop the word AFTER it when that word
+carries the clump's **dominant** timestamp (comparing against the clump's first or last
+member fails both ways — a 0.04 s fragment can open the clump early, and a clump can END
+on the timestamp where a perfectly real word begins); drop the word BEFORE it when that
+word is itself a <=0.05 s fragment ending there. **Isolated** zero-length words are kept —
+those are ordinary glitches on real speech.
+
+**Break a timestamp tie on READING ORDER, never on the text.** `mapped.sort()` on
+`(t0, t1, text)` tuples sorts a zero-length cluster ALPHABETICALLY, and the rev-0 file
+shipped "is a amount get money of on spend spray the to you is tan that". Sort on
+`(t0, original_index)`.
 
 **Never `" ".join()` Whisper tokens.** Whisper splits `y'all` into `["y", "'all"]` and
 `0.8` into `["0", ".8"]`, so a naive join renders **"What do y 'all guys think?"** and
