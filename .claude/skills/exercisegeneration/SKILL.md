@@ -410,3 +410,24 @@ Dan's revisions on batch 3 (8 of 10; face-pull and incline-pushup approved as ge
 - **The mono.py + qcunit + ghost.py pipeline is now MANDATORY on every rep** (see THE DOUBLE-PUMP RULE
   and BACKGROUND-GHOST SCAN sections above). Never accept a cut from a 0.4-0.5s frame sheet again —
   round 1's three double-pumps all hid between sparse samples.
+
+---
+
+## Batch 3 second revision (2026-08-20) — the region-scoping rule is absolute
+
+- **A whole-frame monotonic gate is NOT sufficient** — the RDL passed it (2.3% dip) yet had a "severe
+  double pump": once the torso is down, whole-frame diff saturates and 3 seconds of bottom-bobbing
+  reads as a flat plateau. **Always re-run mono.py analyze with a region crop scoped to the moving
+  part** (torso arc for hinges, hands for pushdowns, feet strip for anything foot-planted) before
+  trusting a cut. The region signal exposed: RDL's true hinge = first 0.96s only; the pushdown leg's
+  SECOND rep locked out deeper than the first but had no valid top (cut the still instead); the goblet
+  foot shuffle lives at 0.33-0.92s INSIDE the descent (uncuttable — engine swap to Kling).
+- **Veo bobs at the bottom of hinges** — after reaching depth it fills remaining duration with
+  micro rises/dips. Cut to the FIRST arrival at depth, never through the hold.
+- **Two Veo fails on the same foot-planted move = switch to Kling** (goblet joined calf-raise).
+- Dan's settled standards this round: bench bottom = elbows slightly PAST 90°, dumbbells slightly
+  below chest line (stretch); pushdown bottom = arms PERFECTLY straight, elbows locked, triceps
+  flexed; alternating-limb exercises must never ship single-side or with visible seams (dead-bug/
+  bird-dog were finalized only because he's dropping them).
+- **Replicate HTTP 402 = account credit drained** (see provider-credit-outages memory) — kill retry
+  loops immediately (they can't succeed) and hand back to Dan; topping up is outside standing auth.
