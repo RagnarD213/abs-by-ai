@@ -510,3 +510,30 @@ Rep-cut findings this round:
   anything** — a fresh roll that contains the right rep beats surgery across takes.
 - Pull-up bottom spec (FINAL, Dan-settled): arms within a FEW degrees of locked — visibly nearly
   straight, never fully locked, never obviously bent.
+
+---
+
+## FULL-FRAME BACKGROUND LOCK — the standard (supersedes box-hunting), 2026-08-20
+
+Hunting individual moving stacks failed TWICE (Dan caught leftovers both times). **Never enumerate
+which background objects move — lock the entire frame and let only the subject animate.**
+
+`_r2/lockbg.py <id> [thresh=32]` — per frame: diff vs the frame-0 plate → threshold → **dilate (MaxFilter 9)
+BEFORE connected-component labeling** → keep the largest component plus any ≥12% of it → feather →
+composite live subject over the plate. Every other pixel in the frame is literally plate pixels, so no
+background element can move, whether or not anyone noticed it. Measured: 1,400–2,400 px per frame of
+genuine background motion was being discarded that the earlier box approach missed entirely.
+
+**The pre-label dilation is load-bearing.** Without it, held equipment (dumbbells, a bar) forms its own
+component when the limb between it and the torso thins out, gets classified as background, and is
+half-erased — this happened on the first press pass. Dilating first merges anything he is holding into
+his blob while detached machinery stays separate.
+
+Only valid because the camera is locked off (always true for these demos). Exception: if the subject
+is genuinely operating a machine whose parts SHOULD move (cable row, pulldown), that machinery is
+adjacent to him and merges into his component — verify it still animates after locking.
+
+**Verification that actually works:** sample the finished video at several points across the rep and
+compare full frames — every fixture must be pixel-identical between them. A stdev heatmap CANNOT tell
+"his arm passed in front of a tower" from "the tower moved", and a fixed subject bounding box gives
+false alarms whenever his limbs travel wide (the side lateral). Look at frames.
