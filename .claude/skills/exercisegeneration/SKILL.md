@@ -62,18 +62,33 @@ All of `Media/` is gitignored (public repo) — verify with `git check-ignore` b
      palindromes are BANNED for step moves** — Dan rejected the v1: reverse playback of a step-back
      reads visibly wrong as a "return". 4s legs (~$1.60) leave less room for extra reps than 6s.
    - **Submit Veo jobs SEQUENTIALLY** — two simultaneous creates 429-throttle on Replicate.
-5. **Extract the clean rep** — Veo obeys the ENDPOINTS but NOT the rep count: fast bodyweight tempo
-   (~3s/rep) means a 6s clip contains ~2 reps, often with a bounce. **Sample frames at ≤0.5s intervals**
-   (a sparse sheet lied twice), find one full cycle standing→bottom→standing, cut it with ffmpeg, then
-   **diff the cut's first and last frames** and nudge the boundaries until the poses match (bw-squat
-   took two recut iterations). Cut BEFORE any mid-clip bounce (batch 1's lunge descent bounced at
-   ~t3.2; cutting at the first full-depth frame avoided it).
-   - **Two-leg builds: join descent + ascent with a 0.3s `xfade` at the zero-velocity bottom**, not a
-     hard cut — the two legs render the subject at slightly different scale, so a hard cut pops; the
-     crossfade reads as motion blur at the turnaround. Loop join is free: the ascent's `last_frame` IS
-     the start still, so the rep ends where it begins.
-   - Palindrome (segment + reverse) remains fine for SYMMETRIC in-place motion and for static-hold
-     clips — just never for steps.
+5. **Extract the clean rep — THE GATED CUT PIPELINE (mandatory; supersedes all earlier frame-sheet
+   advice).** Veo obeys the ENDPOINTS but NOT the rep count, it settles/wobbles at segment boundaries,
+   it bobs at the bottom of hinges, and it animates background machinery. Every one of Dan's
+   double-pump rejections traced to skipping a gate below. Per leg:
+   a. **Region-scoped distance signal** (`_r2/mono.py analyze <id> <leg> [x w y h]`, crop scoped to
+      the moving part — hands for pushdowns, torso arc for hinges, feet strip for anything planted).
+      Whole-frame signals SATURATE once the body leaves the start pose and hide limb-level reversals.
+   b. Choose a **strictly monotonic window** (mono.py `cut` refuses >8% dips).
+   c. **VELOCITY-BOUNDARY check**: compute frame-to-frame velocity (24fps consecutive diffs, region
+      crop). The segment must be ONE clean velocity bell. TRIM boundary frames where velocity decays/
+      oscillates before the real movement (settle wobble). If the distance peak arrives at high
+      velocity (overshoot-then-backslide), cut AT the peak and append a ~0.17s `tpad` clone HOLD of
+      the extremum frame before the reversed half — reads as a squeeze, kills bounce and backslide.
+   d. Palindrome (in-place moves) or two-leg xfade (step moves, unchanged from batch 1). Loop must
+      start at the exercise's REST pose (reorder rev+seg when the leg was generated bottom-first).
+   e. `mono.py qcunit` — the unit must be one unimodal pulse (≤10% secondary bumps), and verify the
+      loop junction is a SINGLE velocity dip (bench final: 0.46→0.03→0.30 = one touch-and-go).
+   f. **`_r2/ghost.py` background scan.** If ANY stray machine motion flags: don't spot-patch —
+      **FREEZE THE WHOLE BACKGROUND**: overlay the live video cropped to the subject's corridor onto
+      a full-res frame-0 still (`crop=W:1080:X:0` + `overlay=X:0`). Locked camera makes the seam
+      invisible. Size the corridor from a motion heatmap and remember hips travel BACKWARD in squats/
+      hinges. Re-scan (STRAY=NONE) and eyeball 3 frames for clipping. Equipment the subject actually
+      uses (his own cable stack) keeps moving — everything else must be dead still.
+   g. Tempo-normalize the unit into the 2.5–4s band (`setpts`, add `minterpolate` when stretching
+      >1.05x).
+   The old ≤0.5s frame-sheet sampling is DEPRECATED as a cut-selection method — it missed three
+   double pumps in one batch; sheets are for form QC only, the gates above decide the cut.
 6. **Voiceover** — `minimax/speech-02-hd`, `voice_id: 'R8_NE3EBC2N'`, `speed: 1.0`, `emotion: 'auto'`.
    Script: **open with "Here's how to do the [exercise name]."** then 3–5 cues built from the
    exercise's `setup`/`execution`/`mistake` copy in `public/exercises.js`, `<#0.3#>` pauses between

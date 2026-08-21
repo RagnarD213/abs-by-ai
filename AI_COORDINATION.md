@@ -77,8 +77,12 @@ rejected); audio-directive words in prompts trip a safety filter — strip them.
 VELOCITY-BOUNDARY RULE in the skill: every rep must be one clean velocity bell, trim boundary hovers,
 tpad-hold at overshot extremums), goblet + bench backgrounds FROZEN via full frame-0 overlay outside
 the subject corridor (ghost.py STRAY=NONE on both), pushdown REGENERATED keyframe-locked on Replicate
-(credit restored by Dan) — acute top to full lockout with a 0.2s squeeze hold. All pass qc.py;
-awaiting Dan's verdict on the round-3 trio. AI spend this session ≈ $3 (stills + 4 Gemini Veo fast legs).
+(credit restored by Dan) — acute top to full lockout with a 0.2s squeeze hold. All pass qc.py.
+**BATCH 3 FULLY FINALIZED by Dan 2026-08-21 — all 10 approved.** Finals stamped
+`<id>-AIDAN-narrated-FINAL.mp4`. The double-pump and background-ghost eliminations are consolidated
+into the /exercisegeneration skill as the mandatory GATED CUT PIPELINE (step 5). Next exercise batch
+can start fresh; remaining ~40 exercises are mostly step-based moves, kettlebell, barbell, warm-ups.
+App integration + hosting remain separate tasks. AI spend this session ≈ $3 (stills + 4 Gemini Veo fast legs).
 
 ### AD 1 REV-3 shipped; import-time asset-clobber root cause fixed (2026-08-21, Claude Code)
 
