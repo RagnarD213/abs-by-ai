@@ -33,6 +33,15 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### Invest-health longform — v2 delivered, v3 revision round HANDED OFF (2026-08-20, Claude Code)
+
+`Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/INVEST_HEALTH_v2.mp4` (53:30) + SRT
+delivered; Dan's second review found remaining junk + new inserts. Full v3 spec with his confirmed
+answers: `Handoffs/HANDOFF_invest_health_v3.md` (Key task on dashboard; Opus session recommended).
+Junk-detection lessons now in the longform-edit skill — read them before editing. Still open after
+v3: cut-down variants (conservative ~40 / aggressive <30 min) before any b-roll/AI-clip dressing;
+no baked-in speed-up (recommended against).
+
 ### AD 1 — REV-4 HANDED OFF to a new session; this session closes (2026-08-21, Claude Code)
 
 Dan's rev-4 items (busy-dad AI clip replacing the tire flip at 0:46 — frames-first approval; tags
