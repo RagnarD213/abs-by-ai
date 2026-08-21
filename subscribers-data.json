@@ -165,6 +165,15 @@
         "2": "2026-08-20T22:57:01.685Z"
       },
       "unsubscribed": false
+    },
+    "davidroldan1967@gmail.com": {
+      "subscribedAt": "2026-08-21T23:37:13.045Z",
+      "deviceId": "dev-1787355212102-04wgdlmi",
+      "synced": false,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-08-21T23:37:13.046Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
