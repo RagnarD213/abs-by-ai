@@ -1,0 +1,25 @@
+GUIDELINE 1.1 - PLEASE RECONSIDER: THIS IS A FITNESS COACHING APP, NOT A BODY EDITOR. We support Apple's action against apps that alter photos of OTHER people - the harassment and body-shaming vector. Abs by AI is not that: (1) SELF-ONLY BY DESIGN - a user visualizes their own fitness goal from their own photo; there is no way to browse, receive or alter anyone else's image, and generated images stay private to the account that made them. The pipeline hard-refuses photos of apparent minors and moderates inputs and outputs. (2) EXPLICIT CONSENT - a screen names every AI provider before any photo is sent; declining cancels the action. (3) LABELED AS ILLUSTRATIVE AI - every image is presented as an AI-generated goal image, "illustrative goals, not guarantees", never a claim about the user's body. (4) THE PRODUCT IS COACHING - AI Trainer, AI Nutritionist, macro tracking, sleep coaching, supplement review, progress logging, daily brief. The goal image is step one of a program, not the product. This version's metadata was revised so that is unmistakable.
+
+GUIDELINE 2.1(b) - RESOLVED: both auto-renewable subscriptions are submitted with this version, each with an App Review screenshot, and new binary 1.0 (3) is attached.
+
+SIGN-IN: use the demo account in the fields above. It is a complimentary full member, so every feature is reachable with no payment - and for that reason it deliberately shows NO purchase UI. To see the In-App Purchase flow, sign out or create a new free account, then open Member Hub > Membership.
+
+WHAT IT DOES / AUDIENCE: a fitness motivation and planning app for adults, primarily men aged 25-55, who want to lose body fat. The user uploads a photo, the app generates an AI image of how they could look at their goal, then builds the plan to get there. A printed poster or canvas of the goal image can also be ordered.
+
+MAIN FLOW: home > Add your photo > choose options > Generate my goal image. Then "Continue to my hub" for AI Trainer, AI Nutritionist, Macro Tracker, Sleep Coach, Supplement Audit, Daily Brief, Progress Log. No sample files or setup needed.
+
+ACCOUNT DELETION: Member Hub > Account > Delete my account. Permanent and immediate.
+
+DEVICES TESTED: physical iPhone 17 Pro on iOS 26 via TestFlight; iOS 26.5 simulator across iPhone 17 Pro/Pro Max/17e/Air and iPad Pro 13-inch, iPad Air 11-inch, iPad mini.
+
+EXTERNAL SERVICES (all processors for us; no data broker or ad network receives user data): Anthropic (Claude) checks the photo and writes the plans; Google (Gemini), and Replicate running ByteDance Seedream and Black Forest Labs FLUX, generate the image; Apple StoreKit with RevenueCat handles subscriptions and server-side entitlements; Stripe takes payment for printed goods only; Printify ships them; Resend sends account email; PostHog is analytics; Railway hosts our backend and database in the US.
+
+REGIONS: United States storefront only.
+
+NO USER-TO-USER CONTENT: there is no feed, sharing between users, or messaging, so there is no reporting or blocking mechanism.
+
+GUIDELINE 1.4.1: general fitness and wellness. Not a medical device; it does not diagnose or treat any condition. Health screens carry a "not medical advice - talk to your doctor" disclaimer and a Sources card citing the research and CDC/NIH/FDA/HHS guidance behind each figure, at https://absbyai.com/sources.
+
+GUIDELINE 3.1.1: membership is purchasable by In-App Purchase - Monthly (com.absbyai.app.membership.monthly, $19.99/mo) and Annual (com.absbyai.app.membership.annual, $69.99/yr), both with a 7-day free trial. Title, duration and price are read from StoreKit at runtime; the screen carries the auto-renewal disclosure, Restore Purchases, and Terms and Privacy links. Entitlements are verified server-side. Printed posters and canvases are physical goods handled outside IAP.
+
+PRIVACY: details and the Face data section are at https://absbyai.com/privacy.

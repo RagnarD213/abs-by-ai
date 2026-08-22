@@ -1,8 +1,21 @@
 # Abs by AI — App Store Connect listing copy (paste-ready)
 
-Drafted 2026-07-22. Every field below is sized to Apple's limits and ready to paste into
-App Store Connect. Screenshots live in `app-store-assets/6.9-inch/` (1320×2868) and
-`app-store-assets/6.5-inch/` (1242×2688), numbered in display order.
+Drafted 2026-07-22. **Rewritten 2026-08-21 (Dan-approved) for the Guideline 1.1
+"body editor" rejection: coaching leads, the photo feature is a labeled
+goal-visualization step.** Every field below is sized to Apple's limits and ready to
+paste into App Store Connect.
+
+**Screenshot display order (2026-08-21):** coaching screens lead; ONE goal-image
+screenshot (the home-hero, which carries the "AI AFTER" label), no before/after morph
+sets.
+- iPhone 6.9-inch (`6.9-inch/`): `06-ai-trainer-workout` (captured 2026-08-21),
+  `07-exercise-demo-plank` (flattened 2026-08-21), `04-macro-tracker`,
+  `05-ai-nutritionist`, `00-home-hero` last. Do NOT upload
+  `01-the-reveal`, `02-transformations-gallery`, or `03-daily-brief` (all carry
+  before/after morph pairs).
+- iPad 13-inch (`13-inch-ipad/`): `03-ai-trainer`, `04-ai-nutritionist`,
+  `00-home-hero` last. Do NOT upload `01-transformations`, `02-daily-brief`, or
+  `05-everything-included` (before/after morph pairs).
 
 ---
 
@@ -13,27 +26,17 @@ App Store Connect. Screenshots live in `app-store-assets/6.9-inch/` (1320×2868)
 
 ## 2. Promotional text (170 chars max, editable anytime without review)
 
-> Create an image of yourself with your dream physique. Then generate a custom workout and nutrition plan to make it a reality using our powerful AI tools. (153 chars)
+> Your complete AI coaching team: personalized workouts, meal plans, photo macro tracking, and sleep coaching — plus an AI goal image of you to keep you motivated. (160 chars)
 
-## 3. Description (4000 chars max — this draft ≈2350)
+## 3. Description (4000 chars max — this draft ≈2300; Dan-approved 2026-08-21)
 
-> Visualize yourself with the abs you've always wanted. Then generate a personalized AI fitness plan to make your goal image a reality.
->
-> Upload a photo of yourself, and our AI will transform it into an image of YOU with a ripped body and six pack abs. Not a stock model. Not a filter. An ultra-realistic image of what you could look like if you lost your belly fat and got defined abs.
->
-> Once you see how good you look with abs, you'll be incredibly motivated to make your dream body a reality.
->
-> And that's only the beginning.
->
-> Abs by AI doesn't just generate an image of you with abs. It also generates a personalized fitness program specifically designed to build the body you generated in your goal image.
->
-> Here's how Abs by AI helps you build your dream body:
+> Abs by AI is a complete AI fitness coaching team in your pocket — a personal trainer, nutritionist, macro tracker, sleep coach, and supplement advisor, all built around one mission: helping you lose the belly fat and build a leaner, stronger body.
 >
 > **YOUR AI COACHING TEAM**
 >
 > • **AI Trainer** — a personalized 4-week program built from your photos, your equipment, and your experience level. Every workout laid out day by day with sets, reps, form cues, and swaps.
 >
-> • **AI Nutritionist** — weekly meal-prep plans and calorie/protein targets built to close the gap between your before and your after.
+> • **AI Nutritionist** — weekly meal-prep plans and calorie/protein targets built around your goal.
 >
 > • **Macro Tracker** — snap a photo of any meal and get calories and macros in seconds. Multiple angles, batch meal-prep portions, even leftovers.
 >
@@ -43,17 +46,21 @@ App Store Connect. Screenshots live in `app-store-assets/6.9-inch/` (1320×2868)
 >
 > • **Daily Coach Brief** — one morning card that pulls it all together: today's workout, your targets, your weigh-in trend, your focus.
 >
+> **START WITH A GOAL YOU CAN SEE**
+>
+> Every good plan starts with a clear target. Upload a photo of yourself and Abs by AI generates a clearly labeled, AI-created goal image — an illustration of your own fitness goal, made only from your own photo, with your explicit consent. It's a motivational target, not a filter and not a promise. Once you can see your goal, your AI coaching team builds the plan to get you there.
+>
 > **TRACK THE JOURNEY**
 >
-> Log daily weigh-ins, weekly progress photos, and waist measurements. Watch your trend line move toward the after you generated on day one. Keep every transformation in your gallery, share your before & after, or set your favorite as your home-screen goal.
+> Log daily weigh-ins, weekly progress photos, and waist measurements. Watch your trend line move toward your goal. Keep every milestone in your gallery, share your progress, or set your goal image as your home-screen target.
 >
-> **PRINT YOUR FUTURE SELF**
+> **PRINT YOUR GOAL**
 >
-> Order your after as a gallery-quality canvas or poster, shipped to your door. Put it somewhere you'll see it every single day.
+> Order your AI goal image as a gallery-quality canvas or poster, shipped to your door. Put it somewhere you'll see it every single day.
 >
-> Your photos stay yours — delete your account and your data any time, right in the app.
+> Your photos stay yours — they're private to your account, and you can delete your account and your data any time, right in the app.
 >
-> Abs by AI is a motivation and general-fitness tool, not medical advice. Results in generated images are illustrative goals, not guarantees.
+> Abs by AI is a motivation and general-fitness tool, not medical advice. AI-generated images are illustrative goals, not guarantees.
 
 ## 4. Keywords (100 chars max, comma-separated, no spaces)
 

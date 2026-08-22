@@ -33,6 +33,50 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### iOS THIRD REJECTION FIXED — resubmitted to Apple 2026-08-22 (Claude Code)
+
+`Handoffs/handoff-20260821-ios-third-rejection-fix.md` executed. **Submission
+`a5fcdbf2-3eca-412e-8c20-b1f075a32c24` sent 2026-08-22 19:12 UTC with all 4 items
+WAITING_FOR_REVIEW**: app version 1.0 build 3, subscription group 22294450, Monthly
+(`com.absbyai.app.membership.monthly`), Annual (`com.absbyai.app.membership.annual`).
+
+**2.1(b) (IAP never submitted) — resolved.** Both products carry an App Review screenshot of the
+in-app paywall (`app-store-assets/iap/paywall-membership-screen.jpg`, captured on the non-comp
+account `+iostest1`, NOT the comp demo account) plus reviewer notes. Build 1.0 (3) archived,
+validated and uploaded via `altool`; ASC auto-attached it. No app code changed — the bump was purely
+Apple's requirement.
+
+**1.1 (\"app morphs body parts\") — fought, not conceded.** Photo feature kept. Metadata rewritten so
+coaching leads (`app-store-assets/LISTING_COPY.md` is canonical): new description (2,185 chars) and
+promo text, and the screenshot sets rebuilt — iPhone is now trainer workout → plank exercise demo →
+macro tracker → nutritionist → home hero last; iPad is trainer → nutritionist → home hero. **Every
+before/after morph pair was removed except the one labeled \"AI AFTER\" home hero**, kept deliberately
+so the listing still represents the app honestly. Reply drafted and Dan-approved in
+`app-store-assets/APP_REVIEW_REPLY_20260821_G11.md`.
+
+**THE TRAP THAT CAUSED 2.1(b), now documented in the reply doc:** a version can belong to only ONE
+submission. The version sat in the dead rejected submission `be7d8b49` while the subscriptions sat in
+a new draft, and ASC's \"Update Review\" button keeps re-attaching it to the OLD one — silently
+splitting them. Fix: red minus in the rejected submission's ACTION column to remove the version, then
+`POST /v1/reviewSubmissionItems` with an `appStoreVersion` relationship to add it to the draft (the
+UI's button greys out at that moment; the API works). The subscription GROUP is also its own separate
+submission item.
+
+**THE REPLY CHANNEL IS GONE — the 1.1 argument now lives in App Review Notes.** Removing the version
+from submission `be7d8b49` closed that thread and its "Reply to App Review" link disappeared with it.
+Net still positive (the alternative was a guaranteed repeat 2.1(b)), but **next time: post the reply
+BEFORE removing the item.** Replacement Notes text (3,901 chars, fits the 4,000 cap, leads with the
+four-point 1.1 argument and keeps every Guideline 2.1 answer Apple demanded on 2026-08-17) is
+`app-store-assets/APP_REVIEW_NOTES_20260822.txt` — supersedes `APP_REVIEW_NOTES_20260817.md`.
+**Remaining (Dan, manual):** paste that file over the Notes field and Save.
+
+**Deferred to 1.0.1 (after approval):** fuller screenshot set incl. Sleep Coach + Supplement Audit,
+and an iPad-sized exercise-demo capture (2064×2752).
+
+**Test-account note:** `danroseconsulting+iostest1@gmail.com` (users.id 20) had its expired sandbox
+membership cleared, then was set to comp (`status=comp, plan=beta`) to capture the trainer screenshot.
+Leave or clear as convenient — it is a test account, not a customer.
+
 ### SPRAY TAN longform REV 1 DELIVERED — clips/graphics pass + fixes (2026-08-21, Claude Code)
 
 `Handoffs/handoff-20260821-spraytan-rev1.md` executed. **19:00 → 18:53**, delivered over the same
