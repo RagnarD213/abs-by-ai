@@ -2,11 +2,11 @@
   "date": "2026-08-22",
   "order": [
     "money::Post on TikTok",
-    "money::Execute handoff: Replace stick figures with AI exercise demo videos",
-    "money::Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline",
     "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
     "money::Approve Ad 1 rev-1, apply final revisions, finalize the /ad-edit skill",
-    "money::Review the 5 parked video deliverables (3x 8/3 longform, invest-health v2, ab-wheel)"
+    "money::Review the 5 parked video deliverables (3x 8/3 longform, invest-health v2, ab-wheel)",
+    "money::Execute handoff: iOS third-rejection fix (1.1 body-morphing + IAP submission)",
+    "money::Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build"
   ],
   "excluded": [
     "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
@@ -17,7 +17,9 @@
     "money::Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas",
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
     "money::Write scripts for the next shoot (≥half workout content)",
-    "money::Write workout outlines for the next shoot"
+    "money::Write workout outlines for the next shoot",
+    "money::Execute handoff: Replace stick figures with AI exercise demo videos",
+    "money::Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline"
   ],
   "sessionsCompleted": 0
 }
