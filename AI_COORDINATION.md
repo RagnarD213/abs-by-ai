@@ -68,7 +68,9 @@ Net still positive (the alternative was a guaranteed repeat 2.1(b)), but **next 
 BEFORE removing the item.** Replacement Notes text (3,901 chars, fits the 4,000 cap, leads with the
 four-point 1.1 argument and keeps every Guideline 2.1 answer Apple demanded on 2026-08-17) is
 `app-store-assets/APP_REVIEW_NOTES_20260822.txt` — supersedes `APP_REVIEW_NOTES_20260817.md`.
-**Remaining (Dan, manual):** paste that file over the Notes field and Save.
+**Notes field APPLIED 2026-08-22 via `PATCH /v1/appStoreReviewDetails/{id}` (200) — verified live at
+3,901 chars, opening with the 1.1 argument.** The ASC API accepts a Notes edit while the version is
+WAITING_FOR_REVIEW, so this needed no UI step. **Nothing manual remains; the task is closed.**
 
 **Deferred to 1.0.1 (after approval):** fuller screenshot set incl. Sleep Coach + Supplement Audit,
 and an iPad-sized exercise-demo capture (2064×2752).
