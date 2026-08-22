@@ -265,6 +265,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-22"
+    },
+    {
+      "text": "Execute handoff: YouTube subscriber campaign geo restructure (all-countries + tier-1 clone)",
+      "priority": "key",
+      "why": "handoff-20260822-youtube-ads-geo-restructure.md — created but not yet run",
+      "addedAt": "2026-08-22"
     }
   ],
   "health": [
