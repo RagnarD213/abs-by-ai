@@ -852,6 +852,48 @@ a revision needs.
 
 Then `/youtube-packaging` for title, description, chapters and thumbnail.
 
+### Long renders: NEVER poll for a filename, and always signal DONE
+
+A spray-tan rev-1 background task sat "Running" for **20 hours after the render had
+finished** (2026-08-22). Nothing was wrong with the video — it was complete and QC'd on
+disk at 18:12 the previous day. The watcher was a `while [ ! -f "$OUT" ]; sleep` loop, and
+it was watching a filename the render never wrote under that name. Dan saw a blinking dot
+and did not review a finished video for a day. **That is the real cost: not machine time,
+review latency.**
+
+Rules, in order of preference:
+
+1. **Run the render in the foreground where it fits.** A backgrounded job you have to
+   watch is worse than a job that just blocks and returns. Only background a render that
+   genuinely exceeds a single tool call.
+2. **When you must background it, wait on the PROCESS, not on a file.** A process either
+   exits or it doesn't; a filename can be renamed, moved by an atomic-write, or written to
+   a temp path and only then moved into place. Capture the pid and `wait $PID` (or poll
+   `kill -0 $PID`). Never `[ -f "$OUT" ]` as the loop condition.
+3. **Every wait gets a hard timeout** sized to the job (a 30-minute video is ~90 min of
+   render; cap at 3x and report). A loop with no ceiling is a loop that strands.
+4. **The loop must print WHY it exited** — `RENDER COMPLETE`, `RENDER FAILED (code N)`, or
+   `TIMEOUT after Ns`. A watcher that ends silently is indistinguishable from one still
+   running.
+5. **Verify the artifact after the wait, don't infer it from the wait.** `ffprobe` the
+   output for duration and stream count. The wait tells you the process ended; only the
+   probe tells you the video is good.
+
+**Ending a session: the delivery message must be unmistakable.** Dan reads the task list,
+not the transcript. End with the finished file's **path, size and duration as measured by
+`ffprobe`** and the words *ready to review*. If any background task is still listed as
+running when the work is actually done, say so explicitly and tell him to clear it.
+
+**Dan's own 10-second check, when a dot is blinking and he isn't sure:**
+
+```bash
+ps aux | grep -Ei "ffmpeg|whisper" | grep -v grep
+```
+
+Empty output means no video work is running anywhere on the machine, whatever the panel
+says. Then check the file itself — if it has a recent timestamp and a sane size, it's done.
+
+
 ---
 
 ## Judgement calls Dan has endorsed

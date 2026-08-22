@@ -468,3 +468,13 @@ Ad #1 rev-4 (2026-08-21):
 | CONTENT style (YouTube episodes): bright paper / near-black ink / brand red, Manrope, animated via `motionlib.py`; no captions | proposed 2026-08-21, ⏳ Dan's verdict on the 60s sample |
 | Airtight pause removal + music bed + transition SFX for CONTENT cuts | proposed 2026-08-21, ⏳ same verdict |
 | Music: track choice is a measured decision (least mid-band energy, flattest energy over the needed window); CC-BY needs a description credit — budget a paid library if it becomes house style | ⏳ Dan |
+
+## Long renders: never poll for a filename, always signal DONE
+
+A backgrounded render watcher once ran **20 hours after its render had finished** because it
+polled for a filename the render never wrote (2026-08-22) — Dan saw a blinking dot and left a
+finished video unreviewed for a day. Wait on the **process** (`wait $PID`), never on
+`[ -f "$OUT" ]`; give every wait a hard timeout; make it print why it exited; and end the
+session with the file path, size and *ready to review*. Helper that does all of this:
+`.claude/skills/longform-edit/reference/render_wait.sh`. Full rule: the Delivery section of
+`/longform-edit`.

@@ -69,6 +69,19 @@ A short must **stand alone with its own reason to watch** — a complete idea, t
 send him (drug references, claims about named people, anything that would trip ad review)
 so he chooses with that in mind.
 
+**The reason to watch must be something the VIEWER walks away with, not something Dan
+achieved.** Before a candidate goes on the shortlist, answer "what does the viewer get?"
+If the honest answer is "that Dan is in shape," cut it from the shortlist — his own result
+is the proof behind the product, never the payload of a Short. This is a hard rule as of
+2026-08-17: `v6-short1_gained-muscle-in-quarantine` ("I GOT LEANER WITH NO GYM") was cut,
+captioned and scheduled as the first Instagram/Facebook post before Dan killed it —
+*"It's just more me bragging."* **Note it had been annotated "best standalone hook" in the
+V6 notes, so a strong hook is not evidence a Short passes this test.** Replaced with
+`v3-short6_vacuum-exercises` ("DO THIS INSTEAD OF CRUNCHES"), which hands the viewer an
+exercise. The failure mode is a clip that is compelling *about* Dan rather than *useful* to
+the viewer — those read worse on Instagram/Facebook than on YouTube, where the audience
+arrived already interested in him.
+
 ## Step 3 — snap every cut to measured silence
 
 Whisper word timestamps are **contiguous** — there is no gap between words — so any padding
@@ -326,3 +339,13 @@ From `shorts-production-style` memory, settled 2026-08-06 after ~4 rounds of moc
 - Shortening an on-screen title to clear a card rather than moving the card into the
   caption band.
 - Treating a horizontal pose as a card rather than cropping it.
+
+## Long renders: never poll for a filename, always signal DONE
+
+A backgrounded render watcher once ran **20 hours after its render had finished** because it
+polled for a filename the render never wrote (2026-08-22) — Dan saw a blinking dot and left a
+finished video unreviewed for a day. Wait on the **process** (`wait $PID`), never on
+`[ -f "$OUT" ]`; give every wait a hard timeout; make it print why it exited; and end the
+session with the file path, size and *ready to review*. Helper that does all of this:
+`.claude/skills/longform-edit/reference/render_wait.sh`. Full rule: the Delivery section of
+`/longform-edit`.
