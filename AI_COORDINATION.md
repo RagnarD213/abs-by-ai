@@ -129,48 +129,59 @@ edit in `inserts.py` plus the two composite passes (~9 min each); the cut itself
 Then `/youtube-packaging` (chapters already generated, 25 of them).
 
 
-### MODERN-EDIT 60s SAMPLE — REV 1 DELIVERED, all four of Dan's notes applied (2026-08-22, Claude Code)
+### MODERN-EDIT 60s SAMPLE — REV 2: THE AUDIO ROOT-CAUSED (2026-08-22, Claude Code)
 
-Head-to-head sample against Muhammad A's Upwork trial edit. **$0.00 AI spend across both rounds**
-(local Whisper/ffmpeg/PIL/numpy). Delivered to `EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`:
-`SAMPLE_modern-edit-60s_rev1_16x9.mp4` (65.8s), a 720p review copy,
-`SAMPLE_compare_trial-vs-pipeline_rev1.mp4`, the pre-graphics rollback, every script, and
-`notes_modern_sample.md`. **rev-4's ad chain was NOT touched.**
+⚠ **THIS ENTRY CONTAINS A FINDING THAT AFFECTS THE THREE DELIVERED 8/3 LONGFORMS.**
 
-**Dan's rev-1 notes, all four done.** (1) **Graphic screens rebuilt to HIS design in J2 dark
-green** — he compared both and picked his structure: a solid brand FIELD (not a white page with a
-card), photos straight on the field, big heavy type, tight leading, top-aligned blocks, accent
-rules/bands, square list markers, oblique caps in an accent band. Every number measured off his
-frames by pixel scan then solved back into Manrope sizes. (2) **Grade re-fitted PER CHANNEL to his
-percentiles** — the real gap was never brightness: rev-0 crushed blacks to [0,5,0] vs his [10,10,12]
-and ran the blue midtone 22 levels under his. Now p10/p50/p90 match within 1–2 levels on all three
-channels. (3) **Audio de-roomed** — ours measured 3 dB hot at 3.2–8 kHz (where reverb lives) and
-5.5 dB thin at 400–700 Hz; that combination *is* the "echo". EQ-matched (mean error 9 bands:
-2.6 → 1.2 dB), gentle downward expander for the tails, light compression (LRA 3.8 → 1.9 LU, his note
-"a little flatter"). (4) **"Where I'm at today" is the shoot photos again**, not the ab-workout
-b-roll.
+Dan on rev-1: *"the audio is still much worse than his."* He was right and the cause was
+the SOURCE, not the processing. **Jeff's rolls are not stereo — they carry two different
+microphones.** Verified on the 8/14 ad roll (C1591) and on C1512/C1513/C1514:
 
-**Re-transcription QC earned its keep twice this round**: the expander at first settings ate the /f/
-in "for free" and the "n't" in "isn't" (97.9 → 96.0 %), and after fixing that the music bed was
-still masking "isn't" until the sidechain release went to 420 ms. Final **97.4 %**, −14.2 LUFS,
-**0 bare visible splices** (20 of 21 cuts under a graphic or on a punch change), visual change every
-3.3 s.
+- right channel = a close lav; left = a mic ~2.6–2.7 m away
+- the same voice in both, **7.4–7.9 ms apart**; on the 8/14 ad roll also **polarity
+  inverted** (correlation −0.77)
+- 8/14 left channel is **clipped in 24,368 samples**; right has zero
+- carrying both = dry voice in one ear, roomy phase-flipped copy in the other, and a hard
+  comb filter on any mono speaker. **That is the "echo", and no EQ can undo it.**
 
-**The reusable output: `.claude/skills/ad-edit/reference/motionlib.py`** (now palette-driven —
-`GREEN` is the locked CONTENT style, `PAPER` kept for ads) and **`sfxlib.py`** (synthesised
-one-shots, no licence to track). Worked example in `reference/modern60/`. Skill lessons 25–31 and
-four decision rows added.
+**Fix: `pan=mono|c0=c1` at the first audio stage**, then a lav EQ refitted from scratch
+(the old curve was fitted to the comb-filtered mix and pushed the wrong way on every
+band). Measured on the finished mixes — ours now beats his on both:
 
-**Music = *Werq* (Kevin MacLeod, incompetech) — CC BY 4.0, needs a description credit.** Fine for a
-sample; budget a paid library if this becomes house style. One constant to swap.
+| | ours rev-1 | ours rev-2 | his |
+|---|---|---|---|
+| L/R correlation | −0.01 | **+0.9985** | +0.9908 |
+| side under mid | 0 dB | **31.3 dB** | 23.3 dB |
+| comb ripple | — | **0.93 dB** | 1.40 dB |
+| reverb drop | — | **13.1 dB** | 11.1 dB |
+| spectral error, 10 bands | — | **0.85 dB** | — |
+| script fidelity | 97.4 % | **98.4 %** | — |
 
-Compliance unchanged: AI-GENERATED on all three AI assets, before/after **sequenced not
-side-by-side** (verified frame-by-frame). Flagged for Dan: his own ~200 lb before photo on screen
-6.1–7.8 s (already shipped in rev-1…rev-4, neutral shot, left in).
+**THE THREE DELIVERED 8/3 LONGFORMS (spray tan, Zepbound, supplements) ALL CARRY BOTH
+MICS.** Their rolls are the same setup — right channel again the lav (reverb drop 10.6 dB
+vs 6.5, noise floor −60.2 vs −47.1) — though polarity there is NOT inverted and neither
+channel clips, so it is less destructive than on the ad roll. Re-rendering is one filter
+change per video. **Dan's call whether that is worth a pass.**
 
-**EXACT NEXT ACTION — DAN: watch rev-1 and decide the editing stack.** One honest gap left: he is
-4.3 s shorter on the same words (his extra cuts are inside words; ours only in measured silence).
-No native retest trigger — video files only, no product surface.
+**FOR JEFF BEFORE THE NEXT SHOOT:** the far mic is opposite polarity on at least one roll,
+and the left input has been recorded hot enough to clip. Fix the polarity or drop the
+second mic, and lower the gain.
+
+Rules written into **/longform-edit Step 0.4** (full lag-search recipe) and **/ad-edit
+Step 0.4** (pointer), plus ad-edit lessons 32–37. New scripts in `reference/modern60/`:
+`fitvoice.py` (five-window spectral fit) and `ab_audio.py` (transcript-located A/B).
+
+Delivered to `EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`: `SAMPLE_modern-edit-60s_rev2_*`,
+`SAMPLE_compare_trial-vs-pipeline_rev2.mp4`, and **`SAMPLE_audio-AB_trial-vs-ours.mp4`**
+(three sentences his way then ours, so it is judgeable by ear). $0.00 AI spend across all
+three rounds. **rev-4's ad chain untouched; no product surface, no deploy.**
+
+Rev-1 (same day) covered Dan's other four notes and still stands: graphic screens rebuilt
+to the trial edit's design system in J2 dark green (`motionlib.GREEN`), grade re-fitted
+per channel to his percentiles, and "where I'm at today" switched from the ab-workout
+b-roll to the shoot photos.
+
+**EXACT NEXT ACTION — DAN: play the audio A/B, then decide the editing stack.**
 
 ### Muhammad A (Upwork trial) edit ANALYZED — feeds the editing-stack decision (2026-08-21, Claude Code)
 
@@ -403,36 +414,64 @@ instead of stick figure for 13 exercises) — flagged to Dan per the cross-platf
 **Dan said mid-session**: a few more exercises are being finalized — install what's ready now, more
 to follow in a later session once finalized.
 
-### YouTube subscriber-campaign geo restructure — HANDOFF WRITTEN, not executed (2026-08-22, Claude Code)
+### YouTube subscriber-campaign geo restructure — Steps 0-2 DONE and verified; Step 3 (clone) blocked on UI, not executed (2026-08-22, Claude Code)
 
-`Handoffs/handoff-20260822-youtube-ads-geo-restructure.md` + Rule-5 Key dashboard task added
-(verified persisted). **Strategy session only — no ad-account change made, no code touched, no deploy.**
+`Handoffs/handoff-20260822-youtube-ads-geo-restructure.md` being executed live in the "Abs by AI"
+Google Ads account (342-717-0837), campaign `[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts |
+geo tier 1 | ALL CONTENT` (campaignId 24122099676) — this Demand Gen campaign, not a classic Video
+campaign, is Dan's "All Countries campaign." Account is under danroseconsulting@gmail.com →
+"Social Response Marketing MCC" → "Abs by AI" (was not visible in the top-level account picker; had
+to search "Abs" or drill into the MCC to find it).
 
-Dan's three asks are scoped in the doc: (1) add all ~250 countries as explicit targeted locations on
-the All Countries campaign, (2) exclude the low-quality geos (full Tier-1 list in the doc; Tier 2 —
-India, Philippines, Indonesia, Vietnam, Thailand, Malaysia, South Africa, Brazil, Mexico, Turkey,
-Colombia, Peru, Ecuador, Dominican Republic — stays targeted deliberately as the cheap-volume engine),
-(3) clone the campaign targeting only US/CA/UK/IE/AU/NZ.
+**STEP 0 — ANSWERED, and it's the good outcome.** The campaign goal is "YouTube engagements" with
+YouTube conversions explicitly set to **"YouTube channel subscriptions"** ("New subscribers to your
+YouTube channels") as its own native Google Ads conversion goal — confirmed in Campaign settings →
+YouTube conversions checkbox, checked and alone (follow-on views unchecked). This directly overturns
+the handoff's Step 0 concern that earned subs "aren't a Google Ads conversion action." Target CPA is
+genuinely optimizing toward subscriptions, with real volume: 540 earned subscribers logged since the
+campaign started 2026-08-11 (~11 days) at ~$0.36 actual cost per subscriber against a $10.00 target
+CPA. **Finding = row A in the handoff's table: proceed as written, no Maximum CPV fallback needed.**
 
-**VERIFIED FACT that killed Dan's original plan:** the campaign runs **Target CPA**, and on Smart
-Bidding all non-device bid adjustments are **ignored** — a location bid modifier would have been
-accepted by the UI and silently done nothing. Confirmed against Google's own docs. Budget separation
-(separate budgets, NOT shared) is the only lever that forces geo allocation.
+**STEP 1 — DONE.** Locations changed from "All countries and territories" to an explicit 235-entry
+list (all countries/territories the bulk location picker resolved) via Campaign settings → Locations →
+Enter another location → Advanced search → "Add locations in bulk" checkbox → paste one-per-line →
+Search → Target all → Save → Save all changes. Verified live: **Locations shows "Afghanistan (country)
++ 234 more."**
 
-**STEP 0 IN THE DOC MAY REFRAME EVERYTHING:** earned subscribers aren't a Google Ads conversion
-action, so it is unknown what that tCPA campaign has actually been optimizing toward. Find out before
-changing anything; if conversion volume is near zero, the clone should launch on Maximum CPV.
+**STEP 2 — DONE.** Applied the handoff's full 84-country Tier-1 exclusion list the same way (bulk
+paste → Search → **Exclude all** instead of Target all) on top of the 235 already-targeted locations.
+Verified live: **"Targeted: 154 locations, Excluded: 84 locations."** (235 target − 84 exclude = 151,
+not 154 — a few exclusion names, e.g. Kosovo/Palestinian Territories/Congo variants, didn't match
+anything already in the 235-list by that exact name, so they landed as excluded-only with no matching
+target row removed; harmless, exclusions still apply regardless of prior-target overlap.) Tier 2 geos
+(India, Philippines, etc.) were correctly left targeted, per the handoff.
 
-**Highest-consequence setting on the clone:** location option must be **"Presence"**, not "Presence or
-interest" — the default reimports the exact problem the clone exists to avoid, and fails quietly.
+**Location and language option is unchanged at "Presence or interest"** on this original/cheap
+campaign — correct, the handoff only requires strict "Presence" on the new tier-1 clone, not here.
 
-Dan's position, recorded because it drives the plan: he believes sub count under 10k gates whether
-people take the channel seriously, so the cheap campaign keeps running to 10,000 and is then paused —
-the authority number is a one-time purchase, not an ongoing strategy.
+**STEP 3 (clone for US/CA/UK/IE/AU/NZ) — NOT DONE. Blocked on Google Ads UI flakiness, not a
+judgment call.** The in-browser bulk Copy/Paste campaign flow (select row → Edit menu → Copy → Edit
+menu → Paste, or the toolbar clipboard icon) was unreliable across ~8 attempts in this session: the
+Edit dropdown's menu items shift position between opens depending on account banners rendering above
+the table, so a click aimed at "Paste" twice actually landed on "Enable" once (harmless — campaign was
+already Eligible/enabled, so this was a no-op) and "Cut" once (also non-destructive — cut doesn't
+delete until pasted elsewhere, and it was never completed, so the original campaign was never removed).
+**Verified after every misclick that the original campaign was untouched and still Eligible/serving**
+(impressions kept climbing normally throughout). No paste ever produced a new draft or campaign — the
+"Drafts in progress" counter stayed at 0 through the whole session. Given the fragility, I stopped
+rather than keep guessing at destructive-adjacent menu items in a live account.
 
-**EXACT NEXT ACTION — run the handoff in a fresh session** (Opus 5, Medium), starting with Step 0.
+**EXACT NEXT ACTION for whoever picks this up:** Do Step 3 by hand in the Google Ads UI (Copy/Paste is
+finicky but works once you screenshot the Edit dropdown fresh each time before clicking — don't trust
+remembered coordinates) or via Google Ads Editor if installed, following the handoff's Step 3 settings
+table verbatim (Locations: only US/CA/UK/IE/AU/NZ; Location options: **Presence**, not Presence or
+interest; own separate budget, not shared; Target CPA raised well above $10, e.g. $40-75 to start,
+since Step 0's finding means Smart Bidding still has a real conversion goal to learn toward even
+though the clone itself starts with zero history). Then Step 4 (UTM + kill criteria) is just a
+documentation/reporting step, no UI risk.
 
-No active task.
+No active task — Steps 0-2 of this handoff are complete and live; Step 3-4 remain for a future
+session.
 
 ---
 
