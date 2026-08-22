@@ -309,24 +309,39 @@ Working files + `_edit_work/clips_graded/` (**the segment cache — never delete
 whole-file rewrite — the same failure `0ca72b5` records). If you are another session: re-read this
 file from disk immediately before writing it, and edit your own section only.
 
-### Invest-health longform — v3 DELIVERED, awaiting Dan's review (2026-08-21, Claude Code)
+### Invest-health CUT-DOWNS delivered — Dan picks ONE (2026-08-22, Claude Code)
 
-`Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/INVEST_HEALTH_v3.mp4` (53:17) +
-`INVEST_HEALTH_v3.srt` (1015 cues). All 6 items of `Handoffs/HANDOFF_invest_health_v3.md` executed
-in ONE render (52/110 segments cache-reused): repeated "all kinds of problems" sentence cut whole,
-zoom 6%->10%, doubled Oura intro cut, "if you're middle class" dropped from the supplements intro,
-Oura Ring 4 + WHOOP 5.0 J2 product cards from official press renders, Bryan Johnson 7.8s attributed
-PiP, and the SRT drug/brand fix table with a hard no-"GOP" gate. QC v3 passes: 3197.45s, -14.3 LUFS,
-0/109 splices above the control ceiling, all 4 changed joints re-transcribed clean, no fade notch
-above the p90 control, zoom contrast verified on 6 join pairs.
-SUBSTITUTION to confirm with Dan: item 5's "supplement bottles" graphic is a J2 SUPPLEMENTS card —
-no usable bottle photography exists locally (the only ad-asset candidate is dominated by the ad's
-robot arm). Also: the Bryan Johnson clip is 360p-sourced (YouTube 403s every HD format), so it is
-shown at 600x338, a downscale rather than an upscale.
-NEXT after Dan approves v3: `Handoffs/HANDOFF_invest_health_cutdowns.md` (conservative ~40 min +
-aggressive <30 min variants) before any b-roll/AI-clip dressing. No baked-in speed-up.
-New lessons 7-12 + the card-placement rule are in the `/longform-edit` skill; v3 scripts are in its
-`reference/`.
+`Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/`:
+`INVEST_HEALTH_conservative.mp4` **43:31** (870 cues) and `INVEST_HEALTH_sub30.mp4`
+**28:25** (562 cues), each with its `.srt`, `_edl.json`, `_chip_timings.json` and
+`_new_joints.json`; per-section table in `CUTDOWN_variant_summary.txt`.
+Both derived from the approved v3 `edl.json` by INTERVAL SUBTRACTION, so every v3
+decision rides through unchanged. 83 deletions / 82 new joints (conservative), 175 / 117
+(sub30, with all three approved levers: therapy+psych-meds dropped, mattress-fluids riff
+dropped, COVID shed story dropped). Both FINAL GATES PASSED: no clipped words at any new
+joint (measured, see below), −14.31 / −14.33 LUFS, 0 splices over the control ceiling,
+notches inside the control p90, chips verified on/off, SRT drug/brand gate clean, and
+captions improved to 46 chars max (v3 shipped 53).
+**NEXT: Dan picks ONE variant; b-roll / AI-clip / graphics dressing happens only on the
+winner. The variants are deliberately undressed.**
+Two things to know: (1) §16 restaurants and §35 outro land over the handoff's sub30
+targets because those targets were computed without allowing for the never-cut AbsByAI
+plug (43 s) and the outro CTA — protection won. (2) The word-presence clipped-word check
+flagged 9 joints and ALL 9 were false positives; the decisive test is a drift-corrected
+envelope comparison scored against joints inherited from the approved edit. Recipe +
+lessons are in the `/longform-edit` skill (`reference/cutdown_*.py`).
+
+### v3 DELIVERABLES MISSING from roughcuts/ — reproducible, not lost (2026-08-22)
+
+`INVEST_HEALTH_v3.mp4`, `INVEST_HEALTH_v3.srt` and `CUT_v3_graded.mp4` are no longer in
+`roughcuts/` (gone 2026-08-21 ~15:58; v1, v2 and CUT_v2_graded remain; not in Trash, not
+on the Seagate). Cause unknown — the cut-down session wrote only to the external drive.
+**v3 is fully reproducible:** `edit/edl.json`, `build_edl.py`, `build_gfx.py`,
+`build_v3_gfx.py`, `composite.py`, `make_srt.py`, `chip_timings.json`, `base.mp4` and the
+complete 290-file `clips_graded` cache are all intact, so a rebuild is concat + loudnorm
++ graphics (~30 min, no re-extraction). Awaiting Dan's call on whether to rebuild.
+NOTE: the boot disk is down to ~12 GB free; `roughcuts/` still holds the superseded v1
+(4.1 GB), v2 (4.0 GB) and CUT_v2_graded (3.8 GB).
 
 ### AD 1 REV-4 shipped (2026-08-21, Claude Code)
 
