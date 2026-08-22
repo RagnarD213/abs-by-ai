@@ -129,39 +129,48 @@ edit in `inserts.py` plus the two composite passes (~9 min each); the cut itself
 Then `/youtube-packaging` (chapters already generated, 25 of them).
 
 
-### MODERN-EDIT 60s SAMPLE DELIVERED — the head-to-head vs the Upwork trial edit (2026-08-21, Claude Code)
+### MODERN-EDIT 60s SAMPLE — REV 1 DELIVERED, all four of Dan's notes applied (2026-08-22, Claude Code)
 
-Executed `Handoffs/HANDOFF_modern_edit_60s_sample.md`. Ad-1's first minute rebuilt with all five
-gap-closers in Abs By AI CONTENT style. **$0.00 AI spend** (local Whisper/ffmpeg/PIL/numpy).
-Delivered to `EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`: `SAMPLE_modern-edit-60s_16x9.mp4` (65.8s),
-a 720p review copy, `SAMPLE_compare_trial-vs-pipeline.mp4` (his left / ours right, our audio),
-the pre-graphics rollback `SAMPLE_tight60_pre-graphics.mov`, every script, and
-`notes_modern_sample.md`. **rev-4's chain was NOT touched.**
+Head-to-head sample against Muhammad A's Upwork trial edit. **$0.00 AI spend across both rounds**
+(local Whisper/ffmpeg/PIL/numpy). Delivered to `EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`:
+`SAMPLE_modern-edit-60s_rev1_16x9.mp4` (65.8s), a 720p review copy,
+`SAMPLE_compare_trial-vs-pipeline_rev1.mp4`, the pre-graphics rollback, every script, and
+`notes_modern_sample.md`. **rev-4's ad chain was NOT touched.**
 
-Measured: 70.7s span → 65.8s, 21 cuts, **no speed-up**, 194 wpm (his 206); **zero residual silence
-runs ≥0.22s below −40 dB** — same profile as his (8 runs/2.09s vs his 7/1.98s at −38 dB). **Zero
-visible splices**: 20 of 21 sit under a graphic or land exactly on a punch change, the one bare
-splice measures 3.3 vs a p99 of 31. Script fidelity on the finished mix 97.9% (the 4 diffs are known
-Whisper artifacts, no lost words). Grade lifted 90 → 99 luma. −14.5 LUFS. Visual change every 3.3s.
+**Dan's rev-1 notes, all four done.** (1) **Graphic screens rebuilt to HIS design in J2 dark
+green** — he compared both and picked his structure: a solid brand FIELD (not a white page with a
+card), photos straight on the field, big heavy type, tight leading, top-aligned blocks, accent
+rules/bands, square list markers, oblique caps in an accent band. Every number measured off his
+frames by pixel scan then solved back into Manrope sizes. (2) **Grade re-fitted PER CHANNEL to his
+percentiles** — the real gap was never brightness: rev-0 crushed blacks to [0,5,0] vs his [10,10,12]
+and ran the blue midtone 22 levels under his. Now p10/p50/p90 match within 1–2 levels on all three
+channels. (3) **Audio de-roomed** — ours measured 3 dB hot at 3.2–8 kHz (where reverb lives) and
+5.5 dB thin at 400–700 Hz; that combination *is* the "echo". EQ-matched (mean error 9 bands:
+2.6 → 1.2 dB), gentle downward expander for the tails, light compression (LRA 3.8 → 1.9 LU, his note
+"a little flatter"). (4) **"Where I'm at today" is the shoot photos again**, not the ab-workout
+b-roll.
 
-**The reusable output, and the point of the task: `.claude/skills/ad-edit/reference/motionlib.py`**
-(animated graphics: `card_in`, `bullets_build`, `lower_third`, `title_card`, `callout_box`,
-`pop_text`, `photo_swap`, `panel_plate` + easing) and **`sfxlib.py`** (whooshes/pops/risers
-SYNTHESISED — no licence to track). Complete worked example in `reference/modern60/`. Skill lessons
-19–24 appended.
+**Re-transcription QC earned its keep twice this round**: the expander at first settings ate the /f/
+in "for free" and the "n't" in "isn't" (97.9 → 96.0 %), and after fixing that the music bed was
+still masking "isn't" until the sidechain release went to 420 ms. Final **97.4 %**, −14.2 LUFS,
+**0 bare visible splices** (20 of 21 cuts under a graphic or on a punch change), visual change every
+3.3 s.
 
-**Music = *Werq* (Kevin MacLeod, incompetech) — CC BY 4.0, so a description credit is required.**
-Fine for a sample; budget a paid library if this becomes house style. One constant to swap.
+**The reusable output: `.claude/skills/ad-edit/reference/motionlib.py`** (now palette-driven —
+`GREEN` is the locked CONTENT style, `PAPER` kept for ads) and **`sfxlib.py`** (synthesised
+one-shots, no licence to track). Worked example in `reference/modern60/`. Skill lessons 25–31 and
+four decision rows added.
 
-Compliance: AI-GENERATED on all three AI assets; before/after **sequenced not side-by-side**
-(verified frame-by-frame across the swap) — deliberately, so the banned pattern never enters the
-library. Flagged for Dan's call: his own ~200 lb before photo on screen 6.1–7.8s (already shipped in
-rev-1…rev-4, neutral shot, left in).
+**Music = *Werq* (Kevin MacLeod, incompetech) — CC BY 4.0, needs a description credit.** Fine for a
+sample; budget a paid library if this becomes house style. One constant to swap.
 
-**EXACT NEXT ACTION — DAN: play the side-by-side and decide the editing stack.** Honest gaps
-remaining: he is 4.3s shorter on the same words (his extra cuts are inside words, ours only in
-measured silence) and his grade is ~6 luma brighter. Ours fills the beat where he left a black
-"Broll assets folder" placeholder. No native retest trigger — video files only, no product surface.
+Compliance unchanged: AI-GENERATED on all three AI assets, before/after **sequenced not
+side-by-side** (verified frame-by-frame). Flagged for Dan: his own ~200 lb before photo on screen
+6.1–7.8 s (already shipped in rev-1…rev-4, neutral shot, left in).
+
+**EXACT NEXT ACTION — DAN: watch rev-1 and decide the editing stack.** One honest gap left: he is
+4.3 s shorter on the same words (his extra cuts are inside words; ours only in measured silence).
+No native retest trigger — video files only, no product surface.
 
 ### Muhammad A (Upwork trial) edit ANALYZED — feeds the editing-stack decision (2026-08-21, Claude Code)
 

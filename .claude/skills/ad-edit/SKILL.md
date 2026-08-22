@@ -435,6 +435,47 @@ whole sample is reproducible from `reference/modern60/`:
    `scale_about` on a canvas-sized layer with an off-centre anchor translates the whole
    frame instead of scaling in place.
 
+Modern-edit sample rev-1 (2026-08-22) — Dan compared our screens against the trial
+edit's directly and picked HIS. These are the rules that difference came down to:
+25. **A full-screen graphic is a solid brand FIELD, not a white page with a card on it.**
+   Photographs sit straight on the field; the field IS the card. Type is bigger and
+   heavier than feels right, leading is TIGHT (~0.95 body, 0.88 display), blocks are
+   TOP-aligned not vertically centred, headings carry a solid accent rule at their own
+   width, list markers are small filled SQUARES, and title-card headlines sit in an
+   accent BAND in oblique caps. `motionlib.GREEN` is that system in J2 dark green with
+   an olive accent; the brand red stays reserved for attention devices (callout stroke,
+   lower-third strip) that sit over FOOTAGE rather than on a field.
+26. **Measure the reference's design, don't eyeball it.** Cap heights, line advances,
+   rule thickness and padding all came off his frames with a pixel scan, then got solved
+   back into Manrope point sizes. Eyeballing had the title headline at 118 px when his
+   was 145, and the panel bullets at 0.95 leading only because it was measured at 63 px
+   advance. Half an hour of measuring beats three revision rounds.
+27. **Grade-matching is a per-channel PERCENTILE fit, not a luma lift.** Rev-0 matched
+   his average brightness and still looked worse, because it crushed blacks to
+   `[0,5,0]` against his `[10,10,12]` and ran the blue midtone 22 levels under his.
+   Sample p10/p50/p90 per channel on a face-sized crop of both, fit `curves=r:g:b`
+   through those three points, and add NOTHING else — `eq=contrast` re-crushes the very
+   black lift the curve just added, and `eq=saturation` is what made the mids too warm.
+28. **"It sounds like there's echo" is a SPECTRUM problem before it is a reverb
+   problem.** Ours measured 3 dB hot at 3.2–8 kHz (where room reverb lives) and 5.5 dB
+   thin at 400–700 Hz (which makes a voice read as distant). Fix the tilt first, then
+   add a gentle downward expander for the tails, then light compression if the reference
+   is "flatter" (LRA 3.8 → 1.9 LU here). Note the presence lift we had been adding at
+   3.6 kHz was making the room WORSE.
+29. **Re-transcription is the audio QC, and it earns its keep.** An expander at
+   threshold 0.030 / ratio 2.4 ate the /f/ in "for free" and the "n't" in "isn't" —
+   inaudible in a spot check, obvious as 97.9 % → 96.0 % fidelity. After fixing that,
+   the same test caught the music bed masking "isn't" until the sidechain release went
+   to 420 ms. Never ship an audio-chain change without re-transcribing the finished mix.
+30. **PIL: measure with the anchor you draw with.** `textbbox()` defaults to `la`
+   (ascender); every draw call here uses `lt` (top of ink). At a 145 px headline that is
+   a 48 px error, and it put a title headline straight through the top edge of its own
+   accent band. Related: `oblique()` must shear about the TEXT's centre — shearing a
+   canvas-sized layer about the canvas centre translates the line sideways by
+   `k * (centre - y)` and pushed the headline off the right edge of the band.
+31. **"Where I'm at today" wants the SHOOT PHOTOGRAPHY, not workout b-roll** (Dan,
+   2026-08-22). The finalised social photos are the proof; a plank clip is just motion.
+
 Ad #1 rev-4 (2026-08-21):
 17. **AI-GENERATED tag placement differs by insert type.** On a FULL-FRAME AI
    clip (no panel background, the clip fills 1920x1080) a centered tag sits mid-
@@ -465,8 +506,10 @@ Ad #1 rev-4 (2026-08-21):
 | Style: J2 graphics + CTA bar, MadMuscles captions, "abs" lowercase | LOCKED (2026-08-20) |
 | "Results are not guaranteed" micro-disclaimer (photo run + end card) | shipped on ad #1, not vetoed |
 | CTA bar exact copy/geometry per style | ⏳ ad #1 |
-| CONTENT style (YouTube episodes): bright paper / near-black ink / brand red, Manrope, animated via `motionlib.py`; no captions | proposed 2026-08-21, ⏳ Dan's verdict on the 60s sample |
-| Airtight pause removal + music bed + transition SFX for CONTENT cuts | proposed 2026-08-21, ⏳ same verdict |
+| CONTENT style (YouTube episodes): the trial edit's screen system — solid brand FIELD, big heavy type, tight leading, top-aligned, accent rules/bands — in J2 dark green with an olive accent (`motionlib.GREEN`); no captions | Dan chose his structure over our bright-paper version, 2026-08-22 |
+| Airtight pause removal + music bed + transition SFX for CONTENT cuts | proposed 2026-08-21, not queried in rev-1 notes |
+| Grade CONTENT cuts by per-channel percentile fit to a reference, not a luma lift | LOCKED 2026-08-22 |
+| Voice chain: EQ-match to the reference, gentle expander for room tails, light compression | LOCKED 2026-08-22 |
 | Music: track choice is a measured decision (least mid-band energy, flattest energy over the needed window); CC-BY needs a description credit — budget a paid library if it becomes house style | ⏳ Dan |
 
 ## Long renders: never poll for a filename, always signal DONE

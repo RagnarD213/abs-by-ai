@@ -23,7 +23,7 @@ SR    = sfxlib.SR
 
 # Music sits ~18 dB below its own level before ducking; the sidechain then pulls it a
 # further ~7 dB under speech, landing the bed near -20 dB relative to the voice.
-MUSIC_DB   = -18.0
+MUSIC_DB   = -19.0
 MUSIC_FADE = 1.4
 # One-shots are normalised to full scale, so summed raw they land AT dialogue level and
 # read as jarring. Measured target: SFX rms ~10 dB under the speech rms.
@@ -100,12 +100,33 @@ def main():
     total = dur_of(VIDEO)
     build_sfx_bed(total)
     chain = (
-        # voice: cut room rumble, then a small presence lift -- Dan's track is already clean
-        f"[0:a]highpass=f=80,equalizer=f=3600:t=q:w=1.5:g=2.2,asplit=2[vmix][vkey];"
+        # VOICE. Measured against the trial edit's own voice spectrum (2026-08-22):
+        # ours was 5.5 dB down at 400-700 Hz and 4.2 dB down at 700-1200 Hz (thin, so
+        # the voice reads as distant) while sitting 3 dB HOT at 3.2-8 kHz, which is
+        # exactly the band the room's reverb lives in. That combination is what Dan
+        # heard as echo. Fix the tilt, then expand the tails down.
+        f"[0:a]highpass=f=75,"
+        f"equalizer=f=530:t=q:w=1.0:g=4.5,"          # body
+        f"equalizer=f=920:t=q:w=1.2:g=3.5,"          # chest / fullness
+        f"equalizer=f=1550:t=q:w=1.4:g=1.5,"
+        f"equalizer=f=4000:t=q:w=1.0:g=-3.2,"        # take the room off the top
+        f"equalizer=f=6300:t=q:w=1.0:g=-2.2,"
+        # Downward expander: pulls the reverb tail between words down. This is the
+        # actual de-reverb; the EQ only stops the room being emphasised. Deliberately
+        # GENTLE -- at threshold 0.030 / ratio 2.4 it ate the /f/ in "for free" and the
+        # "n't" in "isn't", and the re-transcription QC caught it (97.9% -> 96.0%).
+        # A fast attack matters more than depth: it must be open before the consonant.
+        f"agate=threshold=0.018:ratio=1.8:range=0.45:attack=3:release=300:knee=8,"
+        # gentle compression -- his read as "flatter", and a steadier voice also stops
+        # the sidechain from pumping the music bed
+        f"acompressor=threshold=0.10:ratio=3:attack=10:release=200:makeup=1.7,"
+        f"asplit=2[vmix][vkey];"
         f"[1:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume={MUSIC_DB}dB,"
         f"afade=t=in:st=0:d=0.8,afade=t=out:st={total - MUSIC_FADE:.3f}:d={MUSIC_FADE}[mus];"
         # the bed ducks itself out of the way of every syllable
-        f"[mus][vkey]sidechaincompress=threshold=0.025:ratio=7:attack=12:release=320:"
+        # release is deliberately LONG: a short release lets the bed spring back up
+        # between words, which is where it masked the quiet "n't" in "isn't"
+        f"[mus][vkey]sidechaincompress=threshold=0.020:ratio=9:attack=12:release=420:"
         f"makeup=1:level_sc=1[duck];"
         f"[2:a]volume={SFX_DB}dB[sfx];"
         f"[vmix][duck][sfx]amix=inputs=3:duration=first:normalize=0,"

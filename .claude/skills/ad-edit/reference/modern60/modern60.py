@@ -1,47 +1,55 @@
 #!/usr/bin/env python3
 """Modern-edit 60s sample -- graphics build + layout over tight60.mov.
 
-Beat sheet mirrors the Upwork trial edit's placements in Abs By AI CONTENT style
-(bright paper, near-black ink, brand red) rather than its pastel-cyan template look.
-Every animated element comes from motionlib; this file only composes.
+Beat sheet AND screen design both follow the Upwork trial edit (Dan preferred its
+graphic screens, 2026-08-22), recoloured to the Abs By AI dark green: a solid brand
+field, big heavy type, tight leading, top-aligned blocks, accent rules and bands,
+photographs sitting straight on the field. Every animated element comes from motionlib;
+this file only composes.
 
   python3 modern60.py gfx     # render the animated graphics (slow, cached on disk)
-  python3 modern60.py cut     # punch/layout pass  -> punched_modern.mp4
-  python3 modern60.py mix     # overlay pass       -> modern_nocap.mp4
+  python3 modern60.py cut     # punch/layout pass  -> punched_modern.mov
+  python3 modern60.py mix     # overlay pass       -> modern_nocap.mov
 """
-import importlib.util, json, os, subprocess, sys
+import importlib.util, os, subprocess, sys
 
 SKILL = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/ad-edit/reference"
 spec = importlib.util.spec_from_file_location("ml", f"{SKILL}/motionlib.py")
 ml = importlib.util.module_from_spec(spec); spec.loader.exec_module(ml)
 from PIL import Image, ImageDraw
 
-FF   = ml.FF
-A    = "/Users/danielrose/Documents/Claude/Projects/Abs By AI"
+FF    = ml.FF
+PAL   = ml.GREEN
+A     = "/Users/danielrose/Documents/Claude/Projects/Abs By AI"
 CLIPS = f"{A}/Media/ad-assets/batch1-ads/clips"
+PHOTOS = f"{A}/photos/finalized social media photos"
 GOAL   = f"{A}/Media/example pictures/dan by pool.png"
 BEFORE = f"{A}/Media/ad-assets/ad2-nutritionist/full/03_before_picture.png"
-BROLL  = f"{CLIPS}/broll-dan-training-abs.mp4"
-CRUDE  = f"{CLIPS}/ai-clip-crude-photoshop.mp4"
-G      = "gfx"
-FPS    = "30000/1001"
+# Dan, 2026-08-22: the "where I'm at today" beat uses the ORIGINAL shoot photos, not
+# the ab-workout b-roll.
+TODAY_SHOTS = [f"{PHOTOS}/photo-180_FINAL_PRIMARY copy.png",
+               f"{PHOTOS}/Dan-flag-FINAL.jpg"]
+CRUDE = f"{CLIPS}/ai-clip-crude-photoshop.mp4"
+G     = "gfx"
+FPS   = "30000/1001"
 os.makedirs(G, exist_ok=True)
 
 # ---------------------------------------------------------------- beat sheet (tight60 time)
-CALLOUT   = (0.00,  3.30)     # "This picture got me abs and it's not even real."
-GEN       = (3.62,  7.82)     # "I generated this picture with AI back when I was 200 pounds."
-PHONE     = (7.86,  9.72)     # "I made it my phone lock screen"
-TODAY     = (12.74, 14.79)    # "And this is where I'm at today."
-BULLETS   = (14.79, 29.49)    # "In today's episode ... for free."
-LOWER3    = (39.97, 46.30)    # "The problem is that finding that motivation is really hard"
-TITLE     = (47.05, 50.60)    # "Visualizing your goal is one of the most powerful ways..."
-SHOP      = (59.02, 63.62)    # "Some of them would literally Photoshop their own face..."
+CALLOUT = (0.00,  3.30)     # "This picture got me abs and it's not even real."
+GEN     = (3.62,  7.82)     # "I generated this picture with AI back when I was 200 pounds."
+PHONE   = (7.86,  9.72)     # "I made it my phone lock screen"
+TODAY   = (12.74, 14.79)    # "And this is where I'm at today."
+BULLETS = (14.79, 29.49)    # "In today's episode ... for free."
+LOWER3  = (39.97, 46.30)    # "The problem is that finding that motivation is really hard"
+TITLE   = (47.05, 50.60)    # "Visualizing your goal is one of the most powerful ways..."
+SHOP    = (59.02, 63.62)    # "Some of them would literally Photoshop their own face..."
 
 PHOTO_RECT = (161, 217, 396, 547)      # the print taped to the door, measured on level A
 BULLET_TIMES = (17.21, 20.90, 25.40)   # "how I got limitless" / "what I needed" / "how you can"
 
 # punch levels over the tight cut. 'P*' are the bullets-panel layouts (video pushed right).
-PANEL_W = 886
+PANEL_W = 980                           # the trial edit's panel is 51% of frame
+VID_W   = 1920 - PANEL_W
 PUNCH = [
     (0.00,  3.30, "A"),      # callout is measured in level-A coordinates -- do not punch
     (3.30,  7.86, "B"),
@@ -64,15 +72,15 @@ CROP = {
     "A":  "",
     "B":  "crop=1574:886:198:54,scale=1920:1080:flags=lanczos,",
     "C":  "crop=1730:973:104:40,scale=1920:1080:flags=lanczos,",
-    "P1": f"crop=1034:1080:435:0,pad=1920:1080:{PANEL_W}:0:black,",
-    "P2": f"crop=880:919:504:80,scale=1034:1080:flags=lanczos,pad=1920:1080:{PANEL_W}:0:black,",
+    "P1": f"crop={VID_W}:1080:450:0,pad=1920:1080:{PANEL_W}:0:black,",
+    "P2": f"crop=800:919:530:80,scale={VID_W}:1080:flags=lanczos,pad=1920:1080:{PANEL_W}:0:black,",
 }
 
 # ---------------------------------------------------------------- graphics
 def build_gfx():
-    tag_f  = ml.font(30, "ExtraBold")
-    cap_f  = ml.font(40, "Bold")
-    pop_f  = ml.font(96, "ExtraBold")
+    tag_f = ml.font(30, "ExtraBold")
+    cap_f = ml.font(44, "Bold")
+    pop_f = ml.font(104, "ExtraBold")
 
     ml.callout_box(f"{G}/callout.mov", PHOTO_RECT, CALLOUT[1] - CALLOUT[0],
                    draw_dur=0.55, delay=0.20, label="THIS PICTURE")
@@ -83,23 +91,26 @@ def build_gfx():
     # the library for every future ad.
     goal   = Image.open(GOAL).convert("RGB")
     before = Image.open(BEFORE).convert("RGB")
-    CB = [630, 70, 1290, 890]
-    goal_p   = ml.rounded_photo(goal,   CB[2]-CB[0]-36, CB[3]-CB[1]-36-56, radius=18)
-    before_p = ml.rounded_photo(before, CB[2]-CB[0]-36, CB[3]-CB[1]-36-56, radius=18)
+
+    def photo_layer(img, caption, tag):
+        lay, box = ml.photo_on_field(img, 1120, 800, centre=(960, 452))
+        if caption:
+            ImageDraw.Draw(lay).text((960, box[3] + 54), caption, font=cap_f,
+                                     fill=PAL.ink, anchor="mm")
+        if tag:
+            ml.chip(lay, (box[0] + 26, box[1] + 26), tag, tag_f,
+                    (12, 16, 12, 235), (255, 255, 255, 255), radius=8)
+        return lay
+
+    goal_lay   = photo_layer(goal,   "The picture I generated", "AI-GENERATED")
+    before_lay = photo_layer(before, None, None)
     SWAP = 2.48
     def gen_build(im, t):
-        ml.card(im, CB, radius=26)
-        first = t < SWAP
-        im.alpha_composite(before_p if not first else goal_p, (CB[0]+18, CB[1]+18))
-        cap = "The picture I generated" if first else "Me, back then"
-        ImageDraw.Draw(im).text(((CB[0]+CB[2])//2, CB[3]-40), cap, font=cap_f,
-                                fill=ml.INK, anchor="mm")
-        if first:
-            ml.chip(im, (CB[0]+30, CB[1]+30), "AI-GENERATED", tag_f,
-                    (12, 14, 18, 235), (255, 255, 255, 255), radius=8)
-        else:
-            ml.pop_text(im, t - 3.00, "200 pounds", pop_f, (960, 975))
-    ml.card_in(f"{G}/gen.mov", GEN[1] - GEN[0], gen_build)
+        im.alpha_composite(goal_lay if t < SWAP else before_lay)
+        if t >= SWAP:
+            ml.pop_text(im, t - 3.00, "200 pounds", pop_f, (960, 962),
+                        color=PAL.ink, accent=PAL.hot)
+    ml.card_in(f"{G}/gen.mov", GEN[1] - GEN[0], gen_build, pal=PAL)
 
     # --- "I made it my phone lock screen"
     PH_W, PH_H, PAD = 470, 950, 14
@@ -109,33 +120,44 @@ def build_gfx():
     ImageDraw.Draw(scr_m).rounded_rectangle([0, 0, scr.width-1, scr.height-1], radius=44, fill=255)
     def phone_build(im, t):
         im.alpha_composite(ml.drop_shadow(im.size, [px, py, px+PH_W, py+PH_H], 60,
-                                          blur=32, spread=10, opacity=70))
+                                          blur=34, spread=12, opacity=140))
         d = ImageDraw.Draw(im)
-        d.rounded_rectangle([px-7, py-7, px+PH_W+6, py+PH_H+6], radius=66, fill=(28, 31, 38))
+        # olive hairline round the bezel: a near-black phone on a dark green field has
+        # almost no edge contrast without it
+        d.rounded_rectangle([px-9, py-9, px+PH_W+8, py+PH_H+8], radius=68, fill=PAL.accent)
+        d.rounded_rectangle([px-6, py-6, px+PH_W+5, py+PH_H+5], radius=66, fill=(24, 27, 24))
         d.rounded_rectangle([px, py, px+PH_W, py+PH_H], radius=58, fill=(6, 6, 8))
         im.paste(scr, (px+PAD, py+PAD), scr_m)
-        ml.chip(im, (px, py - 88), "AI-GENERATED", tag_f, (12, 14, 18, 235),
+        ml.chip(im, (px, py - 88), "AI-GENERATED", tag_f, (12, 16, 12, 235),
                 (255, 255, 255, 255), radius=8)
-    ml.card_in(f"{G}/phone.mov", PHONE[1] - PHONE[0], phone_build)
+    ml.card_in(f"{G}/phone.mov", PHONE[1] - PHONE[0], phone_build, pal=PAL)
 
-    # --- video cards: paper plate with a rounded window the clip shows through
-    ml.panel_plate([510, 90, 1410, 990]).save(f"{G}/plate_today.png")
-    ml.panel_plate([610, 40, 1310, 1040]).save(f"{G}/plate_shop.png")
+    # --- "And this is where I'm at today." -- the shoot photos, in sequence
+    dur = TODAY[1] - TODAY[0]
+    half = round(dur / 2, 3)
+    ml.photo_sequence(f"{G}/today.mov",
+                      [(0.0, half, Image.open(TODAY_SHOTS[0]), None, None),
+                       (half, dur, Image.open(TODAY_SHOTS[1]), None, None)],
+                      dur, pal=PAL, maxw=1560, maxh=900, in_dur=0.30)
+
+    # --- video card: field plate with a rounded window the clip shows through
+    ml.panel_plate([610, 40, 1310, 1040], pal=PAL).save(f"{G}/plate_shop.png")
     tag = Image.new("RGBA", (ml.W, ml.H), (0, 0, 0, 0))
-    ml.chip(tag, (0, 0), "AI-GENERATED", tag_f, (12, 14, 18, 235), (255, 255, 255, 255), radius=8)
+    ml.chip(tag, (0, 0), "AI-GENERATED", tag_f, (12, 16, 12, 235), (255, 255, 255, 255), radius=8)
     tag.crop(tag.getbbox()).save(f"{G}/tag.png")
 
-    ml.bullets_build(f"{G}/bullets.mov", "In this video",
+    ml.bullets_build(f"{G}/bullets.mov", "In today's video",
                      [(BULLET_TIMES[0] - BULLETS[0], "How I got limitless motivation to work out and eat healthy"),
                       (BULLET_TIMES[1] - BULLETS[0], "What I needed to do to lose my belly fat and get six-pack abs"),
                       (BULLET_TIMES[2] - BULLETS[0], "How to generate a goal picture of yourself with abs — free")],
-                     BULLETS[1] - BULLETS[0], panel_w=PANEL_W)
+                     BULLETS[1] - BULLETS[0], panel_w=PANEL_W, pal=PAL)
 
     ml.lower_third(f"{G}/lower3.mov", "The Problem", "No time. No motivation.",
-                   LOWER3[1] - LOWER3[0])
+                   LOWER3[1] - LOWER3[0], pal=PAL)
 
     ml.title_card(f"{G}/title.mov", "Visualizing\nYour Goal",
-                  "One of the most powerful ways to motivate yourself", TITLE[1] - TITLE[0])
+                  "One of the most powerful ways to motivate yourself",
+                  TITLE[1] - TITLE[0], pal=PAL)
     print("graphics done")
 
 # ---------------------------------------------------------------- pass 1: punch / layout
@@ -161,7 +183,6 @@ def mix():
     cur = "[0:v]"
 
     def over(src, a, b, x=0, y=0, loop=False, pre=""):
-        """Overlay `src` on the running chain for [a,b]. Returns nothing; mutates state."""
         nonlocal inp, fc, idx, cur
         if loop: inp += ["-loop", "1", "-t", str(round(b - a + 0.3, 3))]
         inp += ["-i", src]
@@ -172,16 +193,12 @@ def mix():
     over(f"{G}/callout.mov", *CALLOUT)
     over(f"{G}/gen.mov",     *GEN)
     over(f"{G}/phone.mov",   *PHONE)
-
-    # today b-roll: clip first (square corners), then the plate trims it to a card
-    over(BROLL, *TODAY, x=510, y=90,
-         pre="crop=1080:1080:0:820,scale=900:900:flags=lanczos,setsar=1,")
-    over(f"{G}/plate_today.png", *TODAY, loop=True)
-
+    over(f"{G}/today.mov",   *TODAY)
     over(f"{G}/bullets.mov", *BULLETS)
     over(f"{G}/lower3.mov",  *LOWER3)
     over(f"{G}/title.mov",   *TITLE)
 
+    # clip first (square corners), then the plate trims it to a card on the field
     over(CRUDE, *SHOP, x=610, y=40,
          pre="crop=716:1023:0:100,scale=700:1000:flags=lanczos,setsar=1,")
     over(f"{G}/plate_shop.png", *SHOP, loop=True)

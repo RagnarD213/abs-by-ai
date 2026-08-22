@@ -24,9 +24,15 @@ KEEP_TAIL = 0.055                      # room tone kept after the outgoing word
 KEEP_HEAD = 0.100                      # kept before the incoming word (protects soft onsets)
 MIN_REMOVE = 0.060                     # don't bother with cuts smaller than this
 HOOK_SAFE  = 2.00                      # no splice at all inside the opening line
-# talking-head lift: shadows/mids up ~20% to match the reference's brightness
-GRADE = ("curves=all='0/0.015 0.20/0.262 0.40/0.472 0.70/0.762 1/1',"
-         "eq=saturation=1.05:contrast=1.02")
+# Grade fitted PER CHANNEL to the trial edit's own measurements (2026-08-22). The
+# earlier version lifted luma but kept the source's crushed blacks (p10 [0,5,0] vs his
+# [10,10,12]) and its over-warm mids (blue p50 41 vs his 63) -- which is what read as
+# "his colour correction is better". No eq: contrast=1.02 was silently re-crushing the
+# black lift, and saturation was what made the mids too warm in the first place.
+GRADE = ("curves="
+         "r='0/0.040 0.43/0.475 0.71/0.784 1/1':"
+         "g='0/0.034 0.05/0.055 0.27/0.345 0.75/0.824 1/1':"
+         "b='0/0.046 0.13/0.247 0.73/0.835 1/1'")
 
 def frames(t):  return round(t / FD)
 def snapf(t):   return round(frames(t) * FD, 6)
