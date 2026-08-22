@@ -498,10 +498,9 @@
     },
     {
       "text": "Empty/load dishwasher",
-      "priority": "unassigned",
+      "priority": "high",
       "recurring": false,
-      "addedAt": "2026-08-19",
-      "addedBy": "assistant"
+      "addedAt": "2026-08-19"
     },
     {
       "text": "Clean both bathroom toilets",
