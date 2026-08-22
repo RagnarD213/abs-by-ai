@@ -2,16 +2,18 @@
   "date": "2026-08-22",
   "order": [
     "money::Post on TikTok",
-    "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
-    "money::Execute handoff: Swap Dan's phone to the public Play build",
     "money::Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas",
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
-    "money::Write scripts for the next shoot (≥half workout content)"
+    "money::Write scripts for the next shoot (≥half workout content)",
+    "money::Write workout outlines for the next shoot",
+    "money::Execute handoff: Replace stick figures with AI exercise demo videos"
   ],
   "excluded": [
     "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
     "money::Execute handoff: Let users purchase before creating an account (iOS)",
-    "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)"
+    "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
+    "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
+    "money::Execute handoff: Swap Dan's phone to the public Play build"
   ],
   "sessionsCompleted": 0
 }
