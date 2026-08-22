@@ -339,6 +339,20 @@
       "priority": "med",
       "why": "2026-08-21 planning — for the upcoming shoot",
       "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Order groceries",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-08-22",
+      "why": "2026-08-22 planning — Saturday routine, needs a salad-stock check"
+    },
+    {
+      "text": "Meal prep with Brittany (week of 2026-08-24)",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-08-22",
+      "why": "2026-08-22 planning — Dan cooking meal prep with Brittany next week"
     }
   ],
   "assistant": [
