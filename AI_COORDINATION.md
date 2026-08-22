@@ -187,15 +187,34 @@ side-by-side before/after usage that is BANNED in our paid ads (fine for organic
 technique is replicable in the existing PIL/ffmpeg pipeline; plan delivered to Dan in the ad-1 rev-4
 session. AD 1 rev-4 itself is still awaiting Dan's review (9:16 on approval).
 
-### Exercise demo BATCH 2 — round-5 revisions delivered, awaiting Dan (2026-08-20 night, Claude Code)
+### Exercise demo BATCH 2 — ALL 20 FINALIZED by Dan (2026-08-20, Claude Code)
 
-Four fixes redelivered: pull-up (new almost-locked-hang bottom still + 6s re-roll; the winning cut has
-BOTH the nearly-straight hang and the chin-over-with-daylight top), leg-curl (keyframe-locked regen,
-full extension to past-90), press + side-lateral backgrounds FULLY locked (Dan caught stacks the ghost
-scan missed inside the arm-sweep zone — new `_r2/bglock.py` validated-rectangle freezes and
-`_r2/keyfreeze.py` per-pixel keyed composite are in the skill, verified on arm-free frames ≤3 gray
-levels). Leg raise FINALIZED by Dan. ~$5 this round; batch-2 total ~$84. Batch-2 finals await Dan's
-verdict; approved ones are NOT yet stamped -FINAL.
+Dan approved the full set. Finals stamped `<id>-AIDAN-narrated-FINAL.mp4` in
+`Media/exercise-demos/<id>/` (gitignored). **20 exercises, ~$90 total AI spend across generation +
+5 revision rounds.** All 15.8–27.0s, 1920x1080/24fps, AAC, cloned-voice narration.
+
+The 20: side-plank, wall-sit, hollow-hold (static holds) · knee-pushup, pike-pushup, chair-dip,
+split-squat, glute-bridge, calf-raise, crunch, lying-leg-raise, superman (bodyweight) · pullup,
+lat-pulldown, seated-cable-row, leg-extension, leg-curl, db-shoulder-press, db-curl, side-lateral (gym).
+
+**NOT INSTALLED IN THE APP — this is the next task.** Verified 2026-08-20: `public/index.html`
+`EXERCISE_DEMO_IDS` contains only 13 ids (batch 1's plank/pushup/reverse-lunge + batch 3's ten), and
+`public/exercise-demos/` holds only those 13 mp4+jpg pairs. Installing batch 2 means: encode each
+final to ~960x540 web mp4 + poster jpg into `public/exercise-demos/<id>.{mp4,jpg}`, add the ids to
+`EXERCISE_DEMO_IDS`, commit/push/deploy, live-verify — and it IS a native-retest trigger (changes what
+the iOS/Android trainer screens display). **`bw-squat` (the original pilot) is also still uninstalled.**
+
+**ID MAPPING GOTCHA for install:** the demo folder is `side-lateral` but the library id in
+`public/exercises.js` is still `db-lateral-raise` (name 'Lateral Raise'). Either rename the library
+entry's `name` to 'Side Lateral' (id must NOT change — programs reference it) or install the file as
+`db-lateral-raise.mp4`. Dan asked for the "side lateral" rename; the library copy change was deferred
+to the install task.
+
+Everything learned across the five revision rounds is consolidated in `/exercisegeneration`: the
+DOUBLE-PUMP RULE (monotonic cuts + unimodal verification), the FULL-FRAME BACKGROUND LOCK
+(`_r2/lockbg.py`, supersedes box-hunting), landmark tracking when frame-diff lies, reverse-generation
+for poses Veo won't reach, and Dan's settled form standards per exercise. Scripts live in
+`Media/exercise-demos/_batch2/` and `_r2/`.
 
 ### Three longform videos CUT, QC'd and DELIVERED from the 8/3 shoot (2026-08-20, Claude Code)
 
