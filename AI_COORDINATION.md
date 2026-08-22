@@ -386,6 +386,35 @@ instead of stick figure for 13 exercises) — flagged to Dan per the cross-platf
 **Dan said mid-session**: a few more exercises are being finalized — install what's ready now, more
 to follow in a later session once finalized.
 
+### YouTube subscriber-campaign geo restructure — HANDOFF WRITTEN, not executed (2026-08-22, Claude Code)
+
+`Handoffs/handoff-20260822-youtube-ads-geo-restructure.md` + Rule-5 Key dashboard task added
+(verified persisted). **Strategy session only — no ad-account change made, no code touched, no deploy.**
+
+Dan's three asks are scoped in the doc: (1) add all ~250 countries as explicit targeted locations on
+the All Countries campaign, (2) exclude the low-quality geos (full Tier-1 list in the doc; Tier 2 —
+India, Philippines, Indonesia, Vietnam, Thailand, Malaysia, South Africa, Brazil, Mexico, Turkey,
+Colombia, Peru, Ecuador, Dominican Republic — stays targeted deliberately as the cheap-volume engine),
+(3) clone the campaign targeting only US/CA/UK/IE/AU/NZ.
+
+**VERIFIED FACT that killed Dan's original plan:** the campaign runs **Target CPA**, and on Smart
+Bidding all non-device bid adjustments are **ignored** — a location bid modifier would have been
+accepted by the UI and silently done nothing. Confirmed against Google's own docs. Budget separation
+(separate budgets, NOT shared) is the only lever that forces geo allocation.
+
+**STEP 0 IN THE DOC MAY REFRAME EVERYTHING:** earned subscribers aren't a Google Ads conversion
+action, so it is unknown what that tCPA campaign has actually been optimizing toward. Find out before
+changing anything; if conversion volume is near zero, the clone should launch on Maximum CPV.
+
+**Highest-consequence setting on the clone:** location option must be **"Presence"**, not "Presence or
+interest" — the default reimports the exact problem the clone exists to avoid, and fails quietly.
+
+Dan's position, recorded because it drives the plan: he believes sub count under 10k gates whether
+people take the channel seriously, so the cheap campaign keeps running to 10,000 and is then paused —
+the authority number is a one-time purchase, not an ongoing strategy.
+
+**EXACT NEXT ACTION — run the handoff in a fresh session** (Opus 5, Medium), starting with Step 0.
+
 No active task.
 
 ---
