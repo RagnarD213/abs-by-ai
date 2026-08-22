@@ -406,6 +406,19 @@ Proven 2026-08-21 on the invest-health video: **53:15 approved → 43:31 conserv
    grade in a revision: a cut-only change reuses everything, a grade change reuses
    nothing.
 
+28. **Recasting stock is a one-line-per-slot edit if the insert list is a data file.**
+   Dan reviewed rev 1 and asked for stock cast to the target demographic. Because
+   `inserts.py` maps each slot to `(pexels_file, seek)`, recasting 12 clips meant
+   repointing 12 entries, re-running `build_inserts.py` for those keys only, and
+   re-running the two composite passes. The cut, the EDL, the SRT and the chapters
+   never moved. **Build a contact sheet of the RENDERED inserts to audit casting** —
+   the source thumbnails on a search page do not tell you what the framed 16:9 crop
+   actually shows.
+29. **`pgrep -f <script>` matches the watcher's own shell.** Two "wait until the
+   render finishes" loops deadlocked because each one's own command line contained
+   the pattern it was grepping for. Match on `python3 <script>`, or watch the output
+   file for a completion marker instead.
+
 ### The clipped-word check needs a control set, or it lies
 
 **Word-presence on a joint re-transcription is not evidence.** On this pair of cut-downs
@@ -594,6 +607,68 @@ output-time text for placing an insert on the word.
 - **Prune by deleting lines.** Keep the insert list as a data file (`inserts_spraytan.py`)
   with the line of narration each insert illustrates in a comment. Removing one is a
   one-line edit plus the two composite passes — the cut never re-renders.
+
+---
+
+## Step 5.6 — AUDIO: check the CHANNELS before you touch tone
+
+**Run `reference/chan_analyse.py` on every new roll, before any EQ.** Two rolls from
+this shoot turned out not to be stereo at all: they carry **two different microphones
+hard-panned against each other** — a close lav one side, a mic a few metres away the
+other. Measured on C1512 over 60 s:
+
+```
+peak cross-correlation +0.688 at lag -358 samples = -7.46 ms
+zero-lag correlation   +0.071          <- a real stereo pair is near +1
+channel           SNR      comb ripple (mono fold)
+right (lav)      45.5 dB      0.53 dB
+left  (far mic)  34.1 dB      0.49 dB
+naive L+R sum    36.8 dB      0.69 dB   <- what shipped
+```
+
+**Every phone, laptop and TV speaker sums L+R**, and a 7.46 ms offset summed is a comb
+filter with notches every ~134 Hz. **No EQ can undo it.** The ad roll from the other
+shoot measured 7.83 ms with polarity ALSO inverted — same rig, same defect. The fix is
+always the same: **take the better channel, as mono, then `pan=stereo|c0=c0|c1=c0`** so
+the voice sits centred instead of in one ear. Verify: the delivered file should measure
+correlation **+1.000 at lag 0**.
+
+This shipped undetected in three delivered videos before anyone caught it, because
+every automated check passed — LUFS, splice discontinuity and SRT overlap are all blind
+to it. **The channel check is cheap; make it Step 0 of audio.**
+
+### Fit the voice, don't copy a curve
+
+`reference/fitvoice_longform.py` scores a candidate chain against a reference voice
+over ten bands, averaged across five windows (one window over-fits), using only frames
+above the 55th percentile of RMS so it measures SPEECH and not room tone. Copying the
+ad roll's chain onto this roll would have made it worse: that curve cuts 320 Hz for a
+chest bump, and this roll measured **9.4 dB LIGHT** at 80-150 Hz. Fitted: mean band
+error **3.33 dB -> 0.99 dB**, worst band 1.89.
+
+Three things that decided the chain, all measured:
+- **Gate BEFORE the EQ, and firmer than an ad chain wants.** A fitted treble shelf
+  (+6.2 dB above 5.2 kHz) restores the air a chest lav never had — and lifts lav hiss
+  with it. At matched loudness the soft gate left the noise floor 2.2 dB WORSE than
+  the un-EQ'd original; a firmer one (0.016 / 2.2 / range 0.30) landed at parity.
+- **Prove a gate is taking room tone and not word tails** by re-transcribing windows
+  with and without it: 100 % word overlap across four 25 s windows here.
+- **`afftdn` is a trap on a voice you just added air to.** `nr=8` dropped the floor a
+  further 3 dB but pushed the band error 0.97 -> 1.73 dB, eating exactly the 5-10 kHz
+  the shelf exists to restore.
+
+### Re-cutting audio onto a picture you are NOT re-rendering
+
+`reference/build_audio_singlemic.py`. render.py rounds every segment to whole frames
+and those roundings accumulate — **+0.65 s over 44 ranges here** — so rebuilding audio
+from the EDL's float ranges drifts most of a second by the end. Cut each range to the
+duration its **already-rendered video segment** actually has, read back out of the
+segment cache, and the sum matches by construction. Two traps inside that:
+- Use the segment's **video** stream duration, not its audio: each AAC segment's audio
+  stream reads ~15 ms short (encoder priming) and the concat demuxer already
+  compensates. Summing the audio durations loses 0.56 s.
+- **Assert the result against the finished picture before muxing** (>0.10 s = refuse).
+  That assertion caught the audio-duration mistake on the first attempt.
 
 ---
 

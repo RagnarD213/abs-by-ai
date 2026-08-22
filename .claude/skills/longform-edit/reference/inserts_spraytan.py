@@ -12,24 +12,24 @@
 STOCK = {
  "photog":      ("12331347_photographer-camera", 2.0),
  "mirror":      ("6547791_mirror-flex",          1.5),
- "lighting":    ("31512164_studio-lighting",     1.0),
- "stage":       ("27869331_stage-posing",       14.0),
+ "lighting":    ("33940049_studio-lighting-rig",  0.6),   # REV2 recast
+ "stage":       ("28029794_physique-stage",      12.0),   # REV2 recast
  "bbflex":      ("5319758_bodybuilder-flex",     3.0),
  "gym":         ("5319433_gym-workout",          4.0),
- "shoot1":      ("33191884_model-photoshoot",    1.0),
+ "shoot1":      ("3917517_photog-model-blonde",   3.0),   # REV2 recast
  "dating":      ("6833576_dating-app",           3.0),
  "wedarch":     ("34506426_wedding-archway",     1.5),
- "laptop":      ("5495784_laptop-typing",        3.0),
+ "laptop":      ("8519534_man-laptop",            2.0),   # REV2 recast
  "maps":        ("6258206_phone-maps",           1.0),
  "bts":         ("33191906_bts-photoshoot",      1.0),
  "money3":      ("4524511_counting-money3",      4.0),
- "shootcouple": ("7800545_couple-photoshoot",    6.0),
+ "shootcouple": ("33940041_softbox-setup",        1.5),   # REV2 recast
  "cardread":    ("11158789_card-reader",         1.5),
  "aerosol":     ("6950943_aerosol-spray",        0.4),
  "bodycream":   ("12220106_body-cream",          6.0),
  "wedchurch":   ("31010685_wedding-church",      0.15),
  "sunarm":      ("7467141_sunscreen-arm",        2.0),
- "shoulder":    ("8955782_cream-shoulder",      12.0),
+ "shoulder":    ("7467132_lotion-on-mans-back",   1.5),   # REV2 - Dan: applied to someone's BACK
  "gloves":      ("7820111_beautician-gloves",    6.0),
  "consult":     ("4824010_cosmetologist-talk",   8.0),
  "money2":      ("5466769_counting-money2",      2.0),
@@ -52,10 +52,10 @@ STOCK = {
  "umbrella":    ("7539035_umbrella-dock",        2.0),
  "beachaerial": ("19735225_beach-aerial",        4.0),
  "mole":        ("5701568_mole-check",           8.0),
- "manface":     ("8724457_man-face-closeup",     3.0),
+ "manface":     ("7299500_elderly-face",          2.0),   # REV2 - Dan: older, sun-damaged skin
  "sunbathe":    ("992677_man-sunbathing",        0.6),
- "freckmacro":  ("13770928_freckled-macro",      2.0),
- "lab":         ("4267245_scientist-magnifier",  3.0),
+ "freckmacro":  ("7298115_wrinkled-forehead",     2.0),   # REV2 recast - leathery, weathered
+ "lab":         ("8771135_man-microscope",        3.0),   # REV2 recast
  "bills":       ("5466780_hundred-bills",        2.0),
  "freckvid":    ("8724227_freckled-video",       8.0),
  "freckwoman":  ("8055996_freckled-woman",       1.5),
@@ -69,11 +69,18 @@ STOCK = {
  "vlog":        ("6332248_vlog-recording",       1.5),
  "handshake":   ("7643473_handshake",            1.0),
  "runway":      ("19862866_fashion-model",       6.0),
- "posing":      ("5469847_modeling-posing",      4.0),
- "brideglaugh": ("9122066_bride-groom-laugh",    2.0),
+ "posing":      ("9441682_photographer-model",    2.0),   # REV2 recast
+ "brideglaugh": ("34503193_wedding-kiss-outdoor", 1.5),   # REV2 recast
  "goldlight":   ("8770369_sunlight-posing",      2.0),
- "photogf":     ("8497005_female-photographer",  1.0),
+ "photogf":     ("7570995_posing-coaching",       4.0),   # REV2 recast
 }
+
+# REV2 (2026-08-22) recast 12 clips toward the target demographic - white or
+# Asian men 30-50 - and re-picked the female-featuring clips. Two of Dan's swaps
+# are specific: 4:01 is now someone actually applying to another person's BACK,
+# and 11:05 is an older face with real sun damage instead of a young freckled
+# one. Replaced sources are marked "REV2 recast" in STOCK above; the rev-1 list
+# is kept as inserts_rev1.py.bak.
 
 # (start_out, duration, kind, key, note)
 INSERTS = [
@@ -227,6 +234,6 @@ ALIASES = {
  "bbflex2":    ("bbflex",   12.0),
  "salon2":     ("salon",     5.5),
  "money2b":    ("money2",    7.0),
- "shoot1b":    ("shoot1",    3.6),
+ "shoot1b":    ("bts",       2.7),
  "wedarch2":   ("wedarch",   5.5),
 }

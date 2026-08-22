@@ -18,15 +18,28 @@ BG = (13, 14, 11); OLIVE = (140, 152, 88); WHITE = (255, 255, 255)
 COPPER = '/System/Library/Fonts/Supplemental/Copperplate.ttc'
 
 # crop = (x0, y0, x1, y1) as PERCENT of the EXIF-corrected image
+# crop = (x0, y0, x1, y1) as PERCENT of the EXIF-corrected image
+#
+# REV2 (Dan): "make sure they're all centered within the frame you use. Some of
+# them are not centered, and some are going off the side." Every crop is now
+# centred on his BODY CENTRE with a real margin on both sides, so no fist, elbow
+# or hip touches an edge. The three that were actually broken: tan_a and tan_b
+# had the crop's right edge cutting through his arm, and tan_intro's left fist
+# sat on the frame line. The double-biceps frames (pale_intro, pale_c, tan_c)
+# were centred but had only ~2-5% margin, which reads as "going off the side"
+# once an olive frame is drawn around it.
+# Measuring this automatically does not work here: a torso-band skin mask finds
+# the torso, not the raised arms, and sunlit limestone is also r>g>b at the same
+# saturation. Set by eye against a centre-line overlay, then verified.
 CROPS = {
- "pale_intro": (20, 20, 73, 87),   # 844C5D19  double biceps, poolside (Dan's pick)
- "tan_intro":  (33,  6, 79, 100),  # photo-103 double biceps  -> pairs with pale_intro
- "pale_a":     (26,  9, 67, 74),   # 1654FF4C  standing front, arms down
- "tan_a":      (21, 10, 81, 96),   # photo-138 standing front, arms down
- "pale_b":     (29, 10, 67, 72),   # 4A3E7A35  standing, hands at hips
- "tan_b":      (24, 12, 78, 94),   # photo-13  standing, hand at hip (shorts, to match)
- "pale_c":     (24, 18, 79, 86),   # 2263A1D9  double biceps, wide
- "tan_c":      (16, 20, 87, 100),  # photo-125 double biceps
+ "pale_intro": (17.5, 20, 75.5, 87),  # 844C5D19  double biceps, poolside (Dan's pick)
+ "tan_intro":  (28.0,  6, 85.0, 100), # photo-103 double biceps  -> pairs with pale_intro
+ "pale_a":     (26.0,  9, 67.0, 74),  # 1654FF4C  standing front, arms down
+ "tan_a":      (20.0, 10, 95.0, 96),  # photo-138 standing front, arms down
+ "pale_b":     (29.0, 10, 67.0, 72),  # 4A3E7A35  standing, hands at hips
+ "tan_b":      (26.0, 12, 85.5, 94),  # photo-13  standing, hand at hip (shorts, to match)
+ "pale_c":     (21.5, 18, 81.5, 86),  # 2263A1D9  double biceps, wide
+ "tan_c":      ( 7.0, 20, 97.0, 100), # photo-125 double biceps
 }
 SRC = {k: (P / (k + (".png" if k.startswith("pale") else ".jpg"))) for k in CROPS}
 

@@ -52,6 +52,15 @@ note)` plus a `STOCK` map of Pexels file → seek point).
 | `make_srt_declump.py` | `make_srt_generic.py` + drops hallucinated zero-length clumps, ties break on reading order |
 | `qc_with_inserts.py` | `qc_generic.py` + off-chip samples chosen from overlay-free time + "every cutaway is really on screen" |
 
+## Audio: channels first, then tone (2026-08-22, spray-tan rev 2)
+
+| file | what it does |
+|---|---|
+| `chan_analyse.py` | **run this on every new roll first** — inter-channel delay + polarity, per-channel SNR, clipping and mono-fold comb ripple. Catches a two-microphone roll masquerading as stereo |
+| `build_audio_singlemic.py` | rebuild the programme audio from ONE channel, frame-locked to a picture you are not re-rendering (locks to each cached segment's VIDEO duration, asserts against the finished file before muxing) |
+| `fitvoice_longform.py` | score a candidate voice chain against a reference voice over 10 bands × 5 windows |
+| `finish_audio.py` | the fitted chain + two-pass loudnorm, muxed with `-c:v copy` |
+
 **Sourcing stock:** Pexels download URLs work with plain `curl`; the SEARCH pages are
 Cloudflare-gated. Load a Pexels page in the in-app browser and `fetch('/search/videos/
 <term>/')` same-origin — one `javascript_tool` call sweeps a dozen terms and returns
