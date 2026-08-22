@@ -103,10 +103,25 @@ json.dump({"keeps": keeps, "cuts": cuts, "dur": round(dur, 3), "span_end": SPAN_
                      for w in rw[:words_in_span]]},
           open("tight_cuts.json", "w"), indent=1)
 
-parts, cat = [], ""
+# AUDIO SOURCE: the RIGHT channel only, as mono.
+#
+# This roll is NOT stereo. It carries two different microphones: the right channel is
+# a close lav, the left is a mic ~2.7 m away (measured: the same voice, 7.83 ms later,
+# and POLARITY INVERTED). Carrying both meant one ear got a dry voice and the other a
+# roomy, phase-flipped copy of it -- which is heard as echo, and collapses into a hard
+# comb filter on any mono speaker. Measured on the two channels:
+#
+#     channel          comb ripple   reverb drop   clipped samples   SNR
+#     right (lav)         1.02 dB       14.1 dB           0         45.4 dB
+#     left  (far)         1.46 dB       12.1 dB      24,368         40.8 dB
+#     naive L+R sum       1.77 dB       14.3 dB           -            -
+#
+# The right channel wins on every axis. No EQ can undo a comb filter, so this is the
+# fix that matters -- everything downstream is tone.
+parts, cat = [f"[0:a]pan=mono|c0=c1,asplit={len(keeps)}" + "".join(f"[m{i}]" for i in range(len(keeps)))], ""
 for i, (a, b) in enumerate(keeps):
     parts.append(f"[0:v]trim=start={a}:end={b},setpts=PTS-STARTPTS,setsar=1[v{i}]")
-    parts.append(f"[0:a]atrim=start={a}:end={b},asetpts=PTS-STARTPTS[a{i}]")
+    parts.append(f"[m{i}]atrim=start={a}:end={b},asetpts=PTS-STARTPTS[a{i}]")
     cat += f"[v{i}][a{i}]"
 fc = ";".join(parts) + f";{cat}concat=n={len(keeps)}:v=1:a=1[vc][ac];[vc]{GRADE}[vout]"
 subprocess.run([FF, "-nostdin", "-y", "-v", "error", "-i", BASE, "-filter_complex", fc,

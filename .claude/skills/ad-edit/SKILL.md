@@ -67,6 +67,14 @@ first if you haven't this session.
   a 608→1080 px upscale. (Longform's 4K recommendation is a nice-to-have; here it
   is load-bearing.)
 
+## Step 0.4 — check the microphones (see /longform-edit Step 0.4 for the full rule)
+
+**The rolls are not stereo — they carry two different mics, and the right channel is the
+close lav.** Take `-af "pan=mono|c0=c1"` at the very first audio stage. Carrying both put
+a dry voice in one ear and a delayed, polarity-inverted room copy in the other; on the
+8/14 ad roll the left channel is also clipped in 24,368 samples. Verify per roll with the
+lag-search recipe in /longform-edit — the wiring can change between shoots.
+
 ## Step 1 — script-driven rough cut
 
 Transcribe the roll (longform Step 1), then align the transcript against the
@@ -434,6 +442,32 @@ whole sample is reproducible from `reference/modern60/`:
    once. Position from `textbbox()[3]`. And scale a glyph in its OWN small tile:
    `scale_about` on a canvas-sized layer with an off-centre anchor translates the whole
    frame instead of scaling in place.
+
+Modern-edit sample rev-2 (2026-08-22) — Dan: "the audio is still much worse than his":
+32. **When a fix keeps not working, stop tuning and go measure the SOURCE.** Two rounds
+   of EQ went onto a signal that was two microphones fighting each other. The tell was
+   available the whole time and took one command: cross-correlate the two channels with a
+   lag search. Strong peak at a non-zero lag = two mics, not stereo. Run it on every new
+   roll (Step 0.4).
+33. **Check the stereo image of anything you deliver.** His voice measured +0.99 L/R
+   correlation with the side channel 23 dB under the mid; ours measured −0.01 with side
+   and mid EQUAL. That single number would have caught this on day one. A talking-head
+   voice belongs dead centre — `pan=stereo|c0=c0|c1=c0` after the voice chain.
+34. **An EQ match is only valid against the source you will actually ship.** Refitting
+   after the channel fix reversed almost every band: the comb-filtered mix wanted +4.5 dB
+   at 530 Hz and −3.2 at 4 kHz; the clean lav wants −4.6 at 320 and +4.6 dB of shelf
+   above 3.5 kHz. A lav correction is always roughly "cut the chest bump, add the air".
+35. **Fit across several windows of both videos, not one.** A single 4 s window put the
+   mean error at 1.25 dB; the same chain measured over five windows each was 3.02 dB. The
+   five-window fit is in `reference/modern60/fitvoice.py`.
+36. **Locate a matching span in a reference edit by TRANSCRIPT, not by envelope
+   correlation.** His cut removed different pauses so the offset drifts through the video,
+   and a 2 s envelope window false-matched "the knowledge isn't the problem" 17 s out of
+   place with a confident-looking 0.78 correlation. Whisper both tracks and search the
+   word list (`reference/modern60/ab_audio.py`).
+37. **Ship an A/B when the note is subjective.** "Sounds worse" is not measurable by
+   argument — three sentences, his then ours, back to back, lets Dan settle it in 20
+   seconds.
 
 Modern-edit sample rev-1 (2026-08-22) — Dan compared our screens against the trial
 edit's directly and picked HIS. These are the rules that difference came down to:

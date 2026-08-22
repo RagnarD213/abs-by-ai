@@ -98,6 +98,39 @@ clips were the kitchen and workout demos.
 
 ---
 
+## Step 0.4 — CHECK THE MICROPHONES BEFORE ANYTHING ELSE
+
+**Jeff's rolls are not stereo. They carry two different microphones**, and using both is
+the single worst-sounding thing we have shipped. Verified on the 8/14 ad roll (C1591) and
+the 8/3 longform rolls (C1512/C1513/C1514):
+
+* The **right** channel is a close lav. The **left** is a mic ~2.6–2.7 m away.
+* The same voice appears in both, **7.4–7.9 ms apart**. On the 8/14 ad roll the two are
+  also **polarity inverted** (cross-correlation −0.77 rather than +0.7).
+* Carrying both puts a dry voice in one ear and a roomy, delayed copy in the other, and
+  collapses to a hard comb filter on any mono speaker. **It is heard as echo, and no EQ
+  will fix it.** On the 8/14 roll the left channel is additionally clipped in 24,368
+  samples; the right has zero.
+
+**So: take the right channel, as mono.**
+
+    -af "pan=mono|c0=c1"
+
+Confirm it per roll rather than assuming, because the wiring can change between shoots:
+
+    ffmpeg -ss 120 -t 15 -i ROLL.MP4 -af "pan=mono|c0=c0" -ar 48000 -c:a pcm_s16le L.wav
+    ffmpeg -ss 120 -t 15 -i ROLL.MP4 -af "pan=mono|c0=c1" -ar 48000 -c:a pcm_s16le R.wav
+    # cross-correlate with a +/-20 ms lag search: a strong peak at a non-zero lag means
+    # two mics. The channel that arrives EARLIER, decays FASTER after each word, and has
+    # the LOWER noise floor is the lav -- that is the one to keep.
+
+The three delivered 8/3 longforms were all cut carrying both mics. Re-rendering any of
+them is one filter change.
+
+**Flag to Jeff before the next shoot:** the far mic is opposite polarity on at least one
+roll, and the left input has been recorded hot enough to clip. Fix the polarity or drop
+the second mic, and lower the gain.
+
 ## Step 1 — transcript with WORD timestamps (free)
 
 `reference/whisper_run.py` → local Whisper `small`, word timestamps, **41s for 5:45

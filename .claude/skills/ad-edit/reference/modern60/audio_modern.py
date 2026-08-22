@@ -100,30 +100,33 @@ def main():
     total = dur_of(VIDEO)
     build_sfx_bed(total)
     chain = (
-        # VOICE. Measured against the trial edit's own voice spectrum (2026-08-22):
-        # ours was 5.5 dB down at 400-700 Hz and 4.2 dB down at 700-1200 Hz (thin, so
-        # the voice reads as distant) while sitting 3 dB HOT at 3.2-8 kHz, which is
-        # exactly the band the room's reverb lives in. That combination is what Dan
-        # heard as echo. Fix the tilt, then expand the tails down.
-        f"[0:a]highpass=f=75,"
-        f"equalizer=f=530:t=q:w=1.0:g=4.5,"          # body
-        f"equalizer=f=920:t=q:w=1.2:g=3.5,"          # chest / fullness
-        f"equalizer=f=1550:t=q:w=1.4:g=1.5,"
-        f"equalizer=f=4000:t=q:w=1.0:g=-3.2,"        # take the room off the top
-        f"equalizer=f=6300:t=q:w=1.0:g=-2.2,"
-        # Downward expander: pulls the reverb tail between words down. This is the
-        # actual de-reverb; the EQ only stops the room being emphasised. Deliberately
-        # GENTLE -- at threshold 0.030 / ratio 2.4 it ate the /f/ in "for free" and the
-        # "n't" in "isn't", and the re-transcription QC caught it (97.9% -> 96.0%).
-        # A fast attack matters more than depth: it must be open before the consonant.
-        f"agate=threshold=0.018:ratio=1.8:range=0.45:attack=3:release=300:knee=8,"
-        # gentle compression -- his read as "flatter", and a steadier voice also stops
-        # the sidechain from pumping the music bed
+        # VOICE -- the source is already the clean lav channel, in mono (see tight.py:
+        # the roll carries two different mics, and carrying both was the actual defect).
+        #
+        # This EQ is a LAV correction and is the opposite of what the old chain did.
+        # Fitted against the reference voice over five windows of each video: raw lav
+        # sits 7.7 dB down at 5-8 kHz (a chest-mounted capsule loses air) with a +2 dB
+        # bump at 250-400 (the classic chest resonance). Mean error across ten bands
+        # 3.02 dB -> 0.85 dB, worst band 1.70 dB.
+        f"[0:a]highpass=f=80,"
+        f"equalizer=f=320:t=q:w=1.1:g=-4.6,"     # chest bump
+        f"equalizer=f=170:t=q:w=1.0:g=-0.2,"
+        f"equalizer=f=1700:t=q:w=1.3:g=-2.0,"    # boxiness
+        f"equalizer=f=560:t=q:w=1.0:g=1.4,"      # body
+        f"equalizer=f=2600:t=q:w=1.1:g=2.6,"     # intelligibility
+        f"treble=g=4.6:f=3500:width_type=q:width=0.7,"   # the air a lav never had
+        # gentle downward expander for the (now much smaller) room tail and lav hiss
+        f"agate=threshold=0.010:ratio=1.6:range=0.5:attack=3:release=300:knee=8,"
+        # light compression -- his read as "flatter", and a steadier voice also stops
+        # the sidechain pumping the bed. No de-esser: measured sibilance peakiness is
+        # already 12.5 dB against his 13.9, so one would only cost clarity.
         f"acompressor=threshold=0.10:ratio=3:attack=10:release=200:makeup=1.7,"
-        f"asplit=2[vmix][vkey];"
+        # dual-mono: the voice must sit CENTRED. His measures +0.99 L/R correlation
+        # with the side channel 23 dB under the mid; ours used to measure -0.01 with
+        # side and mid equal, because the two mics were hard-panned against each other.
+        f"pan=stereo|c0=c0|c1=c0,asplit=2[vmix][vkey];"
         f"[1:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume={MUSIC_DB}dB,"
         f"afade=t=in:st=0:d=0.8,afade=t=out:st={total - MUSIC_FADE:.3f}:d={MUSIC_FADE}[mus];"
-        # the bed ducks itself out of the way of every syllable
         # release is deliberately LONG: a short release lets the bed spring back up
         # between words, which is where it masked the quiet "n't" in "isn't"
         f"[mus][vkey]sidechaincompress=threshold=0.020:ratio=9:attack=12:release=420:"
