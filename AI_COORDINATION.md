@@ -79,6 +79,62 @@ and an iPad-sized exercise-demo capture (2064×2752).
 membership cleared, then was set to comp (`status=comp, plan=beta`) to capture the trainer screenshot.
 Leave or clear as convenient — it is a test account, not a customer.
 
+### SPRAY TAN longform REV 2 DELIVERED — casting recast + THE AUDIO ROOT-CAUSED (2026-08-22, Claude Code)
+
+Same cut, same 18:53, same filename. **$0.00.** QC PASSES all six checks; srt_validate
+**12/12 windows, mean 98.7 %** (which also proves the rebuilt audio did not drift against a
+picture that was NOT re-rendered). Notes for Dan: `01 - My First Spray Tan/REV2_NOTES.md`.
+
+**THE HEADLINE, AND IT AFFECTS OTHER DELIVERED VIDEOS. C1512 is not a stereo recording —
+it carries two different microphones hard-panned against each other.** The same voice appears
+in the left channel **7.46 ms after** the right; zero-lag correlation between channels is only
+**+0.07**. Every phone, laptop and TV speaker sums L+R, and 7.46 ms summed is a **comb filter**
+with notches every ~134 Hz that no EQ can undo. Right (close lav) SNR **45.5 dB**, left (far
+mic) 34.1, naive sum 36.8 — **the sum is the worst of the three, and the sum is what shipped.**
+This is the same defect the modern-edit task found on the 8/14 ad roll (7.83 ms, polarity also
+inverted) — same rig, same night-shoot setup.
+
+**⚠ THE ZEPBOUND (C1513) AND SUPPLEMENTS (C1514) MASTERS ALMOST CERTAINLY HAVE IT TOO** — same
+shoot, same rig, and both were cut by the same generic pipeline that carries stereo through
+untouched. **Run `reference/chan_analyse.py` on them before anyone uploads.** Fixing is cheap:
+the cut does not change, so it is `build_audio_singlemic.py` + `finish_audio.py` + a `-c:v copy`
+mux, no re-render. Every automated check we had passed on the broken audio — LUFS, splice
+discontinuity and SRT overlap are all blind to a comb filter.
+
+**Fixed here:** right channel only as mono, then a voice chain **FITTED to this roll, not copied**
+— the ad chain cuts 320 Hz for a chest bump and this roll measured 9.4 dB LIGHT there, so copying
+it would have made things worse. Band error vs the reference voice **3.33 → 0.99 dB**. Delivered
+file measures **L/R correlation +1.000 at lag 0**, **−14.01 LUFS**, **−1.31 dBTP** (rev 1 was
++1.58 — the clipping lived in the far mic, not the lav, so the true-peak problem solved itself).
+Gate is firmer than the ad chain's and runs BEFORE the EQ, because the fitted +6.2 dB treble shelf
+lifts lav hiss with the air; verified taking room tone not word tails by 100 % word overlap on four
+re-transcribed windows. `afftdn` tried and rejected (floor −3 dB, band error 0.97 → 1.73).
+
+**NOT done, deliberately — Dan's call:** no music bed and no whoosh/pop SFX. Those are the other
+half of the modern-edit chain and are ad conventions; scoring a 19-minute educational talking head
+is a different decision. One pass if he wants it.
+
+**Casting:** 12 stock clips recast to the target demographic (white or Asian men 30–50) with the
+female-featuring clips re-picked; one sourced candidate was rejected rather than shipped for the
+same reason Dan flagged the original. Plus his two specific swaps — **4:01** is now someone
+actually applying to another person's **back**, and **11:05** is genuinely sun-damaged elderly
+skin (with 11:19 re-cut to a weathered forehead so the two land as a pair). All eight before/after
+crops re-centred on his body centre with real margin; three were truly clipping his arm at the
+frame edge.
+
+**Frame-lock trap worth knowing:** render.py's per-segment frame rounding accumulates **+0.65 s
+over 44 ranges**, so audio rebuilt from the EDL's float ranges drifts most of a second. Cut each
+range to its already-rendered segment's **video** duration (its AAC audio stream reads ~15 ms
+short and concat already compensates), and assert against the finished picture before muxing —
+that assertion caught the mistake first time.
+
+Skill updated (`090f7b1`): **Step 5.6 — check the CHANNELS before you touch tone**, lessons 28–29,
+and four new reference scripts (`chan_analyse.py`, `build_audio_singlemic.py`,
+`fitvoice_longform.py`, `finish_audio.py`).
+
+**EXACT NEXT ACTION — DAN: watch rev 2 and prune clips.** Then, separately: **run the channel
+check on the Zepbound and supplements masters.**
+
 ### SPRAY TAN longform REV 1 DELIVERED — clips/graphics pass + fixes (2026-08-21, Claude Code)
 
 `Handoffs/handoff-20260821-spraytan-rev1.md` executed. **19:00 → 18:53**, delivered over the same
