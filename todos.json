@@ -259,6 +259,12 @@
       "priority": "key",
       "why": "HANDOFF_modern_edit_60s_sample.md — created but not yet run",
       "addedAt": "2026-08-21"
+    },
+    {
+      "text": "Check Upwork",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-22"
     }
   ],
   "health": [
