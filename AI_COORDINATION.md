@@ -94,12 +94,23 @@ mic) 34.1, naive sum 36.8 — **the sum is the worst of the three, and the sum i
 This is the same defect the modern-edit task found on the 8/14 ad roll (7.83 ms, polarity also
 inverted) — same rig, same night-shoot setup.
 
-**⚠ THE ZEPBOUND (C1513) AND SUPPLEMENTS (C1514) MASTERS ALMOST CERTAINLY HAVE IT TOO** — same
-shoot, same rig, and both were cut by the same generic pipeline that carries stereo through
-untouched. **Run `reference/chan_analyse.py` on them before anyone uploads.** Fixing is cheap:
-the cut does not change, so it is `build_audio_singlemic.py` + `finish_audio.py` + a `-c:v copy`
-mux, no re-render. Every automated check we had passed on the broken audio — LUFS, splice
-discontinuity and SRT overlap are all blind to a comb filter.
+**⚠ MEASURED, NOT SUSPECTED: ALL FIVE DELIVERED LONGFORM MASTERS HAVE IT.** Ran
+`reference/chan_analyse.py` over every finished video in `claude edited long form content/`:
+
+| video | L/R delay | zero-lag corr | SNR L / R | sum ripple |
+|---|---|---|---|---|
+| 01 spray tan (rev 1) | −7.46 ms | +0.07 | 34.1 / **45.5** | 0.69 dB |
+| 02 Zepbound | −7.48 ms | +0.07 | 30.5 / **40.8** | 0.76 dB |
+| 03 supplements | −7.62 ms | +0.12 | 28.8 / **36.0** | 0.57 dB |
+| 04 invest-health | −7.48 ms | +0.05 | 27.4 / **36.1** | 0.58 dB |
+| 05 meal prep | −8.19 ms, **polarity INVERTED** | −0.05 | 29.7 / **39.4** | 0.61 dB |
+
+Right channel wins by 6–11 dB of SNR on every one, and the naive sum is the worst option
+every time. **Do not upload any of them as they stand.** 01 is fixed. Fixing the other four is
+cheap and needs **no re-render**: `build_audio_singlemic.py` + `finish_audio.py` + a `-c:v copy`
+mux, roughly 20 minutes each including a fresh voice fit per roll (fit each one — 01 needed the
+OPPOSITE low-end correction to the ad roll). Every automated check we had passed on the broken
+audio; LUFS, splice discontinuity and SRT overlap are all blind to a comb filter.
 
 **Fixed here:** right channel only as mono, then a voice chain **FITTED to this roll, not copied**
 — the ad chain cuts 320 Hz for a chest bump and this roll measured 9.4 dB LIGHT there, so copying
