@@ -1,9 +1,7 @@
 {
   "date": "2026-08-22",
   "order": [
-    "money::Post on TikTok",
-    "money::Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build",
-    "money::Execute handoff: Invest-health cut-down variants (after v3 approved)"
+    "money::Post on TikTok"
   ],
   "excluded": [
     "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
@@ -20,7 +18,9 @@
     "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
     "money::Approve Ad 1 rev-1, apply final revisions, finalize the /ad-edit skill",
     "money::Review the 5 parked video deliverables (3x 8/3 longform, invest-health v2, ab-wheel)",
-    "money::Execute handoff: iOS third-rejection fix (1.1 body-morphing + IAP submission)"
+    "money::Execute handoff: iOS third-rejection fix (1.1 body-morphing + IAP submission)",
+    "money::Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build",
+    "money::Execute handoff: Invest-health cut-down variants (after v3 approved)"
   ],
   "sessionsCompleted": 0
 }
