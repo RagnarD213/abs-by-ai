@@ -187,28 +187,26 @@ side-by-side before/after usage that is BANNED in our paid ads (fine for organic
 technique is replicable in the existing PIL/ffmpeg pipeline; plan delivered to Dan in the ad-1 rev-4
 session. AD 1 rev-4 itself is still awaiting Dan's review (9:16 on approval).
 
-### Exercise demo BATCH 2 — ALL 20 FINALIZED by Dan (2026-08-20, Claude Code)
+### Exercise demo BATCH 2 — INSTALLED IN THE APP, all 20 live (2026-08-22, Claude Code)
 
-Dan approved the full set. Finals stamped `<id>-AIDAN-narrated-FINAL.mp4` in
-`Media/exercise-demos/<id>/` (gitignored). **20 exercises, ~$90 total AI spend across generation +
-5 revision rounds.** All 15.8–27.0s, 1920x1080/24fps, AAC, cloned-voice narration.
+Dan approved the full set on 2026-08-20; installed and deployed 2026-08-22. Encoded each
+`<id>-AIDAN-narrated-FINAL.mp4` to 960x540 web mp4 + poster jpg into
+`public/exercise-demos/<id>.{mp4,jpg}` (41MB total for all 33 exercises now installed), added
+the 20 ids to `EXERCISE_DEMO_IDS` in `public/index.html`, renamed the `db-lateral-raise` library
+entry's `name` to "Side Lateral" per Dan's request (id unchanged — programs reference it), and
+installed `side-lateral`'s video under that same id. Committed (`2cddc76`), pushed, Railway
+deploy verified — all 20 `.mp4` files return 200 live on absbyai.com, "Side Lateral" confirmed
+in the deployed `exercises.js`. **This IS a native-retest trigger** (changes what the iOS/Android
+trainer screens display) — flagged to Dan.
 
 The 20: side-plank, wall-sit, hollow-hold (static holds) · knee-pushup, pike-pushup, chair-dip,
 split-squat, glute-bridge, calf-raise, crunch, lying-leg-raise, superman (bodyweight) · pullup,
 lat-pulldown, seated-cable-row, leg-extension, leg-curl, db-shoulder-press, db-curl, side-lateral (gym).
 
-**NOT INSTALLED IN THE APP — this is the next task.** Verified 2026-08-20: `public/index.html`
-`EXERCISE_DEMO_IDS` contains only 13 ids (batch 1's plank/pushup/reverse-lunge + batch 3's ten), and
-`public/exercise-demos/` holds only those 13 mp4+jpg pairs. Installing batch 2 means: encode each
-final to ~960x540 web mp4 + poster jpg into `public/exercise-demos/<id>.{mp4,jpg}`, add the ids to
-`EXERCISE_DEMO_IDS`, commit/push/deploy, live-verify — and it IS a native-retest trigger (changes what
-the iOS/Android trainer screens display). **`bw-squat` (the original pilot) is also still uninstalled.**
-
-**ID MAPPING GOTCHA for install:** the demo folder is `side-lateral` but the library id in
-`public/exercises.js` is still `db-lateral-raise` (name 'Lateral Raise'). Either rename the library
-entry's `name` to 'Side Lateral' (id must NOT change — programs reference it) or install the file as
-`db-lateral-raise.mp4`. Dan asked for the "side lateral" rename; the library copy change was deferred
-to the install task.
+**`bw-squat` (the original pilot) is NOT installed and NOT finalized** — checked its folder: only
+an unstamped `bw-squat-AIDAN-narrated.mp4` exists (no `-FINAL` suffix, no Dan approval), predating
+the double-pump-rule and background-lock fixes later batches used. It would need a regeneration
+pass through the current `/exercisegeneration` pipeline before it could ship, same as any new exercise.
 
 Everything learned across the five revision rounds is consolidated in `/exercisegeneration`: the
 DOUBLE-PUMP RULE (monotonic cuts + unimodal verification), the FULL-FRAME BACKGROUND LOCK
