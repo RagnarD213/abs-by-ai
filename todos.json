@@ -283,6 +283,12 @@
       "priority": "key",
       "why": "2026-08-23 planning — measured 2026-08-22: all 5 delivered masters carry two hard-panned mics 7.5-8.2ms apart; the summed mono is worse than either channel. Spray tan is fixed. ~20 min each, no re-render (build_audio_singlemic.py + finish_audio.py + -c:v copy mux). BLOCKS uploading any of them.",
       "addedAt": "2026-08-23"
+    },
+    {
+      "text": "Check iOS App Store review status (build 1.0 (3), submission a5fcdbf2-3eca-412e-8c20-b1f075a32c24)",
+      "priority": "key",
+      "why": "2026-08-23 planning — resubmitted 2026-08-22 with the 1.1 + IAP fixes, all 4 items were WAITING_FOR_REVIEW; Dan asked to check rejection status",
+      "addedAt": "2026-08-23"
     }
   ],
   "health": [
