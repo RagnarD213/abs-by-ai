@@ -33,7 +33,7 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
-### VIDEO 1 (external editor's ad cut) REVIEWED — revisions doc drafted; /revisions skill created (2026-08-23, Claude Code)
+### VIDEO 1 review CLOSED — Dan sent the revisions to the editor 2026-08-23 (Claude Code)
 
 Dan's new editor (teamcrackhow4@gmail.com) delivered "Video 1" (ad-1 script, 4:23, Drive
 `1M_T1ReDEREcnOerHwv4ea9sFrhmjNkgJ`). Full review done against Muhammad A's reference edit +
@@ -49,7 +49,8 @@ Drive ("00 ASSETS USED IN THE REFERENCE AD" + "AI clips for Muhammad" folders) �
 directly, nothing re-uploaded. **New skill `.claude/skills/revisions/`** captures the format, the
 standing-rule checklist, the asset library, and the lesson that Drive web upload can't be automated
 from the Chrome extension (check existing Drive folders first). $0.00 AI spend, no production code,
-no deploy risk beyond the docs/skill commit. **NEXT: Dan reads the doc and sends it to the editor.**
+no deploy risk beyond the docs/skill commit. **CLOSED: Dan approved and sent the doc to the editor
+2026-08-23. Waiting on the editor's next cut — review it with /revisions when it arrives.**
 
 ### iOS THIRD REJECTION FIXED — resubmitted to Apple 2026-08-22 (Claude Code)
 
