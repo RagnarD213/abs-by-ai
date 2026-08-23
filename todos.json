@@ -271,6 +271,18 @@
       "priority": "key",
       "why": "handoff-20260822-youtube-ads-geo-restructure.md — created but not yet run",
       "addedAt": "2026-08-22"
+    },
+    {
+      "text": "Check Meta ad campaigns (spend, results, any disapprovals)",
+      "priority": "high",
+      "why": "2026-08-23 planning — Dan flagged Meta as unreviewed; Google Ads has its own check task",
+      "addedAt": "2026-08-23"
+    },
+    {
+      "text": "Fix two-mic comb-filter audio on the 4 remaining delivered longform masters (Zepbound, supplements, invest-health, meal prep)",
+      "priority": "key",
+      "why": "2026-08-23 planning — measured 2026-08-22: all 5 delivered masters carry two hard-panned mics 7.5-8.2ms apart; the summed mono is worse than either channel. Spray tan is fixed. ~20 min each, no re-render (build_audio_singlemic.py + finish_audio.py + -c:v copy mux). BLOCKS uploading any of them.",
+      "addedAt": "2026-08-23"
     }
   ],
   "health": [
