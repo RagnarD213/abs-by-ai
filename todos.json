@@ -524,6 +524,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-20"
+    },
+    {
+      "text": "Cook weekly meal prep",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-23"
     }
   ]
 }
