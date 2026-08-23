@@ -453,7 +453,7 @@
     },
     {
       "text": "Remove calcium stains from pool tiles",
-      "priority": "key",
+      "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-11"
     },
