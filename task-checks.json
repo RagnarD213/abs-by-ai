@@ -1,7 +1,5 @@
 {
   "checked": [
-    "assistant::Drain yeti cooler, clean and put away",
-    "assistant::Take out trash and replace liners",
     "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit",
     "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit",
     "assistant::Take out trash",
@@ -201,8 +199,6 @@
     ]
   },
   "checkedAt": {
-    "assistant::Drain yeti cooler, clean and put away": "2026-08-16",
-    "assistant::Take out trash and replace liners": "2026-08-16",
     "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit": "2026-08-18",
     "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit": "2026-08-18",
     "assistant::Take out trash": "2026-08-18",
