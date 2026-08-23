@@ -33,6 +33,24 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### VIDEO 1 (external editor's ad cut) REVIEWED — revisions doc drafted; /revisions skill created (2026-08-23, Claude Code)
+
+Dan's new editor (teamcrackhow4@gmail.com) delivered "Video 1" (ad-1 script, 4:23, Drive
+`1M_T1ReDEREcnOerHwv4ea9sFrhmjNkgJ`). Full review done against Muhammad A's reference edit +
+all standing rules. **Revisions Google Doc (DRAFT — Dan reviews, then forwards to the editor):**
+https://docs.google.com/document/d/13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk/edit — markdown
+copy in `revision docs/`. Headline findings: (1) **audio has the two-mic comb baked in** — L/R
+identical (editor summed both mics), echo peak ~7.0–7.3 ms in every speech window; fix = re-import
+camera files, RIGHT channel only (doc explains it Premiere-style); (2) zero text graphics, no music
+bed (floor −53 dB), no punch-ins, gaps untightened; (3) compliance: fat→fit morph at 3:38 (banned),
+fake app UI + fake laptop dashboards instead of real product, blank-phone stock clip, label typo
+"AI GENERATE D", raw pillarboxed verticals; (4) all replacement assets already existed in Dan's
+Drive ("00 ASSETS USED IN THE REFERENCE AD" + "AI clips for Muhammad" folders) — doc links them
+directly, nothing re-uploaded. **New skill `.claude/skills/revisions/`** captures the format, the
+standing-rule checklist, the asset library, and the lesson that Drive web upload can't be automated
+from the Chrome extension (check existing Drive folders first). $0.00 AI spend, no production code,
+no deploy risk beyond the docs/skill commit. **NEXT: Dan reads the doc and sends it to the editor.**
+
 ### iOS THIRD REJECTION FIXED — resubmitted to Apple 2026-08-22 (Claude Code)
 
 `Handoffs/handoff-20260821-ios-third-rejection-fix.md` executed. **Submission
