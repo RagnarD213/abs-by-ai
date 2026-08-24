@@ -153,12 +153,6 @@
       "addedAt": "2026-08-19"
     },
     {
-      "text": "Review Upwork editor applicants — shortlist top 3-5 and send paid trial task (hire ~Thu)",
-      "priority": "key",
-      "why": "2026-08-19 planning — job posted 8/18; batch-2 editing is downstream of the hire; trial task beats portfolio-picking",
-      "addedAt": "2026-08-19"
-    },
-    {
       "text": "Execute handoff: Replace stick figures with AI exercise demo videos",
       "priority": "key",
       "why": "handoff-20260819-exercise-demo-videos.md — created but not yet run",
@@ -180,12 +174,6 @@
       "text": "Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
       "priority": "key",
       "why": "2026-08-21 planning — 4 editors started 8/20; keep them unblocked so results land on time",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Reconnect Google Calendar to the dashboard (refresh token is dead — invalid_grant)",
-      "priority": "key",
-      "why": "2026-08-21 planning — code + dashboard columns already built; the OAuth refresh token returns invalid_grant, so calendar is blank everywhere. Needs Dan's Google sign-in, then Claude finishes",
       "addedAt": "2026-08-21"
     },
     {
@@ -219,45 +207,9 @@
       "addedAt": "2026-08-21"
     },
     {
-      "text": "Execute handoff: iOS third-rejection fix (1.1 body-morphing + IAP submission)",
-      "priority": "key",
-      "why": "handoff-20260821-ios-third-rejection-fix.md — created but not yet run",
-      "addedAt": "2026-08-21"
-    },
-    {
       "text": "Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build",
       "priority": "key",
       "why": "HANDOFF_ad1_rev4_and_9x16.md — created but not yet run",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Execute handoff: Invest-health longform v3 revisions",
-      "priority": "key",
-      "why": "Handoffs/HANDOFF_invest_health_v3.md — created but not yet run",
-      "addedAt": "2026-08-20"
-    },
-    {
-      "text": "Execute handoff: Invest-health cut-down variants (after v3 approved)",
-      "priority": "key",
-      "why": "Handoffs/HANDOFF_invest_health_cutdowns.md — gated on Dan approving v3",
-      "addedAt": "2026-08-20"
-    },
-    {
-      "text": "Execute handoff: Install the 13 AI-Dan exercise demo videos in the app + App Store trainer screenshot",
-      "priority": "key",
-      "why": "handoff-20260821-exercise-demos-in-app.md — created but not yet run",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Execute handoff: Spray Tan longform rev-1 (clips/graphics pass, zoom cuts, before-after stills)",
-      "priority": "key",
-      "why": "handoff-20260821-spraytan-rev1.md — created but not yet run",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Execute handoff: Build 60s modern-edit sample (head-to-head vs Muhammad trial)",
-      "priority": "key",
-      "why": "HANDOFF_modern_edit_60s_sample.md — created but not yet run",
       "addedAt": "2026-08-21"
     },
     {
@@ -295,43 +247,36 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-20"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-20"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-20"
+      "recurring": true
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-20"
+      "recurring": true
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-20"
+      "recurring": true
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-20"
+      "recurring": true
     },
     {
       "text": "Inject Zepbound",
-      "priority": "high",
-      "addedAt": "2026-08-20"
+      "priority": "high"
     }
   ],
   "personal": [
