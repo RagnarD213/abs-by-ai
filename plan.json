@@ -1,8 +1,6 @@
 {
   "date": "2026-08-24",
-  "order": [
-    "money::Check Upwork"
-  ],
+  "order": [],
   "excluded": [
     "money::Execute handoff: Swap Dan's phone to the public Play build",
     "money::Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas",
@@ -25,7 +23,8 @@
     "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
     "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
-    "money::Execute handoff: Replace stick figures with AI exercise demo videos"
+    "money::Execute handoff: Replace stick figures with AI exercise demo videos",
+    "money::Check Upwork"
   ],
   "sessionsCompleted": 0
 }
