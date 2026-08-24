@@ -12,7 +12,8 @@
     "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
     "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
     "personal::Meal prep with Brittany (week of 2026-08-24)",
-    "money::Build an Instagram follower-growth plan (presentable profile + real subscriber count)"
+    "money::Build an Instagram follower-growth plan (presentable profile + real subscriber count)",
+    "money::Audit everyone who has generated an image: did they get the emails, and what did they generate"
   ],
   "log": {
     "health::Shower": [
@@ -217,6 +218,7 @@
     "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)": "2026-08-24",
     "money::Execute handoff: Google Ads offline conversion upload (Phase B)": "2026-08-24",
     "personal::Meal prep with Brittany (week of 2026-08-24)": "2026-08-24",
-    "money::Build an Instagram follower-growth plan (presentable profile + real subscriber count)": "2026-08-24"
+    "money::Build an Instagram follower-growth plan (presentable profile + real subscriber count)": "2026-08-24",
+    "money::Audit everyone who has generated an image: did they get the emails, and what did they generate": "2026-08-24"
   }
 }
