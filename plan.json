@@ -1,12 +1,12 @@
 {
   "date": "2026-08-24",
   "order": [
-    "money::Execute handoff: Let users purchase before creating an account (iOS)",
     "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
     "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
     "money::Execute handoff: Replace stick figures with AI exercise demo videos",
-    "money::Check Upwork"
+    "money::Check Upwork",
+    "money::Fix two-mic comb-filter audio on the 4 remaining delivered longform masters (Zepbound, supplements, invest-health, meal prep)"
   ],
   "excluded": [
     "money::Execute handoff: Swap Dan's phone to the public Play build",
@@ -20,7 +20,9 @@
     "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
     "money::Approve Ad 1 rev-1, apply final revisions, finalize the /ad-edit skill",
     "money::Review the 5 parked video deliverables (3x 8/3 longform, invest-health v2, ab-wheel)",
-    "money::Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build"
+    "money::Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build",
+    "money::Execute handoff: Let users purchase before creating an account (iOS)",
+    "money::Execute handoff: YouTube subscriber campaign geo restructure (all-countries + tier-1 clone)"
   ],
   "sessionsCompleted": 0
 }
