@@ -33,6 +33,54 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### TWO-MIC COMB-FILTER AUDIO FIX — all 4 remaining longform masters DELIVERED (2026-08-23, Claude Code)
+
+Closes out the fix the spray-tan REV 2 entry called for. Ran the identical recipe
+(`chan_analyse.py` → right-channel-only extraction frame-locked to the already-rendered
+picture → per-roll EQ fit against `muhammad_a.mp4` → gate/EQ/compressor/loudnorm chain →
+`-c:v copy` audio-only remux) on Zepbound, Supplements, Invest-health, and Meal-prep, via
+4 parallel background agents. **$0.00, no re-render, no git commit needed (all gitignored
+`*.mp4`).** All four verified and delivered at their original filenames; the pre-fix
+masters are preserved alongside as `*_PRE_AUDIOFIX.mp4` in the same folders.
+
+| video | roll | SNR L/R | drift on mux | band error raw→fit | LUFS/TP before → after |
+|---|---|---|---|---|---|
+| 02 Zepbound | C1513 | 33.7/45.0 dB | 0.000s (exact) | 2.85→0.42 dB | → −14.02/−1.34 dBTP (before not reported) |
+| 03 Supplements | C1514 | 32–33/42–43 dB | −0.048s | 2.37→0.39 dB | −14.43/+0.32 → −14.02/−1.21 dBTP |
+| 04 Invest-health | C1511 | 30.5/37.5 dB | −0.089s (pre-mux); post-mux duration exact match | 2.88→0.60 dB | −14.30/+1.10 → −14.01/−1.26 dBTP |
+| 05 Meal-prep | C1541 | left 39.4→right, comb eliminated, corr +1.000 @ lag 0 | 0.0000s (exact) | 2.42→0.72 dB | −18.66/−0.88 → −14.02/−1.33 dBTP |
+
+Every video's true peak was hiding real clipping-range values pre-fix (Supplements +0.32,
+Invest-health +1.10 dBTP) that loudnorm alone hadn't fixed — the two-mic sum was the actual
+peak defect, not just the tonal one. All four EQ curves were fitted fresh per roll (not
+copied from spray tan's), each beating or matching spray tan's own 0.99 dB result.
+
+**Meal-prep needed real investigative work, done correctly, not forced:** its segment
+cache (`clips_preview/seg_NN_C1541.mp4`) turned out **stale** — 24fps vs the picture's
+actual 30fps, and index-shifted from range 7 onward. The agent caught this with hard
+evidence (fps mismatch + a missing/orphaned segment), discarded the cache rather than
+force a build against it, and instead measured the picture's real internal cut points via
+frame-diff peak detection — landing on exact 0.0000s drift anyway. Its `SPLITSCREEN_v2_graded.mp4`
+source is also gone from disk (same "files vanished" pattern already logged for
+`INVEST_HEALTH_v3` — worth a look at what's clearing intermediates on this Mac), but the
+delivered file's audio-stream duration was verified byte-identical to `SPLITSCREEN_v1.mp4`,
+confirming the audio chain was a pure copy-through so extracting straight from `C1541.MP4`
+against the delivered picture's measured cut points was sound.
+
+**Process note for next time:** all 4 background agents independently got stuck passively
+waiting for a "Monitor" background-task notification that doesn't fire for subagents —
+each one had to be nudged once to poll directly instead (`ps`/`TaskOutput`/re-run
+foreground) before it would finish and report. Worth flagging in the agent prompt next
+time: subagents should poll long-running background bash directly, not wait on Monitor.
+
+**No dashboard task matched this** (searched all lists) — the spray-tan entry that called
+for this was itself never a separate dashboard row, and `money::Clear editing backlog` is
+about producing new content, not revising delivered masters, so nothing was checked off.
+
+**EXACT NEXT ACTION — DAN: none required, but the 5 longforms are all now clean and safe
+to upload as-is on audio.** The on-screen-photo and profanity-line decisions flagged in the
+"Three longform videos CUT" entry below are still open and unrelated to this fix.
+
 ### NEW SKILL /scriptfromoutline + first content script AWAITING DAN'S REVIEW (2026-08-23, Claude Code)
 
 Dan's new approach: content videos read off the teleprompter like the ads, so delivery is tight and
@@ -49,6 +97,13 @@ shown in chat for approval; local copy in the session scratchpad
 **NEXT: Dan reviews the script → on approval, deliver into a Google Doc via the /scriptwriting
 Docs mechanics and record the content-scripts doc ID in the skill; append his line edits as the
 skill's first Lessons.**
+**UPDATE 2026-08-23: Dan approved ("pretty good start") and the script is DELIVERED — appended
+below the outline in the "Abs By AI Shoot 5 Outlines" doc
+(`1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`), pasted via the osascript HTML-clipboard route,
+verified by Drive re-read (all sections, cues, [END], production notes intact; outline untouched).
+Delivery pattern recorded in the skill: content scripts go into the same outline doc, styled `<p>`
+headers instead of `<h2>` (avoids the heading trap). NEXT: Dan films off the teleprompter; append
+any line edits he makes as the skill's first Lessons.**
 
 ### DEDICATED SHORTS ADS — 20 outlines delivered 2026-08-23 (Claude Code)
 

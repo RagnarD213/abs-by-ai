@@ -116,8 +116,13 @@ ad voice traits (see /scriptwriting) PLUS:
 4. **Show the full script in chat for Dan's approval BEFORE the Google Doc.**
 5. Deliver into a Google Doc using the proven /scriptwriting Docs mechanics
    (osascript HTML-clipboard paste; all the clipboard/heading/undo traps
-   documented there apply verbatim). Content scripts doc: record its ID here
-   once the first one is created.
+   documented there apply verbatim). **Delivery target (settled 2026-08-23):
+   append the script INTO THE SAME OUTLINE DOC, below the outline** — Dan's
+   "add that script to the document" meant the outline doc itself. Shoot 5
+   outlines doc: `1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`. Recipe that
+   worked first try: cursor at end of last outline bullet → Return twice (exits
+   the bullet list into Normal text) → paste. Use styled `<p>` paragraphs for
+   section headers, NOT `<h2>` — avoids the heading-style trap entirely.
 6. Standing visual rule: no side-by-side before/after if any frame of this
    video might be cut into an ad (shorts/ads mining is routine — assume it
    will be).
