@@ -7,8 +7,7 @@
     "assistant::Have Dan approve an order for a broom, dustpan and duster",
     "assistant::Clean both bathroom toilets",
     "money::Create beta tester account for Ty String (Aces coach)",
-    "personal::Hire someone to install artificial hedge panels",
-    "money::Execute handoff: Build 60s modern-edit sample (head-to-head vs Muhammad trial)"
+    "personal::Hire someone to install artificial hedge panels"
   ],
   "log": {
     "health::Shower": [
@@ -204,7 +203,6 @@
     "assistant::Have Dan approve an order for a broom, dustpan and duster": "2026-08-18",
     "assistant::Clean both bathroom toilets": "2026-08-18",
     "money::Create beta tester account for Ty String (Aces coach)": "2026-08-19",
-    "personal::Hire someone to install artificial hedge panels": "2026-08-19",
-    "money::Execute handoff: Build 60s modern-edit sample (head-to-head vs Muhammad trial)": "2026-08-21"
+    "personal::Hire someone to install artificial hedge panels": "2026-08-19"
   }
 }
