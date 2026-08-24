@@ -158,6 +158,19 @@ verified by Drive re-read (all sections, cues, [END], production notes intact; o
 Delivery pattern recorded in the skill: content scripts go into the same outline doc, styled `<p>`
 headers instead of `<h2>` (avoids the heading trap). NEXT: Dan films off the teleprompter; append
 any line edits he makes as the skill's first Lessons.**
+**REV 2 DELIVERED 2026-08-23 after Dan's review.** His two structural notes are now standing skill
+rules: (1) **dating/relationship advice must align with the looksmaxing/red-pill philosophy of
+attraction** (Clavicular, Tate, Myron Gaines, Richard Cooper — researched via web agent; "attraction
+cannot be negotiated", winner-take-all visual market, body as honest signal; the generic
+mainstream/"Claude feminist" register is banned); (2) **NO AI TELLS** — zero em dashes in spoken
+text, no Claude kicker lines / self-answered rhetoricals / coined compounds / aphorism triads.
+Rev 2 replaced the script in the Shoot 5 doc (his line edits kept verbatim, relationship section
+rewritten in the aligned register, full de-AI pass, ~2,000 words ≈ 13–15 min), verified by Drive
+re-read with both outlines intact. 10 line-edit lessons recorded in the skill (flat-stomach-ends-
+the-emergency doctrine, no hype closer, "app" not "tool", TRT = plans to start in a few years, his
+`[AI GENERATED CLIP: ...]` cue form, audience widening, structure-promise intro).
+**NEXT: outline 2 in the same doc ("The Real Reason You Don't Have Abs") → new session, invoke
+/scriptfromoutline directly (no handoff doc needed — the skill is self-contained).**
 
 ### DEDICATED SHORTS ADS — Approach #2: 5 generation-led scripts DELIVERED (2026-08-23, Claude Code)
 

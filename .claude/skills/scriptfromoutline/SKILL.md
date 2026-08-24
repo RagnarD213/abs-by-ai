@@ -78,6 +78,65 @@ ad voice traits (see /scriptwriting) PLUS:
   tracking your macros, go to absbyai.com") — short, then move on. He also
   name-drops free alternatives (Claude, Gemini) — that honesty stays.
 
+## NO AI TELLS (Dan's #1 feedback from the first script review, 2026-08-23)
+
+Dan's verdict on script 1: well written, but "it seems like something that Claude
+wrote." The fix is a mandatory de-AI pass before delivery:
+
+- **ZERO em dashes in spoken text.** Not reduced — zero. Use periods, commas,
+  and plain hyphens. (Cues/notes may keep them; they're never read.) Check
+  mechanically before delivering: count "—" in the spoken paragraphs.
+- **Kill the Claude signature moves**, all of which Dan cut or flagged:
+  - Snappy kicker lines bolted onto a paragraph ("and right now, the other guy
+    has it").
+  - Self-answered rhetorical volleys ("Is that fair? No. Is it real?
+    Absolutely.") — Dan deleted this pattern on sight.
+  - Coined compound labels ("serious-mode move").
+  - Polished aphorisms and alliterative triads ("a fast, focused, few-month
+    war").
+  - "quote unquote" (write "so-called" instead).
+- **What Dan actually writes** (match this): plain declarative sentences;
+  direct questions aimed at the viewer ("Think about it. Aren't you much more
+  attracted to fit women?"); ALL-CAPS for a single stressed word ("you MUST
+  lose your belly fat"); statistics stated flat with a plain hyphen ("about 70%
+  of relationships begin on dating apps now - and it's likely to increase");
+  short paragraphs that each make one blunt claim.
+- His line edits in the doc ARE the calibration set — diff any section he
+  touched and imitate the direction of the change.
+
+## Dating & relationship advice register (Dan's standing instruction, 2026-08-23)
+
+Any dating, attraction, or relationship content is written in alignment with
+the looksmaxing / red-pill-adjacent philosophy of attraction (Clavicular,
+Andrew Tate, Myron Gaines, Richard Cooper). Dan: "That is a philosophy of
+attraction I believe in, and the one which most men online believe in." This is
+a register rule, not a topic suggestion — the generic mainstream register is
+BANNED.
+
+Aligned framings (use these):
+- Looks are the foundation of attraction, and the dating market is visual and
+  winner-take-all: the top ~10% of men get nearly all the matches; leanness is
+  the fastest, cheapest way into that minority.
+- **Attraction cannot be negotiated** (Cooper/Tomassi). In a relationship, her
+  attraction, desire, and respect track your physical form continuously,
+  whether she admits it or not. She won't tell you; her behavior tells you.
+- Your body is an honest signal of discipline and status; being fat broadcasts
+  low value before you speak.
+- Fix yourself first; options, respect, and affection follow. The gym (and
+  leanness) is the highest-ROI male self-improvement at any age or income.
+
+Banned framings (the "generic Claude feminist point of view" Dan rejected):
+- "Confidence is what really matters," "communication is key," "the right
+  person will love you as you are," body-positivity softening, fairness
+  disclaimers ("is that fair? no, but…"), any framing where attraction is owed,
+  reassured, or talked into existence.
+
+Dan's own rewrite of script 1's dating section is the template: blunt stats
+(70% of relationships start on apps; top 10% of men / top 50% of women), cause
+and effect ("If you have belly fat, nearly every attractive woman swipes left
+on you in under three seconds"), and the payoff stated as abundance ("abundant
+matches and your choice of many attractive women").
+
 ## Content vs ads — what changes
 
 - **Length:** 10–15 min default unless Dan says otherwise. His relaxed content
@@ -127,7 +186,31 @@ ad voice traits (see /scriptwriting) PLUS:
    video might be cut into an ad (shorts/ads mining is routine — assume it
    will be).
 
-## Lessons
+## Lessons (from Dan's review of script 1, 2026-08-23)
 
-- (v1 — none yet. Append Dan's line-edit lessons here after the first review,
-  the way /scriptwriting v2 did.)
+1. The two big ones are their own sections above: **NO AI TELLS** and the
+   **dating/relationship register**. Everything below is from his line edits.
+2. **Widen the audience in the intro**: he added "even if you're only a little
+   bit overfat right now." Don't write only to the very fat viewer.
+3. **Preview the structure as a promise**: he added "Then I'll give you my five
+   step plan to fix your belly fat emergency as fast as possible." Name the
+   deliverable in the intro.
+4. **Doctrine change: the emergency ends at a FLAT STOMACH, not abs.** His
+   added paragraph: emergency mode gets most people a flat stomach in months,
+   then the rest of the journey to abs happens at a comfortable non-emergency
+   pace. Use this framing in all emergency-themed content.
+5. **No hype closer after the subscribe line.** He deleted "Now go treat this
+   like the emergency it is." The subscribe line ends the video.
+6. **"App", not "tool"**, for AbsByAI.com.
+7. **TRT fact (supersedes the voice section if they conflict): Dan has never
+   done TRT but plans to start in the next few years.** Say it that way, not
+   "I'm not going to pretend I've been on TRT."
+8. **He writes AI-clip cues as `[AI GENERATED CLIP: ...]`** — adopt that form
+   for generated-asset cues.
+9. **He softened universal claims where they overreach**: "get an actual blood
+   test" became conditional ("So if you think you might have low
+   testosterone"). Don't command every viewer to do everything.
+10. When replacing a script section in the outline doc, select from the script
+   title through the last production note and paste over it (anchor with
+   cmd+left at the title, shift+click after the final note). The outlines
+   above and below survive untouched; verified by Drive re-read.
