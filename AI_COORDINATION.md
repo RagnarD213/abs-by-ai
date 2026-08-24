@@ -426,6 +426,14 @@ should gain a lesson from this rejection (generation-first for shorts) in a futu
 example scripts in the Approach #2 doc to train the style. NEXT: wait for his new examples, then
 diff them against the old ones + the rejected 5 (session scratchpad `shortsads/five-scripts.html`)
 and attempt batch 3.** Calibration recorded in the /ad-outlines skill (SHORTS ADS section).**
+**BATCH 3 DELIVERED 2026-08-24:** Dan added 7 new examples (question/command/news hooks,
+second-person pitch, the generate→analyze→plan→adjust mechanism, almost no cues — NOT
+transformation stories; he also rewrote batch-2's "30 Seconds" script into his register and
+kept it). 5 new scripts written in that register and appended to the Approach #2 doc
+(verified by re-read, his scripts intact): What Would You Look Like With Abs / The First
+Step Isn't A Workout / Why Do Most Guys Never Get Abs / The Cheat Code / Never Pay A
+Nutritionist Again. All 149–168 words ⇒ ~0:45–0:50 at his pace. Register delta recorded in
+the /ad-outlines skill. **NEXT: Dan reviews batch 3.**
 
 ### DEDICATED SHORTS ADS — 20 outlines delivered 2026-08-23 (Claude Code)
 

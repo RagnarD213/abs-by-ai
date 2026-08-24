@@ -403,3 +403,28 @@ one plan beat → CTA) was not sufficient — the drafts still read as compresse
 until those exist; then diff his new examples against the two old ones AND against the
 rejected 5 (in the 2026-08-24 session scratchpad `shortsads/five-scripts.html`) to
 extract what he changed, before writing anything.**
+
+**2026-08-24 UPDATE — Dan's 7 new examples define the register. The delta from the
+rejected batches, extracted by diff:**
+- **NOT personal transformation stories.** Most of his new scripts never show the before
+  picture and never say "I was 200 lbs." The rejected batches were all first-person
+  story arcs; his are second-person direct pitches TO the viewer.
+- **Hooks are questions, commands, or news claims** — "Fire Your Trainer!", "Why Are
+  Trainers Going Out Of Business?", "Do You Think AI Is Changing The World?", "What's
+  The Best Ab Exercise?" — not personal reveals.
+- **The recurring mechanism, nearly verbatim across his scripts:** generate the picture →
+  "that's not just for motivation — it shows your AI exactly how much fat you have to
+  lose and where you need to gain muscle" → personalized workout + nutrition plan →
+  "AI adjusts when life gets in the way" (injured / can't make the gym / broken
+  equipment). Numbered lists ("three things no human trainer can do", "three simple
+  steps") are a favorite structure.
+- **Almost no camera cues** — many scripts have zero or one bracket. The rejected
+  batches were cue-heavy.
+- **The trainer/nutritionist CAN appear** — as the thing AI replaces, flowing FROM the
+  generation as step one; what's banned is leading with the app's coaching features.
+- **His phrases:** "completely free", "in seconds", "far better results", "when life
+  gets in the way", "make your dream body real", "Tap the button below now to get
+  started."
+- Batch 3 (5 scripts in this register) delivered 2026-08-24: What Would You Look Like
+  With Abs / First Step Isn't A Workout / Why Do Most Guys Never Get Abs / The Cheat
+  Code / Never Pay A Nutritionist Again. Awaiting Dan's verdict.
