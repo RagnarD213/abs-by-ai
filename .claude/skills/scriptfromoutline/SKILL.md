@@ -81,7 +81,10 @@ ad voice traits (see /scriptwriting) PLUS:
 ## NO AI TELLS (Dan's #1 feedback from the first script review, 2026-08-23)
 
 Dan's verdict on script 1: well written, but "it seems like something that Claude
-wrote." The fix is a mandatory de-AI pass before delivery:
+wrote." After script 2 he named the deepest tell of all: **the writing is always
+inoffensive.** "It always says things in a very bland AI-like way, and it never
+swears. It never says anything controversial." See the BE CONTROVERSIAL section
+below — it is a writing requirement, not an option. The mechanical de-AI pass:
 
 - **ZERO em dashes in spoken text.** Not reduced — zero. Use periods, commas,
   and plain hyphens. (Cues/notes may keep them; they're never read.) Check
@@ -103,6 +106,36 @@ wrote." The fix is a mandatory de-AI pass before delivery:
   short paragraphs that each make one blunt claim.
 - His line edits in the doc ARE the calibration set — diff any section he
   touched and imitate the direction of the change.
+
+## BE CONTROVERSIAL. SWEAR. (Dan's standing instruction, 2026-08-24)
+
+After script 2 Dan diagnosed the last remaining tell: the writing is "always
+very inoffensive… it never swears. It never says anything controversial." His
+instruction: **actively make an effort to incorporate profanity and be more
+controversial**, like the scripts he writes himself. This is a positive writing
+requirement — don't wait for him to add the edge in review.
+
+- **Profanity is part of his voice.** His flagged-and-kept lines across the
+  longforms include four profanity beats, and his script-2 edit added:
+  "If you're not working out or eating healthy, you're basically shitting all
+  over God's temple." Write 1–3 swears per longform at the moments of peak
+  emphasis — where the point lands hardest — not scattered filler cussing.
+  His register is "shit / ass / hell / damn" used for force.
+- **Every video should have at least one beat that would make a mainstream
+  audience mad, said without apology.** Script 2's church section and Dan's
+  own "You are not smart enough to understand scientific research" are the
+  calibration. If nothing in the script could offend anyone, it's not his
+  voice yet.
+- **Escalate claims, don't hedge them.** His edits repeatedly made lines
+  BOLDER: "the scripture is not on the other side of this either" became
+  "And I'll prove it to you with the word of God himself." "I'm going to show
+  you exactly how to solve it" became "I'm going to solve the problem FOR
+  you." When choosing between a defensible phrasing and a bold one, take the
+  bold one.
+- One practical guardrail (state it in production notes, don't let it soften
+  the writing): keep profanity out of the first thirty seconds and out of
+  titles/thumbnails for YouTube ad-friendliness; mid-video moderate profanity
+  is fine.
 
 ## Dating & relationship advice register (Dan's standing instruction, 2026-08-23)
 
@@ -245,3 +278,43 @@ matches and your choice of many attractive women").
 16. **cmd+f does NOT focus the Docs find box when driven through the extension.**
    Typing goes straight into the document. Always screenshot after cmd+f and CLICK the
    find field before typing.
+
+## Lessons (Dan's review of script 2, 2026-08-24 — from a line diff of his edits)
+
+17. **The big one is its own section above: BE CONTROVERSIAL. SWEAR.** His meta-note:
+   still "generic Claude writing" because it's inoffensive, bland, and never swears.
+18. **Don't force the before-picture/bio beat into every video.** He deleted the
+   entire "[SHOW BEFORE PICTURE] … that's me at thirty-eight … I got my time back"
+   beat from script 2's intro. Video 1 already carries the origin story; later videos
+   get to the content faster. Use the before photo when the video is ABOUT his
+   transformation, not as a default credibility ritual.
+19. **He also cut the abstract thesis-echo lines** ("So you keep looking for more
+   information, when information was never what was missing", "Not because I learned
+   something new. Because I got my time back."). A point made once concretely doesn't
+   get an aphoristic restatement — that's the restatement rule applying to IDEAS,
+   not just phrases.
+20. **Close each strategy/section with a direct command recap.** He added closers:
+   "Use AI as aggressively as you can to automate your life, and you'll have hours
+   every week to devote to fitness" and "You can go back to doing all of these things
+   once your belly fat emergency is solved." One or two sentences, imperative, then
+   the next section.
+21. **Name specific products and make concrete capability claims.** He added
+   "Subscribe to Claude, and use it as aggressively as possible" and the robot-vacuum
+   upgrade beat ("nothing like the old Roombas… they vacuum the floor better than you
+   can, and they can also mop"). Generic category talk ("AI tools") is the bland tell;
+   he names the thing and says what it does.
+22. **Reclaimed time gets reinvested in the mission, not in relaxing.** He replaced
+   "relax and de-stress so you're not wrecked" (in the self-driving beat) with "watch
+   educational videos about exercise and nutrition." Never write recovery/self-care
+   framing where a productive-use framing fits.
+23. **Simplify scholarly detail into personal stakes.** He cut the Talmud mechanics
+   ("live by them, not die by them", Yom Kippur) down to: skipping the Sabbath is
+   explicitly authorized to save a life, "the life you're saving is your own," and
+   your family's too. One fact, then make it about the viewer.
+24. **Speak to the audience segments by name.** His school-work addition talks
+   straight to students ("the other students are already doing it… most of what you
+   learn in school is useless… it's undetectable") — a maximally controversial claim
+   delivered as a plain practical tip. That's the register ceiling to write toward.
+25. **Small factual grounders beat rhetoric**: he added "They slept five hours a
+   night" to the what-they-actually-did list, and "wanting to get in shape" over
+   "want abs" for the broader audience (mirrors lesson 2).

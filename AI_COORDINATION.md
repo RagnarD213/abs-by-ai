@@ -386,6 +386,17 @@ the-emergency doctrine, no hype closer, "app" not "tool", TRT = plans to start i
 /scriptfromoutline directly (no handoff doc needed — the skill is self-contained).**
 
 **SCRIPT 2 DELIVERED 2026-08-24 (Claude Code).** “The Real Reason You Don’t Have Abs” (~2,150 words ≈ 13–15 min) written from outline 2 and appended into the same Shoot 5 doc (`1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`), verified by Drive re-read — both outlines and script 1 intact. Dan: “this process is working very well… you have my writing style down pretty well.” $0.00 AI spend, no production code, no deploy. Six new skill lessons (11–16) committed: the multi-faith scripture rules for the pause-your-service beat (1 Cor 6:19-20 + pikuach nefesh from Lev 18:5 / Yoma 85b + the Abdullah ibn Amr hadith in Bukhari; **never write “peace be upon him” in Dan’s voice**; paraphrase, never quote a translation), `[CLAUSE ...]` = Wispr for “Claude…”, re-read the outline right before delivering (Dan added a school-work bullet mid-session, typed in after the paste), and two Docs mechanics: the internal-clipboard paste failure recovers by re-setting both flavors and pasting again, and cmd+f does NOT focus the find box through the extension — click the field first. **NEXT: outline 3 when Dan writes one; /scriptfromoutline is self-contained.**
+**SCRIPT 2 REVIEWED BY DAN 2026-08-24 → skill v3 committed.** Diffed his doc edits against the
+original (recovered from the writing session's scratchpad). New standing section **"BE
+CONTROVERSIAL. SWEAR."** — his meta-note: still generic Claude writing because it's inoffensive,
+bland, never swears, never controversial; profanity (1–3 per longform at peak emphasis, his
+"shitting all over God's temple" edit is the calibration) and at least one unapologetic
+mainstream-angering beat are now writing requirements, claims escalate instead of hedge. Plus
+lessons 17–25 from the line diff: drop the before-photo/bio ritual in later videos, cut abstract
+thesis-echo lines, command-form section closers, name products concretely (Subscribe to Claude),
+reinvest reclaimed time in the mission not relaxation, simplify scholarly detail to personal
+stakes, speak to segments directly (students). No doc changes needed — Dan already edited the
+script himself.
 
 ### DEDICATED SHORTS ADS — Approach #2: 5 generation-led scripts DELIVERED (2026-08-23, Claude Code)
 
