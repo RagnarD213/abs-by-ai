@@ -33,6 +33,45 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### NEW SKILL /findassets + first clip DELIVERED into the ab-wheel revision doc (2026-08-24, Claude Code)
+
+Dan's ask: when he writes a revision that *names* footage we already own instead of linking it,
+Claude should find it, **cut the exact portion**, upload only that portion to Drive, and write the
+link into the revision doc at the right bullet. Skill created at `.claude/skills/findassets/`
+(SKILL.md + `DELIVERED_CLIPS.md` reuse log + fitted grade curve in `reference/`). **$0.00 AI spend,
+no production code, no deploy, no native-retest trigger.**
+
+**First use — the `[CLAUDE - FIND THIS CLIP...]` placeholder at 0:36 in "Muhammad A. Upwork video
+revisions" (`10DrQ9kYuE1Oz4XBzyWS6uz7tb0dcojvAWP2J0-g6ljc`), ab-wheel organic section.** Delivered
+`TOE-TOUCHES_0-36_replaces-vsit_4.47s_1080p.mp4` into `00 ASSETS USED IN THE REFERENCE AD`
+(`13rs4C70ClHA22pdy2-XUoGMkfEzdi8RU`, already "anyone with link: reader" by inheritance), and typed
+the link + editor instruction over the placeholder in the doc. Dan's four calls: workout run-through
+(not the teaching demo), match the existing V-Sit Twists clip's length, keep original audio, same
+folder as the reference assets.
+
+**Four findings worth keeping:**
+1. **The published master was the wrong source.** V4 on YouTube has the old teal/pink "Toe Touches /
+   10 Reps" lower third burned in across the whole set. Used
+   `The Ultimate 1 Minute Ab Workout - DESCRIPT RAW CUTDOWN.mp4` instead (clean, ungraded), then
+   fitted the grade back: crop `1684:947:110:50` → 1920x1080 to match V4's punch-in, per-channel
+   percentile-matched curves. Result lands within ~3 levels of V4 on every channel. Raw time =
+   V4 time + 0.583 s.
+2. **Length spec came from measuring the editor's cut**, not guessing: the V-Sit Twists clip at 0:36
+   runs 34.87 → 39.34 = **4.47 s**. Two editors had sent versions of this video; the 6:58 cut from
+   sharkimageryproduction is the one Dan's timestamps match.
+3. **There is exactly one way to write a file to Drive from here, and it duplicates.** Drive MCP
+   `create_file` is base64-through-the-model (unusable over a few hundred KB), the
+   `GOOGLE_REFRESH_TOKEN` in `~/.absbyai-secrets.env` is **calendar.readonly only**, and there is no
+   rclone/Drive sync on this Mac. Working route: inject an `input[type=file]` into the Drive page,
+   `file_upload` into it (10 MB cap), then dispatch a synthetic drag/drop. It uploads **once per
+   ancestor element dispatched on** — this produced **17 duplicates**, all trashed; verify by listing
+   the folder by `parentId` twice, since title search lags.
+4. **"Keep original audio" was silence** (-70 dB) — the music only exists on the graded master.
+
+**EXACT NEXT ACTION — DAN: none. The doc is updated; forward it to Muhammad when the rest of the
+round-1 notes are ready.**
+
+
 ### INSTAGRAM GROWTH PLAN for @abs.by.ai DELIVERED (2026-08-24, Claude Code)
 
 Audit + 90-day plan, no code, no deploy, **$0.00 AI spend**. Artifact:
