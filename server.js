@@ -3267,7 +3267,10 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
       if (!imgPart) return { ok: false, status: 400, data };
 
       const inline = imgPart.inline_data || imgPart.inlineData;
-      return { ok: true, imageBase64: inline.data, imageMime: inline.mime_type || inline.mimeType || 'image/png' };
+      // The provider's own label lies: Nano Banana Pro returns JPEG bytes tagged
+      // image/png. That wrong label was being stored in the data URI and then
+      // served as the Content-Type by /api/welcome-image. Bytes win.
+      return { ok: true, imageBase64: inline.data, imageMime: sniffImageMime(inline.data, inline.mime_type || inline.mimeType || 'image/png') };
     };
 
     // Haiku vision compares before/after and flags edits so subtle they'd read as
@@ -3391,7 +3394,8 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
         const imgRes = await fetch(imgUrl, { signal: controller.signal });
         if (!imgRes.ok) return { ok: false };
         const buf = Buffer.from(await imgRes.arrayBuffer());
-        return { ok: true, imageBase64: buf.toString('base64'), imageMime: 'image/jpeg', model: 'flux' };
+        const b64 = buf.toString('base64');
+        return { ok: true, imageBase64: b64, imageMime: sniffImageMime(b64, 'image/jpeg'), model: 'flux' };
       } catch (e) {
         if (e.name !== 'AbortError') console.error('Replicate error:', e.message);
         return { ok: false };
@@ -3446,7 +3450,8 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
         const imgRes = await fetch(imgUrl, { signal: controller.signal });
         if (!imgRes.ok) return { ok: false };
         const buf = Buffer.from(await imgRes.arrayBuffer());
-        return { ok: true, imageBase64: buf.toString('base64'), imageMime: 'image/jpeg', model: 'seedream' };
+        const b64 = buf.toString('base64');
+        return { ok: true, imageBase64: b64, imageMime: sniffImageMime(b64, 'image/jpeg'), model: 'seedream' };
       } catch (e) {
         if (e.name !== 'AbortError') console.error('Seedream error:', e.message);
         return { ok: false };
@@ -3494,7 +3499,8 @@ app.post('/api/generate-image', aiLimiter, (req, res, next) => optionalAuth(req,
             const imgRes = await fetch(sampleUrl, { signal: controller.signal });
             if (!imgRes.ok) return { ok: false };
             const buf = Buffer.from(await imgRes.arrayBuffer());
-            return { ok: true, imageBase64: buf.toString('base64'), imageMime: 'image/jpeg', model: 'flux' };
+            const b64 = buf.toString('base64');
+            return { ok: true, imageBase64: b64, imageMime: sniffImageMime(b64, 'image/jpeg'), model: 'flux' };
           }
           if (status !== 'Pending' && status !== 'Queued' && status !== 'Processing') {
             // Error / Request Moderated / Content Moderated / unknown → give up.
@@ -4070,7 +4076,7 @@ function holdLockedImage(deviceId, imageBase64, imageMime) {
     heldImages.delete(oldest);
   }
   const token = crypto.randomBytes(18).toString('hex');
-  heldImages.set(token, { at: now, deviceId: deviceId || null, imageBase64, imageMime: imageMime || 'image/png' });
+  heldImages.set(token, { at: now, deviceId: deviceId || null, imageBase64, imageMime: sniffImageMime(imageBase64, imageMime || 'image/png') });
   return token;
 }
 function getHeldImage(token) {
@@ -4318,7 +4324,8 @@ app.get('/api/welcome-image', async (req, res) => {
     const dataUri = rows[0]?.img;
     const m = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.*)$/s.exec(dataUri || '');
     if (!m) return res.status(404).end();
-    res.set('Content-Type', m[1]);
+    // Historic rows carry the provider's wrong label — sniff rather than echo it.
+    res.set('Content-Type', sniffImageMime(m[2], m[1]));
     res.set('Cache-Control', 'public, max-age=86400');
     res.send(Buffer.from(m[2], 'base64'));
   } catch (e) {
