@@ -33,6 +33,23 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### NEW SKILL /scriptfromoutline + first content script AWAITING DAN'S REVIEW (2026-08-23, Claude Code)
+
+Dan's new approach: content videos read off the teleprompter like the ads, so delivery is tight and
+the 35–40% edit cut-down stops being necessary. **Skill created at
+`.claude/skills/scriptfromoutline/SKILL.md`** — content register (grounded in the six-ways v2
+transcript), one-pass-per-point / no-restatement rules derived from the longform-edit junk passes,
+content-vs-ad differences (drug names speakable but never in graphics, light cues, AbsByAI +
+subscribe close, 10–15 min ≈ 1,500–2,200 words). First test script written from the outline doc
+`1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k` ("Your Belly Fat Is An Emergency", ~1,800 words
+≈ 12–13 min; intro near-verbatim per Dan; Zepbound named + 192→181 numbers per Dan; TRT written as
+general recommendation — Dan confirmed no personal experience; disclaimer beat included). Script
+shown in chat for approval; local copy in the session scratchpad
+(`belly-fat-emergency-script.md`). **$0.00 AI spend, no production code, no deploy.**
+**NEXT: Dan reviews the script → on approval, deliver into a Google Doc via the /scriptwriting
+Docs mechanics and record the content-scripts doc ID in the skill; append his line edits as the
+skill's first Lessons.**
+
 ### DEDICATED SHORTS ADS — 20 outlines delivered 2026-08-23 (Claude Code)
 
 Written with `/ad-outlines` against the VidTao shorts research (memory `shorts-ads-research`) and
