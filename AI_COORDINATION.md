@@ -105,6 +105,32 @@ Delivery pattern recorded in the skill: content scripts go into the same outline
 headers instead of `<h2>` (avoids the heading trap). NEXT: Dan films off the teleprompter; append
 any line edits he makes as the skill's first Lessons.**
 
+### DEDICATED SHORTS ADS — Approach #2: 5 generation-led scripts DELIVERED (2026-08-23, Claude Code)
+
+**Dan rejected the 20-outline batch below** — direction changed: shorts ads should sell the
+GENERATION feature almost exclusively; the trainer/nutritionist value can't be communicated in
+under 60s and gets exactly one beat near the end. Dan wrote two example scripts in a new doc,
+**"Dedicated Shorts Ad Scripts - Approach #2"** (`1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0`).
+Measured his real pace from the four finished longform masters: **~198–222 wpm** — his 194-word
+example lands 0:55–1:01, right at the 0:59 Shorts ceiling (flagged to him; suggested cutting the
+one restatement line). His "tap the button below" CTA verified correct for BOTH YouTube Shorts ads
+(Demand Gen CTA button) and Instagram Reels ads (bottom CTA banner); platforms fix the button label
+from presets, so never speak the button's exact wording. Organic posts would need "go to AbsByAI.com"
+instead.
+
+**5 scripts written to his model and appended to that doc** (verified by Drive re-read, his two
+scripts unchanged): ChatGPT-fail, crude-photoshop-era, phone lock screen, 30-second screen-capture
+demo, and "AI predicted my body." All 102–135 spoken words ⇒ **~0:35–0:50 finished** at his pace,
+comfortable margin under 0:59. Facts per skill: before = 38/200 lbs, abs back at 40, two years.
+No side-by-side before/after anywhere; all reveals sequential. **$0.00 spend.**
+
+**The 20 outlines in "Dedicated Shorts Ads Scripts" (`1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M`)
+are DEAD as a batch** — do not script them; kept only as a hook-idea mine. The /ad-outlines skill
+should gain a lesson from this rejection (generation-first for shorts) in a future session.
+
+**EXACT NEXT ACTION — DAN: review the 5 scripts in Approach #2 doc; survivors go straight to the
+teleprompter for the next shoot.**
+
 ### DEDICATED SHORTS ADS — 20 outlines delivered 2026-08-23 (Claude Code)
 
 Written with `/ad-outlines` against the VidTao shorts research (memory `shorts-ads-research`) and
