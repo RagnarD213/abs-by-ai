@@ -33,6 +33,38 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### DEDICATED SHORTS ADS — 20 outlines delivered 2026-08-23 (Claude Code)
+
+Written with `/ad-outlines` against the VidTao shorts research (memory `shorts-ads-research`) and
+Dan's existing content. **Delivered into the Google Doc "Dedicated Shorts Ads Scripts"**
+(`1huBqiKl2jJr0DgeFiEXU31kL3DU1JYeNVl-1OoYWs6M`) — it was empty; all 20 pasted as formatted HTML via
+the osascript clipboard route, verified by Drive re-read. Source HTML kept in the session scratchpad.
+**$0.00 AI spend, no production code, no deploy.**
+
+Format locked from the research: **0:45–0:59** (never over, V Shred cuts to exactly 0:59), 9:16 master
++ 16:9 duplicate of the same creative (Fitme runs both), one idea per ad, hook is the only A/B
+variable, one CTA said twice. **7 are shorts-native CUTDOWNS of already-approved batch-1 outlines**
+(AD 1, 9, 8, 13, 14, 15, 6); **13 are NEW, mined from the long-form videos** — supplements (×2),
+invest-in-health (×2), spray tan, 3-min home workout, top-10 tips (×3), macro-tracking demo, plus the
+two proven direct-response formats from the research (reverse-psychology and challenge hooks) and the
+attraction-stakes angle.
+
+**Deliberate exclusions, all flagged in the doc:** no weight-loss-medication angle (shelved until the
+ad account has approval history, so the Zepbound video is not mined at all), nothing selling sleep, no
+side-by-side before/after anywhere — the two-futures ad is cut sequentially instead.
+
+**Two assets don't exist yet:** the "do nothing" five-year image (SHORT 3) and clean supplement-shelf
+b-roll (SHORTS 8, 9). Everything else is covered by the before picture, the photo-shoot stills, the AI
+goal image, the bad ChatGPT output, the spray tan footage and the macro-tracker app screens.
+
+**Nothing checked off on the dashboard** — searched all lists, no task covers this batch (the nearest,
+`business::Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas`, is
+the completed 8/18 batch-4 task, not this one).
+
+**EXACT NEXT ACTION — DAN: read the 20 and kill the ones you don't like.** Then `/scriptwriting` turns
+the survivors into teleprompter scripts for the next shoot.
+
+
 ### VIDEO 1 review CLOSED — Dan sent the revisions to the editor 2026-08-23 (Claude Code)
 
 Dan's new editor (teamcrackhow4@gmail.com) delivered "Video 1" (ad-1 script, 4:23, Drive
