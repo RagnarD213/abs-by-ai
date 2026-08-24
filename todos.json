@@ -283,6 +283,12 @@
       "priority": "key",
       "why": "claude.ai/code/artifact/3ff338e8-0b44-4132-9cf1-f58b30af2ea9 — plan delivered 2026-08-24, not yet executed. Profile fixes need Dan's IG login.",
       "addedAt": "2026-08-24"
+    },
+    {
+      "text": "Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit",
+      "priority": "key",
+      "why": "handoff-20260824-abwheel-muhammad-standard-rebuild.md — created but not yet run; Phase A video, Phase B skill gates, Phase C questions for Dan",
+      "addedAt": "2026-08-24"
     }
   ],
   "health": [
