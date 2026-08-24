@@ -525,6 +525,61 @@ Ad #1 rev-4 (2026-08-21):
    moment — Dan wanted the demographic-matched struggle clip (lesson 3) instead,
    even though a fit-guy tire flip is visually strong on its own.
 
+Ad #1 rev-5 (2026-08-23) — Dan: *"still not as good as the one Muhammad made"*, with the
+editor's new 2:33 cut and **the revision doc Dan had sent that editor** as the brief. The
+whole build is reproducible from `reference/rev5/` (beats → gfx → layout → audio → captions
+→ qc). What it added to the system:
+
+38. **Anchor every beat to a PHRASE, never to a second, and search AFTER a time.** The tight
+   cut's timeline moves the moment a pause parameter changes, so hardcoded anchors drift off
+   the words they were placed on. Two traps in the lookup itself: Whisper tokens carry a
+   **leading space** (`" this" != "this"`, so `.strip()` in the normaliser), and an ad script
+   repeats whole phrases — "tap the button below", "phone lock screen", "stressful life" —
+   so a naive search matches the FIRST occurrence and yields beats with negative duration.
+   `reference/rev5/beats5.py` asserts every beat has positive duration for exactly this reason.
+39. **Grade-match on SKIN PIXELS, not on a fixed crop.** Rule 27's percentile fit assumes the
+   two videos frame the subject alike. The reference edit is already punched in, so its centre
+   crop is nearly all face while ours still contains the dark doorway — fitting that way lifted
+   our shadows into haze chasing his skin values. Select skin pixels in both (r>g>b, bounded
+   r−b) for the mid/high control points and take the black point from each video's own global
+   p1: skin error 23.2 → **5.1 levels**, and the black point landed on his exactly (4/4/2).
+40. **PIL ignores EXIF rotation and iPhone photos rely on it.** A sideways portrait reached a
+   finished graphic before `ImageOps.exif_transpose` went into `motionlib.fit_cover/fit_contain`.
+   Any photo that came off a phone must be opened through that path.
+41. **Count the beat's seconds before choosing how many stills go in it.** Four photos in a
+   1.8 s beat is 0.44 s each — a flicker, not a montage. Two landed there and the other two
+   moved to the line that was literally about how he looks now, which also filled a bare stretch.
+42. **A retimed insert needs its own source length.** `-t` defaulted to the beat length while
+   `setpts=PTS/3` demanded three times that, so a third of the intended footage played and
+   nobody would have seen it in a QC that only checks the beat is covered.
+43. **Panels need an edge on a near-black field.** `panel_plate` bakes a drop shadow, which is
+   invisible on (13,14,11) — a white app screenshot read as a floating rectangle with hard
+   corners until an olive hairline was drawn round the hole.
+44. **Whisper shells out to a bare `ffmpeg`.** Put the static build on `PATH` inside the script;
+   inheriting it from the calling shell fails the moment the script is backgrounded.
+45. **Read the whole of any clip Dan links before trusting his in/out points.** The app
+   recording for the 1:09 revision ends on the "Meet the new you" BEFORE/AFTER screen (from
+   25.25 s) and an email-capture screen after it — both banned. His stated 0:03–0:26 would have
+   shipped the violation; the usable window is 3.0–24.9 s.
+46. **Suppress captions over full-screen cards and app screens rather than dodging them.** A
+   card already carries a headline, and the product demo's UI text is the part of an ad that
+   matters most. 56 of 164 cues dropped; the remaining ones shift right over the bullet panels
+   and lift above the lower thirds.
+47. **The QC blind spot repeats: check what "covered" means before believing a FAIL.** Two
+   splices reported bare were under a Ken Burns card and an app-flow card that the covered-list
+   simply omitted. Third time this class of error has been the metric, not the media.
+48. **Music picked by measurement.** Score candidates on spectral distance to the bed under the
+   reference edit (sampled in its quietest window) plus energy flatness over the needed length —
+   `reference/rev5/pick_bed.py`. Pixabay's licence needs no attribution, which a CC-BY track
+   would have forced into a paid ad.
+49. **Veo rejects generated faces as "celebrity likeness".** Reprompt the still for an
+   explicitly ordinary, non-model face ("deliberately NOT a model, NOT anyone famous", amateur-
+   photograph realism). Filtered attempts are not charged.
+
+Measured against the reference edit: **3:55.3 from 4:31** (112 pause cuts, 30.1 s removed,
+**198 wpm** against his 203), −14.10 LUFS, −1.30 dBTP, L/R correlation **+0.9986** with the
+side channel 31.5 dB under the mid (his: +0.99 / 23.0 dB), script fidelity **98.6 %**.
+
 ## Decisions locked vs pending
 
 | decision | status |
@@ -533,7 +588,10 @@ Ad #1 rev-4 (2026-08-21):
 | Take selection: Dan first minute, Claude rest, learn toward full handoff | LOCKED |
 | 16:9 primary + 9:16 secondary this batch; both must be strong | LOCKED |
 | Cut whole script, no ceiling | LOCKED |
-| No 1.2x pass, no music bed, no hook variants (for now) | LOCKED |
+| No 1.2x pass, no hook variants (for now) | LOCKED |
+| Music bed ON for filmed ads, CC0/Pixabay (no attribution), chosen by measurement | LOCKED 2026-08-23 (Dan) |
+| Persistent CTA bar DROPPED for ad 1 rev-5; burned captions KEPT | Dan, 2026-08-23 |
+| Paid-ad graphics palette = `motionlib.J2AD`: black field, olive/dark-green headers, white body | LOCKED 2026-08-23 (Dan's revision doc) |
 | Minimal graphics first; Dan directs placements; learn | LOCKED |
 | Negative-imagery scan; remove certain violations, flag unsure ones | LOCKED |
 | NO before/after anywhere, incl. in-app UI; before → other → tagged after | LOCKED (2026-08-20, Dan's #1) |

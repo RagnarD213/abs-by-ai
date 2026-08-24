@@ -33,6 +33,60 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 1 REV-5 DELIVERED — rebuilt in the Upwork editor's style + Dan's revision doc (2026-08-23, Claude Code)
+
+Dan on rev-4: *"still not as good as the one Muhammad made — audio, video and graphics."* He
+supplied the editor's new **2:33 cut** (Drive `1d42ylyPA8yf-EAGg7FCktS5P3u-RLiSO`) and **the
+revision doc he had already sent that editor** (`10DrQ9kYuE1Oz4XBzyWS6uz7tb0dcojvAWP2J0-g6ljc`),
+and asked for that style copied with those revisions baked in so he would not have to give them
+twice. **Delivered `ad1_rev5_16x9.mp4` (3:55.3) + a 720p review copy** to
+`EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`. **QC PASSES all nine checks.** AI spend **≈ $2.20**.
+No production code, no deploy, no native-retest trigger.
+
+**Dan's four calls this session:** keep burned captions (the reference edit has none) but DROP
+the persistent CTA bar; music from a **free CC0 track, no attribution**; the 1:21 slot gets a
+**freshly generated** AI clip; **all** lower thirds restyled, only the "filled with motivation"
+one retexted (the doc lists that instruction twice — a paste duplicate).
+
+**Measured against his cut, which is what "make it as good as his" means concretely:**
+
+| | his 2:33 cut | ours rev-5 |
+|---|---|---|
+| pace | 203 wpm | **198 wpm** (4:31 → 3:55.3, 112 pause cuts, 30.1 s removed) |
+| loudness | −18.1 LUFS, LRA 3.7 | −14.10 LUFS, LRA 1.9 |
+| true peak | — | −1.30 dBTP |
+| voice image | +0.99 L/R, side −23.0 dB | **+0.9986 L/R, side −31.5 dB** |
+| grade | — | skin-pixel fit, error 23.2 → **5.1 levels**, black point 4/4/2 = his |
+| script fidelity | — | **98.6 %** re-transcribed off the finished render |
+
+He trimmed **no script** — his 2:33 covers what our rev-4 took 2:50 to reach, purely by pause
+removal. That is the whole speed difference and it is now matched.
+
+**Every item in the revision doc is applied**, including the two that were traps: the app clip
+he linked for 1:09 **ends on the "Meet the new you" BEFORE/AFTER screen (from 25.25 s) plus an
+email-capture screen**, so his stated 0:03–0:26 would have shipped the banned pattern — the
+usable window is 3.0–24.9 s, sped 3× to fit; and the 1:41–1:52 / 2:06 / 2:11–2:17 assets he
+pointed at are **our own** earlier AI clips and photos, so nothing needed regenerating there.
+
+**Style system:** new `motionlib.J2AD` palette — black field, olive/dark-green ALL-CAPS headers,
+white body, per his "see the YouTube Shorts covers" instruction — plus a new `lower_third_bar`
+(green bar left, white on black) that replaces the chip+red-strip form for paid ads. The red bar
+is kept for the single "you don't need more knowledge" contrast beat.
+
+**Nine new lessons are in `/ad-edit` (38–49) and the whole build is reproducible from
+`reference/rev5/`.** The ones most likely to bite again: phrase anchors must be searched AFTER a
+time or repeated lines match the wrong occurrence (Whisper tokens also carry a leading space);
+grade-match on SKIN pixels, not a fixed crop, when the reference is already punched in; PIL
+ignores EXIF rotation and iPhone photos rely on it; a retimed insert needs its own `-t`; and for
+the third time a QC FAIL was the metric, not the media.
+
+**EXACT NEXT ACTION — DAN: watch `ad1_rev5_720p.mp4`.** Two things to look at specifically:
+(1) the new 1:21 clip — a Veo clip built from a fresh still after the safety filter rejected the
+first two faces as "celebrity likeness"; `rev5/aigen/clip_shirt.mp4` is the alternative if he
+prefers it. (2) The 0:11 beat carries two of his four shoot photos and the other two moved to
+"this is how I'm supposed to look" — four in a 1.8 s beat was a flicker. **9:16 builds only on
+his approval of the 16:9.**
+
 ### TWO-MIC COMB-FILTER AUDIO FIX — all 4 remaining longform masters DELIVERED (2026-08-23, Claude Code)
 
 Closes out the fix the spray-tan REV 2 entry called for. Ran the identical recipe

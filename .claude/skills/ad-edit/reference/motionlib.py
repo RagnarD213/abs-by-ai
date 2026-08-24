@@ -33,7 +33,7 @@ centred, headings carry a solid accent rule at their own width, list markers are
 filled squares, photographs sit straight on the field, and title-card headlines sit in
 an accent BAND in oblique caps. The numbers below were measured off his frames.
 """
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageOps, ImageFont, ImageFilter
 import math, os, shutil, subprocess, tempfile
 
 FF   = os.environ.get("MOTIONLIB_FFMPEG",
@@ -46,17 +46,29 @@ class Palette:
     """A full-screen graphic style. `hot` is reserved for attention devices (callout
     strokes, the lower-third strip) and stays the brand red in every palette."""
     def __init__(self, field, field_hi, ink, ink_soft, accent, on_accent,
-                 hot=(226, 34, 34)):
+                 hot=(226, 34, 34), deep=None):
         self.field, self.field_hi = field, field_hi
         self.ink, self.ink_soft = ink, ink_soft
         self.accent, self.on_accent = accent, on_accent
         self.hot = hot
+        # `deep` is a solid dark-green BLOCK for bars, bands and half-panels. It has to
+        # read as green against a near-black field, so it is not the field colour.
+        self.deep = deep or accent
 
 # The CONTENT style: J2's dark green, olive accent, off-white type. Dan, 2026-08-22 --
 # "copy his graphic screen, but make it dark green".
 GREEN = Palette(field=(22, 33, 24), field_hi=(29, 42, 31),
                 ink=(233, 238, 222), ink_soft=(158, 171, 142),
                 accent=(140, 152, 88), on_accent=(15, 23, 15))
+
+# The PAID-AD style (Dan's ad-1 revisions, 2026-08-23): black background, olive/dark
+# green headers, white body copy -- i.e. the YouTube Shorts cover system he pointed at,
+# not the dark-green field of the CONTENT style. J2 cover tokens: BG (13,14,11),
+# OLIVE (140,152,88).
+J2AD = Palette(field=(13, 14, 11), field_hi=(21, 23, 18),
+               ink=(255, 255, 255), ink_soft=(176, 184, 158),
+               accent=(140, 152, 88), on_accent=(10, 12, 8),
+               deep=(28, 52, 33))
 
 # The bright variant, kept because a paid ad may want it.
 PAPER = Palette(field=(243, 245, 248), field_hi=(247, 249, 251),
@@ -140,7 +152,17 @@ def card(im, box, radius=28, fill=CARD, shadow=True, outline=None, width=0):
     ImageDraw.Draw(im).rounded_rectangle(box, radius=radius, fill=fill,
                                          outline=outline, width=width if outline else 0)
 
+def oriented(img):
+    """Honour EXIF rotation. iPhone photos carry orientation in EXIF and PIL ignores it,
+    which silently delivered a sideways portrait into a finished ad graphic once."""
+    try:
+        return ImageOps.exif_transpose(img)
+    except Exception:
+        return img
+
+
 def fit_cover(img, w, h):
+    img = oriented(img)
     """Centre-crop `img` to exactly w x h without distortion."""
     ar_src, ar_dst = img.width / img.height, w / h
     if ar_src > ar_dst:
@@ -152,6 +174,7 @@ def fit_cover(img, w, h):
     return img.resize((w, h), Image.LANCZOS)
 
 def fit_contain(img, w, h):
+    img = oriented(img)
     """Scale `img` to fit inside w x h, whole subject preserved.
 
     Use this for photographs of people: cover-cropping a portrait cuts the top of the
@@ -438,7 +461,7 @@ def card_in(out, dur, build, in_dur=0.42, out_dur=0.30, anchor=None, fps=FPS, pa
 
 
 def title_card(out, headline, subtitle, dur, in_dur=0.55, out_dur=0.35, pal=GREEN,
-               size=145, sub_size=66, drift=0.030, fps=FPS):
+               size=145, sub_size=66, drift=0.030, fps=FPS, band=None, band_ink=None):
     """Full-screen chapter card: oblique caps headline inside an accent BAND.
 
     The trial edit's version, recoloured: a solid accent block spans the whole headline
@@ -467,7 +490,8 @@ def title_card(out, headline, subtitle, dur, in_dur=0.55, out_dur=0.35, pal=GREE
         d = ImageDraw.Draw(im)
         bp = ease_out_cubic(t / 0.34)            # the band wipes open from the centre
         bw = band_w * bp
-        d.rectangle([W / 2 - bw / 2, band_y, W / 2 + bw / 2, band_y + band_h], fill=pal.accent)
+        d.rectangle([W / 2 - bw / 2, band_y, W / 2 + bw / 2, band_y + band_h],
+                    fill=band or pal.accent)
         for li, l in enumerate(lines):
             p = ease_out_cubic((t - 0.16 - li * 0.09) / 0.42)
             if p <= 0.02: continue
@@ -475,7 +499,8 @@ def title_card(out, headline, subtitle, dur, in_dur=0.55, out_dur=0.35, pal=GREE
             x = (W - tw) / 2
             y = band_y + PADY_T + li * LH_H
             gl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-            ImageDraw.Draw(gl).text((x, y), l, font=fH, fill=pal.on_accent, anchor="lt")
+            ImageDraw.Draw(gl).text((x, y), l, font=fH, fill=band_ink or pal.on_accent,
+                                     anchor="lt")
             gl = oblique(gl, 11.0, pivot_y=y + cap / 2)
             cut = x + tw * ease_out_expo((t - 0.16 - li * 0.09) / 0.5) + size * 0.3
             m = Image.new("L", (W, H), 0)
@@ -510,7 +535,7 @@ def title_card(out, headline, subtitle, dur, in_dur=0.55, out_dur=0.35, pal=GREE
 
 
 def bullets_build(out, heading, bullets, dur, panel_w=980, in_dur=0.45, out_dur=0.30,
-                  pal=GREEN, head_size=76, body_size=68, fps=FPS):
+                  pal=GREEN, head_size=76, body_size=68, fps=FPS, head_color=None):
     """Left-hand list panel whose bullets appear ONE AT A TIME.
 
     `bullets` is [(t_seconds, "text"), ...] -- sync each t to the word that introduces
@@ -546,7 +571,7 @@ def bullets_build(out, heading, bullets, dur, panel_w=980, in_dur=0.45, out_dur=
         y = TOP
         hp = ease_out_cubic((t - 0.14) / 0.38)
         if hp > 0.01:
-            d.text((dx + PAD, y), hu, font=fH, fill=pal.ink, anchor="lt")
+            d.text((dx + PAD, y), hu, font=fH, fill=head_color or pal.ink, anchor="lt")
             d.rectangle([dx + PAD, y + head_bot + 18,
                          dx + PAD + head_w * hp, y + head_bot + 18 + RULE], fill=pal.accent)
         y += head_bot + 18 + RULE + 52
@@ -612,6 +637,70 @@ def lower_third(out, label, statement, dur, x=90, y=880, in_dur=0.34, out_dur=0.
                 tl.putalpha(Image.composite(tl.getchannel("A"), Image.new("L", (W, H), 0), m))
                 lay.alpha_composite(tl)
         im.alpha_composite(with_alpha(lay, a_out))
+        frames.append(im)
+    return encode(frames, out, fps)
+
+
+def lower_third_bar(out, lines, dur, x=90, y=None, in_dur=0.34, out_dur=0.26,
+                    pal=GREEN, size=42, lead_size=None, fps=FPS, bar_w=26,
+                    bar_color=None, plate=None, text_color=None):
+    """Solid accent BAR on the left + a plate carrying one or two lines of statement.
+
+    Dan's ad-1 revision (2026-08-23) restyles every lower third this way: "green bar on
+    left, white text on black background". It replaces the chip+red-strip form for paid
+    ads -- that one puts a light category chip first, which reads as a label; this one
+    reads as the claim itself, which is what a lower third in an ad is for.
+
+    `lines` is a list of strings. The first line is set heavier (and larger, if
+    `lead_size` is given) so a two-line chip has a headline and a qualifier.
+    """
+    # olive, not the deep green: a (28,52,33) block on a near-black field is almost
+    # invisible at lower-third size -- measured 12 levels of separation.
+    bar_color = bar_color or pal.accent
+    plate     = plate or (10, 11, 9)
+    text_color = text_color or (255, 255, 255)
+    fonts = [font(lead_size or size, "ExtraBold")] + [font(size, "Bold")] * (len(lines) - 1)
+    sizes = [text_size(l, f) for l, f in zip(lines, fonts)]
+    PADX, PADY, GAP = 26, 16, 8
+    tw = max(w for w, _ in sizes)
+    line_h = [max(h, f.size) for (_, h), f in zip(sizes, fonts)]
+    ch_h = sum(line_h) + GAP * (len(lines) - 1) + PADY * 2
+    pl_w = tw + PADX * 2
+    if y is None: y = H - 200 - ch_h
+
+    frames = []
+    for i in range(nframes(dur, fps)):
+        t = i / fps
+        im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        p_in  = ease_out_cubic(t / in_dur)
+        a_out = 1.0 if t <= dur - out_dur else 1 - ease_in_cubic((t - (dur - out_dur)) / out_dur)
+        lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        # the bar drops in first, then the plate grows out of it to the right
+        bh = ch_h * ease_out_back(t / (in_dur * 0.8))
+        d = ImageDraw.Draw(lay)
+        by = y + (ch_h - bh) / 2
+        d.rectangle([x, by, x + bar_w, by + bh], fill=bar_color)
+        gp = ease_out_cubic((t - in_dur * 0.55) / 0.30)
+        if gp > 0.01:
+            px = x + bar_w
+            lay.alpha_composite(drop_shadow((W, H), [px, y, px + pl_w * gp, y + ch_h], 4,
+                                            blur=18, spread=4, opacity=130))
+            d = ImageDraw.Draw(lay)
+            d.rectangle([px, y, px + pl_w * gp, y + ch_h], fill=plate)
+            yy = y + PADY
+            for li, (l, f) in enumerate(zip(lines, fonts)):
+                wp = ease_out_expo((t - in_dur * 0.55 - 0.12 - li * 0.10) / 0.34)
+                if wp > 0.01:
+                    tl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+                    ImageDraw.Draw(tl).text((px + PADX, yy), l, font=f,
+                                            fill=text_color,
+                                            anchor="lt")
+                    m = Image.new("L", (W, H), 0)
+                    ImageDraw.Draw(m).rectangle([0, 0, px + PADX + sizes[li][0] * wp, H], fill=255)
+                    tl.putalpha(Image.composite(tl.getchannel("A"), Image.new("L", (W, H), 0), m))
+                    lay.alpha_composite(tl)
+                yy += line_h[li] + GAP
+        im.alpha_composite(with_alpha(lay, a_out * min(1.0, p_in * 3)))
         frames.append(im)
     return encode(frames, out, fps)
 
