@@ -33,6 +33,81 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### REAL-USER GENERATION AUDIT + welcome-sequence delivery verified; MIME bug FIXED (2026-08-24, Claude Code)
+
+Full audit of every real user who has generated on absbyai.com, the welcome autoresponder's
+actual delivery, and output quality. **$0.00 AI spend. One production code fix, deployed and
+live-verified. No native-retest trigger** (server-side MIME labelling only).
+
+**WHO GENERATED — 5 real people, 12 generations, all time.** 23 users exist; 18 are Dan's own
+accounts, Apple-review accounts, or `@example.com`/smoke-test rows. The real ones:
+
+| who | when | what | note |
+|---|---|---|---|
+| maceylinden@gmail.com | Jul 11–20 | 7 transformations (F) | only repeat user; picked a hero |
+| sudhanshusaw48@gmail.com | Aug 5 | 1 | |
+| judelegg@icloud.com | Aug 18 | 1 | |
+| davidroldan1967@gmail.com | Aug 21 | 1 | email-capture only, no account |
+| dennydollaz555@gmail.com | Aug 24 | 1 | email-capture only, no account |
+
+The last two never created accounts — their generations live only in `welcome_images`, so any
+count taken from `users`/`transformations` alone **undercounts real usage by 40 %**.
+
+**WELCOME AUTORESPONDER IS LIVE AND DELIVERING — the "shipped but unverified" flag can come
+off.** `WELCOME_ENABLED=true` on Railway. The sweep advances a subscriber only on a Resend 2xx
+(`welcomeSweep` → `continue` on failure), and every real subscriber has per-email timestamps:
+macey 5/5, sudhanshu 5/5, jude 3/5, david 2/5, denny 1/5 — the partials are simply mid-sequence,
+next sends Aug 25/26. **Zero stalls, zero skipped steps, no silent failures.** Independently
+confirmed in Dan's Gmail: all five welcome emails landed in **INBOX, not spam** (Jul 17/19/21/24/27),
+and there are no bounce or complaint notices for any subscriber. Auth is healthy — DKIM
+`resend._domainkey.absbyai.com` publishes and signs `d=absbyai.com`; `send.absbyai.com` carries
+`v=spf1 include:amazonses.com` as the Return-Path, so SPF and DKIM both relaxed-align and DMARC
+(`p=quarantine`) passes. **Do NOT "fix" the apex SPF record** — it is `include:spf.efwd.registrar-
+servers.com` for Namecheap forwarding and is not the Resend path; it looked like a missing-SPF bug
+on first read and is not one.
+
+**ONE GAP LEFT, needs Dan (30 seconds):** `RESEND_API_KEY` is a **send-only** key, so
+`GET /emails` and `/domains` both 401 (`restricted_api_key`) and Resend's own
+delivered/bounced/complained events cannot be read programmatically. Everything above is inferred
+from our send records + Gmail, which is strong but is not Resend's own ledger. **Dan: create a
+full-access (or read) key at resend.com/api-keys and drop it in `~/.absbyai-secrets.env` as
+`RESEND_READ_API_KEY`** — then delivery rates become directly queryable. Claude cannot create it
+(dashboard login).
+
+**BUG FOUND AND FIXED — image MIME mislabelling (commit `688061f`, deployed in `717d2d21`).**
+The Gemini/Nano Banana producer trusted `inline.mime_type`, which returns `image/png` for **JPEG
+bytes** — the exact provider lie already documented at server.js:108 for the Nutritionist, but the
+existing `sniffImageMime()` had only ever been applied at the *consumer* side. The wrong label was
+baked into the stored data URI and then echoed verbatim as the `Content-Type` by
+`/api/welcome-image`, so welcome-email images were served as `image/png` carrying JPEG bytes
+(verified live before the fix). **15 stored rows were affected** — 9 `transformations`, 4
+`users.after_image`, 2 `welcome_images`, all one-directional. Fix: sniff at *every* producer
+(Gemini, Replicate/FLUX, Seedream, `holdLockedImage`) and sniff again when serving
+`/api/welcome-image` so pre-fix rows are corrected on the way out. All 15 rows backfilled —
+**label only, bytes verified byte-identical**. Live endpoint now returns `image/jpeg`; 0 mismatches
+remain in the DB.
+
+**OUTPUT QUALITY — current pipeline is good; the one bad batch was pre-fix and female.** Reviewed
+every real user's before/after pairs directly.
+- **The Jul 16 female batch is the failure case and it is the documented one.** Three generations
+  at `max`/`dramatic` (t57/t58/t59, fired 26 s and 34 s apart) came back **visually
+  indistinguishable from the before** — no waist reduction, no added definition, only mild
+  smoothing. That is exactly the "near-identical after" mode the code comment at server.js:3272
+  calls the most damaging failure and says "hits WOMEN hardest". The 26-second retry spacing is a
+  user who was not happy and kept trying.
+- **The Jul 20 female batch is genuinely good** (t71/t72/t73, after the female fix): real waist
+  narrowing, visible definition, identity preserved. She made t73 her hero.
+- **Males are strong throughout**, and the two most recent (Aug 21, Aug 24) are the best of the
+  set — believable, identity preserved, no tan artifact.
+- **One recurring artifact worth a look:** the Aug 5 and Aug 18 male results both added a
+  noticeable **tan/darkening and oiled sheen**, and the Aug 5 one also **drifted the face** (reads
+  as an older, different person). Tan is the exact thing Dan rejected in the round-1 bake-off
+  (memory `bakeoff-round1-aesthetic`). Not fixed here — it is a prompt/model decision, not a bug.
+
+**EXACT NEXT ACTION — DAN: (1) create the Resend read key so delivery rates are directly
+verifiable; (2) decide whether the tan/face-drift on the male path is worth a prompt pass.**
+Nothing is broken or blocked.
+
 ### NEW SKILL /findassets + first clip DELIVERED into the ab-wheel revision doc (2026-08-24, Claude Code)
 
 Dan's ask: when he writes a revision that *names* footage we already own instead of linking it,
