@@ -242,8 +242,44 @@ drop photo posts from the IG feed queue, drop the follow-alongs, de-duplicate 4 
 twice within a week (milk, supplements, daily abs, food photos), and switch off Blotato's IG
 auto-first-comment once ManyChat is live. All reversible, one pass over the REST API.
 
-**EXACT NEXT ACTION - DAN: read the artifact and do the 7 profile fixes.** They need an Instagram
-login, so they are his. Say the word and the Blotato queue rework runs in a single session.
+**ACCOUNT DECISION MADE AND EXECUTED SAME SESSION (2026-08-24).** Dan raised that he also has a
+personal account, `@danrrose` (494 followers, 438 following, 19 posts, empty bio, no link). After
+working the question we **consolidated onto the personal account**, and he executed it live:
+
+- **`@danrrose` -> `@danrosefit`** (handle changed; `@danrose` and `@thedanrose` were both taken).
+- **Account type: CREATOR, not Business.** Verified that Instagram's publishing API treats Business
+  and Creator identically, so Blotato is unaffected — which removed the only argument for Business.
+  Creator keeps the FULL music library (Business is restricted to commercial-use tracks) and aligns
+  with Meta Verified's "represents a real individual" requirement. `@abs.by.ai` stays Business.
+- **Meta Verified PAID 2026-08-24**, $21.31/mo bundle covering BOTH `@danrosefit` and his personal
+  Facebook profile (two separate would have been $23.98). ID + selfie submitted; **48-hour review,
+  hard confirmation deadline Thu 2026-08-27.** A one-off cloud routine fires **Wed 2026-08-26 18:00
+  CT** to check: `trig_01KUFtsLkShYKTEwvsAdR2E3`.
+- **DO NOT change the Name field to a keyword string** (an earlier recommendation, now reversed) —
+  Meta Verified requires it to match the government ID. It stays "Daniel Rose".
+- **DO NOT enable the "AI creator" profile label.** It signals his content is AI-generated, which
+  feeds the exact suspicion the transformation previews already face.
+- **Username is now LOCKED** once verification lands — changing it means reapplying.
+
+**`@abs.by.ai` is NOT deleted and NOT a content account.** It is infrastructure: holds the handle,
+support inbox, Facebook Page counterpart, ad-account insurance. Dan pushed back correctly on two
+earlier suggestions of mine — that duplicating was harmful (it isn't, the marginal cost through
+Blotato is zero and it is real insurance) and that it could run product-demo content (nobody follows
+a product demo). **Settled answer: mirror the reels to it with every CTA rewritten to point at
+`@danrosefit`, so the mirror FEEDS the main account instead of competing.** Three pinned proof posts,
+no ongoing attention.
+
+**Ads:** the ad account, budget and Page stay under Abs By AI; **`@danrosefit` is the ad IDENTITY**,
+because the identity account is the one that receives the profile taps and follows. Use "existing
+post" ads so paid engagement accumulates on the real organic post. Meta now reports an Instagram
+follows metric; two-step funnel (video views to cold -> retarget 50%+ watchers with profile visits)
+runs ~$1.50-3.00/follower at 60-70% retention vs $0.50-2.00 at ~20% for direct. **Dan launches all
+campaigns himself** per his standing rule — the paid side ships as a spec, not as agent execution.
+
+**EXACT NEXT ACTION - DAN: confirm the ARCHIVE SPLIT on `@danrosefit`** — keep the physique,
+transformation and jiu-jitsu posts, archive the family and travel ones (~19 posts down to ~9-10).
+That is the last input needed. Then ONE handoff covers migration + Blotato re-point to the new
+account + queue rework + week-one content.
 
 
 ### AD 1 REV-5 DELIVERED — rebuilt in the Upwork editor's style + Dan's revision doc (2026-08-23, Claude Code)
