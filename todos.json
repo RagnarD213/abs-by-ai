@@ -281,7 +281,7 @@
     {
       "text": "Execute the Instagram growth plan (7 profile fixes + Blotato queue rework)",
       "priority": "key",
-      "why": "claude.ai/code/artifact/3ff338e8-0b44-4132-9cf1-f58b30af2ea9 — plan delivered 2026-08-24, not yet executed. Profile fixes need Dan's IG login.",
+      "why": "Handoffs/handoff-20260824-instagram-migration-danrosefit.md — created 2026-08-24, not yet run. Blocked on Dan connecting @danrosefit in Blotato.",
       "addedAt": "2026-08-24"
     },
     {
