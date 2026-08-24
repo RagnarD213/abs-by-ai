@@ -1,16 +1,18 @@
 {
   "date": "2026-08-24",
   "order": [
-    "money::Post on TikTok",
     "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
     "money::Execute handoff: Let users purchase before creating an account (iOS)",
     "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
     "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
-    "money::Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas",
-    "money::Check iOS App Store review status (build 1.0 (3), submission a5fcdbf2-3eca-412e-8c20-b1f075a32c24)"
+    "money::Check iOS App Store review status (build 1.0 (3), submission a5fcdbf2-3eca-412e-8c20-b1f075a32c24)",
+    "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
+    "money::Write scripts for the next shoot (≥half workout content)"
   ],
   "excluded": [
-    "money::Execute handoff: Swap Dan's phone to the public Play build"
+    "money::Execute handoff: Swap Dan's phone to the public Play build",
+    "money::Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas",
+    "money::Post on TikTok"
   ],
   "sessionsCompleted": 0
 }
