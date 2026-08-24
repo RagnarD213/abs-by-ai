@@ -178,6 +178,15 @@
         "2": "2026-08-24T00:20:03.453Z"
       },
       "unsubscribed": false
+    },
+    "dennydollaz555@gmail.com": {
+      "subscribedAt": "2026-08-24T02:54:26.981Z",
+      "deviceId": "dev-1787539784440-s7twfn25",
+      "synced": false,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-08-24T02:54:26.981Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
