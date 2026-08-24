@@ -33,6 +33,65 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### @danrosefit INSTAGRAM QUEUE — steps 1 + 6 DELIVERED; steps 2–5 BUILT and BLOCKED on one OAuth click (2026-08-24, Claude Code)
+
+`Handoffs/handoff-20260824-instagram-migration-danrosefit.md`. **$0.00 AI spend, no production
+code, no deploy, no native-retest trigger.** Deliverables doc:
+`Docs/INSTAGRAM_danrosefit_STEP1_AND_WEEK1.md`; image assets in
+`Short-form video content/instagram-danrosefit/` (gitignored — personal photos, public repo).
+
+⚠ **`@danrosefit` IS NOT CONNECTED TO BLOTATO.** `blotato_list_accounts platform:instagram`
+returns only `abs.by.ai` (`65632`). Owning the handle and connecting it are two different things
+and only the first is done. **Dan: Blotato → Settings → Social accounts → add Instagram, signing
+in with the INSTAGRAM credentials, not through Facebook.** Then one command finishes steps 2–5.
+
+**STEPS 2–5 ARE WRITTEN AND PROVEN AGAINST THE LIVE QUEUE** —
+`scripts/blotato/danrosefit_migration.py`, one idempotent script, REST not MCP, media reused not
+re-uploaded. Dry-ran today: **all 9 plan invariants PASS** and it refuses to write if any fails.
+Planned end state: delete 63 IG posts from `@abs.by.ai` (62 photos + the follow-along), create
+25 sync posts on `@danrosefit` at identical timestamps, shift those 25 `@abs.by.ai` originals
++1 day in place, drip 4 backfill reels onto idle Mondays. Run `--apply` (it resolves the
+accountId itself); state file makes a re-run resume, not double-post.
+
+**FOUR FINDINGS THAT CHANGE THE HANDOFF'S ASSUMPTIONS:**
+1. **IG and FB carry DIFFERENT `mediaUrls` for the same post** — 82 of 88 pairs share nothing but
+   the copy (each platform got its own upload and aspect crop). Pairing siblings by media url
+   silently fails; the sync check pairs on the **hook line**. This is what makes "synchronized"
+   checkable rather than assumed.
+2. **The backfill gets MONDAY ONLY, not Mon+Fri.** The handoff computed Mon/Fri from Tue/Thu/Sat
+   occupancy, before the +1 day stagger was decided. After the shift `@danrosefit` holds
+   Tue/Thu/Sat and the mirror holds Wed/Fri/Sun — Friday now carries Thursday's mirror, which the
+   dual follower already saw. So 4 reels over 4 weeks (Sep 7/14/21/28), not two. `BACKFILL_WEEKDAYS`
+   is one edit if Dan wants it back.
+3. **`firstComment` is on all 88 INSTAGRAM posts and on ZERO Facebook posts** — the inverse of what
+   the handoff says. Kept for now (until ManyChat is live the link is the only path from a reel to
+   the site); `--no-first-comment` turns it off in one run.
+4. **No CC-BY attribution exists anywhere in the remaining queue** — the `short5_1-minute-workout`
+   captions have already published, so handoff item 4.6 has nothing left to preserve. If a licence
+   obligation is live it is on published posts and needs checking by hand.
+Also: removing all IG photos resolves all four photo-vs-reel duplicate pairs by itself. **Facebook
+was not touched** — it stays synchronized with `@danrosefit`, which is the point of the stagger.
+
+**STEP 1 DELIVERED IN FULL.** Bio (139 chars), both links, the archive split (recommendation used —
+no list came back; two archived posts contain children's faces, which is the real reason to do it
+before pointing paid traffic at the account), **profile photo** (face-and-shoulders crop of
+`photo-223`, proofed at 40 px — the current full-body shot is illegible there), and **4 Highlight
+covers** in the J2 `MIL` system. Instagram crops a highlight cover to a **circle from the centre**
+and renders it at ~64 px: the build script asserts every corner of the type block falls inside that
+circle, and all four were proofed at 64 px.
+
+**STEP 6 PART-DELIVERED, deliberately.** The **Wednesday carousel is built** — 9 slides, 1080×1350,
+"7 things I'd skip if I started over at 40", topic chosen to dodge the queue (four-ab-muscles is
+already a scheduled reel AND a backfill reel). The **four reels are specified, not cut**: each slot
+names its source longform and its ask. Cutting them is `/shorts`, which picks segments with Dan in
+the loop, and four video builds is its own session. **The Tuesday slot is the one that matters —
+a screen recording of the app generating a preview does not exist anywhere in the 176-post queue,
+and it is the only asset no competitor can copy.**
+
+**EXACT NEXT ACTION — DAN: connect `@danrosefit` in Blotato, then run
+`python3 scripts/blotato/danrosefit_migration.py --apply`.** Everything else in steps 1 and 6 is
+delivered and waiting on his eyes, not on more work.
+
 ### AB-WHEEL REBUILD **EXECUTED** + /longform-edit rebuilt so it cannot regress (2026-08-24, Claude Code)
 
 `Handoffs/handoff-20260824-abwheel-muhammad-standard-rebuild.md` executed, Phases A and B.
