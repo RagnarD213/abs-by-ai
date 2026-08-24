@@ -214,3 +214,34 @@ matches and your choice of many attractive women").
    title through the last production note and paste over it (anchor with
    cmd+left at the title, shift+click after the final note). The outlines
    above and below survive untouched; verified by Drive re-read.
+
+## Lessons (script 2, "The Real Reason You Don't Have Abs", 2026-08-24)
+
+11. **`[CLAUSE INSERT ...]` in an outline is Wispr for "Claude insert ..."** — it's a
+   direction to you, not text to keep. Act on it.
+12. **Religion beats go multi-faith, one source per tradition, and each source gets
+   its provenance said out loud.** Dan's rule: don't just assert a principle, explain
+   where it comes from. Settled set for the pause-your-service argument:
+   1 Corinthians 6:19-20 (body is a temple); **pikuach nefesh** from Leviticus 18:5
+   read in the Talmud (Yoma 85b) as "live by them, not die by them", so saving a life
+   overrides nearly every commandment; and the **hadith of Abdullah ibn Amr** in
+   Sahih al-Bukhari, where Muhammad tells a man praying all night and fasting daily
+   that his body has a right over him. Say "hadith, a recorded saying" and name
+   Bukhari on camera. Deuteronomy 4:15 was tried and rejected as too weak.
+   **NEVER write "peace be upon him" after Muhammad's name in Dan's voice** — he
+   explicitly refuses it. Keep the Jewish beat short; he cut it in half.
+13. **Paraphrase scripture on camera, never quote a translation** — avoids quoting
+   copyrighted translations on screen. Note the references in production notes.
+14. **Re-read the outline doc right before delivering.** Dan edits outlines while you
+   write. He added a "your school work" bullet mid-session that the first read didn't
+   have; it had to be typed in after the paste.
+15. **Docs paste failed the documented way and the recovery cost an extra undo.**
+   `clipboard info` showed the correct `«class HTML»` and Docs still pasted its own
+   internal clipboard (the doc's URL, with a smart-chip prompt). Fix: Escape, cmd+z,
+   **re-run the same osascript to re-set both flavors, then paste again** — worked
+   second try. When undoing a bad TYPED insert, undo one step at a time and screenshot
+   between; typed text undoes in word-sized chunks and one extra cmd+z wiped the whole
+   good paste (recovered with cmd+shift+z).
+16. **cmd+f does NOT focus the Docs find box when driven through the extension.**
+   Typing goes straight into the document. Always screenshot after cmd+f and CLICK the
+   find field before typing.
