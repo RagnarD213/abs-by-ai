@@ -33,6 +33,62 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### MUHAMMAD-STANDARD REBUILD — analysed, HANDOFF WRITTEN, not yet executed (2026-08-24, Claude Code)
+
+Dan sent the editor's 6:58 organic cut of the ab-wheel video (Drive `1RPcsJbq81A6ablUZYVrfIM8vi2i1zrg0`)
+and said our delivered version is *"substantially better than what we made — it looks better, it
+sounds better, and the graphics are better."* Both cuts measured head to head.
+**Handoff: `Handoffs/handoff-20260824-abwheel-muhammad-standard-rebuild.md`; Key dashboard task added.
+Full analysis: https://claude.ai/code/artifact/061cbf89-e97c-47b4-b008-fa4183284c61**
+
+⚠ **ATTRIBUTION UNCONFIRMED — Dan called it Muhammad's, but the `/findassets` entry below records
+that "the 6:58 cut from sharkimageryproduction is the one Dan's timestamps match".** Two editors
+sent versions of this video. The technique analysis holds either way; **confirm whose cut it is
+before quoting it back to an editor.**
+
+| | ours | the editor's |
+|---|---|---|
+| runtime, same content | 8:58 | **6:58** (1,315 words vs our 1,365) |
+| pace / dead air | 152 wpm, 192 s | **189 wpm, 96 s** |
+| visual cuts (scene detect) | **1** | **54** |
+| insert coverage / longest bare | 21%, **64 s ×2** | ~90% (Dan's own rule: 30 s max) |
+| voice centring (L/R corr) | **-0.005** | +0.993 |
+| music bed | none | yes |
+| grade / loudness | **141 luma, -14.6 LUFS** | 129, -16.0 (WE WIN — do not change) |
+
+⚠ **SHIPPED AUDIO DEFECT: our delivered file plays Dan's voice out of the RIGHT SPEAKER ONLY and
+hiss out of the left, for all nine minutes.** On C1630/C1631/C1633 the LEFT channel is dead (SNR
+0.4-1.0 dB, no speech at all) and the edit shipped the camera's raw two channels as stereo. Not the
+8/3 two-mic comb — simpler and worse. Fix = right channel only, i.e. Step 5.6, which that session
+skipped. Worth shipping on its own.
+
+**THE ROOT CAUSE IS THE REAL FINDING: seven of his nine techniques were ALREADY IN THE REPO and the
+video passed 6/6 QC anyway.** `motionlib.py` + `sfxlib.py` were written for /ad-edit in August to
+close this exact gap; /longform-edit already contains Dan's 30-second coverage rule (Step 5.5) and
+the microphone check (Step 5.6). **The skill's quality bar is prose while its gate is code, so the
+style steps are skippable — and under time pressure they got skipped.** Fix = move every style rule
+into `qc_generic.py` as a hard failure. Third time a metric or a rule, not the media, was the problem.
+
+**Phase A** rebuilds the video (audio fix -> ~190 wpm -> punch-ins >=40 cuts -> 25-35 Pexels inserts
+>=50% coverage -> motionlib animated graphics -> burned captions -> Pixabay bed + SFX -> real app
+screen in the CTA -> QC). **Phase B** rebuilds the skill. **Phase C — ONLY after B, per Dan's explicit
+instruction — asks him the open questions** (stock-footage library, music library, the archival
+infomercial clip, whether we keep building in-house, retroactive re-cuts).
+
+**Music is NOT a blocker** — /ad-edit rev-5 settled it: Pixabay Content Licence, commercial, no
+attribution, track picked by measurement (`pick_bed.py`). **The archival infomercial clip the editor
+used is third-party footage on a monetised channel — skip for now, ask in Phase C.**
+
+⚠ **THE WORKING DRIVE CHANGED: the Seagate 4TB is gone, everything is on `/Volumes/Extreme/`.**
+Nothing lost (segment cache, transcripts, recipes, deliverables all migrated) but **every script has
+the old path hardcoded** — repathing is Phase A step 0.
+
+**Phase A must first read the ab-wheel section of the revisions doc
+`10DrQ9kYuE1Oz4XBzyWS6uz7tb0dcojvAWP2J0-g6ljc`** — Dan already has notes on this video there (see the
+`/findassets` entry below). Drive was 503ing when this handoff was written, so it is unread.
+
+**EXACT NEXT ACTION — new session: execute the handoff, Phase A step 0 (repath) then step 1 (audio).**
+
 ### REAL-USER GENERATION AUDIT + welcome-sequence delivery verified; MIME bug FIXED (2026-08-24, Claude Code)
 
 Full audit of every real user who has generated on absbyai.com, the welcome autoresponder's

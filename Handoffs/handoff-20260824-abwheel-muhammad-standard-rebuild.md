@@ -17,6 +17,19 @@ Two phases, in order, then a set of questions for Dan.
 The full measured analysis is published at
 **https://claude.ai/code/artifact/061cbf89-e97c-47b4-b008-fa4183284c61** ("The Muhammad Standard").
 
+### ⚠ Two things to check before you start
+
+1. **Whose cut is it?** Dan called the 6:58 reference Muhammad A's, but the `/findassets` entry in
+   `AI_COORDINATION.md` records that *"the 6:58 cut from sharkimageryproduction is the one Dan's
+   timestamps match"* — two editors sent versions of this video. **The technique analysis holds
+   either way and none of the plan changes**, but confirm the attribution before quoting any of it
+   back to an editor, and correct this document's title if needed.
+2. **Read the revisions doc first.** Dan already has notes on this video's ab-wheel section in
+   *"Muhammad A. Upwork video revisions"* (`10DrQ9kYuE1Oz4XBzyWS6uz7tb0dcojvAWP2J0-g6ljc`) — a
+   `/findassets` session delivered a replacement clip into it on 2026-08-24. **Drive was returning
+   503 when this handoff was written, so that doc is UNREAD.** Fold anything in it into Phase A
+   before cutting; his notes outrank this plan wherever they conflict.
+
 ---
 
 ## ⚠️ READ THIS FIRST — the working drive changed
@@ -173,6 +186,10 @@ Original: Drive `1RPcsJbq81A6ablUZYVrfIM8vi2i1zrg0`.
 - `.claude/skills/ad-edit/reference/` — `motionlib.py`, `sfxlib.py`, and `rev5/` (`tight_full.py`, `captions5.py`, `audio5.py`, `pick_bed.py`, `gfx5.py`) — **the closest working precedent for every Phase A step**
 
 **Outline:** Google Doc `1uDAWvxoAjXUaawZctgdSDj_9JPa5mfk5MMM2Sh8L7yE` (video 2).
+
+**Revisions doc (READ FIRST, unread here — Drive was 503ing):** `10DrQ9kYuE1Oz4XBzyWS6uz7tb0dcojvAWP2J0-g6ljc`, ab-wheel organic section.
+
+**Related skills:** `/findassets` (cut a named clip out of our own footage and get it into Drive + the revision doc), `/revisions` (write a revision doc for an editor's cut).
 
 ---
 
