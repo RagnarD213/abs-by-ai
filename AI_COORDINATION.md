@@ -33,6 +33,49 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### INSTAGRAM GROWTH PLAN for @abs.by.ai DELIVERED (2026-08-24, Claude Code)
+
+Audit + 90-day plan, no code, no deploy, **$0.00 AI spend**. Artifact:
+https://claude.ai/code/artifact/3ff338e8-0b44-4132-9cf1-f58b30af2ea9
+
+**THE FINDING: reach is fine, conversion is zero.** Pulled Instagram's own analytics via Blotato
+for the 8 posts of 19-24 Aug: **697 accounts reached, 1 save, 3 shares, 0 profile visits, 0
+follows, 0 real comments** (every `commentsCount: 1` is Blotato's own auto first-comment). The
+queue is working; nothing it reaches converts.
+
+**Three hard facts verified live, not assumed:**
+- **The profile has NO website link.** Checked the DOM on `instagram.com/abs.by.ai` - the only
+  outbound links belong to Meta's footer. The bio's "AbsbyAI.com" is unclickable plain text, and
+  every reel's CTA says "link in the first comment." Highest-value 10-second fix on the account.
+- **The handle is `@abs.by.ai`, not `@absbyai`.** `instagram.com/absbyai` returns "Profile isn't
+  available" - free or removed, the web can't tell. Must be checked in-app.
+- **Follow-along reels average 1.8-2.0 s watch time**, against 7.4 s (snacking) and 26.3 s
+  (channel intro). They are suppressing everything posted after them. Photos reach ~40 views
+  against 130-270 for reels while eating 3 of 6 weekly slots.
+
+**The plan:** 7 profile fixes (~45 min, all Dan's - they need an IG login), a 4-reel + 1-carousel
+weekly slate where each reel slot has a distinct job (reach / differentiation / saves / identity),
+daily Stories + 30 min outbound commenting, and comment-to-DM ("Comment ABS") replacing
+link-in-first-comment. Targets 250-400 followers by 24 Sep, 1,000-1,500 by 24 Nov, with a written
+kill criterion on 24 Sep that switches to paid acquisition if organic hasn't moved.
+
+**The one thing the content is missing:** almost nothing in the 194-post queue through Jan 2027 is
+a screen recording of the app generating someone's abs preview. That is the only asset no
+competitor can copy and it is essentially unused.
+
+**TIKTOK HOLD RESPECTED - unchanged.** TikTok stays disconnected in Blotato until ~2026-09-02.
+IG/FB were already connected and were only READ from this session. ManyChat is an Instagram
+connection, unrelated to the TikTok warm-up, so it is clear to set up now.
+
+**QUEUE SURGERY IS SPEC'D BUT NOT EXECUTED** (deliberately - it depends on Dan seeing the plan):
+drop photo posts from the IG feed queue, drop the follow-alongs, de-duplicate 4 ideas that run
+twice within a week (milk, supplements, daily abs, food photos), and switch off Blotato's IG
+auto-first-comment once ManyChat is live. All reversible, one pass over the REST API.
+
+**EXACT NEXT ACTION - DAN: read the artifact and do the 7 profile fixes.** They need an Instagram
+login, so they are his. Say the word and the Blotato queue rework runs in a single session.
+
+
 ### AD 1 REV-5 DELIVERED — rebuilt in the Upwork editor's style + Dan's revision doc (2026-08-23, Claude Code)
 
 Dan on rev-4: *"still not as good as the one Muhammad made — audio, video and graphics."* He
