@@ -10,7 +10,7 @@ from pathlib import Path
 
 slug, video = sys.argv[1], sys.argv[2]
 FLAGGED = sys.argv[3:]
-BASE = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+BASE = Path(f"/Volumes/Extreme/_edit_work/{slug}")
 VIDEO = BASE / "roughcuts" / video
 edl = json.load(open(BASE / "edl.json")); ranges = edl["ranges"]
 offs, acc = [], 0.0

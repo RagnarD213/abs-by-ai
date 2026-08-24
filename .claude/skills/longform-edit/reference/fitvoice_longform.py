@@ -10,8 +10,8 @@ usage: fitvoice.py ["<ffmpeg -af chain>"] ...
 import subprocess, sys, wave
 import numpy as np
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
-REF = "/Volumes/Seagate 4TB/_edit_work/ad1-8-14/reference/muhammad_a.mp4"
-OURS = "/Volumes/Seagate 4TB/_edit_work/spraytan/voice_raw.wav"
+REF = "/Volumes/Extreme/_edit_work/ad1-8-14/reference/muhammad_a.mp4"
+OURS = "/Volumes/Extreme/_edit_work/spraytan/voice_raw.wav"
 BANDS = [(80,150),(150,250),(250,400),(400,700),(700,1200),(1200,2000),
          (2000,3200),(3200,5000),(5000,8000),(8000,10500)]
 HIS  = [(6.0,4),(14.0,4),(24.0,4),(38.0,4),(50.0,4)]

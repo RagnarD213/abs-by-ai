@@ -1,7 +1,7 @@
 # AD 1 — "How AI Got Me Abs" — C1591 (8/14 shoot, teleprompter roll)
 # Hook = TAKE 2 (slated master pass) pending Dan's pick from the take reel.
 # Take-1 alternative for the hook: (3.66, 35.16).
-SRC_PATH = "/Volumes/Seagate 4TB/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1591.MP4"
+SRC_PATH = "/Volumes/Extreme/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1591.MP4"
 # black point 0.032 -> crush; mid lift for the dark night-kitchen look.
 # NO WB shift: skin tone is prominent (tank top) — longform rule.
 GRADE = "curves=all='0/0 0.032/0.005 0.25/0.315 0.50/0.60 0.80/0.875 1/1',eq=saturation=1.06"

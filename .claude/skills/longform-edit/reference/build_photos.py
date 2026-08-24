@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 P = B / "photos"; OUT = B / "gfx"; OUT.mkdir(exist_ok=True)
 W, H = 1920, 1080
 BG = (13, 14, 11); OLIVE = (140, 152, 88); WHITE = (255, 255, 255)

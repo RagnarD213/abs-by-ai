@@ -32,7 +32,7 @@ usage: apply_vf.py
 import json, importlib.util
 from pathlib import Path
 
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 edl = json.load(open(B / "edl.json"))
 R = edl["ranges"]
 spec = importlib.util.spec_from_file_location("i", B / "inserts.py")

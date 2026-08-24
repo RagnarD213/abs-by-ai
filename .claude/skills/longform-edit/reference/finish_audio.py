@@ -19,7 +19,7 @@ usage: finish_audio.py
 import json, subprocess
 from pathlib import Path
 
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 VOICE = B / "voice_raw.wav"
 VIDEO = B / "roughcuts" / "CUT_v3_gfx.mp4"

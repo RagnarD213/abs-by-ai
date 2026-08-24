@@ -8,7 +8,7 @@ import json, re, subprocess, sys, random
 from pathlib import Path
 slug, vid, srtname = sys.argv[1], sys.argv[2], sys.argv[3]
 N = int(sys.argv[4]) if len(sys.argv) > 4 else 12
-B = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+B = Path(f"/Volumes/Extreme/_edit_work/{slug}")
 V = B / "roughcuts" / vid
 def secs(s):
     return sum(float(x)*m for x, m in zip(re.split('[:,]', s), [3600, 60, 1, .001]))

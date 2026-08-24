@@ -1,4 +1,4 @@
-SRC_PATH = "/Volumes/Seagate 4TB/abs by ai 8:3 jeff chagrin shoot/main camera/C1514.MP4"
+SRC_PATH = "/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera/C1514.MP4"
 # black point 0.054 -> crush; same gentle S-curve. WB deviation 0.008 = neutral.
 GRADE = "curves=all='0/0 0.054/0.006 0.25/0.262 0.50/0.552 0.80/0.862 1/1'"
 RANGES = [

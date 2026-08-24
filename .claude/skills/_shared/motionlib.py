@@ -761,3 +761,257 @@ def photo_sequence(out, items, dur, in_dur=0.40, out_dur=0.28, pal=GREEN,
             im.alpha_composite(with_alpha(scale_about(lay, k), min(p, q) * a_out))
         frames.append(im)
     return encode(frames, out, fps)
+
+
+# ============================================================================
+# LONGFORM CONTENT PACK  (added 2026-08-24 for the ab-wheel rebuild)
+#
+# Measured off the reference edit of the same footage, then recoloured to Dan's
+# revision note: "make green used in graphics slightly darker, military green".
+# His card gradient measures (84,93,55) -> (141,152,97) -- the light end is almost
+# exactly our brand OLIVE (140,152,88) -- so MIL below sits a stop under it and
+# desaturates toward olive drab, which is what "military green" means.
+# ============================================================================
+
+MIL = Palette(field=(13, 14, 11), field_hi=(21, 23, 18),
+              ink=(255, 255, 255), ink_soft=(171, 180, 148),
+              accent=(104, 118, 66), on_accent=(255, 255, 255),
+              deep=(46, 54, 32))
+MIL.mid = (78, 89, 50)          # plate/bar green, between deep and accent
+# No red in this palette. `hot` is the brand red everywhere else, but Dan's ab-wheel
+# revision asks for the graphics to sit in the military-green family, and a red rule
+# under a "$17" callout on an olive/black card reads as a different brand.
+MIL.hot = MIL.accent
+OLIVE   = (140, 152, 88)        # brand olive: hairlines and eyebrows only
+
+
+def bracket_frame(im, pal=MIL, inset=30, color=None, width=3, tick=26, alpha=255):
+    """J2 corner brackets with tick marks along the border.
+
+    The reference edit puts this frame around every full-screen graphic and every
+    inset, and it is the single cheapest thing that makes a card look designed rather
+    than typed. Corners only -- a continuous rectangle reads as a border, brackets read
+    as a viewfinder.
+    """
+    d = ImageDraw.Draw(im)
+    c = (color or OLIVE) + (alpha,)
+    w, h = im.size
+    x0, y0, x1, y1 = inset, inset, w - inset - 1, h - inset - 1
+    L = int(min(w, h) * 0.085)
+    for (cx, cy, sx, sy) in ((x0, y0, 1, 1), (x1, y0, -1, 1), (x0, y1, 1, -1), (x1, y1, -1, -1)):
+        d.line([(cx, cy), (cx + sx * L, cy)], fill=c, width=width)
+        d.line([(cx, cy), (cx, cy + sy * L)], fill=c, width=width)
+    for i in range(1, 9):                       # tick marks along top and bottom
+        x = x0 + (x1 - x0) * i / 9
+        n = tick if i % 3 == 0 else tick // 2
+        d.line([(x, y0 + 4), (x, y0 + 4 + n)], fill=c, width=2)
+        d.line([(x, y1 - 4), (x, y1 - 4 - n)], fill=c, width=2)
+    return im
+
+
+def _grad_plate(size, box, radius, c0, c1, angle="v"):
+    """Rounded plate filled with a two-stop gradient (the reference edit's card fill)."""
+    x0, y0, x1, y1 = [int(v) for v in box]
+    w, h = max(1, x1 - x0), max(1, y1 - y0)
+    sm = Image.new("RGB", (2, 2))
+    px = sm.load()
+    for j in range(2):
+        for i in range(2):
+            k = (j if angle == "v" else i)
+            px[i, j] = tuple(int(c0[n] + (c1[n] - c0[n]) * k) for n in range(3))
+    grad = sm.resize((w, h), Image.BICUBIC)
+    m = Image.new("L", (w, h), 0)
+    ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], radius=radius, fill=255)
+    lay = Image.new("RGBA", size, (0, 0, 0, 0))
+    lay.paste(grad, (x0, y0), m)
+    return lay
+
+
+def title_plate(out, headline, subtitle=None, dur=3.4, pal=MIL, size=104, sub_size=46,
+                in_dur=0.5, out_dur=0.32, fps=FPS, plate_w=1420, ink=None):
+    """Full-screen chapter card in the reference edit's form.
+
+    A near-black bracketed field, a rounded plate filled with a military-green gradient,
+    and the headline in white oblique caps wiping on line by line. The subtitle lands
+    afterwards on its own light strip under the plate, which is how his second line
+    ("EQUIPMENT FOR AB TRAINING") arrives.
+    """
+    lines = [l.upper() for l in headline.split("\n")]
+    fH = font(size, "ExtraBold")
+    fS = font(sub_size, "Bold")
+    LH = int(size * 0.98)
+    widths = [text_size(l, fH)[0] for l in lines]
+    cap = max(ink_bottom(l, fH) for l in lines)
+    plate_w = max(plate_w, max(widths) + 150)
+    plate_h = (len(lines) - 1) * LH + cap + 130
+    px0 = (W - plate_w) / 2
+    total_h = plate_h + (96 if subtitle else 0)
+    py0 = (H - total_h) / 2
+
+    base = Image.new("RGBA", (W, H), pal.field + (255,))
+    bracket_frame(base, pal)
+
+    frames = []
+    for i in range(nframes(dur, fps)):
+        t = i / fps
+        a_in = ease_out_cubic(t / 0.18)
+        a_out = 1.0 if t <= dur - out_dur else 1 - ease_in_cubic((t - (dur - out_dur)) / out_dur)
+        im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        im.alpha_composite(with_alpha(base, a_in * a_out))
+        con = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        p = ease_out_cubic(t / (in_dur * 0.7))                 # plate grows from centre
+        if p > 0.01:
+            ph = plate_h * p
+            con.alpha_composite(_grad_plate((W, H),
+                [px0, py0 + (plate_h - ph) / 2, px0 + plate_w, py0 + (plate_h + ph) / 2],
+                26, pal.deep, pal.accent))
+        y = py0 + 66
+        for li, l in enumerate(lines):
+            q = ease_out_cubic((t - 0.22 - li * 0.10) / 0.40)
+            if q <= 0.02: y += LH; continue
+            tw = widths[li]; x = (W - tw) / 2
+            gl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            ImageDraw.Draw(gl).text((x, y), l, font=fH, fill=(ink or pal.on_accent), anchor="lt")
+            gl = oblique(gl, 10.0, pivot_y=y + cap / 2)
+            cut = x + tw * ease_out_expo((t - 0.22 - li * 0.10) / 0.5) + size * 0.3
+            m = Image.new("L", (W, H), 0)
+            ImageDraw.Draw(m).rectangle([0, 0, cut, H], fill=255)
+            gl.putalpha(Image.composite(gl.getchannel("A"), Image.new("L", (W, H), 0), m))
+            con.alpha_composite(gl)
+            y += LH
+        if subtitle:
+            q = ease_out_cubic((t - 0.52) / 0.36)
+            if q > 0.01:
+                su = subtitle.upper()
+                tw, th = text_size(su, fS)
+                bx0, by0 = (W - tw) / 2 - 34, py0 + plate_h + 26
+                lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+                ImageDraw.Draw(lay).rectangle(
+                    [bx0, by0, bx0 + (tw + 68) * q, by0 + th + 26], fill=(238, 240, 232, 255))
+                if q > 0.5:
+                    ImageDraw.Draw(lay).text((W / 2, by0 + (th + 26) / 2), su, font=fS,
+                                             fill=(16, 20, 14), anchor="mm")
+                con.alpha_composite(lay)
+        im.alpha_composite(with_alpha(scale_about(con, 1.0 + 0.022 * (t / dur)), a_in * a_out))
+        frames.append(im)
+    return encode(frames, out, fps)
+
+
+def section_label(out, number, text, dur=3.6, pal=MIL, x=110, y=None, size=54,
+                  in_dur=0.36, out_dur=0.28, fps=FPS):
+    """Numbered section chip + light plate, sliding in from the left.
+
+    The reference edit's "02 | It Has A Built In Progression". The number sits in a
+    solid military-green square; the title sits on a near-white plate so it stays
+    readable over bright outdoor footage, which a dark plate does not.
+    """
+    fN = font(int(size * 1.05), "ExtraBold")
+    fT = font(size, "Bold")
+    tw, th = text_size(text, fT)
+    ch_h = max(th, size) + 34
+    nw = max(ch_h, text_size(number, fN)[0] + 34)
+    pl_w = tw + 60
+    if y is None: y = H - 196 - ch_h
+    frames = []
+    for i in range(nframes(dur, fps)):
+        t = i / fps
+        a_out = 1.0 if t <= dur - out_dur else 1 - ease_in_cubic((t - (dur - out_dur)) / out_dur)
+        p = ease_out_back(t / in_dur)
+        im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        dx = int(x - (x + nw + pl_w) * (1 - clamp01(t / in_dur)))
+        lay.alpha_composite(drop_shadow((W, H), [dx, y, dx + nw, y + ch_h], 6,
+                                        blur=20, spread=5, opacity=140))
+        d = ImageDraw.Draw(lay)
+        d.rectangle([dx, y, dx + nw, y + ch_h], fill=pal.mid)
+        d.text((dx + nw / 2, y + ch_h / 2), number, font=fN, fill=(255, 255, 255), anchor="mm")
+        gp = ease_out_cubic((t - in_dur * 0.6) / 0.30)
+        if gp > 0.01:
+            sx = dx + nw
+            d.rectangle([sx, y, sx + pl_w * gp, y + ch_h], fill=(240, 242, 234))
+            wp = ease_out_expo((t - in_dur * 0.6 - 0.10) / 0.34)
+            if wp > 0.01:
+                tl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+                ImageDraw.Draw(tl).text((sx + 30, y + ch_h / 2), text, font=fT,
+                                        fill=(17, 21, 14), anchor="lm")
+                m = Image.new("L", (W, H), 0)
+                ImageDraw.Draw(m).rectangle([0, 0, sx + 30 + tw * wp, H], fill=255)
+                tl.putalpha(Image.composite(tl.getchannel("A"), Image.new("L", (W, H), 0), m))
+                lay.alpha_composite(tl)
+        im.alpha_composite(with_alpha(lay, a_out * min(1.0, p * 3)))
+        frames.append(im)
+    return encode(frames, out, fps)
+
+
+def stack_build(out, items, dur, pal=MIL, x=110, y=250, size=62, head=None,
+                out_dur=0.34, fps=FPS):
+    """A list of names that appear ONE AT A TIME, synced to when they are spoken.
+
+    `items` is [(t_seconds, "text"), ...]. Used for the three ab muscles as Dan names
+    them -- the reference edit does exactly this and it is the one graphic in the video
+    that carries information the viewer cannot get from the audio alone.
+    """
+    fH = font(38, "ExtraBold")
+    fB = font(size, "Bold")
+    frames = []
+    for i in range(nframes(dur, fps)):
+        t = i / fps
+        a_out = 1.0 if t <= dur - out_dur else 1 - ease_in_cubic((t - (dur - out_dur)) / out_dur)
+        im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        yy = y
+        if head:
+            hp = ease_out_cubic(t / 0.4)
+            if hp > 0.01:
+                hu = head.upper()
+                tw, th = text_size(hu, fH)
+                d = ImageDraw.Draw(lay)
+                d.rectangle([x, yy, x + (tw + 44) * hp, yy + th + 24], fill=pal.mid)
+                if hp > 0.5:
+                    d.text((x + 22, yy + (th + 24) / 2), hu, font=fH,
+                           fill=(255, 255, 255), anchor="lm")
+            yy += 92
+        for (bt, txt) in items:
+            p = ease_out_cubic((t - bt) / 0.40)
+            if p > 0.01:
+                sub = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+                sd = ImageDraw.Draw(sub)
+                ox = int((1 - p) * 26)
+                tw, th = text_size(txt, fB)
+                sd.rectangle([x - ox, yy, x - ox + tw + 56, yy + th + 26], fill=(12, 14, 10, 232))
+                sd.rectangle([x - ox, yy, x - ox + 9, yy + th + 26], fill=pal.accent)
+                sd.text((x - ox + 30, yy + (th + 26) / 2), txt, font=fB,
+                        fill=(255, 255, 255), anchor="lm")
+                lay.alpha_composite(with_alpha(sub, p))
+            yy += size + 46
+        im.alpha_composite(with_alpha(lay, a_out))
+        frames.append(im)
+    return encode(frames, out, fps)
+
+
+def inset_frame(out, dur, box, pal=MIL, radius=26, in_dur=0.42, out_dur=0.30, fps=FPS,
+                label=None):
+    """Bracketed field with a rounded WINDOW punched through it.
+
+    Composite order is [programme][stock clip][this] -- the stock clip shows through the
+    window and everything outside it becomes the brand field, which is how the reference
+    edit presents its gym B-roll instead of cutting to it full-frame.
+    """
+    fL = font(34, "ExtraBold")
+    base = Image.new("RGBA", (W, H), pal.field + (255,))
+    bracket_frame(base, pal)
+    hole = Image.new("L", (W, H), 255)
+    ImageDraw.Draw(hole).rounded_rectangle(box, radius=radius, fill=0)
+    base.putalpha(Image.composite(base.getchannel("A"), Image.new("L", (W, H), 0), hole))
+    d = ImageDraw.Draw(base)
+    d.rounded_rectangle(box, radius=radius, outline=pal.accent + (255,), width=3)
+    if label:
+        chip(base, (box[0], box[1] - 56), label, fL, pal.mid + (255,), (255, 255, 255, 255),
+             radius=6)
+    frames = []
+    for i in range(nframes(dur, fps)):
+        t = i / fps
+        a_in = ease_out_cubic(t / in_dur)
+        a_out = 1.0 if t <= dur - out_dur else 1 - ease_in_cubic((t - (dur - out_dur)) / out_dur)
+        frames.append(with_alpha(base, a_in * a_out))
+    return encode(frames, out, fps)

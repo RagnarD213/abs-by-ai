@@ -3,6 +3,39 @@
 Copy and adapt; do not rewrite. Media stays out of git, code lives here — the original
 `/shorts` V4 pipeline was lost once by keeping code beside the media.
 
+## THE STYLE PASS (2026-08-24, the ab-wheel rebuild) — READ SKILL.md STEP 2.5 FIRST
+
+These are the ones that were missing when an outside editor beat this pipeline on the same
+footage. Every file here backs a **hard failure** in `qc_style.py`.
+
+| file | what it does |
+|---|---|
+| **`qc_style.py`** | **THE GATE.** Measures the FINISHED FILE — channels, bed, pace, dead air, cuts/min, longest static stretch, coverage, captions, splices, loudness, true peak. Every failure names its fix and step number. Calibrated on three cuts of the same footage. |
+| `HOUSE_STYLE.md` | the measured colour / type / layout / timing spec. Do not re-interpret it per video. |
+| `subject.py` | where the subject is, frame by frame, from a median plate of the locked set |
+| `plan_punchins.py` | the cut plan: pause removal (word-guarded), set trims, and a crop level per kept piece |
+| `render_tight.py` | per-piece render with exact frame counts (`-frames:v N`, never `-t`) |
+| `build_tight_audio.py` | the matching audio cut in ONE graph, so nothing rounds per piece |
+| `repcut.py` | pose-matched trim points inside a repetitive movement |
+| `segmap.py` | map EDL ranges to their already-rendered segments in `clips_graded/` |
+| `tmap.py` / `timeline_outputmap.py` | source ↔ output time, words and beats on the cut timeline |
+| `find_cue.py` | locate a phrase on the output timeline, searching AFTER a time |
+| `build_voice_singlemic.py` | rebuild the voice from the good channel, frame-locked |
+| `fitvoice_bedaware.py` | fit the voice EQ against a reference that HAS a music bed (subtracts it) |
+| `pick_bed.py` | choose the music bed by measurement against a reference edit's own bed |
+| `audio_final.py` | voice + ducked bed + synthesised SFX + corrective loudnorm |
+| `build_gfx_motion.py` | render every graphic to an alpha QTRLE `.mov` via `_shared/motionlib.py` |
+| `build_inserts_motion.py` | pre-render cutaways: full-frame, or inside a bracketed inset window |
+| `build_endcard.py` | end card with a real app screen in a phone-shaped window |
+| `composite_motion.py` | two overlay passes — cutaways, then graphics + watermark |
+| `captions_burn.py` | phrase-chunked burned captions + `.srt`, suppressed over full-screen cards |
+| `spec_example_abwheel.py` | a worked plan: 26 cutaways + 27 graphics authored against the transcript |
+
+**These carry the ab-wheel paths.** They are templates, like everything else here: copy one
+into the video's working dir and change `BASE`. The animated-graphics and SFX packs are
+shared with `/ad-edit` at `.claude/skills/_shared/motionlib.py` and `sfxlib.py` — a fix in
+one now reaches both, which is the point.
+
 ## Generic (2026-08-20, built on the 3-video 8/3 batch) — START HERE
 
 These take a per-video `ranges.py` / `chips.py` and work on any roll. They supersede the

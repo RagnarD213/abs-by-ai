@@ -2,7 +2,7 @@ import json,re
 from pathlib import Path
 TERMS = re.compile(r"(fuck|shit|bullshit|Donald Trump|ex-girlfriend|not smart enough|clavicular|steroid)", re.I)
 for slug, src in [("spraytan","C1512"),("zepbound","C1513"),("supplements","C1514")]:
-    B = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+    B = Path(f"/Volumes/Extreme/_edit_work/{slug}")
     edl = json.load(open(B/"edl.json"))["ranges"]
     segs = json.load(open(B/f"{src}.whisper.json"))["segments"]
     offs, acc = [], 0.0

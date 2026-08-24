@@ -3,7 +3,7 @@
 Prints what Dan is SAYING in each gap so inserts can be chosen editorially."""
 import json, importlib.util, sys
 from pathlib import Path
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 edl = json.load(open(B/"edl.json")); R = edl["ranges"]
 spec = importlib.util.spec_from_file_location("c", B/"chips.py")
 m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)

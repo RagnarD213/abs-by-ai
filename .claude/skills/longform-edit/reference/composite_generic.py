@@ -6,7 +6,7 @@ import json, subprocess, sys
 from pathlib import Path
 
 slug, outname = sys.argv[1], sys.argv[2]
-BASE = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+BASE = Path(f"/Volumes/Extreme/_edit_work/{slug}")
 SRC = BASE / "roughcuts" / "CUT_v1_graded.mp4"
 OUT = BASE / "roughcuts" / outname
 G = BASE / "gfx"

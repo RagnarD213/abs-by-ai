@@ -12,7 +12,7 @@ usage: composite_inserts.py <in.mp4> <out.mp4>
 import importlib.util, subprocess, sys, time
 from pathlib import Path
 
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 SRC, OUT = B / "roughcuts" / sys.argv[1], B / "roughcuts" / sys.argv[2]
 spec = importlib.util.spec_from_file_location("i", B / "inserts.py")
 m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)

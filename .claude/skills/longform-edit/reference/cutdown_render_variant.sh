@@ -3,7 +3,7 @@
 # One render per variant, after all its cuts are final (per the handoff).
 set -e
 V="$1"
-W="/Volumes/Seagate 4TB/_edit_work/invest-health-cutdowns"
+W="/Volumes/Extreme/_edit_work/invest-health-cutdowns"
 export PATH="$W/bin:$PATH"
 cd "$W/$V"
 NAME=$( [ "$V" = "cons" ] && echo INVEST_HEALTH_conservative || echo INVEST_HEALTH_sub30 )

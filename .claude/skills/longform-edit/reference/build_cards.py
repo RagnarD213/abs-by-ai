@@ -11,7 +11,7 @@ Camel-case names use Manrope: Copperplate is a SMALL-CAPS face and renders
 from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
 
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 OUT = B / "gfx"; OUT.mkdir(exist_ok=True)
 APP = Path("/Users/danielrose/Documents/Claude/Projects/Abs By AI/app-store-assets/6.9-inch")
 W, H = 1920, 1080

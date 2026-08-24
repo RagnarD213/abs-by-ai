@@ -4,7 +4,7 @@ minimum 3 chapters, each at least 10s. usage: make_chapters.py <slug> <out.txt>"
 import json, sys
 from pathlib import Path
 slug, out = sys.argv[1], sys.argv[2]
-BASE = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+BASE = Path(f"/Volumes/Extreme/_edit_work/{slug}")
 chips = json.load(open(BASE / "chip_timings.json"))
 titles = {c["key"]: c for c in chips}
 import importlib.util

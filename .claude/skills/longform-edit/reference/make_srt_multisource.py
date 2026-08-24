@@ -8,7 +8,7 @@ import json, sys
 from pathlib import Path
 
 slug, outname = sys.argv[1], sys.argv[2]
-BASE = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+BASE = Path(f"/Volumes/Extreme/_edit_work/{slug}")
 edl = json.load(open(BASE / "edl.json"))
 # MULTI-SOURCE: words are per roll, so a range must only ever pull from its own
 # roll -- identical timecodes exist in all four rolls.

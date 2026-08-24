@@ -26,7 +26,7 @@ from pathlib import Path
 
 SRC_DIR = Path("/Users/danielrose/Documents/Claude/Projects/Abs By AI/"
                "Media/longform-raw/absbyai-0803-shoot/invest-health")
-FFMPEG = Path("/Volumes/Seagate 4TB/_edit_work/invest-health-cutdowns/bin/ffmpeg")
+FFMPEG = Path("/Volumes/Extreme/_edit_work/invest-health-cutdowns/bin/ffmpeg")
 WAV = SRC_DIR / "C1511.wav"
 
 WORDS = []

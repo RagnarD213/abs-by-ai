@@ -10,7 +10,7 @@ import json, sys, importlib.util
 from pathlib import Path
 
 slug, ranges_file = sys.argv[1], sys.argv[2]
-BASE = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+BASE = Path(f"/Volumes/Extreme/_edit_work/{slug}")
 spec = importlib.util.spec_from_file_location("r", ranges_file)
 mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
 RANGES, SOURCES, GRADES = mod.RANGES, mod.SOURCES, mod.GRADES

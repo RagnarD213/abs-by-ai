@@ -39,6 +39,34 @@ cards, 5 before/after panels) on top of the existing 26 chips, so no gap exceeds
 sentences removed from the SRT. **$0.00** — Pexels needs no key. That round added
 Step 5.5 (cutaways and cards), the SRT de-clumping rule in Step 8, and lessons 22-27.
 
+**REBUILT 2026-08-24 after the ab-wheel video was rejected.** Dan on the cut this skill
+produced: *"substantially better than what we made — it looks better, it sounds better,
+and the graphics are better."* **Seven of the nine techniques the outside editor used were
+ALREADY IN THIS REPO, and the video passed 6/6 of the QC anyway.** `motionlib.py` and
+`sfxlib.py` had been written in August for exactly this; Step 5.5's coverage rule and
+Step 5.6's microphone check were already written down. They were skipped.
+
+> **THE META-LESSON, and it is the reason this skill was restructured:**
+> **a quality bar that exists only in prose will be skipped under time pressure.
+> If it matters, it fails the build.**
+> This is the third time a metric or a rule — not the media — has been the problem.
+
+So every style rule is now **code that fails**, in `reference/qc_style.py`. Run it before
+you deliver. It was calibrated on three cuts of the same footage, and it separates them:
+
+| | the editor's 6:58 cut | this skill's rebuild | the cut Dan rejected |
+|---|---|---|---|
+| gate result | 6 pass / 5 fail\* | **13 pass / 0 fail** | **5 pass / 7 fail** |
+| visual changes | 68 (9.8/min) | 109 (15.1/min) | 19 (2.1/min) |
+| longest static stretch | 41.3 s | 12.7 s | 79.2 s |
+| cutaway coverage | 65% | 58% | 9% |
+| voice centred (L/R) | +0.993 | +0.9996 | −0.002 |
+| pace | 189 wpm | 188 wpm | 151 wpm |
+
+\* his file is a 854x480 review copy, quieter than target and 0.31 dBTP over — and his
+cut breaches Dan's own 30-second rule once, at 5:37. The gate is not "be like him"; it is
+the floor below which a cut is not finished.
+
 **Working scripts are preserved in `reference/`. Copy one and adapt; do NOT rewrite
 from scratch.** They are in git on purpose: `Media/` and `YouTube Long Form Video
 Content/` are git-ignored, and the original `/shorts` V4 pipeline was **lost** that
@@ -157,6 +185,43 @@ bit"* then a slate, *"Rolling."* Grep the transcript for `redo|hold on|again|rol
 let me start over` before reading anything else. Record the retakes and dead air in a
 `ground_truth.json` (see `reference/`) so the cut can be scored objectively instead of
 by opinion.
+
+---
+
+## Step 2.5 — THE STYLE PASS IS NOT OPTIONAL. Read this before you cut.
+
+These used to sit at Steps 5.5–8, which is where a session runs out of room, and that is
+exactly why they got skipped on the ab-wheel video. **Every one of them is a hard failure
+in `reference/qc_style.py`.** Plan for them now, not after the cut is locked.
+
+| # | requirement | gate | where |
+|---|---|---|---|
+| 1 | **Right microphone only.** Check the channels before you touch tone. | channel SNR ≥ 10 dB **and** L/R correlation ≥ +0.90 | Step 5.6 |
+| 2 | **Pace.** Remove dead air; cuts must land BETWEEN two spoken words. | ≥ 170 wpm, dead air ≤ 25% | Step 3 |
+| 3 | **Punch-ins.** A locked wide shot for nine minutes scene-detects as one cut. | ≥ 4 visual changes/min | Step 5.4 |
+| 4 | **Coverage.** No long stretch of the same unbroken shot. | ≥ 40% coverage, longest static stretch ≤ 30 s | Step 5.5 |
+| 5 | **Animated graphics**, not static PNG chips. | (visual-change and coverage gates) | Step 7 |
+| 6 | **Music bed**, licensed and ducked. | 2nd-percentile frame level ≥ −52 dBFS | Step 7 |
+| 7 | **Captions**, burned, on talking-head content. | present on ≥ 45% of sampled frames | Step 8 |
+| 8 | **Loudness and peak.** | −14 LUFS ±1, true peak ≤ −0.5 dBTP | Step 7.6 |
+
+**The gate measures the FINISHED FILE, not your build plan.** A `spec.py` can claim thirty
+cutaways; only the file proves it. That is deliberate — the old QC read `chip_timings.json`
+and would happily certify a plan that never made it to the picture.
+
+```bash
+python3 reference/qc_style.py FINAL.mp4 --plan plan.json --srt captions.srt --talking-head
+```
+
+### The three failures this gate exists to catch
+
+1. **A dead or duplicated microphone.** Two separate shoots shipped with it (8/3: two mics
+   hard-panned 7.5 ms apart; 8/14: the left input dead, SNR 0.6–1.4 dB). Both were
+   inaudible to a QC that only measured LUFS. Both reached Dan.
+2. **One locked shot for the whole runtime.** 2.1 visual changes per minute against the
+   reference cut's 9.8.
+3. **A plan that was written and then not built.** Steps 5.5 and 5.6 were correct, written
+   down, and skipped.
 
 ---
 
@@ -560,7 +625,50 @@ the on-screen answers to the answers he speaks aloud.
 
 ---
 
-## Step 5.5 — cutaways and cards: breaking up a talking head
+## Step 5.4 — PUNCH-INS: a locked camera has to be cut into shots  **REQUIRED — gate: ≥ 4 visual changes/min**
+
+The 8/14 ab-wheel shoot is one locked wide shot in which Dan occupies 18–56% of the frame
+width. Delivered untouched it scene-detects as **one cut in nine minutes**. The outside
+editor's cut of the same footage has 68. He did not have a second camera — he punched in.
+
+**The system** (`reference/subject.py` + the framing half of `reference/plan_punchins.py`):
+
+1. **Find the subject.** The camera is locked, so the per-pixel MEDIAN of the programme is
+   a clean plate of the empty set. Anything far from the plate is Dan — except water and
+   trees, which is why columns are scored rather than pixels, and why the row scan is
+   restricted to the columns already claimed. Scoring the whole frame put every box's top
+   edge on the roofline and shifted its centre ~5% right.
+2. **Three crop levels: 1.00 / 0.86 / 0.74 of frame width**, centred on the tracked
+   subject, never on the frame. **0.74 is the floor.** Measured on a torso crop, sharpness
+   falls 124 → 64 → 34 going 1.00 → 0.86 → 0.74, and 0.62 both drops to 21 and cuts his
+   feet off during rollouts.
+3. **A SHOT spans several kept pieces.** Hold the exact crop across pause cuts. If the crop
+   re-centres at every removed pause, every pause becomes a small unmotivated pan.
+4. **Change framing at every join big enough to see, and every ~7 s regardless.** A pause
+   removal under 0.5 s barely moves the body on a locked shot and needs no coverage;
+   anything bigger does. The ~7 s cadence is the reference cut's own (68 changes / 418 s).
+5. **Split long kept pieces purely to reframe.** Nothing is removed at those splits — the
+   audio runs straight through — so they are pure punch-in cuts. Nudge each to the quietest
+   40 ms inside ±0.9 s so it lands between words. Without this, framing can only change
+   where a pause was removed, and the rebuild capped out at 3.1 changes/min instead of 7.4.
+6. **Never crop through the subject.** Widen a level if the tracked box plus 10% margin
+   does not fit. Assert it afterwards; the check found 38 pieces worth inspecting and all
+   38 turned out to be the tracker's box including his shadow, not real clipping.
+
+**Render per piece, not as one filter graph.** Referencing `[0:v]` 85 times makes ffmpeg
+split the decoded stream 85 ways and buffer every branch until concat reaches it.
+
+**Two rounding traps, both of which cost a re-render here:**
+- `-t <duration>` emits `ceil()` frames on some pieces and `floor()` on others. 27 of 85
+  came out one frame long and the audio finished 0.9 s behind the picture. Use
+  **`-frames:v N`** with N computed from the frame duration.
+- Do **not** cut the audio per piece either — that drifted 13 ms a piece the other way.
+  Cut the whole voice track in ONE graph (85 `atrim`s off a single `asplit`, concatenated),
+  using the same frame-snapped durations the picture got. Zero drift, by construction.
+
+---
+
+## Step 5.5 — cutaways and cards: breaking up a talking head  **REQUIRED — gate: ≥ 40% coverage, longest static stretch ≤ 30 s**
 
 Dan's rule, given on the spray-tan revision: **"generally there shouldn't be more than
 30 seconds without a clip or some kind of graphic… I'd rather have a little bit too much
@@ -610,7 +718,7 @@ output-time text for placing an insert on the word.
 
 ---
 
-## Step 5.6 — AUDIO: check the CHANNELS before you touch tone
+## Step 5.6 — AUDIO: check the CHANNELS before you touch tone  **REQUIRED — gate: channel SNR ≥ 10 dB, L/R correlation ≥ +0.90**
 
 **Run `reference/chan_analyse.py` on every new roll, before any EQ.** Two rolls from
 this shoot turned out not to be stereo at all: they carry **two different microphones
@@ -770,6 +878,41 @@ do this every time:**
 Graphics are **one overlay pass over the finished cut at CRF 18**, not baked per-segment —
 chips span beat boundaries. One extra encode generation, deliberately accepted.
 
+### Static chips are the FLOOR, not the deliverable  **REQUIRED**
+
+The static-PNG chip system above is what longform shipped for five videos, and it is the
+single biggest reason the ab-wheel cut lost to an outside editor. Use the **animated** pack
+instead: `.claude/skills/_shared/motionlib.py` (shared with `/ad-edit` — a fix in one now
+reaches both) and `.claude/skills/_shared/sfxlib.py`.
+
+⚠ **`_shared/` was already the tracked home; `/ad-edit/reference/` held an UNTRACKED
+duplicate.** So the pack existed, was in git, and this skill still never imported it.
+Both per-skill copies are now import shims. Import from `_shared/`, never copy.
+
+The house style is measured off the outside editor's frames and recoloured to Dan's
+revision note *"make green used in graphics slightly darker, military green"*. See
+`reference/HOUSE_STYLE.md` for the numbers. Components, all in `motionlib`:
+
+| component | what it is | used for |
+|---|---|---|
+| `title_plate` | bracketed field + gradient plate + oblique caps wiping on line by line | chapter cards |
+| `section_label` | numbered green chip + light plate, sliding in from the left | "02 — It Has A Built In Progression" |
+| `stack_build` | items appearing ONE AT A TIME, synced to when each is spoken | the three ab muscles as he names them |
+| `lower_third_bar` | accent bar + dark plate | form cues |
+| `number_pop` | letter-by-letter snap-in | the "$17" callout |
+| `inset_frame` | bracketed field with a rounded WINDOW punched through it | B-roll presented on brand, not cut to full-frame |
+| `bracket_frame` | J2 corner brackets + tick marks | on every full-screen graphic |
+
+**A vertical source needs a phone-shaped window, not the 16:9 one.** Fitted into the wide
+window, a 1320×2868 screen recording is 352 px across and reads as lost on the field.
+
+**End on the product, not on a text box.** The reference edit ends on an app screen and so
+does every ad we ship. `build_endcard.py` in the delivery folder is the template: brand
+field, phone-shaped window running the real generation flow, URL beside it. Use the app
+recording **from 3.0 s only** — from 25.25 s it reaches the "Meet the new you" BEFORE/AFTER
+screen and then an email-capture screen, and Dan's standing rule is no side-by-side
+before/after in ANY video, and email capture never.
+
 **Product/insert cards go viewer-LEFT over the door, and must clear the lower-third
 chips.** At this framing Dan sits centre-right; x = 55…495 is free. But a 440×520 card at
 y=300 collides with a chip's eyebrow bar at y=796 — the first pass overlapped the SLEEP
@@ -789,11 +932,90 @@ pair whose gap is < 0.20 s should be merged into one range.
 
 ---
 
-## Step 8 — subtitles: SRT, not burned in
+## Step 7.5 — MUSIC AND SFX  **REQUIRED — gate: 2nd-percentile frame level ≥ −52 dBFS**
 
-**Longform gets an uploaded `.srt`; it does NOT get burned captions.** This is a
-desktop/TV tutorial and burned captions fight the app UI occupying the left 570 px.
-The `/shorts` burned-ASS caption spec does **not** apply here.
+Longform shipped five videos with no music bed at all. A bed is most of the difference
+between "a talking head" and "a video", and its measurable signature is that the programme
+floor never falls to room tone.
+
+**Licence is settled and is not a blocker.** Use **Pixabay**: the Pixabay Content Licence
+permits commercial use with **no attribution**, chosen deliberately over CC-BY so nothing
+has to be credited in perpetuity. `/ad-edit` rev-5 settled this.
+
+**Pick the track by MEASUREMENT, not by taste** — `reference/pick_bed.py`. It scores every
+candidate on two axes against a reference edit's own bed, sampled in that edit's speech
+gaps (found from its word timings):
+
+1. **Spectral shape** — a bed with energy at 400–3000 Hz fights the dialogue and is what
+   makes a mix sound amateur.
+2. **Flatness** — the std-dev of 4-second RMS blocks. If energy swings, the sidechain
+   pumps and the bed starts drawing attention to itself.
+
+**Shape is fixable; flatness is not. Pick on flatness, then EQ the shape.** The ab-wheel
+winner had the best flatness of seven (0.4 dB) and 4.5 dB of shape error; a four-band
+scoop took it to **0.53 dB** against the reference bed. Picking on the raw combined score
+would have taken a track that swings 5.5 dB.
+
+Duck it under the voice with `sidechaincompress`, **long release (~420 ms)** — a short one
+lets the bed spring back between words, which is where it masked a quiet "n't".
+
+**SFX are synthesised, not sourced** (`_shared/sfxlib.py`): no account-walled library, no
+per-asset licence to track for the life of the channel. One cue per graphic entrance —
+`riser` + `whoosh` + `sub` into a full-screen card, `whoosh_soft` on a lower third or a
+framed inset, `pop_soft` on each item of a build. Start each cue ~0.10 s BEFORE the cut so
+it reads as being ON it.
+
+### Step 7.6 — the loudness finish  **gate: −14 LUFS ±1, true peak ≤ −0.5 dBTP**
+
+Two-pass measured `loudnorm`, always. **Target TP −2.5, not −1.5, when the deliverable is
+AAC** — measured on the ab-wheel mix at 256k:
+
+| loudnorm TP target | PCM dBTP | delivered AAC dBTP | integrated |
+|---|---|---|---|
+| −1.5 | −1.50 | **+0.28** FAIL | −14.15 |
+| −2.0 | — | **−0.44** FAIL | −14.46 |
+| −2.5 | — | **−1.47** PASS | −14.74 |
+
+The AAC encoder overshoots ~1.8 dB on this material, and the headroom costs ~0.3 LUFS per
+0.5 dB. Take that trade. It is **not** the `alimiter` trade the skill warns about, which
+costs a dB of loudness per dB of peak — here the peak is not what binds the gain.
+
+---
+
+## Step 8 — subtitles  **REQUIRED for talking-head content — gate: captions on ≥ 45% of sampled frames**
+
+**Burn captions on talking-head content. Ship an `.srt` either way.**
+
+The old rule here said "SRT, not burned in", full stop. That was decided for the meal-prep
+**split-screen tutorial**, where a screen recording occupies the left 570 px and burned
+captions fight the app UI. It was never a rule about longform in general, and reading it
+as one is why the ab-wheel video shipped with no captions at all.
+
+| content | burned captions | `.srt` |
+|---|---|---|
+| talking head, demo, workout, anything with no screen recording | **yes** | yes |
+| split-screen tutorial where a screen recording holds the frame | no | yes |
+
+The `/shorts` burned-ASS spec applies to the first row. Placement has to cooperate with
+the graphics — this is the part the reference edit never had to solve, because it carries
+no captions:
+
+* **Full-screen cards → SUPPRESS the caption.** The card carries its own headline; a
+  caption on top is two texts saying different things. 21 of 212 cues were dropped this way.
+* **Drop the fragment that arrives out of a card, too.** Suppressing mid-sentence leaves
+  the tail behind: the viewer saw "…and I'll", then a card, then "to be using it." Drop
+  any cue that follows a suppressed one and starts lowercase.
+* **Set MarginV so the band clears everything else.** Section labels and lower thirds live
+  at y 796–884; a framed inset window ends at y 933; the watermark sits bottom-right.
+  MarginV 62 with a 58 px face puts captions at roughly y 950–1020, clear of all three.
+* **Chunk on PHRASE boundaries, not on a word count.** A fixed 5-word cap produced
+  "I'll show you why you" / "need to be buying an". Break on sentence punctuation, on a
+  pause ≥ 0.26 s, or when the line would exceed ~40 characters — whichever comes first —
+  and fold one-word orphans into a neighbour.
+* **Word-time them from the FINAL VOICE**, then diff that re-transcription against the
+  source words. The ab-wheel rebuild scored **99.26%** overlap, which is what proves the
+  re-cut did not eat a word; the eight differences were transcription variants
+  ("alright"/"all right") plus two real Whisper errors worth correcting in the caption text.
 
 **Subtitles must be timed to the FINAL EDIT.** Source timestamps are meaningless after
 cutting — on 8/3, 114 of 882 words no longer existed and every survivor had shifted.
@@ -850,7 +1072,22 @@ Upload in YouTube Studio: Subtitles → Add → **Upload file → With timing**.
 
 ---
 
-## Step 9 — QC, automated
+## Step 9 — QC, automated  **BOTH gates, every time**
+
+```bash
+python3 reference/qc_style.py FINAL.mp4 --plan plan.json --srt captions.srt --talking-head
+python3 reference/qc_generic.py <slug> FINAL.mp4        # the technical checks below
+```
+
+**`qc_style.py` is the one that matters and it is the reason this skill was rebuilt.** It
+measures the FINISHED FILE — not `chip_timings.json`, not the EDL, not your plan — because
+the ab-wheel video's plan was fine and its picture was not. Every failure message names the
+fix and the step number. Run it on the reference cut you are trying to beat as well; that
+is how its thresholds were calibrated, and it is how you find out that a competitor's cut
+breaches Dan's 30-second rule too.
+
+### The technical checks (the original six)
+
 
 Port the `/shorts` assertion suite and add:
 
@@ -938,7 +1175,7 @@ anything.** Copy any new script into this skill's `reference/`.
 **Intermediates on the external drive; FINISHED VIDEOS in the project folder.**
 Dan's standing instruction (2026-08-21): *"Going forward, save your final videos in the
 project folder rather than on the hard drive."* So:
-- **Working dirs → Seagate.** Raw rolls, extracted audio, `clips_graded/` and the pre-loudnorm
+- **Working dirs → the external drive `/Volumes/Extreme/`.** Raw rolls, extracted audio, `clips_graded/` and the pre-loudnorm
   intermediates are tens of GB. The 8/3 shoot alone is 118 GB and the boot disk sits near
   99 % full — never point a working directory at it.
 - **`FINAL_*.mp4` + `.srt` + chapters + the recipe files → the project folder**, in

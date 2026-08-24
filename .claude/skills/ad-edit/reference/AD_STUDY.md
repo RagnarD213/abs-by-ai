@@ -2,7 +2,7 @@
 
 Eleven winning direct-response ads downloaded, scene-detected, and read frame-by-frame
 (per-shot contact sheets) before this skill was written. Raw media, contact sheets, scene
-lists and `shot_stats.json` are preserved at **`/Volumes/Seagate 4TB/ad-edit-research/`**.
+lists and `shot_stats.json` are preserved at **`/Volumes/Extreme/ad-edit-research/`**.
 Dan's full performance archive is the Google Sheet **"Copy of SixPackAbs.com Channel YouTube
 Commercials"** (`1Hot1_JQiKIAfvaqQ5t92YCK6IOV28GlFR5SRgE52rck`, 40 product tabs) — **green
 fill `FF00FF00` = his best performers, red `FFFF0000` = worst, ignore every other color.**

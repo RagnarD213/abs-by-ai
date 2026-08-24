@@ -47,7 +47,7 @@ transcription, all six cut-placement rules (word boundaries PLACE, silence
 VALIDATES), the video-use render chain + segment cache, per-roll color grading
 (camera side only, never a WB correction on a skin-tone-subject video), two-pass
 loudnorm to −14 LUFS, the QC assertion suite, all ffmpeg traps, `git
-check-ignore` before staging, and working on the Seagate. Read that SKILL.md
+check-ignore` before staging, and working on the external drive `/Volumes/Extreme/`. Read that SKILL.md
 first if you haven't this session.
 
 ## Step 0 — inputs
@@ -59,7 +59,7 @@ first if you haven't this session.
   finalized scripts for teleprompter"** (`1r3Jmuihyryq0qv2Y3A--D_yaerF9B_ZqAb-QvOuAwjg`)
   — bracketed visual cues, placed images, compliance notes. Every cue is a
   graphics/insert obligation for the edit.
-- **Footage:** same shoot setup as longform (Sony rolls via Drive/Seagate). One
+- **Footage:** same shoot setup as longform (Sony rolls via Drive / `/Volumes/Extreme/`). One
   teleprompter roll per ad plus b-roll clips.
 - **Shoot requirement to flag BEFORE filming: ads must be shot 4K.** Both pillars
   of this skill — punch-in zoom cuts and the 9:16 export — need crop headroom. A
@@ -199,13 +199,20 @@ winners — details and examples in `reference/AD_STUDY.md`):
 - **End card:** goal-physique imagery (labeled) + "Tap below — or go to
   AbsByAI.com" + the persistent bar still running.
 
-**Animated graphics live in `reference/motionlib.py`** (added 2026-08-21). It renders PIL
+**Animated graphics live in `.claude/skills/_shared/motionlib.py`** (added 2026-08-21).
+
+⚠ **2026-08-24: there were TWO copies and only one was in git.** `_shared/motionlib.py`
+was the tracked one; `reference/motionlib.py` was an untracked duplicate sitting beside
+it on disk. That is the drift this repo has already lost a pipeline to. Both per-skill
+copies are now **shims that import from `_shared/`**, and `/longform-edit` imports the
+same file — which it never did before, which is why its edits shipped static PNG chips
+while the ad edits had animation, and why an outside editor beat it. It renders PIL
 frame sequences to alpha MOVs that ffmpeg overlays: `card_in`, `bullets_build`,
 `lower_third`, `title_card`, `callout_box`, `number_pop`/`pop_text`, `photo_swap`, plus
 primitives (`panel_plate`, `stroke_box`, `dashed_arrow`, `chip`, `rounded_photo`) and
 easing helpers. Its palette is the CONTENT style (bright paper, near-black ink, brand
 red, Manrope) — for PAID ads keep the locked dark J2 look and use the components with a
-J2 palette. `reference/sfxlib.py` generates the matching transition one-shots.
+J2 palette. `.claude/skills/_shared/sfxlib.py` generates the matching transition one-shots.
 `reference/modern60/` is a complete worked example (tight cut → graphics → audio → QC).
 
 Graphics are one overlay pass over the finished cut at CRF 18 (longform Step 7),
@@ -304,7 +311,7 @@ Sequence per ad:
    Deliver both ratios only once the 16:9 is approved (don't double every
    revision render).
 
-**Delivery layout** (on the Seagate, per longform; media stays out of git):
+**Delivery layout** (on `/Volumes/Extreme/`, per longform; media stays out of git):
 
 ```
 <shoot>/EDITED ADS <date>/<ad-slug>/
@@ -408,7 +415,7 @@ Ad #1 rev-3 (2026-08-21):
    it takes, without revealing the plan.
 
 Modern-edit 60s sample (2026-08-21) — built to close the gap against the Upwork trial
-edit; the reusable output is `reference/motionlib.py` + `reference/sfxlib.py`, and the
+edit; the reusable output is `_shared/motionlib.py` + `_shared/sfxlib.py`, and the
 whole sample is reproducible from `reference/modern60/`:
 19. **Graphics must MOVE.** Static PNG overlays are the single biggest reason our cuts
    read as cheaper than a Premiere-template edit. Every element now animates:
@@ -598,7 +605,8 @@ side channel 31.5 dB under the mid (his: +0.99 / 23.0 dB), script fidelity **98.
 | Style: J2 graphics + CTA bar, MadMuscles captions, "abs" lowercase | LOCKED (2026-08-20) |
 | "Results are not guaranteed" micro-disclaimer (photo run + end card) | shipped on ad #1, not vetoed |
 | CTA bar exact copy/geometry per style | ⏳ ad #1 |
-| CONTENT style (YouTube episodes): the trial edit's screen system — solid brand FIELD, big heavy type, tight leading, top-aligned, accent rules/bands — in J2 dark green with an olive accent (`motionlib.GREEN`); no captions | Dan chose his structure over our bright-paper version, 2026-08-22 |
+| CONTENT style (YouTube episodes): see `/longform-edit` Step 7 and `reference/HOUSE_STYLE.md` there — the palette is `motionlib.MIL` (military green, Dan's 2026-08-24 revision), NOT `GREEN` | LOCKED 2026-08-24 |
+| (superseded) CONTENT style: the trial edit's screen system — solid brand FIELD, big heavy type, tight leading, top-aligned, accent rules/bands — in J2 dark green with an olive accent (`motionlib.GREEN`); no captions | Dan chose his structure over our bright-paper version, 2026-08-22 |
 | Airtight pause removal + music bed + transition SFX for CONTENT cuts | proposed 2026-08-21, not queried in rev-1 notes |
 | Grade CONTENT cuts by per-channel percentile fit to a reference, not a luma lift | LOCKED 2026-08-22 |
 | Voice chain: EQ-match to the reference, gentle expander for room tails, light compression | LOCKED 2026-08-22 |

@@ -2,7 +2,7 @@
 """Sentence-level transcript on the OUTPUT timeline - used to time inserts to the word."""
 import json
 from pathlib import Path
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 edl = json.load(open(B/"edl.json")); R = edl["ranges"]
 W = [w for s in json.load(open(B/"C1512.whisper.json"))["segments"] for w in s.get("words",[])]
 offs, acc = [], 0.0

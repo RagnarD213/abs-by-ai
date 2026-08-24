@@ -1,4 +1,4 @@
-SRC_PATH = "/Volumes/Seagate 4TB/abs by ai 8:3 jeff chagrin shoot/main camera/C1512.MP4"
+SRC_PATH = "/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera/C1512.MP4"
 # black point 0.079 -> crush; gentle S-curve. NO white-balance shift: the warm
 # tone IS the spray tan, which is the subject of the video.
 GRADE = "curves=all='0/0 0.079/0.006 0.25/0.262 0.50/0.552 0.80/0.862 1/1'"

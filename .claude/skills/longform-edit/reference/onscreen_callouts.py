@@ -5,7 +5,7 @@ from pathlib import Path
 PAT = re.compile(r"(on (the )?screen|on your screen|show you (a |the |some |each |what)|"
                  r"here on the (left|right)|you're seeing|like you're seeing|showing you a picture)", re.I)
 for slug, src in [("spraytan","C1512"),("zepbound","C1513"),("supplements","C1514")]:
-    B = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+    B = Path(f"/Volumes/Extreme/_edit_work/{slug}")
     edl = json.load(open(B/"edl.json"))["ranges"]
     segs = json.load(open(B/f"{src}.whisper.json"))["segments"]
     offs, acc = [], 0.0

@@ -3,7 +3,7 @@
 Also asserts no full-frame insert covers a J2 chip."""
 import json, importlib.util
 from pathlib import Path
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 s = importlib.util.spec_from_file_location("i", B/"inserts.py"); m = importlib.util.module_from_spec(s); s.loader.exec_module(m)
 chips = json.load(open(B/"chip_timings.json"))
 edl = json.load(open(B/"edl.json"))

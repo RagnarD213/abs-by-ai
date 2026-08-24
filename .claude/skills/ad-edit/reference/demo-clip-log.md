@@ -10,13 +10,13 @@
 | 09_app_nutrition_plan.png | Media/ad-assets/ad2-nutritionist/full/ | Ad 1 |
 | dan by pool.png (the AI goal image) | Media/example pictures/ | Ad 1 (opener + mid + end card) — also the physical print in the 8/14 set dressing |
 | 03_before_picture.png (AI-adjusted heavier) | Media/ad-assets/ad2-nutritionist/full/ | Ad 1 (×2) |
-| Pexels 3802827 (heavyset man tire flip, slice 2–6s) | /Volumes/Seagate 4TB/_edit_work/ad1-8-14/stock/ | Ad 1 (frustrated-by-workouts) |
+| Pexels 3802827 (heavyset man tire flip, slice 2–6s) | /Volumes/Extreme/_edit_work/ad1-8-14/stock/ | Ad 1 (frustrated-by-workouts) |
 | Pexels 4866855 (gym couple, woman admires fit man) | same | Ad 1 (attractive to women) |
 | Pexels 6296483 (shirtless men respect hand-clasp) | same | Ad 1 (men respect you) |
 | Pexels 9184994 (man running on beach, slice 15–21.5s) | same | Ad 1 (energy/health/longevity) |
 | p_phone_mock (goal image on phone lockscreen, PIL-built) | assets in reference/ad1 recipe | Ad 1 (lockscreen mention #2) |
-| veo clip_a (pool: woman drawn to ripped man, 6s) | Seagate EDITED ADS 8-20-26/ad1.../aiclips/ | Ad 1 rev-2 ("attractive to women") |
+| veo clip_a (pool: woman drawn to ripped man, 6s) | /Volumes/Extreme/ EDITED ADS 8-20-26/ad1.../aiclips/ | Ad 1 rev-2 ("attractive to women") |
 | veo clip_b (gym: less-fit man's respect handshake, 6s) | same | Ad 1 rev-2 ("men respect you") |
 | veo clip_c (sunrise beach jog → arms spread, 6s) | same | Ad 1 rev-2 ("feel better/health/longer") |
 | stats_scan.mp4 (scan-line + stats animation, sample after) | rebuilt per-ad from reference/ad1/prep_assets3.py | Ad 1 rev-2 |
-| Dan+daughter dad photos ×2 (iCloud shares, 900px) | Seagate _edit_work/ad1-8-14/icloud_photo*.jpg | Ad 1 rev-2 (dad-life beat) |
+| Dan+daughter dad photos ×2 (iCloud shares, 900px) | /Volumes/Extreme/_edit_work/ad1-8-14/icloud_photo*.jpg | Ad 1 rev-2 (dad-life beat) |

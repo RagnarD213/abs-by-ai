@@ -30,7 +30,7 @@ usage: build_audio.py            # writes voice_raw.wav
 import hashlib, json, subprocess, wave
 from pathlib import Path
 
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 FFP = FF.replace("ffmpeg", "ffprobe")
 edl = json.load(open(B / "edl.json"))

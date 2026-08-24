@@ -14,7 +14,7 @@ import importlib.util, json, subprocess, sys, wave, struct, re, random
 from pathlib import Path
 
 video = sys.argv[1]; FLAGGED = sys.argv[2:]
-BASE = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+BASE = Path("/Volumes/Extreme/_edit_work/spraytan")
 VIDEO = BASE / "roughcuts" / video
 edl = json.load(open(BASE / "edl.json")); ranges = edl["ranges"]
 spec = importlib.util.spec_from_file_location("i", BASE / "inserts.py")

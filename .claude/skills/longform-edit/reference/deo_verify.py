@@ -15,7 +15,7 @@ import json, subprocess, io, re, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-B = "/Volumes/Seagate 4TB/_edit_work/spraytan"
+B = "/Volumes/Extreme/_edit_work/spraytan"
 OUTPNG = "/private/tmp/claude-501/-Users-danielrose-Documents-Claude-Projects-Abs-By-AI/dae62b2c-e3c9-48e6-8e67-6badf48f7e80/scratchpad/DEO_VERIFY.png"
 edl = json.load(open(f"{B}/edl.json")); SRC = edl["sources"]["C1512"]; G = edl["grade"]
 rng = {r["beat"]: r for r in edl["ranges"]}

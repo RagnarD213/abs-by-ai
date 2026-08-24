@@ -1,6 +1,6 @@
 # The $17 Ab Wheel Beats Every Crunch -- 8/14 shoot, rolls C1630-C1633.
 # Every cut carries a comment saying what it removes.
-SHOOT = ("/Volumes/Seagate 4TB/abs by ai 8:14 shoot | teleprompter ads, "
+SHOOT = ("/Volumes/Extreme/abs by ai 8:14 shoot | teleprompter ads, "
          "indoor talking content, outdoor workout content | jeff chagrin | dan rose")
 SOURCES = {b: f"{SHOOT}/{b}.MP4" for b in ("C1630", "C1631", "C1632", "C1633")}
 

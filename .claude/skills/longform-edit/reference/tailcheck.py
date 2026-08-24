@@ -7,7 +7,7 @@ false "LAST WORD MISSING" reports. With trailing context the real signature is
 different: the word is PRESENT but mis-spelled (crunches -> crunch), i.e. its
 trailing fricative was cut."""
 import json, subprocess, sys, whisper, re
-BASE="/Volumes/Seagate 4TB/_edit_work/abwheel"
+BASE="/Volumes/Extreme/_edit_work/abwheel"
 edl=json.load(open(f"{BASE}/edl.json"))
 W={b:[w for s in json.load(open(f"{BASE}/{b}.whisper.json"))["segments"] for w in s.get("words",[])]
    for b in edl["sources"]}

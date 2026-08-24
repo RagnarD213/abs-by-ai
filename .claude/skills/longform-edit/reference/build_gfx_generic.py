@@ -9,7 +9,7 @@ import json, sys, importlib.util
 from pathlib import Path
 
 slug, chips_file = sys.argv[1], sys.argv[2]
-BASE = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+BASE = Path(f"/Volumes/Extreme/_edit_work/{slug}")
 OUT = BASE / "gfx"; OUT.mkdir(exist_ok=True)
 W, H = 1920, 1080
 BG = (13, 14, 11); OLIVE = (140, 152, 88); WHITE = (255, 255, 255)

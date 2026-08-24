@@ -11,7 +11,7 @@ usage: build_inserts.py [--force]
 import importlib.util, subprocess, sys, os
 from pathlib import Path
 
-B = Path("/Volumes/Seagate 4TB/_edit_work/spraytan")
+B = Path("/Volumes/Extreme/_edit_work/spraytan")
 RAW = B / "stock" / "raw"; OUT = B / "inserts"; OUT.mkdir(exist_ok=True)
 spec = importlib.util.spec_from_file_location("i", B / "inserts.py")
 m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)

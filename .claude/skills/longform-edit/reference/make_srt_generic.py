@@ -8,7 +8,7 @@ import json, sys
 from pathlib import Path
 
 slug, src, outname = sys.argv[1], sys.argv[2], sys.argv[3]
-BASE = Path(f"/Volumes/Seagate 4TB/_edit_work/{slug}")
+BASE = Path(f"/Volumes/Extreme/_edit_work/{slug}")
 edl = json.load(open(BASE / "edl.json"))
 words = [w for s in json.load(open(BASE / f"{src}.whisper.json"))["segments"]
          for w in s.get("words", [])]
