@@ -61,6 +61,20 @@ sets.
 > Your photos stay yours — they're private to your account, and you can delete your account and your data any time, right in the app.
 >
 > Abs by AI is a motivation and general-fitness tool, not medical advice. AI-generated images are illustrative goals, not guarantees.
+>
+> **SUBSCRIPTION**
+>
+> Abs by AI Membership unlocks the full AI coaching team. It is an auto-renewing subscription:
+>
+> • Monthly — $19.99 per month
+> • Annual — $69.99 per year
+>
+> Payment is charged to your Apple Account at confirmation of purchase. Your subscription renews automatically unless auto-renew is turned off at least 24 hours before the end of the current period. You can manage or cancel your subscription in your Apple Account settings after purchase.
+>
+> Privacy Policy: https://absbyai.com/privacy
+> Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+
+**Do not remove the SUBSCRIPTION block.** Apple auto-rejected the 2026-08-22 submission under Guideline 3.1.2 because the description carried no Terms of Use (EULA) link. The app uses Apple's standard EULA (no custom EULA is set in App Store Connect), so the stdeula link above is the one Apple's automated check looks for.
 
 ## 4. Keywords (100 chars max, comma-separated, no spaces)
 

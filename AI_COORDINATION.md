@@ -249,6 +249,40 @@ from the Chrome extension (check existing Drive folders first). $0.00 AI spend, 
 no deploy risk beyond the docs/skill commit. **CLOSED: Dan approved and sent the doc to the editor
 2026-08-23. Waiting on the editor's next cut — review it with /revisions when it arrives.**
 
+### iOS FOURTH REJECTION (3.1.2 EULA) FIXED — resubmitted 2026-08-24 (Claude Code)
+
+Apple auto-rejected submission `a5fcdbf2` on 2026-08-23 under **Guideline 3.1.2**: the app offers
+auto-renewable subscriptions but the App Description carried **no link to the Terms of Use (EULA)**.
+Pure metadata issue — no code, no new build, no deploy. **The 1.1 body-morph objection did NOT
+recur**, so that argument (kept in App Review Notes) held.
+
+**Fix:** appended a SUBSCRIPTION block to the en-US description (now 2,770 chars) with both plans
+priced ($19.99/mo, $69.99/yr), the standard auto-renew disclosure, the privacy-policy link, and
+`https://www.apple.com/legal/internet-services/itunes/dev/stdeula/`. The app has **no custom EULA**
+(`/v1/apps/{id}/endUserLicenseAgreement` returns `data: null`), so Apple's standard-EULA link is the
+one its automated check wants. `app-store-assets/LISTING_COPY.md` updated to match and carries a
+do-not-remove warning.
+
+**Resubmitted 2026-08-24 14:48 UTC as `22876374-6723-40d9-b0e2-8e02b7093b86` — all 4 items
+WAITING_FOR_REVIEW** (app version 1.0 build 3, subscription group 22294450, Monthly, Annual).
+App Review Notes preserved and extended to 3,956/4,000 chars with a one-line 3.1.2 answer.
+
+**MECHANICS THAT COST TIME — read before the next rejection:**
+- `DELETE /v1/reviewSubmissionItems/{id}` on a submitted item returns 409 "Item was already
+  submitted". The way to free the items is **`PATCH /v1/reviewSubmissions/{old}` with
+  `{"canceled": true}`** — state goes CANCELING → COMPLETE in ~10-20 s, then the items are
+  re-addable. (This supersedes the 2026-08-22 note about using the UI's red minus.)
+- `POST /v1/reviewSubmissionItems` accepts **only** an `appStoreVersion` relationship.
+  `subscription` and `subscriptionGroup` are rejected as unknown relationships, so the group and
+  each subscription must be added in the ASC UI: Subscriptions → group (or each subscription) →
+  **Add for Review → the existing "Draft iOS Submission"**. All three are separate items; adding
+  the group does NOT add its subscriptions.
+- Cancelling the submission flips the subscriptions to **Developer Rejected** in the UI — expected,
+  they go back to WAITING_FOR_REVIEW once re-added and submitted.
+- Then `PATCH /v1/reviewSubmissions/{new}` with `{"submitted": true}`.
+
+**EXACT NEXT ACTION — DAN: none. Waiting on Apple.**
+
 ### iOS THIRD REJECTION FIXED — resubmitted to Apple 2026-08-22 (Claude Code)
 
 `Handoffs/handoff-20260821-ios-third-rejection-fix.md` executed. **Submission
