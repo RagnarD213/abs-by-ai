@@ -6,7 +6,7 @@
     "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
     "money::Execute handoff: Replace stick figures with AI exercise demo videos",
-    "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline"
+    "money::Review the 5 parked video deliverables (3x 8/3 longform, invest-health v2, ab-wheel)"
   ],
   "excluded": [
     "money::Execute handoff: Swap Dan's phone to the public Play build",
@@ -16,7 +16,9 @@
     "money::Check iOS App Store review status (build 1.0 (3), submission a5fcdbf2-3eca-412e-8c20-b1f075a32c24)",
     "money::Write workout outlines for the next shoot",
     "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
-    "money::Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline"
+    "money::Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline",
+    "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
+    "money::Approve Ad 1 rev-1, apply final revisions, finalize the /ad-edit skill"
   ],
   "sessionsCompleted": 0
 }
