@@ -385,6 +385,8 @@ the-emergency doctrine, no hype closer, "app" not "tool", TRT = plans to start i
 **NEXT: outline 2 in the same doc ("The Real Reason You Don't Have Abs") → new session, invoke
 /scriptfromoutline directly (no handoff doc needed — the skill is self-contained).**
 
+**SCRIPT 2 DELIVERED 2026-08-24 (Claude Code).** “The Real Reason You Don’t Have Abs” (~2,150 words ≈ 13–15 min) written from outline 2 and appended into the same Shoot 5 doc (`1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`), verified by Drive re-read — both outlines and script 1 intact. Dan: “this process is working very well… you have my writing style down pretty well.” $0.00 AI spend, no production code, no deploy. Six new skill lessons (11–16) committed: the multi-faith scripture rules for the pause-your-service beat (1 Cor 6:19-20 + pikuach nefesh from Lev 18:5 / Yoma 85b + the Abdullah ibn Amr hadith in Bukhari; **never write “peace be upon him” in Dan’s voice**; paraphrase, never quote a translation), `[CLAUSE ...]` = Wispr for “Claude…”, re-read the outline right before delivering (Dan added a school-work bullet mid-session, typed in after the paste), and two Docs mechanics: the internal-clipboard paste failure recovers by re-setting both flavors and pasting again, and cmd+f does NOT focus the find box through the extension — click the field first. **NEXT: outline 3 when Dan writes one; /scriptfromoutline is self-contained.**
+
 ### DEDICATED SHORTS ADS — Approach #2: 5 generation-led scripts DELIVERED (2026-08-23, Claude Code)
 
 **Dan rejected the 20-outline batch below** — direction changed: shorts ads should sell the
