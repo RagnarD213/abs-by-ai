@@ -271,42 +271,55 @@
       "priority": "key",
       "why": "3.1.2 EULA fix resubmitted 2026-08-24 — 4 items waiting for review",
       "addedAt": "2026-08-24"
+    },
+    {
+      "text": "Review Mohammad A video",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-24"
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-24"
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-24"
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-24"
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-24"
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-24"
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-24"
     },
     {
       "text": "Inject Zepbound",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-08-24"
     }
   ],
   "personal": [
