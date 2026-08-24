@@ -1,8 +1,6 @@
 {
   "date": "2026-08-24",
   "order": [
-    "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
-    "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
     "money::Execute handoff: Replace stick figures with AI exercise demo videos",
     "money::Check Upwork"
@@ -25,7 +23,9 @@
     "money::Fix two-mic comb-filter audio on the 4 remaining delivered longform masters (Zepbound, supplements, invest-health, meal prep)",
     "money::Review Zeshan's video cut and send round-1 revisions",
     "money::Audit everyone who has generated an image: did they get the emails, and what did they generate",
-    "money::Check iOS App Store review status (submission 22876374-6723-40d9-b0e2-8e02b7093b86, resubmitted 8/24)"
+    "money::Check iOS App Store review status (submission 22876374-6723-40d9-b0e2-8e02b7093b86, resubmitted 8/24)",
+    "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
+    "money::Execute handoff: Google Ads offline conversion upload (Phase B)"
   ],
   "sessionsCompleted": 0
 }
