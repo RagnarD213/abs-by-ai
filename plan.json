@@ -6,7 +6,7 @@
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
     "money::Execute handoff: Replace stick figures with AI exercise demo videos",
     "money::Check Upwork",
-    "money::Fix two-mic comb-filter audio on the 4 remaining delivered longform masters (Zepbound, supplements, invest-health, meal prep)"
+    "money::Audit everyone who has generated an image: did they get the emails, and what did they generate"
   ],
   "excluded": [
     "money::Execute handoff: Swap Dan's phone to the public Play build",
@@ -22,7 +22,9 @@
     "money::Review the 5 parked video deliverables (3x 8/3 longform, invest-health v2, ab-wheel)",
     "money::Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build",
     "money::Execute handoff: Let users purchase before creating an account (iOS)",
-    "money::Execute handoff: YouTube subscriber campaign geo restructure (all-countries + tier-1 clone)"
+    "money::Execute handoff: YouTube subscriber campaign geo restructure (all-countries + tier-1 clone)",
+    "money::Fix two-mic comb-filter audio on the 4 remaining delivered longform masters (Zepbound, supplements, invest-health, meal prep)",
+    "money::Review Zeshan's video cut and send round-1 revisions"
   ],
   "sessionsCompleted": 0
 }
