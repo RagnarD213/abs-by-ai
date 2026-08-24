@@ -1,6 +1,6 @@
 # Handoff: Build the @danrosefit posting queue
 
-**Date:** 2026-08-24 (rev 2)
+**Date:** 2026-08-24 (rev 3)
 **Project:** Abs By AI
 **Business goal this serves:** Marketing — build a presentable personal Instagram with a real
 follower count, and make it the account paid traffic grows.
@@ -14,6 +14,8 @@ Stand up a Blotato posting queue on `@danrosefit` with **two tracks**:
 2. **A backfill track** — the content already published on `@abs.by.ai` gets reposted to
    `@danrosefit` gradually, **only on days the sync track is idle**, so somebody following both
    accounts never gets the same thing twice in one scroll.
+
+`@danrosefit` always posts **first**. The `@abs.by.ai` mirror runs **one day behind**.
 
 Plus the queue surgery the audit called for, the profile copy Dan applies himself, and week one's
 new content.
@@ -82,6 +84,10 @@ Do not reopen these.
 - **`@abs.by.ai` is infrastructure, not a content account.** It holds the handle, takes support DMs,
   pairs with the Facebook Page, and is ad-account insurance. It keeps the mirrored reels with every
   CTA rewritten to point at `@danrosefit`, so the mirror feeds the main account.
+- **`@danrosefit` posts FIRST; the `@abs.by.ai` mirror runs +1 DAY behind** (Dan's decision,
+  2026-08-24), same time-of-day. Two reasons: a dual-follower never gets the same reel twice in one
+  scroll, and the mirror's "full breakdown from @danrosefit" CTA is only truthful once that post is
+  actually live — which a same-day mirror cannot guarantee.
 - **Photos leave the Instagram feed.** They averaged 40 views against 130–270 for reels while
   occupying half the weekly slots. They stay on Facebook and become Story fuel.
 - **Follow-along reels leave the feed.** Measured 1.8 s and 2.0 s average watch — they suppress
@@ -142,7 +148,8 @@ Use the **REST API**, not MCP — this is ~200 operations and MCP would be ~250 
 
 For every future-scheduled Instagram post, create the `@danrosefit` equivalent **at the identical
 `scheduledTime`** so it lands with its YouTube and Facebook siblings. The `@abs.by.ai` original
-stays as the mirror (step 4). Facebook and YouTube schedules are untouched.
+becomes the mirror and gets shifted **+1 day** in step 4. Facebook and YouTube schedules are
+untouched — they stay synchronized with `@danrosefit`.
 
 **Build a manifest first** — one row per piece of content with its scheduled time and its target
 accounts across all platforms — and diff it against what actually exists afterwards. That manifest is
@@ -183,11 +190,20 @@ seeding exercise, not a permanent second cadence. Do not invent filler to keep i
 6. **Preserve the CC-BY attribution** in the `short5_1-minute-workout` captions — a live licence
    obligation that must survive the rewrite.
 
-**OPEN — should the `@abs.by.ai` mirror post the same day?** If both accounts run the same reel at
-5:00 PM, somebody following both gets it twice in one scroll, which is the annoyance the backfill
-design is built to avoid. Recommendation: **stagger the mirror to +1 day**, same 5:00 PM slot. It
-keeps the mirror and the redirect CTA while guaranteeing dual-followers never see a same-day double.
-Dan's call — do not change it without asking.
+7. **Stagger the `@abs.by.ai` mirror by +1 day.** DECIDED by Dan 2026-08-24 — this is no longer an
+   open question. Shift every remaining `@abs.by.ai` Instagram post **one day later, keeping its
+   time-of-day** (so a 5:00 PM reel mirrors at 5:00 PM the next day, and a 9:00 AM long-form mirrors
+   at 9:00 AM the next day). `@danrosefit` always goes first.
+
+   Prefer updating the existing schedule in place (`blotato_update_schedule`, or the REST equivalent
+   against the schedule id) over delete-and-recreate — it is one call instead of two and cannot
+   half-fail into a lost post. Fall back to delete + recreate only if an in-place time change is
+   rejected.
+
+   Two consequences to handle: the queue's tail moves from 2026-01-15 to 2026-01-16, which is still
+   comfortably inside Blotato's 9-month limit; and Facebook is **not** shifted — it stays synchronized
+   with `@danrosefit`, because the stagger exists to protect people following both *Instagram*
+   accounts, not to desynchronize platforms.
 
 ### Step 5 — Verify
 
@@ -196,6 +212,9 @@ Re-read the queue from the API and assert, in the script:
 - Every Instagram post targets the intended account.
 - **Every sync-track post shares its `scheduledTime` with its YouTube/Facebook sibling** (this is the
   whole point of the track — check it, don't assume it).
+- **Every `@abs.by.ai` mirror post is exactly 24 hours after its `@danrosefit` original**, same
+  time-of-day, and never earlier. If any mirror lands before or on the same day as its original, the
+  stagger has failed and the CTA it carries is a lie.
 - No day carries both a sync post and a backfill post.
 - No day carries both a photo and a reel.
 - Every post has media, and no post is scheduled more than 9 months out (`code 20011`).
@@ -289,7 +308,8 @@ do not reach for Opus.
 > Two tracks: a **sync track** where every post lands on `@danrosefit` at the same timestamp as its
 > YouTube and Facebook siblings, and a **backfill track** that drips the 4 previously-published reels
 > onto idle days only (2/week, Mon and Fri), so anyone following both accounts never gets the same
-> thing twice in one scroll.
+> thing twice in one scroll. `@danrosefit` posts **first**; the `@abs.by.ai` mirror is shifted **+1
+> day**, same time-of-day. Facebook is not shifted.
 >
 > **First action: run `blotato_list_accounts` with `platform: instagram` and capture the
 > `@danrosefit` accountId.** If it is absent, steps 2–5 are blocked on Dan doing the OAuth connection
@@ -297,10 +317,11 @@ do not reach for Opus.
 >
 > Use the REST API rather than MCP for the queue work, reuse the existing `mediaUrls` rather than
 > re-uploading, make the script idempotent, and verify against the API afterwards — especially that
-> every sync-track post shares its timestamp with its siblings, and that no day carries both a sync
-> post and a backfill post.
+> every sync-track post shares its timestamp with its siblings, that every `@abs.by.ai` mirror post
+> is exactly 24 hours behind its `@danrosefit` original, and that no day carries both a sync post and
+> a backfill post.
 >
-> There is one OPEN question in step 4 (whether the `@abs.by.ai` mirror should be staggered +1 day)
-> — ask Dan, do not decide it.
+> The only open item is the archive split in step 1, and a recommendation is written in — take Dan's
+> list if he gives one, otherwise use the recommendation.
 >
 > Read `AI_COORDINATION.md` first, and update it plus the dashboard task when done.
