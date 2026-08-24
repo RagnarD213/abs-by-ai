@@ -33,61 +33,72 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
-### MUHAMMAD-STANDARD REBUILD — analysed, HANDOFF WRITTEN, not yet executed (2026-08-24, Claude Code)
+### AB-WHEEL REBUILD **EXECUTED** + /longform-edit rebuilt so it cannot regress (2026-08-24, Claude Code)
 
-Dan sent the editor's 6:58 organic cut of the ab-wheel video (Drive `1RPcsJbq81A6ablUZYVrfIM8vi2i1zrg0`)
-and said our delivered version is *"substantially better than what we made — it looks better, it
-sounds better, and the graphics are better."* Both cuts measured head to head.
-**Handoff: `Handoffs/handoff-20260824-abwheel-muhammad-standard-rebuild.md`; Key dashboard task added.
-Full analysis: https://claude.ai/code/artifact/061cbf89-e97c-47b4-b008-fa4183284c61**
+`Handoffs/handoff-20260824-abwheel-muhammad-standard-rebuild.md` executed, Phases A and B.
+**$0.00 AI spend** (local Whisper, ffmpeg, PIL, Pexels, Pixabay). No production code, no deploy,
+no native-retest trigger. Commit `3c7228b` (skill + 23 new reference scripts, media out of git).
 
-⚠ **ATTRIBUTION UNCONFIRMED — Dan called it Muhammad's, but the `/findassets` entry below records
-that "the 6:58 cut from sharkimageryproduction is the one Dan's timestamps match".** Two editors
-sent versions of this video. The technique analysis holds either way; **confirm whose cut it is
-before quoting it back to an editor.**
+**ATTRIBUTION RESOLVED — the 6:58 reference cut is NOT Muhammad's.** Drive file
+`1RPcsJbq81A6ablUZYVrfIM8vi2i1zrg0` is owned by **`sharkimageryproduction@gmail.com`**
+("Daniel Organic Video - The $17 Ab Wheel Beats Every Crunch Full.mp4"). The `/findassets`
+entry below was right. **Do not credit Muhammad for this cut when talking to either editor.**
 
-| | ours | the editor's |
-|---|---|---|
-| runtime, same content | 8:58 | **6:58** (1,315 words vs our 1,365) |
-| pace / dead air | 152 wpm, 192 s | **189 wpm, 96 s** |
-| visual cuts (scene detect) | **1** | **54** |
-| insert coverage / longest bare | 21%, **64 s ×2** | ~90% (Dan's own rule: 30 s max) |
-| voice centring (L/R corr) | **-0.005** | +0.993 |
-| music bed | none | yes |
-| grade / loudness | **141 luma, -14.6 LUFS** | 129, -16.0 (WE WIN — do not change) |
+**PHASE A — the video is rebuilt and delivered**, over the same filename in
+`EDITED LONGFORM 8-20-26/abwheel-17-dollar-ab-wheel/`; the 8/20 master is kept alongside as
+`*_PRE_REBUILD.mp4`, plus `AUDIOFIX_*.mp4` (the OLD cut with only the audio fixed, shipped
+first as insurance). **QC: 13 of 13 style-gate checks PASS on the delivered file.**
 
-⚠ **SHIPPED AUDIO DEFECT: our delivered file plays Dan's voice out of the RIGHT SPEAKER ONLY and
-hiss out of the left, for all nine minutes.** On C1630/C1631/C1633 the LEFT channel is dead (SNR
-0.4-1.0 dB, no speech at all) and the edit shipped the camera's raw two channels as stereo. Not the
-8/3 two-mic comb — simpler and worse. Fix = right channel only, i.e. Step 5.6, which that session
-skipped. Worth shipping on its own.
+| | 8/20 cut | the editor's | **rebuild** |
+|---|---|---|---|
+| runtime / pace | 8:58, 151 wpm | 6:58, 189 wpm | **7:13, 188 wpm** |
+| visual changes | 19 (2.1/min) | 68 (9.8/min) | **109 (15.1/min)** |
+| longest stretch, no visual change | 79.2 s | 41.3 s | **12.7 s** |
+| cutaway/graphic coverage | 9% | 65% | **58%** |
+| voice centring (L/R corr) | −0.002 | +0.993 | **+0.9996** |
+| loudness / true peak | −14.6 / **+0.54 dBTP** | −16.0 / −0.31 | **−14.7 / −1.47** |
+| music bed / captions | none / none | yes / none | **yes / burned + .srt** |
 
-**THE ROOT CAUSE IS THE REAL FINDING: seven of his nine techniques were ALREADY IN THE REPO and the
-video passed 6/6 QC anyway.** `motionlib.py` + `sfxlib.py` were written for /ad-edit in August to
-close this exact gap; /longform-edit already contains Dan's 30-second coverage rule (Step 5.5) and
-the microphone check (Step 5.6). **The skill's quality bar is prose while its gate is code, so the
-style steps are skippable — and under time pressure they got skipped.** Fix = move every style rule
-into `qc_generic.py` as a hard failure. Third time a metric or a rule, not the media, was the problem.
+⚠ **THE SHIPPED AUDIO FAULT IS CONFIRMED AND FIXED: Dan's voice was in the RIGHT SPEAKER
+ONLY** for all nine minutes. The camera's LEFT input is dead on all four rolls (SNR 0.6–1.4 dB,
+peak −51 to −56 dBFS = pure hiss; right 30.8–44.1 dB). **For Jeff: that input has recorded
+nothing but hiss on this whole shoot — get it fixed or record mono.** The right channel also
+clips in-camera at +1.5 dBTP before any processing; drop the gain. Still 1080p.
 
-**Phase A** rebuilds the video (audio fix -> ~190 wpm -> punch-ins >=40 cuts -> 25-35 Pexels inserts
->=50% coverage -> motionlib animated graphics -> burned captions -> Pixabay bed + SFX -> real app
-screen in the CTA -> QC). **Phase B** rebuilds the skill. **Phase C — ONLY after B, per Dan's explicit
-instruction — asks him the open questions** (stock-footage library, music library, the archival
-infomercial clip, whether we keep building in-house, retroactive re-cuts).
+**Dan's round-1 revision notes (doc `10DrQ9kYuE...`) are all applied**: darker military green
+(measured his gradient at (84,93,55)→(141,152,97) — his light end is basically our brand olive,
+so ours sits a stop under it); the `/findassets` toe-touch clip placed at 0:34 on the
+resting-at-the-top line; his exact "How Beginners / Intermediate Guys / Advanced Guys Should Do
+It" wording; "AbsByAI.com" on both CTA graphics.
 
-**Music is NOT a blocker** — /ad-edit rev-5 settled it: Pixabay Content Licence, commercial, no
-attribution, track picked by measurement (`pick_bed.py`). **The archival infomercial clip the editor
-used is third-party footage on a monetised channel — skip for now, ask in Phase C.**
+**The runtime story is NOT what the handoff assumed.** The talking already runs 194–239 wpm per
+beat — the 151 wpm figure is an artifact of averaging in the three silent live sets, which hold
+**158 s of the video's 205 s of dead air**. General pause-removal was worth ~20 s, not ~95 s;
+cutting the talking harder would have made Dan sound breathless. The sets were shortened instead
+(178 s → 92 s), each into three chunks — wide, punch-in, wide — so it reads as coverage, not a trim.
 
-⚠ **THE WORKING DRIVE CHANGED: the Seagate 4TB is gone, everything is on `/Volumes/Extreme/`.**
-Nothing lost (segment cache, transcripts, recipes, deliverables all migrated) but **every script has
-the old path hardcoded** — repathing is Phase A step 0.
+**PHASE B — the skill is rebuilt around the actual root cause.** Seven of the editor's nine
+techniques were ALREADY in the repo and the video passed 6/6 QC anyway, because the quality bar
+was prose and the gate was code. **`reference/qc_style.py` is now 13 hard failures**, each naming
+its fix and step number, all **measured off the FINISHED FILE, not the build plan**. Calibrated on
+three cuts of the same footage — and it fails the rejected cut 7 ways on exactly what Dan
+complained about, while passing the rebuild 13/13. New: Step 2.5 (the required style pass, moved
+next to the cut), Step 5.4 (punch-ins), Step 7.5 (music + SFX), Step 7.6 (AAC needs loudnorm
+TP −2.5), Step 8 rescoped (burned captions for talking heads; `.srt`-only was a rule about the
+split-screen tutorial and was wrongly read as global), `reference/HOUSE_STYLE.md`.
 
-**Phase A must first read the ab-wheel section of the revisions doc
-`10DrQ9kYuE1Oz4XBzyWS6uz7tb0dcojvAWP2J0-g6ljc`** — Dan already has notes on this video there (see the
-`/findassets` entry below). Drive was 503ing when this handoff was written, so it is unread.
+⚠ **`motionlib.py`/`sfxlib.py`: `_shared/` was ALREADY the tracked home and
+`/ad-edit/reference/` held UNTRACKED duplicates.** The pack existed, was in git, and
+/longform-edit still never imported it. Both per-skill copies are now import shims.
 
-**EXACT NEXT ACTION — new session: execute the handoff, Phase A step 0 (repath) then step 1 (audio).**
+**Repathing done**: every script in `_edit_work/` and both skills moved off the retired
+Seagate to `/Volumes/Extreme/`.
+
+**EXACT NEXT ACTION — DAN: watch `REVIEW_540p_ab-wheel.mp4` (23 MB, sent in chat).** Two things
+flagged in `notes.md`: the app-screen inset at 6:53–7:03 sits bare on the field (the end card 10 s
+later does the fuller version), and the three form cues during the sets (5:12, 5:47, 6:26) were
+added by me, not him. Phase C questions are asked in chat this session.
+
 
 ### REAL-USER GENERATION AUDIT + welcome-sequence delivery verified; MIME bug FIXED (2026-08-24, Claude Code)
 
