@@ -21,6 +21,11 @@ Great work… I want you to do it exactly like this."**
 five outlines in one batch purely on their first five seconds. Read that section
 before writing anything.**
 
+**v3 — 2026-08-07: Dan killed 17 of 20 outlines in one batch. Read the "Batch
+review 2026-08-07" section below before writing anything — it replaces several
+assumptions v1/v2 got wrong, most importantly that solving a real problem is not
+the same as solving the prospect's PERCEIVED problem.**
+
 ## The job
 
 Dan writes an outline he likes, then asks for the same outline aimed at a different
@@ -91,6 +96,117 @@ the visual and spend the words on the turn.
   trainers!" — works because it's an instruction, not an observation, and it
   promises a payoff (get better results for free).
 - **The obviously-wrong AI output.** Showing the failure first earns the fix.
+
+## Batch review 2026-08-07 — 17 of 20 outlines killed. Read this before writing another skip stopper.
+
+Dan reviewed a 20-outline batch (Claude Fable 5) and killed 17 of them, most on the
+skip stopper alone. Only 3 survived, and even the strongest of the 3 needed its hook
+tightened. This is the single most important calibration event this skill has had —
+read every lesson below before writing anything new.
+
+### Lesson 1 — solve the PERCEIVED problem, not the analytically correct one
+
+This killed the most outlines. Writing a true, well-reasoned problem the prospect
+technically has is not the same as writing the problem he believes he has, and only
+the second one keeps him watching. Killed for this reason: an outline explaining that
+scale weight is noisy day-to-day (water, salt, muscle) and the real signal is
+elsewhere; an outline explaining that lighting and photo angle change how visible abs
+look; an outline explaining that the prospect has probably mis-estimated how many
+pounds he needs to lose. Dan's verdict, verbatim: *"The prospect does not think their
+problem is accuracy of measurement... it doesn't matter if their scale is accurate or
+not, or if there's day-to-day variation. This is not an issue for the prospect."* And:
+*"We need to promise them what they think is a solution to their problems, not things
+about lighting and body fat percentage estimates that are only appealing to nerds."*
+**Test before writing a word of body copy: would an out-of-shape guy, unprompted, ever
+describe THIS as his problem?** If the honest answer is "no, but it's technically
+related," don't write the outline. His actual problem, in his own terms, is something
+like: *I'm fat, I don't work out, I eat badly, and I don't believe anything will
+change that.* Write to that.
+
+### Lesson 2 — never assume a paid relationship or service the prospect probably doesn't have
+
+Killed: an outline assuming he has a gym membership he's not using; an outline
+assuming he pays for a meal-delivery/prep subscription; an outline assuming he has a
+personal trainer who cancels on him. Dan: *"I don't think the prospect does have a gym
+membership... I don't think they do have a meal prep service right now. They're just
+eating McDonald's every day... I don't think the prospect has a personal trainer."*
+**Only assume what's broadly true of an out-of-shape male prospect:** he's
+overweight, eats badly, doesn't work out consistently, and watches fitness content on
+YouTube/social. Never build a skip stopper on a specific paid service or professional
+relationship — the moment it doesn't apply to the viewer, the ad has nothing to say to
+him.
+
+### Lesson 3 — this is a MEN-ONLY product; write for how men actually live and fear, not a generic dieter
+
+Killed outright: a group-fitness-class outline. Dan: *"This is what women do, and this
+is for men... men would not relate to because men don't take group classes."* **No
+group classes, no gym-buddy/community framing, no content coded as female fitness
+culture.**
+
+Also killed for arguing the wrong direction on attraction: an outline reassuring the
+viewer that his partner is happy with him "either way," using it to justify getting in
+shape purely for himself. Dan rejected the reassurance framing outright: *"why do it?
+Why get abs if your wife is happy with you? This is the opposite of what we wanted to
+say... If you have a dad bod... you'd be having less sex."* **New standing direction:
+attractiveness/relationship-stakes framing is explicitly wanted, not something to soften
+into reassurance.** Keep it aspirational and never a literal guarantee or an insult
+aimed at a real partner ("get the confidence and attention back" beats a flat claim
+about what will happen) — but do not write the "she doesn't care either way" version
+again.
+
+### Lesson 4 — never open by casting doubt on the product itself
+
+Killed outright: an outline whose hook was Dan admitting the product idea sounded like
+a scam when he first heard it. A skeptic-hook that leads with "this sounds fake" hands
+the viewer permission to skip before you've won him back — the doubt has to be HIS
+doubt about his own body/situation, never doubt about whether the thing being
+advertised is legitimate.
+
+### Lesson 5 — a stat-first skip stopper needs a reversal or an escalation, not just a fact
+
+Several outlines opened on a flat personal stat or anecdote and then stopped — "I
+watched roughly 400 fitness videos, and in that time I gained weight," "I told myself
+I'd start Monday for about three years," "ninety straight days of logging every meal
+and nothing changed," "the hardest workout of my life did nothing for my belly fat."
+Dan, on more than one of these: *"That's the end of it right there. No one's going to
+watch beyond that."* A number or an anecdote is not a hook by itself. **It needs
+either a reversed/surprising claim** ("YouTube fitness videos make you fat" — sounds
+wrong until explained, so the viewer stays to find out why) **or an immediate
+escalation in the same beat**, never a flat statement of fact followed by a pause.
+
+### Lesson 6 — check this doc's OTHER outlines for a duplicate device, not just the one you're varying
+
+Killed: an "AI roasts my before picture" outline, because it was too close to an
+existing Grok-roast concept already produced elsewhere. Before reusing a device (a
+roast, a split-screen, a reveal), scan the rest of the doc — not just the one source
+outline you're mirroring — for something that already owns it.
+
+### Lesson 7 — be MORE controversial and direct-response-aggressive, MadMuscles/V Shred style
+
+Dan's explicit standing direction, not a one-off note: *"We need to be more
+controversial. We need to be more attention-getting with our Skip Stopper... this
+needs to be solving what the prospect believes is their problem... like successful
+direct response advertisers do."* Concretely this means: it is now fine, even
+encouraged, to state a blunt, harsh-sounding claim as the hook ("these human experts
+don't provide much value — it's mostly a scam," or a dad-guilt angle about what being
+out of shape costs his kids) rather than softening it into an observation. This does
+**not** loosen any compliance rule below — no disease names (say "you're shortening
+how long you'll be around for them," never name a specific illness — the same
+technique already used to fix the Grok-roast outline's serious-assessment beat), no
+guaranteed-results claims, no crude insults, "embarrassing" not "humiliating." The
+edge belongs in the CLAIM, not in language that would get the ad rejected.
+
+### What actually survived, for calibration
+
+- **The reveal-with-a-cut, no explanation before the pivot** ("I used to be that dad
+  who swam in his t-shirt. Now, this is what I look like" over a before/after cut) —
+  Dan's favorite of the batch, needed only a tightened line, not a rewrite.
+- **The blunt "it's a scam" cost/expert-distrust angle** — a direct, harsher framing of
+  the existing "stop paying human trainers" territory, aimed at the whole expert
+  industry (trainer + nutritionist + supplements + programs) at once rather than one
+  profession per outline.
+- **The reversed-claim stat hook** ("YouTube fitness videos make you fat") once it was
+  rewritten to lead with the surprising claim instead of a flat personal anecdote.
 
 ## Method — mirror the source beat-for-beat, then upgrade one section
 
@@ -224,6 +340,20 @@ error-prone. Paste formatted HTML instead:
   the HTML. Always screenshot immediately after pasting; never assume it landed.
 - Paste into the plain `–` paragraph, never into a bullet — pasting inside a list
   makes the new content inherit the list level.
+- **`cmd+x` / `cmd+c` inside Docs does NOT populate the macOS clipboard either, so
+  you CANNOT move a block by cutting and pasting it** (2026-08-08, trying to reorder
+  outlines). The cut removes the text, then `cmd+v` pastes whatever the SYSTEM
+  clipboard holds — a stale image the first time, nothing at all after the clipboard
+  was cleared. Confirmed with `osascript -e 'clipboard info'`: after a Docs cut the
+  clipboard still held the old payload. `cmd+z` restores the cut text (verify the
+  page count returns to its original value). **To move a block, rebuild it as HTML
+  from the exported text, delete the original with the Delete key, and paste the
+  osascript-set HTML** — or don't move it at all.
+- **Small edits are far safer typed than pasted.** Prefixing the 15 outline headings
+  with `AD N — ` was done by clicking into each heading, `cmd+Left`, and typing;
+  typed text inherits the heading's bold automatically and no clipboard is involved.
+  Verify afterwards by re-reading the doc through the Drive MCP and diffing every
+  non-heading line against a pre-edit export — that proves the body copy is untouched.
 
 ## Checklist before telling Dan it's done
 
@@ -248,3 +378,28 @@ error-prone. Paste formatted HTML instead:
   there it reads as a product demo, not an advertising claim. Where a script needs
   to connect the plan to the pictures, show the **goal image alone**, tagged, or cut
   between shots instead of placing them side by side.
+
+## SHORTS ADS — 2026-08-24: two full batches rejected. Wait for Dan's examples.
+
+Dan killed both shorts-ads batches in one day: 20 outlines (trainer/nutritionist-led,
+long-form structure compressed), then 5 generation-led scripts modeled on his two
+Approach #2 examples. His verdict on the second batch: *"a very clumsy cut down of the
+long formats we did that aren't really persuasive in a 60-second format."*
+
+What is settled so far for shorts ads:
+- **Sell the GENERATION feature almost exclusively.** The trainer/nutritionist value
+  cannot be communicated in under 60s; it gets at most one beat near the end.
+- **0:45–0:59 hard ceiling**, 9:16 master + 16:9 duplicate, hook in the first seconds,
+  CTA "tap the button below" (correct for YouTube Shorts ads and IG Reels ads; never
+  speak the button's exact label — platforms set it from presets). Organic = "go to
+  AbsByAI.com" instead.
+- Dan's measured teleprompter pace: **~198–222 wpm** — keep scripts ≤ ~180 spoken words.
+
+What is NOT settled: what actually makes a 60-second ad persuasive in Dan's eyes.
+Mirroring his two examples' structure (hook line → before/after reveal → early CTA →
+one plan beat → CTA) was not sufficient — the drafts still read as compressed long-form.
+**Dan is writing more example scripts in "Dedicated Shorts Ad Scripts - Approach #2"
+(`1mqgnFYHDugEYDErNXqzWcPxUVRPStmxiXPU0HgNETS0`). Do NOT write another shorts batch
+until those exist; then diff his new examples against the two old ones AND against the
+rejected 5 (in the 2026-08-24 session scratchpad `shortsads/five-scripts.html`) to
+extract what he changed, before writing anything.**

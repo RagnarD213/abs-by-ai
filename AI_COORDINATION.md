@@ -421,8 +421,11 @@ No side-by-side before/after anywhere; all reveals sequential. **$0.00 spend.**
 are DEAD as a batch** — do not script them; kept only as a hook-idea mine. The /ad-outlines skill
 should gain a lesson from this rejection (generation-first for shorts) in a future session.
 
-**EXACT NEXT ACTION — DAN: review the 5 scripts in Approach #2 doc; survivors go straight to the
-teleprompter for the next shoot.**
+**UPDATE 2026-08-24: Dan rejected the 5 scripts too and is deleting them** — his read: still
+"a very clumsy cut down of the long formats," not persuasive as 60s ads. **He is writing more
+example scripts in the Approach #2 doc to train the style. NEXT: wait for his new examples, then
+diff them against the old ones + the rejected 5 (session scratchpad `shortsads/five-scripts.html`)
+and attempt batch 3.** Calibration recorded in the /ad-outlines skill (SHORTS ADS section).**
 
 ### DEDICATED SHORTS ADS — 20 outlines delivered 2026-08-23 (Claude Code)
 
