@@ -1,6 +1,9 @@
 {
   "date": "2026-08-24",
-  "order": [],
+  "order": [
+    "money::Review Mohammad A video",
+    "money::Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit"
+  ],
   "excluded": [
     "money::Execute handoff: Swap Dan's phone to the public Play build",
     "money::Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas",
@@ -24,7 +27,8 @@
     "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
     "money::Execute handoff: Replace stick figures with AI exercise demo videos",
-    "money::Check Upwork"
+    "money::Check Upwork",
+    "money::Execute the Instagram growth plan (7 profile fixes + Blotato queue rework)"
   ],
   "sessionsCompleted": 0
 }
