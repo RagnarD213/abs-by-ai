@@ -265,6 +265,12 @@
       "priority": "key",
       "addedAt": "2026-08-24",
       "why": "2026-08-24 planning — verify the Resend welcome sequence actually fired for real users, and review generated output quality for aesthetic/prompt regressions."
+    },
+    {
+      "text": "Check iOS App Store review status (submission 22876374-6723-40d9-b0e2-8e02b7093b86, resubmitted 8/24)",
+      "priority": "key",
+      "why": "3.1.2 EULA fix resubmitted 2026-08-24 — 4 items waiting for review",
+      "addedAt": "2026-08-24"
     }
   ],
   "health": [
