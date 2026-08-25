@@ -69,8 +69,12 @@ vertical layout library (vlib.py), the right-channel voice chain EQ-fitted to hi
 (usable 0–25.0s only), and the compliance deltas (his 0:03 side-by-side before/after
 stays banned → sequential). Build dir: `/Volumes/Extreme/_edit_work/ad1-8-14/vert9x16/`.
 
-**EXACT NEXT ACTION — attempt 2 in a fresh session: invoke /shortad-from-longform**,
-which now carries the full [R1] rule set. Estimated delta work: punch-in alternation
+**EXACT NEXT ACTION — attempt 2 in a fresh session: execute
+`Handoffs/handoff-20260825-ad1-vertical-attempt2.md`** (invoke /shortad-from-longform;
+the handoff adds Dan's sequencing: Phase A = full-length 9:16 copying Muhammad's ad as
+EXACTLY as possible, then show Dan the transcript as a script — **Dan makes the 60s
+cutdown edits himself**; the ≤0:59 builds only from his edited script. Key dashboard
+task added.) Estimated delta work: punch-in alternation
 pass on the base, SFX rebuild at his density, bed swap after a tempo-matched listen,
 1s-interval beat audit against his cut, cutdown re-selected from a written transcript,
 and the mandatory watch pass (2s moving clips at all ~70 boundaries) before delivery.
