@@ -408,12 +408,6 @@
       "addedAt": "2026-08-08"
     },
     {
-      "text": "Clean & Organize kitchen cabinets. Try and find semen collection kit",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Clean exterior of all windows",
       "priority": "low",
       "recurring": false,
@@ -438,12 +432,6 @@
         0,
         4
       ]
-    },
-    {
-      "text": "Get iPad repaired at Apple Store Monday",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-08-11"
     },
     {
       "text": "Change blades on robot lawn mower",
@@ -494,42 +482,15 @@
       "addedAt": "2026-08-11"
     },
     {
-      "text": "Have Dan approve an order for a broom, dustpan and duster",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-12",
-      "addedBy": "assistant"
-    },
-    {
       "text": "Spray weeds with roundup",
       "priority": "low",
       "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Clean & organize bathroom cabinets. Try and find semen collection kit",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-18"
-    },
-    {
-      "text": "Take out trash",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-19",
-      "addedBy": "assistant"
     },
     {
       "text": "Empty/load dishwasher",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Clean both bathroom toilets",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-19",
-      "addedBy": "assistant"
     },
     {
       "text": "Do laundry",
