@@ -143,9 +143,13 @@ def api_key() -> str:
 def call(method: str, path: str, key: str, body=None, retries: int = 4):
     data = json.dumps(body).encode() if body is not None else None
     for attempt in range(retries):
+        headers = {"blotato-api-key": key}
+        if data is not None:
+            # Blotato rejects a Content-Type: application/json request with no body
+            # (400 "Body cannot be empty"), which is exactly what DELETE sends.
+            headers["Content-Type"] = "application/json"
         req = urllib.request.Request(
-            BASE + path, data=data, method=method,
-            headers={"blotato-api-key": key, "Content-Type": "application/json"})
+            BASE + path, data=data, method=method, headers=headers)
         try:
             with urllib.request.urlopen(req) as resp:
                 raw = resp.read()
