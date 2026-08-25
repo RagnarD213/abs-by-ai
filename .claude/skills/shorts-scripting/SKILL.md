@@ -87,16 +87,28 @@ survived in both. The product gets the graphic, not the words.
 AI To Get Abs"), the app is the content and is spoken normally. It is a plug that's
 banned, not the subject.
 
-### 2. The close is always "Comment and let me know [specific thing]."
+### 2. The close is a COMMENT ask by default — but it is not a law. Three forms.
 
-Claude rewrote this twice, with a defensible argument both times. **Dan reverted it
-both times.**
+Claude rewrote the comment CTA twice in the first two scripts, with a defensible
+argument both times, and **Dan reverted it both times.** So the default stands. But
+across five more scripts he then used all three of these, and **twice removed the
+comment ask entirely.** Pick the form by what the script is:
 
-- His: *"Comment and let me know which ab exercise is your favorite."*
-- His: *"Comment below and let me know how your face changed after getting leaner."*
+| Form | Use it when | His example |
+|---|---|---|
+| **Comment ask** (default) | the script teaches a fact or a frame | *"Comment and let me know which ab exercise is your favorite."* |
+| **Do-it-then-comment** | the script taught something he can do today | *"Try the vacuum, and leave a comment to let me know how it worked for you."* |
+| **Subscribe** | the script's subject IS the channel's premise | *"Subscribe to the channel now for more tips on how to use AI to get in shape."* — preceded by a positioning line: *"on my channel, I show you exactly how to use AI tools to lose your belly fat and get defined six pack abs."* |
 
-Write it in that form. Don't make it clever, don't turn it into a send cue, don't
-"fix" it because it presupposes something about the viewer.
+**And sometimes there is no CTA at all.** He ended the body-fat script on pure
+conviction — *"You'll thank me once you do."* — deleting both the comment ask and the
+`AbsByAI.com` cue. **When the script ends on a strong contrarian instruction, the
+instruction IS the close.** Do not staple a CTA onto it.
+
+**When you do use the comment ask, ask for a POSITION, not a report.** Claude wrote
+*"Comment and let me know which one you would take."*; Dan sharpened it to **"Comment
+and let me know if you think six pack abs are worth a million dollars."** A question
+people will argue about beats a question people will answer.
 
 **The Instagram send cue is measured-correct and Dan does not want it in the script.**
 A DM share outranks a comment 3-5x for reaching non-followers, so it is still worth
@@ -226,7 +238,7 @@ face shots need confirming.
 - [ ] Any b-roll that must be filmed has a `[FILM ... BEFORE STARTING]` line at the top of the script (lesson 9)
 - [ ] The "remember" beat carries an actionable instruction, not just a reframe (lesson 5)
 - [ ] No clever aphorism where a concrete list of nouns would do (lesson 6)
-- [ ] Close is "Comment and let me know [specific thing]" — or, when the short teaches an action, "Try X, and leave a comment to let me know how it worked for you" (lesson 12)
+- [ ] Close matches the script type per rule 2 (comment ask / do-it-then-comment / subscribe / conviction-only) and any comment ask invites a POSITION
 - [ ] **The product is not spoken** (unless the idea itself is a product idea)
 - [ ] `[AbsByAI.com mark on screen]` cue is present
 - [ ] Zero em dashes in spoken text
@@ -367,3 +379,60 @@ the cue, and if he deletes it a second time, drop it from the checklist.
 is a coaching detail no amount of research produces. **Write the how-to beat lean and
 correct, and expect him to add the cue that makes it his.** Do not pad it with invented
 technique.
+
+**15 — 2026-08-25, the millionaire script. PUT DAN'S OWN STANDING IN THE OPENER WHEN HE
+HAS IT.** Claude opened with the bare claim: *"Having a six pack is better than being a
+fat millionaire."* Dan added the thing only he can say: **"I'm a multi-millionaire with
+six pack abs, and I know having abs is way more important."** He has actually been both,
+and that sentence is the entire reason to keep watching. **Before writing any opener,
+ask what Dan personally has that makes him the one man who can make this claim** — he
+was 200 lbs at 38, he got abs at 40, he is a multi-millionaire, he trains jiu-jitsu in
+his forties, he has taken Zepbound. First-person proof is always allowed and is not the
+same as the banned second-person age reference (rule 7).
+
+**16 — 2026-08-25. Replace abstraction with the concrete sequence of events.** Claude's
+dating beat was a nicely-turned abstraction: *"Your income is something you claim. Your
+body is something she can verify in half a second."* Dan replaced it with what actually
+happens, in order: **"everyone meets on dating apps and Instagram now. If you have abs,
+you'll get limitless matches and women in your DMs. But if you're a fat millionaire,
+every attractive woman will swipe left on you. None of them will ever find out about
+your money or success."** Same idea, but it plays as a scene the viewer recognises
+rather than a maxim. **If a beat could be printed on a poster, rewrite it as a
+sequence.** This is the third separate time he has deleted an epigram (see lessons 2
+and 8) — Claude keeps reaching for them and he keeps cutting them.
+
+**17 — 2026-08-25. "Remember," is optional; the INSTRUCTION is not.** He deleted the
+word from two of three scripts while keeping the instruction that followed it. The beat
+is a summary plus a concrete thing to do — the opening word is not part of the spec.
+
+**18 — 2026-08-25. THE CONTROVERSY IS A POSITION, NOT A SWEAR WORD.** `/scriptfromoutline`
+requires profanity and a mainstream-angering beat, and Claude imported that literally,
+writing *"here is the part that should piss you off."* **Dan cut the profanity** — and
+then, in the same batch, wrote the most aggressive beat of the seven scripts himself,
+with no swearing in it: *"Ninety percent of guys bulking would be better off cutting and
+getting lean. You'll look so much better with abs than with a powerlifter 'fat but
+strong' build."* **Across seven finished shorts he has used profanity zero times.**
+At 50 seconds the controversial beat is a contrarian OPINION that picks a fight with a
+real training camp, not a swear. Take the fight; leave the profanity in the longforms.
+
+**19 — 2026-08-25. He writes spoken emphasis as a single ALL-CAPS word.** *"WAY better
+than being a millionaire"*, *"you'll actually look BIGGER"*, *"THIS is the only ab
+exercise"*. One per script or so. Use it — it is a teleprompter instruction to hit that
+word, and Claude's scripts read flat without it.
+
+**20 — 2026-08-25. His aside marker is " - ", a spaced hyphen, never an em dash.**
+*"Listen - it takes decades to become a millionaire."* *"AI is an incredibly powerful
+tool for getting abs - if you use it the right way."* The em-dash ban (rule 8) is about
+AI tells; the spaced hyphen is the form he actually types, so write asides that way.
+
+**21 — 2026-08-25. Stat requests come back as a bracketed CLAUDE instruction in
+italics.** He wrote the beat with `X%` placeholders and an all-caps italic line beneath
+it: *"CLAUDE - CHANGE TO PERCENTAGE OF MALE POPULATION 20-50 WITH SIX PACK ABS, AND
+PERCENTAGE WITH NET WORTH OVER $1M. GET AS CLOSE TO THIS AS YOU CAN IF YOU CAN'T FIND
+THIS EXACT STAT."* **Fill the numbers in, then delete the instruction line.** Do not
+invent a precise figure to fill a placeholder — his own fallback wording ("get as close
+as you can") is the licence to widen the population and say so. Numbers found for this
+one, for reuse: **Federal Reserve SCF millionaire households by age — under 35: 2.1%,
+35-44: 10.4%, 45-54: 20.6%**, which blends to roughly **8% under fifty**; **visible
+six-pack abs: 1-2% of men**, which is a soft consumer-fitness figure with no primary
+source, so it ships as *"fewer than two percent."*
