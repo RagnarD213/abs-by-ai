@@ -11,7 +11,8 @@
     "money::Review Mohammad A video",
     "money::Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit",
     "money::Connect @danrosefit in Blotato, then run scripts/blotato/danrosefit_migration.py --apply",
-    "assistant::Cook weekly meal prep"
+    "assistant::Cook weekly meal prep",
+    "assistant::Remove calcium stains from pool tiles"
   ],
   "log": {
     "health::Shower": [
@@ -219,6 +220,7 @@
     "money::Review Mohammad A video": "2026-08-24",
     "money::Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit": "2026-08-24",
     "money::Connect @danrosefit in Blotato, then run scripts/blotato/danrosefit_migration.py --apply": "2026-08-25",
-    "assistant::Cook weekly meal prep": "2026-08-25"
+    "assistant::Cook weekly meal prep": "2026-08-25",
+    "assistant::Remove calcium stains from pool tiles": "2026-08-25"
   }
 }
