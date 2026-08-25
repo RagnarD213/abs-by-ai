@@ -3,7 +3,7 @@ name: shorts-scripting
 description: >
   Turn ONE dedicated shorts idea — a title plus bullets from /shortsideas, or a
   brief outline Dan writes himself — into a finished word-for-word teleprompter
-  script with b-roll cues, built to Dan's measured 176-180 word spec, and deliver it
+  script with b-roll cues, built to Dan's measured 176-185 word spec, and deliver it
   into the DEDICATED SHORTS CONTENT section of the current shoot's outline doc. Use
   whenever Dan asks to script a short, write out a shorts idea, turn a shorts title
   into a script, or edit a short he drafted himself — even if he doesn't say
@@ -32,13 +32,13 @@ generic writing.
 
 ---
 
-## THE SPEC — 176-180 spoken words
+## THE SPEC — 176-185 spoken words
 
 Measured off both of Dan's finished shorts: **177 words** and **176 words**. At his
 measured 198-222 wpm that is **48-54 seconds**, which sits under YouTube's
 60-second music-licence cliff and inside Instagram's best reach bucket (30-60s).
 
-**Write to 176-180. Count the words before delivering — do not estimate.**
+**Write to 176-185. Count the words before delivering — do not estimate.**
 
 ```bash
 python3 -c "
@@ -59,10 +59,10 @@ Anything over 190 is a rewrite, not a trim.
 |---|---|---|---|
 | 1 | **Opener** | 11-14 | A direct declarative claim. See the hard rules. |
 | 2 | *(optional)* **Proof beat** | ~17 | Only when there's a visual to show. The face script uses before-then-after here. |
-| 3 | **Structure statement** | 11-12 | "…improves your face in three ways." / "Here are the top five ab exercises…" Tell them what's coming. |
+| 3 | **Structure statement** | 11-12 | "…improves your face in three ways." Tell them what's coming — **ONLY when the opener does not already name the number.** If the opener says "the three most important supplements," this beat is dead weight and Dan will delete it. See lesson 4. |
 | 4 | **The numbered beats** | **21-30 each** | "Number one, the ab wheel." / "First, it defines your jawline." Name + one reason + one qualifier or scaling note. |
 | 5 | **The beat nobody else says** | ~25 | The insight that isn't on the list. Only fits when there are three items, not five. |
-| 6 | **The "remember" line** | 19-23 | A summary that reframes. "And always remember, losing your stomach fat with nutrition will be more important than any ab exercise you do." |
+| 6 | **The "remember" line** | 19-40 | A reframe **plus a concrete instruction with a progression.** Dan expanded this beat both times Claude wrote it as a single aphorism. See lesson 5. |
 | 7 | **Comment close** | 11-13 | "Comment and let me know which ab exercise is your favorite." |
 
 **Three items leaves room for beat 5. Five items does not.** That is the real cost of
@@ -217,12 +217,13 @@ face shots need confirming.
 
 ## Checklist before delivering
 
-- [ ] Word count is **176-180**, counted not estimated
+- [ ] Word count is **176-185**, counted not estimated
 - [ ] Opener is a direct claim or claim-plus-proof-promise, not a negation
 - [ ] Structure statement's number matches the number of items actually listed
 - [ ] Each numbered beat is 21-30 words
 - [ ] There is one beat nobody else would say (three-item scripts only)
-- [ ] There is a "remember" summary line before the close
+- [ ] The "remember" beat carries an actionable instruction, not just a reframe (lesson 5)
+- [ ] No clever aphorism where a concrete list of nouns would do (lesson 6)
 - [ ] Close is "Comment and let me know [specific thing]"
 - [ ] **The product is not spoken** (unless the idea itself is a product idea)
 - [ ] `[AbsByAI.com mark on screen]` cue is present
@@ -272,3 +273,37 @@ change how an idea arrives here and therefore how it gets scripted:
 categories. His own bullet reads *"hard boiled eggs, sardines, and chipotle protein
 cups"* where Claude wrote "healthy snacks". Specificity is what separates his voice
 from generic fitness content, and at 176 words there is no room for a vague beat.
+
+**4 — 2026-08-25, the supplements short. Dan deleted the structure beat outright.**
+Claude wrote *"I take about fifteen things. These three do seventy percent of the
+work."* as beat 3, with its own b-roll cue. He cut both. **His opener already said
+"the three most important supplements for men," so the setup line restated a number
+the viewer had just heard.** The skeleton's beat 3 is conditional, not mandatory: it
+earns its place only when the opener is a claim that does NOT carry the count (the
+face script's *"improves your face in three ways"* is the case where it does earn it,
+because the opener there was a proof promise). **When the title is a numbered list and
+the opener speaks the title, go straight from the opener into item one.**
+
+**5 — 2026-08-25. The "remember" beat is an INSTRUCTION, not just a reframe.**
+Claude wrote a single aphoristic sentence: *"two supplements you take every single day
+beat a shelf of ten you take when you remember."* Dan kept the contrast, fixed the
+number to match the video's three, and **added a whole second sentence telling the
+viewer what to actually do, with a progression**: *"Hit your big three supplements
+daily if you're just starting off, and add in more later once you get consistent."*
+He also dropped *"And always remember"* to plain *"Remember,"*. This is now the
+pattern — **reframe, then a concrete next step with a path forward.** It is the one
+beat allowed to run long (his version is ~40 words); the word budget comes from beat 3
+being deleted.
+
+**6 — 2026-08-25. He trades clever lines for concrete nouns.**
+Beat 5 shipped as *"Worth taking, but they will never save a bad diet."* He rewrote it
+to *"Worth taking, but your nutrition, training, and sleep are all far more
+important."* Same point, no epigram, three named things instead of one flourish. This
+is the same instinct behind the AI-tells ban in `/scriptfromoutline` — **a rhetorical
+line reads as written; a list of nouns reads as spoken.** When a beat is about
+relative importance, name the things that matter more.
+
+**7 — 2026-08-25. The real ceiling is ~185 spoken words, not 180.**
+His edited supplements script measures **184 words (50-56 s)** and he made it longer,
+not shorter, than what was delivered. 176-185 is the band. Still count, never estimate,
+and still stay under 60 s finished.
