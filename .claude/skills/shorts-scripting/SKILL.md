@@ -436,3 +436,83 @@ one, for reuse: **Federal Reserve SCF millionaire households by age — under 35
 35-44: 10.4%, 45-54: 20.6%**, which blends to roughly **8% under fifty**; **visible
 six-pack abs: 1-2% of men**, which is a soft consumer-fitness figure with no primary
 source, so it ships as *"fewer than two percent."*
+
+**22 — 2026-08-25. NEVER MAKE THE VIEWER THE TARGET OF THE ATTACK.** This is the
+boundary lesson 18 was missing. Claude wrote, in the make-time script: *"And here is the
+truth nobody wants. You are NOT too busy. You watched an hour of TV last night. You are
+just not convinced it matters yet."* **Dan kept "You're not too busy" and deleted every
+word of the accusation.** Look at what survives across seven scripts: the fitness
+industry gets attacked, guys who bulk get attacked, supplement sellers get attacked,
+people who call medication cheating get attacked. **The man watching never does.** He is
+the ally being let in on something. Aim the contrarian beat at an industry, a camp, or
+an idea — never at the viewer's character or his last twenty-four hours.
+
+**23 — 2026-08-25. NEVER PRE-EMPT AN OBJECTION.** Claude ended the Zepbound script by
+answering the critics: *"And people love to argue about whether this is cheating. I am
+not interested in that debate. I lost the weight..."* **Dan cut it entirely** and put a
+plain personal commitment in its place: *"That's why I take Zepbound even though I
+already have six pack abs, and why I plan on remaining on Zepbound the rest of my
+life."* Raising an objection inside the video is what gives it oxygen. **State the
+position; let the comments carry the fight.**
+
+**24 — 2026-08-25. The opener's SECOND sentence is one of two things, and the claim
+decides which.** Lesson 15 said to lead with Dan's standing. That is right when the
+claim needs authority to be believed ("abs beat money" — he is a multi-millionaire with
+abs). But on the make-time script he **deleted** Claude's credential line ("I lift seven
+days a week and train jiu jitsu three times a week, and I run a company") and wrote a
+**who-this-is-for plus promise** instead: *"If you want to get in shape but you're 'too
+busy' to work out, this video is the solution you need."* **Authority claim ⇒ his
+standing. How-to ⇒ name the guy who needs this and promise him the payoff.**
+
+**25 — 2026-08-25. Do the arithmetic out loud.** Claude wrote the commute cost as a
+rhetorical list: *"The gym is not forty five minutes. It is forty five minutes plus the
+drive, plus the parking, plus finding a bench."* Dan replaced it with an actual sum:
+**"If you're doing a short 30 minute workout, driving 15 minutes back and forth to the
+gym DOUBLES your workout time."** Same for the session-length beat: *"Fifteen minutes
+daily beats two hours three times a week."* **Numbers that multiply into an obvious
+conclusion, not a pile of clauses.**
+
+**26 — 2026-08-25. Speak to segments by name.** His AI beat: *"If you're in school, use
+AI to do all your homework. If you're working a white collar job, use AI to accomplish
+more in less time. You can even use AI to handle personal tasks like making reservations
+at restaurants, or researching what gym to sign up for."* Claude's version had been one
+narrow use case. **Name two or three concrete kinds of viewer and give each one its own
+example.**
+
+**27 — 2026-08-25. The personal-failure-then-solution beat.** He added to the sleep
+point: *"I tried everything to stop eating late for years, but I was never able to
+consistently do it. Zepbound was the only way I was able to stop."* **Where Dan failed
+at something for years before it worked, say so** — it is more persuasive than the
+benefit stated flat, and only he can supply it.
+
+**28 — 2026-08-25. The instruction beat is a STAGED plan, not a single order.** *"Just
+start with a 15 minute home workout every morning. Then over the next few weeks, figure
+out how to use AI to reclaim more time."* Step one is small enough to do tomorrow; step
+two is where it goes. Same shape as his supplements close (big three daily, add more
+once consistent).
+
+**29 — 2026-08-25. THE EPIGRAM BAN, FIFTH AND SIXTH KILLS. Stop writing them.** *"a
+daily thing is a habit and a weekly thing is an appointment you cancel"* → his: *"You
+can consistently do fifteen minute home workouts every day. But two hour long workouts
+end up getting skipped."* And *"The same noise that makes you want a second plate makes
+you want a third drink."* → his: *"Just like Zepbound takes away your desire for junk
+food, it reduces your desire for alcohol too."* **The fix is always the same: split the
+epigram into two plain sentences that say the thing literally.** Note the asymmetry —
+**he kills Claude's epigrams and keeps his own** (the bank-account analogy in the
+weigh-yourself idea is his and should be used verbatim). Write his; never invent one.
+
+**30 — 2026-08-25. HIS EDIT PASS PUSHES SCRIPTS OVER THE 60-SECOND CEILING — RE-COUNT
+AFTER HE EDITS.** He adds concrete detail and does not count words. His edited
+make-time script came back at **228 words (62-69 s)** and the Zepbound one at **198
+(54-60 s)**. Anything over ~200 words is over a minute, and **a YouTube Short between
+1:00 and 3:00 carrying any Content ID claim is blocked globally** (see
+`AI_COORDINATION.md`). **Always re-count after his pass and flag an over-length script
+with specific proposed cuts** — do not silently rewrite his prose, and do not let it
+ship long either.
+
+**31 — 2026-08-25. Script 4 came back with ZERO edits — that shape is the model.**
+"I was 200 pounds at 38" survived untouched: open on the before photo with THIS, one
+beat naming what he already knew, one beat attacking the industry, one beat on what
+actually worked, a three-fragment hammer (*"Not a program. Not a trainer. A picture."*),
+instruction, comment ask. When a new idea is a personal-story short, build it in that
+order.
