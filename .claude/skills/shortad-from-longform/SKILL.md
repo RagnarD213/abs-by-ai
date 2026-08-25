@@ -5,6 +5,18 @@ description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 sh
 
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
 
+> ## ⚠ ATTEMPT 1 (2026-08-25) PASSED 11/11 QC AND DAN CALLED IT "TRULY AWFUL"
+>
+> Every numbered rule below marked **[R1]** exists because of that rejection. The
+> meta-failure: **the gate measured format (LUFS, frame size, coverage %, change rate)
+> and formats were perfect — but no check ever WATCHED the video.** A jump cut, a
+> mistimed whoosh, sleepy music and a non-sequitur are all invisible to metrics and to
+> contact sheets of still frames. The prose warning in /longform-edit — "a quality bar
+> that exists only in prose will be skipped" — has a sibling: **a quality bar built only
+> from numbers will pass garbage.** The watch pass in Step 7 is now the gate; the
+> numbers are only the preconditions.
+
+
 **The finished video cannot be reframed. It has to be REBUILT.** A finalized cut has
 graphics, captions and lower thirds burned into the pixels; crop it to 9:16 and you crop
 its type. The only honest route is to re-cut from the ORIGINAL RAW FOOTAGE and rebuild
@@ -119,6 +131,12 @@ correlating it against the conform at the two or three known framings. Report:
 | visual changes / min | **≥ 9**, 15 is comfortable | |
 | longest stretch with no visual change | **≤ 16 s** | |
 
+**[R1] Step HIS cut at 1-second intervals (not 4) and reproduce his beat sheet
+LITERALLY** — every insert, in order, unless a standing rule bans it, and log each
+deviation with its reason. Attempt 1 sampled at 4 s, substituted freely where inspection
+was thin, and Dan immediately saw "a lot missing… not reproducing Muhammad's video at
+all." The reference IS the spec; deviation is the exception, not the default.
+
 Then read one contact sheet of the insert regions and write the beat list by hand. Nothing
 automates "what is this insert" — but the classifier tells you exactly where to look, which
 turns a 4-minute video into ~16 frames to inspect.
@@ -136,6 +154,13 @@ turns a 4-minute video into ~16 frames to inspect.
 3. **Music bed detection: use the SPECTRAL TILT in the speech gaps, not the floor level.**
    A bed shows as 30–120 Hz sitting ~12 dB above the rest of the spectrum in the gaps.
    The "floor above −45 dB ⇒ bed" heuristic false-positives on any hard-limited master.
+4. **[R1] Pick the bed by TEMPO AND ENERGY against THIS reference, and A/B it by ear.**
+   Attempt 1 reused a bed a previous session had picked by spectral shape against a
+   DIFFERENT, older cut. The reference's bed measured a driving ~120+ BPM pulse; the
+   reused pick was a 99 BPM soft acoustic strummer at −21 dB — Dan: "it kind of puts me
+   to sleep." Measure onset rate + tempo (flux autocorrelation) on the reference's mix,
+   shortlist by tempo, then LISTEN to 20 s of each candidate under the voice before
+   committing. A bed choice never transfers between references.
 
 ---
 
@@ -173,7 +198,22 @@ each one was arrived at by getting it wrong first.
 7. **Safe area:** nothing that must be read below y≈1660 or above y≈150; captions centred at
    y≈1250. YouTube Shorts takes the bottom ~230 px and the right ~120 px; IG Reels takes ~350.
 
-8. **Render captions with PIL, not libass.** Manrope is a VARIABLE font and libass takes the
+8. **[R1] REPRODUCE HIS SPLICE CONCEALMENT, NOT JUST HIS SPLICE LIST.** The reference
+   editor hides every pause trim under either an insert or a FRAMING CHANGE (his cut
+   alternates wide 1.00 ↔ punch ~1.20 across splices — geofit shows it directly).
+   Attempt 1 rendered all talk at ONE fixed crop, so 23 of the 72 recovered splices
+   shipped as naked jump cuts — Dan read them as "random footage spliced together with
+   no transition." Rule: walk the EDL; every splice not covered by an insert gets a
+   framing change (alternate the two measured framings, cutting ON the splice frame).
+   Never let two adjacent talk segments share a framing across a splice.
+
+9. **[R1] Mute b-roll must never show anyone TALKING.** A clip of Dan mid-sentence with
+   his mouth moving and no matching audio reads as a glitch, not as b-roll. Attempt 1's
+   "this is where I'm at today" beat used outdoor footage of Dan talking to camera.
+   Pick in-points where the subject is DOING something, and frame-check every in-point
+   for visible speech before committing.
+
+10. **Render captions with PIL, not libass.** Manrope is a VARIABLE font and libass takes the
    default instance — ASS captions come out Regular while every graphic is ExtraBold. Build
    one PNG per word state and assemble with the concat demuxer (`duration` directives); that
    is fast and keeps one type system.
@@ -203,6 +243,14 @@ Every graphic beat renders ONE RGBA plate that is opaque everywhere except a rou
 "media hole"; the media is composited UNDERNEATH at the hole's final size. Animating the
 hole (rather than the media) lets a card grow open without ever rescaling the picture in it.
 
+### [R1] SFX: match HIS density, and only on graphic entrances
+Attempt 1 fired 83 whoosh/pop events across 3:53 — one every 2.8 s — placed
+programmatically on every beat boundary including plain b-roll cuts. Dan: "weird
+swishing, swiping side effect appearing at random points." Count the reference's actual
+SFX events by ear first (listen to the gaps); a typical cut carries a fraction of that.
+SFX belong ONLY where a graphic physically enters or exits the frame — never on a
+footage-to-footage cut, and never mechanically per beat.
+
 ### EQ-fit the voice to the REFERENCE's mix
 Ten bands, several windows across both files, speech-active frames only. **Cap the fit at
 +6 dB.** The raw fit here wanted +8.8 dB at 9 kHz — partly the reference's own music bed —
@@ -210,7 +258,15 @@ and that lifts lav hiss with the air. Gate BEFORE the EQ, always.
 
 ---
 
-## Step 7 — QC (`reference/qc.py`) — measured off the FINISHED FILE
+## Step 7 — QC: the WATCH PASS is the gate; the metrics are preconditions
+
+**[R1] The metric gate passed a rejected video 11/11.** Before delivery, always:
+1. **Extract a 2 s video clip around EVERY splice and every insert boundary and watch
+   them as MOVING video** — contact sheets of stills cannot show a jump cut, a frozen
+   segment, or a mistimed animation. (~70 clips ≈ 3 minutes of review. Do it.)
+2. **Listen to the full mix once, start to finish** — music feel, SFX density and
+   caption/graphic collisions are audio-visual, not measurable.
+3. Only then run `reference/qc.py`:
 
 1 frame size 1080×1920 · 2 fps 29.97 · 3 duration matches the reference · 4 −14 LUFS ±0.8 ·
 5 true peak ≤ −1.0 dBTP · 6 L/R correlation > 0.98 · 7 ≥ 9 visual changes/min ·
@@ -224,6 +280,14 @@ and that lifts lav hiss with the air. Gate BEFORE the EQ, always.
 **Select intervals out of the approved master. Never re-cut from source.** Selection
 carries every decision through unchanged; a re-cut re-litigates all of them.
 
+- **[R1] WRITE THE CUTDOWN'S TRANSCRIPT FIRST and read it as prose.** Assemble the
+  words the selected ranges keep and read the result aloud as one script BEFORE mapping
+  any ranges. Every seam must be both a sentence boundary and a THOUGHT boundary — a
+  topic list left dangling ("You're more attractive to women… you feel better." → hard
+  cut to the product) is a non-sequitur even when the splice is clean. Attempt 1
+  selected ranges by topic doctrine, never read the result, and Dan's verdict was "the
+  cutdown makes no sense at all." If the prose doesn't read, change the selection, not
+  the seams.
 - Content follows Dan's settled shorts-ad doctrine (see `/ad-outlines`): **sell the
   GENERATION almost exclusively**, give the trainer/nutritionist exactly one beat near the
   end, say the CTA twice. Hook, mechanism, proof, CTA.

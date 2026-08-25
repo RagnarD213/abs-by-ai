@@ -33,7 +33,51 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
-### AD 1 REBUILT VERTICAL (9:16) FROM MUHAMMAD'S FINAL + new skill /shortad-from-longform (2026-08-25, Claude Code)
+### AD 1 VERTICAL ATTEMPT 1 **REJECTED BY DAN** — failure analysis encoded in /shortad-from-longform (2026-08-25, Claude Code)
+
+⚠ **Dan on both deliverables: "truly awful… definitely won't work."** The dashboard
+check-off was REVERTED. **The meta-failure: the QC gate passed 11/11 on a rejected video
+— every check measured format (LUFS, frame size, coverage %, change rate) and NO check
+ever watched the video.** Five complaints, each root-caused with measurements, all now
+[R1]-tagged hard rules in the skill:
+
+1. **Sleepy music** — reused a bed picked by spectral shape against a DIFFERENT older
+   cut. His bed: driving ~120+ BPM. Mine: 99 BPM acoustic strummer at −21 dB. Rule: pick
+   by tempo/energy vs THIS reference and listen before committing; bed choices never
+   transfer between references.
+2. **"Random footage spliced together"** — all talk rendered at ONE fixed crop, so 23 of
+   72 recovered splices shipped as naked jump cuts. Muhammad hides every trim under an
+   insert or a wide↔punch framing change (measured: he alternates 1.00/1.20). Rule:
+   reproduce his splice CONCEALMENT, not just his splice list. Also: mute b-roll of Dan
+   visibly TALKING (outdoor footage in-point 20.0s) reads as a glitch.
+3. **"Weird swishing at random points"** — 83 SFX events (one per 2.8s) fired
+   programmatically on every beat boundary incl. plain b-roll cuts. Rule: SFX only on
+   graphic entrances, matched to his counted density.
+4. **Cutdown "makes no sense"** — ranges selected by topic doctrine, transcript never
+   read as prose; seams land at sentence boundaries but not THOUGHT boundaries
+   ("…you feel better." → hard cut to product). Rule: write the cutdown's transcript
+   FIRST and read it aloud; if it doesn't read, change the selection.
+5. **"A lot missing" from the long version** — beat sheet built from 4s-interval frames
+   with free substitution. Rule: step HIS cut at 1s and reproduce beat-for-beat; every
+   deviation logged with a reason (standing-rule bans only).
+
+**What survives for attempt 2 (all verified, none disputed):** the recovered 73-segment
+EDL (conform matches his pose at 14 checkpoints — his hook is TAKE 1, src 3.66–29.1),
+the measured tone curve + vignette + palette (his = our J2AD), the two framings, the
+vertical layout library (vlib.py), the right-channel voice chain EQ-fitted to his mix
+(band error 1.2 dB), captions, the asset library incl. the native-vertical app recording
+(usable 0–25.0s only), and the compliance deltas (his 0:03 side-by-side before/after
+stays banned → sequential). Build dir: `/Volumes/Extreme/_edit_work/ad1-8-14/vert9x16/`.
+
+**EXACT NEXT ACTION — attempt 2 in a fresh session: invoke /shortad-from-longform**,
+which now carries the full [R1] rule set. Estimated delta work: punch-in alternation
+pass on the base, SFX rebuild at his density, bed swap after a tempo-matched listen,
+1s-interval beat audit against his cut, cutdown re-selected from a written transcript,
+and the mandatory watch pass (2s moving clips at all ~70 boundaries) before delivery.
+
+---
+
+### SUPERSEDED same day — attempt 1 details kept for the EDL/measurement record (2026-08-25, Claude Code)
 
 Dan: Muhammad's final cut is approved, make a vertical version reproducing his style. **His
 video could not be reframed** — his graphics and lower thirds are burned into the pixels, so
