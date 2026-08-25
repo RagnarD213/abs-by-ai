@@ -527,6 +527,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-23"
+    },
+    {
+      "text": "Take car to Club Car Wash (Dan already has monthly membership). Get exterior washed and clean interior. Use Club Car Wash free vaccuum and cleaning supplies in frunk to clean interior",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-08-25"
     }
   ]
 }
