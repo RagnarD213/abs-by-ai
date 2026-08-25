@@ -239,9 +239,10 @@ his alcohol video. It can appear as a bullet in any territory.
 
 ## Constraints every idea has to survive
 
-1. **It has to fit 176-180 spoken words** — the measured landing spec from both of
-   Dan's finished shorts (48-54s at his 198-222 wpm), which keeps it under YouTube's
-   60-second music-licence cliff. **A five-item list will not fit** and also crowds
+1. **It has to fit 176-185 spoken words** — the measured landing band across Dan's
+   finished shorts (48-56s at his 198-222 wpm), which keeps it under YouTube's
+   60-second music-licence cliff. `/shorts-scripting` owns this spec; keep the two in
+   sync if it moves again. **A five-item list will not fit** and also crowds
    out the payload beat; see `/shorts-scripting`.
 2. **Sequential reveals only.** No side-by-side before/after in one frame.
 3. **No follow-along workouts.** His own account data: 1.8-2.0s average watch time.
@@ -265,7 +266,7 @@ Before showing him anything, delete failures — don't deliver them with a cavea
       products named, not categories?
 - [ ] Would one of its bullets be a better standalone short than the list? → promote it
 - [ ] Is it a "stop doing X", a self-test, or a bare product demo? → delete
-- [ ] Does it fit in 176-180 spoken words?
+- [ ] Does it fit in 176-185 spoken words?
 - [ ] If it's a comparison, is the other side a **person**?
 - [ ] If the app appears, is it one of three items rather than the subject?
 - [ ] Would Dan, who has been fat and is now lean at 40, have a real opinion about
