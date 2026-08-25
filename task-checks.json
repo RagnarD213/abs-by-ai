@@ -1,11 +1,5 @@
 {
   "checked": [
-    "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit",
-    "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit",
-    "assistant::Take out trash",
-    "assistant::Get iPad repaired at Apple Store Monday",
-    "assistant::Have Dan approve an order for a broom, dustpan and duster",
-    "assistant::Clean both bathroom toilets",
     "money::Create beta tester account for Ty String (Aces coach)",
     "personal::Hire someone to install artificial hedge panels",
     "money::Check iOS App Store review status (build 1.0 (3), submission a5fcdbf2-3eca-412e-8c20-b1f075a32c24)",
@@ -208,12 +202,6 @@
     ]
   },
   "checkedAt": {
-    "assistant::Clean & organize bathroom cabinets. Try and find semen collection kit": "2026-08-18",
-    "assistant::Clean & Organize kitchen cabinets. Try and find semen collection kit": "2026-08-18",
-    "assistant::Take out trash": "2026-08-18",
-    "assistant::Get iPad repaired at Apple Store Monday": "2026-08-18",
-    "assistant::Have Dan approve an order for a broom, dustpan and duster": "2026-08-18",
-    "assistant::Clean both bathroom toilets": "2026-08-18",
     "money::Create beta tester account for Ty String (Aces coach)": "2026-08-19",
     "personal::Hire someone to install artificial hedge panels": "2026-08-19",
     "money::Check iOS App Store review status (build 1.0 (3), submission a5fcdbf2-3eca-412e-8c20-b1f075a32c24)": "2026-08-24",
