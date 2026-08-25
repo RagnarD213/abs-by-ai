@@ -319,6 +319,12 @@
       "priority": "high",
       "why": "2026-08-25 planning — ad identity = @danrosefit, budget/Page stay under Abs By AI; two-step funnel spec is in AI_COORDINATION.md. Dan launches campaigns himself.",
       "addedAt": "2026-08-25"
+    },
+    {
+      "text": "Execute handoff: Ad 1 vertical ATTEMPT 2 - exact copy of Muhammad's final, then Dan cuts the script",
+      "priority": "key",
+      "why": "handoff-20260825-ad1-vertical-attempt2.md — created but not yet run",
+      "addedAt": "2026-08-25"
     }
   ],
   "health": [
