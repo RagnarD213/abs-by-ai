@@ -7,229 +7,316 @@ description: >
   the current shoot's outline doc. Use whenever Dan asks for shorts ideas, shorts
   topics, "what shorts should I film", more ideas like the ones he wrote, or ideas
   for the next shoot — even if he doesn't say "/shortsideas". For turning a chosen
-  idea into a word-for-word script use /scriptfromoutline; for AD ideas and ad
+  idea into a word-for-word script use /shorts-scripting; for AD ideas and ad
   outlines use /ad-outlines; for cutting shorts out of an existing longform use
   /shorts.
 ---
 
 # Shorts ideas: generate ideas in Dan's format, not in Claude's
 
-**STATUS: v1 — created 2026-08-25 from the diff between a 20-idea batch Claude
-delivered and the 8 ideas Dan actually chose to keep. Dan's verdict on the batch:
-"mostly I think they're pretty bad." He kept 4 in altered form, wrote 4 himself, and
-killed 12. This skill exists to close that gap.**
+**STATUS: v2 — 2026-08-25. v1 was built from batch 1 (20 ideas, ~20% kept, Dan:
+"mostly I think they're pretty bad"). v2 adds batch 2 (12 ideas, 4 usable), which
+produced one finding that outranks everything else in this file: READ THE EXISTING
+LIST FIRST AND ONLY GENERATE INTO EMPTY TERRITORIES. See the next section.**
 
 ## The job
 
 Dan is filming dedicated short-form content (not cutdowns of longforms). He needs a
-list of ideas he can hand to `/scriptfromoutline` one at a time. The deliverable is
+list of ideas he can hand to `/shorts-scripting` one at a time. The deliverable is
 **a batch of titles with content bullets**, shown in chat for him to kill, then the
 survivors appended to the **"Ideas for shorts to write out"** list at the bottom of
 the current shoot's outline doc.
 
-**This skill produces IDEAS, not scripts.** Stop at the idea. Writing the script is a
-separate session and a separate skill — that separation is deliberate and saves Dan
-tokens and context.
+**This skill produces IDEAS, not scripts.** Stop at the idea.
+
+---
+
+## RULE ZERO — one idea per territory. Check what's taken before you write.
+
+Batch 2's outcome was perfectly clean and it is the most useful thing this skill
+knows:
+
+> **All 8 killed ideas sat in a territory the list already covered.
+> All 4 survivors sat in an empty one.**
+
+| Killed idea | Territory | Already occupied by |
+|---|---|---|
+| The 3 Supplements I Stopped Wasting Money On | supplements | The 3 Most Important Supplements For Men |
+| The Best Ab Exercise You Can Do At Home | ab exercises | The Only Ab Exercise… (The Vacuum) |
+| Why Abs Beat A Full Head Of Hair | status comparison | …Better Than Being A Fat Millionaire |
+| What You'd Look Like If You Lost 30 Pounds | body-fat calibration | What Every Body Fat Percentage Looks Like |
+| How Lean You Actually Have To Be To See Abs | body-fat calibration | *(same)* |
+| How Long It Actually Took Me To Get Abs | his transformation | I was 200 pounds at 38… |
+| How To Lose Fat Without Cooking | time / busy guy | How To Make Time To Work Out |
+| Why Zepbound Isn't Cheating | Zepbound | 3 Unexpected Ways Zepbound Helped Me |
+
+Several of those were good ideas with real comps behind them. It made no difference.
+
+**So, first step, always: read the current "Ideas for shorts to write out" list
+through the Drive MCP, map each existing idea to a territory, and generate only into
+the gaps.** If Dan asks for more ideas in a territory that's taken, say it's taken
+and ask whether he wants to replace what's there.
 
 ---
 
 ## THE TITLE IS THE DELIVERABLE
 
-Claude's first batch delivered **spoken hook sentences** in Dan's voice
-("Stand up right now. If you can't hold this for thirty seconds…"). Dan converted
-every single survivor into a **Title Case title**. Not one hook-shaped line survived
-as written except the one he took verbatim.
+Write **Title Case titles** — the kind of thing someone could type into YouTube
+search. Not spoken hooks. Batch 1 delivered hooks and Dan converted every survivor
+into a title.
 
-**Write titles. Title Case. The kind of thing someone could type into YouTube search.**
+### Dan's actual title templates
 
-The hook is a scripting decision and belongs to `/scriptfromoutline`. An idea that
-only exists as a hook is an idea Dan cannot file, reorder, or hand to an editor.
+He is highly formulaic. Across twelve titles he uses these, and almost nothing else:
 
-### The shape of exactly one idea
+| Template | His examples |
+|---|---|
+| **Top 3 Ways To [X]** | Top 3 Ways To Use AI To Get Abs · Top 3 Ways To Looksmax |
+| **[N] Ways To [X]** | 3 Ways To Reduce Alcohol Consumption |
+| **[N] Unexpected Ways [X]** | 3 Unexpected Ways Zepbound Helped Me |
+| **The [N] Most Important [X] For Men** | The 3 Most Important Supplements For Men |
+| **The Only [X] That [Y] ([Z])** | The Only Ab Exercise That Shrinks Your Belly Fat (The Vacuum) |
+| **The #1 [X] I Made To [Y] At 40** | The #1 Change I Made To Get Six Pack Abs At 40 |
+| **Why You Must [X]** | Why You Must Weigh Yourself Daily |
+| **Why Having [X] Is Better Than Being [Y]** | Why Having Abs Is Better Than Being A Fat Millionaire |
+| **How To [X]** | How To Make Time To Work Out |
+| **What Every [X] Looks Like** | What Every Body Fat Percentage Looks Like |
+
+Reach for these first. A title that doesn't fit one of them needs a reason to exist.
+
+**Clever framing loses to plain and searchable.** Claude's
+"The 3 Things That Actually Improve How You Look (Ranked)" became Dan's
+**"Top 3 Ways To Looksmax"** — same three bullets, his own vocabulary, one of his
+templates, and the parenthetical dropped.
+
+---
+
+## The two shapes of an idea
+
+### Flat — title plus the beats
 
 ```
-  - The 3 Most Important Supplements For Men
-
   - 3 Unexpected Ways Zepbound Helped Me
       - Reduced my alcohol consumption
       - Made me more productive at work
       - Made me sleep better (due to less late night eating)
-
-  - What Every Body Fat Percentage Looks Like
-      - Similar to: <https://www.youtube.com/shorts/dWLK29sX4Pc>
 ```
 
-- **Title, Title Case, on its own bullet.**
-- **2-4 sub-bullets underneath, and they must be the actual content**, not a
-  description of the content. "Reduced my alcohol consumption" is a beat.
-  "Discuss the unexpected benefits" is not.
-- **A title with no list behind it takes no sub-bullets.** Don't manufacture them.
-- **Attach a comp link when a real measured one exists** — Dan used the exact
-  YouTube Short link he was given, in the form `Similar to: <url>`. Never invent a
-  link; only use one that has been verified live.
+### Nested — an argument bullet, then the tactics under it
+
+**This is new in batch 2 and he used it twice.** The first bullet carries the
+**argument or the analogy**; a nested list carries the actual items.
+
+```
+  - Why You Must Weigh Yourself Daily
+      - Trying to get abs without weighing yourself daily is like trying to get
+        rich while never looking at your bank account
+      - Here's why you need to weigh yourself daily
+          - Catch gaining fat early when it's easy to correct
+          - Immediately associate behaviors with fat gain
+          - Simple action first thing in the morning that affirms you're a person
+            dedicated to health
+
+  - 3 Ways To Reduce Alcohol Consumption
+      - Reducing alcohol will help tremendously for getting lean. Here's how to do it
+          - Take Zepbound
+          - Never drink liquor
+          - Drink bad tasting, low calorie alcohol only
+```
+
+**Use the nested shape when the video needs to win an argument before it can give
+advice.** "Why You Must…" and "N Ways To…" both do.
+
+### Devices he uses inside bullets
+
+- **The analogy, from a domain he actually cares about.** *"…like trying to get rich
+  while never looking at your bank account."* Money, status, and dating are the wells
+  to draw from. One per idea at most.
+- **A "Bottom line" closing bullet**, which is usually the attraction payoff. His
+  addition to Top 3 Ways To Looksmax: *"Bottom line is you must get lean if you want
+  to look good and attract women."*
+- **A "Why it works" nested block** under a tactic — see The #1 Change I Made.
 
 ---
 
-## The 2026-08-25 batch review — what he changed, and why
+## Name the actual thing. Categories are not beats.
 
-This table is the whole lesson. Read it before writing anything.
+Dan's bullets are concrete to the point of naming products:
 
-| Claude wrote | Dan wrote | Rule extracted |
+> *"Changing carb heavy snacks like chips, trail mix, dried fruit, etc. to protein and
+> fat heavy snacks like hard boiled eggs, sardines, and chipotle protein cups"*
+
+Claude's equivalent bullets were categories — "Alcohol", "Restaurant portions",
+"'Healthy' snacks like granola". **Name the foods, the products, the brands, the
+doses, the numbers.** A bullet that could have been written by someone who has never
+done the thing is not a beat.
+
+---
+
+## Mine your own bullets before you deliver
+
+**Three of Dan's four new ideas came from a single sub-bullet of an idea he
+otherwise rejected.**
+
+| Claude's rejected idea | The bullet he took | What it became |
 |---|---|---|
-| "Money changed how people treated me. Abs changed it more." | **Why Having Abs Is Better Than Being A Fat Millionaire** (+ more rare / attracts more women on dating apps / money does you no good if you're dead) | Name a **villain or a rival person**, not an abstraction. "A fat millionaire" is a guy you can picture. "Money" is not. |
-| "This is what 15% body fat actually looks like." | **What Every Body Fat Percentage Looks Like** | Widen the scope and make it **searchable**. One number is a moment; the whole scale is a video someone looks for. |
-| "I took Zepbound. Here's the part nobody selling it will tell you." | **3 Unexpected Ways Zepbound Helped Me** | **Countable + specific + a curiosity word.** "Unexpected" earns its place because the three items genuinely are. |
-| "Watch AI count the calories in my lunch in 4 seconds." | *killed* — folded in as one bullet of **Top 3 Ways To Use AI To Get Abs** | **The product is one item in a list of three. Never the subject of the video.** A demo is an ad; a list containing a demo is content. |
-| "I was 200 pounds at 38. The thing that fixed it wasn't a workout." | **kept verbatim**, + "motivation was the key and the AI image gave me motivation" | The one sentence-shaped title he accepted. A first-person confession with a withheld answer survives. Use this shape **sparingly — roughly one per batch.** |
-| "Stop weighing your food. Take a picture of it." · "Stop doing sit-ups." · "If you're doing cardio to lose your gut, you picked the slowest tool." | **all killed** | See the kill list below. |
-| "Stand up right now…" · "Look down…" · "Pinch right here…" | **all killed** | See the kill list below. |
-| — | **The 3 Most Important Supplements For Men** | Plain, evergreen, searchable. A boring title on a topic he has real opinions about beats a clever title on a generic one. |
-| — | **The Only Ab Exercise That Shrinks Your Belly Fat (The Vacuum)** | **Absolute claim + the payload named in parentheses.** The parenthetical is not a spoiler; it's the proof the video has a real answer. |
-| — | **How To Make Time To Work Out** | Title the **objection**, not the tactic. "How to make time" is what the viewer says to himself; "do short daily workouts" is only the answer. |
+| 3 Things I Do Every Day To Stay Lean | "Weigh myself every morning" | **Why You Must Weigh Yourself Daily** |
+| How To Eat Out And Still Lose Fat | "Zero liquid calories, including the alcohol" | **3 Ways To Reduce Alcohol Consumption** |
+| The 3 Foods That Kept Me Fat | the snack problem | **The #1 Change I Made To Get Six Pack Abs At 40** |
+
+A three-item list can hide three better videos inside it. **Before delivering any
+list-shaped idea, look at each bullet and ask whether it would be a stronger short on
+its own.** If yes, promote it and drop the list. Dan will do this anyway; doing it
+first is the whole value.
 
 ---
 
-## The kill list — these died 100% and must not be regenerated
+## The kill list — these died 100% across two batches
 
-**1. "Stop doing X" corrections.** Every one was killed, despite corrections being
-the highest-volume winning shape in the measured YouTube data. They are commodity
-fitness-creator content, they carry none of Dan's brand, and they are about the
-viewer's mistake rather than about anything Dan knows. If a correction idea is
-genuinely strong, **re-title it as a superlative or a list** — "The Only Ab Exercise
+**1. "Stop doing X" corrections.** Every one killed, despite corrections being the
+highest-volume winning shape in the measured YouTube data. If a correction is
+genuinely strong, **re-title it into one of his templates** — "The Only Ab Exercise
 That…" is a correction wearing the right clothes.
 
-**2. Self-tests** ("stand up and try this", "look down", "pinch here"). All three
-killed. They measure well on other channels; they are not how Dan talks.
+**2. Self-tests** ("stand up and try this", "look down", "pinch here"). All killed.
 
-**3. Bare product demos.** See the AI-calorie-counting row above. The rule is
-absolute: the app appears **inside** a list, never as the title's subject.
+**3. Bare product demos.** The app appears **inside** a list, never as the title's
+subject. "Watch AI count the calories in my lunch" died; "Top 3 Ways To Use AI To Get
+Abs" survived with that exact demo as a bullet.
 
-**4. Conversational, unsearchable titles.** "Nobody tells you the first month of
-getting lean makes you look worse" is a fine *line* and a bad *title*.
+**4. Conversational, unsearchable titles.**
 
-**5. Anything whose only content is that Dan is in shape.** Standing rule, predates
-this skill. The viewer must walk away with a tactic, an opinion, or a correction —
-never just "Dan looks good."
+**5. Anything whose only content is that Dan is in shape.**
+
+**6. Anything in an occupied territory.** Rule Zero.
 
 ---
 
 ## Dan's topic territory
 
-Every idea he kept sits in one of these. **Ideas outside this list have a much lower
-hit rate — generate them only when he asks to widen.**
+| Territory | What he has | Shoot 5 status |
+|---|---|---|
+| Supplements | The supplements longform, the app's Supplement Audit | **TAKEN** |
+| Ab exercises | Ab-wheel longform; cut footage of toe touches, V-sit twists, spiderman planks, vacuums; 33 exercise demos | **TAKEN** |
+| Status / attraction / dating | His real register — looksmaxxing framing. Highest ceiling in the measured data | **TAKEN** ×2 |
+| Body-fat calibration | The uncontested lane; the app generates the picture | **TAKEN** |
+| AI and the app | Generation, macro photo, trainer, nutritionist, sleep coach, supplement audit | **TAKEN** |
+| His own transformation | 200 lbs at 38, abs at 40, the AI image as the motivation trigger | **TAKEN** |
+| Time / busy-guy constraints | Home workouts, short daily sessions | **TAKEN** |
+| Zepbound / GLP-1 | He's on it and honest about it. Naming the drug organically is fine — a rival did 503K on "Most Adults Should Take Tirzepatide". The no-drug-names rule is **ad-compliance only** | **TAKEN** |
+| Daily habits and tracking | Daily weigh-in, macro photo | **TAKEN** (batch 2) |
+| Alcohol | Real personal lever; Zepbound cut his intake | **TAKEN** (batch 2) |
+| Snacks and food swaps | Named, specific swaps | **TAKEN** (batch 2) |
 
-| Territory | What he actually has |
-|---|---|
-| Supplements | The supplements longform; strong, specific opinions; the app's Supplement Audit |
-| Ab exercises | The ab-wheel longform, plus cut footage of toe touches, V-sit twists, spiderman planks, vacuums, and 33 installed exercise demos |
-| Status, attraction, dating | His real register — looksmaxxing / red-pill framing of attraction. Highest-ceiling territory in the measured data (a status Short did 11M) |
-| Body-fat calibration | **The uncontested lane.** The app generates the picture; competitors hold up borrowed photos and do 4-5M |
-| AI and the app | Generation, macro-tracking from a photo, AI trainer, nutritionist, sleep coach, supplement audit |
-| His own transformation | 200 lbs at 38, real abs at 40, the AI goal image as the motivation trigger |
-| Time and busy-guy constraints | Home workouts, short daily sessions, automating life with AI |
-| Zepbound / GLP-1 | He is on it and honest about it. **Naming the drug organically is fine** — a rival channel did 503K on "Most Adults Should Take Tirzepatide". The no-drug-names rule is an **ad-compliance** rule only |
+**Territories still open** as of 2026-08-25 — go here first: sleep and recovery
+(he has Oura and the app's Sleep Coach), training frequency and volume, cardio and
+step count, protein targets, travel and eating out, what to do when you plateau,
+TRT (**opinion only — he has not started, do not write from experience**), jiu-jitsu
+and being athletic rather than just lean.
+
+**GLP-1 is cross-cutting, not siloed.** "Take Zepbound" shows up as a tactic inside
+his alcohol video. It can appear as a bullet in any territory.
 
 ---
 
-## Title mechanics that work
+## Title and framing mechanics
 
-- **Numbers in the title whenever there's a list.** "The 3 Most Important…",
-  "Top 3 Ways…", "3 Unexpected Ways…". Three, not five, not ten.
-- **Superlatives and absolutes are welcome, not hedged.** "The Only", "Every",
-  "Most Important", "Better Than". Dan's brand tolerates a strong claim; it does not
-  tolerate a mealy one.
+- **Numbers in the title whenever there's a list. Three, not five, not ten.**
+- **Superlatives and absolutes, unhedged**: "The Only", "Every", "Most Important",
+  "Must", "#1", "Better Than".
 - **A curiosity qualifier only when it's true.** "Unexpected" works because the three
-  Zepbound items really are surprising. Don't staple it onto an ordinary list.
-- **"For Men" is a fine qualifier. Second-person age is not.** "The 3 Most Important
-  Supplements For Men" — good. "…For Men Over 40" — costs 1-2 orders of magnitude of
-  reach (measured three separate ways; see memory `shorts-organic-research`).
-  First-person age is proof and is fine: "I was 200 pounds at 38" survived.
-- **Parenthetical payload.** "(The Vacuum)" tells the viewer the video has a real,
-  specific answer.
+  Zepbound items really are.
+- **"For Men" is fine. Second-person age is not** — "…For Men Over 40" costs 1-2
+  orders of magnitude of reach (memory `shorts-organic-research`).
+- **First-person age is actively good.** Confirmed twice: "I was 200 pounds at 38"
+  and "The #1 Change I Made To Get Six Pack Abs At 40".
+- **Parenthetical payload**: "(The Vacuum)" proves the video has a real answer.
+- **Comp links are optional.** He used one (`dWLK29sX4Pc`) and dropped one. Attach at
+  most one or two per batch, only where it genuinely guides the format, and only if
+  verified live. Never invent a link.
 
 ---
 
 ## Constraints every idea has to survive
 
-These come from the measured research (memory `shorts-organic-research`) and from
-Dan's standing rules. An idea that can't be made inside them is not an idea.
-
-1. **It has to fit 165-205 spoken words** — that's 45-58 seconds at Dan's measured
-   198-222 wpm, and it keeps the Short under YouTube's 60-second music-licence cliff.
-   If a title needs five items explained, it's two ideas, not one.
-2. **Sequential reveals only.** Before-then-after is fine; a side-by-side before/after
-   in one frame is banned.
-3. **No follow-along workouts.** Dan's own account data: 1.8-2.0s average watch time.
-4. **Say what asset it needs** if it isn't obvious, and flag anything that has to be
-   filmed versus anything that can be built from footage already in the library.
-5. **Be willing to be controversial.** Dan's standing writing rule — at least some of
-   a batch should say something the mainstream would object to. Bland ideas are the
-   named failure mode.
+1. **It has to fit 176-180 spoken words** — the measured landing spec from both of
+   Dan's finished shorts (48-54s at his 198-222 wpm), which keeps it under YouTube's
+   60-second music-licence cliff. **A five-item list will not fit** and also crowds
+   out the payload beat; see `/shorts-scripting`.
+2. **Sequential reveals only.** No side-by-side before/after in one frame.
+3. **No follow-along workouts.** His own account data: 1.8-2.0s average watch time.
+4. **Flag the asset** when it isn't obvious, and say whether it exists or needs
+   filming.
+5. **Be willing to be controversial.** Bland is the named failure mode.
 
 ---
 
 ## Batch size and self-filtering
 
-Default to **12 ideas, not 20.** The 20-idea batch had a ~20% hit rate and Dan wrote
-half the survivors himself. Fewer, better, all in his format.
+**Default to 12.** Batch 1 (20 ideas) yielded ~4 usable; batch 2 (12 ideas) yielded 4.
+Fewer, better, all in his format, all in open territories.
 
-**Before showing him anything, run each idea against this and delete failures — do
-not deliver them with a caveat:**
+Before showing him anything, delete failures — don't deliver them with a caveat:
 
-- [ ] Is it a Title Case title someone could type into YouTube search?
-- [ ] Does it have 2-4 sub-bullets that are real content beats (or legitimately none)?
-- [ ] Is it inside Dan's topic territory?
-- [ ] Is it a "stop doing X", a self-test, or a bare product demo? → **delete**
-- [ ] Does it fit in 165-205 spoken words?
+- [ ] **Is its territory already occupied? → delete.** Rule Zero, 8 for 8.
+- [ ] Does the title fit one of his templates?
+- [ ] Is it Title Case and searchable?
+- [ ] Flat or nested shape, with bullets that are real beats — foods, numbers,
+      products named, not categories?
+- [ ] Would one of its bullets be a better standalone short than the list? → promote it
+- [ ] Is it a "stop doing X", a self-test, or a bare product demo? → delete
+- [ ] Does it fit in 176-180 spoken words?
 - [ ] If it's a comparison, is the other side a **person**?
 - [ ] If the app appears, is it one of three items rather than the subject?
 - [ ] Would Dan, who has been fat and is now lean at 40, have a real opinion about
       this — or is it generic fitness instruction anyone could give?
 
-The last box is the one that killed most of batch 1.
-
 ---
 
 ## Delivery
 
-**Show the batch in chat first.** Dan triages by killing, and he will rewrite some
-titles himself — that rewriting is the most valuable feedback this skill gets, so
-capture it in the Lessons log below.
+**Show the batch in chat first.** Dan triages by killing and rewrites titles himself
+— that rewriting is the most valuable feedback this skill gets. Capture it below.
 
-Then append the survivors to the **"Ideas for shorts to write out"** bulleted list at
-the bottom of the current shoot's outline doc.
+Then append the survivors to the **"Ideas for shorts to write out"** list at the
+bottom of the current shoot's outline doc.
 
-- Shoot 5 doc: `1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`
-  ("Abs By AI Shoot 5 Outlines"). **Confirm the current shoot's doc before writing —
-  this changes per shoot.**
-- **The Drive MCP cannot edit an existing Google Doc.** Delivery goes through Dan's
-  logged-in Chrome via the osascript HTML-clipboard paste. The full mechanics and
-  every trap are documented in **`/ad-outlines` → "Delivery into the Google Doc"** —
-  read that section rather than re-deriving it. The load-bearing points: write the
-  bullets as an HTML file, set the macOS clipboard to the **HTML flavor** with
-  `osascript`, verify with `clipboard info`, click the target line, `cmd+Right`,
-  `Return`, `cmd+v`, then screenshot immediately — never assume the paste landed.
-- **Re-read the doc through the Drive MCP right before pasting.** Dan types his own
-  ideas into this list mid-session, and a stale copy will clobber them. This has
-  already happened once on this doc.
-- **Verify** by re-reading the doc and confirming his existing ideas are unchanged.
+- Shoot 5 doc: `1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`. **Confirm the current
+  shoot's doc first — this changes per shoot.**
+- **The Drive MCP cannot edit an existing Google Doc.** Use the osascript
+  HTML-clipboard paste through Dan's logged-in Chrome. Full mechanics and every trap
+  are in **`/ad-outlines` → "Delivery into the Google Doc"** — read it rather than
+  re-deriving. Match the existing list's nesting depth for nested ideas.
+- **Re-read the doc through the Drive MCP immediately before pasting.** Dan types
+  into this list mid-session; he has added ideas twice while a session was running.
+- **Verify** by re-reading and confirming his existing ideas are unchanged.
 
 ---
 
 ## Lessons log
 
-Append what Dan changes, every batch. His edits are the calibration.
+**1 — batch 1 (20 ideas, ~20% kept).** Dan: *"mostly I think they're pretty bad."*
+The ideas were measured against real YouTube performance and several had 5-11M comps.
+They were wrong about **him**: delivered as spoken hooks instead of titles, heavy on
+correction and self-test shapes he doesn't use, one a bare product demo. **Being right
+about the algorithm is not the same as being right for Dan's brand — when they
+conflict, his format wins and the algorithm lesson gets re-expressed inside it.**
 
-**1 — 2026-08-25, batch 1 (20 ideas, ~20% kept).** Dan: *"mostly I think they're
-pretty bad."* The ideas were not wrong about the market — they were measured against
-real YouTube performance and several had 5-11M comps. They were wrong about **him**:
-delivered as spoken hooks instead of titles, heavy on correction and self-test shapes
-he doesn't use, and one was a bare product demo. The four he kept, he retitled. The
-four he added himself were plainer, more searchable, and more opinionated than
-anything in the batch. **Being right about the algorithm is not the same as being
-right for Dan's brand — when the two conflict, his format wins and the algorithm
-lesson gets re-expressed inside it.**
+**2 — batch 1.** He accepted a measured comp link verbatim. Batch 2 he dropped one.
+Comps are welcome but occasional.
 
-**2 — 2026-08-25.** He accepted the measured comp link verbatim
-(`Similar to: <youtube.com/shorts/dWLK29sX4Pc>`). Comps are wanted; they just have to
-be real and verified live.
+**3 — batch 2 (12 ideas, 4 usable), the big one.** Territory occupancy predicted every
+single outcome: 8 kills all in taken territories, 4 survivors all in open ones. This
+is now Rule Zero and it runs before any other consideration.
+
+**4 — batch 2.** He mines **bullets**, not titles — three of four new ideas were a
+single sub-bullet promoted to its own video. Do that promotion yourself before
+delivering.
+
+**5 — batch 2.** New nested idea shape: an argument or analogy bullet, then a nested
+"Here's why / Here's how" list. Plus two devices worth reusing — the money-domain
+analogy, and a "Bottom line" closer that lands on attraction.
+
+**6 — batch 2.** His bullets name real foods and products (*"hard boiled eggs,
+sardines, and chipotle protein cups"*) where Claude's named categories. Specificity is
+the tell that separates his writing from generic fitness content.

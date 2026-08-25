@@ -251,3 +251,24 @@ Claude's to shape.
 one. Recorded honestly: the measured evidence says a correction hook holds the first
 three seconds better, and **Dan's preference wins anyway.** Offer the alternate as a
 note if it's strong; don't put it in the script.
+
+**4 — 2026-08-25, from the idea stage (`/shortsideas` batch 2).** Two things that
+change how an idea arrives here and therefore how it gets scripted:
+
+- **Some ideas arrive NESTED** — an argument or analogy bullet, then a nested
+  "Here's why / Here's how" list (his "Why You Must Weigh Yourself Daily" and
+  "3 Ways To Reduce Alcohol Consumption"). **When an idea is nested, the argument
+  bullet becomes the opener and the proof beat; the nested list becomes the numbered
+  beats.** Don't flatten it — the argument is why the video works.
+- **His analogies come from money and status**, not from fitness: *"like trying to
+  get rich while never looking at your bank account."* If an idea carries an analogy
+  bullet, keep it in the script close to verbatim — it is the most quotable line
+  he'll have.
+- **A "Bottom line" bullet in the idea maps to the "remember" line in the skeleton**,
+  and it usually lands on attraction: *"Bottom line is you must get lean if you want
+  to look good and attract women."* Use it there rather than inventing a new summary.
+
+**5 — 2026-08-25.** Name real foods, products and numbers in the script, never
+categories. His own bullet reads *"hard boiled eggs, sardines, and chipotle protein
+cups"* where Claude wrote "healthy snacks". Specificity is what separates his voice
+from generic fitness content, and at 176 words there is no room for a vague beat.
