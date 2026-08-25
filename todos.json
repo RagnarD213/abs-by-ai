@@ -295,6 +295,12 @@
       "priority": "key",
       "why": "Steps 2-5 of the Instagram migration are written and dry-run clean (9/9 invariants); only the OAuth connection is missing",
       "addedAt": "2026-08-24"
+    },
+    {
+      "text": "Execute handoff: Bring the 5 delivered longforms up to the new /longform-edit standard",
+      "priority": "key",
+      "why": "handoff-20260824-five-longforms-to-new-standard.md — created but not yet run. Gate measured: 02/03 fail 6 of 12, 04 fails 5. Ordered so it can stop after any video.",
+      "addedAt": "2026-08-24"
     }
   ],
   "health": [
