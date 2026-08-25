@@ -153,10 +153,37 @@ split-screen tutorial and was wrongly read as global), `reference/HOUSE_STYLE.md
 **Repathing done**: every script in `_edit_work/` and both skills moved off the retired
 Seagate to `/Volumes/Extreme/`.
 
+**PHASE C — Dan answered all four in chat, 2026-08-24:**
+1. **Stock + music libraries: stay free.** Pexels + Pixabay, both commercial-use, no attribution.
+   Revisit only when a video is actually blocked by the library.
+2. **The archival infomercial clip: "generate a clip with AI that looks very similar but isn't
+   that exact clip."** DONE — Veo 3.1 Fast, text-only, 1980s pastel-studio infomercial pastiche,
+   placed at 0:08 on the "sold on an infomercial" line, presented 4:3 pillarboxed on the brand
+   field with an **AI GENERATED** label per his standing rule. Script:
+   `r2/aigen/gveo_infomercial.js`. **AI spend this session ≈ $3.20** (one 8 s Veo clip; a first
+   attempt returned a Gemini 500 and was retried).
+3. **Editing stack: in-house, gate enforced.** Feeds `business::Decide the video-editing stack`.
+4. **The five delivered longforms: handoff, not execution.** Written as
+   `Handoffs/handoff-20260824-five-longforms-to-new-standard.md`, Key dashboard task added.
+   **Every one of the five was measured against the new gate first**, so the handoff carries real
+   numbers: 01 spray tan 9/3, 02 Zepbound 6/6, 03 supplements 6/6, 04 invest-health 7/5,
+   05 meal prep 9/2. All five already PASS on audio, loudness, peak and splices — the audio pass
+   did its job; what is missing is the style pass. Worst single finding: **supplements has a
+   7½-minute stretch (6:30–14:04) with no visual change at all.** Ordered so it can stop after
+   any one video; 05 needs only a music bed (~30 min).
+
+**A GATE CHECK THAT WAS WRONG IS NOW RIGHT — worth knowing if you read an earlier run.** The
+music-bed check first asked only "does the floor stay above −52 dBFS", and the spray-tan master
+PASSED it with no music at all (gated room tone sits at −46.9 dBFS). Spectral flatness and bass
+tilt both failed to separate too — the rejected ab-wheel cut measures a 23.3 dB bass tilt with no
+music, higher than any real bed, because its quiet frames are the silent workout sets. The check
+now **correlates the mix against the declared track** (`--bed`): 3.3x and 2.6x on the two videos
+that really carry one, 0.8–1.1x on every video that does not.
+
 **EXACT NEXT ACTION — DAN: watch `REVIEW_540p_ab-wheel.mp4` (23 MB, sent in chat).** Two things
 flagged in `notes.md`: the app-screen inset at 6:53–7:03 sits bare on the field (the end card 10 s
 later does the fuller version), and the three form cues during the sets (5:12, 5:47, 6:26) were
-added by me, not him. Phase C questions are asked in chat this session.
+added by me, not him.
 
 
 ### REAL-USER GENERATION AUDIT + welcome-sequence delivery verified; MIME bug FIXED (2026-08-24, Claude Code)

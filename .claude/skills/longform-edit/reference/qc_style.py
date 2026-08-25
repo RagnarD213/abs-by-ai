@@ -30,6 +30,13 @@ MAX_DEAD_AIR       = 0.25    # reference cut 23%; ours was 38%
 MIN_CHANNEL_SNR    = 10.0    # a dead input measures 0.6-1.4 dB
 MIN_LR_CORR        = 0.90    # dead channel: -0.005. two-mic comb: +0.07. good: +0.999
 BED_FLOOR_DB       = -52.0   # a ducked bed holds the 2nd-percentile frame above this
+BED_MIN_RATIO      = 1.8     # bed-vs-chance correlation. Calibrated:
+                             #   ad-1 rev5 vs its own bed        3.3x
+                             #   ab-wheel rebuild vs its own bed 2.6x
+                             #   ---------------------------------- 1.8
+                             #   rebuild vs a DIFFERENT track    1.1x
+                             #   the 8/20 cut (no bed)           1.0x
+                             #   spray tan (no bed)              0.8x
 MAX_TRUE_PEAK      = -0.5
 
 FAILS, OKS = [], []
@@ -97,19 +104,52 @@ def check_channels(v):
         "dead. Fold the good mic to BOTH channels with pan=stereo|c0=c0|c1=c0 (Step 5.6)")
     return a
 
-def check_bed(a):
-    """A music bed is the difference between 'a talking head' and 'a video'. Its
-    signature is that the programme floor never falls to room tone."""
-    mid = a.mean(1)
-    n = 4800
-    fr = mid[:len(mid)//n*n].reshape(-1, n)
-    db = 20 * np.log10(np.sqrt((fr ** 2).mean(1)) + 1e-12)
-    p2 = float(np.percentile(db, 2))
-    chk(p2 >= BED_FLOOR_DB,
-        f"music bed: 2nd-percentile frame level {p2:.1f} dBFS (a ducked bed holds this "
-        f"above {BED_FLOOR_DB})",
-        "no bed detected. Pick one by measurement with reference/pick_bed.py (Pixabay "
-        "Content Licence: commercial, no attribution) and duck it under the voice (Step 7)")
+def bed_present(video, bed_path, sr=8000, win=90.0):
+    """Is the declared music bed ACTUALLY in this mix? Correlate and find out.
+
+    Two indirect tests were tried and BOTH gave false passes, which is why this one is
+    direct. (1) "the programme floor never drops below -52 dBFS" passed the spray-tan
+    master, which has no music -- its gated room tone simply sits that high. (2) spectral
+    flatness and bass tilt in quiet frames both failed to separate: the rejected ab-wheel
+    cut measured a 23.3 dB bass tilt with no music at all, higher than any of the three
+    real beds, because its quiet frames are the silent workout sets and carry wind rumble.
+
+    A spectrum can be imitated. A specific recording cannot: cross-correlate the mix
+    against the track it claims to carry and look for a peak that chance does not explain.
+    """
+    # correlate in the 60-260 Hz band only: the bed is deliberately bass-weighted and
+    # ducked ~21 dB under the voice, so full-band the speech swamps it. Band-limiting
+    # roughly doubled the correlation itself while leaving every false case flat.
+    lo = "highpass=f=60,lowpass=f=260"
+    mix = pcm(video, af=lo, ac=1, sr=sr)
+    bed = pcm(bed_path, af=lo, ac=1, sr=sr)
+    if len(mix) < sr * 20 or len(bed) < sr * 10: return 0.0, 0.0
+    seg = mix[int(len(mix) * 0.25): int(len(mix) * 0.25) + int(win * sr)]
+    ref = bed[:int(min(len(bed), 160 * sr))]
+    n = 1 << int(np.ceil(np.log2(len(seg) + len(ref))))
+    x = seg - seg.mean(); y = ref - ref.mean()
+    c = np.fft.irfft(np.fft.rfft(x, n) * np.conj(np.fft.rfft(y, n)), n)
+    den = math.sqrt(float((x * x).sum()) * float((y * y).sum())) or 1e-12
+    c = np.abs(c) / den
+    peak = float(c.max())
+    # chance level for this pair: the same statistic against a time-reversed reference,
+    # which has the same spectrum and duration but none of the same structure
+    y2 = y[::-1]
+    c2 = np.abs(np.fft.irfft(np.fft.rfft(x, n) * np.conj(np.fft.rfft(y2, n)), n)) / den
+    return peak, float(c2.max())
+
+def check_bed(a, video, bed_path):
+    if not bed_path:
+        chk(False, "music bed: none declared",
+            "pass --bed <track.mp3>. If there is no track there is no bed, and a longform "
+            "without one sounds like a webcam. Pick one with reference/pick_bed.py (Step 7.5)")
+        return
+    peak, chance = bed_present(video, bed_path)
+    ratio = peak / max(chance, 1e-9)
+    chk(ratio >= BED_MIN_RATIO,
+        f"music bed: correlation with {bed_path.split('/')[-1]} is {peak:.4f} vs {chance:.4f} "
+        f"by chance ({ratio:.1f}x, min {BED_MIN_RATIO}x)",
+        "the declared track is not actually in this mix -- check the mix step ran (Step 7.5)")
 
 def scene_times(v, dur, fps=6):
     """Visual-change events, measured directly rather than with ffmpeg's `scene` filter.
@@ -277,12 +317,13 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("video"); ap.add_argument("--plan"); ap.add_argument("--srt")
     ap.add_argument("--talking-head", action="store_true")
+    ap.add_argument("--bed", help="the music track the mix claims to carry")
     A = ap.parse_args()
     dur = check_streams(A.video)
     print(f"       duration {dur:.2f}s ({int(dur//60)}:{dur%60:05.2f})")
     check_loudness(A.video)
     a = check_channels(A.video)
-    check_bed(a)
+    check_bed(a, A.video, A.bed)
     check_dead_air(a, dur)
     check_cutting(A.video, dur)
     check_coverage(A.video, dur, A.plan)
