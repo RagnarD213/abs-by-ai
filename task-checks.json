@@ -12,7 +12,8 @@
     "money::Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit",
     "money::Connect @danrosefit in Blotato, then run scripts/blotato/danrosefit_migration.py --apply",
     "assistant::Cook weekly meal prep",
-    "assistant::Remove calcium stains from pool tiles"
+    "assistant::Remove calcium stains from pool tiles",
+    "assistant::Take car to Club Car Wash (Dan already has monthly membership). Get exterior washed and clean interior. Use Club Car Wash free vaccuum and cleaning supplies in frunk to clean interior"
   ],
   "log": {
     "health::Shower": [
@@ -221,6 +222,7 @@
     "money::Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit": "2026-08-24",
     "money::Connect @danrosefit in Blotato, then run scripts/blotato/danrosefit_migration.py --apply": "2026-08-25",
     "assistant::Cook weekly meal prep": "2026-08-25",
-    "assistant::Remove calcium stains from pool tiles": "2026-08-25"
+    "assistant::Remove calcium stains from pool tiles": "2026-08-25",
+    "assistant::Take car to Club Car Wash (Dan already has monthly membership). Get exterior washed and clean interior. Use Club Car Wash free vaccuum and cleaning supplies in frunk to clean interior": "2026-08-25"
   }
 }
