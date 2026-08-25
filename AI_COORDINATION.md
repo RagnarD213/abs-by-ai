@@ -88,6 +88,28 @@ is one edit if Dan wants Friday back. **No CC-BY attribution exists anywhere in 
 queue** — the `short5_1-minute-workout` captions have already published, so if a licence obligation
 is live it is on published posts and needs checking by hand.
 
+**UPDATE 2026-08-25 — THE VISION-BOARD SHORT IS PULLED FROM EVERY PLATFORM (Dan's call).**
+`v2-short2_sean-ray-vision-board` shows **Mike Chang** (plus a Sean Ray poster) as
+picture-in-picture; its YouTube title was literally *"The Vision Board That Built Mike Chang's Six
+Pack"*. Dan does not want him mentioned this early in the business. **It had NOT published anywhere**
+— caught roughly 8 hours before it went live in four places at once. Removed:
+IG `@danrosefit` (`3793966`), the `@abs.by.ai` mirror (`3794028`), **Facebook** (`3562744`, deleted
+on Dan's explicit "all platforms" instruction — this is the one sanctioned exception to the
+never-touch-Facebook rule), and **YouTube Short `DiwFRZT4JUI` set to Private** (was Scheduled; done
+in YouTube Studio, verified after reload). Full content archived at
+`Business/pulled-vision-board-2026-08-25.json`, so it is restorable. Struck out in
+`BLOTATO_QUEUE_PROGRESS.md` and in the YouTube handoff table — **do not reschedule it.**
+**The long-form V2 (`0zspIJVrv08`, published Aug 7) contains the same segment and STAYS UP** — Dan
+only wants the short held back.
+
+**Slot reworked rather than shifting the queue.** Moving everything up one day would have desynced
+25 Instagram posts from their Facebook siblings, which is the thing the migration exists to protect.
+Instead the **channel-intro backfill reel** ("I was 200 lbs at 38. I had a real six-pack at 40.")
+was promoted from Mon Sep 21 into the freed Aug 25 slot — it is an account-introduction reel and
+this is `@danrosefit`'s first post under the new identity, so it is a better opener than what it
+replaced. The four-ab-muscles reel moved Sep 28 → Sep 21 to keep the Mondays contiguous. Queue is
+now **28 on `@danrosefit`, 24 mirrors, 87 on Facebook**; all 11 verify invariants still PASS.
+
 **EXACT NEXT ACTION — DAN: none on the queue; it is live and correct.** The first `@danrosefit`
 post goes out **tonight, 2026-08-25 22:00 UTC**, with its `@abs.by.ai` mirror 24h behind it. The
 open item is still step 6: cutting the four specified reels (`/shorts`), of which **the Tuesday slot
