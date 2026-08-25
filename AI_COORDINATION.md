@@ -33,6 +33,81 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 1 REBUILT VERTICAL (9:16) FROM MUHAMMAD'S FINAL + new skill /shortad-from-longform (2026-08-25, Claude Code)
+
+Dan: Muhammad's final cut is approved, make a vertical version reproducing his style. **His
+video could not be reframed** — his graphics and lower thirds are burned into the pixels, so
+crop-to-9:16 crops his type. **Re-cut from the raw roll (C1591) and rebuilt every graphic
+vertically.** $0.00 AI spend (local Whisper, ffmpeg, PIL, Pexels). No production code, no
+deploy, no native-retest trigger.
+
+**Reference:** `Daniel HQ Fitness AD Video v3 HD.mp4`, 3:52.8, Drive `12wDmd7-ziEKux8ioVi9gkJYCo7LZP3iv`
+(owner `sharkimageryproduction@gmail.com` — the same account as the ab-wheel cut, NOT a
+separate editor).
+
+**DELIVERED to `EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`, both 11/11 on the QC gate:**
+
+| | duration | LUFS / dBTP | insert coverage | changes/min |
+|---|---|---|---|---|
+| `ad1_vertical_9x16.mp4` | **3:52.77** (his exactly) | -14.0 / -3.6 | 66 % | 15.7 |
+| `ad1_vertical_59s.mp4` | **0:50.75** | -14.0 / -3.5 | 70 % | 18.9 |
+
+Review copies `REVIEW_540p_vertical_master.mp4` and `REVIEW_540p_vertical_59s.mp4` sent in chat.
+
+**HIS EDIT WAS RECOVERED, NOT GUESSED.** A finished render is a complete spec of itself.
+Word-level DP alignment of his transcript against the raw roll matched **99.6 %** of his
+words; whole-segment mel matching with recursive splitting then resolved it to **73 segments**
+(mean score 0.81). Verified by rendering a conform and checking pose/hand/mouth against his
+cut at 14 timecodes — every pair matches. **His take selection: the hook is TAKE 1
+(src 3.66-29.1), not the slated take 2 our own EDL used.** He removed 27.8 s in 61 pause trims.
+Also measured off his render: two framings (1.00 wide / ~1.20 punch, recentred up), his tone
+curve, his vignette (1.00 centre -> 0.26 corners), palette (field #0A0B06, sage #8C995B, card
+#5A643A) and a bass-heavy music bed.
+
+⚠ **HIS PALETTE IS ALREADY OUR PALETTE.** `_shared/motionlib.py`'s `J2AD` measures
+field (13,14,11) / accent (140,152,88) against his (10,11,6) / (140,153,91). The graphics
+system did not need inventing, only re-laying-out.
+
+⚠ **ONE OF HIS BEATS WAS NOT REPRODUCED, DELIBERATELY.** His 0:03 card is a **side-by-side
+before/after** (heavier Dan left, goal phone right, arrow between) — banned in our paid ads.
+**Cut sequentially instead:** the 200-lb photo with the "200 POUNDS" kicker, then the goal
+phone. Also confirmed and avoided: the product screen recording hits the app's "Meet the new
+you" BEFORE/AFTER at **26 s** and the **email-capture form at 29 s**, so its usable window is
+**0-25.0 s** — now asserted in QC.
+
+**The vertical translation rules** (his left/right has no equivalent in 9:16): Dan goes in a
+full-width window at the TOP with text BELOW, and the window height ADAPTS to the beat's text;
+**16:9 source is never cropped to full-bleed** (that is a 2.7x upscale — it goes in his olive
+card, which is a downscale); a card's hole matches the MEDIA's aspect, measured from the file;
+captions are suppressed wherever a graphic carries its own words. Dan's three calls this
+session: full port first then a 0:59 cut, hybrid framing, full word-timed captions with his
+emphasis bars dropped.
+
+**Stock: all re-cast after a contact sheet.** 4 of the first 10 Pexels picks were off Dan's
+white/Asian-men-30-50 rule and one was a woman — none of which is visible from a search-page
+thumbnail. 8 of 10 replacements came back 2160x4096, i.e. a DOWNSCALE to 1080x1920.
+`clip_109_replacement.mp4` turned out to be a **native-vertical 1320x2868 recording of the real
+app generating** — the asset the Instagram plan called the only one no competitor can copy, and
+it is now four full-bleed beats.
+
+**NEW SKILL `/shortad-from-longform`** (SKILL.md + 16 reference scripts) encodes the whole
+method and 11 traps, the four expensive ones being: cumulative frame counts, not per-segment
+rounding (per-segment put 16 ms into each of 73 cuts and the conform finished **1.17 s long**);
+`blend=multiply` must run in RGB (**on yuv420p it turned every footage frame bright green**);
+a still used as a filter input needs `-loop 1` or `shortest=1` truncates the segment to **one
+frame** (this silently froze 29 segments); and fit the tone curve on a CENTRE BOX, then the
+vignette separately, or one smears into the other.
+
+**Dashboard:** checked off `money::Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then
+9:16 build` — the 9:16 of Ad 1 now exists, though built from Muhammad's approved final rather
+than from our rev-4/rev-5 (Dan preferred his cut, so the rev-4 route was overtaken). Uncheck it
+if that reading is wrong.
+
+**EXACT NEXT ACTION — DAN: watch `REVIEW_540p_vertical_59s.mp4` first** (it is the one that
+would actually run as a Shorts/Reels ad), then the full master. Two things to look at: the
+0:03 beat is his split card cut in two, and the b-roll is all re-cast stock plus our own
+outdoor footage, not his.
+
 ### SHORT-FORM RECON BRIEF DELIVERED — informs the Friday shoot scripts (2026-08-25, Claude Code)
 
 Dan asked for deep research into what is currently working for men's-fitness YouTube Shorts and
