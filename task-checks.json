@@ -10,7 +10,8 @@
     "money::Audit everyone who has generated an image: did they get the emails, and what did they generate",
     "money::Review Mohammad A video",
     "money::Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit",
-    "money::Connect @danrosefit in Blotato, then run scripts/blotato/danrosefit_migration.py --apply"
+    "money::Connect @danrosefit in Blotato, then run scripts/blotato/danrosefit_migration.py --apply",
+    "money::Review Zeshan's video cut and send round-1 revisions"
   ],
   "log": {
     "health::Shower": [
@@ -213,6 +214,7 @@
     "money::Audit everyone who has generated an image: did they get the emails, and what did they generate": "2026-08-24",
     "money::Review Mohammad A video": "2026-08-24",
     "money::Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit": "2026-08-24",
-    "money::Connect @danrosefit in Blotato, then run scripts/blotato/danrosefit_migration.py --apply": "2026-08-25"
+    "money::Connect @danrosefit in Blotato, then run scripts/blotato/danrosefit_migration.py --apply": "2026-08-25",
+    "money::Review Zeshan's video cut and send round-1 revisions": "2026-08-25"
   }
 }
