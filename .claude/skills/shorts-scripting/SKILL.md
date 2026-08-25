@@ -3,7 +3,7 @@ name: shorts-scripting
 description: >
   Turn ONE dedicated shorts idea — a title plus bullets from /shortsideas, or a
   brief outline Dan writes himself — into a finished word-for-word teleprompter
-  script with b-roll cues, built to Dan's measured 172-185 word spec, and deliver it
+  script with b-roll cues, built to Dan's measured 172-185 word target under a hard 66-second ceiling, and deliver it
   into the DEDICATED SHORTS CONTENT section of the current shoot's outline doc. Use
   whenever Dan asks to script a short, write out a shorts idea, turn a shorts title
   into a script, or edit a short he drafted himself — even if he doesn't say
@@ -32,13 +32,23 @@ generic writing.
 
 ---
 
-## THE SPEC — 172-185 spoken words
+## THE SPEC — target 172-185 spoken words, HARD CEILING 217
 
-Measured off both of Dan's finished shorts: **177 words** and **176 words**. At his
-measured 198-222 wpm that is **48-54 seconds**, which sits under YouTube's
-60-second music-licence cliff and inside Instagram's best reach bucket (30-60s).
+**Target: 172-185 words.** That is where Dan's own finished shorts land — his first two
+measured 177 and 176, and every script he has since edited and kept sits between 172 and
+198. At his measured 198-222 wpm that is **48-56 seconds**.
 
-**Write to 172-185. Count the words before delivering — do not estimate.**
+**Hard ceiling: 66 SECONDS, which is 217 words.** (Dan's instruction, 2026-08-25,
+replacing the old 60-second ceiling.) His reasoning: *"if it's about this or a little bit
+longer, I could just accelerate the footage and get it underneath or cut things in
+editing."* So 66s is what a script may not exceed on the page, because the edit can
+recover the last few seconds — 60s is what the finished video must hit.
+
+**Measure the ceiling against the SLOW end of his range (198 wpm), not the fast end.**
+`words / 198 * 60` must be **≤ 66**, so **217 words is the maximum**. Never clear a
+script on its 222-wpm figure.
+
+**Count the words before delivering — do not estimate.**
 
 ```bash
 python3 -c "
@@ -46,10 +56,13 @@ import re,sys
 t=open('script.txt').read()
 t=re.sub(r'\[[^\]]*\]','',t)          # strip bracketed cues
 w=[x for x in re.split(r'\s+',t) if re.search(r'[A-Za-z0-9]',x)]
-print(len(w),'words ->',round(len(w)/222*60),'to',round(len(w)/198*60),'seconds')"
+n=len(w); slow=n/198*60
+print(n,'words ->',round(n/222*60),'to',round(slow),'seconds',
+      '| CEILING BREACH' if slow>66 else '| ok')"
 ```
 
-Anything over 190 is a rewrite, not a trim.
+Between 185 and 217 is legal but not the target — trim toward 185 if the cut costs
+nothing. Over 217 is a rewrite, not a trim.
 
 ---
 
@@ -229,7 +242,7 @@ face shots need confirming.
 
 ## Checklist before delivering
 
-- [ ] Word count is **172-185**, counted not estimated
+- [ ] Word count counted, not estimated: target **172-185**, and the 198-wpm figure is **≤ 66 s (217 words)** — never over
 - [ ] Opener is a direct claim or claim-plus-proof-promise, not a negation
 - [ ] Structure statement's number matches the number of items actually listed
 - [ ] Each numbered beat is 21-30 words
@@ -516,3 +529,16 @@ beat naming what he already knew, one beat attacking the industry, one beat on w
 actually worked, a three-fragment hammer (*"Not a program. Not a trainer. A picture."*),
 instruction, comment ask. When a new idea is a personal-story short, build it in that
 order.
+
+**32 — 2026-08-25. THE CEILING IS 66 SECONDS, NOT 60 — Dan's instruction, and it
+supersedes lesson 30's framing.** Told directly: *"let's make the length limit an
+estimated 66 seconds, because if it's about this or a little bit longer, I could just
+accelerate the footage and get it underneath or cut things in editing. We'll make 66
+seconds the hard ceiling, not 60 seconds."* The 60-second constraints are all real —
+the YouTube music-licence cliff, Instagram's reach bucket — but they bind the
+**finished video**, not the script, and he has speed-up and trims available in the
+edit. **Script ceiling 66 s = 217 words at 198 wpm.** The target stays 172-185, because
+that is where his own writing lands and a script written to the ceiling leaves the edit
+no room. What this changes in practice: **his edit pass is now almost always in
+bounds** — the Zepbound script he expanded to 198 words (60 s at 198 wpm) needs no trim
+at all under this rule, where the old one would have flagged it.
