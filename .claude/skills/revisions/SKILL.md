@@ -10,9 +10,20 @@ The deliverable is a **Google Doc in Dan's Drive**, written in Dan's voice and f
 himself. Never send anything to the editor directly. Also save a markdown copy in
 `revision docs/` in the project folder (repo is public — nothing sensitive in it).
 
+**ALWAYS CONFIRM WHO THE EDITOR IS AND WHICH ROUND THIS IS BEFORE WRITING.** Dan runs
+tryouts where several editors cut the SAME script, so a new cut of a video you have
+already reviewed is usually a DIFFERENT editor's first attempt, not round 2 of the same
+one. Getting this wrong makes the doc read as "you ignored my last notes" to someone who
+has never seen them. If the cut arrives as a bare Drive link, ask.
+
+**Write goals, not tool steps.** Dan's editors work with AI editing tools, not a fixed NLE.
+Never prescribe a program's menu path ("In Premiere: Modify → Audio Channels"). State the
+outcome — "the finished audio must come from the RIGHT channel only, as mono" — and leave
+the method to them. A named-tool instruction reads as ignorance of how they work.
+
 Two audiences, same skill:
-- **Human editor** (default): plain-language, tool-agnostic directions ("In Premiere:
-  …"), links to assets, no jargon, no file paths on Dan's machine.
+- **Human editor** (default): plain-language, tool-agnostic directions, links to assets,
+  no jargon, no file paths on Dan's machine.
 - **Pipeline session** (an /ad-edit or /longform-edit session executing the fixes):
   same document plus exact source timecodes, local asset paths, and script names.
   When Dan asks Fable to review a cheaper model's pipeline output, write BOTH layers —
@@ -20,7 +31,9 @@ Two audiences, same skill:
 
 ## Dan's document format (learned from his own revision docs)
 
-- Title: video name + round number ("V3 … Second round of revisions", "Video 1 revisions - round 1").
+- Title: video name + editor + round number ("Video 1 revisions - Waleed - round 1").
+  **Round numbers are per EDITOR, not per video** — during a tryout, three editors can each
+  be on their own round 1 of the same script.
 - A **THROUGHOUT VIDEO** section FIRST for anything not tied to one timecode, in
   \*\*BOLD ALL CAPS\*\* headers, each with sub-bullets. Rules he repeats every round
   live here (capitalization, crops, disclosure labels).
@@ -51,8 +64,8 @@ Two audiences, same skill:
    - L/R strongly correlated at 0 lag but echo peak ~7–8 ms in speech ⇒ the editor
      **summed the two camera mics** (right = lav, left = room mic ~2.6 m away; the
      comb filter is baked in and un-EQ-able). The fix must happen at the source:
-     re-import the camera files and use the RIGHT channel only, as mono (Premiere:
-     Modify → Audio Channels → Mono from Right). Full background: /longform-edit
+     rebuild the voice from the RIGHT channel only, as mono. State that as the outcome,
+     not as a menu path. Full background: /longform-edit
      Step 0.4. Write this as the #1 THROUGHOUT item in editor-friendly words.
    - **Then always run `reference/chan_align.py video.mp4`.** echo_check alone cannot tell
      "one mic, delayed copy" from "two different mics hard-panned". chan_align reports the
@@ -141,17 +154,21 @@ Two audiences, same skill:
    menu click.
 4. Muhammad-reference measured targets, for pacing/music checks: zero gaps ≥ 0.25s,
    music ~−20 dB under voice (floor p5 ≈ −40 dB), luma median ~67, no burned captions.
-5. **Round 2 of the same video: lead with a scorecard, not a list.** When an editor has already had a
-   revision doc, the most useful first section is "what got fixed / what didn't" — Dan forwards the
-   doc, and an editor who ignored 20 of 25 items needs to see that stated plainly before the detail.
-   Credit the wins explicitly ("keep this") so the next round doesn't regress them.
-6. **A "fixed" audio note can come back worse in a new shape.** Round 1 of video 1 had L and R
-   *identical* (editor summed the mics). Round 2 shipped the **raw two-mic stereo pair** instead —
-   L/R correlation **−0.72 at −7.8 ms**, polarity inverted, so mono fold-down loses ~4 dB of voice.
-   `echo_check.py` alone reads this as "channels differ"; the decisive test is a **best-fit
-   delay+gain alignment residual** (< −12 dB ⇒ same mic; −3 dB ⇒ two genuinely different mics) plus
-   a **mono fold-down penalty** measured in the 300–3400 Hz voice band. Both are cheap; run them
-   every round, not just the first.
+5. **A new cut of a video you already reviewed is usually a DIFFERENT editor, not round 2.** Dan runs
+   tryouts where several editors cut the same script. On 2026-08-25 a cut of Video 1 was reviewed as
+   "round 2" for the previous editor; it was Waleed's FIRST cut and had to be rewritten from scratch.
+   Confirm the editor's name and round before writing a word — the framing changes every section,
+   and "you didn't do what I asked" aimed at someone who never got the notes is the worst possible
+   first contact. Open a first-round doc by crediting what already works ("keep this"), then the fixes.
+6. **The two-mic source fault produces DIFFERENT symptoms per editor — test for both.** Editor A's
+   Video 1 cut had L and R *identical* (they summed the mics before export). Waleed's cut of the same
+   script shipped the **raw two-mic stereo pair** instead — L/R correlation **−0.72 at −7.8 ms**,
+   polarity inverted, mono fold-down losing ~4 dB of voice. `echo_check.py` catches the first and
+   reads the second as merely "channels differ". The decisive test is a **best-fit delay+gain
+   alignment residual** (< −12 dB ⇒ one mic; ≈ −3 dB ⇒ two genuinely different mics) plus a **mono
+   fold-down penalty** in the 300–3400 Hz voice band. Both are in `chan_align.py`; run it on every
+   cut from every editor. Until an editor is told, they cannot know — write it as source-rig
+   background, not as a complaint.
 7. **Always measure integrated loudness and true peak, every round.** This cut shipped at
    **−8.04 LUFS / +2.53 dBTP with 166k clipped samples in L**. Nothing in the picture review would
    have surfaced it, and it is the kind of defect that survives to upload.

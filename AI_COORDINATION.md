@@ -624,60 +624,73 @@ the completed 8/18 batch-4 task, not this one).
 the survivors into teleprompter scripts for the next shoot.
 
 
-### VIDEO 1 ROUND 2 REVIEWED — revisions doc DRAFTED, awaiting Dan (2026-08-25, Claude Code)
+### WALEED'S VIDEO 1 TRYOUT CUT REVIEWED — round-1 notes DRAFTED, awaiting Dan (2026-08-25, Claude Code)
 
-Editor (`teamcrackhow4@gmail.com`) delivered a second cut of Video 1 — 4:27, 1080p30, Premiere,
-Drive `1ZWv5t3rNitubDUDaSKcrn5SqVJCEX2ip`. Reviewed with `/revisions`. **$0.00 AI spend, no
-production code, no deploy, no native-retest trigger.**
+**Dan is running a tryout: several Upwork editors are each cutting the SAME Video 1 script.** This cut
+is **Waleed's**, not the editor the 2026-08-23 doc was written for — 4:27, 1080p30, Drive
+`1ZWv5t3rNitubDUDaSKcrn5SqVJCEX2ip`. It is **his first set of notes**, so the doc is a round 1, not a
+round 2. **$0.00 AI spend, no production code, no deploy, no native-retest trigger.**
 
-**Revisions doc (DRAFT — Dan reviews, then forwards to the editor):**
-https://docs.google.com/document/d/1BkuKa6Elu_7Ye47ZFvYy0XxXxIJhBKeYr53jScs5uKQ/edit
-Markdown copy: `revision docs/video1-revisions-round2-8-25-26.md`.
+**Notes doc (DRAFT — Dan reviews, then forwards to Waleed):**
+https://docs.google.com/document/d/1wu1spi5KaQTK7gbPZ_HdWE8z87_osb8dnCt3_ruTDTQ/edit
+Markdown copy: `revision docs/video1-revisions-waleed-round1-8-25-26.md`.
 
-**Roughly 5 of ~25 round-1 items were applied.** Fixed and worth keeping: pacing (**0.3 s total
-dead air** across 4:27 — the round-1 headline problem is solved), punch-ins, the fat-to-fit morph
-removed, and **the fake app UI at 1:18 replaced with the real screen recording** — that was the
-single most important round-1 item. Everything else — audio, music bed, SFX, brand colours, AI
-labels, pillarboxing, the end-section app screens, the end card — is still outstanding.
+⚠ **TWO FRAMING CORRECTIONS DAN HAD TO MAKE — both are now standing rules in `/revisions`.**
+1. The first draft was written as "round 2" against the earlier editor's notes. **A new cut of a video
+   already reviewed is usually a DIFFERENT editor's first attempt, not the next round of the same
+   one.** Confirm editor + round before writing; the framing changes every section.
+2. **Dan's editors work with AI editing tools, not a fixed NLE.** Never prescribe a program's menu
+   path (the draft said "In Premiere: Modify → Audio Channels"). State the outcome and leave the
+   method to them.
 
-⚠ **THE AUDIO REGRESSED INTO A DIFFERENT FAILURE MODE, AND IT IS WORSE.** Round 1 shipped L and R
-*identical* (editor had summed the two mics). Round 2 ships the **raw two-mic stereo pair**:
-L/R correlate **−0.72 at −7.8 ms**, best-fit alignment gain **−1.1 to −1.5 (polarity inverted)**,
-residual only **−3 dB** (⇒ genuinely two different mics, not one delayed copy). Mono fold-down —
-i.e. every phone speaker — **loses 4.0–4.6 dB of voice** in the 300–3400 Hz band. On top of that the
-master is **−8.04 LUFS / +2.53 dBTP with 166,024 clipped samples in L and 29,573 in R**. The fix is
-unchanged and unchanged in urgency: **Mono from the RIGHT channel**, then master to −14 / −1.5.
+**WHAT WALEED GOT RIGHT and should not lose:** pacing is genuinely excellent — **0.3 s of total dead
+air across 4:27**, which is better than any first cut of this script so far; punch-ins are present and
+land on phrase boundaries; and **he used the real app screen recording at 1:18 rather than a mockup**,
+which is the thing most editors get wrong.
 
-**TWO BANNED ITEMS ARE IN THE CUT AND BOTH ARE NEW OR SURVIVING:**
+⚠ **THE AUDIO IS THE #1 ITEM AND IT IS A SOURCE-RIG FAULT HE COULD NOT HAVE KNOWN ABOUT.** His export
+carries the **raw two-mic stereo pair**: L/R correlate **−0.72 at −7.8 ms**, best-fit alignment gain
+**−1.1 to −1.5 (polarity inverted)**, residual only **−3 dB** ⇒ genuinely two different mics, not one
+delayed copy. Mono fold-down — every phone speaker — **loses 4.0–4.6 dB of voice**. Master is
+**−8.04 LUFS / +2.53 dBTP with 166,024 clipped samples in L and 29,573 in R**. Note this is a
+**different symptom from the earlier editor's cut**, which had L and R *identical* (they had summed
+the mics). Same source fault, two different wrong answers. Fix stated as an outcome: **voice rebuilt
+from the RIGHT channel only, as mono**, then master to −14 / −1.5.
+
+**TWO BANNED ITEMS IN THE CUT:**
 1. **1:28.5 — a side-by-side BEFORE/AFTER** inside the app recording ("Meet the new you.", plus
-   "Estimated body fat 20–24% → 9%"). The round-1 doc said to cut the recording before this screen;
-   the editor ran past it. This is the hardest rule we have.
-2. **0:22.4–0:25.8 — a 3-second full-screen belly-fat grab close-up** on a yellow background.
+   "Estimated body fat 20–24% → 9%"). He ran the recording past its usable end point.
+2. **0:22.4–0:25.8 — a 3-second full-screen belly-fat grab close-up.**
 
 **THE WORST CONTENT ERROR IS AN ASSET-ON-THE-WRONG-LINE MISTAKE.** The **crude-photoshop gag image**
 (a stranger's bald head on a bodybuilder's body) is used **as the hook at 0:00** over *"This picture
 got me abs and it's not even real"*, again on the **phone lock screen at 0:07.8**, and again at
 **2:37.4** over *"until I generated this picture and made it my phone lock screen"*. It is correct in
-exactly one place — 1:04, the photoshop line. All three wrong uses should be the real AI goal image
-(`01_HOOK+ENDCARD_ai-goal-image_dan-by-pool.png`).
+exactly one place — **1:04, the photoshop line, where he placed it correctly**. All three wrong uses
+should be `01_HOOK+ENDCARD_ai-goal-image_dan-by-pool.png`.
 
-**Also flagged:** every AI disclosure label has been **removed from the whole video** (round 1 only
-asked to fix a typo in them); a **fake full-screen tablet dashboard at 3:35** headed "AI OPTIMIZED
-PLAN - WEEK 4 (LEAN GAINS)" with visible AI-slop typos ("BASSED", "NACROS", duplicated headers);
-a **generic third-party calorie app** at 2:55.6 presented as product; **47 seconds (3:38–4:25) with
-nothing on screen** in the product-explanation section; total insert coverage ≈ **30 %**; and every
-graphic in stock-template colours (yellow bullets, a glossy blue Vista-style "TAP BUTTON BELOW"
-pill, a comic "FREE" starburst). All replacement assets already exist in Drive and are linked
-directly in the doc — nothing new needs generating.
+**Also flagged:** no AI disclosure label anywhere in the video; a **fake full-screen tablet dashboard
+at 3:35** headed "AI OPTIMIZED PLAN - WEEK 4 (LEAN GAINS)" with visible AI-slop typos ("BASSED",
+"NACROS", duplicated headers); a **generic third-party calorie app** at 2:55.6 presented as product;
+**47 seconds (3:38–4:25) with nothing on screen** in the product-explanation section; insert coverage
+≈ **30 %**; no music bed or SFX; and every graphic in stock-template colours (yellow bullets, a glossy
+blue Vista-style "TAP BUTTON BELOW" pill, a comic "FREE" starburst). All replacement assets already
+exist in Drive and are linked directly in the doc — nothing new needs generating.
 
 **Skill hardened (`/revisions`):** new `reference/chan_align.py` (same-mic-vs-two-mic alignment
-residual, polarity flag, clipped-sample count, mono fold-down penalty), Step 1 now mandates it plus
-a loudness measurement every round, and lessons 5–11. Two measurement traps recorded: the
-"floor above −45 dB ⇒ music bed" heuristic **false-positives on an over-loud hard-limited master**
-(this cut's inter-word floor reads −31 dB with no music anywhere), and Drive MCP `update_file` is
-**metadata-only** — fixing a Doc body means `create_file` again then `trash_file` the first.
+residual, polarity flag, clipped-sample count, mono fold-down penalty), Step 1 now mandates it plus a
+loudness measurement on every cut, and lessons 5–11 — including both framing corrections above. Two
+measurement traps recorded: the "floor above −45 dB ⇒ music bed" heuristic **false-positives on an
+over-loud hard-limited master** (this cut's inter-word floor reads −31 dB with no music anywhere), and
+Drive MCP `update_file` is **metadata-only** — fixing a Doc body means `create_file` again then
+`trash_file` the first.
 
-**EXACT NEXT ACTION — DAN: read the doc and forward it to the editor.** Nothing is blocked.
+**Dashboard:** nothing checked off. `money::Review Zeshan's video cut and send round-1 revisions` is a
+DIFFERENT editor and stays unchecked (it was briefly checked in error this session and reverted). No
+task covers Waleed's cut; the nearest, `money::Check in on the 4 Upwork editor trials`, is the
+ongoing tryout coordination, not this review.
+
+**EXACT NEXT ACTION — DAN: read the doc and forward it to Waleed.** Nothing is blocked.
 
 ### VIDEO 1 review CLOSED — Dan sent the revisions to the editor 2026-08-23 (Claude Code)
 
