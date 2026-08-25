@@ -301,6 +301,24 @@
       "priority": "key",
       "why": "handoff-20260824-five-longforms-to-new-standard.md — created but not yet run. Gate measured: 02/03 fail 6 of 12, 04 fails 5. Ordered so it can stop after any video.",
       "addedAt": "2026-08-24"
+    },
+    {
+      "text": "Plan the permanent filming set (studio build vs kitchen)",
+      "priority": "med",
+      "why": "2026-08-25 planning — Dan: a real set beats filming in the kitchen. Post-shoot item; spec the space, budget, lighting, backdrop.",
+      "addedAt": "2026-08-25"
+    },
+    {
+      "text": "Produce short-form CONTENT (not ads) — mine the longforms + shoot app-demo Reels",
+      "priority": "high",
+      "why": "2026-08-25 planning — Dan has plenty of short-form ADS but almost no short-form content. IG plan flagged the app-screen-recording Reel as the one asset no competitor can copy.",
+      "addedAt": "2026-08-25"
+    },
+    {
+      "text": "Start paid advertising for the @danrosefit Instagram (follower campaigns)",
+      "priority": "high",
+      "why": "2026-08-25 planning — ad identity = @danrosefit, budget/Page stay under Abs By AI; two-step funnel spec is in AI_COORDINATION.md. Dan launches campaigns himself.",
+      "addedAt": "2026-08-25"
     }
   ],
   "health": [
