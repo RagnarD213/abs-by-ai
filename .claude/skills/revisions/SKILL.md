@@ -54,8 +54,16 @@ Two audiences, same skill:
      re-import the camera files and use the RIGHT channel only, as mono (Premiere:
      Modify → Audio Channels → Mono from Right). Full background: /longform-edit
      Step 0.4. Write this as the #1 THROUGHOUT item in editor-friendly words.
-   - Also check for a music bed: noise floor p5 above ≈ −45 dB in speech gaps means
-     there is one; our shoots' raw floor is ≈ −53 dB.
+   - **Then always run `reference/chan_align.py video.mp4`.** echo_check alone cannot tell
+     "one mic, delayed copy" from "two different mics hard-panned". chan_align reports the
+     best-fit delay+gain alignment residual (< −12 dB ⇒ one mic; ≈ −3 dB ⇒ two mics),
+     flags polarity inversion, counts clipped samples, and measures how much voice a mono
+     fold-down loses in the 300–3400 Hz band. Quote those numbers in the doc.
+   - **And always measure loudness:** `ffmpeg -i cut.mp4 -af loudnorm=print_format=json -f null /dev/null`.
+     Target −14 LUFS / ≤ −1.5 dBTP. Editors have shipped −8 LUFS / +2.5 dBTP with audible clipping.
+   - Music bed: noise floor p5 above ≈ −45 dB in speech gaps *suggests* one; our shoots' raw
+     floor is ≈ −53 dB. **This heuristic false-positives on an over-loud, hard-limited master** —
+     confirm with per-band gap spectra on the lav channel before claiming a bed exists.
 2. **Transcribe** with local Whisper `small` (segment timestamps are enough) — this
    maps every script beat to a timecode for the doc.
 3. **Look at every second.** Extract frames at 1/2s, montage into labeled contact
@@ -133,3 +141,35 @@ Two audiences, same skill:
    menu click.
 4. Muhammad-reference measured targets, for pacing/music checks: zero gaps ≥ 0.25s,
    music ~−20 dB under voice (floor p5 ≈ −40 dB), luma median ~67, no burned captions.
+5. **Round 2 of the same video: lead with a scorecard, not a list.** When an editor has already had a
+   revision doc, the most useful first section is "what got fixed / what didn't" — Dan forwards the
+   doc, and an editor who ignored 20 of 25 items needs to see that stated plainly before the detail.
+   Credit the wins explicitly ("keep this") so the next round doesn't regress them.
+6. **A "fixed" audio note can come back worse in a new shape.** Round 1 of video 1 had L and R
+   *identical* (editor summed the mics). Round 2 shipped the **raw two-mic stereo pair** instead —
+   L/R correlation **−0.72 at −7.8 ms**, polarity inverted, so mono fold-down loses ~4 dB of voice.
+   `echo_check.py` alone reads this as "channels differ"; the decisive test is a **best-fit
+   delay+gain alignment residual** (< −12 dB ⇒ same mic; −3 dB ⇒ two genuinely different mics) plus
+   a **mono fold-down penalty** measured in the 300–3400 Hz voice band. Both are cheap; run them
+   every round, not just the first.
+7. **Always measure integrated loudness and true peak, every round.** This cut shipped at
+   **−8.04 LUFS / +2.53 dBTP with 166k clipped samples in L**. Nothing in the picture review would
+   have surfaced it, and it is the kind of defect that survives to upload.
+8. **Do not infer "music bed" from the noise floor alone.** A hard-limited over-loud master pushes
+   the inter-word floor to ≈ −31 dB, which trips the "floor above −45 dB ⇒ music" heuristic with no
+   music present. Confirm with per-band gap spectra on the LAV channel (a real bed at −20 dB under
+   voice reads ≈ −30 dB in 80–500 Hz; this cut read −56 to −61 dB) and check the floor's *variance* —
+   a bed is constant, room noise is not.
+9. **Check that the right asset is on the right line, not just that an asset is present.** The
+   single worst finding this round was the **crude-photoshop gag image used as the hook** at 0:00
+   ("this picture got me abs") and again at 2:37 ("the picture that motivated me") — correct only at
+   1:04, the photoshop line. Read the transcript against each insert; a technically-clean insert on
+   the wrong sentence is worse than a missing one.
+10. **Verify who is on screen before writing about it.** Dan is Asian; a reviewer working from
+    stills can wrongly conclude a cut features a different presenter. Cross-check against
+    `Short-form video content/instagram-danrosefit/profile-photo_danrosefit_1080.jpg` before
+    claiming casting problems.
+11. **Drive MCP `update_file` is metadata-only** — it cannot rewrite a Doc's body. To fix a
+    conversion glitch, `create_file` again and `trash_file` the first. Also: a literal `*` inside a
+    `**bold**` run (e.g. `**… "*AI Generated" …**`) breaks the markdown→Docs conversion; escape it
+    as `\*` or reword.
