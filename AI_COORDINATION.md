@@ -81,6 +81,21 @@ content" should mean **form corrections and self-tests**, which are among the st
 the data - NOT follow-along workout reels, which pull 1.8-2.0 s average watch time on Dan's own
 account.
 
+**FOLLOW-ON SAME SESSION:** two of Dan's shorts scripts edited to length (Top 5 Ab Exercises
+345 -> 172 words; the looksmax-your-face one was already at 181 and only needed a content fix — he
+had said "three ways" and listed four). A 20-idea shorts brainstorm was then delivered and **Dan
+killed most of it** — *"mostly I think they're pretty bad"* — keeping 4 in altered form and writing
+4 himself into the doc's "Ideas for shorts to write out" list.
+
+⚠ **THAT REJECTION IS NOW A SKILL: `/shortsideas`** (commit `9f6ef52`), written from the diff
+between what was delivered and what he kept. **The batch was right about the algorithm and wrong
+about Dan** — delivered as spoken hooks when he wants Title Case titles, and heavy on "stop doing
+X" corrections and self-tests, which he killed 100% of despite those being the top-measuring shapes
+on YouTube. Other encoded rules: **the app is one item in a list of three, never the subject of the
+video** (his "Top 3 Ways To Use AI To Get Abs" survived; "Watch AI count the calories in my lunch"
+died); name a rival **person** not an abstraction ("Better Than Being A Fat Millionaire", not
+"money vs abs"); titles must be searchable and evergreen; default batch size 12, not 20.
+
 **EXACT NEXT ACTION — DAN: read the brief, then write his shorts scripts to the 165–205 word spec.**
 Per the standing brainstorming rule the scripts were deliberately NOT written this session.
 
