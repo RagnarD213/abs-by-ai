@@ -33,6 +33,57 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### SHORT-FORM RECON BRIEF DELIVERED — informs the Friday shoot scripts (2026-08-25, Claude Code)
+
+Dan asked for deep research into what is currently working for men's-fitness YouTube Shorts and
+Instagram Reels before he writes dedicated shorts scripts for the Friday shoot. **Research session
+only — no scripts written (Dan writes his examples first), $0.00 AI spend, no production code, no
+deploy, no native-retest trigger.**
+
+**Brief:** https://claude.ai/code/artifact/242183ec-95ed-4f16-9b50-fbdbb7552ead
+Findings also saved as memory `shorts-organic-research`.
+
+**Method:** measured live off YouTube's own channel data — **130 Shorts across 13 channels**, each
+video's REAL duration read from its file record and matched to its view count, plus YouTube search
+result sets and **3 Instagram accounts sampled directly** (IG rate-limits after ~4 profile calls,
+so the IG sample is genuinely thin and is flagged as such in the brief).
+
+⚠ **THE HEADLINE OVERTURNS THE STANDARD ADVICE. 45–60s, not 15–30s.** Nine of eleven
+authority-lane channels have a median between 53 and 70s. **`@GravityTransformation` — the closest
+analog to Abs By AI — has not posted a Short outside 52–60s** and does 75K–16M on them. The only
+creators winning under 20s are doing visual stunts. Instagram agrees: Socialinsider's 2026 study of
+140K Reels puts 30–60s at a 5.60% reach rate vs 3.50% over two minutes. **Script spec: 165–205
+spoken words** (Dan's measured 198–222 wpm ⇒ 45–58s).
+
+⚠ **"OVER 40" IN A TITLE COSTS 1–2 ORDERS OF MAGNITUDE OF REACH**, shown three independent ways
+(search sets 196–103K vs 1.3M–32M untargeted; `@LiveAnabolic` 6.3–18K; `@FitFatherProject`
+1.4–10K). His age is proof INSIDE the video, never the hook.
+
+**Also in the brief:** the six title shapes that carry the niche (calibration / correction / tight
+list of three / self-test / versus / personal stakes) with real titles and view counts; six formats
+to film with hooks written in his register; a do-not-film list; seven channels with what to steal
+from each; and a Friday shoot checklist (native 9:16, the dead left mic input, 20 scripts not 6,
+every hook filmed 2–3 ways, IG's bottom-25% safe area, cold opens, app b-roll).
+
+**TWO THINGS WORTH ACTING ON SEPARATELY:**
+1. **A YouTube Short between 1:00 and 3:00 with ANY Content ID claim is BLOCKED GLOBALLY** —
+   music-library licences were never extended past 60s. Relevant because `short5_1-minute-workout`
+   already ate a claim. Any Short over a minute needs its bed cleared before scheduling.
+2. **The no-drug-names rule is AD-COMPLIANCE ONLY, not organic.** `@RenaissancePeriodization` did
+   502K on "Most Adults Should Take Tirzepatide" with no visible suppression. Dan's Zepbound story
+   is filmable as a Short.
+
+**Dashboard:** nothing checked off, correctly. All lists searched. Two Key tasks are *served* by
+this brief but not completed by it — `money::Produce short-form CONTENT (not ads) - mine the
+longforms + shoot app-demo Reels` and `money::Write scripts for the next shoot (>=half workout
+content)`. Both are production, not research. Note for whoever picks up the second one: "workout
+content" should mean **form corrections and self-tests**, which are among the strongest formats in
+the data - NOT follow-along workout reels, which pull 1.8-2.0 s average watch time on Dan's own
+account.
+
+**EXACT NEXT ACTION — DAN: read the brief, then write his shorts scripts to the 165–205 word spec.**
+Per the standing brainstorming rule the scripts were deliberately NOT written this session.
+
 ### @danrosefit INSTAGRAM QUEUE — **STEPS 2–5 EXECUTED AND VERIFIED LIVE** (2026-08-25, Claude Code)
 
 `@danrosefit` is connected to Blotato (**accountId `67203`**) and the migration ran. **$0.00 AI
