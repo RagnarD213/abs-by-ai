@@ -3,7 +3,7 @@ name: shorts-scripting
 description: >
   Turn ONE dedicated shorts idea — a title plus bullets from /shortsideas, or a
   brief outline Dan writes himself — into a finished word-for-word teleprompter
-  script with b-roll cues, built to Dan's measured 176-185 word spec, and deliver it
+  script with b-roll cues, built to Dan's measured 172-185 word spec, and deliver it
   into the DEDICATED SHORTS CONTENT section of the current shoot's outline doc. Use
   whenever Dan asks to script a short, write out a shorts idea, turn a shorts title
   into a script, or edit a short he drafted himself — even if he doesn't say
@@ -32,13 +32,13 @@ generic writing.
 
 ---
 
-## THE SPEC — 176-185 spoken words
+## THE SPEC — 172-185 spoken words
 
 Measured off both of Dan's finished shorts: **177 words** and **176 words**. At his
 measured 198-222 wpm that is **48-54 seconds**, which sits under YouTube's
 60-second music-licence cliff and inside Instagram's best reach bucket (30-60s).
 
-**Write to 176-185. Count the words before delivering — do not estimate.**
+**Write to 172-185. Count the words before delivering — do not estimate.**
 
 ```bash
 python3 -c "
@@ -61,7 +61,7 @@ Anything over 190 is a rewrite, not a trim.
 | 2 | *(optional)* **Proof beat** | ~17 | Only when there's a visual to show. The face script uses before-then-after here. |
 | 3 | **Structure statement** | 11-12 | "…improves your face in three ways." Tell them what's coming — **ONLY when the opener does not already name the number.** If the opener says "the three most important supplements," this beat is dead weight and Dan will delete it. See lesson 4. |
 | 4 | **The numbered beats** | **21-30 each** | "Number one, the ab wheel." / "First, it defines your jawline." Name + one reason + one qualifier or scaling note. |
-| 5 | **The beat nobody else says** | ~25 | The insight that isn't on the list. Only fits when there are three items, not five. |
+| 5 | **The beat nobody else says** | ~25 | The insight that isn't on the list — **and it must be about the VIEWER, not about a third party.** Interesting-but-not-personal gets deleted. See lesson 8. Only fits when there are three items, not five. |
 | 6 | **The "remember" line** | 19-40 | A reframe **plus a concrete instruction with a progression.** Dan expanded this beat both times Claude wrote it as a single aphorism. See lesson 5. |
 | 7 | **Comment close** | 11-13 | "Comment and let me know which ab exercise is your favorite." |
 
@@ -217,14 +217,16 @@ face shots need confirming.
 
 ## Checklist before delivering
 
-- [ ] Word count is **176-185**, counted not estimated
+- [ ] Word count is **172-185**, counted not estimated
 - [ ] Opener is a direct claim or claim-plus-proof-promise, not a negation
 - [ ] Structure statement's number matches the number of items actually listed
 - [ ] Each numbered beat is 21-30 words
-- [ ] There is one beat nobody else would say (three-item scripts only)
+- [ ] The "nobody else says" beat is about the VIEWER's own body/life, not a third party (lesson 8)
+- [ ] Consequence to the viewer comes BEFORE the mechanism, and there is at most one piece of anatomical jargon (lesson 10)
+- [ ] Any b-roll that must be filmed has a `[FILM ... BEFORE STARTING]` line at the top of the script (lesson 9)
 - [ ] The "remember" beat carries an actionable instruction, not just a reframe (lesson 5)
 - [ ] No clever aphorism where a concrete list of nouns would do (lesson 6)
-- [ ] Close is "Comment and let me know [specific thing]"
+- [ ] Close is "Comment and let me know [specific thing]" — or, when the short teaches an action, "Try X, and leave a comment to let me know how it worked for you" (lesson 12)
 - [ ] **The product is not spoken** (unless the idea itself is a product idea)
 - [ ] `[AbsByAI.com mark on screen]` cue is present
 - [ ] Zero em dashes in spoken text
@@ -307,3 +309,61 @@ relative importance, name the things that matter more.
 His edited supplements script measures **184 words (50-56 s)** and he made it longer,
 not shorter, than what was delivered. 176-185 is the band. Still count, never estimate,
 and still stay under 60 s finished.
+
+**8 — 2026-08-25, the vacuum short. THE "NOBODY ELSE SAYS" BEAT MUST BE ABOUT THE
+VIEWER.** Claude wrote a beat on bodybuilders getting bubble gut from heavy gear and
+using vacuums to fix it — taken straight from Dan's own longform, factually his, and
+genuinely the thing no other vacuum video says. **He deleted the whole beat**, and gave
+the reason in his own words: *"in the short format, we have got to keep it to what they
+personally care about. That's not really relevant to the viewer."* At 50 seconds there
+is no room for an interesting aside about someone else's body. **Test every beat: does
+this change what the guy watching does with HIS OWN body today?** If it is trivia,
+context, or a story about a third party, cut it — no matter how good it is. This is
+the sharpest difference between a short and a longform, where that same beat would
+earn its place.
+
+**9 — 2026-08-25. B-roll that needs filming gets a FILM-THIS line at the top of the
+script.** Claude flagged in chat that the vacuum footage existed but was cut 9:16.
+Dan put the instruction into the document instead, as an unbolded bracket line above
+everything else: `[FILM NEW VACCUUM B ROLL IN 16:9 BEFORE STARTING]`. **A shoot
+prerequisite belongs in the script, not in the chat message that gets lost.** Put it
+as the first line, before the opening cue.
+
+**10 — 2026-08-25. Consequence first, mechanism second — and one jargon word maximum.**
+Claude opened the teaching with anatomy: *"Crunches and toe touches train your rectus
+abdominis. That is your six pack, and it sits on the surface. The vacuum trains your
+transverse abdominis, a sleeve of muscle on the inside that pulls your whole waist in
+tight."* Dan rewrote it to lead with what it does to the viewer: *"Regular ab exercises
+make your abs look better - if you're already lean. But if you have belly fat, they
+just make your belly bulge out more. The vacuum is the only ab exercise that can
+actually shrink your waist. It does this by training your transverse abdominus, the
+sleeve of muscle that stabilizes your core."* Note what happened: **"rectus abdominis"
+is gone entirely** (the viewer already calls that "abs"), the bad outcome lands before
+any anatomy, and the one surviving Latin term got a shorter, plainer gloss. **Name the
+muscle only when the viewer cannot already name it, and never open a beat on anatomy.**
+
+**11 — 2026-08-25. He opened the short on B-ROLL, not on his face, using "THIS".**
+Claude's `[COLD OPEN — tight on Dan]` was replaced with the vacuum b-roll, and the
+opener became *"THIS is the only ab exercise that actually shrinks your stomach."* —
+deictic, pointing at what is already on screen. **When the subject of the short is a
+visible thing (an exercise, a food, a product, a photo), open on the thing and let the
+first word point at it.** Cold-open-on-Dan is for shorts whose subject is an idea.
+
+**12 — 2026-08-25. When the short teaches an ACTION, the close commands it first.**
+Rule 2's form still holds, but it gained a variant. Claude wrote *"Comment and let me
+know how long you can hold a vacuum."* Dan rewrote it to **"Try the vacuum, and leave a
+comment to let me know how it worked for you."** The ask is the same; it is now
+preceded by a do-this-today instruction. Use this form whenever the script has taught
+something the viewer can do the same day. Keep the plain form for shorts that teach a
+fact or a frame.
+
+**13 — 2026-08-25, recorded but NOT yet a rule.** He removed the
+`[AbsByAI.com mark on screen]` cue from the vacuum script, while keeping it in the
+supplements script one section above. One instance is not a pattern — keep including
+the cue, and if he deletes it a second time, drop it from the checklist.
+
+**14 — 2026-08-25. The form cue in a how-to beat is his, not Claude's.** He inserted
+*"and consciously slump. Then consciously posture,"* into the vacuum instructions. That
+is a coaching detail no amount of research produces. **Write the how-to beat lean and
+correct, and expect him to add the cue that makes it his.** Do not pad it with invented
+technique.
