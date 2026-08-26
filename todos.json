@@ -325,6 +325,12 @@
       "priority": "key",
       "why": "handoff-20260825-ad1-vertical-attempt2.md — created but not yet run",
       "addedAt": "2026-08-25"
+    },
+    {
+      "text": "Request Unemployment Payment",
+      "priority": "high",
+      "why": "Biweekly unemployment claim window",
+      "addedAt": "2026-08-26"
     }
   ],
   "health": [
