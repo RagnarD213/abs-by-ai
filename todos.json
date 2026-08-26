@@ -295,6 +295,12 @@
       "priority": "key",
       "why": "handoff-20260826-ad1-vertical-attempt3.md - created but not yet run. Dan's 13 revisions to attempt 2; goal is that he cannot tell which video Muhammad edited.",
       "addedAt": "2026-08-26"
+    },
+    {
+      "text": "Execute handoff: fill danrosefit + abs.by.ai image-post gap days (write captions, schedule in Blotato)",
+      "priority": "key",
+      "why": "Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md — created but not yet run",
+      "addedAt": "2026-08-26"
     }
   ],
   "health": [
