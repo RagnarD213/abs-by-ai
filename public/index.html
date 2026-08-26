@@ -2111,6 +2111,18 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <div class="hero-h1" id="authTitle" style="font-size:26px;line-height:1.1;margin-bottom:6px">Welcome back</div>
     <div class="hero-sub" id="authSub" style="margin-bottom:18px">Log in to get back to your tracker and tools.</div>
 
+    <!-- Apple 5.1.1(v): when this screen is reached from the membership purchase,
+         say plainly what the account is FOR. Without this it reads as an
+         unexplained registration wall in front of a purchase. -->
+    <div id="authPurchaseNote" style="display:none;margin-bottom:18px;padding:13px 15px;border:1px solid var(--acc-line);background:var(--acc-soft);border-radius:12px;font-size:13px;line-height:1.5;color:var(--disc);text-align:left">
+      <strong style="color:var(--ink)">Why an account is needed.</strong>
+      Your membership is a coach that remembers you: your training plan, meal plan and
+      progress history are saved to your account and updated at every check-in, so your
+      plan advances from where you left off. Signing in also carries your membership to
+      every Apple device you own. We ask only for an email address and a password, and
+      you can delete the account at any time from Member Hub.
+    </div>
+
     <form id="authForm">
       <input type="email" id="authEmail" class="text-field" placeholder="you@example.com" required autocomplete="email" style="margin-bottom:10px" />
       <input type="password" id="authPassword" class="text-field" placeholder="Password (8+ characters)" required minlength="8" autocomplete="current-password" style="margin-bottom:14px" />
@@ -2685,6 +2697,17 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
          #membershipAppNote stays as the fallback for the case where
          StoreKit is unreachable, so the app is never a dead end. -->
     <div id="iapSection" style="display:none">
+      <!-- Apple 5.1.1(v): the membership is account-based, and the app has to say
+           so where the purchase happens. Every membership feature reads and writes
+           the buyer's own stored plan and history, so the account IS the product,
+           not a data-collection step in front of it. -->
+      <div id="iapAccountNote" style="margin-bottom:16px;padding:13px 15px;border:1px solid var(--acc-line);background:var(--acc-soft);border-radius:12px;font-size:13px;line-height:1.5;color:var(--disc);text-align:left">
+        <strong style="color:var(--ink)">Your membership is stored in your free account.</strong>
+        Your training plan, meal plan and progress history are saved there and rewritten
+        every time you check in — that is how your plan advances instead of starting over.
+        It also means your membership works on every Apple device you sign in on. An email
+        address and a password are all we ask for.
+      </div>
       <div class="plan-cards" id="iapPlanCards"></div>
       <div id="iapError" class="error-toast" style="display:none;margin-top:12px"></div>
       <div class="guarantee-note" id="iapDisclosure" style="margin-top:14px;margin-bottom:0"></div>
@@ -3143,7 +3166,7 @@ async function handleIapSubscribe() {
   // gate the web checkout uses.
   if (!isLoggedIn()) {
     window._afterAuth = () => { refreshMembership().then(() => showMembershipScreen()); };
-    showAuthScreen('signup');
+    showAuthScreen('signup', { purchase: true });
     return;
   }
 
@@ -3182,7 +3205,7 @@ async function handleIapRestore() {
   if (iapState.busy) return;
   if (!isLoggedIn()) {
     window._afterAuth = () => { refreshMembership().then(() => showMembershipScreen()); };
-    showAuthScreen('login');
+    showAuthScreen('login', { purchase: true });
     return;
   }
   const btn = $('iapRestoreBtn');
@@ -5304,6 +5327,7 @@ function setAuthMode(mode) {
   auth.mode = mode;
   const signup = mode === 'signup';
   const trialSignup = signup && authEntryContext === 'trial';
+  const purchaseAuth = authEntryContext === 'purchase';
   const copy = {
     login:  { nav: 'Log in', title: 'Welcome back', sub: 'Log in to get back to your tracker and tools.', btn: 'Log In' },
     signup: { nav: 'Create account', title: 'Create your free account', sub: 'Save your progress and unlock member features.', btn: 'Create Account' },
@@ -5315,6 +5339,18 @@ function setAuthMode(mode) {
     copy.title = 'Create your account to start your free trial';
     copy.sub = 'Save your goal, then choose your plan. Your first 7 days are free.';
     copy.btn = 'Create Account & Continue';
+  }
+  // Reached from the in-app membership purchase: name the account-based reason
+  // rather than dropping the buyer on an unexplained form (Apple 5.1.1(v)).
+  if (purchaseAuth && signup) {
+    copy.nav = 'Create account';
+    copy.title = 'Create your free account';
+    copy.sub = 'Your plan and progress are saved to it, so your coaching continues on any device.';
+    copy.btn = 'Create Account & Continue';
+  }
+  const purchaseNote = $('authPurchaseNote');
+  if (purchaseNote) {
+    purchaseNote.style.display = (purchaseAuth && (mode === 'signup' || mode === 'login')) ? '' : 'none';
   }
   $('authNavTitle').textContent = copy.nav;
   $('authTitle').textContent = copy.title;
@@ -5334,7 +5370,7 @@ function setAuthMode(mode) {
 }
 
 function showAuthScreen(mode, opts) {
-  authEntryContext = opts?.trialGate ? 'trial' : null;
+  authEntryContext = opts?.trialGate ? 'trial' : (opts?.purchase ? 'purchase' : null);
   setAuthMode(mode || 'login');
   if (authEntryContext === 'trial' && mode === 'signup') {
     const capturedEmail = localStorage.getItem('absbyai_email') || '';
