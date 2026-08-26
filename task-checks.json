@@ -15,7 +15,8 @@
     "assistant::Remove calcium stains from pool tiles",
     "assistant::Take car to Club Car Wash (Dan already has monthly membership). Get exterior washed and clean interior. Use Club Car Wash free vaccuum and cleaning supplies in frunk to clean interior",
     "assistant::Do laundry",
-    "assistant::Clean office"
+    "assistant::Clean office",
+    "assistant::Empty/load dishwasher"
   ],
   "log": {
     "health::Shower": [
@@ -227,6 +228,7 @@
     "assistant::Remove calcium stains from pool tiles": "2026-08-25",
     "assistant::Take car to Club Car Wash (Dan already has monthly membership). Get exterior washed and clean interior. Use Club Car Wash free vaccuum and cleaning supplies in frunk to clean interior": "2026-08-25",
     "assistant::Do laundry": "2026-08-25",
-    "assistant::Clean office": "2026-08-25"
+    "assistant::Clean office": "2026-08-25",
+    "assistant::Empty/load dishwasher": "2026-08-25"
   }
 }
