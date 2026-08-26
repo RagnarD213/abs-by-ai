@@ -34,7 +34,11 @@ BAR      = (0, 0, 0)
 # sits at y=1250 so it clears both. Graphics that carry their own words suppress the
 # captions for their duration -- two text systems in a 1080-wide frame is unreadable.
 TOP_SAFE, BOT_SAFE = 150, 1660
-CAP_Y = 1250
+# The caption band sits LOW, not at mid-frame: at 1250 it forced every card to end by
+# 1150 and a card that ends at 1150 leaves the bottom third of the phone empty. 1400 puts
+# the caption's own bottom edge at ~1465 -- clear of both YouTube Shorts' bottom 230 px
+# and IG Reels' 350 px -- and gives the cards 230 px more height.
+CAP_Y = 1400
 MARGIN = 76
 
 # ------------------------------------------------------------------ background
@@ -187,11 +191,16 @@ def card_hole(media_ar, has_text):
 
     A fixed 16:9 hole cover-crops a portrait photo, and the thing it crops off a photo of
     a person is their head. Size the hole from the media, never the other way round."""
-    maxw = VW - 2*44
-    maxh = 1190 if has_text else 1330
+    # The card must END ABOVE THE CAPTION BAND. A card sized to the full frame height put
+    # its bottom third under the captions, and a white app screen behind white captions is
+    # unreadable. Cards that carry their OWN text get the extra room instead, and suppress
+    # the captions for their duration.
+    maxw = VW - 2*40
+    top, bot = 150, (1330 if not has_text else 1240)
+    maxh = bot - top
     w, h = maxw, maxw/media_ar
     if h > maxh: h, w = maxh, maxh*media_ar
-    cx, cy = VW//2, 300 + maxh/2 - (0 if has_text else 40)
+    cx, cy = VW//2, top + maxh/2
     return (int(cx-w/2), int(cy-h/2), int(cx+w/2), int(cy+h/2))
 
 def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
@@ -326,5 +335,239 @@ def overlay_callout(rect, dur, fps=FPS, draw_dur=0.5):
         hw, hh = (x1-x0)/2*(1.10-0.10*p), (y1-y0)/2*(1.10-0.10*p)
         ImageDraw.Draw(im).rounded_rectangle(
             [cx-hw, cy-hh, cx+hw, cy+hh], radius=14, outline=OLIVE+(int(255*o),), width=7)
+        out.append(im)
+    return out, None
+
+
+# ==============================================================================
+#  ATTEMPT 2 ADDITIONS -- measured off his finished cut, not invented
+#
+#  Three things attempt 1 did not have, all visible in his render:
+#   1. every piece of type ARRIVES LETTER BY LETTER, the unsettled tail spaced wide and
+#      dim (his "IN TODAY'S EPISODE", "VISUALIZING YOUR GOAL" and all seven lower thirds
+#      do this; attempt 1 slid whole lines up instead);
+#   2. he carries SEVEN LOWER THIRDS on the talking head -- attempt 1 had none;
+#   3. eight beat changes are covered by a WHITE LIGHT-LEAK FLASH, not a hard cut.
+# ==============================================================================
+
+def draw_type(d, txt, f, x, y, fill, k, tail=5, spread=0.75, anchor_w=None):
+    """Type-on reveal. Returns the settled width.
+
+    The settled prefix never moves -- only the tail is spaced out -- so the line does not
+    crawl sideways as it lands. `anchor_w` centres on the FINAL width for the same reason.
+
+    ⚠ EVERY CHARACTER IS DRAWN ON THE BASELINE (anchor="ls"), NOT anchor="lt".
+    PIL's "t" anchor is the ascender line OF THE STRING IT IS GIVEN, so drawing one
+    character at a time with "lt" aligns each glyph by its own top: periods ride up to
+    cap height, commas turn into apostrophes, and every ascender-less letter drops. The
+    first full-resolution frame of attempt 2 had "moțivation ... sįx-pack abs·" burned
+    into the bullets, and nothing in the metric gate can see it. `y` still means the same
+    thing it does for a whole-string "lt" draw -- the ascender line -- so the baseline is
+    y + ascent.
+    """
+    n = len(txt)
+    if n == 0: return 0
+    y = y + f.getmetrics()[0]
+    shown = k * (n + tail)
+    ax = x
+    for i, ch in enumerate(txt):
+        lead = shown - i
+        if lead <= 0: break
+        w = text_size(ch, f)[0]
+        if lead >= tail:                       # settled
+            a = 1.0; extra = 0
+        else:
+            a = clamp01(lead / tail)
+            extra = int(w * spread * (1 - a))
+        col = tuple(int(v * a) for v in fill[:3]) + ((int(fill[3]*a),) if len(fill) > 3 else ())
+        d.text((ax, y), ch, font=f, fill=col, anchor="ls")
+        ax += w + extra
+    return ax - x
+
+def type_lines(d, lines, f, x, y, fill, k, lead=1.14, align="l", w=None, stagger=0.55):
+    """Several wrapped lines revealed one after another."""
+    lh = int(f.size * lead)
+    for i, ln in enumerate(lines):
+        kk = clamp01((k - i * stagger * (1.0 / max(1, len(lines)))) * (1 + stagger))
+        xx = x
+        if align == "c": xx = x + (w - text_size(ln, f)[0]) // 2
+        draw_type(d, ln, f, xx, y + i * lh, fill, kk)
+    return y + lh * len(lines)
+
+# ------------------------------------------------------------------ split layouts
+#  His frame is TEXT LEFT / DAN RIGHT. A 9:16 frame has no left and right to give, so the
+#  same relationship becomes DAN ABOVE / TEXT BELOW. The window height adapts to how much
+#  the beat has to say, which is what keeps him large on short beats.
+
+def _win_plate(dur, body, fps=FPS, text_h=0, radius=0, grow=0.045, in_dur=0.42):
+    """Shared frame loop for the split layouts. `body(draw, im, t, y0)` paints under the
+    window; `text_h` sizes the window."""
+    rect = window_rect(text_h)
+    out = []
+    for i in range(nframes(dur, fps)):
+        t = i / fps
+        im = field().convert("RGBA")
+        d = ImageDraw.Draw(im)
+        body(d, im, t, rect[3] + 74)
+        out.append(_punch(im, _hole_at(rect, t, in_dur, grow), radius))
+    return out, rect
+
+def plate_window(header, bullets, dur, fps=FPS, radius=0, stagger=0.62, reveal=1.05):
+    """Dan ABOVE, olive eyebrow + white bullets BELOW -- his 'IN TODAY'S EPISODE' screen."""
+    fh, fb = font(46, "ExtraBold"), font(50, "SemiBold")
+    maxw = VW - MARGIN*2
+    items = [wrap(b, fb, maxw) for b in bullets]
+    lh = int(fb.size*1.14)
+    text_h = ((36+30) if header else 0) + sum(len(it)*lh + 34 for it in items)
+    def body(d, im, t, ty):
+        if header:
+            k = clamp01((t-0.08)/0.42)
+            wdt = draw_type(d, header.upper(), fh, MARGIN, ty, OLIVE+(255,), k)
+            d.rectangle([MARGIN, ty+fh.size+16, MARGIN+int(wdt*clamp01(k*1.2)), ty+fh.size+22], fill=OLIVE)
+            ty += fh.size + 56
+        for n, lines in enumerate(items):
+            k = clamp01((t - (0.30 + n*stagger)) / reveal)
+            if k <= 0: break
+            d.rectangle([MARGIN, ty+18, MARGIN+14, ty+32],
+                        fill=tuple(int(v*clamp01(k*4)) for v in OLIVE))
+            type_lines(d, lines, fb, MARGIN+38, ty, INK+(255,), k, lead=1.14)
+            ty += len(lines)*lh + 34
+    return _win_plate(dur, body, fps, text_h, radius)
+
+def plate_stmt_window(parts, dur, fps=FPS, radius=0, reveal=1.15):
+    """Dan ABOVE, mixed-weight statement BELOW -- his 'Chat GPT / General Purpose AI'
+    screen, which is the same split as the bullets, not a bare field."""
+    fbig, fmid = font(66, "ExtraBold"), font(52, "SemiBold")
+    lines = []
+    for txt, kind in parts:
+        f = fbig if kind in ("big", "olive") else fmid
+        col = OLIVE if kind == "olive" else INK
+        for ln in wrap(txt, f, VW-2*MARGIN): lines.append((ln, f, col))
+    text_h = sum(int(f.size*1.16) for _, f, _ in lines)
+    def body(d, im, t, ty):
+        for n, (ln, f, col) in enumerate(lines):
+            k = clamp01((t - 0.25 - n*0.22) / reveal)
+            draw_type(d, ln, f, MARGIN, ty, col+(255,), k)
+            ty += int(f.size*1.16)
+    return _win_plate(dur, body, fps, text_h, radius)
+
+def plate_window_media(dur, media_ar, fps=FPS, radius=0, gap=42):
+    """Dan ABOVE, a media card BELOW -- his 'phone left / Dan right' product screen.
+    Returns (frames, dan_rect, media_hole): TWO holes, so render.py feeds two sources."""
+    win_h = 660          # Dan is the inset here, the product screen is the subject --
+    rect = (0, 60, VW, 60+win_h)   # the same weighting his 'phone left / Dan right' has
+    top = rect[3] + gap
+    bot = BOT_SAFE - 20
+    mh = bot - top
+    mw = mh * media_ar
+    if mw > VW - 2*120:
+        mw = VW - 2*120; mh = mw/media_ar; top = rect[3] + gap + (bot-top-mh)/2
+    hole = (int(VW/2 - mw/2), int(top), int(VW/2 + mw/2), int(top+mh))
+    out = []
+    for i in range(nframes(dur, fps)):
+        t = i/fps
+        im = field().convert("RGBA")
+        h = _hole_at(hole, t, 0.42, 0.06)
+        rrect(im, [h[0]-12, h[1]-12, h[2]+12, h[3]+12], 26, fill=CARD_OL+(255,), glow=22)
+        im = _punch(im, h, 18)
+        im = _punch(im, _hole_at(rect, t, 0.30, 0.03), radius)
+        out.append(im)
+    return out, rect, hole
+
+def plate_title_card(headline, sub, dur, fps=FPS):
+    """His 'VISUALIZING YOUR GOAL' beat: an olive card on the bare field, heavy oblique
+    caps typing on, subtitle under. No Dan."""
+    fh, fs = font(96, "ExtraBold"), font(46, "SemiBold")
+    hl = wrap(headline.upper(), fh, VW-2*150)
+    sl = wrap(sub, fs, VW-2*150) if sub else []
+    lh, ls = int(fh.size*1.06), int(fs.size*1.20)
+    inner = len(hl)*lh + (40+len(sl)*ls if sl else 0)
+    ch = inner + 150
+    box = (72, (VH-ch)//2, VW-72, (VH-ch)//2 + ch)
+    out = []
+    for i in range(nframes(dur, fps)):
+        t = i/fps
+        im = field().convert("RGBA")
+        k0 = ease_out_back(clamp01(t/0.40))
+        cx, cy = (box[0]+box[2])/2, (box[1]+box[3])/2
+        hw, hh = (box[2]-box[0])/2*(0.94+0.06*k0), (box[3]-box[1])/2*(0.94+0.06*k0)
+        rrect(im, [cx-hw, cy-hh, cx+hw, cy+hh], 30, fill=CARD_OL+(255,), glow=26)
+        lay = Image.new("RGBA", (VW, VH), (0,0,0,0)); d = ImageDraw.Draw(lay)
+        y = box[1] + 75
+        for n, ln in enumerate(hl):
+            k = clamp01((t - 0.18 - n*0.26)/0.62)
+            draw_type(d, ln, fh, (VW - text_size(ln, fh)[0])//2, y, INK+(255,), k)
+            y += lh
+        lay = oblique(lay, 9.0, pivot_y=box[1]+75+len(hl)*lh/2)
+        im.alpha_composite(lay)
+        if sl:
+            y += 40
+            d2 = ImageDraw.Draw(im)
+            for n, ln in enumerate(sl):
+                k = clamp01((t - 0.55 - n*0.18)/0.55)
+                draw_type(d2, ln, fs, (VW - text_size(ln, fs)[0])//2, y, INK+(255,), k)
+                y += ls
+        out.append(im)
+    return out, None
+
+# ------------------------------------------------------------------ overlays
+def overlay_lower_third(lines, dur, fps=FPS, y_bottom=1600, in_dur=0.55):
+    """Olive tab + black bar + white type, revealed letter by letter. Seven of these
+    carry his cut; captions are suppressed for their duration because the line they
+    print IS the sentence being spoken."""
+    # Each line is fitted to the bar, not assumed to fit it: his longest lower third is
+    # 48 characters and at a fixed 52 px it overflowed the bar on both sides.
+    AVAIL = VW - 2*40 - 96
+    fs = []
+    for n, t in enumerate(lines):
+        sz = 52 if n == 0 else 40
+        w8 = "ExtraBold" if n == 0 else "SemiBold"
+        while sz > 24 and text_size(t, font(sz, w8))[0] > AVAIL: sz -= 2
+        fs.append(font(sz, w8))
+    ws = [text_size(t, f)[0] for t, f in zip(lines, fs)]
+    lhs = [int(f.size*1.30) for f in fs]
+    bw = max(ws) + 96
+    bw = min(bw, VW - 2*40)
+    bh = sum(lhs) + 34
+    bx, by = (VW-bw)//2 + 22, y_bottom - bh
+    TAB = 26
+    out = []
+    for i in range(nframes(dur, fps)):
+        t = i/fps
+        im = Image.new("RGBA", (VW, VH), (0,0,0,0))
+        o = 1.0 - ease_in_out(clamp01((t-(dur-0.32))/0.32))
+        gw = ease_out_cubic(clamp01(t/0.34))
+        d = ImageDraw.Draw(im)
+        d.rounded_rectangle([bx-TAB-14, by, bx-14, by+bh], radius=8,
+                            fill=OLIVE+(int(235*o*gw),))
+        d.rounded_rectangle([bx, by, bx+int(bw*gw), by+bh], radius=8, fill=(0,0,0,int(232*o)))
+        yy = by + 17
+        for n, (txt, f, lh) in enumerate(zip(lines, fs, lhs)):
+            k = clamp01((t - 0.20 - n*0.55)/0.80)
+            draw_type(d, txt, f, bx + (bw - text_size(txt, f)[0])//2, yy,
+                      INK+(int(255*o),), k)
+            yy += lh
+        out.append(im)
+    return out, None
+
+_FLASH = None
+def overlay_flash(dur, fps=FPS, peak=0.62):
+    """His light-leak transition: a white bloom that blows out for ~4 frames. Eight beat
+    changes in his cut use it instead of a hard cut."""
+    global _FLASH
+    if _FLASH is None:
+        import numpy as np
+        ys, xs = np.mgrid[0:VH, 0:VW]
+        r = np.hypot((xs-VW*0.42)/(VW*0.95), (ys-VH*0.44)/(VH*0.62))
+        _FLASH = np.clip(1.25 - r*0.75, 0, 1) ** 1.15
+    import numpy as np
+    out = []
+    n = nframes(dur, fps)
+    for i in range(n):
+        p = i/max(1, n-1)
+        a = np.sin(np.pi * p) ** 0.75
+        alpha = (_FLASH * a * 255).astype("uint8")
+        im = Image.new("RGBA", (VW, VH), (255, 253, 246, 0))
+        im.putalpha(Image.fromarray(alpha))
         out.append(im)
     return out, None

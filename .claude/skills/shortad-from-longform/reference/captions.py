@@ -18,10 +18,16 @@ from motionlib import font, text_size
 
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 VW, VH = 1080, 1920
-CAP_Y  = 1250
+CAP_Y  = vlib.CAP_Y
 F      = font(64, "ExtraBold")
 MAXW   = VW - 150
 GROUP_MAX = 22          # characters; ~3 words -- a phone reads a short chunk, not a line
+
+# Whisper mis-heard three words in this roll. They are HIS words on screen, so a
+# mis-transcription burned into the captions is a spelling mistake in the ad.
+FIX = {('six','back','abs.'): ('six','pack','abs.'),
+       ('a','gold','picture'): ('a','goal','picture'),
+       ('WuWu','stuff.'): ('Woo-woo','stuff.')}
 
 def load_words():
     d = json.load(open('m.whisper.json'))
@@ -30,11 +36,25 @@ def load_words():
         for w in s.get('words', []):
             t = w['word'].strip()
             if t: out.append((t, float(w['start']), float(w['end'])))
+    n = 0
+    for i in range(len(out)):
+        for src, dst in FIX.items():
+            k = len(src)
+            if tuple(x[0] for x in out[i:i+k]) == src:
+                for j, word in enumerate(dst):
+                    out[i+j] = (word, out[i+j][1], out[i+j][2])
+                n += 1
+    print(f'transcription fixes applied: {n}')
     return out
 
 def suppressed():
+    """Where captions must not run: graphics that carry their own words, plus any beat
+    explicitly flagged caps=False (a card with a kicker or a caption)."""
     tl, ov = BT.timeline()
-    return [(b['t0'], b['t1']) for b in tl + ov if b['kind'] in BT.NO_CAPS]
+    # Lower thirds print the very sentence being spoken, so they mute the captions for
+    # their duration exactly as the bullet screens do.
+    return [(b['t0'], b['t1']) for b in tl + ov
+            if b['kind'] in BT.NO_CAPS_KINDS or b['kind'] == 'lt' or b.get('caps') is False]
 
 def groups(words, mute):
     def muted(t): return any(a - 0.15 <= t <= b + 0.05 for a, b in mute)
@@ -43,6 +63,9 @@ def groups(words, mute):
         if muted(w[1]):
             if cur: gs.append(cur); cur = []
             continue
+        # never carry a group across a full stop: "life. You're more" reads as a mistake
+        if cur and cur[-1][0].rstrip().endswith(('.', '?', '!')):
+            gs.append(cur); cur = [w]; continue
         cand = cur + [w]
         if len(' '.join(x[0] for x in cand)) > GROUP_MAX and cur:
             gs.append(cur); cur = [w]
