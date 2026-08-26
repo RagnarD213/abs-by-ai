@@ -33,7 +33,97 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
-### AD 1 VERTICAL ATTEMPT 1 **REJECTED BY DAN** — failure analysis encoded in /shortad-from-longform (2026-08-25, Claude Code)
+### AD 1 VERTICAL ATTEMPT 2 **DELIVERED — Phase A done, Phase B waits on Dan** (2026-08-26, Claude Code)
+
+`Handoffs/handoff-20260825-ad1-vertical-attempt2.md` executed. **$0.00 AI spend** (local
+Whisper, ffmpeg, PIL, Pexels, Pixabay). No production code, no deploy, no native-retest
+trigger. Skill commit `224c887`.
+
+**Delivered to `EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`:** `ad1_vertical_9x16.mp4`
+(**3:52.77**, his exact duration), `REVIEW_540p_vertical_master.mp4`,
+`AB_music_his-bed-vs-ours.mp4`, `notes.md`, `script_for_dan.md`. Attempt 1's rejected
+files kept alongside as `*_ATTEMPT1_REJECTED.mp4`. **QC 15/15.**
+
+**Dan's instruction was "copy his ad as EXACTLY as possible", so everything is a
+measurement off his render**, not a style choice:
+
+| | his cut | ours |
+|---|---|---|
+| duration | 3:52.77 | **3:52.77** |
+| script fidelity (word-aligned) | — | **98.1 %** |
+| insert / graphic coverage | 58 % | **57 %** |
+| lower thirds · CTA pills · flashes | 7 · 3 · 10 | **7 · 3 · 11** |
+| zoom pushes on the talking head | 14 (39 % of talk) | **14 (39 %)** |
+| SFX events | 21 (one per 11.1 s) | **21 (one per 11.1 s)** |
+| music bed | 125 BPM | **125 BPM** |
+| loudness / true peak | −18.2 / +0.0 | **−14.0 / −3.6 dBTP** (ad spec, deliberately not his) |
+
+Attempt 1 for contrast: **0** pushes, **0** flashes, **0** lower thirds, **83** SFX,
+**99.6 BPM** bed. His beat sheet was re-derived by stepping his cut at **1 second** (233
+contact-sheet frames) and pinning every boundary to ±0.05 s off a 10 fps frame-difference
+peak — 47 beats, not attempt 1's 36.
+
+⚠ **THE RECOVERED EDL WAS WRONG AND ATTEMPT 1 SHIPPED IT. DAN'S ENTIRE HOOK LINE WAS
+MISSING FROM THE MIX.** Segment 0 pointed at `src 1.36`, which is 2.5 s of room tone
+before he speaks; "This picture got me abs and it's not even real" was simply not there.
+Also gone: "And this is where I'm at today" (replaced by the previous sentence's tail),
+and "With AI", "your life", "screen", "belly fat", "for free" each clipped off the end of
+a segment, plus one range running BACKWARDS and stuttering "realize how you'd realize how".
+**Attempt 1 verified its EDL by eyeballing Dan's POSE at 14 timecodes — pose cannot see a
+missing word.** Root cause: `segfit.py` splits only where its mel score drops below 0.60,
+so every pause trim he made INSIDE a sentence stayed hidden, the source then ran slower
+than the cut, and that segment's last words fell off the end. Re-derived from word
+alignment against the raw roll: **73 segments → 99**, fidelity **94.7 % → 98.1 %**.
+
+⚠ **A [R1] RULE IN THE SKILL WAS MEASURABLY WRONG AND IS NOW CORRECTED.** It said he hides
+every trim under a wide↔punch framing change ACROSS splices, and that attempt 1 shipped 23
+naked jump cuts. Fitting his framing per 0.25 s shows otherwise: his punches **ramp over
+~0.5 s, hold, ramp out**, and mostly SPAN splices; and **his talk-to-talk splices jump as
+much as ours** (43 of his 72 exceed 4× his own median frame diff; ours 32). The real
+defect was that **100 % of attempt 1's talk ran at one fixed crop** — that is what makes a
+tripod shot read as a webcam recording.
+
+**THE WATCH PASS EARNED ITS PLACE IMMEDIATELY.** This build's first render passed every
+metric and the watch pass then found: **all 7 lower thirds, all 3 CTA pills and all 11
+flashes were invisible** (an `enable=` window gates by the main clock while the overlay
+stream runs from its own t=0 — fix is `setpts=PTS+t0/TB`); **six segments opened on a
+black frame**; **twelve card beats sat dead-frozen**; and at full resolution **every
+lowercase graphic was garbled** because per-character text was drawn with PIL's `"lt"`
+anchor, which aligns each glyph by its own top (all-caps looked fine, which is how it
+survives review). Also fixed: the talking-head vignette was double-darkening b-roll into a
+porthole; the app clips were one frame short so `-stream_loop` wrapped; and three Whisper
+mis-hearings ("six back abs", "a gold picture", "WuWu stuff") were being burned into the
+captions. `qc.py` is now **15 checks**, and check 15 refuses to pass until `watch.py` has
+run on that exact file.
+
+**Five deliberate deviations from his cut, all logged in `notes.md`:** his 0:03 side-by-side
+before/after cut sequentially instead (banned in paid ads); the product recording held to
+its 0–25.0 s window (his runs past the in-app before/after at 26 s and the email form at
+29 s — QC now template-matches the finished picture against those four banned screens);
+his 0:00 callout dropped because the photo it frames is outside the 9:16 crop; his four
+full-frame AI clips carded instead (1280×720 full-bleed is a 2.67× upscale); and captions
+added, which his cut does not have (Dan's call from attempt 1).
+
+⚠ **THE MUSIC BED IS A MEASURED CHOICE, NOT A HEARD ONE.** Claude cannot listen. His bed
+measures a 0.480 s beat = **125 BPM**; Pixabay "Funk & Breakbeat" measures 0.480 s exactly,
+with the closest band profile of nineteen candidates and the flattest energy over four
+minutes. Pixabay Content Licence — commercial use, **no attribution**. (Kevin MacLeod's
+"Werq" matched 125 BPM exactly too but is CC-BY, which needs perpetual credit and is
+heavily Content-ID fingerprinted — a real risk on a Shorts creative.)
+`AB_music_his-bed-vs-ours.mp4` exists so Dan can judge the FEEL by ear.
+
+**EXACT NEXT ACTION — DAN, two things:** (1) watch `REVIEW_540p_vertical_master.mp4` and
+the 24-second music A/B; (2) **Phase B: cut the script yourself** in
+https://docs.google.com/document/d/1tu9TWhHTolf4vjg__Fah68Mf3KreN33wJS8EVTo3qco/edit —
+every sentence in the ad with its timecode; delete what you don't want, aim for ~190–200
+words. **No cutdown has been designed, deliberately** — attempt 1's was selected by topic
+doctrine and you said it made no sense. The ≤0:59 builds only from your edited script.
+Build dir `/Volumes/Extreme/_edit_work/ad1-8-14/vert9x16/` (the corrected 99-segment
+`edl_final.json` is the thing to keep).
+
+---
+
+### SUPERSEDED by attempt 2 above — attempt 1's rejection analysis kept for the record (2026-08-25, Claude Code)
 
 ⚠ **Dan on both deliverables: "truly awful… definitely won't work."** The dashboard
 check-off was REVERTED. **The meta-failure: the QC gate passed 11/11 on a rejected video
