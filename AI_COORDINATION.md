@@ -33,6 +33,72 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 1 VERTICAL ATTEMPT 3 — **EXECUTED AND DELIVERED, awaiting Dan's watch** (2026-08-26, Claude Code)
+
+`Handoffs/handoff-20260826-ad1-vertical-attempt3.md` executed in full on Fable. **$0.00 AI
+spend** (local Whisper, ffmpeg, PIL, Pexels). No production code, no deploy, no native-retest
+trigger. Skill lessons commit `bb3de74`.
+
+**Delivered over the same filenames in `EDITED ADS 8-20-26/ad1-how-ai-got-me-abs/`:**
+`ad1_vertical_9x16.mp4` (3:52.77), `REVIEW_540p_vertical_master.mp4` (sent in chat), `notes.md`.
+Attempt 2 kept alongside as `ad1_vertical_9x16_ATTEMPT2.mp4`. **QC 15/15**, watch pass on the
+exact delivered file (97/97 boundary strips as consecutive frames, full-frame scan: 0 black,
+0 unexplained freezes), word fidelity re-proven **98.1 %**, and the new review standard ran:
+**his cut vs ours side by side at all 62 beats** (`vert9x16/review_ab/`).
+
+**All 13 revisions worked. The four decisive ones:**
+1. **Captions fixed** — every word + shadow on ONE baseline (`anchor="ls"`), real advance
+   widths. Verified at full res.
+2. **Transitions are HIS, and the sound finding overturns attempt 2.** Measured twice
+   (voice-normalised his-vs-raw at every flash window, both bands): **his flashes are SILENT
+   and his mix contains no whoosh at all** — the 21 "SFX events" were his own consonants.
+   His only real SFX is a ~22 ms click at graphic entrances (4 provable gap instances);
+   `his_tick.wav` is that click lifted from his own render at 183.005, placed at his level.
+   The flash is rebuilt from his render (exact flicker envelope 243/138/162/228/174/174/214,
+   blue→white colour, screen blend, pedestal floods only at peak) and every flash peak now
+   lands EXACTLY ON our cut — his measured property. Phase-matched frame comparison passes.
+3. **The after picture shows at both generation beats** — the app's own "Download Your Future
+   Self" payoff screen cropped above the email form, as cards at 1:14 and 3:19. ⚠ The first
+   asset cut opened on the banned before/after (app transition ends at 27.57 s, asset started
+   27.30) — **caught by the boundary strips, not the plan**; rebuilt from 27.85 and first/last
+   frames verified. His own cut shows this exact screen WITH the form at 3:18.
+4. **Opening per Dan's rewrite** — goal picture on screen 0:00–0:02 as an inset with his thin
+   white callout stroke; before photo ALONE 0:03–0:06 (goal-phone half removed). Built to his
+   timestamped list (his prose said "before" for slot 1 — flag to Dan, one line to change).
+
+**The rest:** "today" photos now 2.85 s (was 1.30); the 0:21 flicker was OUR resplit
+hallucinating two segments pointing at wrong takes — his audio is one continuous run, restored
+(removes both splices AND fixes the sound); the 1:21 fault was worse than diagnosed — the
+stale transcript was 2 s off and "You'd realize" pointed at pure silence; fixed from a fresh
+transcription (take 3 matches his word durations exactly) and verified restored; both dad
+photos with head+stomach, backpack child cropped out; med-ball situps regraded with the
+/findassets V4 curve; ab-wheel replaced with a dumbbell workout (white man ~40, native
+1080×1920); **his exact 0:48 fitness-model photo lifted from his own card frame** (the A/B
+review caught ours was a different model); full-bleed stills + title card given his
+never-static motion (his title measures 0/101 static frames).
+
+**Known remaining differences, all logged in notes.md:** analogous vertical stock at 7 b-roll
+beats where his 16:9 clips can't fill 9:16 without a 2.7× upscale (older-man, alone-gym,
+eating diverge most in feel); our lower thirds/title render smaller relative to frame than
+his 16:9 versions; captions added (Dan's standing request; his cut has none).
+
+**OPEN FOR DAN, three things:**
+1. **Watch `REVIEW_540p_vertical_master.mp4`** (sent in chat).
+2. **The music is still un-ruled-on** — `AB_music_his-bed-vs-ours.mp4` from attempt 2 stands;
+   measured match (125 BPM) but only Dan can judge the feel.
+3. Rev 4 wording check: built to the timestamped list (AFTER 0:00–0:02, BEFORE 0:03–0:06);
+   his prose said "before" first — one line to swap if the prose was the intent.
+4. Rev 11 said more screenshots might come — this session had only the handoff; if more notes
+   exist in the old thread, send them.
+
+**Dashboard: the Key task is NOT checked off** — per the handoff, only after Dan has seen it
+and not rejected it (attempt 1's check-off had to be reverted).
+
+**Phase B (the ≤0:59) still waits on Dan's edited script** in the Google Doc — deliberately
+not designed.
+
+---
+
 ### PAID-SPEND AUDIT (Google Ads + Meta) DELIVERED — read-only, nothing edited (2026-08-26, Claude Code)
 
 Dan asked for an audit of all live paid spend and a ranked list of changes. **Read-only session:
