@@ -289,6 +289,12 @@
       "priority": "key",
       "why": "Phase B of the attempt-2 handoff. Blocked on Dan cutting the script doc (link in AI_COORDINATION.md). No cutdown designed on purpose.",
       "addedAt": "2026-08-26"
+    },
+    {
+      "text": "Execute handoff: Ad 1 vertical ATTEMPT 3 - indistinguishable from Muhammad's edit",
+      "priority": "key",
+      "why": "handoff-20260826-ad1-vertical-attempt3.md - created but not yet run. Dan's 13 revisions to attempt 2; goal is that he cannot tell which video Muhammad edited.",
+      "addedAt": "2026-08-26"
     }
   ],
   "health": [
