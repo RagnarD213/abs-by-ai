@@ -11,7 +11,8 @@
     "assistant::Take out trash",
     "assistant::Dust",
     "assistant::Wipe down counters",
-    "money::Rebuild the morning brief so it changes what Dan actually does"
+    "money::Rebuild the morning brief so it changes what Dan actually does",
+    "money::Check iOS App Store review status (submission 22876374-6723-40d9-b0e2-8e02b7093b86, resubmitted 8/24)"
   ],
   "log": {
     "health::Shower": [
@@ -219,6 +220,7 @@
     "assistant::Take out trash": "2026-08-25",
     "assistant::Dust": "2026-08-25",
     "assistant::Wipe down counters": "2026-08-25",
-    "money::Rebuild the morning brief so it changes what Dan actually does": "2026-08-26"
+    "money::Rebuild the morning brief so it changes what Dan actually does": "2026-08-26",
+    "money::Check iOS App Store review status (submission 22876374-6723-40d9-b0e2-8e02b7093b86, resubmitted 8/24)": "2026-08-26"
   }
 }
