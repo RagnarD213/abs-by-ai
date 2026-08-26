@@ -301,6 +301,12 @@
       "priority": "key",
       "why": "Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md — created but not yet run",
       "addedAt": "2026-08-26"
+    },
+    {
+      "text": "Check iOS App Store review status (submission ccc7a7ae-103b-4f1d-a142-4552e48a456a, resubmitted 8/26 after the 5.1.1(v) rejection)",
+      "priority": "key",
+      "why": "Argued 5.1.1(v) in Resolution Center + shipped the account-based explanation; thread eed31ff7 is still open for Apple's reply",
+      "addedAt": "2026-08-26"
     }
   ],
   "health": [
