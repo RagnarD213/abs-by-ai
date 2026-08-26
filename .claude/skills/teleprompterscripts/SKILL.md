@@ -13,8 +13,9 @@ description: >
 
 # Teleprompter-only copy of a finalized scripts doc
 
-**STATUS: v1 — created 2026-08-11, from the batch-1 run
-("Abs by AI finalized scripts batch 1 - WITH FILMING NOTES" → "… - TELEPROMPTER ONLY").**
+**STATUS: v2 — 2026-08-26, second run: the Shoot 5 doc
+("Abs By AI Shoot 5 … - FILMING SCRIPTS FOR EDITOR" → "Abs By AI Shoot 5 - TELEPROMPTER ONLY").
+v1 was 2026-08-11, the batch-1 ad run.**
 
 ## The one rule that outranks everything else
 
@@ -173,3 +174,33 @@ a read taken mid-sync can look wrong), then:
 - **`clipboard info` returning the right flavour and byte count does not prove
   the paste will use it.** Screenshot after every paste. This trap has now fired
   in four separate sessions across three skills.
+
+
+## Lessons added on the Shoot 5 run (2026-08-26)
+
+- **A bold-only line is NOT reliably a title.** Long-form scripts carry bold
+  *section* headers in exactly the same style as video titles
+  (`**WRAP UP AND CTA**`, `**STRATEGY ONE: AUTOMATE IT WITH AI**`). A
+  "whole line is bold ⇒ heading" rule promotes 10 of those to `<h2>`. **Match
+  titles against an explicit list you enumerated by eye, and drop every other
+  bold-only line** — those are section labels, not spoken, and not read aloud.
+- **Three ad titles in the Shoot 5 doc are malformed in the export**
+  (`**What's The Best Ab Exercise?****` on one line, a bare `****` on the next,
+  then the first spoken line opening with an unclosed `**`). After the bold
+  regex runs, `.strip('*')` the result and discard lines that are nothing but
+  asterisks — otherwise those three titles silently fall through to the
+  section-header rule and vanish.
+- **Sweep B's yield scales with how ad-like the copy is.** 70 of 426 paragraphs
+  had no first/second-person pronoun and every one was genuine spoken copy
+  ("It's a picture.", "AI fixes all three.", "Here's how it works."). Read the
+  list, but do not treat its size as a red flag the way batch 1's 9 suggested.
+- **The clipboard trap fired again, on an empty brand-new doc.** First `cmd+v`
+  did nothing at all — the doc stayed blank while `clipboard info` reported
+  `«class HTML», 114490`. Fix that worked: clear the clipboard
+  (`osascript -e 'set the clipboard to ""'`), re-set the HTML flavor, click into
+  the body, paste. **That is five sessions across four skills now — always
+  screenshot.**
+- **Do not build from a fresh Drive read when you already have the content.**
+  The Shoot 5 run built straight from the local markdown that had produced the
+  source doc minutes earlier, so the source was never opened in the editor at
+  all and `fileSize` was provably identical afterwards.

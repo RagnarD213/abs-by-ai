@@ -67,9 +67,18 @@ covered and was left alone — the open questions went back to Dan in chat.
 (the `<h2>` trap in `/scriptwriting` did not fire); whole-doc replace = click body → `cmd+a` →
 `cmd+v` with the osascript HTML clipboard, first try, no undo needed.
 
-**EXACT NEXT ACTION — DAN: answer the B-roll questions in chat** (jiu-jitsu nutrition beat,
-looksmax face shots, sleep shot on the last-ten-pounds short, and whether the shot lists at the
-top of the workout shorts should be split into inline placement cues). Nothing is blocked.
+**TELEPROMPTER-ONLY COMPANION DOC BUILT SAME SESSION (`/teleprompterscripts`):**
+**Abs By AI Shoot 5 - TELEPROMPTER ONLY** — `1cffEHft03LeXtMd4y7GeEvyEDHh7uNVaZFGElQS9mGo`.
+Scripts only, no outlines, Dan's order: website videos · short-form ads · long-form talking ·
+short-form talking · short-form workouts. **5 sections, 40 scripts, 426 spoken paragraphs.**
+Stripped: 124 bracketed cues, 14 production notes, 10 bold script-section headers, 2 runtime
+lines. Verified against the built list — **exact paragraph-sequence match, 426/426**, and all
+eight zero-checks pass (no brackets, B-ROLL, COLD OPEN, drive URLs, .mp4, [END], production
+notes, runtime lines). **The source doc was never opened** — built from the local markdown, and
+its `fileSize` (49548) and `modifiedTime` are unchanged, which proves it.
+
+**EXACT NEXT ACTION — DAN: answer the B-roll questions in chat** — **ANSWERED 2026-08-26: all four
+declined, leave them out.** Nothing is blocked.
 
 ---
 
