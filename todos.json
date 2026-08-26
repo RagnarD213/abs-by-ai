@@ -541,6 +541,13 @@
       "recurring": false,
       "addedAt": "2026-08-26",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Put pool tile cleaning products away",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-08-26",
+      "addedBy": "assistant"
     }
   ]
 }
