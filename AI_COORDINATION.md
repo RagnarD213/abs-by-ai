@@ -82,7 +82,67 @@ declined, leave them out.** Nothing is blocked.
 
 ---
 
-### AD 1 VERTICAL ATTEMPT 2 **DELIVERED — Phase A done, Phase B waits on Dan** (2026-08-26, Claude Code)
+### AD 1 VERTICAL ATTEMPT 3 — **HANDOFF WRITTEN, NOT EXECUTED** (2026-08-26, Claude Code)
+
+Dan reviewed attempt 2 and gave **13 revisions**. `Handoffs/handoff-20260826-ad1-vertical-attempt3.md`
+written; Key dashboard task added. **He is running this one on Fable**, with the goal stated
+in his own words: *"make the video seem like Muhammad A edited it — if I watch his video and
+the one you made, I should not be able to tell who edited which. If necessary, take things
+directly from his video, like the transitions and the sound effects, and even the stock
+footage."*
+
+**The four that decide it:**
+
+1. **Captions are visibly broken — diagnosed, and it is my bug.** `captions.py` draws each
+   WORD with PIL's `anchor="lt"`, so a word with no ascender ("more", "you", "your") drops
+   below its neighbours: that is Dan's "some words on a different line". The same fault was
+   found and fixed in `vlib.draw_type` during attempt 2 and **not carried across to the
+   identical code in `captions.py`.** Two more in the same eight lines: the drop shadow is
+   laid out from the whole string at `"lt"` so it sits on a different baseline from the
+   words, and `text_size(ww + ' ')` advances by INK width (getbbox ignores a trailing
+   space) so the line crowds and drifts left of its own shadow. Fix: `anchor="ls"` at
+   `CAP_Y + font.getmetrics()[0]`, advance with `font.getlength()`.
+2. **Transitions must be HIS, literally** — "this swiping shit is awful". Nothing from
+   `sfxlib` survives. Extract his flash as real frames (subtract a conform to isolate the
+   additive light-leak) and lift his actual SFX samples. ⚠ Worth knowing before building:
+   the transient detector found **21 SFX in his mix and ZERO on any of his ten flashes** —
+   so establish by hand what sound he actually wants on a transition rather than assuming.
+3. **The ad never shows the AFTER picture** at 1:14 and 3:19, because the product recording
+   is capped at 0–25.0 s to stay clear of the banned in-app before/after (26 s) and email
+   form (29 s) — and that cap also cuts it off before the payoff. The ban is on the
+   SIDE-BY-SIDE, not on the after image: show the after on its own, sequentially.
+4. **0:00–0:06 is "not close to what Muhammad made at all."** His explicit rewrite:
+   0:00–0:02 show Dan's AFTER picture on screen (attempt 2's decision to drop Muhammad's
+   callout because the print sits outside the 9:16 crop is **overruled** — graphic it if it
+   cannot be framed); 0:03–0:06 show the BEFORE picture only, remove the AI after.
+
+**The rest:** hold the "today" photos 1–2 s longer · kill the flicker at 0:21 (three splices
+in half a second, two segments of 0.20 s and 0.43 s; the watch scan already flagged 22.02 s
+at 25× the median frame diff) · the sound at 1:21 is almost certainly the clipped
+contraction the word check already caught at 81.24 s ("You'd" → "You") · use BOTH fat-dad
+photos at 2:13 with head AND stomach in frame · 2:29 uses the ungraded DESCRIPT raw, needs
+the colour-corrected version (⚠ V4 has the old teal/pink lower third burned in across that
+set, so it is not a drop-in — `/findassets` stores a fitted grade curve) · replace the
+ab-wheel clip at 3:29 with an ordinary workout.
+
+⚠ **THE LESSON FOR THE GATE, AND IT IS THE SAME ONE AS LAST TIME: attempt 2 passed 15/15
+and Dan still found 13 problems, EIGHT of which a human sees in one viewing and no metric
+can see at all.** The handoff adds a review step the metrics cannot fake — his cut and ours
+side by side at the same timecode at every one of his 47 beats, answering the question Dan
+is actually asking: could I tell which is which?
+
+**Dan has NOT ruled on the music.** He was asked to judge `AB_music_his-bed-vs-ours.mp4`
+and did not mention it — that is "not yet answered", not approval.
+
+⚠ **`/Volumes/Extreme` was UNMOUNTED at the end of this session.** Mount it first; every
+path in the handoff is on it.
+
+**EXACT NEXT ACTION — execute `Handoffs/handoff-20260826-ad1-vertical-attempt3.md` in a
+fresh session.** Phase B (the ≤0:59) is unchanged and still waits on Dan's edited script.
+
+---
+
+### AD 1 VERTICAL ATTEMPT 2 — delivered, then REVISED by Dan (2026-08-26, Claude Code)
 
 `Handoffs/handoff-20260825-ad1-vertical-attempt2.md` executed. **$0.00 AI spend** (local
 Whisper, ffmpeg, PIL, Pexels, Pixabay). No production code, no deploy, no native-retest
