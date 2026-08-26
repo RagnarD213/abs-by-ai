@@ -33,6 +33,46 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### SHOOT 5 DOC REORGANIZED + 7 unfilmed outlines imported (2026-08-26, Claude Code)
+
+`Abs By AI Shoot 5 Outlines & Scripts With Notes`
+(`1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`) rebuilt into Dan's 7 sections, 47 pages.
+**$0.00 AI spend, no production code, no deploy, no native-retest trigger.**
+
+Order (Dan's call this session — the ads and the website VSL go **after the outlines, before
+every other script**): 1 long-form talking outlines · 2 long-form workout outlines ·
+3 short-form ad scripts · 4 website video script · 5 long-form talking teleprompter scripts ·
+6 short-form talking teleprompter scripts · 7 short-form workout teleprompter scripts.
+All 7 are real Heading 1s, so the doc now has a working outline pane.
+
+**7 unfilmed outlines imported** from `1ND_BTQKfIIBdfBC_WJGhxc_SZHtQFh32HI3ksD_dIVo`
+(Pushup Masterclass → workout; Zepbound, AI future body, alcohol, why you're not losing
+weight, lockscreen trick, and What I Eat In A Day At 40 last with its "cannot be filmed in one
+shoot day" note → talking). **Only 2 outlines were deleted** — the ones sitting above the two
+finished long-form scripts, per Dan's rule.
+
+⚠ **THE WHOLE DOC WAS REPLACED IN ONE PASTE, so integrity was proved by diff, not by eye.**
+566 substantive source lines checked into the rebuild, then the live doc re-read from Drive and
+diffed against the intended output: **0 missing of 762 lines.** Original export kept at
+`<scratchpad>/shoot5.md`; Docs version history is the other rollback.
+
+**B-roll pass was scoped to the short-form scripts only (Dan's instruction: only where certain).**
+Three edits: the jiu jitsu short had **zero** visual cues and got two filming cues (rolling live
+in the gi; conditioning/ab work); the last-ten-pounds short got the salad b-roll **and the
+`[NO ON-SCREEN DRUG NAME]` standing-rule note its two sibling Zepbound shorts already carry**;
+the kettlebell-deadlift cue had an unclosed bracket, now closed. Everything else was already
+covered and was left alone — the open questions went back to Dan in chat.
+
+**Docs mechanics that held:** `<h1>` pasted as a real Heading 1 with no gray-formatting trap
+(the `<h2>` trap in `/scriptwriting` did not fire); whole-doc replace = click body → `cmd+a` →
+`cmd+v` with the osascript HTML clipboard, first try, no undo needed.
+
+**EXACT NEXT ACTION — DAN: answer the B-roll questions in chat** (jiu-jitsu nutrition beat,
+looksmax face shots, sleep shot on the last-ten-pounds short, and whether the shot lists at the
+top of the workout shorts should be split into inline placement cues). Nothing is blocked.
+
+---
+
 ### AD 1 VERTICAL ATTEMPT 2 **DELIVERED — Phase A done, Phase B waits on Dan** (2026-08-26, Claude Code)
 
 `Handoffs/handoff-20260825-ad1-vertical-attempt2.md` executed. **$0.00 AI spend** (local
