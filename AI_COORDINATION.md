@@ -33,6 +33,65 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### PAID-SPEND AUDIT (Google Ads + Meta) DELIVERED — read-only, nothing edited (2026-08-26, Claude Code)
+
+Dan asked for an audit of all live paid spend and a ranked list of changes. **Read-only session:
+no campaign, budget, bid, creative or setting was touched on either platform. $0.00 AI spend, no
+production code, no deploy, no native-retest trigger.** Findings delivered in chat.
+
+**Google Ads 342-717-0837, Aug 18–26 (9 days): $511.29 total.**
+
+| campaign | budget | spend | impr | clicks/eng | conv | cost/conv |
+|---|---|---|---|---|---|---|
+| Brand - Search - US | $10/day, limited | $171.16 | 101 | 18 | 9 | $19.02 |
+| Search - US - Non-Brand - AI Abs Preview | $10/day, limited | $135.15 | 230 | 30 | 10 | $13.52 |
+| DGEN geo tier 2 (**id 24122099676**) | $10/day | $136.75 | 157,708 | 9,170 | 1,553 | $0.09 |
+| DGEN geo tier 1 | $15/day, limited | $59.02 | 5,993 | 230 | 26 | $2.27 |
+| DGEN [RMKTG] youtube viewers | $5/day, learning | $9.22 | 45 | 7 | 0 | — |
+
+**Cost per SUBSCRIBER (the metric Dan asked for) is NOT the conversion count.** Campaign
+24122099676's ad-group view shows **792 earned subscribers on $136.75 = $0.17 each**, against
+1,553 "conversions" — the conversion column is ~2× the real subscriber count. Tier 1 was not
+measured directly (the earned-subscriber column would not scroll into view); at tier 2's
+792/1,553 ratio it is ≈13 subs ≈ $4.50 each.
+
+**Zero disapprovals on either platform.** All 29 Google ads are Eligible or Paused; Meta Account
+Quality shows one outstanding issue and it is a **different** ad account, **"BecomeSharp" —
+Restricted**, sitting in the same business portfolio (a risk to the healthy account, worth
+resolving or removing). Google shows an account-level banner **"Your account is unsuspended"** —
+a past suspension, now lifted.
+
+⚠ **THE BIGGEST FINDING IS A MEASUREMENT ONE: the `Purchase` and `Subscribe` conversion goals are
+both flagged `Misconfigured` in Goals → Summary.** Only `Submit lead form` (19), `Sign-up` (1),
+`Engagement` and `YouTube follow-on views` are Active. So **every dollar of search spend is being
+optimised toward an email capture at ~$16, and no membership sale has ever been attributable.**
+Fix this before changing anything else — every other decision below is unmeasurable until it is.
+
+**Other measured problems:** the "Brand" search campaign carries a **$40 target CPA** and its
+search terms are generic ("abs ai generator", "ai abs") at $12–$14 CPCs — it is not a brand
+campaign; 3 of 6 RSAs are **Ad strength "Poor"**; tier 2 buys ~$0.17 subscribers from geos that
+cannot buy a $19.99/mo membership while tier 1 (the buyers) is budget-limited at $15/day.
+
+**Meta act 2143998876461525, last 30 days: $83.38 total.** Two campaigns, both optimised for
+**ThruPlays** — `[DAN] [ENGAGEMENT]` $54.19 / 6,231 ThruPlays and `[DAN] [ENGAGEMENT] IG GEO`
+$29.19 / 47,953 ThruPlays (375,965 impr, 341,963 reach). No link-click, lead or purchase objective
+anywhere. The IG GEO ad set is flagged **"Location limited"** and carries **unpublished edits** —
+Ads Manager shows **"Review and publish (3)"** pending drafts. Left untouched deliberately.
+
+⚠ **NEITHER PLATFORM ADVERTISES THE PRODUCT.** All 4 non-brand search RSAs and both brand RSAs sell
+only the transformation generator ("add abs to photo", "AI abs generator"); all 69 search terms are
+image-editing intent. Every Demand Gen and Meta creative is an organic workout clip (v-sit twist,
+top 10 ab tips, toe touch, spiderman plank, 1-minute ab workout). **AI Trainer, AI Nutritionist,
+Supplement Audit and Sleep Coach appear in ZERO ads and ZERO keywords** — even though
+`app-store-assets/LISTING_COPY.md` was deliberately rewritten on 2026-08-21 to lead with exactly
+those features. On the site they also sit *behind* the generator (hub tiles + post-generation
+bridge), so a feature-led ad would need a landing page that does not exist yet.
+
+**EXACT NEXT ACTION — DAN: he launches/edits campaigns himself.** The ranked list is in chat; #1 is
+fixing the Purchase/Subscribe conversion goals.
+
+---
+
 ### IG IMAGE GAP-FILL — **63 of 70 SCHEDULED AND VERIFIED; 7 BLOCKED ON BLOTATO'S 200-POST PLAN CAP** (2026-08-26, Claude Code)
 
 `Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md` executed. **$0.00 AI spend, no production
@@ -1743,9 +1802,13 @@ to follow in a later session once finalized.
 `Handoffs/handoff-20260822-youtube-ads-geo-restructure.md` being executed live in the "Abs by AI"
 Google Ads account (342-717-0837), campaign `[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts |
 geo tier 1 | ALL CONTENT` (campaignId 24122099676) — this Demand Gen campaign, not a classic Video
-campaign, is Dan's "All Countries campaign." Account is under danroseconsulting@gmail.com →
-"Social Response Marketing MCC" → "Abs by AI" (was not visible in the top-level account picker; had
-to search "Abs" or drill into the MCC to find it).
+campaign, is Dan's "All Countries campaign." ⚠ **CORRECTED 2026-08-26: the account is under
+"Daniel Rose Marketing MCC" (324-458-6445), NOT Social Response Marketing MCC** — Social Response
+has zero client accounts linked. It is not in the top-level picker; type "abs" in the account
+chooser search box. Direct URL once inside: `ads.google.com/aw/campaigns?ocid=8444849202&__c=1207582498`.
+Also corrected: campaign 24122099676 is now named **geo tier 2** (Steps 1–2 excluded the 84 tier-1
+countries from it), and a separate **geo tier 1** clone plus a **[RMKTG] youtube viewers**
+campaign now exist — so handoff Step 3 was completed by Dan after that session.
 
 **STEP 0 — ANSWERED, and it's the good outcome.** The campaign goal is "YouTube engagements" with
 YouTube conversions explicitly set to **"YouTube channel subscriptions"** ("New subscribers to your
