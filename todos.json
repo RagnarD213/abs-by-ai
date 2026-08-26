@@ -283,6 +283,12 @@
       "priority": "high",
       "why": "Biweekly unemployment claim window",
       "addedAt": "2026-08-26"
+    },
+    {
+      "text": "Build the 0:59 vertical Ad 1 from Dan's edited script",
+      "priority": "key",
+      "why": "Phase B of the attempt-2 handoff. Blocked on Dan cutting the script doc (link in AI_COORDINATION.md). No cutdown designed on purpose.",
+      "addedAt": "2026-08-26"
     }
   ],
   "health": [
