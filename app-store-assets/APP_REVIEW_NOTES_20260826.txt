@@ -1,0 +1,23 @@
+GUIDELINE 5.1.1(v) - PLEASE RECONSIDER: THE MEMBERSHIP IS ACCOUNT-BASED. The subscription is not a feature unlock. It is a coach that stores and rewrites the subscriber's own plan, and every member feature is server-side, keyed to that user's record. The AI Trainer keeps a 7-stage progression in a per-user program row and promotes or holds the user each block based on the workouts THAT user logged. The AI Nutritionist stores a meal plan built from that user's intake and adjusts it at every check-in. Macro Tracker, Progress Log, Sleep Coach and Supplement Audit each read and write that user's own history. None of it can exist without an account to hold it, and none is transferable between people. Guideline 5.1.1 permits required registration tied to account-specific functionality, which is precisely this case.
+
+We collect the minimum an account can have: an email address and a password. No name, phone, address, date of birth, contacts or social sign-in. The account is deletable in-app at Member Hub > Account > Delete my account.
+
+We have also done what your message suggested, and it is live now: the membership screen states, above the price and before the buy button, that the plan and progress are stored in the account and that this carries the membership to the user's other Apple devices; the sign-up screen reached from Subscribe repeats it. If you still consider the requirement inappropriate we will change it - please tell us which member feature you judge not to be account based, because from our side each one is that user's own stored plan.
+
+SIGN-IN: use the demo account above. It is a complimentary full member, so every feature is reachable with no payment, and for that reason it deliberately shows NO purchase UI. To reach the In-App Purchase flow, sign out and create a free account (email and password only), then Member Hub > Membership.
+
+GUIDELINE 1.1: self-only by design. A user visualizes their own goal from their own photo; there is no way to browse, receive or alter anyone else's image, and results stay private to the account. Photos of apparent minors are refused and inputs and outputs are moderated. A consent screen names every AI provider before a photo is sent, and every image is labeled AI-generated and "illustrative goals, not guarantees".
+
+GUIDELINE 2.1(b): both auto-renewable subscriptions are submitted with this version, each with an App Review screenshot; binary 1.0 (3) is attached.
+
+GUIDELINE 3.1.1 / 3.1.2: Monthly (com.absbyai.app.membership.monthly, $19.99/mo) and Annual (com.absbyai.app.membership.annual, $69.99/yr), each with a 7-day free trial, are bought by In-App Purchase. Title, duration and price are read from StoreKit at runtime; the screen carries the auto-renewal disclosure, Restore Purchases, and Terms and Privacy links. Entitlements are verified server-side. The App Description links the Terms of Use (EULA). Printed posters and canvases are physical goods, outside IAP.
+
+WHAT IT DOES: fitness planning for adults losing body fat. Upload a photo, get an AI image of the goal, then the plan to reach it. MAIN FLOW: home > Add your photo > Generate my goal image > Continue to my hub. No sample files needed.
+
+GUIDELINE 1.4.1: general fitness and wellness, not a medical device; it does not diagnose or treat anything. Health screens carry a not-medical-advice disclaimer and a Sources card at absbyai.com/sources.
+
+NO USER-TO-USER CONTENT: no feed, sharing or messaging, so no reporting or blocking mechanism.
+
+EXTERNAL SERVICES (all processors for us; no data broker or ad network gets user data): Anthropic, Google Gemini, Replicate (Seedream, FLUX) for image and plans; Apple StoreKit with RevenueCat for subscriptions; Stripe for printed goods only; Printify; Resend; PostHog; Railway (US).
+
+PRIVACY: absbyai.com/privacy. REGIONS: US storefront only. DEVICES TESTED: iPhone 17 Pro on iOS 26 via TestFlight; iOS 26.5 simulator on iPhone 17 Pro/Pro Max/17e/Air and iPad Pro 13-inch, iPad Air 11-inch, iPad mini.

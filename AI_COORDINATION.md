@@ -1153,6 +1153,94 @@ from the Chrome extension (check existing Drive folders first). $0.00 AI spend, 
 no deploy risk beyond the docs/skill commit. **CLOSED: Dan approved and sent the doc to the editor
 2026-08-23. Waiting on the editor's next cut — review it with /revisions when it arrives.**
 
+### iOS FIFTH REJECTION (5.1.1(v)) — ARGUED, UX FIXED, RESUBMITTED 2026-08-26 (Claude Code)
+
+Apple rejected `22876374` on **2026-08-26 21:18 UTC**, reviewing **1.0 (3) on an iPad Air
+11-inch (M4)**, under **Guideline 5.1.1(v) — Legal — Data Collection and Storage**:
+*"the app requires users to register with personal information to purchase In-App Purchase
+products that are not account based."* **$0.00 AI spend. One web-side product change,
+deployed and live-verified. No new binary.**
+
+⚠ **ONLY THE APP-VERSION ITEM WAS REJECTED.** The subscription group and both subscriptions
+stayed `READY_FOR_REVIEW`, so the 3.1.2 EULA fix and the 2.1(b) IAP fix both held, and
+**the 1.1 body-morph objection did not recur** — that argument has now survived two rounds.
+
+**THE CAUSE IS IN OUR OWN REVIEW NOTES.** They said *"To see the In-App Purchase flow, sign
+out or create a new free account, then Member Hub > Membership."* The reviewer did exactly
+that and hit `handleIapSubscribe()`, which calls `showAuthScreen('signup')` when
+`!isLoggedIn()` — a bare email/password form with **no stated reason**, in front of a purchase.
+
+**DECISION: ARGUED IT, because the membership genuinely IS account-based and the code proves
+it.** Every membership feature is `requireAuth` + `isActiveMembership(userRow)`
+(`/api/program/week`, `/program/checkin`, `/program/equipment-track`, `/mealplan/swap`,
+`/mealplan/checkin`, `/counsel/followup`, `/supplement/brand`, `/progress/recap`). The
+decisive one is **server.js:7114**: `/api/program/checkin` reads
+`programs WHERE id=$1 AND user_id=$2`, counts how many of the 28 workouts **that** user
+logged, and promotes or holds their stage. A 7-stage ladder keyed on `user_id` is not a
+feature toggle. Also: **sign-up collects email + password and nothing else** — no name,
+phone, address, DOB or social sign-in — and `parseAppUserId()` (server.js:6099) rejects
+RevenueCat's anonymous `$RCAnonymousID:…`, so an anonymous purchase has nothing to attach to.
+Guideline 5.1.1 explicitly permits required registration *"tied to account-specific
+functionality."*
+
+⚠ **THE LEVERAGE THAT MADE THIS CHEAP: the iOS app loads absbyai.com live, so the purchase
+screen is WEB-SERVED.** The fix reached the already-reviewed binary **1.0 (3) with a deploy,
+no TestFlight cycle.** Worth remembering for every future metadata/UX rejection.
+
+**Shipped (`087a130`), live-verified on absbyai.com:** the paywall (`#iapSection`) now leads,
+above the plan cards and the buy button, with why the membership is stored in an account; and
+a new `purchase` entry context on the auth screen states the reason, the multi-device benefit
+**Apple's own message suggested explaining**, that only email + password are collected, and
+that the account is deletable. Both IAP entry points (subscribe, restore) pass it. Verified
+the note shows ONLY in that context — plain login/signup, the existing `trialGate` path and
+`forgot` are all untouched.
+
+**App Review Notes rewritten to LEAD with the 5.1.1(v) argument** (3,998/4,000 chars, applied
+by `PATCH /v1/appStoreReviewDetails/{id}`, verified live). Kept in the repo as
+`app-store-assets/APP_REVIEW_NOTES_20260826.txt`; the letter is
+`app-store-assets/APP_REVIEW_REPLY_20260826_G511v.md`. **Supersedes `APP_REVIEW_NOTES_20260822.txt`.**
+
+⚠ **THE TRAP IN THIS FILE WAS OBEYED AND IT PAID OFF.** The Resolution Center reply
+(2,430 chars) was posted **BEFORE** cancelling the submission — and afterwards the thread is
+**still open** (`canDeveloperAddNote: true`), unlike 2026-08-22 when removing the version
+first killed the channel. **Rule confirmed: reply first, then do submission surgery.**
+
+**RESOLUTION CENTER IS READABLE AND WRITABLE FROM CODE — this was guesswork before.** The
+public ASC API carries no rejection text; the ASC web UI's **iris** API does, using the
+browser's own logged-in session:
+- `GET /iris/v1/apps/{app}/resolutionCenterThreads` → threads (`threadType`, `canDeveloperAddNote`)
+- `GET /iris/v1/resolutionCenterThreads/{id}/resolutionCenterMessages` → the rejection text
+- Replying is **two steps**: `POST /iris/v1/resolutionCenterDraftMessages`
+  (`messageBody` + `resolutionCenterThread` relationship) → then
+  `POST /iris/v1/resolutionCenterMessages` with a **`createFromDraftMessage`** relationship.
+  A malformed POST 409s with the required relationship name, so the schema can be probed
+  without creating anything.
+
+**RESUBMITTED as `ccc7a7ae-103b-4f1d-a142-4552e48a456a` — `WAITING_FOR_REVIEW`, all 4 items
+`READY_FOR_REVIEW`** (app version 1.0 build 3, group 22294450, Monthly, Annual), submitted
+2026-08-26 22:53 UTC. Version and both subscriptions read `WAITING_FOR_REVIEW`.
+
+**MECHANICS, all re-confirmed this session:**
+- A rejected version **cannot** be resubmitted in place: `PATCH {submitted:true}` returns
+  409 *"Version is not ready to be submitted yet."* You must cancel first.
+- `PATCH /v1/reviewSubmissions/{old}` `{"canceled": true}` → CANCELING → COMPLETE in ~10 s.
+- Cancelling flips the group and both subscriptions to **Developer Rejected /
+  READY_TO_SUBMIT** — they detach and must be re-added.
+- `POST /v1/reviewSubmissionItems` takes **only** `appStoreVersion`. `subscription` and
+  `subscriptionGroup` are rejected as unknown relationships — **and the iris API rejects them
+  too**, so there is no code path. They must be added in the UI:
+  Subscriptions → group → **Add for Review → the existing "Draft iOS Submission"**, then the
+  SAME on **each** subscription. Adding the group does NOT add its subscriptions; all three
+  are separate items.
+- ASC's SPA renders fine but **screenshots lag behind it** — `get_page_text` / `find` show the
+  real state when a screenshot still looks blank. Use element refs, not remembered coordinates.
+
+**EXACT NEXT ACTION — DAN: none. Waiting on Apple.** If they hold the 5.1.1(v) line, the
+fallback is spec'd at the bottom of `APP_REVIEW_REPLY_20260826_G511v.md`: let the purchase
+happen anonymously and offer registration afterwards (RevenueCat aliases the anonymous
+app-user id to `users.id` on `logIn()`), which needs a device-scoped path in
+`parseAppUserId`/the webhook — and is still web-served, so still no new binary.
+
 ### iOS FOURTH REJECTION (3.1.2 EULA) FIXED — resubmitted 2026-08-24 (Claude Code)
 
 Apple auto-rejected submission `a5fcdbf2` on 2026-08-23 under **Guideline 3.1.2**: the app offers
