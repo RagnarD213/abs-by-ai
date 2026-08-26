@@ -33,6 +33,60 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### IG IMAGE GAP-FILL — **63 of 70 SCHEDULED AND VERIFIED; 7 BLOCKED ON BLOTATO'S 200-POST PLAN CAP** (2026-08-26, Claude Code)
+
+`Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md` executed. **$0.00 AI spend, no production
+code, no deploy, no native-retest trigger.** Both Instagram queues now have an image post on nearly
+every day that had no video.
+
+⚠ **THE BLOCKER IS A HARD ACCOUNT LIMIT, NOT A BUG. Blotato's plan caps the workspace at 200
+scheduled posts** (`422 code 20010`). The queue held 137; 63 fills took it to exactly 200 and the
+next create was refused. **The remaining 7 need Dan to either delete queued posts or upgrade the
+plan — both are his call (spend / destructive), so the run stopped there rather than clearing space.**
+
+Not created: `abs.by.ai` Oct 24 mirror · `danrosefit` Oct 25 + its Oct 26 mirror · and the four
+`abs.by.ai`-only originals **Aug 27, Sep 8, Sep 15, Sep 22**. Re-run
+`scripts/blotato/iggap_fill.py --apply` once there is room — **it is idempotent via `iggap_state.json`** and
+will create exactly those 7.
+
+**What landed:** 33 `danrosefit` originals (Aug 28 → Oct 23), 30 `abs.by.ai` mirrors at their
+original's time **+24h** with the CTA swapped to `Full breakdown from @danrosefit 👇`. All at 22:00
+UTC, matching the established slot. **Verified against a fresh live pull, not the create responses:
+63/63 match on caption text, first comment, 22:00 time, feed-post type and single image; zero days
+where either account posts twice; all 30 mirrors correctly paired to their original.**
+
+⚠ **THE HANDOFF'S CTA WAS WRONG AND THE LIVE QUEUE OVERRULED IT.** It specified `AbsByAI.com` in the
+caption. The 27 queued `@danrosefit` reels actually use **"Comment ABS and I'll send you the free AI
+preview 👇"** — the comment-to-DM CTA from the growth plan. Matched the queue for consistency.
+**This means 33 more posts now promise a DM that only ManyChat can send, and ManyChat is still not
+live** — that exposure already existed on the queued reels, but this triples it. Worth Dan's attention.
+
+⚠ **THE IMAGE SOURCE IS NOT THE ONE THE HANDOFF EXPECTED.** `Short-form video content/instagram-danrosefit/`
+holds only highlight covers, a profile photo and the week-1 carousel — no usable physique pool. The
+real library was already in Blotato: **~50 pool-shoot photo posts queued on FACEBOOK**, each with a
+distinct photo and a tip written in Dan's register. **37 distinct ones were reused** (image + adapted
+caption), so nothing was generated and no photo is used twice.
+
+**Two corrections made mid-build, both worth knowing:**
+1. **Instagram accounts advertise `requiredFields: mediaType story|reel`, but a plain feed image
+   posts fine with `mediaType` omitted.** Confirmed on a single test post before the batch.
+2. **Blotato RE-HOSTS the image on create under a new UUID**, so verifying by `mediaUrls` reports
+   every post missing. Match on caption text instead. This cost one false "38 missing" scare.
+
+Captions were re-authored rather than copied: **every em dash removed** per the no-AI-tells rule, FB's
+link CTA replaced, 5 hashtags each. Aug 26 itself was dropped — its 22:00 UTC slot had already passed.
+
+**Note against the growth plan:** it found photos under-reach reels and recommended dropping them from
+the IG queue. That finding was about photos **displacing** reel slots; here they only fill days that
+were otherwise empty, so it does not conflict. All 63 are individually deletable if Dan disagrees.
+
+**Dashboard: `business::Execute handoff: fill danrosefit + abs.by.ai image-post gap days (write
+captions, schedule in Blotato)` deliberately LEFT UNCHECKED** — 7 gap days are genuinely still empty.
+Check it off when the remaining 7 land.
+
+**EXACT NEXT ACTION — DAN: decide how to free 7 slots** (delete queued posts, or upgrade the Blotato
+plan), then re-run the script above.
+
 ### SHOOT 5 DOC REORGANIZED + 7 unfilmed outlines imported (2026-08-26, Claude Code)
 
 `Abs By AI Shoot 5 Outlines & Scripts With Notes`
