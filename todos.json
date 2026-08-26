@@ -87,18 +87,6 @@
       "addedAt": "2026-08-12"
     },
     {
-      "text": "Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
-      "priority": "key",
-      "why": "handoff-20260813-longform-edit-pipeline.md — created but not yet run",
-      "addedAt": "2026-08-13"
-    },
-    {
-      "text": "Execute handoff: Google Ads offline conversion upload (Phase B)",
-      "priority": "key",
-      "why": "handoff-20260818-phase-b-offline-conversion-upload.md — created but not yet run",
-      "addedAt": "2026-08-18"
-    },
-    {
       "text": "Execute handoff: Swap Dan's phone to the public Play build",
       "priority": "key",
       "why": "handoff-20260818-android-public-build-swap.md — created but not yet run",
@@ -237,12 +225,6 @@
       "addedAt": "2026-08-23"
     },
     {
-      "text": "Check iOS App Store review status (build 1.0 (3), submission a5fcdbf2-3eca-412e-8c20-b1f075a32c24)",
-      "priority": "key",
-      "why": "2026-08-23 planning — resubmitted 2026-08-22 with the 1.1 + IAP fixes, all 4 items were WAITING_FOR_REVIEW; Dan asked to check rejection status",
-      "addedAt": "2026-08-23"
-    },
-    {
       "text": "Review Zeshan's video cut and send round-1 revisions",
       "priority": "key",
       "addedAt": "2026-08-24",
@@ -255,45 +237,15 @@
       "why": "2026-08-24 planning — trainer, nutritionist, supplement audit, sleep coach, exercise demos all shipped since the current creative was written; ads may still sell only image generation."
     },
     {
-      "text": "Build an Instagram follower-growth plan (presentable profile + real subscriber count)",
-      "priority": "high",
-      "addedAt": "2026-08-24",
-      "why": "2026-08-24 planning — Dan wants IG to be something he can show people and that has real follower numbers; currently posting without a growth strategy."
-    },
-    {
-      "text": "Audit everyone who has generated an image: did they get the emails, and what did they generate",
-      "priority": "key",
-      "addedAt": "2026-08-24",
-      "why": "2026-08-24 planning — verify the Resend welcome sequence actually fired for real users, and review generated output quality for aesthetic/prompt regressions."
-    },
-    {
       "text": "Check iOS App Store review status (submission 22876374-6723-40d9-b0e2-8e02b7093b86, resubmitted 8/24)",
       "priority": "key",
       "why": "3.1.2 EULA fix resubmitted 2026-08-24 — 4 items waiting for review",
       "addedAt": "2026-08-24"
     },
     {
-      "text": "Review Mohammad A video",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-24"
-    },
-    {
       "text": "Execute the Instagram growth plan (7 profile fixes + Blotato queue rework)",
       "priority": "key",
       "why": "Handoffs/handoff-20260824-instagram-migration-danrosefit.md — created 2026-08-24, not yet run. Blocked on Dan connecting @danrosefit in Blotato.",
-      "addedAt": "2026-08-24"
-    },
-    {
-      "text": "Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit",
-      "priority": "key",
-      "why": "handoff-20260824-abwheel-muhammad-standard-rebuild.md — created but not yet run; Phase A video, Phase B skill gates, Phase C questions for Dan",
-      "addedAt": "2026-08-24"
-    },
-    {
-      "text": "Connect @danrosefit in Blotato, then run scripts/blotato/danrosefit_migration.py --apply",
-      "priority": "key",
-      "why": "Steps 2-5 of the Instagram migration are written and dry-run clean (9/9 invariants); only the OAuth connection is missing",
       "addedAt": "2026-08-24"
     },
     {
@@ -337,38 +289,32 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-24"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-24"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-24"
+      "recurring": true
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-24"
+      "recurring": true
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-24"
+      "recurring": true
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-24"
+      "recurring": true
     }
   ],
   "personal": [
@@ -407,13 +353,6 @@
       "recurring": false,
       "addedAt": "2026-08-22",
       "why": "2026-08-22 planning — Saturday routine, needs a salad-stock check"
-    },
-    {
-      "text": "Meal prep with Brittany (week of 2026-08-24)",
-      "priority": "med",
-      "recurring": false,
-      "addedAt": "2026-08-22",
-      "why": "2026-08-22 planning — Dan cooking meal prep with Brittany next week"
     }
   ],
   "assistant": [
