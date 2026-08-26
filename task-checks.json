@@ -19,7 +19,8 @@
     "assistant::Empty/load dishwasher",
     "assistant::Cut up boxes from artificial hedge install and put in empty room",
     "assistant::Take out trash",
-    "assistant::Put pool tile cleaning products away"
+    "assistant::Put pool tile cleaning products away",
+    "assistant::Dust"
   ],
   "log": {
     "health::Shower": [
@@ -235,6 +236,7 @@
     "assistant::Empty/load dishwasher": "2026-08-25",
     "assistant::Cut up boxes from artificial hedge install and put in empty room": "2026-08-25",
     "assistant::Take out trash": "2026-08-25",
-    "assistant::Put pool tile cleaning products away": "2026-08-25"
+    "assistant::Put pool tile cleaning products away": "2026-08-25",
+    "assistant::Dust": "2026-08-25"
   }
 }
