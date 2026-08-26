@@ -386,6 +386,56 @@ carries every decision through unchanged; a re-cut re-litigates all of them.
 
 ---
 
+## [A3] Attempt 3 (2026-08-26) — what "indistinguishable from his edit" actually took
+
+Dan's bar for attempt 3: *"I should not be able to tell who edited which one. If
+necessary, take things directly from his video."* Eight lessons, each paid for:
+
+1. **The "21 SFX events" were OVER-DETECTION OF SPEECH CONSONANTS.** The decisive test is
+   a voice-normalised comparison of his mix against the EDL-mapped raw at the same
+   moments, in BOTH the 3–14 kHz and 250–2500 Hz bands: every flash "transient" was Dan's
+   own sibilance (ratios 0.4–1.4×). **His flashes are silent, and his whole mix contains
+   NO whoosh** — only a ~22 ms high-band click (centroid ~10 kHz) at graphic entrances,
+   provable at exactly four gap instances. Lift the click from a silent gap in his own
+   render and place it at his measured level (peak ≈ 1.3× voice RMS). The synthesised
+   whooshes attempt 2 shipped at his "measured density" were themselves the "swiping
+   shit" Dan hated.
+2. **His content cuts land EXACTLY ON the flash peak** (verified on three instances where
+   a static graphic precedes the flash). Place the template peak ON our beat boundary —
+   attempt 2's flash windows sat 0–5 frames off our cuts, which reads as a flash NEAR a
+   cut instead of one hiding it. And his flash is composited by SCREEN blend, blue→white,
+   with a pedestal that floods the frame only at peak.
+3. **You cannot decompose his flash asset out of a render where the content moves** —
+   subtraction and screen-inversion both leave content ghosts, and min/median across
+   instances fails because the instances share the same scene. What works: recover the
+   ENVELOPE from the luma trace (the same asset repeats, fingerprint 243/138/162/228/
+   174/174/214), the COLOUR and SPATIAL falloff from the pre-cut ramp frames of instances
+   whose pre-side is static, take the near-saturated peak from his real frames, and
+   resynthesise — then verify PHASE-MATCHED against his frames at ±1/±2/±3/+8.
+4. **`edl_resplit` can hallucinate tiny segments pointing at the WRONG TAKES.** Two
+   segments of 0.20/0.43 s claimed "pack abs" came from src 53/77 when his audio was ONE
+   continuous take (offset constant across every word). Any sub-half-second segment with
+   an implausible source jump: check the word-level offsets by hand — the fix deleted two
+   splices AND corrected the audio (this was Dan's "0:21 jump cut of two things that
+   don't belong together").
+5. **A stale Whisper cache can be 2 s off, not 0.6.** The cached raw transcript put
+   "You'd" at 147.86; fresh transcription put it at 149.92 — the conform segment built
+   from the cache pointed at PURE SILENCE and the words were simply missing (Dan's "weird
+   problem with the sound at 1:21"). Word durations picked the right take: his cut's
+   0.24/0.34 s matched take 3, not take 2's 0.60/0.60.
+6. **NOTHING in his render ever sits still** — his title card measures 0/101 static
+   frames. Full-bleed stills and title cards need the same slow push as card media; the
+   watch scan's frozen-run check is the enforcement.
+7. **Verify the FIRST FRAME of any asset cut near an app screen transition.** The
+   after-reveal asset started 0.27 s before the app's transition finished and the card
+   OPENED on the banned before/after — twice, at both product beats. The boundary strips
+   caught it; the plan said the crop was safe.
+8. **His in-card stock photos can be lifted from his own settled card frames** (~700–900
+   px — enough for a card that downsizes media). Attempt 3's 0:48 fitness model IS his
+   pixels. For 16:9 b-roll the trade stands: his exact clip cropped to 9:16 is a 2.7×
+   upscale, so analogous vertical stock still wins — log each such swap as a known
+   difference.
+
 ## Standing content rules that override the reference
 
 The reference editor does not know Dan's ad rules. Check every beat you are reproducing:
