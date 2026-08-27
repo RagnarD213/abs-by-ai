@@ -82,8 +82,22 @@ script prints a live Drive link. The brief tells him to hold that beat and check
 **Dashboard: nothing checked off** — searched, no task covers this brief, and the work it briefs has
 not been done.
 
-**EXACT NEXT ACTION — DAN: (1) confirm the 16:9-only call, (2) share both docs and the 8/14 shoot
-folder with Muhammad, (3) send it.** Then, separately: generate the missing AI gag clips.
+**UPWORK JOB POSTED AND MUHAMMAD INVITED (2026-08-27).** Job `2093108552765647365` —
+*"Edit 12 Fitness Ads from Existing Footage - 16:9, Scripts and Assets Provided"* — **live, public,
+standard (free, NOT the $29.99 Featured), fixed price $600**, Video Editing / Expert / Worldwide /
+1–3 months. Muhammad A. invited with a note stating the terms; his row reads **Invited**. Waleed and
+Zeeshan deliberately NOT invited.
+
+⚠ **NO DRIVE LINKS ARE IN THE PUBLIC POSTING, DELIBERATELY** — it would publish the raw footage, the
+asset library and the scripts to anyone browsing Upwork. The post carries the work and the terms
+only and says the brief is shared on acceptance. **Dan sends the two docs himself.**
+
+⚠ **HE ALREADY HAS AN ACTIVE CONTRACT** (*"AI-Native Video Editor for Fitness Brand — Paid 2-Video
+Test, then ~30-Video Batch"*) with a live *"Fund a new milestone for Muhammad to keep working"*
+prompt. A milestone there would have been less friction than a new job; Dan chose the new job.
+
+**EXACT NEXT ACTION — DAN: share both docs and the 8/14 shoot folder with Muhammad, then send him
+the brief link** (the Upwork invite promises it). Then, separately: generate the missing AI gag clips.
 
 ---
 

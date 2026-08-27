@@ -207,3 +207,34 @@ Tell him to open all of them to the editor before sending, or every link in the 
 8. **Say which aspect ratios NOT to build.** Our vertical comes free from `/shortad-from-longform`;
    paying an editor to also cut 9:16 buys a style Dan has not approved, from burned-in graphics that
    cannot be reframed back to wide.
+
+---
+
+## Posting the job on Upwork
+
+Dan often wants an Upwork job posted from the same brief, and the editor invited to it.
+
+**Never paste the Drive links or the brief itself into the job posting.** A public Upwork post
+publishes the raw footage, the asset library and the scripts to anyone browsing. Summarise the
+work and the terms, and say the full brief is shared on acceptance. Dan sends the docs directly.
+
+**Check for an existing contract first.** If the editor already has an active contract with a
+"fund a new milestone" prompt on the dashboard, adding a milestone there is less friction than a
+new job — no proposal step, relationship and history intact. Say so in one sentence, then do what
+Dan asked.
+
+The flow is 6 steps: title → description → skills → scope → location → budget → review →
+finalize. Settings that fit a batch like this: **Short term project**, scope **Medium**,
+**1 to 3 months**, **Expert level**, not contract-to-hire, **Worldwide**, **Fixed price** at the
+batch total (the bonus lives in the description, not the budget field), and
+**"Post as standard for free"** — the **$29.99 Featured** upsell buys reach that is pointless when
+you are inviting one named person, and it is a purchase.
+
+To invite: job → **View proposals** → **INVITE FREELANCERS** → **My Hires** tab → *Invite to Job*.
+Replace Upwork's default "Hello! I'd like to invite you..." with a real note naming the terms.
+
+⚠ **Upwork's job-post SPA ignores coordinate clicks.** Every button, radio and label has to be
+clicked by `ref` from `find`/`read_page`. Radios often need the **label text** element
+(`generic "Medium"`), not the `radio` element, and a radio can read `checked:false` in JavaScript
+immediately after a successful click because the step re-renders — trust the next screenshot, not
+the DOM probe. `form_input` silently no-ops on the budget field; click it and type instead.
