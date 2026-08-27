@@ -307,6 +307,18 @@
       "priority": "key",
       "why": "handoff-20260827-instrument-build-timings.md - created but not yet run",
       "addedAt": "2026-08-27"
+    },
+    {
+      "text": "Send Muhammad the offer on Upwork (editor hire)",
+      "priority": "key",
+      "why": "2026-08-27 planning — Dan named it top priority; he ran 4 editor trials and Muhammad is the pick. Unblocks the whole editing backlog.",
+      "addedAt": "2026-08-27"
+    },
+    {
+      "text": "Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)",
+      "priority": "high",
+      "why": "2026-08-27 planning — waiting on Mindy to send; review gates the editing pass",
+      "addedAt": "2026-08-27"
     }
   ],
   "health": [
@@ -381,6 +393,12 @@
       "recurring": false,
       "addedAt": "2026-08-22",
       "why": "2026-08-22 planning — Saturday routine, needs a salad-stock check"
+    },
+    {
+      "text": "Buy more collagen and Kiro electrolyte powder",
+      "priority": "med",
+      "why": "2026-08-27 planning — running low on both",
+      "addedAt": "2026-08-27"
     }
   ],
   "assistant": [
