@@ -393,7 +393,18 @@ and that lifts lav hiss with the air. Gate BEFORE the EQ, always.
 4. **The audio half is measurement when you cannot listen** — word alignment, clipped
    samples, dropouts, SFX at their planned times, bed tempo — and an A/B file for Dan.
 
-Only then run `reference/qc.py`, which is now **15 checks**:
+**[MANDATORY, Dan 2026-08-27] AUDIO INTEGRITY ON EVERY DELIVERED FILE — masters AND review
+copies.** A mux once silently truncated the audio stream at 2:24 of a 3:52 video, exited 0,
+and passed every existing check; Dan heard a minute of silence no metric caught. Two checks,
+run on the exact file being handed over (they are qc.py check 16): (1) the audio STREAM's
+duration must match the video's within 0.15 s — container duration hides this, probe the
+stream; (2) a per-second RMS scan with NO silent second anywhere (the mix carries a bed
+throughout, so true silence anywhere is a dropout). Review-copy re-encodes inherit a broken
+master, so scan them too before sending. And **overlay caches must be CONTENT-ADDRESSED**
+(hash of kind+spec+duration in the filename) — an index-keyed cache put the previous
+overlay's text on four lower thirds when one overlay was removed from the list.
+
+Only then run `reference/qc.py`, which is now **16 checks**:
 
 1 frame size 1080×1920 · 2 fps 29.97 · 3 duration matches the reference · 4 −14 LUFS ±0.8 ·
 5 true peak ≤ −1.0 dBTP · 6 L/R correlation > 0.98 · 7 ≥ 9 visual changes/min ·
@@ -403,7 +414,9 @@ not read off the build plan** · 11 captions present · **12 the talking head is
 fixed crop (≥ 25 % of talk inside a push)** · **13 SFX no denser than one per 6 s** ·
 **14 bed tempo within 15 BPM of the reference bed** · **15 the WATCH PASS was done on this
 exact file** — check 15 reads `logs/watch_pass.json` and refuses to pass without it, which
-is the only way a "watch the video" rule survives contact with a build that is running late.
+is the only way a "watch the video" rule survives contact with a build that is running late ·
+**16 audio integrity: the audio stream runs the video's full length AND no second of the
+file is silent** (per-second RMS scan; run it on review copies too).
 
 ---
 
