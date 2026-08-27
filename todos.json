@@ -301,6 +301,12 @@
       "priority": "key",
       "why": "handoff-20260827-ads-2-3-4-trainer-nutritionist-supplements.md — created 2026-08-27, not yet run. 12 ads filmed 8/14, only Ad 1 ever edited. These three cover the exact features the 8/26 paid-spend audit found in ZERO ads. 16:9 only.",
       "addedAt": "2026-08-27"
+    },
+    {
+      "text": "Execute handoff: instrument a real video build to measure per-stage times",
+      "priority": "key",
+      "why": "handoff-20260827-instrument-build-timings.md - created but not yet run",
+      "addedAt": "2026-08-27"
     }
   ],
   "health": [
