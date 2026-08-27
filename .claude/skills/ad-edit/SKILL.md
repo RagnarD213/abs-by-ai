@@ -587,6 +587,67 @@ Measured against the reference edit: **3:55.3 from 4:31** (112 pause cuts, 30.1 
 **198 wpm** against his 203), −14.10 LUFS, −1.30 dBTP, L/R correlation **+0.9986** with the
 side channel 31.5 dB under the mid (his: +0.99 / 23.0 dB), script fidelity **98.6 %**.
 
+Ad 3 (2026-08-27) — "Stop wasting money on personal trainers", the first ad cut to the rev-5
+standard from a roll the reference editor never touched. Reproducible from
+`/Volumes/Extreme/_edit_work/ads234-8-14/c1593/`. **QC 12/12, then the watch pass found three
+real defects the metric gate had passed** — which is the whole argument for the watch pass:
+
+50. **A looped image input defaults to 25 fps. Pass `-framerate 30000/1001` on EVERY
+   `-loop 1` input.** Against a 29.97 fps timeline the two frame grids drift, and at the
+   output frames where they diverge the overlay drops the still for ONE frame: the plate
+   vanishes and whatever it was covering is exposed. That is how the app's **email-capture
+   form reached the delivered picture** with the disclosure correctly built, correctly
+   sized and correctly enabled. Proven by A/B on the exact failing parameters — 25 fps
+   exposes one frame, `30000/1001` exposes none; plate padding and overlay lead changed
+   nothing. This affects every plate, tag and Ken Burns still in `layout*.py`.
+51. **A compliance gate that SAMPLES cannot see a single-frame violation.** The
+   banned-screen scan ran at 2 fps and reported a clean 0.647; the same scan at full frame
+   rate reported **1.000 at 179.41 s**. Any check for a banned pattern runs on every frame.
+52. **`card_in` animates its entrance and then HOLDS.** The photo and CTA cards sat
+   dead-frozen 2.4–8.7 s, which is Dan's rev-1 note 1 verbatim. Every card now carries a
+   continuing Ken Burns drift (`scale_about` on the finished layer, alternating in/out on
+   consecutive stills); frozen runs went 16 → 7 and all survivors are the real app
+   recording's own holds. Verify on the alpha MOV itself and check the **longest identical
+   run**, not just runs ≥8 frames — a 3.8 % drift over 9.7 s changes the integer layer size
+   only every ~4 frames, which passes an 8-frame freeze test and is still imperceptible.
+53. **Caption from the TIGHT word list, not from a fresh pass on the finished mix**, whenever
+   the audio stage does no retiming (a `-c:v copy` mux). Measured here: the two agree to
+   **+22 ms median with no systematic offset**, but `small.en` over the mix DROPS PUNCTUATION
+   and mishears ("personal trainer" for "trainers", "gonna" for "going to"). Punctuation is
+   what tells the chunker where a sentence ends, so captioning off the mix split cues
+   straight across sentence boundaries ("...personal trainer AI has"). Keep the mix
+   transcription for QC — that is what it is actually good for.
+54. **Clip a caption at a card boundary; never drop it.** Dropping every cue that merely
+   touches a suppression window deleted real words and made the next caption open
+   mid-sentence ("of dollars on personal...").
+55. **`bullets_build` draws its heading on ONE line with no wrap**, and its accent rule is
+   drawn at the heading's own width — an over-long heading runs across the video column onto
+   Dan's face. Measure every heading against `panel_w - 2*PAD` (794 px at panel_w=980,
+   head_size=76) before building. Three of five failed on first write.
+56. **Whisper silently drops an abandoned re-attempt** and stitches the surviving halves into
+   one clean-looking sentence — the transcript reads fine while the audio stutters. Scan for
+   speech energy that no word interval covers (`orphan_scan.py`). One hit in this roll: a
+   whole abandoned sentence that would have shipped.
+57. **A roll's noise floor identifies the bad take.** Dan's own "did that plane pick up?" is
+   measurable — the flagged take's floor is −41.6 dBFS with the 20–200 Hz floor at −13.3 dB,
+   against −45.3 / −20.2 on the retake and ≈−48 dB everywhere else on the roll.
+58. **A grade fitted for one roll of a shoot transfers to its siblings — but fit the GAIN
+   first.** Raw C1593 measures within 3.8 levels of raw C1591 on skin percentiles, yet the
+   same chain landed 15.3 levels off, because the curve is steepest exactly where they
+   differ. A **1.13 linear pre-gain** (`colorlevels`) into Ad 1's approved chain lands **2.4
+   levels** from the shipped look. Refitting a fresh 6-point spline instead reached only
+   16.7 levels — a large correction overshoots through sparse control points. Prefer
+   gain-then-approved-curve over a fresh fit.
+59. **Parallelise the graphics build.** 22 alpha MOVs at ~3 min each serially; four workers
+   over an explicit partition finished all of them in 90 s. `_skip()` makes the partition safe.
+60. **Preview composited on a real frame at NATIVE resolution.** A 420 px preview made the
+   app-screenshot panel look illegible and nearly bought a needless re-render; at 1080p the
+   body copy reads cleanly. Fourth time the metric has been wrong rather than the media.
+61. **Native-vertical assets go in a PLATE, never cropped to 16:9.** A 16:9 crop of a
+   1080×1920 clip keeps 32 % of the height and cuts heads off. Size the plate hole to the
+   clip's own aspect (574×1020 for 9:16, 1264×1000 for the 4:3-ish archive clip) and let the
+   olive hairline give it an edge on the near-black field.
+
 ## Decisions locked vs pending
 
 | decision | status |
