@@ -33,6 +33,70 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### ZEESHAN'S ORGANIC AB-WHEEL CUT — ROUND-1 REVISIONS DELIVERED INTO HIS DOC (2026-08-27, Claude Code)
+
+Dan shared `video-2.mov` (Drive `1YtpMv-U9sSMbHqEEiUsDKDS82S51xldz`, **owner
+`teamcrackhow4@gmail.com` = Zeeshan**, same account as "Video 1.mp4" reviewed 8/23) and asked for
+round-1 notes that copy the good of Muhammad's organic cut and beat it in a few select places.
+**$0.00 AI spend, no production code, no deploy, no native-retest trigger.** Notes appended to the
+TOP of his existing doc — **[Zeeshan Video Revisions](https://docs.google.com/document/d/13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk/edit)** — markdown copy in
+`revision docs/organic-video-abwheel-revisions-zeeshan-round1-8-27-26.md`. **Draft; Dan forwards.**
+
+| | Muhammad (6:58) | Zeeshan (5:02) |
+|---|---|---|
+| visual changes | 87 (12.5/min) | **30 (5.7/min)**, median shot 5.8 s vs his 1.5 |
+| longest stretch, no change | 63 s (his live sets) | **75.7 s — 1:49.9–3:05.6, one locked shot** |
+| loudness / true peak | −15.9 LUFS / −0.5 dBTP | **−20.4 LUFS / +0.1 dBTP** |
+| music bed | yes | **none** (gap floor −55…−58 dB vs his −34…−41) |
+| mean luma | 131 | **111** |
+| delivery | 1080p / 29.97 | **4K / 24 fps** (upscaled + judder) |
+
+⚠ **~100 SECONDS OF SCRIPT IS SIMPLY MISSING — the entire live workout section.** Everything from
+"Let's talk about what it looks like live" through the three sets and the wrap-up. That is the whole
+5:02-vs-6:58 gap. Also cut: the **correct-pace demo** ("The proper pace is going to be like this…"),
+so the section currently teaches the mistake and not the fix.
+
+⚠ **HE FIXED THE TWO-MIC FAULT AND THE DOC CREDITS HIM FOR IT** — L/R +0.998, comb ripple 0.65 dB
+against Muhammad's 0.61 and our rebuild's 0.62. The **echo_check echo-peak metric alone did NOT
+separate them** (Muhammad's cut shows the same 3–9 ms peaks); the decisive test on these rolls is
+`chan_analyse.py` comb ripple, because **C1630–C1633's LEFT channel is dead** (SNR 0.8 dB, peak
+−53.5 dBFS), so there is no two-mic sum to find here. His real audio fault is different: **no
+levelling** — a few lines run ~12 dB hot and clip at 0 dBFS (0:02, 1:52, 3:18) while the programme
+sits 6 LU under target.
+
+**Five text errors, all quoted in the doc:** double space in "Ab Wheel  Built-in Progression.",
+**"Yoga Mate"** → Yoga Mat, **"Dont Roll Too Fast"** → Don't, **"Go TO AbsByAI.com"** → Go To, and
+trailing full stops on labels. Plus **"Shoulders" missing** from the chest/arms checklist (he says
+all three), **five different graphic styles** in one 5-minute video (neon green #53F87C title,
+#53BF3D ticks — neither is in our palette), and **the app never appears on screen at any point.**
+
+⚠ **TWO OF MY OWN NOTES WERE WRONG AND WERE CORRECTED IN THE DOC BEFORE HANDOVER**, both caught by
+re-reading this file mid-session:
+1. **Burned captions.** The first draft made "burn captions" the #1 way to beat Muhammad. **Dan
+   ruled the opposite way today** (entry above): organic long-form gets **no burned captions and no
+   watermark**, .srt sidecar only. Rewritten.
+2. **Whip transitions.** The draft told him to remove the 0:41.5 whip because "there is no swipe or
+   blur transition anywhere in the reference edit" — **that was me over-generalising Dan's
+   'this swiping shit is awful' note about our own vertical ad.** Measured it instead: **42 of
+   Muhammad's 87 cut boundaries carry a whip blur.** It is his house transition. Note flipped to
+   keep it, put a whoosh on it, and use more of them.
+
+**The four "beat Muhammad" items, ranked:** .srt sidecar (he ships none) · cover the live sets (his
+run 46–63 s with no visual change — the weakest stretch in his cut) · **generate the infomercial
+clip with AI instead of the real 1980s archival footage he used** (third-party copyright on a
+monetised channel; `/Volumes/Extreme/_edit_work/abwheel/r2/aigen/infomercial.mp4` already exists,
+7.7 MB, not yet uploaded to Drive) · master to −14 (he is −15.9) and keep the URL **AbsByAI.com**
+every time (he writes it two ways, 6:34 vs 6:48).
+
+**Dashboard: nothing checked off.** `money::Review Zeshan's video cut and send round-1 revisions`
+exists and is unchecked, but this deliverable is a **draft Dan has not sent**, which is the same
+reason the Waleed and 8/23 docs left it alone. Check it off if Dan considers the 8/23 send to have
+closed it.
+
+**EXACT NEXT ACTION — DAN: read the doc and forward it to Zeeshan.** Nothing is blocked.
+
+---
+
 ### MUHAMMAD'S ORGANIC AB-WHEEL CUT — ANALYZED; 16:9 REPRODUCTION IN PROGRESS (2026-08-27, Claude Code)
 
 **Owner: Claude Code. Status: Implementation in progress.**

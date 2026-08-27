@@ -152,9 +152,9 @@ Every graphic must animate on — letter wipe, bar drop, or line-by-line stagger
 
 - Good, and the length is right. But when he contrasts it with a crunch — "when I'm doing a crunch there's a part at the top and the bottom where I'm resting" — cut away to a crunch. The reference edit does this at its 0:36.
 
-**0:41.5 — the whip-pan blur transition**
+**0:41.5 — the whip-pan blur transition (keep it, but it is the only one)**
 
-- Remove it. Use a straight cut or a framing change. There is no swipe or blur transition anywhere in the reference edit and Dan does not want them.
+- Keep it — but it is the only one in the whole video and it has no sound on it. Measured on the reference edit: 42 of its 87 cut boundaries carry a whip blur, so this is its house transition, not an accident. Put a whoosh on it, and use whips to punctuate section changes rather than to hide a single splice.
 
 **0:44 – 0:49 — "Ab Wheel  Built-in Progression."**
 
@@ -271,7 +271,7 @@ Four fixes here, and this is the second most important item in the document afte
 
 Everything above is about matching it. These four are where you can go past it. They are ranked.
 
-1. **Burn captions into the picture.** The reference edit has none. Most of this video will be watched on a phone with the sound off for the first few seconds, and captions are the single biggest thing that holds those viewers. Word-timed, bottom third, clear of the lower-third band so the two never collide. Send the .srt alongside the master.
+1. **Ship a properly timed .srt subtitle file with the master, and do NOT burn captions into the picture and do NOT add a watermark.** That is Dan's standing call for organic long-form: the frame stays clean. The reference edit ships no subtitle file at all, so a good .srt is a free win on YouTube search and accessibility with nothing added to the screen.
 2. **Cover the live sets.** When you put the missing workout section back, cut each set into wide / punch-in / wide. In the reference edit those sets run 46 to 63 seconds with no visual change at all — it is the weakest stretch in an otherwise strong cut, and it is easy to beat.
 3. **Generate the infomercial clip instead of using archival footage.** The reference edit uses real 1980s infomercial footage. That is third-party copyright on a channel that is monetised. An AI-generated pastiche gets the same laugh with none of the risk, and it carries an \*AI Generated label so it is honest.
 4. **Master louder and land the URL consistently.** The reference edit sits at −15.9 LUFS, which is quiet for YouTube; −14 is the target. It also writes the address two different ways in the last thirty seconds — "AbsByAI.com" at 6:34 and "www.absbyai.com" at 6:48. Ours is **AbsByAI.com**, camel case, every single time.
