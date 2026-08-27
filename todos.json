@@ -165,12 +165,6 @@
       "addedAt": "2026-08-21"
     },
     {
-      "text": "Rebuild the morning brief so it changes what Dan actually does",
-      "priority": "high",
-      "why": "2026-08-21 planning — Dan: 'it's become totally useless'; scope as a behavior-change rewrite, not a redesign",
-      "addedAt": "2026-08-21"
-    },
-    {
       "text": "Approve Ad 1 rev-1, apply final revisions, finalize the /ad-edit skill",
       "priority": "key",
       "why": "2026-08-21 planning — gates the 9:16 build, the skill's pending items, AND the gold-standard benchmark for judging the Upwork editors",
@@ -235,12 +229,6 @@
       "priority": "high",
       "addedAt": "2026-08-24",
       "why": "2026-08-24 planning — trainer, nutritionist, supplement audit, sleep coach, exercise demos all shipped since the current creative was written; ads may still sell only image generation."
-    },
-    {
-      "text": "Check iOS App Store review status (submission 22876374-6723-40d9-b0e2-8e02b7093b86, resubmitted 8/24)",
-      "priority": "key",
-      "why": "3.1.2 EULA fix resubmitted 2026-08-24 — 4 items waiting for review",
-      "addedAt": "2026-08-24"
     },
     {
       "text": "Execute the Instagram growth plan (7 profile fixes + Blotato queue rework)",
@@ -339,6 +327,10 @@
       "text": "Small meal by 9:00 PM",
       "priority": "high",
       "recurring": true
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
