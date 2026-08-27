@@ -33,6 +33,39 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### MUHAMMAD'S ORGANIC AB-WHEEL CUT — ANALYZED; 16:9 REPRODUCTION IN PROGRESS (2026-08-27, Claude Code)
+
+**Owner: Claude Code. Status: Implementation in progress.**
+
+Dan shared Muhammad Arsalan's first organic video (Drive `1lu_Im9st8XtDNXPnFOhpKyc7IA2Whf_J`) —
+**it is the round-2 of the 6:58 ab-wheel cut** (same timeline as the round-1 reference, audio corr
+0.998 at lag 0, now 1080p, Dan's revision notes applied: toe-touches at 0:36, "How
+Beginners/Intermediate/Advanced Guys Should Do It" wording, AbsByAI.com CTAs).
+⚠ **ATTRIBUTION CORRECTED: the cut IS Muhammad Arsalan's** — verified against his Upwork message
+containing this exact file ID (milestone 1 $150 paid, Aug 27). The 8/24 note "do not credit
+Muhammad" was wrong; **sharkimageryproduction@gmail.com is the Drive account Muhammad delivers
+through** (which also re-attributes the ad-1 reference to him, consistent with Dan's usage).
+
+**Measured why his beats our 13/13-gate rebuild** (gap is all in what the gate can't see):
+branded pill graphics top-center with per-character typewriter reveals; b-roll in rounded glow
+cards on a near-black grid field + full-bleed cinematic stock; ~12 real whip-blur transitions +
+white flash-blooms with SFX; constant slow push on every shot (his motion floor never <0.5,
+longest near-frozen run 1.2 s vs our 2.2 s); **NO burned captions, no watermark** (clean frame);
+dynamic bed (LRA 13.6 vs our 8.1, swells during sets). His −15.9 LUFS / −0.5 dBTP.
+
+**Dan's calls this session:** (1) organic longforms get **NO burned captions and no watermark**
+going forward (deliver .srt sidecar); (2) **reproduce this ab-wheel video in his style** as the
+proving ground, then rebuild /longform-edit around it.
+
+**Work dir: `/Volumes/Extreme/_edit_work/abwheel/mrepro/`** (`ref_hd.mp4` = his 1080p render).
+Method = /shortad-from-longform recovery adapted to 16:9 (no relayout): recover his EDL by word
+alignment (transcripts exist in `../*.whisper.json` + `../ref_muhammad/m.whisper.json`), conform
+from raws C1630–C1633, grade fitted to his render, HIS audio mix verbatim under our picture
+(loudnorm to −14), rebuild his graphic system (pills/typewriter/glow-cards/whips/flash),
+our own Pexels stock at his stock beats (logged as known differences), A/B at matched timecodes.
+
+---
+
 ### MUHAMMAD BATCH BRIEF — 12 remaining ads, TWO DOCS DELIVERED, Dan sends them (2026-08-27, Claude Code)
 
 Dan asked for a job briefing for Muhammad A to edit the rest of the 8/14 ads, modelled on the
@@ -247,6 +280,35 @@ read zero permanently.
 
 **EXACT NEXT ACTION — DAN: nothing is blocked.** On/after **Sep 1**, confirm the Data Manager run
 turns green with 1 imported row, then tidy the two duplicate Purchase actions.
+
+---
+
+### AD 1 VERTICAL — rev 4 FINAL: picture-only opener, two REAL BUGS found and fixed (2026-08-27, Claude Code)
+
+Dan picked the picture-only opener and caught two defects in the variant builds. Both were
+real, both are root-caused, fixed, and now guarded:
+
+1. **FOUR lower thirds carried the WRONG TEXT** (Dan caught one: "live longer" repeating at
+   1:59). Cause: the overlay cache was keyed by INDEX (`ov04_lt.mov`) — removing the inset
+   overlay from the list shifted every later index onto the previous overlay's cached frames.
+   **The cache is now CONTENT-ADDRESSED** (hash of kind+spec+duration in the filename), all
+   seven lt/cta windows re-verified showing their own text.
+2. **The scan-variant master's AUDIO STREAM was 144 s long under a 232 s video** — the mux
+   silently truncated and exited 0, and no check compared stream lengths (Dan heard a minute
+   of silence after 2:26). **qc.py now has check 16 — audio integrity**: audio stream
+   duration must match video within 0.15 s AND a per-second RMS scan must find NO silent
+   second anywhere; the same scan now runs on every REVIEW COPY before it is sent (this
+   delivery's review copy: 232.8 s, zero silent seconds). Both guards are in the skill per
+   Dan's standing instruction ("build in more thorough audio checks … going forward with
+   this skill").
+
+**Delivered:** `ad1_vertical_9x16.mp4` (canonical, picture-only opener, corrected overlays,
+full audio) — **QC 16/16**, fresh full watch pass on the exact file. The stale
+`_OPENER_PICTURE_ONLY` variant and its review clip were REMOVED from the delivery folder
+(they carried the overlay bug). Scan-opener asset kept in `assets_v/` if ever wanted.
+
+**DAN: watch the final review copy (sent in chat).** On his nod the Key dashboard task gets
+checked off.
 
 ---
 
