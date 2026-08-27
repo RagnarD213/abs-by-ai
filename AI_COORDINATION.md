@@ -33,6 +33,78 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### GOOGLE ADS "MISCONFIGURED" CONVERSION GOALS — ROOT-CAUSED AND FIXED (2026-08-27, Claude Code)
+
+Diagnosed the Purchase + Subscribe goals flagged Misconfigured in account 342-717-0837.
+**$0.00 AI spend. Code fix committed, pushed, deployed and live-verified (`60a1025`). No
+campaign, budget, bid or targeting setting was touched. No native-retest trigger** (server
+CSV + a client attribution field only).
+
+⚠ **ROOT CAUSE OF *PURCHASE*: OUR OWN FEED WAS POISONED WITH TEST DATA.** Google's Data
+Manager has fetched `/api/ads/offline-conversions.csv` every night since Aug 19 and rejected
+100 % of it. Its Runs table: **Aug 23/24/25/26/27 — "Completed, 0 rows imported, 3 rows with
+errors"**, error **"Unparseable gclid, 100 % of events."** The 3 rows were never sales — they
+were three `datamgr-verify-…@example.com` users (ids 28/29/30) seeded by an earlier session to
+get Data Manager's schema step to pass, carrying literal `TESTgclidDataMgr…` / `TESTgclidSchema…`
+click ids. **The feed's only rows, ever, were fake — so the import never once succeeded.**
+
+**ROOT CAUSE OF *SUBSCRIBE*: there is nothing to report.** Live Stripe holds **2 customers and
+2 subscriptions in its entire history** — Dan's own, and `sxlar69@icloud.com` (real 91-char
+gclid, annual, **trial ends 2026-09-01**). **Zero trial→paid transitions have ever occurred**,
+on Stripe or Apple; `paid_conversion_fired_at` is NULL on all 24 users. The wiring is correct —
+verified end to end, see below — it has simply never had a sale.
+
+**FIXED IN CODE (`60a1025`), both live-verified:**
+1. **`@example.com` accounts are excluded from the feed** (RFC 2606 — covers every future
+   verification row automatically). The 3 poisoned rows were also neutralised in prod
+   (`ads_click_id`/pending/uploaded → NULL; before-state in this session's scratchpad).
+2. **The click TYPE is now carried.** Google's import takes gclid, gbraid and wbraid in
+   **three separate columns** and rejects a value filed under the wrong header. We stored all
+   three in one column and emitted every one as `Google Click ID`, so **any iOS app-campaign
+   click would have been rejected exactly like the test rows.** New `users.ads_click_type`;
+   NULL reads as gclid. Proven live: gclid/gbraid/wbraid each land in their own column.
+
+**PROVEN, not asserted:**
+- Forced a **manual Data Manager run** after the fix: **0 rows, 0 errors** (was 0/3 daily).
+- **The Subscribe reporting chain PASSES end to end in production** — stamped pending on a test
+  account, `/api/membership` returned `paidConversionPending:true, value 69.99`, the ack
+  stamped `fired`, and a second call returned `false` (dedupe holds). Account restored.
+- Live feed serves the correct 7-column header, 0 rows, and still 401s without credentials.
+
+⚠ **NEW CONSTRAINT DISCOVERED — DO NOT "FIX" IT WITH FAKE ROWS AGAIN.** With the poison gone the
+feed is empty, and Google now fails the run with **error 4000: "Failed to determine the data type
+or schema of the data source. Make sure you have correct headers and at least one row of valid
+data."** That is exactly the error that tempted the earlier session into seeding fake users.
+**It self-heals on 2026-09-01** when sxlar69's trial converts and the feed gains one real row.
+Do not manufacture a row to silence it.
+
+⚠ **THE ONE THING STILL WRONG, AND IT NEEDS DAN'S CALL — the goal structure does not match how
+sales actually flow.**
+- **Purchase** holds TWO offline actions, both 0.00: `Membership Paid (offline)` (still says
+  "Set up import" — it is **orphaned**, because a Data Manager connection can only ever CREATE
+  its own action, never point at an existing one) and the auto-created
+  `offline-conversions-commit.csv - All records from…`, which is the **real live destination**.
+- **Subscribe** holds one website action, 0.00, and **it can never fire**: `paidConversionPayload`
+  suppresses the browser fire once `ads_offline_uploaded_at` is stamped, and the connection uses
+  the `-commit.csv` path — so **the offline channel always wins the race and every trial→paid sale
+  will land under Purchase, never under Subscribe.**
+- Recommended: delete the orphan, rename the auto-created action, and decide whether that action
+  belongs under Purchase or Subscribe. **Do this AFTER Sep 1** — any re-configuration re-samples
+  the file and would fail today on error 4000.
+
+**Also found, reported not fixed (out of scope, all verified):** a native IAP **restore** fires a
+full Trial Signup conversion at $20 with no dedupe (mechanism real; PostHog shows it has never
+actually happened); the Meta Pixel fires **PageView only** — no purchase-side event anywhere; the
+Stripe webhook is pinned to API version `2026-05-27.dahlia`, where `Subscription.current_period_end`
+no longer exists, so `syncSubscriptionState` will write `membership_period_end = NULL`; and
+`server.js` queries two PostHog event names nothing has ever sent, so those morning-brief tiles
+read zero permanently.
+
+**EXACT NEXT ACTION — DAN: nothing is blocked.** On/after **Sep 1**, confirm the Data Manager run
+turns green with 1 imported row, then tidy the two duplicate Purchase actions.
+
+---
+
 ### AD 1 VERTICAL — rev 3: TWO OPENER VARIANTS delivered, Dan picks one (2026-08-27, Claude Code)
 
 Dan on rev 2: *"this is looking really, really strong. I love this edit."* Two final notes,
