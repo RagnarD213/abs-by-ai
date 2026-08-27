@@ -520,7 +520,10 @@ The reference editor does not know Dan's ad rules. Check every beat you are repr
 - **NEVER show the email-capture screen**, and never the app's "Meet the new you"
   before/after screen. In the product recording `clip_109_replacement.mp4` those start at
   **26 s and 29 s** — the usable window is **0–25 s**. Assert it in QC.
-- **Label AI-generated imagery.**
+- **Label AI-generated imagery — and NEVER put the label over a face** (Dan, 2026-08-27:
+  "don't cover my face with labels like this. Make that a rule for future ones"). On a
+  full-bleed person shot the chip goes low — at the shorts/waistline area, above the
+  caption band — sized large enough to read (~68% of frame width on 1080).
 - **Casting: white or Asian men 30–50.** Contact-sheet the RENDERED 9:16 crop of every stock
   clip before committing — 4 of the first 10 picks here were off-demographic and one was a
   woman, and none of that is visible from a search-page thumbnail.
