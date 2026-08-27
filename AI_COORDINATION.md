@@ -33,7 +33,55 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
-### AD 1 VERTICAL ATTEMPT 3 — **EXECUTED AND DELIVERED, awaiting Dan's watch** (2026-08-26, Claude Code)
+### AD 1 VERTICAL ATTEMPT 3 **REV 1** — Dan's timestamped review worked, REDELIVERED (2026-08-26, Claude Code)
+
+Dan reviewed attempt 3 same-day: *"the biggest issue is the audio … a lot of places where the
+audio is clipped or cut off or cut together awkwardly … make it your top priority to make this
+audio as good as Muhammad's."* Plus: new AI opening, centering issues (0:48 photo, 3:27 him,
+"check the whole video"), accelerate the app loading (3:13), keep the Dan-face gag (1:04 —
+"kind of funnier and better"). **AI spend ≈ $1.20 (one Veo 3.1 Fast clip). QC 15/15 on the
+redelivered master; same filenames; reviewed rev-0 kept as `ad1_vertical_9x16_ATTEMPT3_rev0.mp4`.**
+
+**THE AUDIO ANSWER: the video now carries MUHAMMAD'S OWN MIX, VERBATIM.** Dan asked "see if
+you can just download the exact audio that he used" — and since our cut is frame-locked to his
+timeline, his full mix (voice + his bed + everything) drops straight under our picture; the only
+processing is a linear loudnorm from his −18.2 LUFS/+0.0 dBTP to −14.4/−1.5. Every conform
+splice artifact is gone BY CONSTRUCTION, and **the music question is settled: the bed is his.**
+Before muxing, every EDL segment was xcorr'd against his audio for lip sync: 7 segments shifted
+(up to 114 ms), and **cut 2.78–11.50 was found to use the WRONG TAKE** — his audio's "I
+generated this picture … every single day for more than a year" is the slower take 2; ours was
+take 1 (pace mismatch = undetectable by word alignment, caught by fresh-Whisper word durations).
+Re-sourced and refined: **every segment now locks within ±10 ms; the final's audio matches his
+render at 0.00 ms offset, corr 0.98.**
+
+**The rest of the review:**
+- **Opening (Dan's new design):** goal picture FULL SCREEN 0:00–0:03 as a freshly generated AI
+  video — cyan holographic scan line, wireframe grid, measurement brackets over the photo (Veo
+  3.1 Fast from the clean still, AI-GENERATED chip burned in). `aigen/gveo_scan.js`.
+- **Centering, systemically:** Dan LEANS through the roll (face x wanders 835–1037), so ALL
+  talk/window/statement beats now follow a smoothed face-track auto-reframe (skin-band centroid,
+  median-filtered, slope-limited 80 px/s). His 3:27 was seg 90 where the face drifts 912→1005
+  INSIDE one segment — per-segment constants can't fix it, the track does. Verified centred at
+  every previously-bad timestamp. The 0:48 model photo recropped centred (subject sat at 0.72 of
+  width — in Muhammad's card too, but his landscape card hides it). All other stills/graphics
+  audited at delivery crops — only that one needed fixing.
+- **Loading (3:13):** both app beats retimed VARIABLY — interactions near real time (1.2–1.9×),
+  the progress screens (src 10.2–24.6 of the recording) at ~5×.
+- **1:04 gag with Dan's face: kept** per Dan.
+
+Skill lessons committed (`[A3 rev1]`): reference-audio-when-frame-locked, wrong-take detection
+by pace, face-tracking crop, `alimiter level=disabled` trap, AAC true-peak overshoot.
+
+**Watch pass re-run on the exact delivered file** (96/96 boundaries, 0 black; the only frozen
+runs and jumps are the app recording's own screen holds/transitions). **Dashboard Key task
+still NOT checked off** — awaiting Dan's verdict on rev 1.
+
+**OPEN FOR DAN: watch the new REVIEW_540p_vertical_master.mp4 (sent in chat).** The music
+question from attempt 2 is now moot — the bed is Muhammad's own.
+
+---
+
+### AD 1 VERTICAL ATTEMPT 3 — executed and delivered, then revised same-day (2026-08-26, Claude Code)
 
 `Handoffs/handoff-20260826-ad1-vertical-attempt3.md` executed in full on Fable. **$0.00 AI
 spend** (local Whisper, ffmpeg, PIL, Pexels). No production code, no deploy, no native-retest
