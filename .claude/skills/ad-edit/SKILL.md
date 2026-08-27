@@ -167,6 +167,67 @@ These carry the marketing message; be pickiest here. Dan's rule set (2026-08-20)
   new you") is unusable; use the flow's before-alone / generating / after-alone
   screens instead.
 
+## Step 4.5 — prompting AI inserts (stills and clips)
+
+Applies to every AI asset that goes INSIDE a filmed ad — the b-roll clips, the
+future-self demos, the pastiche shots, the opener treatments. Sourcing protocol
+is unchanged (stock first, AI only when no great clip exists — see the
+graphics-placement lessons); this is about what goes in the prompt once you've
+decided to generate.
+
+The failure these rules prevent is not "a bad clip". It's a clip that reads as
+AI to a viewer who couldn't say why. Two things cause it: the prompt asks for a
+film crew, or the model returns its default human being.
+
+**Never let these words into a prompt.** Each one leaks a production the ad
+isn't supposed to have:
+
+- *Hardware* — any camera or lens brand, `anamorphic`, `large sensor`
+- *Optics* — `bokeh`, `shallow focus`, `lens flare`, bare `depth of field`
+- *Rig and move* — `dolly`, `crane`, `gimbal`, `steadicam`, `tripod`, `push in`,
+  `whip pan`
+- *Post* — `color grade`, `LUT`, `film grain`, `speed ramp`, `slow motion`
+- *Grandeur* — `cinematic`, `dramatic lighting`, `epic`, `stunning`, `moody`
+- *Crew* — anything implying a second camera, a boom, a light, or another pair
+  of hands
+
+Lean on the opposite instead: `handheld`, `overcast daylight`, `flat light`,
+`slight camera shake`, `small reframe mid-shot`, `amateur photograph realism`.
+
+**Fight the model's default person.** Image models return a symmetrical,
+poreless, evenly-lit human, and that is the tell. State the texture outright:
+open pores, uneven skin tone, a smile that sits slightly crooked, shadow under
+the eyes, hair that's escaped. Proportions of a person, not a model. Dull flat
+light, never low sun or anything shaped. Describe clothing down to its wear —
+"washed-out olive hoodie, collar gone slack", not "casual clothes". A settled,
+unremarkable expression: anything theatrical bakes in and then overrides your
+direction for the whole clip. This is the same correction lesson 49 arrives at
+from the other direction — write it in from the start rather than after a
+"celebrity likeness" rejection.
+
+**Rule out explicitly in the prompt:** lettering, logos or graphics on any
+garment (generated type comes out as mush and the video model faithfully
+rebuilds the mush); retouching; makeup; flawless teeth; sunglasses; hair across
+the face.
+
+**Frame it slightly wrong.** Subject off-centre, one small correction mid-shot.
+Clean, centred composition is the clearest signal that somebody was paid to
+stand there. (This does NOT relax the crop rules — never cut the top of the head
+or the shorts line.)
+
+**Check every still before it becomes a start frame:** six fingers, scrambled
+signage, anything in the background that shouldn't be there. Whatever is in the
+reference gets rebuilt as a solid object in the footage.
+
+**If the clip has dialogue or a voice**, write it caught rather than performed:
+contractions, hedges, stalls, sentences that stop and restart. Fragments are
+correct. Keep any endorsement smaller than the product deserves — "okay, that's
+actually good?" lands; "it's completely transformed my daily routine" kills it.
+
+**Hold ambience density constant across every AI clip in one ad.** Background
+that thickens or thins between clips gives the edit away faster than any visual
+mismatch does.
+
 ## Step 5 — graphics
 
 **LOCKED (ad #1 verdict, 2026-08-20): the J2 tactical system for graphics —
@@ -378,6 +439,8 @@ Ad #1 rev-2 (2026-08-21), second round of directed placements:
    out its sentence.
 9. **AI-clip protocol when stock fails: start/end frames first for Dan's approval
    (nano-banana via `_shared/gemini-image.js`, ~$0.13/frame), then image-to-video.**
+   Write both prompts to Step 4.5 (banned vocabulary, anti-default-person, frame
+   slightly wrong) — it is cheaper than a regeneration.
    Replicate Kling drained mid-session (again); **Veo 3.1 Fast via the same
    GEMINI_API_KEY is the working fallback** (`:predictLongRunning`, image + prompt,
    6s/720p/16:9 ≈ $0.90/clip). Veo traps: `lastFrame` is NOT supported on the
