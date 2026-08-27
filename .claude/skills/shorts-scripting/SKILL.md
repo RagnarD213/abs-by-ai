@@ -584,3 +584,14 @@ repeat instruction — digits, not spelled-out numbers, against the usual
 spoken-numerals style. When a workout has an exact arithmetic total, the script says
 it; the viewer should never have to derive it. Also: "your lungs" became "your
 cardio" — name the training quality the viewer already uses, not the organ.
+
+**38 — 2026-08-27, Docs paste mechanic. PASTING HTML AT THE END OF A NON-EMPTY LINE
+MERGES THE FIRST PASTED PARAGRAPH INTO THAT LINE.** Two pastes in one session landed
+as "…working for you.**How To Use The Ab Wheel**" and "—**M100s: …**" — the first
+`<p>` of the clipboard HTML fuses with the paragraph the caret sits in. The fix
+after the fact is a caret before the fused title + Return. The prevention: paste
+with the caret on an EMPTY line (press Return first if needed, or cmd+Down when the
+doc already ends with a blank paragraph) — the third paste of the session did this
+and landed clean. Also: a paste sent immediately after `navigate` can silently no-op
+because the editor doesn't have focus yet — ALWAYS verify by Drive re-read, never by
+the screenshot alone (the no-op looks identical to success at the top of the doc).
