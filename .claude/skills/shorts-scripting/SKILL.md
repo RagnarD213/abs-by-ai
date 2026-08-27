@@ -542,3 +542,45 @@ that is where his own writing lands and a script written to the ceiling leaves t
 no room. What this changes in practice: **his edit pass is now almost always in
 bounds** — the Zepbound script he expanded to 198 words (60 s at 198 wpm) needs no trim
 at all under this rule, where the old one would have flagged it.
+
+**33 — 2026-08-27, the M100 pair. WHEN THE SUBJECT HAS SIX PACK SHORTCUTS HISTORY,
+OPEN ON THE BRAND AND THE COMEBACK.** Claude opened both M100 scripts with an
+anonymized tease ("THIS workout got five and a half million views… It's called the
+M100"). Dan replaced both with: **"Today I'm bringing back a Six Pack Shortcuts
+classic - M-100s."** — the brand named first, the "bringing back a classic" frame, and
+the name spelled **"M-100s"** with the hyphen, matching the original video title. The
+view count moved to sentence two as support ("My original M-100s video got over five
+million views"). He is not hiding the SPS legacy; it IS the hook. Note he also
+softened "still the best home cardio workout I know" to "still **one of** the best" —
+absolute superlatives about his own past content get softened, while claims about the
+method stay strong.
+
+**34 — 2026-08-27. SOCIAL PROOF ARRIVES AS WHAT THE COMMENTERS SAID.** His added
+line: *"Hundreds of guys left comments saying they love the workout because it's
+intense, you can do it at home with no equipment, and it only takes three minutes."*
+The benefits list is delivered as what viewers said, not what Dan asserts. When a
+subject has real audience history (comments, views, DMs), route the benefit claims
+through it.
+
+**35 — 2026-08-27. HIS COACHING CUES ARE IMAGES AND SENSATIONS — leave room, don't
+fake them.** Extends lesson 14 with two more of his inserts: side laterals gained
+*"tilt the dumbbells like you're dumping out two jugs of water at the top of the
+rep"*, and the rear-delt hinge gained *"you should feel a stretch in your legs."* The
+pattern: a physical image the viewer can picture, or a "you should feel X" check.
+Claude's job is the lean correct mechanics; the felt cue is his. (He also prefers
+"slowly and with control" over a why-clause — Claude's "the way down builds just as
+much muscle as the way up" was cut for it.)
+
+**36 — 2026-08-27. BENEFIT CHAINS END ON THE WHOLE-BODY VISIBLE PAYOFF, not on
+bodybuilder aesthetics.** Claude wrote rear delts make shoulders "look thick and 3D
+from every angle." Dan deleted the 3D line and rebuilt the beat as a chain: training
+→ posture pulls back → *"your chest, arms, and shoulders will all look better"* →
+*"makes the entire front of your body look better."* Muscle-specific aesthetic claims
+read as bodybuilder-speak; he sells the visible effect on the whole body.
+
+**37 — 2026-08-27. SPELL OUT THE FULL REP MATH, WITH NUMERALS.** He appended *"40
+squat thrusts, 30 mountain climbers, and 30 squat jumps total."* to the M100 short's
+repeat instruction — digits, not spelled-out numbers, against the usual
+spoken-numerals style. When a workout has an exact arithmetic total, the script says
+it; the viewer should never have to derive it. Also: "your lungs" became "your
+cardio" — name the training quality the viewer already uses, not the organ.
