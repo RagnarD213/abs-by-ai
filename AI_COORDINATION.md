@@ -33,6 +33,68 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### ADS 3 / 2 / 4 FROM THE 8/14 SHOOT — **AD 3 DELIVERED, AD 2 RENDERING** (2026-08-27, Claude Code)
+
+Executing `Handoffs/handoff-20260827-ads-2-3-4-trainer-nutritionist-supplements.md` with
+`/ad-edit`. **16:9 only** per the handoff — Ad 1's vertical is still in revision (rev 3
+above), so the unsettled style is not being multiplied by three. **$0.00 AI generation
+spend** — every asset already existed in the video asset library. No production code, no
+deploy, no native-retest trigger.
+
+**AD 3 — "Stop wasting money on personal trainers" — DELIVERED** to
+`EDITED ADS 8-20-26/ad3-fire-your-trainer/` (`ad3_16x9.mp4` 4:09.08, `ad3_720p.mp4`,
+`notes.md`, `recipe/`). Review copy sent in chat. **QC 12/12 and the watch pass both run on
+the exact delivered file.** 199 wpm against the reference editor's 203, −14.10 LUFS,
+−1.20 dBTP, L/R +0.9984, script fidelity 97.2 %, insert coverage 69 % (Dan fully replaced
+49 %; reference 58 %).
+
+⚠ **THE WATCH PASS FOUND THREE DEFECTS THE 12/12 GATE HAD PASSED — one of them a
+compliance violation.** All fixed, all now skill lessons (`/ad-edit` 50-61, commit
+`648acff`):
+1. **A looped image overlay defaults to 25 fps** against a 29.97 fps timeline, so ffmpeg
+   drops the still for ONE frame where the grids drift — and that is how the app's
+   **email-capture form reached the delivered picture** with its disclosure box correctly
+   built, sized and enabled. Fixed three ways: `-framerate` on every looped input, the
+   disclosure baked into the plate, and the form **cropped out of the source** so it
+   exists in no pixel. Proven by A/B on the exact failing parameters.
+2. **A compliance gate that SAMPLES cannot see a single-frame violation.** The
+   banned-screen scan ran at 2 fps and reported a clean 0.647; the same scan at full frame
+   rate reported **1.000** and failed the build. It now runs on all 7,465 frames.
+3. **`card_in` animates its entrance then HOLDS** — five beats sat dead-frozen 2.4–8.7 s,
+   which is Dan's ad-1 rev-1 note 1 verbatim. Every card now drifts; frozen runs 16 → 7 and
+   all survivors are the real app recording's own screen holds.
+
+⚠ **WHISPER SILENTLY DROPS WHOLE TAKES, AND IT IS NOT VISIBLE IN THE TRANSCRIPT.** On
+C1592 the default pass discarded a **complete second hook take** (32.2–46.9 s) and emitted
+one word in its place; with `condition_on_previous_text=False` the same roll instead
+dropped the **third take of the close**. Neither pass alone is complete and both look
+clean. Fix: **`ref/whisper_chunked.py`** (overlapping windows, seam de-dup) — 0 orphan
+speech runs on both rolls, against 17 and 15 before. Detector is `orphan_scan.py`. On
+C1593 the same scan found the one real defect: an abandoned re-attempt Whisper had
+stitched over, which would have shipped as a stutter.
+
+**Take selection is measured, not eyeballed:** hook take 2 on both ads (zero internal dead
+air on line 1 vs 0.32–0.54 s); on C1593 the plane Dan asked about is real and measurable
+(that take's floor −41.6 dBFS / LF −13.3 dB against −45.3 / −20.2 on the retake). Grade
+transfers from Ad 1's approved chain with a per-roll linear pre-gain fitted first —
+**1.13 for C1593 (2.4 levels), 1.10 for C1592 (3.5 levels)**; a fresh spline fit reached
+only 16.7.
+
+**AD 2 — "Stop paying human nutritionists" — cut and rendering.** 308.2 s → **263.6 s
+(4:23.6) at 200 wpm**, 135 pause cuts. 30 beats, insert coverage 56 %. Build dir
+`/Volumes/Extreme/_edit_work/ads234-8-14/c1592/`.
+
+**AD 4 (C1594, supplements) not started.** Its roll is transcribed and mic-checked
+(same two-mic, polarity-inverted rig; right channel wins by 8.5 dB on all three rolls).
+
+**Dashboard: nothing checked off yet** — Ad 3 is delivered but Dan has not seen it, and
+ad-1 attempt 1 had to have its check-off reverted for exactly that reason.
+
+**EXACT NEXT ACTION — DAN: watch `ad3_720p.mp4`** (sent in chat). Two flagged items in
+`notes.md`: the SixPackAbs clip at 0:20 comes from the "CHECK BEFORE USING" folder (his cue
+named that exact file), and 27.5 s of the ad carries no captions because his cue runs the
+full 35 s AI clip across that paragraph.
+
 ### GOOGLE ADS "MISCONFIGURED" CONVERSION GOALS — ROOT-CAUSED AND FIXED (2026-08-27, Claude Code)
 
 Diagnosed the Purchase + Subscribe goals flagged Misconfigured in account 342-717-0837.

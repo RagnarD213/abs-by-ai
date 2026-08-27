@@ -648,6 +648,44 @@ real defects the metric gate had passed** — which is the whole argument for th
    clip's own aspect (574×1020 for 9:16, 1264×1000 for the 4:3-ish archive clip) and let the
    olive hairline give it an edge on the near-black field.
 
+Ad 2 (2026-08-27) — "Stop paying human nutritionists", cut from C1592 straight after Ad 3:
+
+62. **WHISPER SILENTLY DROPS WHOLE TAKES AND THE TRANSCRIPT LOOKS CLEAN.** On C1592 the
+   default pass (`condition_on_previous_text=True`) fed the previous window back as a
+   prompt and the decoder skipped a **complete second hook take** (32.2–46.9 s) as
+   "already said", emitting one word in its place. Setting it False fixed that and then
+   dropped the **third take of the close** instead. Neither pass alone is complete.
+   **Transcribe every ad roll with `reference/whisper_chunked.py`** — overlapping 70 s
+   windows stepped 60 s, each decoded with fresh short context, words kept only inside
+   their own span, plus a seam de-dup (the same word can be timed 119.9 in one window and
+   120.1 in the next). Result on C1592: 0 orphan speech runs, against 17 and 15.
+63. **`reference/orphan_scan.py` is the completeness proof, and it is not optional.** It
+   flags any run of speech-level energy that no word interval covers. It is what exposed
+   the missing hook take, and on C1593 it found the one real defect in that roll — an
+   abandoned re-attempt Whisper had stitched over, which would have shipped as a stutter.
+   Run it after transcribing and before building the EDL. Zero orphans = complete.
+64. **Force punch boundaries on the splices that are MEASURABLY visible, before rendering.**
+   `reference/hard_splices.py` measures the frame difference across every pause-removal
+   splice on the tight cut and reports the ones above the file's own p99 control. Intersect
+   that with "not under a graphic and not already a punch boundary" and force those. On
+   Ad 2: 135 splices, 76 measurably hard, 37 uncovered, and only **22** were both — 15
+   after a 1.6 s floor. Covering all 37 would shred the pacing; covering none shipped four
+   naked jump cuts that QC caught only after a full render. This is the cheap version of a
+   failure that otherwise costs 35 minutes.
+65. **The retime field is a source OUT-POINT, not a duration.** Passing the wanted length
+   where the code expects "usable until" gives `avail = 10 − 30 = −20` and ffmpeg dies on
+   `setpts=PTS/-2.36`. And clamp the rate to ~[0.85, 1.60]: a 5 s AI clip stretched over a
+   10.6 s beat is 2.1× slow motion and reads as a glitch. Play it near real time and hand
+   the rest of the beat back to Dan — which is the better edit anyway.
+66. **Two QC checks were wrong for a second ad, not the media** (this keeps happening —
+   count it). The AI-label check asserted "≥3 tagged inserts", which is an Ad-3 fact, not a
+   rule; the requirement is that every clip from the AI library carries a tag, so assert
+   that instead. And the caption/card collision check failed on a 4 ms overlap that is
+   pure ASS centisecond quantisation — a tenth of a frame. Give it 0.02 s of slack.
+67. **Launch a background render in ONE Bash call and wait in a SEPARATE one.** Combining
+   them means the harness's timeout kills the whole process group, and a caption burn died
+   mid-write leaving a 208 MB file with no moov atom.
+
 ## Decisions locked vs pending
 
 | decision | status |
