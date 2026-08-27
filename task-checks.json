@@ -10,7 +10,8 @@
     "assistant::Empty/load dishwasher",
     "assistant::Take out trash",
     "assistant::Dust",
-    "assistant::Wipe down counters"
+    "assistant::Wipe down counters",
+    "money::Execute handoff: edit Ads 3, 2 and 4 (trainer / nutritionist / supplements) to the rev-5 standard"
   ],
   "log": {
     "health::Shower": [
@@ -217,6 +218,7 @@
     "assistant::Empty/load dishwasher": "2026-08-25",
     "assistant::Take out trash": "2026-08-25",
     "assistant::Dust": "2026-08-25",
-    "assistant::Wipe down counters": "2026-08-25"
+    "assistant::Wipe down counters": "2026-08-25",
+    "money::Execute handoff: edit Ads 3, 2 and 4 (trainer / nutritionist / supplements) to the rev-5 standard": "2026-08-27"
   }
 }
