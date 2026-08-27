@@ -1,5 +1,9 @@
 # Organic Video ("The $17 Ab Wheel Beats Every Crunch") — Zeeshan — Round 1
 
+**WATCH THIS FIRST — THE REFERENCE EDIT:** [Daniel Organic Video — The $17 Ab Wheel Beats Every Crunch (6:58)](https://drive.google.com/file/d/1lu_Im9st8XtDNXPnFOhpKyc7IA2Whf_J/view)
+
+That is the cut this whole document is measured against. Every timecode below that says "the reference edit" is a timecode in THAT video — every other timecode is in your own 5:02 cut. Watch it end to end before you start, then keep it open beside your timeline.
+
 Goal for this round: match the reference edit of this same video (the 6:58 cut) beat for beat, in our brand colours, and beat it in the four places listed at the end.
 
 All timecodes refer to your current cut (5:02).

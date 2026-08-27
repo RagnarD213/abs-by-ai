@@ -93,6 +93,17 @@ exists and is unchecked, but this deliverable is a **draft Dan has not sent**, w
 reason the Waleed and 8/23 docs left it alone. Check it off if Dan considers the 8/23 send to have
 closed it.
 
+**The doc now opens with a link to the reference edit** — Drive `1lu_Im9st8XtDNXPnFOhpKyc7IA2Whf_J`,
+already "anyone with the link: reader", so Zeeshan can open it without a sharing change. Dan's catch:
+the notes referred to "the reference edit" throughout and never said where to find it.
+
+⚠ **THE SYSTEM CLIPBOARD IS NOT SAFE WHEN TWO SESSIONS RUN AT ONCE.** The osascript HTML-clipboard
+route returned rc 0, and the `cmd+v` two calls later pasted **a completely unrelated M100 shorts
+script** into the doc — the other session had overwritten the clipboard in between. Caught on the
+screenshot, `cmd+z` restored it, and a full Drive read-back confirms **zero residue**. For a short
+insert, type the text and add the hyperlink with `cmd+k` instead; the clipboard route is only safe
+for a big paste you verify immediately.
+
 **EXACT NEXT ACTION — DAN: read the doc and forward it to Zeeshan.** Nothing is blocked.
 
 ---
