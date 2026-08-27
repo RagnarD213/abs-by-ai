@@ -182,6 +182,30 @@ turns a 4-minute video into ~16 frames to inspect.
 
 ## Step 4 — AUDIO, BEFORE ANY OF THE PICTURE WORK
 
+> ## ⚠ [APPROVED METHOD — Dan, 2026-08-27] THE AUDIO IS THE REFERENCE'S OWN MIX
+>
+> **This is now the standard for every vertical rebuilt from a finished horizontal, and
+> the approach Dan approved on the Ad-1 vertical: "this audio sounds great … probably
+> even better than Muhammad's."** The full-length 9:16 master is frame-locked to the
+> reference's timeline, so the reference render's ENTIRE audio track — the editor's voice
+> edit, his music bed, everything — goes under the rebuilt picture VERBATIM. Processing
+> is exactly two steps: a linear two-pass `loudnorm` from the editor's level (typically
+> −18 LUFS) to ad spec **−14 LUFS**, then `alimiter=limit=0.79:level=disabled` before
+> the AAC encode (AAC overshoots the wav's true peak by ~0.5–0.7 dB; `level=1`, the
+> default, BOOSTS the whole mix — always disable it). Dan explicitly prefers the lifted
+> loudness: the editor's own level "was a little bit too quiet."
+>
+> The conform voice (everything below in this step) is still built — but it is a
+> **LIP-SYNC PROXY, not a deliverable**. Before muxing, xcorr every EDL segment's
+> conform voice against the reference audio in its own cut window (band 300–3400 Hz;
+> per-segment windows — larger windows straddle offset changes and refuse to lock):
+> shift any segment over 40 ms (`src_in −= lag`, refine iteratively to ±10 ms), and
+> treat a segment whose lag DRIFTS as a **WRONG-TAKE segment** — same words at a
+> different pace can never be shifted into sync; fresh-Whisper word durations identify
+> the editor's real take. Bed-picking (items 3–4 below) applies ONLY where the
+> reference mix cannot be used — e.g. the ≤0:59 cutdown, where time is removed and the
+> bed/SFX must be rebuilt over the new duration.
+
 1. **`reference/chan_analyse.py` on BOTH the reference and the raw.** Jeff's rolls are not
    stereo — they carry two different microphones ~7.8 ms apart, sometimes polarity-inverted.
    **Voice comes from the RIGHT channel only, as mono.** A good editor has already fixed
@@ -274,6 +298,28 @@ each one was arrived at by getting it wrong first.
    default instance — ASS captions come out Regular while every graphic is ExtraBold. Build
    one PNG per word state and assemble with the concat demuxer (`duration` directives); that
    is fast and keeps one type system.
+
+11. **[APPROVED 2026-08-27] The talking-head crop FOLLOWS a smoothed face track — never a
+   fixed x.** The subject leans through a locked-off shot (Dan's face wandered 835–1037 in
+   1920), and a ~608-px 9:16 crop nearly doubles every lean on the phone; Dan caught one
+   timestamp and it was a class. Build the track from a skin-band centroid per 0.25 s
+   **restricted to FACE height (y 70–240 of 1080 — raised hands pollute a wider band)**,
+   median-filter ~2 s, slope-limit 80 px/s, and drive `crop x` with a piecewise-linear
+   expression. Same track feeds the window/statement beats' hole crop (per-beat median).
+   Verify by drawing the centreline on frames at the extremes of the track.
+
+12. **[APPROVED 2026-08-27] A card still needs MARGINS sized for the push, and the subject's
+   full head-to-shorts must survive the tightest zoom.** The still-push crops ~6% per side
+   at start and ~8.5% at peak — so the crop must put the hairline ≥10% from the top edge
+   and keep the shorts line inside the tightest window, subject horizontally centred.
+   Verify by drawing BOTH zoom windows on the asset before rendering. If the source photo
+   cannot give hairline + shorts + centred at once, use a different photo — Dan prefers a
+   correct different picture over a cropped right one, and mirror-padding past a limb
+   makes a visible artifact.
+
+13. **[APPROVED 2026-08-27] App-recording beats retime VARIABLY, never uniformly**: the
+   interactions run near real time (1.2–1.9×) and the progress/loading screens ~5× —
+   a uniform speed makes the app's loading feel slow (Dan's 3:13 note).
 
 ---
 
