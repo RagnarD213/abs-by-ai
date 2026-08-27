@@ -33,6 +33,29 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 1 VERTICAL — rev 3: TWO OPENER VARIANTS delivered, Dan picks one (2026-08-27, Claude Code)
+
+Dan on rev 2: *"this is looking really, really strong. I love this edit."* Two final notes,
+both worked and redelivered ($0.00 this round, all PIL/ffmpeg):
+
+1. **0:50 card recentred properly.** The skin-centroid measure had been pulled right by the
+   warm background; the crop is now centred on the FACE/TORSO centroid (x 1312), top margin
+   tightened to 9.5%, verified against both card-zoom extremes — hairline and shorts stay in
+   through the whole push, Dan at exactly 0.50 of frame.
+2. **The Veo hologram opener is dead** ("too weird-looking"). Two variants delivered, built to
+   match the app's own loading animation (frosted veil + soft leading-edge line sweeping down):
+   `ad1_vertical_9x16.mp4` = subtle scan-line opener (QC 15/15, canonical filename);
+   `ad1_vertical_9x16_OPENER_PICTURE_ONLY.mp4` = picture alone with the slow push (14/15 only
+   because the watch log names the other file — the two differ solely in the first 92 frames,
+   reviewed frame-by-frame). Both: AI-GENERATED chip 50% larger, moved to the SHORTS/waistline
+   area above the captions — **never over the face, now a standing rule in the skill.**
+
+**Review copies sent in chat** (full master of variant 1 + first-12s clip of variant 2).
+**DAN: pick an opener** — one word swaps the canonical file if he prefers picture-only.
+Dashboard Key task still unchecked pending that pick.
+
+---
+
 ### BUILD-TIMING INSTRUMENTATION — **HANDOFF WRITTEN, NOT EXECUTED** (2026-08-27, Claude Code)
 
 Dan asked whether upgrading the Mac mini would speed up photo/video/AI-video work. Session was
