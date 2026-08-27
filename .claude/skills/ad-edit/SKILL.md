@@ -686,6 +686,27 @@ Ad 2 (2026-08-27) — "Stop paying human nutritionists", cut from C1592 straight
    them means the harness's timeout kills the whole process group, and a caption burn died
    mid-write leaving a 208 MB file with no moov atom.
 
+Ad 4 (2026-08-27) — "Stop wasting money on supplements", C1594, third of the batch:
+
+68. **The forced-punch set must be computed WITHOUT reference to the punch plan**, because
+   the plan is built from it. Testing "is this splice already near a boundary" against the
+   previous iteration's plan makes the result oscillate: a splice that was covered becomes
+   bare once the plan shifts, and QC finds it after a 35-minute render. Compute
+   hard ∩ uncovered, apply a spacing floor, done — one pass, converges.
+69. **The spacing floor is a real trade-off, so measure the result.** 1.6 s left two visible
+   splices bare on this ad; 0.8 s caught everything at the cost of one 0.36 s framing
+   segment. Check the resulting median hold (2.97–4.04 s across these three ads) against the
+   reference's 4–7 s and look at the short segment in the watch strips before accepting it.
+70. **A splice within ~4 frames of an insert boundary is masked BY that boundary.** QC's
+   0.05 s tolerance reported a splice 53 ms after an insert ended as "bare", when the
+   insert's own exit is the biggest visual event on that frame. 0.15 s is the honest number.
+71. **`plate=None` means FULL FRAME.** Native-16:9 stock is a downscale and should fill the
+   frame; only native-vertical assets need a plate. Keep both paths in `layout*.py`.
+72. **Do not fake a cue the doc says is missing.** Ad 4's own cue notes the Supplement Audit
+   RESULT screen needs a real photo of Dan's shelf run through the feature and that "nothing
+   here is faked". The ad ships without that beat and `notes.md` says so, which is the
+   correct outcome — an invented result screen would be a fabricated product claim.
+
 ## Decisions locked vs pending
 
 | decision | status |

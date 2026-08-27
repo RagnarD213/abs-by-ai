@@ -33,7 +33,7 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
-### ADS 3 / 2 / 4 FROM THE 8/14 SHOOT — **AD 3 DELIVERED, AD 2 RENDERING** (2026-08-27, Claude Code)
+### ADS 3 / 2 / 4 FROM THE 8/14 SHOOT — **ALL THREE DELIVERED** (2026-08-27, Claude Code)
 
 Executing `Handoffs/handoff-20260827-ads-2-3-4-trainer-nutritionist-supplements.md` with
 `/ad-edit`. **16:9 only** per the handoff — Ad 1's vertical is still in revision (rev 3
@@ -80,20 +80,35 @@ transfers from Ad 1's approved chain with a per-roll linear pre-gain fitted firs
 **1.13 for C1593 (2.4 levels), 1.10 for C1592 (3.5 levels)**; a fresh spline fit reached
 only 16.7.
 
-**AD 2 — "Stop paying human nutritionists" — cut and rendering.** 308.2 s → **263.6 s
-(4:23.6) at 200 wpm**, 135 pause cuts. 30 beats, insert coverage 56 %. Build dir
-`/Volumes/Extreme/_edit_work/ads234-8-14/c1592/`.
+**AD 2 — "Stop paying human nutritionists" — DELIVERED** to `.../ad2-fire-your-nutritionist/`.
+**4:23.56**, 200 wpm, −14.10 LUFS, L/R +0.9985, fidelity 98.3 %, coverage 56 %. QC 12/12 +
+watch pass on the delivered file.
 
-**AD 4 (C1594, supplements) not started.** Its roll is transcribed and mic-checked
-(same two-mic, polarity-inverted rig; right channel wins by 8.5 dB on all three rolls).
+**AD 4 — "Stop wasting money on supplements" — DELIVERED** to
+`.../ad4-stop-wasting-money-on-supplements/`. **3:41.79**, 198 wpm, −14.10 LUFS,
+L/R +0.9986, fidelity 98.3 %, coverage 63 %. QC 12/12 + watch pass.
 
-**Dashboard: nothing checked off yet** — Ad 3 is delivered but Dan has not seen it, and
-ad-1 attempt 1 had to have its check-off reverted for exactly that reason.
+⚠ **AD 4 SHIPS WITHOUT ONE CUE, DELIBERATELY.** Its own cue doc says the Supplement Audit
+RESULT screen does not exist and needs *"one real photo of Dan's own supplement shelf run
+through the feature — Dan's asset to shoot; nothing here is faked."* Nothing was faked. The
+ad shows the audit screen and the five-expert panel but no result. **That photo is the
+single highest-value thing Dan can add to this ad.**
 
-**EXACT NEXT ACTION — DAN: watch `ad3_720p.mp4`** (sent in chat). Two flagged items in
-`notes.md`: the SixPackAbs clip at 0:20 comes from the "CHECK BEFORE USING" folder (his cue
-named that exact file), and 27.5 s of the ad carries no captions because his cue runs the
-full 35 s AI clip across that paragraph.
+**Naked jump cuts were the recurring failure on ads 2 and 4** (Ad 3's 69 % coverage hid
+them). Fixed with `reference/hard_splices.py`: measure every pause splice on the tight cut,
+intersect "visibly above the file's own p99" with "not under a graphic", force a punch
+change on those — 22–25 of ~120 per ad. Compute it WITHOUT reference to the punch plan or
+it oscillates. Median shot 2.97–4.04 s against the reference's 4–7 s.
+
+**Dashboard: nothing checked off** — all three are delivered and gated, but Dan has not
+watched any of them, and ad-1 attempt 1 had a check-off reverted for exactly that.
+
+**EXACT NEXT ACTION — DAN: watch the three 720p review copies** (all sent in chat). Flagged
+in the notes: the **SixPackAbs archive clip appears in BOTH ad 3 (0:20) and ad 2 (0:22)** —
+his cues name that exact file, but it comes from the folder marked "CHECK BEFORE USING" and
+there is a live federal mark on SIXPACKABS.COM held by another company; one line to pull it
+from either ad. And 27.5 s of ad 3 carries no captions because his cue runs the full 35 s AI
+clip across that paragraph.
 
 ### GOOGLE ADS "MISCONFIGURED" CONVERSION GOALS — ROOT-CAUSED AND FIXED (2026-08-27, Claude Code)
 
