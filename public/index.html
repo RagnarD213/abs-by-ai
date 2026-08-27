@@ -3330,15 +3330,32 @@ const AD_CLICK_KEY = 'absbyai_ad_click';
 const AD_CLICK_DAYS = 90; // Google's maximum click-to-conversion window
 const AD_CLICK_RE = /^[A-Za-z0-9_-]{1,200}$/;
 
+// WHICH of the three it was. Carried separately because Google's offline
+// conversion import puts gclid, gbraid and wbraid in three different columns
+// and rejects a value filed under the wrong one — a gbraid sent as a "Google
+// Click ID" comes back "Unparseable gclid" and the sale is simply lost. The
+// shapes are not reliably distinguishable after the fact, so the type is
+// recorded at the only moment it is known for certain: the landing URL.
+const AD_CLICK_TYPE_KEY = 'absbyai_ad_click_type';
+const AD_CLICK_TYPES = ['gclid', 'gbraid', 'wbraid'];
+
 function captureAdClickId() {
   let params;
   try { params = new URLSearchParams(location.search); } catch (e) { return; }
   // gclid is the normal web click id; gbraid/wbraid replace it when Apple's
   // ATT blocks user-level tracking, so all three have to be accepted.
-  const id = params.get('gclid') || params.get('gbraid') || params.get('wbraid') || '';
+  let id = '', type = '';
+  for (const t of AD_CLICK_TYPES) {
+    const v = params.get(t);
+    if (v) { id = v; type = t; break; }
+  }
   if (!id || !AD_CLICK_RE.test(id)) return;
-  try { localStorage.setItem(AD_CLICK_KEY, id); } catch (e) {}
+  try {
+    localStorage.setItem(AD_CLICK_KEY, id);
+    localStorage.setItem(AD_CLICK_TYPE_KEY, type);
+  } catch (e) {}
   writeCookie(AD_CLICK_KEY, id, AD_CLICK_DAYS);
+  writeCookie(AD_CLICK_TYPE_KEY, type, AD_CLICK_DAYS);
 }
 
 function getAdClickId() {
@@ -3346,6 +3363,15 @@ function getAdClickId() {
   try { id = localStorage.getItem(AD_CLICK_KEY) || ''; } catch (e) {}
   if (!id) id = readCookie(AD_CLICK_KEY);
   return AD_CLICK_RE.test(id || '') ? id : '';
+}
+
+// Falls back to gclid rather than to empty: every id stored before this existed
+// is a web gclid, and so is every id captured without a recognised type.
+function getAdClickType() {
+  let t = '';
+  try { t = localStorage.getItem(AD_CLICK_TYPE_KEY) || ''; } catch (e) {}
+  if (!t) t = readCookie(AD_CLICK_TYPE_KEY);
+  return AD_CLICK_TYPES.includes(t) ? t : 'gclid';
 }
 
 // Run immediately, at module top level. This MUST happen before the
@@ -5416,7 +5442,7 @@ async function handleAuthSubmit(e) {
         email: $('authEmail').value.trim(),
         password: $('authPassword').value,
         deviceId: getDeviceId(),
-        adClickId: getAdClickId(),
+        adClickId: getAdClickId(), adClickType: getAdClickType(),
       }),
     });
     if (window.posthog) posthog.capture(auth.mode === 'signup' ? 'account_signup' : 'account_login');
@@ -7237,7 +7263,7 @@ async function handleMembershipSubscribe() {
   try {
     const data = await authApi('/api/stripe/create-membership-checkout', {
       method: 'POST',
-      body: JSON.stringify({ plan: selectedPlan, deviceId: getDeviceId(), adClickId: getAdClickId() }),
+      body: JSON.stringify({ plan: selectedPlan, deviceId: getDeviceId(), adClickId: getAdClickId(), adClickType: getAdClickType() }),
     });
     const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
     const sessionId = data.sessionId;

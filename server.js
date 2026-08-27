@@ -4412,17 +4412,28 @@ function requireAdmin(req, res, next) {
 // Latest click wins, matching Google's last-click attribution; a request that
 // carries no id never clears one we already hold.
 const ADS_CLICK_RE = /^[A-Za-z0-9_-]{1,200}$/;
+// gclid | gbraid | wbraid. Google's offline import gives each its OWN column and
+// rejects a value filed under the wrong header, so the type has to travel with
+// the id rather than be guessed from its shape at upload time.
+const ADS_CLICK_TYPES = ['gclid', 'gbraid', 'wbraid'];
 function sanitizeAdClickId(raw) {
   const id = String(raw || '');
   return ADS_CLICK_RE.test(id) ? id : '';
 }
-async function recordAdClickId(userId, rawId) {
+function sanitizeAdClickType(raw) {
+  const t = String(raw || '').toLowerCase();
+  // Default to gclid: it is what the web sends, and it is what every row
+  // written before this field existed actually holds.
+  return ADS_CLICK_TYPES.includes(t) ? t : 'gclid';
+}
+async function recordAdClickId(userId, rawId, rawType) {
   const id = sanitizeAdClickId(rawId);
+  const type = sanitizeAdClickType(rawType);
   if (!db || !userId || !id) return;
   try {
     await db.query(
-      'UPDATE users SET ads_click_id = $1, ads_click_at = NOW() WHERE id = $2',
-      [id, userId]
+      'UPDATE users SET ads_click_id = $1, ads_click_type = $2, ads_click_at = NOW() WHERE id = $3',
+      [id, type, userId]
     );
   } catch (e) {
     // Never let attribution bookkeeping break signup or checkout.
@@ -4446,7 +4457,7 @@ app.post('/api/auth/signup', authLimiter, async (req, res) => {
       [email, hash, deviceId]
     );
     if (!rows.length) return res.status(409).json({ error: 'An account with that email already exists. Log in instead.' });
-    await recordAdClickId(rows[0].id, req.body?.adClickId);
+    await recordAdClickId(rows[0].id, req.body?.adClickId, req.body?.adClickType);
     const token = await createSession(rows[0].id);
     pushToMailerLite(email).catch(() => {}); // join the email list, same as the capture screen
     console.log(`Account created: ${email}`);
@@ -5666,12 +5677,22 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
   const commit = /-commit\.csv$/.test(req.path) || String(req.query.commit || '') === '1';
   try {
     const { rows } = await db.query(
-      `SELECT id, ads_click_id, membership_plan, paid_conversion_pending_at, ads_offline_uploaded_at
+      `SELECT id, ads_click_id, ads_click_type, membership_plan, paid_conversion_pending_at, ads_offline_uploaded_at
          FROM users
         WHERE paid_conversion_pending_at IS NOT NULL
           AND paid_conversion_fired_at IS NULL
           AND ads_click_id IS NOT NULL
           AND ads_click_at IS NOT NULL
+          -- Synthetic accounts never reach Google. This is not a hypothetical
+          -- tidy-up: three @example.com rows seeded to make Data Manager's
+          -- schema step pass carried fake "TESTgclid…" ids, and because they
+          -- were the ONLY rows the feed had ever emitted, Google rejected 100 %
+          -- of every import ("Unparseable gclid", 0 of 3 imported) and the
+          -- Purchase goal sat Misconfigured for weeks. One poisoned row is
+          -- indistinguishable from a broken feed from Google's side.
+          -- example.com is reserved by RFC 2606, so this also protects every
+          -- future verification row without anyone needing to remember to.
+          AND email NOT LIKE '%@example.com'
           -- Two separate 90-day limits, and the second is the binding one.
           -- (a) the action's click-through window: the sale must fall within
           --     90 days of the click, or it is outside the attribution window;
@@ -5688,11 +5709,21 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
       [ADS_FEED_MAX_ROWS]
     );
 
-    const lines = ['Google Click ID,Conversion Name,Conversion Time,Conversion Value,Conversion Currency'];
+    // Three id columns, exactly one populated per row. Google matches on
+    // whichever is filled and ignores the empty ones; what it will NOT do is
+    // accept a gbraid filed under "Google Click ID" — that comes back as an
+    // unparseable gclid and takes the whole row with it. iOS app campaigns send
+    // gbraid/wbraid whenever ATT blocks user-level tracking, so mixed types on
+    // this account are routine.
+    const lines = ['Google Click ID,GBRAID,WBRAID,Conversion Name,Conversion Time,Conversion Value,Conversion Currency'];
     for (const r of rows) {
       const planDef = MEMBERSHIP_PLANS[r.membership_plan] || MEMBERSHIP_PLANS.monthly;
+      // NULL predates the ads_click_type column and is always a web gclid.
+      const type = sanitizeAdClickType(r.ads_click_type);
       lines.push([
-        csvCell(r.ads_click_id),
+        csvCell(type === 'gclid' ? r.ads_click_id : ''),
+        csvCell(type === 'gbraid' ? r.ads_click_id : ''),
+        csvCell(type === 'wbraid' ? r.ads_click_id : ''),
         csvCell(ADS_OFFLINE_ACTION),
         csvCell(adsConversionTime(new Date(r.paid_conversion_pending_at))),
         csvCell((planDef.priceInCents / 100).toFixed(2)),
@@ -5740,7 +5771,7 @@ app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res)
     // Capture here as well as at signup: an existing account that clicks an ad
     // and only then subscribes would otherwise carry the click id from whenever
     // it first registered, or none at all.
-    await recordAdClickId(req.user.id, req.body?.adClickId);
+    await recordAdClickId(req.user.id, req.body?.adClickId, req.body?.adClickType);
 
     const row = await getUserRow(req.user.id);
     // A beta (comp) tester may still choose to pay; the webhook then overwrites

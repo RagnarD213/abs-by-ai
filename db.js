@@ -214,6 +214,15 @@ async function initDb() {
     // this id. Stored latest-wins, matching Google's last-click attribution.
     'ads_click_id TEXT',
     'ads_click_at TIMESTAMPTZ',
+    // WHICH KIND of click id ads_click_id holds. Load-bearing, and its absence
+    // was a real defect: Google's offline import takes gclid, gbraid and wbraid
+    // in THREE SEPARATE COLUMNS, and a gbraid sent under the "Google Click ID"
+    // header is rejected as an unparseable gclid — silently, for every row.
+    // iOS app campaigns produce gbraid/wbraid whenever ATT blocks user-level
+    // tracking, so on this account that is the normal case, not the edge one.
+    // Rows written before this column existed are web gclids; NULL reads as
+    // 'gclid' at emit time, which is correct for all of them.
+    "ads_click_type TEXT",
     // Trial → PAID membership, reported to Google Ads as the "Subscribe"
     // conversion. That moment happens server-side (Stripe webhook / RevenueCat
     // webhook) with no browser open, so it cannot be reported when it happens.
