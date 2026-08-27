@@ -33,6 +33,35 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 1 VERTICAL — **FINAL (rev 2), Dan-approved direction, one photo swap pending his nod** (2026-08-27, Claude Code)
+
+Dan on rev 1: *"this audio sounds great … probably even better than Muhammad's, because he did
+lift the loudness … This is a great edit. This was really, really good."* One remaining note:
+the 0:50 card cut his head off — he asked for hairline + shorts line visible and centred, or a
+different picture. **Fixed and redelivered same filenames; QC 15/15.**
+
+**The 0:50 card is now Dan's own shoot06 pool photo** (the lifted model photo physically cannot
+show hairline + shorts + centred once the card's zoom-push crops it — mirror-padding past his
+arm makes a visible artifact, which is the "use a different picture" fallback Dan authorised;
+he also reads this card as himself). Crop margins were sized against BOTH zoom extremes so the
+push never cuts hairline or shorts; verified on the delivered frames through the whole beat and
+fresh consecutive-frame strips at both boundaries. The line there is "attract the body that you
+want into your life" — his body is the product's proof.
+
+**THE SKILL IS UPDATED PER DAN'S INSTRUCTION** ("I want all of our vertical ads that we made
+from horizontal to be like this") — commit `4fa5567` promotes the approved recipe to canonical
+in `/shortad-from-longform`: the reference's own mix as THE audio method (loudnorm to −14 +
+`alimiter level=disabled`; conform voice is only a lip-sync proxy, per-segment xcorr ±10 ms,
+wrong-take detection by pace), the face-tracking crop, push-proof card margins, and variable
+app-recording retime.
+
+**Dashboard: Key task still unchecked** — rev 2's one change (the photo swap) follows Dan's
+stated fallback but he has not seen it; check it off on his confirm.
+
+**Phase B (the ≤0:59) still waits on Dan's edited script** in the Google Doc.
+
+---
+
 ### AD 1 VERTICAL ATTEMPT 3 **REV 1** — Dan's timestamped review worked, REDELIVERED (2026-08-26, Claude Code)
 
 Dan reviewed attempt 3 same-day: *"the biggest issue is the audio … a lot of places where the
