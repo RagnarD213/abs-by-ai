@@ -436,6 +436,34 @@ necessary, take things directly from his video."* Eight lessons, each paid for:
    upscale, so analogous vertical stock still wins — log each such swap as a known
    difference.
 
+### [A3 rev 1] Dan's review of attempt 3: "the audio is the biggest difference" — and the answer
+
+9. **WHEN THE CUT IS FRAME-LOCKED TO THE REFERENCE'S TIMELINE, USE THE REFERENCE'S OWN
+   AUDIO.** The conform voice is a lip-sync proxy, not a deliverable: every EDL
+   imprecision becomes a clipped word or an awkward splice in it, and no amount of EDL
+   polish reaches a hand-cut mix. The reference's own audio drops under the rebuilt
+   picture verbatim (one linear loudnorm to ad spec) — which erases the whole class of
+   conform-audio artifacts AND settles the music-bed question (the bed is his). Before
+   muxing, xcorr every EDL segment's conform voice against his audio in its cut window
+   (band 300–3400, per-segment windows — whole-file windows straddle offset changes and
+   refuse to lock): shift segments over 40 ms (src_in −= lag), and treat a segment whose
+   lag DRIFTS as a WRONG-TAKE segment — same words at a different pace can never be
+   shifted into sync (fresh-Whisper word durations identify his take: 0.50/0.36/0.34 s
+   vs 0.34/0.26/0.28 s for "every single day"). Attempt 3 had one different-take stretch
+   and 7 shifted segments; after correction every segment locks within ±10 ms.
+10. **`alimiter` defaults to `level=1`, which BOOSTS the whole mix up to the ceiling** —
+   always `level=disabled` for peak-shaving. And AAC overshoots the wav's true peak by
+   ~0.5–0.7 dB, so a −1.4 dBTP wav can fail a −1.0 gate after encode; limit the wav to
+   ~−2 dBTP first.
+11. **The subject LEANS through a locked-off shot, and a 608-px-wide 9:16 crop amplifies
+   it** (±60 px lean = ±110 px on the phone). A fixed crop centred on the measured mean
+   reads off-centre at the extremes — Dan caught it at one timestamp and it was a class.
+   Fix: a smoothed face track (skin-band centroid per 0.25 s, median filter, slope-limit
+   80 px/s) driving a piecewise-linear `crop x` expression — a gentle auto-reframe. Skin
+   centroids get fooled by raised HANDS: restrict the band to face height (y 70–240).
+12. **App-recording beats: retime VARIABLY, not uniformly** — interactions near real
+   time, progress/loading screens ~5× (Dan: uniform speed makes the loading feel slow).
+
 ## Standing content rules that override the reference
 
 The reference editor does not know Dan's ad rules. Check every beat you are reproducing:
