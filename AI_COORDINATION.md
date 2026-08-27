@@ -33,6 +33,46 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### BUILD-TIMING INSTRUMENTATION — **HANDOFF WRITTEN, NOT EXECUTED** (2026-08-27, Claude Code)
+
+Dan asked whether upgrading the Mac mini would speed up photo/video/AI-video work. Session was
+analysis only — **$0.00 AI spend, no production code, no deploy, no native-retest trigger.**
+
+**Measured, not assumed: Mac mini M2 Pro, 10 CPU cores (6P/4E), 16 GPU cores, 32 GB, boot 145 GB free.
+`/Volumes/Extreme` reads 910 MB/s — I/O is NOT a bottleneck, don't re-investigate it.**
+
+**What's local vs cloud:** ALL rendering (`libx264`, pure CPU, 47 call sites), ALL transcription
+(`openai-whisper` on `torch` — CPU only on Apple Silicon; `word_timestamps=True` in 7 places), ALL
+graphics (PIL, single-threaded), ALL measurement. Cloud = Veo/FLUX/Seedream/Gemini/Claude, where
+hardware is irrelevant. **The 16-core GPU is completely unused.**
+
+**Three optimizations considered; the recommendation shifted on inspection:**
+1. **Whisper → `mlx-whisper`: clearly worth doing**, same OpenAI models via Apple's framework. Gated on
+   a word-timestamp equivalence test — the ms-level word timing carries EDL recovery, lip-sync xcorr and
+   wrong-take detection. Expect hallucination behaviour to differ, so the documented traps may not transfer.
+2. ⚠ **VideoToolbox GPU encoder: initially over-recommended, then NARROWED to disposable outputs only**
+   (540p review copies, contact sheets, A/B files). Reasons: 3+ chained lossy generations compound; the
+   QC gate measures the finished file and is calibrated on x264; it **invalidates the segment cache**;
+   and it has no CRF equivalent, so it's a logic rewrite not a flag swap.
+3. **Parallelizing the PIL passes: a maybe** — 1 of 10 cores used today, but 32 GB memory pressure and
+   this pipeline's documented history of ordering bugs.
+
+**Hardware estimate if he still wants it: M4 Pro mini ≈ 2x, M4 Max Studio ≈ 2.4x. Real, not transformative.**
+
+⚠ **DAN'S CALL: measure before optimizing and before buying.** A 2x speedup on an 8-minute stage saves
+4 minutes; on a 90-minute stage, 45. **We have no timing data at all**, so neither decision is answerable.
+`Handoffs/handoff-20260827-instrument-build-timings.md` written; Key dashboard task added.
+
+**The plan's core trick: there is NO single build entry point** (~100 discrete scripts), so it shims the
+one real `ffmpeg` binary at `Media/video_edit/bin/ffmpeg` — every call site resolves there.
+⚠ **THE TRAP: two-pass loudnorm PARSES ffmpeg's stderr**, so the shim must pass stderr through untouched
+and log elsewhere, or the audio chain breaks and presents as an audio bug.
+
+**EXACT NEXT ACTION — execute the handoff in a fresh session (Sonnet 5 / Codex medium; NOT Opus).
+Measure only, optimize nothing.**
+
+---
+
 ### AD 1 VERTICAL — **FINAL (rev 2), Dan-approved direction, one photo swap pending his nod** (2026-08-27, Claude Code)
 
 Dan on rev 1: *"this audio sounds great … probably even better than Muhammad's, because he did
