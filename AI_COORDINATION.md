@@ -33,6 +33,60 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### MUHAMMAD BATCH BRIEF — 12 remaining ads, TWO DOCS DELIVERED, Dan sends them (2026-08-27, Claude Code)
+
+Dan asked for a job briefing for Muhammad A to edit the rest of the 8/14 ads, modelled on the
+2026-08-20 PAID TEST PROJECT BRIEF. **$0.00 AI spend, no production code, no deploy, no
+native-retest trigger.** Two Google Docs created; nothing sent to Muhammad — Dan forwards.
+
+1. **[Abs By AI — AD EDITING BATCH BRIEF (12 Ads) — Muhammad](https://docs.google.com/document/d/11ndqrKK-UxrTcfyweylvj5hCMZTwfW94hu5hPdKKgNo/edit)**
+2. **[Abs By AI — Ad Scripts To Edit: 12 Ads (Ads 2–15)](https://docs.google.com/document/d/1AVRvxiINZ0EDkoFv77piXbg5xGuizHGuHE7vRVWXRKk/edit)**
+   — a COPY of the batch-1 scripts doc with Ad 1 deleted in the Docs UI, so **all embedded cue
+   images survive** (a text rebuild would have lost them). Outline verified: AD 2–15 + Production
+   notes, 12 scripts.
+
+⚠ **IT IS 12 ADS, NOT 14.** The batch-1 doc has 13 ad scripts (Ads 1–10, 13, 14, 15 — **11 and 12
+do not exist**), and Ad 1 is done. Dan's call: **$50/ad = $600, plus the $150 bonus** if all 12 land
+before **2026-09-16** at Ad-1 quality or better. 2 revision rounds per ad; revisions do not cost him
+the bonus. **Ads 2/3/4 are IN his batch** even though our pipeline delivered its own 16:9 cuts of
+them the same morning — Dan's explicit call; ours become the comparison.
+
+**FORMAT DECISION — Muhammad delivers 16:9 only; we generate the 9:16 with
+`/shortad-from-longform`.** Dan raised flipping it (him vertical, us horizontal) and the answer is
+no: his graphics are burned into the pixels, so a vertical master cannot be reframed wide — that is
+exactly what forced Ad 1's vertical to be re-cut from the raw roll — the camera shot 16:9 so that is
+the native frame, and the bonus clause needs a like-for-like standard to judge against.
+
+**The brief is built on measurements, not adjectives** — his own cut's 58 % insert coverage, ~14
+punch-ins changing every 5–13 s cut on word onsets, 125 BPM bed, −14 LUFS / −1 dBTP — plus the
+full per-ad roll table (roll id, raw length, script word count, expected finished runtime, direct
+Drive link), verified against `probes.json` rather than copied from the handoff table.
+
+⚠ **THE TWO-MIC FAULT IS WRITTEN INTO THE BRIEF AS ITS OWN SECTION.** Right channel only, as mono;
+left is a room mic 7.5–8.2 ms late, polarity-inverted and clipped on the ad rolls. Two previous
+editors failed on exactly this in two different ways. This is the highest-value thing in the doc.
+
+⚠ **ASSETS ARE THE REAL GAP AND THE BRIEF SAYS SO PLAINLY.** The core set exists (the 12-file
+reference folder + the 4 AI benefit clips + 2 heavier-Dan photos, all linked per file with which
+ads call for them). **What does not exist: the AI gag clips for Ads 2, 3, 4, 13, 14** (stick figure
+vs nutritionist, cafeteria ration line, fat trainer vs robot trainer, supplement tubs into the
+bin), **Ad 4's Supplement Audit result screen** (Dan's own shelf, his asset to shoot), **Ad 8's
+two-futures pair**, and **Ad 9's deliberately-bad ChatGPT output**. The scripts show illustrations
+of these; the finished files do not exist. Brief instructs him to flag the timecode rather than
+substitute stock. **Generating those clips is the obvious follow-on session.**
+
+⚠ **THE SIXPACKABS ARCHIVE CLIP IS FLAGGED, NOT CLEARED.** Ads 2, 3 and 14 all call for it and the
+script prints a live Drive link. The brief tells him to hold that beat and check with Dan.
+**Dan's decision, and it is the same one still open on ads 2 and 3 from this morning.**
+
+**Dashboard: nothing checked off** — searched, no task covers this brief, and the work it briefs has
+not been done.
+
+**EXACT NEXT ACTION — DAN: (1) confirm the 16:9-only call, (2) share both docs and the 8/14 shoot
+folder with Muhammad, (3) send it.** Then, separately: generate the missing AI gag clips.
+
+---
+
 ### ADS 3 / 2 / 4 FROM THE 8/14 SHOOT — **ALL THREE DELIVERED** (2026-08-27, Claude Code)
 
 Executing `Handoffs/handoff-20260827-ads-2-3-4-trainer-nutritionist-supplements.md` with
