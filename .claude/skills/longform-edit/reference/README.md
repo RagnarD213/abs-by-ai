@@ -31,6 +31,27 @@ footage. Every file here backs a **hard failure** in `qc_style.py`.
 | `captions_burn.py` | phrase-chunked burned captions + `.srt`, suppressed over full-screen cards |
 | `spec_example_abwheel.py` | a worked plan: 26 cutaways + 27 graphics authored against the transcript |
 
+## BRINGING AN ALREADY-DELIVERED CUT UP TO THE STYLE STANDARD (2026-08-27)
+
+The five delivered longforms have approved cuts, validated grades and fixed audio, and are
+missing only the style pass. Re-running `plan_punchins.py` on them would re-derive the cut,
+which is the part that is already right. These three do the style half ONLY, against the
+`*_NO-GRAPHICS.mp4` that sits beside every delivered master.
+
+| file | what it does |
+|---|---|
+| **`repunch.py`** | punch-ins on a cut that is already locked: tracks the subject by MOTION (not by a median plate — on a talking head the subject IS the median and the plate method puts the box on the doorframe), takes shot boundaries from the cut's own `edl.json` joins, splits long runs into ~7 s shots nudged into silence, renders per piece and asserts the frame count is unchanged so the delivered audio cannot drift |
+| **`captions_from_edl.py`** | burned captions mapped through `edl.json` instead of re-transcribing 19–53 minutes: keeps the de-clumping and reading-order rules, adds phrase chunking at ~40 chars, orphan folding, and suppression under full-screen cards |
+| **`build_gfx_track.py`** | flatten every graphic into ONE full-length alpha track so the composite is a single overlay. A 45-deep chain of `setpts`-shifted alpha inputs runs at **0.08x realtime** and took five hours on a 19-minute programme; the flattened version runs at ~1x. Read the ⚠ box in SKILL.md Step 7 before touching it — the transparent filler must come from a PNG, not from lavfi `color`. |
+| **`plan_inserts.py`** | place B-roll against the TRANSCRIPT at scale: score each free slot's spoken words against a topic table and take the best-matching clip, with a cooldown so a clip can return only far later |
+| **`watch_longform.py`** | THE WATCH PASS: every frame streamed for black frames / frozen runs / unexplained jumps, plus a full-resolution GRAPHIC PRESENCE check that differences the delivered picture against the pre-graphics source inside each declared window, plus consecutive-frame boundary strips |
+
+⚠ **`repunch.py --anchor top` is the default and it matters.** Protecting the subject
+vertically as well as horizontally makes every shot on a waist-up talking head come out at
+1.00 (the tracked box runs head to frame bottom, so no crop ever "fits"): 991 s of 1134 s
+uncropped. Cutting the bottom of his torso off IS what a punch-in is; the anchor keeps the
+face and the headroom instead.
+
 **These carry the ab-wheel paths.** They are templates, like everything else here: copy one
 into the video's working dir and change `BASE`. The animated-graphics and SFX packs are
 shared with `/ad-edit` at `.claude/skills/_shared/motionlib.py` and `sfxlib.py` — a fix in

@@ -394,7 +394,12 @@ def encode(frames, out, fps=FPS, alpha=True):
         for im in frames:
             im.save(os.path.join(tmp, "f_%05d.png" % n)); n += 1
         if n == 0: raise ValueError("no frames")
-        cmd = [FF, "-nostdin", "-y", "-v", "error", "-framerate", f"{fps:.6f}",
+        # EXACT rational, never a decimal. "29.970030" parses to 979001/32666, which
+        # gives the .mov a 1/979001 timebase -- and concatenating those with anything
+        # generated at 1/30000 (a lavfi source, another tool) produces garbage
+        # timestamps: a 1827 s track came out claiming 59255 s.
+        fr = "30000/1001" if abs(fps - 30000/1001) < 1e-6 else f"{fps:.6f}"
+        cmd = [FF, "-nostdin", "-y", "-v", "error", "-framerate", fr,
                "-i", os.path.join(tmp, "f_%05d.png")]
         cmd += (["-c:v", "qtrle", "-pix_fmt", "argb"] if alpha else
                 ["-c:v", "libx264", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p"])
@@ -535,7 +540,8 @@ def title_card(out, headline, subtitle, dur, in_dur=0.55, out_dur=0.35, pal=GREE
 
 
 def bullets_build(out, heading, bullets, dur, panel_w=980, in_dur=0.45, out_dur=0.30,
-                  pal=GREEN, head_size=76, body_size=68, fps=FPS, head_color=None):
+                  pal=GREEN, head_size=76, body_size=68, fps=FPS, head_color=None,
+                  eyebrow=None, eyebrow_size=34, brackets=False):
     """Left-hand list panel whose bullets appear ONE AT A TIME.
 
     `bullets` is [(t_seconds, "text"), ...] -- sync each t to the word that introduces
@@ -548,6 +554,7 @@ def bullets_build(out, heading, bullets, dur, panel_w=980, in_dur=0.45, out_dur=
     """
     fH = font(head_size, "ExtraBold")
     fB = font(body_size, "SemiBold")
+    fE = font(eyebrow_size, "Bold") if eyebrow else None
     PAD  = int(panel_w * 0.095)
     IND  = int(body_size * 0.86)
     LH   = int(body_size * 0.95)
@@ -555,6 +562,9 @@ def bullets_build(out, heading, bullets, dur, panel_w=980, in_dur=0.45, out_dur=
     RULE = 9
     wrapped = [(t, wrap(txt, fB, panel_w - PAD - IND - 40)) for t, txt in bullets]
     panel = field_bg(pal, panel_w, H).convert("RGBA")
+    # House style: corner brackets on every FULL-SCREEN graphic. On a narrow side panel
+    # they read as clutter, so this is opt-in rather than automatic.
+    if brackets: bracket_frame(panel, pal)
     hu = heading.upper()
     head_w, head_bot = text_size(hu, fH)[0], ink_bottom(hu, fH)
 
@@ -569,6 +579,16 @@ def bullets_build(out, heading, bullets, dur, panel_w=980, in_dur=0.45, out_dur=
         lay.alpha_composite(panel, (dx, 0))
         d = ImageDraw.Draw(lay)
         y = TOP
+        if fE:
+            ep = ease_out_cubic(t / 0.30)
+            if ep > 0.01:
+                eu = eyebrow.upper()
+                ew, eh = text_size(eu, fE)
+                d.rectangle([dx + PAD, y, dx + PAD + (ew + 34) * ep, y + eh + 20], fill=pal.mid)
+                if ep > 0.5:
+                    d.text((dx + PAD + 17, y + (eh + 20) / 2), eu, font=fE,
+                           fill=(255, 255, 255), anchor="lm")
+            y += eyebrow_size + 44
         hp = ease_out_cubic((t - 0.14) / 0.38)
         if hp > 0.01:
             d.text((dx + PAD, y), hu, font=fH, fill=head_color or pal.ink, anchor="lt")
