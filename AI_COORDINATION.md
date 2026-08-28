@@ -123,6 +123,70 @@ before diagnosing a slow render as a pipeline problem.
 
 ---
 
+### BUILD-TIMING INSTRUMENTATION — **EXECUTED; MEASURED, NOTHING OPTIMIZED** (2026-08-27, Claude Code)
+
+`Handoffs/handoff-20260827-instrument-build-timings.md` executed in full. **$0.00 AI spend,
+no production code, no deploy, no native-retest trigger.** Commits `b2fab01`, `ce5dae0`
+(shim + stage wrapper + report in `.claude/skills/_shared/timing/`). **THE SHIM IS REMOVED**
+— `Media/video_edit/bin/{ffmpeg,ffprobe}` restored byte-for-byte and re-verified working.
+
+**Method: shim the ONE real ffmpeg binary, so all ~100 scripts are captured without editing
+any of them.** ⚠ The stderr trap was respected and proven, not assumed: stderr is
+**byte-identical** to the real binary (the only diffs — encode `speed=` and a heap address —
+appear when the real binary is diffed against *itself*), and a real `finish_audio.py`
+two-pass loudnorm parsed correctly through it.
+
+**THE NUMBERS (Ad 1 vertical, 3:52.8, 99 segments, single-tenant machine):**
+
+| | cold rebuild | warm one-beat revision |
+|---|---|---|
+| **total** | **19.1 min** | **6.7 min** |
+| ffmpeg / x264 (all 10 cores) | 15.4 min (81 %) | — |
+| single-threaded Python (PIL) | 3.6 min (19 %) | ~5 s |
+
+Top 3 stages = 92 %: `render` 8.5 min · `build_base` 7.1 min · `master_mux` 1.9 min.
+**Whisper measured 8.4–8.9x realtime** (40-min roll → 4.5 min; ad roll → 45 s) — it is
+0–4 % of a build, not a bottleneck. Across 11,627 captured calls, **74 % are sub-second and
+total 2.0 % of the time; the top 10 calls are 50 %.**
+
+⚠ **THE VERDICT IS "DON'T DO ANY OF IT", AND THAT IS THE USEFUL ANSWER.** Per build:
+mlx-whisper **~30 s** (and it risks the word timestamps that carry EDL recovery and lip-sync
+xcorr) · VideoToolbox **~10 s** (the only disposable output is the 540p copy, 14 s) ·
+parallel PIL **~2.7 min ceiling** · **M4 Pro mini ~8.5 min on an ad, ~20–30 min on a
+longform.** At two or three builds a week the Mac returns well under an hour a week for
+$1,400–2,000. **Do not buy it on these numbers.**
+
+⚠ **THE BIGGEST LEVER IS FREE AND IS NOT ON THE LIST: STOP RUNNING FOUR BUILDS AT ONCE.**
+The first attempt ran into **four concurrent sessions, load average 242 on 10 cores, 0 %
+idle**. `finish_audio.py` took **126 s contended vs 13.6 s quiet — a 9.3x penalty** — and it
+buys no throughput, because x264 already saturates every core. Only the 19 % that is
+single-threaded Python leaves headroom, so **two** concurrent builds overlap usefully and
+beyond two is pure loss. **Cap concurrent builds at two.**
+
+⚠ **A CORRECTION WORTH KEEPING: the 5 h 20 m `picture_final.mp4` encode in the log was the
+`-loop 1` bug from the five-longforms session, not the cost of longform rendering.** Bounded
+it takes 17 min, which independently corroborates the 0.95x realtime measured here. **A
+picture pass costs about one second per second of finished video.** This is why the hardware
+verdict flipped: fixing one defect bought back more than doubling the CPU would have — and
+it is the fourth time this pipeline's apparent problem was the measurement, not the media.
+
+⚠ **ONE INCIDENT, DAN INFORMED, HIS CALL TAKEN.** The handoff *required* a real
+`finish_audio.py` run to test the stderr trap; run in `vert9x16/`, it rewrote
+`audio_final.wav` while a concurrent session's ffmpeg was reading that file to mux
+`ad1_vertical_9x16.mp4` (my rebuild was 36 ms shorter). **The original bytes were backed up
+first and are restored and verified (`94f4157d…`)**, so nothing was lost, but that session's
+in-flight master may carry a small back-half audio defect. **Dan said he would tell that
+session to re-run its final mux.** Lesson: never run a pipeline script inside another
+session's live build directory — use a scratch copy, which is what every later run did.
+
+Full report: `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md` (and
+`/Volumes/Extreme/_edit_work/_timing/REPORT.md`). Logs, the scratch build and the runners
+are in `_timing/`; `ffmpeg_calls_overnight.log` holds 12.4 h of real production calls.
+
+**EXACT NEXT ACTION — DAN: none required. Decide whether to cap concurrent builds at two;
+that is worth more than all three optimizations and the new Mac combined.**
+
+
 ### OFF-CENTRE 9:16 CROPS — ALL 28 SHORTS AUDITED, 10 RE-CUT, 25 QUEUED POSTS SWAPPED (2026-08-27, Claude Code)
 
 Dan saw `v2-short3_supplements-3-percent` go out on `@danrosefit` and flagged it: *"off-center …
