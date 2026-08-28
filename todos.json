@@ -319,6 +319,12 @@
       "priority": "key",
       "why": "handoff-20260828-v4-longform-bedswap.md - created but not yet run; V4 is public and provably contains the track that got our Short blocked",
       "addedAt": "2026-08-28"
+    },
+    {
+      "text": "Execute handoff: cut Shorts from the supplements long-form (03)",
+      "priority": "key",
+      "why": "handoff-20260828-shorts-from-supplements-longform.md - shortlist delivered, Dan picks segments; created but not yet run",
+      "addedAt": "2026-08-28"
     }
   ],
   "health": [
