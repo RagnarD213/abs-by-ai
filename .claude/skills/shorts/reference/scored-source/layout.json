@@ -1,0 +1,46 @@
+{
+ "canvas": [
+  1080,
+  1920
+ ],
+ "note": "Geometry for the ab-wheel Shorts. Source is Muhammad Arsalan's finished 16:9 cut, so unlike earlier batches the frame ALREADY carries burned graphics: a top-centre pill (rows 55-185, x 200-1795) on the beginner/intermediate/advanced beats, and an olive lower third (one line rows 805-970, two lines rows 745-950, x 355-1565) elsewhere. Everything below is measured off full-resolution frames, not estimated.",
+ "talk": {
+  "cropW": 608,
+  "note": "9:16 on 1920x1080 is 607.5; 608 keeps it even.",
+  "zoomH": 740,
+  "zoomW": 416,
+  "zoomNote": "zoom:true crops 740 of the 1080 source rows from the TOP, dropping his lower third entirely. 740 is set by the TWO-LINE lower third (top edge row 745 at 0:22 and 1:35), not the one-line version at row 805 - one number for every zoom shot beats two. Costs 2.6x upscale against 1.78x for a full-height crop, which is why only the three talking-head shots that actually carry a lower third use it; a horizontal ab-wheel rollout under a lower third is a card instead."
+ },
+ "card": {
+  "w": 1080,
+  "h": 830,
+  "x": 0,
+  "y": 170,
+  "chipY": 1012,
+  "chipH": 64,
+  "note": "STAGE, not the 1000x562 postage stamp V2/V3 used. This batch is card-heavy by necessity (the ab-wheel rollout is horizontal), so the card had to stop being an inset. Full canvas width, 830 tall, top edge y=170: the ASS caption band (MarginV 690) starts around y1015, and the stage fills everything above it. The title overlays the top of the stage for its 3.2s on a scrim baked into the title PNG - the same relationship a title has with a full-bleed talking head - rather than being squeezed into a strip above it. With a per-shot cardCrop that drops the dead sky and pool this carries ~2.4x the area of the old box.",
+  "labels": {}
+ },
+ "pip": {
+  "gfxTop": 88,
+  "gfxH": 700,
+  "danX": 140,
+  "danY": 826,
+  "danW": 800,
+  "danH": 1000
+ },
+ "wordmark": {
+  "x": 74,
+  "y": 1786
+ },
+ "titleSeconds": 3.2,
+ "pipBoxes": {},
+ "audio": {
+  "fadeIn": 0.18,
+  "fadeOut": 0.45,
+  "joinFade": 0.06,
+  "note": "The source is SCORED - a music bed runs the whole 6:58 and it swells. A hard in-point drops the viewer into the middle of a bar and a hard out-point stops it dead, and an internal splice jumps the bed. Fades at the head and tail and a 60 ms dip either side of every internal join. Durations are preserved exactly (no acrossfade), so picture and sound stay locked."
+ },
+ "titleMaxLines": 2,
+ "titleScrimH": 380
+}

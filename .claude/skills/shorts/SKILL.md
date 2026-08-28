@@ -319,6 +319,65 @@ From `shorts-production-style` memory, settled 2026-08-06 after ~4 rounds of moc
 - Long eyebrows wrap to two lines rather than shrink below ~50px.
 - **Post one every 2–3 days after the longform**, not all at once.
 
+## Cutting from a FINISHED, SCORED edit (added 2026-08-27, ab-wheel batch)
+
+When the source is an editor's finished 16:9 product rather than our own cut, use
+`reference/scored-source/`. Six shorts came out of Muhammad's ab-wheel cut this way; these are
+the things that were not true of any earlier batch.
+
+**`silencedetect` is the wrong ground truth once there is a music bed, and it fails in BOTH
+directions.** On that cut the pause at 43.54-43.98 s measures **-16 dB — louder than the speech
+before it**, because his bed swells into the gap, while a real gap elsewhere reads -33 dB. So the
+snap either refuses every cut or lands one on a music swell. Measure voice-band energy against a
+rolling local floor instead (`work/vad.py`, 300-7000 Hz). **Band to 7000, not 3400:** at 3400 the
+trailing /s/ of "scams" is invisible and the out-cut eats the fricative.
+
+**Fade the head and tail, and dip every internal join.** A bed that starts mid-bar and stops dead
+is the giveaway that a short was carved out of something longer. 0.18 s in, 0.45 s out, 60 ms
+either side of a splice. Never `acrossfade` — it shortens the audio and unlocks it from picture.
+
+**Normalise loudness across the batch AFTER rendering.** A dynamic master (his LRA was 13.6) gives
+every short a different level: six sections produced -13.2 to -18.0 LUFS, a 4.8 dB spread that a
+viewer hears the moment they scroll from one to the next. `normalize.js`, linear loudnorm to -14
+with a limiter, video copied.
+
+**Burned graphics are shown whole or cropped off — never sliced.** Measure them (`work/gfxbox.py`,
+`work/ltwindows.py`); on that cut the top pill was 1595 px wide, 83% of the frame, so no horizontal
+crop dodges it. ⚠ **And check whether the graphic is still TRUE inside the short you are building:**
+his cut carried a stale "How Intermediate Guys Should Do It" across the standing-wall beat, which
+would have been a factual error on screen in a short about that beat. It is cropped out.
+
+⚠ **CROPPING THE TOP OFF A 16:9 FRAME MAKES THE CARD SHORTER, NOT BIGGER.** This was got wrong once
+and shipped into a review render. Trimming height makes the aspect WIDER, and a wider card fitted
+to a fixed width is shorter: the "closer" crop measured 522 px tall against 643 px for the
+untouched frame. To make a card bigger you must crop WIDTH. The card gets bigger by cropping the
+dead sides, not the dead sky.
+
+**A card-heavy short needs a STAGE, not the 1000x562 inset.** When the source movement is
+horizontal - an ab-wheel rollout spans 0.30-1.00 of the frame at full extension, against a 9:16
+window's 0.317 - most shots have to be cards, and the old inset leaves the frame reading as
+unfinished. `scored-source/layout.json` uses **1080 x 830 at y=170** with the title sitting ON the
+picture over a scrim baked into the title PNG. Roughly 2.4x the area.
+
+**Two ffmpeg faults that both present as a black frame, and neither is a concat artefact:**
+- `overlay` follows its FIRST input, and a `-loop 1` still is INFINITE, so the last frames of every
+  card shot rendered as bare background. Needs `shortest=1` on the overlay as well as `-t`.
+- `-ss` leaves the first decoded frame with a non-zero PTS while the looped background starts at 0,
+  so overlay emitted one background-only frame BEFORE the picture. Needs
+  `[0:v]setpts=PTS-STARTPTS` at the head of the card filtergraph.
+
+**`blackdetect` cannot see either of them.** The title, captions and wordmark still draw, so the
+frame is not black and the gate passes. `work/stagescan.py` measures the stage rectangle itself at
+full frame rate; that is what caught both.
+
+**A finished cut joins its sections with white flash blooms, so check every in and out point.**
+`work/flashscan.py`. Three of sixteen boundaries had to move on the ab-wheel batch, one of them a
+1.25 s bloom the short would have opened on.
+
+**Set the framerate from the source.** That cut is 29.97; resampling to the batch's usual 24 drops
+one frame in five and every shot carries a constant slow push, so the judder is visible on all of
+them. The masters ship at 29.97.
+
 ## Delivery
 
 - Work folder: `YouTube Long Form Video Content/<video-slug>/`
