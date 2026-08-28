@@ -195,6 +195,15 @@
         "3": "2026-08-28T04:43:51.843Z"
       },
       "unsubscribed": false
+    },
+    "arthursilva@hotmail.com": {
+      "subscribedAt": "2026-08-28T17:56:18.214Z",
+      "deviceId": "dev-1787933851671-rpj4vbby",
+      "synced": false,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-08-28T17:56:18.215Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
