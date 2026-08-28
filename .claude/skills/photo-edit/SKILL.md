@@ -203,6 +203,23 @@ Same contact-sheet technique as step 1, then judge with Dan's platform logic: st
 15. **The histogram tone-match also repairs a backdrop the model recoloured.** `Blue-0109`'s raw output turned the blue backdrop gray; the tone pass pulled it back with no extra call. It cannot fix *structural* repaints (mottle, texture) — only tonal ones — so the explicit "repainting the wall is a FAILURE" clause still earns its place, and it held on the white background here. Measure it: background-corner dE orig-vs-final ran 2–5 on a clean photo, 8–13 where the model redrew the gradient falloff (harmless).
 16. **Finding the head for the IG 4:5 crop: "differs from the corner background" DOES NOT WORK on these backdrops.** Both the blue and the gray carry a gradient, so row 0 already trips the test and every crop lands at y=0. The detector that works is **dark hair in the central 50% of columns**, thresholded per image at *(median luminance of the top 2% of rows) − 42* — a fixed threshold fails too, because the gray backdrop's own luminance (78–100) sits under any threshold that catches black hair on blue. 4:5 at this frame size is **full width, 3368×4210**, y-offset = hair top − 200.
 
+## Eyes — the hard-definition pass NARROWS THEM, and a warp alone cannot fix it (2026-08-28)
+
+**Dan's note on the second studio batch: "you made them smaller than the original. I would like them a little bit larger than the original," and — said twice — "especially taller."** Take that as the target whenever this comes up: finish slightly ABOVE the original on height, a little above on width.
+
+⚠ **THE RETOUCH DOES NOT SHRINK THE EYE, IT CLOSES THE APERTURE.** It paints the upper lid further down and takes the iris and sclera with it. That distinction decides the fix: **magnifying a closed eye just gives you a bigger closed eye.** A first attempt with `eye-warp.py` at gains up to 1.08/1.26 was visibly useless on `Blue-0145` for exactly this reason.
+
+⚠ **VISION'S LANDMARK HEIGHT MASSIVELY UNDER-REPORTS THIS — do not gate on it.** `VNDetectFaceLandmarksRequest` fits the eye *contour*, which the retouch preserves, so it measured only a 3–5% loss on frames where the visible opening had collapsed to a slit. **Judge eyes on a zoomed crop; use the landmarks for COORDINATES, not for verdicts.**
+
+**The fix that works — `scripts/eye-restore.py`, one call per eye, no AI:** alpha-blend the ORIGINAL eye back inside a feathered ellipse, tone-match it to the retouched skin on the mask's outer ring, then magnify anisotropically. This is §4b's composite-the-original-back trick scoped to one feature, and it keeps Dan's real eyes instead of rolling the identity dice on a fresh generation.
+
+- **Get the centres from Vision, and pass BOTH.** Build the tiny `VNDetectFaceLandmarksRequest` CLI (`swiftc` is on this Mac; ~40 lines, prints cx/cy/w/h per eye) and run it on the original upscaled to the final's size AND on the final. **The face can shift 13–15px between the two** (`Gray-0004` did) — the script offsets the patch by that delta, which is why a blind composite ghosts and this one does not.
+- **Settled gains: `1.07` wide, `1.22` tall** on 3368×5056 frames. That lands ~6–8% over the original on landmark height for a normal frame and reads clearly taller without looking done.
+- **Keep the mask off the crow's feet** (`rx = w*0.85`, `ry = h*1.9`): the original carries more line detail there, and a wider mask drags it back in and fights the retouch.
+- **Verify two ways:** a zoomed ORIGINAL / previous / new strip, and a changed-pixel bounding box — a correct run touches ~40k pixels in a ~500×260 box per face and *nothing* else in the frame.
+
+⚠ **NOT YET A STANDING RULE.** Dan asked for this on four frames (`Blue-0145`, `Blue-0109`, `Gray-0004`, `Blue-0222`) and said explicitly of the big-smile case: *"let's see how this turns out first, then we'll consider making it a standing rule. Don't make it a standing rule yet."* **Do not apply it batch-wide unsolicited until he says so.**
+
 ## STANDING RULE — studio-shoot ab intensity (Dan's call, 2026-08-28)
 
 **Studio photos get the HARD DEFINITION body block by default — the ordinary "strong" block undershoots what Dan wants on studio lighting.** On the 8/28 Snappr shoot he reviewed raw | strong | hard side-by-sides for all 10 picks and chose the hard pass for every single one. Use this block verbatim as the starting point for studio retouches (outdoor/pool shoots keep the two-intensity bake-off until a similar verdict exists for them):
