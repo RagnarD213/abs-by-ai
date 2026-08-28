@@ -33,6 +33,86 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### V5 LONGFORM BED SWAPPED — **DELIVERED; the claim is NOT the track the handoff assumed** (2026-08-28, Claude Code)
+
+`Handoffs/handoff-20260828-v5-longform-bedswap.md` executed. **$0.00 AI spend, no production code,
+no deploy, no native-retest trigger.** Local master rebuilt and verified; **the YouTube side is
+deliberately NOT touched — Dan's call (Step 5).**
+
+⚠ **THE HANDOFF'S PREMISE WAS WRONG AND STEP 1 CAUGHT IT. V5 IS CLAIMED, BUT BY A DIFFERENT
+TRACK.** YouTube Studio, read directly:
+
+| | |
+|---|---|
+| track | **"MA_Injection" by BerryDeep** — *not* "Hard Rap Beat" by Artiss |
+| claimant | **HAAWK for a 3rd Party** on behalf of BerryDeep |
+| covers | **0:00–1:40 and 1:45–4:41** — essentially the whole video |
+| impact | **no strike, no reach limit.** "Potential limitation to your ways to earn" only |
+
+**So the urgency is lower than the handoff implied, but the job was still right to do** — the local
+master carried a claimed third-party track, which is exactly what bit `short5` on TikTok.
+
+⚠ **THE ARTISS TRACK IS PROVABLY ABSENT FROM V5, so the handoff's 0.28 fingerprint score was the
+metric, not the media.** A windowed run (ten 30 s windows vs a 60 s Artiss reference) scores V5 at
+**0.21–0.40 with scattered, inconsistent offsets**, against **4.00** for a known-positive V4 window
+and **0.02–0.05** for negatives. Tempo corroborates independently: V5's old bed and short5's Artiss
+bed are different tempo families. **Windowing beat whole-file scoring — a single dilute score over a
+281 s file cannot tell "different part of the track" from "different track".**
+
+⚠ **THE PUBLISHED AUDIO COULD NOT BE FETCHED FOR COMPARISON.** `yt-dlp` is blocked on this video on
+every client (`ios`, `tv_embedded`, `android_vr`, `mweb`, `web` — SABR / "page needs to be
+reloaded"). So "local master == the file YouTube claimed" rests on provenance (it is the only V5
+file, named READY FOR UPLOAD, and its 281.12 s matches the claim's 4:41 end exactly), **not on a
+fingerprint.** Stated as inference, not measurement. The claim-gap corroboration is weak and should
+not be leaned on: there is a dip at 101 s, but the deepest nearby trough is at 108.5–112.6 s.
+
+**Replacement bed — picked by measurement, and it needs NO loop.**
+`Media/music beds/rhythmical-melodic-syncopation-triphop-130bpm-pixabay-10091.mp3`
+(Pixabay id 10091, **commercial use, no attribution**, 311.3 s). ⚠ **`organic_flow.mp3` was
+unreachable — `/Volumes/Extreme` is UNATTACHED again** — and at 131.7 s it never covered 281 s
+anyway. Beaten on measurement by three rivals: **lowest spectral error (2.41)** against the old
+bed's octave-band profile and **by far the flattest energy (sd 1.18 dB vs 3.45–6.78)**, which
+matches the old bed's character (LRA 1.9); it also **covers the full 281.1 s in one pass, so there
+is no loop seam at all.** The 8:00 "Sport Workout Gym Music" was rejected: it has vocals and swings
+to −31 dB. Two others go near-silent (−52 to −54 dB) and would have failed the integrity check.
+**A cleared-beds library now exists at `Media/music beds/` with a README.**
+
+⚠ **THE HANDOFF'S "OLD TRACK GONE" PASS BAND (0.01–0.10) DOES NOT TRANSFER, AND BLINDLY APPLYING IT
+WOULD HAVE FAILED A PERFECT BUILD.** The delivered file scores **0.71–1.39** against the old bed —
+because two loop-based bass-forward electronic beats share a lot of hashes. **The decisive control
+is the PRISTINE SOURCE TRACK, which has never touched V5:** it scores **0.71–1.49** at the same six
+windows, at the *same offsets*, and the delivered file comes in **LOWER at all six**. Residue is
+therefore zero. **New rule: the pass condition is `delivered <= pristine source at every window`,
+not an absolute score.** Genre-family negatives (0.29, 0.46) sit far above a truly unrelated control
+(0.065), which is why an absolute threshold is the wrong test here.
+
+**Verified on the delivered file (all six Step-4 checks):** video-stream MD5 **byte-identical**
+(`1e485588…`) · **−14.05 LUFS / −2.23 dBTP** · **0 of 281 seconds below −50 dBFS** (min −23.7, body
+min −16.7) · durations video 281.083333 / audio 281.123991, delta **0.041 s** · no loop seam by
+construction. The review copy was scanned too (0 silent seconds) per the standing rule.
+Loudnorm ran **linear**, so nothing was dynamically squashed.
+
+**A REAL DEFECT WAS FIXED IN PASSING: the old master was over-loud and CLIPPING — −9.95 LUFS /
++0.53 dBTP.** It now sits on spec.
+
+**Previous master preserved as `*_PRE_BEDSWAP.mp4`.** Build dir `~/absbyai-video-work/v5-bedswap/`
+(internal drive — a concurrent session was working V4 in `v4-bedswap/`; nothing shared, no builds
+were run in its directory).
+
+⚠ **STEP 5 IS DAN'S AND IS NOT DONE. V5 IS A LIVE AD DESTINATION** — 1,549 views since 2026-08-23,
+**98.5 % of them from YouTube advertising**, 7.2 watch hours, +2 subs. That changes the trade-off the
+handoff sketched: **delete + re-upload would change the video id and break whatever campaign points
+at it.** Options: **Replace song** (keeps URL, permanent edit) · **Erase song** (would leave 4:41 of
+silence — V5 is nothing but music, so this is the worst option, not the best) · delete + re-upload.
+**Recommendation: Replace song, or leave it — the claim costs nothing until the channel monetises.**
+
+**Dashboard: the Key task is deliberately NOT checked off** — the local file is done, but the claim
+on YouTube is still live and Dan has not watched the review copy.
+
+**EXACT NEXT ACTION — DAN: watch the 540p review copy (sent in chat), then say what to do on
+YouTube.** Nothing is blocked.
+
+
 ### STUDIO SHOOT (8/27, Snappr, 496 frames) — 10 BEST PICKED AND RETOUCHED, DELIVERED (2026-08-28, Claude Code)
 
 Interactive /photo-edit session with Dan; backgrounds retained per his instruction (background-swap
