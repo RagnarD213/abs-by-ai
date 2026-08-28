@@ -307,6 +307,18 @@
       "priority": "high",
       "why": "2026-08-27 planning — waiting on Mindy to send; review gates the editing pass",
       "addedAt": "2026-08-27"
+    },
+    {
+      "text": "Execute handoff: clear the claimed music bed from V5 (workout-only longform)",
+      "priority": "key",
+      "why": "handoff-20260828-v5-longform-bedswap.md - created but not yet run; do this one FIRST, no speech to preserve",
+      "addedAt": "2026-08-28"
+    },
+    {
+      "text": "Execute handoff: clear the claimed music bed from V4 (1 Minute Ab Workout longform)",
+      "priority": "key",
+      "why": "handoff-20260828-v4-longform-bedswap.md - created but not yet run; V4 is public and provably contains the track that got our Short blocked",
+      "addedAt": "2026-08-28"
     }
   ],
   "health": [
