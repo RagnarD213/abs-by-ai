@@ -55,3 +55,11 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 - Verify the finished change on the live production site at `https://absbyai.com`.
 - Treat commit, push, deployment, and live-site verification as required parts of completing every change. Do not wait for a separate request to perform them.
 - Do not include unrelated pre-existing local files or changes in a commit unless they are part of the current task.
+
+## Video builds: never run more than two at once
+
+- **Cap concurrent video builds at two across all sessions.** Before starting a render, transcription, QC or watch pass, check whether other sessions are already building (`ps -Ao command | grep -E 'ffmpeg|qc_style|render\.py|whisper'`). If two builds are already running, wait — do not start a third.
+- **Measured 2026-08-27, not assumed.** Four concurrent builds drove the Mac mini (10 cores) to a load average of **242 with 0% idle**, and made `finish_audio.py` take **126 seconds against 13.6 seconds on a quiet machine — a 9.3x latency penalty.**
+- **It buys nothing.** x264 already threads across all 10 cores, so extra concurrent builds do not raise throughput; they only timeslice. The sole headroom is the ~19% of a build that is single-threaded Python (PIL graphics, Whisper), which is why **two** builds overlap usefully — one build's Python runs under another's encoding — and a third is pure loss.
+- This is the largest available speedup in the video pipeline: worth more than the three candidate software optimizations and a new Mac combined, and it costs nothing. Full numbers: `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md`.
+- **Never run a pipeline script inside another session's live build directory** — it will overwrite intermediates that session is reading. Work in a scratch copy.
