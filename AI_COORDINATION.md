@@ -33,6 +33,77 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### SIX SHORTS CUT FROM MUHAMMAD'S AB-WHEEL ORGANIC CUT — DELIVERED (2026-08-27, Claude Code)
+
+Dan asked for six shorts from his round-2 organic cut (Drive `1lu_Im9st8XtDNXPnFOhpKyc7IA2Whf_J`),
+each unique, "won't annoy the viewer by giving them repeated footage". **$0.00 AI generation spend,
+no production code, no deploy, no native-retest trigger.** Skill + pipeline committed (`6b64585`).
+
+**Delivered to `Short-form video content/` as `abwheel-short1..6_*.mp4`; 540p review copies sent in
+chat; full notes in `YouTube Long Form Video Content/abwheel-17-dollar-ab-wheel/SHORTS.md`.**
+**QC 100% green** (12 checks × 6) plus a full-frame stage scan and boundary strips at every join.
+
+| # | short | runtime | takeaway |
+|---|---|---|---|
+| 1 | THE $17 TOOL THAT BEATS CRUNCHES | 0:33.7 | constant tension vs a crunch's rest at both ends |
+| 2 | THE BIGGEST AB WHEEL MISTAKE | 0:48.0 | flat back, then locked-out arms |
+| 3 | HOW FAR YOU SHOULD ROLL | 0:53.9 | beginner / intermediate / advanced distance |
+| 4 | YOU'RE ROLLING OUT TOO FAST | 0:32.4 | tempo, his own bad-vs-good demo back to back |
+| 5 | CRUNCHES ONLY HIT ONE OF THESE | 0:31.9 | rectus / transverse / obliques + chest and shoulders |
+| 6 | DO NOT COPY THIS AB MOVE | 0:31.7 | the standing wall version is not for most people |
+
+**NO SECOND OF SOURCE IS USED TWICE and `segments.js` throws if it ever is** — 232 s of the 418 s
+source, each second once. The only overlaps are 0.04–0.33 s of shared silence where two shorts sit
+either side of the same pause, which is the same cut point.
+
+⚠ **`silencedetect` IS THE WRONG TOOL ON A SCORED SOURCE, AND IT FAILS BOTH WAYS.** His bed swells:
+the pause at 43.54–43.98 s measures **−16 dB, LOUDER than the speech before it**, while a real gap
+elsewhere reads −33 dB. Cut points come from a voice-band activity map instead (`work/vad.py`,
+300–7000 Hz vs a rolling local floor) and every in/out is asserted into a measured speech gap.
+**Band to 7000, not 3400** — at 3400 a trailing /s/ is invisible and the out-cut eats it.
+
+⚠ **HIS GRAPHICS ARE BURNED IN AND ARE NEVER SLICED.** Top pill 1595 px wide (83% of the frame),
+lower third 1210 px — no horizontal crop dodges either. Each shot shows its graphic whole or has
+that band cropped off. **One is deliberately removed: his cut still reads "How Intermediate Guys
+Should Do It" across the standing-wall beat**, a stale label that would be a factual error inside
+short 6.
+
+⚠ **CROPPING THE TOP OFF A 16:9 FRAME MAKES THE CARD SHORTER, NOT BIGGER.** Got this wrong and it
+reached a review render: trimming height widens the aspect, and a wider card fitted to 1080 is
+shorter — 522 px against 643 px for the untouched frame. **To make a card bigger you crop WIDTH.**
+
+**The layout had to change for this batch and the change is now in the skill.** The ab-wheel
+rollout is horizontal (Dan spans 0.30–1.00 of the frame at full extension against a 9:16 window's
+0.317), so shorts 2, 3 and 4 are card throughout. The old 1000×562 inset left the frame reading as
+unfinished; the stage is now **1080×830 at y=170** with the title over the picture on a baked
+scrim — ~2.4× the picture area.
+
+⚠ **TWO ffmpeg FAULTS THAT BOTH LOOK LIKE A BLACK FRAME, AND `blackdetect` SEES NEITHER** (the
+title and captions still draw, so the frame is not black and the gate passes): `overlay` follows
+its FIRST input and a `-loop 1` still is infinite (needs `shortest=1`), and `-ss` leaves a non-zero
+first PTS against a background starting at 0 (needs `setpts=PTS-STARTPTS`). `work/stagescan.py`
+measures the stage rectangle at full frame rate and is what caught both.
+
+**Loudness normalised across the batch after render** — his LRA 13.6 master gave six sections six
+loudnesses (−13.2 to −18.0 LUFS, a 4.8 dB spread). All six now −14.0 to −14.5 LUFS.
+**Masters are 29.97 fps, not the batch's usual 24** — every shot carries a constant slow push and
+resampling would judder all of them. Burned captions and the AbsByAI.com wordmark are ON: the
+no-captions/no-watermark call was about the longform deliverable, not the Shorts design system.
+
+**Dashboard: nothing checked off.** `money::Produce short-form CONTENT (not ads) — mine the
+longforms + shoot app-demo Reels` is the nearest match and is genuinely **advanced, not finished** —
+it also covers app-demo Reels, and Dan has not watched these yet (ad 1 had a check-off reverted for
+exactly that).
+
+**EXACT NEXT ACTION — DAN: watch the six 540p review copies and say which are approved.** Three
+things flagged in `SHORTS.md`: short 1 carries the **archival infomercial footage** from his cut
+(third-party commercial footage — fine for organic, worth a decision before anything paid); short 6
+says *"I'm not showing this purposely in this video"*, a longform line that reads oddly standalone;
+and shorts 1, 4, 5, 6 run 0:32–0:34 against the 45–60 s band the organic research found, which is
+the length their content is.
+
+---
+
 ### ZEESHAN'S ORGANIC AB-WHEEL CUT — ROUND-1 REVISIONS DELIVERED INTO HIS DOC (2026-08-27, Claude Code)
 
 Dan shared `video-2.mov` (Drive `1YtpMv-U9sSMbHqEEiUsDKDS82S51xldz`, **owner
