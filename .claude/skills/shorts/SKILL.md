@@ -30,22 +30,50 @@ Paths inside them are relative to `YouTube Long Form Video Content/<slug>/` — 
 
 ## Step 0 — what has already been mined
 
-Check before starting. As of 2026-08-10 **every long-form video has been mined; there is
-nothing left to cut** unless a new video is shot.
+Check this first, and **re-derive it from the filesystem rather than trusting the table** — it went
+stale once already. This version audited 2026-08-28.
+
+⚠ **A previous version of this table said "every long-form video has been mined; there is nothing
+left to cut." That was true on 2026-08-10 and wrong by 2026-08-20**, because five long-forms were
+finished after it was written and nobody updated it. The audit that catches this is two commands:
+list the long-form masters, list `Short-form video content/*.mp4`, and diff the prefixes.
+
+**Mined:**
 
 | Video | Status |
 |---|---|
 | V1 channel intro | **Deliberately none** — Dan 2026-08-04, "the intro is promise, not payload" |
-| V2 six ways AI abs | 7 shorts, delivered `v2-short1..7_*` |
+| V2 six ways AI abs | 7 shorts, `v2-short1..7_*` |
 | V3 My Top 10 Tips | **11 shorts, `v3-short1..11_*`** (2026-08-10) |
 | V4 1-minute ab workout | 5 shorts, `short1..5_*`; short1 rebuilt with the band layout |
 | V5 | skip — workout-only cut of V4, no narration |
 | V6 3-min home workout | **5 shorts, `v6-short1..5_*`** (2026-08-10) |
 | V7 | skip — workout-only cut of V6, no narration |
+| Ab wheel ($17, Muhammad's cut) | 5 shorts, `abwheel-short1..5_*`, rev 3 (2026-08-28) |
+
+**NOT mined — the 8/3 shoot, all five in `claude edited long form content/`:**
+
+| Video | Runtime | Note |
+|---|---|---|
+| 02 My Honest Zepbound Update | 30:28 | biggest raw yield; organic Shorts CAN name the drug |
+| 03 The Supplements I Actually Take | 23:29 | **start here** — same discrete-item shape as V3, which yielded 11 |
+| 01 My First Spray Tan | 19:54 | narrower topic |
+| 04 Why You Should Invest More In Your Health | 53:17 | longest; still on the old v3 master |
+| 05 Meal Prep Macro Tracking (app demo) | 4:49 | too short and too UI-heavy to mine like the others, but it is the app-demo asset the IG growth plan called the only thing no competitor can copy |
 
 **V5 and V7 are music/rep-count only.** Their Whisper transcripts come back as pages of
 `"Hey. Hey. Hey."` — that is not a transcription failure, there is no speech. They cannot
 yield a talking Short, but they do hold clean uninterrupted exercise demos usable as b-roll.
+
+### ⚠ On a rebuilt long-form, cut from the NO-GRAPHICS master
+
+The 8/27 style pass took 01/02/03 to **43–48 % insert coverage**. Cutting shorts from a delivered
+master at that coverage makes nearly half of every short a full-frame graphic that Step 4 forces
+into a `card` — shorts that are mostly not-Dan. Each of those folders keeps a
+`CUT_v*_graded_NO-GRAPHICS.mp4` alongside: same picture edit, graded, no graphics and no stock
+inserts. On 03 the two measure **within 0.03 s**, so the SRT and every timecode transfer directly.
+**Prove the alignment with matched frame grabs before relying on it**, and never use a
+`*_PRE_AUDIOFIX.mp4` — that is the comb-filtered two-mic voice.
 
 ## Step 1 — transcript with WORD timestamps
 

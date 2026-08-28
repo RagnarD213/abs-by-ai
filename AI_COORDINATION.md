@@ -33,6 +33,70 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### SHORTS FROM THE SUPPLEMENTS LONGFORM — **HANDOFF + SHORTLIST WRITTEN, NOT EXECUTED** (2026-08-28, Claude Code)
+
+Dan asked which long-forms have never been mined for shorts, then asked for a handoff starting with
+the supplements video plus the shortlist. **$0.00 AI spend, no production code, no deploy, no
+native-retest trigger.** Key dashboard task added.
+
+**THE ANSWER: five long-forms have never been mined, all from the 8/3 shoot** — 01 spray tan
+(19:54), 02 Zepbound (30:28), 03 supplements (23:29), 04 invest-health (53:17), 05 meal prep
+(4:49). ~2h12m of talking head. Everything else IS mined: V2 (7), V3 (11), V4 (5), V6 (5),
+ab-wheel (5); V1 was Dan's deliberate skip and V5/V7 have no speech. The `/shorts` skill's Step-0
+table is dated 2026-08-10 and says "nothing left to cut" — **it is stale; four long-forms have been
+finished since.**
+
+`Handoffs/handoff-20260828-shorts-from-supplements-longform.md` + a 14-candidate shortlist with
+verbatim text in `Handoffs/assets/shorts-supplements-20260828/`. **Dan picks by letter — segment
+selection has been his call since 2026-08-04, and nothing gets cut until he does.**
+
+⚠ **CUT FROM `CUT_v1_graded_NO-GRAPHICS.mp4`, NOT THE DELIVERED MASTER — proven, not assumed.**
+All four MP4s in the folder are within **0.03 s** of each other, and matched frame grabs at
+200/400/620/900/1150 s confirm the clean master is the same picture with graphics absent (at 200 s
+`FINAL` shows the "ATHLETIC GREENS" J2 card; the clean file shows Dan on camera). The 8/27 rebuild
+took 03 to **43 % insert coverage**, so cutting from the delivered master would make nearly half of
+every short a full-frame graphic the skill's rules force into a `card`. Its audio is also already
+the fixed single-mic chain (−14.02 LUFS), so nothing needs re-processing. **Every timecode in the
+handoff is valid against either file.**
+
+⚠ **THE LAYOUT PROBLEM IS NEW AND IT IS THE REAL DESIGN DECISION HERE: THE COUNTER IS THE PAYLOAD.**
+One locked camera for 23 minutes, Dan behind a granite counter with the whole stack laid out across
+the full frame width. **His torso sits at x ≈ 0.60–0.63, nowhere near the 0.478 that V2 and V3
+hard-coded.** A 9:16 window is 0.317 of the frame, so centred on him it spans ~0.46–0.78 and
+**deletes the entire left half of the stack.** Recommendation in the handoff: **band layout for
+product shorts** (whole 16:9 frame preserved, as the five V4 shorts do) and **full-bleed for idea
+shorts** — decided per short by the Step-6 measurement, with per-shot Vision torso measurement
+either way.
+
+**The four strongest candidates: [B] the big three (17:32, 36 s, the most self-contained beat in the
+video and the recommended #1), [A] "you are not smart enough to understand scientific research"
+(0:58, the thesis), [D] supplements are only 5 % / the ironing-before-a-date analogy (20:43), and
+[E] the biggest mistake I made (16:36, already the right length).**
+
+⚠ **ONE CANDIDATE HAS A LINE THAT IS SELF-CONTRADICTORY AS TRANSCRIBED.** Candidate [I] at
+13:00.96 reads *"Most people, you can't take whey protein, so you should be doing that instead of
+the Aminos"* — the rest of the paragraph only parses with **"can"**. The rebuilt and the pre-rebuild
+SRT both read "can't", **but those are two Whisper runs on the same audio and agreeing does not
+settle it.** Resolve by ear at build time; if it really is "can't" the sentence gets cut, because
+burning that caption would ship visible nonsense.
+
+**Flagged for Dan, none blocking:** [F] ends on "I would recommend going on Zepbound instead" —
+**organic Shorts can name the drug** (the no-drug-names rule is ad-compliance only, proven 8/25),
+his call, and never in a graphic; [I] carries "I just uncontrollably shit myself"; [D] carries "if
+you're fat and broken. You say stupid things"; [L] names "clavicular"; and brand names (Thorne,
+AG1, Anthony's, Cure, Isopure) are **correct and allowed** — he names them on camera.
+[N] is the closest to failing the reason-to-watch test and only survives if the training-volume
+boast is cut.
+
+⚠ **THE PARENT LONG-FORM IS BELIEVED UNPUBLISHED** (Dan has not watched the review copies and
+`/youtube-packaging` was never run on it). The standing rule is post Shorts every 2–3 days AFTER
+the long-form goes up, so these can be built now but **nothing gets queued in Blotato without Dan.**
+
+**EXACT NEXT ACTION — DAN: pick segments by letter from the shortlist.** Then execute the handoff
+in a fresh session with `/shorts`. Nothing is blocked.
+
+---
+
 ### V4 LONGFORM BED SWAPPED — **DELIVERED. The claim covers 75 s, not the whole video** (2026-08-28, Claude Code)
 
 `Handoffs/handoff-20260828-v4-longform-bedswap.md` executed. **$0.00 AI spend, no production code,
