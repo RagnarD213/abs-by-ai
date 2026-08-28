@@ -33,6 +33,96 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### FIVE LONGFORMS TO THE NEW STANDARD — **THREE DELIVERED, 04 NOT STARTED** (2026-08-27, Claude Code)
+
+`Handoffs/handoff-20260824-five-longforms-to-new-standard.md` executed in the recommended
+order. **$0.00 AI spend** (local ffmpeg/PIL/Whisper, Pexels, Pixabay). No production code,
+no deploy, no native-retest trigger. Skill commit `e259d4a`.
+
+| video | gate before | gate after | cuts/min | longest static | coverage | bed |
+|---|---|---|---|---|---|---|
+| **05 meal prep** | 10 / 1 | **11 / 0 PASS** | 10.2 → 10.2 | 29.2 s | 70 → 66 % | none → 2.9x |
+| **01 spray tan** | 9 / 3 | **11 / 1** | 10.8 → **16.8** | 22.7 → **11.5 s** | 28 → **44 %** | none → 2.3x |
+| **02 Zepbound** | 7 / 5 | **11 / 1** | **1.6 → 17.4** | **186.0 → 9.2 s** | **0 → 48 %** | none → 2.5x |
+| **03 supplements** | 7 / 5 | **11 / 1** | **0.6 → 18.1** | **453.7 → 10.7 s** | **0 → 43 %** | none → 2.8x |
+| 04 invest-health | 7 / 5 | **NOT STARTED** | — | — | — | — |
+
+**The remaining "1" on 01/02/03 is the caption detector misfiring, and every flagged frame
+was inspected.** Dan flipped the rule at 20:00 today (commit `5445a37`, concurrent session):
+organic longforms ship a CLEAN FRAME plus an `.srt` — so `qc_style.py` now FAILS a video if
+it *detects* burned captions. None of the three has any: the render command contains no
+`subtitles=` filter, so they are clean by construction. Of 10 sampled frames tripping it on
+01, **seven have no graphic on screen at all** — Dan's black tank top against the bright
+kitchen, a phone-map cutaway, a food cutaway, and the before/after panel's own labels. The
+detector looks for near-white pixels with a dark outline in the lower third and these cuts
+now carry far more high-contrast stock than the version it was calibrated on.
+
+⚠ **THE STYLE SYSTEM IS THE MILITARY-GREEN ONE, NOT THE NEW ORGANIC ONE. DAN DECIDES.**
+His 20:00 call was *"reproduce Muhammad's organic style everywhere"* with a new
+`reference/orglib.py`. **Its captions and watermark rules ARE applied to all four
+delivered videos.** The graphics are still `motionlib.MIL` per the handoff. Converting
+~150 graphics across three videos to `orglib` is a re-authoring job, not a palette swap.
+
+⚠ **THE DELIVERED SPRAY-TAN MASTER CARRIED A BANNED FRAME AND IT IS NOW FIXED.** The
+"UPLOAD ONE PHOTO" card at 18:04 used App Store screenshot `01-the-reveal.png` — the app's
+"Meet the new you." screen, a **side-by-side BEFORE/AFTER**, on screen 5.6 s. Checked every
+candidate: `00-home-hero`, `02-transformations-gallery` and `03-daily-brief` all carry a
+pair; only 04-07 are clean. Replaced with a fresh headless-Chrome capture of the live
+absbyai.com upload screen (its own example carousel shows a pair too, so that band is cut
+out). **Dan's OWN spray-tan before/after panels were KEPT** — he asked for them in rev 1 and
+reviewed their crops in rev 2.
+
+**TWO ffmpeg TRAPS COST MOST OF THE DAY. BOTH ARE NOW IN THE SKILL.**
+1. **`-loop 1 -i wm.png` with no `-t` collapses the whole filter graph.** A 20-second test
+   of watermark + subtitles ALONE ran **32 minutes** without finishing; the graphics pass on
+   a 19-minute programme ran **FIVE HOURS**. Bounded, the same pass takes **17 minutes**.
+2. **A deep chain of `setpts`-shifted alpha overlays is 14x slower on its own** — 45
+   overlays + subtitles 0.08x realtime vs 1.12x with no overlays. Encoder preset is
+   irrelevant, libass is free. `reference/build_gfx_track.py` flattens every graphic into
+   one alpha track (a concat) so the composite is a single overlay. Three traps inside it:
+   lavfi `color=black@0.0` encodes **opaque** through QTRLE (every gap became a black card);
+   `motionlib` wrote a DECIMAL framerate giving a 1/979001 timebase, and a 1827 s track
+   reported itself as **59255 s**; gaps must be counted in FRAMES, not seconds.
+
+**THE WATCH PASS EARNED ITS PLACE AGAIN.** On 03 it found **129 black frames at 19:57** —
+a stock ECG clip that is a black screen with a thin red trace, reading as a dropout. Scanned
+every insert for mean luminance and replaced the two worst; 02's two dark clips were
+inspected and kept (a dim gym weight stack and a syringe on a dark surface — moody, not
+dropouts). Also fixed: at full resolution the burned caption sat **on top of the
+BEFORE/AFTER labels** on the spray-tan photo panels.
+
+**A DELIVERABLE DEFECT FIXED ACROSS ALL THREE `.srt` SIDECARS.** The caption builder
+suppresses cues that would land on a full-screen card — right for a BURNED caption, wrong
+for a sidecar, which must carry every word. It also read as a low pace on the gate: 03
+measured **166 wpm (a fail)** purely because 141 cues were missing from the file the gate
+counts; rebuilt it reads its true **200 wpm**. Sidecars now 01 = 669 cues, 02 = 1009,
+03 = 820.
+
+⚠ **NO DRUG NAME APPEARS IN ANY GRAPHIC ON 02** — the standing rule, obeyed on all 19 new
+cards. Brand names DO appear on 03 (Thorne, Athletic Greens, Anthony's, Cure) and that is
+correct: he names them on camera and the delivered chips already printed them.
+
+**STILL OPEN FOR DAN, in priority order:**
+1. **Watch the three review copies** (sent in chat at low resolution to clear the 30 MiB
+   phone limit; 540p/480p copies are in each folder).
+2. **Convert to `orglib` or not?** One word either way.
+3. **The two on-screen photos in 02 at 8:51 (192 lb) and 9:12 (181 lb) are STILL EMPTY** —
+   he says "I'm going to show you the picture" at both. Only Dan can say which photo is
+   which. Ten-minute fix once he sends them.
+4. **04 invest-health is NOT STARTED** — it is 53 minutes and the handoff says picking one
+   of the two cut-down variants (`INVEST_HEALTH_conservative.mp4` 43:31 or
+   `INVEST_HEALTH_sub30.mp4` 28:25) is a prerequisite, not part of this job. Dan has never
+   picked one.
+5. The fact cards hold static ~3.5 s after their bullets land, against the "0/101 static
+   frames" rule. One-line fix; deliberately not done because it is wasted if the cards
+   convert to `orglib`.
+
+⚠ **A CONCURRENT SESSION SHARED THIS MACHINE ALL DAY** and at one point held 3.3 GB while
+swap sat at 8.6 GB of 9.2 GB with 60 MB of free RAM. Everything crawled. Worth knowing
+before diagnosing a slow render as a pipeline problem.
+
+---
+
 ### OFF-CENTRE 9:16 CROPS — ALL 28 SHORTS AUDITED, 10 RE-CUT, 25 QUEUED POSTS SWAPPED (2026-08-27, Claude Code)
 
 Dan saw `v2-short3_supplements-3-percent` go out on `@danrosefit` and flagged it: *"off-center …
