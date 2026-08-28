@@ -107,6 +107,23 @@ def title_overlay(seg, meta):
     return p
 
 
+def header_overlay(seg, meta):
+    """The eyebrow alone. It persists for the whole short: with the picture dropped to y=310
+    the title band would otherwise sit empty once the headline fades at 3.2s."""
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    f = ImageFont.truetype(COPPER, 36)
+    ex, y = 64, 40
+    for ch in meta['eyebrow']:
+        d.text((ex + 2, y + 2), ch, font=f, fill=(0, 0, 0, 170))
+        d.text((ex, y), ch, font=f, fill=OLIVE + (255,))
+        ex += d.textlength(ch, font=f) + 6
+    assert ex < W - 40, f'eyebrow for {seg} is {ex}px wide, runs off the frame'
+    p = os.path.join(OUT, f'header-{seg}.png')
+    im.save(p)
+    return p
+
+
 def chip(shot, label, w, h):
     """Square-cornered olive-bordered mission chip, per the locked type system."""
     f = ImageFont.truetype(COPPER, 30)
@@ -139,6 +156,7 @@ print(wordmark())
 for seg, meta in META.items():
     check_width(seg, meta)
     print(title_overlay(seg, meta))
+    print(header_overlay(seg, meta))
 
 for shot, label in L['card']['labels'].items():
     print(chip(shot, label, L['card']['w'], L['card']['chipH']))
@@ -149,7 +167,10 @@ for shot, label in L['card']['labels'].items():
 for seg, meta in META.items():
     lines = meta['title'].split('\n')
     assert len(lines) <= L['titleMaxLines'], f'title-{seg} has {len(lines)} lines, max is {L["titleMaxLines"]}'
-    ink = Image.open(os.path.join(OUT, f'title-{seg}.png')).crop((0, SCRIM_H, W, H))
+    # STANDING RULE: the title may not reach the picture. On a full-bleed shot the picture
+    # starts at dropTop; assert against that, not against the scrim.
+    top = L['dropTop']
+    ink = Image.open(os.path.join(OUT, f'title-{seg}.png')).crop((0, top, W, H))
     assert ink.split()[-1].getbbox() is None, (
-        f'title-{seg} ink runs past the scrim at y={SCRIM_H} - shorten the headline')
-print(f'title fits inside the {SCRIM_H}px scrim on all {len(META)} shorts')
+        f'title-{seg} ink reaches into the picture below y={top} - shorten the headline')
+print(f'title clears the picture top (y={L["dropTop"]}) on all {len(META)} shorts')

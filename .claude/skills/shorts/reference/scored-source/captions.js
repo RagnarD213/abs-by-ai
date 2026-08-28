@@ -83,7 +83,10 @@ function buildAss(seg) {
     // Whisper tokenises "p.m." as ["p", ".m."], which joins to "p .m.". Re-close any
     // punctuation that ended up with a space in front of it.
     text = text.replace(/\s+([.,!?%])/g, '$1').replace(/\s{2,}/g, ' ').trim();
-    text = text.replace(/\babs\b/gi, 'ABS').replace(/\bai\b/gi, 'AI');
+    // STANDING RULE (Dan, 2026-08-28): captions print "abs" in lower case, never "ABS".
+    // The uppercase rule dated from video #1 and he has now killed it batch-wide. "AI" stays
+    // upper case - it is an initialism, "abs" is just a word.
+    text = text.replace(/\babs\b/gi, 'abs').replace(/\bai\b/gi, 'AI');
     // Whisper mis-hearings, checked against the audio. Burning a wrong word in 86pt is the
     // one caption fault a viewer cannot ignore, and it has bitten this pipeline before.
     for (const [wrong, right] of FIXES) text = text.replace(wrong, right);

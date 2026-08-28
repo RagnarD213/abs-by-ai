@@ -416,7 +416,63 @@ which is identical by design — sample across the runtime or the check false-fa
 
 ---
 
-### AB-WHEEL SHORTS **REV 2 DELIVERED — 5 shorts, Dan's review applied** (2026-08-28, Claude Code)
+### AB-WHEEL SHORTS **REV 3 DELIVERED — 5 shorts, two new STANDING RULES** (2026-08-28, Claude Code)
+
+Dan's rev-2 notes applied. **$0.00 AI spend, no production code, no deploy, no native-retest
+trigger.** All five re-rendered (short 2 too — see below). **Build dir is now on the Extreme SSD:
+`/Volumes/Extreme/_edit_work/abwheel/shorts-r2/`**, moved at his instruction, 955 files verified
+byte-identical before the internal copy was removed, and the whole pipeline re-run from there
+(segments, plan, assets, crop review, QC, stage scan, boundary check) before anything was deleted.
+
+⚠ **NEW STANDING RULE 1 — CAPTIONS PRINT `abs`, LOWER CASE.** Video #1 set an
+`/\babs\b/gi -> 'ABS'` rule and it had run unchallenged for 30 shorts. Dan: *"For all: change
+ABS to abs in the captions. Make this a standing rule."* **`AI` stays upper case.** In
+`/shorts` Step 8. **This is why short 2 was re-rendered despite being approved** — the rule is
+batch-wide. Verified: 0 uppercase `ABS` left in any of the five, and a frame diff against the
+approved file shows the picture unchanged (0.45-0.53 re-encode noise) with the caption band the
+only real difference.
+
+⚠ **NEW STANDING RULE 2 — THE TITLE MAY NEVER SIT ON HIS FACE OR HIS ABS.** Dan: *"Don't block
+face or abs with title - move me down or if not possible move title to bottom of captions."*
+On a full-bleed 9:16 crop there is **no vertical slack to give** — his head starts at source row
+35 (y62 delivered) and a 2-line Impact headline runs to y300. **So the picture is dropped
+instead:** it now fills 1080x1610 at the BOTTOM of the canvas and the J2 field carries the title
+in a band of its own. His head starts at **y362, clear by 62px**, measured on the delivered file
+by `work/titleclear.py` (title glyph bbox vs the Vision mask's top 55%, six samples across the
+title window) — **PASS on all five**.
+
+⚠ **THE DROP IS SHARPER, NOT SOFTER.** The source crop widens from 608 to 724 to fill the
+shorter picture, so the upscale falls **1.78x → 1.49x** (and 2.60x → 2.15x on a zoom shot). The
+cost is 16% of picture height, not resolution. The eyebrow now persists for the whole short —
+the band would otherwise sit empty after the headline fades at 3.2s.
+**Cards were deliberately NOT moved** (stage top y170; the title only crosses the sky at the top
+of a card) — moving them would have made short 2 inconsistent with the rest of the batch.
+
+**Titles, all his wording except where noted:**
+| # | eyebrow | headline |
+|---|---|---|
+| 1 | THE BEST HOME AB EXERCISE | WHY I LOVE THE AB WHEEL |
+| 2 | FIX THIS FIRST | THE BIGGEST AB WHEEL MISTAKE *(unchanged, approved)* |
+| 3 | MY FAVORITE HOME AB EXERCISE | HOW TO DO AB WHEEL ROLLOUTS |
+| 4 | INTENSE HOME AB EXERCISE | HOW FAST TO ROLL OUT WITH THE AB WHEEL |
+| 5 | ULTIMATE HOME AB EXERCISE | WHY THE AB WHEEL BEATS CRUNCHES |
+
+**Verified:** QC 12/12 on all five, stage scan CLEAN at full frame rate, title-clearance PASS,
+centring unchanged through the new geometry (all eleven static shots still 0 px off), all
+boundaries within 0.10 s. Previous masters kept in `_pre-rev3-2026-08-28/`.
+
+⚠ **ANOTHER SESSION IS BUILDING ON THE INTERNAL DRIVE** — `~/absbyai-video-work/v4-bedswap/`
+and `v5-bedswap/` (the V4/V5 music-bed swap). Left untouched. Also left untouched: the 1.1 GB
+`Muhammad Organic Videos/` copy of the source in the project folder, created by the
+"Mohammed videos organization" session — it is byte-identical to
+`_edit_work/abwheel/mrepro/ref_hd.mp4` (md5 05eb475fddab4150192badec438232c7) and this pipeline
+no longer points at it, so it is now pure duplication that Dan can delete.
+
+**EXACT NEXT ACTION — DAN: watch the five rev-3 review copies** (sent in chat).
+
+---
+
+### SUPERSEDED by rev 3 above — rev 2 record (2026-08-28, Claude Code)
 
 Dan reviewed the six: **short 2 approved and set to post, short 6 cut entirely**, four titles
 rewritten in his own words, short 1 re-cut for centring, short 5's b-roll replaced. All applied.

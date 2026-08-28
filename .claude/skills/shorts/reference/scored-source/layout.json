@@ -9,7 +9,10 @@
   "note": "9:16 on 1920x1080 is 607.5; 608 keeps it even.",
   "zoomH": 740,
   "zoomW": 416,
-  "zoomNote": "zoom:true crops 740 of the 1080 source rows from the TOP, dropping his lower third entirely. 740 is set by the TWO-LINE lower third (top edge row 745 at 0:22 and 1:35), not the one-line version at row 805 - one number for every zoom shot beats two. Costs 2.6x upscale against 1.78x for a full-height crop, which is why only the three talking-head shots that actually carry a lower third use it; a horizontal ab-wheel rollout under a lower third is a card instead."
+  "zoomNote": "zoom:true crops 740 of the 1080 source rows from the TOP, dropping his lower third entirely. 740 is set by the TWO-LINE lower third (top edge row 745 at 0:22 and 1:35), not the one-line version at row 805 - one number for every zoom shot beats two. Costs 2.6x upscale against 1.78x for a full-height crop, which is why only the three talking-head shots that actually carry a lower third use it; a horizontal ab-wheel rollout under a lower third is a card instead.",
+  "dropW": 724,
+  "dropZoomW": 496,
+  "dropNote": "dropW/dropZoomW are the source crop widths that fill 1080x1610 exactly. 724x1080 -> 1080x1610 (1.49x). Zoom shots crop 740 source rows, so 496x740 -> 1080x1610 (2.15x, against 2.60x before the drop)."
  },
  "card": {
   "w": 1080,
@@ -42,5 +45,8 @@
   "note": "The source is SCORED - a music bed runs the whole 6:58 and it swells. A hard in-point drops the viewer into the middle of a bar and a hard out-point stops it dead, and an internal splice jumps the bed. Fades at the head and tail and a 60 ms dip either side of every internal join. Durations are preserved exactly (no acrossfade), so picture and sound stay locked."
  },
  "titleMaxLines": 2,
- "titleScrimH": 380
+ "titleScrimH": 310,
+ "dropTop": 310,
+ "dropNote": "STANDING RULE (Dan, 2026-08-28): the title must never sit on his face or his abs. 'move me down or if not possible move title to bottom of captions.' On a full-bleed 9:16 crop there is no vertical slack - his head starts at source row 35, i.e. y62 in the delivered frame, and a 2-line Impact headline runs to y300 - so the picture is DROPPED to start at y=310 and the J2 field carries the title above it. Measured: his head then starts at y362, clear by 62px. Costs 16% of picture height and BUYS sharpness - the source crop widens from 608 to 724, so the upscale falls from 1.78x to 1.49x. Cards are unaffected: their stage top is y170 and the title only ever overlaps the sky at the top of a card.",
+ "titleScrimNote": "The scrim ends exactly where the dropped picture starts, so it can never reach the picture. It still earns its place on CARD shots, whose stage top is y170 - there the title crosses the top of the card, which is sky."
 }

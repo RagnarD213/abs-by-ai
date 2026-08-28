@@ -262,6 +262,30 @@ Two things that make the band the better default when the subject fills the fram
 - **Sync chips to the audio, but not slavishly.** When two items are named ~1s apart,
   a strict one-word-one-chip sync leaves one on screen for ~1s and unreadable. Give the
   first the whole naming phrase and switch on the *end* of the second's name.
+⚠ **STANDING RULE (Dan, 2026-08-28): THE TITLE MAY NEVER SIT ON HIS FACE OR HIS ABS.** His
+words: *"Don't block face or abs with title - move me down or if not possible move title to
+bottom of captions."* On a full-bleed 9:16 crop there is no vertical slack to give - his head
+starts at source row 35, i.e. y62 in the delivered frame, and a 2-line Impact headline runs to
+y300 - so **drop the picture instead**: render it into 1080 x (1920 - dropTop) at the BOTTOM of
+the canvas and let the J2 field carry the title in a band of its own.
+`scored-source/layout.json` uses **dropTop 310**; his head then starts at y362.
+
+Two things this buys that are not obvious:
+- **It is SHARPER.** The source crop widens from 608 to 724 to fill the shorter picture, so the
+  upscale falls from 1.78x to 1.49x (and 2.60x to 2.15x on a zoom shot). The cost is 16% of
+  picture height, not of resolution.
+- **The eyebrow can then persist**, which it should - the band would otherwise sit empty from
+  3.2s on. Split the assets: `title-<ID>.png` (scrim + headline, fades) and `header-<ID>.png`
+  (eyebrow, holds).
+
+**Cards do not need the drop** - their stage top is y170 and the title only ever crosses the sky
+at the top of the card. Do not move the card stage to match, or a batch with an already-approved
+short in it becomes inconsistent with itself.
+
+**Assert it on the DELIVERED file, not on the plan** - `work/titleclear.py` takes the title's
+solid-glyph bbox and the Vision person mask's top 55% (head through navel) and fails if the two
+rectangles intersect on both axes, sampled six times across the title window.
+
 - **Check title clearance numerically.** At Impact 106/102 line-height, a 3-line headline's
   ink ends ~y455. Dan's eyes on the kitchen camera are ~y560, and a card's top edge is
   y420. Assert it in the asset build — `build-assets.py` fails the build if a card-opening
@@ -279,6 +303,10 @@ punctuation or a >0.6s gap. Uppercase `ABS` and `AI`.
 - **Remap timestamps to OUTPUT time** when a short is stitched from non-contiguous pieces.
 - **A word counts as spoken only if >50% of it is inside the cut**, or boundary fragments
   get captions for audio nobody hears.
+⚠ **STANDING RULE (Dan, 2026-08-28): captions print `abs`, in LOWER CASE.** Video #1 set an
+`/\babs\b/gi -> 'ABS'` rule and it ran unchallenged for 30 shorts; he killed it batch-wide.
+**`AI` stays upper case** - that is an initialism, `abs` is just a word.
+
 - **Close spaced punctuation.** Whisper tokenises "p.m." as `["p", ".m."]`, which joins to
   "11 p .m.". Regex `\s+([.,!?%])` → `$1`.
 - **That regex is not enough on its own — a chunk boundary can fall between the two tokens.**

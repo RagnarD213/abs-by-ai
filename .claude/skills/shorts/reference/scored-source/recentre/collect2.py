@@ -21,7 +21,7 @@ for m in man:
     if n in SKIP or spec['t'] == 'extern':
         continue
     od = os.path.join(out, n)
-    if not os.path.isdir(od) or not os.listdir(od):
+    if not os.path.isdir(od) or not [f for f in os.listdir(od) if not f.startswith('._')]:
         os.makedirs(od, exist_ok=True)
         subprocess.run([FF, '-nostdin', '-y', '-v', 'error', '-ss', f"{m['absStart']:.3f}",
                         '-t', f"{m['dur']:.3f}", '-i', SRC,
@@ -29,6 +29,6 @@ for m in man:
     meta.append({'shot': n, 'seg': m['seg'], 'start': m['absStart'], 'dur': m['dur'],
                  't': spec['t'], 'zoom': bool(spec.get('zoom')),
                  'cardCrop': spec.get('cardCrop'), 'minX0': spec.get('minX0'),
-                 'n': len(os.listdir(od))})
+                 'n': len([f for f in os.listdir(od) if not f.startswith('._')])})
 json.dump({'shots': meta, 'talk_x': plan['TALK_X']}, open(os.path.join(HERE, 'fr.json'), 'w'), indent=1)
 print(len(meta), 'shots,', sum(s['n'] for s in meta), 'frames  (skipped', len(SKIP), 'non-person shots)')

@@ -98,15 +98,16 @@ const SHOTS = {
 // Benefit-first titles that sell to someone who never saw the source video.
 // A short that OPENS on a card needs a 2-line headline (build-assets.py asserts it).
 const META = {
-  // REV 2 (2026-08-28). Dan: "the titles need to make sense to someone who hasn't watched
+  // REV 3 (2026-08-28): A and E are Dan's rev-2 wording. REV 2 note below still applies.
+  // Dan: "the titles need to make sense to someone who hasn't watched
   // the video. A lot of the titles assume watching the long form, where we need to establish
   // that this is about the ab wheel." Every headline now names the ab wheel; D, E and B are
   // his exact wording, A is the same rule applied to the one he did not rewrite.
-  A: { eyebrow: 'THE $17 HOME AB EXERCISE', title: 'THE AB WHEEL\nNEVER LETS YOU REST' },
+  A: { eyebrow: 'THE BEST HOME AB EXERCISE', title: 'WHY I LOVE\nTHE AB WHEEL' },
   B: { eyebrow: 'ULTIMATE HOME AB EXERCISE', title: 'WHY THE AB WHEEL\nBEATS CRUNCHES' },
   C: { eyebrow: 'FIX THIS FIRST', title: 'THE BIGGEST\nAB WHEEL MISTAKE' },
   D: { eyebrow: 'INTENSE HOME AB EXERCISE', title: 'HOW FAST TO ROLL OUT\nWITH THE AB WHEEL' },
-  E: { eyebrow: 'PICK YOUR LEVEL', title: 'HOW FAR TO ROLL\nWITH THE AB WHEEL' },
+  E: { eyebrow: 'MY FAVORITE HOME AB EXERCISE', title: 'HOW TO DO\nAB WHEEL ROLLOUTS' },
 };
 
 function loadShots() {

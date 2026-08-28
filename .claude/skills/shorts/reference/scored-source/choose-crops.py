@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageChops
 HERE = os.path.dirname(os.path.abspath(__file__))
 SHOTS = os.path.join(HERE, 'shots')
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
-SRC = '/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Organic Videos/Daniel Organic Video -The $17 Ab Wheel Beats Every Crunch-v2 HD.mp4'
+SRC = '/Volumes/Extreme/_edit_work/abwheel/mrepro/ref_hd.mp4'
 man = json.load(open(os.path.join(SHOTS, 'manifest.json')))
 plan = json.loads(subprocess.check_output(
     ['node', '-e', "const p=require('./plan.js');console.log(JSON.stringify({SHOTS:p.SHOTS,TALK_X:p.TALK_X}))"],
@@ -47,7 +47,7 @@ for m in man:
         x = TALK_X
     else:
         x = auto_x(Image.open(os.path.join(SHOTS, m['name'] + '.jpg')).convert('RGB'))
-    frac = (L['talk']['zoomW'] if spec.get('zoom') else L['talk']['cropW']) / SRC_W
+    frac = (L['talk']['dropZoomW'] if spec.get('zoom') else L['talk']['dropW']) / SRC_W
     chosen[m['name']] = round(min(max(x, frac / 2), 1 - frac / 2), 4)
 json.dump(chosen, open(os.path.join(SHOTS, 'crops.json'), 'w'), indent=1)
 
@@ -62,6 +62,7 @@ def full_frame(t):
 
 def render_preview(m, spec):
     """Reproduce render.js's geometry exactly."""
+    PH = CH - L['dropTop']
     if spec['t'] == 'extern':
         p = f"/tmp/_ext_{spec['file']}_{m['dur']:.2f}.png"
         if not os.path.exists(p):
@@ -73,16 +74,22 @@ def render_preview(m, spec):
         w = CW
         h = round(im.height * CW / im.width)
         im = im.resize((w, h), Image.LANCZOS)
-        top = max(0, (h - CH) // 2)
-        return im.crop((0, top, CW, top + CH))
+        top = max(0, (h - PH) // 2)
+        pic = im.crop((0, top, CW, top + PH))
+        out = Image.open(os.path.join(HERE, 'assets', 'j2-bg.png')).convert('RGB')
+        out.paste(pic, (0, L['dropTop']))
+        return out
     im = full_frame(m['absStart'] + m['dur'] / 2)
     if spec['t'] in ('talk', 'broll'):
-        cw = L['talk']['zoomW'] if spec.get('zoom') else L['talk']['cropW']
+        cw = L['talk']['dropZoomW'] if spec.get('zoom') else L['talk']['dropW']
         ch = L['talk']['zoomH'] if spec.get('zoom') else SRC_H
         x = round(min(max(chosen[m['name']] * SRC_W - cw / 2, 0), SRC_W - cw))
         if spec.get('minX0') is not None:
             x = max(x, spec['minX0'])
-        return im.crop((x, 0, x + cw, ch)).resize((CW, CH), Image.LANCZOS)
+        pic = im.crop((x, 0, x + cw, ch)).resize((CW, PH), Image.LANCZOS)
+        out = Image.open(os.path.join(HERE, 'assets', 'j2-bg.png')).convert('RGB')
+        out.paste(pic, (0, L['dropTop']))
+        return out
     bg = Image.open(os.path.join(HERE, 'assets', 'j2-bg.png')).convert('RGB')
     c = L['card']
     src = im

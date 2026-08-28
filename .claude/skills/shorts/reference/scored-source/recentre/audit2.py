@@ -20,7 +20,7 @@ crops = json.load(open(os.path.join(BD, 'shots', 'crops.json')))
 def project(sh, t):
     """Where a source-fraction t lands on the delivered canvas, and the crop's own centre."""
     if sh['t'] in ('talk', 'broll'):
-        cw = L['talk']['zoomW'] if sh['zoom'] else L['talk']['cropW']
+        cw = L['talk']['dropZoomW'] if sh['zoom'] else L['talk']['dropW']
         x = crops[sh['shot']]
         x0 = round(min(max(x * SRC_W - cw / 2, 0), SRC_W - cw))
         if sh['minX0'] is not None: x0 = max(x0, sh['minX0'])
@@ -38,6 +38,7 @@ rows = []
 for sh in meta['shots']:
     A = []
     for f in sorted(glob.glob(os.path.join(HERE, 'mk', sh['shot'], '*.mask.png'))):
+        if os.path.basename(f).startswith('._'): continue   # AppleDouble companion
         m = cv2.imread(f, cv2.IMREAD_GRAYSCALE)
         if m is None: continue
         a = anchors(m > 127)

@@ -11,7 +11,7 @@ run of either the olive fill or the near-white pill - a sky or a pool never prod
 import subprocess, sys, json
 import numpy as np
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
-SRC = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Organic Videos/Daniel Organic Video -The $17 Ab Wheel Beats Every Crunch-v2 HD.mp4"
+SRC = "/Volumes/Extreme/_edit_work/abwheel/mrepro/ref_hd.mp4"
 W, H = 480, 270
 R0, R1 = (round(0/1080*H), round(230/1080*H)) if len(sys.argv)>2 else (round(700/1080*H), round(1010/1080*H))
 

@@ -45,7 +45,7 @@ function renderShots(segId) {
 function shotFilter(s) {
   if (s.t === 'talk' || s.t === 'broll') {
     // zoom crops from the TOP of the frame to drop a burned-in bottom lower-third.
-    const cw = s.zoom ? L.talk.zoomW : L.talk.cropW;
+    const cw = s.zoom ? L.talk.dropZoomW : L.talk.dropW;
     const ch = s.zoom ? L.talk.zoomH : SRC_H;
     let x = Math.round(Math.min(Math.max((CROPS[s.name] ?? TALK_X) * SRC_W - cw / 2, 0), SRC_W - cw));
     // minX0: this shot carries a burned graphic down the LEFT edge of the source frame.
@@ -54,8 +54,13 @@ function shotFilter(s) {
       if (s.minX0 + cw > SRC_W) throw new Error(`${s.name}: minX0 ${s.minX0} leaves no room for a ${cw}px window`);
       x = Math.max(x, s.minX0);
     }
-    return { inputs: [], fc: null,
-      vf: `crop=${cw}:${ch}:${x}:0,scale=${CW}:${CH}:flags=lanczos,setsar=1` };
+    // DROP. The picture fills 1080 x (1920-dropTop) and sits at the BOTTOM of the canvas, on
+    // the J2 field, so the title has a band of its own and never lands on his face or abs.
+    const ph = CH - L.dropTop;
+    return { inputs: ['-loop', '1', '-framerate', FPS, '-i', path.join(A, 'j2-bg.png')],
+      fc: `[0:v]setpts=PTS-STARTPTS,crop=${cw}:${ch}:${x}:0,scale=${CW}:${ph}:flags=lanczos,setsar=1[pic];` +
+          `[1:v][pic]overlay=0:${L.dropTop}:shortest=1,setsar=1[v]`,
+      vf: null };
   }
   // A NATIVE-VERTICAL clip from a different file. Dan, rev 2: "get new B-roll or stock
   // footage that fits in that vertical frame". Every other treatment carves 9:16 out of a
@@ -64,12 +69,16 @@ function shotFilter(s) {
   if (s.t === 'extern') {
     const f = path.join(__dirname, 'broll', s.file);
     if (!fs.existsSync(f)) throw new Error(`${s.name}: missing extern clip ${f}`);
-    return { inputs: [], fc: null, extern: f, externIn: s.in ?? 0,
-      // A light lift only. The clip measures Y 89 against 152 for Dan's backyard shots; his
-      // own cut already ranges 58-172 across b-roll, so this is not a match-grade, just enough
-      // that a dark gym does not read as a different video. Measured after, not guessed.
-      vf: `scale=${CW}:-2:flags=lanczos,crop=${CW}:${CH}:0:(ih-${CH})/2,` +
-          `eq=brightness=0.045:contrast=1.03:saturation=1.06,setsar=1` };
+    // A light lift only. The clip measures Y 89 against 152 for Dan's backyard shots; his own
+    // cut already ranges 58-172 across b-roll, so this is not a match-grade, just enough that a
+    // dark gym does not read as a different video. Measured after, not guessed.
+    const ph = CH - L.dropTop;
+    return { inputs: ['-loop', '1', '-framerate', FPS, '-i', path.join(A, 'j2-bg.png')],
+      extern: f, externIn: s.in ?? 0,
+      fc: `[0:v]setpts=PTS-STARTPTS,scale=${CW}:-2:flags=lanczos,crop=${CW}:${ph}:0:(ih-${ph})/2,` +
+          `eq=brightness=0.045:contrast=1.03:saturation=1.06,setsar=1[pic];` +
+          `[1:v][pic]overlay=0:${L.dropTop}:shortest=1,setsar=1[v]`,
+      vf: null };
   }
   if (s.t === 'card') {
     const c = L.card;
@@ -142,7 +151,7 @@ function renderSegment(seg) {
     // measured 23-34ms of drift per cut on the V4 rebuild - a small content jump at every
     // picture cut. Shot boundaries are picture cuts inside CONTINUOUS audio.
     const args = f.extern
-      ? ['-ss', String(f.externIn), '-i', f.extern, '-t', String(s.dur)]
+      ? ['-ss', String(f.externIn), '-i', f.extern, ...f.inputs, '-t', String(s.dur)]
       : ['-ss', String(s.absStart), '-i', SRC, ...f.inputs, '-t', String(s.dur)];
     if (f.fc) args.push('-filter_complex', f.fc, '-map', '[v]', '-an');
     else args.push('-vf', f.vf, '-map', '0:v', '-an');
@@ -224,12 +233,16 @@ function renderSegment(seg) {
     '-loop', '1', '-framerate', FPS, '-i', path.join(A, 'wordmark.png'),
     '-loop', '1', '-framerate', FPS, '-i', path.join(A, `title-${seg.id}.png`),
     '-i', audio,
+    '-loop', '1', '-framerate', FPS, '-i', path.join(A, `header-${seg.id}.png`),
     '-filter_complex',
     // shortest=1 on both overlays is load-bearing: the wordmark and title are `-loop 1`
     // stills, i.e. INFINITE streams. Without it ffmpeg never reaches EOF and encodes forever.
     `[2:v]format=rgba,fade=t=out:st=${(T - 0.35).toFixed(2)}:d=0.35:alpha=1[ttl];` +
     `[0:v][1:v]overlay=${L.wordmark.x}:${L.wordmark.y}:shortest=1[w];` +
-    `[w][ttl]overlay=0:0:shortest=1:enable='lt(t,${T})'[o];` +
+    // The eyebrow persists for the whole short. With the picture dropped, the top band would
+    // otherwise sit empty from 3.2s on.
+    `[w][4:v]overlay=0:0:shortest=1[wh];` +
+    `[wh][ttl]overlay=0:0:shortest=1:enable='lt(t,${T})'[o];` +
     `[o]subtitles='${esc(assPath)}':fontsdir='${esc(FONTS)}'[v]`,
     '-map', '[v]', '-map', '3:a', '-t', String(segDur.toFixed(2)),
     ...VENC, '-movflags', '+faststart', final,

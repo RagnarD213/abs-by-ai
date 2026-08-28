@@ -9,7 +9,9 @@ import json, subprocess, sys
 import numpy as np
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 L = json.load(open('layout.json'))
-Y0, Y1 = L['card']['y'], L['card']['y'] + L['card']['h']
+# The band both layouts always fill with picture: below the dropped full-bleed top (310)
+# and above the card stage bottom (1000).
+Y0, Y1 = max(L['card']['y'], L['dropTop']) + 110, L['card']['y'] + L['card']['h']
 W, H = 96, 171                     # downscaled probe; stage rows scale with it
 sy0, sy1 = round(Y0 / 1920 * H), round(Y1 / 1920 * H)
 bad = 0

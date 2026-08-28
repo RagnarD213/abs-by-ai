@@ -18,6 +18,7 @@ audit = {r['shot']: r for r in json.load(open(os.path.join(HERE, 'audit.json')))
 def torso(shot):
     A = []
     for f in sorted(glob.glob(os.path.join(HERE, 'mk', shot, '*.mask.png'))):
+        if os.path.basename(f).startswith('._'): continue
         m = cv2.imread(f, cv2.IMREAD_GRAYSCALE)
         if m is None: continue
         a = anchors(m > 127)
