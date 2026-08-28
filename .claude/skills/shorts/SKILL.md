@@ -170,6 +170,66 @@ subject. On the V4 rebuild all three automated methods failed and hand-set value
 Always render a contact sheet of the **actual proposed vertical frames** and fix by eye.
 `choose-crops.py` does this.
 
+### ⚠ ONE `TALK_X` FOR A WHOLE VIDEO IS WRONG. It shipped 10 off-centre Shorts.
+
+**Dan caught this live on 2026-08-27**, on `v2-short3_supplements-3-percent` the day it
+posted to Instagram: *"off-center… one of my arms is cut off and there's space on the other
+side."* V2 and V3 both set `const TALK_X = 0.478` with the comment "one value covers every
+talking-head shot in the video". It does not. **He shifts in the doorway between takes** —
+his measured torso centre wanders **0.411 → 0.505** across V2+V3, and a 9:16 window is only
+0.317 of the frame wide, so a 0.06 error moves him ~200 px in a 1080-wide delivered frame.
+V6's plan had already found this the hard way ("there is NO single TALK_X") and the lesson
+was never carried back to V2/V3. **Measure a centre per SHOT. Never reuse one constant.**
+
+**The measurement that works, and the two that do not.** Anchor on the **torso block** —
+the columns where the mask fills ≥60 % of its own tallest column:
+
+- ❌ *Mask centroid* and ❌ *head centroid* both move 100–500 px between adjacent frames,
+  because his hands fly in and out of frame while he talks. Same median, useless per frame.
+- ❌ *Edge-energy column search* (`choose-crops.py`'s `auto_x`) locks onto the fridge.
+- ✅ **Torso block**: ~23–31 px frame-to-frame spread, which is his real sway, not noise.
+  A per-shot constant is then enough — **no time-varying pan is needed** and a pan on a
+  locked tripod reads as a mistake.
+
+**Get the mask from Apple's Vision framework, not from colour.** A skin+dark-garment
+heuristic bled straight into the stainless fridge and reported centres 0.15 too far right.
+A ~40-line Swift CLI over `VNGeneratePersonSegmentationRequest` (`.accurate`) gives a clean
+mask offline, no model download, ~1.5 s/frame:
+
+```swift
+let req = VNGeneratePersonSegmentationRequest()
+req.qualityLevel = .accurate
+req.outputPixelFormat = kCVPixelFormatType_OneComponent8
+```
+
+⚠ **It segments EVERY person, so a `pip` shot's poster subject counts too** — exclude pip
+shots or mask to the presenter's side of the frame first.
+
+**Two numbers, and they answer different questions.** `offset` = `(x_used − torso) ×
+1920 × 1080/cropW`, i.e. how far off centre he sits in the delivered frame. `cut-off` =
+`min(clipped one side, background margin on the other)`, i.e. what a pure shift would give
+back. **Both matter**: `v3-short4` was clipping almost nothing yet sat 135 px off centre and
+still read as wrong. Calibration point — the short Dan rejected measured **133 px offset /
+68 px cut-off**. Thresholds that matched his eye: re-cut at **≥60 px weighted or ≥110 px on
+any one shot**; ≤35 px is invisible.
+
+⚠ **AND THEN LOOK, because the metric over-fires on anything that is not the locked
+camera.** It flagged 4 of the 5 V6 Shorts; the A/B sheets showed only **1** was genuinely
+bad, and adopting the other three would have made them **worse** — V6 is handheld, outdoors
+and shirtless, its offsets were already hand-tuned, and "torso centred" is not the goal for
+a standing kettlebell demo where the weight on the ground is part of the frame. Render
+**5 frames across the shot**, shipped beside proposed; one midpoint frame is not enough.
+
+⚠ **Check the treatment before you audit anything.** The five V4 Shorts use the band
+layout — the whole 16:9 frame sits inside the vertical frame, uncropped — so they *cannot*
+have this defect. Only `talk`/`broll` full-bleed crops are at risk.
+
+**Re-cutting is cheap and provably surgical.** Edit `shots/crops.json` (keep the shipped
+values in a `.pre-recentre` backup and always recompute from that, never from a previous
+edit) and re-run `node render.js <SEG>`. ~1–3 min per short. Assert against the shipped
+file afterwards: **identical frame count, duration, resolution, fps and audio MD5** — the
+crop is the only thing that may differ.
+
 ## Step 6 — does the subject leave room for graphics? MEASURE IT
 
 **This is the decision that produced the band layout, and it is the one Dan cared about.**

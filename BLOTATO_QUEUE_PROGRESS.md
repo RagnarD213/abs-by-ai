@@ -48,6 +48,39 @@ All at **5:00 PM Central** (= `22:00Z`; Aug–Oct is CDT, UTC−5). Dates **mirr
 
 **`short5_1-minute-workout` carries a live licence obligation.** Its audio was replaced with "Get A Move On" by Audionautix (CC-BY 4.0) to clear a YouTube copyright claim. The attribution line is included in **both** the IG and FB captions and **must not be removed**.
 
+## RE-CENTRED RE-CUTS SWAPPED INTO THE QUEUE — 25 posts (2026-08-27)
+
+Dan flagged `v2-short3` as off-centre the day it posted. Root cause: one fixed `TALK_X` per video
+in the Shorts builds (full write-up in `AI_COORDINATION.md`). **10 shorts were re-cut with a crop
+centre measured per SHOT; 9 of them had queued posts and all 25 were replaced** — same scheduled
+time, caption, first comment, cover image and account, new media only.
+
+| short | posts replaced | dates |
+|---|---|---|
+| `v2-short3_supplements-3-percent` | 1 (the `@abs.by.ai` mirror only — the rest had already posted) | Aug 28 |
+| `v2-short4_macro-tracking-obsolete` | 3 | Aug 29 / 29 / 30 |
+| `v2-short5_ask-ai-to-interview-you` | 3 | Sep 1 / 1 / 2 |
+| `v2-short7_chicken-soup-trick` | 3 | Sep 5 / 5 / 6 |
+| `v3-short4_train-abs-every-day` | 3 | Sep 15 / 15 / 16 |
+| `v3-short7_fast-until-2pm` | 3 | Sep 22 / 22 / 23 |
+| `v3-short9_break-fast-low-carb` | 3 | Sep 26 / 26 / 27 |
+| `v3-short11_bubble-gut-vacuums` | 3 | Oct 1 / 1 / 2 |
+| `v6-short2_knee-yourself-in-the-face` | 3 | Oct 6 / 6 / 7 |
+
+`v2-short1_sugar-free-gum-trick` was also re-cut but had already posted everywhere, so nothing was
+re-queued; the corrected file is on disk for any future use.
+
+**Verified against a fresh live pull**, not the create responses: 198 scheduled before and after,
+0 old ids remaining, 0 account+day collisions, 74 video posts before and after. ⚠ **Blotato
+re-hosts VIDEO on create under a new UUID too**, so the queued files were downloaded and
+frame-compared — 0.000 difference against the new masters at 8 timestamps each.
+
+⚠ **THE SAME STALE FILES ARE STILL SCHEDULED NATIVELY IN YOUTUBE STUDIO.** YouTube cannot swap a
+file after upload, so fixing those means delete + re-upload and new video ids. **Dan's call.**
+
+⚠ **`short5_1-minute-workout` (Oct 15 in the table below) is NOT in the live queue.** Found while
+auditing; cause unknown. Its captions carry the CC-BY attribution that must not be dropped.
+
 ## DONE — 65 photos x 2 platforms = 130 posts scheduled (2026-08-18)
 
 `photos/finalized social media photos/` — **65** `*_FINAL_PRIMARY*.jpg` (the earlier count of 63 was wrong;

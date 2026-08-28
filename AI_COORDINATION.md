@@ -33,6 +33,79 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### OFF-CENTRE 9:16 CROPS — ALL 28 SHORTS AUDITED, 10 RE-CUT, 25 QUEUED POSTS SWAPPED (2026-08-27, Claude Code)
+
+Dan saw `v2-short3_supplements-3-percent` go out on `@danrosefit` and flagged it: *"off-center …
+one of my arms is cut off and there's space on the other side."* Asked for every unposted short to
+be checked and re-edited. **$0.00 AI spend, no production code, no deploy, no native-retest
+trigger.** Skill commit updates `/shorts`.
+
+⚠ **ROOT CAUSE IS ONE LINE, AND IT WAS ALREADY KNOWN IN A SIBLING BUILD.** `six-ways-ai-abs/plan.js`
+and `v3-top10-tips/plan.js` both set `const TALK_X = 0.478` with the comment *"One value covers every
+talking-head shot in the video."* It does not — Dan's measured torso centre wanders **0.411 → 0.505**
+across V2+V3. A 9:16 window is 0.317 of the frame, so 0.06 of drift is ~200 px in a 1080-wide
+delivered frame. **`v6-3min-home-workout/plan.js` had already found this** ("there is NO single
+TALK_X — every talking shot gets its own offset") and the lesson was never carried back.
+
+**Method:** frames sampled from the source masters at 2 fps for every talking-head shot →
+**Apple Vision `VNGeneratePersonSegmentationRequest`** via a small Swift CLI → anchor on the
+**torso block** (columns where the mask fills ≥60 % of its tallest column). Whole-mask and head
+centroids both move 100–500 px between adjacent frames because his hands leave frame while he talks;
+the torso sits at 23–31 px, which is his real sway, so **a per-shot constant is enough and no pan
+is needed.** A skin+dark-garment colour heuristic was tried first and **bled into the stainless
+fridge** — do not use colour on this set.
+
+| verdict | shorts |
+|---|---|
+| **re-cut (10)** | v2-short1 · v2-short3 · v2-short4 · v2-short5 · v2-short7 · v3-short4 · v3-short7 · v3-short9 · v3-short11 · v6-short2 |
+| clean (13) | v2-short2 · v2-short6 · v3-short1/2/3/5/6/8/10 · v6-short1/3/4/5 |
+| **structurally immune (5)** | short1–short5 use the **band layout** — the whole 16:9 frame sits uncropped inside the vertical frame, so there is no crop to get wrong |
+
+Worst offenders by offset in the delivered frame: **v2-short5 182 px · v3-short4 135 px ·
+v2-short3 133 px** (the one Dan caught — that is the calibration point) · v2-short4 103 px ·
+v2-short7 102 px · v2-short1 89 px · v3-short11 86 px · v3-short7 77 px · v3-short9 61 px.
+
+⚠ **THE METRIC OVER-FIRES ON ANYTHING THAT IS NOT THE LOCKED KITCHEN CAMERA, AND THE A/B SHEETS
+CAUGHT IT.** It flagged **4 of the 5 V6 shorts**; shipped-vs-proposed frames showed only **one**
+(short2, seated, right-shifted with empty pavement to the left) was genuinely bad, and adopting the
+other three would have made them **worse** — V6 is handheld, outdoors and shirtless, its offsets were
+already hand-tuned, and "torso centred" is not the goal for a kettlebell demo where the weight on the
+ground is part of the frame. **Nothing was changed without looking at 5 frames across the shot.**
+
+⚠ **`v6-short1_gained-muscle-in-quarantine` measures off-centre and was deliberately NOT touched** —
+Dan killed it on 2026-08-17 (*"It's just more me bragging"*) and it is in no queue.
+
+**PROVEN, not asserted.** Every re-cut is **identical to the file it replaces in frame count,
+duration, resolution, fps and audio MD5** — the crop is the only thing that changed. `qc.js` **PASS,
+all checks green** on V2, V3 and V6. Shipped versions kept at
+`Short-form video content/_pre-recentre-2026-08-27/`.
+
+**BLOTATO: 25 posts swapped, verified against a fresh live pull.** 198 scheduled before and after,
+0 old ids left, 0 account+day collisions, caption / first comment / cover image / account /
+scheduled time carried over verbatim. Create always preceded delete. Covers Aug 28 → Oct 7 across
+Facebook, `@danrosefit` and the `@abs.by.ai` mirrors.
+
+⚠ **BLOTATO RE-HOSTS VIDEO ON CREATE UNDER A NEW UUID** (already logged for images on 8/26 — it is
+true of video too), so a `mediaUrls` comparison reports every post wrong. **The queued files were
+downloaded and frame-compared instead: 0.000 difference against the new masters at 8 timestamps
+each, and 4–8 of 8 frames differ from the cut they replaced.** A single sample can land on b-roll,
+which is identical by design — sample across the runtime or the check false-fails.
+
+**TWO THINGS FOR DAN, NEITHER BLOCKING:**
+1. ⚠ **The same stale files are scheduled natively in YouTube Studio** (per
+   `BLOTATO_QUEUE_PROGRESS.md`, the IG/FB dates mirror the Studio queue). YouTube cannot swap a file
+   after upload — fixing those means delete + re-upload, which changes the video ids. **His call.**
+   `v2-short1` and `v2-short3` are already published there and on IG/FB; those posts were left alone.
+2. **`short5_1-minute-workout` (Oct 15) is missing from the live Blotato queue** although
+   `BLOTATO_QUEUE_PROGRESS.md` lists it. Unrelated to this task, but it is a real gap. It carries the
+   CC-BY attribution line, so re-queueing it must keep that caption.
+
+**Dashboard: nothing checked off** — searched, no task covers this.
+
+**EXACT NEXT ACTION — DAN: decide on the YouTube Studio copies.** The Blotato queue is correct.
+
+---
+
 ### SIX SHORTS CUT FROM MUHAMMAD'S AB-WHEEL ORGANIC CUT — DELIVERED (2026-08-27, Claude Code)
 
 Dan asked for six shorts from his round-2 organic cut (Drive `1lu_Im9st8XtDNXPnFOhpKyc7IA2Whf_J`),
