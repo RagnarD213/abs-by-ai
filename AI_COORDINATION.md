@@ -33,6 +33,69 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### SHORT5 MUSIC BED SWAPPED (claim cleared at the file level); V4 + V5 HANDED OFF (2026-08-28, Claude Code)
+
+Dan hit TikTok's copyright check uploading `short5_1-minute-workout`. **$0.00 AI spend, no production
+code, no deploy, no native-retest trigger.**
+
+**THE TRACK IS "Hard Rap Beat" BY ARTISS — the same claim that blocked Short `I_trw1PaMhc` globally.**
+The 2026-08-13 session cleared that on YouTube with Studio's **Replace song** (→ Audionautix
+"Get A Move On", CC-BY 4.0), but **only the YouTube copy** — the local master still carried Artiss,
+which is what TikTok flagged. Now swapped to `organic_flow.mp3` (Pixabay, commercial use, **no
+attribution**), chosen by measurement: same tempo family (53.8/156.6 vs the old bed's 53.3/161.5),
+lowest spectral error of seven candidates, flattest energy.
+
+⚠ **THE VIDEO IS NOT MUSIC-ONLY — it has Dan's intro (1.84–5.04 s) and outro (79.84–81.26 s).**
+Muting the video track in TikTok Studio, which is what TikTok's own workaround does, kills both.
+Voice was rebuilt from `The Ultimate 1 Minute Ab Workout - DESCRIPT RAW CUTDOWN.mp4`, which is
+**voice-only, no bed** (67 seconds below −60 dB; the finished masters never drop below −40.9).
+
+⚠ **VERIFICATION CAUGHT TWO DEFECTS A FORMAT GATE PASSED.** (1) The short is **not** a contiguous
+slice of the raw — the edit has internal cuts, so one global offset pasted in a discarded take
+(*"just because that's going to make your form suffer"*). (2) **Whisper's word onset was 0.6 s early**
+on the outro (451.32 claimed vs 451.90 measured), which truncated "today's workout." Fixed by pinning
+both lines from 20 ms energy scans plus **the burned-in captions**, which are frame-accurate ground
+truth the audio must match (outro caption onset 79.867 s).
+
+⚠ **WHISPER HALLUCINATES FLUENT SENTENCES OVER MUSIC.** The voice track was *exactly zero* through
+76.0–79.75 s and Whisper still returned *"Girl bring me some more poached eggs with the truffle on
+the side"*. Also *"Thanks for watching guys!"* three times in V5. **`no_speech_prob` does NOT
+discriminate** (0.27 music vs 0.25 real speech). Use energy or the syllable-rate modulation test.
+
+**Dan's revision, applied:** music down **70% (0.30, −10.5 dB)** under speech. The ffmpeg
+**sidechaincompress was only reaching 68%** — that was his "too loud when I start talking". Replaced
+with explicit gain automation starting **0.35 s before** he speaks. Tools kept in
+`Handoffs/assets/bedswap-20260828/` (`fingerprint.py`, `duck_envelope.py`).
+
+**Delivered:** `Short-form video content/short5_1-minute-workout.mp4` (prior kept as `*_PRE_BEDSWAP.mp4`,
+plus a 540p review copy). −13.85 LUFS / −1.50 dBTP, 81.500 s both streams, 0 silent seconds,
+**video stream MD5 byte-identical**, head/tail transcripts match the original word for word, old-bed
+fingerprint **4.75 → 0.10**.
+
+**SCAN OF THE OTHER 26 SHORTS: no other short uses this track.** Controls make that trustworthy —
+same bed under a *different* voiceover scores **3.79**; all 26 score **0.011–0.048**.
+
+**TWO HANDOFFS WRITTEN, NOT EXECUTED** (both Key tasks added to the dashboard):
+`handoff-20260828-v5-longform-bedswap.md` (**do first** — V5 `8BaCYcGhRPY` has **no speech**, proven by
+a syllable-rate modulation test with controls, so its audio can be replaced wholesale) and
+`handoff-20260828-v4-longform-bedswap.md` (V4 `Sv5wZha_a8c`, **public since 2026-08-11**, provably
+contains the track — short5 is a sample-exact slice of it at 371.500 s, corr **+0.999**). V4 is a
+**light conform** of the raw (offset drifts only ~3 s across 20–360 s at 0.91–0.97 confidence;
+13.05 s removed in total), so EDL recovery is realistic.
+
+⚠ **A LIVE LICENCE OBLIGATION IS NOW INCONSISTENT AND NEEDS DAN.** `BLOTATO_QUEUE_PROGRESS.md` says
+short5's queued IG/FB captions carry a CC-BY credit for Audionautix and "must not be removed" — but
+that describes the **YouTube** copy's audio. The local file never had Audionautix, and now has Pixabay,
+which needs no attribution. **Not edited; Dan's call.**
+
+⚠ **YouTube will not let you replace a published video's file.** Fixing V4/V5 on YouTube means Studio
+Replace/Erase song (keeps the URL, edit is permanent) or delete + re-upload (loses views/URL/history).
+**Dan decides; do not act alone.**
+
+**EXACT NEXT ACTION — DAN: nothing blocked.** Execute the V5 handoff first when he wants it.
+
+---
+
 ### FIVE LONGFORMS TO THE NEW STANDARD — **THREE DELIVERED, 04 NOT STARTED** (2026-08-27, Claude Code)
 
 `Handoffs/handoff-20260824-five-longforms-to-new-standard.md` executed in the recommended

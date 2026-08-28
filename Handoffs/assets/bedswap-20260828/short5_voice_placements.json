@@ -1,0 +1,14 @@
+{
+ "intro": {
+  "raw_in": 373.3,
+  "raw_out": 377.0,
+  "speech_lands_at": 1.84,
+  "clip_at": 1.64
+ },
+ "outro": {
+  "raw_in": 451.9,
+  "raw_out": 453.42,
+  "speech_lands_at": 79.85,
+  "clip_at": 79.77
+ }
+}
