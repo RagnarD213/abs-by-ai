@@ -273,11 +273,34 @@ def check_dead_air(a, dur):
         "tighten the pauses, and check whether a silent demo section is carrying it "
         "(Step 3)")
 
+def _caption_frac(v, dur):
+    hits, n = 0, 0
+    for t in np.linspace(dur * 0.05, dur * 0.95, 36):
+        raw = subprocess.run([FF, "-v", "error", "-ss", f"{t:.2f}", "-i", v, "-frames:v", "1",
+            "-vf", "crop=1320:110:300:930,format=gray", "-f", "rawvideo", "-"],
+            capture_output=True).stdout
+        if not raw: continue
+        b = np.frombuffer(raw, dtype=np.uint8)
+        n += 1
+        white = (b > 225).mean(); dark = (b < 40).mean()
+        if 0.004 < white < 0.20 and dark > 0.01: hits += 1
+    return hits / max(n, 1)
+
 def check_captions(v, dur, talking_head):
     """Burned captions leave a signature: a band of near-white pixels with dark outline
     in the lower third, present on most frames of a talking-head video."""
     if not talking_head:
         print("[SKIP] captions: not flagged as talking-head content"); return
+    import os
+    if os.environ.get("ORGANIC","1")=="1":
+        # DAN 2026-08-27: organic longforms carry NO burned captions (and no watermark);
+        # the .srt sidecar is the deliverable. The check INVERTS: fail if captions are
+        # burned in. Set ORGANIC=0 to restore the legacy burned-caption requirement.
+        frac2 = _caption_frac(v, dur)
+        chk(frac2 < 0.10,
+            f"no burned captions (organic rule): detected on {frac2*100:.0f}% of frames (max 10%)",
+            "organic longforms ship a clean frame + .srt sidecar (Step 8, Dan 2026-08-27)")
+        return
     hits, n = 0, 0
     for t in np.linspace(dur * 0.05, dur * 0.95, 36):
         raw = subprocess.run([FF, "-v", "error", "-ss", f"{t:.2f}", "-i", v, "-frames:v", "1",

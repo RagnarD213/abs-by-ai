@@ -127,6 +127,37 @@ Then still do the pose check — but as a second opinion, not the proof. ⚠ **D
 with raw pixel correlation:** the reference is graded, punched in and vignetted, so a
 correct conform still scores ~0.35 against it.
 
+### 1d. Multi-roll + organic lessons (ab-wheel reproduction, 2026-08-27)
+
+Recovering Muhammad's 4-roll organic cut added five rules that supersede nothing above
+but extend it (`/longform-edit reference/mrepro_*.py` is the working pipeline):
+
+1. **On a MULTI-ROLL video, word-align the cut against each roll separately**, resolve
+   per-word candidates by run-continuity (lookahead), and then let AUDIO XCORR be the
+   authority: slide 1 s band-passed (300–3400 Hz) windows of the reference mix against
+   the candidate roll around the word-derived offset. Voiced regions lock at corr
+   0.87–1.00; the word alignment alone wobbled between three hook takes.
+2. **Snap every segment boundary into an inter-word gap of the REFERENCE'S OWN
+   transcript**, choosing each straddling word's side by per-word xcorr. Boundaries
+   placed by anchor midpoints clipped word edges 8 times on this cut (96.7 % → 99.2 %
+   conform fidelity after snapping) — including "crunches", the same trailing-fricative
+   word the longform skill already documents.
+3. **A montage/set section with a steadily CLIMBING offset is a TIME-LAPSE, not a cut
+   sequence.** Offset slope ≈ 3 means 3× retime; confirm with the rep-period ratio
+   (frame-diff autocorrelation: his cut 1.23 s vs raw 3.70 s = 3.0). All four of his
+   workout sets were ~2.87–3.07×, source-continuous with the neighbouring voice spans.
+4. **His mix can carry a take-1 LINE spliced into a take-2 region** ("let's talk about
+   what it looks like live" = C1633 take 1 at 2.9–6.1 inside a take-2 segment) — and a
+   psych-up line grabbed from 30 s later ("All right. Let's do it." at src 73.7). When
+   a boundary's words score weakly on BOTH sides, xcorr the phrase against the WHOLE
+   roll, then all rolls; corr 0.99 at some distant src is the answer, and a stale
+   cached transcript that never heard the line is usually why word alignment missed it.
+5. **Graphic-band masking + deeper scales rescues "insert" false positives.** Frames
+   the framing fit rejects at scale ≤ 1.7 may be conform punched to ~2× under a pill —
+   mask the pill band (top ~210 px) and search scales to 2.3 before calling a window
+   an insert. 189 of this cut's low-ncc frames resolved that way; the survivors were
+   the real inserts, exactly matching the visual catalog.
+
 ---
 
 ## Step 2 — MEASURE THE LOOK (four separate measurements, never one)

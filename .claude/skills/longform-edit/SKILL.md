@@ -67,6 +67,44 @@ you deliver. It was calibrated on three cuts of the same footage, and it separat
 cut breaches Dan's own 30-second rule once, at 5:37. The gate is not "be like him"; it is
 the floor below which a cut is not finished.
 
+> ## ⚠ THE ORGANIC HOUSE STYLE IS NOW MUHAMMAD'S, NOT J2 — 2026-08-27
+>
+> Dan compared Muhammad Arsalan's organic ab-wheel round-2 (Drive
+> `1lu_Im9st8XtDNXPnFOhpKyc7IA2Whf_J`) against this skill's 13/13-gate rebuild and
+> called his **significantly better** — and the whole gap is in things the gate never
+> measured. Dan's stated goal: *"edit all the organic videos and make it look like
+> Muhammad did it."* A full reproduction of that cut was built from the raws as the
+> proving ground (`/Volumes/Extreme/_edit_work/abwheel/mrepro/`, see its `notes.md`);
+> its style system is `reference/orglib.py` (staged from that build).
+>
+> **The measured style, in order of visual weight:**
+> 1. **Branded pill graphics, not label chips.** Poppins Bold; big rounded pills
+>    top-center (white pill + olive #768642 text + olive left tab, or olive-gradient
+>    pill (141,152,97)→(84,93,55) + white text); numbered chips bottom-left; thin
+>    white form-cue bars top-center; frosted stack panels building one item at a time.
+>    **Line 2 of every pill reveals with a per-character typewriter fade (~28 cps).**
+> 2. **Title cards**: near-black grid field (10,11,5) + corner brackets/deco, olive
+>    gradient plate, white BoldItalic caps wiping in with motion blur, key line in a
+>    white highlight box. His organic cards DO hold static after the intro (42–53 %
+>    static frames measured) — unlike his ads. Don't add pushes his cut doesn't have.
+> 3. **Two b-roll registers**: instructional/demo media in a rounded **glow card**
+>    (media never upscaled) on the grid field; story beats as **full-bleed cinematic
+>    stock**. Whip-pans with real directional blur INSIDE cards; **white/blue flash
+>    blooms** (double-pulse envelope) between scenes; SFX on transitions.
+> 4. **Workout sets are ~3× time-lapses** with a ⏩ glyph top-right; live demo
+>    sections run 1×. (Measured 2.87–3.07× on all four of his sets.)
+> 5. **NO burned captions, no watermark** (Dan's explicit call, 2026-08-27) — clean
+>    frame, `.srt` sidecar. See Step 8.
+> 6. **Punch-ins drift** (1.28→1.31 over a shot = his slow push); wides may hold.
+> 7. **Music bed is dynamic** — his LRA 13.6 vs our flat 8.1: the bed swells up in
+>    the sets and ducks under speech. A flat constant bed reads as ours, not his.
+> 8. End on the product: white field + phone mockup running the real app recording
+>    (safe window 3.0–24.5 s — never the "Meet the new you" before/after or email
+>    screens), then a YouTube subscribe animation + AbsByAI.com pill.
+>
+> Until Dan rules on the reproduction, treat this as the default for NEW organic
+> cuts and keep the J2 chip system only for legacy revisions he has already approved.
+
 **Working scripts are preserved in `reference/`. Copy one and adapt; do NOT rewrite
 from scratch.** They are in git on purpose: `Media/` and `YouTube Long Form Video
 Content/` are git-ignored, and the original `/shorts` V4 pipeline was **lost** that
@@ -668,6 +706,37 @@ split the decoded stream 85 ways and buffer every branch until concat reaches it
 
 ---
 
+### Step 5.4b — RE-PUNCHING a cut that is already delivered  **`reference/repunch.py`**
+
+The five 8/3 longforms have approved cuts, grades validated closed-loop and audio that was
+already rebuilt from the good microphone. Only the STYLE pass is missing. Running
+`plan_punchins.py` on them would re-derive the cut — the part that is already right — so
+`repunch.py` does the framing half only, against the `*_NO-GRAPHICS.mp4` beside every
+delivered master, and asserts the output frame count equals the source so the delivered
+audio drops straight back underneath with no drift.
+
+⚠ **The median-plate subject tracker DOES NOT WORK on a talking head, and it fails
+quietly.** `subject.py` finds the subject as "whatever differs from the per-pixel median of
+the programme". That is correct for the ab-wheel roll, where Dan leaves frame between sets
+so the median really is a clean plate. On a talking head he is in every frame, so HE is the
+median, and the largest residuals land on the reflective pantry door and the cabinets. Run
+on the spray-tan cut it reported the subject centre at **x = 0.07** — the doorframe — for
+most of the video, and every crop would have been built around it.
+
+**MOTION is the signal that survives.** The background of a locked shot is still and a man
+talking and gesturing is not, so the mean absolute frame-to-frame difference accumulated
+over a ~14 s window peaks exactly on him. Measured at six timecodes on the same cut it
+returns x 0.29–0.82, centre ≈ 0.56, which is where he actually is. Accumulate into 2 s
+blocks and window afterwards — holding every diff frame for a 53-minute programme is a
+gigabyte.
+
+⚠ **Protect the subject HORIZONTALLY only.** The first version also refused to crop through
+him vertically, and on a waist-up shot the tracked box runs from his head to the bottom of
+frame, so no crop level ever "fits" and the widen loop fires on every shot: **991 s of
+1134 s came out at 1.00**, i.e. a punch-in pass that never punched in. Cutting the bottom of
+his torso off IS what a punch-in is. Height is handled by the ANCHOR instead — `top` puts
+the crop's top edge just above his head, which keeps the face and the headroom.
+
 ## Step 5.5 — cutaways and cards: breaking up a talking head  **REQUIRED — gate: ≥ 40% coverage, longest static stretch ≤ 30 s**
 
 Dan's rule, given on the spray-tan revision: **"generally there shouldn't be more than
@@ -932,6 +1001,52 @@ pair whose gap is < 0.20 s should be merged into one range.
 
 ---
 
+### ⚠ FLATTEN THE GRAPHICS INTO ONE TRACK. A deep overlay chain is 14x slower.
+
+**`reference/build_gfx_track.py`.** The obvious composite — one `-i` per graphic,
+`setpts=PTS+a/TB` to move it to its time, `overlay=...:enable='between(t,a,b)'` — is
+correct and unusably slow. Measured on a 20-second slice of the spray-tan rebuild, same
+encoder settings throughout:
+
+| filter graph | speed |
+|---|---|
+| 45 time-shifted alpha overlays + burned subtitles | **0.08x realtime** |
+| 45 time-shifted alpha overlays, no subtitles | 0.05x |
+| no overlays, burned subtitles | **1.12x** |
+| no overlays, no subtitles | 1.07x |
+
+The encoder preset is irrelevant (`medium` 261.8 s vs `fast` 244.0 s for the same 20 s)
+and **libass costs nothing**. The chain itself is the whole 14x: every overlay is a
+framesync filter, so all 45 are stepped for every frame of the programme. The first
+attempt at this pass **ran for five hours on a 19-minute video** and had not finished.
+
+Flatten instead: lay the graphics end to end with transparent filler between them and
+CONCATENATE — a stream copy, done once, offline. A transparent 1920x1080 QTRLE frame is a
+few hundred bytes, so 30 minutes of mostly-empty alpha track is 632 MB. Then the composite
+is `[base][track]overlay=0:0` plus the watermark plus `subtitles=` — three filters.
+
+```bash
+python3 reference/build_gfx_track.py --windows windows.json --gfxdir gfx \
+        --dur 1827.7 --out gfx_track.mov
+```
+
+Three traps inside it, all found by measuring the finished track:
+
+1. **The transparent filler CANNOT come from lavfi's `color` filter.**
+   `color=c=black@0.0` encodes through QTRLE **opaque** — mean alpha 255 — with or
+   without a following `format=rgba`, and every gap then lands on the programme as a
+   black card. A transparent PNG fed with `-loop 1` measures 0. 
+2. **`motionlib.encode` wrote a DECIMAL framerate** (`"29.970030"`), which ffmpeg parses
+   as `979001/32666` and stores with a `1/979001` timebase. Concatenated with anything
+   generated at `1/30000`, `-c copy` does not rescale and a 1827 s track reported itself
+   as **59255 s**. motionlib now emits the exact fraction, and the track builder restamps
+   every part to one timescale anyway.
+3. **Count FRAMES, not seconds.** Summing float gap durations left the track six frames
+   short of the programme and the overlay ended early.
+
+The graphics must not overlap in time — which is already a rule, since a full-frame card
+must never cover a lower third — and the builder asserts it.
+
 ## Step 7.5 — MUSIC AND SFX  **REQUIRED — gate: 2nd-percentile frame level ≥ −52 dBFS**
 
 Longform shipped five videos with no music bed at all. A bed is most of the difference
@@ -982,18 +1097,24 @@ costs a dB of loudness per dB of peak — here the peak is not what binds the ga
 
 ---
 
-## Step 8 — subtitles  **REQUIRED for talking-head content — gate: captions on ≥ 45% of sampled frames**
+## Step 8 — subtitles
 
-**Burn captions on talking-head content. Ship an `.srt` either way.**
+> ## ⚠ RULE FLIPPED BY DAN, 2026-08-27: ORGANIC LONGFORMS GET **NO BURNED CAPTIONS
+> AND NO WATERMARK.** Ship the `.srt` sidecar only.
+>
+> Muhammad's organic ab-wheel cut carries no captions and no watermark, and the clean
+> frame is a measurable part of why Dan rates it above our cuts — burned captions force
+> every graphic up, fight the pill system for the same band, and read utilitarian.
+> Dan chose "No burned captions" explicitly (organic longforms; ads and Shorts keep
+> their own rules). The gate's captions check is INVERTED for organic longform:
+> **fail if burned captions are present**; require the `.srt` beside the master.
+> Everything below about caption *timing and text* still applies — to the `.srt`.
 
-The old rule here said "SRT, not burned in", full stop. That was decided for the meal-prep
-**split-screen tutorial**, where a screen recording occupies the left 570 px and burned
-captions fight the app UI. It was never a rule about longform in general, and reading it
-as one is why the ab-wheel video shipped with no captions at all.
+The history, kept because the timing/text rules still matter for the sidecar:
 
 | content | burned captions | `.srt` |
 |---|---|---|
-| talking head, demo, workout, anything with no screen recording | **yes** | yes |
+| organic longform (talking head, demo, workout) — Dan 2026-08-27 | **no** | yes |
 | split-screen tutorial where a screen recording holds the frame | no | yes |
 
 The `/shorts` burned-ASS spec applies to the first row. Placement has to cooperate with
@@ -1071,6 +1192,40 @@ Upload in YouTube Studio: Subtitles → Add → **Upload file → With timing**.
 "Without timing" — that discards our timings and lets YouTube re-sync.
 
 ---
+
+## Step 8.5 — THE WATCH PASS  **`reference/watch_longform.py`** — REQUIRED before delivery
+
+`qc_style.py` measures the finished file and still cannot see a black frame at a splice, a
+segment that froze, or a graphic that rendered to an `.mov` and never reached the picture.
+The ad pipeline paid for this twice: attempt 2 passed 15/15 and Dan found 13 problems,
+eight of which a human sees in one viewing, and an earlier build shipped **all 7 lower
+thirds, all 3 CTA pills and all 11 flashes invisible** with every metric green.
+
+Three things, on the EXACT file being delivered:
+
+1. **Full-frame scan, every frame, streamed** — black frames, frozen runs, and jumps far
+   above the file's own noise level that do not sit at a declared boundary. Merge
+   consecutive over-threshold frames into ONE event: a dissolve, a wiping graphic and a
+   fast motion passage each trip the threshold on every frame they last, and eighty
+   "unexplained jumps" that are really one 0.4 s animation is noise, not a finding.
+2. **Graphic presence at full resolution** — difference the delivered picture against the
+   pre-graphics source inside every declared window. This is the only check that can see
+   an overlay that never composited.
+3. **Boundary strips** — consecutive frames spanning each change, as contact sheets.
+
+```bash
+python3 reference/watch_longform.py FINAL.mp4 --base CUT_graded_NO-GRAPHICS.mp4 \
+        --windows windows.json --out watch
+```
+
+⚠ **Check the app screenshots on any product card against the standing rules.** The
+delivered spray-tan master carried the App Store screenshot `01-the-reveal.png` on its
+"UPLOAD ONE PHOTO" card — the app's "Meet the new you." screen, which is a **side-by-side
+BEFORE/AFTER**, on screen for 5.6 s at 18:04. `00-home-hero.png`,
+`02-transformations-gallery.png` and `03-daily-brief.png` all carry a pair as well; only
+04/05/06/07 are clean. A fresh headless-Chrome capture of the live upload screen is the
+reliable replacement — and the live page's own example carousel shows a pair too, so cut
+that band out.
 
 ## Step 9 — QC, automated  **BOTH gates, every time**
 
