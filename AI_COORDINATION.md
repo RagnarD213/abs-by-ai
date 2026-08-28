@@ -33,6 +33,18 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO SHOOT (8/27, Snappr, 496 frames) — 10 BEST PICKED AND RETOUCHED, DELIVERED (2026-08-28, Claude Code)
+
+Interactive /photo-edit session with Dan; backgrounds retained per his instruction (background-swap
+round is a possible follow-on). **AI spend ≈ $8** (20 2K drafts + 11 4K finals, Nano Banana Pro via
+Gemini). Finals + IG 4:5 crops in `photos/finalized social media photos/` as `studio-<bg>-<n>_FINAL_PRIMARY*.jpg`
+(blue 11/23/38/74/123/175, gray 38/79, white 31/57); before/after strips sent in chat, **awaiting
+Dan's verdict**. Working files in this session's scratchpad (`studio-shoot/`). Key finding now in the
+skill: the strong body pass ALWAYS adds tan that prompt language can't stop — fixed deterministically
+with per-channel histogram matching back to the original (recipe in `/photo-edit` Lessons, commit
+pushed). One draft silently replaced Dan with a different man — the per-photo QC eyeball caught it.
+The "white stripe" = horizontal pale bands under the ab rows; Dan confirmed the 10 picks needed no fix.
+
 ### SHORT5 MUSIC BED SWAPPED (claim cleared at the file level); V4 + V5 HANDED OFF (2026-08-28, Claude Code)
 
 Dan hit TikTok's copyright check uploading `short5_1-minute-workout`. **$0.00 AI spend, no production
