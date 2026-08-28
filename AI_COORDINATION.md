@@ -112,72 +112,107 @@ per-photo on request.
 
 ---
 
-### SHORTS FROM THE SUPPLEMENTS LONGFORM — **HANDOFF + SHORTLIST WRITTEN, NOT EXECUTED** (2026-08-28, Claude Code)
+### SHORTS FROM THE SUPPLEMENTS LONGFORM — **8 DELIVERED; TWO PIPELINE DEFECTS FOUND AND FIXED** (2026-08-28, Claude Code)
 
-Dan asked which long-forms have never been mined for shorts, then asked for a handoff starting with
-the supplements video plus the shortlist. **$0.00 AI spend, no production code, no deploy, no
-native-retest trigger.** Key dashboard task added.
+`Handoffs/handoff-20260828-shorts-from-supplements-longform.md` executed. Dan asked for my eight
+strongest picks rather than choosing letters himself. **$0.00 AI spend, no production code, no
+deploy, no native-retest trigger.** Skill commit `74d6201`.
 
-**THE ANSWER: five long-forms have never been mined, all from the 8/3 shoot** — 01 spray tan
-(19:54), 02 Zepbound (30:28), 03 supplements (23:29), 04 invest-health (53:17), 05 meal prep
-(4:49). ~2h12m of talking head. Everything else IS mined: V2 (7), V3 (11), V4 (5), V6 (5),
-ab-wheel (5); V1 was Dan's deliberate skip and V5/V7 have no speech. The `/shorts` skill's Step-0
-table is dated 2026-08-10 and says "nothing left to cut" — **it is stale; four long-forms have been
-finished since.**
+**Delivered to `Short-form video content/` as `supp-short1..8_*.mp4`** (posting order), 540p review
+copies sent in chat, full notes in
+`YouTube Long Form Video Content/supplements-i-actually-take/SHORTS.md`.
 
-`Handoffs/handoff-20260828-shorts-from-supplements-longform.md` + a 14-candidate shortlist with
-verbatim text in `Handoffs/assets/shorts-supplements-20260828/`. ⚠ **DAN PICKS IN THE EXECUTION
-SESSION, NOT HERE — his instruction.** The handoff's **Step 0.5 is "present the shortlist in chat
-and stop"**: the research is finished, so the picking costs him one message at the start of the
-build instead of a separate round trip. Segment selection has been his call since 2026-08-04 and
-nothing gets transcribed, cut or rendered until he answers.
+| # | short | runtime | takeaway |
+|---|---|---|---|
+| 1 | THE 3 SUPPLEMENTS THAT ACTUALLY MATTER | 0:42.6 | fish oil, vitamin D, magnesium = ~70 % of the stack |
+| 2 | STOP BUYING A BIG SUPPLEMENT STACK | 0:44.2 | basics → 30 days → one new supplement a month |
+| 3 | YOU NEED 5X MORE VITAMIN D | 0:49.0 | 5,000 IU vs the USDA's 1,000 |
+| 4 | LET AI PICK YOUR SUPPLEMENTS | 0:41.4 | the thesis; opens on "you are not smart enough…" |
+| 5 | THE SUPPLEMENT THAT DOES ALMOST NOTHING | 0:49.9 | zinc is the part that works |
+| 6 | IF YOU TAKE ONE THING TAKE FISH OIL | 0:32.3 | the most proven single supplement |
+| 7 | YOU SHOULD BE TAKING CREATINE | 0:39.5 | the one he does not take but you should |
+| 8 | SUPPLEMENTS ARE ONLY 5% OF YOUR RESULTS | 0:58.3 | the ironing-before-a-date analogy |
 
-⚠ **CUT FROM `CUT_v1_graded_NO-GRAPHICS.mp4`, NOT THE DELIVERED MASTER — proven, not assumed.**
-All four MP4s in the folder are within **0.03 s** of each other, and matched frame grabs at
-200/400/620/900/1150 s confirm the clean master is the same picture with graphics absent (at 200 s
-`FINAL` shows the "ATHLETIC GREENS" J2 card; the clean file shows Dan on camera). The 8/27 rebuild
-took 03 to **43 % insert coverage**, so cutting from the delivered master would make nearly half of
-every short a full-frame graphic the skill's rules force into a `card`. Its audio is also already
-the fixed single-mic chain (−14.02 LUFS), so nothing needs re-processing. **Every timecode in the
-handoff is valid against either file.**
+**Not built:** [F] Zepbound (Dan never ruled on the drug name), [I] whey (both flags), [L] skin
+(248→180 trim + names a third party), [N] joint health (bragging failure mode), [K], [P] (0:29).
 
-⚠ **THE LAYOUT PROBLEM IS NEW AND IT IS THE REAL DESIGN DECISION HERE: THE COUNTER IS THE PAYLOAD.**
-One locked camera for 23 minutes, Dan behind a granite counter with the whole stack laid out across
-the full frame width. **His torso sits at x ≈ 0.60–0.63, nowhere near the 0.478 that V2 and V3
-hard-coded.** A 9:16 window is 0.317 of the frame, so centred on him it spans ~0.46–0.78 and
-**deletes the entire left half of the stack.** Recommendation in the handoff: **band layout for
-product shorts** (whole 16:9 frame preserved, as the five V4 shorts do) and **full-bleed for idea
-shorts** — decided per short by the Step-6 measurement, with per-shot Vision torso measurement
-either way.
+⚠ **TWO DEFECTS SHIPPED INTO THE FIRST BUILD AND PASSED EVERY GATE. Both are now fixed, gated,
+and committed — and BOTH AFFECT EARLIER BATCHES.** Found by reading the finished captions and
+transcribing the finished files, not by any metric.
 
-**The four strongest candidates: [B] the big three (17:32, 36 s, the most self-contained beat in the
-video and the recommended #1), [A] "you are not smart enough to understand scientific research"
-(0:58, the thesis), [D] supplements are only 5 % / the ironing-before-a-date analogy (20:43), and
-[E] the biggest mistake I made (16:36, already the right length).**
+1. **THE SOURCE HAS TWO TIMELINES.** A master assembled by concatenation can hold more audio
+   samples than its container declares, spread through the file — this one, 62 ranges, holds
+   **0.76 s more**. Whisper word timestamps and the silence map live on the decoded-sample
+   timeline; `-ss`, and therefore every cut and the whole picture, lives on the container
+   timeline. They agree at t=0 and drift **~0.5 ms per second, reaching 669 ms**. The first build
+   shipped **captions 280–650 ms late and clipped the first word off two shorts** while passing
+   QC 12/12, the splice test, loudness, duration and the centring audit. Fixed by extracting
+   analysis audio with `aresample=async=1:first_pts=0` (residual then a constant −20…−42 ms,
+   inside one AAC frame). **A `preflight.py` and a `syncgate.py` are now wired into `qc.js`,
+   which refuses to pass a file the sync gate has not seen.**
+2. **ZERO-DURATION WHISPER WORDS WERE SILENTLY DROPPED FROM CAPTIONS.** `segWords`' `>50 %
+   overlap` test computes `0/1e-6 = 0`. Nine such words on this roll; **it ate a word in five of
+   the eight shorts** — "creatine is not an **option** for me" burned in as "not an for me".
 
-⚠ **ONE CANDIDATE HAS A LINE THAT IS SELF-CONTRADICTORY AS TRANSCRIBED.** Candidate [I] at
-13:00.96 reads *"Most people, you can't take whey protein, so you should be doing that instead of
-the Aminos"* — the rest of the paragraph only parses with **"can"**. The rebuilt and the pre-rebuild
-SRT both read "can't", **but those are two Whisper runs on the same audio and agreeing does not
-settle it.** Resolve by ear at build time; if it really is "can't" the sentence gets cut, because
-burning that caption would ship visible nonsense.
+⚠ **A QC METRIC WAS WRONG AGAIN, FOR THE FOURTH TIME IN THIS PIPELINE'S HISTORY.** The new sync
+gate failed two good shorts at −120/−140 ms. Cause: it transcribes with `base.en` while captions
+come from `medium.en`, and **base.en reports word onsets a median of exactly −80 ms earlier** —
+measured on the same source audio across three spans, n=414, −80 ms in all three independently.
+Calibrated, not fudged; re-measure if either model changes.
 
-**Flagged for Dan, none blocking:** [F] ends on "I would recommend going on Zepbound instead" —
-**organic Shorts can name the drug** (the no-drug-names rule is ad-compliance only, proven 8/25),
-his call, and never in a graphic; [I] carries "I just uncontrollably shit myself"; [D] carries "if
-you're fat and broken. You say stupid things"; [L] names "clavicular"; and brand names (Thorne,
-AG1, Anthony's, Cure, Isopure) are **correct and allowed** — he names them on camera.
-[N] is the closest to failing the reason-to-watch test and only survives if the training-volume
-boast is cut.
+⚠ **THE HANDOFF'S LAYOUT PREMISE WAS WRONG AND MEASUREMENT OVERTURNED IT.** It called for the
+band layout on product shorts because "the counter is the payload". Measured: from 0:15 the
+supplement stack deviates from its own temporal median by **1.07 grey levels over 23 minutes**,
+and across 25 frames inside the four product segments **he never picks anything up**. It is set
+dressing. The band would have cost 60 % of his height to preserve wallpaper. **All eight are
+full-bleed**, and the Thorne tubs stay in frame anyway.
 
-⚠ **THE PARENT LONG-FORM IS BELIEVED UNPUBLISHED** (Dan has not watched the review copies and
-`/youtube-packaging` was never run on it). The standing rule is post Shorts every 2–3 days AFTER
-the long-form goes up, so these can be built now but **nothing gets queued in Blotato without Dan.**
+⚠ **THE HANDOFF'S TORSO ESTIMATE WAS OUT BY 192 px IN THE DELIVERED FRAME.** It put Dan at
+x 0.60–0.63 from frame grabs; Apple Vision measured **0.6676–0.6969** per beat. Building to the
+estimate would have reproduced the exact off-centre fault this batch exists to avoid. There is
+no batch-wide `TALK_X`. Also caught: **the Vision mask leaves a faint sliver at the top frame
+edge**, which reported his head at source row 15 against a true ~180 on three beats — a 160 px
+error that would have set the whole batch's vertical geometry.
 
-**EXACT NEXT ACTION — execute the handoff in a fresh session with `/shorts`.** That session runs
-Step 0's checks, then presents the shortlist to Dan and waits for his letters before building.
-Nothing is blocked.
+**Geometry, all measured:** 644x960 source window at cropTop 120 → 1080x1610 at y=310. That is a
+**1.68x upscale, SHARPER than the V2/V3 full-height 9:16 crops at 1.78x**, because cropping the
+dead ceiling lets the window sit closer. His head lands at y=406, 96 px clear of the title band.
+⚠ **The AG1 bag is cut by every window and that is correct** — including it whole needs a centre
+that puts him 255 px off, excluding it 206 px off, against the 133 px he rejected on `v2-short3`.
 
+**Verified:** QC **PASS 8/8** · sync gate **PASS**, median −60…0 ms, no clipped first words ·
+title clearance **PASS 8/8** · splices 0.02–0.06x of control · **−14.0 to −14.4 LUFS**, peaks
+−0.8 to −1.3 dBTP (three shorts were **clipping at +1.4 to +2.5 dBTP** before normalisation) ·
+review copies 0 silent seconds, a/v delta 0.000 s · no second of source used twice.
+
+**Shot boundaries came from the source's own EDL, not scene detection** — but its cumulative
+positions are unusable raw: `render.py` rounds each of the 62 ranges to whole frames and the
+error accumulates monotonically to **+1.137 s**, exactly the amount by which the EDL undershoots
+the master. Each boundary is measured as a full-frame-rate frame-difference peak; all 61 came
+back at 3.2–22x the local median.
+
+⚠ **POSTING IS BLOCKED ON THE PARENT VIDEO.** The long-form is **not published** — no packaging
+record, `/youtube-packaging` never run, absent from every queue doc. Standing rule is Shorts
+every 2–3 days AFTER the long-form. **Nothing is queued in Blotato and nothing should be
+without Dan.**
+
+**Flagged, none blocking:** short 6 carries *"it reduces your risk of cancer"* — his opinion on
+camera and already in the parent video, but it is the line most likely to attract a YouTube
+medical-claims flag in a 32 s Short; short 4 opens on *"you are not smart enough…"* (he reviewed
+and kept it 8/20); short 8 carries *"if you're fat and broken and you say stupid things"*; short
+7 carries *"diarrhea and gas"*. Brand names (Thorne, AG1, Isopure, Anthony's, Cure) are correct
+and allowed.
+
+**Dashboard: the Key task is deliberately NOT checked off** — the files are delivered and gated
+but Dan has not watched the review copies, and ad 1 attempt 1 had a check-off reverted for
+exactly that.
+
+**EXACT NEXT ACTION — DAN: watch the eight 540p review copies (sent in chat).** Then, separately:
+`/youtube-packaging` on the parent long-form, since these cannot post until it does.
+
+**The remaining four unmined long-forms are unchanged:** 01 spray tan (19:54), 02 Zepbound
+(30:28), 04 invest-health (53:17), 05 meal prep (4:49). `reference/clean-master/` is the pipeline
+for all of them.
 ---
 
 ### V4 LONGFORM BED SWAPPED — **DELIVERED. The claim covers 75 s, not the whole video** (2026-08-28, Claude Code)
