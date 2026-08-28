@@ -38,8 +38,9 @@ and commit messages remain the permanent record of code changes.
 Interactive /photo-edit session with Dan; backgrounds retained per his instruction (background-swap
 round is a possible follow-on). **AI spend ≈ $8** (20 2K drafts + 11 4K finals, Nano Banana Pro via
 Gemini). Finals + IG 4:5 crops in `photos/finalized social media photos/` as `studio-<bg>-<n>_FINAL_PRIMARY*.jpg`
-(blue 11/23/38/74/123/175, gray 38/79, white 31/57); before/after strips sent in chat, **awaiting
-Dan's verdict**. Working files in this session's scratchpad (`studio-shoot/`). Key finding now in the
+(blue 11/23/38/74/123/175, gray 38/79, white 31/57). **Dan reviewed raw|edit1|edit2 for all 10 and
+picked the harder edit-2 pass 10/10 — promoted to the finals, and now a STANDING RULE: studio shoots
+default to the hard-definition ab block (verbatim block + white-wall composite fix in `/photo-edit`).** Working files in this session's scratchpad (`studio-shoot/`). Key finding now in the
 skill: the strong body pass ALWAYS adds tan that prompt language can't stop — fixed deterministically
 with per-channel histogram matching back to the original (recipe in `/photo-edit` Lessons, commit
 pushed). One draft silently replaced Dan with a different man — the per-photo QC eyeball caught it.
