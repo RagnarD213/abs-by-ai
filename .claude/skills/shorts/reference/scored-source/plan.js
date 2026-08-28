@@ -25,33 +25,46 @@ const { SEGMENTS } = require('./segments.js');
 // 0.50). Kneeling shots move him right, so those get per-shot values below.
 const TALK_X = 0.50;
 
+// REV 2 (2026-08-28). Every talk crop below is now a MEASURED torso centre (Apple Vision
+// person segmentation, median over the shot at 2 fps), not a guess off a thumbnail. The
+// guesses were out by 291-508 px in the delivered frame; 0.36 on A-p0-s00 is the one Dan
+// screenshotted.
+//
+// ⚠ THE METRIC OVER-FIRES ON A TRAVELLING MOVEMENT, AND MOST OF ITS FLAGS WERE REJECTED.
+// An ab-wheel rollout travels across the frame, so the crop has to hold the whole path and
+// the subject is CORRECTLY off centre for most of the shot. The audit flagged every rollout
+// card in C, D and E at 100-316 px - including the five in short 2, which Dan reviewed and
+// passed as having no centring issues. Adopting those would have clipped his feet at the
+// kneeling end. Rejected: A-p0-s01, A-p1-s04, B-p0-s03 and every C/D/E demo card.
+// The rule: CENTRE a static subject, CONTAIN a moving one.
+
 const SHOTS = {
   // ---- A  why the $17 wheel beats crunches -------------------------------------------
-  'A-p0-s00': { t: 'talk', x: 0.36 },
+  'A-p0-s00': { t: 'talk', x: 0.5089 },
   'A-p0-s01': { t: 'card', cardCrop: [0.29, 0.94, 0.17, 1.0], why: 'rollout at full extension - horizontal' },
-  'A-p0-s02': { t: 'talk', x: 0.42 },
+  'A-p0-s02': { t: 'talk', x: 0.5055 },
   'A-p0-s03': { t: 'card', cardCrop: [0.40, 1.0, 0.0, 0.82], why: 'archival infomercial on a TV - crop to the screen, the living room around it is dead space' },
   'A-p0-s04': { t: 'card', cardCrop: [0.40, 1.0, 0.0, 0.82], why: 'infomercial title card' },
   'A-p0-s05': { t: 'card', cardCrop: [0.40, 1.0, 0.0, 0.82], why: 'infomercial title card' },
   'A-p0-s06': { t: 'card', cardCrop: [0.40, 1.0, 0.0, 0.82], why: 'infomercial title card' },
   'A-p0-s07': { t: 'card', cardCrop: [0.40, 1.0, 0.0, 0.82], why: 'infomercial title card' },
   'A-p1-s00': { t: 'talk', zoom: true, x: 0.50, why: 'two-line lower third from row 745' },
-  'A-p1-s01': { t: 'card', cardCrop: [0.12, 0.48, 0.38, 0.90], why: 'his rounded glow card holds a 16:9 shot inside a 16:9 frame - crop past BOTH to Dan, or he ends up a thumbnail inside a thumbnail' },
-  'A-p1-s02': { t: 'card', cardCrop: [0.55, 0.93, 0.10, 0.88], why: 'med-ball crunch inside the same glow card - cropped to the subject' },
+  'A-p1-s01': { t: 'card', cardCrop: [0.3059, 0.7659, 0.38, 0.90], why: 'REV 2 RE-CENTRED. The hand-picked [0.12,0.48] window measured 670px off - it framed the pool and left Dan at the edge. Vision puts his torso at 0.536; this is that centre with the window widened to 0.46 so the rollout still fits, and it is a bigger card.' },
+  'A-p1-s02': { t: 'card', cardCrop: [0.2435, 0.7435, 0.10, 0.88], why: 'REV 2 RE-CENTRED. Was 466px off the other way. Torso measured at 0.494 across the whole shot, not the 0.7 a single mid-frame suggested.' },
   'A-p1-s03': { t: 'talk', x: 0.50 },
   'A-p1-s04': { t: 'card', cardCrop: [0.29, 0.94, 0.17, 1.0], why: 'rollout at full extension' },
 
   // ---- B  every ab muscle at once ----------------------------------------------------
   'B-p0-s00': { t: 'talk', x: 0.50 },
-  'B-p0-s01': { t: 'talk', x: 0.63, minX0: 540, why: 'his muscle-name pills stack down the LEFT edge (x 40-520); the window starts right of them so they are excluded whole, never half-cropped' },
+  'B-p0-s01': { t: 'talk', x: 0.5385, minX0: 540, why: 'his muscle-name pills stack down the LEFT edge (x 40-520); the window starts right of them so they are excluded whole, never half-cropped' },
   'B-p0-s02': { t: 'card', cardCrop: [0.16, 0.90, 0.22, 1.0], why: 'gym rollout - horizontal' },
   'B-p0-s03': { t: 'card', cardCrop: [0.16, 0.90, 0.22, 1.0], why: 'same gym shot' },
-  'B-p0-s04': { t: 'talk', x: 0.63, minX0: 540 },
-  'B-p0-s05': { t: 'card', cardCrop: [0.30, 0.94, 0.10, 0.95], why: 'crunch b-roll - horizontal pose, cropped to the subject (measured x 0.35-0.88, y 0.13-0.90)' },
-  'B-p0-s06': { t: 'talk', x: 0.63, minX0: 540 },
+  'B-p0-s04': { t: 'talk', x: 0.5448, minX0: 540 },
+  'B-p0-s05': { t: 'extern', file: '4921658-hd_1066_1920_25fps.mp4', in: 1.2, why: 'REV 2. Dan: the old crunch b-roll was off-centre and did not fit the vertical frame. Replaced with a NATIVE 1066x1920 clip (Pexels 4921658, free licence, no attribution) of a man doing floor crunches - on-rule for casting, reads unmistakably as a crunch, and full-bleed at 1.01x instead of a crop out of 16:9.' },
+  'B-p0-s06': { t: 'talk', x: 0.5448, minX0: 540 },
   'B-p0-s07': { t: 'talk', x: 0.50 },
   'B-p0-s08': { t: 'card', cardCrop: [0.02, 0.99, 0.10, 0.98], why: 'gym rollout; his lower third here says exactly what this short says, so it is kept whole (x 0.097-0.969)' },
-  'B-p0-s09': { t: 'talk', zoom: true, x: 0.50, why: 'two-line lower third' },
+  'B-p0-s09': { t: 'talk', zoom: true, x: 0.4859, why: 'two-line lower third' },
 
   // ---- C  the biggest mistake --------------------------------------------------------
   'C-p0-s00': { t: 'card', cardCrop: [0.29, 0.94, 0.17, 1.0], why: 'kneeling start position - the whole body line is the point' },
@@ -80,30 +93,20 @@ const SHOTS = {
   'E-p0-s02': { t: 'card', cardCrop: [0.03, 0.975, 0.0, 1.0], why: '"How Intermediate Guys Should Do It"' },
   'E-p0-s03': { t: 'card', cardCrop: [0.03, 0.975, 0.0, 1.0], why: '"How Advanced Guys Should Do It"' },
   'E-p0-s04': { t: 'card', cardCrop: [0.29, 0.94, 0.17, 1.0] },
-
-  // ---- F  the standing bodybuilder version -------------------------------------------
-  'F-p0-s00': { t: 'talk', zoom: true, x: 0.50, why: 'the previous beat\'s lower third is still on screen for 0.5s' },
-  'F-p0-s01': { t: 'broll', x: 0.62, why: 'bodybuilder, a vertical subject - crops cleanly' },
-  'F-p0-s02': { t: 'talk', x: 0.50 },
-  'F-p1-s00': { t: 'card', cardCrop: [0.29, 0.94, 0.19, 1.0], why: 'the stale pill fades in at the tail of this shot' },
-  // A STALE PILL. His cut still reads "How Intermediate Guys Should Do It" across the
-  // standing-wall beat, which is wrong for this short and would be a factual error on
-  // screen. Rows 0-190 are cropped off the card so it is gone rather than contradicted.
-  'F-p1-s01': { t: 'card', cardCrop: [0.29, 0.94, 0.19, 1.0], why: 'STALE PILL. His cut still reads "How Intermediate Guys Should Do It" across the standing-wall beat, which is wrong for this short and would be a factual error on screen. The top 19% is cropped off so it is gone rather than contradicted.' },
-  'F-p1-s02': { t: 'broll', x: 0.50, why: 'gym close-up, no text' },
-  'F-p1-s03': { t: 'broll', x: 0.50 },
-  'F-p1-s04': { t: 'card', cardCrop: [0.29, 0.94, 0.19, 1.0], why: 'stale top pill cropped off' },
 };
 
 // Benefit-first titles that sell to someone who never saw the source video.
 // A short that OPENS on a card needs a 2-line headline (build-assets.py asserts it).
 const META = {
-  A: { eyebrow: 'CRUNCHES VS THE AB WHEEL', title: 'THE $17 TOOL THAT\nBEATS CRUNCHES' },
-  B: { eyebrow: 'ONE MOVE, EVERY AB MUSCLE', title: 'CRUNCHES ONLY\nHIT ONE OF THESE' },
+  // REV 2 (2026-08-28). Dan: "the titles need to make sense to someone who hasn't watched
+  // the video. A lot of the titles assume watching the long form, where we need to establish
+  // that this is about the ab wheel." Every headline now names the ab wheel; D, E and B are
+  // his exact wording, A is the same rule applied to the one he did not rewrite.
+  A: { eyebrow: 'THE $17 HOME AB EXERCISE', title: 'THE AB WHEEL\nNEVER LETS YOU REST' },
+  B: { eyebrow: 'ULTIMATE HOME AB EXERCISE', title: 'WHY THE AB WHEEL\nBEATS CRUNCHES' },
   C: { eyebrow: 'FIX THIS FIRST', title: 'THE BIGGEST\nAB WHEEL MISTAKE' },
-  D: { eyebrow: 'TIME UNDER TENSION', title: "YOU'RE ROLLING\nOUT TOO FAST" },
-  E: { eyebrow: 'PICK YOUR LEVEL', title: 'HOW FAR YOU\nSHOULD ROLL' },
-  F: { eyebrow: 'BODYBUILDERS ONLY', title: 'DO NOT COPY\nTHIS AB MOVE' },
+  D: { eyebrow: 'INTENSE HOME AB EXERCISE', title: 'HOW FAST TO ROLL OUT\nWITH THE AB WHEEL' },
+  E: { eyebrow: 'PICK YOUR LEVEL', title: 'HOW FAR TO ROLL\nWITH THE AB WHEEL' },
 };
 
 function loadShots() {

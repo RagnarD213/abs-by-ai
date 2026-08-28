@@ -20,7 +20,8 @@ const run = (bin, args) => {
 let fail = 0;
 const check = (ok, msg) => { if (!ok) { fail++; console.log(`   ✗ ${msg}`); } return ok; };
 
-for (const seg of SEGMENTS) {
+const ONLY = process.argv.slice(2);
+for (const seg of (ONLY.length ? SEGMENTS.filter((s) => ONLY.includes(s.id)) : SEGMENTS)) {
   const f = path.join(OUT, `${seg.id.toLowerCase()}_${seg.slug}.mp4`);
   console.log(`\n${seg.id}  ${path.basename(f)}`);
   if (!fs.existsSync(f)) { console.log('   ✗ MISSING'); fail++; continue; }

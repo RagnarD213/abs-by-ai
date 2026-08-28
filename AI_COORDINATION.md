@@ -335,7 +335,71 @@ which is identical by design — sample across the runtime or the check false-fa
 
 ---
 
-### SIX SHORTS CUT FROM MUHAMMAD'S AB-WHEEL ORGANIC CUT — DELIVERED (2026-08-27, Claude Code)
+### AB-WHEEL SHORTS **REV 2 DELIVERED — 5 shorts, Dan's review applied** (2026-08-28, Claude Code)
+
+Dan reviewed the six: **short 2 approved and set to post, short 6 cut entirely**, four titles
+rewritten in his own words, short 1 re-cut for centring, short 5's b-roll replaced. All applied.
+**$0.00 AI generation spend, no production code, no deploy, no native-retest trigger.**
+
+⚠ **THE EXTREME SSD WAS UNATTACHED (not just unmounted) — and it did not matter.** A byte-identical
+copy of Muhammad's cut is on the internal drive at `Muhammad Organic Videos/` (1100254930 bytes,
+418.050967 s). Build dir is now **`~/absbyai-video-work/abwheel-shorts-r2/`**, entirely on the
+internal drive. The transcript had to be regenerated (17 min, `medium.en`); it differs from the
+rev-1 one in three places that matter to phrase anchors — "wanna"/"gonna" and "abdominus".
+
+| # | short | rev 2 |
+|---|---|---|
+| 1 | THE AB WHEEL NEVER LETS YOU REST | re-centred, new title, 2 inserts re-cropped |
+| 2 | THE BIGGEST AB WHEEL MISTAKE | **UNTOUCHED — the exact approved file, verified not re-rendered** |
+| 3 | HOW FAR TO ROLL WITH THE AB WHEEL | new title (his wording) |
+| 4 | HOW FAST TO ROLL OUT WITH THE AB WHEEL | new title + eyebrow, boundary fix |
+| 5 | WHY THE AB WHEEL BEATS CRUNCHES | new title + eyebrow, NEW b-roll, re-centred, boundary fix |
+| 6 | ~~standing bodybuilder variation~~ | **CUT.** Moved to `_pre-rev2-2026-08-28/`, not deleted |
+
+⚠ **EVERY TALK CROP IN REV 1 WAS A GUESS OFF A 480 px THUMBNAIL AND SIX WERE 291–508 px OFF.**
+Now measured with Apple Vision person segmentation + the torso-block anchor over 380 sampled
+frames (`recentre/`, the same tooling as the 8/27 Dan Rose Fit re-centre, extended to cover
+CARDS as well as 9:16 crops — two cards were 670 px and 466 px off). **All eleven static-subject
+shots now measure 0 px off centre.**
+
+⚠ **THE METRIC OVER-FIRES ON A TRAVELLING MOVEMENT AND MOST OF ITS FLAGS WERE REJECTED.** A
+rollout crosses the frame, so the crop must hold the whole path. It flagged every rollout card at
+100–316 px — **including the five in short 2, which Dan had just passed as having no centring
+issues** — and adopting them would have clipped his feet at the kneeling end. **Rule: centre a
+STATIC subject, contain a MOVING one.**
+
+⚠ **DAN'S "OFF-CENTRE B-ROLL" WAS A SHOT-BOUNDARY BUG, NOT A CROP BUG.** The scene detector runs
+on a 320×180 downscale and landed short 5's cut at **73.51 s when the real cut is 74.11 s — so 18
+frames of GYM B-ROLL were being given a talking-head crop.** Short 4 had a 0.13 s error. New
+`work/boundcheck.py` re-checks every boundary against a full-frame-rate frame-difference peak;
+both fixed, all boundaries now within 0.10 s. It also proved two "shots" in short 5 are one
+continuous take split spuriously — which is why their crops must stay identical.
+
+**Short 5's crunch b-roll replaced with NATIVE VERTICAL footage** — 1066×1920, Pexels 4921658,
+free licence, no attribution, on-rule casting. Full-bleed at 1.01× (the sharpest picture in the
+batch) where the old one was a 16:9 crop with the subject's head cut off. Saved to
+`Media/B roll/crunches-vertical-man-floor-pexels-4921658-1066x1920.mp4`. Light lift only
+(+0.045 brightness → Y ≈ 100 vs Dan's 152; Muhammad's own b-roll ranges 58–172).
+
+**Titles now stand alone.** Dan: *"a lot of the titles assume watching the long form… we need to
+establish that this is about the ab wheel."* Every headline names it. 3, 4 and 5 are his exact
+wording; **short 1's is mine** — the old "THE $17 TOOL THAT BEATS CRUNCHES" put the subject only
+in the eyebrow. One line to change it.
+
+**Verified:** QC 12/12 on all four re-rendered files, full-frame-rate stage scan CLEAN, boundary
+strips at every join, TV-infomercial cards centre at 539 px of 540, new clip has zero clipping
+either side. Skill + pipeline committed.
+
+**Dashboard: nothing checked off.** `money::Produce short-form CONTENT (not ads) — mine the
+longforms + shoot app-demo Reels` is the nearest and is still **advanced, not finished** (it also
+covers app-demo Reels, and rev 2 is unwatched).
+
+**EXACT NEXT ACTION — DAN: watch the four rev-2 review copies** (sent in chat; short 2 unchanged).
+Short 1's title is the only one I chose rather than you.
+
+---
+
+### SUPERSEDED by rev 2 above — rev 1 record (2026-08-27, Claude Code)
 
 Dan asked for six shorts from his round-2 organic cut (Drive `1lu_Im9st8XtDNXPnFOhpKyc7IA2Whf_J`),
 each unique, "won't annoy the viewer by giving them repeated footage". **$0.00 AI generation spend,

@@ -10,7 +10,7 @@ import subprocess, sys, json
 import numpy as np
 from PIL import Image
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
-SRC = "../mrepro/ref_hd.mp4"
+SRC = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Organic Videos/Daniel Organic Video -The $17 Ab Wheel Beats Every Crunch-v2 HD.mp4"
 
 def boxes(t0, dur, fps=4):
     n = max(1, int(dur * fps))

@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageChops
 HERE = os.path.dirname(os.path.abspath(__file__))
 SHOTS = os.path.join(HERE, 'shots')
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
-SRC = os.path.join(HERE, '..', 'mrepro', 'ref_hd.mp4')
+SRC = '/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Organic Videos/Daniel Organic Video -The $17 Ab Wheel Beats Every Crunch-v2 HD.mp4'
 man = json.load(open(os.path.join(SHOTS, 'manifest.json')))
 plan = json.loads(subprocess.check_output(
     ['node', '-e', "const p=require('./plan.js');console.log(JSON.stringify({SHOTS:p.SHOTS,TALK_X:p.TALK_X}))"],
@@ -39,7 +39,7 @@ def auto_x(im):
 chosen = {}
 for m in man:
     spec = SPEC[m['name']]
-    if spec['t'] == 'card':
+    if spec['t'] in ('card', 'extern'):
         x = 0.5
     elif spec.get('x') is not None:
         x = spec['x']                      # explicit per-shot value wins over the default
@@ -62,6 +62,19 @@ def full_frame(t):
 
 def render_preview(m, spec):
     """Reproduce render.js's geometry exactly."""
+    if spec['t'] == 'extern':
+        p = f"/tmp/_ext_{spec['file']}_{m['dur']:.2f}.png"
+        if not os.path.exists(p):
+            subprocess.run([FF, '-nostdin', '-v', 'error', '-y', '-ss',
+                            f"{spec.get('in', 0) + m['dur'] / 2:.2f}", '-i',
+                            os.path.join(HERE, 'broll', spec['file']),
+                            '-frames:v', '1', p], check=True)
+        im = Image.open(p).convert('RGB')
+        w = CW
+        h = round(im.height * CW / im.width)
+        im = im.resize((w, h), Image.LANCZOS)
+        top = max(0, (h - CH) // 2)
+        return im.crop((0, top, CW, top + CH))
     im = full_frame(m['absStart'] + m['dur'] / 2)
     if spec['t'] in ('talk', 'broll'):
         cw = L['talk']['zoomW'] if spec.get('zoom') else L['talk']['cropW']

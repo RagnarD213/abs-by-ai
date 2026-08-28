@@ -5,7 +5,7 @@ const PROJ = '/Users/danielrose/Documents/Claude/Projects/Abs By AI';
 module.exports = {
   FF: path.join(PROJ, 'Media/video_edit/bin/ffmpeg'),
   FFPROBE: path.join(PROJ, 'Media/video_edit/bin/ffprobe'),
-  SRC: path.join(__dirname, '../mrepro/ref_hd.mp4'),
+  SRC: path.join(PROJ, 'Muhammad Organic Videos', 'Daniel Organic Video -The $17 Ab Wheel Beats Every Crunch-v2 HD.mp4'),
   FONTS: path.join(PROJ, 'ad-factory/the-upload/assembly/fonts'),
   // The source is 29.97, not the 24 the earlier batches used. Resampling 29.97 -> 24 drops
   // one frame in five, and every shot in this cut carries a constant slow push, so the

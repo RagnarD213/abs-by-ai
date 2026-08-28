@@ -57,6 +57,20 @@ function shotFilter(s) {
     return { inputs: [], fc: null,
       vf: `crop=${cw}:${ch}:${x}:0,scale=${CW}:${CH}:flags=lanczos,setsar=1` };
   }
+  // A NATIVE-VERTICAL clip from a different file. Dan, rev 2: "get new B-roll or stock
+  // footage that fits in that vertical frame". Every other treatment carves 9:16 out of a
+  // 16:9 source and pays an upscale for it; this one is already 9:16, so it goes full-bleed
+  // at close to 1:1 and is the sharpest picture in the batch.
+  if (s.t === 'extern') {
+    const f = path.join(__dirname, 'broll', s.file);
+    if (!fs.existsSync(f)) throw new Error(`${s.name}: missing extern clip ${f}`);
+    return { inputs: [], fc: null, extern: f, externIn: s.in ?? 0,
+      // A light lift only. The clip measures Y 89 against 152 for Dan's backyard shots; his
+      // own cut already ranges 58-172 across b-roll, so this is not a match-grade, just enough
+      // that a dark gym does not read as a different video. Measured after, not guessed.
+      vf: `scale=${CW}:-2:flags=lanczos,crop=${CW}:${CH}:0:(ih-${CH})/2,` +
+          `eq=brightness=0.045:contrast=1.03:saturation=1.06,setsar=1` };
+  }
   if (s.t === 'card') {
     const c = L.card;
     const chip = path.join(A, `chip-${s.name}.png`);
@@ -127,7 +141,9 @@ function renderSegment(seg) {
     // video. Cutting audio per shot re-splices it across N independent input seeks, which
     // measured 23-34ms of drift per cut on the V4 rebuild - a small content jump at every
     // picture cut. Shot boundaries are picture cuts inside CONTINUOUS audio.
-    const args = ['-ss', String(s.absStart), '-i', SRC, ...f.inputs, '-t', String(s.dur)];
+    const args = f.extern
+      ? ['-ss', String(f.externIn), '-i', f.extern, '-t', String(s.dur)]
+      : ['-ss', String(s.absStart), '-i', SRC, ...f.inputs, '-t', String(s.dur)];
     if (f.fc) args.push('-filter_complex', f.fc, '-map', '[v]', '-an');
     else args.push('-vf', f.vf, '-map', '0:v', '-an');
     args.push(...VENC, '-movflags', '+faststart', out);

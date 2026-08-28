@@ -4,7 +4,7 @@ one opens/closes on a white frame, which reads as a rendering fault. Scan +-1.2s
 every piece boundary and report where the picture is more than 12 Y above its local base."""
 import subprocess, sys, json, re
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
-SRC = "../mrepro/ref_hd.mp4"
+SRC = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Organic Videos/Daniel Organic Video -The $17 Ab Wheel Beats Every Crunch-v2 HD.mp4"
 def yavg(t0, dur):
     p = subprocess.run([FF, "-nostdin", "-v", "info", "-ss", str(t0), "-i", SRC, "-t", str(dur),
         "-vf", "scale=64:36,signalstats,metadata=print:key=lavfi.signalstats.YAVG:file=-",

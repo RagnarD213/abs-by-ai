@@ -16,7 +16,10 @@ const { FF } = require('./config.js');
 const OUT = path.join(__dirname, 'out');
 const I = -14, TP = -1.5, LRA = 11;
 
-for (const seg of SEGMENTS) {
+// A segment filter. Without it a re-render of one short re-normalised the others, giving
+// them a SECOND loudnorm + AAC pass for no gain. Pass ids to restrict.
+const ONLY = process.argv.slice(2);
+for (const seg of (ONLY.length ? SEGMENTS.filter((s) => ONLY.includes(s.id)) : SEGMENTS)) {
   const f = path.join(OUT, `${seg.id.toLowerCase()}_${seg.slug}.mp4`);
   if (!fs.existsSync(f)) { console.log(`${seg.id} missing`); continue; }
   const m = spawnSync(FF, ['-hide_banner', '-i', f, '-af',

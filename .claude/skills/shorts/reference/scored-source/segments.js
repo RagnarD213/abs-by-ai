@@ -96,13 +96,17 @@ function piece(from, to = from, { nthFrom = 0, nthTo = 0, tail = 0.34, preroll =
   return { start: +start.toFixed(2), end: +end.toFixed(2), from, to };
 }
 
-// SIX shorts from the ab-wheel cut. Chosen so that NO SECOND OF SOURCE IS USED TWICE —
+// REV 2 (2026-08-28): FIVE shorts. Dan cut the sixth - the standing bodybuilder variation -
+// outright: "This is essentially an example of what not to do, but it doesn't really make
+// sense in this video." Its source range 55.48-62.10 and 252.03-277.07 is now unused.
+//
+// FIVE shorts from the ab-wheel cut. Chosen so that NO SECOND OF SOURCE IS USED TWICE —
 // Dan's requirement was six that do not annoy a viewer who sees all of them. Verified by
 // the overlap assertion below, which throws rather than warns.
 //
 // Each one carries a takeaway the VIEWER walks away with (skill Step 2's hard rule):
 //   A tension vs a crunch · B which muscles it hits · C the two form faults ·
-//   D tempo · E how far to roll at your level · F why the bodybuilder version is a trap.
+//   D tempo · E how far to roll at your level.
 const SEGMENTS = [
   {
     id: 'A', slug: 'ab-wheel-beats-crunches',
@@ -114,8 +118,11 @@ const SEGMENTS = [
             'most things sold on infomercial are scams', { outAt: 12.52 }),
       // outAt: same reason - the next bloom runs 43.38-44.98. 43.30 is 0.12s of tail on a
       // word VAD puts down at 43.18, and the frame there is 5% over base, invisible.
-      piece("So let's talk about why the ab wheel is so awesome",
-            "That's why the ab wheel beats crunches", { outAt: 43.30 }),
+      // inAt: the rev-2 transcript times "So" 0.5s later than the rev-1 one did and the snap
+      // then clipped 46% off "let's". 22.12 is the rev-1 in-point and sits inside the measured
+      // gap 21.67-22.34, so the approved opening is reproduced exactly.
+      piece("talk about why the ab wheel is so awesome",
+            "That's why the ab wheel beats crunches", { inAt: 22.12, outAt: 43.30 }),
     ],
   },
   {
@@ -141,7 +148,7 @@ const SEGMENTS = [
     id: 'D', slug: 'youre-rolling-too-fast',
     title: "You're Rolling Out Way Too Fast",
     pieces: [
-      piece('Next detail here, you want to roll out slowly and with control',
+      piece('Next detail here, you wanna roll out slowly and with control',
             'enable you to get a lot more out of this exercise'),
     ],
   },
@@ -151,16 +158,6 @@ const SEGMENTS = [
     pieces: [
       piece("So let's talk about how to do this if you're a beginner",
             "until you're all the way at full extension"),
-    ],
-  },
-  {
-    id: 'F', slug: 'standing-ab-wheel-trap',
-    title: 'Do Not Copy This Bodybuilder Move',
-    pieces: [
-      piece("And if you're a ripped monster bodybuilder",
-            'You just have to do your ab wheel in a different way'),
-      piece('Now there is another variation of this that you can do',
-            "it's not suitable for most people"),
     ],
   },
 ];

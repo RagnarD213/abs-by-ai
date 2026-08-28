@@ -16,6 +16,13 @@ fs.mkdirSync(OUT, { recursive: true });
 // transitions and flash blooms are clustered out below.
 const SCENE_THRESHOLD = 0.055;
 
+// MEASURED CORRECTIONS (rev 2). The 320x180 `scene` detector lands a boundary early when
+// the outgoing shot is already changing under Muhammad's constant push. work/boundcheck.py
+// compares every boundary against a full-frame-rate frame-difference peak; these two were
+// out. B-p0-s04 was the expensive one: 0.60s = 18 frames of GYM B-ROLL were being given a
+// talking-head crop, which is exactly the "off-centre b-roll" Dan flagged.
+const CUT_FIX = { 'B-p0-s04': 74.11, 'D-p0-s01': 177.91 };
+
 const manifest = [];
 
 for (const seg of SEGMENTS) {
@@ -62,6 +69,19 @@ for (const seg of SEGMENTS) {
     console.log(`${seg.id} piece ${pi}: ${dur.toFixed(1)}s -> ${shots.length} shot(s)  ` +
       shots.map((s) => `${s.a}-${s.b}`).join(' | '));
   });
+}
+
+for (let i = 0; i < manifest.length; i++) {
+  const fix = CUT_FIX[manifest[i].name];
+  if (fix == null) continue;
+  const prev = manifest[i - 1];
+  if (!prev || prev.seg !== manifest[i].seg || prev.piece !== manifest[i].piece)
+    throw new Error(`CUT_FIX ${manifest[i].name} has no previous shot in the same piece`);
+  const delta = +(fix - manifest[i].absStart).toFixed(3);
+  prev.dur = +(prev.dur + delta).toFixed(3);
+  manifest[i].absStart = +fix.toFixed(3);
+  manifest[i].dur = +(manifest[i].dur - delta).toFixed(3);
+  console.log(`  CUT_FIX ${manifest[i].name}: boundary moved ${delta >= 0 ? '+' : ''}${delta}s to ${fix}`);
 }
 
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest, null, 1));

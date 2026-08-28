@@ -438,6 +438,58 @@ full frame rate; that is what caught both.
 one frame in five and every shot carries a constant slow push, so the judder is visible on all of
 them. The masters ship at 29.97.
 
+### Rev-2 lessons from the ab-wheel batch (2026-08-28)
+
+**A hand-picked crop number IS a guess, and this pipeline's own contact sheet will not catch
+it.** Every talk crop in rev 1 was set by eye off a 480 px thumbnail and reviewed on a
+`choose-crops.py` sheet, and six of them were **291-508 px off** in the delivered frame. Dan
+screenshotted the worst one. **Measure with `recentre/` on EVERY build from now on, not only
+when a short is already off** - the audit is ~10 minutes of compute and it is the difference
+between "looked fine in the sheet" and 0 px.
+
+**The audit now covers cards too, not just 9:16 crops.** `recentre/audit2.py` projects the
+measured torso through whatever geometry a shot uses - talk window, zoom window, or `cardCrop`
+rectangle - and reports one number: pixels off centre on the delivered 1080x1920 canvas. A card
+can be just as wrong as a crop; two of the ab-wheel cards were 670 px and 466 px off.
+
+⚠ **CENTRE A STATIC SUBJECT, CONTAIN A MOVING ONE.** This is the rule that decides which flags
+to adopt. An ab-wheel rollout crosses the frame, so the crop has to hold the whole path and the
+subject is CORRECTLY off centre for most of the shot. The audit flagged every rollout card at
+100-316 px - including five in a short Dan had just reviewed and passed as having no centring
+issues. Adopting them would have clipped his feet. **The over-fire is not noise, it is the
+metric asking the wrong question of a travelling shot.**
+
+⚠ **RE-CHECK SHOT BOUNDARIES AGAINST FULL FRAME RATE, because a wrong boundary presents as a
+framing bug.** The scene detector runs on a 320x180 downscale and can land a cut EARLY when the
+outgoing shot is already moving. On this batch a boundary was **0.60 s early, so 18 frames of
+gym b-roll were given a talking-head crop** - which is what Dan saw and called "off-centre
+b-roll". `work/boundcheck.py` compares every boundary to a frame-difference peak at native rate;
+`CUT_FIX` in `detect-shots.js` overrides the bad ones. It also tells you when a "boundary" is not
+a cut at all: two shots on this build were one continuous take split spuriously, which is why
+their crops must stay identical.
+
+⚠ **CROPPING THE TOP OFF A 16:9 FRAME MAKES THE CARD SHORTER, NOT BIGGER.** Trimming height
+widens the aspect, and a wider card fitted to a fixed width is shorter - 522 px against 643 px
+for the untouched frame. **To make a card bigger you crop WIDTH.** This shipped into a review
+render before it was measured.
+
+**Native-vertical b-roll beats any crop, and it is worth going to find.** The `extern` treatment
+in `scored-source/render.js` drops a 9:16 source clip in full-bleed at ~1.0x, against the 1.78x
+a 9:16 window costs out of 16:9. Pexels' search API needs a token, but the rendered search page
+is scrapeable same-origin in the in-app browser (`a[href*="/video/"]`), and the detail pages
+carry `videos.pexels.com/video-files/<id>/<id>-hd_<w>_<h>_<fps>fps.mp4` in plain text. Grade it
+lightly toward the batch - measured, not guessed; the reference cut's own b-roll already ranged
+Y 58-172, so match cohesion, not numbers.
+
+**When a title has to work cold, name the thing in the HEADLINE, not the eyebrow.** Dan, rev 2:
+*"the titles need to make sense to someone who hasn't watched the video. A lot of the titles
+assume watching the long form."* A headline reading "THE $17 TOOL THAT BEATS CRUNCHES" with the
+subject only in the eyebrow does not survive the scroll.
+
+**Never re-run `normalize.js` across the whole batch to fix one short.** It gave three finished
+files a second loudnorm + AAC pass for no gain. Both `normalize.js` and `qc.js` now take a
+segment filter.
+
 ## Delivery
 
 - Work folder: `YouTube Long Form Video Content/<video-slug>/`

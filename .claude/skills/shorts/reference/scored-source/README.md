@@ -14,6 +14,17 @@ product** rather than our own rough cut. Three things are different and all thre
 3. **Section transitions are flash blooms.** `work/flashscan.py` checks every piece boundary so a
    short never starts or ends on a white frame.
 
+`recentre/` is the centring audit, extended from the 2026-08-27 tooling to cover CARDS as well
+as 9:16 crops: `collect2.py` samples every shot with a human subject, `personmask` (Apple Vision)
+masks them, `audit2.py` projects the torso anchor through each shot's own geometry and reports
+pixels off centre on the delivered canvas, and `propose.py` renders shipped-vs-proposed five
+frames across each shot. **Look at that sheet before adopting anything** - it over-fires on any
+shot where the subject travels.
+
+`work/boundcheck.py` re-checks every shot boundary against a full-frame-rate frame-difference
+peak. Run it every build: a boundary landing early gives the WRONG SHOT's content the previous
+shot's treatment, and it presents as a framing bug, not a timing one.
+
 Plus: `normalize.js` (a scored source gives every short a different loudness — normalise after
 render, not before) and `work/stagescan.py` (blackdetect cannot see a stage that has gone empty
 while the title and captions still draw).

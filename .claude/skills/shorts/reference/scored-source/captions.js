@@ -11,6 +11,7 @@ const { BLEEP_WORDS } = require('./bleeps.js');
 const FIXES = [
   [/knuckle face in the ground/gi, 'knuckles facing the ground'],
   [/\babdominus\b/gi, 'abdominis'],
+  [/\bab roll out\b/gi, 'ab rollout'],
 ];
 
 const t2ass = (t) => {
