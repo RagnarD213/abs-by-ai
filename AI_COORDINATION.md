@@ -47,8 +47,11 @@ table is dated 2026-08-10 and says "nothing left to cut" — **it is stale; four
 finished since.**
 
 `Handoffs/handoff-20260828-shorts-from-supplements-longform.md` + a 14-candidate shortlist with
-verbatim text in `Handoffs/assets/shorts-supplements-20260828/`. **Dan picks by letter — segment
-selection has been his call since 2026-08-04, and nothing gets cut until he does.**
+verbatim text in `Handoffs/assets/shorts-supplements-20260828/`. ⚠ **DAN PICKS IN THE EXECUTION
+SESSION, NOT HERE — his instruction.** The handoff's **Step 0.5 is "present the shortlist in chat
+and stop"**: the research is finished, so the picking costs him one message at the start of the
+build instead of a separate round trip. Segment selection has been his call since 2026-08-04 and
+nothing gets transcribed, cut or rendered until he answers.
 
 ⚠ **CUT FROM `CUT_v1_graded_NO-GRAPHICS.mp4`, NOT THE DELIVERED MASTER — proven, not assumed.**
 All four MP4s in the folder are within **0.03 s** of each other, and matched frame grabs at
@@ -92,8 +95,9 @@ boast is cut.
 `/youtube-packaging` was never run on it). The standing rule is post Shorts every 2–3 days AFTER
 the long-form goes up, so these can be built now but **nothing gets queued in Blotato without Dan.**
 
-**EXACT NEXT ACTION — DAN: pick segments by letter from the shortlist.** Then execute the handoff
-in a fresh session with `/shorts`. Nothing is blocked.
+**EXACT NEXT ACTION — execute the handoff in a fresh session with `/shorts`.** That session runs
+Step 0's checks, then presents the shortlist to Dan and waits for his letters before building.
+Nothing is blocked.
 
 ---
 

@@ -10,7 +10,11 @@ gap: the 2026-08-26 ad audit found **AI Trainer, Nutritionist and Supplement Aud
 ads and zero keywords**, so supplement-topic organic Shorts reach an audience the ads currently
 cannot.
 
-**Dan has already picked the segments — see "Dan's picks" below. Do not re-shortlist.**
+⚠ **DAN HAS NOT PICKED YET, AND THAT IS DELIBERATE — HIS INSTRUCTION IS THAT HE PICKS IN THIS
+SESSION, NOT THE ONE THAT WROTE THE HANDOFF. YOUR FIRST ACTION IS STEP 0.5: PUT THE SHORTLIST IN
+FRONT OF HIM AND WAIT.** The 14 candidates are already researched, timecoded and written up — the
+work is done, it just needs his letters. Segment selection has been his call since 2026-08-04.
+**Do not cut anything before he answers, and do not substitute your own judgement for his.**
 
 ---
 
@@ -113,16 +117,39 @@ and V3 hard-coded. On a single locked camera a per-shot constant is enough — n
 
 ---
 
-## Dan's picks
+## Step 0.5 — PUT THE SHORTLIST TO DAN AND STOP
 
-> **Filled in from Dan's reply. Cut only these, in this order.**
+**This is the first real action of the session. Everything after it is blocked until he answers.**
+
+1. Read `Handoffs/assets/shorts-supplements-20260828/shortlist.md`. It holds all 14 candidates with
+   working titles, real timecodes, verbatim spoken text, estimated finished runtime at his measured
+   200 wpm, and the reason each one is ranked where it is. Full untrimmed text for every candidate
+   is in `verbatim-candidates.txt` in the same folder.
+2. **Present it to him in chat** — do not just link the file. He picks by letter, and he picks
+   faster when the text is in front of him. Lead with the four strongest (B, A, D, E), then the
+   solid six, then the weak four with their reasons for being weak.
+3. **Surface these three flags in the same message**, because they change which letters he wants:
+   - **[F]** ends on "I would recommend going on Zepbound instead." Organic Shorts *can* name the
+     drug — the no-drug-names rule is ad-compliance only (proven 2026-08-25). His call. Offer the
+     clean alternative: end at "…it doesn't make any sense" (~19:58), a complete thought that loses
+     nothing.
+   - **[I]** contains "I just uncontrollably shit myself" *and* a sentence that does not parse as
+     transcribed (see the [I] note below).
+   - **[N]** is the closest to failing the reason-to-watch test.
+4. **Then stop and wait.** Do not start Step 1, do not transcribe, do not render a test.
+
+A reasonable default to offer if he asks for a recommendation rather than choosing: **B, A, E, C,
+J, M** — the two strongest standalone beats, the most relatable one, and three product shorts that
+would use the band layout. F and I are excluded from that default only because of the flags above,
+not on quality.
+
+Once he answers, record his picks here before building:
 
 | pick | working title | in → out | source dur | words | est. finished |
 |---|---|---|---|---|---|
 | | | | | | |
 
-The full 14-candidate shortlist with verbatim text is in
-`Handoffs/assets/shorts-supplements-20260828/shortlist.md`. Candidate letters below refer to it.
+Candidate letters throughout this document refer to the shortlist file.
 
 ---
 
@@ -302,5 +329,6 @@ no deploy, no native-retest trigger. Everything else is local ffmpeg/PIL.
 
 ## Exact next action
 
-Read Dan's picks above, then run `/shorts` from Step 1. If the picks table is still empty, stop and
-ask him — segment selection is his call and has been since 2026-08-04.
+**Do Step 0's three checks, then Step 0.5: present the 14-candidate shortlist to Dan in chat, with
+the three flags, and wait for his letters.** Nothing gets transcribed, cut or rendered until he
+answers. When he does, fill in the picks table above and run `/shorts` from Step 1.
