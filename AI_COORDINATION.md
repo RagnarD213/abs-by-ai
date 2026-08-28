@@ -252,9 +252,52 @@ for a big paste you verify immediately.
 
 ---
 
-### MUHAMMAD'S ORGANIC AB-WHEEL CUT — ANALYZED; 16:9 REPRODUCTION IN PROGRESS (2026-08-27, Claude Code)
+### MUHAMMAD'S ORGANIC AB-WHEEL CUT — ANALYZED AND **REPRODUCED; DELIVERED, AWAITING DAN'S A/B VERDICT** (2026-08-27, Claude Code)
 
-**Owner: Claude Code. Status: Implementation in progress.**
+**Owner: Claude Code. Status: Ready for review.**
+
+**DELIVERED to `EDITED LONGFORM 8-20-26/abwheel-17-dollar-ab-wheel/`:**
+`MSTYLE_ab-wheel-reproduction.mp4` (**418.07 s = his exact timeline**, 12,529 frames, 1080p29.97,
+−14.7 LUFS / −0.7 dBTP, 343 MB), `MSTYLE_ab-wheel-reproduction.srt` (122 cues),
+`MSTYLE_notes.md`, `REVIEW_720p_MSTYLE.mp4`. 540p review copy sent to Dan in chat.
+Final QC on the exact deliverable: 0 black frames, 0 silent seconds, audio/video stream match;
+the only frozen runs are the two title-card holds his own cut also has (his cards measure
+42–53 % static frames). Recipe + A/B sheets (his-vs-ours every 5 s) in
+`/Volumes/Extreme/_edit_work/abwheel/mrepro/`.
+
+**EXECUTED THIS SESSION (all $0.00 AI spend — local Whisper/ffmpeg/PIL, free Pexels, reused
+Veo clip; no production code, no deploy, no native-retest trigger):**
+- **His EDL recovered at 99.24 % conform word-fidelity** (multi-roll word alignment + xcorr
+  offset tracking + word-gap boundary snapping). **All four workout sets are ~3× time-lapses**
+  (proven by offset slope AND rep-period ratio 1.23 s vs 3.70 s); his hook is C1630 take 3;
+  "let's talk about what it looks like live" is C1633 take 1 spliced into take 2; "All right.
+  Let's do it." is grabbed from C1633 73.5. Base conform is FRAME-EXACT: 12,529 frames.
+- **His design system measured and rebuilt** (`mrepro/orglib.py`, staged into the skill):
+  Poppins pills w/ per-char typewriter, numbered chips, thin form bars, olive-glass stack
+  panels, title cards (grid field + highlight box + motion-blur wipe), glow cards, price/CTA
+  pills, subscribe animation, ⏩ timelapse glyph, 9 measured flash blooms.
+- **Audio = HIS mix verbatim** under our picture (+1.9 dB + limiter → −14.7 LUFS, TP −0.7 on
+  the AAC). SRT sidecar built (122 cues). **Captions/watermark rule flipped per Dan: organic
+  longforms ship a CLEAN frame + .srt** — qc_style.py check inverted in code (commit `5445a37`,
+  pushed, with orglib + the recovery pipeline in the skill reference dirs).
+- Deviations, all logged in `mrepro/notes.md`: endcard avoids the banned "Meet the new you"
+  before/after screen **which Muhammad's delivered file still carries — flag before upload**;
+  infomercial beat uses our labeled AI pastiche; stock recast per the casting rule (no
+  rule-compliant standing-rollout stock exists); his thin-bar typo fixed.
+- QC on the pipeline validation render: 0 black frames, no silent seconds, audio/video match;
+  only frozen runs are the title-card holds his cut also has (42–53 % static measured).
+  A/B sheets his-vs-ours every 5 s in `mrepro/ab/final/` read near-identical at speech beats.
+
+**EXACT NEXT ACTION — DAN: watch the 540p review copy (sent in chat) against Muhammad's own
+file and say whether you can tell who edited which.** Known gaps to look at deliberately, all
+in MSTYLE_notes.md: his TV-infomercial beat is our labeled AI pastiche; three stock beats are
+class-matches not clip-matches (beginner/heavier man, plank, kneeling-not-standing rollout);
+pill sizes/positions are within a few percent of his but not pixel-identical. On approval:
+promote orglib to fully canonical in /longform-edit (style section + captions flip + recovery
+pipeline already committed, `5445a37`) and apply the style to the next organic longform.
+⚠ Separate flag for Dan: **Muhammad's delivered file still shows the app's "Meet the new you"
+side-by-side before/after screen in its endcard** — banned by the standing rule in any video;
+one revision note to him before it uploads.
 
 Dan shared Muhammad Arsalan's first organic video (Drive `1lu_Im9st8XtDNXPnFOhpKyc7IA2Whf_J`) —
 **it is the round-2 of the 6:58 ab-wheel cut** (same timeline as the round-1 reference, audio corr
