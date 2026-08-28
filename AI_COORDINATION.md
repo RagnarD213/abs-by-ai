@@ -33,6 +33,85 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO SHOOT — **10 MORE RETOUCHED AND DELIVERED (batch 4; 40 picks now finished)** (2026-08-28, Claude Code)
+
+Fourth `/photo-edit` pass on the 8/27 Snappr shoot, run alongside two concurrent photo sessions.
+**AI spend $2.64** (10 finals + 1 re-roll, 4K Nano Banana Pro). **No production code, no deploy, no
+native-retest trigger.** Delivered to `photos/finalized social media photos/` as
+`studio-<bg>-<n>_FINAL_PRIMARY.jpg` + `-IG-4x5.jpg`: **blue 47/110/177/188, gray 30/41/67,
+white 32/59/90.** Working files in this session's scratchpad (`studio4/`).
+
+**COLLISION AVOIDANCE WAS DONE BY READING THE OTHER SESSIONS' `in/` FOLDERS, NOT BY ASKING.** Both
+concurrent sessions had already staged their picks in their own scratchpads, so their claimed frames
+were readable directly; a `comm` assert against those plus the delivered 8/28 finals ran **before any
+editing** and printed zero collisions. Worth reusing: the padded key (`Blue-0049`) maps 1:1 to the
+Snappr frame number, so the three sessions' `picks.txt` files are directly comparable.
+
+**Selection favoured spread, not just the hardest abs** — 4 blue / 3 gray / 3 white across nine
+distinct garments (black square-cut trunks, loose white cotton shorts, jeans ×2, yellow trunks,
+yellow retro shorts, white ribbed tank, Muay Thai satin, green retro shorts) and both registers
+(5 open-teeth smiles, 4 serious/closed-mouth, 1 closed-lip half-smile). **`gray-30` is the only
+CLOTHED pick in all 40 finals** — the shoot had produced no tank-top final before this batch.
+
+⚠ **THE HARD-DEFINITION BLOCK OVERSHOT INTO A BODYBUILDER ON ONE FRAME, AND THE MEAN-DIFF GUARD IS
+WHAT CAUGHT IT.** `White-0090` came back at **meandiff 17.45 against a 3.90–6.17 band** for the other
+nine, with a tan shift of 34.6 the histogram match could not pull back (19.4 residual) — the
+signature of a structural change, not a palette one. On inspection it had widened his shoulders and
+lats, thickened both arms, glazed the skin in oil and slightly zoomed him in frame. **A re-roll with
+a new SILHOUETTE LOCK block fixed it** (meandiff 14.24, tan 27.5 → **5.4** after toning, head and
+feet back at the original pixel positions). The block that worked names the failure in measurable
+terms — *"shoulder width, arm thickness, chest projection, waist and hip width must all measure
+EXACTLY the same … you may only deepen shadows INSIDE the existing outline; you may not move the
+outline outwards anywhere"* — plus explicit no-oil and no-zoom clauses. **Now worth adding to the
+standing hard-definition block for straight-on full-body frames**, which is where it overshot; the
+nine angled/hand-on-hip frames did not need it. The elevated residual meandiff is legitimate: this
+original has the softest midsection in the set, so the pass genuinely changes more pixels.
+
+⚠ **NANO DELETED AN EAR STUD AND A RAISED SKIN TAG ON `gray-41` DESPITE THE MOLE-LOCK BLOCK BEING
+PRESENT.** Confirmed at zoom against the original. **Fixed deterministically, not by re-rolling** —
+the retouch is pixel-aligned with the original, so two feathered ellipses (r=62 at the earlobe,
+r=44 beside the outer eye corner) composite the original pixels back; 0.19 % of the frame touched,
+no seam. Pre-fix file kept as `toned/Gray-0041_PRE-MARKRESTORE.jpg`.
+
+⚠ **AN AUTOMATED MOLE-RESTORER WAS BUILT, MEASURED, AND DELIBERATELY NOT SHIPPED — do not rebuild
+it without reading this.** A black-top-hat detector ("dark in the original, faded in the final")
+flagged **90–119 clusters per face**: it cannot separate a mole from stubble, pores, brow hairs and
+ear folds. Tightening it to connected components with compactness, area and contrast filters cut it
+to ≤6 candidates, but on visual inspection **roughly half were still false positives and one landed
+squarely on his mouth**, where compositing original pixels would have produced a visible artifact
+over the retouched teeth. **Restoring marks must stay hand-verified per photo.** The one signal that
+did prove reliable: on `gray-41` the ear stud ranked #1 by a wide margin (strength 64 × drop 63),
+which independently corroborated the coordinate read off the grid.
+
+**The tone/pallor problem the 8/28 lessons predicted did NOT recur** — whole-frame per-channel
+histogram matching back to each original pulled every tan shift to **0.5–2.8** (from 5.6–10.2), and
+the face+upper-chest overview crops show no jaw-to-neck seam on any of the ten, so **no dedicated
+tone-match pass was needed on any photo.** **The white-wall repaint failure also did not occur** —
+background std-dev deltas measured **within ±0.55** on all ten, including the three white-seamless
+frames, so the deterministic wall composite was not applied.
+
+**Warp: applied to the 5 snug garments, skipped on 5.** `blue-47` (1463,4040 r270/225),
+`blue-188` (1448,3939 r265/225), `gray-67` (1737,4256 r270/230), `white-59` (1491,3924 r270/225),
+`white-90` (1636,3852 r265/225), all **k=0.20** on the 3368×5056 frame, each verified on a
+before/after crop (visible, natural, no distortion of the white trim or leg openings). **Skipped on
+`blue-177` and `white-32` (jeans) and `gray-41` (Muay Thai satin) per the standing rule, and on
+`blue-110` and `gray-30` (loose white cotton shorts)** where the skill's own note says the effect
+reads as barely-there — **one line to add if Dan wants them.** ⚠ Colour-mask auto-detection of the
+garment centre **failed** (masks leaked into skin and shadow, giving garment widths of 1392–1712 px);
+the grid-crop coordinate read the skill prescribes worked first time and is the method to use.
+
+**IG crops are 3368×4210 (full width), not the skill's 2747×3434** — that figure is for a 2747×4096
+frame. This shoot's 4K output is 3368×5056, so 4:5 fits at full width and only a y-offset is chosen
+(115–599 px, set per photo from the measured head top to protect headroom). All ten verified on a
+contact sheet.
+
+**EXACT NEXT ACTION — DAN: review the three sheets sent in chat and say which he wants changed.**
+Nothing is blocked. Known and deliberate: body/leg hair is smoothed on every frame (nano does this
+unprompted); small cheek/jaw moles are faded on `blue-110` and a few others and can be restored
+per-photo on request.
+
+---
+
 ### SHORTS FROM THE SUPPLEMENTS LONGFORM — **HANDOFF + SHORTLIST WRITTEN, NOT EXECUTED** (2026-08-28, Claude Code)
 
 Dan asked which long-forms have never been mined for shorts, then asked for a handoff starting with

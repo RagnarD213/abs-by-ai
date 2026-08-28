@@ -190,4 +190,43 @@ Same contact-sheet technique as step 1, then judge with Dan's platform logic: st
 
 > BODY (HARD DEFINITION PASS): Carve the abdominal definition clearly harder than the original: each of the six abs distinctly separated with deep, natural groove shadows between and beneath every ab row, the vertical midline (linea alba) reading as a clean dark line from sternum to navel, sharply etched obliques and serratus lines at the sides, and a hard, deep V-cut at the waistband. Lower body fat look: the skin should sit tighter over the muscle, as if he is 2-3% leaner than the original photo. Chest, shoulders and arms harder and more striated-looking as well. STILL A REAL BODY: do NOT add muscle size or bulk, do NOT inflate anything, no airbrushed or plastic skin, and the definition must follow his real anatomy exactly where it already shows in the original.
 
+**ADD THE SILHOUETTE LOCK ON STRAIGHT-ON FULL-BODY FRAMES (measured 2026-08-28, batch 4).** At this
+intensity the hard block sometimes stops carving definition and starts *inflating the man* — on one
+straight-on frame it widened the shoulders and lats, thickened both arms, glazed the skin in oil and
+zoomed him slightly in frame. **The whole-frame mean-diff on aligned downsamples is what catches it:
+17.45 against a 3.90-6.17 band for nine sibling frames, with a tan shift the histogram match could
+not pull back (34.6 -> 19.4 residual).** A structural change reads as a diff the tone match cannot
+fix; a palette change does not. Angled and hand-on-hip frames did not overshoot — it is the
+straight-on, arms-down poses that do. Add this block verbatim for those, and re-roll (do not try to
+fix it with the tone match):
+
+> SILHOUETTE LOCK - THE MOST LIKELY THING TO GO WRONG IN THIS EDIT, READ IT TWICE: his OUTLINE must
+> not change at all. His shoulder width, the thickness of his upper arms and forearms, the size and
+> projection of his chest, the width of his waist and hips, and the thickness of his thighs must all
+> measure EXACTLY the same in your output as in the input photograph. MAKING HIM BIGGER, WIDER,
+> BULKIER, MORE MUSCULAR OR MORE INFLATED IS A COMPLETE FAILURE OF THIS EDIT - he must not look like
+> a bodybuilder, and his arms must not thicken. You are only allowed to deepen the shadows and
+> definition INSIDE the existing outline; you may not move the outline outwards anywhere. Equally,
+> DO NOT add body oil, wet gloss, or a glazed shiny sheen to the skin. And do not scale, zoom or
+> enlarge him within the frame: his head, shoulders and feet must sit at exactly the same pixel
+> positions as the input.
+
+**RESTORING DELETED MOLES MUST STAY HAND-VERIFIED - an automated detector was built, measured and
+rejected (2026-08-28).** The mole-lock block does not always hold: one frame lost an ear stud and a
+raised skin tag with the block present. Because the retouch is pixel-aligned with the original, the
+fix is a feathered ellipse compositing the original pixels back (r~45-65 at 4K, GaussianBlur(9),
+~0.2% of the frame, no seam) - never a re-roll, which re-rolls identity and drifts the garment.
+**But do not automate the site-finding.** A black-top-hat detector ("dark in the original, faded in
+the final") flags **90-119 clusters per face** - it cannot separate a mole from stubble, pores, brow
+hairs or ear folds. Tightened to connected components with compactness, area and contrast filters it
+drops to <=6 candidates, and **roughly half are still false positives; on one frame a candidate
+landed on the mouth**, where compositing would have put the original teeth over the retouched ones.
+Read the coordinates off a grid crop instead and verify each one. The detector is still useful as
+*corroboration*: the genuine ear stud ranked #1 by a wide margin (strength 64 x drop 63).
+
+**IG 4:5: compute the crop from the actual output size, don't reuse the 2747x3434 figure.** That
+number is for a 2747x4096 frame. A 3368x5056 output holds 4:5 at FULL WIDTH (3368x4210), so only a
+y-offset is chosen - set it per photo from the measured head top (head_top - 220, clamped) to
+protect headroom, and verify the set on a contact sheet.
+
 Pair it with the mandatory post-pass histogram tone-match (Lessons item 1) — the hard block tans and oils the body even more reliably than the strong block. Two failure modes measured at this intensity, both on clean white backgrounds: the model repaints a plain white wall into gray mottle (fix deterministically — mask the background from the aligned original at `gray>170 & chroma<28`, MinFilter(9) erode, GaussianBlur(10) feather, composite the original wall back; do NOT re-roll, a re-roll changed the garment), and re-rolls at this intensity drift clothing more readily — check the garment against the original every time.
