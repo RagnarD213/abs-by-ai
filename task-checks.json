@@ -1,6 +1,5 @@
 {
   "checked": [
-    "money::Create beta tester account for Ty String (Aces coach)",
     "personal::Hire someone to install artificial hedge panels",
     "assistant::Cook weekly meal prep",
     "assistant::Remove calcium stains from pool tiles",
@@ -207,7 +206,6 @@
     ]
   },
   "checkedAt": {
-    "money::Create beta tester account for Ty String (Aces coach)": "2026-08-19",
     "personal::Hire someone to install artificial hedge panels": "2026-08-19",
     "assistant::Cook weekly meal prep": "2026-08-25",
     "assistant::Remove calcium stains from pool tiles": "2026-08-25",
