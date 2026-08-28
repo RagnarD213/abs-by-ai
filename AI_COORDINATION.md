@@ -33,6 +33,132 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### V4 LONGFORM BED SWAPPED — **DELIVERED. The claim covers 75 s, not the whole video** (2026-08-28, Claude Code)
+
+`Handoffs/handoff-20260828-v4-longform-bedswap.md` executed. **$0.00 AI spend, no production code,
+no deploy, no native-retest trigger.** Local master rebuilt and verified; **the YouTube side is
+deliberately NOT touched — Dan's call (Step 6).**
+
+⚠ **STEP 1 CHANGED THE WHOLE JOB. THE CLAIM IS REAL BUT IT COVERS 6:16–7:31, NOT 8:14.**
+
+| | |
+|---|---|
+| track | **"Hard Rap Beat" by Artiss** — the handoff was right about this one |
+| claimant | **Elite Alliance Music** |
+| covers | **6:16 – 7:31 only** |
+| impact | no strike, no reach limit; *"potential limitation to your ways to earn"* |
+| V4 views | **319 since 2026-08-11**, +1 sub, **19.1 % of traffic is YouTube advertising** |
+
+**Three independent measurements agree the track occupies V4 371.3 – 451.65 s and nowhere else:**
+Content ID's own range · a windowed hash fingerprint (**6.24 / 1.94 / 1.20** in the three 30 s
+windows there against **0.014–0.048** everywhere else, below two unrelated-longform negatives) ·
+and a 20–120 Hz scan, where the rap beat's 808 reads **40–55 dB** inside and 0–30 dB outside.
+
+⚠ **THE HANDOFF ASSUMED THE WHOLE 8:14 CARRIED THE BED AND THAT DAN'S ENTIRE VOICE TRACK WOULD HAVE
+TO BE CONFORMED. IT DOES NOT AND IT DID NOT.** V4 has **no music bed at all** under the talking —
+its raised noise floor is compression, not music. Proof: L/R correlation is **0.999 with side/mid at
+−27 to −29 dB** (mono) for 60–360 s, and **0.934–0.950 / −8.6 dB** (wide stereo) only inside
+360–450 s. **So 92 % of the programme needed nothing done to it, and its samples are untouched.**
+The two brief sub-bass hits outside the claim (11.0 s, 133.0 s, 0.75 s and 0.5 s) were chased down
+and are **transition SFX under the black title cards** — checked on the frames, not assumed.
+
+⚠ **THE SHORTCUT WAS TAKEN AND THEN REJECTED ON MEASUREMENT, WHICH IS THE MAIN FINDING HERE.**
+`short5` is a sample-exact slice of this region (offset **371.500000 s**, corr 0.9986 from three
+independent windows, no drift) and its bed was already cleared on 2026-08-27, so the obvious build
+was to paste short5's finished audio straight in. **A first master was built that way. It is wrong,
+because SHORT5'S REBUILT VOICE IS EARLY.**
+
+| line | V4's own timing | short5 as delivered | error |
+|---|---|---|---|
+| intro *"Alright guys, I'm going to run you through this workout…"* | **373.540 s** | 373.345 s | **195 ms early** |
+| outro *"All right, so that's today's workout."* | **451.662 s** | 451.35 s | **~310 ms early** |
+
+Measured by a 1 ms cross-correlation of the **music-free raw cutdown** against each mix: V4's
+original peaks at **373.540 with r = 0.9926**, falling to 0.60 by ±30 ms and negative by ±100 ms.
+Independently confirmed by reading 20 ms voice-band columns — V4's own audio is **−5 to −14 dB
+(silent) at 1.84–1.90 local where short5 has full speech**, and every dip in the line matches at a
++10-frame shift. **The cause: the /shorts pipeline's burned captions come from Whisper word
+timings, which run early on this roll, and the 8/27 session pinned the audio to those captions.**
+For short5 that is arguably right — audio and captions agree on screen. For V4 it is wrong: **V4
+has NO burned captions** (verified on frames) and the sync reference is Dan's mouth.
+
+**WHAT WAS ACTUALLY BUILT: only V4 [371.28, 451.64) is replaced — 80.36 s of 494.14.**
+New bed + the intro line rebuilt from the raw at V4's own timing. **The outro line was not rebuilt
+at all** — the beat provably stops at 451.62 (last 808 at 451.54, and a fingerprint of 451.6–454.6
+reads **0.0375** against a talk-only control of 0.033), and the line starts at 451.662, so it is
+V4's original recording, untouched.
+
+**Bed: the same cleared track the concurrent V5 session picked**, `Media/music beds/…-pixabay-10091.mp3`
+(311.3 s, Pixabay, commercial use, **no attribution**) — one licence to track and the two videos
+now sound consistent. ⚠ `organic_flow.mp3` was unreachable: **`/Volumes/Extreme` is UNATTACHED.**
+Everything needed was found on the internal drive, including a 44.1 kHz copy of the raw cutdown's
+audio in the 8/27 session's scratchpad — **which is the only reason this job was possible at all.**
+
+⚠ **THE VOICE WAS FITTED TO V4'S OWN VOICE, NOT TO THE HANDOFF'S CHAIN.** The handoff's
+`+11 dB` and its compressor are fitted to short5. Fitted here against V4's own processed voice at
+356–371.3 s (no music there), the answer is **EQ only, no compressor**: `equalizer f=110 +3,
+f=200 −3, treble +4 @4k` takes the 10-band error from **1.66 dB to 0.60 dB**, and **+11.88 dB** of
+gain. The compressor made it *worse* — it pushed the crest factor to 14.1 where V4's own voice is
+**11.70 and the bare raw is 11.76**. The raw needed no compression because V4's own processing was
+mild.
+
+**⚠ A NEW ffmpeg TRAP, AND IT IS IN OUR OWN DOCUMENTED AUDIO CHAIN.** `alimiter` with `attack=5`
+**delays the whole programme by exactly 219 samples (4.966 ms)** — measured, correlation 1.0000, at
+three checkpoints. The project's standing recipe (`loudnorm` + `alimiter level=disabled`) has been
+shifting every master it touched against its own picture by ~5 ms. Fixed here with
+`atrim=start_sample=219,asetpts=N/SR/TB,apad` after the limiter; **the delivered file measures
+0.000 ms against the source at eight checkpoints from 20 s to 485 s.**
+
+**VERIFIED ON THE DELIVERED FILE:**
+
+| check | result |
+|---|---|
+| old track gone | claimed-region aligned hashes **27,332 → 518**; and by the V5 session's pristine-source rule, **5/5 windows PASS** (delivered ≤ the untouched replacement track at every one) |
+| word fidelity | **98.60 %** whole-file vs the original; **every real word matches** — the 13 differences are ASR spelling variants (`gonna`/`going to`, `1`/`one`) on bit-identical audio |
+| no outtakes | head and tail transcripts read correctly; only one line was rebuilt and it is the right line |
+| lip sync | **0.000 ms** at eight checkpoints outside the region (corr 0.9993–0.9996); the rebuilt line lands at **373.540 s, 0 ms from V4's original**, r = 0.9923 |
+| captions | **V4 has none** — checked on frames, so the handoff's caption ruler does not apply |
+| duck depth | **−10.46 dB**, measured with the voice algebraically removed (three windows, 0.00 dB control outside speech) = Dan's 70 % |
+| picture untouched | video-stream MD5 **byte-identical** (`157ae7bc…`) |
+| audio integrity | **0 of 494 seconds below −50 dBFS** (min −43.0); durations differ by 0.017 s; no clicks at either seam |
+| loudness | **−14.01 LUFS / −1.87 dBTP**, LRA 4.60 |
+
+**A REAL DEFECT FIXED IN PASSING, the same one V5 had: the old master was over-loud and CLIPPING —
+−11.86 LUFS / +0.58 dBTP.** Loudnorm ran **linear** (gain + limiter), so nothing was squashed.
+
+⚠ **WHISPER HALLUCINATED AN ENTIRE RAP VERSE OVER THE NEW BED** — 160 words, 376.7–434.0 s
+(*"Vintage Gucci apron, flippin' duck confit"*). The raw is **provably silent** there (a 50 ms
+energy scan finds no speech between raw 376.70 and 451.95). The old bed produced *"I'm a"* ×25 in
+the same place. **Anyone generating an .srt for V4 with Whisper will burn in fabricated lyrics.**
+
+**Delivered** over the original filename in `YouTube Long Form Video Content/`, previous master kept
+as `*_PRE_BEDSWAP.mp4`, plus `REVIEW_540p_V4_NEWBED.mp4` (29 MB, sent in chat, scanned for silence).
+Tools in `Handoffs/assets/bedswap-20260828/`. Build dir `~/absbyai-video-work/v4-bedswap/`.
+
+⚠ **SHORT5 IS QUEUED TO POST AND ITS VOICE IS 195/310 ms EARLY. DAN'S CALL.** It matches its own
+burned captions, so it is self-consistent and may well be fine to ship; the fix would be to move
+the audio and rebuild the captions from measured onsets rather than Whisper's. **Not touched.**
+
+⚠ **THE CC-BY ATTRIBUTION INCONSISTENCY FROM 8/27 IS STILL OPEN AND STILL DAN'S.**
+`BLOTATO_QUEUE_PROGRESS.md` has short5's queued IG/FB captions crediting Audionautix — that
+describes the **YouTube** copy's audio; the local file now carries Pixabay, which needs none.
+
+⚠ **YOUTUBE IS UNTOUCHED, AND THE OPTIONS ARE ALL AVAILABLE ON THIS CLAIM** (read from Studio):
+**Erase song** — YouTube says it can remove the claimed song and keep speech; the claimed stretch is
+almost all music, so unlike V5 this would leave ~75 s near-silent · **Replace song** — keeps the
+URL, permanent edit, library skews CC-BY · **Trim out segment** — cuts picture *and* audio, so it
+would remove the workout · **Dispute** — we do not hold the rights. **Recommendation: Replace song,
+or leave it — the claim costs nothing until the channel monetises.** ⚠ **19 % of V4's traffic is
+paid**, so delete + re-upload would break whatever campaign points at the id.
+
+**Dashboard: the Key task is deliberately NOT checked off** — the local file is done, but the claim
+on YouTube is live and Dan has not watched the review copy.
+
+**EXACT NEXT ACTION — DAN: watch the 540p review copy (sent in chat), then say what to do on
+YouTube.** Nothing is blocked.
+
+---
+
 ### V5 LONGFORM BED SWAPPED — **DELIVERED; the claim is NOT the track the handoff assumed** (2026-08-28, Claude Code)
 
 `Handoffs/handoff-20260828-v5-longform-bedswap.md` executed. **$0.00 AI spend, no production code,

@@ -1047,6 +1047,42 @@ Three traps inside it, all found by measuring the finished track:
 The graphics must not overlap in time — which is already a rule, since a full-frame card
 must never cover a lower third — and the builder asserts it.
 
+## Step 7.4 — REPLACING A CLAIMED MUSIC BED
+
+A Content ID claim names the **time range** it covers. Read it (Studio → the video → Claims →
+View details) before assuming anything: on V4 the claim covered **6:16–7:31 of an 8:14 video**,
+so 92 % of the programme needed nothing done to it and its samples stayed bit-identical. Confirm
+the range independently — a windowed hash fingerprint plus a 20–120 Hz scan (a rap/EDM bed's 808
+reads 40–55 dB where speech reads 0–30) — and check **stereo width per 30 s block**: a mono
+L/R correlation of 0.999 with side/mid at −27 dB means there is no music bed there at all.
+
+**Replace the narrowest range that carries the track, and leave every other sample alone.** Sync
+outside the replaced region is then preserved by construction, and you can prove it: cross-correlate
+the finished audio against the source at checkpoints spanning the file and require **0.000 ms**.
+
+⚠ **Do NOT verify with an absolute fingerprint score.** Two loop-based electronic beats share a lot
+of hashes, and a spectrally sparse track yields few hashes, which inflates any score normalised by
+query size. **The pass condition is `delivered ≤ the PRISTINE replacement track` at matched
+windows** — cut the same material out of the replacement mp3 that went into the video and score
+both against the old-bed reference. Also report the **absolute aligned-hash count**, which is not
+normalised (on V4: 27,332 → 518 in the claimed region).
+
+⚠ **A short cut from the same video is NOT a safe donor for its audio.** `short5` is a sample-exact
+slice of V4 (offset 371.500000 s, corr 0.9986) and its bed had already been cleared — but its voice
+had been pinned to its own **burned captions**, which come from Whisper word timings and run early
+on this roll. Pasted into V4 that put both lines **195 ms and ~310 ms early**. Rebuild the voice
+from the music-free raw at the **host video's** own timing, measured by a 1 ms cross-correlation of
+the raw against the original mix (V4's intro peaked at 373.540 s, r = 0.9926, falling to 0.60 by
+±30 ms). **Burned captions are ground truth for the picture they are burned into, never for another
+cut's audio.**
+
+Fit the rebuilt voice **against the host video's own voice**, in a window that provably has no
+music — not against a chain fitted for a different deliverable. On V4 that gave EQ only and **no
+compressor** (the raw's crest factor 11.76 already matched V4's own 11.70; adding the documented
+compressor pushed it to 14.1). `Handoffs/assets/bedswap-20260828/` has the tools.
+
+---
+
 ## Step 7.5 — MUSIC AND SFX  **REQUIRED — gate: 2nd-percentile frame level ≥ −52 dBFS**
 
 Longform shipped five videos with no music bed at all. A bed is most of the difference
@@ -1307,6 +1343,23 @@ and the circular cut-cleanliness metric in Step 3 reported the exact opposite of
 - All the `/shorts` traps still apply: `-loop 1` stills are infinite (need `-t` +
   `shortest=1`) and default 25 fps (pin `-framerate`/`-r`); `overlay` adopts its first
   input's rate; `execFileSync` loses ffmpeg's stderr.
+- ⚠ **`alimiter` DELAYS THE WHOLE PROGRAMME BY ITS `attack` TIME, and our standing loudness
+  finish uses it.** Measured on V4 (2026-08-28): `alimiter=…:attack=5` shifts the output by
+  **exactly 219 samples = 4.966 ms** at 44.1 kHz — correlation 1.0000 against a gain-only
+  render, at three checkpoints. Every master finished with `loudnorm + alimiter level=disabled`
+  has been ~5 ms late against its own picture. Inaudible on a talking head, but it is free to
+  fix and it corrupts any lip-sync measurement made against the source:
+  `…,alimiter=…:attack=5:…,atrim=start_sample=219,asetpts=N/SR/TB,apad` with `-t <duration>`.
+  **Verify by cross-correlating the finished audio against the source at several checkpoints —
+  it must read 0.000 ms.**
+- **A dynamic `loudnorm` is not what you asked for.** `linear=true` is only a *request*: if the
+  measured true peak means the target I and TP cannot both be met by one gain, ffmpeg silently
+  falls back to `dynamic` and compresses the programme (on V4 it took LRA 4.40 → 4.20). Prefer
+  an explicit `volume=<gain>dB` + `alimiter`, and read `normalization_type` in the pass-2 JSON.
+- **AAC overshoots the WAV's true peak, and by how much depends on the content.** Same chain,
+  two builds of the same video: 0.14 dB overshoot with one bed, **0.99 dB** with another. Do not
+  set the limiter from a remembered number — sweep it, encode, and measure the true peak **on the
+  finished MP4**.
 
 ---
 
