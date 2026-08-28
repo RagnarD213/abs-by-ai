@@ -16,12 +16,12 @@
  },
  "card": {
   "w": 1080,
-  "h": 830,
+  "h": 690,
   "x": 0,
-  "y": 170,
+  "y": 310,
   "chipY": 1012,
   "chipH": 64,
-  "note": "STAGE, not the 1000x562 postage stamp V2/V3 used. This batch is card-heavy by necessity (the ab-wheel rollout is horizontal), so the card had to stop being an inset. Full canvas width, 830 tall, top edge y=170: the ASS caption band (MarginV 690) starts around y1015, and the stage fills everything above it. The title overlays the top of the stage for its 3.2s on a scrim baked into the title PNG - the same relationship a title has with a full-bleed talking head - rather than being squeezed into a strip above it. With a per-shot cardCrop that drops the dead sky and pool this carries ~2.4x the area of the old box.",
+  "note": "STAGE. Top edge is dropTop, the same line the full-bleed picture starts on, so the title never crosses a card either. Bottom is y1000: the ASS caption band (MarginV 690) starts around y1015.",
   "labels": {}
  },
  "pip": {
@@ -36,7 +36,7 @@
   "x": 74,
   "y": 1786
  },
- "titleSeconds": 3.2,
+ "titleSeconds": null,
  "pipBoxes": {},
  "audio": {
   "fadeIn": 0.18,
@@ -48,5 +48,7 @@
  "titleScrimH": 310,
  "dropTop": 310,
  "dropNote": "STANDING RULE (Dan, 2026-08-28): the title must never sit on his face or his abs. 'move me down or if not possible move title to bottom of captions.' On a full-bleed 9:16 crop there is no vertical slack - his head starts at source row 35, i.e. y62 in the delivered frame, and a 2-line Impact headline runs to y300 - so the picture is DROPPED to start at y=310 and the J2 field carries the title above it. Measured: his head then starts at y362, clear by 62px. Costs 16% of picture height and BUYS sharpness - the source crop widens from 608 to 724, so the upscale falls from 1.78x to 1.49x. Cards are unaffected: their stage top is y170 and the title only ever overlaps the sky at the top of a card.",
- "titleScrimNote": "The scrim ends exactly where the dropped picture starts, so it can never reach the picture. It still earns its place on CARD shots, whose stage top is y170 - there the title crosses the top of the card, which is sky."
+ "titleScrimNote": "The scrim ends exactly where the dropped picture starts, so it can never reach the picture. It still earns its place on CARD shots, whose stage top is y170 - there the title crosses the top of the card, which is sky.",
+ "titlePersists": true,
+ "titleNote": "STANDING RULE (Dan, 2026-08-28): the title stays on screen for the WHOLE short, on the black field only, never over the picture - vertical or horizontal source, every short. His reason is composition, not branding: a horizontal frame leaves too much empty black, and a title that fades at 3.2s leaves the top band dead for the rest of the video. So the title holds and the picture moves down to make room. This replaces the old 'a title must not sit on screen for the whole video' rule from V4, which was written when the title sat on his FACE."
 }

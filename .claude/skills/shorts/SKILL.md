@@ -258,6 +258,40 @@ edit) and re-run `node render.js <SEG>`. ~1–3 min per short. Assert against th
 file afterwards: **identical frame count, duration, resolution, fps and audio MD5** — the
 crop is the only thing that may differ.
 
+### ⚠ STANDING RULES: contain the body, never slice a graphic (2026-08-28)
+
+Dan, after rev 3: *"make sure I'm not going off screen when I do the ab wheel rollout. Center
+me... do a more thorough double-check for graphics that are cropped out or which don't make any
+sense in the video (where you only see part of the graphic or you're not seeing anything
+meaningful)."* Both are now measured before a frame is encoded — `work/shotgeom.py` measures,
+`work/framecheck.py` asserts.
+
+**1. Measure the subject's SILHOUETTE UNION over the whole shot, not the torso centre.** The
+torso anchor answers "is he centred"; it says nothing about whether his hands are still in
+shot. On the ab-wheel cut the two answers are wildly different: his torso barely moves, but
+**during a rollout his silhouette spans 0.03 → 0.97 of the 16:9 width** — hands and wheel at
+one edge, shoes at the other. A crop set from eyeballed extremes ([0.29, 0.94]) looked right on
+a contact sheet and cut his hands off on every single rep.
+
+**2. On a source like this there is no crop that is both tighter than the frame and safe.**
+When the subject spans ~94% of the width and the burned graphics span 90–96%, **the full frame
+IS the correct card.** Do not treat that as giving up — it is the only window that keeps the
+whole body in shot and every graphic whole, and it makes the card size identical across the
+batch. Reach for a tighter `cardCrop` only for a genuine inset (a TV, a graphic-in-graphic),
+and verify that inset is contained whole.
+
+**3. A graphic must be entirely IN or entirely OUT — never straddling the window edge.** The
+failure looks like a stray white sliver at the frame edge and reads as a rendering fault. Dan
+caught two (0:10 and 0:19 of one short): Muhammad's muscle-name pills sit on a translucent
+olive panel that extends ~70px past the pills themselves, and a `minX0` set from the pills
+alone sliced the panel. **Measure the union across the shot — these graphics typewrite in, so
+one frame under-reports the width — and pad for whatever sits behind them.**
+
+⚠ **Split the graphic scan by REGION.** A bright sky fills the top band exactly the way a white
+pill does. A whole-frame union then merges a real bottom lower-third with a spurious top hit
+and reports one box spanning the entire height, which fails every containment test. Scan
+`rows < 0.32` and `rows > 0.58` separately and require text-coloured ink inside the same rows.
+
 ## Step 6 — does the subject leave room for graphics? MEASURE IT
 
 **This is the decision that produced the band layout, and it is the one Dan cared about.**
@@ -281,10 +315,17 @@ Two things that make the band the better default when the subject fills the fram
 
 ## Step 7 — overlay rules
 
-- **A title must not sit on screen for the whole video.** V4 short1 shipped with the title
-  up for all 61 seconds and chips accumulating into a permanent stack over Dan's face —
-  that was the complaint that triggered the rebuild. Either fade it (~3.2s) or move it
-  into a band, where it costs nothing and can persist small.
+⚠ **STANDING RULE (Dan, 2026-08-28): THE TITLE STAYS ON SCREEN FOR THE WHOLE SHORT — every
+short, vertical source or horizontal.** *"For all videos, vertical or horizontal, that we make
+in the shorts, let's always keep the title on screen the entire time. Put it on the black space
+and move the video frame down as necessary to accommodate that."* His reason is composition:
+a 16:9 clip in a 9:16 frame leaves a lot of black, and a title that fades leaves the top band
+dead for the rest of the video.
+
+**This SUPERSEDES the old V4 rule** ("a title must not sit on screen for the whole video").
+That rule was written when the title sat **on Dan's face** and chips stacked over him — the
+fault was the position, not the duration. Read the two together: **the title holds, and the
+picture moves down so the title never touches it.**
 - **One chip at a time, not an accumulating stack.** Add a "MUSCLE n OF 4" style counter —
   it paces with the voice and opens a small loop that holds people to the end.
 - **Sync chips to the audio, but not slavishly.** When two items are named ~1s apart,
@@ -306,9 +347,9 @@ Two things this buys that are not obvious:
   3.2s on. Split the assets: `title-<ID>.png` (scrim + headline, fades) and `header-<ID>.png`
   (eyebrow, holds).
 
-**Cards do not need the drop** - their stage top is y170 and the title only ever crosses the sky
-at the top of the card. Do not move the card stage to match, or a batch with an already-approved
-short in it becomes inconsistent with itself.
+**Cards need it too.** The first pass exempted them on the grounds that a title only crosses
+the sky at the top of a card; Dan came back and asked for the title on black *only*, never over
+the picture. **One line: everything - card or full-bleed - starts at `dropTop`.**
 
 **Assert it on the DELIVERED file, not on the plan** - `work/titleclear.py` takes the title's
 solid-glyph bbox and the Vision person mask's top 55% (head through navel) and fails if the two

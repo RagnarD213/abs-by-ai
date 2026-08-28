@@ -21,6 +21,17 @@ pixels off centre on the delivered canvas, and `propose.py` renders shipped-vs-p
 frames across each shot. **Look at that sheet before adopting anything** - it over-fires on any
 shot where the subject travels.
 
+`work/shotgeom.py` measures, per shot, the subject's SILHOUETTE UNION and the bounding box of
+Muhammad's burned graphics (scanned by region - a bright sky reads exactly like a white pill in
+a whole-frame scan). `work/framecheck.py` then asserts the two standing rules against the plan
+BEFORE anything is encoded: the subject is contained, and no graphic straddles the window edge.
+`work/verifyspan.py` draws a measured extreme back onto the frame it came from, because a
+min/max over a Vision mask is only as good as the mask.
+
+`work/titleclear.py` asserts the title rule on the delivered file: nothing but the J2 field and
+the title may exist above `dropTop`, checked against the intended composite (measuring "is
+anything there" fails immediately - the title is there by design).
+
 `work/boundcheck.py` re-checks every shot boundary against a full-frame-rate frame-difference
 peak. Run it every build: a boundary landing early gives the WRONG SHOT's content the previous
 shot's treatment, and it presents as a framing bug, not a timing one.

@@ -12,7 +12,10 @@ from PIL import Image
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 L = json.load(open(os.path.join(HERE, 'layout.json')))
-T = L['titleSeconds']
+# The title now HOLDS for the whole short, so the check runs across the whole duration
+# rather than a 3.2s window - and it also asserts the picture never reaches above dropTop,
+# which is the structural guarantee behind the rule.
+DROP = L['dropTop']
 segs = json.loads(subprocess.check_output(
     ['node', '-e', "const {SEGMENTS}=require('./segments.js');console.log(JSON.stringify(SEGMENTS.map(s=>[s.id,s.slug])))"],
     cwd=HERE, stderr=subprocess.DEVNULL).decode())
@@ -25,14 +28,30 @@ for sid, slug in segs:
     ink = a > 200                       # solid glyph pixels only
     ys, xs = np.nonzero(ink)
     tx0, tx1, ty0, ty1 = xs.min(), xs.max(), ys.min(), ys.max()
-    worst = None
-    for i in range(6):
-        t = 0.25 + i * (T - 0.5) / 5
+    dur = float(subprocess.check_output(
+        [FF.replace('ffmpeg', 'ffprobe'), '-v', 'error', '-show_entries', 'format=duration',
+         '-of', 'csv=p=0', src]).decode().strip())
+    worst = None; ref = None
+    for i in range(10):
+        t = 0.25 + i * (dur - 0.6) / 9
         f = f'{tmp}/{sid}_{i}.png'
         subprocess.run([FF, '-nostdin', '-v', 'error', '-y', '-ss', f'{t:.2f}', '-i', src,
                         '-frames:v', '1', f], check=True)
         subprocess.run([os.path.join(HERE, 'recentre', 'personmask'), tmp, f],
                        check=True, capture_output=True)
+        # Structural check: above dropTop the frame must be EXACTLY the J2 field plus the
+        # title. Measuring "is anything there" fails immediately - the title is there by
+        # design - so compare against the intended composite and look for picture leaking in.
+        im = cv2.imread(f)
+        if ref is None:
+            bg = Image.open(os.path.join(HERE, 'assets', 'j2-bg.png')).convert('RGBA')
+            ttl = Image.open(os.path.join(HERE, 'assets', f'title-{sid}.png')).convert('RGBA')
+            comp = Image.alpha_composite(bg, ttl).convert('RGB')
+            ref = cv2.cvtColor(np.array(comp), cv2.COLOR_RGB2BGR)[:DROP - 6].astype(int)
+        d = np.abs(im[:DROP - 6].astype(int) - ref).mean()
+        if d > 3.0:
+            print(f'  {sid}: PICTURE LEAKS ABOVE dropTop at {t:.2f}s (mean diff {d:.1f})')
+            bad += 1
         m = cv2.imread(f'{tmp}/{sid}_{i}.mask.png', cv2.IMREAD_GRAYSCALE)
         if m is None: continue
         mm = m > 127
@@ -49,7 +68,7 @@ for sid, slug in segs:
         if worst is None or area > worst[0]:
             worst = (area, t, (fx0, fx1, y0, int(band)))
     if worst is None:
-        print(f'  {sid}: no subject in the title window (card opener) - rule N/A'); continue
+        print(f'  {sid}: no person detected in any sample - picture-position check only'); continue
     area, t, (fx0, fx1, y0, band) = worst
     ok = area == 0
     if not ok: bad += 1

@@ -226,23 +226,19 @@ function renderSegment(seg) {
   const outDir = path.join(__dirname, 'out');
   fs.mkdirSync(outDir, { recursive: true });
   const final = path.join(outDir, `${seg.id.toLowerCase()}_${seg.slug}.mp4`);
-  const T = L.titleSeconds;
   const segDur = shots.reduce((a, s) => a + s.dur, 0);
   ff([
     '-i', raw,
     '-loop', '1', '-framerate', FPS, '-i', path.join(A, 'wordmark.png'),
     '-loop', '1', '-framerate', FPS, '-i', path.join(A, `title-${seg.id}.png`),
     '-i', audio,
-    '-loop', '1', '-framerate', FPS, '-i', path.join(A, `header-${seg.id}.png`),
     '-filter_complex',
     // shortest=1 on both overlays is load-bearing: the wordmark and title are `-loop 1`
     // stills, i.e. INFINITE streams. Without it ffmpeg never reaches EOF and encodes forever.
-    `[2:v]format=rgba,fade=t=out:st=${(T - 0.35).toFixed(2)}:d=0.35:alpha=1[ttl];` +
+    // The title HOLDS for the whole short - no fade. It lives on the black field above the
+    // picture, so it costs the picture nothing and it stops the top band reading as dead space.
     `[0:v][1:v]overlay=${L.wordmark.x}:${L.wordmark.y}:shortest=1[w];` +
-    // The eyebrow persists for the whole short. With the picture dropped, the top band would
-    // otherwise sit empty from 3.2s on.
-    `[w][4:v]overlay=0:0:shortest=1[wh];` +
-    `[wh][ttl]overlay=0:0:shortest=1:enable='lt(t,${T})'[o];` +
+    `[w][2:v]overlay=0:0:shortest=1[o];` +
     `[o]subtitles='${esc(assPath)}':fontsdir='${esc(FONTS)}'[v]`,
     '-map', '[v]', '-map', '3:a', '-t', String(segDur.toFixed(2)),
     ...VENC, '-movflags', '+faststart', final,

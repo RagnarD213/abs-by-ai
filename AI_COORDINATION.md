@@ -728,7 +728,57 @@ which is identical by design — sample across the runtime or the check false-fa
 
 ---
 
-### AB-WHEEL SHORTS **REV 3 DELIVERED — 5 shorts, two new STANDING RULES** (2026-08-28, Claude Code)
+### AB-WHEEL SHORTS **REV 4 DELIVERED — title holds, body contained, graphics whole** (2026-08-28, Claude Code)
+
+Dan's rev-3 notes applied to all five. **$0.00 AI spend, no production code, no deploy, no
+native-retest trigger.** Build dir `/Volumes/Extreme/_edit_work/abwheel/shorts-r2/`.
+
+⚠ **NEW STANDING RULE — THE TITLE STAYS ON SCREEN FOR THE WHOLE SHORT, ON BLACK ONLY.** Dan:
+*"For all videos, vertical or horizontal, that we make in the shorts, let's always keep the title
+on screen the entire time. Put it on the black space and move the video frame down as necessary."*
+His reason is composition — a 16:9 clip in a 9:16 frame leaves a lot of black, and a title that
+fades leaves the top band dead. **This SUPERSEDES the V4 rule "a title must not sit on screen for
+the whole video"** — that one was written when the title sat on his FACE; the fault was position,
+not duration. Cards now start at `dropTop` too (rev 3 had exempted them).
+
+⚠ **MEASURING THE SUBJECT PROPERLY OVERTURNED EVERY DEMO CROP.** Dan: *"I go off the side... center
+this clip so my entire body is visible."* Apple Vision silhouettes over every frame of every shot
+say that **during a rollout he spans 0.03 → 0.97 of the 16:9 width** — hands and wheel at one edge,
+shoes at the other. The rev-2/3 demo crop `[0.29, 0.94]` was set from eyeballed extremes, passed a
+contact-sheet review, and **cut his hands off on every single rep.** The torso anchor could never
+have caught this: it answers "is he centred", not "is he still in shot".
+
+⚠ **ON THIS SOURCE THERE IS NO CROP THAT IS BOTH TIGHTER THAN THE FRAME AND SAFE.** Subject spans
+~94% of the width; his burned graphics span 90–96%. **Every backyard card is now the FULL FRAME.**
+That is not giving up — it is the only window that keeps the whole body in shot AND every graphic
+whole, and it makes the card size identical across the batch. Insets (the TV, the extern clip) are
+the exception and each is verified to contain its own content whole.
+
+⚠ **THE 0:10 / 0:19 ARTEFACT IN SHORT 5 WAS A SLICED GRAPHIC.** Muhammad's muscle-name pills sit on
+a translucent olive panel that extends ~70 px past the pills, and `minX0` had been set from the
+pills alone — so the panel's right edge showed as a white sliver at our frame edge. Those three
+shots are now full-frame. **New rule: a graphic is entirely IN or entirely OUT, never straddling.**
+⚠ And **scan for graphics BY REGION** — a bright sky fills the top band exactly like a white pill,
+so a whole-frame union merges a real bottom lower-third with a spurious top hit and reports one box
+spanning the entire height.
+
+**New gates, all run on this build:** `work/shotgeom.py` (subject union + graphic boxes per shot),
+`work/framecheck.py` (asserts containment and no slicing BEFORE encoding — PASS on all 38 shots),
+`work/verifyspan.py` (draws a measured extreme back on its own frame — a mask min/max is only as
+good as the mask), and `work/titleclear.py` rewritten to run across the whole runtime and compare
+the band above `dropTop` against the intended J2+title composite — **PASS on all five**.
+QC 12/12, stage scan CLEAN, boundaries all within 0.10 s.
+
+**Known and deliberate:** the kneeling beats still measure 150–300 px right of centre. That is
+Muhammad's own framing inside his own 16:9 frame, and centring it would mean cropping — which is
+exactly what was clipping Dan's hands on the rollouts in the same shots. Rule: **contain first,
+centre second.**
+
+**EXACT NEXT ACTION — DAN: watch the five rev-4 review copies** (sent in chat).
+
+---
+
+### SUPERSEDED by rev 4 above — rev 3 record (2026-08-28, Claude Code)
 
 Dan's rev-2 notes applied. **$0.00 AI spend, no production code, no deploy, no native-retest
 trigger.** All five re-rendered (short 2 too — see below). **Build dir is now on the Extreme SSD:
