@@ -307,6 +307,124 @@ on YouTube is still live and Dan has not watched the review copy.
 YouTube.** Nothing is blocked.
 
 
+### STUDIO SHOOT — **NEXT 10 PICKED AND RETOUCHED, DELIVERED** (2026-08-28, Claude Code)
+
+Dan asked for the next 10 best frames from the 8/27 Snappr studio shoot, edited the same way as the
+first 10. **AI spend $2.64** (11 4K Nano Banana Pro takes: 10 finals + 1 re-roll). **No production
+code, no deploy, no native-retest trigger.** Finals + IG 4:5 crops in
+`photos/finalized social media photos/` as `studio-<bg>-<n>_FINAL_PRIMARY*.jpg`:
+**blue 89/109/145/171/192/222/241, gray 4/55, white 23.** Working files in this session's
+scratchpad (`studio2/`).
+
+**The 8/28 standing rule was applied straight through — no bake-off.** Hard-definition ab block +
+mandatory per-channel histogram tone-match back to each original. Because Dan picked the hard pass
+10/10 last time there was no direction left to decide, so every photo went **straight to `--tier
+final`** and the 2K draft tier was skipped entirely. Total cost was about a third of the first
+batch's.
+
+**Selection: 68 candidates pulled from the prior session's contact sheets, cut to 10 on ab
+definition + expression + wardrobe spread.** Deliberately weighted toward wardrobes the first 10
+never used — teal, yellow, olive, heather-gray, white cotton trunks, and jeans-with-glasses — so the
+two batches don't read as the same photo twenty times. No frame duplicates a first-batch setup.
+
+⚠ **THE PRIOR SESSION'S CONTACT SHEETS ARE SAFE TO REUSE BUT THEIR CELL POSITION IS *NOT* THE FRAME
+NUMBER.** The shoot has gaps (Blue-263 and White-87 simply do not exist), so by sheet 6 the position
+index has drifted ~8 frames from the filename number. Reading picks straight off a sheet grid gives
+the wrong photo. Resolve every pick through `thumb-order.txt` (position → filename) instead; that is
+what the `order.txt` step in this session's scratchpad does.
+
+⚠ **ONE PHOTO FAILED QC AND WAS RE-ROLLED: Gray-0055's expression flattened.** The original is a
+warm closed-lip smile; the first pass came back neutral and stern — the exact failure the expression
+lock names, executed anyway. A re-roll whose lock **describes the smile's physical evidence**
+(corners pulled up and back, cheeks pushed up, nasolabial creases, crinkled eye corners) and states
+that a neutral face is a complete failure fixed it on the first attempt. **Naming the muscles beats
+naming the mood.** Garment re-checked against the original afterwards (re-rolls drift clothing at
+this intensity) — THAI BOXING label, gold script and trim all identical.
+
+**QC run on every photo, and it caught things a gate would not:** aligned mean-diff (band 3.7–6.8,
+no recomposition; Blue-0089's 9.1 is its genuinely large body change, verified by eye, not a swapped
+subject) · face + upper-chest crops at overview scale for identity, moles and face-vs-body pallor
+(clean on all 10 after toning) · background corner dE orig-vs-final (worst 12.7 on Blue-0089, 8.0 on
+White-0023, rest 2–5 — all gradient drift, no mottle repaint) · warp before/after crops.
+
+**The white-wall repaint did NOT recur on White-0023** — the explicit "repainting it into gray
+mottling is a FAILURE" clause held, so the composite fix was never needed. **Blue-0109's backdrop
+*did* shift gray in the raw output and the histogram tone-match pulled it back on its own**, which
+is a second reason that pass is not optional.
+
+**Warp applied to 5 of 10** (3368×5056 frames, rx270/ry230): white cotton trunks gray-4 and
+blue-109 at **k=0.27**, heather-gray blue-145 and yellow blue-192 at **k=0.20**, teal blue-222 at
+**k=0.27**. Skipped on the two muay thai frames and the jeans (loose), and on blue-241 and white-23
+where his hands cover the front. ⚠ **Colour-masking the garment to find the centre does not work on
+this set** — it grabbed skin and background and put three of five centres on his hand or navel.
+Coordinates were read off a **grid burned in full-frame coordinates** and set from the waistband and
+the crotch notch (CY ≈ waistband + 0.62 × the drop to the notch).
+
+**IG 4:5 = full width 3368×4210**, y-offset per photo from a measured head top. ⚠ Detecting the head
+by "differs from the corner background" fails on these backdrops (both the blue and the gray carry a
+gradient, so row 0 already trips it) — the working detector is **dark hair in the central 50% of
+columns against a per-image threshold of backdrop-luminance − 42**.
+
+**Dashboard: `money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` DELIBERATELY LEFT UNCHECKED.** ⚠ It does cover this work and it is still unchecked from the first batch — worth knowing, because that batch's own entry says "no task covers this", which was wrong (the shoot folder is `studio shoot | 8-28-26 | dan | mindi`; the task says *Mindy*). Dan approved the first 10 but has not seen these 10, and ad 1 had a check-off reverted for exactly that. **Check it off on his approval.**
+
+**EXACT NEXT ACTION — DAN: look at the 10 before/after strips (sent in chat) and say which are
+approved.** Nothing is blocked. Blue-0089 is the one to look at hardest: it is a relaxed side
+profile in the original and the hard pass changes it more than any other frame in the set.
+
+---
+
+### STUDIO SHOOT — **10 MORE RETOUCHED AND DELIVERED (batch 3 of 3, run alongside a concurrent session)** (2026-08-28, Claude Code)
+
+Second wave of `/photo-edit` on the same 496-frame Snappr shoot. **AI spend $2.40** (10 finals ×
+$0.24, 4K, one pass each — no re-rolls needed). **No production code, no deploy, no native-retest
+trigger.** Delivered to `photos/finalized social media photos/` as
+`studio-<bg>-<n>_FINAL_PRIMARY.jpg` + `-IG-4x5.jpg`: **blue 49/153/202/231/252/291, gray 12/48,
+white 13/42.** The shoot now has **30 finished picks** (10 from 8/28 + 10 concurrent + these 10).
+
+**Picks are provably disjoint from the concurrent session's.** That session locked
+blue 89/109/145/171/192/222/241, gray 4/55, white 23. Two of my intended picks (Blue 88, Blue 194)
+sat in *their* burst and were dropped. ⚠ **The guard that matters is BURST DISTANCE, not frame
+equality** — adjacent frames here are the same pose from the same burst and would have shipped as
+visible duplicates. Enforced ≥8 frames of separation per background against both their picks and
+the already-finalized 10. It over-fires on a real pose change (my Gray 48 arm-extended landscape vs
+their Gray 55 hands-behind-head portrait are 7 apart and look nothing alike) — **checked on the
+frames and kept it**. Spread: 6 blue / 2 gray / 2 white, 8 distinct garments.
+
+⚠ **THE BIG FINDING: THE HARD-DEFINITION PASS DE-AGED HIS FACE ON 10 OF 10 FRAMES, AND NO PROMPT
+LANGUAGE STOPPED IT.** Despite "do not de-age him", "KEEP real skin texture and pores" and a
+critical moles-and-marks block, nano removed his forehead furrows, smile lines and cheek moles and
+slimmed the jaw on every single photo — each face read about ten years younger. **It is invisible
+at full frame and at thumbnail scale and obvious the moment you crop the face**, which is why the
+per-photo face crop is not optional. Fixed per the skill's §4b (do NOT re-roll — that re-rolls
+identity again): head offsets measured by edge cross-correlation (0–16 px, r 0.44–0.69), then the
+ORIGINAL face alpha-blended back over the retouched body in a feathered ellipse with per-channel
+in-mask tone gains (1.01–1.08, inside the [0.85,1.18] clip). Hard body kept, real face restored,
+no seam. **This is now a routine step of the studio recipe, not an exception** (skill lesson 7).
+
+**Also recorded (skill lessons 8–10):** an attempt to re-add the face de-shine algorithmically
+after the composite **failed and was discarded** — a luminance-percentile highlight roll-off put
+gray blotches on the cheek, darkened the teeth and spilled onto the background; his own mild shine
+reads as real skin and is the right thing to ship. And **a new BACKGROUND LOCK paragraph prevented
+the documented white-wall repaint entirely** — wall sd moved 17.59→17.44 and 17.69→18.39 on the two
+white frames, so the MinFilter/GaussianBlur wall-composite fix was never needed; keep the clause in
+by default.
+
+**Verified on the delivered files:** aspect preserved on all 10 (no recomposition; mean diff
+4.4–8.9, normal band); histogram tone-match pulled tan drift from 5.0–13.2 down to 1.7–2.9 on
+seven and 4.7–6.7 on three; garment, background, framing and expression checked against the
+original on every photo; 4 warps applied and confirmed visible (black square-cut, yellow, white
+cotton k=0.27, green retro), **6 correctly skipped** — Blue 153's crotch is out of frame and Blue
+231 is a 3/4 turn showing hip not front, plus the loose olive/Muay Thai/jeans frames. IG 4:5 crops
+verified head-intact on all 10. `photos/` gitignore protection re-confirmed (**public repo**).
+
+**EXACT NEXT ACTION — DAN: look at the before/after sheets (sent in chat) and say which to keep.**
+Nothing is blocked. Working files: this session's scratchpad `studio3/`.
+
+**Dashboard: nothing checked off** — searched; no task covers this batch, and Dan has not reviewed
+the edits.
+
+---
+
 ### STUDIO SHOOT (8/27, Snappr, 496 frames) — 10 BEST PICKED AND RETOUCHED, DELIVERED (2026-08-28, Claude Code)
 
 Interactive /photo-edit session with Dan; backgrounds retained per his instruction (background-swap
