@@ -99,34 +99,42 @@ Overnight the shim captured **11,627 invocations / 34.5 h of ffmpeg over 12.4 h 
 
 - **74 % of all calls are sub-second — and together they are 2.0 % of the time.**
 - **The top 10 calls are 50 % of all ffmpeg time.**
-- The single longest call was **5 h 20 m**: one longform `picture_final.mp4`
-  (preset medium, CRF 18), under contention.
+- The single longest call was **5 h 20 m**: one longform `picture_final.mp4`.
+
+⚠ **THAT 5-HOUR CALL WAS A BUG, NOT A WORKLOAD — corrected after reading the concurrent
+session's notes.** An unbounded `-loop 1 -i wm.png` with no `-t` collapses the whole filter
+graph; bounded, the identical pass takes **17 minutes**. A second trap (a deep chain of
+`setpts`-shifted alpha overlays) ran at 0.08x realtime against 1.12x flattened. Both are
+fixed and now recorded in `/longform-edit`. **Do not read the multi-hour encodes in the
+overnight log as the cost of longform rendering** — they are the cost of two defects.
 
 **Clean encode rates measured on this machine:**
 
 | pass | rate |
 |---|---|
-| heavily-filtered picture pass (1080-class, preset medium) | **0.95× realtime** |
-| master mux (overlay + AAC, preset medium) | 2.04× realtime |
-| 540p review copy (preset veryfast) | 16.6× realtime |
+| heavily-filtered picture pass (1080-class, preset medium) | **0.95x realtime** |
+| master mux (overlay + AAC, preset medium) | 2.04x realtime |
+| 540p review copy (preset veryfast) | 16.6x realtime |
 
-So **a longform's picture pass costs about one minute per minute of finished video,
-and a longform build runs more than one such pass.** A 53-minute video is hours of
-rendering; the 3:52 ad is 19 minutes. That is the answer to "4 minutes or 45?" — it
-depends entirely on which kind of video, and the gap is an order of magnitude.
+**These two independent measurements agree.** My 0.95x realtime and the other session's
+"17 minutes for a 19-minute programme" (~0.9x) are the same number reached different ways.
+So the real rule is simple: **a picture pass costs about one second per second of finished
+video.** The 3:52 ad renders in ~4 min per pass; a 19-minute longform in ~17 min per pass.
+A longform build runs several passes plus transcription, so it lands around **45-70 min** --
+substantial, but under an hour, not the "hours" the raw log suggested.
 
 ---
 
 ## 7. VERDICT — minutes saved per build
 
-| | ad build (19.1 min) | longform build (hours) | worth doing? |
+| | ad build (19.1 min) | longform build (~45–70 min) | worth doing? |
 |---|---|---|---|
 | **1. `mlx-whisper` swap** | **~30 s** | **~3–5 min** | **No, not for speed.** |
 | **2. VideoToolbox on disposable outputs** | **~10 s** | ~1–2 min | **No. Definitively.** |
 | **3. Parallelise the PIL passes** | **~2.7 min** (ceiling) | ~5–10 min | **Marginal.** |
-| **4. Mac upgrade — M4 Pro mini (≈2×)** | **~8.5 min** | **~1–1.5 h** | **Only if longform volume is high.** |
-| **4b. Mac upgrade — M4 Max Studio (≈2.4×)** | ~9.6 min | ~1.5–2 h | Same, marginally better. |
-| **5. Stop running 4 builds at once** | **~40–70 min** | **hours** | **Yes. Free. Do this first.** |
+| **4. Mac upgrade — M4 Pro mini (≈2×)** | **~8.5 min** | **~20–30 min** | **Probably not.** |
+| **4b. Mac upgrade — M4 Max Studio (≈2.4×)** | ~9.6 min | ~25–35 min | Same, marginally better. |
+| **5. Stop running 4 builds at once** | **~40–70 min** | **~1–2 h** | **Yes. Free. Do this first.** |
 
 ### Reading of each
 
@@ -147,12 +155,12 @@ it is worth more because there are far more graphics plates. Against this pipeli
 documented history of ordering bugs, I would not spend the risk on an ad build; it is
 arguable for longform.
 
-**4. The Mac — genuinely 2×, but on a 19-minute job.** M4 Pro saves ~8.5 min per ad
-build. If Dan builds two or three ads a week, that is roughly 25 minutes a week for
-$1,400–2,000. **That does not pay.** The calculation inverts on longform: one
-`picture_final` pass alone runs over an hour, and 2× saves real time there.
-**Decision rule: buy the Mac if longform rendering is a weekly bottleneck; do not buy
-it for ad builds.**
+**4. The Mac — genuinely 2×, but on jobs measured in minutes.** M4 Pro saves ~8.5 min
+per ad build and ~20–30 min on a longform build. At two or three builds a week that is
+well under an hour a week for $1,400–2,000. **That does not pay.** An earlier draft of
+this argued the opposite on the strength of multi-hour encodes in the log — those turned
+out to be the `-loop 1` bug, and fixing one defect bought back far more than doubling the
+CPU would have. **Do not buy the Mac on these numbers.**
 
 **5. Scheduling — the biggest lever, and it costs nothing.** Four concurrent sessions
 made one stage 9.3× slower for no throughput gain. **Cap concurrent builds at two.**
