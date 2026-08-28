@@ -446,9 +446,38 @@ columns against a per-image threshold of backdrop-luminance − 42**.
 
 **Dashboard: `money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` DELIBERATELY LEFT UNCHECKED.** ⚠ It does cover this work and it is still unchecked from the first batch — worth knowing, because that batch's own entry says "no task covers this", which was wrong (the shoot folder is `studio shoot | 8-28-26 | dan | mindi`; the task says *Mindy*). Dan approved the first 10 but has not seen these 10, and ad 1 had a check-off reverted for exactly that. **Check it off on his approval.**
 
-**EXACT NEXT ACTION — DAN: look at the 10 before/after strips (sent in chat) and say which are
-approved.** Nothing is blocked. Blue-0089 is the one to look at hardest: it is a relaxed side
-profile in the original and the hard pass changes it more than any other frame in the set.
+**REV 1 (same session): Dan approved the bodies — "you got the look of the body and the abs dialed
+in" — and asked for EYES on four frames.** `Blue-0145`, `Blue-0109`, `Gray-0004`, `Blue-0222` fixed
+and redelivered over the same filenames; the other six are **byte-identical, verified by md5**.
+**$0.00 — no AI call, all local.**
+
+⚠ **THE RETOUCH DOES NOT SHRINK THE EYE, IT CLOSES THE APERTURE** — it paints the upper lid down and
+takes the iris and sclera with it. **So a magnify alone is useless**, which is not obvious and cost a
+false start: `eye-warp.py` at gains to 1.08/1.26 just produced a bigger closed eye on `Blue-0145`.
+⚠ **AND VISION'S LANDMARK HEIGHT HIDES IT** — it fits the eye *contour*, which survives, so it read
+only a 3–5% loss on frames whose visible opening had collapsed to a slit. **Use the landmarks for
+coordinates, never for the verdict; judge on a zoomed crop.**
+
+**Fix: `scripts/eye-restore.py` (new, committed) — composite Dan's ORIGINAL eye back inside a
+feathered ellipse, tone-match it on the mask's outer ring, then magnify 1.07 wide / 1.22 tall.**
+§4b's composite-the-original-back trick scoped to one feature, so his real eyes are kept and no fresh
+generation re-rolls the identity. ⚠ **The face shifts between original and retouch — 13–15px on
+`Gray-0004`** — so both eye centres are measured with a purpose-built `VNDetectFaceLandmarksRequest`
+Swift CLI and the patch is offset by the delta; a blind composite would ghost. Result measures
+**+6 to +21% on landmark eye height vs the ORIGINAL**, which is the "a little larger, especially
+taller" Dan asked for. Changes are provably confined: ~40k pixels in a ~500×260 box per face and
+nothing else in the frame.
+
+⚠ **BLUE-222 IS AN INTERPRETATION AND DAN SHOULD CONFIRM IT.** His instruction there was a
+part-sentence — *"let's modify the skill and make this a standing rule. If I'm giving a big smile,
+let's see how this turns out first… Don't make it a standing rule yet."* Read as: **apply the same
+eye treatment to the big-smile frame, and do NOT codify it.** That is what was done — the technique
+is documented in `/photo-edit` and explicitly flagged **NOT yet a standing rule**. One word from Dan
+either way.
+
+**EXACT NEXT ACTION — DAN: check the four eye strips (sent in chat), and confirm the blue-222
+reading.** Nothing is blocked. Blue-0089 is still the one to look at hardest on the body: it is a
+relaxed side profile in the original and the hard pass changes it more than any other frame.
 
 ---
 
