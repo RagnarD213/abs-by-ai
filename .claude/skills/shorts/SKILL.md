@@ -19,6 +19,9 @@ and the V4 short1 rebuild (2026-08-10) that produced the band layout.
 **Working pipelines are preserved in `reference/`.** Copy one and adapt, do NOT rewrite
 from scratch. `reference/full-bleed/` is the V2 pipeline (talking head cropped full-bleed,
 graphics as cards). `reference/band/` is the V4 short1 rebuild (dedicated graphics band).
+`reference/scored-source/` is the ab-wheel batch (somebody else's finished, scored 16:9 cut).
+**`reference/clean-master/` is the supplements batch — our own long-form, cut from its
+`CUT_*_NO-GRAPHICS.mp4`. Start there for any of the remaining 8/3-shoot long-forms.**
 Paths inside them are relative to `YouTube Long Form Video Content/<slug>/` — fix those first.
 
 > **Why the scripts live in the skill folder:** `YouTube Long Form Video Content/` and
@@ -56,7 +59,7 @@ list the long-form masters, list `Short-form video content/*.mp4`, and diff the 
 | Video | Runtime | Note |
 |---|---|---|
 | 02 My Honest Zepbound Update | 30:28 | biggest raw yield; organic Shorts CAN name the drug |
-| 03 The Supplements I Actually Take | 23:29 | **start here** — same discrete-item shape as V3, which yielded 11 |
+| ~~03 The Supplements I Actually Take~~ | ~~23:29~~ | **MINED 2026-08-28 — 8 shorts, `supp-short1..8_*`** |
 | 01 My First Spray Tan | 19:54 | narrower topic |
 | 04 Why You Should Invest More In Your Health | 53:17 | longest; still on the old v3 master |
 | 05 Meal Prep Macro Tracking (app demo) | 4:49 | too short and too UI-heavy to mine like the others, but it is the app-demo asset the IG growth plan called the only thing no competitor can copy |
@@ -74,6 +77,49 @@ into a `card` — shorts that are mostly not-Dan. Each of those folders keeps a
 inserts. On 03 the two measure **within 0.03 s**, so the SRT and every timecode transfer directly.
 **Prove the alignment with matched frame grabs before relying on it**, and never use a
 `*_PRE_AUDIOFIX.mp4` — that is the comb-filtered two-mic voice.
+
+## ⚠ Step 0.9 — TWO DEFECTS THAT SHIPPED PAST EVERY GATE (2026-08-28)
+
+Both were found on the supplements batch by **reading the finished captions and transcribing
+the finished file** — not by any metric. Both affect earlier batches too.
+
+### The source may have TWO TIMELINES, and the captions will be late
+
+A master assembled by concatenation can hold more audio samples than its container declares,
+spread through the file. The supplements master (62 ranges) held **0.76 s more**. Whisper word
+timestamps and every silence measurement live on the DECODED-SAMPLE timeline; `-ss` — and so
+every cut and the whole picture — lives on the CONTAINER timeline. They agree at t=0 and drift
+about **0.5 ms per second**, reaching 669 ms.
+
+That build shipped **captions 280–650 ms late** and **clipped the first word off two shorts**,
+while passing QC 12/12, the splice test, loudness, duration and the centring audit.
+
+**Preflight, every time** (`reference/clean-master/work/preflight.py`): compare decoded sample
+count against container duration. More than ~50 ms apart and the timelines disagree. Fix:
+
+```
+ffmpeg -i SRC -vn -af "aresample=async=1:first_pts=0" -ac 1 -ar 48000 -c:a pcm_s16le out.wav
+```
+
+**Then gate it on the delivered file.** `reference/clean-master/syncgate.py` transcribes each
+finished short and matches every caption's first word to the heard audio; `qc.js` refuses to
+pass a file the gate has not seen. ⚠ It carries a measured **−80 ms** correction because the
+gate's `base.en` and the pipeline's `medium.en` disagree on word onsets by exactly that much
+(n=414, identical across three spans). Without it the gate fails good builds — the fourth time
+in this pipeline's history that a QC metric was wrong rather than the media.
+
+### Zero-duration Whisper words were silently dropped from captions
+
+`segWords`' `>50 % overlap` test computes `0/1e-6 = 0` for a word Whisper times with
+`start == end`. **Nine such words on one roll; it ate a word in five of eight shorts** —
+"creatine is not an **option** for me" burned in as "not an for me". A zero-duration word is
+inside the piece if its START is; give it a nominal 120 ms.
+
+Three smaller caption faults fixed alongside, all in `reference/clean-master/captions.js`:
+mis-hearing corrections must run **per word before chunking** (a two-word fix straddled a
+four-word chunk boundary and the line-level regex never saw it); hyphen-initial tokens need the
+same merge as punctuation ("sub" + "-step" printed as "sub -step"); and the first word of each
+piece needs capitalising, since a piece can start mid-sentence.
 
 ## Step 1 — transcript with WORD timestamps
 
@@ -188,6 +234,15 @@ initial 940 (87%) still included it and looked fine on the sheet until asserted.
 Zoom the WHOLE shot, even a 43s one. A mid-shot pull-out reads as a mistake; the viewer
 never sees the wider framing, so a consistently tighter shot costs nothing.
 
+### If we rendered the source ourselves, take the shots from its EDL
+
+`edl.json` lists every splice, which beats scene detection outright. But the cumulative
+positions are NOT usable raw: `render.py` rounds each range to whole frames and the error
+accumulates monotonically (+1.137 s over 62 ranges on the supplements master — exactly the
+amount by which the EDL undershoots the master's duration). MEASURE each boundary as a
+full-frame-rate frame-difference peak inside a window around its prediction, and assert the
+correction is monotonic. See `reference/clean-master/work/splices.py`.
+
 ## Step 5 — crop offsets: automate, then LOOK
 
 Auto-picking offsets by image energy / centroid / silhouette is a starting point and
@@ -292,6 +347,13 @@ pill does. A whole-frame union then merges a real bottom lower-third with a spur
 and reports one box spanning the entire height, which fails every containment test. Scan
 `rows < 0.32` and `rows > 0.58` separately and require text-coloured ink inside the same rows.
 
+### ⚠ The Vision mask can leave a sliver at the frame edge — mask-top is not head-top
+
+On the supplements roll a faint low-confidence band along the top of frame put three beats'
+"head" at source row 15 against a true ~180 — a 160 px error that would have set the whole
+batch's vertical geometry. Take the largest connected component and require a real run width
+(>=20 px at 640) before calling a row the head. `reference/clean-master/work/vertgeom.py`.
+
 ## Step 6 — does the subject leave room for graphics? MEASURE IT
 
 **This is the decision that produced the band layout, and it is the one Dan cared about.**
@@ -299,6 +361,19 @@ and reports one box spanning the entire height, which fails every containment te
 Before placing any overlay, sample frames across the segment and measure how often each
 candidate region is clear of the subject. On V4 short1 the best of eight candidate slots
 was clear **33% of the time and 0% in its worst frame**. There was nowhere to put anything.
+
+**And measure whether the set dressing is PAYLOAD before paying for it.** The supplements
+handoff called for the band layout on product shorts because Dan stands behind his whole
+supplement stack. Measured with `reference/clean-master/work/stackscan.py` (temporal median of
+a region, then departures from it): the stack moved by **1.07 grey levels over 23 minutes** and
+he never picked anything up in 25 sampled frames. It was wallpaper, and the band would have
+cost 60 % of his height to preserve it. Full-bleed won on measurement.
+
+**Cropping the top off is the RIGHT direction when the subject sits low in frame.** It narrows
+the window (the trap above) but it also makes the subject bigger, and the trade is measurable:
+644x960 -> 1080x1610 is **1.68x**, which beats a full-height 608x1080 crop at 1.78x on size AND
+sharpness. Pick it from the GLOBAL MINIMUM head position across every beat, leaving >=60 px of
+clearance under the title band.
 
 - If regions are reliably clear → full-bleed footage, overlays in the clear region.
   Use `reference/full-bleed/`.
