@@ -200,9 +200,11 @@
       "subscribedAt": "2026-08-28T17:56:18.214Z",
       "deviceId": "dev-1787933851671-rpj4vbby",
       "synced": false,
-      "welcomeStep": 0,
-      "welcomeNextAt": "2026-08-28T17:56:18.215Z",
-      "welcomeSentAt": {},
+      "welcomeStep": 1,
+      "welcomeNextAt": "2026-08-30T18:52:28.368Z",
+      "welcomeSentAt": {
+        "1": "2026-08-28T18:52:28.597Z"
+      },
       "unsubscribed": false
     }
   }
