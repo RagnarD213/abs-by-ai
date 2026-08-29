@@ -33,6 +33,47 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO FINALS — **INVENTED-VEIN SWEEP: all 62 scanned, 11 finals re-fixed and redelivered** (2026-08-28, Claude Code)
+
+Dan spotted unnatural veins on `blue-213`'s lower abs. Root cause verified against the raws: **the
+definition pass INVENTS worm-like/varicose surface veins — every flagged frame is completely smooth
+in the raw.** All 62 studio finals were scanned at zoom against their raw originals (4 parallel
+agents). **AI spend $2.88** (12 nano takes: 11 fixes + 1 re-roll). **No production code, no deploy,
+no native-retest trigger.**
+
+**FIXED AND REDELIVERED over the same filenames (+ IG 4:5 crops rebuilt at each photo's original
+offset): blue-38, 137, 153, 177, 192, 213, 252, white-32, 59, gray-79, 87.** Abs cases: 213, 153,
+177, 192, 252, w32 (worst — full branching web on the obliques), w59. Arm/hand cases: b38 + b137
+(pale oily forearm ridge, the white-113 look), g79 (bumpy hand/wrist worms), g87 (mottled
+wiped-off-tan blotch, same artifact class). Method: targeted nano pass on the CURRENT final →
+verify alignment (band shift-search) → **feathered multi-box composite of only the vein region,
+skin-masked so garment/waistband stay byte-identical** (`veinfix/veincomp2.py` in this session's
+scratchpad) — 0.8–2.8% of frame changed per photo, warps and tone untouched. Pre-fix versions in
+the scratchpad `veinfix/pre_veinfix_backup/`.
+
+⚠ **THREE TRAPS FOR THE NEXT VEIN PASS:** (1) `blue-192`'s first take made the veins MORE prominent
+— a vein-removal ask can read as vein *attention*; the re-roll that worked leads with the named
+failure ("you will be tempted to re-render them more clearly… that is a COMPLETE FAILURE"). (2) An
+over-wide composite box costs texture: w32's first box muted mid-ab gradient energy −17% (plastic
+skin); tight boxes over the actual structures restored it. (3) Two takes came back geometrically
+off (192: dx≈13 + 0.4% vertical scale — beyond a ±8 search window, widen it; 87: dx=5) — register
+with a fitted affine before compositing.
+
+**Flagged but deliberately NOT touched:** white-70 / white-113 stringy oblique strands (both frames
+Dan explicitly finalized after review; also the concurrent warp session's exclusions), blue-11 mild
+wrist veins (natural-scale), blue-33 (diffuse bruise-like mottling between ab rows — NOT veins;
+Dan's call if it bothers him: `scan-a/zoom_33.jpg`). White-113's previously fixed arm HOLDS.
+
+**Concurrent warp-bump session coordination:** its list request was answered (write list + ordering
+protocol) via `veinfix/COORDINATION-FOR-WARP-SESSION.md` in this session's scratchpad — SendMessage
+was unreachable both ways. ⚠ **If that session rebuilds any of the 11 from a pre-warp intermediate,
+the vein fix is DISCARDED** — it must either apply its +0.07 delta to the current final on disk, or
+rebuild and then ask this session to re-apply (renders + box coords are saved per photo).
+
+**EXACT NEXT ACTION — DAN: review the 11 before/after strips (sent in chat).** Nothing is blocked.
+
+---
+
 ### AB-WHEEL SHORTS COVERS — **ALL 10 BUILT AND DELIVERED; Dan picks A or B** (2026-08-28, Claude Code)
 
 `Handoffs/handoff-20260828-abwheel-shorts-covers.md` executed with `/coverimage`. **$0.00 AI spend**
