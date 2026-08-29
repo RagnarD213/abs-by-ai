@@ -162,12 +162,13 @@ const SEGMENTS = [
     id: 'B', slug: 'the-3-supplements-that-matter',
     title: 'The 3 Supplements That Actually Matter',
     pieces: [
-      // ⚠ REV 2, Dan: "there is junk footage in the beginning at 0:01". It is a 0.95s
-      // HESITATION after "So let's say", which Whisper hid inside the word "you're"
-      // (timed 1046.94-1048.82 across measured silence 1047.22-1047.92). Cut it.
-      piece("So let's say", "So let's say", { outAt: 1047.26 }),
-      // outAt: the source splices to the next beat at 1088.46 and the old cut ran 0.26s past
-      // it, inheriting a jump cut in the last quarter second. Ends on the same word.
+      // ⚠ REV 3, Dan: "still has that junk take in the beginning, from 000 to 001". Rev 2 cut
+      // the 0.95s hesitation but KEPT the fragment either side of it, so the short opened on
+      // "So let's say" alone - 1.1s of him mid-gesture with his eyes up, then a cut. The whole
+      // fragment is gone now and the short opens on the line itself, which is also a stronger
+      // hook: a direct statement and a question rather than a hypothetical.
+      // outAt: the source splices to the next beat at 1088.46 and running past it would
+      // inherit a jump cut in the last quarter second.
       piece("you're taking nothing right now",
             "that's a totally fine supplement stack to start with",
             { inAt: 1047.88, outAt: 1088.42 }),

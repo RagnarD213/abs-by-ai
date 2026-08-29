@@ -41,16 +41,17 @@ const { SEGMENTS } = require('./segments.js');
 const SHOTS = {
   // ---- B ----------------------------------------------------------------
   'B-p0-s00': { t: 'talk', x: 0.6871 },
-  'B-p1-s00': { t: 'talk', x: 0.6871, tight: true },
 
   // ---- E ----------------------------------------------------------------
   'E-p0-s00': { t: 'talk', x: 0.6695, src: 'raw' },
   'E-p1-s00': { t: 'talk', x: 0.6848, tight: true },
+  'E-ai-e1': { t: 'ai', aiIn: 1.6 },
   'E-p2-s00': { t: 'talk', x: 0.6848 },
 
   // ---- J ----------------------------------------------------------------
   'J-p0-s00': { t: 'talk', x: 0.6699 },
   'J-p1-s00': { t: 'talk', x: 0.6676, tight: true },
+  'J-ai-j1': { t: 'ai', aiIn: 0.8 },
   'J-p2-s00': { t: 'talk', x: 0.6676 },
   'J-p2-s01': { t: 'talk', x: 0.6676, tight: true },
 
@@ -62,22 +63,29 @@ const SHOTS = {
   // ---- M ----------------------------------------------------------------
   'M-p0-s00': { t: 'talk', x: 0.6816 },
   'M-p0-s01': { t: 'talk', x: 0.6836, tight: true },
+  'M-ai-m1': { t: 'ai', aiIn: 0.8 },
   'M-p1-s00': { t: 'talk', x: 0.6836 },
 
   // ---- C ----------------------------------------------------------------
   'C-p0-s00': { t: 'talk', x: 0.6730 },
+  'C-ai-c1': { t: 'ai', aiIn: 0.8 },
   'C-p1-s00': { t: 'talk', x: 0.6730, tight: true },
+  'C-ai-c2': { t: 'ai', aiIn: 0.6 },
   'C-p2-s00': { t: 'talk', x: 0.6852 },
 
   // ---- H ----------------------------------------------------------------
   'H-p0-s00': { t: 'talk', x: 0.6715 },
+  'H-ai-h1': { t: 'ai', aiIn: 4.6 },
   'H-p1-s00': { t: 'talk', x: 0.6855, tight: true },
+  'H-ai-h2': { t: 'ai', aiIn: 2.2 },
   'H-p2-s00': { t: 'talk', x: 0.6855 },
 
   // ---- D ----------------------------------------------------------------
   'D-p0-s00': { t: 'talk', x: 0.6871 },
+  'D-ai-d1': { t: 'ai', aiIn: 1.8 },
   'D-p1-s00': { t: 'talk', x: 0.6871, tight: true },
   'D-p1-s01': { t: 'talk', x: 0.6969 },
+  'D-ai-d2': { t: 'ai', aiIn: 0.2 },
   'D-p2-s00': { t: 'talk', x: 0.6969, tight: true },
 };
 
@@ -101,6 +109,9 @@ const META = {
 
 function loadShots() {
   const man = JSON.parse(fs.readFileSync(path.join(__dirname, 'shots', 'manifest.json'), 'utf8'));
+  // An AI cover clip is self-describing - it has no measured torso centre because it is not
+  // Dan, and no punch because it IS the framing change.
+  for (const m of man) if (m.src === 'ai' && !SHOTS[m.name]) SHOTS[m.name] = { t: 'ai', aiIn: m.aiIn };
   const missing = man.filter((m) => !SHOTS[m.name]).map((m) => m.name);
   if (missing.length) throw new Error(`unclassified shots: ${missing.join(', ')}`);
   const extra = Object.keys(SHOTS).filter((k) => !man.some((m) => m.name === k));

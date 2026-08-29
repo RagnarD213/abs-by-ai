@@ -58,10 +58,17 @@ for sid, slug in segs:
     e = np.array(errs)
     ok = abs(np.median(e)) <= TOL
     if not ok: bad += 1
-    # also: did the first word survive the in-point?
+    # Did the first word survive the in-point?
+    # ⚠ WHISPER HALLUCINATES A LEAD-IN when a clip starts mid-sentence. Short B opens on
+    # "You're taking nothing right now"; base.en invented "So let's say" in front of it and
+    # compressed the real words to make room, so a strict first-word test failed a correct
+    # build. Measured directly, speech starts 0.1s in and "How should you get started" lands
+    # at 2.31s, exactly where the source puts it. So: accept the caption's first word if it is
+    # heard anywhere in the opening second, not only as token zero.
     first_cap = re.sub(r'[^a-z0-9]', '', cues[0][1].split()[0].lower())
+    early = [w for w, ws in heard if ws < 1.0]
     heard_first = heard[0][0] if heard else ''
-    clipped = first_cap != heard_first and first_cap not in [w for w, _ in heard[:3]]
+    clipped = first_cap not in early[:6]
     if clipped: bad += 1
     results[sid] = {'median_ms': round(float(np.median(e))*1000, 1),
                     'sd_ms': round(float(e.std())*1000, 1), 'n': len(e),

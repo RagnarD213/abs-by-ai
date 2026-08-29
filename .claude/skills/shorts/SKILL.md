@@ -122,6 +122,33 @@ four-word chunk boundary and the line-level regex never saw it); hyphen-initial 
 same merge as punctuation ("sub" + "-step" printed as "sub -step"); and the first word of each
 piece needs capitalising, since a piece can start mid-sentence.
 
+## ⚠ Step 0.8 — CHECK THE SOURCE'S AUDIO CHANNELS YOURSELF
+
+**Jeff's rolls are not stereo: they carry two microphones, and the left one is a room mic
+~7.5 ms late.** Summing them combs the voice, and no gate in this pipeline measures it.
+
+⚠ **A HANDOFF SAYING THE AUDIO IS ALREADY FIXED IS NOT EVIDENCE.** On the supplements batch the
+handoff stated the clean master carried "the fixed single-mic chain"; measured, it had L/R
+correlation **+0.069 at a −7.58 ms lag** — the same signature as the raw camera roll and as the
+file explicitly named `*_PRE_AUDIOFIX`. Only the DELIVERED master had ever been repaired. Two
+full revisions shipped comb-filtered audio and Dan caught it, not the gates.
+
+Run `reference/clean-master/work/chancheck.py` on the source before anything else. If the
+channels differ, take the **RIGHT channel only, as mono** — it is also the best source
+available (SNR 29.8 dB against 26.6 for the summed pair and 19.9 for the repaired master,
+whose treble shelf lifted the lav hiss).
+
+**Then match the voice to Muhammad's cut, which is Dan's reference for good audio.** Measured
+against it our lav was 3.8 dB short of weight, 3.8 dB short of presence, **8.7 dB short of air
+and 12 dB short above 9 kHz** — dull. `reference/clean-master/work/voicechain.py` fits and
+verifies the correction; it takes the shape difference from 4.05 dB RMS to 0.62 and still
+leaves our noise floor cleaner than his.
+
+⚠ **The chain folds to mono, so nothing appended may `pan` again.** A second `pan=mono|c0=c1`
+asks for a channel that no longer exists and ffmpeg renders **silence**, not an error — it
+blanked the first 4.48 s of a delivered short. `qc.js` now scans the master for silent seconds;
+before rev 3 only the review copies were scanned, and that gap let it through.
+
 ## Step 1 — transcript with WORD timestamps
 
 Non-negotiable: captions come only from word timestamps, never estimates. Estimated
@@ -412,6 +439,23 @@ Two things that make the band the better default when the subject fills the fram
 2. **The bottom is the worst real estate in a vertical video** — YouTube Shorts, TikTok
    and Reels all overlay their own UI on the bottom ~15% and the right edge. If Dan asks
    to "move the graphics to the bottom", this is the reason to push back.
+
+## Step 6.5 — cover a join with an AI clip when the cut still shows
+
+Dan, 2026-08-28: *"Cover that awkward cut with an AI-generated clip illustrating what's being
+said in the video at the time."* Veo 3.1 Fast via the Gemini API, native 9:16, ~$1.20 each; the
+working generator is `reference/clean-master/aigen/`. An insert straddles the join, taking part
+of its length off each neighbour, so **runtime is unchanged and the audio underneath never
+moves.** Label each one AI GENERATED.
+
+Four things that cost a regeneration or a re-render:
+* **Anything with a label surface invites invented lettering** — a pill organiser came back
+  reading "MON MON THE 2ND FRI". Ask for objects carrying no text at all.
+* **The casting rule applies to hands-only shots.** State it in the prompt.
+* **Choose the in-point off a frame strip**, not the head of the file: one clip filled with
+  steam after 2 s, another did not reach the payoff (a lit brain) until 5 s.
+* **Bias the crop up (0.30, not centred)** — a 9:16 clip in the shorter picture area loses 310
+  rows, and centred that cuts the subject's hairline.
 
 ## Step 7 — overlay rules
 

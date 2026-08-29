@@ -31,8 +31,9 @@ def profile(x, pct=65):
     f=np.fft.rfftfreq(960,1/48000)
     return np.array([10*np.log10(max(1e-12,S[(f>=a)&(f<b)].mean())) for a,b in BANDS])
 
-nbr = profile(pcm(MASTER, NBR_T, NBR_D, 'anull'))
-ins = profile(pcm(RAW, INS_T, INS_D, 'pan=mono|c0=c1'))
+VOICE = open('work/voicechain.txt').read().strip()
+nbr = profile(pcm(MASTER, NBR_T, NBR_D, VOICE))
+ins = profile(pcm(RAW, INS_T, INS_D, VOICE))
 gain = float(np.mean(nbr - ins))
 g = np.clip((nbr - ins - gain) * 0.9, -9, 9)
 print("band      insert   neighbour    diff")
@@ -40,8 +41,11 @@ for (a,b),i,n_ in zip(BANDS,ins,nbr): print(f" {a:5d}-{b:5d} {i:8.1f} {n_:11.1f}
 print(f"\nbroadband gain {gain:+.1f} dB, per-band correction {np.round(g,1)}")
 eq=','.join(f"equalizer=f={int(round((a*b)**0.5))}:width_type=o:width=1.0:g={gi:.1f}"
             for (a,b),gi in zip(BANDS,g))
-af=f"pan=mono|c0=c1,{eq},volume={gain:.1f}dB"
+# ⚠ NO `pan` HERE. render.js applies the voice chain first, which already folds to mono on the
+# RIGHT channel; a second pan=mono|c0=c1 asks for a channel that no longer exists and ffmpeg
+# renders SILENCE rather than erroring - it blanked the first 4.48s of the short.
+af=f"{eq},volume={gain:.1f}dB"
 open('work/rawfit.txt','w').write(af)
-chk = profile(pcm(RAW, INS_T, INS_D, af))
+chk = profile(pcm(RAW, INS_T, INS_D, f'{VOICE},{af}'))
 d = chk - nbr; d = d - d.mean()
 print(f"predicted seam after correction: {float(np.sqrt((d**2).mean())):.2f} dB")

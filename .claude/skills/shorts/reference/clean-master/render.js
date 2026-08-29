@@ -8,11 +8,30 @@ const { SEGMENTS } = require('./segments.js');
 const { loadShots } = require('./plan.js');
 const { buildAss } = require('./captions.js');
 const { BLEEPS } = require('./bleeps.js');
-// EQ + gain that makes the raw roll's right channel match the master's processed voice.
-// Fitted by work/fitraw.py against a take that exists in BOTH, so it is measured, not guessed.
+// ⚠ THE VOICE CHAIN, rev 3. RIGHT CHANNEL ONLY, AS MONO.
+//
+// The camera records TWO MICROPHONES, not stereo: the left input is a room mic 7.58 ms late,
+// and summing them combs the voice. Rev 1 and rev 2 both took the handoff's word that the
+// clean master's audio "is already correct" - IT IS NOT. Measured, CUT_v1_graded_NO-GRAPHICS
+// has L/R correlation +0.069 at a -7.58 ms lag, the same signature as the raw roll and as the
+// file explicitly named *_PRE_AUDIOFIX. Only FINAL_supplements.mp4 ever got the 2026-08-23
+// repair. So both earlier revisions shipped comb-filtered audio and Dan heard it.
+//
+// The right channel is also the best source available: SNR 29.8 dB against the summed pair's
+// 26.6 and the repaired FINAL master's 19.9 (its treble shelf lifted the lav hiss).
+//
+// The EQ then brings our lav toward Muhammad's voice, which is Dan's reference. Measured
+// against his cut, ours was 3.8 dB short of weight, 3.8 dB short of presence, 8.7 dB short of
+// air and 12 dB short above 9 kHz - dull, which is exactly what "doesn't sound as good as
+// Muhammad's" means. With this chain the octave-band shape difference falls from 4.05 dB RMS
+// to 0.62, sibilance lands within 1.2 dB of his, and our noise floor stays 5.6 dB cleaner.
+// Fitted and verified by work/voicechain.py.
+const VOICE = fs.readFileSync(path.join(__dirname, 'work', 'voicechain.txt'), 'utf8').trim();
+// A small residual correction for the raw-roll insert: same lav and same chain, so this is
+// only the difference between two takes. work/fitraw.py.
 const RAWFIT = fs.existsSync(path.join(__dirname, 'work', 'rawfit.txt'))
   ? fs.readFileSync(path.join(__dirname, 'work', 'rawfit.txt'), 'utf8').trim()
-  : null;
+  : '';
 
 const { FF, SRC, RAW, GRADE, FONTS, FPS, FPS_N } = require('./config.js');
 const A = path.join(__dirname, 'assets');
@@ -36,6 +55,25 @@ const renderShots = (segId) => loadShots().filter((x) => x.seg === segId);
 function shotFilter(s) {
   // ONE TREATMENT, `talk`. The clean master is a single locked kitchen camera with no burned
   // graphics, so there is nothing to preserve whole and nothing to avoid slicing.
+  // An AI cover clip: native 9:16, so it fills the picture area at about 1:1 rather than
+  // being cropped out of 16:9. Carries the AI GENERATED label per the standing rule.
+  if (s.t === 'ai') {
+    const ph = CH - L.dropTop;
+    const f = path.join(__dirname, 'aigen', 'clips', s.file);
+    if (!fs.existsSync(f)) throw new Error(`${s.name}: missing clip ${f}`);
+    return {
+      inputs: ['-loop', '1', '-framerate', FPS, '-i', path.join(A, 'j2-bg.png'),
+               '-loop', '1', '-framerate', FPS, '-i', path.join(A, 'ai-label.png')],
+      source: f, aiIn: s.aiIn ?? 0.6,
+      // ⚠ crop biased UP (0.30 rather than centred). These clips are native 9:16 and the
+      // picture area is shorter than 9:16, so filling the width crops 310 rows of height; taken
+      // centrally that cut the subject's hairline on the two clips that frame a person.
+      fc: `[0:v]setpts=PTS-STARTPTS,scale=${CW}:${ph}:force_original_aspect_ratio=increase,` +
+          `crop=${CW}:${ph}:0:(ih-${ph})*0.30,setsar=1[pic];` +
+          `[1:v][pic]overlay=0:${L.dropTop}:shortest=1[bg];` +
+          `[bg][2:v]overlay=44:${L.dropTop + 34}:shortest=1,setsar=1[v]`,
+      vf: null };
+  }
   if (s.t !== 'talk') throw new Error(`unknown treatment ${s.t} on ${s.name}`);
   const T = L.talk;
   // ⚠ REV 2 - THE PUNCH. Every join in this batch is either a picture cut inherited from the
@@ -87,7 +125,8 @@ function renderSegment(seg) {
     // video. Cutting audio per shot re-splices it across N independent input seeks, which
     // measured 23-34ms of drift per cut on the V4 rebuild - a small content jump at every
     // picture cut. Shot boundaries are picture cuts inside CONTINUOUS audio.
-    const args = ['-ss', String(s.absStart), '-i', f.source, ...f.inputs, '-t', String(s.dur)];
+    const args = ['-ss', String(s.t === 'ai' ? f.aiIn : s.absStart), '-i', f.source,
+                  ...f.inputs, '-t', String(s.dur)];
     if (f.fc) args.push('-filter_complex', f.fc, '-map', '[v]', '-an');
     else args.push('-vf', f.vf, '-map', '0:v', '-an');
     args.push(...VENC, '-movflags', '+faststart', out);
@@ -107,11 +146,8 @@ function renderSegment(seg) {
   const wavs = [];
   seg.pieces.forEach((p, pi) => {
     const w = path.join(dir, `aud-${pi}.wav`);
-    // ⚠ A RAW piece's audio is the camera's TWO-MIC recording, not the master's fixed single-mic
-    // chain. Take the RIGHT channel only (the close lav - the left input on this shoot records
-    // hiss, per the standing finding) and apply the EQ fitted in work/fitraw.py, which was
-    // measured against the SAME take as it exists in the master. Without this the inserted line
-    // sounds like a different microphone.
+    // Master and raw now come off the SAME lav through the SAME chain, so a raw insert needs
+    // only a residual take-to-take correction rather than a whole different treatment.
     const raw = p.src === 'raw';
     const args = ['-ss', String(p.start), '-i', raw ? RAW : SRC,
                   '-t', String((p.end - p.start).toFixed(3)), '-vn'];
@@ -143,6 +179,7 @@ function renderSegment(seg) {
     const fade = `afade=t=in:st=0:d=${fIn},afade=t=out:st=${(pd - fOut).toFixed(3)}:d=${fOut}`;
     if (local.length) {
       if (raw) throw new Error('bleeping a raw-roll piece is not wired up');
+      throw new Error('the rev-3 voice chain is not wired into the bleep branch');
       // the bleep branch already built a filter_complex; append the fades to its [a] output
       const k = args.indexOf('-filter_complex');
       args[k + 1] = args[k + 1].replace('[a]', '[amix]') + `;[amix]${fade}[a]`;
@@ -151,7 +188,9 @@ function renderSegment(seg) {
       // separate -af flags and ffmpeg honours the LAST one, so the raw EQ was silently
       // discarded and the inserted line kept its 1.45 dB tonal seam through three rebuilds.
       // Chain them instead.
-      args.push('-af', raw ? `${RAWFIT},${fade}` : fade);
+      // ⚠ ONE -af ONLY - ffmpeg honours the last, and pushing the correction and the fades
+      // separately silently discarded the correction for three rebuilds.
+      args.push('-af', [VOICE, raw ? RAWFIT : '', fade].filter(Boolean).join(','));
     }
     args.push('-ar', '48000', '-ac', '2', '-c:a', 'pcm_s16le', w);
     ff(args, `${seg.id} audio piece ${pi}${local.length ? ' (bleeped)' : ''}`);

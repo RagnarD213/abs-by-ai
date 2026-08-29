@@ -141,6 +141,30 @@ def header_overlay(seg, meta):
     return p
 
 
+def ai_label():
+    """Small AI GENERATED tag for the generated cover clips.
+
+    Standing rule: AI imagery is labelled. Kept small and low-contrast so it reads as a
+    disclosure rather than a graphic, and placed high-left where neither the title band
+    (above y=310) nor the caption band (from ~y1015) sits.
+    """
+    f = ImageFont.truetype(COPPER, 26)
+    txt = 'AI GENERATED'
+    pad = 18
+    tw = sum(f.getlength(c) + 4 for c in txt)
+    w_, h_ = int(tw + pad * 2), 46
+    im = Image.new('RGBA', (w_, h_), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rectangle([0, 0, w_ - 1, h_ - 1], fill=BG + (170,), outline=OLIVE + (210,), width=2)
+    x = pad
+    for c in txt:
+        d.text((x, h_ // 2 - 14), c, font=f, fill=(255, 255, 255, 205))
+        x += f.getlength(c) + 4
+    p = os.path.join(OUT, 'ai-label.png')
+    im.save(p)
+    return p
+
+
 def chip(shot, label, w, h):
     """Square-cornered olive-bordered mission chip, per the locked type system."""
     f = ImageFont.truetype(COPPER, 30)
@@ -172,6 +196,7 @@ L = json.load(open(os.path.join(HERE, 'layout.json')))
 SCRIM_H = L['titleScrimH']
 print(tactical_bg())
 print(wordmark())
+print(ai_label())
 for seg, meta in META.items():
     check_width(seg, meta)
     print(title_overlay(seg, meta))

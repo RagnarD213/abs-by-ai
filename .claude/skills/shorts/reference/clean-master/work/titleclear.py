@@ -65,6 +65,13 @@ for sid, slug in segs:
         ov_x = min(tx1, fx1) - max(tx0, fx0)
         overlap = ov_y > 0 and ov_x > 0
         area = (ov_y * ov_x) if overlap else 0
+        # ⚠ A MEANINGFUL overlap, not a mask bleed. Vision's mask spills a couple of rows past
+        # the picture's top edge, so a subject who starts exactly at dropTop reads as 1-2 rows
+        # inside the title. On an AI cover clip that produced a 681px2 "BLOCKED" against a
+        # 165,000px2 title - 0.4%. Anything under 2% of the title's own ink area is boundary
+        # noise, not the title sitting on a face.
+        if area < 0.02 * max(1, (tx1 - tx0) * (ty1 - ty0)):
+            area = 0
         if worst is None or area > worst[0]:
             worst = (area, t, (fx0, fx1, y0, int(band)))
     if worst is None:

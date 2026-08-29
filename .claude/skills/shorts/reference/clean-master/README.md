@@ -174,3 +174,87 @@ Dan's new headline for one short measured 1352px against a 976px limit at the ba
   continue a sentence, and blanket capitalising printed "So let's say You're taking nothing"
   and "muscle building For your brain health".
 * `TAIL_COMMA` marks a join where a whole clause was removed, so the caption gets its comma.
+
+---
+
+# Rev 3 (2026-08-28) — the audio was wrong at the source for two whole revisions
+
+## ⚠ VERIFY THE SOURCE'S CHANNELS. DO NOT TAKE A HANDOFF'S WORD FOR IT.
+
+The handoff said the clean master's audio "is already the fixed single-mic chain". **It is
+not.** `work/chancheck.py`, run on the file itself:
+
+| file | L/R corr | best lag | verdict |
+|---|---|---|---|
+| `CUT_v1_graded_NO-GRAPHICS.mp4` (what we cut) | **+0.069** | **−7.58 ms** | two mics, unrepaired |
+| `FINAL_supplements.mp4` | +0.9997 | 0.00 ms | repaired 2026-08-23 |
+| `FINAL_supplements_PRE_AUDIOFIX.mp4` | +0.069 | −7.58 ms | known bad |
+| raw roll `C1514.MP4` | +0.057 | −7.58 ms | the camera's two mics |
+
+The clean master has the SAME signature as the file explicitly named `PRE_AUDIOFIX`. Only the
+delivered master ever got the repair. **Rev 1 and rev 2 both shipped comb-filtered audio**, and
+Dan heard it before any metric did — the gates measured level, sync, splices and tone, and
+none of them measures whether the two channels are the same microphone.
+
+**Run `work/chancheck.py` on the source before Step 1, every batch.**
+
+## The right channel is also the best source available
+
+| source | SNR | note |
+|---|---|---|
+| summed pair (what rev 1/2 used) | 26.6 dB | comb-filtered |
+| **right channel only, mono** | **29.8 dB** | the close lav |
+| the repaired `FINAL` master | 19.9 dB | its treble shelf lifted the lav hiss |
+
+So do not pull audio from the repaired master either — go back to the right channel and do the
+repair here.
+
+## Making it sound like Muhammad's — `work/muhfit.py`, `work/voicechain.py`
+
+Dan's reference is Muhammad's ab-wheel cut. Measured against it, relative to the 320–640 Hz
+body band, our lav was **3.8 dB short of weight, 3.8 dB short of presence, 8.7 dB short of air
+(5–9 kHz) and 12.0 dB short above 9 kHz.** Dull. That is what "doesn't sound as good as
+Muhammad's" means, and it is fixable — our SNR was 30.2 dB against his 21.2, so there was room
+to add top end without exposing hiss.
+
+`work/voicechain.txt` (right channel → weight → de-honk → presence → air shelf → top octave →
+de-ess) takes the octave-band shape difference from **4.05 dB RMS to 0.62**, lands sibilance
+within 1.2 dB of his, and leaves our noise floor 5.6 dB cleaner than his.
+
+⚠ **The chain already folds to mono. Anything appended must not `pan` again** — a second
+`pan=mono|c0=c1` asks for a channel that no longer exists and ffmpeg renders **silence**, not an
+error. It blanked the first 4.48 s of a short. `qc.js` now scans the MASTER for silent seconds
+(only the review copies were scanned before, and that gap let it through).
+
+## AI cover clips over the joins — `inserts.js`, `aigen/`
+
+Dan asked for generated clips over the cuts, illustrating what is being said. Veo 3.1 Fast via
+the Gemini API, native 9:16, ~$1.20 each. An insert straddles a join, taking `pre` off the
+outgoing shot and the rest off the incoming one, so **runtime is unchanged and the audio
+underneath never moves.** Each carries an AI GENERATED label.
+
+Things that bit:
+* ⚠ **Anything with a label surface invites invented lettering.** A pill organiser came back
+  reading "MON MON THE 2ND FRI". Ask for objects that carry no text at all.
+* ⚠ **The casting rule applies to hands-only shots too.** A regenerated clip came back with
+  hands that did not match it; state the casting in the prompt.
+* **Pick the in-point by looking at a frame strip.** The ironing clip fills with steam after
+  ~2 s and only its first second reads as ironing; the creatine clip does not reach the brain
+  until 5 s, so its insert starts at 4.6 s to catch muscles AND brain in one 2.2 s window.
+* **Bias the crop up (0.30, not centred).** These are 9:16 into a shorter picture area, so
+  filling the width crops 310 rows — centred, that cut the subject's hairline.
+
+## Two more measurement traps
+
+* ⚠ **Whisper hallucinates a lead-in when a clip starts mid-sentence.** `base.en` invented "So
+  let's say" in front of a short that opens "You're taking nothing right now", and compressed
+  the real words to fit — which failed `syncgate.py`'s first-word test on a correct build. The
+  gate now accepts the caption's first word anywhere in the opening second.
+* ⚠ **Vision's mask bleeds a couple of rows past the picture's top edge**, so a subject
+  starting exactly at `dropTop` reads as inside the title. `work/titleclear.py` now ignores an
+  overlap under 2% of the title's own ink area.
+
+## `work/mkplan.py`
+
+The SHOTS table is generated, not hand-written. Editing it by hand broke the build twice when
+the shot list changed. It also assigns the punch alternation and skips AI clips.

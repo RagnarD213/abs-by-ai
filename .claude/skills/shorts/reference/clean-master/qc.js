@@ -41,6 +41,24 @@ for (const seg of (ONLY.length ? SEGMENTS.filter((s) => ONLY.includes(s.id)) : S
     `audio ${g(a,'codec_name')} ${g(a,'sample_rate')} ${g(a,'channels')}ch`);
   check(Math.abs(dur - expect) < 0.25, `duration ${dur.toFixed(2)}s vs planned ${expect.toFixed(2)}s`);
 
+  // ⚠ SILENT-AUDIO SCAN. review.js has scanned the review copies since the ad-1 rev-4
+  // incident, but nothing scanned the MASTER - and rev 3 shipped a short whose first 4.48s
+  // were digital silence (a stacked `pan` asked for a channel that no longer existed, which
+  // ffmpeg renders as silence rather than an error). Every other check passed it.
+  {
+    const pcm = spawnSync(FF, ['-hide_banner', '-loglevel', 'error', '-i', f, '-vn', '-ac', '1',
+      '-ar', '8000', '-f', 's16le', '-'], { maxBuffer: 64 * 1024 * 1024 }).stdout;
+    let quiet = 0, dead = 0;
+    for (let s = 0; (s + 1) * 8000 * 2 <= pcm.length; s++) {
+      let sum = 0;
+      for (let k = s * 8000; k < (s + 1) * 8000; k++) { const v = pcm.readInt16LE(k * 2) / 32768; sum += v * v; }
+      const db = 10 * Math.log10(Math.max(1e-12, sum / 8000));
+      if (db < -50) quiet++;
+      if (db < -80) dead++;
+    }
+    check(quiet === 0, `${quiet} second(s) below -50 dBFS (${dead} of them digital silence)`);
+  }
+
   // Dead-frame check: no frame should be effectively black (a compositing bug shows up here).
   const bl = run(FF, ['-hide_banner', '-nostats', '-loglevel', 'info', '-i', f,
     '-vf', 'blackdetect=d=0.15:pic_th=0.98:pix_th=0.10', '-an', '-f', 'null', '-']);

@@ -10,7 +10,7 @@ echo "== word onsets =="          && python3 work/fixonsets.py
 echo "== segments =="             && REPORT=1 node segments.js
 echo "== shots =="                && node detect-shots.js
 echo "== crops =="                && python3 work/mkcrops.py
-echo "== plan =="                 && node plan.js
+echo "== plan =="                 && python3 work/mkplan.py && node plan.js
 echo "== captions =="             && node captions.js
 echo "== assets =="               && python3 build-assets.py > /dev/null && echo "assets ok"
 echo "== render =="               && node render.js

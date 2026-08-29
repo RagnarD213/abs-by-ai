@@ -12,6 +12,9 @@ geom = json.load(open('work/beatgeom.json'))
 by = {(v['seg'], v['beat']): v for v in geom.values()}
 # a raw-roll shot is keyed by its own name, not by a master beat (it has none)
 byname = {k: v for k, v in geom.items() if v.get('src') == 'raw'}
+# An AI cover clip is not Dan, so it has no torso centre and needs no crop - it fills the
+# picture area by construction.
+man = [m for m in man if m.get('src') != 'ai']
 missing = [m['name'] for m in man
            if m['name'] not in byname and (m['seg'], m['beat']) not in by]
 if missing:

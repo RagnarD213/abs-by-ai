@@ -57,5 +57,29 @@ for (const seg of SEGMENTS) {
       manifest.filter((m) => m.seg === seg.id && m.piece === pi).map((m) => m.beat).join(','));
   });
 }
+// ---- AI cover clips over the joins (rev 3) -------------------------------------------
+// Each insert straddles a piece join, taking `pre` off the outgoing shot and the remainder
+// off the incoming one, so the running time is unchanged and the audio underneath never moves.
+const INSERTS = require('./inserts.js');
+for (const ins of INSERTS) {
+  const clip = path.join(__dirname, 'aigen', 'clips', `${ins.clip}.mp4`);
+  if (!fs.existsSync(clip)) { console.log(`  insert ${ins.clip}: clip missing, skipped`); continue; }
+  const before = manifest.filter((m) => m.seg === ins.seg && m.piece === ins.afterPiece).pop();
+  const afterIdx = manifest.findIndex((m) => m.seg === ins.seg && m.piece === ins.afterPiece + 1);
+  if (!before || afterIdx < 0) throw new Error(`insert ${ins.clip}: no join after piece ${ins.afterPiece}`);
+  const after = manifest[afterIdx];
+  const post = ins.dur - ins.pre;
+  if (before.dur <= ins.pre + 0.5 || after.dur <= post + 0.5)
+    throw new Error(`insert ${ins.clip}: neighbouring shots too short to give it room`);
+  before.dur = +(before.dur - ins.pre).toFixed(3);
+  after.absStart = +(after.absStart + post).toFixed(3);
+  after.dur = +(after.dur - post).toFixed(3);
+  manifest.splice(afterIdx, 0, {
+    seg: ins.seg, piece: ins.afterPiece, shot: 99, name: `${ins.seg}-ai-${ins.clip}`,
+    beat: -2, src: 'ai', file: `${ins.clip}.mp4`, absStart: 0, dur: ins.dur, aiIn: ins.in ?? 0.6,
+  });
+  console.log(`  insert ${ins.clip} into ${ins.seg} at the piece ${ins.afterPiece}/${ins.afterPiece+1} join: ${ins.dur}s`);
+}
+
 fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest, null, 1));
 console.log(`\n${manifest.length} shots across ${SEGMENTS.length} shorts`);
