@@ -361,10 +361,46 @@ headroom each · delivered files md5-matched against the scratchpad originals.
 so the duplicate flagged above was avoided. The shoot now has **62 finished picks**. Nothing of mine
 was overwritten (md5-verified) and I touched none of theirs.
 
-**EXACT NEXT ACTION — DAN: confirm the five rev-2 versions (strips sent in chat).** Nothing is blocked.
-⚠ `white-113` is the one to look at hardest: it is a texture-clean ~30 % step back toward the harder
-version rather than a true 50 %, because a true 50 % would have cost visible skin texture. If it reads
-too soft still, one fresh render at a middle intensity is $0.24.
+**REV 3 — FOUR OF FIVE ARE NOW FINAL AND APPROVED BY DAN.** He took `blue-266` and `blue-213` at
+rev 2, confirmed the warps on `blue-210` and `white-70`, and asked for `white-113` halfway between
+rev 1 and rev 2 once more. Delivered. **Rev-3 AI spend $0.24** (one render, wasted — see below);
+session total **$2.88**. Rev-2 versions kept at `rev2_backup_*`.
+
+**FINAL STATE — `blue-266`, `blue-213`, `blue-210`, `white-70` APPROVED AND UNTOUCHED SINCE;
+`white-113` awaiting his word on the halfway.**
+
+⚠ **ANOTHER SESSION OVERWROTE DAN'S APPROVED `blue-213` THREE MINUTES AFTER I DELIVERED IT, AND ONLY
+AN md5 CHECK CAUGHT IT.** At 20:59 the session executing the batch-6 handoff wrote its own independent
+retouch of the same frame over `studio-blue-213_FINAL_PRIMARY.jpg` (verified: same frame, different
+edit, no warp, none of Dan's approved calibration). **Dan's approved version has been restored**, and
+their file is preserved, not deleted, at this session's scratchpad
+`studio6/other_session_versions/blue-213_OTHER-SESSION_2059.jpg`. **DO NOT re-overwrite blue-213 —
+Dan reviewed and approved the version now on disk.** ⚠ The batch-6 handoff list contains **B-212**,
+which is the adjacent frame in the same burst; whoever works that list should drop 212 *and* 213.
+**Lesson now in the skill: md5 the delivery folder against your own files before finishing a session
+when another session is working the same shoot — a filename check would have passed.**
+
+⚠ **A PROMPT CANNOT BE AIMED AT A NUMERIC INTENSITY, AND THIS COST $0.24.** After two rounds of
+intermediate requests on `white-113` I generated a native render whose body block explicitly described
+both ends and asked for "exactly halfway". It came back at **−5 % of the way** from the soft version
+to the hard one — indistinguishable from the soft one. **Renders set a level; only a blend sets a
+fraction.** Generate for a different look or to fix a fault; blend to hit a point between two looks
+you already have.
+
+⚠ **AND THE METRIC THAT HAD BEEN BLOCKING THE BLEND WAS OVER-FLAGGING — THE EYEBALL OVERTURNED IT.**
+A 50/50 of rev 1 and rev 2 measured a **21 % local-gradient loss**, which the skill's own rule says to
+refuse as plasticky. Inspected at zoom the skin was **fine** — real pores and mottling, sitting cleanly
+between the two parents. Much of the high-band detail that cancels in an average of two renders of the
+*same* photograph is render-to-render noise, not skin. **That blend is what shipped**, and the rule is
+now "use the ratio to decide what to inspect, never what to ship". This is the sixth time in this
+pipeline's history that the measurement, not the media, was the problem.
+
+**Verified on the delivered `white-113`:** arm fine-detail **2.30**, identical to the vein-fixed
+parents, so the vein reduction survived the blend · warp unchanged at 0.28 · 3368×5056 · IG 4:5
+3368×4210 with 220 px headroom · md5-matched on disk.
+
+**EXACT NEXT ACTION — DAN: confirm `white-113` (four-way strip sent in chat).** The other four are
+done. Nothing is blocked.
 
 ---
 
