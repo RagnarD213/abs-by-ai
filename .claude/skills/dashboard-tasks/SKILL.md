@@ -37,6 +37,16 @@ Four traps, the first three verified on 2026-07-29:
 
 For a recurring task, the `POST` also needs `{ recurring: true, date: "YYYY-MM-DD" }`.
 
+⚠ **READ THE VERIFY RESPONSE CORRECTLY — `/api/task-checks` returns `checked` as an ARRAY, not a
+dict of id→bool** (measured 2026-08-28). The payload is
+`{"checked": ["money::…", …], "log": {…}, "checkedAt": {"money::…": "YYYY-MM-DD"}}`. A verifier that
+does `d.get('checks', d)` and iterates keys finds nothing and reports a perfectly good write as
+failed — which cost a needless duplicate POST here. Check membership with
+`tgt in d['checked']`, and read `d['checkedAt'][tgt]` for the date. **A re-POST of an
+already-checked id is harmless** (it does not duplicate — the array still held exactly one copy), so
+a false "not found" leads to a wasted call rather than corruption, but it will also send you hunting
+for a text-mismatch that isn't there.
+
 **Verify, don't trust the 200:** reload the dashboard (or re-read `/api/task-checks`) and confirm the row is struck through — a 200 only means the write was accepted, not that the id matched a task. If no matching task exists (it predates the rule, or Dan deleted it), say so rather than inventing one. Note `/api/todos` reads are eventually consistent — re-check after a beat before concluding a write failed.
 
 ## Adding a Rule-8 handoff task
