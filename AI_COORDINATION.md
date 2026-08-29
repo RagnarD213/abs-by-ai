@@ -33,6 +33,39 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO SHOOT — **BATCH 6 SELECTED: the final 52 worth-editing frames identified, HANDOFF WRITTEN, NOT EXECUTED** (2026-08-28, Claude Code)
+
+Dan asked for a full sweep of the 8/27 Snappr shoot: find **every** remaining frame worth a
+`/photo-edit` pass (similar-to-delivered OK, virtually-identical not), and hand the edit to **Opus**.
+**$0.00 AI spend, no production code, no deploy, no native-retest trigger.** Selection session only —
+nothing edited, per Dan's instruction.
+
+**All 451 remaining frames were reviewed** (18 numbered contact sheets with delivered picks marked,
+98 face-crop zooms, 8 full-frame spot checks) and **52 selected — blue 37, gray 7, white 8**, every
+distinct garment × pose × expression cell that looks good and isn't a burst-duplicate of the 45
+delivered finals. Full table with per-frame garment/pose/expression/flags:
+**`Handoffs/handoff-20260828-studio-batch6-remaining-52-picks.md`** (the work order — self-contained).
+
+Worth knowing from the sweep: the source frames are **4672×7008** (prior batches' 3368×5056 is the
+4K *output* size, not the source) and filenames start with a space · 4 picks are **landscape**
+(B-14, B-22, B-275, G-26 — full-frame only, no IG 4:5) · **7 picks sit ±1 frame from a delivered
+final with a clearly different expression** (B-22/187/201/221/240, G-31, W-99) — kept deliberately
+under Dan's "similar is OK", flagged in the handoff for his review · new pose family: **boxing
+guard** (B-84, B-266, G-63), never delivered, on-brand · the archer/point pose is already delivered
+(gray-48), so all ~40 archer frames were excluded · no concurrent photo session (all scratchpad
+`picks.txt` claims match the 45 delivered finals; batch-6 frames reserved in this session's
+scratchpad `studio6/picks.txt`).
+
+**Estimated edit cost ~$12.50–16 (52 × $0.24 + re-rolls)** — under the cap, but the handoff
+recommends 2 sessions of ~26 (or 4 waves by backdrop) for review manageability.
+
+**Dashboard: Key task added** for the handoff (rule 5). Check it off only when all 52 are delivered
+AND Dan approves.
+
+**EXACT NEXT ACTION — execute the handoff in a fresh session on Opus with `/photo-edit`.**
+
+---
+
 ### STUDIO SHOOT — **5 MORE RETOUCHED AND DELIVERED (batch 5; 45 picks now finished)** (2026-08-28, Claude Code)
 
 Fifth `/photo-edit` pass on the 8/27 Snappr shoot. **AI spend $1.44** (5 finals + 1 re-roll, 4K Nano
