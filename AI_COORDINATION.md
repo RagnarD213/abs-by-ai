@@ -443,7 +443,7 @@ that wave is 11 frames, not 13.**
 
 ---
 
-### STUDIO SHOOT — **5 MORE RETOUCHED AND DELIVERED (50 picks now finished)** (2026-08-28, Claude Code)
+### STUDIO SHOOT — **BATCH 6: 5 MORE RETOUCHED — ALL FIVE APPROVED AND FINAL** (2026-08-28/29, Claude Code)
 
 Sixth `/photo-edit` pass on the 8/27 Snappr shoot. **AI spend $1.92** (5 finals + 2 re-rolls on one
 frame, 4K Nano Banana Pro, Google direct). **No production code, no deploy, no native-retest
@@ -652,8 +652,34 @@ pipeline's history that the measurement, not the media, was the problem.
 parents, so the vein reduction survived the blend · warp unchanged at 0.28 · 3368×5056 · IG 4:5
 3368×4210 with 220 px headroom · md5-matched on disk.
 
-**EXACT NEXT ACTION — DAN: confirm `white-113` (four-way strip sent in chat).** The other four are
-done. Nothing is blocked.
+**REV 3 CONFIRMED — THE BATCH IS CLOSED. Dan approved `white-113` ("looks good") and confirmed the
+restored `blue-213` ("I like the one you marked mine better… let's keep the one marked mine").
+All five are final.** No further work outstanding on these photos.
+
+| final | body pass | eyes | warp |
+|---|---|---|---|
+| `blue-266` | hard torso composited into a restrained frame, halfway blend on top | — | none (Muay Thai) |
+| `blue-213` | hard, then two steps toward natural | opened 1.04/1.13 | 0.40 |
+| `blue-210` | restrained (front-on) | opened 1.04/1.13 | 0.33 |
+| `white-70` | hard | — | 0.28 |
+| `white-113` | halfway between the soft and hard revisions, arm veins reduced | — | 0.28 |
+
+**Total session AI spend $2.88** across 3 revision rounds — of which **$0.24 was wasted** on a render
+that tried and failed to hit a numeric midpoint (lesson 32). Every other revision was local and free.
+
+⚠ **`blue-213` MUST NOT BE RE-EDITED BY THE BATCH-6 SESSION.** Dan has now explicitly compared the two
+versions and chosen the one on disk. The other session's file stays preserved at
+`studio6/other_session_versions/blue-213_OTHER-SESSION_2059.jpg`. **Their handoff list's `B-212` is the
+adjacent burst frame — drop 212 as well as 213.**
+
+**Dashboard: nothing checked off, and that is correct.** The only matching row is
+`money::Execute handoff: studio batch 6 — retouch the remaining 52 picks (/photo-edit, Opus)`, which is
+roughly a third done between the two sessions and whose other 12 finals Dan has not reviewed. Four of
+my five picks were an independent selection outside that list, so this batch does not close it. The
+older `money::Review Mindy's photo shoot photos…` row no longer exists on the board.
+
+**EXACT NEXT ACTION — none for these five; the batch is closed.** The open thread on this shoot is the
+concurrent session's batch-6 execution.
 
 ---
 
