@@ -182,7 +182,59 @@ Either is a one-line kill if they read too close.
 **Dashboard: the batch-6 Key task is deliberately NOT checked off** — it covers all four waves and
 Dan's approval; waves 2–4 (40 frames) are unexecuted.
 
-**EXACT NEXT ACTION — DAN: review the four before/after strips (sent in chat).** Then waves 2, 3 and
+**REV 1 — DAN REVIEWED ALL 12 SAME SESSION. 8 approved as-is; 5 changed and redelivered.** His notes:
+skin tone inconsistent on **blue-9** ("the middle tab is a different color than the top and the
+bottom"), **blue-33** ("between the top abs and the chest… an unnatural-looking spot… I think it's
+kind of like an original inconsistency in my tanning that carried over and got worse") and
+**blue-34**; **blue-53** wanted "slightly more aggressive" abs; and **increase the warp on all the
+tight black shorts**. Rev-1 AI spend **$0.24** (one hard endpoint for blue-53) — everything else was
+local. Session total **$3.60**. Pre-rev files in `wave1/v1_backup/*_rev0.jpg`.
+
+⚠ **HIS TAN DIAGNOSIS WAS EXACTLY RIGHT AND IT IS NOW MEASURED: the banding is in the ORIGINAL and
+the definition pass widens it.** Torso tan spread original → delivered: blue-9 **13.2 → 15.1**,
+blue-33 **5.8 → 7.5**, blue-34 **10.7 → 11.1**. A low-frequency tan heat-map (blur 70, R−B, skin
+only) shows it as a distinct **cool/purple band** — under the pecs on 33, across the middle ab row on
+9, across the mid-abs on 34 — sitting inside an otherwise warm torso. **The whole-frame histogram
+tone-match cannot touch this**: it is a LOCAL error and the global match is already correct.
+
+⚠ **THE FIX IS FREE, AND THE INSIGHT IS THAT TAN AND DEFINITION LIVE IN DIFFERENT CHANNELS AT THE
+SAME SPATIAL SCALE.** Ab definition is broad **LUMA** shading (the skill's own calibration table
+says so); tan banding is broad **CHROMA**. Working in per-channel/luma **ratios** separates them, so
+the colour can be flattened with the definition provably intact. `wave1/evenskin.py` (new): torso-only
+mask centred on the body, broad colour field computed at 1/8 scale, corrected toward a **smooth
+quadratic vertical trend** — not a flat constant, so the natural top-to-bottom tan gradient survives
+and only the BANDS go — then **luminance restored exactly**. Measured **luma shift mean 0.0000** on
+all three, i.e. zero risk to the abs. No AI call, no identity roll.
+
+⚠ **THREE WRONG TURNS ON THAT TOOL, ALL WORTH KNOWING.** (1) A wide-blur target made blue-9 **worse**
+(27.8 → 30.3). (2) A **global-mean** target made blue-33 worse (11.1 → 14.4) because the mask
+included the arms, which carry their own tan — the mask must be **torso-only, centred on the body**
+(reuse the warp CX). (3) Full-resolution Gaussian blur at r=280 **timed out at 2 minutes**; the field
+is low-frequency by definition, so compute it at **1/8 scale** and upscale — same result, seconds.
+Final settings: alpha **1.0**, clip [0.88, 1.13]. ⚠ **The band-spread metric is noisy and
+self-contradicting** (it called alpha 1.0 worse than 0.85 on blue-34 while the images say otherwise)
+— **judge on the tan map and the photo, use the number only to flag.**
+
+**Warp raised 0.20 → 0.27 on the four black-trunk frames** (blue-33/34/43/53), verified visibly
+fuller and natural with seams and leg openings undistorted. ⚠ **blue-63 is in black trunks and was
+deliberately left unwarped even though his instruction said "all of them"** — it is a 3/4 turn showing
+HIP not front; a test warp at k=0.27 was built and is **invisible**, confirming there is nothing to
+enhance at that angle. Flagged to him rather than silently skipped.
+
+**blue-53's harder abs were BLENDED, not re-prompted at a new intensity.** One HARD endpoint was
+generated, tone-matched (mean-diff 4.61, tan 0.4), then mixed **low-frequency only at t=0.55**, masked
+to the torso — so the crisp skin texture comes entirely from the approved render and cannot be
+averaged away (**texture ratio 1.020**). ⚠ **The per-region alignment gaps were 0.14–1.72, well
+outside the skill's aligned band, and the offsets were inconsistent in direction** (shorts wanted +3
+while everything else wanted −2/−3) — so instead of a global affine the other render was **registered
+on the AB REGION alone** (shift 8,0 px; residual gap **0.000**) and the blend confined to the torso.
+Face composite re-run afterwards: the new render's face is **identical to the approved one** (rev1 vs
+prev delivered mean-diff 0.48), so the fresh identity roll never reached the delivery.
+
+**All 5 redelivered over the same filenames with IG crops rebuilt (220 px headroom each); the other
+7 are untouched.**
+
+**EXACT NEXT ACTION — DAN: review the five rev-1 comparisons (sent in chat).** Then waves 2, 3 and
 4 each in their own fresh session on Opus with `/photo-edit`
 (`handoff-20260828-studio-batch6-wave{2,3,4}.md`). ⚠ **Wave 3 still needs the reconciliation recorded
 below: B-266 is already delivered (strike it) and B-212 duplicates the delivered B-213 (drop it) —
