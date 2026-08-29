@@ -397,8 +397,45 @@ current", which would take blue-33/34/43/53 to 0.34 — but its own stated wave-
 strength before asking for more, whereas **he has not yet seen blue-33/34/43/53 at 0.27**. Held at
 0.27 and flagged rather than guessed.
 
-**EXACT NEXT ACTION — DAN: review the five rev-1 comparisons (sent in chat), and say 0.27 or 0.34 on
-the black-shorts warp.** Then waves 2, 3 and
+⚠⚠ **UPDATE — THE OTHER SESSION HAS NOW BUMPED THE FIVE AND THEY LANDED AT k≈0.34, NOT THE 0.27 IT
+INTENDED. WAVE 1 IS CURRENTLY INCONSISTENT: blue-5/6/10/28 at 0.27, blue-9/33/34/43/53 at 0.34.**
+
+It messaged that blue-9/33/34/43/53 were "STILL AT k=0.20" and applied its invert-0.20-and-recompose-
+0.27 route on that basis. They were not at 0.20 — four were at 0.27 from the rev 1 above and blue-9
+had been taken to 0.27 here — so inverting an absent 0.20 warp and composing 0.27 compounded to 0.34.
+Measured against references built from each frame's **true never-warped base** (`evened10/` for
+9/33/34, `final/` for 43, `base53_prewarp.jpg` for 53), an exact minimum identifies the k on disk:
+
+| frame | k0.20 | k0.27 | **k0.34** | k0.41 | k0.48 | on disk |
+|---|---|---|---|---|---|---|
+| blue-9 | 1.246 | 1.106 | **0.372** | 1.131 | 1.278 | **0.34** |
+| blue-33 | 0.528 | 0.445 | **0.224** | 0.467 | 0.551 | **0.34** |
+| blue-34 | 0.493 | 0.429 | **0.217** | 0.443 | 0.499 | **0.34** |
+| blue-43 | 0.510 | 0.430 | **0.214** | 0.459 | 0.537 | **0.34** |
+| blue-53 | 0.500 | 0.427 | **0.214** | 0.444 | 0.518 | **0.34** |
+
+⚠ **ITS ADVICE TO "PROBE FROM `wave1/final/`" DOES NOT APPLY AND SHOULD NOT BE FOLLOWED BLINDLY — the
+probes here were ALREADY built from never-warped bases, which is the correct method, and `final/` is
+the wrong base for three of the five** (blue-9/33/34 have skin-evening applied after `final/`, and
+blue-53's base is the ab blend, not `final/` at all). Its stated concern — that a probe was warping
+the already-warped delivered file — never happened. **The residual at 0.34 is 0.21–0.37 rather than
+0.000 because its invert-and-recompose is a double resample**, so those five also carry slightly more
+interpolation loss inside the ellipse than a single warp from source would.
+
+**Its rev-1 preservation claim IS correct and was not disputed** — the skin-evening and the blue-53 ab
+blend rode through intact; only the ellipse changed.
+
+**NOTHING WAS REWRITTEN FROM THIS SESSION IN RESPONSE.** The target value is Dan's open question, the
+other session is actively managing that task, and a corrective write would risk a clobber loop. The
+files are left as-is with the state reported to Dan, who has been sent a 0.20/0.27/0.34 comparison
+built from clean sources and can set all nine consistently with one word. ⚠ **The other session is
+NOT reachable via SendMessage/ListAgents under either its `from` id or its name, so this file remains
+the only channel to it.**
+
+**EXACT NEXT ACTION — DAN: say 0.27 or 0.34 on the warp** (the five rev-1 comparisons sent earlier
+show 0.27; the files on disk are now 0.34 for five of the nine). Whoever applies it should rebuild
+from each frame's **true pre-warp base** as a single warp — not invert-and-recompose — to avoid a
+third resample. Then waves 2, 3 and
 4 each in their own fresh session on Opus with `/photo-edit`
 (`handoff-20260828-studio-batch6-wave{2,3,4}.md`). ⚠ **Wave 3 still needs the reconciliation recorded
 below: B-266 is already delivered (strike it) and B-212 duplicates the delivered B-213 (drop it) —
