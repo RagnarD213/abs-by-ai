@@ -33,6 +33,86 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO SHOOT — **5 MORE RETOUCHED AND DELIVERED (50 picks now finished)** (2026-08-28, Claude Code)
+
+Sixth `/photo-edit` pass on the 8/27 Snappr shoot. **AI spend $1.92** (5 finals + 2 re-rolls on one
+frame, 4K Nano Banana Pro, Google direct). **No production code, no deploy, no native-retest
+trigger.** Delivered to `photos/finalized social media photos/` as `studio-<bg>-<n>_FINAL_PRIMARY.jpg`
+(+ `-IG-4x5.jpg`): **blue 210/213/266, white 70/113.** Working files in this session's scratchpad
+(`studio6/`). Skill commit `4725cd0`.
+
+⚠ **THIS OVERLAPS THE 52-PICK BATCH-6 HANDOFF BELOW, WHICH WAS WRITTEN CONCURRENTLY AND IS STILL
+UNEXECUTED. Reconcile before running it — that list is now 49, not 52:**
+- **B-266 is DONE** (delivered here) — strike it from the handoff.
+- **B-212 IS NOW A DUPLICATE and should be dropped.** I delivered **B-213**, which is the adjacent
+  frame in the same burst with the same garment (green retro), same pose (hands on hips) and the
+  same big open smile. Shipping both would be a visible duplicate.
+- **W-62 needs a look against my W-70** before editing — both are black trunks with an arm behind
+  the head on the white backdrop, 8 frames apart.
+- No conflict on B-210, W-113: their nearest list entries (B-187/B-201, W-84/W-99) differ in
+  garment, pose or register.
+
+**Selection was made independently and by a stricter rule than the handoff's** (≥8 burst-frames of
+separation from all 45 then-delivered picks, per background), which is why it lands mostly outside
+their 52. **Gray was deliberately skipped and that is a finding worth keeping: only 3 gray frames
+cleared the guard, and all three are the same white-tank / white-boxers / hands-on-hips setup as the
+delivered `gray-30`** — put side by side they read as one photo with a different expression. Blue and
+white still had 40 and 34 eligible frames.
+
+⚠ **A COMBAT/GUARD STANCE INFLATES THE ARMS, AND — UNLIKE THE FLEX POSE IN BATCH 5 — NAMING THE
+FAILURE DID NOT FIX IT.** `blue-266` (Muay Thai guard, fists up) came back with the **left bicep
++25.0% and +18.3% wider** at the two bicep rows despite the hard block plus the SILHOUETTE LOCK. A
+second take led by the named failure — the exact recipe that fixed `blue-66` — **also failed**
+(still +25% at the top row, mean-diff up to 11.04). **Take three worked by changing the SCOPE
+instead of the strength of the warning:** declare the arms untouchable and name the only region that
+may change ("the front of his torso, bounded by his collarbones, the waistband and the outer edges of
+his ribcage"). Arm width → **−0.3% / −0.2%**, mean-diff → **4.78**. Now a skill lesson: when an
+overshoot is confined to one body part, re-scope the edit away from that part rather than escalating
+adjectives about it.
+
+⚠ **THE HISTOGRAM TONE-MATCH AMPLIFIED A LOCAL COLOUR ERROR WHILE CORRECTING THE PALETTE — a new
+failure mode for a step that has been reliable for five batches.** On `blue-213` the model warmed his
+black hair (R-bias **9.3 → 14.4**) and the whole-frame quantile match pushed it to **22.0**, visibly
+maroon, while all four siblings landed within ±0.5 of their originals. A global dark-tail correction
+barely helped — **the cast lives in the hair's lit mid-tones, not the deep shadows.** Fixed by
+extending the §4b face ellipse upward over the hair, restoring real face and real hair in one pass
+(→ 12.2, invisible at zoom). **So check the HAIR on the orig|raw|toned strip, not just the tan.**
+
+⚠ **A WHOLE-SUBJECT WIDTH SCAN IS NOT EVIDENCE ON A GRADIENT BACKDROP.** It reported **+167, +140 and
++112 px** at the shoulder row on all three blue frames and **0–2 px** on both white frames — and that
+split is the tell, not a real result. Two of the three "widened" shoulders were verified **identical**
+at zoom. Only the bounded-window limb measurement on `blue-266` was a real finding.
+
+**§4b face composite ran on ALL FIVE as standing procedure** — NCC r 0.67–0.77, offsets 0/0 on every
+frame, tone gains 0.99–1.06 (well inside the clip, i.e. the masks were sized right). All five had the
+documented smoothing/mole-fade; faces verified restored at zoom against the originals.
+
+**Eyes opened on `blue-213` and `blue-210`** (the two big-smile squints) at the settled big-smile
+gains **1.04 / 1.13** — landmark height +2.3–5.3%, changes confined to a ~500×200 px box, glasses
+frame undistorted. `blue-266`, `white-70` and `white-113` read open already and were left alone,
+per the per-photo scope of the standing rule. **$0.00 — the eye workflow is entirely local.**
+
+**Warp: `blue-213` (1530,4135 r270/230 k=0.27) and `blue-210` (1410,4038 r270/230 k=0.20)**, both
+verified visible and natural with waistbands and drawstrings undistorted. **Skipped on `blue-266`
+(Muay Thai satin, standing rule) and on `white-70` and `white-113` — both are 3/4 turns showing hip
+rather than front**, the same call made on `blue-231` in batch 3.
+
+**Verified:** aspect preserved on all five (no recomposition) · mean-diff 3.65–5.75 after the
+`blue-266` re-roll · **tan residuals 0.5–0.6 on all five** after the histogram match · head-top
+unchanged (no zoom) · IG 4:5 crops all 3368×4210 full width, 220 px headroom each, checked on a
+contact sheet · `photos/` gitignore protection re-confirmed (**public repo**).
+
+**Known and deliberate:** body hair is smoothed on every frame (nano does this unprompted).
+
+**Dashboard: `money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` still
+deliberately UNCHECKED** — same reasoning as batches 2–5: Dan has not reviewed these five.
+
+**EXACT NEXT ACTION — DAN: review the five before/after strips (sent in chat).** Nothing is blocked.
+Most likely dial-back candidates if he wants them: `blue-213` and `white-113` (the two hardest
+passes) — one cheap re-roll each with the RESTRAINED block.
+
+---
+
 ### STUDIO SHOOT — **BATCH 6 SELECTED: the final 52 worth-editing frames identified, HANDOFF WRITTEN, NOT EXECUTED** (2026-08-28, Claude Code)
 
 Dan asked for a full sweep of the 8/27 Snappr shoot: find **every** remaining frame worth a
