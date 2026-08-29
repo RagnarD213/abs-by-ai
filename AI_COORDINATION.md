@@ -103,9 +103,14 @@ zoomed crop. **All four redelivered over the same filenames + IG crops rebuilt; 
 (byte-identical).** Rev-1 AI spend $0.24 (one re-roll; eyes are local), session total **$1.68**.
 Pre-rev files in the scratchpad `v1_backup/`.
 
-**EXACT NEXT ACTION — DAN: confirm blue-137, gray-87 and white-1 (full photos sent in chat).**
-**blue-66 r3 is CONFIRMED FINALIZED by Dan ("new R3 looks good"), and white-100 was finalized in the
-rev-1 note** — 2 of 5 locked. Nothing is blocked.
+**ALL FIVE FINALIZED BY DAN ("Those all look great. You can finalize all of them") — THE BATCH IS
+CLOSED.** 45 studio picks now finished across five batches. **Dashboard:
+`money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` CHECKED OFF on his
+approval** (the shoot is reviewed, 45 picks retouched, and Dan has approved every batch — this is
+the check-off batches 2–5 deferred). The only studio item still awaiting a word from Dan is
+**batch 4's six softened dial-back frames** (their entry's next action).
+
+**EXACT NEXT ACTION — none. The batch is closed.**
 
 ---
 
