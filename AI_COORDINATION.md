@@ -410,107 +410,84 @@ moles are faded on `blue-110` and a few others and can be restored per-photo on 
 
 ---
 
-### SHORTS FROM THE SUPPLEMENTS LONGFORM — **8 DELIVERED; TWO PIPELINE DEFECTS FOUND AND FIXED** (2026-08-28, Claude Code)
+### SHORTS FROM THE SUPPLEMENTS LONGFORM — **REV 2 DELIVERED; every join now hidden** (2026-08-28, Claude Code)
 
-`Handoffs/handoff-20260828-shorts-from-supplements-longform.md` executed. Dan asked for my eight
-strongest picks rather than choosing letters himself. **$0.00 AI spend, no production code, no
-deploy, no native-retest trigger.** Skill commit `74d6201`.
+Eight Shorts from long-form 03, `supp-short1..8_*.mp4`, rev 2 to Dan's notes. **$0.00 AI spend, no
+production code, no deploy, no native-retest trigger.** Skill commit `3f1bbbd`.
 
-**Delivered to `Short-form video content/` as `supp-short1..8_*.mp4`** (posting order), 540p review
-copies sent in chat, full notes in
-`YouTube Long Form Video Content/supplements-i-actually-take/SHORTS.md`.
+**Every one of his notes is done:** short 1's junk cut · short 2 opens on a **different take** ·
+short 3 + 5 + 7 carry his exact new titles · short 4's audio fixed · short 5's 1.24 s pause cut ·
+short 6's awkward cut at 0:26 fixed · short 7's junk at 0:10 cut · short 8's jump cut at 0:28 hidden.
 
-| # | short | runtime | takeaway |
-|---|---|---|---|
-| 1 | THE 3 SUPPLEMENTS THAT ACTUALLY MATTER | 0:42.6 | fish oil, vitamin D, magnesium = ~70 % of the stack |
-| 2 | STOP BUYING A BIG SUPPLEMENT STACK | 0:44.2 | basics → 30 days → one new supplement a month |
-| 3 | YOU NEED 5X MORE VITAMIN D | 0:49.0 | 5,000 IU vs the USDA's 1,000 |
-| 4 | LET AI PICK YOUR SUPPLEMENTS | 0:41.4 | the thesis; opens on "you are not smart enough…" |
-| 5 | THE SUPPLEMENT THAT DOES ALMOST NOTHING | 0:49.9 | zinc is the part that works |
-| 6 | IF YOU TAKE ONE THING TAKE FISH OIL | 0:32.3 | the most proven single supplement |
-| 7 | YOU SHOULD BE TAKING CREATINE | 0:39.5 | the one he does not take but you should |
-| 8 | SUPPLEMENTS ARE ONLY 5% OF YOUR RESULTS | 0:58.3 | the ironing-before-a-date analogy |
+⚠ **EVERY TIMECODE HE NAMED WAS AN INSTANCE OF A CLASS, so each was fixed as a class.** A scan
+(`work/junkscan.py`, now a required step) found **all six of his timecodes plus nine more** — 14
+pauses over 0.55 s and 8 picture cuts inherited from the source edit.
 
-**Not built:** [F] Zepbound (Dan never ruled on the drug name), [I] whey (both flags), [L] skin
-(248→180 trim + names a third party), [N] joint health (bragging failure mode), [K], [P] (0:29).
+⚠ **THE COUNTER-INTUITIVE FINDING, AND IT SHAPED THE WHOLE REV: A PAUSE CANNOT SIMPLY BE REMOVED.**
+Cutting one joins two moments in time and **Dan moves while he is not talking.** Measured as
+mean-abs-difference across the join against a 1.30 adjacent-frame baseline: an inherited splice —
+what he calls an "awkward cut" — scores **7.64**, and **removing a pause scores 4.97–12.46**, i.e.
+as bad or worse than the fault it fixes. **So every join is now HIDDEN by a wide/tight punch**,
+alternating, geometry set so his head lands at the same delivered y (578x862 vs 644x960). **All 17
+joins across the batch are covered; the three surviving source splices now coincide with one.**
+Five 0.57–0.65 s pauses were deliberately KEPT — that is breathing rhythm, and cutting them would
+have added five more joins for nothing.
 
-⚠ **TWO DEFECTS SHIPPED INTO THE FIRST BUILD AND PASSED EVERY GATE. Both are now fixed, gated,
-and committed — and BOTH AFFECT EARLIER BATCHES.** Found by reading the finished captions and
-transcribing the finished files, not by any metric.
+⚠ **HIS "JUNK FOOTAGE AT 0:01" WAS INVISIBLE TO THE SCAN UNTIL WHISPER WAS CORRECTED.** It is a
+**0.95 s hesitation** that Whisper had swallowed inside the word "you're" (timed 1046.94–1048.82
+across measured silence). `work/fixonsets.py` now corrects word boundaries against measured
+silence — onset out of a gap, offset out of a gap, and **a word wholly containing a gap ≥0.25 s
+begins at that gap's end**. On this roll: **363 onsets, 328 offsets, 51 swallowed pauses.** It also
+stops a word straddling a piece boundary being spoken but never captioned.
 
-1. **THE SOURCE HAS TWO TIMELINES.** A master assembled by concatenation can hold more audio
-   samples than its container declares, spread through the file — this one, 62 ranges, holds
-   **0.76 s more**. Whisper word timestamps and the silence map live on the decoded-sample
-   timeline; `-ss`, and therefore every cut and the whole picture, lives on the container
-   timeline. They agree at t=0 and drift **~0.5 ms per second, reaching 669 ms**. The first build
-   shipped **captions 280–650 ms late and clipped the first word off two shorts** while passing
-   QC 12/12, the splice test, loudness, duration and the centring audit. Fixed by extracting
-   analysis audio with `aresample=async=1:first_pts=0` (residual then a constant −20…−42 ms,
-   inside one AAC frame). **A `preflight.py` and a `syncgate.py` are now wired into `qc.js`,
-   which refuses to pass a file the sync gate has not seen.**
-2. **ZERO-DURATION WHISPER WORDS WERE SILENTLY DROPPED FROM CAPTIONS.** `segWords`' `>50 %
-   overlap` test computes `0/1e-6 = 0`. Nine such words on this roll; **it ate a word in five of
-   the eight shorts** — "creatine is not an **option** for me" burned in as "not an for me".
+⚠ **SHORT 2 NOW OPENS ON A TAKE THE EDITOR DISCARDED — cut in from the RAW ROLL.** He asked for a
+better take and the master had none, so it came from `C1514.MP4`. Safe because a graded raw frame
+correlates **0.9999** with the master frame it became (0.15 against its mirror, so the roll is not
+flipped) — the EDL's own grade curve is all it needs. In the used take he opens looking down with a
+half-lidded expression; in this one he holds eye contact throughout, and the line reads straight
+into "I bought a huge stack like this".
 
-⚠ **A QC METRIC WAS WRONG AGAIN, FOR THE FOURTH TIME IN THIS PIPELINE'S HISTORY.** The new sync
-gate failed two good shorts at −120/−140 ms. Cause: it transcribes with `base.en` while captions
-come from `medium.en`, and **base.en reports word onsets a median of exactly −80 ms earlier** —
-measured on the same source audio across three spans, n=414, −80 ms in all three independently.
-Calibrated, not fudged; re-measure if either model changes.
+⚠ **THE RAW AUDIO WAS THE HARD PART AND TOOK THREE CORRECTIONS.** It is the camera's two-mic
+recording, not the master's repaired chain. **Fit against the content it will NEIGHBOUR, not a take
+present in both files** — fitting on the shared take left a 1.45 dB seam, because the insert is a
+different take with its own mic distance. Then **close the loop**, because the whole-short EQ and
+limiter move it again. **1.45 → 1.14 → 0.50 dB**, inside the batch's own 0.2–0.9 dB spread.
+⚠ **And a real bug: the raw EQ and the fades were pushed as two separate `-af` flags, and ffmpeg
+honours the last — so the correction was silently discarded through three rebuilds.**
 
-⚠ **THE HANDOFF'S LAYOUT PREMISE WAS WRONG AND MEASUREMENT OVERTURNED IT.** It called for the
-band layout on product shorts because "the counter is the payload". Measured: from 0:15 the
-supplement stack deviates from its own temporal median by **1.07 grey levels over 23 minutes**,
-and across 25 frames inside the four product segments **he never picks anything up**. It is set
-dressing. The band would have cost 60 % of his height to preserve wallpaper. **All eight are
-full-bleed**, and the Thorne tubs stay in frame anyway.
+**AUDIO, batch-wide (his "room to improve"): the problem was never level.** All eight were already
+at −14 LUFS. **Tone was**: cut from different points of a 23-minute take, their low/high tilt spanned
+**5.1 dB**, and short 4 — the one he named — was the thinnest at 3.0 dB under the median.
+`finishaudio.py` (replaces `normalize.js`) fits each short to the batch median with **one peaking
+filter per octave band**; a three-knob shelf/peak/shelf model could only halve the spread and left
+short 4 still worst. **Tilt spread 5.1 → 1.5 dB, worst band error 1.36 → 0.92, short 4 1.36 → 0.76.**
+No broadband NR — /longform-edit already tried `afftdn` on this material and rejected it.
 
-⚠ **THE HANDOFF'S TORSO ESTIMATE WAS OUT BY 192 px IN THE DELIVERED FRAME.** It put Dan at
-x 0.60–0.63 from frame grabs; Apple Vision measured **0.6676–0.6969** per beat. Building to the
-estimate would have reproduced the exact off-centre fault this batch exists to avoid. There is
-no batch-wide `TALK_X`. Also caught: **the Vision mask leaves a faint sliver at the top frame
-edge**, which reported his head at source row 15 against a true ~180 on three beats — a 160 px
-error that would have set the whole batch's vertical geometry.
+**His short-5 headline did not fit** (1352 px against a 976 px limit at the batch's 98 pt).
+`build-assets.py` now fits the TYPE to his wording (that short renders at 78 pt) rather than forcing
+a rewrite or a third line, which would have broken the title-clearance rule.
 
-**Geometry, all measured:** 644x960 source window at cropTop 120 → 1080x1610 at y=310. That is a
-**1.68x upscale, SHARPER than the V2/V3 full-height 9:16 crops at 1.78x**, because cropping the
-dead ceiling lets the window sit closer. His head lands at y=406, 96 px clear of the title band.
-⚠ **The AG1 bag is cut by every window and that is correct** — including it whole needs a centre
-that puts him 255 px off, excluding it 206 px off, against the 133 px he rejected on `v2-short3`.
+**Verified:** QC **PASS 8/8** · caption-sync gate **PASS**, median −20 to −60 ms · title clearance
+**PASS 8/8** · all 17 joins hidden · splice discontinuity 0.01–0.21x of control · **−14.0 to −14.5
+LUFS**, peaks −0.8 to −1.5 dBTP · review copies 0 silent seconds, a/v delta 0.000 s.
 
-**Verified:** QC **PASS 8/8** · sync gate **PASS**, median −60…0 ms, no clipped first words ·
-title clearance **PASS 8/8** · splices 0.02–0.06x of control · **−14.0 to −14.4 LUFS**, peaks
-−0.8 to −1.3 dBTP (three shorts were **clipping at +1.4 to +2.5 dBTP** before normalisation) ·
-review copies 0 silent seconds, a/v delta 0.000 s · no second of source used twice.
-
-**Shot boundaries came from the source's own EDL, not scene detection** — but its cumulative
-positions are unusable raw: `render.py` rounds each of the 62 ranges to whole frames and the
-error accumulates monotonically to **+1.137 s**, exactly the amount by which the EDL undershoots
-the master. Each boundary is measured as a full-frame-rate frame-difference peak; all 61 came
-back at 3.2–22x the local median.
-
-⚠ **POSTING IS BLOCKED ON THE PARENT VIDEO.** The long-form is **not published** — no packaging
-record, `/youtube-packaging` never run, absent from every queue doc. Standing rule is Shorts
-every 2–3 days AFTER the long-form. **Nothing is queued in Blotato and nothing should be
-without Dan.**
+⚠ **POSTING IS STILL BLOCKED ON THE PARENT VIDEO.** The long-form is **not published** — no
+packaging record, `/youtube-packaging` never run. Nothing is queued in Blotato and nothing should
+be without Dan.
 
 **Flagged, none blocking:** short 6 carries *"it reduces your risk of cancer"* — his opinion on
-camera and already in the parent video, but it is the line most likely to attract a YouTube
-medical-claims flag in a 32 s Short; short 4 opens on *"you are not smart enough…"* (he reviewed
-and kept it 8/20); short 8 carries *"if you're fat and broken and you say stupid things"*; short
-7 carries *"diarrhea and gas"*. Brand names (Thorne, AG1, Isopure, Anthony's, Cure) are correct
-and allowed.
+camera and already in the parent video, but the line most likely to attract a YouTube medical-claims
+flag in a 32 s Short; short 4 opens on *"you are not smart enough…"* (he reviewed and kept it 8/20);
+short 8 carries *"if you're fat and broken and you say stupid things"*.
 
-**Dashboard: the Key task is deliberately NOT checked off** — the files are delivered and gated
-but Dan has not watched the review copies, and ad 1 attempt 1 had a check-off reverted for
-exactly that.
+**Dashboard: the Key task is deliberately NOT checked off** — delivered and gated, but Dan has not
+watched rev 2.
 
-**EXACT NEXT ACTION — DAN: watch the eight 540p review copies (sent in chat).** Then, separately:
+**EXACT NEXT ACTION — DAN: watch the eight rev-2 review copies (sent in chat).** Then, separately:
 `/youtube-packaging` on the parent long-form, since these cannot post until it does.
 
-**The remaining four unmined long-forms are unchanged:** 01 spray tan (19:54), 02 Zepbound
-(30:28), 04 invest-health (53:17), 05 meal prep (4:49). `reference/clean-master/` is the pipeline
-for all of them.
+**Four long-forms remain unmined:** 01 spray tan (19:54), 02 Zepbound (30:28), 04 invest-health
+(53:17), 05 meal prep (4:49). `reference/clean-master/` is the pipeline for all of them.
 ---
 
 ### V4 LONGFORM BED SWAPPED — **DELIVERED. The claim covers 75 s, not the whole video** (2026-08-28, Claude Code)
