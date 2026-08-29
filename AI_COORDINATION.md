@@ -107,9 +107,61 @@ contact sheet · `photos/` gitignore protection re-confirmed (**public repo**).
 **Dashboard: `money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` still
 deliberately UNCHECKED** — same reasoning as batches 2–5: Dan has not reviewed these five.
 
-**EXACT NEXT ACTION — DAN: review the five before/after strips (sent in chat).** Nothing is blocked.
-Most likely dial-back candidates if he wants them: `blue-213` and `white-113` (the two hardest
-passes) — one cheap re-roll each with the RESTRAINED block.
+**REV 1 DELIVERED SAME SESSION — Dan reviewed all five.** `blue-210` and `white-70` **finalized as-is
+on the abs**; `blue-266` asked *harder*; `blue-213` *"very slightly"* softer; `white-113` slightly
+softer **plus reduce the veins and unnatural look on his right arm**; and a blanket note: **increase
+the bulge warp on every short-shorts frame (i.e. all four non-Muay-Thai photos)**. All applied and
+redelivered over the same filenames. **Rev-1 AI spend $0.72** (3 re-rolls); session total **$2.64**.
+Previous versions kept in the scratchpad at `v1_backup/`. Skill commit `3d6366b`.
+
+⚠ **"BLUE-210 IS GOOD" DID NOT MEAN "DON'T TOUCH IT" — the blanket warp note covered two frames he
+had just approved.** Read the approval as scoped to what the note was about (the abs) and applied the
+warp instruction to all four short-shorts frames, including both approved ones. Their abs are
+byte-unchanged; only the warp moved.
+
+⚠ **ASKING FOR HARDER ABS RE-OPENED THE ARM OVERSHOOT THAT THE SAME PROMPT HAD CONTAINED.** The
+torso-only scope block held `blue-266`'s bicep to **−0.3%** with the RESTRAINED body block; the
+**identical block with a hard body block let it back out to +27.8%**. Definition intensity and limb
+inflation are coupled on the guard pose, so the scope block is not a licence to push harder.
+**Fixed without a fourth prompt: `scripts/torsocomp.py` composites the harder render's TORSO into the
+accepted frame** — arm widths came back identical to the accepted version at every measured row, no
+seam at the arm junction or the waistband, and the abs took the hard pass. Generalisable: when a
+re-roll delivers what you asked for plus a fault elsewhere, take the region, don't re-roll the frame.
+
+⚠ **THE BLEND DIAL IS CALIBRATED NOW, AND THE HIGH-BAND PARENT IS THE COARSE CONTROL.** Measured as %
+of the way from hard to restrained on low-band groove depth: `hi=hard` reaches only **24 % (w=0.45) →
+43 % (w=1.0)**, and flipping to `hi=restrained` jumps straight to **74 % (w=0.25) → 85 % (w=0.50)**.
+There is a gap in between. Dan's *"very slightly"* was built at **43 %** (`hi=hard, w=1.0`, a clean
+band split so texture is untouched); `white-113`'s *"slightly"* used the `hi=restrained` band.
+
+⚠ **A FULL-BAND TORSO GRADIENT CANNOT SEE A DIAL-BACK AND NEARLY SENT ME BACK FOR A RE-ROLL.** It read
+**3.50 → 3.55** on `blue-213`, which had genuinely softened — the high band is unchanged by design.
+Low-pass first (`GaussianBlur(12)`) and the same measurement reads **0.668 → 0.629**, tracking the
+visible change. Judge groove depth on a low-pass version; the full-band number measures the texture
+you are deliberately preserving.
+
+⚠ **THE FIRST WARP PLACEMENT ON BOTH WHITE FRAMES STRETCHED HIS HAND.** `white-70` and `white-113` are
+3/4 turns with a hand resting at the hip, and a centre read off the garment put `rx=200` over his
+knuckles — fingers visibly lengthened on the before/after crop. Moved ~200 px onto the garment and
+shrank to **rx=180, ry=170**; hand identical, front reads fuller. **These two are foreshortened, so
+the effect is subtle by nature** — that is why they were skipped in v1, and it is worth Dan's eye.
+
+**Warps now: `blue-213` 0.27 → 0.34, `blue-210` 0.20 → 0.27, `white-70` NEW at 0.20 (1500,3950
+r180/170), `white-113` NEW at 0.20 (1480,3990 r180/170).** `blue-266` still has none (Muay Thai satin).
+
+**White-113's vein fix landed on the arm Dan meant** — the near, lowered arm at frame-left, not the
+raised one. Its bulging forearm/bicep veins and oily sheen are substantially reduced against v1 while
+the outline is unchanged. ⚠ My first check looked at the raised arm and read "no change"; the arm he
+was describing is the one dominating the lower-left of the frame.
+
+**Re-verified on all five:** aspect and head-top unchanged (no zoom) · tan residuals unchanged · face
+composites re-run on the two re-rendered frames (r 0.75–0.77, offsets 0/0) · eye pass re-applied to
+`blue-213` · IG 4:5 crops regenerated, 220 px headroom each. ⚠ The head-top detector returned 0 on the
+new `blue-213` — checked, and it is **JPEG noise at the 160-level threshold, max 4 levels of
+difference in the top 40 rows**, not an artifact; crop set from the measured 735.
+
+**EXACT NEXT ACTION — DAN: confirm the five rev-1 versions (strips sent in chat).** Nothing is blocked.
+The two new white warps are the likeliest thing to want changed — one number each.
 
 ---
 
