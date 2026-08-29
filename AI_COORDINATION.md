@@ -107,8 +107,10 @@ Pre-rev files in the scratchpad `v1_backup/`.
 CLOSED.** 45 studio picks now finished across five batches. **Dashboard:
 `money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` CHECKED OFF on his
 approval** (the shoot is reviewed, 45 picks retouched, and Dan has approved every batch — this is
-the check-off batches 2–5 deferred). The only studio item still awaiting a word from Dan is
-**batch 4's six softened dial-back frames** (their entry's next action).
+the check-off batches 2–5 deferred). Batch 4's six softened frames were ALSO
+already finalized by Dan in their own session ("all of these photos are finalized") — the stale
+next-action line there caused a false "still pending" report to Dan from this session; both entries
+now corrected. **Nothing from the studio shoot awaits anyone.**
 
 **EXACT NEXT ACTION — none. The batch is closed.**
 
