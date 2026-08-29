@@ -52,6 +52,7 @@ list the long-form masters, list `Short-form video content/*.mp4`, and diff the 
 | V5 | skip — workout-only cut of V4, no narration |
 | V6 3-min home workout | **5 shorts, `v6-short1..5_*`** (2026-08-10) |
 | V7 | skip — workout-only cut of V6, no narration |
+| Ab-wheel organic (Muhammad's 6:58 cut) | **5 shorts, `abwheel-short1..5_*`, FINAL 2026-08-28.** A sixth was cut by Dan |
 | Ab wheel ($17, Muhammad's cut) | 5 shorts, `abwheel-short1..5_*`, rev 3 (2026-08-28) |
 
 **NOT mined — the 8/3 shoot, all five in `claude edited long form content/`:**
@@ -661,6 +662,54 @@ subject only in the eyebrow does not survive the scroll.
 **Never re-run `normalize.js` across the whole batch to fix one short.** It gave three finished
 files a second loudnorm + AAC pass for no gain. Both `normalize.js` and `qc.js` now take a
 segment filter.
+
+## What the ab-wheel batch cost, and what would have avoided it (2026-08-28)
+
+Five shorts, **four review rounds**. Everything Dan rejected was something a contact sheet
+showed me and I read wrong. These are the generalisable lessons; the rule statements are in the
+steps above.
+
+**THE CONTACT SHEET IS NOT A GATE. Every framing fault in this batch survived one.** Rev 1 shipped
+six talk crops 291–508 px off centre, and rev 2 shipped demo crops that cut his hands off on every
+rep — both after I had rendered the proposed vertical frames and looked at them. A 170 px-wide
+thumbnail cannot show you a 300 px error on a 1080 px frame, and it cannot show you that the hand
+at the edge is *cut* rather than *ending there*. **Look to catch what a metric cannot describe;
+measure everything a metric can.** The pipeline now measures: subject silhouette, graphic boxes,
+title clearance, shot boundaries, centring — all asserted before or on the delivered file.
+
+**Ask "is he still IN the shot", not just "is he centred".** These are different questions and
+this batch answered only the second one for two rounds. The torso anchor is right for centring and
+blind to clipping. `work/shotgeom.py` measures the silhouette UNION over every frame;
+`work/framecheck.py` asserts containment. **Run both on every build, not only when something looks
+wrong** — the audit is ~10 minutes of compute against a re-render plus a review round.
+
+**When a measurement contradicts your crop, verify the MEASUREMENT before you act — and when it
+contradicts an APPROVED short, believe the short.** Both directions bit here. The Vision spans
+looked implausibly wide until `work/verifyspan.py` drew them back onto their own frames and they
+were exactly right. And the centring metric flagged every rollout card in a short Dan had just
+approved — adopting those would have clipped his feet. **A metric that disagrees with an approved
+deliverable is asking the wrong question of that shot.**
+
+**A finished cut from another editor is a constraint, not a canvas.** Muhammad's graphics are
+burned in at 90–96 % of the frame width and his subject spans 94 % during a rollout, so the full
+frame was the only safe window. **Establish that early**: measure the widest graphic and the widest
+subject pose in the first pass, and let those two numbers decide whether a tighter crop is even
+available. Two rounds were spent discovering it one shot at a time.
+
+**Re-derive, don't re-guess, when the working drive disappears.** The Extreme SSD detached
+mid-task. A byte-identical copy of the source was on the internal drive, and the pipeline is in
+git, so the rebuild cost one transcription. **What made that cheap was that the plan is code** —
+phrase-anchored cut points, measured crops, and asserted gates all re-ran and reproduced the same
+shot list. Absolute in/out overrides (`inAt`/`outAt`) survived a new transcript; phrase anchors
+did not, in three places ("wanna" for "want to"), and `find()` threw immediately rather than
+silently shifting a cut.
+
+**Two operational traps worth remembering.** A filesystem that needs AppleDouble companions puts a
+`._<name>` beside every file, and those match `*.png` globs — they silently doubled every frame
+count in the centring audit and made it report "no subject in most frames". And something on this
+Mac creates ` 2.mp4` conflict copies in the delivery folder: five superseded rev-2 masters
+reappeared next to the finals, same durations, different bytes. **Check the delivery folder for
+duplicates before calling a batch final** — the wrong file is one click from being uploaded.
 
 ## Delivery
 

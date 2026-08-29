@@ -1100,53 +1100,51 @@ which is identical by design — sample across the runtime or the check false-fa
 
 ---
 
-### AB-WHEEL SHORTS **REV 4 DELIVERED — title holds, body contained, graphics whole** (2026-08-28, Claude Code)
+### AB-WHEEL SHORTS — **COMPLETE. 5 shorts APPROVED AND FINALIZED** (2026-08-28, Claude Code)
 
-Dan's rev-3 notes applied to all five. **$0.00 AI spend, no production code, no deploy, no
-native-retest trigger.** Build dir `/Volumes/Extreme/_edit_work/abwheel/shorts-r2/`.
+Dan, after rev 4: *"Everything's finalized, and you nailed it. I think your cropping decision was
+good."* **$0.00 AI generation spend, no production code, no deploy, no native-retest trigger.**
 
-⚠ **NEW STANDING RULE — THE TITLE STAYS ON SCREEN FOR THE WHOLE SHORT, ON BLACK ONLY.** Dan:
-*"For all videos, vertical or horizontal, that we make in the shorts, let's always keep the title
-on screen the entire time. Put it on the black space and move the video frame down as necessary."*
-His reason is composition — a 16:9 clip in a 9:16 frame leaves a lot of black, and a title that
-fades leaves the top band dead. **This SUPERSEDES the V4 rule "a title must not sit on screen for
-the whole video"** — that one was written when the title sat on his FACE; the fault was position,
-not duration. Cards now start at `dropTop` too (rev 3 had exempted them).
+**Deliverables:** `Short-form video content/abwheel-short1..5_*.mp4` — 1080x1920, 29.97 fps,
+−14.0 to −14.5 LUFS, byte-verified against the approved renders. Full delivery doc (posting order,
+titles, UTM descriptions, every gate result, open items) in
+`YouTube Long Form Video Content/abwheel-17-dollar-ab-wheel/SHORTS.md`.
+Build + all superseded revisions on the Extreme SSD at `_edit_work/abwheel/shorts-r2/`.
 
-⚠ **MEASURING THE SUBJECT PROPERLY OVERTURNED EVERY DEMO CROP.** Dan: *"I go off the side... center
-this clip so my entire body is visible."* Apple Vision silhouettes over every frame of every shot
-say that **during a rollout he spans 0.03 → 0.97 of the 16:9 width** — hands and wheel at one edge,
-shoes at the other. The rev-2/3 demo crop `[0.29, 0.94]` was set from eyeballed extremes, passed a
-contact-sheet review, and **cut his hands off on every single rep.** The torso anchor could never
-have caught this: it answers "is he centred", not "is he still in shot".
+| # | title | runtime |
+|---|---|---|
+| 1 | WHY I LOVE THE AB WHEEL | 0:33.7 |
+| 2 | THE BIGGEST AB WHEEL MISTAKE | 0:48.0 |
+| 3 | HOW TO DO AB WHEEL ROLLOUTS | 0:54.0 |
+| 4 | HOW FAST TO ROLL OUT WITH THE AB WHEEL | 0:32.3 |
+| 5 | WHY THE AB WHEEL BEATS CRUNCHES | 0:31.9 |
 
-⚠ **ON THIS SOURCE THERE IS NO CROP THAT IS BOTH TIGHTER THAN THE FRAME AND SAFE.** Subject spans
-~94% of the width; his burned graphics span 90–96%. **Every backyard card is now the FULL FRAME.**
-That is not giving up — it is the only window that keeps the whole body in shot AND every graphic
-whole, and it makes the card size identical across the batch. Insets (the TV, the extern clip) are
-the exception and each is verified to contain its own content whole.
+**Four standing rules came out of this and are in `/shorts`:** captions print `abs` lower case;
+the title holds for the whole short on black only, with the picture dropped below it (this
+SUPERSEDES the old V4 "no full-length title" rule); the subject's silhouette must be contained,
+not merely centred; and a burned graphic is entirely in or entirely out, never straddling.
 
-⚠ **THE 0:10 / 0:19 ARTEFACT IN SHORT 5 WAS A SLICED GRAPHIC.** Muhammad's muscle-name pills sit on
-a translucent olive panel that extends ~70 px past the pills, and `minX0` had been set from the
-pills alone — so the panel's right edge showed as a white sliver at our frame edge. Those three
-shots are now full-frame. **New rule: a graphic is entirely IN or entirely OUT, never straddling.**
-⚠ And **scan for graphics BY REGION** — a bright sky fills the top band exactly like a white pill,
-so a whole-frame union merges a real bottom lower-third with a spurious top hit and reports one box
-spanning the entire height.
+⚠ **THE META-LESSON, AND IT COST FOUR REVIEW ROUNDS: THE CONTACT SHEET IS NOT A GATE.** Every
+framing fault Dan caught had already passed a rendered-frame review of mine — six talk crops
+291–508 px off centre, and demo crops that cut his hands off on every rep. A 170 px thumbnail
+cannot show a 300 px error. The pipeline now MEASURES subject silhouette, graphic boxes, title
+clearance, shot boundaries and centring, and asserts them before or on the delivered file.
 
-**New gates, all run on this build:** `work/shotgeom.py` (subject union + graphic boxes per shot),
-`work/framecheck.py` (asserts containment and no slicing BEFORE encoding — PASS on all 38 shots),
-`work/verifyspan.py` (draws a measured extreme back on its own frame — a mask min/max is only as
-good as the mask), and `work/titleclear.py` rewritten to run across the whole runtime and compare
-the band above `dropTop` against the intended J2+title composite — **PASS on all five**.
-QC 12/12, stage scan CLEAN, boundaries all within 0.10 s.
+⚠ **BEFORE CALLING ANY BATCH FINAL, CHECK THE DELIVERY FOLDER FOR DUPLICATES.** Something on this
+Mac created five ` 2.mp4` conflict copies of the REV-2 masters sitting beside the finals — same
+durations, different bytes, old titles. One click from being the file that gets uploaded. Archived
+to `shorts-r2/superseded/` along with the three `_pre-rev*` folders; the project folder now holds
+the five finals and nothing else.
 
-**Known and deliberate:** the kneeling beats still measure 150–300 px right of centre. That is
-Muhammad's own framing inside his own 16:9 frame, and centring it would mean cropping — which is
-exactly what was clipping Dan's hands on the rollouts in the same shots. Rule: **contain first,
-centre second.**
+**Dashboard: nothing checked off, correctly.** The nearest task,
+`money::Produce short-form CONTENT (not ads) — mine the longforms + shoot app-demo Reels`, covers
+ALL the longforms plus app-demo Reels — a separate `Execute handoff: cut Shorts from the
+supplements long-form (03)` is still open, and no app-demo Reel has been shot. This batch advances
+it; it does not finish it.
 
-**EXACT NEXT ACTION — DAN: watch the five rev-4 review copies** (sent in chat).
+**EXACT NEXT ACTION — DAN: nothing blocked.** Two optional follow-ons in `SHORTS.md`: cover images
+(`/coverimage`) if these go on a grid, and a decision on the archival infomercial footage in short
+1 before it runs anywhere **paid** (fine for organic; it already ships inside the long form).
 
 ---
 
