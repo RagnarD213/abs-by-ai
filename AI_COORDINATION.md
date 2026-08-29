@@ -216,7 +216,30 @@ at (0,0). Compare peak against @0,0, not argmin against zero. Both traps are now
 
 Tone-match and the two warps (`gray-67`, `white-59`) re-applied to the blends; all 20 files verified.
 
-**EXACT NEXT ACTION — DAN: confirm the four halfway versions.** Nothing is blocked. Known and
+**REV 2 APPROVED AND MADE THE HOUSE STANDARD.** Dan: *"Everything looks great. You've got it
+perfected with the abs… This is the perfect balance."* All 10 finalized. He asked for the skill to
+default to this look, so **`/photo-edit`'s standing rule is rewritten: the HARD block is no longer the
+studio default and is now only a blend endpoint** (it is also the block that de-aged the face on 10/10
+in a sibling session). The new **BODY (BALANCED DEFINITION PASS)** is canonical for any shot with a
+bare midsection, studio or not, and the two-intensity bake-off is retired.
+
+⚠ **THE APPROVED LOOK WAS REPRODUCED AS A SINGLE PROMPT, SO FUTURE BATCHES DO NOT COST DOUBLE.** The
+look Dan approved was reached by blending two renders — canonising that as-is would have made every
+future photo two generations. Instead it was **re-derived as one block and validated against the
+approved images** ($0.48, 2 test renders): fine detail reproduced to **+0.5 % / +1.1 %**, broad
+shading **+2 % / +8 %**, visually equivalent. So the cost per photo is unchanged at one 4K take.
+
+⚠ **THE INSIGHT THAT MADE THE SINGLE PASS POSSIBLE — "SHREDDED" IS BROAD SHADING, NOT FINE DETAIL.**
+Splitting the ab region into two spatial bands (fine separation = blur4−blur30, broad shading =
+blur30−blur80) shows the approved midpoint keeps **essentially all** of the hard pass's crisp
+separation and pulls back **only** the broad shadowing. That is why asking for "less definition"
+produced the too-soft pass, and why the new block splits the instruction in two: *"crisp detail YES;
+heavy dark shading NO."* The calibration table is in the skill — **verify a future batch against it
+rather than re-deriving it.**
+
+**Session totals: AI spend $4.56, 10 finals delivered, 3 revision rounds, $0.00 of production code.**
+
+**EXACT NEXT ACTION — DAN: nothing; the 10 are finalized.** Confirm the four halfway versions. Nothing is blocked. Known and
 deliberate: body/leg hair is smoothed on every frame (nano does this unprompted); small cheek/jaw
 moles are faded on `blue-110` and a few others and can be restored per-photo on request.
 

@@ -35,7 +35,7 @@ node scripts/replicate-edit.js --image input-2048.jpg --prompt-file prompt.txt -
 
 **Prefer the Google-direct runner in §3a below** — same model, cheaper per take, and the only path with a batch tier. `replicate-edit.js` stays as the fallback (and for Seedream/FLUX comparisons); it needs the Railway token from step 2, the Google runner needs `GEMINI_API_KEY`.
 
-Input: downscale the original to 2048 long-edge JPEG (`sips -Z 2048 -s format jpeg -s formatOptions 90`). ~40s per take. Generate **two body intensities** (subtle + strong) — Dan picks strong nearly every time, and subtle passes have come back with *less* ab contrast than the original. But run both and actually look: on one 2026-08-04 frame the strong pass returned lower global contrast (flatter abs *and* flatter background) and subtle was the better image. Don't assume the winner.
+Input: downscale the original to 2048 long-edge JPEG (`sips -Z 2048 -s format jpeg -s formatOptions 90`). ~40s per take. **For any shot showing a bare midsection, run ONE take with the BALANCED block — see the standing rule below; the two-intensity bake-off is retired.** (Historical note, kept because it explains the old files: the original method generated two body intensities, subtle + strong; Dan picked strong nearly every time, though on one 2026-08-04 frame the strong pass returned lower global contrast and subtle was the better image. That comparison is settled now — the balanced pass replaces both.)
 
 **Prompt recipe that works** (deviate only with reason):
 - Open with: "Professional photo retouch of this image for social media. This is a RETOUCH of an existing photograph, not a new image: keep the exact same man, identical face and identity, same pose, same [clothing], same background, same framing, same lighting."
@@ -58,7 +58,7 @@ Input: downscale the original to 2048 long-edge JPEG (`sips -Z 2048 -s format jp
 
 ### 3a. Draft at 2K, finish at 4K — the cost rule (measured 2026-08-10)
 
-A full retouch is many takes: two body intensities, a face pass, often a tone-match pass and a re-roll or two. **Most of those exist only to decide a direction, and a 2K image decides it exactly as well as a 4K one.** 4K costs $0.24; 1K and 2K both cost $0.134 — so 2K is the correct draft tier (same price as 1K, more detail to judge).
+A full retouch can still be several takes: the body pass, sometimes a face composite, occasionally a re-roll or an endpoint generated for a blend. **Most of those exist only to decide a direction, and a 2K image decides it exactly as well as a 4K one.** 4K costs $0.24; 1K and 2K both cost $0.134 — so 2K is the correct draft tier (same price as 1K, more detail to judge).
 
 Use the shared Google-direct runner, which takes a `--tier`:
 
@@ -225,11 +225,70 @@ Same contact-sheet technique as step 1, then judge with Dan's platform logic: st
 
 **Scope — apply it per photo, not per batch.** Judge every frame's eyes on a zoomed crop against its raw; treat any frame where the aperture has visibly closed, or where a big smile has squeezed it to a slit, as needing the pass. Frames whose eyes already read open are left alone — this is a correction, not a look. **Established on `Blue-0145`, `Blue-0109`, `Gray-0004` and `Blue-0222`, all approved; `Blue-0222` set the big-smile number after Dan pulled it back one step.**
 
-## STANDING RULE — studio-shoot ab intensity (Dan's call, 2026-08-28)
+## STANDING RULE — ab intensity: the BALANCED pass is the house standard (Dan's call, 2026-08-28)
 
-**Studio photos get the HARD DEFINITION body block by default — the ordinary "strong" block undershoots what Dan wants on studio lighting.** On the 8/28 Snappr shoot he reviewed raw | strong | hard side-by-sides for all 10 picks and chose the hard pass for every single one. Use this block verbatim as the starting point for studio retouches (outdoor/pool shoots keep the two-intensity bake-off until a similar verdict exists for them):
+**Dan signed this off as "perfected… the perfect balance for the abs" and asked for it to be the
+default going forward. Use the BALANCED block below on every retouch that shows a bare midsection —
+studio and otherwise — as a single pass. Do not run the two-intensity bake-off any more, and do not
+start from the HARD block.**
 
-> BODY (HARD DEFINITION PASS): Carve the abdominal definition clearly harder than the original: each of the six abs distinctly separated with deep, natural groove shadows between and beneath every ab row, the vertical midline (linea alba) reading as a clean dark line from sternum to navel, sharply etched obliques and serratus lines at the sides, and a hard, deep V-cut at the waistband. Lower body fat look: the skin should sit tighter over the muscle, as if he is 2-3% leaner than the original photo. Chest, shoulders and arms harder and more striated-looking as well. STILL A REAL BODY: do NOT add muscle size or bulk, do NOT inflate anything, no airbrushed or plastic skin, and the definition must follow his real anatomy exactly where it already shows in the original.
+The route to it was: hard pass → *"a little too unnaturally shredded"* on 6 of 10 → softened pass →
+*"went a little bit too far"* on 4 of those → a computed midpoint, which he approved. That midpoint
+was then reproduced as a **single prompt**, verified against the approved images, and is what follows.
+
+> BODY (BALANCED DEFINITION PASS): Sharpen and clarify the abdominal definition so that each ab is
+> crisply and cleanly separated - a clear, well-defined groove between the rows, a distinct vertical
+> midline, and clearly defined obliques and serratus at the sides. The SEPARATION and DETAIL should
+> read as sharp and precise. BUT KEEP THE OVERALL SHADING NATURAL - this is the distinction that
+> matters and it is the whole point of this edit: do NOT lay deep, broad, dark shadow across the
+> abdomen, do NOT make the midsection look heavily contoured, dark or CARVED OUT, and do NOT push him
+> to a competition-lean, striated, peeled or 'shredded' look. Crisp detail YES; heavy dark shading NO.
+> A clean V-cut at the waistband, and the skin sitting only slightly tighter over the muscle, as if he
+> is 1-2% leaner than the original photo. Chest, shoulders and arms slightly crisper in the same way.
+> STILL A REAL BODY: this is a genuinely fit man in his forties in good studio light, not a
+> bodybuilder in contest condition - do NOT add muscle size or bulk, do NOT inflate anything, no
+> airbrushed, waxy or plastic skin, keep his real skin texture and pores, and the definition must
+> follow his real anatomy exactly where it already shows in the original.
+
+Always pair it with the SILHOUETTE LOCK below and the mandatory post-pass histogram tone-match.
+
+⚠ **WHY THIS WORDING, AND THE INSIGHT THAT MAKES IT WORK: "shredded" comes from BROAD SHADING, not
+from fine detail.** Splitting the ab region into two spatial bands — fine separation detail
+(blur4−blur30) and broad shading (blur30−blur80) — shows the approved look keeps essentially ALL of
+the hard pass's crisp separation and only pulls back the broad shadowing. That is why the block above
+splits the ask in two ("crisp detail YES; heavy dark shading NO") instead of asking for "less
+definition", which is what produced the too-soft pass. Measured on the approved images:
+
+| | fine detail | broad shading |
+|---|---|---|
+| original | 6.19 / 8.40 | 9.18 / 8.49 |
+| hard pass | 7.29 / 9.57 | 10.00 / 9.49 |
+| soft pass | 6.77 / 9.04 | 10.00 / 9.40 |
+| **approved** | **7.19 / 9.48** | **9.94 / 9.37** |
+| **BALANCED, 1 pass** | **7.22 / 9.58** | **10.14 / 10.13** |
+
+(Gray-0067 / White-0032.) The single pass reproduces the approved fine detail to **+0.5 % and +1.1 %**;
+broad shading runs **+2 % and +8 %** high, which reads as equivalent on inspection — near-identical on
+one and slightly softer in the lower abs on the other. **Verify a new batch against this table** rather
+than re-deriving the calibration.
+
+**If a frame still lands off-target, dial it with the low-frequency blend rather than re-wording** —
+generate the other endpoint and blend, per the note below. That is deterministic and costs no new
+identity roll. The two endpoints, kept only for that purpose:
+
+> **HARD endpoint** — BODY (HARD DEFINITION PASS): Carve the abdominal definition clearly harder than
+> the original: each of the six abs distinctly separated with deep, natural groove shadows between and
+> beneath every ab row, the vertical midline (linea alba) reading as a clean dark line from sternum to
+> navel, sharply etched obliques and serratus lines at the sides, and a hard, deep V-cut at the
+> waistband. Lower body fat look: the skin should sit tighter over the muscle, as if he is 2-3% leaner
+> than the original photo. Chest, shoulders and arms harder and more striated-looking as well. STILL A
+> REAL BODY: do NOT add muscle size or bulk, do NOT inflate anything, no airbrushed or plastic skin,
+> and the definition must follow his real anatomy exactly where it already shows in the original.
+
+> **SOFT endpoint** — the BODY (NATURAL DEFINITION PASS - RESTRAINED) block quoted further down.
+
+⚠ **The HARD block is now a COMPONENT, not a default. Do not ship it as the delivered look** — Dan
+rejected it on 6 of 10 frames, and it is also the block that de-aged the face on 10 of 10 (lesson 7).
 
 ⚠ **TO HIT AN INTENSITY *BETWEEN* TWO RENDERS, BLEND THEM — BUT ONLY IN THE LOW FREQUENCIES.**
 Measured 2026-08-28 (batch 4 rev 2), when Dan said the softened pass had gone too far and asked for
@@ -267,9 +326,9 @@ the error at `(0,0)`, which means aligned. Compare `peak` against `@0,0`, not th
 
 ⚠ **THE HARD BLOCK OVERSHOOTS ON ROUGHLY HALF OF FRAMES — DAN'S CALIBRATION, 2026-08-28 (batch 4).**
 He reviewed ten hard-pass finals and called **six of them "a little too unnaturally shredded"**, asking
-to *"very slightly dial back the aggressiveness."* The other four he finalized as-is. **This does not
-overturn the standing rule** — the hard block stays the default and he chose it 10/10 on the first
-batch — but expect a dial-back pass on a meaningful share of any batch, and note the pattern: the
+to *"very slightly dial back the aggressiveness."* The other four he finalized as-is. **⚠ SUPERSEDED — this was the state before the balanced pass existed; the
+standing rule above is now the BALANCED block and neither the hard nor the soft block is a default.
+Kept for the calibration it records.** At the time: expect a dial-back pass on a meaningful share of any batch, and note the pattern: the
 frames he kept at full hardness were angled/hands-on-hips or clothed, while the ones he softened were
 the flatter, more front-on torsos where the deep grooves read as drawn on. **When in doubt on a
 front-on torso, run this block instead** (it is a small step down, which is what he asked for — not a
