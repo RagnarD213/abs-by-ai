@@ -9,7 +9,8 @@
     "assistant::Take out trash",
     "assistant::Dust",
     "assistant::Wipe down counters",
-    "money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)"
+    "money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)",
+    "money::Execute handoff: build cover images for the 5 ab-wheel Shorts"
   ],
   "log": {
     "health::Shower": [
@@ -215,6 +216,7 @@
     "assistant::Take out trash": "2026-08-25",
     "assistant::Dust": "2026-08-25",
     "assistant::Wipe down counters": "2026-08-25",
-    "money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)": "2026-08-29"
+    "money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)": "2026-08-29",
+    "money::Execute handoff: build cover images for the 5 ab-wheel Shorts": "2026-08-29"
   }
 }
