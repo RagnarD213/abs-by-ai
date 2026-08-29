@@ -33,6 +33,79 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO FINALS — **BULGE WARP RAISED ON ALL 30 WARPED PICKS (+0.07), THREE SESSIONS DECONFLICTED** (2026-08-28, Claude Code)
+
+Dan: raise the bulge warp on every finalized studio photo except the ones already handled in the
+"5 more" batch, and bring them up to that standard. **$0.00 AI spend — the warp is a local
+geometric op, entirely deterministic. No production code, no deploy, no native-retest trigger.**
+30 full frames + 30 IG 4:5 crops redelivered over the same filenames. Pre-bump copies in this
+session's scratchpad (`warpup/v1_backup/`).
+
+**THE STANDARD IS +0.07 AND BOTH OF DAN'S CALIBRATION POINTS REPRODUCE EXACTLY.** The rev-1 batch
+moved `blue-213` 0.27→0.34 and `blue-210` 0.20→0.27 — the same delta. So **25 picks went 0.20→0.27
+and 5 went 0.27→0.34.** Excluded, per Dan: **blue-210, blue-213, blue-266, white-70, white-113**
+(the batch where this was already discussed; 266 has no warp at all).
+
+⚠ **THE WARP PARAMETERS FOR 14 OF THE 30 WERE NEVER WRITTEN DOWN, AND WERE RECOVERED BY FITTING
+RATHER THAN GUESSED.** Only batch 4's `warp-params.tsv` and wave 1's `warpparams.tsv` survived
+(14 photos). For batches 1, 2 and 3 the centres/radii existed nowhere. Recovered by coordinate
+descent on (cx,cy,rx,ry,k) against each photo's pre-warp intermediate — **and the fit is validated,
+not asserted: from a deliberately wrong init (+70/−80 px, wrong radii, k=0.32) it recovers
+blue-5's true params to cx exact, cy exact, ry exact, rx off by 1.** Independently, it recovered
+batch 2's five k values as **0.269 / 0.199 / 0.203 / 0.27 / 0.27** against the **0.27 / 0.20 / 0.20
+/ 0.27 / 0.27** written in this file — five for five, never having seen them. Every one of the 30
+reproduces its delivered file from its pre-warp source at **mean 0.48–1.01 levels**, i.e. JPEG noise.
+
+⚠ **BATCH 3 APPLIED 3 WARPS, NOT THE 4 THIS FILE RECORDS.** blue-202, gray-12, white-13 carry one;
+the other seven are pixel-identical from `faced/` through delivery, and their `toned/` diffs are
+upper-body only. The "4" above is wrong.
+
+⚠ **REBUILDING FROM THE PRE-WARP FILE SILENTLY DISCARDS ANY STEP THAT RAN AFTER THE WARP.** On
+`gray-87` the eye pass ran *after* the warp, so a single-pass rebuild would have thrown the eyes
+away — invisible in every metric. Caught by an automatic gate (does the pre-warp file differ from
+the delivered file anywhere OUTSIDE the warp ellipse?), which flagged gray-87 plus the four batch-2
+frames. **A second route exists for exactly this case: analytically invert k1 and compose k2 into
+ONE resample applied to the CURRENT file on disk.** Measured against the single-pass route: mean
+0.55 levels, 0–9 % local sharpness — and it writes **max 0 outside the ellipse.** Used on 10 photos.
+
+⚠ **THREE SESSIONS WERE WRITING THESE SAME FILES TONIGHT AND THE md5 GUARD IS THE ONLY REASON
+NOTHING WAS LOST.** The vein-fix session (11 finals) and the wave-1 rev-1 session (5 finals) both
+overlapped this set. Mid-run, **the commit refused blue-9/33/34/43/53 because they had changed
+under me** — wave 1 had just delivered its rev 1. Re-staged from the new files via the remap route
+and verified afterwards that **both other sessions' work survived byte-for-byte outside my ellipse
+(max 3 levels, pure re-encode)**, and that their edit regions were **provably disjoint** from every
+warp ellipse (checked by diffing their staged outputs, not assumed). Generalisable: **stage, then
+re-check the target's md5 immediately before writing, and abort rather than clobber.**
+
+⚠ **`wave1/final/` AND BOTH `warpparams.tsv` FILES ARE NOW STALE** — they describe k=0.20. Any
+future rev that rebuilds from a pre-warp intermediate drops the bump, and **no QC check anyone has
+would notice a missing warp.** Both other sessions were told. **Reproducibility is preserved
+outside the temporary scratchpads at
+`photos/finalized social media photos/_recipes/studio-warp-bump-20260828/warp-params-ALL.tsv`** —
+all 30 photos with centre, radii, k before/after, route and IG offset.
+
+**IG crops were re-cut at each photo's ORIGINAL offset, recovered from the existing crop rather
+than re-derived from a head-top detector** (offset 0 vs 1 scores 0.135 vs 1.16 — unambiguous), so
+no crop moved. All 30 are 3368×4210, full width.
+
+**Verified on the delivered files:** dimensions unchanged · outside the ellipse mean 0.000–0.27,
+p99.9 ≤ 3 levels · inside mean 1.1–4.2 · changed pixels 0.09–0.73 % of frame · IG crop matches its
+full frame at the recorded offset (err ≤ 0.56) · 60 files readable · **`photos/` gitignore
+re-confirmed, 0 tracked files (public repo)** · every strip eyeballed: waistbands, drawstrings,
+eyelets, white trim, leg openings and hands undistorted on all 30.
+
+⚠ **TWO THINGS FOR DAN, NEITHER BLOCKING.** (1) **`white-70` and `white-113` sit at k=0.20** — they
+got NEW warps in that rev rather than an increase, so they are at the level the other 25 just moved
+*up from*. They were excluded because Dan named that batch as done; **one line each if he wants them
+matched.** (2) **27 finalized picks carry no warp at all** and were left alone — each was skipped
+for a structural reason (jeans, loose cotton, Muay Thai satin, front out of frame, 3/4 turn showing
+hip). white-70/113 show a 3/4 turn *can* take one, so `blue-63` and `blue-231` are candidates if he
+wants them.
+
+**EXACT NEXT ACTION — DAN: review the five before/after sheets (sent in chat).** Nothing is blocked.
+
+---
+
 ### STUDIO FINALS — **INVENTED-VEIN SWEEP: all 62 scanned, 11 finals re-fixed and redelivered** (2026-08-28, Claude Code)
 
 Dan spotted unnatural veins on `blue-213`'s lower abs. Root cause verified against the raws: **the
