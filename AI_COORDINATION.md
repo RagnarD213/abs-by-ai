@@ -262,7 +262,29 @@ rather than re-deriving it.**
 
 **Session totals: AI spend $4.56, 10 finals delivered, 3 revision rounds, $0.00 of production code.**
 
-**EXACT NEXT ACTION — DAN: nothing; the 10 are finalized.** Confirm the four halfway versions. Nothing is blocked. Known and
+**FINALIZED AND SAVED 2026-08-28.** Dan: *"all of these photos are finalized."* All 10 verified as
+the exact approved versions **by pixel comparison, not by filename** — each delivered file sits
+0.011–0.181 mean px from its approved source and is far closer to it than to any rival version
+(1.29–4.67), which also proves no rev-0/rev-1 intermediate and neither balanced-validation test
+render leaked into the delivery. 20 files, 68.1 MB, all readable.
+
+**Reproducibility is preserved OUTSIDE the scratchpad, which is temporary** —
+`photos/finalized social media photos/_recipes/studio-8-27-26-batch4/` holds a MANIFEST, the
+`warp-params.tsv`, and the exact prompt behind every final (the four blended ones keep BOTH endpoint
+prompts, marked `__endpointA-hard` / `__endpointB-soft`, since they are not single renders). The two
+validated single-pass BALANCED prompts are saved there too as the go-forward reference. The folder is
+under `photos/`, so it is gitignored — correct, as the prompts describe Dan's body in detail.
+**0 files tracked under `photos/` in git**, re-verified.
+
+⚠ **The MANIFEST carries an explicit DO-NOT-COPY warning on the blend method** — those four finals
+took two renders each, and anyone reading the recipe folder could reasonably assume that is the house
+process. It is not: the single-pass BALANCED block replaced it, and future photos cost one render.
+
+**Dashboard: `money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` is
+CHECKED OFF** (verified in `checked[]`, `checkedAt` 2026-08-29).
+
+**EXACT NEXT ACTION — none. Batch closed.** The shoot has 40 finished picks of 496 frames; the
+remaining ~456 are unmined if Dan wants more batches. Nothing is blocked. Known and
 deliberate: body/leg hair is smoothed on every frame (nano does this unprompted); small cheek/jaw
 moles are faded on `blue-110` and a few others and can be restored per-photo on request.
 
