@@ -226,6 +226,36 @@ Same contact-sheet technique as step 1, then judge with Dan's platform logic: st
 
 > BODY (HARD DEFINITION PASS): Carve the abdominal definition clearly harder than the original: each of the six abs distinctly separated with deep, natural groove shadows between and beneath every ab row, the vertical midline (linea alba) reading as a clean dark line from sternum to navel, sharply etched obliques and serratus lines at the sides, and a hard, deep V-cut at the waistband. Lower body fat look: the skin should sit tighter over the muscle, as if he is 2-3% leaner than the original photo. Chest, shoulders and arms harder and more striated-looking as well. STILL A REAL BODY: do NOT add muscle size or bulk, do NOT inflate anything, no airbrushed or plastic skin, and the definition must follow his real anatomy exactly where it already shows in the original.
 
+⚠ **THE HARD BLOCK OVERSHOOTS ON ROUGHLY HALF OF FRAMES — DAN'S CALIBRATION, 2026-08-28 (batch 4).**
+He reviewed ten hard-pass finals and called **six of them "a little too unnaturally shredded"**, asking
+to *"very slightly dial back the aggressiveness."* The other four he finalized as-is. **This does not
+overturn the standing rule** — the hard block stays the default and he chose it 10/10 on the first
+batch — but expect a dial-back pass on a meaningful share of any batch, and note the pattern: the
+frames he kept at full hardness were angled/hands-on-hips or clothed, while the ones he softened were
+the flatter, more front-on torsos where the deep grooves read as drawn on. **When in doubt on a
+front-on torso, run this block instead** (it is a small step down, which is what he asked for — not a
+return to the old "strong" block):
+
+> BODY (NATURAL DEFINITION PASS - RESTRAINED): Improve the abdominal definition a little over the
+> original, but keep it clearly believable: this is a genuinely fit man in his forties photographed in
+> good studio light, NOT a competition bodybuilder in peak condition. Each ab reads as separated with a
+> SOFT, natural groove shadow between the rows; the vertical midline is visible but gentle, not a hard
+> drawn line; the obliques are defined but not etched or striated; a light V-cut at the waistband. The
+> skin should sit only slightly tighter over the muscle, as if he is about 1% leaner than the original
+> photo - no more than that. Chest, shoulders and arms very slightly crisper. CRITICAL RESTRAINT - THIS
+> IS THE POINT OF THIS EDIT: do NOT carve deep, hard, black-shadowed grooves between the muscles; do
+> NOT make him look shredded, ripped, striated, peeled or competition-lean; do NOT add muscle size or
+> bulk; no airbrushed, waxy or plastic skin. Keep his real skin texture. The definition must follow his
+> real anatomy exactly where it already shows in the original and must not invent separation that is
+> not already faintly there. IF IN DOUBT, UNDER-DO IT: a result that looks slightly too natural is
+> CORRECT, and a result that looks unnaturally shredded is a FAILURE.
+
+Pair it with the silhouette lock below. Measured on the six re-rolls: mean-diff against the original
+fell into 3.98-5.72 for five of them (from 4.73-5.75 on the hard pass) and every tan shift toned back
+to 0.8-3.1 — i.e. **the softened block costs nothing in the checks and only changes the look.** Show
+Dan **original | previous | new** side by side when delivering a dial-back, so he can judge the step
+size rather than just the result.
+
 **ADD THE SILHOUETTE LOCK ON STRAIGHT-ON FULL-BODY FRAMES (measured 2026-08-28, batch 4).** At this
 intensity the hard block sometimes stops carving definition and starts *inflating the man* — on one
 straight-on frame it widened the shoulders and lats, thickened both arms, glazed the skin in oil and

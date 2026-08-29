@@ -105,10 +105,34 @@ frame. This shoot's 4K output is 3368×5056, so 4:5 fits at full width and only 
 (115–599 px, set per photo from the measured head top to protect headroom). All ten verified on a
 contact sheet.
 
-**EXACT NEXT ACTION — DAN: review the three sheets sent in chat and say which he wants changed.**
-Nothing is blocked. Known and deliberate: body/leg hair is smoothed on every frame (nano does this
-unprompted); small cheek/jaw moles are faded on `blue-110` and a few others and can be restored
-per-photo on request.
+**REVIEWED BY DAN, REV 1 DELIVERED SAME SESSION.** His verdict: *"all very close to perfect"*, but
+**six of the ten were "a little too unnaturally shredded"** and he asked to *"very slightly dial back
+the aggressiveness"* on `blue-110, blue-177, blue-188, gray-67, white-32, white-59`. The other four
+(`blue-47, gray-30, gray-41, white-90`) he **finalized as-is**. All six re-run and redelivered over
+the same filenames; **rev-1 AI spend $1.44** (6 × $0.24), session total **$4.08**. Previous versions
+kept in the scratchpad at `v1_backup/`.
+
+⚠ **THIS IS A CALIBRATION OF THE HARD-DEFINITION STANDING RULE, NOT A REVERSAL OF IT.** He chose the
+hard block 10/10 on the first studio batch, and kept it on 4/10 here — so it stays the default. But
+**expect a dial-back pass on roughly half of any batch**, and the split is informative: the four he
+kept at full hardness are angled / hands-on-hips / clothed, while **all six he softened are the
+flatter, more front-on torsos**, where deep grooves read as drawn on. A new
+**BODY (NATURAL DEFINITION PASS — RESTRAINED)** block is now in `/photo-edit` verbatim — a small step
+down, explicitly *not* a return to the old "strong" block — with the rule to run it by default on
+front-on torsos. **It costs nothing in the checks:** mean-diff landed 3.98–5.72 on five of the six
+(hard pass was 4.73–5.75) and every tan shift toned back to **0.8–3.1**; identity, expressions,
+garments, the glasses on `blue-188` and all three warps re-verified on the re-rolls.
+
+⚠ **"Blue 100" IN HIS NOTE WAS READ AS `blue-110` AND ACTED ON.** No session ever edited frame
+Blue-100, and `blue-110` was on his review sheet with the other five, so it is the only coherent
+reading (Wispr Flow dictation). Flagged to him in chat rather than silently assumed.
+
+**Deliver a dial-back as `original | previous | new` side by side**, not just the new file — the step
+size is the thing being judged, and it is invisible from the result alone.
+
+**EXACT NEXT ACTION — DAN: confirm the six softened versions.** Nothing is blocked. Known and
+deliberate: body/leg hair is smoothed on every frame (nano does this unprompted); small cheek/jaw
+moles are faded on `blue-110` and a few others and can be restored per-photo on request.
 
 ---
 
