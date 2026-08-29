@@ -103,9 +103,9 @@ zoomed crop. **All four redelivered over the same filenames + IG crops rebuilt; 
 (byte-identical).** Rev-1 AI spend $0.24 (one re-roll; eyes are local), session total **$1.68**.
 Pre-rev files in the scratchpad `v1_backup/`.
 
-**EXACT NEXT ACTION — DAN: confirm the four revised frames (strips sent in chat: blue-66
-orig|prev|new full-frame + ab zoom, and the four eye strips).** white-100 is finalized per your note.
-Nothing is blocked.
+**EXACT NEXT ACTION — DAN: confirm blue-137, gray-87 and white-1 (full photos sent in chat).**
+**blue-66 r3 is CONFIRMED FINALIZED by Dan ("new R3 looks good"), and white-100 was finalized in the
+rev-1 note** — 2 of 5 locked. Nothing is blocked.
 
 ---
 
