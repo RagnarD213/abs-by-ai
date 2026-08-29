@@ -1206,9 +1206,20 @@ ALL the longforms plus app-demo Reels — a separate `Execute handoff: cut Short
 supplements long-form (03)` is still open, and no app-demo Reel has been shot. This batch advances
 it; it does not finish it.
 
-**EXACT NEXT ACTION — DAN: nothing blocked.** Two optional follow-ons in `SHORTS.md`: cover images
-(`/coverimage`) if these go on a grid, and a decision on the archival infomercial footage in short
-1 before it runs anywhere **paid** (fine for organic; it already ships inside the long form).
+**COVERS HANDED OFF, NOT BUILT (2026-08-28).**
+`Handoffs/handoff-20260828-abwheel-shorts-covers.md` — 10 files (Instagram + YouTube per short),
+`/coverimage`, ~$0–1.25. Key dashboard task added. Two things the handoff carries that a fresh
+session would otherwise have to rediscover: **the cover copy is already burned into each short**
+(the eyebrow/headline pairs are Dan's own wording and map straight onto the locked type
+hierarchy), and **the rollout pose cannot be cropped vertically** — he spans 0.03–0.97 of the
+16:9 width lying flat, so a video-frame fallback must come from the kneeling or standing talking
+beats, and from a window with none of Muhammad's burned graphics (per-shot boxes in
+`shorts-r2/shots/geom.json`). It also flags the **8/28 studio shoot**, which another session is
+selecting from today and which may hold better sources than the finalized library.
+
+**EXACT NEXT ACTION — DAN: nothing blocked.** One decision left, and only if these ever run
+**paid**: the archival infomercial footage in short 1 (fine for organic; it already ships inside
+the long form).
 
 ---
 
