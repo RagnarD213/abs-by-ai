@@ -33,6 +33,66 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO SHOOT — **5 MORE RETOUCHED AND DELIVERED (batch 5; 45 picks now finished)** (2026-08-28, Claude Code)
+
+Fifth `/photo-edit` pass on the 8/27 Snappr shoot. **AI spend $1.44** (5 finals + 1 re-roll, 4K Nano
+Banana Pro, Google direct). **No production code, no deploy, no native-retest trigger.** Delivered to
+`photos/finalized social media photos/` as `studio-<bg>-<n>_FINAL_PRIMARY.jpg` (+ `-IG-4x5.jpg`):
+**blue 66/137, gray 87, white 1/100.** Working files in this session's scratchpad (`studio5/`).
+
+**Selection filled gaps the 40 finals didn't cover:** blue-66 is the set's first FLEX pose (front
+double-biceps, landscape frame), blue-137 is only the second CLOTHED final (white tank + boxers),
+white-1 puts the Muay Thai satin on the white backdrop, white-100 carries the serious register.
+Eligibility was computed, not eyeballed — every frame ≥8 burst-distance from all 40 delivered picks
+per background; no concurrent photo session was running (all four prior sessions' `picks.txt` claims
+match the delivered finals exactly).
+
+⚠ **THE FLEX POSE IS ITS OWN OVERSHOOT TRIGGER, AND BATCH 4'S CALIBRATION HELD EVERYWHERE ELSE.**
+Blue-66 was run with the NATURAL RESTRAINED block + silhouette lock per the front-on rule — and still
+came back a tanned, oiled, competition-shredded bodybuilder. A double-biceps pose apparently reads as
+"bodybuilding photo" context and overrides the restraint language. **The re-roll that fixed it leads
+with the failure named as context** ("you will be tempted to render this as a BODYBUILDING
+COMPETITION PHOTO… every one of those is a COMPLETE FAILURE") plus an absolute tan/oil lock and a
+barely-perceptible definition ask. Head-top row identical before/after (row 77 both), so no zoom.
+The other four came back in the calibrated band first try: hard block on gray-87 (hands-on-hips),
+white-100 (angled) and blue-137 (clothed — hard scoped to visible skin only), restrained on white-1
+(front-on). Mean-diffs 3.92–5.48, all tan residuals ≤0.8 after the histogram tone-match.
+
+⚠ **THE WHOLE-FRAME TAN METRIC LIES ON A BODY-LOCAL TAN.** Blue-66's failed first take read tan
+residual **0.7** after toning — because the background compensated for the still-orange torso in the
+whole-frame mean. The eyeball on the orig|toned strip is what caught it, and the elevated mean-diff
+(10.66 vs the 3.9–5.5 sibling band) was the corroborating flag. On a chest-up landscape frame the
+body fraction alone also legitimately raises mean-diff (the accepted re-roll reads 11.05), so the
+band is per-framing, not absolute.
+
+**§4b face composite ran on ALL FIVE as standing procedure** — NCC r 0.65–0.82, offsets 0/0 on every
+frame (this batch came back pixel-aligned), tone gains 0.98–1.05. Faces verified at zoom against the
+originals: lines, crow's feet and expressions restored, no seams. Ears checked — no ear stud in
+these frames' originals. Necklace identical on the three frames that carry it.
+
+**Warp: gray-87 (1620,4034 r270/230) and white-100 (1430,3758 r290/240), both k=0.20**, verified
+visible + natural on before/after crops (trim and waistbands undistorted). **Skipped on white-1
+(Muay Thai satin, standing rule), blue-137 (loose boxers + tank overhang), and blue-66 — the front
+is cut by the landscape frame's bottom edge, a warp there would drag the edge.**
+
+**blue-66 ships full-frame only, NO IG 4:5 crop** — his flexed arms span ~4,100 px and a 4:5 window
+from the 3368-tall landscape frame is only 2,694 px wide; per the skill, say so rather than clip the
+subject. The four portrait finals have 4:5 crops at full width (3368×4210), y-offset from the
+measured head top, all verified on a contact sheet.
+
+**Known and deliberate:** body hair is smoothed on every frame (nano does this unprompted); the
+white-1 treasure trail below the navel is faded. All five before/after strips sent in chat.
+
+**Dashboard: `money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` still
+deliberately UNCHECKED** — same reasoning as batches 2–4: Dan has not reviewed these five (or the
+prior batches' rev questions). Check it off on his approval of the shoot's finals.
+
+**EXACT NEXT ACTION — DAN: review the five before/after strips (sent in chat).** Nothing is blocked.
+Expect a possible dial-back request on gray-87 or white-100 (the two hard-pass shirtless frames) —
+both are one cheap re-roll with the NATURAL block if wanted.
+
+---
+
 ### STUDIO SHOOT — **10 MORE RETOUCHED AND DELIVERED (batch 4; 40 picks now finished)** (2026-08-28, Claude Code)
 
 Fourth `/photo-edit` pass on the 8/27 Snappr shoot, run alongside two concurrent photo sessions.
