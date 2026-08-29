@@ -33,6 +33,101 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO SHOOT BATCH 6 — **WAVE 1 OF 4 DELIVERED: 12 more retouched (62 picks now finished)** (2026-08-28, Claude Code)
+
+`Handoffs/handoff-20260828-studio-batch6-wave1.md` executed with `/photo-edit`. **AI spend $3.36**
+(12 finals + 2 re-rolls, 4K Nano Banana Pro, Google direct). **No production code, no deploy, no
+native-retest trigger.** Delivered to `photos/finalized social media photos/` as
+`studio-blue-<n>_FINAL_PRIMARY.jpg` (+ `-IG-4x5.jpg` on the 10 portrait frames):
+**blue 5/6/9/10/14/22/28/33/34/43/53/63.** Working files in this session's scratchpad (`wave1/`),
+pre-rev copies in `wave1/v1_backup/`.
+
+**Claim + collision check passed before the first edit** — the 12 were staged in `wave1/picks.txt`,
+and a re-scan of all five other sessions' `picks.txt` plus the delivered folder found zero overlap.
+Several picks sit inside burst distance of a delivered final (9/10/14 near blue-11, 22 near blue-23,
+33/34/43 near blue-38, 53 near blue-49, 63 near blue-66), so a candidates-vs-delivered contact sheet
+was built and checked — every one differs in garment, pose, glasses or framing. None dropped.
+
+⚠ **TWO FRAMES CAME BACK STRUCTURALLY WRONG AND THE GEOMETRY GUARD IS WHAT CAUGHT THEM, NOT THE
+EYEBALL.** `blue-28` was **silently RE-POSED** — the input is a side-lean with the left arm behind
+the head and the right hand at the waistband; the output was a generic front-on stance with both
+arms down. It read as a plausible photo of Dan; only the **mean-diff of 32.66 against a 3.4–8.7
+sibling band** flagged it. `blue-22` was **re-cropped to a different aspect ratio** (1.50 → 1.79),
+caught by the aspect check. Both re-rolled successfully by **leading with the named failure and
+then describing the pose limb by limb** ("his LEFT arm is RAISED… the ELBOW points UP AND OUT…
+both arms down at his sides is a FAILURE") and, for 22, restating the 3:2 landscape framing as the
+single most important instruction. Post-re-roll: mean-diff **3.44** and **8.59**, aspect restored.
+**Generalise: on a complex asymmetric pose, "same pose" in the header block is not enough — spell
+the limbs out.**
+
+⚠ **THE HANDOFF'S EXPRESSION TABLE HAD blue-9 WRONG, AND THE ZOOMED-CROP RULE IS WHY IT WAS FIXED.**
+It lists "playful closed smile"; the frame is a **broad OPEN smile with upper teeth showing**. Written
+from a thumbnail it would have been executed as written (skill lesson 2, reproduced exactly). All 12
+expression locks were authored from 0.235×frame-height face crops instead.
+
+**Standing procedure, run on all 12:** histogram tone-match (**tan residuals 0.4–0.6**, from 8.5–34.2)
+· §4b face composite (**NCC r 0.46–0.77, offsets 0/0 on every frame — the batch came back
+pixel-aligned; tone gains 0.985–1.061**, well inside the clip) · zoomed face QC, which confirmed
+forehead lines, crow's feet, cheek moles, **ear studs and the necklace all restored** on every frame.
+**Hair R-bias drift ≤2.7 on all 12** — the batch-6 maroon-hair failure did not recur.
+
+**Eyes opened on 7 of 12** at the settled big-smile gains **1.04/1.13** (blue 6/9/10/14/33/53/63);
+blue 5/22/28/34/43 already read open and were left alone, per the per-photo scope. Changed pixels
+confined to ~500×200 px boxes (0.08–0.28% of frame), glasses frame undistorted on blue-33. **$0.00 —
+the eye workflow is entirely local.** ⚠ **blue-6 measured −9.3% on Vision landmark height, i.e.
+apparently smaller than the original — and the zoomed crop shows it is slightly MORE open.** The
+landmark fit is unstable frame to frame on this pose; the skill's "landmarks for coordinates, never
+for the verdict" rule was load-bearing here and would have cost a needless re-roll.
+
+**Warp: applied to 9, skipped on 3.** Green retro `blue-5 (1440,3803)`, `6 (1655,4070)`,
+`9 (1545,3977)`, `10 (1400,3730)`, `28 (1420,3772)` at r270/230; black square-cut
+`33 (1370,4130)`, `34 (1400,3976)`, `43 (1330,4143)`, `53 (1360,4317)` at r270/225 — all **k=0.20**,
+each verified visible and natural on a before/after crop with waistband, trim and leg openings
+undistorted. **Skipped on blue-14 and blue-22** (landscape, the front is cropped at or past the frame
+edge) **and on blue-63 — a 3/4 turn showing HIP not front**, the same call made on blue-231 and on
+white-70/113.
+
+⚠ **BOTH AUTOMATED WARP-CENTRE DETECTORS FAILED AND THE SKILL'S GRID METHOD IS STILL THE ANSWER.**
+A colour mask put the black trunks at garment widths of **136–2150 px** with the waistband at
+mid-torso (it caught hair and under-pec shadow); a connected-component version was no better. Burning
+a **readable** full-frame coordinate grid (200 px, 34 pt labels, one image per photo) and reading
+waistband/seam/notch by eye worked first time. ⚠ Note the montage version of the same grid is
+useless — the labels have to survive the downscale.
+
+⚠ **A WARP-REGION PIXEL-DIFF IS NOT COMPARABLE ACROSS GARMENTS.** Green retro measured 0.72–1.14 and
+black trunks 0.36–0.41 at the identical k=0.20 — the warp is a deterministic geometric op, so that
+2.5× gap is the dark fabric's lower contrast, not a weaker warp. Judge visibility on the crop.
+
+⚠ **THE WHOLE-SUBJECT WIDTH SCAN PRODUCED ANOTHER PHANTOM, exactly as batch 6 recorded.** It read
+**+6.7% / +8.5%** on blue-63's raised arm; at zoom the arm is identical in width, contour and armpit
+detail. The backdrop-difference metric also saturated at 0.998 of frame width on all 12, making it
+useless — **head-top row position is the reliable no-zoom check** and it was unchanged on every frame.
+
+**Verified:** aspect preserved on all 12 after re-rolls · mean-diff 3.44–11.59 · tan residuals 0.4–0.6
+· head-top unchanged (no zoom) · garment, backdrop, framing and identity checked at zoom against each
+original · IG 4:5 crops all 3368×4210 full width with **220 px headroom** each, verified head-intact
+on a contact sheet · 22 files delivered, all readable · **`photos/` gitignore protection re-confirmed
+(0 tracked files, public repo).**
+
+**Known and deliberate:** body hair is smoothed on every frame (nano does this unprompted).
+
+⚠ **TWO NEAR-PAIRS TO FLAG FOR DAN, both deliberate under his "similar is OK" rule:**
+**blue-33 / blue-34** are adjacent frames, same black trunks + glasses, same hands-on-hips pose,
+differing only in expression (big open smile vs serious). **blue-22** is one frame from the delivered
+**blue-23** — same green retro and arms-behind-head, but landscape vs portrait and serious vs smiling.
+Either is a one-line kill if they read too close.
+
+**Dashboard: the batch-6 Key task is deliberately NOT checked off** — it covers all four waves and
+Dan's approval; waves 2–4 (40 frames) are unexecuted.
+
+**EXACT NEXT ACTION — DAN: review the four before/after strips (sent in chat).** Then waves 2, 3 and
+4 each in their own fresh session on Opus with `/photo-edit`
+(`handoff-20260828-studio-batch6-wave{2,3,4}.md`). ⚠ **Wave 3 still needs the reconciliation recorded
+below: B-266 is already delivered (strike it) and B-212 duplicates the delivered B-213 (drop it) —
+that wave is 11 frames, not 13.**
+
+---
+
 ### STUDIO SHOOT — **5 MORE RETOUCHED AND DELIVERED (50 picks now finished)** (2026-08-28, Claude Code)
 
 Sixth `/photo-edit` pass on the 8/27 Snappr shoot. **AI spend $1.92** (5 finals + 2 re-rolls on one
