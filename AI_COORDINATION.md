@@ -87,9 +87,25 @@ white-1 treasure trail below the navel is faded. All five before/after strips se
 deliberately UNCHECKED** — same reasoning as batches 2–4: Dan has not reviewed these five (or the
 prior batches' rev questions). Check it off on his approval of the shoot's finals.
 
-**EXACT NEXT ACTION — DAN: review the five before/after strips (sent in chat).** Nothing is blocked.
-Expect a possible dial-back request on gray-87 or white-100 (the two hard-pass shirtless frames) —
-both are one cheap re-roll with the NATURAL block if wanted.
+**REV 1 — DAN'S REVIEW WORKED SAME SESSION.** His verdict: all five good except **blue-66's abs
+were too soft — "go slightly more aggressive"** (the maximum-restraint re-roll had under-shot), plus
+**eyes slightly bigger on every big-smile frame** (all but white-100). Blue-66 re-rolled a third time
+with the calibrated NATURAL RESTRAINED block + the anti-bodybuilder context + tan/oil lock — and the
+result is the interesting one: **meandiff 4.26 / tan 10.3 against the rejected first take's 10.66 /
+32.8, yet visibly HARDER abs than the accepted-then-softened r2.** The bodybuilder failure was mostly
+GLAZE, not definition — r2's high metrics were tan and oil, and stripping those while asking for real
+definition lands a cleaner, stronger image at half the diff. **The eye standing rule (committed
+`7b50732` by a concurrent session ~1 min after this batch first delivered) was applied as written:**
+`eye-restore.py` at the big-smile gains **1.04/1.13** on blue-66/blue-137/gray-87/white-1, centres
+from the reused `eyelm` Vision CLI (batch-2 scratchpad binary still works), changed pixels confined
+to the eye boxes (5,986–17,927 px), landmark heights +3–6% where Vision could see it, verdicts by
+zoomed crop. **All four redelivered over the same filenames + IG crops rebuilt; white-100 untouched
+(byte-identical).** Rev-1 AI spend $0.24 (one re-roll; eyes are local), session total **$1.68**.
+Pre-rev files in the scratchpad `v1_backup/`.
+
+**EXACT NEXT ACTION — DAN: confirm the four revised frames (strips sent in chat: blue-66
+orig|prev|new full-frame + ab zoom, and the four eye strips).** white-100 is finalized per your note.
+Nothing is blocked.
 
 ---
 
