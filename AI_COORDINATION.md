@@ -33,6 +33,68 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AB-WHEEL SHORTS COVERS — **ALL 10 BUILT AND DELIVERED; Dan picks A or B** (2026-08-28, Claude Code)
+
+`Handoffs/handoff-20260828-abwheel-shorts-covers.md` executed with `/coverimage`. **$0.00 AI spend**
+(no retouch was needed — a photo was used, not a video frame). **No production code, no deploy, no
+native-retest trigger.** Delivered: 10 Instagram covers in
+`Short-form video content/covers/posted covers/` + 10 YouTube covers in `.../youtube/`, as
+`abwheel-short<N>_<slug>_cover-<A|B>.png`. Build scripts beside them —
+**`_build-covers-abwheel.py`** (the locked template above the config block is a verbatim copy of
+`_build-covers-batch2-final.py`) and **`_build-covers-abwheel-youtube.py`**, which **imports** the
+Instagram config so copy and crops cannot drift.
+
+**Sources are the 8/28 studio finals, not the old park/pool library** — short1 `blue-11`,
+short2 `white-90`, short3 `blue-47`, short4 `gray-87`, short5 `white-57`. The handoff was right
+that no ab-wheel photograph exists, so the pick is on ABS FIRST per the skill's rule 2, off a
+62-frame contact sheet plus a full-resolution torso comparison of the 16 best. Backdrop and
+garment are deliberately spread (blue/white/blue/gray/white; green retro, yellow, black, green
+retro, black) so the five do not read as one photo five times in the profile grid. **The video
+frame fallback was never needed**, so none of the `ref_hd.mp4` traps applied.
+
+⚠ **THE ONE REAL FINDING, AND IT IS THE OPPOSITE OF WHAT IT LOOKS LIKE: ON THESE STUDIO SOURCES,
+CROPPING TIGHTER PUSHES HIS ABS *OUT* OF INSTAGRAM'S TILE.** The sources are 3368x5056, so at
+panel_y~690 a crop of `chf=0.76` is exactly full width — the LEAST magnified window available. Any
+tighter crop magnifies him, spreading head-to-navel further down the frame and dropping the lower
+abs past **y=1680**, where the 3:4 profile tile cuts. Because the crop is full width the scale is
+pinned at 1080/3368, which makes every output row **`y = panel_y + 1621.6 x (source_fraction -
+ytop)`** — so **the only remaining lever on ab height is panel_y, i.e. the height of the type
+block.** ⚠ **That is why the subtitle is dropped on all ten:** the first build carried one, put
+panel_y at 730-766, and the 3:4 tile cut his lower abs on every cover. The subtitle costs ~60px of
+panel and therefore ~60px of abs, and `/coverimage` rule 1 says the abs decide. Its copy was
+folded into the eyebrow instead. Simulated the tile crop (`crop(0,240,1080,1680)`) to prove it
+rather than eyeballing the full frame — head, chest and the whole ab block now survive on all five.
+
+**Copy is the shorts' own burned-in wording for variant A** (Dan's own, per the handoff), and every
+**variant-B headline still NAMES THE AB WHEEL** — `SHORTS.md`'s rule from when Dan rewrote titles 1
+and 2: a pre-title carrying the subject does not survive the scroll, so the subject cannot live in
+the eyebrow alone. ⚠ Short 4's long title was handled the way the handoff suggested — A leads
+`ROLL THE AB WHEEL / OUT THIS SLOW`, B keeps `HOW FAST TO ROLL / WITH THE AB WHEEL`; **two lines,
+never three, on all twenty.** One B was rewritten after a look at the sheet: `HOW FAR TO ROLL /
+WITH THE AB WHEEL` on short 3 was one word from short 4's and read as the same cover twice.
+
+**Verified:** all 20 files 1080x1920 RGB · the `HEAD_TOP` assert passed on all five new sources
+(values read off a 3x coordinate grid — **the automatic dark-hair detector is unreliable on this
+set**, the blue backdrop carries a gradient and the gray one is darker than his hair) · type block
+centred in the black, never touching the photo · wordmark bottom-right on its scrim · hairline
+lands ~130px into the panel, past the worst of the 170px feather · **the YouTube port did not push
+anything out of frame sideways** (the documented trap — its taller panel makes the same crop
+narrower; checked each by eye) · **`git check-ignore` confirms the output path is ignored and 0
+files are tracked under `Short-form video content/`** (public repo, personal photos) · **no ` 2.png`
+conflict copies anywhere in the covers tree.**
+
+**Dashboard: `money::Execute handoff: build cover images for the 5 ab-wheel Shorts` CHECKED OFF** —
+the handoff's scope was build-and-send and both are done. Uncheck it if Dan wants a rebuild.
+
+**NOT installed on YouTube, deliberately** — `/coverimage` §8 is explicit that it happens only when
+Dan asks, and the save-timing trap there makes it a job to do attentively, not in passing.
+
+**EXACT NEXT ACTION — DAN: pick A or B for each of the five (sheets sent in chat).** On his pick,
+delete the losing variant so the folder is unambiguous in Finder, and install on YouTube only if
+he asks. Nothing is blocked.
+
+---
+
 ### STUDIO SHOOT BATCH 6 — **WAVE 1 OF 4 DELIVERED: 12 more retouched (62 picks now finished)** (2026-08-28, Claude Code)
 
 `Handoffs/handoff-20260828-studio-batch6-wave1.md` executed with `/photo-edit`. **AI spend $3.36**
