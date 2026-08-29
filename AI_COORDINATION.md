@@ -145,7 +145,20 @@ consumes the vein-fixed files and nothing is clobbered. Edit regions verified di
 `veinfix/COORDINATION-FOR-WARP-SESSION.md` in this session's scratchpad (SendMessage failed in both
 directions; the scratchpad file is the working channel). No re-application needed.
 
-**EXACT NEXT ACTION — DAN: review the 11 before/after strips (sent in chat).** Nothing is blocked.
+**FINALIZED BY DAN 2026-08-29** (*"Everything looks good. You can go ahead and finalize"*). Lessons
+34–36 written into `/photo-edit` (vein-invention scan, the vein-amplification re-roll trap, tight
+composite boxes).
+
+⚠ **LESSON-33 STRUCK AGAIN AT FINALIZATION AND THE CLOSING md5 SWEEP IS WHAT CAUGHT IT:
+`blue-213` had been REVERTED to the pre-fix (veiny) bytes at 21:06** — final AND IG crop both
+byte-identical to the old files, seven minutes after the 20:59 delivery. Actor unknown (the warp
+session excludes 213). **Restored 2026-08-29 09:53 from this session's `veinfix/b213/`,
+md5-verified both files.** The warp session's +0.07 bumps on blue-38/192, white-59, gray-79/87 were
+also verified legitimate: every changed-pixel bbox sits inside its declared warp ellipse and every
+vein region is intact — those five on-disk finals are correct (vein fix + raised warp).
+**Whoever holds a pre-21:00 snapshot of blue-213: do not write it back.**
+
+**EXACT NEXT ACTION — none. The sweep is closed.**
 
 ---
 
