@@ -246,6 +246,34 @@ Same contact-sheet technique as step 1, then judge with Dan's platform logic: st
 
 36. ⚠ **SIZE THE COMPOSITE BOX TO THE STRUCTURES, NOT THE ANATOMICAL REGION — an over-wide box costs texture.** `white-32`'s first box covered the whole lower torso and muted mid-ab gradient energy **−17%** (2.03 → 1.69, the plastic-skin failure) even though the whole-region mean-diff looked tiny; tight boxes over the actual vein web restored it (2.00). Corollary from the same batch: a vstack strip viewed through the reader's downscale can make an untouched region LOOK softer — judge texture on the gradient number and a 1:1 side-by-side, not on a tall stacked strip.
 
+37. ⚠ **A SILHOUETTE SCAN CANNOT ANSWER "DID THE OUTLINE MOVE" ON THIS BACKDROP — THE DIFF MAP CAN.**
+    On wave 2 three separate metrics flagged phantom inflation: a bounded-window edge scan (4 frames,
+    +4.3 % to +12.6 %), a gradient-argmax edge locator (9 frames, including a nonsensical −24 %), and a
+    rim-vs-interior ratio (5 frames). **Every one was false** — the scans were tripping on slow
+    backdrop-gradient drift and on internal muscle shadows. **The tool that settles it: amplify
+    `|orig − final|` (×6) and LOOK.** A real outline move draws a THICK one-sided band the width of
+    the displacement; a clean retouch shows a uniform **1–2 px hairline** (resample noise) with the
+    change concentrated in the abs interior. It also positively confirms a scope block — on the
+    boxing-guard frame the arms are visibly DARK in the diff, which is the evidence lesson 17 wants.
+    **Diagnostic tell for a false alarm: the flag is one-sided** — one edge moves 76–133 px while the
+    opposite edge is pinned to within 1–3 px. A genuine widening moves both. (Seventh time in this
+    pipeline's history that the measurement, not the media, was the problem.)
+
+38. ⚠ **`sips -Z N` SETS THE LONG EDGE. On a portrait frame that is the HEIGHT, and any fraction you
+    then divide by width is silently wrong.** A 3368×5056 file resized with `-Z 2048` is **1364×2048**,
+    not 2048 wide. Dividing Vision's eye coordinates by 2048 put the face ellipses ~190 px to the left
+    of his face — a composite there would have pasted backdrop over his cheek. **Read the real
+    dimensions back (`Image.open(...).size`) rather than assuming what `-Z` produced, and draw the
+    ellipse on the image and look at it before compositing.** That check costs one image and catches
+    the whole class.
+
+39. **Applying wave 1's overshoot guards PRE-EMPTIVELY is free and it works.** Wave 2's three
+    highest-risk poses — boxing guard, flexed-arms, arms-behind-head — all landed in band on the FIRST
+    take with the torso-scope block (lesson 17) and an ARM LOCK included from the start, where wave 1
+    spent two re-rolls discovering it needed them. **Cost of a guard that turns out to be unnecessary
+    is zero; cost of omitting one is $0.24 plus a review round.** Put them in on any pose where a limb
+    is raised, bent, flexed or fisted.
+
 ## STANDING RULE — squinted eyes get opened, unasked (Dan's call, 2026-08-28)
 
 **Whenever Dan's eyes read too squinted — above all on a BIG SMILE, which is when it happens — open them back up as part of the edit. Do not ask.** His words, lifting the hold after reviewing the first four: *"let's write in this eye modification rule: anytime my eyes are looking too squinted from a big smile."*
