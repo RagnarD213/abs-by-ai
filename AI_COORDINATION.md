@@ -954,84 +954,80 @@ moles are faded on `blue-110` and a few others and can be restored per-photo on 
 
 ---
 
-### SHORTS FROM THE SUPPLEMENTS LONGFORM — **REV 2 DELIVERED; every join now hidden** (2026-08-28, Claude Code)
+### SHORTS FROM THE SUPPLEMENTS LONGFORM — **REV 3; the source audio was wrong for two revisions** (2026-08-28, Claude Code)
 
-Eight Shorts from long-form 03, `supp-short1..8_*.mp4`, rev 2 to Dan's notes. **$0.00 AI spend, no
-production code, no deploy, no native-retest trigger.** Skill commit `3f1bbbd`.
+Eight Shorts from long-form 03, `supp-short1..8_*.mp4`. **AI spend ≈ $12** (10 Veo 3.1 Fast
+clips incl. two regenerations). No production code, no deploy, no native-retest trigger.
+Skill commit `8dd260a`.
 
-**Every one of his notes is done:** short 1's junk cut · short 2 opens on a **different take** ·
-short 3 + 5 + 7 carry his exact new titles · short 4's audio fixed · short 5's 1.24 s pause cut ·
-short 6's awkward cut at 0:26 fixed · short 7's junk at 0:10 cut · short 8's jump cut at 0:28 hidden.
+⚠ **THE HEADLINE: THE CLEAN MASTER'S AUDIO WAS NEVER REPAIRED, AND THE HANDOFF SAID IT WAS.**
+It stated `CUT_v1_graded_NO-GRAPHICS.mp4` carried "the fixed single-mic chain". Measured on the
+file, it has **L/R correlation +0.069 at a −7.58 ms lag — the same signature as the raw camera
+roll and as the file explicitly named `*_PRE_AUDIOFIX`.** Only `FINAL_supplements.mp4` ever got
+the 2026-08-23 repair. **Rev 1 and rev 2 both shipped comb-filtered two-mic audio. Dan heard it;
+no gate did** — they measure level, sync, splices and tone, none of them whether the two
+channels are the same microphone. `work/chancheck.py` is now a required step before Step 1.
 
-⚠ **EVERY TIMECODE HE NAMED WAS AN INSTANCE OF A CLASS, so each was fixed as a class.** A scan
-(`work/junkscan.py`, now a required step) found **all six of his timecodes plus nine more** — 14
-pauses over 0.55 s and 8 picture cuts inherited from the source edit.
+**The right channel is also the best source available**, so the repair belongs in this pipeline
+rather than upstream: SNR **29.8 dB** against 26.6 for the summed pair and **19.9 for the
+repaired FINAL master**, whose treble shelf lifted the lav hiss.
 
-⚠ **THE COUNTER-INTUITIVE FINDING, AND IT SHAPED THE WHOLE REV: A PAUSE CANNOT SIMPLY BE REMOVED.**
-Cutting one joins two moments in time and **Dan moves while he is not talking.** Measured as
-mean-abs-difference across the join against a 1.30 adjacent-frame baseline: an inherited splice —
-what he calls an "awkward cut" — scores **7.64**, and **removing a pause scores 4.97–12.46**, i.e.
-as bad or worse than the fault it fixes. **So every join is now HIDDEN by a wide/tight punch**,
-alternating, geometry set so his head lands at the same delivered y (578x862 vs 644x960). **All 17
-joins across the batch are covered; the three surviving source splices now coincide with one.**
-Five 0.57–0.65 s pauses were deliberately KEPT — that is breathing rhythm, and cutting them would
-have added five more joins for nothing.
+**MATCHING MUHAMMAD, which is what Dan asked for.** Against his ab-wheel cut our lav measured
+**3.8 dB short of weight, 3.8 short of presence, 8.7 short of air (5–9 kHz) and 12.0 short above
+9 kHz** — dull, and that is exactly what "doesn't sound as good as Muhammad's" means. We could
+afford the fix: our SNR was 30.2 dB against his 21.2. The fitted chain (right channel → weight →
+de-honk → presence → air shelf → top octave → de-ess) takes the octave-band shape difference
+from **4.05 dB RMS to 0.62**, lands sibilance within 1.2 dB of his, and leaves our noise floor
+**5.6 dB cleaner**. Delivered files measure **L/R +0.9998 to +1.0000 — true mono, right channel
+only**, exactly as he asked.
 
-⚠ **HIS "JUNK FOOTAGE AT 0:01" WAS INVISIBLE TO THE SCAN UNTIL WHISPER WAS CORRECTED.** It is a
-**0.95 s hesitation** that Whisper had swallowed inside the word "you're" (timed 1046.94–1048.82
-across measured silence). `work/fixonsets.py` now corrects word boundaries against measured
-silence — onset out of a gap, offset out of a gap, and **a word wholly containing a gap ≥0.25 s
-begins at that gap's end**. On this roll: **363 onsets, 328 offsets, 51 swallowed pauses.** It also
-stops a word straddling a piece boundary being spoken but never captioned.
+⚠ **A REAL DEFECT CAUGHT IN PASSING: 4.48 s OF DIGITAL SILENCE.** The voice chain folds to mono,
+and the raw-insert correction still carried its own `pan=mono|c0=c1` — asking for a channel that
+no longer exists, which **ffmpeg renders as silence rather than an error.** It blanked the head
+of short 2. **`qc.js` now scans the MASTER for silent seconds**; before this only review copies
+were scanned, which is how it got through.
 
-⚠ **SHORT 2 NOW OPENS ON A TAKE THE EDITOR DISCARDED — cut in from the RAW ROLL.** He asked for a
-better take and the master had none, so it came from `C1514.MP4`. Safe because a graded raw frame
-correlates **0.9999** with the master frame it became (0.15 against its mirror, so the roll is not
-flipped) — the EDL's own grade curve is all it needs. In the used take he opens looking down with a
-half-lidded expression; in this one he holds eye contact throughout, and the line reads straight
-into "I bought a huge stack like this".
+**NINE AI COVER CLIPS NOW SIT OVER THE JOINS** (Dan's ask). Veo 3.1 Fast, native 9:16, each
+straddling a join so **runtime is unchanged and the audio underneath never moves**, each labelled
+AI GENERATED. Short 7's is his example: muscles illuminate then the brain lights, landing under
+"for your brain health". Traps recorded: **a label surface invites invented lettering** (a pill
+organiser came back reading "MON MON THE 2ND FRI"); **the casting rule applies to hands-only
+shots**; pick in-points off a frame strip (one clip fills with steam after 2 s, another does not
+reach its payoff until 5 s); and bias the crop up or the subject's hairline is cut.
 
-⚠ **THE RAW AUDIO WAS THE HARD PART AND TOOK THREE CORRECTIONS.** It is the camera's two-mic
-recording, not the master's repaired chain. **Fit against the content it will NEIGHBOUR, not a take
-present in both files** — fitting on the shared take left a 1.45 dB seam, because the insert is a
-different take with its own mic distance. Then **close the loop**, because the whole-short EQ and
-limiter move it again. **1.45 → 1.14 → 0.50 dB**, inside the batch's own 0.2–0.9 dB spread.
-⚠ **And a real bug: the raw EQ and the fades were pushed as two separate `-af` flags, and ffmpeg
-honours the last — so the correction was silently discarded through three rebuilds.**
+**Short 1's opening fragment is gone.** Rev 2 cut the 0.95 s hesitation but kept "So let's say"
+either side of it, so the short opened on a 1.1 s fragment with him mid-gesture — which is what
+Dan was still hearing. It now opens on the line itself: *"You're taking nothing right now. How
+should you get started?"*
 
-**AUDIO, batch-wide (his "room to improve"): the problem was never level.** All eight were already
-at −14 LUFS. **Tone was**: cut from different points of a 23-minute take, their low/high tilt spanned
-**5.1 dB**, and short 4 — the one he named — was the thinnest at 3.0 dB under the median.
-`finishaudio.py` (replaces `normalize.js`) fits each short to the batch median with **one peaking
-filter per octave band**; a three-knob shelf/peak/shelf model could only halve the spread and left
-short 4 still worst. **Tilt spread 5.1 → 1.5 dB, worst band error 1.36 → 0.92, short 4 1.36 → 0.76.**
-No broadband NR — /longform-edit already tried `afftdn` on this material and rejected it.
+**Titles are Dan's exact wording on 3, 5 and 7.**
 
-**His short-5 headline did not fit** (1352 px against a 976 px limit at the batch's 98 pt).
-`build-assets.py` now fits the TYPE to his wording (that short renders at 78 pt) rather than forcing
-a rewrite or a third line, which would have broken the title-clearance rule.
+**Verified:** QC **PASS 8/8** (incl. the new silence scan) · caption-sync gate **PASS**, median
+−10 to −70 ms · title clearance **PASS 8/8** · all joins covered by a punch or an AI clip ·
+**−14.0 to −14.3 LUFS**, peaks −1.3/−1.4 dBTP · review copies 0 silent seconds, a/v delta 0.000 s.
 
-**Verified:** QC **PASS 8/8** · caption-sync gate **PASS**, median −20 to −60 ms · title clearance
-**PASS 8/8** · all 17 joins hidden · splice discontinuity 0.01–0.21x of control · **−14.0 to −14.5
-LUFS**, peaks −0.8 to −1.5 dBTP · review copies 0 silent seconds, a/v delta 0.000 s.
+⚠ **TWO MEASUREMENT TRAPS, both of which failed a CORRECT build before being fixed.**
+**Whisper hallucinates a lead-in when a clip starts mid-sentence** — `base.en` invented "So let's
+say" in front of short 1 and compressed the real words to fit, failing the sync gate's first-word
+test; measured directly, speech starts 0.1 s in and the next sentence lands at 2.31 s, exactly
+where the source puts it. And **Vision's mask bleeds two rows past the picture's top edge**, so a
+subject starting at `dropTop` read as inside the title (681 px² of a 165,000 px² title).
 
 ⚠ **POSTING IS STILL BLOCKED ON THE PARENT VIDEO.** The long-form is **not published** — no
-packaging record, `/youtube-packaging` never run. Nothing is queued in Blotato and nothing should
-be without Dan.
+packaging record, `/youtube-packaging` never run. Nothing is queued in Blotato.
 
-**Flagged, none blocking:** short 6 carries *"it reduces your risk of cancer"* — his opinion on
-camera and already in the parent video, but the line most likely to attract a YouTube medical-claims
-flag in a 32 s Short; short 4 opens on *"you are not smart enough…"* (he reviewed and kept it 8/20);
-short 8 carries *"if you're fat and broken and you say stupid things"*.
+**Flagged, none blocking:** short 6 carries *"it reduces your risk of cancer"*; short 4 opens on
+*"you are not smart enough…"* (reviewed and kept 8/20); short 8 carries *"if you're fat and
+broken and you say stupid things"*.
 
-**Dashboard: the Key task is deliberately NOT checked off** — delivered and gated, but Dan has not
-watched rev 2.
+**Dashboard: the Key task is deliberately NOT checked off** — Dan has not watched rev 3.
 
-**EXACT NEXT ACTION — DAN: watch the eight rev-2 review copies (sent in chat).** Then, separately:
+**EXACT NEXT ACTION — DAN: watch the eight rev-3 review copies (sent in chat).** Then, separately:
 `/youtube-packaging` on the parent long-form, since these cannot post until it does.
 
-**Four long-forms remain unmined:** 01 spray tan (19:54), 02 Zepbound (30:28), 04 invest-health
-(53:17), 05 meal prep (4:49). `reference/clean-master/` is the pipeline for all of them.
+**Four long-forms remain unmined:** 01 spray tan, 02 Zepbound, 04 invest-health, 05 meal prep.
+⚠ **Check each one's channels with `work/chancheck.py` before cutting** — the same two-mic fault
+is on every roll from this shoot, and only the delivered masters were repaired.
 ---
 
 ### V4 LONGFORM BED SWAPPED — **DELIVERED. The claim covers 75 s, not the whole video** (2026-08-28, Claude Code)
