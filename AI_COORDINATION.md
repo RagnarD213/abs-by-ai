@@ -277,7 +277,55 @@ prev delivered mean-diff 0.48), so the fresh identity roll never reached the del
 **All 5 redelivered over the same filenames with IG crops rebuilt (220 px headroom each); the other
 7 are untouched.**
 
-**EXACT NEXT ACTION — DAN: review the five rev-1 comparisons (sent in chat).** Then waves 2, 3 and
+⚠ **WAVE 1 IS NOW UNIFORMLY k=0.27 ON ALL NINE WARPED FRAMES — CONCURRENT-SESSION RECONCILIATION,
+READ THIS BEFORE TOUCHING ANY WAVE-1 FILE.** A second session ("Studio shoot image warp adjustments")
+was raising the warp on finalized studio picks at the same time and messaged this one. Its md5 guard
+**refused** blue-9/33/34/43/53 rather than clobbering the rev-1 work above, and it had already
+rewritten **blue-5, 6, 10, 28** to k=0.27 a few minutes earlier. Both accounts verified here.
+
+⚠ **ITS PLANNED METHOD WOULD HAVE BROKEN FOUR FRAMES, AND THE MEASUREMENT IS WHY IT DIDN'T.** It
+intended to "invert the k=0.20 warp and compose k=0.27" on all nine, assuming a 0.20 baseline. That
+assumption was **false for blue-33/34/43/53**, which this session had already taken to 0.27 on Dan's
+"increase the warp on all the tight black shorts" note — inverting an absent 0.20 warp and composing
+0.27 would have double-resampled them to roughly 0.34. **Do not assume a warp strength; measure it.**
+Each frame was rebuilt at k=0.20/0.27/0.34 from its own correct pre-warp base and diffed against the
+delivered file inside the shorts ellipse — an exact 0.000 identifies the k on disk:
+
+| frame | k0.20 | k0.27 | k0.34 | on disk | written by |
+|---|---|---|---|---|---|
+| blue-5 | 0.765 | **0.000** | 0.770 | 0.27 | other session |
+| blue-6 | 0.954 | **0.000** | 0.958 | 0.27 | other session |
+| blue-10 | 0.993 | **0.000** | 0.986 | 0.27 | other session |
+| blue-28 | 1.216 | **0.000** | 1.225 | 0.27 | other session |
+| blue-33 | 0.432 | **0.000** | 0.438 | 0.27 | this session, rev 1 |
+| blue-34 | 0.412 | **0.000** | 0.415 | 0.27 | this session, rev 1 |
+| blue-43 | 0.408 | **0.000** | 0.415 | 0.27 | this session, rev 1 |
+| blue-53 | 0.423 | **0.000** | 0.426 | 0.27 | this session, rev 1 |
+| blue-9 | **0.000** | 1.135 | 1.288 | was 0.20 | this session |
+
+**blue-9 was the only frame short and has been taken to k=0.27 here**, re-warped from its clean
+pre-warp base (post skin-evening) rather than invert-composed, so there is no resample loss. Changed
+pixels confined to x[1290-1801] y[3765-4160] = exactly the 1545,3977 r270/230 ellipse; IG crop
+rebuilt; prior version kept as `v1_backup/studio-blue-9_FINAL_PRIMARY_k020.jpg`. **Nothing the other
+session wrote was touched.**
+
+**blue-14, 22 and 63 carry NO warp by design** — 14 and 22 are landscape with the front cropped at
+the frame edge, and 63 is a 3/4 turn showing hip. A test warp on 63 at k=0.27 was built and is
+**invisible**, which is the evidence for the skip rather than a bare judgement call.
+
+⚠ **THE REPLY COULD NOT BE DELIVERED — the other session is not reachable by either its `from` id or
+its name via SendMessage/ListAgents, so this file is the channel.** Anyone continuing that warp task:
+**wave 1's twelve files are DONE; do not write them.**
+
+⚠ **ONE QUESTION IS DAN'S AND IS DELIBERATELY NOT SETTLED: 0.27 or 0.34 on the black-shorts frames.**
+The other session's calibration cites Blue-213 going **0.27 → 0.34**, i.e. a rule of "+0.07 from
+current", which would take blue-33/34/43/53 to 0.34 — but its own stated wave-1 target was a flat
+0.27. The distinction is that Dan had already reviewed and approved Blue-210/213 at their prior
+strength before asking for more, whereas **he has not yet seen blue-33/34/43/53 at 0.27**. Held at
+0.27 and flagged rather than guessed.
+
+**EXACT NEXT ACTION — DAN: review the five rev-1 comparisons (sent in chat), and say 0.27 or 0.34 on
+the black-shorts warp.** Then waves 2, 3 and
 4 each in their own fresh session on Opus with `/photo-edit`
 (`handoff-20260828-studio-batch6-wave{2,3,4}.md`). ⚠ **Wave 3 still needs the reconciliation recorded
 below: B-266 is already delivered (strike it) and B-212 duplicates the delivered B-213 (drop it) —
