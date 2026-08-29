@@ -329,7 +329,7 @@
     {
       "text": "Execute handoff: studio batch 6 — retouch the remaining 52 picks (/photo-edit, Opus)",
       "priority": "key",
-      "why": "handoff-20260828-studio-batch6-remaining-52-picks.md — full-shoot sweep done, 52 frames selected (blue 37 / gray 7 / white 8); created but not yet run",
+      "why": "4 wave docs: handoff-20260828-studio-batch6-wave1..4.md (12/12/13/15 frames, one Opus session each); master doc handoff-20260828-studio-batch6-remaining-52-picks.md — created but not yet run",
       "addedAt": "2026-08-28"
     }
   ],
