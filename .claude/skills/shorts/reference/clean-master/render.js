@@ -8,8 +8,13 @@ const { SEGMENTS } = require('./segments.js');
 const { loadShots } = require('./plan.js');
 const { buildAss } = require('./captions.js');
 const { BLEEPS } = require('./bleeps.js');
+// EQ + gain that makes the raw roll's right channel match the master's processed voice.
+// Fitted by work/fitraw.py against a take that exists in BOTH, so it is measured, not guessed.
+const RAWFIT = fs.existsSync(path.join(__dirname, 'work', 'rawfit.txt'))
+  ? fs.readFileSync(path.join(__dirname, 'work', 'rawfit.txt'), 'utf8').trim()
+  : null;
 
-const { FF, SRC, FONTS, FPS, FPS_N } = require('./config.js');
+const { FF, SRC, RAW, GRADE, FONTS, FPS, FPS_N } = require('./config.js');
 const A = path.join(__dirname, 'assets');
 const BUILD = path.join(__dirname, 'build');
 const L = JSON.parse(fs.readFileSync(path.join(__dirname, 'layout.json'), 'utf8'));
@@ -29,26 +34,33 @@ const esc = (p) => p.replace(/\\/g, '\\\\').replace(/:/g, '\\:').replace(/'/g, "
 const renderShots = (segId) => loadShots().filter((x) => x.seg === segId);
 
 function shotFilter(s) {
-  // ONE TREATMENT. The clean master is a single locked kitchen camera with no burned
-  // graphics anywhere, so there is nothing to preserve whole and nothing to avoid slicing -
-  // every shot is a full-bleed 9:16 crop. (The delivered master would have been a different
-  // job entirely: 43% insert coverage, i.e. nearly half of every short forced into a card.)
+  // ONE TREATMENT, `talk`. The clean master is a single locked kitchen camera with no burned
+  // graphics, so there is nothing to preserve whole and nothing to avoid slicing.
   if (s.t !== 'talk') throw new Error(`unknown treatment ${s.t} on ${s.name}`);
   const T = L.talk;
-  const cw = T.cropW, ch = T.cropH, top = T.cropTop;
+  // ⚠ REV 2 - THE PUNCH. Every join in this batch is either a picture cut inherited from the
+  // source edit (Dan: "awkward cut", "jump cut") or one we make by removing a pause. Measured,
+  // both jump the picture by 5-12 mean-abs-difference against a 1.30 adjacent-frame baseline,
+  // so a join has to be HIDDEN, not just made. Alternating wide/tight across each join reads
+  // as a camera change rather than a glitch - the same fix the spray-tan longform applied to
+  // 35 of its 43 joins. `tight` costs 1.87x upscale against 1.68x and is set so his head lands
+  // at the same delivered y, i.e. only the FRAMING moves, not his position in frame.
+  const tight = !!s.tight;
+  const cw = tight ? T.tightW : T.cropW;
+  const ch = tight ? T.tightH : T.cropH;
+  const top = tight ? T.tightTop : T.cropTop;
   const cen = CROPS[s.name];
   if (cen == null) throw new Error(`${s.name}: no measured crop centre`);
   const x = Math.round(Math.min(Math.max(cen * SRC_W - cw / 2, 0), SRC_W - cw));
-  // DROP. Picture fills 1080 x (1920-dropTop) at the BOTTOM of the canvas, on the J2 field,
-  // so the title has a band of its own and never lands on his face or abs (Dan, 2026-08-28).
   const ph = CH - L.dropTop;
+  // A raw-roll shot needs the EDL's own grade to match the master. Verified: a graded raw
+  // frame correlates 0.9999 with the master frame it became.
+  const grade = s.src === 'raw' ? `${GRADE},` : '';
   return {
     inputs: ['-loop', '1', '-framerate', FPS, '-i', path.join(A, 'j2-bg.png')],
-    // setpts=PTS-STARTPTS is load-bearing: `-ss` leaves the first decoded frame with a
-    // non-zero PTS while the looped background starts at 0, and overlay then emits one bare
-    // background frame before the picture. shortest=1 is load-bearing too - the background
-    // is an infinite `-loop 1` still and overlay follows its FIRST input.
-    fc: `[0:v]setpts=PTS-STARTPTS,crop=${cw}:${ch}:${x}:${top},` +
+    source: s.src === 'raw' ? RAW : SRC,
+    // setpts=PTS-STARTPTS and shortest=1 are both load-bearing - see the git history.
+    fc: `[0:v]setpts=PTS-STARTPTS,${grade}crop=${cw}:${ch}:${x}:${top},` +
         `scale=${CW}:${ph}:flags=lanczos,setsar=1[pic];` +
         `[1:v][pic]overlay=0:${L.dropTop}:shortest=1,setsar=1[v]`,
     vf: null };
@@ -75,7 +87,7 @@ function renderSegment(seg) {
     // video. Cutting audio per shot re-splices it across N independent input seeks, which
     // measured 23-34ms of drift per cut on the V4 rebuild - a small content jump at every
     // picture cut. Shot boundaries are picture cuts inside CONTINUOUS audio.
-    const args = ['-ss', String(s.absStart), '-i', SRC, ...f.inputs, '-t', String(s.dur)];
+    const args = ['-ss', String(s.absStart), '-i', f.source, ...f.inputs, '-t', String(s.dur)];
     if (f.fc) args.push('-filter_complex', f.fc, '-map', '[v]', '-an');
     else args.push('-vf', f.vf, '-map', '0:v', '-an');
     args.push(...VENC, '-movflags', '+faststart', out);
@@ -95,7 +107,14 @@ function renderSegment(seg) {
   const wavs = [];
   seg.pieces.forEach((p, pi) => {
     const w = path.join(dir, `aud-${pi}.wav`);
-    const args = ['-ss', String(p.start), '-i', SRC, '-t', String((p.end - p.start).toFixed(3)), '-vn'];
+    // ⚠ A RAW piece's audio is the camera's TWO-MIC recording, not the master's fixed single-mic
+    // chain. Take the RIGHT channel only (the close lav - the left input on this shoot records
+    // hiss, per the standing finding) and apply the EQ fitted in work/fitraw.py, which was
+    // measured against the SAME take as it exists in the master. Without this the inserted line
+    // sounds like a different microphone.
+    const raw = p.src === 'raw';
+    const args = ['-ss', String(p.start), '-i', raw ? RAW : SRC,
+                  '-t', String((p.end - p.start).toFixed(3)), '-vn'];
     // Bleep windows are in SOURCE time; shift them into this piece's local time.
     const local = segBleeps
       .filter((b) => b[1] > p.start && b[0] < p.end)
@@ -123,11 +142,16 @@ function renderSegment(seg) {
     const fOut = pi === seg.pieces.length - 1 ? AU.fadeOut : AU.joinFade;
     const fade = `afade=t=in:st=0:d=${fIn},afade=t=out:st=${(pd - fOut).toFixed(3)}:d=${fOut}`;
     if (local.length) {
+      if (raw) throw new Error('bleeping a raw-roll piece is not wired up');
       // the bleep branch already built a filter_complex; append the fades to its [a] output
       const k = args.indexOf('-filter_complex');
       args[k + 1] = args[k + 1].replace('[a]', '[amix]') + `;[amix]${fade}[a]`;
     } else {
-      args.push('-af', fade);
+      // ⚠ ONE -af ONLY. The raw-roll correction and the fades were being pushed as two
+      // separate -af flags and ffmpeg honours the LAST one, so the raw EQ was silently
+      // discarded and the inserted line kept its 1.45 dB tonal seam through three rebuilds.
+      // Chain them instead.
+      args.push('-af', raw ? `${RAWFIT},${fade}` : fade);
     }
     args.push('-ar', '48000', '-ac', '2', '-c:a', 'pcm_s16le', w);
     ff(args, `${seg.id} audio piece ${pi}${local.length ? ' (bleeped)' : ''}`);

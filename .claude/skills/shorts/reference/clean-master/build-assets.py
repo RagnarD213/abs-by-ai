@@ -70,6 +70,22 @@ def wordmark():
     return p
 
 
+def fit_head(meta):
+    """Largest Impact size at which BOTH headline lines fit, down to a floor.
+
+    Rev 2: Dan's wording for M - "Why test boosters are the least important supplement" -
+    measures 1352px on one line at the batch's 98pt against a 976px limit. The options were to
+    change his words, drop to three lines (which would push the title into the picture and
+    break the standing rule), or fit the type. Fitting the type is the only one that costs
+    nothing, so the size is chosen per short instead of being fixed.
+    """
+    for size in range(98, 63, -2):
+        f = ImageFont.truetype(IMPACT, size)
+        if all(64 + f.getlength(l) < W - 60 for l in meta['title'].split('\n')):
+            return size, f
+    raise AssertionError(f"headline will not fit even at 64pt: {meta['title']!r}")
+
+
 def title_overlay(seg, meta):
     """Big overlaid title with a drop shadow — no static intro card (Dan's rule)."""
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
@@ -86,7 +102,8 @@ def title_overlay(seg, meta):
     im.alpha_composite(scrim, (0, 0))
     d = ImageDraw.Draw(im)
     eyebrow = ImageFont.truetype(COPPER, 36)
-    head = ImageFont.truetype(IMPACT, 98)
+    size, head = fit_head(meta)
+    lh = int(round(size * 0.96))
 
     y = 40
     # eyebrow, letter-spaced olive
@@ -101,7 +118,7 @@ def title_overlay(seg, meta):
         for dx, dy in ((5, 6), (3, 4)):
             d.text((64 + dx, y + dy), line, font=head, fill=(0, 0, 0, 190))
         d.text((64, y), line, font=head, fill=(255, 255, 255, 255))
-        y += 94
+        y += lh
     p = os.path.join(OUT, f'title-{seg}.png')
     im.save(p)
     return p
@@ -143,10 +160,12 @@ def chip(shot, label, w, h):
 
 
 def check_width(seg, meta):
-    head = ImageFont.truetype(IMPACT, 98)
+    size, head = fit_head(meta)
     for line in meta['title'].split('\n'):
         w = head.getlength(line)
         assert 64 + w < W - 40, f'title-{seg} line {line!r} is {w:.0f}px wide, runs off the frame'
+    if size != 98:
+        print(f'  title-{seg}: headline set at {size}pt to fit the frame')
 
 
 L = json.load(open(os.path.join(HERE, 'layout.json')))

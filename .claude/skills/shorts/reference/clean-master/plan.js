@@ -22,6 +22,13 @@
 // only 7-21px, so a per-beat CONSTANT is enough and no pan is needed - a pan on a locked
 // tripod reads as a mistake.
 //
+// ⚠ REV 2 - `tight: true` IS THE PUNCH. Every short opens wide and alternates at every join.
+// A join is either a picture cut inherited from the source edit (the four Dan called "awkward
+// cut"/"jump cut") or one we make removing a pause; measured, both jump the picture 5-12 MAD
+// against a 1.30 adjacent-frame baseline, so each is hidden by a framing change rather than
+// left naked. Geometry in layout.json: 578x862 @ top 126 vs 644x960 @ top 120, chosen so his
+// head lands at the same delivered y - only the framing moves.
+//
 // Silhouette containment was checked against every window: 18 of 20 shots clip nothing at
 // all, and the other two clip a gesturing hand by 27-33px of source on one sampled frame.
 // That is normal in a vertical talking head and is not what Dan flagged - his complaint was
@@ -34,35 +41,44 @@ const { SEGMENTS } = require('./segments.js');
 const SHOTS = {
   // ---- B ----------------------------------------------------------------
   'B-p0-s00': { t: 'talk', x: 0.6871 },
-
-  // ---- A ----------------------------------------------------------------
-  'A-p0-s00': { t: 'talk', x: 0.6707 },
-  'A-p1-s00': { t: 'talk', x: 0.6707 },
-  'A-p2-s00': { t: 'talk', x: 0.6750 },
+  'B-p1-s00': { t: 'talk', x: 0.6871, tight: true },
 
   // ---- E ----------------------------------------------------------------
-  'E-p0-s00': { t: 'talk', x: 0.6848 },
-
-  // ---- D ----------------------------------------------------------------
-  'D-p0-s00': { t: 'talk', x: 0.6871 },
-  'D-p0-s01': { t: 'talk', x: 0.6969 },
-
-  // ---- C ----------------------------------------------------------------
-  'C-p0-s00': { t: 'talk', x: 0.6730 },
-  'C-p0-s01': { t: 'talk', x: 0.6852 },
+  'E-p0-s00': { t: 'talk', x: 0.6695, src: 'raw' },
+  'E-p1-s00': { t: 'talk', x: 0.6848, tight: true },
+  'E-p2-s00': { t: 'talk', x: 0.6848 },
 
   // ---- J ----------------------------------------------------------------
   'J-p0-s00': { t: 'talk', x: 0.6699 },
-  'J-p1-s00': { t: 'talk', x: 0.6676 },
-  'J-p1-s01': { t: 'talk', x: 0.6676 },
+  'J-p1-s00': { t: 'talk', x: 0.6676, tight: true },
+  'J-p2-s00': { t: 'talk', x: 0.6676 },
+  'J-p2-s01': { t: 'talk', x: 0.6676, tight: true },
+
+  // ---- A ----------------------------------------------------------------
+  'A-p0-s00': { t: 'talk', x: 0.6707 },
+  'A-p1-s00': { t: 'talk', x: 0.6707, tight: true },
+  'A-p2-s00': { t: 'talk', x: 0.6750 },
 
   // ---- M ----------------------------------------------------------------
   'M-p0-s00': { t: 'talk', x: 0.6816 },
-  'M-p0-s01': { t: 'talk', x: 0.6836 },
+  'M-p0-s01': { t: 'talk', x: 0.6836, tight: true },
+  'M-p1-s00': { t: 'talk', x: 0.6836 },
+
+  // ---- C ----------------------------------------------------------------
+  'C-p0-s00': { t: 'talk', x: 0.6730 },
+  'C-p1-s00': { t: 'talk', x: 0.6730, tight: true },
+  'C-p2-s00': { t: 'talk', x: 0.6852 },
 
   // ---- H ----------------------------------------------------------------
   'H-p0-s00': { t: 'talk', x: 0.6715 },
-  'H-p0-s01': { t: 'talk', x: 0.6855 },
+  'H-p1-s00': { t: 'talk', x: 0.6855, tight: true },
+  'H-p2-s00': { t: 'talk', x: 0.6855 },
+
+  // ---- D ----------------------------------------------------------------
+  'D-p0-s00': { t: 'talk', x: 0.6871 },
+  'D-p1-s00': { t: 'talk', x: 0.6871, tight: true },
+  'D-p1-s01': { t: 'talk', x: 0.6969 },
+  'D-p2-s00': { t: 'talk', x: 0.6969, tight: true },
 };
 
 // Benefit-first titles. Two rules applied, both from the ab-wheel rev-2 lessons: the HEADLINE
@@ -71,13 +87,16 @@ const SHOTS = {
 // draft of B measured 974px against a 976px limit.
 const META = {
   B: { eyebrow: 'IF YOU ONLY TAKE THREE', title: 'THE 3 SUPPLEMENTS\nTHAT ACTUALLY MATTER' },
+  // REV 2 - J, M and H are Dan's exact wording. M's headline does not fit at the batch's 98pt
+  // (its long line measures 1352px against a 976px limit), so build-assets.py fits the TYPE to
+  // his words rather than the other way round.
   A: { eyebrow: "YOU CAN'T UNDERSTAND THE STUDIES", title: 'LET AI PICK\nYOUR SUPPLEMENTS' },
   E: { eyebrow: 'MY BIGGEST MISTAKE', title: 'STOP BUYING A BIG\nSUPPLEMENT STACK' },
   D: { eyebrow: 'THE HARD TRUTH ABOUT PILLS', title: 'SUPPLEMENTS ARE ONLY\n5% OF YOUR RESULTS' },
   C: { eyebrow: 'THE MOST PROVEN SUPPLEMENT', title: 'IF YOU TAKE ONE THING\nTAKE FISH OIL' },
-  J: { eyebrow: '70% OF PEOPLE ARE DEFICIENT', title: 'YOU NEED 5X MORE\nVITAMIN D' },
-  M: { eyebrow: 'MOST TEST BOOSTERS DO NOTHING', title: 'THE SUPPLEMENT THAT\nDOES ALMOST NOTHING' },
-  H: { eyebrow: "THE ONE I DON'T TAKE", title: 'YOU SHOULD BE\nTAKING CREATINE' },
+  J: { eyebrow: '70% OF MEN ARE DEFICIENT', title: 'WHY MEN MUST TAKE\nVITAMIN D' },
+  M: { eyebrow: 'STOP TAKING THIS SUPPLEMENT', title: 'WHY TEST BOOSTERS ARE THE\nLEAST IMPORTANT SUPPLEMENT' },
+  H: { eyebrow: "I DON'T TAKE CREATINE, BUT", title: 'YOU SHOULD BE\nTAKING CREATINE' },
 };
 
 function loadShots() {

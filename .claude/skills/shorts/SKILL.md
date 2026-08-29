@@ -244,6 +244,30 @@ amount by which the EDL undershoots the master's duration). MEASURE each boundar
 full-frame-rate frame-difference peak inside a window around its prediction, and assert the
 correction is monotonic. See `reference/clean-master/work/splices.py`.
 
+## ⚠ Step 4.5 — SCAN FOR JUNK, PAUSES AND INHERITED JUMP CUTS
+
+Run `reference/clean-master/work/junkscan.py` on every batch before delivering. It reports, per
+short, every measured pause over 0.55s, every picture cut inherited from the source edit, and
+how late speech starts. On the supplements batch Dan named six timecodes and the scan found all
+six plus nine more — it is what turns "check everything" into a list.
+
+⚠ **A PAUSE CANNOT SIMPLY BE REMOVED, and this is the counter-intuitive part.** Cutting one
+joins two moments in time, and Dan moves while he is not talking. Measured as mean-abs-
+difference across the join (`work/pausejump.py`), against a 1.30 adjacent-frame baseline: an
+inherited source splice — what Dan calls an "awkward cut" — scores **7.64**, and **removing a
+pause scores 4.97-12.46**, i.e. as bad or worse. So every join has to be HIDDEN, by alternating
+a wide and a tight framing across it (see Step 6). And do not remove every pause the scan
+finds: 0.55-0.65s is breathing rhythm, and cutting those adds joins for no gain.
+
+⚠ **WHISPER HIDES A HESITATION INSIDE A WORD, so the scan cannot see it until the word
+timestamps are corrected.** Dan's "junk footage in the beginning at 0:01" was a 0.95s stumble
+that Whisper had swallowed into the word "you're". Run
+`reference/clean-master/work/fixonsets.py` immediately after building the gap table: it moves
+an onset out of measured silence, an offset out of measured silence, and — the one that
+mattered — **a word that wholly contains a gap of >=0.25s begins at that gap's end**. On one
+roll that corrected 363 onsets, 328 offsets and 51 swallowed pauses, and it also stops a word
+straddling a piece boundary from being spoken but never captioned.
+
 ## Step 5 — crop offsets: automate, then LOOK
 
 Auto-picking offsets by image energy / centroid / silhouette is a starting point and

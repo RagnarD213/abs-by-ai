@@ -13,6 +13,9 @@ const { SEGMENTS } = require('./segments.js');
 const ORDER = ['B', 'E', 'J', 'A', 'M', 'C', 'H', 'D'];
 
 const OUT = '/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content';
+// Rev 2 renamed two shorts (J and M carry Dan's new titles), so clear the old delivery
+// first - otherwise the folder keeps a stale supp-short3/supp-short5 alongside the new ones.
+for (const f of fs.readdirSync(OUT)) if (/^supp-short\d+_/.test(f)) fs.unlinkSync(path.join(OUT, f));
 const rows = [];
 ORDER.forEach((id, i) => {
   const seg = SEGMENTS.find((s) => s.id === id);

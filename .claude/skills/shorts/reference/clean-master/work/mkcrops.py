@@ -10,11 +10,15 @@ import json
 man = json.load(open('shots/manifest.json'))
 geom = json.load(open('work/beatgeom.json'))
 by = {(v['seg'], v['beat']): v for v in geom.values()}
-missing = [m['name'] for m in man if (m['seg'], m['beat']) not in by]
+# a raw-roll shot is keyed by its own name, not by a master beat (it has none)
+byname = {k: v for k, v in geom.items() if v.get('src') == 'raw'}
+missing = [m['name'] for m in man
+           if m['name'] not in byname and (m['seg'], m['beat']) not in by]
 if missing:
     raise SystemExit(f"no measured torso centre for: {missing}\n"
                      f"  run the beat measurement for those beats first")
-crops = {m['name']: by[(m['seg'], m['beat'])]['torso'] for m in man}
+crops = {m['name']: (byname[m['name']] if m['name'] in byname
+                     else by[(m['seg'], m['beat'])])['torso'] for m in man}
 json.dump(crops, open('shots/crops.json', 'w'), indent=1)
 xs = list(crops.values())
 print(f"{len(crops)} crop centres, x {min(xs):.4f}-{max(xs):.4f} "

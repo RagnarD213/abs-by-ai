@@ -90,6 +90,41 @@ function snapOut(t, ceil, tail = 0.34) {
   return Math.min(t + 0.12, ceil + 0.05);
 }
 
+
+// ---------------------------------------------------------------------------------------
+// A piece taken from the RAW ROLL instead of the master. Rev 2 only: Dan asked for a better
+// take on E's opening line and the alternative is a take the editor discarded, so it exists
+// only in C1514.MP4. Its words come from the raw roll's own transcript. `pre` is how much
+// silence to hold before the first word.
+const RAWW = (() => {
+  const d = JSON.parse(fs.readFileSync(require('./config.js').RAW_WORDS, 'utf8'));
+  const segs = d.segments || d;
+  const out = [];
+  for (const s of segs) for (const w of (s.words || []))
+    out.push({ text: w.word, timestamp: [w.start, w.end] });
+  return out;
+})();
+function rawPiece(from, to, { pre = 0.20, tail = 0.30 } = {}) {
+  const norm = (x) => x.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+  // ⚠ Keep the index map. Filtering empty tokens out of the search list while indexing back
+  // into the UNFILTERED one put this phrase 2.2s early - the same off-by-N that the "%" token
+  // caused in the master's own phrase finder.
+  const flat = [], map = [];
+  RAWW.forEach((w, i) => { const t = norm(w.text); if (t) { flat.push(t); map.push(i); } });
+  const idx = (phrase) => {
+    const p = norm(phrase).split(' ');
+    for (let i = 0; i + p.length <= flat.length; i++)
+      if (p.every((t, k) => flat[i + k] === t)) return i;
+    throw new Error(`raw phrase not found: "${phrase}"`);
+  };
+  const a = idx(from), b = idx(to) + norm(to).split(' ').length - 1;
+  const start = +(RAWW[map[a]].timestamp[0] - pre).toFixed(3);
+  const end = +(RAWW[map[b]].timestamp[1] + tail).toFixed(3);
+  const words = RAWW.filter((w) => w.timestamp[1] > start && w.timestamp[0] < end)
+    .map((w) => ({ text: w.text, timestamp: [w.timestamp[0], w.timestamp[1]] }));
+  return { start, end, from, to, src: 'raw', words };
+}
+
 const BAD = [];
 // A piece = continuous run of source video, from the START of `from` to the END of `to`.
 // `inAt` forces an explicit in-point. Needed where Whisper inflates a short word
@@ -114,30 +149,57 @@ function piece(from, to = from, { nthFrom = 0, nthTo = 0, tail = 0.34, preroll =
   return { start: +start.toFixed(2), end: +end.toFixed(2), from, to };
 }
 
-// EIGHT shorts from the supplements long-form. Dan asked for the eight strongest of the
-// 14 researched candidates; the letters are the shortlist's
-// (Handoffs/assets/shorts-supplements-20260828/shortlist.md).
+// EIGHT shorts from the supplements long-form. REV 2 — Dan's notes of 2026-08-28.
 //
-// Not built, and why: [F] ends on a Zepbound recommendation and Dan did not rule on the drug
-// name; [I] carries "I just uncontrollably shit myself" AND a sentence that does not parse as
-// transcribed; [L] needs a 248->180 word trim and names a third-party influencer; [N] is the
-// bragging failure mode that killed v6-short1; [K] is the least distinctive; [P] is 29s.
-//
-// Every one hands the VIEWER something (skill Step 2's hard rule):
-//   B the three to start with · A a method for choosing · E how to build the habit ·
-//   D how much supplements actually matter · C which single one · J the dose ·
-//   M which part of a test booster works · H the one he does not take but you should.
+// ⚠ EVERY JOIN IN THIS FILE IS DELIBERATE AND EVERY ONE IS HIDDEN BY A PUNCH (plan.js).
+// Dan flagged four "awkward cut"/"jump cut" timecodes and two "junk footage" ones; a scan
+// found 8 inherited source splices and 14 pauses over 0.55s across the batch. Measured, a
+// pause removal jumps the picture as much as an inherited splice does (4.97-12.46 against a
+// 1.30 adjacent-frame baseline), because he moves while he is not talking — so pauses are
+// removed only where they are genuinely long, and every resulting join alternates wide/tight.
 const SEGMENTS = [
   {
     id: 'B', slug: 'the-3-supplements-that-matter',
     title: 'The 3 Supplements That Actually Matter',
     pieces: [
-      // Opens on his own question rather than the answer - "So let's say you're taking
-      // nothing right now. How should you get started?" is the scroll-stopper and it needs
-      // no context. Ends on "a totally fine supplement stack to start with", which closes
-      // the loop; the next sentence starts the step-2 sequence and belongs to the long-form.
-      piece("So let's say you're taking nothing right now",
-            "that's a totally fine supplement stack to start with"),
+      // ⚠ REV 2, Dan: "there is junk footage in the beginning at 0:01". It is a 0.95s
+      // HESITATION after "So let's say", which Whisper hid inside the word "you're"
+      // (timed 1046.94-1048.82 across measured silence 1047.22-1047.92). Cut it.
+      piece("So let's say", "So let's say", { outAt: 1047.26 }),
+      // outAt: the source splices to the next beat at 1088.46 and the old cut ran 0.26s past
+      // it, inheriting a jump cut in the last quarter second. Ends on the same word.
+      piece("you're taking nothing right now",
+            "that's a totally fine supplement stack to start with",
+            { inAt: 1047.88, outAt: 1088.42 }),
+    ],
+  },
+  {
+    id: 'E', slug: 'stop-buying-a-big-supplement-stack',
+    title: 'Stop Buying A Big Supplement Stack',
+    pieces: [
+      // ⚠ REV 2, Dan: "the take used was a little bit awkward. See if you can find a better
+      // take for the first 3 seconds." There is one, and it is only in the raw roll — the
+      // editor discarded it. In the used take he opens looking down with a half-lidded
+      // expression; in this one he holds eye contact throughout. Its line also reads better
+      // straight into "I bought a huge stack like this".
+      rawPiece('So I would have to say the biggest mistake I made when taking supplements is',
+               'So I would have to say the biggest mistake I made when taking supplements is',
+               { tail: 0.22 }),
+      piece('I bought a huge stack like this', "I just wasn't consistent"),
+      // the 0.75s pause after "consistent." is the longest in this short
+      piece("It's better to take one or two supplements", 'then add in another one'),
+    ],
+  },
+  {
+    id: 'J', slug: 'why-men-must-take-vitamin-d',
+    title: 'Why Men Must Take Vitamin D',
+    pieces: [
+      piece('vitamin D. Critically, critically important',
+            'vitamin D. Critically, critically important'),
+      piece('about 70% of people are deficient in vitamin D',
+            'So many benefits just from daily vitamin D supplementation'),
+      piece('I recommend Athletic Greens liquid vitamin D',
+            'you should be taking more than what they recommend'),
     ],
   },
   {
@@ -146,86 +208,73 @@ const SEGMENTS = [
     pieces: [
       piece('You are not smart enough to understand scientific research',
             "Yet I still don't trust myself to analyze the scientific research"),
-      // 78-98s is 20s of elaboration on the same point (nutrition scientists, "so much
-      // research out there"). Cut: the short states the problem once and moves to the fix.
       piece('That is where AI comes in',
             'AI can read all scientific research ever done', { tail: 0.08 }),
-      // ⚠ THE SOURCE CONTAINS A FALSE START HERE AND IT SURVIVED INTO THE DELIVERED MASTER:
-      // "Don't get supplement recommendations from your..." (125.67-127.84), a 0.78s pause,
-      // then the real take. Starting on the SECOND occurrence removes it. The phrase is
-      // unique as written because the first attempt never reaches "ripped friend".
       piece("Don't get supplement recommendations from your ripped friend",
             'the ultimate authority, AI', { tail: 0.15 }),
     ],
   },
   {
-    id: 'E', slug: 'stop-buying-a-big-supplement-stack',
-    title: 'Stop Buying A Big Supplement Stack',
+    id: 'M', slug: 'why-test-boosters-matter-least',
+    title: 'Why Test Boosters Are The Least Important Supplement',
     pieces: [
-      // Ends at "add in another one" rather than running to "add new supplements in slowly",
-      // which is a restatement AND is where B starts - so the two shorts do not overlap.
-      piece('So this is the biggest mistake I made when first getting into supplements',
-            'then add in another one'),
-    ],
-  },
-  {
-    id: 'D', slug: 'supplements-are-only-5-percent',
-    title: 'Supplements Are Only 5% Of Your Results',
-    pieces: [
-      // ⚠ ONE PIECE, NOT TWO, AND THE MEASUREMENT DECIDED IT. The plan was to cut the hook
-      // line and splice past "We just went into all this" (a long-form reference), but the
-      // 0.46s between "overall results." and "We" is NOT confirmed silence - it is a breath,
-      // and both detectors agree, so no cut can be placed there without clipping. Keeping the
-      // clause costs one mildly long-form-ish phrase and buys a take with no splice at all,
-      // at 57s - dead centre of the 45-60s band the organic research found.
-      // Trimmed at the head instead: "here's the bigger point that I do wanna emphasize
-      // before I wrap up this video, guys" is dropped, so the short opens on the claim.
-      piece('Supplements are only about 5% of your overall results',
-            "compared to the benefit you're getting"),
+      piece("out of everything that I'm taking",
+            'it has other health benefits too', { preroll: 0.12 }),
+      // ⚠ REV 2, Dan: "an unnecessarily large, long pause at 0:35. That is junk footage."
+      // Measured at 1.24s — the longest in the batch. Removed here.
+      // outAt: the source splices at 724.03 and the old cut ran 0.27s past it.
+      piece('And then finally, it has zinc',
+            'recommend the zinc part of this to everybody', { outAt: 724.00 }),
     ],
   },
   {
     id: 'C', slug: 'if-you-take-one-take-fish-oil',
     title: 'If You Take One Supplement, Take Fish Oil',
     pieces: [
-      // Trims the leading "...recommended by AI for those reasons", which is the tail of the
-      // Thorne beat before it.
       piece('Fish oil is one of the most important supplements',
-            'you have to be taking fish oil'),
-    ],
-  },
-  {
-    id: 'J', slug: 'you-need-5x-more-vitamin-d',
-    title: 'You Need 5x More Vitamin D',
-    pieces: [
-      // ⚠ A 0.5s filler sits between these two pieces: Whisper hears "And B," at 286.34-286.86
-      // with a 1.08s pause after it. Splicing it out joins two complete sentences and gives
-      // the short a clean stat hook. Also drops "let's talk about the next supplement", which
-      // only makes sense inside the long-form.
-      piece('vitamin D. Critically, critically important',
-            'vitamin D. Critically, critically important'),
-      piece('about 70% of people are deficient in vitamin D',
-            'you should be taking more than what they recommend'),
-    ],
-  },
-  {
-    id: 'M', slug: 'the-supplement-that-does-nothing',
-    title: 'The Supplement That Does Almost Nothing',
-    pieces: [
-      piece("out of everything that I'm taking",
-            'recommend the zinc part of this to everybody', { preroll: 0.12 }),
+            'If you\'re only going to take one supplement, it should be fish oil'),
+      // ⚠ REV 2, Dan: "There's an awkward cut at 0:26." Measured: the source splice at 446.68
+      // lands INSIDE the word "Especially," (446.62-447.02), so the delivered audio was a
+      // half-word followed by the next take restarting on the same word. Both the stutter and
+      // the splice are cut out here; the short keeps one clean "especially".
+      piece('Fish oil improves your heart health',
+            'the most proven supplement that you can take', { outAt: 446.66 }),
+      piece("especially if you're not eating a lot of fish right now",
+            'you have to be taking fish oil', { inAt: 447.08 }),
     ],
   },
   {
     id: 'H', slug: 'you-should-be-taking-creatine',
     title: 'You Should Be Taking Creatine',
     pieces: [
-      // Trims the leading "...and more sleep overall", the tail of the deep-sleep beat.
+      // ⚠ REV 2, Dan: "There's junk footage and an awkward cut at 0:10." Measured: the source
+      // splices at 946.31 into a 0.28s dead spot, and the take either side REPEATS "for muscle
+      // building". Cutting the whole "and not just for muscle building," clause removes the
+      // repetition, the dead air and the inherited jump cut at once, and the sentence still
+      // lists all three benefits.
       piece("one other supplement that I don't personally take",
-            'unless you have stomach issues'),
+            'Creatine is proven to have tremendous benefits for muscle building',
+            { outAt: 945.26 }),
+      piece('for your brain health and your heart health as well at higher doses',
+            'the level of diarrhea and gas that I get', { inAt: 948.10 }),
+      piece('For you, though, that probably', 'unless you have stomach issues'),
+    ],
+  },
+  {
+    id: 'D', slug: 'supplements-are-only-5-percent',
+    title: 'Supplements Are Only 5% Of Your Results',
+    pieces: [
+      piece('Supplements are only about 5% of your overall results',
+            "It's only about 5%"),
+      piece('On the other hand, though',
+            'so I always iron my clothes before I go out on a date'),
+      // outAt: the source splices at 1302.50 and the old cut ran 0.3s past it.
+      piece('For that same reason', "compared to the benefit you're getting",
+            { outAt: 1302.44 }),
     ],
   },
 ];
+
 // HARD RULE for this batch: no source second may appear in two shorts.
 {
   const spans = [];

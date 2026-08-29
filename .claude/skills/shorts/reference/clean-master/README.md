@@ -84,3 +84,93 @@ tokens merge like punctuation ("sub -step"), and the first word of each piece is
   mask-top is not head-top — it reported row 15 against a true ~180 on three beats, a 160 px
   error that would have set the batch's geometry. Take the largest connected component and
   require a real run width (`work/vertgeom.py`).
+
+---
+
+# Rev 2 (2026-08-28) — Dan's revision notes, and what they turned into
+
+His notes named four "awkward cut"/"jump cut" timecodes, two "junk footage" ones, one long
+pause, three title changes, one audio complaint, and "double-check everything". Every named
+timecode turned out to be an instance of a CLASS, so each was fixed as a class.
+
+## `work/junkscan.py` — run this before delivering, every time
+
+Reports, per short: measured pauses over 0.55s, picture cuts inherited from the source edit,
+and how late speech starts. It found all six of Dan's timecodes and nine more he had not
+reached yet. **It is what turns "double-check everything" into a list.**
+
+## ⚠ A PAUSE CANNOT SIMPLY BE REMOVED. `work/pausejump.py` proves it.
+
+Cutting a pause joins two moments in time, and Dan MOVES while he is not talking. Measured as
+mean-abs-difference across the join, against a 1.30 adjacent-frame baseline:
+
+| | score |
+|---|---|
+| adjacent frames (no jump) | 1.30 |
+| an inherited source splice — what "awkward cut" means | 7.64 |
+| **removing a pause** | **4.97 – 12.46** |
+
+So a pause removal is as visible as the fault it is meant to fix. **Every join must be
+HIDDEN, not just made** — `plan.js` alternates wide/tight at each one (`tight: true`), which
+reads as a camera change. Geometry in `layout.json`: 578x862 @ top 126 against 644x960 @ 120,
+set so his head lands at the same delivered y, i.e. only the framing moves.
+
+Corollary: do not remove every pause the scan finds. Five 0.57-0.65s pauses were deliberately
+kept — they are breathing rhythm, and cutting them would have added five more joins.
+
+## Whisper hides the junk inside a word — `work/fixonsets.py`
+
+Dan's "junk footage in the beginning at 0:01" was a 0.95s HESITATION that the pause scan could
+not see, because Whisper timed the word "you're" at 1046.94-1048.82, swallowing it. Three
+corrections against measured silence, run right after the gaps are built:
+onset inside a gap → the gap's end; offset inside a gap → the gap's start; **a gap of >=0.25s
+wholly inside a word → the word begins at that gap's end.** On this roll: 363 onsets, 328
+offsets, and **51 words that had swallowed a pause.**
+
+This also fixes two caption faults, because a word straddling a piece boundary otherwise fails
+the >50%-overlap test and is spoken but never captioned.
+
+## Cutting from the RAW ROLL when the master has no better take
+
+Dan asked for a better take on one opener. The master is a finished cut, so the alternative
+existed only in the raw. It works, and the checks that make it safe:
+
+* **Orientation and grade.** A graded raw frame correlates **0.9999** with the master frame it
+  became (0.15 against its mirror). The EDL's own `grade` curve is all that is needed.
+* **Audio is the hard part** — the raw is the camera's two-mic recording, not the master's
+  repaired single-mic chain. `work/fitraw.py` takes the RIGHT channel and fits a per-band EQ.
+  ⚠ **Fit it against the content it will NEIGHBOUR, not against a take present in both files.**
+  Fitting on the shared take left a 1.45 dB seam, because the insert is a different take with
+  its own mic distance. ⚠ And **close the loop** (`work/rawiter.py`): the whole-short EQ and
+  limiter move it again afterwards. 1.45 → 1.14 → **0.50 dB**, inside the batch's own spread.
+* ⚠ **ONE `-af` ONLY.** The raw EQ and the fades were pushed as two separate `-af` flags and
+  ffmpeg honours the last, so the correction was silently discarded through three rebuilds.
+
+## Tonal matching across the batch — `finishaudio.py` (replaces `normalize.js`)
+
+Dan: one short "doesn't sound as good as the other ones". All eight were already at -14 LUFS,
+so level was never it. **Tone was**: cut from different points of a 23-minute take, their
+low/high tilt spanned 5.1 dB, and the short he named was the thinnest.
+
+Fit each short to the batch MEDIAN octave profile, **one peaking filter per band** (a
+three-knob shelf/peak/shelf model could only halve the spread, and left the named short still
+worst). Gains damped 0.85 and clamped to ±4 dB so it stays a correction. Result: tilt spread
+**5.1 → 1.5 dB**, worst band error **1.36 → 0.92 dB**, the named short **1.36 → 0.76 dB**.
+
+No broadband noise reduction: /longform-edit already tried `afftdn` on this material and
+rejected it. Tone is the fixable part.
+
+## Titles: fit the TYPE to his words, not his words to the type
+
+Dan's new headline for one short measured 1352px against a 976px limit at the batch's 98pt.
+`build-assets.py` now picks the largest size at which both lines fit (that short landed at
+78pt) instead of forcing a rewrite or a third line, which would break the title-clearance rule.
+
+## Caption rules added
+
+* A chunk may never span a piece join — the raw opener ended "...taking supplements is" and the
+  next piece began "I bought", which printed as "taking supplements is I".
+* Capitalise a piece's first word **only if a sentence actually ended**. Two of rev 2's joins
+  continue a sentence, and blanket capitalising printed "So let's say You're taking nothing"
+  and "muscle building For your brain health".
+* `TAIL_COMMA` marks a join where a whole clause was removed, so the caption gets its comma.

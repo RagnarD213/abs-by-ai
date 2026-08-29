@@ -17,7 +17,7 @@ const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
 const { SEGMENTS } = require('./segments.js');
-const { FF, SRC } = require('./config.js');
+const { FF, SRC, RAW, GRADE } = require('./config.js');
 
 const OUT = path.join(__dirname, 'shots');
 fs.mkdirSync(OUT, { recursive: true });
@@ -33,17 +33,23 @@ const MIN_SHOT = 0.40;
 const manifest = [];
 for (const seg of SEGMENTS) {
   seg.pieces.forEach((p, pi) => {
-    const inner = EDGES.filter((c) => c > p.start + MIN_SHOT && c < p.end - MIN_SHOT);
+    // A raw-roll piece has no relationship to the master's splice table - it is one
+    // continuous take straight off the camera, so it is always exactly one shot.
+    const inner = p.src === 'raw' ? []
+      : EDGES.filter((c) => c > p.start + MIN_SHOT && c < p.end - MIN_SHOT);
     const bounds = [p.start, ...inner, p.end];
     for (let i = 0; i < bounds.length - 1; i++) {
       const a = bounds[i], b = bounds[i + 1];
       const name = `${seg.id}-p${pi}-s${String(i).padStart(2, '0')}`;
       // the EDL beat this shot belongs to, so plan.js can look up its measured torso centre
-      const beat = SPLICES.filter((c) => c <= a + 0.001).length - 1;
+      const beat = p.src === 'raw' ? -1 : SPLICES.filter((c) => c <= a + 0.001).length - 1;
+      const src = p.src === 'raw' ? RAW : SRC;
+      const vf = p.src === 'raw' ? `${GRADE},scale=480:-1` : 'scale=480:-1';
       execFileSync(FF, ['-hide_banner', '-loglevel', 'error', '-y',
-        '-ss', String(+((a + b) / 2).toFixed(3)), '-i', SRC,
-        '-frames:v', '1', '-vf', 'scale=480:-1', path.join(OUT, name + '.jpg')]);
+        '-ss', String(+((a + b) / 2).toFixed(3)), '-i', src,
+        '-frames:v', '1', '-vf', vf, path.join(OUT, name + '.jpg')]);
       manifest.push({ seg: seg.id, piece: pi, shot: i, name, beat,
+                      src: p.src || 'master',
                       absStart: +a.toFixed(3), dur: +(b - a).toFixed(3) });
     }
     console.log(`${seg.id} piece ${pi}: ${(p.end - p.start).toFixed(1)}s -> ` +

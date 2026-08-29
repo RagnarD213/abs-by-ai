@@ -33,7 +33,10 @@ function segWords(seg) {
   const out = [];
   let offset = 0;
   seg.pieces.forEach((p, pi) => {
-    for (const w of words) {
+    // ⚠ A raw-roll piece carries its OWN words, from the raw roll's transcript: the master's
+    // word list has no entry for a take the editor discarded, so without this the short's
+    // opening line would be spoken with no captions at all.
+    for (const w of (p.words || words)) {
       const [a, b] = w.timestamp;
       if (b <= p.start || a >= p.end) continue;
       // ⚠ ZERO-DURATION WORDS. Whisper emits a=b for a small number of words (9 of 4719 on
@@ -63,6 +66,11 @@ function segWords(seg) {
   });
   return out.sort((x, y) => x.timestamp[0] - y.timestamp[0]);
 }
+
+// Pieces whose join removed a clause, so the caption needs a comma where the clause was.
+// Explicit rather than automatic: B's join removed a hesitation INSIDE a clause and must not
+// get one ("So let's say, you're taking nothing" is not what he said).
+const TAIL_COMMA = { H: [0] };
 
 function buildAss(seg) {
   const raw = segWords(seg);
@@ -99,7 +107,12 @@ function buildAss(seg) {
     const [start] = w.timestamp;
     if (cur.length) {
       const prevEnd = cur[cur.length - 1].timestamp[1];
-      if (start - prevEnd > 0.6 || cur.length >= 4) flush();
+      // ⚠ Never let a caption chunk span a PIECE JOIN. The two sides are different moments in
+      // the source, so a chunk that straddles one reads as a non-sentence: E's raw opener ended
+      // "...taking supplements is" and the next piece began "I bought a huge stack", which the
+      // chunker rendered on screen as "taking supplements is I".
+      if (start - prevEnd > 0.6 || cur.length >= 4 ||
+          w.piece !== cur[cur.length - 1].piece) flush();
     }
     cur.push(w);
     const txt = w.text.trim();
@@ -114,11 +127,22 @@ function buildAss(seg) {
     if (i + 1 < chunks.length) end = Math.min(end, chunks[i + 1][0].timestamp[0]);
     if (end - start < 0.3) end = start + 0.3;
     let text = c.map((w) => w.text.trim()).join(' ');
-    // A piece can start mid-sentence in the source, so its first caption arrives lower-case
-    // ("vitamin D. Critically..." / "about 70% of people..." both open a short in J). Capitalise
-    // the opening word of every piece - it is the first thing the viewer reads.
-    if (i === 0 || c[0].piece !== chunks[i - 1][chunks[i - 1].length - 1].piece) {
+    const lastOfPiece = i + 1 < chunks.length &&
+      chunks[i + 1][0].piece !== c[c.length - 1].piece;
+    if (lastOfPiece && (TAIL_COMMA[seg.id] || []).includes(c[c.length - 1].piece) &&
+        !/[.,!?;:]$/.test(text)) text += ',';
+    // A piece can start mid-sentence in the source, so its first caption can arrive lower-case
+    // ("vitamin D. Critically..." / "about 70% of people..." both open a short in J).
+    // ⚠ BUT ONLY CAPITALISE IF A SENTENCE ACTUALLY ENDED. Rev 2 removed a hesitation inside a
+    // sentence in B and a whole clause in H, so those joins continue the sentence - blanket
+    // capitalising printed "So let's say You're taking nothing" and "muscle building For your
+    // brain health". Look at what the previous chunk ended with.
+    const newPiece = i === 0 || c[0].piece !== chunks[i - 1][chunks[i - 1].length - 1].piece;
+    const prevText = i > 0 ? chunks[i - 1].map((w) => w.text.trim()).join(' ') : '';
+    if (i === 0 || (newPiece && /[.!?…]["')\]]?$/.test(prevText))) {
       text = text.charAt(0).toUpperCase() + text.slice(1);
+    } else if (newPiece) {
+      text = text.charAt(0).toLowerCase() + text.slice(1);
     }
     // Whisper tokenises "p.m." as ["p", ".m."], which joins to "p .m.". Re-close any
     // punctuation that ended up with a space in front of it.
