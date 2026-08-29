@@ -136,13 +136,20 @@ guard** (B-84, B-266, G-63), never delivered, on-brand · the archer/point pose 
 `picks.txt` claims match the 45 delivered finals; batch-6 frames reserved in this session's
 scratchpad `studio6/picks.txt`).
 
-**Estimated edit cost ~$12.50–16 (52 × $0.24 + re-rolls)** — under the cap, but the handoff
-recommends 2 sessions of ~26 (or 4 waves by backdrop) for review manageability.
+**Estimated edit cost ~$12.50–16 (52 × $0.24 + re-rolls)**, spread ~$3–4 per session.
 
-**Dashboard: Key task added** for the handoff (rule 5). Check it off only when all 52 are delivered
-AND Dan approves.
+**SPLIT INTO FOUR WAVE DOCS (Dan's call, same session):**
+`handoff-20260828-studio-batch6-wave1.md` (blue green-retro + black trunks, 12) ·
+`wave2.md` (blue Muay Thai + white cotton + tank + heather gray, 12) ·
+`wave3.md` (blue jeans + yellow + olive + red MT, 13 — the ⚠adj-heavy wave) ·
+`wave4.md` (gray + white, 15 — closes the batch). Each is self-contained for its wave and points at
+the master doc for the recipe. **Recommended runner: Opus 5, high (default) effort, no fast mode.**
 
-**EXACT NEXT ACTION — execute the handoff in a fresh session on Opus with `/photo-edit`.**
+**Dashboard: ONE Key task covers all four waves** (rule 5). Check it off only when all 52 are
+delivered AND Dan has approved every wave — wave 4's doc carries the reminder.
+
+**EXACT NEXT ACTION — execute `handoff-20260828-studio-batch6-wave1.md` in a fresh session on Opus
+with `/photo-edit`; waves 2–4 each in their own later session.**
 
 ---
 

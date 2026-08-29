@@ -5,7 +5,12 @@
 - **Reason for handoff:** Execution. The selection is DONE and final; this doc is the complete work order.
 - **Last completed step:** All 451 remaining frames of the 8/27 Snappr studio shoot were reviewed
   (18 numbered contact sheets + 98 face-crop zooms + 8 full-frame spot checks). 52 frames selected.
-- **Exact next action:** Invoke `/photo-edit` and work the table below in waves (see Batching).
+- **Exact next action:** ⚠ **THE JOB IS SPLIT INTO FOUR WAVE DOCS — execute those, one per fresh
+  session, in order:** `handoff-20260828-studio-batch6-wave1.md` (blue: green retro + black trunks,
+  12) · `wave2` (blue: Muay Thai + white cotton + tank + heather gray, 12) · `wave3` (blue: jeans +
+  yellow + olive + red Muay Thai, 13) · `wave4` (gray + white, 15 — closes the batch). Each wave doc
+  points back here for the recipe; this doc is the selection record and master reference. Do not run
+  all 52 from this doc in one session.
 
 ## What Dan asked for (2026-08-28, verbatim intent)
 
@@ -138,10 +143,12 @@ delivery note so he can kill any that read too close.
 
 ## Batching + budget
 
-- **~$12.50 at one take each (52 × $0.24, 4K Nano Banana Pro via Google direct)**; expect a few
-  re-rolls → realistic total **$13–16**. Under the $25/session cap, but **recommended: 2 sessions of
-  ~26** (or 4 waves grouped by backdrop) so Dan's review stays manageable and any calibration drift
-  is caught early. State the estimate before each wave, keep a running total.
+- **SPLIT (Dan's call, 2026-08-28): four waves, one session each**, defined in
+  `handoff-20260828-studio-batch6-wave{1,2,3,4}.md`. Grouped by backdrop/garment so each session's
+  calibration stays coherent and Dan's per-wave review stays manageable.
+- **~$12.50 total at one take each (52 × $0.24, 4K Nano Banana Pro via Google direct)**; expect a
+  few re-rolls → realistic total **$13–16** across the four sessions (~$3–4 each). State the
+  estimate before each wave's batch run.
 - No production code, no deploy, no native-retest trigger.
 
 ## Dashboard
