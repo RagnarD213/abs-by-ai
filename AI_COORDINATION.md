@@ -33,6 +33,98 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO SHOOT BATCH 6 — **WAVE 2 COMPLETE: 12 delivered, ZERO re-rolls (74 picks finished)** (2026-08-29, Claude Code)
+
+`Handoffs/handoff-20260828-studio-batch6-wave2.md` executed with `/photo-edit`. **AI spend $2.88**
+(12 x $0.24, one take each — **no frame needed a re-roll**). **No production code, no deploy, no
+native-retest trigger.** Delivered to `photos/finalized social media photos/` as
+`studio-blue-<n>_FINAL_PRIMARY.jpg` + `-IG-4x5.jpg` (all 12 are portrait):
+**blue 72/76/80/84/100/111/127/132/135/139/150/164.**
+
+**THE HEADLINE IS THAT WAVE 1's LESSONS HELD AND COST NOTHING TO APPLY.** Wave 1 spent $3.84 on 12
+because two frames came back structurally wrong and one needed extra renders. Wave 2 applied its
+guards **pre-emptively** — the torso-scope block on B-84 (boxing guard) and the ARM LOCK on B-76
+(flexed) and B-80 (arms behind head) — and all three landed in band on the first take. **The three
+poses the handoff flagged as highest-risk were the ones that gave no trouble at all.**
+
+**Verified:** aspect delta identical on all 12 (-0.0004, the 4672->3368 resample) - mean-diff
+**3.43-8.80 with no outlier** (wave 1's silently re-posed frame read 32.66 against a 3.4-8.7 band) -
+tan residuals **0.3-0.6** after the histogram match - hair R-bias drift <=4.4 (the `blue-213` maroon
+failure was 9.3->22.0) - **§4b face composite on all 12** (offsets 0/0, NCC r 0.43-0.65, tone gains
+0.962-1.066, all inside the clip) - necklace, moles and ears identical to the originals at zoom -
+garments, backgrounds and framing unchanged - 24 files, 78 MB, all readable - **`photos/` gitignore
+re-confirmed, 0 tracked files (public repo)**.
+
+⚠ **THREE SILHOUETTE METRICS MISFIRED IN A ROW AND THE DIFF MAP IS WHAT ACTUALLY ANSWERED IT.** The
+bounded-window edge scan flagged 4 frames at +4.3% to +12.6%; the gradient-argmax locator flagged 9,
+including a nonsensical -24%; a rim-vs-interior ratio flagged 5. **All were false.** The scans were
+tripping on slow backdrop-gradient drift and on internal muscle shadows, not on him. **The tool that
+works: amplify `|orig - final|` and look at it.** A real outline move shows a THICK one-sided band;
+what all 12 actually show is a uniform **1-2 px hairline** (resample noise) with the change
+concentrated in the abs interior — and on B-84 the **arms are visibly dark**, which is direct
+evidence the torso-scope block held. Diagnostic signature for the false alarms: **the flag is
+one-sided** (left edge moves 76-133 px, right edge pinned to within 1-3 px). This is now the
+seventh time in this pipeline's history that the measurement, not the media, was the problem.
+
+⚠ **`sips -Z` SETS THE LONG EDGE, AND ON PORTRAIT FRAMES THAT SILENTLY BREAKS ANY FRACTION DIVIDED
+BY WIDTH.** My face ellipses came out ~190 px left of his face because I divided Vision's eye
+coordinates by 2048 when the file was **1364x2048**. Caught by drawing the ellipse and looking at
+it before compositing — a step worth keeping, it costs one image. Always read the real dimensions
+back rather than assuming what `-Z` produced.
+
+**Eye pass on 6 of 12** (76, 80, 100, 127, 150, 164) at the settled big-smile gains **1.04/1.13**.
+Changes confined to **17-31k px in a ~500x250 box per face, max 5-8 levels anywhere else** (JPEG
+noise). ⚠ Worth knowing: the §4b composite already restores his real eyes, so the eye pass here is
+purely the "finish slightly above the original" half of the standing rule, not a repair.
+⚠ **The handoff's expression table was right on 11 of 12; the correction is B-80** — its eyes are
+nearly shut, the strongest squint in the wave, not merely a "big smile".
+
+**WARP: 6 applied at k=0.34, 6 skipped.** Applied to white cotton (100, 111, 127) and heather-gray
+(139, 150, 164); centres read off a burned 200 px coordinate grid, one image per photo. Each
+verified on a before/after crop: **0.56-0.85% of frame changed, max 3-6 levels outside the declared
+ellipse**, waistbands, drawstring loops, leg openings and the neighbouring hands all undistorted
+(lesson 25 checked on every one — the nearest hand sits 170-180 px clear of the ellipse edge).
+**Skipped on 72/76/80/84 (Muay Thai satin, standing rule) and on 132/135** — the white ribbed tank's
+hem covers the waistband and the top of the front on both, and the shorts under it are loose white
+cotton, which is the delivered `blue-137` call exactly.
+
+**`evenskin.py` was carried over from wave 1 and was NOT needed** — no tan banding appeared on any
+of the 12, and no frame needed an intensity dial, so `blendabs.py` went unused too.
+
+**Reproducibility preserved OUTSIDE the scratchpad:**
+`photos/finalized social media photos/_recipes/studio-8-27-26-batch6-wave2/` — MANIFEST,
+`warpparams.tsv`, `faceell.json`, `igcrop.json`, `picks.txt` and all 12 prompts.
+
+**Collision guard: clean.** `picks.txt` staged before the first edit; scanned every other
+scratchpad's `picks.txt` and the delivered folder — zero overlap. Baseline md5 of the whole
+delivery folder taken at session start and re-checked at the end: **every one of the 308
+pre-existing files is byte-identical**, and my 24 are intact (308 -> 332).
+
+⚠ **60 CONFLICT COPIES ARE SITTING IN THE DELIVERY FOLDER AND THEY ARE NOT HARMLESS.** Thirty
+photos have a `<name> 2.jpg` twin (full frame + IG crop each) — exactly the 30 the warp-bump session
+touched. **They are NOT duplicates: they differ by 0.36-1.14% of frame in localised regions**, i.e.
+they are the pre-warp-bump / pre-vein-fix versions, preserved by a Finder or iCloud sync conflict
+when three sessions wrote the same files on 8/28. This is the ab-wheel batch's trap verbatim — one
+click from being the file that gets uploaded. **Left in place deliberately** (deleting another
+session's history is Dan's call, not mine). **Recommend deleting all 60 once he confirms the current
+files are the ones he wants**; `ls *" 2.jpg"` lists them.
+
+**Dashboard: the batch-6 Key task stays UNCHECKED** — it covers all four waves and Dan's approval.
+**24 of 52 done; waves 3 and 4 (28 frames) remain.**
+
+**EXACT NEXT ACTION — DAN: review the 12 before/after sheets (sent in chat).** Nothing is blocked.
+Then wave 3 in a fresh session with `/photo-edit`. ⚠ **Wave 3 still needs its reconciliation before
+it runs: B-266 is already delivered (strike it) and B-212 duplicates the delivered B-213 (drop it) —
+that wave is 11 frames, not 13.**
+
+⚠ **One thing for Dan, not blocking: B-72 and B-76 are the same setup** (front-on, hands on hips,
+Muay Thai) differing only in expression — serious vs big open smile. That is the same relationship
+as the delivered blue-33/34 pair and is inside his "similar is OK" rule, but it is worth a look. Both
+were checked against the delivered **B-74**, which is a 3/4 turn with a closed-lip smirk, so neither
+duplicates it.
+
+---
+
 ### STUDIO FINALS — **BULGE WARP RAISED ON ALL 30 WARPED PICKS (+0.07), THREE SESSIONS DECONFLICTED** (2026-08-28, Claude Code)
 
 Dan: raise the bulge warp on every finalized studio photo except the ones already handled in the
