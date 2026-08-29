@@ -255,8 +255,54 @@ composites re-run on the two re-rendered frames (r 0.75–0.77, offsets 0/0) · 
 new `blue-213` — checked, and it is **JPEG noise at the 160-level threshold, max 4 levels of
 difference in the top 40 rows**, not an artifact; crop set from the measured 735.
 
-**EXACT NEXT ACTION — DAN: confirm the five rev-1 versions (strips sent in chat).** Nothing is blocked.
-The two new white warps are the likeliest thing to want changed — one number each.
+**REV 2 DELIVERED SAME SESSION.** Dan: `blue-266` *"halfway between the previous and the new"*;
+`blue-213` *"very slightly more natural… a little bit less shredded"*; `white-113` *"about halfway
+between the previous and the new"*; and again **"for all of them, slightly increase the warp."**
+All applied. **Rev-2 AI spend $0.00 — every step was a local blend or composite.** Session total
+stays **$2.64**. Rev-1 versions kept at `rev1_backup/`. Skill commit for the lessons below.
+
+⚠ **"FOR ALL OF THEM, INCREASE THE WARP" WAS READ AS THE FOUR SHORT-SHORTS FRAMES, NOT ALL FIVE.**
+`blue-266` is the Muay Thai frame — it has no warp to increase and he excluded it explicitly last
+round. **Warps now: `blue-213` 0.34 → 0.40, `blue-210` 0.27 → 0.33, `white-70` 0.20 → 0.28,
+`white-113` 0.20 → 0.28**, each verified on a before/after crop with the neighbouring hand unchanged.
+
+⚠ **THE HIGH-BAND MIX IS THE EXPENSIVE HALF OF A BLEND, AND IT BOUNDS WHAT "HALFWAY" CAN MEAN.**
+New `scripts/freqblend2.py` takes separate low/high weights. Measured: `wh=0.5` costs **23 % of local
+gradient energy** (the plasticky-skin failure), `wh=0.3` still costs 15 %, while taking the high band
+whole from either parent costs **nothing** (0.94–1.03). So the texture-safe settings are the two ends
+of `wh` dialled with `wl` — and on `white-113` those ends landed at roughly **30 % and 87 %** of the
+way against a requested 50 %. **Shipped the 30 % one and said so** rather than shipping softened mush;
+one $0.24 native render is the fix if he wants a truer midpoint.
+
+⚠ **BUT A FULL 50/50 IS SAFE WHEN THE PARENTS DIFFER ONLY IN ONE REGION.** `blue-266`'s two versions
+differed only in the torso (one was already a torso composite of the other), so a true halfway blend
+cost **1.1 %** sharpness and measured **45 %** of the way — exactly what he asked for.
+
+⚠ **THE HALFWAY BLEND PULLED WHITE-113's ARM VEINS BACK OUT, BECAUSE THE VEIN FIX LIVED IN THE SOFTER
+PARENT'S HIGH BAND.** Fixed by composing the two techniques: blend for intensity, then `torsocomp.py`
+on the arm box to paste the vein-fixed arm back. Arm fine-detail **2.49 → 2.28** against the
+vein-fixed parent's 2.30, abs untouched.
+
+⚠ **A METRIC ERROR THAT NEARLY SENT ME THE WRONG WAY, AND IT IS THE FIFTH TIME A MEASUREMENT HAS BEEN
+THE PROBLEM IN THIS PIPELINE'S HISTORY.** A blur-12 low-pass said `blue-213` rev 1 sat at 43 % of the
+way to the natural pass; measured with a low-pass matched to the blend radius it was **87 %**. What
+Dan was still seeing was the HIGH band, which rev 1 had taken whole from the hard render — invisible
+to that metric. **Match the measurement's radius to the blend radius; a dial-back that reads as "no
+change" on the full band means the change is in the other band, not that there was none.**
+
+**Re-verified on all five:** 3368×5056 preserved · face composites re-run on the two re-blended frames
+(r 0.75–0.77, offsets 0/0) · eye pass re-applied to `blue-213` · IG 4:5 crops 3368×4210, 220 px
+headroom each · delivered files md5-matched against the scratchpad originals.
+
+⚠ **A CONCURRENT SESSION IS NOW EXECUTING THE BATCH-6 HANDOFF — 12 blue finals landed at 20:48
+(blue 5/6/9/10/14/22/28/33/34/43/53/63) while this rev was building.** They did **not** ship `blue-212`,
+so the duplicate flagged above was avoided. The shoot now has **62 finished picks**. Nothing of mine
+was overwritten (md5-verified) and I touched none of theirs.
+
+**EXACT NEXT ACTION — DAN: confirm the five rev-2 versions (strips sent in chat).** Nothing is blocked.
+⚠ `white-113` is the one to look at hardest: it is a texture-clean ~30 % step back toward the harder
+version rather than a true 50 %, because a true 50 % would have cost visible skin texture. If it reads
+too soft still, one fresh render at a middle intensity is $0.24.
 
 ---
 
