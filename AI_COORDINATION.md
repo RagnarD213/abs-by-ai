@@ -503,7 +503,7 @@ by "differs from the corner background" fails on these backdrops (both the blue 
 gradient, so row 0 already trips it) — the working detector is **dark hair in the central 50% of
 columns against a per-image threshold of backdrop-luminance − 42**.
 
-**Dashboard: `money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` DELIBERATELY LEFT UNCHECKED.** ⚠ It does cover this work and it is still unchecked from the first batch — worth knowing, because that batch's own entry says "no task covers this", which was wrong (the shoot folder is `studio shoot | 8-28-26 | dan | mindi`; the task says *Mindy*). Dan approved the first 10 but has not seen these 10, and ad 1 had a check-off reverted for exactly that. **Check it off on his approval.**
+**Dashboard: `money::Review Mindy's photo shoot photos, then retouch the picks (/photo-edit)` CHECKED OFF** on Dan's approval of all 10. ⚠ It was still unchecked from the first batch, because that batch's own entry says "no task covers this", which was wrong (the shoot folder is `studio shoot | 8-28-26 | dan | mindi`; the task says *Mindy*). The first batch's own entry claimed "no task covers this", which was wrong (the shoot folder is `studio shoot | 8-28-26 | dan | mindi`; the task says *Mindy*). Both batches are now approved, so it is checked.
 
 **REV 1 (same session): Dan approved the bodies — "you got the look of the body and the abs dialed
 in" — and asked for EYES on four frames.** `Blue-0145`, `Blue-0109`, `Gray-0004`, `Blue-0222` fixed
@@ -534,9 +534,25 @@ eye treatment to the big-smile frame, and do NOT codify it.** That is what was d
 is documented in `/photo-edit` and explicitly flagged **NOT yet a standing rule**. One word from Dan
 either way.
 
-**EXACT NEXT ACTION — DAN: check the four eye strips (sent in chat), and confirm the blue-222
-reading.** Nothing is blocked. Blue-0089 is still the one to look at hardest on the body: it is a
-relaxed side profile in the original and the hard pass changes it more than any other frame.
+**REV 2 — ALL 10 APPROVED AND FINALIZED (2026-08-28).** Dan on the eye fix: *"All of these are
+looking good… All the other ones look excellent, and they're finalized."* One tweak only —
+**`Blue-0222` had gone too far**, dialled back from **1.07/1.22 to 1.04/1.13** (still above the
+original: landmark eye height +3.5% / +4.6% vs the raw, against +8% / +9.5% before). Redelivered;
+change is again eyes-only, **33,461 px in a 468×260 box**, nothing else in the frame touched.
+**$0.00 for both revision rounds — the whole eye workflow is local, so iterations cost nothing but
+time.** That is the argument for reaching for `eye-restore.py` before a re-roll.
+
+**The blue-222 interpretation was RIGHT** — Dan reviewed the treated frame and asked only to soften
+it, never questioning that it had been treated. **It is still NOT a standing rule** and must not be
+applied batch-wide until he says so.
+
+**Settled gains, for the next shoot: `1.07` wide / `1.22` tall is the default, but on a BIG-SMILE
+frame that reads as too much — use `1.04` / `1.13` there.** On a big smile the lids are already
+raised by the cheeks, so the same gain lands harder.
+
+**EXACT NEXT ACTION — none. The batch is closed.** 20 studio photos now finalized across the two
+batches. ⚠ Dan approved `Blue-0089` (the side profile that changed most on the body) without
+comment, so the hard pass is validated even at its most aggressive.
 
 ---
 
