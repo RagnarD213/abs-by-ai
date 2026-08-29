@@ -130,7 +130,33 @@ reading (Wispr Flow dictation). Flagged to him in chat rather than silently assu
 **Deliver a dial-back as `original | previous | new` side by side**, not just the new file — the step
 size is the thing being judged, and it is invisible from the result alone.
 
-**EXACT NEXT ACTION — DAN: confirm the six softened versions.** Nothing is blocked. Known and
+**REV 2 (same session): the softening overshot on four of the six.** Dan kept `blue-110` and
+`blue-188` from rev 1 (**finalized**) and asked for *"halfway between this one and the aggressive
+edit"* on `blue-177, gray-67, white-32, white-59`. Delivered. **Rev-2 AI spend $0.00** — see below.
+Session total stays **$4.08**.
+
+⚠ **THE HALFWAY WAS COMPUTED, NOT PROMPTED — A THIRD GENERATION WAS NOT NEEDED AND IS NOW THE WRONG
+DEFAULT.** Both existing renders come from the same input, so the midpoint is a deterministic image
+op: free, instant, and — the real argument — **no fresh identity dice-roll**, which is what a third
+prompt would have risked on four already-approved faces. **But a straight 50/50 pixel blend is wrong
+and there is a metric that proves it:** local gradient energy on the torso fell **2.52/2.10 → 1.64
+(a 22–27 % texture loss)**, i.e. exactly the plasticky skin the skill bans. **Frequency separation
+fixes it** — average only the low band (GaussianBlur r=30 at 4K, which is where groove/shadow depth
+lives) and keep the high band from one render; **sharpness ratio 1.02–1.03, fully preserved**, with
+whole-frame mean-diff landing between the two parents (e.g. `blue-177` 5.75 → **4.82** → 4.05).
+The 0.5 coefficient is the dial, so any future "a bit more/less" is a one-number change at no cost.
+
+⚠ **CHECK ALIGNMENT PER REGION FIRST, AND DO NOT DEMAND A PERFECT (0,0).** Three of the four were
+clean. `white-59` had **dx steady at −3…−4 but dy drifting +2 at the head to −2 at the legs** — a
+**~0.5 % vertical scale difference between the two renders**, not a translation — corrected with a
+fitted global affine. ⚠ **My first pass condition ("argmin exactly (0,0) in every band") wrongly
+declared it unblendable and would have cost a needless re-roll.** The correct test is whether
+shifting still *helps*: post-registration the best-shift error sat within **0.01–0.04** of the error
+at (0,0). Compare peak against @0,0, not argmin against zero. Both traps are now in `/photo-edit`.
+
+Tone-match and the two warps (`gray-67`, `white-59`) re-applied to the blends; all 20 files verified.
+
+**EXACT NEXT ACTION — DAN: confirm the four halfway versions.** Nothing is blocked. Known and
 deliberate: body/leg hair is smoothed on every frame (nano does this unprompted); small cheek/jaw
 moles are faded on `blue-110` and a few others and can be restored per-photo on request.
 

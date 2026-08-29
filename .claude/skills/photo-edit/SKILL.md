@@ -227,6 +227,40 @@ Same contact-sheet technique as step 1, then judge with Dan's platform logic: st
 
 > BODY (HARD DEFINITION PASS): Carve the abdominal definition clearly harder than the original: each of the six abs distinctly separated with deep, natural groove shadows between and beneath every ab row, the vertical midline (linea alba) reading as a clean dark line from sternum to navel, sharply etched obliques and serratus lines at the sides, and a hard, deep V-cut at the waistband. Lower body fat look: the skin should sit tighter over the muscle, as if he is 2-3% leaner than the original photo. Chest, shoulders and arms harder and more striated-looking as well. STILL A REAL BODY: do NOT add muscle size or bulk, do NOT inflate anything, no airbrushed or plastic skin, and the definition must follow his real anatomy exactly where it already shows in the original.
 
+⚠ **TO HIT AN INTENSITY *BETWEEN* TWO RENDERS, BLEND THEM — BUT ONLY IN THE LOW FREQUENCIES.**
+Measured 2026-08-28 (batch 4 rev 2), when Dan said the softened pass had gone too far and asked for
+*"halfway between this one and the aggressive edit."* Both renders come from the same input, so the
+halfway point can be computed deterministically for **$0.00** — no fresh prompt, and crucially **no
+new identity dice-roll**, which is the main risk of a third generation.
+
+**A straight 50/50 pixel blend is WRONG and the metric that catches it is local gradient energy.**
+The two renders carry different fine skin texture, so averaging them blurs it: torso sharpness fell
+**2.52/2.10 → 1.64, a 22–27 % loss** across four photos — it reads as the plasticky skin this skill
+bans everywhere else. The ab shading landed correctly; the texture did not survive.
+
+**The fix is frequency separation.** Groove/shadow depth — the thing being dialled — is LOW
+frequency; skin texture is high. So average only the low band and keep the high band from one render:
+
+```python
+loA = np.asarray(v1.filter(ImageFilter.GaussianBlur(30)), float)   # r=30 at 4K
+loB = np.asarray(v2.filter(ImageFilter.GaussianBlur(30)), float)
+out = np.clip(0.5*loA + 0.5*loB + (np.asarray(v1,float) - loA), 0, 255)
+```
+
+Sharpness ratio came back **1.02–1.03 vs the source render** (i.e. fully preserved) at both r=20 and
+r=30, while whole-frame mean-diff landed between the two parents as intended. Change the 0.5 to move
+the dial anywhere on the line. **Tone-match the blend to the original afterwards as usual**, then warp.
+
+**Verify alignment per REGION before blending, and allow ±1 px of noise in the test.** Run a shift
+search on horizontal bands (head / chest / abs / shorts / legs). Three of four photos were a clean
+`(0,0)` everywhere. One had **dx consistent at −3…−4 but dy drifting +2 at the head to −2 at the
+legs** — not a translation but a **~0.5 % vertical scale difference** between the two renders. A
+global affine (`dx` + `1+m` vertical scale, fitted by `np.polyfit` on the per-band offsets) corrected
+it to `(0,0)±1`. ⚠ **A pass condition of "argmin is exactly (0,0) in every band" is TOO STRICT and
+will send you to re-prompt a perfectly blendable pair** — that happened here. The real test is
+whether shifting still *helps*: after registration the best-shift error was within **0.01–0.04** of
+the error at `(0,0)`, which means aligned. Compare `peak` against `@0,0`, not the argmin against zero.
+
 ⚠ **THE HARD BLOCK OVERSHOOTS ON ROUGHLY HALF OF FRAMES — DAN'S CALIBRATION, 2026-08-28 (batch 4).**
 He reviewed ten hard-pass finals and called **six of them "a little too unnaturally shredded"**, asking
 to *"very slightly dial back the aggressiveness."* The other four he finalized as-is. **This does not
