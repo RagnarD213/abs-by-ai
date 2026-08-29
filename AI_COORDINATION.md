@@ -64,11 +64,13 @@ Dan explicitly finalized after review; also the concurrent warp session's exclus
 wrist veins (natural-scale), blue-33 (diffuse bruise-like mottling between ab rows — NOT veins;
 Dan's call if it bothers him: `scan-a/zoom_33.jpg`). White-113's previously fixed arm HOLDS.
 
-**Concurrent warp-bump session coordination:** its list request was answered (write list + ordering
-protocol) via `veinfix/COORDINATION-FOR-WARP-SESSION.md` in this session's scratchpad — SendMessage
-was unreachable both ways. ⚠ **If that session rebuilds any of the 11 from a pre-warp intermediate,
-the vein fix is DISCARDED** — it must either apply its +0.07 delta to the current final on disk, or
-rebuild and then ask this session to re-apply (renders + box coords are saved per photo).
+**Concurrent warp-bump session coordination: RESOLVED.** The warp session confirmed 5 of the 11
+carry warps (blue-38, blue-192, white-59, gray-79, gray-87) and will apply its +0.07 bump by
+**analytically inverting k1 and composing k2 in one resample on the CURRENT on-disk final** — so it
+consumes the vein-fixed files and nothing is clobbered. Edit regions verified disjoint on all 5
+(vein bboxes vs warp ellipses). Green light given via
+`veinfix/COORDINATION-FOR-WARP-SESSION.md` in this session's scratchpad (SendMessage failed in both
+directions; the scratchpad file is the working channel). No re-application needed.
 
 **EXACT NEXT ACTION — DAN: review the 11 before/after strips (sent in chat).** Nothing is blocked.
 
