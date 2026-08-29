@@ -569,8 +569,10 @@ change is again eyes-only, **33,461 px in a 468×260 box**, nothing else in the 
 time.** That is the argument for reaching for `eye-restore.py` before a re-roll.
 
 **The blue-222 interpretation was RIGHT** — Dan reviewed the treated frame and asked only to soften
-it, never questioning that it had been treated. **It is still NOT a standing rule** and must not be
-applied batch-wide until he says so.
+it, never questioning that it had been treated. **AND IT IS NOW A STANDING RULE (Dan, same session):**
+*"anytime my eyes are looking too squinted from a big smile"* — open them, unasked, as part of the
+edit. Written into `/photo-edit` as its own standing-rule section plus a line in the Step-4 QC list,
+scoped **per photo, not per batch** (frames whose eyes already read open are left alone).
 
 **Settled gains, for the next shoot: `1.07` wide / `1.22` tall is the default, but on a BIG-SMILE
 frame that reads as too much — use `1.04` / `1.13` there.** On a big smile the lids are already

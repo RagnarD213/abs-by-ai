@@ -113,7 +113,7 @@ Finals live in `photos/Dan Before Pictures/` (gitignored) with the prompts saved
 
 ### 4. QC before Dan sees anything
 
-Build before/after **crop strips** of the face and each edited region (ffmpeg `crop` + `hstack` of original | candidate(s)) and inspect them yourself at zoom. Check: identity, **mole/beauty-mark positions**, **facial expression (mouth open/closed, eye narrowing, brow)**, **body sheen still present**, clothing details unchanged, no warped straight lines, no plastic skin. Reject failures silently and re-run with the offending rule sharpened.
+Build before/after **crop strips** of the face and each edited region (ffmpeg `crop` + `hstack` of original | candidate(s)) and inspect them yourself at zoom. Check: identity, **mole/beauty-mark positions**, **facial expression (mouth open/closed, eye narrowing, brow)**, **body sheen still present**, clothing details unchanged, no warped straight lines, no plastic skin. Reject failures silently and re-run with the offending rule sharpened. **Check the EYES here as their own item — aperture, not contour — and open them per the squinted-eyes standing rule below; on a big smile assume they need it.**
 
 Two crops make the alignment trivial: upscale the 2048 original to the candidate's 4K size (`scale=2747:4096`) first, then apply identical `crop` args to both. Whole-frame comparisons hide these failures — every one of the errors above was invisible at full-frame and obvious at zoom.
 
@@ -203,9 +203,13 @@ Same contact-sheet technique as step 1, then judge with Dan's platform logic: st
 15. **The histogram tone-match also repairs a backdrop the model recoloured.** `Blue-0109`'s raw output turned the blue backdrop gray; the tone pass pulled it back with no extra call. It cannot fix *structural* repaints (mottle, texture) — only tonal ones — so the explicit "repainting the wall is a FAILURE" clause still earns its place, and it held on the white background here. Measure it: background-corner dE orig-vs-final ran 2–5 on a clean photo, 8–13 where the model redrew the gradient falloff (harmless).
 16. **Finding the head for the IG 4:5 crop: "differs from the corner background" DOES NOT WORK on these backdrops.** Both the blue and the gray carry a gradient, so row 0 already trips the test and every crop lands at y=0. The detector that works is **dark hair in the central 50% of columns**, thresholded per image at *(median luminance of the top 2% of rows) − 42* — a fixed threshold fails too, because the gray backdrop's own luminance (78–100) sits under any threshold that catches black hair on blue. 4:5 at this frame size is **full width, 3368×4210**, y-offset = hair top − 200.
 
-## Eyes — the hard-definition pass NARROWS THEM, and a warp alone cannot fix it (2026-08-28)
+## STANDING RULE — squinted eyes get opened, unasked (Dan's call, 2026-08-28)
 
-**Dan's note on the second studio batch: "you made them smaller than the original. I would like them a little bit larger than the original," and — said twice — "especially taller."** Take that as the target whenever this comes up: finish slightly ABOVE the original on height, a little above on width.
+**Whenever Dan's eyes read too squinted — above all on a BIG SMILE, which is when it happens — open them back up as part of the edit. Do not ask.** His words, lifting the hold after reviewing the first four: *"let's write in this eye modification rule: anytime my eyes are looking too squinted from a big smile."*
+
+**The target: finish slightly ABOVE the original on height, a little above on width.** From his note on the batch that started this — *"you made them smaller than the original. I would like them a little bit larger than the original"* and, said twice, *"especially taller."* **Never deliver eyes smaller than the raw frame.**
+
+**Two things trigger it, and they compound:** the retouch closes the aperture on its own (below), and a big smile pushes the cheeks up into the lower lid before the retouch even runs. A big-smile frame therefore needs the pass most and the *smallest* gain — see the settings below.
 
 ⚠ **THE RETOUCH DOES NOT SHRINK THE EYE, IT CLOSES THE APERTURE.** It paints the upper lid further down and takes the iris and sclera with it. That distinction decides the fix: **magnifying a closed eye just gives you a bigger closed eye.** A first attempt with `eye-warp.py` at gains up to 1.08/1.26 was visibly useless on `Blue-0145` for exactly this reason.
 
@@ -219,7 +223,7 @@ Same contact-sheet technique as step 1, then judge with Dan's platform logic: st
 - **Keep the mask off the crow's feet** (`rx = w*0.85`, `ry = h*1.9`): the original carries more line detail there, and a wider mask drags it back in and fights the retouch.
 - **Verify two ways:** a zoomed ORIGINAL / previous / new strip, and a changed-pixel bounding box — a correct run touches ~40k pixels in a ~500×260 box per face and *nothing* else in the frame.
 
-⚠ **NOT YET A STANDING RULE.** Dan asked for this on four frames (`Blue-0145`, `Blue-0109`, `Gray-0004`, `Blue-0222`) and said explicitly of the big-smile case: *"let's see how this turns out first, then we'll consider making it a standing rule. Don't make it a standing rule yet."* **Do not apply it batch-wide unsolicited until he says so.**
+**Scope — apply it per photo, not per batch.** Judge every frame's eyes on a zoomed crop against its raw; treat any frame where the aperture has visibly closed, or where a big smile has squeezed it to a slit, as needing the pass. Frames whose eyes already read open are left alone — this is a correction, not a look. **Established on `Blue-0145`, `Blue-0109`, `Gray-0004` and `Blue-0222`, all approved; `Blue-0222` set the big-smile number after Dan pulled it back one step.**
 
 ## STANDING RULE — studio-shoot ab intensity (Dan's call, 2026-08-28)
 
