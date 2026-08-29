@@ -325,6 +325,18 @@
       "priority": "key",
       "why": "4 wave docs: handoff-20260828-studio-batch6-wave1..4.md (12/12/13/15 frames, one Opus session each); master doc handoff-20260828-studio-batch6-remaining-52-picks.md — created but not yet run",
       "addedAt": "2026-08-28"
+    },
+    {
+      "text": "Export our recovered EDL as a Premiere/FCP timeline for the freelance editors",
+      "priority": "high",
+      "why": "Watch-review 8/29 (ButterCut, Cut Valet): our pipeline already recovers a word-accurate EDL; exporting it as FCPXML instead of only an MP4 would hand Muhammad's 12-ad batch a finished rough cut + right-channel mono audio, removing the exact steps 2 of 3 trial editors failed on",
+      "addedAt": "2026-08-29"
+    },
+    {
+      "text": "Build a Claude ads digest: daily spend brief + anomaly and winning-ad detection (Meta + Google)",
+      "priority": "high",
+      "why": "Watch-review 8/29 (Sam Piliero, Claude + Facebook Ads full course): the 8/26 paid audit found misconfigured goals, no cost-per-subscriber visibility and unpublished Meta drafts nobody noticed. Build on our own API creds, NOT the third-party MCP connector he recommends",
+      "addedAt": "2026-08-29"
     }
   ],
   "health": [
