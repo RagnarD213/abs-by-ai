@@ -224,248 +224,90 @@ he asks. Nothing is blocked.
 
 ---
 
-### STUDIO SHOOT BATCH 6 — **WAVE 1 OF 4 DELIVERED: 12 more retouched (62 picks now finished)** (2026-08-28, Claude Code)
+### STUDIO SHOOT BATCH 6 — **WAVE 1 COMPLETE AND APPROVED: 12 delivered (62 picks finished)** (2026-08-29, Claude Code)
 
-`Handoffs/handoff-20260828-studio-batch6-wave1.md` executed with `/photo-edit`. **AI spend $3.36**
-(12 finals + 2 re-rolls, 4K Nano Banana Pro, Google direct). **No production code, no deploy, no
-native-retest trigger.** Delivered to `photos/finalized social media photos/` as
+`Handoffs/handoff-20260828-studio-batch6-wave1.md` executed. **AI spend $3.84**, **no production
+code, no deploy, no native-retest trigger.** **Dan approved all 12** ("finalize everything") after
+two revision rounds. Delivered to `photos/finalized social media photos/` as
 `studio-blue-<n>_FINAL_PRIMARY.jpg` (+ `-IG-4x5.jpg` on the 10 portrait frames):
-**blue 5/6/9/10/14/22/28/33/34/43/53/63.** Working files in this session's scratchpad (`wave1/`),
-pre-rev copies in `wave1/v1_backup/`.
+**blue 5/6/9/10/14/22/28/33/34/43/53/63.**
 
-**Claim + collision check passed before the first edit** — the 12 were staged in `wave1/picks.txt`,
-and a re-scan of all five other sessions' `picks.txt` plus the delivered folder found zero overlap.
-Several picks sit inside burst distance of a delivered final (9/10/14 near blue-11, 22 near blue-23,
-33/34/43 near blue-38, 53 near blue-49, 63 near blue-66), so a candidates-vs-delivered contact sheet
-was built and checked — every one differs in garment, pose, glasses or framing. None dropped.
+**Verified as the exact approved versions BY PIXEL COMPARISON, not by filename** — all 12 sit at
+**0.000** from their approved source and far from every rival version, so no intermediate leaked into
+the delivery. 22 files, 142.5 MB, all readable. **`photos/` gitignore protection re-confirmed —
+0 tracked files (public repo).**
 
-⚠ **TWO FRAMES CAME BACK STRUCTURALLY WRONG AND THE GEOMETRY GUARD IS WHAT CAUGHT THEM, NOT THE
-EYEBALL.** `blue-28` was **silently RE-POSED** — the input is a side-lean with the left arm behind
-the head and the right hand at the waistband; the output was a generic front-on stance with both
-arms down. It read as a plausible photo of Dan; only the **mean-diff of 32.66 against a 3.4–8.7
-sibling band** flagged it. `blue-22` was **re-cropped to a different aspect ratio** (1.50 → 1.79),
-caught by the aspect check. Both re-rolled successfully by **leading with the named failure and
-then describing the pose limb by limb** ("his LEFT arm is RAISED… the ELBOW points UP AND OUT…
-both arms down at his sides is a FAILURE") and, for 22, restating the 3:2 landscape framing as the
-single most important instruction. Post-re-roll: mean-diff **3.44** and **8.59**, aspect restored.
-**Generalise: on a complex asymmetric pose, "same pose" in the header block is not enough — spell
-the limbs out.**
+**Reproducibility is preserved OUTSIDE the scratchpad, which is temporary:**
+`photos/finalized social media photos/_recipes/studio-8-27-26-batch6-wave1/` holds a MANIFEST,
+`warp-params.tsv`, the exact prompt behind every final, and the two new tools.
 
-⚠ **THE HANDOFF'S EXPRESSION TABLE HAD blue-9 WRONG, AND THE ZOOMED-CROP RULE IS WHY IT WAS FIXED.**
-It lists "playful closed smile"; the frame is a **broad OPEN smile with upper teeth showing**. Written
-from a thumbnail it would have been executed as written (skill lesson 2, reproduced exactly). All 12
-expression locks were authored from 0.235×frame-height face crops instead.
+⚠ **THE BIGGEST FINDING — DAN'S TAN COMPLAINT WAS REAL, AND THE FIX IS FREE. New tool `evenskin.py`.**
+He flagged a "different colour" band on 3 of 12 unprompted ("the middle tab is a different color than
+the top and the bottom"; "an unnatural-looking spot… I think it's an original inconsistency in my
+tanning that carried over and got worse"). **He was right and it is now measured: the banding is in
+the ORIGINAL and the definition pass widens it** (torso tan spread 13.2→15.1, 5.8→7.5, 10.7→11.1).
+The whole-frame histogram tone-match cannot touch it — the global palette is already correct, the
+error is local. **The insight: ab definition is broad LUMA shading, tan banding is broad CHROMA at
+the same spatial scale**, so per-channel/luma ratios separate them and the colour flattens with the
+definition **provably** intact (**luma shift mean 0.0000**). Corrects toward a smooth quadratic
+vertical trend, not a flat constant, so the natural top-to-bottom gradient survives and only the bands
+go. ⚠ Three wrong turns worth not repeating: a wide-blur target made it worse; a global-mean target
+made it worse because the mask caught the arms (**mask must be torso-only, centred on the warp CX**);
+and a full-res blur at r=280 **times out** — compute the field at 1/8 scale. ⚠ **The band-spread
+metric is noisy and self-contradicting — judge on the tan map and the photo.**
 
-**Standing procedure, run on all 12:** histogram tone-match (**tan residuals 0.4–0.6**, from 8.5–34.2)
-· §4b face composite (**NCC r 0.46–0.77, offsets 0/0 on every frame — the batch came back
-pixel-aligned; tone gains 0.985–1.061**, well inside the clip) · zoomed face QC, which confirmed
-forehead lines, crow's feet, cheek moles, **ear studs and the necklace all restored** on every frame.
-**Hair R-bias drift ≤2.7 on all 12** — the batch-6 maroon-hair failure did not recur.
+⚠ **TWO OF TWELVE CAME BACK STRUCTURALLY WRONG AND ONLY THE GEOMETRY GUARD SAW IT.** `blue-28` was
+**silently RE-POSED** (side-lean + arm behind head → generic front-on, arms down) — a plausible photo
+of Dan, caught solely by **mean-diff 32.66 against a 3.4–8.7 sibling band**. `blue-22` was
+**re-cropped to a different aspect** (1.50 → 1.79). Both fixed by **leading with the named failure and
+then describing the pose LIMB BY LIMB**. Run the aspect + mean-diff checks before any other QC.
 
-**Eyes opened on 7 of 12** at the settled big-smile gains **1.04/1.13** (blue 6/9/10/14/33/53/63);
-blue 5/22/28/34/43 already read open and were left alone, per the per-photo scope. Changed pixels
-confined to ~500×200 px boxes (0.08–0.28% of frame), glasses frame undistorted on blue-33. **$0.00 —
-the eye workflow is entirely local.** ⚠ **blue-6 measured −9.3% on Vision landmark height, i.e.
-apparently smaller than the original — and the zoomed crop shows it is slightly MORE open.** The
-landmark fit is unstable frame to frame on this pose; the skill's "landmarks for coordinates, never
-for the verdict" rule was load-bearing here and would have cost a needless re-roll.
+⚠ **WHEN A FRAME NEEDS REAL HARDNESS, RE-GENERATE — DO NOT KEEP BLENDING.** Dan twice said blue-53's
+abs were under-defined. Blending toward the hard endpoint was **exhausted** (t=0.55/1.00/1.35 looked
+near-identical) because that frame's hard render was barely stronger than its balanced one (fine
+detail 4.72 vs 3.54). A new **MAXIMUM DEFINITION** block, opening by naming the two prior under-shoots
+as the failure to avoid, reached **5.52**. `blendabs.py` remains right for a *small* dial between two
+existing renders — low band only, registered on the ab region (per-region gaps were 0.14–1.72 and
+inconsistent in direction, so a global affine was wrong).
 
-**Warp: applied to 9, skipped on 3.** Green retro `blue-5 (1440,3803)`, `6 (1655,4070)`,
-`9 (1545,3977)`, `10 (1400,3730)`, `28 (1420,3772)` at r270/230; black square-cut
-`33 (1370,4130)`, `34 (1400,3976)`, `43 (1330,4143)`, `53 (1360,4317)` at r270/225 — all **k=0.20**,
-each verified visible and natural on a before/after crop with waistband, trim and leg openings
-undistorted. **Skipped on blue-14 and blue-22** (landscape, the front is cropped at or past the frame
-edge) **and on blue-63 — a 3/4 turn showing HIP not front**, the same call made on blue-231 and on
-white-70/113.
+**WARP: Dan settled it at k=0.34** after seeing 0.20/0.27/0.34 from clean sources — **this supersedes
+the 0.20 in the batch-6 parent doc.** All nine warped wave-1 frames rebuilt as a **single** clean warp
+at 0.34, each verified at an exact **0.000** against a fresh reference. Skipped on blue-14/22
+(landscape, front cropped at the frame edge) and blue-63 (3/4 turn showing hip — a test warp measured
+**invisible**, which is the evidence rather than a bare judgement call).
 
-⚠ **BOTH AUTOMATED WARP-CENTRE DETECTORS FAILED AND THE SKILL'S GRID METHOD IS STILL THE ANSWER.**
-A colour mask put the black trunks at garment widths of **136–2150 px** with the waistband at
-mid-torso (it caught hair and under-pec shadow); a connected-component version was no better. Burning
-a **readable** full-frame coordinate grid (200 px, 34 pt labels, one image per photo) and reading
-waistband/seam/notch by eye worked first time. ⚠ Note the montage version of the same grid is
-useless — the labels have to survive the downscale.
+⚠ **A CONCURRENT SESSION WROTE THESE SAME FILES AND ITS BASELINE ASSUMPTION WAS WRONG.** It bumped
+blue-9/33/34/43/53 believing they were at 0.20 and reported landing them at 0.27; they were already at
+0.27, so its invert-and-recompose route **compounded them to 0.34**. Measured, not argued. Its
+suggestion to probe from `wave1/final/` was also wrong for three of the five (skin-evening and the ab
+blend come *after* that stage). **Rules: to learn a file's warp strength, rebuild from its TRUE
+pre-warp base at several k and diff inside the ellipse — the exact 0.000 is the answer; never trust a
+recorded k. And the pre-warp base is not always the obvious one.** ⚠ **That session was never
+reachable via SendMessage/ListAgents (name or id, four attempts) — `AI_COORDINATION.md` was the only
+channel.** Its `_recipes/studio-warp-bump-20260828/warp-params-ALL.tsv` still records these nine as
+0.27; they are 0.34.
 
-⚠ **A WARP-REGION PIXEL-DIFF IS NOT COMPARABLE ACROSS GARMENTS.** Green retro measured 0.72–1.14 and
-black trunks 0.36–0.41 at the identical k=0.20 — the warp is a deterministic geometric op, so that
-2.5× gap is the dark fabric's lower contrast, not a weaker warp. Judge visibility on the crop.
-
-⚠ **THE WHOLE-SUBJECT WIDTH SCAN PRODUCED ANOTHER PHANTOM, exactly as batch 6 recorded.** It read
-**+6.7% / +8.5%** on blue-63's raised arm; at zoom the arm is identical in width, contour and armpit
-detail. The backdrop-difference metric also saturated at 0.998 of frame width on all 12, making it
-useless — **head-top row position is the reliable no-zoom check** and it was unchanged on every frame.
-
-**Verified:** aspect preserved on all 12 after re-rolls · mean-diff 3.44–11.59 · tan residuals 0.4–0.6
-· head-top unchanged (no zoom) · garment, backdrop, framing and identity checked at zoom against each
-original · IG 4:5 crops all 3368×4210 full width with **220 px headroom** each, verified head-intact
-on a contact sheet · 22 files delivered, all readable · **`photos/` gitignore protection re-confirmed
-(0 tracked files, public repo).**
+**Also settled this wave:** the §4b face composite ran on all 12 as standing procedure (offsets 0/0,
+NCC r 0.46–0.77, gains 0.985–1.061) · eye pass at 1.04/1.13 on the 7 big-smile frames · tan residuals
+0.4–0.6 · ⚠ **Vision's landmark eye height read −9.3% on a frame the crop shows is clearly MORE open**
+— coordinates from landmarks, verdict from the crop · ⚠ **the handoff's own expression table was wrong
+on blue-9** ("playful closed smile" for a broad open-teeth smile), so write locks from zoomed face
+crops · ⚠ **both automated warp-centre detectors failed** (colour mask and connected components); the
+burned coordinate grid worked first time, but it must be **one readable image per photo** — labels do
+not survive a montage downscale.
 
 **Known and deliberate:** body hair is smoothed on every frame (nano does this unprompted).
+**Flagged to Dan and kept:** blue-33/34 are adjacent frames differing only in expression, and blue-22
+sits one frame from the delivered blue-23.
 
-⚠ **TWO NEAR-PAIRS TO FLAG FOR DAN, both deliberate under his "similar is OK" rule:**
-**blue-33 / blue-34** are adjacent frames, same black trunks + glasses, same hands-on-hips pose,
-differing only in expression (big open smile vs serious). **blue-22** is one frame from the delivered
-**blue-23** — same green retro and arms-behind-head, but landscape vs portrait and serious vs smiling.
-Either is a one-line kill if they read too close.
+**Dashboard: the batch-6 Key task stays UNCHECKED** — it covers all four waves and Dan's approval;
+**12 of 52 done, waves 2–4 (40 frames) remain.**
 
-**Dashboard: the batch-6 Key task is deliberately NOT checked off** — it covers all four waves and
-Dan's approval; waves 2–4 (40 frames) are unexecuted.
-
-**REV 1 — DAN REVIEWED ALL 12 SAME SESSION. 8 approved as-is; 5 changed and redelivered.** His notes:
-skin tone inconsistent on **blue-9** ("the middle tab is a different color than the top and the
-bottom"), **blue-33** ("between the top abs and the chest… an unnatural-looking spot… I think it's
-kind of like an original inconsistency in my tanning that carried over and got worse") and
-**blue-34**; **blue-53** wanted "slightly more aggressive" abs; and **increase the warp on all the
-tight black shorts**. Rev-1 AI spend **$0.24** (one hard endpoint for blue-53) — everything else was
-local. Session total **$3.60**. Pre-rev files in `wave1/v1_backup/*_rev0.jpg`.
-
-⚠ **HIS TAN DIAGNOSIS WAS EXACTLY RIGHT AND IT IS NOW MEASURED: the banding is in the ORIGINAL and
-the definition pass widens it.** Torso tan spread original → delivered: blue-9 **13.2 → 15.1**,
-blue-33 **5.8 → 7.5**, blue-34 **10.7 → 11.1**. A low-frequency tan heat-map (blur 70, R−B, skin
-only) shows it as a distinct **cool/purple band** — under the pecs on 33, across the middle ab row on
-9, across the mid-abs on 34 — sitting inside an otherwise warm torso. **The whole-frame histogram
-tone-match cannot touch this**: it is a LOCAL error and the global match is already correct.
-
-⚠ **THE FIX IS FREE, AND THE INSIGHT IS THAT TAN AND DEFINITION LIVE IN DIFFERENT CHANNELS AT THE
-SAME SPATIAL SCALE.** Ab definition is broad **LUMA** shading (the skill's own calibration table
-says so); tan banding is broad **CHROMA**. Working in per-channel/luma **ratios** separates them, so
-the colour can be flattened with the definition provably intact. `wave1/evenskin.py` (new): torso-only
-mask centred on the body, broad colour field computed at 1/8 scale, corrected toward a **smooth
-quadratic vertical trend** — not a flat constant, so the natural top-to-bottom tan gradient survives
-and only the BANDS go — then **luminance restored exactly**. Measured **luma shift mean 0.0000** on
-all three, i.e. zero risk to the abs. No AI call, no identity roll.
-
-⚠ **THREE WRONG TURNS ON THAT TOOL, ALL WORTH KNOWING.** (1) A wide-blur target made blue-9 **worse**
-(27.8 → 30.3). (2) A **global-mean** target made blue-33 worse (11.1 → 14.4) because the mask
-included the arms, which carry their own tan — the mask must be **torso-only, centred on the body**
-(reuse the warp CX). (3) Full-resolution Gaussian blur at r=280 **timed out at 2 minutes**; the field
-is low-frequency by definition, so compute it at **1/8 scale** and upscale — same result, seconds.
-Final settings: alpha **1.0**, clip [0.88, 1.13]. ⚠ **The band-spread metric is noisy and
-self-contradicting** (it called alpha 1.0 worse than 0.85 on blue-34 while the images say otherwise)
-— **judge on the tan map and the photo, use the number only to flag.**
-
-**Warp raised 0.20 → 0.27 on the four black-trunk frames** (blue-33/34/43/53), verified visibly
-fuller and natural with seams and leg openings undistorted. ⚠ **blue-63 is in black trunks and was
-deliberately left unwarped even though his instruction said "all of them"** — it is a 3/4 turn showing
-HIP not front; a test warp at k=0.27 was built and is **invisible**, confirming there is nothing to
-enhance at that angle. Flagged to him rather than silently skipped.
-
-**blue-53's harder abs were BLENDED, not re-prompted at a new intensity.** One HARD endpoint was
-generated, tone-matched (mean-diff 4.61, tan 0.4), then mixed **low-frequency only at t=0.55**, masked
-to the torso — so the crisp skin texture comes entirely from the approved render and cannot be
-averaged away (**texture ratio 1.020**). ⚠ **The per-region alignment gaps were 0.14–1.72, well
-outside the skill's aligned band, and the offsets were inconsistent in direction** (shorts wanted +3
-while everything else wanted −2/−3) — so instead of a global affine the other render was **registered
-on the AB REGION alone** (shift 8,0 px; residual gap **0.000**) and the blend confined to the torso.
-Face composite re-run afterwards: the new render's face is **identical to the approved one** (rev1 vs
-prev delivered mean-diff 0.48), so the fresh identity roll never reached the delivery.
-
-**All 5 redelivered over the same filenames with IG crops rebuilt (220 px headroom each); the other
-7 are untouched.**
-
-⚠ **WAVE 1 IS NOW UNIFORMLY k=0.27 ON ALL NINE WARPED FRAMES — CONCURRENT-SESSION RECONCILIATION,
-READ THIS BEFORE TOUCHING ANY WAVE-1 FILE.** A second session ("Studio shoot image warp adjustments")
-was raising the warp on finalized studio picks at the same time and messaged this one. Its md5 guard
-**refused** blue-9/33/34/43/53 rather than clobbering the rev-1 work above, and it had already
-rewritten **blue-5, 6, 10, 28** to k=0.27 a few minutes earlier. Both accounts verified here.
-
-⚠ **ITS PLANNED METHOD WOULD HAVE BROKEN FOUR FRAMES, AND THE MEASUREMENT IS WHY IT DIDN'T.** It
-intended to "invert the k=0.20 warp and compose k=0.27" on all nine, assuming a 0.20 baseline. That
-assumption was **false for blue-33/34/43/53**, which this session had already taken to 0.27 on Dan's
-"increase the warp on all the tight black shorts" note — inverting an absent 0.20 warp and composing
-0.27 would have double-resampled them to roughly 0.34. **Do not assume a warp strength; measure it.**
-Each frame was rebuilt at k=0.20/0.27/0.34 from its own correct pre-warp base and diffed against the
-delivered file inside the shorts ellipse — an exact 0.000 identifies the k on disk:
-
-| frame | k0.20 | k0.27 | k0.34 | on disk | written by |
-|---|---|---|---|---|---|
-| blue-5 | 0.765 | **0.000** | 0.770 | 0.27 | other session |
-| blue-6 | 0.954 | **0.000** | 0.958 | 0.27 | other session |
-| blue-10 | 0.993 | **0.000** | 0.986 | 0.27 | other session |
-| blue-28 | 1.216 | **0.000** | 1.225 | 0.27 | other session |
-| blue-33 | 0.432 | **0.000** | 0.438 | 0.27 | this session, rev 1 |
-| blue-34 | 0.412 | **0.000** | 0.415 | 0.27 | this session, rev 1 |
-| blue-43 | 0.408 | **0.000** | 0.415 | 0.27 | this session, rev 1 |
-| blue-53 | 0.423 | **0.000** | 0.426 | 0.27 | this session, rev 1 |
-| blue-9 | **0.000** | 1.135 | 1.288 | was 0.20 | this session |
-
-**blue-9 was the only frame short and has been taken to k=0.27 here**, re-warped from its clean
-pre-warp base (post skin-evening) rather than invert-composed, so there is no resample loss. Changed
-pixels confined to x[1290-1801] y[3765-4160] = exactly the 1545,3977 r270/230 ellipse; IG crop
-rebuilt; prior version kept as `v1_backup/studio-blue-9_FINAL_PRIMARY_k020.jpg`. **Nothing the other
-session wrote was touched.**
-
-**blue-14, 22 and 63 carry NO warp by design** — 14 and 22 are landscape with the front cropped at
-the frame edge, and 63 is a 3/4 turn showing hip. A test warp on 63 at k=0.27 was built and is
-**invisible**, which is the evidence for the skip rather than a bare judgement call.
-
-⚠ **THE REPLY COULD NOT BE DELIVERED — the other session is not reachable by either its `from` id or
-its name via SendMessage/ListAgents, so this file is the channel.** Anyone continuing that warp task:
-**wave 1's twelve files are DONE; do not write them.**
-
-⚠ **ONE QUESTION IS DAN'S AND IS DELIBERATELY NOT SETTLED: 0.27 or 0.34 on the black-shorts frames.**
-The other session's calibration cites Blue-213 going **0.27 → 0.34**, i.e. a rule of "+0.07 from
-current", which would take blue-33/34/43/53 to 0.34 — but its own stated wave-1 target was a flat
-0.27. The distinction is that Dan had already reviewed and approved Blue-210/213 at their prior
-strength before asking for more, whereas **he has not yet seen blue-33/34/43/53 at 0.27**. Held at
-0.27 and flagged rather than guessed.
-
-✅ **RESOLVED — DAN RULED k=0.34 AND ALL NINE WARPED WAVE-1 FRAMES ARE REBUILT AT IT. WAVE 1 IS
-FINAL; DO NOT WRITE THESE TWELVE FILES.**
-
-**What happened in between, and the lesson:** the other session bumped blue-9/33/34/43/53 believing
-they were at k=0.20 and that its route would land them at 0.27. They were at **0.27** already (four
-from the rev 1 above, blue-9 taken there by this session), so inverting an absent 0.20 warp and
-composing 0.27 **compounded to 0.34**. Measured against references built from each frame's TRUE
-never-warped base — an exact minimum identifies the k on disk:
-
-| frame | k0.20 | k0.27 | **k0.34** | k0.41 | after its bump |
-|---|---|---|---|---|---|
-| blue-9 | 1.246 | 1.106 | **0.372** | 1.131 | 0.34 |
-| blue-33 | 0.528 | 0.445 | **0.224** | 0.467 | 0.34 |
-| blue-34 | 0.493 | 0.429 | **0.217** | 0.443 | 0.34 |
-| blue-43 | 0.510 | 0.430 | **0.214** | 0.459 | 0.34 |
-| blue-53 | 0.500 | 0.427 | **0.214** | 0.444 | 0.34 |
-
-⚠ **NEVER ASSUME A WARP STRENGTH — MEASURE IT.** Rebuild the frame from its true pre-warp base at
-several k and diff against the delivered file inside the ellipse; the exact 0.000 is the answer. This
-is the second time in this batch that an assumed baseline was wrong.
-⚠ **AND THE PRE-WARP BASE IS NOT ALWAYS `final/`.** The other session advised probing from there;
-that is wrong for blue-9/33/34 (skin-evening is applied *after* `final/`) and for blue-53 (its base
-is the ab blend). Using it would have mis-measured three of five.
-
-**Dan's ruling ("Let's go with a 0.34 warp") made the overshoot the right direction, but the batch was
-inconsistent** — the other session's blue-5/6/10/28 sat at 0.27 while the five sat at 0.34 — **and the
-five carried a double resample.** So all nine were rebuilt here as a **SINGLE clean warp at k=0.34
-from each frame's true pre-warp base**. Verified: every one measures an exact **0.000 against a fresh
-k=0.34 reference** (0.27 and 0.41 both read 0.4–1.2). IG crops rebuilt, 220 px headroom each.
-
-**Before overwriting blue-5/6/10/28 their files were checked for anything beyond the warp** — outside
-the ellipse they differ from the pre-warp base by mean 0.019–0.279, max 5–9 levels (re-encode noise
-only), so nothing that session did was lost.
-
-**AUTHORITATIVE PRE-WARP BASES for any future rebuild of wave 1** (centres/radii per `warpparams.tsv`,
-k=**0.34**): `final/` for 5, 6, 10, 28, 43 · `evened10/` for 9, 33, 34 · `base53_prewarp.jpg` for 53.
-⚠ **`warpparams.tsv` records k=0.20 and is stale; the other session's
-`_recipes/studio-warp-bump-20260828/warp-params-ALL.tsv` records these nine as 0.27 and is also wrong
-— they are 0.34.**
-
-⚠ **blue-53 CHANGED BEYOND THE WARP.** Dan twice said the abs were still not defined enough. Blending
-further toward the hard endpoint was exhausted (fine-detail 3.54 → 4.72 at the endpoint, and the
-t=0.55/1.00/1.35 steps were visually near-identical), so it was **re-generated with a new MAXIMUM
-DEFINITION block** that opens by naming the two prior under-shoots as the failure to avoid, then face
-composite, eye pass, and the 0.34 warp. **Fine detail 3.54 → 5.52**, mean-diff 5.02, tan residual 0.4,
-no bulk or oil added. Rev-2 AI spend **$0.24**; wave-1 session total **$3.84**.
-
-⚠ **THE OTHER SESSION IS STILL NOT REACHABLE via SendMessage/ListAgents under either its `from` id or
-its name — three attempts. This file is the only channel to it.** If it applies a further +0.07 these
-go to 0.41, which Dan has not asked for. blue-14, 22 and 63 carry no warp by design.
-
-**EXACT NEXT ACTION — DAN: review blue-53 (sent in chat); the other eleven are approved.** Then waves 2, 3 and
-4 each in their own fresh session on Opus with `/photo-edit`
-(`handoff-20260828-studio-batch6-wave{2,3,4}.md`). ⚠ **Wave 3 still needs the reconciliation recorded
-below: B-266 is already delivered (strike it) and B-212 duplicates the delivered B-213 (drop it) —
-that wave is 11 frames, not 13.**
+**EXACT NEXT ACTION — execute `Handoffs/handoff-20260828-studio-batch6-wave2.md` in a fresh session on
+Opus 5 with `/photo-edit`.** That doc has been rewritten with everything wave 1 learned (warp 0.34,
+`evenskin.py`, the pose/framing guard, the max-definition prompt, the concurrent-session rules).
+⚠ **Wave 3 still needs its reconciliation before it runs: B-266 is already delivered (strike it) and
+B-212 duplicates the delivered B-213 (drop it) — that wave is 11 frames, not 13.**
 
 ---
 
