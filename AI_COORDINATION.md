@@ -410,45 +410,58 @@ current", which would take blue-33/34/43/53 to 0.34 — but its own stated wave-
 strength before asking for more, whereas **he has not yet seen blue-33/34/43/53 at 0.27**. Held at
 0.27 and flagged rather than guessed.
 
-⚠⚠ **UPDATE — THE OTHER SESSION HAS NOW BUMPED THE FIVE AND THEY LANDED AT k≈0.34, NOT THE 0.27 IT
-INTENDED. WAVE 1 IS CURRENTLY INCONSISTENT: blue-5/6/10/28 at 0.27, blue-9/33/34/43/53 at 0.34.**
+✅ **RESOLVED — DAN RULED k=0.34 AND ALL NINE WARPED WAVE-1 FRAMES ARE REBUILT AT IT. WAVE 1 IS
+FINAL; DO NOT WRITE THESE TWELVE FILES.**
 
-It messaged that blue-9/33/34/43/53 were "STILL AT k=0.20" and applied its invert-0.20-and-recompose-
-0.27 route on that basis. They were not at 0.20 — four were at 0.27 from the rev 1 above and blue-9
-had been taken to 0.27 here — so inverting an absent 0.20 warp and composing 0.27 compounded to 0.34.
-Measured against references built from each frame's **true never-warped base** (`evened10/` for
-9/33/34, `final/` for 43, `base53_prewarp.jpg` for 53), an exact minimum identifies the k on disk:
+**What happened in between, and the lesson:** the other session bumped blue-9/33/34/43/53 believing
+they were at k=0.20 and that its route would land them at 0.27. They were at **0.27** already (four
+from the rev 1 above, blue-9 taken there by this session), so inverting an absent 0.20 warp and
+composing 0.27 **compounded to 0.34**. Measured against references built from each frame's TRUE
+never-warped base — an exact minimum identifies the k on disk:
 
-| frame | k0.20 | k0.27 | **k0.34** | k0.41 | k0.48 | on disk |
-|---|---|---|---|---|---|---|
-| blue-9 | 1.246 | 1.106 | **0.372** | 1.131 | 1.278 | **0.34** |
-| blue-33 | 0.528 | 0.445 | **0.224** | 0.467 | 0.551 | **0.34** |
-| blue-34 | 0.493 | 0.429 | **0.217** | 0.443 | 0.499 | **0.34** |
-| blue-43 | 0.510 | 0.430 | **0.214** | 0.459 | 0.537 | **0.34** |
-| blue-53 | 0.500 | 0.427 | **0.214** | 0.444 | 0.518 | **0.34** |
+| frame | k0.20 | k0.27 | **k0.34** | k0.41 | after its bump |
+|---|---|---|---|---|---|
+| blue-9 | 1.246 | 1.106 | **0.372** | 1.131 | 0.34 |
+| blue-33 | 0.528 | 0.445 | **0.224** | 0.467 | 0.34 |
+| blue-34 | 0.493 | 0.429 | **0.217** | 0.443 | 0.34 |
+| blue-43 | 0.510 | 0.430 | **0.214** | 0.459 | 0.34 |
+| blue-53 | 0.500 | 0.427 | **0.214** | 0.444 | 0.34 |
 
-⚠ **ITS ADVICE TO "PROBE FROM `wave1/final/`" DOES NOT APPLY AND SHOULD NOT BE FOLLOWED BLINDLY — the
-probes here were ALREADY built from never-warped bases, which is the correct method, and `final/` is
-the wrong base for three of the five** (blue-9/33/34 have skin-evening applied after `final/`, and
-blue-53's base is the ab blend, not `final/` at all). Its stated concern — that a probe was warping
-the already-warped delivered file — never happened. **The residual at 0.34 is 0.21–0.37 rather than
-0.000 because its invert-and-recompose is a double resample**, so those five also carry slightly more
-interpolation loss inside the ellipse than a single warp from source would.
+⚠ **NEVER ASSUME A WARP STRENGTH — MEASURE IT.** Rebuild the frame from its true pre-warp base at
+several k and diff against the delivered file inside the ellipse; the exact 0.000 is the answer. This
+is the second time in this batch that an assumed baseline was wrong.
+⚠ **AND THE PRE-WARP BASE IS NOT ALWAYS `final/`.** The other session advised probing from there;
+that is wrong for blue-9/33/34 (skin-evening is applied *after* `final/`) and for blue-53 (its base
+is the ab blend). Using it would have mis-measured three of five.
 
-**Its rev-1 preservation claim IS correct and was not disputed** — the skin-evening and the blue-53 ab
-blend rode through intact; only the ellipse changed.
+**Dan's ruling ("Let's go with a 0.34 warp") made the overshoot the right direction, but the batch was
+inconsistent** — the other session's blue-5/6/10/28 sat at 0.27 while the five sat at 0.34 — **and the
+five carried a double resample.** So all nine were rebuilt here as a **SINGLE clean warp at k=0.34
+from each frame's true pre-warp base**. Verified: every one measures an exact **0.000 against a fresh
+k=0.34 reference** (0.27 and 0.41 both read 0.4–1.2). IG crops rebuilt, 220 px headroom each.
 
-**NOTHING WAS REWRITTEN FROM THIS SESSION IN RESPONSE.** The target value is Dan's open question, the
-other session is actively managing that task, and a corrective write would risk a clobber loop. The
-files are left as-is with the state reported to Dan, who has been sent a 0.20/0.27/0.34 comparison
-built from clean sources and can set all nine consistently with one word. ⚠ **The other session is
-NOT reachable via SendMessage/ListAgents under either its `from` id or its name, so this file remains
-the only channel to it.**
+**Before overwriting blue-5/6/10/28 their files were checked for anything beyond the warp** — outside
+the ellipse they differ from the pre-warp base by mean 0.019–0.279, max 5–9 levels (re-encode noise
+only), so nothing that session did was lost.
 
-**EXACT NEXT ACTION — DAN: say 0.27 or 0.34 on the warp** (the five rev-1 comparisons sent earlier
-show 0.27; the files on disk are now 0.34 for five of the nine). Whoever applies it should rebuild
-from each frame's **true pre-warp base** as a single warp — not invert-and-recompose — to avoid a
-third resample. Then waves 2, 3 and
+**AUTHORITATIVE PRE-WARP BASES for any future rebuild of wave 1** (centres/radii per `warpparams.tsv`,
+k=**0.34**): `final/` for 5, 6, 10, 28, 43 · `evened10/` for 9, 33, 34 · `base53_prewarp.jpg` for 53.
+⚠ **`warpparams.tsv` records k=0.20 and is stale; the other session's
+`_recipes/studio-warp-bump-20260828/warp-params-ALL.tsv` records these nine as 0.27 and is also wrong
+— they are 0.34.**
+
+⚠ **blue-53 CHANGED BEYOND THE WARP.** Dan twice said the abs were still not defined enough. Blending
+further toward the hard endpoint was exhausted (fine-detail 3.54 → 4.72 at the endpoint, and the
+t=0.55/1.00/1.35 steps were visually near-identical), so it was **re-generated with a new MAXIMUM
+DEFINITION block** that opens by naming the two prior under-shoots as the failure to avoid, then face
+composite, eye pass, and the 0.34 warp. **Fine detail 3.54 → 5.52**, mean-diff 5.02, tan residual 0.4,
+no bulk or oil added. Rev-2 AI spend **$0.24**; wave-1 session total **$3.84**.
+
+⚠ **THE OTHER SESSION IS STILL NOT REACHABLE via SendMessage/ListAgents under either its `from` id or
+its name — three attempts. This file is the only channel to it.** If it applies a further +0.07 these
+go to 0.41, which Dan has not asked for. blue-14, 22 and 63 carry no warp by design.
+
+**EXACT NEXT ACTION — DAN: review blue-53 (sent in chat); the other eleven are approved.** Then waves 2, 3 and
 4 each in their own fresh session on Opus with `/photo-edit`
 (`handoff-20260828-studio-batch6-wave{2,3,4}.md`). ⚠ **Wave 3 still needs the reconciliation recorded
 below: B-266 is already delivered (strike it) and B-212 duplicates the delivered B-213 (drop it) —
