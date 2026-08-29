@@ -331,6 +331,12 @@
       "priority": "key",
       "why": "4 wave docs: handoff-20260828-studio-batch6-wave1..4.md (12/12/13/15 frames, one Opus session each); master doc handoff-20260828-studio-batch6-remaining-52-picks.md — created but not yet run",
       "addedAt": "2026-08-28"
+    },
+    {
+      "text": "Execute handoff: build cover images for the 5 ab-wheel Shorts",
+      "priority": "key",
+      "why": "Handoffs/handoff-20260828-abwheel-shorts-covers.md — created but not yet run; the 5 shorts are final and unschedulable without covers",
+      "addedAt": "2026-08-28"
     }
   ],
   "health": [
