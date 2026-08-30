@@ -337,6 +337,18 @@
       "priority": "high",
       "why": "Watch-review 8/29 (Sam Piliero, Claude + Facebook Ads full course): the 8/26 paid audit found misconfigured goals, no cost-per-subscriber visibility and unpublished Meta drafts nobody noticed. Build on our own API creds, NOT the third-party MCP connector he recommends",
       "addedAt": "2026-08-29"
+    },
+    {
+      "text": "Set up ManyChat comment-to-DM on @danrosefit (33 queued posts already promise it)",
+      "priority": "key",
+      "why": "Watch-review 8/30: every AI post Dan liked this week is a comment/DM-gated giveaway (kingketo 'Comment COACH' pulled 156 comments on 202 likes). Our queue promises 'Comment ABS and I'll send the free AI preview' and nothing answers it.",
+      "addedAt": "2026-08-30"
+    },
+    {
+      "text": "Make the AI Trainer recovery-aware: scale volume from last night's Oura sleep/HRV",
+      "priority": "key",
+      "why": "Watch-review 8/30: kingketo IG reel. We already hold the Oura data in Sleep Coach but the trainer ladder progresses on workout counts alone. Auto-regulation is a differentiator no photo-generator competitor has.",
+      "addedAt": "2026-08-30"
     }
   ],
   "health": [
