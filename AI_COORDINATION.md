@@ -33,6 +33,61 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### 3-MIN TOTAL BODY WORKOUT — **3 NEW THUMBNAILS DELIVERED; Dan picks one** (2026-08-30, Claude Code)
+
+Dan on the live thumbnail for `hKmttAhgLfQ`: *"too blurry, and it isn't really related to what's in
+the video."* Correct — the live one is a **video frame**, dark, heavy bokeh, no equipment. Rebuilt
+from photography with a generative background extension, per his brief. **AI spend $0.78**
+(1 retouch at 4K + 3 outpaints at 2K + 1 discarded test). **No production code, no deploy, no
+native-retest trigger.** Delivered to
+`social media graphics/youtube/thumbnails/3 Minute Total Body Home Workout/` as
+`thumb-v2-{A-hipstance-mat, B-kettlebell-smile, C-kettlebell-serious}.jpg`, all 1280x720, 282-351 KB.
+Reproducible from `_build-2026-08-30/` (scripts + every prompt + seed geometry).
+
+**All three are kettlebell frames from the 7-31-26 pool shoot, which is what the video is about** —
+the transcript says *"just a kettlebell and a towel."* A and B are Dan's own two picks
+(`photo-23`, `photo-38`, already retouched); C is **frame 29, newly retouched this session** and
+saved to the library as `photo-29_FINAL_PRIMARY.jpg`. His four calls: all-caps house headline, no
+hyphen; moderate de-blur; deliver only, do not install.
+
+**Method (now written into `/youtube-packaging`):** place the portrait on a 16:9 canvas with the
+subject at 0.66 width, fill the sides with a **blurred horizontal stretch of the photo's own edge
+strip**, let `gemini-3-pro-image` repaint those sides as a real continuation AND re-render the whole
+background at reduced blur, then **composite the REAL subject back** so his body is never
+AI-repainted. Real photo is 43-52% of the frame; the rest is generated.
+
+⚠ **THE MODEL SILENTLY RE-CENTRES THE SUBJECT AND THAT ALONE WOULD PUT THE HEADLINE ON HIS BODY.**
+First take moved his torso centre **0.660 -> 0.508** while preserving size and vertical position
+*exactly* (torso width 0.1519 -> 0.1500, head top 0.062 -> 0.062) — a pure horizontal translation,
+the model "improving" the composition. **A COMPOSITION LOCK paragraph fixed it outright**: say the
+picture is deliberately off-centre, that the empty left half is negative space for a designer's
+headline, and that **moving him toward the centre is a complete failure even if it would be a
+better-balanced photograph.** Re-measured: centre **0.660**, torso width **0.1519** — exact.
+Locking pixels does not work; locking intent does.
+
+⚠ **DAN ASKED FOR A MID-LIFT ACTION SHOT AND THE BOTTOM OF THE REP FAILS HIS OWN ABS-VISIBLE RULE.**
+Every bottom-position frame (26/27/30/31/34/37) has him hinged forward with the abs compressed into
+folds that disappear at grid size. Used the **top** of the lift instead (frame 29) — still the
+exercise, abs extended and crisp. Flagged to him rather than silently substituted.
+
+**Verified on the delivered files:** subject composited from original pixels, registration
+**dx=0, dy 0/-2, IoU 0.94-0.99**; mask eroded then feathered so no halo — **checked at 4x, no
+cut-out edge or colour fringe**; tone gains 0.99-1.03 (inside the clip); face restored to his real
+one on all three (the AI render had visibly drifted it); retouch of frame 29 tan residual **0.07**,
+aspect preserved, expression and forehead lines intact; **text clearance measured on the rendered
+file by person mask — 62 / 103 / 111 px, never on his body**; `social media graphics/` gitignore
+re-confirmed, **0 tracked files** (public repo).
+
+⚠ **`logos/03-symbol-left-text.png` IS GONE** — that folder was reorganised and now holds only
+banner drafts. The same white wordmark with alpha lives at `Media/video_edit/work/logo_white.png`
+(360x111). Every older thumbnail build script still points at the dead path.
+
+**Dashboard: nothing checked off** — searched; no task covers this, and Dan has not picked a variant.
+
+**EXACT NEXT ACTION — DAN: pick A, B or C** (sheet + all three sent in chat). On his pick I install
+it in YouTube Studio, and can load a second as an A/B test. Nothing is blocked.
+
+---
 ### STUDIO SHOOT BATCH 6 — **WAVE 3 COMPLETE: 11 delivered, 2 re-rolls, 35 of 49 picks finished** (2026-08-30, Claude Code)
 
 `Handoffs/handoff-20260828-studio-batch6-wave3.md` executed with `/photo-edit`. **AI spend $3.12**
