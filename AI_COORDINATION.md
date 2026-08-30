@@ -33,6 +33,100 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO SHOOT BATCH 6 — **WAVE 3 COMPLETE: 11 delivered, 2 re-rolls, 35 of 49 picks finished** (2026-08-30, Claude Code)
+
+`Handoffs/handoff-20260828-studio-batch6-wave3.md` executed with `/photo-edit`. **AI spend $3.12**
+(11 x $0.24 + 2 re-rolls). **No production code, no deploy, no native-retest trigger.** Delivered to
+`photos/finalized social media photos/` as `studio-blue-<n>_FINAL_PRIMARY.jpg` + `-IG-4x5.jpg`:
+**blue 169/173/187/201/221/240/247/249/269/271/275.** B-275 is landscape and ships **full-frame
+only** (blue-66 rule). The reconciliation held — 11 frames, not 13; B-266 and B-212 confirmed struck.
+
+⚠ **THE GEOMETRY GUARD EARNED THE WHOLE SESSION: TWO OF ELEVEN CAME BACK STRUCTURALLY WRONG, IN TWO
+DIFFERENT WAYS, AND NOTHING ELSE WOULD HAVE CAUGHT EITHER.** Nine frames sat in a **4.02-5.43**
+mean-diff band; **B-173 read 22.70 and B-271 read 15.50.**
+- **B-173 was silently RE-POSED** — hands taken OUT of the pockets, arms hanging at his sides, the
+  frame zoomed in, and the belt buckle redesigned. A plausible photo of Dan. This is wave 1's
+  `blue-28` failure verbatim, one wave later.
+- **B-271 was INFLATED** — shoulders, deltoids, lats, arms and chest all pushed outward, with a
+  **33.7 tan shift**. Elevated mean-diff *plus* a tan shift the histogram match cannot pull back is
+  the documented signature of a structural change rather than a palette one.
+
+⚠ **THE DIFF MAP SETTLED B-271 IN ONE LOOK — lesson 37 works in the positive direction too.** Its
+first take drew a **thick, bright, TWO-SIDED band around the entire silhouette** (both arms, both
+shoulders, head, hips, thighs). The control — B-269, same garment, same pose, same prompt skeleton —
+showed the clean signature: a uniform **1-2 px hairline** with the change concentrated in the abs.
+**A real widening moves BOTH edges**; wave 2's false alarms were one-sided. No edge scan was run and
+none was needed.
+
+⚠ **BOTH RE-ROLLS LANDED FIRST TRY, AND THE TWO LEADS ARE DIFFERENT IN KIND — that is the finding.**
+B-173's lead enumerates the four things the last take got wrong, then describes the pose **limb by
+limb** (which hand, which pocket, thumb outside, fingers inside, elbows at the sides) and pins the
+framing to a stated head-to-frame proportion: **22.70 -> 7.44**. B-271's lead names the one failure
+and converts the SILHOUETTE LOCK into an **OUTLINE TRACE** — enumerate every edge (outer deltoid,
+upper arm, forearm, lat, widest chest, waist, hips, thighs, head, neck) and reproduce each at the
+same pixel position: **15.50 -> 6.86**. **A re-pose needs the POSE spelled out; an inflation needs
+the OUTLINE spelled out.** Escalating adjectives fixes neither. Both residuals are legitimate — those
+two originals have the softest midsections in the wave, so the pass genuinely changes more pixels.
+
+⚠ **FACE ELLIPSES WERE DERIVED FROM VISION LANDMARKS THIS WAVE INSTEAD OF HAND-READ, AND IT
+REPRODUCES WAVE 2's NUMBERS.** New `facelm.swift` dumps bbox + eyes + outerLips + faceContour +
+medianLine; `mkell.py` builds the ellipse from `eye_mid`, `medianLine.maxy` (the chin) and
+`eye_separation`. It lands rx_frac ~0.100 / ry_frac ~0.092-0.098 — wave 2's hand-read values — and is
+**rotation-robust**, which matters because `faceContour` width inflates on a tilted head (221, 247,
+271) while eye separation does not. **It still draws the ellipse on the image and looks at it before
+compositing** (lesson 38). Result: offsets **0/0 on all 11**, NCC r **0.48-0.62**, tone gains
+**0.975-1.066**, all inside the clip.
+
+⚠ **THE HANDOFF'S EXPRESSION TABLE WAS WRONG FOR THE THIRD WAVE RUNNING — AND THIS TIME THE ERROR
+WAS ON THE *DELIVERED NEIGHBOUR*, WHICH IS WHAT MADE THE ADJACENCY CALL WRONG.** Read off the zoomed
+face sheet: **blue-188 is a big open smile, not a "closed smirk"**, and **blue-241 is a big open
+smile, not "serious"**. Those two errors are exactly why B-187 and B-240 turn out to be the closest
+adjacency pairs while the table implied they were safe. **Check the delivered neighbour's expression
+from a crop too, not just the pick's.**
+
+**ADJACENCY — six pairs, ranked against the DELIVERED FINALS rather than the raws, all sent to Dan.**
+Closest: **240 vs 241** (olive shorts, hands in pockets, glasses and big smile all match — the
+recommended kill), then **173 vs 175** (jeans, thumbs in pockets, same framing; 175 winks), then
+**187 vs 188** (yellow trunks, hands on hips, both big smiles). Comfortably distinct and recommended
+keeps: **169/171** (smile vs smirk, and 171 is framed much tighter), **201/202** (smile vs serious),
+**221/222** (chin-up serious vs cheeky grin — the biggest register gap in the wave).
+⚠ **Two crowding problems the handoff never flagged:** the olive shorts now run **four deep**
+(240/247/249 plus the delivered 241, and only 249's hands-on-hips is a different pose), and
+**269/271** are the same Muay Thai hands-on-hips setup two frames apart, smile vs serious.
+
+**Also this wave:** eye rule applied at **1.04/1.13 on 7 of 11** (169, 173, 187, 201, 240, 247, 269),
+skipped on 221/249/271/275 which read open — changes confined to **33k-52k px** in a ~520x200 box per
+face with **max 6 levels anywhere else**. **Warp on only 3** (187, 201, 221) at **k=0.34**; jeans,
+loose olive mesh and Muay Thai satin all skipped per standing rules. On B-221 the "max 6 levels
+outside the ellipse" bound is also the proof the neighbouring hand is untouched — it sits outside.
+ARM LOCK went in pre-emptively on 201 and 275 and **both landed in band first try** with visibly dark
+arms in the diff map. `evenskin.py` and `blendabs.py` were carried over and **not needed**.
+
+**Verified:** aspect delta identical on all 11 (-0.0005 portrait / +0.0012 landscape, the resample) -
+tan residuals **0.21-0.98** - hair R-bias drift **-3.7 to +0.5** (the `blue-213` maroon failure was
++12.7 and positive) - background corner dE 1.3-5.4 - necklace, moles, ears and the glasses on
+169/187/240 identical at zoom - garments, backgrounds and framing unchanged - 21 files, all readable -
+**`photos/` gitignore re-confirmed, 0 tracked files (public repo)**.
+
+**Collision guard: clean.** `picks.txt` staged before the first edit; every other scratchpad's
+`picks.txt` scanned, zero overlap. md5 baseline of all **337** pre-existing delivery-folder files
+taken at session start, **re-checked immediately before writing** (lesson 33's stage-then-recheck) and
+again at the end: **all 337 byte-identical, 337 -> 358.** No ` 2.jpg` conflict copies among my 21.
+
+**Reproducibility preserved OUTSIDE the scratchpad:**
+`photos/finalized social media photos/_recipes/studio-8-27-26-batch6-wave3/` — MANIFEST, all 13
+prompts (incl. both re-roll prompts), `warpparams.tsv`, `faceell.json`, `igcrop.json`, `picks.txt`,
+and the new `facelm.swift` / `mkell.py` / `diffmap.py`.
+
+**Dashboard: the batch-6 Key task stays UNCHECKED** — it covers all four waves and Dan's approval.
+**35 of 49 done; wave 4 (14 frames) closes it.**
+
+**EXACT NEXT ACTION — DAN: review the 11 before/after strips and the 8 adjacency sheets (sent in
+chat), and say which of 240 / 173 / 187 to kill, if any.** Then wave 4 in a fresh session with
+`/photo-edit`.
+
+---
+
 ### MUHAMMAD BATCH — **RAW-FILES FOLDER DELIVERED + SCRIPTS DOC FIXED + TELEPROMPTER-ONLY DOC BUILT** (2026-08-30, Claude Code)
 
 Muhammad asked for (a) one folder of raw files instead of downloading them one by one, and (b) said
