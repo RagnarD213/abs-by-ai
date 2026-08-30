@@ -33,6 +33,65 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### MUHAMMAD BATCH — **RAW-FILES FOLDER DELIVERED + SCRIPTS DOC FIXED + TELEPROMPTER-ONLY DOC BUILT** (2026-08-30, Claude Code)
+
+Muhammad asked for (a) one folder of raw files instead of downloading them one by one, and (b) said
+the scripts doc was "messed up... put new ads on next page." **$0.00 AI spend, no production code,
+no deploy, no native-retest trigger.**
+
+**RAW FILES — NO UPLOAD WAS NEEDED; ALL 46 8/14 ROLLS WERE ALREADY IN DRIVE.** New folder inside the
+shoot folder: `RAW FILES — 12 ADS TO EDIT (Muhammad batch, 8-14 shoot)` =
+`1tYJJ3gVLJTyk7ckwksbon-6hGnJKcFpC`, **anyone-with-link reader (inherited)**. The 12 rolls were
+**server-side copied** (instant, no bandwidth) and **renamed by ad number** so he no longer has to
+open each file to learn which ad it is: `AD-02_C1592` · `AD-03_C1593` · `AD-04_C1594` ·
+`AD-05_C1595` · `AD-06_C1597` · `AD-07_C1598` · `AD-08_C1599` · `AD-09_C1600` · `AD-10_C1601` ·
+`AD-13_C1602` · `AD-14_C1603` · `AD-15_C1604`. **27 GB of duplicate storage** (Drive is at
+489 GB of 5 TB, so a non-issue) — deletable once he has downloaded. ⚠ **A literal .zip was
+deliberately NOT built: Drive zips a folder on download anyway, and a single 27 GB zip is worse to
+download than a folder he can grab in parts.** ⚠ C1596 is a 0.06 GB slate, not an ad; C1591 is Ad 1
+(already edited) and is excluded.
+
+⚠ **HIS COMPLAINT WAS REAL AND HAS A SINGLE ROOT CAUSE. The Heading 2 STYLE DEFINITION in that doc
+is Times New Roman 13, not bold — and AD 2 was the only heading carrying a manual override
+(Arial 17 bold).** So AD 3–15 rendered as small unbolded serif text jammed against the previous
+ad's last line, and the doc had **ZERO page breaks across 124 pages**. From his side there was no
+visible boundary between ads at all. This is fallout from the doc being made as a copy of the
+batch-1 scripts doc with Ad 1 deleted in the UI.
+
+**FIXED IN PLACE (never rebuilt — a paste rebuild would destroy the 132 embedded images):**
+`Format > Paragraph styles > Heading 2 > Update 'Heading 2' to match` with the cursor in AD 2
+restyled **all 12 headings in one operation**; then a page break (`cmd+Return` at line start) before
+each of the 12 ads and Production notes. ⚠ **Two approaches that do NOT work and cost time: "Apply
+Heading 2" and "Clear formatting" (`cmd+\`) both leave the heading unchanged**, because the
+paragraphs had no override — the STYLE was the problem, so the style is what must be updated.
+
+**Verified on the HTML export, not by eye:** 13 page breaks · **all 12 AD headings preceded by a
+break** · all 12 now share one span class (`c4`) where AD 2 used to differ · **132 images and 50
+Drive links intact** · doc 124 → 132 pages.
+
+**TELEPROMPTER-ONLY DOC BUILT (Dan's follow-up ask):**
+`Abs By AI — TELEPROMPTER SCRIPTS ONLY (Ads 2–15) — Muhammad batch` =
+`1n1FIVgNaBZZ6j0aJsEyqLAE8oT82SQQNJ_pGrCLVVwg`, **set to anyone-with-link viewer**. 12 ads,
+**8,565 spoken words**, every bracketed cue, asset caption, Drive link, per-ad note and the
+Production notes section stripped. ⚠ **Three caption classes do NOT match a bracket/`Clip:` filter
+and leaked on the first pass** — a raw line carrying a `drive.google.com` link, whole-line-bold
+captions, and plain descriptive lines (`Real app — …`, `LEFT = … RIGHT = …`, `COMPLIANCE FLAG:`).
+Caught by reading the first paragraph of every ad; AD 7 and AD 8 both opened on a caption.
+**The validation that proves the strip is right: AD 3 came out at 835 words against the doc's own
+stated ~838.**
+
+⚠ **ONE THING FOR DAN, NOT BLOCKING: AD 2's stated word count in the scripts doc is wrong.** It says
+"~700 spoken words ≈ 4:30–5:00" and the actual spoken text is **869 words (~4:20–5:00 longer than
+billed)**. Every other ad's stated count checks out. One-line fix if he wants it.
+
+**Dashboard: nothing checked off** — no task covers this; the nearest row is Muhammad's own editing
+batch, which is his work, not ours.
+
+**EXACT NEXT ACTION — DAN: send Muhammad the two links** (raw-files folder + teleprompter doc) and
+tell him the scripts doc is fixed in place at the same URL. Nothing is blocked.
+
+---
+
 ### STUDIO SHOOT BATCH 6 — **WAVE 2 COMPLETE: 12 delivered, ZERO re-rolls (74 picks finished)** (2026-08-29, Claude Code)
 
 `Handoffs/handoff-20260828-studio-batch6-wave2.md` executed with `/photo-edit`. **AI spend $2.88**
