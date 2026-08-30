@@ -274,6 +274,40 @@ Same contact-sheet technique as step 1, then judge with Dan's platform logic: st
     is zero; cost of omitting one is $0.24 plus a review round.** Put them in on any pose where a limb
     is raised, bent, flexed or fisted.
 
+40. ⚠ **TO CHANGE AN EXPRESSION, INVERT §4b: COMPOSITE THE CANDIDATE'S FACE *INTO* THE APPROVED
+    FRAME.** When Dan asks to change an expression, the face is the thing that must change, so the
+    usual repair ("composite the ORIGINAL face back") is unavailable and identity is unprotected.
+    The fix: render the new expression from the CURRENT APPROVED FINAL (not the raw), then run
+    `facecomp.py` with the arguments reversed — candidate as the source, approved final as the base —
+    through a **tightened** ellipse (**rx x 0.90, ry x 0.88**, centre nudged down ~0.004H). The
+    expression features come from the new render while hairline, ears, jaw outline, neck, jewellery
+    and the entire body stay approved pixels, so **outline drift is removed by construction** and any
+    warp already applied survives untouched. Measured on two frames: **max 4-6 levels anywhere
+    outside the face ellipse**, no seam. Diagnose the expression in NAMEABLE parts first — "sad" on
+    this shoot was *corners turned down + inner brows lifted and drawn together + flat lidded eyes* —
+    and write the prompt against those three, not against the mood. Lock anything that is POSE
+    (a raised chin, an off-camera gaze) separately, or the model will "fix" it.
+
+41. ⚠ **A SMILE READS AS AN OPTICAL RE-POSE — MEASURE BEFORE YOU REJECT AN EXPRESSION RENDER.** Four
+    expression candidates all *looked* like the head had been enlarged and turned more front-on, and
+    all four were about to be thrown away. Landmarks disproved it: head scale **+0.7 / +0.2 / −2.4 /
+    −1.7 %**, eye-centre shift **0-10 px**, eye-line tilt **< 2 deg**. Widening the mouth and lifting
+    the cheeks changes the face's apparent width and jaw shape, which the eye reads as a bigger,
+    closer head. **Measure eye separation (head scale), eye-centre position and eye-line tilt against
+    the base, then use the diff map to rank candidates** — the honest signal is whether the change
+    is confined to mouth/cheeks/eyes/brow (good) or lights the whole head outline in a thick band
+    (a genuine geometric move). This is the mirror of lesson 31: there the metric cried wolf, here
+    the eyeball did. Neither is authoritative alone; the diff map settles both.
+
+42. **A "PUSH IT HARDER" RE-ROLL OVERSHOOTS SOMEWHERE — BUT NOT ALWAYS WHERE IT DID LAST TIME.**
+    Lesson 22 recorded the guard pose re-inflating the ARMS when asked for harder abs. Asked again on
+    the same pose, the arms held and the **PECS** overshot instead (fuller, more projected, deeper
+    serratus). The remedy generalises even though the location did not: **composite only the region
+    Dan actually asked about.** Size the box to that region — here the ab box stops below the pec line
+    and steps narrower at the top to clear the raised elbow — and dial it with the low band only
+    (`wl`), taking the high band wholly from the approved frame so texture is provably preserved
+    (sharpness ratio **1.021**).
+
 ## STANDING RULE — squinted eyes get opened, unasked (Dan's call, 2026-08-28)
 
 **Whenever Dan's eyes read too squinted — above all on a BIG SMILE, which is when it happens — open them back up as part of the edit. Do not ask.** His words, lifting the hold after reviewing the first four: *"let's write in this eye modification rule: anytime my eyes are looking too squinted from a big smile."*
