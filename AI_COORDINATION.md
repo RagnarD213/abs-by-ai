@@ -141,8 +141,22 @@ eye-line tilt before rejecting an expression render.** The diff map then ranked 
 thick band** — which is why the tightened-ellipse composite was applied to all four rather than
 shipping any raw render.
 
-**EXACT NEXT ACTION — DAN: confirm A on B-111 and B-135, or say "B" to swap either.** Nothing else
-is outstanding on wave 2.
+**FINALIZED BY DAN 2026-08-30** — *"let's finalize these."* He took **variant A on both B-111 and
+B-135** (confirmed explicitly when asked). All 12 are final. **Verified by md5 on the delivered
+files, not by filename:** the 9 he approved untouched are byte-identical to their pre-review
+versions, and 84/111/135 are the exact rev-1 outputs. The B variants were never delivered and stay
+in the scratchpad. **Wave total AI spend $4.08.**
+
+⚠ **ONE NOTE DAN LEFT OPEN AND IT IS NOT ACTIONED: he said B-135's new expression "looks a little
+unnatural" in the same breath as "let's finalize these".** Finalized as instructed rather than
+second-guessing him, and flagged back in chat. **The fix if he wants it is FREE** — blend variant A
+back toward the original serious expression at ~50-60 % (a local frequency blend, no AI call, no
+fresh identity roll). One word.
+
+**EXACT NEXT ACTION — execute `Handoffs/handoff-20260828-studio-batch6-wave3.md` in a fresh session
+on Opus 5, high effort, `/photo-edit`.** That doc was rewritten 2026-08-30: reconciled to **11
+frames** (B-266 struck as already delivered, B-212 dropped as a verified duplicate of the delivered
+B-213), the garment on B-221 corrected, and all of wave 2's recipe and traps folded in.
 
 **Dashboard: the batch-6 Key task stays UNCHECKED** — it covers all four waves and Dan's approval.
 **24 of 52 done; waves 3 and 4 (28 frames) remain.**
