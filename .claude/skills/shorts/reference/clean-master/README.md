@@ -258,3 +258,67 @@ Things that bit:
 
 The SHOTS table is generated, not hand-written. Editing it by hand broke the build twice when
 the shot list changed. It also assigns the punch alternation and skips AI clips.
+
+---
+
+# Rev 4 (2026-08-30) — "make it sound like Muhammad's"
+
+Dan, on rev 3: *"the audio is improved but still sounding a little weird. There's a weird
+under sound, especially in the beginning. It doesn't sound clean, doesn't sound like
+Muhammad."* Four separate faults, three of them mine.
+
+## ⚠ 1. COMPARE AGAINST HIS **AD**, NOT HIS ORGANIC CUT
+
+Rev 3 fitted the tone against `mrepro/ref_hd.mp4` — the ab-wheel **organic** video, shot
+OUTDOORS. Its low end carries wind and a different room, so matching it prescribed **+4 dB at
+110 Hz**. That single boost:
+
+* raised our noise floor by **4.6 dB** in the 80–250 Hz band, and
+* took the reverb tail from **65 ms to 120 ms**.
+
+It is the largest single cause of the "weird under sound". `Muhammad Ad Videos/` is an indoor
+talking head on the same two-mic rig — the like-for-like reference. Fitted against the ad, the
+prescription is only +2.6 dB low and +4.2/+8.4 top, and the shape difference falls 2.93 → 0.67 dB.
+
+## ⚠ 2. THE FLOOR, NOT THE TONE, WAS THE COMPLAINT
+
+Rev 3 matched only the SPEECH spectrum. Measured in true silence, our floor sat **6–8 dB above
+his right through the vocal band**. `work/floorprobe.py` and `work/noisecmp.py` measure it.
+
+The chain that closes it (`work/voicechain.txt`): right channel → `highpass=75` → `afftdn` →
+a soft `agate` → the tone EQ → `deesser`. **The gate's RELEASE is the real lever** — at 300 ms it
+never closes during a normal inter-sentence pause and the floor barely moves; the useful range
+is 180–200 ms. Word integrity stays at 99% (`work/validate_chain.py` transcribes the processed
+audio and diffs it, because neither a floor nor a tone measurement can see an eaten word tail).
+
+## ⚠ 3. loudnorm SILENTLY FELL BACK TO **DYNAMIC** AND COMPRESSED
+
+This is the subtle one. Our shorts measure −18.8 to −21.2 LUFS, so reaching −14 needs +5 to
++7 dB — which would push true peak past the −1.5 target. **loudnorm cannot do that linearly, so
+it switches to dynamic mode without erroring**, lifting quiet passages toward the voice. It cost
+**1.0–1.8 dB** of floor-to-voice cleanliness — undoing part of the gate.
+
+Replaced with a **pure gain plus a limiter**, which cannot change the floor-to-voice ratio at
+all, then one corrective trim. Check for this whenever the gain needed exceeds the peak headroom.
+
+## Measuring the floor fairly
+
+Compare the floor **relative to the voice**, never absolutely: his ad masters to −18.2 LUFS and
+ours to −14, so an absolute comparison flatters him by ~4 dB for free.
+
+Final: ours sits **32.5 / 37.9 / 32.2 dB** below the voice in the 80–250, 250–1k and 1–4k bands
+against his **33.6 / 40.5 / 34.2** — a 1.0–2.6 dB gap, from 6–8 dB at rev 3. The residue is our
+room, which is live granite and tile; his is deader.
+
+## A dead end worth not repeating
+
+`work/bedprobe.py` tested whether his "clean" sound comes from a music bed masking the room.
+It does not — no steady beat in the quiet frames of either of his videos (autocorrelation
+0.04–0.05). Do not add a bed to chase this.
+
+## Caption artifacts the cleaned audio introduced
+
+Re-transcribing on the cleaned right channel changed three words, all caught by reading the
+finished captions: `being...about` for a stumble before "about 70%", `Shila` + `Jeet` for
+`Shilajit` (added `PAIR_FIXES`, because a two-token name can straddle a chunk), and a
+lower-cased `i` where a piece continues a sentence (never lower-case a standalone "I").

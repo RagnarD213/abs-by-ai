@@ -210,7 +210,10 @@ function renderSegment(seg) {
 
   const outDir = path.join(__dirname, 'out');
   fs.mkdirSync(outDir, { recursive: true });
-  const final = path.join(outDir, `${seg.id.toLowerCase()}_${seg.slug}.mp4`);
+  // ⚠ LOSSLESS INTERMEDIATE. finishaudio then does the tone match, loudness and the ONLY AAC
+  // encode. Encoding AAC here and again there cost 1.0-1.8 dB of floor-to-voice cleanliness -
+  // measured by rendering a short, copying it, and running the finish stage on the copy.
+  const final = path.join(outDir, `${seg.id.toLowerCase()}_${seg.slug}.mov`);
   const segDur = shots.reduce((a, s) => a + s.dur, 0);
   ff([
     '-i', raw,
@@ -226,7 +229,8 @@ function renderSegment(seg) {
     `[w][2:v]overlay=0:0:shortest=1[o];` +
     `[o]subtitles='${esc(assPath)}':fontsdir='${esc(FONTS)}'[v]`,
     '-map', '[v]', '-map', '3:a', '-t', String(segDur.toFixed(2)),
-    ...VENC, '-movflags', '+faststart', final,
+    '-r', FPS, '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p',
+    '-c:a', 'pcm_s16le', '-ar', '48000', '-ac', '2', final,
   ], `${seg.id} finish`);
 
   const size = fs.statSync(final).size / 1e6;

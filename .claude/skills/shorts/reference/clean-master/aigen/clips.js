@@ -8,6 +8,22 @@
 // 16:9. No people unless the casting rule can be met (white or Asian men 30-50); no text or
 // graphics in frame - our own caption band and title sit over these.
 module.exports = [
+  // ⚠ REV 4, Dan: "for the vitamin D one, the third one at 3 seconds, there's kind of an
+  // awkward cut... cover that with an AI-generated video that's about 3 or 4 seconds long of a
+  // ripped man in his 40s, shirtless, taking vitamin D... make it a good video since it's in
+  // the beginning." Three attempts generated; the best is picked by eye. Casting is stated
+  // explicitly (the standing rule is white or Asian men 30-50) and the prompt names no label
+  // surface, because anything with a label invites invented lettering.
+  // PICKED: j0a, copied to j0.mp4. Chosen on CONTENT, not looks - it is the dropper, and this
+  // short's own script recommends liquid vitamin D over capsules ("cheaper per dose if you take
+  // liquid versus capsule"), so j0b's capsule would have contradicted the line it sits over.
+  // j0c was rejected: backlit to near-silhouette, the action is not readable.
+  { id: 'j0a', seg: 'J', after: 'Critically, critically important', why: "Dan's ask, attempt A - PICKED",
+    prompt: 'Cinematic photorealistic shot in a bright modern bathroom with soft morning window light. A lean muscular Asian man in his early forties, shirtless with visible abs, tilts his head slightly back and places a few drops from a small plain glass dropper onto his tongue, then lowers it and smiles faintly. Warm natural light, shallow depth of field, premium fitness advertising look. One person only. No text, no labels, no packaging, no lettering.' },
+  { id: 'j0b', seg: 'J', after: 'Critically, critically important', why: "attempt B - kitchen, capsule",
+    prompt: 'Cinematic photorealistic shot in a sunlit modern kitchen. A lean athletic white man in his early forties, shirtless with a defined midsection, holds a single small golden softgel capsule between his fingers, raises it, takes it with a glass of water and sets the glass down. Warm morning light streaming across him, shallow depth of field, premium fitness advertising look. One person only. No text, no labels, no packaging, no lettering.' },
+  { id: 'j0c', seg: 'J', after: 'Critically, critically important', why: "attempt C - by a window, sunlight",
+    prompt: 'Cinematic photorealistic slow shot. A muscular Asian man in his early forties, shirtless with visible abs, stands in warm golden sunlight beside a large window, tilts his head back and takes a supplement dropper under his tongue, then turns his face into the sun with his eyes closed. Strong warm backlight, dust motes in the air, shallow depth of field, premium fitness cinematography. One person only. No text, no labels, no packaging, no lettering.' },
   { id: 'h1', seg: 'H', after: 'benefits for muscle building',
     why: "Dan's explicit ask: illustrate creatine's benefits for muscular and brain health",
     prompt: 'Cinematic photorealistic 3D medical visualization on a deep black background. A translucent anatomical human torso slowly rotates as dense skeletal muscle fibres illuminate from within in warm amber light, the glow travelling upward until the brain lights with the same warm energy. Slow controlled camera push in, shallow depth of field, premium science documentary look. No people, no text, no graphics, no lettering.' },

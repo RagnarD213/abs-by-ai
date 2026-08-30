@@ -14,12 +14,21 @@ const { BLEEP_WORDS } = require('./bleeps.js');
 // ⚠ APPLIED PER WORD, BEFORE CHUNKING - not to the finished caption line. A chunk is at most
 // four words, so a two-word mis-hearing can straddle a chunk boundary and a line-level regex
 // then never sees it: "phytoplasmic acne" survived exactly that way on the first attempt.
+// Adjacent tokens Whisper splits that must be rejoined. Applied before WORD_FIXES, because a
+// pair can straddle a caption chunk and a line-level regex would never see it: on the cleaned
+// audio "Shilajit" comes back as "Shila" + "Jeet".
+const PAIR_FIXES = [[/^Shila$/i, /^Jeet$/i, 'Shilajit']];
 const WORD_FIXES = [
   // pass a alone heard "phytoplasmic acne"; pass b AND the delivered 820-cue SRT both read
   // "fighting cystic acne", and he says "cystic acne" twice elsewhere in the video.
   [/^phytoplasmic$/i, 'fighting cystic'],
   // the brand is Thorne. Every Whisper run drops the e.
   [/^Thorn$/, 'Thorne'],
+  // ⚠ rev 4: on the CLEANED right-channel audio Whisper hears a stumble before "about 70%"
+  // and renders it "being...about". Two earlier transcriptions of the same moment read just
+  // "about"; the stumble is real but it is not a word, and the picture there is an AI cover
+  // clip anyway. Print what the viewer should read.
+  [/^being\.\.\.about$/i, 'About'],
 ];
 
 const t2ass = (t) => {
@@ -90,6 +99,17 @@ function buildAss(seg) {
       ws.push({ text: w.text, timestamp: [...w.timestamp], piece: w.piece });
     }
   }
+  for (let i = 0; i < ws.length - 1; i++) {
+    const a = ws[i].text.trim(), b = ws[i + 1].text.trim().replace(/[.,!?]*$/, '');
+    for (const [ra, rb, joined] of PAIR_FIXES) {
+      if (ra.test(a) && rb.test(b)) {
+        const tail = ws[i + 1].text.trim().match(/[.,!?]*$/)[0];
+        ws[i].text = ws[i].text.match(/^\s*/)[0] + joined + tail;
+        ws[i].timestamp = [ws[i].timestamp[0], ws[i + 1].timestamp[1]];
+        ws.splice(i + 1, 1);
+      }
+    }
+  }
   for (const w of ws) {
     const lead = w.text.match(/^\s*/)[0];
     const core = w.text.trim();
@@ -141,7 +161,9 @@ function buildAss(seg) {
     const prevText = i > 0 ? chunks[i - 1].map((w) => w.text.trim()).join(' ') : '';
     if (i === 0 || (newPiece && /[.!?…]["')\]]?$/.test(prevText))) {
       text = text.charAt(0).toUpperCase() + text.slice(1);
-    } else if (newPiece) {
+    } else if (newPiece && !/^I[\s',.]/.test(text) && text !== 'I') {
+      // lower-case the opening word when the piece continues a sentence - but never "I",
+      // which is capitalised in English regardless of position ("...supplements is i bought").
       text = text.charAt(0).toLowerCase() + text.slice(1);
     }
     // Whisper tokenises "p.m." as ["p", ".m."], which joins to "p .m.". Re-close any

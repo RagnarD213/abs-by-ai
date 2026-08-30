@@ -22,6 +22,8 @@ segs = json.loads(subprocess.check_output(
     ['node','-e',"const {SEGMENTS}=require('./segments.js');"
      "console.log(JSON.stringify(SEGMENTS.map(s=>[s.id,s.slug])))"]).decode())
 only = sys.argv[1:]
+TARGET_I = -14.0
+LIMIT = 10**(-1.5/20)   # -1.5 dBTP
 BANDS = [(80,160),(160,320),(320,640),(640,1250),(1250,2500),(2500,5000),(5000,9000)]
 
 def pcm(f, af='anull'):
@@ -37,7 +39,13 @@ def profile(x):
     f=np.fft.rfftfreq(960,1/48000)
     return np.array([10*np.log10(max(1e-12,S[(f>=a)&(f<b)].mean())) for a,b in BANDS])
 
-files={sid:f'out/{sid.lower()}_{slug}.mp4' for sid,slug in segs}
+# render.js now writes a lossless .mov; this stage produces the only AAC encode.
+files={sid:f'out/{sid.lower()}_{slug}.mov' for sid,slug in segs}
+# Skip anything not yet rendered, so a partial run still works; the reference is the median
+# of whatever the batch currently holds.
+import os as _os
+files={k:v for k,v in files.items() if _os.path.exists(v)}
+if not files: raise SystemExit('no rendered .mov files found - run render.js first')
 profs={sid:profile(pcm(f)) for sid,f in files.items()}
 ref=np.median(np.stack(list(profs.values())),axis=0)
 print("batch reference profile (dB):", np.round(ref,1))
@@ -56,24 +64,33 @@ for sid,f in files.items():
     g=np.clip(d*0.85,-4,4)
     eq=','.join(f"equalizer=f={int(round((a*b)**0.5))}:width_type=o:width=1.0:g={gi:.1f}"
                 for (a,b),gi in zip(BANDS,g))
-    # two-pass loudnorm on top of the EQ so the measurement sees the final tone
-    m=subprocess.run([FF,'-hide_banner','-i',f,'-af',
-        f'{eq},loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json','-f','null','-'],
-        capture_output=True,text=True).stderr
-    j=json.loads(m[m.rfind('{'):m.rfind('}')+1])
-    af=(f"{eq},loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={j['input_i']}:"
-        f"measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}:"
-        f"measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,"
-        f"alimiter=level=disabled:limit=0.8414")
-    tmp=f.replace('.mp4','.fin.mp4')
+    # ⚠ NOT loudnorm. Measured loudness here is -18.8 to -21.2 LUFS, so reaching -14 needs
+    # +5 to +7 dB - which would push true peak above the -1.5 target. loudnorm cannot do that
+    # LINEARLY, so it silently falls back to DYNAMIC mode and compresses: quiet passages come
+    # up relative to speech, which is precisely the "weird under sound" this rev exists to
+    # remove. It cost 1.0-1.8 dB of floor-to-voice cleanliness, measured by running the finish
+    # stage on a copy of a rendered short.
+    #
+    # Instead: a PURE GAIN (which cannot change the floor-to-voice ratio at all) followed by a
+    # limiter that only touches the sparse peaks, then one corrective trim.
+    meas=subprocess.run([FF,'-hide_banner','-i',f,'-af',f'{eq},ebur128=peak=true','-f','null','-'],
+                        capture_output=True,text=True).stderr
+    I0=float([l for l in meas.split('\n') if 'I:' in l and 'LUFS' in l][-1].split()[-2])
+    gain=TARGET_I-I0
+    af=f"{eq},volume={gain:.2f}dB,alimiter=level=disabled:limit={LIMIT:.4f}"
+    probe=subprocess.run([FF,'-hide_banner','-i',f,'-af',f'{af},ebur128=peak=true','-f','null','-'],
+                         capture_output=True,text=True).stderr
+    I1=float([l for l in probe.split('\n') if 'I:' in l and 'LUFS' in l][-1].split()[-2])
+    af=(f"{eq},volume={gain+(TARGET_I-I1):.2f}dB,"
+        f"alimiter=level=disabled:limit={LIMIT:.4f}")
+    out=f.replace('.mov','.mp4')
     r=subprocess.run([FF,'-hide_banner','-loglevel','error','-y','-i',f,'-af',af,
-        '-c:v','copy','-c:a','aac','-b:a','160k','-ar','48000','-ac','2',
-        '-movflags','+faststart',tmp],capture_output=True,text=True)
+        '-c:v','copy','-c:a','aac','-b:a','192k','-ar','48000','-ac','2',
+        '-movflags','+faststart',out],capture_output=True,text=True)
     if r.returncode: print(r.stderr); raise SystemExit(f'{sid} failed')
-    import os; os.replace(tmp,f)
     # ⚠ this line had a malformed expression on the first run (np.sqrt(x**2).mean()**0.5),
     # which reported a rise where there was a fall. RMS is sqrt(mean(x**2)).
-    dd = ref - profile(pcm(f)); dd = dd - dd.mean()
+    dd = ref - profile(pcm(out)); dd = dd - dd.mean()
     after = float(np.sqrt((dd**2).mean()))
     print(f"{sid:3s} {before:15.2f} {after:7.2f}   {np.round(g,1)}")
     report[sid]=dict(before=round(before,2),after=round(after,2),gains=[round(float(v),2) for v in g])

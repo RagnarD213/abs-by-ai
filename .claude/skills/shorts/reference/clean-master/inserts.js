@@ -20,6 +20,9 @@ module.exports = [
   { seg: 'H', afterPiece: 1, clip: 'h2', dur: 1.80, pre: 0.75, in: 2.20 },
   { seg: 'C', afterPiece: 0, clip: 'c1', dur: 1.80, pre: 0.75, in: 0.80 },
   { seg: 'C', afterPiece: 1, clip: 'c2', dur: 1.90, pre: 0.80, in: 0.60 },
+  // ⚠ REV 4, Dan: the cut at ~3s in the vitamin D short is awkward and he asked for a 3-4s
+  // AI clip over it. Longer than the others because he wants it to carry the opening.
+  { seg: 'J', afterPiece: 0, clip: 'j0', dur: 3.40, pre: 1.20, in: 2.20 },
   { seg: 'J', afterPiece: 1, clip: 'j1', dur: 1.90, pre: 0.80, in: 0.80 },
   { seg: 'M', afterPiece: 0, clip: 'm1', dur: 2.00, pre: 0.85, in: 0.80 },
   { seg: 'D', afterPiece: 0, clip: 'd1', dur: 2.00, pre: 0.85, in: 1.80 },
