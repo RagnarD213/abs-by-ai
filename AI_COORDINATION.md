@@ -989,80 +989,69 @@ moles are faded on `blue-110` and a few others and can be restored per-photo on 
 
 ---
 
-### SHORTS FROM THE SUPPLEMENTS LONGFORM — **REV 3; the source audio was wrong for two revisions** (2026-08-28, Claude Code)
+### SHORTS FROM THE SUPPLEMENTS LONGFORM — **REV 4; the audio is rebuilt against his AD** (2026-08-30, Claude Code)
 
-Eight Shorts from long-form 03, `supp-short1..8_*.mp4`. **AI spend ≈ $12** (10 Veo 3.1 Fast
-clips incl. two regenerations). No production code, no deploy, no native-retest trigger.
-Skill commit `8dd260a`.
+Eight Shorts from long-form 03, `supp-short1..8_*.mp4`. **AI spend ≈ $16 total** (13 Veo clips
+across revs 3–4, incl. 3 attempts at the vitamin D cover and 2 regenerations). No production
+code, no deploy, no native-retest trigger. Skill commit `4e24173`.
 
-⚠ **THE HEADLINE: THE CLEAN MASTER'S AUDIO WAS NEVER REPAIRED, AND THE HANDOFF SAID IT WAS.**
-It stated `CUT_v1_graded_NO-GRAPHICS.mp4` carried "the fixed single-mic chain". Measured on the
-file, it has **L/R correlation +0.069 at a −7.58 ms lag — the same signature as the raw camera
-roll and as the file explicitly named `*_PRE_AUDIOFIX`.** Only `FINAL_supplements.mp4` ever got
-the 2026-08-23 repair. **Rev 1 and rev 2 both shipped comb-filtered two-mic audio. Dan heard it;
-no gate did** — they measure level, sync, splices and tone, none of them whether the two
-channels are the same microphone. `work/chancheck.py` is now a required step before Step 1.
+⚠ **DAN'S COMPLAINT WAS THE AUDIO, THREE TIMES RUNNING, AND REV 4 FOUND FOUR SEPARATE FAULTS —
+THREE OF THEM INTRODUCED BY MY OWN PREVIOUS REVISIONS.**
 
-**The right channel is also the best source available**, so the repair belongs in this pipeline
-rather than upstream: SNR **29.8 dB** against 26.6 for the summed pair and **19.9 for the
-repaired FINAL master**, whose treble shelf lifted the lav hiss.
+1. ⚠ **THE WRONG REFERENCE.** Rev 3 fitted the tone against Muhammad's **ab-wheel ORGANIC cut,
+   which is shot OUTDOORS.** Its low end carries wind and a different room, so matching it
+   prescribed **+4 dB at 110 Hz** — and that single boost raised our noise floor **4.6 dB** in
+   the 80–250 Hz band and took the reverb tail from **65 ms to 120 ms**. It is the largest
+   single cause of the "weird under sound". His **AD** (`Muhammad Ad Videos/`) is an indoor
+   talking head on the same two-mic rig and is the like-for-like reference; fitted against it
+   the shape difference falls **2.93 → 0.67 dB**.
+2. ⚠ **THE FLOOR WAS THE COMPLAINT, NOT THE TONE.** Rev 3 matched only the SPEECH spectrum.
+   Measured in true silence, our floor sat **6–8 dB above his right through the vocal band**.
+   New chain: right channel → `highpass 75` → `afftdn` → a soft `agate` → tone EQ → `deesser`.
+   **The gate's RELEASE is the lever** — at 300 ms it never closes during a normal
+   inter-sentence pause; 180–200 ms does the work. Word integrity holds at **99 %**.
+3. ⚠ **`loudnorm` SILENTLY FELL BACK TO DYNAMIC AND COMPRESSED.** Our shorts measure −18.8 to
+   −21.2 LUFS, so reaching −14 needs +5 to +7 dB — which would push true peak past −1.5.
+   **loudnorm cannot do that linearly and switches to dynamic mode without erroring**, lifting
+   quiet passages toward the voice and giving back **1.0–1.8 dB** of the gate's work. Replaced
+   with a **pure gain plus a limiter**, which cannot change the floor-to-voice ratio at all.
+4. Render now writes a lossless `.mov` and the finish stage makes the **only** AAC encode.
 
-**MATCHING MUHAMMAD, which is what Dan asked for.** Against his ab-wheel cut our lav measured
-**3.8 dB short of weight, 3.8 short of presence, 8.7 short of air (5–9 kHz) and 12.0 short above
-9 kHz** — dull, and that is exactly what "doesn't sound as good as Muhammad's" means. We could
-afford the fix: our SNR was 30.2 dB against his 21.2. The fitted chain (right channel → weight →
-de-honk → presence → air shelf → top octave → de-ess) takes the octave-band shape difference
-from **4.05 dB RMS to 0.62**, lands sibilance within 1.2 dB of his, and leaves our noise floor
-**5.6 dB cleaner**. Delivered files measure **L/R +0.9998 to +1.0000 — true mono, right channel
-only**, exactly as he asked.
+**RESULT: the floor now sits 32.5 / 37.9 / 32.2 dB below the voice (80–250, 250–1k, 1–4k)
+against his 33.6 / 40.5 / 34.2 — a 1.0–2.6 dB gap, from 6–8 dB at rev 3.** All eight measure
+**L/R +1.0000 (true mono, right channel only)**, −14.0/−14.1 LUFS, peaks −0.9 to −1.4 dBTP.
 
-⚠ **A REAL DEFECT CAUGHT IN PASSING: 4.48 s OF DIGITAL SILENCE.** The voice chain folds to mono,
-and the raw-insert correction still carried its own `pan=mono|c0=c1` — asking for a channel that
-no longer exists, which **ffmpeg renders as silence rather than an error.** It blanked the head
-of short 2. **`qc.js` now scans the MASTER for silent seconds**; before this only review copies
-were scanned, which is how it got through.
+⚠ **MEASURE THE FLOOR RELATIVE TO THE VOICE, NEVER ABSOLUTELY.** His ad masters to −18.2 LUFS
+and ours to −14, so an absolute comparison flatters him by ~4 dB for free. That error sent me
+down a wrong path once already.
 
-**NINE AI COVER CLIPS NOW SIT OVER THE JOINS** (Dan's ask). Veo 3.1 Fast, native 9:16, each
-straddling a join so **runtime is unchanged and the audio underneath never moves**, each labelled
-AI GENERATED. Short 7's is his example: muscles illuminate then the brain lights, landing under
-"for your brain health". Traps recorded: **a label surface invites invented lettering** (a pill
-organiser came back reading "MON MON THE 2ND FRI"); **the casting rule applies to hands-only
-shots**; pick in-points off a frame strip (one clip fills with steam after 2 s, another does not
-reach its payoff until 5 s); and bias the crop up or the subject's hairline is cut.
+**A DEAD END WORTH NOT REPEATING:** his "clean" sound is **not** a music bed masking the room.
+`work/bedprobe.py` finds no steady beat in the quiet frames of either of his videos
+(autocorrelation 0.04–0.05). Do not add a bed to chase this.
 
-**Short 1's opening fragment is gone.** Rev 2 cut the 0.95 s hesitation but kept "So let's say"
-either side of it, so the short opened on a 1.1 s fragment with him mid-gesture — which is what
-Dan was still hearing. It now opens on the line itself: *"You're taking nothing right now. How
-should you get started?"*
+**Dan's other rev-4 notes, all done:** short 1's opening fragment removed (it now opens on
+*"You're taking nothing right now"*); **a 3.4 s AI cover over the vitamin D short's 3 s cut** —
+three attempts generated, picked on CONTENT rather than looks, because the dropper matches the
+line it sits over (the script recommends liquid vitamin D *"cheaper per dose than capsule"*, so
+the capsule attempt would have contradicted it).
 
-**Titles are Dan's exact wording on 3, 5 and 7.**
+**Verified:** QC **PASS 8/8** · caption-sync gate **PASS**, median −35 to +20 ms · title
+clearance **PASS 8/8** · review copies 0 silent seconds. Three caption artifacts the cleaned
+audio introduced were caught by reading the finished text and fixed (`being...about`,
+`Shila`+`Jeet` → `Shilajit`, a lower-cased standalone `I`).
 
-**Verified:** QC **PASS 8/8** (incl. the new silence scan) · caption-sync gate **PASS**, median
-−10 to −70 ms · title clearance **PASS 8/8** · all joins covered by a punch or an AI clip ·
-**−14.0 to −14.3 LUFS**, peaks −1.3/−1.4 dBTP · review copies 0 silent seconds, a/v delta 0.000 s.
-
-⚠ **TWO MEASUREMENT TRAPS, both of which failed a CORRECT build before being fixed.**
-**Whisper hallucinates a lead-in when a clip starts mid-sentence** — `base.en` invented "So let's
-say" in front of short 1 and compressed the real words to fit, failing the sync gate's first-word
-test; measured directly, speech starts 0.1 s in and the next sentence lands at 2.31 s, exactly
-where the source puts it. And **Vision's mask bleeds two rows past the picture's top edge**, so a
-subject starting at `dropTop` read as inside the title (681 px² of a 165,000 px² title).
-
-⚠ **POSTING IS STILL BLOCKED ON THE PARENT VIDEO.** The long-form is **not published** — no
+⚠ **POSTING IS STILL BLOCKED ON THE PARENT VIDEO** — the long-form is not published, no
 packaging record, `/youtube-packaging` never run. Nothing is queued in Blotato.
 
-**Flagged, none blocking:** short 6 carries *"it reduces your risk of cancer"*; short 4 opens on
-*"you are not smart enough…"* (reviewed and kept 8/20); short 8 carries *"if you're fat and
-broken and you say stupid things"*.
+**Dashboard: the Key task is deliberately NOT checked off** — Dan has not watched rev 4.
 
-**Dashboard: the Key task is deliberately NOT checked off** — Dan has not watched rev 3.
-
-**EXACT NEXT ACTION — DAN: watch the eight rev-3 review copies (sent in chat).** Then, separately:
+**EXACT NEXT ACTION — DAN: watch the eight rev-4 review copies (sent in chat).** Then:
 `/youtube-packaging` on the parent long-form, since these cannot post until it does.
 
-**Four long-forms remain unmined:** 01 spray tan, 02 Zepbound, 04 invest-health, 05 meal prep.
-⚠ **Check each one's channels with `work/chancheck.py` before cutting** — the same two-mic fault
-is on every roll from this shoot, and only the delivered masters were repaired.
+**Four long-forms remain unmined** (01 spray tan, 02 Zepbound, 04 invest-health, 05 meal prep).
+⚠ **Run `work/chancheck.py` on each before cutting** — the two-mic fault is on every roll from
+this shoot and only the DELIVERED masters were repaired — **and fit the voice against
+`Muhammad Ad Videos/`, not the organic cut.**
 ---
 
 ### V4 LONGFORM BED SWAPPED — **DELIVERED. The claim covers 75 s, not the whole video** (2026-08-28, Claude Code)
