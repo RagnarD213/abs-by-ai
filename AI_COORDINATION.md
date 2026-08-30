@@ -109,6 +109,41 @@ click from being the file that gets uploaded. **Left in place deliberately** (de
 session's history is Dan's call, not mine). **Recommend deleting all 60 once he confirms the current
 files are the ones he wants**; `ls *" 2.jpg"` lists them.
 
+**REV 1 DELIVERED 2026-08-30 — DAN REVIEWED ALL 12. Nine approved as-is; three reworked.**
+Approved and byte-unchanged: **72, 76, 80, 100, 127, 132, 139, 150, 164** (verified 9/9 md5). Rev-1
+AI spend **$1.20** (5 renders); wave total **$4.08**. Pre-rev files in the scratchpad `rev1_backup/`.
+
+- **B-84** — "edit the abs a little more aggressively." Hard-endpoint render, then **only the ab
+  region** composited into the approved frame. ⚠ **Lesson 22 fired again but on a DIFFERENT body
+  part: the PECS overshot** (fuller, more projected), not the arms, which held. Since Dan asked for
+  abs only, the box stops below the pec line and steps narrower at the top to clear his raised elbow.
+  Sharpness ratio **1.021** (no texture loss), groove depth **+42 %** toward the full hard render,
+  **max 6 levels outside the ab mask**.
+- **B-111 / B-135** — "less of a sad frown, more of a spark." The sad read was diagnosed as three
+  nameable things (**corners turned DOWN, inner brows lifted and drawn together, flat lidded eyes**)
+  and the prompt targets exactly those. Two variants each: **A = subtle spark** (shipped) and
+  **B = warm closed-lip smile** (built, one word swaps it). Both keep the mouth closed — the wave
+  already has six open smiles. 135 additionally locks the raised chin and off-camera gaze as POSE.
+
+⚠ **AN EXPRESSION CHANGE CANNOT USE §4b TO REPAIR IDENTITY, SO INVERT IT.** The face must change, so
+"composite the ORIGINAL face back" is unavailable. Instead composite the **CANDIDATE's face INTO the
+approved frame** through a tightened ellipse (rx x0.90, ry x0.88): expression features come from the
+new render; hairline, ears, jaw outline, neck, necklace and the entire body stay approved pixels.
+**Outline drift is removed by construction — max 4-6 levels outside the face ellipse**, so the abs
+and B-111's k=0.34 warp are provably untouched, with no seam at the boundary.
+
+⚠ **THE EYEBALL CRIED WOLF AND THE MEASUREMENT SAVED FOUR GOOD CANDIDATES — the mirror of the
+wave-2 lesson.** All four raw renders *looked* re-posed with a larger head. Landmarks say otherwise:
+head scale **+0.7 / +0.2 / −2.4 / −1.7 %**, centre shift **0–10 px**, tilt **<2°**. A smile widens
+the face and lifts the cheeks, which reads as an optical re-pose. **Measure eye separation and
+eye-line tilt before rejecting an expression render.** The diff map then ranked them honestly:
+111a confines its change to mouth/cheeks/eyes/brow, while **135b lights the whole head outline in a
+thick band** — which is why the tightened-ellipse composite was applied to all four rather than
+shipping any raw render.
+
+**EXACT NEXT ACTION — DAN: confirm A on B-111 and B-135, or say "B" to swap either.** Nothing else
+is outstanding on wave 2.
+
 **Dashboard: the batch-6 Key task stays UNCHECKED** — it covers all four waves and Dan's approval.
 **24 of 52 done; waves 3 and 4 (28 frames) remain.**
 
