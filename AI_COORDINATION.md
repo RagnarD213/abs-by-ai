@@ -366,8 +366,17 @@ Ask per photo, never per batch.
 on **271**. IG offsets recomputed after every change and unchanged throughout (deltas 0).
 Wave AI spend **~$4.12**.
 
-**EXACT NEXT ACTION — DAN: give the final nod on the all-11 review sheets (sent in chat).** On his
-word the wave is closed; then wave 4 in a fresh session with `/photo-edit`.
+**FINALIZED BY DAN 2026-08-31** — *"These all look good, let's finalize them."* All 11 are final.
+**Verified by md5 on the delivered files, not by filename: 11/11 match their approved build source.**
+21 files, 73.5 MB. The shoot now has **63 blue finals and 85 finished picks overall.**
+**Wave total AI spend ~$4.12** (11 finals + 2 structural re-rolls + 4 expression renders; rev 2 was
+free). **Batch 6 stands at 35 of 49 — wave 4 (15 frames) closes it.**
+
+**EXACT NEXT ACTION — execute `Handoffs/handoff-20260828-studio-batch6-wave4.md` in a fresh session
+on Opus 5, high effort, `/photo-edit`.** That doc was rewritten 2026-08-31 with its reconciliation
+done against the delivered library (all 15 verified present and none already delivered), the stale
+**k=0.20 corrected to 0.34**, six adjacency pairs measured rather than assumed, and every trap waves
+1-3 paid for folded in.
 
 ---
 
