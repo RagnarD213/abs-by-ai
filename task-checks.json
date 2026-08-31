@@ -15,7 +15,8 @@
     "personal::Pick up meals from Clean Eats",
     "personal::Buy more collagen and Kiro electrolyte powder",
     "personal::Schedule the Ulta makeup appointment",
-    "personal::Retouch dating-app photos (/photo-edit) and upload them to the apps"
+    "personal::Retouch dating-app photos (/photo-edit) and upload them to the apps",
+    "personal::Order groceries"
   ],
   "log": {
     "health::Shower": [
@@ -227,6 +228,7 @@
     "personal::Pick up meals from Clean Eats": "2026-08-31",
     "personal::Buy more collagen and Kiro electrolyte powder": "2026-08-31",
     "personal::Schedule the Ulta makeup appointment": "2026-08-31",
-    "personal::Retouch dating-app photos (/photo-edit) and upload them to the apps": "2026-08-31"
+    "personal::Retouch dating-app photos (/photo-edit) and upload them to the apps": "2026-08-31",
+    "personal::Order groceries": "2026-08-31"
   }
 }
