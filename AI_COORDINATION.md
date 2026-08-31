@@ -33,6 +33,33 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 2 OPENER CLIP + NEW SKILL /ai-clip-ideas — **CLIP DELIVERED, Dan reviews; skill live** (2026-08-31, Claude Code)
+
+Dan asked for AI-clip ideas to open Ad 2 on "AI has made human nutritionists obsolete." Delivered
+5 ideas WITH start+end keyframe pairs for all of them (10 stills), he picked the **museum exhibit**
+(wax nutritionist in a display case, plaque "HUMAN NUTRITIONIST 1985–2025", bored kid walks past on
+his phone), and the 8s 1080p clip was generated keyframe-locked and QC'd (wax figure frozen 8/8
+samples, plaque legible throughout, kid lands on the end keyframe). **AI spend ~$2.70. No production
+code, no deploy, no native-retest trigger.** Saved durably with frames + prompts + gen script at
+`/Volumes/Extreme/.../EDITED ADS 8-20-26/ad2-fire-your-nutritionist/aigen/opener_museum-exhibit_8s.mp4`;
+clip sent in chat. AI-GENERATED label goes on at edit time, not on the raw clip.
+
+**Process promoted to a skill at Dan's instruction ("This process worked well"): `/ai-clip-ideas`,
+commit `335ee3d`.** Standing default encoded per Dan: **generate start+end frames for ALL ideas on
+the first response — he should never have to ask for them.** Method: end frame = EDIT of its own
+start frame with a "The ONLY change" scene lock (5/5 pairs held, zero re-rolls); video via Replicate
+Veo (`google/veo-3.1-fast`, image + last_frame — **Gemini-direct has no last_frame support**);
+Google-direct image endpoint 503'd again and the Replicate route to the same model saved the batch
+(second session in two days). `_shared/gemini-image.js` gained an optional `--aspect` flag.
+
+**Dashboard: nothing checked off — no task covers this.** Frame pairs for the other 4 ideas are in
+the ad2 session scratchpad only (regenerable from the skill for ~$0.30/pair if wanted).
+
+**EXACT NEXT ACTION — DAN: watch the clip (sent in chat).** On approval, splicing it into Ad 2's
+opening is an /ad-edit revision job. Nothing is blocked.
+
+---
+
 ### ENGAGEMENT-AD AUTOMATION — **DESIGN SETTLED, HANDOFF WRITTEN, NOT EXECUTED** (2026-08-31, Claude Code)
 
 Dan wants every new YouTube video to get an engagement ad in all three DGEN campaigns, run to $20
