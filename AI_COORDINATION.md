@@ -33,6 +33,50 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### "FAT DAD" BEFORE PHOTO — **RECENTRED + BACKGROUND FILLED; delivered** (2026-08-31, Claude Code)
+
+Dan: the standing fat-dad picture is unusable as a before image because he is jammed against the
+right edge. Rebuilt as a 4:5 frame with him and his daughter centred. **AI spend ~$2.05** (8 x 4K
+nano-banana-pro rolls + 3 cheap probes). **No production code, no deploy, no native-retest trigger.**
+Delivered to `before-photo-candidates/fat dad pic - standing_RECENTERED-4x5.jpg` (3506x4382) with a
+before/after sheet; full recipe, prompt and scripts at
+`before-photo-candidates/_recipes/fat-dad-standing-recenter-20260831/`. Nothing uploaded to Drive.
+
+Frame extended **1100 px right** (his cut-off shoulder/arm/side/shorts) and **350 px up** (the crown
+of his head, also cut off); the other child, backpack and chain removed; crop starts at original
+x=618 so the partial adult top-left is gone. **The two people are the untouched original pixels —
+proven, not asserted: mean abs diff 0.69 levels, max 12, i.e. JPEG noise.** Only the three edge
+bands are generated.
+
+⚠ **EVERY MODEL SLIMS HIM, AND NAMING THE FAILURE IN THE PROMPT DID NOT FIX IT.** Nano Banana Pro,
+Flux Fill Pro and Bria all re-render him as a lean athletic man with a flat stomach. What worked was
+**seeding the right-hand band with a blurred MIRROR of his own body** about his centre line, so the
+correct heavy silhouette is visible in the input, plus a prompt that says the mirror is a guide to
+trace. ⚠ A mirrored placeholder also mirrors the mural — it produced a **duplicate white arrow**
+until the mirror was cut off above his shoulders.
+
+⚠ **THE "ZOOM" WAS AN ILLUSION AND COST TWO WASTED RE-ROLLS.** Every roll *looked* zoomed and
+re-framed against the 3:4 original; registration says k=1.0582 = exactly 3712/3506, offsets ~2 px,
+NCC 0.99 — the renders are geometrically 1:1 with the seed canvas. **Register before judging
+framing by eye.**
+
+⚠ **THE MASK-BASED TOOLS ARE THE RIGHT TOOL AND ARE UNUSABLE AT THIS SIZE.** `bria/expand-image`,
+`bria/eraser` and `black-forest-labs/flux-fill-pro` on Replicate all cap output at ~1 MP (768x1024,
+1024x1024, 1131x1414 measured), so a 4K deliverable cannot come from them.
+
+⚠ **THE WALL/FLOOR JUNCTION IS A STEEP DIAGONAL AND EVERY ROLL GOT IT WRONG.** Measured off the
+original: `y = 3665 + 0.70*(x-400)`, leaving the bottom of the frame at x~925 — so there is **no
+floor at all on the right** and only a corner triangle bottom-left. Fixed deterministically
+(`floorfix.py`) by mirroring the wall down over the painted-in floor rather than re-rolling.
+
+**Dashboard: nothing checked off** — searched all lists, no task covers this.
+
+**EXACT NEXT ACTION — DAN: look at the before/after (sent in chat).** Say the word if he wants it
+uploaded to the Drive folder it came from, or a different crop.
+
+---
+
+
 ### STUDIO SHOOT BATCH 6 — **WAVE 4 COMPLETE: 15 delivered, ZERO re-rolls. THE BATCH IS CLOSED AT 100 PICKS** (2026-08-31, Claude Code)
 
 `Handoffs/handoff-20260828-studio-batch6-wave4.md` executed with `/photo-edit`. **AI spend $3.60**
