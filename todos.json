@@ -355,6 +355,12 @@
       "priority": "high",
       "why": "2026-08-31 planning — Dan wants transparent-PNG cutouts of the studio finals so thumbnails/graphics can composite him over any background",
       "addedAt": "2026-08-31"
+    },
+    {
+      "text": "Execute handoff: Google Ads API setup + engagement-ad automation for new videos",
+      "priority": "key",
+      "why": "handoff-20260831-google-ads-api-setup-engagement-ad-automation.md — created but not yet run",
+      "addedAt": "2026-08-31"
     }
   ],
   "health": [
