@@ -33,6 +33,28 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### ENGAGEMENT-AD AUTOMATION — **DESIGN SETTLED, HANDOFF WRITTEN, NOT EXECUTED** (2026-08-31, Claude Code)
+
+Dan wants every new YouTube video to get an engagement ad in all three DGEN campaigns, run to $20
+spend, then continue to $100 only if it has the lowest cost/conv among active ads in the SAME
+campaign — otherwise paused. Scoping session only: **$0.00 spend, nothing created in Google Ads,
+no code, no deploy.** Dan locked four decisions (within-campaign comparison · auto-detect uploads ·
+draft copy for his approval before launch · all three campaigns incl. remarketing) plus two edge
+rules (zero conversions at $20 = paused; Google's ~2x-inflated "conversions" column is the agreed
+comparison metric). **Dan confirmed the Google Ads payment method is FIXED.**
+
+**Handoff: `Handoffs/handoff-20260831-google-ads-api-setup-engagement-ad-automation.md`** — Phase 1
+is Google Ads API access (developer token via MCC 324-458-6445's API Center in Dan's real Chrome,
+new OAuth refresh token — the existing one is calendar-only), Phase 2 verifies per-ad reporting +
+Demand Gen ad creation with one paused test ad, Phase 3 builds the detector/drafter + the $20/$100
+monitor on a schedule. Key dashboard task added (verified live). Terms acceptance and OAuth consent
+are Dan-in-the-loop moments; never auto-pause ads the automation didn't create.
+
+**EXACT NEXT ACTION — execute the handoff in a fresh session (Phase 1: developer token
+application).** Nothing is blocked.
+
+---
+
 ### PAID-ADS PULL (Aug 26–31) + LAUNCH SPECS — **READ-ONLY; Dan launches** (2026-08-31, Claude Code)
 
 Pulled both platforms live (nothing created/edited) and delivered the launch sheet:
