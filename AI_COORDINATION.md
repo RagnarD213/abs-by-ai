@@ -33,6 +33,118 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### STUDIO SHOOT BATCH 6 — **WAVE 4 COMPLETE: 15 delivered, ZERO re-rolls. THE BATCH IS CLOSED AT 100 PICKS** (2026-08-31, Claude Code)
+
+`Handoffs/handoff-20260828-studio-batch6-wave4.md` executed with `/photo-edit`. **AI spend $3.60**
+(15 x $0.24, one take each — **no frame needed a re-roll**). **No production code, no deploy, no
+native-retest trigger.** Delivered to `photos/finalized social media photos/` as
+`studio-<gray|white>-<n>_FINAL_PRIMARY.jpg` + `-IG-4x5.jpg`:
+**gray 2/9/21/26/31/63/90 · white 2/4/25/34/49/62/84/99.** G-26 is landscape and ships
+**full-frame only** (the blue-66 rule).
+
+**THE SHOOT'S FULL SWEEP IS COMPLETE — 100 finished picks out of 496 frames.** This closes the
+batch-6 programme, not just another wave. Waves 1-3 cost $3.84 / $4.08 / ~$4.12; this one $3.60
+with no re-rolls at all, which is the cheapest and cleanest of the four.
+
+⚠ **THE RAW-STAGE GEOMETRY GUARD FLAGGED SIX OF FIFTEEN AND ALL SIX WERE PALETTE, NOT STRUCTURE —
+AND THIS WAVE PINS DOWN THE TEST THAT SEPARATES THEM.** Measured on the RAW output the band was
+**3.69-14.62**: Gray-2 **13.40**, White-4 **14.62**, White-49 **12.64**, White-62 **10.45**,
+Gray-26 **10.44**, White-25 **9.61** — every one carrying a raw tan shift of **27.8-43.6**, which
+is superficially the wave-3 B-271 inflation signature. After `tonematch.py` **all fifteen collapse
+to 1.79-4.58 with tan residuals 0.46-1.23.** Wave 3's B-271 is the contrast: its elevated diff came
+with a **33.7 tan shift the histogram match could NOT pull back.** **So the signature of a
+structural change is not a high mean-diff — it is a high mean-diff whose tan shift SURVIVES the
+match. Run the guard on the raw to catch it early, then re-run it on the toned file before
+concluding anything.** The diff map then agreed on all fifteen: uniform 1-2 px hairline, change
+concentrated in the abs interior, no thick two-sided band anywhere.
+
+⚠ **ZERO RE-ROLLS, AND THE REASON IS THAT EVERY GUARD WENT IN PRE-EMPTIVELY.** ARM LOCK on all six
+arms-behind-head frames and the TORSO-SCOPE BLOCK on G-63 from take one. **G-63 is the boxing
+guard — the pose that needed THREE attempts on wave 1's `blue-266` — and its arm widths measure
+-1.0 % to +0.8 %** at three rows on both arms, with the fists and forearms visibly DARK in the diff
+map. Third wave running where the free guard held and the flagged-risk poses gave no trouble.
+
+⚠ **THE FACE COMPOSITE CAUGHT AN EXPRESSION DRIFT THE EXPRESSION LOCK DID NOT HOLD, ON EVERY
+CLOSED-LIP SMILE IN THE WAVE.** `White-34`, `White-62` and `White-99` all came back with the mouth
+OPENED and teeth showing, despite a lock stating in capitals that showing teeth is a complete
+failure. §4b restored the real closed-lip original on all three at **$0.00 and no re-roll**.
+**Generalisable: a closed-lip smile is the least reliable expression lock on this model — and it
+never needs a re-roll, because the repair is the composite you were going to run anyway.**
+
+⚠ **THE HANDOFF'S EXPRESSION TABLE WAS WRONG FOR THE FOURTH WAVE RUNNING — five corrections**, all
+read off a zoomed face sheet built before a single prompt was written: **G-26 is a CLOSED-LIP smirk
+with RAISED brows**, not a "warm smile"; **G-63 is a hard furrowed brow with a faint one-sided
+lift**, not plain "serious"; **G-90 is serious and intense**, not a "slight smirk"; and
+**W-34, W-62 and W-99 are CLOSED-LIP smiles with NO teeth**, not "big smiles". The delivered
+neighbours were checked too and this time the table was right about them.
+
+⚠ **THE WHITE-BACKDROP REPAINT CHECK FALSE-FLAGGED FOUR FRAMES AND THE CAUSE WAS THE MEASUREMENT.**
+Background sd delta read **+1.03 to +1.70** on White-4/25/49/62 against the documented ±0.55 band.
+It is an artifact of comparing a **downscaled** original (4672x7008 -> 3368x5056, which smooths its
+grain) against a **natively rendered** final. At nearest-neighbour zoom on two corners per frame the
+walls are identical — same flat white, same gradient, same seam lines, same specks, no mottling.
+**Compare like resolutions, or just look.** Eighth time in this pipeline's history that the
+measurement, not the media, was the problem.
+
+⚠ **ON FLAT BLACK FABRIC A WARP MEASURES SMALL AND THAT IS NOT A FAULT.** White-49 and White-62
+changed **0.18-0.20 %** of frame against 0.60-0.78 % everywhere else, because black trunks carry
+almost no shading, so displacing those pixels produces little measurable difference. The
+before/after crop shows the geometry did move. **Judge a warp on flat dark fabric by the crop, not
+by the % changed** — and expect it to read subtler to Dan on those two.
+
+**Warp: 9 applied at k=0.34, and k=0.41 on the two YELLOW frames (W-84, W-99)** per Dan's
+garment-scoped note of 2026-08-31 — flagged to him at delivery in case he meant only the two frames
+in front of him at the time. **6 skipped:** G-21/G-31 (white ribbed tank hem covers the waistband
+over loose white cotton — the delivered `blue-137` call), G-26 (landscape, chest-up), G-63 (Muay
+Thai satin), W-25/W-34 (jeans). Centres read off a burned 200 px grid, one image per photo; each
+verified on a before/after crop at **max 3-6 levels outside the declared ellipse**, waistbands,
+elastic seams, white trim, eyelets, pocket piping and the neighbouring hands on W-2/W-4/W-49 all
+undistorted.
+
+**Eye rule applied on 10 of 15** at the settled big-smile gains **1.04/1.13**; skipped on G-26,
+G-63, G-90, W-2 and W-34, which read open. Confined to **33k-71k px in a ~490-604 x 115-246 box per
+face, max 4-7 levels outside the face ellipse and ZERO pixels above 8 levels.**
+
+**Verified:** aspect delta identical on all 15 (-0.0005 portrait / +0.0012 landscape, the resample)
+- mean-diff **1.79-4.58** - tan residuals **0.46-1.23** - hair R-bias drift **-2.1 to +3.7** (the
+`blue-213` maroon failure was +12.7) - background corner dE **0.77-5.07** - §4b face composite on
+all 15 (offsets **0/0 on 14, dx=16 on one**, NCC r **0.40-0.66**, tone gains **0.983-1.065**, all
+inside the clip) - necklace, moles, ears and the glasses on W-4/25/49/84 identical at zoom (the
+retouch had redesigned the glasses on W-4 and W-25; the composite restored them) - garments,
+backgrounds and framing unchanged - 29 files, all readable - **`photos/` gitignore re-confirmed,
+0 tracked files (public repo)**.
+
+**Collision guard: clean.** `picks.txt` staged before the first edit; every other scratchpad's
+`picks.txt` scanned, zero overlap. md5 baseline of all **359** pre-existing delivery-folder files
+taken at session start, **re-checked immediately before writing** (lesson 33) and again at the end:
+**all 359 byte-identical, 359 -> 388.** No ` 2.jpg` conflict copies among the 29.
+
+**Reproducibility preserved OUTSIDE the scratchpad:**
+`photos/finalized social media photos/_recipes/studio-8-27-26-batch6-wave4/` — MANIFEST, all 15
+prompts, `mkprompts.py`, `warpparams.tsv`, `faceell.json`, `igcrop.json`, `picks.txt` and the
+carried-over `facelm.swift` / `mkell4.py` / `tonematch.py` / `facecomp.py` / diff-map tools.
+
+**ADJACENCY — the two flagged pairs were built and sent, per the handoff's instruction not to strike
+either on my own.** **G-31 vs the delivered gray-30** (identical white tank + white trunks, hands on
+hips) and **W-99 vs the delivered white-100** (identical yellow trunks, both arms behind head).
+Each differs only in expression, and in both cases the gap is large — a big open smile against a
+hard-browed serious face, and a broad closed-lip smile against a serious one. **Dan's call.**
+Two crowding notes passed on, neither blocking: **arms-behind-head is now the most-repeated pose in
+the library** (6 of these 15, on top of B-201, B-275, white-70 and white-100), and **G-63 makes the
+red/gold Muay Thai garment four deep** (B-269, B-271, B-275) — though its boxing-guard pose and gray
+backdrop are both new.
+
+**Dashboard: `money::Execute handoff: studio batch 6 — retouch the remaining 52 picks` is STILL
+UNCHECKED and that is deliberate — it covers all four waves AND Dan's approval, and he has not
+reviewed these 15 yet.** Check it off on his approval; all four waves are now delivered.
+
+**EXACT NEXT ACTION — DAN: review the 15 before/after strips and the two adjacency pairs (all sent
+in chat).** Nothing is blocked. On his approval the batch-6 dashboard task gets checked off and the
+studio-shoot programme is finished.
+
+---
+
+
 ### AD 2 OPENER CLIP + NEW SKILL /ai-clip-ideas — **CLIP DELIVERED, Dan reviews; skill live** (2026-08-31, Claude Code)
 
 Dan asked for AI-clip ideas to open Ad 2 on "AI has made human nutritionists obsolete." Delivered
