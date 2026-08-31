@@ -33,6 +33,28 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### HOME FILMING SET — **RESEARCH + BUILD SPEC DELIVERED; Dan runs 3 phone tests, then buys** (2026-08-31, Claude Code)
+
+Dan asked for a permanent talking-head + demo corner set spec. **$0.00 AI spend, no production
+code, no deploy, no native-retest trigger. Nothing ordered — Dan buys.** Deliverable:
+https://claude.ai/code/artifact/b7c7416d-054e-4b6a-bc6f-ede9a597a5d7 — 8 real reference frames
+pulled via yt-dlp from the winning channels (Nalewanyj is THE template: dark wall + 2 vertical
+LED tubes + rack silhouette), corner layout diagram (Dan 4-5 ft off the wall, camera 8-9 ft,
+demo zone between), gear list priced live on Amazon 8/31 (**buy now $792.72 / later $401.46 =
+$1,194.18**, DJI Mic 2 + Amaran Halo 100X + Neewer TL60 pair as the spine), and the audio rig
+that makes the two-mic comb fault structurally impossible (one TX, RX set to MONO, 32-bit float
+safety, first-take L/R correlation check each shoot). **Recommendation: dressed corner, NOT
+green screen** (keying needs more space/light, skin edges + demo motion are the worst key case,
+adds per-video post; zero reference channels key). ⚠ Amaran 100d S kit is listed-but-unavailable
+(generation change) — Halo 100X is the current buy. Baseline frames confirmed the current
+indoor set's faults (reflective fridge, hard streak, no depth). **Dashboard: nothing checked
+off — no task covers this.**
+
+**EXACT NEXT ACTION — DAN: run the 3 phone tests (depth/framing, blackout/reflection, clap+hum)
+in candidate corners, pick one, then buy the buy-now list.** Nothing is blocked.
+
+---
+
 ### WALEED'S VIDEO 1 — **ROUND-2 REVISION DOC + UPWORK MESSAGES DELIVERED; Dan sends them** (2026-08-30, Claude Code)
 
 Waleed delivered what he called the "final video" on 8/28 (Drive `1iezCU6YHY3TSIExmtR4I4Ty30NJe6Fnz`,
