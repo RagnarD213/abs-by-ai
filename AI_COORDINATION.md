@@ -33,6 +33,33 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### PAID-ADS PULL (Aug 26–31) + LAUNCH SPECS — **READ-ONLY; Dan launches** (2026-08-31, Claude Code)
+
+Pulled both platforms live (nothing created/edited) and delivered the launch sheet:
+**https://claude.ai/code/artifact/ec99d095-df47-45f4-a43e-bd125b408e1a** — Aug 26–31 numbers,
+exact settings for advertising the ab-wheel shorts + 3-min workout as engagement campaigns on
+Google (new ads INSIDE the existing three DGEN campaigns, not new campaigns) and Meta (one new
+ThruPlay campaign), plus the two-step @danrosefit follower funnel ($5/day cold IG-only views →
+$5/day profile-visit retarget of 50% viewers + IG engagers, kill at >$5/follow after $50).
+**$0.00 AI spend, no production code, no deploy, no native-retest trigger. Dashboard: nothing
+checked off (no task covers this).**
+
+Numbers: **Google $185.09** (tier 2: 117 conv @ $0.35 ≈ $0.69/sub at the measured ~2x inflation;
+tier 1: 22 @ $3.16 ≈ $6.30/sub; search $63 with 0 conv again; all 5 campaigns Limited by budget;
+**zero disapprovals across all 29 ads**). **Meta $13.26** — ⚠ **BOTH Meta campaigns are toggled
+OFF** (IG GEO spent $13.26 early in the window then stopped; the other $0.00; the 3 unpublished
+draft edits are still pending). ⚠ **Google shows "New form of payment required — Fix it"** —
+billing is Dan's; fix before adding spend or serving may halt.
+
+Flags carried into the specs: ab-wheel **short 1 must not run paid** (archival infomercial
+footage, SHORTS.md open decision); videos must be live on YouTube/IG before ads can reference
+them; ManyChat "Comment ABS" CTA still dead — pick paid reels without it or launch ManyChat first.
+
+**EXACT NEXT ACTION — DAN: fix the Google payment method, decide if the Meta OFF toggles were
+intentional, then enter the specs from the artifact.** Nothing is blocked.
+
+---
+
 ### HOME FILMING SET — **RESEARCH + BUILD SPEC DELIVERED; Dan runs 3 phone tests, then buys** (2026-08-31, Claude Code)
 
 Dan asked for a permanent talking-head + demo corner set spec. **$0.00 AI spend, no production
