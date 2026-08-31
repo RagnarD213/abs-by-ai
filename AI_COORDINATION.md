@@ -3369,6 +3369,14 @@ Quality shows one outstanding issue and it is a **different** ad account, **"Bec
 Restricted**, sitting in the same business portfolio (a risk to the healthy account, worth
 resolving or removing). Google shows an account-level banner **"Your account is unsuspended"** —
 a past suspension, now lifted.
+**CORRECTED 2026-08-31: BecomeSharp is NOT in the Abs By AI portfolio.** Verified in Business
+Suite: it is its own separate portfolio (id 1351301711643094 — 1 restricted ad account
+1017104903029297 disabled Feb 7 2025 for "unusual activity", 1 BecomeSharp Page, 3 data sources),
+linked to the Abs By AI assets only through Dan's personal profile administering both. The Abs By AI
+portfolio (1750995772698195) holds only the one healthy ad account and reads "No advertising
+issues" everywhere. A restricted ad account cannot be deleted or detached; **Dan's call 2026-08-31:
+leave it alone** — do not request review and do not delete the BecomeSharp portfolio. **Nothing to
+resolve or remove; do not re-chase this.**
 
 ⚠ **THE BIGGEST FINDING IS A MEASUREMENT ONE: the `Purchase` and `Subscribe` conversion goals are
 both flagged `Misconfigured` in Goals → Summary.** Only `Submit lead form` (19), `Sign-up` (1),
