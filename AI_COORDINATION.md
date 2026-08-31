@@ -229,8 +229,50 @@ Shipped at the full render's ab intensity; a half-step is built and is a free on
 approved frames byte-identical - IG 4:5 offsets recomputed on all 7 and **unchanged (deltas 0)** -
 delivery folder still 388 files, no pre-existing file altered.
 
-**EXACT NEXT ACTION — DAN: review the 7 revised frames (sent in chat).** On his approval the batch-6
-dashboard task gets checked off and the studio-shoot programme is finished.
+**REV 2 (2026-08-31) — WHITE-49 ONLY. 14 of 15 ARE NOW FINALIZED BY DAN.** He approved the warp on
+all four white-shorts frames and the Gray-90 and White-25 ab fixes (*"All others are finalized"*), and
+flagged only White-49: *"I like the ab definition, but feel like it looks a little unnatural. There
+are some of those AI artifacts in the middle of the top of the abs."* **Rev-2 AI spend $0.24; wave
+total $4.56.**
+
+He was right: two **hard-edged carved hollows flanking the midline at the top of the ab block, plus a
+raised moulded bulge on the midline**, confined to roughly x 1660-1940, y 2920-3040.
+
+⚠ **THE FREE BAND-SPLIT THAT SAVED GRAY-90 AND WHITE-25 DOES NOT WORK HERE, AND THE REASON IS THE
+GENERAL RULE WORTH KEEPING.** On Gray-90 the fault was a HIGH-frequency drawn line and the wanted
+depth was LOW; on White-25 the fault was a HIGH-frequency invented blemish and the wanted definition
+was LOW — different bands both times, so a split separated them. **Here the artifact and the wanted
+definition are the SAME mid-band structures**, and every split tried (high band from the pre-rev
+frame at r=20 and r=45, plus a 45 % low mix) wiped out the upper-ab definition along with the
+artifact. **If the fault and the thing you want to keep occupy the same spatial scale, a band split
+cannot separate them — pay for a render.**
+
+**What shipped:** a targeted re-render whose prompt leads with the artifact named in physical terms
+(carved hollows, moulded midline bulge, "reads as moulded plastic rather than skin") and then states
+in capitals that **softening or flattening the abs is the single most likely failure and is worse
+than leaving the problem in place** — because that is exactly how Gray-90's first repair went wrong.
+It held: **groove depth 0.541 -> 0.524, 97 % of the definition Dan approved**, against 0.360 for the
+pre-rev version. Composited through the same ab-only ellipse.
+
+⚠ **THE RENDER STILL COST 20 % OF THE PORE TEXTURE AND THAT WAS RESTORED FOR FREE.** Fine texture
+read 1.731 -> 1.380; taking the high band back from the artifact-carrying rev-1 file **at r=12**
+returns it to **1.722** without reintroducing the hollows, because those are 60-140 px structures and
+r=12 carries only pores. **A "restore texture from the bad version" pass is safe whenever the fault's
+spatial scale sits far above the texture radius — check that gap before relying on it.**
+
+**Verified:** changed 2.25 % of frame - max 6 levels outside the ab region - pec row max 5, arms max
+5 and 3 (pec inflation still excluded) - IG offset unchanged (405, delta 0).
+
+**FINAL STATE — all 29 files md5-match their build sources, and every one of the 359 pre-existing
+files in the delivery folder is byte-identical to the session baseline.** Wave AI spend **$4.56**, of
+which **$0.24 was wasted** on the White-25 removal render that amplified the artifact.
+
+**Dashboard: the batch-6 Key task is STILL UNCHECKED, deliberately.** It covers all four waves AND
+Dan's approval; 14 of 15 wave-4 frames are finalized and **White-49's rev 2 is awaiting his word**.
+Check it off the moment he approves it — that closes the whole batch-6 programme at **100 finished
+picks**.
+
+**EXACT NEXT ACTION — DAN: look at the revised White-49 (sent in chat).** Nothing else is open.
 
 ---
 
