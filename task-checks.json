@@ -11,7 +11,8 @@
     "assistant::Wipe down counters",
     "money::Write workout outlines for the next shoot",
     "money::Write scripts for the next shoot (≥half workout content)",
-    "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline"
+    "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
+    "personal::Pick up meals from Clean Eats"
   ],
   "log": {
     "health::Shower": [
@@ -219,6 +220,7 @@
     "assistant::Wipe down counters": "2026-08-25",
     "money::Write workout outlines for the next shoot": "2026-08-31",
     "money::Write scripts for the next shoot (≥half workout content)": "2026-08-31",
-    "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline": "2026-08-31"
+    "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline": "2026-08-31",
+    "personal::Pick up meals from Clean Eats": "2026-08-31"
   }
 }
