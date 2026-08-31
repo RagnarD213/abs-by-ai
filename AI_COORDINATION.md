@@ -71,8 +71,29 @@ floor at all on the right** and only a corner triangle bottom-left. Fixed determ
 
 **Dashboard: nothing checked off** — searched all lists, no task covers this.
 
-**EXACT NEXT ACTION — DAN: look at the before/after (sent in chat).** Say the word if he wants it
-uploaded to the Drive folder it came from, or a different crop.
+**REV 1 (2026-08-31) — Dan: level the white lines, mirror the wall on his right. Both done.**
+AI spend **+$0.25** (one render + a matte); session **~$2.30**. The version he reviewed is kept at
+`_recipes/.../v1_pre-levelling.jpg`.
+
+⚠ **THE SLOPE HE CALLED "AI-GENERATED" WAS REAL PERSPECTIVE — WHICH IS WHY IT NEEDED A REBUILD, NOT
+A RE-PROMPT.** Measured on the original: top white stripe **-0.021**, lower white line **+0.22**,
+tan band **+0.288**, wall/floor junction **+0.70** - four lines converging on a vanishing point at
+about **(-4820, 240)**. The wall genuinely recedes to the left; no prompt can level a receding wall.
+
+**Method:** matte both people (`men1scus/birefnet` on Replicate) - re-project the background about
+the measured vanishing point so every wall line is level - rebuild the wall from a 1-D band profile
+taken from the real strip left of the girl, keeping the real mural - mirror about canvas x=2200
+(through Dan) - one nano-banana roll for texture, of which **only the high-frequency band is used**
+- composite the real people back. **People core vs the original: mean 0.92 levels, max 13.**
+
+⚠ **DO NOT LET THE MODEL RE-COLOUR THE WALL.** A tone-matched composite of its render turned the
+reds orange, the whites pink and invented an extra white stripe. Taking only the high band (radius
+10, clipped) fixes all three and keeps the geometry exactly as computed.
+⚠ **Community Replicate models 404 on `/v1/models/<owner>/<name>/predictions`** - they need the
+versioned `/v1/predictions` endpoint with `{"version": ...}`.
+
+**EXACT NEXT ACTION — DAN: look at the three-panel comparison (sent in chat).** Say the word if he
+wants it uploaded to the Drive folder it came from, or a different crop.
 
 ---
 
