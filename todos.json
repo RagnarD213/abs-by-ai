@@ -361,36 +361,38 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-31"
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-31"
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-31"
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-31"
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-08-31"
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true
-    },
-    {
-      "text": "Inject Zepbound",
-      "priority": "high"
+      "recurring": true,
+      "addedAt": "2026-08-31"
     }
   ],
   "personal": [
