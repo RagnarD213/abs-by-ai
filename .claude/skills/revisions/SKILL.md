@@ -190,3 +190,46 @@ Two audiences, same skill:
     conversion glitch, `create_file` again and `trash_file` the first. Also: a literal `*` inside a
     `**bold**` run (e.g. `**… "*AI Generated" …**`) breaks the markdown→Docs conversion; escape it
     as `\*` or reword.
+12. **Read the Upwork/message thread BEFORE writing a round-2 doc.** On 2026-08-30 Waleed delivered
+    a "final video" whose picture was byte-for-byte his first cut. The thread settled the framing:
+    Dan *had* sent the round-1 doc and Waleed *had* acknowledged it — but every message in both
+    directions for the five days after was about audio only. So the doc leads with "our conversation
+    narrowed to audio" instead of "you ignored my notes". Same facts, opposite outcome for whether
+    the editor stays. Establish (a) was the doc actually sent, (b) what has been discussed since,
+    (c) what the editor believes the remaining scope is.
+13. **Frame-diff the new cut against the previous delivery — it is the decisive measurement for
+    "were the revisions applied".** `ffmpeg -i old -i new -filter_complex
+    "[0:v]scale=320:180,format=gray[a];[1:v]scale=320:180,format=gray[b];[a][b]blend=all_mode=difference,
+    signalstats,metadata=print:key=lavfi.signalstats.YAVG:file=diff.txt"`. Waleed's read **0.144
+    mean / 0.547 max luma levels across all 8,012 frames, zero above 2.0** — pure re-encode noise.
+    Identical frame count and identical duration to the microsecond corroborate it. This turns
+    "you didn't do the revisions" from an accusation into a number, which is both fairer and harder
+    to argue with. It also means **every timecode in the previous doc is still exactly valid** — say
+    so, it makes the re-do feel far smaller to the editor.
+14. **`_edit_work/<job>/C1591.wav` is a 16 kHz MONO Whisper input, not the camera audio.** Panning
+    `c0=c1` off it returns silence and every spectral comparison reads exactly zero correlation. The
+    real two-channel 48 kHz audio is in the camera `.MP4`. `ffprobe` the channel count before
+    trusting any raw-file comparison.
+15. **Music can only ADD energy, never subtract — so a measured HF deficit against the raw file is
+    always real attenuation, whatever the bed is doing.** Useful because the bed contaminates the
+    band ratios: on this cut it sat only 7.7 dB below the mix at 3.5–6k and 4.8 dB at 6–9k, so the
+    measured −2.6 dB HF cut understated a true voice cut nearer −3.5 dB. Quote the conservative
+    number; it cannot be argued down. Measure the bed's per-band contribution (speech-frame vs
+    gap-frame band energy) before attributing any boost to EQ — a low-end lift *can* be the bed.
+16. **When an editor draws a scope line, concede the subjective half and keep the objective half.**
+    Waleed's covering note declared further audio work to be "specialist audio-post… spectral
+    matching, multiband processing, professional mastering". Contesting that invites a walk-off.
+    The doc instead reframed the three remaining audio items as what they measurably are — a limiter
+    ceiling, a fader move, and one tonal note explicitly marked "your call" — and let the clipping
+    stand on its own (**6,333 samples pinned at full scale, up from 2,426**), because a sample at
+    0 dBFS is not a matter of taste. Give the editor a way to comply without retracting anything.
+17. **`whisper` shells out to `ffmpeg` by name.** Without the static build on `PATH` the transcribe
+    call fails and writes an EMPTY transcript rather than erroring visibly. Check the output has
+    lines before using it. **scipy is not installed on this Mac** — write the alignment and band
+    analysis with numpy only (`np.correlate` plus cumulative-sum sliding normalisation works fine).
+18. **Retention is part of the deliverable when Dan says so.** Alongside the doc, write the
+    paste-ready messages: one to send, one for a scope pushback, one nudge. The thing that makes a
+    fixed-price freelancer quit is believing the revision loop is unbounded — state explicitly that
+    nothing in the doc is new, that the list ends the job, and that there is more paid work behind
+    it. Advise Dan **not to release a funded milestone** before the outstanding work lands; it is
+    the only structural leverage left.

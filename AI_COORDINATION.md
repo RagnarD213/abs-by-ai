@@ -33,6 +33,79 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### WALEED'S VIDEO 1 — **ROUND-2 REVISION DOC + UPWORK MESSAGES DELIVERED; Dan sends them** (2026-08-30, Claude Code)
+
+Waleed delivered what he called the "final video" on 8/28 (Drive `1iezCU6YHY3TSIExmtR4I4Ty30NJe6Fnz`,
+4:27.3, 1080p29.97). **$0.00 AI spend, no production code, no deploy, no native-retest trigger.**
+Deliverables: **[Video 1 revisions - Waleed - round 2](https://docs.google.com/document/d/1PdtDk-Y66FQHH47FvOVPWnq7uYiOo6oOFXOOL1oxpng/edit)**
+(anyone-with-link commenter, matching the round-1 doc) + markdown copy and three paste-ready Upwork
+messages in `revision docs/`. **Draft — Dan forwards; nothing was sent to Waleed.**
+
+⚠ **THE PICTURE IS THE AUG 24 CUT, UNCHANGED, AND IT IS PROVEN BY MEASUREMENT RATHER THAN ASSERTED.**
+Frame-differenced his 8/28 file against his original 8/24 delivery across **all 8,012 frames**: mean
+absolute luma difference **0.144 levels of 255, max 0.547, zero frames above 2.0** — re-encode noise
+only. Identical frame count and identical duration to the microsecond. **Not one of the ~25 visual
+revisions from the 8/25 doc was applied.** Every round-1 item was then re-confirmed present on the
+contact sheets, including all three compliance violations (the side-by-side BEFORE/AFTER at 1:28.5,
+the belly-fat close-up at 0:22.4, and zero AI labels anywhere).
+
+⚠ **THE UPWORK THREAD WAS READ FIRST AND IT CHANGED THE TONE OF THE WHOLE DOCUMENT.** Dan **did**
+send the round-1 doc (8/25 12:16 PM) and Waleed acknowledged it ("Let me revised it and get back to
+you with final output"), so this is not a delivery failure on Dan's side. **But every message after
+that date, in both directions, was about audio only** — so the doc leads with that as the likely
+crossed wire rather than accusing him of ignoring the list. Worth reusing: **read the message thread
+before writing a round-2 doc**; the difference between "you ignored my notes" and "our conversation
+narrowed to audio" is the difference between keeping and losing the editor.
+
+**THE AUDIO GENUINELY IMPROVED AND THE DOC SAYS SO FIRST.** Measured against raw C1591 and against
+the approved reference cut:
+
+| | round 1 | 8/27 rev | **8/28 rev** | target |
+|---|---|---|---|---|
+| mono fold-down loss | 4.0–4.6 dB | fixed | **0.1–0.3 dB** | ~0 |
+| voice EQ vs raw | — | flat ±0.2 dB | **+5 dB <250 Hz, −2.7 dB >1 kHz** | a real curve |
+| integrated | −8.04 LUFS | −16.25 | **−13.81** | −14 |
+| true peak | +2.53 dBTP | +0.20 | **+0.20** | ≤ −1.5 |
+| clipped samples | 195,000 | 2,426 | **6,333** | 0 |
+| bed under voice | none | ~3 dB hot | **4.4 dB hot** (20.3 vs ref 24.7) | ref |
+| bed stereo width | — | ~17 dB wide | **11.5 dB wide** (−1.5 vs ref −13.0) | ref |
+
+⚠ **HE DID EQ IT THIS TIME, BUT IN THE OPPOSITE DIRECTION ON THE TOP END** — Dan asked for a lift for
+air and clarity and the file measures **2.6–3.0 dB DOWN from 1 kHz up.** That figure is conservative,
+not generous: the bed sits only **7.7 dB** below the mix at 3.5–6k and **4.8 dB** at 6–9k, so the bed
+is *adding* HF and the voice-only cut is nearer 3.3–3.9 dB. Music can only add energy, never subtract,
+so a measured HF deficit is always real attenuation — a useful one-line argument for these reviews.
+**Flagged as his call, deliberately not made blocking.**
+
+⚠ **HE DREW A LINE ON AUDIO AND THE DOC CONCEDES IT ON PURPOSE.** His 8/28 message says any further
+work would be "specialist audio-post… spectral matching, multiband processing, professional
+mastering." Arguing that invites him to quit. The three remaining audio items are therefore reframed
+as what they actually are — **a limiter ceiling, a fader move, and one optional tonal note** — so he
+does not have to defend the position. The clipping item stands on its own: **6,333 samples pinned at
+full scale, more than the 2,426 last round**, which is not a matter of taste.
+
+⚠ **`C1591.wav` IN `_edit_work/ad1-8-14/` IS A 16 kHz MONO WHISPER INPUT, NOT THE CAMERA AUDIO.**
+Panning `c1` off it returns pure silence and every spectral comparison reads zero. The real two-channel
+48 kHz audio is in the camera `.MP4` on the Extreme drive. Cost one debugging round; check
+`ffprobe` channels before trusting any raw-file comparison.
+
+**Method notes:** picture reviewed on four labelled 2 s contact sheets plus full-res pulls at the
+compliance moments; Whisper `small` for line-to-timecode. ⚠ `whisper` shells out to `ffmpeg` by name,
+so the static build must be on `PATH` or transcription fails silently to an empty file. **scipy is not
+installed on this Mac** — the alignment and band analysis are numpy-only.
+
+**Dashboard: nothing checked off.** Searched all four lists; no task covers this review. The nearest,
+`business::Check in on the 4 Upwork editor trials`, is ongoing tryout coordination, and the
+deliverable is a draft Dan has not sent — same call as the round-1 and Zeeshan docs.
+
+⚠ **RECOMMENDATION IN THE MESSAGES FILE: do NOT release the funded $100 milestone yet.** It is the
+only structural reason left for him to finish the visual list.
+
+**EXACT NEXT ACTION — DAN: send Upwork message 1 with the doc link** (`revision docs/waleed-upwork-messages-8-30-26.md`;
+messages 2 and 3 are held for a pushback and for a nudge). Nothing is blocked.
+
+---
+
 ### 3-MIN TOTAL BODY WORKOUT — **3 NEW THUMBNAILS DELIVERED; Dan picks one** (2026-08-30, Claude Code)
 
 Dan on the live thumbnail for `hKmttAhgLfQ`: *"too blurry, and it isn't really related to what's in
