@@ -298,9 +298,53 @@ and the new `facelm.swift` / `mkell.py` / `diffmap.py`.
 **Dashboard: the batch-6 Key task stays UNCHECKED** — it covers all four waves and Dan's approval.
 **35 of 49 done; wave 4 (14 frames) closes it.**
 
-**EXACT NEXT ACTION — DAN: review the 11 before/after strips and the 8 adjacency sheets (sent in
-chat), and say which of 240 / 173 / 187 to kill, if any.** Then wave 4 in a fresh session with
-`/photo-edit`.
+**REV 1 DELIVERED 2026-08-31 — DAN REVIEWED ALL 11. Seven approved as-is; four reworked.** He also
+raised **no adjacency kill** — "all the adjacent pictures are different enough" — so 240/173/187 stay.
+Approved and byte-unchanged: **169, 173, 240, 247, 249, 269, 275** (verified 7/7 md5). Rev-1 AI spend
+**~$1.00** (4 renders); wave total **~$4.12**. Pre-rev files in the scratchpad `rev1_backup/`.
+
+- **B-187 / B-201 — "increase the size of the warp a little bit" (the yellow shorts).** k **0.34 ->
+  0.41**, the settled +0.07 step Dan calibrated twice. **$0.00.** Rebuilt as a **single clean warp
+  from the true pre-warp base**, never invert-and-recompose — verified at **max 3 levels outside the
+  ellipse** against that base, which is the proof it is one resample and not a compounded pair.
+- **B-221 / B-271 — "a more serious or sexy-looking smirk, not a smile."** Diagnosed in nameable
+  parts first (221 = corners DOWN + pouted lower lip + flat lidded eyes; 271 = level expressionless
+  mouth + hard downward brow pull + lifeless eyes), then the prompt specified an **asymmetric
+  one-sided lift**, which is the actual geometric difference between a smirk and a smile. Two
+  variants each; **POSE locked separately** and both held (221's raised chin and off-camera gaze,
+  verified on an eye zoom; 271's direct gaze).
+
+⚠ **SHIPPED 221 = VARIANT B BUT 271 = VARIANT A, AND THE REASON GENERALISES.** On B-221 the *subtle*
+variant came back **symmetric** — both corners lifted evenly, i.e. a closed-lip **smile**, the exact
+thing Dan excluded — while the pronounced one has the genuine one-sided curl. On B-271 the pronounced
+variant drove the eyes to slits and read as a wince. **"Subtle vs pronounced" does not map onto
+"smile vs smirk": judge the ASYMMETRY, not the amplitude.** Losing variants kept in the scratchpad.
+
+**Identity protected by inverting §4b (lesson 40):** candidate face composited **into the approved
+frame** through a tightened ellipse (rx x0.90, ry x0.88, cy +0.004H). **Max 6 levels outside the face
+ellipse on all four candidates**, so B-221's k=0.34 warp, both abs passes and both garments are
+provably untouched, no seam. Offsets 0/0, NCC r 0.42-0.51.
+
+⚠ **LESSON 41 HELD AGAIN.** All four raw candidates *looked* re-posed; landmarks say head scale
+**-1.8 / -1.8 / +1.4 / +2.7 %**, eye-centre shift **0-10 px**, tilt **< 2 deg**. None was.
+
+⚠ **THE GOOGLE-DIRECT ENDPOINT WAS DOWN AND THE REPLICATE ROUTE TO THE SAME MODEL SAVED THE ROUND.**
+`gemini-image.js` returned **HTTP 503 "high demand"** on all four renders and kept returning it
+through four retries each with backoff. `replicate-edit.js --model google/nano-banana-pro
+--resolution 4K` succeeded on all four first try. **Same model, independent path — try it before
+concluding a prompt was refused.** ⚠ It returns **2747x4096**, not 3368x5056, and its aspect is 0.7 %
+off the input's; `facecomp.py` resizes the source anyway so the composite absorbs it, but a
+whole-frame delivery from that path would need a re-crop.
+
+**Re-verified:** the 4 revised finals md5-match their builds - the 7 approved frames byte-identical -
+IG 4:5 offsets recomputed and **unchanged on all four** (deltas 0) - 8 files readable.
+
+⚠ **A FILE FROM A DIFFERENT SHOOT APPEARED IN THE DELIVERY FOLDER MID-REVISION** —
+`photo-29_FINAL_PRIMARY.jpg` (pool-shoot naming), 358 -> 359 files. **Nothing of mine changed** (md5
+sweep, 0 differences). Left alone; flagged only so it is not mistaken for part of this batch.
+
+**EXACT NEXT ACTION — DAN: review the four rev-1 strips (sent in chat), especially the two smirks.**
+Then wave 4 in a fresh session with `/photo-edit`.
 
 ---
 
