@@ -343,8 +343,31 @@ IG 4:5 offsets recomputed and **unchanged on all four** (deltas 0) - 8 files rea
 `photo-29_FINAL_PRIMARY.jpg` (pool-shoot naming), 358 -> 359 files. **Nothing of mine changed** (md5
 sweep, 0 differences). Left alone; flagged only so it is not mistaken for part of this batch.
 
-**EXACT NEXT ACTION — DAN: review the four rev-1 strips (sent in chat), especially the two smirks.**
-Then wave 4 in a fresh session with `/photo-edit`.
+**REV 2 (2026-08-31) — Dan's picks. $0.00, both changes were a file swap.**
+**B-221 -> VARIANT A** (*"I like A better. I don't like the weird eyebrow raise in B."*) and
+**B-271 -> ORIGINAL RESTORED** (*"I don't really like either one. The original is better than both."*),
+byte-identical to the version he reviewed in round 1, md5-verified on the full frame and the IG crop.
+
+⚠ **MY REV-1 PICK ON B-221 WAS WRONG, AND THE REASON IS REUSABLE.** I shipped B because A's mouth
+reads symmetric (a closed-lip smile) while B had the true one-sided curl — but B bought that
+asymmetry partly with a **raised eyebrow**, which my prompt had explicitly invited ("one brow lifts
+slightly higher than the other - that asymmetry is a large part of the cocky read"). On Dan's face
+that lands as quizzical, not cocky. **The asymmetry that reads as a smirk lives in the MOUTH and
+CHEEK only — never ask for brow asymmetry as well.**
+
+⚠ **THE B-271 REJECTION WAS PURE TASTE, NOT A DEFECT — worth recording so it is not re-attempted.**
+Both smirk candidates were technically clean (pose locked, gaze held, max 6 levels outside the face
+ellipse). **A serious frame with a hard brow furrow and a level mouth is not automatically "a frown
+to be fixed":** on B-221 the change was wanted, on B-271 the identical change made the picture worse.
+Ask per photo, never per batch.
+
+**Final state, verified on disk by md5 against build sources (11/11 IDENTICAL):** rev-0 untouched on
+**169/173/240/247/249/269/275** - warp 0.41 on **187/201** - new smirk A on **221** - rev-0 restored
+on **271**. IG offsets recomputed after every change and unchanged throughout (deltas 0).
+Wave AI spend **~$4.12**.
+
+**EXACT NEXT ACTION — DAN: give the final nod on the all-11 review sheets (sent in chat).** On his
+word the wave is closed; then wave 4 in a fresh session with `/photo-edit`.
 
 ---
 
