@@ -182,9 +182,55 @@ backdrop are both new.
 UNCHECKED and that is deliberate — it covers all four waves AND Dan's approval, and he has not
 reviewed these 15 yet.** Check it off on his approval; all four waves are now delivered.
 
-**EXACT NEXT ACTION — DAN: review the 15 before/after strips and the two adjacency pairs (all sent
-in chat).** Nothing is blocked. On his approval the batch-6 dashboard task gets checked off and the
-studio-shoot programme is finished.
+**REV 1 DELIVERED 2026-08-31 — DAN REVIEWED ALL 15. Eight approved as-is; seven changed.**
+Approved and byte-unchanged: **gray 26/63, white 2/4/34/62/84/99** (verified 8/8 md5). Rev-1 AI spend
+**$0.72** (3 renders, one wasted); wave total **$4.32**. Pre-rev files in the scratchpad `rev1_backup/`.
+
+**THE WARP — "increase the warp for everything in the white shorts."** Read as **garment-scoped**, so
+it covers all four white-cotton-trunk frames. **Gray-2 and Gray-9 went 0.34 -> 0.41** (the settled
++0.07 step); **Gray-21 and Gray-31 had NO warp and were given a NEW one at 0.41** — flagged to Dan as
+new rather than increased so he can pull them. **Gray-90 stays at 0.34 — green retro shorts, not
+white.** All four rebuilt as a **single clean warp from the true pre-warp base**, verified at **max 3
+levels outside the declared ellipse**. Gray-31's radii were cut to rx 250 / ry 210 because his hand
+rests within ~90 px of the default ellipse (lesson 25); hands verified unchanged on all four.
+⚠ **MY ORIGINAL SKIP REASON FOR G-21/G-31 DID NOT SURVIVE A SECOND LOOK.** I had skipped them citing
+wave 2's `132/135` call ("the tank hem covers the waistband"). The hem does — but **the FRONT of the
+shorts is fully in frame on both**, and the front is what the warp actually needs. **Check what the
+operation needs, not what the neighbouring precedent says.**
+
+⚠ **GRAY-90: THE REPAIR RENDER FIXED THE DRAWN LINES AND SOFTENED THE ABS, AND A BAND SPLIT RECOVERED
+BOTH.** Dan was right and the lines were confirmed by measurement before a prompt was written — a
+localized-darkening map put hard crisp arcs at **(1430, 2990-3230)** frame-left upper and
+**(1730, 3350-3530)** frame-right lower, plus a scribbled navel. But he asked for *the same
+definition*, and the clean render came back visibly flatter. **The drawn lines live in the HIGH band;
+the groove depth lives in the LOW band** — so the delivered file takes the low band entirely from the
+approved frame and the high band entirely from the clean render (`bandmix.py`, wl=0.0). Taking a band
+whole from one parent costs no texture. Composited through a feathered ab ellipse: **6.23 % of frame
+changed, max 11 levels outside it**, so the warp, the face composite and the garment are untouched.
+
+⚠ **WHITE-25: THE REMOVAL PROMPT AMPLIFIED THE ARTIFACT INTO A LARGE CRISP DRAWN HOOK — lesson 35
+verbatim, one wave later. That $0.24 render is WASTED and was not used.** The two marks (a blotch
+below the frame-right pec at ~(1767,2760) and a hook speck on the second ab at ~(1731,3020)) are
+inventions of the retouch; the raw frame is clean there.
+⚠ **THE FIX IS FREE AND IS A NEW TOOL — `marksfix.py`.** The artifacts are HIGH-frequency, so inside
+two small feathered ellipses it keeps the **LOW band (ab shading and definition) from the approved
+frame** and takes the **HIGH band (real skin texture) from the ORIGINAL**. Both marks vanish, the ab
+definition is provably unchanged — exactly what Dan asked for — and real skin texture comes back.
+**0.41 % of frame, max 8 levels outside, $0.00, no identity dice-roll. Generalisable: an invented
+high-frequency blemish on an otherwise-good retouch never needs an AI call.**
+
+⚠ **WHITE-49: LESSON 42 FIRED AGAIN — THE HARDER RENDER PROJECTED THE PECS.** Dan asked for more
+aggressive abs only, so the hard render was composited through an **ab-only ellipse that stops below
+the pec fold and inside both hands**. The delivered file measures **max 5 levels across the pec row
+and 4-7 on both arms** against the approved version, so the inflation is excluded by construction.
+Shipped at the full render's ab intensity; a half-step is built and is a free one-word swap.
+
+**Re-verified:** the 7 revised finals md5-match their build sources (14/14 incl. IG crops) - the 8
+approved frames byte-identical - IG 4:5 offsets recomputed on all 7 and **unchanged (deltas 0)** -
+delivery folder still 388 files, no pre-existing file altered.
+
+**EXACT NEXT ACTION — DAN: review the 7 revised frames (sent in chat).** On his approval the batch-6
+dashboard task gets checked off and the studio-shoot programme is finished.
 
 ---
 
