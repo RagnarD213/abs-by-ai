@@ -6,13 +6,13 @@
     "money::Execute handoff: Swap Dan's phone to the public Play build",
     "money::Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas",
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
-    "money::Write scripts for the next shoot (≥half workout content)",
-    "money::Execute handoff: Replace stick figures with AI exercise demo videos",
-    "money::Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline"
+    "money::Execute handoff: Replace stick figures with AI exercise demo videos"
   ],
   "excluded": [
     "money::Post on TikTok",
-    "money::Write workout outlines for the next shoot"
+    "money::Write workout outlines for the next shoot",
+    "money::Write scripts for the next shoot (≥half workout content)",
+    "money::Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline"
   ],
   "sessionsCompleted": 0
 }
