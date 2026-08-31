@@ -72,7 +72,7 @@ function buildRequest(promptFile, imageFile) {
   }
   return {
     contents: [{ parts }],
-    generationConfig: { responseModalities: ['TEXT', 'IMAGE'], imageConfig: { imageSize } },
+    generationConfig: { responseModalities: ['TEXT', 'IMAGE'], imageConfig: args.aspect ? { imageSize, aspectRatio: args.aspect } : { imageSize } },
   };
 }
 
