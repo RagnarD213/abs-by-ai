@@ -244,8 +244,8 @@
     },
     {
       "text": "Plan the permanent filming set (studio build vs kitchen)",
-      "priority": "med",
-      "why": "2026-08-25 planning — Dan: a real set beats filming in the kitchen. Post-shoot item; spec the space, budget, lighting, backdrop.",
+      "priority": "key",
+      "why": "2026-08-31 planning — Dan wants this prioritized: research fitness-set examples, decide backdrop vs green screen, order gear so it ships today",
       "addedAt": "2026-08-25"
     },
     {
@@ -349,6 +349,12 @@
       "priority": "key",
       "why": "Watch-review 8/30: kingketo IG reel. We already hold the Oura data in Sleep Coach but the trainer ladder progresses on workout counts alone. Auto-regulation is a differentiator no photo-generator competitor has.",
       "addedAt": "2026-08-30"
+    },
+    {
+      "text": "Remove backgrounds from the finalized studio photos + test cutout-style thumbnails",
+      "priority": "high",
+      "why": "2026-08-31 planning — Dan wants transparent-PNG cutouts of the studio finals so thumbnails/graphics can composite him over any background",
+      "addedAt": "2026-08-31"
     }
   ],
   "health": [
@@ -429,6 +435,12 @@
       "priority": "med",
       "why": "2026-08-27 planning — running low on both",
       "addedAt": "2026-08-27"
+    },
+    {
+      "text": "Pick up meals from Clean Eats",
+      "priority": "med",
+      "why": "2026-08-31 planning — weekly meal pickup",
+      "addedAt": "2026-08-31"
     }
   ],
   "assistant": [
