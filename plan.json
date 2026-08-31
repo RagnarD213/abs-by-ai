@@ -1,34 +1,15 @@
 {
-  "date": "2026-08-24",
+  "date": "2026-08-31",
   "order": [
-    "money::Review Mohammad A video",
-    "money::Execute handoff: Rebuild ab-wheel video to Muhammad's standard, then rebuild /longform-edit"
-  ],
-  "excluded": [
+    "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
+    "money::Execute handoff: Let users purchase before creating an account (iOS)",
     "money::Execute handoff: Swap Dan's phone to the public Play build",
     "money::Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas",
-    "money::Post on TikTok",
-    "money::Write scripts for the next shoot (≥half workout content)",
-    "money::Check iOS App Store review status (build 1.0 (3), submission a5fcdbf2-3eca-412e-8c20-b1f075a32c24)",
-    "money::Write workout outlines for the next shoot",
-    "money::Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
-    "money::Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline",
-    "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
-    "money::Approve Ad 1 rev-1, apply final revisions, finalize the /ad-edit skill",
-    "money::Review the 5 parked video deliverables (3x 8/3 longform, invest-health v2, ab-wheel)",
-    "money::Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build",
-    "money::Execute handoff: Let users purchase before creating an account (iOS)",
-    "money::Execute handoff: YouTube subscriber campaign geo restructure (all-countries + tier-1 clone)",
-    "money::Fix two-mic comb-filter audio on the 4 remaining delivered longform masters (Zepbound, supplements, invest-health, meal prep)",
-    "money::Review Zeshan's video cut and send round-1 revisions",
-    "money::Audit everyone who has generated an image: did they get the emails, and what did they generate",
-    "money::Check iOS App Store review status (submission 22876374-6723-40d9-b0e2-8e02b7093b86, resubmitted 8/24)",
-    "money::Execute handoff: Build /longform-edit video pipeline (Phase 1 bake-off first)",
-    "money::Execute handoff: Google Ads offline conversion upload (Phase B)",
     "money::Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
-    "money::Execute handoff: Replace stick figures with AI exercise demo videos",
-    "money::Check Upwork",
-    "money::Execute the Instagram growth plan (7 profile fixes + Blotato queue rework)"
+    "money::Write scripts for the next shoot (≥half workout content)"
+  ],
+  "excluded": [
+    "money::Post on TikTok"
   ],
   "sessionsCompleted": 0
 }
