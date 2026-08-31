@@ -33,6 +33,33 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### BACKGROUND REMOVAL TEST — **3 CUTOUTS DELIVERED, VERDICT: VIABLE; Dan reviews** (2026-08-31, Claude Code)
+
+Dan wants a folder of the studio finals with backgrounds removed for thumbnail use. Tested one
+stress frame per backdrop: **blue-80** (arms behind head), **gray-87** (hands on hips), **white-4**
+(glasses). **AI spend <$0.01** (Replicate `851-labs/background-remover`, BiRefNet). **No production
+code, no deploy, no native-retest trigger.** Full-res RGBA PNGs (3368x5056, original pixels + AI
+mask) delivered to `photos/finalized social media photos/_cutouts/` (gitignored, verified).
+
+**The key is clean and the approach is viable.** Armpit gaps, hands-on-hips holes, glasses rims and
+the necklace chain all keyed correctly; edges verified on 1:1 zooms over magenta. One systematic
+flaw: a 1-2 px bright halo along the hair (backdrop light wrap), worst on the white backdrop —
+**fixed with a 2 px alpha contraction** (MinFilter(5) + blur 1), which is baked into the delivered
+PNGs. At thumbnail scale on a dark canvas all three read perfectly clean.
+
+Recipe: downscale to 2048 -> Replicate files API -> BiRefNet -> upscale ALPHA only to full res ->
+apply to ORIGINAL pixels (subject never re-rendered) -> contract 2 px. ⚠ `source ~/.absbyai-secrets.env`
+silently fails to set vars (a line in the file breaks sourcing) — grep the key out directly.
+⚠ The Replicate `models` endpoint truncates nothing, but do not reconstruct version hashes from a
+prefix — fetch `latest_version.id` whole.
+
+**Dashboard: nothing checked off — no task covers this.**
+
+**EXACT NEXT ACTION — DAN: look at the three review sheets (sent in chat).** On approval, the batch
+run over all studio finals into `_cutouts/` is ~$0.10 and one session.
+
+---
+
 ### "FAT DAD" BEFORE PHOTO — **RECENTRED + BACKGROUND FILLED; delivered** (2026-08-31, Claude Code)
 
 Dan: the standing fat-dad picture is unusable as a before image because he is jammed against the
