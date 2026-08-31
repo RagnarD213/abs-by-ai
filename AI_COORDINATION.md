@@ -391,8 +391,22 @@ adds per-video post; zero reference channels key). ⚠ Amaran 100d S kit is list
 indoor set's faults (reflective fridge, hard streak, no depth). **Dashboard: nothing checked
 off — no task covers this.**
 
-**EXACT NEXT ACTION — DAN: run the 3 phone tests (depth/framing, blackout/reflection, clap+hum)
-in candidate corners, pick one, then buy the buy-now list.** Nothing is blocked.
+**REV 2 (same day): Dan supplied 5 photos of the spare bedroom and new constraints — talking
+content + talking ads ONLY (no workout, no shirtless), he wants to STAND, and plans to shoot at
+the blackout-curtained window.** All three instincts endorsed with argument (the seated majority
+among top channels is a desk-format genre artifact; ads + his ~200 wpm energy favor standing).
+Artifact rebuilt as v2 (same URL): window-wall layout (blackout layer mounted wider/higher than
+the window + green textured backdrop on its own 10 ft stand, Dan 4 ft in front, camera 8 ft,
+lens at armpit height), room photo + new top-down diagram, phone tests rewritten for this room
+(axis+standing frame / leak map / clap+hum with fan on-off). ⚠ Corner shot rejected for THIS
+room: arched bath nook eats the right corner, door swing fights the left diagonal. ⚠ Ceiling
+fan + HVAC off for takes. **New budget: buy now $885.28 / later $224.57 = $1,109.85** (curtains
+$47.56, Ivilon rod $34.99, Emart stand $59.99, Haboke green backdrop $39.99 all price-verified
+8/31; Kate premium backdrop swap +$90 lands $1,199.85). Cut from v1: rubber tiles, dumbbells,
+shelf, shotgun+boom, paint (~$420 no longer needed). Nothing ordered.
+
+**EXACT NEXT ACTION — DAN: run the 3 phone tests in the bedroom (axis + standing frame, leak
+map, clap+hum), then buy the buy-now list.** Nothing is blocked.
 
 ---
 
