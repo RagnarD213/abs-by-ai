@@ -480,22 +480,22 @@ function renderTimer() {
     btn.textContent = '▶ Start working';
     btn.classList.remove('stop');
   }
-  renderTodayTotal();
+  renderUnpaidTotal();
 }
 
-function renderTodayTotal() {
+// Unpaid time, NOT today's time. `tsEntries` is the server's unpaid list — it
+// keeps accumulating across days and only empties when Dan marks it paid, so a
+// day that ends without a payment carries straight into the next one.
+function renderUnpaidTotal() {
   const el = document.getElementById('timer-today');
-  const t = today();
-  // Entry timestamps are server-generated ISO (UTC); comparing the date
-  // substring is close enough for a work log, not exact at the UTC boundary.
-  const todays = tsEntries.filter(e => (e.start || '').slice(0, 10) === t);
-  const activeCountsToday = tsActive && (tsActive.startedAt || '').slice(0, 10) === t;
-  const sessionCount = todays.length + (activeCountsToday ? 1 : 0);
+  const sessionCount = tsEntries.length + (tsActive ? 1 : 0);
   if (!sessionCount) { el.style.display = 'none'; return; }
-  let totalSec = todays.reduce((sum, e) => sum + (e.seconds || 0), 0);
-  if (activeCountsToday) totalSec += (Date.now() - new Date(tsActive.startedAt).getTime()) / 1000;
+  let totalSec = tsEntries.reduce((sum, e) => sum + (e.seconds || 0), 0);
+  if (tsActive) totalSec += (Date.now() - new Date(tsActive.startedAt).getTime()) / 1000;
+  const since = tsEntries.length ? (tsEntries[0].start || '') : (tsActive?.startedAt || '');
+  const sinceLabel = since ? ` since ${new Date(since).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}` : '';
   el.style.display = '';
-  el.textContent = `Today: ${fmtHM(totalSec)} across ${sessionCount} session${sessionCount === 1 ? '' : 's'}`;
+  el.textContent = `Unpaid: ${fmtHM(totalSec)} across ${sessionCount} session${sessionCount === 1 ? '' : 's'}${sinceLabel}`;
 }
 
 function startTick() { stopTick(); tsTick = setInterval(renderTimer, 1000); }

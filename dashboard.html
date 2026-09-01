@@ -774,6 +774,16 @@ color: var(--muted); font-size: 12.5px;
 .timer-status.active .timer-dot { background: var(--green); animation: timer-pulse 1.5s infinite; }
 @keyframes timer-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
 .timer-today { color: var(--muted); font-size: 12px; margin-top: 14px; }
+/* Pay-out control. Deliberately quiet: it is pressed once a pay period, and
+   pressing it zeroes the running total, so it should not read as a primary
+   action sitting next to the clock. */
+.timer-paid-btn {
+margin-top: 12px; width: 100%; border: 1px solid var(--border);
+border-radius: 9px; padding: 10px; background: transparent; color: var(--text);
+font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.timer-paid-btn:hover:not(:disabled) { border-color: var(--muted); }
+.timer-paid-btn:disabled { opacity: 0.5; cursor: default; }
 /* A task list becomes a drop target while a task from ANOTHER list is dragged. */
 .todo-list.list-drop-active {
 outline: 2px dashed var(--blue);
@@ -1095,6 +1105,7 @@ Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PA
 <div class="timer-display" id="a-timer-display">0h 0m</div>
 <div class="timer-status" id="a-timer-status"><span class="timer-dot"></span><span id="a-timer-status-text">Not clocked in</span></div>
 <div class="timer-today" id="a-timer-today" style="display:none"></div>
+<button class="timer-paid-btn" id="a-timer-paid" style="display:none">Mark time as paid</button>
 </div>
 <div class="progress-wrap" id="progress-assistant" style="display:none">
 <div class="progress-track"><div class="progress-fill"></div></div>
@@ -2977,7 +2988,6 @@ let assistantTimerActive = null;  // { startedAt: ISOString } | null
 let assistantTimerEntries = [];   // [{ start, end, seconds }] — only refreshed on poll/load, not the live stream
 let assistantTimerTick = null;
 
-function aTimerToday() { return new Date().toISOString().slice(0, 10); }
 function aTimerFmtHM(sec) {
 sec = Math.max(0, Math.floor(sec));
 const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
@@ -3004,19 +3014,50 @@ statusText.textContent = 'Not clocked in';
 renderAssistantTimerToday();
 }
 
+// Unpaid total, NOT today's. `assistantTimerEntries` is the server's unpaid
+// list: it accumulates across days and empties only when the button below is
+// pressed, so time she works is never lost to the date rolling over.
 function renderAssistantTimerToday() {
 const el = document.getElementById('a-timer-today');
+const btn = document.getElementById('a-timer-paid');
 if (!el) return;
-const t = aTimerToday();
-const todays = assistantTimerEntries.filter(e => (e.start || '').slice(0, 10) === t);
-const activeCountsToday = assistantTimerActive && (assistantTimerActive.startedAt || '').slice(0, 10) === t;
-const sessionCount = todays.length + (activeCountsToday ? 1 : 0);
+const sessionCount = assistantTimerEntries.length + (assistantTimerActive ? 1 : 0);
+let totalSec = assistantTimerEntries.reduce((sum, e) => sum + (e.seconds || 0), 0);
+if (assistantTimerActive) totalSec += (Date.now() - new Date(assistantTimerActive.startedAt).getTime()) / 1000;
+if (btn) btn.style.display = sessionCount ? '' : 'none';
 if (!sessionCount) { el.style.display = 'none'; return; }
-let totalSec = todays.reduce((sum, e) => sum + (e.seconds || 0), 0);
-if (activeCountsToday) totalSec += (Date.now() - new Date(assistantTimerActive.startedAt).getTime()) / 1000;
+const since = assistantTimerEntries.length ? (assistantTimerEntries[0].start || '') : (assistantTimerActive?.startedAt || '');
+const sinceLabel = since ? ` since ${new Date(since).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}` : '';
 el.style.display = '';
-el.textContent = `Today: ${aTimerFmtHM(totalSec)} across ${sessionCount} session${sessionCount === 1 ? '' : 's'}`;
+el.textContent = `Unpaid: ${aTimerFmtHM(totalSec)} across ${sessionCount} session${sessionCount === 1 ? '' : 's'}${sinceLabel}`;
+if (btn) btn.textContent = `Mark ${aTimerFmtHM(totalSec)} as paid`;
 }
+
+// Clears the unpaid total. If she is clocked in when this runs, the server
+// closes that session at this instant and starts a fresh one, so nothing worked
+// before the payment leaks into the next period.
+let assistantPayBusy = false;
+async function markAssistantTimePaid() {
+if (assistantPayBusy) return;
+const btn = document.getElementById('a-timer-paid');
+let totalSec = assistantTimerEntries.reduce((sum, e) => sum + (e.seconds || 0), 0);
+if (assistantTimerActive) totalSec += (Date.now() - new Date(assistantTimerActive.startedAt).getTime()) / 1000;
+if (!confirm(`Mark ${aTimerFmtHM(totalSec)} as paid? The running total resets to zero and starts accumulating again from now.`)) return;
+assistantPayBusy = true;
+if (btn) btn.disabled = true;
+try {
+const r = await fetch('/api/timesheet/mark-paid', { method: 'POST' });
+const d = await r.json().catch(() => ({}));
+if (!r.ok) throw new Error(d.error || 'could not record the payment');
+applyAssistantTimer(d.active, d.entries || []);
+} catch (e) {
+alert(e.message || "Couldn't reach the server");
+} finally {
+assistantPayBusy = false;
+if (btn) btn.disabled = false;
+}
+}
+document.getElementById('a-timer-paid')?.addEventListener('click', markAssistantTimePaid);
 
 // `entries` only arrives from a poll/load (/api/tasks-state), never the live
 // stream — the stream deliberately omits it (see server.js), so a call with
@@ -3041,7 +3082,7 @@ if (!d) return;
 if (d.task_checks) seedChecks(d.task_checks.checked, d.task_checks.log, d.task_checks.checkedAt);
 if (d.todos) setTodos(d.todos); // setTodos calls renderAllTasks()
 else renderAllTasks();
-if (d.timesheet) applyAssistantTimer(d.timesheet.active);
+if (d.timesheet) applyAssistantTimer(d.timesheet.active, d.timesheet.entries);
 }
 function openTaskStream() {
 if (!('EventSource' in window)) return;
