@@ -59,7 +59,7 @@ list the long-form masters, list `Short-form video content/*.mp4`, and diff the 
 
 | Video | Runtime | Note |
 |---|---|---|
-| 02 My Honest Zepbound Update | 30:28 | biggest raw yield; organic Shorts CAN name the drug |
+| ~~02 My Honest Zepbound Update~~ | ~~30:28~~ | **MINED 2026-09-01 — 8 shorts, `zep-short1..8_*`**, work folder `YouTube Long Form Video Content/zepbound-honest-update/` (6 alternates shortlisted in its SHORTS.md) |
 | ~~03 The Supplements I Actually Take~~ | ~~23:29~~ | **MINED 2026-08-28 — 8 shorts, `supp-short1..8_*`** |
 | 01 My First Spray Tan | 19:54 | narrower topic |
 | 04 Why You Should Invest More In Your Health | 53:17 | longest; still on the old v3 master |
@@ -148,6 +148,38 @@ leaves our noise floor cleaner than his.
 asks for a channel that no longer exists and ffmpeg renders **silence**, not an error — it
 blanked the first 4.48 s of a delivered short. `qc.js` now scans the master for silent seconds;
 before rev 3 only the review copies were scanned, and that gap let it through.
+
+## ⚠ Step 0.7 — FOUR THINGS THE ZEPBOUND BATCH PAID FOR (2026-09-01)
+
+Full write-up: `YouTube Long Form Video Content/zepbound-honest-update/README.md`.
+
+**1. The two-timeline trap has a second cause, and `async=1` alone does not fix it.** The Zepbound
+master's AAC holds 622 ms more samples than its container, as ~13 ms **pts overlaps at every one of
+its 48 joins**. `aresample=async=1` soft-corrects at a rate that cannot keep up (residual drift
++20 → +84 ms); `async=1000` pads 20 s of silence into the file; per-segment `-ss/-t` cuts come out
+13 ms LONG each because a pull that spans a join delivers both takes' overlapping samples. What
+works: **`aresample=async=1:min_hard_comp=0.005:first_pts=0`** (the default hard-comp threshold is
+0.1 s, so a 13 ms overlap is never hard-trimmed) — wav +0.6 ms, lag ±4 ms at eight points. **Put
+the same filter at the head of the renderer's audio pull** (`render.js` `TIMELINE_FIX`) or a piece
+spanning a join carries the overlap into the delivered audio. Always verify the wav against `-ss`
+by cross-correlation at 6–8 points; `preflight.py`'s length check alone passed the bad wav.
+
+**2. Verify the ANCHOR on drawn frames before trusting any centring number.** The torso-block
+anchor is bimodal when the subject is framed cut at the waist with arms hanging into the 60 %
+coverage band — the same shot read 0.50 and 0.58 on alternate frames while his silhouette edges
+did not move. On that framing use the **head median per shot**; on the supplements framing
+(behind a counter) the torso block was right. `work/measure_shots.py` measures per SHOT over the
+shot's own span — a per-BEAT median was 130 px off on a 41 s shot inside a 45 s beat.
+
+**3. Scan every piece boundary against `splices.json`.** A long-form that cut its pauses tight
+puts the join IN the pause, and `snapOut`'s 0.34 s tail then walks 0.04–0.30 s into the next take
+— 11 of 20 boundaries on this batch, a 1–9 frame flash of a different take before every cut.
+`outAt`/`inAt` 20 ms inside the splice; the silence assertion still applies.
+
+**4. Measure the floor before you clean it.** The afftdn + gate chain the supplements batch needed
+was measured against Muhammad's AD on this roll: the plain right channel was already 3 dB cleaner
+in every band, and the gate only cost word tails (98.7 % → 100 % without) and pumping (14.2 →
+7.8 dB). Fit the tone EQ; add cleanup only when the floor comparison says so.
 
 ## Step 1 — transcript with WORD timestamps
 

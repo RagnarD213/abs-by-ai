@@ -1,0 +1,443 @@
+[
+ {
+  "i": 0,
+  "beat": "intro",
+  "srcStart": 72.34,
+  "srcEnd": 92.14,
+  "outFloat": 0.0,
+  "outFrame": 0.0,
+  "dur": 19.8
+ },
+ {
+  "i": 1,
+  "beat": "why-i-started",
+  "srcStart": 120.96,
+  "srcEnd": 140.08,
+  "outFloat": 19.8,
+  "outFrame": 19.786,
+  "dur": 19.12
+ },
+ {
+  "i": 2,
+  "beat": "heard-about-it",
+  "srcStart": 146.54,
+  "srcEnd": 191.86,
+  "outFloat": 38.92,
+  "outFrame": 38.906,
+  "dur": 45.32
+ },
+ {
+  "i": 3,
+  "beat": "my-old-thinking",
+  "srcStart": 192.18,
+  "srcEnd": 212.86,
+  "outFloat": 84.24,
+  "outFrame": 84.217,
+  "dur": 20.68
+ },
+ {
+  "i": 4,
+  "beat": "the-data-changed-my-mind",
+  "srcStart": 221.52,
+  "srcEnd": 310.26,
+  "outFloat": 104.92,
+  "outFrame": 104.905,
+  "dur": 88.74
+ },
+ {
+  "i": 5,
+  "beat": "anecdotes",
+  "srcStart": 315.12,
+  "srcEnd": 324.64,
+  "outFloat": 193.66,
+  "outFrame": 193.66,
+  "dur": 9.52
+ },
+ {
+  "i": 6,
+  "beat": "started-recommending-it",
+  "srcStart": 331.22,
+  "srcEnd": 361.28,
+  "outFloat": 203.18,
+  "outFrame": 203.17,
+  "dur": 30.06
+ },
+ {
+  "i": 7,
+  "beat": "30-pounds-math",
+  "srcStart": 364.1,
+  "srcEnd": 399.92,
+  "outFloat": 233.24,
+  "outFrame": 233.233,
+  "dur": 35.82
+ },
+ {
+  "i": 8,
+  "beat": "even-ripped-people",
+  "srcStart": 408.66,
+  "srcEnd": 453.08,
+  "outFloat": 269.06,
+  "outFrame": 269.069,
+  "dur": 44.42
+ },
+ {
+  "i": 9,
+  "beat": "my-diet-was-good",
+  "srcStart": 455.86,
+  "srcEnd": 490.7,
+  "outFloat": 313.48,
+  "outFrame": 313.48,
+  "dur": 34.84
+ },
+ {
+  "i": 10,
+  "beat": "good-isnt-perfect",
+  "srcStart": 494.24,
+  "srcEnd": 573.62,
+  "outFloat": 348.32,
+  "outFrame": 348.315,
+  "dur": 79.38
+ },
+ {
+  "i": 11,
+  "beat": "not-medical-advice",
+  "srcStart": 575.98,
+  "srcEnd": 616.92,
+  "outFloat": 427.7,
+  "outFrame": 427.694,
+  "dur": 40.94
+ },
+ {
+  "i": 12,
+  "beat": "old-vs-new-thinking",
+  "srcStart": 621.1,
+  "srcEnd": 653.36,
+  "outFloat": 468.64,
+  "outFrame": 468.635,
+  "dur": 32.26
+ },
+ {
+  "i": 13,
+  "beat": "the-transformation",
+  "srcStart": 675.98,
+  "srcEnd": 790.7,
+  "outFloat": 500.9,
+  "outFrame": 500.9,
+  "dur": 114.72
+ },
+ {
+  "i": 14,
+  "beat": "how-much-i-drank",
+  "srcStart": 791.02,
+  "srcEnd": 803.8,
+  "outFloat": 615.62,
+  "outFrame": 615.615,
+  "dur": 12.78
+ },
+ {
+  "i": 15,
+  "beat": "blowouts-gone",
+  "srcStart": 804.44,
+  "srcEnd": 826.84,
+  "outFloat": 628.4,
+  "outFrame": 628.394,
+  "dur": 22.4
+ },
+ {
+  "i": 16,
+  "beat": "sugar-carbs-productivity",
+  "srcStart": 838.76,
+  "srcEnd": 904.94,
+  "outFloat": 650.8,
+  "outFrame": 650.783,
+  "dur": 66.18
+ },
+ {
+  "i": 17,
+  "beat": "if-youre-obese",
+  "srcStart": 916.56,
+  "srcEnd": 936.38,
+  "outFloat": 716.98,
+  "outFrame": 716.95,
+  "dur": 19.82
+ },
+ {
+  "i": 18,
+  "beat": "if-youre-ripped",
+  "srcStart": 938.6,
+  "srcEnd": 968.92,
+  "outFloat": 736.8,
+  "outFrame": 736.769,
+  "dur": 30.32
+ },
+ {
+  "i": 19,
+  "beat": "how-to-do-it",
+  "srcStart": 979.52,
+  "srcEnd": 991.66,
+  "outFloat": 767.12,
+  "outFrame": 767.1,
+  "dur": 12.14
+ },
+ {
+  "i": 20,
+  "beat": "where-to-get-it",
+  "srcStart": 992.08,
+  "srcEnd": 1023.82,
+  "outFloat": 779.26,
+  "outFrame": 779.245,
+  "dur": 31.74
+ },
+ {
+  "i": 21,
+  "beat": "compounded-vs-brand",
+  "srcStart": 1032.34,
+  "srcEnd": 1087.44,
+  "outFloat": 811.0,
+  "outFrame": 810.977,
+  "dur": 55.1
+ },
+ {
+  "i": 22,
+  "beat": "no-added-ingredients",
+  "srcStart": 1093.74,
+  "srcEnd": 1123.68,
+  "outFloat": 866.1,
+  "outFrame": 866.065,
+  "dur": 29.94
+ },
+ {
+  "i": 23,
+  "beat": "lily-direct",
+  "srcStart": 1129.22,
+  "srcEnd": 1140.44,
+  "outFloat": 896.04,
+  "outFrame": 895.995,
+  "dur": 11.22
+ },
+ {
+  "i": 24,
+  "beat": "how-to-get-a-script",
+  "srcStart": 1145.06,
+  "srcEnd": 1188.1,
+  "outFloat": 907.26,
+  "outFrame": 907.206,
+  "dur": 43.04
+ },
+ {
+  "i": 25,
+  "beat": "skip-the-membership-fees",
+  "srcStart": 1191.82,
+  "srcEnd": 1208.08,
+  "outFloat": 950.3,
+  "outFrame": 950.249,
+  "dur": 16.26
+ },
+ {
+  "i": 26,
+  "beat": "oral-pen-or-needle",
+  "srcStart": 1213.84,
+  "srcEnd": 1315.98,
+  "outFloat": 966.56,
+  "outFrame": 966.499,
+  "dur": 102.14
+ },
+ {
+  "i": 27,
+  "beat": "where-to-inject",
+  "srcStart": 1329.26,
+  "srcEnd": 1456.22,
+  "outFloat": 1068.7,
+  "outFrame": 1068.634,
+  "dur": 126.96
+ },
+ {
+  "i": 28,
+  "beat": "which-day",
+  "srcStart": 1461.46,
+  "srcEnd": 1477.64,
+  "outFloat": 1195.66,
+  "outFrame": 1195.594,
+  "dur": 16.18
+ },
+ {
+  "i": 29,
+  "beat": "why-thursday",
+  "srcStart": 1484.6,
+  "srcEnd": 1506.06,
+  "outFloat": 1211.84,
+  "outFrame": 1211.777,
+  "dur": 21.46
+ },
+ {
+  "i": 30,
+  "beat": "inject-thursday-7pm",
+  "srcStart": 1509.34,
+  "srcEnd": 1519.54,
+  "outFloat": 1233.3,
+  "outFrame": 1233.232,
+  "dur": 10.2
+ },
+ {
+  "i": 31,
+  "beat": "my-side-effects",
+  "srcStart": 1529.0,
+  "srcEnd": 1574.76,
+  "outFloat": 1243.5,
+  "outFrame": 1243.442,
+  "dur": 45.76
+ },
+ {
+  "i": 32,
+  "beat": "escalate-gradually",
+  "srcStart": 1586.9,
+  "srcEnd": 1613.68,
+  "outFloat": 1289.26,
+  "outFrame": 1289.188,
+  "dur": 26.78
+ },
+ {
+  "i": 33,
+  "beat": "context-max-dose",
+  "srcStart": 1616.04,
+  "srcEnd": 1622.13,
+  "outFloat": 1316.04,
+  "outFrame": 1315.981,
+  "dur": 6.09
+ },
+ {
+  "i": 34,
+  "beat": "tiny-dose",
+  "srcStart": 1626.77,
+  "srcEnd": 1642.58,
+  "outFloat": 1322.13,
+  "outFrame": 1322.087,
+  "dur": 15.81
+ },
+ {
+  "i": 35,
+  "beat": "dose-ladder",
+  "srcStart": 1645.36,
+  "srcEnd": 1662.94,
+  "outFloat": 1337.94,
+  "outFrame": 1337.903,
+  "dur": 17.58
+ },
+ {
+  "i": 36,
+  "beat": "where-i-sit-now",
+  "srcStart": 1665.82,
+  "srcEnd": 1699.24,
+  "outFloat": 1355.52,
+  "outFrame": 1355.487,
+  "dur": 33.42
+ },
+ {
+  "i": 37,
+  "beat": "digestion-improved",
+  "srcStart": 1703.18,
+  "srcEnd": 1728.34,
+  "outFloat": 1388.94,
+  "outFrame": 1388.921,
+  "dur": 25.16
+ },
+ {
+  "i": 38,
+  "beat": "biggest-mistake",
+  "srcStart": 1733.3,
+  "srcEnd": 1757.7,
+  "outFloat": 1414.1,
+  "outFrame": 1414.079,
+  "dur": 24.4
+ },
+ {
+  "i": 39,
+  "beat": "wont-damage-your-skin",
+  "srcStart": 1777.04,
+  "srcEnd": 1829.2,
+  "outFloat": 1438.5,
+  "outFrame": 1438.47,
+  "dur": 52.16
+ },
+ {
+  "i": 40,
+  "beat": "it-doesnt-hurt",
+  "srcStart": 1836.16,
+  "srcEnd": 1888.02,
+  "outFloat": 1490.66,
+  "outFrame": 1490.622,
+  "dur": 51.86
+ },
+ {
+  "i": 41,
+  "beat": "dont-go-above-2.5",
+  "srcStart": 1895.1,
+  "srcEnd": 1946.32,
+  "outFloat": 1542.52,
+  "outFrame": 1542.474,
+  "dur": 51.22
+ },
+ {
+  "i": 42,
+  "beat": "unless-youre-obese",
+  "srcStart": 1952.31,
+  "srcEnd": 1962.16,
+  "outFloat": 1593.74,
+  "outFrame": 1593.692,
+  "dur": 9.85
+ },
+ {
+  "i": 43,
+  "beat": "ice-if-youre-scared",
+  "srcStart": 1981.84,
+  "srcEnd": 2003.3,
+  "outFloat": 1603.59,
+  "outFrame": 1603.535,
+  "dur": 21.46
+ },
+ {
+  "i": 44,
+  "beat": "muscle-loss-is-the-risk",
+  "srcStart": 2013.06,
+  "srcEnd": 2050.34,
+  "outFloat": 1625.05,
+  "outFrame": 1624.99,
+  "dur": 37.28
+ },
+ {
+  "i": 45,
+  "beat": "protein-target",
+  "srcStart": 2060.54,
+  "srcEnd": 2096.34,
+  "outFloat": 1662.33,
+  "outFrame": 1662.261,
+  "dur": 35.8
+ },
+ {
+  "i": 46,
+  "beat": "wrap-obese-diabetes",
+  "srcStart": 2115.24,
+  "srcEnd": 2130.0,
+  "outFloat": 1698.13,
+  "outFrame": 1698.063,
+  "dur": 14.76
+ },
+ {
+  "i": 47,
+  "beat": "wrap-20-30-lbs",
+  "srcStart": 2142.4,
+  "srcEnd": 2177.64,
+  "outFloat": 1712.89,
+  "outFrame": 1712.811,
+  "dur": 35.24
+ },
+ {
+  "i": 48,
+  "beat": "outro",
+  "srcStart": 2200.38,
+  "srcEnd": 2279.02,
+  "outFloat": 1748.13,
+  "outFrame": 1748.046,
+  "dur": 78.64
+ }
+]

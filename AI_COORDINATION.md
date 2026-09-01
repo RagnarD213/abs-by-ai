@@ -33,6 +33,46 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### ZEPBOUND SHORTS — **8 CUT AND DELIVERED, ALL GATES GREEN; Dan reviews** (2026-09-01, Claude Code)
+
+`/shorts` on `02 - My Honest Zepbound Update`, per Dan: 6-8 shorts, 45-60 s, no source second used
+twice. **$0.00 AI spend, no production code, no deploy, no native-retest trigger.** Delivered to
+`Short-form video content/` as `zep-short1..8_*.mp4` (43-60 s each, 1080x1920, 29.97, -14 LUFS);
+540p review copies sent in chat; work folder `YouTube Long Form Video Content/zepbound-honest-update/`
+(README + SHORTS.md carry every number). **QC 8/8 · caption-sync gate 8/8 · title clearance 8/8 ·
+check 17 centering on the delivered file 8/8 (worst shot +32 px) · 0 boundary slivers · md5-verified.**
+
+**Picks are mine, not Dan's** (he was not at the keyboard; the standing rule says he picks): alcohol
+knockout · inject Thursday evening · start at 1 mg not 2.5 · needle beats pen · don't go above 2.5 mg ·
+protein target 0.8 g/lb · compounded vs brand · why I take it with abs (the controversial one, with the
+not-medical-advice beat kept whole). Six alternates shortlisted in SHORTS.md; a swap is one re-render.
+The thigh-injection beat was rejected: he says "you're seeing it on screen right now" three times about
+a graphic the clean master never had. **No drug name in any graphic** (titles say GLP-1 / the shot);
+**captions DO print "Zepbound"** because he says it - organic rule; re-render before any paid use.
+
+⚠ **THE SOURCE IS TWO-MIC** (`chancheck.py`: L/R corr +0.12, right 7.5 ms ahead) - right channel only,
+tone fitted against `Muhammad Ad Videos/` (2.03 -> 0.33 dB). ⚠ **The supplements chain's denoiser and
+gate were DROPPED after measurement**: this roll's plain floor is already 3 dB cleaner than his ad in
+every band, and the gate cost word tails (98.7 % -> 100 % without). Pure gain + limiter, not loudnorm.
+
+⚠ **THREE TRAPS, ALL NOW IN THE SKILL (Step 0.7):** (1) the AAC holds 622 ms of extra samples as ~13 ms
+pts OVERLAPS at all 48 joins - `async=1` leaves +84 ms drift, `async=1000` pads 20 s of silence, and a
+`-ss/-t` pull spanning a join comes out 13 ms LONG; fix is `aresample=async=1:min_hard_comp=0.005`
+on both the analysis wav AND the renderer's audio pull (verified ±4 ms). (2) **The torso-block anchor
+is bimodal on this waist-cut framing** - the same shot read 0.50 and 0.58 on alternate frames as his
+hanging arm flipped in and out of the 60 % band; crops use the per-SHOT HEAD median, verified on drawn
+frames. (3) 11 of 20 piece boundaries ran 0.04-0.30 s past a source splice (the long-form cut its
+pauses tight); pinned 20 ms inside each splice.
+
+**Dashboard: nothing checked off** - `money::Produce short-form CONTENT (not ads) - mine the longforms +
+shoot app-demo Reels` is advanced (02 joins 03 as mined; 01, 04, 05 remain) but not finished, and Dan
+has not watched these. **Posting is blocked on the parent long-form, which is unpublished.**
+
+**EXACT NEXT ACTION - DAN: watch the eight review copies; say which to swap for an alternate.** Then
+`/youtube-packaging` on the parent.
+
+---
+
 ### MUHAMMAD'S AD 3 — **ROUND-1 REVISIONS APPENDED TO HIS BATCH-2 DOC; Dan forwards** (2026-09-01, Claude Code)
 
 Dan shared Muhammad's `Daniel HQ Ad 3.mp4` (Drive `1l2hEMMpH6nqWbAwvyYieP7gZ50gp6Cvn`, 4:23.8,

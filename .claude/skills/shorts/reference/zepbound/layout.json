@@ -1,0 +1,49 @@
+{
+ "canvas": [
+  1080,
+  1920
+ ],
+ "note": "Geometry for the Zepbound Shorts (long-form 02). Source is OUR OWN clean cut - one locked kitchen-doorway camera, no burned graphics anywhere - so every shot is a full-bleed 9:16 talk crop. All numbers measured off full-resolution frames with Apple Vision.",
+ "talk": {
+  "cropW": 738,
+  "cropH": 1080,
+  "cropTop": 0,
+  "note": "MEASURED on this roll with Apple Vision over all 49 beats: Dan's head top sits at SOURCE ROW 0 on every beat (the camera framed him to the top edge), so unlike the supplements set there is no dead ceiling to remove and cropTop MUST be 0 - any crop off the top cuts his hair. Full-height 738x1080 -> 1080x1580 is a 1.46x upscale. The picture is dropped to y=340 (not 310) so the two-line headline's ink (ends ~y300) keeps >=40px of black between it and his hair, which now starts exactly at the picture's top edge.",
+  "headTopSrc": 0,
+  "headY": 340,
+  "tightW": 678,
+  "tightH": 992,
+  "tightTop": 0,
+  "tightNote": "PUNCH-IN. Alternates with the wide crop at every join to hide it. 678x992 from the TOP (tightTop 0 - his head is at row 0, so the punch crops the bottom, never the top), same delivered aspect, 1.59x upscale; his head lands at the same delivered y so only the framing moves."
+ },
+ "card": {
+  "w": 1080,
+  "h": 660,
+  "x": 0,
+  "y": 340,
+  "chipY": 1012,
+  "chipH": 64,
+  "note": "Unused in this batch - the clean master carries no graphics to preserve.",
+  "labels": {}
+ },
+ "pip": {},
+ "wordmark": {
+  "x": 74,
+  "y": 1786
+ },
+ "titleSeconds": null,
+ "pipBoxes": {},
+ "audio": {
+  "fadeIn": 0.12,
+  "fadeOut": 0.35,
+  "joinFade": 0.05,
+  "note": "\u26a0 UNLIKE THE AB-WHEEL BATCH, THIS SOURCE HAS NO MUSIC BED - the 8/27 rebuild added inserts, not a bed, and the style gate's bed check reads 0.8-1.1x on videos that carry none. So there is no bar to drop into and no bed to stop dead, and the fades are short: just enough to keep a splice from ticking. Durations are preserved exactly (no acrossfade), so picture and sound stay frame-locked."
+ },
+ "titleMaxLines": 2,
+ "titleScrimH": 340,
+ "dropTop": 340,
+ "dropNote": "STANDING RULE (Dan, 2026-08-28): the title never sits on his face or abs - the picture is DROPPED below the title band and the J2 field carries the title. On THIS roll his head is at source row 0, so headY == dropTop exactly; the clearance that matters is title-ink-bottom to dropTop, held at >=40px (qc.js measures it off the rendered title PNGs). dropTop 340: picture 1080x1580, window 738x1080.",
+ "titleScrimNote": "The scrim ends exactly where the dropped picture starts, so it can never reach the picture. It still earns its place on CARD shots, whose stage top is y170 - there the title crosses the top of the card, which is sky.",
+ "titlePersists": true,
+ "titleNote": "STANDING RULE (Dan, 2026-08-28): the title holds for the WHOLE short, on the black field only, never over the picture. The picture is dropped to y=310 to make room. Supersedes the V4-era 'title must not stay up the whole video' rule, which was written when the title sat on his face."
+}
