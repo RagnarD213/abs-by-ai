@@ -64,8 +64,19 @@ sheets, subject-fraction sanity flag). Verified end-to-end through the SCRIPT pa
 user agent** — curl works, urllib fails until a custom User-Agent is set (in the script now).
 Test total AI spend <$0.01.
 
-**EXACT NEXT ACTION — the batch run over all studio finals into `_cutouts/` (~$0.20, one session,
-invoke `/background-removal`).** Dan has approved the look; nothing is blocked.
+**BATCH COMPLETE same session — ALL 100 STUDIO FINALS CUT OUT.** `_cutouts/` holds 100
+`studio-<bg>-<n>_CUTOUT.png`, one per final (landscape frames included; the " 2.jpg" conflict
+copies correctly excluded by the glob). **Verified: 100/100 RGBA at full source resolution and
+readable, 0 failures, 0 sanity flags** (subject fractions 0.22-0.43; the low end is the landscape
+frames, checked, not truncated keys — a 170px contact-sheet tile made blue-153 LOOK headless and
+the full-size check showed it complete: don't QC a key off a tiny tile). Contact sheet of all 100
+on a dark canvas sent to Dan. **Batch AI spend ~$0.19; session total ~$0.20.** Pool-shoot
+(`photo-N`) finals deliberately NOT run — Dan said studio shoots, and the recipe is validated on
+studio seamless only.
+
+**EXACT NEXT ACTION — none. The folder is built.** New finals get a cutout via
+`/background-removal` (idempotent — re-running the whole glob only processes new frames); a
+REVISED final's stale cutout must be deleted or `--force`d.
 
 ---
 
