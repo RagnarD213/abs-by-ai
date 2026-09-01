@@ -383,6 +383,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Put chemicals in pool. See Dan for training first",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-09-01"
     }
   ]
 }
