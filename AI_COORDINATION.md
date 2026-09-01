@@ -33,6 +33,44 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### MUHAMMAD'S AD 3 — **ROUND-1 REVISIONS APPENDED TO HIS BATCH-2 DOC; Dan forwards** (2026-09-01, Claude Code)
+
+Dan shared Muhammad's `Daniel HQ Ad 3.mp4` (Drive `1l2hEMMpH6nqWbAwvyYieP7gZ50gp6Cvn`, 4:23.8,
+854x480 review copy, owner sharkimageryproduction = Muhammad) and asked for the revisions to be
+ADDED to his existing doc **"Muhammad Video Revisions - Ads Batch 2"**
+(`1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`), which already held the Ad 2 notes. Done — a new
+`AD 3` H2 section in the same bullet format sits under Ad 2, verified by Drive read-back (all 15
+links intact, Ad 2 section byte-unchanged). Markdown copy:
+`revision docs/ad3-revisions-muhammad-round1-9-1-26.md`. **$0.00 AI spend, no code, no deploy.**
+
+**THE AUDIO IS THE RAW TWO-MIC PAIR, and Ad 1 / Ad 2 prove he knows the fix.** Measured on Ad 3:
+L/R corr **−0.72 at −7.85 ms, polarity inverted**, same-mic residual **−3.2 to −4.9 dB** (two
+different mics), mono fold-down loses **2.9–3.5 dB** of voice, **−17.7 LUFS / +0.57 dBTP with 61
+clipped samples**. His Ad 1 and Ad 2 measure as ONE mic (L/R +0.98–0.999, residual −18 to −26 dB,
+peaks ≤ 0). Raw roll C1593 confirms **right channel = lav** (SNR 48.5 vs 40.9 dB), same rig as C1591.
+The doc tells him: right channel only as mono, then the same top-end lift he gave Ad 1/2 (right
+channel alone is ~6 dB duller above 2.5 kHz than his Ad 1 mix), peaks ≥1 dB under 0.
+
+**Picture findings, all in the doc:** the banned **side-by-side "Meet the new you" is back at
+3:12–3:22** (10 s, plus the body-fat 20-24%→9% line) — the exact Ad 2 rev-6 fault, replacement =
+the trainer-assessment screen (`1wFsyT9eKeUVzDcF0L7bbAPn5DSAVdRIs`, goal image alone + assessment
+text); the **email-capture screen is on screen at 3:06**; the 35 s robot-story clip is cut to ~15 s
+over "number one" instead of the full 35 s over "number two"; the 8 s hook clip is missing; only one
+photo-shoot still where the script says 3–5; visual density is half his Ad 1 (33 changes vs 53,
+stretches of 18–24 s with nothing but Dan). Standing rules restated + new hard rule "never show the
+email signup screen".
+
+⚠ **THE CLIPBOARD TRAP FIRED AGAIN**: the first cmd+v pasted another session's handoff path
+(`Handoffs/handoff-20260901-brandon-carter-style-thumbnails.md`) — a concurrent session overwrote
+the clipboard between set and paste. cmd+z, re-set, paste immediately: clean. Verified by full
+read-back, zero residue.
+
+**Dashboard: nothing checked off** — the nearest row is Muhammad's editing batch, which is his work.
+
+**EXACT NEXT ACTION — DAN: read the AD 3 section and tell Muhammad it is in the same doc.** Nothing
+is blocked.
+
+
 ### @danrosefit FOLLOWER CAMPAIGN — **BLOCKED ON AD IDENTITY; HANDOFF WRITTEN, NOT EXECUTED** (2026-09-01, Claude Code)
 
 Dan asked for a game plan to get Instagram followers with Meta ads, then built the campaign

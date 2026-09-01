@@ -233,3 +233,22 @@ Two audiences, same skill:
     nothing in the doc is new, that the list ends the job, and that there is more paid work behind
     it. Advise Dan **not to release a funded milestone** before the outstanding work lands; it is
     the only structural leverage left.
+19. **When the editor's OWN earlier cuts already have the right sound, measure those and make them the
+    target.** Muhammad's Ad 3 (2026-09-01) shipped the raw two-mic pair (L/R −0.72 at −7.85 ms,
+    inverted) while his Ad 1 and Ad 2 measured as one mic (residual −18 to −26 dB). "Do exactly what you
+    did on Ad 1 and Ad 2" lands better than any explanation, and it is provably achievable by him.
+    Compare speech-band spectra too: the bare right channel is ~6 dB duller above 2.5 kHz than his
+    Ad 1 mix, so say "add the same top-end back" or the single-mic fix will sound worse to him.
+20. **"Add it to this doc" = append a new H2 section in the SAME bullet format, via the osascript HTML
+    clipboard + cmd+v at the end of the doc (click the last line, End, Return x3 to leave the list).
+    Set the clipboard IMMEDIATELY before the paste** — a concurrent session overwrote it between set
+    and paste and a stray file path landed in Dan's doc; cmd+z, re-set, paste again, then verify by
+    Drive read-back. Check the pasted section AND that the previous section is byte-unchanged.
+21. **Asset folder for the trainer-ad AI clips is `1ZO4wukehoHAwnRRyDyFKm4hFtXMYF2Ex`** (8 s hook
+    cutdown `1Io6XQlkym21ufR2aUZz_dc_j0tU_2VMC`, 35 s story `1mW5nEDjDbPCJUJGtjHUCrGqRVsX-Lhie`); the
+    real app screens (trainer assessment `1wFsyT9eKeUVzDcF0L7bbAPn5DSAVdRIs`, workout day
+    `11AS0LYjs-LfUPuhhVqGdAtiN1sjkJ02j`) are in the reference-ad folder, and the installed exercise
+    demos are public at `https://absbyai.com/exercise-demos/<id>.mp4` — link them, never re-upload.
+    The trainer-assessment screen shows the GOAL image alone, so it is the clean replacement whenever
+    an editor puts the app's "Meet the new you" side-by-side on screen (three editors have now).
+
