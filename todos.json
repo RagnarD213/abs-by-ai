@@ -117,18 +117,6 @@
       "addedAt": "2026-08-19"
     },
     {
-      "text": "Write scripts for the next shoot (≥half workout content)",
-      "priority": "key",
-      "why": "2026-08-19 planning — Dan in peak shape with tan; prioritize workout content this shoot",
-      "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Write workout outlines for the next shoot",
-      "priority": "key",
-      "why": "2026-08-19 planning — feeds the shoot scripts; workout-content-heavy shoot",
-      "addedAt": "2026-08-19"
-    },
-    {
       "text": "Plan the next photo shoot",
       "priority": "med",
       "why": "2026-08-19 planning",
@@ -157,12 +145,6 @@
       "priority": "key",
       "why": "2026-08-19 planning — Romeysa backed out; editing is now the constraint on the content engine",
       "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
-      "priority": "key",
-      "why": "2026-08-21 planning — 4 editors started 8/20; keep them unblocked so results land on time",
-      "addedAt": "2026-08-21"
     },
     {
       "text": "Approve Ad 1 rev-1, apply final revisions, finalize the /ad-edit skill",
@@ -321,12 +303,6 @@
       "addedAt": "2026-08-28"
     },
     {
-      "text": "Execute handoff: studio batch 6 — retouch the remaining 52 picks (/photo-edit, Opus)",
-      "priority": "key",
-      "why": "4 wave docs: handoff-20260828-studio-batch6-wave1..4.md (12/12/13/15 frames, one Opus session each); master doc handoff-20260828-studio-batch6-remaining-52-picks.md — created but not yet run",
-      "addedAt": "2026-08-28"
-    },
-    {
       "text": "Export our recovered EDL as a Premiere/FCP timeline for the freelance editors",
       "priority": "high",
       "why": "Watch-review 8/29 (ButterCut, Cut Valet): our pipeline already recovers a word-accurate EDL; exporting it as FCPXML instead of only an MP4 would hand Muhammad's 12-ad batch a finished rough cut + right-channel mono audio, removing the exact steps 2 of 3 trial editors failed on",
@@ -367,38 +343,32 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-31"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-31"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-31"
+      "recurring": true
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-31"
+      "recurring": true
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-31"
+      "recurring": true
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-08-31"
+      "recurring": true
     }
   ],
   "personal": [
@@ -418,37 +388,6 @@
       "priority": "med",
       "why": "2026-08-19 planning — a couple of current ones aren't ideal",
       "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Retouch dating-app photos (/photo-edit) and upload them to the apps",
-      "priority": "med",
-      "why": "2026-08-21 planning — Claude retouches, Dan uploads",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Schedule the Ulta makeup appointment",
-      "priority": "med",
-      "why": "2026-08-21 planning — for the upcoming shoot",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Order groceries",
-      "priority": "med",
-      "recurring": false,
-      "addedAt": "2026-08-22",
-      "why": "2026-08-22 planning — Saturday routine, needs a salad-stock check"
-    },
-    {
-      "text": "Buy more collagen and Kiro electrolyte powder",
-      "priority": "med",
-      "why": "2026-08-27 planning — running low on both",
-      "addedAt": "2026-08-27"
-    },
-    {
-      "text": "Pick up meals from Clean Eats",
-      "priority": "med",
-      "why": "2026-08-31 planning — weekly meal pickup",
-      "addedAt": "2026-08-31"
     }
   ],
   "assistant": [
