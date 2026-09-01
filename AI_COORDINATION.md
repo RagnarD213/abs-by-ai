@@ -79,6 +79,15 @@ look plus his title conventions, which search DID confirm ("PSYCHO ABS WORKOUT",
 session with a browser can also pull his top-20 thumbnails in minutes. Coordination entry only; still no
 code, deploy or dashboard task.
 
+**REV 2 (same day) — DAN REJECTED THE LOT: "These all look very bad."** Both canvas pages are now a
+record of what NOT to do. **Handoff written for a Mac session:**
+`Handoffs/handoff-20260901-brandon-carter-style-thumbnails.md` — pull his real thumbnails with yt-dlp,
+MEASURE the style into `STYLE.md`, copy three of his top thumbnails one to one from the real
+`_cutouts/` files, deliver his|ours sheets. **Key dashboard task added by editing `todos.json` on this
+branch** (absbyai.com is egress-blocked here) — it appears on the board only when the branch merges.
+
+**EXACT NEXT ACTION — execute that handoff in a fresh session on the Mac (Opus 5, high effort).**
+
 ---
 
 ### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
