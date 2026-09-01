@@ -33,7 +33,6 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
-<<<<<<< HEAD
 ### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
 
 Dan: her tracked time disappeared at the end of each day; it should accumulate until he presses a
@@ -73,7 +72,8 @@ the dashboard's "Mark … as paid" button appears under the timer.**
 
 **EXACT NEXT ACTION — none blocking. Dashboard: nothing checked off — searched `todos.json`, no task
 covers this.**
-=======
+---
+
 ### 04 INVEST-HEALTH TO THE NEW STANDARD — **VARIANT COMPARISON DELIVERED; WAITING ON DAN'S PICK, NOTHING RENDERED** (2026-09-01, Claude Code)
 
 Owner: Claude Code. Status: Blocked on Dan's variant pick. Executing
@@ -110,7 +110,6 @@ already in `fitvoice_invest.py`) muxed with `-c:v copy` — no picture re-render
 or fresh: (optional re-concat) → audio rebuild → baseline `qc_style.py` → punch-ins → coverage →
 motionlib MIL graphics from the variant's `_chip_timings.json` → bed → captions → re-gate → deliver
 to `claude edited long form content/04 - …/` keeping the prior master as `*_PRE_REBUILD.mp4`.
->>>>>>> 93d13df (Coordination: 04 invest-health variant comparison delivered, awaiting Dan's pick)
 
 ---
 
