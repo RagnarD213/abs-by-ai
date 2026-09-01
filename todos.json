@@ -223,6 +223,12 @@
       "priority": "high",
       "why": "8/31 paid pull: [DAN] [ENGAGEMENT] and [DAN] [ENGAGEMENT] IG GEO are both switched off (IG GEO spent $13.26 then stopped), and 3 unpublished draft edits are still pending. Carried over from the deleted Meta-check task.",
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Execute handoff: cut 6–8 Shorts from the Zepbound long-form (02) — /shorts, Mac only",
+      "priority": "key",
+      "why": "Handoffs/handoff-20260901-zepbound-shorts.md — Dan asked for this 9/1 in a cloud session that cannot reach the media (Drive/YouTube egress 403); must run on the Mac mini",
+      "addedAt": "2026-09-01"
     }
   ],
   "health": [

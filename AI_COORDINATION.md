@@ -33,6 +33,35 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### ZEPBOUND SHORTS (02) — **BLOCKED IN THE CLOUD; HANDOFF WRITTEN for the Mac** (2026-09-01, Claude Code)
+
+Dan asked a cloud session to run `/shorts` on `02 - My Honest Zepbound Update` (6–8 shorts, 45–60 s,
+no source second twice, chancheck first, voice fitted against `Muhammad Ad Videos/`, pure gain +
+limiter, `abs` lower case, title on black with the picture dropped, check-17 centering on the
+delivered file, no drug name in any graphic). **$0.00 spend, no production code, no deploy.**
+
+⚠ **THE JOB CANNOT RUN FROM THE CLOUD, AND THAT WAS ESTABLISHED BY MEASUREMENT, NOT ASSUMED.** Every
+media folder is git-ignored and Mac-only; the egress policy returns **403 on CONNECT to
+`drive.google.com` AND `youtube.com`** (so the 16 GB raw `C1513.MP4` on Drive is unreachable — the
+Drive connector streams base64 through the model, unusable at that size); only one cloud environment
+exists and it is the blocked one. No transcript, SRT or master exists anywhere but the Mac.
+
+**Delivered instead:** `Handoffs/handoff-20260901-zepbound-shorts.md` — Dan's constraints mapped to
+the exact scripts and gates, the source-file expectations (⚠ the NO-GRAPHICS master's audio is almost
+certainly still two-mic, as on 03), a 14-beat candidate table ranked from the cut's own EDL, the
+do-not-cut list (`the-transformation` still has EMPTY photo slots), three flags for Dan (drug name
+spoken vs never printed; dosing shorts lose the disclaimer beat; profanity), naming `zep-shortN_*`.
+Plus `Handoffs/assets/shorts-zepbound-20260901/range-map.md` — all 50 EDL ranges with labels, raw
+in/out and approximate master timecodes (⚠ the repo EDL sums to 30:46 vs the delivered 30:28, so
+re-derive every timecode from the SRT). **Key dashboard task added via `todos.json` on the branch**
+(`absbyai.com` is also egress-blocked from the cloud) — it goes live on merge.
+
+**EXACT NEXT ACTION — on the Mac: fresh session, `/shorts` on the 02 folder, `chancheck.py` +
+`preflight.py`, build the verbatim shortlist from the SRT per the handoff's candidate table, put it
+to Dan and wait for his letters.** Nothing is blocked on the Mac.
+
+---
+
 ### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
 
 Dan: her tracked time disappeared at the end of each day; it should accumulate until he presses a
