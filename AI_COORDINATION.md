@@ -33,6 +33,37 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### 04 INVEST-HEALTH STYLE PASS — **NOT EXECUTED: blocked twice, nothing built** (2026-09-01, Claude Code)
+
+Asked to execute `Handoffs/handoff-20260824-five-longforms-to-new-standard.md` for 04 only. **$0.00
+spend, no code, no deploy, no media touched, no native-retest trigger.** Stopped before any step of the
+recipe because both prerequisites failed:
+
+1. ⚠ **THIS WAS A CLOUD SESSION AND THE VIDEO PIPELINE ONLY EXISTS ON THE MAC MINI.** The container has
+   no `ffmpeg`, no Whisper, no `/Volumes/Extreme`, no `claude edited long form content/`, no `Media/`,
+   no music-bed library, no segment cache — every one of those is gitignored or on the external SSD.
+   Searched the whole disk and Google Drive for `INVEST_HEALTH*` / `C1511*`: **nothing.** The only
+   `.mp4`s here are the 33 exercise demos under `public/`. A longform style pass (cutaways, motionlib
+   graphics, `build_gfx_track.py`, bed, captions, `qc_style.py`) cannot run without the graded cut and
+   the cache. **Run this task in a LOCAL session on the Mac, not from claude.ai/code.** Same block the
+   9/1 dashboard-cleanup and time-tracking sessions hit on the deploy side; this is the media side of it.
+2. ⚠ **THE VARIANT WAS NEVER FILLED IN.** The prompt read literally `Dan picked the
+   [conservative|sub30] variant` — the placeholder, not a choice. Per the handoff, picking between
+   `INVEST_HEALTH_conservative.mp4` (43:31) and `INVEST_HEALTH_sub30.mp4` (28:25) is a prerequisite
+   Dan makes, and it decides ~15 minutes of graphics work, so it was not guessed.
+
+Both variants live at `Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/` on the Mac with
+their `.srt`, `_edl.json` and `_chip_timings.json` (cut-downs entry below). ⚠ Recall the v3 deliverables
+went missing from that folder on 8/21 — verify the chosen variant is still on disk before starting.
+
+**EXACT NEXT ACTION — DAN: pick conservative or sub30, then start a local Mac session with:**
+`Execute Handoffs/handoff-20260824-five-longforms-to-new-standard.md for video 04 invest-health only.
+Dan picked the <conservative|sub30> variant. Follow the recipe used on 01/02/03 (AI_COORDINATION.md
+"FIVE LONGFORMS" entry: -loop 1 needs -t, use build_gfx_track.py). Check ps before rendering; two-build
+cap.` Nothing else is blocked; the 01/02/03 recipe is unchanged.
+
+---
+
 ### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
 
 Dan: her tracked time disappeared at the end of each day; it should accumulate until he presses a
