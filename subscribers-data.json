@@ -212,6 +212,16 @@
         "3": "2026-09-01T19:23:34.732Z"
       },
       "unsubscribed": false
+    },
+    "h.melotto@melottogroup.com": {
+      "subscribedAt": "2026-09-01T22:01:36.465Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-09-01T22:01:36.465Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
