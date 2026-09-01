@@ -66,6 +66,19 @@ this session anyway).
 **EXACT NEXT ACTION — DAN: open the canvas, pick 1-2 directions.** Then a Mac session builds them
 from the real `_cutouts/` files for the next video, as the two A/B contenders.
 
+**REV 1 (same day) — Dan: "research Brandon Carter's thumbnails and create three in his style."**
+Added as a second canvas page (**Brandon Carter style**): **BC1 Get A Six Pack FAST** (dark gym vignette,
+stacked white/yellow/red Impact-style caps with black stroke, big flex) · **BC2 STOP CRUNCHES** (red X
+through the word, yellow "DO THIS INSTEAD" sticker, dark-red field) · **BC3 BURN BELLY FAT AT 40** (flat
+yellow, black type, red arrow to the abs, black-stroked cutout). Same stand-in photos.
+⚠ **HIS CHANNEL COULD NOT BE VIEWED FROM THIS SESSION — every route is egress-blocked:** youtube.com,
+i.ytimg.com, seven Invidious/Piped mirrors, image proxies (weserv, DDG), Bing/Google image search,
+brandoncarter.com, Instagram, Pexels/Pixabay/Wikimedia. The boards are built from prior knowledge of his
+look plus his title conventions, which search DID confirm ("PSYCHO ABS WORKOUT", "ABDOMINAL ASSAULT",
+"How to get a six 6 pack and burn belly fat FAST"). **Dan should compare against his Videos tab** — a Mac
+session with a browser can also pull his top-20 thumbnails in minutes. Coordination entry only; still no
+code, deploy or dashboard task.
+
 ---
 
 ### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
