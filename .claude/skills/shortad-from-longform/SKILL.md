@@ -608,6 +608,34 @@ necessary, take things directly from his video."* Eight lessons, each paid for:
 His verdict was that the audio "sounds like Muhammad", the graphics were wrong, and **"the most
 severe issue is the centering throughout the entire video"**. Ten lessons:
 
+0aa. ⚠⚠ **COUNT THE VIDEO STREAM'S FRAMES AGAINST THE PLAN. THE CONTAINER'S DURATION LIES.**
+   A stale, INDEX-KEYED plate in `gfx/p{i}.mov` was reused after a beat's duration changed,
+   and because a card is muxed with `shortest=1` a plate 10 frames short **TRUNCATED the
+   beat**. The master shipped 8,265 frames against a plan of 8,275: the picture ran 334 ms
+   ahead of the audio for the last 85 seconds, and every flash after the hole fired 8 frames
+   into the following sentence. **Every duration check passed**, because `format=duration`
+   reports the longer of the two streams — so a truncated PICTURE reads back as full length.
+   Probe `-select_streams v -count_frames` and assert the count equals `round(DUR*fps)`.
+   **Content-address the plate cache exactly like the segment cache** (hash of beat spec +
+   duration + frame count); an existence check on an index-keyed name is not a cache.
+0ab. ⚠ **A CROSS-DISSOLVE SCORES WELL ON EVERY FRAME-DIFFERENCE METRIC WHILE LOOKING LIKE TWO
+   FACES.** A ghost is a SMOOTH blend, so it lowers frame-to-frame difference — which is what
+   those metrics reward. Three separate metrics of mine rated six ghosting dissolves as
+   successes; frame-by-frame inspection called them "unmistakable double exposures, worse
+   than the hard cut they replaced". **A dissolve is only safe when the two sides are nearly
+   registered — under about 25 px of head displacement at 1080 — and the only way to confirm
+   it is to look.** Where it ghosts, leave his hard cut alone rather than substituting a
+   worse artifact.
+0ac. ⚠ **SMOOTH THE TRACK INSIDE EACH SOURCE-CONTINUOUS SEGMENT, ZERO-PHASE, AND LET THE CROP
+   STEP AT THE SPLICE.** One causal filter across the whole video has not caught up when the
+   outgoing frame is the last of its take: measured on 11 of 37 splices the outgoing frame was
+   already **54-104 px off centre**, so the tracker's own lag was ADDED to his real pose change
+   and made his cuts read bigger than they are. Smooth per segment with a forward-and-backward
+   pass, and force a breakpoint pair either side of each splice so the step renders as a step.
+   ⚠ And clamp the track lookup INSIDE the sample's own segment: at 4 samples/s a plain
+   `round()` one frame before a splice lands on the sample AFTER it, so the pre-step breakpoint
+   picks up the post-step value and a step becomes a 187 px ramp.
+
 0. ⚠⚠ **MEASURE CENTERING ON THE DELIVERED FILE. NOTHING UPSTREAM CAN SEE A BAD FILTER
    EXPRESSION.** Two versions were rejected for centering and only the second rejection found the
    real cause, which was neither the tracker nor the beat sheet but the ffmpeg crop expression
