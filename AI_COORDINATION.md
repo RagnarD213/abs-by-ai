@@ -203,7 +203,22 @@ rejected versions.** The track was measured with Vision, the A/B looked right, t
 correct — and the picture was still wrong, because **nothing that inspects the build plan can see a
 bad filter expression.** **QC is now 17/17.** Lessons committed to the skill (`15c5160`).
 
-**EXACT NEXT ACTION — DAN: watch the rev-2 review copy (sent in chat), then cut
+**RE-AUDITED AND CLEARED.** Second independent Fable pass on the delivered file, 313 talk samples:
+**median +0.0 px, sd 29.7, 13 beyond 70 px (all sub-second leans, face never clipped), 0 beyond
+150.** Both historic defects **verified dead at full resolution**. One sustained run left —
+**82.5-83.5 s, +69 px**, the slope cap lagging his hardest lunge — verified as him lunging, not a
+mis-centred crop. **Verdict: ships on centering.**
+
+⚠ **THE TRADE-OFF WAS CHECKED AND IT DID NOT BACKFIRE: the crop is PIXEL-STATIC at rest**
+(0.0-0.3 px/frame, no hunting or breathing) and only moves when following him. **One real artifact
+reported rather than buried:** inside the fastest pans the advance carries a +/-1-2 px step cadence
+— the integer pixel grid, since ffmpeg's `crop` can only offset by whole pixels. Below the
+distraction threshold at phone size; removing it means abandoning `crop` for a sub-pixel path,
+which is not worth it. ⚠ Also logged: **`fps=2` sampling lands ~0.2 s late against an exact seek**,
+so confirm any flagged instant with `-ss` before believing it.
+
+**EXACT NEXT ACTION — DAN: watch the rev-2 review copy (sent in chat), and look specifically at
+0:45-0:49 and 1:20-1:27, the two hardest lunges, since "distracting" is a taste call. Then cut
 `SCRIPT_FOR_DAN.md` to ~200 words for the 0:59.** Nothing is blocked.
 
 ---
