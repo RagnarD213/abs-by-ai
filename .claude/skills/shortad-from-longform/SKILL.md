@@ -559,6 +559,25 @@ necessary, take things directly from his video."* Eight lessons, each paid for:
 His verdict was that the audio "sounds like Muhammad", the graphics were wrong, and **"the most
 severe issue is the centering throughout the entire video"**. Ten lessons:
 
+0. ⚠⚠ **MEASURE CENTERING ON THE DELIVERED FILE. NOTHING UPSTREAM CAN SEE A BAD FILTER
+   EXPRESSION.** Two versions were rejected for centering and only the second rejection found the
+   real cause, which was neither the tracker nor the beat sheet but the ffmpeg crop expression
+   itself. `crop_x_expr` builds a piecewise `if(lt(t,..),..)` chain; assembled by wrapping each
+   interval around the previous result **in forward order**, the LAST interval becomes the
+   OUTERMOST test, so every frame before the final interval evaluates **the last interval's line
+   equation extrapolated backwards across the whole beat**. On a 12 s beat that put the crop 178 px
+   too far right in source = **316 px left in the delivered frame**, for twelve seconds. Wrap the
+   chain in REVERSE, keep breakpoints at 0.5 s, clamp the output, and **write a self-test that
+   evaluates the expression the way ffmpeg does and diffs it against the track**. Then add a gate
+   check that masks the FINISHED frames and fails on median > 25 px, >10 % of talking frames beyond
+   70 px, or any run beyond 60 px lasting a second. The A/B sheet, the track statistics and the
+   beat sheet were all green while the delivered picture was wrong.
+0b. ⚠ **SMOOTH THE TRACK FOR HOW FAST HE ACTUALLY MOVES, AND MEASURE THAT FIRST.** His torso runs
+   at p90 128 px/s and p99 232 px/s in the source; a 2 s median plus an 80 px/s slope limit follows
+   only the slowest 79 % of that and leaves sd 80-110 px. Simulate candidate settings against the
+   RAW anchor series before rendering — it is free — and read off the trade against the crop's own
+   pan rate. k=3 (~0.75 s) with a 200 px/s limit gave sd 30 px for a 95th-percentile pan of
+   ~250 px/s, which inspected on consecutive frames reads as a gentle reframe rather than a swim.
 1. ⚠ **NEVER ANCHOR THE CROP ON A COLOUR HEURISTIC. USE APPLE VISION PERSON SEGMENTATION.**
    This is the single most expensive mistake available in this skill, and the project had already
    paid for it once: the 2026-08-27 re-centre session recorded that a skin+dark-garment heuristic
