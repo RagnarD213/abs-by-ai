@@ -207,7 +207,63 @@ MEASURE the style into `STYLE.md`, copy three of his top thumbnails one to one f
 `_cutouts/` files, deliver his|ours sheets. **Key dashboard task added by editing `todos.json` on this
 branch** (absbyai.com is egress-blocked here) — it appears on the board only when the branch merges.
 
-**EXACT NEXT ACTION — execute that handoff in a fresh session on the Mac (Opus 5, high effort).**
+**EXECUTED 2026-09-01 (Mac session, Fable) — THREE FINALS DELIVERED, Dan reviews.** AI spend
+**~$0.002** (one BiRefNet key of the ab-wheel prop). No production code, no deploy, no native-retest
+trigger, nothing installed in YouTube Studio. Output (gitignored, verified):
+`social media graphics/youtube/thumbnails/The 17 Dollar Ab Wheel Beats Every Crunch/` —
+`abwheel_bcstyle_{A_do-this,B_only-17,C_crunches-suck}-FINAL.jpg` (+ `-nologo` = FINAL, since his
+carry no branding, + `-withlogo`), three `COMPARE_*_his-vs-ours.jpg` sheets, `GLANCE_168x94` row, and
+`_build-2026-09-01/` (build.py with every measured number, compare.py, STYLE.md, both channel sheets,
+the keyed prop, qc.json). Research copies in `~/absbyai-video-work/bc-thumbs/`.
+
+⚠ **THE DECISIVE FINDING: HIS CHANNEL HAS TWO ERAS AND THE ONE EVERYONE PICTURES IS NOT THE ONE
+THAT GOT THE VIEWS.** All 30 of his most-viewed videos are 2012-2017 (0.7M-10M views) and **19 of
+the top 20 thumbnails carry NO TEXT AT ALL** — raw, warm-graded, full-bleed torso photos, head often
+cropped out. The recognisable "Brandon Carter style" (bald cutout, arms behind head, stacked
+white/yellow/red Anton caps on near-black) is the **2025-26 era, doing ~10-25K views a video.**
+Copied the recent era because it is the only one with a copyable system and it is what Dan meant;
+flagged to him that the mega-hit era is text-free photos.
+
+**Measured, not guessed (`STYLE.md`):** ground `#080607` = 62 % of non-person pixels (median bg luma
+0-23 on 15/20), subject full height (median mask 0.97 of frame, head top 0.02-0.06, bottom ALWAYS
+clipped at the waistband), pose arms-behind-head 11/20, serious face 18/20, right third 9 / centre
+9 / left 2. **Skin: same hue as Dan's cutouts (22-24°) at saturation 0.70-0.87 vs Dan's 0.43-0.48**
+— his look is a heavy saturation push, applied to the cutouts as a colour op (x1.55), no repaint.
+Type = **Anton** (Impact rounder, Bebas/Oswald too light), 2-4 words, white `#f2efed` / yellow
+`#f8d509` / red `#c50c09`, **soft black drop shadow, NO hard outline**. Cap heights read off his
+files: AFTER 40 ~150 px, DO THIS ~120, ONLY 129 / 3 = 272 / RULES 164 + 40 px red brush, THEY/LIED
+225. Props 8/20, red arrows 6/20, logo 0/20.
+
+**The three, each a one-to-one copy of a named reference:** A = "AFTER 40? DO THIS" (xt2ClKuNe0s)
+→ *NO ABS? / DO THIS* + the ab wheel keyed from Dan's OWN master at 1:44 + red arrow, blue-271
+(serious, hands on hips) right third. B = "ONLY 3 RULES" (viIbL59okgw) → *ONLY / $17 / AB WHEEL*,
+red rim glow, brush underline, blue-221 (smirk) left. C = "THEY | LIED" (LH97hBGANvM) → *CRUNCHES |
+SUCK* on the grey-blue ground, gray-90 arms behind head centre-right.
+
+⚠ **Logged deviations:** his A pose is a thumb-point with no library equivalent (gray-48's archer
+arm points AWAY from the prop and over the type — tried, rejected); our type runs smaller than his
+on B's last line and both C words because the auto-fit sizes each word to the free columns of the
+RENDERED subject mask (Dan's arms-behind-head torso is wider than his); the black wheel vanished on
+the black ground at 168 px until it got a light backing glow + brightness lift.
+
+**QC on the rendered files:** text clearance measured on the subject mask — A 357/362 px, B
+423/200/30, C 32/35 (gate ≥25) — abs visible and uncovered on all three, glance row checked, no
+webfont fallback (PIL renders the TTF directly), all ≤170 KB. ⚠ **`waist_frac` must be set per
+cutout** — the cutouts are framed differently (gray-79 is head-to-hips, blue-221 full body), and
+the first A render clipped Dan at mid-abs because one number was reused.
+
+⚠ **Two tooling notes:** yt-dlp `--flat-playlist` returns NO view counts on this channel and ignores
+`sort=p`; the Popular tab had to be scraped from the in-app browser (`ytd-rich-item-renderer` +
+innerText), and a hidden pane times out on any JS with an `await`. The cloud-branch merge conflicted
+in this file (both sides added at the top of Active task) — resolved by keeping both.
+
+**Dashboard: `money::Execute handoff: Brandon Carter-style thumbnails…` CHECKED OFF** (stored in
+`business`, checked under the `money` display key).
+
+**EXACT NEXT ACTION — DAN: pick one (or none) from the three compare sheets in chat.** On a pick,
+install it in Studio and load a second as the A/B test per `/youtube-packaging`; if he wants the
+text-free mega-hit look tested instead, that is a full-bleed torso crop from a studio final and a
+15-minute job.**
 
 ---
 
