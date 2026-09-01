@@ -33,6 +33,7 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+<<<<<<< HEAD
 ### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
 
 Dan: her tracked time disappeared at the end of each day; it should accumulate until he presses a
@@ -72,6 +73,44 @@ the dashboard's "Mark … as paid" button appears under the timer.**
 
 **EXACT NEXT ACTION — none blocking. Dashboard: nothing checked off — searched `todos.json`, no task
 covers this.**
+=======
+### 04 INVEST-HEALTH TO THE NEW STANDARD — **VARIANT COMPARISON DELIVERED; WAITING ON DAN'S PICK, NOTHING RENDERED** (2026-09-01, Claude Code)
+
+Owner: Claude Code. Status: Blocked on Dan's variant pick. Executing
+`Handoffs/handoff-20260824-five-longforms-to-new-standard.md` for 04 only, per Dan, following the
+01/02/03 recipe (`-loop 1` needs `-t`; `build_gfx_track.py`; two-build cap; check `ps` first).
+**$0.00 AI spend, no production code, no deploy, no native-retest trigger.**
+
+**Both cut-downs confirmed on disk and intact** in
+`Media/longform-raw/absbyai-0803-shoot/invest-health/roughcuts/`: `INVEST_HEALTH_conservative.mp4`
+(43:31, 3.27 GB) and `INVEST_HEALTH_sub30.mp4` (28:25, 2.12 GB), each with `.srt`, `_edl.json`,
+`_chip_timings.json`, `_new_joints.json`. v3 (53:17) is in the delivered folder. Segment cache
+(`edit/clips_graded/`, 290 files) intact. `/Volumes/Extreme` mounted.
+
+**Comparison artifact for Dan:** https://claude.ai/code/artifact/7a95ce6a-e3ec-433b-a3b9-1357329a629a —
+per-section runtimes v3/cons/sub30 and EVERY removed line quoted from the whisper transcript, per
+section, for each variant. Also saved beside the variants as `CUTDOWN_variant_diff.md` (+ the script).
+480p review copies `REVIEW_480p_conservative.mp4` / `REVIEW_480p_sub30.mp4` built in the same folder
+and sent in chat. Measured off the EDLs: conservative removes 83 spans / 587 s; sub30 removes a
+further 100 spans / 905 s (therapy+psych-meds section dropped whole = L1; fluids riff dropped whole = L2;
+COVID shed = L3).
+
+**Recommendation given: sub30 with the therapy/psych-meds beat (L1, ~50 s) restored → ~29:15** —
+the other delivered longforms run 19-30 min, and L1 is the one controversial beat Dan's writing rules
+now ask for. That needs one line removed from `cutdown_cuts_sub30.py`'s EXTRA list and a re-concat
+via `cutdown_render_variant.sh` from the cache before the style pass. "Sub30 as is" or "conservative"
+run untouched.
+
+⚠ **BOTH VARIANTS CARRY THE TWO-MIC AUDIO.** Rendered Aug 22, the right-channel fix on v3 landed
+Aug 23. Measured at 600 s: L/R corr **0.047 (cons) / 0.078 (sub30)** vs **1.000** on v3. Whichever
+wins gets `edit/build_audio_singlemic.py` + `finish_audio_invest.py` (the Aug 23 recipe, fitted EQ
+already in `fitvoice_invest.py`) muxed with `-c:v copy` — no picture re-render. Do not skip this.
+
+**EXACT NEXT ACTION — DAN: pick a variant (artifact + review copies in chat).** Then, same session
+or fresh: (optional re-concat) → audio rebuild → baseline `qc_style.py` → punch-ins → coverage →
+motionlib MIL graphics from the variant's `_chip_timings.json` → bed → captions → re-gate → deliver
+to `claude edited long form content/04 - …/` keeping the prior master as `*_PRE_REBUILD.mp4`.
+>>>>>>> 93d13df (Coordination: 04 invest-health variant comparison delivered, awaiting Dan's pick)
 
 ---
 
