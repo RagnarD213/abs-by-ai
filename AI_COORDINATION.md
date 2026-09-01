@@ -166,7 +166,44 @@ cache bug on Ad 1. **Both caches are now content-addressed** (hash of beat spec 
 **Ten lessons committed to `/shortad-from-longform` (`67ab889`).** An independent centering audit was
 run by a **Fable subagent at Dan's suggestion**, on the delivered file, using Vision masks.
 
-**EXACT NEXT ACTION — DAN: watch the rev-1 review copy (sent in chat), then cut
+**REV 2 (2026-09-01) — REV 1 DID NOT FIX THE CENTERING, AND AN INDEPENDENT AUDIT IS WHAT CAUGHT IT.**
+Dan suggested calling Fable as a subagent to double-check centering. It did, on the delivered file
+with Vision masks, and **overturned my conclusion**: median 0 px was fine but **sd ~110 px, 135 of
+347 talking frames beyond 70 px**, and two multi-second stretches where his face or shoulder was
+**cut by the frame edge** opposite a half-empty frame — **108.5-116.0 s (mean -200 px)** and
+**171.0-179.5 s (mean -230, peak -380)**. It also showed my own eyeball reads were **mirrored** at
+three of four timestamps I had flagged, which is what broke the problem open. **Without that audit
+this would have shipped and been rejected a third time.**
+
+⚠ **THE ROOT CAUSE WAS A CODE BUG, NOT THE TRACKER.** `crop_x_expr` builds a piecewise
+`if(lt(t,..),..)` chain and was assembling it **in forward order**, which makes the **LAST interval
+the OUTERMOST test** — so every frame before the final interval evaluated **the last interval's line
+equation extrapolated backwards across the whole beat**. On the 171.17-183.52 s beat at t=1.83:
+`634 + (628-634)*(1.83-12.0)/0.347 = 810` instead of 632 — **178 px too far right in source = 316 px
+LEFT delivered**, measured on the frame at **-334**. Arithmetic and picture agree. **This bug was in
+rev 0 as well, stacked under the colour-track error**, so fixing only the track in rev 1 removed
++123 px and left ~180 px.
+
+**Fixed two ways:** the chain is wrapped in **reverse** (first interval outermost), breakpoints
+tightened **2.0 s -> 0.5 s** (worst interpolation error 47 -> 10 px), output clamped, and a
+**self-test evaluates the expression the way ffmpeg does** and diffs it against the track. Separately
+the smoothing was far too heavy for how fast he lunges — torso **p90 128 px/s, p99 232 px/s** against
+an **80 px/s** slope limit, i.e. it could follow only the slowest 79 % of his motion. Simulated
+against the raw anchor series and retuned to **k=3 / 200 px/s**.
+
+| measured on the delivered file | rev 1 | **rev 2** |
+|---|---|---|
+| sd | ~110 px | **30 px** |
+| beyond 70 px | 135/347 (39 %) | **13/315 (4 %)** |
+| beyond 100 px | 93 | **2** |
+| sustained runs >60 px for >=1 s | **8** (two of 7-9 s) | **0** |
+
+⚠ **NEW GATE CHECK 17 — CENTERING MEASURED ON THE DELIVERED FILE, and its absence is what cost two
+rejected versions.** The track was measured with Vision, the A/B looked right, the beat sheet was
+correct — and the picture was still wrong, because **nothing that inspects the build plan can see a
+bad filter expression.** **QC is now 17/17.** Lessons committed to the skill (`15c5160`).
+
+**EXACT NEXT ACTION — DAN: watch the rev-2 review copy (sent in chat), then cut
 `SCRIPT_FOR_DAN.md` to ~200 words for the 0:59.** Nothing is blocked.
 
 ---
