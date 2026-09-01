@@ -512,18 +512,6 @@
       "addedAt": "2026-08-11"
     },
     {
-      "text": "Remove calcium stains from pool tiles",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-11"
-    },
-    {
-      "text": "Clean office",
-      "priority": "med",
-      "recurring": false,
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Find tiles to match tiles we are removing from shower. Have Dan approve then order",
       "priority": "low",
       "recurring": false,
@@ -541,58 +529,13 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Empty/load dishwasher",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Do laundry",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-20"
-    },
-    {
       "text": "Cut up boxes from artificial hedge install and put in empty room",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-08-20"
     },
     {
-      "text": "Cook weekly meal prep",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-23"
-    },
-    {
-      "text": "Take car to Club Car Wash (Dan already has monthly membership). Get exterior washed and clean interior. Use Club Car Wash free vaccuum and cleaning supplies in frunk to clean interior",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-25"
-    },
-    {
-      "text": "Take out trash",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-26",
-      "addedBy": "assistant"
-    },
-    {
       "text": "Put pool tile cleaning products away",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-26",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Dust",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-08-26",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Wipe down counters",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-08-26",
