@@ -2,7 +2,6 @@
   "checked": [
     "personal::Pick up meals from Clean Eats",
     "personal::Buy more collagen and Kiro electrolyte powder",
-    "personal::Schedule the Ulta makeup appointment",
     "personal::Order groceries"
   ],
   "log": {
@@ -208,7 +207,6 @@
   "checkedAt": {
     "personal::Pick up meals from Clean Eats": "2026-08-31",
     "personal::Buy more collagen and Kiro electrolyte powder": "2026-08-31",
-    "personal::Schedule the Ulta makeup appointment": "2026-08-31",
     "personal::Order groceries": "2026-08-31"
   }
 }
