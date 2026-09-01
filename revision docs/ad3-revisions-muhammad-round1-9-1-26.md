@@ -22,6 +22,9 @@
 - 0:02 - 0:08
     - Insert this AI clip (fat trainer with frustrated client, then robot trainer with ripped client) when I say "AI has made human personal trainers completely obsolete." Use the full 8 seconds, accelerate slightly if needed to fit. Keep the AI Generated label on it.
         - <https://drive.google.com/file/d/1Io6XQlkym21ufR2aUZz_dc_j0tU_2VMC/view>
+- 0:21 - 0:29
+    - Replace the SixPackAbs clip with this clip of me from the M-100s video on my old channel, when I say "In fact, my first channel, SixPackAbs.com, was the most viewed personal training channel in the history of YouTube." Already trimmed to 8 seconds, 1080p, no sound, YouTube page cropped out. Drop it straight in.
+        - <https://drive.google.com/file/d/1E4tT55GOwFMQkuxbGL9mErTBfGQ8o8ow/view>
 - 0:48 - 1:03
     - The 35 second AI story clip is in the wrong place. It is currently cut down to about 15 seconds here over "number one, human trainers are expensive." Move it to number two (see 1:04 below).
     - Replace it here with stock footage that matches what I am saying: a man training in a home gym, then a man meal prepping / cooking healthy food, over "spending it on meal prep, on quality food, or on a home gym setup" (0:58 - 1:04). White or Asian man, 30 - 50, in shape.

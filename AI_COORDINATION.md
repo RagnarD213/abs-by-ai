@@ -65,6 +65,21 @@ email signup screen".
 the clipboard between set and paste. cmd+z, re-set, paste immediately: clean. Verified by full
 read-back, zero residue.
 
+**ADDENDUM (same session) — Dan: "at 0:22 change this to the clip of me doing the M100s."** Added as a
+`0:21 - 0:29` bullet in play order, with Drive link `1E4tT55GOwFMQkuxbGL9mErTBfGQ8o8ow` (in "00 ASSETS
+USED IN THE REFERENCE AD", anyone-with-link inherited, single copy verified twice). Source =
+Dan's own 4K screen recording `m-100s b roll.mov` (Drive `1RpcHb7ekVTtQ96zbSqCp78T5O6-Fskdx`), player
+cropped `2616:1472:32:352`, 0.3–8.3 s, 1080p29.97, muted, 3.4 MB. Library copy in
+`08 SixPackAbs Archive - CHECK BEFORE USING/`; logged in `/findassets` DELIVERED_CLIPS.md.
+⚠ **IT SHOWS DAN INTRODUCING THE M-100s IN THE OLD GYM, NOT DOING REPS** — the only footage that exists
+locally or in Drive. The original YouTube upload (`bkD9LwDBWW0`, SixPackAbs.com channel, 6:10) **cannot
+be downloaded from this Mac**: yt-dlp is stuck at 2025.10.14 because the only Python is 3.9 (newer
+yt-dlp needs 3.10+ and a JS runtime for SABR), every player client 403s, and Node `@distube/ytdl-core`
+finds no playable formats. If Dan wants real rep footage, he screen-records that video himself the way he
+made the b-roll, or a newer Python/uv gets installed.
+⚠ Also: **Dan's own 0:14 and 0:22 bullets disappeared from the doc between his screenshot and my edit**
+(only his 2:08 "nutrition coach → personal trainer" note survived) — not touched by me; flagged.
+
 **Dashboard: nothing checked off** — the nearest row is Muhammad's editing batch, which is his work.
 
 **EXACT NEXT ACTION — DAN: read the AD 3 section and tell Muhammad it is in the same doc.** Nothing

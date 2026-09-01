@@ -212,3 +212,19 @@ Inherited from the asset library and the ad rules — they bind here too:
 10. **"Keep original audio" can mean silence.** The raw cutdown's workout section measured
     −70 dB; the music only exists on the graded master. Say so in the note rather than
     quietly delivering a silent track as if it were the take audio.
+11. **YouTube is not a source you can count on from this Mac (2026-09-01).** yt-dlp is pinned at
+    2025.10.14 because the only Python is 3.9 (newer builds need 3.10+ and a JS runtime for SABR);
+    `android_vr`/`ios`/`mweb` clients and `--cookies-from-browser chrome` all 403 or return no
+    formats, and Node `@distube/ytdl-core` fails the same way. Do not burn time on it — check
+    `08 SixPackAbs Archive - CHECK BEFORE USING/` and Drive folder `1ZO4wukehoHAwnRRyDyFKm4hFtXMYF2Ex`
+    for Dan's own screen recordings of the old-channel videos first, and say plainly when the
+    recording shows a different moment than the one asked for.
+12. **The synthetic drop must land on the file-list grid, not the page container.** Dispatching on
+    `div[role="main"]` did nothing; dispatching dragenter→dragover→drop on
+    `document.querySelector('[role="grid"] [role="row"]')` uploaded exactly once (no duplicates).
+    The javascript_tool result is sometimes "[BLOCKED]" — confirm with a screenshot ("1 upload
+    complete" toast) and a `parentId` listing, not the return value.
+13. **Typing a new bullet right after a hyperlink line inherits blue-underline styling** that is NOT a
+    real link (the context menu offers "Insert link", not "Remove link"). Select the new lines and
+    cmd+\ (Clear formatting); the list structure survives.
+
