@@ -4,8 +4,7 @@
     "personal::Buy more collagen and Kiro electrolyte powder",
     "personal::Schedule the Ulta makeup appointment",
     "personal::Retouch dating-app photos (/photo-edit) and upload them to the apps",
-    "personal::Order groceries",
-    "money::Execute handoff: studio batch 6 — retouch the remaining 52 picks (/photo-edit, Opus)"
+    "personal::Order groceries"
   ],
   "log": {
     "health::Shower": [
@@ -212,7 +211,6 @@
     "personal::Buy more collagen and Kiro electrolyte powder": "2026-08-31",
     "personal::Schedule the Ulta makeup appointment": "2026-08-31",
     "personal::Retouch dating-app photos (/photo-edit) and upload them to the apps": "2026-08-31",
-    "personal::Order groceries": "2026-08-31",
-    "money::Execute handoff: studio batch 6 — retouch the remaining 52 picks (/photo-edit, Opus)": "2026-08-31"
+    "personal::Order groceries": "2026-08-31"
   }
 }
