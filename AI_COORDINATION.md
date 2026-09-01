@@ -33,6 +33,90 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### @danrosefit FOLLOWER CAMPAIGN — **BLOCKED ON AD IDENTITY; HANDOFF WRITTEN, NOT EXECUTED** (2026-09-01, Claude Code)
+
+Dan asked for a game plan to get Instagram followers with Meta ads, then built the campaign
+with me live in Ads Manager. **$0.00 AI spend, no production code, no deploy, no native-retest
+trigger. Nothing is live and nothing is spending — the ad set is a draft.**
+**Handoff: `Handoffs/handoff-20260901-danrosefit-ad-identity-fix.md`.** The existing dashboard
+task *"Start paid advertising for the @danrosefit Instagram (follower campaigns)"* was raised to
+**Key** and re-pointed at it (verified live) — no duplicate row.
+
+**Plan (Dan approved the shape):** two-step funnel, ~$10/day. Step 1 cold IG-only ThruPlay views
+to build a retargeting pool; step 2 profile-visit retargeting of 50%+ viewers, which is what
+actually converts to follows. Ad identity must be **@danrosefit** — follows accrue to whichever
+account fronts the ad. Kill at >$5/follow after $50; scale under $3.
+
+**DONE in the ad set:** placements cut to **Instagram only** (Feed, profile feed, Explore home,
+Stories, Reels, IG search) — Facebook, Audience Network, Messenger, WhatsApp and Threads all off.
+⚠ **"Allow limited spending to excluded placements" was found CHECKED**, leaking ~5% of budget to
+each of 3 excluded placements (~15% into Facebook inventory). Dan was told to uncheck it;
+**never confirmed — verify before publishing.**
+
+⚠ **THE BLOCKER IS A PAGE-PERMISSION ERROR AND THE DRAFT IS CURRENTLY IN AN ERROR STATE.**
+Ads Manager: *"Insufficient Page Permission to Run Ads … (#1487202)"*. Root cause chain, each step
+verified: **@danrosefit was not in the business portfolio at all** (added); then **not connected to
+the ad account** (connected); then **not linked to any Facebook Page the ad account can use.**
+Destination is derived from the Identity Page's linked Instagram account, which is why only
+@abs.by.ai was ever on offer — the Abs by AI Page owns it.
+
+⚠ **I CREATED A DUPLICATE PAGE AND THAT IS NOW THE TRAP.** Business Settings **refused twice** to
+import a Page created at `facebook.com/pages/creation` (*"Only people with full control access…"*),
+so I created a second one from inside the portfolio. **The first has since appeared in the portfolio
+on its own**, so that refusal was temporary. Two Pages named **"Daniel Rose Fitness"** now exist:
+**`1380236418500031` is the one Instagram is linked to — KEEP**; **`61593951123927` is unused —
+DELETE.** Instagram's picker shows both with identical names, so Dan had no way to tell them apart.
+**Rule: create Pages from Business Settings → Pages → Add → Create a new Facebook Page, never from
+`facebook.com/pages/creation`; if an import fails, wait and retry rather than creating a second.**
+
+⚠ **PROFILE-TO-PAGE CONVERSION DOES NOT EXIST ANY MORE.** Dan asked whether his personal profile
+(`facebook.com/danroseninja`, 2.7K followers, Meta Verified) could be converted. It cannot — the
+profile menu offers no such option and `/pages/creation` is a blank form. **Professional mode is
+Meta's replacement** for converting, which is why the menu reads "Turn off professional mode".
+Followers never transfer under any path.
+
+⚠ **THE INSTAGRAM PAGE-LINK SETTING EXISTS ONLY IN THE MOBILE APP** — Settings → **Account type and
+tools** → **Other** → **Connect to Facebook** → *Change or create Page*. It is **not** on
+instagram.com (the web Professional-account page carries only category/email/WhatsApp/phone), and
+Accounts Center on web is read-only for profile connections. Dan completed this step and it is
+**verified**: @danrosefit → Connected assets now reads **2 assets — Page "Daniel Rose Fitness" +
+ad account "Abs by AI"**.
+
+⚠ **NEVER REMOVE @danrosefit FROM ACCOUNTS CENTER.** Meta Verified is a **bundle covering
+@danrosefit AND Dan's personal Facebook profile ($21.31/mo)** and depends on both sitting in the
+same Accounts Center. The professional **Page connection** is a different setting that looks alike.
+Flagged to Dan before he touched anything.
+
+**POSTS ARE CHOSEN ON MEASURED DATA, not vibes** (Blotato pull, @danrosefit's only five posts):
+**channel-intro reel "I was 200 lbs at 38"** (reach 269, 15.1 s watch, 26 interactions) as primary —
+it is the only creative that argues for following the account — plus the **3-minute total body
+workout** (`DcqrXotjlsk`, best watch time at 18.2 s). **Skip the food-scale reel: 3.4 s average
+watch** would poison the retargeting pool. ⚠ **All five posts still promise "Comment ABS…" and
+ManyChat is not live** — edit the caption on whatever gets boosted.
+
+⚠ **BECOMESHARP IS SETTLED — DO NOT RE-CHASE.** Dan asked me to remove it from the portfolio; it
+was never in it. Own separate portfolio `1351301711643094`; restricted ad account cannot be deleted
+or detached. **Dan's call: leave it alone.** The 8/26 audit's "same business portfolio" claim was
+wrong and is corrected above.
+
+**EXACT NEXT ACTION — execute the handoff in a fresh session (Opus 5, high effort). It opens by
+asking Dan whether the two-step funnel is still worth the remaining effort, or whether he wants the
+simplest thing that runs** — unblocking this has consumed most of two sessions for a $10/day
+campaign, and running from @abs.by.ai works today with zero further setup.
+
+### EXERCISE DEMOS BATCH 4 — **IN PROGRESS** (2026-09-01, Claude Code)
+
+Owner: Claude Code. Status: Implementation in progress. `/exercisegeneration` batch 4: the next 10
+library exercises with no demo, prioritising step-based + kettlebell moves (Dan's instruction).
+Picked: **kb-swing, kb-deadlift, kb-goblet-squat, kb-row, kb-press, step-up, db-step-up, db-lunge,
+ab-wheel-rollout, deficit-pushup** (64 library exercises still have no demo; walking-lunge skipped —
+the subject travels across a locked-off frame, so it cannot loop). Full gated cut pipeline
+(double-pump rule, velocity-boundary rule, full-frame background lock). **Deliverable: `-FINAL`
+candidates for Dan's review only — NOT installed in the app, no production code, no deploy.**
+Budget: Dan's prompt carried an unfilled `$[X]`; running under the standing **$25/session** cap,
+priority order KB → step → the rest, hard stop at the cap. Scripts: `Media/exercise-demos/_batch4/`.
+
+
 ### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
 
 Dan: her tracked time disappeared at the end of each day; it should accumulate until he presses a
