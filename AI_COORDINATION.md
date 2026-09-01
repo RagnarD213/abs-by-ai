@@ -33,6 +33,99 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### AD 2 VERTICAL 9:16 — **DELIVERED with Dan's six revisions applied; QC 16/16** (2026-08-31, Claude Code)
+
+Dan gave Muhammad's finished **Ad 2** cut (`Daniel HQ Ad 2.mp4`, 4:36.1, Drive
+`1tpigAqT4siiBYathlSjpeTAlAS8th8UH`) plus his **round-1 revision doc** and asked for the vertical
+build via `/shortad-from-longform`. **$0.00 AI generation spend** — every asset already existed. No
+production code, no deploy, no native-retest trigger. Delivered to
+`EDITED ADS 8-20-26/ad2-fire-your-nutritionist/` as `ad2_vertical_9x16.mp4` (**276.117 s**,
+1080x1920, 29.97) + `REVIEW_540p_ad2_vertical.mp4` + `notes-vertical.md` + `SCRIPT_FOR_DAN.md` +
+`recipe-vertical/` (27 files). Master md5-verified against the build. **QC 16/16 PASS** then the
+watch pass on that exact file. **Dashboard: nothing checked off — searched all lists, every
+matching task is Ad 1.**
+
+**His edit was RECOVERED, not re-created.** 876 words word-aligned against raw roll **C1592**
+(**99.0 % matched** = right roll), then a dense acoustic offset profile — 2,755 windows locked
+against the raw at 0.10 s hops — turned every step in the locked offset into one of his cuts:
+**69 source-continuous segments**, lip-sync fidelity **98.1 %**. Also measured off his render and
+reproduced: tone curve (per-channel, fitted on a centre box), vignette (1.01 centre -> 0.57 corner,
+re-derived in 9:16 coordinates), palette (= `motionlib.J2AD`), his **14 punch-ins at 1.20** covering
+28 % of talk, and his **14 white flashes**, which land exactly on his insert->talk returns.
+
+⚠ **HIS CUT IS FAR LESS DENSE THAN HIS AD 1 AND THAT IS THE ONE STRUCTURAL DEVIATION.** Measured:
+insert/graphic coverage **39 %** (his Ad 1: 58 %; the modern band is 58-65 %), 6.7 changes/min, and
+**stretches of 25.4 s and 31.8 s with no visual change at all**. Survivable in 16:9, a scroll-away
+in 9:16. Three cards were added — 83.9, 252.1, 262.3 — each built from words he actually speaks
+over it. Coverage **39 % -> 48 %**, longest stretch **13.4 s**.
+
+**Dan's six revisions, all applied:** (1) museum clip full-bleed 3.40-7.40 from its 2.0 s,
+AI-GENERATED chip; (2) his AI-cartoon insert 9.48-14.01 deleted, camera runs through; (3) conveyor
+meal-plans clip 68.94-74.10 + his own "2 / same generic meal plan" chip; (4) the two fat-dad photos
+151.0-153.1 and 153.1-155.2 with a slow push; (5) the burger clip replaced 194.49-198.17;
+(6) **the banned side-by-side at 3:19 is gone** — 198.17-204.0 the app scanning, then 204.0-207.67
+"Meet the new you." with the **after image only**.
+
+⚠ **REV 6 IS A REAL COMPLIANCE FIX, NOT A STYLE NOTE — his cut ships the banned pattern.** At
+198-206 s his phone mockup shows the app's "Meet the new you." screen with a **BEFORE | AFTER pair**
+and an "Estimated body fat 20-24% -> 9%" row. Rebuilt from the real screenshot with the BEFORE
+column and the body-fat claim removed and the AFTER re-centred. **The body-fat row was Dan's call to
+make and I made it — one line to put it back.** The app recording's usable window is confirmed
+**0-25 s** (before/after at ~26 s, email form at ~29 s), matching the Ad-1 finding exactly.
+
+⚠ **REV 4 USES THE RECENTRED PHOTO, NOT THE ONE HE LINKED.** The Drive file is the original, where
+he is jammed against the right edge — the reason it was rebuilt as a centred 4:5 frame earlier the
+same day. A full-screen 9:16 crop of the original would have cut him in half.
+
+⚠ **REV 5's FIRST PICK BROKE THE CASTING RULE AND THE CONTACT SHEET IS WHAT CAUGHT IT.** The Ad-1
+vertical stock folder's `man_workout_8027705.mp4` is off-rule, and so are the other four workout
+clips in it — they are the pre-recast picks, kept in the folder. Shipped **Dan's own toe-touch
+footage** instead: real, already graded, no AI label, no casting question.
+
+⚠ **THE WATCH PASS CAUGHT THREE FAULTS THE 16-CHECK GATE HAD PASSED.** (1) **All five full-bleed
+stills sat dead-frozen** — and REV 4 asks for "motion effect" in as many words; the `bleed` branch
+used a plain cover crop where `card` already had a push. Frozen runs **44 -> 26**, all survivors
+being the app recording's own screen holds (<=0.57 s). (2) **The captions ran straight through all
+three CTA pills** — "With Abs" overprinted by "to generate an image"; the suppression list covered
+bullet screens and lower thirds but not `cta`. Only visible on a full-width read of finished frames.
+(3) Four "unexplained jumps" were **his own cuts** — all within **0.05 s** of a recovered splice,
+which is corroboration that the EDL is right.
+
+⚠ **`loudnorm` WAS THE WRONG TOOL AND FAILED SILENTLY — the documented supplements-shorts trap, hit
+again.** His master is **-19.2 LUFS with true peak already at -0.08 dBTP**, so reaching the -14 ad
+spec is **+6.4 dB** and loudnorm cannot do that linearly under a -1.5 dBTP ceiling: it switched to
+DYNAMIC mode without erroring and compressed the bed up against the voice. Caught by measurement
+(correlation with his mix 0.970), fixed with a **pure gain plus a limiter**: **0.980 whole-file,
+per-second level-normalised median 0.9973**. ⚠ **The limiter still rides +2.1..+6.4 dB and LRA falls
+4.3 -> 2.8 — that is the price of -14, not a defect. A -16 master is a one-number change if Dan
+prefers his dynamics.**
+
+⚠ **THREE ffmpeg/AUDIO TRAPS PAID FOR AGAIN, ALL NOW IN THE BUILD SCRIPTS.** A bare **`apad` has no
+length and generates silence forever**, so the limiter encode never finishes (killed at 3+ min).
+The **limiter-delay probe must process ONE file two ways** — generating `anoisesrc` twice gives two
+different random signals and the correlation is meaningless (it read -1128 samples; the real delay
+is **239**). And **`captions.py` still shipped the documented `anchor="lt"` baseline bug** — fixed
+to `"ls"` with `getlength()` advances before anything was rendered.
+
+⚠ **HIS DELIVERED FILE IS 854x480, A REVIEW COPY, NOT A 1080p MASTER.** Irrelevant to this build
+(everything is re-cut from the 1920x1080 raw and every graphic rebuilt), but his in-card stock
+photos could not be lifted at usable resolution, and a 1080p delivery from him is still outstanding.
+
+⚠ **THE SIXPACKABS ARCHIVE CLIP IS IN THIS AD AT 0:24-0:31 AND IS STILL DAN'S OPEN DECISION** — the
+same clip flagged on the 16:9 ads 2 and 3, from the folder marked "CHECK BEFORE USING", with a live
+federal mark on SIXPACKABS.COM held by another company. Kept because he did not ask for it out.
+
+**PHASE B (the <=0:59) IS NOT BUILT, DELIBERATELY.** Per the skill and the Ad-1 precedent, Dan cuts
+the script himself — a cutdown selected by doctrine is what he rejected on Ad 1 ("makes no sense").
+`SCRIPT_FOR_DAN.md` is delivered: all 73 lines with in/out timecodes and word counts, **873 spoken
+words**, and the ~200-word target. The cutdown is then selected out of this approved master, never
+re-cut from the raw.
+
+**EXACT NEXT ACTION — DAN: watch `REVIEW_540p_ad2_vertical.mp4` (sent in chat), then cut
+`SCRIPT_FOR_DAN.md` down to ~200 words for the 0:59.** Nothing is blocked.
+
+---
+
 ### MANYCHAT "COMMENT ABS" — **PLAN APPROVED, HANDOFF WRITTEN, NOT EXECUTED** (2026-08-31, Claude Code)
 
 Planning session only: **$0.00 spend, nothing created in ManyChat or Instagram, no code, no
