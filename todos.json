@@ -320,7 +320,7 @@
     },
     {
       "text": "Get quote to fix Audi from 1 other mechanic of Brittany's choice. Use either personal recommendation or Claude recommendation",
-      "priority": "med",
+      "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-11"
     },
