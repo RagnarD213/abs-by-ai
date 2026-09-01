@@ -33,6 +33,41 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### CUTOUT THUMBNAIL CONCEPTS — **RESEARCH + 5 MOCKUPS DELIVERED; Dan picks a direction** (2026-09-01, Claude Code)
+
+Dan wants a new YouTube thumbnail style built on the 100 studio cutouts (`_cutouts/`). Research
+session + design canvas, **$0.00 AI spend, no production code, no deploy, no native-retest trigger.**
+Canvas (editable, 5 artboards + notes): **https://claude.ai/code/artifact/92369b3e-c89c-46b1-b657-afe91ba506b0**
+Concepts: **1 Flat Pop** (one flat brand-red ground, white-stroked cutout, 3 words) · **2 Big Number
+Behind** (giant "40" layered BEHIND the body — the one layout only a cutout allows) · **3 Then vs Now**
+(split, dashed slot for the keyed fat-dad photo) · **4 Point at the Phone** (arm-out pose leading to the
+app's reveal screen in a red circle) · **5 The Lineup** (three cutouts on red/black/olive panels for list
+videos). All obey the 3-element rule and the abs-visible / text-never-on-Dan rules.
+
+⚠ **THE STUDIO CUTOUTS ARE NOT IN A CLOUD SESSION — `photos/` is gitignored and nothing is in Drive.**
+Every board uses a STAND-IN: pool-shoot photos from `public/mockup-img/` keyed locally with `rembg`
+(isnet-general-use, 429x640 / 1280x858 sources). Placement transfers 1:1 to the studio `_CUTOUT.png`
+files, which are far sharper. Building the real thumbnails is a Mac session (`/youtube-packaging`).
+
+**Research (≈40 searches; channel pages were egress-blocked, so the fitness-channel section relies on
+third-party writeups):** cutout-on-flat-colour is the current default winning look and also the most
+copied; **3 elements max** (Galloway); **2-4 words** (vidIQ 500-breakout median 5, legibility dies past
+6); 69-80 % of breakouts show a face but only 5 % exaggerated — real focused expressions win; 4-8 px
+white stroke lifts the cutout; before/after splits are Gravity Transformation's whole format (organic
+OK, paid still banned); keep everything in the centre 70 % and off the bottom-right (duration badge);
+**do not print OVER 40 by default** (costs reach; the face says it) — board 2 only on age-scoped videos;
+**YouTube Test & Compare judges watch-time share, not CTR.** Full takeaways are a sticky note on the
+canvas. ⚠ The oft-quoted "faces with emotion = 2.3x CTR" stat could not be traced to YouTube — treat as
+unverified.
+
+**Dashboard: nothing checked off — no task covers this** (and absbyai.com is egress-blocked from
+this session anyway).
+
+**EXACT NEXT ACTION — DAN: open the canvas, pick 1-2 directions.** Then a Mac session builds them
+from the real `_cutouts/` files for the next video, as the two A/B contenders.
+
+---
+
 ### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
 
 Dan: her tracked time disappeared at the end of each day; it should accumulate until he presses a
