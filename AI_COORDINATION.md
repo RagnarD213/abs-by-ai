@@ -33,6 +33,29 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### MANYCHAT "COMMENT ABS" — **PLAN APPROVED, HANDOFF WRITTEN, NOT EXECUTED** (2026-08-31, Claude Code)
+
+Planning session only: **$0.00 spend, nothing created in ManyChat or Instagram, no code, no
+deploy.** ~60 scheduled posts promise "Comment ABS and I'll send you the free AI preview" and
+nothing delivers it. Plan (Dan approved): ManyChat on **@danrosefit only** (never @abs.by.ai),
+keyword "ABS" contains-match on ALL posts/reels, public reply + DM with
+`utm_campaign=comment-abs` link; free tier is capped at **25 active contacts** so upgrade to
+Essential (~$15/mo, Dan's card) the same day as the test. Most steps are Dan-in-the-loop
+(IG message-access toggle, signup, OAuth).
+
+**Handoff: `Handoffs/handoff-20260831-manychat-comment-abs-setup.md`** (approved DM copy, the
+two-beat quick-reply fallback, test protocol, PostHog measurement). The existing Key dashboard
+task (`money::Set up ManyChat comment-to-DM on @danrosefit…`, added 8/30) now points at it —
+no duplicate row added. **Tomorrow's (2026-09-01) morning brief carries this as the ONE THING**
+per Dan's instruction — a self-deleting override block was added to the brief task's SKILL.md.
+⚠ Do NOT touch Blotato's IG auto first-comment without asking Dan — it is currently the only
+reel→site path; the growth plan says to disable it only once ManyChat is live.
+
+**EXACT NEXT ACTION — execute the handoff in a fresh session with Dan at the keyboard**
+(starter prompt at the bottom of the handoff; recommended runner Sonnet 5, default effort).
+
+---
+
 ### BACKGROUND REMOVAL TEST — **3 CUTOUTS DELIVERED, VERDICT: VIABLE; Dan reviews** (2026-08-31, Claude Code)
 
 Dan wants a folder of the studio finals with backgrounds removed for thumbnail use. Tested one
