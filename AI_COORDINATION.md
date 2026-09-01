@@ -315,7 +315,25 @@ in this file (both sides added at the top of Active task) — resolved by keepin
 **Dashboard: `money::Execute handoff: Brandon Carter-style thumbnails…` CHECKED OFF** (stored in
 `business`, checked under the `money` display key).
 
-**EXACT NEXT ACTION — DAN: pick one (or none) from the three compare sheets in chat.** On a pick,
+**ATTEMPT 2 (same session) — Dan: "fonts not interesting… try outlines or graphics around me like he
+does."** Three more built (`D_killing-your-abs`, `E_17-ab-wheel`, `F_real-abs-from-this`, same folder,
+`_build-2026-09-01/build2.py`), each copying one of his device-heavy thumbnails literally: **D** =
+"KILLING YOUR GAINS" (yellow italic grunge word, white grunge stack with 10-12 px black outline, red
+zigzag arrow with shatter debris, ember field, red rim on the subject); **E** = "20,000 STEPS EVERY
+DAY" (Dan's OWN pool/house set from the master frame darkened + cooled as the real-photo ground,
+bright yellow-white glow around him, 9 px black-stroked yellow/white type, italic black words on a
+ragged yellow highlighter slab); **F** = "THEY ALL USE THIS" (grunge white/white/red stack, four
+other studio cutouts as dark silhouettes behind him, red ember wash, the wheel in a glowing red ring
+with a curved arrow). ⚠ **Two measured corrections from attempt 1:** his letterforms are ~1.28x
+WIDER than Anton at the same cap height (type is now stretched), and his frame cuts just below the
+navel, not at the waistband (`waist_frac` 0.55-0.60 on arms-behind-head frames). Grunge must stay
+subtle (7-8 % of the fill, fine scratches) — at 30 % it read as leopard spots. All three pass the
+clearance gate (D 52/215/243, E 283/72/161, F 420/293/45 px); F's red line auto-fits to the space
+beside his elbow (landed cap 80). **Remaining honest gap: his body fills more width than Dan's at
+the same height** — a physique/shoulder-width difference, not a layout one.
+
+**EXACT NEXT ACTION — DAN: pick from the six (attempt-1 A/B/C, attempt-2 D/E/F) via the compare
+sheets in chat, or say which devices to push further.** On a pick,
 install it in Studio and load a second as the A/B test per `/youtube-packaging`; if he wants the
 text-free mega-hit look tested instead, that is a full-bleed torso crop from a studio final and a
 15-minute job.**
