@@ -37,8 +37,8 @@ and commit messages remain the permanent record of code changes.
 
 Dan: her tracked time disappeared at the end of each day; it should accumulate until he presses a
 "paid" button. Built on `claude/cumulative-time-tracking-payment-fz0tr8` (`6074e32`). **$0.00 AI
-spend. No native-retest trigger** (dashboard/assistant web surfaces only). **NOT MERGED — main still
-runs the old code.**
+spend. No native-retest trigger** (dashboard/assistant web surfaces only). **MERGED TO MAIN
+2026-09-01 (`3e0357a`) at Dan's instruction — Railway auto-deploys from main.**
 
 `timesheet.json` gains `payments`; **`entries` now holds UNPAID sessions only**, so a pay-out is an
 archive-and-empty rather than a date filter. New **`POST /api/timesheet/mark-paid`**, added to
@@ -60,14 +60,18 @@ unauthenticated POST 401; double press a no-op; start/stop still correct.
 Written through the GitHub contents API with the blob sha, so a concurrent stop would have conflicted
 rather than clobbered.
 
-⚠ **THE ARCHIVE IS AT RISK UNTIL THE BRANCH MERGES.** The deployed (old) stop handler writes
-`{active, entries}` and does **not** carry `payments` through, so **her next "Stop working" drops the
-paid-time archive**. Only the history is lost, never her unpaid total — but merging before she clocks
-out avoids it entirely.
+⚠ **THE ARCHIVE WAS AT RISK UNTIL THE MERGE and that is why it was merged the same session** — the
+OLD stop handler writes `{active, entries}` and does not carry `payments` through, so her next
+"Stop working" would have dropped the paid-time archive. Resolved by the merge.
 
-**EXACT NEXT ACTION — DAN: merge `claude/cumulative-time-tracking-payment-fz0tr8` to main** (ideally
-before her next clock-out). **Dashboard: nothing checked off — searched `todos.json`, no task covers
-this.**
+⚠ **NOT LIVE-VERIFIED: absbyai.com IS BLOCKED BY THIS SESSION'S EGRESS POLICY** (403 on CONNECT,
+confirmed at `$HTTPS_PROXY/__agentproxy/status`) — the same block the 9/1 dashboard-cleanup session
+hit. The merge and the data write are both verified on GitHub; the deployed behaviour is not.
+**Whoever is next at a browser: load `/assistant` and confirm the line reads `Unpaid: …`, and check
+the dashboard's "Mark … as paid" button appears under the timer.**
+
+**EXACT NEXT ACTION — none blocking. Dashboard: nothing checked off — searched `todos.json`, no task
+covers this.**
 
 ---
 
