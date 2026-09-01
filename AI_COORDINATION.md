@@ -33,6 +33,64 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### DASHBOARD CLEANUP — **23 STALE BUSINESS TASKS REMOVED; needs a merge to main to go live** (2026-09-01, Claude Code)
+
+Dan: the board had filled up with handoff rows already executed elsewhere. Audited all 61 business
+tasks against this file and the archive. **$0.00 spend, no production code, no deploy, no
+native-retest trigger.** `todos.json` **61 -> 39** (23 removed, 1 added). `health`, `personal` and
+`assistant` verified byte-identical — every change is in `business`.
+
+⚠ **THE LIVE BOARD IS `todos.json` IN THIS REPO, ON THE DEFAULT BRANCH — not a database.**
+`server.js:1046-1104` reads and writes it through the GitHub contents API with no `ref`, so main IS
+the dashboard. That is why this cleanup is a commit, not an API call. **It does not take effect
+until the branch merges to main** (server cache TTL is 5 s, so it appears within seconds of the
+merge).
+
+⚠ **absbyai.com IS BLOCKED BY THIS SESSION'S EGRESS POLICY** (403 on CONNECT, confirmed at
+`$HTTPS_PROXY/__agentproxy/status`), so `/api/todos` and `/api/task-checks` were unreachable and the
+`/dashboard-tasks` skill's normal route was unavailable. The GitHub path is the working alternative
+from a remote session — worth knowing before concluding the board cannot be touched from the cloud.
+
+⚠ **CHECKING OFF WAS THE WRONG MECHANIC HERE — Dan's own pattern is DELETION.** `task-checks.json`
+shows `checked` emptied one id at a time on 9/1 08:06 as he cleared finished rows, and the matching
+tasks are gone from `todos.json`. A checked-but-present row still reads as clutter on the board, so
+"remove" was taken literally.
+
+**Removed as EXECUTED** (each verified against an entry in this file or the archive): ad-outlines
+batch 4 · exercise-demo stick-figure replacement · Ad 1 rev-4 + 9:16 · YouTube geo restructure ·
+Ad 1 vertical attempts 2 and 3 · V4 and V5 bedswaps · supplements Shorts · Instagram growth
+plan/migration · the 4 two-mic audio fixes · Muhammad's Upwork offer.
+**Removed as NO LONGER NEEDED:** editing-stack decision (settled 8/24) · filming-set planning
+(spec delivered; the gear order survives) · the ads-feature audit (answered 8/26) · background
+removal (100 finals cut out, promoted to a skill) · the Google and Meta ad checks (superseded by
+the 8/26 audit and 8/31 pull) · "advertise latest video" (its automation became the Google Ads API
+handoff) · photo-shoot planning and the shoot-date collision check (the 8/27 shoot happened) ·
+the 5 parked video deliverables (names superseded artifacts) · Ad 1 rev-1 approval (our pipeline
+reached rev-5, then Dan chose Muhammad's cut).
+
+**Two `why` fields corrected rather than deleted, because both tasks are PARTLY done and the old
+text hid that:** the five-longforms handoff is **4 of 5 complete** (only 04 invest-health remains,
+blocked on Dan picking a cutdown variant), and the IG gap-fill is **63 of 70** (the last 7 blocked
+on Blotato's 200-post plan cap).
+
+**One task ADDED so a live finding was not lost with its parent row:** *Decide whether both Meta ad
+campaigns being toggled OFF was intentional* — from the 8/31 pull, with 3 unpublished draft edits
+still pending.
+
+**Deliberately KEPT although they look stale:** the RevenueCat audit and purchase-before-account
+handoffs (both gated on App Review, still unapproved), the Play-build phone swap (small, but
+genuinely not done), and Zeeshan's round-1 revisions (the doc exists but this file records it as a
+draft Dan has not sent).
+
+**Reproducible and reversible:** `scripts/dashboard/cleanup_20260901_handoffs.py` lists every removal
+with its reason and is keyed on exact task text, so it can be re-run safely against a `todos.json`
+that has moved on — a row already gone is reported, not an error. Git history holds the removed rows.
+
+**EXACT NEXT ACTION — DAN: merge `claude/dashboard-handoff-cleanup-m8u78j` to main** (or say the word
+and I will push it there). Nothing else is blocked.
+
+---
+
 ### MANYCHAT "COMMENT ABS" — **EXECUTION IN PROGRESS** (2026-09-01, Claude Code)
 
 Executing `Handoffs/handoff-20260831-manychat-comment-abs-setup.md` with Dan at the keyboard.

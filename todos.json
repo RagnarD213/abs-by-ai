@@ -93,18 +93,6 @@
       "addedAt": "2026-08-18"
     },
     {
-      "text": "Execute handoff: Write 4 approved ad outlines + brainstorm 20 skip-stopper-first ideas",
-      "priority": "key",
-      "why": "handoff-20260818-ad-outlines-batch4-and-20-ideas.md — created but not yet run",
-      "addedAt": "2026-08-18"
-    },
-    {
-      "text": "Advertise latest video on Google Ads (engagement campaign) + scope Claude automation for these",
-      "priority": "key",
-      "why": "2026-08-19 planning — fresh video, also explore automating Demand Gen engagement campaigns via Claude",
-      "addedAt": "2026-08-19"
-    },
-    {
       "text": "Catch TikTok up to the posting schedule (manual backfill)",
       "priority": "high",
       "why": "2026-08-19 planning — TikTok behind other platforms; post manually, do NOT connect Blotato before ~Sept 2 warm-up",
@@ -117,27 +105,9 @@
       "addedAt": "2026-08-19"
     },
     {
-      "text": "Plan the next photo shoot",
-      "priority": "med",
-      "why": "2026-08-19 planning",
-      "addedAt": "2026-08-19"
-    },
-    {
       "text": "Build AI animations for the workout program exercises",
       "priority": "med",
       "why": "2026-08-19 planning — Dan ranks this ABOVE the program redo; both after the shoot",
-      "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Execute handoff: Replace stick figures with AI exercise demo videos",
-      "priority": "key",
-      "why": "handoff-20260819-exercise-demo-videos.md — created but not yet run",
-      "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Decide the video-editing stack: Upwork trial results vs /longform-edit pipeline vs Grokbot (evaluate/sign up)",
-      "priority": "high",
-      "why": "2026-08-19 planning — one decision Thursday when Upwork trials return; don't advance three editing bets in parallel. 'Grokbot' from voice — confirm product name",
       "addedAt": "2026-08-19"
     },
     {
@@ -147,58 +117,10 @@
       "addedAt": "2026-08-19"
     },
     {
-      "text": "Approve Ad 1 rev-1, apply final revisions, finalize the /ad-edit skill",
-      "priority": "key",
-      "why": "2026-08-21 planning — gates the 9:16 build, the skill's pending items, AND the gold-standard benchmark for judging the Upwork editors",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Review the 5 parked video deliverables (3x 8/3 longform, invest-health v2, ab-wheel)",
-      "priority": "key",
-      "why": "2026-08-21 planning — finished work sitting idle waiting on Dan's eyeball; revisions are cheap now via the segment cache",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Check Google Ads performance since the 8/18 search launch (spend, clicks, conversions)",
-      "priority": "high",
-      "why": "2026-08-21 planning — campaign live since 8/18 on a reinstated account, unwatched; money moving",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Confirm the next video shoot date does NOT collide with the photo shoot",
-      "priority": "high",
-      "why": "2026-08-21 planning — Dan thinks he did it right but wants it verified; blocked on the calendar reconnect",
-      "addedAt": "2026-08-21"
-    },
-    {
-      "text": "Execute handoff: Ad 1 rev-4 (busy-dad clip + tag fix) then 9:16 build",
-      "priority": "key",
-      "why": "HANDOFF_ad1_rev4_and_9x16.md — created but not yet run",
-      "addedAt": "2026-08-21"
-    },
-    {
       "text": "Check Upwork",
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-22"
-    },
-    {
-      "text": "Execute handoff: YouTube subscriber campaign geo restructure (all-countries + tier-1 clone)",
-      "priority": "key",
-      "why": "handoff-20260822-youtube-ads-geo-restructure.md — created but not yet run",
-      "addedAt": "2026-08-22"
-    },
-    {
-      "text": "Check Meta ad campaigns (spend, results, any disapprovals)",
-      "priority": "high",
-      "why": "2026-08-23 planning — Dan flagged Meta as unreviewed; Google Ads has its own check task",
-      "addedAt": "2026-08-23"
-    },
-    {
-      "text": "Fix two-mic comb-filter audio on the 4 remaining delivered longform masters (Zepbound, supplements, invest-health, meal prep)",
-      "priority": "key",
-      "why": "2026-08-23 planning — measured 2026-08-22: all 5 delivered masters carry two hard-panned mics 7.5-8.2ms apart; the summed mono is worse than either channel. Spray tan is fixed. ~20 min each, no re-render (build_audio_singlemic.py + finish_audio.py + -c:v copy mux). BLOCKS uploading any of them.",
-      "addedAt": "2026-08-23"
     },
     {
       "text": "Review Zeshan's video cut and send round-1 revisions",
@@ -207,28 +129,10 @@
       "why": "2026-08-24 planning — Dan doing round 1 manually with /revisions as reference; round 2 handed to Claude. Editor is blocked until notes land."
     },
     {
-      "text": "Audit that the newest app features are actually advertised in the Meta + Google Ads engagement campaigns",
-      "priority": "high",
-      "addedAt": "2026-08-24",
-      "why": "2026-08-24 planning — trainer, nutritionist, supplement audit, sleep coach, exercise demos all shipped since the current creative was written; ads may still sell only image generation."
-    },
-    {
-      "text": "Execute the Instagram growth plan (7 profile fixes + Blotato queue rework)",
-      "priority": "key",
-      "why": "Handoffs/handoff-20260824-instagram-migration-danrosefit.md — created 2026-08-24, not yet run. Blocked on Dan connecting @danrosefit in Blotato.",
-      "addedAt": "2026-08-24"
-    },
-    {
       "text": "Execute handoff: Bring the 5 delivered longforms up to the new /longform-edit standard",
       "priority": "key",
-      "why": "handoff-20260824-five-longforms-to-new-standard.md — created but not yet run. Gate measured: 02/03 fail 6 of 12, 04 fails 5. Ordered so it can stop after any video.",
+      "why": "handoff-20260824-five-longforms-to-new-standard.md - 4 of 5 DONE (05, 01, 02, 03 delivered 8/27). Only 04 invest-health remains and it is blocked on Dan picking a cutdown variant (conservative 43:31 vs sub30 28:25). Also still owed: Dan watching the three rebuilt review copies.",
       "addedAt": "2026-08-24"
-    },
-    {
-      "text": "Plan the permanent filming set (studio build vs kitchen)",
-      "priority": "key",
-      "why": "2026-08-31 planning — Dan wants this prioritized: research fitness-set examples, decide backdrop vs green screen, order gear so it ships today",
-      "addedAt": "2026-08-25"
     },
     {
       "text": "Produce short-form CONTENT (not ads) — mine the longforms + shoot app-demo Reels",
@@ -240,12 +144,6 @@
       "text": "Start paid advertising for the @danrosefit Instagram (follower campaigns)",
       "priority": "high",
       "why": "2026-08-25 planning — ad identity = @danrosefit, budget/Page stay under Abs By AI; two-step funnel spec is in AI_COORDINATION.md. Dan launches campaigns himself.",
-      "addedAt": "2026-08-25"
-    },
-    {
-      "text": "Execute handoff: Ad 1 vertical ATTEMPT 2 - exact copy of Muhammad's final, then Dan cuts the script",
-      "priority": "key",
-      "why": "handoff-20260825-ad1-vertical-attempt2.md — created but not yet run",
       "addedAt": "2026-08-25"
     },
     {
@@ -261,15 +159,9 @@
       "addedAt": "2026-08-26"
     },
     {
-      "text": "Execute handoff: Ad 1 vertical ATTEMPT 3 - indistinguishable from Muhammad's edit",
-      "priority": "key",
-      "why": "handoff-20260826-ad1-vertical-attempt3.md - created but not yet run. Dan's 13 revisions to attempt 2; goal is that he cannot tell which video Muhammad edited.",
-      "addedAt": "2026-08-26"
-    },
-    {
       "text": "Execute handoff: fill danrosefit + abs.by.ai image-post gap days (write captions, schedule in Blotato)",
       "priority": "key",
-      "why": "Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md — created but not yet run",
+      "why": "handoff-20260826-danrosefit-abs-image-gap-fill.md - 63 of 70 scheduled and verified live 8/26. The last 7 are blocked on Blotato's 200-post plan cap: delete queued posts or upgrade the plan, then re-run scripts/blotato/iggap_fill.py --apply (idempotent).",
       "addedAt": "2026-08-26"
     },
     {
@@ -277,30 +169,6 @@
       "priority": "key",
       "why": "Argued 5.1.1(v) in Resolution Center + shipped the account-based explanation; thread eed31ff7 is still open for Apple's reply",
       "addedAt": "2026-08-26"
-    },
-    {
-      "text": "Send Muhammad the offer on Upwork (editor hire)",
-      "priority": "key",
-      "why": "2026-08-27 planning — Dan named it top priority; he ran 4 editor trials and Muhammad is the pick. Unblocks the whole editing backlog.",
-      "addedAt": "2026-08-27"
-    },
-    {
-      "text": "Execute handoff: clear the claimed music bed from V5 (workout-only longform)",
-      "priority": "key",
-      "why": "handoff-20260828-v5-longform-bedswap.md - created but not yet run; do this one FIRST, no speech to preserve",
-      "addedAt": "2026-08-28"
-    },
-    {
-      "text": "Execute handoff: clear the claimed music bed from V4 (1 Minute Ab Workout longform)",
-      "priority": "key",
-      "why": "handoff-20260828-v4-longform-bedswap.md - created but not yet run; V4 is public and provably contains the track that got our Short blocked",
-      "addedAt": "2026-08-28"
-    },
-    {
-      "text": "Execute handoff: cut Shorts from the supplements long-form (03)",
-      "priority": "key",
-      "why": "handoff-20260828-shorts-from-supplements-longform.md - shortlist delivered, Dan picks segments; created but not yet run",
-      "addedAt": "2026-08-28"
     },
     {
       "text": "Export our recovered EDL as a Premiere/FCP timeline for the freelance editors",
@@ -327,12 +195,6 @@
       "addedAt": "2026-08-30"
     },
     {
-      "text": "Remove backgrounds from the finalized studio photos + test cutout-style thumbnails",
-      "priority": "high",
-      "why": "2026-08-31 planning — Dan wants transparent-PNG cutouts of the studio finals so thumbnails/graphics can composite him over any background",
-      "addedAt": "2026-08-31"
-    },
-    {
       "text": "Execute handoff: Google Ads API setup + engagement-ad automation for new videos",
       "priority": "key",
       "why": "handoff-20260831-google-ads-api-setup-engagement-ad-automation.md — created but not yet run",
@@ -355,6 +217,12 @@
       "priority": "key",
       "addedAt": "2026-09-01",
       "why": "Dan 9/1: ads are ready to run; Google billing flag from the 8/31 pull blocks all new spend"
+    },
+    {
+      "text": "Decide whether both Meta ad campaigns being toggled OFF was intentional",
+      "priority": "high",
+      "why": "8/31 paid pull: [DAN] [ENGAGEMENT] and [DAN] [ENGAGEMENT] IG GEO are both switched off (IG GEO spent $13.26 then stopped), and 3 unpublished draft edits are still pending. Carried over from the deleted Meta-check task.",
+      "addedAt": "2026-09-01"
     }
   ],
   "health": [
