@@ -723,8 +723,20 @@ $47.56, Ivilon rod $34.99, Emart stand $59.99, Haboke green backdrop $39.99 all 
 8/31; Kate premium backdrop swap +$90 lands $1,199.85). Cut from v1: rubber tiles, dumbbells,
 shelf, shotgun+boom, paint (~$420 no longer needed). Nothing ordered.
 
-**EXACT NEXT ACTION — DAN: run the 3 phone tests in the bedroom (axis + standing frame, leak
-map, clap+hum), then buy the buy-now list.** Nothing is blocked.
+**REV 3-4 (2026-09-01): visualizations + FINAL BUY LIST, tabs opened in Dan's Chrome.** Two
+nano-banana renders of Dan on the set from his Ad-1 frame ($0.27): look A = telemetry monitor at
+frame edge, look B = plant + Edison lamp. Dan approved both and is buying everything for both.
+Inventory correction from Dan: **no mics** (he owns a DJI Mic; Jeff has lav + boom shotgun) and
+**no key/softbox** (Jeff's). Added: 9.7 ft boom stand + 1/4"-to-5/8" adapter for Jeff's shotgun,
+10x12 chroma polyester + Neewer 480 2-panel kit + reflector (4 sources + fill instead of Jeff's
+six), FlexiSpot EN1 maple/white standing desk for laptop demos, AOC 24" monitor for look A.
+⚠ **TL60 is sold SINGLY at $128.98 — the 8/31 "2-pack" reading was wrong; qty 2.**
+**Final: $1,083.65, 21 product pages open in Chrome (13 ungrouped + 8 in a group).**
+Nothing added to cart — Dan buys. Artifact v4 carries the final tables.
+
+**EXACT NEXT ACTION — DAN: buy from the open tabs (TL60 qty 2, stand 2-pack, rod 72-144, backdrop
+stand 10x8.5), then run the 3 phone tests before the gear lands. Then: build the look-A telemetry
+loop file (own session, house graphics system) once the monitor is in the room.** Nothing is blocked.
 
 ---
 
