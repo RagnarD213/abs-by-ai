@@ -389,6 +389,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Move all items from filming room into 2nd empty room. Organize items in empty room and throw away trash",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-09-01"
     }
   ]
 }
