@@ -383,6 +383,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Do laundry",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-09-01"
     }
   ]
 }
