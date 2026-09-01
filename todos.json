@@ -223,6 +223,12 @@
       "priority": "high",
       "why": "8/31 paid pull: [DAN] [ENGAGEMENT] and [DAN] [ENGAGEMENT] IG GEO are both switched off (IG GEO spent $13.26 then stopped), and 3 unpublished draft edits are still pending. Carried over from the deleted Meta-check task.",
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Execute handoff: Brandon Carter-style thumbnails from the real studio cutouts (Mac session)",
+      "priority": "key",
+      "why": "Handoffs/handoff-20260901-brandon-carter-style-thumbnails.md — created but not yet run; the cloud mockups were rejected (\"look very bad\") and YouTube is egress-blocked from cloud, so this needs the Mac",
+      "addedAt": "2026-09-01"
     }
   ],
   "health": [

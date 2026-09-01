@@ -116,6 +116,62 @@ candidates for Dan's review only — NOT installed in the app, no production cod
 Budget: Dan's prompt carried an unfilled `$[X]`; running under the standing **$25/session** cap,
 priority order KB → step → the rest, hard stop at the cap. Scripts: `Media/exercise-demos/_batch4/`.
 
+### CUTOUT THUMBNAIL CONCEPTS — **RESEARCH + 5 MOCKUPS DELIVERED; Dan picks a direction** (2026-09-01, Claude Code)
+
+Dan wants a new YouTube thumbnail style built on the 100 studio cutouts (`_cutouts/`). Research
+session + design canvas, **$0.00 AI spend, no production code, no deploy, no native-retest trigger.**
+Canvas (editable, 5 artboards + notes): **https://claude.ai/code/artifact/92369b3e-c89c-46b1-b657-afe91ba506b0**
+Concepts: **1 Flat Pop** (one flat brand-red ground, white-stroked cutout, 3 words) · **2 Big Number
+Behind** (giant "40" layered BEHIND the body — the one layout only a cutout allows) · **3 Then vs Now**
+(split, dashed slot for the keyed fat-dad photo) · **4 Point at the Phone** (arm-out pose leading to the
+app's reveal screen in a red circle) · **5 The Lineup** (three cutouts on red/black/olive panels for list
+videos). All obey the 3-element rule and the abs-visible / text-never-on-Dan rules.
+
+⚠ **THE STUDIO CUTOUTS ARE NOT IN A CLOUD SESSION — `photos/` is gitignored and nothing is in Drive.**
+Every board uses a STAND-IN: pool-shoot photos from `public/mockup-img/` keyed locally with `rembg`
+(isnet-general-use, 429x640 / 1280x858 sources). Placement transfers 1:1 to the studio `_CUTOUT.png`
+files, which are far sharper. Building the real thumbnails is a Mac session (`/youtube-packaging`).
+
+**Research (≈40 searches; channel pages were egress-blocked, so the fitness-channel section relies on
+third-party writeups):** cutout-on-flat-colour is the current default winning look and also the most
+copied; **3 elements max** (Galloway); **2-4 words** (vidIQ 500-breakout median 5, legibility dies past
+6); 69-80 % of breakouts show a face but only 5 % exaggerated — real focused expressions win; 4-8 px
+white stroke lifts the cutout; before/after splits are Gravity Transformation's whole format (organic
+OK, paid still banned); keep everything in the centre 70 % and off the bottom-right (duration badge);
+**do not print OVER 40 by default** (costs reach; the face says it) — board 2 only on age-scoped videos;
+**YouTube Test & Compare judges watch-time share, not CTR.** Full takeaways are a sticky note on the
+canvas. ⚠ The oft-quoted "faces with emotion = 2.3x CTR" stat could not be traced to YouTube — treat as
+unverified.
+
+**Dashboard: nothing checked off — no task covers this** (and absbyai.com is egress-blocked from
+this session anyway).
+
+**EXACT NEXT ACTION — DAN: open the canvas, pick 1-2 directions.** Then a Mac session builds them
+from the real `_cutouts/` files for the next video, as the two A/B contenders.
+
+**REV 1 (same day) — Dan: "research Brandon Carter's thumbnails and create three in his style."**
+Added as a second canvas page (**Brandon Carter style**): **BC1 Get A Six Pack FAST** (dark gym vignette,
+stacked white/yellow/red Impact-style caps with black stroke, big flex) · **BC2 STOP CRUNCHES** (red X
+through the word, yellow "DO THIS INSTEAD" sticker, dark-red field) · **BC3 BURN BELLY FAT AT 40** (flat
+yellow, black type, red arrow to the abs, black-stroked cutout). Same stand-in photos.
+⚠ **HIS CHANNEL COULD NOT BE VIEWED FROM THIS SESSION — every route is egress-blocked:** youtube.com,
+i.ytimg.com, seven Invidious/Piped mirrors, image proxies (weserv, DDG), Bing/Google image search,
+brandoncarter.com, Instagram, Pexels/Pixabay/Wikimedia. The boards are built from prior knowledge of his
+look plus his title conventions, which search DID confirm ("PSYCHO ABS WORKOUT", "ABDOMINAL ASSAULT",
+"How to get a six 6 pack and burn belly fat FAST"). **Dan should compare against his Videos tab** — a Mac
+session with a browser can also pull his top-20 thumbnails in minutes. Coordination entry only; still no
+code, deploy or dashboard task.
+
+**REV 2 (same day) — DAN REJECTED THE LOT: "These all look very bad."** Both canvas pages are now a
+record of what NOT to do. **Handoff written for a Mac session:**
+`Handoffs/handoff-20260901-brandon-carter-style-thumbnails.md` — pull his real thumbnails with yt-dlp,
+MEASURE the style into `STYLE.md`, copy three of his top thumbnails one to one from the real
+`_cutouts/` files, deliver his|ours sheets. **Key dashboard task added by editing `todos.json` on this
+branch** (absbyai.com is egress-blocked here) — it appears on the board only when the branch merges.
+
+**EXACT NEXT ACTION — execute that handoff in a fresh session on the Mac (Opus 5, high effort).**
+
+---
 
 ### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
 
