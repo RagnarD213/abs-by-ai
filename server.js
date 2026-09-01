@@ -252,7 +252,7 @@ const DASH_PAGES = ['/dashboard', '/admin', '/morningbrief'];
 const DASH_APIS  = [
   '/api/morning-data', '/api/monarch', '/api/calendar-debug', '/api/gmail-digest',
   '/api/health-debug', '/api/todos', '/api/plan', '/api/assign-priority',
-  '/api/tasks-state', '/api/personal-lists',
+  '/api/tasks-state', '/api/personal-lists', '/api/timesheet/mark-paid',
 ];
 
 const dashSign = (expMs) => crypto.createHmac('sha256', DASH_SECRET).update(String(expMs)).digest('hex');
@@ -1349,9 +1349,18 @@ async function assistantDoneSweep() { return withTaskDataLock(async () => {
 // One active session at a time, server-timestamped so the elapsed time is
 // correct even if her browser closes, refreshes, or she opens it on another
 // device — the client never owns the clock, it only displays `now - startedAt`.
-// Data shape: { active: { startedAt: ISOString } | null, entries: [{ start, end, seconds }] }
+//
+// Time accumulates CUMULATIVELY until Dan marks it paid — it is never reset by
+// the calendar rolling over. `entries` therefore holds only UNPAID sessions; a
+// pay-out moves them wholesale into a `payments` record and empties the list,
+// which is what makes the running total "disappear" on payment and only then.
+// Data shape: {
+//   active:   { startedAt: ISOString } | null,
+//   entries:  [{ start, end, seconds }]                       // unpaid only
+//   payments: [{ paidAt, seconds, sessions, entries: [...] }] // archive, newest last
+// }
 const TIMESHEET_FILE = 'timesheet.json';
-const EMPTY_TIMESHEET = { active: null, entries: [] };
+const EMPTY_TIMESHEET = { active: null, entries: [], payments: [] };
 let timesheetCache = null; // { data, sha, fetchedAt, trustUntil }
 
 function snapshotTimesheet() {
@@ -1372,6 +1381,7 @@ async function loadTimesheet(opts) {
     const data = {
       active: (parsed.active && typeof parsed.active.startedAt === 'string') ? { startedAt: parsed.active.startedAt } : null,
       entries: Array.isArray(parsed.entries) ? parsed.entries : [],
+      payments: Array.isArray(parsed.payments) ? parsed.payments : [],
     };
     // Never let a stale CDN read undo a write we just made ourselves.
     if (timesheetCache && Date.now() < timesheetCache.trustUntil) return snapshotTimesheet();
@@ -1396,15 +1406,19 @@ async function saveTimesheetToGitHub(data, sha) {
     let newSha = null;
     try { newSha = (await putRes.json())?.content?.sha || null; } catch (_) { /* body already consumed */ }
     timesheetCache = { data, sha: newSha, fetchedAt: Date.now(), trustUntil: Date.now() + CACHE_TRUST_MS };
-    // Only `active` needs to be live-pushed — entries are read on the next poll/load.
-    broadcastTaskState({ timesheet: { active: data.active } });
+    // `entries` is pushed alongside `active` because it is the UNPAID list: after
+    // Dan marks time paid it empties, and her page must show that at once rather
+    // than keep displaying an owed total for up to a minute. It stays small by
+    // construction — paid sessions move into `payments` and out of this list.
+    broadcastTaskState({ timesheet: { active: data.active, entries: data.entries } });
   }
   return putRes;
 }
 
 app.get('/api/timesheet', async (req, res) => {
-  const { active, entries } = await loadTimesheet();
-  res.json({ active, entries });
+  const { active, entries, payments } = await loadTimesheet();
+  const last = payments.length ? payments[payments.length - 1] : null;
+  res.json({ active, entries, lastPaidAt: last ? last.paidAt : null });
 });
 
 app.post('/api/timesheet/start', async (req, res) => {
@@ -1417,7 +1431,7 @@ app.post('/api/timesheet/start', async (req, res) => {
       const needFresh = attempt > 0 || (timesheetCache && !timesheetCache.sha);
       const cur = await loadTimesheet(needFresh ? { fresh: true } : undefined);
       if (cur.active) return res.json({ ok: true, active: cur.active, alreadyActive: true });
-      const next = { active: { startedAt: new Date().toISOString() }, entries: cur.entries };
+      const next = { active: { startedAt: new Date().toISOString() }, entries: cur.entries, payments: cur.payments };
       const putRes = await saveTimesheetToGitHub(next, cur.sha);
       if (putRes.ok) return res.json({ ok: true, active: next.active });
       if (putRes.status === 409 || putRes.status === 422) continue; // sha race — reload & retry
@@ -1441,9 +1455,53 @@ app.post('/api/timesheet/stop', async (req, res) => {
       const end = new Date().toISOString();
       const seconds = Math.max(0, Math.round((new Date(end) - new Date(start)) / 1000));
       const entry = { start, end, seconds };
-      const next = { active: null, entries: [...cur.entries, entry] };
+      const next = { active: null, entries: [...cur.entries, entry], payments: cur.payments };
       const putRes = await saveTimesheetToGitHub(next, cur.sha);
       if (putRes.ok) return res.json({ ok: true, entry, entries: next.entries });
+      if (putRes.status === 409 || putRes.status === 422) continue; // sha race — reload & retry
+      const txt = await putRes.text().catch(() => '');
+      return res.status(502).json({ error: `github ${putRes.status}: ${txt}` });
+    }
+    return res.status(503).json({ error: 'write conflict, please retry' });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.post('/api/timesheet/mark-paid', async (req, res) => {
+  if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
+  try {
+    for (let attempt = 0; attempt < 4; attempt++) {
+      const needFresh = attempt > 0 || (timesheetCache && !timesheetCache.sha);
+      const cur = await loadTimesheet(needFresh ? { fresh: true } : undefined);
+      const paidAt = new Date().toISOString();
+
+      // A session running at pay-out is closed and immediately reopened, so the
+      // minutes worked up to this moment are paid and the clock starts over from
+      // zero. Leaving it open would silently carry pre-payment time into the next
+      // unpaid total — the one thing this feature exists to prevent.
+      const settled = [...cur.entries];
+      let active = null;
+      if (cur.active) {
+        const start = cur.active.startedAt;
+        settled.push({ start, end: paidAt, seconds: Math.max(0, Math.round((new Date(paidAt) - new Date(start)) / 1000)) });
+        active = { startedAt: paidAt };
+      }
+
+      // Nothing owed also covers a second press moments after the first: the
+      // session restarted above has ~0 seconds on it, and recording that as a
+      // payment would litter the archive with empty pay-outs and needlessly
+      // reset her clock again.
+      const seconds = settled.reduce((sum, e) => sum + (e.seconds || 0), 0);
+      if (!seconds) return res.json({ ok: true, nothingOwed: true, seconds: 0, sessions: 0, active: cur.active, entries: cur.entries });
+
+      const next = {
+        active,
+        entries: [],
+        payments: [...cur.payments, { paidAt, seconds, sessions: settled.length, entries: settled }],
+      };
+      const putRes = await saveTimesheetToGitHub(next, cur.sha);
+      if (putRes.ok) return res.json({ ok: true, paidAt, seconds, sessions: settled.length, active, entries: [] });
       if (putRes.status === 409 || putRes.status === 422) continue; // sha race — reload & retry
       const txt = await putRes.text().catch(() => '');
       return res.status(502).json({ error: `github ${putRes.status}: ${txt}` });
@@ -1692,7 +1750,7 @@ app.get('/api/tasks-events', async (req, res) => {
   // reconnected after a dropped connection) is correct without waiting.
   try {
     const [todos, checks, timesheet] = await Promise.all([loadTodos(), loadTaskChecks(), loadTimesheet()]);
-    const state = { todos, task_checks: { checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt }, timesheet: { active: timesheet.active } };
+    const state = { todos, task_checks: { checked: checks.checked, log: checks.log, checkedAt: checks.checkedAt }, timesheet: { active: timesheet.active, entries: timesheet.entries } };
     res.write(`event: tasks\ndata: ${JSON.stringify(res.dashAuthed ? state : scopeTasksForAssistant(state))}\n\n`);
   } catch (e) { /* the client will fall back to polling */ }
 

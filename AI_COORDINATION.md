@@ -33,6 +33,44 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### ASSISTANT TIME TRACKING — **CUMULATIVE-UNTIL-PAID BUILT; live timesheet cleared** (2026-09-01, Claude Code)
+
+Dan: her tracked time disappeared at the end of each day; it should accumulate until he presses a
+"paid" button. Built on `claude/cumulative-time-tracking-payment-fz0tr8` (`6074e32`). **$0.00 AI
+spend. No native-retest trigger** (dashboard/assistant web surfaces only). **NOT MERGED — main still
+runs the old code.**
+
+`timesheet.json` gains `payments`; **`entries` now holds UNPAID sessions only**, so a pay-out is an
+archive-and-empty rather than a date filter. New **`POST /api/timesheet/mark-paid`**, added to
+`DASH_APIS` so it needs Dan's dashboard secret — her page has no login and this is his control.
+A session running at pay-out is **closed at that instant and immediately reopened**, so pre-payment
+minutes cannot leak into the next period; a zero-second pay-out is a no-op (stops a double press
+littering the archive). Both surfaces now read `Unpaid: Xh Ym across N sessions since <date>`; the
+dashboard adds the button. The SSE frame now carries `entries` alongside `active` so her page clears
+on payment instead of on the next 60 s poll.
+
+**Verified by running the server against a stubbed GitHub store** (npm install needed; `node-fetch`
+is a require, so a `globalThis.fetch` stub is NOT enough — patch `Module.prototype.require`):
+7200 s + a live 3602 s session → one payment of 10802 s, `entries` emptied, clock restarted;
+unauthenticated POST 401; double press a no-op; start/stop still correct.
+
+**LIVE DATA CLEARED at Dan's instruction (commit `f695f88` on main).** All 11 pre-feature sessions —
+**66,244 s = 18h 24m** — were already paid, so they were moved into a `payments` record.
+**Her running session (`21:30:34.382Z`) was preserved verbatim** — she was clocked in at the time.
+Written through the GitHub contents API with the blob sha, so a concurrent stop would have conflicted
+rather than clobbered.
+
+⚠ **THE ARCHIVE IS AT RISK UNTIL THE BRANCH MERGES.** The deployed (old) stop handler writes
+`{active, entries}` and does **not** carry `payments` through, so **her next "Stop working" drops the
+paid-time archive**. Only the history is lost, never her unpaid total — but merging before she clocks
+out avoids it entirely.
+
+**EXACT NEXT ACTION — DAN: merge `claude/cumulative-time-tracking-payment-fz0tr8` to main** (ideally
+before her next clock-out). **Dashboard: nothing checked off — searched `todos.json`, no task covers
+this.**
+
+---
+
 ### DASHBOARD CLEANUP — **23 STALE BUSINESS TASKS REMOVED; needs a merge to main to go live** (2026-09-01, Claude Code)
 
 Dan: the board had filled up with handoff rows already executed elsewhere. Audited all 61 business
