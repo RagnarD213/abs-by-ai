@@ -1,7 +1,6 @@
 {
   "checked": [
-    "personal::Pick up meals from Clean Eats",
-    "personal::Buy more collagen and Kiro electrolyte powder"
+    "personal::Pick up meals from Clean Eats"
   ],
   "log": {
     "health::Shower": [
@@ -204,7 +203,6 @@
     ]
   },
   "checkedAt": {
-    "personal::Pick up meals from Clean Eats": "2026-08-31",
-    "personal::Buy more collagen and Kiro electrolyte powder": "2026-08-31"
+    "personal::Pick up meals from Clean Eats": "2026-08-31"
   }
 }
