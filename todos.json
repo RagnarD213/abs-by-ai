@@ -377,6 +377,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Do dishes",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-09-01"
     }
   ]
 }
