@@ -1,14 +1,5 @@
 {
   "checked": [
-    "assistant::Cook weekly meal prep",
-    "assistant::Remove calcium stains from pool tiles",
-    "assistant::Take car to Club Car Wash (Dan already has monthly membership). Get exterior washed and clean interior. Use Club Car Wash free vaccuum and cleaning supplies in frunk to clean interior",
-    "assistant::Do laundry",
-    "assistant::Clean office",
-    "assistant::Empty/load dishwasher",
-    "assistant::Take out trash",
-    "assistant::Dust",
-    "assistant::Wipe down counters",
     "money::Write workout outlines for the next shoot",
     "money::Write scripts for the next shoot (≥half workout content)",
     "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline",
@@ -217,15 +208,6 @@
     ]
   },
   "checkedAt": {
-    "assistant::Cook weekly meal prep": "2026-08-25",
-    "assistant::Remove calcium stains from pool tiles": "2026-08-25",
-    "assistant::Take car to Club Car Wash (Dan already has monthly membership). Get exterior washed and clean interior. Use Club Car Wash free vaccuum and cleaning supplies in frunk to clean interior": "2026-08-25",
-    "assistant::Do laundry": "2026-08-25",
-    "assistant::Clean office": "2026-08-25",
-    "assistant::Empty/load dishwasher": "2026-08-25",
-    "assistant::Take out trash": "2026-08-25",
-    "assistant::Dust": "2026-08-25",
-    "assistant::Wipe down counters": "2026-08-25",
     "money::Write workout outlines for the next shoot": "2026-08-31",
     "money::Write scripts for the next shoot (≥half workout content)": "2026-08-31",
     "money::Check in on the 4 Upwork editor trials — answer questions, confirm deadline": "2026-08-31",
