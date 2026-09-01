@@ -337,6 +337,24 @@
       "priority": "key",
       "why": "handoff-20260831-google-ads-api-setup-engagement-ad-automation.md — created but not yet run",
       "addedAt": "2026-08-31"
+    },
+    {
+      "text": "Order the filming-set gear (buy-now list, ~$885) after the 3 phone tests in the bedroom",
+      "priority": "key",
+      "addedAt": "2026-09-01",
+      "why": "Dan's stated top priority 9/1; build spec + priced list in the home-filming-set artifact (v2)"
+    },
+    {
+      "text": "Cut Ad 2's SCRIPT_FOR_DAN.md to ~200 words, then build the 0:59 vertical (Phase B, /shortad-from-longform)",
+      "priority": "key",
+      "addedAt": "2026-09-01",
+      "why": "Dan 9/1: finish the short ad from longform; script cut is Dan's, build is a session's"
+    },
+    {
+      "text": "Launch Google Ads campaigns with finished Ad 1 (Muhammad 16:9 + 0:59 vertical) — fix the 'New form of payment required' flag first",
+      "priority": "key",
+      "addedAt": "2026-09-01",
+      "why": "Dan 9/1: ads are ready to run; Google billing flag from the 8/31 pull blocks all new spend"
     }
   ],
   "health": [
