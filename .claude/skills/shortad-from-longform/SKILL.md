@@ -554,6 +554,64 @@ necessary, take things directly from his video."* Eight lessons, each paid for:
 12. **App-recording beats: retime VARIABLY, not uniformly** — interactions near real
    time, progress/loading screens ~5× (Dan: uniform speed makes the loading feel slow).
 
+## [A4] Ad 2 (2026-09-01) — Dan rejected rev 0 on CENTERING, and the cause was already written down
+
+His verdict was that the audio "sounds like Muhammad", the graphics were wrong, and **"the most
+severe issue is the centering throughout the entire video"**. Ten lessons:
+
+1. ⚠ **NEVER ANCHOR THE CROP ON A COLOUR HEURISTIC. USE APPLE VISION PERSON SEGMENTATION.**
+   This is the single most expensive mistake available in this skill, and the project had already
+   paid for it once: the 2026-08-27 re-centre session recorded that a skin+dark-garment heuristic
+   "bled into the stainless fridge" on this exact kitchen set. Rev 0 used one anyway; the warm wall
+   and the fridge sit to his right, so the centroid was dragged **+123 px right in the 1920 source
+   = +218 px in the delivered 1080 frame**, and Dan saw it immediately. The tooling already exists
+   — `/shorts reference/recentre/personmask.swift` (compile once with `swiftc -O`) plus
+   `anchor.py`, whose `torso` value is the midpoint of the TALL columns of the mask, so hands
+   leaving frame cannot drag it. Verify with a nine-point A/B across the timeline with the frame
+   centre drawn in, before rendering anything.
+2. ⚠ **CONTENT-ADDRESS EVERY CACHE. AN INDEX-KEYED ONE SERVES THE WRONG FILE.** Removing two beats
+   made the beat list shorter, every later beat shifted index, and the segment cache handed back
+   the previous beat's file at the new index — the concat came out **293.6 s against a 276.1 s
+   target**. The overlay cache had the identical bug on Ad 1. Key both on a hash of the beat spec
+   + duration + start time.
+3. ⚠ **READ HIS GRAPHICS TEXT AT HIGH ZOOM AND REPRODUCE IT VERBATIM.** Paraphrasing a header is
+   not reproducing his cut. Four of five bullet cards were wrong in rev 0 — headers reworded,
+   bullets merged, one split into two so the second began mid-sentence with a lowercase letter.
+   Crop each card at 3x and read it.
+4. **His bullets colour individual phrases olive, and a phrase can straddle a line break**, so the
+   renderer needs per-CHARACTER colour carried through the wrap, not per-line colour.
+5. ⚠ **THE HEADER MUST WRAP.** Two of his headers are long and he sets them on two lines. Drawn as
+   one line they run off the right edge of a 1080-wide frame — invisible on a contact sheet,
+   obvious at full width.
+6. ⚠ **DO NOT INVENT GRAPHICS TEXT.** Dan: *"make sure your graphics are mirroring what Muhammad
+   had in there and that you're not creating your own graphics text."* That killed six card
+   captions I had written and two bullet cards I had invented to break up his long talking
+   stretches. If his cards carry no caption, yours carry no caption — and a card caption over a
+   burned caption is the "double captions" he flagged.
+7. **Captions must be suppressed under CTA pills, not only under bullet screens.** Missing `cta`
+   from the suppression list ran the captions straight through all three pills — "With Abs"
+   overprinted by "to generate an image".
+8. ⚠ **`loudnorm` FALLS BACK TO DYNAMIC MODE WITHOUT ERRORING** when the lift cannot be made
+   linearly under the true-peak ceiling. His master was −19.2 LUFS with peaks already at −0.08
+   dBTP, so −14 needs +6.4 dB: loudnorm compressed the bed up against the voice, measurable as a
+   drop to 0.970 correlation with his mix. Use a **pure gain plus a limiter** and iterate the gain
+   two or three times to land on target. Then judge provenance **per second, level-normalised** —
+   a whole-file correlation can never reach 1.0 once a limiter is legitimately shaving peaks.
+9. ⚠ **A BARE `apad` HAS NO LENGTH AND GENERATES SILENCE FOREVER** — the limiter-delay
+   compensation never finishes encoding. Use `apad=pad_len=<the samples you trimmed>`. And
+   **measure the limiter delay on ONE probe file processed two ways**: generating `anoisesrc`
+   twice gives two different random signals and the correlation is meaningless (it read −1128
+   samples; the real delay is 239).
+10. **A full-bleed STILL must carry a slow push**, exactly as a still in a card does — the `bleed`
+    branch needs `still_chain`, not a plain cover crop. Five stills sat dead-frozen in rev 0 while
+    Dan's revision note asked for them "with motion effect" in as many words.
+
+**Recovering the EDL when word runs are not enough:** his pause trims INSIDE a sentence are
+invisible to run-detection, because the words either side still match contiguously. Build a dense
+**acoustic offset profile** instead — step his cut in 0.10 s hops, lock each 0.70 s window against
+the raw independently, and every step in the locked offset is one of his cuts, whether or not a
+word went unmatched across it. On this ad that took fidelity from 97.1 % to **98.1 %**.
+
 ## Standing content rules that override the reference
 
 The reference editor does not know Dan's ad rules. Check every beat you are reproducing:
