@@ -414,6 +414,13 @@
       "recurring": false,
       "addedAt": "2026-09-01",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Change robot mop water",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-01",
+      "addedBy": "assistant"
     }
   ]
 }
