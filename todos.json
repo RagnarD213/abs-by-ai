@@ -383,6 +383,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-09-01"
     }
   ]
 }
