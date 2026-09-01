@@ -1,5 +1,7 @@
 {
-  "checked": [],
+  "checked": [
+    "assistant::Cut up boxes from artificial hedge install and put in empty room"
+  ],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -203,5 +205,7 @@
       "2026-08-30"
     ]
   },
-  "checkedAt": {}
+  "checkedAt": {
+    "assistant::Cut up boxes from artificial hedge install and put in empty room": "2026-09-01"
+  }
 }
