@@ -350,10 +350,9 @@
     },
     {
       "text": "Put pool tile cleaning products away",
-      "priority": "unassigned",
+      "priority": "med",
       "recurring": false,
-      "addedAt": "2026-08-26",
-      "addedBy": "assistant"
+      "addedAt": "2026-08-26"
     },
     {
       "text": "Put away dishes",
