@@ -1,7 +1,5 @@
 {
-  "checked": [
-    "personal::Pick up meals from Clean Eats"
-  ],
+  "checked": [],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -202,7 +200,5 @@
       "2026-08-30"
     ]
   },
-  "checkedAt": {
-    "personal::Pick up meals from Clean Eats": "2026-08-31"
-  }
+  "checkedAt": {}
 }
