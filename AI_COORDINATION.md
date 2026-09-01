@@ -55,8 +55,17 @@ prefix — fetch `latest_version.id` whole.
 
 **Dashboard: nothing checked off — no task covers this.**
 
-**EXACT NEXT ACTION — DAN: look at the three review sheets (sent in chat).** On approval, the batch
-run over all studio finals into `_cutouts/` is ~$0.10 and one session.
+**APPROVED BY DAN same day ("These look great") — PROMOTED TO A SKILL: `/background-removal`.**
+The whole pipeline is now `scripts/removebg.py` inside the skill (token handling, files API,
+BiRefNet, alpha-only upscale onto original pixels, 2px contraction, idempotent skip, auto-zoom QC
+sheets, subject-fraction sanity flag). Verified end-to-end through the SCRIPT path on a fresh frame
+— gray-30, white tank against the gray backdrop, keyed clean (now the 4th cutout in `_cutouts/`).
+⚠ One new trap found in the script test: **Replicate's edge 403s Python-urllib's default
+user agent** — curl works, urllib fails until a custom User-Agent is set (in the script now).
+Test total AI spend <$0.01.
+
+**EXACT NEXT ACTION — the batch run over all studio finals into `_cutouts/` (~$0.20, one session,
+invoke `/background-removal`).** Dan has approved the look; nothing is blocked.
 
 ---
 
