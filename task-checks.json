@@ -1,7 +1,5 @@
 {
-  "checked": [
-    "assistant::Get quote to fix Audi from Euro Garage — 10921 E Crystal Falls Pkwy, Bldg G-400, Leander, TX 78641"
-  ],
+  "checked": [],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -205,7 +203,5 @@
       "2026-08-30"
     ]
   },
-  "checkedAt": {
-    "assistant::Get quote to fix Audi from Euro Garage — 10921 E Crystal Falls Pkwy, Bldg G-400, Leander, TX 78641": "2026-09-01"
-  }
+  "checkedAt": {}
 }
