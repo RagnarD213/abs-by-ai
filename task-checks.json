@@ -4,7 +4,8 @@
     "assistant::Do laundry",
     "assistant::Do dishes",
     "assistant::Change sheets",
-    "assistant::Put pool tile cleaning products away"
+    "assistant::Put pool tile cleaning products away",
+    "assistant::Cut up boxes, and put cardboard and plastic bags in recycling. Bring full recycling bin to curb."
   ],
   "log": {
     "health::Shower": [
@@ -215,6 +216,7 @@
     "assistant::Do laundry": "2026-09-01",
     "assistant::Do dishes": "2026-09-01",
     "assistant::Change sheets": "2026-09-01",
-    "assistant::Put pool tile cleaning products away": "2026-09-01"
+    "assistant::Put pool tile cleaning products away": "2026-09-01",
+    "assistant::Cut up boxes, and put cardboard and plastic bags in recycling. Bring full recycling bin to curb.": "2026-09-01"
   }
 }
