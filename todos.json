@@ -142,8 +142,8 @@
     },
     {
       "text": "Start paid advertising for the @danrosefit Instagram (follower campaigns)",
-      "priority": "high",
-      "why": "2026-08-25 planning — ad identity = @danrosefit, budget/Page stay under Abs By AI; two-step funnel spec is in AI_COORDINATION.md. Dan launches campaigns himself.",
+      "priority": "key",
+      "why": "HANDOFF WRITTEN 2026-09-01: Handoffs/handoff-20260901-danrosefit-ad-identity-fix.md. Campaign is ~90% built (placements Instagram-only, targeting spec, posts chosen from real analytics) but the draft ad set errors with \"Insufficient Page Permission to Run Ads\". Two duplicate Facebook Pages named \"Daniel Rose Fitness\" exist - only 1380236418500031 is linked to @danrosefit; delete 61593951123927. Handoff opens by asking Dan whether the two-step funnel is still worth it. Nothing live, nothing spending.",
       "addedAt": "2026-08-25"
     },
     {
