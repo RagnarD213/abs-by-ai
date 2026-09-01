@@ -377,6 +377,12 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Cut up boxes, and put cardboard and plastic bags in recycling. Bring full recycling bin to curb.",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-09-01"
     }
   ]
 }
