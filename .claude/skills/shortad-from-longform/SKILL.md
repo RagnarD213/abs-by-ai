@@ -435,6 +435,55 @@ master, so scan them too before sending. And **overlay caches must be CONTENT-AD
 (hash of kind+spec+duration in the filename) — an index-keyed cache put the previous
 overlay's text on four lower thirds when one overlay was removed from the list.
 
+### ⚠ STEP 7b — AN INDEPENDENT SUBAGENT AUDIT IS PART OF THIS SKILL (Dan, 2026-09-01)
+
+**"I think calling Fable to review should be a part of this skill going forward."** It has
+already overturned my own conclusion twice on the same deliverable, and both times I had
+declared the thing fixed:
+
+* it measured a version I had just called centred and found **sd ~110 px, 39 % of talking
+  frames beyond 70 px, and two multi-second stretches where his face was cut by the frame
+  edge** — which led to the crop-expression bug in rule 0;
+* it caught that **my own eyeball reads of "he is off to the left" were MIRRORED** at three
+  of four timestamps, which is what broke that bug open.
+
+So after the watch pass, before delivering, launch a **fresh Fable subagent** on the exact
+delivered file. Give it the compiled `personmask` CLI and the torso anchor, tell it which
+beat kinds to judge (talk only), and demand: the population statistics, every contiguous
+run beyond 60 px for >= 1 s, full-resolution verification of anything it flags, **and an
+explicit opinion on whatever trade-off you just made** — a faster tracking crop can swap a
+centering problem for a visible pan, and you are the last person who will notice that in
+your own build. Ask it to be skeptical and to say plainly if you have traded one visible
+problem for another. Relay its verdict to Dan rather than your own.
+
+⚠ **A subagent that has completed cannot be resumed** — its transcript is gone and
+`SendMessage` fails. Launch a fresh one for the re-audit and restate the context.
+
+### ⚠ STEP 7c — SCAN FOR NAKED JUMP CUTS, AND REMEMBER THAT DAN'S REVISIONS CREATE THEM
+
+He hides his trims under an insert, a framing change or a flash. **When a revision deletes
+one of those inserts, the splice underneath is exposed as a naked jump cut** — Dan's REV 2
+on Ad 2 removed an AI cartoon at 9.5-14.0 s and the splice at 13.70 s became a hard cut
+where his mouth snaps from wide open to closed between adjacent frames.
+
+**Compute the exposure set structurally rather than hunting for it:** list every splice in
+the recovered EDL, mark which are covered in HIS beat map and which in YOURS, and the
+difference is exactly what your revisions broke. On Ad 2 that was 2 splices out of 68.
+
+⚠ **FRAME-DIFFERENCE DETECTORS DO NOT FIND THESE, and two of mine failed in a row.** A
+whole-frame gray diff scored the real jump cut at **2.0x its local median — "clean"** —
+because a talking head's global luminance barely moves when only his mouth and head pose
+snap. A face-region diff still ranked it 12th of 28. **The instrument that works is the one
+the watch pass already prescribes: pull frames at -2/-1/0/+1/+2 across each candidate and
+look at them.** A sheet of ten candidates is one image.
+
+**The fix that scales is a 5-frame cross-dissolve applied IN THE BASE**, where there are no
+graphics, so every beat, caption and overlay downstream is untouched. Render a patch for
+each splice from the raw at the grade -- the outgoing take continuing, fading into the
+incoming one -- and overlay it so it REPLACES the incoming segment's first frames. Timeline
+length is preserved exactly because nothing is inserted. Then re-render only the beats that
+read from the base.
+
 Only then run `reference/qc.py`, which is now **16 checks**:
 
 1 frame size 1080×1920 · 2 fps 29.97 · 3 duration matches the reference · 4 −14 LUFS ±0.8 ·
