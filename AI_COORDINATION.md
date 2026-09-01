@@ -33,6 +33,13 @@ and commit messages remain the permanent record of code changes.
 
 ## Active task
 
+### MANYCHAT "COMMENT ABS" — **EXECUTION IN PROGRESS** (2026-09-01, Claude Code)
+
+Executing `Handoffs/handoff-20260831-manychat-comment-abs-setup.md` with Dan at the keyboard.
+Owner: Claude Code. Status: Implementation in progress. Steps 1-3 are Dan's (IG toggle,
+ManyChat signup/OAuth, plan choice); Claude drives Step 4 (automation build) in Dan's Chrome.
+Do NOT touch Blotato's IG auto first-comment or connect @abs.by.ai.
+
 ### AD 2 VERTICAL 9:16 — **DELIVERED with Dan's six revisions applied; QC 16/16** (2026-08-31, Claude Code)
 
 Dan gave Muhammad's finished **Ad 2** cut (`Daniel HQ Ad 2.mp4`, 4:36.1, Drive
@@ -121,8 +128,46 @@ the script himself — a cutdown selected by doctrine is what he rejected on Ad 
 words**, and the ~200-word target. The cutdown is then selected out of this approved master, never
 re-cut from the raw.
 
-**EXACT NEXT ACTION — DAN: watch `REVIEW_540p_ad2_vertical.mp4` (sent in chat), then cut
-`SCRIPT_FOR_DAN.md` down to ~200 words for the 0:59.** Nothing is blocked.
+**REV 1 DELIVERED 2026-09-01 — Dan reviewed the vertical. Audio approved, four notes, all applied.**
+*"You have the audio for this looking and sounding good. This sounds like Muhammad, so you did a
+great job with the audio."* **$0.00 AI spend on the revision.** QC **16/16** again, watch pass re-run
+on the exact file, master md5-verified into the delivery folder.
+
+⚠ **HIS SEVERE NOTE WAS CENTERING, AND THE CAUSE WAS ALREADY WRITTEN DOWN IN THIS PROJECT.**
+*"I'm drifting off to the left and not centered in the frame… this is happening throughout the
+entire video."* Rev 0 anchored the 9:16 crop on a **skin-colour centroid** — and the 2026-08-27
+re-centre session had already recorded that a colour heuristic **"bled into the stainless fridge"
+on this exact kitchen set**. The warm wall and the fridge sit to his right, so the centroid was
+dragged **+123 px right in the 1920 source = +218 px in the delivered 1080 frame.** Rebuilt on
+**Apple Vision person segmentation** (`/shorts reference/recentre/personmask.swift` + the torso
+anchor): 1,104 frames at 4 fps, **a person mask on 100 %**, subject centre 1009-1080 -> **858-970**.
+Verified on a nine-point A/B across the timeline with the frame centre drawn in.
+
+⚠ **HIS GRAPHICS NOTE WAS RIGHT ABOUT FOUR CARDS, NOT THE ONE HE FLAGGED.** *"The bullet points are
+wrong. I want to make them like Muhammad's."* Read off Muhammad's own frames at 3x: **2:23 is ONE
+bullet** (rev 0 split it so the second began mid-sentence with a lowercase letter) **with "38 year
+old" and "ad agency" set in olive**; the 0:50 and 1:39 headers were paraphrased and are now his
+verbatim; 3:42 had two of his four bullets merged; and his second CTA is a **single line**, not a
+two-line pill. Two capabilities had to be built to do it honestly: **per-character colour carried
+through the line wrap** (his olive phrases straddle a break) and **header wrapping** — his two long
+headers are set on two lines and drawn as one they ran **off the right edge of the frame**.
+
+⚠ **"DON'T CREATE YOUR OWN GRAPHICS TEXT" COST SIX CARD CAPTIONS AND TWO INVENTED CARDS.** That is
+also the answer to his 4:00 *"double captions — eliminate the top set"*: the top set was a caption I
+had written. Nothing on screen is now my wording. Stated cost: coverage 48 % -> **42 %**, longest
+talking stretch 13.4 s -> **25.0 s** — still shorter than **his own 31.6 s**, so QC checks 8 and 9
+now measure against his cut rather than an absolute.
+
+⚠ **A CACHE BUG COST A FULL RENDER AND IS NOW STRUCTURALLY FIXED.** Removing two beats shortened the
+beat list, every later beat shifted index, and the **index-keyed segment cache served stale `bleed`
+files at the new indices** — the concat came out **293.6 s against 276.1**. Identical to the overlay
+cache bug on Ad 1. **Both caches are now content-addressed** (hash of beat spec + duration + start).
+
+**Ten lessons committed to `/shortad-from-longform` (`67ab889`).** An independent centering audit was
+run by a **Fable subagent at Dan's suggestion**, on the delivered file, using Vision masks.
+
+**EXACT NEXT ACTION — DAN: watch the rev-1 review copy (sent in chat), then cut
+`SCRIPT_FOR_DAN.md` to ~200 words for the 0:59.** Nothing is blocked.
 
 ---
 
