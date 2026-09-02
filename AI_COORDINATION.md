@@ -200,9 +200,16 @@ Facebook photo mirrors (2027-01-04 → 01-15) were removed and saved to
 the queue has room. Dan: say whether the recurring `Post on TikTok` dashboard row should go now
 that posting is automated. Delete this entry once the first post is verified.
 
-**Google Ads conversion goals** — the Purchase/Subscribe tidy-up (delete the orphan action,
-rename the auto-created one) must wait until a real row exists in the offline feed.
-**Do not manufacture a row to silence error 4000.**
+**Google Ads conversion goals** — Purchase still reads Misconfigured and Campaign diagnostics
+shows "connection failed its last run" + a stale "Unparseable gclid (Aug 27)". **Root cause verified
+2026-09-02: the feed is EMPTY because no sale has ever happened** — the one real trial (annual, real
+gclid) was declined at trial end on Sep 1 and the customer deleted their account 3 minutes later.
+Google cannot infer a schema from a header-only file (error 4000); it clears itself on the first paid
+conversion. **Do not manufacture a row.** Fixed in code the same day (`ee91b26`): the trial→paid
+stamp now comes from Stripe's `invoice.paid` (webhook endpoint updated), because Stripe flips a
+subscription to `active` an hour BEFORE it tries the charge — the old rule would have reported a
+$69.99 sale for a declined card. The Purchase/Subscribe tidy-up (delete the orphan action, rename
+the auto-created one) still waits for a real row in the feed.
 
 **Dashboard cleanup** — 23 stale rows removed on branch
 `claude/dashboard-handoff-cleanup-m8u78j`. ⚠ The live board is `todos.json` on **main**, so
