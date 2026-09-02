@@ -38,6 +38,17 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Ad-1 vertical audio — REBUILT, Dan listens** (2026-09-02). He rejected the audio on
+`Muhammad Ad Videos/this picture got me abs/… | claude | 9x16.mp4` and attributed it to the
+two-mic fault. **It was not that** — both delivered files measure L/R corr 0.99 at lag 0, and
+the 9:16's audio IS Muhammad's mix (per-second corr 0.997). The cause was `loudnorm` silently
+falling back to DYNAMIC mode (his master −18.2 LUFS at +0.0 dBTP, so a linear +4 dB lift is
+impossible): it was swinging the gain +1.2→+9.5 dB second to second, 133 of 232 seconds pushed
+up. Rebuilt as constant +4.2 dB + `alimiter=limit=0.85:level=disabled` → −14.5 LUFS, −1.3 dBTP,
+picture stream untouched (6977 frames, `-c:v copy`). Master replaced in place; A/B + 540p sent.
+New gate `/shortad-from-longform reference/gain_flatness.py` + skill rules committed (`a54686f`)
+and cross-referenced from /shorts and /longform-edit. Delete this entry once he confirms.
+
 **ManyChat "Comment ABS"** — DONE. Live on **any post or reel** for @danrosefit (Pro),
 verified end to end (comment → public reply → DM → button → absbyai.com with
 `utm_campaign=comment-abs`). All ~60 queued CTA posts are now covered. Remaining: Dan
