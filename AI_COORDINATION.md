@@ -38,6 +38,14 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**ManyChat "Comment ABS"** — built and LIVE on @danrosefit (Essential 14-day trial, 250
+contacts). Trigger + public reply **verified working** (abs.by.ai commented "abs", got
+"Just DMed it to you"). **DM delivery is NOT verified** — Sends still 0, no conversation in
+the Inbox; the test commenter was abs.by.ai, which shares the business portfolio, so the
+test may be invalid. Next: have a genuine third-party account comment ABS on the AI FITNESS
+PLAN post and confirm the DM arrives. ⚠ **"any post or reel" is Pro ($39/mo)** — Essential
+only watches ONE post, so 59 of the ~60 queued CTAs are still dead until Dan upgrades.
+
 **Website conversion video (post-generation)** — rev 1 delivered 2026-09-02 and **rejected by
 Dan on audio (a floor problem, not the two-mic comb — measured), framing (the wide shot and the
 light in frame), and graphics (black-field panels, too many)**. Color and cut approved. **Handoff for
@@ -206,15 +214,20 @@ Each has a Key dashboard task. Run in a fresh session.
   worth the effort** — unblocking has eaten most of two sessions for a $10/day campaign, and
   running from @abs.by.ai works today with zero further setup. ⚠ Two Pages named "Daniel
   Rose Fitness" exist: keep `1380236418500031`, delete `61593951123927`.
-- **`Handoffs/handoff-20260831-manychat-comment-abs-setup.md`** — ManyChat "Comment ABS" on
-  @danrosefit. Needs Dan at the keyboard (IG toggle, signup, OAuth, plan). ~60 queued posts
-  promise a DM that nothing currently sends. Don't touch Blotato's IG auto first-comment.
 - **`Handoffs/handoff-20260831-google-ads-api-setup-engagement-ad-automation.md`** —
   engagement-ad automation. Phase 1 is the Google Ads developer token.
 
 ---
 
 # ACTIVE TASK
+
+**Website conversion video REV 2 — IN PROGRESS** (Claude Code, Fable 5.1, 2026-09-02, executing
+`Handoffs/handoff-20260902-website-video-rev2.md`). Order: audio chain gated against Muhammad's ad
+→ 4K base + three framings (WIDE/MID/TIGHT, light excluded) → reduced graphics on the olive field →
+QC + watch → 540p review copy + audio A/B. Work dir `/Volumes/Extreme/_edit_work/website-video-828/`
+(rev-1 intermediates archived in `rev1/`). Do not write to the project's `06 - Website Conversion
+Video` folder from another session.
+
 
 **04 invest-health — style-standard rebuild IN PROGRESS** (Claude Code, 2026-09-02).
 Dan picked sub30 + the therapy/psych-meds beat (L1) restored: 165 ranges, 29:13. Picture
