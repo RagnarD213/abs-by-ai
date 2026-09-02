@@ -273,10 +273,10 @@
       "addedAt": "2026-09-02"
     },
     {
-      "text": "Review the 8 spray tan shorts (tan-short1..8) and say which to swap for alternates",
+      "text": "Review the 6 spray tan shorts (rev 1, new audio) and the audio A/B",
       "priority": "high",
       "addedAt": "2026-09-02",
-      "why": "delivered 9/2, all gates green; picks were Claude's. Also rule on 'full Donald Trump' (short 6) and 'shitty pictures' (short 4). Posting blocked: longform 01 has never been packaged"
+      "why": "rev 1 delivered 9/2: reverb fixed (EDT 85->29-40ms), 2 shorts killed and 2 retitled per Dan. Judge the A/B first"
     },
     {
       "text": "Execute handoff: website conversion video REV 2 (audio to Muhammad's standard, tight framing, sparse graphics)",
@@ -289,6 +289,12 @@
       "priority": "key",
       "why": "handoff-20260902-tiktok-blotato-connect-and-mirror.md — created but not yet run",
       "addedAt": "2026-09-02"
+    },
+    {
+      "text": "Execute handoff: fix the 8/3-shoot audio everywhere (dereverb + audio gate)",
+      "priority": "key",
+      "addedAt": "2026-09-02",
+      "why": "handoff-20260902-shoot-audio-standard.md - Dan rejected this audio 4x; root cause is room reverb (85ms vs 40ms), fixed on spray tan, NOT yet applied to the Zepbound or supplements shorts"
     }
   ],
   "health": [
