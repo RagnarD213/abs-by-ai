@@ -195,10 +195,10 @@
       "addedAt": "2026-08-30"
     },
     {
-      "text": "Execute handoff: Google Ads API setup + engagement-ad automation for new videos",
+      "text": "Execute handoff: Google Ads engagement champion — $5 test ad per new video in all 3 DGEN campaigns, one champion per campaign",
       "priority": "key",
-      "why": "handoff-20260831-google-ads-api-setup-engagement-ad-automation.md — created but not yet run",
-      "addedAt": "2026-08-31"
+      "why": "handoff-20260902-google-ads-engagement-champion-automation.md — created 2026-09-02, not yet run; replaces the 8/31 API-setup task (its Phase 1 developer-token step is folded in)",
+      "addedAt": "2026-09-02"
     },
     {
       "text": "Order the filming-set gear (buy-now list, ~$885) after the 3 phone tests in the bedroom",
