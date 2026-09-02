@@ -123,3 +123,6 @@ TWC work search/
 TWCCorrespondence.pdf
 scripts/blotato/swap_backup/
 .claude/skills/shorts/reference/recentre/personmask
+
+# Local report written by scripts/ads/auto-boost.js runs on this Mac; the cron records runs in Postgres
+brief-autoboost.json

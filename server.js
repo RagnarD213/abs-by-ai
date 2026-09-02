@@ -1572,7 +1572,7 @@ app.get('/api/gmail-digest', async (req, res) => {
 const ADS_DIGEST_FILE = 'brief-ads.json';
 const EMPTY_ADS_DIGEST = {
   generatedAt: null, day: null, blind: [], totals: { spendYesterday: null },
-  anomalies: [], winners: [], platforms: {},
+  anomalies: [], winners: [], platforms: {}, autoBoost: null,
 };
 
 async function loadAdsDigest() {
@@ -1595,6 +1595,8 @@ async function loadAdsDigest() {
       anomalies:   Array.isArray(parsed.anomalies) ? parsed.anomalies : [],
       winners:     Array.isArray(parsed.winners) ? parsed.winners : [],
       platforms:   parsed.platforms && typeof parsed.platforms === 'object' ? parsed.platforms : {},
+      // Latest run of the hourly @danrosefit auto-boost job (Docs/AUTO_BOOST.md).
+      autoBoost:   parsed.autoBoost && typeof parsed.autoBoost === 'object' ? parsed.autoBoost : null,
     };
   } catch (e) {
     console.error('loadAdsDigest error:', e.message);

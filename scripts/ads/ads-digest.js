@@ -603,6 +603,50 @@ async function fetchGoogle(day, baselineFrom) {
 // MAIN
 // ============================================================
 
+// ============================================================
+// AUTO-BOOST (the hourly @danrosefit test/champion job)
+// ============================================================
+//
+// `scripts/ads/auto-boost.js` runs on a Railway cron and records every run in
+// Postgres (`auto_boost_runs`), because the cron's own filesystem is thrown away
+// and the morning brief runs on Dan's Mac. This reads the latest run and passes
+// its report through as `autoBoost`; the brief renders it as its own block. The
+// job is documented in Docs/AUTO_BOOST.md.
+const AUTO_BOOST_STALE_HOURS = 3; // hourly cron; two missed runs is a problem worth a line
+
+async function fetchAutoBoost() {
+  const url = process.env.DATABASE_PUBLIC_URL || process.env.DATABASE_URL;
+  const blind = (reason) => ({ ok: false, reason });
+  if (!url) return blind('No DATABASE_URL / DATABASE_PUBLIC_URL — cannot read auto_boost_runs.');
+  let Pool;
+  try { ({ Pool } = require('pg')); } catch { return blind('pg module not installed here.'); }
+  const pool = new Pool({
+    connectionString: url,
+    ssl: /localhost|127\.0\.0\.1|railway\.internal/.test(url) ? false : { rejectUnauthorized: false },
+  });
+  try {
+    const exists = await pool.query("SELECT to_regclass('auto_boost_runs') AS t");
+    if (!exists.rows[0] || !exists.rows[0].t) return blind('auto_boost_runs does not exist yet — the auto-boost job has never run.');
+    const r = await pool.query('SELECT at, dry_run, enabled, report FROM auto_boost_runs ORDER BY at DESC LIMIT 1');
+    if (!r.rows.length) return blind('auto_boost_runs is empty — the auto-boost job has never run.');
+    const row = r.rows[0];
+    const ageHours = round2((Date.now() - new Date(row.at).getTime()) / 3600e3);
+    return {
+      ok: true,
+      lastRunAt: new Date(row.at).toISOString(),
+      ageHours,
+      stale: ageHours > AUTO_BOOST_STALE_HOURS,
+      dryRun: !!row.dry_run,
+      enabled: !!row.enabled,
+      report: row.report,
+    };
+  } catch (e) {
+    return blind(`Could not read auto_boost_runs: ${e.message}`);
+  } finally {
+    await pool.end().catch(() => {});
+  }
+}
+
 async function main() {
   loadSecrets();
 
@@ -625,6 +669,8 @@ async function main() {
       setup: 'See Docs/ADS_DIGEST.md.', spend: null, campaigns: [], anomalies: [], winners: [],
     })),
   ]);
+
+  const autoBoost = await fetchAutoBoost().catch(e => ({ ok: false, reason: `Fetch threw: ${e.message}` }));
 
   const live = [meta, google].filter(p => p.ok);
   const blind = [meta, google].filter(p => !p.ok);
@@ -653,6 +699,9 @@ async function main() {
     anomalies,
     winners,
     platforms: { meta, google },
+    // The hourly @danrosefit auto-boost job's latest run (Docs/AUTO_BOOST.md).
+    // `ok:false` with a reason when it has never run or Postgres is unreachable.
+    autoBoost,
     thresholds: {
       minSpendToJudge: MIN_SPEND_TO_JUDGE,
       spendSpikeRatio: SPEND_SPIKE_RATIO,
@@ -673,6 +722,9 @@ async function main() {
   parts.push(`${anomalies.length} anomal${anomalies.length === 1 ? 'y' : 'ies'}`);
   parts.push(`${winners.length} winner${winners.length === 1 ? '' : 's'}`);
   if (blind.length) parts.push(`BLIND: ${blind.map(b => b.platform).join(', ')}`);
+  parts.push(autoBoost.ok
+    ? `auto-boost ${autoBoost.enabled ? 'ON' : 'OFF'} (last run ${autoBoost.ageHours}h ago${autoBoost.stale ? ', STALE' : ''})`
+    : `auto-boost unread (${autoBoost.reason})`);
   console.log(`ads-digest ${day} → ${outPath}: ${parts.join(', ')}`);
 
   if (argv.includes('--print')) console.log(JSON.stringify(digest, null, 2));
