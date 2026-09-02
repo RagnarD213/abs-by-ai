@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-09-02T15:14:45.394Z",
+  "day": "2026-09-01",
+  "window": {
+    "from": "2026-08-25",
+    "to": "2026-09-01",
+    "baselineDays": 7
+  },
+  "blind": [
+    {
+      "platform": "meta",
+      "reason": "The stored Facebook token is a PAGE token and carries no ads_read permission.",
+      "setup": "Create a system-user token with ads_read on ad account act_2143998876461525 and store it as META_ADS_TOKEN — Docs/ADS_DIGEST.md has the click path."
+    },
+    {
+      "platform": "google",
+      "reason": "No Google Ads developer token — API access was never set up (handoff Phase 1 unexecuted).",
+      "setup": "Apply for a developer token in MCC 324-458-6445 → Tools → API Center, then set GOOGLE_ADS_DEVELOPER_TOKEN."
+    }
+  ],
+  "totals": {
+    "spendYesterday": null,
+    "spend7dMean": null,
+    "deltaPct": null,
+    "platformsLive": []
+  },
+  "anomalies": [],
+  "winners": [],
+  "platforms": {
+    "meta": {
+      "ok": false,
+      "platform": "meta",
+      "account": "act_2143998876461525",
+      "reason": "The stored Facebook token is a PAGE token and carries no ads_read permission.",
+      "setup": "Create a system-user token with ads_read on ad account act_2143998876461525 and store it as META_ADS_TOKEN — Docs/ADS_DIGEST.md has the click path.",
+      "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
+      "spend": null,
+      "campaigns": [],
+      "anomalies": [],
+      "winners": []
+    },
+    "google": {
+      "ok": false,
+      "platform": "google",
+      "account": "3427170837",
+      "reason": "No Google Ads developer token — API access was never set up (handoff Phase 1 unexecuted).",
+      "setup": "Apply for a developer token in MCC 324-458-6445 → Tools → API Center, then set GOOGLE_ADS_DEVELOPER_TOKEN.",
+      "link": "https://ads.google.com/aw/campaigns?__c=3427170837",
+      "spend": null,
+      "campaigns": [],
+      "anomalies": [],
+      "winners": []
+    }
+  },
+  "thresholds": {
+    "minSpendToJudge": 5,
+    "spendSpikeRatio": 2,
+    "spendStopRatio": 0.1,
+    "cpaDegradeRatio": 1.5,
+    "winnerRatio": 0.7,
+    "winnerMinResults": 8,
+    "googleConversionInflation": 1.96
+  }
+}

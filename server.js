@@ -251,6 +251,7 @@ const DASH_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
 const DASH_PAGES = ['/dashboard', '/admin', '/morningbrief'];
 const DASH_APIS  = [
   '/api/morning-data', '/api/monarch', '/api/calendar-debug', '/api/gmail-digest',
+  '/api/ads-digest',
   '/api/health-debug', '/api/todos', '/api/plan', '/api/assign-priority',
   '/api/tasks-state', '/api/personal-lists', '/api/timesheet/mark-paid',
 ];
@@ -445,6 +446,7 @@ app.get('/api/morning-data', async (req, res) => {
     loadTaskChecks().then(d => { result.task_checks = { checked: d.checked, log: d.log, checkedAt: d.checkedAt }; }),
     loadPlan().then(d => { result.plan = d; }),
     loadGmailDigest().then(d => { result.gmail = d; }),
+    loadAdsDigest().then(d => { result.ads = d; }),
   ]);
 
   result.watch = loadWatch();
@@ -1539,6 +1541,59 @@ async function loadGmailDigest() {
 
 app.get('/api/gmail-digest', async (req, res) => {
   res.json(await loadGmailDigest());
+});
+
+// ── Ads digest (Meta + Google daily spend, anomalies, winning ads) ──
+// Written by `scripts/ads/ads-digest.js`, which the 6:30am morning-brief job runs
+// before it builds the page; this only reads what that job last committed. Same
+// GitHub-backed pattern as the Gmail digest above, for the same reason: Railway
+// redeploys wipe the container filesystem, so the repo is the store.
+//
+// GATED (see DASH_APIS): campaign names, daily spend and cost-per-result are
+// business data, and the whole point of the 2026-08-19 gate was that hiding a URL
+// is not access control.
+//
+// Shape (full contract in Docs/ADS_DIGEST.md):
+//   { generatedAt, day, window, blind: [{platform, reason, setup}],
+//     totals: { spendYesterday, spend7dMean, deltaPct, platformsLive },
+//     anomalies: [...], winners: [...], platforms: { meta, google } }
+// `blind` is non-empty whenever a platform could not be read — that is the honest
+// state today, since neither ad platform has a working read credential yet.
+const ADS_DIGEST_FILE = 'brief-ads.json';
+const EMPTY_ADS_DIGEST = {
+  generatedAt: null, day: null, blind: [], totals: { spendYesterday: null },
+  anomalies: [], winners: [], platforms: {},
+};
+
+async function loadAdsDigest() {
+  if (!GITHUB_TOKEN) return EMPTY_ADS_DIGEST;
+  try {
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${ADS_DIGEST_FILE}`, {
+      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return EMPTY_ADS_DIGEST;
+    const data = await res.json();
+    const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+    // Whitelist shape rather than passing the file through: a field added
+    // upstream should not reach a client until someone puts it here on purpose.
+    return {
+      generatedAt: typeof parsed.generatedAt === 'string' ? parsed.generatedAt : null,
+      day:         typeof parsed.day === 'string' ? parsed.day : null,
+      window:      parsed.window && typeof parsed.window === 'object' ? parsed.window : null,
+      blind:       Array.isArray(parsed.blind) ? parsed.blind : [],
+      totals:      parsed.totals && typeof parsed.totals === 'object' ? parsed.totals : { spendYesterday: null },
+      anomalies:   Array.isArray(parsed.anomalies) ? parsed.anomalies : [],
+      winners:     Array.isArray(parsed.winners) ? parsed.winners : [],
+      platforms:   parsed.platforms && typeof parsed.platforms === 'object' ? parsed.platforms : {},
+    };
+  } catch (e) {
+    console.error('loadAdsDigest error:', e.message);
+    return EMPTY_ADS_DIGEST;
+  }
+}
+
+app.get('/api/ads-digest', async (req, res) => {
+  res.json(await loadAdsDigest());
 });
 
 // ── Today's Plan (stored in GitHub plan.json so it survives Railway deploys) ──
