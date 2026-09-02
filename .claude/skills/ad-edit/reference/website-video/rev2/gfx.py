@@ -35,14 +35,10 @@ def _skip(n):
     if os.path.exists(f"{G}/{n}.mov") and os.environ.get("FORCE")!="1":
         print(f"  [cached] {n}"); return True
     return False
-LT_BOTTOM=1080-80        # REV 3: the plate's bottom edge. Rev 2's default (y = 1080-200-ch_h) put every
-                         # lower third at y 757-905, under the lifted captions (49 px overlap, lesson 99).
-                         # Now the box sits ~852-1000 and captions lift above it (captions.py MV_LIFT=290);
-                         # qc_frame.py measures the gap on the delivered pixels.
 def _lt(name, lines, beat, lead=44, size=38, **kw):
     if _skip(name): return
     ml.lower_third_bar(f"{G}/{name}.mov", lines, beat[1]-beat[0], pal=PAL, size=size,
-                       lead_size=lead, in_dur=0.40, out_dur=0.32, bottom=LT_BOTTOM, **kw)
+                       lead_size=lead, in_dur=0.40, out_dur=0.32, **kw)
 
 # ---- lower thirds (Dan stays full frame) ---------------------------------------
 def g_name():     _lt("name",     ["Dan Rose","Founder, Abs by AI"], B.NAME, lead=46, size=36)

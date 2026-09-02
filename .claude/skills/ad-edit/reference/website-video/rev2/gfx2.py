@@ -117,7 +117,7 @@ def _tag(im,box):
 def _disc(im):
     ImageDraw.Draw(im).text((PHOTO_BOX[2],1044),"Results are not guaranteed.",font=disc_f,fill=(150,156,140),anchor="rm")
 
-def photo_card(name,items,dur,tag=False,disclaimer=False,hold=False,in_dur=0.50,out_dur=0.40):
+def photo_card(name,items,dur,tag=False,disclaimer=False,hold=False):
     """items = [(path, seconds), ...] shown in SEQUENCE inside one plate; each photo drifts
     slowly (alternating in/out) and hands over with a short crossfade -- never side by side"""
     if _skip(name): return
@@ -126,7 +126,7 @@ def photo_card(name,items,dur,tag=False,disclaimer=False,hold=False,in_dur=0.50,
     frames=[]; n=max(1,int(round(dur*FPS)))
     starts=np.cumsum([0]+[d for _,d in items])
     for i in _frames(n):
-        t=i/FPS; env=fade_env(t,dur,in_dur=in_dur,out_dur=out_dur,hold=hold)
+        t=i/FPS; env=fade_env(t,dur,hold=hold)
         im=Image.new("RGBA",(W,H),(0,0,0,0))
         im.alpha_composite(ml.with_alpha(fld,env))
         con=Image.new("RGBA",(W,H),(0,0,0,0)); con.alpha_composite(pl)
@@ -139,14 +139,12 @@ def photo_card(name,items,dur,tag=False,disclaimer=False,hold=False,in_dur=0.50,
         con.alpha_composite(ml.with_alpha(ph,a),(box[0],box[1]))
         if tag: _tag(con,box)
         if disclaimer: _disc(con)
-        s=0.97+0.03*ml.ease_out_cubic(t/in_dur)
+        s=0.97+0.03*ml.ease_out_cubic(t/0.50)
         im.alpha_composite(ml.with_alpha(ml.scale_about(con,s),env))
         frames.append(im)
     _emit(frames,name)
 
-# REV 3: the before card is ~1.8 s now that the repeated line is cut, so it fades 0.30/0.30
-# (rev 2's 0.50/0.40 would leave under a second at full strength)
-def g_before(): photo_card("before",[(BEFOREP,B.BEFORE[1]-B.BEFORE[0])],B.BEFORE[1]-B.BEFORE[0],in_dur=0.30,out_dur=0.30)
+def g_before(): photo_card("before",[(BEFOREP,B.BEFORE[1]-B.BEFORE[0])],B.BEFORE[1]-B.BEFORE[0])
 def g_today():
     dur=B.TODAY[1]-B.TODAY[0]; each=dur/len(TODAYP)
     photo_card("today",[(p,each) for p in TODAYP],dur,disclaimer=True)

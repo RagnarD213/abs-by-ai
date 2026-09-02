@@ -18,16 +18,6 @@ HOOK_SAFE=3.0           # no splice inside the opening line
 frames=lambda t: round(t/FD)
 snapf=lambda t: round(frames(t)*FD,6)
 
-# REV 3 -- manual cuts on the BASE timeline, on top of the pause pass. Dan heard the restart at
-# 0:32 ("I've been out of shape" twice). Both edges are placed from the 5 ms envelope (env.json),
-# never from Whisper: "Now," decays to -37 dB by 33.02 and the first attempt's "I've" rises at
-# 33.06; the restart's "I've" rises at 35.59. Cut the first attempt, keep the fluent restart
-# (ad-edit lesson 98: later fluent take wins). Any pause cut inside a manual cut is absorbed by it,
-# and every WORD inside a removed span is dropped from the word map (otherwise it collapses onto
-# the splice and the caption shows the cut line twice).
-MANUAL_CUTS=[{"in":33.033,"out":35.4354,
-              "why":"first attempt of 'I've been out of shape' (C1650 47.6-48.5 s) + the 1.6 s gap before the restart"}]
-
 edl=json.load(open(f"{HERE}/edl.json"))["ranges"]
 rw,off=[],0.0
 for rg in edl:
@@ -65,18 +55,6 @@ for s0,s1 in sil:
     cuts.append({"in":ci,"out":co,"rm":round(co-ci,3),
                  "a":pv["w"].strip() if pv else "?","b":nx["w"].strip() if nx else "?",
                  "join":any(ci-0.3<=j<=co+0.3 for j in joins)})
-for m in MANUAL_CUTS:
-    mi,mo=snapf(m["in"]),snapf(m["out"])
-    assert DB[int(mi/HOP)]<-30 and DB[int(mo/HOP)]<-40, f"manual cut edge not in a pause: {DB[int(mi/HOP)]} / {DB[int(mo/HOP)]} dB"
-    absorbed=[c for c in cuts if not (c["out"]<=mi or c["in"]>=mo)]
-    cuts=[c for c in cuts if c["out"]<=mi or c["in"]>=mo]
-    pv=max((w for w in rw if w["e"]<=mi+0.12),key=lambda w:w["e"],default=None)
-    nx=min((w for w in rw if w["t"]>=mo-0.20),key=lambda w:w["t"],default=None)
-    cuts.append({"in":mi,"out":mo,"rm":round(mo-mi,3),"a":pv["w"].strip() if pv else "?",
-                 "b":nx["w"].strip() if nx else "?","join":False,"manual":m["why"]})
-    print(f"manual cut {mi:.3f}->{mo:.3f} ({mo-mi:.2f}s) absorbs {len(absorbed)} pause cut(s): {m['why']}")
-cuts.sort(key=lambda c:c["in"])
-for c1,c2 in zip(cuts,cuts[1:]): assert c1["out"]<=c2["in"], ("overlapping cuts",c1,c2)
 keeps,prev=[],0.0
 for c in cuts:
     keeps.append([round(prev,6),c["in"]]); prev=c["out"]
@@ -94,13 +72,9 @@ def to_tight(t):
         if t<=b: return round(acc+t-a,3)
         acc+=b-a
     return round(acc,3)
-removed=[(b1,a2) for (a1,b1),(a2,b2) in zip(keeps,keeps[1:])]
-inside=lambda w: any(w["t"]>=x-0.05 and w["e"]<=y+0.05 for x,y in removed)
-dropped=[w for w in rw if inside(w)]
-if dropped: print("words dropped with a removed span:",[(w["t"],w["w"].strip()) for w in dropped])
 json.dump({"keeps":keeps,"cuts":cuts,"dur":round(dur,3),"span_end":SPAN_END,
            "joins_base":joins,"joins_tight":[to_tight(j) for j in joins],
-           "words":[{"t":to_tight(w["t"]),"e":to_tight(w["e"]),"w":w["w"]} for w in rw if not inside(w)]},
+           "words":[{"t":to_tight(w["t"]),"e":to_tight(w["e"]),"w":w["w"]} for w in rw]},
           open(f"{HERE}/tight_cuts.json","w"),indent=1)
 print("tight_cuts.json written")
 

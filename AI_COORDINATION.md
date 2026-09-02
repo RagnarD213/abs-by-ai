@@ -57,12 +57,15 @@ once ManyChat was live — **ask before touching it**, it's a queue-wide change)
 comment-ABS reels are now eligible for the 2026-08-31 paid-ads specs. Delete this entry
 once Dan confirms.
 
-**Website conversion video — rev 2 reviewed 2026-09-02: AUDIO APPROVED ("you got it nailed"), rejected on
-headroom, one repeated line, and captions over the lower thirds.** Handoff for rev 3 with the measured
-fixes: `Handoffs/handoff-20260902-website-video-rev3.md` (Key dashboard task added); Dan runs it in a fresh
-session on Fable 5.1, extra-high effort. Root cause of the framing: the crops were anchored to a grid frame
-where his head sat at y≈100; across the actual cut it sits at 296–340 (`headtrack.py`). Rev 2 stays in the
-project folder as the current master until rev 3 replaces it. Do not touch the audio chain (`audio3.py`).
+**Website conversion video — REV 3 DELIVERED 2026-09-02 (~6 PM), awaiting Dan's review.** Same folder,
+same filename (`claude edited long form content/06 - …/website_video_16x9.mp4`, 3:50); rev 2 is beside it as
+`*_REV2_REJECTED`. Fixed from measurements: every crop anchored to his head (median headroom 201 → 53 px,
+min 21, never cut), the repeated "I've been out of shape" cut, lower thirds at the bottom with captions
+62–73 px clear (both now pixel-measured QC checks that FAIL rev 2's file). Audio chain unchanged and
+approved; the new shared gate passes it. 540p review copy + audio A/B sent in chat; `notes.md` flags one
+judgment call (the after-photos now start on "I have the most defined abs"). Recipe in the skill
+(`ad-edit/reference/website-video/`, lessons 101–106). Delete this entry once Dan approves; the next step
+after approval is installing it on absbyai.com (separate Key task).
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,

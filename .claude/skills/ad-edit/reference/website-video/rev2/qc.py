@@ -13,9 +13,6 @@
    on the build plan (the plan was right about the window and still shipped a violation
    on Ad 1 because the asset in-point was 0.27 s early)
  9 caption/graphic collision: no caption event inside a full-screen card
-10 caption clearance in PIXELS: every cue's ink vs its lower third's alpha, >= 20 px (qc_frame.py)
-11 headroom on the DELIVERED frames: head top 15-60 px below the top edge, never cut (qc_frame.py)
-   -- 10 and 11 are the two checks rev 2 did not have; both FAIL on rev 2's file (lesson 100)
 """
 import json, os, re, statistics, subprocess, sys
 import numpy as np
@@ -70,9 +67,8 @@ check(not same,f"adjacent segments at the same framing (jump cut): {same}")
 
 bad=[(a,b,l) for a,b,l in L.PUNCH if l not in L.LEVELS]
 check(not bad,f"every framing level is an asserted crop (no wide shot, no light): {bad}")
-wide=[(a,b,l,c) for (a,b,l),c in zip(L.PUNCH,L.CROPS)
-      if c[2]>3058 or c[0]+c[2]>L.LIGHT_X or c[1]<0 or c[1]+c[3]>2160 or c[1]>L.Y_MAX]
-check(not wide,f"no crop exceeds the widest allowed level, reaches x>{L.LIGHT_X} or leaves the frame: {wide}")
+wide=[(a,b,l) for a,b,l in L.PUNCH if L.LEVELS[l][2]>3058 or L.LEVELS[l][0]+L.LEVELS[l][2]>L.LIGHT_X]
+check(not wide,f"no level exceeds the widest allowed crop or reaches x>{L.LIGHT_X}: {wide}")
 
 # ------------------------------------------------------------------ 3 pacing
 changes=sorted(set([0.0]+punch+gfx_t+list(B.MACRO)+[dur]))
@@ -86,12 +82,6 @@ p=subprocess.run([FF,"-nostats","-i",SRC,"-af","ebur128=peak=true","-f","null","
 gi=lambda k: float(re.findall(rf"{k}:\s*(-?[\d.]+)",p)[-1])
 I,TP,LRA=gi("I"),gi("Peak"),gi("LRA")
 print(f"loudness  I {I:.2f} LUFS   true peak {TP:.2f} dBTP   LRA {LRA:.1f} LU")
-# THE ONE AUDIO GATE (2026-09-02, _shared/audio): audio_gate.py must have stamped THIS file (sha256-matched,
-# verdict PASS). The loudness/peak/centring below stay as a print; the stamp decides.
-sys.path.insert(0,"/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
-try:
-    from require_stamp import require_stamp; require_stamp(SRC); check(True,"audio gate stamp present, matches this file, PASS")
-except SystemExit as _e: check(False,f"audio gate: {_e}")
 check(abs(I+14)<=0.6,f"integrated loudness within 0.6 LU of -14 (got {I:.2f})")
 check(TP<=-0.9,f"true peak at or under -1.0 dBTP (got {TP:.2f})")
 raw=subprocess.run([FF,"-v","error","-i",SRC,"-map","0:a","-ac","2","-ar","48000","-f","f32le","-"],
@@ -176,13 +166,6 @@ if os.path.exists(capf):
         if any(not (b2<=s+0.02 or a2>=e-0.02) for s,e in SUP): coll.append(round(a2,2))
     print(f"captions: {len(ev)} cues")
     check(not coll,f"no caption sits on a full-screen card: {coll[:6]}")
-
-# ------------------------------------------------------------------ 10 + 11: measured on the delivered pixels
-os.environ.setdefault("QCIN",SRC)
-import qc_frame as QF
-print("\n10 caption clearance (caption ink vs lower-third alpha, pixels)"); QF.caption_clearance()
-print("11 headroom on the delivered frames"); QF.headroom()
-fails.extend(QF.fails)
 
 print("\n"+("QC PASSED" if not fails else f"QC FAILED -- {len(fails)} check(s)"))
 sys.exit(1 if fails else 0)

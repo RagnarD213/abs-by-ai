@@ -663,7 +663,7 @@ def lower_third(out, label, statement, dur, x=90, y=880, in_dur=0.34, out_dur=0.
 
 def lower_third_bar(out, lines, dur, x=90, y=None, in_dur=0.34, out_dur=0.26,
                     pal=GREEN, size=42, lead_size=None, fps=FPS, bar_w=26,
-                    bar_color=None, plate=None, text_color=None):
+                    bar_color=None, plate=None, text_color=None, bottom=None):
     """Solid accent BAR on the left + a plate carrying one or two lines of statement.
 
     Dan's ad-1 revision (2026-08-23) restyles every lower third this way: "green bar on
@@ -686,7 +686,11 @@ def lower_third_bar(out, lines, dur, x=90, y=None, in_dur=0.34, out_dur=0.26,
     line_h = [max(h, f.size) for (_, h), f in zip(sizes, fonts)]
     ch_h = sum(line_h) + GAP * (len(lines) - 1) + PADY * 2
     pl_w = tw + PADX * 2
-    if y is None: y = H - 200 - ch_h
+    # `bottom` pins the plate's bottom edge -- the standing rule since the website video rev 2
+    # (Dan, 2026-09-02): lower thirds sit at the BOTTOM of the frame and captions lift above
+    # them, measured in pixels by QC. The old default (200 px up) collided with lifted captions.
+    if bottom is not None: y = bottom - ch_h
+    elif y is None: y = H - 200 - ch_h
 
     frames = []
     for i in range(nframes(dur, fps)):

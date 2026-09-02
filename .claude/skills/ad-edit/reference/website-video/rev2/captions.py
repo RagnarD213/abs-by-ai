@@ -34,11 +34,7 @@ SUPPRESS = [B.BEFORE, B.TODAY, B.TRIAL, B.PRICE, B.SOLVED, B.CTA]   # rev 2: POO
 # left-panel beats: captions shift RIGHT into Dan's column (the app screens ARE the demo)
 PANELS   = [B.BEATS[n] for n in sorted(B.PANEL)]
 LOWERS   = [B.BEATS[n] for n in sorted(B.OVERLAY)]
-MV_BASE, MV_LIFT = 96, 290
-# MV_LIFT is MEASURED, not assumed (lesson 99): at Arial 64 the ink bottom of a lifted cue lands at
-# 1080 - MarginV + 26 (descenders + outline + shadow; rev 2 read 806 at MarginV 300). The lower
-# thirds now sit at box ~852-1000 (gfx.py LT_BOTTOM), so 290 puts the ink bottom at ~816 = 36 px of
-# clearance; qc_frame.py check 10 asserts >= 20 px on the delivered pixels. Two-line cues grow UP.
+MV_BASE, MV_LIFT = 96, 300
 ML_PANEL = 640           # rev 2: clear of the phone PiP (x<=583) -- the cue centres over Dan at x~1243
 
 # Whisper mishears measured on THIS roll. "gross science" for bro-science and

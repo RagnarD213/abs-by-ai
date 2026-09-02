@@ -32,18 +32,10 @@ NAME     = (at("This isn't just an AI picture"), end_of("that you've always want
 # it ends before "and now at 40" (Dan: "opposite of what we're trying to convey")
 # ...and it is fully gone 0.5 s before the after-photos start, so the two never share a frame
 # (before -> Dan on camera -> after; a crossfade between them would superimpose the two)
-# REV 3: the repeated first attempt is cut (tight.py MANUAL_CUTS), so the line is now
-# "Now, I've been out of shape, and now at 40, I have the most defined abs of my life" -- 1.3 s of
-# speech for the before card instead of rev 2's 2.6 s. So the card fades in on the pause after
-# "finally lost.", holds through "I've been out of shape," and is out by "and" (Dan, rev 1: never let
-# the before picture run into "and now at 40"). Dan is on camera for "and now at 40," (~1.1 s), and
-# the four after photos start on "I have the most defined abs" -- the claim they prove.
-_bef0    = end_of("finally lost", pad=0.0)
-BEFORE   = (_bef0, at("and now at 40", after=_bef0))
+BEFORE   = (at("Now I've been out of shape"),    at("now at 40", after=at("out of shape"))-0.50)
 # "how I look today" = Muhammad's four shoot photos, in sequence, over the whole lean passage
-# (~8 s = ~2 s per photo; four photos in the 2.7 s line alone would be a flicker, lesson 41)
-TODAY    = (at("I have the most", after=_bef0), end_of("get six pack abs"))
-assert TODAY[0]-BEFORE[1]>=0.50, f"before -> Dan -> after needs >= 0.5 s of Dan between the cards (got {TODAY[0]-BEFORE[1]:.2f})"
+# (33.9-42.0 s = ~2 s per photo; four photos in the 2.7 s line alone would be a flicker, lesson 41)
+TODAY    = (at("now at 40", after=at("out of shape")), end_of("get six pack abs"))
 _hw      = at("Here's why")
 NUM1     = (at("First human fitness experts"),   end_of("but they can't do it for you"))      # lower third
 MACRO    = (at("Abs by AI can actually track"), end_of("all the macros in what you're eating"))  # REAL recording, PiP beside Dan

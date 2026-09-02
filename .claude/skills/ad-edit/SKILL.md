@@ -957,6 +957,61 @@ rules from it, each of which must be a measurement or an assertion, not prose:
    clearance to lower thirds, or restarts hidden inside a token. Each review adds the check that
    would have caught it — that is how this skill scales out of Dan's eye.
 
+
+Website conversion video rev 3 (2026-09-02, same day) — the three rejected items rebuilt from the
+handoff's measurements; audio chain untouched. Reproducible from `reference/website-video/`
+(`rev3.sh` is the whole chain). Both new checks were run on rev 2's delivered file FIRST and failed it
+(caption gap −47 px on 21 cue/graphic pairs; headroom 159–261 px, median 201) — that is the proof a
+new gate is measuring the right thing before it is trusted on the new render.
+
+101. **Fix a stitched restart in the TRANSCRIPT first, then cut — and DROP every word inside a removed
+   span.** `to_tight()` collapses a word that sits inside a removed span onto the splice, so the first
+   attempt's five words would have captioned the cut line twice; the dry run showed it before any
+   render. `tx_patch.py` splices the isolated medium.en pass's words into the roll JSON (the first
+   word keeps the envelope onset; the restart's first word takes the measured −40 dB rise, 0.15 s
+   after Whisper's start), `tight.py` `MANUAL_CUTS` takes a BASE-time span with both edges asserted
+   against the envelope, absorbs the pause cuts inside it, and drops the words. Set the patch window's
+   edges BETWEEN the last token to replace and the first to keep — a window ending at 51.95 removed the
+   "I" at 51.90 and the isolated pass's "I" at 52.14 fell outside it. A dry run (`RENDER=0`) that
+   prints the words around the cut costs seconds; a render that captions a ghost word costs an hour.
+102. **Track the head on the BASE, not on the tight cut, and key the track to the keeps.**
+   `headtrack.py` samples `base.mov` at 4/s and maps each sample through `tight_cuts.json`; a re-cut
+   needs no re-extract, and `layout.py` asserts the track's keeps signature at import so a stale
+   track fails the build instead of framing the video. 982 samples, 0 without a detection, head top
+   min 296 / median 340 (4K px). Validate the detector on the TALLEST frames, not just a random
+   sheet — `pv/headtrack_tallest.jpg` is what proves the per-segment minimum is a head and not wood.
+103. **A fixed crop can hold the headroom at his TALLEST instant, not on every frame — assert what the
+   crop controls.** Anchored to each segment's minimum head top, the head sits ~33 px below the edge
+   at his tallest and the rest of the spread is his own posture inside the hold (up to ~50 px of 4K in
+   10–15 s). A crop that followed the slouch would cut his head when he stands up. So the gate is:
+   ≥15 px on every valid frame (never cut), per-segment minimum ≤45 px (the crop IS anchored), median
+   ≤60 px, ceiling 90 px — not "60 px on every frame". Look-down misses only ever read LOW, so a
+   sample is valid when it is within 40 px of the ±1.5 s minimum; print the rejected count.
+104. **Measure caption clearance by rendering the cue ALONE, retimed to t=0, over GREEN.** Rendering
+   the whole ASS over lavfi black at the cue's real time decodes minutes of frames per cue, and over
+   black the outline and shadow are invisible to a bbox — the ink measures ~6 px smaller than what the
+   viewer sees. Green frame, bbox of everything not green, against the graphic's own alpha bbox at
+   three points across the cue (the lower third is still growing in at its first frames); assert
+   ≥20 px wherever they overlap horizontally. The fix itself: `motionlib.lower_third_bar(bottom=1000)`
+   (plate 878–1000, alpha incl. its shadow 858–1044) and `MV_LIFT=290` (ink bottom 795, two-line cues
+   grow up to 668): 63 px clear.
+105. **A cut shrinks the card that sits on the cut line — re-plan the beat, don't just rebuild the
+   MOV.** BEFORE went 2.6 → 1.8 s. Fades 0.30/0.30, card out by "and" (Dan: never let the before
+   picture run into "and now at 40"), Dan on camera for "and now at 40," (1.1 s), and TODAY moved
+   from "now at 40" to "I have the most defined abs" — the claim the four photos prove. `beats.py`
+   asserts ≥0.5 s of Dan between the before and after cards, so the merge rule can never crossfade
+   them. This was a judgment call and is flagged as such in the delivery.
+106. **The head track must be measured at the DELIVERED scale too, and the crop takes the minimum over
+   both.** The first rev-3 render passed 17 of 18 checks and failed its own headroom floor: 7–11 px in
+   three TIGHT holds, hair on the edge, although the base-sampled track had placed the head 33 px down.
+   Two causes, both structural: the delivered check samples at a different phase, and its narrower
+   band (the same physical width the QC uses) reads the crown a few rows higher than the 90-px band on
+   the 4K did. `headtrack_refine.py` runs the QC detector on `punched.mov`, maps every head top back
+   into 4K through that segment's crop, and stores them under `refine`; `layout.py` merges both tracks
+   before the per-segment minimum. Segment anchors moved 3–34 px (4K); the two near-cut holds by 34
+   and 29. The plan → render → measure → refine → render loop can only move a crop UP, so it converges
+   in one pass. Rule: the sampler that gates the delivery is the sampler that anchors the crop.
+
 ## Decisions locked vs pending
 
 | decision | status |
