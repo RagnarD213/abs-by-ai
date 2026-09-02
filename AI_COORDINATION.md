@@ -303,12 +303,13 @@ Each has a Key dashboard task. Run in a fresh session.
 
 # ACTIVE TASK
 
-**Shorts centring queue fix — EXECUTED 2026-09-02, closing out** (Claude Code). Blotato: 10 posts swapped
-and MD5-verified. YouTube: 8 stale/off-centre scheduled Shorts replaced by new uploads at the same slots
-(`SHORTS_UPLOAD_PLAN.json` has old→new ids); old copies + `v6-short1` set Private/unscheduled, not yet
-deleted. `v6-short3`/`v6-short5` re-cut; `v6-short2` measured centred and left. **Open for Dan: the 4
-already-PUBLISHED off-centre Shorts (`y0XIbNoA2Xo`, `P9VUGyWeNtY`, `VOlZHV1ibmU`, `rqyK5IDsxX0`) — delete
-and re-upload on the next open Tue/Thu/Sat slots, or leave.**
+**Shorts centring queue fix — DONE 2026-09-02, one decision left for Dan.** Every queued off-centre Short is
+replaced: Blotato 10 posts swapped + MD5-verified; YouTube 8 stale scheduled Shorts re-uploaded as new ids at
+the same slots (old→new in `SHORTS_UPLOAD_PLAN.json`), the 8 old copies + killed `v6-short1` deleted;
+`v6-short3`/`v6-short5` re-cut, `v6-short2` measured centred and left. Dashboard task checked off. **Dan:
+the four already-PUBLISHED off-centre Shorts (`y0XIbNoA2Xo` 08-22, `P9VUGyWeNtY` 08-27, `VOlZHV1ibmU`
+08-29, `rqyK5IDsxX0` 09-01) — delete + re-upload on the next open Tue/Thu/Sat slots, or leave them?**
+Delete this entry once he answers.
 
 
 **04 invest-health — style-standard rebuild IN PROGRESS** (Claude Code, 2026-09-02).

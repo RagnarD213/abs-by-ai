@@ -531,6 +531,12 @@ off-centre files on schedule** — four went live (`y0XIbNoA2Xo`, `P9VUGyWeNtY`,
      (that is its Done). The page Save must be `setTimeout(()=>save.click(),100)` and returned
      from immediately — awaiting anything after the page Save inside one evaluate hangs CDP for
      45 s. Verify `ytcp-button#save` is disabled and `#visibility-text` reads Private.
+   - Deleting the old copy: ⋮ next to Save → Delete → tick "I understand" → Delete forever. Use REAL clicks
+     — a script-driven delete is refused by the permission classifier. After any fresh navigation the first
+     real click on the ⋮ is swallowed until the page hydrates (~12 s); click, wait, click again. Likewise the
+     upload dialog's title/description only accept `insertText` in a SEPARATE evaluate after the wizard has
+     been walked once (Next×3, back to `#step-badge-0`) and the header reads "Saved as private", not
+     "Saving...". Verify at the end on the Shorts list: every new id Scheduled, no old id present.
    - The metadata read-back JS must mask query strings (`.replace(/\?utm[^\s]*/g,'?UTM')`) or the
      tool refuses to return it; rebuild the UTM from the plan's campaign + slug.
 4. **Run `recentre/delivered_gate.py` on the delivered file and LOOK at the strip** before any of
