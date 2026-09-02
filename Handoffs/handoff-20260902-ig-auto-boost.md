@@ -1,7 +1,8 @@
 # Handoff — IG auto-boost: every new @danrosefit post gets a $5 profile-visits test, one champion runs at ~$200/month
 
 **Written:** 2026-09-02 (Claude Code, Fable 5.1), details agreed with Dan in chat the same evening.
-**Status:** NOT EXECUTED. Design locked, nothing built.
+**Status:** EXECUTED 2026-09-02 (Fable 5.1) — see "EXECUTION RESULT" at the bottom. Built, deployed as a
+Railway cron, dry-running hourly; `AUTO_BOOST_ENABLED=1` waits on Dan's word.
 **Prerequisites already done:** Meta app `1598463548528030` is LIVE; `META_ADS_TOKEN` (system user,
 never expires) + `META_APP_SECRET` in `~/.absbyai-secrets.env`; the creative shape that runs an ad
 as @danrosefit is proven in `scripts/ads/boost_danrosefit_posts.py`; the profile-visits campaign is
@@ -173,3 +174,46 @@ Do the VERIFY section against the live campaign's real insights before wiring th
 with --dry-run first and show me one dry-run report before AUTO_BOOST_ENABLED goes to 1. Never
 click the global "Review and publish" in Ads Manager.
 ```
+
+
+---
+
+## EXECUTION RESULT (2026-09-02, Fable 5.1)
+
+**Built and deployed.** `scripts/ads/auto-boost.js` (+ `auto-boost.test.js`, 48 cases, all green), commit
+`51989d7`. Railway cron service **`auto-boost`** (id `0b09f648-6f82-4cda-b538-20ae587dc97f`), schedule
+`15 * * * *`, start command `node scripts/ads/auto-boost.js`, variables `DATABASE_URL` (internal),
+`META_ADS_TOKEN`, `META_APP_SECRET`, `AUTO_BOOST_ENABLED=0`. Created entirely through Railway's GraphQL API
+(memory `railway-graphql-and-cron`). Operating doc: `Docs/AUTO_BOOST.md`. Brief block spec added to the
+morning-brief task's `SKILL.md` (section 7b); `ads-digest.js` reads the latest run from Postgres into
+`brief-ads.json` → `autoBoost`; `/api/ads-digest` whitelists it (live-verified, key present).
+
+**VERIFY section — what real data allowed.** The champion campaign had ~1 hour of delivery and zero insights
+rows when this ran (Dan switched it on at 17:09 CT the same day), so items 1–2 could not be matched to Ads
+Manager by count. What was established instead, all zero-spend and deleted afterwards:
+
+1. **Profile visits:** `instagram_profile_visits` is an accepted top-level insights field (invalid names are
+   rejected with error 100; this one returns rows). Pinned. `--verify` prints every action type for the
+   by-eye match once spend exists.
+2. **Follows:** no accepted top-level field (`instagram_follows`, `follows`, `follows_or_likes`, `page_likes`
+   all rejected). The job scans `actions` for a candidate list and treats the metric as readable only after a
+   candidate shows a non-zero count. **Until then the champion is judged on cost/visit and no kill rule
+   fires** — the fallback Dan accepted, made explicit in the brief.
+3. **Minimum lifetime budget:** `lifetime_budget=500` over 5 days is ACCEPTED (ad set created PAUSED, read back,
+   deleted). No window change needed.
+4. **Carousels:** `source_instagram_media_id` on the `CAROUSEL_ALBUM` post `18463151458112841` creates a
+   creative without error, as does the newest IMAGE post. Nothing on the permanent skip list.
+5. **Railway env:** `META_*` were NOT on `abs-by-ai`; they are set on the new `auto-boost` service only.
+
+**Two small departures from the letter of the spec, both on the safe side:**
+- Disabled ≠ exit. With `AUTO_BOOST_ENABLED≠1` the job runs as a dry run and records the run, so the brief can
+  show what it *would* do while switched off. It writes nothing to Meta in that state.
+- Caps count committed money: month-to-date spend **plus** the unspent lifetime budget of running tests, so
+  the $300 / $500 lines hold even when insights lag.
+
+**First dry-run report (shown to Dan in chat):** 1 candidate (the Sep 2 "Pick a sport" image post), 3
+planned actions (rename campaign, rename ad set, create `TEST::17983238982111705`), caps $0 / $0, champion
+$0 spend / 0 visits, first-run pair open, follows not readable yet.
+
+**Left for Dan:** say the word → `AUTO_BOOST_ENABLED=1` on the `auto-boost` service. After the first day of
+spend, run `--dry-run --verify` and match the two metric strings to Ads Manager (`Docs/AUTO_BOOST.md`).

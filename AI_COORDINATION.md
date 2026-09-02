@@ -38,6 +38,17 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**IG auto-boost — BUILT, DEPLOYED, DRY-RUNNING HOURLY; waiting on Dan's word to switch it ON** (2026-09-02).
+`scripts/ads/auto-boost.js` runs on Railway cron service `auto-boost` (`15 * * * *`, commit `51989d7`),
+`AUTO_BOOST_ENABLED=0` so every run is a dry run that plans and records but writes nothing to Meta.
+The dry-run report was shown in chat: it would rename the campaign/ad set, and create one $5 test on the
+Sep 2 "Pick a sport" image post. **To go live Dan says the word and a session sets `AUTO_BOOST_ENABLED=1`
+on that service** (`railway variables --service auto-boost --set AUTO_BOOST_ENABLED=1`). ⚠ Two metric
+strings are still unmatched to Ads Manager because the campaign had no insights yet — the job self-verifies
+(no loser verdicts, no champion kill until each metric is observed); the check is `node scripts/ads/auto-boost.js
+--dry-run --verify` once spend exists, recipe in `Docs/AUTO_BOOST.md`. Delete this entry once enabled and the
+first live run is observed.
+
 **Ad-1 vertical audio — REBUILT, Dan listens** (2026-09-02). He rejected the audio on
 `Muhammad Ad Videos/this picture got me abs/… | claude | 9x16.mp4` and attributed it to the
 two-mic fault. **It was not that** — both delivered files measure L/R corr 0.99 at lag 0, and
@@ -248,8 +259,8 @@ button appears under the timer.
 
 **IG profile-visits campaign — LIVE since 2026-09-02 ~18:00 CT.** Campaign `120250753198730682`,
 ad set `120250753601020682` (**$6.50/day ≈ $200/mo, Dan's call 2026-09-02**) and both ads on the real @danrosefit reels are ACTIVE; ads
-clear Meta review on their own. **After $50 spend: kill >$5/follow, scale <$3/follow** (the ads
-digest reads Meta now). Recipe: `scripts/ads/boost_danrosefit_posts.py`. ⚠ Never click the global
+clear Meta review on their own. **After $50 spend: kill >$5/follow, scale <$3/follow** — the auto-boost job
+applies exactly this once it is enabled (entry above); until then it is a manual check. Recipe: `scripts/ads/boost_danrosefit_posts.py`. ⚠ Never click the global
 "Review and publish (7)". This ad set is the first CHAMPION of the auto-boost system
 (`Handoffs/handoff-20260902-ig-auto-boost.md`). Delete this entry once the $50 review is done.
 
@@ -274,11 +285,6 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 Each has a Key dashboard task. Run in a fresh session.
 
-- **`Handoffs/handoff-20260902-ig-auto-boost.md`** — IG auto-boost, design LOCKED with Dan
-  2026-09-02: every new @danrosefit post → $5 lifetime profile-visits test on the real post; one
-  champion at $6.50/day judged on cost/follow; tests judged on cost/visit; caps $300 tests /
-  $500 total per month; hourly Railway cron; morning-brief block. Fable 5.1 high. Verify the
-  insights action-type names against Ads Manager before wiring rules.
 - **`Handoffs/handoff-20260902-shorts-centering-queue-fix.md`** — **URGENT, 09-05 deadline.**
   YouTube has been publishing the pre-8/27 off-centre Shorts (the native queue was never
   swapped; 4 already live, 6 still scheduled, `v2-short7` goes out 09-05). One Blotato post
