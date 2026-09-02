@@ -39,10 +39,24 @@ Ask in ONE round, up front. The four that actually matter:
 2. **Length** — the useful answer is usually "the same length as the clip that's there
    now," which means you have to go measure the existing clip in the editor's cut. Ask,
    because "8 seconds with handles" and "match the existing clip exactly" are different jobs.
-3. **Audio** — keep or mute.
+3. **Audio** — keep or mute. If KEEP, the clip's audio goes through the shared standard (below), never `-c:a copy`.
 4. **Where on Drive** — which folder, and who needs access.
 
 Everything after that is your call. Do not come back with more questions.
+
+### If the clip keeps its audio — the shared standard applies (2026-09-02)
+
+A clip cut from a raw roll for a third-party editor used to be cut with **no channel rule at all**, so
+the editor received both mics (a comb filter on any phone) or, on an 8/28 roll, the far mic. Now:
+
+1. `python3 .claude/skills/_shared/audio/pick_lav.py ROLL.MP4` — measures which stream/channel is the
+   lav on THIS roll (2-channel rolls and the 8/28 four-mono-track rolls) and writes `ROLL.MP4.audio_source.json`.
+2. Cut the clip with that JSON's `-map` + filter, then `pan=stereo|c0=c0|c1=c0` (lav mono → centred
+   stereo). Never `-c:a copy` from a roll.
+3. `python3 .claude/skills/_shared/audio/audio_gate.py CLIP.mp4 --synthetic` before upload (L/R image,
+   loudness, true peak, silence, length — the reference-tone rows do not apply to a raw excerpt).
+4. Put the `pick_lav` verdict line (`LAV = stream a:N channel K`) in `DELIVERED_CLIPS.md` for that clip,
+   so the editor and the next session know which mic the clip carries.
 
 ## Step 2 — find the source, and find the CLEAN source
 
@@ -212,6 +226,8 @@ Inherited from the asset library and the ad rules — they bind here too:
 10. **"Keep original audio" can mean silence.** The raw cutdown's workout section measured
     −70 dB; the music only exists on the graded master. Say so in the note rather than
     quietly delivering a silent track as if it were the take audio.
+12. **A clip cut with audio carries the lav only, per `pick_lav`, and is gated `--synthetic` before upload**
+    (2026-09-02). See the audio block under Step 1.
 11. **YouTube is not a source you can count on from this Mac (2026-09-01).** yt-dlp is pinned at
     2025.10.14 because the only Python is 3.9 (newer builds need 3.10+ and a JS runtime for SABR);
     `android_vr`/`ios`/`mweb` clients and `--cookies-from-browser chrome` all 403 or return no

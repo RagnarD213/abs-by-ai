@@ -68,32 +68,46 @@ def pull(src, source_json, explicit_pull, work):
     return lav, x, how
 
 
-def fit_eq(lav_wav, ref, work, iters=6, damp=0.75):
-    """voicefit.py: iterate the 10 gains on the gate's own metric; smooth + clamp so it is a voice EQ."""
+def eq_chain(g):
+    """10 gains at the gate's band centres -> ffmpeg chain. Bells on the first nine, a treble shelf on top."""
+    parts = ["highpass=f=70"]
+    for c, gain in zip(C.CENTRES[:-1], g[:-1]):
+        if abs(gain) >= 0.15: parts.append(f"equalizer=f={c}:t=q:w=1.3:g={gain:+.2f}")
+    if abs(g[-1]) >= 0.15: parts.append(f"treble=g={g[-1]:+.2f}:f=6500:width_type=q:width=0.6")
+    return ",".join(parts)
+
+
+def fit_eq(lav_wav, ref, work, iters=10):
+    """voicefit.py lineage: iterate the 10 gains on the gate's own metric; smooth + clamp so it is a voice EQ.
+
+    ⚠ ADAPTIVE PER-BAND STEP (2026-09-02). A fixed 0.75 step OSCILLATED on the supplements Shorts: the
+    treble shelf (q 0.6 at 6.5 k) moves the top band ~2.4x the gain asked for, so a -6.5 dB request
+    flipped a +8.7 dB error to -7.2 and the loop bounced between them for twelve iterations. Now each
+    band has its own step; a band whose error changes sign halves its step (the shelf starts at 0.35),
+    and the kept iterate is the best on BOTH limits (mean/1.2 and max/2.5), not the mean alone."""
     ss, dur = C.analysis_window(lav_wav)
     rb = np.array(ref["bands"])
-    def chain(g):
-        parts = ["highpass=f=70"]
-        for c, gain in zip(C.CENTRES[:-1], g[:-1]):
-            if abs(gain) >= 0.15: parts.append(f"equalizer=f={c}:t=q:w=1.3:g={gain:+.2f}")
-        if abs(g[-1]) >= 0.15: parts.append(f"treble=g={g[-1]:+.2f}:f=6500:width_type=q:width=0.6")
-        return ",".join(parts)
+    chain = eq_chain
     def err_of(af):
         b, _, _, _ = C.analyse(C.pcm(lav_wav, af=af, ss=ss, dur=dur)); return b - rb
+    score = lambda e: max(np.abs(e).mean() / 1.2, np.abs(e).max() / 2.5)
     g = np.zeros(10); err = err_of("highpass=f=70")
+    step = np.full(10, 0.75); step[-1] = 0.35
     print(f"  fit: raw tone error mean {np.abs(err).mean():.2f} dB, max {np.abs(err).max():.2f}")
-    best = (np.abs(err).mean(), chain(g), g.copy())
+    best = (score(err), chain(g), g.copy(), err)
     for it in range(iters):
-        g = g - damp * err
+        prev = err
+        g = g - step * err
         g[1:-1] = 0.15 * g[:-2] + 0.70 * g[1:-1] + 0.15 * g[2:]       # neighbours cannot alternate
-        g = np.clip(g, -8, 8)
+        g = np.clip(g, -10, 10)
         af = chain(g); err = err_of(af)
-        m = np.abs(err).mean()
-        print(f"  fit {it+1}: mean {m:.2f} max {np.abs(err).max():.2f}  gains {np.round(g,1).tolist()}")
-        if m < best[0]: best = (m, af, g.copy())
-        if m < 0.35: break
-    print(f"  fitted EQ (mean {best[0]:.2f} dB): {best[1]}")
-    return best[1], [round(float(v), 2) for v in best[2]]
+        step[np.sign(err) != np.sign(prev)] *= 0.5                     # overshoot -> smaller step for that band
+        sc = score(err)
+        print(f"  fit {it+1}: mean {np.abs(err).mean():.2f} max {np.abs(err).max():.2f}  gains {np.round(g,1).tolist()}")
+        if sc < best[0]: best = (sc, af, g.copy(), err)
+        if sc < 0.5: break
+    print(f"  fitted EQ (mean {np.abs(best[3]).mean():.2f}, max {np.abs(best[3]).max():.2f}): {best[1]}")
+    return best[1], [round(float(v), 2) for v in best[2]], step
 
 
 def main():
@@ -121,7 +135,7 @@ def main():
     if A.finish_only:
         lav = A.src; x = C.pcm(A.src, ac=1); how = "finish-only (mix as given, channels kept)"
         log["pull"] = how; print(f"voice_chain  {os.path.basename(A.src)}  {how}  {len(x)/C.SR:.2f} s")
-        voice = "aformat=channel_layouts=stereo"; eq = gains = None; log["voice"] = voice
+        voice = "aformat=channel_layouts=stereo"; eq = gains = fstep = None; log["voice"] = voice
     else:
         lav, x, how = pull(A.src, A.source, A.pull, work); log["pull"] = how
         print(f"voice_chain  {os.path.basename(A.src)}  pull: {how}  {len(x)/C.SR:.2f} s")
@@ -137,72 +151,105 @@ def main():
             print(f"  room: EDT {e0:.0f} ms (<= {EDT_WET:.0f}, his {ref['edt_ms']:.0f}) -- no dereverb")
 
         # ---- EQ
-        if A.eq: eq, gains = A.eq, None
-        elif A.no_fit: eq, gains = "highpass=f=70", None
-        else: eq, gains = fit_eq(lav, ref, work)
+        if A.eq: eq, gains, fstep = A.eq, None, None
+        elif A.no_fit: eq, gains, fstep = "highpass=f=70", None, None
+        else: eq, gains, fstep = fit_eq(lav, ref, work)
         log["eq"] = eq; log["eq_gains"] = gains
         voice = ",".join(v for v in [eq, EXPAND, (COMPRESS if A.comp else ""), "pan=stereo|c0=c0|c1=c0"] if v)
         log["voice"] = voice
 
-    # ---- graph: [0]=lav wav, [1]=bed?, [2]=extra?
-    inputs = ["-i", lav]; n = 1; parts = []; total = len(x) / C.SR
-    if A.frame_lock: total = C.duration(A.frame_lock, "v:0")
-    elif A.video or C.has_video(A.src): total = C.duration(A.video or A.src, "v:0")
-    if A.bed:
-        inputs += ["-i", A.bed]; bi = n; n += 1
-        parts.append(f"[0:a]{voice},asplit=2[vmix][vkey]")
-        parts.append(f"[{bi}:a]aloop=loop=-1:size={int(600*44100)},atrim=0:{total:.3f},asetpts=PTS-STARTPTS,"
-                     f"volume={A.bed_db}dB,afade=t=in:st=0:d=1.5,afade=t=out:st={max(0,total-2.0):.3f}:d=2.0[mus]")
-        parts.append("[mus][vkey]sidechaincompress=threshold=0.020:ratio=6:attack=12:release=420:makeup=1:level_sc=1[duck]")
-        parts.append("[vmix][duck]amix=inputs=2:duration=first:normalize=0[pm]")
-    else:
-        parts.append(f"[0:a]{voice}[pm]")
-    if A.extra:
-        inputs += ["-i", A.extra]; ei = n; n += 1
-        parts.append(f"[pm][{ei}:a]amix=inputs=2:duration=first:normalize=0[pm2]"); last = "pm2"
-    else: last = "pm"
-    fc = ";".join(parts) + f";[{last}]aresample=48000[premix]"
+    out = A.out
+    def render(voice):
+        log["voice"] = voice
+        # ---- graph: [0]=lav wav, [1]=bed?, [2]=extra?
+        inputs = ["-i", lav]; n = 1; parts = []; total = len(x) / C.SR
+        if A.frame_lock: total = C.duration(A.frame_lock, "v:0")
+        elif A.video or C.has_video(A.src): total = C.duration(A.video or A.src, "v:0")
+        if A.bed:
+            inputs += ["-i", A.bed]; bi = n; n += 1
+            parts.append(f"[0:a]{voice},asplit=2[vmix][vkey]")
+            parts.append(f"[{bi}:a]aloop=loop=-1:size={int(600*44100)},atrim=0:{total:.3f},asetpts=PTS-STARTPTS,"
+                         f"volume={A.bed_db}dB,afade=t=in:st=0:d=1.5,afade=t=out:st={max(0,total-2.0):.3f}:d=2.0[mus]")
+            parts.append("[mus][vkey]sidechaincompress=threshold=0.020:ratio=6:attack=12:release=420:makeup=1:level_sc=1[duck]")
+            parts.append("[vmix][duck]amix=inputs=2:duration=first:normalize=0[pm]")
+        else:
+            parts.append(f"[0:a]{voice}[pm]")
+        if A.extra:
+            inputs += ["-i", A.extra]; ei = n; n += 1
+            parts.append(f"[pm][{ei}:a]amix=inputs=2:duration=first:normalize=0[pm2]"); last = "pm2"
+        else: last = "pm"
+        fc = ";".join(parts) + f";[{last}]aresample=48000[premix]"
 
-    def render(extra, fmt_args):
-        return subprocess.run([C.FF, "-nostdin", "-v", "error"] + inputs + ["-filter_complex", f"{fc};[premix]{extra}[a]",
-                              "-map", "[a]"] + fmt_args, capture_output=True)
-    def ebur(extra):
-        p = subprocess.run([C.FF, "-nostdin", "-nostats"] + inputs + ["-filter_complex", f"{fc};[premix]{extra},ebur128=peak=true[a]",
-                           "-map", "[a]", "-f", "null", "-"], capture_output=True, text=True).stderr
-        import re; g = lambda k: float(re.findall(rf"{k}:\s*(-?[\d.]+)", p)[-1]); return g("I"), g("Peak"), g("LRA")
-    I0, TP0, LRA0 = ebur("anull"); print(f"  premix  I {I0:.2f}  TP {TP0:.2f}  LRA {LRA0:.2f}")
-    gain = A.target - I0
-    lim = f"alimiter=limit={10**(A.tp/20):.4f}:attack=5:release=60:level=false"
-    # limiter delay measured on the real programme by cross-correlation (audio2.py lesson)
-    pcmargs = ["-ac", "2", "-ar", "48000", "-f", "f32le", "-"]
-    refx = np.frombuffer(render(f"volume={gain:.3f}dB", pcmargs).stdout, dtype=np.float32).reshape(-1, 2)[:, 0]
-    limx = np.frombuffer(render(f"volume={gain:.3f}dB,{lim}", pcmargs).stdout, dtype=np.float32).reshape(-1, 2)[:, 0]
-    s0 = int(min(ss, max(0, total - 25)) * C.SR); s1 = s0 + int(min(20, total - 1) * C.SR)
-    _, delay, _ = C.xcorr(limx[s0:s1], refx[s0:s1], max_ms=15.0)
-    delay = max(0, delay); log["limiter_delay_samples"] = delay
-    def fin(g):
-        return f"volume={g:.3f}dB,{lim}" + (f",atrim=start_sample={delay},asetpts=N/SR/TB" if delay > 0 else "") + \
-               f",apad=whole_dur={total:.3f},atrim=0:{total:.3f}"
-    I1, TP1, LRA1 = ebur(fin(gain)); print(f"  gain {gain:+.2f} dB (limiter delay {delay}) -> I {I1:.2f}  TP {TP1:.2f}  LRA {LRA1:.2f}")
-    for _ in range(3):                      # the limiter eats part of each trim; converge, do not assume
-        if abs(I1 - A.target) <= 0.3: break
-        gain += (A.target - I1); I1, TP1, LRA1 = ebur(fin(gain)); print(f"  gain {gain:+.2f} dB -> I {I1:.2f}  TP {TP1:.2f}  LRA {LRA1:.2f}")
-    log.update(gain_db=round(gain, 2), lufs=round(I1, 2), tp_pcm=round(TP1, 2), lra=round(LRA1, 2), duration=round(total, 3))
+        def render(extra, fmt_args):
+            return subprocess.run([C.FF, "-nostdin", "-v", "error"] + inputs + ["-filter_complex", f"{fc};[premix]{extra}[a]",
+                                  "-map", "[a]"] + fmt_args, capture_output=True)
+        def ebur(extra):
+            p = subprocess.run([C.FF, "-nostdin", "-nostats"] + inputs + ["-filter_complex", f"{fc};[premix]{extra},ebur128=peak=true[a]",
+                               "-map", "[a]", "-f", "null", "-"], capture_output=True, text=True).stderr
+            import re; g = lambda k: float(re.findall(rf"{k}:\s*(-?[\d.]+)", p)[-1]); return g("I"), g("Peak"), g("LRA")
+        I0, TP0, LRA0 = ebur("anull"); print(f"  premix  I {I0:.2f}  TP {TP0:.2f}  LRA {LRA0:.2f}")
+        gain = A.target - I0
+        lim = f"alimiter=limit={10**(A.tp/20):.4f}:attack=5:release=60:level=false"
+        # limiter delay measured on the real programme by cross-correlation (audio2.py lesson)
+        pcmargs = ["-ac", "2", "-ar", "48000", "-f", "f32le", "-"]
+        refx = np.frombuffer(render(f"volume={gain:.3f}dB", pcmargs).stdout, dtype=np.float32).reshape(-1, 2)[:, 0]
+        limx = np.frombuffer(render(f"volume={gain:.3f}dB,{lim}", pcmargs).stdout, dtype=np.float32).reshape(-1, 2)[:, 0]
+        s0 = int(min(ss, max(0, total - 25)) * C.SR); s1 = s0 + int(min(20, total - 1) * C.SR)
+        _, delay, _ = C.xcorr(limx[s0:s1], refx[s0:s1], max_ms=15.0)
+        delay = max(0, delay); log["limiter_delay_samples"] = delay
+        def fin(g):
+            return f"volume={g:.3f}dB,{lim}" + (f",atrim=start_sample={delay},asetpts=N/SR/TB" if delay > 0 else "") + \
+                   f",apad=whole_dur={total:.3f},atrim=0:{total:.3f}"
+        I1, TP1, LRA1 = ebur(fin(gain)); print(f"  gain {gain:+.2f} dB (limiter delay {delay}) -> I {I1:.2f}  TP {TP1:.2f}  LRA {LRA1:.2f}")
+        for _ in range(3):                      # the limiter eats part of each trim; converge, do not assume
+            if abs(I1 - A.target) <= 0.3: break
+            gain += (A.target - I1); I1, TP1, LRA1 = ebur(fin(gain)); print(f"  gain {gain:+.2f} dB -> I {I1:.2f}  TP {TP1:.2f}  LRA {LRA1:.2f}")
+        log.update(gain_db=round(gain, 2), lufs=round(I1, 2), tp_pcm=round(TP1, 2), lra=round(LRA1, 2), duration=round(total, 3))
 
-    out = A.out; ext = out.lower().rsplit(".", 1)[-1]
-    pic = A.video or (A.src if C.has_video(A.src) and ext in ("mov", "mp4") else None)
-    cmd = [C.FF, "-nostdin", "-y", "-v", "error"] + inputs
-    if pic: cmd += ["-i", pic]
-    cmd += ["-filter_complex", f"{fc};[premix]{fin(gain)}[aout]"]
-    if pic: cmd += ["-map", f"{n}:v", "-map", "[aout]", "-c:v", "copy"]
-    else: cmd += ["-map", "[aout]"]
-    if ext == "mp4": cmd += ["-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-movflags", "+faststart"]
-    else: cmd += ["-c:a", "pcm_s16le", "-ar", "48000", "-ac", "2"]
-    cmd += ["-t", f"{total:.3f}", out]
-    r = subprocess.run(cmd, capture_output=True, text=True)
-    if r.returncode: raise SystemExit(r.stderr)
+        ext = out.lower().rsplit(".", 1)[-1]
+        pic = A.video or (A.src if C.has_video(A.src) and ext in ("mov", "mp4") else None)
+        cmd = [C.FF, "-nostdin", "-y", "-v", "error"] + inputs
+        if pic: cmd += ["-i", pic]
+        cmd += ["-filter_complex", f"{fc};[premix]{fin(gain)}[aout]"]
+        if pic: cmd += ["-map", f"{n}:v", "-map", "[aout]", "-c:v", "copy"]
+        else: cmd += ["-map", "[aout]"]
+        if ext == "mp4": cmd += ["-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-movflags", "+faststart"]
+        else: cmd += ["-c:a", "pcm_s16le", "-ar", "48000", "-ac", "2"]
+        cmd += ["-t", f"{total:.3f}", out]
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        if r.returncode: raise SystemExit(r.stderr)
+
+    render(voice)
+
+    # ---- VERIFY ON THE FILE THAT SHIPS, then fold the residual back (spray-tan finishaudio lesson,
+    # 2026-09-02): the fit converged on the lav (max 1.1-1.8 dB) while the delivered file read 2.2-2.8 --
+    # the expander, the limiter and the AAC encode all move the spectrum. So measure the OUTPUT on the
+    # gate's own metric and re-render with the residual folded in, up to two more passes, keeping the best.
+    if gains is not None and not A.finish_only:
+        rb = np.array(ref["bands"]); g = np.array(gains, dtype=float)
+        oss, odur = C.analysis_window(out)
+        def out_err(): return C.analyse(C.pcm(out, ss=oss, dur=odur))[0] - rb
+        err = out_err(); best = (max(np.abs(err).mean() / 1.2, np.abs(err).max() / 2.5), out + ".pass0", g.copy())
+        import shutil; shutil.copyfile(out, best[1])
+        print(f"  verify 0: delivered tone mean {np.abs(err).mean():.2f} max {np.abs(err).max():.2f}")
+        step = np.array(fstep, dtype=float)      # the per-band sensitivity the fit learned (shelf ~2.4x)
+        for k in range(1, 4):
+            if best[0] < 0.8: break
+            prev = err
+            g = np.clip(g - step * err, -10, 10); g[1:-1] = 0.15 * g[:-2] + 0.70 * g[1:-1] + 0.15 * g[2:]
+            eq = eq_chain(g); log["eq"] = eq; log["eq_gains"] = [round(float(v), 2) for v in g]
+            render(",".join(v for v in [eq, EXPAND, (COMPRESS if A.comp else ""), "pan=stereo|c0=c0|c1=c0"] if v))
+            err = out_err(); sc = max(np.abs(err).mean() / 1.2, np.abs(err).max() / 2.5)
+            step[np.sign(err) != np.sign(prev)] *= 0.5
+            print(f"  verify {k}: delivered tone mean {np.abs(err).mean():.2f} max {np.abs(err).max():.2f}  err {np.round(err,1).tolist()}")
+            if sc < best[0]: best = (sc, out + f".pass{k}", g.copy()); shutil.copyfile(out, best[1])
+        shutil.copyfile(best[1], out)                       # the best pass is what ships
+        log["eq_gains"] = [round(float(v), 2) for v in best[2]]; log["eq"] = eq_chain(best[2])
+        for k in range(4):
+            try: os.remove(out + f".pass{k}")
+            except FileNotFoundError: pass
     json.dump(log, open(out + ".voice_chain.json", "w"), indent=1)
-    print(f"  wrote {out}  ({total:.2f} s)  sidecar {os.path.basename(out)}.voice_chain.json\n  now: audio_gate.py {out}")
+    print(f"  wrote {out}  ({log.get('duration')} s)  sidecar {os.path.basename(out)}.voice_chain.json\n  now: audio_gate.py {out}")
 
 
 if __name__ == "__main__": main()

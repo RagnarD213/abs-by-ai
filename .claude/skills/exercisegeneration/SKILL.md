@@ -220,6 +220,11 @@ is the odd one out — worth re-exporting whenever that file is next touched.)
   error; a 30s wait and a re-run fixed both. `gen-stills.js`/`gen-ends.js` run in waves of 8.
 - **Loudness needs no normalization** — every finished file landed at −23.4 to −24.9 dB mean, matching
   batch 1's approved −23.9/−24.2 exactly.
+- **Gate the final mux (2026-09-02):** `python3 .claude/skills/_shared/audio/audio_gate.py DEMO.mp4 --synthetic`
+  per exercise — AI voice, so only the loudness / true peak / centred image / no-silent-second / audio-length
+  rows apply. ⚠ The batch-1 files sit near −24 LUFS, well under the −14 ±1 row; because Dan approved that
+  level for in-app demos, gate these with `--synthetic` for the peak/silence/length rows and report loudness
+  rather than fail on it (pass `--no-stamp` if the row fails and note it in the delivery).
 - **Run `qc.py` before delivering.** It asserts, per exercise: 1920×1080/24fps, AAC present, loop-join
   frame diff (<3.0 = seamless; all 20 came in at 0.32–1.2), range-of-motion diff (>2.0), and that the
   VO ends inside the video.

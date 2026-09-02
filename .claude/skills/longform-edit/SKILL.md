@@ -579,6 +579,12 @@ tonemapping and portrait handling.
 
 Installed at `~/Developer/video-use`, symlinked into `~/.claude/skills/video-use`.
 
+⚠ **Never let `video-use` render the audio that ships (2026-09-02).** Its `render.py` pulls the
+source's default audio stream (both mics, or the far mic on an 8/28 roll) and finishes with
+two-pass `loudnorm` — both of which bypass `_shared/audio`. Use it for transcripts and the
+segment cache; the delivered audio is `pick_lav` → `voice_chain.py --frame-lock <picture>` →
+`audio_gate.py`, muxed onto its picture with `-c:v copy` (Step 5.6 / 7.6).
+
 **Install facts that contradict its own README:**
 - **Python 3.10+ is NOT required.** All six helpers carry `from __future__ import
   annotations` and run on the system **Python 3.9.6**. `uv` is not needed.

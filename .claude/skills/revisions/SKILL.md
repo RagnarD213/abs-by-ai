@@ -58,22 +58,30 @@ Two audiences, same skill:
    `python3 -m gdown <FILEID> -O video.mp4` into the scratchpad (installed for
    python3.9). `ffmpeg`/`ffprobe` are NOT on PATH — use the static builds in
    `Media/video_edit/bin/`.
-1. **Audio first — run `reference/echo_check.py video.mp4`** (needs the static ffmpeg
-   on PATH). It reports, at several offsets: L/R cross-correlation+lag AND an
-   autocorrelation echo peak in the 3–15 ms window.
+1. **Audio first — run the shared standard on the editor's file, so the doc quotes the same numbers
+   we hold ourselves to** (2026-09-02; `echo_check.py` and `chan_align.py` are now shims):
+
+       python3 .claude/skills/_shared/audio/pick_lav.py CUT.mp4 --analyse
+       python3 .claude/skills/_shared/audio/audio_gate.py CUT.mp4 --no-stamp --ab AB_his-vs-editor.mp4
+
+   `pick_lav --analyse` prints every stream/channel with SNR, decay, EDT, clipping, and the pairwise
+   lag + polarity — it handles 2-channel files AND the 8/28 four-track rolls (the old `chan_align.py`
+   exited "not stereo — nothing to compare" on those, so the review gate reported nothing wrong).
+   `audio_gate` measures the delivered file against Muhammad's ad on the ten rows Dan rejects on
+   (image, comb, room, tone, floor, dryness, loudness, spread, true peak, silence/length). Quote the
+   FAIL rows with their numbers in the doc, in editor-friendly words, and attach the A/B clip. The
+   signatures to recognise:
    - L/R strongly correlated at 0 lag but echo peak ~7–8 ms in speech ⇒ the editor
      **summed the two camera mics** (right = lav, left = room mic ~2.6 m away; the
      comb filter is baked in and un-EQ-able). The fix must happen at the source:
      rebuild the voice from the RIGHT channel only, as mono. State that as the outcome,
      not as a menu path. Full background: /longform-edit
      Step 0.4. Write this as the #1 THROUGHOUT item in editor-friendly words.
-   - **Then always run `reference/chan_align.py video.mp4`.** echo_check alone cannot tell
-     "one mic, delayed copy" from "two different mics hard-panned". chan_align reports the
-     best-fit delay+gain alignment residual (< −12 dB ⇒ one mic; ≈ −3 dB ⇒ two mics),
-     flags polarity inversion, counts clipped samples, and measures how much voice a mono
-     fold-down loses in the 300–3400 Hz band. Quote those numbers in the doc.
-   - **And always measure loudness:** `ffmpeg -i cut.mp4 -af loudnorm=print_format=json -f null /dev/null`.
-     Target −14 LUFS / ≤ −1.5 dBTP. Editors have shipped −8 LUFS / +2.5 dBTP with audible clipping.
+   - Two mics hard-panned (raw pair shipped): `pick_lav` reads a strong pair peak at ±7–8 ms,
+     zero-lag near 0, and the gate's L/R row fails. Two mics summed: L/R ≈ +1.0 but the gate's comb
+     row fails (ripple ≈ 1.1 dB vs his 0.54). Roomy: the EDT row (>80 ms; his 40).
+   - Loudness and true peak are gate rows (−14 ±1 LUFS, ≤ −1.0 dBTP). Editors have shipped
+     −8 LUFS / +2.5 dBTP with audible clipping.
    - Music bed: noise floor p5 above ≈ −45 dB in speech gaps *suggests* one; our shoots' raw
      floor is ≈ −53 dB. **This heuristic false-positives on an over-loud, hard-limited master** —
      confirm with per-band gap spectra on the lav channel before claiming a bed exists.
@@ -100,7 +108,8 @@ Two audiences, same skill:
 
 ## Standing rules to check every review (Dan's accumulated rulings)
 
-- **Audio**: single-mic rule above; −14 LUFS; true peak ≤ −1.5 dBTP.
+- **Audio**: the `_shared/audio` gate rows above — lav only (per `pick_lav`, never "right channel"
+  on an 8/28 roll), no comb, room ≤ 80 ms, −14 LUFS, true peak ≤ −1.0 dBTP.
 - **Compliance (Google Ads)**: NO side-by-side before/afters, ever (before → footage
   → after separately is fine, disclosed); NO morph/transformation-in-one-shot; NO
   body-shaming / belly-fat zooms; NO email-capture form on screen.

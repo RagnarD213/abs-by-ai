@@ -100,11 +100,11 @@ Muhammad's edits` (high, not key — it is parked on purpose). **Whoever closes 
 the block from the brief's SKILL.md**, or it nags forever.
 **16 cut Shorts (8 per video) stay blocked until one version or the other is public.**
 
-**Zepbound shorts** — 8 cut and delivered (`zep-short1..8_*.mp4`), all gates green, 540p
-review copies sent. Dan says which to swap for one of the six alternates in `SHORTS.md`
-(one re-render each). ⚠ Picks were mine, not his. **Posting is blocked on the parent
-long-form, which is unpublished** — and that parent is now on a deliberate hold (above), so
-these are parked too. Do not chase them.
+**Zepbound shorts** — 8 delivered (`zep-short1..8_*.mp4`), **audio re-rendered 2026-09-02 through
+`_shared/audio`** (room 69–93 ms → 32–48 ms, every file stamped PASS; pre-fix copies in
+`Short-form video content/_pre-audiofix-20260902/`; A/B clips `AB_his-vs-ours_zep-short1/2…mp4`).
+Dan says which to swap for one of the six alternates in `SHORTS.md`. ⚠ Picks were mine, not his.
+**Posting is blocked on the parent long-form, which is on a deliberate hold** (above). Do not chase.
 
 **Spray tan shorts (01) — REV 1, audio rebuilt** — 6 delivered (`tan-short1..6_*.mp4`), down from
 8: Dan killed the briefs/boxers and first-shower shorts and retitled two. All gates green (QC,
@@ -117,8 +117,8 @@ early decay 85 ms against his reference ad's 40 ms.** Fixed with spectral dereve
 (`work/dereverb.py`) → **29–40 ms**; new hard gate `work/audiogate.py` is wired into `qc.js` so
 no batch from this shoot can ship again without the room being measured.
 
-⚠ **The same room is in the Zepbound and supplements Shorts, which shipped without this.**
-`Handoffs/handoff-20260902-shoot-audio-standard.md` (Key task added) hands that to Fable.
+⚠ The same room was in the Zepbound and supplements Shorts — **fixed 2026-09-02** through
+`.claude/skills/_shared/audio/` (one lav pick, one chain, one gate; every QC requires its stamp).
 
 ⚠ Three bugs found on the way, all documented in the batch README: a stereo WAV read as mono is
 invisible to a byte-size check (cost a full render, 11–16 dB above 450 Hz); `finishaudio` was
@@ -126,8 +126,10 @@ matching the batch to its own median rather than the reference; and it predicted
 verifying it. **Short 2 measures 1.08 dB shape against a 1.00 gate** — one band, 2.7 dB bright at
 6.7 kHz; reported rather than hidden, and the threshold was not relaxed.
 
-**Supplements shorts (03)** — 8 rev-4 copies delivered, unwatched. Same block: the parent
-long-form is packaged but on hold (above), so nothing can post. Parked, not chased.
+**Supplements shorts (03)** — 8 delivered, **audio re-rendered 2026-09-02 through `_shared/audio`**
+(room 67–88 ms → 29–45 ms, every file stamped PASS; pre-fix copies in
+`_pre-audiofix-20260902/`; A/B clips beside supp-short1 and supp-short4). Same block: the parent
+long-form is on hold (above), so nothing can post. Parked, not chased.
 
 **AD 2 vertical 9:16** — rev 2 delivered and independently cleared on centering. Dan
 watches, looking specifically at 0:45–0:49 and 1:20–1:27 (the two hardest lunges). Then
@@ -277,16 +279,6 @@ Each has a Key dashboard task. Run in a fresh session.
   champion at $6.50/day judged on cost/follow; tests judged on cost/visit; caps $300 tests /
   $500 total per month; hourly Railway cron; morning-brief block. Fable 5.1 high. Verify the
   insights action-type names against Ads Manager before wiring rules.
-- **`Handoffs/handoff-20260902-audio-standard-unification.md`** — **Phases 1–2 DONE 2026-09-02**
-  (`.claude/skills/_shared/audio/`: `pick_lav` / `voice_chain` / `audio_gate` / `require_stamp`, reference
-  pinned by fingerprint, `selftest.sh` green; ad-edit, longform-edit, shorts and shortad wired, every QC and
-  deliver script refuses an unstamped file). Ad 2 rev 2 and the delivered website video rev 2 are gated and
-  stamped (PASS); the rejected rev 1 fails on floor + tone, as it should. **Phases 3–4 open** for a fresh
-  session: the six human-facing and synthetic skills, then re-render the Zepbound + supplements Shorts
-  through the module (cap two renders). ⚠ Until Phase 4, the 8/3-shoot Shorts and longforms carry no
-  stamp, so the wired QCs FAIL on them by design. The Key dashboard task stays open until Phase 4 closes.
-  ⚠ The website-video rev 3 session renders with the WORK-DIR copy of `audio3.py` on the Seagate; only the
-  skill's reference copy became a shim.
 - **`Handoffs/handoff-20260902-shorts-centering-queue-fix.md`** — **URGENT, 09-05 deadline.**
   YouTube has been publishing the pre-8/27 off-centre Shorts (the native queue was never
   swapped; 4 already live, 6 still scheduled, `v2-short7` goes out 09-05). One Blotato post

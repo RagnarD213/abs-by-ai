@@ -1,18 +1,15 @@
 # Handoff — ONE audio standard for every video skill, so "bad audio" cannot ship again
 
-**Created** 2026-09-02 by Claude Code (Fable 5.1) · **Status: PHASES 1–2 EXECUTED 2026-09-02 (Fable 5.1); Phases 3–4 open**
+**Created** 2026-09-02 by Claude Code (Fable 5.1) · **Status: FULLY EXECUTED 2026-09-02 (Fable 5.1), Phases 1–4**
 
-> **Executed:** `.claude/skills/_shared/audio/` exists (README there), `selftest.sh` is green on all six
-> cases, and the four build skills are wired (shims, `audio_source.json` readers, `require_stamp` in every
-> QC and deliver script, SKILL.md edits, shorts README index corrected). Two table rows were corrected from
-> measurement (TP limit −1.0 on the delivered file; "not crushed" gates speech spread, not LRA) and a comb
-> row was added — see the module README. **Still open:** Phase 3 (findassets, revisions, editor-brief,
-> youtube-packaging, make-ad, exercisegeneration) and Phase 4 (re-render the Zepbound + supplements Shorts
-> through the module; then the memory/AGENTS/handoff clean-up at the bottom).
-
-Supersedes items 3–4 of `handoff-20260902-shoot-audio-standard.md` (promote the gate everywhere,
-measure on new shoots). Items 1–2 of that handoff (re-render the Zepbound + supplements Shorts)
-become Phase 4 here and run through the new module instead of a hand copy.
+> **Done.** `.claude/skills/_shared/audio/` (README there) with `selftest.sh` green on 8 cases; all ten
+> skills wired (every QC and deliver script requires the gate's stamp); the 8 Zepbound + 8 supplements
+> Shorts re-muxed through the chain (room 67–93 ms → 29–48 ms, every delivered file stamped PASS, the
+> pre-fix files in `Short-form video content/_pre-audiofix-20260902/`, A/B clips beside four of them).
+> Limits recalibrated from approved/rejected files (EDT 80, spread ≥ his − 3, TP −1.0) and a comb row
+> added; the EQ fit got an adaptive per-band step and a verify-on-the-delivered-file pass. The
+> superseded `handoff-20260902-shoot-audio-standard.md` is deleted (its lessons live in `/shorts`
+> Step 0.6 and the module README). Kept as the design record.
 
 ## The one-sentence rule
 

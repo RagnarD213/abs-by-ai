@@ -111,11 +111,20 @@ exists its link is printed under the image.
    happen before the editor reaches those videos.
 
 ### 8. Source-footage faults
-Anything wrong with the rolls themselves that the editor cannot be expected to know. For this
-shoot that is always the **two-mic fault**: right channel is the close lav, left is a room mic
-7.5–8.2 ms behind it, polarity-inverted and clipped on the ad rolls; summing them combs the
-voice and costs ~4 dB on any phone speaker. Instruction: **right channel only, as mono, discard
-the left.** Then master to ≈ −14 LUFS, ≤ −1 dBTP.
+Anything wrong with the rolls themselves that the editor cannot be expected to know. For every
+Jeff shoot that is the **two-mic fault** — but the wiring differs per shoot, so **generate this
+paragraph from measurement, not memory**: run `.claude/skills/_shared/audio/pick_lav.py` on two or
+three of that shoot's rolls and write what it reports. 8/3 and 8/14 rolls: one 2-channel stream,
+right = close lav, left = a room mic 7.5–8.2 ms behind it, polarity-inverted and clipped on the ad
+rolls → "use the right channel only, as mono, discard the left." 8/28 rolls: FOUR mono tracks,
+lav on track 2 (`a:1`), far mic on track 1, tracks 3–4 silent → "use audio track 2 only, as mono."
+Summing them combs the voice and costs ~4 dB on any phone speaker.
+
+Then the spec line, stated as the measurement it is: **"the finished audio must pass
+`.claude/skills/_shared/audio/audio_gate.py` against Muhammad's reference"** — ≈ −14 LUFS,
+≤ −1 dBTP, one centred voice, no comb, room ≤ 80 ms early decay, tone within 1.2 dB of the
+reference. Link the gate's A/B clip (his three sentences, then ours) so the editor can hear the
+target rather than read it.
 
 Written as equipment background. **No editor history.** (See the rule at the top.)
 

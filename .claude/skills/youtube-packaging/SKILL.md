@@ -186,7 +186,9 @@ It is already white, so the recolour step in the old scripts is now a no-op.
 
 ## Shorts
 
-**Use `/shorts` — it supersedes this section.** That skill carries the full pipeline
+**Use `/shorts` — it supersedes this section.** Every short's audio goes through
+`.claude/skills/_shared/audio` and must carry `audio_gate.py`'s PASS stamp before it is uploaded
+(`/shorts` `qc.js` and `deliver.js` refuse an unstamped file). That skill carries the full pipeline
 (silence-snapped cuts, per-shot classification, the graphics band, captions, QC) plus
 working code in `.claude/skills/shorts/reference/`. The rules below are the summary only.
 
