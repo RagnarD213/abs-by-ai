@@ -46,13 +46,15 @@ once ManyChat was live — **ask before touching it**, it's a queue-wide change)
 comment-ABS reels are now eligible for the 2026-08-31 paid-ads specs. Delete this entry
 once Dan confirms.
 
-**Website conversion video (post-generation)** — rev 1 delivered 2026-09-02 and **rejected by
-Dan on audio (a floor problem, not the two-mic comb — measured), framing (the wide shot and the
-light in frame), and graphics (black-field panels, too many)**. Color and cut approved. **Handoff for
-rev 2: `Handoffs/handoff-20260902-website-video-rev2.md`**, Key dashboard task added; Dan runs it in
-a fresh session on Fable 5.1, extra-high effort. New mandatory audio gate in `/ad-edit`
-(`reference/voice_ref_check.py`, Step 0.5) + framing/graphics rules (lessons 82–86). Working dir
-`/Volumes/Extreme/_edit_work/website-video-828/`.
+**Website conversion video — REV 2 DELIVERED 2026-09-02, waiting on Dan's review.** Master at
+`claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9.mp4`
+(rev 1 kept beside it as `*_REV1_REJECTED.mp4`); the 540p review copy and the audio A/B
+(`AB_his-vs-ours.mp4`: 12 s of Muhammad's ad, then ours) were sent in chat. Audio gate PASSED on the
+delivered file (floor +2.6 / +0.3 / +0.6 dB vs his, tone 0.80 dB mean), QC 14/14, watch pass clean;
+framing 1.256× / 1.45× / 1.66× on the 4K with the light and the wide shot asserted out; 13 graphics on
+Muhammad's measured card system. On approval, the separate Key task "Review the website conversion
+video … install it on absbyai.com" runs in its own session. Recipe + notes beside the master and in
+`.claude/skills/ad-edit/reference/website-video/` (lessons 87–96 in `/ad-edit`).
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,
@@ -252,13 +254,6 @@ Each has a Key dashboard task. Run in a fresh session.
 ---
 
 # ACTIVE TASK
-
-**Website conversion video REV 2 — IN PROGRESS** (Claude Code, Fable 5.1, 2026-09-02, executing
-`Handoffs/handoff-20260902-website-video-rev2.md`). Order: audio chain gated against Muhammad's ad
-→ 4K base + three framings (WIDE/MID/TIGHT, light excluded) → reduced graphics on the olive field →
-QC + watch → 540p review copy + audio A/B. Work dir `/Volumes/Extreme/_edit_work/website-video-828/`
-(rev-1 intermediates archived in `rev1/`). Do not write to the project's `06 - Website Conversion
-Video` folder from another session.
 
 
 **04 invest-health — style-standard rebuild IN PROGRESS** (Claude Code, 2026-09-02).

@@ -30,12 +30,12 @@ TX   = f"{HERE}/final.whisper.json"
 
 # Full-screen cards already carry a headline; a caption on top is two competing texts.
 # full-frame cards carry their own words; a caption on top is two texts at once
-SUPPRESS = [B.BEFORE, B.TODAY, B.TRIAL, B.PRICE, B.SOLVED, B.CTA]   # rev 2: POOL is gone
+SUPPRESS = [B.POOL, B.BEFORE, B.TODAY, B.TRIAL, B.PRICE, B.SOLVED, B.CTA]
 # left-panel beats: captions shift RIGHT into Dan's column (the app screens ARE the demo)
 PANELS   = [B.BEATS[n] for n in sorted(B.PANEL)]
 LOWERS   = [B.BEATS[n] for n in sorted(B.OVERLAY)]
 MV_BASE, MV_LIFT = 96, 300
-ML_PANEL = 640           # rev 2: clear of the phone PiP (x<=583) -- the cue centres over Dan at x~1243
+ML_PANEL = 1000          # clear of the 980 px panel (MarginL shifts the centred cue into Dan's column)
 
 # Whisper mishears measured on THIS roll. "gross science" for bro-science and
 # "Sixpackabs" for "six-pack abs" both occur; the first 30 s is proofed by hand.

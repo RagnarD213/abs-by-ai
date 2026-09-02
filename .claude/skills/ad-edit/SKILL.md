@@ -858,6 +858,59 @@ of it, all three of which now fail a build rather than living in prose:
    Measure first (Step 0.5). Comb filter = L/R correlation near 0 with a 7–8 ms lag peak; floor =
    voice-over-floor per band; tone = the 10-band fit. Three different fixes, one word from Dan.
 
+
+Website conversion video rev 2 — delivered 2026-09-02, the same day rev 1 was rejected. Audio gate
+PASSED on the delivered file (tone 0.80 dB mean / 2.10 max vs his ad; floor +2.6 / +0.3 / +0.6 dB vs
+his), QC 14/14, watch pass clean, $0.00 spend. Reproducible from `reference/website-video/` (rev-2
+scripts; rev 1's are in its `rev1/`). What it added:
+
+87. **Fit the EQ against the GATE'S OWN metric, iterate, and stop at the smooth iteration.**
+   `voicefit.py` copies `voice_ref_check.py`'s analysis and iterates 10 parametric bands (they
+   interact — one pass leaves 2.9 dB at the top band). Iteration 2 passed (0.76 mean / 1.06 max);
+   iteration 6 reached 0.30 only by alternating +4 / −3.4 / +1.5 / −7.4 / +1.7 / −5.2 on neighbouring
+   bands — an over-fit comb, not a voice EQ. A hand "+1.2 at 950 Hz" on top made the max error worse
+   (1.06 → 1.69). Ship the first smooth passing curve.
+88. **The bed is a floor problem, and every 4 dB of bed is ~2.5 dB of floor.** The bed file is
+   −9.5 LUFS against a −22 LUFS voice, so rev 1's "−23 dB" sat 10 dB under the voice and 9.5 dB over
+   his floor. Measured: −30 fails by 8 dB, −34 by 5.6, −40 passes 1.9 dB dirtier than his, **−44 lands
+   on his floor**. State the bed as dB below the VOICE's integrated level (34 dB here), never as a
+   volume on the file, and let the gate pick it.
+89. **The loudness finish costs floor too.** +9 dB of gain into the limiter took 0.5–2.6 dB off
+   voice-over-floor (premix +8.8 / +5.4 / +3.8 → finished +8.3 / +3.8 / +1.2, no bed). EQ alone does
+   not move the ratio (it scales voice and floor together in-band); makeup, limiting and the bed do.
+   Run the gate on the FINISHED file — the premix passes things the master does not.
+90. **Measure the reference's cards; do not inherit a description of them.** The handoff said his
+   photo cards put Dan in the other half of the frame. A pixel scan of his native frames showed
+   FULL-FRAME plates — 1476×924 on 1920×1080, photo inset 28 px, plate (66,76,37)→(80,89,49) on a
+   (10,11,5) grid field, title plate 1497×764 with ~142 px oblique caps at 0.88 leading — and his
+   phone splits at ~475×922 with Dan filling the right half. That is why his cards never read as
+   "one small element on black": the plate IS the frame. `gfx2.py` is that system.
+91. **Framing levels are code.** `layout.py` asserts every crop is no wider than the widest allowed
+   level and ends before the light (first bright pixel measured at x=3672 on two frames; guard 3530),
+   and `qc.py` re-asserts it on the plan. Two traps on the way: crop widths must be even (2311
+   failed), and the alternation counter must advance exactly once per segment — the rev-1 pattern
+   double-stepped into MID/WIDE/MID/WIDE with no TIGHT for the first minute.
+92. **Before → Dan → after needs an explicit gap.** Dan's note put the before photo on "out of
+   shape" and the after photos on the very next clause; the beat sheet's 0.35 s merge rule would have
+   crossfaded the two cards into a superimposed before/after for 0.4 s. End the before card 0.5 s
+   before the after card, so Dan is on camera between them.
+93. **A phone beside Dan in the footage is one alpha MOV**: the recording through a rounded-rect
+   mask (`alphamerge`), onto a transparent `color` source with `overlay=format=rgb`, then a
+   hairline+shadow plate PNG, `fade=…:alpha=1` at both ends, QTRLE argb. `layout.py pip` builds it
+   and `mix()` overlays it like any card. Size it like his (433×820 at 1080p), Dan pushed to 65 %.
+94. **A contact sheet made with `fps=1/N` and `%{pts}` labels lags the content by ~N/2 s.** Tile
+   "0:40" showed a card's fade-out that happens at 42.5–42.9 s, "3:35" showed a card that starts at
+   216.45 — three false alarms in one review. Grab suspect frames with exact `-ss` before calling
+   anything a defect; `deliver.sh` now builds the sheet from exact grabs.
+95. **Reusing a rev-1 graphic requires its beat to be unchanged — ffprobe it.** Five of the six
+   lower thirds matched; `num2.mov` was 0.15 s short of its rev-2 beat (rev 1's beat sheet had
+   trimmed it against a neighbour that no longer exists), which would have repeated a transparent
+   last frame for four frames. Assert `|mov − beat| < 0.1 s` for every reused MOV before the mix.
+96. **Concurrency held at two builds all session** by putting the long chain in the background with
+   a process waiter (`wait_stage2.sh`: `kill -0 PID` loop, hard timeout, grep for the wrapper's
+   RENDER COMPLETE line, then launch the next stage) — the audio fit, card previews and script work
+   ran in the foreground while the 4K base (29 min) and the 4K tight (~25 min) encoded.
+
 ## Decisions locked vs pending
 
 | decision | status |

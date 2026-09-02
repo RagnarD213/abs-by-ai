@@ -25,29 +25,30 @@ def end_of(phrase, pad=0.10, after=0.0):
     return round(WORDS[i]["e"]+pad,3)
 
 # ------------------------------------------------------------------ the beats
-# REV 2 (2026-09-02): 21 beats -> 13. Dan: "graphics sparingly -- much more sparingly."
-# Removed: POOL, ASSESS, TELLAI, WORKOUT, MEALPLAN, MEALBUL, SLEEP, TRYLIST.
+# opening: Dan clean to camera, then a name/title lower third (a trust device)
 NAME     = (at("This isn't just an AI picture"), end_of("that you've always wanted"))
-# the before picture goes ON "I've been out of shape" and nowhere near a line about being lean;
-# it ends before "and now at 40" (Dan: "opposite of what we're trying to convey")
-# ...and it is fully gone 0.5 s before the after-photos start, so the two never share a frame
-# (before -> Dan on camera -> after; a crossfade between them would superimpose the two)
-BEFORE   = (at("Now I've been out of shape"),    at("now at 40", after=at("out of shape"))-0.50)
-# "how I look today" = Muhammad's four shoot photos, in sequence, over the whole lean passage
-# (33.9-42.0 s = ~2 s per photo; four photos in the 2.7 s line alone would be a flicker, lesson 41)
-TODAY    = (at("now at 40", after=at("out of shape")), end_of("get six pack abs"))
+POOL     = (at("Imagine yourself taking off"),   end_of("you're seeing right now"))         # real pool photo
+BEFORE   = (at("with your stubborn belly fat"),  end_of("out of shape"))                     # 200 lb photo ALONE, from the belly-fat line
+TODAY    = (at("and now at 40"),                 end_of("most defined abs of my life"))      # two shoot stills, in sequence
 _hw      = at("Here's why")
 NUM1     = (at("First human fitness experts"),   end_of("but they can't do it for you"))      # lower third
-MACRO    = (at("Abs by AI can actually track"), end_of("all the macros in what you're eating"))  # REAL recording, PiP beside Dan
+MACRO    = (at("Abs by AI can actually track"), end_of("all the macros in what you're eating"))  # REAL macro-tracker recording, phone panel
 FLYBLIND = (at("That means you don't have to fly"), end_of("far more easily"))               # lower third
 NUM2     = (at("Second Abs by AI will create"),  end_of("than you think"))                    # lower third
+ASSESS   = (at("Just look near your image"),     end_of("look like your goal picture"))       # app_trainer_assessment.png, slow pan
+TELLAI   = (at("And you can make the program even better"), end_of("a few other key factors")) # bullet panel
+WORKOUT  = (at("Once our AI has all this information"), end_of("far better results"))         # app_trainer_workout.png, slow pan
 NUM3     = (at("Third abs by AI will create"),   end_of("bases your program off that"))       # lower third
-TRIAL    = (at("For a limited time"),            end_of("completely free for 7 days"))        # title card
+MEALPLAN = (at("But that's only the beginning"), end_of("the foods that you don't like"))   # 09_app_nutrition_plan.png, slow pan
+MEALBUL  = (at("It'll work around any allergies"), end_of("And that's just the beginning"))  # bullet panel, runs into SLEEP
+SLEEP    = (at("We also have an AI sleep coach"), end_of("and much more"))                    # 11_app_daily_brief.png
+TRIAL    = (at("For a limited time"),            end_of("completely free for 7 days"))        # full card: free 7 days
+TRYLIST  = (at("Try out the macro tracker"),     end_of("everything in the app"))             # bullet panel
 CANCEL   = (at("If it's not for you"),           end_of("charged a dime"))                    # lower third
-PRICE    = (at("and you'll be charged this"),    end_of("would charge you"))                  # title card
-SOLVED   = (at("But now AI has solved"),         end_of("a plan to get you there"))           # goal image, tagged
+PRICE    = (at("and you'll be charged this"),    end_of("would charge you"))                  # price card
+SOLVED   = (at("But now AI has solved"),         end_of("a plan to get you there"))           # goal image ALONE, tagged
 _cta     = at("Try abs by AI for free", after=at("that they always wanted")-1.0)
-CTA      = (_cta, round(DUR,3))                                                              # end card, holds
+CTA      = (_cta, round(DUR,3))                                                              # end card
 
 BEATS={k:v for k,v in sorted(globals().items())
        if k.isupper() and isinstance(v,tuple) and len(v)==2 and k!="BEATS"}
@@ -69,7 +70,7 @@ _o=sorted(BEATS.items(), key=lambda kv: kv[1][0])
 # PANEL beats keep Dan in the right column with a panel on the left.
 # Everything else is a full-frame card that replaces him.
 OVERLAY={"NAME","NUM1","FLYBLIND","NUM2","NUM3","CANCEL"}
-PANEL  ={"MACRO"}          # the phone PiP: Dan stays on camera, pushed right, in the WIDE level
+PANEL  ={"MACRO","ASSESS","TELLAI","WORKOUT","MEALPLAN","MEALBUL","SLEEP","TRYLIST"}
 
 if __name__=="__main__":
     print(f"tight duration {DUR:.2f}s   {len(BEATS)} beats\n")

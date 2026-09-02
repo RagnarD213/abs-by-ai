@@ -16,3 +16,25 @@ after a visitor generates their goal image. Same pipeline shape as `../rev5` and
 
 Numbers on the delivered file: 3:51.56, −14.2 LUFS, TP −2.2 dBTP, L/R +0.9986, 203 wpm,
 fidelity 99.0 %, 47 visual changes, median hold 5.1 s, longest 13.7 s, coverage 54 %.
+
+
+## REV 2 (2026-09-02) -- audio, framing and graphics rebuilt after Dan rejected rev 1
+
+Rev 1's scripts are in `rev1/`. Rev 2 keeps `edl.py`, `make_lut.py`, `env.py`, `tight.py`,
+`hard_splices.py` and the cut, and replaces:
+
+- `base.py` + `grade.txt` -- the base is the FULL 3840x2160 (no scale in the grade) so every
+  framing level is a downscale.
+- `voicefit.py` -- fits the 10-band EQ against Muhammad's ad using `voice_ref_check.py`'s own
+  metric (iterate; take the smooth passing iteration, not the over-fit one).
+- `audio3.py` -- the fitted EQ, a gentle expander, NO compressor, bed at -44 dB, measured
+  gain + limiter finish. `VIN=<wav> VOUT=<wav>` renders test mixes for the gate.
+- `layout.py` -- WIDE / MID / TIGHT / PIP crops of the 4K with the light and wide-shot
+  assertions; `pip` pre-renders the phone-beside-Dan insert (alphamerge + hairline plate).
+- `gfx2.py` -- photo cards, title cards and the PiP plate on Muhammad's measured card system
+  (grid field, 1476x924 olive plate, 28 px photo inset, 142 px oblique caps). `PREVIEW_T=<s>`
+  renders one frame to `pv/` for checking on a real frame before any encode.
+- `gfx_lowerthirds.py` (= rev 1's `gfx.py`) -- only the six lower thirds are still built from it.
+- `beats.py` -- 13 beats. `captions.py` / `qc.py` / `watch.py` -- updated lists + the framing checks.
+- `stage2.sh`, `stage3.sh`, `deliver.sh`, `wait_stage2.sh` -- the background chain and the
+  delivery gates (audio gate + A/B, exact-time contact sheet, QC, watch, review copy, silence).

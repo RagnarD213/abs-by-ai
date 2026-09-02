@@ -39,7 +39,7 @@ punch=[p[0] for p in L.PUNCH[1:]]
 gfx_t=[t for _,beat in L.GFX for t in beat]
 OVERLAYS={n.lower() for n in B.OVERLAY}
 covered=[beat for name,beat in L.GFX if name not in OVERLAYS]
-covered+=[B.MACRO]                       # rev 2: the PiP beat (no SHOTS any more)
+covered+=[s[0] for s in L.SHOTS]+[B.MACRO]
 subprocess.run([FF,"-v","error","-i",SRC,"-vf",
   "scale=320:180,tblend=all_mode=difference,signalstats,"
   f"metadata=print:key=lavfi.signalstats.YAVG:file={HERE}/qcdiff.txt","-an","-f","null","-"],check=True)
@@ -65,13 +65,8 @@ same=[(L.PUNCH[i][2],L.PUNCH[i+1][0]) for i in range(len(L.PUNCH)-1)
       if L.PUNCH[i][2]==L.PUNCH[i+1][2]]
 check(not same,f"adjacent segments at the same framing (jump cut): {same}")
 
-bad=[(a,b,l) for a,b,l in L.PUNCH if l not in L.LEVELS]
-check(not bad,f"every framing level is an asserted crop (no wide shot, no light): {bad}")
-wide=[(a,b,l) for a,b,l in L.PUNCH if L.LEVELS[l][2]>3058 or L.LEVELS[l][0]+L.LEVELS[l][2]>L.LIGHT_X]
-check(not wide,f"no level exceeds the widest allowed crop or reaches x>{L.LIGHT_X}: {wide}")
-
 # ------------------------------------------------------------------ 3 pacing
-changes=sorted(set([0.0]+punch+gfx_t+list(B.MACRO)+[dur]))
+changes=sorted(set([0.0]+punch+gfx_t+[t for s in L.SHOTS for t in s[0]]+list(B.MACRO)+[dur]))
 shots=[round(changes[i+1]-changes[i],2) for i in range(len(changes)-1) if changes[i+1]-changes[i]>0.2]
 print(f"visual changes {len(changes)-1}   median hold {statistics.median(shots):.2f}s   longest {max(shots):.2f}s")
 check(max(shots)<=25.0,f"nothing visually unchanged longer than 25s (worst {max(shots):.2f}s)")
@@ -131,13 +126,13 @@ APPSRC=f"{L.APP}/app-flow-generate-future-self.mp4"   # the recording that CONTA
 # the two banned screens, rendered through the SAME crop/scale chain as the insert
 refs={}
 for lbl,ss in (("before/after 'Meet the new you'",26.5),("email-capture form",30.0)):
-    r=_patch(APPSRC,ss,L.AFCROP+"scale=433:820,",433,820)
+    r=_patch(APPSRC,ss,L.AFCROP+"scale=520:1020,",520,1020)
     if r is not None: refs[lbl]=r
 # EVERY frame, not a sample: the email-capture form was exposed for exactly ONE frame
 # at 179.41 s and a 2 fps scan stepped straight over it. A compliance gate that samples
 # cannot see a single-frame violation.
 raw=subprocess.run([FF,"-v","error","-i",SRC,"-vf",
-    "crop=433:820:150:130,scale=48:96","-f","rawvideo","-pix_fmt","gray","-"],
+    "crop=520:1020:203:30,scale=48:96","-f","rawvideo","-pix_fmt","gray","-"],
     capture_output=True).stdout
 n=len(raw)//(48*96)
 frames=np.frombuffer(raw[:n*48*96],dtype=np.uint8).astype(np.float64).reshape(n,-1)
@@ -158,7 +153,7 @@ if os.path.exists(capf):
     ev=[l for l in open(capf) if l.startswith("Dialogue:")]
     def secs(x):
         h,m,s=x.split(":"); return int(h)*3600+int(m)*60+float(s)
-    SUP=[B.BEFORE,B.TODAY,B.TRIAL,B.PRICE,B.SOLVED,B.CTA]
+    SUP=[B.POOL,B.BEFORE,B.TODAY,B.TRIAL,B.PRICE,B.SOLVED,B.CTA]
     coll=[]
     for l in ev:
         f=l.split(","); a2,b2=secs(f[1]),secs(f[2])

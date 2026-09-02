@@ -25,6 +25,7 @@ def boundaries():
     b=set()
     for _,(a,c) in B.BEATS.items(): b.add(round(a,2)); b.add(round(c,2))
     for a,c,_ in L.PUNCH: b.add(round(a,2))
+    for s in L.SHOTS: b.add(round(s[0][0],2)); b.add(round(s[0][1],2))
     for (ta,tb,_si,_r) in L._macro_slices(): b.add(round(ta,2)); b.add(round(tb,2))
     tc=json.load(open(f"{HERE}/tight_cuts.json")); acc=0.0
     for a,c in tc["keeps"][:-1]:

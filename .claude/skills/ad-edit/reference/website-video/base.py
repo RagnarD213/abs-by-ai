@@ -9,8 +9,10 @@ exposure, then saturation 0.88 -- picked by eye against the approved Ad 3 skin.
 Audio: the rolls carry FOUR mono LPCM streams. a:1 is the close lav (SNR 40 dB); a:0 is
 the far mic, 7.2 ms late and POLARITY INVERTED (chan_analyse.py). Lav only.
 
-Output is 2560x1440 so the punch pass (1.00 / 1.15 / 1.30) never upscales: even the 1.30
-crop of 1440p is 1969 px wide -> 1920 is a downscale.
+REV 2 (2026-09-02): output is the FULL 3840x2160. Dan: "shot in 4K intentionally from far
+away so we have room to punch in" -- the widest allowed level is 1.256x (3058 px wide) and the
+tight level is 1.66x (2311 px), so every level is still a downscale to 1920. Rev 1's 1440p
+base made the tight level a 1.25x upscale.
 """
 import json, os, subprocess
 FF="/Volumes/Extreme/_edit_work/bin/ffmpeg"
