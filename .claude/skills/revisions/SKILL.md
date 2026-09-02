@@ -252,3 +252,9 @@ Two audiences, same skill:
     The trainer-assessment screen shows the GOAL image alone, so it is the clean replacement whenever
     an editor puts the app's "Meet the new you" side-by-side on screen (three editors have now).
 
+22. **Every revision doc is written as Dan, first person, and never says Claude wrote any of it (Dan,
+    2026-09-02).** No "Claude's additions", no "reviewed by Claude", no split between his items and ours.
+    When Dan has already typed a few items into the doc, absorb them into the full list in the same voice
+    and format — rewrite his bullets in the doc's style rather than leaving them as a separate block — so
+    a reader cannot tell which items he typed and which were measured. The editor is to believe Dan did
+    every revision personally. Same rule for the markdown copy and the section headers.
