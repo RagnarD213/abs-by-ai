@@ -46,15 +46,12 @@ once ManyChat was live — **ask before touching it**, it's a queue-wide change)
 comment-ABS reels are now eligible for the 2026-08-31 paid-ads specs. Delete this entry
 once Dan confirms.
 
-**Website conversion video — REV 2 DELIVERED 2026-09-02, waiting on Dan's review.** Master at
-`claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9.mp4`
-(rev 1 kept beside it as `*_REV1_REJECTED.mp4`); the 540p review copy and the audio A/B
-(`AB_his-vs-ours.mp4`: 12 s of Muhammad's ad, then ours) were sent in chat. Audio gate PASSED on the
-delivered file (floor +2.6 / +0.3 / +0.6 dB vs his, tone 0.80 dB mean), QC 14/14, watch pass clean;
-framing 1.256× / 1.45× / 1.66× on the 4K with the light and the wide shot asserted out; 13 graphics on
-Muhammad's measured card system. On approval, the separate Key task "Review the website conversion
-video … install it on absbyai.com" runs in its own session. Recipe + notes beside the master and in
-`.claude/skills/ad-edit/reference/website-video/` (lessons 87–96 in `/ad-edit`).
+**Website conversion video — rev 2 reviewed 2026-09-02: AUDIO APPROVED ("you got it nailed"), rejected on
+headroom, one repeated line, and captions over the lower thirds.** Handoff for rev 3 with the measured
+fixes: `Handoffs/handoff-20260902-website-video-rev3.md` (Key dashboard task added); Dan runs it in a fresh
+session on Fable 5.1, extra-high effort. Root cause of the framing: the crops were anchored to a grid frame
+where his head sat at y≈100; across the actual cut it sits at 296–340 (`headtrack.py`). Rev 2 stays in the
+project folder as the current master until rev 3 replaces it. Do not touch the audio chain (`audio3.py`).
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,

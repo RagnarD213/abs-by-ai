@@ -315,6 +315,9 @@ CTA bar — on top of J2 graphics.** Dan's caption rules, non-negotiable:
 Layout rule regardless of variant: captions sit ABOVE the persistent CTA bar and
 never collide with it, with side-inserts, or with the AI-GENERATED labels; no
 captions over the end card.
+**Standing rule (Dan, 2026-09-02): captions never overlap ANY graphic — lower thirds, phone
+insets, cards. Lower thirds sit at the bottom of the frame, captions lift above them, and QC
+measures the clearance in pixels (lesson 99). A collision is a FAIL, not a note.**
 
 ## Step 7 — pacing targets (measured from the winners)
 
@@ -910,6 +913,41 @@ scripts; rev 1's are in its `rev1/`). What it added:
    a process waiter (`wait_stage2.sh`: `kill -0 PID` loop, hard timeout, grep for the wrapper's
    RENDER COMPLETE line, then launch the next stage) — the audio fit, card previews and script work
    ran in the foreground while the 4K base (29 min) and the 4K tight (~25 min) encoded.
+
+
+Website conversion video rev 2 — REVIEWED 2026-09-02: **audio approved** ("you got it nailed. This is
+the audio that we want"), rejected on headroom (every shot), one repeated line, and captions colliding
+with every lower third. Handoff for rev 3: `Handoffs/handoff-20260902-website-video-rev3.md`. Standing
+rules from it, each of which must be a measurement or an assertion, not prose:
+
+97. **ANCHOR EVERY CROP TO THE MEASURED HEAD, NEVER TO THE FRAME.** Rev 2's levels were top-anchored
+   at y=40 from a grid frame that read the head top at y≈100; `reference/website-video/headtrack.py`
+   measured the real head top every 0.5 s across the cut at **296–340 px** (median 336) — that frame
+   was not in the video. Result: 168–232 px of headroom at 1080p, worst on the tight level, which is
+   Dan's "very, very bad crop." Rule: per punch segment, `y0 = segment_min_head_top − 0.03 × crop_h`;
+   the head top lands ~30 px from the top edge in every level; the bottom edge goes as low as the
+   zoom allows (shorts and counter visible on the wide level). **QC asserts the headroom on the
+   DELIVERED frames** (head top within 15–60 px of the top, never cut). One reference frame is not
+   the video; measure the whole cut. Detector caveat: when he looks down the skin test misses and the
+   value jumps — use the per-segment minimum, misses only go down.
+98. **A STRETCHED WORD IS A HIDDEN RESTART UNTIL PROVEN OTHERWISE.** Whisper stitched "Now, I've been
+   out of shape, — I've been out of shape, and now at 40" into one 1.75 s `and`, and `orphan_scan.py`
+   passed because the stretched interval covered the energy. Dan heard the repeat at 0:32. Run
+   `reference/repeat_scan.py` (words > 0.7 s, repeated 4-grams within 25 s) after every transcription
+   and before the EDL, and re-transcribe every flagged span IN ISOLATION (4 s window, medium.en,
+   `condition_on_previous_text=False`). Cut the first attempt, keep the fluent restart.
+99. **CAPTIONS NEVER OVERLAP A GRAPHIC — measured in pixels, asserted in QC.** All six lower thirds
+   sat at y 757–905 and the "lifted" captions (MarginV 300) inked at 727–806: 49 px of overlap on
+   every lower-third beat, and QC only checked captions against full cards. Dan: "move the graphics
+   down so they don't overlap with the captions. Let's make this a standing rule." Lower thirds sit
+   at the bottom (box ≈852–1000), captions lift above them (`MV_LIFT` from the measured ink bottom:
+   ink bottom ≈ 1080 − MarginV + 26 → 290 for ≥30 px clearance), and QC renders the ASS over black at
+   each lifted cue and asserts a ≥20 px gap to the lower third's alpha bbox, plus no ink inside the
+   phone box. Geometry you assumed is not geometry you measured.
+100. **When a revision passes every gate and still gets rejected, the gate was measuring the wrong
+   thing.** Rev 2 passed 14/14 and a clean watch pass; none of them measured headroom, caption
+   clearance to lower thirds, or restarts hidden inside a token. Each review adds the check that
+   would have caught it — that is how this skill scales out of Dan's eye.
 
 ## Decisions locked vs pending
 
