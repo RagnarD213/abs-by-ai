@@ -241,17 +241,13 @@ button appears under the timer.
 
 ---
 
-**IG profile-visits campaign — ADS BUILT, PAUSED, DAN FLIPS IT ON** (2026-09-02). App
-`1598463548528030` is now LIVE. Two PAUSED ads sit in ad set `120250753601020682` on the two real
-@danrosefit reels (channel intro `120250753783030682`, 3-min total body `120250753783950682`),
-identity verified `@danrosefit` by API read-back, Meta review pending. **Dan: switch campaign
-`120250753198730682` on in Ads Manager when ready.** Kill >$5/follow, scale <$3 after $50.
-Recipe + script: `scripts/ads/boost_danrosefit_posts.py` (top-level `object_id` +
-`instagram_user_id` + `source_instagram_media_id` creative, no `object_story_spec`, no CTA — the
-Ads Manager UI cannot set this identity at all). ⚠ Still never click the global "Review and
-publish (7)". **Next (new session): auto-boost job** — any new @danrosefit reel clearing an
-organic-performance bar gets a $10/day ad on the real post for 6 days; digest kill/scale rules
-pause >$5/follow, raise <$3. Delete this entry once Dan turns the campaign on.
+**IG profile-visits campaign — LIVE since 2026-09-02 ~18:00 CT.** Campaign `120250753198730682`,
+ad set `120250753601020682` ($10/day) and both ads on the real @danrosefit reels are ACTIVE; ads
+clear Meta review on their own. **After $50 spend: kill >$5/follow, scale <$3/follow** (the ads
+digest reads Meta now). Recipe: `scripts/ads/boost_danrosefit_posts.py`. ⚠ Never click the global
+"Review and publish (7)". **Next (new session): auto-boost job** — any new @danrosefit reel clearing
+an organic-performance bar gets a $10/day ad on the real post for 6 days; digest kill/scale rules
+manage it. Delete this entry once the $50 review is done.
 
 **Meta API access — WORKING.** `META_ADS_TOKEN` (system user `abs-automation`, never expires:
 ads_management, ads_read, business_management, pages_show_list, pages_read_engagement,
