@@ -290,6 +290,13 @@ permissions" / red-D avatar).
 
 Each has a Key dashboard task. Run in a fresh session.
 
+- **`Handoffs/handoff-20260902-audio-standard-unification.md`** — PLAN written 2026-09-02,
+  awaiting Dan's go. One shared `_shared/audio/` module (per-file lav pick that handles 2-ch AND
+  the 8/28 four-track rolls, the approved `audio3.py` chain + dereverb, one gate vs Muhammad's ad)
+  and a gate STAMP that every skill's QC and delivery script must require. Supersedes items 3–4 of
+  the shoot-audio-standard handoff. ⚠ The reference .mp4 moved into a subfolder today, so
+  `voice_ref_check.py` and `audiogate.py` currently crash on their hardcoded path — use `--ref` or
+  pass the path until the module pins it.
 - **`Handoffs/handoff-20260902-shorts-centering-queue-fix.md`** — **URGENT, 09-05 deadline.**
   YouTube has been publishing the pre-8/27 off-centre Shorts (the native queue was never
   swapped; 4 already live, 6 still scheduled, `v2-short7` goes out 09-05). One Blotato post
