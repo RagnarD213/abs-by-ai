@@ -277,6 +277,12 @@
       "priority": "high",
       "addedAt": "2026-09-02",
       "why": "delivered 9/2, all gates green; picks were Claude's. Also rule on 'full Donald Trump' (short 6) and 'shitty pictures' (short 4). Posting blocked: longform 01 has never been packaged"
+    },
+    {
+      "text": "Execute handoff: website conversion video REV 2 (audio to Muhammad's standard, tight framing, sparse graphics)",
+      "priority": "key",
+      "why": "Handoffs/handoff-20260902-website-video-rev2.md — created 2026-09-02, not yet run; rev 1 rejected on audio/framing/graphics",
+      "addedAt": "2026-09-02"
     }
   ],
   "health": [
