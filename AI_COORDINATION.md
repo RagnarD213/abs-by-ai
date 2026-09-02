@@ -60,37 +60,30 @@ copies delivered. ⚠ **Whichever wins needs the right-channel audio rebuild** (
 were rendered before that fix) — `edit/build_audio_singlemic.py` + `finish_audio_invest.py`,
 muxed `-c:v copy`. Then style pass → graphics → captions → deliver.
 
-**Longforms 02 + 03 — PACKAGED; BLOCKED ON DAN DRAGGING THE TWO FILES IN.** ⚠ Verified in
-Studio 2026-09-02: **neither video is uploaded** (the channel has 8 videos, neither is Zepbound
-or supplements), so the thumbnails cannot be installed and no A/B test can be created — YouTube's
-Test & Compare needs an existing video. **Claude cannot upload the files**: the Chrome extension's
-`file_upload` is hard-capped at **10 MB** and these are 1.30 GB and 0.91 GB, and the stored
-`GOOGLE_REFRESH_TOKEN` is calendar-only so the Data API route needs a fresh consent. The upload
-dialog is left open in Dan's Chrome and both files are revealed in Finder. **Once they are in,
-one session installs everything** (title, description, tags, chapters, `.srt`, thumbnail A,
-settings) and starts Test & Compare with thumbnail B — thumbnails DO upload fine through
-`file_upload`, which supersedes the clipboard-paste trick in `/youtube-packaging`.
-
-**Longforms 02 + 03 packaging — DONE, Dan uploads.** `/youtube-packaging` run on both
-(2026-09-02, $0.002 AI spend, no code, no deploy, nothing touched in YouTube Studio).
-`PACKAGING.md` in each video folder carries 5 titles with a recommendation, the paste-ready
-description with UTM + real chapter timestamps, tags, the pinned comment and the upload
-checklist. **Two thumbnails per video** (A/B pairs) in `social media graphics/youtube/
-thumbnails/{My Honest Zepbound Update, The Supplements I Actually Take}/`, plus
-`COMPARE_*.jpg` sheets sent in chat. Type is the measured Brandon Carter system from the
-ab-wheel `STYLE.md`; skin saturation is 1.18 not his 1.55, deliberately. **No drug name in
-any graphic** — the titles carry "Zepbound", the boards say "the shot" / numbers only.
-**REV 1 (Dan, same day): Zep B now reads 192 -> 178 LBS**, his current weight, not the 181 the
-video says — the description carries the 178 so the two agree. **Supp A is now "AI / SUPPLEMENT /
-STACK" with the real bottles**, replacing "ONLY 3 MATTER". Superseded files deleted.
-Dan: pick a title, install thumbnail A, **upload the `.srt` sidecar** (neither cut has
-burned captions). ⚠ 02's on-screen photos at **8:51 (192 lbs) and 9:12 (181 lbs) are still
-empty slots** — only Dan knows which photo is which; ten-minute fix.
+**Longforms 02 + 03 — ON DELIBERATE HOLD UNTIL DAN DECIDES. DO NOT UPLOAD.** Both are cut,
+packaged and thumbnailed and are staying in the project folder. **Dan's call 2026-09-02: he is
+sitting on them until Muhammad delivers his own edits of the same two videos.** If Muhammad's are
+significantly better, his ship and ours become the backup; if Muhammad never gets to them, ours go
+up as they are. **Nothing about this is blocked on a session — do not offer to upload, and do not
+treat it as an open task before 2026-09-09.**
+⚠ Verified in Studio 2026-09-02: neither video exists on the channel (8 videos, neither is these),
+so no thumbnail is installed and no A/B test exists. **Claude cannot upload them anyway** — the
+Chrome extension's `file_upload` is capped at **10 MB** against files of 1.30 GB and 0.91 GB, and
+the stored `GOOGLE_REFRESH_TOKEN` is calendar-scoped. Thumbnails, at ~150 KB, DO upload through
+`file_upload` — that supersedes the clipboard-paste trick in `/youtube-packaging`.
+**Reminder wired, not left to memory:** a dormant self-deleting block in the morning-brief task's
+`SKILL.md` wakes on **2026-09-09** and prints a pinned "Still on you" row every morning until he
+resolves it; the dashboard row is
+`money::Upload longforms 02 (Zepbound) and 03 (Supplements) to YouTube — on hold pending
+Muhammad's edits` (high, not key — it is parked on purpose). **Whoever closes this out must delete
+the block from the brief's SKILL.md**, or it nags forever.
+**16 cut Shorts (8 per video) stay blocked until one version or the other is public.**
 
 **Zepbound shorts** — 8 cut and delivered (`zep-short1..8_*.mp4`), all gates green, 540p
 review copies sent. Dan says which to swap for one of the six alternates in `SHORTS.md`
 (one re-render each). ⚠ Picks were mine, not his. **Posting is blocked on the parent
-long-form, which is unpublished** — packaging is now done, so the block is Dan uploading it.
+long-form, which is unpublished** — and that parent is now on a deliberate hold (above), so
+these are parked too. Do not chase them.
 
 **Spray tan shorts (01)** — 8 cut and delivered (`tan-short1..8_*.mp4`, 45.8–59.4 s), all
 gates green (QC pass, caption-sync 8/8, centering 8/8), 540p review copies sent. $0.00 AI
@@ -104,7 +97,7 @@ cannot pass a `base.en`-vs-`medium.en` tokenisation difference) — both would h
 future batches, both fixed in the gate rather than overridden.
 
 **Supplements shorts (03)** — 8 rev-4 copies delivered, unwatched. Same block: the parent
-long-form is packaged but unpublished, so nothing can post.
+long-form is packaged but on hold (above), so nothing can post. Parked, not chased.
 
 **AD 2 vertical 9:16** — rev 2 delivered and independently cleared on centering. Dan
 watches, looking specifically at 0:45–0:49 and 1:20–1:27 (the two hardest lunges). Then
