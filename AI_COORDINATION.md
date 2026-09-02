@@ -244,12 +244,21 @@ reversion, no budget-leak checkbox (impossible by construction with `publisher_p
   page with no error, after granting the system user `ADVERTISE`+`ANALYZE` on that page via API.
 - ✅ @danrosefit (`17841401601139982`) verified connected to the ad account via API.
 
-**BLOCKED ON ONE THING:** the ads themselves. Creating an ad from an existing organic IG post needs
-`instagram_basic` to enumerate media; Meta did not offer that scope. Either add it (see below) or
-pick the two posts in Ads Manager, where the ad set now sits clean. Handoff Step 5 picks stand:
-channel-intro reel primary, 3-min total body workout second, skip the food-scale reel.
-⚠ ManyChat "Comment ABS" IS live now, so the handoff's instruction to strip that line from boosted
-captions is **obsolete** — the DM works; leave the captions alone.
+**BLOCKED ON ONE UI STEP (Dan, ~3 min).** Ads cannot be created because app `1598463548528030`
+is in **Development mode**: "Ads creative post was created by an app that is in development mode.
+It must be in public to create this ad." Publishing needs a privacy URL + category, and
+**Meta disables app-settings writes via API** ("Changing app settings through API calls has been
+disabled for this app"), so this cannot be done headlessly.
+Dan: developers.facebook.com → app → **App settings → Basic** → Privacy Policy
+`https://absbyai.com/privacy`, Terms `https://absbyai.com/terms`, App domain `absbyai.com`,
+pick a Category → Save → then toggle the app to **Live**. Then a session finishes in minutes.
+✅ Both videos ALREADY uploaded to the ad account and processed: intro reel `1786872992455194`,
+3-min total body `1845227913307673`. Creative + ad creation is all that remains, then unpause.
+⚠ Boosting the ORIGINAL organic posts is not possible on current scopes: `source_instagram_media_id`
+needs an Instagram media **V2 id**, obtainable only via `instagram_basic`, which is not a valid scope
+for this app (needs an Instagram use case added). Base64-decoding the permalink shortcode gives the
+media PK, which Meta rejects. So these ads are fresh uploads and will NOT carry the organic posts'
+likes/comments. Swap to real post-boosts later if Dan adds the Instagram use case.
 
 **Meta API access — WORKING.** System user `abs-automation` (`61594096438582`, app-scoped
 `122096883771469881`), Admin, 7 assets. `META_ADS_TOKEN` + `META_APP_SECRET` in
@@ -298,6 +307,13 @@ Each has a Key dashboard task. Run in a fresh session.
 ---
 
 # ACTIVE TASK
+
+**Shorts centring queue fix — IN PROGRESS** (Claude Code, 2026-09-02, executing
+`Handoffs/handoff-20260902-shorts-centering-queue-fix.md`). Re-cutting `v6-short5` (R) and
+`v6-short3` (N) in `YouTube Long Form Video Content/v6-3min-home-workout/` — do not render there
+from another session. `v6-short2` measured centred (head −2 px, upper body +7 px in the seated
+section) and is NOT being re-cut. Then Blotato swaps (10 posts) and the YouTube Studio
+private→re-upload for the 6 stale scheduled Shorts.
 
 
 **04 invest-health — style-standard rebuild IN PROGRESS** (Claude Code, 2026-09-02).
