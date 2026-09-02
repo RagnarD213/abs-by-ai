@@ -75,6 +75,20 @@ a dry voice in one ear and a delayed, polarity-inverted room copy in the other; 
 8/14 ad roll the left channel is also clipped in 24,368 samples. Verify per roll with the
 lag-search recipe in /longform-edit — the wiring can change between shoots.
 
+## Step 0.5 — THE AUDIO GATE IS MANDATORY: measure every mix against Muhammad's ad before delivery
+
+**Added 2026-09-02 after the website video was rejected on audio for the third time this project
+has shipped "bad audio" that every existing check passed.** `reference/voice_ref_check.py` compares
+the finished mix against `Muhammad Ad Videos/this picture got me abs | muhammad | 16x9.mp4` on the
+four things a listener actually hears — tonal balance (10 bands, mean ≤1.2 dB / max ≤2.5), the
+**floor between words** per band (within 3 dB of his — the bed, the gate range and the compressor
+makeup ALL count), dryness, and L/R correlation — and refuses to pass a mix that misses any. Run it
+on the EXACT delivered file, build the A/B clip (`--ab`), and send the A/B with the review copy.
+**A FAIL is not deliverable.** The website video's rev 1 read L/R +0.998 (no comb) and still failed
+by 9.5 dB on floor: the raw lav was cleaner than his ad and the chain — bed at −23 dB, a 3:1
+compressor with makeup, two air shelves — buried it. Fit the EQ to HIS file with
+`fitvoice_longform.py`, keep the compressor off or ≤1.5:1, bed at −30 dB or none.
+
 ## Step 1 — script-driven rough cut
 
 Transcribe the roll (longform Step 1), then align the transcript against the
@@ -814,6 +828,35 @@ visitor watches before they buy. Reproducible from `reference/website-video/`. W
    a −40 dB envelope**; `base.py` takes N sources. The price line was re-read on the second
    roll after Dan caught the script's `$[X.XX]` on camera (`"$20 … I forgot to put that in the
    script"` → `$19.99` on C1651) — take the correction, cut the slip.
+
+
+Website conversion video rev 1 — REJECTED 2026-09-02 (audio, framing, graphics, in that order).
+Handoff for rev 2: `Handoffs/handoff-20260902-website-video-rev2.md`. Standing rules that came out
+of it, all three of which now fail a build rather than living in prose:
+
+82. **NEVER SHIP THE FULL WIDE FRAME FROM THE KITCHEN SET, AND NEVER A LEVEL THAT SHOWS THE LIGHT.**
+   Dan: "I don't want to use this wide shot ever… this was shot in 4K intentionally from far away so
+   we have room to punch in." The widest allowed level is top-of-head → shorts with the counter
+   barely visible (1.256× on the 8/28 set: 3058×1720 @ (451,40)); the tight level is head → navel
+   (1.66×). The studio light sits at x>3560 in the 4K frame — any crop reaching it is a defect.
+   Render the base at full 4K so the tight level never upscales. `layout.py` asserts the crop
+   never exceeds the widest level and never crosses the light.
+83. **GRAPHICS SPARINGLY, AND NEVER ON A BLACK FIELD WITH ONE SMALL ELEMENT.** Dan on the J2AD
+   phone panels and bullet panels: "a graphic on the left and a huge amount of black space… just a
+   bunch of text, generic… horrible." Rule: no graphic with more than ~40 % empty field; an app
+   screen goes NEXT TO DAN over the footage (a phone-shaped inset in a slightly wider crop), not on a
+   plate; when a full-frame card is used it fills the frame the way Muhammad's title cards do. His
+   panel field is the mid-olive gradient (`orglib.py` / `motionlib.MIL`), not near-black.
+84. **IF A FEATURE LOOKS LAME ON SCREEN, DON'T SHOW IT.** The trainer workout screen with stick-figure
+   exercise icons was called "awful". The choice is not "which screen" but "screen or Dan"; Dan wins
+   unless the screen is genuinely good. Before/after and body-fat stats live on the viewer's own
+   screen for the website video — the script says "look near your image".
+85. **"How I look today" = Muhammad's four photos**, `00 ASSETS USED IN THE REFERENCE AD/04–07`, in
+   sequence, never side by side with the before picture. The before picture goes ON "I've been out
+   of shape" and nowhere near a line about being lean.
+86. **The audio complaint will be described as "the two-channel issue" whether or not it is one.**
+   Measure first (Step 0.5). Comb filter = L/R correlation near 0 with a 7–8 ms lag peak; floor =
+   voice-over-floor per band; tone = the 10-band fit. Three different fixes, one word from Dan.
 
 ## Decisions locked vs pending
 

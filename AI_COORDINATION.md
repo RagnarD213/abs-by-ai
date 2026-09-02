@@ -38,13 +38,13 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
-**Website conversion video (post-generation)** — cut from the 8/28 shoot (C1650+C1651) to
-the trust brief, delivered 2026-09-02 to `claude edited long form content/06 - Website
-Conversion Video (post-generation)/` (`website_video_16x9.mp4`, 3:51.56, QC pass + watch
-pass, $0.00 AI spend, no production code, no deploy). 540p review copy sent in chat. Dan
-watches; on approval it goes onto the site's post-generation page (a separate web task —
-the player/embed does not exist yet). No dashboard task covers this. Recipe + lessons 73–81
-are in `/ad-edit` (`reference/website-video/`).
+**Website conversion video (post-generation)** — rev 1 delivered 2026-09-02 and **rejected by
+Dan on audio (a floor problem, not the two-mic comb — measured), framing (the wide shot and the
+light in frame), and graphics (black-field panels, too many)**. Color and cut approved. **Handoff for
+rev 2: `Handoffs/handoff-20260902-website-video-rev2.md`**, Key dashboard task added; Dan runs it in
+a fresh session on Fable 5.1, extra-high effort. New mandatory audio gate in `/ad-edit`
+(`reference/voice_ref_check.py`, Step 0.5) + framing/graphics rules (lessons 82–86). Working dir
+`/Volumes/Extreme/_edit_work/website-video-828/`.
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,
