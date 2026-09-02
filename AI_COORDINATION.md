@@ -216,6 +216,10 @@ Each has a Key dashboard task. Run in a fresh session.
   Rose Fitness" exist: keep `1380236418500031`, delete `61593951123927`.
 - **`Handoffs/handoff-20260831-google-ads-api-setup-engagement-ad-automation.md`** —
   engagement-ad automation. Phase 1 is the Google Ads developer token.
+- **`Handoffs/handoff-20260902-tiktok-blotato-connect-and-mirror.md`** — TikTok warm-up
+  hold is over (decided 2026-09-02). **Dan connects TikTok in Blotato first (OAuth)**, then the
+  session mirrors the 23 queued `@danrosefit` videos onto TikTok, one/day for week 1. Watch
+  the 200-post plan cap (queue is at 183).
 
 ---
 
