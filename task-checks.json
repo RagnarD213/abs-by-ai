@@ -10,7 +10,8 @@
     "money::Execute handoff: Brandon Carter-style thumbnails from the real studio cutouts (Mac session)",
     "assistant::Clean Master Bathroom & Guest Bathroom",
     "assistant::Change robot mop water",
-    "assistant::Vaccum bedroom"
+    "assistant::Vaccum bedroom",
+    "assistant::Tidy living room"
   ],
   "log": {
     "health::Shower": [
@@ -227,6 +228,7 @@
     "money::Execute handoff: Brandon Carter-style thumbnails from the real studio cutouts (Mac session)": "2026-09-01",
     "assistant::Clean Master Bathroom & Guest Bathroom": "2026-09-01",
     "assistant::Change robot mop water": "2026-09-01",
-    "assistant::Vaccum bedroom": "2026-09-01"
+    "assistant::Vaccum bedroom": "2026-09-01",
+    "assistant::Tidy living room": "2026-09-01"
   }
 }
