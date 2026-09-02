@@ -63,6 +63,16 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
     // the period actually ends, so storing status + period_end is enough.
     try { await syncSubscriptionState(event.data.object); }
     catch (e) { console.error('Subscription sync error:', e.message); }
+  } else if (event.type === 'invoice.paid' || event.type === 'invoice.payment_succeeded') {
+    // The trial→PAID conversion is stamped from the first PAID post-trial
+    // invoice, not from the subscription status. Stripe flips a subscription
+    // from 'trialing' to 'active' the moment the trial ends, roughly an hour
+    // BEFORE it attempts the charge; on 2026-09-01 the account's first real
+    // trial went active at 07:37, the card was declined at 08:38, and the
+    // subscription was past_due by 08:41. A status-only rule would have
+    // reported a $69.99 sale to Google Ads for money that never arrived.
+    try { await recordPaidInvoiceConversion(event.data.object); }
+    catch (e) { console.error('Paid-invoice conversion error:', e.message); }
   }
   res.json({ received: true });
 });
@@ -6201,9 +6211,43 @@ async function syncSubscriptionState(sub) {
     [nextStatus, periodEnd, sub.id]
   );
 
+  // trialing→active is NOT the sale. Stripe sets the subscription 'active' at
+  // trial end and only then tries to charge (see the invoice.paid branch of the
+  // webhook); the stamp here is a belt-and-braces path for the case where the
+  // invoice was already settled by the time this event lands, and it insists on
+  // seeing a paid invoice before it writes anything.
   if (prev && prev.membership_status === 'trialing' && nextStatus === 'active') {
-    await markPaidConversionPending(prev.id, 'stripe_trial_to_paid');
+    try {
+      const stripe = getStripe();
+      const invId = typeof sub.latest_invoice === 'string' ? sub.latest_invoice : sub.latest_invoice?.id;
+      if (stripe && invId) {
+        const inv = await stripe.invoices.retrieve(invId);
+        await recordPaidInvoiceConversion(inv);
+      }
+    } catch (e) {
+      console.error('trial-to-paid invoice check failed (no conversion stamped):', e.message);
+    }
   }
+}
+
+// Stamp the Google Ads "paid" conversion from a PAID invoice. Only the first
+// post-trial charge counts: billing_reason 'subscription_cycle' with money
+// actually collected. The $0 trial-start invoice ('subscription_create') and
+// anything unpaid are ignored, and the NULL guards in
+// markPaidConversionPending make a renewal or a duplicate event a no-op.
+async function recordPaidInvoiceConversion(inv) {
+  if (!db || !inv) return;
+  const subId = typeof inv.subscription === 'string' ? inv.subscription
+    : (inv.subscription?.id || inv.parent?.subscription_details?.subscription || null);
+  if (!subId) return;
+  const paid = inv.status === 'paid' && Number(inv.amount_paid || 0) > 0;
+  if (!paid || inv.billing_reason !== 'subscription_cycle') return;
+  const { rows } = await db.query(
+    'SELECT id FROM users WHERE stripe_subscription_id = $1 AND paid_conversion_pending_at IS NULL AND paid_conversion_fired_at IS NULL',
+    [subId]
+  );
+  if (!rows[0]) return;
+  await markPaidConversionPending(rows[0].id, `stripe_invoice_paid:${inv.id}`);
 }
 
 // ============================================================
