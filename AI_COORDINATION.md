@@ -311,10 +311,13 @@ Each has a Key dashboard task. Run in a fresh session.
 
 # ACTIVE TASK
 
-**Muhammad's Ad 4 (supplements) — round-1 review IN PROGRESS** (Claude Code, 2026-09-02). Cut measured
-(audio one mic, no comb, dry; quiet at −19.6 LUFS, peaks at 0). Doc section drafts to `revision docs/`;
-appends to the batch-2 Google Doc ONLY after the Ad 3 session has finished writing to it — do not edit
-that doc from another session meanwhile.
+**Muhammad's Ad 4 (supplements) — round 1 reviewed 2026-09-02.** Audio is one mic / no comb / dry
+(his Ad 3 fix stuck); quiet at −19.6 LUFS, robot clip has no AI label, supplement-audit app screen sits
+under the "generate a future self" line, 16 items total. Section appended to his batch-2 doc, markdown
+`revision docs/ad4-revisions-muhammad-round1-9-2-26.md`, stack B-roll served at
+`absbyai.com/ad-assets/…muted.mp4`. Dan tells Muhammad it is in the same doc. ⚠ The doc promises him the
+**Supplement Audit RESULTS screen** (3:18–3:37) "as a separate file" — it does not exist yet; someone
+runs the real feature on a photo of Dan's stack and records it. Delete this entry once sent.
 
 **Shorts centring queue fix — DONE 2026-09-02, one decision left for Dan.** Every queued off-centre Short is
 replaced: Blotato 10 posts swapped + MD5-verified; YouTube 8 stale scheduled Shorts re-uploaded as new ids at

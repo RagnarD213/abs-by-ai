@@ -283,3 +283,22 @@ Two audiences, same skill:
     bold because the last empty paragraph carried bold from the previous section (the B button was lit).
     Look at the toolbar before cmd+v; if B is active press cmd+b first. cmd+z removes the whole paste
     cleanly. Also: `cmd+End` does nothing in Docs on a Mac — `cmd+ArrowDown` goes to the end.
+
+23. **Getting a NEW small clip to the editor when the Drive uploader cannot be driven (2026-09-02).** Base64
+    through the Drive MCP is a token trap (a 1.8 MB clip is ~2.5 M characters in one tool call — never do
+    it), and Drive's web uploader still exposes no file input to `file_upload`. The route that works:
+    drop the muted clip in `public/ad-assets/` (gitignore exception `!public/ad-assets/*.mp4`, keep each
+    under ~3 MB), commit, push, wait for the Railway deploy, and link
+    `https://absbyai.com/ad-assets/<name>.mp4` in the doc — the exercise demos already ship this way.
+    Only Dan's own footage that is going into a public ad anyway; the repo is public.
+24. **Dan's real supplement stack is on camera for the whole 03 supplements longform**
+    (`claude edited long form content/03 - …/CUT_v1_graded_NO-GRAPHICS.mp4`, no lower thirds). A bottom-band
+    crop panned across the counter (`crop=1280:720:x='(in_w-1280)*t/5.5':y=340` → 1080p) makes clean
+    product B-roll with his face out of frame; the pan is at `Media/ad-assets/batch1-ads/clips/`.
+25. **In Google Docs, `cmd+End` did nothing through the extension; `cmd+ArrowDown` jumps to the end of the
+    document.** The last line of a Muhammad doc has been a plain paragraph, so no Return x3 was needed —
+    screenshot first and read the toolbar's list button before pressing Return.
+26. **A script can hand the editor ONE app clip for a whole section, and he will lay it under the first
+    line of that section.** Ad 4's supplement-audit scroll ran under "upload a picture… generate a future
+    self", not under "take a photo of your supplements" seven seconds later. Walk every app screen against
+    the exact sentence it plays under, the same as lesson 9 for images.
