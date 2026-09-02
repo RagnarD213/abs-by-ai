@@ -421,6 +421,13 @@
       "recurring": false,
       "addedAt": "2026-09-01",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Vaccum bedroom",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-02",
+      "addedBy": "assistant"
     }
   ]
 }
