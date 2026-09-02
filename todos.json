@@ -319,6 +319,12 @@
       "priority": "key",
       "why": "handoff-20260902-ig-engagement-ad-identity.md — campaign+ad set built and paused; only the @abs.by.ai vs @danrosefit ad identity blocks launch",
       "addedAt": "2026-09-02"
+    },
+    {
+      "text": "Execute handoff: IG auto-boost — $5 profile-visits test on every new @danrosefit post, one champion at ~$200/mo",
+      "priority": "key",
+      "why": "handoff-20260902-ig-auto-boost.md — created but not yet run",
+      "addedAt": "2026-09-02"
     }
   ],
   "health": [
