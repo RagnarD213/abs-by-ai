@@ -245,12 +245,11 @@ button appears under the timer.
 ---
 
 **IG profile-visits campaign — LIVE since 2026-09-02 ~18:00 CT.** Campaign `120250753198730682`,
-ad set `120250753601020682` ($10/day) and both ads on the real @danrosefit reels are ACTIVE; ads
+ad set `120250753601020682` (**$6.50/day ≈ $200/mo, Dan's call 2026-09-02**) and both ads on the real @danrosefit reels are ACTIVE; ads
 clear Meta review on their own. **After $50 spend: kill >$5/follow, scale <$3/follow** (the ads
 digest reads Meta now). Recipe: `scripts/ads/boost_danrosefit_posts.py`. ⚠ Never click the global
-"Review and publish (7)". **Next (new session): auto-boost job** — any new @danrosefit reel clearing
-an organic-performance bar gets a $10/day ad on the real post for 6 days; digest kill/scale rules
-manage it. Delete this entry once the $50 review is done.
+"Review and publish (7)". This ad set is the first CHAMPION of the auto-boost system
+(`Handoffs/handoff-20260902-ig-auto-boost.md`). Delete this entry once the $50 review is done.
 
 **Meta API access — WORKING.** `META_ADS_TOKEN` (system user `abs-automation`, never expires:
 ads_management, ads_read, business_management, pages_show_list, pages_read_engagement,
@@ -273,6 +272,11 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 Each has a Key dashboard task. Run in a fresh session.
 
+- **`Handoffs/handoff-20260902-ig-auto-boost.md`** — IG auto-boost, design LOCKED with Dan
+  2026-09-02: every new @danrosefit post → $5 lifetime profile-visits test on the real post; one
+  champion at $6.50/day judged on cost/follow; tests judged on cost/visit; caps $300 tests /
+  $500 total per month; hourly Railway cron; morning-brief block. Fable 5.1 high. Verify the
+  insights action-type names against Ads Manager before wiring rules.
 - **`Handoffs/handoff-20260902-audio-standard-unification.md`** — **Phases 1–2 DONE 2026-09-02**
   (`.claude/skills/_shared/audio/`: `pick_lav` / `voice_chain` / `audio_gate` / `require_stamp`, reference
   pinned by fingerprint, `selftest.sh` green; ad-edit, longform-edit, shorts and shortad wired, every QC and
