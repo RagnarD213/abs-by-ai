@@ -301,6 +301,12 @@
       "priority": "key",
       "why": "Handoffs/handoff-20260902-shorts-centering-queue-fix.md — created but not yet run; YouTube 09-05 slot is the deadline",
       "addedAt": "2026-09-02"
+    },
+    {
+      "text": "Execute handoff: website conversion video REV 3 (head-anchored crops, cut the repeated line, captions clear of lower thirds)",
+      "priority": "key",
+      "why": "Handoffs/handoff-20260902-website-video-rev3.md — created 2026-09-02, not yet run; rev 2 approved on audio, rejected on headroom + a repeated line + caption/lower-third overlap",
+      "addedAt": "2026-09-02"
     }
   ],
   "health": [
