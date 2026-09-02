@@ -214,6 +214,61 @@ letters** (0.80 threshold). ⚠ It also read `build/<ID>.ass` where the renderer
 **Fix the gate, never override it**; the corrected file is in `reference/spray-tan/syncgate.py`
 and has been copied over the `clean-master` and `zepbound` versions.
 
+## ⚠ Step 0.6 — MEASURE THE ROOM. This is the one Dan keeps rejecting.
+
+**Dan has rejected the audio on four deliverables from the 8/3 shoot in the same words** — "the
+audio is no good", "it sounds echoey", "make it sound like Muhammad's". Every session fixed
+something genuinely broken and shipped anyway, because **nothing in this pipeline measured the
+room**, and reverb is the thing a listener hears first.
+
+Measured 2026-09-02, our shipped spray-tan short against `Muhammad Ad Videos/…16x9.mp4`:
+
+| | early decay time (ms to fall 20 dB after a speech offset) |
+|---|---|
+| his reference ad | **40 ms** (37 ms high-passed at 250 Hz — a genuinely dry voice) |
+| our shipped short | **85 ms** |
+
+Everything else already matched: right-channel-only (**+0.9912** correlation, verified), floor
+36.0 vs his 36.2 dB, octave shape 0.74 dB, −14 LUFS, no clipping. **All of that can be right and
+the audio still be wrong.**
+
+**Run `reference/spray-tan/audiogate.py` on every delivered file.** It is wired into `qc.js` and
+fails over 55 ms. The fix, when it fails, is `reference/spray-tan/dereverb.py` — spectral
+subtraction of the late field (`alpha=0.62 d1_ms=20 d2_ms=150 floor_db=-24 smooth=0.30`), run on
+the concatenated `audio.wav` before the mux. ffmpeg cannot do this: there is no dereverb filter,
+`arnndn` has no model here, and a broadband expander only reached 63 ms and pumped.
+
+⚠ **`floor_db` is the lever, and it is counter-intuitive.** Raising `alpha` past 0.62 makes EDT
+*worse* — the tail starts riding the floor instead of decaying. Dropping the floor from −14 to
+−24 dB is what took EDT from 50 ms to 40.
+
+⚠ **Re-fit the octave EQ AFTER dereverb** (`work/dereverb_eq.txt`); removing the tail changes the
+shape.
+
+### ⚠ Do NOT accept a stated cause without measuring it
+
+Dan attributed this to the two-mic fault ("you use both channels, we only want the right channel
+in mono"). **It was not that** — the delivered file correlated **+0.9912** with the source's right
+channel through the identical EQ, against 0.60 for left and 0.69 for the sum. Reproduce that
+table before touching the channel logic; re-applying a fix that is already applied burns a session
+and ships the same rejection again.
+
+### ⚠ A stereo WAV read as mono is invisible to a byte-size check
+
+The first dereverb build read `audio.wav` with Python's `wave` module ignoring `nchannels`. On a
+dual-mono stereo file that treats L,R,L,R as consecutive samples — a zero-order hold, i.e. a
+brutal lowpass. The finished shorts came back **11–16 dB down above 450 Hz**, and the guard
+(`Math.abs(size0 - size1) > 4096`) passed, because **a mono file with twice the frames is exactly
+the same number of bytes.** De-interleave on read, and assert **duration and channel count** via
+ffprobe, never file size.
+
+### The general rule this batch bought
+
+When Dan rejects something on a quality your metrics cannot see, another pass at the metrics that
+already pass is the wrong move. **Find the number that separates his reference from ours, then
+make that number a gate.** The gate list here grew for months — channels, floor, tone, loudness,
+peaks, silence, caption sync — and never once asked how big the room sounded.
+
 ## Step 1 — transcript with WORD timestamps
 
 Non-negotiable: captions come only from word timestamps, never estimates. Estimated

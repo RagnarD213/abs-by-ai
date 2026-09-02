@@ -153,3 +153,73 @@ measured silence and is asserted to.
 2. Its first-word-clipped test compares a `medium.en` caption against a `base.en` transcription,
    and the two models tokenise AND spell differently ("All right," vs "alright"). A word-identity
    test cannot pass that. It now falls back to a similarity ratio on the opening letters.
+
+---
+
+# REV 1 (2026-09-02) — Dan rejected the audio. The cause was the ROOM, not the channel.
+
+His words: *"The audio is no good… I believe it's the same two-channel issue… we only want to
+use the right channel in mono."* **Measured on the delivered file, against the source put through
+the identical EQ chain:**
+
+| candidate | correlation |
+|---|---|
+| **RIGHT channel only + same EQ** | **+0.9912** |
+| LEFT only + same EQ | +0.5965 |
+| L+R sum + same EQ | +0.6877 |
+
+The single-mic fix was already applied. **The real gap is reverb**, and nothing in the pipeline
+had ever measured it:
+
+| | early decay time | octave shape vs his ad | floor under voice |
+|---|---|---|---|
+| shipped (rejected) | **85 ms** | 0.74–0.86 dB | 36.0 dB |
+| **rev 1 (delivered)** | **29–40 ms** | **0.17–1.08 dB** | 46–53 dB |
+| his reference ad | 40 ms | — | 36.2 dB |
+
+Also ruled out with evidence: a music bed masking his room (his EDT is 37 ms even high-passed at
+250 Hz, so his voice is genuinely dry), noise floor, level, clipping.
+
+**Fix:** `work/dereverb.py` — spectral subtraction of the late field, run on the concatenated
+`audio.wav` before the mux (`alpha=0.62 d1_ms=20 d2_ms=150 floor_db=-24 smooth=0.30`). ffmpeg has
+no dereverb filter and `arnndn` has no model here; a broadband expander only reached 63 ms and
+pumped. `floor_db` is the lever — raising `alpha` past 0.62 makes EDT *worse*.
+
+**New hard gate:** `work/audiogate.py`, wired into `qc.js`. EDT ≤ 55 ms, shape ≤ 1.00 dB, floor
+within 3 dB of the reference — measured on the delivered file.
+
+## Three bugs this rev found, all of which had shipped or would have
+
+1. ⚠ **A stereo WAV read as mono is invisible to a byte-size check.** The first dereverb build
+   read `audio.wav` ignoring `nchannels`; on a dual-mono file that treats L,R,L,R as consecutive
+   samples — a zero-order hold, i.e. a savage lowpass. The shorts came back **11–16 dB down above
+   450 Hz** and the guard passed, because a mono file with twice the frames is byte-identical in
+   size. Now de-interleaved on read, and `render.js` asserts **duration and channel count** via
+   ffprobe.
+2. ⚠ **`finishaudio.py` matched the batch to its own MEDIAN.** That only makes the shorts
+   consistent with each other; it has no authority over whether they are right, and it fought the
+   post-dereverb EQ. It now targets Muhammad's ad directly.
+3. ⚠ **It PREDICTED its EQ instead of verifying it.** One-octave `equalizer` filters overlap, so
+   the achieved response is a smeared version of the gains requested — it reported 0.3–1.3 dB
+   while the delivered files measured 1.2–3.0. It now encodes, measures the **real output**, and
+   folds the residual back in, **damped by half and keeping the best iterate** (undamped feedback
+   diverged: F went 2.2 → 6.5 dB).
+
+⚠ **A 9–14 kHz band was added to the corrector and REVERTED.** It sits ~47 dB below the peak
+band, overlaps 6.7 kHz so heavily that the loop diverged, and was never audible. The gate and the
+corrector now measure the same seven bands and select frames at the same percentile — when they
+disagreed, they disagreed by up to 0.9 dB and sent me chasing a phantom.
+
+## Dan's content revisions, all applied
+
+Killed **C** (wear briefs, not boxers) and **E** (no soap, no scrubbing) — *"no value, no reason
+for anybody to watch."* **A** retitled *Why Tanning Makes You Look More Ripped* / eyebrow *Look
+better in fitness photos*. **H** eyebrow → *Fitness photo shoot tips*. 4, 5, 6, 7 unchanged.
+Six shorts, delivered in his order.
+
+## Known, and reported rather than buried
+
+**Short 2 (B) measures 1.08 dB shape against a 1.00 gate** — the entire residual is one band,
+**2.7 dB bright at 6.7 kHz**; every other band is within 0.8 dB, and its EDT is 37 ms. The
+iterative fit chose this as its best; forcing it further destabilised other shorts. Flagged rather
+than fudged, and the gate threshold was deliberately NOT relaxed to hide it.
