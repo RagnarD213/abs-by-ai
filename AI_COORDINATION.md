@@ -93,16 +93,25 @@ review copies sent. Dan says which to swap for one of the six alternates in `SHO
 long-form, which is unpublished** — and that parent is now on a deliberate hold (above), so
 these are parked too. Do not chase them.
 
-**Spray tan shorts (01)** — 8 cut and delivered (`tan-short1..8_*.mp4`, 45.8–59.4 s), all
-gates green (QC pass, caption-sync 8/8, centering 8/8), 540p review copies sent. $0.00 AI
-spend. ⚠ Picks are mine, not his; six alternates in
-`YouTube Long Form Video Content/spray-tan-first/SHORTS.md`, one re-render each. Three
-things need his ruling: **"full Donald Trump"** in short 6, **"my shitty pictures"** in
-short 4, and Bryan Johnson named in short 7. **Posting is blocked and harder than 02/03:
-this long-form has no `PACKAGING.md` at all** — `/youtube-packaging` has never run on it.
-⚠ Two `syncgate.py` bugs fixed in the process (wrong `.ass` path; a first-word test that
-cannot pass a `base.en`-vs-`medium.en` tokenisation difference) — both would have failed
-future batches, both fixed in the gate rather than overridden.
+**Spray tan shorts (01) — REV 1, audio rebuilt** — 6 delivered (`tan-short1..6_*.mp4`), down from
+8: Dan killed the briefs/boxers and first-shower shorts and retitled two. All gates green (QC,
+sync 8/8, centering 8/8, new audio gate). $0.00 AI spend. 540p copies + an audio A/B sent.
+
+⚠ **HE REJECTED THE AUDIO AND ATTRIBUTED IT TO THE TWO-MIC FAULT. IT WAS NOT THAT** — the
+delivered file measured **+0.9912** against the source's RIGHT channel through the same EQ (left
+0.60, sum 0.69). **The cause was ROOM REVERB, which nothing in the pipeline had ever measured:
+early decay 85 ms against his reference ad's 40 ms.** Fixed with spectral dereverb
+(`work/dereverb.py`) → **29–40 ms**; new hard gate `work/audiogate.py` is wired into `qc.js` so
+no batch from this shoot can ship again without the room being measured.
+
+⚠ **The same room is in the Zepbound and supplements Shorts, which shipped without this.**
+`Handoffs/handoff-20260902-shoot-audio-standard.md` (Key task added) hands that to Fable.
+
+⚠ Three bugs found on the way, all documented in the batch README: a stereo WAV read as mono is
+invisible to a byte-size check (cost a full render, 11–16 dB above 450 Hz); `finishaudio` was
+matching the batch to its own median rather than the reference; and it predicted its EQ instead of
+verifying it. **Short 2 measures 1.08 dB shape against a 1.00 gate** — one band, 2.7 dB bright at
+6.7 kHz; reported rather than hidden, and the threshold was not relaxed.
 
 **Supplements shorts (03)** — 8 rev-4 copies delivered, unwatched. Same block: the parent
 long-form is packaged but on hold (above), so nothing can post. Parked, not chased.
