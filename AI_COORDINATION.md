@@ -135,7 +135,7 @@ AD 3 section and tells Muhammad it is in the same doc.
 Dan sends message 1 with the doc link. Recommendation: don't release the funded $100
 milestone yet — it's the only structural reason left for him to finish the visual list.
 
-**Zeeshan's ab-wheel cut** — round-1 revision doc written into his doc. Dan forwards it.
+**Zeeshan's ab-wheel cut — round 2 reviewed 2026-09-02.** Claude's items appended under Dan's two in the round-2 section at the top of his doc (markdown copy `revision docs/organic-video-abwheel-revisions-zeeshan-round2-9-2-26.md`). Most of round 1 landed; still missing: the live workout sets, voice levelling (middle 10 dB louder than the start, clipping), and the email form on screen at 5:06. Dan forwards the doc.
 
 **Home filming set** — final buy list ($1,083.65), 21 product pages open in his Chrome.
 Dan buys (TL60 **qty 2**, stand 2-pack, rod 72-144, backdrop stand 10x8.5), then runs the
