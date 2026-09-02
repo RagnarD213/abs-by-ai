@@ -233,6 +233,28 @@ button appears under the timer.
 
 ---
 
+**Meta API access — system user created, PARTIALLY unblocked** (2026-09-02). System user
+`abs-automation` (id `61594096438582`, app-scoped `122096883771469881`) exists in the portfolio with
+Admin access and 7 assets (3 Pages, ad account, app, 2 IG accounts). Never-expiring token stored as
+`META_ADS_TOKEN` in `~/.absbyai-secrets.env`. **Granted scopes: `business_management`,
+`pages_show_list`, `pages_read_engagement`, `pages_manage_posts` only** — Meta offered nothing more
+because the `abs by ai automation` app lacks the Marketing API use case and Dan is not an app admin.
+✅ Page-permission WRITES work: system user granted `ADVERTISE`+`ANALYZE` on Page
+`1380236418500031` via `POST /{page}/assigned_users`.
+❌ Every ads endpoint returns "(#200) Ad account owner has NOT grant ads_management or ads_read".
+❌ `GET /{page}/assigned_users` needs `pages_manage_metadata` (not offered).
+**Next step, Dan's:** developers.facebook.com → app `abs by ai automation` → make Dan an admin →
+add the **Marketing API** product/use case → regenerate the system-user token with
+`ads_management` + `pages_manage_metadata`. That single fix unblocks BOTH the IG engagement ad-set
+edits AND the blind ads digest.
+⚠ **ID correction to the 9/01 handoff:** the duplicate Page's real Page id is **`1348044195050800`**
+(the handoff's `61593951123927` is its business-asset id). Keeper is `1380236418500031`.
+⚠ **Do not use the API to decide which Page to delete** — `instagram_business_account` reads as
+empty for ALL pages on this token, including the Abs by AI page that demonstrably has one. False
+negative. Confirm in Business Settings UI ("@danrosefit shares these permissions" / red-D avatar).
+
+---
+
 # HANDOFFS WRITTEN, NOT EXECUTED
 
 Each has a Key dashboard task. Run in a fresh session.
