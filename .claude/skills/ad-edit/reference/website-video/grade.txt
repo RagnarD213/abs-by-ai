@@ -1,0 +1,1 @@
+lut3d=file=/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.45.cube:interp=tetrahedral,eq=saturation=0.88,scale=2560:1440:flags=lanczos,format=yuv420p

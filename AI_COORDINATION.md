@@ -38,6 +38,14 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Website conversion video (post-generation)** — cut from the 8/28 shoot (C1650+C1651) to
+the trust brief, delivered 2026-09-02 to `claude edited long form content/06 - Website
+Conversion Video (post-generation)/` (`website_video_16x9.mp4`, 3:51.56, QC pass + watch
+pass, $0.00 AI spend, no production code, no deploy). 540p review copy sent in chat. Dan
+watches; on approval it goes onto the site's post-generation page (a separate web task —
+the player/embed does not exist yet). No dashboard task covers this. Recipe + lessons 73–81
+are in `/ad-edit` (`reference/website-video/`).
+
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,
 db-step-up), all gates green. Dan reviews; on approval stamp `-FINAL` and install per the

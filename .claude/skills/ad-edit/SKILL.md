@@ -770,6 +770,51 @@ Ad 4 (2026-08-27) — "Stop wasting money on supplements", C1594, third of the b
    here is faked". The ad ships without that beat and `notes.md` says so, which is the
    correct outcome — an invented result screen would be a fabricated product claim.
 
+
+Website conversion video (2026-09-01/02) — the post-generation video on absbyai.com, cut from
+the 8/28 shoot (C1650+C1651) to a TRUST brief: no fast cuts, nothing flashy, the last thing a
+visitor watches before they buy. Reproducible from `reference/website-video/`. What it added:
+
+73. **A trust cut is the same pipeline with the dials turned down, not a different pipeline.**
+   Three punch levels, 9 s minimum hold, pauses shortened to ~0.30 s instead of 0.16 s, cards
+   that fade over 0.5 s and drift slowly, no SFX bed at all, music at −23 dB. Every insert is
+   REAL: the actual macro-tracker recording, the real trainer/meal-plan/brief screens, Dan's
+   real photos, one AI image (his own goal image) tagged. Dan stays on screen beside every
+   phone panel (panel LEFT, Dan in the right column) — the product and the person together is
+   the trust device. Coverage 54 %, Dan fully replaced only 16 %.
+74. **The 8/28 shoot is S-Log3 / S-Gamut3.Cine 4K with FOUR mono audio tracks.** No prior
+   grade transfers. `make_lut.py` builds a 33³ .cube in numpy (Sony's S-Log3 transfer →
+   linear, the S-Gamut3.Cine→Rec709 matrix in linear, a soft shoulder, the 709 OETF) and
+   `lut3d=...:interp=tetrahedral` applies it; exposure 1.45× and `eq=saturation=0.88` were
+   picked against the approved Ad 3 skin. **The lav is a:1** (SNR 40 dB); a:0 is the far mic,
+   7.2 ms late, polarity inverted; a:2/a:3 silent. `-map 0:a:1`, never `-ac 1`.
+75. **Render the base at 2560×1440 when the source is 4K.** The 1.30 punch of 1440p is
+   1969 px wide, so no framing level ever upscales; the cost is ~1.8× the base encode.
+76. **`loudnorm` fell back to DYNAMIC on this mix and the JSON said so.** −19.3 LUFS in with
+   TP −1.8 cannot reach −14 / −1.5 linearly. `audio2.py` is the replacement: measured gain +
+   `alimiter`, the limiter's delay MEASURED by cross-correlation (239 samples here, not the
+   remembered 219) and trimmed, then ebur128 on the result. Set the limiter low enough for
+   the AAC overshoot (0.71 → −2.2 dBTP on the delivered file).
+77. **Previewing a QTRLE alpha .mov with `-ss` + `overlay` onto a single PNG shows NOTHING and
+   looks like a broken graphic.** The still base has one frame at t=0 and the seeked overlay
+   never lines up. Extract the graphic frame to RGBA PNG and composite in PIL instead —
+   `pv/preview_sheet2.jpg` is the pattern. Cost 20 minutes and nearly a needless rebuild.
+78. **Assert panel-heading width before building** (`ml.text_size(heading.upper(), font(68,
+   'ExtraBold'))[0] <= panel_w − 2·PAD`). "A plan you can actually follow" measured 1215 px
+   against a 794 px limit and ran straight across Dan's chest in the preview; even "A plan you
+   can follow" (851) failed. Lesson 55 as a one-line assert, so it cannot recur.
+79. **A card the video ENDS on must not fade out.** `card_in`'s default out-fade exposed the
+   talking head for the last 0.36 s — visible only on the watch pass's final frames. `hold=True`
+   in `_card` sets `out_dur=0`; the website's button sits under the player, so ending on the
+   CTA card is the design.
+80. **Thin hard splices HARDEST-FIRST inside the spacing floor.** With a 3.5 s floor, first-come
+   ordering covered a 1.2-diff splice at 50.35 s and left the 2.62 one at 51.08 s bare. Sort
+   the candidates by measured difference, accept greedily against the floor.
+81. **Two-roll EDLs: `edl.py` anchors spans by phrase per roll and validates every edge against
+   a −40 dB envelope**; `base.py` takes N sources. The price line was re-read on the second
+   roll after Dan caught the script's `$[X.XX]` on camera (`"$20 … I forgot to put that in the
+   script"` → `$19.99` on C1651) — take the correction, cut the slip.
+
 ## Decisions locked vs pending
 
 | decision | status |
