@@ -38,13 +38,12 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
-**ManyChat "Comment ABS"** — built and LIVE on @danrosefit (Essential 14-day trial, 250
-contacts). Trigger + public reply **verified working** (abs.by.ai commented "abs", got
-"Just DMed it to you"). **DM delivery is NOT verified** — Sends still 0, no conversation in
-the Inbox; the test commenter was abs.by.ai, which shares the business portfolio, so the
-test may be invalid. Next: have a genuine third-party account comment ABS on the AI FITNESS
-PLAN post and confirm the DM arrives. ⚠ **"any post or reel" is Pro ($39/mo)** — Essential
-only watches ONE post, so 59 of the ~60 queued CTAs are still dead until Dan upgrades.
+**ManyChat "Comment ABS"** — LIVE and verified end to end on @danrosefit (Essential 14-day
+trial): comment "abs" → public reply → DM + button → link DM → absbyai.com with
+`utm_campaign=comment-abs`. Sends 1, Clicks 1. ⚠ **It covers exactly ONE post.** "Any post
+or reel" is Pro ($39/mo); on Essential each automation watches a single post, so the other
+~59 queued CTAs still promise a DM nothing sends. **Dan decides: upgrade to Pro.**
+⚠ ManyChat's Sends/Clicks counters lag several minutes — don't read 0 as a failure.
 
 **Website conversion video (post-generation)** — rev 1 delivered 2026-09-02 and **rejected by
 Dan on audio (a floor problem, not the two-mic comb — measured), framing (the wide shot and the
