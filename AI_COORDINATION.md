@@ -230,25 +230,50 @@ button appears under the timer.
 
 ---
 
-**Meta API access — system user created, PARTIALLY unblocked** (2026-09-02). System user
-`abs-automation` (id `61594096438582`, app-scoped `122096883771469881`) exists in the portfolio with
-Admin access and 7 assets (3 Pages, ad account, app, 2 IG accounts). Never-expiring token stored as
-`META_ADS_TOKEN` in `~/.absbyai-secrets.env`. **Granted scopes: `business_management`,
-`pages_show_list`, `pages_read_engagement`, `pages_manage_posts` only** — Meta offered nothing more
-because the `abs by ai automation` app lacks the Marketing API use case and Dan is not an app admin.
-✅ Page-permission WRITES work: system user granted `ADVERTISE`+`ANALYZE` on Page
-`1380236418500031` via `POST /{page}/assigned_users`.
-❌ Every ads endpoint returns "(#200) Ad account owner has NOT grant ads_management or ads_read".
-❌ `GET /{page}/assigned_users` needs `pages_manage_metadata` (not offered).
-**Next step, Dan's:** developers.facebook.com → app `abs by ai automation` → make Dan an admin →
-add the **Marketing API** product/use case → regenerate the system-user token with
-`ads_management` + `pages_manage_metadata`. That single fix unblocks BOTH the IG engagement ad-set
-edits AND the blind ads digest.
-⚠ **ID correction to the 9/01 handoff:** the duplicate Page's real Page id is **`1348044195050800`**
-(the handoff's `61593951123927` is its business-asset id). Keeper is `1380236418500031`.
-⚠ **Do not use the API to decide which Page to delete** — `instagram_business_account` reads as
-empty for ALL pages on this token, including the Abs by AI page that demonstrably has one. False
-negative. Confirm in Business Settings UI ("@danrosefit shares these permissions" / red-D avatar).
+**IG engagement campaign — REBUILT CLEAN VIA API, PAUSED, NEEDS CREATIVES** (2026-09-02).
+The 9/01 handoff's draft ad set was **unreachable**: unpublished Ads Manager drafts are invisible to
+the Marketing API, so campaign `120250711730650682` / ad set `120250711730660682` could not be
+repaired. Built a correct replacement from scratch instead — no draft weirdness, no Advantage+
+reversion, no budget-leak checkbox (impossible by construction with `publisher_platforms:[instagram]`).
+
+- Campaign `120250753198730682` `[DAN] [TRAFFIC] IG PROFILE VISITS - danrosefit`, OUTCOME_TRAFFIC, PAUSED
+- Ad set `120250753200250682`, PAUSED, $10/day, `VISIT_INSTAGRAM_PROFILE`, dest `INSTAGRAM_PROFILE`,
+  promoted page `1380236418500031`, IG-only (stream/story/reels/explore_home/profile_feed/ig_search),
+  men 25–54, US/CA/GB/IE/AU/NZ, `advantage_audience:0`, lowest-cost bidding.
+- ✅ **The #1487202 Page-permission blocker is GONE** — ad set created against the Daniel Rose Fitness
+  page with no error, after granting the system user `ADVERTISE`+`ANALYZE` on that page via API.
+- ✅ @danrosefit (`17841401601139982`) verified connected to the ad account via API.
+
+**BLOCKED ON ONE THING:** the ads themselves. Creating an ad from an existing organic IG post needs
+`instagram_basic` to enumerate media; Meta did not offer that scope. Either add it (see below) or
+pick the two posts in Ads Manager, where the ad set now sits clean. Handoff Step 5 picks stand:
+channel-intro reel primary, 3-min total body workout second, skip the food-scale reel.
+⚠ ManyChat "Comment ABS" IS live now, so the handoff's instruction to strip that line from boosted
+captions is **obsolete** — the DM works; leave the captions alone.
+
+**Meta API access — WORKING.** System user `abs-automation` (`61594096438582`, app-scoped
+`122096883771469881`), Admin, 7 assets. `META_ADS_TOKEN` + `META_APP_SECRET` in
+`~/.absbyai-secrets.env` (0600). Scopes: `ads_management, ads_read, business_management,
+pages_manage_posts, pages_read_engagement, pages_show_list`. Never expires.
+⚠ **The Business Settings "Generate token" UI silently fails for ads scopes** (bounces to the
+regular screen, no error, despite Dan being app Administrator — the "not an admin" warning it shows
+is stale/wrong). **Mint tokens via API instead:**
+`POST /{system_user_id}/access_tokens?business_app={app_id}&scope=...&appsecret_proof=HMAC-SHA256(token, app_secret)`.
+That is how the working token was issued. Marketing API use case had to be added to app
+`1598463548528030` first (Add use cases → "Create & manage ads with Marketing API" — NOT the
+"Meta Ads Manager" one, which explicitly excludes Marketing API access).
+⚠ **`ads_read` is now live → the blind morning ads digest can read Meta.** Untested against the
+digest; next session should run `scripts/ads/ads-digest.js` and confirm the Meta half populates.
+⚠ `instagram_basic` and `pages_manage_metadata` were NOT offered in the scope list; re-run the API
+mint with them included to test whether they can be granted that way.
+
+**ID corrections to the 9/01 handoff:** duplicate Page's real id is **`1348044195050800`** (the
+handoff's `61593951123927` is its business-asset id). Keeper is `1380236418500031`. The duplicate is
+still NOT deleted — irreversible, deferred for Dan. ⚠ **Do not use the API to decide which page to
+delete**: `instagram_business_account` reads empty for ALL pages on this token, including the Abs by
+AI page that demonstrably has one. False negative. Use Business Settings ("@danrosefit shares these
+permissions" / red-D avatar).
+⚠ IG `explore` placement is **deprecated** in v21.0 and rejects ad set creation; use `explore_home`.
 
 ---
 
