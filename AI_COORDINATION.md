@@ -241,19 +241,17 @@ button appears under the timer.
 
 ---
 
-**IG engagement campaign — PAUSED, WAITING ON ONE DAN-ONLY STEP** (2026-09-02, session 2).
-Campaign `120250753198730682` + ad set `120250753601020682` PAUSED, zero ads, nothing spending.
-**The UI path is closed:** the ad set's Identity card is read-only (Page only, no Instagram
-option) and Ads Manager silently runs the ad as @abs.by.ai (proven — the post picker browses
-abs.by.ai's posts). **The API path works:** a top-level creative (`object_id` +
-`instagram_user_id` + `source_instagram_media_id`, no `object_story_spec`, no CTA) passes the
-identity check and fails ONLY on "app in development mode" (subcode 1885183).
-**Dan: switch app `1598463548528030` to Live** (developers.facebook.com → Basic: privacy
-`https://absbyai.com/privacy`, terms `https://absbyai.com/terms`, domain `absbyai.com`, a
-category → Save → Publish → Live; Claude is platform-blocked from editing app settings). Then
-any session runs `python3 scripts/ads/boost_danrosefit_posts.py --apply` → two PAUSED ads on the
-two existing @danrosefit posts. Dan flips the campaign on. Full detail in the handoff's
-"SESSION 2 RESULT" section. ⚠ Still never click the global "Review and publish (7)".
+**IG profile-visits campaign — ADS BUILT, PAUSED, DAN FLIPS IT ON** (2026-09-02). App
+`1598463548528030` is now LIVE. Two PAUSED ads sit in ad set `120250753601020682` on the two real
+@danrosefit reels (channel intro `120250753783030682`, 3-min total body `120250753783950682`),
+identity verified `@danrosefit` by API read-back, Meta review pending. **Dan: switch campaign
+`120250753198730682` on in Ads Manager when ready.** Kill >$5/follow, scale <$3 after $50.
+Recipe + script: `scripts/ads/boost_danrosefit_posts.py` (top-level `object_id` +
+`instagram_user_id` + `source_instagram_media_id` creative, no `object_story_spec`, no CTA — the
+Ads Manager UI cannot set this identity at all). ⚠ Still never click the global "Review and
+publish (7)". **Next (new session): auto-boost job** — any new @danrosefit reel clearing an
+organic-performance bar gets a $10/day ad on the real post for 6 days; digest kill/scale rules
+pause >$5/follow, raise <$3. Delete this entry once Dan turns the campaign on.
 
 **Meta API access — WORKING.** `META_ADS_TOKEN` (system user `abs-automation`, never expires:
 ads_management, ads_read, business_management, pages_show_list, pages_read_engagement,
@@ -262,8 +260,9 @@ pages_manage_posts, instagram_basic) + `META_APP_SECRET` in `~/.absbyai-secrets.
 **mint via `POST /{system_user_id}/access_tokens` with `appsecret_proof`** (recipe in the handoff).
 ✅ `ads_read` verified 2026-09-02: `scripts/ads/ads-digest.js` now populates the Meta section
 (spend, campaigns, anomalies). Google still blind pending the developer token.
-⚠ App `1598463548528030` is still in Development mode; that blocks creatives from NEW uploads (not
-from boosting existing posts). App-settings writes are disabled via API — UI only.
+✅ App `1598463548528030` is LIVE as of 2026-09-02 (dev mode blocked ALL API ad creatives, subcode
+1885183). App-settings writes are disabled via API and Claude is platform-blocked from the settings
+form — Dan fills Basic, Claude can click Publish.
 ⚠ Duplicate Page's real id is **`1348044195050800`** (9/01 handoff's `61593951123927` is its
 business-asset id). Keeper `1380236418500031`. Not deleted. **Do not use the API to tell them
 apart** — `instagram_business_account` reads empty for ALL pages, a false negative.

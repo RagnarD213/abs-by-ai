@@ -1,7 +1,7 @@
 # Handoff — Finish the @danrosefit IG profile-visits campaign (ONE blocker left: ad identity)
 
 **Written:** 2026-09-02 (Claude Code, Opus 5)
-**Status:** Campaign + ad set BUILT and PAUSED. Zero ads attached. Nothing spending. $0.00 AI spend.
+**Status (2026-09-02, session 2): EXECUTED.** App `1598463548528030` is LIVE (Dan saved the Basic settings, Claude clicked Publish). `scripts/ads/boost_danrosefit_posts.py --apply` created two PAUSED ads on the two existing @danrosefit posts (`120250753783030682` channel-intro reel, `120250753783950682` 3-min total body), both read back with `instagram_user_id = 17841401601139982` and are "In review" in Ads Manager. Campaign + ad set still PAUSED — Dan flips the campaign on. Dashboard Key task checked off. Next: auto-boost job (see AI_COORDINATION.md).
 **Supersedes:** `Handoffs/handoff-20260901-danrosefit-ad-identity-fix.md` (that doc's draft is dead — see below)
 
 ---
