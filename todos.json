@@ -229,6 +229,42 @@
       "priority": "key",
       "why": "Handoffs/handoff-20260901-brandon-carter-style-thumbnails.md — created but not yet run; the cloud mockups were rejected (\"look very bad\") and YouTube is egress-blocked from cloud, so this needs the Mac",
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Review the website conversion video (06 - post-generation) and install it on absbyai.com",
+      "priority": "key",
+      "addedAt": "2026-09-02",
+      "why": "9/2 planning — being built in a concurrent session today; Dan reviews, then a session installs it on the post-generation screen and deploys"
+    },
+    {
+      "text": "Review the 8 Zepbound shorts (zep-short1..8) and say which to swap for alternates",
+      "priority": "high",
+      "addedAt": "2026-09-02",
+      "why": "9/2 planning — delivered 9/1, picks were Claude's; posting still blocked on the parent longform being unpublished"
+    },
+    {
+      "text": "Send Muhammad the Ad 3 round-1 revisions (already in his Batch-2 doc) and the next ads that are ready for him",
+      "priority": "key",
+      "addedAt": "2026-09-02",
+      "why": "9/2 planning — Dan's top afternoon priority alongside Zeeshan's notes; AD 3 section verified in doc 1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A"
+    },
+    {
+      "text": "Launch Google DGEN engagement ads for the newest videos (ab-wheel shorts + 3-min workout) per the 8/31 launch-spec artifact",
+      "priority": "key",
+      "addedAt": "2026-09-02",
+      "why": "9/2 planning — inside the existing three DGEN campaigns, not new campaigns; Google 'new form of payment' flag must be fixed first"
+    },
+    {
+      "text": "Get the Meta engagement campaign running (both [DAN] [ENGAGEMENT] campaigns are OFF, 3 draft edits unpublished)",
+      "priority": "key",
+      "addedAt": "2026-09-02",
+      "why": "9/2 planning — Dan: 'I've got to get my Meta engagement campaign working'; one new ThruPlay campaign per the 8/31 spec"
+    },
+    {
+      "text": "Review exercise-demo batch 4 candidates (10 x -FINAL-CANDIDATE: kb-swing/deadlift/goblet/row/press, step-up, db-step-up, db-lunge, ab-wheel-rollout, deficit-pushup)",
+      "priority": "med",
+      "addedAt": "2026-09-02",
+      "why": "9/2 planning — low priority per Dan; approved ones then get encoded + installed via the batch-2 recipe (native-retest trigger)"
     }
   ],
   "health": [
