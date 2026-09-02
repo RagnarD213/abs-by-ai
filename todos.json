@@ -428,6 +428,13 @@
       "recurring": false,
       "addedAt": "2026-09-02",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Tidy living room",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-02",
+      "addedBy": "assistant"
     }
   ]
 }
