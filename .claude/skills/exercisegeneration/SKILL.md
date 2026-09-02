@@ -557,3 +557,87 @@ floor. Adding to the prompt fixed it: *"his hands stay CLAMPED on the exact same
 never slide sideways along it; his whole body travels straight DOWN on a vertical line and never
 drifts left or right across the frame; his FEET NEVER TOUCH THE FLOOR."* For any hanging or standing
 movement, state the anti-drift and floor-contact constraints — Veo will otherwise re-stage the subject.
+
+---
+
+## Batch 4 findings (10 exercises, 2026-09-01) — step-based + kettlebell; read before the next batch
+
+Batch 4 ran kb-swing, kb-deadlift, kb-goblet-squat, kb-row, kb-press, step-up, db-step-up, db-lunge,
+ab-wheel-rollout, deficit-pushup. **9 delivered as `-FINAL-CANDIDATE` for Dan's review; db-lunge BLOCKED**
+(see below). Scripts at `Media/exercise-demos/_batch4/` (`spec.js` with `kind: inplace|step|kling` and
+`flip`/`from` flags, `gen-stills/gen-ends/run-veo/gen-vo/assemble/qc`, plus new tools `cutunit.py`,
+`vel.py`, `joinstep.py`/`joinN.py`, `lockfile.py`, `stabilize.py`, `silx.py`, `mkplate2.py`, `sheet.py`).
+Session AI spend ≈ **$19** (est.; see pricing note).
+
+### Engine: Replicate `google/veo-3.1-fast` WITH `last_frame` at 1080p — use it by default
+The Replicate schema for `veo-3.1-fast` accepts `image` + `last_frame` + `resolution:'1080p'` at 4/6/8 s
+(the Gemini-API fast path does NOT take a last frame). Keyframe locking survived on every leg; Dan already
+approved Fast-generated legs in batch 3. Priced at Google's list rate ($0.15/s ⇒ 4 s = $0.60, 6 s = $0.90)
+versus $0.40/s for full `google/veo-3.1` — **unverified from Replicate's page (it only prints hardware
+rates); confirm on the billing page once.** Kling v3 (`kwaivgi/kling-v3-video`) also takes `end_image`,
+so the goblet squat was keyframe-locked on Kling (5 s standard, 720p → lanczos upscale in the cut).
+
+### Google prepaid image credit DRAINED mid-batch — Replicate `google/nano-banana-pro` is the door
+`gemini-image.js` started returning `HTTP 429 "Your prepayment credits are depleted"` after ~30 edits
+(4th provider-credit outage on record; the production image leg shares the key — tell Dan). Fallback that
+worked for every remaining edit: `.claude/skills/photo-edit/scripts/replicate-edit.js --model
+google/nano-banana-pro --resolution 2K` (~$0.15, `gen-ends.js` takes `ENGINE=replicate WAVE=2`). Same
+model, same prompts, no quality difference seen.
+
+### Still-stage traps this batch
+- **Headroom for top positions (overhead press, standing on a box): generate the TOP pose fresh and edit
+  BACKWARD to the start** (`flip: true`). Two rounds of "leave generous space above his head" got ~10 %
+  headroom; the fresh-top generation frames itself correctly every time.
+- **The edit model RE-CENTRES the subject.** Three lunge-bottom edits in a row moved the rear foot back
+  ~150 px so the lunge stayed centred on the standing body; "his right foot stays in EXACTLY the same
+  spot", landmark anchoring, and standing-him-up-from-the-bottom all failed. What worked: a plain
+  image-to-video descent (no last_frame) and extracting its bottom frame as the END keyframe.
+- **The edit model turns him toward the camera when a foot leaves the floor** (step-up ready pose came
+  back 3/4-front twice). Fix that landed: describe what is visible edge-on — "we see ONLY his left ear,
+  left shoulder… the logo is seen edge-on and is NOT readable; drawing him facing the camera is WRONG."
+- **A "zoom out" edit works** as a reframe fallback ("camera pulled much further back, he and the box
+  occupy the lower half") — kept on file, not needed in the end.
+- Floor-proximity depth still takes two chained edits (ab-wheel extension, push-up-on-handles bottom).
+  The ab-wheel EXTENDED pose would not extend by editing at all — fresh generation of the extended pose
+  (Replicate nano-banana-pro, 2 candidates) then two roll-BACK edits to the kneeling start.
+
+### Motion findings
+- **Veo does a hard CUT when it cannot reach the last_frame in time** (step-up ascent at 4 s and 6 s: a
+  frame jump of 27 units velocity, then him already on top). Detect with `vel.py` — a single-frame spike
+  >5× its neighbours — and cut before it. A third 4 s attempt that spelled out the trailing-foot placement
+  reached the top without cutting (with a theatrical knee-drive Dan may or may not want).
+- **Veo cannot do the ab-wheel rollout forward** (arms lifted into the air instead of the wheel rolling;
+  cut at 0.3 s). The pull-BACK direction (extended → kneeling, "the wheel ROLLS BACKWARD ALONG THE MAT")
+  was one clean velocity bell first try — reversed for the rollout, `--revfirst --holdb 0.17`.
+- **Veo refuses the lunge step-back under keyframe lock** (4 attempts: straightens into a split stance
+  and holds, or lunges down again). Plain i2v DID step back — but see drift.
+- **Large-translation moves drift the camera.** Measured by phase-correlating corner patches against
+  frame 0: kettlebell/press legs 0 px; step-ups −10…−21 px by 3–3.6 s; **forward-lunge legs 8–25 px zoom
+  + pan by 3 s on BOTH i2v and keyframe legs**, with background detail re-rendered (mean |Δ| 14–37 levels
+  even after a fitted zoom/pan correction — `stabilize.py` halves it, cannot remove it). Consequence: the
+  frame-0 lock cannot isolate him, the two legs' backgrounds double-expose through the cross-fade, and he
+  lands ~100 px from the start still at the loop seam. **db-lunge is blocked on this**; next options are
+  full `google/veo-3.1` (less drift?), Kling with `end_image` for the return, or real footage.
+- **`mono.py analyze` caches frames per EXERCISE, not per leg** — a second leg of the same exercise
+  silently returns the first leg's numbers. `rm -rf _r2/dense/<id>-c` between legs (`vel.py` uses a temp
+  dir and is safe).
+- Region-scoped velocity found: a drift-not-pull before the row (cut 1.08→2.0 + squeeze hold), a settle
+  wobble before the deadlift (cut from 0.17), the press's true start at the velocity minimum (0.46), and
+  Kling's 1.2 s settle before the goblet descent.
+
+### Step-move units (two legs + xfade) — what held and what did not
+- Own-plate lock per leg (`lockfile.py in plate out`) + `joinstep.py`/`joinN.py` xfades = the batch-1
+  recipe, fine when the legs render the same scene (db-step-up, step-up: seam 1.3, ghost NONE).
+- **Compositing leg 2's subject ONTO leg 1's plate (`--onto`) needs a CLEAN plate for leg 2** — its frame 0
+  contains him, so "unchanged" pixels fall through to the shared plate and his other pose bleeds in as a
+  ghost. `mkplate2.py` fills the silhouette from the shared plate; it works only when the leg is
+  drift-free (same-render diff isolates the body). It did not work on the lunge.
+- Whole-frame-diff "largest blob" masks fail when a different render (or drift) makes an edge network
+  bigger than him — check `discarded max` and look at a mid-frame vs the plate before trusting a lock.
+- `qcunit`'s unimodal test is for palindromes; a two-leg unit with a foot-in-the-air phase legitimately
+  fails it (step-up 49 % bump). Gate step units on the ghost scan, the seam diff (<3) and the sheet.
+
+### Misc
+- VO from `minimax/speech-02-hd` comes back at 32 kHz AAC after mux (requested 44.1 k) — harmless, noted.
+- Skill-wide: the walking lunge cannot loop on a locked camera (the subject travels) — left out of the
+  library sweep deliberately; 54 library exercises still have no demo after this batch.

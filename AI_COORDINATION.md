@@ -197,146 +197,43 @@ asking Dan whether the two-step funnel is still worth the remaining effort, or w
 simplest thing that runs** — unblocking this has consumed most of two sessions for a $10/day
 campaign, and running from @abs.by.ai works today with zero further setup.
 
-### EXERCISE DEMOS BATCH 4 — **IN PROGRESS** (2026-09-01, Claude Code)
+### EXERCISE DEMOS BATCH 4 — **9 OF 10 DELIVERED AS FINAL-CANDIDATES FOR DAN'S REVIEW; db-lunge BLOCKED** (2026-09-01, Claude Code)
 
-Owner: Claude Code. Status: Implementation in progress. `/exercisegeneration` batch 4: the next 10
-library exercises with no demo, prioritising step-based + kettlebell moves (Dan's instruction).
-Picked: **kb-swing, kb-deadlift, kb-goblet-squat, kb-row, kb-press, step-up, db-step-up, db-lunge,
-ab-wheel-rollout, deficit-pushup** (64 library exercises still have no demo; walking-lunge skipped —
-the subject travels across a locked-off frame, so it cannot loop). Full gated cut pipeline
-(double-pump rule, velocity-boundary rule, full-frame background lock). **Deliverable: `-FINAL`
-candidates for Dan's review only — NOT installed in the app, no production code, no deploy.**
-Budget: Dan's prompt carried an unfilled `$[X]`; running under the standing **$25/session** cap,
-priority order KB → step → the rest, hard stop at the cap. Scripts: `Media/exercise-demos/_batch4/`.
+`/exercisegeneration` batch 4, Dan's brief: next 10 library exercises with no demo, step-based + kettlebell
+first, full gated pipeline, deliver candidates, do NOT install. **AI spend ≈ $19 (est.)**, under the $25
+cap; Dan's prompt carried an unfilled `$[X]`. No production code, no deploy, no native-retest trigger.
+**Delivered and sent in chat** as `Media/exercise-demos/<id>/<id>-AIDAN-narrated-FINAL-CANDIDATE.mp4`:
+**kb-swing, kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,
+db-step-up** — all 1920x1080/24, QC 9/9 (loop seams 0.07–1.35, VO inside), every rep through the
+double-pump, velocity-boundary, full-frame background lock and ghost gates. Batch dir + all new tools:
+`Media/exercise-demos/_batch4/`. Lessons written into the skill (`Batch 4 findings`).
 
-### CUTOUT THUMBNAIL CONCEPTS — **RESEARCH + 5 MOCKUPS DELIVERED; Dan picks a direction** (2026-09-01, Claude Code)
+⚠ **GOOGLE GEMINI PREPAID CREDIT IS DEPLETED (HTTP 429 "prepayment credits are depleted") since mid-session
+2026-09-01 — the 4th provider-credit outage.** The same key serves production's primary image leg, which
+fails open to the challenger silently (see memory `provider-credit-outages`). **DAN: top up at
+ai.studio/projects.** Batch work continued on Replicate `google/nano-banana-pro` (2K, ~$0.15/edit).
 
-Dan wants a new YouTube thumbnail style built on the 100 studio cutouts (`_cutouts/`). Research
-session + design canvas, **$0.00 AI spend, no production code, no deploy, no native-retest trigger.**
-Canvas (editable, 5 artboards + notes): **https://claude.ai/code/artifact/92369b3e-c89c-46b1-b657-afe91ba506b0**
-Concepts: **1 Flat Pop** (one flat brand-red ground, white-stroked cutout, 3 words) · **2 Big Number
-Behind** (giant "40" layered BEHIND the body — the one layout only a cutout allows) · **3 Then vs Now**
-(split, dashed slot for the keyed fat-dad photo) · **4 Point at the Phone** (arm-out pose leading to the
-app's reveal screen in a red circle) · **5 The Lineup** (three cutouts on red/black/olive panels for list
-videos). All obey the 3-element rule and the abs-visible / text-never-on-Dan rules.
+⚠ **db-lunge IS BLOCKED, not delivered — 7 legs and 6 stills tried.** Two independent faults: the edit model
+recentres the lunge so the rear foot slides ~150 px between keyframes (3 edits), and every Veo Fast leg of
+this large-translation move drifts the camera 8–25 px (zoom + pan) with re-rendered background detail, so
+the frame-0 lock cannot isolate him and the two legs double-expose at the cross-fade; under keyframe lock
+Veo also refuses the step-back return (4 attempts). Next options: full `google/veo-3.1`, Kling with
+`end_image` for the return, or film it. Parts on disk: keyframe descent `b4-leg-down-a4.mp4` (clean rep,
+0–3.6 s) and i2v return `b4-leg-up-a3.mp4` (steps back, drifts).
 
-⚠ **THE STUDIO CUTOUTS ARE NOT IN A CLOUD SESSION — `photos/` is gitignored and nothing is in Drive.**
-Every board uses a STAND-IN: pool-shoot photos from `public/mockup-img/` keyed locally with `rembg`
-(isnet-general-use, 429x640 / 1280x858 sources). Placement transfers 1:1 to the studio `_CUTOUT.png`
-files, which are far sharper. Building the real thumbnails is a Mac session (`/youtube-packaging`).
+**Two things for Dan to look at specifically:** the bodyweight step-up ascent carries a knee-drive before the
+trailing foot lands (Veo's only non-cutting take of three), and the dumbbell step-up pair is a 3/4 view
+(the edit model turned him) while the bodyweight one is a true profile.
 
-**Research (≈40 searches; channel pages were egress-blocked, so the fitness-channel section relies on
-third-party writeups):** cutout-on-flat-colour is the current default winning look and also the most
-copied; **3 elements max** (Galloway); **2-4 words** (vidIQ 500-breakout median 5, legibility dies past
-6); 69-80 % of breakouts show a face but only 5 % exaggerated — real focused expressions win; 4-8 px
-white stroke lifts the cutout; before/after splits are Gravity Transformation's whole format (organic
-OK, paid still banned); keep everything in the centre 70 % and off the bottom-right (duration badge);
-**do not print OVER 40 by default** (costs reach; the face says it) — board 2 only on age-scoped videos;
-**YouTube Test & Compare judges watch-time share, not CTR.** Full takeaways are a sticky note on the
-canvas. ⚠ The oft-quoted "faces with emotion = 2.3x CTR" stat could not be traced to YouTube — treat as
-unverified.
+**Also: Veo 3.1 Fast on Replicate takes `last_frame` at 1080p and was used for every leg** — Dan approved
+Fast legs in batch 3; priced at Google's $0.15/s list rate but **unverified on Replicate's billing page**
+(if it bills at full Veo's $0.40/s the session is ~$40, not ~$19 — check once).
 
-**Dashboard: nothing checked off — no task covers this** (and absbyai.com is egress-blocked from
-this session anyway).
+**Dashboard: nothing checked off** — `business::Build AI animations for the workout program exercises` is
+the umbrella task and Dan has not reviewed these nine.
 
-**EXACT NEXT ACTION — DAN: open the canvas, pick 1-2 directions.** Then a Mac session builds them
-from the real `_cutouts/` files for the next video, as the two A/B contenders.
-
-**REV 1 (same day) — Dan: "research Brandon Carter's thumbnails and create three in his style."**
-Added as a second canvas page (**Brandon Carter style**): **BC1 Get A Six Pack FAST** (dark gym vignette,
-stacked white/yellow/red Impact-style caps with black stroke, big flex) · **BC2 STOP CRUNCHES** (red X
-through the word, yellow "DO THIS INSTEAD" sticker, dark-red field) · **BC3 BURN BELLY FAT AT 40** (flat
-yellow, black type, red arrow to the abs, black-stroked cutout). Same stand-in photos.
-⚠ **HIS CHANNEL COULD NOT BE VIEWED FROM THIS SESSION — every route is egress-blocked:** youtube.com,
-i.ytimg.com, seven Invidious/Piped mirrors, image proxies (weserv, DDG), Bing/Google image search,
-brandoncarter.com, Instagram, Pexels/Pixabay/Wikimedia. The boards are built from prior knowledge of his
-look plus his title conventions, which search DID confirm ("PSYCHO ABS WORKOUT", "ABDOMINAL ASSAULT",
-"How to get a six 6 pack and burn belly fat FAST"). **Dan should compare against his Videos tab** — a Mac
-session with a browser can also pull his top-20 thumbnails in minutes. Coordination entry only; still no
-code, deploy or dashboard task.
-
-**REV 2 (same day) — DAN REJECTED THE LOT: "These all look very bad."** Both canvas pages are now a
-record of what NOT to do. **Handoff written for a Mac session:**
-`Handoffs/handoff-20260901-brandon-carter-style-thumbnails.md` — pull his real thumbnails with yt-dlp,
-MEASURE the style into `STYLE.md`, copy three of his top thumbnails one to one from the real
-`_cutouts/` files, deliver his|ours sheets. **Key dashboard task added by editing `todos.json` on this
-branch** (absbyai.com is egress-blocked here) — it appears on the board only when the branch merges.
-
-**EXECUTED 2026-09-01 (Mac session, Fable) — THREE FINALS DELIVERED, Dan reviews.** AI spend
-**~$0.002** (one BiRefNet key of the ab-wheel prop). No production code, no deploy, no native-retest
-trigger, nothing installed in YouTube Studio. Output (gitignored, verified):
-`social media graphics/youtube/thumbnails/The 17 Dollar Ab Wheel Beats Every Crunch/` —
-`abwheel_bcstyle_{A_do-this,B_only-17,C_crunches-suck}-FINAL.jpg` (+ `-nologo` = FINAL, since his
-carry no branding, + `-withlogo`), three `COMPARE_*_his-vs-ours.jpg` sheets, `GLANCE_168x94` row, and
-`_build-2026-09-01/` (build.py with every measured number, compare.py, STYLE.md, both channel sheets,
-the keyed prop, qc.json). Research copies in `~/absbyai-video-work/bc-thumbs/`.
-
-⚠ **THE DECISIVE FINDING: HIS CHANNEL HAS TWO ERAS AND THE ONE EVERYONE PICTURES IS NOT THE ONE
-THAT GOT THE VIEWS.** All 30 of his most-viewed videos are 2012-2017 (0.7M-10M views) and **19 of
-the top 20 thumbnails carry NO TEXT AT ALL** — raw, warm-graded, full-bleed torso photos, head often
-cropped out. The recognisable "Brandon Carter style" (bald cutout, arms behind head, stacked
-white/yellow/red Anton caps on near-black) is the **2025-26 era, doing ~10-25K views a video.**
-Copied the recent era because it is the only one with a copyable system and it is what Dan meant;
-flagged to him that the mega-hit era is text-free photos.
-
-**Measured, not guessed (`STYLE.md`):** ground `#080607` = 62 % of non-person pixels (median bg luma
-0-23 on 15/20), subject full height (median mask 0.97 of frame, head top 0.02-0.06, bottom ALWAYS
-clipped at the waistband), pose arms-behind-head 11/20, serious face 18/20, right third 9 / centre
-9 / left 2. **Skin: same hue as Dan's cutouts (22-24°) at saturation 0.70-0.87 vs Dan's 0.43-0.48**
-— his look is a heavy saturation push, applied to the cutouts as a colour op (x1.55), no repaint.
-Type = **Anton** (Impact rounder, Bebas/Oswald too light), 2-4 words, white `#f2efed` / yellow
-`#f8d509` / red `#c50c09`, **soft black drop shadow, NO hard outline**. Cap heights read off his
-files: AFTER 40 ~150 px, DO THIS ~120, ONLY 129 / 3 = 272 / RULES 164 + 40 px red brush, THEY/LIED
-225. Props 8/20, red arrows 6/20, logo 0/20.
-
-**The three, each a one-to-one copy of a named reference:** A = "AFTER 40? DO THIS" (xt2ClKuNe0s)
-→ *NO ABS? / DO THIS* + the ab wheel keyed from Dan's OWN master at 1:44 + red arrow, blue-271
-(serious, hands on hips) right third. B = "ONLY 3 RULES" (viIbL59okgw) → *ONLY / $17 / AB WHEEL*,
-red rim glow, brush underline, blue-221 (smirk) left. C = "THEY | LIED" (LH97hBGANvM) → *CRUNCHES |
-SUCK* on the grey-blue ground, gray-90 arms behind head centre-right.
-
-⚠ **Logged deviations:** his A pose is a thumb-point with no library equivalent (gray-48's archer
-arm points AWAY from the prop and over the type — tried, rejected); our type runs smaller than his
-on B's last line and both C words because the auto-fit sizes each word to the free columns of the
-RENDERED subject mask (Dan's arms-behind-head torso is wider than his); the black wheel vanished on
-the black ground at 168 px until it got a light backing glow + brightness lift.
-
-**QC on the rendered files:** text clearance measured on the subject mask — A 357/362 px, B
-423/200/30, C 32/35 (gate ≥25) — abs visible and uncovered on all three, glance row checked, no
-webfont fallback (PIL renders the TTF directly), all ≤170 KB. ⚠ **`waist_frac` must be set per
-cutout** — the cutouts are framed differently (gray-79 is head-to-hips, blue-221 full body), and
-the first A render clipped Dan at mid-abs because one number was reused.
-
-⚠ **Two tooling notes:** yt-dlp `--flat-playlist` returns NO view counts on this channel and ignores
-`sort=p`; the Popular tab had to be scraped from the in-app browser (`ytd-rich-item-renderer` +
-innerText), and a hidden pane times out on any JS with an `await`. The cloud-branch merge conflicted
-in this file (both sides added at the top of Active task) — resolved by keeping both.
-
-**Dashboard: `money::Execute handoff: Brandon Carter-style thumbnails…` CHECKED OFF** (stored in
-`business`, checked under the `money` display key).
-
-**ATTEMPT 2 (same session) — Dan: "fonts not interesting… try outlines or graphics around me like he
-does."** Three more built (`D_killing-your-abs`, `E_17-ab-wheel`, `F_real-abs-from-this`, same folder,
-`_build-2026-09-01/build2.py`), each copying one of his device-heavy thumbnails literally: **D** =
-"KILLING YOUR GAINS" (yellow italic grunge word, white grunge stack with 10-12 px black outline, red
-zigzag arrow with shatter debris, ember field, red rim on the subject); **E** = "20,000 STEPS EVERY
-DAY" (Dan's OWN pool/house set from the master frame darkened + cooled as the real-photo ground,
-bright yellow-white glow around him, 9 px black-stroked yellow/white type, italic black words on a
-ragged yellow highlighter slab); **F** = "THEY ALL USE THIS" (grunge white/white/red stack, four
-other studio cutouts as dark silhouettes behind him, red ember wash, the wheel in a glowing red ring
-with a curved arrow). ⚠ **Two measured corrections from attempt 1:** his letterforms are ~1.28x
-WIDER than Anton at the same cap height (type is now stretched), and his frame cuts just below the
-navel, not at the waistband (`waist_frac` 0.55-0.60 on arms-behind-head frames). Grunge must stay
-subtle (7-8 % of the fill, fine scratches) — at 30 % it read as leopard spots. All three pass the
-clearance gate (D 52/215/243, E 283/72/161, F 420/293/45 px); F's red line auto-fits to the space
-beside his elbow (landed cap 80). **Remaining honest gap: his body fills more width than Dan's at
-the same height** — a physique/shoulder-width difference, not a layout one.
-
-**EXACT NEXT ACTION — DAN: pick from the six (attempt-1 A/B/C, attempt-2 D/E/F) via the compare
-sheets in chat, or say which devices to push further.** On a pick,
-install it in Studio and load a second as the A/B test per `/youtube-packaging`; if he wants the
-text-free mega-hit look tested instead, that is a full-bleed torso crop from a studio final and a
-15-minute job.**
+**EXACT NEXT ACTION — DAN: review the nine candidates (sent in chat), top up Gemini.** On approval, stamp
+`-FINAL` and install per the batch-2 install recipe (that install IS a native-retest trigger).
 
 ---
 
