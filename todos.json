@@ -283,6 +283,12 @@
       "priority": "key",
       "why": "Handoffs/handoff-20260902-website-video-rev2.md — created 2026-09-02, not yet run; rev 1 rejected on audio/framing/graphics",
       "addedAt": "2026-09-02"
+    },
+    {
+      "text": "Execute handoff: connect TikTok to Blotato + mirror the 23 queued @danrosefit videos",
+      "priority": "key",
+      "why": "handoff-20260902-tiktok-blotato-connect-and-mirror.md — created but not yet run",
+      "addedAt": "2026-09-02"
     }
   ],
   "health": [
