@@ -187,7 +187,18 @@ argued, UX fixed, no new binary). Fallback if they hold the line is spec'd at th
 
 **IG image gap-fill** — 63 of 70 scheduled. The last 7 are blocked on Blotato's 200-post
 plan cap; Dan either deletes queued posts or upgrades. Then re-run
-`scripts/blotato/iggap_fill.py --apply` (idempotent).
+`scripts/blotato/iggap_fill.py --apply` (idempotent). ⚠ The queue is now **exactly 200/200**
+(TikTok mirror, 2026-09-02) and drains ~2/day.
+
+**TikTok via Blotato — LIVE, first post unverified.** TikTok `@absbyai` (Blotato id 58181)
+connected 2026-09-02; all 23 queued `@danrosefit` videos mirrored at identical times via
+`scripts/blotato/tiktok_mirror.py`. First TikTok post fires **2026-09-03 22:00 UTC** — next
+session checks `blotato_list_posts` (platform tiktok, status published/failed); a `failed`
+usually means a privacy-level mismatch on an unaudited account. To make room, the 6 latest
+Facebook photo mirrors (2027-01-04 → 01-15) were removed and saved to
+`scripts/blotato/fb_trimmed.json`; `tiktok_mirror.py --restore-fb --apply` puts them back once
+the queue has room. Dan: say whether the recurring `Post on TikTok` dashboard row should go now
+that posting is automated. Delete this entry once the first post is verified.
 
 **Google Ads conversion goals** — the Purchase/Subscribe tidy-up (delete the orphan action,
 rename the auto-created one) must wait until a real row exists in the offline feed.
@@ -216,10 +227,6 @@ Each has a Key dashboard task. Run in a fresh session.
   Rose Fitness" exist: keep `1380236418500031`, delete `61593951123927`.
 - **`Handoffs/handoff-20260831-google-ads-api-setup-engagement-ad-automation.md`** —
   engagement-ad automation. Phase 1 is the Google Ads developer token.
-- **`Handoffs/handoff-20260902-tiktok-blotato-connect-and-mirror.md`** — TikTok warm-up
-  hold is over (decided 2026-09-02). **Dan connects TikTok in Blotato first (OAuth)**, then the
-  session mirrors the 23 queued `@danrosefit` videos onto TikTok, one/day for week 1. Watch
-  the 200-post plan cap (queue is at 183).
 
 ---
 
