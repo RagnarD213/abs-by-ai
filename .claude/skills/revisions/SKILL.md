@@ -267,3 +267,19 @@ Two audiences, same skill:
     and format — rewrite his bullets in the doc's style rather than leaving them as a separate block — so
     a reader cannot tell which items he typed and which were measured. The editor is to believe Dan did
     every revision personally. Same rule for the markdown copy and the section headers.
+
+23. **Round 2 of Muhammad's Ad 3 (2026-09-02) — three measurements that decided the doc.** (a) *Which mic
+    did the editor use?* Cross-correlate the new cut's mono against EACH channel of the previous delivery
+    with an FFT over a ±2 s lag window — his V2 matched V1-RIGHT at +0.89 to +0.91 and V1-LEFT at −0.7,
+    at a constant +13.7 ms (a re-conform offset; under a frame, not a sync fault). A ±12.5 ms sample-loop
+    search returned ~0.2 and would have said "unknown source". (b) *Same duration to the microsecond does
+    NOT mean the picture is unchanged* — he replaced inserts in place; the frame-diff was 27 mean with the
+    only quiet stretches being the two "keep" clips. Read the diff as a map of what changed, not just a
+    changed/unchanged verdict. (c) His masters sit at −18 LUFS (Ad 1 −18.2, Ad 2 −19.1, V2 −18.4), so the
+    gate's loudness row fails on every cut of his; the doc asked for −14 with a limiter rather than
+    "match Ad 1" again. His review copies are 854×480 (Ad 2's was too); the 1080p comes with the final,
+    so ask for it, don't flag it as a defect.
+24. **Google Docs paste inherits the cursor line's character style.** The round-2 section landed entirely
+    bold because the last empty paragraph carried bold from the previous section (the B button was lit).
+    Look at the toolbar before cmd+v; if B is active press cmd+b first. cmd+z removes the whole paste
+    cleanly. Also: `cmd+End` does nothing in Docs on a Mac — `cmd+ArrowDown` goes to the end.

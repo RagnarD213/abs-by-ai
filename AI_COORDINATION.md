@@ -164,8 +164,12 @@ the Key dashboard task `money::Execute handoff: studio batch 6…` — that clos
 programme. ⚠ 60 ` 2.jpg` conflict copies sit in the delivery folder (pre-warp-bump versions,
 not duplicates); recommend deleting once he confirms the current files are the ones he wants.
 
-**Muhammad's Ad 3** — round-1 revisions appended to his existing batch-2 doc. Dan reads the
-AD 3 section and tells Muhammad it is in the same doc.
+**Muhammad's Ad 3 — round 2 reviewed 2026-09-02.** His V2 landed 13 of 15 round-1 items (right mic
+confirmed by cross-correlation, side-by-side gone, all inserts in). Still open: the email-signup screen
+(now at 3:03), "nutrition coach" text (2:14), top end / −14 LUFS / peaks at −1 dB, plus five small items.
+Round-2 section appended to the same batch-2 doc, markdown copy in `revision docs/
+ad3-revisions-muhammad-round2-9-2-26.md`. Dan tells Muhammad it is in the same doc. Delete this entry
+once V3 arrives (review it with the same doc's list).
 
 **Waleed's Video 1** — round-2 revision doc + three paste-ready Upwork messages drafted.
 Dan sends message 1 with the doc link. Recommendation: don't release the funded $100
@@ -306,6 +310,11 @@ Each has a Key dashboard task. Run in a fresh session.
 ---
 
 # ACTIVE TASK
+
+**Muhammad's Ad 4 (supplements) — round-1 review IN PROGRESS** (Claude Code, 2026-09-02). Cut measured
+(audio one mic, no comb, dry; quiet at −19.6 LUFS, peaks at 0). Doc section drafts to `revision docs/`;
+appends to the batch-2 Google Doc ONLY after the Ad 3 session has finished writing to it — do not edit
+that doc from another session meanwhile.
 
 **Shorts centring queue fix — DONE 2026-09-02, one decision left for Dan.** Every queued off-centre Short is
 replaced: Blotato 10 posts swapped + MD5-verified; YouTube 8 stale scheduled Shorts re-uploaded as new ids at
