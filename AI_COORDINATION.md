@@ -241,26 +241,27 @@ button appears under the timer.
 
 ---
 
-**IG engagement campaign — BUILT, PAUSED, ONE BLOCKER. HANDED OFF.**
-`Handoffs/handoff-20260902-ig-engagement-ad-identity.md` (Key dashboard task added).
-Campaign `120250753198730682` + ad set `120250753601020682` are built correctly and PAUSED
-($10/day, IG-only, profile-visits, men 25–54, US/CA/GB/IE/AU/NZ, Advantage audience off).
-**Blocker: Ads Manager runs the ad as @abs.by.ai while the posts belong to @danrosefit →
-#2238052.** Eleven API approaches are ruled out and listed in the handoff — read that table before
-touching the API. Untried lead: the Identity control in the ad set editor UI.
-Page-permission errors #1487202/#1341012 are NOT the blocker — they cleared on reload (Meta async
-validation lag); permissions verified correct at Page, IG and ad-account level.
-⚠ Ads MUST boost the two EXISTING @danrosefit posts (`18188183254395331`, `18192762022391478`), not
-fresh uploads — ManyChat listens on those posts' comment threads. Dan was explicit.
-⚠ Never click Ads Manager's global "Review and publish (7)" — abandoned 9/01 draft.
+**IG engagement campaign — PAUSED, WAITING ON ONE DAN-ONLY STEP** (2026-09-02, session 2).
+Campaign `120250753198730682` + ad set `120250753601020682` PAUSED, zero ads, nothing spending.
+**The UI path is closed:** the ad set's Identity card is read-only (Page only, no Instagram
+option) and Ads Manager silently runs the ad as @abs.by.ai (proven — the post picker browses
+abs.by.ai's posts). **The API path works:** a top-level creative (`object_id` +
+`instagram_user_id` + `source_instagram_media_id`, no `object_story_spec`, no CTA) passes the
+identity check and fails ONLY on "app in development mode" (subcode 1885183).
+**Dan: switch app `1598463548528030` to Live** (developers.facebook.com → Basic: privacy
+`https://absbyai.com/privacy`, terms `https://absbyai.com/terms`, domain `absbyai.com`, a
+category → Save → Publish → Live; Claude is platform-blocked from editing app settings). Then
+any session runs `python3 scripts/ads/boost_danrosefit_posts.py --apply` → two PAUSED ads on the
+two existing @danrosefit posts. Dan flips the campaign on. Full detail in the handoff's
+"SESSION 2 RESULT" section. ⚠ Still never click the global "Review and publish (7)".
 
 **Meta API access — WORKING.** `META_ADS_TOKEN` (system user `abs-automation`, never expires:
 ads_management, ads_read, business_management, pages_show_list, pages_read_engagement,
 pages_manage_posts, instagram_basic) + `META_APP_SECRET` in `~/.absbyai-secrets.env`.
 ⚠ The Business Settings token UI silently fails for ads scopes even for an app Administrator —
 **mint via `POST /{system_user_id}/access_tokens` with `appsecret_proof`** (recipe in the handoff).
-⚠ **`ads_read` is live → the blind morning ads digest can now read Meta. UNTESTED** — next session
-should run `scripts/ads/ads-digest.js` and confirm the Meta section populates.
+✅ `ads_read` verified 2026-09-02: `scripts/ads/ads-digest.js` now populates the Meta section
+(spend, campaigns, anomalies). Google still blind pending the developer token.
 ⚠ App `1598463548528030` is still in Development mode; that blocks creatives from NEW uploads (not
 from boosting existing posts). App-settings writes are disabled via API — UI only.
 ⚠ Duplicate Page's real id is **`1348044195050800`** (9/01 handoff's `61593951123927` is its
@@ -274,13 +275,13 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 Each has a Key dashboard task. Run in a fresh session.
 
-- **`Handoffs/handoff-20260902-audio-standard-unification.md`** — PLAN written 2026-09-02,
-  awaiting Dan's go. One shared `_shared/audio/` module (per-file lav pick that handles 2-ch AND
-  the 8/28 four-track rolls, the approved `audio3.py` chain + dereverb, one gate vs Muhammad's ad)
-  and a gate STAMP that every skill's QC and delivery script must require. Supersedes items 3–4 of
-  the shoot-audio-standard handoff. ⚠ The reference .mp4 moved into a subfolder today, so
-  `voice_ref_check.py` and `audiogate.py` currently crash on their hardcoded path — use `--ref` or
-  pass the path until the module pins it.
+- **`Handoffs/handoff-20260902-audio-standard-unification.md`** — **Phases 1–2 DONE 2026-09-02**
+  (`.claude/skills/_shared/audio/`: `pick_lav` / `voice_chain` / `audio_gate` / `require_stamp`, reference
+  pinned by fingerprint, `selftest.sh` green; ad-edit, longform-edit, shorts and shortad wired, every QC and
+  deliver script refuses an unstamped file). **Phases 3–4 open** for a fresh session: the six human-facing
+  and synthetic skills, then re-render the Zepbound + supplements Shorts through the module (cap two
+  renders). ⚠ Until Phase 4, nothing already delivered carries a stamp, so the wired QCs will FAIL on old
+  files by design — that is the point, not a bug. The Key dashboard task stays open until Phase 4 closes.
 - **`Handoffs/handoff-20260902-shorts-centering-queue-fix.md`** — **URGENT, 09-05 deadline.**
   YouTube has been publishing the pre-8/27 off-centre Shorts (the native queue was never
   swapped; 4 already live, 6 still scheduled, `v2-short7` goes out 09-05). One Blotato post

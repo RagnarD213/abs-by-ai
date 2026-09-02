@@ -103,6 +103,54 @@ overriding. Check Business Settings → Ad accounts → Abs by AI → connected 
 
 ---
 
+## SESSION 2 RESULT (2026-09-02, Fable 5.1) — UI PATH IS CLOSED; API PATH FOUND; ONE DAN-ONLY STEP LEFT
+
+**Where the identity really lives:** nowhere Dan can click. The ad set's Identity card is a
+`Read only page field` (Facebook Page only, no Instagram dropdown), and the ad editor has no
+Identity section at all for this objective. Ads Manager silently runs the ad as **@abs.by.ai** —
+proven, not guessed: the "Use existing posts" picker lists @abs.by.ai's posts (the Sep 2 "Ask AI"
+reel with 1 like is abs.by.ai's `18102110465339826`; danrosefit's copy is Sep 1 with 5 likes), while
+"Suggested posts" pulls @danrosefit's. Selecting a danrosefit post therefore always yields #2238052.
+Every asset link is correct (ad account's only connected IG is danrosefit; the keeper Page now reads
+`instagram_business_account = 17841401601139982` — the earlier "false negative" has cleared), so
+there is nothing left to fix in Business Settings.
+
+**The API shape that works** (not in the failed table above — every failed row used
+`object_story_spec`; this is the TOP-LEVEL form from Meta's "boost existing Instagram media" docs):
+
+```
+POST /act_2143998876461525/adcreatives
+  object_id=1380236418500031  instagram_user_id=17841401601139982
+  source_instagram_media_id=18188183254395331     (NO object_story_spec, NO call_to_action)
+```
+Adding any `call_to_action` brings back "The link field is required". Without it, the identity check
+PASSES and the only error is:
+
+> (#100, subcode 1885183) Ads creative post was created by an app that is in development mode.
+> It must be in public to create this ad.
+
+**The one remaining step is Dan's, in the UI, ~3 minutes** (Claude is blocked from editing app
+settings — platform restriction on account-setting changes, tried and denied twice):
+
+1. https://developers.facebook.com/apps/1598463548528030/settings/basic/ — fill
+   Privacy policy URL `https://absbyai.com/privacy`, Terms of Service URL `https://absbyai.com/terms`
+   (both verified 200), App domains `absbyai.com`, Category `Business and pages` → **Save changes**.
+2. Left nav → **Publish** → switch the app to **Live**.
+3. Then, in any session: `python3 scripts/ads/boost_danrosefit_posts.py --apply`
+   (dry-run without `--apply` already verified: reads the ad set, both posts, owner check).
+   It creates two creatives + two **PAUSED** ads in ad set `120250753601020682`. Campaign stays PAUSED.
+4. Dan flips the campaign on in Ads Manager when he is ready to spend. Kill >$5/follow, scale <$3.
+
+**Cleanup done this session:** the error-state draft ad created here (`120250753663460682`) was
+deleted from the ads table. The global pending-draft count is back to **7** — still the abandoned
+9/01 drafts; **never click "Review and publish (7)".** The 9/01 orphan draft `120250753499300682`
+is not visible in the ads table for this campaign (its ad set was deleted); nothing to discard.
+
+**Side item closed:** `scripts/ads/ads-digest.js` now reads Meta (spend, campaigns, a paused-campaign
+anomaly all populate). Google remains blind pending the developer token.
+
+---
+
 ## THE POSTS TO BOOST (already resolved — do not re-derive)
 
 Instagram media V2 IDs, pulled live from `GET /17841401601139982/media`:
