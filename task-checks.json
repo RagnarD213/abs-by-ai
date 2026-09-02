@@ -13,7 +13,8 @@
     "assistant::Tidy living room",
     "assistant::Take out trash",
     "assistant::Put away dishes 2.0",
-    "money::Build a Claude ads digest: daily spend brief + anomaly and winning-ad detection (Meta + Google)"
+    "money::Build a Claude ads digest: daily spend brief + anomaly and winning-ad detection (Meta + Google)",
+    "money::Connect Blotato and start scheduled posting (TikTok warm-up ends ~2026-09-02)"
   ],
   "log": {
     "health::Shower": [
@@ -232,6 +233,7 @@
     "assistant::Tidy living room": "2026-09-01",
     "assistant::Take out trash": "2026-09-01",
     "assistant::Put away dishes 2.0": "2026-09-01",
-    "money::Build a Claude ads digest: daily spend brief + anomaly and winning-ad detection (Meta + Google)": "2026-09-02"
+    "money::Build a Claude ads digest: daily spend brief + anomaly and winning-ad detection (Meta + Google)": "2026-09-02",
+    "money::Connect Blotato and start scheduled posting (TikTok warm-up ends ~2026-09-02)": "2026-09-02"
   }
 }
