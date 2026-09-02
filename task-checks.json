@@ -9,7 +9,8 @@
     "assistant::Move all items from filming room into 2nd empty room. Organize items in empty room and throw away trash",
     "money::Execute handoff: Brandon Carter-style thumbnails from the real studio cutouts (Mac session)",
     "assistant::Clean Master Bathroom & Guest Bathroom",
-    "assistant::Change robot mop water"
+    "assistant::Change robot mop water",
+    "assistant::Vaccum bedroom"
   ],
   "log": {
     "health::Shower": [
@@ -225,6 +226,7 @@
     "assistant::Move all items from filming room into 2nd empty room. Organize items in empty room and throw away trash": "2026-09-01",
     "money::Execute handoff: Brandon Carter-style thumbnails from the real studio cutouts (Mac session)": "2026-09-01",
     "assistant::Clean Master Bathroom & Guest Bathroom": "2026-09-01",
-    "assistant::Change robot mop water": "2026-09-01"
+    "assistant::Change robot mop water": "2026-09-01",
+    "assistant::Vaccum bedroom": "2026-09-01"
   }
 }
