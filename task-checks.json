@@ -11,7 +11,8 @@
     "assistant::Clean Master Bathroom & Guest Bathroom",
     "assistant::Change robot mop water",
     "assistant::Vaccum bedroom",
-    "assistant::Tidy living room"
+    "assistant::Tidy living room",
+    "assistant::Take out trash"
   ],
   "log": {
     "health::Shower": [
@@ -228,6 +229,7 @@
     "assistant::Clean Master Bathroom & Guest Bathroom": "2026-09-01",
     "assistant::Change robot mop water": "2026-09-01",
     "assistant::Vaccum bedroom": "2026-09-01",
-    "assistant::Tidy living room": "2026-09-01"
+    "assistant::Tidy living room": "2026-09-01",
+    "assistant::Take out trash": "2026-09-01"
   }
 }
