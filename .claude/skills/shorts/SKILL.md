@@ -61,7 +61,7 @@ list the long-form masters, list `Short-form video content/*.mp4`, and diff the 
 |---|---|---|
 | ~~02 My Honest Zepbound Update~~ | ~~30:28~~ | **MINED 2026-09-01 — 8 shorts, `zep-short1..8_*`**, work folder `YouTube Long Form Video Content/zepbound-honest-update/` (6 alternates shortlisted in its SHORTS.md) |
 | ~~03 The Supplements I Actually Take~~ | ~~23:29~~ | **MINED 2026-08-28 — 8 shorts, `supp-short1..8_*`** |
-| 01 My First Spray Tan | 19:54 | narrower topic |
+| ~~01 My First Spray Tan~~ | ~~19:54~~ | **MINED 2026-09-02 — 8 shorts, `tan-short1..8_*`**, work folder `YouTube Long Form Video Content/spray-tan-first/` (6 alternates in its SHORTS.md) |
 | 04 Why You Should Invest More In Your Health | 53:17 | longest; still on the old v3 master |
 | 05 Meal Prep Macro Tracking (app demo) | 4:49 | too short and too UI-heavy to mine like the others, but it is the app-demo asset the IG growth plan called the only thing no competitor can copy |
 
@@ -180,6 +180,39 @@ puts the join IN the pause, and `snapOut`'s 0.34 s tail then walks 0.04–0.30 s
 was measured against Muhammad's AD on this roll: the plain right channel was already 3 dB cleaner
 in every band, and the gate only cost word tails (98.7 % → 100 % without) and pumping (14.2 →
 7.8 dB). Fit the tone EQ; add cleanup only when the floor comparison says so.
+
+
+## ⚠ Step 0.75 — FOUR MORE FROM THE SPRAY-TAN BATCH (2026-09-02)
+
+Full write-up: `reference/spray-tan/README.md`. Tools: `reference/spray-tan/`.
+
+**1. THE LENGTH CHECK PASSES A BAD WAV. Always cross-correlate.** `preflight.py` compares decoded
+samples against container duration; on this roll **both** candidate extractions passed it
+(−3.8 ms and +0.9 ms) and one of them drifts **+16 to +94 ms against `-ss`, wandering with the
+joins**. The only test that separates them is a normalised cross-correlation of the analysis wav
+against `-ss` pulls at 6–8 points across the file. Do it every batch; it costs seconds.
+`aresample=async=1:min_hard_comp=0.005:first_pts=0` is now the default recipe, not the fallback.
+
+**2. A RECONNAISSANCE SAMPLE CANNOT CLEAR THE ANCHOR — the failure is per-shot by nature.** A
+12-frame sweep of this video said head and torso agreed to 13 px, which would have justified
+either. Measuring all 22 shots found one where they diverge by **121 px** (cross-shot spread:
+head 114 px, torso 230 px). **Measure both anchors on every shot, compare, and use head unless
+drawn frames say otherwise** (`reference/spray-tan/measure_shots.py` records both).
+
+**3. `work/boundscan.py` is now a required step, and it also checks the IN side.** Three of
+thirteen boundaries walked past a splice here. The entry side matters too: a short whose first
+word follows a source cut must be pinned 20 ms **after** the splice, or it opens on a frame of the
+previous take.
+
+**4. A GATE THAT COMPARES TWO WHISPER MODELS MUST COMPARE THEM FUZZILY.** `syncgate.py` failed a
+provably-correct short twice: it transcribes with `base.en` while captions come from `medium.en`,
+and the two both tokenise *and spell* differently — caption "All right," → `allright`, heard
+`alright`. Neither prefixes the other, so word identity cannot pass it, and the same gate read
+"When" as "and" on another short. It now falls back to a **similarity ratio on the opening ~12
+letters** (0.80 threshold). ⚠ It also read `build/<ID>.ass` where the renderer writes
+`build/<ID>/<ID>.ass` — it had only ever run in a folder carrying stale top-level copies.
+**Fix the gate, never override it**; the corrected file is in `reference/spray-tan/syncgate.py`
+and has been copied over the `clean-master` and `zepbound` versions.
 
 ## Step 1 — transcript with WORD timestamps
 

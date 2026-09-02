@@ -12,6 +12,7 @@ Method: transcribe the DELIVERED file, match each caption's first word to the ne
 occurrence of that word in the heard audio, and report the median offset.
 """
 import json, re, subprocess, sys
+from difflib import SequenceMatcher
 import numpy as np, whisper
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 TOL = 0.120                     # 120 ms: below one caption chunk, and imperceptible on screen
@@ -45,7 +46,7 @@ for sid, slug in segs:
     def t(s):
         h, mm, rest = s.split(':'); return int(h) * 3600 + int(mm) * 60 + float(rest)
     cues = [(t(re.match(r'Dialogue: 0,([^,]+),', l).group(1)), l.rsplit(',,', 1)[1].strip())
-            for l in open(f'build/{sid}.ass') if l.startswith('Dialogue:')]
+            for l in open(f'build/{sid}/{sid}.ass') if l.startswith('Dialogue:')]
     errs = []
     for ct, txt in cues:
         first = re.sub(r'[^a-z0-9]', '', txt.split()[0].lower())
@@ -68,7 +69,24 @@ for sid, slug in segs:
     first_cap = re.sub(r'[^a-z0-9]', '', cues[0][1].split()[0].lower())
     early = [w for w, ws in heard if ws < 1.0]
     heard_first = heard[0][0] if heard else ''
-    clipped = first_cap not in early[:6]
+    # ⚠ base.en and medium.en TOKENISE DIFFERENTLY, and the difference is not a clipped word.
+    # This gate transcribes with base.en; the captions come from medium.en. base.en writes
+    # "All right," as the single token "alright", so caption 'all' is absent from the heard
+    # list and the check fires on a short whose first word is provably intact (measured on
+    # B: speech starts 0.360 s, caption starts 0.380 s). Treat a caption word that PREFIXES
+    # an early heard token, or vice versa, as the same word.
+    def same(a, b):
+        return a == b or (len(a) >= 3 and b.startswith(a)) or (len(b) >= 3 and a.startswith(b))
+    # ⚠ ...and a prefix test is NOT enough, because the two models also SPELL it differently:
+    # the caption reads "All right," -> "allright" while base.en hears "alright" (one l), so
+    # neither prefixes the other. Compare the opening ~12 letters as a similarity ratio, which
+    # absorbs both the tokenisation and the spelling. 'allright' vs 'alright' scores 0.93.
+    letters = lambda xs: re.sub(r'[^a-z0-9]', '', ' '.join(xs).lower())[:12]
+    cap_open = letters(' '.join(c[1] for c in cues[:2]).split()[:3])
+    heard_open = letters([w for w, _ in heard[:3]])
+    ratio = SequenceMatcher(None, cap_open, heard_open).ratio() if cap_open and heard_open else 0.0
+    cands = ([heard_first] if heard_first else []) + early[:6]
+    clipped = not any(same(first_cap, w) for w in cands) and ratio < 0.80
     if clipped: bad += 1
     results[sid] = {'median_ms': round(float(np.median(e))*1000, 1),
                     'sd_ms': round(float(e.std())*1000, 1), 'n': len(e),

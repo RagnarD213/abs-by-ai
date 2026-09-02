@@ -92,6 +92,17 @@ review copies sent. Dan says which to swap for one of the six alternates in `SHO
 (one re-render each). ⚠ Picks were mine, not his. **Posting is blocked on the parent
 long-form, which is unpublished** — packaging is now done, so the block is Dan uploading it.
 
+**Spray tan shorts (01)** — 8 cut and delivered (`tan-short1..8_*.mp4`, 45.8–59.4 s), all
+gates green (QC pass, caption-sync 8/8, centering 8/8), 540p review copies sent. $0.00 AI
+spend. ⚠ Picks are mine, not his; six alternates in
+`YouTube Long Form Video Content/spray-tan-first/SHORTS.md`, one re-render each. Three
+things need his ruling: **"full Donald Trump"** in short 6, **"my shitty pictures"** in
+short 4, and Bryan Johnson named in short 7. **Posting is blocked and harder than 02/03:
+this long-form has no `PACKAGING.md` at all** — `/youtube-packaging` has never run on it.
+⚠ Two `syncgate.py` bugs fixed in the process (wrong `.ass` path; a first-word test that
+cannot pass a `base.en`-vs-`medium.en` tokenisation difference) — both would have failed
+future batches, both fixed in the gate rather than overridden.
+
 **Supplements shorts (03)** — 8 rev-4 copies delivered, unwatched. Same block: the parent
 long-form is packaged but unpublished, so nothing can post.
 
@@ -212,4 +223,8 @@ Each has a Key dashboard task. Run in a fresh session.
 
 # ACTIVE TASK
 
-No active task.
+**04 invest-health — style-standard rebuild IN PROGRESS** (Claude Code, 2026-09-02).
+Dan picked sub30 + the therapy/psych-meds beat (L1) restored: 165 ranges, 29:13. Picture
+rendered, audio rebuilt right-channel-only, 124 cutaways + 65 graphics built; composite and
+gate remain. Work dir `/Volumes/Extreme/_edit_work/invest-health-cutdowns/{sub30f,style}`.
+Do not write to `claude edited long form content/04 - …` from another session.
