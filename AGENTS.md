@@ -6,15 +6,20 @@ You are an app developer and designer helping me to build my Abs By AI app. Your
 
 I am a non-technical user. Explain all tasks in simple terms that a non-technical user who is not a coder can easily understand.
 
-## Codex and Claude Code coordination
+## Session coordination
 
-- Read `AI_COORDINATION.md` before starting project work.
-- Treat `AI_COORDINATION.md` as the shared, project-level task board for Codex and Claude Code.
-- When beginning a task, record the task, owner, status, goal, acceptance criteria, and next action there.
-- Only one assistant may own implementation of a task at a time. Do not modify work owned by the other assistant unless the user requests a review or the file records an explicit handoff.
-- Before ending a work session, update the coordination file with completed work, verification performed, remaining work, and the next action.
-- Keep permanent product or architecture decisions in the appropriate project documentation. Keep implementation history in Git; do not turn the coordination file into a transcript.
-- After a task is fully completed, deployed, and verified, reset the active-task section to `No active task` after preserving any durable information elsewhere.
+`AI_COORDINATION.md` is the project-level status board shared across concurrent Claude Code
+sessions (and any other assistant, if one is in use).
+
+- It is auto-loaded into every message in this project, so **keep it short**: what is open,
+  who is blocked, the exact next action. It is not a log and not a transcript.
+- Only one session owns implementation of a task at a time. Do not modify work another
+  session owns unless the user requests a review or the file records an explicit handoff.
+- Re-read it from disk before finishing, not just before starting — a concurrent session may
+  have written to it. Edit only your own entry.
+- When a task is finished, delivered and approved, **delete its entry**, having first put
+  anything durable where it belongs: techniques and traps in the relevant skill, code history
+  in Git, unexecuted work in `Handoffs/`, lasting facts in memory, standing rules here.
 
 ## Standing authorization for routine provider configuration
 
@@ -26,7 +31,7 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 ## Standing authorization for SixPackAbs.com content and site changes
 
 - You are authorized to create, edit, and publish content and site changes on sixpackabs.com (WordPress.com) without asking for confirmation each time: blog posts, pages, templates, template parts, CTAs, email-capture forms, tracking snippets, and SEO metadata.
-- Follow the settled decisions already recorded in AI_COORDINATION.md (keep the informational content, label AI-generated imagery, one email list on Resend, no display ads under ~50k views).
+- Follow these settled decisions: keep the informational content, label AI-generated imagery, one email list on Resend, no display ads under ~50k views. (Full history/rationale, if needed: `AI_COORDINATION_ARCHIVE.md`.)
 - Verify every change on the live site after publishing and record it in the coordination file.
 - This authorization does not permit deleting existing posts or pages, changing the domain or DNS for sixpackabs.com, purchasing plans or plugins, or sending email to the list.
 

@@ -18,12 +18,11 @@ When Dan asks a "what should we work on" / "what should I use my limit for" / "h
 
 ## Shared-workflow requirements
 
-- Before doing project work, read `AI_COORDINATION.md` and inspect the current Git state.
-- If starting a new task, fill in the active-task section and set **Owner** to `Claude Code`.
-- If the active task is owned by Codex, do not make overlapping implementation changes unless the user asks you to review the work or the document records a handoff to Claude Code.
-- Keep the coordination document concise and factual. Record results, decisions needed, verification, and the exact next action—not the conversation transcript.
-- Before stopping or handing work to Codex, update `AI_COORDINATION.md` so Codex can continue without needing access to the Claude conversation.
-- **Re-read `AI_COORDINATION.md` from disk before finishing a task, not just before starting one.** The copy in context is a snapshot from session start; the other assistant may have added a working rule since. This is how the dashboard check-off rule got missed on 2026-07-29.
+- Before doing project work, inspect the current Git state. `AI_COORDINATION.md` is already loaded above.
+- **`AI_COORDINATION.md` is a STATUS BOARD, not a log — keep it short.** It is loaded into every message in this project, so every line costs context in every session. Record only what is open: the task, who is blocked, and the exact next action, in a few factual sentences. Never a transcript.
+- **A finished, approved task's entry gets DELETED, not marked complete.** Before deleting it, put anything durable where it belongs: techniques and traps go in the relevant skill, code history in git, unexecuted work in `Handoffs/`, lasting facts in memory, standing rules in `AGENTS.md`. The table at the top of `AI_COORDINATION.md` is the routing guide.
+- **Re-read `AI_COORDINATION.md` from disk before finishing a task, not just before starting one.** The copy in context is a snapshot from session start and a concurrent session may have written to it; edit only your own entry. This is how the dashboard check-off rule got missed on 2026-07-29, and how an entry got clobbered on 2026-09-01.
+- Only one session owns implementation of a task at a time. Don't continue or overwrite another session's unfinished work without an explicit handoff or a review request.
 - Follow the delivery, deployment, security, and communication requirements imported from `AGENTS.md`.
 
 ## Check the task off on the Victory Dashboard when you finish it
