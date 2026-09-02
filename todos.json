@@ -313,6 +313,12 @@
       "priority": "key",
       "why": "handoff-20260902-audio-standard-unification.md — created but not yet run; supersedes items 3-4 of the shoot-audio-standard handoff",
       "addedAt": "2026-09-02"
+    },
+    {
+      "text": "Execute handoff: finish @danrosefit IG profile-visits ads (identity blocker)",
+      "priority": "key",
+      "why": "handoff-20260902-ig-engagement-ad-identity.md — campaign+ad set built and paused; only the @abs.by.ai vs @danrosefit ad identity blocks launch",
+      "addedAt": "2026-09-02"
     }
   ],
   "health": [
