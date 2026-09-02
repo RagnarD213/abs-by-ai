@@ -60,13 +60,26 @@ copies delivered. ⚠ **Whichever wins needs the right-channel audio rebuild** (
 were rendered before that fix) — `edit/build_audio_singlemic.py` + `finish_audio_invest.py`,
 muxed `-c:v copy`. Then style pass → graphics → captions → deliver.
 
+**Longforms 02 + 03 packaging — DONE, Dan uploads.** `/youtube-packaging` run on both
+(2026-09-02, $0.002 AI spend, no code, no deploy, nothing touched in YouTube Studio).
+`PACKAGING.md` in each video folder carries 5 titles with a recommendation, the paste-ready
+description with UTM + real chapter timestamps, tags, the pinned comment and the upload
+checklist. **Two thumbnails per video** (A/B pairs) in `social media graphics/youtube/
+thumbnails/{My Honest Zepbound Update, The Supplements I Actually Take}/`, plus
+`COMPARE_*.jpg` sheets sent in chat. Type is the measured Brandon Carter system from the
+ab-wheel `STYLE.md`; skin saturation is 1.18 not his 1.55, deliberately. **No drug name in
+any graphic** — the titles carry "Zepbound", the boards say "the shot" / numbers only.
+Dan: pick a title, install thumbnail A, **upload the `.srt` sidecar** (neither cut has
+burned captions). ⚠ 02's on-screen photos at **8:51 (192 lbs) and 9:12 (181 lbs) are still
+empty slots** — only Dan knows which photo is which; ten-minute fix.
+
 **Zepbound shorts** — 8 cut and delivered (`zep-short1..8_*.mp4`), all gates green, 540p
 review copies sent. Dan says which to swap for one of the six alternates in `SHORTS.md`
 (one re-render each). ⚠ Picks were mine, not his. **Posting is blocked on the parent
-long-form, which is unpublished** — `/youtube-packaging` on it next.
+long-form, which is unpublished** — packaging is now done, so the block is Dan uploading it.
 
 **Supplements shorts (03)** — 8 rev-4 copies delivered, unwatched. Same block: the parent
-long-form is unpublished, so nothing can post.
+long-form is packaged but unpublished, so nothing can post.
 
 **AD 2 vertical 9:16** — rev 2 delivered and independently cleared on centering. Dan
 watches, looking specifically at 0:45–0:49 and 1:20–1:27 (the two hardest lunges). Then
