@@ -38,12 +38,13 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
-**ManyChat "Comment ABS"** — LIVE and verified end to end on @danrosefit (Essential 14-day
-trial): comment "abs" → public reply → DM + button → link DM → absbyai.com with
-`utm_campaign=comment-abs`. Sends 1, Clicks 1. ⚠ **It covers exactly ONE post.** "Any post
-or reel" is Pro ($39/mo); on Essential each automation watches a single post, so the other
-~59 queued CTAs still promise a DM nothing sends. **Dan decides: upgrade to Pro.**
-⚠ ManyChat's Sends/Clicks counters lag several minutes — don't read 0 as a failure.
+**ManyChat "Comment ABS"** — DONE. Live on **any post or reel** for @danrosefit (Pro),
+verified end to end (comment → public reply → DM → button → absbyai.com with
+`utm_campaign=comment-abs`). All ~60 queued CTA posts are now covered. Remaining: Dan
+decides whether to switch off Blotato's IG auto first-comment (the growth plan said to,
+once ManyChat was live — **ask before touching it**, it's a queue-wide change), and the
+comment-ABS reels are now eligible for the 2026-08-31 paid-ads specs. Delete this entry
+once Dan confirms.
 
 **Website conversion video (post-generation)** — rev 1 delivered 2026-09-02 and **rejected by
 Dan on audio (a floor problem, not the two-mic comb — measured), framing (the wide shot and the
