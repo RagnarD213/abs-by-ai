@@ -1,0 +1,35 @@
+{
+ "bands": [
+  5.407,
+  11.659,
+  12.306,
+  12.615,
+  9.405,
+  4.598,
+  -1.685,
+  -7.967,
+  -21.331,
+  -25.007
+ ],
+ "floor": [
+  27.586,
+  34.723,
+  27.969
+ ],
+ "dryness": 7.368,
+ "spread": 8.214,
+ "edt_ms": 40.0,
+ "comb_ripple": 0.543,
+ "lufs": -21.2,
+ "tp": 0.0,
+ "lra": 3.5,
+ "name": "this picture got me abs | muhammad | 16x9.mp4",
+ "sha256": "3b4641dbcb40e9851e7f9c9a144c39e854af500504f42211b890f6b85309f391",
+ "duration": 232.768,
+ "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/this picture got me abs/this picture got me abs | muhammad | 16x9.mp4",
+ "window": [
+  20.0,
+  120.0
+ ],
+ "version": 1
+}

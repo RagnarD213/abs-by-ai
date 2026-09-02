@@ -278,10 +278,13 @@ Each has a Key dashboard task. Run in a fresh session.
 - **`Handoffs/handoff-20260902-audio-standard-unification.md`** — **Phases 1–2 DONE 2026-09-02**
   (`.claude/skills/_shared/audio/`: `pick_lav` / `voice_chain` / `audio_gate` / `require_stamp`, reference
   pinned by fingerprint, `selftest.sh` green; ad-edit, longform-edit, shorts and shortad wired, every QC and
-  deliver script refuses an unstamped file). **Phases 3–4 open** for a fresh session: the six human-facing
-  and synthetic skills, then re-render the Zepbound + supplements Shorts through the module (cap two
-  renders). ⚠ Until Phase 4, nothing already delivered carries a stamp, so the wired QCs will FAIL on old
-  files by design — that is the point, not a bug. The Key dashboard task stays open until Phase 4 closes.
+  deliver script refuses an unstamped file). Ad 2 rev 2 and the delivered website video rev 2 are gated and
+  stamped (PASS); the rejected rev 1 fails on floor + tone, as it should. **Phases 3–4 open** for a fresh
+  session: the six human-facing and synthetic skills, then re-render the Zepbound + supplements Shorts
+  through the module (cap two renders). ⚠ Until Phase 4, the 8/3-shoot Shorts and longforms carry no
+  stamp, so the wired QCs FAIL on them by design. The Key dashboard task stays open until Phase 4 closes.
+  ⚠ The website-video rev 3 session renders with the WORK-DIR copy of `audio3.py` on the Seagate; only the
+  skill's reference copy became a shim.
 - **`Handoffs/handoff-20260902-shorts-centering-queue-fix.md`** — **URGENT, 09-05 deadline.**
   YouTube has been publishing the pre-8/27 off-centre Shorts (the native queue was never
   swapped; 4 already live, 6 still scheduled, `v2-short7` goes out 09-05). One Blotato post

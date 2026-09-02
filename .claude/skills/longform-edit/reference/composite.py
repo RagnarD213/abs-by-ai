@@ -2,6 +2,19 @@ import subprocess, sys
 BIN="/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin"
 D="/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/longform-raw/absbyai-0803-shoot/roughcuts"
 SRC=f"{D}/SPLITSCREEN_v2_graded.mp4"; OUT=f"{D}/SPLITSCREEN_v3_graphics.mp4"
+import os as _os, sys as _sys; _sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
+def _audio_tripwire(src):
+    """2026-09-02: this script copies audio through untouched (-c:a copy). If the input has no PASS
+    stamp from _shared/audio/audio_gate.py, either the audio is not finished yet (set AUDIO_UNGATED=1
+    and finish + gate it on the OUTPUT before delivery) or it is the comb-filtered/roomy audio that
+    shipped three times. Either way the delivered file cannot pass QC without its own stamp."""
+    from require_stamp import require_stamp
+    try: require_stamp(str(src)); return
+    except SystemExit as e:
+        if _os.environ.get("AUDIO_UNGATED") == "1":
+            print(f"  ⚠ AUDIO_UNGATED=1: compositing over UNGATED audio ({e}). The output MUST go through voice_chain/audio_gate before delivery."); return
+        raise SystemExit(f"{e}\n  -> gate the input first, or set AUDIO_UNGATED=1 if the audio finish runs after this step")
+_audio_tripwire(SRC)
 G="/tmp/sc/gfx"
 # (key, start, end) in render time. Chips sit on the camera side, lower third.
 CHIPS=[("intro",   2.0,   7.6),

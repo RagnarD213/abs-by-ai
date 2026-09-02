@@ -35,6 +35,8 @@ FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin
 FFP = FF.replace("ffmpeg", "ffprobe")
 edl = json.load(open(B / "edl.json"))
 SRC = edl["sources"]["C1512"]
+import sys; sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio"); from common import load_source
+LAV = load_source(SRC)      # pick_lav.py measured which track is the lav; never a channel number
 FPS = str(edl.get("fps") or "24")
 
 def resolve_grade(g):
@@ -70,9 +72,9 @@ for i, r in enumerate(edl["ranges"]):
     out = tmp / f"a{i:03d}.wav"
     fo = max(0.0, d - 0.03)
     subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-ss", f"{r['start']:.3f}",
-                    "-i", SRC, "-t", f"{d:.6f}",
-                    # RIGHT CHANNEL ONLY, as mono -- this is the fix that matters
-                    "-af", f"pan=mono|c0=c1,afade=t=in:st=0:d=0.03,"
+                    "-i", SRC, "-t", f"{d:.6f}", "-map", LAV["map"],
+                    # THE LAV TRACK ONLY, as mono (per audio_source.json) -- this is the fix that matters
+                    "-af", f"{LAV['filter']},afade=t=in:st=0:d=0.03,"
                            f"afade=t=out:st={fo:.3f}:d=0.03",
                     "-ac", "1", "-ar", "48000", "-c:a", "pcm_s24le", str(out)], check=True)
     parts.append(out); total += d
@@ -91,3 +93,4 @@ print(f"{len(parts)} ranges -> voice_raw.wav  {got:.3f}s   (summed plan {total:.
 print(f"finished picture {vid:.3f}s   drift {got - vid:+.3f}s")
 assert abs(got - vid) < 0.10, "audio and picture would drift -- do not mux"
 print("frame lock OK")
+print("next: python3 /Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/voice_chain.py --in voice_raw.wav --out <FINAL>.mp4 --video <picture> ; then audio_gate.py on it")

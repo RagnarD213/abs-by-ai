@@ -10,6 +10,12 @@ const { buildAss } = require('./captions.js');
 const { BLEEPS } = require('./bleeps.js');
 
 const { FF, SRC, FONTS, FPS, FPS_N } = require('./config.js');
+// ⚠ DO NOT USE THIS PIPELINE FOR AUDIO (2026-09-02): it pulled the source's default stream with no
+// channel selection and no chain. It stays for its picture code only. The pull below now takes the
+// lav per audio_source.json; tone/loudness/gate still have to run (clean-master/finishaudio.py) or
+// qc.js refuses the unstamped file.
+const AUDIO = require('/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/qclib.js');
+const SRCA = AUDIO.loadSource(SRC);
 const A = path.join(__dirname, 'assets');
 const BUILD = path.join(__dirname, 'build');
 const L = JSON.parse(fs.readFileSync(path.join(__dirname, 'layout.json'), 'utf8'));
@@ -172,7 +178,7 @@ function renderSegment(seg) {
   const wavs = [];
   seg.pieces.forEach((p, pi) => {
     const w = path.join(dir, `aud-${pi}.wav`);
-    const args = ['-ss', String(p.start), '-i', SRC, '-t', String((p.end - p.start).toFixed(3)), '-vn'];
+    const args = ['-ss', String(p.start), '-i', SRC, '-t', String((p.end - p.start).toFixed(3)), '-vn', '-map', SRCA.map];
     // Bleep windows are in SOURCE time; shift them into this piece's local time.
     const local = segBleeps
       .filter((b) => b[1] > p.start && b[0] < p.end)
@@ -182,7 +188,7 @@ function renderSegment(seg) {
       args.push(
         '-f', 'lavfi', '-i', 'sine=frequency=1000:sample_rate=48000',
         '-filter_complex',
-        `[0:a]volume=0:enable='${cond}'[sp];` +
+        `${SRCA.fc_label}${SRCA.filter},volume=0:enable='${cond}'[sp];` +
         // ffmpeg's `sine` source emits at amplitude 0.125 (-18 dBFS), NOT full scale, so a
         // naive volume=0.20 produced a tone ~11x quieter than the speech around it and the
         // bleep was barely audible. 2.0 puts the peak at ~0.25, comfortably above the
@@ -205,7 +211,7 @@ function renderSegment(seg) {
       const k = args.indexOf('-filter_complex');
       args[k + 1] = args[k + 1].replace('[a]', '[amix]') + `;[amix]${fade}[a]`;
     } else {
-      args.push('-af', fade);
+      args.push('-af', [SRCA.filter, fade].join(','));
     }
     args.push('-ar', '48000', '-ac', '2', '-c:a', 'pcm_s16le', w);
     ff(args, `${seg.id} audio piece ${pi}${local.length ? ' (bleeped)' : ''}`);

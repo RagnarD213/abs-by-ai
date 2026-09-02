@@ -4,6 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const AUDIO = require('/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/qclib.js');
 const { SEGMENTS } = require('./segments.js');
 const { loadShots } = require('./plan.js');
 const { BLEEPS, BLEEP_WORDS } = require('./bleeps.js');
@@ -143,7 +144,15 @@ for (const seg of (ONLY.length ? SEGMENTS.filter((s) => ONLY.includes(s.id)) : S
   const I = parseFloat((ln.match(/I:\s*(-?[\d.]+) LUFS/g) || []).pop()?.match(/(-?[\d.]+)/)[1]);
   const TP = parseFloat((ln.match(/Peak:\s*(-?[\d.]+) dBFS/g) || []).pop()?.match(/(-?[\d.]+)/)[1]);
   console.log(`   loudness ${I} LUFS, true peak ${TP} dBTP`);
-  check(I > -22 && I < -10, `integrated loudness ${I} LUFS is outside -22..-10`);
+  // ⚠ THE AUDIO GATE STAMP (2026-09-02). The -22..-10 window above let every rejected batch through;
+  // loudness was never what Dan rejected on. _shared/audio/audio_gate.py measures the delivered
+  // file against Muhammad's ad (comb, room, tone, floor, dryness, loudness, spread, true peak,
+  // silence, length) and writes <file>.audio_gate.json with the file's sha256. No stamp, a stamp
+  // for a different build, or a FAIL verdict = NOT DELIVERABLE. finishaudio.py runs the gate.
+  {
+    const st = AUDIO.requireStamp(f);
+    check(st.ok, `audio gate stamp: ${st.out.split('\n').pop()}`);
+  }
   check(TP <= 0.0, `true peak ${TP} dBTP is over 0`);
 
   // Geometry invariants for this batch's one treatment. There is no card stage here, so the

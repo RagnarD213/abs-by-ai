@@ -61,6 +61,15 @@ sessions (and any other assistant, if one is in use).
 - Treat commit, push, deployment, and live-site verification as required parts of completing every change. Do not wait for a separate request to perform them.
 - Do not include unrelated pre-existing local files or changes in a commit unless they are part of the current task.
 
+## Audio: one standard, enforced by a stamp (2026-09-02)
+
+- Every rendered video's audio goes through `.claude/skills/_shared/audio/`: `pick_lav.py` decides which
+  track is the lav **per file** (never a channel number — the 8/28 rolls have four mono tracks),
+  `voice_chain.py` is the only voice chain, and `audio_gate.py` measures the **delivered** file against
+  Muhammad's pinned reference and stamps it. Every QC and delivery script refuses a file without a matching
+  PASS stamp. Do not write a new chain or a new gate in a skill; extend the module with a flag.
+- Run `selftest.sh` before a batch. Send the gate's A/B clip with every review copy.
+
 ## Video builds: never run more than two at once
 
 - **Cap concurrent video builds at two across all sessions.** Before starting a render, transcription, QC or watch pass, check whether other sessions are already building (`ps -Ao command | grep -E 'ffmpeg|qc_style|render\.py|whisper'`). If two builds are already running, wait — do not start a third.

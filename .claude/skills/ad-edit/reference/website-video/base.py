@@ -7,14 +7,17 @@ linear, S-Gamut3.Cine->Rec709 matrix, soft shoulder, BT.709 OETF) at 1.45x linea
 exposure, then saturation 0.88 -- picked by eye against the approved Ad 3 skin.
 
 Audio: the rolls carry FOUR mono LPCM streams. a:1 is the close lav (SNR 40 dB); a:0 is
-the far mic, 7.2 ms late and POLARITY INVERTED (chan_analyse.py). Lav only.
+the far mic, 7.2 ms late and POLARITY INVERTED. Lav only -- and since 2026-09-02 the lav is
+whatever _shared/audio/pick_lav.py MEASURED on each roll (<roll>.audio_source.json), never a
+stream number typed here. Run pick_lav on every source in edl.json before this.
 
 REV 2 (2026-09-02): output is the FULL 3840x2160. Dan: "shot in 4K intentionally from far
 away so we have room to punch in" -- the widest allowed level is 1.256x (3058 px wide) and the
 tight level is 1.66x (2311 px), so every level is still a downscale to 1920. Rev 1's 1440p
 base made the tight level a 1.25x upscale.
 """
-import json, os, subprocess
+import json, os, subprocess, sys
+sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio"); from common import load_source
 FF="/Volumes/Extreme/_edit_work/bin/ffmpeg"
 HERE=os.path.dirname(os.path.abspath(__file__))
 GRADE=open(f"{HERE}/grade.txt").read().strip()
@@ -27,7 +30,8 @@ for s in srcs: inp+=["-i",s]
 parts=[]
 for k in range(len(srcs)):
     n=sum(1 for r in R if r["source"]==srcs[k])
-    parts.append(f"[{k}:a:1]asplit={n}"+"".join(f"[m{k}_{i}]" for i in range(n)))
+    lav=load_source(srcs[k])                       # measured per roll; refuses if pick_lav never ran
+    parts.append(f"[{k}:{lav['map'][2:]}]{lav['filter']},asplit={n}"+"".join(f"[m{k}_{i}]" for i in range(n)))
 cnt={k:0 for k in range(len(srcs))}; cat=""
 for i,r in enumerate(R):
     k=srcs.index(r["source"]); j=cnt[k]; cnt[k]+=1; a,b=r["start"],r["end"]

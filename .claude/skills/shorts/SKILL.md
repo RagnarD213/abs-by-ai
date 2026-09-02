@@ -133,21 +133,22 @@ correlation **+0.069 at a −7.58 ms lag** — the same signature as the raw cam
 file explicitly named `*_PRE_AUDIOFIX`. Only the DELIVERED master had ever been repaired. Two
 full revisions shipped comb-filtered audio and Dan caught it, not the gates.
 
-Run `reference/clean-master/work/chancheck.py` on the source before anything else. If the
-channels differ, take the **RIGHT channel only, as mono** — it is also the best source
-available (SNR 29.8 dB against 26.6 for the summed pair and 19.9 for the repaired master,
-whose treble shelf lifted the lav hiss).
+Run **`.claude/skills/_shared/audio/pick_lav.py SOURCE`** before anything else (`chancheck.py` is a shim
+to it). It measures which stream/channel is the lav — on this shoot the right channel (SNR 29.8 dB
+against 26.6 for the summed pair and 19.9 for the repaired master, whose treble shelf lifted the lav
+hiss); on the 8/28 rolls it is stream `a:1` of four — and writes `SOURCE.audio_source.json`, which
+`render.js` reads for its pull. **Nothing in `render.js` says `c0=c1` any more.**
 
-**Then match the voice to Muhammad's cut, which is Dan's reference for good audio.** Measured
-against it our lav was 3.8 dB short of weight, 3.8 dB short of presence, **8.7 dB short of air
-and 12 dB short above 9 kHz** — dull. `reference/clean-master/work/voicechain.py` fits and
-verifies the correction; it takes the shape difference from 4.05 dB RMS to 0.62 and still
-leaves our noise floor cleaner than his.
+**Then the voice is matched to Muhammad's ad by `finishaudio.py`, which runs
+`_shared/audio/voice_chain.py` on every rendered short** (dereverb if the room measures wet, EQ fitted
+per file on the gate's own metric, expander, measured gain + limiter) and then `audio_gate.py`, which
+STAMPS it. Measured on this shoot our lav was 3.8 dB short of weight, 3.8 dB short of presence, **8.7 dB
+short of air and 12 dB short above 9 kHz** — dull; the fit closes that. `work/voicechain.py` is a shim.
 
 ⚠ **The chain folds to mono, so nothing appended may `pan` again.** A second `pan=mono|c0=c1`
 asks for a channel that no longer exists and ffmpeg renders **silence**, not an error — it
-blanked the first 4.48 s of a delivered short. `qc.js` now scans the master for silent seconds;
-before rev 3 only the review copies were scanned, and that gap let it through.
+blanked the first 4.48 s of a delivered short. `qc.js` scans the master for silent seconds, the gate's
+silence row does too, and `voice_chain.py` REFUSES silent input outright (`selftest.sh` case 5).
 
 ## ⚠ Step 0.7 — FOUR THINGS THE ZEPBOUND BATCH PAID FOR (2026-09-01)
 
@@ -232,10 +233,12 @@ Everything else already matched: right-channel-only (**+0.9912** correlation, ve
 36.0 vs his 36.2 dB, octave shape 0.74 dB, −14 LUFS, no clipping. **All of that can be right and
 the audio still be wrong.**
 
-**Run `reference/spray-tan/audiogate.py` on every delivered file.** It is wired into `qc.js` and
-fails over 55 ms. The fix, when it fails, is `reference/spray-tan/dereverb.py` — spectral
-subtraction of the late field (`alpha=0.62 d1_ms=20 d2_ms=150 floor_db=-24 smooth=0.30`), run on
-the concatenated `audio.wav` before the mux. ffmpeg cannot do this: there is no dereverb filter,
+**The room is row 2 of `_shared/audio/audio_gate.py`, which `finishaudio.py` runs on every delivered
+file and which `qc.js` and `deliver.js` REQUIRE a PASS stamp from** (⚠ the earlier claim here that
+`audiogate.py` was "wired into qc.js" was false — nothing referenced it; corrected 2026-09-02). It fails
+over 80 ms — the approved/rejected boundary (website rev 2 approved at 75, this batch rejected at 85). The fix is automatic: `voice_chain.py` runs `_shared/audio/dereverb.py` — spectral
+subtraction of the late field (`alpha=0.62 d1_ms=20 d2_ms=150 floor_db=-24 smooth=0.30`) — whenever the
+raw lav measures > 55 ms, and re-fits the EQ after it. ffmpeg cannot do this: there is no dereverb filter,
 `arnndn` has no model here, and a broadband expander only reached 63 ms and pumped.
 
 ⚠ **`floor_db` is the lever, and it is counter-intuitive.** Raising `alpha` past 0.62 makes EDT
@@ -678,7 +681,9 @@ a small content jump at every cut. Render shots `-an`, then map audio from a sin
 ## Step 10 — QC, automated
 
 `qc.js`. Assert: 1080×1920, **24fps**, AAC 48kHz stereo, duration within 0.25s of plan,
-no black frames, last caption inside the video, and no click at any splice.
+no black frames, last caption inside the video, no click at any splice, **and the `_shared/audio`
+gate stamp for this exact file** (`requireStamp` — no stamp, another build's stamp, or a FAIL is not
+deliverable; `deliver.js` checks it again).
 
 **The splice test is easy to get wrong — it took three attempts.** Comparing loudness
 either side of a join always looks like a huge step, because the cut is deliberately in

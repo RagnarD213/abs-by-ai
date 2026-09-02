@@ -44,6 +44,12 @@ fails = []
 def check(ok, msg):
     print(f"[{'OK' if ok else 'FAIL'}] {msg}")
     if not ok: fails.append(msg)
+import sys as _s; _s.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
+from require_stamp import require_stamp as _rs
+def _stamp_ok(p):
+    try: _rs(str(p), quiet=True); return True, 'audio gate stamp present, matches this file, PASS'
+    except SystemExit as e: return False, f'audio gate: {e}'
+check(*_stamp_ok(VID))
 
 def env(src, a, dur, step=0.010):
     p = Path(f"/tmp/_fg_{V}.wav")

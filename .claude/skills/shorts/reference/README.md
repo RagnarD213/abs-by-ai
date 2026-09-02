@@ -7,17 +7,24 @@ original V4 pipeline was already lost that way once.
 **Copy a directory into `YouTube Long Form Video Content/<slug>/` and adapt.** Do not
 rewrite from scratch.
 
-## Which one
+## Which one (index corrected 2026-09-02)
 
-| | `full-bleed/` | `band/` |
+| directory | built for | status |
 |---|---|---|
-| Built for | V2 "six ways AI abs", 7 shorts, 56 shots | V4 short1 rebuild, 1 short, 6 shots |
-| Footage | full-bleed 9:16 crop | lower ~74%, graphics band on top |
-| Use when | some region of frame is reliably clear of the subject | nothing is clear — measure first (Step 6) |
-| Graphics | cards + repositioned PiP inside the full-bleed frame | dedicated band, one chip at a time |
+| **`clean-master/`** | supplements (03) batch, 8/3 shoot, cut from the NO-GRAPHICS master | **CURRENT.** Multi-segment, raw-roll inserts, bleeps, `syncgate.py`, `finishaudio.py` = the shared audio chain + gate per short, `qc.js` requires the stamp |
+| **`zepbound/`** | Zepbound (02) batch | **CURRENT** — clean-master plus the title-ink clearance check (his head sits at source row 0) |
+| **`spray-tan/`** | spray-tan (01) batch, rev 1 | the audio lessons: room measurement (EDT), dereverb, bounds scan. Its `audiogate.py`/`dereverb.py` are now shims to `_shared/audio` |
+| `recentre/` | the 8/27 centring fix | the person-mask centring gate |
+| `band/` | V4 short1 rebuild | the band layout when the subject fills the frame |
+| `full-bleed/` | V2 "six ways AI abs" | picture code only — **DO NOT USE FOR AUDIO** |
+| `scored-source/` | ab-wheel batch (cut from a scored, finished edit) | picture code only — **DO NOT USE FOR AUDIO** |
 
-`full-bleed/` is the more complete pipeline (multi-segment, automated QC).
-`band/` is the better layout when the subject fills the frame.
+**Audio is not per-pipeline any more.** Every `render.js` pulls the lav per `pick_lav.py`'s
+`audio_source.json`; `finishaudio.py` (clean-master/zepbound/spray-tan) runs
+`.claude/skills/_shared/audio/voice_chain.py` then `audio_gate.py` on every short; every `qc.js`
+and `deliver.js` refuses a short without the gate's stamp. `full-bleed/` and `scored-source/`
+were never given a chain — they pulled the default stream with no channel selection — and their
+`qc.js` now refuses their unstamped output. Copy `clean-master/` for a new batch.
 
 ## Run order
 

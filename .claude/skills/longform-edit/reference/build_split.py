@@ -2,6 +2,10 @@ import json, subprocess, os, sys
 BIN="/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin"
 D="/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/longform-raw/absbyai-0803-shoot"
 CAM=f"{D}/C1541.MP4"; SCR=f"{D}/screen_capture_TAKE2.MP4"
+# ⚠ THIS IS WHERE THE 8/3 LONGFORMS SHIPPED COMB-FILTERED: the default audio stream took both mics.
+# The lav is whatever pick_lav.py measured on the roll (<roll>.audio_source.json), never a channel number.
+sys.path.insert(0,"/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio"); from common import load_source
+LAV=load_source(CAM); PULL=f"{LAV['fc_label']}{LAV['filter']},"
 OUT="/tmp/sc/segs"; os.makedirs(OUT,exist_ok=True)
 
 # camera src from the approved EDL A; screen = matching moment in the screen recording
@@ -36,12 +40,12 @@ for i,(beat,cs,ce,ss) in enumerate(BEATS):
     af=f"afade=t=in:st=0:d=0.03,afade=t=out:st={fo:.3f}:d=0.03"
     if ss is None:
         cmd=[f"{BIN}/ffmpeg","-y","-v","error","-ss",f"{cs}","-t",f"{dur}","-i",CAM,
-             "-vf","scale=1920:1080","-af",af,"-r","30",
+             "-map","0:v","-map",LAV["map"],"-vf","scale=1920:1080","-af",LAV["filter"]+","+af,"-r","30",
              "-c:v","libx264","-preset","medium","-crf","20","-pix_fmt","yuv420p",
              "-c:a","aac","-ar","48000","-ac","2",out]
     else:
         fc=(f"[1:v]{SCR_CROP},setsar=1[p];[0:v]{CAM_CROP},setsar=1[d];"
-            f"[p][d]hstack=inputs=2,fps=30[v];[0:a]{af}[a]")
+            f"[p][d]hstack=inputs=2,fps=30[v];{PULL}{af}[a]")
         cmd=[f"{BIN}/ffmpeg","-y","-v","error",
              "-ss",f"{cs}","-t",f"{dur}","-i",CAM,
              "-ss",f"{ss}","-t",f"{dur}","-i",SCR,

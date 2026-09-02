@@ -143,6 +143,18 @@ if os.path.exists(wl):
            f"full listen {'done' if d.get('listened') else 'NOT done'}")
 chk(ok, '15 WATCH PASS done on this exact file (the gate, not the metrics)', det)
 
+# --- 16-17: audio integrity + the shared gate's stamp (2026-09-02) ------------------------
+sys.path.insert(0, '/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio')
+import common as _C
+_la, _lv = _C.duration(V, 'a:0'), _C.duration(V, 'v:0')
+_dead, _quiet = _C.silent_seconds(_C.pcm(V, ac=1))
+chk(abs(_la - _lv) <= 0.10 and _dead == 0, '16 audio integrity: audio runs the full length, no silent second',
+    f'audio {_la:.3f}s vs video {_lv:.3f}s, {_dead} digitally silent s ({_quiet} below -50 dBFS)')
+try:
+    from require_stamp import require_stamp; require_stamp(V, quiet=True); _sok, _sd = True, 'stamp present, matches this file, PASS'
+except SystemExit as _e: _sok, _sd = False, str(_e)
+chk(_sok, '17 audio gate stamp (_shared/audio/audio_gate.py) on this exact file', _sd)
+
 print(f'\nQC  {V}')
 for ok, n, d in R: print(f'  {"PASS" if ok else "FAIL"}  {n:70s} {d}')
 bad = [x for x in R if not x[0]]

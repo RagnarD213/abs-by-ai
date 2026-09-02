@@ -67,27 +67,35 @@ first if you haven't this session.
   a 608→1080 px upscale. (Longform's 4K recommendation is a nice-to-have; here it
   is load-bearing.)
 
-## Step 0.4 — check the microphones (see /longform-edit Step 0.4 for the full rule)
+## Step 0.4 — AUDIO: `_shared/audio` is the standard. One lav pick, one chain, one gate, one stamp.
 
-**The rolls are not stereo — they carry two different mics, and the right channel is the
-close lav.** Take `-af "pan=mono|c0=c1"` at the very first audio stage. Carrying both put
-a dry voice in one ear and a delayed, polarity-inverted room copy in the other; on the
-8/14 ad roll the left channel is also clipped in 24,368 samples. Verify per roll with the
-lag-search recipe in /longform-edit — the wiring can change between shoots.
+**Every video this skill renders takes the LAV TRACK ONLY, as mono, duplicated to centred stereo,
+through ONE shared voice chain and ONE shared gate measured against Muhammad's `this picture got me
+abs | muhammad | 16x9.mp4` — and `qc.py`/`qc5.py` and `deliver.sh` refuse a file that does not carry
+that gate's stamp.** Module: `.claude/skills/_shared/audio/` (README there). Run `selftest.sh` before
+a batch.
 
-## Step 0.5 — THE AUDIO GATE IS MANDATORY: measure every mix against Muhammad's ad before delivery
+1. **`pick_lav.py <roll>`** on every roll, first. It probes every stream and channel (the 8/3 and 8/14
+   rolls are two hard-panned mics; the 8/28 rolls are FOUR mono tracks with the lav on `a:1`), cross-
+   correlates the live candidates, and writes `<roll>.audio_source.json` with the exact `-map` and
+   filter. `base.py` reads that JSON. **No script writes `pan=mono|c0=c1` again** — on an 8/28 roll
+   that takes the far mic or renders silence. It exits non-zero on ambiguity; do not guess.
+2. **`voice_chain.py --in <tight cut> --out <out.mov> [--bed music --bed-db -30] [--extra sfx.wav]`** —
+   the approved rev-2 chain (`audio3.py` is now a shim to it): dereverb only if the room measures
+   > 55 ms, EQ FITTED to his file per roll (never a pasted curve), expander, compressor OFF (his LRA
+   is 3.5), centred, bed ≤ −30 dB ducked, measured gain + `alimiter` (never `loudnorm`, which went
+   dynamic on rev 1) to −14 LUFS / −2.5 dBTP in PCM. It refuses silent input (a stacked `pan`).
+3. **`audio_gate.py <delivered file> --ab AB.mp4`** on the EXACT delivered file: L/R image, comb
+   ripple, early decay ≤ 80 ms (the chain dereverbs above 55), 10-band tone (mean ≤ 1.2 / max ≤ 2.5 dB), floor between words within
+   3 dB of his, dryness, −14 ±1 LUFS, speech spread, true peak ≤ −1.0 dBTP, zero silent seconds,
+   length. It writes `<file>.audio_gate.json` with the file's sha256. **A FAIL is not deliverable**,
+   and a re-render without a re-gate fails `require_stamp` on its sha256. Send the A/B (his three
+   sentences, then ours) with every review copy.
 
-**Added 2026-09-02 after the website video was rejected on audio for the third time this project
-has shipped "bad audio" that every existing check passed.** `reference/voice_ref_check.py` compares
-the finished mix against `Muhammad Ad Videos/this picture got me abs | muhammad | 16x9.mp4` on the
-four things a listener actually hears — tonal balance (10 bands, mean ≤1.2 dB / max ≤2.5), the
-**floor between words** per band (within 3 dB of his — the bed, the gate range and the compressor
-makeup ALL count), dryness, and L/R correlation — and refuses to pass a mix that misses any. Run it
-on the EXACT delivered file, build the A/B clip (`--ab`), and send the A/B with the review copy.
-**A FAIL is not deliverable.** The website video's rev 1 read L/R +0.998 (no comb) and still failed
-by 9.5 dB on floor: the raw lav was cleaner than his ad and the chain — bed at −23 dB, a 3:1
-compressor with makeup, two air shelves — buried it. Fit the EQ to HIS file with
-`fitvoice_longform.py`, keep the compressor off or ≤1.5:1, bed at −30 dB or none.
+History: rev 1 of the website video read L/R +0.998 and still failed by 9.5 dB on floor (bed −23 dB,
+3:1 compressor with makeup, two air shelves); the spray-tan shorts passed every check and were
+rejected on ROOM (85 ms vs his 40). Both are rows of the gate now. Lessons 28, 32, 33, 74, 76 below
+are the measurements behind it.
 
 ## Step 1 — script-driven rough cut
 
@@ -535,11 +543,11 @@ Modern-edit sample rev-2 (2026-08-22) — Dan: "the audio is still much worse th
    of EQ went onto a signal that was two microphones fighting each other. The tell was
    available the whole time and took one command: cross-correlate the two channels with a
    lag search. Strong peak at a non-zero lag = two mics, not stereo. Run it on every new
-   roll (Step 0.4).
+   roll (Step 0.4). → `_shared/audio/pick_lav.py` does this per file now.
 33. **Check the stereo image of anything you deliver.** His voice measured +0.99 L/R
    correlation with the side channel 23 dB under the mid; ours measured −0.01 with side
    and mid EQUAL. That single number would have caught this on day one. A talking-head
-   voice belongs dead centre — `pan=stereo|c0=c0|c1=c0` after the voice chain.
+   voice belongs dead centre — `pan=stereo|c0=c0|c1=c0` after the voice chain. → row 1 of `audio_gate.py`.
 34. **An EQ match is only valid against the source you will actually ship.** Refitting
    after the channel fix reversed almost every band: the comb-filtered mix wanted +4.5 dB
    at 530 Hz and −3.2 at 4 kHz; the clean lav wants −4.6 at 320 and +4.6 dB of shelf
@@ -582,7 +590,7 @@ edit's directly and picked HIS. These are the rules that difference came down to
    thin at 400–700 Hz (which makes a voice read as distant). Fix the tilt first, then
    add a gentle downward expander for the tails, then light compression if the reference
    is "flatter" (LRA 3.8 → 1.9 LU here). Note the presence lift we had been adding at
-   3.6 kHz was making the room WORSE.
+   3.6 kHz was making the room WORSE. → the gate's tone, dryness and EDT rows; `voice_chain.py` dereverbs when EDT > 55 ms.
 29. **Re-transcription is the audio QC, and it earns its keep.** An expander at
    threshold 0.030 / ratio 2.4 ate the /f/ in "for free" and the "n't" in "isn't" —
    inaudible in a spot check, obvious as 97.9 % → 96.0 % fidelity. After fixing that,
@@ -804,14 +812,14 @@ visitor watches before they buy. Reproducible from `reference/website-video/`. W
    linear, the S-Gamut3.Cine→Rec709 matrix in linear, a soft shoulder, the 709 OETF) and
    `lut3d=...:interp=tetrahedral` applies it; exposure 1.45× and `eq=saturation=0.88` were
    picked against the approved Ad 3 skin. **The lav is a:1** (SNR 40 dB); a:0 is the far mic,
-   7.2 ms late, polarity inverted; a:2/a:3 silent. `-map 0:a:1`, never `-ac 1`.
+   7.2 ms late, polarity inverted; a:2/a:3 silent. `-map 0:a:1`, never `-ac 1`. → measured per file by `pick_lav.py`; `base.py` reads its JSON.
 75. **Render the base at 2560×1440 when the source is 4K.** The 1.30 punch of 1440p is
    1969 px wide, so no framing level ever upscales; the cost is ~1.8× the base encode.
 76. **`loudnorm` fell back to DYNAMIC on this mix and the JSON said so.** −19.3 LUFS in with
    TP −1.8 cannot reach −14 / −1.5 linearly. `audio2.py` is the replacement: measured gain +
    `alimiter`, the limiter's delay MEASURED by cross-correlation (239 samples here, not the
    remembered 219) and trimmed, then ebur128 on the result. Set the limiter low enough for
-   the AAC overshoot (0.71 → −2.2 dBTP on the delivered file).
+   the AAC overshoot (0.71 → −2.2 dBTP on the delivered file). → the finish stage of `_shared/audio/voice_chain.py`.
 77. **Previewing a QTRLE alpha .mov with `-ss` + `overlay` onto a single PNG shows NOTHING and
    looks like a broken graphic.** The still base has one frame at t=0 and the seeked overlay
    never lines up. Extract the graphic frame to RGBA PNG and composite in PIL instead —

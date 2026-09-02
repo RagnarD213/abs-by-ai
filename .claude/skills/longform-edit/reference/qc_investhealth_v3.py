@@ -31,6 +31,12 @@ def check(ok, msg):
 
 dur = float(sh("ffprobe", "-v", "error", "-show_entries", "format=duration",
                "-of", "csv=p=0", str(VIDEO)).stdout.strip())
+import sys as _s; _s.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
+from require_stamp import require_stamp as _rs
+def _stamp_ok(p):
+    try: _rs(str(p), quiet=True); return True, 'audio gate stamp present, matches this file, PASS'
+    except SystemExit as e: return False, f'audio gate: {e}'
+check(*_stamp_ok(VIDEO))
 check(abs(dur - TOTAL) < 2.5, f"duration {dur:.2f}s vs plan {TOTAL:.2f}s")
 
 proc = sh("ffmpeg", "-hide_banner", "-nostats", "-i", str(VIDEO),

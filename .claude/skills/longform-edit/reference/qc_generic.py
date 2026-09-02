@@ -24,6 +24,12 @@ def chk(cond, msg):
 
 dur = float(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration",
     "-of","csv=p=0",str(VIDEO)],capture_output=True,text=True).stdout.strip())
+import sys as _s; _s.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
+from require_stamp import require_stamp as _rs
+def _stamp_ok(p):
+    try: _rs(str(p), quiet=True); return True, 'audio gate stamp present, matches this file, PASS'
+    except SystemExit as e: return False, f'audio gate: {e}'
+chk(*_stamp_ok(VIDEO))
 chk(abs(dur-TOTAL) < 1.5, f"duration {dur:.2f}s vs plan {TOTAL:.2f}s (delta {dur-TOTAL:+.2f})")
 
 probe = subprocess.run(["ffprobe","-v","error","-select_streams","v:0","-show_entries",

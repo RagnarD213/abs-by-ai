@@ -35,7 +35,21 @@ def watermark():
     d.text((x0, y0), txt, font=f, fill=(255, 255, 255, 205))
     im.save(p); return p
 
+import os as _os, sys as _sys; _sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
+def _audio_tripwire(src):
+    """2026-09-02: this script copies audio through untouched (-c:a copy). If the input has no PASS
+    stamp from _shared/audio/audio_gate.py, either the audio is not finished yet (set AUDIO_UNGATED=1
+    and finish + gate it on the OUTPUT before delivery) or it is the comb-filtered/roomy audio that
+    shipped three times. Either way the delivered file cannot pass QC without its own stamp."""
+    from require_stamp import require_stamp
+    try: require_stamp(str(src)); return
+    except SystemExit as e:
+        if _os.environ.get("AUDIO_UNGATED") == "1":
+            print(f"  ⚠ AUDIO_UNGATED=1: compositing over UNGATED audio ({e}). The output MUST go through voice_chain/audio_gate before delivery."); return
+        raise SystemExit(f"{e}\n  -> gate the input first, or set AUDIO_UNGATED=1 if the audio finish runs after this step")
+
 def pass_inserts(src, out):
+    _audio_tripwire(src)
     clips = [(a, d, f"inserts/ins_{i:02d}_{k}.mp4")
              for i, (a, d, kind, k, _) in enumerate(spec.INSERTS)]
     end = [g for g in spec.G if g[2] == "endcard"][0]
@@ -54,6 +68,7 @@ def pass_inserts(src, out):
     return cmd, len(clips)
 
 def pass_gfx(src, out):
+    _audio_tripwire(src)
     gs = [(a, d, f"gfx/{k}.mov") for a, d, kind, k, _ in spec.G if kind != "endcard"]
     wm = watermark()
     cmd = [FF, "-nostdin", "-y", "-v", "error", "-i", src]

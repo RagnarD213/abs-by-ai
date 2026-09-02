@@ -26,14 +26,20 @@ const { BLEEPS } = require('./bleeps.js');
 // Muhammad's" means. With this chain the octave-band shape difference falls from 4.05 dB RMS
 // to 0.62, sibilance lands within 1.2 dB of his, and our noise floor stays 5.6 dB cleaner.
 // Fitted and verified by work/voicechain.py.
-const VOICE = fs.readFileSync(path.join(__dirname, 'work', 'voicechain.txt'), 'utf8').trim();
+// VOICE (work/voicechain.txt) is no longer applied here -- see finishaudio.py / _shared/audio.
 // A small residual correction for the raw-roll insert: same lav and same chain, so this is
 // only the difference between two takes. work/fitraw.py.
-const RAWFIT = fs.existsSync(path.join(__dirname, 'work', 'rawfit.txt'))
-  ? fs.readFileSync(path.join(__dirname, 'work', 'rawfit.txt'), 'utf8').trim()
-  : '';
+// RAWFIT (work/rawfit.txt) likewise: the per-file fit in voice_chain.py replaces it.
 
 const { FF, SRC, RAW, GRADE, FONTS, FPS, FPS_N } = require('./config.js');
+// ⚠ THE LAV TRACK IS MEASURED, NEVER ASSUMED (2026-09-02). pick_lav.py writes <file>.audio_source.json
+// for the master (and the raw roll, if a piece uses it); the pull below reads its map + filter.
+// No `pan=mono|c0=c1` in this file ever again -- on the 8/28 four-track rolls that takes the far mic
+// or renders silence. The voice EQ, dereverb and loudness now happen in finishaudio.py, which runs
+// _shared/audio/voice_chain.py on every rendered short and gates it.
+const AUDIO = require('/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/qclib.js');
+const SRCA = AUDIO.loadSource(SRC);
+const pullOf = (isRaw) => (isRaw ? AUDIO.loadSource(RAW) : SRCA);
 const A = path.join(__dirname, 'assets');
 const BUILD = path.join(__dirname, 'build');
 const L = JSON.parse(fs.readFileSync(path.join(__dirname, 'layout.json'), 'utf8'));
@@ -149,8 +155,9 @@ function renderSegment(seg) {
     // Master and raw now come off the SAME lav through the SAME chain, so a raw insert needs
     // only a residual take-to-take correction rather than a whole different treatment.
     const raw = p.src === 'raw';
+    const PULL = pullOf(raw);
     const args = ['-ss', String(p.start), '-i', raw ? RAW : SRC,
-                  '-t', String((p.end - p.start).toFixed(3)), '-vn'];
+                  '-t', String((p.end - p.start).toFixed(3)), '-vn', '-map', PULL.map];
     // Bleep windows are in SOURCE time; shift them into this piece's local time.
     const local = segBleeps
       .filter((b) => b[1] > p.start && b[0] < p.end)
@@ -160,7 +167,7 @@ function renderSegment(seg) {
       args.push(
         '-f', 'lavfi', '-i', 'sine=frequency=1000:sample_rate=48000',
         '-filter_complex',
-        `[0:a]volume=0:enable='${cond}'[sp];` +
+        `${PULL.fc_label}${PULL.filter},volume=0:enable='${cond}'[sp];` +
         // ffmpeg's `sine` source emits at amplitude 0.125 (-18 dBFS), NOT full scale, so a
         // naive volume=0.20 produced a tone ~11x quieter than the speech around it and the
         // bleep was barely audible. 2.0 puts the peak at ~0.25, comfortably above the
@@ -179,7 +186,6 @@ function renderSegment(seg) {
     const fade = `afade=t=in:st=0:d=${fIn},afade=t=out:st=${(pd - fOut).toFixed(3)}:d=${fOut}`;
     if (local.length) {
       if (raw) throw new Error('bleeping a raw-roll piece is not wired up');
-      throw new Error('the rev-3 voice chain is not wired into the bleep branch');
       // the bleep branch already built a filter_complex; append the fades to its [a] output
       const k = args.indexOf('-filter_complex');
       args[k + 1] = args[k + 1].replace('[a]', '[amix]') + `;[amix]${fade}[a]`;
@@ -190,7 +196,7 @@ function renderSegment(seg) {
       // Chain them instead.
       // ⚠ ONE -af ONLY - ffmpeg honours the last, and pushing the correction and the fades
       // separately silently discarded the correction for three rebuilds.
-      args.push('-af', [VOICE, raw ? RAWFIT : '', fade].filter(Boolean).join(','));
+      args.push('-af', [PULL.filter, fade].join(','));   // lav pull + fades; tone is finishaudio's job
     }
     args.push('-ar', '48000', '-ac', '2', '-c:a', 'pcm_s16le', w);
     ff(args, `${seg.id} audio piece ${pi}${local.length ? ' (bleeped)' : ''}`);

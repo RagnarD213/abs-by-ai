@@ -79,10 +79,18 @@ def check_loudness(v):
         "a dB of loudness per dB of peak (Step 7.6)")
 
 def check_channels(v):
-    """Catches BOTH shoot audio defects this project has hit: a dead input (ab wheel,
+    """2026-09-02: the decision is the SHARED GATE'S STAMP (_shared/audio/audio_gate.py):
+    no stamp, a stamp for another build, or a FAIL = this check fails. The SNR / L-R numbers
+    below are kept as information. Catches BOTH shoot audio defects this project has hit: a dead input (ab wheel,
     8/14 -- left channel SNR 0.6-1.4 dB) and two hard-panned microphones (8/3 -- the
     same voice 7.5 ms apart, zero-lag correlation +0.07). Both shipped. Both are
     inaudible on a QC that only measures LUFS."""
+    import os as _os, sys as _sys
+    _sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
+    try:
+        from require_stamp import require_stamp; require_stamp(v); chk(True, "audio gate stamp: present, matches this file, PASS")
+    except SystemExit as _e:
+        chk(False, f"audio gate stamp: {_e}", "run _shared/audio/audio_gate.py on the exact delivered file; fix the audio if it fails")
     a = pcm(v, ac=2)
     L, R = a[:, 0], a[:, 1]
     x, y = L - L.mean(), R - R.mean()

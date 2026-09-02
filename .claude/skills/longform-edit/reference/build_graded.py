@@ -2,6 +2,10 @@ import subprocess, os, sys
 BIN="/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin"
 D="/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/longform-raw/absbyai-0803-shoot"
 CAM=f"{D}/C1541.MP4"; SCR=f"{D}/screen_capture_TAKE2.MP4"
+# ⚠ THIS IS WHERE THE 8/3 LONGFORMS SHIPPED COMB-FILTERED: `[0:a]` took both mics. The lav is now
+# whatever pick_lav.py measured on the roll (<roll>.audio_source.json) -- never a channel number.
+sys.path.insert(0,"/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio"); from common import load_source
+LAV=load_source(CAM); PULL=f"{LAV['fc_label']}{LAV['filter']},"
 OUT="/tmp/sc/segs_g"; os.makedirs(OUT,exist_ok=True)
 GRADE=("colorchannelmixer=rr=0.984:gg=1.000:bb=1.017,"
        "curves=all='0/0 0.050/0.004 0.25/0.27 0.50/0.565 0.80/0.855 1/1'")
@@ -25,13 +29,13 @@ for i,(beat,cs,ce,ss) in enumerate(BEATS):
     fo=max(0.0,dur-0.03)
     af=f"afade=t=in:st=0:d=0.03,afade=t=out:st={fo:.3f}:d=0.03"
     if ss is None:
-        fc=f"[0:v]scale=1920:1080,{GRADE},setsar=1,fps=30[v];[0:a]{af}[a]"
+        fc=f"[0:v]scale=1920:1080,{GRADE},setsar=1,fps=30[v];{PULL}{af}[a]"
         cmd=[f"{BIN}/ffmpeg","-y","-v","error","-ss",str(cs),"-t",str(dur),"-i",CAM,
              "-filter_complex",fc,"-map","[v]","-map","[a]"]
     else:
         # GRADE applied to CAMERA ONLY - the screen recording is already neutral
         fc=(f"[1:v]{SCR_CROP},setsar=1[p];[0:v]{CAM_CROP},{GRADE},setsar=1[d];"
-            f"[p][d]hstack=inputs=2,fps=30[v];[0:a]{af}[a]")
+            f"[p][d]hstack=inputs=2,fps=30[v];{PULL}{af}[a]")
         cmd=[f"{BIN}/ffmpeg","-y","-v","error","-ss",str(cs),"-t",str(dur),"-i",CAM,
              "-ss",str(ss),"-t",str(dur),"-i",SCR,
              "-filter_complex",fc,"-map","[v]","-map","[a]"]

@@ -164,38 +164,31 @@ clips were the kitchen and workout demos.
 
 ---
 
-## Step 0.4 — CHECK THE MICROPHONES BEFORE ANYTHING ELSE
+## Step 0.4 — AUDIO: `_shared/audio` is the standard. Pick the lav per file, one chain, one gate, one stamp.
 
-**Jeff's rolls are not stereo. They carry two different microphones**, and using both is
-the single worst-sounding thing we have shipped. Verified on the 8/14 ad roll (C1591) and
-the 8/3 longform rolls (C1512/C1513/C1514):
+**Jeff's rolls are not stereo. They carry two different microphones**, and using both is the
+single worst-sounding thing we have shipped: the 8/3 and 8/14 rolls as a hard-panned pair (lav
+right, far mic ~2.6 m away and 7.4–7.9 ms late, polarity inverted on 8/14, left clipped), the 8/28
+rolls as FOUR mono tracks (lav `a:1`, far mic `a:0`, `a:2`/`a:3` silent). Carrying both puts a dry
+voice in one ear and a roomy, delayed copy in the other, and collapses to a comb filter on any
+mono speaker. **It is heard as echo, and no EQ will fix it.** The three delivered 8/3 longforms
+were all cut carrying both mics.
 
-* The **right** channel is a close lav. The **left** is a mic ~2.6–2.7 m away.
-* The same voice appears in both, **7.4–7.9 ms apart**. On the 8/14 ad roll the two are
-  also **polarity inverted** (cross-correlation −0.77 rather than +0.7).
-* Carrying both puts a dry voice in one ear and a roomy, delayed copy in the other, and
-  collapses to a hard comb filter on any mono speaker. **It is heard as echo, and no EQ
-  will fix it.** On the 8/14 roll the left channel is additionally clipped in 24,368
-  samples; the right has zero.
+**"Right channel" is no longer a rule anywhere — it is WRONG on the 8/28 rolls.** The rule is:
 
-**So: take the right channel, as mono.**
+    python3 .claude/skills/_shared/audio/pick_lav.py ROLL.MP4      # -> ROLL.MP4.audio_source.json
 
-    -af "pan=mono|c0=c1"
+It probes every stream and channel, cross-correlates the live candidates within ±20 ms, scores
+arrival, floor, post-word decay and clipping, and writes the exact `-map` + filter every build
+script reads (`build_graded.py`, `build_split.py`, `build_*_singlemic.py`). It exits non-zero on
+ambiguity. Then `voice_chain.py` (Step 5.6) and `audio_gate.py` (Step 7.6); `qc_style.py`,
+`qc_generic.py`, the invest-health QCs, `cutdown_final_gate.py` and `deliver.sh` all refuse a file
+without the gate's stamp. Module README: `.claude/skills/_shared/audio/README.md`.
 
-Confirm it per roll rather than assuming, because the wiring can change between shoots:
+**Flag to Jeff before the next shoot:** the far mic is opposite polarity on at least one roll, and
+the left input has been recorded hot enough to clip. Fix the polarity or drop the second mic, and
+lower the gain.
 
-    ffmpeg -ss 120 -t 15 -i ROLL.MP4 -af "pan=mono|c0=c0" -ar 48000 -c:a pcm_s16le L.wav
-    ffmpeg -ss 120 -t 15 -i ROLL.MP4 -af "pan=mono|c0=c1" -ar 48000 -c:a pcm_s16le R.wav
-    # cross-correlate with a +/-20 ms lag search: a strong peak at a non-zero lag means
-    # two mics. The channel that arrives EARLIER, decays FASTER after each word, and has
-    # the LOWER noise floor is the lav -- that is the one to keep.
-
-The three delivered 8/3 longforms were all cut carrying both mics. Re-rendering any of
-them is one filter change.
-
-**Flag to Jeff before the next shoot:** the far mic is opposite polarity on at least one
-roll, and the left input has been recorded hot enough to clip. Fix the polarity or drop
-the second mic, and lower the gain.
 
 ## Step 1 — transcript with WORD timestamps (free)
 
@@ -234,7 +227,7 @@ in `reference/qc_style.py`.** Plan for them now, not after the cut is locked.
 
 | # | requirement | gate | where |
 |---|---|---|---|
-| 1 | **Right microphone only.** Check the channels before you touch tone. | channel SNR ≥ 10 dB **and** L/R correlation ≥ +0.90 | Step 5.6 |
+| 1 | **The lav track only** (`pick_lav.py`, never a channel number), one shared chain, and the delivered file carries `audio_gate.py`'s PASS stamp. | stamp present, sha256 matches, PASS (L/R ≥ +0.97, comb, EDT ≤ 80 ms, tone, floor, dryness, −14 ±1 LUFS, spread, TP ≤ −1.0, no silence, length) | Steps 0.4 / 5.6 / 7.6 |
 | 2 | **Pace.** Remove dead air; cuts must land BETWEEN two spoken words. | ≥ 170 wpm, dead air ≤ 25% | Step 3 |
 | 3 | **Punch-ins.** A locked wide shot for nine minutes scene-detects as one cut. | ≥ 4 visual changes/min | Step 5.4 |
 | 4 | **Coverage.** No long stretch of the same unbroken shot. | ≥ 40% coverage, longest static stretch ≤ 30 s | Step 5.5 |
@@ -787,36 +780,31 @@ output-time text for placing an insert on the word.
 
 ---
 
-## Step 5.6 — AUDIO: check the CHANNELS before you touch tone  **REQUIRED — gate: channel SNR ≥ 10 dB, L/R correlation ≥ +0.90**
+## Step 5.6 — AUDIO: the shared chain  **REQUIRED — gate: `_shared/audio/audio_gate.py` PASS stamp on the delivered file**
 
-**Run `reference/chan_analyse.py` on every new roll, before any EQ.** Two rolls from
-this shoot turned out not to be stereo at all: they carry **two different microphones
-hard-panned against each other** — a close lav one side, a mic a few metres away the
-other. Measured on C1512 over 60 s:
+**`pick_lav.py` on every roll (Step 0.4), then ONE chain:**
 
-```
-peak cross-correlation +0.688 at lag -358 samples = -7.46 ms
-zero-lag correlation   +0.071          <- a real stereo pair is near +1
-channel           SNR      comb ripple (mono fold)
-right (lav)      45.5 dB      0.53 dB
-left  (far mic)  34.1 dB      0.49 dB
-naive L+R sum    36.8 dB      0.69 dB   <- what shipped
-```
+    python3 .claude/skills/_shared/audio/voice_chain.py --in voice_raw.wav --video CUT.mp4 --out FINAL.mp4 \
+            [--bed music.mp3 --bed-db -30] [--extra sfx/bed.wav]
 
-**Every phone, laptop and TV speaker sums L+R**, and a 7.46 ms offset summed is a comb
-filter with notches every ~134 Hz. **No EQ can undo it.** The ad roll from the other
-shoot measured 7.83 ms with polarity ALSO inverted — same rig, same defect. The fix is
-always the same: **take the better channel, as mono, then `pan=stereo|c0=c0|c1=c0`** so
-the voice sits centred instead of in one ear. Verify: the delivered file should measure
-correlation **+1.000 at lag 0**.
+`voice_chain.py` takes the lav mono (from `audio_source.json`, or a WAV the frame-locked builders
+below produced), dereverbs only when the room measures > 55 ms early decay, FITS the EQ to
+Muhammad's file per roll on the gate's own metric (never a pasted curve — see below for why), runs
+a downward expander between words, keeps the compressor OFF (his LRA is 3.5), folds to centred
+stereo, ducks the bed at ≤ −30 dB, and finishes with measured gain + `alimiter` to −14 LUFS /
+−2.5 dBTP in PCM (never `loudnorm`, which went dynamic on the website video). `finish_audio.py`
+and `audio_final.py` are shims to it. Then Step 7.6.
 
-This shipped undetected in three delivered videos before anyone caught it, because
-every automated check passed — LUFS, splice discontinuity and SRT overlap are all blind
-to it. **The channel check is cheap; make it Step 0 of audio.**
+Why this exists: two 8/3 rolls carry **two different microphones hard-panned against each
+other** — measured on C1512, peak cross-correlation +0.688 at −7.46 ms, zero-lag +0.071, lav SNR
+45.5 dB vs 34.1 for the far mic and 36.8 for the sum that shipped. Every phone sums L+R, and a
+7.46 ms offset summed is a comb with notches every ~134 Hz that no EQ can undo. It shipped
+undetected in three delivered videos because LUFS, splice and SRT checks are all blind to it.
 
 ### Fit the voice, don't copy a curve
 
-`reference/fitvoice_longform.py` scores a candidate chain against a reference voice
+(`voice_chain.py` does this fit automatically; `reference/fitvoice_longform.py` is the earlier
+stand-alone fitter.) It scores a candidate chain against a reference voice
 over ten bands, averaged across five windows (one window over-fits), using only frames
 above the 55th percentile of RMS so it measures SPEECH and not room tone. Copying the
 ad roll's chain onto this roll would have made it worse: that curve cuts 320 Hz for a
@@ -836,7 +824,8 @@ Three things that decided the chain, all measured:
 
 ### Re-cutting audio onto a picture you are NOT re-rendering
 
-`reference/build_audio_singlemic.py`. render.py rounds every segment to whole frames
+`reference/build_audio_singlemic.py` (its pull now comes from `audio_source.json`; its output
+`voice_raw.wav` then goes through `voice_chain.py --frame-lock <picture>`). render.py rounds every segment to whole frames
 and those roundings accumulate — **+0.65 s over 44 ranges here** — so rebuilding audio
 from the EDL's float ranges drifts most of a second by the end. Cut each range to the
 duration its **already-rendered video segment** actually has, read back out of the
@@ -1116,20 +1105,21 @@ per-asset licence to track for the life of the channel. One cue per graphic entr
 framed inset, `pop_soft` on each item of a build. Start each cue ~0.10 s BEFORE the cut so
 it reads as being ON it.
 
-### Step 7.6 — the loudness finish  **gate: −14 LUFS ±1, true peak ≤ −0.5 dBTP**
+### Step 7.6 — the finish and THE GATE  **gate: `audio_gate.py` PASS stamp on the exact delivered file**
 
-Two-pass measured `loudnorm`, always. **Target TP −2.5, not −1.5, when the deliverable is
-AAC** — measured on the ab-wheel mix at 256k:
+The loudness finish is the last stage of `voice_chain.py`: measured gain + `alimiter` (delay
+measured by cross-correlation and removed), −14 LUFS, **true peak −2.5 in PCM so the delivered
+AAC lands ≤ −1.5** — measured on the ab-wheel mix at 256k, a −1.5 PCM target came out at +0.28
+dBTP after the encoder. Then, on the EXACT file that ships:
 
-| loudnorm TP target | PCM dBTP | delivered AAC dBTP | integrated |
-|---|---|---|---|
-| −1.5 | −1.50 | **+0.28** FAIL | −14.15 |
-| −2.0 | — | **−0.44** FAIL | −14.46 |
-| −2.5 | — | **−1.47** PASS | −14.74 |
+    python3 .claude/skills/_shared/audio/audio_gate.py FINAL.mp4 --ab AB_his-vs-ours.mp4
 
-The AAC encoder overshoots ~1.8 dB on this material, and the headroom costs ~0.3 LUFS per
-0.5 dB. Take that trade. It is **not** the `alimiter` trade the skill warns about, which
-costs a dB of loudness per dB of peak — here the peak is not what binds the gain.
+Ten rows against Muhammad's pinned reference: L/R image ≥ +0.97, comb ripple, early decay ≤ 80 ms (the chain dereverbs above 55),
+10-band tone (mean ≤ 1.2 / max ≤ 2.5 dB), floor between words within 3 dB of his, dryness, −14 ±1
+LUFS, speech spread, TP ≤ −1.0 dBTP, zero silent seconds, audio length = picture. It writes
+`FINAL.mp4.audio_gate.json` with the file's sha256; **`qc_style.py`, the batch QCs and
+`deliver.sh` refuse a file without a matching PASS stamp**, so a re-render without a re-gate cannot
+ship. Send the A/B with every review copy.
 
 ---
 

@@ -4,6 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const AUDIO = require('/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/qclib.js');
 const { SEGMENTS } = require('./segments.js');
 const { loadShots } = require('./plan.js');
 const { BLEEPS, BLEEP_WORDS } = require('./bleeps.js');
@@ -39,6 +40,9 @@ for (const seg of SEGMENTS) {
   check(g(a, 'codec_name') === 'aac' && g(a, 'sample_rate') === '48000' && g(a, 'channels') === '2',
     `audio ${g(a,'codec_name')} ${g(a,'sample_rate')} ${g(a,'channels')}ch`);
   check(Math.abs(dur - expect) < 0.25, `duration ${dur.toFixed(2)}s vs planned ${expect.toFixed(2)}s`);
+  // ⚠ THE AUDIO GATE STAMP (2026-09-02): this pipeline never had a loudness or channel check at all.
+  // _shared/audio/audio_gate.py must have stamped THIS file (sha256-matched, PASS) or it is not deliverable.
+  { const st = AUDIO.requireStamp(f); check(st.ok, `audio gate stamp: ${st.out.split('\n').pop()}`); }
 
   // Dead-frame check: no frame should be effectively black (a compositing bug shows up here).
   const bl = run(FF, ['-hide_banner', '-nostats', '-loglevel', 'info', '-i', f,

@@ -77,6 +77,12 @@ print(f"visual changes {len(changes)-1}   median hold {statistics.median(shots):
 check(max(shots)<=25.0,f"nothing visually unchanged longer than 25s (worst {max(shots):.2f}s)")
 
 # ------------------------------------------------------------------ 4 audio
+# ⚠ THE ONE AUDIO GATE (2026-09-02): _shared/audio/audio_gate.py must have stamped THIS file
+# (sha256-matched, verdict PASS). The loudness/peak/centring below stay as a print; the stamp decides.
+sys.path.insert(0,"/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
+try:
+    from require_stamp import require_stamp; require_stamp(SRC); check(True,"audio gate stamp present, matches this file, PASS")
+except SystemExit as _e: check(False,f"audio gate: {_e}")
 p=subprocess.run([FF,"-nostats","-i",SRC,"-af","ebur128=peak=true","-f","null","-"],
                  capture_output=True,text=True).stderr
 gi=lambda k: float(re.findall(rf"{k}:\s*(-?[\d.]+)",p)[-1])

@@ -12,6 +12,7 @@ FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin
 SRC = ("/Volumes/Extreme/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, "
        "outdoor workout content | jeff chagrin | dan rose/C1591.MP4")
 HIS = 'ref_audit/his.wav'
+sys.path.insert(0, '/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio'); from common import load_source
 SR, HOP = 16000, 160          # 100 envelope samples per second
 
 def load(p, ss=None, t=None, af='anull'):
@@ -29,7 +30,7 @@ def env(a):
 
 if __name__ == '__main__':
     S = json.load(open('edl_final.json'))
-    RAW = load(SRC, 0, 700, 'pan=mono|c0=c1')
+    RAW = load(SRC, 0, 700, load_source(SRC)['filter'])   # the lav per pick_lav, not a channel number
     RE = env(RAW)
     print(f'raw envelope {len(RE)/100:.1f}s')
     bad = []

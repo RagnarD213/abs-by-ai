@@ -19,6 +19,7 @@ FFP  = FF.replace("ffmpeg", "ffprobe")
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC  = os.environ.get("QCIN", f"{HERE}/ad1_rev5_16x9.mp4")
 fails, warns = [], []
+sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
 
 def check(ok, msg):
     print(("  PASS  " if ok else "  FAIL  ") + msg)
@@ -82,6 +83,11 @@ print(f"visual changes {len(changes)-1}   median hold {statistics.median(shots):
 check(max(shots) <= 25.0, f"nothing visually unchanged longer than 25s (worst {max(shots):.2f}s)")
 
 # ---------------------------------------------------------------- 4 audio
+# ⚠ THE ONE AUDIO GATE (2026-09-02): the delivered file must carry a PASS stamp from
+# _shared/audio/audio_gate.py that matches its sha256. The numbers below are informational.
+try:
+    from require_stamp import require_stamp; require_stamp(SRC); check(True, "audio gate stamp present, matches this file, PASS")
+except SystemExit as _e: check(False, f"audio gate: {_e}")
 p = subprocess.run([FF, "-nostats", "-i", SRC, "-af", "ebur128=peak=true", "-f", "null", "-"],
                    capture_output=True, text=True).stderr
 gi = lambda k: float(re.findall(rf"{k}:\s*(-?[\d.]+)", p)[-1])

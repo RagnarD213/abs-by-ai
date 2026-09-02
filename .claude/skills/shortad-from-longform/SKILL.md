@@ -233,7 +233,11 @@ turns a 4-minute video into ~16 frames to inspect.
 > The per-second CORRELATION with his mix was 0.997, so every provenance check said the
 > audio was his; correlation is level-normalised and **cannot see a slow gain envelope.**
 >
-> The processing is: **`volume=<G>dB` (one constant gain), then
+> The processing is now `_shared/audio/voice_chain.py --finish-only` (`finish_audio.py` is a shim to
+> it) — and **the delivered file then goes through `_shared/audio/audio_gate.py` like every other
+> render**; his mix passes the reference rows by construction and the gate adds loudness, true peak,
+> silence and length, and writes the stamp `qc.py` check 17 requires. Under the hood it is:
+> **`volume=<G>dB` (one constant gain), then
 > `alimiter=limit=0.85:level=disabled`**, compensating the limiter's **239-sample latency**
 > (`atrim=start_sample=239,apad=pad_len=239` — re-measure it if you change `attack`, which
 > changes the latency and will silently desync the whole track). Iterate G two or three
@@ -273,9 +277,10 @@ turns a 4-minute video into ~16 frames to inspect.
 > reference mix cannot be used — e.g. the ≤0:59 cutdown, where time is removed and the
 > bed/SFX must be rebuilt over the new duration.
 
-1. **`reference/chan_analyse.py` on BOTH the reference and the raw.** Jeff's rolls are not
-   stereo — they carry two different microphones ~7.8 ms apart, sometimes polarity-inverted.
-   **Voice comes from the RIGHT channel only, as mono.** A good editor has already fixed
+1. **`_shared/audio/pick_lav.py` on BOTH the reference and the raw** (`chan_analyse.py` is a shim).
+   Jeff's rolls are not stereo — they carry two different microphones ~7.8 ms apart, sometimes
+   polarity-inverted, and the 8/28 rolls carry four mono tracks. **The voice comes from whatever
+   `pick_lav` measures as the lav, as mono** — `build_audio.py` reads its `audio_source.json`. A good editor has already fixed
    this in their render (check: L/R correlation ≈ +0.99 at lag 0, zero clipped samples).
 2. **Loudness of the reference** — and do not copy it. Editors ship −18 LUFS; ads want
    **−14 LUFS / ≤ −1.5 dBTP**.
@@ -404,8 +409,9 @@ build_base.py      conform the raw to the corrected EDL + tone curve, STAYS 16:9
 vlib.py            vertical layout library (plates, type-on reveal, lower thirds, flash)
 beats.py           beat sheet stepped at 1s off HIS cut + PUSHES + FLASHES + LOWER_THIRDS
 render.py          one output segment per beat -> concat -> overlays (shifted, not gated)
-build_audio.py     right-channel voice -> EQ fitted to HIS mix -> bed -> HIS_SFX list
-finish_audio.py    CONSTANT gain + alimiter (NEVER loudnorm) + the flat-gain gate
+build_audio.py     lav voice (per pick_lav's audio_source.json) -> EQ fitted to HIS mix -> bed -> HIS_SFX list
+finish_audio.py    _shared/audio/voice_chain.py --finish-only: CONSTANT gain + alimiter (NEVER loudnorm)
+                   then _shared/audio/audio_gate.py on the delivered .mp4 (the stamp qc.py check 17 needs)
 captions.py        word-timed, suppressed under text graphics, with a typo correction map
 a2/watch.py        THE GATE: per-frame scan + a consecutive-frame strip at every boundary
 qc.py              15 checks, the last of which is "the watch pass was done"
@@ -520,7 +526,8 @@ incoming one -- and overlay it so it REPLACES the incoming segment's first frame
 length is preserved exactly because nothing is inserted. Then re-render only the beats that
 read from the base.
 
-Only then run `reference/qc.py`, which is now **17 checks**:
+Only then run `reference/qc.py`, which is now **17 checks** (16 = audio integrity, 17 = the
+`_shared/audio` gate stamp on this exact file):
 
 1 frame size 1080×1920 · 2 fps 29.97 · 3 duration matches the reference · 4 −14 LUFS ±0.8 ·
 5 true peak ≤ −1.0 dBTP · 6 L/R correlation > 0.98 · 7 ≥ 9 visual changes/min ·

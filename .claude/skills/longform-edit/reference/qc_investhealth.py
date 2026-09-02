@@ -19,6 +19,12 @@ for r in ranges:
 TOTAL = acc
 joins = offs[1:]  # output-time positions where two segments meet
 
+import sys as _s; _s.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
+from require_stamp import require_stamp as _rs
+def _stamp_ok(p):
+    try: _rs(str(p), quiet=True); return True, 'audio gate stamp present, matches this file, PASS'
+    except SystemExit as e: return False, f'audio gate: {e}'
+_ok,_m=_stamp_ok(VIDEO); print(f"[{'OK' if _ok else 'FAIL'}] {_m}")
 # --- 1. duration
 out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
                       "-of", "csv=p=0", str(VIDEO)], capture_output=True, text=True)

@@ -72,44 +72,14 @@ def build_sfx(C):
     sfxlib.save("sfx/bed.wav", bed[:int(DUR * SR)])
     print(f"sfx/bed.wav  {len(C)} cues, peak {peak:.2f}")
 
-def chain():
-    return (
-        f"[0:a]{VOICE},asplit=2[vmix][vkey];"
-        f"[1:a]{BED_EQ},aloop=loop=4:size={int(130*44100)},atrim=0:{DUR:.3f},"
-        f"asetpts=PTS-STARTPTS,volume={MUSIC_DB}dB,afade=t=in:st=0:d=1.2,"
-        f"afade=t=out:st={DUR-2.0:.3f}:d=2.0,aresample=48000[mus];"
-        f"[mus][vkey]sidechaincompress=threshold=0.020:ratio=9:attack=12:release=420:"
-        f"makeup=1:level_sc=1[duck];"
-        f"[2:a]volume={SFX_DB}dB[sfx];"
-        f"[vmix][duck][sfx]amix=inputs=3:duration=first:normalize=0,aresample=48000[premix]"
-    )
-
-def measure(fc):
-    p = subprocess.run([FF, "-nostdin", "-hide_banner", "-nostats",
-        "-i", VOICE_WAV, "-i", MUSIC, "-i", "sfx/bed.wav", "-filter_complex",
-        fc + ";[premix]loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json[a]",
-        "-map", "[a]", "-f", "null", "-"], capture_output=True, text=True)
-    return json.loads(p.stderr[p.stderr.rindex("{"):p.stderr.rindex("}") + 1])
-
 if __name__ == "__main__":
+    # 2026-09-02: the cue list and SFX synthesis above are this skill's; the CHAIN is the shared module.
+    # voice_chain fits the EQ per roll, keeps the compressor off, ducks the bed at <= -30 dB, mixes the
+    # SFX bed as --extra and finishes with measured gain + alimiter to -14 LUFS / -2.5 dBTP in PCM
+    # (the AAC then lands <= -1.5). The old two-pass loudnorm + hand-fitted VOICE/BED_EQ live in git.
+    import subprocess as _sp
     os.makedirs("sfx", exist_ok=True)
     C = cues(); build_sfx(C)
-    fc = chain(); m = measure(fc)
-    print("measured:", {k: m[k] for k in ("input_i", "input_tp", "input_lra")})
-    # TP target -2.5, not -1.5, because the DELIVERED file is AAC and the AAC encoder
-    # overshoots. Measured on this mix, all three at 256k:
-    #     loudnorm TP     PCM dBTP    delivered AAC        integrated
-    #        -1.5           -1.50        +0.28  FAIL         -14.15
-    #        -2.0             --         -0.44  FAIL (gate is -0.5)
-    #        -2.5             --         -1.47  PASS         -14.74
-    # so the encoder adds ~1.8 dB here and the headroom costs ~0.3 LUFS per 0.5 dB.
-    # That trade is worth taking; it is NOT the alimiter trade the skill warns about,
-    # which costs a dB of loudness per dB of peak.
-    ln = (f"loudnorm=I=-14:TP=-2.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
-          f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:"
-          f"offset={m['target_offset']}:linear=true")
-    subprocess.run([FF, "-nostdin", "-y", "-v", "error",
-        "-i", VOICE_WAV, "-i", MUSIC, "-i", "sfx/bed.wav",
-        "-filter_complex", f"{fc};[premix]{ln}[aout]", "-map", "[aout]",
-        "-t", f"{DUR:.3f}", "-c:a", "pcm_s24le", "audio/final_mix.wav"], check=True)
-    print("audio/final_mix.wav done")
+    r = _sp.run(["python3", "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/voice_chain.py", "--in", VOICE_WAV, "--out", "audio/final_mix.wav",
+                 "--bed", MUSIC, "--bed-db", str(MUSIC_DB), "--extra", "sfx/bed.wav"])
+    raise SystemExit(r.returncode)

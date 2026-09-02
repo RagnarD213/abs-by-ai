@@ -5,6 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const { SEGMENTS } = require('./segments.js');
+const AUDIO = require('/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/qclib.js');
 
 // Posting order. B first: it is the most self-contained beat in the video and the only one
 // that works with no setup at all. Then relatable (E), stat hook (J), the thesis that sells
@@ -22,6 +23,9 @@ ORDER.forEach((id, i) => {
   if (!seg) throw new Error(`unknown segment ${id}`);
   const src = path.join(__dirname, 'out', `${id.toLowerCase()}_${seg.slug}.mp4`);
   if (!fs.existsSync(src)) throw new Error(`missing render: ${src}`);
+  // no audio-gate stamp for THIS build = not deliverable (2026-09-02)
+  const st = AUDIO.requireStamp(src);
+  if (!st.ok) throw new Error(`${id}: ${st.out.split('\n').pop()}`);
   const name = `zep-short${i + 1}_${seg.slug}.mp4`;
   const dst = path.join(OUT, name);
   fs.copyFileSync(src, dst);

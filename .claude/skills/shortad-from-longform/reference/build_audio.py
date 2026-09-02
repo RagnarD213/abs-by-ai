@@ -33,6 +33,8 @@ FF  = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bi
 SRC = ("/Volumes/Extreme/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, "
        "outdoor workout content | jeff chagrin | dan rose/C1591.MP4")
 HIS = "ref_audit/his.wav"
+sys.path.insert(0, '/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio'); from common import load_source
+LAV = load_source(SRC)   # pick_lav.py decides which track is the lav on THIS roll; never a channel number
 MUSIC = "music/funk_break.mp3"
 FPS = 30000/1001; SR = 48000
 BANDS = [(80,150),(150,250),(250,400),(400,700),(700,1200),(1200,2000),
@@ -80,7 +82,7 @@ def conform():
             n = int(round(s['frames']*SR*1001/30000))
             if not os.path.exists(o):
                 sh([FF,'-v','error','-y','-ss',f'{s["src_in"]:.4f}','-i',SRC,
-                    '-af',f'pan=mono|c0=c1,atrim=end_sample={n},asetpts=N/SR/TB',
+                    '-map', LAV['map'], '-af', f"{LAV['filter']},atrim=end_sample={n},asetpts=N/SR/TB",
                     '-ar',str(SR),'-ac','1','-c:a','pcm_s16le',o])
             f.write(f"file a{s['i']:03d}.wav\n")
     sh([FF,'-v','error','-y','-f','concat','-safe','0','-i','aud/list.txt','-c','copy','voice_raw.wav'])
