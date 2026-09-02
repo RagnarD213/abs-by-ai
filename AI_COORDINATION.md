@@ -235,6 +235,11 @@ button appears under the timer.
 
 Each has a Key dashboard task. Run in a fresh session.
 
+- **`Handoffs/handoff-20260902-shorts-centering-queue-fix.md`** — **URGENT, 09-05 deadline.**
+  YouTube has been publishing the pre-8/27 off-centre Shorts (the native queue was never
+  swapped; 4 already live, 6 still scheduled, `v2-short7` goes out 09-05). One Blotato post
+  (09-07 `v2-short1`, IG + TikTok) still has the stale file. `v6-short2` and `v6-short5` are
+  off-centre in their CURRENT masters. Dan is deleting `rqyK5IDsxX0` himself.
 - **`Handoffs/handoff-20260901-danrosefit-ad-identity-fix.md`** — the @danrosefit follower
   campaign. Blocked on a Meta page-permission error; the draft ad set is in an error state
   and nothing is spending. **It opens by asking Dan whether the two-step funnel is still
