@@ -230,59 +230,32 @@ button appears under the timer.
 
 ---
 
-**IG engagement campaign — REBUILT CLEAN VIA API, PAUSED, NEEDS CREATIVES** (2026-09-02).
-The 9/01 handoff's draft ad set was **unreachable**: unpublished Ads Manager drafts are invisible to
-the Marketing API, so campaign `120250711730650682` / ad set `120250711730660682` could not be
-repaired. Built a correct replacement from scratch instead — no draft weirdness, no Advantage+
-reversion, no budget-leak checkbox (impossible by construction with `publisher_platforms:[instagram]`).
+**IG engagement campaign — BUILT, PAUSED, ONE BLOCKER. HANDED OFF.**
+`Handoffs/handoff-20260902-ig-engagement-ad-identity.md` (Key dashboard task added).
+Campaign `120250753198730682` + ad set `120250753601020682` are built correctly and PAUSED
+($10/day, IG-only, profile-visits, men 25–54, US/CA/GB/IE/AU/NZ, Advantage audience off).
+**Blocker: Ads Manager runs the ad as @abs.by.ai while the posts belong to @danrosefit →
+#2238052.** Eleven API approaches are ruled out and listed in the handoff — read that table before
+touching the API. Untried lead: the Identity control in the ad set editor UI.
+Page-permission errors #1487202/#1341012 are NOT the blocker — they cleared on reload (Meta async
+validation lag); permissions verified correct at Page, IG and ad-account level.
+⚠ Ads MUST boost the two EXISTING @danrosefit posts (`18188183254395331`, `18192762022391478`), not
+fresh uploads — ManyChat listens on those posts' comment threads. Dan was explicit.
+⚠ Never click Ads Manager's global "Review and publish (7)" — abandoned 9/01 draft.
 
-- Campaign `120250753198730682` `[DAN] [TRAFFIC] IG PROFILE VISITS - danrosefit`, OUTCOME_TRAFFIC, PAUSED
-- Ad set `120250753200250682`, PAUSED, $10/day, `VISIT_INSTAGRAM_PROFILE`, dest `INSTAGRAM_PROFILE`,
-  promoted page `1380236418500031`, IG-only (stream/story/reels/explore_home/profile_feed/ig_search),
-  men 25–54, US/CA/GB/IE/AU/NZ, `advantage_audience:0`, lowest-cost bidding.
-- ✅ **The #1487202 Page-permission blocker is GONE** — ad set created against the Daniel Rose Fitness
-  page with no error, after granting the system user `ADVERTISE`+`ANALYZE` on that page via API.
-- ✅ @danrosefit (`17841401601139982`) verified connected to the ad account via API.
-
-**BLOCKED ON ONE UI STEP (Dan, ~3 min).** Ads cannot be created because app `1598463548528030`
-is in **Development mode**: "Ads creative post was created by an app that is in development mode.
-It must be in public to create this ad." Publishing needs a privacy URL + category, and
-**Meta disables app-settings writes via API** ("Changing app settings through API calls has been
-disabled for this app"), so this cannot be done headlessly.
-Dan: developers.facebook.com → app → **App settings → Basic** → Privacy Policy
-`https://absbyai.com/privacy`, Terms `https://absbyai.com/terms`, App domain `absbyai.com`,
-pick a Category → Save → then toggle the app to **Live**. Then a session finishes in minutes.
-✅ Both videos ALREADY uploaded to the ad account and processed: intro reel `1786872992455194`,
-3-min total body `1845227913307673`. Creative + ad creation is all that remains, then unpause.
-⚠ Boosting the ORIGINAL organic posts is not possible on current scopes: `source_instagram_media_id`
-needs an Instagram media **V2 id**, obtainable only via `instagram_basic`, which is not a valid scope
-for this app (needs an Instagram use case added). Base64-decoding the permalink shortcode gives the
-media PK, which Meta rejects. So these ads are fresh uploads and will NOT carry the organic posts'
-likes/comments. Swap to real post-boosts later if Dan adds the Instagram use case.
-
-**Meta API access — WORKING.** System user `abs-automation` (`61594096438582`, app-scoped
-`122096883771469881`), Admin, 7 assets. `META_ADS_TOKEN` + `META_APP_SECRET` in
-`~/.absbyai-secrets.env` (0600). Scopes: `ads_management, ads_read, business_management,
-pages_manage_posts, pages_read_engagement, pages_show_list`. Never expires.
-⚠ **The Business Settings "Generate token" UI silently fails for ads scopes** (bounces to the
-regular screen, no error, despite Dan being app Administrator — the "not an admin" warning it shows
-is stale/wrong). **Mint tokens via API instead:**
-`POST /{system_user_id}/access_tokens?business_app={app_id}&scope=...&appsecret_proof=HMAC-SHA256(token, app_secret)`.
-That is how the working token was issued. Marketing API use case had to be added to app
-`1598463548528030` first (Add use cases → "Create & manage ads with Marketing API" — NOT the
-"Meta Ads Manager" one, which explicitly excludes Marketing API access).
-⚠ **`ads_read` is now live → the blind morning ads digest can read Meta.** Untested against the
-digest; next session should run `scripts/ads/ads-digest.js` and confirm the Meta half populates.
-⚠ `instagram_basic` and `pages_manage_metadata` were NOT offered in the scope list; re-run the API
-mint with them included to test whether they can be granted that way.
-
-**ID corrections to the 9/01 handoff:** duplicate Page's real id is **`1348044195050800`** (the
-handoff's `61593951123927` is its business-asset id). Keeper is `1380236418500031`. The duplicate is
-still NOT deleted — irreversible, deferred for Dan. ⚠ **Do not use the API to decide which page to
-delete**: `instagram_business_account` reads empty for ALL pages on this token, including the Abs by
-AI page that demonstrably has one. False negative. Use Business Settings ("@danrosefit shares these
-permissions" / red-D avatar).
-⚠ IG `explore` placement is **deprecated** in v21.0 and rejects ad set creation; use `explore_home`.
+**Meta API access — WORKING.** `META_ADS_TOKEN` (system user `abs-automation`, never expires:
+ads_management, ads_read, business_management, pages_show_list, pages_read_engagement,
+pages_manage_posts, instagram_basic) + `META_APP_SECRET` in `~/.absbyai-secrets.env`.
+⚠ The Business Settings token UI silently fails for ads scopes even for an app Administrator —
+**mint via `POST /{system_user_id}/access_tokens` with `appsecret_proof`** (recipe in the handoff).
+⚠ **`ads_read` is live → the blind morning ads digest can now read Meta. UNTESTED** — next session
+should run `scripts/ads/ads-digest.js` and confirm the Meta section populates.
+⚠ App `1598463548528030` is still in Development mode; that blocks creatives from NEW uploads (not
+from boosting existing posts). App-settings writes are disabled via API — UI only.
+⚠ Duplicate Page's real id is **`1348044195050800`** (9/01 handoff's `61593951123927` is its
+business-asset id). Keeper `1380236418500031`. Not deleted. **Do not use the API to tell them
+apart** — `instagram_business_account` reads empty for ALL pages, a false negative.
+⚠ IG `explore` placement is deprecated in v21.0; campaigns now require `is_adset_budget_sharing_enabled`.
 
 ---
 
