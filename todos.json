@@ -295,6 +295,12 @@
       "priority": "key",
       "addedAt": "2026-09-02",
       "why": "handoff-20260902-shoot-audio-standard.md - Dan rejected this audio 4x; root cause is room reverb (85ms vs 40ms), fixed on spray tan, NOT yet applied to the Zepbound or supplements shorts"
+    },
+    {
+      "text": "Execute handoff: fix every off-centre Short still queued on YouTube + Blotato (stale pre-8/27 files, v6-short2/5 re-cut)",
+      "priority": "key",
+      "why": "Handoffs/handoff-20260902-shorts-centering-queue-fix.md — created but not yet run; YouTube 09-05 slot is the deadline",
+      "addedAt": "2026-09-02"
     }
   ],
   "health": [
