@@ -18,7 +18,8 @@
     "money::Catch TikTok up to the posting schedule (manual backfill)",
     "money::Execute handoff: connect TikTok to Blotato + mirror the 23 queued @danrosefit videos",
     "money::Execute handoff: website conversion video REV 2 (audio to Muhammad's standard, tight framing, sparse graphics)",
-    "money::Execute handoff: finish @danrosefit IG profile-visits ads (identity blocker)"
+    "money::Execute handoff: finish @danrosefit IG profile-visits ads (identity blocker)",
+    "money::Execute handoff: website conversion video REV 3 (head-anchored crops, cut the repeated line, captions clear of lower thirds)"
   ],
   "log": {
     "health::Shower": [
@@ -242,6 +243,7 @@
     "money::Catch TikTok up to the posting schedule (manual backfill)": "2026-09-02",
     "money::Execute handoff: connect TikTok to Blotato + mirror the 23 queued @danrosefit videos": "2026-09-02",
     "money::Execute handoff: website conversion video REV 2 (audio to Muhammad's standard, tight framing, sparse graphics)": "2026-09-02",
-    "money::Execute handoff: finish @danrosefit IG profile-visits ads (identity blocker)": "2026-09-02"
+    "money::Execute handoff: finish @danrosefit IG profile-visits ads (identity blocker)": "2026-09-02",
+    "money::Execute handoff: website conversion video REV 3 (head-anchored crops, cut the repeated line, captions clear of lower thirds)": "2026-09-02"
   }
 }
