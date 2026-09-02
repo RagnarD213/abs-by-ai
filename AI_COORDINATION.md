@@ -60,6 +60,17 @@ copies delivered. ⚠ **Whichever wins needs the right-channel audio rebuild** (
 were rendered before that fix) — `edit/build_audio_singlemic.py` + `finish_audio_invest.py`,
 muxed `-c:v copy`. Then style pass → graphics → captions → deliver.
 
+**Longforms 02 + 03 — PACKAGED; BLOCKED ON DAN DRAGGING THE TWO FILES IN.** ⚠ Verified in
+Studio 2026-09-02: **neither video is uploaded** (the channel has 8 videos, neither is Zepbound
+or supplements), so the thumbnails cannot be installed and no A/B test can be created — YouTube's
+Test & Compare needs an existing video. **Claude cannot upload the files**: the Chrome extension's
+`file_upload` is hard-capped at **10 MB** and these are 1.30 GB and 0.91 GB, and the stored
+`GOOGLE_REFRESH_TOKEN` is calendar-only so the Data API route needs a fresh consent. The upload
+dialog is left open in Dan's Chrome and both files are revealed in Finder. **Once they are in,
+one session installs everything** (title, description, tags, chapters, `.srt`, thumbnail A,
+settings) and starts Test & Compare with thumbnail B — thumbnails DO upload fine through
+`file_upload`, which supersedes the clipboard-paste trick in `/youtube-packaging`.
+
 **Longforms 02 + 03 packaging — DONE, Dan uploads.** `/youtube-packaging` run on both
 (2026-09-02, $0.002 AI spend, no code, no deploy, nothing touched in YouTube Studio).
 `PACKAGING.md` in each video folder carries 5 titles with a recommendation, the paste-ready
@@ -69,6 +80,9 @@ thumbnails/{My Honest Zepbound Update, The Supplements I Actually Take}/`, plus
 `COMPARE_*.jpg` sheets sent in chat. Type is the measured Brandon Carter system from the
 ab-wheel `STYLE.md`; skin saturation is 1.18 not his 1.55, deliberately. **No drug name in
 any graphic** — the titles carry "Zepbound", the boards say "the shot" / numbers only.
+**REV 1 (Dan, same day): Zep B now reads 192 -> 178 LBS**, his current weight, not the 181 the
+video says — the description carries the 178 so the two agree. **Supp A is now "AI / SUPPLEMENT /
+STACK" with the real bottles**, replacing "ONLY 3 MATTER". Superseded files deleted.
 Dan: pick a title, install thumbnail A, **upload the `.srt` sidecar** (neither cut has
 burned captions). ⚠ 02's on-screen photos at **8:51 (192 lbs) and 9:12 (181 lbs) are still
 empty slots** — only Dan knows which photo is which; ten-minute fix.
