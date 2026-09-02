@@ -435,6 +435,13 @@
       "recurring": false,
       "addedAt": "2026-09-02",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Take out trash",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-02",
+      "addedBy": "assistant"
     }
   ]
 }
