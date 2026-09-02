@@ -296,8 +296,12 @@ Each has a Key dashboard task. Run in a fresh session.
   worth the effort** — unblocking has eaten most of two sessions for a $10/day campaign, and
   running from @abs.by.ai works today with zero further setup. ⚠ Two Pages named "Daniel
   Rose Fitness" exist: keep `1380236418500031`, delete `61593951123927`.
-- **`Handoffs/handoff-20260831-google-ads-api-setup-engagement-ad-automation.md`** —
-  engagement-ad automation. Phase 1 is the Google Ads developer token.
+- **`Handoffs/handoff-20260902-google-ads-engagement-champion-automation.md`** — YouTube
+  engagement champion, design LOCKED with Dan 2026-09-02: every new video → one $5 test ad in each
+  of the three DGEN campaigns (spend read, then paused), one champion per campaign on cost/conv,
+  day-one pause of the losing hand-made ads, no approval gate. Brain on our server, hands = Google
+  Ads Script; apply for the API developer token in the same session. Supersedes the 8/31 handoff's
+  loop (its Phase 1 API steps still apply). Fable 5.1 high.
 
 ---
 

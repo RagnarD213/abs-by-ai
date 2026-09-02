@@ -1,3 +1,8 @@
+> **SUPERSEDED 2026-09-02** by `Handoffs/handoff-20260902-google-ads-engagement-champion-automation.md`.
+> The $20/$100 loop and the approve-copy-first gate below are dead (Dan's decisions 2026-09-02: $5 tests
+> inside the existing campaigns, one champion per campaign, publish immediately). The **account facts** and
+> **PHASE 1 — API access** sections remain correct and are referenced from the new doc.
+
 # HANDOFF: Google Ads API setup → engagement-ad automation for new YouTube videos
 
 - **Handing off from:** Claude Code (scoping session, 2026-08-31)
