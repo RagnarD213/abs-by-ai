@@ -1356,6 +1356,12 @@ and the circular cut-cleanliness metric in Step 3 reported the exact opposite of
   measured true peak means the target I and TP cannot both be met by one gain, ffmpeg silently
   falls back to `dynamic` and compresses the programme (on V4 it took LRA 4.40 → 4.20). Prefer
   an explicit `volume=<gain>dB` + `alimiter`, and read `normalization_type` in the pass-2 JSON.
+  ⚠ **Reading the JSON is not enough — prove it on the finished MP4** with
+  `/shortad-from-longform reference/gain_flatness.py SOURCE OUT --gain G`, which takes the
+  per-second RMS ratio against the source and fails on any second sitting ABOVE the constant
+  gain. That is what a fallback-to-dynamic looks like, and it is why Dan rejected the Ad-1
+  vertical on 2026-09-02: 133 of its 232 seconds were being pushed up, by as much as 5.3 dB,
+  while every correlation and loudness check read green.
 - **AAC overshoots the WAV's true peak, and by how much depends on the content.** Same chain,
   two builds of the same video: 0.14 dB overshoot with one bed, **0.99 dB** with another. Do not
   set the limiter from a remembered number — sweep it, encode, and measure the true peak **on the

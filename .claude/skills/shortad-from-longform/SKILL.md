@@ -219,12 +219,48 @@ turns a 4-minute video into ~16 frames to inspect.
 > the approach Dan approved on the Ad-1 vertical: "this audio sounds great … probably
 > even better than Muhammad's."** The full-length 9:16 master is frame-locked to the
 > reference's timeline, so the reference render's ENTIRE audio track — the editor's voice
-> edit, his music bed, everything — goes under the rebuilt picture VERBATIM. Processing
-> is exactly two steps: a linear two-pass `loudnorm` from the editor's level (typically
-> −18 LUFS) to ad spec **−14 LUFS**, then `alimiter=limit=0.79:level=disabled` before
-> the AAC encode (AAC overshoots the wav's true peak by ~0.5–0.7 dB; `level=1`, the
-> default, BOOSTS the whole mix — always disable it). Dan explicitly prefers the lifted
-> loudness: the editor's own level "was a little bit too quiet."
+> edit, his music bed, everything — goes under the rebuilt picture VERBATIM.
+>
+> ## ⚠⚠ NEVER RUN `loudnorm` ON THE REFERENCE'S MIX. PURE GAIN + LIMITER, ALWAYS.
+> **(Dan, 2026-09-02: "the audio sounds horrible … nowhere near as good as Muhammad's …
+> never deliver anything again that doesn't sound like Muhammad's videos.")** The Ad-1
+> vertical shipped his mix through `loudnorm`, which **silently fell back to DYNAMIC mode**
+> — his master was −18.2 LUFS already peaking at +0.0 dBTP, so a +4 dB LINEAR lift under a
+> true-peak ceiling is arithmetically impossible and loudnorm compressed instead of erroring.
+> Measured on the delivered file: the gain it applied swung **+1.2 dB to +9.5 dB second to
+> second (sd 1.00 dB)** and LRA fell **3.5 → 2.4 LU**. In the ear that is the bed and the
+> room tone swelling up 9 dB in every gap — worst in the first two seconds of the hook.
+> The per-second CORRELATION with his mix was 0.997, so every provenance check said the
+> audio was his; correlation is level-normalised and **cannot see a slow gain envelope.**
+>
+> The processing is: **`volume=<G>dB` (one constant gain), then
+> `alimiter=limit=0.85:level=disabled`**, compensating the limiter's **239-sample latency**
+> (`atrim=start_sample=239,apad=pad_len=239` — re-measure it if you change `attack`, which
+> changes the latency and will silently desync the whole track). Iterate G two or three
+> times to land the ENCODED file inside −14 ±0.8 LUFS and ≤ −1.0 dBTP; on Ad 1, G = +4.2 dB
+> → −14.5 LUFS / −1.3 dBTP / LRA 2.8 / per-second gain sd **0.51**. Ceiling 0.85 rather than
+> 0.79 because the shallower ceiling makes the limiter do less work on an already-brickwalled
+> master (0.79 cost 0.1 LU of LRA for nothing). `level=1`, the limiter's default, BOOSTS the
+> whole mix — always disable it; AAC overshoots the wav's true peak by ~0.5–0.7 dB.
+>
+> **THE GATE — `reference/gain_flatness.py SOURCE OUTPUT --gain G`, run on the ENCODED
+> deliverable, never on the intermediate wav.** It takes the per-second RMS ratio against the
+> reference's mix and tests it ONE-SIDED, which is the whole trick: a limiter can only pull
+> the loudest seconds DOWN, while a compressor pushes quiet ones UP. Nothing above G
+> (max ≤ G + 0.05 dB), p90 ≥ G − 0.25 (most of the file untouched), min ≥ G − 2.5 (shaving,
+> not gouging). On the two Ad-1 files it separates them outright: fixed reads
+> max +4.20 / p90 +4.20 / median +4.11 / min +2.03 → PASS; the rejected one reads
+> max +9.45 with **133 of 232 seconds sitting above the constant gain** → FAIL.
+>
+> ⚠ **Do NOT gate on the standard deviation.** I tried sd ≤ 0.35 dB first and it failed the
+> GOOD file — a correct master measures sd ≈ 0.51 dB purely from legitimate downward shaving,
+> and the only way to make an sd gate pass it is to loosen it until the bad file passes too.
+> Report sd, gate the ceiling. Also report LRA against the reference's — losing more than
+> ~0.8 LU means the lift is too big for that master (Ad 1: his 3.5 → ours 2.8).
+>
+> Dan does still want the lift ("was a little bit too quiet") — but **level never comes
+> before the sound.** If a reference master is hot enough that −14 cannot be reached with a
+> flat gain, take the smaller lift and say so.
 >
 > The conform voice (everything below in this step) is still built — but it is a
 > **LIP-SYNC PROXY, not a deliverable**. Before muxing, xcorr every EDL segment's
@@ -369,7 +405,7 @@ vlib.py            vertical layout library (plates, type-on reveal, lower thirds
 beats.py           beat sheet stepped at 1s off HIS cut + PUSHES + FLASHES + LOWER_THIRDS
 render.py          one output segment per beat -> concat -> overlays (shifted, not gated)
 build_audio.py     right-channel voice -> EQ fitted to HIS mix -> bed -> HIS_SFX list
-finish_audio.py    two-pass loudnorm + spectral verification
+finish_audio.py    CONSTANT gain + alimiter (NEVER loudnorm) + the flat-gain gate
 captions.py        word-timed, suppressed under text graphics, with a typo correction map
 a2/watch.py        THE GATE: per-frame scan + a consecutive-frame strip at every boundary
 qc.py              15 checks, the last of which is "the watch pass was done"
@@ -484,7 +520,7 @@ incoming one -- and overlay it so it REPLACES the incoming segment's first frame
 length is preserved exactly because nothing is inserted. Then re-render only the beats that
 read from the base.
 
-Only then run `reference/qc.py`, which is now **16 checks**:
+Only then run `reference/qc.py`, which is now **17 checks**:
 
 1 frame size 1080×1920 · 2 fps 29.97 · 3 duration matches the reference · 4 −14 LUFS ±0.8 ·
 5 true peak ≤ −1.0 dBTP · 6 L/R correlation > 0.98 · 7 ≥ 9 visual changes/min ·
@@ -496,7 +532,11 @@ fixed crop (≥ 25 % of talk inside a push)** · **13 SFX no denser than one per
 exact file** — check 15 reads `logs/watch_pass.json` and refuses to pass without it, which
 is the only way a "watch the video" rule survives contact with a build that is running late ·
 **16 audio integrity: the audio stream runs the video's full length AND no second of the
-file is silent** (per-second RMS scan; run it on review copies too).
+file is silent** (per-second RMS scan; run it on review copies too) · **17 the audio is
+FLAT against the reference's mix — per-second RMS ratio sd ≤ 0.35 dB and no second more
+than 0.6 dB above the mean, measured on the ENCODED deliverable.** Check 17 is the one
+that catches a compressor having got into the chain; per-second correlation cannot, because
+it is level-normalised (Ad 1 scored 0.997 while sounding, in Dan's words, horrible).
 
 ---
 
@@ -581,7 +621,8 @@ necessary, take things directly from his video."* Eight lessons, each paid for:
    AUDIO.** The conform voice is a lip-sync proxy, not a deliverable: every EDL
    imprecision becomes a clipped word or an awkward splice in it, and no amount of EDL
    polish reaches a hand-cut mix. The reference's own audio drops under the rebuilt
-   picture verbatim (one linear loudnorm to ad spec) — which erases the whole class of
+   picture verbatim (one CONSTANT gain + limiter to ad spec — never `loudnorm`, see Step 4)
+   — which erases the whole class of
    conform-audio artifacts AND settles the music-bed question (the bed is his). Before
    muxing, xcorr every EDL segment's conform voice against his audio in its cut window
    (band 300–3400, per-segment windows — whole-file windows straddle offset changes and

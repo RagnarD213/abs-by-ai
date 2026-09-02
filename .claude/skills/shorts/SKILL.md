@@ -761,6 +761,11 @@ either side of a splice. Never `acrossfade` — it shortens the audio and unlock
 every short a different level: six sections produced -13.2 to -18.0 LUFS, a 4.8 dB spread that a
 viewer hears the moment they scroll from one to the next. `normalize.js`, linear loudnorm to -14
 with a limiter, video copied.
+⚠ **`linear=true` is a request, not a guarantee** — when the source is already near 0 dBTP ffmpeg
+silently falls back to dynamic mode and compresses the mix, which is what Dan rejected on the Ad-1
+vertical on 2026-09-02 ("sounds horrible ... never deliver anything again that doesn't sound like
+Muhammad's videos"). Prefer an explicit `volume=<gain>dB` + `alimiter=level=disabled`, and prove it
+on the finished MP4 with `/shortad-from-longform reference/gain_flatness.py SOURCE OUT --gain G`.
 
 **Burned graphics are shown whole or cropped off — never sliced.** Measure them (`work/gfxbox.py`,
 `work/ltwindows.py`); on that cut the top pill was 1595 px wide, 83% of the frame, so no horizontal
