@@ -307,6 +307,12 @@
       "priority": "key",
       "why": "Handoffs/handoff-20260902-website-video-rev3.md — created 2026-09-02, not yet run; rev 2 approved on audio, rejected on headroom + a repeated line + caption/lower-third overlap",
       "addedAt": "2026-09-02"
+    },
+    {
+      "text": "Execute handoff: unify audio standard across all video skills (one shared lav-pick + chain + gate vs Muhammad's ad, stamp required by every QC)",
+      "priority": "key",
+      "why": "handoff-20260902-audio-standard-unification.md — created but not yet run; supersedes items 3-4 of the shoot-audio-standard handoff",
+      "addedAt": "2026-09-02"
     }
   ],
   "health": [
