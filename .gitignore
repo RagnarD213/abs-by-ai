@@ -117,3 +117,9 @@ social media graphics/
 
 # AI transformation results of real people (public repo — never commit)
 after-photo-results/
+
+# personal unemployment paperwork (contains home address) - never commit
+TWC work search/
+TWCCorrespondence.pdf
+scripts/blotato/swap_backup/
+.claude/skills/shorts/reference/recentre/personmask

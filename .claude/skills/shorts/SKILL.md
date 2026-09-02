@@ -488,6 +488,58 @@ edit) and re-run `node render.js <SEG>`. ~1–3 min per short. Assert against th
 file afterwards: **identical frame count, duration, resolution, fps and audio MD5** — the
 crop is the only thing that may differ.
 
+### ⚠ A RE-CUT IS NOT FINISHED UNTIL EVERY QUEUE HOLDING THE FILE HAS BEEN SWAPPED (2026-09-02)
+
+**Dan's rule, stated 2026-09-02: "No centering issues like this can be allowed in posted content."**
+The 8/27 re-centre fixed ten masters and swapped 25 Blotato posts, and then left the natively
+scheduled YouTube copies "for Dan to decide". Nobody decided. **YouTube kept publishing the old
+off-centre files on schedule** — four went live (`y0XIbNoA2Xo`, `P9VUGyWeNtY`, `VOlZHV1ibmU`,
+`rqyK5IDsxX0`) before Dan caught one on 2026-09-01. One Blotato post was also missed.
+
+1. **Inventory every queue before you re-cut**: Blotato (`fetch_schedules`, all four accounts —
+   IG `67203` + `65632`, Facebook `47105`, TikTok `58181`), YouTube Studio's Shorts list (read the
+   schedule with `row.polymerController.__data.video`), and anything Dan posts natively. Write
+   the list down; the swap is done when every row on it is verified.
+2. **Blotato: create-then-delete, or delete-then-create at the 200 cap.** `scripts/blotato/swap_media.py MAP.json --apply`
+   recreates each post with the identical account, target (cover, first comment, privacy flags),
+   caption and `scheduledTime`, backs the old body up to `scripts/blotato/swap_backup/` first, and
+   the Starter plan refuses creates at 200 with a clean 422 (code 20010) — so at the cap the
+   script deletes first. **Verify by downloading the new media and MD5-matching the master**;
+   Blotato re-hosts under a new UUID and URL comparison proves nothing. Allow ~10 s before the new
+   schedule appears in the list.
+3. **YouTube cannot swap a file. A scheduled Short gets: old → Private (unscheduled), corrected
+   master uploaded as a NEW video with the identical title / description / tags / made-for-kids /
+   date / 5:00 PM time, then the old one deleted after the new one reads Scheduled.** Never leave
+   this "for Dan" — it is the step that shipped four off-centre Shorts.
+   - **The upload needs no file picker and no Dan.** The Studio page can `fetch()` a public https
+     URL (Blotato's storage, `access-control-allow-origin: *`; localhost is blocked by Chrome's
+     private-network rules) and hand the blob to the dialog:
+     `input[type=file][name=Filedata]` ← `DataTransfer` + `change` event. 34 MB uploads in ~5 s.
+   - Title/description: `execCommand('insertText')` into `#title-textarea #textbox` /
+     `#description-textarea #textbox` inside `ytcp-uploads-dialog`. Kids: click
+     `tp-yt-paper-radio-button[name=VIDEO_MADE_FOR_KIDS_NOT_MFK]`. Tags: `#toggle-button` (Show
+     more) then per tag set the input value via the native setter + `input` event, dispatch
+     keydown+keyup `,`, clear. 15 channel tags are inherited — add only the video's five.
+   - Schedule: date via a REAL click on the date chevron then a real click on the day in the
+     calendar (typing into the field does not land); time via a real click on the field, then
+     JS `scrollIntoView` on the `tp-yt-paper-item` whose text is `5:00 PM`, then a real click on
+     it. Verify both by zoom, THEN click Schedule, THEN read the confirmation dialog.
+   - Making the old one Private from its details page: JS click
+     `ytcp-video-metadata-visibility #select-button` (a real click after a fresh navigation is
+     swallowed until the page hydrates), then `#first-container-expand-button`, the
+     `tp-yt-paper-radio-button[name=PRIVATE]`, and the dialog's own `ytcp-button#save-button`
+     (that is its Done). The page Save must be `setTimeout(()=>save.click(),100)` and returned
+     from immediately — awaiting anything after the page Save inside one evaluate hangs CDP for
+     45 s. Verify `ytcp-button#save` is disabled and `#visibility-text` reads Private.
+   - The metadata read-back JS must mask query strings (`.replace(/\?utm[^\s]*/g,'?UTM')`) or the
+     tool refuses to return it; rebuild the UTM from the plan's campaign + slug.
+4. **Run `recentre/delivered_gate.py` on the delivered file and LOOK at the strip** before any of
+   the above; nothing ships on the numbers alone. Metric verdicts from this audit: the torso
+   anchor under-reports a SEATED subject whose legs extend to one side (`v6-short2` measured head
+   −2 px / upper body +7 px in the delivered file and was left alone against the handoff's
+   instruction to re-cut it), and over-reports a standing subject next to a floor prop (`v6-short3`
+   at +186 px was genuinely off and was re-cut to 0.555).
+
 ### ⚠ STANDING RULES: contain the body, never slice a graphic (2026-08-28)
 
 Dan, after rev 3: *"make sure I'm not going off screen when I do the ab wheel rollout. Center

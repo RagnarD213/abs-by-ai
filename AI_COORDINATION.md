@@ -297,12 +297,12 @@ Each has a Key dashboard task. Run in a fresh session.
 
 # ACTIVE TASK
 
-**Shorts centring queue fix — IN PROGRESS** (Claude Code, 2026-09-02, executing
-`Handoffs/handoff-20260902-shorts-centering-queue-fix.md`). Re-cutting `v6-short5` (R) and
-`v6-short3` (N) in `YouTube Long Form Video Content/v6-3min-home-workout/` — do not render there
-from another session. `v6-short2` measured centred (head −2 px, upper body +7 px in the seated
-section) and is NOT being re-cut. Then Blotato swaps (10 posts) and the YouTube Studio
-private→re-upload for the 6 stale scheduled Shorts.
+**Shorts centring queue fix — EXECUTED 2026-09-02, closing out** (Claude Code). Blotato: 10 posts swapped
+and MD5-verified. YouTube: 8 stale/off-centre scheduled Shorts replaced by new uploads at the same slots
+(`SHORTS_UPLOAD_PLAN.json` has old→new ids); old copies + `v6-short1` set Private/unscheduled, not yet
+deleted. `v6-short3`/`v6-short5` re-cut; `v6-short2` measured centred and left. **Open for Dan: the 4
+already-PUBLISHED off-centre Shorts (`y0XIbNoA2Xo`, `P9VUGyWeNtY`, `VOlZHV1ibmU`, `rqyK5IDsxX0`) — delete
+and re-upload on the next open Tue/Thu/Sat slots, or leave.**
 
 
 **04 invest-health — style-standard rebuild IN PROGRESS** (Claude Code, 2026-09-02).
