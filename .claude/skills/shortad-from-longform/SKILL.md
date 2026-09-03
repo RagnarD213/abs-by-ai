@@ -840,6 +840,13 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
     0.0 dBTP the audit's arithmetic showed +5.0–5.2 dB reaches −14.7 with 21 fewer limited seconds than
     +5.8 — take the smaller lift.
 
+17. **Snap every raw seek to the frame grid.** `-ss <arbitrary fraction> -i RAW` plus a cfr output rate
+    duplicates the FIRST frame of a segment whenever the seek phase is past half a frame — the re-audit
+    counted a duplicated frame right after 9 of 29 cuts (4 of 29 in the earlier base): a 33 ms hold on the
+    incoming frame, invisible, but a defect class. `src = round(src_in*FPS)/FPS + 0.0002` in the conform
+    (`build_base_pic.py`) lands every seek on a frame. Shipped on Ad 2 V2 unfixed, deliberately: the
+    re-render cost an hour for nothing a viewer could see.
+
 12. **Delivery goes beside his file, in the Ad-1 folder's convention:** `Muhammad Ad Videos/<ad>/<ad> |
     claude | 9x16.mp4` + `REVIEW_540p_9x16.mp4` + `AB_audio_his-vs-ours.mp4` + the gate stamp + notes +
     `recipe-vertical-v2/`. The older `EDITED ADS 8-20-26/ad2-fire-your-nutritionist/` folder keeps rev 3.

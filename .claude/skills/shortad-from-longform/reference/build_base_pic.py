@@ -16,7 +16,12 @@ for s in P:
     p = f"segs_pic/{s['i']:03d}_{s['n0']}_{nfr}.mp4"
     parts.append(p)
     if os.path.exists(p) and os.path.getsize(p) > 1000: continue
-    subprocess.run([FF,'-nostdin','-v','error','-y','-ss',f"{s['src_in']:.4f}",'-i',RAW,'-an',
+    # ⚠ SNAP THE SEEK TO THE RAW'S FRAME GRID. An input -ss at an arbitrary fraction of a frame makes
+    # ffmpeg's cfr output duplicate the FIRST frame whenever the phase is past half a frame (the re-audit
+    # found a duplicated frame right after 9 of 29 cuts, 4 of 29 in the previous base -- a 33 ms hold, not
+    # visible, but a defect class). Snapping src_in to k/FPS (+ a hair) lands the seek on a frame.
+    src = round(s['src_in']*FPS)/FPS + 0.0002
+    subprocess.run([FF,'-nostdin','-v','error','-y','-ss',f"{src:.5f}",'-i',RAW,'-an',
                     '-vf', f'{GRADE},scale=1920:1080','-r',f'{FPS:.6f}','-frames:v',str(nfr),
                     '-c:v','libx264','-crf','16','-preset','veryfast','-pix_fmt','yuv420p', p], check=True)
     print(f"seg {s['i']:3d}  frames {s['n0']:5d}+{nfr:4d}  src {s['src_in']:8.3f}  rel {s['rel']:+d}", flush=True)
