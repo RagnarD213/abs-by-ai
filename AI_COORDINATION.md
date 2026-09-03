@@ -319,7 +319,9 @@ under the "generate a future self" line, 16 items total. Section appended to his
 RESULTS screen** (3:18–3:37) is now DONE (2026-09-03, commit `621e169`): a fresh audit was run in the real
 app on Dan's real 12-bottle stack (session 7; medication worded generically so no drug name renders),
 recorded headless at 1080x1920 and linked in the doc — `/ad-assets/app-supplement-audit-results_20s_…mp4`
-+ `…safety-flags_11s_…mp4`, copies beside the doc and in the asset library. Delete this entry once sent.
++ `…safety-flags_11s_…mp4`, copies beside the doc and in the asset library. **Both links are now IN Muhammad's
+Google Doc** (AD 4 → 3:18–3:37, placement verified against his cut: results clip on "which supplements are
+helping" 3:18–3:29, safety card on the medications line 3:29–3:37). Delete this entry once sent.
 
 **Muhammad's Ad 5 (diets) — round 1 reviewed 2026-09-03.** Audio is one mic / dry (gate: image, comb, room
 all PASS) but −18.9 LUFS with the VOICE hitting 0 dBTP in 58 seconds (1,800 clipped samples). Two Google
