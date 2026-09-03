@@ -1,17 +1,12 @@
 {
-  "generatedAt": "2026-09-02T15:14:45.394Z",
-  "day": "2026-09-01",
+  "generatedAt": "2026-09-03T11:07:18.365Z",
+  "day": "2026-09-02",
   "window": {
-    "from": "2026-08-25",
-    "to": "2026-09-01",
+    "from": "2026-08-26",
+    "to": "2026-09-02",
     "baselineDays": 7
   },
   "blind": [
-    {
-      "platform": "meta",
-      "reason": "The stored Facebook token is a PAGE token and carries no ads_read permission.",
-      "setup": "Create a system-user token with ads_read on ad account act_2143998876461525 and store it as META_ADS_TOKEN — Docs/ADS_DIGEST.md has the click path."
-    },
     {
       "platform": "google",
       "reason": "No Google Ads developer token — API access was never set up (handoff Phase 1 unexecuted).",
@@ -19,24 +14,85 @@
     }
   ],
   "totals": {
-    "spendYesterday": null,
-    "spend7dMean": null,
-    "deltaPct": null,
-    "platformsLive": []
+    "spendYesterday": 1.65,
+    "spend7dMean": 6.63,
+    "deltaPct": -0.75,
+    "platformsLive": [
+      "meta"
+    ]
   },
-  "anomalies": [],
+  "anomalies": [
+    {
+      "severity": "high",
+      "platform": "meta",
+      "scope": "campaign",
+      "kind": "spend_stopped",
+      "name": "[DAN] [ENGAGEMENT] IG GEO",
+      "headline": "[DAN] [ENGAGEMENT] IG GEO stopped spending",
+      "detail": "$0.00 yesterday against a 7-day average of $6.63/day — status reads PAUSED.",
+      "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250551172530682"
+    }
+  ],
   "winners": [],
   "platforms": {
     "meta": {
-      "ok": false,
+      "ok": true,
       "platform": "meta",
       "account": "act_2143998876461525",
-      "reason": "The stored Facebook token is a PAGE token and carries no ads_read permission.",
-      "setup": "Create a system-user token with ads_read on ad account act_2143998876461525 and store it as META_ADS_TOKEN — Docs/ADS_DIGEST.md has the click path.",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": null,
-      "campaigns": [],
-      "anomalies": [],
+      "spend": 1.65,
+      "spend7dMean": 6.63,
+      "deltaPct": -0.75,
+      "campaigns": [
+        {
+          "id": "120250753198730682",
+          "name": "[DAN] [TRAFFIC] IG PROFILE VISITS - danrosefit",
+          "status": "ACTIVE",
+          "resultLabel": "video view",
+          "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
+          "spend": 1.65,
+          "results": 46,
+          "impressions": 265,
+          "costPerResult": 0.04,
+          "baseline": {
+            "days": 0,
+            "meanSpend": 0,
+            "totalSpend": 0,
+            "results": 0,
+            "costPerResult": null
+          }
+        },
+        {
+          "id": "120250551172530682",
+          "name": "[DAN] [ENGAGEMENT] IG GEO",
+          "status": "PAUSED",
+          "resultLabel": "link click",
+          "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250551172530682",
+          "spend": 0,
+          "results": 0,
+          "impressions": 0,
+          "costPerResult": null,
+          "baseline": {
+            "days": 2,
+            "meanSpend": 6.63,
+            "totalSpend": 13.26,
+            "results": 68,
+            "costPerResult": 0.2
+          }
+        }
+      ],
+      "anomalies": [
+        {
+          "severity": "high",
+          "platform": "meta",
+          "scope": "campaign",
+          "kind": "spend_stopped",
+          "name": "[DAN] [ENGAGEMENT] IG GEO",
+          "headline": "[DAN] [ENGAGEMENT] IG GEO stopped spending",
+          "detail": "$0.00 yesterday against a 7-day average of $6.63/day — status reads PAUSED.",
+          "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250551172530682"
+        }
+      ],
       "winners": []
     },
     "google": {
@@ -50,6 +106,134 @@
       "campaigns": [],
       "anomalies": [],
       "winners": []
+    }
+  },
+  "autoBoost": {
+    "ok": true,
+    "lastRunAt": "2026-09-03T10:15:35.410Z",
+    "ageHours": 0.86,
+    "stale": false,
+    "dryRun": true,
+    "enabled": false,
+    "report": {
+      "caps": {
+        "reason": null,
+        "testsCap": 300,
+        "testsMtd": 0,
+        "totalCap": 500,
+        "totalMtd": 2.71,
+        "capReached": false,
+        "testsCommitted": 0,
+        "totalCommitted": 2.71
+      },
+      "pair": {
+        "ads": [
+          {
+            "adId": "120250753783950682",
+            "spend": 1.59,
+            "active": true,
+            "visits": 14,
+            "mediaId": "18192762022391478",
+            "costPerVisit": 0.11
+          },
+          {
+            "adId": "120250753783030682",
+            "spend": 1.12,
+            "active": true,
+            "visits": 12,
+            "mediaId": "18188183254395331",
+            "costPerVisit": 0.09
+          }
+        ],
+        "reason": "waiting for both to reach $10.00 ($1.59 / $1.12)",
+        "resolved": false
+      },
+      "skips": [],
+      "tests": [],
+      "dryRun": true,
+      "actions": [
+        "WOULD: rename campaign \"[DAN] [TRAFFIC] IG PROFILE VISITS - danrosefit\" → \"[AUTO] IG PROFILE VISITS - danrosefit\"",
+        "WOULD: rename champion ad set \"IG profile visits - danrosefit v2\" → \"CHAMPION\"",
+        "WOULD: create TEST::17983238982111705 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/DczQmVTmKvm/"
+      ],
+      "created": [
+        {
+          "type": "IMAGE",
+          "mediaId": "17983238982111705",
+          "permalink": "https://www.instagram.com/p/DczQmVTmKvm/"
+        }
+      ],
+      "enabled": false,
+      "metrics": {
+        "followsType": null,
+        "visitsField": "instagram_profile_visits",
+        "visitsReadable": true,
+        "followsReadable": false,
+        "campaignLifetime": {
+          "spend": 2.71,
+          "visits": 26,
+          "follows": 0
+        }
+      },
+      "campaign": "120250753198730682",
+      "champion": {
+        "spend": 2.71,
+        "health": {
+          "action": "unjudged",
+          "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
+          "costPerVisit": 0.1,
+          "costPerFollow": null,
+          "followsReadable": false
+        },
+        "visits": 26,
+        "window": {
+          "days": 7,
+          "since": "2026-08-28",
+          "until": "2026-09-03"
+        },
+        "follows": 0,
+        "activeAds": [
+          {
+            "adId": "120250753783950682",
+            "name": "danrosefit - 3-min total body (existing post)",
+            "media": {
+              "id": "18192762022391478",
+              "caption": "A three-minute total body workout with almost no equipment. Legs, back, chest, a",
+              "postedAt": "2026-08-30T14:04:04+0000",
+              "permalink": "https://www.instagram.com/reel/DcqrXotjlsk/"
+            }
+          },
+          {
+            "adId": "120250753783030682",
+            "name": "danrosefit - channel intro reel (existing post)",
+            "media": {
+              "id": "18188183254395331",
+              "caption": "I was 200 lbs at 38. I had a real six-pack at 40. No trainer, no coach, no progr",
+              "postedAt": "2026-08-25T22:01:23+0000",
+              "permalink": "https://www.instagram.com/reel/DceqQVcEUk-/"
+            }
+          }
+        ],
+        "adsetStatus": "ACTIVE",
+        "dailyBudget": 6.5,
+        "costPerVisit": 0.1,
+        "costPerFollow": null,
+        "followsReadable": false
+      },
+      "verdicts": [],
+      "warnings": [],
+      "events24h": [],
+      "candidates": [
+        {
+          "id": "17983238982111705",
+          "type": "IMAGE",
+          "caption": "Pick a sport, not a cardio machine. The treadmill isn't better than kickboxing. ",
+          "postedAt": "2026-09-02T22:00:26+0000",
+          "permalink": "https://www.instagram.com/p/DczQmVTmKvm/"
+        }
+      ],
+      "generatedAt": "2026-09-03T10:15:32.372Z",
+      "championAdset": "120250753601020682"
     }
   },
   "thresholds": {
