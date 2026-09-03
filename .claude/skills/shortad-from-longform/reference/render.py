@@ -70,11 +70,17 @@ def crop_points(t0, t1):
     for v in N:
         t = v/FPS
         if t0 < t < t1: ts.add(t)
+    pts = {round(x, 6): float(_x_at(x)) for x in ts}
+    # ⚠ THE STEP AT A CUT SITS HALF A FRAME BEFORE THE CUT FRAME, WITH EXPLICIT VALUES. A pair at
+    # (c - 1/FPS, c) rounds (4 decimals in the expression) to a time a hair AFTER the cut frame, so the
+    # cut frame itself evaluated to the OUTGOING crop -- one mis-framed frame at every cut (84.484 s:
+    # -86 px on the phone for one frame, found by landing_check.py). Half a frame either side is 16 ms
+    # clear of both frames.
     for c in _SPLICES:
         if t0 + 0.05 < c < t1 - 0.05:
-            ts.add(c - 1.0/FPS); ts.add(c)
-    ts = sorted(round(x, 5) for x in ts)
-    return [(x - t0, float(_x_at(x))) for x in ts]
+            pts[round(c - 0.5/FPS - 0.002, 6)] = float(_x_at(c - 1.0/FPS))
+            pts[round(c - 0.5/FPS + 0.002, 6)] = float(_x_at(c))
+    return [(x - t0, v) for x, v in sorted(pts.items())]
 
 def crop_x_expr(t0, t1):
     """Piecewise-linear crop x over this beat as an ffmpeg expression in `t` (0 at the beat
@@ -116,6 +122,14 @@ def selftest(verbose=True):
                 if abs(got-want) > 0.5:
                     raise SystemExit(f'CROP EXPRESSION SELF-TEST FAILED at beat {b["t0"]:.3f} t={t:.3f}: '
                                      f'expr {got:.2f} vs track {want:.2f}')
+        for c in _SPLICES:
+            if b['t0'] + 0.05 < c < b['t1'] - 0.05:
+                n0 = int(round(c*FPS))
+                for n, want in ((n0-1, _x_at((n0-1)/FPS)), (n0, _x_at(n0/FPS))):
+                    got = _eval_crop_expr(e, n/FPS - b['t0'])
+                    want = max(0, min(1920-CROP_W, want))
+                    if abs(got-want) > 0.5:
+                        raise SystemExit(f'CUT-FRAME SELF-TEST FAILED at {c:.3f}s frame {n}: expr {got:.1f} vs track {want:.1f}')
         if verbose: print(f'  crop expr ok  beat {b["t0"]:8.3f}-{b["t1"]:8.3f}  {len(pts):4d} breakpoints  {len(e):6d} chars')
     print(f'crop expression self-test PASS (worst {worst:.3f} px)')
 

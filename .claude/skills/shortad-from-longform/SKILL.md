@@ -861,6 +861,15 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
     `p1_pananalyse3.py`) are reusable; `landing_check.py` is the builder-side version now run before
     delivery: torso at n0−1 / n0 / n0+2 on the DELIVERED file for every cut, and `diff(n0→n0+1) ≥ 0.5`.
 
+20. **A step breakpoint goes HALF A FRAME before the cut, with explicit values.** A pair at
+    (c − 1/FPS, c) is written into the expression with 4 decimals, which can land it a hair AFTER the
+    cut frame — so the cut frame itself still evaluated to the outgoing crop: one mis-framed frame at
+    every cut (−86 px on the phone at 84.48 s, found only by `landing_check.py` on the delivered file).
+    Pair = (c − 0.5/FPS − 2 ms → x(n0−1), c − 0.5/FPS + 2 ms → x(n0)), and the self-test now evaluates
+    every cut frame and the frame before it against the track. **And `setpts=N/FR/TB` in the conform** —
+    snapping the seek alone did not stop the duplicated first frame (the roll's pts are not on k/FPS);
+    rewriting the timestamps did (0 duplicates at 32 cuts, from 10).
+
 12. **Delivery goes beside his file, in the Ad-1 folder's convention:** `Muhammad Ad Videos/<ad>/<ad> |
     claude | 9x16.mp4` + `REVIEW_540p_9x16.mp4` + `AB_audio_his-vs-ours.mp4` + the gate stamp + notes +
     `recipe-vertical-v2/`. The older `EDITED ADS 8-20-26/ad2-fire-your-nutritionist/` folder keeps rev 3.
