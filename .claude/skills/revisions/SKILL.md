@@ -52,6 +52,90 @@ Two audiences, same skill:
 - Why-explanations appear only when the rule is new ("Why this is important: …").
 - New standing rules get flagged: "For all future videos, …" / "Hard rule for future videos: …".
 
+## Calibration from Dan's edits — the doc must need ZERO changes (2026-09-03)
+
+Dan's stated goal: he stops re-watching the cut and re-editing our doc; it goes to the editor as
+written. These rules come from diffing our markdown copies of the Ad 3, 4 and 5 reviews (Muhammad,
+batch 2) against the Google Doc after Dan edited it. Every item in every future doc is checked
+against them before delivery (workflow step 7). Ads 2 and earlier in the same doc are Dan's own
+notes — the register to match: "Remove this clip, use camera scene", "Replace with 0:00 - 0:05 from
+this clip", "Insert these images full screen one after another with motion effect".
+
+**Things he ADDED — defects we missed:**
+
+1. **Transcribe every text graphic and check every word against the script AND the ad's subject.**
+   Ad 3's bullet panel said "nutrition coach" — Ad 2's vocabulary, the template carried over — and
+   our contact-sheet pass missed it; Dan added `2:08 Change "nutrition coach" to "personal trainer"`.
+   Batch editors reuse graphic templates between ads, so the previous ad's nouns are a specific
+   error class. Method: crop every panel/chip/card at full resolution, write its text out, compare
+   to the transcript line under it and to the subject of THIS ad. Typos, wrong words, mixed
+   capitals, a noun from the other ad — each is an item with the exact replacement text.
+2. **Check EXITS, not only entries.** Ad 3 round 2: the phone mockup stayed up after the
+   assessment clip ended; Dan added `3:22 Remove phone graphic from screen at this point`. For
+   every insert and overlay, find the frame where it should leave and confirm it does; a frame
+   element that lingers into the next beat is an item.
+3. **Never cut before-imagery straight into after-imagery — the camera scene goes between.**
+   Ad 5: our fat-dad pictures at 0:09 - 0:14 ran into "this is what I look like today" at 0:14.
+   Dan shortened the insert to 0:09 - 0:12 and added "Briefly show camera scene again before
+   showing after pictures (avoid showing before and after pictures back to back)". Back-to-back
+   is a sequential before/after and reads the same to Google as a side-by-side. Check every
+   before→after adjacency in the timeline INCLUDING the ones our own inserts would create, and
+   give the before insert an end time that leaves ~2 s of camera before the after visual.
+4. **Check panel composition, not just content.** Ad 5 0:17: the header sat at the top of the panel
+   and the one bullet in the bottom third with dead space between; Dan added "Move text up to
+   center of graphic, rather than bottom". Text block vertically centred in its panel, header and
+   bullets together, nothing jammed against an edge.
+
+**Things he CHANGED — our directions were mis-calibrated:**
+
+5. **A directed new clip is always "stock footage or AI clip".** Dan added "or AI clip" to both of
+   our "Insert stock footage of …" items in Ad 5. Write "Insert stock footage or an AI clip of …"
+   and, when the AI label rule is not already in THROUGHOUT, "if it is AI, it gets the label".
+6. **The casting rule is for the man the viewer is meant to be; antagonists are cast as the
+   caricature.** Ad 4 0:43 influencer: we wrote "White or Asian man, 30 - 50, in shape"; Dan
+   rewrote it to "fitness influencer bro … Man around 20 years old in good shape, but who looks
+   douchey." Fat trainer, influencer bro, the "somebody else" whose plan you downloaded — cast them
+   as what the script mocks. Aspirational or identification shots (a man training, cooking, the
+   fitness-model line, the dad at the kitchen table) — white or Asian, 30 - 50, in shape. A neutral
+   prop shot (a man opening a pill bottle, Ad 4 2:06) is not a swap item on its own; if the casting
+   rule needs restating, one line in THROUGHOUT covers it.
+7. **State the requirement; diagnose the person on screen only when it is the reason and you
+   verified it at full resolution.** Ad 5 2:42: Dan struck "Same problem, he has the dad bod the ad
+   is selling against." and kept only "In shape white or Asian man, 30 - 50, cooking a healthy
+   meal". He kept "he is an average build" (0:58) and "He is 60 and obese" (2:29) because those were
+   accurate and were the reason for the swap. A guessed body judgement costs credibility with the
+   editor; an unmistakable one is the argument.
+8. **Only fix what is wrong against the script or a rule; the editor's own header labels are his.**
+   Ad 5 0:17: we asked for the header "IN TODAY'S EPISODE" to become "IN THE NEXT FEW MINUTES"
+   ("this is an ad, not an episode"); Dan deleted that and kept only the bullet-text fix, which was
+   a real error against the script. Header/label wording is an item only when it is misspelled,
+   mis-capitalised, or contradicts the script or a rule — never because we would have worded it
+   differently.
+
+**Things he DELETED — items that should not have been written:**
+
+9. **Do not pad a line that already has a correct asset.** Ad 3 2:40: one photo-shoot picture was
+   on "this is what I look like today"; we asked for three more from the reference folder. Dan cut
+   the item. An item must fix something — wrong asset, missing asset, rule violation, dead
+   stretch, wrong text, bad exit. "More of the same" is not a fix.
+10. **Do not force an asset onto a line it does not literally match, and do not stack before
+    imagery.** Ad 4 2:16: we put the heavier-Dan couch clip on "a cabinet full of supplements and
+    still getting fat", directly ahead of the before picture and two fat-dad photos at 2:20 — four
+    "before" visuals in seven seconds, none of them a cabinet of supplements. Dan cut it. One
+    before beat per section, on the line that names it.
+11. **Not every dead stretch gets a bullet build.** Ad 5 2:17 - 2:29 ("built for someone else …
+    different work hours, a different budget, a different body, foods you honestly hate"): we wrote
+    a four-bullet build of that list straight after the CTA build at 2:05; Dan cut it and kept the
+    other eight fills. Every fill he kept puts a benefit, a hook or a claim on screen ("It adjusts
+    your calories", "Built around steak", "It stopped being a wish"). Do not put a list of negatives
+    on screen, and let the beat right after the CTA build sit on camera. If two builds would land
+    within ~15 s of each other, keep the one that carries a benefit.
+
+**Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
+Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
+item is one line in that register; keep the longer form only where the editor needs exact text,
+exact timing or an exact link.
+
 ## Review workflow
 
 0. **Fetch.** Drive file IDs come from the URL. Download with
@@ -90,6 +174,10 @@ Two audiences, same skill:
 3. **Look at every second.** Extract frames at 1/2s, montage into labeled contact
    sheets (~60 frames per sheet), and READ them: catalog every insert, graphic,
    stock clip, label, and typo with its timecode. Zoom into anything suspicious.
+   Then two passes the contact sheet cannot do (calibration rules 1, 2, 4): crop every
+   text panel at full resolution and transcribe it word for word against the script;
+   and for every insert/overlay, extract the frame after its line ends and confirm it
+   has left the screen. Note the vertical placement of text inside each panel.
 4. **Compare against the target style** (currently Muhammad A's reference edit:
    pause-free pacing, music bed ~−20 dB under voice, whoosh/pop SFX on every graphic,
    animated bullet builds / lower-third chips / title cards, phrase-synced punch-ins,
@@ -99,33 +187,47 @@ Two audiences, same skill:
    classes of violation also get a "hard rule for future videos" line.
 6. **Choose replacement assets from what already exists** before directing anything
    new (see asset library). Only direct new AI generation when nothing fits.
-7. **Write the Google Doc** via the Google Drive MCP `create_file` with
+7. **Self-check the draft against the calibration section above — the doc goes to the
+   editor as written, Dan does not re-review.** For every item confirm: it fixes something
+   wrong (not an upgrade of something acceptable); the asset matches the literal words under
+   it; it creates no before→after adjacency; a directed clip says "stock footage or AI clip";
+   casting is aimed at the aspirational figure, antagonists at the caricature; any body
+   judgement was verified at full resolution; no header wording is itemised on taste; every
+   insert has an exit; every text panel was transcribed. Then walk the timeline once more
+   for the two things Dan added on top of ours: lingering graphics and before→after cuts.
+8. **Write the Google Doc** via the Google Drive MCP `create_file` with
    `contentMimeType: text/markdown` — it converts cleanly to a Doc, including links.
    Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the
    markdown copy in `revision docs/`.
-8. **Report to Dan** with the Doc link, the top findings, and anything that needs his
+9. **Report to Dan** with the Doc link, the top findings, and anything that needs his
    call. He forwards it.
 
 ## Standing rules to check every review (Dan's accumulated rulings)
 
 - **Audio**: the `_shared/audio` gate rows above — lav only (per `pick_lav`, never "right channel"
   on an 8/28 roll), no comb, room ≤ 80 ms, −14 LUFS, true peak ≤ −1.0 dBTP.
-- **Compliance (Google Ads)**: NO side-by-side before/afters, ever (before → footage
-  → after separately is fine, disclosed); NO morph/transformation-in-one-shot; NO
-  body-shaming / belly-fat zooms; NO email-capture form on screen.
+- **Compliance (Google Ads)**: NO before and after in one frame, ever — side-by-sides,
+  two-panels with an arrow, the app's "Meet the new you" reveal; NO before-imagery cut
+  straight into after-imagery (camera scene between them, calibration rule 3); NO
+  morph/transformation-in-one-shot; NO body-shaming — belly-fat grabs, pinches, zooms;
+  NO email-capture form on screen.
 - **Disclosure**: "*AI Generated" on every AI visual, full duration; upper-left and
   ~50% larger on full-frame AI clips; centered small tag on panel inserts.
 - **Brand graphics**: black bg (or #162118 dark green field), headers large dark
   green ALL CAPS (#8C9858 olive reads on black), body off-white #E9EEDE, red #E22222
   only as attention accent, Manrope, Title Capitalization. Look = YouTube Shorts
   covers / `ad-edit/reference/motionlib.py` GREEN palette.
-- **Casting**: goal-body people are white or Asian men 30–50, shredded-not-bulky,
-  no unmanly outfits.
+- **Casting**: the man the viewer is meant to be is white or Asian, 30–50,
+  shredded-not-bulky, no unmanly outfits. Antagonists (influencer bro, fat trainer) are
+  cast as the caricature the script mocks; neutral prop shots are not swap items
+  (calibration rule 6). New clips are always "stock footage or AI clip" (rule 5).
 - **Product truth**: real app screens and the real generation flow only — never
   invented dashboards or generic AI-app mockups. End cards / demo flows end on the
   after picture ALONE.
 - **Presentation**: no raw black pillarboxing of 9:16 assets (brand card or blurred
-  fill); alternating ~50%/~70% punch-ins on talking heads; no dead air > 0.3s.
+  fill); alternating ~50%/~70% punch-ins on talking heads; no dead air > 0.3s; every
+  insert and overlay leaves when its line ends (rule 2); text centred in its panel
+  (rule 4); the video holds ~2 s on the button after the last word.
 - **Voice input caveat**: Dan dictates; if a quoted correction seems odd, check the
   transcript audio before flagging his script wording as a "typo".
 
@@ -284,45 +386,53 @@ Two audiences, same skill:
     Look at the toolbar before cmd+v; if B is active press cmd+b first. cmd+z removes the whole paste
     cleanly. Also: `cmd+End` does nothing in Docs on a Mac — `cmd+ArrowDown` goes to the end.
 
-23. **Getting a NEW small clip to the editor when the Drive uploader cannot be driven (2026-09-02).** Base64
+25. **Getting a NEW small clip to the editor when the Drive uploader cannot be driven (2026-09-02).** Base64
     through the Drive MCP is a token trap (a 1.8 MB clip is ~2.5 M characters in one tool call — never do
     it), and Drive's web uploader still exposes no file input to `file_upload`. The route that works:
     drop the muted clip in `public/ad-assets/` (gitignore exception `!public/ad-assets/*.mp4`, keep each
     under ~3 MB), commit, push, wait for the Railway deploy, and link
     `https://absbyai.com/ad-assets/<name>.mp4` in the doc — the exercise demos already ship this way.
     Only Dan's own footage that is going into a public ad anyway; the repo is public.
-24. **Dan's real supplement stack is on camera for the whole 03 supplements longform**
+26. **Dan's real supplement stack is on camera for the whole 03 supplements longform**
     (`claude edited long form content/03 - …/CUT_v1_graded_NO-GRAPHICS.mp4`, no lower thirds). A bottom-band
     crop panned across the counter (`crop=1280:720:x='(in_w-1280)*t/5.5':y=340` → 1080p) makes clean
     product B-roll with his face out of frame; the pan is at `Media/ad-assets/batch1-ads/clips/`.
-25. **In Google Docs, `cmd+End` did nothing through the extension; `cmd+ArrowDown` jumps to the end of the
+27. **In Google Docs, `cmd+End` did nothing through the extension; `cmd+ArrowDown` jumps to the end of the
     document.** The last line of a Muhammad doc has been a plain paragraph, so no Return x3 was needed —
     screenshot first and read the toolbar's list button before pressing Return.
-26. **A script can hand the editor ONE app clip for a whole section, and he will lay it under the first
+28. **A script can hand the editor ONE app clip for a whole section, and he will lay it under the first
     line of that section.** Ad 4's supplement-audit scroll ran under "upload a picture… generate a future
     self", not under "take a photo of your supplements" seven seconds later. Walk every app screen against
     the exact sentence it plays under, the same as lesson 9 for images.
-27. **Whisper is a Python module here, not a command: `python3 -m whisper CUT.mp4 --model small --language en
+29. **Whisper is a Python module here, not a command: `python3 -m whisper CUT.mp4 --model small --language en
     --output_format json`** with `Media/video_edit/bin` on PATH. A bare `whisper` call fails silently inside a
     backgrounded shell (lesson 17's empty transcript, again). Also: in zsh, `echo ==== X` errors ("= not found")
     because a leading `=` is filename expansion — quote separators. Both cost a rerun on Ad 5 (2026-09-03).
-28. **Peaks at 0 dBTP on a −19 LUFS master can be the VOICE, not the SFX.** Ad 5 measured −18.9 LUFS with 58
+30. **Peaks at 0 dBTP on a −19 LUFS master can be the VOICE, not the SFX.** Ad 5 measured −18.9 LUFS with 58
     separate seconds touching 0 and 1,800 clipped samples; per-second peak scan (numpy on the mono decode)
     showed plain talking-head seconds (1:36, 1:40, 1:52, no whoosh) at +2.4 dB. Ad 4's whoosh-only finding does
     not generalise — always run the per-second scan and name the quiet seconds in the doc, so the editor puts
     a limiter on the mix rather than just turning the SFX down.
-29. **The SCRIPT can contradict a standing rule — the rule wins, and say so in the doc.** Ad 5's script cue
+31. **The SCRIPT can contradict a standing rule — the rule wins, and say so in the doc.** Ad 5's script cue
     for the closing app clip reads "the app's own before/after reveal screen — in-product footage is the one
     place a before/after pair is safe". It is not (Dan's rulings on Ads 2, 3 and 4). The doc told Muhammad to
     ignore the note; the scripts doc itself still needs correcting. Read every bracketed cue against the
     rules list before assuming the editor got it wrong.
-30. **Two new layouts that are still a before/after in one frame:** a two-panel with an ARROW between heavier
+32. **Two new layouts that are still a before/after in one frame:** a two-panel with an ARROW between heavier
     Dan and ripped Dan (Ad 5, 1:27 — the editor split a single AI clip into panels), and any belly-grab /
     pinch stock close-up (Ad 5, 1:11 — body-shaming under Google's weight-loss policy). Both are now in the
     standing rules. The fix for the arrow panel is to play the clip full frame in one panel, not to drop it.
-31. **Appending to Muhammad's batch doc: `reference/md_to_docs_clipboard.py <md>` builds the nested-list HTML
+33. **Appending to Muhammad's batch doc: `reference/md_to_docs_clipboard.py <md>` builds the nested-list HTML
     and sets the clipboard in one step** (the `markdown` package is not installed; a hand-rolled converter
     mangled Dan's `\*\*` headers twice before the tree version). Then in Docs: click in the body,
     `cmd+ArrowDown`, check B is off, `cmd+v`, and verify with a Drive `read_file_content` read-back that the
     new H2 is there and the previous sections are unchanged. Pasted H2s land black while Dan's are blue —
     cosmetic, he has not objected.
+34. **2026-09-03 calibration pass.** Dan asked for the skill to learn from his edits so he can stop
+    re-reviewing. Method that worked: keep the markdown copy byte-exact at delivery, read the Doc back
+    with Drive `read_file_content` after he has edited it, and diff section by section — every
+    addition is a missed defect, every rewrite a mis-calibrated direction, every deletion an item that
+    should not exist. The findings are the calibration section at the top; repeat the diff after every
+    doc he touches and fold new rules in there, not here. ⚠ Two adjacent Ad 4 items (2:06 pill-bottle
+    swap, 2:16 couch clip) vanished together while the THROUGHOUT still says the 2:06 clip "needs to be
+    swapped (see below)" — flagged to Dan as a possible block deletion.
