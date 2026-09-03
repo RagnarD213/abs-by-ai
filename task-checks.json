@@ -11,7 +11,8 @@
     "assistant::Vaccum bedroom",
     "assistant::Tidy living room",
     "assistant::Take out trash",
-    "assistant::Put away dishes 2.0"
+    "assistant::Put away dishes 2.0",
+    "money::Execute handoff: Bring the 5 delivered longforms up to the new /longform-edit standard"
   ],
   "log": {
     "health::Shower": [
@@ -228,6 +229,7 @@
     "assistant::Vaccum bedroom": "2026-09-01",
     "assistant::Tidy living room": "2026-09-01",
     "assistant::Take out trash": "2026-09-01",
-    "assistant::Put away dishes 2.0": "2026-09-01"
+    "assistant::Put away dishes 2.0": "2026-09-01",
+    "money::Execute handoff: Bring the 5 delivered longforms up to the new /longform-edit standard": "2026-09-03"
   }
 }
