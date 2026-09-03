@@ -296,3 +296,52 @@ the executor can move to the API later. Do Phase 0 first (read all 29 existing a
 headline style rules from them), pass the VERIFY list, build with YTADS_ENABLED=0 and show me one
 dry-run report before enabling. Warn me before you take over my Chrome.
 ```
+
+---
+
+## EXECUTION RESULT (2026-09-03, Fable 5.1)
+
+**Built, deployed, script installed. Two clicks are Dan's before anything runs.**
+
+- **Brain (live on absbyai.com, commits `9ea8805`, `3450266`):** `scripts/ads/ytads/` — `engine.js` (pure rules,
+  `engine.test.js` 88 cases green: discovery, skip list by id AND title, one ad per video per campaign, $5 pause,
+  `MIN_CONV` no-read, win/lose against the champion's trailing 30 days, same-hour multi-test ordering, day-one pick /
+  no-qualifier / already-done / dry-run-does-not-count, interpretation 6, policy DISAPPROVED vs Limited, dry-run flag,
+  ambiguous ad group, unlabelled AUTO ad), `lint.js` (the 8/11 headlines are must-fail fixtures), `headlines.js`
+  (Opus 5 via the project's raw `/v1/messages` fetch, 3 attempts, failing lines dropped, 3/1/1 minimum), `feed.js`
+  (RSS parser, verified against the live feed), `routes.js` (`POST /api/ytads/sync`, `POST /api/ytads/results` keyed by
+  `X-YTADS-Key`; `GET /api/ytads/state` in `DASH_APIS`; tables `ytads_runs` + `ytads_events` created idempotently; a
+  20-second headline budget with overflow generated after the response), `brief.js` (shared by the state route and
+  `ads-digest.js` → `brief-ads.json.ytads`). Live-verified: 401 without the key on both keyed routes and on `/state`,
+  400 on a bodyless keyed sync. Railway: `YTADS_KEY` set, `YTADS_ENABLED=0`. Morning-brief render spec added as section
+  7c. Operating doc `Docs/YTADS.md`.
+- **Hands:** Google Ads Script **"Abs by AI — YouTube engagement champion"**, id `12241942`, saved in 342-717-0837 with the
+  real key (canonical copy `scripts/ads/ytads/ads-script.js`). **Not authorized, not scheduled:** Google refuses to
+  schedule an unauthorized script and authorization is an OAuth grant. **Dan: Tools → Bulk actions → Scripts → hover the
+  Frequency cell → pencil → Hourly → Save → Authorize → Grant access.** (Or open the script and click Authorize above the
+  editor first.)
+- **Phase 0 (headline style):** the UI exposes only the first line of each field, so `headline-style.md` was written
+  from the four live creatives' first headline / long headline / description (v sit twist, truth about supplements,
+  top 10 ab tips, late night eating — the last is "Eligible (Limited): Clickbait", so "trick / finally" is now a
+  named anti-pattern). **Next session refines it from the first snapshot**, which carries every line of every ad.
+- **Campaign facts read in the UI:** tier 1 is `[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 |
+  ALL CONTENT`; remarketing is `[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL
+  CONTENT | youtube viewers` — **its name also says "geo tier 1"**, so the engine tests RMKTG before tier 1. Ids for
+  those two are still name-matched until the first snapshot pins them. 21 ads enabled/paused (not 29) across the
+  three campaigns plus one search ad.
+- **VERIFY list:** 1 (Demand Gen mutate) — untested until the first video after go-live; the script's `createAd` uses
+  `AdsApp.mutate` with `demandGenVideoResponsiveAd` and creates the YouTube video asset if absent; a failure lands in
+  the brief with Google's message. 2–4 — answered by the first snapshot. 5 (spend lag) — measurable only once a test is
+  running; threshold stays $5.00. 6 — ab-wheel short 1 has no YouTube id yet (not uploaded); skiplist matches its
+  title patterns; add the id when it goes up. 7 — done.
+- **Phase 5 (API):** MCC `324-458-6445` (ocid `364714550`) → Admin → API center is a form, filled in Dan's Chrome
+  (contact email, company Abs by AI, URL, type Advertiser, intended-use text). **Dan: tick "I agree to the Terms and
+  Conditions" and click "Create token"**, then paste the token into `~/.absbyai-secrets.env` as
+  `GOOGLE_ADS_DEVELOPER_TOKEN` (or leave it for the next session to read from the API center). The OAuth client +
+  refresh token (Cloud Console) wait for the migration session, since nothing can use them before Basic access.
+- **Dry run, enable:** after the authorization click, the first hourly run posts the snapshot; the brief then shows the
+  planned day-one pause list. The next session shows it to Dan and sets `YTADS_ENABLED=1`.
+- **Chrome traps paid for this session:** coordinate clicks in Google Ads land on the wrong element (the page is
+  2111 px wide in a 1558 px screenshot); use `find` refs and `javascript_tool` only. The script editor is CodeMirror 5
+  (`document.querySelector('.CodeMirror').CodeMirror.setValue(...)`); "New script" lives in the + menu as a
+  `menuitem`; Save via `material-button.save-button`. The account chooser is `https://ads.google.com/nav/selectaccount`.
