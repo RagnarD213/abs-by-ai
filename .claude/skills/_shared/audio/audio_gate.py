@@ -38,7 +38,8 @@ LIM = dict(corr=0.97, comb_margin=0.35, edt=80.0, tone_mean=1.2, tone_max=2.5, f
            lufs=-14.0, lufs_tol=1.0, spread=3.0, tp=-1.0, silent=0, length=0.10)
 
 
-def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=True, ref_rows_only=False):
+def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=True, ref_rows_only=False,
+         reference_mix=None):
     if ref_override:
         ref_audio, ref = ref_override, R.measure(ref_override)
     else:
@@ -46,12 +47,36 @@ def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=Tr
     ss, dur = C.analysis_window(path)
     st = C.pcm(path, ss=ss, dur=dur, ac=2)
     mono = st.mean(1)
-    rows = []
-    def row(key, ok, text, val):
+    rows, info_rows = [], []
+    def row(key, ok, text, val, gated=True):
+        if not gated:
+            # REFERENCE-MIX MODE: this row measures the EDITOR'S OWN MIXING (his bed between the
+            # words, his tone), not our chain, so it is recorded but cannot fail the file.
+            info_rows.append(dict(key=key, ok=bool(ok), text=text, value=val)); print("  info  " + text + "   [his mix, not gated]"); return
         rows.append(dict(key=key, ok=bool(ok), text=text, value=val))
         print(("  PASS  " if ok else "  FAIL  ") + text)
     print(f"audio_gate  {os.path.basename(path)}  window {ss:.0f}s +{dur:.0f}s  vs  {ref['name']}"
-          + ("  [synthetic]" if synthetic else ""))
+          + ("  [synthetic]" if synthetic else "") + ("  [reference mix]" if reference_mix else ""))
+    prov = None
+    if reference_mix:
+        # --reference-mix (shortad-from-longform, 2026-09-03): the delivered audio IS the editor's
+        # finished mix moved by one constant gain. PROVENANCE IS VERIFIED, NOT ASSUMED: per-second,
+        # level-normalised correlation against that mix must be >= 0.99 at the median (the qc.py
+        # check that separated his mix from a loudnorm'd one at 0.970), or the flag is refused.
+        # With provenance proven, comb / room / tone / floor / dryness / spread measure HIS mixing
+        # (Ad 2's bed sits 6-7 dB hotter between words than Ad 1's, the pinned reference) and are
+        # reported as information; loudness, true peak, silence, length and the L/R image still gate.
+        a = C.pcm(path, ac=1); b = C.pcm(reference_mix, ac=1)
+        n = min(len(a), len(b)); W = C.SR; cors = []
+        for i in range(n // W):
+            x, y = b[i*W:(i+1)*W], a[i*W:(i+1)*W]
+            if np.sqrt((x ** 2).mean()) < 1e-3: continue
+            x = x - x.mean(); y = y - y.mean(); d = np.sqrt((x ** 2).sum() * (y ** 2).sum())
+            if d > 0: cors.append(float(np.dot(x, y) / d))
+        prov = float(np.median(cors)) if cors else 0.0
+        row("provenance", prov >= 0.99, f"reference mix: per-second level-normalised correlation with "
+            f"{os.path.basename(reference_mix)} median {prov:.4f} over {len(cors)} s (>= 0.99)", round(prov, 4))
+    G = not reference_mix          # rows that measure the editor's mixing gate only when the mix is ours
     # 1 image
     nch = C.probe_audio(path)[0]["channels"]
     if nch >= 2:
@@ -67,25 +92,25 @@ def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=Tr
         for lo, r_, o in zip(C.EDGES, rb, bands): print(f"  {lo:5d}Hz {r_:6.1f} {o:6.1f} {o-r_:+6.1f}")
         ripple = C.comb_ripple(mono)
         row("comb", ripple <= ref["comb_ripple"] + LIM["comb_margin"],
-            f"no comb: spectral ripple {ripple:.2f} dB vs his {ref['comb_ripple']:.2f} (<= his + {LIM['comb_margin']})", round(ripple, 3))
+            f"no comb: spectral ripple {ripple:.2f} dB vs his {ref['comb_ripple']:.2f} (<= his + {LIM['comb_margin']})", round(ripple, 3), gated=G)
         e = C.edt(mono)
-        row("edt", e <= LIM["edt"], f"dry room: early decay {e:.0f} ms (<= {LIM['edt']:.0f}; his {ref['edt_ms']:.0f})", round(e, 1))
+        row("edt", e <= LIM["edt"], f"dry room: early decay {e:.0f} ms (<= {LIM['edt']:.0f}; his {ref['edt_ms']:.0f})", round(e, 1), gated=G)
         row("tone", err.mean() <= LIM["tone_mean"] and err.max() <= LIM["tone_max"],
             f"tone: mean |err| {err.mean():.2f} dB (<= {LIM['tone_mean']}), max {err.max():.2f} (<= {LIM['tone_max']})",
-            dict(mean=round(float(err.mean()), 3), max=round(float(err.max()), 3), bands=[round(float(b), 2) for b in bands]))
+            dict(mean=round(float(err.mean()), 3), max=round(float(err.max()), 3), bands=[round(float(b), 2) for b in bands]), gated=G)
         fd = floor - rf
         row("floor", bool((fd >= -LIM["floor"]).all()),
             f"clean between words: voice-over-floor {floor.round(1).tolist()} vs his {rf.round(1).tolist()} (diff {fd.round(1).tolist()}, >= -{LIM['floor']})",
-            [round(float(v), 2) for v in floor])
+            [round(float(v), 2) for v in floor], gated=G)
         row("dryness", dry >= ref["dryness"] - LIM["dry"],
-            f"words stop cleanly: drop {dry:.1f} dB 64 ms after a word vs his {ref['dryness']:.1f} (>= his - {LIM['dry']})", round(dry, 2))
+            f"words stop cleanly: drop {dry:.1f} dB 64 ms after a word vs his {ref['dryness']:.1f} (>= his - {LIM['dry']})", round(dry, 2), gated=G)
     I, TP, LRA = C.ebur(path)
     if not ref_rows_only:
         row("lufs", abs(I - LIM["lufs"]) <= LIM["lufs_tol"], f"loudness: {I:.2f} LUFS ({LIM['lufs']} +/-{LIM['lufs_tol']})", round(I, 2))
         if not synthetic:
             row("spread", spread >= ref["spread"] - LIM["spread"],
                 f"not crushed: speech spread p90-p10 {spread:.1f} dB vs his {ref['spread']:.1f} (>= his - {LIM['spread']}); LRA {LRA:.1f} LU (his {ref['lra']:.1f})",
-                dict(spread=round(spread, 2), lra=round(LRA, 2)))
+                dict(spread=round(spread, 2), lra=round(LRA, 2)), gated=G)
         row("tp", TP <= LIM["tp"], f"no clipping: true peak {TP:.2f} dBTP (<= {LIM['tp']})", round(TP, 2))
         # 9 nothing missing -- on the WHOLE file
         full = C.pcm(path, ac=1)
@@ -114,6 +139,11 @@ def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=Tr
                  size=os.path.getsize(path), gated_at=time.strftime("%Y-%m-%d %H:%M:%S"),
                  reference=dict(name=ref["name"], sha256=ref.get("sha256")), synthetic=synthetic,
                  window=[ss, dur], limits=LIM, rows=rows, verdict=verdict, ab=ab_path)
+        if reference_mix:
+            s["mode"] = "reference-mix"
+            s["reference_mix"] = dict(source=os.path.abspath(reference_mix), sha256=C.sha256(reference_mix),
+                                      per_second_corr_median=round(prov, 4))
+            s["info_rows"] = info_rows
         json.dump(s, open(C.stamp_path(path), "w"), indent=1)
         print(f"stamp: {C.stamp_path(path)}")
     return verdict == "PASS", rows
@@ -126,6 +156,7 @@ if __name__ == "__main__":
     ap.add_argument("--ref", help="gate against a different reference file (testing only)")
     ap.add_argument("--no-stamp", action="store_true")
     ap.add_argument("--reference-rows-only", action="store_true", help="selftest: only the rows measured against the reference")
+    ap.add_argument("--reference-mix", help="the editor's own finished mix this file carries verbatim (shortad path): provenance is verified per second; rows that measure HIS mixing become informational")
     A = ap.parse_args()
-    ok, _ = gate(A.file, A.synthetic, A.ab, A.video, A.ref, not A.no_stamp, A.reference_rows_only)
+    ok, _ = gate(A.file, A.synthetic, A.ab, A.video, A.ref, not A.no_stamp, A.reference_rows_only, reference_mix=A.reference_mix)
     sys.exit(0 if ok else 1)

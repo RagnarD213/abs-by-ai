@@ -135,6 +135,9 @@ def main():
     if A.finish_only:
         lav = A.src; x = C.pcm(A.src, ac=1); how = "finish-only (mix as given, channels kept)"
         log["pull"] = how; print(f"voice_chain  {os.path.basename(A.src)}  {how}  {len(x)/C.SR:.2f} s")
+        # the limiter-delay measurement window below needs `ss` on this path too (it was only
+        # set on the full-chain path -- NameError on the first real --finish-only run, 2026-09-03)
+        ss, dur = C.analysis_window(lav)
         voice = "aformat=channel_layouts=stereo"; eq = gains = fstep = None; log["voice"] = voice
     else:
         lav, x, how = pull(A.src, A.source, A.pull, work); log["pull"] = how

@@ -34,7 +34,14 @@ BIN = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bi
 SR = 48000
 ABOVE_MAX = 0.05   # dB any second may sit above the constant gain
 P90_DROP = 0.25    # dB the 90th percentile may sit below it
-DOWN_MAX = 2.50    # dB the limiter may shave off the loudest second
+# ⚠ RECALIBRATED 2026-09-03 to a file Dan APPROVED, not to "Ad 1's number + margin". Ad 2 rev 2's
+# audio ("this sounds like Muhammad") had the limiter riding +2.1..+6.4 dB against a +6.4 dB
+# constant -- 4.3 dB below G on its deepest second -- and the V2 rebuild measures 3.7 (his master:
+# -19.0 LUFS at 0.0 dBTP, so every lift to -14 shaves its densest speech seconds by 3+ dB at ANY
+# useful gain: +4.5 dB still reads 3.0). The 2.5 was Ad 1's fixed file (2.17) plus margin, and it
+# failed an approved file. The discriminating test is the CEILING: the rejected loudnorm file sat
+# 133 seconds ABOVE G, and still fails here.
+DOWN_MAX = 4.50    # dB the limiter may shave off the loudest second (approved: 4.3; Ad 1 fixed: 2.17)
 
 
 def mono(path, tmp, tag):

@@ -756,6 +756,61 @@ invisible to run-detection, because the words either side still match contiguous
 the raw independently, and every step in the locked offset is one of his cuts, whether or not a
 word went unmatched across it. On this ad that took fidelity from 97.1 % to **98.1 %**.
 
+## [A5] Ad 2 against Muhammad's V2 (2026-09-03) — when the editor revises, DIFF, don't rebuild
+
+Dan dropped Muhammad's `Daniel HQ Ad 2 V2 HD.mp4` (his own execution of Dan's six round-1 notes) into
+`Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/` beside where the Ad-1 vertical lives, and
+invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
+
+1. **A revised reference is a DIFF against the previous reference, not a new recovery.** Per-frame MAD of
+   V2 against V1 at 96×54 grey (both 8,275 frames) found exactly five changed windows and identical audio
+   except ~5 s of SFX. Everything else was the sheet Dan had reviewed three times, so only those windows were
+   conformed to V2 — at the frame, read off V2 with a consecutive-frame scan (`refdiff.py` / `v2scan.py`
+   pattern: MAD > 8 or luma > 150 lists every cut and every flash). The whole build was ~2 hours.
+2. **The editor's execution of Dan's notes can itself break a standing rule.** His V2 puts the app's
+   EMAIL-CAPTURE screen in the phone at 3:22–3:24 (and again on the 3:12 card, as V1 did). "The reference
+   is the spec" never overrides "never show the email screen": the split layout was reproduced, the phone
+   content was not — the compliant after-only result went in from his 202.0 s. Tell Dan; he tells Muhammad.
+3. ⚠ **ffmpeg's expression parser refuses ~100 nesting levels** — `Missing ')' or too many args`. The
+   0.25 s crop-x breakpoints added after rev 3 made a 25 s talk beat 100 nested `if()`s deep and the render
+   died on beat 12 (that is why the post-delivery render in the old work dir failed). **Write piecewise-linear
+   functions as a FLAT sum: `x0 + Σ slope·clip(t−ta,0,dt)`** — identical function, no nesting, verified past
+   400 terms — and keep the self-test that evaluates the string the way ffmpeg does (`render.py selftest`).
+4. ⚠ **`ffprobe -of csv` emits fields in ITS order, not the requested one** (`duration` before
+   `nb_read_frames`), so the post-delivery check 3b parsed a duration as a frame count and had never run.
+   Parse `-of json` by name. (Bit `mux.py` and `qc.py` the same day.)
+5. **Scope a cache-version bump to the kind that changed.** A `_v` string covering every kind invalidated
+   all 36 segments and started a 25-minute re-render for a one-beat change; and `pkill -f "python3 render.py"`
+   does not match a Python.app-framework command line — kill by PID.
+6. **His flashes are not only on insert→talk returns.** Measured on V2: one left mid-talk at 14.08 (the
+   deleted cartoon's return flash, 0.4 s after the 13.70 splice — his V2 carries that splice bare), one on
+   bullets→photo-card (149.85), one on app-card→b-roll (193.26), and NONE on the museum clip's exit (7.21).
+   Make the list explicit (`NO_FLASH`, `EXTRA_FLASH`), never purely a rule. And his cut lands ON the peak:
+   the envelope is now asymmetric — window 0.10 s before / 0.30 s after the cut, peak at 25 %.
+7. **His blur-through between two stills is a plain dissolve under a gaussian blur.** `xfade=hblur` is a
+   horizontal smear and reads as a different device; the right build is `xfade=dissolve` + `gblur` whose
+   `sigma` is driven per frame through `sendcmd` (0 → 18 px → 0 over 12 frames, `bleed2` kind). Render each
+   still with half the transition of headroom so the segment still totals exactly its planned frames.
+8. **Stretch a short clip, never loop it.** A 4.5 s clip in a 4.9 s beat gets `setpts*1.15` (a MEDIA entry's
+   optional 4th field), not `-stream_loop`, which wraps to frame 0 mid-rep.
+9. ⚠ **`voice_chain.py --finish-only` had never run end to end** — `ss` was only defined on the full-chain
+   path and the limiter-delay measurement crashed with NameError. Fixed in the module. The first real use of a
+   shared code path is a test; run it before the render, not after.
+10. ⚠ **The shared gate's tone/floor rows measure the EDITOR'S mixing on the reference-mix path.** They passed
+    on Ad 1 only because the pinned reference IS Ad 1's mix; Ad 2's bed sits 6–7 dB hotter between words and
+    failed them. `audio_gate.py --reference-mix his_mix.wav` verifies provenance per second (≥ 0.99 median,
+    refused otherwise) and records those rows as information; loudness / TP / silence / length / L/R still
+    gate, and the stamp carries `mode: reference-mix` plus the mix's sha256.
+11. ⚠ **`gain_flatness.py`'s "min ≥ G − 2.5" failed a file Dan approved.** Ad 2 rev 2 ("sounds like
+    Muhammad") rode 4.3 dB below its constant on the deepest second; his master is −19.0 LUFS already at
+    0.0 dBTP, so ANY lift to −14 shaves the densest speech seconds by 3+ dB (+4.5 dB still reads 3.0).
+    Recalibrated to 4.5 — the approved boundary. The rejected loudnorm file still fails on the ceiling test
+    (133 seconds ABOVE G), which is the discriminator; the shaving limit was never what caught it.
+    Use `--tp -1.4` on an editor's brickwalled master: the AAC overshoot measured 0.2 dB (−1.3 → −1.1 dBTP).
+12. **Delivery goes beside his file, in the Ad-1 folder's convention:** `Muhammad Ad Videos/<ad>/<ad> |
+    claude | 9x16.mp4` + `REVIEW_540p_9x16.mp4` + `AB_audio_his-vs-ours.mp4` + the gate stamp + notes +
+    `recipe-vertical-v2/`. The older `EDITED ADS 8-20-26/ad2-fire-your-nutritionist/` folder keeps rev 3.
+
 ## Standing content rules that override the reference
 
 The reference editor does not know Dan's ad rules. Check every beat you are reproducing:

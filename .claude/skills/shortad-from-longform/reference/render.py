@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """Render the 9:16 picture: one output segment per beat, concat, then the overlays.
 
-Two things attempt 1 did not do:
-  * the talking head PUSHES IN AND OUT fourteen times (beats.PUSHES). Attempt 1 rendered
-    every talk segment at one fixed crop, which is what made a locked-off tripod shot
-    read as a static webcam recording with 72 bare trims in it.
-  * ten of his beat changes are covered by a WHITE LIGHT-LEAK FLASH, not a hard cut.
-
 Frame counts are CUMULATIVE, not per-segment: rounding each segment on its own puts ~16 ms
 of overshoot into every cut and walks the picture off the audio by the end.
+
+V2 (2026-09-03) changes:
+  * the crop-x expression is a FLAT sum of clipped ramps, not nested if()s. ffmpeg's
+    expression parser refuses more than ~100 nesting levels ("Missing ')' or too many
+    args"), which is exactly what a 25 s talk beat at 0.25 s breakpoints produced -- the
+    render after rev 3 died on beat 12 for that reason. A sum has no nesting at all.
+  * `bleed2`: two full-bleed stills in one segment with his blur-through between them.
+  * a media entry may carry a RATE (4th field): the clip is stretched, never looped.
+  * --plan / --only i,j,k / --selftest for checking beats before the full render.
 """
-import json, os, subprocess, sys
+import json, os, subprocess, sys, hashlib
 sys.path.insert(0, '.')
 sys.path.insert(0, '/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared')
 import vlib, beats
@@ -23,16 +26,94 @@ FF  = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bi
 FPS = 30000/1001
 VW, VH = 1080, 1920
 BASE = 'base.mp4'
-CROP_W, CROP_X = 608, 918-304          # Dan's head centre, measured at x=918 (sd 18 px)
+CROP_W = 608
 PUSH_UP = 85.0                          # his punch recentres 85 px up in the 1080 source
+
+# The crop FOLLOWS a smoothed face track (facetrack2.py: Apple Vision torso anchor, smoothed
+# inside each source-continuous segment, zero-phase, stepping at his splices).
+_TRK = json.load(open('facetrack.json'))
+_EDL = json.load(open('edl_final.json'))
+_SPLICES = [q['cut_in'] for q in _EDL[1:]]
+_SEGS = [(q['cut_in'], q['cut_out']) for q in _EDL]
+
+def _idx(t):
+    """Sample index for time t, CLAMPED INSIDE t's own source-continuous segment. The track
+    steps at a splice, and at 4 samples/s a plain round() one frame before a splice lands on
+    the sample AFTER it -- the pre-step breakpoint would pick up the post-step value and a
+    step becomes a 187 px ramp."""
+    fps_t, xs = _TRK['fps'], _TRK['x']
+    i = int(round(t*fps_t))
+    lo, hi = 0, len(xs)-1
+    for (sa, sb) in _SEGS:
+        if sa - 1e-9 <= t < sb:
+            lo = max(0, int(np.ceil(sa*fps_t - 1e-6)))
+            hi = min(len(xs)-1, int(np.floor((sb - 1e-6)*fps_t)))
+            break
+    if hi < lo: hi = lo
+    return min(hi, max(lo, i))
+
+def crop_points(t0, t1):
+    """(t_rel, x) breakpoints for this beat: the track's own 4 Hz samples, plus a pair one
+    frame apart either side of every splice inside the beat so the step renders as a step."""
+    xs = _TRK['x']
+    ts, t = [], t0
+    while t < t1 + 1e-6:
+        ts.append(t); t += 0.25
+    if ts[-1] < t1 - 1e-6: ts.append(t1)
+    for c in _SPLICES:
+        if t0 + 0.05 < c < t1 - 0.05:
+            ts += [c - 1.0/FPS, c]
+    ts = sorted(set(round(x, 4) for x in ts))
+    return [(x - t0, float(xs[_idx(x)])) for x in ts]
+
+def crop_x_expr(t0, t1):
+    """Piecewise-linear crop x over this beat as an ffmpeg expression in `t` (0 at the beat
+    start, because the input is seeked with -ss) -- written as x0 + sum of slope*clip(t-ta,0,dt),
+    which is exactly the same function as the nested-if chain and has NO nesting."""
+    pts = crop_points(t0, t1)
+    if len(pts) == 1 or max(p[1] for p in pts) - min(p[1] for p in pts) < 1.0:
+        return f'{pts[0][1]:.1f}'
+    terms = [f'{pts[0][1]:.2f}']
+    for (ta, xa), (tb, xb) in zip(pts[:-1], pts[1:]):
+        dt = tb - ta
+        if dt <= 1e-9 or abs(xb - xa) < 0.01: continue
+        s = (xb - xa)/dt
+        terms.append(f'{s:+.6f}*clip(t-{ta:.4f}\\,0\\,{dt:.6f})')
+    e = ''.join(terms)
+    return f'max(0\\,min({1920-CROP_W}\\,{e}))'
+
+def _eval_crop_expr(expr, t):
+    """Evaluate the expression the way ffmpeg would -- the self-test for the above."""
+    py = expr.replace('\\,', ',')
+    clip = lambda x, a, b: min(max(x, a), b)
+    return eval(py, {'clip': clip, 'max': max, 'min': min, 't': t})
+
+def selftest(verbose=True):
+    """Every talk beat: the expression must reproduce the track at every breakpoint (<=0.5 px)
+    and interpolate linearly between them. Abort the render if it does not."""
+    tl, _ = beats.timeline()
+    worst = 0.0
+    for b in tl:
+        if b['kind'] != 'talk': continue
+        pts = crop_points(b['t0'], b['t1'])
+        e = crop_x_expr(b['t0'], b['t1'])
+        for (ta, xa), (tb, xb) in zip(pts[:-1], pts[1:]):
+            for f in (0.0, 0.5, 0.999):
+                t = ta + f*(tb-ta)
+                want = max(0, min(1920-CROP_W, xa + (xb-xa)*f))
+                got = _eval_crop_expr(e, t)
+                worst = max(worst, abs(got-want))
+                if abs(got-want) > 0.5:
+                    raise SystemExit(f'CROP EXPRESSION SELF-TEST FAILED at beat {b["t0"]:.3f} t={t:.3f}: '
+                                     f'expr {got:.2f} vs track {want:.2f}')
+        if verbose: print(f'  crop expr ok  beat {b["t0"]:8.3f}-{b["t1"]:8.3f}  {len(pts):4d} breakpoints  {len(e):6d} chars')
+    print(f'crop expression self-test PASS (worst {worst:.3f} px)')
+
 os.makedirs('out', exist_ok=True); os.makedirs('gfx', exist_ok=True)
 
-# TWO vignettes, not one. The profile in grade.py was fitted as his render divided by our
-# toned conform ON TALKING-HEAD FRAMES, so it is the difference he added ON TOP of the
-# room's own falloff -- correct for the talking head, and much too strong for anything
-# else. Measured on his own b-roll (living-room abs) the corner sits at 0.95 of centre,
-# i.e. he barely vignettes footage at all; at full strength ours turned the beach and the
-# salad shots into portholes.
+# TWO vignettes, not one. The profile was fitted as his render divided by our toned conform
+# ON TALKING-HEAD FRAMES, so it is the difference he added ON TOP of the room's own falloff --
+# correct for the talking head and much too strong for anything else.
 if not os.path.exists('vignette.png'):
     m = (vlib.vignette_mask()*255).clip(0, 255).astype('uint8')
     Image.fromarray(np.dstack([m]*3)).save('vignette.png')
@@ -41,8 +122,8 @@ if not os.path.exists('vignette_soft.png'):
     m = ((1 - (1-v)*0.25)*255).clip(0, 255).astype('uint8')
     Image.fromarray(np.dstack([m]*3)).save('vignette_soft.png')
 
-# blend must run in RGB. On yuv420p it multiplies the CHROMA planes about their 128
-# offset as if they were luma, which turns every footage frame bright green.
+# blend must run in RGB. On yuv420p it multiplies the CHROMA planes about their 128 offset
+# as if they were luma, which turns every footage frame bright green.
 VIG = ('[v0]format=gbrp[v0f];[vg]format=gbrp[vgf];'
        '[v0f][vgf]blend=all_mode=multiply,format=yuv420p')
 
@@ -50,19 +131,11 @@ def cover_chain(w, h):
     return (f'scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,'
             f'crop={w}:{h},setsar=1')
 
-# A 16:9 clip in a 9:16 card leaves two-thirds of the phone empty. Cropping these four to
-# 4:5 first makes the card 992x1240 -- a 1.72x upscale, the same as the talking head's own
-# 1.78x -- instead of 992x558 floating in a field. (His run full frame; ours are 1280x720
-# and full bleed would be 2.67x.)
 NARROW = {'ai_women_pool': 0.80, 'ai_respect_gym': 0.80, 'ai_beachrun': 0.80,
           'ai_busydad': 0.80, 'bodybuilder': 0.80, 'outdoor_abs': 4/3}
-# dad_kids stays at its native 4:3: a 4:5 crop of it cuts the top of Dan's head off, which
-# is exactly what the 'match the hole to the MEDIA' rule exists to prevent.
 
 def still_chain(w, h, nfr, amt=0.055):
-    """A still in a card must not sit dead-frozen: his photo cards all carry a slow push
-    (measured on his 0:48 fitness-model card, which grows over its 2.5 s). The watch pass
-    on attempt 2's first render found twelve card beats frozen solid; this is the fix."""
+    """A still must not sit dead-frozen: his photo cards all carry a slow push."""
     ow, oh = int(w*1.14) - int(w*1.14) % 2, int(h*1.14) - int(h*1.14) % 2
     return (f'scale={ow}:{oh}:force_original_aspect_ratio=increase:flags=lanczos,'
             f'crop={ow}:{oh},setsar=1,'
@@ -70,8 +143,7 @@ def still_chain(w, h, nfr, amt=0.055):
             f"y='(ih-ih/zoom)/2':d=1:s={w}x{h}:fps=30000/1001")
 
 def push_z_expr(t0, t1):
-    """zoompan `z` for this beat: 1.00 wide .. 1.20 punched, smoothstepped over his ramps.
-    Only the pushes that actually touch the beat are compiled in."""
+    """zoompan `z` for this beat: 1.00 wide .. 1.20 punched, smoothstepped over his ramps."""
     T = f'({t0:.4f}+on/{FPS:.6f})'
     rs = []
     for a1, a2, b1, b2 in beats.PUSHES:
@@ -80,18 +152,13 @@ def push_z_expr(t0, t1):
         kout = '0' if b2 <= b1 else f'clip(({T}-{b1:.3f})/{b2-b1:.4f},0,1)'
         rs.append(f'(if(lt({T},{a1:.3f}),0,min({kin},1-{kout})))')
     if not rs: return None
-    r = rs[0] if len(rs) == 1 else 'max(' + ','.join(rs) + ')' if len(rs) == 2 else \
-        'max(' + rs[0] + ',' + ','.join(rs[1:]) + ')'
-    if len(rs) > 2:
-        r = rs[0]
-        for x in rs[1:]: r = f'max({r},{x})'
+    r = rs[0]
+    for x in rs[1:]: r = f'max({r},{x})'
     return f'1+{beats.PUSH_Z-1:.3f}*({r})*({r})*(3-2*({r}))'
 
 def talk_chain(t0, t1):
-    """9:16 crop of the conform + his push schedule. Crop first at native resolution, so
-    zoompan only ever works inside the 608x1080 window we actually use."""
     z = push_z_expr(t0, t1)
-    base = f'crop={CROP_W}:1080:{CROP_X}:0'
+    base = f"crop={CROP_W}:1080:'{crop_x_expr(t0, t1)}':0"
     if z is None:
         return f'{base},scale={VW}:{VH}:flags=lanczos,unsharp=5:5:0.85:5:5:0.0'
     return (f"{base},zoompan=z='{z}':x='(iw-iw/zoom)/2':"
@@ -104,10 +171,15 @@ def media_input(key, nfr):
         return ['-loop', '1', '-framerate', f'{FPS:.6f}', '-t', f'{nfr/FPS+0.25:.4f}', '-i', spec[1]]
     return ['-ss', f'{spec[2]:.3f}', '-stream_loop', '4', '-i', spec[1]]
 
+def media_prefix(key):
+    """A clip with a RATE is stretched (setpts) -- never looped to fill a beat."""
+    spec = MEDIA[key]
+    if spec[0] == 'vid' and len(spec) > 3 and abs(spec[3]-1.0) > 1e-6:
+        return f'setpts=(PTS-STARTPTS)*{spec[3]:.4f},'
+    return ''
+
 _AR = {}
 def media_ar(key):
-    """Aspect ratio from the FILE. A fixed 16:9 hole cover-crops a portrait photo, and
-    what it crops off a photo of a person is their head."""
     if key in _AR: return _AR[key]
     o = subprocess.run([FF.replace('ffmpeg','ffprobe'), '-v','error','-select_streams','v',
                         '-show_entries','stream=width,height','-of','csv=p=0:s=x', MEDIA[key][1]],
@@ -121,26 +193,105 @@ def run(cmd):
     if r.returncode:
         print(' '.join(str(c) for c in cmd[:60]), '\n', r.stderr[-1800:]); raise SystemExit(1)
 
+def vlib_chip(label, path):
+    """AI-GENERATED chip for a full-bleed beat. NEVER over the face: it sits at the
+    shorts/waistline, clear of the caption band, sized to actually read."""
+    f = font(52, 'ExtraBold')
+    tw, th = text_size(label, f)
+    im = Image.new('RGBA', (VW, VH), (0,0,0,0)); d = ImageDraw.Draw(im)
+    bw, bh = tw+56, th+34
+    bx, by = (VW-bw)//2, 1180
+    d.rounded_rectangle([bx, by, bx+bw, by+bh], radius=12, fill=(0,0,0,225))
+    d.text((bx+28, by+17), label, font=f, fill=(255,255,255,255), anchor='lt')
+    im.save(path)
+
+def _sig(b, nfr, t0):
+    v = 'v2-flat-gblur' if b['kind'] == 'bleed2' else 'v2-flat'   # only the photo beat changed; keep every other cache hit
+    return json.dumps({k: v_ for k, v_ in sorted(b.items())} | {'_n': nfr, '_t0': round(t0, 4), '_v': v},
+                      sort_keys=True, default=str)
+
+COMMON = lambda nfr, out: ['-r','30000/1001','-frames:v',str(nfr),'-c:v','libx264','-preset','medium',
+                           '-crf','16','-pix_fmt','yuv420p','-an', out]
+
+def render_bleed_frames(key, n, out, amt=0.075):
+    """A full-bleed still (slow push) or clip (cover crop), n frames, no vignette yet."""
+    isimg = MEDIA[key][0] == 'img'
+    ch = still_chain(VW, VH, n, amt=amt) if isimg else \
+         media_prefix(key) + cover_chain(VW, VH) + ',unsharp=5:5:0.4:5:5:0.0'
+    run([FF,'-v','error','-y'] + media_input(key, n) +
+        ['-filter_complex', f'[0:v]{ch}[v]', '-map', '[v]'] + COMMON(n, out))
+
 def render_segment(i, b, nfr, t0):
     out = f'out/s{i:03d}.mp4'
-    if os.path.exists(out) and os.path.getsize(out) > 20000: return
+    man = out + '.sig'
+    if os.path.exists(out) and os.path.getsize(out) > 20000 \
+       and os.path.exists(man) and open(man).read() == _sig(b, nfr, t0):
+        return
     k, dur = b['kind'], nfr/FPS
-    common = ['-r','30000/1001','-frames:v',str(nfr),'-c:v','libx264','-preset','medium',
-              '-crf','16','-pix_fmt','yuv420p','-an', out]
+    common = COMMON(nfr, out)
     if k == 'talk':
         run([FF,'-v','error','-y','-ss',f'{t0:.4f}','-i',BASE,
              '-loop','1','-framerate','30000/1001','-i','vignette.png',
              '-filter_complex', f'[0:v]{talk_chain(t0, b["t1"])}[v0];'
                                 f'[1:v]scale={VW}:{VH}[vg];{VIG}'] + common)
+        open(man, 'w').write(_sig(b, nfr, t0))
         return
     if k == 'bleed':
-        run([FF,'-v','error','-y'] + media_input(b['media'], nfr) +
-            ['-loop','1','-framerate','30000/1001','-i','vignette_soft.png',
-             '-filter_complex', f'[0:v]{cover_chain(VW,VH)},unsharp=5:5:0.4:5:5:0.0[v0];'
-                                f'[1:v]scale={VW}:{VH}[vg];{VIG}'] + common)
+        isimg = MEDIA[b['media']][0] == 'img'
+        bchain = (still_chain(VW, VH, nfr, amt=0.075) if isimg
+                  else media_prefix(b['media']) + cover_chain(VW, VH) + ',unsharp=5:5:0.4:5:5:0.0')
+        lab = b.get('label')
+        if lab:
+            chip = f'gfx/chip_{hashlib.md5(lab.encode()).hexdigest()[:8]}.png'
+            if not os.path.exists(chip): vlib_chip(lab, chip)
+            run([FF,'-v','error','-y'] + media_input(b['media'], nfr) +
+                ['-loop','1','-framerate','30000/1001','-i','vignette_soft.png',
+                 '-loop','1','-framerate','30000/1001','-i',chip,
+                 '-filter_complex', f'[0:v]{bchain}[v0];'
+                                    f'[1:v]scale={VW}:{VH}[vg];{VIG}[vv];'
+                                    f'[vv][2:v]overlay=0:0:shortest=1'] + common)
+        else:
+            run([FF,'-v','error','-y'] + media_input(b['media'], nfr) +
+                ['-loop','1','-framerate','30000/1001','-i','vignette_soft.png',
+                 '-filter_complex', f'[0:v]{bchain}[v0];'
+                                    f'[1:v]scale={VW}:{VH}[vg];{VIG}'] + common)
+        open(man, 'w').write(_sig(b, nfr, t0))
+        return
+    if k == 'bleed2':
+        # Two full-bleed stills with HIS blur-through between them (V2 149.85-155.39: photo A,
+        # a ~10-frame blur-dissolve, photo B). Both halves are rendered with their push and
+        # half the transition of headroom each, then joined with xfade, so the total is
+        # exactly nfr and the transition is centred on `split`.
+        D = 10; h = D//2
+        nA = round(b['split']*FPS) - round(t0*FPS); nB = nfr - nA
+        ta, tb = f'out/_{i:03d}a.mp4', f'out/_{i:03d}b.mp4'
+        render_bleed_frames(b['media_a'], nA + h, ta)
+        render_bleed_frames(b['media_b'], nB + h, tb)
+        off = (nA - h)/FPS; dd = D/FPS
+        # His blur-through is a soft GAUSSIAN blur that peaks at the midpoint of a plain dissolve
+        # (xfade's hblur is a horizontal motion smear and reads as a different device). gblur has
+        # no time expression, so its sigma is driven per frame through sendcmd: 0 -> 18 px -> 0
+        # over the 12 frames around the split.
+        cmd = f'out/_{i:03d}_blur.cmd'
+        lines = ['0.0 gblur sigma 0.01;']
+        K = 12
+        for k in range(K + 1):
+            t = (nA - K//2 + k)/FPS
+            s = 0.01 + 18.0*np.sin(np.pi*k/K)
+            lines.append(f'{t:.4f} gblur sigma {s:.2f};')
+        lines.append(f'{(nA + K//2 + 1)/FPS:.4f} gblur sigma 0.01;')
+        open(cmd, 'w').write('\n'.join(lines) + '\n')
+        run([FF,'-v','error','-y','-i',ta,'-i',tb,
+             '-loop','1','-framerate','30000/1001','-i','vignette_soft.png',
+             '-filter_complex', f'[0:v][1:v]xfade=transition=dissolve:duration={dd:.4f}:offset={off:.4f},'
+                                f'sendcmd=f={cmd},gblur=sigma=0.01:steps=2[v0];'
+                                f'[2:v]scale={VW}:{VH}[vg];{VIG}'] + common)
+        open(man, 'w').write(_sig(b, nfr, t0))
         return
     # ---- plated beats --------------------------------------------------------
-    plate = f'gfx/p{i:03d}.mov'
+    key = hashlib.md5(repr(sorted((kk, str(v)) for kk, v in b.items())).encode()
+                      + f'|{nfr}|{dur:.4f}'.encode()).hexdigest()[:10]
+    plate = f'gfx/p{i:03d}_{key}.mov'
     meta  = plate + '.json'
     if not os.path.exists(plate):
         if k == 'window':
@@ -166,16 +317,13 @@ def render_segment(i, b, nfr, t0):
     holes = json.load(open(meta))
     ins, prep, over, idx = [], [], [], 0
     def hole_args(name):
-        h = holes[name]
-        x, y = int(h[0]), int(h[1])
-        w, hh = int(h[2]-h[0]), int(h[3]-h[1])
+        hh_ = holes[name]
+        x, y = int(hh_[0]), int(hh_[1])
+        w, hh = int(hh_[2]-hh_[0]), int(hh_[3]-hh_[1])
         return x, y, w - w % 2, hh - hh % 2
     if 'dan' in holes:
         x, y, w, h = hole_args('dan')
         cw, ch, cx, cy = vlib.window_crop(h)
-        # setpts=PTS-STARTPTS is not optional here. A seeked input's first frame carries a
-        # pts a little above zero, so overlay's frame 0 has only the black background to
-        # composite and the segment opens on ONE BLACK FRAME. It cost five of them.
         ins += ['-ss', f'{t0:.4f}', '-i', BASE]
         prep.append(f'[{idx}:v]setpts=PTS-STARTPTS,crop={cw}:{ch}:{cx}:{cy},'
                     f'scale={w}:{h}:flags=lanczos,unsharp=5:5:0.5:5:5:0.0,setsar=1[m{idx}]')
@@ -183,10 +331,8 @@ def render_segment(i, b, nfr, t0):
     if 'media' in holes:
         x, y, w, h = hole_args('media')
         ins += media_input(b['media'], nfr)
-        # setpts=PTS-STARTPTS again: a seeked VIDEO in a card hole arrives one frame late
-        # and the card opens on a black hole with only its AI-GENERATED chip in it.
         chain = still_chain(w, h, nfr) if MEDIA[b['media']][0] == 'img' else \
-                'setpts=PTS-STARTPTS,' + cover_chain(w, h)
+                'setpts=PTS-STARTPTS,' + media_prefix(b['media']) + cover_chain(w, h)
         prep.append(f'[{idx}:v]{chain}[m{idx}]')
         over.append((idx, x, y)); idx += 1
     ins += ['-i', plate]
@@ -197,18 +343,36 @@ def render_segment(i, b, nfr, t0):
         fc.append(f'[{last}][m{j}]overlay={x}:{y}[u{n}]'); last = f'u{n}'
     fc.append(f'[{last}][{idx}:v]overlay=0:0:shortest=1')
     run([FF,'-v','error','-y'] + ins + ['-filter_complex', ';'.join(fc)] + common)
+    open(man, 'w').write(_sig(b, nfr, t0))
+
+def plan():
+    tl, ov = beats.timeline()
+    prev, out = 0, []
+    for b in tl:
+        cum = round(b['t1']*FPS); out.append((b, cum-prev)); prev = cum
+    return out, ov
 
 def main():
-    tl, ov = beats.timeline()
-    prev, plan = 0, []
-    for b in tl:
-        cum = round(b['t1']*FPS); plan.append((b, cum-prev)); prev = cum
-    for i, (b, nfr) in enumerate(plan):
+    args = sys.argv[1:]
+    if '--selftest' in args: selftest(); return
+    P, ov = plan()
+    if '--plan' in args:
+        for i, (b, nfr) in enumerate(P):
+            det = b.get('media') or b.get('media_a') or b.get('header') or b.get('headline') or ''
+            print(f'{i:3d} {b["kind"]:9s} {b["t0"]:8.3f} {nfr:5d}f  {det}')
+        print(sum(n for _, n in P), 'frames planned'); return
+    only = None
+    if '--only' in args:
+        only = set(int(x) for x in args[args.index('--only')+1].split(','))
+    selftest(verbose=False)
+    for i, (b, nfr) in enumerate(P):
+        if only is not None and i not in only: continue
         render_segment(i, b, nfr, b['t0'])
-        det = b.get('media') or b.get('header') or b.get('headline') or ''
+        det = b.get('media') or b.get('media_a') or b.get('header') or b.get('headline') or ''
         print(f'{i:3d} {b["kind"]:9s} {nfr:5d}f  {det}', flush=True)
+    if only is not None: return
     with open('out/list.txt','w') as f:
-        for i in range(len(plan)): f.write(f'file s{i:03d}.mp4\n')
+        for i in range(len(P)): f.write(f'file s{i:03d}.mp4\n')
     run([FF,'-v','error','-y','-f','concat','-safe','0','-i','out/list.txt','-c','copy','picture_raw.mp4'])
 
     # ---- overlays: lower thirds, CTA pills, flashes --------------------------
@@ -217,21 +381,18 @@ def main():
             [('flash', a, b, None) for a, b in beats.FLASHES]
     items.sort(key=lambda x: x[1])
     for n, (kind, a, b, spec) in enumerate(items):
-        mov = f'gfx/ov{n:02d}_{kind}.mov'
+        h = hashlib.sha1(json.dumps([kind, spec, round(b-a, 4), 'v2'], sort_keys=True,
+                                    default=str).encode()).hexdigest()[:10]
+        mov = f'gfx/ov_{kind}_{h}.mov'          # content-addressed, not index-keyed
         d = b - a
         if not os.path.exists(mov):
-            if kind == 'cta':   fr, _ = vlib.overlay_cta(spec['top'], spec['big'], d)
+            if kind == 'cta':   fr, _ = vlib.overlay_cta(spec['top'], spec['big'], d,
+                                                         big_size=spec.get('big_size', 70))
             elif kind == 'lt':  fr, _ = vlib.overlay_lower_third(spec['lines'], d)
             else:               fr, _ = vlib.overlay_flash(d)
             encode(fr, mov, alpha=True)
         ins += ['-i', mov]
-        # ⚠ AN OVERLAY MUST BE SHIFTED ONTO THE MAIN TIMELINE, NOT JUST GATED ONTO IT.
-        # `enable=between(t,a,b)` alone gates by the MAIN clock while overlay keeps
-        # consuming the secondary stream from ITS OWN t=0 -- so by the time the window
-        # opens the overlay has already run out, repeatlast pins its last (transparent)
-        # frame, and NOTHING EVER APPEARS. Attempt 2's first render lost all seven lower
-        # thirds, all three CTA pills and all eleven flashes this way, and every metric
-        # in qc.py still passed. Found by the watch pass.
+        # An overlay must be SHIFTED onto the main timeline (setpts), not just gated with enable.
         fc.append(f"[{idx}:v]setpts=PTS+{a:.4f}/TB[s{n}];"
                   f"[{last}][s{n}]overlay=0:0:enable='between(t,{a:.3f},{b:.3f})'"
                   f":eof_action=pass[o{n}]")
