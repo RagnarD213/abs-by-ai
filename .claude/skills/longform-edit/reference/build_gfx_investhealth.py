@@ -1,110 +1,170 @@
 #!/usr/bin/env python3
-"""J2 tactical chips for 'Why You Should Invest More In Your Health'.
-Constants verbatim from the shorts J2 system (via longform-edit reference).
-Chip times are given in SOURCE seconds and mapped to OUTPUT time via edl.json,
-so a revision to the cut only needs a re-run of this script."""
+"""Render every graphic in spec.py as an alpha QTRLE .mov, in the MIL house palette.
+
+Straight port of zepbound/r2/build_gfx.py, including both traps it recorded:
+  1. `motionlib.bullets_build` UPPER-CASES its heading, which breaks the J2 camel-case
+     rule on `AbsByAI.com`. The cards are drawn here instead.
+  2. bullets_build is TOP-aligned, right for a narrow side panel and wrong for a 16:9
+     full-screen card — a three-bullet card left the bottom 45 % of the frame empty.
+     The block is measured first and centred.
+"""
+import os, sys
+sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared")
+os.environ.setdefault("MOTIONLIB_FFMPEG", "/Volumes/Extreme/_edit_work/bin/ffmpeg")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import motionlib as M
 from PIL import Image, ImageDraw, ImageFont
-import json, os
-from pathlib import Path
+import spec
 
-HERE = Path(__file__).resolve().parent
-OUT = HERE / "gfx"; OUT.mkdir(exist_ok=True)
-W, H = 1920, 1080
-BG = (13, 14, 11); OLIVE = (140, 152, 88); WHITE = (255, 255, 255)
-IMPACT = '/System/Library/Fonts/Supplemental/Impact.ttf'
-COPPER = '/System/Library/Fonts/Supplemental/Copperplate.ttc'
-MANROPE = '/Users/danielrose/Library/Fonts/Manrope.ttf'
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT  = os.path.join(HERE, "gfx"); os.makedirs(OUT, exist_ok=True)
+PAL  = M.MIL
+LX   = 180
 
-edl = json.load(open(HERE / "edl.json"))
-ranges = edl["ranges"]
 
-def src_to_out(t):
-    off = 0.0
-    for r in ranges:
-        d = round(r["end"] - r["start"], 3)
-        if r["start"] <= t < r["end"]:
-            return round(off + (t - r["start"]), 2)
-        off = round(off + d, 3)
-    return None
+# ---------------------------------------------------------------- the drift
+# ⚠ `motionlib.card_in` animates its content in and then HOLDS. Measured on the first
+# build of this video: 38 of 40 frozen runs the watch pass found were cards sitting dead
+# still for 3.64 s each after their last bullet landed — 148 s of frozen screen. That is
+# Dan's ad-1 rev-1 note 1 verbatim ("card_in animates its entrance then HOLDS"), and the
+# five-longforms handoff listed it as an outstanding one-line fix on these very videos.
+#
+# A pure SCALE drift is not enough: scale_about resizes to INTEGER pixel dimensions, so
+# the image only changes every few frames and the gaps between still read as frozen. The
+# drift here is therefore a SUB-PIXEL affine translation resampled BILINEAR, which
+# changes every pixel on every frame, plus a gentle scale push for the look.
+#
+# Amplitude is +/-16 px about centre (32 px of travel over the card). It stays inside the
+# bracket frame's 30 px inset, so the corner brackets never clip.
+DRIFT_PX = 16.0
+DRIFT_K  = 0.018
 
-def spaced(d, xy, text, font, fill, gap=5):
-    x, y = xy
-    for ch in text:
-        d.text((x, y), ch, font=font, fill=fill); x += font.getlength(ch) + gap
-    return x
 
-def chip(key, eyebrow, title, x=120, y=800):
-    f_eye = ImageFont.truetype(COPPER, 26); f_ttl = ImageFont.truetype(IMPACT, 58)
-    pad_x, pad_y = 26, 16
-    tw = int(ImageDraw.Draw(Image.new('RGB', (1, 1))).textlength(title, font=f_ttl))
-    ew = sum(f_eye.getlength(c) + 5 for c in eyebrow)
-    boxw = int(max(tw + pad_x * 2, ew + pad_x * 2)); boxh = 58 + pad_y * 2
-    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    ebh = 36
-    d.rectangle([x, y - 4, x + int(ew) + pad_x, y - 4 + ebh], fill=BG + (225,))
-    spaced(d, (x + 10, y), eyebrow, f_eye, OLIVE + (255,), 5)
-    top = y + 40
-    d.rectangle([x, top, x + boxw, top + boxh], fill=BG + (238,), outline=OLIVE + (255,), width=3)
-    d.text((x + pad_x, top + pad_y - 6), title, font=f_ttl, fill=WHITE + (255,))
-    p = OUT / f"chip_{key}.png"; im.save(p); return p
+def card_in_drift(out, dur, build, in_dur=0.42, out_dur=0.30, pal=PAL, fps=None):
+    fps = fps or spec.FPS
+    base = M.field_bg(pal).convert("RGBA")
+    frames = []
+    for i in range(M.nframes(dur, fps)):
+        t = i / fps
+        im = Image.new("RGBA", (M.W, M.H), (0, 0, 0, 0))
+        a_in  = M.ease_out_cubic(t / in_dur) if in_dur > 0 else 1.0
+        a_out = 1.0 if t <= dur - out_dur else 1 - M.ease_in_cubic((t - (dur - out_dur)) / out_dur)
+        im.alpha_composite(M.with_alpha(base, min(a_in * 2.2, 1.0) * a_out))
+        content = Image.new("RGBA", (M.W, M.H), (0, 0, 0, 0))
+        build(content, t)
+        k = (0.90 + 0.10 * M.ease_out_back(t / in_dur)) if in_dur > 0 else 1.0
+        content = M.scale_about(content, k * (1.0 + DRIFT_K * (t / dur)), None)
+        dy = DRIFT_PX * (2.0 * (t / dur) - 1.0)          # +16 px -> -16 px
+        content = content.transform(content.size, Image.AFFINE, (1, 0, 0, 0, 1, dy),
+                                    resample=Image.BILINEAR)
+        im.alpha_composite(M.with_alpha(content, a_in * a_out))
+        frames.append(im)
+    return M.encode(frames, out, fps)
 
-def watermark():
-    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    f = ImageFont.truetype(MANROPE, 30)
-    txt = "AbsByAI.com"
-    wid = f.getlength(txt)
-    x0, y0 = W - wid - 46, H - 62
-    d.text((x0 + 2, y0 + 2), txt, font=f, fill=(0, 0, 0, 150))
-    d.text((x0, y0), txt, font=f, fill=(255, 255, 255, 205))
-    p = OUT / "wm.png"; im.save(p); return p
 
-# (key, src_time, eyebrow, title)
-CHIPS = [
-    ("title",   3.0,    "ABS BY AI // DAN ROSE",            "INVEST MORE IN YOUR HEALTH"),
-    ("r1",      9.6,    "REASON 01",                        "THE HALO EFFECT"),
-    ("r2",      392.7,  "REASON 02",                        "PRODUCTIVITY"),
-    ("r3",      628.3,  "REASON 03",                        "MENTAL HEALTH"),
-    ("r4",      742.5,  "REASON 04",                        "BAD HEALTH IS EXPENSIVE"),
-    ("dead",    931.5,  "REMEMBER",                         "MONEY IS NO GOOD IF YOU'RE DEAD"),
-    ("nocut",   1233.5, "NEVER CUT",                        "FOOD - MATTRESS - SHELTER"),
-    ("cut1",    1346.8, "CUT 01",                           "BARS & CLUBS"),
-    ("cut2",    1464.9, "CUT 02",                           "RESTAURANTS"),
-    ("cut3",    1570.8, "CUT 03",                           "JUNK FOOD"),
-    ("cut4",    1612.4, "CUT 04",                           "VACATIONS"),
-    ("cut5",    1699.6, "CUT 05 // NOT MEDICAL ADVICE",     "THERAPY & PSYCH MEDS"),
-    ("t1a",     1858.3, "TIER 01 // IF YOU'RE BROKE",       "HOME WORKOUT SETUP - UNDER $100"),
-    ("t1b",     1979.0, "TIER 01 // IF YOU'RE BROKE",       "BASIC HEALTHY FOOD"),
-    ("t2a",     2105.5, "TIER 02 // MIDDLE CLASS",          "PREMIUM PROTEIN"),
-    ("t2b",     2270.0, "TIER 02 // MIDDLE CLASS",          "A GREAT MATTRESS"),
-    ("t2c",     2499.0, "TIER 02 // MIDDLE CLASS",          "GYM MEMBERSHIP"),
-    ("t2d",     2664.5, "TIER 02 // MIDDLE CLASS",          "SLEEP TRACKER"),
-    ("t2e",     2789.0, "TIER 02 // MIDDLE CLASS",          "WEIGHT LOSS MEDICATION"),
-    ("t2f",     2967.3, "TIER 02 // MIDDLE CLASS",          "TRT"),
-    ("t2g",     3078.0, "TIER 02 // MIDDLE CLASS",          "FISH OIL - VITAMIN D - MAGNESIUM"),
-    ("t3a",     3258.5, "TIER 03 // $10K+ PER MONTH",       "HOME GYM"),
-    ("t3b",     3419.7, "TIER 03 // $10K+ PER MONTH",       "MEAL PREP OR PERSONAL CHEF"),
-    ("t3c",     3547.2, "TIER 03 // $10K+ PER MONTH",       "OUTSOURCE YOUR CHORES"),
-    ("t3d",     3597.0, "TIER 03 // $10K+ PER MONTH",       "TRAINER & NUTRITIONIST"),
-    ("beyond",  3799.0, "BEYOND THE LIST",                  "THE BRYAN JOHNSON TIER"),
-    ("cta",     4066.0, "GET STARTED FREE",                 "ABSBYAI.COM"),
-]
+def _eyebrow(d, x, y, text, f, p):
+    eu = text.upper(); ew, eh = M.text_size(eu, f)
+    d.rectangle([x, y, x + (ew + 34) * p, y + eh + 20], fill=PAL.mid)
+    if p > 0.5:
+        d.text((x + 17, y + (eh + 20) / 2), eu, font=f, fill=(255, 255, 255), anchor="lm")
+    return eh + 20
 
-DUR = 6.4
-timings = []
-for key, src_t, eye, ttl in CHIPS:
-    out_t = src_to_out(src_t)
-    if out_t is None:
-        print(f"WARN: chip {key} src {src_t} not inside any kept range")
-        continue
-    chip(key, eye, ttl)
-    timings.append({"key": key, "start": out_t, "end": round(out_t + DUR, 2)})
-    print(f"chip {key:8s} src {src_t:8.1f} -> out {out_t:8.2f}")
 
-# no overlapping chips
-for a, b in zip(timings, timings[1:]):
-    if b["start"] < a["end"] + 0.3:
-        print(f"WARN: chips {a['key']} and {b['key']} overlap/too close")
+def factcard(key, dur, eyebrow, heading, bullets, textw=1560):
+    fE = M.font(38, "Bold"); fH = M.font(100, "ExtraBold"); fB = M.font(54, "SemiBold")
+    hlines = M.wrap(heading, fH, textw)
+    blines = [M.wrap(b, fB, textw - 46) for b in bullets]
+    EH, HL, BL = 58, int(100 * 1.02), int(54 * 1.02)
+    blk = EH + 46 + len(hlines) * HL + 16 + 11 + 58 + sum(len(l) * BL + 34 for l in blines)
+    y0 = (M.H - blk) / 2
 
-watermark()
-json.dump(timings, open(HERE / "chip_timings.json", "w"), indent=1)
-print(f"{len(timings)} chips + watermark -> {OUT}")
+    def build(im, t):
+        d = ImageDraw.Draw(im)
+        M.bracket_frame(im, PAL)
+        y = y0
+        y += _eyebrow(d, LX, y, eyebrow, fE, M.ease_out_cubic(t / 0.30)) + 46
+        hp = M.ease_out_cubic((t - 0.16) / 0.40)
+        if hp > 0.01:
+            hy = y
+            for ln in hlines:
+                d.text((LX, hy), ln, font=fH, fill=PAL.ink, anchor="lt"); hy += HL
+            hw = max(M.text_size(l, fH)[0] for l in hlines)
+            d.rectangle([LX, hy + 16, LX + hw * hp, hy + 27], fill=PAL.accent)
+        y += len(hlines) * HL + 16 + 11 + 58
+        for i, lines in enumerate(blines):
+            bp = M.ease_out_cubic((t - 0.62 - i * 0.30) / 0.42)
+            if bp > 0.01:
+                oy = int((1 - bp) * 16)
+                d.rectangle([LX, y + oy + 20, LX + 18, y + oy + 38], fill=PAL.accent)
+                yy = y + oy
+                for ln in lines:
+                    d.text((LX + 46, yy), ln, font=fB, fill=PAL.ink, anchor="lt"); yy += BL
+            y += len(lines) * BL + 34
+    return card_in_drift(f"{OUT}/card_{key}.mov", dur, build, pal=PAL)
+
+
+def appcard(key, dur, eyebrow, heading, lines, shot):
+    """Full-frame product card: app screen left, copy right, block centred."""
+    ph = Image.open(shot).convert("RGB")
+    ph.thumbnail((470, 880), Image.LANCZOS)
+    fE = M.font(36, "Bold"); fH = M.font(78, "ExtraBold"); fB = M.font(46, "SemiBold")
+    px, py = 200, (M.H - ph.height) // 2
+    tx = px + ph.width + 120
+    textw = M.W - tx - 140
+    hlines = M.wrap(heading, fH, textw)
+    blines = [M.wrap(l, fB, textw - 42) for l in lines]
+    EH, HL, BL = 56, int(78 * 1.02), int(46 * 1.04)
+    blk = EH + 40 + len(hlines) * HL + 14 + 10 + 50 + sum(len(l) * BL + 28 for l in blines)
+    y0 = (M.H - blk) / 2
+
+    def build(im, t):
+        d = ImageDraw.Draw(im)
+        M.bracket_frame(im, PAL)
+        p = M.ease_out_cubic(t / 0.45)
+        if p > 0.01:
+            off = int((1 - p) * 26)
+            im.paste(ph, (px, py + off))
+            d.rounded_rectangle([px - 5, py - 5 + off, px + ph.width + 4,
+                                 py + ph.height + 4 + off],
+                                radius=18, outline=PAL.accent + (255,), width=4)
+        y = y0
+        y += _eyebrow(d, tx, y, eyebrow, fE, M.ease_out_cubic(t / 0.30)) + 40
+        hp = M.ease_out_cubic((t - 0.16) / 0.40)
+        if hp > 0.01:
+            hy = y
+            for ln in hlines:
+                d.text((tx, hy), ln, font=fH, fill=PAL.ink, anchor="lt"); hy += HL
+            hw = max(M.text_size(l, fH)[0] for l in hlines)
+            d.rectangle([tx, hy + 14, tx + hw * hp, hy + 24], fill=PAL.accent)
+        y += len(hlines) * HL + 14 + 10 + 50
+        for i, ls in enumerate(blines):
+            bp = M.ease_out_cubic((t - 0.62 - i * 0.26) / 0.40)
+            if bp > 0.01:
+                oy = int((1 - bp) * 14)
+                d.rectangle([tx, y + oy + 16, tx + 15, y + oy + 31], fill=PAL.accent)
+                yy = y + oy
+                for ln in ls:
+                    d.text((tx + 42, yy), ln, font=fB, fill=PAL.ink, anchor="lt"); yy += BL
+            y += len(ls) * BL + 28
+    return card_in_drift(f"{OUT}/card_{key}.mov", dur, build, pal=PAL)
+
+
+if __name__ == "__main__":
+    only = set(sys.argv[1:]) or None
+    for key, a, b, lines in spec.CHIPS:
+        if only and key not in only: continue
+        if os.path.exists(f"{OUT}/chip_{key}.mov"): continue
+        M.lower_third_bar(f"{OUT}/chip_{key}.mov", lines, dur=b - a, x=spec.X, pal=PAL,
+                          size=44, lead_size=58, bar_color=PAL.accent, fps=spec.FPS)
+        print("chip", key, flush=True)
+    for key, sec, eye, head, bl in spec.CARDS:
+        if only and key not in only: continue
+        if os.path.exists(f"{OUT}/card_{key}.mov"): continue
+        factcard(key, spec.CARD_AT[key][1], eye, head, bl)
+        print("card", key, flush=True)
+    for key, a, dur, eye, head, lines, shot in spec.APPCARDS:
+        if only and key not in only: continue
+        if os.path.exists(f"{OUT}/card_{key}.mov"): continue
+        appcard(key, dur, eye, head, lines, shot)
+        print("appcard", key, flush=True)
+    print("DONE")

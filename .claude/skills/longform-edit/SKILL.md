@@ -807,6 +807,27 @@ other** — measured on C1512, peak cross-correlation +0.688 at −7.46 ms, zero
 7.46 ms offset summed is a comb with notches every ~134 Hz that no EQ can undo. It shipped
 undetected in three delivered videos because LUFS, splice and SRT checks are all blind to it.
 
+### The bed level is a ceiling, not a setting — measure the floor row  (04 invest-health, 2026-09-03)
+
+`--bed-db -30` is the module's CEILING. On the 8/3 roll C1511 the first shared-chain render at −30
+**failed the gate's "clean between words" row** by 3.4 / 4.1 / 1.2 dB (80–250 / 250–1k / 1–4k). Held
+everything else and moved only the bed on a 160 s excerpt: no bed → floor 47/53/46 dB (the expander
+leaves the voice 19 dB cleaner than his); −30 → 24/31/27 FAIL; **−36 → 29/35/30 PASS**; −42 → 33/39/34.
+The SFX track changed nothing. `qc_style.py` still hears the bed at −36 (4.3× vs chance, min 1.8×).
+So when the floor row fails and the room and tone rows pass, **the bed is the floor** — drop it 6 dB
+and re-measure; do not touch the expander or the dereverb.
+
+### `card_in` HOLDS — the drift is mandatory on full-frame cards  (2026-09-02/03)
+
+`motionlib.card_in` animates the entrance, then sits dead still. The watch pass on 04 read **40
+frozen runs of 3.64 s — 148 s of dead screen — every one a fact card after its last bullet.** The
+fix is `card_in_drift` in `reference/build_gfx_investhealth.py`: a sub-pixel affine translation
+(±16 px, BILINEAR, so every pixel changes every frame) plus a 1.8 % scale push. A pure `scale_about`
+drift is NOT enough — it resizes to integer pixels and the frames between steps still read as frozen.
+After the fix: 2 frozen runs, both static openings of stock clips. **Also: never mux with `-shortest`**
+— it dropped 7 frames of picture on 04 and failed the gate's length row; frame-lock the audio to the
+final picture instead (`voice_chain.py --frame-lock picture_final.mp4`) and mux without it.
+
 ### Fit the voice, don't copy a curve
 
 (`voice_chain.py` does this fit automatically; `reference/fitvoice_longform.py` is the earlier

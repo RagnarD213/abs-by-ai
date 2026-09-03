@@ -85,12 +85,13 @@ batch-2 recipe (**that install is a native-retest trigger**). `db-lunge` is bloc
 drifts the camera on this large-translation move; options are full `google/veo-3.1`, Kling
 with `end_image`, or filming it. Batch dir `Media/exercise-demos/_batch4/`.
 
-**04 invest-health longform** — the last of the five-longforms handoff. Blocked on Dan
-picking a cutdown variant: conservative (43:31), sub30 (28:25), or the recommendation,
-sub30 with the therapy/psych-meds beat restored (~29:15). Comparison artifact + 480p review
-copies delivered. ⚠ **Whichever wins needs the right-channel audio rebuild** (both variants
-were rendered before that fix) — `edit/build_audio_singlemic.py` + `finish_audio_invest.py`,
-muxed `-c:v copy`. Then style pass → graphics → captions → deliver.
+**04 invest-health — DELIVERED 2026-09-03, awaiting Dan's review.** `claude edited long form content/04 - …/
+FINAL_invest_health.mp4` (29:16, sub30 + therapy beat, clean frame + `.srt`), with the audio-gate stamp, A/B clip
+and `REVIEW_540p_invest_health.mp4` beside it; the 53:17 v3 is `FINAL_invest_health_PRE_REBUILD.mp4`. Gates:
+audio 11/11, style 14/14, watch 65/65 graphics + frozen runs 40 → 2. Audio went through `_shared/audio` (bed at
+−36 dB — −30 failed the floor row; lesson recorded in the skill). Rollback copies in the work dir
+`/Volumes/Extreme/_edit_work/invest-health-cutdowns/style/*_PRE_DRIFT*`. Delete this entry once Dan approves;
+next is /youtube-packaging (thumbnail + Shorts) — a Key task if he wants it.
 
 **Longforms 02 + 03 — ON DELIBERATE HOLD UNTIL DAN DECIDES. DO NOT UPLOAD.** Both are cut,
 packaged and thumbnailed and are staying in the project folder. **Dan's call 2026-09-02: he is
@@ -349,11 +350,3 @@ the same slots (old→new in `SHORTS_UPLOAD_PLAN.json`), the 8 old copies + kill
 the four already-PUBLISHED off-centre Shorts (`y0XIbNoA2Xo` 08-22, `P9VUGyWeNtY` 08-27, `VOlZHV1ibmU`
 08-29, `rqyK5IDsxX0` 09-01) — delete + re-upload on the next open Tue/Thu/Sat slots, or leave them?**
 Delete this entry once he answers.
-
-
-**04 invest-health — style-standard rebuild, RESUMED 2026-09-03 (Claude Code, this session owns it).**
-The 09-02 session died after its watch pass found 40 frozen card holds; it added a drift fix and rebuilt
-the 38 cards but never re-flattened or re-composited. Now: gfx track re-flattening, voice going through
-`_shared/audio/voice_chain.py` (pick_lav confirmed lav = C1511 ch 1), then composite B/C, qc_style +
-watch + audio_gate stamp, deliver, 540p + A/B. Work dir `/Volumes/Extreme/_edit_work/invest-health-cutdowns/{sub30f,style}`.
-Do not write to `claude edited long form content/04 - …` from another session.
