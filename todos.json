@@ -69,12 +69,6 @@
       "addedAt": "2026-08-05"
     },
     {
-      "text": "Connect Blotato and start scheduled posting (TikTok warm-up ends ~2026-09-02)",
-      "priority": "high",
-      "why": "Do not connect before Sept 2 — early third-party connection risks a bot flag. Generating the API key starts $29/mo billing.",
-      "addedAt": "2026-08-05"
-    },
-    {
       "text": "Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
       "priority": "key",
       "why": "handoff-20260812-revenuecat-restore-behavior-audit.md — created but not yet run; AFTER App Review approval",
@@ -91,12 +85,6 @@
       "priority": "key",
       "why": "handoff-20260818-android-public-build-swap.md — created but not yet run",
       "addedAt": "2026-08-18"
-    },
-    {
-      "text": "Catch TikTok up to the posting schedule (manual backfill)",
-      "priority": "high",
-      "why": "2026-08-19 planning — TikTok behind other platforms; post manually, do NOT connect Blotato before ~Sept 2 warm-up",
-      "addedAt": "2026-08-19"
     },
     {
       "text": "Investigate last month's spending ($24k on dashboard vs $10–15k target — verify accuracy first)",
@@ -177,12 +165,6 @@
       "addedAt": "2026-08-29"
     },
     {
-      "text": "Build a Claude ads digest: daily spend brief + anomaly and winning-ad detection (Meta + Google)",
-      "priority": "high",
-      "why": "Watch-review 8/29 (Sam Piliero, Claude + Facebook Ads full course): the 8/26 paid audit found misconfigured goals, no cost-per-subscriber visibility and unpublished Meta drafts nobody noticed. Build on our own API creds, NOT the third-party MCP connector he recommends",
-      "addedAt": "2026-08-29"
-    },
-    {
       "text": "Set up ManyChat comment-to-DM on @danrosefit (33 queued posts already promise it)",
       "priority": "key",
       "why": "Watch-review 8/30: every AI post Dan liked this week is a comment/DM-gated giveaway (kingketo 'Comment COACH' pulled 156 comments on 202 likes). Our queue promises 'Comment ABS and I'll send the free AI preview' and nothing answers it. HANDOFF WRITTEN 2026-08-31: Handoffs/handoff-20260831-manychat-comment-abs-setup.md (plan approved by Dan; ~60 queued posts now carry the promise).",
@@ -222,12 +204,6 @@
       "text": "Decide whether both Meta ad campaigns being toggled OFF was intentional",
       "priority": "high",
       "why": "8/31 paid pull: [DAN] [ENGAGEMENT] and [DAN] [ENGAGEMENT] IG GEO are both switched off (IG GEO spent $13.26 then stopped), and 3 unpublished draft edits are still pending. Carried over from the deleted Meta-check task.",
-      "addedAt": "2026-09-01"
-    },
-    {
-      "text": "Execute handoff: Brandon Carter-style thumbnails from the real studio cutouts (Mac session)",
-      "priority": "key",
-      "why": "Handoffs/handoff-20260901-brandon-carter-style-thumbnails.md — created but not yet run; the cloud mockups were rejected (\"look very bad\") and YouTube is egress-blocked from cloud, so this needs the Mac",
       "addedAt": "2026-09-01"
     },
     {
@@ -277,54 +253,6 @@
       "priority": "high",
       "addedAt": "2026-09-02",
       "why": "rev 1 delivered 9/2: reverb fixed (EDT 85->29-40ms), 2 shorts killed and 2 retitled per Dan. Judge the A/B first"
-    },
-    {
-      "text": "Execute handoff: website conversion video REV 2 (audio to Muhammad's standard, tight framing, sparse graphics)",
-      "priority": "key",
-      "why": "Handoffs/handoff-20260902-website-video-rev2.md — created 2026-09-02, not yet run; rev 1 rejected on audio/framing/graphics",
-      "addedAt": "2026-09-02"
-    },
-    {
-      "text": "Execute handoff: connect TikTok to Blotato + mirror the 23 queued @danrosefit videos",
-      "priority": "key",
-      "why": "handoff-20260902-tiktok-blotato-connect-and-mirror.md — created but not yet run",
-      "addedAt": "2026-09-02"
-    },
-    {
-      "text": "Execute handoff: fix the 8/3-shoot audio everywhere (dereverb + audio gate)",
-      "priority": "key",
-      "addedAt": "2026-09-02",
-      "why": "handoff-20260902-shoot-audio-standard.md - Dan rejected this audio 4x; root cause is room reverb (85ms vs 40ms), fixed on spray tan, NOT yet applied to the Zepbound or supplements shorts"
-    },
-    {
-      "text": "Execute handoff: fix every off-centre Short still queued on YouTube + Blotato (stale pre-8/27 files, v6-short2/5 re-cut)",
-      "priority": "key",
-      "why": "Handoffs/handoff-20260902-shorts-centering-queue-fix.md — created but not yet run; YouTube 09-05 slot is the deadline",
-      "addedAt": "2026-09-02"
-    },
-    {
-      "text": "Execute handoff: website conversion video REV 3 (head-anchored crops, cut the repeated line, captions clear of lower thirds)",
-      "priority": "key",
-      "why": "Handoffs/handoff-20260902-website-video-rev3.md — created 2026-09-02, not yet run; rev 2 approved on audio, rejected on headroom + a repeated line + caption/lower-third overlap",
-      "addedAt": "2026-09-02"
-    },
-    {
-      "text": "Execute handoff: unify audio standard across all video skills (one shared lav-pick + chain + gate vs Muhammad's ad, stamp required by every QC)",
-      "priority": "key",
-      "why": "handoff-20260902-audio-standard-unification.md — created but not yet run; supersedes items 3-4 of the shoot-audio-standard handoff",
-      "addedAt": "2026-09-02"
-    },
-    {
-      "text": "Execute handoff: finish @danrosefit IG profile-visits ads (identity blocker)",
-      "priority": "key",
-      "why": "handoff-20260902-ig-engagement-ad-identity.md — campaign+ad set built and paused; only the @abs.by.ai vs @danrosefit ad identity blocks launch",
-      "addedAt": "2026-09-02"
-    },
-    {
-      "text": "Execute handoff: IG auto-boost — $5 profile-visits test on every new @danrosefit post, one champion at ~$200/mo",
-      "priority": "key",
-      "why": "handoff-20260902-ig-auto-boost.md — created but not yet run",
-      "addedAt": "2026-09-02"
     }
   ],
   "health": [
@@ -363,6 +291,10 @@
       "priority": "high",
       "recurring": true,
       "addedAt": "2026-09-01"
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
