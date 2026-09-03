@@ -32,7 +32,7 @@ PUSH_UP = 85.0                          # his punch recentres 85 px up in the 10
 # The crop FOLLOWS a smoothed face track (facetrack2.py: Apple Vision torso anchor, smoothed
 # inside each source-continuous segment, zero-phase, stepping at his splices).
 _TRK = json.load(open('facetrack.json'))
-_EDL = json.load(open('edl_final.json'))
+_EDL = json.load(open('edl_picture.json'))   # HIS picture cuts, not the audio splices
 _SPLICES = [q['cut_in'] for q in _EDL[1:]]
 _SEGS = [(q['cut_in'], q['cut_out']) for q in _EDL]
 
@@ -127,20 +127,25 @@ if not os.path.exists('vignette_soft.png'):
 VIG = ('[v0]format=gbrp[v0f];[vg]format=gbrp[vgf];'
        '[v0f][vgf]blend=all_mode=multiply,format=yuv420p')
 
-def cover_chain(w, h):
+def cover_chain(w, h, ox=0.5, oy=0.5):
+    """Cover-crop; ox/oy place the window inside the overflow (0 = left/top, 1 = right/bottom).
+    A centred 9:16 window of a 16:9 clip slices whatever sits at the sides -- the conveyor's
+    'MEAL PLANS' sign read 'ME / PLA' centred (audit, 2026-09-03)."""
     return (f'scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,'
-            f'crop={w}:{h},setsar=1')
+            f"crop={w}:{h}:'(iw-{w})*{ox:.3f}':'(ih-{h})*{oy:.3f}',setsar=1")
 
 NARROW = {'ai_women_pool': 0.80, 'ai_respect_gym': 0.80, 'ai_beachrun': 0.80,
           'ai_busydad': 0.80, 'bodybuilder': 0.80, 'outdoor_abs': 4/3}
 
-def still_chain(w, h, nfr, amt=0.055):
-    """A still must not sit dead-frozen: his photo cards all carry a slow push."""
+def still_chain(w, h, nfr, amt=0.055, ox=0.5, oy=0.5):
+    """A still must not sit dead-frozen: his photo cards all carry a slow push. ox/oy place the
+    crop window in the overflow AND anchor the push (oy=0 keeps the top edge fixed, so a photo
+    whose hair touches the top never loses the crown as it zooms)."""
     ow, oh = int(w*1.14) - int(w*1.14) % 2, int(h*1.14) - int(h*1.14) % 2
     return (f'scale={ow}:{oh}:force_original_aspect_ratio=increase:flags=lanczos,'
-            f'crop={ow}:{oh},setsar=1,'
-            f"zoompan=z='1+{amt:.4f}*on/{max(1,nfr-1)}':x='(iw-iw/zoom)/2':"
-            f"y='(ih-ih/zoom)/2':d=1:s={w}x{h}:fps=30000/1001")
+            f"crop={ow}:{oh}:'(iw-{ow})*{ox:.3f}':'(ih-{oh})*{oy:.3f}',setsar=1,"
+            f"zoompan=z='1+{amt:.4f}*on/{max(1,nfr-1)}':x='(iw-iw/zoom)*{ox:.3f}':"
+            f"y='(ih-ih/zoom)*{oy:.3f}':d=1:s={w}x{h}:fps=30000/1001")
 
 def push_z_expr(t0, t1):
     """zoompan `z` for this beat: 1.00 wide .. 1.20 punched, smoothstepped over his ramps."""
@@ -171,6 +176,11 @@ def media_input(key, nfr):
         return ['-loop', '1', '-framerate', f'{FPS:.6f}', '-t', f'{nfr/FPS+0.25:.4f}', '-i', spec[1]]
     return ['-ss', f'{spec[2]:.3f}', '-stream_loop', '4', '-i', spec[1]]
 
+def media_opts(key):
+    """Optional 5th field of a MEDIA entry: dict(ox=, oy=) crop placement."""
+    spec = MEDIA[key]
+    return spec[4] if len(spec) > 4 and isinstance(spec[4], dict) else {}
+
 def media_prefix(key):
     """A clip with a RATE is stretched (setpts) -- never looped to fill a beat."""
     spec = MEDIA[key]
@@ -193,31 +203,44 @@ def run(cmd):
     if r.returncode:
         print(' '.join(str(c) for c in cmd[:60]), '\n', r.stderr[-1800:]); raise SystemExit(1)
 
-def vlib_chip(label, path):
+def vlib_chip(label, path, y=1180):
     """AI-GENERATED chip for a full-bleed beat. NEVER over the face: it sits at the
-    shorts/waistline, clear of the caption band, sized to actually read."""
+    shorts/waistline, clear of the caption band, sized to actually read. `y` overrides the
+    height per beat (the museum clip carries his lower third AND an engraved plaque below)."""
     f = font(52, 'ExtraBold')
     tw, th = text_size(label, f)
     im = Image.new('RGBA', (VW, VH), (0,0,0,0)); d = ImageDraw.Draw(im)
     bw, bh = tw+56, th+34
-    bx, by = (VW-bw)//2, 1180
+    bx, by = (VW-bw)//2, y
     d.rounded_rectangle([bx, by, bx+bw, by+bh], radius=12, fill=(0,0,0,225))
     d.text((bx+28, by+17), label, font=f, fill=(255,255,255,255), anchor='lt')
     im.save(path)
 
+def _track_sig(t0, t1):
+    """The crop track slice this beat reads (plus a sample either side): a talk segment's cache
+    is only valid for the track it was rendered with."""
+    fps_t, xs = _TRK['fps'], _TRK['x']
+    i0 = max(0, int(t0*fps_t) - 1); i1 = min(len(xs), int(t1*fps_t) + 2)
+    return hashlib.md5(json.dumps(xs[i0:i1]).encode()).hexdigest()[:10]
+
 def _sig(b, nfr, t0):
     v = 'v2-flat-gblur' if b['kind'] == 'bleed2' else 'v2-flat'   # only the photo beat changed; keep every other cache hit
-    return json.dumps({k: v_ for k, v_ in sorted(b.items())} | {'_n': nfr, '_t0': round(t0, 4), '_v': v},
-                      sort_keys=True, default=str)
+    extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v}
+    if b['kind'] == 'talk': extra['_trk'] = _track_sig(t0, b['t1'])
+    # ⚠ the MEDIA entry (path, in-point, rate, crop placement) is part of what was rendered: a crop
+    # offset changed in assets.py served the stale segment on 2026-09-03 until this was added
+    for mk in ('media', 'media_a', 'media_b'):
+        if mk in b: extra['_' + mk] = repr(MEDIA[b[mk]])
+    return json.dumps({k: v_ for k, v_ in sorted(b.items())} | extra, sort_keys=True, default=str)
 
 COMMON = lambda nfr, out: ['-r','30000/1001','-frames:v',str(nfr),'-c:v','libx264','-preset','medium',
                            '-crf','16','-pix_fmt','yuv420p','-an', out]
 
 def render_bleed_frames(key, n, out, amt=0.075):
     """A full-bleed still (slow push) or clip (cover crop), n frames, no vignette yet."""
-    isimg = MEDIA[key][0] == 'img'
-    ch = still_chain(VW, VH, n, amt=amt) if isimg else \
-         media_prefix(key) + cover_chain(VW, VH) + ',unsharp=5:5:0.4:5:5:0.0'
+    isimg = MEDIA[key][0] == 'img'; o = media_opts(key)
+    ch = still_chain(VW, VH, n, amt=amt, **o) if isimg else \
+         media_prefix(key) + cover_chain(VW, VH, **o) + ',unsharp=5:5:0.4:5:5:0.0'
     run([FF,'-v','error','-y'] + media_input(key, n) +
         ['-filter_complex', f'[0:v]{ch}[v]', '-map', '[v]'] + COMMON(n, out))
 
@@ -237,13 +260,14 @@ def render_segment(i, b, nfr, t0):
         open(man, 'w').write(_sig(b, nfr, t0))
         return
     if k == 'bleed':
-        isimg = MEDIA[b['media']][0] == 'img'
-        bchain = (still_chain(VW, VH, nfr, amt=0.075) if isimg
-                  else media_prefix(b['media']) + cover_chain(VW, VH) + ',unsharp=5:5:0.4:5:5:0.0')
+        isimg = MEDIA[b['media']][0] == 'img'; o = media_opts(b['media'])
+        bchain = (still_chain(VW, VH, nfr, amt=0.075, **o) if isimg
+                  else media_prefix(b['media']) + cover_chain(VW, VH, **o) + ',unsharp=5:5:0.4:5:5:0.0')
         lab = b.get('label')
         if lab:
-            chip = f'gfx/chip_{hashlib.md5(lab.encode()).hexdigest()[:8]}.png'
-            if not os.path.exists(chip): vlib_chip(lab, chip)
+            cy = int(b.get('chip_y', 1180))
+            chip = f'gfx/chip_{hashlib.md5(f"{lab}@{cy}".encode()).hexdigest()[:8]}.png'
+            if not os.path.exists(chip): vlib_chip(lab, chip, y=cy)
             run([FF,'-v','error','-y'] + media_input(b['media'], nfr) +
                 ['-loop','1','-framerate','30000/1001','-i','vignette_soft.png',
                  '-loop','1','-framerate','30000/1001','-i',chip,
@@ -388,7 +412,7 @@ def main():
         if not os.path.exists(mov):
             if kind == 'cta':   fr, _ = vlib.overlay_cta(spec['top'], spec['big'], d,
                                                          big_size=spec.get('big_size', 70))
-            elif kind == 'lt':  fr, _ = vlib.overlay_lower_third(spec['lines'], d)
+            elif kind == 'lt':  fr, _ = vlib.overlay_lower_third(spec['lines'], d, y_bottom=spec.get('y_bottom', 1600))
             else:               fr, _ = vlib.overlay_flash(d)
             encode(fr, mov, alpha=True)
         ins += ['-i', mov]

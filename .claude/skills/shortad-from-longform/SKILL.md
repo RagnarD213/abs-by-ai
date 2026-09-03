@@ -807,6 +807,39 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
     Recalibrated to 4.5 — the approved boundary. The rejected loudnorm file still fails on the ceiling test
     (133 seconds ABOVE G), which is the discriminator; the shaving limit was never what caught it.
     Use `--tp -1.4` on an editor's brickwalled master: the AAC overshoot measured 0.2 dB (−1.3 → −1.1 dBTP).
+13. ⚠⚠ **HIS PICTURE CUTS ARE NOT HIS AUDIO SPLICES. RECOVER THEM SEPARATELY.** The independent audit
+    found our talking head carrying 17 hard picture cuts where his has 5: the conform cut the picture at
+    every AUDIO splice, but he cuts the picture on a pose-matched frame of his own choosing, 1–15 frames
+    away from the sound cut (a J-/L-cut) — at 96.00 s his picture switches takes 8 frames before the
+    audio does, at 114.75 s 15 frames before, at 32.90 s 6 frames after. Rev 3's note that those were "his
+    own cuts" was wrong: his picture is continuous within ±3 frames of ours precisely because his cut is
+    elsewhere. **Method (`piccuts.py`):** for each talk splice render BOTH takes from the raw at the grade
+    over ±15–30 frames, fit each frame to his framing (scale/fy search as `cover.py`), high-pass NCC
+    against his frame, and take the crossover frame; then conform the base to a PICTURE EDL
+    (`edl_picture.json`, `build_base_pic.py`) whose segments start at his frames while the take alignment
+    stays fixed by the audio. 22 of 33 resolved with confidence ≥ 0.6; the rest stayed on the audio splice.
+    The crop track, the render's splice breakpoints and the watch pass's "known cuts" all read the picture
+    EDL. A cross-dissolve was never the answer to a jump cut — his frame choice is.
+14. ⚠ **A per-segment median window must SHRINK to zero at the segment ends.** Smoothed with a full
+    window, the crop at a cut sat where he WOULD be half a second later (median over the future only):
+    the audit measured him landing 78–190 px off after our cuts and the crop panning him back over up to
+    1 s. `facetrack3.py`: `k_eff = min(k, j, n-1-j)` plus a forward/backward slope-limited blend weighted
+    toward the pass that is exact at each end — landing error at every cut 0 px, exit error 0, and the
+    crop follows at ≤ 200 px/s from there. Verify by printing raw-vs-track at the first and last sample of
+    every segment; a mean statistic cannot see this.
+15. **The segment cache key must include the MEDIA entry**, not just the beat spec: a crop offset changed
+    in `assets.py` served the stale conveyor segment through a `--only` re-render because nothing in the
+    key had changed. Same class as the index-keyed caches, one level down.
+16. **Audit findings that were all real and all cheap:** a centred 9:16 window of a 16:9 clip slices
+    whatever sits at the sides (the conveyor's "MEAL PLANS" read "ME / PLA": place the window with an `ox`
+    per media); burned captions over a clip's own engraved text (put his caption band in as a lower third
+    above it, chip above that); a 24p clip stretched by frame repetition judders (39 of 145 frames
+    duplicated — `minterpolate=mi_mode=mci` after the `setpts`, 0 duplicates); a still whose subject
+    touches the top edge loses its crown to a centred push (`oy=0` anchors the push at the top); a second
+    subject jammed against the crop edge (`ox` shifts the window). And his lift: on a −19 LUFS master at
+    0.0 dBTP the audit's arithmetic showed +5.0–5.2 dB reaches −14.7 with 21 fewer limited seconds than
+    +5.8 — take the smaller lift.
+
 12. **Delivery goes beside his file, in the Ad-1 folder's convention:** `Muhammad Ad Videos/<ad>/<ad> |
     claude | 9x16.mp4` + `REVIEW_540p_9x16.mp4` + `AB_audio_his-vs-ours.mp4` + the gate stamp + notes +
     `recipe-vertical-v2/`. The older `EDITED ADS 8-20-26/ad2-fire-your-nutritionist/` folder keeps rev 3.

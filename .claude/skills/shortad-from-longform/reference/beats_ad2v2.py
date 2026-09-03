@@ -52,7 +52,7 @@ HOWDO = [('Because even though I was a nutrition coach back in the day, as a', I
 # ---- the timeline ---------------------------------------------------------------------
 T = [
  ('talk',   0.000,   F(107), {}),
- ('bleed',  F(107),  F(216), dict(media='museum', label='AI-GENERATED')),      # V2: hard cut in AND out
+ ('bleed',  F(107),  F(216), dict(media='museum', label='AI-GENERATED', chip_y=1060)),   # V2: hard cut in AND out; chip above his caption band, plaque left readable below
  ('talk',   F(216),  23.991, {}),                                              # V2: camera runs through; his flash at F(422)
  ('card',  23.991,  31.630, dict(media='spa')),
  ('talk',  31.630,  39.072, {}),
@@ -114,6 +114,10 @@ for a in EXTRA_FLASH:
 FLASHES.sort()
 
 OVERLAYS = [
+ # V2 runs his caption band over the museum clip; our unboxed captions overprinted the exhibit's
+ # engraved plaque (audit). His words, in his lower-third box, set low enough to sit over the plaque.
+ dict(kind='lt',  t0=F(107)+0.10, t1=F(216)-0.15, lines=['AI has made human nutritionists',
+                                                        'completely obsolete.'], y_bottom=1420),
  dict(kind='lt',  t0=F(2066), t1=73.250, lines=['2   Human nutritionists hand everybody',
                                                'the same generic meal plan.']),
  dict(kind='cta', t0=171.500, t1=176.000, top='Get A FREE AI Image of Yourself', big='With Abs'),
