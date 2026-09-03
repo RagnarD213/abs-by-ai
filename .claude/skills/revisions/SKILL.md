@@ -302,3 +302,27 @@ Two audiences, same skill:
     line of that section.** Ad 4's supplement-audit scroll ran under "upload a picture… generate a future
     self", not under "take a photo of your supplements" seven seconds later. Walk every app screen against
     the exact sentence it plays under, the same as lesson 9 for images.
+27. **Whisper is a Python module here, not a command: `python3 -m whisper CUT.mp4 --model small --language en
+    --output_format json`** with `Media/video_edit/bin` on PATH. A bare `whisper` call fails silently inside a
+    backgrounded shell (lesson 17's empty transcript, again). Also: in zsh, `echo ==== X` errors ("= not found")
+    because a leading `=` is filename expansion — quote separators. Both cost a rerun on Ad 5 (2026-09-03).
+28. **Peaks at 0 dBTP on a −19 LUFS master can be the VOICE, not the SFX.** Ad 5 measured −18.9 LUFS with 58
+    separate seconds touching 0 and 1,800 clipped samples; per-second peak scan (numpy on the mono decode)
+    showed plain talking-head seconds (1:36, 1:40, 1:52, no whoosh) at +2.4 dB. Ad 4's whoosh-only finding does
+    not generalise — always run the per-second scan and name the quiet seconds in the doc, so the editor puts
+    a limiter on the mix rather than just turning the SFX down.
+29. **The SCRIPT can contradict a standing rule — the rule wins, and say so in the doc.** Ad 5's script cue
+    for the closing app clip reads "the app's own before/after reveal screen — in-product footage is the one
+    place a before/after pair is safe". It is not (Dan's rulings on Ads 2, 3 and 4). The doc told Muhammad to
+    ignore the note; the scripts doc itself still needs correcting. Read every bracketed cue against the
+    rules list before assuming the editor got it wrong.
+30. **Two new layouts that are still a before/after in one frame:** a two-panel with an ARROW between heavier
+    Dan and ripped Dan (Ad 5, 1:27 — the editor split a single AI clip into panels), and any belly-grab /
+    pinch stock close-up (Ad 5, 1:11 — body-shaming under Google's weight-loss policy). Both are now in the
+    standing rules. The fix for the arrow panel is to play the clip full frame in one panel, not to drop it.
+31. **Appending to Muhammad's batch doc: `reference/md_to_docs_clipboard.py <md>` builds the nested-list HTML
+    and sets the clipboard in one step** (the `markdown` package is not installed; a hand-rolled converter
+    mangled Dan's `\*\*` headers twice before the tree version). Then in Docs: click in the body,
+    `cmd+ArrowDown`, check B is off, `cmd+v`, and verify with a Drive `read_file_content` read-back that the
+    new H2 is there and the previous sections are unchanged. Pasted H2s land black while Dan's are blue —
+    cosmetic, he has not objected.

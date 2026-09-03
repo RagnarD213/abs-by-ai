@@ -319,6 +319,16 @@ under the "generate a future self" line, 16 items total. Section appended to his
 **Supplement Audit RESULTS screen** (3:18–3:37) "as a separate file" — it does not exist yet; someone
 runs the real feature on a photo of Dan's stack and records it. Delete this entry once sent.
 
+**Muhammad's Ad 5 (diets) — round 1 reviewed 2026-09-03.** Audio is one mic / dry (gate: image, comb, room
+all PASS) but −18.9 LUFS with the VOICE hitting 0 dBTP in 58 seconds (1,800 clipped samples). Two Google
+rejections: the 1:27 fat-Dan→ripped-Dan arrow two-panel and a 1:11 belly-grab stock clip. No AI label on the
+three benefit clips at 3:34, app demo ends on "Generating… 67%" with no payoff, skip-stopper diet list missing,
+~35 picture changes vs Ad 1's 53. 30 items. Section appended to his batch-2 doc (verified by Drive read-back,
+Ad 2–4 sections untouched), markdown `revision docs/ad5-revisions-muhammad-round1-9-3-26.md`. Dan tells
+Muhammad it is in the same doc. ⚠ The Ad 5 SCRIPT note (scripts doc, last cue) still tells editors the app's
+before/after reveal is "safe" — it contradicts the standing rule; someone should fix the scripts doc. Delete this
+entry once sent.
+
 **Shorts centring queue fix — DONE 2026-09-02, one decision left for Dan.** Every queued off-centre Short is
 replaced: Blotato 10 posts swapped + MD5-verified; YouTube 8 stale scheduled Shorts re-uploaded as new ids at
 the same slots (old→new in `SHORTS_UPLOAD_PLAN.json`), the 8 old copies + killed `v6-short1` deleted;
