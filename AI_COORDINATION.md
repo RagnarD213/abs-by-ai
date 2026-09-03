@@ -43,8 +43,8 @@ is the permanent record of code changes.
 `AUTO_BOOST_ENABLED=0` so every run is a dry run that plans and records but writes nothing to Meta.
 The dry-run report was shown in chat: it would rename the campaign/ad set, and create one $5 test on the
 Sep 2 "Pick a sport" image post. **To go live Dan says the word and a session sets `AUTO_BOOST_ENABLED=1`
-on that service** (`railway variables --service auto-boost --set AUTO_BOOST_ENABLED=1`). ⚠ Two metric
-strings are still unmatched to Ads Manager because the campaign had no insights yet — the job self-verifies
+on that service** (`railway variables --service auto-boost --set AUTO_BOOST_ENABLED=1`). First Railway run observed 00:15 UTC 2026-09-03 (exit 0, run recorded). ⚠ `instagram_profile_visits` is
+now reporting (5 visits on $0.10) but neither metric is count-matched to Ads Manager yet — the job self-verifies
 (no loser verdicts, no champion kill until each metric is observed); the check is `node scripts/ads/auto-boost.js
 --dry-run --verify` once spend exists, recipe in `Docs/AUTO_BOOST.md`. Delete this entry once enabled and the
 first live run is observed.
