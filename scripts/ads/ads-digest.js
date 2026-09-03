@@ -647,6 +647,41 @@ async function fetchAutoBoost() {
   }
 }
 
+// ============================================================
+// YTADS (the hourly YouTube engagement-champion sync)
+// ============================================================
+//
+// The Google Ads Script posts a snapshot to absbyai.com every hour; the server
+// records each run in `ytads_runs` and every decision in `ytads_events`. This
+// reads the latest run and builds the brief block with the SAME builder the
+// /api/ytads/state route uses (scripts/ads/ytads/brief.js). Docs/YTADS.md.
+async function fetchYtads() {
+  const url = process.env.DATABASE_PUBLIC_URL || process.env.DATABASE_URL;
+  const blind = (reason) => ({ ok: false, reason });
+  if (!url) return blind('No DATABASE_URL / DATABASE_PUBLIC_URL — cannot read ytads_runs.');
+  let Pool, buildBrief;
+  try { ({ Pool } = require('pg')); } catch { return blind('pg module not installed here.'); }
+  try { ({ buildBrief } = require('./ytads/brief.js')); } catch (e) { return blind(`ytads brief module missing: ${e.message}`); }
+  const pool = new Pool({
+    connectionString: url,
+    ssl: /localhost|127\.0\.0\.1|railway\.internal/.test(url) ? false : { rejectUnauthorized: false },
+  });
+  try {
+    const exists = await pool.query("SELECT to_regclass('ytads_runs') AS t");
+    if (!exists.rows[0] || !exists.rows[0].t) return blind('ytads_runs does not exist yet — the Google Ads Script has never synced.');
+    const r = await pool.query('SELECT id, at, dry_run, enabled, commands, report, results, results_at FROM ytads_runs ORDER BY at DESC LIMIT 1');
+    if (!r.rows.length) return blind('ytads_runs is empty — the Google Ads Script has never synced.');
+    const since = new Date(Date.now() - 48 * 3600e3).toISOString();
+    const ev = await pool.query('SELECT video_id, campaign_key, ad_id, event, detail, at FROM ytads_events WHERE at >= $1 ORDER BY at', [since]);
+    // `enabled` is what the server saw at the last sync — the switch lives on Railway.
+    return buildBrief({ run: r.rows[0], events: ev.rows, enabled: !!r.rows[0].enabled });
+  } catch (e) {
+    return blind(`Could not read ytads_runs: ${e.message}`);
+  } finally {
+    await pool.end().catch(() => {});
+  }
+}
+
 async function main() {
   loadSecrets();
 
@@ -671,6 +706,7 @@ async function main() {
   ]);
 
   const autoBoost = await fetchAutoBoost().catch(e => ({ ok: false, reason: `Fetch threw: ${e.message}` }));
+  const ytads = await fetchYtads().catch(e => ({ ok: false, reason: `Fetch threw: ${e.message}` }));
 
   const live = [meta, google].filter(p => p.ok);
   const blind = [meta, google].filter(p => !p.ok);
@@ -702,6 +738,8 @@ async function main() {
     // The hourly @danrosefit auto-boost job's latest run (Docs/AUTO_BOOST.md).
     // `ok:false` with a reason when it has never run or Postgres is unreachable.
     autoBoost,
+    // The hourly YouTube engagement-champion sync's latest run (Docs/YTADS.md).
+    ytads,
     thresholds: {
       minSpendToJudge: MIN_SPEND_TO_JUDGE,
       spendSpikeRatio: SPEND_SPIKE_RATIO,
@@ -725,6 +763,9 @@ async function main() {
   parts.push(autoBoost.ok
     ? `auto-boost ${autoBoost.enabled ? 'ON' : 'OFF'} (last run ${autoBoost.ageHours}h ago${autoBoost.stale ? ', STALE' : ''})`
     : `auto-boost unread (${autoBoost.reason})`);
+  parts.push(ytads.ok
+    ? `ytads ${ytads.enabled ? 'ON' : 'OFF'} (last sync ${ytads.ageHours}h ago${ytads.stale ? ', STALE' : ''}, ${ytads.counts.commands || 0} cmd)`
+    : `ytads unread (${ytads.reason})`);
   console.log(`ads-digest ${day} → ${outPath}: ${parts.join(', ')}`);
 
   if (argv.includes('--print')) console.log(JSON.stringify(digest, null, 2));

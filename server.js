@@ -261,7 +261,7 @@ const DASH_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
 const DASH_PAGES = ['/dashboard', '/admin', '/morningbrief'];
 const DASH_APIS  = [
   '/api/morning-data', '/api/monarch', '/api/calendar-debug', '/api/gmail-digest',
-  '/api/ads-digest',
+  '/api/ads-digest', '/api/ytads/state',
   '/api/health-debug', '/api/todos', '/api/plan', '/api/assign-priority',
   '/api/tasks-state', '/api/personal-lists', '/api/timesheet/mark-paid',
 ];
@@ -1572,7 +1572,7 @@ app.get('/api/gmail-digest', async (req, res) => {
 const ADS_DIGEST_FILE = 'brief-ads.json';
 const EMPTY_ADS_DIGEST = {
   generatedAt: null, day: null, blind: [], totals: { spendYesterday: null },
-  anomalies: [], winners: [], platforms: {}, autoBoost: null,
+  anomalies: [], winners: [], platforms: {}, autoBoost: null, ytads: null,
 };
 
 async function loadAdsDigest() {
@@ -1597,6 +1597,8 @@ async function loadAdsDigest() {
       platforms:   parsed.platforms && typeof parsed.platforms === 'object' ? parsed.platforms : {},
       // Latest run of the hourly @danrosefit auto-boost job (Docs/AUTO_BOOST.md).
       autoBoost:   parsed.autoBoost && typeof parsed.autoBoost === 'object' ? parsed.autoBoost : null,
+      // Latest run of the hourly YouTube engagement-champion sync (Docs/YTADS.md).
+      ytads:       parsed.ytads && typeof parsed.ytads === 'object' ? parsed.ytads : null,
     };
   } catch (e) {
     console.error('loadAdsDigest error:', e.message);
@@ -1607,6 +1609,12 @@ async function loadAdsDigest() {
 app.get('/api/ads-digest', async (req, res) => {
   res.json(await loadAdsDigest());
 });
+
+// ── YouTube engagement champion (Google Ads Script ↔ server) ──
+// Every new public video gets a $5 test ad in each Demand Gen campaign; one
+// champion per campaign. Rules in scripts/ads/ytads/engine.js, operating doc
+// Docs/YTADS.md. /sync and /results are keyed (X-YTADS-Key); /state is in DASH_APIS.
+require('./scripts/ads/ytads/routes.js')(app, { pool: db });
 
 // ── Today's Plan (stored in GitHub plan.json so it survives Railway deploys) ──
 // Shape: { date: "YYYY-MM-DD", order: [checkId...], excluded: [checkId...] }
