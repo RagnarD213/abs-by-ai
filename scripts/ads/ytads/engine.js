@@ -41,10 +41,13 @@ const STATE_LABELS = [LABELS.TEST, LABELS.CHAMPION, LABELS.RETIRED, LABELS.RETIR
 // How the three campaigns are recognised in the snapshot. The tier-2 id is a
 // verified account fact (8/31 handoff); the other two are matched on name until
 // Phase 0 pins their ids in config.campaigns.
+// ORDER MATTERS: the remarketing campaign's name also contains "geo tier 1"
+// ("[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | … | geo tier 1 | … | youtube viewers",
+// read in the UI 2026-09-03), so RMKTG is tested before the tier-1 rule.
 const DEFAULT_CAMPAIGN_MATCH = [
   { key: 'tier2', id: '24122099676' },
-  { key: 'tier1', match: /tier\s*1/i },
   { key: 'rmktg', match: /RMKTG|remarket/i },
+  { key: 'tier1', match: /tier\s*1/i },
 ];
 
 // ============================================================

@@ -311,6 +311,16 @@ Each has a Key dashboard task. Run in a fresh session.
 
 # ACTIVE TASK
 
+**YouTube engagement champion (Google Ads) — BUILT, DEPLOYED, SCRIPT INSTALLED; two clicks are Dan's** (2026-09-03, Fable 5.1).
+Brain live on absbyai.com (commit `9ea8805`+): `scripts/ads/ytads/` (engine 88 tests green, lint, headlines, routes,
+brief), `YTADS_ENABLED=0` on Railway = dry run. Ads Script "Abs by AI — YouTube engagement champion" (id
+`12241942`) is saved in account 342-717-0837 with the key pasted, **not yet authorized and not yet scheduled** —
+Google refuses to schedule before authorization, and authorization is an OAuth grant (Dan's click). **Dan: Tools →
+Bulk actions → Scripts → the row → Frequency pencil → Hourly → Save → Authorize → Grant access.** The first run posts
+the full snapshot; the next session then (a) rewrites `headline-style.md` from the full copy of every ad, (b) pins the
+tier-1 / RMKTG campaign ids, (c) checks VERIFY 1 (Demand Gen mutate) on the first real video, (d) shows Dan the dry-run
+day-one pause list, then sets `YTADS_ENABLED=1`. Developer-token application: see below. Operating doc `Docs/YTADS.md`.
+
 **Muhammad's Ad 4 (supplements) — round 1 reviewed 2026-09-02.** Audio is one mic / no comb / dry
 (his Ad 3 fix stuck); quiet at −19.6 LUFS, robot clip has no AI label, supplement-audit app screen sits
 under the "generate a future self" line, 16 items total. Section appended to his batch-2 doc, markdown

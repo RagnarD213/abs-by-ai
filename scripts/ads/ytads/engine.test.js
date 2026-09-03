@@ -34,8 +34,8 @@ function ad({ campaign, name, labels = [], status = 'ENABLED', life = [0, 0], d3
 }
 const CAMPS = [
   { id: '24122099676', name: '[DAN] [DGEN] [ENGAGEMENT] geo tier 2', status: 'ENABLED', adGroups: [{ id: '9', name: 'g', status: 'ENABLED' }] },
-  { id: '2', name: '[DAN] [DGEN] [ENGAGEMENT] geo tier 1', status: 'ENABLED', adGroups: [{ id: '19', name: 'g', status: 'ENABLED' }] },
-  { id: '3', name: '[DGEN] [RMKTG] youtube viewers', status: 'ENABLED', adGroups: [{ id: '29', name: 'g', status: 'ENABLED' }] },
+  { id: '2', name: '[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT', status: 'ENABLED', adGroups: [{ id: '19', name: 'g', status: 'ENABLED' }] },
+  { id: '3', name: '[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers', status: 'ENABLED', adGroups: [{ id: '29', name: 'g', status: 'ENABLED' }] },
 ];
 const T2 = '24122099676', T1 = '2', RM = '3';
 const snap = (ads, campaigns = CAMPS) => ({ campaigns, ads });
