@@ -143,17 +143,19 @@ verifying it. **Short 2 measures 1.08 dB shape against a 1.00 gate** — one ban
 `_pre-audiofix-20260902/`; A/B clips beside supp-short1 and supp-short4). Same block: the parent
 long-form is on hold (above), so nothing can post. Parked, not chased.
 
-**AD 2 vertical 9:16 — REBUILT AGAINST MUHAMMAD'S V2 HD, DELIVERED 2026-09-03, awaiting Dan's review.**
+**AD 2 vertical 9:16 — REBUILT AGAINST MUHAMMAD'S V2 HD, DELIVERED 2026-09-03 (final 14:09), awaiting Dan's review.**
 `Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | claude | 9x16.mp4`
-(+ `REVIEW_540p_9x16.mp4`, `AB_audio_his-vs-ours.mp4`, gate stamp, `notes-vertical-v2.md`, `recipe-vertical-v2/`).
-His V2 differs from V1 in five windows only (frame diff); all five conformed to his frames. His V2 shows the
-**email-capture screen at 3:12 and 3:22 — banned; ours shows the after-only result** (tell Muhammad). An
-independent Fable audit found our talking head cutting the picture at every AUDIO splice where he cuts on a
-pose-matched frame nearby: his picture cut was recovered at 22 of 33 splices and the base re-conformed to them
-(`edl_picture.json`); crop lands on him at every cut (sd 24 px, 6/319 beyond 70). QC 20/20, watch pass, audio
-gate (reference-mix mode) on the delivered file. Work dir `/Volumes/Extreme/_edit_work/ad2-vert-v2/`. The
-older rev 3 stays in `EDITED ADS 8-20-26/ad2-fire-your-nutritionist/`. Then Phase B: Dan cuts
-`SCRIPT_FOR_DAN.md` to ~200 words for the 0:59 — **Dan cuts it himself**. Delete this entry once he approves.
+(+ `REVIEW_540p_9x16.mp4`, `REVIEW_480p_9x16_phone.mp4`, `AB_audio_his-vs-ours.mp4`, gate stamp, `notes-vertical-v2.md`,
+`recipe-vertical-v2/`). His V2 differs from V1 in five windows only; all five conformed to his frames. **His V2 shows
+the app's email-capture screen at 3:12 and 3:22 — banned; ours shows the after-only result (tell Muhammad).** Two
+independent Fable audits: the first found our talking head cutting the picture at every AUDIO splice where he cuts on
+a pose-matched frame nearby → his picture cut recovered at 26 of 33 splices and the base re-conformed to them; the
+second found a duplicated frame after cuts and a one-frame crop miss at the cut → both fixed and re-measured on the
+delivered file (every cut ≤ 70 px at the frame before/at/after, 0 duplicates; centering sd 18 px, 2/319 beyond 70).
+QC 20/20, watch pass, shared audio gate (reference-mix mode) on the delivered file; −14.7 LUFS / −1.1 dBTP.
+Work dir `/Volumes/Extreme/_edit_work/ad2-vert-v2/`; rev 3 stays in `EDITED ADS 8-20-26/ad2-fire-your-nutritionist/`.
+Then Phase B: Dan cuts `SCRIPT_FOR_DAN.md` to ~200 words for the 0:59 — **Dan cuts it himself**. Delete this entry
+once he approves.
 
 **Cutout thumbnails** — six built in the Brandon Carter style (A/B/C typographic, D/E/F
 device-heavy) in `social media graphics/youtube/thumbnails/The 17 Dollar Ab Wheel…/`. Dan
