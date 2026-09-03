@@ -20,9 +20,13 @@ for s in P:
     # ffmpeg's cfr output duplicate the FIRST frame whenever the phase is past half a frame (the re-audit
     # found a duplicated frame right after 9 of 29 cuts, 4 of 29 in the previous base -- a 33 ms hold, not
     # visible, but a defect class). Snapping src_in to k/FPS (+ a hair) lands the seek on a frame.
-    src = round(s['src_in']*FPS)/FPS + 0.0002
+    # ⚠ AND REWRITE THE TIMESTAMPS. Snapping alone did not remove the duplicate (the roll's pts are not
+    # exactly k/FPS, so the seek phase is still unknown): `setpts=N/FR/TB` puts every decoded frame on a
+    # clean 0,1,2,... grid, so the constant-rate output has nothing to duplicate or drop. Verified by
+    # landing_check.py's diff(n0->n0+1) at every cut.
+    src = round(s['src_in']*FPS)/FPS - 0.0002
     subprocess.run([FF,'-nostdin','-v','error','-y','-ss',f"{src:.5f}",'-i',RAW,'-an',
-                    '-vf', f'{GRADE},scale=1920:1080','-r',f'{FPS:.6f}','-frames:v',str(nfr),
+                    '-vf', f'{GRADE},scale=1920:1080,setpts=N/({FPS:.6f})/TB','-r',f'{FPS:.6f}','-frames:v',str(nfr),
                     '-c:v','libx264','-crf','16','-preset','veryfast','-pix_fmt','yuv420p', p], check=True)
     print(f"seg {s['i']:3d}  frames {s['n0']:5d}+{nfr:4d}  src {s['src_in']:8.3f}  rel {s['rel']:+d}", flush=True)
 with open('concat_pic.txt','w') as f:

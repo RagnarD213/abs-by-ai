@@ -36,35 +36,45 @@ _EDL = json.load(open('edl_picture.json'))   # HIS picture cuts, not the audio s
 _SPLICES = [q['cut_in'] for q in _EDL[1:]]
 _SEGS = [(q['cut_in'], q['cut_out']) for q in _EDL]
 
-def _idx(t):
-    """Sample index for time t, CLAMPED INSIDE t's own source-continuous segment. The track
-    steps at a splice, and at 4 samples/s a plain round() one frame before a splice lands on
-    the sample AFTER it -- the pre-step breakpoint would pick up the post-step value and a
-    step becomes a 187 px ramp."""
-    fps_t, xs = _TRK['fps'], _TRK['x']
-    i = int(round(t*fps_t))
-    lo, hi = 0, len(xs)-1
+def _seg_range(t):
+    """Sample-index range [lo, hi] of the track samples inside t's own picture segment."""
+    N = _TRK['n']
     for (sa, sb) in _SEGS:
         if sa - 1e-9 <= t < sb:
-            lo = max(0, int(np.ceil(sa*fps_t - 1e-6)))
-            hi = min(len(xs)-1, int(np.floor((sb - 1e-6)*fps_t)))
-            break
-    if hi < lo: hi = lo
-    return min(hi, max(lo, i))
+            n0, n1 = int(round(sa*FPS)), int(round(sb*FPS))
+            lo = next((i for i, v in enumerate(N) if v >= n0), 0)
+            hi = max(lo, max((i for i, v in enumerate(N) if v < n1), default=lo))
+            return lo, hi
+    return 0, len(N)-1
+
+def _x_at(t):
+    """Crop x at time t: linear interpolation between the two track samples that bracket t INSIDE
+    t's own picture segment (samples are at exact frame indices; every segment has a sample on its
+    first and its last frame, so a cut never interpolates across itself)."""
+    N, X = _TRK['n'], _TRK['x']
+    lo, hi = _seg_range(t)
+    f = t*FPS
+    if f <= N[lo]: return X[lo]
+    if f >= N[hi]: return X[hi]
+    j = lo
+    while j < hi and N[j+1] <= f: j += 1
+    if j >= hi: return X[hi]
+    a, b = N[j], N[j+1]
+    return X[j] + (X[j+1]-X[j])*(f-a)/max(1, b-a)
 
 def crop_points(t0, t1):
-    """(t_rel, x) breakpoints for this beat: the track's own 4 Hz samples, plus a pair one
-    frame apart either side of every splice inside the beat so the step renders as a step."""
-    xs = _TRK['x']
-    ts, t = [], t0
-    while t < t1 + 1e-6:
-        ts.append(t); t += 0.25
-    if ts[-1] < t1 - 1e-6: ts.append(t1)
+    """(t_rel, x) breakpoints for this beat: every track sample inside the beat (exact frame times),
+    plus the pair one frame apart either side of every picture cut so the step renders as a step."""
+    N = _TRK['n']
+    ts = set([t0, t1])
+    for v in N:
+        t = v/FPS
+        if t0 < t < t1: ts.add(t)
     for c in _SPLICES:
         if t0 + 0.05 < c < t1 - 0.05:
-            ts += [c - 1.0/FPS, c]
-    ts = sorted(set(round(x, 4) for x in ts))
-    return [(x - t0, float(xs[_idx(x)])) for x in ts]
+            ts.add(c - 1.0/FPS); ts.add(c)
+    ts = sorted(round(x, 5) for x in ts)
+    return [(x - t0, float(_x_at(x))) for x in ts]
 
 def crop_x_expr(t0, t1):
     """Piecewise-linear crop x over this beat as an ffmpeg expression in `t` (0 at the beat
@@ -100,7 +110,7 @@ def selftest(verbose=True):
         for (ta, xa), (tb, xb) in zip(pts[:-1], pts[1:]):
             for f in (0.0, 0.5, 0.999):
                 t = ta + f*(tb-ta)
-                want = max(0, min(1920-CROP_W, xa + (xb-xa)*f))
+                want = max(0, min(1920-CROP_W, xa + (xb-xa)*f))   # linear between breakpoints, as the expression
                 got = _eval_crop_expr(e, t)
                 worst = max(worst, abs(got-want))
                 if abs(got-want) > 0.5:
@@ -219,9 +229,10 @@ def vlib_chip(label, path, y=1180):
 def _track_sig(t0, t1):
     """The crop track slice this beat reads (plus a sample either side): a talk segment's cache
     is only valid for the track it was rendered with."""
-    fps_t, xs = _TRK['fps'], _TRK['x']
-    i0 = max(0, int(t0*fps_t) - 1); i1 = min(len(xs), int(t1*fps_t) + 2)
-    return hashlib.md5(json.dumps(xs[i0:i1]).encode()).hexdigest()[:10]
+    N, X = _TRK['n'], _TRK['x']
+    f0, f1 = t0*FPS - 8, t1*FPS + 8
+    sl = [(n, x) for n, x in zip(N, X) if f0 <= n <= f1]
+    return hashlib.md5(json.dumps(sl).encode()).hexdigest()[:10]
 
 def _sig(b, nfr, t0):
     v = 'v2-flat-gblur' if b['kind'] == 'bleed2' else 'v2-flat'   # only the photo beat changed; keep every other cache hit

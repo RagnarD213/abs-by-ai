@@ -847,6 +847,20 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
     (`build_base_pic.py`) lands every seek on a frame. Shipped on Ad 2 V2 unfixed, deliberately: the
     re-render cost an hour for nothing a viewer could see.
 
+18. ⚠⚠ **`fps=4` SAMPLING IS ~0.2 s LATE. THE CROP TRACK MUST LIVE ON FRAME INDICES.** The re-audit
+    measured a 726 px/s whip just before the 21.05 s cut "while he is static": the 4 fps torso sample
+    labelled 21.00 s had been taken from a frame AFTER the cut, so the track switched to the incoming pose
+    two frames early and the crop left him before the cut. Sample with `select='eq(n,…)+…'` at exact
+    indices (every 7th frame PLUS the last frame before and the first frame of every picture segment),
+    store `n` with `x` (`measure_torso2.py`, `facetrack4.py`), and interpolate in frame time inside the
+    segment only (`render.py _x_at`). Result: landing error 0 px at both sides of every cut, and the
+    self-test still proves the expression. Cap the slope at 170 px/s source (~300 on the phone).
+19. **Ask the auditor to re-audit, and expect a "does not ship".** The first re-audit of the picture-cut
+    rebuild found two narrow mechanical faults (duplicated first frames at 11 cuts, the whip above) that
+    every gate had passed and that I had declared fixed. Its scripts (`audit_v3/p1_landing3.py`,
+    `p1_pananalyse3.py`) are reusable; `landing_check.py` is the builder-side version now run before
+    delivery: torso at n0−1 / n0 / n0+2 on the DELIVERED file for every cut, and `diff(n0→n0+1) ≥ 0.5`.
+
 12. **Delivery goes beside his file, in the Ad-1 folder's convention:** `Muhammad Ad Videos/<ad>/<ad> |
     claude | 9x16.mp4` + `REVIEW_540p_9x16.mp4` + `AB_audio_his-vs-ours.mp4` + the gate stamp + notes +
     `recipe-vertical-v2/`. The older `EDITED ADS 8-20-26/ad2-fire-your-nutritionist/` folder keeps rev 3.
