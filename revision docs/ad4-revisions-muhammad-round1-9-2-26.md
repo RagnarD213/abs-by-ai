@@ -48,7 +48,11 @@
 - 3:11 - 3:17
     - Good, keep the "AI reads every label" panel.
 - 3:18 - 3:37
-    - I still owe you the audit RESULTS screen for this section (which supplements are helping, which are doing nothing, the interaction flags, what's missing). I will send it as a separate file. Leave the lower thirds as they are until then.
+    - Here is the audit RESULTS screen for this section, recorded from the real app on my actual stack (phone-shaped, 1080x1920, muted). It opens on the verdict, drops to the green "frees up ~$136/mo" banner, then scrolls the Keep / Drop list (which supplements are helping, which are doing nothing, what to add) and my new stack. Use it full-frame as a phone screen, speed it up to fit the section, and keep the lower thirds as they are.
+        - <https://absbyai.com/ad-assets/app-supplement-audit-results_20s_1080x1920_muted.mp4>
+    - If you want a beat on the interaction flags, this second clip is the Safety Officer card from the same audit (yellow rating, the named flags).
+        - <https://absbyai.com/ad-assets/app-supplement-audit-safety-flags_11s_1080x1920_muted.mp4>
+    - Both clips were checked: no drug names appear anywhere on screen. Do not add any.
 - 3:38 - 3:46
     - Good, keep the supermarket clip and the meal prep clip.
 - 3:48 - 3:51
