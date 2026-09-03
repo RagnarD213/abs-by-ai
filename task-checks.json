@@ -11,8 +11,7 @@
     "assistant::Vaccum bedroom",
     "assistant::Tidy living room",
     "assistant::Take out trash",
-    "assistant::Put away dishes 2.0",
-    "money::Execute handoff: IG auto-boost — $5 profile-visits test on every new @danrosefit post, one champion at ~$200/mo"
+    "assistant::Put away dishes 2.0"
   ],
   "log": {
     "health::Shower": [
@@ -229,7 +228,6 @@
     "assistant::Vaccum bedroom": "2026-09-01",
     "assistant::Tidy living room": "2026-09-01",
     "assistant::Take out trash": "2026-09-01",
-    "assistant::Put away dishes 2.0": "2026-09-01",
-    "money::Execute handoff: IG auto-boost — $5 profile-visits test on every new @danrosefit post, one champion at ~$200/mo": "2026-09-03"
+    "assistant::Put away dishes 2.0": "2026-09-01"
   }
 }
