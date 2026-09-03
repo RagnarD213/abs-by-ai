@@ -315,9 +315,11 @@ Each has a Key dashboard task. Run in a fresh session.
 (his Ad 3 fix stuck); quiet at −19.6 LUFS, robot clip has no AI label, supplement-audit app screen sits
 under the "generate a future self" line, 16 items total. Section appended to his batch-2 doc, markdown
 `revision docs/ad4-revisions-muhammad-round1-9-2-26.md`, stack B-roll served at
-`absbyai.com/ad-assets/…muted.mp4`. Dan tells Muhammad it is in the same doc. ⚠ The doc promises him the
-**Supplement Audit RESULTS screen** (3:18–3:37) "as a separate file" — it does not exist yet; someone
-runs the real feature on a photo of Dan's stack and records it. Delete this entry once sent.
+`absbyai.com/ad-assets/…muted.mp4`. Dan tells Muhammad it is in the same doc. ✅ The **Supplement Audit
+RESULTS screen** (3:18–3:37) is now DONE (2026-09-03, commit `621e169`): a fresh audit was run in the real
+app on Dan's real 12-bottle stack (session 7; medication worded generically so no drug name renders),
+recorded headless at 1080x1920 and linked in the doc — `/ad-assets/app-supplement-audit-results_20s_…mp4`
++ `…safety-flags_11s_…mp4`, copies beside the doc and in the asset library. Delete this entry once sent.
 
 **Muhammad's Ad 5 (diets) — round 1 reviewed 2026-09-03.** Audio is one mic / dry (gate: image, comb, room
 all PASS) but −18.9 LUFS with the VOICE hitting 0 dBTP in 58 seconds (1,800 clipped samples). Two Google
@@ -338,8 +340,9 @@ the four already-PUBLISHED off-centre Shorts (`y0XIbNoA2Xo` 08-22, `P9VUGyWeNtY`
 Delete this entry once he answers.
 
 
-**04 invest-health — style-standard rebuild IN PROGRESS** (Claude Code, 2026-09-02).
-Dan picked sub30 + the therapy/psych-meds beat (L1) restored: 165 ranges, 29:13. Picture
-rendered, audio rebuilt right-channel-only, 124 cutaways + 65 graphics built; composite and
-gate remain. Work dir `/Volumes/Extreme/_edit_work/invest-health-cutdowns/{sub30f,style}`.
+**04 invest-health — style-standard rebuild, RESUMED 2026-09-03 (Claude Code, this session owns it).**
+The 09-02 session died after its watch pass found 40 frozen card holds; it added a drift fix and rebuilt
+the 38 cards but never re-flattened or re-composited. Now: gfx track re-flattening, voice going through
+`_shared/audio/voice_chain.py` (pick_lav confirmed lav = C1511 ch 1), then composite B/C, qc_style +
+watch + audio_gate stamp, deliver, 540p + A/B. Work dir `/Volumes/Extreme/_edit_work/invest-health-cutdowns/{sub30f,style}`.
 Do not write to `claude edited long form content/04 - …` from another session.
