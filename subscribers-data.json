@@ -232,9 +232,11 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 0,
-      "welcomeNextAt": "2026-09-04T03:51:38.801Z",
-      "welcomeSentAt": {},
+      "welcomeStep": 1,
+      "welcomeNextAt": "2026-09-06T04:11:22.765Z",
+      "welcomeSentAt": {
+        "1": "2026-09-04T04:11:22.967Z"
+      },
       "unsubscribed": false
     }
   }
