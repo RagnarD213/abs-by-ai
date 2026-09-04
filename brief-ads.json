@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-03T11:07:18.365Z",
-  "day": "2026-09-02",
+  "generatedAt": "2026-09-04T11:07:15.744Z",
+  "day": "2026-09-03",
   "window": {
-    "from": "2026-08-26",
-    "to": "2026-09-02",
+    "from": "2026-08-27",
+    "to": "2026-09-03",
     "baselineDays": 7
   },
   "blind": [
@@ -14,25 +14,14 @@
     }
   ],
   "totals": {
-    "spendYesterday": 1.65,
-    "spend7dMean": 6.63,
-    "deltaPct": -0.75,
+    "spendYesterday": 5.08,
+    "spend7dMean": 4.16,
+    "deltaPct": 0.22,
     "platformsLive": [
       "meta"
     ]
   },
-  "anomalies": [
-    {
-      "severity": "high",
-      "platform": "meta",
-      "scope": "campaign",
-      "kind": "spend_stopped",
-      "name": "[DAN] [ENGAGEMENT] IG GEO",
-      "headline": "[DAN] [ENGAGEMENT] IG GEO stopped spending",
-      "detail": "$0.00 yesterday against a 7-day average of $6.63/day — status reads PAUSED.",
-      "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250551172530682"
-    }
-  ],
+  "anomalies": [],
   "winners": [],
   "platforms": {
     "meta": {
@@ -40,9 +29,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 1.65,
-      "spend7dMean": 6.63,
-      "deltaPct": -0.75,
+      "spend": 5.08,
+      "spend7dMean": 4.16,
+      "deltaPct": 0.22,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -50,16 +39,16 @@
           "status": "ACTIVE",
           "resultLabel": "video view",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 1.65,
-          "results": 46,
-          "impressions": 265,
+          "spend": 5.08,
+          "results": 125,
+          "impressions": 670,
           "costPerResult": 0.04,
           "baseline": {
-            "days": 0,
-            "meanSpend": 0,
-            "totalSpend": 0,
-            "results": 0,
-            "costPerResult": null
+            "days": 1,
+            "meanSpend": 1.65,
+            "totalSpend": 1.65,
+            "results": 46,
+            "costPerResult": 0.04
           }
         },
         {
@@ -73,26 +62,15 @@
           "impressions": 0,
           "costPerResult": null,
           "baseline": {
-            "days": 2,
-            "meanSpend": 6.63,
-            "totalSpend": 13.26,
-            "results": 68,
-            "costPerResult": 0.2
+            "days": 1,
+            "meanSpend": 2.51,
+            "totalSpend": 2.51,
+            "results": 11,
+            "costPerResult": 0.23
           }
         }
       ],
-      "anomalies": [
-        {
-          "severity": "high",
-          "platform": "meta",
-          "scope": "campaign",
-          "kind": "spend_stopped",
-          "name": "[DAN] [ENGAGEMENT] IG GEO",
-          "headline": "[DAN] [ENGAGEMENT] IG GEO stopped spending",
-          "detail": "$0.00 yesterday against a 7-day average of $6.63/day — status reads PAUSED.",
-          "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250551172530682"
-        }
-      ],
+      "anomalies": [],
       "winners": []
     },
     "google": {
@@ -110,8 +88,8 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-03T10:15:35.410Z",
-    "ageHours": 0.86,
+    "lastRunAt": "2026-09-04T10:19:54.697Z",
+    "ageHours": 0.79,
     "stale": false,
     "dryRun": true,
     "enabled": false,
@@ -121,31 +99,31 @@
         "testsCap": 300,
         "testsMtd": 0,
         "totalCap": 500,
-        "totalMtd": 2.71,
+        "totalMtd": 9.18,
         "capReached": false,
         "testsCommitted": 0,
-        "totalCommitted": 2.71
+        "totalCommitted": 9.18
       },
       "pair": {
         "ads": [
           {
             "adId": "120250753783950682",
-            "spend": 1.59,
+            "spend": 7.41,
             "active": true,
-            "visits": 14,
+            "visits": 70,
             "mediaId": "18192762022391478",
             "costPerVisit": 0.11
           },
           {
             "adId": "120250753783030682",
-            "spend": 1.12,
+            "spend": 1.77,
             "active": true,
-            "visits": 12,
+            "visits": 14,
             "mediaId": "18188183254395331",
-            "costPerVisit": 0.09
+            "costPerVisit": 0.13
           }
         ],
-        "reason": "waiting for both to reach $10.00 ($1.59 / $1.12)",
+        "reason": "waiting for both to reach $10.00 ($7.41 / $1.77)",
         "resolved": false
       },
       "skips": [],
@@ -154,13 +132,19 @@
       "actions": [
         "WOULD: rename campaign \"[DAN] [TRAFFIC] IG PROFILE VISITS - danrosefit\" → \"[AUTO] IG PROFILE VISITS - danrosefit\"",
         "WOULD: rename champion ad set \"IG profile visits - danrosefit v2\" → \"CHAMPION\"",
-        "WOULD: create TEST::17983238982111705 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/DczQmVTmKvm/"
+        "WOULD: create TEST::17983238982111705 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/DczQmVTmKvm/",
+        "WOULD: create TEST::18122536861661975 ($5 lifetime, 5d) on VIDEO https://www.instagram.com/reel/Dc11aEEG5a9/"
       ],
       "created": [
         {
           "type": "IMAGE",
           "mediaId": "17983238982111705",
           "permalink": "https://www.instagram.com/p/DczQmVTmKvm/"
+        },
+        {
+          "type": "VIDEO",
+          "mediaId": "18122536861661975",
+          "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/"
         }
       ],
       "enabled": false,
@@ -170,26 +154,26 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 2.71,
-          "visits": 26,
+          "spend": 9.18,
+          "visits": 83,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 2.71,
+        "spend": 9.18,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
-          "costPerVisit": 0.1,
+          "costPerVisit": 0.11,
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 26,
+        "visits": 83,
         "window": {
           "days": 7,
-          "since": "2026-08-28",
-          "until": "2026-09-03"
+          "since": "2026-08-29",
+          "until": "2026-09-04"
         },
         "follows": 0,
         "activeAds": [
@@ -216,7 +200,7 @@
         ],
         "adsetStatus": "ACTIVE",
         "dailyBudget": 6.5,
-        "costPerVisit": 0.1,
+        "costPerVisit": 0.11,
         "costPerFollow": null,
         "followsReadable": false
       },
@@ -230,11 +214,22 @@
           "caption": "Pick a sport, not a cardio machine. The treadmill isn't better than kickboxing. ",
           "postedAt": "2026-09-02T22:00:26+0000",
           "permalink": "https://www.instagram.com/p/DczQmVTmKvm/"
+        },
+        {
+          "id": "18122536861661975",
+          "type": "VIDEO",
+          "caption": "Hire a maid instead of a personal trainer. Sounds backwards. It isn't — not if y",
+          "postedAt": "2026-09-03T22:00:43+0000",
+          "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/"
         }
       ],
-      "generatedAt": "2026-09-03T10:15:32.372Z",
+      "generatedAt": "2026-09-04T10:19:51.800Z",
       "championAdset": "120250753601020682"
     }
+  },
+  "ytads": {
+    "ok": false,
+    "reason": "ytads_runs is empty — the Google Ads Script has never synced."
   },
   "thresholds": {
     "minSpendToJudge": 5,
