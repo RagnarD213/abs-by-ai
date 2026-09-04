@@ -253,6 +253,12 @@
       "priority": "high",
       "addedAt": "2026-09-02",
       "why": "rev 1 delivered 9/2: reverb fixed (EDT 85->29-40ms), 2 shorts killed and 2 retitled per Dan. Judge the A/B first"
+    },
+    {
+      "text": "Test every @danrosefit reel as an Instagram trial reel before it hits the grid or gets boost budget",
+      "priority": "high",
+      "why": "Trial reels publish to non-followers only and never touch the grid, so a hook can be proven for $0 before the auto-boost job spends to discover the same thing. Check whether Blotato can publish trials via API; if not, restructure the queue to trial-first, publish/boost the winner.",
+      "addedAt": "2026-09-04"
     }
   ],
   "health": [
