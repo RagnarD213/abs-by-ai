@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-04T11:07:15.744Z",
-  "day": "2026-09-03",
+  "generatedAt": "2026-09-05T11:07:31.789Z",
+  "day": "2026-09-04",
   "window": {
-    "from": "2026-08-27",
-    "to": "2026-09-03",
+    "from": "2026-08-28",
+    "to": "2026-09-04",
     "baselineDays": 7
   },
   "blind": [
@@ -14,9 +14,9 @@
     }
   ],
   "totals": {
-    "spendYesterday": 5.08,
-    "spend7dMean": 4.16,
-    "deltaPct": 0.22,
+    "spendYesterday": 7.59,
+    "spend7dMean": 3.37,
+    "deltaPct": 1.25,
     "platformsLive": [
       "meta"
     ]
@@ -29,9 +29,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 5.08,
-      "spend7dMean": 4.16,
-      "deltaPct": 0.22,
+      "spend": 7.59,
+      "spend7dMean": 3.37,
+      "deltaPct": 1.25,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -39,34 +39,16 @@
           "status": "ACTIVE",
           "resultLabel": "video view",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 5.08,
-          "results": 125,
-          "impressions": 670,
-          "costPerResult": 0.04,
+          "spend": 7.59,
+          "results": 252,
+          "impressions": 1047,
+          "costPerResult": 0.03,
           "baseline": {
-            "days": 1,
-            "meanSpend": 1.65,
-            "totalSpend": 1.65,
-            "results": 46,
+            "days": 2,
+            "meanSpend": 3.37,
+            "totalSpend": 6.73,
+            "results": 171,
             "costPerResult": 0.04
-          }
-        },
-        {
-          "id": "120250551172530682",
-          "name": "[DAN] [ENGAGEMENT] IG GEO",
-          "status": "PAUSED",
-          "resultLabel": "link click",
-          "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250551172530682",
-          "spend": 0,
-          "results": 0,
-          "impressions": 0,
-          "costPerResult": null,
-          "baseline": {
-            "days": 1,
-            "meanSpend": 2.51,
-            "totalSpend": 2.51,
-            "results": 11,
-            "costPerResult": 0.23
           }
         }
       ],
@@ -88,8 +70,8 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-04T10:19:54.697Z",
-    "ageHours": 0.79,
+    "lastRunAt": "2026-09-05T10:18:11.499Z",
+    "ageHours": 0.82,
     "stale": false,
     "dryRun": true,
     "enabled": false,
@@ -99,31 +81,31 @@
         "testsCap": 300,
         "testsMtd": 0,
         "totalCap": 500,
-        "totalMtd": 9.18,
+        "totalMtd": 15.23,
         "capReached": false,
         "testsCommitted": 0,
-        "totalCommitted": 9.18
+        "totalCommitted": 15.23
       },
       "pair": {
         "ads": [
           {
             "adId": "120250753783950682",
-            "spend": 7.41,
+            "spend": 13.05,
             "active": true,
-            "visits": 70,
+            "visits": 125,
             "mediaId": "18192762022391478",
-            "costPerVisit": 0.11
+            "costPerVisit": 0.1
           },
           {
             "adId": "120250753783030682",
-            "spend": 1.77,
+            "spend": 2.18,
             "active": true,
-            "visits": 14,
+            "visits": 21,
             "mediaId": "18188183254395331",
-            "costPerVisit": 0.13
+            "costPerVisit": 0.1
           }
         ],
-        "reason": "waiting for both to reach $10.00 ($7.41 / $1.77)",
+        "reason": "waiting for both to reach $10.00 ($13.05 / $2.18)",
         "resolved": false
       },
       "skips": [],
@@ -133,7 +115,8 @@
         "WOULD: rename campaign \"[DAN] [TRAFFIC] IG PROFILE VISITS - danrosefit\" → \"[AUTO] IG PROFILE VISITS - danrosefit\"",
         "WOULD: rename champion ad set \"IG profile visits - danrosefit v2\" → \"CHAMPION\"",
         "WOULD: create TEST::17983238982111705 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/DczQmVTmKvm/",
-        "WOULD: create TEST::18122536861661975 ($5 lifetime, 5d) on VIDEO https://www.instagram.com/reel/Dc11aEEG5a9/"
+        "WOULD: create TEST::18122536861661975 ($5 lifetime, 5d) on VIDEO https://www.instagram.com/reel/Dc11aEEG5a9/",
+        "WOULD: create TEST::17874665394562729 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/Dc4aMF3iQEt/"
       ],
       "created": [
         {
@@ -145,6 +128,11 @@
           "type": "VIDEO",
           "mediaId": "18122536861661975",
           "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/"
+        },
+        {
+          "type": "IMAGE",
+          "mediaId": "17874665394562729",
+          "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
         }
       ],
       "enabled": false,
@@ -154,26 +142,26 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 9.18,
-          "visits": 83,
+          "spend": 15.23,
+          "visits": 146,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 9.18,
+        "spend": 15.23,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
-          "costPerVisit": 0.11,
+          "costPerVisit": 0.1,
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 83,
+        "visits": 146,
         "window": {
           "days": 7,
-          "since": "2026-08-29",
-          "until": "2026-09-04"
+          "since": "2026-08-30",
+          "until": "2026-09-05"
         },
         "follows": 0,
         "activeAds": [
@@ -200,7 +188,7 @@
         ],
         "adsetStatus": "ACTIVE",
         "dailyBudget": 6.5,
-        "costPerVisit": 0.11,
+        "costPerVisit": 0.1,
         "costPerFollow": null,
         "followsReadable": false
       },
@@ -221,9 +209,16 @@
           "caption": "Hire a maid instead of a personal trainer. Sounds backwards. It isn't — not if y",
           "postedAt": "2026-09-03T22:00:43+0000",
           "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/"
+        },
+        {
+          "id": "17874665394562729",
+          "type": "IMAGE",
+          "caption": "Your supplements are about 3% of your results. Not zero. But if your sleep, prot",
+          "postedAt": "2026-09-04T22:00:27+0000",
+          "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
         }
       ],
-      "generatedAt": "2026-09-04T10:19:51.800Z",
+      "generatedAt": "2026-09-05T10:18:08.911Z",
       "championAdset": "120250753601020682"
     }
   },
