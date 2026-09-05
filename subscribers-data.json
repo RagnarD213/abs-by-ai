@@ -239,6 +239,16 @@
         "1": "2026-09-04T04:11:22.967Z"
       },
       "unsubscribed": false
+    },
+    "marlenekeeling.97@outlook.com": {
+      "subscribedAt": "2026-09-05T03:39:04.110Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-09-05T03:39:04.110Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
