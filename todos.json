@@ -253,6 +253,12 @@
       "priority": "high",
       "why": "Trial reels publish to non-followers only and never touch the grid, so a hook can be proven for $0 before the auto-boost job spends to discover the same thing. Check whether Blotato can publish trials via API; if not, restructure the queue to trial-first, publish/boost the winner.",
       "addedAt": "2026-09-04"
+    },
+    {
+      "text": "Split ManyChat 'Comment ABS' into per-topic keywords so each post's DM and UTM match its content",
+      "priority": "high",
+      "why": "All ~60 queued CTA posts share one keyword and one utm_campaign=comment-abs, so no post's signups can be attributed and every commenter gets the same generic DM",
+      "addedAt": "2026-09-06"
     }
   ],
   "health": [
