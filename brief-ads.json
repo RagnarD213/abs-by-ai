@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-05T11:07:31.789Z",
-  "day": "2026-09-04",
+  "generatedAt": "2026-09-06T11:06:25.234Z",
+  "day": "2026-09-05",
   "window": {
-    "from": "2026-08-28",
-    "to": "2026-09-04",
+    "from": "2026-08-29",
+    "to": "2026-09-05",
     "baselineDays": 7
   },
   "blind": [
@@ -14,9 +14,9 @@
     }
   ],
   "totals": {
-    "spendYesterday": 7.59,
-    "spend7dMean": 3.37,
-    "deltaPct": 1.25,
+    "spendYesterday": 6.75,
+    "spend7dMean": 4.77,
+    "deltaPct": 0.42,
     "platformsLive": [
       "meta"
     ]
@@ -29,9 +29,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 7.59,
-      "spend7dMean": 3.37,
-      "deltaPct": 1.25,
+      "spend": 6.75,
+      "spend7dMean": 4.77,
+      "deltaPct": 0.42,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -39,16 +39,16 @@
           "status": "ACTIVE",
           "resultLabel": "video view",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 7.59,
-          "results": 252,
-          "impressions": 1047,
+          "spend": 6.75,
+          "results": 222,
+          "impressions": 854,
           "costPerResult": 0.03,
           "baseline": {
-            "days": 2,
-            "meanSpend": 3.37,
-            "totalSpend": 6.73,
-            "results": 171,
-            "costPerResult": 0.04
+            "days": 3,
+            "meanSpend": 4.77,
+            "totalSpend": 14.32,
+            "results": 423,
+            "costPerResult": 0.03
           }
         }
       ],
@@ -70,8 +70,8 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-05T10:18:11.499Z",
-    "ageHours": 0.82,
+    "lastRunAt": "2026-09-06T10:18:47.497Z",
+    "ageHours": 0.79,
     "stale": false,
     "dryRun": true,
     "enabled": false,
@@ -81,31 +81,31 @@
         "testsCap": 300,
         "testsMtd": 0,
         "totalCap": 500,
-        "totalMtd": 15.23,
+        "totalMtd": 23.3,
         "capReached": false,
         "testsCommitted": 0,
-        "totalCommitted": 15.23
+        "totalCommitted": 23.3
       },
       "pair": {
         "ads": [
           {
             "adId": "120250753783950682",
-            "spend": 13.05,
+            "spend": 20.97,
             "active": true,
-            "visits": 125,
+            "visits": 219,
             "mediaId": "18192762022391478",
             "costPerVisit": 0.1
           },
           {
             "adId": "120250753783030682",
-            "spend": 2.18,
+            "spend": 2.33,
             "active": true,
-            "visits": 21,
+            "visits": 22,
             "mediaId": "18188183254395331",
-            "costPerVisit": 0.1
+            "costPerVisit": 0.11
           }
         ],
-        "reason": "waiting for both to reach $10.00 ($13.05 / $2.18)",
+        "reason": "waiting for both to reach $10.00 ($20.97 / $2.33)",
         "resolved": false
       },
       "skips": [],
@@ -116,7 +116,8 @@
         "WOULD: rename champion ad set \"IG profile visits - danrosefit v2\" → \"CHAMPION\"",
         "WOULD: create TEST::17983238982111705 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/DczQmVTmKvm/",
         "WOULD: create TEST::18122536861661975 ($5 lifetime, 5d) on VIDEO https://www.instagram.com/reel/Dc11aEEG5a9/",
-        "WOULD: create TEST::17874665394562729 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/Dc4aMF3iQEt/"
+        "WOULD: create TEST::17874665394562729 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/Dc4aMF3iQEt/",
+        "WOULD: create TEST::17909653590464795 ($5 lifetime, 5d) on VIDEO https://www.instagram.com/reel/Dc6-_fvkynM/"
       ],
       "created": [
         {
@@ -133,6 +134,11 @@
           "type": "IMAGE",
           "mediaId": "17874665394562729",
           "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
+        },
+        {
+          "type": "VIDEO",
+          "mediaId": "17909653590464795",
+          "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/"
         }
       ],
       "enabled": false,
@@ -142,14 +148,14 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 15.23,
-          "visits": 146,
+          "spend": 23.28,
+          "visits": 241,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 15.23,
+        "spend": 23.3,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
@@ -157,11 +163,11 @@
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 146,
+        "visits": 241,
         "window": {
           "days": 7,
-          "since": "2026-08-30",
-          "until": "2026-09-05"
+          "since": "2026-08-31",
+          "until": "2026-09-06"
         },
         "follows": 0,
         "activeAds": [
@@ -216,9 +222,16 @@
           "caption": "Your supplements are about 3% of your results. Not zero. But if your sleep, prot",
           "postedAt": "2026-09-04T22:00:27+0000",
           "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
+        },
+        {
+          "id": "17909653590464795",
+          "type": "VIDEO",
+          "caption": "Make AI macro estimates way more accurate. If you photograph your food and the n",
+          "postedAt": "2026-09-05T22:00:42+0000",
+          "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/"
         }
       ],
-      "generatedAt": "2026-09-05T10:18:08.911Z",
+      "generatedAt": "2026-09-06T10:18:44.828Z",
       "championAdset": "120250753601020682"
     }
   },
