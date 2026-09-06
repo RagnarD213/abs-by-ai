@@ -253,6 +253,15 @@
         "1": "2026-09-05T04:19:23.444Z"
       },
       "unsubscribed": false
+    },
+    "cameronmouton09@gmail.com": {
+      "subscribedAt": "2026-09-06T23:43:00.195Z",
+      "deviceId": "dev-1788737884224-dyk0fh0t",
+      "synced": false,
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-09-06T23:43:00.196Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
