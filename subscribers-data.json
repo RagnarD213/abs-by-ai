@@ -264,6 +264,16 @@
         "1": "2026-09-07T00:11:17.847Z"
       },
       "unsubscribed": false
+    },
+    "isai.schoen63@yahoo.com": {
+      "subscribedAt": "2026-09-07T03:38:23.609Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-09-07T03:38:23.609Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
