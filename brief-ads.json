@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-06T11:06:25.234Z",
-  "day": "2026-09-05",
+  "generatedAt": "2026-09-07T11:06:27.021Z",
+  "day": "2026-09-06",
   "window": {
-    "from": "2026-08-29",
-    "to": "2026-09-05",
+    "from": "2026-08-30",
+    "to": "2026-09-06",
     "baselineDays": 7
   },
   "blind": [
@@ -14,9 +14,9 @@
     }
   ],
   "totals": {
-    "spendYesterday": 6.75,
-    "spend7dMean": 4.77,
-    "deltaPct": 0.42,
+    "spendYesterday": 9.19,
+    "spend7dMean": 5.27,
+    "deltaPct": 0.74,
     "platformsLive": [
       "meta"
     ]
@@ -29,9 +29,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 6.75,
-      "spend7dMean": 4.77,
-      "deltaPct": 0.42,
+      "spend": 9.19,
+      "spend7dMean": 5.27,
+      "deltaPct": 0.74,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -39,15 +39,15 @@
           "status": "ACTIVE",
           "resultLabel": "video view",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 6.75,
-          "results": 222,
-          "impressions": 854,
+          "spend": 9.19,
+          "results": 340,
+          "impressions": 1263,
           "costPerResult": 0.03,
           "baseline": {
-            "days": 3,
-            "meanSpend": 4.77,
-            "totalSpend": 14.32,
-            "results": 423,
+            "days": 4,
+            "meanSpend": 5.27,
+            "totalSpend": 21.07,
+            "results": 645,
             "costPerResult": 0.03
           }
         }
@@ -70,8 +70,8 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-06T10:18:47.497Z",
-    "ageHours": 0.79,
+    "lastRunAt": "2026-09-07T10:15:06.755Z",
+    "ageHours": 0.86,
     "stale": false,
     "dryRun": true,
     "enabled": false,
@@ -81,31 +81,31 @@
         "testsCap": 300,
         "testsMtd": 0,
         "totalCap": 500,
-        "totalMtd": 23.3,
+        "totalMtd": 31.75,
         "capReached": false,
         "testsCommitted": 0,
-        "totalCommitted": 23.3
+        "totalCommitted": 31.75
       },
       "pair": {
         "ads": [
           {
             "adId": "120250753783950682",
-            "spend": 20.97,
+            "spend": 29.17,
             "active": true,
-            "visits": 219,
+            "visits": 303,
             "mediaId": "18192762022391478",
             "costPerVisit": 0.1
           },
           {
             "adId": "120250753783030682",
-            "spend": 2.33,
+            "spend": 2.58,
             "active": true,
-            "visits": 22,
+            "visits": 25,
             "mediaId": "18188183254395331",
-            "costPerVisit": 0.11
+            "costPerVisit": 0.1
           }
         ],
-        "reason": "waiting for both to reach $10.00 ($20.97 / $2.33)",
+        "reason": "waiting for both to reach $10.00 ($29.17 / $2.58)",
         "resolved": false
       },
       "skips": [],
@@ -117,7 +117,8 @@
         "WOULD: create TEST::17983238982111705 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/DczQmVTmKvm/",
         "WOULD: create TEST::18122536861661975 ($5 lifetime, 5d) on VIDEO https://www.instagram.com/reel/Dc11aEEG5a9/",
         "WOULD: create TEST::17874665394562729 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/Dc4aMF3iQEt/",
-        "WOULD: create TEST::17909653590464795 ($5 lifetime, 5d) on VIDEO https://www.instagram.com/reel/Dc6-_fvkynM/"
+        "WOULD: create TEST::17909653590464795 ($5 lifetime, 5d) on VIDEO https://www.instagram.com/reel/Dc6-_fvkynM/",
+        "WOULD: create TEST::18144562216559806 ($5 lifetime, 5d) on IMAGE https://www.instagram.com/p/Dc9jxykoGbh/"
       ],
       "created": [
         {
@@ -139,6 +140,11 @@
           "type": "VIDEO",
           "mediaId": "17909653590464795",
           "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/"
+        },
+        {
+          "type": "IMAGE",
+          "mediaId": "18144562216559806",
+          "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/"
         }
       ],
       "enabled": false,
@@ -148,14 +154,14 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 23.28,
-          "visits": 241,
+          "spend": 31.75,
+          "visits": 328,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 23.3,
+        "spend": 31.75,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
@@ -163,11 +169,11 @@
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 241,
+        "visits": 328,
         "window": {
           "days": 7,
-          "since": "2026-08-31",
-          "until": "2026-09-06"
+          "since": "2026-09-01",
+          "until": "2026-09-07"
         },
         "follows": 0,
         "activeAds": [
@@ -229,9 +235,16 @@
           "caption": "Make AI macro estimates way more accurate. If you photograph your food and the n",
           "postedAt": "2026-09-05T22:00:42+0000",
           "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/"
+        },
+        {
+          "id": "18144562216559806",
+          "type": "IMAGE",
+          "caption": "Ten minutes of jump rope beats thirty on a treadmill. Same calorie burn in a thi",
+          "postedAt": "2026-09-06T22:00:26+0000",
+          "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/"
         }
       ],
-      "generatedAt": "2026-09-06T10:18:44.828Z",
+      "generatedAt": "2026-09-07T10:15:03.974Z",
       "championAdset": "120250753601020682"
     }
   },
