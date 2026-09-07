@@ -270,9 +270,11 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 0,
-      "welcomeNextAt": "2026-09-07T03:38:23.609Z",
-      "welcomeSentAt": {},
+      "welcomeStep": 1,
+      "welcomeNextAt": "2026-09-09T04:11:17.666Z",
+      "welcomeSentAt": {
+        "1": "2026-09-07T04:11:17.880Z"
+      },
       "unsubscribed": false
     },
     "ubaldo.boyer84@yahoo.com": {
@@ -280,9 +282,11 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 0,
-      "welcomeNextAt": "2026-09-07T03:40:12.745Z",
-      "welcomeSentAt": {},
+      "welcomeStep": 1,
+      "welcomeNextAt": "2026-09-09T04:11:17.666Z",
+      "welcomeSentAt": {
+        "1": "2026-09-07T04:11:18.027Z"
+      },
       "unsubscribed": false
     }
   }
