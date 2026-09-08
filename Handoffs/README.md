@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 137 documents (index regenerated 2026-09-08).
+Every handoff document for Abs By AI, in one place. 138 documents (index regenerated 2026-09-08).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260908-post-lockin-analysis-page.md](handoff-20260908-post-lockin-analysis-page.md) | any time — no dependency; Dan fires it (Fable 5.1, high effort). Not on the dashboard (he did not ask). |
 | [handoff-20260812-revenuecat-restore-behavior-audit.md](handoff-20260812-revenuecat-restore-behavior-audit.md) | fire the day Apple approves (IN_REVIEW since 09-08) |
 | [handoff-20260812-purchase-before-account.md](handoff-20260812-purchase-before-account.md) | after approval AND after the RevenueCat audit |
 | [handoff-20260818-android-public-build-swap.md](handoff-20260818-android-public-build-swap.md) | small; needs Dan's Android phone on adb |
@@ -30,6 +31,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-08 | [handoff-20260908-post-lockin-analysis-page.md](handoff-20260908-post-lockin-analysis-page.md) | Handoff: Post-lock-in "Your analysis" page — video slot, height/weight sliders, body-fat + muscle numbers, body map, trial CTA (replaces the email + bridge screens) |
 | 2026-09-08 | [handoff-20260908-google-ads-enhanced-conversions.md](handoff-20260908-google-ads-enhanced-conversions.md) | Handoff — Google Ads "Enhanced conversions not recording": what it means and how to close it |
 | 2026-09-02 | [handoff-20260902-website-video-rev3.md](handoff-20260902-website-video-rev3.md) | Handoff: Website conversion video — REVISION 3 |
 | 2026-09-02 | [handoff-20260902-website-video-rev2.md](handoff-20260902-website-video-rev2.md) | Handoff: Website conversion video — REVISION 2 |
