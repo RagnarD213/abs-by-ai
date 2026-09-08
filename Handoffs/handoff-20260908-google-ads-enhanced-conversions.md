@@ -2,7 +2,7 @@
 
 **Written:** 2026-09-08 (Claude Code, Fable 5.1), from the diagnostics panel in account 342-717-0837 and the
 tracking code in `public/index.html` / `server.js`.
-**Status:** NOT EXECUTED — diagnosis only. Dan asked for a diagnosis and a plan, not the fix.
+**Status:** EXECUTED 2026-09-08 (`ac51f50`) — steps 1, 2, 4, 5 done and live-verified. **Step 3 (Data Manager field map) could not run:** the mapper refuses to load fields from a header-only feed (error 4000, blank rows, Save disabled). Map the `Email` column after the first real sale has imported. Tracked in `AI_COORDINATION.md` under "Google Ads conversion goals".
 **Fire when:** any quiet session. ~1 hour, $0 AI spend. No native retest needed (no UI change), but the change
 touches the conversion-firing code, so live-verify the three conversion fires in a browser afterwards.
 
