@@ -24,7 +24,8 @@ function build(argv) {
   if (kind === 'headlines') {
     const [adId, ...texts] = rest;
     if (!/^\d+$/.test(adId || '') || texts.length < 1 || texts.length > 5) throw new Error('headlines <adId> then 1–5 headline texts');
-    for (const t of texts) if (t.length > 30) throw new Error(`headline over 30 chars: "${t}"`);
+    const { LIMITS } = require('./lint.js'); const max = (LIMITS && LIMITS.headline) || 40;   // Demand Gen headline limit
+    for (const t of texts) if (t.length > max) throw new Error(`headline over ${max} chars: "${t}"`);
     return { op: 'mutate', adId, reason: 'manual:headlines', headlines: texts,
              mutation: { adOperation: { update: { resourceName: `customers/${CID}/ads/${adId}`, demandGenVideoResponsiveAd: { headlines: texts.map(t => ({ text: t })) } },
                                         updateMask: 'demandGenVideoResponsiveAd.headlines' } } };
