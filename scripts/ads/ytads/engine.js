@@ -18,7 +18,7 @@
 //     paused (reversible: the id list is recorded before it is executed);
 //   • the system never edits an ad that exists — it creates, pauses, enables, labels.
 //
-// GOOGLE IS THE LEDGER. Ad names carry the video id ("AUTO test yt:<id> · tier2 ·
+// GOOGLE IS THE LEDGER. Ad names carry the video id ("AUTO test · <title> · yt:<id> · tier2 ·
 // 2026-09-03"), labels carry the state (AUTO, AUTO:TEST, AUTO:CHAMPION, AUTO:RETIRED,
 // AUTO:RETIRED-DAY1). "Has this video been tested in this campaign?" is answered by
 // the snapshot, never by a file that can drift, so a re-run can never double-create.
@@ -72,9 +72,22 @@ const isEnabled = (ad) => String(ad.status || '').toUpperCase() === 'ENABLED';
 const costPerConv = (cost, conv) => (num(conv) > 0 ? round2(cost / conv) : null);
 const stats = (block) => ({ cost: usd(block && block.costMicros), conv: round2(num(block && block.conversions)) });
 
-function testAdName(videoId, key, now) {
-  return `AUTO test yt:${videoId} · ${key} · ${ymd(now)}`;
+// Ad names are for Dan's eyes in Ads Manager as much as for the ledger: the video
+// title leads, then the machine-readable tail. Parsers key on "yt:<id>", the
+// trailing date and the "AUTO test " prefix — never on the title (Dan's rule
+// 2026-09-08: every automated ad must be identifiable by its video title).
+const TITLE_MAX = 70;
+function cleanTitle(title) {
+  const t = String(title || '').replace(/[·|\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim();
+  return t.length > TITLE_MAX ? t.slice(0, TITLE_MAX - 1).trimEnd() + '…' : t;
 }
+function testAdName(videoId, key, now, title) {
+  const t = cleanTitle(title);
+  return t ? `AUTO test · ${t} · yt:${videoId} · ${key} · ${ymd(now)}`
+           : `AUTO test yt:${videoId} · ${key} · ${ymd(now)}`;
+}
+// An AUTO ad created before titles went into names (format "AUTO test yt:…").
+const lacksTitle = (ad) => /^AUTO test yt:/.test(ad.name || '');
 
 // Resolve which snapshot campaign is which key. Unknown campaigns are ignored and
 // reported; a key that matches no campaign is reported as missing.
@@ -308,7 +321,7 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
       }
       const template = pickTemplate(adsBy[key]);
       if (!template) { warnings.push(`${key}: no existing ad to copy business name / URL / logo from`); continue; }
-      const name = testAdName(video.id, key, now);
+      const name = testAdName(video.id, key, now, video.title);
       const created = cmd({
         op: 'createAd', campaign: key, campaignId: c.id, adGroupId: String(groups[0].id), videoId: video.id, videoTitle: video.title,
         name, labels: { add: [LABELS.AUTO, LABELS.TEST], remove: [] },
@@ -321,12 +334,29 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
     }
   }
 
+  // ── Name migration: AUTO ads named before titles were added get the title
+  // prepended, once, when the feed still knows the video. Reversible (the old
+  // name is in the command) and idempotent (the new format no longer matches).
+  const titleById = {}; for (const v of (videos || [])) if (v && v.id) titleById[v.id] = v.title;
+  for (const key of CAMPAIGN_KEYS) {
+    if (!campaigns[key]) continue;
+    for (const ad of adsBy[key]) {
+      if (!isAuto(ad) || !lacksTitle(ad)) continue;
+      const vid = videoIdOf(ad.name); const title = vid && titleById[vid];
+      if (!title) continue;
+      const tail = /yt:.*$/.exec(ad.name)[0];
+      cmd({ op: 'renameAd', campaign: key, adId: ad.adId, resourceName: ad.resourceName, videoId: vid, reason: 'name:add-title',
+            oldName: ad.name, name: `AUTO test · ${cleanTitle(title)} · ${tail}` });
+    }
+  }
+
   const report = {
     at: now.toISOString(), dryRun: !!dryRun,
     thresholds: { testSpendUsd: TEST_SPEND_USD, minConv: MIN_CONV, championWindowDays: CHAMPION_WINDOW_DAYS, startDate: config.startDate },
     campaigns: perCampaign, skipped, waitingHeadlines, warnings,
     counts: { commands: commands.length, createAd: commands.filter(c => c.op === 'createAd').length,
-              pauseAd: commands.filter(c => c.op === 'pauseAd').length, label: commands.filter(c => c.op === 'label').length },
+              pauseAd: commands.filter(c => c.op === 'pauseAd').length, label: commands.filter(c => c.op === 'label').length,
+              renameAd: commands.filter(c => c.op === 'renameAd').length },
   };
   return { commands, report };
 }
@@ -343,6 +373,6 @@ function pickTemplate(ads) {
 }
 
 module.exports = {
-  plan, candidates, resolveCampaigns, isSkipped, isAuto, stateOf, videoIdOf, createdDateOf, testAdName, pickTemplate,
+  plan, candidates, resolveCampaigns, isSkipped, isAuto, stateOf, videoIdOf, createdDateOf, testAdName, cleanTitle, lacksTitle, pickTemplate,
   TEST_SPEND_USD, MIN_CONV, CHAMPION_WINDOW_DAYS, CAMPAIGN_KEYS, LABELS, DEFAULT_CAMPAIGN_MATCH, CREATE_ERROR_RETRIES,
 };

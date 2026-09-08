@@ -52,7 +52,22 @@ console.log('\n1. NEW-VIDEO DISCOVERY');
   const creates = ops(r, 'createAd');
   check('one createAd per campaign for the new video', creates.length === 3 && new Set(creates.map(c => c.campaign)).size === 3, creates.map(c => c.campaign));
   check('a video from before START_DATE is not a candidate', !creates.some(c => c.videoId === 'oldVid00001'));
-  check('ad name carries the video id, campaign and date', creates[0].name === 'AUTO test yt:newVid00001 · tier2 · 2026-09-04', creates[0].name);
+  check('ad name carries the video title, id, campaign and date', creates[0].name === 'AUTO test · A video · yt:newVid00001 · tier2 · 2026-09-04', creates[0].name);
+  check('the new name still parses: video id, date, state', E.videoIdOf(creates[0].name) === 'newVid00001' && E.createdDateOf(creates[0].name) === '2026-09-04' && E.stateOf({ name: creates[0].name, labels: [] }) === 'AUTO:TEST');
+  check('titles are cleaned: separators removed, long titles cut to 70 with an ellipsis',
+        E.cleanTitle('Bad · title | here') === 'Bad title here' && E.cleanTitle('x'.repeat(100)).length === 70 && E.cleanTitle('x'.repeat(100)).endsWith('…'));
+  {
+    const legacy = ad({ campaign: T2, name: 'AUTO test yt:legacyVid01 · tier2 · 2026-09-08', labels: ['AUTO', 'AUTO:TEST'], life: [1, 2] });
+    const named = ad({ campaign: T2, name: 'AUTO test · Already Named · yt:namedVid001 · tier2 · 2026-09-08', labels: ['AUTO', 'AUTO:TEST'], life: [1, 2] });
+    const unknown = ad({ campaign: T2, name: 'AUTO test yt:unknownVid1 · tier2 · 2026-09-08', labels: ['AUTO', 'AUTO:TEST'], life: [1, 2] });
+    const r2 = run({ snapshot: snap([ad({ campaign: T2, name: 'dan 1', life: [20, 60] }), legacy, named, unknown]),
+                     videos: [video('legacyVid01', '2026-09-03T22:00:00Z', 'Hire A Maid Instead Of A Personal Trainer'), video('namedVid001', '2026-09-03T22:00:00Z', 'Already Named')] });
+    const renames = ops(r2, 'renameAd');
+    check('a legacy-named AUTO ad whose video the feed knows gets exactly one renameAd', renames.length === 1 && renames[0].adId === legacy.adId, renames.map(c => c.name));
+    check('the rename keeps the machine tail and prepends the title', renames[0] && renames[0].name === 'AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:legacyVid01 · tier2 · 2026-09-08', renames[0] && renames[0].name);
+    check('already-titled and feed-unknown ads are left alone', !renames.some(c => c.adId === named.adId || c.adId === unknown.adId));
+    check('the rename carries the old name for reversal', renames[0] && renames[0].oldName === legacy.name);
+  }
   check('labels AUTO + AUTO:TEST', creates[0].labels.add.join() === 'AUTO,AUTO:TEST');
   check('business name / url / logo / CTA copied from the existing ad', creates[0].businessName === 'Abs by AI' && creates[0].finalUrls[0] === 'https://absbyai.com/' && creates[0].logoImages.length === 1 && creates[0].callToActions[0] === 'customers/1/assets/cta1');
   check('ad group id is the campaign\'s single enabled group', creates.find(c => c.campaign === 'tier1').adGroupId === '19');

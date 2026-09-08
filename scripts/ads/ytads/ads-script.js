@@ -17,7 +17,7 @@
 
 var SERVER = 'https://absbyai.com';
 var KEY = 'PASTE_YTADS_KEY_HERE';   // = YTADS_KEY on Railway. Never commit a real key.
-var SNAPSHOT_VERSION = 1;
+var SNAPSHOT_VERSION = 2;   // 2 = renameAd op supported (2026-09-08)
 
 function main() {
   var cid = AdsApp.currentAccount().getCustomerId().replace(/-/g, '');
@@ -208,6 +208,13 @@ function execute(cid, c, labels, snapshot) {
     out.labelErrors = applyLabels(cid, c.resourceName, c.labels, labels);
     return out;
   }
+  if (c.op === 'renameAd') {
+    // Ad.name lives on the Ad resource (customers/<cid>/ads/<adId>), not on the AdGroupAd.
+    var r3 = AdsApp.mutate({ adOperation: { update: { resourceName: 'customers/' + cid + '/ads/' + c.adId, name: c.name }, updateMask: 'name' } });
+    if (!r3.isSuccessful()) { out.error = r3.getErrorMessages().join('; '); return out; }
+    out.ok = true; out.resourceName = c.resourceName; out.name = c.name;
+    return out;
+  }
   if (c.op === 'label') {
     var errs = applyLabels(cid, c.resourceName, c.labels, labels);
     out.ok = errs.length === 0; if (errs.length) out.error = errs.join('; ');
@@ -265,5 +272,6 @@ function post(path, body) {
 function describe(c) {
   var s = c.op + ' [' + c.campaign + '] ' + (c.reason || '') + ' ' + (c.name || c.resourceName || c.adId || '');
   if (c.op === 'createAd') s += ' | ' + (c.headlines || []).join(' / ');
+  if (c.op === 'renameAd') s += ' | was: ' + (c.oldName || '');
   return s;
 }
