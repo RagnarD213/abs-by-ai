@@ -308,6 +308,26 @@ turns a 4-minute video into ~16 frames to inspect.
 
 ---
 
+## ⚠ STANDING RULE — SUBTITLES (Dan, 2026-09-08: "lock this in … make all subtitles going forward this good")
+
+1. **Whisper is the source of the WORDS only. Every caption timing comes from a CTC forced alignment of those
+   words to the delivered mix** (`reference/a2/align_ctc.py`: wav2vec2 `forced_align`, one Whisper segment at a
+   time with 0.6 s padding, exact segment ownership by order, digits spelled out, the caption FIX map applied
+   before aligning, and a monotonic repair for the tiny words the aligner slips). Whisper's own word starts
+   measured 128 ms early on average and up to 300 ms on an editor's mix; the karaoke highlight then lights
+   the wrong word, and Dan calls that "very confusing … unprofessional".
+2. **The last word of a line holds until the next line** (up to 0.8 s), never dropping at its own acoustic
+   end — a 40 ms word must not flash for one frame (`captions.py`).
+3. **Every delivered file — masters AND review copies — passes `reference/caption_sync_check.py` (qc check
+   20) before it goes to Dan:** at the instant each word is spoken the word lit on screen must be THAT word
+   for ≥ 97 % of words with no run of three misses, and no highlighted word may sit outside speech. It also
+   prints the disagreement against an independent second transcription (Whisper `medium`); if the two
+   Whispers agree with each other and not with the alignment, the alignment is broken. The rejected Ad 2 V2
+   file scored 44 % on this test; the approved rev 1 scored 98.8 %.
+4. **Never trust the plan, measure the pixels:** the gate reads the delivered video's caption band frame by
+   frame; a caption stream that is right in `cap/list.txt` and wrong on screen (a mux offset, a stale
+   index-keyed PNG cache) fails here and nowhere else.
+
 ## Step 5 — THE VERTICAL TRANSLATION RULES
 
 These are the decisions that make or break the port. They are not stylistic preferences;
