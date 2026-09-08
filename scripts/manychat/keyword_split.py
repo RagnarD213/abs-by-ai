@@ -69,9 +69,12 @@ for s in sorted(cta, key=lambda x: x["scheduledAt"]):
     changed += 1
     if not apply:
         continue
-    body = {"post": {**d["content"], **d["target"], "accountId": d["accountId"]},
-            "scheduledTime": s["scheduledAt"]}
-    body["post"]["text"] = new
-    call("PUT", f"/schedules/{sid}", key, body)
+    # Blotato edits a schedule with PATCH and a `patch.draft` envelope. Probed 2026-09-08:
+    # PUT/POST /schedules/{id} are 404, PATCH without `patch` is a 400, and a `patch.post`
+    # envelope returns a 500 SQL error rather than a validation message -- so send the whole
+    # draft back under `draft`, with only the text swapped.
+    call("PATCH", f"/schedules/{sid}", key,
+         {"patch": {"draft": {"accountId": d["accountId"], "target": d["target"],
+                              "content": {**d["content"], "text": new}}}})
 
 print(f"\n{'APPLIED' if apply else 'DRY RUN'}: {changed} to change, {skipped} already correct")

@@ -66,22 +66,20 @@ picture stream untouched (6977 frames, `-c:v copy`). Master replaced in place; A
 New gate `/shortad-from-longform reference/gain_flatness.py` + skill rules committed (`a54686f`)
 and cross-referenced from /shorts and /longform-edit. Delete this entry once he confirms.
 
-**ManyChat per-topic keywords — BUILT, 5 AUTOMATIONS STOPPED, BLOCKED ON FIVE "Go Live" CLICKS**
-(2026-09-08). `ABS` is split into six keywords (ABS/FOOD/TRAIN/TRACK/SLEEP/COACH), each with its own
-DM copy and `utm_campaign`; ids, copy and the contains-match traps are in `Docs/MANYCHAT_KEYWORDS.md`
-(commit `eb146ed`). Keywords + both DM bodies + link UTMs are saved on all five new automations, but
-they are **STOPPED** — the Claude-in-Chrome extension wedged (every call times out, including on
-unrelated sites) before they could be started. **Next session: open each of the five ids in
-`Docs/MANYCHAT_KEYWORDS.md` and click Go Live**, then run `python3 scripts/manychat/keyword_split.py
---apply` (dry run verified: 34 of 47 queued captions change, 13 stay ABS), then comment one keyword
-from @abs.by.ai on a live @danrosefit post to verify reply → DM → link, then check off the dashboard
-row `business::Split ManyChat 'Comment ABS' into per-topic keywords…`.
-⚠ **Do NOT run the caption script before the five are live** — a caption promising a stopped keyword
-is a dead promise. Nothing is broken today: the queue still says ABS and ABS is live.
-⚠ The account shows a **TRIAL** badge; if the Pro trial lapses, "any post or reel" stops working for
-all six. Still open from the original build: Dan decides whether to switch off Blotato's IG auto
-first-comment (**ask before touching it**, queue-wide), and the CTA reels are eligible for the
-2026-08-31 paid-ads specs.
+**ManyChat per-topic keywords — DONE AND LIVE 2026-09-08, awaiting Dan's OK to delete this entry.**
+`ABS` is split into six live keywords — ABS / FOOD / TRAIN / TRACK / SLEEP / COACH — each with its own
+DM copy and `utm_campaign`. All 47 queued Instagram CTA captions rewritten to match (34 changed, 13 stayed
+ABS); re-read from the API afterwards, every caption matches its topic, queue still 179, no media lost.
+Verified live: commented FOOD from @abs.by.ai on `instagram.com/p/DdAIo4-j_RS/` → public reply
+"Just sent it, check your DMs 📩" → the FOOD-specific DM. The second-beat link DM was NOT tapped
+(Instagram **web** never renders ManyChat's quick-reply button, and typing its text does not fire it — the
+payload is a postback, phone only); its `utm_campaign` was instead read straight out of each of the five
+live automations. Ids, copy, keyword-collision reasoning and the editing traps: `Docs/MANYCHAT_KEYWORDS.md`.
+Rewriter: `scripts/manychat/keyword_split.py` (idempotent, dry run by default).
+⚠ **The test comment "FOOD" + its auto-reply are still on that live post** — Dan says whether to delete them.
+⚠ The ManyChat account shows a **TRIAL** badge. If the Pro trial lapses, "any post or reel" dies for all six
+keywords at once. Still open from the original build: whether to switch off Blotato's IG auto first-comment
+(**ask before touching it**, queue-wide), and the CTA reels are eligible for the 2026-08-31 paid-ads specs.
 
 **Website conversion video — REV 3 DELIVERED 2026-09-02 (~6 PM), awaiting Dan's review.** Same folder,
 same filename (`claude edited long form content/06 - …/website_video_16x9.mp4`, 3:50); rev 2 is beside it as
