@@ -5619,7 +5619,22 @@ function bodyAnalysisPromptLine(a) {
 
 app.post('/api/body-analysis', aiLimiter, (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
   try {
-    const { beforeBase64, beforeMime, afterBase64, afterMime } = req.body || {};
+    let { beforeBase64, beforeMime, afterBase64, afterMime } = req.body || {};
+    // Out-of-credits (locked) result: the client only holds the blurred teaser, so
+    // it sends the unlock token instead of an after image and the read happens on
+    // the sharp image held server-side — which is never returned here. Same device
+    // check as /api/generate-image/unlock so a token can't be used from elsewhere.
+    const unlockToken = String(req.body?.unlockToken || '');
+    let locked = false;
+    if (unlockToken && !afterBase64) {
+      const held = getHeldImage(unlockToken);
+      if (!held) return res.status(410).json({ error: 'This result is no longer available to analyze. Generate it again.', expired: true });
+      const deviceId = String(req.body?.deviceId || '');
+      if (!isActiveMembership(req.user) && held.deviceId && held.deviceId !== deviceId) {
+        return res.status(403).json({ error: 'Not authorized to analyze this result.' });
+      }
+      afterBase64 = held.imageBase64; afterMime = held.imageMime; locked = true;
+    }
     if (!beforeBase64 || !afterBase64 || typeof beforeBase64 !== 'string' || typeof afterBase64 !== 'string') {
       return res.status(400).json({ error: 'Missing before/after image' });
     }
@@ -5635,12 +5650,13 @@ app.post('/api/body-analysis', aiLimiter, (req, res, next) => optionalAuth(req, 
     const description = String(req.body.description || '').slice(0, 300);
 
     const key = bodyAnalysisCacheKey(beforeBase64, afterBase64, sex, intensity);
+    // Keyed on the SHARP after image, so the same read is free again after unlock.
     const hit = bodyAnalysisCache.get(key);
-    if (hit) return res.json({ analysis: hit, cached: true });
+    if (hit) return res.json({ analysis: hit, cached: true, locked });
 
     // Logged in: the row may already carry an analysis from an earlier device.
     let row = null;
-    if (req.user) {
+    if (req.user && !locked) {
       row = await findTransformationByAfter(req.user.id, afterBase64);
       const stored = row?.settings?.analysis;
       if (isBodyAnalysisShape(stored)) {
@@ -5723,7 +5739,7 @@ app.post('/api/body-analysis', aiLimiter, (req, res, next) => optionalAuth(req, 
     const tableMid = BODY_ANALYSIS_TABLE_MID[sex]?.[condition];
     const u = data?.usage || {};
     console.log('body_analysis_calibration', JSON.stringify({
-      sex, condition, intensity, clothed, coverage: analysis.photo_coverage, confidence: analysis.confidence,
+      sex, condition, intensity, clothed, locked, coverage: analysis.photo_coverage, confidence: analysis.confidence,
       model_bf_mid: mid, table_bf_mid: tableMid, delta: tableMid != null ? +(mid - tableMid).toFixed(1) : null,
       bf_goal: analysis.bf_goal, muscle_gain_lb: analysis.muscle_gain_lb, anchor,
       ms: Date.now() - t0, model: analysis.model,
@@ -5732,12 +5748,12 @@ app.post('/api/body-analysis', aiLimiter, (req, res, next) => optionalAuth(req, 
     }));
 
     // Persist onto the matching transformation row when logged in (best-effort).
-    if (req.user) {
+    if (req.user && !locked) {
       if (!row) row = await findTransformationByAfter(req.user.id, afterBase64);
       if (row) attachAnalysisToRow(row, analysis).catch(() => {});
     }
 
-    res.json({ analysis, cached: false });
+    res.json({ analysis, cached: false, locked });
   } catch (err) {
     console.error('body-analysis error:', err);
     if (err.name === 'AbortError') return res.status(504).json({ error: 'Analysis timed out' });

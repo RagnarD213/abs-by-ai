@@ -1367,6 +1367,9 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .an-email-fine { font-size: 11.5px; color: var(--faint); margin-top: 8px; }
 .an-text-link { display: block; width: 100%; background: none; border: 0; padding: 12px 0; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--mute); text-decoration: underline; cursor: pointer; }
 .analysis-section .ba-img { height: 190px; }
+.an-after-wrap { position: relative; }
+.an-after-wrap.locked .ba-img { filter: blur(0.5px); }
+.an-lock-chip { position: absolute; left: 50%; top: 58%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 6px; padding: 9px 12px; border-radius: 999px; background: rgba(20,18,15,0.82); color: #fff; font: inherit; font-size: 12.5px; font-weight: 700; border: 0; cursor: pointer; white-space: nowrap; box-shadow: 0 4px 14px rgba(0,0,0,0.25); }
 
 /* ── Accounts: login link, hub ── */
 .login-link, .hub-logout-btn, .hub-login-btn {
@@ -1882,8 +1885,12 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
            generations, which also removes the Apple 3.1.1 exposure of an
            in-app link out to a non-IAP credit purchase. Existing purchased
            balances still spend normally — only BUYING credits is gone. -->
-      <div class="paywall-sub">You've used your free generations. Start your 7-day free trial for unlimited generations — plus the AI trainer, nutritionist, macro tracker and everything else.</div>
-      <button type="button" id="paywallJoinBtn" class="cta-btn" style="margin-top:12px">Start 7-day free trial →</button>
+      <div class="paywall-sub">You've used your free generations. Before you unlock it, see what our AI already read from your pictures — body fat, muscle, and where your plan will focus.</div>
+      <!-- The analysis page is the sales page: it explains what the trial IS before
+           asking for it (Dan, 2026-09-08 — "they don't know what it is"). The direct
+           trial path stays as a text link for people who already know. -->
+      <button type="button" id="paywallAnalysisBtn" class="cta-btn" style="margin-top:12px">See what our AI found →</button>
+      <button type="button" id="paywallJoinBtn" class="try-diff-btn" style="margin-top:10px">Skip to the 7-day free trial →</button>
       <!-- Running out of GENERATION credits must not dead-end the whole app:
            the other tools are a separate thing entirely, so this stays as a way
            out. All platforms, now that there is no buy-a-pack path anywhere. -->
@@ -1989,8 +1996,8 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div class="an-video-frame" id="analysisVideoFrame"></div>
     </div>
 
-    <div class="hero-h1" style="font-size:27px;line-height:1.08;margin-bottom:6px">You visualized your goal.</div>
-    <div class="hero-sub" style="margin-bottom:16px">Now let's make that AI-generated image a reality. Just from these pictures, our AI already knows a lot — and two quick sliders make the numbers yours.</div>
+    <div class="hero-h1" id="anHeroTitle" style="font-size:27px;line-height:1.08;margin-bottom:6px">You visualized your goal.</div>
+    <div class="hero-sub" id="anHeroSub" style="margin-bottom:16px">Now let's make that AI-generated image a reality. Just from these pictures, our AI already knows a lot — and two quick sliders make the numbers yours.</div>
 
     <div class="an-card">
       <div class="an-card-title">Two quick sliders make the numbers yours</div>
@@ -2010,9 +2017,10 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
         <div class="ba-col-label">Today</div>
         <img id="anBeforeImg" class="ba-img" alt="You today" />
       </div>
-      <div>
+      <div id="anAfterWrap" class="an-after-wrap">
         <div class="ba-col-label after-lbl">Your goal</div>
         <img id="anAfterImg" class="ba-img" alt="Your AI-generated goal" />
+        <button type="button" id="anLockChip" class="an-lock-chip" style="display:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>Unlock to see your abs</button>
       </div>
     </div>
 
@@ -2103,10 +2111,10 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     </div>
 
     <form id="anEmailForm" class="an-email">
-      <div class="an-email-title">Email me my picture + my analysis</div>
+      <div class="an-email-title" id="anEmailTitle">Email me my picture + my analysis</div>
       <input type="email" id="anEmailInput" class="text-field" placeholder="you@example.com" required autocomplete="email" />
       <button type="submit" class="cta-btn" style="margin-top:10px;font-size:14px;padding:11px 16px;background:var(--ink);box-shadow:none">Send it to me</button>
-      <div class="an-email-fine">We'll email your image plus fitness tips and offers. Unsubscribe anytime.</div>
+      <div class="an-email-fine" id="anEmailFine">We'll email your image plus fitness tips and offers. Unsubscribe anytime.</div>
     </form>
     <div id="anEmailDone" class="an-email-fine" style="display:none;text-align:center;margin:0 0 8px">✓ On its way — check your inbox.</div>
 
@@ -3794,6 +3802,22 @@ async function releaseLockedImage() {
   }
 }
 
+// Membership screen → release the held image → reveal it on the result screen.
+// Shared by the paywall's trial link and the analysis page's unlock CTA.
+function startTrialAndUnlock() {
+  showMembershipScreen(() => {
+    releaseLockedImage().then(released => {
+      unlockResult();
+      if (released) {
+        storeTransformationLocally();
+        saveTransformationIfLoggedIn({ intensity: state.effectiveIntensity, condition: state.condition });
+      }
+      showScreen('result');
+      if (!released) showResultError('You\'re a member now, but this preview expired before we could unlock it. Tap "Try a different look" to make it again.');
+    });
+  });
+}
+
 function focusLockedPaywall() {
   if (!$('afterImgWrap').classList.contains('teaser-locked')) return;
   const paywall = $('paywallSection');
@@ -5016,10 +5040,15 @@ function cachedBodyAnalysisFor(afterDataUrl) {
   return readCachedBodyAnalysis(djb2(afterDataUrl));
 }
 
+// A locked (out-of-credits) result: the page only has the blurred teaser, the
+// sharp image is held on the server behind state.lockedUnlockToken.
+function analysisLocked() { return !!state.lockedUnlockToken; }
 function analysisImages() {
   const before = localStorage.getItem(LAST_BEFORE_KEY)
     || (state.photoData ? `data:${state.photoMime};base64,${state.photoData}` : '');
-  const after = localStorage.getItem(LAST_AFTER_KEY) || state.lastAfterDataUrl || '';
+  // Locked: the teaser is the only after image in the browser (LAST_AFTER_KEY is
+  // never written for a locked result, so nothing stale can leak in here).
+  const after = analysisLocked() ? (state.lastAfterDataUrl || '') : (localStorage.getItem(LAST_AFTER_KEY) || state.lastAfterDataUrl || '');
   return { before, after };
 }
 function splitDataUrl(u) {
@@ -5033,8 +5062,9 @@ async function loadBodyAnalysis(before, after) {
   analysisState.loading = true;
   renderAnalysisTiles(); renderBodyMap(null);
   const b = splitDataUrl(before), a = splitDataUrl(after);
+  const locked = analysisLocked();
   let result = null, cached = false, error = null;
-  if (b && a) {
+  if (b && (a || locked)) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 75000);
     try {
@@ -5042,7 +5072,12 @@ async function loadBodyAnalysis(before, after) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}) },
         body: JSON.stringify({
-          beforeBase64: b.base64, beforeMime: b.mime, afterBase64: a.base64, afterMime: a.mime,
+          beforeBase64: b.base64, beforeMime: b.mime,
+          // Locked: never send the blurred teaser as the after image — the server
+          // reads the sharp image it is holding (and keeps holding it).
+          ...(locked
+            ? { unlockToken: state.lockedUnlockToken, deviceId: getDeviceId() }
+            : { afterBase64: a.base64, afterMime: a.mime }),
           sex: analysisSex(), condition: analysisCond(), intensity: analysisIntensity(),
           clothed: !!state.photoIsClothed, description: state.description || '',
         }),
@@ -5061,14 +5096,15 @@ async function loadBodyAnalysis(before, after) {
     analysisState.fallback = false;
     writeCachedBodyAnalysis(analysisState.afterHash, result);
     // Logged in already (e.g. hub → generate → lock-in): attach to the row now.
-    if (isLoggedIn()) saveTransformationIfLoggedIn({ intensity: analysisIntensity(), condition: state.condition });
+    // Never for a locked result — there is no row until the image is released.
+    if (isLoggedIn() && !locked) saveTransformationIfLoggedIn({ intensity: analysisIntensity(), condition: state.condition });
   } else {
     console.warn('body analysis unavailable:', error);
   }
   renderAnalysisTiles();
   renderBodyMap(analysisState.analysis);
   if (window.posthog) posthog.capture('analysis_loaded', {
-    ms: Date.now() - t0, cached, fallback: !result,
+    ms: Date.now() - t0, cached, fallback: !result, locked,
     confidence: result?.confidence || null, coverage: result?.photo_coverage || null, error: result ? undefined : error,
   });
 }
@@ -5078,10 +5114,20 @@ function showAnalysisScreen(opts) {
   const { before, after } = analysisImages();
   if (!before || !after) { showScreen('form'); return; }
   analysisState.from = from;
+  const locked = analysisLocked();
   // Entering from the generation flow — reset any gallery print context.
-  if (from === 'lockin') { upsell.imageDataUrl = null; upsell.returnScreen = null; }
+  if (from === 'lockin' || from === 'paywall') { upsell.imageDataUrl = null; upsell.returnScreen = null; }
   $('anBeforeImg').src = before;
   $('anAfterImg').src = after;
+  // Locked copy: the goal image is the thing the trial unlocks, so say so.
+  $('anAfterWrap').classList.toggle('locked', locked);
+  $('anLockChip').style.display = locked ? '' : 'none';
+  $('anHeroTitle').textContent = locked ? 'Your transformation is done.' : 'You visualized your goal.';
+  $('anHeroSub').textContent = locked
+    ? "Your goal image is ready to unlock. Just from these pictures, our AI already knows a lot — two quick sliders make the numbers yours, and the trial unlocks the picture."
+    : "Now let's make that AI-generated image a reality. Just from these pictures, our AI already knows a lot — and two quick sliders make the numbers yours.";
+  $('anEmailTitle').textContent = locked ? 'Email me my analysis' : 'Email me my picture + my analysis';
+  $('anEmailFine').textContent = locked ? "We'll email your analysis plus fitness tips and offers. Unsubscribe anytime." : "We'll email your image plus fitness tips and offers. Unsubscribe anytime.";
 
   // Sliders: stored values if the user set them before, else the defaults.
   const sex = analysisSex();
@@ -5114,13 +5160,16 @@ function showAnalysisScreen(opts) {
     renderAnalysisTiles(); renderBodyMap(analysisState.analysis);
   }
 
-  // CTA: members build the program; everyone else starts the trial.
+  // CTA: members build the program; a locked result unlocks with the trial;
+  // everyone else starts the trial.
   const member = isLoggedIn() && hasMemberAccess();
-  $('anTrialBtn').textContent = member ? 'Build my program →' : 'Start your 7-day free trial →';
-  $('anCtaTitle').textContent = member ? 'Your program starts from this read' : 'Try Abs by AI completely free for 7 days';
+  $('anTrialBtn').textContent = member ? 'Build my program →' : (locked ? 'Unlock it with a 7-day free trial →' : 'Start your 7-day free trial →');
+  $('anCtaTitle').textContent = member ? 'Your program starts from this read' : (locked ? 'Unlock your goal image — free for 7 days' : 'Try Abs by AI completely free for 7 days');
   $('anCtaSub').textContent = member
     ? 'The trainer and nutritionist already know what your pictures say — answer the five questions and they get sharper.'
-    : 'Try out the macro tracker, the AI workout program, the AI nutrition plan — everything in the app.';
+    : (locked
+      ? 'See your goal image in full, plus the macro tracker, the AI workout program, the AI nutrition plan — everything in the app.'
+      : 'Try out the macro tracker, the AI workout program, the AI nutrition plan — everything in the app.');
   $('anCtaPrice').style.display = member ? 'none' : '';
   $('anCtaPriceApp').style.display = member ? 'none' : '';
   const emailCaptured = !!localStorage.getItem('absbyai_email') || (isLoggedIn() && !!auth.email);
@@ -5129,7 +5178,7 @@ function showAnalysisScreen(opts) {
   $('anHubLink').textContent = from === 'hub' ? 'Back to my hub →' : 'Continue to my hub →';
 
   const hasVideo = renderAnalysisVideo();
-  if (window.posthog) posthog.capture('analysis_page_seen', { from, has_video: hasVideo, logged_in: isLoggedIn(), sex, condition: analysisCond(), intensity: analysisIntensity() });
+  if (window.posthog) posthog.capture('analysis_page_seen', { from, locked, has_video: hasVideo, logged_in: isLoggedIn(), sex, condition: analysisCond(), intensity: analysisIntensity() });
   showScreen('analysis');
 }
 
@@ -5151,6 +5200,10 @@ function analysisBodyKnown() { return analysisState.touched.height && analysisSt
 
 function wireAnalysisScreen() {
   $('analysisBackBtn').addEventListener('click', () => (analysisState.from === 'hub' ? showHub() : showScreen('result')));
+  $('anLockChip').addEventListener('click', () => {
+    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: 'lock_chip' });
+    $('anTrialBtn').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
   $('anHeight').addEventListener('input', (e) => {
     analysisState.heightIn = parseInt(e.target.value, 10) || 69;
     analysisState.touched.height = true;
@@ -5173,8 +5226,13 @@ function wireAnalysisScreen() {
   }));
   $('anTrialBtn').addEventListener('click', () => {
     const member = isLoggedIn() && hasMemberAccess();
-    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: member ? 'trainer' : 'trial' });
+    const locked = analysisLocked();
+    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: member ? 'trainer' : (locked ? 'unlock_trial' : 'trial') });
     if (member) return openTrainer();
+    // Locked result: the same membership path as the paywall button (goes through
+    // the real membership screen — IAP inside the native apps), then the held
+    // image is released and revealed on the result screen.
+    if (locked) return startTrialAndUnlock();
     showTrialGate(null);
   });
   $('anHubLink').addEventListener('click', () => {
@@ -5189,11 +5247,12 @@ function wireAnalysisScreen() {
     if (window.posthog) posthog.capture('email_subscribed', { source: 'analysis' });
     if (window.posthog) posthog.capture('analysis_cta_clicked', { target: 'email' });
     const { before, after } = analysisImages();
-    // Fire-and-forget: never block the page on a network hiccup.
+    // Fire-and-forget: never block the page on a network hiccup. A locked result
+    // sends no after image — the teaser must never reach the welcome email.
     fetch(`${BACKEND_URL}/api/subscribe`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, deviceId: getDeviceId(), before: before || undefined, after: after || undefined, source: 'analysis' }),
+      body: JSON.stringify({ email, deviceId: getDeviceId(), before: before || undefined, after: analysisLocked() ? undefined : (after || undefined), source: 'analysis' }),
     }).catch(() => {});
     $('anEmailForm').style.display = 'none';
     $('anEmailDone').style.display = '';
@@ -5646,13 +5705,16 @@ window.addEventListener('DOMContentLoaded', async () => {
   const hubPreviewJoin = $('hubPreviewJoinBtn');
   if (hubPreviewJoin) hubPreviewJoin.addEventListener('click', () => showMembershipScreen());
   const paywallJoin = $('paywallJoinBtn');
-  if (paywallJoin) paywallJoin.addEventListener('click', () => showMembershipScreen(() => {
-    releaseLockedImage().then(released => {
-      unlockResult();
-      showScreen('result');
-      if (!released) showResultError('You\'re a member now, but this preview expired before we could unlock it. Tap "Try a different look" to make it again.');
-    });
-  }));
+  if (paywallJoin) paywallJoin.addEventListener('click', () => {
+    if (window.posthog) posthog.capture('paywall_skip_to_trial');
+    startTrialAndUnlock();
+  });
+  // Out of credits → the analysis page explains what the trial is before asking.
+  const paywallAnalysis = $('paywallAnalysisBtn');
+  if (paywallAnalysis) paywallAnalysis.addEventListener('click', () => {
+    if (window.posthog) posthog.capture('paywall_see_analysis');
+    showAnalysisScreen({ from: 'paywall' });
+  });
   // Manage is routed at click time, not wired to a fixed URL: an Apple-billed
   // member must land on Apple's subscription screen (the only place they can
   // cancel), everyone else on our own account page.
