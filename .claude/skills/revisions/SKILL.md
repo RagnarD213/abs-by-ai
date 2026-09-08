@@ -131,6 +131,55 @@ this clip", "Insert these images full screen one after another with motion effec
     on screen, and let the beat right after the CTA build sit on camera. If two builds would land
     within ~15 s of each other, keep the one that carries a benefit.
 
+### Calibration pass 2 — Dan's edits to the 2026-09-08 batch (Ads 3–8, Zeeshan r3, Waleed r3)
+
+Dan's verdict on the batch: "very good, you got most of the major things", with one correction: **too many
+calls for graphics.** His rule, in his words: a graphic goes in when it adds value; 10 to 20 seconds of just
+him talking is fine when a graphic would not contribute anything; **but when in doubt, put it in — a graphic
+is easy for the editor to remove, and sometimes the idea is good.** So the error to avoid is the reflexive
+fill, not the occasional judgement call. The diff of what he cut (method: lesson 34) makes the line precise:
+
+12. **A text chip earns its place by stating an outcome or benefit in his positive voice.** Kept: "It stopped
+    being a struggle" → "It started to feel easy" (twice), "You get the picture AND the plan", "The two-picture
+    trick that made my motivation automatic". Cut, regardless of gap length (7 s and 12 s alike): anything that
+    paraphrases or quotes the sentence being spoken, a list of negatives, a question chip, a "2" added to the
+    editor's numbered chips, a two-line near-verbatim restatement (that is a subtitle). Text-chip fills went 5
+    kept of 14; picture and clip fills went 4 of 4. **Budget about two added text chips per ad** and choose
+    the two strongest benefit lines instead of filling every stretch you list.
+13. **Bullet builds are the heaviest form and get cut first** (0 of 2 new builds survived), and **never direct
+    a panel that already exists in another ad of the batch** — the Ad 6 "IT ADAPTS TO YOU" build was Ad 3's
+    panel, and the Ad 6 "Day 1 / Day 4 / Day 10" chips were Ad 5's device. Each ad gets its own graphics.
+14. **App screens are repairs, not fills.** Every app screen that REPLACED a wrong visual survived; all three
+    meal-plan / workout screens dropped into a talking-head gap were cut. Direct an app screen only where the
+    line names the app doing something and the picture on screen is wrong or missing.
+15. **The VISUAL DENSITY paragraph must not promise a fill per stretch, and no item may point at another
+    ("fix in the 0:00 item below").** Dan deletes items without repairing cross-references: Ads 6, 7 and 8
+    went out listing stretches whose fills were gone, Ad 6's THROUGHOUT pointed at a deleted item, and Ad 3
+    still said "Four things are left" after he cut one. Write every item self-contained and count nothing.
+16. **A truncated lower third is a chip, not a defect.** Ad 3 R3's "…let your AI trainer help" item asked the
+    editor to complete it into the spoken sentence; Dan cut it — completing it would make a subtitle. Do not
+    ask to lengthen a chip.
+17. **Check the hero asset against the literal script claim, not the concept.** Ad 7's title is "I Photoshopped
+    MY FACE on a Fitness Model"; the editor's gag image did not use Dan's face and we praised it. Dan added
+    "Swap this for an AI clip of my before picture's face on a bodybuilder's body" and propagated "(with MY
+    FACE …)" into both callbacks of the asset. When a hook asset is corrected, correct every callback in the
+    same doc.
+18. **On-screen text must stand alone.** Dan replaced "it's far better at it than ChatGPT…" (our item only
+    fixed the capital I) with "Abs by AI is FAR BETTER at generating your fitness goal image than ChatGPT or
+    any general purpose AI". A panel whose pronoun has no referent for a viewer reading it cold is a text
+    item, with the product and the claim named and the superlative in caps — rule 8's "leave his wording"
+    yields here.
+19. **The proof on a "got the abs" line is two real pool-shoot after photos, the same two as the previous
+    ads — not the AI goal image, and not four stills.** Ad 8: he swapped our goal-image beat for "Show TWO
+    after pictures from pool photo shoot here, same as used in previous ads" and cut our four-photo run to
+    two. Two stills per beat; split a longer set across two beats; reuse the batch's after photos.
+20. **Typography consistency is part of the text-panel pass.** He added "The spacing between letters on
+    calories is different from the other words" under our capital-I item — check tracking, weight and size
+    of every chip against its neighbours, not just the words.
+21. **In a closing round, do not add a footage request for a mild picture/line mismatch.** Zeeshan r3: a
+    kneeling rollout under the line about the standing variation was cut as an item; "none of it is new
+    work" has to be true. **American spelling always** (COLOUR → COLOR was his only edit to Waleed's doc).
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -195,6 +244,10 @@ exact timing or an exact link.
    judgement was verified at full resolution; no header wording is itemised on taste; every
    insert has an exit; every text panel was transcribed. Then walk the timeline once more
    for the two things Dan added on top of ours: lingering graphics and before→after cuts.
+   Then the pass-2 checks (rules 12–21): every added text chip states a benefit, about two per ad, none
+   restating the line, none a list of negatives or a question; no bullet build or device copied from another
+   ad in the batch; no app screen used as a gap fill; no item cross-references another and no item count in
+   the prose; the hero asset matches the script's literal claim; American spelling throughout.
 8. **Write the Google Doc** via the Google Drive MCP `create_file` with
    `contentMimeType: text/markdown` — it converts cleanly to a Doc, including links.
    Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the
