@@ -1,13 +1,6 @@
 {
   "business": [
     {
-      "text": "Post on TikTok",
-      "priority": "key",
-      "recurring": true,
-      "why": "Daily manual social media posting",
-      "addedAt": "2026-08-12"
-    },
-    {
       "text": "Send documents to AMEX",
       "priority": "high",
       "addedAt": "2026-08-03"
@@ -71,13 +64,13 @@
     {
       "text": "Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
       "priority": "key",
-      "why": "handoff-20260812-revenuecat-restore-behavior-audit.md — created but not yet run; AFTER App Review approval",
+      "why": "handoff-20260812-revenuecat-restore-behavior-audit.md — fire the day Apple approves (IN_REVIEW since 09-08)",
       "addedAt": "2026-08-12"
     },
     {
       "text": "Execute handoff: Let users purchase before creating an account (iOS)",
       "priority": "key",
-      "why": "handoff-20260812-purchase-before-account.md — created but not yet run; AFTER approval + after the RevenueCat audit",
+      "why": "handoff-20260812-purchase-before-account.md — fire AFTER approval and AFTER the RevenueCat audit",
       "addedAt": "2026-08-12"
     },
     {
@@ -93,12 +86,6 @@
       "addedAt": "2026-08-19"
     },
     {
-      "text": "Build AI animations for the workout program exercises",
-      "priority": "med",
-      "why": "2026-08-19 planning — Dan ranks this ABOVE the program redo; both after the shoot",
-      "addedAt": "2026-08-19"
-    },
-    {
       "text": "Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline",
       "priority": "key",
       "why": "2026-08-19 planning — Romeysa backed out; editing is now the constraint on the content engine",
@@ -111,21 +98,9 @@
       "addedAt": "2026-08-22"
     },
     {
-      "text": "Review Zeshan's video cut and send round-1 revisions",
-      "priority": "key",
-      "addedAt": "2026-08-24",
-      "why": "2026-08-24 planning — Dan doing round 1 manually with /revisions as reference; round 2 handed to Claude. Editor is blocked until notes land."
-    },
-    {
       "text": "Produce short-form CONTENT (not ads) — mine the longforms + shoot app-demo Reels",
       "priority": "high",
       "why": "2026-08-25 planning — Dan has plenty of short-form ADS but almost no short-form content. IG plan flagged the app-screen-recording Reel as the one asset no competitor can copy.",
-      "addedAt": "2026-08-25"
-    },
-    {
-      "text": "Start paid advertising for the @danrosefit Instagram (follower campaigns)",
-      "priority": "key",
-      "why": "HANDOFF WRITTEN 2026-09-01: Handoffs/handoff-20260901-danrosefit-ad-identity-fix.md. Campaign is ~90% built (placements Instagram-only, targeting spec, posts chosen from real analytics) but the draft ad set errors with \"Insufficient Page Permission to Run Ads\". Two duplicate Facebook Pages named \"Daniel Rose Fitness\" exist - only 1380236418500031 is linked to @danrosefit; delete 61593951123927. Handoff opens by asking Dan whether the two-step funnel is still worth it. Nothing live, nothing spending.",
       "addedAt": "2026-08-25"
     },
     {
@@ -143,7 +118,7 @@
     {
       "text": "Execute handoff: fill danrosefit + abs.by.ai image-post gap days (write captions, schedule in Blotato)",
       "priority": "key",
-      "why": "handoff-20260826-danrosefit-abs-image-gap-fill.md - 63 of 70 scheduled and verified live 8/26. The last 7 are blocked on Blotato's 200-post plan cap: delete queued posts or upgrade the plan, then re-run scripts/blotato/iggap_fill.py --apply (idempotent).",
+      "why": "handoff-20260826-danrosefit-abs-image-gap-fill.md — 63 of 70 live. The last 7 need Blotato queue room: it sits at 200/200 and drains ~2/day, so a session can re-run scripts/blotato/iggap_fill.py --apply from ~09-12 with no decision from Dan.",
       "addedAt": "2026-08-26"
     },
     {
@@ -159,22 +134,10 @@
       "addedAt": "2026-08-29"
     },
     {
-      "text": "Set up ManyChat comment-to-DM on @danrosefit (33 queued posts already promise it)",
-      "priority": "key",
-      "why": "Watch-review 8/30: every AI post Dan liked this week is a comment/DM-gated giveaway (kingketo 'Comment COACH' pulled 156 comments on 202 likes). Our queue promises 'Comment ABS and I'll send the free AI preview' and nothing answers it. HANDOFF WRITTEN 2026-08-31: Handoffs/handoff-20260831-manychat-comment-abs-setup.md (plan approved by Dan; ~60 queued posts now carry the promise).",
-      "addedAt": "2026-08-30"
-    },
-    {
       "text": "Make the AI Trainer recovery-aware: scale volume from last night's Oura sleep/HRV",
       "priority": "key",
       "why": "Watch-review 8/30: kingketo IG reel. We already hold the Oura data in Sleep Coach but the trainer ladder progresses on workout counts alone. Auto-regulation is a differentiator no photo-generator competitor has.",
       "addedAt": "2026-08-30"
-    },
-    {
-      "text": "Execute handoff: Google Ads engagement champion — $5 test ad per new video in all 3 DGEN campaigns, one champion per campaign",
-      "priority": "key",
-      "why": "handoff-20260902-google-ads-engagement-champion-automation.md — created 2026-09-02, not yet run; replaces the 8/31 API-setup task (its Phase 1 developer-token step is folded in)",
-      "addedAt": "2026-09-02"
     },
     {
       "text": "Order the filming-set gear (buy-now list, ~$885) after the 3 phone tests in the bedroom",
@@ -195,12 +158,6 @@
       "why": "Dan 9/1: ads are ready to run; Google billing flag from the 8/31 pull blocks all new spend"
     },
     {
-      "text": "Decide whether both Meta ad campaigns being toggled OFF was intentional",
-      "priority": "high",
-      "why": "8/31 paid pull: [DAN] [ENGAGEMENT] and [DAN] [ENGAGEMENT] IG GEO are both switched off (IG GEO spent $13.26 then stopped), and 3 unpublished draft edits are still pending. Carried over from the deleted Meta-check task.",
-      "addedAt": "2026-09-01"
-    },
-    {
       "text": "Review the website conversion video (06 - post-generation) and install it on absbyai.com",
       "priority": "key",
       "addedAt": "2026-09-02",
@@ -211,18 +168,6 @@
       "priority": "high",
       "addedAt": "2026-09-02",
       "why": "9/2 planning — delivered 9/1, picks were Claude's; posting still blocked on the parent longform being unpublished"
-    },
-    {
-      "text": "Send Muhammad the Ad 3 round-1 revisions (already in his Batch-2 doc) and the next ads that are ready for him",
-      "priority": "key",
-      "addedAt": "2026-09-02",
-      "why": "9/2 planning — Dan's top afternoon priority alongside Zeeshan's notes; AD 3 section verified in doc 1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A"
-    },
-    {
-      "text": "Launch Google DGEN engagement ads for the newest videos (ab-wheel shorts + 3-min workout) per the 8/31 launch-spec artifact",
-      "priority": "key",
-      "addedAt": "2026-09-02",
-      "why": "9/2 planning — inside the existing three DGEN campaigns, not new campaigns; Google 'new form of payment' flag must be fixed first"
     },
     {
       "text": "Get the Meta engagement campaign running (both [DAN] [ENGAGEMENT] campaigns are OFF, 3 draft edits unpublished)",
@@ -264,6 +209,12 @@
       "text": "Sweep social posts: confirm every scheduled IG/TikTok/YouTube/FB post actually published (Blotato failed-post check, incl. the first @absbyai TikTok post)",
       "priority": "high",
       "why": "2026-09-08 planning — Dan: 'check all my social media posts'; TikTok went live via Blotato 9/2 and its first post was never verified",
+      "addedAt": "2026-09-08"
+    },
+    {
+      "text": "Switch on the YouTube engagement champion: Dan authorizes Ads Script 12241942 (hourly) + creates the MCC developer token, then a session sets YTADS_ENABLED=1",
+      "priority": "key",
+      "why": "Built + deployed 09-03 (scripts/ads/ytads, Docs/YTADS.md). Two Dan clicks are the only blocker; the follow-up session refines headline-style.md, pins the tier-1/RMKTG ids, shows the dry-run pause list, then flips it live and watches the first hour.",
       "addedAt": "2026-09-08"
     }
   ],
