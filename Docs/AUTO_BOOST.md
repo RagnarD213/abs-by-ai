@@ -25,7 +25,7 @@ money already committed to running tests so the cap holds even when Meta's numbe
 |---|---|
 | the job | `scripts/ads/auto-boost.js`, Railway service **`auto-boost`** (same repo), cron `15 * * * *`, start command `node scripts/ads/auto-boost.js` |
 | the switch | `AUTO_BOOST_ENABLED=1` on that service. Anything else = dry run: it plans, writes nothing to Meta, and still records what it would have done |
-| the ledger | **Meta.** The post id is in the ad-set name (`TEST::<media_id>`, `CHAMPION::<media_id>`, `RETIRED::<media_id>`), so "was this post tested?" is answered by Meta and a re-run can never double-create |
+| the ledger | **Meta.** The post id is in the ad-set / ad name — `REEL \| <title> \| TEST::<media_id>` (also `CHAMPION::`, `RETIRED::`) — so "was this post tested?" is answered by Meta and a re-run can never double-create |
 | the memory | Postgres `auto_boost_events` (skip / created / verdict / promote / pair_resolved / champion_paused / scale_candidate) and `auto_boost_runs` (one report per run; the brief reads the latest) — both created by the job itself, idempotently |
 | the brief | `scripts/ads/ads-digest.js` reads the latest run into `brief-ads.json` as `autoBoost`; the morning brief renders an **"Auto-boost"** block (spec in the morning-brief task's `SKILL.md`) |
 | the tests | `node scripts/ads/auto-boost.test.js` — 48 cases pinning every rule to Dan's numbers |
@@ -34,6 +34,17 @@ Campaign `120250753198730682` ("[AUTO] IG PROFILE VISITS - danrosefit"), champio
 `120250753601020682` ("CHAMPION"), ad account `act_2143998876461525`, Page `1380236418500031`,
 @danrosefit IG user `17841401601139982`. Env on the cron service: `META_ADS_TOKEN`,
 `META_APP_SECRET`, `DATABASE_URL` (internal), `AUTO_BOOST_ENABLED`.
+
+## Names — type first, then the title, then the tag (Dan's rule 2026-09-08)
+
+Every ad set and ad the job creates is named `<TYPE> | <title> | <TAG>::<media_id>`, for example
+`REEL | Hire a maid instead of a personal trainer | TEST::18122536861661975` or
+`IMAGE | Pick a sport, not a cardio machine | TEST::17983238982111705`. `REEL` is a video post, `IMAGE` a single
+image, `CAROUSEL` a carousel; the title is the first sentence of the post's caption, cut to 60 characters. The tag
+(`TEST`, `CHAMPION`, `RETIRED`) and the media id stay at the end because they are the ledger. **The job heals
+names every run**: any ad set or ad in the campaign whose name does not match the convention is renamed (never a
+status or budget change), so a hand-renamed object drifts back within the hour. Old bare `TEST::<id>` names are
+still recognised.
 
 ## Running it by hand
 

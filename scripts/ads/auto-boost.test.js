@@ -14,6 +14,7 @@
 
 const {
   metricsFrom, capState, findCandidates, testPhase, verdict, championHealth, pairDecision, CONFIG,
+  nameFor, titleOf, typeLabel, tagOf, isTest,
 } = require('./auto-boost.js');
 
 let pass = 0, fail = 0;
@@ -127,6 +128,25 @@ console.log('\n8. NOTHING CRASHES ON DEGENERATE INPUT');
   check('verdict with no champion object', verdict({ spend: 5, visits: 15, visitsReadable: true }, null).result === 'win');
   check('pairDecision on empty list', pairDecision([]).resolved === false);
   check('capState with undefined committed', capState({ testsMtd: 0, totalMtd: 0 }).capReached === false);
+}
+
+console.log('\n9. NAMES — "<TYPE> | <title> | <TAG>::<media_id>", type first (Dan, 2026-09-08)');
+{
+  const reel = { id: '17899133421377575', media_type: 'VIDEO', media_product_type: 'REELS',
+                 caption: "I lost the weight in the hour I wasn't training. Dinner is done, you're on the couch..." };
+  const img  = { id: '17983238982111705', media_type: 'IMAGE', caption: 'Pick a sport, not a cardio machine. The treadmill isn\'t better than kickboxing.' };
+  const car  = { id: '1', media_type: 'CAROUSEL_ALBUM', caption: 'Three breakfasts under 400 calories' };
+  check('a reel is labelled REEL first, then its title, then the tag', nameFor(reel, 'TEST') === "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575", nameFor(reel, 'TEST'));
+  check('an image is labelled IMAGE first', nameFor(img, 'TEST') === 'IMAGE | Pick a sport, not a cardio machine | TEST::17983238982111705', nameFor(img, 'TEST'));
+  check('a carousel is labelled CAROUSEL', typeLabel(car) === 'CAROUSEL' && nameFor(car, 'CHAMPION').startsWith('CAROUSEL | Three breakfasts under 400 calories | CHAMPION::'));
+  check('title is the first sentence, terminal punctuation dropped', titleOf({ caption: 'Ten minutes of jump rope beats thirty on a treadmill! Same burn.' }) === 'Ten minutes of jump rope beats thirty on a treadmill');
+  const long = titleOf({ caption: 'A'.repeat(20) + ' ' + 'B'.repeat(20) + ' ' + 'C'.repeat(20) + ' ' + 'D'.repeat(20) });
+  check('long titles are cut at a word boundary under 60 chars with an ellipsis', long.length <= 60 && long.endsWith('…'), long);
+  check('no caption → "untitled", unknown type → POST, never crashes', nameFor({ id: '9' }, 'RETIRED') === 'POST | untitled | RETIRED::9');
+  check('the media id is still recoverable from the new name', /::(\d+)/.exec(nameFor(reel, 'TEST'))[1] === reel.id);
+  check('isTest accepts the new name and the old bare TEST:: name', isTest({ name: nameFor(img, 'TEST') }) && isTest({ name: 'TEST::123' }));
+  check('isTest rejects champion / retired / hand-named ad sets', !isTest({ name: nameFor(img, 'CHAMPION') }) && !isTest({ name: 'IMAGE | x | RETIRED::5' }) && !isTest({ name: 'CHAMPION' }));
+  check('tagOf reads the tag wherever it sits', tagOf('REEL | t | RETIRED::5') === 'RETIRED' && tagOf('TEST::5') === 'TEST' && tagOf('CHAMPION') === null);
 }
 
 console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} passed, ${fail} failed\n`);

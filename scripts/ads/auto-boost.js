@@ -23,7 +23,7 @@
 //   behaves as --dry-run. This is the single switch.
 //
 // META IS THE LEDGER. The Instagram media id lives in the ad-set name
-// ("TEST::<media_id>"), so "has this post been tested?" is answered by Meta, never
+// ("REEL | <title> | TEST::<media_id>" — type first, Dan's rule 2026-09-08), so "has this post been tested?" is answered by Meta, never
 // by a file that can drift, and a re-run can never double-create. Postgres holds
 // only what Meta cannot: skips (posts Meta refused), verdicts, promotions, and the
 // run reports the morning brief renders.
@@ -128,7 +128,21 @@ function loadSecrets() {
 
 const mediaIdOf = (name) => { const m = /::(\d+)/.exec(name || ''); return m ? m[1] : null; };
 const captionOf = (m) => String((m && m.caption) || '').replace(/\s+/g, ' ').trim().slice(0, 80);
-const isTest    = (adset) => /^TEST::\d+/.test(adset.name || '');
+// ── Names (Dan's rule 2026-09-08): "<TYPE> | <title> | <TAG>::<media_id>" ──
+// The post type comes FIRST so a reel and an image can be told apart at a glance,
+// then the title (first sentence of the caption), then the machine tag. The tag
+// stays in the name because the media id in the name IS the ledger.
+const TYPE_LABEL = { VIDEO: 'REEL', IMAGE: 'IMAGE', CAROUSEL_ALBUM: 'CAROUSEL' };
+const typeLabel  = (m) => TYPE_LABEL[(m && m.media_type) || ''] || String((m && m.media_type) || 'POST').toUpperCase();
+const titleOf    = (m) => {
+  const c = String((m && m.caption) || '').replace(/\s+/g, ' ').trim();
+  const first = (c.split(/(?<=[.!?])\s+/)[0] || c).replace(/[.!?]+$/, '').trim();
+  const t = first.length > 60 ? first.slice(0, 57).replace(/\s+\S*$/, '') + '…' : first;
+  return t || 'untitled';
+};
+const nameFor    = (m, tag) => `${typeLabel(m)} | ${titleOf(m)} | ${tag}::${m.id}`;
+const tagOf      = (name) => { const m = /\b(TEST|CHAMPION|RETIRED)::\d+/.exec(name || ''); return m ? m[1] : null; };
+const isTest     = (adset) => tagOf(adset.name) === 'TEST';
 
 // ============================================================
 // PURE RULES — exported, driven by auto-boost.test.js
@@ -433,7 +447,7 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
   for (const r of mtdRows) {
     const s = num(r.spend);
     totalMtd += s;
-    if (/^TEST::/.test(r.adset_name || '')) testsMtd += s;
+    if (tagOf(r.adset_name) === 'TEST') testsMtd += s;
   }
   let committed = 0;
   for (const t of testAdsets) {
@@ -453,18 +467,19 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
   const mediaBy = new Map((media.data || []).map(m => [m.id, m]));
   const testedIds = testAdsets.map(a => mediaIdOf(a.name)).filter(Boolean);
   const candidates = findCandidates({ media: media.data || [], testedIds, skippedIds });
-  report.candidates = candidates.map(m => ({ id: m.id, type: m.media_type, postedAt: m.timestamp, permalink: m.permalink,
-                                             caption: captionOf(m) }));
+  report.candidates = candidates.map(m => ({ id: m.id, type: m.media_type, label: nameFor(m, 'TEST'), postedAt: m.timestamp,
+                                             permalink: m.permalink, caption: captionOf(m) }));
 
   // ── 3. Create a test per candidate ─────────────────────────────────────
   let runningCaps = report.caps;
   for (const m of candidates) {
     if (runningCaps.capReached) break;
-    const line = `create TEST::${m.id} ($5 lifetime, ${TEST_WINDOW_DAYS}d) on ${m.media_type} ${m.permalink}`;
+    const label = nameFor(m, 'TEST');
+    const line = `create "${label}" ($5 lifetime, ${TEST_WINDOW_DAYS}d) ${m.permalink}`;
     const created = await act(line, async () => {
       const start = Math.floor(now.getTime() / 1000);
       const adset = await meta.post(`${ACT}/adsets`, {
-        name: `TEST::${m.id}`, campaign_id: CAMPAIGN_ID, status: 'ACTIVE',
+        name: label, campaign_id: CAMPAIGN_ID, status: 'ACTIVE',
         optimization_goal: 'VISIT_INSTAGRAM_PROFILE', destination_type: 'INSTAGRAM_PROFILE',
         billing_event: 'IMPRESSIONS', bid_strategy: 'LOWEST_COST_WITHOUT_CAP',
         lifetime_budget: TEST_BUDGET_CENTS, start_time: start, end_time: start + TEST_WINDOW_DAYS * 86400,
@@ -473,10 +488,10 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
       });
       try {
         const creative = await meta.post(`${ACT}/adcreatives`, {
-          name: `TEST::${m.id}`, object_id: PAGE_ID, instagram_user_id: IG_USER_ID, source_instagram_media_id: m.id,
+          name: label, object_id: PAGE_ID, instagram_user_id: IG_USER_ID, source_instagram_media_id: m.id,
         });
         const ad = await meta.post(`${ACT}/ads`, {
-          name: `TEST::${m.id}`, adset_id: adset.id, status: 'ACTIVE', creative: { creative_id: creative.id },
+          name: label, adset_id: adset.id, status: 'ACTIVE', creative: { creative_id: creative.id },
         });
         return { adsetId: adset.id, creativeId: creative.id, adId: ad.id };
       } catch (e) {
@@ -489,7 +504,7 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
       }
     });
     if (created || dryRun) {
-      report.created.push({ mediaId: m.id, permalink: m.permalink, type: m.media_type, ...(created || {}) });
+      report.created.push({ mediaId: m.id, label, permalink: m.permalink, type: m.media_type, ...(created || {}) });
       if (created) await record(m.id, 'created', { ...created, permalink: m.permalink });
       runningCaps = capState({ testsMtd, totalMtd, committedTests: committed += TEST_BUDGET_CENTS / 100 });
     }
@@ -505,13 +520,45 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
     { time_range: { since, until }, fields: `spend,impressions,actions,${VISITS_FIELD}` });
   const c7 = metricsFrom((champ7.data || [])[0] || {});
   const championCpv = c7.visits > 0 ? round2(c7.spend / c7.visits) : null;
-  const describeMedia = async (id) => {
+  // The raw media object for any id — from this run's /media page when it is
+  // there, otherwise fetched once and cached. `{ id }` alone when Meta cannot
+  // return it (deleted post), which names as "POST | untitled | TAG::id".
+  const mediaCache = new Map();
+  const mediaFull = async (id) => {
     if (!id) return null;
-    if (mediaBy.has(id)) { const m = mediaBy.get(id); return { id, permalink: m.permalink, caption: captionOf(m), postedAt: m.timestamp }; }
-    try { const m = await meta.get(id, { fields: 'permalink,caption,timestamp' });
-          return { id, permalink: m.permalink, caption: captionOf(m), postedAt: m.timestamp }; }
-    catch { return { id }; }
+    if (mediaBy.has(id)) return mediaBy.get(id);
+    if (mediaCache.has(id)) return mediaCache.get(id);
+    let m;
+    try { m = await meta.get(id, { fields: 'id,media_type,media_product_type,permalink,caption,timestamp' }); }
+    catch { m = { id }; }
+    mediaCache.set(id, m);
+    return m;
   };
+  const describeMedia = async (id) => {
+    const m = await mediaFull(id);
+    if (!m) return null;
+    return { id, type: m.media_type || null, permalink: m.permalink, caption: captionOf(m), title: titleOf(m), postedAt: m.timestamp };
+  };
+
+  // ── Names are the ledger: heal any that drift from the convention ──────
+  // Renames only — never a status or budget change. Covers ad sets and ads
+  // created before the naming rule (2026-09-08) and anything renamed by hand.
+  const healName = async (obj, expected, what) => {
+    if (!obj || obj.name === expected) return;
+    await act(`rename ${what} "${obj.name}" → "${expected}"`, () => meta.post(obj.id, { name: expected }));
+    obj.name = expected;
+  };
+  for (const t of testAdsets) {
+    const expected = nameFor(await mediaFull(mediaIdOf(t.name)), 'TEST');
+    if (t.name !== expected) {
+      await healName(t, expected, 'test ad set');
+      for (const ad of await meta.all(`${t.id}/ads`, { fields: 'id,name' })) await healName(ad, expected, 'test ad');
+    }
+  }
+  for (const a of championAds) {
+    const tag = tagOf(a.name) === 'RETIRED' || a.status === 'PAUSED' ? 'RETIRED' : 'CHAMPION';
+    await healName(a, nameFor(await mediaFull(adMedia(a)), tag), 'champion ad');
+  }
   report.champion = {
     adsetStatus: champ.effective_status, dailyBudget: num(champ.daily_budget) / 100,
     window: { since, until, days: CHAMPION_WINDOW_DAYS },
@@ -524,29 +571,36 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
   // ── 4 + 5. Evaluate finished tests, promote winners ───────────────────
   let championForVerdicts = { costPerVisit: championCpv, hasActive: activeChampionAds.length > 0 };
   const promote = async (mediaId, source) => {
-    const line = `promote ${mediaId} → CHAMPION::${mediaId}; pause + retire ${activeChampionAds.length} other champion ad(s)`;
+    const label = nameFor(await mediaFull(mediaId), 'CHAMPION');
+    const line = `promote "${label}"; pause + retire ${activeChampionAds.length} other champion ad(s)`;
     await act(line, async () => {
       const creative = await meta.post(`${ACT}/adcreatives`, {
-        name: `CHAMPION::${mediaId}`, object_id: PAGE_ID, instagram_user_id: IG_USER_ID, source_instagram_media_id: mediaId,
+        name: label, object_id: PAGE_ID, instagram_user_id: IG_USER_ID, source_instagram_media_id: mediaId,
       });
       const ad = await meta.post(`${ACT}/ads`, {
-        name: `CHAMPION::${mediaId}`, adset_id: CHAMPION_ADSET_ID, status: 'ACTIVE', creative: { creative_id: creative.id },
+        name: label, adset_id: CHAMPION_ADSET_ID, status: 'ACTIVE', creative: { creative_id: creative.id },
       });
       for (const a of activeChampionAds) {
-        await meta.post(a.id, { status: 'PAUSED', name: `RETIRED::${adMedia(a) || a.id}` });
+        await meta.post(a.id, { status: 'PAUSED', name: nameFor(await mediaFull(adMedia(a)) || { id: a.id }, 'RETIRED') });
       }
       await record(mediaId, 'promote', { adId: ad.id, creativeId: creative.id, retired: activeChampionAds.map(a => a.id), source });
       activeChampionAds.length = 0; activeChampionAds.push(ad);
       return ad;
     });
-    championForVerdicts = { costPerVisit: null, hasActive: true }; // a fresh champion has no window yet; later tests wait for real numbers
+    // Later tests judged in this same run must beat the test that just won — not
+    // an empty window (which `verdict` treats as a win by default). Tests are also
+    // ranked cheapest-first below, so the best of a batch wins and the rest lose.
+    const winnerCpv = source && source.visits > 0 ? round2(source.spend / source.visits) : null;
+    championForVerdicts = { costPerVisit: winnerCpv, hasActive: true };
   };
+  const cpvOf = (t) => { const l = lifeBy.get(t.id); return l && l.visits > 0 ? l.spend / l.visits : Infinity; };
+  testAdsets.sort((a, b) => cpvOf(a) - cpvOf(b));
 
   for (const t of testAdsets) {
     const mediaId = mediaIdOf(t.name);
     const life = lifeBy.get(t.id) || metricsFrom({});
     const row = {
-      adsetId: t.id, mediaId, status: t.effective_status, createdAt: t.created_time, endTime: t.end_time,
+      adsetId: t.id, mediaId, label: t.name, status: t.effective_status, createdAt: t.created_time, endTime: t.end_time,
       spend: life.spend, visits: life.visits, impressions: life.impressions,
       costPerVisit: life.visits > 0 ? round2(life.spend / life.visits) : null,
       media: await describeMedia(mediaId), phase: null, verdict: null,
@@ -563,7 +617,7 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
       report.verdicts.push({ mediaId, adsetId: t.id, ...v, spend: life.spend, visits: life.visits, permalink: row.media && row.media.permalink });
       if (v.result === 'win') await promote(mediaId, { testAdset: t.id, spend: life.spend, visits: life.visits });
       if (v.result !== 'unmeasured') {
-        if (t.status !== 'PAUSED') await act(`pause finished TEST::${mediaId} (${v.result})`, () => meta.post(t.id, { status: 'PAUSED' }));
+        if (t.status !== 'PAUSED') await act(`pause finished "${t.name}" (${v.result})`, () => meta.post(t.id, { status: 'PAUSED' }));
         await record(mediaId, 'verdict', { ...v, spend: life.spend, visits: life.visits, adsetId: t.id });
       }
     }
@@ -582,8 +636,8 @@ async function runJob({ meta, db, dryRun, enabled, verify, now = new Date() }) {
                                                       costPerVisit: a.visits > 0 ? round2(a.spend / a.visits) : null })) };
   if (pair.resolved) {
     await act(`first-run pair resolved: keep ${pair.keep.mediaId} as CHAMPION, retire ${pair.retire.mediaId} (${pair.reason})`, async () => {
-      await meta.post(pair.keep.id, { name: `CHAMPION::${pair.keep.mediaId}` });
-      await meta.post(pair.retire.id, { status: 'PAUSED', name: `RETIRED::${pair.retire.mediaId}` });
+      await meta.post(pair.keep.id, { name: nameFor(await mediaFull(pair.keep.mediaId), 'CHAMPION') });
+      await meta.post(pair.retire.id, { status: 'PAUSED', name: nameFor(await mediaFull(pair.retire.mediaId), 'RETIRED') });
       await record(pair.keep.mediaId, 'pair_resolved', { kept: pair.keep.id, retired: pair.retire.id, reason: pair.reason });
     });
   }
@@ -636,9 +690,9 @@ function summarise(r) {
        + `active ads: ${ch.activeAds.length ? ch.activeAds.map(a => a.name).join(', ') : 'NONE'}; health: ${ch.health.action} — ${ch.health.reason}`);
   if (r.pair) L.push(`First-run pair: ${r.pair.resolved ? 'RESOLVED' : 'open'} — ${r.pair.reason}`);
   L.push(`Candidates (new posts since ${SYSTEM_START} with no test): ${r.candidates.length}`);
-  for (const m of r.candidates) L.push(`   ${m.id} ${m.type} ${m.postedAt.slice(0, 10)} "${m.caption}"`);
+  for (const m of r.candidates) L.push(`   ${m.label} (${m.postedAt.slice(0, 10)})`);
   L.push(`Tests in flight: ${r.tests.filter(t => t.phase === 'running').length}, judged this run: ${r.verdicts.length}, done before: ${r.tests.filter(t => t.phase === 'done').length}`);
-  for (const t of r.tests) L.push(`   TEST::${t.mediaId} ${t.phase} ${usd(t.spend)} ${t.visits} visits${t.costPerVisit !== null ? ` ${usd(t.costPerVisit)}/visit` : ''}${t.verdict ? ` → ${t.verdict.result}: ${t.verdict.reason}` : ''}`);
+  for (const t of r.tests) L.push(`   ${t.label || `TEST::${t.mediaId}`} ${t.phase} ${usd(t.spend)} ${t.visits} visits${t.costPerVisit !== null ? ` ${usd(t.costPerVisit)}/visit` : ''}${t.verdict ? ` → ${t.verdict.result}: ${t.verdict.reason}` : ''}`);
   if (r.skips.length) for (const s of r.skips) L.push(`   SKIP ${s.mediaId}: ${s.reason}`);
   L.push(`Actions (${r.actions.length}):`);
   for (const a of r.actions) L.push(`   ${a}`);
@@ -689,6 +743,7 @@ async function main() {
 
 module.exports = {
   metricsFrom, capState, findCandidates, testPhase, verdict, championHealth, pairDecision, summarise,
+  nameFor, titleOf, typeLabel, tagOf, isTest,
   CONFIG: { SYSTEM_START, FIRST_RUN_PAIR, TEST_BUDGET_CENTS, TEST_WINDOW_DAYS, TEST_EVAL_SPEND, CAP_TESTS_MTD, CAP_TOTAL_MTD,
             PROMOTE_MIN_VISITS, CHAMPION_MIN_SPEND, CHAMPION_KILL_CPF, CHAMPION_SCALE_CPF, PAIR_MIN_SPEND, VISITS_FIELD, FOLLOW_ACTION_TYPES },
 };
