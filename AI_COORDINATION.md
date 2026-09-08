@@ -15,7 +15,7 @@ is the permanent record of code changes.
 |---|---|
 | a technique, trap, recipe or measured calibration | the relevant **skill** (`.claude/skills/…`) — commit it there |
 | what changed in code and why | **git history** |
-| work spec'd but not yet executed | a doc in **`Handoffs/`** + a Key task on the dashboard |
+| work spec'd but not yet executed | a doc in **`Handoffs/`**, listed in the HANDOFFS section below + `Handoffs/README.md` (dashboard row ONLY if Dan asks) |
 | durable facts about Dan, the product or providers | **memory** (`~/.claude/projects/…/memory/`) |
 | standing rules and authorizations | **`AGENTS.md`** / **`CLAUDE.md`** |
 | open state between sessions | **here**, in three or four sentences |
@@ -30,9 +30,9 @@ is the permanent record of code changes.
    Another session may have written to it; edit only your own entry.
 4. When a task is finished, delivered and approved, **delete its entry** rather than
    marking it complete. Put anything durable in the right place from the table above.
-5. When you write a handoff doc for work not yet executed, add a Key-priority dashboard
-   task for it (mechanics: the `/dashboard-tasks` skill). Check it off in the same session
-   the work is actually executed.
+5. When you write a handoff doc for work not yet executed, list it in the HANDOFFS section
+   below and in `Handoffs/README.md`. **Do not add a dashboard task for it unless Dan explicitly
+   asks** (Dan's rule 2026-09-08). Remove it from both lists in the session that executes it.
 
 ---
 
@@ -293,29 +293,31 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-Each has a Key dashboard task. Run in a fresh session.
+Swept 2026-09-08. Dashboard rows exist only where Dan asked; this list plus `Handoffs/README.md` is the queue.
 
-- **`Handoffs/handoff-20260902-shorts-centering-queue-fix.md`** — **URGENT, 09-05 deadline.**
-  YouTube has been publishing the pre-8/27 off-centre Shorts (the native queue was never
-  swapped; 4 already live, 6 still scheduled, `v2-short7` goes out 09-05). One Blotato post
-  (09-07 `v2-short1`, IG + TikTok) still has the stale file. `v6-short2` and `v6-short5` are
-  off-centre in their CURRENT masters. Dan is deleting `rqyK5IDsxX0` himself.
-- **`Handoffs/handoff-20260901-danrosefit-ad-identity-fix.md`** — the @danrosefit follower
-  campaign. Blocked on a Meta page-permission error; the draft ad set is in an error state
-  and nothing is spending. **It opens by asking Dan whether the two-step funnel is still
-  worth the effort** — unblocking has eaten most of two sessions for a $10/day campaign, and
-  running from @abs.by.ai works today with zero further setup. ⚠ Two Pages named "Daniel
-  Rose Fitness" exist: keep `1380236418500031`, delete `61593951123927`.
-- **`Handoffs/handoff-20260902-google-ads-engagement-champion-automation.md`** — YouTube
-  engagement champion, design LOCKED with Dan 2026-09-02: every new video → one $5 test ad in each
-  of the three DGEN campaigns (spend read, then paused), one champion per campaign on cost/conv,
-  day-one pause of the losing hand-made ads, no approval gate. Brain on our server, hands = Google
-  Ads Script; apply for the API developer token in the same session. Supersedes the 8/31 handoff's
-  loop (its Phase 1 API steps still apply). Fable 5.1 high.
+- **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
+- **`Handoffs/handoff-20260812-purchase-before-account.md`** — after approval AND after the RevenueCat audit.
+- **`Handoffs/handoff-20260818-android-public-build-swap.md`** — small; needs Dan's Android phone on adb.
+- **`Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md`** — last 7 of 70 posts; re-run
+  `scripts/blotato/iggap_fill.py --apply` from ~09-12 once the 200/200 Blotato queue has drained 7 slots.
+
+Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md` (superseded — the @danrosefit profile-visits
+campaign has been live via the API script since 09-02), `handoff-20260902-shorts-centering-queue-fix.md` (done
+09-02), `handoff-20260902-google-ads-engagement-champion-automation.md` (built 09-03; only Dan's two clicks remain,
+see ACTIVE TASK).
 
 ---
 
 # ACTIVE TASK
+
+**Editor-cut sweep 2026-09-08 — IN PROGRESS (this session), do not review these cuts in parallel.** Eight new
+cuts since 09-03: Muhammad Ad 3 V3, Ad 4 V2, Ad 5 V2 + first drafts of Ads 6, 7, 8; Waleed Video 1 (Sep 5);
+Zeeshan ab-wheel round 3 (Sep 3). Work dir `/Volumes/Extreme/_edit_work/revisions-0908/`. Output: next-round
+sections appended to each editor's existing Google Doc (Waleed gets a new round-3 doc), md copies in
+`revision docs/`, paste-ready Upwork messages in chat. Nothing is sent to editors — Dan forwards at 1 PM.
+All five of last week's docs WERE sent (Ad 3 r2 / Ad 4 r1 / Ad 5 r1 on 09-03, Zeeshan r2 on 09-02, Waleed r2 on
+08-31); the only unsent item is telling Muhammad the Ad 4 3:18 audit clip landed in the doc. Delete this entry
+when the session reports.
 
 **YouTube engagement champion (Google Ads) — BUILT, DEPLOYED, SCRIPT INSTALLED; waiting on two Dan clicks** (2026-09-03).
 Brain live (`scripts/ads/ytads/`, 88 tests, `YTADS_ENABLED=0` = dry run); Ads Script id `12241942` saved in 342-717-0837

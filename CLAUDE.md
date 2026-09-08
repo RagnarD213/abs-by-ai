@@ -27,7 +27,7 @@ When Dan asks a "what should we work on" / "what should I use my limit for" / "h
 
 ## Check the task off on the Victory Dashboard when you finish it
 
-Finishing a task means checking it off at `absbyai.com/dashboard` in the same session — Dan should not have to click it himself; an unchecked task reads as unfinished work. Do this after the change is committed, pushed, deployed and verified, as the last step of the task. Same rule for adding a Rule-8 Key task whenever a handoff doc is created. **Invoke the `/dashboard-tasks` skill for the mechanics** (gated endpoints, `X-Dash-Key` auth, the id format and the `money`-vs-`business` trap) — do not work these endpoints from memory.
+Finishing a task means checking it off at `absbyai.com/dashboard` in the same session — Dan should not have to click it himself; an unchecked task reads as unfinished work. Do this after the change is committed, pushed, deployed and verified, as the last step of the task. **Do NOT add a dashboard row for a new handoff doc unless Dan explicitly asks for one** (Dan's rule, 2026-09-08 — the board had drowned in executed handoffs). Record an unexecuted handoff in the HANDOFFS section of `AI_COORDINATION.md` and in `Handoffs/README.md` instead; those two places are the queue. **Invoke the `/dashboard-tasks` skill for the mechanics** (gated endpoints, `X-Dash-Key` auth, the id format and the `money`-vs-`business` trap) — do not work these endpoints from memory.
 
 ## Secrets and env vars — NEVER ask Dan to fetch these (Dan's instruction, 2026-08-18)
 

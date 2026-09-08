@@ -1,6 +1,6 @@
 ---
 name: dashboard-tasks
-description: Read or write the Victory Dashboard task board — check a finished task off, add a Rule-8 Key task for a new handoff, or inspect /api/todos, /api/task-checks and /api/plan. Use at the end of any completed task (committed, pushed, deployed, verified) so its dashboard row gets struck through, and whenever a handoff document is created — even if Dan doesn't mention the dashboard.
+description: Read or write the Victory Dashboard task board — check a finished task off, add a handoff row when Dan explicitly asks for one, or inspect /api/todos, /api/task-checks and /api/plan. Use at the end of any completed task (committed, pushed, deployed, verified) so its dashboard row gets struck through, and when Dan explicitly asks for a handoff to go on the board (never automatically — Dan's rule 2026-09-08).
 ---
 
 # Victory Dashboard task mechanics
@@ -49,9 +49,9 @@ for a text-mismatch that isn't there.
 
 **Verify, don't trust the 200:** reload the dashboard (or re-read `/api/task-checks`) and confirm the row is struck through — a 200 only means the write was accepted, not that the id matched a task. If no matching task exists (it predates the rule, or Dan deleted it), say so rather than inventing one. Note `/api/todos` reads are eventually consistent — re-check after a beat before concluding a write failed.
 
-## Adding a Rule-8 handoff task
+## Adding a handoff row — ONLY when Dan explicitly asks
 
-Whenever a handoff document is created for work not yet executed, add a Key task so it doesn't get forgotten: fetch `GET /api/todos`, append to the **`business`** list:
+**Rule change 2026-09-08 (Dan):** a new handoff doc does NOT get a dashboard row by default. The board had filled with executed and superseded handoff rows until the real priorities were invisible (two sweeps: `scripts/dashboard/cleanup_20260901_handoffs.py`, `cleanup_20260908_dashboard.py`). The queue of unexecuted handoffs is the HANDOFFS section of `AI_COORDINATION.md` plus `Handoffs/README.md`. If Dan says to put one on the board: fetch `GET /api/todos`, append to the **`business`** list:
 
 ```json
 { "text": "Execute handoff: <short description>", "priority": "key", "why": "<filename> — created but not yet run", "addedAt": "YYYY-MM-DD" }
