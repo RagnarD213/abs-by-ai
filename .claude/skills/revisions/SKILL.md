@@ -436,3 +436,27 @@ exact timing or an exact link.
     doc he touches and fold new rules in there, not here. ⚠ Two adjacent Ad 4 items (2:06 pill-bottle
     swap, 2:16 couch clip) vanished together while the THROUGHOUT still says the 2:06 clip "needs to be
     swapped (see below)" — flagged to Dan as a possible block deletion.
+
+35. **Batch sweep of 8 editor cuts in one session (2026-09-08) — the recipe that worked.** Downloads by `gdown` into
+    `/Volumes/Extreme/_edit_work/revisions-<date>/dl/`, then ONE prep script per cut (`prep.sh`: ffprobe, `pick_lav
+    --analyse`, `audio_gate --no-stamp --ab`, per-second peak scan, silencedetect, scene count, mean luma, 2 fps frames →
+    labelled 10×6 contact sheets, Whisper small) run through `xargs -P 2` (the two-build cap), and one reviewer subagent per
+    cut launched the moment its prep finishes, all reading a shared `BRIEF.md` that points at the skill and the work dir.
+    Each subagent writes `out/<name>.md` (the section, in the `md_to_docs_clipboard.py` dialect) and `out/<name>.summary.md`
+    (scorecard + paste-ready Upwork message). Muhammad's six sections were concatenated and pasted in ONE cmd+v at the end
+    of his doc; read-back showed the old text byte-intact and all six headings. Traps: the editors' earlier review copies
+    are NOT re-downloadable with gdown ("can't retrieve" = permission) — compare V2→V3 item by item instead; a previous
+    delivery you only need audio numbers from should be gate-only (skip whisper/frames); Whisper throughput collapsed from
+    150 to 8 frames/s when the Mac was swapping (load 60, 4.7 GB swap from other sessions) — nothing to fix, just expect
+    the last two cuts to take as long as the first six; Docs would not render in the extension until the load fell.
+36. **Insert a round at the TOP of a doc (Zeeshan's convention):** click at the start of the first heading, `cmd+Left`,
+    `Return`, `Up`, `cmd+alt+0` (Normal text, so the paste does not inherit Heading 1), confirm B is off, set the clipboard,
+    `cmd+v`. The pasted H2 lands bold; the old first heading is untouched.
+37. **Dan asked for the review sweep with "do not message him yet" — the deliverable is the docs plus the messages in chat.**
+    Confirm sent-status from the Upwork room text (`get_page_text` on the room URL with `companyReference=…&sidebar=true`;
+    a bare room URL redirected to the most recent room), not from Gmail — Upwork's notification emails only carry the
+    editor's side and are 90 KB of tracking links each.
+38. **Editors "fix" clipping by turning the mix down (Ad 5 V2 landed at −29.7 LUFS) and "fix" an email screen by deleting
+    the whole after-picture screen (Ad 3 V3).** When the previous round asked for two things on one element, check that the
+    fix for one did not remove the other; write the fix as an ordered recipe (limiter first, then lift; hold the screen at
+    the top, do not scroll) so the next attempt cannot go the wrong way again.

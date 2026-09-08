@@ -38,6 +38,21 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Editor revision docs — 8 cuts reviewed 2026-09-08, ALL AWAITING DAN'S FORWARD (he sends at 1 PM).**
+Muhammad's batch-2 doc (`1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`) now ends with six new sections: AD 3 ROUND 3
+(4 items; audio steps skipped a third time, still −18.5 LUFS / 0 dBTP), AD 4 ROUND 2 (4 items; email screen at 2:58),
+AD 5 ROUND 2 (5 items; he fixed clipping by pulling the mix to −29.7 LUFS), AD 6 / AD 7 / AD 8 first rounds (18 / 21 /
+13 timestamped items; Ad 6 and Ad 7 repeat the arrow two-panel, Ad 8 opens on a real-before → AI-after dissolve, Ad 7 has
+Muhammad Ali / LIFE posters at 1:16). Waleed: NEW doc "Video 1 revisions - Waleed - round 3"
+(`1MKoZ1mNFAmWM-24pZe8KXHKpFXTOGhv-0W3krm_00EY`) — his picture is a real revision pass this time but the Sep 5 export
+shipped a regressed mix (−8.6 LUFS, +3.2 dBTP, 90k clipped samples); doc says put the approved Sep 3 audio back; keep him,
+hold the milestone until round 3 lands. Zeeshan: round 3 pasted at the TOP of his doc
+(`13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`) — live sets are in and levelled; 8 items left (silent sets, email line
+still in the app section). Markdown copies + paste-ready Upwork messages: `revision docs/*9-8-26.md` and the session
+report. Muhammad's Ad 2 HD (`1o2wBl4Y8l6_yl6ExBMQGFD16EqaZLjlN`) is the approved final for YouTube. ⚠ Scripts doc
+(`1AVRvx…`) still tells editors to use the app's before/after reveal (Ad 5 L343, Ad 6 L429) and Ad 8's split screen
+(L525) — needs correcting before Ads 9–15 are cut. Delete this entry once Dan has forwarded the docs.
+
 **IG auto-boost — BUILT, DEPLOYED, DRY-RUNNING HOURLY; waiting on Dan's word to switch it ON** (2026-09-02).
 `scripts/ads/auto-boost.js` runs on Railway cron service `auto-boost` (`15 * * * *`, commit `51989d7`),
 `AUTO_BOOST_ENABLED=0` so every run is a dry run that plans and records but writes nothing to Meta.
@@ -189,19 +204,6 @@ the Key dashboard task `money::Execute handoff: studio batch 6…` — that clos
 programme. ⚠ 60 ` 2.jpg` conflict copies sit in the delivery folder (pre-warp-bump versions,
 not duplicates); recommend deleting once he confirms the current files are the ones he wants.
 
-**Muhammad's Ad 3 — round 2 reviewed 2026-09-02.** His V2 landed 13 of 15 round-1 items (right mic
-confirmed by cross-correlation, side-by-side gone, all inserts in). Still open: the email-signup screen
-(now at 3:03), "nutrition coach" text (2:14), top end / −14 LUFS / peaks at −1 dB, plus five small items.
-Round-2 section appended to the same batch-2 doc, markdown copy in `revision docs/
-ad3-revisions-muhammad-round2-9-2-26.md`. Dan tells Muhammad it is in the same doc. Delete this entry
-once V3 arrives (review it with the same doc's list).
-
-**Waleed's Video 1** — round-2 revision doc + three paste-ready Upwork messages drafted.
-Dan sends message 1 with the doc link. Recommendation: don't release the funded $100
-milestone yet — it's the only structural reason left for him to finish the visual list.
-
-**Zeeshan's ab-wheel cut — round 2 reviewed 2026-09-02.** one unified round-2 section (Dan's two items folded in, written as Dan) at the top of his doc (markdown copy `revision docs/organic-video-abwheel-revisions-zeeshan-round2-9-2-26.md`). Most of round 1 landed; still missing: the live workout sets, voice levelling (middle 10 dB louder than the start, clipping), and the email form on screen at 5:06. Dan forwards the doc.
-
 **Home filming set** — final buy list ($1,083.65), 21 product pages open in his Chrome.
 Dan buys (TL60 **qty 2**, stand 2-pack, rod 72-144, backdrop stand 10x8.5), then runs the
 3 phone tests before the gear lands. Then: build the look-A telemetry loop file once the
@@ -329,15 +331,6 @@ see ACTIVE TASK).
 
 # ACTIVE TASK
 
-**Editor-cut sweep 2026-09-08 — IN PROGRESS (this session), do not review these cuts in parallel.** Eight new
-cuts since 09-03: Muhammad Ad 3 V3, Ad 4 V2, Ad 5 V2 + first drafts of Ads 6, 7, 8; Waleed Video 1 (Sep 5);
-Zeeshan ab-wheel round 3 (Sep 3). Work dir `/Volumes/Extreme/_edit_work/revisions-0908/`. Output: next-round
-sections appended to each editor's existing Google Doc (Waleed gets a new round-3 doc), md copies in
-`revision docs/`, paste-ready Upwork messages in chat. Nothing is sent to editors — Dan forwards at 1 PM.
-All five of last week's docs WERE sent (Ad 3 r2 / Ad 4 r1 / Ad 5 r1 on 09-03, Zeeshan r2 on 09-02, Waleed r2 on
-08-31); the only unsent item is telling Muhammad the Ad 4 3:18 audit clip landed in the doc. Delete this entry
-when the session reports.
-
 **YouTube engagement champion (Google Ads) — BUILT, DEPLOYED, SCRIPT INSTALLED; waiting on two Dan clicks** (2026-09-03).
 Brain live (`scripts/ads/ytads/`, 88 tests, `YTADS_ENABLED=0` = dry run); Ads Script id `12241942` saved in 342-717-0837
 with the key, **unauthorized + unscheduled** (Google won't schedule before the OAuth grant). **Dan: (1) Tools → Bulk
@@ -346,28 +339,6 @@ his Chrome — tick the Terms box, click Create token, paste it into `~/.absbyai
 `GOOGLE_ADS_DEVELOPER_TOKEN`.** Next session after (1): refine `headline-style.md` from the first snapshot, pin the
 tier-1/RMKTG ids, show Dan the dry-run day-one pause list, set `YTADS_ENABLED=1`, watch the first live hour, then check off
 the Key task. Execution notes at the bottom of the handoff; operating doc `Docs/YTADS.md`.
-
-**Muhammad's Ad 4 (supplements) — round 1 reviewed 2026-09-02.** Audio is one mic / no comb / dry
-(his Ad 3 fix stuck); quiet at −19.6 LUFS, robot clip has no AI label, supplement-audit app screen sits
-under the "generate a future self" line, 16 items total. Section appended to his batch-2 doc, markdown
-`revision docs/ad4-revisions-muhammad-round1-9-2-26.md`, stack B-roll served at
-`absbyai.com/ad-assets/…muted.mp4`. Dan tells Muhammad it is in the same doc. ✅ The **Supplement Audit
-RESULTS screen** (3:18–3:37) is now DONE (2026-09-03, commit `621e169`): a fresh audit was run in the real
-app on Dan's real 12-bottle stack (session 7; medication worded generically so no drug name renders),
-recorded headless at 1080x1920 and linked in the doc — `/ad-assets/app-supplement-audit-results_20s_…mp4`
-+ `…safety-flags_11s_…mp4`, copies beside the doc and in the asset library. **Both links are now IN Muhammad's
-Google Doc** (AD 4 → 3:18–3:37, placement verified against his cut: results clip on "which supplements are
-helping" 3:18–3:29, safety card on the medications line 3:29–3:37). Delete this entry once sent.
-
-**Muhammad's Ad 5 (diets) — round 1 reviewed 2026-09-03.** Audio is one mic / dry (gate: image, comb, room
-all PASS) but −18.9 LUFS with the VOICE hitting 0 dBTP in 58 seconds (1,800 clipped samples). Two Google
-rejections: the 1:27 fat-Dan→ripped-Dan arrow two-panel and a 1:11 belly-grab stock clip. No AI label on the
-three benefit clips at 3:34, app demo ends on "Generating… 67%" with no payoff, skip-stopper diet list missing,
-~35 picture changes vs Ad 1's 53. 30 items. Section appended to his batch-2 doc (verified by Drive read-back,
-Ad 2–4 sections untouched), markdown `revision docs/ad5-revisions-muhammad-round1-9-3-26.md`. Dan tells
-Muhammad it is in the same doc. ⚠ The Ad 5 SCRIPT note (scripts doc, last cue) still tells editors the app's
-before/after reveal is "safe" — it contradicts the standing rule; someone should fix the scripts doc. Delete this
-entry once sent.
 
 **Shorts centring queue fix — DONE 2026-09-02, one decision left for Dan.** Every queued off-centre Short is
 replaced: Blotato 10 posts swapped + MD5-verified; YouTube 8 stale scheduled Shorts re-uploaded as new ids at
