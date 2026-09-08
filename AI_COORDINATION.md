@@ -243,13 +243,10 @@ plan cap; Dan either deletes queued posts or upgrades. Then re-run
 `scripts/blotato/iggap_fill.py --apply` (idempotent). ⚠ The queue is now **exactly 200/200**
 (TikTok mirror, 2026-09-02) and drains ~2/day.
 
-**TikTok via Blotato — LIVE AND VERIFIED.** First `@absbyai` post published on schedule
-2026-09-03 22:00 UTC (tiktok.com/@absbyai/video/7681432198783814942); three more published
-09-05, 09-07 and one scheduled 09-08. No TikTok failures. To make room, the 6 latest Facebook photo
-mirrors (2027-01-04 → 01-15) were removed and saved to `scripts/blotato/fb_trimmed.json`;
-`tiktok_mirror.py --restore-fb --apply` puts them back once the queue has room. **Dan: say whether the
-recurring `Post on TikTok` dashboard row should go now that posting is automated** — that is all that is
-left of this entry.
+**TikTok via Blotato — LIVE, one restore left.** To make queue room, the 6 latest Facebook photo mirrors
+(2027-01-04 → 01-15) were removed and saved to `scripts/blotato/fb_trimmed.json`; run
+`tiktok_mirror.py --restore-fb --apply` once the 200/200 queue has room, then delete this entry.
+(The `Post on TikTok` dashboard row was removed 2026-09-08 — posting is automated.)
 
 **Blotato post `697055` was a FALSE FAILURE — it published, and the re-post made a duplicate. One
 Dan decision left** (2026-09-08). Blotato marked the V7 long-form Facebook reel failed 2026-09-06 with
