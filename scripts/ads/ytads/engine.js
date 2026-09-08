@@ -38,16 +38,16 @@ const LABELS = {
 };
 const STATE_LABELS = [LABELS.TEST, LABELS.CHAMPION, LABELS.RETIRED, LABELS.RETIRED_DAY1];
 
-// How the three campaigns are recognised in the snapshot. The tier-2 id is a
-// verified account fact (8/31 handoff); the other two are matched on name until
-// Phase 0 pins their ids in config.campaigns.
-// ORDER MATTERS: the remarketing campaign's name also contains "geo tier 1"
-// ("[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | … | geo tier 1 | … | youtube viewers",
-// read in the UI 2026-09-03), so RMKTG is tested before the tier-1 rule.
+// How the three campaigns are recognised in the snapshot. All three ids were PINNED
+// from the first Ads Script snapshot (run 1, 2026-09-08 20:54 UTC). Name matching is
+// gone on purpose: the remarketing campaign's name also contains "geo tier 1", and a
+// new campaign someone creates in the account must be ignored (it is reported as
+// `unmatched`), never silently adopted. To add a campaign, add its id here and its
+// key to CAMPAIGN_KEYS / MIN_CONV.
 const DEFAULT_CAMPAIGN_MATCH = [
-  { key: 'tier2', id: '24122099676' },
-  { key: 'rmktg', match: /RMKTG|remarket/i },
-  { key: 'tier1', match: /tier\s*1/i },
+  { key: 'tier2', id: '24122099676' },  // [DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT — $10/day, ad group 197884856303
+  { key: 'tier1', id: '24163535721' },  // [DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT — $15/day, ad group 206274722584
+  { key: 'rmktg', id: '24169507109' },  // [DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | … | geo tier 1 | … | youtube viewers — $5/day, ad group 203082125721
 ];
 
 // ============================================================

@@ -17,7 +17,7 @@ conversion**: fewer conversions than the campaign minimum (tier 2: 5, tier 1: 2,
 "no read"; cheaper than the champion's trailing 30 days is a **win** (the test becomes champion, the
 old one is paused); otherwise a loss. **Day one**, the cheapest hand-made ad per campaign became
 champion and the other enabled hand-made ads were paused — the id list was written to Postgres first,
-so it can be reversed with one command per ad. Budgets never change ($15 / $15 / $5 a day). The system
+so it can be reversed with one command per ad. Budgets never change ($10 / $15 / $5 a day for tier 2 / tier 1 / remarketing, read from the first snapshot). The system
 never edits an existing ad: Dan's headline edits in the UI are always preserved.
 
 ## Where it runs

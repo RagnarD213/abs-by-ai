@@ -34,10 +34,10 @@ function ad({ campaign, name, labels = [], status = 'ENABLED', life = [0, 0], d3
 }
 const CAMPS = [
   { id: '24122099676', name: '[DAN] [DGEN] [ENGAGEMENT] geo tier 2', status: 'ENABLED', adGroups: [{ id: '9', name: 'g', status: 'ENABLED' }] },
-  { id: '2', name: '[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT', status: 'ENABLED', adGroups: [{ id: '19', name: 'g', status: 'ENABLED' }] },
-  { id: '3', name: '[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers', status: 'ENABLED', adGroups: [{ id: '29', name: 'g', status: 'ENABLED' }] },
+  { id: '24163535721', name: '[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT', status: 'ENABLED', adGroups: [{ id: '19', name: 'g', status: 'ENABLED' }] },
+  { id: '24169507109', name: '[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers', status: 'ENABLED', adGroups: [{ id: '29', name: 'g', status: 'ENABLED' }] },
 ];
-const T2 = '24122099676', T1 = '2', RM = '3';
+const T2 = '24122099676', T1 = '24163535721', RM = '24169507109';  // the real ids, pinned 2026-09-08
 const snap = (ads, campaigns = CAMPS) => ({ campaigns, ads });
 const video = (id, published, title = 'A video') => ({ id, title, published, description: '' });
 const HL = { headlines: ['Why I love the ab wheel', 'One move for the whole core', 'The rollout, done slowly'], longHeadlines: ['Dan shows the ab wheel rollout he does every week'], descriptions: ['Watch the full form breakdown'] };
@@ -226,7 +226,7 @@ console.log('\n7. DRY RUN, MISSING CAMPAIGNS, AMBIGUOUS AD GROUP');
   check('report says dry run', r.report.dryRun === true);
 }
 {
-  const camps = [CAMPS[0], { id: '2', name: 'tier 1', status: 'ENABLED', adGroups: [{ id: '19', status: 'ENABLED' }, { id: '20', status: 'ENABLED' }] }];
+  const camps = [CAMPS[0], { id: '24163535721', name: 'tier 1', status: 'ENABLED', adGroups: [{ id: '19', status: 'ENABLED' }, { id: '20', status: 'ENABLED' }] }];
   const r = run({ snapshot: snap([ad({ campaign: T2, name: 'dan A', life: [30, 100] }), ad({ campaign: T1, name: 'dan B', life: [30, 100] })], camps), videos: [video('v0000000001', '2026-09-03T00:00:00Z')], headlines: { v0000000001: HL } });
   check('missing campaign is a warning, not a crash', r.report.warnings.some(w => /rmktg/.test(w)));
   check('two enabled ad groups → no ad created there, warning asks Dan', !ops(r, 'createAd').some(c => c.campaign === 'tier1') && r.report.warnings.some(w => /tier1: 2 enabled ad groups/.test(w)));

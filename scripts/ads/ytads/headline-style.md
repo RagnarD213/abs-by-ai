@@ -1,45 +1,109 @@
-# Headline style — extracted from Dan's live Demand Gen ads (read in Google Ads, 2026-09-03)
+# Headline style — extracted from Dan's live Demand Gen ads
 
-The generator matches THESE shapes. Rules accumulate at the bottom as Dan gives feedback; nothing here is
-relaxed without him. When the first Ads Script snapshot lands, refine this file from the full copy of every
-ad (the UI shows only the first line of each field; the snapshot shows all of them).
+First written 2026-09-03 from the Google Ads UI (first line of each field only). **Refined 2026-09-08 from
+the first Ads Script snapshot**, which carries every headline, long headline and description of all 17 ads
+plus each ad's policy verdict and lifetime cost per conversion. The generator matches THESE shapes. Rules
+accumulate at the bottom as Dan gives feedback; nothing here is relaxed without him.
 
-## What Dan's ads look like
+## Every hand-made creative, in full (snapshot run 1, 2026-09-08)
 
-Four creatives were live on 2026-09-03 (each duplicated across the three campaigns):
+Each creative is duplicated across the three campaigns with identical copy. Business name on every ad:
+**Abs by AI**. Final URL: absbyai.com. No call-to-action text set (Google picks it).
 
-| ad name | headline | long headline | description |
-|---|---|---|---|
-| v sit twist | V-Sit Twists: Work Your Obliques At Home | Learn the V-Sit Twist, a killer home abs and obliques exercise for men. | Work your abs and obliques at home with the V-Sit Twist, my favorite home ab exercise. |
-| truth about supplements | The Truth About Supplements | Here's how AI fixed my supplements. Find which supplements are a waste of money with AI | Many supplements are a waste of money. AI can identify which supplements you should cut. |
-| top 10 ab tips | 10 Tips For Six Pack Abs | My top 10 tips for getting six pack abs. Watch this if you want to get abs! | Daniel Rose shares his top 10 tips he used to get six pack abs at 40 years old. |
-| late night eating | How To Stop Late Night Eating | Here's the AI trick that finally eliminated my late night junk food habit. | If you struggle with late night snacking, try this trick to fight it I learned from AI. |
+| ad name | headlines (3 each) | long headline(s) | description | policy |
+|---|---|---|---|---|
+| top 10 ab tips | 10 Tips For Six Pack Abs · 10 Tactics That Got Me Abs · How To Get Abs - My Top 10 Tips | My top 10 tips for getting six pack abs. Watch this if you want to get abs! | Daniel Rose shares his top 10 tips he used to get six pack abs at 40 years old. | Approved |
+| 1 min ab workout workout only | Ultimate 1 Minute Ab Workout · Killer 1 Min Home Ab Workout · Home Six Pack Abs Workout For Men | Ultimate 1 Minute Home Ab Workout For Men. Try This If You Want To Get Abs! | Men: try this 1 minute ab workout at home. It's quick, simple, and intense! | Approved |
+| 1 min ab workout full workout short | Ultimate 1 Minute Ab Workout · 1 Min Home Ab Workout For Men · Killer 1 Min Home Ab Workout | Ultimate 1 Minute Home Ab Workout For Men. Get A Great Ab Workout In Just 1 Minute At Home | Try this killer 1 minute home ab workout. It's quick, simple, and easy to do at home | Approved |
+| truth about supplements | The Truth About Supplements · How AI Fixed My Supplements · Audit Supplements With AI | Here's how AI fixed my supplements. Find which supplements are a waste of money with AI | Many supplements are a waste of money. AI can identify which supplements you should cut. | Approved |
+| how to use ai to track macros | Use AI To Track Macros - Here's How · Track Calories With AI - It's Simple · AI Tracks Calories Now - It's Easy | Use AI to track your macros! It's simple and easy. This video shows you how. | AI makes tracking macros simple. Here's how to track calories and macros using free AI. | Approved |
+| 4 ab muscle groups (paused) | The Four Ab Muscle Groups · Train These 4 Ab Muscles · The Hidden Ab Muscle Groups | The four ab muscle groups that you should train if you want to get defined abs. · If you want to get six pack abs, I recommend training these four ab muscle groups | Most men only train one ab muscle. There are four - here's why you should train them all | Approved |
+| v sit twist (paused) | V-Sit Twists: Work Your Obliques At Home · Killer Home Ab & Oblique Workout · V-Sit Twist: Home Ab Exercise For Men | Learn the V-Sit Twist, a killer home abs and obliques exercise for men. · Killer Home Ab Workout: The V-Sit Twist | Work your abs and obliques at home with the V-Sit Twist, my favorite home ab exercise. | Approved |
+| late night eating | How To Stop Late Night Eating · How AI Fixed My Late Night Snacking · Fight Late Night Snacking With AI | Here's the AI trick that finally eliminated my late night junk food habit. | If you struggle with late night snacking, try this trick to fight it I learned from AI. | **Limited — CLICKBAIT:PROHIBITED** |
 
-Business name on every ad: **Abs by AI**. Final URL: absbyai.com. The "late night eating" ads sit at
-"Eligible (Limited) — Policy (Clickbait)" — the shape *"the trick that finally…"* is what tripped it; avoid
-"trick", "finally", "secret", "hack".
+Outside the three engagement campaigns, the account also has "the upload all vars" (campaign 24096135826,
+"Make An AI Picture Of You With Abs" / "See What You'd Look Like With Abs"): **Limited —
+NEGATIVE_EVENTS_AND_IMAGERY**. It is not part of this system; it is listed because it is the second
+concrete example of what Google limits.
+
+## What actually converts (lifetime, from the snapshot — the style signal that matters)
+
+| creative | campaign | spend | conv | cost / conv |
+|---|---|---|---|---|
+| top 10 ab tips | tier 2 | $282.47 | 2,638 | **$0.11** |
+| 1 min ab workout workout only | tier 1 | $131.37 | 128 | **$1.03** |
+| 1 min ab workout full workout short | tier 2 | $0.52 | 12 | $0.04 (too little spend to trust) |
+| truth about supplements | tier 2 | $0.73 | 10 | $0.07 (too little spend to trust) |
+| how to use ai to track macros | tier 1 + tier 2 | $0.87 | 2 | — |
+| late night eating | all three | $0.00 | 0 | never served (Limited) |
+| remarketing, all creatives | rmktg | $48.75 | 0 | nothing has converted there |
+
+The two proven winners share one shape: **a plain subject with a number in it, no AI angle, no promise**
+("10 Tips For Six Pack Abs", "Ultimate 1 Minute Ab Workout"). The AI-angle creatives (macros, supplements)
+have barely been served, so there is no evidence either way on them yet; the generator should not
+over-weight the AI angle just because it appears in many of Dan's lines.
 
 ## The shapes he uses
 
-- **Headline = the video's subject, stated plainly, Title Case.** An exercise name, a topic, a numbered
-  list: *"V-Sit Twists: Work Your Obliques At Home"*, *"The Truth About Supplements"*, *"10 Tips For…"*,
-  *"How To Stop Late Night Eating"*. 3–7 words. No adjectives about the viewer.
-- **Long headline = one sentence about what the video shows, first person.** *"Here's how AI fixed my
-  supplements."*, *"My top 10 tips…"*, *"Learn the V-Sit Twist, a … home abs exercise for men."* It names
-  the exercise / topic and often names AI as the tool.
-- **Description = a second plain sentence, sometimes third person ("Daniel Rose shares…").** It restates
-  the benefit of WATCHING, never a body outcome.
-- **Vocabulary:** home, at home, exercise, obliques, abs (as a body part / topic, never as a promise), tips,
-  supplements, AI, "for men", "at 40 years old", "my favorite".
-- **Tone:** direct, plain, first person; no hype, no urgency, no exclamation marks in the generated set
-  (his older long headline had one; the lint forbids it now).
+- **Headline (30 chars max) = the video's subject, stated plainly, Title Case, 3–7 words.** Five recurring
+  patterns, in order of how often he uses them:
+  1. Subject + qualifier: *"Home Six Pack Abs Workout For Men"*, *"1 Min Home Ab Workout For Men"*,
+     *"The Four Ab Muscle Groups"*, *"The Truth About Supplements"*.
+  2. Number-led list: *"10 Tips For Six Pack Abs"*, *"Train These 4 Ab Muscles"*, *"10 Tactics That Got Me Abs"*.
+  3. "How AI Fixed My X": *"How AI Fixed My Supplements"*, *"How AI Fixed My Late Night Snacking"*.
+  4. Verb + "With AI": *"Audit Supplements With AI"*, *"Track Calories With AI - It's Simple"*, *"Fight Late
+     Night Snacking With AI"*.
+  5. Subject + " - " + a two-or-three-word tag: *"Use AI To Track Macros - Here's How"*, *"How To Get Abs -
+     My Top 10 Tips"*, *"AI Tracks Calories Now - It's Easy"*. He uses a spaced hyphen, never an em dash.
+  Every set of three mixes at least two of these patterns. Never three variations of one phrasing.
+- **Long headline (90 chars max) = one or two sentences about what the video shows, first person or
+  imperative.** *"Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"*,
+  *"Use AI to track your macros! It's simple and easy. This video shows you how."*, *"Learn the V-Sit Twist,
+  a … home abs and obliques exercise for men."* "Here's how…" and "This video shows you how" are his
+  connective phrases. Sentence case, not Title Case, except in the two ab-workout ads.
+- **Description (90 chars max) = a second plain sentence, often opening with a fact or a third-person
+  attribution.** *"Daniel Rose shares his top 10 tips…"*, *"Many supplements are a waste of money. AI can
+  identify which…"*, *"Most men only train one ab muscle. There are four - here's why…"*, *"Men: try this…"*.
+  The description names the benefit of WATCHING (what you will learn or do), never a body outcome.
+- **Vocabulary he actually uses:** home / at home, for men, men:, ab workout, abs (as a body part or topic,
+  never as a promise), obliques, tips, tactics, supplements, macros, calories, AI, free AI, "at 40 years old",
+  "my favorite", quick, simple, easy, intense, "here's how", "this video shows you how", "a waste of money".
+- **Numbers are spelled as digits** ("10 Tips", "1 Min", "4 Ab Muscles") except "The Four Ab Muscle Groups".
+- **Tone:** direct, plain, first person, a little blunt ("Most men only train one ab muscle"). No hype
+  adjectives about the viewer, no urgency, no questions.
 
 ## What the generator must NOT copy from the old ads
 
-Dan's older copy predates the 2026-08-09 suspension rules. These lines are in his ads but must not be
-reproduced: *"if you want to get abs"*, *"tips he used to get six pack abs"*, *"killer"*. The lint blocks
-them; this note is so the style is not "learned" from them.
+Dan's older copy predates the 2026-08-09 suspension rules and the two policy verdicts above. These appear
+in his ads but must not be reproduced; the lint blocks them, and this note is so the style is not
+"learned" from them:
 
-## Rules from Dan's feedback (append below, newest last)
+- Body-outcome promises: *"if you want to get abs"*, *"tips he used to get six pack abs"*, *"if you want to
+  get defined abs"*, *"See What You'd Look Like With Abs"*.
+- Clickbait shapes — the exact thing that got "late night eating" Limited: *"the AI trick that finally
+  eliminated…"*. Avoid **trick, finally, secret, hack, hidden** ("The Hidden Ab Muscle Groups" is borderline;
+  do not generate it).
+- Intensity adjectives: **killer, ultimate**. Exclamation marks (three of his long headlines have one).
+- The registered mark: never "Abs by AI ®" / "Abs by AI®" in generated copy.
 
-- (none yet — the first ads go live on the next public upload)
+## The first generated sets (2026-09-08, dry run — Dan's review surface)
+
+Written by the generator for the three videos published since 2026-09-03; every line passed the lint.
+Kept here so Dan's feedback can be attached to concrete lines.
+
+- **3 Minute Total Body Home Workout - Follow Along (No Talking)** — H: *3 Minute Total Body Home Workout ·
+  Follow Along Home Workout · Total Body Workout At Home · 5 Exercises, 40 Seconds Each · No Talking Home
+  Workout Video*. LH: *Follow along with my 3 minute total body home workout, no talking, just the work.*
+  D: *Daniel Rose runs the full circuit on screen so you can follow along at home.*
+- **Make AI Macro Estimates Way More Accurate** — H: *Better AI Macro Estimates · One Detail For Accurate
+  Macros · How I Photograph My Meals For AI · Make AI Macro Counts Closer · Photo Captions And AI Macros*.
+  LH: *Here's the one detail I add to my photo caption so AI macro estimates get closer.* D: *Daniel Rose
+  shows the detail he adds to meal photos for closer AI macro estimates.*
+- **Hire A Maid Instead Of A Personal Trainer** — H: *Hire A Maid Instead Of A Trainer · Where My Training
+  Budget Goes · A Better Use Of $200 A Month · Why I Skip The Personal Trainer · Rethinking The Trainer
+  Budget*. LH: *Here's why I would spend the trainer money on a maid instead, at 40 years old.* D: *Daniel
+  Rose explains why he puts the personal trainer budget somewhere else.*
+
+## Rules from Dan's feedback (append below, newest last; each applies to FUTURE ads only)
+
+- (none yet — the first ads go live with the first live hourly run on 2026-09-08)
