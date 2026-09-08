@@ -5747,6 +5747,16 @@ app.post('/api/ads/paid-conversion-ack', requireAuth, async (req, res) => {
 // `commit` below for why making it an exclusion filter broke connection setup.
 const ADS_FEED_MAX_ROWS = 5000;
 
+// Google's enhanced-conversions normalisation, exactly: lowercase, trim, and
+// for gmail.com / googlemail.com drop every dot before the @. Then SHA-256 hex.
+// Returns '' for anything that is not an email so the column is simply empty.
+function adsHashedEmail(raw) {
+  let e = String(raw || '').trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) return '';
+  const [local, domain] = e.split('@');
+  if (domain === 'gmail.com' || domain === 'googlemail.com') e = local.replace(/\./g, '') + '@' + domain;
+  return crypto.createHash('sha256').update(e).digest('hex');
+}
 function csvCell(v) {
   const s = String(v == null ? '' : v);
   return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
@@ -5823,12 +5833,11 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
   const commit = /-commit\.csv$/.test(req.path) || String(req.query.commit || '') === '1';
   try {
     const { rows } = await db.query(
-      `SELECT id, ads_click_id, ads_click_type, membership_plan, paid_conversion_pending_at, ads_offline_uploaded_at
+      `SELECT id, email, ads_click_id, ads_click_type, ads_click_at, membership_plan, paid_conversion_pending_at, ads_offline_uploaded_at
          FROM users
         WHERE paid_conversion_pending_at IS NOT NULL
           AND paid_conversion_fired_at IS NULL
-          AND ads_click_id IS NOT NULL
-          AND ads_click_at IS NOT NULL
+          AND email IS NOT NULL
           -- Synthetic accounts never reach Google. This is not a hypothetical
           -- tidy-up: three @example.com rows seeded to make Data Manager's
           -- schema step pass carried fake "TESTgclid…" ids, and because they
@@ -5839,7 +5848,13 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
           -- example.com is reserved by RFC 2606, so this also protects every
           -- future verification row without anyone needing to remember to.
           AND email NOT LIKE '%@example.com'
-          -- Two separate 90-day limits, and the second is the binding one.
+          -- A row needs at least one key Google can match on: a usable click id
+          -- OR the member's (hashed) email. Rows with neither are useless and
+          -- are excluded here; rows with an expired click id but an email are
+          -- emitted email-only (the click columns are blanked in JS below).
+          --
+          -- Click rows: two separate 90-day limits, and the second is the
+          -- binding one.
           -- (a) the action's click-through window: the sale must fall within
           --     90 days of the click, or it is outside the attribution window;
           -- (b) Google's import rule, which is measured from UPLOAD time, not
@@ -5848,8 +5863,18 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
           -- Filtering here rather than shipping rows Google would bounce keeps
           -- its import report readable: every row we send should be a row it
           -- can actually use.
-          AND ads_click_at > paid_conversion_pending_at - INTERVAL '90 days'
-          AND ads_click_at > NOW() - INTERVAL '90 days'
+          --
+          -- Email-only rows have no click date to key on, so the sale itself
+          -- has to be within Google's 90-day upload window. This is the route
+          -- that gives app members attribution at all: the iOS/Android WebViews
+          -- never hold the click cookie, so those sales have no click id.
+          AND (
+            (ads_click_id IS NOT NULL
+              AND ads_click_at IS NOT NULL
+              AND ads_click_at > paid_conversion_pending_at - INTERVAL '90 days'
+              AND ads_click_at > NOW() - INTERVAL '90 days')
+            OR paid_conversion_pending_at > NOW() - INTERVAL '90 days'
+          )
         ORDER BY paid_conversion_pending_at
         LIMIT $1`,
       [ADS_FEED_MAX_ROWS]
@@ -5861,19 +5886,34 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
     // unparseable gclid and takes the whole row with it. iOS app campaigns send
     // gbraid/wbraid whenever ATT blocks user-level tracking, so mixed types on
     // this account are routine.
-    const lines = ['Google Click ID,GBRAID,WBRAID,Conversion Name,Conversion Time,Conversion Value,Conversion Currency'];
+    //
+    // The eighth column, Email, is the enhanced-conversions key: the SHA-256 of
+    // the member's normalised address, never the address itself. Data Manager
+    // maps it to Google's Email field as "already hashed". A row keeps its click
+    // columns only while the click is inside both 90-day windows (mirrors the
+    // SQL); otherwise it goes out email-only.
+    const lines = ['Google Click ID,GBRAID,WBRAID,Conversion Name,Conversion Time,Conversion Value,Conversion Currency,Email'];
+    const now = Date.now();
     for (const r of rows) {
       const planDef = MEMBERSHIP_PLANS[r.membership_plan] || MEMBERSHIP_PLANS.monthly;
+      const emailHash = adsHashedEmail(r.email);
+      const saleAt = new Date(r.paid_conversion_pending_at);
+      const clickAt = r.ads_click_at ? new Date(r.ads_click_at).getTime() : NaN;
+      const ninetyDays = 90 * 24 * 60 * 60 * 1000;
+      const clickUsable = !!r.ads_click_id && Number.isFinite(clickAt)
+        && clickAt > saleAt.getTime() - ninetyDays && clickAt > now - ninetyDays;
+      if (!clickUsable && !emailHash) continue; // nothing Google could match on
       // NULL predates the ads_click_type column and is always a web gclid.
-      const type = sanitizeAdClickType(r.ads_click_type);
+      const type = clickUsable ? sanitizeAdClickType(r.ads_click_type) : '';
       lines.push([
         csvCell(type === 'gclid' ? r.ads_click_id : ''),
         csvCell(type === 'gbraid' ? r.ads_click_id : ''),
         csvCell(type === 'wbraid' ? r.ads_click_id : ''),
         csvCell(ADS_OFFLINE_ACTION),
-        csvCell(adsConversionTime(new Date(r.paid_conversion_pending_at))),
+        csvCell(adsConversionTime(saleAt)),
         csvCell((planDef.priceInCents / 100).toFixed(2)),
         'USD',
+        csvCell(emailHash),
       ].join(','));
     }
     const body = lines.join('\n') + '\n';

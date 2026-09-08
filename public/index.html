@@ -29,7 +29,10 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-18361229851');
+  // allow_enhanced_conversions is required for the manual user_data route in
+  // fireAdConversion() (hashed email alongside a conversion) and is harmless
+  // next to Google's automatic collection.
+  gtag('config', 'AW-18361229851', { allow_enhanced_conversions: true });
 </script>
 <!-- Meta Pixel Code -->
 <script>
@@ -3408,6 +3411,15 @@ function fireAdConversion(label, opts) {
     payload.value = opts.value;
     payload.currency = opts.currency || 'USD';
   }
+  // Enhanced conversions: hand the tag the member's email so Google can match
+  // the sale to the ad click when the click cookie is gone (Safari, in-app
+  // browsers, the iOS/Android WebViews). The tag SHA-256-hashes it in the
+  // browser before anything leaves the page — no plaintext email reaches
+  // Google. Anonymous fires (Free Generation Started) carry nothing, as before.
+  try {
+    const email = isLoggedIn() ? String(auth.email || '').trim().toLowerCase() : '';
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) gtag('set', 'user_data', { email });
+  } catch (e) { /* attribution extra, never blocks the fire */ }
   try { gtag('event', 'conversion', payload); } catch (e) { return false; }
   if (key) {
     const stamp = String(Date.now());
