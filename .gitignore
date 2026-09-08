@@ -109,6 +109,7 @@ Short-form video content/
 # Exception: small muted B-roll clips handed to freelance editors via absbyai.com/ad-assets/
 # (Dan's own footage that is going into public ads anyway; keep each under ~3 MB)
 !public/ad-assets/*.mp4
+!public/ad-assets/*.png
 
 # Personal before-photo candidates and derived edits (public repo — never commit)
 before-photo-candidates/
