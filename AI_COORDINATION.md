@@ -297,7 +297,7 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-Swept 2026-09-08. All four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
+Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
@@ -305,6 +305,10 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
 - **`Handoffs/handoff-20260818-android-public-build-swap.md`** — small; needs Dan's Android phone on adb.
 - **`Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md`** — last 7 of 70 posts; re-run
   `scripts/blotato/iggap_fill.py --apply` from ~09-12 once the 200/200 Blotato queue has drained 7 slots.
+- **`Handoffs/handoff-20260908-google-ads-custom-segments.md`** — ten Google Ads custom segments (six search-term,
+  four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
+  Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which
+  to build (default all ten); Fable 5.1, high. **Not on the dashboard** (he has not asked).
 
 Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md` (superseded — the @danrosefit profile-visits
 campaign has been live via the API script since 09-02), `handoff-20260902-shorts-centering-queue-fix.md` (done
