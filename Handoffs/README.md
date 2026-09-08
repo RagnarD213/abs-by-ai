@@ -17,6 +17,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260812-purchase-before-account.md](handoff-20260812-purchase-before-account.md) | after approval AND after the RevenueCat audit |
 | [handoff-20260818-android-public-build-swap.md](handoff-20260818-android-public-build-swap.md) | small; needs Dan's Android phone on adb |
 | [handoff-20260826-danrosefit-abs-image-gap-fill.md](handoff-20260826-danrosefit-abs-image-gap-fill.md) | last 7 of 70 posts; re-run iggap_fill.py --apply from ~09-12 once Blotato's queue has room |
+| [handoff-20260908-website-video-rev5.md](handoff-20260908-website-video-rev5.md) | now — three rev-4 review fixes on the website video (clip tails + the 3:36 card), mix-only re-render; Fable 5.1 high |
 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | once Dan picks which of the ten segments to build (default all); before the Demand Gen app campaign goes live; Fable 5.1 high |
 
 ## Recently retired (do not run)
@@ -32,6 +33,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-08 | [handoff-20260908-website-video-rev5.md](handoff-20260908-website-video-rev5.md) | Handoff — Website conversion video rev 5: the three rev-4 review fixes (two Veo clip-tail artifacts, remove the goal-image card at 3:36); framing locked |
 | 2026-09-08 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | Handoff — Google Ads custom segments for the Abs By AI Demand Gen launch (10 segments + a members exclusion list) |
 | 2026-09-08 | [handoff-20260908-post-lockin-analysis-page.md](handoff-20260908-post-lockin-analysis-page.md) | Handoff: Post-lock-in "Your analysis" page — video slot, height/weight sliders, body-fat + muscle numbers, body map, trial CTA (replaces the email + bridge screens) |
 | 2026-09-08 | [handoff-20260908-google-ads-enhanced-conversions.md](handoff-20260908-google-ads-enhanced-conversions.md) | Handoff — Google Ads "Enhanced conversions not recording": what it means and how to close it |

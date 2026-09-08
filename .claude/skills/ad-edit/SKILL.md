@@ -154,6 +154,16 @@ QC assertion: no two adjacent segments from the same camera setup at the same
 punch level. A dissolve/whip is NOT the default fix — the studied ads cut, they
 don't dissolve (the only dissolves seen were the deliberate rewind-replay motif).
 
+
+**FRAMING STANDARD — LOCKED 2026-09-08 (Dan, website video rev 4: "lock that in and crop all the videos like this going
+forward").** Every talking-head crop, in every skill, is anchored to the measured TOP OF THE HAIR, never to the frame and
+never to a skin/hairline detector: per hold, `y0 = (the hold's minimum hair top) − 4 % of the crop height`, so the hair sits
+~43 px below the edge at his tallest instant. Two levels only — NEAR (hair → belly button) and FAR (hair → shorts line with the
+waistband in frame) — alternating across visible joins; no wide level exists. Measure with `reference/website-video/hairdet.py`
+(lesson 108), prove it on a native-scale proof sheet of the tallest frames before rendering, and gate the DELIVERED frames with
+`hairgate.py` (lesson 109: hair ≥ 20 px, per hold 30–70 px, plus the detector-free top-rows test). The level numbers above are
+the 8/28 kitchen set's; re-measure the zooms for a new set, keep the rule.
+
 ## Step 4 — product-demo segments (the paramount part)
 
 These carry the marketing message; be pickiest here. Dan's rule set (2026-08-20):
@@ -1080,10 +1090,21 @@ chain after the first punch). What it added, each as a measurement or a gate:
    full-page shots by exact pixel match (`_offset`, error < 3 levels), so scrolls between states are animated smoothly
    instead of jumping between screenshots.
 
+115. **Every Veo clip's FIRST and LAST second get a frame strip and a look before the clip goes in — that is where all
+   three artifacts of the website video lived.** Rev 4 shipped two Dan caught at once: the grilling clip's "leans in and
+   breathes in the smell" rendered as smoke from his mouth in the insert's last second, and the portioning clip's static row
+   of containers drifted and vanished in its last second (a third, the baked dissolves, was caught before delivery — lesson
+   111). Two rules: (a) `build_inserts.py`-style strips of 0–1 s and the final second of every insert are part of the
+   by-eye pass, not optional; (b) never prompt an action the model renders badly — anything with breath, smell, steam or
+   blowing near the face, and any beat that ends on static objects (the model drifts them). Fix by trimming to the clean
+   span and shortening the beat (start the run a word later, give the difference to a neighbour with spare clip), never by
+   slowing below 0.85×; regenerate only when the clean span cannot fit.
+
 ## Decisions locked vs pending
 
 | decision | status |
 |---|---|
+| **FRAMING STANDARD for every talking-head video: crops anchored to the measured TOP OF THE HAIR (`reference/website-video/hairdet.py`), NEAR = hair → belly button (1.85× on the 8/28 set), FAR = hair → shorts line (1.46×), never a wide level, the hair never within 20 px of the top edge on the delivered frames (`hairgate.py`), validated by eye at native scale before rendering** | LOCKED 2026-09-08 — Dan on rev 4: "The framing and the cropping are all looking good. You nailed it with this one. Let's lock that in and crop all the videos like this going forward." |
 | Script = ground truth; spoken corrections win; flag drift | LOCKED (2026-08-20) |
 | Take selection: Dan first minute, Claude rest, learn toward full handoff | LOCKED |
 | 16:9 primary + 9:16 secondary this batch; both must be strong | LOCKED |

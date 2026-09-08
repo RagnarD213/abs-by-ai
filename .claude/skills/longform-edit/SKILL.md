@@ -1492,3 +1492,13 @@ says. Then check the file itself — if it has a recent timestamp and a sane siz
 - **Shoot 2 seconds of a grey card at the head of each lighting setup.** Its absence is
   why white balance had to be inferred from a microwave door, and why it was misdiagnosed
   the first time.
+
+## FRAMING STANDARD (LOCKED 2026-09-08, from /ad-edit) — the top of Dan's hair is never cut
+
+Dan, approving the website video's rev-4 crops: "lock that in and crop all the videos like this going forward." Every crop of
+Dan on camera is anchored to the MEASURED TOP OF HIS HAIR (`.claude/skills/ad-edit/reference/website-video/hairdet.py` — a
+hairline/skin detector reads 60–90 px too low, ad-edit lesson 107), `y0 = min hair top − 4 % of the crop height` per hold,
+two levels only (hair → belly button, hair → shorts line), no wide level, and the DELIVERED frames are gated with
+`hairgate.py` (hair ≥ 20 px below the edge on every valid sample, plus the detector-free top-rows test). Prove the detector on a
+native-scale proof sheet of the tallest frames before rendering. Full rule: /ad-edit Step 3 "FRAMING STANDARD" and lessons
+108–109; the 9:16 centering rules here still apply on top of it.
