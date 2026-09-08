@@ -412,7 +412,9 @@ render.py          one output segment per beat -> concat -> overlays (shifted, n
 build_audio.py     lav voice (per pick_lav's audio_source.json) -> EQ fitted to HIS mix -> bed -> HIS_SFX list
 finish_audio.py    _shared/audio/voice_chain.py --finish-only: CONSTANT gain + alimiter (NEVER loudnorm)
                    then _shared/audio/audio_gate.py on the delivered .mp4 (the stamp qc.py check 17 needs)
-captions.py        word-timed, suppressed under text graphics, with a typo correction map
+a2/align_ctc.py    FORCE-ALIGN the caption words to the mix (Whisper timings are ~130 ms early)
+captions.py        word-timed from words_ctc.json, suppressed under text graphics, typo correction map
+caption_sync_check.py  THE SUBTITLE GATE on the delivered file (qc check 20)
 a2/watch.py        THE GATE: per-frame scan + a consecutive-frame strip at every boundary
 qc.py              15 checks, the last of which is "the watch pass was done"
 cutdown.py         the <=0:59 selection -- built ONLY from Dan's edited script
@@ -539,7 +541,7 @@ fixed crop (≥ 25 % of talk inside a push)** · **13 SFX no denser than one per
 exact file** — check 15 reads `logs/watch_pass.json` and refuses to pass without it, which
 is the only way a "watch the video" rule survives contact with a build that is running late ·
 **16 audio integrity: the audio stream runs the video's full length AND no second of the
-file is silent** (per-second RMS scan; run it on review copies too) · **17 the audio is
+file is silent** (per-second RMS scan; run it on review copies too) · **20 captions synchronised — on the DELIVERED file, at the instant each word is spoken, the word lit is that word (≥ 97 %, no run of three misses) and no highlighted word sits outside speech (`caption_sync_check.py`; Dan, 2026-09-08)** · **17 the audio is
 FLAT against the reference's mix — per-second RMS ratio sd ≤ 0.35 dB and no second more
 than 0.6 dB above the mean, measured on the ENCODED deliverable.** Check 17 is the one
 that catches a compressor having got into the chain; per-second correlation cannot, because
@@ -869,6 +871,29 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
     every cut frame and the frame before it against the track. **And `setpts=N/FR/TB` in the conform** —
     snapping the seek alone did not stop the duplicated first frame (the roll's pts are not on k/FPS);
     rewriting the timestamps did (0 duplicates at 32 cuts, from 10).
+
+21. ⚠⚠ **WHISPER'S WORD TIMESTAMPS ARE NOT CAPTION TIMINGS. FORCE-ALIGN, THEN GATE THE DELIVERED FILE.**
+    Dan, 2026-09-08, on the V2 vertical: *"the subtitles are not matching what's said … the highlighted
+    word … very confusing and makes the ad look unprofessional"* — the most serious note on an otherwise
+    approved build. Measured: Whisper `small`'s word starts on his mix (voice + bed) run **128 ms early on
+    average, sd 152, p90 +295 ms; 289 of 875 words more than 150 ms off** against a CTC forced alignment
+    (`align_ctc.py`: torchaudio `WAV2VEC2_ASR_BASE_960H` + `forced_align`, per Whisper segment with 0.6 s
+    padding, the same words with the FIX map applied, digits spelled out). The karaoke highlight then lit
+    the wrong word. Whisper is the source of the WORDS only; `captions.py` reads `words_ctc.json`.
+    **The gate (`caption_sync_check.py`, qc check 20) measures the DELIVERED file end to end:** the olive
+    highlighted word is tracked per frame in the caption band, every on-screen onset is matched to the
+    aligned word start (PASS: p95 ≤ 120 ms, max ≤ 250 ms), and any word lit while the speech band is
+    within 6 dB of the floor fails the build. The rejected file read p95 190 / max 339 ms with 35 words
+    lit during silence. Also print the disagreement against a second transcription (Whisper `medium`) —
+    if the two Whispers agree with each other and not with the alignment, the alignment is wrong, not them.
+22. **Dan's 2026-09-08 picture notes, for the next build's defaults:** a before photo's stomach must stay in
+    frame (`oy` toward the bottom, gentler push), a multi-person photo is centred on Dan (`ox`), an "after"
+    beat wants THREE different shots (0.8 s each) rather than one, an app card that starts from an upload
+    must reach the FINALISED after picture before it ends, a repeated app clip gets a DIFFERENT person's
+    before/after (asset library `01 Before and After Images/male2-*`, composited into the app's scanning
+    box: `build_scan_male2.py`), and a meal-tracker card ends on the calories broken down AND logged —
+    recorded from the real app with Playwright (`record_meal.py`: iPhone emulation, `set_input_files`,
+    `showMacroScreen()`, screenshots per state; `logMeal` works for guests via localStorage).
 
 12. **Delivery goes beside his file, in the Ad-1 folder's convention:** `Muhammad Ad Videos/<ad>/<ad> |
     claude | 9x16.mp4` + `REVIEW_540p_9x16.mp4` + `AB_audio_his-vs-ours.mp4` + the gate stamp + notes +

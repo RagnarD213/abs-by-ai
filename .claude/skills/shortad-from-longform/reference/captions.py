@@ -25,12 +25,30 @@ GROUP_MAX = 22          # characters; ~3 words -- a phone reads a short chunk, n
 
 # Whisper mis-heard three words in this roll. They are HIS words on screen, so a
 # mis-transcription burned into the captions is a spelling mistake in the ad.
-FIX = {('six','back','abs.'): ('six','pack','abs.'),
-       ('a','gold','picture'): ('a','goal','picture'),
-       ('WuWu','stuff.'): ('Woo-woo','stuff.')}
+# Whisper mis-heard six things on this roll. They are HIS words on screen, so a
+# mis-transcription burned into the captions is a spelling mistake in the ad.
+FIX = {('your','gold','picture'):    ('your','goal','picture'),
+       ('hit','your','golden.'):     ('hit','your','goal.'),
+       ('number','of','a','chart,'): ('number','on','a','chart,'),
+       ('time','of','debt,'):        ('time','of','day,'),
+       ('in','Seconds'):             ('in','seconds.'),
+       ('6packabs','.com'):          ('6PackAbs.com',''),
+       ('nutritionist','and','diet'):('nutritionists','and','diet')}
 
-def load_words():
-    d = json.load(open('m.whisper.json'))
+def load_words(source='words_ctc.json'):
+    """Caption words with their timings. ⚠ WHISPER'S OWN WORD TIMESTAMPS ARE ~130 ms EARLY ON THIS MIX
+    (sd 150, p90 +295 ms against a CTC forced alignment; 289 of 875 words off by more than 150 ms) --
+    that is the 'highlighted word does not match what is said' Dan rejected 2026-09-08. The timings
+    now come from align_ctc.py (wav2vec2 CTC forced alignment of the same words to his mix); the
+    Whisper JSON is only the source of the WORDS."""
+    import os
+    if source and os.path.exists(source):
+        d = json.load(open(source))
+        out = [(w['word'].strip(), float(w['start']), float(w['end'])) for w in d if w['word'].strip()]
+        n = 0   # the FIX map was applied before alignment, so no re-application here
+        print(f'caption timings: {source} ({len(out)} words, CTC forced alignment)')
+        return out
+    d = json.load(open('ref.whisper.json'))
     out = []
     for s in d['segments']:
         for w in s.get('words', []):
@@ -44,6 +62,7 @@ def load_words():
                 for j, word in enumerate(dst):
                     out[i+j] = (word, out[i+j][1], out[i+j][2])
                 n += 1
+    out = [w for w in out if w[0]]
     print(f'transcription fixes applied: {n}')
     return out
 
@@ -51,10 +70,11 @@ def suppressed():
     """Where captions must not run: graphics that carry their own words, plus any beat
     explicitly flagged caps=False (a card with a kicker or a caption)."""
     tl, ov = BT.timeline()
-    # Lower thirds print the very sentence being spoken, so they mute the captions for
-    # their duration exactly as the bullet screens do.
+    # Lower thirds AND CTA pills print words of their own, so they mute the captions for
+    # their duration exactly as the bullet screens do. Missing 'cta' here ran the captions
+    # straight through all three pills -- "With Abs" overprinted by "to generate an image".
     return [(b['t0'], b['t1']) for b in tl + ov
-            if b['kind'] in BT.NO_CAPS_KINDS or b['kind'] == 'lt' or b.get('caps') is False]
+            if b['kind'] in BT.NO_CAPS_KINDS or b['kind'] in ('lt','cta') or b.get('caps') is False]
 
 def groups(words, mute):
     def muted(t): return any(a - 0.15 <= t <= b + 0.05 for a, b in mute)
@@ -82,6 +102,7 @@ def render(gs, out='captions.mov', capdir='cap'):
     if not os.path.exists(blank):
         Image.new("RGBA", (VW, VH), (0, 0, 0, 0)).save(blank)
     entries, n, t = [], 0, 0.0
+    next_start = {id(g): (gs[i+1][0][1] if i + 1 < len(gs) else None) for i, g in enumerate(gs)}
     for g in gs:
         txt = ' '.join(x[0] for x in g)
         if g[0][1] - t > 0.02:
@@ -91,20 +112,35 @@ def render(gs, out='captions.mov', capdir='cap'):
             if not os.path.exists(p):
                 im = Image.new("RGBA", (VW, VH), (0, 0, 0, 0))
                 d = ImageDraw.Draw(im)
-                tw = text_size(txt, F)[0]
-                x = (VW - tw) // 2
-                # shadow first, so the caption survives a bright b-roll frame
+                # ⚠ BASELINE, NOT TOP. PIL's "t" anchor is the ascender line OF THE STRING
+                # IT IS GIVEN, so drawing one word at a time aligns each by its own top:
+                # every word without an ascender drops below its neighbours and the line
+                # reads as broken. And the advance must be getlength(), which counts the
+                # trailing space -- getbbox() ignores it, so the words crowd and drift left
+                # of their own shadow. Both faults shipped in an earlier attempt.
+                BASE = CAP_Y + F.getmetrics()[0]
+                tw = F.getlength(txt)
+                x = int((VW - tw) // 2)
                 sh = Image.new("RGBA", (VW, VH), (0, 0, 0, 0))
-                ImageDraw.Draw(sh).text((x, CAP_Y), txt, font=F, fill=(0, 0, 0, 235), anchor="lt")
+                ImageDraw.Draw(sh).text((x, BASE), txt, font=F, fill=(0, 0, 0, 235), anchor="ls")
                 im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(9)))
                 im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(3)))
-                cx = x
+                cx = float(x)
                 for j, (ww, _, _) in enumerate(g):
                     col = vlib.OLIVE if j == k else (255, 255, 255)
-                    d.text((cx, CAP_Y), ww, font=F, fill=col + (255,), anchor="lt")
-                    cx += text_size(ww + ' ', F)[0]
+                    d.text((int(cx), BASE), ww, font=F, fill=col + (255,), anchor="ls")
+                    cx += F.getlength(ww + ' ')
                 im.save(p)
-            end = we if k == len(g) - 1 else g[k + 1][1]
+            if k == len(g) - 1:
+                # The LAST word of a line stays lit until the next line starts (or 0.8 s, whichever is
+                # sooner) instead of dropping at its own acoustic end: a 40 ms 'on' used to flash for one
+                # frame and vanish, which reads as the highlight skipping the word (Dan, 2026-09-08).
+                nxt = next_start.get(id(g))
+                hold = max(we, ws + 0.12)                       # at least 120 ms on screen
+                end = min(nxt, max(hold, min(nxt, we + 0.8))) if nxt is not None else we + 0.3
+                end = max(end, ws + 1.0/29.97)                  # never zero, never past the next line
+            else:
+                end = g[k + 1][1]
             entries.append((p, max(0.04, end - max(ws, t)))); t = max(end, t)
     with open(f'{capdir}/list.txt', 'w') as f:
         for p, d in entries:

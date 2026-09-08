@@ -190,6 +190,14 @@ gf = subprocess.run(['python3', '/Users/danielrose/Documents/Claude/Projects/Abs
 _gl = [l for l in (gf.stdout + gf.stderr).strip().split('\n') if l.strip()]
 chk(gf.returncode == 0, '19 constant gain against HIS mix (gain_flatness, one-sided)', _gl[-1] if _gl else 'no output')
 
+# 20 -- SUBTITLE SYNC, measured on the DELIVERED file (Dan, 2026-09-08: the highlighted word must be the word
+# being said). caption_sync_check.py tracks the olive karaoke word per frame, matches every on-screen onset to
+# the forced-alignment word start, and refuses any word lit during silence.
+cs = subprocess.run(['python3', 'caption_sync_check.py', V], capture_output=True, text=True)
+_cl = [l for l in (cs.stdout + cs.stderr).strip().split('\n') if l.strip()]
+_det = ' | '.join(l.strip() for l in _cl if 'onset minus' in l or 'silence' in l)[:200]
+chk(cs.returncode == 0, '20 captions synchronised with the speech (on-screen highlight vs forced alignment)', _det or (_cl[-1] if _cl else 'no output'))
+
 print(f'\nQC  {V}')
 for ok, n_, d in R: print(f'  {"PASS" if ok else "FAIL"}  {n_:72s} {d}')
 bad = [x for x in R if not x[0]]
