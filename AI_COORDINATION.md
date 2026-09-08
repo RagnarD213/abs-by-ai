@@ -93,6 +93,12 @@ audio 11/11, style 14/14, watch 65/65 graphics + frozen runs 40 → 2. Audio wen
 `/Volumes/Extreme/_edit_work/invest-health-cutdowns/style/*_PRE_DRIFT*`. Delete this entry once Dan approves;
 next is /youtube-packaging (thumbnail + Shorts) — a Key task if he wants it.
 
+**Longforms 02 + 03 — HOLD EXPIRES 2026-09-09 AND MUHAMMAD HAS DELIVERED NOTHING.** Checked Drive
+2026-09-08: his only delivery since Sep 1 is `Daniel HQ Ad 2 V2 HD.mp4` (Sep 3) — no Zepbound and no
+Supplements edit exists, shared or otherwise. **Dan's own rule says ours go up as they are if Muhammad
+never gets to them, so on 09-09 this becomes his call to make.** Note Claude cannot do the upload (see
+the 10 MB cap below).
+
 **Longforms 02 + 03 — ON DELIBERATE HOLD UNTIL DAN DECIDES. DO NOT UPLOAD.** Both are cut,
 packaged and thumbnailed and are staying in the project folder. **Dan's call 2026-09-02: he is
 sitting on them until Muhammad delivers his own edits of the same two videos.** If Muhammad's are
@@ -225,29 +231,28 @@ re-upload would change the video id and break the campaigns pointing at them.
 
 # BLOCKED — external
 
-**Gemini prepaid credit is depleted** (HTTP 429, since 2026-09-01). The same key serves
-production's primary image leg, which **fails open to the challenger silently**.
-**Dan: top up at ai.studio/projects.** Fourth provider-credit outage — see memory
-`provider-credit-outages`.
-
-**iOS submission `ccc7a7ae`** — WAITING_FOR_REVIEW with Apple since 2026-08-26 (5.1.1(v)
-argued, UX fixed, no new binary). Fallback if they hold the line is spec'd at the bottom of
-`app-store-assets/APP_REVIEW_REPLY_20260826_G511v.md`.
+**iOS submission `ccc7a7ae`** — **IN_REVIEW with Apple as of 2026-09-08** (was WAITING_FOR_REVIEW
+since 2026-08-26; 5.1.1(v) argued, UX fixed, no new binary). A reviewer has picked it up — expect an
+approval or a rejection within a day or two. Fallback if they hold the line is spec'd at the bottom of
+`app-store-assets/APP_REVIEW_REPLY_20260826_G511v.md`. Status check:
+`GET /v1/apps/6794097836/reviewSubmissions` with the ASC key (`~/.appstoreconnect/private_keys/AuthKey_D7UC9KJD3B.p8`).
 
 **IG image gap-fill** — 63 of 70 scheduled. The last 7 are blocked on Blotato's 200-post
 plan cap; Dan either deletes queued posts or upgrades. Then re-run
 `scripts/blotato/iggap_fill.py --apply` (idempotent). ⚠ The queue is now **exactly 200/200**
 (TikTok mirror, 2026-09-02) and drains ~2/day.
 
-**TikTok via Blotato — LIVE, first post unverified.** TikTok `@absbyai` (Blotato id 58181)
-connected 2026-09-02; all 23 queued `@danrosefit` videos mirrored at identical times via
-`scripts/blotato/tiktok_mirror.py`. First TikTok post fires **2026-09-03 22:00 UTC** — next
-session checks `blotato_list_posts` (platform tiktok, status published/failed); a `failed`
-usually means a privacy-level mismatch on an unaudited account. To make room, the 6 latest
-Facebook photo mirrors (2027-01-04 → 01-15) were removed and saved to
-`scripts/blotato/fb_trimmed.json`; `tiktok_mirror.py --restore-fb --apply` puts them back once
-the queue has room. Dan: say whether the recurring `Post on TikTok` dashboard row should go now
-that posting is automated. Delete this entry once the first post is verified.
+**TikTok via Blotato — LIVE AND VERIFIED.** First `@absbyai` post published on schedule
+2026-09-03 22:00 UTC (tiktok.com/@absbyai/video/7681432198783814942); three more published
+09-05, 09-07 and one scheduled 09-08. No TikTok failures. To make room, the 6 latest Facebook photo
+mirrors (2027-01-04 → 01-15) were removed and saved to `scripts/blotato/fb_trimmed.json`;
+`tiktok_mirror.py --restore-fb --apply` puts them back once the queue has room. **Dan: say whether the
+recurring `Post on TikTok` dashboard row should go now that posting is automated** — that is all that is
+left of this entry.
+
+**One Blotato failure since 09-03, needs a re-post decision:** post `697055`, the Facebook reel of the
+3-minute total body follow-along (V7), failed 2026-09-06 with "Uploading a reel to Facebook timed out".
+Its Instagram and TikTok twins went out fine. Transient upload timeout, safe to re-queue.
 
 **Google Ads conversion goals** — Purchase still reads Misconfigured and Campaign diagnostics
 shows "connection failed its last run" + a stale "Unparseable gclid (Aug 27)". **Root cause verified
@@ -259,15 +264,6 @@ stamp now comes from Stripe's `invoice.paid` (webhook endpoint updated), because
 subscription to `active` an hour BEFORE it tries the charge — the old rule would have reported a
 $69.99 sale for a declined card. The Purchase/Subscribe tidy-up (delete the orphan action, rename
 the auto-created one) still waits for a real row in the feed.
-
-**Dashboard cleanup** — 23 stale rows removed on branch
-`claude/dashboard-handoff-cleanup-m8u78j`. ⚠ The live board is `todos.json` on **main**, so
-this does not take effect until the branch merges. Dan merges, or says the word.
-
-**Assistant time tracking** — merged and live-verified on GitHub, but **not** verified in a
-browser (that session's egress blocked absbyai.com). Whoever is next at a browser: load
-`/assistant` and confirm it reads `Unpaid: …`, and that the dashboard's "Mark as paid"
-button appears under the timer.
 
 ---
 
