@@ -128,9 +128,7 @@ the stored `GOOGLE_REFRESH_TOKEN` is calendar-scoped. Thumbnails, at ~150 KB, DO
 `file_upload` — that supersedes the clipboard-paste trick in `/youtube-packaging`.
 **Reminder wired, not left to memory:** a dormant self-deleting block in the morning-brief task's
 `SKILL.md` wakes on **2026-09-09** and prints a pinned "Still on you" row every morning until he
-resolves it; the dashboard row is
-`money::Upload longforms 02 (Zepbound) and 03 (Supplements) to YouTube — on hold pending
-Muhammad's edits` (high, not key — it is parked on purpose). **Whoever closes this out must delete
+resolves it. There is no dashboard row for this any more (board cleared 2026-09-08); the brief's block is the only reminder. **Whoever closes this out must delete
 the block from the brief's SKILL.md**, or it nags forever.
 **16 cut Shorts (8 per video) stay blocked until one version or the other is public.**
 
