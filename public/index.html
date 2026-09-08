@@ -1367,6 +1367,8 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .an-email-fine { font-size: 11.5px; color: var(--faint); margin-top: 8px; }
 .an-text-link { display: block; width: 100%; background: none; border: 0; padding: 12px 0; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--mute); text-decoration: underline; cursor: pointer; }
 .analysis-section .ba-img { height: 190px; }
+.an-top-cta { margin: 0 0 6px; }
+.an-top-cta-sub { font-size: 12px; color: var(--mute); text-align: center; margin-bottom: 18px; }
 .an-after-wrap { position: relative; }
 .an-after-wrap.locked .ba-img { filter: blur(0.5px); }
 .an-lock-chip { position: absolute; left: 50%; top: 58%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 6px; padding: 9px 12px; border-radius: 999px; background: rgba(20,18,15,0.82); color: #fff; font: inherit; font-size: 12.5px; font-weight: 700; border: 0; cursor: pointer; white-space: nowrap; box-shadow: 0 4px 14px rgba(0,0,0,0.25); }
@@ -1981,6 +1983,11 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
        website conversion video promises: body fat now → goal, lean muscle now → goal, fat to
        lose, goal weight — computed live from two sliders — plus a body map of where the plan
        will focus, read from the pictures by POST /api/body-analysis. -->
+  <!-- ════════════════ SCREEN 3: YOUR ANALYSIS (right after "Lock in this goal", or straight from an out-of-credits generation) ════════════════
+       Delivers what the website conversion video promises: body fat now → goal, lean muscle now → goal, fat to
+       lose, goal weight — plus a body map of where the plan will focus, read from the pictures by
+       POST /api/body-analysis (the lookup tables render the same layout when the read is unavailable).
+       Order (Dan, 2026-09-08): video → offer → before/after → numbers → sliders → body map → plan → offer → email. -->
   <div id="analysisSection" class="screen analysis-section" style="display:none">
     <div class="nav-bar">
       <button class="nav-icon-btn" id="analysisBackBtn" title="Back">
@@ -1996,21 +2003,10 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div class="an-video-frame" id="analysisVideoFrame"></div>
     </div>
 
-    <div class="hero-h1" id="anHeroTitle" style="font-size:27px;line-height:1.08;margin-bottom:6px">You visualized your goal.</div>
-    <div class="hero-sub" id="anHeroSub" style="margin-bottom:16px">Now let's make that AI-generated image a reality. Just from these pictures, our AI already knows a lot — and two quick sliders make the numbers yours.</div>
-
-    <div class="an-card">
-      <div class="an-card-title">Two quick sliders make the numbers yours</div>
-      <div class="an-slider-row">
-        <div class="an-slider-head"><span>Height</span><span class="an-slider-val"><span id="anHeightLbl">5'9"</span> <span id="anHeightCm" class="an-slider-kg">175 cm</span></span></div>
-        <input type="range" id="anHeight" class="an-range" min="58" max="80" step="1" value="69" aria-label="Height">
-      </div>
-      <div class="an-slider-row">
-        <div class="an-slider-head"><span>Weight</span><span class="an-slider-val"><span id="anWeightLbl">185 lb</span> <span id="anWeightKg" class="an-slider-kg">84 kg</span></span></div>
-        <input type="range" id="anWeight" class="an-range" min="90" max="400" step="1" value="185" aria-label="Weight">
-      </div>
-      <div id="anSliderHint" class="an-slider-hint">Weight follows your height until you move it.</div>
-    </div>
+    <!-- The offer sits right under the video too (Dan, 2026-09-08). Same handler as
+         the closing card's button; the text follows the mode (locked / trial / member). -->
+    <button type="button" id="anTopCta" class="cta-btn an-top-cta">Start your 7-day free trial →</button>
+    <div class="an-top-cta-sub app-hide-purchase" id="anTopCtaSub">then $19.99/mo · cancel with two taps and you won't be charged a dime</div>
 
     <div class="before-after-grid">
       <div>
@@ -2024,7 +2020,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       </div>
     </div>
 
-    <div class="an-section-title" style="margin-top:6px">What our AI already knows from your pictures</div>
+    <div class="an-section-title" style="margin-top:4px">What our AI already knows from your pictures</div>
     <div id="anHeadline" class="an-headline"></div>
     <div id="anReadline" class="an-readline"></div>
     <div class="an-tiles">
@@ -2036,6 +2032,19 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     <div id="anEstimateTag" class="an-estimate-tag" style="display:none">Estimate from your body type — refining from your photos…</div>
     <!-- 1.4.1: every body-fat / lean-mass figure carries the visual-estimate qualifier + sources. -->
     <div class="an-disclaimer">Visual estimates for motivation — not a medical measurement. Based on published body-fat ranges (<a href="/sources" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">sources</a>).</div>
+
+    <div class="an-card">
+      <div class="an-card-title">Sharpen your numbers where your plan will focus.</div>
+      <div class="an-slider-row">
+        <div class="an-slider-head"><span>Height</span><span class="an-slider-val"><span id="anHeightLbl">5'9"</span> <span id="anHeightCm" class="an-slider-kg">175 cm</span></span></div>
+        <input type="range" id="anHeight" class="an-range" min="58" max="80" step="1" value="69" aria-label="Height">
+      </div>
+      <div class="an-slider-row">
+        <div class="an-slider-head"><span>Weight</span><span class="an-slider-val"><span id="anWeightLbl">185 lb</span> <span id="anWeightKg" class="an-slider-kg">84 kg</span></span></div>
+        <input type="range" id="anWeight" class="an-range" min="90" max="400" step="1" value="185" aria-label="Weight">
+      </div>
+      <div id="anSliderHint" class="an-slider-hint">Weight follows your height until you move it.</div>
+    </div>
 
     <div class="an-section-title">Where your plan will focus</div>
     <div class="an-card">
@@ -2090,16 +2099,6 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <div class="an-plan-row"><span class="an-plan-ico">📅</span><span><b>Timeline</b><div id="anPlanTimeline"></div></span></div>
     </div>
 
-    <div class="an-section-title">Tell us a little more and it gets sharper</div>
-    <div class="an-card">
-      <div class="an-more-row"><div class="an-more-what">Training history<small>what you'd tell us</small></div><div class="an-more-unlock">Your exact starting stage and how fast we progress you</div></div>
-      <div class="an-more-row"><div class="an-more-what">Injuries</div><div class="an-more-unlock">Which focus area we load first and what we work around</div></div>
-      <div class="an-more-row"><div class="an-more-what">Equipment</div><div class="an-more-unlock">A plan for your gym, your dumbbells, or no equipment at all</div></div>
-      <div class="an-more-row"><div class="an-more-what">Lifestyle &amp; time</div><div class="an-more-unlock">How many days a week, and how long each session runs</div></div>
-      <div class="an-more-row"><div class="an-more-what">Foods you like, allergies</div><div class="an-more-unlock">A meal plan you'll actually follow</div></div>
-      <div class="an-more-close">The pictures did most of the work. These five answers take about two minutes — and they're how you make the program even better.</div>
-    </div>
-
     <div class="an-cta">
       <div class="an-cta-title" id="anCtaTitle">Try Abs by AI completely free for 7 days</div>
       <div class="an-cta-sub" id="anCtaSub">Try out the macro tracker, the AI workout program, the AI nutrition plan — everything in the app.</div>
@@ -2120,7 +2119,6 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 
     <button type="button" id="anHubLink" class="an-text-link">Continue to my hub →</button>
     <div class="footer" style="margin-top:8px"><a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
-  </div>
 
   <!-- ════════════════ PRINT PRODUCT SELECTOR ════════════════ -->
   <div id="productSection" class="screen" style="display:none">
@@ -3715,7 +3713,7 @@ function updateCreditDisplay() {
 // padded back to the source aspect ratio. It replaces what used to be a second copy
 // of the full sharp image: the paywalled region simply is not in the page any more,
 // so there is nothing for a curious user to recover by removing the CSS blur.
-function showLockedResult(sharpStripUrl) {
+function showLockedResult(sharpStripUrl, opts = {}) {
   const afterImg = $('afterImg');
   const afterWrap = $('afterImgWrap');
   afterImg.classList.add('after-locked');
@@ -3737,12 +3735,16 @@ function showLockedResult(sharpStripUrl) {
         ? `Your transformation is done. See yourself with a ${bodyFat.toLowerCase()}`
         : `Your transformation is done. See yourself at ${bodyFat} body fat`)
     : 'Your transformation is done. Unlock your result';
-  if (window.posthog) posthog.capture('locked_teaser_shown', { estimated_body_fat: bfDisplayIsBuild ? null : (bodyFat || null), build_target: bfDisplayIsBuild ? bodyFat : null });
-  showScreen('result');
+  if (window.posthog) posthog.capture('locked_teaser_shown', { estimated_body_fat: bfDisplayIsBuild ? null : (bodyFat || null), build_target: bfDisplayIsBuild ? bodyFat : null, straight_to_analysis: !!opts.toAnalysis });
   // The paywall lives INSIDE the result screen, so renderScreen's /vp/result
   // beacon cannot distinguish "saw their result" from "hit the paywall" — the
   // single highest-intent moment in the funnel gets its own address.
   fireAdVirtualPageview('/vp/paywall');
+  // Out of credits → the analysis page (video, numbers, body map, the offer) is
+  // what they see first (Dan, 2026-09-08). The result screen keeps its locked
+  // state underneath so "back" and the unlock reveal still work.
+  if (opts.toAnalysis) { showAnalysisScreen({ from: 'paywall' }); return; }
+  showScreen('result');
 }
 
 function unlockResult() {
@@ -4866,12 +4868,51 @@ function tableBodyAnalysis() {
     bf_now_low: lo, bf_now_high: hi, bf_goal: goal,
     muscle_base: lean ? 'solid' : 'moderate',
     muscle_gain_lb: sex === 'male' ? (MUSCLE_GAIN_ANCHOR[intens] || 6) : 0,
-    regions: null, headline, focus_summary: '', training_focus: '',
+    regions: tableRegions(sex, cond).map((r) => ({ ...r, note: tableRegionNote(r) })),
+    headline,
+    focus_summary: sex === 'female'
+      ? 'Your plan leans on steady fat loss to bring out the definition on the frame you already have — the midsection first.'
+      : (lean ? 'You are already lean, so the plan adds muscle where the goal image is fuller — chest, shoulders, arms — and keeps the waist tight.'
+              : 'Your plan leans on steady fat loss around the midsection, with enough lifting to keep and slightly build your upper body.'),
+    training_focus: '',
     nutrition_direction: cond === 'very_lean' ? 'lean_bulk' : (cond === 'fit' ? 'recomp' : 'cut'),
     protein_g_per_lb: cond === 'heavier' ? 0.8 : 0.9,
     table: true,
   };
 }
+
+// Body map from the tapped body type — shown instantly and whenever the photo
+// read is unavailable, so the page always has a result (Dan, 2026-09-08).
+function tableRegions(sex, cond) {
+  const lean = cond === 'fit' || cond === 'very_lean';
+  const st = (m) => BODY_REGIONS.map((r) => ({ id: r.id, status: m[r.id] || 'maintain', note: '' }));
+  if (sex === 'female') {
+    return st(lean
+      ? { lower_abs: 'focus', obliques: 'focus', upper_abs: 'strong', legs: 'strong' }
+      : { upper_abs: 'focus', lower_abs: 'focus', obliques: 'focus', legs: 'strong' });
+  }
+  return st(lean
+    ? { chest: 'focus', shoulders: 'focus', arms: 'focus', upper_abs: 'strong' }
+    : { upper_abs: 'focus', lower_abs: 'focus', obliques: 'focus', chest: 'focus' });
+}
+const TABLE_REGION_NOTES = {
+  focus: {
+    upper_abs: 'Closest to the surface — leaning out reveals these first.',
+    lower_abs: 'The last to show, so the fat-loss work lands here.',
+    obliques: 'A tighter waist is the biggest visual change in your goal image.',
+    chest: 'More fullness here squares off the goal look.',
+    shoulders: 'Width here builds the V-taper in your goal image.',
+    arms: 'Fuller arms round out the goal look.',
+    _: 'Where the plan puts its first work — the goal image changes most here.',
+  },
+  strong: {
+    upper_abs: 'Already close to the surface — the plan keeps it that way.',
+    legs: 'Already carrying you — the plan keeps them, it does not chase them.',
+    _: 'Already carrying you — the plan keeps it, it does not chase it.',
+  },
+  maintain: { _: 'Holds its own — steady work keeps it in proportion.' },
+};
+function tableRegionNote(r) { const m = TABLE_REGION_NOTES[r.status] || {}; return m[r.id] || m._ || ''; }
 
 function defaultWeightFor(heightIn) {
   const bmi = (ANALYSIS_BMI[analysisSex()] || ANALYSIS_BMI.male)[analysisCond()] || 27;
@@ -4933,7 +4974,9 @@ function renderAnalysisTiles() {
   const headline = a.headline || tableBodyAnalysis().headline;
   $('anHeadline').textContent = headline;
   const cov = { full_body: 'full-body', torso: 'torso', upper_only: 'upper-body' }[a.photo_coverage] || 'torso';
-  $('anReadline').textContent = a.table ? 'From the body type you tapped' : `Read from a ${cov} shot · ${a.confidence} confidence`;
+  $('anReadline').textContent = a.table
+    ? (analysisState.loading ? 'From the body type you tapped — reading your photos now…' : 'From the body type you tapped — a clear, well-lit full-body photo lets us read the details too')
+    : `Read from a ${cov} shot · ${a.confidence} confidence`;
   renderAnalysisPlan(a, n);
 }
 
@@ -4956,12 +4999,8 @@ function renderAnalysisPlan(a, n) {
 
 function renderBodyMap(a) {
   const skel = $('anBodyMapSkeleton'), map = $('anBodyMap'), fail = $('anBodyMapFail');
-  if (!a || !Array.isArray(a.regions)) {
-    skel.style.display = analysisState.loading ? '' : 'none';
-    map.style.display = 'none';
-    fail.style.display = analysisState.loading ? 'none' : '';
-    return;
-  }
+  // Always a result: the table map stands in until (or instead of) the photo read.
+  if (!a || !Array.isArray(a.regions)) a = tableBodyAnalysis();
   skel.style.display = 'none'; fail.style.display = 'none'; map.style.display = '';
   const byId = {};
   a.regions.forEach((r) => { byId[r.id] = r; });
@@ -5056,9 +5095,9 @@ function splitDataUrl(u) {
   return m ? { mime: m[1] || 'image/jpeg', base64: m[2] } : null;
 }
 
-async function loadBodyAnalysis(before, after) {
+async function loadBodyAnalysis(before, after, opts = {}) {
   const seq = ++analysisState.requestSeq;
-  const t0 = Date.now();
+  const t0 = opts.t0 || Date.now();
   analysisState.loading = true;
   renderAnalysisTiles(); renderBodyMap(null);
   const b = splitDataUrl(before), a = splitDataUrl(after);
@@ -5088,6 +5127,13 @@ async function loadBodyAnalysis(before, after) {
       else error = data.error || `HTTP ${res.status}`;
     } catch (e) { error = e.name === 'AbortError' ? 'timeout' : (e.message || 'network'); }
     finally { clearTimeout(timer); }
+    // One quiet retry on a transient failure (5xx / timeout / network) — a
+    // real read beats the table read, and the page stays usable meanwhile.
+    if (!result && !opts.retried && !/^HTTP 4/.test(String(error))) {
+      if (seq !== analysisState.requestSeq) return;
+      analysisState.requestSeq--; // let the retry take this same sequence number
+      return loadBodyAnalysis(before, after, { retried: true, t0 });
+    }
   } else error = 'no images';
   if (seq !== analysisState.requestSeq) return; // a newer page open superseded this
   analysisState.loading = false;
@@ -5104,7 +5150,7 @@ async function loadBodyAnalysis(before, after) {
   renderAnalysisTiles();
   renderBodyMap(analysisState.analysis);
   if (window.posthog) posthog.capture('analysis_loaded', {
-    ms: Date.now() - t0, cached, fallback: !result, locked,
+    ms: Date.now() - t0, cached, fallback: !result, locked, retried: !!opts.retried,
     confidence: result?.confidence || null, coverage: result?.photo_coverage || null, error: result ? undefined : error,
   });
 }
@@ -5119,13 +5165,9 @@ function showAnalysisScreen(opts) {
   if (from === 'lockin' || from === 'paywall') { upsell.imageDataUrl = null; upsell.returnScreen = null; }
   $('anBeforeImg').src = before;
   $('anAfterImg').src = after;
-  // Locked copy: the goal image is the thing the trial unlocks, so say so.
+  // Locked: the goal image is the thing the trial unlocks, so say so.
   $('anAfterWrap').classList.toggle('locked', locked);
   $('anLockChip').style.display = locked ? '' : 'none';
-  $('anHeroTitle').textContent = locked ? 'Your transformation is done.' : 'You visualized your goal.';
-  $('anHeroSub').textContent = locked
-    ? "Your goal image is ready to unlock. Just from these pictures, our AI already knows a lot — two quick sliders make the numbers yours, and the trial unlocks the picture."
-    : "Now let's make that AI-generated image a reality. Just from these pictures, our AI already knows a lot — and two quick sliders make the numbers yours.";
   $('anEmailTitle').textContent = locked ? 'Email me my analysis' : 'Email me my picture + my analysis';
   $('anEmailFine').textContent = locked ? "We'll email your analysis plus fitness tips and offers. Unsubscribe anytime." : "We'll email your image plus fitness tips and offers. Unsubscribe anytime.";
 
@@ -5163,7 +5205,10 @@ function showAnalysisScreen(opts) {
   // CTA: members build the program; a locked result unlocks with the trial;
   // everyone else starts the trial.
   const member = isLoggedIn() && hasMemberAccess();
-  $('anTrialBtn').textContent = member ? 'Build my program →' : (locked ? 'Unlock it with a 7-day free trial →' : 'Start your 7-day free trial →');
+  const ctaText = member ? 'Build my program →' : (locked ? 'Unlock it with a 7-day free trial →' : 'Start your 7-day free trial →');
+  $('anTrialBtn').textContent = ctaText;
+  $('anTopCta').textContent = ctaText;
+  $('anTopCtaSub').style.display = member ? 'none' : '';
   $('anCtaTitle').textContent = member ? 'Your program starts from this read' : (locked ? 'Unlock your goal image — free for 7 days' : 'Try Abs by AI completely free for 7 days');
   $('anCtaSub').textContent = member
     ? 'The trainer and nutritionist already know what your pictures say — answer the five questions and they get sharper.'
@@ -5224,17 +5269,19 @@ function wireAnalysisScreen() {
       if (Object.keys(patch).length) authApi('/api/profile', { method: 'PATCH', body: JSON.stringify({ profile: patch, source: 'funnel' }) }).catch(() => {});
     }
   }));
-  $('anTrialBtn').addEventListener('click', () => {
+  const primaryCta = (where) => {
     const member = isLoggedIn() && hasMemberAccess();
     const locked = analysisLocked();
-    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: member ? 'trainer' : (locked ? 'unlock_trial' : 'trial') });
+    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: member ? 'trainer' : (locked ? 'unlock_trial' : 'trial'), where });
     if (member) return openTrainer();
     // Locked result: the same membership path as the paywall button (goes through
     // the real membership screen — IAP inside the native apps), then the held
     // image is released and revealed on the result screen.
     if (locked) return startTrialAndUnlock();
     showTrialGate(null);
-  });
+  };
+  $('anTrialBtn').addEventListener('click', () => primaryCta('bottom'));
+  $('anTopCta').addEventListener('click', () => primaryCta('top'));
   $('anHubLink').addEventListener('click', () => {
     if (window.posthog) posthog.capture('analysis_cta_clicked', { target: 'hub' });
     showHub();
@@ -10758,7 +10805,7 @@ async function generate() {
     await finishGenLoader(); // snap bar to 100% and let it land before revealing
 
     if (locked) {
-      showLockedResult(teaserSharpBase64 ? `data:image/jpeg;base64,${teaserSharpBase64}` : null);
+      showLockedResult(teaserSharpBase64 ? `data:image/jpeg;base64,${teaserSharpBase64}` : null, { toAnalysis: true });
     } else {
       unlockResult();
       storeTransformationLocally();
@@ -10832,7 +10879,7 @@ async function adjustIntensity(delta) {
     state.attemptCount += 1;
 
     if (locked) {
-      showLockedResult(teaserSharpBase64 ? `data:image/jpeg;base64,${teaserSharpBase64}` : null);
+      showLockedResult(teaserSharpBase64 ? `data:image/jpeg;base64,${teaserSharpBase64}` : null, { toAnalysis: true });
     } else {
       unlockResult();
       storeTransformationLocally();
@@ -10892,7 +10939,7 @@ async function runFixPass() {
     state.fixCount += 1;
 
     if (locked) {
-      showLockedResult(teaserSharpBase64 ? `data:image/jpeg;base64,${teaserSharpBase64}` : null);
+      showLockedResult(teaserSharpBase64 ? `data:image/jpeg;base64,${teaserSharpBase64}` : null, { toAnalysis: true });
     } else {
       unlockResult();
       storeTransformationLocally();

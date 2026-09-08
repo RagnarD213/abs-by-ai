@@ -42,9 +42,12 @@ is the permanent record of code changes.
 are gone; "Lock in this goal" now opens `analysis` (video slot, height/weight sliders, the four numbers, body map from
 `POST /api/body-analysis` on `claude-opus-5`, trial CTA + email ask). Defaults shipped: women's height default is 5'4"
 (men 5'9"); the video block is hidden until `ANALYSIS_VIDEO` in `index.html` gets a URL (`?vp=1` shows the placeholder);
-recommended hosting for rev 4 is a YouTube unlisted upload. **Out-of-credits path added 2026-09-08 (Dan's ask):** the
-paywall's primary button is "See what our AI found →" (analysis page in locked mode, read from the held sharp image),
-the trial is a text link under it. **Native retest needed** (lock-in → sliders → trial CTA, AND the locked result →
+recommended hosting for rev 4 is a YouTube unlisted upload. **Out-of-credits path (Dan's asks, 2026-09-08):** a locked generation
+now lands DIRECTLY on the analysis page (video → offer button → before/after → numbers → sliders → body map → plan →
+offer → email; no top copy, no "tell us more" card); the result screen with its paywall block stays underneath for
+"back". The body map always renders (table-derived when the photo read fails). ⚠ Every push redeploys and wipes the
+in-memory held images — a locked result made before a deploy cannot be analyzed or unlocked (memory
+`deploy-drops-locked-holds`). **Native retest needed** (lock-in → sliders → trial CTA, AND the locked result →
 analysis → unlock on iOS/Android). Delete this entry once Dan confirms or changes the defaults.
 
 **Editor rounds out 2026-09-08 — waiting on the editors, nothing for a session to do.** Dan reviewed, edited and
