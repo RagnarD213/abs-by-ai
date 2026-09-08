@@ -152,8 +152,8 @@ verifying it. **Short 2 measures 1.08 dB shape against a 1.00 gate** — one ban
 long-form is on hold (above), so nothing can post. Parked, not chased.
 
 **AD 2 vertical 9:16 — REV 1 DELIVERED 2026-09-08 (Dan's six notes on the V2 rebuild), awaiting his review.**
-`Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | claude | 9x16.mp4`
-(+ 540p and phone review copies, audio A/B, gate stamp, `notes-vertical-v2.md`, `recipe-vertical-v2/`). **Subtitles:**
+`Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | claude | 9x16 | ad 2.mp4`
+(+ the `REVIEW 540p`, `REVIEW 480p phone` and `AB audio` files under the same `title | editor | aspect | number` convention, gate stamp, `notes-vertical-v2.md`, `recipe-vertical-v2/`). **Subtitles:**
 Whisper's word timestamps ran ~130 ms early on his mix; captions are now timed from a CTC forced alignment and a new
 gate (qc check 20, `caption_sync_check.py`) proves on the delivered file that the word being said is the word lit
 (98.8 %, 0 words outside speech) — the rejected file scored 44 %. Also applied: both before photos re-centred with the

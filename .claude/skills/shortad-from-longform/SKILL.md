@@ -895,9 +895,12 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
     recorded from the real app with Playwright (`record_meal.py`: iPhone emulation, `set_input_files`,
     `showMacroScreen()`, screenshots per state; `logMeal` works for guests via localStorage).
 
-12. **Delivery goes beside his file, in the Ad-1 folder's convention:** `Muhammad Ad Videos/<ad>/<ad> |
-    claude | 9x16.mp4` + `REVIEW_540p_9x16.mp4` + `AB_audio_his-vs-ours.mp4` + the gate stamp + notes +
-    `recipe-vertical-v2/`. The older `EDITED ADS 8-20-26/ad2-fire-your-nutritionist/` folder keeps rev 3.
+12. **Delivery goes beside his file under the `/editor-deliveries` convention — `title | editor | aspect |
+    number`, lowercase, single-spaced pipes:** `Muhammad Ad Videos/<ad folder>/<title> | claude | 9x16 | ad N.mp4`
+    + `<title> | REVIEW 540p 9x16 | ad N.mp4` + `<title> | REVIEW 480p 9x16 phone | ad N.mp4` + `<title> | AB audio
+    his-vs-ours | ad N.mp4` + the gate stamp beside the master + `notes-vertical-v2.md` + `recipe-vertical-v2/`.
+    (The un-suffixed `… | claude | 9x16.mp4` name the first delivery used was renamed by that skill on 2026-09-03;
+    a second delivery under the old name made a duplicate master — `deliver.py` now writes the convention.)
 
 ## Standing content rules that override the reference
 
