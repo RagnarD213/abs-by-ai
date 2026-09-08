@@ -261,7 +261,7 @@ align-self: center;
 .ho-chip { font-size: 10px; padding: 1px 7px; border-radius: 4px; font-weight: 600; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.04em; }
 .ho-chip.ready { background: rgba(34,197,94,0.15); color: var(--green); box-shadow: 0 0 0 1px rgba(34,197,94,0.35); }
 .ho-chip.wait { background: rgba(234,179,8,0.12); color: var(--yellow); }
-.ho-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 11px; color: var(--muted); }
+.ho-meta { display: flex; align-items: center; gap: 8px; row-gap: 5px; flex-wrap: wrap; font-size: 11px; color: var(--muted); }
 .ho-age { font-weight: 600; }
 .ho-age.stale { color: var(--red); }
 .ho-doc { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10.5px; color: var(--muted); text-decoration: none; }
@@ -1947,8 +1947,9 @@ const chip = t.ready ? '<span class="ho-chip ready">Ready</span>' : `<span class
 const docName = (t.doc || '').split('/').pop();
 const docHref = t.doc ? `https://github.com/danroseconsulting/abs-by-ai/blob/main/${encodeURI(t.doc)}` : '';
 return `<li class="ho-item" data-idx="${i}">
-<div class="ho-top">${chip}<span class="ho-text">${escapeHtml(t.text)}</span></div>
+<div class="ho-top"><span class="ho-text">${escapeHtml(t.text)}</span></div>
 <div class="ho-meta">
+${chip}
 <span class="ho-age${stale ? ' stale' : ''}" title="Days since it was written">${stale ? 'STALE · fire it or kill it · ' : ''}${age}d</span>
 ${t.model ? `<span title="Recommended model">${escapeHtml(t.model)}</span>` : ''}
 ${docHref ? `<a class="ho-doc" href="${docHref}" target="_blank" rel="noopener" title="${escapeHtml(t.doc)}">${escapeHtml(docName)}</a>` : ''}
