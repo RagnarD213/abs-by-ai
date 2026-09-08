@@ -1294,28 +1294,79 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .checkin-seg { display: flex; gap: 8px; margin: 10px 0 12px; }
 .checkin-seg .intake-chip { flex: 1; text-align: center; }
 
-/* ── Email capture screen ── */
-.email-future-img {
-  width: 100%;
-  max-height: 320px;
-  object-fit: contain;
-  background: #f1efea;
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  display: block;
-  margin-bottom: 18px;
-}
-
-/* ── Post-generation benefits bridge ── */
-.bridge-benefits { display: flex; flex-direction: column; gap: 9px; margin: 18px 0 22px; }
-.bridge-benefit {
-  display: flex; align-items: flex-start; gap: 12px; padding: 14px;
-  background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
-}
-.bridge-benefit-icon { font-size: 22px; line-height: 1.2; flex-shrink: 0; }
-.bridge-benefit-name { font-size: 14.5px; font-weight: 800; letter-spacing: -0.1px; margin-bottom: 2px; }
-.bridge-benefit-copy { font-size: 12.5px; color: var(--mute); line-height: 1.42; }
-.bridge-section .ba-img { height: 190px; }
+/* ── Post-lock-in "Your analysis" page ── */
+.an-card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 15px; margin-bottom: 16px; }
+.an-card-title { font-size: 14.5px; font-weight: 800; letter-spacing: -0.1px; margin-bottom: 10px; }
+.an-section-title { font-size: 18px; font-weight: 800; letter-spacing: -0.4px; line-height: 1.15; margin: 22px 0 10px; }
+.an-video { margin-bottom: 18px; }
+.an-video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #1b1a18; box-shadow: var(--shadow); }
+.an-video-frame iframe, .an-video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.an-video-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #fff; background: linear-gradient(135deg, #2b2a27, #14130f); background-size: cover; background-position: center; }
+.an-video-ph-play { width: 54px; height: 54px; border-radius: 50%; background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; }
+.an-video-ph-lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; opacity: 0.7; }
+.an-slider-row { margin-bottom: 10px; }
+.an-slider-head { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; color: var(--mute); }
+.an-slider-val { font-size: 16px; font-weight: 800; color: var(--ink); letter-spacing: -0.2px; }
+.an-slider-kg { font-size: 12px; font-weight: 600; color: var(--faint); }
+.an-range { -webkit-appearance: none; appearance: none; width: 100%; height: 44px; background: transparent; margin: 0; cursor: pointer; touch-action: pan-y; display: block; }
+.an-range::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: var(--line2); }
+.an-range::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--acc); border: 3px solid #fff; box-shadow: 0 2px 8px rgba(47,95,224,0.35); margin-top: -11px; }
+.an-range::-moz-range-track { height: 6px; border-radius: 3px; background: var(--line2); }
+.an-range::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: var(--acc); border: 3px solid #fff; box-shadow: 0 2px 8px rgba(47,95,224,0.35); }
+.an-slider-hint { font-size: 11.5px; color: var(--faint); margin-top: -2px; }
+.an-headline { font-size: 15px; font-weight: 700; line-height: 1.35; letter-spacing: -0.1px; margin-bottom: 3px; }
+.an-readline { font-size: 11.5px; color: var(--faint); margin-bottom: 10px; }
+.an-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 8px; }
+.an-tile { background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 12px 10px; min-width: 0; }
+.an-tile-lbl { font-size: 11.5px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: 0.2px; margin-bottom: 4px; }
+.an-tile-val { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; color: var(--ink); }
+.an-tile-val .an-goal { color: var(--acc); }
+.an-tile-sub { font-size: 11.5px; color: var(--mute); margin-top: 3px; line-height: 1.35; }
+.an-estimate-tag { font-size: 11.5px; color: var(--mute); margin: 0 0 6px; }
+.an-disclaimer { font-size: 11px; color: var(--faint); margin: 0 0 4px; }
+.an-map-grid { display: grid; grid-template-columns: 118px 1fr; gap: 12px; align-items: start; }
+.an-map-svg { width: 100%; height: auto; display: block; }
+.an-regions path, .an-regions rect { fill: transparent; transition: fill 0.25s; }
+.an-regions [data-status="strong"] { fill: rgba(47,95,224,0.38); }
+.an-regions [data-status="focus"] { fill: #e07b2f; }
+.an-regions [data-status="maintain"] { fill: var(--faint); }
+.an-regions [data-status="not_visible"] { fill: url(#anHatch); }
+.an-legend { display: flex; flex-direction: column; gap: 7px; font-size: 12px; color: var(--mute); padding-top: 6px; }
+.an-legend span { display: flex; align-items: center; gap: 7px; }
+.an-dot { width: 12px; height: 12px; border-radius: 4px; flex-shrink: 0; border: 1px solid rgba(20,18,15,0.08); }
+.an-dot.strong { background: rgba(47,95,224,0.38); }
+.an-dot.focus { background: #e07b2f; }
+.an-dot.maintain { background: var(--faint); }
+.an-dot.not_visible { background: repeating-linear-gradient(45deg, #c9c5bd 0 2px, transparent 2px 5px); }
+.an-region-list { margin-top: 12px; border-top: 1px solid var(--line); }
+.an-region { display: flex; align-items: flex-start; gap: 9px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; line-height: 1.4; }
+.an-region:last-child { border-bottom: 0; }
+.an-region .an-dot { margin-top: 4px; }
+.an-region-name { font-weight: 700; }
+.an-region-status { color: var(--mute); font-weight: 600; }
+.an-region-note { color: var(--mute); }
+.an-map-fail { font-size: 12.5px; color: var(--mute); line-height: 1.45; }
+.an-skel { height: 12px; border-radius: 6px; background: var(--line); margin: 9px 0; animation: briefPulse 1.2s ease-in-out infinite; }
+.an-plan-row { display: flex; gap: 11px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 13px; line-height: 1.42; }
+.an-plan-row:last-child { border-bottom: 0; padding-bottom: 2px; }
+.an-plan-row:first-child { padding-top: 0; }
+.an-plan-ico { font-size: 18px; line-height: 1.2; flex-shrink: 0; }
+.an-plan-row b { display: block; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.2px; color: var(--faint); font-weight: 700; margin-bottom: 1px; }
+.an-more-row { display: grid; grid-template-columns: 1fr 1.25fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; line-height: 1.4; }
+.an-more-row:first-child { padding-top: 0; }
+.an-more-what { font-weight: 700; }
+.an-more-what small { display: block; font-weight: 500; color: var(--faint); font-size: 11px; }
+.an-more-unlock { color: var(--mute); }
+.an-more-close { font-size: 13px; line-height: 1.45; margin-top: 10px; padding-top: 10px; }
+.an-cta { background: var(--card); border: 1.5px solid var(--acc-line); border-radius: 18px; padding: 18px 16px 14px; text-align: center; margin: 22px 0 14px; box-shadow: var(--shadow); }
+.an-cta-title { font-size: 21px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 6px; }
+.an-cta-sub { font-size: 13.5px; color: var(--mute); line-height: 1.45; margin-bottom: 14px; }
+.an-cta-price { font-size: 12px; color: var(--mute); margin-top: 10px; }
+.an-email { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 15px; margin-bottom: 8px; }
+.an-email-title { font-size: 14.5px; font-weight: 800; margin-bottom: 10px; }
+.an-email-fine { font-size: 11.5px; color: var(--faint); margin-top: 8px; }
+.an-text-link { display: block; width: 100%; background: none; border: 0; padding: 12px 0; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--mute); text-decoration: underline; cursor: pointer; }
+.analysis-section .ba-img { height: 190px; }
 
 /* ── Accounts: login link, hub ── */
 .login-link, .hub-logout-btn, .hub-login-btn {
@@ -1918,78 +1969,149 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     </div>
   </div>
 
-  <div id="emailSection" class="screen" style="display:none">
+  <!-- ════════════════ SCREEN 3: YOUR ANALYSIS (right after "Lock in this goal") ════════════════
+       Replaces the old email-capture + benefits-bridge screens (2026-09-08). Delivers what the
+       website conversion video promises: body fat now → goal, lean muscle now → goal, fat to
+       lose, goal weight — computed live from two sliders — plus a body map of where the plan
+       will focus, read from the pictures by POST /api/body-analysis. -->
+  <div id="analysisSection" class="screen analysis-section" style="display:none">
     <div class="nav-bar">
-      <button class="nav-icon-btn" id="emailBackBtn" title="Back">
+      <button class="nav-icon-btn" id="analysisBackBtn" title="Back">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
-      <span class="nav-title">Your goal image</span>
+      <span class="nav-title">Your analysis</span>
       <span style="width:26px"></span>
     </div>
 
-    <div class="hero-h1" style="font-size:25px;line-height:1.15;margin-bottom:16px">Download Your Future Self. Make It Your Phone Lockscreen.</div>
+    <!-- Video slot: hidden until ANALYSIS_VIDEO has a youtubeId or mp4; a labelled
+         placeholder renders on localhost and with ?vp=1 so the layout can be reviewed. -->
+    <div id="analysisVideoBlock" class="an-video" style="display:none">
+      <div class="an-video-frame" id="analysisVideoFrame"></div>
+    </div>
 
-    <img id="emailFutureImg" class="email-future-img" alt="Your goal image" />
+    <div class="hero-h1" style="font-size:27px;line-height:1.08;margin-bottom:6px">You visualized your goal.</div>
+    <div class="hero-sub" style="margin-bottom:16px">Now let's make that AI-generated image a reality. Just from these pictures, our AI already knows a lot — and two quick sliders make the numbers yours.</div>
 
-    <div class="hero-sub" style="margin-bottom:18px">Enter Your Email To Download A High Quality Image Of Your Future Self With No Watermark.</div>
-
-    <form id="emailForm">
-      <input type="email" id="emailInput" class="text-field" placeholder="you@example.com" required autocomplete="email" />
-      <button type="submit" class="cta-btn" style="margin-top:12px">Get My Download</button>
-    </form>
-    <div style="font-size:12px;color:#8a877f;margin-top:10px">We'll email you your image plus fitness tips and offers. Unsubscribe anytime.</div>
-
-    <button id="emailSkipBtn" class="try-diff-btn" style="margin-top:16px">No Thanks</button>
-    <div class="footer" style="margin-top:28px"><a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
-  </div>
-
-  <!-- ════════════════ SCREEN 4: BENEFITS BRIDGE ════════════════ -->
-  <div id="bridgeSection" class="screen bridge-section" style="display:none">
-    <div class="nav-bar">
-      <button class="nav-icon-btn" id="bridgeBackBtn" title="Back">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b1a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <span class="nav-title">Your plan</span>
-      <span style="width:26px"></span>
+    <div class="an-card">
+      <div class="an-card-title">Two quick sliders make the numbers yours</div>
+      <div class="an-slider-row">
+        <div class="an-slider-head"><span>Height</span><span class="an-slider-val"><span id="anHeightLbl">5'9"</span> <span id="anHeightCm" class="an-slider-kg">175 cm</span></span></div>
+        <input type="range" id="anHeight" class="an-range" min="58" max="80" step="1" value="69" aria-label="Height">
+      </div>
+      <div class="an-slider-row">
+        <div class="an-slider-head"><span>Weight</span><span class="an-slider-val"><span id="anWeightLbl">185 lb</span> <span id="anWeightKg" class="an-slider-kg">84 kg</span></span></div>
+        <input type="range" id="anWeight" class="an-range" min="90" max="400" step="1" value="185" aria-label="Weight">
+      </div>
+      <div id="anSliderHint" class="an-slider-hint">Weight follows your height until you move it.</div>
     </div>
 
     <div class="before-after-grid">
       <div>
         <div class="ba-col-label">Today</div>
-        <img id="bridgeBeforeImg" class="ba-img" alt="You today" />
+        <img id="anBeforeImg" class="ba-img" alt="You today" />
       </div>
       <div>
         <div class="ba-col-label after-lbl">Your goal</div>
-        <img id="bridgeAfterImg" class="ba-img" alt="Your AI-generated goal" />
+        <img id="anAfterImg" class="ba-img" alt="Your AI-generated goal" />
       </div>
     </div>
 
-    <div class="hero-h1" style="font-size:27px;line-height:1.08;margin-bottom:6px">You visualized your goal. Here's how Abs By AI will help you make it a reality.</div>
+    <div class="an-section-title" style="margin-top:6px">What our AI already knows from your pictures</div>
+    <div id="anHeadline" class="an-headline"></div>
+    <div id="anReadline" class="an-readline"></div>
+    <div class="an-tiles">
+      <div class="an-tile"><div class="an-tile-lbl">Body fat</div><div class="an-tile-val" id="anTileBf">—</div><div class="an-tile-sub" id="anTileBfSub"></div></div>
+      <div class="an-tile"><div class="an-tile-lbl" id="anTileMuscleLbl">Lean muscle</div><div class="an-tile-val" id="anTileMuscle">—</div><div class="an-tile-sub" id="anTileMuscleSub"></div></div>
+      <div class="an-tile"><div class="an-tile-lbl">Fat to lose</div><div class="an-tile-val" id="anTileFat">—</div><div class="an-tile-sub" id="anTileFatSub"></div></div>
+      <div class="an-tile"><div class="an-tile-lbl">Goal weight</div><div class="an-tile-val" id="anTileGoalW">—</div><div class="an-tile-sub" id="anTileGoalWSub"></div></div>
+    </div>
+    <div id="anEstimateTag" class="an-estimate-tag" style="display:none">Estimate from your body type — refining from your photos…</div>
+    <!-- 1.4.1: every body-fat / lean-mass figure carries the visual-estimate qualifier + sources. -->
+    <div class="an-disclaimer">Visual estimates for motivation — not a medical measurement. Based on published body-fat ranges (<a href="/sources" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">sources</a>).</div>
 
-    <div class="bridge-benefits">
-      <div class="bridge-benefit">
-        <span class="bridge-benefit-icon">🍽️</span>
-        <span><div class="bridge-benefit-name">AI Macro Tracker</div><div class="bridge-benefit-copy">Snap a photo of any meal. Get calories and macros instantly.</div></span>
+    <div class="an-section-title">Where your plan will focus</div>
+    <div class="an-card">
+      <div id="anBodyMapSkeleton">
+        <div class="an-skel" style="width:78%"></div><div class="an-skel" style="width:92%"></div><div class="an-skel" style="width:64%"></div><div class="an-skel" style="width:85%"></div>
       </div>
-      <div class="bridge-benefit">
-        <span class="bridge-benefit-icon">🏋️</span>
-        <span><div class="bridge-benefit-name">AI Trainer</div><div class="bridge-benefit-copy">A personalized workout program generated daily based on your goal, your equipment, your sleep, and more.</div></span>
+      <div id="anBodyMap" style="display:none">
+        <div class="an-map-grid">
+          <svg class="an-map-svg" viewBox="0 0 200 420" aria-hidden="true">
+            <defs><pattern id="anHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#c9c5bd" stroke-width="2"/></pattern></defs>
+            <g fill="#e9e6df">
+              <circle cx="100" cy="34" r="26"/>
+              <rect x="90" y="56" width="20" height="18" rx="6"/>
+              <path d="M52 78 Q100 62 148 78 L156 170 Q150 215 140 250 L60 250 Q50 215 44 170 Z"/>
+              <path d="M52 78 L30 96 L20 190 L38 194 L52 120 Z"/>
+              <path d="M148 78 L170 96 L180 190 L162 194 L148 120 Z"/>
+              <path d="M60 250 L56 400 L92 400 L98 270 L102 270 L108 400 L144 400 L140 250 Z"/>
+            </g>
+            <g class="an-regions" stroke="#fff" stroke-width="1.5">
+              <path data-region="shoulders" d="M50 80 Q72 66 90 74 L86 100 L56 104 Z"/>
+              <path data-region="shoulders" d="M150 80 Q128 66 110 74 L114 100 L144 104 Z"/>
+              <path data-region="chest" d="M68 100 L98 96 L98 132 L70 134 Z"/>
+              <path data-region="chest" d="M132 100 L102 96 L102 132 L130 134 Z"/>
+              <path data-region="arms" d="M36 100 L54 112 L46 190 L28 186 Z"/>
+              <path data-region="arms" d="M164 100 L146 112 L154 190 L172 186 Z"/>
+              <rect data-region="upper_abs" x="82" y="138" width="36" height="40" rx="6"/>
+              <rect data-region="lower_abs" x="84" y="182" width="32" height="44" rx="6"/>
+              <path data-region="obliques" d="M60 140 L78 140 L80 230 L64 232 Z"/>
+              <path data-region="obliques" d="M140 140 L122 140 L120 230 L136 232 Z"/>
+              <path data-region="legs" d="M62 258 L96 258 L92 380 L60 380 Z"/>
+              <path data-region="legs" d="M138 258 L104 258 L108 380 L140 380 Z"/>
+            </g>
+          </svg>
+          <div class="an-legend">
+            <span><i class="an-dot strong"></i>Already strong</span>
+            <span><i class="an-dot focus"></i>Focus here</span>
+            <span><i class="an-dot maintain"></i>Maintain</span>
+            <span><i class="an-dot not_visible"></i>Not visible in this photo</span>
+            <div id="anFocusSummary" style="font-size:12.5px;color:var(--ink);line-height:1.4;margin-top:6px"></div>
+          </div>
+        </div>
+        <div id="anRegionList" class="an-region-list"></div>
       </div>
-      <div class="bridge-benefit">
-        <span class="bridge-benefit-icon">🥗</span>
-        <span><div class="bridge-benefit-name">AI Nutritionist</div><div class="bridge-benefit-copy">A personalized nutrition plan specifically designed to help you hit your goal.</div></span>
-      </div>
-      <div class="bridge-benefit">
-        <span class="bridge-benefit-icon">😴</span>
-        <span><div class="bridge-benefit-name">Sleep Tracker</div><div class="bridge-benefit-copy">Gives feedback based on your sleep tracker data. Customizes your workouts and nutrition based on sleep data.</div></span>
-      </div>
-      <div class="bridge-benefit">
-        <span class="bridge-benefit-icon">💊</span>
-        <span><div class="bridge-benefit-name">AI Supplement Audit</div><div class="bridge-benefit-copy">Find out which supplements can help you hit your goal and which ones aren't worth your money.</div></span>
-      </div>
+      <div id="anBodyMapFail" class="an-map-fail" style="display:none">Send a clearer, well-lit photo for a body-part read — the numbers above still stand.</div>
     </div>
 
-    <button id="bridgeContinueBtn" class="cta-btn">Continue</button>
+    <div class="an-section-title">What this means for your plan</div>
+    <div class="an-card">
+      <div class="an-plan-row"><span class="an-plan-ico">🏋️</span><span><b>Training</b><div id="anPlanTraining"></div></span></div>
+      <div class="an-plan-row"><span class="an-plan-ico">🥗</span><span><b>Food</b><div id="anPlanFood"></div></span></div>
+      <div class="an-plan-row"><span class="an-plan-ico">🥩</span><span><b>Protein</b><div id="anPlanProtein"></div></span></div>
+      <div class="an-plan-row"><span class="an-plan-ico">📅</span><span><b>Timeline</b><div id="anPlanTimeline"></div></span></div>
+    </div>
+
+    <div class="an-section-title">Tell us a little more and it gets sharper</div>
+    <div class="an-card">
+      <div class="an-more-row"><div class="an-more-what">Training history<small>what you'd tell us</small></div><div class="an-more-unlock">Your exact starting stage and how fast we progress you</div></div>
+      <div class="an-more-row"><div class="an-more-what">Injuries</div><div class="an-more-unlock">Which focus area we load first and what we work around</div></div>
+      <div class="an-more-row"><div class="an-more-what">Equipment</div><div class="an-more-unlock">A plan for your gym, your dumbbells, or no equipment at all</div></div>
+      <div class="an-more-row"><div class="an-more-what">Lifestyle &amp; time</div><div class="an-more-unlock">How many days a week, and how long each session runs</div></div>
+      <div class="an-more-row"><div class="an-more-what">Foods you like, allergies</div><div class="an-more-unlock">A meal plan you'll actually follow</div></div>
+      <div class="an-more-close">The pictures did most of the work. These five answers take about two minutes — and they're how you make the program even better.</div>
+    </div>
+
+    <div class="an-cta">
+      <div class="an-cta-title" id="anCtaTitle">Try Abs by AI completely free for 7 days</div>
+      <div class="an-cta-sub" id="anCtaSub">Try out the macro tracker, the AI workout program, the AI nutrition plan — everything in the app.</div>
+      <button type="button" id="anTrialBtn" class="cta-btn" style="margin:0">Start your 7-day free trial →</button>
+      <!-- Web price copy only. The trial button itself stays on every platform —
+           the membership screen handles IAP inside the native apps. -->
+      <div class="an-cta-price app-hide-purchase" id="anCtaPrice">then $19.99/mo · cancel with two taps and you won't be charged a dime</div>
+      <div class="app-only-note an-cta-price" id="anCtaPriceApp">Cancel anytime during the trial and you won't be charged.</div>
+    </div>
+
+    <form id="anEmailForm" class="an-email">
+      <div class="an-email-title">Email me my picture + my analysis</div>
+      <input type="email" id="anEmailInput" class="text-field" placeholder="you@example.com" required autocomplete="email" />
+      <button type="submit" class="cta-btn" style="margin-top:10px;font-size:14px;padding:11px 16px;background:var(--ink);box-shadow:none">Send it to me</button>
+      <div class="an-email-fine">We'll email your image plus fitness tips and offers. Unsubscribe anytime.</div>
+    </form>
+    <div id="anEmailDone" class="an-email-fine" style="display:none;text-align:center;margin:0 0 8px">✓ On its way — check your inbox.</div>
+
+    <button type="button" id="anHubLink" class="an-text-link">Continue to my hub →</button>
+    <div class="footer" style="margin-top:8px"><a href="/terms" style="color:inherit">Terms</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; <a href="/refunds" style="color:inherit">Refunds</a> &middot; <a href="/contact" style="color:inherit">Contact</a> &middot; <a href="/sources" style="color:inherit">Sources</a></div>
   </div>
 
   <!-- ════════════════ PRINT PRODUCT SELECTOR ════════════════ -->
@@ -2218,6 +2340,11 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
       <button class="hub-tile" data-feature="macro">
         <span class="hub-tile-emoji">🍽️</span>
         <span class="hub-tile-body"><span class="hub-tile-name">Macro Tracker</span><span class="hub-tile-sub">Snap a meal photo, get calories &amp; macros</span></span>
+        <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <button class="hub-tile" data-feature="analysis">
+        <span class="hub-tile-emoji">🔎</span>
+        <span class="hub-tile-body"><span class="hub-tile-name">My body analysis</span><span class="hub-tile-sub">What your pictures say — body fat, muscle, where to focus</span></span>
         <svg class="hub-tile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
       <button class="hub-tile" data-feature="trainer">
@@ -3778,7 +3905,7 @@ const upsell = {
   size: null,      // e.g. '8x10'
   framed: false,
   imageDataUrl: null,  // set when entering from a gallery card (else state.lastAfterDataUrl)
-  returnScreen: null,  // where the product back button returns ('transformations' or null → email)
+  returnScreen: null,  // where the product back button returns ('transformations', 'hub', or null → analysis)
 };
 const UPSELL_RETURN_KEY = 'absbyai_upsell_return';
 
@@ -4056,7 +4183,7 @@ Output ONLY the final image-editing prompt as plain text. No preamble, no JSON, 
 const $ = (id) => document.getElementById(id);
 
 function renderScreen(name) {
-  ['formSection', 'resultSection', 'chooserSection', 'emailSection', 'bridgeSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'chooserSection', 'analysisSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -4647,24 +4774,430 @@ function selectPick(gridId, value, stateKey) {
 }
 
 // ============================================================
-//  EMAIL CAPTURE (LOCKSCREEN DOWNLOAD)
+//  YOUR ANALYSIS — the page right after "Lock in this goal"
 // ============================================================
-function showEmailScreen() {
-  // Entering from the generation flow — reset any gallery print context.
-  upsell.imageDataUrl = null;
-  upsell.returnScreen = null;
-  $('emailFutureImg').src = state.lastAfterDataUrl || '';
-  showScreen('email');
+// Replaces the email-capture + benefits-bridge screens (2026-09-08). The video
+// promises "our AI has already estimated how much fat you'll need to lose and
+// how much muscle you'll need to gain … and identified your strong and lagging
+// body parts" — this page delivers it. Numbers recompute live from the two
+// sliders; the body-part read comes from POST /api/body-analysis (free to the
+// user, cached by image hash); the lookup tables render instantly as a fallback.
+//
+// Video slot: set youtubeId (unlisted upload) OR mp4 (+ poster). Empty = the
+// block is hidden for real users; localhost and ?vp=1 show a placeholder card.
+const ANALYSIS_VIDEO = { youtubeId: '', mp4: '', poster: '' };
+const BODY_ANALYSIS_KEY = 'absbyai_body_analysis';
+const BODY_SLIDERS_KEY = 'absbyai_body_sliders';
+// Default weight = BMI for the tapped body type × height² / 703 (5'9" → men
+// 149 / 163 / 186 / 213 lb; 5'4" → women 119 / 131 / 154 / 181 lb).
+const ANALYSIS_BMI = {
+  male: { very_lean: 22, fit: 24, moderate: 27.5, heavier: 31.5 },
+  female: { very_lean: 20.5, fit: 22.5, moderate: 26.5, heavier: 31 },
+};
+const ANALYSIS_DEFAULT_HEIGHT = { male: 69, female: 64 };
+const MUSCLE_GAIN_ANCHOR = { subtle: 2, moderate: 4, dramatic: 6, max: 8 };
+const BODY_REGIONS = [
+  { id: 'shoulders', name: 'Shoulders' }, { id: 'chest', name: 'Chest' }, { id: 'arms', name: 'Arms' },
+  { id: 'upper_abs', name: 'Upper abs' }, { id: 'lower_abs', name: 'Lower abs' }, { id: 'obliques', name: 'Obliques' },
+  { id: 'back', name: 'Back' }, { id: 'legs', name: 'Legs' },
+];
+const REGION_STATUS_LABEL = { strong: 'Already strong', focus: 'Focus here', maintain: 'Maintain', not_visible: 'Not visible in this photo' };
+const DEFINITION_NOW = { building: 'soft', moderate: 'moderate', solid: 'defined', advanced: 'sharp' };
+const DEFINITION_GOAL = { subtle: 'toned', moderate: 'defined', dramatic: 'sharp', max: 'razor-sharp' };
+
+const analysisState = {
+  heightIn: 69, weight: 185, touched: { height: false, weight: false },
+  analysis: null, fallback: true, loading: false, from: 'lockin', afterHash: null, requestSeq: 0,
+};
+
+function djb2(str) {
+  let h = 5381;
+  for (let i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0;
+  return (h >>> 0).toString(36);
+}
+function parseBfRange(str) {
+  const nums = String(str || '').match(/\d+/g) || [];
+  if (!nums.length) return [20, 24];
+  const lo = parseInt(nums[0], 10), hi = parseInt(nums[1] || nums[0], 10);
+  return [lo, hi];
+}
+function analysisSex() { return state.gender === 'female' ? 'female' : 'male'; }
+function analysisCond() { return ['heavier', 'moderate', 'fit', 'very_lean'].includes(state.condition) ? state.condition : 'moderate'; }
+function analysisIntensity() { return state.effectiveIntensity || state.intensity || 'dramatic'; }
+
+// Lookup-table analysis — the same numbers the result screen shows, in the
+// server's shape. Renders instantly; the model result replaces it in place.
+function tableBodyAnalysis() {
+  const sex = analysisSex(), cond = analysisCond(), intens = analysisIntensity();
+  const [lo, hi] = parseBfRange((BF_BEFORE[cond] || BF_BEFORE.moderate)[sex]);
+  let goal = parseBfRange((BF_AFTER[intens] || BF_AFTER.dramatic)[sex])[0];
+  if (sex === 'female' && cond === 'heavier') goal = parseBfRange(BF_AFTER_HEAVIER_FEMALE[intens] || BF_AFTER_HEAVIER_FEMALE.dramatic)[0];
+  if (goal >= lo) goal = Math.max(sex === 'female' ? 13 : 6, lo - 1);
+  const lean = cond === 'fit' || cond === 'very_lean';
+  const headline = sex === 'female'
+    ? 'The gap is definition — lower body fat on the frame you already have'
+    : (lean ? "You're already lean — the gap is muscle and definition" : 'The gap is fat, not muscle — your plan starts with a cut');
+  return {
+    photo_coverage: 'torso', confidence: 'low',
+    bf_now_low: lo, bf_now_high: hi, bf_goal: goal,
+    muscle_base: lean ? 'solid' : 'moderate',
+    muscle_gain_lb: sex === 'male' ? (MUSCLE_GAIN_ANCHOR[intens] || 6) : 0,
+    regions: null, headline, focus_summary: '', training_focus: '',
+    nutrition_direction: cond === 'very_lean' ? 'lean_bulk' : (cond === 'fit' ? 'recomp' : 'cut'),
+    protein_g_per_lb: cond === 'heavier' ? 0.8 : 0.9,
+    table: true,
+  };
 }
 
-function showBridgeScreen() {
+function defaultWeightFor(heightIn) {
+  const bmi = (ANALYSIS_BMI[analysisSex()] || ANALYSIS_BMI.male)[analysisCond()] || 27;
+  return Math.max(90, Math.min(400, Math.round(bmi * heightIn * heightIn / 703)));
+}
+function formatHeight(h) { return `${Math.floor(h / 12)}'${h % 12}"`; }
+
+// The four tiles + plan numbers (handoff §2.5).
+function computeAnalysisNumbers(a, W, sex) {
+  const bfNow = ((Number(a.bf_now_low) + Number(a.bf_now_high)) / 2) / 100;
+  const bfGoal = Number(a.bf_goal) / 100;
+  const leanNow = W * (1 - bfNow);
+  const fatNow = W - leanNow;
+  const gain = sex === 'male' ? (Number(a.muscle_gain_lb) || 0) : 0;
+  const leanGoal = leanNow + gain;
+  const goalW = leanGoal / (1 - bfGoal);
+  const fatLoss = Math.max(0, fatNow - (goalW - leanGoal));
+  const weeksRaw = Math.max(fatLoss / 1.25, gain / 0.5);
+  const weeksLo = Math.max(4, Math.round(0.85 * weeksRaw));
+  const weeksHi = Math.max(weeksLo + 2, Math.round(1.2 * weeksRaw));
+  const protein = Math.round(leanGoal * (Number(a.protein_g_per_lb) || 0.85));
+  return { bfNow, bfGoal, leanNow, fatNow, gain, leanGoal, goalW, fatLoss, weeksLo, weeksHi, protein };
+}
+
+function renderAnalysisSliders() {
+  const s = analysisState;
+  $('anHeight').value = s.heightIn;
+  $('anWeight').value = s.weight;
+  $('anHeightLbl').textContent = formatHeight(s.heightIn);
+  $('anHeightCm').textContent = `${Math.round(s.heightIn * 2.54)} cm`;
+  $('anWeightLbl').textContent = `${s.weight} lb`;
+  $('anWeightKg').textContent = `${Math.round(s.weight * 0.4536)} kg`;
+  $('anSliderHint').style.display = s.touched.weight ? 'none' : '';
+}
+
+function renderAnalysisTiles() {
+  const a = analysisState.analysis || tableBodyAnalysis();
+  const sex = analysisSex();
+  const n = computeAnalysisNumbers(a, analysisState.weight, sex);
+  const r = (x) => Math.round(x);
+  $('anTileBf').innerHTML = `${a.bf_now_low}–${a.bf_now_high}% <span class="an-goal">→ ${a.bf_goal}%</span>`;
+  $('anTileBfSub').textContent = 'now → your goal image';
+  if (sex === 'male') {
+    $('anTileMuscleLbl').textContent = 'Lean muscle';
+    $('anTileMuscle').innerHTML = `≈${r(n.leanNow)} lb <span class="an-goal">→ ≈${r(n.leanGoal)} lb</span>`;
+    $('anTileMuscleSub').textContent = n.gain > 0 ? `+${r(n.gain)} lb to gain` : 'keep what you have — the gap is fat';
+  } else {
+    $('anTileMuscleLbl').textContent = 'Definition';
+    const now = DEFINITION_NOW[a.muscle_base] || 'moderate';
+    const goal = DEFINITION_GOAL[analysisIntensity()] || 'sharp';
+    $('anTileMuscle').innerHTML = `${now} <span class="an-goal">→ ${goal}</span>`;
+    $('anTileMuscleSub').textContent = `≈${r(n.leanNow)} lb lean mass stays — the change is definition, not size`;
+  }
+  $('anTileFat').textContent = n.fatLoss >= 1 ? `≈${r(n.fatLoss)} lb` : 'almost none';
+  $('anTileFatSub').textContent = n.fatLoss >= 1 ? 'at a steady, sustainable pace' : 'you are already close';
+  $('anTileGoalW').textContent = `≈${r(n.goalW)} lb`;
+  $('anTileGoalWSub').textContent = `from ${analysisState.weight} lb today`;
+  $('anEstimateTag').style.display = (a.table && analysisState.loading) ? '' : 'none';
+  const headline = a.headline || tableBodyAnalysis().headline;
+  $('anHeadline').textContent = headline;
+  const cov = { full_body: 'full-body', torso: 'torso', upper_only: 'upper-body' }[a.photo_coverage] || 'torso';
+  $('anReadline').textContent = a.table ? 'From the body type you tapped' : `Read from a ${cov} shot · ${a.confidence} confidence`;
+  renderAnalysisPlan(a, n);
+}
+
+function renderAnalysisPlan(a, n) {
+  const sex = analysisSex();
+  const foodWords = {
+    cut: 'a moderate cut — food you like, just less of it',
+    recomp: 'a recomposition — protein up, calories near maintenance',
+    lean_bulk: 'a lean bulk — a small surplus, protein first',
+  }[a.nutrition_direction] || 'a moderate cut — food you like, just less of it';
+  const training = a.training_focus
+    || (sex === 'female'
+      ? 'Total-body training with an abs finisher every day — definition comes from the fat loss, the shape from the work.'
+      : 'Total-body training daily with an abs finisher — the focus areas above get loaded first.');
+  $('anPlanTraining').textContent = training;
+  $('anPlanFood').textContent = foodWords.charAt(0).toUpperCase() + foodWords.slice(1) + '.';
+  $('anPlanProtein').textContent = `≈${n.protein} g a day — built from your goal lean mass, not a generic number.`;
+  $('anPlanTimeline').textContent = `${n.weeksLo}–${n.weeksHi} weeks at a steady pace. Narrows to a date once you tell us your training history.`;
+}
+
+function renderBodyMap(a) {
+  const skel = $('anBodyMapSkeleton'), map = $('anBodyMap'), fail = $('anBodyMapFail');
+  if (!a || !Array.isArray(a.regions)) {
+    skel.style.display = analysisState.loading ? '' : 'none';
+    map.style.display = 'none';
+    fail.style.display = analysisState.loading ? 'none' : '';
+    return;
+  }
+  skel.style.display = 'none'; fail.style.display = 'none'; map.style.display = '';
+  const byId = {};
+  a.regions.forEach((r) => { byId[r.id] = r; });
+  document.querySelectorAll('#anBodyMap [data-region]').forEach((el) => {
+    el.setAttribute('data-status', (byId[el.dataset.region] || {}).status || 'not_visible');
+  });
+  const esc = (s) => String(s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const order = { focus: 0, strong: 1, maintain: 2, not_visible: 3 };
+  const rows = BODY_REGIONS.map((reg) => ({ ...reg, ...(byId[reg.id] || { status: 'not_visible', note: '' }) }))
+    .sort((x, y) => (order[x.status] ?? 9) - (order[y.status] ?? 9));
+  $('anRegionList').innerHTML = rows.map((r) => {
+    const note = r.status === 'not_visible' && !r.note ? 'Add a full-body shot and we read it too.' : r.note;
+    return `<div class="an-region"><i class="an-dot ${r.status}"></i><span><span class="an-region-name">${esc(r.name)}</span> <span class="an-region-status">· ${REGION_STATUS_LABEL[r.status] || ''}</span>${note ? `<div class="an-region-note">${esc(note)}</div>` : ''}</span></div>`;
+  }).join('');
+  $('anFocusSummary').textContent = a.focus_summary || '';
+}
+
+function renderAnalysisVideo() {
+  const block = $('analysisVideoBlock'), frame = $('analysisVideoFrame');
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  let vp = false;
+  try { vp = new URLSearchParams(location.search).get('vp') === '1'; } catch (e) {}
+  const real = !!(ANALYSIS_VIDEO.youtubeId || ANALYSIS_VIDEO.mp4);
+  if (!real && !isLocal && !vp) { block.style.display = 'none'; frame.innerHTML = ''; return false; }
+  block.style.display = '';
+  if (frame.dataset.rendered === (real ? 'real' : 'ph')) return real;
+  frame.dataset.rendered = real ? 'real' : 'ph';
+  if (ANALYSIS_VIDEO.youtubeId) {
+    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(ANALYSIS_VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1" title="How Abs by AI turns your goal image into a plan" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    // A YouTube play is only observable through the IFrame API; a click into
+    // the frame is the cheap proxy (window blur while the frame is hovered).
+    let hovered = false;
+    frame.addEventListener('mouseenter', () => { hovered = true; });
+    frame.addEventListener('mouseleave', () => { hovered = false; });
+    frame.addEventListener('touchstart', () => { hovered = true; }, { passive: true });
+    window.addEventListener('blur', () => {
+      if (hovered && !frame.dataset.played) { frame.dataset.played = '1'; if (window.posthog) posthog.capture('analysis_video_play', { kind: 'youtube' }); }
+    });
+  } else if (ANALYSIS_VIDEO.mp4) {
+    frame.innerHTML = `<video playsinline controls preload="metadata"${ANALYSIS_VIDEO.poster ? ` poster="${ANALYSIS_VIDEO.poster}"` : ''} src="${ANALYSIS_VIDEO.mp4}"></video>`;
+    const v = frame.querySelector('video');
+    const fired = {};
+    v.addEventListener('play', () => { if (!fired.play) { fired.play = 1; if (window.posthog) posthog.capture('analysis_video_play', { kind: 'mp4' }); } });
+    v.addEventListener('timeupdate', () => {
+      if (!v.duration) return;
+      const pct = v.currentTime / v.duration * 100;
+      [25, 50, 75, 100].forEach((m) => {
+        if (pct >= m - (m === 100 ? 1.5 : 0) && !fired[m]) { fired[m] = 1; if (window.posthog) posthog.capture('analysis_video_progress', { pct: m }); }
+      });
+    });
+    v.addEventListener('ended', () => { if (!fired[100]) { fired[100] = 1; if (window.posthog) posthog.capture('analysis_video_progress', { pct: 100 }); } });
+  } else {
+    frame.innerHTML = `<div class="an-video-ph"${ANALYSIS_VIDEO.poster ? ` style="background-image:url('${ANALYSIS_VIDEO.poster}')"` : ''}>
+      <div class="an-video-ph-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="an-video-ph-lbl">VIDEO PLACEHOLDER</div>
+      <div style="font-size:12px;opacity:.6">Dan: how your picture becomes a plan (rev 4, coming)</div>
+    </div>`;
+  }
+  return real;
+}
+
+// Local cache: { afterHash, analysis, at } — never the images themselves.
+function readCachedBodyAnalysis(afterHash) {
+  try {
+    const c = JSON.parse(localStorage.getItem(BODY_ANALYSIS_KEY) || 'null');
+    if (c && c.afterHash === afterHash && c.analysis && Array.isArray(c.analysis.regions)) return c.analysis;
+  } catch (e) {}
+  return null;
+}
+function writeCachedBodyAnalysis(afterHash, analysis) {
+  try { localStorage.setItem(BODY_ANALYSIS_KEY, JSON.stringify({ afterHash, analysis, at: Date.now() })); } catch (e) {}
+}
+// For the account sync: the cached analysis if it belongs to this after image.
+function cachedBodyAnalysisFor(afterDataUrl) {
+  if (!afterDataUrl) return null;
+  return readCachedBodyAnalysis(djb2(afterDataUrl));
+}
+
+function analysisImages() {
   const before = localStorage.getItem(LAST_BEFORE_KEY)
     || (state.photoData ? `data:${state.photoMime};base64,${state.photoData}` : '');
   const after = localStorage.getItem(LAST_AFTER_KEY) || state.lastAfterDataUrl || '';
-  $('bridgeBeforeImg').src = before;
-  $('bridgeAfterImg').src = after;
-  if (window.posthog) posthog.capture('bridge_seen', { logged_in: isLoggedIn() });
-  showScreen('bridge');
+  return { before, after };
+}
+function splitDataUrl(u) {
+  const m = String(u || '').match(/^data:([^;,]+)?(?:;base64)?,(.*)$/);
+  return m ? { mime: m[1] || 'image/jpeg', base64: m[2] } : null;
+}
+
+async function loadBodyAnalysis(before, after) {
+  const seq = ++analysisState.requestSeq;
+  const t0 = Date.now();
+  analysisState.loading = true;
+  renderAnalysisTiles(); renderBodyMap(null);
+  const b = splitDataUrl(before), a = splitDataUrl(after);
+  let result = null, cached = false, error = null;
+  if (b && a) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 75000);
+    try {
+      const res = await fetchWithRetry(`${BACKEND_URL}/api/body-analysis`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}) },
+        body: JSON.stringify({
+          beforeBase64: b.base64, beforeMime: b.mime, afterBase64: a.base64, afterMime: a.mime,
+          sex: analysisSex(), condition: analysisCond(), intensity: analysisIntensity(),
+          clothed: !!state.photoIsClothed, description: state.description || '',
+        }),
+        signal: controller.signal,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.analysis) { result = data.analysis; cached = !!data.cached; }
+      else error = data.error || `HTTP ${res.status}`;
+    } catch (e) { error = e.name === 'AbortError' ? 'timeout' : (e.message || 'network'); }
+    finally { clearTimeout(timer); }
+  } else error = 'no images';
+  if (seq !== analysisState.requestSeq) return; // a newer page open superseded this
+  analysisState.loading = false;
+  if (result) {
+    analysisState.analysis = result;
+    analysisState.fallback = false;
+    writeCachedBodyAnalysis(analysisState.afterHash, result);
+    // Logged in already (e.g. hub → generate → lock-in): attach to the row now.
+    if (isLoggedIn()) saveTransformationIfLoggedIn({ intensity: analysisIntensity(), condition: state.condition });
+  } else {
+    console.warn('body analysis unavailable:', error);
+  }
+  renderAnalysisTiles();
+  renderBodyMap(analysisState.analysis);
+  if (window.posthog) posthog.capture('analysis_loaded', {
+    ms: Date.now() - t0, cached, fallback: !result,
+    confidence: result?.confidence || null, coverage: result?.photo_coverage || null, error: result ? undefined : error,
+  });
+}
+
+function showAnalysisScreen(opts) {
+  const from = opts?.from || 'lockin';
+  const { before, after } = analysisImages();
+  if (!before || !after) { showScreen('form'); return; }
+  analysisState.from = from;
+  // Entering from the generation flow — reset any gallery print context.
+  if (from === 'lockin') { upsell.imageDataUrl = null; upsell.returnScreen = null; }
+  $('anBeforeImg').src = before;
+  $('anAfterImg').src = after;
+
+  // Sliders: stored values if the user set them before, else the defaults.
+  const sex = analysisSex();
+  let stored = null;
+  try { stored = JSON.parse(localStorage.getItem(BODY_SLIDERS_KEY) || 'null'); } catch (e) {}
+  if (stored && stored.heightIn >= 58 && stored.heightIn <= 80) {
+    analysisState.heightIn = stored.heightIn;
+    analysisState.touched = { height: !!stored.touched?.height, weight: !!stored.touched?.weight };
+    analysisState.weight = analysisState.touched.weight && stored.weight >= 90 && stored.weight <= 400 ? stored.weight : defaultWeightFor(stored.heightIn);
+  } else {
+    analysisState.heightIn = ANALYSIS_DEFAULT_HEIGHT[sex] || 69;
+    analysisState.touched = { height: false, weight: false };
+    analysisState.weight = defaultWeightFor(analysisState.heightIn);
+  }
+  renderAnalysisSliders();
+
+  // Analysis: local cache for this after image → else one server call.
+  const afterHash = djb2(after);
+  const changed = afterHash !== analysisState.afterHash;
+  analysisState.afterHash = afterHash;
+  const cachedLocal = readCachedBodyAnalysis(afterHash);
+  if (cachedLocal) {
+    analysisState.analysis = cachedLocal; analysisState.fallback = false; analysisState.loading = false;
+    renderAnalysisTiles(); renderBodyMap(cachedLocal);
+    if (window.posthog) posthog.capture('analysis_loaded', { ms: 0, cached: true, fallback: false, confidence: cachedLocal.confidence, coverage: cachedLocal.photo_coverage, local: true });
+  } else if (changed || !analysisState.analysis) {
+    analysisState.analysis = null; analysisState.fallback = true;
+    loadBodyAnalysis(before, after);
+  } else {
+    renderAnalysisTiles(); renderBodyMap(analysisState.analysis);
+  }
+
+  // CTA: members build the program; everyone else starts the trial.
+  const member = isLoggedIn() && hasMemberAccess();
+  $('anTrialBtn').textContent = member ? 'Build my program →' : 'Start your 7-day free trial →';
+  $('anCtaTitle').textContent = member ? 'Your program starts from this read' : 'Try Abs by AI completely free for 7 days';
+  $('anCtaSub').textContent = member
+    ? 'The trainer and nutritionist already know what your pictures say — answer the five questions and they get sharper.'
+    : 'Try out the macro tracker, the AI workout program, the AI nutrition plan — everything in the app.';
+  $('anCtaPrice').style.display = member ? 'none' : '';
+  $('anCtaPriceApp').style.display = member ? 'none' : '';
+  const emailCaptured = !!localStorage.getItem('absbyai_email') || (isLoggedIn() && !!auth.email);
+  $('anEmailForm').style.display = emailCaptured ? 'none' : '';
+  $('anEmailDone').style.display = 'none';
+  $('anHubLink').textContent = from === 'hub' ? 'Back to my hub →' : 'Continue to my hub →';
+
+  const hasVideo = renderAnalysisVideo();
+  if (window.posthog) posthog.capture('analysis_page_seen', { from, has_video: hasVideo, logged_in: isLoggedIn(), sex, condition: analysisCond(), intensity: analysisIntensity() });
+  showScreen('analysis');
+}
+
+function persistAnalysisSliders() {
+  try {
+    localStorage.setItem(BODY_SLIDERS_KEY, JSON.stringify({
+      heightIn: analysisState.heightIn, weight: analysisState.weight, touched: analysisState.touched, at: Date.now(),
+    }));
+  } catch (e) {}
+}
+// Slider values the funnel can hand to the profile: only what the user set.
+function analysisProfilePatch() {
+  const p = {};
+  if (analysisState.touched.height) p.heightIn = analysisState.heightIn;
+  if (analysisState.touched.weight) { p.weight = analysisState.weight; p.weightUnit = 'lb'; }
+  return p;
+}
+function analysisBodyKnown() { return analysisState.touched.height && analysisState.touched.weight; }
+
+function wireAnalysisScreen() {
+  $('analysisBackBtn').addEventListener('click', () => (analysisState.from === 'hub' ? showHub() : showScreen('result')));
+  $('anHeight').addEventListener('input', (e) => {
+    analysisState.heightIn = parseInt(e.target.value, 10) || 69;
+    analysisState.touched.height = true;
+    if (!analysisState.touched.weight) analysisState.weight = defaultWeightFor(analysisState.heightIn);
+    renderAnalysisSliders(); renderAnalysisTiles();
+  });
+  $('anWeight').addEventListener('input', (e) => {
+    analysisState.weight = parseInt(e.target.value, 10) || 185;
+    analysisState.touched.weight = true;
+    renderAnalysisSliders(); renderAnalysisTiles();
+  });
+  ['anHeight', 'anWeight'].forEach((id) => $(id).addEventListener('change', () => {
+    persistAnalysisSliders();
+    if (window.posthog) posthog.capture('analysis_slider_changed', { which: id === 'anHeight' ? 'height' : 'weight', heightIn: analysisState.heightIn, weight: analysisState.weight });
+    // Already logged in: write straight to the profile (quiz merges on top later).
+    if (isLoggedIn()) {
+      const patch = analysisProfilePatch();
+      if (Object.keys(patch).length) authApi('/api/profile', { method: 'PATCH', body: JSON.stringify({ profile: patch, source: 'funnel' }) }).catch(() => {});
+    }
+  }));
+  $('anTrialBtn').addEventListener('click', () => {
+    const member = isLoggedIn() && hasMemberAccess();
+    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: member ? 'trainer' : 'trial' });
+    if (member) return openTrainer();
+    showTrialGate(null);
+  });
+  $('anHubLink').addEventListener('click', () => {
+    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: 'hub' });
+    showHub();
+  });
+  $('anEmailForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = $('anEmailInput').value.trim();
+    if (!email) return;
+    localStorage.setItem('absbyai_email', email);
+    if (window.posthog) posthog.capture('email_subscribed', { source: 'analysis' });
+    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: 'email' });
+    const { before, after } = analysisImages();
+    // Fire-and-forget: never block the page on a network hiccup.
+    fetch(`${BACKEND_URL}/api/subscribe`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, deviceId: getDeviceId(), before: before || undefined, after: after || undefined, source: 'analysis' }),
+    }).catch(() => {});
+    $('anEmailForm').style.display = 'none';
+    $('anEmailDone').style.display = '';
+  });
 }
 
 // ============================================================
@@ -5004,7 +5537,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   // Result screen
   $('resultBackBtn').addEventListener('click', () => showScreen('form'));
-  $('loveItBtn').addEventListener('click', () => { fireConfetti(); showEmailScreen(); });
+  $('loveItBtn').addEventListener('click', () => { fireConfetti(); showAnalysisScreen({ from: 'lockin' }); });
   $('moreDramaticBtn').addEventListener('click', () => adjustIntensity(1));
   $('weakChangeStrongerBtn').addEventListener('click', () => { $('weakChangeNudge').style.display = 'none'; adjustIntensity(1); });
   $('shareBeforeAfterBtn').addEventListener('click', shareResultCard);
@@ -5029,41 +5562,14 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
   $('fixItBtn').addEventListener('click', runFixPass);
 
-  // Email capture screen
-  $('emailBackBtn').addEventListener('click', () => showScreen('result'));
-  $('emailForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = $('emailInput').value.trim();
-    if (email) {
-      localStorage.setItem('absbyai_email', email);
-      if (window.posthog) posthog.capture('email_subscribed');
-      // Send the freshly-generated before/after along so the welcome email can
-      // embed the user's own transformation. Best-effort; omitted if absent.
-      const before = localStorage.getItem(LAST_BEFORE_KEY) || undefined;
-      const after = localStorage.getItem(LAST_AFTER_KEY) || undefined;
-      // Fire-and-forget: never block the user's path to the benefits bridge on a network hiccup.
-      fetch(`${BACKEND_URL}/api/subscribe`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, deviceId: getDeviceId(), before, after }),
-      }).catch(() => {});
-    }
-    showBridgeScreen();
-  });
-  $('emailSkipBtn').addEventListener('click', showBridgeScreen);
-
-  // Benefits bridge
-  $('bridgeBackBtn').addEventListener('click', () => showScreen('email'));
-  $('bridgeContinueBtn').addEventListener('click', () => {
-    if (window.posthog) posthog.capture('bridge_continue', { logged_in: isLoggedIn() });
-    showHub();
-  });
+  // Post-lock-in analysis page
+  wireAnalysisScreen();
 
   // Product screen
   $('productBackBtn').addEventListener('click', () => {
     if (upsell.returnScreen === 'transformations') return showTransformations();
     if (upsell.returnScreen === 'hub') return showHub();
-    showScreen('email');
+    showScreen('analysis');
   });
   $('productSkipBtn').addEventListener('click', returnFromUpsell);
   ['selectCanvas', 'selectPoster'].forEach(id => {
@@ -5510,6 +6016,7 @@ function applyMemberMode() {
 
 function openHubFeature(feature) {
   if (feature === 'macro') return showMacroScreen();
+  if (feature === 'analysis') return showAnalysisScreen({ from: 'hub' });
   if (feature === 'trainer') return openTrainer();
   if (feature === 'nutritionist') return openNutritionist();
   if (feature === 'counsel') return openCounsel();
@@ -5550,6 +6057,7 @@ async function seedProfileFromFunnel() {
   if (state.gender === 'male' || state.gender === 'female') profile.sex = state.gender;
   if (['heavier', 'moderate', 'fit', 'very_lean'].includes(state.condition)) profile.bodyType = state.condition;
   if (['subtle', 'moderate', 'dramatic', 'max'].includes(state.intensity)) profile.intensity = state.intensity;
+  Object.assign(profile, analysisProfilePatch()); // height/weight the user set on the analysis sliders
   if (!Object.keys(profile).length) return;
   try { await authApi('/api/profile', { method: 'PATCH', body: JSON.stringify({ profile, source: 'funnel' }) }); } catch (e) {}
 }
@@ -5603,18 +6111,33 @@ const QUIZ_STEPS = [
   },
 ];
 
+// The analysis sliders already asked height + weight; skip that step when the
+// user set both there (a filtered copy — QUIZ_STEPS itself is never mutated).
+let activeQuizSteps = QUIZ_STEPS;
 function startQuiz() {
   quizState.step = 0;
   quizState.answers = { weightUnit: 'lb', heightFt: 5, heightIn: 8 };
+  if (analysisBodyKnown()) {
+    activeQuizSteps = QUIZ_STEPS.filter((st) => st.key !== 'body');
+    quizState.answers.heightFt = Math.floor(analysisState.heightIn / 12);
+    quizState.answers.heightIn = analysisState.heightIn % 12;
+    quizState.answers.weight = analysisState.weight;
+  } else {
+    activeQuizSteps = QUIZ_STEPS;
+    if (analysisState.touched.height) {
+      quizState.answers.heightFt = Math.floor(analysisState.heightIn / 12);
+      quizState.answers.heightIn = analysisState.heightIn % 12;
+    }
+  }
   if (window.posthog) posthog.capture('quiz_started');
   renderQuiz();
   showScreen('quiz');
 }
 
 function renderQuiz() {
-  const total = QUIZ_STEPS.length;
+  const total = activeQuizSteps.length;
   const i = quizState.step;
-  const step = QUIZ_STEPS[i];
+  const step = activeQuizSteps[i];
   const a = quizState.answers;
   const fill = $('quizProgressFill');
   if (fill) fill.style.width = `${Math.round((i / total) * 100)}%`;
@@ -5704,7 +6227,7 @@ function wireQuizStep(step) {
 
 function advanceQuiz(key) {
   if (window.posthog) posthog.capture('quiz_step_completed', { step: key, index: quizState.step });
-  if (quizState.step >= QUIZ_STEPS.length - 1) return finishQuiz();
+  if (quizState.step >= activeQuizSteps.length - 1) return finishQuiz();
   quizState.step++;
   renderQuiz();
 }
@@ -6029,9 +6552,12 @@ function saveTransformationIfLoggedIn(settings) {
   // The cached pair now lives on this account — retag it so it's no longer
   // treated as anonymous carry-over material for a future different login.
   try { localStorage.setItem(LAST_OWNER_KEY, auth.email); } catch (e) {}
+  // The lock-in analysis rides along so it lands on the row (the server merges
+  // it even when the pair itself is deduped).
+  const analysis = cachedBodyAnalysisFor(after);
   authApi('/api/transformations', {
     method: 'POST',
-    body: JSON.stringify({ before, after, settings: settings || {} }),
+    body: JSON.stringify({ before, after, settings: { ...(settings || {}), ...(analysis ? { analysis } : {}) } }),
   }).catch(e => console.warn('Transformation save failed:', e.message));
 }
 
@@ -6590,6 +7116,8 @@ function initAccounts() {
       // Support stays reachable for everyone; member tools are what the trial unlocks.
       if (feature === 'support') return;
       e.preventDefault();
+      // The analysis page is free — it is the sales page, not a gated tool.
+      if (feature === 'analysis') return openHubFeature(feature);
       if (isHubPreviewMode()) return showTrialGate(feature);
       return openHubFeature(feature);
     });

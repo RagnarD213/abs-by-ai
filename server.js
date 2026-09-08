@@ -5370,7 +5370,8 @@ app.patch('/api/profile', requireAuth, async (req, res) => {
 app.get('/api/account/transformation', requireAuth, async (req, res) => {
   try {
     const { rows } = await db.query('SELECT before_image, after_image FROM users WHERE id = $1', [req.user.id]);
-    res.json({ before: rows[0]?.before_image || null, after: rows[0]?.after_image || null });
+    const analysis = await heroAnalysisFor(req.user.id);
+    res.json({ before: rows[0]?.before_image || null, after: rows[0]?.after_image || null, analysis });
   } catch (e) {
     console.error('get transformation error:', e.message);
     res.status(500).json({ error: 'Internal server error' });
@@ -5387,10 +5388,359 @@ app.post('/api/account/transformation', requireAuth, async (req, res) => {
     await db.query('UPDATE users SET before_image = $1, after_image = $2 WHERE id = $3', [before, after, req.user.id]);
     // Also record it in the gallery (dedupes internally — this endpoint fires
     // on every login/hub load with the same localStorage pair).
-    await insertTransformation(req.user.id, before, after, {});
+    const analysis = req.body?.analysis;
+    await insertTransformation(req.user.id, before, after, isBodyAnalysisShape(analysis) ? { analysis } : {});
+    // The row usually already exists (saved at generation time, before the
+    // analysis) — attach the lock-in analysis with an UPDATE, JS-merged.
+    if (isBodyAnalysisShape(analysis)) {
+      const row = await findTransformationByAfter(req.user.id, after.slice(after.indexOf(',') + 1));
+      if (row && !row.settings?.analysis) await attachAnalysisToRow(row, analysis);
+    }
     res.json({ ok: true });
   } catch (e) {
     console.error('save transformation error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ============================================================
+// BODY ANALYSIS AT LOCK-IN — POST /api/body-analysis
+// ============================================================
+// The website conversion video promises that "near your image, our AI has
+// already estimated how much fat you'll need to lose and how much muscle you'll
+// need to gain … and identified your strong and lagging body parts". Before
+// 2026-09-08 nothing did that: the result screen's body-fat row was a lookup
+// from the body type the user TAPPED, nothing estimated muscle, and nothing
+// looked at body parts until the paid trainer/nutritionist calls.
+//
+// This is one Opus 5 vision call per lock-in, structured JSON, FREE to the
+// user (no credit decrement, no deviceId billing path — AGENTS.md spend rule),
+// cached by image hash so reopening the page never re-bills. On model failure
+// the endpoint returns 502 and the CLIENT falls back to the lookup tables — the
+// server never invents numbers.
+const BODY_REGION_IDS = ['shoulders', 'chest', 'arms', 'upper_abs', 'lower_abs', 'obliques', 'back', 'legs'];
+const BODY_ANALYSIS_MODEL = 'claude-opus-5';
+const BODY_ANALYSIS_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['photo_coverage', 'confidence', 'bf_now_low', 'bf_now_high', 'bf_goal', 'muscle_base', 'muscle_gain_lb',
+    'regions', 'headline', 'focus_summary', 'training_focus', 'nutrition_direction', 'protein_g_per_lb'],
+  properties: {
+    photo_coverage: { type: 'string', enum: ['full_body', 'torso', 'upper_only'], description: 'How much of the body the BEFORE photo shows.' },
+    confidence: { type: 'string', enum: ['high', 'medium', 'low'], description: 'Never "high" when the before photo is clothed.' },
+    bf_now_low: { type: 'integer', description: 'Low end of the current body-fat estimate, whole percent, read from the BEFORE photo.' },
+    bf_now_high: { type: 'integer', description: 'High end of the current body-fat estimate, whole percent. 3-5 points above bf_now_low.' },
+    bf_goal: { type: 'integer', description: 'Body-fat percent the AFTER image depicts, whole percent, below bf_now_low.' },
+    muscle_base: { type: 'string', enum: ['building', 'moderate', 'solid', 'advanced'], description: 'Visible muscle base in the BEFORE photo.' },
+    muscle_gain_lb: { type: 'integer', description: 'Lean mass to add to reach the AFTER image, in pounds. Men: the intensity anchor adjusted by at most 2 lb from the photos. Women: always 0.' },
+    regions: {
+      type: 'array',
+      description: 'Exactly eight entries, one per region id, in this order: shoulders, chest, arms, upper_abs, lower_abs, obliques, back, legs.',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['id', 'status', 'note'],
+        properties: {
+          id: { type: 'string', enum: BODY_REGION_IDS },
+          status: { type: 'string', enum: ['strong', 'focus', 'maintain', 'not_visible'], description: 'strong = already well developed, little work needed; focus = the plan should prioritise it; maintain = fine as is; not_visible = the photo does not show it.' },
+          note: { type: 'string', description: 'One short second-person sentence, at most 90 characters, encouraging and specific.' },
+        },
+      },
+    },
+    headline: { type: 'string', description: 'At most 80 characters, second person, encouraging. E.g. "Your frame is ready for abs — the gap is fat, not muscle".' },
+    focus_summary: { type: 'string', description: 'One or two sentences: where the plan will focus and why.' },
+    training_focus: { type: 'string', description: 'At most 120 characters: the training emphasis in plain words (regions, movement patterns, cardio) — never a frequency; the app trains total-body daily.' },
+    nutrition_direction: { type: 'string', enum: ['cut', 'recomp', 'lean_bulk'] },
+    protein_g_per_lb: { type: 'number', description: 'Grams of protein per pound of goal lean mass, between 0.7 and 1.0.' },
+  },
+};
+
+// Frozen system prompt (stable text = cacheable prefix). Never interpolate
+// per-request values into it — they go in the user turn.
+const BODY_ANALYSIS_SYSTEM = `You are the body-composition reader for Abs By AI, a fitness app. The user uploaded a real photo of themselves (the BEFORE) and the app generated an AI image of the same person at their goal physique (the AFTER). Your job is to read the gap between the two and return the JSON the app's analysis page renders.
+
+WHAT TO JUDGE
+- The BEFORE is a real photograph. Read the current body-fat range and the visible muscle base from it. Be honest but land inside realistic ranges: men 5–45%, women 12–55%.
+- The AFTER is an AI-generated goal image of the SAME person. Read the body-fat percent it depicts (men 6–20%, women 13–30% — a heavier woman's AFTER image is usually 25–33%).
+- Ignore tan, skin tone, lighting, background, camera angle, clothing colour and image quality. Never comment on the face, age, or attractiveness.
+- If the BEFORE photo is clothed, the body-fat range must be wider and confidence can never be "high".
+
+MUSCLE TO GAIN (men only)
+The app's generation intensity sets the anchor for lean mass added in the AFTER image: subtle ≈ +2 lb, moderate ≈ +4 lb, dramatic ≈ +6 lb, max ≈ +8 lb. Start from the anchor the user turn gives you and adjust by at most ±2 lb from what the two images actually show. A man who is already muscular and mostly needs to lose fat sits below the anchor; a slim man whose AFTER shows a much fuller frame sits above it.
+Women: muscle_gain_lb is always 0 and you never use added-mass language. For a woman the entire change is lower body fat and sharper definition on the frame she already has.
+
+BODY REGIONS
+Return exactly eight regions in this order: shoulders, chest, arms, upper_abs, lower_abs, obliques, back, legs. For each, choose:
+- "strong" — already well developed relative to the goal; little work needed.
+- "focus" — the plan should prioritise it to reach the AFTER image.
+- "maintain" — fine as it is.
+- "not_visible" — the photo does not show it (say so honestly: legs and back in a torso shot, arms if cropped). Never guess a hidden region.
+Aim for 2–4 focus regions. Each note is one short second-person sentence (max 90 characters), specific to what you see, encouraging — never the words "weak", "lagging", "poor" or "bad".
+
+TONE
+Second person, direct, encouraging, factual. Never judgmental, never medical: no diagnoses, no health claims, no words like "obese" or "overweight". The headline (max 80 characters) names the single biggest lever — fat vs muscle vs definition.
+
+TRAINING FOCUS
+Abs By AI's trainer programs total-body sessions DAILY, each ending with an abs finisher — that is fixed. training_focus names the EMPHASIS only (which regions to load first, what movement patterns, cardio or step targets), never a training frequency or days-per-week.
+
+NUTRITION
+nutrition_direction: "cut" when body fat is the main gap, "recomp" when fat and muscle are both moderate gaps, "lean_bulk" when the user is already lean and the AFTER is mostly added muscle. protein_g_per_lb between 0.7 and 1.0 (higher when cutting harder).
+
+Output only the JSON.`;
+
+const BODY_ANALYSIS_ANCHOR = { subtle: 2, moderate: 4, dramatic: 6, max: 8 };
+// Table midpoint for the body type the user tapped — the calibration signal
+// logged against every model read (client tables: BF_BEFORE in index.html).
+const BODY_ANALYSIS_TABLE_MID = {
+  male: { heavier: 30, moderate: 22, fit: 16, very_lean: 12 },
+  female: { heavier: 38, moderate: 30, fit: 23.5, very_lean: 19 },
+};
+
+// In-memory cache, capped at 500 entries (oldest evicted). Key = image hashes +
+// sex + intensity, so a "more dramatic" regeneration (new after image) is a new
+// read while reopening the page is free.
+const bodyAnalysisCache = new Map();
+const BODY_ANALYSIS_CACHE_MAX = 500;
+function bodyAnalysisCacheKey(beforeBase64, afterBase64, sex, intensity) {
+  const h = (s) => crypto.createHash('sha256').update(s).digest('hex');
+  return `${h(beforeBase64)}:${h(afterBase64)}:${sex}:${intensity}`;
+}
+function rememberBodyAnalysis(key, analysis) {
+  if (bodyAnalysisCache.has(key)) bodyAnalysisCache.delete(key);
+  bodyAnalysisCache.set(key, analysis);
+  while (bodyAnalysisCache.size > BODY_ANALYSIS_CACHE_MAX) {
+    bodyAnalysisCache.delete(bodyAnalysisCache.keys().next().value);
+  }
+}
+
+// Clamp the model's numbers into the app's published ranges and make the
+// region list complete no matter what came back.
+function clampBodyAnalysis(raw, sex) {
+  const a = { ...raw };
+  const female = sex === 'female';
+  const clampInt = (v, lo, hi, dflt) => {
+    const n = Math.round(Number(v));
+    return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : dflt;
+  };
+  const bfLo = female ? 12 : 5, bfHi = female ? 55 : 45;
+  a.bf_now_low = clampInt(a.bf_now_low, bfLo, bfHi, female ? 28 : 20);
+  a.bf_now_high = clampInt(a.bf_now_high, a.bf_now_low, bfHi, a.bf_now_low + 4);
+  if (a.bf_now_high < a.bf_now_low + 2) a.bf_now_high = Math.min(bfHi, a.bf_now_low + 2);
+  const goalFloor = female ? 13 : 6;
+  a.bf_goal = clampInt(a.bf_goal, goalFloor, bfHi, goalFloor);
+  if (a.bf_goal >= a.bf_now_low) a.bf_goal = Math.max(goalFloor, a.bf_now_low - 1);
+  a.muscle_gain_lb = female ? 0 : clampInt(a.muscle_gain_lb, 0, 10, 4);
+  a.protein_g_per_lb = Math.min(1.0, Math.max(0.7, Number(a.protein_g_per_lb) || 0.85));
+  if (!['full_body', 'torso', 'upper_only'].includes(a.photo_coverage)) a.photo_coverage = 'torso';
+  if (!['high', 'medium', 'low'].includes(a.confidence)) a.confidence = 'medium';
+  if (!['building', 'moderate', 'solid', 'advanced'].includes(a.muscle_base)) a.muscle_base = 'moderate';
+  if (!['cut', 'recomp', 'lean_bulk'].includes(a.nutrition_direction)) a.nutrition_direction = 'cut';
+  const byId = {};
+  for (const r of Array.isArray(a.regions) ? a.regions : []) {
+    if (r && BODY_REGION_IDS.includes(r.id) && !byId[r.id]) byId[r.id] = r;
+  }
+  a.regions = BODY_REGION_IDS.map((id) => {
+    const r = byId[id] || { id, status: 'not_visible', note: '' };
+    const status = ['strong', 'focus', 'maintain', 'not_visible'].includes(r.status) ? r.status : 'not_visible';
+    return { id, status, note: String(r.note || '').slice(0, 120) };
+  });
+  a.headline = String(a.headline || '').slice(0, 120);
+  a.focus_summary = String(a.focus_summary || '').slice(0, 400);
+  a.training_focus = String(a.training_focus || '').slice(0, 160);
+  return a;
+}
+
+// Shape-check a stored analysis before trusting it (it lives in JSONB rows the
+// client can write to via settings).
+function isBodyAnalysisShape(a) {
+  return !!(a && typeof a === 'object' && Number.isFinite(Number(a.bf_now_low)) && Number.isFinite(Number(a.bf_goal)) && Array.isArray(a.regions));
+}
+
+// Find the user's transformation row whose after image is this one (the row
+// is saved at generation time, before the analysis exists, so the analysis is
+// attached with an UPDATE — insertTransformation would just dedupe).
+async function findTransformationByAfter(userId, afterBase64) {
+  if (!db || !userId || !afterBase64) return null;
+  try {
+    const { rows } = await db.query(
+      'SELECT id, after_image, settings FROM transformations WHERE user_id = $1 ORDER BY id DESC LIMIT 5', [userId]
+    );
+    for (const r of rows) {
+      const stored = String(r.after_image || '');
+      const comma = stored.indexOf(',');
+      if (comma > 0 && stored.slice(comma + 1) === afterBase64) return r;
+    }
+  } catch (e) { console.error('findTransformationByAfter error:', e.message); }
+  return null;
+}
+
+// JS read-modify-write merge of settings.analysis onto one row (pg-mem has no
+// jsonb `||`; same pattern as writeProfileMerge).
+async function attachAnalysisToRow(row, analysis) {
+  if (!db || !row || !isBodyAnalysisShape(analysis)) return false;
+  try {
+    const current = (row.settings && typeof row.settings === 'object') ? row.settings : {};
+    const next = { ...current, analysis, analysisAt: new Date().toISOString() };
+    await db.query('UPDATE transformations SET settings = $1 WHERE id = $2', [JSON.stringify(next), row.id]);
+    return true;
+  } catch (e) { console.error('attachAnalysisToRow error:', e.message); return false; }
+}
+
+async function heroAnalysisFor(userId) {
+  if (!db || !userId) return null;
+  try {
+    const { rows } = await db.query(
+      'SELECT settings FROM transformations WHERE user_id = $1 AND is_hero = true ORDER BY id DESC LIMIT 1', [userId]
+    );
+    const a = rows[0]?.settings?.analysis;
+    return isBodyAnalysisShape(a) ? a : null;
+  } catch (e) { return null; }
+}
+
+// One labelled line for the trainer / nutritionist prompts — additive context
+// only, the feature's own photos and questions still take precedence. This is
+// what makes "the pictures do the work" true inside the paid features.
+function bodyAnalysisPromptLine(a) {
+  if (!isBodyAnalysisShape(a)) return '';
+  const mid = Math.round((Number(a.bf_now_low) + Number(a.bf_now_high || a.bf_now_low)) / 2);
+  const pick = (status) => (a.regions || []).filter((r) => r.status === status).map((r) => String(r.id).replace('_', ' '));
+  const focus = pick('focus'), strong = pick('strong'), hidden = pick('not_visible');
+  const parts = [
+    `body fat ~${mid}% now, goal ${a.bf_goal}%`,
+    Number(a.muscle_gain_lb) > 0 ? `lean mass to add ≈ +${a.muscle_gain_lb} lb` : 'no added mass — definition only',
+    focus.length ? `focus: ${focus.join(', ')}` : '',
+    strong.length ? `already strong: ${strong.join(', ')}` : '',
+    hidden.length ? `not visible in the photo: ${hidden.join(', ')}` : '',
+    a.photo_coverage ? `coverage: ${String(a.photo_coverage).replace('_', ' ')}` : '',
+    a.training_focus ? `training focus: "${a.training_focus}"` : '',
+  ].filter(Boolean);
+  return `Photo analysis at lock-in (visual estimate from the user's own before/after pair, additive context only): ${parts.join('; ')}.`;
+}
+
+app.post('/api/body-analysis', aiLimiter, (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
+  try {
+    const { beforeBase64, beforeMime, afterBase64, afterMime } = req.body || {};
+    if (!beforeBase64 || !afterBase64 || typeof beforeBase64 !== 'string' || typeof afterBase64 !== 'string') {
+      return res.status(400).json({ error: 'Missing before/after image' });
+    }
+    // ~6 MB per image, measured on the base64 string (4/3 of the bytes).
+    const MAX_B64 = 8 * 1024 * 1024;
+    if (beforeBase64.length > MAX_B64 || afterBase64.length > MAX_B64) {
+      return res.status(413).json({ error: 'Image too large' });
+    }
+    const sex = req.body.sex === 'female' ? 'female' : 'male';
+    const condition = ['heavier', 'moderate', 'fit', 'very_lean'].includes(req.body.condition) ? req.body.condition : 'moderate';
+    const intensity = ['subtle', 'moderate', 'dramatic', 'max'].includes(req.body.intensity) ? req.body.intensity : 'dramatic';
+    const clothed = !!req.body.clothed;
+    const description = String(req.body.description || '').slice(0, 300);
+
+    const key = bodyAnalysisCacheKey(beforeBase64, afterBase64, sex, intensity);
+    const hit = bodyAnalysisCache.get(key);
+    if (hit) return res.json({ analysis: hit, cached: true });
+
+    // Logged in: the row may already carry an analysis from an earlier device.
+    let row = null;
+    if (req.user) {
+      row = await findTransformationByAfter(req.user.id, afterBase64);
+      const stored = row?.settings?.analysis;
+      if (isBodyAnalysisShape(stored)) {
+        rememberBodyAnalysis(key, stored);
+        return res.json({ analysis: stored, cached: true });
+      }
+    }
+
+    if (!ANTHROPIC_API_KEY) return res.status(502).json({ error: 'Analysis unavailable' });
+
+    const anchor = BODY_ANALYSIS_ANCHOR[intensity] || 6;
+    const userContent = [
+      { type: 'image', source: { type: 'base64', media_type: sniffImageMime(beforeBase64, beforeMime || 'image/jpeg'), data: beforeBase64 } },
+      { type: 'text', text: `BEFORE — the user's real photo${clothed ? ' (clothed: widen the range, confidence at most "medium")' : ''}.` },
+      { type: 'image', source: { type: 'base64', media_type: sniffImageMime(afterBase64, afterMime || 'image/png'), data: afterBase64 } },
+      { type: 'text', text:
+        `AFTER — the AI-generated goal image of the same person.\n` +
+        `Sex: ${sex}. Body type the user tapped: ${condition.replace('_', ' ')}. Generation intensity: ${intensity} ` +
+        `(${sex === 'male' ? `anchor for muscle_gain_lb: +${anchor} lb, adjust by at most ±2 lb from the images` : 'women: muscle_gain_lb = 0'}).` +
+        (description ? `\nWhat the user wrote on the form: "${description}"` : '') +
+        `\nRead the gap and return the JSON.` },
+    ];
+
+    // Bound the call: a stalled connection to Anthropic would otherwise hang
+    // forever (node-fetch has no default timeout). 60 s is plenty for one
+    // structured read at medium effort.
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 60000);
+    const t0 = Date.now();
+    let response, data;
+    try {
+      response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+          // Server-side refusal fallback: a safety-classifier decline re-runs
+          // the same request on a fallback model inside this call, routed by
+          // refusal category (fallbacks: 'default' needs this exact header).
+          'anthropic-beta': 'server-side-fallback-2026-07-01',
+        },
+        body: JSON.stringify({
+          model: BODY_ANALYSIS_MODEL,
+          // Opus 5 thinks adaptively by default (no `thinking` param); the
+          // thinking tokens count toward max_tokens, so leave headroom above
+          // the ~700-token JSON.
+          max_tokens: 6000,
+          system: [{ type: 'text', text: BODY_ANALYSIS_SYSTEM, cache_control: { type: 'ephemeral' } }],
+          output_config: { effort: 'medium', format: { type: 'json_schema', schema: BODY_ANALYSIS_SCHEMA } },
+          fallbacks: 'default',
+          messages: [{ role: 'user', content: userContent }],
+        }),
+        signal: controller.signal,
+      });
+      data = await response.json();
+    } finally {
+      clearTimeout(timer);
+    }
+    if (!response.ok) {
+      return res.status(response.status >= 500 ? 502 : response.status).json({ error: friendlyAIError(response.status, data?.error?.message) });
+    }
+    if (data?.stop_reason === 'refusal') {
+      console.error('body-analysis refusal:', data?.stop_details?.category || 'unknown', data?.stop_details?.explanation || '');
+      return res.status(502).json({ error: 'Analysis unavailable for this photo' });
+    }
+    // With thinking on, the text block is not necessarily content[0].
+    const textBlock = (data?.content || []).find((b) => b.type === 'text');
+    let parsed;
+    try { parsed = JSON.parse(textBlock?.text || ''); }
+    catch { return res.status(502).json({ error: 'Model returned an unparseable analysis' }); }
+
+    const analysis = clampBodyAnalysis(parsed, sex);
+    analysis.model = data?.model || BODY_ANALYSIS_MODEL;
+    rememberBodyAnalysis(key, analysis);
+
+    // Calibration signal: the model's midpoint against the table midpoint for
+    // the body type the user tapped. Greppable; no images, no identity.
+    const mid = (analysis.bf_now_low + analysis.bf_now_high) / 2;
+    const tableMid = BODY_ANALYSIS_TABLE_MID[sex]?.[condition];
+    const u = data?.usage || {};
+    console.log('body_analysis_calibration', JSON.stringify({
+      sex, condition, intensity, clothed, coverage: analysis.photo_coverage, confidence: analysis.confidence,
+      model_bf_mid: mid, table_bf_mid: tableMid, delta: tableMid != null ? +(mid - tableMid).toFixed(1) : null,
+      bf_goal: analysis.bf_goal, muscle_gain_lb: analysis.muscle_gain_lb, anchor,
+      ms: Date.now() - t0, model: analysis.model,
+      input_tokens: u.input_tokens, output_tokens: u.output_tokens,
+      cache_read: u.cache_read_input_tokens, cache_write: u.cache_creation_input_tokens,
+    }));
+
+    // Persist onto the matching transformation row when logged in (best-effort).
+    if (req.user) {
+      if (!row) row = await findTransformationByAfter(req.user.id, afterBase64);
+      if (row) attachAnalysisToRow(row, analysis).catch(() => {});
+    }
+
+    res.json({ analysis, cached: false });
+  } catch (err) {
+    console.error('body-analysis error:', err);
+    if (err.name === 'AbortError') return res.status(504).json({ error: 'Analysis timed out' });
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -5474,6 +5824,11 @@ app.post('/api/transformations', requireAuth, async (req, res) => {
     // Mirror to the legacy columns (latest generation is the hub hero).
     if (id) {
       await db.query('UPDATE users SET before_image = $1, after_image = $2 WHERE id = $3', [before, after, req.user.id]);
+    } else if (isBodyAnalysisShape(settings.analysis)) {
+      // Deduped: the pair was saved before the lock-in analysis existed. Attach
+      // it to that row now (JS merge — pg-mem has no jsonb `||`).
+      const row = await findTransformationByAfter(req.user.id, after.slice(after.indexOf(',') + 1));
+      if (row && !row.settings?.analysis) await attachAnalysisToRow(row, settings.analysis);
     }
     res.json({ id, deduped: !id });
   } catch (e) {
@@ -7243,6 +7598,10 @@ app.post('/api/generate-program', aiLimiter, optionalAuth, async (req, res) => {
       if (sleepLine) extraLines.push(sleepLine);
       const weightLine = await getWeightContext(req.user.id);
       if (weightLine) extraLines.push(weightLine);
+      // Lock-in photo analysis (settings.analysis on the hero row) — additive
+      // context so the program starts from what the funnel already read.
+      const analysisLine = bodyAnalysisPromptLine(await heroAnalysisFor(req.user.id));
+      if (analysisLine) extraLines.push(analysisLine);
     }
 
     // Fast + reliable: AI week 1 (with the assessment) now; weeks 2-4 come back
@@ -7790,6 +8149,8 @@ app.post('/api/generate-mealplan', aiLimiter, optionalAuth, async (req, res) => 
       if (sleepLine) userContent.push({ type: 'text', text: sleepLine });
       const weightLine = await getWeightContext(req.user.id);
       if (weightLine) userContent.push({ type: 'text', text: weightLine });
+      const analysisLine = bodyAnalysisPromptLine(await heroAnalysisFor(req.user.id));
+      if (analysisLine) userContent.push({ type: 'text', text: analysisLine });
     }
 
     let plan;

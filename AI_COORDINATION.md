@@ -38,6 +38,13 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Post-lock-in "Your analysis" page — LIVE 2026-09-08, three defaults for Dan to confirm.** The email + bridge screens
+are gone; "Lock in this goal" now opens `analysis` (video slot, height/weight sliders, the four numbers, body map from
+`POST /api/body-analysis` on `claude-opus-5`, trial CTA + email ask). Defaults shipped: women's height default is 5'4"
+(men 5'9"); the video block is hidden until `ANALYSIS_VIDEO` in `index.html` gets a URL (`?vp=1` shows the placeholder);
+recommended hosting for rev 4 is a YouTube unlisted upload. **Native retest needed** (lock-in → sliders → trial CTA on
+iOS/Android). Delete this entry once Dan confirms or changes the defaults.
+
 **Editor rounds out 2026-09-08 — waiting on the editors, nothing for a session to do.** Dan reviewed, edited and
 sent all eight docs on 09-08 (Muhammad Ads 3–8 in the batch-2 doc, Waleed round 3 in a new doc, Zeeshan round 3 at the
 top of his doc). Next deliveries get the same sweep; the skill was recalibrated from his edits (calibration pass 2,
@@ -289,18 +296,14 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
-prompts; the fifth is NOT on the board (he did not ask). Whoever runs one deletes its row there (if any) AND removes it
-here and from `Handoffs/README.md`.
+Swept 2026-09-08. All four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
+prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
 - **`Handoffs/handoff-20260812-purchase-before-account.md`** — after approval AND after the RevenueCat audit.
 - **`Handoffs/handoff-20260818-android-public-build-swap.md`** — small; needs Dan's Android phone on adb.
 - **`Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md`** — last 7 of 70 posts; re-run
   `scripts/blotato/iggap_fill.py --apply` from ~09-12 once the 200/200 Blotato queue has drained 7 slots.
-- **`Handoffs/handoff-20260908-post-lockin-analysis-page.md`** — the new screen after "Lock in this goal" (replaces the
-  email + bridge screens): video slot, height/weight sliders, body-fat + lean-muscle numbers, body map, trial CTA, new
-  `POST /api/body-analysis` vision call. Spec'd 2026-09-08 from Dan's answers; fire any time, Fable 5.1 high effort.
 
 Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md` (superseded — the @danrosefit profile-visits
 campaign has been live via the API script since 09-02), `handoff-20260902-shorts-centering-queue-fix.md` (done

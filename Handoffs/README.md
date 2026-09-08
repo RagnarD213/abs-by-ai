@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260908-post-lockin-analysis-page.md](handoff-20260908-post-lockin-analysis-page.md) | any time — no dependency; Dan fires it (Fable 5.1, high effort). Not on the dashboard (he did not ask). |
 | [handoff-20260812-revenuecat-restore-behavior-audit.md](handoff-20260812-revenuecat-restore-behavior-audit.md) | fire the day Apple approves (IN_REVIEW since 09-08) |
 | [handoff-20260812-purchase-before-account.md](handoff-20260812-purchase-before-account.md) | after approval AND after the RevenueCat audit |
 | [handoff-20260818-android-public-build-swap.md](handoff-20260818-android-public-build-swap.md) | small; needs Dan's Android phone on adb |
@@ -23,6 +22,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Why |
 |---|---|
+| [handoff-20260908-post-lockin-analysis-page.md](handoff-20260908-post-lockin-analysis-page.md) | executed 2026-09-08 — `analysis` screen + `POST /api/body-analysis` live |
 | [handoff-20260901-danrosefit-ad-identity-fix.md](handoff-20260901-danrosefit-ad-identity-fix.md) | superseded — @danrosefit profile-visits campaign live via the API script since 09-02 |
 | [handoff-20260902-shorts-centering-queue-fix.md](handoff-20260902-shorts-centering-queue-fix.md) | done 09-02 |
 | [handoff-20260902-google-ads-engagement-champion-automation.md](handoff-20260902-google-ads-engagement-champion-automation.md) | built 09-03, switched ON 2026-09-08 (first live run 22:00 UTC); operating doc `Docs/YTADS.md` |
