@@ -41,8 +41,7 @@ is the permanent record of code changes.
 **Editor rounds out 2026-09-08 — waiting on the editors, nothing for a session to do.** Dan reviewed, edited and
 sent all eight docs on 09-08 (Muhammad Ads 3–8 in the batch-2 doc, Waleed round 3 in a new doc, Zeeshan round 3 at the
 top of his doc). Next deliveries get the same sweep; the skill was recalibrated from his edits (calibration pass 2,
-rules 12–21). ⚠ The scripts doc (`1AVRvxiINZ0EDkoFv77piXbg5xGuizHGuHE7vRVWXRKk`) still tells editors to use the app's
-before/after reveal (Ad 5 L343, Ad 6 L429) and Ad 8's split screen (L525) — correct it before Ads 9–15 are cut.
+rules 12–21). The scripts doc's three before/after cue lines (Ad 5, Ad 6, Ad 8) were corrected 2026-09-08.
 Delete this entry once the next cuts arrive.
 
 **IG auto-boost — BUILT, DEPLOYED, DRY-RUNNING HOURLY; waiting on Dan's word to switch it ON** (2026-09-02).
