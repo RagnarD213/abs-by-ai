@@ -58,15 +58,10 @@ console.log('\n1. NEW-VIDEO DISCOVERY');
         E.cleanTitle('Bad · title | here') === 'Bad title here' && E.cleanTitle('x'.repeat(100)).length === 70 && E.cleanTitle('x'.repeat(100)).endsWith('…'));
   {
     const legacy = ad({ campaign: T2, name: 'AUTO test yt:legacyVid01 · tier2 · 2026-09-08', labels: ['AUTO', 'AUTO:TEST'], life: [1, 2] });
-    const named = ad({ campaign: T2, name: 'AUTO test · Already Named · yt:namedVid001 · tier2 · 2026-09-08', labels: ['AUTO', 'AUTO:TEST'], life: [1, 2] });
-    const unknown = ad({ campaign: T2, name: 'AUTO test yt:unknownVid1 · tier2 · 2026-09-08', labels: ['AUTO', 'AUTO:TEST'], life: [1, 2] });
-    const r2 = run({ snapshot: snap([ad({ campaign: T2, name: 'dan 1', life: [20, 60] }), legacy, named, unknown]),
-                     videos: [video('legacyVid01', '2026-09-03T22:00:00Z', 'Hire A Maid Instead Of A Personal Trainer'), video('namedVid001', '2026-09-03T22:00:00Z', 'Already Named')] });
-    const renames = ops(r2, 'renameAd');
-    check('a legacy-named AUTO ad whose video the feed knows gets exactly one renameAd', renames.length === 1 && renames[0].adId === legacy.adId, renames.map(c => c.name));
-    check('the rename keeps the machine tail and prepends the title', renames[0] && renames[0].name === 'AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:legacyVid01 · tier2 · 2026-09-08', renames[0] && renames[0].name);
-    check('already-titled and feed-unknown ads are left alone', !renames.some(c => c.adId === named.adId || c.adId === unknown.adId));
-    check('the rename carries the old name for reversal', renames[0] && renames[0].oldName === legacy.name);
+    const r2 = run({ snapshot: snap([ad({ campaign: T2, name: 'dan 1', life: [20, 60] }), legacy]),
+                     videos: [video('legacyVid01', '2026-09-03T22:00:00Z', 'Hire A Maid Instead Of A Personal Trainer')], headlines: { legacyVid01: HL } });
+    check('a legacy-named AUTO ad is never renamed (Ad.name is immutable) and still counts as the video\'s test', !r2.commands.some(c => c.op === 'renameAd') && !ops(r2, 'createAd').some(c => c.videoId === 'legacyVid01'), r2.commands.map(c => c.op));
+    check('lacksTitle recognises the legacy format only', E.lacksTitle(legacy) && !E.lacksTitle({ name: 'AUTO test · T · yt:x · tier2 · 2026-09-08' }));
   }
   check('labels AUTO + AUTO:TEST', creates[0].labels.add.join() === 'AUTO,AUTO:TEST');
   check('business name / url / logo / CTA copied from the existing ad', creates[0].businessName === 'Abs by AI' && creates[0].finalUrls[0] === 'https://absbyai.com/' && creates[0].logoImages.length === 1 && creates[0].callToActions[0] === 'customers/1/assets/cta1');

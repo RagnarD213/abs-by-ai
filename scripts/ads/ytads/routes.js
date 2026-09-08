@@ -218,7 +218,6 @@ module.exports = function mountYtads(app, { pool }) {
             continue;
           }
           if (!r.ok) { await db.event(c.videoId || null, c.campaign, c.adId || null, 'error', { ...base, name: c.name || null }); }
-          if (c.op === 'renameAd' && r.ok) { await db.event(c.videoId || null, c.campaign, c.adId || null, 'renamed', { ...base, from: c.oldName, to: c.name }); }
           if (c.op === 'createAd' && r.ok) {
             await db.event(c.videoId, c.campaign, r.adId || null, 'created', { name: c.name, resourceName: r.resourceName || null, videoTitle: c.videoTitle,
               headlines: c.headlines, longHeadlines: c.longHeadlines, descriptions: c.descriptions, labelErrors: r.labelErrors || null });

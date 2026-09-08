@@ -86,7 +86,8 @@ function testAdName(videoId, key, now, title) {
   return t ? `AUTO test · ${t} · yt:${videoId} · ${key} · ${ymd(now)}`
            : `AUTO test yt:${videoId} · ${key} · ${ymd(now)}`;
 }
-// An AUTO ad created before titles went into names (format "AUTO test yt:…").
+// An AUTO ad created before titles went into names (format "AUTO test yt:…"). Kept for
+// reporting only — such an ad cannot be renamed (see plan()).
 const lacksTitle = (ad) => /^AUTO test yt:/.test(ad.name || '');
 
 // Resolve which snapshot campaign is which key. Unknown campaigns are ignored and
@@ -334,21 +335,10 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
     }
   }
 
-  // ── Name migration: AUTO ads named before titles were added get the title
-  // prepended, once, when the feed still knows the video. Reversible (the old
-  // name is in the command) and idempotent (the new format no longer matches).
-  const titleById = {}; for (const v of (videos || [])) if (v && v.id) titleById[v.id] = v.title;
-  for (const key of CAMPAIGN_KEYS) {
-    if (!campaigns[key]) continue;
-    for (const ad of adsBy[key]) {
-      if (!isAuto(ad) || !lacksTitle(ad)) continue;
-      const vid = videoIdOf(ad.name); const title = vid && titleById[vid];
-      if (!title) continue;
-      const tail = /yt:.*$/.exec(ad.name)[0];
-      cmd({ op: 'renameAd', campaign: key, adId: ad.adId, resourceName: ad.resourceName, videoId: vid, reason: 'name:add-title',
-            oldName: ad.name, name: `AUTO test · ${cleanTitle(title)} · ${tail}` });
-    }
-  }
+  // NOTE (measured 2026-09-08 23:38 UTC): Ad.name is IMMUTABLE — Google answers
+  // "Field 'name' cannot be modified by 'UPDATE' operation". Legacy-named AUTO ads
+  // therefore cannot be renamed; the nine from the first live run were removed by hand
+  // (manual queue) and recreated by the next run under titled names. Never emit renames.
 
   const report = {
     at: now.toISOString(), dryRun: !!dryRun,
@@ -356,7 +346,7 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
     campaigns: perCampaign, skipped, waitingHeadlines, warnings,
     counts: { commands: commands.length, createAd: commands.filter(c => c.op === 'createAd').length,
               pauseAd: commands.filter(c => c.op === 'pauseAd').length, label: commands.filter(c => c.op === 'label').length,
-              renameAd: commands.filter(c => c.op === 'renameAd').length },
+              manual: commands.filter(c => c.op === 'mutate').length },
   };
   return { commands, report };
 }

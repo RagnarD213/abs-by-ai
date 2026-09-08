@@ -45,7 +45,7 @@ over-weight the AI angle just because it appears in many of Dan's lines.
 
 ## The shapes he uses
 
-- **Headline (30 chars max) = the video's subject, stated plainly, Title Case, 3–7 words.** Five recurring
+- **Headline (40 chars max, Demand Gen limit; Dan's own run 25–35) = the video's subject, stated plainly, Title Case, 3–7 words.** Five recurring
   patterns, in order of how often he uses them:
   1. Subject + qualifier: *"Home Six Pack Abs Workout For Men"*, *"1 Min Home Ab Workout For Men"*,
      *"The Four Ab Muscle Groups"*, *"The Truth About Supplements"*.
