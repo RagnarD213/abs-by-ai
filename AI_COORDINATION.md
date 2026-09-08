@@ -76,7 +76,9 @@ Verified live: commented FOOD from @abs.by.ai on `instagram.com/p/DdAIo4-j_RS/` 
 payload is a postback, phone only); its `utm_campaign` was instead read straight out of each of the five
 live automations. Ids, copy, keyword-collision reasoning and the editing traps: `Docs/MANYCHAT_KEYWORDS.md`.
 Rewriter: `scripts/manychat/keyword_split.py` (idempotent, dry run by default).
-⚠ **The test comment "FOOD" + its auto-reply are still on that live post** — Dan says whether to delete them.
+The test comment and its auto-reply were deleted afterwards (post re-read: "No comments yet").
+⚠ Instagram in Dan's Chrome is left signed in as **@abs.by.ai** (switched for the test) — switch it back to
+@danrosefit; the extension wedged before it could be done.
 ⚠ The ManyChat account shows a **TRIAL** badge. If the Pro trial lapses, "any post or reel" dies for all six
 keywords at once. Still open from the original build: whether to switch off Blotato's IG auto first-comment
 (**ask before touching it**, queue-wide), and the CTA reels are eligible for the 2026-08-31 paid-ads specs.
