@@ -17,7 +17,7 @@
 
 var SERVER = 'https://absbyai.com';
 var KEY = 'PASTE_YTADS_KEY_HERE';   // = YTADS_KEY on Railway. Never commit a real key.
-var SNAPSHOT_VERSION = 2;   // 2 = renameAd op supported (2026-09-08)
+var SNAPSHOT_VERSION = 3;   // 2 = renameAd op (2026-09-08); 3 = generic mutate op for Dan's queued edits (2026-09-08)
 
 function main() {
   var cid = AdsApp.currentAccount().getCustomerId().replace(/-/g, '');
@@ -215,6 +215,15 @@ function execute(cid, c, labels, snapshot) {
     out.ok = true; out.resourceName = c.resourceName; out.name = c.name;
     return out;
   }
+  if (c.op === 'mutate') {
+    // A one-off edit Dan asked for, queued on the server (scripts/ads/ytads/manual.js): the
+    // operation object is passed straight to AdsApp.mutate. Optional labels apply after.
+    var r4 = AdsApp.mutate(c.mutation);
+    if (!r4.isSuccessful()) { out.error = r4.getErrorMessages().join('; '); return out; }
+    out.ok = true; out.resourceName = r4.getResourceName() || c.resourceName || null;
+    if (c.labels && c.resourceName) out.labelErrors = applyLabels(cid, c.resourceName, c.labels, labels);
+    return out;
+  }
   if (c.op === 'label') {
     var errs = applyLabels(cid, c.resourceName, c.labels, labels);
     out.ok = errs.length === 0; if (errs.length) out.error = errs.join('; ');
@@ -273,5 +282,6 @@ function describe(c) {
   var s = c.op + ' [' + c.campaign + '] ' + (c.reason || '') + ' ' + (c.name || c.resourceName || c.adId || '');
   if (c.op === 'createAd') s += ' | ' + (c.headlines || []).join(' / ');
   if (c.op === 'renameAd') s += ' | was: ' + (c.oldName || '');
+  if (c.op === 'mutate') s += ' | ' + (c.note || JSON.stringify(c.mutation || {}).slice(0, 200));
   return s;
 }

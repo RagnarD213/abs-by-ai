@@ -57,6 +57,16 @@ module.exports = function mountYtads(app, { pool }) {
         );
         CREATE INDEX IF NOT EXISTS ytads_events_video_idx ON ytads_events (video_id);
         CREATE INDEX IF NOT EXISTS ytads_events_at_idx ON ytads_events (at);
+        CREATE TABLE IF NOT EXISTS ytads_manual (
+          id         SERIAL PRIMARY KEY,
+          at         TIMESTAMPTZ NOT NULL DEFAULT now(),
+          note       TEXT,
+          command    JSONB NOT NULL,
+          status     TEXT NOT NULL DEFAULT 'pending',
+          run_id     INTEGER,
+          result     JSONB,
+          done_at    TIMESTAMPTZ
+        );
         CREATE TABLE IF NOT EXISTS ytads_runs (
           id         SERIAL PRIMARY KEY,
           at         TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -87,6 +97,12 @@ module.exports = function mountYtads(app, { pool }) {
     latestRun: async () => (await pool.query('SELECT id, at, dry_run, enabled, commands, report, results, results_at FROM ytads_runs ORDER BY at DESC LIMIT 1')).rows[0] || null,
     getRun: async (id) => (await pool.query('SELECT id, at, dry_run, enabled, commands, report, results, results_at FROM ytads_runs WHERE id = $1', [id])).rows[0] || null,
     saveResults: (id, results) => pool.query('UPDATE ytads_runs SET results = $2, results_at = now() WHERE id = $1', [id, JSON.stringify(results)]),
+    // Dan-requested one-off edits (copy changes, re-enables, renames). Enqueued with
+    // scripts/ads/ytads/manual.js; the next sync appends them to the plan as
+    // commands "m<id>", and the results call marks them done or failed.
+    manualPending: async () => (await pool.query("SELECT id, note, command FROM ytads_manual WHERE status = 'pending' ORDER BY id")).rows,
+    manualClaim: (ids, runId) => ids.length ? pool.query("UPDATE ytads_manual SET status = 'sent', run_id = $2 WHERE id = ANY($1::int[])", [ids, runId]) : Promise.resolve(),
+    manualDone: (id, ok, result) => pool.query("UPDATE ytads_manual SET status = $2, result = $3, done_at = now() WHERE id = $1", [id, ok ? 'done' : 'failed', JSON.stringify(result || {})]),
   };
 
   function scriptAuth(req, res, next) {
@@ -149,8 +165,15 @@ module.exports = function mountYtads(app, { pool }) {
       report.warnings = [...warnings, ...report.warnings];
       report.videosSeen = videos.length;
 
+      // Dan's one-off edits ride along with the hourly plan (live runs only; a dry run
+      // would report them skipped and they must stay pending until a live run).
+      const manual = dryRun ? [] : await db.manualPending();
+      for (const m of manual) commands.push({ ...m.command, id: `m${m.id}`, manualId: m.id, reason: m.command.reason || 'manual', note: m.note || null, dryRun: false });
+      if (manual.length) report.counts.manual = manual.length;
+
       const snapshotStored = { ...snapshot, receivedAt: new Date().toISOString() };
       const run = await db.run(dryRun, isEnabled, snapshotStored, commands, report);
+      await db.manualClaim(manual.map(m => m.id), run.id);
 
       // Day-one pause list is written BEFORE the script executes it — reversibility.
       for (const [key, c] of Object.entries(report.campaigns)) {
@@ -189,6 +212,11 @@ module.exports = function mountYtads(app, { pool }) {
         for (const r of results) {
           const c = byId[r.id]; if (!c) continue;
           const base = { runId, op: c.op, reason: c.reason || null, message: r.error || null };
+          if (c.manualId) {
+            await db.manualDone(c.manualId, !!r.ok, r);
+            await db.event(c.videoId || null, c.campaign || null, c.adId || null, r.ok ? 'manual' : 'error', { ...base, manualId: c.manualId, note: c.note || null, mutation: c.mutation || null });
+            continue;
+          }
           if (!r.ok) { await db.event(c.videoId || null, c.campaign, c.adId || null, 'error', { ...base, name: c.name || null }); }
           if (c.op === 'renameAd' && r.ok) { await db.event(c.videoId || null, c.campaign, c.adId || null, 'renamed', { ...base, from: c.oldName, to: c.name }); }
           if (c.op === 'createAd' && r.ok) {

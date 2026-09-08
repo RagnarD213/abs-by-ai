@@ -86,24 +86,43 @@ in his ads but must not be reproduced; the lint blocks them, and this note is so
 - Intensity adjectives: **killer, ultimate**. Exclamation marks (three of his long headlines have one).
 - The registered mark: never "Abs by AI ®" / "Abs by AI®" in generated copy.
 
-## The first generated sets (2026-09-08, dry run — Dan's review surface)
+## The first generated sets (2026-09-08) and Dan's edits to them
 
-Written by the generator for the three videos published since 2026-09-03; every line passed the lint.
-Kept here so Dan's feedback can be attached to concrete lines.
+Written by the generator for the videos published since 2026-09-03; every line passed the lint. Dan reviewed
+the first three sets on 2026-09-08: **all long headlines and descriptions approved unchanged**; three headlines
+changed (struck → replacement) because they did not say what the video is about.
 
 - **3 Minute Total Body Home Workout - Follow Along (No Talking)** — H: *3 Minute Total Body Home Workout ·
   Follow Along Home Workout · Total Body Workout At Home · 5 Exercises, 40 Seconds Each · No Talking Home
-  Workout Video*. LH: *Follow along with my 3 minute total body home workout, no talking, just the work.*
-  D: *Daniel Rose runs the full circuit on screen so you can follow along at home.*
-- **Make AI Macro Estimates Way More Accurate** — H: *Better AI Macro Estimates · One Detail For Accurate
-  Macros · How I Photograph My Meals For AI · Make AI Macro Counts Closer · Photo Captions And AI Macros*.
-  LH: *Here's the one detail I add to my photo caption so AI macro estimates get closer.* D: *Daniel Rose
-  shows the detail he adds to meal photos for closer AI macro estimates.*
+  Workout Video* (approved as written). LH: *Follow along with my 3 minute total body home workout, no talking,
+  just the work.* D: *Daniel Rose runs the full circuit on screen so you can follow along at home.*
+- **Make AI Macro Estimates Way More Accurate** — H: *Better AI Macro Estimates · ~~One Detail For Accurate
+  Macros~~ → **How To Track Macros With AI** · How I Photograph My Meals For AI · Make AI Macro Counts Closer ·
+  ~~Photo Captions And AI Macros~~ → **AI Macro Tracking From Photos***. LH: *Here's the one detail I add to my
+  photo caption so AI macro estimates get closer.* D: *Daniel Rose shows the detail he adds to meal photos for
+  closer AI macro estimates.*
 - **Hire A Maid Instead Of A Personal Trainer** — H: *Hire A Maid Instead Of A Trainer · Where My Training
-  Budget Goes · A Better Use Of $200 A Month · Why I Skip The Personal Trainer · Rethinking The Trainer
-  Budget*. LH: *Here's why I would spend the trainer money on a maid instead, at 40 years old.* D: *Daniel
-  Rose explains why he puts the personal trainer budget somewhere else.*
+  Budget Goes · ~~A Better Use Of $200 A Month~~ → **Fire Your Personal Trainer** · Why I Skip The Personal
+  Trainer · Rethinking The Trainer Budget*. LH: *Here's why I would spend the trainer money on a maid instead,
+  at 40 years old.* D: *Daniel Rose explains why he puts the personal trainer budget somewhere else.*
+- **Stop Doing Ab Exercises Until You Can See Your Abs** (created 2026-09-08 23:00 UTC, not yet reviewed) — H:
+  *Why I Stopped Ab Exercises · What To Do Before Ab Exercises · Ab Exercises Are Not First · The Order I Train
+  Abs In · Ab Training - What Comes First*. LH: *Here's why I stopped doing ab exercises first, and what I do
+  before them instead.* D: *Daniel Rose explains why ab exercises are not the first thing he does.*
 
 ## Rules from Dan's feedback (append below, newest last; each applies to FUTURE ads only)
 
-- (none yet — the first ads go live with the first live hourly run on 2026-09-08)
+1. **(2026-09-08) Every headline must make the video's fitness topic obvious on its own.** A headline read
+   alone, with no video thumbnail, must not be mistakable for a personal-finance, productivity or lifestyle
+   video. Failing examples from the first batch and what Dan replaced them with: *"One Detail For Accurate
+   Macros"* → *"How To Track Macros With AI"* (the AI-tracking topic was missing); *"Photo Captions And AI
+   Macros"* → *"AI Macro Tracking From Photos"* (too vague); *"A Better Use Of $200 A Month"* → *"Fire Your
+   Personal Trainer"* (read as a money video). Test each headline: does it name the workout, the body part,
+   the food/macro topic, the supplement, the trainer/nutritionist, or the AI-fitness tool? If not, rewrite it.
+2. **(2026-09-08) "Fire Your X" headlines are wanted.** *"Fire Your Personal Trainer"*, *"Fire Your
+   Nutritionist"*, *"Fire Your Meal-Plan Service"*: Dan's call is that firing a provider is not a compliance
+   risk (it promises nothing about the viewer's body) and it catches attention. Use this shape whenever the
+   video argues against paying a trainer, nutritionist, coach or subscription. Still never pair it with a body
+   outcome or a timeframe.
+3. **(2026-09-08) Long headlines and descriptions from the first batch were approved unchanged** — keep their
+   shape: one plain sentence about what the video shows, first person or "Daniel Rose shows/explains…".
