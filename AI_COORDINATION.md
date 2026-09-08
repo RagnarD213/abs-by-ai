@@ -313,14 +313,17 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**YouTube engagement champion (Google Ads) — LIVE since 2026-09-08 22:00 UTC, one question for Dan.** First live
-hourly run: 14/14 commands OK — tier-2 champion labelled ("top 10 ab tips"), 4 tier-2 hand-made ads paused, 9 `AUTO test`
-ads created (3 videos × 3 campaigns, ids in `ytads_events`). Dashboard row checked off. ⚠ **Tier 1 crowned no champion:
-"1 min ab workout workout only" (ad `821875813611`, $1.03/conv, 136 conv) was ENABLED in the 3:54 PM dry-run snapshot and
-PAUSED in the 5:00 PM live one — nothing in this system paused it (dry run wrote nothing; live commands were tier-2 only),
-so someone paused it in the UI. Dan: re-enable it if that was an accident, and the next hourly run crowns it and pauses
-tier 1's three others; leave it paused if deliberate.** Next check: the 09-09 morning brief's "YouTube engagement ads"
-block (policy review of the 9 new ads, first $5 spend). Delete this entry once Dan answers the tier-1 question.
+**YouTube engagement champion (Google Ads) — LIVE since 2026-09-08 22:00 UTC; two things in flight.** Runs at :00
+hourly; 4 videos have test ads in all 3 campaigns (the 5:00 PM Short "Stop Doing Ab Exercises…" included). Dan reviewed the
+first copy 2026-09-08: long headlines + descriptions approved, 3 headlines changed for topic clarity — applied to the 6 live
+ads through the new manual queue (`scripts/ads/ytads/manual.js`, recipe in `Docs/YTADS.md`); rules 1–3 in `headline-style.md`.
+**In flight:** (1) Dan wants every AUTO ad named by video title — new ads are (`AUTO test · <title> · yt:<id> · …`); Ad.name is
+immutable in the API, so the 9 legacy-named ads are queued for removal (m7–m15, executes on the next live run) and the run after
+recreates them with titled names and Dan's edited headlines (fresh `headlines` events written). Verify both in
+`GET /api/ytads/state` → `lastResults`, then check the names in Ads Manager. (2) ⚠ Tier 1 has no champion: "1 min ab workout
+workout only" (ad `821875813611`, $1.03/conv) was paused in the UI between the dry run and the live run — not by this system.
+Dan re-enables it if accidental (`manual.js enable customers/3427170837/adGroupAds/206274722584~821875813611`), else leave it.
+Delete this entry once the recreated ads are verified and Dan answers the tier-1 question.
 
 **Shorts centring queue fix — DONE 2026-09-02, one decision left for Dan.** Every queued off-centre Short is
 replaced: Blotato 10 posts swapped + MD5-verified; YouTube 8 stale scheduled Shorts re-uploaded as new ids at
