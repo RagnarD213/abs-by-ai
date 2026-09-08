@@ -915,6 +915,21 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
     recorded from the real app with Playwright (`record_meal.py`: iPhone emulation, `set_input_files`,
     `showMacroScreen()`, screenshots per state; `logMeal` works for guests via localStorage).
 
+23. ⚠ **AN APP SCREEN WITH A DIFFERENT PERSON IS A REAL GENERATION, NEVER A COMPOSITE.** Dan rejected a
+    before photo pasted into the old scanning recording within minutes ("just overlaid … make it look like a
+    real generation"). `record_gen_male2.py` runs the live site's generate flow with the other person's photo
+    under Playwright (iPhone emulation), records the app's own loader with a CDP screencast (`Page.startScreencast`,
+    ~54 fps but CSS pixels — 390 px wide; upscale ×2 with lanczos, the dpr-3 screenshots carry the static
+    screens), handles the app's "Which future you?" chooser (click the first "Keep this one"), and captures
+    the result screen AFTER-ONLY by hiding the before column and the body-fat row in the live DOM
+    (`grid-template-columns:1fr`, `display:none`) so the compliant screen is the app's own rendering. One real
+    generation costs ~$0.10 and a fresh Playwright context has free generations. Never use the chooser or the
+    pair result in an ad (both are before/after layouts).
+24. **The plate cache key must include the media's ASPECT.** A new phone media at the same path with a
+    different shape reused the old plate: the hole was the old aspect, the media was cover-cropped into it,
+    and 40 px of UI vanished at each side — the third cache-key lesson in this skill (index, media spec,
+    now aspect). If a hole is sized from a file, hash what sizes it.
+
 12. **Delivery goes beside his file under the `/editor-deliveries` convention — `title | editor | aspect |
     number`, lowercase, single-spaced pipes:** `Muhammad Ad Videos/<ad folder>/<title> | claude | 9x16 | ad N.mp4`
     + `<title> | REVIEW 540p 9x16 | ad N.mp4` + `<title> | REVIEW 480p 9x16 phone | ad N.mp4` + `<title> | AB audio

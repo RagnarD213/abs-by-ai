@@ -249,7 +249,7 @@ def _track_sig(t0, t1):
     return hashlib.md5(json.dumps(sl).encode()).hexdigest()[:10]
 
 def _sig(b, nfr, t0):
-    v = 'v2-flat-gblur' if b['kind'] == 'bleed2' else 'v2-flat'   # only the photo beat changed; keep every other cache hit
+    v = 'v6-rev'   # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
     extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v}
     if b['kind'] == 'talk': extra['_trk'] = _track_sig(t0, b['t1'])
     # ⚠ the MEDIA entry (path, in-point, rate, crop placement) is part of what was rendered: a crop
@@ -263,7 +263,7 @@ COMMON = lambda nfr, out: ['-r','30000/1001','-frames:v',str(nfr),'-c:v','libx26
 
 def render_bleed_frames(key, n, out, amt=0.075):
     """A full-bleed still (slow push) or clip (cover crop), n frames, no vignette yet."""
-    isimg = MEDIA[key][0] == 'img'; o = media_opts(key)
+    isimg = MEDIA[key][0] == 'img'; o = dict(media_opts(key)); amt = o.pop('amt', amt)
     ch = still_chain(VW, VH, n, amt=amt, **o) if isimg else \
          media_prefix(key) + cover_chain(VW, VH, **o) + ',unsharp=5:5:0.4:5:5:0.0'
     run([FF,'-v','error','-y'] + media_input(key, n) +
@@ -285,8 +285,8 @@ def render_segment(i, b, nfr, t0):
         open(man, 'w').write(_sig(b, nfr, t0))
         return
     if k == 'bleed':
-        isimg = MEDIA[b['media']][0] == 'img'; o = media_opts(b['media'])
-        bchain = (still_chain(VW, VH, nfr, amt=0.075, **o) if isimg
+        isimg = MEDIA[b['media']][0] == 'img'; o = dict(media_opts(b['media'])); amt = o.pop('amt', 0.075)
+        bchain = (still_chain(VW, VH, nfr, amt=amt, **o) if isimg
                   else media_prefix(b['media']) + cover_chain(VW, VH, **o) + ',unsharp=5:5:0.4:5:5:0.0')
         lab = b.get('label')
         if lab:
@@ -338,8 +338,12 @@ def render_segment(i, b, nfr, t0):
         open(man, 'w').write(_sig(b, nfr, t0))
         return
     # ---- plated beats --------------------------------------------------------
+    # ⚠ the plate's HOLE is sized from the media's aspect ratio, so the aspect is part of the key: a new
+    # media file at the same path with a different shape reused the old plate and the picture was
+    # cover-cropped into the wrong hole (the 3:18 split lost 40 px of UI at each side, 2026-09-08)
+    mar = round(media_ar(b['media']), 4) if 'media' in b else 0
     key = hashlib.md5(repr(sorted((kk, str(v)) for kk, v in b.items())).encode()
-                      + f'|{nfr}|{dur:.4f}'.encode()).hexdigest()[:10]
+                      + f'|{nfr}|{dur:.4f}|ar{mar}'.encode()).hexdigest()[:10]
     plate = f'gfx/p{i:03d}_{key}.mov'
     meta  = plate + '.json'
     if not os.path.exists(plate):
@@ -380,8 +384,9 @@ def render_segment(i, b, nfr, t0):
     if 'media' in holes:
         x, y, w, h = hole_args('media')
         ins += media_input(b['media'], nfr)
-        chain = still_chain(w, h, nfr) if MEDIA[b['media']][0] == 'img' else \
-                'setpts=PTS-STARTPTS,' + media_prefix(b['media']) + cover_chain(w, h)
+        o = dict(media_opts(b['media'])); amt = o.pop('amt', 0.055)
+        chain = still_chain(w, h, nfr, amt=amt, **o) if MEDIA[b['media']][0] == 'img' else \
+                'setpts=PTS-STARTPTS,' + media_prefix(b['media']) + cover_chain(w, h, **o)
         prep.append(f'[{idx}:v]{chain}[m{idx}]')
         over.append((idx, x, y)); idx += 1
     ins += ['-i', plate]
