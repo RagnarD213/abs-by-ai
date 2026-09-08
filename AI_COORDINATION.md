@@ -60,13 +60,22 @@ picture stream untouched (6977 frames, `-c:v copy`). Master replaced in place; A
 New gate `/shortad-from-longform reference/gain_flatness.py` + skill rules committed (`a54686f`)
 and cross-referenced from /shorts and /longform-edit. Delete this entry once he confirms.
 
-**ManyChat "Comment ABS"** — DONE. Live on **any post or reel** for @danrosefit (Pro),
-verified end to end (comment → public reply → DM → button → absbyai.com with
-`utm_campaign=comment-abs`). All ~60 queued CTA posts are now covered. Remaining: Dan
-decides whether to switch off Blotato's IG auto first-comment (the growth plan said to,
-once ManyChat was live — **ask before touching it**, it's a queue-wide change), and the
-comment-ABS reels are now eligible for the 2026-08-31 paid-ads specs. Delete this entry
-once Dan confirms.
+**ManyChat per-topic keywords — BUILT, 5 AUTOMATIONS STOPPED, BLOCKED ON FIVE "Go Live" CLICKS**
+(2026-09-08). `ABS` is split into six keywords (ABS/FOOD/TRAIN/TRACK/SLEEP/COACH), each with its own
+DM copy and `utm_campaign`; ids, copy and the contains-match traps are in `Docs/MANYCHAT_KEYWORDS.md`
+(commit `eb146ed`). Keywords + both DM bodies + link UTMs are saved on all five new automations, but
+they are **STOPPED** — the Claude-in-Chrome extension wedged (every call times out, including on
+unrelated sites) before they could be started. **Next session: open each of the five ids in
+`Docs/MANYCHAT_KEYWORDS.md` and click Go Live**, then run `python3 scripts/manychat/keyword_split.py
+--apply` (dry run verified: 34 of 47 queued captions change, 13 stay ABS), then comment one keyword
+from @abs.by.ai on a live @danrosefit post to verify reply → DM → link, then check off the dashboard
+row `business::Split ManyChat 'Comment ABS' into per-topic keywords…`.
+⚠ **Do NOT run the caption script before the five are live** — a caption promising a stopped keyword
+is a dead promise. Nothing is broken today: the queue still says ABS and ABS is live.
+⚠ The account shows a **TRIAL** badge; if the Pro trial lapses, "any post or reel" stops working for
+all six. Still open from the original build: Dan decides whether to switch off Blotato's IG auto
+first-comment (**ask before touching it**, queue-wide), and the CTA reels are eligible for the
+2026-08-31 paid-ads specs.
 
 **Website conversion video — REV 3 DELIVERED 2026-09-02 (~6 PM), awaiting Dan's review.** Same folder,
 same filename (`claude edited long form content/06 - …/website_video_16x9.mp4`, 3:50); rev 2 is beside it as
@@ -250,9 +259,19 @@ mirrors (2027-01-04 → 01-15) were removed and saved to `scripts/blotato/fb_tri
 recurring `Post on TikTok` dashboard row should go now that posting is automated** — that is all that is
 left of this entry.
 
-**One Blotato failure since 09-03, needs a re-post decision:** post `697055`, the Facebook reel of the
-3-minute total body follow-along (V7), failed 2026-09-06 with "Uploading a reel to Facebook timed out".
-Its Instagram and TikTok twins went out fine. Transient upload timeout, safe to re-queue.
+**Blotato post `697055` was a FALSE FAILURE — it published, and the re-post made a duplicate. One
+Dan decision left** (2026-09-08). Blotato marked the V7 long-form Facebook reel failed 2026-09-06 with
+"Uploading a reel to Facebook timed out"; Graph API shows it went live at 14:03:53 that day as
+`facebook.com/reel/1595086478922888` (791.59s, 323,270,763 bytes transferred, publish_status published).
+Blotato's client timed out on a 323 MB push while Facebook was still finishing — **its `failed` state is
+not proof; always confirm against the Graph API before re-posting a large video.** It had no IG/TikTok
+twins (that earlier claim was wrong — it was a Facebook-only longform mirror). Re-posting created a
+duplicate reel `1801218784349074` / post `1294282227094660_122115109395429177`; Facebook refuses
+`published=false` and `is_published=false` on reels, so **deletion is the only removal path and it is
+Dan's call.** Delete this entry once he answers.
+⚠ Separate, still-open genuine failure: post `667411` (2026-08-18, "My ten best tips…") exceeded the
+**400 MB Blotato plan cap**. Masters run ~1.1 GB / 11 Mbps; the queue's transcodes land ~322 MB, i.e.
+right against that ceiling. No other queued video is close (largest is 197 MB, TikTok 09-21).
 
 **Google Ads conversion goals** — Purchase still reads Misconfigured and Campaign diagnostics
 shows "connection failed its last run" + a stale "Unparseable gclid (Aug 27)". **Root cause verified
