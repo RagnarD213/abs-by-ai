@@ -76,3 +76,17 @@ one-off in the Ads Script (`execute(cid, cmd, labels, snapshot)`) or in the UI.
 6. No qualifying hand-made ad on day one → nothing paused; the first qualifying test crowns itself and
    the hand-made ads are paused then.
 7. The system never edits an existing ad.
+
+## Go-live record and operating notes (2026-09-08)
+
+- Dan authorized the script and set it Hourly on 2026-09-08 ~15:55 CT. A **Preview** in the script editor posts a real
+  snapshot (UrlFetchApp runs in preview; the server was in dry run), so the first snapshot needs no wait for the schedule.
+  Google's hourly schedule fires at **:00** (first live run 22:00:03 UTC).
+- `YTADS_ENABLED=1` set 16:09 CT after the dry-run plan was shown to Dan. First live run: 14/14 OK, ~31 s from snapshot
+  to results. Tier-2 champion labelled, 4 tier-2 hand-made ads paused (reversal list in the `dayone` event), 9 test ads
+  created (ids in the `created` events).
+- **Champion selection reads only ENABLED hand-made ads.** Tier 1's best ad was paused in the UI between the dry run and
+  the live run, so tier 1 crowned nobody and paused nothing; it self-heals the hour after the ad is re-enabled.
+- Reading the stored snapshot from a laptop: `ytads_runs.snapshot` via `DATABASE_PUBLIC_URL` (Postgres service on
+  Railway; the `DATABASE_URL` in the secrets cache is the internal host and does not resolve off-platform).
+- `railway deployment list --json` chokes `jq` when a commit message has newlines; use the plain table output.

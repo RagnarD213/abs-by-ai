@@ -300,21 +300,21 @@ prompts; whoever runs one deletes its row there AND removes it here and from `Ha
 
 Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md` (superseded — the @danrosefit profile-visits
 campaign has been live via the API script since 09-02), `handoff-20260902-shorts-centering-queue-fix.md` (done
-09-02), `handoff-20260902-google-ads-engagement-champion-automation.md` (built 09-03; only Dan's two clicks remain,
-see ACTIVE TASK).
+09-02), `handoff-20260902-google-ads-engagement-champion-automation.md` (LIVE since 2026-09-08 22:00 UTC; operating doc
+`Docs/YTADS.md`).
 
 ---
 
 # ACTIVE TASK
 
-**YouTube engagement champion (Google Ads) — BUILT, DEPLOYED, SCRIPT INSTALLED; waiting on two Dan clicks** (2026-09-03).
-Brain live (`scripts/ads/ytads/`, 88 tests, `YTADS_ENABLED=0` = dry run); Ads Script id `12241942` saved in 342-717-0837
-with the key, **unauthorized + unscheduled** (Google won't schedule before the OAuth grant). **Dan: (1) Tools → Bulk
-actions → Scripts → Frequency pencil → Hourly → Save → Authorize → Grant access; (2) MCC API center form is filled in
-his Chrome — tick the Terms box, click Create token, paste it into `~/.absbyai-secrets.env` as
-`GOOGLE_ADS_DEVELOPER_TOKEN`.** Next session after (1): refine `headline-style.md` from the first snapshot, pin the
-tier-1/RMKTG ids, show Dan the dry-run day-one pause list, set `YTADS_ENABLED=1`, watch the first live hour, then check off
-the Key task. Execution notes at the bottom of the handoff; operating doc `Docs/YTADS.md`.
+**YouTube engagement champion (Google Ads) — LIVE since 2026-09-08 22:00 UTC, one question for Dan.** First live
+hourly run: 14/14 commands OK — tier-2 champion labelled ("top 10 ab tips"), 4 tier-2 hand-made ads paused, 9 `AUTO test`
+ads created (3 videos × 3 campaigns, ids in `ytads_events`). Dashboard row checked off. ⚠ **Tier 1 crowned no champion:
+"1 min ab workout workout only" (ad `821875813611`, $1.03/conv, 136 conv) was ENABLED in the 3:54 PM dry-run snapshot and
+PAUSED in the 5:00 PM live one — nothing in this system paused it (dry run wrote nothing; live commands were tier-2 only),
+so someone paused it in the UI. Dan: re-enable it if that was an accident, and the next hourly run crowns it and pauses
+tier 1's three others; leave it paused if deliberate.** Next check: the 09-09 morning brief's "YouTube engagement ads"
+block (policy review of the 9 new ads, first $5 spend). Delete this entry once Dan answers the tier-1 question.
 
 **Shorts centring queue fix — DONE 2026-09-02, one decision left for Dan.** Every queued off-centre Short is
 replaced: Blotato 10 posts swapped + MD5-verified; YouTube 8 stale scheduled Shorts re-uploaded as new ids at

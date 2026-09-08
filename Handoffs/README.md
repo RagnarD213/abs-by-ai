@@ -24,7 +24,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 |---|---|
 | [handoff-20260901-danrosefit-ad-identity-fix.md](handoff-20260901-danrosefit-ad-identity-fix.md) | superseded — @danrosefit profile-visits campaign live via the API script since 09-02 |
 | [handoff-20260902-shorts-centering-queue-fix.md](handoff-20260902-shorts-centering-queue-fix.md) | done 09-02 |
-| [handoff-20260902-google-ads-engagement-champion-automation.md](handoff-20260902-google-ads-engagement-champion-automation.md) | built 09-03; only Dan's two clicks remain (see AI_COORDINATION.md) |
+| [handoff-20260902-google-ads-engagement-champion-automation.md](handoff-20260902-google-ads-engagement-champion-automation.md) | built 09-03, switched ON 2026-09-08 (first live run 22:00 UTC); operating doc `Docs/YTADS.md` |
 
 ## All dated handoffs (newest first) — executed / superseded unless listed as Open above
 
