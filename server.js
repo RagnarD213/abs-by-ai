@@ -308,7 +308,7 @@ const isAssistantId = (id) => String(id).startsWith('assistant::');
 function scopeTasksForAssistant(payload) {
   const out = {};
   if (payload.todos) {
-    out.todos = { business: [], health: [], personal: [], assistant: payload.todos.assistant || [] };
+    out.todos = { business: [], health: [], personal: [], assistant: payload.todos.assistant || [], handoffs: [] };
   }
   if (payload.task_checks) {
     const tc = payload.task_checks;
@@ -1056,7 +1056,7 @@ function broadcastTaskState(payload) {
 
 // ── Todos (stored in GitHub todos.json so they survive Railway deploys) ──
 const TODOS_FILE = 'todos.json';
-const EMPTY_TODOS = { business: [], health: [], personal: [], assistant: [] };
+const EMPTY_TODOS = { business: [], health: [], personal: [], assistant: [], handoffs: [] };
 
 // Normalize raw todos.json into the lists the dashboard renders. The legacy
 // `money` list is folded into `business` so there is one single Money Tasks
@@ -1068,6 +1068,10 @@ function normalizeTodos(raw) {
     health:    t.health    || [],
     personal:  t.personal  || [],
     assistant: t.assistant || [],
+    // Handoff docs Dan has asked to fire (2026-09-08). Rows are
+    // { text, doc, status, ready, prompt, model, addedAt } — no priority, no
+    // check-off: an executed handoff is DELETED, never struck through.
+    handoffs:  t.handoffs  || [],
   };
 }
 
@@ -1138,7 +1142,10 @@ app.get('/api/todos', async (req, res) => {
 //      409 rather than applied.
 // A task that moved between lists is not a deletion, so presence is tested on
 // the task text across ALL lists rather than per-list.
-const TODO_LISTS = ['business', 'health', 'personal', 'assistant'];
+const TODO_LISTS = ['business', 'health', 'personal', 'assistant', 'handoffs'];
+// Hard cap on the handoffs list (Dan, 2026-09-08): past seven the board stops
+// being a launcher and turns back into the pile it replaced.
+const HANDOFFS_CAP = 7;
 const STALE_WRITE_DELETE_LIMIT = 3;
 
 function todoTextSet(todos) {
@@ -1193,6 +1200,12 @@ function restoreSchedules(current, incoming) {
 app.post('/api/todos', async (req, res) => { await withTaskDataLock(async () => {
   try {
     const incoming = normalizeTodos(req.body);
+    if (incoming.handoffs.length > HANDOFFS_CAP) {
+      return res.status(409).json({
+        error: 'handoffs_cap',
+        message: `The handoffs list is capped at ${HANDOFFS_CAP} rows — delete one before adding another.`,
+      });
+    }
     const allow = new Set(Array.isArray(req.body?.allowDeletes) ? req.body.allowDeletes : []);
     const current = await loadTodos({ fresh: true });
 

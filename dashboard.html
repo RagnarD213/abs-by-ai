@@ -253,6 +253,26 @@ align-self: center;
 .tag-unassigned { background: rgba(255,255,255,0.06); color: var(--muted); box-shadow: 0 0 0 1px rgba(255,255,255,0.08); }
 .todo-item.priority-key .todo-text { font-weight: 700; }
 
+/* ── HANDOFFS TO FIRE (Dan, 2026-09-08): the launcher, not a task list ── */
+.ho-item { display: flex; flex-direction: column; gap: 4px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+.ho-item:last-child { border-bottom: none; }
+.ho-top { display: flex; align-items: center; gap: 8px; }
+.ho-text { font-size: 13px; line-height: 1.4; color: var(--text); font-weight: 600; flex: 1; }
+.ho-chip { font-size: 10px; padding: 1px 7px; border-radius: 4px; font-weight: 600; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.04em; }
+.ho-chip.ready { background: rgba(34,197,94,0.15); color: var(--green); box-shadow: 0 0 0 1px rgba(34,197,94,0.35); }
+.ho-chip.wait { background: rgba(234,179,8,0.12); color: var(--yellow); }
+.ho-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 11px; color: var(--muted); }
+.ho-age { font-weight: 600; }
+.ho-age.stale { color: var(--red); }
+.ho-doc { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10.5px; color: var(--muted); text-decoration: none; }
+.ho-doc:hover { color: var(--text); }
+.ho-actions { display: flex; gap: 6px; margin-left: auto; }
+.ho-btn { font-size: 11px; padding: 3px 9px; border-radius: 5px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; }
+.ho-btn:hover { border-color: var(--green); color: var(--green); }
+.ho-btn.danger:hover { border-color: var(--red); color: var(--red); }
+.ho-note { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+.ho-empty { font-size: 12px; color: var(--muted); padding: 8px 0; }
+
 /* ── WORK SESSION FOCUS TASKS (full-width band above the 3 columns) ── */
 .plan-band {
 background: linear-gradient(180deg, rgba(245,166,35,0.06), var(--surface));
@@ -976,6 +996,18 @@ transition: all 0.15s; }
 </div>
 </div>
 
+<!-- Handoffs to fire — the launcher. Rows are only ever added by a Claude session
+     on Dan's explicit ask; an executed handoff is deleted, never checked off. -->
+<div class="card">
+<div class="card-head">
+<div class="card-title">Handoffs to fire <span id="handoffs-count" style="font-weight:500"></span></div>
+</div>
+<ul class="todo-list" id="handoffs-todos">
+<li class="loading pulse">Loading…</li>
+</ul>
+<div class="ho-note">Copy = the starter prompt for a fresh Claude session. Delete once it has run. Cap 7 — past 14 days it's "fire it or kill it".</div>
+</div>
+
 <!-- App Metrics -->
 <div class="card">
 <div class="card-title">Abs By AI — App Metrics</div>
@@ -1418,7 +1450,7 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').cat
 let checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
 let taskLog = JSON.parse(localStorage.getItem('taskLog') || '{}');
 let checkedAtMap = JSON.parse(localStorage.getItem('checkedAtMap') || '{}');
-let todosState = { money: [], health: [], personal: [], assistant: [] };
+let todosState = { money: [], health: [], personal: [], assistant: [], handoffs: [] };
 
 function cacheChecks() {
 localStorage.setItem('checkedTodos', JSON.stringify([...checkedTodos]));
@@ -1858,6 +1890,7 @@ money:     [...(data?.business || []), ...(data?.money || [])],
 health:    data?.health || [],
 personal:  data?.personal || [],
 assistant: data?.assistant || [],
+handoffs:  data?.handoffs || [],
 };
 // In-memory only, deliberately. This used to save immediately, which made the
 // page WRITE THE WHOLE TASK FILE on every load — so a tab holding a stale copy
@@ -1886,7 +1919,62 @@ Object.keys(LIST_TARGETS).forEach(listKey => {
 const { el, progress } = LIST_TARGETS[listKey];
 renderList(listKey, todosState[listKey] || [], document.getElementById(el), progress);
 });
+renderHandoffs();
 renderPlan();
+}
+
+// ══════════════════════ HANDOFFS TO FIRE ══════════════════════
+// Row: { text, doc, status, ready, prompt, model, addedAt }. No priority and no
+// check-off on purpose — a handoff that ran gets deleted, so the list can only
+// ever hold live work. Rows are added by a Claude session when Dan asks.
+const HANDOFF_STALE_DAYS = 14;
+function handoffAgeDays(t) {
+if (!t.addedAt) return 0;
+const ms = new Date(localToday()) - new Date(t.addedAt);
+return Math.max(0, Math.round(ms / 86400000));
+}
+function renderHandoffs() {
+const el = document.getElementById('handoffs-todos');
+const count = document.getElementById('handoffs-count');
+if (!el) return;
+const rows = todosState.handoffs || [];
+if (count) count.textContent = rows.length ? `· ${rows.length}/7` : '';
+if (!rows.length) { el.innerHTML = '<li class="ho-empty">Nothing queued. A session adds a row when you ask for one.</li>'; return; }
+el.innerHTML = rows.map((t, i) => {
+const age = handoffAgeDays(t);
+const stale = age >= HANDOFF_STALE_DAYS;
+const chip = t.ready ? '<span class="ho-chip ready">Ready</span>' : `<span class="ho-chip wait">${escapeHtml(t.status || 'waiting')}</span>`;
+const docName = (t.doc || '').split('/').pop();
+const docHref = t.doc ? `https://github.com/danroseconsulting/abs-by-ai/blob/main/${encodeURI(t.doc)}` : '';
+return `<li class="ho-item" data-idx="${i}">
+<div class="ho-top">${chip}<span class="ho-text">${escapeHtml(t.text)}</span></div>
+<div class="ho-meta">
+<span class="ho-age${stale ? ' stale' : ''}" title="Days since it was written">${stale ? 'STALE · fire it or kill it · ' : ''}${age}d</span>
+${t.model ? `<span title="Recommended model">${escapeHtml(t.model)}</span>` : ''}
+${docHref ? `<a class="ho-doc" href="${docHref}" target="_blank" rel="noopener" title="${escapeHtml(t.doc)}">${escapeHtml(docName)}</a>` : ''}
+<span class="ho-actions">
+<button class="ho-btn" onclick="copyHandoffPrompt(${i})" title="Copy the starter prompt for a fresh Claude session">Copy prompt</button>
+<button class="ho-btn danger" onclick="deleteHandoff(${i})" title="Remove — it ran, or it's dead">Delete</button>
+</span>
+</div>
+</li>`;
+}).join('');
+}
+async function copyHandoffPrompt(idx) {
+const t = (todosState.handoffs || [])[idx];
+if (!t) return;
+const text = t.prompt || `Read ${t.doc} in the Abs By AI repo and execute it.`;
+try { await navigator.clipboard.writeText(text); toast('Starter prompt copied — paste it into a fresh session', 'ok'); }
+catch (e) { window.prompt('Copy the starter prompt:', text); }
+}
+function deleteHandoff(idx) {
+const removed = todosState.handoffs[idx];
+if (!removed) return;
+if (!confirm(`Remove "${removed.text}" from the handoffs list? (It ran, or it's dead.)`)) return;
+todosState.handoffs.splice(idx, 1);
+renderHandoffs();
+saveTodos([`handoffs::${removed.text}`]);
+toast('Handoff removed', 'ok');
 }
 
 // ══════════════════════ WORK SESSION FOCUS TASKS ══════════════════════
@@ -2513,7 +2601,7 @@ return ['high', 'med', 'low'].includes(d.priority) ? d.priority : 'med';
 }
 // Server list key for each column. Money maps back to `business` so the single
 // merged Money Tasks list stays consolidated server-side.
-const PAYLOAD_LIST_KEY = { money: 'business', health: 'health', personal: 'personal', assistant: 'assistant' };
+const PAYLOAD_LIST_KEY = { money: 'business', health: 'health', personal: 'personal', assistant: 'assistant', handoffs: 'handoffs' };
 
 // `allowDeletes` names tasks this save is deliberately removing, as
 // `<serverListKey>::<exact text>`. The server restores any recurring task that
@@ -2525,6 +2613,7 @@ business:  todosState.money,
 health:    todosState.health,
 personal:  todosState.personal,
 assistant: todosState.assistant,
+handoffs:  todosState.handoffs || [],
 };
 if (allowDeletes && allowDeletes.length) payload.allowDeletes = allowDeletes;
 try {
