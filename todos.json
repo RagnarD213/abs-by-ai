@@ -377,37 +377,7 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Cut up boxes from artificial hedge install and put in empty room",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-08-20"
-    },
-    {
-      "text": "Put pool tile cleaning products away",
-      "priority": "med",
-      "recurring": false,
-      "addedAt": "2026-08-26"
-    },
-    {
       "text": "Put away dishes",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-09-01"
-    },
-    {
-      "text": "Do dishes",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-09-01"
-    },
-    {
-      "text": "Do laundry",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-09-01"
-    },
-    {
-      "text": "Cut up boxes, and put cardboard and plastic bags in recycling. Bring full recycling bin to curb.",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-09-01"
@@ -425,57 +395,10 @@
       "addedAt": "2026-09-01"
     },
     {
-      "text": "Move all items from filming room into 2nd empty room. Organize items in empty room and throw away trash",
-      "priority": "med",
-      "recurring": false,
-      "addedAt": "2026-09-01"
-    },
-    {
-      "text": "Change sheets",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-09-01"
-    },
-    {
       "text": "Clean Master Bathroom & Guest Bathroom",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-09-01",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Change robot mop water",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-01",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Vaccum bedroom",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-02",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Tidy living room",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-02",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Take out trash",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-02",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Put away dishes 2.0",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-09-02",
       "addedBy": "assistant"
     }
   ]
