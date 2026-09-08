@@ -163,16 +163,6 @@ verifying it. **Short 2 measures 1.08 dB shape against a 1.00 gate** — one ban
 `_pre-audiofix-20260902/`; A/B clips beside supp-short1 and supp-short4). Same block: the parent
 long-form is on hold (above), so nothing can post. Parked, not chased.
 
-**AD 2 vertical 9:16 — REV 1b DELIVERED 2026-09-08 18:17, awaiting Dan's review.**
-`Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | claude | 9x16 | ad 2.mp4`
-(+ `REVIEW 540p`, `REVIEW 480p phone`, `AB audio` under the `title | editor | aspect | number` convention, gate stamp,
-`notes-vertical-v2.md`, `recipe-vertical-v2/`). Dan's verdict on rev 1: subtitles on point (now a standing rule in the
-skill: CTC forced alignment + qc check 20 on the delivered file), all pictures good except 3:18, which looked pasted.
-**3:18 is now a REAL generation**: the other person's photo run through the live app under Playwright, the app's own
-loader recorded, the app's own result screen captured after-only (~$0.30 of generations). QC 21/21, watch pass,
-audio gate on the delivered file. **His V2 still shows the email-capture screen at 3:12 and 3:22 — tell Muhammad.**
-Then Phase B: Dan cuts `SCRIPT_FOR_DAN.md` to ~200 words for the 0:59. Delete this entry once he approves.
-
 **Cutout thumbnails** — six built in the Brandon Carter style (A/B/C typographic, D/E/F
 device-heavy) in `social media graphics/youtube/thumbnails/The 17 Dollar Ab Wheel…/`. Dan
 picks from the compare sheets, or says which devices to push. On a pick: install in Studio
