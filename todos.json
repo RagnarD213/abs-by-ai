@@ -17,30 +17,6 @@
       "addedAt": "2026-08-05"
     },
     {
-      "text": "Execute handoff: RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
-      "priority": "key",
-      "why": "handoff-20260812-revenuecat-restore-behavior-audit.md — fire the day Apple approves (IN_REVIEW since 09-08)",
-      "addedAt": "2026-08-12"
-    },
-    {
-      "text": "Execute handoff: Let users purchase before creating an account (iOS)",
-      "priority": "key",
-      "why": "handoff-20260812-purchase-before-account.md — fire AFTER approval and AFTER the RevenueCat audit",
-      "addedAt": "2026-08-12"
-    },
-    {
-      "text": "Execute handoff: Swap Dan's phone to the public Play build",
-      "priority": "key",
-      "why": "handoff-20260818-android-public-build-swap.md — created but not yet run",
-      "addedAt": "2026-08-18"
-    },
-    {
-      "text": "Execute handoff: fill danrosefit + abs.by.ai image-post gap days (write captions, schedule in Blotato)",
-      "priority": "key",
-      "why": "handoff-20260826-danrosefit-abs-image-gap-fill.md — 63 of 70 live. The last 7 need Blotato queue room: it sits at 200/200 and drains ~2/day, so a session can re-run scripts/blotato/iggap_fill.py --apply from ~09-12 with no decision from Dan.",
-      "addedAt": "2026-08-26"
-    },
-    {
       "text": "Make the AI Trainer recovery-aware: scale volume from last night's Oura sleep/HRV",
       "priority": "key",
       "why": "Watch-review 8/30: kingketo IG reel. We already hold the Oura data in Sleep Coach but the trainer ladder progresses on workout counts alone. Auto-regulation is a differentiator no photo-generator competitor has.",
@@ -189,6 +165,44 @@
       "recurring": false,
       "addedAt": "2026-09-01",
       "addedBy": "assistant"
+    }
+  ],
+  "handoffs": [
+    {
+      "text": "RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
+      "doc": "Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md",
+      "status": "waiting on Apple approval",
+      "ready": false,
+      "model": "Sonnet 5, standard",
+      "addedAt": "2026-08-12",
+      "prompt": "Audit how RevenueCat handles one Apple ID being used with more than one Abs By AI account. Read `Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md` first — it has full context. Short version: on 2026-08-12 Dan made a second app account on a phone whose Apple ID already owned Monthly Membership, and Apple correctly said \"you're currently subscribed to this.\" That dialog is expected and is not a bug — but it proved one Apple ID is now pointed at two `users.id` values in RevenueCat, and nobody has ever checked which way that resolves. Depending on the project's restore/transfer setting we are exposed to either a revenue leak (one subscription unlocking unlimited accounts) or a locked-out paying customer (buys again, gets nothing). Start by reading the actual setting in RevenueCat project `355f4b52` and recording its exact on-screen wording, then work through the plan. Recommend \"transfer to the newest app user id\" to Dan rather than setting it silently. Verify the real behavior in sandbox using the accounts named in the handoff, checking the `users` rows and not the app UI — and pay particular attention to step 6, whether our webhook actually handles the transfer event, because if it does not then \"transfer\" silently behaves like \"shared\" and the task will look done while still being broken. **Do not start if the iOS app has not yet been approved by App Review.**"
+    },
+    {
+      "text": "Let users purchase before creating an account (iOS)",
+      "doc": "Handoffs/handoff-20260812-purchase-before-account.md",
+      "status": "after approval + RevenueCat audit",
+      "ready": false,
+      "model": "Opus, extended thinking",
+      "addedAt": "2026-08-12",
+      "prompt": "Make it possible to buy the Abs By AI membership on iOS *before* creating an account, then capture the account right after the purchase. Read `Handoffs/handoff-20260812-purchase-before-account.md` first — it has full context. Short version: today `handleIapSubscribe()` in `public/index.html` hard-returns to the signup screen when the user is logged out, and `server.js`'s `parseAppUserId()` deliberately rejects RevenueCat's `$RCAnonymousID:…` form, because our `users.id` is the only key the purchase webhook has to find the account to unlock. Both sides have to change together: let the purchase happen anonymously, force signup immediately after StoreKit reports success, and call `Purchases.logIn()` to alias the anonymous id onto the real one — which is RevenueCat's supported path for this exact flow. Do not \"fix\" the server guard by accepting ids you cannot map; make them resolvable instead. Pay particular attention to step 6, the user who buys and then closes the app before signing up — that is a paying customer with no access and it must be handled deliberately, not left to chance. Verify the whole matrix in sandbox on a real device against the `users` rows, not the app UI. **Two preconditions: do not start until the iOS app has been approved by App Review, and do the companion handoff `handoff-20260812-revenuecat-restore-behavior-audit.md` first, because the RevenueCat setting it audits governs exactly the aliasing operation this task relies on.**"
+    },
+    {
+      "text": "Swap Dan's phone to the public Play build",
+      "doc": "Handoffs/handoff-20260818-android-public-build-swap.md",
+      "status": "needs your Android phone on adb",
+      "ready": false,
+      "model": "Sonnet 5 or Codex mini, low",
+      "addedAt": "2026-08-18",
+      "prompt": "Read `Handoffs/handoff-20260818-android-public-build-swap.md` in the Abs By AI repo and execute it.\n\nShort version: Dan's Galaxy A14 (`adb` serial `R92W60LKM2D`) is still running the internal-testing\nbuild of `com.absbyai.app`. He has already been opted out of the test track, but Google Play on the\ndevice has not propagated it yet and the store page still says \"Abs by AI (Internal Beta)\". Poll\nthat page roughly every 20–30 minutes until the \"Internal Beta\" label is gone, then uninstall the\ntest build and install the public production build from Play, then verify the app still opens\nfull-screen with no Chrome address bar and that zero purchase controls are visible.\n\n**Critical: do NOT uninstall before Play actually offers the public version — that would leave Dan\nwith no app.** Do not run `pm clear com.android.vending`. Do not point `scripts/native-smoke-test.sh`\nat the phone (it installs a sideloaded APK and would undo the work). Make no AI calls.\n\nFirst action: run `~/Library/Android/sdk/platform-tools/adb devices -l` and confirm the phone is\nconnected. If it is not, stop and ask Dan to plug it in."
+    },
+    {
+      "text": "Fill the last 7 Instagram image-gap days (63 of 70 done)",
+      "doc": "Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md",
+      "status": "Blotato queue room from ~09-12",
+      "ready": false,
+      "model": "Sonnet 5, standard",
+      "addedAt": "2026-08-26",
+      "prompt": "Read Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md in the Abs By AI repo and finish it. 63 of the 70 image posts are already scheduled and verified; the last 7 were blocked on Blotato's 200-post plan cap. First re-pull the live Blotato queue for @danrosefit and @abs.by.ai and confirm there are at least 7 free slots under the cap (it drains ~2 posts/day). If there are, run `scripts/blotato/iggap_fill.py --apply` (idempotent — it only schedules the missing days), then re-read the queue and verify every new post landed with the right account, time and caption. Report the final fill list. No AI generation, no production code, no deploy."
     }
   ]
 }
