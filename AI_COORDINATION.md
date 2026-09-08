@@ -72,15 +72,15 @@ The test comment and its auto-reply were deleted afterwards (post re-read: "No c
 keywords at once. Still open from the original build: whether to switch off Blotato's IG auto first-comment
 (**ask before touching it**, queue-wide), and the CTA reels are eligible for the 2026-08-31 paid-ads specs.
 
-**Website conversion video — REV 3 DELIVERED 2026-09-02 (~6 PM), awaiting Dan's review.** Same folder,
-same filename (`claude edited long form content/06 - …/website_video_16x9.mp4`, 3:50); rev 2 is beside it as
-`*_REV2_REJECTED`. Fixed from measurements: every crop anchored to his head (median headroom 201 → 53 px,
-min 21, never cut), the repeated "I've been out of shape" cut, lower thirds at the bottom with captions
-62–73 px clear (both now pixel-measured QC checks that FAIL rev 2's file). Audio chain unchanged and
-approved; the new shared gate passes it. 540p review copy + audio A/B sent in chat; `notes.md` flags one
-judgment call (the after-photos now start on "I have the most defined abs"). Recipe in the skill
-(`ad-edit/reference/website-video/`, lessons 101–106). Delete this entry once Dan approves; the next step
-after approval is installing it on absbyai.com (separate Key task).
+**Website conversion video — REV 3 REJECTED 2026-09-08 (hair cut off in every hold); REV 4 HANDOFF WRITTEN, not
+executed.** `Handoffs/handoff-20260908-website-video-rev4.md`. Measured cause: the rev-3 head tracker anchored to the
+HAIRLINE (296–300 in 4K) while the real hair top is 196–215; 23 of 26 holds crop the hair 17–50 px at 1080p and the
+delivered-frame gate measured to the same wrong point (ad-edit lesson 107). Rev 4 = hair-top detector proven at native
+scale, two levels (1.85× hair→belly button, 1.46× hair→shorts line, NO wide), AI clips at 0:19 / 0:26 / 2:04 / 2:26–2:44,
+members-home scroll PiP at 2:46, the better macro clip at 0:56 if the short-ad session has delivered it. Audio
+unchanged (approved). One reading question for Dan sits at the top of the handoff (frame bottom vs the shorts line);
+the default is his own rev-1 pair of frames. ⚠ No dashboard row was added (Dan's 09-08 rule: only when he asks).
+Dan runs it in a fresh session on Fable 5.1, extra-high effort. Delete this entry when rev 4 is delivered.
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,

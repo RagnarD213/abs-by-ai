@@ -74,3 +74,9 @@ head track -> plan -> MOV-vs-beat probe -> punch -> mix -> audio -> captions -> 
   reference copies of `audio3.py` / `base.py` / `qc.py` in this folder were re-pointed at
   `_shared/audio/` by the audio-unification session the same evening; the chain that actually rendered
   rev 2 and rev 3 is `audio3.py` at git `2d182f4` (also in the work dir's `rev2/`).
+
+**REV 3 REJECTED 2026-09-08 — the hair is cut off in every hold.** `headtrack.py` / `headtrack_refine.py` here anchor to the
+hairline, not the hair top (lesson 107); do not reuse them as they are. Rev 4's spec — the two-stage hair detector, the
+NEAR 1.85× / FAR 1.46× levels with no wide, the AI clip inserts and the members-home scroll — is in
+`Handoffs/handoff-20260908-website-video-rev4.md`. The measurement behind it: `website-video-828/pv/hair_measure.jpg`,
+`pv/hair_proof.jpg`, `pv/body_grid.jpg`, `pv/hairtrack_probe.json` (copies in the delivery folder's `pv/`).

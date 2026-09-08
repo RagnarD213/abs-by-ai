@@ -1012,6 +1012,27 @@ new gate is measuring the right thing before it is trusted on the new render.
    and 29. The plan → render → measure → refine → render loop can only move a crop UP, so it converges
    in one pass. Rule: the sampler that gates the delivery is the sampler that anchors the crop.
 
+
+Website conversion video rev 3 — REJECTED 2026-09-08: **the top of Dan's hair is cut off in every hold**, the wide
+level is banned, and he wants AI clips to break up the talking head. Handoff for rev 4:
+`Handoffs/handoff-20260908-website-video-rev4.md`. The framing failure is the lesson, and it is a bad one:
+
+107. **HAIRLINE IS NOT HAIR. A detector line that "looks right" on a small tile can be 90 px inside the hair — validate
+   at NATIVE scale on his tallest frames, and never gate with the same detector that built the plan.** Rev 3's "head
+   top" was the first row with ≥30 % skin at `r>120`, minus a 40 px allowance from the same bad grid frame as rev 2's
+   y=40. On his tallest frames it read 296–300 (4K); the real top of his hair is at 196–215 (`pv/hair_measure.jpg`,
+   contrast-stretched 4K crops with a 50 px grid), and the hair band is 64 px, not 40. Every proof sheet — the 480 px
+   tiles of `headtrack_check.jpg`, `headtrack_tallest.jpg`, `headroom_sheet.jpg` — showed a red line "on the head",
+   because at that scale a line at the hairline and a line at the hair top are two pixels apart. So 23 of 26 holds
+   cropped the hair by 17–50 px at 1080p, and the delivered-frame gate passed 21–95 px of "headroom" because it
+   measured to the same wrong point. Three rules, each of which alone would have caught it: (a) the anchor is the HAIR
+   TOP, found by climbing from the skin start through the dark hair band until the row is back at the doorway header's
+   luma (hair ≈(26,28,25), header ≈(34,38,37)); a climb under 55 px is a MISS and reads LOW, the dangerous direction —
+   discard it; (b) the proof sheet is native-scale crops of the head with a grid, tallest AND median frames, contrast
+   stretched, looked at; (c) the delivered-frame gate needs a test independent of the detector — hair-coloured pixels
+   in the top rows of the head band = FAIL — because a gate built from the plan's detector inherits the plan's bias.
+   Dan's screenshot at 0:05 (hair against the top edge) is the reference failure.
+
 ## Decisions locked vs pending
 
 | decision | status |
