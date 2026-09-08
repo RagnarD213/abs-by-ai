@@ -1,18 +1,5 @@
 {
-  "checked": [
-    "assistant::Cut up boxes from artificial hedge install and put in empty room",
-    "assistant::Do laundry",
-    "assistant::Do dishes",
-    "assistant::Change sheets",
-    "assistant::Put pool tile cleaning products away",
-    "assistant::Cut up boxes, and put cardboard and plastic bags in recycling. Bring full recycling bin to curb.",
-    "assistant::Move all items from filming room into 2nd empty room. Organize items in empty room and throw away trash",
-    "assistant::Change robot mop water",
-    "assistant::Vaccum bedroom",
-    "assistant::Tidy living room",
-    "assistant::Take out trash",
-    "assistant::Put away dishes 2.0"
-  ],
+  "checked": [],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -216,18 +203,5 @@
       "2026-08-30"
     ]
   },
-  "checkedAt": {
-    "assistant::Cut up boxes from artificial hedge install and put in empty room": "2026-09-01",
-    "assistant::Do laundry": "2026-09-01",
-    "assistant::Do dishes": "2026-09-01",
-    "assistant::Change sheets": "2026-09-01",
-    "assistant::Put pool tile cleaning products away": "2026-09-01",
-    "assistant::Cut up boxes, and put cardboard and plastic bags in recycling. Bring full recycling bin to curb.": "2026-09-01",
-    "assistant::Move all items from filming room into 2nd empty room. Organize items in empty room and throw away trash": "2026-09-01",
-    "assistant::Change robot mop water": "2026-09-01",
-    "assistant::Vaccum bedroom": "2026-09-01",
-    "assistant::Tidy living room": "2026-09-01",
-    "assistant::Take out trash": "2026-09-01",
-    "assistant::Put away dishes 2.0": "2026-09-01"
-  }
+  "checkedAt": {}
 }
