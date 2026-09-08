@@ -295,6 +295,11 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 Swept 2026-09-08. All four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts; whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
+- **`Handoffs/handoff-20260908-google-ads-enhanced-conversions.md`** — the "Enhanced conversions not recording"
+  banner: 3 of 5 EC actions red. Subscribe = zero sales (clears itself); the two Import-from-clicks actions = the
+  offline feed has no hashed-email column and never will without code. Plan: gtag `user_data` on the browser fires +
+  SHA-256 Email column (and email-only rows) in the feed + Data Manager field map + one privacy sentence. NOT on the
+  dashboard (Dan's rule). Diagnosed 2026-09-08, not executed.
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
 - **`Handoffs/handoff-20260812-purchase-before-account.md`** — after approval AND after the RevenueCat audit.
 - **`Handoffs/handoff-20260818-android-public-build-swap.md`** — small; needs Dan's Android phone on adb.
