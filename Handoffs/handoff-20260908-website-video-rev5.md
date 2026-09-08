@@ -61,10 +61,10 @@ starts to drift from **≈7.0–7.1 s** and is visibly displaced by 7.6–7.95 s
 ```python
 # build_inserts.py
 EDIT={"ai_d1":[(0.3,4.3)], "ai_d2":[(1.0,3.85),(4.7,7.05)]}     # D2 usable = 2.85 + 2.35 = 5.20 s
-INPOINT["ai_d3"]=0.25                                            # D3 usable = 0.25-7.93 = 7.68 s
+INPOINT["ai_d3"]=0.2                                             # D3 usable = 0.2-7.93 = 7.73 s (the beat needs 7.68 -- verified 2026-09-08)
 # beats.py
 AI_D2 = (at("and to avoid the foods"), at("that you have", after=156.0)-0.25)   # 151.642 -> 156.68 = 5.04 s (needs 5.14 of clip)
-AI_D3 = (AI_D2[1], end_of("you have available"))                                # 156.68 -> 164.262 = 7.58 s (needs 7.68 of clip)
+AI_D3 = (AI_D2[1], end_of("you have available"))                                # 156.68 -> 164.262 = 7.58 s (needs 7.68 of clip; anchors verified: D1 3.68 s / D2 5.04 s / D3 7.58 s)
 ```
 `build_inserts.py` asserts the usable clip covers the beat — if it fails, the numbers above drifted; recompute from
 `python3 -c "import beats as B; print(B.AI_D2, B.AI_D3)"`. **First strip `D2.mp4` 6.0–8.0 s at 0.1 s and `D3.mp4` 7.3–8.0 s**
