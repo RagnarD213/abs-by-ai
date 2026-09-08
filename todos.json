@@ -6,52 +6,7 @@
       "addedAt": "2026-08-03"
     },
     {
-      "text": "Write script for HOG commercial",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Email HOG to buy advertising",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Contact vasectomy doctor - stitches, pain during intercourse",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Rotate or delete old MailerLite API key",
-      "priority": "high",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Fix Namecheap SPF/DMARC records (needs Dan's login, Claude finishes)",
-      "priority": "med",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Produce new AI ad variants (hook variants of The Upload + new concepts)",
-      "priority": "med",
-      "addedAt": "2026-08-05"
-    },
-    {
-      "text": "Fix Printify store name and picture issue",
-      "priority": "med",
-      "addedAt": "2026-08-03"
-    },
-    {
       "text": "Add shipping costs to app",
-      "priority": "med",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Update Monarch money transactions",
-      "priority": "med",
-      "addedAt": "2026-08-03"
-    },
-    {
-      "text": "Rebalance retirement accounts",
       "priority": "med",
       "addedAt": "2026-08-03"
     },
@@ -80,136 +35,16 @@
       "addedAt": "2026-08-18"
     },
     {
-      "text": "Investigate last month's spending ($24k on dashboard vs $10–15k target — verify accuracy first)",
-      "priority": "high",
-      "why": "2026-08-19 planning — number may be wrong (credit card bills don't match); audit Monarch data + dashboard source",
-      "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Clear editing backlog: batches 2-4 (~10 ads + ~25 content videos) — split between new editor and longform pipeline",
-      "priority": "key",
-      "why": "2026-08-19 planning — Romeysa backed out; editing is now the constraint on the content engine",
-      "addedAt": "2026-08-19"
-    },
-    {
-      "text": "Check Upwork",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-08-22"
-    },
-    {
-      "text": "Produce short-form CONTENT (not ads) — mine the longforms + shoot app-demo Reels",
-      "priority": "high",
-      "why": "2026-08-25 planning — Dan has plenty of short-form ADS but almost no short-form content. IG plan flagged the app-screen-recording Reel as the one asset no competitor can copy.",
-      "addedAt": "2026-08-25"
-    },
-    {
-      "text": "Request Unemployment Payment",
-      "priority": "high",
-      "why": "Biweekly unemployment claim window",
-      "addedAt": "2026-08-26"
-    },
-    {
-      "text": "Build the 0:59 vertical Ad 1 from Dan's edited script",
-      "priority": "key",
-      "why": "Phase B of the attempt-2 handoff. Blocked on Dan cutting the script doc (link in AI_COORDINATION.md). No cutdown designed on purpose.",
-      "addedAt": "2026-08-26"
-    },
-    {
       "text": "Execute handoff: fill danrosefit + abs.by.ai image-post gap days (write captions, schedule in Blotato)",
       "priority": "key",
       "why": "handoff-20260826-danrosefit-abs-image-gap-fill.md — 63 of 70 live. The last 7 need Blotato queue room: it sits at 200/200 and drains ~2/day, so a session can re-run scripts/blotato/iggap_fill.py --apply from ~09-12 with no decision from Dan.",
       "addedAt": "2026-08-26"
     },
     {
-      "text": "Check iOS App Store review status (submission ccc7a7ae-103b-4f1d-a142-4552e48a456a, resubmitted 8/26 after the 5.1.1(v) rejection)",
-      "priority": "key",
-      "why": "Argued 5.1.1(v) in Resolution Center + shipped the account-based explanation; thread eed31ff7 is still open for Apple's reply",
-      "addedAt": "2026-08-26"
-    },
-    {
-      "text": "Export our recovered EDL as a Premiere/FCP timeline for the freelance editors",
-      "priority": "high",
-      "why": "Watch-review 8/29 (ButterCut, Cut Valet): our pipeline already recovers a word-accurate EDL; exporting it as FCPXML instead of only an MP4 would hand Muhammad's 12-ad batch a finished rough cut + right-channel mono audio, removing the exact steps 2 of 3 trial editors failed on",
-      "addedAt": "2026-08-29"
-    },
-    {
       "text": "Make the AI Trainer recovery-aware: scale volume from last night's Oura sleep/HRV",
       "priority": "key",
       "why": "Watch-review 8/30: kingketo IG reel. We already hold the Oura data in Sleep Coach but the trainer ladder progresses on workout counts alone. Auto-regulation is a differentiator no photo-generator competitor has.",
       "addedAt": "2026-08-30"
-    },
-    {
-      "text": "Order the filming-set gear (buy-now list, ~$885) after the 3 phone tests in the bedroom",
-      "priority": "key",
-      "addedAt": "2026-09-01",
-      "why": "Dan's stated top priority 9/1; build spec + priced list in the home-filming-set artifact (v2)"
-    },
-    {
-      "text": "Cut Ad 2's SCRIPT_FOR_DAN.md to ~200 words, then build the 0:59 vertical (Phase B, /shortad-from-longform)",
-      "priority": "key",
-      "addedAt": "2026-09-01",
-      "why": "Dan 9/1: finish the short ad from longform; script cut is Dan's, build is a session's"
-    },
-    {
-      "text": "Launch Google Ads campaigns with finished Ad 1 (Muhammad 16:9 + 0:59 vertical) — fix the 'New form of payment required' flag first",
-      "priority": "key",
-      "addedAt": "2026-09-01",
-      "why": "Dan 9/1: ads are ready to run; Google billing flag from the 8/31 pull blocks all new spend"
-    },
-    {
-      "text": "Review the website conversion video (06 - post-generation) and install it on absbyai.com",
-      "priority": "key",
-      "addedAt": "2026-09-02",
-      "why": "9/2 planning — being built in a concurrent session today; Dan reviews, then a session installs it on the post-generation screen and deploys"
-    },
-    {
-      "text": "Review the 8 Zepbound shorts (zep-short1..8) and say which to swap for alternates",
-      "priority": "high",
-      "addedAt": "2026-09-02",
-      "why": "9/2 planning — delivered 9/1, picks were Claude's; posting still blocked on the parent longform being unpublished"
-    },
-    {
-      "text": "Get the Meta engagement campaign running (both [DAN] [ENGAGEMENT] campaigns are OFF, 3 draft edits unpublished)",
-      "priority": "key",
-      "addedAt": "2026-09-02",
-      "why": "9/2 planning — Dan: 'I've got to get my Meta engagement campaign working'; one new ThruPlay campaign per the 8/31 spec"
-    },
-    {
-      "text": "Review exercise-demo batch 4 candidates (10 x -FINAL-CANDIDATE: kb-swing/deadlift/goblet/row/press, step-up, db-step-up, db-lunge, ab-wheel-rollout, deficit-pushup)",
-      "priority": "med",
-      "addedAt": "2026-09-02",
-      "why": "9/2 planning — low priority per Dan; approved ones then get encoded + installed via the batch-2 recipe (native-retest trigger)"
-    },
-    {
-      "text": "Upload longforms 02 (Zepbound) and 03 (Supplements) to YouTube — on hold pending Muhammad's edits",
-      "priority": "high",
-      "why": "Both are cut, packaged and thumbnailed in the project folder and deliberately NOT uploaded. Dan is holding them until Muhammad delivers his own edits of the same two videos; if Muhammad's are clearly better his ship and these are the backup. Review date 2026-09-09 — the morning brief starts reminding daily from then. 16 cut Shorts are blocked until one version is public.",
-      "addedAt": "2026-09-02"
-    },
-    {
-      "text": "Review the 6 spray tan shorts (rev 1, new audio) and the audio A/B",
-      "priority": "high",
-      "addedAt": "2026-09-02",
-      "why": "rev 1 delivered 9/2: reverb fixed (EDT 85->29-40ms), 2 shorts killed and 2 retitled per Dan. Judge the A/B first"
-    },
-    {
-      "text": "Test every @danrosefit reel as an Instagram trial reel before it hits the grid or gets boost budget",
-      "priority": "high",
-      "why": "Trial reels publish to non-followers only and never touch the grid, so a hook can be proven for $0 before the auto-boost job spends to discover the same thing. Check whether Blotato can publish trials via API; if not, restructure the queue to trial-first, publish/boost the winner.",
-      "addedAt": "2026-09-04"
-    },
-    {
-      "text": "Split ManyChat 'Comment ABS' into per-topic keywords so each post's DM and UTM match its content",
-      "priority": "high",
-      "why": "All ~60 queued CTA posts share one keyword and one utm_campaign=comment-abs, so no post's signups can be attributed and every commenter gets the same generic DM",
-      "addedAt": "2026-09-06"
-    },
-    {
-      "text": "Sweep social posts: confirm every scheduled IG/TikTok/YouTube/FB post actually published (Blotato failed-post check, incl. the first @absbyai TikTok post)",
-      "priority": "high",
-      "why": "2026-09-08 planning — Dan: 'check all my social media posts'; TikTok went live via Blotato 9/2 and its first post was never verified",
-      "addedAt": "2026-09-08"
     },
     {
       "text": "Switch on the YouTube engagement champion: Dan authorizes Ads Script 12241942 (hourly) + creates the MCC developer token, then a session sets YTADS_ENABLED=1",
@@ -257,11 +92,6 @@
     }
   ],
   "personal": [
-    {
-      "text": "Buy more SpaceX stock",
-      "priority": "med",
-      "addedAt": "2026-08-05"
-    },
     {
       "text": "Hire someone to powerwash",
       "priority": "low",
