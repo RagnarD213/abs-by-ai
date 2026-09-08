@@ -79,15 +79,18 @@ The test comment and its auto-reply were deleted afterwards (post re-read: "No c
 keywords at once. Still open from the original build: whether to switch off Blotato's IG auto first-comment
 (**ask before touching it**, queue-wide), and the CTA reels are eligible for the 2026-08-31 paid-ads specs.
 
-**Website conversion video — REV 3 REJECTED 2026-09-08 (hair cut off in every hold); REV 4 HANDOFF WRITTEN, not
-executed.** `Handoffs/handoff-20260908-website-video-rev4.md`. Measured cause: the rev-3 head tracker anchored to the
-HAIRLINE (296–300 in 4K) while the real hair top is 196–215; 23 of 26 holds crop the hair 17–50 px at 1080p and the
-delivered-frame gate measured to the same wrong point (ad-edit lesson 107). Rev 4 = hair-top detector proven at native
-scale, two levels (1.85× hair→belly button, 1.46× hair→shorts line, NO wide), AI clips at 0:19 / 0:26 / 2:04 / 2:26–2:44,
-members-home scroll PiP at 2:46, the better macro clip at 0:56 if the short-ad session has delivered it. Audio
-unchanged (approved). One reading question for Dan sits at the top of the handoff (frame bottom vs the shorts line);
-the default is his own rev-1 pair of frames. ⚠ No dashboard row was added (Dan's 09-08 rule: only when he asks).
-Dan runs it in a fresh session on Fable 5.1, extra-high effort. Delete this entry when rev 4 is delivered.
+**Website conversion video — REV 4 DELIVERED 2026-09-08 (evening), awaiting Dan's review.**
+`claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9.mp4` (rev 3 beside it as
+`*_REV3_REJECTED`; `REVIEW_540p`, `AB_his-vs-ours.mp4`, `notes.md`, `pv/` proof sheets, `recipe/`). The hair fix: a new
+hair-top detector (`hairdet.py`, validated by eye at native 4K scale — `pv/hairtrack_proof.jpg`) anchors every crop; on the
+delivered frames the hair sits 43–82 px below the edge (median 56, per hold 43–53) and a detector-free top-rows test passes
+all 4468 frames where rev 3 failed 5371 of 5781. Levels NEAR 1.85× / FAR 1.46× only, no wide. Seven tagged Veo clips at
+0:19/0:25/2:04–2:15/2:26–2:44, the real macro tracker re-recorded (salmon plate → 775 cal → logged) at 0:56, the members'
+home scroll PiP at 2:46. Audio chain untouched, gate PASSED + stamped; QC all checks; $9.47 AI spend. **One question for Dan
+in the notes: the FAR level's bottom edge sits just under the shorts waistband (his rev-1 definition) — if the frame must
+never go below the waistband, FAR becomes 1.58× (a punch-only re-render).** Two judgment calls flagged there: the macro beat
+runs 4.4 s longer for the logged payoff; the D clips start after the NUM3 lower third (2:26) rather than 2:17. No dashboard
+row exists for this (Dan's 09-08 rule). Delete this entry once he approves.
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,
@@ -158,17 +161,15 @@ verifying it. **Short 2 measures 1.08 dB shape against a 1.00 gate** — one ban
 `_pre-audiofix-20260902/`; A/B clips beside supp-short1 and supp-short4). Same block: the parent
 long-form is on hold (above), so nothing can post. Parked, not chased.
 
-**AD 2 vertical 9:16 — REV 1 DELIVERED 2026-09-08 (Dan's six notes on the V2 rebuild), awaiting his review.**
+**AD 2 vertical 9:16 — REV 1b DELIVERED 2026-09-08 18:17, awaiting Dan's review.**
 `Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | claude | 9x16 | ad 2.mp4`
-(+ the `REVIEW 540p`, `REVIEW 480p phone` and `AB audio` files under the same `title | editor | aspect | number` convention, gate stamp, `notes-vertical-v2.md`, `recipe-vertical-v2/`). **Subtitles:**
-Whisper's word timestamps ran ~130 ms early on his mix; captions are now timed from a CTC forced alignment and a new
-gate (qc check 20, `caption_sync_check.py`) proves on the delivered file that the word being said is the word lit
-(98.8 %, 0 words outside speech) — the rejected file scored 44 %. Also applied: both before photos re-centred with the
-stomach in frame, three after pictures at 2:49, the 3:03 card ends on the finalised after picture, the 3:19 split uses
-a different person (asset library male2), 3:59 is a new clip recorded from the real Macro Tracker (salmon plate → 815
-cal logged). QC 21/21, watch pass, shared audio gate on the delivered file. **His V2 still shows the email-capture
-screen at 3:12 and 3:22 — tell Muhammad.** Then Phase B: Dan cuts `SCRIPT_FOR_DAN.md` to ~200 words for the 0:59.
-Delete this entry once he approves.
+(+ `REVIEW 540p`, `REVIEW 480p phone`, `AB audio` under the `title | editor | aspect | number` convention, gate stamp,
+`notes-vertical-v2.md`, `recipe-vertical-v2/`). Dan's verdict on rev 1: subtitles on point (now a standing rule in the
+skill: CTC forced alignment + qc check 20 on the delivered file), all pictures good except 3:18, which looked pasted.
+**3:18 is now a REAL generation**: the other person's photo run through the live app under Playwright, the app's own
+loader recorded, the app's own result screen captured after-only (~$0.30 of generations). QC 21/21, watch pass,
+audio gate on the delivered file. **His V2 still shows the email-capture screen at 3:12 and 3:22 — tell Muhammad.**
+Then Phase B: Dan cuts `SCRIPT_FOR_DAN.md` to ~200 words for the 0:59. Delete this entry once he approves.
 
 **Cutout thumbnails** — six built in the Brandon Carter style (A/B/C typographic, D/E/F
 device-heavy) in `social media graphics/youtube/thumbnails/The 17 Dollar Ab Wheel…/`. Dan
