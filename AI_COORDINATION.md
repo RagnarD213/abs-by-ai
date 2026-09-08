@@ -38,20 +38,12 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
-**Editor revision docs — 8 cuts reviewed 2026-09-08, ALL AWAITING DAN'S FORWARD (he sends at 1 PM).**
-Muhammad's batch-2 doc (`1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`) now ends with six new sections: AD 3 ROUND 3
-(4 items; audio steps skipped a third time, still −18.5 LUFS / 0 dBTP), AD 4 ROUND 2 (4 items; email screen at 2:58),
-AD 5 ROUND 2 (5 items; he fixed clipping by pulling the mix to −29.7 LUFS), AD 6 / AD 7 / AD 8 first rounds (18 / 21 /
-13 timestamped items; Ad 6 and Ad 7 repeat the arrow two-panel, Ad 8 opens on a real-before → AI-after dissolve, Ad 7 has
-Muhammad Ali / LIFE posters at 1:16). Waleed: NEW doc "Video 1 revisions - Waleed - round 3"
-(`1MKoZ1mNFAmWM-24pZe8KXHKpFXTOGhv-0W3krm_00EY`) — his picture is a real revision pass this time but the Sep 5 export
-shipped a regressed mix (−8.6 LUFS, +3.2 dBTP, 90k clipped samples); doc says put the approved Sep 3 audio back; keep him,
-hold the milestone until round 3 lands. Zeeshan: round 3 pasted at the TOP of his doc
-(`13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`) — live sets are in and levelled; 8 items left (silent sets, email line
-still in the app section). Markdown copies + paste-ready Upwork messages: `revision docs/*9-8-26.md` and the session
-report. Muhammad's Ad 2 HD (`1o2wBl4Y8l6_yl6ExBMQGFD16EqaZLjlN`) is the approved final for YouTube. ⚠ Scripts doc
-(`1AVRvx…`) still tells editors to use the app's before/after reveal (Ad 5 L343, Ad 6 L429) and Ad 8's split screen
-(L525) — needs correcting before Ads 9–15 are cut. Delete this entry once Dan has forwarded the docs.
+**Editor rounds out 2026-09-08 — waiting on the editors, nothing for a session to do.** Dan reviewed, edited and
+sent all eight docs on 09-08 (Muhammad Ads 3–8 in the batch-2 doc, Waleed round 3 in a new doc, Zeeshan round 3 at the
+top of his doc). Next deliveries get the same sweep; the skill was recalibrated from his edits (calibration pass 2,
+rules 12–21). ⚠ The scripts doc (`1AVRvxiINZ0EDkoFv77piXbg5xGuizHGuHE7vRVWXRKk`) still tells editors to use the app's
+before/after reveal (Ad 5 L343, Ad 6 L429) and Ad 8's split screen (L525) — correct it before Ads 9–15 are cut.
+Delete this entry once the next cuts arrive.
 
 **IG auto-boost — BUILT, DEPLOYED, DRY-RUNNING HOURLY; waiting on Dan's word to switch it ON** (2026-09-02).
 `scripts/ads/auto-boost.js` runs on Railway cron service `auto-boost` (`15 * * * *`, commit `51989d7`),
