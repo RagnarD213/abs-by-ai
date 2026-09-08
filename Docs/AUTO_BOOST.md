@@ -1,6 +1,8 @@
 # IG auto-boost — every new @danrosefit post gets a $5 test, one champion runs at $6.50/day
 
-**Built 2026-09-02** from `Handoffs/handoff-20260902-ig-auto-boost.md`. The design decisions in
+**Built 2026-09-02** from `Handoffs/handoff-20260902-ig-auto-boost.md`. **Switched LIVE 2026-09-08 ~21:00 UTC**
+(Dan's word; `AUTO_BOOST_ENABLED=1` on the `auto-boost` service). The first live pass renamed the campaign and
+champion and created six $5 tests on the Sep 2–7 posts; the champion had $40.02 / 418 visits at that point. The design decisions in
 that handoff are Dan's and are final; this doc is how the built thing works and how to operate it.
 
 ## What it does, in one paragraph
@@ -46,6 +48,14 @@ type Meta returns next to the pinned metric names (see below); `--print` dumps t
 A dry run also records a `dry_run=true` row in `auto_boost_runs` so the brief can show it.
 
 To make a local run LIVE (it will spend): `AUTO_BOOST_ENABLED=1 node scripts/ads/auto-boost.js`.
+
+## Follower baseline — the manual check the job cannot do
+
+Follows are not readable through the API (next section), so cost-per-follow is measured by hand from the
+account's follower count. **Baseline: @danrosefit had 566 followers on 2026-09-08 ~21:00 UTC at $40.02
+lifetime campaign spend** (read via `GET /17841401601139982?fields=followers_count`). No earlier baseline was
+ever recorded. Weekly: read the count again, subtract, divide the spend since by the follows since. Over $5 a
+follow with $35+ spent → pause the champion by hand (the job's rule, applied manually); under $3 → scale.
 
 ## The two metric names — one verified, one still to match (read this before trusting a verdict)
 

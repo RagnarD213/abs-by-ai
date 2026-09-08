@@ -44,17 +44,6 @@ top of his doc). Next deliveries get the same sweep; the skill was recalibrated 
 rules 12–21). The scripts doc's three before/after cue lines (Ad 5, Ad 6, Ad 8) were corrected 2026-09-08.
 Delete this entry once the next cuts arrive.
 
-**IG auto-boost — BUILT, DEPLOYED, DRY-RUNNING HOURLY; waiting on Dan's word to switch it ON** (2026-09-02).
-`scripts/ads/auto-boost.js` runs on Railway cron service `auto-boost` (`15 * * * *`, commit `51989d7`),
-`AUTO_BOOST_ENABLED=0` so every run is a dry run that plans and records but writes nothing to Meta.
-The dry-run report was shown in chat: it would rename the campaign/ad set, and create one $5 test on the
-Sep 2 "Pick a sport" image post. **To go live Dan says the word and a session sets `AUTO_BOOST_ENABLED=1`
-on that service** (`railway variables --service auto-boost --set AUTO_BOOST_ENABLED=1`). First Railway run observed 00:15 UTC 2026-09-03 (exit 0, run recorded). ⚠ `instagram_profile_visits` is
-now reporting (5 visits on $0.10) but neither metric is count-matched to Ads Manager yet — the job self-verifies
-(no loser verdicts, no champion kill until each metric is observed); the check is `node scripts/ads/auto-boost.js
---dry-run --verify` once spend exists, recipe in `Docs/AUTO_BOOST.md`. Delete this entry once enabled and the
-first live run is observed.
-
 **Ad-1 vertical audio — REBUILT, Dan listens** (2026-09-02). He rejected the audio on
 `Muhammad Ad Videos/this picture got me abs/… | claude | 9x16.mp4` and attributed it to the
 two-mic fault. **It was not that** — both delivered files measure L/R corr 0.99 at lag 0, and
@@ -268,8 +257,10 @@ the auto-created one) still waits for a real row in the feed.
 
 **IG profile-visits campaign — LIVE since 2026-09-02 ~18:00 CT.** Campaign `120250753198730682`,
 ad set `120250753601020682` (**$6.50/day ≈ $200/mo, Dan's call 2026-09-02**) and both ads on the real @danrosefit reels are ACTIVE; ads
-clear Meta review on their own. **After $50 spend: kill >$5/follow, scale <$3/follow** — the auto-boost job
-applies exactly this once it is enabled (entry above); until then it is a manual check. Recipe: `scripts/ads/boost_danrosefit_posts.py`. ⚠ Never click the global
+clear Meta review on their own. **Auto-boost is LIVE since 2026-09-08 21:00 UTC** (`AUTO_BOOST_ENABLED=1`; first Railway live run 21:17 UTC, idempotent): campaign
+renamed `[AUTO] …`, ad set renamed `CHAMPION`, six $5 tests running on the Sep 2–7 posts (end 09-13). The job judges tests on cost/visit;
+**follows are NOT readable from the API, so cost/follow is a manual weekly check against the baseline of 566 followers at $40.02 spend
+(2026-09-08)** — recipe in `Docs/AUTO_BOOST.md`. Kill >$5/follow, scale <$3/follow. Recipe: `scripts/ads/boost_danrosefit_posts.py`. ⚠ Never click the global
 "Review and publish (7)". This ad set is the first CHAMPION of the auto-boost system
 (`Handoffs/handoff-20260902-ig-auto-boost.md`). Delete this entry once the $50 review is done.
 
