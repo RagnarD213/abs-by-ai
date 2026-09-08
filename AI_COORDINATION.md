@@ -248,19 +248,11 @@ plan cap; Dan either deletes queued posts or upgrades. Then re-run
 `tiktok_mirror.py --restore-fb --apply` once the 200/200 queue has room, then delete this entry.
 (The `Post on TikTok` dashboard row was removed 2026-09-08 — posting is automated.)
 
-**Blotato post `697055` was a FALSE FAILURE — it published, and the re-post made a duplicate. One
-Dan decision left** (2026-09-08). Blotato marked the V7 long-form Facebook reel failed 2026-09-06 with
-"Uploading a reel to Facebook timed out"; Graph API shows it went live at 14:03:53 that day as
-`facebook.com/reel/1595086478922888` (791.59s, 323,270,763 bytes transferred, publish_status published).
-Blotato's client timed out on a 323 MB push while Facebook was still finishing — **its `failed` state is
-not proof; always confirm against the Graph API before re-posting a large video.** It had no IG/TikTok
-twins (that earlier claim was wrong — it was a Facebook-only longform mirror). Re-posting created a
-duplicate reel `1801218784349074` / post `1294282227094660_122115109395429177`; Facebook refuses
-`published=false` and `is_published=false` on reels, so **deletion is the only removal path and it is
-Dan's call.** Delete this entry once he answers.
-⚠ Separate, still-open genuine failure: post `667411` (2026-08-18, "My ten best tips…") exceeded the
-**400 MB Blotato plan cap**. Masters run ~1.1 GB / 11 Mbps; the queue's transcodes land ~322 MB, i.e.
-right against that ceiling. No other queued video is close (largest is 197 MB, TikTok 09-21).
+**Blotato queue — one genuine open failure:** post `667411` (2026-08-18, "My ten best tips…")
+exceeded the **400 MB Blotato plan cap**. Long-form masters are ~1.1 GB / 11 Mbps and the queue's
+transcodes land ~322 MB, right against that ceiling; re-encode smaller before re-queuing. No other
+queued video is close (largest is 197 MB, TikTok 09-21). ⚠ A Blotato `failed` state on a big video
+is not proof — verify against the platform's API first (memory: `blotato-false-failure-large-video`).
 
 **Google Ads conversion goals** — Purchase still reads Misconfigured and Campaign diagnostics
 shows "connection failed its last run" + a stale "Unparseable gclid (Aug 27)". **Root cause verified
