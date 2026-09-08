@@ -49,9 +49,35 @@ for a text-mismatch that isn't there.
 
 **Verify, don't trust the 200:** reload the dashboard (or re-read `/api/task-checks`) and confirm the row is struck through — a 200 only means the write was accepted, not that the id matched a task. If no matching task exists (it predates the rule, or Dan deleted it), say so rather than inventing one. Note `/api/todos` reads are eventually consistent — re-check after a beat before concluding a write failed.
 
+## The `handoffs` list — "Handoffs to fire" (built 2026-09-08)
+
+A fifth stored list, rendered as its own card under Money Tasks. It is the launcher: each row is one
+handoff doc Dan has decided to fire, with a status chip, the model recommendation, the days since it
+was written, and a **Copy prompt** button that puts the doc's starter prompt on his clipboard.
+
+Row shape — every field matters to the render:
+
+```json
+{ "text": "<short imperative title>", "doc": "Handoffs/handoff-YYYYMMDD-slug.md",
+  "status": "waiting on Apple approval", "ready": false,
+  "prompt": "<the doc's own Starter Prompt, verbatim, > stripped>",
+  "model": "Sonnet 5, standard", "addedAt": "YYYY-MM-DD" }
+```
+
+- `ready: true` renders a green READY chip; otherwise the yellow chip shows `status` — say what it is
+  waiting on ("needs your Android phone on adb"), never just "blocked".
+- `prompt` is copied verbatim from the doc's `## Starter Prompt` section (see
+  `scripts/dashboard/migrate_handoffs_20260908.py` for the extractor). No prompt → the button falls
+  back to "Read <doc> and execute it".
+- **No priority, no check-off.** A handoff that ran is DELETED from the list (`allowDeletes:
+  ["handoffs::<text>"]`), in the session that ran it. Never struck through.
+- **Hard cap 7 — the server returns 409 `handoffs_cap` on an 8th row.** Delete one first.
+- **14 days old = STALE**, flagged red on the card and raised in the morning brief as "fire it or kill it".
+- Not part of Work Session Focus auto-population and invisible to the `/assistant` page.
+
 ## Adding a handoff row — ONLY when Dan explicitly asks
 
-**Rule change 2026-09-08 (Dan):** a new handoff doc does NOT get a dashboard row by default. The board had filled with executed and superseded handoff rows until the real priorities were invisible (two sweeps: `scripts/dashboard/cleanup_20260901_handoffs.py`, `cleanup_20260908_dashboard.py`). The queue of unexecuted handoffs is the HANDOFFS section of `AI_COORDINATION.md` plus `Handoffs/README.md`. If Dan says to put one on the board: fetch `GET /api/todos`, append to the **`business`** list:
+**Rule change 2026-09-08 (Dan):** a new handoff doc does NOT get a dashboard row by default. The board had filled with executed and superseded handoff rows until the real priorities were invisible (two sweeps: `scripts/dashboard/cleanup_20260901_handoffs.py`, `cleanup_20260908_dashboard.py`). The queue of unexecuted handoffs is the HANDOFFS section of `AI_COORDINATION.md` plus `Handoffs/README.md`. If Dan says to put one on the board: fetch `GET /api/todos`, append to the **`handoffs`** list (row shape above — NOT a `business` Key task any more):
 
 ```json
 { "text": "Execute handoff: <short description>", "priority": "key", "why": "<filename> — created but not yet run", "addedAt": "YYYY-MM-DD" }

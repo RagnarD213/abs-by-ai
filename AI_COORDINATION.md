@@ -15,7 +15,7 @@ is the permanent record of code changes.
 |---|---|
 | a technique, trap, recipe or measured calibration | the relevant **skill** (`.claude/skills/…`) — commit it there |
 | what changed in code and why | **git history** |
-| work spec'd but not yet executed | a doc in **`Handoffs/`**, listed in the HANDOFFS section below + `Handoffs/README.md` (dashboard row ONLY if Dan asks) |
+| work spec'd but not yet executed | a doc in **`Handoffs/`**, listed in the HANDOFFS section below + `Handoffs/README.md`; on the dashboard's **Handoffs to fire** list ONLY if Dan asks (cap 7, deleted when run) |
 | durable facts about Dan, the product or providers | **memory** (`~/.claude/projects/…/memory/`) |
 | standing rules and authorizations | **`AGENTS.md`** / **`CLAUDE.md`** |
 | open state between sessions | **here**, in three or four sentences |
@@ -292,7 +292,8 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-Swept 2026-09-08. Dashboard rows exist only where Dan asked; this list plus `Handoffs/README.md` is the queue.
+Swept 2026-09-08. All four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
+prompts; whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
 - **`Handoffs/handoff-20260812-purchase-before-account.md`** — after approval AND after the RevenueCat audit.
