@@ -1,27 +1,29 @@
 #!/usr/bin/env python3
-"""Website video REV 3 -- punch/layout over the 4K tight.mov (3840x2160 -> 1920x1080), then overlays.
-  python3 layout.py plan | pip | punch | mix
+"""Website video REV 4 -- punch/layout over the 4K tight.mov (3840x2160 -> 1920x1080), then overlays.
+  python3 layout.py plan | punch | mix
 
-FRAMING. Rev 1 (Dan): never the wide kitchen shot, never the light. Rev 2 (Dan): "too much space
-above my head in all the shots ... crop in closer and also lower throughout ... just a little bit of
-space above my head, and then more on the bottom, with the shorts and the counter visible."
+FRAMING (Dan, rev 3 review 2026-09-08): "My hair is cut off in the opening scene here and throughout the video ...
+Never cut off my hair or below my shorts line ... use a little bit closer crops. Avoid that super wide crop."
 
-Rev 2's three levels were top-anchored at a FIXED y=40, read off one grid frame where his head top
-sat at y~100. headtrack.py measured the real head top across the cut at 296-340 px (4K), so every
-shot carried 168-232 px of headroom at 1080p, worst on TIGHT. REV 3 ANCHORS EVERY CROP TO THE
-MEASURED HEAD (ad-edit lesson 97): per punch segment, y0 = (that segment's minimum head top) -
-3 % of the crop height, so the head top lands ~32 px below the top edge in every level and the
-bottom edge goes as low as the zoom allows. Widths/zooms are unchanged and x stays centred on 1980:
+Rev 3 anchored every crop to the HAIRLINE (skin at r>120, minus a 40-px guess) and cut the hair in 23 of 26 holds
+(ad-edit lesson 107). REV 4 ANCHORS EVERY CROP TO THE MEASURED TOP OF HIS HAIR: hairtrack.py runs hairdet.detect on
+the 4K base at 8/s (validated by eye on pv/hairtrack_proof.jpg at native scale), hairtrack_refine.py adds samples
+measured on the delivered-scale picture, and per punch segment
+    y0 = (that segment's minimum hair top over BOTH tracks) - 4 % of the crop height
+so the hair sits ~43 px below the top edge at his tallest instant in every level. Two levels, both from Dan's own
+rev-1 definition of the frames he likes; the WIDE level is deleted (max crop width asserted):
 
-  WIDE   3058x1720  1.256x  head -> shorts + plenty of counter (the widest allowed level)
-  MID    2650x1490  1.45x   head -> shorts line / counter edge
-  TIGHT  2312x1300  1.66x   head -> just above the shorts
-  PIP    3058x1720  1.256x  WIDE at x=0: Dan at 65 % so the phone sits beside him
+  NEAR  2076x1168  1.85x  hair -> belly button ("between my head and my belly button")
+  FAR   2630x1480  1.46x  hair -> shorts line + a sliver of counter ("shorts visible, counter barely")
+  PIP   2630x1480  1.46x  FAR geometry at x0=270: Dan at 65 % so the phone PiP sits beside him
 
-Asserted at import: no level wider than WIDE, none reaching the light (x>3530), y0 in 0..500, the
-crop inside the frame. qc_frame.py re-measures the headroom on the DELIVERED frames (15-60 px).
-PUNCH RULE unchanged (lesson 21): boundaries land ON splices; holds >= 9 s; hardest splices covered
-first inside a 3.5 s floor.
+Asserted at import: exactly NEAR/FAR/PIP, none wider than 2630, none reaching the light (x>3530), y0 in 0..500, the
+crop inside the frame. hairgate.py re-measures the hair on the DELIVERED frames (never < 20 px, per segment 30-70)
+and, independently, that the top 12 rows of the head band are never hair-coloured on ANY frame.
+PUNCH RULE (lesson 21): boundaries land ON splices; holds >= 9 s; hardest splices covered first inside a 3.5 s floor;
+NEAR/FAR alternate strictly across every visible join; the hook opens on FAR; the AI inserts and the two phone PiPs are
+forced boundaries, and a segment hidden under an AI insert does not advance the alternation, so the framing changes
+across every insert.
 """
 import hashlib, json, os, subprocess, sys
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
@@ -31,46 +33,48 @@ HERE=os.path.dirname(os.path.abspath(__file__))
 G=f"{HERE}/gfx"; FPS="30000/1001"; SRC=f"{HERE}/tight.mov"; DUR=B.DUR
 L="/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"
 APP=f"{L}/02 App Screen Recordings and Screenshots"
-MACROFLOW=f"{APP}/app-flow-macro-tracker-itemized.mp4"     # 1320x2868, 46.4 s
-AFCROP="crop=1320:2500:0:175,"                              # strips the iOS status bar + Safari bar
+AFCROP="crop=1320:2500:0:175,"                              # qc.py's banned-screen templates use this chain
 
 SW,SH=3840,2160
-LIGHT_X=3530            # the studio light: leftmost bright pixel measured at x~3565 on two frames; WIDE ends at 3509
-DAN_CX=1980             # Dan's centre in the 4K frame (headtrack.py)
-HEADROOM_FRAC=0.03      # head top sits 3 % of the crop height below the top edge = ~32 px at 1080p, every level
-Y_MAX=500               # sanity: his head is never lower than ~460 in the 4K frame
+LIGHT_X=3530            # the studio light: leftmost bright pixel measured at x~3565 on two frames
+DAN_CX=1980             # Dan's centre in the 4K frame
+HEADROOM_FRAC=0.04      # the hair top sits 4 % of the crop height below the top edge = ~43 px at 1080p, every level
+Y_MAX=500               # sanity: his hair is never lower than ~400 in the 4K frame
+WIDEST_W=2630           # REV 4: the FAR level is the widest crop that may ever appear (rev 3's WIDE was 3058)
 # x, w, h -- y is per punch segment (crop_for)
-LEVELS={"WIDE":(451,3058,1720),"MID":(655,2650,1490),"TIGHT":(824,2312,1300),"PIP":(0,3058,1720)}
+LEVELS={"NEAR":(942,2076,1168),"FAR":(665,2630,1480),"PIP":(270,2630,1480)}
+assert set(LEVELS)=={"NEAR","FAR","PIP"}, "exactly NEAR, FAR and PIP -- there is no WIDE level"
 for _n,(_x,_w,_h) in LEVELS.items():
-    assert _w<=3058 and _h<=1720, f"{_n}: wider than the widest allowed level"
+    assert _w<=WIDEST_W and _h<=1480, f"{_n}: wider than the widest allowed level"
     assert _x>=0 and _x+_w<=LIGHT_X, f"{_n}: crop reaches the light or leaves the frame"
     assert abs(_w/_h-16/9)<0.002, f"{_n}: not 16:9"
     assert _w%2==0 and _h%2==0
 
-# ---- the head track, keyed to THIS tight cut (headtrack.py samples base.mov and maps through the keeps)
-_HT=json.load(open(f"{HERE}/headtrack.json"))
+# ---- the HAIR track, keyed to THIS tight cut (hairtrack.py samples base.mov and maps through the keeps)
+_HT=json.load(open(f"{HERE}/hairtrack.json"))
 _sig=hashlib.md5(json.dumps(json.load(open(f"{HERE}/tight_cuts.json"))["keeps"]).encode()).hexdigest()[:12]
-assert _HT.get("keeps_sig")==_sig, "headtrack.json is stale for this tight cut -- run headtrack.py"
-HEAD=[(t,ht) for t,ht,_ in _HT["samples"] if t is not None and ht is not None]
-# headtrack_refine.py adds delivered-scale samples (the QC detector on punched.mov, mapped back to 4K);
-# the per-segment minimum runs over BOTH tracks so the crop anchors to the tallest instant either saw
+assert _HT.get("keeps_sig")==_sig, "hairtrack.json is stale for this tight cut -- run hairtrack.py"
+assert _HT.get("detector")=="hairdet.py", "hairtrack.json was not written by the hair detector"
+HAIR=[(t,h) for t,h,*_ in _HT["samples"] if t is not None and h is not None]
+HDR_COL=_HT["hdr_col"]
 if _HT.get("refine",{}).get("keeps_sig")==_sig:
-    HEAD+=[(t,ht) for t,ht,_ in _HT["refine"]["samples"] if t is not None and ht is not None]
+    HAIR+=[(t,h) for t,h,*_ in _HT["refine"]["samples"] if t is not None and h is not None]
     REFINED=True
 else: REFINED=False
-def head_top_min(a,b):
-    """the tallest he stands inside [a,b): detector misses only ever read LOW, so the minimum is safe"""
-    seg=[ht for t,ht in HEAD if a<=t<b] or [ht for t,ht in HEAD if a-1.0<=t<b+1.0]
-    assert seg, f"no head samples in {a:.2f}-{b:.2f}"
+def hair_top_min(a,b):
+    """the tallest he stands inside [a,b): invalid samples are discarded (never used), so the minimum is safe"""
+    seg=[h for t,h in HAIR if a<=t<b] or [h for t,h in HAIR if a-1.0<=t<b+1.0]
+    assert seg, f"no valid hair samples in {a:.2f}-{b:.2f}"
     return min(seg)
 def crop_for(lvl,a,b):
-    x,w,h=LEVELS[lvl]; hm=head_top_min(a,b)
+    x,w,h=LEVELS[lvl]; hm=hair_top_min(a,b)
     y=hm-int(round(HEADROOM_FRAC*h)); y=max(0,min(y,SH-h)); y-=y%2
-    assert 0<=y<=Y_MAX and y+h<=SH and x+w<=LIGHT_X, (lvl,a,b,y)
+    assert 0<=y<=Y_MAX and y+h<=SH and x+w<=LIGHT_X and w<=WIDEST_W, (lvl,a,b,y)
     return (x,y,w,h)
 def crop_filter(c):
     x,y,w,h=c; return f"crop={w}:{h}:{x}:{y},scale=1920:1080:flags=lanczos,"
 PANEL_BEATS=[B.BEATS[n] for n in sorted(B.PANEL)]
+AI_BEATS=[B.BEATS[n] for n in sorted(B.AI)]
 MIN_HOLD=9.0
 
 def splices():
@@ -90,9 +94,10 @@ def _hard_bare(forced=()):
     for t,d in sorted(cand,key=lambda x:-x[1]):
         if all(abs(t-x)>=SOFT_FLOOR for x in acc): keep.append(t); acc.append(t)
     return sorted(keep)
+def _inside(a,b,beats): return any(pa-0.01<=a and b<=pb+0.01 for pa,pb in beats)
 def punch_plan():
     sp=splices(); hook_end=B.NAME[0]
-    forced=sorted({t for beat in PANEL_BEATS for t in beat}|{hook_end})
+    forced=sorted({t for beat in PANEL_BEATS+AI_BEATS for t in beat}|{hook_end})
     hard=set(_hard_bare(forced))
     bounds,last=[0.0],0.0
     for t in sorted(set(sp)|set(forced)):
@@ -102,26 +107,27 @@ def punch_plan():
         elif t in hard and t-last>=SOFT_FLOOR and nxt-t>=SOFT_FLOOR: bounds.append(round(t,3)); last=t
         elif t-last>=MIN_HOLD and nxt-t>=5.0: bounds.append(round(t,3)); last=t
     bounds.append(round(DUR,3)); bounds=sorted(set(bounds))
-    in_panel=lambda a,b: any(pa-0.01<=a and b<=pb+0.01 for pa,pb in PANEL_BEATS)
-    # TIGHT half the time, MID and WIDE a quarter each; the hook opens on MID
-    plan,prev,alt,ai=[],None,["MID","TIGHT","WIDE","TIGHT"],0
+    plan,prev_vis,alt,ai=[],None,["FAR","NEAR"],0
     def nxt_level(prev):
         nonlocal ai
-        lvl=alt[ai%len(alt)]; ai+=1
-        if lvl==prev: lvl=alt[ai%len(alt)]; ai+=1      # never the same framing across a join
+        lvl=alt[ai%2]; ai+=1
+        if lvl==prev: lvl=alt[ai%2]; ai+=1      # never the same framing across a visible join
         return lvl
     for i in range(len(bounds)-1):
         a,b=bounds[i],bounds[i+1]
         if b-a<0.25:
             if plan: plan[-1]=(plan[-1][0],b,plan[-1][2]); continue
-        if a<hook_end: lvl="MID"
-        elif in_panel(a,b): lvl="PIP"
-        else: lvl=nxt_level(prev)
-        plan.append((a,b,lvl)); prev=lvl
+        if a<hook_end: lvl="FAR"; prev_vis=lvl
+        elif _inside(a,b,PANEL_BEATS): lvl="PIP"; prev_vis=lvl
+        elif _inside(a,b,AI_BEATS): lvl=prev_vis or "FAR"          # hidden under a full-frame insert: no advance
+        else: lvl=nxt_level(prev_vis); prev_vis=lvl
+        plan.append((a,b,lvl))
     for a,b,lvl in plan: assert lvl in LEVELS, lvl
     return plan
 PUNCH=punch_plan()
-CROPS=[crop_for(l,a,b) for a,b,l in PUNCH]          # (x,y,w,h) per punch segment, head-anchored
+CROPS=[crop_for(l,a,b) for a,b,l in PUNCH]          # (x,y,w,h) per punch segment, hair-anchored
+COVERED=[_inside(a,b,AI_BEATS) or _inside(a,b,[B.BEATS[n] for n in B.BEATS if n not in B.OVERLAY and n not in B.PANEL]) for a,b,_ in PUNCH]
+assert max(c[2] for c in CROPS)<=WIDEST_W, "a crop wider than the FAR level exists"
 
 def punch():
     parts,cat=[],""
@@ -134,65 +140,49 @@ def punch():
       "-pix_fmt","yuv420p","-r",FPS,"-c:a","copy",f"{HERE}/punched.mov"],check=True)
     print("punched.mov done")
 
-# ------------------------------------------------------------------ the phone PiP
-# The REAL macro-tracker recording, measured off its contact sheet (1 frame / 3 s):
-#   6-9 "Track your meals" + photo in place  9-15 typing the note  15-27 Analyze -> "Analyzing"
-#   33-40 itemized result. Photo -> analyzing -> itemized numbers, each slice at its own rate.
-MACRO_SRC=[(6.0,15.0),(15.0,27.0),(33.0,42.4)]
-def _macro_slices():
-    a,b=B.MACRO
-    m1=B.at("our AI instantly", after=a-0.5)
-    m2=B.at("tells you the calories", after=a-0.5)
-    out=[]
-    for (sa,sb),(ta,tb) in zip(MACRO_SRC,[(a,m1),(m1,m2),(m2,b)]):
-        avail=sb-sa; need=tb-ta
-        rate=round(min(max(avail/need,0.85),1.6),4) if need>0 else 1.0
-        out.append((round(ta,3),round(tb,3),sa,rate))
-    return out
-PIP_BOX=[150,130,583,950]      # must match gfx2.PIP_BOX (433x820)
-def pip():
-    """pre-render gfx/pip_macro.mov: the recording through the rounded mask, the hairline/shadow
-    plate on top, alpha fades at both ends -- one alpha MOV for the whole MACRO beat, overlaid
-    by mix() like any other graphic"""
-    a,b=B.MACRO; D=round(b-a,3); sl=_macro_slices()
-    inp,parts,cat=[],[],""
-    for k,(ta,tb,si,rate) in enumerate(sl):
-        need=round(tb-ta,3)
-        inp+=["-ss",str(si),"-t",str(round(need*rate+0.4,3)),"-i",MACROFLOW]
-        parts.append(f"[{k}:v]setpts=PTS/{rate},{AFCROP}scale={PIP_BOX[2]-PIP_BOX[0]}:{PIP_BOX[3]-PIP_BOX[1]}:flags=lanczos,"
-                     f"fps={FPS},trim=duration={need},setpts=PTS-STARTPTS,setsar=1[r{k}]")
-        cat+=f"[r{k}]"
-    n=len(sl)
-    inp+=["-loop","1","-framerate",FPS,"-t",str(D),"-i",f"{G}/pip_mask.png",
-          "-loop","1","-framerate",FPS,"-t",str(D),"-i",f"{G}/pip_plate.png"]
-    fc=(";".join(parts)+f";{cat}concat=n={n}:v=1:a=0,format=rgba[rec];"
-        f"[{n}:v]format=gray[m];[rec][m]alphamerge=shortest=1[recm];"
-        f"color=c=black@0.0:s=1920x1080:r={FPS}:d={D},format=rgba[bg];"
-        f"[bg][recm]overlay={PIP_BOX[0]}:{PIP_BOX[1]}:format=rgb:shortest=1[o1];"
-        f"[o1][{n+1}:v]overlay=0:0:format=rgb:shortest=1,"
-        f"fade=t=in:st=0:d=0.45:alpha=1,fade=t=out:st={D-0.40:.3f}:d=0.40:alpha=1,format=argb[out]")
-    subprocess.run([FF,"-nostdin","-y","-v","error"]+inp+["-filter_complex",fc,"-map","[out]",
-        "-t",str(D),"-c:v","qtrle","-pix_fmt","argb",f"{G}/pip_macro.mov"],check=True)
-    print("gfx/pip_macro.mov done")
-
 # ------------------------------------------------------------------ overlays
+PIP_BOX=[150,130,583,950]      # must match gfx2.PIP_BOX (433x820); both PiPs (macro + hub) use it
 GFX=[("name",B.NAME),("before",B.BEFORE),("today",B.TODAY),("num1",B.NUM1),("pip_macro",B.MACRO),
-     ("flyblind",B.FLYBLIND),("num2",B.NUM2),("num3",B.NUM3),("trial",B.TRIAL),("cancel",B.CANCEL),
+     ("flyblind",B.FLYBLIND),("num2",B.NUM2),("num3",B.NUM3),("pip_hub",B.HUB),("trial",B.TRIAL),("cancel",B.CANCEL),
      ("price",B.PRICE),("solved",B.SOLVED),("cta",B.CTA)]
+# the AI inserts: pre-rendered by build_inserts.py (clip trimmed to the beat, scaled, AI-GENERATED tag burned upper-left
+# at 1.5x), overlaid full-frame with ALPHA fades of 0.5 s at the outer edges of each run -- a straight cut between two
+# consecutive clips (A->B, C1->C2, D1->D2->D3), never a dip to Dan in between
+AI_FADE=0.5
+def ai_inserts():
+    out=[]
+    beats=sorted((B.BEATS[n],n) for n in B.AI)
+    for (a,b),n in beats:
+        fi=not any(abs(pb-a)<0.02 for (pa,pb),_ in beats if pb!=b)
+        fo=not any(abs(pa-b)<0.02 for (pa,pb),_ in beats if pa!=a)
+        out.append((n.lower(),(a,b),fi,fo))
+    return out
+AIV=ai_inserts()
+def pip_marks():
+    """state-change times of the two PiPs on the tight timeline (for the watch pass)"""
+    out=[]
+    for n in ("pip_macro","pip_hub"):
+        p=f"{G}/{n}.json"
+        if os.path.exists(p): out+=json.load(open(p)).get("marks",[])
+    return out
 
 def mix():
     inp,fc,idx=["-i",f"{HERE}/punched.mov"],[],1
     cur="[0:v]"
-    def over(src,a,b):
-        nonlocal inp,fc,idx,cur
-        inp+=["-i",src]
-        fc.append(f"[{idx}:v]setpts=PTS+{a}/TB[g{idx}]")
+    items=[("gfx",n,beat,None,None) for n,beat in GFX]+[("ai",n,beat,fi,fo) for n,beat,fi,fo in AIV]
+    items.sort(key=lambda it: it[2][0])
+    for kind,name,(a,b),fi,fo in items:
+        p=f"{G}/{name}.mov"; assert os.path.exists(p), f"missing {name}.mov"
+        inp+=["-i",p]
+        if kind=="gfx":
+            fc.append(f"[{idx}:v]setpts=PTS+{a}/TB[g{idx}]")
+        else:
+            D=b-a; f=[f"format=yuva420p"]
+            if fi: f.append(f"fade=t=in:st=0:d={AI_FADE}:alpha=1")
+            if fo: f.append(f"fade=t=out:st={D-AI_FADE:.3f}:d={AI_FADE}:alpha=1")
+            fc.append(f"[{idx}:v]{','.join(f)},setpts=PTS+{a}/TB[g{idx}]")
         fc.append(f"{cur}[g{idx}]overlay=0:0:enable='between(t,{a},{b})'[s{idx}]")
         cur=f"[s{idx}]"; idx+=1
-    for name,beat in GFX:
-        p=f"{G}/{name}.mov"
-        assert os.path.exists(p), f"missing {name}.mov"
-        over(p,beat[0],beat[1])
     fc[-1]=fc[-1].rsplit("[s",1)[0]+"[vout]"
     subprocess.run([FF,"-nostdin","-y","-v","error"]+inp+
       ["-filter_complex",";".join(fc),"-map","[vout]","-map","0:a","-c:v","libx264",
@@ -202,15 +192,14 @@ def mix():
 
 if __name__=="__main__":
     if not sys.argv[1:] or "plan" in sys.argv:
-        print(f"{len(PUNCH)} punch segments over {DUR:.2f}s   head track refined from delivered frames: {REFINED}")
+        print(f"{len(PUNCH)} punch segments over {DUR:.2f}s   hair track refined from delivered frames: {REFINED}   hair samples {len(HAIR)}")
         from collections import Counter
-        print(Counter(l for _,_,l in PUNCH))
-        print("   start     end     len   level   crop y0  head_top(min/med)  headroom@1080p(min)  bottom(4K)")
-        for (a,b,l),(x,y,w,h) in zip(PUNCH,CROPS):
-            seg=[ht for t,ht in HEAD if a<=t<b]; hm=min(seg) if seg else head_top_min(a,b)
+        print(Counter(l for (_,_,l),cv in zip(PUNCH,COVERED) if not cv), " (visible segments)")
+        print("   start     end     len   level   crop y0  hair_top(min/med)  hair below edge@1080p  bottom(4K)")
+        for (a,b,l),(x,y,w,h),cv in zip(PUNCH,CROPS,COVERED):
+            seg=[ht for t,ht in HAIR if a<=t<b]; hm=min(seg) if seg else hair_top_min(a,b)
             med=sorted(seg)[len(seg)//2] if seg else hm
-            print(f"  {a:7.2f} -> {b:7.2f}  {b-a:6.2f}  {l:5s}   {y:4d}      {hm:4d}/{med:4d}         {(hm-y)*1080/h:5.1f} px          {y+h}")
-        print("\nmacro slices:", _macro_slices())
-    if "pip"   in sys.argv: pip()
+            print(f"  {a:7.2f} -> {b:7.2f}  {b-a:6.2f}  {l:5s}   {y:4d}      {hm:4d}/{med:4d}          {(hm-y)*1080/h:5.1f} px          {y+h}   {'(covered)' if cv else ''}")
+        print("\nAI inserts (name, beat, fade in, fade out):"); [print("  ",x) for x in AIV]
     if "punch" in sys.argv: punch()
     if "mix"   in sys.argv: mix()

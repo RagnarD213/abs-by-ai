@@ -4,8 +4,25 @@
     {
       "name": "abs-by-ai",
       "runtimeExecutable": "env",
-      "runtimeArgs": ["GEMINI_API_KEY=dummy", "ANTHROPIC_API_KEY=dummy", "DATABASE_URL=pgmem://local", "node", "server.js"],
+      "runtimeArgs": [
+        "GEMINI_API_KEY=dummy",
+        "ANTHROPIC_API_KEY=dummy",
+        "DATABASE_URL=pgmem://local",
+        "ADMIN_EMAILS=hub@local.test",
+        "node",
+        "server.js"
+      ],
       "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "abs-by-ai-live-keys",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "export ANTHROPIC_API_KEY=\"$(grep '^ANTHROPIC_API_KEY=' \"$HOME/.absbyai-secrets.env\" | cut -d= -f2- | tr -d '\"')\"; GEMINI_API_KEY=dummy DATABASE_URL=pgmem://local ADMIN_EMAILS=hub@local.test PORT=3011 exec node server.js"
+      ],
+      "port": 3011,
       "autoPort": true
     }
   ]

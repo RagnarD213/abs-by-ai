@@ -1033,6 +1033,53 @@ level is banned, and he wants AI clips to break up the talking head. Handoff for
    in the top rows of the head band = FAIL — because a gate built from the plan's detector inherits the plan's bias.
    Dan's screenshot at 0:05 (hair against the top edge) is the reference failure.
 
+
+Website conversion video rev 4 (2026-09-08, same day) — the hair fix, the AI inserts and the two phone PiPs, built to
+`Handoffs/handoff-20260908-website-video-rev4.md`. Reproducible from `reference/website-video/` (`rev4.sh` is the
+chain after the first punch). What it added, each as a measurement or a gate:
+
+108. **THE HAIR DETECTOR THAT WORKS, in numbers (`reference/website-video/hairdet.py`).** On the graded 4K base the door
+   panel behind Dan's head is luma 36–37 with a row-mean sd of 0.5 for the whole video; his hair is luma 20–30; the
+   relaxed skin test (`r>g+10, r>55, g>b`) fires 50–78 px of 4K below the true hair top when he is upright. Two things
+   made the handoff's sketch fail on 92 % of frames and this one succeed on 1786 of 1963: (a) a pixel counts as HAIR-DARK
+   only when it is 5 levels darker than ITS OWN COLUMN's header luma — the door's dark grooves chain a naive per-column
+   walk straight up to the top of the frame (a 12-px gap tolerance read the hair top at rows 25–105); (b) the walk
+   runs on the band's hair-dark FRACTION per row (≥ 0.20, band 160 px centred on the dark-hair blob, not on a fixed x),
+   tolerating 12 consecutive rows under it so the hairline transition and the crown sheen do not stop it. Valid climb
+   50–110 px (short = stopped inside the hair = reads LOW = discarded). Longest run of discarded samples 1.5 s.
+   The delivered-scale callers resize the head region back to 4K scale and use the base's static column profile
+   (`hairtrack.json` `hdr_col`), so there is ONE detector, three callers.
+109. **Prove the gate on the known-bad file first, and make one of its tests detector-free.** `hairgate.py` on rev 3's
+   master: hair top 1 px, 626 of 771 samples discarded because the climb starts at the frame edge, and the independent
+   test — the top 12 rows of the head band hair-coloured against the door's column profile — failed 5371 of 5781
+   frames. The same file had passed rev 3's headroom gate at 21–95 px. A gate that finds nothing (it only asks whether
+   the top rows look like the door) cannot inherit the plan detector's bias.
+110. **Veo's "celebrity likeness" filter is per STILL, not per character.** Seven stills of the same generated man from
+   one reference image: six passed, the frontal kitchen one was filtered. Regenerating that still in three-quarter
+   profile (same reference, same prompt otherwise) passed; nothing about the man changed. Filtered attempts are not
+   charged; budget one retry per set.
+111. **Veo can bake a cross-DISSOLVE between two shots into an 8-s clip** (D2, 3.9–4.6 s: a translucent double image
+   of the close shot over the wide one). Scan every clip's frame strip for it. The fix is free: cut the two clean
+   shots together with a straight cut (`build_inserts.py EDIT`), which reads as ordinary b-roll editing where a
+   dissolve reads as an edit inside the AI clip.
+112. **Concurrent builds starve short jobs past the harness timeout.** A 6-s insert render took 143 s beside the 4K
+   punch encode, and a foreground `build_inserts.py` call was killed at five minutes with nothing lost only because
+   each asset writes last. Run asset builds as a background script with per-step timing and a completion line, and
+   make the chain grep for that line before it needs the assets.
+113. **Capture logged-in app screens on a LOCAL server with a fixture account, never with a real login.** `node
+   server.js` with `DATABASE_URL=pgmem://local` and `ADMIN_EMAILS=<fixture>` (in `.claude/launch.json`), then the
+   app's own signup → admin beta-members → login endpoints from a Playwright script (`hub/hub_capture.py`) and the
+   session token dropped into `localStorage` (`absbyai_session_token`) before the page loads. The hub hero
+   (before+after side by side) never renders because the fixture has no transformation; the comp-account wording
+   ("Beta tester") and the Daily Brief (needs the live AI) are hidden for the capture; all nine feature tiles are real.
+   A full-page screenshot (1170×3048 at DPR 3) plus a sliding 2214-px window is a perfect slow scroll, and the scroll
+   ends on the last feature tile, not on the account-deletion link below it.
+114. **A phone PiP is 433×820: capture at 390×738 CSS (DPR 3 → 1170×2214) so it fits the box with no crop.** The Ad 2
+   session's iPhone-13 viewport (390×664) is a different aspect. The macro tracker was re-recorded on absbyai.com at the
+   right viewport (`macro2/record_macro.py`, one real analysis call, no account); viewport shots are located inside the
+   full-page shots by exact pixel match (`_offset`, error < 3 levels), so scrolls between states are animated smoothly
+   instead of jumping between screenshots.
+
 ## Decisions locked vs pending
 
 | decision | status |

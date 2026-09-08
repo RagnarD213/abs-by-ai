@@ -1,94 +1,123 @@
-# Website conversion video — 16:9 master, REVISION 3
+# Website conversion video — 16:9 master, REVISION 4
 
-**Rev 2 was reviewed 2026-09-02 (4:13 PM): audio approved, rejected on headroom, one repeated line, and
-captions colliding with the lower thirds.** Rev 3 changes exactly those three things, from measurements,
-and touches nothing else: same EDL, grade, 4K base, graphics set, card designs, and the **same audio
-chain, unchanged**. **$0.00 AI generation spend.** No production code, no deploy, no native-retest trigger.
+**Rev 3 was reviewed 2026-09-08: the top of Dan's hair was cut off in every hold ("if the video's top is cut off, it's
+basically not usable"), the wide level is banned, and he asked for AI clips at 0:19, 0:26, 2:04 and 2:17–2:44, a scroll
+through the members' home screen at 2:48, and the better macro-tracker clip at 0:56.** Rev 4 changes exactly those
+things, from measurements, and touches nothing else: same EDL and tight cut (incl. rev 3's manual cut), same grade and 4K
+base, same card designs and lower thirds, same captions, and the **same audio chain, unchanged** (Dan: "this is the
+audio that we want"). **AI generation spend: $9.47** (8 nano-banana stills at $0.134, 7 Veo 3.1 Fast clips at $1.20;
+one still re-made after Veo's likeness filter, not charged for the filtered attempt). No production code, no deploy, no
+native-retest trigger.
 
 | | |
 |---|---|
-| master | `website_video_16x9.mp4` — **3:50.23** (rev 2: 3:51.56), 1920×1080, 29.97 fps, AAC 256k |
+| master | `website_video_16x9.mp4` — **3:50.23 (unchanged)**, 1920×1080, 29.97 fps, AAC 256k |
 | review copy | `REVIEW_540p_website_video.mp4` |
-| audio A/B | `AB_his-vs-ours.mp4` — 12 s of Muhammad's ad, then the same window of ours (audio unchanged from rev 2) |
-| loudness | −14.5 LUFS · true peak −2.6 dBTP · LRA 2.8 LU · voice centred (L/R +0.9999) · 0 silent seconds |
+| audio A/B | `AB_his-vs-ours.mp4` — Muhammad's ad, then the same window of ours (audio unchanged from rev 2/3) |
+| loudness | −14.50 LUFS · true peak −2.60 dBTP · LRA 2.8 LU · voice centred (L/R +0.9999) · 0 silent seconds |
 | script fidelity | 99.0 % re-transcribed off the finished render |
-| QC | **all checks PASSED** — the rev-2 suite (14) plus caption clearance in pixels and headroom on the delivered frames; watch pass on the delivered file; contact sheet from exact grabs checked for the light / wide shot / black field / head cut / caption touching a graphic; audio gate PASSED (see §5) |
+| QC | **all checks PASSED** — the rev-3 suite plus caption clearance vs both phone boxes and the AI tag, the hair gate (never cut · anchored per segment · the detector-free top-rows test on every frame), the AI-GENERATED tag measured present on every insert; the shared audio gate PASSED all 11 rows on the delivered file and stamped it; watch pass 0 frozen runs / 0 black frames; contact sheet from exact grabs checked for the light, a wide frame, a black field, hair at the edge, a caption touching a graphic |
+| hair proof | `pv/hairtrack_proof.jpg` (the plan's detector, native 4K scale) · `pv/hairgate_sheet.jpg` (the delivered frames, native 1080p) |
 
-## 1 — Framing: every crop anchored to his measured head (Dan's main note)
+## ❓ One reading to confirm — the FAR level's bottom edge
 
-Rev 2's three levels were top-anchored at a fixed y=40 read off one grid frame where his head top sat
-at y≈100. Measured across the whole cut (`headtrack.py`, 982 samples at 4/s on the 4K base), his head
-top sits at **296–340 px** (median 340) — that frame was not in the video — so every shot carried
-**159–261 px of headroom at 1080p** (median 201), worst on TIGHT: "very, very bad crop."
+"Never cut off my hair **or below my shorts line**." The default shipped here is your own rev-1 definition of the two
+frames you like: **NEAR** ends at the belly button ("between my head and my belly button"), **FAR** shows the shorts
+waistband with a little of the shorts below it ("the top of my head and my shorts visible"). Measured on the delivered
+FAR holds, the bottom edge sits about 10–40 px of 4K (a hand's width of the elastic band and a little of the shorts) below the waistband; the counter is not in frame. **If you meant the frame
+must never go below the waistband at all, say so — the FAR level becomes 1.58× (bottom ON the waistband) and only the
+punch step re-renders (≈30 min).**
 
-Rev 3: per punch segment, `y0 = (that segment's minimum head top) − 3 % of the crop height`, so the head
-top lands ~33 px below the top edge at his tallest instant in every level, and the bottom edge goes as
-low as the zoom allows. Widths and zooms are unchanged (WIDE 1.256× / MID 1.45× / TIGHT 1.66×), x stays
-centred on him, the light guard and the no-wide-shot assertions still hold.
+## 1 — The hair (the reason rev 3 was unusable)
 
-| | rev 2 (delivered, measured) | rev 3 (delivered, measured) |
+Rev 3's tracker measured the **hairline** (first row of skin) and subtracted a 40-px guess for the hair; on his tallest
+frames it read 296–300 in the 4K frame when the real top of his hair is at 195–215, so 23 of 26 holds cropped the hair
+by 17–50 px, and rev 3's own headroom check passed because it measured to the same wrong point.
+
+Rev 4 measures the **top of the hair itself**: a two-stage detector (`hairdet.py`) finds the skin, then walks up through
+the dark hair band until the door panel behind him is reached, on the native 4K pixels, 1963 samples at 8 per
+second across the cut (1786, plus 1158 measured on the delivered-scale picture valid; a sample whose climb is shorter than 50 px is thrown away, because a short
+climb means the walk stopped inside the hair). Validated **by eye at native scale** — `pv/hairtrack_proof.jpg` is his
+8 tallest frames and 4 median ones with the detected line drawn on a 50-px grid; the line sits on the top edge of the
+hair in every tile. Then the same detector was run on the delivered-scale picture and the crops re-anchored to the
+tallest instant either pass saw (a second punch render).
+
+Every crop is anchored to that: `y0 = (the segment's minimum hair top) − 4 % of the crop height`, so the hair sits
+~43 px below the top edge at his tallest instant in every hold. **Measured on the delivered master (596 samples,
+574 valid):**
+
+| | rev 3 (delivered) | rev 4 (delivered) |
 |---|---|---|
-| head top below the top edge, median | 201 px | 53 px |
-| range over every valid frame | 159–261 px | 21–95 px |
-| bottom edge of the WIDE level (4K) | 1760 | ≈1960 — shorts and the counter in shot |
+| hair top below the top edge, minimum over every valid frame | **1 px (cut)** | **43 px** |
+| median | 1 px | 56 px |
+| per-segment minimum (the crop is anchored, not loose) | — | 43–53 px in every hold |
+| frames with hair-coloured pixels in the top 12 rows of the head band (detector-free test, every frame) | 5371 of 5781 | **0 of 4468** |
 
-The spread above the minimum is his own posture inside a fixed hold (he moves up to ~50 px of 4K in a
-10–15 s take); a crop that followed the slouch would cut his head when he stands up. Two passes were
-needed: the first put his hair on the edge (7–11 px) in three TIGHT holds because the base-sampled
-track under-read his tallest instant; the delivered frames were then measured with the QC's own
-detector and merged into the track (`headtrack_refine.py`), moving those anchors up 29–34 px.
+The second row of that last line is the check that does not depend on finding anything: it only asks whether the top 12
+rows of the head band look like the door panel or like hair. It fails rev 3's file on the first frame; it passes this
+one on all 4468 frames with Dan on camera. Both gates now run in `qc.py` (check 11) on every future render.
 
-## 2 — The repeated line at 0:32
+## 2 — Closer crops, no wide level
 
-Whisper had stitched *"Now, I've been out of shape, — I've been out of shape, and now at 40"* into one
-2.8 s token, which is why the orphan scan passed. An isolated medium.en pass timed both attempts; the
-transcript was patched (`tx_patch.py`), the first attempt cut on the base timeline (33.03 → 35.44 s,
-both edges in measured pauses, `tight.py MANUAL_CUTS`), and the fluent restart kept. Result: *"Now,
-I've been out of shape, and now at 40, I have the most defined abs of my life."* The rest of the cut was
-scanned the same way (`repeat_scan.py`): four slow single words and two scripted parallelisms, each
-re-transcribed in isolation — no other restart.
+Two levels, both from your rev-1 description, alternating strictly across every visible join; the wide level is deleted
+(the code now asserts exactly NEAR / FAR / PIP exist and that no crop is wider than the FAR level):
 
-**One judgment call to flag:** cutting the repeat shrinks the before card's line to 1.3 s of speech. The
-before photo now fades in on the pause after "finally lost.", holds through "I've been out of shape,"
-and is out by "and" (never runs into "and now at 40"); Dan is on camera for "and now at 40," (1.1 s);
-the four shoot photos start on **"I have the most defined abs"** instead of "now at 40". Before → Dan →
-after, never a shared frame (asserted). Say the word if you want the photos back on "now at 40".
+| level | zoom | shows | holds |
+|---|---|---|---|
+| NEAR | 1.85× | hair → belly button | 10 |
+| FAR | 1.46× | hair → shorts waistband | 11 |
+| PIP | FAR geometry, Dan at 65 % | the two phone beats | 2 |
 
-## 3 — Captions clear of every graphic (standing rule)
+The framing also changes across every AI insert (the hidden segment does not advance the alternation), so you never
+come back from a clip to the same crop you left.
 
-Measured on rev 2: all six lower thirds sat at y 738–924 and the lifted captions inked at 727–806 —
-**47–49 px of overlap on every lower-third beat**, and QC only compared captions against full-frame
-cards. Rev 3: the lower thirds sit at the bottom (plate 878–1000; with its shadow 858–1044) and lifted
-captions ink to 795 (two-line cues grow upward to 668) — **62–73 px of clearance, measured on all 21
-cue/graphic pairs**. No caption ink inside or within 20 px of the phone box. Suppression over full-frame
-cards unchanged.
+## 3 — The AI clips (your placements)
 
-## 4 — The two new QC checks (both fail rev 2's file, both pass this one)
+Seven Veo 3.1 Fast clips, one consistent man (white, ~42, greying temples, deliberately ordinary, ripped) generated
+from one reference still, full frame, tagged **AI-GENERATED** upper-left at 1.5×, captions kept on, 0.5-s fades at the
+edges of each run and straight cuts between consecutive clips:
 
-- **Caption clearance in pixels** — every cue that overlaps a lower third is rendered alone over green,
-  its ink bbox is measured against the lower third's alpha bbox from the graphic's own MOV, and a ≥20 px
-  gap is asserted. Rev 2: −47 px. Rev 3: 62 px minimum.
-- **Headroom on the delivered frames** — the head detector runs on the finished master every 0.25 s
-  wherever Dan is on camera: ≥15 px on every valid frame, within 45 px of the edge in every punch
-  segment, median ≤60 px, sanity ceiling 100 px (an anchor that failed reads 150+). Rev 2: 159–261. Rev 3: 21–95, median 53 — the 95 is one slouch inside a 14 s tight hold, the anchor of that hold measured 33.
+| where | line | clips |
+|---|---|---|
+| 0:18.7–0:24.9 | "Imagine yourself taking off your shirt at the pool and revealing the same rock hard abs" | A — he pulls a grey t-shirt off at a backyard pool; his wife on the lounger looks up, proud; two people behind glance over |
+| 0:24.9–0:29.7 | "And picture how good you feel if you were in peak health with your stubborn belly fat" | B — shirtless easy jog along a beach, smiling. You are back on camera for "finally lost." before the before photo (before → you → after, never adjacent to a ripped man) |
+| 2:03.8–2:15.5 | "Once our AI has all this information about you … you'll get far better results" | C1 — glances at the plan on his phone, then dumbbell curls in a garage gym; C2 — water, towel, a small satisfied nod |
+| 2:26.4–2:44.3 | "Your AI will also customize your eating plan … a meal plan that you can actually follow … time that you have available" | D1 — grilling chicken and vegetables, shirtless; D2 — portioning into five containers; D3 — eating at the counter, loving it |
 
-## 5 — Audio: unchanged, and a note about the gate
+**The NUM3 choice (you asked for 2:17–2:44):** the "3 — A nutrition plan built for you" lower third runs 2:16–2:25
+under your own line about it, so the clips start at "Your AI will also customize" (2:26) as the handoff recommended.
+If you want them from 2:17 instead, the lower third moves onto the first clip — a one-beat re-render.
 
-`audio3.py` (EQ fitted to Muhammad's ad, expander, no compressor, bed −44 dB, gain + limiter) ran
-unchanged on the new picture. **The shared audio gate was replaced by another session this evening**
-(`_shared/audio/audio_gate.py`) and gained two rows — early decay of the room and speech spread. On its
-first thresholds (≤55 ms, ≥ his −1.5 dB) rev 3 failed both rows at 77 ms / 5.6 dB — and **so did rev 2's
-approved file, identically (75 ms / 5.5 dB), because it is the same chain**. The thresholds were revised
-the same evening (≤80 ms, ≥ his −3 dB) and the final master **PASSES all eleven rows** (tone 0.88 dB
-mean, floor within +0.2–2.5 dB of his, L/R +0.9999, −14.5 LUFS, −2.6 dBTP) and carries the gate's stamp.
-For the record: his room decays in 40 ms and ours in 77 — the kitchen doorway. If you ever want this
-video drier than what you approved, that is the shoot-audio-standard handoff's dereverb stage, a
-separate decision not made here.
+Two things worth knowing: Veo refused the first kitchen still as a "celebrity likeness" (the same generated man had
+passed six other stills); a three-quarter-profile version passed. And clip D2 came back with a cross-dissolve between
+two shots baked into it, so it is used as its two clean shots cut together (a cut reads as b-roll; a dissolve reads as
+an edit inside the AI clip).
+
+## 4 — The macro-tracker clip at 0:56 (swapped)
+
+The short-ad session's better recording is the real Macro Tracker on absbyai.com with the salmon plate; it was
+re-recorded at the phone box's exact aspect (`macro2/record_macro.py`, one real analysis call): photo in → Analyze →
+"Analyzing your meal…" → the itemised list (salmon 425, wild rice 201, green beans 52, lemon 5, oil 92 = **775 cal**)
+→ **Log Meal** → "✓ … logged" and today's total. The phone sits beside you as before. **Judgment call, flagged:** the
+beat now runs 4.4 s longer, to "before AI changed the game", so the logged-meal payoff is on screen long enough to read.
+
+## 5 — The members' home screen at 2:46
+
+"We also have an AI sleep coach, the ability to tweak your goal picture … and much, much more" (2:45.9–2:52.9): one
+slow continuous scroll of the real member home — Welcome back, then Macro Tracker, AI Trainer, AI Nutritionist,
+Supplement Audit, AI Sleep Coach, My Transformations, Weight & Progress Log, Generate New Image, Support — in the phone
+beside you. Captured from a local copy of the site on a fixture account (no real login), which is also why there is no
+before/after hero on it; the scroll stops on the last feature tile.
+
+## 6 — Audio: unchanged
+
+`audio3.py` (the chain you approved on rev 2) ran unchanged on the new picture; the shared audio gate PASSED on the
+delivered file and stamped it; the A/B is rebuilt beside the master.
 
 ## Recipe
 
-`tx_patch.py` → `tight.py` (manual cut) → `hard_splices.py` → `headtrack.py` → `layout.py plan|pip|punch`
-→ `headtrack_refine.py` → `layout.py punch|mix` → `audio3.py` (bed −44) → `captions.py` → `deliver.sh`
-(`sheet.py`, `qc.py` + `qc_frame.py`, `watch.py`, review copy). `rev3.sh` + `rev3b.sh` are the two
-passes as run. Working dir `/Volumes/Extreme/_edit_work/website-video-828/`; rev 2's intermediates and
-scripts are in `rev2/`, rev 1's in `rev1/`.
+`hairtrack.py` (→ `hairdet.py`) → `layout.py plan|punch` → `hairtrack_refine.py` → `layout.py plan|punch` →
+`build_inserts.py` (tag, ai_*, macro, hub; `ai/veo.js` + `ai/prompts/`, `macro2/record_macro.py`, `hub/hub_capture.py`)
+→ `layout.py mix` → `audio3.py` (bed −44) → `captions.py` → `deliver.sh` (`sheet.py`, `qc.py` + `qc_frame.py` +
+`hairgate.py`, `watch.py`, review copy). `rev4.sh` is the chain after the first punch. Working dir
+`/Volumes/Extreme/_edit_work/website-video-828/`; rev 3's scripts are in `rev3/`, rev 2's in `rev2/`, rev 1's in `rev1/`.

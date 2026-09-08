@@ -14,10 +14,8 @@
    on Ad 1 because the asset in-point was 0.27 s early)
  9 caption/graphic collision: no caption event inside a full-screen card
 10 caption clearance in PIXELS: every cue's ink vs its lower third's alpha, >= 20 px (qc_frame.py)
-11 HAIR on the DELIVERED frames (hairgate.py): the hair top >= 20 px below the top edge on every valid sample,
-   30-70 px per segment, median <= 75, AND -- independent of any detector -- no frame with hair-coloured pixels in
-   the top 12 rows of the head band. Rev 3's file FAILS all of it (hair at 1 px, 5371 of 5781 frames) -- lesson 107
-13 the AI-GENERATED tag measured present upper-left on every AI insert
+11 headroom on the DELIVERED frames: head top 15-60 px below the top edge, never cut (qc_frame.py)
+   -- 10 and 11 are the two checks rev 2 did not have; both FAIL on rev 2's file (lesson 100)
 """
 import json, os, re, statistics, subprocess, sys
 import numpy as np
@@ -41,10 +39,10 @@ acc,splices=0.0,[]
 for a,b in tc["keeps"][:-1]:
     acc+=b-a; splices.append(round(acc,3))
 punch=[p[0] for p in L.PUNCH[1:]]
-gfx_t=[t for _,beat in L.GFX for t in beat]+[t for _,beat,_,_ in L.AIV for t in beat]
+gfx_t=[t for _,beat in L.GFX for t in beat]
 OVERLAYS={n.lower() for n in B.OVERLAY}
 covered=[beat for name,beat in L.GFX if name not in OVERLAYS]
-covered+=[beat for _,beat,_,_ in L.AIV]  # REV 4: the full-frame AI inserts cover their splices too
+covered+=[B.MACRO]                       # rev 2: the PiP beat (no SHOTS any more)
 subprocess.run([FF,"-v","error","-i",SRC,"-vf",
   "scale=320:180,tblend=all_mode=difference,signalstats,"
   f"metadata=print:key=lavfi.signalstats.YAVG:file={HERE}/qcdiff.txt","-an","-f","null","-"],check=True)
@@ -66,22 +64,18 @@ check(not bare,f"bare splices above the p99 ceiling: {bare[:6]}")
 # ------------------------------------------------------------------ 2 punch
 short=[(a,b,l) for a,b,l in L.PUNCH if b-a<0.20]
 check(not short,f"punch segments under 0.20s: {short}")
-# REV 4: a join is a jump cut only when BOTH sides are visible -- a segment hidden under a full-frame insert or card
-# carries the previous level on purpose (the framing changes across the insert instead)
 same=[(L.PUNCH[i][2],L.PUNCH[i+1][0]) for i in range(len(L.PUNCH)-1)
-      if L.PUNCH[i][2]==L.PUNCH[i+1][2] and not (L.COVERED[i] or L.COVERED[i+1])]
-check(not same,f"adjacent VISIBLE segments at the same framing (jump cut): {same}")
-vis=[l for (a,b,l),cv in zip(L.PUNCH,L.COVERED) if not cv]
-check(set(L.LEVELS)=={"NEAR","FAR","PIP"} and "WIDE" not in vis,f"levels are exactly NEAR/FAR/PIP -- no WIDE level exists or is used ({sorted(set(vis))})")
+      if L.PUNCH[i][2]==L.PUNCH[i+1][2]]
+check(not same,f"adjacent segments at the same framing (jump cut): {same}")
 
 bad=[(a,b,l) for a,b,l in L.PUNCH if l not in L.LEVELS]
 check(not bad,f"every framing level is an asserted crop (no wide shot, no light): {bad}")
 wide=[(a,b,l,c) for (a,b,l),c in zip(L.PUNCH,L.CROPS)
-      if c[2]>L.WIDEST_W or c[0]+c[2]>L.LIGHT_X or c[1]<0 or c[1]+c[3]>2160 or c[1]>L.Y_MAX]
-check(not wide,f"no crop wider than the FAR level ({L.WIDEST_W} px), reaching x>{L.LIGHT_X} or leaving the frame: {wide}")
+      if c[2]>3058 or c[0]+c[2]>L.LIGHT_X or c[1]<0 or c[1]+c[3]>2160 or c[1]>L.Y_MAX]
+check(not wide,f"no crop exceeds the widest allowed level, reaches x>{L.LIGHT_X} or leaves the frame: {wide}")
 
 # ------------------------------------------------------------------ 3 pacing
-changes=sorted(set([0.0]+punch+gfx_t+[t for n in B.PANEL for t in B.BEATS[n]]+L.pip_marks()+[dur]))
+changes=sorted(set([0.0]+punch+gfx_t+list(B.MACRO)+[dur]))
 shots=[round(changes[i+1]-changes[i],2) for i in range(len(changes)-1) if changes[i+1]-changes[i]>0.2]
 print(f"visual changes {len(changes)-1}   median hold {statistics.median(shots):.2f}s   longest {max(shots):.2f}s")
 check(max(shots)<=25.0,f"nothing visually unchanged longer than 25s (worst {max(shots):.2f}s)")
@@ -132,12 +126,9 @@ hits=[s["text"].strip() for s in json.load(open(TXF))["segments"] if banned.sear
 check(not hits,f"no drug names spoken: {hits}")
 
 # ------------------------------------------------------------------ 7 AI labels
-# the goal image on the SOLVED card (gfx.py tags it) and the seven full-frame AI clips (build_inserts.py burns the 1.5x
-# tag upper-left); the tag's PRESENCE on the delivered pixels is measured in qc_frame.py check 13
+# the ONLY AI image in this video is Dan's goal image on the SOLVED card; gfx.py tags it
 check(os.path.exists(f"{HERE}/gfx/solved.mov") and os.path.exists(f"{HERE}/gfx/tag.png"),
       "the goal image card exists and carries the AI-GENERATED tag (built in gfx.py g_solved)")
-missing=[n for n,_,_,_ in L.AIV if not os.path.exists(f"{HERE}/gfx/{n}.mov")]
-check(not missing and os.path.exists(f"{HERE}/gfx/tag15.png"),f"every AI insert exists as a tagged MOV (tag15.png + {len(L.AIV)} inserts): missing {missing}")
 
 # ------------------------------------------------------------------ 8 banned screens
 def _patch(path, ss, pre, w, h, dsz=(48,96)):
@@ -190,8 +181,7 @@ if os.path.exists(capf):
 os.environ.setdefault("QCIN",SRC)
 import qc_frame as QF
 print("\n10 caption clearance (caption ink vs lower-third alpha, pixels)"); QF.caption_clearance()
-print("11 HAIR on the delivered frames (hairgate.py: never cut, anchored per segment, and the independent top-rows test)"); QF.hair()
-print("13 AI-GENERATED tag present on every AI insert (measured on the delivered pixels)"); QF.ai_tags()
+print("11 headroom on the delivered frames"); QF.headroom()
 fails.extend(QF.fails)
 
 print("\n"+("QC PASSED" if not fails else f"QC FAILED -- {len(fails)} check(s)"))

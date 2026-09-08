@@ -16,16 +16,18 @@ import glob, json, os, subprocess, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 HERE=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,HERE)
-import beats as B, layout as L
+import beats3 as B, layout3 as L
 FF="/Volumes/Extreme/_edit_work/bin/ffmpeg"
-V=sys.argv[1] if len(sys.argv)>1 else f"{HERE}/website_video_16x9.mp4"
+V=sys.argv[1] if len(sys.argv)>1 else f"{HERE}/ad3_16x9.mp4"
 OUT=f"{HERE}/watch"; FPS=30000/1001
 
 def boundaries():
     b=set()
     for _,(a,c) in B.BEATS.items(): b.add(round(a,2)); b.add(round(c,2))
     for a,c,_ in L.PUNCH: b.add(round(a,2))
-    for t in L.pip_marks(): b.add(round(t,2))                       # REV 4: both PiPs' state changes
+    for v in L.VID: b.add(round(v[0][0],2)); b.add(round(v[0][1],2))
+    for s in L.SHOTS: b.add(round(s[0][0],2))
+    for (ta,tb,_si,_r) in L._appgen_slices(): b.add(round(ta,2)); b.add(round(tb,2))
     tc=json.load(open(f"{HERE}/tight_cuts.json")); acc=0.0
     for a,c in tc["keeps"][:-1]:
         acc+=c-a; b.add(round(acc,2))

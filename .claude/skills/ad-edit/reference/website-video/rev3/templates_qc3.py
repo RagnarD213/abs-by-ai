@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Website video QC -- the /longform-edit suite plus the ad-specific assertions.
+"""Ad 3 QC -- the /longform-edit suite plus the ad-specific assertions.
 
  1 splice visibility vs the file's own frame-diff control distribution
  2 punch integrity: no segment under 0.20 s, no two adjacent at the same framing
@@ -13,19 +13,14 @@
    on the build plan (the plan was right about the window and still shipped a violation
    on Ad 1 because the asset in-point was 0.27 s early)
  9 caption/graphic collision: no caption event inside a full-screen card
-10 caption clearance in PIXELS: every cue's ink vs its lower third's alpha, >= 20 px (qc_frame.py)
-11 HAIR on the DELIVERED frames (hairgate.py): the hair top >= 20 px below the top edge on every valid sample,
-   30-70 px per segment, median <= 75, AND -- independent of any detector -- no frame with hair-coloured pixels in
-   the top 12 rows of the head band. Rev 3's file FAILS all of it (hair at 1 px, 5371 of 5781 frames) -- lesson 107
-13 the AI-GENERATED tag measured present upper-left on every AI insert
 """
 import json, os, re, statistics, subprocess, sys
 import numpy as np
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
-import beats as B, layout as L
+import beats3 as B, layout3 as L
 FF="/Volumes/Extreme/_edit_work/bin/ffmpeg"; FFP=FF.replace("ffmpeg","ffprobe")
 HERE=os.path.dirname(os.path.abspath(__file__))
-SRC=os.environ.get("QCIN",f"{HERE}/website_video_16x9.mp4")
+SRC=os.environ.get("QCIN",f"{HERE}/ad3_16x9.mp4")
 fails=[]
 def check(ok,msg):
     print(("  PASS  " if ok else "  FAIL  ")+msg)
@@ -41,10 +36,10 @@ acc,splices=0.0,[]
 for a,b in tc["keeps"][:-1]:
     acc+=b-a; splices.append(round(acc,3))
 punch=[p[0] for p in L.PUNCH[1:]]
-gfx_t=[t for _,beat in L.GFX for t in beat]+[t for _,beat,_,_ in L.AIV for t in beat]
-OVERLAYS={n.lower() for n in B.OVERLAY}
+gfx_t=[t for _,beat in L.GFX for t in beat]
+OVERLAYS={"lower3a","num1","num3","num4","toolate","gymq","notprice"}
 covered=[beat for name,beat in L.GFX if name not in OVERLAYS]
-covered+=[beat for _,beat,_,_ in L.AIV]  # REV 4: the full-frame AI inserts cover their splices too
+covered+=[v[0] for v in L.VID]+[s[0] for s in L.SHOTS]+[B.DEMOS,B.APPGEN]
 subprocess.run([FF,"-v","error","-i",SRC,"-vf",
   "scale=320:180,tblend=all_mode=difference,signalstats,"
   f"metadata=print:key=lavfi.signalstats.YAVG:file={HERE}/qcdiff.txt","-an","-f","null","-"],check=True)
@@ -66,22 +61,13 @@ check(not bare,f"bare splices above the p99 ceiling: {bare[:6]}")
 # ------------------------------------------------------------------ 2 punch
 short=[(a,b,l) for a,b,l in L.PUNCH if b-a<0.20]
 check(not short,f"punch segments under 0.20s: {short}")
-# REV 4: a join is a jump cut only when BOTH sides are visible -- a segment hidden under a full-frame insert or card
-# carries the previous level on purpose (the framing changes across the insert instead)
 same=[(L.PUNCH[i][2],L.PUNCH[i+1][0]) for i in range(len(L.PUNCH)-1)
-      if L.PUNCH[i][2]==L.PUNCH[i+1][2] and not (L.COVERED[i] or L.COVERED[i+1])]
-check(not same,f"adjacent VISIBLE segments at the same framing (jump cut): {same}")
-vis=[l for (a,b,l),cv in zip(L.PUNCH,L.COVERED) if not cv]
-check(set(L.LEVELS)=={"NEAR","FAR","PIP"} and "WIDE" not in vis,f"levels are exactly NEAR/FAR/PIP -- no WIDE level exists or is used ({sorted(set(vis))})")
-
-bad=[(a,b,l) for a,b,l in L.PUNCH if l not in L.LEVELS]
-check(not bad,f"every framing level is an asserted crop (no wide shot, no light): {bad}")
-wide=[(a,b,l,c) for (a,b,l),c in zip(L.PUNCH,L.CROPS)
-      if c[2]>L.WIDEST_W or c[0]+c[2]>L.LIGHT_X or c[1]<0 or c[1]+c[3]>2160 or c[1]>L.Y_MAX]
-check(not wide,f"no crop wider than the FAR level ({L.WIDEST_W} px), reaching x>{L.LIGHT_X} or leaving the frame: {wide}")
+      if L.PUNCH[i][2]==L.PUNCH[i+1][2]]
+check(not same,f"adjacent segments at the same framing (jump cut): {same}")
 
 # ------------------------------------------------------------------ 3 pacing
-changes=sorted(set([0.0]+punch+gfx_t+[t for n in B.PANEL for t in B.BEATS[n]]+L.pip_marks()+[dur]))
+changes=sorted(set([0.0]+punch+gfx_t+[t for v in L.VID for t in v[0]]+
+                   [t for s in L.SHOTS for t in s[0]]+list(B.DEMOS)+list(B.APPGEN)+[dur]))
 shots=[round(changes[i+1]-changes[i],2) for i in range(len(changes)-1) if changes[i+1]-changes[i]>0.2]
 print(f"visual changes {len(changes)-1}   median hold {statistics.median(shots):.2f}s   longest {max(shots):.2f}s")
 check(max(shots)<=25.0,f"nothing visually unchanged longer than 25s (worst {max(shots):.2f}s)")
@@ -92,12 +78,6 @@ p=subprocess.run([FF,"-nostats","-i",SRC,"-af","ebur128=peak=true","-f","null","
 gi=lambda k: float(re.findall(rf"{k}:\s*(-?[\d.]+)",p)[-1])
 I,TP,LRA=gi("I"),gi("Peak"),gi("LRA")
 print(f"loudness  I {I:.2f} LUFS   true peak {TP:.2f} dBTP   LRA {LRA:.1f} LU")
-# THE ONE AUDIO GATE (2026-09-02, _shared/audio): audio_gate.py must have stamped THIS file (sha256-matched,
-# verdict PASS). The loudness/peak/centring below stay as a print; the stamp decides.
-sys.path.insert(0,"/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
-try:
-    from require_stamp import require_stamp; require_stamp(SRC); check(True,"audio gate stamp present, matches this file, PASS")
-except SystemExit as _e: check(False,f"audio gate: {_e}")
 check(abs(I+14)<=0.6,f"integrated loudness within 0.6 LU of -14 (got {I:.2f})")
 check(TP<=-0.9,f"true peak at or under -1.0 dBTP (got {TP:.2f})")
 raw=subprocess.run([FF,"-v","error","-i",SRC,"-map","0:a","-ac","2","-ar","48000","-f","f32le","-"],
@@ -132,12 +112,9 @@ hits=[s["text"].strip() for s in json.load(open(TXF))["segments"] if banned.sear
 check(not hits,f"no drug names spoken: {hits}")
 
 # ------------------------------------------------------------------ 7 AI labels
-# the goal image on the SOLVED card (gfx.py tags it) and the seven full-frame AI clips (build_inserts.py burns the 1.5x
-# tag upper-left); the tag's PRESENCE on the delivered pixels is measured in qc_frame.py check 13
-check(os.path.exists(f"{HERE}/gfx/solved.mov") and os.path.exists(f"{HERE}/gfx/tag.png"),
-      "the goal image card exists and carries the AI-GENERATED tag (built in gfx.py g_solved)")
-missing=[n for n,_,_,_ in L.AIV if not os.path.exists(f"{HERE}/gfx/{n}.mov")]
-check(not missing and os.path.exists(f"{HERE}/gfx/tag15.png"),f"every AI insert exists as a tagged MOV (tag15.png + {len(L.AIV)} inserts): missing {missing}")
+ai_beats=[v[0] for v in L.VID if v[6]]+[B.DEMOS]
+check(os.path.exists(f"{HERE}/gfx/tag.png") and len(ai_beats)>=3,
+      f"AI inserts carry a label ({len(ai_beats)} tagged)")
 
 # ------------------------------------------------------------------ 8 banned screens
 def _patch(path, ss, pre, w, h, dsz=(48,96)):
@@ -146,17 +123,17 @@ def _patch(path, ss, pre, w, h, dsz=(48,96)):
         capture_output=True).stdout
     if len(raw)<dsz[0]*dsz[1]: return None
     return np.frombuffer(raw[:dsz[0]*dsz[1]],dtype=np.uint8).astype(np.float64)
-APPSRC=f"{L.APP}/app-flow-generate-future-self.mp4"   # the recording that CONTAINS the banned screens
+APPSRC=L.APPFLOW
 # the two banned screens, rendered through the SAME crop/scale chain as the insert
 refs={}
 for lbl,ss in (("before/after 'Meet the new you'",26.5),("email-capture form",30.0)):
-    r=_patch(APPSRC,ss,L.AFCROP+"scale=433:820,",433,820)
+    r=_patch(APPSRC,ss,L.AFCROP,520,1020)
     if r is not None: refs[lbl]=r
 # EVERY frame, not a sample: the email-capture form was exposed for exactly ONE frame
 # at 179.41 s and a 2 fps scan stepped straight over it. A compliance gate that samples
 # cannot see a single-frame violation.
 raw=subprocess.run([FF,"-v","error","-i",SRC,"-vf",
-    "crop=433:820:150:130,scale=48:96","-f","rawvideo","-pix_fmt","gray","-"],
+    "crop=520:1020:700:30,scale=48:96","-f","rawvideo","-pix_fmt","gray","-"],
     capture_output=True).stdout
 n=len(raw)//(48*96)
 frames=np.frombuffer(raw[:n*48*96],dtype=np.uint8).astype(np.float64).reshape(n,-1)
@@ -177,22 +154,13 @@ if os.path.exists(capf):
     ev=[l for l in open(capf) if l.startswith("Dialogue:")]
     def secs(x):
         h,m,s=x.split(":"); return int(h)*3600+int(m)*60+float(s)
-    SUP=[B.BEFORE,B.TODAY,B.TRIAL,B.PRICE,B.SOLVED,B.CTA]
+    SUP=[B.WHYCARD,B.BROCARD,B.HOWCARD,B.BEFORE,B.GOALIMG,B.TODAY,B.CTA1,B.CTA2]
     coll=[]
     for l in ev:
         f=l.split(","); a2,b2=secs(f[1]),secs(f[2])
-        # 0.02 s slack: ASS timestamps are centisecond-quantised (ad-edit lesson 66)
-        if any(not (b2<=s+0.02 or a2>=e-0.02) for s,e in SUP): coll.append(round(a2,2))
+        if any(not (b2<=s or a2>=e) for s,e in SUP): coll.append(round(a2,2))
     print(f"captions: {len(ev)} cues")
     check(not coll,f"no caption sits on a full-screen card: {coll[:6]}")
-
-# ------------------------------------------------------------------ 10 + 11: measured on the delivered pixels
-os.environ.setdefault("QCIN",SRC)
-import qc_frame as QF
-print("\n10 caption clearance (caption ink vs lower-third alpha, pixels)"); QF.caption_clearance()
-print("11 HAIR on the delivered frames (hairgate.py: never cut, anchored per segment, and the independent top-rows test)"); QF.hair()
-print("13 AI-GENERATED tag present on every AI insert (measured on the delivered pixels)"); QF.ai_tags()
-fails.extend(QF.fails)
 
 print("\n"+("QC PASSED" if not fails else f"QC FAILED -- {len(fails)} check(s)"))
 sys.exit(1 if fails else 0)

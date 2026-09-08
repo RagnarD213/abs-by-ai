@@ -80,3 +80,26 @@ hairline, not the hair top (lesson 107); do not reuse them as they are. Rev 4's 
 NEAR 1.85× / FAR 1.46× levels with no wide, the AI clip inserts and the members-home scroll — is in
 `Handoffs/handoff-20260908-website-video-rev4.md`. The measurement behind it: `website-video-828/pv/hair_measure.jpg`,
 `pv/hair_proof.jpg`, `pv/body_grid.jpg`, `pv/hairtrack_probe.json` (copies in the delivery folder's `pv/`).
+
+## REV 4 (2026-09-08) — the hair fix, the AI inserts, the two phone PiPs
+
+Rev 3 cut the top of Dan's hair in 23 of 26 holds because its tracker measured the HAIRLINE (skin) minus a guess
+(SKILL.md lesson 107). Rev 4's scripts, in the order they run (`rev4.sh` is the chain after the first punch):
+
+| script | what it is |
+|---|---|
+| `hairdet.py` | THE hair-top detector (lesson 108): per-column door-header threshold, hair-dark row fraction walk, valid climb 50–110 px. One module, three callers. |
+| `hairtrack.py` | the detector on the 4K base at 8/s → `hairtrack.json` (+ the door panel's static column luma `hdr_col`) + the native-scale proof sheet `pv/hairtrack_proof.jpg` — LOOK at it before rendering |
+| `hairtrack_refine.py` | the same detector on `punched.mov` (delivered scale, mapped back to 4K) → `refine` samples; the plan takes the minimum over both |
+| `hairgate.py` | the delivered-frame gate (lesson 109): hair ≥ 20 px on every valid sample, 30–70 per segment, median ≤ 75, and the detector-free top-12-rows test on EVERY frame; proof frames at native 1080p. Run it on the known-bad file first. |
+| `layout.py` | NEAR 1.85× / FAR 1.46× / PIP only (no WIDE, asserted), `y0 = min hair top − 4 % h`, insert-aware punch plan (a hidden segment does not advance the alternation), `mix()` overlays the AI inserts with in-graph alpha fades |
+| `beats.py` | + `AI_A/B/C1/C2/D1/D2/D3` (full-frame, tagged) and `HUB` (PiP); `AI` and `PANEL` sets |
+| `build_inserts.py` | `tag15.png`, `ai_*.mov` (Veo clip → beat length, tag burned; `EDIT` cuts around a baked dissolve), `pip_macro.mov`, `pip_hub.mov` (+ `.json` state marks for the watch pass) |
+| `ai/veo.js`, `ai/prompts/` | Veo 3.1 Fast image-to-video + the eight still/video prompt pairs (Step 4.5 vocabulary); `gen_d1b.sh` = the likeness-filter retry |
+| `macro2/record_macro.py` | the real Macro Tracker on absbyai.com at the PiP aspect (390×738 CSS @3×), viewport + full-page shots |
+| `hub/hub_capture.py` | the member home from a LOCAL server + fixture account (lesson 113); needs `ADMIN_EMAILS` in `.claude/launch.json` |
+| `qc.py`, `qc_frame.py`, `watch.py`, `deliver.sh` | rev-3 gates + check 11 = `hairgate.run`, check 13 = the AI tag measured on the delivered pixels, caption clearance vs both PiP boxes and the tag; the shared audio gate + stamp |
+
+Rev 3's scripts are in `rev3/` for the record (the detector it used is the one that failed).
+
+⚠ `audio3.py` here is the SHIM to `_shared/audio/voice_chain.py` (audio-unification session). The chain that actually shipped on revs 2–4 is the work dir's `audio3.py` (git `2d182f4`, copied into the delivery folder's `recipe/`); rev 4 ran it unchanged.

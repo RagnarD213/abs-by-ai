@@ -26,7 +26,6 @@ def end_of(phrase, pad=0.10, after=0.0):
 
 # ------------------------------------------------------------------ the beats
 # REV 2 (2026-09-02): 21 beats -> 13. Dan: "graphics sparingly -- much more sparingly."
-# REV 4 (2026-09-08): + 7 AI clip inserts and the members-home scroll (Dan's placements, see below) -> 21 beats.
 # Removed: POOL, ASSESS, TELLAI, WORKOUT, MEALPLAN, MEALBUL, SLEEP, TRYLIST.
 NAME     = (at("This isn't just an AI picture"), end_of("that you've always wanted"))
 # the before picture goes ON "I've been out of shape" and nowhere near a line about being lean;
@@ -47,8 +46,7 @@ TODAY    = (at("I have the most", after=_bef0), end_of("get six pack abs"))
 assert TODAY[0]-BEFORE[1]>=0.50, f"before -> Dan -> after needs >= 0.5 s of Dan between the cards (got {TODAY[0]-BEFORE[1]:.2f})"
 _hw      = at("Here's why")
 NUM1     = (at("First human fitness experts"),   end_of("but they can't do it for you"))      # lower third
-MACRO    = (at("Abs by AI can actually track"), end_of("changed the game"))  # REAL recording (salmon plate -> 775 cal logged), PiP beside Dan.
-# REV 4: the beat runs 4.4 s longer, to "before AI changed the game", so the logged-meal payoff is on screen long enough to read (judgment call, flagged in the notes)
+MACRO    = (at("Abs by AI can actually track"), end_of("all the macros in what you're eating"))  # REAL recording, PiP beside Dan
 FLYBLIND = (at("That means you don't have to fly"), end_of("far more easily"))               # lower third
 NUM2     = (at("Second Abs by AI will create"),  end_of("than you think"))                    # lower third
 NUM3     = (at("Third abs by AI will create"),   end_of("bases your program off that"))       # lower third
@@ -56,20 +54,6 @@ TRIAL    = (at("For a limited time"),            end_of("completely free for 7 d
 CANCEL   = (at("If it's not for you"),           end_of("charged a dime"))                    # lower third
 PRICE    = (at("and you'll be charged this"),    end_of("would charge you"))                  # title card
 SOLVED   = (at("But now AI has solved"),         end_of("a plan to get you there"))           # goal image, tagged
-
-# ---- REV 4 (Dan's rev-3 review, 2026-09-08): AI clip inserts to break up the talking head, and the members-home scroll.
-# Full-frame inserts, tagged AI-GENERATED (upper-left, 1.5x -- lesson 17), captions stay on. Anchored to PHRASES.
-AI_A  = (at("Imagine yourself taking off"),   end_of("seeing right now"))                 # the pool reveal
-AI_B  = (AI_A[1],                             end_of("stubborn belly fat"))               # beach jog, a straight cut from the pool clip; Dan is back on camera for "finally lost." BEFORE the before card
-AI_C1 = (at("Once our AI has all this"),      at("And when you're following"))            # training with the plan on his phone
-AI_C2 = (at("And when you're following"),     at("Third abs by AI will create")-0.45)     # the quiet nod; out 0.45 s before the NUM3 lower third
-AI_D1 = (at("Your AI will also customize"),   at("and to avoid the foods"))               # grilling (after NUM3, per the handoff's recommendation)
-# D2's clip carries two Veo-baked dissolves (0.5-0.9 s and 3.9-4.6 s); its two clean shots total 6.15 s, so the D2/D3
-# edge sits 0.25 s before "And it will make you" and D3 (7.7 s usable) takes the difference
-AI_D2 = (at("and to avoid the foods"),        at("And it will make you a meal plan")-0.25)  # portioning into containers
-AI_D3 = (at("And it will make you a meal plan")-0.25, end_of("you have available"))       # eating, loving it
-HUB   = (at("We also have an AI sleep coach"), end_of("much more"))                       # members-home scroll, phone PiP beside Dan
-
 _cta     = at("Try abs by AI for free", after=at("that they always wanted")-1.0)
 CTA      = (_cta, round(DUR,3))                                                              # end card, holds
 
@@ -92,13 +76,8 @@ _o=sorted(BEATS.items(), key=lambda kv: kv[1][0])
 # OVERLAY beats keep Dan full-frame (a lower third sits over the footage).
 # PANEL beats keep Dan in the right column with a panel on the left.
 # Everything else is a full-frame card that replaces him.
-OVERLAY={"NAME","NUM1","FLYBLIND","NUM2","NUM3","CANCEL"}   # lower thirds over Dan
-PANEL  ={"MACRO","HUB"}    # the phone PiPs: Dan stays on camera, pushed right, in the PIP level (FAR geometry)
-AI     ={"AI_A","AI_B","AI_C1","AI_C2","AI_D1","AI_D2","AI_D3"}   # full-frame AI clips (tagged); captions stay on
-for _n in AI: assert _n in BEATS, _n
-assert BEFORE[0]-AI_B[1]>=0.5, f"Dan must be on camera between the beach clip and the before card (got {BEFORE[0]-AI_B[1]:.2f} s)"
-assert NUM3[0]-AI_C2[1]>=0.36, f"the C2 clip must be fully out before the NUM3 lower third (got {NUM3[0]-AI_C2[1]:.2f} s)"
-assert AI_D1[0]-NUM3[1]>=0.3, f"D1 must start after NUM3 ends (got {AI_D1[0]-NUM3[1]:.2f} s)"
+OVERLAY={"NAME","NUM1","FLYBLIND","NUM2","NUM3","CANCEL"}
+PANEL  ={"MACRO"}          # the phone PiP: Dan stays on camera, pushed right, in the WIDE level
 
 if __name__=="__main__":
     print(f"tight duration {DUR:.2f}s   {len(BEATS)} beats\n")
