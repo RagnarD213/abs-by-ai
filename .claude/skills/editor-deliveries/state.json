@@ -2,17 +2,24 @@
   "editors": {
     "Muhammad": {
       "upwork_name": "Muhammad Arsalan",
-      "drive_owners": ["wadeededitteam@gmail.com", "sharkimageryproduction@gmail.com"],
+      "drive_owners": [
+        "wadeededitteam@gmail.com",
+        "sharkimageryproduction@gmail.com"
+      ],
       "upwork_room": "room_49041dfecc20c11fb2d7b9b0b8aac744"
     },
     "Zeeshan": {
       "upwork_name": "Zeeshan Haider",
-      "drive_owners": ["teamcrackhow4@gmail.com"],
+      "drive_owners": [
+        "teamcrackhow4@gmail.com"
+      ],
       "upwork_room": "room_b9aa351b873dee61f71699f8c98b2946"
     },
     "Waleed": {
       "upwork_name": "Waleed Ahmad",
-      "drive_owners": ["info.taimoormirzaa@gmail.com"],
+      "drive_owners": [
+        "info.taimoormirzaa@gmail.com"
+      ],
       "upwork_room": "room_6238c4790346683db7c5ddf3f3d48122"
     }
   },
@@ -59,15 +66,76 @@
     }
   ],
   "not_final_seen": [
-    { "drive_id": "1o96syme-vP549sjtgfdtezvFXtwz-_n2", "editor": "Zeeshan", "file": "Test Video 2 Revision 2.mp4", "why": "$17 ab wheel round 3 — 8 revision items open 2026-09-08" },
-    { "drive_id": "1KqmGfSPQkXRiXdvPkt9c419KMlmvz6YW", "editor": "Waleed", "file": "Test Video 1_Final.mp4", "why": "round-3 revisions written 2026-09-08 (Sep 3 audio must be restored)" },
-    { "drive_id": "1J8yDrV6dL_rE__22Uu1J0826PTWbN9uW", "editor": "Muhammad", "file": "Daniel HQ Ad 3 V3.mp4", "why": "Ad 3 round 3 revisions 2026-09-08" },
-    { "drive_id": "1DHZZbNP7LfTzc_iiHjq5KKqSI3Xi875I", "editor": "Muhammad", "file": "Daniel HQ Fitness Video Ad4 V2.mp4", "why": "28 MB draft; Ad 4 round 2 open" },
-    { "drive_id": "1ow6KQTQGVXS9ZACpprA-3D2f07MPnU1W", "editor": "Muhammad", "file": "Daniel HQ Fitness Video Ad 5 V2.mp4", "why": "94 MB draft; Ad 5 round 2 open" },
-    { "drive_id": "1LIGwbXpOM8BS_DIKbbVNm0FvHb3qnO5L", "editor": "Muhammad", "file": "Daniel HQ Fitness Video Ad 6.mp4", "why": "110 MB draft; Ad 6 round 1 open" },
-    { "drive_id": "1XOrNxCsDczxI35SLQFJRQqksFN4kmDpb", "editor": "Muhammad", "file": "Daniel HQ Ad 7.mp4", "why": "86 MB draft; Ad 7 round 1 open" },
-    { "drive_id": "12T8bhMLYuhFamLTHq9_8gAPXe86QinJP", "editor": "Muhammad", "file": "Daniel HQ Ad 8.mp4", "why": "26 MB draft; Ad 8 round 1 open" }
+    {
+      "drive_id": "1o96syme-vP549sjtgfdtezvFXtwz-_n2",
+      "editor": "Zeeshan",
+      "file": "Test Video 2 Revision 2.mp4",
+      "why": "$17 ab wheel round 3 — 8 revision items open 2026-09-08"
+    },
+    {
+      "drive_id": "1KqmGfSPQkXRiXdvPkt9c419KMlmvz6YW",
+      "editor": "Waleed",
+      "file": "Test Video 1_Final.mp4",
+      "why": "round-3 revisions written 2026-09-08 (Sep 3 audio must be restored)"
+    },
+    {
+      "drive_id": "1J8yDrV6dL_rE__22Uu1J0826PTWbN9uW",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 3 V3.mp4",
+      "why": "Ad 3 round 3 revisions 2026-09-08"
+    },
+    {
+      "drive_id": "1DHZZbNP7LfTzc_iiHjq5KKqSI3Xi875I",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Fitness Video Ad4 V2.mp4",
+      "why": "28 MB draft; Ad 4 round 2 open"
+    },
+    {
+      "drive_id": "1ow6KQTQGVXS9ZACpprA-3D2f07MPnU1W",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Fitness Video Ad 5 V2.mp4",
+      "why": "94 MB draft; Ad 5 round 2 open"
+    },
+    {
+      "drive_id": "1LIGwbXpOM8BS_DIKbbVNm0FvHb3qnO5L",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Fitness Video Ad 6.mp4",
+      "why": "110 MB draft; Ad 6 round 1 open"
+    },
+    {
+      "drive_id": "1XOrNxCsDczxI35SLQFJRQqksFN4kmDpb",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 7.mp4",
+      "why": "86 MB draft; Ad 7 round 1 open"
+    },
+    {
+      "drive_id": "12T8bhMLYuhFamLTHq9_8gAPXe86QinJP",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 8.mp4",
+      "why": "26 MB draft; Ad 8 round 1 open"
+    }
   ],
   "pending": [],
-  "last_run": "2026-09-08"
+  "last_run": "2026-09-09",
+  "unread_rooms": [
+    {
+      "room": "room_b9aa351b873dee61f71699f8c98b2946",
+      "editor": "Zeeshan",
+      "messages": [
+        "2026-09-08T15:45Z",
+        "2026-09-09T00:45Z"
+      ],
+      "why": "Upwork room would not render (page never reached document_idle, 5 attempts across 2 tabs; Mac at load 22). No new Drive video from teamcrackhow4@ since 2026-09-07, so no delivery was missed. Read it on the next run.",
+      "added_on": "2026-09-09"
+    },
+    {
+      "room": "room_3a0dd1a1b1b542c53ceff9b79d2af92f",
+      "editor": "UNKNOWN — 'Romaisa R.'",
+      "messages": [
+        "2026-09-09T00:01Z"
+      ],
+      "why": "New Upwork room, not in editors. Would not render (same wedge). No video shared with Dan from any account since 2026-09-07, so this is not a delivery. Open it on the next run and add the editor if it is one.",
+      "added_on": "2026-09-09"
+    }
+  ]
 }
