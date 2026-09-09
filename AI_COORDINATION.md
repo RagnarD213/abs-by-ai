@@ -57,8 +57,9 @@ which supersedes the "Dan fixes the payment method" line in the Paid ads entry b
 **`/start` ad landing page + A/B — LIVE 2026-09-09, two 1-minute steps for Dan.** Funnel pulled first (PostHog, 30 d):
 571 landed → 55 generated (**9.6 %; 516 people, 90 %, never upload a photo — the biggest drop by far**) → analysis page 1
 (test only) → 6 trial sign-ups → 4 trials → 2 paid. Built `public/start.html` (variants `control` image-led /
-`analysis` numbers-led, `?v=a|b`, `?vp=1` placeholder), one-tap photo hand-off into the app that auto-runs the
-generation, trial CTA, and a new `generation_started` event. Doc: `Docs/VSL_LANDING.md`. **Dan: (1) upload the rev-5
+`analysis` numbers-led, `?v=a|b`, `?vp=1` placeholder), one-tap photo hand-off into the app (body type + Generate
+happen there), trial CTA, and a new `generation_started` event. Dan's round-1 edits applied 09-09 (his headline, no
+eyebrow/disclosure block/chips, pool-shoot avatar). Doc: `Docs/VSL_LANDING.md`. **Dan: (1) upload the rev-5
 website video to YouTube as Unlisted and paste the id into `youtubeId` in `public/site-video.js` — the one file both
 `/start` and the analysis page read; both hide the slot until then. (2) Create PostHog flag `vsl-landing-variant`
 (variants `control` / `analysis`, 50/50) + an experiment on it — the stored API keys lack the flag scopes; the page

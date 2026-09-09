@@ -7869,7 +7869,9 @@ async function applyVslHandoff() {
   // finalizePhoto runs the clothing/sex read; wait for it so a blocked photo
   // shows its warning instead of a failed generation.
   try { await finalizePhoto({ data, mime, dataUrl: h.dataUrl }); } catch (e) {}
-  try { $('generateBtn').scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {}
+  // The landing page no longer asks for body type (Dan, 2026-09-09): the visitor
+  // picks it here, so land them on that question with the photo already in place.
+  try { $(state.condition ? 'generateBtn' : 'bodyTypeGrid').scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {}
   if (state.photoData && state.condition && !state.photoIsClothed) generate();
   return true;
 }

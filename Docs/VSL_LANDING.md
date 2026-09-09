@@ -28,11 +28,10 @@ Side note from the same pull: `storage_anomaly` fires for ~every first visit (`d
 
 | variant | key value | hero | video's home |
 |---|---|---|---|
-| A · image-led (control) | `control` | "See yourself with abs. Then get the plan to get there." + video (else the male proof pair) | in the hero |
-| B · numbers-led | `analysis` | "Find out how far you are from abs — from one photo." + a sample analysis card (body fat, lean muscle, fat to lose, goal weight, focus chips) | a section under the proof pairs |
+| A · image-led (control) | `control` | "See Yourself With Abs, Then Get A Personalized Plan To Make It Real." (Dan's headline, 09-09) + video (else the male proof pair) | in the hero |
+| B · numbers-led | `analysis` | "Find Out How Far You Are From Abs — From One Photo." + a sample analysis card (body fat, lean muscle, fat to lose, goal weight, focus chips) | a section under the proof pairs |
 
-Everything else is identical: AI disclosure above the fold, "Where you are now" chips, the one-tap upload
-CTA, three proof pairs, what-you-get tiles, how it works, founder card, the trial card (`/?join=1`), FAQ,
+Everything else is identical: the one-tap upload CTA, three proof pairs, what-you-get tiles, how it works, founder card, the trial card (`/?join=1`), FAQ,
 the legal footer, and a sticky mobile CTA.
 
 Force a variant for QA or a specific ad: `/start?v=a` / `/start?v=b` (also `control` / `analysis`).
@@ -60,16 +59,16 @@ on a browser's next visit; the winner is rolled out by setting the flag to 100 %
 ## The one-tap hand-off into the app
 
 The CTA opens the photo picker directly (one tap). On choose, the page downsizes the photo (max 1024 px,
-JPEG 0.85 — the app's own settings), parks `{ dataUrl, condition, intensity, variant, at }` in
+JPEG 0.85 — the app's own settings), parks `{ dataUrl, variant, at }` in
 `sessionStorage.absbyai_vsl_handoff`, and navigates to `/?from=vsl&v=<variant>` forwarding `utm_*`,
 `gclid`, `gbraid`, `wbraid`, `fbclid`, `ttclid`, `msclkid` so the app's own click-id capture sees them.
 `index.html`'s `applyVslHandoff()` (end of boot for logged-out visitors; inside `restoreSession()` for members, who
-then skip the hub) loads the photo into the form,
-selects the body type, runs the clothing/sex check, and calls `generate()` when it clears — so the visitor
-lands on a loading generation, never an empty form. A blocked photo shows the normal warning. Payloads
-older than 15 minutes are ignored.
+then skip the hub) loads the photo into the form, runs the clothing/sex check, and scrolls the visitor to the
+"Where you are now" question — body type and intensity are answered in the app, not on the landing page
+(Dan removed the chips 2026-09-09). If a payload ever carries a `condition`, `generate()` runs as soon as the
+check clears. A blocked photo shows the normal warning. Payloads older than 15 minutes are ignored.
 
-Events on `/start`: `vsl_landing_seen` {variant, forced, video_live}, `vsl_condition_chosen`,
+Events on `/start`: `vsl_landing_seen` {variant, forced, video_live},
 `vsl_cta_clicked` {cta: hero | sticky | trial_card}, `vsl_photo_chosen`, `vsl_handoff` {stored},
 `vsl_trial_cta_clicked`, `vsl_video_play`, `vsl_video_progress`. In the app: `vsl_handoff_received`,
 then `generation_started` {source: 'vsl' | 'home'} and the existing funnel.
@@ -90,7 +89,9 @@ one-line change redeploys and wipes in-memory locked holds — bundle it with ot
 
 ## Compliance (memory: ad-suspension-prevention)
 
-The AI disclosure is in the hero above the fold, every proof image is labelled "AI-generated" on the
-image and below it, the "Fictional examples" line follows every pair, the numbers carry the
-visual-estimate qualifier + `/sources`, and the copy sells the visualization and the plan — never a body
-result. Keep it that way when editing headlines.
+Dan removed the boxed AI-disclosure paragraph from the hero on 2026-09-09. What still carries the disclosure
+above the fold: the "AI-GENERATED" tag printed on every after-image, the label under it, and the "Fictional
+example … not a real result" line directly under the hero pair (kept at Dan's request). Lower down: the
+visual-estimate qualifier + `/sources` on every number, the FAQ, and the legal footer. The headline's "make it
+real" is the same phrasing the home page has carried since the August reinstatement; if Google ever flags
+the page, that phrase and the missing hero paragraph are the first two things to put back.
