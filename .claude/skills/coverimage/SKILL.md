@@ -252,3 +252,32 @@ Impact and Copperplate live in `/System/Library/Fonts/Supplemental/`.
   lands on a sunlit torso and needed a rounded dark scrim behind it.
 - **Assert, don't eyeball.** The width assert caught `LOWER AB KILLER` overflowing
   at 1078px against a 964px column before it ever rendered.
+- **A re-uploaded Short loses its cover — YouTube does not carry it to the new
+  video id.** The 2026-09-02 centring fix re-uploaded 8 scheduled Shorts as new
+  ids; `3J_ZSNDkZSU` ("Make AI Macro Estimates Way More Accurate", the retitled
+  `v2-short7_chicken-soup-trick`) went public on 09-05 with an auto-generated
+  frame. **After ANY re-upload, re-set the thumbnail in Studio.**
+  Audit the whole channel logged-out in one command — a custom cover serves
+  `sardefault.jpg`, an auto frame serves `oar1`/`frame0`:
+
+  ```bash
+  curl -s "https://www.youtube.com/@AbsbyAI/shorts" -H "Accept-Language: en-US" > /tmp/s.html
+  python3 - <<'PY'
+  import re
+  h=open('/tmp/s.html').read()
+  ids=list(dict.fromkeys(re.findall(r'"entityId":"shorts-shelf-item-([\w-]+)"',h)))
+  for v in ids:
+      seg=h[h.find('shorts-shelf-item-'+v):][:6000]
+      t=re.search(r'"primaryText":\{"content":"(.*?)"',seg)
+      ok=bool(set(re.findall(r'i\.ytimg\.com/vi/'+v+r'/(\w+)\.jpg',seg)) & {'sardefault','oardefault'})
+      print('OK ' if ok else 'MISSING', v, (t.group(1) if t else '')[:55])
+  PY
+  ```
+
+  Dan's own logged-in Studio/channel view can show a cached or placeholder image,
+  so always confirm with this logged-out fetch before concluding anything.
+  Fixing it: `studio.youtube.com/video/<id>/edit` → `find` the thumbnail file
+  input → `file_upload` the 1080x1920 JPG from
+  `Short-form video content/covers/review/upload-youtube/` → Save. Studio may
+  throw a "Verify it's you" dialog first; clicking **Next** opens a Google popup
+  that clears itself, then reload the edit page.
