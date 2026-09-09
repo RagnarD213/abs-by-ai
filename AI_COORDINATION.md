@@ -355,15 +355,23 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Zeeshan content-video batch — 10 candidates delivered 2026-09-09, WAITING ON DAN TO PICK 5.** Full unedited
-long-form inventory rebuilt from the outline docs + roll probes (transcribed, not assumed): **15 unedited items**
-across shoots 2/3/4/5. Shoot-2 leftovers CONFIRMED filmed and unedited — C1485 = Why You MUST Workout Every Day
-(27.4 min), C1486 = Intermittent Fasting (23.1), C1487+C1488 = STOP Deadlifting (15.7). Shoot-4 map confirmed:
-C1605–08 Zepbound-muscle, C1609 Abs at 40 vs 25, C1610–13 Oura, C1614–29 Vacuum, C1630–33 ab wheel (done).
-Protected for Muhammad: Belly Fat Emergency, Real Reason You Don't Have Abs, Keep Your Muscle On Zepbound,
-Daily Salad, The Vacuum. Once Dan picks 5 → build the editing doc per `/editor-brief`, then make it a `/editing-doc`
-skill (his instruction: skill LAST, after the doc is finalised). Roll→video mapping for the picked 5 still needs
-`pick_lav.py` run for the per-shoot audio paragraph. No dashboard row (his 09-08 rule).
+**Zeeshan content-video batch — BRIEF WRITTEN AND VERIFIED 2026-09-09. Dan fills in the rate, then shares and sends.**
+Doc: `1Tdng5SrBthSaFDxaPnY2bWVhxp5e14YKbe3EVGhfjPE` ("Abs By AI — 5 Organic Content Videos — EDITING BRIEF", 15 pp,
+tables + links verified in Chrome). His five picks: **ab wheel workout-only (C1630–33), arms & shoulders (C1582–87),
+STOP Deadlifting (C1487–88), Oura review (C1610–13), abs at 40 vs 25 (C1609)**. Everything in it is measured, not
+assumed: roll→video map from 51 whisper probes, durations from ffprobe, the standard from Zeeshan's own approved
+ab-wheel cut (−14.8 LUFS / −1.6 dBTP / 39 framing changes in 7:00), mic wiring from `pick_lav.py` on all 17 rolls
+(**right channel on every one** — 7/8 and 8/14-talking are two-mic, 8/3 and 8/14-abwheel have a dead left input).
+**Three things are Dan's:** (1) the rate/bonus/turnaround — a highlighted blank in section 1; (2) open sharing on the
+doc + the three shoot folders (`1l7UyY6…`, `1LCgVb5h…`, `1TItiv5J…`) or every link 404s; (3) the video-3 asset hole —
+Dan says "you can see me doing right now" over rows, pulldowns, a rear-delt flye and a powerlifter physique that were
+never shot; the brief tells Zeeshan to trim the self-reference and cover with stock, ask if a trim won't cut.
+**Next in this session (Dan's instruction): once he finalises the doc, turn this into a `/editing-doc` skill.**
+No dashboard row (his 09-08 rule).
+
+Remaining unedited pool after this batch (10): Belly Fat Emergency, Real Reason You Don't Have Abs, Keep Your Muscle
+On Zepbound, Daily Salad, The Vacuum (+ workout-only), Arms & Shoulders workout-only, Why You MUST Workout Every Day,
+Intermittent Fasting, How To Work Out At Home On A Budget.
 
 **Google Ads custom segments (handoff 20260908) — 9 OF 12 BUILT 2026-09-08 evening, PAUSED by machine load; resume
 in a fresh session.** Built in Audience manager → Custom segments and reopen-verified (chips entered / kept, insights
