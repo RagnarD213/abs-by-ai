@@ -11,4 +11,6 @@
 //
 // Every push redeploys and wipes in-memory locked holds (memory:
 // deploy-drops-locked-holds) — set this alongside other code changes when possible.
-window.ABS_SITE_VIDEO = { youtubeId: '', mp4: '', poster: '/img/video-poster.jpg' };
+// Uploaded 2026-09-09 by scripts/youtube/upload.js (unlisted, embeddable, on the
+// "Abs by AI" channel): https://www.youtube.com/watch?v=CwEGFxpIM-E
+window.ABS_SITE_VIDEO = { youtubeId: 'CwEGFxpIM-E', mp4: '', poster: '/img/video-poster.jpg' };
