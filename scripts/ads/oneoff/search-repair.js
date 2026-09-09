@@ -18,24 +18,43 @@
 
 var SERVER = 'https://absbyai.com';
 var KEY = 'PASTE_YTADS_KEY_HERE';   // = YTADS_KEY on Railway. Never commit a real key.
-var MODE = 'REPORT';                // 'REPORT' or 'APPLY'
+var MODE = 'APPLY';                   // 'REPORT' or 'APPLY'
 
-var BRAND = 'Brand - Search - US';
-var NONBRAND = 'Search - US - Non-Brand - AI Abs Preview';
+var BRAND = 'Brand - Search - US';           // id 24086091285, budget $10.00/day
+var NONBRAND = 'Search - US - Non-Brand - AI Abs Preview';  // id 24148587722, budget $5.00/day
 var TIER2_ID = '24122099676';       // [DAN] [DGEN] ... geo tier 2 | ALL CONTENT
 var TIER2_BUDGET = 5.00;            // Dan's instruction 2026-09-09: $15/day -> $5/day
 var MAX_CPC = 2.00;                 // Maximize Clicks bid ceiling
 var START_URL = 'https://absbyai.com/start';
 
-// Phrase negatives for the brand campaign: stop close variants harvesting generics.
-var BRAND_NEGATIVES = ['abs ai', 'ai abs', 'ai ab generator', 'ai abs generator'];
-// Wrong-intent negatives for the non-brand campaign. Deliberately short.
-var NONBRAND_NEGATIVES = ['fat', 'gain weight'];
-// Broadening keywords, phrase match, per ad group name.
+// Brand phrase negatives. Measured, not guessed: in the 30 days to 2026-09-09 EVERY
+// paid term in this campaign was a generic close variant of [abs by ai] — $155 of them,
+// zero real brand searches. Each negative below is checked against the campaign's own
+// brand keywords (abs by ai / absbyai / ab by ai / absby ai / absbyai.com): none of
+// those queries contain any of these token sequences, so brand traffic is untouched.
+var BRAND_NEGATIVES = [
+  'ai abs',        // "ai abs" $37.86, "ai abs filter" $5.25
+  'abs ai',        // "abs ai" $15.33, "abs ai generator" $28.79
+  'ai ab',         // "ai ab" $8.16, "ai ab generator" $24.43
+  'ab generator',  // "ab generator ai" $7.47
+  'abs generator', // "ai abs generator"
+  'abs creator',   // "abs creator ai" $10.37
+  'give me abs',   // "give me abs ai" $5.93
+  '6 pack',        // "ai 6 pack generator" $11.25
+];
+// Non-brand wrong-intent negatives. The handoff asked for a bare `fat`; measured, the
+// only junk term is "ai to make me fat" ($6.57) and a bare `fat` would also block the
+// belly-fat intent family Dan is deliberately building segments around. Tightened.
+var NONBRAND_NEGATIVES = ['make me fat', 'get fat', 'gain weight'];
+
+// Task 3d — broaden. The campaign is 75 keywords, almost all EXACT: 53 impressions a
+// week is a match-type problem, not a topic problem. These are PHRASE versions of the
+// ad group's own strongest exact keywords, plus two genuinely new terms.
 var NEW_KEYWORDS = {
-  'AI Abs Generator': ['abs generator app', 'six pack photo editor'],
-  'AI Body Transformation Preview': ['body transformation ai', 'ai fitness transformation'],
-  'What Would I Look Like With Abs': ['what would i look like with abs', 'see myself with abs'],
+  'AI Abs Generator': ['abs generator ai', 'six pack ai generator', 'ai abs maker', 'abs generator app'],
+  'Add Abs To Photo': ['add abs to picture', 'put abs on a photo', 'add muscles to photo'],
+  'What Would I Look Like With Abs': ['see myself with abs', 'what would i look like ripped', 'what would i look like lean'],
+  'AI Body Transformation Preview': ['ai body transformation', 'ai fitness transformation', 'body transformation simulator', 'body transformation ai'],
 };
 
 function main() {
@@ -46,7 +65,11 @@ function main() {
   } catch (e) { out.errors.push('account: ' + e); }
 
   out.read = readAll();
-  if (MODE === 'APPLY') out.applied = applyAll(out.read);
+  if (MODE === 'APPLY') {
+    out.applied = applyAll(out.read);
+    out.after = readAll(['campaigns', 'biddingDetail', 'goalConfig', 'campaignGoals',
+                         'campaignNegatives', 'keywords', 'ads', 'adRotation']);
+  }
 
   var ack = post('/api/ytads/dump', out);
   Logger.log('dump ack: ' + JSON.stringify(ack));
@@ -68,7 +91,7 @@ function q(gaql, limit) {
   return rows;
 }
 
-function readAll() {
+function readAll(only) {
   var r = {}, queries = {
     campaigns: "SELECT campaign.id, campaign.name, campaign.status, campaign.advertising_channel_type, " +
       "campaign.bidding_strategy_type, campaign.bidding_strategy, campaign.campaign_budget, " +
@@ -124,6 +147,7 @@ function readAll() {
       "ORDER BY change_event.change_date_time DESC LIMIT 500",
   };
   for (var k in queries) {
+    if (only && only.indexOf(k) === -1) continue;
     try { r[k] = q(queries[k]); }
     catch (e) { r[k] = null; r[k + '_error'] = String(e && e.message || e); }
   }
@@ -144,7 +168,7 @@ function applyAll(read) {
 
   // Goals first: the handoff's ordering — everything else is downstream of the signal.
   step('task1:conversion-goals', function () { return setCampaignGoals(read); });
-  step('task2:tier2-budget', function () { return setTier2Budget(); });
+  step('task2:tier2-budget', function () { return setTier2Budget(read); });
   step('task3c:bidding', function () { return setBidding(); });
   step('task3a:brand-negatives', function () { return addCampaignNegatives(BRAND, BRAND_NEGATIVES); });
   step('task3b:nonbrand-negatives', function () { return addCampaignNegatives(NONBRAND, NONBRAND_NEGATIVES); });
@@ -160,16 +184,33 @@ function campaignByName(name) {
   return it.next();
 }
 
+// Tier 2 is a DEMAND GEN campaign and AdsApp.campaigns() does not return those, so the
+// budget is changed on the CampaignBudget resource itself. Guarded: the budget must be
+// referenced by exactly this one campaign and must not be explicitly shared, or nothing
+// is written (a shared budget would move tier 1 and remarketing too, which is not authorised).
 function setTier2Budget() {
-  var it = AdsApp.campaigns().withCondition('campaign.id = ' + TIER2_ID).get();
-  if (!it.hasNext()) throw new Error('tier-2 campaign ' + TIER2_ID + ' not found');
-  var c = it.next(), b = c.getBudget();
-  var before = b.getAmount(), shared = b.isExplicitlyShared();
-  var users = 0, cs = b.campaigns().get(); while (cs.hasNext()) { cs.next(); users++; }
-  if (shared || users > 1) throw new Error('budget is shared across ' + users + ' campaigns (explicitlyShared=' + shared + ') — NOT changed, per the handoff');
-  if (Math.abs(before - TIER2_BUDGET) < 0.005) return { alreadyDone: true, amount: before };
-  b.setAmount(TIER2_BUDGET);
-  return { campaign: c.getName(), before: before, after: TIER2_BUDGET, budgetId: b.getId(), shared: shared, users: users };
+  var cid = AdsApp.currentAccount().getCustomerId().replace(/-/g, '');
+  var read = arguments[0] || {};
+  var mine = null, users = [];
+  (read.campaigns || []).forEach(function (r) {
+    var c = r.campaign || {}, b = r.campaignBudget || {};
+    if (String(c.id) === TIER2_ID) mine = { budgetId: String(b.id), micros: Number(b.amountMicros), shared: b.explicitlyShared, name: c.name };
+  });
+  if (!mine) throw new Error('tier-2 campaign ' + TIER2_ID + ' not present in the read');
+  (read.campaigns || []).forEach(function (r) {
+    if (String((r.campaignBudget || {}).id) === mine.budgetId) users.push((r.campaign || {}).name);
+  });
+  if (mine.shared === true || users.length > 1) {
+    throw new Error('budget ' + mine.budgetId + ' is shared across ' + users.length + ' campaigns (' + users.join(' / ') + ') — NOT changed, per the handoff');
+  }
+  var want = Math.round(TIER2_BUDGET * 1e6);
+  if (mine.micros === want) return { alreadyDone: true, dollars: mine.micros / 1e6 };
+  var r = AdsApp.mutate({ campaignBudgetOperation: { update: {
+    resourceName: 'customers/' + cid + '/campaignBudgets/' + mine.budgetId,
+    amountMicros: want }, updateMask: 'amount_micros' } });
+  if (!r.isSuccessful()) throw new Error(r.getErrorMessages().join('; '));
+  return { campaign: mine.name, budgetId: mine.budgetId, soleUser: users[0],
+           beforeDollars: mine.micros / 1e6, afterDollars: want / 1e6 };
 }
 
 function setBidding() {
@@ -206,11 +247,13 @@ function addKeywords() {
   while (groups.hasNext()) {
     var g = groups.next(), want = NEW_KEYWORDS[g.getName()];
     if (!want) { out.push({ adGroup: g.getName(), skipped: 'no keywords configured for this ad group' }); continue; }
+    // getText() keeps the match-type decoration: [exact], "phrase", broad. Compare the
+    // decorated form, so adding a PHRASE keyword next to an existing EXACT one is allowed.
     var have = {}, ks = g.keywords().get();
-    while (ks.hasNext()) { have[String(ks.next().getText()).toLowerCase().replace(/^[\["]|[\]"]$/g, '')] = true; }
+    while (ks.hasNext()) { have[String(ks.next().getText()).toLowerCase()] = true; }
     var added = [], skipped = [];
     want.forEach(function (t) {
-      if (have[t.toLowerCase()]) { skipped.push(t); return; }
+      if (have['"' + t.toLowerCase() + '"']) { skipped.push(t + ' (phrase already present)'); return; }
       var op = g.newKeywordBuilder().withText('"' + t + '"').build();
       if (!op.isSuccessful()) { skipped.push(t + ' FAILED: ' + op.getErrors().join('; ')); return; }
       added.push('"' + t + '"');
@@ -288,11 +331,25 @@ function setAdRotation() {
 function setCampaignGoals(read) {
   var cid = AdsApp.currentAccount().getCustomerId().replace(/-/g, ''), out = [];
   var want = [{ category: 'SUBMIT_LEAD_FORM', origin: 'WEBSITE', biddable: true }];
-  var goals = read.customerGoals || [];
+  var goals = (read.customerGoals || []).slice().sort(function (a, b) {
+    var A = a.customerConversionGoal || {}, B = b.customerConversionGoal || {};
+    return (A.category === 'SUBMIT_LEAD_FORM' && A.origin === 'WEBSITE' ? -1 : 0) -
+           (B.category === 'SUBMIT_LEAD_FORM' && B.origin === 'WEBSITE' ? -1 : 0);
+  });
+  // Only campaigns still on the ACCOUNT-DEFAULT goals need this. Measured 2026-09-09:
+  // the non-brand campaign is already goal_config_level=CAMPAIGN with SUBMIT_LEAD_FORM
+  // as its only biddable goal, so it is correct already and is left alone.
+  var level = {};
+  (read.goalConfig || []).forEach(function (r) {
+    var n = (r.campaign || {}).name;
+    if (n) level[n] = (r.conversionGoalCampaignConfig || {}).goalConfigLevel;
+  });
   var ids = {};
   (read.campaigns || []).forEach(function (r) {
     var c = r.campaign || {};
-    if (c.name === BRAND || c.name === NONBRAND) ids[c.name] = String(c.id);
+    if (c.name !== BRAND && c.name !== NONBRAND) return;
+    if (level[c.name] === 'CAMPAIGN') { out.push({ campaign: c.name, alreadyCampaignLevel: true, goals: goalsOf(read, c.name) }); return; }
+    ids[c.name] = String(c.id);
   });
 
   for (var name in ids) {
@@ -321,6 +378,16 @@ function setCampaignGoals(read) {
     out.push({ campaign: name, campaignId: campaignId, want: want, results: results });
   }
   return out;
+}
+
+function goalsOf(read, campaignName) {
+  var o = [];
+  (read.campaignGoals || []).forEach(function (r) {
+    if (((r.campaign || {}).name) !== campaignName) return;
+    var g = r.campaignConversionGoal || {};
+    o.push(g.category + '/' + g.origin + '=' + (g.biddable === true));
+  });
+  return o;
 }
 
 // ----------------------------------------------------------------------
