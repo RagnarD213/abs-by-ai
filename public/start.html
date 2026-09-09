@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>See Yourself With Abs — Abs by AI</title>
+<meta name="description" content="Upload one photo. In about 20 seconds Abs by AI shows you an AI image of your goal body, reads your estimated body fat and lean muscle, and builds the plan to get there." />
+<!-- Paid-traffic landing page: kept out of the organic index so it never competes with / . -->
+<meta name="robots" content="noindex,follow" />
+<link rel="canonical" href="https://absbyai.com/start" />
+<meta property="og:title" content="See yourself with abs — from one photo" />
+<meta property="og:description" content="An AI image of your goal body, your estimated body fat and lean muscle, and the plan to get there. Free to try." />
+<meta property="og:image" content="https://absbyai.com/img/video-poster.jpg" />
+<meta property="og:url" content="https://absbyai.com/start" />
+<meta name="theme-color" content="#f6f5f2" />
+<link rel="icon" type="image/png" href="/img/icon-192.png" />
+<link rel="apple-touch-icon" href="/img/icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/img/proof/male-after.webp" />
+<script src="/site-video.js"></script>
+<script>
+  // Variant is decided BEFORE first paint so the hero never flickers.
+  // Order: ?v= override (QA / a forced ad link) → the value PostHog's flag gave
+  // this browser last time → a sticky 50/50 coin. PostHog's `vsl-landing-variant`
+  // flag, once it exists, overrides the coin from the next visit on (its value is
+  // stored when it arrives — flags load async, after the hero has rendered).
+  (function () {
+    var KEY = 'vsl-landing-variant', STORE = 'absbyai_vsl_variant';
+    var q; try { q = new URLSearchParams(location.search); } catch (e) { q = new URLSearchParams(''); }
+    var f = q.get('v'), forced = null;
+    if (f === 'a' || f === 'control') forced = 'control';
+    if (f === 'b' || f === 'analysis') forced = 'analysis';
+    var stored = null; try { stored = localStorage.getItem(STORE); } catch (e) {}
+    var variant = forced || ((stored === 'control' || stored === 'analysis') ? stored : null);
+    if (!variant) variant = Math.random() < 0.5 ? 'control' : 'analysis';
+    if (!forced) { try { localStorage.setItem(STORE, variant); } catch (e) {} }
+    document.documentElement.setAttribute('data-variant', variant);
+    window.VSL = { key: KEY, store: STORE, variant: variant, forced: !!forced, vp: q.get('vp') === '1', query: q };
+  })();
+</script>
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_s3ZXKWHRFQVqK6pYRBRBKtc2ex7LL78CFMHtCfENEQrU', {api_host: 'https://us.i.posthog.com'});
+  // Every event from this browser now carries the landing variant, on this page
+  // AND in the app after the hand-off, so the whole funnel splits by variant.
+  posthog.register({ landing: 'vsl', landing_variant: window.VSL.variant });
+  // Exposure event in the shape PostHog experiments read.
+  posthog.capture('$feature_flag_called', { $feature_flag: window.VSL.key, $feature_flag_response: window.VSL.variant, forced: window.VSL.forced });
+  posthog.onFeatureFlags(function () {
+    try {
+      var v = posthog.getFeatureFlag(window.VSL.key);
+      if (v === 'control' || v === 'analysis') localStorage.setItem(window.VSL.store, v);
+    } catch (e) {}
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18361229851"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18361229851');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '908268999001961');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=908268999001961&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D9V3D6JC77U31VPN3O90');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #f6f5f2; --card: #ffffff;
+  --line: rgba(20,18,15,0.09); --line2: rgba(20,18,15,0.14);
+  --ink: #1b1a18; --mute: #6e6b64; --faint: #a29e95; --disc: #45423d;
+  --acc: #2f5fe0; --acc-soft: rgba(47,95,224,0.08); --acc-line: rgba(47,95,224,0.35);
+  --warm: #e07b2f;
+  --shadow: 0 1px 2px rgba(20,18,15,0.04), 0 8px 24px rgba(20,18,15,0.06);
+  --shadow-cta: 0 8px 24px rgba(47,95,224,0.32);
+  --f: 'Manrope', sans-serif;
+}
+html, body { font-family: var(--f); background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+body { padding-bottom: 96px; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+/* Variant switches — the hero copy and the video's home differ, nothing else. */
+[data-variant="control"] .only-analysis { display: none !important; }
+[data-variant="analysis"] .only-control { display: none !important; }
+
+/* ── Top bar ── */
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 0 8px; }
+.brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.brand img { height: 24px; width: auto; }
+.brand span { font-size: 19px; font-weight: 800; letter-spacing: -0.4px; }
+.top-login { font-size: 13px; font-weight: 700; color: var(--mute); text-decoration: none; padding: 8px 0; }
+
+/* ── Hero ── */
+.hero { padding: 14px 0 8px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--acc); background: var(--acc-soft); border-radius: 999px; padding: 6px 11px; margin-bottom: 14px; }
+.eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); display: inline-block; }
+h1 { font-size: 31px; line-height: 1.08; letter-spacing: -0.9px; font-weight: 800; margin-bottom: 12px; }
+h1 em { font-style: normal; color: var(--acc); }
+.sub { font-size: 16px; line-height: 1.5; color: var(--mute); font-weight: 500; margin-bottom: 12px; }
+/* AI disclosure — stays in the hero, above the fold (Google Ads reviewers never scroll). */
+.disclose { font-size: 12.5px; line-height: 1.5; color: var(--disc); font-weight: 600; border-left: 3px solid var(--acc-line); padding: 2px 0 2px 10px; margin-bottom: 18px; }
+.hero-visual { margin-bottom: 18px; }
+
+/* Video frame (shared by hero + section) */
+.video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #1b1a18; box-shadow: var(--shadow); }
+.video-frame iframe, .video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.video-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #fff; background: linear-gradient(135deg, #2b2a27, #14130f); background-size: cover; background-position: center; }
+.video-ph::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+.video-ph > * { position: relative; }
+.video-ph-play { width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.video-ph-lbl { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; }
+.video-cap { display: flex; align-items: center; gap: 8px; margin-top: 9px; font-size: 12.5px; color: var(--mute); font-weight: 600; }
+.video-cap img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; object-position: 38% 18%; }
+
+/* Before / after pair */
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pair-box { position: relative; overflow: hidden; border-radius: 12px; background: #eceae5; aspect-ratio: 3 / 4; }
+.pair > div:nth-child(2) .pair-box { box-shadow: 0 0 0 2px var(--acc-line), 0 6px 16px rgba(47,95,224,0.16); }
+.pair img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+.pair-lbl { display: block; margin-top: 6px; text-align: center; color: var(--disc); font-size: 10px; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; line-height: 1.3; }
+.pair-tag { position: absolute; top: 8px; left: 8px; font-size: 9.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: rgba(27,26,24,0.72); border-radius: 6px; padding: 4px 7px; }
+.fiction { margin: 10px 2px 0; font-size: 11px; font-weight: 600; color: var(--disc); text-align: center; line-height: 1.45; }
+.fiction a { text-decoration: underline; }
+
+/* Analysis mock (variant B hero) */
+.mock { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 14px 14px 12px; box-shadow: var(--shadow); }
+.mock-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.mock-title { font-size: 13px; font-weight: 800; letter-spacing: -0.1px; }
+.mock-sample { font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tile { background: var(--bg); border-radius: 12px; padding: 10px 11px 9px; min-width: 0; }
+.tile-lbl { font-size: 10.5px; font-weight: 700; color: var(--faint); text-transform: uppercase; letter-spacing: 0.2px; margin-bottom: 3px; }
+.tile-val { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; }
+.tile-val b { color: var(--acc); font-weight: 800; }
+.tile-sub { font-size: 11px; color: var(--mute); margin-top: 2px; }
+.focus-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.focus { font-size: 11.5px; font-weight: 700; border-radius: 999px; padding: 5px 9px; background: var(--bg); color: var(--mute); display: inline-flex; align-items: center; gap: 5px; }
+.focus i { width: 8px; height: 8px; border-radius: 3px; display: inline-block; }
+.focus.f i { background: var(--warm); } .focus.s i { background: rgba(47,95,224,0.55); } .focus.m i { background: var(--faint); }
+.mock-note { font-size: 10.5px; color: var(--faint); margin-top: 9px; line-height: 1.4; }
+
+/* CTA block */
+.cta-block { margin-top: 4px; }
+.chips-lbl { font-size: 12px; font-weight: 700; color: var(--mute); margin-bottom: 7px; }
+.chips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 12px; }
+.chip { font-family: var(--f); font-size: 12.5px; font-weight: 700; padding: 9px 4px; border-radius: 11px; border: 1.5px solid var(--line2); background: var(--card); color: var(--ink); cursor: pointer; line-height: 1.15; }
+.chip small { display: block; font-size: 10px; font-weight: 600; color: var(--faint); margin-top: 2px; }
+.chip.active { border-color: var(--acc); background: var(--acc-soft); color: var(--acc); }
+.chip.active small { color: var(--acc); opacity: 0.8; }
+.cta-btn { width: 100%; background: var(--acc); border: none; border-radius: 16px; padding: 17px; text-align: center; box-shadow: var(--shadow-cta); font-size: 16.5px; font-weight: 700; color: #fff; letter-spacing: -0.2px; cursor: pointer; font-family: var(--f); display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.15s, transform 0.1s; text-decoration: none; }
+.cta-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+.cta-btn.busy { opacity: 0.7; pointer-events: none; }
+.cta-note { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; font-size: 12px; color: var(--mute); font-weight: 600; margin-top: 9px; }
+.cta-note span + span::before { content: '·'; margin-right: 6px; color: var(--faint); }
+.cta-legal { font-size: 11px; color: var(--disc); text-align: center; margin-top: 8px; line-height: 1.5; }
+.cta-legal a { text-decoration: underline; }
+
+/* Sections */
+.section { padding: 26px 0 6px; }
+.section-h { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.15; margin-bottom: 6px; }
+.section-p { font-size: 14.5px; color: var(--mute); line-height: 1.5; margin-bottom: 14px; }
+.proof-scroll { display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; margin: 0 -20px; padding-left: 20px; padding-right: 20px; scrollbar-width: none; }
+.proof-scroll::-webkit-scrollbar { display: none; }
+.proof-scroll > div { scroll-snap-align: start; }
+.proof-hint { font-size: 11.5px; color: var(--faint); text-align: center; margin-top: 4px; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.feat { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 13px 13px; }
+.feat-ic { width: 34px; height: 34px; border-radius: 10px; background: var(--acc-soft); display: flex; align-items: center; justify-content: center; margin-bottom: 9px; }
+.feat-ic svg { width: 18px; height: 18px; stroke: var(--acc); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.feat h3 { font-size: 14.5px; font-weight: 800; letter-spacing: -0.2px; margin-bottom: 4px; line-height: 1.2; }
+.feat p { font-size: 12.5px; color: var(--mute); line-height: 1.45; }
+.feat .pill { display: inline-block; font-size: 9.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--acc); background: var(--acc-soft); border-radius: 6px; padding: 3px 6px; margin-bottom: 6px; }
+
+.steps { display: grid; gap: 10px; }
+.step { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px; }
+.step-n { width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.step h3 { font-size: 15px; font-weight: 800; letter-spacing: -0.2px; margin-bottom: 3px; }
+.step p { font-size: 13px; color: var(--mute); line-height: 1.45; }
+
+.founder { display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: start; background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 16px; }
+.founder img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: 38% 18%; }
+.founder p { font-size: 14px; line-height: 1.5; color: var(--ink); }
+.founder .who { font-size: 12px; font-weight: 800; color: var(--mute); margin-top: 8px; }
+
+.trial { background: var(--ink); color: #fff; border-radius: 22px; padding: 22px 18px 18px; }
+.trial h2 { font-size: 23px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.12; margin-bottom: 6px; }
+.trial .p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.5; margin-bottom: 14px; }
+.trial ul { list-style: none; display: grid; gap: 8px; margin-bottom: 18px; }
+.trial li { display: flex; gap: 9px; align-items: flex-start; font-size: 14px; font-weight: 600; line-height: 1.35; }
+.trial li svg { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; }
+.trial .cta-btn { box-shadow: 0 8px 24px rgba(47,95,224,0.45); }
+.trial .price { text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.7); font-weight: 600; margin-top: 10px; }
+.trial .or { text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.55); margin-top: 12px; }
+.trial .or a { color: #fff; font-weight: 700; }
+
+.faq { display: grid; gap: 8px; }
+.faq details { background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; padding: 0 14px; }
+.faq summary { cursor: pointer; font-size: 14.5px; font-weight: 800; padding: 13px 0; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font-size: 18px; color: var(--faint); font-weight: 600; }
+.faq details[open] summary::after { content: '–'; }
+.faq p { font-size: 13.5px; color: var(--mute); line-height: 1.5; padding: 0 0 14px; }
+
+.legal { font-size: 12px; text-align: center; margin-top: 26px; line-height: 1.55; color: var(--disc); }
+.footer-links { text-align: center; font-size: 12px; color: var(--mute); margin: 16px 0 12px; line-height: 2; }
+.footer-links a { text-decoration: none; }
+
+/* Sticky mobile CTA */
+.sticky { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(246,245,242,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--line); transform: translateY(110%); transition: transform 0.22s ease; z-index: 30; }
+.sticky.on { transform: translateY(0); }
+.sticky .cta-btn { max-width: 720px; margin: 0 auto; padding: 14px; font-size: 15px; }
+
+/* Desktop */
+@media (min-width: 880px) {
+  body { padding-bottom: 40px; }
+  .wrap { max-width: 760px; }
+  .wrap.hero-wrap { max-width: 1040px; }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 26px 0 14px; }
+  .hero-copy { order: 1; } .hero-visual { order: 2; margin-bottom: 0; }
+  h1 { font-size: 42px; }
+  .sub { font-size: 17.5px; }
+  .proof-scroll { grid-auto-columns: 1fr; margin: 0; padding: 0; overflow: visible; }
+  .proof-hint { display: none; }
+  .grid2 { grid-template-columns: 1fr 1fr 1fr; }
+  .sticky { display: none; }
+  .section { padding: 34px 0 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .sticky, .cta-btn { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="/" aria-label="Abs by AI home"><img src="/img/icon.png" alt=""><span>Abs by AI</span></a>
+    <a class="top-login" href="/">Log in</a>
+  </div>
+</div>
+
+<!-- ════════ HERO ════════ -->
+<div class="wrap hero-wrap">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow"><i></i>AI fitness visualization</div>
+
+      <!-- A · control: image-led, the video leads -->
+      <h1 class="only-control">See yourself <em>with abs.</em> Then get the plan to get there.</h1>
+      <p class="sub only-control">Upload one photo. In about 20 seconds our AI shows you an image of your goal body — then builds a workout and nutrition plan around it.</p>
+
+      <!-- B · analysis: numbers-led, the video sits below the proof -->
+      <h1 class="only-analysis">Find out how far you are from abs — <em>from one photo.</em></h1>
+      <p class="sub only-analysis">Upload a photo and our AI reads your estimated body fat and lean muscle, shows where your plan should focus — and generates an AI image of your goal body.</p>
+
+      <p class="disclose">Upload a photo and Abs by AI generates an AI image of your goal. It's a visualization and motivation tool — <strong>the images are AI-generated, not real results.</strong></p>
+
+      <div class="hero-visual hero-visual-mobile" id="heroVisualMobile"></div>
+
+      <div class="cta-block" id="ctaBlock">
+        <div class="chips-lbl">Where you are now</div>
+        <div class="chips" id="condChips" role="radiogroup" aria-label="Where you are now">
+          <button type="button" class="chip" data-value="heavier" role="radio" aria-checked="false">Heavier<small>fat to lose</small></button>
+          <button type="button" class="chip active" data-value="moderate" role="radio" aria-checked="true">Average<small>soft, can lean out</small></button>
+          <button type="button" class="chip" data-value="fit" role="radio" aria-checked="false">Fit<small>some definition</small></button>
+          <button type="button" class="chip" data-value="very_lean" role="radio" aria-checked="false">Lean<small>abs already show</small></button>
+        </div>
+        <input type="file" id="photoInput" accept="image/*" style="display:none" />
+        <button type="button" class="cta-btn" id="heroCta" data-cta="hero">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7 9m5-5l5 5"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+          <span class="only-control">Upload a photo — see your abs</span>
+          <span class="only-analysis">Upload a photo — get my analysis</span>
+        </button>
+        <div class="cta-note"><span>Free to try</span><span>About 20 seconds</span><span>No sign-up to see it</span></div>
+        <div class="cta-legal">Your photo is sent securely to our AI partners (Anthropic, Google, Replicate) to create your result — never sold, delete anytime. <a href="/privacy">Privacy Policy</a></div>
+      </div>
+    </div>
+
+    <div class="hero-visual hero-visual-desktop" id="heroVisual">
+      <!-- The visual is moved between the mobile slot (under the copy) and the
+           desktop slot (right column) by a script; content is built once. -->
+      <div id="heroVideoBlock" style="display:none">
+        <div class="video-frame" id="heroVideoFrame"></div>
+        <div class="video-cap"><img src="/img/video-poster.jpg" alt=""><span>Dan Rose, founder · what happens after your photo · 3:50</span></div>
+      </div>
+      <div id="heroProof" class="only-control">
+        <div class="pair">
+          <div><div class="pair-box"><img src="/img/proof/male-before.webp" width="375" height="500" alt="Fictional example: photo uploaded to Abs by AI" fetchpriority="high"><span class="pair-tag">Uploaded photo</span></div><span class="pair-lbl">Uploaded photo</span></div>
+          <div><div class="pair-box"><img src="/img/proof/male-after.webp" width="375" height="500" alt="Fictional example: AI-generated image" fetchpriority="high"><span class="pair-tag">AI-generated</span></div><span class="pair-lbl">AI-generated image</span></div>
+        </div>
+        <div class="fiction">Fictional example. The AI-generated image is a visualization of a goal, not a real result — see our <a href="/disclaimer">Disclaimer</a>.</div>
+      </div>
+      <div id="heroMock" class="only-analysis">
+        <div class="mock">
+          <div class="mock-head"><span class="mock-title">What our AI reads from your photo</span><span class="mock-sample">Sample</span></div>
+          <div class="tiles">
+            <div class="tile"><div class="tile-lbl">Body fat</div><div class="tile-val">24% → <b>12%</b></div><div class="tile-sub">now → goal</div></div>
+            <div class="tile"><div class="tile-lbl">Lean muscle</div><div class="tile-val">138 → <b>142 lb</b></div><div class="tile-sub">now → goal</div></div>
+            <div class="tile"><div class="tile-lbl">Fat to lose</div><div class="tile-val">24 lb</div><div class="tile-sub">to reach the goal</div></div>
+            <div class="tile"><div class="tile-lbl">Goal weight</div><div class="tile-val">166 lb</div><div class="tile-sub">at 12% body fat</div></div>
+          </div>
+          <div class="focus-row">
+            <span class="focus f"><i></i>Lower abs · focus</span>
+            <span class="focus f"><i></i>Obliques · focus</span>
+            <span class="focus s"><i></i>Shoulders · strong</span>
+            <span class="focus m"><i></i>Chest · maintain</span>
+          </div>
+          <div class="mock-note">Visual estimates for motivation — not a medical measurement. Based on published body-fat ranges (<a href="/sources">sources</a>).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+
+  <!-- ════════ PROOF ════════ -->
+  <section class="section" id="proof">
+    <h2 class="section-h">Examples made with Abs by AI</h2>
+    <p class="section-p">A photo goes in; an AI image of the goal comes out. Pick Subtle or Ripped.</p>
+    <div class="proof-scroll" id="proofScroll">
+      <div>
+        <div class="pair">
+          <div><div class="pair-box"><img src="/img/proof/male-before.webp" loading="lazy" width="375" height="500" alt="Fictional example: photo uploaded to Abs by AI"><span class="pair-tag">Uploaded photo</span></div><span class="pair-lbl">Uploaded photo</span></div>
+          <div><div class="pair-box"><img src="/img/proof/male-after.webp" loading="lazy" width="375" height="500" alt="Fictional example: AI-generated image"><span class="pair-tag">AI-generated</span></div><span class="pair-lbl">AI-generated image</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="pair">
+          <div><div class="pair-box"><img src="/img/proof/female-before.webp" loading="lazy" width="375" height="500" alt="Fictional example: photo uploaded to Abs by AI"><span class="pair-tag">Uploaded photo</span></div><span class="pair-lbl">Uploaded photo</span></div>
+          <div><div class="pair-box"><img src="/img/proof/female-after.webp" loading="lazy" width="375" height="500" alt="Fictional example: AI-generated image"><span class="pair-tag">AI-generated</span></div><span class="pair-lbl">AI-generated image</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="pair">
+          <div><div class="pair-box"><img src="/img/proof/male2-before.webp" loading="lazy" width="375" height="500" alt="Fictional example: photo uploaded to Abs by AI, heavier build"><span class="pair-tag">Uploaded photo</span></div><span class="pair-lbl">Uploaded photo</span></div>
+          <div><div class="pair-box"><img src="/img/proof/male2-after.webp" loading="lazy" width="375" height="500" alt="Fictional example: AI-generated image, heavier build"><span class="pair-tag">AI-generated</span></div><span class="pair-lbl">AI-generated image</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="proof-hint">Swipe for more →</div>
+    <div class="fiction">Fictional examples. The AI-generated images are visualizations of a goal, not real results or a real transformation — see our <a href="/disclaimer">Disclaimer</a>.</div>
+  </section>
+
+  <!-- ════════ VIDEO (variant B home; hidden until the video is hosted) ════════ -->
+  <section class="section only-analysis" id="videoSection" style="display:none">
+    <h2 class="section-h">Watch: what happens after your photo</h2>
+    <p class="section-p">Dan Rose, founder of Abs by AI, walks through the goal image, the analysis and the plan. 3 min 50 s.</p>
+    <div class="video-frame" id="sectionVideoFrame"></div>
+  </section>
+
+  <!-- ════════ WHAT YOU GET ════════ -->
+  <section class="section" id="get">
+    <h2 class="section-h">What you get after one photo</h2>
+    <p class="section-p">The image is the start. The analysis and the plan are the point.</p>
+    <div class="grid2">
+      <div class="feat">
+        <div class="feat-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg></div>
+        <span class="pill">Free</span>
+        <h3>Your goal image</h3>
+        <p>An AI image of the goal you pick — Subtle or Ripped. A visualization, not a prediction.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15v-4"/><path d="M12 15V8"/><path d="M16 15v-6"/></svg></div>
+        <span class="pill">Free</span>
+        <h3>Your analysis</h3>
+        <p>Estimated body fat, lean muscle, fat to lose, goal weight — and where your plan will focus.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M6 8v8"/><path d="M18 8v8"/><path d="M3 10v4"/><path d="M21 10v4"/><path d="M6 12h12"/></svg></div>
+        <span class="pill">Membership</span>
+        <h3>AI workout program</h3>
+        <p>Built around your equipment, level and schedule. Progresses every time you check in.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0116 0"/><path d="M2 12h20"/><path d="M12 4c2 2 2 6 0 8"/></svg></div>
+        <span class="pill">Membership</span>
+        <h3>AI nutritionist + macro tracker</h3>
+        <p>Meal plans built for your gap, and calories &amp; macros from a photo of your food.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></div>
+        <span class="pill">Membership</span>
+        <h3>Sleep coach</h3>
+        <p>A short morning briefing from last night's sleep, with the day's plan adjusted to it.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="7"/><path d="M5 12h14"/></svg></div>
+        <span class="pill">Membership</span>
+        <h3>Supplement audit</h3>
+        <p>Snap your stack. We flag what's worth keeping, what isn't, and what's missing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ HOW IT WORKS ════════ -->
+  <section class="section" id="how">
+    <h2 class="section-h">How it works</h2>
+    <p class="section-p">Three steps. The first one takes about 20 seconds.</p>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div><h3>Upload a photo</h3><p>Shirtless or sports-bra, neutral pose, even lighting. Tap the button, pick the photo, done.</p></div></div>
+      <div class="step"><div class="step-n">2</div><div><h3>See your goal image and your analysis</h3><p>Our AI generates the image of your goal and reads your estimated body fat, lean muscle and focus areas from the pictures.</p></div></div>
+      <div class="step"><div class="step-n">3</div><div><h3>Start the plan — free for 7 days</h3><p>The AI trainer and nutritionist build your program from that read. Cancel anytime in two taps.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ════════ FOUNDER ════════ -->
+  <section class="section" id="founder">
+    <div class="founder">
+      <img src="/img/video-poster.jpg" alt="Dan Rose, founder of Abs by AI">
+      <div>
+        <p>"Most people never start because they can't picture the finish line. Abs by AI shows you the finish line first — then tells you exactly what to do about it, every day."</p>
+        <div class="who">Dan Rose · Founder, Abs by AI</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TRIAL ════════ -->
+  <section class="section" id="trial">
+    <div class="trial">
+      <h2>Everything in the app, free for 7 days</h2>
+      <div class="p">Your goal image stays free. The membership is the plan that goes with it.</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#7fa2ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>AI workout program built around your equipment and level</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#7fa2ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>AI nutritionist, meal plans and photo macro tracking</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#7fa2ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Sleep coach and supplement audit</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#7fa2ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Unlimited goal images and a progress log</li>
+      </ul>
+      <a class="cta-btn" id="trialCta" href="/?join=1" data-cta="trial">Start your 7-day free trial →</a>
+      <div class="price">then $19.99/mo or $69.99/yr · cancel anytime, and you won't be charged a dime</div>
+      <div class="or">Not ready? <a href="#" id="trialUploadLink">Start with the free goal image</a></div>
+    </div>
+  </section>
+
+  <!-- ════════ FAQ ════════ -->
+  <section class="section" id="faq">
+    <h2 class="section-h">Questions</h2>
+    <div class="faq">
+      <details><summary>Is the image real?</summary><p>No. It is an AI-generated visualization of the goal you choose, made from your photo. It is not a photograph of you, not a prediction, and not a guarantee of any result. Full details in our <a href="/disclaimer">Disclaimer</a>.</p></details>
+      <details><summary>What photo works best?</summary><p>Shirtless (men) or a sports bra or swimsuit (women), a neutral standing pose, even lighting, phone at chest height. Fully clothed photos can't be used — the AI edits the body it can see.</p></details>
+      <details><summary>Are the numbers a medical measurement?</summary><p>No. Body fat, lean muscle, fat to lose and goal weight are visual estimates for motivation, based on published body-fat ranges (<a href="/sources">sources</a>). Talk to a doctor before changing your diet or training.</p></details>
+      <details><summary>What happens to my photo?</summary><p>It is sent securely to our AI partners (Anthropic, Google, Replicate) to create your result. It is never sold, and you can delete it anytime. <a href="/privacy">Privacy Policy</a>.</p></details>
+      <details><summary>What does the trial cost?</summary><p>Nothing for 7 days. After that it's $19.99 a month or $69.99 a year, and you can cancel anytime in two taps — cancel before day 7 and you're never charged. <a href="/refunds">Refund policy</a>.</p></details>
+    </div>
+  </section>
+
+  <div class="legal">AbsByAI is an app for generating an image of your fitness goal. <strong>The examples shown above are not real fitness transformations.</strong> They are examples of the type of images our app can make. Abs By AI does not change your body and does not promise any physical result. AI-generated images are labelled as such.</div>
+  <div class="footer-links">
+    <a href="/how-it-works">How it works</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/refunds">Refunds</a> &middot; <a href="/disclaimer">Disclaimer</a> &middot; <a href="/sources">Sources</a> &middot; <a href="/contact">Contact</a> &middot; <a href="/">Already a member? Log in</a>
+  </div>
+</div>
+
+<!-- Sticky mobile CTA (shows once the hero button scrolls out) -->
+<div class="sticky" id="stickyCta">
+  <button type="button" class="cta-btn" data-cta="sticky" id="stickyBtn">Upload a photo → see your goal image</button>
+</div>
+
+<script>
+(function () {
+  const VSL = window.VSL;
+  const $ = (id) => document.getElementById(id);
+  const VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '' }, window.ABS_SITE_VIDEO || {});
+  const CONDITIONS = ['heavier', 'moderate', 'fit', 'very_lean'];
+  const HANDOFF_KEY = 'absbyai_vsl_handoff';
+  const MAX_DIM = 1024, JPEG_Q = 0.85;
+  let condition = 'moderate';
+
+  function ph(ev, props) {
+    try { if (window.posthog && typeof posthog.capture === 'function') posthog.capture(ev, Object.assign({ variant: VSL.variant }, props || {})); } catch (e) {}
+  }
+
+  // ── Video: one renderer, two possible homes ──
+  function renderVideo(frame) {
+    const real = !!(VIDEO.youtubeId || VIDEO.mp4);
+    if (!real && !VSL.vp) return false;
+    if (VIDEO.youtubeId) {
+      frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1" title="What happens after your photo — Abs by AI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+      // A YouTube play is only observable through the IFrame API; a click into
+      // the frame (window blur while it is hovered) is the cheap proxy.
+      let hovered = false;
+      frame.addEventListener('mouseenter', () => { hovered = true; });
+      frame.addEventListener('mouseleave', () => { hovered = false; });
+      frame.addEventListener('touchstart', () => { hovered = true; }, { passive: true });
+      window.addEventListener('blur', () => {
+        if (hovered && !frame.dataset.played) { frame.dataset.played = '1'; ph('vsl_video_play', { kind: 'youtube' }); }
+      });
+    } else if (VIDEO.mp4) {
+      frame.innerHTML = `<video playsinline controls preload="metadata"${VIDEO.poster ? ` poster="${VIDEO.poster}"` : ''} src="${VIDEO.mp4}"></video>`;
+      const v = frame.querySelector('video'), fired = {};
+      v.addEventListener('play', () => { if (!fired.play) { fired.play = 1; ph('vsl_video_play', { kind: 'mp4' }); } });
+      v.addEventListener('timeupdate', () => {
+        if (!v.duration) return;
+        const pct = v.currentTime / v.duration * 100;
+        [25, 50, 75, 100].forEach((m) => { if (pct >= m - (m === 100 ? 1.5 : 0) && !fired[m]) { fired[m] = 1; ph('vsl_video_progress', { pct: m }); } });
+      });
+      v.addEventListener('ended', () => { if (!fired[100]) { fired[100] = 1; ph('vsl_video_progress', { pct: 100 }); } });
+    } else {
+      frame.innerHTML = `<div class="video-ph"${VIDEO.poster ? ` style="background-image:url('${VIDEO.poster}')"` : ''}>
+        <div class="video-ph-play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-ph-lbl">VIDEO PLACEHOLDER</div>
+        <div style="font-size:12px;opacity:.75">Dan: what happens after your photo (rev 5, awaiting the YouTube id)</div>
+      </div>`;
+    }
+    return real;
+  }
+  let videoLive = false;
+  if (VSL.variant === 'control') {
+    videoLive = renderVideo($('heroVideoFrame'));
+    if (videoLive || VSL.vp) { $('heroVideoBlock').style.display = ''; $('heroProof').style.display = 'none'; }
+  } else {
+    videoLive = renderVideo($('sectionVideoFrame'));
+    if (videoLive || VSL.vp) $('videoSection').style.display = '';
+  }
+
+  // ── Hero visual placement: under the copy on phones, right column on desktop ──
+  const visual = $('heroVisual');
+  const mq = window.matchMedia('(min-width: 880px)');
+  function placeVisual() {
+    const target = mq.matches ? visual : $('heroVisualMobile');
+    if (mq.matches) { while ($('heroVisualMobile').firstChild) visual.appendChild($('heroVisualMobile').firstChild); }
+    else { while (visual.firstChild) target.appendChild(visual.firstChild); }
+  }
+  placeVisual();
+  try { mq.addEventListener('change', placeVisual); } catch (e) { mq.addListener(placeVisual); }
+
+  // ── "Where you are now" chips ──
+  document.querySelectorAll('#condChips .chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#condChips .chip').forEach((c) => { c.classList.toggle('active', c === chip); c.setAttribute('aria-checked', c === chip ? 'true' : 'false'); });
+      condition = CONDITIONS.includes(chip.dataset.value) ? chip.dataset.value : 'moderate';
+      ph('vsl_condition_chosen', { condition });
+    });
+  });
+
+  // ── One tap: the CTA opens the photo picker directly ──
+  const input = $('photoInput');
+  let lastCta = 'hero';
+  function openPicker(cta) {
+    lastCta = cta;
+    ph('vsl_cta_clicked', { cta, condition });
+    try { input.value = ''; } catch (e) {}
+    input.click();
+  }
+  $('heroCta').addEventListener('click', () => openPicker('hero'));
+  $('stickyBtn').addEventListener('click', () => openPicker('sticky'));
+  $('trialUploadLink').addEventListener('click', (e) => { e.preventDefault(); openPicker('trial_card'); });
+
+  function downscale(file) {
+    return new Promise((resolve) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        try {
+          const longest = Math.max(img.width, img.height);
+          const scale = Math.min(1, MAX_DIM / longest);
+          const w = Math.round(img.width * scale), h = Math.round(img.height * scale);
+          const c = document.createElement('canvas'); c.width = w; c.height = h;
+          c.getContext('2d').drawImage(img, 0, 0, w, h);
+          URL.revokeObjectURL(url);
+          resolve({ dataUrl: c.toDataURL('image/jpeg', JPEG_Q), w, h });
+        } catch (e) { URL.revokeObjectURL(url); resolve(null); }
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); resolve(null); };
+      img.src = url;
+    });
+  }
+
+  // Forward the ad click ids and UTMs so the app's own capture sees them.
+  function appUrl() {
+    const out = new URLSearchParams();
+    out.set('from', 'vsl');
+    out.set('v', VSL.variant);
+    VSL.query.forEach((val, key) => { if (/^(utm_|gclid$|gbraid$|wbraid$|fbclid$|ttclid$|msclkid$)/.test(key)) out.set(key, val); });
+    return '/?' + out.toString();
+  }
+
+  input.addEventListener('change', async () => {
+    const file = input.files && input.files[0];
+    if (!file) return;
+    const btn = $('heroCta'); btn.classList.add('busy');
+    const label = btn.querySelector('.only-' + VSL.variant);
+    const oldText = label ? label.textContent : '';
+    if (label) label.textContent = 'Opening your photo…';
+    ph('vsl_photo_chosen', { bytes: file.size, type: file.type, cta: lastCta, condition });
+    let stored = false;
+    try {
+      if (file.type && file.type.startsWith('image/')) {
+        const photo = await downscale(file);
+        if (photo) {
+          const payload = JSON.stringify({ dataUrl: photo.dataUrl, w: photo.w, h: photo.h, condition, intensity: 'max', variant: VSL.variant, at: Date.now() });
+          try { sessionStorage.setItem(HANDOFF_KEY, payload); stored = true; } catch (e) { stored = false; }
+        }
+      }
+    } catch (e) { stored = false; }
+    ph('vsl_handoff', { stored, condition });
+    if (label) label.textContent = oldText;
+    // Not stored (storage blocked, non-image file): the app is one tap away anyway.
+    location.href = appUrl();
+  });
+
+  // ── Trial CTA ──
+  $('trialCta').addEventListener('click', () => {
+    ph('vsl_trial_cta_clicked', {});
+    const out = new URLSearchParams(); out.set('join', '1'); out.set('from', 'vsl'); out.set('v', VSL.variant);
+    VSL.query.forEach((val, key) => { if (/^(utm_|gclid$|gbraid$|wbraid$|fbclid$|ttclid$|msclkid$)/.test(key)) out.set(key, val); });
+    $('trialCta').href = '/?' + out.toString();
+  });
+
+  // ── Sticky CTA once the hero button is off screen ──
+  const sticky = $('stickyCta');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      const heroVisible = entries.some((e) => e.isIntersecting);
+      sticky.classList.toggle('on', !heroVisible && window.scrollY > 200);
+    }, { threshold: 0 }).observe($('heroCta'));
+  }
+
+  // ── Landing seen ──
+  ph('vsl_landing_seen', { forced: VSL.forced, video_live: videoLive, placeholder: VSL.vp && !videoLive });
+})();
+</script>
+</body>
+</html>

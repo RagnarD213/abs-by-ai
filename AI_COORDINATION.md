@@ -38,10 +38,21 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**`/start` ad landing page + A/B — LIVE 2026-09-09, two 1-minute steps for Dan.** Funnel pulled first (PostHog, 30 d):
+571 landed → 55 generated (**9.6 %; 516 people, 90 %, never upload a photo — the biggest drop by far**) → analysis page 1
+(test only) → 6 trial sign-ups → 4 trials → 2 paid. Built `public/start.html` (variants `control` image-led /
+`analysis` numbers-led, `?v=a|b`, `?vp=1` placeholder), one-tap photo hand-off into the app that auto-runs the
+generation, trial CTA, and a new `generation_started` event. Doc: `Docs/VSL_LANDING.md`. **Dan: (1) upload the rev-5
+website video to YouTube as Unlisted and paste the id into `youtubeId` in `public/site-video.js` — the one file both
+`/start` and the analysis page read; both hide the slot until then. (2) Create PostHog flag `vsl-landing-variant`
+(variants `control` / `analysis`, 50/50) + an experiment on it — the stored API keys lack the flag scopes; the page
+runs its own sticky 50/50 and fires the exposure events meanwhile, so nothing is lost.** Point new ad campaigns at
+`absbyai.com/start`. Delete this entry once both are done.
+
 **Post-lock-in "Your analysis" page — LIVE 2026-09-08, three defaults for Dan to confirm.** The email + bridge screens
 are gone; "Lock in this goal" now opens `analysis` (video slot, height/weight sliders, the four numbers, body map from
 `POST /api/body-analysis` on `claude-opus-5`, trial CTA + email ask). Defaults shipped: women's height default is 5'4"
-(men 5'9"); the video block is hidden until `ANALYSIS_VIDEO` in `index.html` gets a URL (`?vp=1` shows the placeholder);
+(men 5'9"); the video block is hidden until `youtubeId` in `public/site-video.js` gets the id (`?vp=1` shows the placeholder; shared with `/start` since 09-09);
 recommended hosting for rev 4 is a YouTube unlisted upload. **Out-of-credits path (Dan's asks, 2026-09-08):** a locked generation
 now lands DIRECTLY on the analysis page (video → offer button → before/after → numbers → sliders → body map → plan →
 offer → email; no top copy, no "tell us more" card); the result screen with its paywall block stays underneath for

@@ -10499,7 +10499,8 @@ app.get('/privacy', (req, res) => {
 // `sources` carries the medical/health citations required by App Store
 // guideline 1.4.1 — it is linked from every in-app report that contains a
 // health calculation or recommendation, and must stay reachable.
-for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works', 'sources']) {
+// `start` is the paid-traffic landing page (VSL + one-tap photo hand-off into the app).
+for (const slug of ['terms', 'refunds', 'contact', 'disclaimer', 'faq', 'about', 'how-it-works', 'sources', 'start']) {
   app.get(`/${slug}`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', `${slug}.html`));
   });

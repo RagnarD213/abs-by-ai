@@ -10,6 +10,7 @@
 <link rel="icon" type="image/png" href="/img/icon-192.png" />
 <link rel="apple-touch-icon" href="/img/icon-192.png" />
 <link rel="stylesheet" href="/vendor/cropperjs/cropper.min.css" />
+<script src="/site-video.js"></script>
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
@@ -3920,6 +3921,7 @@ const state = {
   condition: null,
   intensity: 'max',
   effectiveIntensity: 'max',
+  source: 'home', // 'vsl' when the photo arrived from the /start landing page
   description: '',
   lastAfterDataUrl: null,
   // Set when the current result is paywalled: the server holds the sharp image and
@@ -4815,7 +4817,9 @@ function selectPick(gridId, value, stateKey) {
 //
 // Video slot: set youtubeId (unlisted upload) OR mp4 (+ poster). Empty = the
 // block is hidden for real users; localhost and ?vp=1 show a placeholder card.
-const ANALYSIS_VIDEO = { youtubeId: '', mp4: '', poster: '' };
+// Configured in public/site-video.js — the ONE place the website video lives,
+// shared with the /start ad landing page. Paste the YouTube id THERE, not here.
+const ANALYSIS_VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '/img/video-poster.jpg' }, window.ABS_SITE_VIDEO || {});
 const BODY_ANALYSIS_KEY = 'absbyai_body_analysis';
 const BODY_SLIDERS_KEY = 'absbyai_body_sliders';
 // Default weight = BMI for the tapped body type × height² / 703 (5'9" → men
@@ -5060,7 +5064,7 @@ function renderAnalysisVideo() {
     frame.innerHTML = `<div class="an-video-ph"${ANALYSIS_VIDEO.poster ? ` style="background-image:url('${ANALYSIS_VIDEO.poster}')"` : ''}>
       <div class="an-video-ph-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
       <div class="an-video-ph-lbl">VIDEO PLACEHOLDER</div>
-      <div style="font-size:12px;opacity:.6">Dan: how your picture becomes a plan (rev 4, coming)</div>
+      <div style="font-size:12px;opacity:.6">Dan: what happens after your photo (rev 5, awaiting the YouTube id)</div>
     </div>`;
   }
   return real;
@@ -5537,6 +5541,12 @@ async function checkOrderSession() {
 // ============================================================
 window.addEventListener('DOMContentLoaded', async () => {
   initProofStrip();
+  // Arrivals from the /start ad landing page keep their variant on every event,
+  // so the whole funnel (generation → analysis → trial → paid) splits by it.
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.get('from') === 'vsl' && window.posthog) posthog.register({ landing: 'vsl', landing_variant: q.get('v') || 'unknown' });
+  } catch (e) {}
 
   // Fetch public config (Stripe publishable key) from backend
   try {
@@ -5802,6 +5812,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   // right screen. restoreSession handles the logged-in case itself, after
   // membership has resolved — doing it here too would race that.
   if (!isLoggedIn()) applyPurchaseDeepLink();
+  // A visitor from the /start landing page who already picked a photo there.
+  if (!isLoggedIn()) applyVslHandoff();
 });
 
 // ============================================================
@@ -7828,6 +7840,36 @@ async function refreshProfile() {
 function getProfile() { return profileState.data || {}; }
 // Ensure the profile is loaded before a feature pre-fills from it.
 async function ensureProfile() { if (!profileState.loaded) await refreshProfile(); return getProfile(); }
+
+// ── /start landing page hand-off ──
+// The ad landing page opens the photo picker itself (one tap), downsizes the
+// photo and parks it in sessionStorage, then sends the visitor here with
+// ?from=vsl&v=<variant>. Load it into the form exactly as if it had been picked
+// here and start the generation once the clothing check clears — the visitor
+// never lands on an empty form. Stale or malformed payloads are ignored.
+const VSL_HANDOFF_KEY = 'absbyai_vsl_handoff';
+async function applyVslHandoff() {
+  let raw = null;
+  try { raw = sessionStorage.getItem(VSL_HANDOFF_KEY); } catch (e) {}
+  if (!raw) return false;
+  try { sessionStorage.removeItem(VSL_HANDOFF_KEY); } catch (e) {}
+  let h = null;
+  try { h = JSON.parse(raw); } catch (e) { return false; }
+  if (!h || typeof h.dataUrl !== 'string' || !/^data:image\/[a-z]+;base64,/.test(h.dataUrl)) return false;
+  if (Date.now() - (Number(h.at) || 0) > 15 * 60 * 1000) return false;
+  const [meta, data] = h.dataUrl.split(',');
+  const mime = (meta.match(/data:(.*?);/) || [])[1] || 'image/jpeg';
+  if (['heavier', 'moderate', 'fit', 'very_lean'].includes(h.condition)) selectPick('bodyTypeGrid', h.condition, 'condition');
+  state.source = 'vsl';
+  if (window.posthog) posthog.capture('vsl_handoff_received', { condition: state.condition, variant: h.variant || null });
+  if (!(await ensureAiConsent())) return true;
+  // finalizePhoto runs the clothing/sex read; wait for it so a blocked photo
+  // shows its warning instead of a failed generation.
+  try { await finalizePhoto({ data, mime, dataUrl: h.dataUrl }); } catch (e) {}
+  try { $('generateBtn').scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {}
+  if (state.photoData && state.condition && !state.photoIsClothed) generate();
+  return true;
+}
 
 // Landing spots for the native apps' external purchase links. The app opens
 // one of these URLs in the default browser; this is what makes the browser
@@ -10562,7 +10604,7 @@ function finalizePhoto({ data, mime, dataUrl }) {
   state.photoBlockMsg = '';
   $('clothingWarning').style.display = 'none';
   validateForm();
-  checkClothing(data, mime);
+  return checkClothing(data, mime);
 }
 
 async function handlePhoto(file) {
@@ -10780,6 +10822,8 @@ async function generate() {
   clearError();
   setGenerating(true);
   startGenLoader();
+  // Funnel step the completion-only telemetry could not give us: who pressed Generate.
+  if (window.posthog) posthog.capture('generation_started', { source: state.source || 'home', sex: state.gender, condition: state.condition, intensity: state.intensity, logged_in: isLoggedIn() });
 
   try {
     const generatedPrompt = await callGeminiText(goalSystemPrompt(), makeUserJson());
