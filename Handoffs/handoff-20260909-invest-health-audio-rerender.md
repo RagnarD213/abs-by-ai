@@ -75,6 +75,19 @@ Work dir `/Volumes/Extreme/_edit_work/invest-health-cutdowns/style/` (verified p
 **The bed sits at −36 dB, not the module default −30.** −30 failed the gate's floor row on this
 programme; that lesson is already recorded in the skill. Keep −36.
 
+⚠ **Two corrections to this doc, found the hard way on 2026-09-09 while executing it.**
+
+1. **The SFX track is `sfx/bed_m15.wav`, NOT `sfx/bed.wav`.** `voice_chain.py --extra` mixes at 0 dB,
+   so 09-03 pre-attenuated the 141-cue bed by 15 dB (`REBUILD_NOTES.md` line 162). The raw bed sits
+   **+23 dB at 3500 Hz** relative to the reference; passing it cost three full renders, failing `tone`
+   at 3500 Hz +6.4 dB and inflating `artifacts` on the SFX transients. The voice was never the problem
+   — untreated and dereverbed lavs both read +0.3 dB at 3500 Hz.
+2. **Do not pass `--video` when `--out` is a `.wav`.** `pic` is then set and ffmpeg tries to mux H.264
+   into a WAV container and dies. `--frame-lock` alone supplies the picture duration; mux separately.
+
+Also: `deliver.sh` runs under `set -e`, and its `[ -f "$D/INVEST_HEALTH_v3.mp4" ] && mv ...` lines are
+now false, which aborted the script before it copied anything. Each conditional move needs `|| true`.
+
 ## Do this
 
 ```bash
@@ -84,8 +97,8 @@ A="/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/
 
 # 1. re-mix on the APPROVED dereverb (module defaults — pass no --dereverb override)
 python3 "$A/voice_chain.py" --in audio/voice_raw.wav --out audio/final_mix_v3.wav \
-  --bed music/organic_flow.mp3 --bed-db -36 --extra sfx/bed.wav \
-  --video picture_final.mp4 --frame-lock picture_final.mp4
+  --bed music/organic_flow.mp3 --bed-db -36 --extra sfx/bed_m15.wav \
+  --frame-lock picture_final.mp4
 
 # 2. mux (video untouched)
 ffmpeg -nostdin -y -v error -i picture_final.mp4 -i audio/final_mix_v3.wav \

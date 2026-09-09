@@ -127,18 +127,20 @@ batch-2 recipe (**that install is a native-retest trigger**). `db-lunge` is bloc
 drifts the camera on this large-translation move; options are full `google/veo-3.1`, Kling
 with `end_image`, or filming it. Batch dir `Media/exercise-demos/_batch4/`.
 
-**04 invest-health — AUDIO REJECTED 2026-09-09, re-render handed off. Picture and cut are approved-as-is.**
-Dan: *"absolutely awful… it sounds underwater. We can never, ever strip audio like this."* **He is right and it
-measures:** the file was gated 09-03, six days BEFORE the dereverb was re-tuned, so it carries the rejected
-settings (α 0.62 / floor −24 / d2 150). Re-gated 09-09 → **FAIL on `artifacts`, flux 0.094 = 1.31× Muhammad's**
-(bound 1.10×); every other row passes. The delivered file's stamp is now FAIL, so no deliver script will ship it.
-A sweep of every `*.voice_chain.json` in the delivery trees confirms **04 is the only long-form affected** — the
-three Shorts batches are the sibling handoff's job. Everything needed is staged (`voice_raw.wav`,
-`picture_final.mp4`, bed, SFX); it is an audio-only re-mix + `-c:v copy` mux, no picture re-render.
-⚠ Two prerequisites, both live: `common.stash_untreated()` was MISSING at 10:03 on 09-09 while
-`voice_chain.py:158` calls it (module was being edited by another session — `MM` in git status), and
-`selftest.sh` is broken. → `Handoffs/handoff-20260909-invest-health-audio-rerender.md`. No dashboard row (his
-09-08 rule). The 29:16 cut, graphics and 12/12 style gate stand; only the audio is rejected.
+**04 invest-health — RE-RENDERED AND DELIVERED 2026-09-09, gate PASS. One question for Dan.** The
+"underwater" master is replaced; `FINAL_invest_health.mp4` now passes all 13 gate rows (flux 0.072 = 1.00×
+Muhammad's, was 1.31×), picture byte-identical (52,618 frames, `-c:v copy`). The rejected one is parked beside
+it as `FINAL_invest_health_UNDERWATER.mp4`. Both prerequisites were already fixed by the sibling session —
+`selftest.sh` passes 15/15, and its step 7 now refuses the rejected dereverb outright.
+⚠ **The delivered mix has NO dereverb, which is not the setting Dan picked by ear on 09-09** — measured on
+this programme, *any* spectral subtraction fails the artifacts row (untreated 1.03× his → approved dereverb
+1.20× on the lav, 1.14× in the mix; bound is 1.10×), because it varies the gain frame to frame by
+construction. Shipping it dry has precedent: website rev 2, the cut he called *"you got it nailed"*, measures
+EDT 74.7 ms and flux 0.86× his with no dereverb — same shoot, same room. **A three-way A/B (dry / his 09-09
+dereverb / Muhammad) was sent 09-09; if he prefers the dereverbed room it is a re-mux of the staged
+`audio/final_mix_v5.wav`, but that file cannot carry a PASS stamp.** ⚠ Soft number: the delivered `edt` reads
+80.00 ms against an 80.0 bound — passes with zero margin (EDT is quantised to 2.667 ms steps).
+Full measurements + traps: `REBUILD_NOTES.md` in the delivery folder. Delete this entry once Dan picks a room.
 
 **Longforms 02 + 03 — HOLD EXPIRES 2026-09-09 AND MUHAMMAD HAS DELIVERED NOTHING.** Checked Drive
 2026-09-08: his only delivery since Sep 1 is `Daniel HQ Ad 2 V2 HD.mp4` (Sep 3) — no Zepbound and no
@@ -328,10 +330,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
   fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
-- **`Handoffs/handoff-20260909-invest-health-audio-rerender.md`** — 04 invest-health carries the SAME rejected
-  dereverb (gated 09-03, before the fix) and is NOT covered by the batch handoff above. Gate now FAILS it on
-  `artifacts` (flux 1.31× his). Audio-only re-mix from the staged `voice_raw.wav` + `-c:v copy` mux; picture,
-  cut and graphics stand. Sonnet 5, standard, ~30–45 min. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260908-google-ads-custom-segments.md`** — ten Google Ads custom segments (six search-term,
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which
