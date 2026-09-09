@@ -41,7 +41,9 @@ is the permanent record of code changes.
 **Website conversion video — LIVE ON THE SITE 2026-09-09, Dan looks.** Rev 5 is uploaded UNLISTED to the
 **Abs by AI** channel as `CwEGFxpIM-E` (3:51, HD, embeddable, processing succeeded) and embedded via
 `public/site-video.js`, which BOTH the post-lock-in analysis page and `/start` read — verified rendering on
-both live. Swapping the video later = paste a new id in that one file. ⚠ **Native retest trigger:** the iOS
+both live. Swapping the video later = paste a new id in that one file. **Review without generating:**
+`absbyai.com/?demo=analysis` (add `&locked=1`, `&sex=female`, `&cond=…`) — real photo read on the public
+sample pair, no credits, no localStorage writes, no funnel/ads events. ⚠ **Native retest trigger:** the iOS
 and Android wrappers now show a YouTube iframe on the analysis page; check inline vs fullscreen playback on
 his phone. Delete this entry once he confirms it plays.
 
