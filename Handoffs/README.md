@@ -184,3 +184,4 @@ Anything not in the Open table is executed, superseded or dead — history only.
 ## Sync-conflict duplicates (not indexed)
 
 7 files named `… 2.md`, `… 3.md` etc. are Drive/Finder conflict copies of the docs above and can be deleted: `handoff-20260731-google-ads-prereview-tweaks 2.md`, `handoff-20260731-google-ads-prereview-tweaks 3.md`, `handoff-20260811-youtube-channel-setup-finish 2.md`, `handoff-20260811-youtube-channel-setup-finish 3.md`, `handoff-20260811-youtube-channel-setup-finish 4.md`, `handoff-20260811-youtube-channel-setup-finish 5.md`, `handoff-20260824-abwheel-muhammad-standard-rebuild 2.md`
+- `handoff-20260909-audio-match-muhammad.md` — re-tune the dereverb that made the Shorts sound "underwater", add a do-no-harm row to the audio gate, re-render three batches after Dan approves an A/B.

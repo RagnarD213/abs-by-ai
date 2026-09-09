@@ -1,3 +1,15 @@
+> # ⚠ STOP — THE DEREVERB IS REJECTED (2026-09-09)
+>
+> Dan rejected every batch rendered through the current dereverb settings: *"absolutely awful,
+> far far worse than before… it sounds like I'm underwater."* Measured, the processed output is
+> FURTHER from Muhammad's ad than our UNTREATED right channel on every artifact metric — 1.29x his
+> spectral flux, 1.19x his HF swirl, floor dug 14 dB deeper. `audio_gate.py` cannot see it: its
+> `edt`, `dryness` and `floor` rows all reward MORE suppression and nothing measures harm.
+>
+> **Do not render a delivery through this module until
+> `Handoffs/handoff-20260909-audio-match-muhammad.md` is executed.** Candidate setting:
+> alpha 0.30 / floor_db -10 / smooth 0.45 (EDT 45 ms, artefacts at or below his).
+
 # `_shared/audio` — the one audio standard for every video skill
 
 **Every video we render takes the LAV TRACK ONLY, as mono, duplicated to centred stereo, through ONE

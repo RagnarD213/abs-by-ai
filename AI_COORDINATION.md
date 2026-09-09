@@ -154,25 +154,19 @@ the block from the brief's SKILL.md**, or it nags forever.
 Dan says which to swap for one of the six alternates in `SHORTS.md`. ⚠ Picks were mine, not his.
 **Posting is blocked on the parent long-form, which is on a deliberate hold** (above). Do not chase.
 
-**Spray tan shorts (01) — REV 1, audio rebuilt** — 6 delivered (`tan-short1..6_*.mp4`), down from
-8: Dan killed the briefs/boxers and first-shower shorts and retitled two. All gates green (QC,
-sync 8/8, centering 8/8, new audio gate). $0.00 AI spend. 540p copies + an audio A/B sent.
-
-⚠ **HE REJECTED THE AUDIO AND ATTRIBUTED IT TO THE TWO-MIC FAULT. IT WAS NOT THAT** — the
-delivered file measured **+0.9912** against the source's RIGHT channel through the same EQ (left
-0.60, sum 0.69). **The cause was ROOM REVERB, which nothing in the pipeline had ever measured:
-early decay 85 ms against his reference ad's 40 ms.** Fixed with spectral dereverb
-(`work/dereverb.py`) → **29–40 ms**; new hard gate `work/audiogate.py` is wired into `qc.js` so
-no batch from this shoot can ship again without the room being measured.
-
-⚠ The same room was in the Zepbound and supplements Shorts — **fixed 2026-09-02** through
-`.claude/skills/_shared/audio/` (one lav pick, one chain, one gate; every QC requires its stamp).
-
-⚠ Three bugs found on the way, all documented in the batch README: a stereo WAV read as mono is
-invisible to a byte-size check (cost a full render, 11–16 dB above 450 Hz); `finishaudio` was
-matching the batch to its own median rather than the reference; and it predicted its EQ instead of
-verifying it. **Short 2 measures 1.08 dB shape against a 1.00 gate** — one band, 2.7 dB bright at
-6.7 kHz; reported rather than hidden, and the threshold was not relaxed.
+**Spray tan shorts (01) — AUDIO REJECTED AGAIN 2026-09-09, DO NOT SHIP.** Dan: *"absolutely
+awful, far far worse than before… it sounds like I'm underwater."* He is right and it measures:
+the dereverb rolled into `_shared/audio` on 09-02 fixed the room (85 → 32 ms) and **damaged
+everything nothing was measuring** — 1.29x his spectral flux, 1.19x his HF swirl, floor dug 14 dB
+deeper than his. ⚠ **Our UNTREATED right channel is closer to Muhammad than our processed output
+on every artifact metric.** The gate is blind by construction: `edt`/`dryness`/`floor` all reward
+MORE suppression and nothing measures harm. **Same defect in the Zepbound and supplements
+batches** (flux 1.19x, swirl 1.29x) — all three were re-rendered with it.
+**Next action: `Handoffs/handoff-20260909-audio-match-muhammad.md`** (candidate setting a0.30 /
+floor −10 / smooth 0.45 lands EDT 45 ms with artefacts at or below his). A four-way A/B
+(untreated / shipped / candidate / Muhammad) was sent 09-09 — **Dan says which is closest before
+anything is re-rendered.** Content edits from his 09-02 review are already applied: 6 shorts, 2
+killed, 2 retitled. Nothing is public; posting was already blocked on the parent long-form.
 
 **Supplements shorts (03)** — 8 delivered, **audio re-rendered 2026-09-02 through `_shared/audio`**
 (room 67–88 ms → 29–45 ms, every file stamped PASS; pre-fix copies in
@@ -316,6 +310,10 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
 - **`Handoffs/handoff-20260909-website-video-rev6.md`** — six rev-5 review fixes on the website video (audio pass,
   spray-tan patch, two AI-clip replacements, the 1:24 app PiP, steak instead of chicken). One answer from Dan gates
   item 2 only. Fable 5.1, high. **Not on the dashboard** (his rule).
+- **`Handoffs/handoff-20260909-audio-match-muhammad.md`** — the audio Dan rejected twice. Re-tune the
+  dereverb (candidate in the doc), add a DO-NO-HARM row to `audio_gate.py` so no output can score worse
+  than the untreated file, then re-render three Shorts batches — but only after Dan picks a sound from the
+  A/B. Fable 5.1, high. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260908-google-ads-custom-segments.md`** — ten Google Ads custom segments (six search-term,
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which
