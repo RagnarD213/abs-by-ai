@@ -3584,6 +3584,7 @@ function fireAdConversion(label, opts) {
 // Deliberately NOT deduped: unlike a conversion, list membership wants every
 // visit, and repeated views are how recency-based audiences stay fresh.
 function fireAdVirtualPageview(path) {
+  if (typeof DEMO !== 'undefined' && DEMO) return false; // review visit, not a prospect
   if (!window.gtag || !path) return false;
   try {
     gtag('event', 'page_view', {
@@ -4821,6 +4822,34 @@ function selectPick(gridId, value, stateKey) {
 // Configured in public/site-video.js — the ONE place the website video lives,
 // shared with the /start ad landing page. Paste the YouTube id THERE, not here.
 const ANALYSIS_VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '/img/video-poster.jpg' }, window.ABS_SITE_VIDEO || {});
+
+// ── Demo mode: /?demo=analysis ──────────────────────────────────────────────
+// Opens the analysis page on a sample before/after pair so the layout, the video
+// and both CTA states can be reviewed WITHOUT spending a generation. Read-only by
+// design: it never writes the sample images to localStorage (a real cached
+// transformation would be clobbered), never fires funnel analytics or the Google
+// Ads virtual pageview, and never touches credits.
+//   /?demo=analysis                 post-lock-in view (male, moderate, dramatic)
+//   /?demo=analysis&locked=1        the out-of-credits view
+//   /?demo=analysis&sex=female      the female framing (definition, no added mass)
+//   &cond=heavier|moderate|fit|very_lean
+const DEMO = (() => {
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.get('demo') !== 'analysis') return null;
+    return {
+      locked: q.get('locked') === '1',
+      sex: q.get('sex') === 'female' ? 'female' : 'male',
+      cond: ['heavier', 'moderate', 'fit', 'very_lean'].includes(q.get('cond')) ? q.get('cond') : 'moderate',
+    };
+  } catch (e) { return null; }
+})();
+// Every analysis-screen event goes through this, so demo traffic cannot pollute
+// the conversion funnel or the PostHog counts the ads are judged on.
+function anCapture(event, props) {
+  if (DEMO) return;
+  if (window.posthog) posthog.capture(event, props);
+}
 const BODY_ANALYSIS_KEY = 'absbyai_body_analysis';
 const BODY_SLIDERS_KEY = 'absbyai_body_sliders';
 // Default weight = BMI for the tapped body type × height² / 703 (5'9" → men
@@ -4842,7 +4871,7 @@ const DEFINITION_GOAL = { subtle: 'toned', moderate: 'defined', dramatic: 'sharp
 
 const analysisState = {
   heightIn: 69, weight: 185, touched: { height: false, weight: false },
-  analysis: null, fallback: true, loading: false, from: 'lockin', afterHash: null, requestSeq: 0,
+  analysis: null, fallback: true, loading: false, from: 'lockin', afterHash: null, requestSeq: 0, demo: null,
 };
 
 function djb2(str) {
@@ -5046,21 +5075,21 @@ function renderAnalysisVideo() {
     frame.addEventListener('mouseleave', () => { hovered = false; });
     frame.addEventListener('touchstart', () => { hovered = true; }, { passive: true });
     window.addEventListener('blur', () => {
-      if (hovered && !frame.dataset.played) { frame.dataset.played = '1'; if (window.posthog) posthog.capture('analysis_video_play', { kind: 'youtube' }); }
+      if (hovered && !frame.dataset.played) { frame.dataset.played = '1'; anCapture('analysis_video_play', { kind: 'youtube' }); }
     });
   } else if (ANALYSIS_VIDEO.mp4) {
     frame.innerHTML = `<video playsinline controls preload="metadata"${ANALYSIS_VIDEO.poster ? ` poster="${ANALYSIS_VIDEO.poster}"` : ''} src="${ANALYSIS_VIDEO.mp4}"></video>`;
     const v = frame.querySelector('video');
     const fired = {};
-    v.addEventListener('play', () => { if (!fired.play) { fired.play = 1; if (window.posthog) posthog.capture('analysis_video_play', { kind: 'mp4' }); } });
+    v.addEventListener('play', () => { if (!fired.play) { fired.play = 1; anCapture('analysis_video_play', { kind: 'mp4' }); } });
     v.addEventListener('timeupdate', () => {
       if (!v.duration) return;
       const pct = v.currentTime / v.duration * 100;
       [25, 50, 75, 100].forEach((m) => {
-        if (pct >= m - (m === 100 ? 1.5 : 0) && !fired[m]) { fired[m] = 1; if (window.posthog) posthog.capture('analysis_video_progress', { pct: m }); }
+        if (pct >= m - (m === 100 ? 1.5 : 0) && !fired[m]) { fired[m] = 1; anCapture('analysis_video_progress', { pct: m }); }
       });
     });
-    v.addEventListener('ended', () => { if (!fired[100]) { fired[100] = 1; if (window.posthog) posthog.capture('analysis_video_progress', { pct: 100 }); } });
+    v.addEventListener('ended', () => { if (!fired[100]) { fired[100] = 1; anCapture('analysis_video_progress', { pct: 100 }); } });
   } else {
     frame.innerHTML = `<div class="an-video-ph"${ANALYSIS_VIDEO.poster ? ` style="background-image:url('${ANALYSIS_VIDEO.poster}')"` : ''}>
       <div class="an-video-ph-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
@@ -5092,6 +5121,7 @@ function cachedBodyAnalysisFor(afterDataUrl) {
 // sharp image is held on the server behind state.lockedUnlockToken.
 function analysisLocked() { return !!state.lockedUnlockToken; }
 function analysisImages() {
+  if (analysisState.demo) return analysisState.demo; // sample pair, nothing cached
   const before = localStorage.getItem(LAST_BEFORE_KEY)
     || (state.photoData ? `data:${state.photoMime};base64,${state.photoData}` : '');
   // Locked: the teaser is the only after image in the browser (LAST_AFTER_KEY is
@@ -5122,8 +5152,10 @@ async function loadBodyAnalysis(before, after, opts = {}) {
         body: JSON.stringify({
           beforeBase64: b.base64, beforeMime: b.mime,
           // Locked: never send the blurred teaser as the after image — the server
-          // reads the sharp image it is holding (and keeps holding it).
-          ...(locked
+          // reads the sharp image it is holding (and keeps holding it). The demo
+          // has no real hold, and its "after" is a public sample, so it takes the
+          // ordinary path and still gets a real read.
+          ...(locked && !DEMO
             ? { unlockToken: state.lockedUnlockToken, deviceId: getDeviceId() }
             : { afterBase64: a.base64, afterMime: a.mime }),
           sex: analysisSex(), condition: analysisCond(), intensity: analysisIntensity(),
@@ -5158,7 +5190,7 @@ async function loadBodyAnalysis(before, after, opts = {}) {
   }
   renderAnalysisTiles();
   renderBodyMap(analysisState.analysis);
-  if (window.posthog) posthog.capture('analysis_loaded', {
+  anCapture('analysis_loaded', {
     ms: Date.now() - t0, cached, fallback: !result, locked, retried: !!opts.retried,
     confidence: result?.confidence || null, coverage: result?.photo_coverage || null, error: result ? undefined : error,
   });
@@ -5203,7 +5235,7 @@ function showAnalysisScreen(opts) {
   if (cachedLocal) {
     analysisState.analysis = cachedLocal; analysisState.fallback = false; analysisState.loading = false;
     renderAnalysisTiles(); renderBodyMap(cachedLocal);
-    if (window.posthog) posthog.capture('analysis_loaded', { ms: 0, cached: true, fallback: false, confidence: cachedLocal.confidence, coverage: cachedLocal.photo_coverage, local: true });
+    anCapture('analysis_loaded', { ms: 0, cached: true, fallback: false, confidence: cachedLocal.confidence, coverage: cachedLocal.photo_coverage, local: true });
   } else if (changed || !analysisState.analysis) {
     analysisState.analysis = null; analysisState.fallback = true;
     loadBodyAnalysis(before, after);
@@ -5232,8 +5264,37 @@ function showAnalysisScreen(opts) {
   $('anHubLink').textContent = from === 'hub' ? 'Back to my hub →' : 'Continue to my hub →';
 
   const hasVideo = renderAnalysisVideo();
-  if (window.posthog) posthog.capture('analysis_page_seen', { from, locked, has_video: hasVideo, logged_in: isLoggedIn(), sex, condition: analysisCond(), intensity: analysisIntensity() });
+  anCapture('analysis_page_seen', { from, locked, has_video: hasVideo, logged_in: isLoggedIn(), sex, condition: analysisCond(), intensity: analysisIntensity() });
   showScreen('analysis');
+}
+
+// Loads the sample pair and opens the analysis page. The images are the public
+// fictional examples already used on /start, so nothing personal is involved.
+async function startAnalysisDemo() {
+  try {
+    const toDataUrl = async (u) => {
+      const b = await (await fetch(u)).blob();
+      return await new Promise((res) => { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.readAsDataURL(b); });
+    };
+    const who = DEMO.sex === 'female' ? 'female' : 'male';
+    const [before, after] = await Promise.all([
+      toDataUrl(`/img/proof/${who}-before.webp`),
+      toDataUrl(`/img/proof/${who}-after.webp`),
+    ]);
+    analysisState.demo = { before, after };
+    state.gender = DEMO.sex;
+    state.condition = DEMO.cond;
+    state.intensity = 'dramatic';
+    state.effectiveIntensity = 'dramatic';
+    state.lastAfterDataUrl = after;
+    // A locked demo needs a truthy token so the page renders the out-of-credits
+    // copy. It is deliberately not a real hold, so the body read falls back to
+    // the lookup tables rather than unlocking anything.
+    state.lockedUnlockToken = DEMO.locked ? 'demo' : null;
+    showAnalysisScreen({ from: DEMO.locked ? 'paywall' : 'lockin' });
+  } catch (e) {
+    console.warn('analysis demo failed:', e);
+  }
 }
 
 function persistAnalysisSliders() {
@@ -5255,7 +5316,7 @@ function analysisBodyKnown() { return analysisState.touched.height && analysisSt
 function wireAnalysisScreen() {
   $('analysisBackBtn').addEventListener('click', () => (analysisState.from === 'hub' ? showHub() : showScreen('result')));
   $('anLockChip').addEventListener('click', () => {
-    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: 'lock_chip' });
+    anCapture('analysis_cta_clicked', { target: 'lock_chip' });
     $('anTrialBtn').scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
   $('anHeight').addEventListener('input', (e) => {
@@ -5271,7 +5332,7 @@ function wireAnalysisScreen() {
   });
   ['anHeight', 'anWeight'].forEach((id) => $(id).addEventListener('change', () => {
     persistAnalysisSliders();
-    if (window.posthog) posthog.capture('analysis_slider_changed', { which: id === 'anHeight' ? 'height' : 'weight', heightIn: analysisState.heightIn, weight: analysisState.weight });
+    anCapture('analysis_slider_changed', { which: id === 'anHeight' ? 'height' : 'weight', heightIn: analysisState.heightIn, weight: analysisState.weight });
     // Already logged in: write straight to the profile (quiz merges on top later).
     if (isLoggedIn()) {
       const patch = analysisProfilePatch();
@@ -5281,7 +5342,7 @@ function wireAnalysisScreen() {
   const primaryCta = (where) => {
     const member = isLoggedIn() && hasMemberAccess();
     const locked = analysisLocked();
-    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: member ? 'trainer' : (locked ? 'unlock_trial' : 'trial'), where });
+    anCapture('analysis_cta_clicked', { target: member ? 'trainer' : (locked ? 'unlock_trial' : 'trial'), where });
     if (member) return openTrainer();
     // Locked result: the same membership path as the paywall button (goes through
     // the real membership screen — IAP inside the native apps), then the held
@@ -5292,7 +5353,7 @@ function wireAnalysisScreen() {
   $('anTrialBtn').addEventListener('click', () => primaryCta('bottom'));
   $('anTopCta').addEventListener('click', () => primaryCta('top'));
   $('anHubLink').addEventListener('click', () => {
-    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: 'hub' });
+    anCapture('analysis_cta_clicked', { target: 'hub' });
     showHub();
   });
   $('anEmailForm').addEventListener('submit', (e) => {
@@ -5300,8 +5361,8 @@ function wireAnalysisScreen() {
     const email = $('anEmailInput').value.trim();
     if (!email) return;
     localStorage.setItem('absbyai_email', email);
-    if (window.posthog) posthog.capture('email_subscribed', { source: 'analysis' });
-    if (window.posthog) posthog.capture('analysis_cta_clicked', { target: 'email' });
+    anCapture('email_subscribed', { source: 'analysis' });
+    anCapture('analysis_cta_clicked', { target: 'email' });
     const { before, after } = analysisImages();
     // Fire-and-forget: never block the page on a network hiccup. A locked result
     // sends no after image — the teaser must never reach the welcome email.
@@ -5584,6 +5645,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   photoInput.addEventListener('change', async (e) => {
     if (e.target.files[0]) await handlePhoto(e.target.files[0]);
   });
+
+  if (DEMO) startAnalysisDemo();
 
   // Paste support
   document.addEventListener('paste', async (e) => {
