@@ -275,10 +275,11 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 1,
-      "welcomeNextAt": "2026-09-09T04:11:17.666Z",
+      "welcomeStep": 2,
+      "welcomeNextAt": "2026-09-11T04:44:23.513Z",
       "welcomeSentAt": {
-        "1": "2026-09-07T04:11:17.880Z"
+        "1": "2026-09-07T04:11:17.880Z",
+        "2": "2026-09-09T04:44:23.665Z"
       },
       "unsubscribed": false
     },
@@ -287,10 +288,11 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 1,
-      "welcomeNextAt": "2026-09-09T04:11:17.666Z",
+      "welcomeStep": 2,
+      "welcomeNextAt": "2026-09-11T04:44:23.513Z",
       "welcomeSentAt": {
-        "1": "2026-09-07T04:11:18.027Z"
+        "1": "2026-09-07T04:11:18.027Z",
+        "2": "2026-09-09T04:44:23.815Z"
       },
       "unsubscribed": false
     }
