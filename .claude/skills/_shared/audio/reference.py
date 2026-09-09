@@ -19,13 +19,19 @@ import common as C
 RDIR = os.path.join(C.HERE, "reference")
 FLAC = os.path.join(RDIR, "muhammad_16x9_voice.flac")
 META = os.path.join(RDIR, "reference.json")
+# ⚠ The editor-deliveries rename on 2026-09-08 moved this into "<title> - ad 1/" and appended
+# "| ad 1" to the filename, which broke find_mp4() silently - gating kept working only because
+# the pinned FLAC is self-contained. Match either name.
 NAME = "this picture got me abs | muhammad | 16x9.mp4"
+NAMES = [NAME, "this picture got me abs | muhammad | 16x9 | ad 1.mp4"]
 WINDOW = (20.0, 120.0)          # the gate's window on the reference, always
 
 
 def find_mp4():
-    hits = glob.glob(os.path.join(C.REPO, "Muhammad Ad Videos", "**", NAME), recursive=True)
-    return hits[0] if hits else None
+    for nm in NAMES:
+        hits = glob.glob(os.path.join(C.REPO, "Muhammad Ad Videos", "**", nm), recursive=True)
+        if hits: return hits[0]
+    return None
 
 
 def measure(path, amap=None):
@@ -35,7 +41,8 @@ def measure(path, amap=None):
     I, TP, LRA = C.ebur(path, amap=amap)
     return dict(bands=[round(float(b), 3) for b in bands], floor=[round(float(v), 3) for v in floor],
                 dryness=round(dry, 3), spread=round(spread, 3), edt_ms=round(C.edt(x), 2),
-                comb_ripple=round(C.comb_ripple(x), 3), lufs=round(I, 2), tp=round(TP, 2), lra=round(LRA, 2))
+                comb_ripple=round(C.comb_ripple(x), 3), lufs=round(I, 2), tp=round(TP, 2), lra=round(LRA, 2),
+                flux=round(C.artifacts(x)[0], 4), swirl=round(C.artifacts(x)[1], 4))
 
 
 def pin(src=None):

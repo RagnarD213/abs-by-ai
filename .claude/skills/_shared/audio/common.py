@@ -133,6 +133,33 @@ def edt(x):
     return float(np.median(o)) if o else float("nan")
 
 
+def artifacts(x, sr=SR):
+    """Two PROCESSING-DAMAGE measures. Everything else in this module measures level, tone or
+    suppression; these measure what suppression COSTS, which is what Dan hears as "underwater".
+
+      flux  - sd of the frame-to-frame log-spectral change on speech frames. Spectral subtraction
+              makes each frame's gain differ from its neighbour's, so the voice shimmers.
+      swirl - mean |delta| of the 3-9 kHz envelope in dB. The audible "swimmy" top end.
+
+    Both are compared against the REFERENCE in audio_gate, never against a constant: a drier
+    reference must not make the row unfailable.
+    """
+    N, hop = 1024, 256
+    n = (len(x) - N) // hop
+    if n < 8: return 0.0, 0.0
+    idx = np.arange(N)[None, :] + (np.arange(n) * hop)[:, None]
+    S = np.abs(np.fft.rfft(x[idx] * np.hanning(N), axis=1)) + 1e-12
+    ff = np.fft.rfftfreq(N, 1 / sr)
+    e = 20 * np.log10(np.sqrt((x[idx] ** 2).mean(1)) + 1e-9)
+    loud = e > np.percentile(e, 75)
+    L = np.log(S[:, (ff > 300) & (ff < 8000)])
+    flux = float(np.abs(np.diff(L, axis=0)).mean(1)[loud[:-1]].std())
+    hi = (ff >= 3000) & (ff < 9000)
+    env = 10 * np.log10(S[:, hi].mean(1) + 1e-12); env = env - env.mean()
+    swirl = float(np.abs(np.diff(env)).mean())
+    return flux, swirl
+
+
 def comb_ripple(sig, sr=SR):
     """chan_analyse.py: std-dev of the speech spectrum (300-6 kHz) after removing its broad tilt.
     A two-mic sum 7-8 ms apart is a comb with notches every ~130 Hz; this is what an EQ cannot

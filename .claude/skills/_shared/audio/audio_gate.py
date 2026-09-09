@@ -34,7 +34,10 @@ import reference as R
 #              yet -- tighten this when one is (the Ad-1 vertical loudnorm case, if that file turns up).
 #   tp -1.0    the platform ceiling; Ad 2 rev 2 measures -1.30 (the handoff's -1.5 was a mis-measurement).
 #   the rest   the handoff's table, unchanged (tone / floor / dryness were what rev 1 and spray-tan failed on).
+# artifact_x 1.10: the build Dan rejected ran 1.29x his flux and 1.19x his swirl; the build he
+# approved by ear on 2026-09-09 runs 1.01x and 0.81x. 1.10 separates them with margin.
 LIM = dict(corr=0.97, comb_margin=0.35, edt=80.0, tone_mean=1.2, tone_max=2.5, floor=3.0, dry=1.5,
+           artifact_x=1.10,
            lufs=-14.0, lufs_tol=1.0, spread=3.0, tp=-1.0, silent=0, length=0.10)
 
 
@@ -102,6 +105,21 @@ def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=Tr
         row("floor", bool((fd >= -LIM["floor"]).all()),
             f"clean between words: voice-over-floor {floor.round(1).tolist()} vs his {rf.round(1).tolist()} (diff {fd.round(1).tolist()}, >= -{LIM['floor']})",
             [round(float(v), 2) for v in floor], gated=G)
+        # ⚠ DO NO HARM (2026-09-09). Every other row above measures level, tone, channels or
+        # SUPPRESSION - and `edt`, `dryness` and `floor` all reward MORE of it. So the gate scored
+        # the build Dan called "underwater" as BETTER: it hit EDT 32 ms (past his 40) while running
+        # 1.29x his spectral flux, 1.19x his HF swirl and a floor 14 dB deeper than his. Measured,
+        # our UNTREATED right channel was closer to him than that output on every damage metric.
+        #
+        # So: processing may not push a damage metric PAST HIS. flux = frame-to-frame spectral
+        # change on speech (musical noise), swirl = modulation of the 3-9 kHz envelope. Both are
+        # bounded against the reference, not against a constant, so a drier reference cannot make
+        # this row unfailable. This single row would have blocked all three 09-02 batches.
+        fx, sw = C.artifacts(mono)
+        row("artifacts", fx <= ref["flux"] * LIM["artifact_x"] and sw <= ref["swirl"] * LIM["artifact_x"],
+            f"no processing damage: flux {fx:.3f} (his {ref['flux']:.3f}), HF swirl {sw:.3f} "
+            f"(his {ref['swirl']:.3f}), both <= his x{LIM['artifact_x']}",
+            dict(flux=round(fx, 4), swirl=round(sw, 4)), gated=G)
         row("dryness", dry >= ref["dryness"] - LIM["dry"],
             f"words stop cleanly: drop {dry:.1f} dB 64 ms after a word vs his {ref['dryness']:.1f} (>= his - {LIM['dry']})", round(dry, 2), gated=G)
     I, TP, LRA = C.ebur(path)

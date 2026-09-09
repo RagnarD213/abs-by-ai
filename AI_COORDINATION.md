@@ -154,19 +154,18 @@ the block from the brief's SKILL.md**, or it nags forever.
 Dan says which to swap for one of the six alternates in `SHORTS.md`. ⚠ Picks were mine, not his.
 **Posting is blocked on the parent long-form, which is on a deliberate hold** (above). Do not chase.
 
-**Spray tan shorts (01) — AUDIO REJECTED AGAIN 2026-09-09, DO NOT SHIP.** Dan: *"absolutely
-awful, far far worse than before… it sounds like I'm underwater."* He is right and it measures:
-the dereverb rolled into `_shared/audio` on 09-02 fixed the room (85 → 32 ms) and **damaged
-everything nothing was measuring** — 1.29x his spectral flux, 1.19x his HF swirl, floor dug 14 dB
-deeper than his. ⚠ **Our UNTREATED right channel is closer to Muhammad than our processed output
-on every artifact metric.** The gate is blind by construction: `edt`/`dryness`/`floor` all reward
-MORE suppression and nothing measures harm. **Same defect in the Zepbound and supplements
-batches** (flux 1.19x, swirl 1.29x) — all three were re-rendered with it.
-**Next action: `Handoffs/handoff-20260909-audio-match-muhammad.md`** (candidate setting a0.30 /
-floor −10 / smooth 0.45 lands EDT 45 ms with artefacts at or below his). A four-way A/B
-(untreated / shipped / candidate / Muhammad) was sent 09-09 — **Dan says which is closest before
-anything is re-rendered.** Content edits from his 09-02 review are already applied: 6 shorts, 2
-killed, 2 retitled. Nothing is public; posting was already blocked on the parent long-form.
+**Spray tan shorts (01) — audio SETTLED 2026-09-09, re-render queued.** Dan rejected the 09-02
+dereverb as "underwater"; measured, it ran 1.41x Muhammad's spectral flux and 1.15x his HF swirl
+and dug the floor 14 dB deeper — **our untreated channel was closer to him than our processed
+output on every damage metric**, while the gate's `edt`/`dryness`/`floor` rows all rewarded more
+suppression. He then picked the gentler build by ear from a four-way A/B ("number 3 sounds good").
+**Now locked in `_shared/audio`:** defaults alpha 0.30 / floor −10 / smooth 0.45, plus a new gated
+**`artifacts`** row (flux + HF swirl bounded at his x1.10) that FAILS the rejected build and PASSES
+the approved one. ⚠ `selftest.sh` is broken (unbound variable + pre-09-08 reference paths).
+**Next: `Handoffs/handoff-20260909-audio-match-muhammad.md`** — re-render spray tan (6) first, then
+Zepbound (8) and supplements (8), which carry the same defect but are parked behind the long-form
+hold. Nothing is public. Content edits from Dan's 09-02 review are already in: 6 shorts, 2 killed,
+2 retitled.
 
 **Supplements shorts (03)** — 8 delivered, **audio re-rendered 2026-09-02 through `_shared/audio`**
 (room 67–88 ms → 29–45 ms, every file stamped PASS; pre-fix copies in

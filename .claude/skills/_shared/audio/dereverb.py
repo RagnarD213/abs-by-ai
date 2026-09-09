@@ -31,8 +31,14 @@ makes a voice sound close), `alpha` is how much of the tail to remove, `floor` b
 import sys
 import numpy as np
 
-def dereverb(x, sr=48000, n_fft=1024, hop=192, alpha=0.62, d1_ms=22, d2_ms=70,
-             floor_db=-14.0, smooth=0.35):
+# ⚠ DEFAULTS APPROVED BY DAN ON 2026-09-09, BY EAR, from a four-way A/B (untreated / the
+# rejected build / this / Muhammad). Do not raise alpha or lower floor_db to chase EDT again:
+# the rejected build hit EDT 32 ms (past Muhammad's 40) and paid for it with 1.29x his spectral
+# flux, 1.19x his HF swirl and a floor 14 dB deeper than his - which is what he heard as
+# "underwater". These land EDT ~45 ms with flux and swirl AT OR BELOW his.
+# floor_db is the dominant lever: it sets how deep the suppression may dig.
+def dereverb(x, sr=48000, n_fft=1024, hop=192, alpha=0.30, d1_ms=22, d2_ms=70,
+             floor_db=-10.0, smooth=0.45):
     w = np.hanning(n_fft).astype(np.float64)
     pad = n_fft
     xp = np.concatenate([np.zeros(pad), x.astype(np.float64), np.zeros(pad + n_fft)])

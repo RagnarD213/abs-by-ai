@@ -1,14 +1,17 @@
-> # ⚠ STOP — THE DEREVERB IS REJECTED (2026-09-09)
+> # ⚠ THE DEREVERB WAS RE-TUNED ON 2026-09-09 — DO NOT CHASE EDT AGAIN
 >
-> Dan rejected every batch rendered through the current dereverb settings: *"absolutely awful,
-> far far worse than before… it sounds like I'm underwater."* Measured, the processed output is
-> FURTHER from Muhammad's ad than our UNTREATED right channel on every artifact metric — 1.29x his
-> spectral flux, 1.19x his HF swirl, floor dug 14 dB deeper. `audio_gate.py` cannot see it: its
-> `edt`, `dryness` and `floor` rows all reward MORE suppression and nothing measures harm.
+> The first settings (alpha 0.62, d2 150, floor -24) were rejected by Dan as "underwater": they hit
+> EDT 32 ms, PAST Muhammad's 40, and paid for it with 1.41x his spectral flux and 1.15x his HF
+> swirl. Measured, the UNTREATED right channel was closer to him than that output on every damage
+> metric. He then picked the gentler build by ear from a four-way A/B:
+> **alpha 0.30, d1 22, d2 70, floor_db -10, smooth 0.45** (EDT ~48 ms, flux 1.04x his, swirl 0.81x).
 >
-> **Do not render a delivery through this module until
-> `Handoffs/handoff-20260909-audio-match-muhammad.md` is executed.** Candidate setting:
-> alpha 0.30 / floor_db -10 / smooth 0.45 (EDT 45 ms, artefacts at or below his).
+> `audio_gate.py` now has an **`artifacts`** row bounding flux and swirl at his x1.10 — the
+> counterweight to `edt`/`dryness`/`floor`, which all reward MORE suppression and between them
+> scored the rejected build as better. **Never raise `artifact_x` to make a build pass.**
+>
+> Re-renders of the three affected batches: `Handoffs/handoff-20260909-audio-match-muhammad.md`.
+> ⚠ `selftest.sh` is currently BROKEN (unbound variable + pre-09-08 reference paths) — fix before a batch.
 
 # `_shared/audio` — the one audio standard for every video skill
 

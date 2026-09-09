@@ -30,7 +30,11 @@ from dereverb import dereverb
 
 EXPAND = "agate=threshold=0.012:ratio=1.8:range=0.35:attack=4:release=250:knee=6"
 COMPRESS = "acompressor=threshold=0.126:ratio=1.5:attack=12:release=220:makeup=1.0"
-DEREVERB = dict(alpha=0.62, d1_ms=20, d2_ms=150, floor_db=-24.0, smooth=0.30)
+# ⚠ APPROVED BY DAN'S EAR 2026-09-09 from a four-way A/B. The previous values
+# (alpha 0.62, d2 150, floor -24) are what he rejected as "underwater": they hit EDT 32 ms,
+# past Muhammad's 40, and cost 1.29x his spectral flux, 1.19x his HF swirl and a floor 14 dB
+# deeper than his. These are the SAME numbers as dereverb.py's defaults - keep them in step.
+DEREVERB = dict(alpha=0.30, d1_ms=22, d2_ms=70, floor_db=-10.0, smooth=0.45)
 EDT_WET = 55.0
 
 
