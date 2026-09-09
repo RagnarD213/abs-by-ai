@@ -336,6 +336,15 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which
   to build (default all ten); Fable 5.1, high. **Not on the dashboard** (he has not asked).
+- **`Handoffs/handoff-20260909-video-quality-to-muhammad-standard.md`** — Dan, 2026-09-09: our cuts are "far
+  below the quality the human editors have made" (audio, framing, jump cuts, junk footage) and he will not ship
+  them. Audited: **33 QC scripts, one shared**; `_shared/` has no picture/framing/cut/caption module at all; the
+  style gate reaches 1 of 6 skills; the watch pass is mandatory in 1 of 6 (`/shorts` mentions it zero times); four
+  scripts SKILL.mds call **do not exist**; `--no-stamp`/`--synthetic`/`AUDIO_UNGATED` bypasses are live and one
+  skill instructs one. The measured gap to Muhammad: **he cuts picture 1–15 frames off the audio splice on a
+  pose-matched frame** (`piccuts.py`, already built for Ad 2 and never promoted), and our talk ran at one fixed
+  crop. Six phases; run Phases 0+3 first (close bypasses, regression corpus). Fable 5.1, high, ~2 sessions for
+  0+3. **Not on the dashboard** (his 09-08 rule).
 
 Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md` (superseded — the @danrosefit profile-visits
 campaign has been live via the API script since 09-02), `handoff-20260902-shorts-centering-queue-fix.md` (done

@@ -19,6 +19,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260826-danrosefit-abs-image-gap-fill.md](handoff-20260826-danrosefit-abs-image-gap-fill.md) | last 7 of 70 posts; re-run iggap_fill.py --apply from ~09-12 once Blotato's queue has room |
 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | PARTIAL 2026-09-08: 9 of 12 segments built; 7a/7b/7c + members list + Phase 2 remain — see the doc's Execution notes; Fable 5.1 high |
 | [handoff-20260909-website-video-rev6.md](handoff-20260909-website-video-rev6.md) | now — six rev-5 review fixes on the website video, delivered as TWO masters (tan-corrected / tan-as-is); nothing blocked; Fable 5.1 high |
+| [handoff-20260909-video-quality-to-muhammad-standard.md](handoff-20260909-video-quality-to-muhammad-standard.md) | now — the plan to get our editing to Muhammad's standard: close the gate bypasses, one shared delivery gate, mandatory watch pass, regression corpus, pose-matched picture cuts. Run Phases 0+3 first; Fable 5.1 high |
 
 ## Recently retired (do not run)
 
