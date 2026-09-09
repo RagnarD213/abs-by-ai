@@ -46,8 +46,10 @@ signal search traffic cannot produce; 99% of the subscribers bought are Philippi
 $5.23 and 1% of them). Also found: the "Brand" campaign runs generic terms and outbids the non-brand one on the same
 query (`abs ai` at $12.20 vs $3.12); Trial Signup / Subscribe / Purchases all read Misconfigured; every final URL is
 still the homepage, not `/start`. Site side (PostHog + prod DB, since 07-30): 207 ad visitors → 35 generations → 2
-accounts → 0 sales. Report: https://claude.ai/code/artifact/f1b850c8-9cd4-456b-99ef-8c281e14a97a — the fix list is in
-priority order and is all reversible; say which to execute. ⚠ Unresolved: both Search campaigns spent 1.3–2.5x their
+accounts → 0 sales. Report: https://claude.ai/code/artifact/f1b850c8-9cd4-456b-99ef-8c281e14a97a. **Dan chose the fixes 2026-09-09
+and they are now spec'd in `Handoffs/handoff-20260909-google-ads-account-fixes.md`, not yet executed** — his four
+amendments (tier-2 to $5/day not off, a second `/start` ad per Search ad group not a URL change, remarketing
+untouched, no other budget changes) are locked in that doc. ⚠ Unresolved: both Search campaigns spent 1.3–2.5x their
 stated daily budgets last week (check Change history), and Google's "all time" per-campaign view never loaded — the
 Ads tab froze repeatedly. ⚠ Google Ads billing looks FIXED (successful $500 threshold charge 09-09 on Visa •7763),
 which supersedes the "Dan fixes the payment method" line in the Paid ads entry below.
@@ -332,6 +334,11 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   `public/site-video.js` (lights up the analysis page AND `/start`), deploy, verify live. The upload needs Dan (2-minute
   drag into Studio) or a YouTube-scoped OAuth token — the stored Google token is calendar-only and the extension caps
   uploads at 10 MB. Fable 5.1, medium. **Not on the dashboard** (his rule).
+- **`Handoffs/handoff-20260909-google-ads-account-fixes.md`** — the seven fixes from the 09-09 Google Ads audit,
+  with Dan's four amendments locked in (tier-2 budget to $5/day instead of off; a SECOND ad per Search ad group
+  pointing at `/start` instead of changing the existing ads; remarketing untouched; no other budget changes —
+  he makes budget calls himself). Fixes conversion tracking too. Nothing in the account has been changed yet.
+  Fable 5.1, high, ~2-3 h, $0 spend. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260908-google-ads-custom-segments.md`** — ten Google Ads custom segments (six search-term,
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which
