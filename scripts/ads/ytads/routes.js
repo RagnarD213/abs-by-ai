@@ -241,6 +241,25 @@ module.exports = function mountYtads(app, { pool }) {
     }
   });
 
+  // A read channel for ONE-OFF Ads Scripts. The Google Ads UI freezes for minutes at a
+  // time, so a one-off script posts what it read (and what it changed) here instead of
+  // relying on the editor's log panel; we read it back from Postgres. Same script key.
+  app.post('/api/ytads/dump', scriptAuth, async (req, res) => {
+    try {
+      await ensureSchema();
+      const body = req.body || {};
+      const tag = String(body.tag || 'oneoff').slice(0, 60);
+      const r = await pool.query(
+        'INSERT INTO ytads_events (video_id, campaign_key, ad_id, event, detail) VALUES (NULL, $1, NULL, $2, $3) RETURNING id',
+        [tag, 'dump', JSON.stringify(body)]);
+      console.log(`YTADS dump ${tag}: event ${r.rows[0].id}`);
+      res.json({ ok: true, eventId: r.rows[0].id });
+    } catch (e) {
+      console.error('ytads dump error:', e.stack || e.message);
+      res.status(500).json({ error: e.message });
+    }
+  });
+
   // Dashboard-gated (listed in DASH_APIS). The brief block + the raw latest run.
   app.get('/api/ytads/state', async (req, res) => {
     try {
