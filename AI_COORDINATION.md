@@ -38,6 +38,20 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Google Ads audit — DELIVERED 2026-09-09, seven ranked fixes waiting on Dan's go-ahead. Nothing changed in the
+account.** Read live from account 342-717-0837: **$1,272.66 spent** (Aug $769.75, Sep 1–9 $502.91), $440.24 last week
+across 5 campaigns, **0 paying customers**. Root cause: **"YouTube channel subscriptions" is a Primary account-default
+conversion and is 1,088 of the 1,115 conversions** — so all five campaigns, including both Search ones, bid toward a
+signal search traffic cannot produce; 99% of the subscribers bought are Philippines/Indonesia/Vietnam at ~$0.10 (US is
+$5.23 and 1% of them). Also found: the "Brand" campaign runs generic terms and outbids the non-brand one on the same
+query (`abs ai` at $12.20 vs $3.12); Trial Signup / Subscribe / Purchases all read Misconfigured; every final URL is
+still the homepage, not `/start`. Site side (PostHog + prod DB, since 07-30): 207 ad visitors → 35 generations → 2
+accounts → 0 sales. Report: https://claude.ai/code/artifact/f1b850c8-9cd4-456b-99ef-8c281e14a97a — the fix list is in
+priority order and is all reversible; say which to execute. ⚠ Unresolved: both Search campaigns spent 1.3–2.5x their
+stated daily budgets last week (check Change history), and Google's "all time" per-campaign view never loaded — the
+Ads tab froze repeatedly. ⚠ Google Ads billing looks FIXED (successful $500 threshold charge 09-09 on Visa •7763),
+which supersedes the "Dan fixes the payment method" line in the Paid ads entry below.
+
 **`/start` ad landing page + A/B — LIVE 2026-09-09, two 1-minute steps for Dan.** Funnel pulled first (PostHog, 30 d):
 571 landed → 55 generated (**9.6 %; 516 people, 90 %, never upload a photo — the biggest drop by far**) → analysis page 1
 (test only) → 6 trial sign-ups → 4 trials → 2 paid. Built `public/start.html` (variants `control` image-led /
