@@ -159,19 +159,21 @@ the block from the brief's SKILL.md**, or it nags forever.
 Dan says which to swap for one of the six alternates in `SHORTS.md`. ⚠ Picks were mine, not his.
 **Posting is blocked on the parent long-form, which is on a deliberate hold** (above). Do not chase.
 
-**Spray tan shorts (01) — AUDIO REJECTED AGAIN 2026-09-09, DO NOT SHIP.** Dan: *"absolutely
-awful, far far worse than before… it sounds like I'm underwater."* He is right and it measures:
-the dereverb rolled into `_shared/audio` on 09-02 fixed the room (85 → 32 ms) and **damaged
-everything nothing was measuring** — 1.29x his spectral flux, 1.19x his HF swirl, floor dug 14 dB
-deeper than his. ⚠ **Our UNTREATED right channel is closer to Muhammad than our processed output
-on every artifact metric.** The gate is blind by construction: `edt`/`dryness`/`floor` all reward
-MORE suppression and nothing measures harm. **Same defect in the Zepbound and supplements
-batches** (flux 1.19x, swirl 1.29x) — all three were re-rendered with it.
-**Next action: `Handoffs/handoff-20260909-audio-match-muhammad.md`** (candidate setting a0.30 /
-floor −10 / smooth 0.45 lands EDT 45 ms with artefacts at or below his). A four-way A/B
-(untreated / shipped / candidate / Muhammad) was sent 09-09 — **Dan says which is closest before
-anything is re-rendered.** Content edits from his 09-02 review are already applied: 6 shorts, 2
-killed, 2 retitled. Nothing is public; posting was already blocked on the parent long-form.
+**Spray tan shorts (01) — RE-RENDERED AND DELIVERED 2026-09-09 on the sound Dan picked; he listens.**
+He chose the gentle build by ear ("number 3"); it is now the module default (a0.30 / d1 22 / d2 70 /
+floor −10 / smooth 0.45) and all six shorts are rebuilt, gated, stamped and delivered — EDT 37–56 ms
+against Muhammad's 40, flux ×1.05–1.11 and swirl ×1.25–1.29 of untreated. Sent: `review/AB_three-way_audio.mp4`
+(untreated / new build / Muhammad, all at −14 LUFS) + six 540p copies. **Dan says yes or no to the sound.**
+Rollback: `spray-tan-first/out/_PRE_AUDIO_20260909/`. Picture was never re-encoded (audio swapped into the
+lossless .mov with `-c:v copy`, frame counts asserted).
+⚠ Two defects found while doing it, both fixed: the pipeline kept a **forked `work/dereverb.py`** and
+render.js passed the rejected numbers on its command line, so the 09-09 shared fix had not reached it;
+and `finishaudio.py` fitted **7 octave bands while the gate grades 10**, so the batch had shipped
+**ungated** — measured on 09-09 the old files fail 6/6 on artifacts and 5/6 on tone. Both now use the
+shared module. New gate row `do_no_harm` (flux/swirl ≤ ×1.35 of the same file untreated) blocks 16/16
+of the shipped 09-02 files; `selftest.sh` repaired and green (7 steps / 16 checks). Commit `9f42e12`.
+**Still to re-render on the new sound: Zepbound (8) and supplements (8)** — parked behind the parent
+long-form hold, not chased. Nothing is public.
 
 **Supplements shorts (03)** — 8 delivered, **audio re-rendered 2026-09-02 through `_shared/audio`**
 (room 67–88 ms → 29–45 ms, every file stamped PASS; pre-fix copies in
@@ -315,10 +317,10 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
 - **`Handoffs/handoff-20260909-website-video-rev6.md`** — six rev-5 review fixes on the website video (audio pass,
   spray-tan patch, two AI-clip replacements, the 1:24 app PiP, steak instead of chicken). One answer from Dan gates
   item 2 only. Fable 5.1, high. **Not on the dashboard** (his rule).
-- **`Handoffs/handoff-20260909-audio-match-muhammad.md`** — the audio Dan rejected twice. Re-tune the
-  dereverb (candidate in the doc), add a DO-NO-HARM row to `audio_gate.py` so no output can score worse
-  than the untreated file, then re-render three Shorts batches — but only after Dan picks a sound from the
-  A/B. Fable 5.1, high. **Not on the dashboard** (his rule).
+- **`Handoffs/handoff-20260909-audio-match-muhammad.md`** — PARTLY EXECUTED 2026-09-09: the do-no-harm row,
+  the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
+  **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
+  fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260909-invest-health-audio-rerender.md`** — 04 invest-health carries the SAME rejected
   dereverb (gated 09-03, before the fix) and is NOT covered by the batch handoff above. Gate now FAILS it on
   `artifacts` (flux 1.31× his). Audio-only re-mix from the staged `voice_raw.wav` + `-c:v copy` mux; picture,
@@ -336,6 +338,16 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 ---
 
 # ACTIVE TASK
+
+**Zeeshan content-video batch — 10 candidates delivered 2026-09-09, WAITING ON DAN TO PICK 5.** Full unedited
+long-form inventory rebuilt from the outline docs + roll probes (transcribed, not assumed): **15 unedited items**
+across shoots 2/3/4/5. Shoot-2 leftovers CONFIRMED filmed and unedited — C1485 = Why You MUST Workout Every Day
+(27.4 min), C1486 = Intermittent Fasting (23.1), C1487+C1488 = STOP Deadlifting (15.7). Shoot-4 map confirmed:
+C1605–08 Zepbound-muscle, C1609 Abs at 40 vs 25, C1610–13 Oura, C1614–29 Vacuum, C1630–33 ab wheel (done).
+Protected for Muhammad: Belly Fat Emergency, Real Reason You Don't Have Abs, Keep Your Muscle On Zepbound,
+Daily Salad, The Vacuum. Once Dan picks 5 → build the editing doc per `/editor-brief`, then make it a `/editing-doc`
+skill (his instruction: skill LAST, after the doc is finalised). Roll→video mapping for the picked 5 still needs
+`pick_lav.py` run for the per-shoot audio paragraph. No dashboard row (his 09-08 rule).
 
 **Google Ads custom segments (handoff 20260908) — 9 OF 12 BUILT 2026-09-08 evening, PAUSED by machine load; resume
 in a fresh session.** Built in Audience manager → Custom segments and reopen-verified (chips entered / kept, insights
