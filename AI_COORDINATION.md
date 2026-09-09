@@ -103,9 +103,11 @@ the three meal clips at 2:28–2:44 regenerated with steak instead of chicken. M
 `audio3.py` never dereverbs and the room reads **77 ms against his 40** (the shorts-01 defect); the AI demo renders
 only inside the exercise sheet and the no-demo fallback IS the stick figure, so the shot must open sheets for the 33
 demo-backed exercises; and a fixed patch rectangle is useless (±16 to +42 levels across four frames) — the face must
-be tracked. ⚠ **BLOCKED ON ONE ANSWER: Dan described the white spot on the viewer's LEFT, but the measurable
-unevenness is on the viewer's RIGHT** — marked proof `pv/rev6/tanspot_AB.jpg` sent to him 09-09; the other five items
-are unblocked. Spec + starter prompt: `Handoffs/handoff-20260909-website-video-rev6.md` (Fable 5.1, high, ~2 h,
+be tracked. ✅ **Item 2 settled 2026-09-09: it is the VIEWER'S LEFT** (his right cheek, the dimple area) — measured at 14.0 s as
+a flat ×1.15 multiplicative lift over the surrounding skin, so the fix is a feathered ×0.87 gain, not a blur; a
+brightest-blob search finds the doorframe, so it must be landmark-anchored and eye-validated. **Dan also wants TWO
+exports** — `_A_tan-corrected` and `_B_tan-as-is`, both carrying every other change, plus a face-region A/B clip —
+so he can judge the retouch. Nothing is blocked. Spec + starter prompt: `Handoffs/handoff-20260909-website-video-rev6.md` (Fable 5.1, high, ~2 h,
 ~$10 spend). Rev 5 stays delivered meanwhile. No dashboard row (Dan's 09-08 rule).
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,

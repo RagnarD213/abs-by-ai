@@ -10,21 +10,24 @@ Rev 5's framing is **LOCKED and approved** ("You nailed it with this one"). Six 
 
 ---
 
-## ⚠ ONE ANSWER NEEDED BEFORE ITEM 2 — which side of his face
+## ✅ SETTLED 2026-09-09 — it is the VIEWER'S LEFT, and there are TWO deliverables
 
-Dan said: *"uneven on the right side of my mouth. On the left side, when you're looking at it, there's a little bit
-of a white spot… right in my dimple area near my mouth."* He disambiguated to the **viewer's** frame twice.
+Dan picked it off the marked sheet: *"the upper-left-hand screenshot, the blue rectangle."* That is **box A —
+viewer's left, his right cheek, the dimple area beside his mouth** — exactly as he first described it. His words
+were right; my first sweep was hunting a bigger signature than the blotch actually has.
 
-**The measurable unevenness is on the viewer's RIGHT**, not the left. Proof sheets built 2026-09-09:
-`pv/rev6/tanspot_sheet.jpg` (native + contrast-stretched, four frames) and `pv/rev6/tanspot_AB.jpg` (both
-candidates boxed). On the viewer's right, a chalky mottled band runs down the cheek and jawline in every frame —
-it reads as the edge of the spray-tan application plus the key light. The viewer's-left cheek (box A, the dimple
-area he describes) measures smooth: +4.6 / −4.6 / −0.3 / −3.9 levels against its own surround across four frames,
-i.e. no consistent bright patch at all.
+**He also wants two exports of this revision, so he can judge the retouch himself:**
 
-**Do not start item 2 until Dan says "viewer's left" or "viewer's right."** Fixing the wrong cheek is a wasted
-render and a face edit he did not ask for. The marked image was sent to him on 2026-09-09; if he has not
-answered by the time you run this, do items 1 and 3–6 and leave 2.
+| | file | contents |
+|---|---|---|
+| **A** | `website_video_16x9_A_tan-corrected.mp4` | every change in this doc **including** the blotch correction |
+| **B** | `website_video_16x9_B_tan-as-is.mp4` | every change in this doc, blotch **left alone** |
+
+Both go through the full gate suite and both get a 540p review copy. Also build **`AB_tan_face.mp4`** — the face
+region only, corrected vs as-is, cut together at four timestamps — so he can settle the retouch in twenty seconds
+instead of watching 3:50 twice. On his pick, the winner is renamed `website_video_16x9.mp4` and the loser kept as
+`website_video_16x9_ALT.mp4`.
+
 
 ---
 
@@ -75,32 +78,43 @@ settleable by ear, and this is the second time he has asked.
 
 ---
 
-## Item 2 — The uneven spray tan near his mouth  *(gated on the answer above)*
+## Item 2 — The pale blotch beside his mouth (viewer's left)
 
 Dan: *"see if there's anything we can do to try and minimize that appearance… so my face looks even, but still
 looks natural and not like I edited my face."*
 
-**A fixed rectangle will not work, and this is measured, not assumed.** The same fixed box scored +8.3, −16.3,
-−15.9 and +42.4 levels against its surround at 14 s / 45 s / 100 s / 200 s — because his head moves inside every
-hold and the crop changes with the punch level. The patch is a feature *on his face*; it must be tracked.
+**Measured on the delivered rev-5 master at 14.0 s** (the frame he pointed at), inside a hand-placed box he
+confirmed — not from a detector:
 
-**Recommended approach — reuse the machinery this video already has:**
+| | |
+|---|---|
+| location (1080p, that frame) | centroid **x 985, y 288**; extent x 950–1014, y 255–342 |
+| size | **1449 px above +8 L**, ≈ a 38 px square — small, which is why a broad sweep missed it |
+| blotch vs surrounding cheek | RGB **124/76/63** against **108/66/54** |
+| delta | **+15.7 R, +9.7 G, +8.7 B**, mean **+11.4 L**, peak **+25 L** |
+| saturation | 0.493 vs the cheek's 0.500 — very slightly paler, i.e. tan that did not take |
 
-- Track the face on the **graded 4K base** (`base.mov`), exactly the way `hairtrack.py` does: sample at 4–8/s,
-  map each sample through `tight_cuts.json`, store with a `keeps_sig` so a stale track fails the build. Anchor
-  the region off a landmark you can find robustly at 4K (the mouth corner / nostril), not off frame coordinates.
-- Apply the correction **inside the punch pass**, before the crop, so there is one 4K→1080p encode and the
-  approved framing is untouched. `crop_for()` already gives you the per-segment crop to map into.
-- The correction itself: a **soft-edged local gain/tint** pulling the patch toward the surrounding cheek's median
-  in each channel — not a blur, not a clone. Feather generously (the patch has no hard edge) and **under-correct
-  deliberately.** Dan's constraint is "natural, not edited"; leaving 30 % of it is the correct failure mode.
-- Sanity gate: sample N frames, measure patch-vs-surround before and after, and assert the *variance across
-  frames* dropped — a correction that flickers is worse than the patch.
+**The useful finding: it is almost exactly a multiplicative lift, not a hue shift.** The per-channel ratios are
+1.145 / 1.148 / 1.161 — flat across R, G and B. So the correction is a **feathered ×0.87 gain** on the patch, and
+124/76/63 × 0.87 = 108/66/55 against a cheek of 108/66/54. That lands on the surrounding skin almost exactly
+**while preserving texture and colour ratios**, which is what makes it read as skin rather than as a retouch. Do
+not blur, clone, or desaturate — a gain is the whole fix.
 
-Budget ~45 min including the tracker. If the tracker cannot hold a lock (he turns his head a long way at some
-punch levels), **say so and ship without it** rather than shipping a smear that moves.
+**⚠ Do not find it with a brightest-blob search.** I tried, across six frames: outside the hand-placed box it
+locks onto the doorframe and blown highlights on his jaw (RGB 173/157/155 — near-grey, and it still passes the
+loose `r>g+10` skin test). Only the 14.0 s measurement above is trustworthy. So:
 
----
+- **Anchor the region off face landmarks** (mouth corner / nostril / eye line) on the **graded 4K base**, the way
+  `hairtrack.py` samples and maps through `tight_cuts.json` with a `keeps_sig` so a stale track fails the build.
+- **Validate by eye at native scale before rendering** — a proof sheet of the tallest/most-turned frames with the
+  region drawn on, per lesson 107. A mask that is 40 px off is a smear on his cheek.
+- **Under-correct deliberately.** ×0.90 rather than ×0.87 if it is at all uncertain; leaving a third of it is the
+  correct failure mode against "not like I edited my face."
+- **Sanity gate:** measure patch-vs-surround on N sampled frames before and after and assert the **variance across
+  frames** drops. A correction that flickers is worse than the blotch.
+- If the track cannot hold a lock through the big head turns, **say so and ship version A without it** rather than
+  shipping something that moves — version B exists precisely so that is not a disaster.
+
 
 ## Item 3 — 2:08, replace the curls with toe-touches
 
@@ -207,6 +221,17 @@ third clears the captions must be updated when NUM2 becomes a PiP — caption cl
 
 ## Order of operations, and the render budget
 
+**The two versions branch AFTER the mix, not before** — that is what keeps this affordable. Correcting at the
+punch stage would mean two punch renders *and* two mixes (+45 min over the plan below). Instead: punch once, mix
+once, then run the tan-correction pass over `nocap.mov` for version A. The patch sits on his face, which is never
+under a graphic, so the pass is safe — but **assert it**: only touch frames where Dan is actually on camera (skip
+the AI-insert and full-frame-card beats) and assert the region never intersects the phone box
+`[150,130,583,950]` or a card's alpha.
+
+**Run version B through the same pass with the correction disabled.** It costs ~8 minutes and removes the only
+confound in the comparison — otherwise A carries one more encode generation than B, and Dan is being asked to
+judge exactly the kind of subtle difference that could hide in it. Same encode settings for both (CRF 16).
+
 Everything except the audio is upstream of the punch, so do it in this order:
 
 1. **Generations and the capture first, in parallel with nothing** — toe-touches (item 3), steak ×3 (item 5), the
@@ -225,13 +250,21 @@ Everything except the audio is upstream of the punch, so do it in this order:
    on 09-09 morning, so a single pass may be fine — **benchmark it first**: `MIX_T=20 MIX_OUT=/tmp/x.mov` should
    come back in ~38 s. If it is slower, or if `sample <pid>` shows every thread parked, use `MIX_STAGES=3`.
    Budget ~20 GB per intermediate; they are deleted at the end.
-7. **Audio** (item 1) — `MUSIC_DB=-44 COMP=0 python3 audio3.py`, plus whatever the dereverb work changes.
-8. **`captions.py`**, then **`deliver.sh`**.
+7. **The tan pass, twice** — `nocap.mov` → `nocap_A.mov` (correction on) and → `nocap_B.mov` (correction off),
+   identical settings. ~8 min each.
+8. **Audio** (item 1) on both — `MUSIC_DB=-44 COMP=0 python3 audio3.py` with `VIN`/`VOUT` per branch, plus whatever
+   the dereverb work changes. **Fit the audio ONCE and apply the identical chain to both**; the two versions must
+   differ only in the picture, or the comparison is worthless.
+9. **`captions.py`** on both (it already takes `VIN`/`VOUT`), then **`deliver.sh`** on each master. `deliver.sh`
+   hardcodes `M=website_video_16x9.mp4` — parameterise it. Every gate is per-file (the audio stamp is keyed to the
+   file's sha256), so **both masters must pass on their own.**
+10. **Build `AB_tan_face.mp4`** — the face region from A and B at four timestamps where the blotch is visible, cut
+   together and labelled, the way the audio A/B works.
    ⚠ **Export `OMP_NUM_THREADS=6 MKL_NUM_THREADS=6 VECLIB_MAXIMUM_THREADS=6` before `deliver.sh`.** Whisper
    thread-thrashes on a loaded box: 12 % CPU and 2 minutes of CPU time in 20 minutes of wall clock, against
    40 % and ~4× faster with the cap. This is not in the script yet — put it there.
 
-**Rough total ≈ 2 h of machine time.** Check `ps -Ao command | grep -E 'ffmpeg|whisper'` before starting and cap
+**Rough total ≈ 2 h 40 m of machine time** (the second version adds ~35 min: two tan passes, an extra caption burn and an extra gate run). Check `ps -Ao command | grep -E 'ffmpeg|whisper'` before starting and cap
 concurrent builds at two across all sessions (`AGENTS.md`).
 
 ## Gates — all of them, unchanged
@@ -242,8 +275,10 @@ concurrent builds at two across all sessions (`AGENTS.md`).
 top-rows test, watch 0 frozen / 0 black. **The hair gate must still pass after the punch re-render** — the crops
 are anchored per segment, and a new PIP segment at NUM2 gets its own anchor.
 
-Deliver over `website_video_16x9.mp4` with rev 5 preserved as `*_REV5.mp4` (rev 4 is already `*_REV4.mp4`), copy
-`pv/` and `recipe/` across, write `notes.md` in the house format, and send the 540p copy plus the audio A/B.
+Deliver **both** masters (`website_video_16x9_A_tan-corrected.mp4`, `website_video_16x9_B_tan-as-is.mp4`) with rev
+5 preserved as `*_REV5.mp4` (rev 4 is already `*_REV4.mp4`), copy `pv/` and `recipe/` across, write one `notes.md`
+covering both, and send both 540p review copies, `AB_tan_face.mp4` and the audio A/B. On Dan's pick the winner is
+renamed `website_video_16x9.mp4` and the loser kept as `website_video_16x9_ALT.mp4`.
 
 ## Housekeeping
 
@@ -262,16 +297,18 @@ Deliver over `website_video_16x9.mp4` with rev 5 preserved as `*_REV5.mp4` (rev 
 
 > Execute `Handoffs/handoff-20260909-website-video-rev6.md` — revision 6 of the Abs By AI website conversion
 > video, from Dan's rev-5 review. Six changes: another audio pass toward Muhammad's reference (the lead is that
-> `audio3.py` never dereverbs and the room measures 77 ms against his 40), minimising an uneven spray-tan patch
-> near his mouth (**check with Dan which side of his face first — the proof sheets are `pv/rev6/tanspot_AB.jpg`
-> and `pv/rev6/tanspot_sheet.jpg`, and the visible unevenness is on the viewer's right while he described the
-> viewer's left**), replacing the 2:08 dumbbell-curl AI clip with toe-touches at home with no weight, replacing
-> the 1:24 lower third with a phone PiP scrolling the real AI Trainer program and opening two or three exercise
-> sheets that have AI demos (never a stick figure — only the 33 ids in `public/exercise-demos/`), and
-> regenerating the three meal clips at 2:28–2:44 with steak instead of chicken. Read `/ad-edit` first, especially
-> lessons 107–117; the framing is locked and approved, so do not change it. Work in
-> `/Volumes/Extreme/_edit_work/website-video-828/`. Budget ~$10 of Veo/nano-banana spend and state the estimate
-> before the batch. Run every gate in `deliver.sh` and send the 540p review copy plus the audio A/B when done.
+> `audio3.py` never dereverbs and the room measures 77 ms against his 40); minimising the pale spray-tan blotch
+> beside his mouth on the **viewer's left** (confirmed by Dan — measured at 14.0 s as a flat ×1.15 multiplicative
+> lift, so the fix is a feathered ×0.87 gain; read item 2 and do NOT use a brightest-blob search, it finds the
+> doorframe); replacing the 2:08 dumbbell-curl AI clip with toe-touches at home with no weight; replacing the 1:24
+> lower third with a phone PiP scrolling the real AI Trainer program and opening two or three exercise sheets that
+> have AI demos (never a stick figure — only the 33 ids in `public/exercise-demos/`); and regenerating the three
+> meal clips at 2:28–2:44 with steak instead of chicken. **Deliver TWO masters** — `_A_tan-corrected` and
+> `_B_tan-as-is` — both carrying every other change, both through the full gate suite, plus a face-region A/B clip
+> so he can judge the retouch quickly. Read `/ad-edit` first, especially lessons 107–117; the framing is locked and
+> approved, so do not change it. Work in `/Volumes/Extreme/_edit_work/website-video-828/`. Budget ~$10 of
+> Veo/nano-banana spend and state the estimate before the batch. Send both 540p review copies, the face A/B and the
+> audio A/B when done.
 
 **Model:** Fable 5.1, effort **high**. It is a long multi-stage build with generations, a tracker, an app
 capture and four render stages — worth the effort setting, and Fable is the standing choice for this project
