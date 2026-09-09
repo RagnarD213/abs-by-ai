@@ -326,7 +326,7 @@ verified working: type the title, the row shows the Play package id), the `websi
 (Your data → rule "URL contains /vp/hub", 540 days — set the duration with a `blur`, archive 08-18), Phase 2 only if the
 Demand Gen draft exists. Stopped because the Mac sat at load 50–90 (166 Claude Code processes at 460 % CPU + the
 website-video ffmpeg) and the extension-driven Ads tab never reached document_idle after the first freeze — per the
-handoff rule, stop rather than click into spinners. Trap: dispatching pointer events on a picker `material-list-item`
+handoff rule, stop rather than click into spinners. After the load fell to 20 (20:30 CT) a fresh tab still never left the "Google Ads" loading shell — the 08-17 refuse-to-render state; try again in a new session, ideally with fewer Claude Code sessions open. Trap: dispatching pointer events on a picker `material-list-item`
 inside `javascript_tool` (or any `await` in one call while the page is busy) hung the renderer; use keyboard/ref clicks.
 Working recipe for the other fields is in the handoff's Execution notes.
 
