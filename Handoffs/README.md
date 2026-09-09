@@ -18,6 +18,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260818-android-public-build-swap.md](handoff-20260818-android-public-build-swap.md) | small; needs Dan's Android phone on adb |
 | [handoff-20260826-danrosefit-abs-image-gap-fill.md](handoff-20260826-danrosefit-abs-image-gap-fill.md) | last 7 of 70 posts; re-run iggap_fill.py --apply from ~09-12 once Blotato's queue has room |
 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | PARTIAL 2026-09-08: 9 of 12 segments built; 7a/7b/7c + members list + Phase 2 remain — see the doc's Execution notes; Fable 5.1 high |
+| [handoff-20260909-website-video-rev6.md](handoff-20260909-website-video-rev6.md) | now — six rev-5 review fixes on the website video; item 2 (the spray-tan patch) waits on Dan naming the side of his face; Fable 5.1 high |
 
 ## Recently retired (do not run)
 
@@ -33,6 +34,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-09 | [handoff-20260909-website-video-rev6.md](handoff-20260909-website-video-rev6.md) | Handoff — Website conversion video rev 6: audio pass toward Muhammad's, the uneven spray-tan patch, toe-touches replacing the curls, the 1:24 AI Trainer PiP, steak instead of chicken |
 | 2026-09-08 | [handoff-20260908-website-video-rev5.md](handoff-20260908-website-video-rev5.md) | Handoff — Website conversion video rev 5: the three rev-4 review fixes (two Veo clip-tail artifacts, remove the goal-image card at 3:36); framing locked |
 | 2026-09-08 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | Handoff — Google Ads custom segments for the Abs By AI Demand Gen launch (10 segments + a members exclusion list) |
 | 2026-09-08 | [handoff-20260908-post-lockin-analysis-page.md](handoff-20260908-post-lockin-analysis-page.md) | Handoff: Post-lock-in "Your analysis" page — video slot, height/weight sliders, body-fat + muscle numbers, body map, trial CTA (replaces the email + bridge screens) |
