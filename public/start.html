@@ -120,8 +120,9 @@ img { max-width: 100%; display: block; }
 
 /* ── Hero ── */
 .hero { padding: 2px 0 8px; }
-h1 { font-size: 31px; line-height: 1.08; letter-spacing: -0.9px; font-weight: 800; margin-bottom: 12px; }
-.sub { font-size: 16px; line-height: 1.5; color: var(--mute); font-weight: 500; margin-bottom: 12px; }
+/* Sized to the viewport so the headline wraps to the same three lines on every phone width (Dan, 2026-09-09). */
+h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7px; font-weight: 800; margin-bottom: 12px; }
+.sub { font-size: 15px; line-height: 1.5; color: var(--mute); font-weight: 500; margin-bottom: 12px; }
 .hero-visual { margin-bottom: 18px; }
 
 /* Video frame (shared by hero + section) */
@@ -195,8 +196,9 @@ h1 { font-size: 31px; line-height: 1.08; letter-spacing: -0.9px; font-weight: 80
 .step h3 { font-size: 15px; font-weight: 800; letter-spacing: -0.2px; margin-bottom: 3px; }
 .step p { font-size: 13px; color: var(--mute); line-height: 1.45; }
 
-.founder { display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: start; background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 16px; }
-.founder img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+.founder { display: grid; grid-template-columns: 128px 1fr; gap: 14px; align-items: start; background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 14px; }
+/* Hair to shorts line, nothing cropped (Dan, 2026-09-09) — the file IS the crop, so no object-fit. */
+.founder img { width: 128px; height: auto; border-radius: 14px; }
 .founder p { font-size: 14px; line-height: 1.5; color: var(--ink); }
 .founder .who { font-size: 12px; font-weight: 800; color: var(--mute); margin-top: 8px; }
 
@@ -242,6 +244,8 @@ h1 { font-size: 31px; line-height: 1.08; letter-spacing: -0.9px; font-weight: 80
   .grid2 { grid-template-columns: 1fr 1fr 1fr; }
   .sticky { display: none; }
   .section { padding: 34px 0 6px; }
+  .founder { grid-template-columns: 168px 1fr; gap: 20px; padding: 18px; }
+  .founder img { width: 168px; }
 }
 @media (prefers-reduced-motion: reduce) { .sticky, .cta-btn { transition: none; } }
 </style>
@@ -324,10 +328,11 @@ h1 { font-size: 31px; line-height: 1.08; letter-spacing: -0.9px; font-weight: 80
     <h2 class="section-h">Examples made with Abs by AI</h2>
     <p class="section-p">A photo goes in; an AI image of the goal comes out. Pick Subtle or Ripped.</p>
     <div class="proof-scroll" id="proofScroll">
+      <!-- Order (Dan, 2026-09-09): the pair the hero does NOT show first, then the female, the hero's pair last. -->
       <div>
         <div class="pair">
-          <div><div class="pair-box"><img src="/img/proof/male-before.webp" loading="lazy" width="375" height="500" alt="Fictional example: photo uploaded to Abs by AI"><span class="pair-tag">Uploaded photo</span></div><span class="pair-lbl">Uploaded photo</span></div>
-          <div><div class="pair-box"><img src="/img/proof/male-after.webp" loading="lazy" width="375" height="500" alt="Fictional example: AI-generated image"><span class="pair-tag">AI-generated</span></div><span class="pair-lbl">AI-generated image</span></div>
+          <div><div class="pair-box"><img src="/img/proof/male2-before.webp" loading="lazy" width="375" height="500" alt="Fictional example: photo uploaded to Abs by AI, heavier build"><span class="pair-tag">Uploaded photo</span></div><span class="pair-lbl">Uploaded photo</span></div>
+          <div><div class="pair-box"><img src="/img/proof/male2-after.webp" loading="lazy" width="375" height="500" alt="Fictional example: AI-generated image, heavier build"><span class="pair-tag">AI-generated</span></div><span class="pair-lbl">AI-generated image</span></div>
         </div>
       </div>
       <div>
@@ -338,8 +343,8 @@ h1 { font-size: 31px; line-height: 1.08; letter-spacing: -0.9px; font-weight: 80
       </div>
       <div>
         <div class="pair">
-          <div><div class="pair-box"><img src="/img/proof/male2-before.webp" loading="lazy" width="375" height="500" alt="Fictional example: photo uploaded to Abs by AI, heavier build"><span class="pair-tag">Uploaded photo</span></div><span class="pair-lbl">Uploaded photo</span></div>
-          <div><div class="pair-box"><img src="/img/proof/male2-after.webp" loading="lazy" width="375" height="500" alt="Fictional example: AI-generated image, heavier build"><span class="pair-tag">AI-generated</span></div><span class="pair-lbl">AI-generated image</span></div>
+          <div><div class="pair-box"><img src="/img/proof/male-before.webp" loading="lazy" width="375" height="500" alt="Fictional example: photo uploaded to Abs by AI"><span class="pair-tag">Uploaded photo</span></div><span class="pair-lbl">Uploaded photo</span></div>
+          <div><div class="pair-box"><img src="/img/proof/male-after.webp" loading="lazy" width="375" height="500" alt="Fictional example: AI-generated image"><span class="pair-tag">AI-generated</span></div><span class="pair-lbl">AI-generated image</span></div>
         </div>
       </div>
     </div>
@@ -412,7 +417,7 @@ h1 { font-size: 31px; line-height: 1.08; letter-spacing: -0.9px; font-weight: 80
   <!-- ════════ FOUNDER ════════ -->
   <section class="section" id="founder">
     <div class="founder">
-      <img src="/img/dan-avatar.jpg" alt="Dan Rose, founder of Abs by AI">
+      <img src="/img/dan-founder.jpg" width="720" height="864" alt="Dan Rose, founder of Abs by AI">
       <div>
         <p>"Most people never start because they can't picture the finish line. Abs by AI shows you the finish line first — then tells you exactly what to do about it, every day."</p>
         <div class="who">Dan Rose · Founder, Abs by AI</div>
