@@ -343,8 +343,10 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   scripts SKILL.mds call **do not exist**; `--no-stamp`/`--synthetic`/`AUDIO_UNGATED` bypasses are live and one
   skill instructs one. The measured gap to Muhammad: **he cuts picture 1–15 frames off the audio splice on a
   pose-matched frame** (`piccuts.py`, already built for Ad 2 and never promoted), and our talk ran at one fixed
-  crop. Six phases; run Phases 0+3 first (close bypasses, regression corpus). Fable 5.1, high, ~2 sessions for
-  0+3. **Not on the dashboard** (his 09-08 rule).
+  crop. **Split into four executable handoffs 2026-09-09: `…-vqc-A-phase0-3-bypasses-and-corpus.md` (FIRST,
+  Opus 5 high — prerequisite for the rest), `…-vqc-B-phase1-2-shared-gate-and-watch.md`,
+  `…-vqc-C-phase4-cut-technique.md`, `…-vqc-D-phase5-6-framing-and-junk.md`.** B and C can run in parallel
+  after A. **Not on the dashboard** (his 09-08 rule).
 
 Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md` (superseded — the @danrosefit profile-visits
 campaign has been live via the API script since 09-02), `handoff-20260902-shorts-centering-queue-fix.md` (done

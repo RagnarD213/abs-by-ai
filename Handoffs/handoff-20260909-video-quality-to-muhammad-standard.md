@@ -1,7 +1,18 @@
 # Handoff — get our video editing to Muhammad's standard
 
-**Written 2026-09-09. Not executed.** Model: **Fable 5.1, high effort.** Six phases, ~5–7 sessions;
-Phases 0–3 are the block that stops the repeats and should be run first, in order.
+**Written 2026-09-09.** This is the **strategy and evidence** document. The work is split into four
+executable handoffs — run **A first**, the rest after:
+
+| | phases | what | model |
+|---|---|---|---|
+| **[VQC-A](handoff-20260909-vqc-A-phase0-3-bypasses-and-corpus.md)** | 0 + 3 | close the bypasses; build the regression corpus | Opus 5, high |
+| **[VQC-B](handoff-20260909-vqc-B-phase1-2-shared-gate-and-watch.md)** | 1 + 2 | one shared delivery gate; watch pass mandatory everywhere | Fable 5.1, high |
+| **[VQC-C](handoff-20260909-vqc-C-phase4-cut-technique.md)** | 4 | pose-matched picture cuts, push coverage, landing, grade | Fable 5.1, high |
+| **[VQC-D](handoff-20260909-vqc-D-phase5-6-framing-and-junk.md)** | 5 + 6 | portable framing; the junk-footage tools wired together | either, high |
+
+**A is the prerequisite for all three others** — the corpus is what proves a rewritten check still
+catches what the scattered ones caught. B and C can run in parallel after A. D wants B first, so its new
+checks land in the shared gate instead of becoming fork number 34.
 
 ---
 

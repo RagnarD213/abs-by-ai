@@ -19,7 +19,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260826-danrosefit-abs-image-gap-fill.md](handoff-20260826-danrosefit-abs-image-gap-fill.md) | last 7 of 70 posts; re-run iggap_fill.py --apply from ~09-12 once Blotato's queue has room |
 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | PARTIAL 2026-09-08: 9 of 12 segments built; 7a/7b/7c + members list + Phase 2 remain — see the doc's Execution notes; Fable 5.1 high |
 | [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | now — upload the FINALIZED website video (rev 6 A) to YouTube unlisted + paste the id into `public/site-video.js` (analysis page + /start), verify live; the upload itself needs Dan or a YouTube-scoped token; Fable 5.1 medium |
-| [handoff-20260909-video-quality-to-muhammad-standard.md](handoff-20260909-video-quality-to-muhammad-standard.md) | now — the plan to get our editing to Muhammad's standard: close the gate bypasses, one shared delivery gate, mandatory watch pass, regression corpus, pose-matched picture cuts. Run Phases 0+3 first; Fable 5.1 high |
+| [handoff-20260909-video-quality-to-muhammad-standard.md](handoff-20260909-video-quality-to-muhammad-standard.md) | STRATEGY + EVIDENCE for the video-quality programme. Not executable on its own — read it, then run VQC-A→D below |
+| [handoff-20260909-vqc-A-phase0-3-bypasses-and-corpus.md](handoff-20260909-vqc-A-phase0-3-bypasses-and-corpus.md) | **FIRST** — close the gate bypasses + build the regression corpus. Prerequisite for B, C and D. Opus 5 high |
+| [handoff-20260909-vqc-B-phase1-2-shared-gate-and-watch.md](handoff-20260909-vqc-B-phase1-2-shared-gate-and-watch.md) | after A — one shared version-stamped delivery gate replacing ~15 forks; watch pass mandatory in all six skills. Fable 5.1 high |
+| [handoff-20260909-vqc-C-phase4-cut-technique.md](handoff-20260909-vqc-C-phase4-cut-technique.md) | after A (parallel with B) — pose-matched picture cuts off the audio splice, push coverage, 0 px landing, grade, picture reference. Fable 5.1 high |
+| [handoff-20260909-vqc-D-phase5-6-framing-and-junk.md](handoff-20260909-vqc-D-phase5-6-framing-and-junk.md) | after A, ideally after B — framing check that works on any set + framing into /shortad, /revisions, /editor-brief; junk-footage tools run together. Either model, high |
 
 ## Recently retired (do not run)
 
