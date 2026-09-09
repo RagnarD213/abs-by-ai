@@ -33,6 +33,30 @@
       "priority": "high",
       "why": "Biweekly unemployment claim window",
       "addedAt": "2026-09-09"
+    },
+    {
+      "text": "Build the Abs By AI conversion (VSL) landing page + an alternate variant for A/B",
+      "priority": "key",
+      "why": "2026-09-09 AM planning — Dan: conversion process needs improvement; rev-5 website video is delivered but installed nowhere (ANALYSIS_VIDEO slot empty)",
+      "addedAt": "2026-09-09"
+    },
+    {
+      "text": "Launch the first Google Ads conversion campaign with the finished ads (Ad 2 V2 + Ad 1 vertical)",
+      "priority": "key",
+      "why": "2026-09-09 AM planning — Dan wants the first ads live on Google Ads; gated by the payment-method fix and the 2:30 rep call about the six LIMITED ads",
+      "addedAt": "2026-09-09"
+    },
+    {
+      "text": "Review the Ad 1 vertical (9:16) audio rebuild — approve or reject",
+      "priority": "high",
+      "why": "2026-09-09 AM planning — rebuilt 09-02 (constant +4.2 dB, not loudnorm); it is a launch creative for the Google campaign",
+      "addedAt": "2026-09-09"
+    },
+    {
+      "text": "Review social media: comments, DMs, what posted, what is performing",
+      "priority": "med",
+      "why": "2026-09-09 AM planning — Dan's daily sweep; a session pre-pulls failed posts + comment counts",
+      "addedAt": "2026-09-09"
     }
   ],
   "health": [
