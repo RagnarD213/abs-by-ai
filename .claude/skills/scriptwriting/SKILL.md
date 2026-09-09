@@ -108,7 +108,7 @@ estimate (~150–160 wpm) at the top of each ad.
 
 ## Voice rules (derived from his real transcripts — do not drift)
 
-Ground truth: `YouTube Long Form Video Content/six-ways-ai-abs/v2-transcript.txt`
+Ground truth: `YouTube Long Form Video Content/V2 - Use AI To Get Real Six Pack Abs - 6 Strategies That Work - UPLOADED/working files/v2-transcript.txt`
 (38 minutes of Dan actually talking) and the approved ad script
 `ad-factory/the-upload/script.md`. The finalized Ad 1 in the scripts doc (link
 below) is the worked example. Voice traits:

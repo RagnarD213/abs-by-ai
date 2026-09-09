@@ -22,7 +22,7 @@ graphics as cards). `reference/band/` is the V4 short1 rebuild (dedicated graphi
 `reference/scored-source/` is the ab-wheel batch (somebody else's finished, scored 16:9 cut).
 **`reference/clean-master/` is the supplements batch — our own long-form, cut from its
 `CUT_*_NO-GRAPHICS.mp4`. Start there for any of the remaining 8/3-shoot long-forms.**
-Paths inside them are relative to `YouTube Long Form Video Content/<slug>/` — fix those first.
+Paths inside them are relative to `YouTube Long Form Video Content/<video folder>/working files/` — fix those first.
 
 > **Why the scripts live in the skill folder:** `YouTube Long Form Video Content/` and
 > `Short-form video content/` are both git-ignored. The original V4 shorts pipeline lived
@@ -59,9 +59,9 @@ list the long-form masters, list `Short-form video content/*.mp4`, and diff the 
 
 | Video | Runtime | Note |
 |---|---|---|
-| ~~02 My Honest Zepbound Update~~ | ~~30:28~~ | **MINED 2026-09-01 — 8 shorts, `zep-short1..8_*`**, work folder `YouTube Long Form Video Content/zepbound-honest-update/` (6 alternates shortlisted in its SHORTS.md) |
+| ~~02 My Honest Zepbound Update~~ | ~~30:28~~ | **MINED 2026-09-01 — 8 shorts, `zep-short1..8_*`**, work folder `YouTube Long Form Video Content/02 - My Honest Zepbound Update - READY FOR UPLOAD/working files/` (6 alternates shortlisted in its SHORTS.md) |
 | ~~03 The Supplements I Actually Take~~ | ~~23:29~~ | **MINED 2026-08-28 — 8 shorts, `supp-short1..8_*`** |
-| ~~01 My First Spray Tan~~ | ~~19:54~~ | **MINED 2026-09-02 — 8 shorts, `tan-short1..8_*`**, work folder `YouTube Long Form Video Content/spray-tan-first/` (6 alternates in its SHORTS.md) |
+| ~~01 My First Spray Tan~~ | ~~19:54~~ | **MINED 2026-09-02 — 8 shorts, `tan-short1..8_*`**, work folder `YouTube Long Form Video Content/01 - My First Spray Tan - READY FOR UPLOAD/working files/` (6 alternates in its SHORTS.md) |
 | 04 Why You Should Invest More In Your Health | 53:17 | longest; still on the old v3 master |
 | 05 Meal Prep Macro Tracking (app demo) | 4:49 | too short and too UI-heavy to mine like the others, but it is the app-demo asset the IG growth plan called the only thing no competitor can copy |
 
@@ -152,7 +152,7 @@ silence row does too, and `voice_chain.py` REFUSES silent input outright (`selft
 
 ## ⚠ Step 0.7 — FOUR THINGS THE ZEPBOUND BATCH PAID FOR (2026-09-01)
 
-Full write-up: `YouTube Long Form Video Content/zepbound-honest-update/README.md`.
+Full write-up: `YouTube Long Form Video Content/02 - My Honest Zepbound Update - READY FOR UPLOAD/working files/README.md`.
 
 **1. The two-timeline trap has a second cause, and `async=1` alone does not fix it.** The Zepbound
 master's AAC holds 622 ms more samples than its container, as ~13 ms **pts overlaps at every one of
@@ -1012,7 +1012,7 @@ duplicates before calling a batch final** — the wrong file is one click from b
 
 ## Delivery
 
-- Work folder: `YouTube Long Form Video Content/<video-slug>/`
+- Work folder: `YouTube Long Form Video Content/<video folder>/working files/`
 - Output: `Short-form video content/`, prefixed by source video (`v2-short1_…`) so batches
   from different longforms don't collide.
 - Write a `SHORTS.md` in the work folder: posting order, per-short title, description with

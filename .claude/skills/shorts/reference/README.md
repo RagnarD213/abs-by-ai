@@ -4,7 +4,7 @@ Working code from the two shorts builds, kept in git because the folders they ra
 (`YouTube Long Form Video Content/`, `Short-form video content/`) are git-ignored and the
 original V4 pipeline was already lost that way once.
 
-**Copy a directory into `YouTube Long Form Video Content/<slug>/` and adapt.** Do not
+**Copy a directory into `YouTube Long Form Video Content/<video folder>/working files/` and adapt.** Do not
 rewrite from scratch.
 
 ## Which one (index corrected 2026-09-02)

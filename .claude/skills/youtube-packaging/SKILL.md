@@ -44,7 +44,7 @@ centered in the frame, as centered as possible given the text, and less black."*
 The type treatment stays; the **layout** changed:
 
 - **Fill the frame with the photograph, not a black rectangle.** Two working layouts,
-  both in `YouTube Long Form Video Content/v4-1min-ab-workout/build-thumbs-v4.py`:
+  both in `YouTube Long Form Video Content/V4 + V5 - The Ultimate 1 Minute Ab Workout - UPLOADED/working files/build-thumbs-v4.py`:
   - **`scene`** (portrait source): subject cut out at full height and placed at
     ~0.63 of the width, with a **darkened, scenery-only crop of the same photo**
     behind it. Take the background strip from a part of the frame Dan is NOT in
@@ -83,7 +83,7 @@ The type treatment stays; the **layout** changed:
   separate x/y falloffs leaves a faint visible box edge mid-frame. Anchor an elliptical
   falloff at the corner so it reaches zero smoothly: `d=hypot(x/rw, y/rh)`,
   `alpha = strength*(1-d)**1.35`, skip `d>=1`.
-- **Working build script to copy:** `YouTube Long Form Video Content/v4-1min-ab-workout/build-thumbs.py`
+- **Working build script to copy:** `YouTube Long Form Video Content/V4 + V5 - The Ultimate 1 Minute Ab Workout - UPLOADED/working files/build-thumbs.py`
   (adapted from `six-ways-ai-abs/build-thumbs.py`). Takes an output dir + `yes|no` for
   the logo; per-photo crop boxes are fractions of the source, head-top → just below
   waistband.

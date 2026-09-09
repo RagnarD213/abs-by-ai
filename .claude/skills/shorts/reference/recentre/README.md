@@ -4,7 +4,7 @@ Built 2026-08-27 after Dan caught `v2-short3_supplements-3-percent` off-centre o
 posted. Root cause and thresholds are in Step 5 of `SKILL.md`; this folder is the tooling.
 
 Paths at the top of each script point at
-`YouTube Long Form Video Content/<slug>/` and a session scratchpad — fix those first.
+`YouTube Long Form Video Content/<video folder>/working files/` and a session scratchpad — fix those first.
 
 ```
 swiftc -O -o personmask personmask.swift     # once; Apple Vision person segmentation

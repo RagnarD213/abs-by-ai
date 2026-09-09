@@ -10,9 +10,9 @@ SP="/private/tmp/claude-501/-Users-danielrose-Documents-Claude-Projects-Abs-By-A
 ROOT="/Users/danielrose/Documents/Claude/Projects/Abs By AI"
 FF=f"{ROOT}/Media/video_edit/bin/ffmpeg"; FP=f"{ROOT}/Media/video_edit/bin/ffprobe"
 SF=f"{ROOT}/Short-form video content"
-OUT={'v2':f"{ROOT}/YouTube Long Form Video Content/six-ways-ai-abs/out",
-     'v3':f"{ROOT}/YouTube Long Form Video Content/v3-top10-tips/out",
-     'v6':f"{ROOT}/YouTube Long Form Video Content/v6-3min-home-workout/out"}
+OUT={'v2':f"{ROOT}/YouTube Long Form Video Content/V2 - Use AI To Get Real Six Pack Abs - 6 Strategies That Work - UPLOADED/working files/out",
+     'v3':f"{ROOT}/YouTube Long Form Video Content/V3 - My Top 10 Tips For Getting Six Pack Abs - UPLOADED/working files/out",
+     'v6':f"{ROOT}/YouTube Long Form Video Content/V6 + V7 - 3 Minute Total Body Home Workout - PARTLY UPLOADED/working files/out"}
 
 def probe(p):
     j=json.loads(subprocess.check_output([FP,'-v','error','-count_frames','-select_streams','v:0',

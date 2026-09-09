@@ -59,7 +59,7 @@ hand. The script must be structured so those defects can't occur:
 
 ## Voice (content register — ground truth)
 
-Ground truth transcript: `YouTube Long Form Video Content/six-ways-ai-abs/v2-transcript.txt`
+Ground truth transcript: `YouTube Long Form Video Content/V2 - Use AI To Get Real Six Pack Abs - 6 Strategies That Work - UPLOADED/working files/v2-transcript.txt`
 (38 min of Dan actually talking to camera in content mode). Content voice =
 ad voice traits (see /scriptwriting) PLUS:
 
