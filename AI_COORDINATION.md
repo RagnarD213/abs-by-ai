@@ -109,16 +109,13 @@ The test comment and its auto-reply were deleted afterwards (post re-read: "No c
 keywords at once. Still open from the original build: whether to switch off Blotato's IG auto first-comment
 (**ask before touching it**, queue-wide), and the CTA reels are eligible for the 2026-08-31 paid-ads specs.
 
-**Website conversion video — REV 6 DELIVERED 2026-09-09 as TWO masters, Dan picks A or B.** All six rev-5 items are in
-`claude edited long form content/06 - Website Conversion Video (post-generation)/`: `website_video_16x9_A_tan-corrected.mp4`
-and `…_B_tan-as-is.mp4` (identical except the cheek patch; rev 5 kept as `*_REV5`), each through the full gate suite
-(audio 12/12 incl. the new damage row — room 76 → 45 ms with the dereverb Dan approved by ear on the shorts A/B; QC all
-PASS; hair 43 px min; fidelity 99.0 %; watch 0/0). 540p copies, `AB_tan_face.mp4` and the audio A/B were sent in chat;
-`notes.md` explains every item. **On his pick: rename the winner `website_video_16x9.mp4`, keep the loser as
-`website_video_16x9_ALT.mp4`, then delete this entry.** AI spend $6.67. Lessons 118–122 in `/ad-edit`; recipe in the
-skill's `reference/website-video/`. ⚠ **Found on the way and fixed live (`10eda3b`): the 09-08 analysis page never closed
-its section div, so the member hub / Trainer / program / nutrition / membership screens rendered BLANK for logged-in
-members on absbyai.com.** Verified live. **Native retest needed:** log in on iOS/Android, open the hub and the Trainer.
+**Website conversion video — FINALIZED 2026-09-09 (rev 6, version A tan-corrected; Dan: "perfect, finalized").** Master
+exported at max quality as `website_video_16x9.mp4`, re-gated on that file, filed in BOTH
+`claude edited long form content/06 - Website Conversion Video (post-generation)/` (B kept as `…_ALT.mp4`, rev 5 as `*_REV5`)
+and the new **`Website Videos/Website Conversion Video (post-generation)/`** (git-ignored). **Next: the YouTube upload +
+install handoff** (HANDOFFS list below) — nothing else is open on the video; delete this entry when that handoff runs.
+⚠ Still open from this session: **native retest** of the live fix `10eda3b` (the 09-08 analysis page had left the member
+hub / Trainer / program / nutrition / membership screens BLANK for logged-in members; fixed and verified on web).
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,
@@ -330,6 +327,11 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
   fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
+- **`Handoffs/handoff-20260909-website-video-youtube-install.md`** — upload the FINALIZED website video (rev 6, version A,
+  `Website Videos/…/website_video_16x9.mp4`, ~400 MB) to YouTube as Unlisted and paste the id into `youtubeId` in
+  `public/site-video.js` (lights up the analysis page AND `/start`), deploy, verify live. The upload needs Dan (2-minute
+  drag into Studio) or a YouTube-scoped OAuth token — the stored Google token is calendar-only and the extension caps
+  uploads at 10 MB. Fable 5.1, medium. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260908-google-ads-custom-segments.md`** — ten Google Ads custom segments (six search-term,
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which

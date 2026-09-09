@@ -131,3 +131,6 @@ scripts/blotato/swap_backup/
 
 # Local report written by scripts/ads/auto-boost.js runs on this Mac; the cron records runs in Postgres
 brief-autoboost.json
+
+# Finished website videos (Dan's delivery folder, 2026-09-09): masters + review copies + notes, never in the public repo.
+Website Videos/

@@ -18,7 +18,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260818-android-public-build-swap.md](handoff-20260818-android-public-build-swap.md) | small; needs Dan's Android phone on adb |
 | [handoff-20260826-danrosefit-abs-image-gap-fill.md](handoff-20260826-danrosefit-abs-image-gap-fill.md) | last 7 of 70 posts; re-run iggap_fill.py --apply from ~09-12 once Blotato's queue has room |
 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | PARTIAL 2026-09-08: 9 of 12 segments built; 7a/7b/7c + members list + Phase 2 remain — see the doc's Execution notes; Fable 5.1 high |
-| [handoff-20260909-website-video-rev6.md](handoff-20260909-website-video-rev6.md) | now — six rev-5 review fixes on the website video, delivered as TWO masters (tan-corrected / tan-as-is); nothing blocked; Fable 5.1 high |
+| [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | now — upload the FINALIZED website video (rev 6 A) to YouTube unlisted + paste the id into `public/site-video.js` (analysis page + /start), verify live; the upload itself needs Dan or a YouTube-scoped token; Fable 5.1 medium |
 | [handoff-20260909-video-quality-to-muhammad-standard.md](handoff-20260909-video-quality-to-muhammad-standard.md) | now — the plan to get our editing to Muhammad's standard: close the gate bypasses, one shared delivery gate, mandatory watch pass, regression corpus, pose-matched picture cuts. Run Phases 0+3 first; Fable 5.1 high |
 
 ## Recently retired (do not run)
@@ -35,6 +35,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-09 | [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | Handoff — upload the finalized website conversion video to YouTube (unlisted) and install it on the analysis page + /start |
 | 2026-09-09 | [handoff-20260909-website-video-rev6.md](handoff-20260909-website-video-rev6.md) | Handoff — Website conversion video rev 6: audio pass toward Muhammad's, the uneven spray-tan patch, toe-touches replacing the curls, the 1:24 AI Trainer PiP, steak instead of chicken |
 | 2026-09-08 | [handoff-20260908-website-video-rev5.md](handoff-20260908-website-video-rev5.md) | Handoff — Website conversion video rev 5: the three rev-4 review fixes (two Veo clip-tail artifacts, remove the goal-image card at 3:36); framing locked |
 | 2026-09-08 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | Handoff — Google Ads custom segments for the Abs By AI Demand Gen launch (10 segments + a members exclusion list) |
