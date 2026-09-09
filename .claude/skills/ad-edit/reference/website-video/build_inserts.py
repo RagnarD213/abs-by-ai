@@ -12,7 +12,7 @@ Each PiP also writes gfx/<name>.json {"marks": [...]} -- its state-change times 
 """
 import glob, importlib.util, json, os, shutil, subprocess, sys, tempfile
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 SK="/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared"
 spec=importlib.util.spec_from_file_location("ml",f"{SK}/motionlib.py"); ml=importlib.util.module_from_spec(spec); spec.loader.exec_module(ml)
 HERE=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,HERE)
@@ -39,9 +39,16 @@ INPOINT={"ai_a":0.2,"ai_b":0.3,"ai_c1":0.3,"ai_c2":0.3,"ai_d1":0.3,"ai_d2":0.3,"
 #         prompt asked him to breathe in the smell). Cut at 4.08 (the builder trims to beat+0.10 = 3.78 s from 0.3).
 #   D2 -- the row of containers in the WIDE shot starts to drift at ~7.0-7.1 s and is displaced by 7.6-7.95 s. The
 #         wide shot now ends at 7.05.
-EDIT={"ai_d1":[(0.3,4.3)], "ai_d2":[(1.0,3.85),(4.7,7.05)]}
+# REV 6: all three meal clips REGENERATED with steak (ai/rev6/D1s|D2s|D3s.mp4) plus the toe-touch clip (C1t) -- the rev-5
+# trims above belonged to the old footage and are NOT carried over; every span below was re-derived from frame strips
+# of the new clips (pv/rev6_*_first/tail.jpg). D1s: the man turns to grin at the camera from 3.9 s -> use 0.1-3.88.
+# D2s: Veo baked a cross-dissolve at 2.5-2.9 s (pv/rev6_D2s_x1.jpg) between the mid shot and the closer counter shot;
+# 5.5-7.0 is one continuous shot (pv/rev6_D2s_x2.jpg). Cut the two clean shots together: [0.2,2.45) + [2.95, ...) --
+# the builder trims the second span to the beat, so the insert never reaches the clip's tail.
+EDIT={"ai_d1":[(0.1,3.88)], "ai_d2":[(0.2,2.45),(2.95,8.0)]}
+CLIP={"ai_c1":"rev6/C1t.mp4","ai_d1":"rev6/D1s.mp4","ai_d2":"rev6/D2s.mp4","ai_d3":"rev6/D3s.mp4"}   # REV 6 sources; the rest stay clips/<X>.mp4
 def ai(name):
-    a,b=B.BEATS[name.upper()]; D=round(b-a+0.10,3); clip=f"{AI}/clips/{name[3:].upper()}.mp4"
+    a,b=B.BEATS[name.upper()]; D=round(b-a+0.10,3); clip=f"{AI}/"+CLIP.get(name, f"clips/{name[3:].upper()}.mp4")
     dur=float(subprocess.run([FFP,"-v","error","-show_entries","format=duration","-of","csv=p=0",clip],capture_output=True,text=True).stdout)
     spans=EDIT.get(name) or [(INPOINT.get(name,0.2),dur)]
     spans=[(x,min(y,dur)) for x,y in spans]; avail=sum(y-x for x,y in spans)
@@ -134,6 +141,45 @@ def hub():
         t=i/FPS; p=ease((t-h0)/(D-h0-h1)); frames.append((_win(full,span*p),False))
     _encode([f for f,_ in frames],D,f"{G}/pip_hub.mov",[a+h0,b-h1])
 
+# ---- REV 6: the Trainer PiP (NUM2) ------------------------------------------------------------------------------
+TR=f"{HERE}/trainer"; SHEETS=["db-goblet-squat","pushup","plank"]; DEMOS="/Users/danielrose/Documents/Claude/Projects/Abs By AI/public/exercise-demos"
+def _demo_frames(exid, rect, secs):
+    """the REAL demo clip (public/exercise-demos/<id>.mp4) resampled to the timeline fps and scaled to the sheet's video rect"""
+    x,y,w,h=rect; n=int(secs*FPS)+2
+    raw=subprocess.run([FF,"-v","error","-i",f"{DEMOS}/{exid}.mp4","-t",f"{secs+0.2:.2f}","-vf",f"fps={FPSS},scale={w}:{h}:flags=lanczos","-f","rawvideo","-pix_fmt","rgb24","-"],capture_output=True).stdout
+    fr=np.frombuffer(raw,np.uint8); k=len(fr)//(w*h*3); return fr[:k*w*h*3].reshape(k,h,w,3)
+def num2():
+    """day view (no stick figures) -> slow scroll over the first exercise cards -> three exercise sheets, each with its
+    AI demo PLAYING inside the sheet's own video rect (the app shows a poster until tapped; the demo frames are the real
+    exercise-demos/*.mp4 composited into that rect with the sheet's 12-px rounded corners)."""
+    a,b=B.NUM2; D=round(b-a,3); N=int(round(D*FPS))
+    full=_load(f"{TR}/day_full.png"); assert full.shape[1]==VW, full.shape
+    span=int(min(full.shape[0]-VH, 950))                     # SLOW: Goblet Squat and Push-Up cards come fully into view over 2 s (Dan: "slowly")
+    t_s0,t_s1=0.45,2.45; t_sh=[2.55,4.05,5.55]; assert t_sh[-1]+1.0<D
+    sheets=[]
+    for exid in SHEETS:
+        info=json.load(open(f"{TR}/sheet_{exid}.json")); rect=info["rect_px"]
+        img=Image.open(f"{TR}/sheet_{exid}.png").convert("RGB"); assert img.size==(VW,VH), img.size
+        mask=Image.new("L",(rect[2],rect[3]),0); ImageDraw.Draw(mask).rounded_rectangle([0,0,rect[2]-1,rect[3]-1],radius=36,fill=255)
+        sheets.append((img,rect,mask,_demo_frames(exid,rect,D-t_sh[len(sheets)]+0.1)))
+    frames=[]; prev=None
+    for i in range(N):
+        t=i/FPS
+        if t<t_sh[0]:
+            st="day"; y=span*ease((t-t_s0)/(t_s1-t_s0)); im=_win(full,y)
+        else:
+            idx=max(j for j,ts in enumerate(t_sh) if t>=ts); st=f"sheet{idx}"
+            img,rect,mask,demo=sheets[idx]; k=min(len(demo)-1,int(round((t-t_sh[idx])*FPS)))
+            comp=img.copy(); comp.paste(Image.fromarray(demo[k]),(rect[0],rect[1]),mask); im=comp.resize((PW,PH),Image.LANCZOS)
+        frames.append((im, st!=prev)); prev=st
+    from PIL import ImageDraw as _ID
+    _encode(_xfade(frames),D,f"{G}/pip_num2.mov",[a+t_s0,a+t_s1]+[a+x for x in t_sh])
+    # proof strip: 8 frames across the PiP at native 433x820
+    picks=[int(N*p) for p in (0.08,0.2,0.34,0.4,0.55,0.62,0.8,0.95)]
+    sheet=Image.new("RGB",(8*PW+9*6,PH+12),(20,20,20))
+    for j,k in enumerate(picks): sheet.paste(frames[k][0] if isinstance(frames[k],tuple) else frames[k],(6+j*(PW+6),6))
+    sheet.save(f"{HERE}/pv/rev6_pip_num2_strip.jpg",quality=90); print("  pv/rev6_pip_num2_strip.jpg")
+
 if __name__=="__main__":
     for arg in sys.argv[1:]:
         print(arg)
@@ -141,5 +187,6 @@ if __name__=="__main__":
         elif arg.startswith("ai_"): ai(arg)
         elif arg=="macro": macro()
         elif arg=="hub": hub()
+        elif arg=="num2": num2()
         else: raise SystemExit(f"unknown {arg}")
     print("build_inserts done")

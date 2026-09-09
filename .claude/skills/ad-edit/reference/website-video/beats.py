@@ -98,8 +98,10 @@ _o=sorted(BEATS.items(), key=lambda kv: kv[1][0])
 # OVERLAY beats keep Dan full-frame (a lower third sits over the footage).
 # PANEL beats keep Dan in the right column with a panel on the left.
 # Everything else is a full-frame card that replaces him.
-OVERLAY={"NAME","NUM1","FLYBLIND","NUM2","NUM3","CANCEL"}   # lower thirds over Dan
-PANEL  ={"MACRO","HUB"}    # the phone PiPs: Dan stays on camera, pushed right, in the PIP level (FAR geometry)
+# REV 6 (Dan's rev-5 review): NUM2's lower third is REPLACED by a third phone PiP -- the real AI Trainer program (day
+# view, then three exercise sheets with the AI demos playing), so NUM2 moves from OVERLAY to PANEL.
+OVERLAY={"NAME","NUM1","FLYBLIND","NUM3","CANCEL"}   # lower thirds over Dan
+PANEL  ={"MACRO","NUM2","HUB"}    # the phone PiPs: Dan stays on camera, pushed right, in the PIP level (FAR geometry)
 AI     ={"AI_A","AI_B","AI_C1","AI_C2","AI_D1","AI_D2","AI_D3"}   # full-frame AI clips (tagged); captions stay on
 for _n in AI: assert _n in BEATS, _n
 assert BEFORE[0]-AI_B[1]>=0.5, f"Dan must be on camera between the beach clip and the before card (got {BEFORE[0]-AI_B[1]:.2f} s)"

@@ -143,8 +143,8 @@ def punch():
 # ------------------------------------------------------------------ overlays
 PIP_BOX=[150,130,583,950]      # must match gfx2.PIP_BOX (433x820); both PiPs (macro + hub) use it
 GFX=[("name",B.NAME),("before",B.BEFORE),("today",B.TODAY),("num1",B.NUM1),("pip_macro",B.MACRO),
-     ("flyblind",B.FLYBLIND),("num2",B.NUM2),("num3",B.NUM3),("pip_hub",B.HUB),("trial",B.TRIAL),("cancel",B.CANCEL),
-     ("price",B.PRICE),("cta",B.CTA)]   # REV 5: the goal-image card ("solved") is removed -- Dan on camera there
+     ("flyblind",B.FLYBLIND),("pip_num2",B.NUM2),("num3",B.NUM3),("pip_hub",B.HUB),("trial",B.TRIAL),("cancel",B.CANCEL),
+     ("price",B.PRICE),("cta",B.CTA)]   # REV 5: the goal-image card ("solved") is removed. REV 6: num2 lower third -> pip_num2 (the Trainer PiP)
 # the AI inserts: pre-rendered by build_inserts.py (clip trimmed to the beat, scaled, AI-GENERATED tag burned upper-left
 # at 1.5x), overlaid full-frame with ALPHA fades of 0.5 s at the outer edges of each run -- a straight cut between two
 # consecutive clips (A->B, C1->C2, D1->D2->D3), never a dip to Dan in between
@@ -161,7 +161,7 @@ AIV=ai_inserts()
 def pip_marks():
     """state-change times of the two PiPs on the tight timeline (for the watch pass)"""
     out=[]
-    for n in ("pip_macro","pip_hub"):
+    for n in ("pip_macro","pip_num2","pip_hub"):
         p=f"{G}/{n}.json"
         if os.path.exists(p): out+=json.load(open(p)).get("marks",[])
     return out

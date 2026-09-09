@@ -95,20 +95,16 @@ The test comment and its auto-reply were deleted afterwards (post re-read: "No c
 keywords at once. Still open from the original build: whether to switch off Blotato's IG auto first-comment
 (**ask before touching it**, queue-wide), and the CTA reels are eligible for the 2026-08-31 paid-ads specs.
 
-**Website conversion video — REV 5 REVIEWED 2026-09-09: six revisions → REV 6 HANDOFF WRITTEN, not executed.**
-Dan's framing stays approved and locked. He wants: another audio pass toward Muhammad's, the uneven spray-tan patch
-near his mouth minimised, the 2:08 dumbbell-curl AI clip replaced with toe-touches at home (no weight), the 1:24
-lower third replaced with a phone PiP scrolling the real AI Trainer program showing AI demos (no stick figures), and
-the three meal clips at 2:28–2:44 regenerated with steak instead of chicken. Measured while writing it:
-`audio3.py` never dereverbs and the room reads **77 ms against his 40** (the shorts-01 defect); the AI demo renders
-only inside the exercise sheet and the no-demo fallback IS the stick figure, so the shot must open sheets for the 33
-demo-backed exercises; and a fixed patch rectangle is useless (±16 to +42 levels across four frames) — the face must
-be tracked. ✅ **Item 2 settled 2026-09-09: it is the VIEWER'S LEFT** (his right cheek, the dimple area) — measured at 14.0 s as
-a flat ×1.15 multiplicative lift over the surrounding skin, so the fix is a feathered ×0.87 gain, not a blur; a
-brightest-blob search finds the doorframe, so it must be landmark-anchored and eye-validated. **Dan also wants TWO
-exports** — `_A_tan-corrected` and `_B_tan-as-is`, both carrying every other change, plus a face-region A/B clip —
-so he can judge the retouch. Nothing is blocked. Spec + starter prompt: `Handoffs/handoff-20260909-website-video-rev6.md` (Fable 5.1, high, ~2 h,
-~$10 spend). Rev 5 stays delivered meanwhile. No dashboard row (Dan's 09-08 rule).
+**Website conversion video — REV 6 DELIVERED 2026-09-09 as TWO masters, Dan picks A or B.** All six rev-5 items are in
+`claude edited long form content/06 - Website Conversion Video (post-generation)/`: `website_video_16x9_A_tan-corrected.mp4`
+and `…_B_tan-as-is.mp4` (identical except the cheek patch; rev 5 kept as `*_REV5`), each through the full gate suite
+(audio 12/12 incl. the new damage row — room 76 → 45 ms with the dereverb Dan approved by ear on the shorts A/B; QC all
+PASS; hair 43 px min; fidelity 99.0 %; watch 0/0). 540p copies, `AB_tan_face.mp4` and the audio A/B were sent in chat;
+`notes.md` explains every item. **On his pick: rename the winner `website_video_16x9.mp4`, keep the loser as
+`website_video_16x9_ALT.mp4`, then delete this entry.** AI spend $6.67. Lessons 118–122 in `/ad-edit`; recipe in the
+skill's `reference/website-video/`. ⚠ **Found on the way and fixed live (`10eda3b`): the 09-08 analysis page never closed
+its section div, so the member hub / Trainer / program / nutrition / membership screens rendered BLANK for logged-in
+members on absbyai.com.** Verified live. **Native retest needed:** log in on iOS/Android, open the hub and the Trainer.
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,
@@ -314,9 +310,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
 - **`Handoffs/handoff-20260818-android-public-build-swap.md`** — small; needs Dan's Android phone on adb.
 - **`Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md`** — last 7 of 70 posts; re-run
   `scripts/blotato/iggap_fill.py --apply` from ~09-12 once the 200/200 Blotato queue has drained 7 slots.
-- **`Handoffs/handoff-20260909-website-video-rev6.md`** — six rev-5 review fixes on the website video (audio pass,
-  spray-tan patch, two AI-clip replacements, the 1:24 app PiP, steak instead of chicken). One answer from Dan gates
-  item 2 only. Fable 5.1, high. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260909-audio-match-muhammad.md`** — PARTLY EXECUTED 2026-09-09: the do-no-harm row,
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
