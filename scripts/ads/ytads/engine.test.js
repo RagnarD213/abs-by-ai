@@ -52,7 +52,7 @@ console.log('\n1. NEW-VIDEO DISCOVERY');
   const creates = ops(r, 'createAd');
   check('one createAd per campaign for the new video', creates.length === 3 && new Set(creates.map(c => c.campaign)).size === 3, creates.map(c => c.campaign));
   check('a video from before START_DATE is not a candidate', !creates.some(c => c.videoId === 'oldVid00001'));
-  check('ad name carries the video title, id, campaign and date', creates[0].name === 'AUTO test · A video · yt:newVid00001 · tier2 · 2026-09-04', creates[0].name);
+  check('ad name carries the video title, id, campaign and date', creates[0].name === 'AT · A video · yt:newVid00001 · tier2 · 2026-09-04', creates[0].name);
   check('the new name still parses: video id, date, state', E.videoIdOf(creates[0].name) === 'newVid00001' && E.createdDateOf(creates[0].name) === '2026-09-04' && E.stateOf({ name: creates[0].name, labels: [] }) === 'AUTO:TEST');
   check('titles are cleaned: separators removed, long titles cut to 70 with an ellipsis',
         E.cleanTitle('Bad · title | here') === 'Bad title here' && E.cleanTitle('x'.repeat(100)).length === 70 && E.cleanTitle('x'.repeat(100)).endsWith('…'));
@@ -61,7 +61,8 @@ console.log('\n1. NEW-VIDEO DISCOVERY');
     const r2 = run({ snapshot: snap([ad({ campaign: T2, name: 'dan 1', life: [20, 60] }), legacy]),
                      videos: [video('legacyVid01', '2026-09-03T22:00:00Z', 'Hire A Maid Instead Of A Personal Trainer')], headlines: { legacyVid01: HL } });
     check('a legacy-named AUTO ad is never renamed (Ad.name is immutable) and still counts as the video\'s test', !r2.commands.some(c => c.op === 'renameAd') && !ops(r2, 'createAd').some(c => c.videoId === 'legacyVid01'), r2.commands.map(c => c.op));
-    check('lacksTitle recognises the legacy format only', E.lacksTitle(legacy) && !E.lacksTitle({ name: 'AUTO test · T · yt:x · tier2 · 2026-09-08' }));
+    check('lacksTitle recognises the legacy format only', E.lacksTitle(legacy) && !E.lacksTitle({ name: 'AT · T · yt:x · tier2 · 2026-09-09' }));
+    check('both name prefixes are recognised as ours: AT (new) and AUTO test (2026-09-08 ads)', E.isAuto({ name: 'AT · T · yt:abcdefghijk · tier2 · 2026-09-09', labels: [] }) && E.isAuto({ name: 'AUTO test · T · yt:abcdefghijk · tier2 · 2026-09-08', labels: [] }) && E.stateOf({ name: 'AT · T · yt:abcdefghijk · tier2 · 2026-09-09', labels: [] }) === 'AUTO:TEST' && !E.isAuto({ name: 'ATTENTION my ad', labels: [] }));
   }
   check('labels AUTO + AUTO:TEST', creates[0].labels.add.join() === 'AUTO,AUTO:TEST');
   check('business name / url / logo / CTA copied from the existing ad', creates[0].businessName === 'Abs by AI' && creates[0].finalUrls[0] === 'https://absbyai.com/' && creates[0].logoImages.length === 1 && creates[0].callToActions[0] === 'customers/1/assets/cta1');

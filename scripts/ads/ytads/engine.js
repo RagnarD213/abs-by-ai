@@ -18,7 +18,7 @@
 //     paused (reversible: the id list is recorded before it is executed);
 //   • the system never edits an ad that exists — it creates, pauses, enables, labels.
 //
-// GOOGLE IS THE LEDGER. Ad names carry the video id ("AUTO test · <title> · yt:<id> · tier2 ·
+// GOOGLE IS THE LEDGER. Ad names carry the video id ("AT · <title> · yt:<id> · tier2 ·
 // 2026-09-03"), labels carry the state (AUTO, AUTO:TEST, AUTO:CHAMPION, AUTO:RETIRED,
 // AUTO:RETIRED-DAY1). "Has this video been tested in this campaign?" is answered by
 // the snapshot, never by a file that can drift, so a re-run can never double-create.
@@ -62,19 +62,22 @@ const videoIdOf = (name) => { const m = /yt:([A-Za-z0-9_-]{11})/.exec(name || ''
 const createdDateOf = (name) => { const m = /(\d{4}-\d{2}-\d{2})\s*$/.exec(name || ''); return m ? m[1] : null; };
 
 const hasLabel = (ad, label) => (ad.labels || []).includes(label);
-const isAuto = (ad) => hasLabel(ad, LABELS.AUTO) || STATE_LABELS.some(l => hasLabel(ad, l)) || /^AUTO /.test(ad.name || '');
+// Name prefixes: "AT · " (Dan's rule 2026-09-09) and the earlier "AUTO test " (ads created 2026-09-08, left as they are).
+const AUTO_NAME = /^(AT · |AUTO )/;
+const TEST_NAME = /^(AT · |AUTO test )/;
+const isAuto = (ad) => hasLabel(ad, LABELS.AUTO) || STATE_LABELS.some(l => hasLabel(ad, l)) || AUTO_NAME.test(ad.name || '');
 function stateOf(ad) {
   for (const l of STATE_LABELS) if (hasLabel(ad, l)) return l;
-  if (/^AUTO test /.test(ad.name || '')) return LABELS.TEST;      // label failed to apply; name still says what it is
+  if (TEST_NAME.test(ad.name || '')) return LABELS.TEST;      // label failed to apply; name still says what it is
   return null;
 }
 const isEnabled = (ad) => String(ad.status || '').toUpperCase() === 'ENABLED';
 const costPerConv = (cost, conv) => (num(conv) > 0 ? round2(cost / conv) : null);
 const stats = (block) => ({ cost: usd(block && block.costMicros), conv: round2(num(block && block.conversions)) });
 
-// Ad names are for Dan's eyes in Ads Manager as much as for the ledger: the video
-// title leads, then the machine-readable tail. Parsers key on "yt:<id>", the
-// trailing date and the "AUTO test " prefix — never on the title (Dan's rule
+// Ad names are for Dan's eyes in Ads Manager as much as for the ledger: "AT" (Dan's
+// prefix, 2026-09-09), the video title, then the machine-readable tail. Parsers key on
+// "yt:<id>", the trailing date and the prefix — never on the title (Dan's rule
 // 2026-09-08: every automated ad must be identifiable by its video title).
 const TITLE_MAX = 70;
 function cleanTitle(title) {
@@ -83,8 +86,8 @@ function cleanTitle(title) {
 }
 function testAdName(videoId, key, now, title) {
   const t = cleanTitle(title);
-  return t ? `AUTO test · ${t} · yt:${videoId} · ${key} · ${ymd(now)}`
-           : `AUTO test yt:${videoId} · ${key} · ${ymd(now)}`;
+  return t ? `AT · ${t} · yt:${videoId} · ${key} · ${ymd(now)}`
+           : `AT · yt:${videoId} · ${key} · ${ymd(now)}`;
 }
 // An AUTO ad created before titles went into names (format "AUTO test yt:…"). Kept for
 // reporting only — such an ad cannot be renamed (see plan()).

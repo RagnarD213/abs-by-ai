@@ -126,3 +126,5 @@ changed (struck → replacement) because they did not say what the video is abou
    outcome or a timeframe.
 3. **(2026-09-08) Long headlines and descriptions from the first batch were approved unchanged** — keep their
    shape: one plain sentence about what the video shows, first person or "Daniel Rose shows/explains…".
+4. **(2026-09-09) Ad NAMES start with `AT`** (not "AUTO test"): `AT · <video title> · yt:<id> · <campaign> · <date>`. Existing
+   ads keep their old names. Names are not copy and are never shown to viewers.
