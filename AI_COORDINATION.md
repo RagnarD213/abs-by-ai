@@ -377,7 +377,8 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   pose-matched frame** (`piccuts.py`, already built for Ad 2 and never promoted), and our talk ran at one fixed
   crop. **Split into four executable handoffs 2026-09-09. ✅ VQC-A (Phase 0 + 3) IS DONE AND PUSHED —
   every bypass closed, `_shared/qc_corpus/` built and green, standing rule in `AGENTS.md`. B, C and D
-  are unrun: `…-vqc-B-phase1-2-shared-gate-and-watch.md`, `…-vqc-C-phase4-cut-technique.md`,
+  are unrun; **B is refreshed against what A found (2026-09-09) and is the next one to fire**:
+  `…-vqc-B-phase1-2-shared-gate-and-watch.md`, `…-vqc-C-phase4-cut-technique.md`,
   `…-vqc-D-phase5-6-framing-and-junk.md`; B and C can run in parallel now.** The corpus names
   **14 checks nothing implements** — that list is the build queue, and B covers the most of it.
   Baseline: `Docs/VQC_baseline_20260909.md`. **Not on the dashboard** (his 09-08 rule).
