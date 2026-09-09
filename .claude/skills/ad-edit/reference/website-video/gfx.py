@@ -35,10 +35,14 @@ def _skip(n):
     if os.path.exists(f"{G}/{n}.mov") and os.environ.get("FORCE")!="1":
         print(f"  [cached] {n}"); return True
     return False
+LT_BOTTOM=1080-80        # REV 3: the plate's bottom edge. Rev 2's default (y = 1080-200-ch_h) put every
+                         # lower third at y 757-905, under the lifted captions (49 px overlap, lesson 99).
+                         # Now the box sits ~852-1000 and captions lift above it (captions.py MV_LIFT=290);
+                         # qc_frame.py measures the gap on the delivered pixels.
 def _lt(name, lines, beat, lead=44, size=38, **kw):
     if _skip(name): return
     ml.lower_third_bar(f"{G}/{name}.mov", lines, beat[1]-beat[0], pal=PAL, size=size,
-                       lead_size=lead, in_dur=0.40, out_dur=0.32, **kw)
+                       lead_size=lead, in_dur=0.40, out_dur=0.32, bottom=LT_BOTTOM, **kw)
 
 # ---- lower thirds (Dan stays full frame) ---------------------------------------
 def g_name():     _lt("name",     ["Dan Rose","Founder, Abs by AI"], B.NAME, lead=46, size=36)
@@ -65,7 +69,6 @@ def _photo_card(name, path, beat, maxw=1180, maxh=900, out=False, tag=False, cap
                pal=PAL,in_dur=0.50,out_dur=0.36)
 def g_pool():   _photo_card("pool",  POOLP,  B.POOL, maxh=980, disclaimer=True)
 def g_before(): _photo_card("before",BEFOREP,B.BEFORE, caption="Me, out of shape")
-def g_solved(): _photo_card("solved",GOAL,   B.SOLVED, maxh=800, tag=True, caption="The goal image I generated of myself", out=True)
 def g_today():
     """two real shoot photos in SEQUENCE (never side by side), slow drift alternating"""
     if _skip("today"): return

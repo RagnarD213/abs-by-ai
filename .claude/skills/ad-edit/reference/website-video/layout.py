@@ -144,7 +144,7 @@ def punch():
 PIP_BOX=[150,130,583,950]      # must match gfx2.PIP_BOX (433x820); both PiPs (macro + hub) use it
 GFX=[("name",B.NAME),("before",B.BEFORE),("today",B.TODAY),("num1",B.NUM1),("pip_macro",B.MACRO),
      ("flyblind",B.FLYBLIND),("num2",B.NUM2),("num3",B.NUM3),("pip_hub",B.HUB),("trial",B.TRIAL),("cancel",B.CANCEL),
-     ("price",B.PRICE),("solved",B.SOLVED),("cta",B.CTA)]
+     ("price",B.PRICE),("cta",B.CTA)]   # REV 5: the goal-image card ("solved") is removed -- Dan on camera there
 # the AI inserts: pre-rendered by build_inserts.py (clip trimmed to the beat, scaled, AI-GENERATED tag burned upper-left
 # at 1.5x), overlaid full-frame with ALPHA fades of 0.5 s at the outer edges of each run -- a straight cut between two
 # consecutive clips (A->B, C1->C2, D1->D2->D3), never a dip to Dan in between
@@ -166,11 +166,10 @@ def pip_marks():
         if os.path.exists(p): out+=json.load(open(p)).get("marks",[])
     return out
 
-def mix():
-    inp,fc,idx=["-i",f"{HERE}/punched.mov"],[],1
+def _mix_pass(items, src, out, final, audio_from=None):
+    """one overlay pass. Intermediates are RAWVIDEO in .nut -- lossless, so staging costs no picture quality."""
+    inp,fc,idx=["-i",src],[],1
     cur="[0:v]"
-    items=[("gfx",n,beat,None,None) for n,beat in GFX]+[("ai",n,beat,fi,fo) for n,beat,fi,fo in AIV]
-    items.sort(key=lambda it: it[2][0])
     for kind,name,(a,b),fi,fo in items:
         p=f"{G}/{name}.mov"; assert os.path.exists(p), f"missing {name}.mov"
         inp+=["-i",p]
@@ -184,11 +183,43 @@ def mix():
         fc.append(f"{cur}[g{idx}]overlay=0:0:enable='between(t,{a},{b})'[s{idx}]")
         cur=f"[s{idx}]"; idx+=1
     fc[-1]=fc[-1].rsplit("[s",1)[0]+"[vout]"
+    nin=len(inp)//2                       # count the inputs BEFORE -threads doubles the tokens
+    dt=os.environ.get("MIX_DEC_THREADS")
+    if dt: inp=[x for pair in ([["-threads",dt,"-i",p] for p in inp[1::2]]) for x in pair]
+    tail=["-t",os.environ["MIX_T"]] if os.environ.get("MIX_T") else []
+    if final:
+        amap=["-map",f"{nin}:a"] if audio_from else ["-map","0:a"]
+        if audio_from: inp+=["-i",audio_from]
+        enc=["-c:v","libx264","-preset","medium","-crf","17","-pix_fmt","yuv420p","-r",FPS]+amap+["-c:a","copy"]
+    else:
+        enc=["-c:v","rawvideo","-pix_fmt","yuv420p","-r",FPS,"-an"]
     subprocess.run([FF,"-nostdin","-y","-v","error"]+inp+
-      ["-filter_complex",";".join(fc),"-map","[vout]","-map","0:a","-c:v","libx264",
-       "-preset","medium","-crf","17","-pix_fmt","yuv420p","-r",FPS,"-c:a","copy",
-       f"{HERE}/nocap.mov"],check=True)
-    print("nocap.mov done")
+      ["-filter_complex",";".join(fc),"-map","[vout]"]+enc+tail+[out],check=True)
+    print(os.path.basename(out),"done")
+
+def mix():
+    """REV 5: MIX_STAGES splits the overlay chain into N sequential ffmpeg passes.
+
+    21 inputs in ONE graph livelocks ffmpeg's threaded scheduler on a loaded machine: 336 threads, every one of them
+    parked in tq_receive (`sample <pid>` shows 0 busy), the process burning 23 % CPU on park/wake, and 0.4 s of picture
+    per 75 s -- against an encode floor of 0.63x real time and a total decode cost of 2 s for every overlay MOV. Three
+    passes of ~7 inputs each stay under it. The intermediates are RAWVIDEO, so staging is lossless."""
+    items=[("gfx",n,beat,None,None) for n,beat in GFX]+[("ai",n,beat,fi,fo) for n,beat,fi,fo in AIV]
+    items.sort(key=lambda it: it[2][0])
+    out=os.environ.get("MIX_OUT",f"{HERE}/nocap.mov")
+    N=int(os.environ.get("MIX_STAGES","1"))
+    if N<=1:
+        return _mix_pass(items,f"{HERE}/punched.mov",out,True)
+    k=-(-len(items)//N); groups=[items[i:i+k] for i in range(0,len(items),k)]
+    src=f"{HERE}/punched.mov"; tmps=[]
+    for i,grp in enumerate(groups):
+        last=(i==len(groups)-1)
+        dst=out if last else f"{HERE}/_mixstage{i}.nut"
+        print(f"  stage {i+1}/{len(groups)}: {len(grp)} overlays -> {os.path.basename(dst)}", flush=True)
+        _mix_pass(grp,src,dst,last,audio_from=(f"{HERE}/punched.mov" if last else None))
+        if not last: tmps.append(dst)
+        src=dst
+    for p in tmps: os.remove(p)
 
 if __name__=="__main__":
     if not sys.argv[1:] or "plan" in sys.argv:

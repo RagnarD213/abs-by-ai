@@ -30,7 +30,7 @@ TX   = f"{HERE}/final.whisper.json"
 
 # Full-screen cards already carry a headline; a caption on top is two competing texts.
 # full-frame cards carry their own words; a caption on top is two texts at once
-SUPPRESS = [B.BEFORE, B.TODAY, B.TRIAL, B.PRICE, B.SOLVED, B.CTA]   # rev 2: POOL is gone
+SUPPRESS = [B.BEFORE, B.TODAY, B.TRIAL, B.PRICE, B.CTA]   # rev 2: POOL is gone; rev 5: SOLVED is gone
 # left-panel beats: captions shift RIGHT into Dan's column (the app screens ARE the demo)
 PANELS   = [B.BEATS[n] for n in sorted(B.PANEL)]
 LOWERS   = [B.BEATS[n] for n in sorted(B.OVERLAY)]

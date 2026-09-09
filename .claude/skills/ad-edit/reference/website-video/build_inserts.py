@@ -29,11 +29,17 @@ def tag():
     t=t.crop(t.getbbox()); t.save(f"{G}/tag15.png"); print(f"  tag15.png {t.size}")
 
 # clip in-points (s): Veo's first frames are the still itself; skip the static opening
-INPOINT={"ai_a":0.2,"ai_b":0.3,"ai_c1":0.3,"ai_c2":0.3,"ai_d1":0.3,"ai_d2":0.3,"ai_d3":0.3}
+INPOINT={"ai_a":0.2,"ai_b":0.3,"ai_c1":0.3,"ai_c2":0.3,"ai_d1":0.3,"ai_d2":0.3,"ai_d3":0.2}   # REV 5: d3 needs 7.68 s
 # Veo baked a cross-DISSOLVE between two shots into D2 at 3.9-4.6 s (pv/veoD2_check.jpg). A dissolve inside a b-roll clip
 # reads as an edit inside the AI clip; a straight CUT between the two shots does not. So D2 is the two clean shots on
 # either side of it, cut together: [1.0, 3.85) + [4.7, end) (a second dissolve sits at 0.5-0.9 s). Any clip can be edited this way (spans in source seconds).
-EDIT={"ai_d2":[(1.0,3.85),(4.7,8.0)]}
+# REV 5 (Dan's rev-4 review, both artifacts measured on frame strips at 0.1 s -- pv/rev5_D1_lean.jpg,
+# pv/rev5_D2_610_790.jpg, pv/rev5_D3_tail.jpg):
+#   D1 -- the man leans in toward the pans from 4.4 s and a puff of "smoke" appears at his mouth 5.0-5.4 s (my own
+#         prompt asked him to breathe in the smell). Cut at 4.08 (the builder trims to beat+0.10 = 3.78 s from 0.3).
+#   D2 -- the row of containers in the WIDE shot starts to drift at ~7.0-7.1 s and is displaced by 7.6-7.95 s. The
+#         wide shot now ends at 7.05.
+EDIT={"ai_d1":[(0.3,4.3)], "ai_d2":[(1.0,3.85),(4.7,7.05)]}
 def ai(name):
     a,b=B.BEATS[name.upper()]; D=round(b-a+0.10,3); clip=f"{AI}/clips/{name[3:].upper()}.mp4"
     dur=float(subprocess.run([FFP,"-v","error","-show_entries","format=duration","-of","csv=p=0",clip],capture_output=True,text=True).stdout)

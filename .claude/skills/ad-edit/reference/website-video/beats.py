@@ -55,7 +55,8 @@ NUM3     = (at("Third abs by AI will create"),   end_of("bases your program off 
 TRIAL    = (at("For a limited time"),            end_of("completely free for 7 days"))        # title card
 CANCEL   = (at("If it's not for you"),           end_of("charged a dime"))                    # lower third
 PRICE    = (at("and you'll be charged this"),    end_of("would charge you"))                  # title card
-SOLVED   = (at("But now AI has solved"),         end_of("a plan to get you there"))           # goal image, tagged
+# REV 5 (Dan): the goal-image card at 3:36 is REMOVED -- "I want to keep the emphasis on the prospect and not on me at
+# this point." Dan is on camera for the line with captions on; nothing replaces it.
 
 # ---- REV 4 (Dan's rev-3 review, 2026-09-08): AI clip inserts to break up the talking head, and the members-home scroll.
 # Full-frame inserts, tagged AI-GENERATED (upper-left, 1.5x -- lesson 17), captions stay on. Anchored to PHRASES.
@@ -63,11 +64,16 @@ AI_A  = (at("Imagine yourself taking off"),   end_of("seeing right now"))       
 AI_B  = (AI_A[1],                             end_of("stubborn belly fat"))               # beach jog, a straight cut from the pool clip; Dan is back on camera for "finally lost." BEFORE the before card
 AI_C1 = (at("Once our AI has all this"),      at("And when you're following"))            # training with the plan on his phone
 AI_C2 = (at("And when you're following"),     at("Third abs by AI will create")-0.45)     # the quiet nod; out 0.45 s before the NUM3 lower third
-AI_D1 = (at("Your AI will also customize"),   at("and to avoid the foods"))               # grilling (after NUM3, per the handoff's recommendation)
-# D2's clip carries two Veo-baked dissolves (0.5-0.9 s and 3.9-4.6 s); its two clean shots total 6.15 s, so the D2/D3
-# edge sits 0.25 s before "And it will make you" and D3 (7.7 s usable) takes the difference
-AI_D2 = (at("and to avoid the foods"),        at("And it will make you a meal plan")-0.25)  # portioning into containers
-AI_D3 = (at("And it will make you a meal plan")-0.25, end_of("you have available"))       # eating, loving it
+# REV 5 (Dan's rev-4 review): D1's source leans in toward the pans from 4.4 s and Veo rendered his breath as SMOKE at
+# 5.0-5.4 s, which was the insert's last second. The run starts a WORD LATER so the beat is 3.68 s and the clip is cut
+# at source 4.08 -- 0.3 s before the lean. Dan is on camera for "Your AI will also" (1.5 s); the clips fade in on
+# "customize". (ad-edit lesson 115: never prompt breath/smell/steam near the face.)
+AI_D1 = (at("customize your eating plan"),    at("and to avoid the foods"))               # grilling, ends on him stirring
+# D2's clip carries two Veo-baked dissolves (0.5-0.9 s and 3.9-4.6 s) AND, from ~7.0-7.1 s, the row of containers in the
+# wide shot drifts and vanishes (Dan's rev-4 note). REV 5 cuts the wide shot at source 7.05 -- usable 2.85 + 2.35 =
+# 5.20 s -- and hands the 0.97 s back to D3, which has spare clip (0.2-8.0 = 7.80 s usable, tail measured clean).
+AI_D2 = (at("and to avoid the foods"),        at("that you have", after=156.0)-0.25)      # portioning into containers
+AI_D3 = (AI_D2[1],                            end_of("you have available"))               # eating, loving it
 HUB   = (at("We also have an AI sleep coach"), end_of("much more"))                       # members-home scroll, phone PiP beside Dan
 
 _cta     = at("Try abs by AI for free", after=at("that they always wanted")-1.0)

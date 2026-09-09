@@ -132,10 +132,10 @@ hits=[s["text"].strip() for s in json.load(open(TXF))["segments"] if banned.sear
 check(not hits,f"no drug names spoken: {hits}")
 
 # ------------------------------------------------------------------ 7 AI labels
-# the goal image on the SOLVED card (gfx.py tags it) and the seven full-frame AI clips (build_inserts.py burns the 1.5x
-# tag upper-left); the tag's PRESENCE on the delivered pixels is measured in qc_frame.py check 13
-check(os.path.exists(f"{HERE}/gfx/solved.mov") and os.path.exists(f"{HERE}/gfx/tag.png"),
-      "the goal image card exists and carries the AI-GENERATED tag (built in gfx.py g_solved)")
+# REV 5: the goal-image card is REMOVED (Dan: keep the emphasis on the prospect), so the only AI assets left are the
+# seven full-frame AI clips (build_inserts.py burns the 1.5x tag upper-left); the tag's PRESENCE on the delivered
+# pixels is measured in qc_frame.py check 13
+check(not hasattr(B,"SOLVED"),"no goal-image card (removed on rev 5)")
 missing=[n for n,_,_,_ in L.AIV if not os.path.exists(f"{HERE}/gfx/{n}.mov")]
 check(not missing and os.path.exists(f"{HERE}/gfx/tag15.png"),f"every AI insert exists as a tagged MOV (tag15.png + {len(L.AIV)} inserts): missing {missing}")
 
@@ -177,7 +177,7 @@ if os.path.exists(capf):
     ev=[l for l in open(capf) if l.startswith("Dialogue:")]
     def secs(x):
         h,m,s=x.split(":"); return int(h)*3600+int(m)*60+float(s)
-    SUP=[B.BEFORE,B.TODAY,B.TRIAL,B.PRICE,B.SOLVED,B.CTA]
+    SUP=[B.BEFORE,B.TODAY,B.TRIAL,B.PRICE,B.CTA]
     coll=[]
     for l in ev:
         f=l.split(","); a2,b2=secs(f[1]),secs(f[2])

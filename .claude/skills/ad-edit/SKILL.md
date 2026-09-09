@@ -1100,6 +1100,34 @@ chain after the first punch). What it added, each as a measurement or a gate:
    span and shortening the beat (start the run a word later, give the difference to a neighbour with spare clip), never by
    slowing below 0.85×; regenerate only when the clean span cannot fit.
 
+Website conversion video rev 5 (2026-09-08, same evening) — Dan's rev-4 review: the framing APPROVED and LOCKED, plus two
+Veo clip-tail artifacts and the goal-image card removed. Built to `Handoffs/handoff-20260908-website-video-rev5.md`,
+$0.00 spend, all gates green. Two rules came out of it, and the second one is worth more than the video:
+
+116. **A moved beat edge is not automatically a re-render — diff the plan, then diff the PIXELS.** Rev 5 moved three
+   insert edges; the punch plan changed on paper (two boundaries), which by the standing rule forces a ~20-minute punch
+   encode. Comparing the two plans FRAME BY FRAME — the crop each output frame would get under the old plan against the
+   new — showed **29 frames of 6900 differ, and all 29 sit inside a full-frame opaque insert**, so nothing visible
+   changed and `punched.mov` was reused unmodified. The test is three steps: build the per-frame (level, crop y) for both
+   plans; intersect the differing frames with the opaque-coverage map (an AI insert is opaque except during its own alpha
+   fade, and `ai_inserts()` only fades at the OUTER edges of a run, so mid-run clips are opaque end to end); re-render
+   only if anything is left. Run it before every punch a beat change appears to force — it cost 40 seconds here.
+117. **ffmpeg LIVELOCKS on a deep multi-input overlay graph, and it is indistinguishable from a slow machine until you
+   `sample` it.** The 21-input `layout.py mix` ran 11 minutes to 5 % (3.5 h projected) against rev 4's 9 minutes for the
+   identical graph. Every measurement said the machine was fine: the x264 encode floor was 38 s per 60 s of picture
+   (0.63x real time), decoding EVERY overlay MOV cost 2 s in total (`today.mov` is 554 MB and decodes in 0.9 s), the
+   drive read at 427 MB/s and wrote at 150 while doing 0.1, and RSS was 2 GB of 32. `sample <pid>` settled it in four
+   seconds: **336 threads, 336 of them parked in `tq_receive`, 0 busy, and the process burning 23 % CPU on the
+   park/wake cycle alone.** 21 inputs × ~11 default decode threads is the trigger; `-threads 1` per input does not fix it
+   (QTRLE has no frame threading, so the threads are the scheduler's, not the decoder's). **The fix is fewer inputs per
+   ffmpeg process:** `layout.py mix()` now takes `MIX_STAGES=N` and runs the overlay list as N sequential passes
+   (7 inputs each → 126 threads, 81 % CPU) through **rawvideo .nut intermediates, so staging is lossless** — 20 GB per
+   stage on a drive with 1.7 TB free, and they are deleted at the end. 24 minutes for the full mix instead of 3.5 hours.
+   `MIX_T` and `MIX_OUT` make a 20-second benchmark of the real graph one command; that benchmark is what proved the
+   graph was healthy at the start of the video and pathological later. Diagnosis rule: **all threads parked = livelock,
+   kill and restage; threads in encode/decode = genuinely slow, wait.** A caption burn on the same box at the same
+   moment ran at 242 % CPU with 53 threads, which is the control.
+
 ## Decisions locked vs pending
 
 | decision | status |

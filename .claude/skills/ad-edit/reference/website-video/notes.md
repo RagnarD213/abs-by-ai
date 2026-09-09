@@ -1,123 +1,76 @@
-# Website conversion video — 16:9 master, REVISION 4
+# Website conversion video — 16:9 master, REVISION 5
 
-**Rev 3 was reviewed 2026-09-08: the top of Dan's hair was cut off in every hold ("if the video's top is cut off, it's
-basically not usable"), the wide level is banned, and he asked for AI clips at 0:19, 0:26, 2:04 and 2:17–2:44, a scroll
-through the members' home screen at 2:48, and the better macro-tracker clip at 0:56.** Rev 4 changes exactly those
-things, from measurements, and touches nothing else: same EDL and tight cut (incl. rev 3's manual cut), same grade and 4K
-base, same card designs and lower thirds, same captions, and the **same audio chain, unchanged** (Dan: "this is the
-audio that we want"). **AI generation spend: $9.47** (8 nano-banana stills at $0.134, 7 Veo 3.1 Fast clips at $1.20;
-one still re-made after Veo's likeness filter, not charged for the filtered attempt). No production code, no deploy, no
-native-retest trigger.
+**You approved rev 4's framing and locked it as the standard** ("The framing and the cropping are all looking good. You
+nailed it with this one. Let's lock that in and crop all the videos like this going forward"). **Nothing about the
+framing changed here** — the same `punched.mov` file from rev 4 is reused, byte for byte, so every crop you approved is
+literally the same picture. Rev 5 changes exactly the three things you asked for and nothing else.
 
 | | |
 |---|---|
 | master | `website_video_16x9.mp4` — **3:50.23 (unchanged)**, 1920×1080, 29.97 fps, AAC 256k |
 | review copy | `REVIEW_540p_website_video.mp4` |
-| audio A/B | `AB_his-vs-ours.mp4` — Muhammad's ad, then the same window of ours (audio unchanged from rev 2/3) |
-| loudness | −14.50 LUFS · true peak −2.60 dBTP · LRA 2.8 LU · voice centred (L/R +0.9999) · 0 silent seconds |
-| script fidelity | 99.0 % re-transcribed off the finished render |
-| QC | **all checks PASSED** — the rev-3 suite plus caption clearance vs both phone boxes and the AI tag, the hair gate (never cut · anchored per segment · the detector-free top-rows test on every frame), the AI-GENERATED tag measured present on every insert; the shared audio gate PASSED all 11 rows on the delivered file and stamped it; watch pass 0 frozen runs / 0 black frames; contact sheet from exact grabs checked for the light, a wide frame, a black field, hair at the edge, a caption touching a graphic |
-| hair proof | `pv/hairtrack_proof.jpg` (the plan's detector, native 4K scale) · `pv/hairgate_sheet.jpg` (the delivered frames, native 1080p) |
+| audio A/B | `AB_his-vs-ours.mp4` — Muhammad's ad, then the same window of ours (audio chain unchanged since rev 2) |
+| rev 4 | `website_video_16x9_REV4.mp4` — kept beside it (superseded, not rejected) |
+| AI spend | **$0.00** — both clip fixes are trims of clips we already have; nothing was regenerated |
 
-## ❓ One reading to confirm — the FAR level's bottom edge
+## 1 — The grilling clip at 2:27 (the smoke)
 
-"Never cut off my hair **or below my shorts line**." The default shipped here is your own rev-1 definition of the two
-frames you like: **NEAR** ends at the belly button ("between my head and my belly button"), **FAR** shows the shorts
-waistband with a little of the shorts below it ("the top of my head and my shorts visible"). Measured on the delivered
-FAR holds, the bottom edge sits about 10–40 px of 4K (a hand's width of the elastic band and a little of the shorts) below the waistband; the counter is not in frame. **If you meant the frame
-must never go below the waistband at all, say so — the FAR level becomes 1.58× (bottom ON the waistband) and only the
-punch step re-renders (≈30 min).**
+You were right, and the cause was my prompt: I asked for a man who "leans in, breathes in the smell and smiles," and Veo
+rendered the breath as smoke coming out of his mouth. Measured on the source clip at 0.1-second steps: he is upright and
+stirring until **4.4 s**, leans in over the pans from 4.4 s, and the puff appears at his mouth **5.0–5.4 s** — which was
+the last second of the insert.
 
-## 1 — The hair (the reason rev 3 was unusable)
+The fix is a trim, not a regeneration: the clip run now starts **one word later**, on "customize," instead of on "Your AI
+will also," so the beat is 3.68 s instead of 5.21 s and the clip is cut at 4.08 s of source — **0.3 s before he starts to
+lean**. You are on camera for "Your AI will also" (1.5 s) and the clips fade in on "customize." The insert now ends with
+him stirring the pan. Proof: `pv/rev5_insert_d1_last.jpg` (its last second at 0.1-s steps).
 
-Rev 3's tracker measured the **hairline** (first row of skin) and subtracted a 40-px guess for the hair; on his tallest
-frames it read 296–300 in the 4K frame when the real top of his hair is at 195–215, so 23 of 26 holds cropped the hair
-by 17–50 px, and rev 3's own headroom check passed because it measured to the same wrong point.
+## 2 — The portioning clip at 2:33 (the containers sliding and vanishing)
 
-Rev 4 measures the **top of the hair itself**: a two-stage detector (`hairdet.py`) finds the skin, then walks up through
-the dark hair band until the door panel behind him is reached, on the native 4K pixels, 1963 samples at 8 per
-second across the cut (1786, plus 1158 measured on the delivered-scale picture valid; a sample whose climb is shorter than 50 px is thrown away, because a short
-climb means the walk stopped inside the hair). Validated **by eye at native scale** — `pv/hairtrack_proof.jpg` is his
-8 tallest frames and 4 median ones with the detected line drawn on a 50-px grid; the line sits on the top edge of the
-hair in every tile. Then the same detector was run on the delivered-scale picture and the crops re-anchored to the
-tallest instant either pass saw (a second punch render).
+Same thing, also confirmed: in the wide shot the row of containers starts to drift at about **7.0–7.1 s** of source and
+is visibly displaced by 7.6–7.95 s. Veo drifts static objects when a shot ends on them.
 
-Every crop is anchored to that: `y0 = (the segment's minimum hair top) − 4 % of the crop height`, so the hair sits
-~43 px below the top edge at his tallest instant in every hold. **Measured on the delivered master (596 samples,
-574 valid):**
+The wide shot is now cut at **7.05 s** — the insert's last frame is source 6.99 s, before the drift starts. The 0.97 s
+that came off it went to the next clip (the eating shot), which had spare footage: its tail was measured clean to the
+last frame, so it now runs 7.58 s instead of 6.61 s. Nothing was slowed down to fill the gap. Proof:
+`pv/rev5_insert_d2_last.jpg` and `pv/rev5_insert_d3_last.jpg`.
 
-| | rev 3 (delivered) | rev 4 (delivered) |
-|---|---|---|
-| hair top below the top edge, minimum over every valid frame | **1 px (cut)** | **43 px** |
-| median | 1 px | 56 px |
-| per-segment minimum (the crop is anchored, not loose) | — | 43–53 px in every hold |
-| frames with hair-coloured pixels in the top 12 rows of the head band (detector-free test, every frame) | 5371 of 5781 | **0 of 4468** |
+## 3 — The goal-image card at 3:36 — removed
 
-The second row of that last line is the check that does not depend on finding anything: it only asks whether the top 12
-rows of the head band look like the door panel or like hair. It fails rev 3's file on the first frame; it passes this
-one on all 4468 frames with Dan on camera. Both gates now run in `qc.py` (check 11) on every future render.
+Gone. You are on camera for "But now AI has solved that … a plan to get you there," with captions on, and **nothing
+replaces it** — you asked for a removal, not a swap. The framing still changes twice inside that stretch (FAR at 3:25.7,
+NEAR at 3:35.1, FAR at 3:42.0), so it does not sit static; the push-in now lands on the line itself rather than on a
+picture of you.
 
-## 2 — Closer crops, no wide level
+**If you'd rather have a prospect-facing visual there** — their own goal image, or the "look near your image" cue — say
+so and it is a one-beat rebuild. I did not build one, because that is a different ask.
 
-Two levels, both from your rev-1 description, alternating strictly across every visible join; the wide level is deleted
-(the code now asserts exactly NEAR / FAR / PIP exist and that no crop is wider than the FAR level):
+## 4 — What did NOT change
 
-| level | zoom | shows | holds |
-|---|---|---|---|
-| NEAR | 1.85× | hair → belly button | 10 |
-| FAR | 1.46× | hair → shorts waistband | 11 |
-| PIP | FAR geometry, Dan at 65 % | the two phone beats | 2 |
+The crops and the punch plan, `punched.mov` itself, the hair track, the grade, the EDL and tight cut, the audio chain
+(bed −44 dB, no compressor — the one you approved by ear on rev 2), the caption style, the six lower thirds, the
+before/after-photo cards, the two phone screens, the trial/price/CTA cards, and the other four AI clips.
 
-The framing also changes across every AI insert (the hidden segment does not advance the alternation), so you never
-come back from a clip to the same crop you left.
+Worth stating plainly, because a beat edge moved and that normally forces a 20-minute punch re-render: it was **proved
+frame by frame** that it did not. Only 29 frames of the whole video get a different crop from the new beat edges, and
+all 29 sit underneath the eating clip, which is a full-frame opaque insert — so no frame you can actually see changed.
+The rev-4 punch file was reused unmodified.
 
-## 3 — The AI clips (your placements)
+## 5 — Gates
 
-Seven Veo 3.1 Fast clips, one consistent man (white, ~42, greying temples, deliberately ordinary, ripped) generated
-from one reference still, full frame, tagged **AI-GENERATED** upper-left at 1.5×, captions kept on, 0.5-s fades at the
-edges of each run and straight cuts between consecutive clips:
+All green on the exact delivered file, same suite as rev 4 plus the two checks the goal-image removal changes:
 
-| where | line | clips |
-|---|---|---|
-| 0:18.7–0:24.9 | "Imagine yourself taking off your shirt at the pool and revealing the same rock hard abs" | A — he pulls a grey t-shirt off at a backyard pool; his wife on the lounger looks up, proud; two people behind glance over |
-| 0:24.9–0:29.7 | "And picture how good you feel if you were in peak health with your stubborn belly fat" | B — shirtless easy jog along a beach, smiling. You are back on camera for "finally lost." before the before photo (before → you → after, never adjacent to a ripped man) |
-| 2:03.8–2:15.5 | "Once our AI has all this information about you … you'll get far better results" | C1 — glances at the plan on his phone, then dumbbell curls in a garage gym; C2 — water, towel, a small satisfied nod |
-| 2:26.4–2:44.3 | "Your AI will also customize your eating plan … a meal plan that you can actually follow … time that you have available" | D1 — grilling chicken and vegetables, shirtless; D2 — portioning into five containers; D3 — eating at the counter, loving it |
-
-**The NUM3 choice (you asked for 2:17–2:44):** the "3 — A nutrition plan built for you" lower third runs 2:16–2:25
-under your own line about it, so the clips start at "Your AI will also customize" (2:26) as the handoff recommended.
-If you want them from 2:17 instead, the lower third moves onto the first clip — a one-beat re-render.
-
-Two things worth knowing: Veo refused the first kitchen still as a "celebrity likeness" (the same generated man had
-passed six other stills); a three-quarter-profile version passed. And clip D2 came back with a cross-dissolve between
-two shots baked into it, so it is used as its two clean shots cut together (a cut reads as b-roll; a dissolve reads as
-an edit inside the AI clip).
-
-## 4 — The macro-tracker clip at 0:56 (swapped)
-
-The short-ad session's better recording is the real Macro Tracker on absbyai.com with the salmon plate; it was
-re-recorded at the phone box's exact aspect (`macro2/record_macro.py`, one real analysis call): photo in → Analyze →
-"Analyzing your meal…" → the itemised list (salmon 425, wild rice 201, green beans 52, lemon 5, oil 92 = **775 cal**)
-→ **Log Meal** → "✓ … logged" and today's total. The phone sits beside you as before. **Judgment call, flagged:** the
-beat now runs 4.4 s longer, to "before AI changed the game", so the logged-meal payoff is on screen long enough to read.
-
-## 5 — The members' home screen at 2:46
-
-"We also have an AI sleep coach, the ability to tweak your goal picture … and much, much more" (2:45.9–2:52.9): one
-slow continuous scroll of the real member home — Welcome back, then Macro Tracker, AI Trainer, AI Nutritionist,
-Supplement Audit, AI Sleep Coach, My Transformations, Weight & Progress Log, Generate New Image, Support — in the phone
-beside you. Captured from a local copy of the site on a fixture account (no real login), which is also why there is no
-before/after hero on it; the scroll stops on the last feature tile.
-
-## 6 — Audio: unchanged
-
-`audio3.py` (the chain you approved on rev 2) ran unchanged on the new picture; the shared audio gate PASSED on the
-delivered file and stamped it; the A/B is rebuilt beside the master.
+| | |
+|---|---|
+| audio gate | **PASSED all 11 rows** and stamped the file — tone 0.88 dB mean / 2.02 max vs Muhammad's ad, floor +2.5 / +0.5 / +0.2 dB, early decay 77 ms, −14.50 LUFS, −2.60 dBTP, voice centred (L/R +0.9999, side 45.5 dB under mid), 0 silent seconds |
+| QC | **all checks PASSED** — 0 bare splices above the p99 ceiling, no jump cuts, levels exactly NEAR/FAR/PIP with no wide crop and nothing reaching the light, median hold 4.46 s / longest 9.91 s, script fidelity **99.0 %**, no drug names, **no goal-image card**, all 7 AI inserts tagged, no banned app screen on any of 6900 frames (best 0.36 against a 0.90 limit) |
+| captions | 145 cues, none on a card; every caption clears its lower third by **62–73 px** (tightest 62 px at 1:24), none inside either phone box or the AI tag |
+| hair (delivered frames) | **43 px minimum, 57 median**, per-segment minimum 43–53 px in every hold, and the detector-free test found **0 of 4754 frames** with hair in the top 12 rows — identical to rev 4, as expected from reusing its punch |
+| watch pass | 6900 frames, **0 frozen runs, 0 black frames**; the 30 flagged jumps are all inside AI clips (23 in the garage-gym curls, 6 in the beach jog, 1 photo swap) — none in the talking head |
 
 ## Recipe
 
-`hairtrack.py` (→ `hairdet.py`) → `layout.py plan|punch` → `hairtrack_refine.py` → `layout.py plan|punch` →
-`build_inserts.py` (tag, ai_*, macro, hub; `ai/veo.js` + `ai/prompts/`, `macro2/record_macro.py`, `hub/hub_capture.py`)
-→ `layout.py mix` → `audio3.py` (bed −44) → `captions.py` → `deliver.sh` (`sheet.py`, `qc.py` + `qc_frame.py` +
-`hairgate.py`, `watch.py`, review copy). `rev4.sh` is the chain after the first punch. Working dir
-`/Volumes/Extreme/_edit_work/website-video-828/`; rev 3's scripts are in `rev3/`, rev 2's in `rev2/`, rev 1's in `rev1/`.
+`build_inserts.py ai_d1 ai_d2 ai_d3` → `layout.py mix` → `audio3.py` (bed −44) → `captions.py` → `deliver.sh`
+(`sheet.py`, `qc.py` + `qc_frame.py` + `hairgate.py`, `watch.py`, review copy). `rev5.sh` is the whole chain;
+`strip.py` builds the clip frame strips. Working dir `/Volumes/Extreme/_edit_work/website-video-828/`; rev 4's notes are
+`notes_REV4.md`, its scripts are in git via the skill's `reference/website-video/`.

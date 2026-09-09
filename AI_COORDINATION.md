@@ -84,14 +84,16 @@ The test comment and its auto-reply were deleted afterwards (post re-read: "No c
 keywords at once. Still open from the original build: whether to switch off Blotato's IG auto first-comment
 (**ask before touching it**, queue-wide), and the CTA reels are eligible for the 2026-08-31 paid-ads specs.
 
-**Website conversion video — REV 4 REVIEWED 2026-09-08 (evening): FRAMING APPROVED AND LOCKED; three fixes → REV 5 HANDOFF
-WRITTEN, not executed.** Dan: "You nailed it with this one. Let's lock that in and crop all the videos like this going forward" —
-recorded as the FRAMING STANDARD in `/ad-edit` (decision table + Step 3 + lesson 115), cross-referenced from `/shorts` and
-`/longform-edit`, memory `framing-standard-hair-anchored`. Remaining: the grilling clip at 2:27 ends on a lean-in with smoke, the
-portioning clip at 2:33 has its containers drifting in the last second, and the goal-image card at 3:36 comes out (emphasis on the
-prospect). All three are downstream of the punch render (mix → audio → captions → gates, ~25 min); measured trim points and
-fallbacks in `Handoffs/handoff-20260908-website-video-rev5.md`. Rev 4 stays delivered in the project folder meanwhile.
-No dashboard row (Dan's 09-08 rule). Dan runs it in a fresh session (Fable 5.1, high). Delete this entry when rev 5 is delivered.
+**Website conversion video — REV 5 DELIVERED 2026-09-08, Dan reviews.** All three rev-4 review fixes are in and the
+framing is untouched: rev 4's `punched.mov` was reused byte for byte (only 29 frames' crops differ from the new beat
+edges and all 29 sit under an opaque insert — proved frame by frame, so no punch re-render). The grilling clip now ends
+on him stirring (the run starts a word later, source cut 0.3 s before the lean-in), the portioning clip's wide shot ends
+at source 6.99 s — before the containers drift — with the 0.97 s handed to the eating clip, and the goal-image card at
+3:36 is gone (Dan on camera, captions on, nothing in its place). **$0.00 AI spend, nothing regenerated.** Gates: audio
+11/11 + stamp, QC all checks, captions clear by 62–73 px, hair 43 px min / 57 median with 0 of 4754 frames failing the
+independent test, watch 0 frozen / 0 black (all 30 jumps inside AI clips). Delivered over the same filename with rev 4
+beside it as `*_REV4.mp4`. ⚠ **If Dan wants a prospect-facing visual where the goal image was, that is a new ask** — a
+one-beat rebuild, deliberately not built. Delete this entry once he approves.
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,
@@ -291,9 +293,6 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
-- **`Handoffs/handoff-20260908-website-video-rev5.md`** — the three rev-4 review fixes on the website video (two AI-clip tail
-  artifacts trimmed with measured points, the goal-image card at 3:36 removed); no punch re-render; Fable 5.1 high. NOT on the
-  dashboard (Dan's rule). Written 2026-09-08 evening, not executed.
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
 - **`Handoffs/handoff-20260812-purchase-before-account.md`** — after approval AND after the RevenueCat audit.
 - **`Handoffs/handoff-20260818-android-public-build-swap.md`** — small; needs Dan's Android phone on adb.

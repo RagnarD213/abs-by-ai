@@ -17,7 +17,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260812-purchase-before-account.md](handoff-20260812-purchase-before-account.md) | after approval AND after the RevenueCat audit |
 | [handoff-20260818-android-public-build-swap.md](handoff-20260818-android-public-build-swap.md) | small; needs Dan's Android phone on adb |
 | [handoff-20260826-danrosefit-abs-image-gap-fill.md](handoff-20260826-danrosefit-abs-image-gap-fill.md) | last 7 of 70 posts; re-run iggap_fill.py --apply from ~09-12 once Blotato's queue has room |
-| [handoff-20260908-website-video-rev5.md](handoff-20260908-website-video-rev5.md) | now — three rev-4 review fixes on the website video (clip tails + the 3:36 card), mix-only re-render; Fable 5.1 high |
 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | PARTIAL 2026-09-08: 9 of 12 segments built; 7a/7b/7c + members list + Phase 2 remain — see the doc's Execution notes; Fable 5.1 high |
 
 ## Recently retired (do not run)
@@ -25,6 +24,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | Document | Why |
 |---|---|
 | [handoff-20260908-post-lockin-analysis-page.md](handoff-20260908-post-lockin-analysis-page.md) | executed 2026-09-08 — `analysis` screen + `POST /api/body-analysis` live |
+| [handoff-20260908-website-video-rev5.md](handoff-20260908-website-video-rev5.md) | executed 2026-09-08 — rev 5 delivered, all gates green, $0.00 spend |
 | [handoff-20260901-danrosefit-ad-identity-fix.md](handoff-20260901-danrosefit-ad-identity-fix.md) | superseded — @danrosefit profile-visits campaign live via the API script since 09-02 |
 | [handoff-20260902-shorts-centering-queue-fix.md](handoff-20260902-shorts-centering-queue-fix.md) | done 09-02 |
 | [handoff-20260902-google-ads-engagement-champion-automation.md](handoff-20260902-google-ads-engagement-champion-automation.md) | built 09-03, switched ON 2026-09-08 (first live run 22:00 UTC); operating doc `Docs/YTADS.md` |

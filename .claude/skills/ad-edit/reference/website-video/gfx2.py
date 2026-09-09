@@ -150,7 +150,6 @@ def g_before(): photo_card("before",[(BEFOREP,B.BEFORE[1]-B.BEFORE[0])],B.BEFORE
 def g_today():
     dur=B.TODAY[1]-B.TODAY[0]; each=dur/len(TODAYP)
     photo_card("today",[(p,each) for p in TODAYP],dur,disclaimer=True)
-def g_solved(): photo_card("solved",[(GOAL,B.SOLVED[1]-B.SOLVED[0])],B.SOLVED[1]-B.SOLVED[0],tag=True)
 
 # ---- title cards (his 45 s card, measured) ---------------------------------------
 def title_card(name,lines,sub,dur,hold=False,max_size=142,max_w=1100):
