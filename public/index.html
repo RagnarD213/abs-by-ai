@@ -5968,7 +5968,9 @@ async function restoreSession() {
     // Don't hijack Stripe-checkout return flows, or a resumed audit loader
     let pendingAuditJob; try { pendingAuditJob = localStorage.getItem(AUDIT_JOB_KEY); } catch (e) { pendingAuditJob = null; }
     if (!new URLSearchParams(window.location.search).get('session_id') && !pendingAuditJob) {
-      if (!applyPurchaseDeepLink()) showHub();
+      // A member arriving from /start with a photo lands on their generation,
+      // not the hub (the logged-out case runs at the end of boot).
+      if (!applyPurchaseDeepLink() && !(await applyVslHandoff())) showHub();
     }
     syncMealsFromServer();
     syncSavedPrepsFromServer();
