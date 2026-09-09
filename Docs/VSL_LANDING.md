@@ -63,7 +63,8 @@ The CTA opens the photo picker directly (one tap). On choose, the page downsizes
 JPEG 0.85 — the app's own settings), parks `{ dataUrl, condition, intensity, variant, at }` in
 `sessionStorage.absbyai_vsl_handoff`, and navigates to `/?from=vsl&v=<variant>` forwarding `utm_*`,
 `gclid`, `gbraid`, `wbraid`, `fbclid`, `ttclid`, `msclkid` so the app's own click-id capture sees them.
-`index.html`'s `applyVslHandoff()` (end of boot, logged-out visitors only) loads the photo into the form,
+`index.html`'s `applyVslHandoff()` (end of boot for logged-out visitors; inside `restoreSession()` for members, who
+then skip the hub) loads the photo into the form,
 selects the body type, runs the clothing/sex check, and calls `generate()` when it clears — so the visitor
 lands on a loading generation, never an empty form. A blocked photo shows the normal warning. Payloads
 older than 15 minutes are ignored.
