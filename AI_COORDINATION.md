@@ -313,17 +313,22 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**YouTube engagement champion (Google Ads) — LIVE since 2026-09-08 22:00 UTC; two things in flight.** Runs at :00
-hourly; 4 videos have test ads in all 3 campaigns (the 5:00 PM Short "Stop Doing Ab Exercises…" included). Dan reviewed the
-first copy 2026-09-08: long headlines + descriptions approved, 3 headlines changed for topic clarity — applied to the 6 live
-ads through the new manual queue (`scripts/ads/ytads/manual.js`, recipe in `Docs/YTADS.md`); rules 1–3 in `headline-style.md`.
-**In flight:** (1) Dan wants every AUTO ad named by video title — new ads are (`AUTO test · <title> · yt:<id> · …`); Ad.name is
-immutable in the API, so the 9 legacy-named ads are queued for removal (m7–m15, executes on the next live run) and the run after
-recreates them with titled names and Dan's edited headlines (fresh `headlines` events written). Verify both in
-`GET /api/ytads/state` → `lastResults`, then check the names in Ads Manager. (2) ⚠ Tier 1 has no champion: "1 min ab workout
-workout only" (ad `821875813611`, $1.03/conv) was paused in the UI between the dry run and the live run — not by this system.
-Dan re-enables it if accidental (`manual.js enable customers/3427170837/adGroupAds/206274722584~821875813611`), else leave it.
-Delete this entry once the recreated ads are verified and Dan answers the tier-1 question.
+**Google Ads custom segments (handoff 20260908) — IN PROGRESS 2026-09-08 evening, this session owns it.** Built and
+reopen-verified in Audience manager → Custom segments: 2 (16/16), 5 (21/21), 9 (19/19, nothing flagged), 1 (10/10),
+3 (12/12), 4 (15/15), 6 (5 interests + 13 sites), 8 (4 + 13), 10 (6 + 7). All "Under review". Still to build: 7a/7b/7c
+(app picker), the `website | member hub | 540 day` list, Phase 2 check. Paused because the Mac hit load 90 (another
+session's website-video ffmpeg render + mediaanalysisd, ~60 MB free RAM) and Chrome's renderer froze; resuming when the
+render ends. Trap found: dispatching pointer events on a `material-list-item` in the app picker + `await` inside one
+`javascript_tool` call hung the Ads renderer twice — use `find`→ref clicks / keyboard for the picker.
+
+**YouTube engagement champion (Google Ads) — LIVE since 2026-09-08 22:00 UTC; one question for Dan.** Runs at :00
+hourly; 4 videos have `AUTO test · <video title> · yt:<id> · …` ads in all 3 campaigns (the 9 legacy-named ones were removed
+at 00:00 UTC 09-09 and recreated at 01:00 with Dan's edited headlines, all 9/9 OK — Ad.name is immutable in the API). Dan's
+one-off edits go through `scripts/ads/ytads/manual.js` (recipe in `Docs/YTADS.md`); headline rules 1–3 in `headline-style.md`.
+⚠ **Tier 1 has no champion:** "1 min ab workout workout only" (ad `821875813611`, $1.03/conv, 136 conv) was paused in the UI
+between the dry run and the first live run — not by this system. Dan re-enables it if accidental
+(`manual.js enable customers/3427170837/adGroupAds/206274722584~821875813611`), else leave it. Next check: the 09-09 morning
+brief's "YouTube engagement ads" block (policy review of the 12 new ads). Delete this entry once Dan answers the tier-1 question.
 
 **Shorts centring queue fix — DONE 2026-09-02, one decision left for Dan.** Every queued off-centre Short is
 replaced: Blotato 10 posts swapped + MD5-verified; YouTube 8 stale scheduled Shorts re-uploaded as new ids at
