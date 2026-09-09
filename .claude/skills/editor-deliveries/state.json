@@ -25,7 +25,8 @@
           "title": "video 2"
         }
       ],
-      "shares_by": "folder — files inside are INVISIBLE to every Drive query until opened; list the folders in the browser every run"
+      "shares_by": "folder — files inside are INVISIBLE to every Drive query until opened; list the folders in the browser every run",
+      "folder_scan_expected": 6
     },
     "Waleed": {
       "upwork_name": "Waleed Ahmad",
@@ -134,6 +135,22 @@
       "size": 545035144,
       "delivered_on": "2026-09-09",
       "why": "Zeeshan's answer to the 09-08 round-3 revisions on the $17 ab wheel. MISSED by the 09-09 05:40 run (see SKILL.md 'A quiet run must be PROVEN quiet'); Dan found and downloaded it himself, byte-exact, to 'Organic Videos/The $17 Ab Wheel/Zeeshan edit/' with Video 2 Subtitle.srt. NOT filed under the naming convention and NOT confirmed final — Dan reviews first. Do not re-download."
+    },
+    {
+      "drive_id": "1y41uH1mmjVuxaieq49ANMrB3Bp7F0qLM",
+      "editor": "Zeeshan",
+      "file": "Video 2 Subtitle.srt",
+      "size": 11980,
+      "delivered_on": "2026-09-09",
+      "why": "subtitle file for Video 2 Rev 3; INVISIBLE to every Drive search query — found only by folder_scan.py. Dan already has a copy on disk. Files with its mp4 when that is filed."
+    },
+    {
+      "drive_id": "1EXUtWvtJibT9zlTpf5NWJjJf7XK5c1ak",
+      "editor": "Zeeshan",
+      "file": "Video  2.mov (double space)",
+      "size": 770091180,
+      "delivered_on": "2026-08-27",
+      "why": "NOT a new delivery — 770,091,180 B near-duplicate of video-2.mov (770,091,169 B), same Aug 27 round-1 ab-wheel cut re-uploaded. Recorded so folder_scan.py does not re-flag it every run."
     }
   ],
   "pending": [
