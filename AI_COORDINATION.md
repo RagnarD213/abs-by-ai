@@ -38,6 +38,18 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Website conversion video — ONE CLICK FROM LIVE (2026-09-09).** Dan's finished rev 5 master
+(`claude edited long form content/06 - …/website_video_16x9.mp4`, 3:50, sha256 matches its audio-gate PASS
+stamp) is ready to go up as an UNLISTED YouTube video and embed itself in the shared video slot used by BOTH
+the analysis page and `/start`. Everything is built: `scripts/youtube/upload.js`, a `YOUTUBE_REFRESH_TOKEN`
+for the **Abs by AI brand channel**, title/description staged. **Blocked on one thing only: the YouTube Data
+API v3 is not enabled on Cloud project `768453214640`, and Claude is policy-blocked from the Google Cloud
+Console.** Dan clicks Enable at
+`console.cloud.google.com/apis/library/youtube.googleapis.com?project=768453214640`, then any session runs
+the script and sets `ANALYSIS_VIDEO.youtubeId` (one line, `public/index.html` ~4823). A 35 MB web-encoded
+fallback sits at `public/video/website-conversion-rev5.mp4` (gitignored — repo policy bans committed video,
+so self-hosting would need a CDN). Delete this entry once the video is embedded and live.
+
 **Google Ads audit — DELIVERED 2026-09-09, seven ranked fixes waiting on Dan's go-ahead. Nothing changed in the
 account.** Read live from account 342-717-0837: **$1,272.66 spent** (Aug $769.75, Sep 1–9 $502.91), $440.24 last week
 across 5 campaigns, **0 paying customers**. Root cause: **"YouTube channel subscriptions" is a Primary account-default
@@ -149,8 +161,8 @@ Full measurements + traps: `REBUILD_NOTES.md` in the delivery folder. Delete thi
 **Longforms 02 + 03 — HOLD EXPIRES 2026-09-09 AND MUHAMMAD HAS DELIVERED NOTHING.** Checked Drive
 2026-09-08: his only delivery since Sep 1 is `Daniel HQ Ad 2 V2 HD.mp4` (Sep 3) — no Zepbound and no
 Supplements edit exists, shared or otherwise. **Dan's own rule says ours go up as they are if Muhammad
-never gets to them, so on 09-09 this becomes his call to make.** Note Claude cannot do the upload (see
-the 10 MB cap below).
+never gets to them, so on 09-09 this becomes his call to make.** Note Claude cannot do the upload (no longer true —
+see the upload note below).
 
 **Longforms 02 + 03 — ON DELIBERATE HOLD UNTIL DAN DECIDES. DO NOT UPLOAD.** Both are cut,
 packaged and thumbnailed and are staying in the project folder. **Dan's call 2026-09-02: he is
@@ -159,9 +171,9 @@ significantly better, his ship and ours become the backup; if Muhammad never get
 up as they are. **Nothing about this is blocked on a session — do not offer to upload, and do not
 treat it as an open task before 2026-09-09.**
 ⚠ Verified in Studio 2026-09-02: neither video exists on the channel (8 videos, neither is these),
-so no thumbnail is installed and no A/B test exists. **Claude cannot upload them anyway** — the
-Chrome extension's `file_upload` is capped at **10 MB** against files of 1.30 GB and 0.91 GB, and
-the stored `GOOGLE_REFRESH_TOKEN` is calendar-scoped. Thumbnails, at ~150 KB, DO upload through
+so no thumbnail is installed and no A/B test exists. ✅ **The upload blocker is GONE as of 2026-09-09** —
+`scripts/youtube/upload.js` + `YOUTUBE_REFRESH_TOKEN` upload any size (memory `youtube-upload-capability`);
+the old 10 MB `file_upload` cap no longer applies. The hold is now purely Dan's call, not a capability limit. Thumbnails, at ~150 KB, DO upload through
 `file_upload` — that supersedes the clipboard-paste trick in `/youtube-packaging`.
 **Reminder wired, not left to memory:** a dormant self-deleting block in the morning-brief task's
 `SKILL.md` wakes on **2026-09-09** and prints a pinned "Still on you" row every morning until he
