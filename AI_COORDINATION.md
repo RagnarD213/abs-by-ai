@@ -50,21 +50,34 @@ the script and sets `ANALYSIS_VIDEO.youtubeId` (one line, `public/index.html` ~4
 fallback sits at `public/video/website-conversion-rev5.mp4` (gitignored — repo policy bans committed video,
 so self-hosting would need a CDN). Delete this entry once the video is embedded and live.
 
-**Google Ads audit — DELIVERED 2026-09-09, seven ranked fixes waiting on Dan's go-ahead. Nothing changed in the
-account.** Read live from account 342-717-0837: **$1,272.66 spent** (Aug $769.75, Sep 1–9 $502.91), $440.24 last week
-across 5 campaigns, **0 paying customers**. Root cause: **"YouTube channel subscriptions" is a Primary account-default
-conversion and is 1,088 of the 1,115 conversions** — so all five campaigns, including both Search ones, bid toward a
-signal search traffic cannot produce; 99% of the subscribers bought are Philippines/Indonesia/Vietnam at ~$0.10 (US is
-$5.23 and 1% of them). Also found: the "Brand" campaign runs generic terms and outbids the non-brand one on the same
-query (`abs ai` at $12.20 vs $3.12); Trial Signup / Subscribe / Purchases all read Misconfigured; every final URL is
-still the homepage, not `/start`. Site side (PostHog + prod DB, since 07-30): 207 ad visitors → 35 generations → 2
-accounts → 0 sales. Report: https://claude.ai/code/artifact/f1b850c8-9cd4-456b-99ef-8c281e14a97a. **Dan chose the fixes 2026-09-09
-and they are now spec'd in `Handoffs/handoff-20260909-google-ads-account-fixes.md`, not yet executed** — his four
-amendments (tier-2 to $5/day not off, a second `/start` ad per Search ad group not a URL change, remarketing
-untouched, no other budget changes) are locked in that doc. ⚠ Unresolved: both Search campaigns spent 1.3–2.5x their
-stated daily budgets last week (check Change history), and Google's "all time" per-campaign view never loaded — the
-Ads tab froze repeatedly. ⚠ Google Ads billing looks FIXED (successful $500 threshold charge 09-09 on Visa •7763),
-which supersedes the "Dan fixes the payment method" line in the Paid ads entry below.
+**Google Ads account fixes — EXECUTED AND VERIFIED 2026-09-09. Live in account 342-717-0837; Dan reviews the results in
+a few days.** All of `Handoffs/handoff-20260909-google-ads-account-fixes.md` is done, read back from the account after
+saving. Both Search campaigns now carry **campaign-specific goals = Submit lead forms only** (Brand was on the
+account defaults, where "YouTube channel subscriptions" was biddable; non-brand already was correct) and both moved
+off conversion bidding to **Maximize clicks with a $2.00 CPC ceiling** (they were Target CPA $40 / $20 on ~8
+conversions a week; Google's own UI flagged the budget/target conflict). **Tier-2 Demand Gen $15 → $5.00/day**, the
+only budget touched — tier 1 $20, remarketing $10, both Search budgets unchanged; remarketing has no change event
+today. Brand got **8 measured phrase negatives** (`ai abs`, `abs ai`, `ai ab`, `ab generator`, `abs generator`,
+`abs creator`, `give me abs`, `6 pack`) — in 30 days EVERY paid term in that campaign was a generic close variant of
+`[abs by ai]`, $155 of them and zero real brand searches. Non-brand got 3 wrong-intent negatives and **14 new PHRASE
+keywords** (75 → 89; the campaign was almost all EXACT, which is why it drew 53 impressions a week). **Five new
+`/start` RSAs**, one per Search ad group, copy verified byte-identical to the original, originals still enabled, and
+all five ad groups set to **rotate indefinitely** so the landing-page test is not confounded.
+⚠ **Two answers Dan should see.** (1) The over-budget mystery is solved and benign: non-brand's $5/day was set by Dan
+on **09-08**, so last week's $88.91 was against a $10/day budget. Brand, though, has been $10/day throughout and
+Google still delivered **$24.43 on 09-04** — above its own 2× daily cap, and $92.80 over the Sep 2–8 week ($13.26/day
+average). That is an over-delivery Google credits back if asked. (2) **Trial Signup is not broken.** PostHog shows
+`membership_subscribed` — the line immediately before the conversion fires — has fired **6 times, last on 08-25**, and
+the identical `fireAdConversion()` path recorded 8 Free Generation Started conversions last week. "Misconfigured" is
+Google's label for *no attributable conversions recently*: 4 of the 6 were native IAP (no ad click) and only one web
+checkout ever carried a real gclid. Add **Sign-ups** to both campaigns' goals the day a real ad-attributed trial lands.
+⚠ Also found, not fixed (out of scope): `handleIapRestore()` calls `handleMembershipComplete()`, so an iOS **restore**
+would fire a Trial Signup conversion. Harmless today (the app is not approved) — worth fixing before it is.
+Channels used, and why: the one-off Ads Script ran the READ (`scripts/ads/oneoff/search-repair.js`, now disabled in the
+account, never scheduled); the writes went through the **ytads manual mutation queue** (36/44 first pass) and the **Ads
+UI** for the two the queue cannot do — campaign conversion goals need `{partialFailure:false}` and the bidding switch
+needs a leaf field mask. Google Ads billing is confirmed working ($500 threshold charge cleared 09-09, Visa •7763).
+Delete this entry once Dan has looked at a few days of data.
 
 **`/start` ad landing page + A/B — LIVE 2026-09-09, two 1-minute steps for Dan.** Funnel pulled first (PostHog, 30 d):
 571 landed → 55 generated (**9.6 %; 516 people, 90 %, never upload a photo — the biggest drop by far**) → analysis page 1
@@ -230,9 +243,9 @@ Dan buys (TL60 **qty 2**, stand 2-pack, rod 72-144, backdrop stand 10x8.5), then
 3 phone tests before the gear lands. Then: build the look-A telemetry loop file once the
 monitor is in the room.
 
-**Paid ads** — Dan fixes the Google Ads payment method ("New form of payment required"),
-and decides whether both Meta campaigns being toggled OFF was intentional (3 unpublished
-draft edits still pending). Launch specs are in the 8/31 artifact.
+**Paid ads** — Dan decides whether both Meta campaigns being toggled OFF was intentional
+(3 unpublished draft edits still pending). Launch specs are in the 8/31 artifact.
+(Google Ads billing is fine — a $500 threshold charge cleared 2026-09-09 on the Visa •7763.)
 
 **Ads digest — BUILT AND LIVE, BLIND UNTIL DAN GRANTS TWO TOKENS** (2026-09-02). Daily
 Meta + Google spend brief with anomaly and winning-ad detection; renders as an "Ad spend"
@@ -351,11 +364,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   `public/site-video.js` (lights up the analysis page AND `/start`), deploy, verify live. The upload needs Dan (2-minute
   drag into Studio) or a YouTube-scoped OAuth token — the stored Google token is calendar-only and the extension caps
   uploads at 10 MB. Fable 5.1, medium. **Not on the dashboard** (his rule).
-- **`Handoffs/handoff-20260909-google-ads-account-fixes.md`** — the seven fixes from the 09-09 Google Ads audit,
-  with Dan's four amendments locked in (tier-2 budget to $5/day instead of off; a SECOND ad per Search ad group
-  pointing at `/start` instead of changing the existing ads; remarketing untouched; no other budget changes —
-  he makes budget calls himself). Fixes conversion tracking too. Nothing in the account has been changed yet.
-  Fable 5.1, high, ~2-3 h, $0 spend. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260908-google-ads-custom-segments.md`** — ten Google Ads custom segments (six search-term,
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which

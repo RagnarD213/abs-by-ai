@@ -15,10 +15,26 @@
 //
 // The canonical copy is scripts/ads/oneoff/search-repair.js in the repo;
 // the pasted copy in Google Ads differs only in the KEY line.
+//
+// WHAT ACTUALLY HAPPENED, 2026-09-09. The REPORT pass ran here and is what the
+// whole job was calibrated against. The APPLY pass could NOT be installed —
+// pasting a script body of this size into the editor is blocked as code
+// injection — so the changes went through two other channels instead:
+//   * the ytads manual mutation queue (scripts/ads/ytads/manual.js) for the
+//     budget, the negatives, the keywords, the /start ads and ad rotation:
+//     36 of 44 operations landed on the first hourly run;
+//   * the Ads UI for the two it cannot do — campaign conversion goals
+//     ("This operation cannot be used with partial_failure", because the
+//     hourly script calls AdsApp.mutate without {partialFailure:false}) and
+//     the bidding-strategy switch ("The field mask updated a field with
+//     subfields: 'target_spend'" — the mask wants leaf fields).
+// The APPLY code below is kept, unrun, because it is the written record of
+// what was done and because a future one-off can reuse it. If it is ever run,
+// every step is idempotent and will report "alreadyDone".
 
 var SERVER = 'https://absbyai.com';
 var KEY = 'PASTE_YTADS_KEY_HERE';   // = YTADS_KEY on Railway. Never commit a real key.
-var MODE = 'APPLY';                   // 'REPORT' or 'APPLY'
+var MODE = 'REPORT';                // 'REPORT' or 'APPLY'
 
 var BRAND = 'Brand - Search - US';           // id 24086091285, budget $10.00/day
 var NONBRAND = 'Search - US - Non-Brand - AI Abs Preview';  // id 24148587722, budget $5.00/day

@@ -1,3 +1,15 @@
+> **EXECUTED AND VERIFIED 2026-09-09 — do not run again.** Every task is live in account
+> 342-717-0837 and was read back from the account afterwards. Three of the handoff's premises
+> were wrong and were corrected against the live read: the non-brand Search campaign was ALREADY
+> on campaign-level goals with Submit lead forms as its only biddable goal (only Brand needed
+> task 1); both Search campaigns were on Maximize Conversions with a target CPA ($40 brand /
+> $20 non-brand), not plain Target CPA; and the Brand campaign has 14 keywords across two ad
+> groups, not one. The "over budget" question is answered in the coordination file — non-brand's
+> $5/day was set by Dan on 09-08, so last week's spend was against $10/day. Task 6's diagnosis:
+> Trial Signup is wired correctly and has fired; it has simply never had an ad-attributable
+> completion. Outcome and channel notes: `AI_COORDINATION.md` and
+> `scripts/ads/oneoff/search-repair.js`.
+
 # Handoff — Google Ads account fixes (goals, tier-2 budget, search repair, /start A/B, conversion tracking)
 
 **Written 2026-09-09** from the audit in this session's report
