@@ -313,13 +313,22 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Google Ads custom segments (handoff 20260908) — IN PROGRESS 2026-09-08 evening, this session owns it.** Built and
-reopen-verified in Audience manager → Custom segments: 2 (16/16), 5 (21/21), 9 (19/19, nothing flagged), 1 (10/10),
-3 (12/12), 4 (15/15), 6 (5 interests + 13 sites), 8 (4 + 13), 10 (6 + 7). All "Under review". Still to build: 7a/7b/7c
-(app picker), the `website | member hub | 540 day` list, Phase 2 check. Paused because the Mac hit load 90 (another
-session's website-video ffmpeg render + mediaanalysisd, ~60 MB free RAM) and Chrome's renderer froze; resuming when the
-render ends. Trap found: dispatching pointer events on a `material-list-item` in the app picker + `await` inside one
-`javascript_tool` call hung the Ads renderer twice — use `find`→ref clicks / keyboard for the picker.
+**Google Ads custom segments (handoff 20260908) — 9 OF 12 BUILT 2026-09-08 evening, PAUSED by machine load; resume
+in a fresh session.** Built in Audience manager → Custom segments and reopen-verified (chips entered / kept, insights
+estimate on reopen — the estimate is noisy, it changed 10× between open and reopen on the same list): 2 AI abs preview
+tool 16/16 (1M–5M wk), 5 competitor apps 21/21 (10B–1T), 9 get abs belly fat 19/19 nothing flagged (10M–50M), 1 brand
+10/10, 3 what would I look like 12/12 (5M–10M), 4 AI fitness 15/15 (5M–10M), 6 AI fitness sites 5 interests + 13 sites
+(100M–500M), 8 AI body photo editing sites 4 + 13 (10B–1T), 10 transformation content 6 + 7 (10M–50M). All read "Under
+review". No term was dropped or flagged. `/vp/hub` verified live 2026-09-08 20:35 CT: Google's `1p-user-list` collector
+returned 200 for a hit carrying `url=absbyai.com/vp/hub` (fired from the live page; Dan's Chrome is not signed in to
+absbyai.com so the real hub could not be rendered). **Still to do:** 7a/7b/7c (app picker — one MadMuscles pick was
+verified working: type the title, the row shows the Play package id), the `website | member hub | 540 day` list
+(Your data → rule "URL contains /vp/hub", 540 days — set the duration with a `blur`, archive 08-18), Phase 2 only if the
+Demand Gen draft exists. Stopped because the Mac sat at load 50–90 (166 Claude Code processes at 460 % CPU + the
+website-video ffmpeg) and the extension-driven Ads tab never reached document_idle after the first freeze — per the
+handoff rule, stop rather than click into spinners. Trap: dispatching pointer events on a picker `material-list-item`
+inside `javascript_tool` (or any `await` in one call while the page is busy) hung the renderer; use keyboard/ref clicks.
+Working recipe for the other fields is in the handoff's Execution notes.
 
 **YouTube engagement champion (Google Ads) — LIVE since 2026-09-08 22:00 UTC; one question for Dan.** Runs at :00
 hourly; 4 videos have `AUTO test · <video title> · yt:<id> · …` ads in all 3 campaigns (the 9 legacy-named ones were removed

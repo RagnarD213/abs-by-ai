@@ -4,7 +4,7 @@
 (gitignored, local only), the 8/13 campaign build doc (`Business/google-ads-campaign-build-20260813.md`) and the
 8/31 ads audit in `AI_COORDINATION_ARCHIVE.md`. Every website below was fetched on 09-08 and returned 200; the
 Google Play package ids were read from Play search results the same day.
-**Status:** NOT EXECUTED.
+**Status:** PARTIALLY EXECUTED 2026-09-08 — segments 1–6, 8, 9, 10 built and verified (see Execution notes at the bottom); 7a/7b/7c, the members list and Phase 2 remain.
 **Fire when:** Dan has said which segments to build (default: all ten). Before the new Demand Gen app campaign is
 switched on. ~1.5–2.5 h of driving Google Ads in Dan's Chrome, $0 AI spend, no code, no native retest.
 **Not on the dashboard** — Dan's 09-08 rule; add a row only if he asks.
@@ -200,3 +200,30 @@ Memory `google-ads-ui-automation` and the 08-17 audience build (archive) hold th
 alone, but 9, the app pickers and Phase 2 all need judgment, and one session is cheaper than a
 split. If the Fable allowance is short, Sonnet 5 at high can build the six search-term segments first and hand
 the rest to Fable.
+
+
+---
+
+## EXECUTION NOTES (2026-09-08, Fable 5.1)
+
+**Built and reopen-verified:** 2 (16/16), 5 (21/21), 9 (19/19, nothing flagged), 1 (10/10), 3 (12/12), 4 (15/15),
+6 (5 + 13), 8 (4 + 13), 10 (6 + 7). All "Under review". `/vp/hub` verified live (1p-user-list 200).
+**Remaining:** 7a, 7b, 7c, `website | member hub | 540 day`, Phase 2 (draft existence not yet checked).
+
+**Recipe that worked (Chrome extension, tab on `/aw/audiences/management/customaudience?ocid=8444849202`):**
+- The plus button is `find` → "Create custom audience". The dialog's fields: `input[aria-label="Segment name"]`
+  (native setter + input/change + blur works), the two `material-radio`s (`.click()` does nothing — dispatch
+  pointerdown→mousedown→pointerup→mouseup→click on the element whose text contains "searched for"; the chips already
+  entered survive the switch), the term box `input[aria-label="Add interests or purchase intentions"]` /
+  `"Add Google search terms"` (focus it with JS, then `computer type` the comma-separated list + Return — every chip
+  lands at once, no per-term Enter needed).
+- Websites: the link is `span.add-url` (not a button); clicking it adds `input[aria-label="Add URLs"]`, which takes
+  the same comma-separated paste. Apps: `span.add-app` → `input[aria-label="Add apps"]`; typing a title shows a row
+  "Title / package.id - Developer" — match the id against the table above.
+- Chips are `material-chip`; count them per section by which `input[aria-label^="Add "]` follows each chip in DOM order.
+- Save/Cancel are `material-button`s with text "Save"/"Cancel" — the pointer-event sequence works on them. The saved
+  row's name cell is not a native button; reopen with `find` → "custom | … segment name link".
+- **Do not** dispatch pointer events on a `material-list-item` in the app picker, and do not `await` inside a
+  `javascript_tool` call while the insights panel is refreshing — both hung the renderer for good (needed a new tab).
+  Use `find` → ref click on the picker row, or keyboard Down + Return, and verify the chip afterwards.
+- Google Ads will not finish loading in an extension-driven tab while the Mac's load average is above ~40.

@@ -18,7 +18,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260818-android-public-build-swap.md](handoff-20260818-android-public-build-swap.md) | small; needs Dan's Android phone on adb |
 | [handoff-20260826-danrosefit-abs-image-gap-fill.md](handoff-20260826-danrosefit-abs-image-gap-fill.md) | last 7 of 70 posts; re-run iggap_fill.py --apply from ~09-12 once Blotato's queue has room |
 | [handoff-20260908-website-video-rev5.md](handoff-20260908-website-video-rev5.md) | now — three rev-4 review fixes on the website video (clip tails + the 3:36 card), mix-only re-render; Fable 5.1 high |
-| [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | once Dan picks which of the ten segments to build (default all); before the Demand Gen app campaign goes live; Fable 5.1 high |
+| [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | PARTIAL 2026-09-08: 9 of 12 segments built; 7a/7b/7c + members list + Phase 2 remain — see the doc's Execution notes; Fable 5.1 high |
 
 ## Recently retired (do not run)
 
