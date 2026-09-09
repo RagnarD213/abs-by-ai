@@ -105,6 +105,14 @@ Do the cheap reads first; open Chrome only if there is something to read.
    title. Muhammad's team uploads from several accounts (`wadeededitteam@`, `sharkimageryproduction@`);
    Zeeshan is `teamcrackhow4@` (shares folders — list children with `parentId = '<folder id>'`);
    Waleed is `info.taimoormirzaa@`.
+   ⚠ **A `parentId` search does NOT return `.srt` files.** Measured 2026-09-09: Zeeshan's "video 2"
+   folder held `Video 2 Rev 3.mp4` AND `Video 2 Subtitle.srt` (uploaded 7 hours earlier), and the
+   search returned only the MP4 — `.srt` comes back as `application/octet-stream` and Drive's index
+   does not surface it. Zeeshan ships the subtitle file in the SAME folder as the MP4 every time
+   (Dan confirmed it as his pattern), and Dan's revision docs ask every editor for one. So always
+   probe by name too (`title contains 'Subtitle'` / `title contains 'srt'`) or open the folder in
+   the browser, and file the `.srt` beside the video. Never report a subtitle file as missing on the
+   strength of a `parentId` search — say the search returned only the MP4.
 3. **Upwork thread** (Chrome extension — `mcp__claude-in-chrome__*`, load via ToolSearch): navigate
    to the room URL, `get_page_text`, read the messages since `last_run`. This is where the "final"
    wording lives (rule 1). Dan's own messages in the thread are the "this is finalized" signal. The

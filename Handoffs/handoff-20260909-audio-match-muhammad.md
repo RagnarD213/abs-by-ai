@@ -1,51 +1,7 @@
-# Handoff — re-render three Shorts batches on the audio Dan approved
+# Handoff — make our audio sound like Muhammad's, and stop shipping on metrics alone
 
 **Created** 2026-09-09 by Claude Code (Opus 5) · **For** a fresh session · **Not executed**
-
-## ✅ UPDATE 2026-09-09 — THE SOUND IS SETTLED. DO NOT RE-TUNE IT.
-
-Dan listened to a four-way A/B (untreated / the rejected build / a gentler candidate / Muhammad)
-and picked the candidate: **"Number 3 sounds good."** That setting is now the module default and
-is proven against the gate. **This handoff is no longer a tuning job — it is a re-render job.**
-
-Already done in the session that wrote this:
-
-| | |
-|---|---|
-| `_shared/audio/dereverb.py` + `voice_chain.py` | defaults set to **alpha 0.30, d1 22 ms, d2 70 ms, floor −10 dB, smooth 0.45** |
-| `_shared/audio/common.py` | new `artifacts()` — `flux` (spectral shimmer) and `swirl` (3–9 kHz envelope) |
-| `_shared/audio/audio_gate.py` | new gated **`artifacts`** row: neither may exceed **his × 1.10** |
-| `_shared/audio/reference/reference.json` | re-measured, now carries `flux 0.0723`, `swirl 0.8352` |
-| `_shared/audio/reference.py` | `find_mp4()` repaired — the 09-08 editor-deliveries rename had broken it silently |
-
-Proof the new row separates the two builds (same source, same window):
-
-| settings | flux | ×his | swirl | ×his | EDT | gate |
-|---|---|---|---|---|---|---|
-| rejected (α 0.62, floor −24, d2 150) | 0.1022 | 1.41 | 0.9620 | 1.15 | 32 ms | **FAIL** |
-| **approved (α 0.30, floor −10)** | 0.0755 | 1.04 | 0.6737 | 0.81 | 48 ms | **PASS** |
-| untreated | 0.0676 | 0.94 | 0.5230 | 0.63 | 75 ms | PASS |
-
-## What is left to do
-
-1. ⚠ **Repair `selftest.sh` first — it is currently broken** (`A: unbound variable`, and its paths
-   still point at `Muhammad Ad Videos/this picture got me abs/…` which the 09-08 rename moved to
-   `…/this picture got me abs - ad 1/… | ad 1.mp4`). AGENTS.md says run it before a batch; it
-   cannot run today. Fix the paths, add the `artifacts` row to its expectations, then run it.
-2. **Re-render three batches** through `_shared/audio` on the new defaults:
-   **spray tan (6)** `YouTube Long Form Video Content/spray-tan-first/` — do this one first, it is
-   the batch Dan is actively reviewing; **Zepbound (8)** and **supplements (8)** are parked behind
-   the parent long-form hold, so they are lower priority. Pre-fix copies:
-   `Short-form video content/_pre-audiofix-20260902/`.
-3. **Every delivered file must carry a fresh `audio_gate` PASS stamp including the `artifacts` row.**
-4. Send Dan 540p review copies plus one A/B against Muhammad, as usual.
-
-## The rule that made this take three attempts
-
-The gate measured only the thing being fixed — `edt`, `dryness` and `floor` all reward MORE
-suppression — so it scored the "underwater" build as *better*. **The `artifacts` row is the
-counterweight: processing may never push a damage metric past the reference's.** Do not raise
-`artifact_x` to make a build pass; that is the failure mode this row exists to stop.
+**Blocking:** nothing may ship from the 8/3 shoot until this passes Dan's ear, not just the gate.
 
 ## What happened
 
