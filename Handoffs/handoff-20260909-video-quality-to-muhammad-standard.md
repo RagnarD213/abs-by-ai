@@ -236,6 +236,13 @@ do-no-harm counterweight. We already made the overshoot mistake once in audio: E
 
 ### PHASE 5 — Portable framing *(1 session)*
 
+⚠ **Paths moved 2026-09-09, mid-audit:** a concurrent session split `/website-video` out of `/ad-edit` and
+moved the recipe — `hairdet.py`, `hairgate.py`, `tanpass.py`, `layout.py`, `deliver.sh` — to
+`.claude/skills/website-video/reference/recipe/`. `ad-edit/reference/website-video/` is now a README pointing
+there. Every path in this handoff that says `ad-edit/reference/website-video/…` means that new location.
+`piccuts.py` and `facetrack3.py` are unaffected (they live in the Ad 2 recipe folder under
+`Muhammad Ad Videos/`).
+
 `hairgate.py` **cannot run on any other set.** It hardcodes `FF=/Volumes/Extreme/_edit_work/bin/ffmpeg`,
 `DAN_CX=1980`, and depends on `hairtrack.json`'s `hdr_col` — the static per-column luma profile of the
 door panel behind Dan in the 8/28 kitchen set. Promoting it is not a copy job:
