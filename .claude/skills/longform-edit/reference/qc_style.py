@@ -12,7 +12,12 @@ EVERYTHING HERE IS MEASURED OFF THE FINISHED FILE, not off the build plan. A pla
 claim thirty cutaways; only the file proves it. The one exception is the splice check,
 which needs to know where the joins are.
 
-usage: qc_style.py <video.mp4> [--plan plan.json] [--srt captions.srt] [--talking-head]
+usage: qc_style.py <video.mp4> --plan plan.json --srt captions.srt (--talking-head | --not-talking-head)
+       [--bed bed.wav] [--no-joins]
+
+⚠ --plan, --srt and the talking-head declaration are NOT optional (2026-09-09). Leaving one off used
+to print [SKIP] and pass; it now FAILS as "NOT MEASURED". Every measurement this gate can make must
+either be made or be explicitly declared inapplicable, on the command line, where it can be audited.
 """
 import argparse, json, math, re, subprocess, sys, wave
 import numpy as np
@@ -296,9 +301,21 @@ def _caption_frac(v, dur):
 
 def check_captions(v, dur, talking_head):
     """Burned captions leave a signature: a band of near-white pixels with dark outline
-    in the lower third, present on most frames of a talking-head video."""
+    in the lower third, present on most frames of a talking-head video.
+
+    ⚠ A MISSING FLAG IS A FAILURE (2026-09-09, Phase 0). This used to print [SKIP] and return,
+    so the caption rule was checked only when a session remembered to type --talking-head -- and
+    under time pressure a session ships what the gate checks. `check_pace` already fails without
+    --srt; this now matches it. A video that genuinely is not a talking head declares it with
+    --not-talking-head, which is visible in the command line a reader can audit."""
+    if talking_head is None:
+        chk(False, "captions: NOT MEASURED",
+            "pass --talking-head so the caption rule is checked (or --not-talking-head to declare "
+            "this video carries no on-camera speech). A silent skip is not a pass")
+        return
     if not talking_head:
-        print("[SKIP] captions: not flagged as talking-head content"); return
+        chk(True, "captions: not measured -- declared not a talking-head video (--not-talking-head)")
+        return
     import os
     if os.environ.get("ORGANIC","1")=="1":
         # DAN 2026-08-27: organic longforms carry NO burned captions (and no watermark);
@@ -325,7 +342,18 @@ def check_captions(v, dur, talking_head):
         "burn word-timed captions from the FINAL audio; ship the .srt too (Step 8)")
 
 def check_splices(v, plan):
-    if not plan: print("[SKIP] splice discontinuity: no --plan given"); return
+    # ⚠ A MISSING PLAN IS A FAILURE (2026-09-09, Phase 0). Same reasoning as check_captions: this
+    # printed [SKIP] and returned, so on every run that forgot --plan the joins were checked by
+    # nothing. The plan is the only thing that knows WHERE the joins are, so there is no fallback --
+    # supply it, or say the file has no joins with --no-joins (a single continuous take).
+    if plan == "none":
+        chk(True, "splice discontinuity: not measured -- declared a single continuous take (--no-joins)")
+        return
+    if not plan:
+        chk(False, "splice discontinuity: NOT MEASURED",
+            "pass --plan <plan.json> so every join is measured against the file's own natural "
+            "ceiling (or --no-joins if this really is one unbroken take). A silent skip is not a pass")
+        return
     P = json.load(open(plan))
     keeps = P["keeps"]; joins, acc = [], 0.0
     for a, b in keeps[:-1]:
@@ -347,7 +375,13 @@ def check_splices(v, plan):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("video"); ap.add_argument("--plan"); ap.add_argument("--srt")
-    ap.add_argument("--talking-head", action="store_true")
+    # ⚠ THREE-STATE, NOT A BOOLEAN (2026-09-09). Absent = NOT MEASURED = FAIL. The declarations are
+    # explicit and separate so "we forgot" can never look like "it does not apply".
+    ap.add_argument("--talking-head", dest="talking_head", action="store_true", default=None)
+    ap.add_argument("--not-talking-head", dest="talking_head", action="store_false",
+                    help="declare this video carries no on-camera speech, so the caption rule does not apply")
+    ap.add_argument("--no-joins", action="store_true",
+                    help="declare this file is a single continuous take, so there are no splices to check")
     ap.add_argument("--bed", help="the music track the mix claims to carry")
     A = ap.parse_args()
     dur = check_streams(A.video)
@@ -360,7 +394,7 @@ if __name__ == "__main__":
     check_coverage(A.video, dur, A.plan)
     check_pace(A.video, A.srt, dur)
     check_captions(A.video, dur, A.talking_head)
-    check_splices(A.video, A.plan)
+    check_splices(A.video, "none" if A.no_joins else A.plan)
     print(f"\n{len(OKS)} passed, {len(FAILS)} failed")
     print("STYLE GATE", "PASS" if not FAILS else "FAIL")
     sys.exit(1 if FAILS else 0)

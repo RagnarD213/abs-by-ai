@@ -70,6 +70,26 @@ sessions (and any other assistant, if one is in use).
   PASS stamp. Do not write a new chain or a new gate in a skill; extend the module with a flag.
 - Run `selftest.sh` before a batch. Send the gate's A/B clip with every review copy.
 
+## No gate change ships without the regression corpus (2026-09-09)
+
+- **`python3 .claude/skills/_shared/qc_corpus/run.py` must pass before any change to a quality gate,
+  a threshold or a setting is committed.** It re-runs our gates over every file Dan **rejected** and
+  every file he **approved**, with his words recorded, and it must **fail every rejected one and pass
+  every approved one**.
+- **Why:** every gate we own was built backwards from the last rejection, so each new failure shipped
+  exactly once. Twice that produced a gate that scored a **rejected** build as *better* than an
+  approved one — the "underwater" dereverb won every audio row it had, and rev 3's own headroom gate
+  passed the cut Dan called *"basically not usable"*. Both files are in the corpus now.
+- **Never raise a threshold to make a build pass** (memory: `audio-never-over-strip`). If a corpus
+  entry fails a bound, that is the finding — report it, do not tune it away.
+- **A new rejection becomes a corpus entry in the same session it happens**, with Dan's verbatim
+  words, before the fix is built. So does a new approval: half the corpus's job is stopping a gate
+  from blocking good work.
+- **A check that did not run is a FAILURE, not a pass, and never a silent skip.** A missing flag, a
+  missing baseline, a missing plan, a script that is not on disk — each one fails and says what is
+  missing. If a check genuinely does not apply, declare it explicitly, with a reason a reader can
+  audit. Full reasoning: `.claude/skills/_shared/qc_corpus/README.md`.
+
 ## Video builds: never run more than two at once
 
 - **Cap concurrent video builds at two across all sessions.** Before starting a render, transcription, QC or watch pass, check whether other sessions are already building (`ps -Ao command | grep -E 'ffmpeg|qc_style|render\.py|whisper'`). If two builds are already running, wait — do not start a third.

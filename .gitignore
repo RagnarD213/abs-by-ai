@@ -134,3 +134,7 @@ brief-autoboost.json
 
 # Finished website videos (Dan's delivery folder, 2026-09-09): masters + review copies + notes, never in the public repo.
 Website Videos/
+
+# The QC regression corpus stores PATHS + sha256, never masters (this repo is public).
+# `run.py --extract` rebuilds these excerpts from the masters on any machine that has them.
+.claude/skills/_shared/qc_corpus/excerpts/

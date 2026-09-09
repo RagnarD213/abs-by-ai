@@ -62,11 +62,19 @@ All of `Media/` is gitignored (public repo) — verify with `git check-ignore` b
      palindromes are BANNED for step moves** — Dan rejected the v1: reverse playback of a step-back
      reads visibly wrong as a "return". 4s legs (~$1.60) leave less room for extra reps than 6s.
    - **Submit Veo jobs SEQUENTIALLY** — two simultaneous creates 429-throttle on Replicate.
+> **⚠ WHERE THE MANDATORY SCRIPTS LIVE (2026-09-09).** `mono.py`, `ghost.py` and `qc.py` are in
+> **`.claude/skills/exercisegeneration/reference/`**, in the repo, and are the copies to run. Until
+> 2026-09-09 they existed ONLY in `Media/exercise-demos/_r2/`, which is **gitignored** — so this
+> SKILL.md named them as MANDATORY on every rep while they lived on one machine, in a scratch folder,
+> with batch 2's ten exercise ids compiled into `qc.py`. A rule enforced by a script that is not in
+> the repo is not enforced. All three take `--dir <demos root>` (default `Media/exercise-demos`);
+> nothing about what they measure changed. The `_r2/` copies are left in place for batch-4 work.
+
 5. **Extract the clean rep — THE GATED CUT PIPELINE (mandatory; supersedes all earlier frame-sheet
    advice).** Veo obeys the ENDPOINTS but NOT the rep count, it settles/wobbles at segment boundaries,
    it bobs at the bottom of hinges, and it animates background machinery. Every one of Dan's
    double-pump rejections traced to skipping a gate below. Per leg:
-   a. **Region-scoped distance signal** (`_r2/mono.py analyze <id> <leg> [x w y h]`, crop scoped to
+   a. **Region-scoped distance signal** (`reference/mono.py analyze <id> <leg> [x w y h]`, crop scoped to
       the moving part — hands for pushdowns, torso arc for hinges, feet strip for anything planted).
       Whole-frame signals SATURATE once the body leaves the start pose and hide limb-level reversals.
    b. Choose a **strictly monotonic window** (mono.py `cut` refuses >8% dips).
@@ -79,7 +87,7 @@ All of `Media/` is gitignored (public repo) — verify with `git check-ignore` b
       start at the exercise's REST pose (reorder rev+seg when the leg was generated bottom-first).
    e. `mono.py qcunit` — the unit must be one unimodal pulse (≤10% secondary bumps), and verify the
       loop junction is a SINGLE velocity dip (bench final: 0.46→0.03→0.30 = one touch-and-go).
-   f. **`_r2/ghost.py` background scan.** If ANY stray machine motion flags: don't spot-patch —
+   f. **`reference/ghost.py` background scan.** If ANY stray machine motion flags: don't spot-patch —
       **FREEZE THE WHOLE BACKGROUND**: overlay the live video cropped to the subject's corridor onto
       a full-res frame-0 still (`crop=W:1080:X:0` + `overlay=X:0`). Locked camera makes the seam
       invisible. Size the corridor from a motion heatmap and remember hips travel BACKWARD in squats/
@@ -220,14 +228,22 @@ is the odd one out — worth re-exporting whenever that file is next touched.)
   error; a 30s wait and a re-run fixed both. `gen-stills.js`/`gen-ends.js` run in waves of 8.
 - **Loudness needs no normalization** — every finished file landed at −23.4 to −24.9 dB mean, matching
   batch 1's approved −23.9/−24.2 exactly.
-- **Gate the final mux (2026-09-02):** `python3 .claude/skills/_shared/audio/audio_gate.py DEMO.mp4 --synthetic`
+- **Gate the final mux (2026-09-02, bound corrected 2026-09-09):**
+  `python3 .claude/skills/_shared/audio/audio_gate.py DEMO.mp4 --synthetic --profile in-app-demo`
   per exercise — AI voice, so only the loudness / true peak / centred image / no-silent-second / audio-length
-  rows apply. ⚠ The batch-1 files sit near −24 LUFS, well under the −14 ±1 row; because Dan approved that
-  level for in-app demos, gate these with `--synthetic` for the peak/silence/length rows and report loudness
-  rather than fail on it (pass `--no-stamp` if the row fails and note it in the delivery).
-- **Run `qc.py` before delivering.** It asserts, per exercise: 1920×1080/24fps, AAC present, loop-join
-  frame diff (<3.0 = seamless; all 20 came in at 0.32–1.2), range-of-motion diff (>2.0), and that the
-  VO ends inside the video.
+  rows apply, and `--profile in-app-demo` moves the loudness row to **−24 ±1.5 LUFS**: the level Dan
+  approved for in-app demos (batch 1 measured −23.9 / −24.2, batch 2 −23.4 to −24.9), not the −14 a
+  platform feed wants. **Every demo must carry a PASS stamp.**
+  ⚠ This line used to read *"report loudness rather than fail on it (pass `--no-stamp` if the row fails)"*.
+  That was the only instructed gate bypass in the repo, and it was worse than it looked: an unstamped file
+  fails `require_stamp.py` downstream too, so nothing anywhere could tell a good demo from a bad one.
+  A row that does not fit becomes a **measured** row, never a skipped one (`_shared/audio/README.md`
+  non-negotiable 6). **Never pass `--no-stamp` on a delivery** — it exists for the selftest.
+- **Run `reference/qc.py <id> …` (or `--all`) before delivering.** It asserts, per exercise:
+  1920×1080/24fps, AAC present, loop-join frame diff (<3.0 = seamless; all 20 came in at 0.32–1.2),
+  range-of-motion diff (>2.0), that the VO ends inside the video, and **that the delivered narrated
+  file carries a PASS audio stamp** (added 2026-09-09 — the three batch-1 demos checked that day
+  carried none, because the old instruction was to pass `--no-stamp`).
 
 ### Batch 2 measured cost — ~$59 for 20 exercises (~$2.95 each)
 60 start stills ($8.04) · 22 end stills ($2.95) · 20 Veo legs ($47.20) · 3 Kling holds ($1.05) ·
@@ -351,7 +367,7 @@ non-monotonic wobble get that wobble MIRRORED by the palindrome, so it plays twi
 every loop boundary.** Veo legs almost always contain settling jitter before the real movement (the
 pull-up leg had a full partial rise before the true pull; the press leg had two bounces at the bottom).
 
-**The fix, now tooled in `_r2/mono.py` — use it on EVERY rep:**
+**The fix, now tooled in `reference/mono.py` — use it on EVERY rep:**
 1. `analyze <id> <leg> [x w y h]` — dense 12fps frame-diff signal vs frame 0, with an optional region
    crop (**whole-frame diff saturates once the body leaves the start pose; scope to where the moving
    part travels** — the overhead zone for presses, the heel arc for curls).
@@ -377,7 +393,7 @@ Also from this round: a real cycle inside one leg (Kling calf raise) still canno
 
 Dan caught weight stacks on background cable machines pumping up and down in time with the seated
 press — nobody on the machines. **Video models animate sympathetic background motion; QC must look at
-the whole frame, not just the exercise.** Tooling: `_r2/ghost.py <id>` builds a per-pixel motion
+the whole frame, not just the exercise.** Tooling: `reference/ghost.py <id>` builds a per-pixel motion
 heatmap across the unit, finds the subject's motion box, and flags any stray motion outside it.
 Run it on EVERY unit; eyeball each flag (his own head/feet micro-shifts flag too — that's fine;
 machinery moving is not).

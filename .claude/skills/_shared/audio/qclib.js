@@ -9,8 +9,11 @@ function run(script, args) {
   const r = spawnSync('python3', [path.join(HERE, script), ...args], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
   return { ok: r.status === 0, out: ((r.stdout || '') + (r.stderr || '')).trim() };
 }
+// STRICT BY DEFAULT (2026-09-09). A `--synthetic` stamp no longer satisfies a camera-audio
+// caller; the AI-voice skills pass { allowSynthetic: true } at the call site so it is visible.
+// `strict: true` is still accepted and is a no-op.
 function requireStamp(file, opts = {}) {
-  return run('require_stamp.py', [file, ...(opts.strict ? ['--strict'] : [])]);
+  return run('require_stamp.py', [file, ...(opts.allowSynthetic ? ['--allow-synthetic'] : [])]);
 }
 function gate(file, opts = {}) {
   const a = [file];

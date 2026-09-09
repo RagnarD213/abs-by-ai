@@ -18,7 +18,9 @@
 > rows exist to stop.
 >
 > Re-renders of the three affected batches: `Handoffs/handoff-20260909-audio-match-muhammad.md`.
-> ⚠ `selftest.sh` is currently BROKEN (unbound variable + pre-09-08 reference paths) — fix before a batch.
+> ✅ `selftest.sh` passes **19/19 in ~90 s** (2026-09-09). It was never broken: it is a **zsh**
+> script, and `bash selftest.sh` dies on `${0:A:h}` with *"A: unbound variable"* — which reads
+> exactly like a bug. It now refuses the wrong shell with a message instead. **Run `zsh selftest.sh`.**
 
 # `_shared/audio` — the one audio standard for every video skill
 
@@ -35,11 +37,11 @@ let comb-filtered and roomy audio ship four times.
 | `voice_chain.py --in X --out Y` | **the approved chain** (website video rev 2, "you got it nailed"): pull per `audio_source.json` (refuses SILENT input — a stacked `pan`), dereverb only if EDT > 55 ms, EQ **fitted** to the reference per file (9 bands + shelf, damped, smoothed, never a pasted curve), downward expander, compressor OFF (`--comp` ≤ 1.5:1), `pan=stereo|c0=c0|c1=c0`, `--bed` ≤ −30 dB ducked, `--extra` SFX, measured gain + `alimiter` (delay measured by xcorr) to −14 LUFS / −2.5 dBTP in PCM. The EQ fit uses an adaptive per-band step (the treble shelf moves the top band ~2.4x, and a fixed step oscillated), then **verifies the tone on the DELIVERED file and folds the residual back** (up to two extra renders, best kept) — the expander, limiter and AAC encode all move the spectrum, so a fit that only converges on the intermediate ships 0.5–1 dB worse. Length-preserving; `--frame-lock <picture>`; `--finish-only` for an already-finished mix (shortad's reference-mix path). Writes `Y.voice_chain.json`. |
 | `audio_gate.py <delivered> --reference-mix his_mix.wav` | **the editor's-own-mix path (shortad-from-longform).** Provenance is VERIFIED, not assumed: per-second level-normalised correlation against that mix must read ≥ 0.99 at the median (the number that separated his mix from a loudnorm'd one: 0.970) or the flag is refused. With provenance proven, comb / room / tone / floor / dryness / spread are measured and recorded but cannot fail the file — they measure HIS mixing (Ad 2's bed sits 6–7 dB hotter between words than the pinned Ad 1 reference, which is why "passes by construction" was only ever true for Ad 1). Loudness, true peak, silence, length and the L/R image still gate; the stamp carries `mode: reference-mix`, the mix's sha256 and the provenance number. Added 2026-09-03 on the Ad 2 V2 vertical. |
 | `audio_gate.py <delivered>` | **the one gate, on the exact delivered file**: L/R ≥ +0.97 · comb ripple ≤ his + 0.35 dB · EDT ≤ 80 ms · tone mean ≤ 1.2 / max ≤ 2.5 dB · floor within 3 dB of his · dryness ≥ his − 1.5 · −14 ±1 LUFS · speech spread ≥ his − 3 dB · TP ≤ −1.0 dBTP · 0 silent seconds · audio length = picture ± 0.10 s. Writes `<file>.audio_gate.json` (sha256 + every number + PASS/FAIL). `--synthetic` for AI voices keeps loudness/TP/silence/length/image. `--ab out.mp4` = his three sentences, then ours. |
-| `require_stamp.py <file>` / `qclib.js requireStamp()` | **the enforcement**: stamp exists, sha256 matches THIS file, verdict PASS, same pinned reference. Called by every QC and every deliver script. |
+| `require_stamp.py <file>` / `qclib.js requireStamp()` | **the enforcement**: stamp exists, sha256 matches THIS file, verdict PASS, same pinned reference. Called by every QC and every deliver script. **Strict since 2026-09-09**: a `--synthetic` stamp no longer satisfies a camera-audio caller — the three AI-voice skills (`make-ad`, `exercisegeneration`, `findassets`) pass `--allow-synthetic` where a reader can see it. The old opt-IN `--strict` was passed by no SKILL.md anywhere, which is what made it useless. |
 | `reference.py` + `reference/` | the reference **pinned by fingerprint**: a mono 48 k FLAC of his audio + `reference.json` (sha256, bands, floor, EDT, dryness, spread, LUFS). Regenerates from the .mp4 wherever it lives and refuses a mismatch. Moving the file cannot silently break a gate again. |
 | `dereverb.py` | spectral subtraction of the late field. Defaults are the 2026-09-09 approved setting. Its CLI records the do-no-harm baseline on its INPUT; `stash=<delivered path>` parks it where the gate looks. |
 | `common.py` | the measurement functions, verbatim from the approved gates, so today's numbers are yesterday's numbers |
-| `selftest.sh` | run before any batch: identity on the reference, PASS on the Ad 1 vertical and the approved website rev 2, FAIL on rev 1 and on a synthetic both-mics render, `pick_lav` on all four roll types, stacked-pan refusal, chain end-to-end on an 8/28 excerpt, and **step 7: the dereverb Dan rejected must FAIL `do_no_harm` while still passing the dry-room row** |
+| `selftest.sh` | **`zsh selftest.sh`** before any batch: identity on the reference, PASS on the Ad 1 vertical and the approved website rev 2, FAIL on rev 1 and on a synthetic both-mics render, `pick_lav` on all four roll types, stacked-pan refusal, chain end-to-end on an 8/28 excerpt, **step 7: the dereverb Dan rejected must FAIL `do_no_harm` while still passing the dry-room row, and a file with no baseline must FAIL**, and **step 8: a `--synthetic` stamp must not satisfy the default `require_stamp`** |
 
 ## The standard, measured (20–140 s window)
 
@@ -73,7 +75,8 @@ row — non-negotiable 6: a defect the gate cannot see becomes a row.
   `audio_modern.py` → shims to `voice_chain.py`; `voice_ref_check.py` → shim to the gate; `qc.py`/`qc5.py`
   `require_stamp`; `deliver.sh` gates + stamps.
 - **longform-edit**: `build_graded.py`/`build_split.py`/`build_*_singlemic.py` pull per the JSON;
-  every `composite_*.py` refuses an unstamped input unless `AUDIO_UNGATED=1` (audio finished later);
+  every `composite_*.py` refuses an unstamped input, **with no override** (the `AUDIO_UNGATED=1`
+  escape was removed 2026-09-09 — finish and gate the audio before compositing);
   `finish_audio.py`/`audio_final.py`/`chan_analyse.py` → shims; `qc_style.py check_channels`, `qc_generic`,
   `qc_investhealth*`, `cutdown_final_gate` and `deliver.sh` require the stamp.
 - **shorts**: `render.js` (all four) pull per the JSON of the source master / raw roll — no `VOICE`
@@ -118,9 +121,14 @@ separate damage from intent — the downward expander alone costs 1.22×, and th
 the `floor` row rewards. `sfm` moves the *wrong way* on this material: the rejected build's sfm is
 LOWER than untreated. A metric that cannot fail a bad build does not belong in a gated row.
 
-**A missing baseline is reported, never skipped silently** — the stamp records
-`do_no_harm: not_measured` so a reader can tell "checked against its own untreated signal" from
-"nobody looked". Legacy files gated before 09-09 read `not_measured`.
+**A missing baseline is a FAILURE** (2026-09-09, Phase 0). It used to be recorded as
+`ok=True, not_measured=True` — visible, but passing, so "nobody looked" read as "it is fine" to every
+downstream caller. That is the exact shape of the defect this row exists to stop. The fix is one line in
+the producing stage: `common.stash_untreated()` while the untreated audio still exists, or
+`--untreated <that file>.audio_untreated.json` at the gate. ⚠ **Every file gated before 2026-09-09 fails
+this row on a re-gate** — that is correct, and it is the input to the regression corpus
+(`_shared/qc_corpus/`). In `--reference-mix` mode the row is informational like the other damage rows:
+the delivered audio is the editor's own mix, which our chain never touched.
 
 ## Calibration notes
 
@@ -129,17 +137,33 @@ LOWER than untreated. A metric that cannot fail a bad build does not belong in a
   `qc_style.py`. No bed measured 47/53/46 — the expander already beats his floor by 19 dB, so on a
   quiet lav the bed IS the floor. Start at −36 on longforms; −30 is the ceiling.
 
+## The regression corpus — run it before changing any limit here
+
+`python3 ../qc_corpus/run.py` (**`_shared/qc_corpus/`**, added 2026-09-09) re-runs this gate over every
+file Dan rejected and every file he approved, with his own words recorded, and asserts the verdicts
+match. **No change to a row, a limit or a setting in this module ships without it passing** — it is a
+standing rule in `AGENTS.md`. `selftest.sh` runs as its step 0 and proves the module still measures what
+it claims; the corpus then asks it about specific files. The corpus is where the "underwater" dereverb,
+the approved website rev 2 and Muhammad's own reference all live side by side, so a limit change that
+wins one and loses another cannot ship quietly.
+
 ## Non-negotiables
 
 1. Selection is measured per file, never assumed — `pick_lav` output or no render.
 2. One chain, one gate, one reference — extend the module with a flag; never write a new chain.
-3. The gate measures the delivered file and stamps it; QC and delivery refuse an unstamped file.
+3. The gate measures the delivered file and stamps it; QC and delivery refuse an unstamped file —
+   and refuse a `--synthetic` stamp unless the caller says `--allow-synthetic` out loud.
 4. The reference is pinned by fingerprint.
 5. An A/B clip (his three sentences, then ours) ships with every review copy.
 6. A metric Dan rejects on that the gate cannot see becomes a new row.
 7. **Processing may never leave a file worse than doing nothing.** If a row rewards suppression,
    a row bounding its damage ships with it, in the same commit.
-8. **No skill keeps its own copy of the maths.** The spray-tan pipeline held a forked
+8. **A check that did not run is a FAILURE, never a pass, and never a silent skip.** A missing flag,
+   a missing baseline, a missing plan, a script that is not on disk — each one FAILS and says what is
+   missing. Every bypass Phase 0 closed had the same shape: silence that read as approval. If a check
+   genuinely does not apply, it is declared explicitly, on the command line or in a config, with a
+   reason a reader can audit.
+9. **No skill keeps its own copy of the maths.** The spray-tan pipeline held a forked
    `work/dereverb.py` AND passed the rejected parameters on the command line, so correcting the
    shared module changed nothing there. It is a shim now; `render.js` calls this module with no
    overrides. Grep for forks before assuming a shared fix has landed.

@@ -11,15 +11,22 @@ SRC = BASE / "roughcuts" / "CUT_v1_graded.mp4"
 import os as _os, sys as _sys; _sys.path.insert(0, "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/audio")
 def _audio_tripwire(src):
     """2026-09-02: this script copies audio through untouched (-c:a copy). If the input has no PASS
-    stamp from _shared/audio/audio_gate.py, either the audio is not finished yet (set AUDIO_UNGATED=1
-    and finish + gate it on the OUTPUT before delivery) or it is the comb-filtered/roomy audio that
-    shipped three times. Either way the delivered file cannot pass QC without its own stamp."""
+    stamp from _shared/audio/audio_gate.py, it is the comb-filtered/roomy audio that shipped three
+    times, and compositing over it only makes it more expensive to fix.
+
+    ⚠ THE `AUDIO_UNGATED=1` ESCAPE WAS REMOVED 2026-09-09 (Phase 0 of the video-quality programme).
+    It existed for the case "the audio finish runs after this step", and it was the wrong shape for
+    that: an environment variable set once in a shell silently disarms this tripwire for everything
+    that shell runs afterwards, and leaves no mark on the file. The correct order costs nothing --
+    finish and gate the audio FIRST (voice_chain.py -> audio_gate.py), then composite. The composite
+    output has a different sha256 either way, so it is re-gated before delivery regardless; gating
+    the input first is what stops bad audio being carried three renders deep before anyone measures it."""
     from require_stamp import require_stamp
     try: require_stamp(str(src)); return
     except SystemExit as e:
-        if _os.environ.get("AUDIO_UNGATED") == "1":
-            print(f"  ⚠ AUDIO_UNGATED=1: compositing over UNGATED audio ({e}). The output MUST go through voice_chain/audio_gate before delivery."); return
-        raise SystemExit(f"{e}\n  -> gate the input first, or set AUDIO_UNGATED=1 if the audio finish runs after this step")
+        raise SystemExit(f"{e}" + "\n  -> finish and gate the audio BEFORE compositing "
+                         f"(voice_chain.py -> audio_gate.py). There is no override: "
+                         f"the AUDIO_UNGATED=1 escape was removed 2026-09-09.")
 _audio_tripwire(SRC)
 OUT = BASE / "roughcuts" / outname
 G = BASE / "gfx"

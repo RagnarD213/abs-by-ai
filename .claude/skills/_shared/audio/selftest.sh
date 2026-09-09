@@ -12,9 +12,18 @@
 #   6 voice_chain end-to-end on an 8/28 excerpt (4 tracks, wet room) -> the gate PASSES the output,
 #     the untreated baseline is written, and the do_no_harm row actually runs
 #   7 the do-no-harm row REFUSES the dereverb Dan rejected on 2026-09-09 and accepts the one he
-#     approved, from the same source through the same chain; a missing baseline is reported loudly
+#     approved, from the same source through the same chain; a MISSING baseline FAILS the file
+#     (2026-09-09: it used to pass as "not measured"), and --untreated can restore it
+#   8 a --synthetic stamp does NOT satisfy a caller that needs the full camera gate (require_stamp
+#     is strict by default since 2026-09-09; --allow-synthetic is the explicit, visible opt-in)
 # Steps 4 and 6 need the Seagate mounted; they are skipped (loudly) if it is not.
 set -u
+# ⚠ ZSH ONLY, AND IT MUST SAY SO. Run under bash, `${0:A:h}` below expands to nothing and the script
+# dies with "A: unbound variable" -- which is indistinguishable from a real bug, and is how this
+# selftest spent 2026-09-09 documented as BROKEN in README.md while passing 16/16 under zsh.
+if [ -z "${ZSH_VERSION:-}" ]; then
+  echo "selftest.sh is a zsh script (it uses \${0:A:h}). Run:  zsh $0" >&2; exit 2
+fi
 HERE="${0:A:h}"; cd "$HERE"
 S="${SELFTEST_DIR:-/tmp/audio_selftest}"; mkdir -p "$S"
 REPO="$HERE/../../../.."
@@ -44,15 +53,30 @@ expect_lav() {  # file ss t expected_map expected_filter [expected_polarity]
 }
 echo "== 1 reference identity"
 python3 audio_gate.py "$REF" --reference-rows-only --no-stamp >"$S/1.log" 2>&1 && grep -q "mean |err| 0.00 dB" "$S/1.log" && ok "zero tone error, all reference rows pass" || { bad "reference identity"; tail -5 "$S/1.log"; }
-echo "== 2 the Ad 1 vertical (approved audio) must PASS"
-python3 audio_gate.py "$AD1V" --no-stamp >"$S/2.log" 2>&1 && ok "Ad 1 vertical PASS" || { bad "Ad 1 vertical did not pass"; grep FAIL "$S/2.log"; }
+echo "== 2 the Ad 1 vertical (approved audio) must PASS every measurable row"
+# ⚠ LEGACY BASELINE GAP (2026-09-09). This file was rendered and approved before voice_chain started
+# stashing the untreated signal, so `do_no_harm` reads NOT MEASURED -- which is now a FAIL, correctly:
+# nobody looked. That is a fact about the file's history, not a fault in its audio, so the fixture
+# asserts "no OTHER row fails". ⚠ Do NOT relax this into "do_no_harm may fail" for files we render
+# from here on: those carry a baseline, and a missing one means the chain was bypassed.
+_only_dnh() {   # log -> 0 if the only failing row is an unmeasured do_no_harm
+  local other; other=$(grep "^  FAIL" "$1" | grep -v "do no harm: NOT MEASURED" | wc -l | tr -d ' ')
+  [[ "$other" == "0" ]] && grep -q "FAIL  do no harm: NOT MEASURED" "$1"
+}
+if python3 audio_gate.py "$AD1V" --no-stamp >"$S/2.log" 2>&1; then ok "Ad 1 vertical PASS"
+elif _only_dnh "$S/2.log"; then ok "Ad 1 vertical passes every measurable row (do_no_harm unmeasured: pre-09-09 render)"
+else bad "Ad 1 vertical failed a real row"; grep FAIL "$S/2.log"; fi
 echo "== 2b the website video: rev 2 (APPROVED, 8/28 room at 75 ms) must PASS; rev 1 (REJECTED on floor) must FAIL"
 WV="$REPO/claude edited long form content/06 - Website Conversion Video (post-generation)"
 # ⚠ NAME THE REVISION, NOT THE POINTER. This used to gate "website_video_16x9.mp4" and call it
 # rev 2; that filename is now rev 5 (rev 2 was superseded on picture, not audio), so the test was
 # silently checking a different file than its label claimed. Fixed 2026-09-09.
 if [[ -f "$WV/website_video_16x9_REV2_REJECTED.mp4" ]]; then
-  python3 audio_gate.py "$WV/website_video_16x9_REV2_REJECTED.mp4" --no-stamp >"$S/2b.log" 2>&1 && ok "website rev 2 (audio approved: \"you got it nailed\") PASS" || { bad "website rev 2 (approved) did not pass"; grep FAIL "$S/2b.log"; }
+  if python3 audio_gate.py "$WV/website_video_16x9_REV2_REJECTED.mp4" --no-stamp >"$S/2b.log" 2>&1; then
+    ok "website rev 2 (audio approved: \"you got it nailed\") PASS"
+  elif _only_dnh "$S/2b.log"; then
+    ok "website rev 2 (approved) passes every measurable row (do_no_harm unmeasured: pre-09-09 render)"
+  else bad "website rev 2 (approved) failed a real row"; grep FAIL "$S/2b.log"; fi
   if python3 audio_gate.py "$WV/website_video_16x9_REV1_REJECTED.mp4" --no-stamp >"$S/2c.log" 2>&1; then bad "website rev 1 (REJECTED) passed"; else
     grep -q "FAIL  clean between words" "$S/2c.log" && grep -q "FAIL  tone" "$S/2c.log" && ok "website rev 1 (rejected) FAILS on floor + tone ($(grep -c FAIL "$S/2c.log") rows)" || { bad "rev 1 failed, but not on floor/tone"; grep FAIL "$S/2c.log"; }; fi
 else echo "  ⚠ SKIPPED: website video not in the project folder"; fi
@@ -109,14 +133,36 @@ if [[ -f "$S/c1650_ex.mov" ]]; then
       && grep -q "PASS  dry room" "$S/7b.log" \
       && ok "rejected dereverb FAILS do_no_harm ($(grep -o 'swirl [0-9.]* vs untreated [0-9.]* (x[0-9.]*)' "$S/7b.log" | head -1)) while still PASSING the dry-room row" \
       || { bad "rejected dereverb failed, but not on do_no_harm"; grep -E "FAIL" "$S/7b.log"; }; fi
-  # and a file with no baseline must SAY SO rather than quietly skipping the row
+  # and a file with no baseline must FAIL, not pass. ⚠ Until 2026-09-09 this row appended
+  # ok=True/not_measured=True: recorded, but PASSING -- so "nobody looked" read as "it is fine" to
+  # every downstream caller, which is the exact shape of the defect the row exists to stop.
   cp "$S/harm_rejected.mp4" "$S/nobaseline.mp4"; rm -f "$S/nobaseline.mp4.audio_untreated.json"
-  python3 audio_gate.py "$S/nobaseline.mp4" --no-stamp >"$S/7c.log" 2>&1
-  grep -q "do no harm NOT MEASURED" "$S/7c.log" && ok "a missing baseline is reported, not skipped silently" \
-    || bad "a missing do-no-harm baseline was skipped without a word"
+  if python3 audio_gate.py "$S/nobaseline.mp4" --no-stamp >"$S/7c.log" 2>&1; then
+    bad "a file with NO do-no-harm baseline PASSED the gate"
+  else
+    grep -q "FAIL  do no harm: NOT MEASURED" "$S/7c.log" && ok "a missing baseline FAILS the file, and says why" \
+      || { bad "the file failed, but not on an unmeasured do_no_harm"; grep FAIL "$S/7c.log"; }
+  fi
   # the row must be gradable against an explicitly supplied baseline too
   python3 audio_gate.py "$S/nobaseline.mp4" --untreated "$S/harm_rejected.mp4.audio_untreated.json" --no-stamp >"$S/7d.log" 2>&1
   grep -q "FAIL  no worse than untreated" "$S/7d.log" && ok "--untreated supplies the baseline for a file that lost its sidecar" \
     || bad "--untreated did not restore the do_no_harm row"
 else echo "  ⚠ SKIPPED: step 6 did not produce an excerpt (Seagate not mounted)"; fi
+echo "== 8 a --synthetic stamp must not satisfy a camera-audio caller"
+# ⚠ require_stamp defaulted to synthetic_ok=True and required an opt-IN --strict that NO SKILL.md
+# ever passed, so a weakened 4-row stamp silently satisfied every full-gate caller. Strict is the
+# default now; --allow-synthetic is the explicit opt-in for the three AI-voice skills.
+if [[ -f "$S/c1650_chain.mp4" ]]; then
+  cp "$S/c1650_chain.mp4" "$S/synth.mp4"
+  python3 audio_gate.py "$S/synth.mp4" --synthetic >"$S/8a.log" 2>&1
+  if python3 require_stamp.py "$S/synth.mp4" >"$S/8b.log" 2>&1; then
+    bad "a --synthetic stamp satisfied the default (camera-audio) require_stamp"
+  else
+    grep -q "synthetic" "$S/8b.log" && ok "a --synthetic stamp is refused by default, naming the reason" \
+      || { bad "refused, but not because it is synthetic"; tail -2 "$S/8b.log"; }
+  fi
+  python3 require_stamp.py "$S/synth.mp4" --allow-synthetic >/dev/null 2>&1 \
+    && ok "--allow-synthetic accepts it explicitly (make-ad / exercisegeneration / findassets)" \
+    || bad "--allow-synthetic did not accept a valid synthetic stamp"
+else echo "  ⚠ SKIPPED: step 6 did not produce a chained file (Seagate not mounted)"; fi
 echo; if [[ $fail -eq 0 ]]; then echo "SELFTEST PASS"; else echo "SELFTEST: $fail FAILURE(S)"; exit 1; fi

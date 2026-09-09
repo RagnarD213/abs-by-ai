@@ -236,7 +236,7 @@ turns a 4-minute video into ~16 frames to inspect.
 > The processing is now `_shared/audio/voice_chain.py --finish-only` (`finish_audio.py` is a shim to
 > it) — and **the delivered file then goes through `_shared/audio/audio_gate.py` like every other
 > render**; his mix passes the reference rows by construction and the gate adds loudness, true peak,
-> silence and length, and writes the stamp `qc.py` check 17 requires. Under the hood it is:
+> silence and length, and writes the stamp `qc.py` check 18 requires. Under the hood it is:
 > **`volume=<G>dB` (one constant gain), then
 > `alimiter=limit=0.85:level=disabled`**, compensating the limiter's **239-sample latency**
 > (`atrim=start_sample=239,apad=pad_len=239` — re-measure it if you change `attack`, which
@@ -431,12 +431,12 @@ beats.py           beat sheet stepped at 1s off HIS cut + PUSHES + FLASHES + LOW
 render.py          one output segment per beat -> concat -> overlays (shifted, not gated)
 build_audio.py     lav voice (per pick_lav's audio_source.json) -> EQ fitted to HIS mix -> bed -> HIS_SFX list
 finish_audio.py    _shared/audio/voice_chain.py --finish-only: CONSTANT gain + alimiter (NEVER loudnorm)
-                   then _shared/audio/audio_gate.py on the delivered .mp4 (the stamp qc.py check 17 needs)
+                   then _shared/audio/audio_gate.py on the delivered .mp4 (the stamp qc.py check 18 needs)
 a2/align_ctc.py    FORCE-ALIGN the caption words to the mix (Whisper timings are ~130 ms early)
 captions.py        word-timed from words_ctc.json, suppressed under text graphics, typo correction map
 caption_sync_check.py  THE SUBTITLE GATE on the delivered file (qc check 20)
 a2/watch.py        THE GATE: per-frame scan + a consecutive-frame strip at every boundary
-qc.py              15 checks, the last of which is "the watch pass was done"
+qc.py              20 checks (generic; per-cut numbers in qc.json). Check 15 = the watch pass
 cutdown.py         the <=0:59 selection -- built ONLY from Dan's edited script
 ```
 
@@ -548,8 +548,18 @@ incoming one -- and overlay it so it REPLACES the incoming segment's first frame
 length is preserved exactly because nothing is inserted. Then re-render only the beats that
 read from the base.
 
-Only then run `reference/qc.py`, which is now **17 checks** (16 = audio integrity, 17 = the
-`_shared/audio` gate stamp on this exact file):
+Only then run `reference/qc.py <delivered.mp4> --build-dir <build>`, which is **20 checks**.
+
+> **⚠ THIS FILE NOW EXISTS (2026-09-09).** Until Phase 0 of the video-quality programme, this SKILL.md
+> referenced `reference/qc.py` five times and described its check list — and **the file was not there.**
+> The only gate on disk was `qc_ad2v2.py`, a per-ad fork with `TARGET = 276.109167` and
+> `V = 'ad2v2_vertical_9x16.mp4'` compiled in, unusable on any other cut. A SKILL.md that asserts a
+> check nothing performs is worse than no check: it reads as covered. `qc.py` is the generic gate;
+> per-cut numbers go in a `qc.json` beside the build (see its docstring), and **a check whose input is
+> missing is NOT MEASURED, which FAILS** — declare a genuine non-applicability in `qc.json`'s `skip`,
+> with the reason, where a reader can audit it. `qc_ad2v2.py` stays as the reproducible Ad-2 record.
+
+The checks (16 = audio integrity, 18 = the `_shared/audio` gate stamp on this exact file):
 
 1 frame size 1080×1920 · 2 fps 29.97 · 3 duration matches the reference · 4 −14 LUFS ±0.8 ·
 5 true peak ≤ −1.0 dBTP · 6 L/R correlation > 0.98 · 7 ≥ 9 visual changes/min ·
