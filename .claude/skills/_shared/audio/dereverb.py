@@ -73,7 +73,7 @@ def dereverb(x, sr=48000, n_fft=1024, hop=192, alpha=0.30, d1_ms=22, d2_ms=70,
 if __name__ == '__main__':
     import wave
     src, dst = sys.argv[1], sys.argv[2]
-    kw = {k: float(v) for k, v in (a.split('=') for a in sys.argv[3:])}
+    kw = {k: (v if k == 'stash' else float(v)) for k, v in (a.split('=', 1) for a in sys.argv[3:])}
     w = wave.open(src)
     sr, nch, sw, nfr = w.getframerate(), w.getnchannels(), w.getsampwidth(), w.getnframes()
     # ⚠ THE WAV IS STEREO (dual-mono) AND MUST BE DE-INTERLEAVED FIRST. Reading it as one
@@ -86,8 +86,20 @@ if __name__ == '__main__':
     raw = np.frombuffer(w.readframes(nfr), np.int16).astype(np.float64) / 32768.
     w.close()
     ch = raw.reshape(-1, nch)
+    # ⚠ RECORD THE DO-NO-HARM BASELINE (2026-09-09). This is the last moment the untreated signal
+    # exists. audio_gate's `do_no_harm` row compares the delivered file against these numbers and
+    # refuses an output that is worse than doing nothing; without them the row cannot run, and a
+    # build that damages the voice ships on a good EDT alone - which is what happened on 09-02.
+    # `stash=<final delivered path>` puts the sidecar where the gate will look for it.
+    import os as _os
+    sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+    import common as _C
+    _stash = kw.pop('stash', None)
     out = np.stack([dereverb(ch[:, c], sr=sr, **kw) for c in range(nch)], axis=1)
     assert out.shape == ch.shape, f'dereverb changed shape {ch.shape} -> {out.shape}'
     o = wave.open(dst, 'w'); o.setnchannels(nch); o.setsampwidth(2); o.setframerate(sr)
     o.writeframes((np.clip(out, -1, 1) * 32767).astype(np.int16).ravel().tobytes()); o.close()
+    b = _C.stash_untreated(_stash or dst, ch[:, 0], note=f'pre-dereverb of {_os.path.basename(src)}')
     print(f"{src} -> {dst}  {nfr/sr:.2f}s  {nch}ch (preserved)")
+    print(f"  untreated baseline: flux {b['flux']:.3f}  swirl {b['swirl']:.3f}  EDT {b['edt_ms']:.0f} ms"
+          f"  -> {_C.untreated_path(_stash or dst)}")

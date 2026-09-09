@@ -15,6 +15,8 @@ Rows (each traces to something Dan rejected on, or to the platform standard):
   7 not crushed                speech spread p90-p10 (speech frames)    >= his - 3.0 dB; LRA reported
   8 no clipping on phones      true peak of the delivered file          <= -1.0 dBTP (platform ceiling; the chain lands -2.5 in PCM)
   9 nothing missing            digitally silent seconds 0; audio length within 0.10 s of the picture
+ 10 no processing damage        flux / HF swirl                          <= his x1.10
+ 11 do no harm                  flux / HF swirl vs THIS FILE UNTREATED   <= x1.35
 
 --synthetic (make-ad, exercise demos: an AI voice, no camera) keeps 6, 8, 9 and the L/R row.
 The stamp `<file>.audio_gate.json` carries the file's sha256 + every number + PASS/FAIL, and
@@ -36,13 +38,19 @@ import reference as R
 #   the rest   the handoff's table, unchanged (tone / floor / dryness were what rev 1 and spray-tan failed on).
 # artifact_x 1.10: the build Dan rejected ran 1.29x his flux and 1.19x his swirl; the build he
 # approved by ear on 2026-09-09 runs 1.01x and 0.81x. 1.10 separates them with margin.
+# harm_x 1.35: measured 2026-09-09 on matched pairs (the SAME short, untreated vs processed).
+#   approved a0.30  flux 1.05-1.21x untreated, swirl 1.21-1.28x
+#   rejected a0.62  flux 1.30-1.61x,           swirl 1.57-1.94x
+#   the chain WITHOUT any dereverb  flux 0.98x, swirl 0.96x -- so this row charges the DEREVERB,
+#   not the EQ / expander / limiter / AAC encode.
 LIM = dict(corr=0.97, comb_margin=0.35, edt=80.0, tone_mean=1.2, tone_max=2.5, floor=3.0, dry=1.5,
-           artifact_x=1.10,
+           artifact_x=1.10, harm_x=1.35,
            lufs=-14.0, lufs_tol=1.0, spread=3.0, tp=-1.0, silent=0, length=0.10)
+HARM_KEYS = ("flux", "swirl")     # gated; gap + sfm are reported only -- see common.artifacts
 
 
 def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=True, ref_rows_only=False,
-         reference_mix=None):
+         reference_mix=None, untreated=None):
     if ref_override:
         ref_audio, ref = ref_override, R.measure(ref_override)
     else:
@@ -115,11 +123,37 @@ def gate(path, synthetic=False, ab=None, video=None, ref_override=None, stamp=Tr
         # change on speech (musical noise), swirl = modulation of the 3-9 kHz envelope. Both are
         # bounded against the reference, not against a constant, so a drier reference cannot make
         # this row unfailable. This single row would have blocked all three 09-02 batches.
-        fx, sw = C.artifacts(mono)
+        art = C.artifacts(mono)
+        fx, sw = art["flux"], art["swirl"]
         row("artifacts", fx <= ref["flux"] * LIM["artifact_x"] and sw <= ref["swirl"] * LIM["artifact_x"],
             f"no processing damage: flux {fx:.3f} (his {ref['flux']:.3f}), HF swirl {sw:.3f} "
             f"(his {ref['swirl']:.3f}), both <= his x{LIM['artifact_x']}",
-            dict(flux=round(fx, 4), swirl=round(sw, 4)), gated=G)
+            {k: round(float(v), 4) for k, v in art.items()}, gated=G)
+        # ⚠ DO NO HARM, THE SECOND HALF (2026-09-09). The row above bounds us against HIS room.
+        # This one bounds us against OUR OWN UNTREATED SIGNAL, and it is the rule that would have
+        # blocked all three 09-02 batches: measured, the untreated right channel was closer to
+        # Muhammad than the processed output on every damage metric. Processing that leaves the
+        # file worse than doing nothing is not a trade-off, it is a bug - whatever EDT it buys.
+        # The baseline is stashed by whichever stage held the untreated audio; see
+        # common.stash_untreated (voice_chain calls it after the pull, dereverb.py on its input).
+        base = C.load_untreated(untreated) if untreated else C.load_untreated(path)
+        if base and all(k in base for k in HARM_KEYS):
+            worst = max(art[k] / max(base[k], 1e-9) for k in HARM_KEYS)
+            det = ", ".join(f"{k} {art[k]:.3f} vs untreated {base[k]:.3f} (x{art[k]/max(base[k],1e-9):.2f})"
+                            for k in HARM_KEYS)
+            info = ", ".join(f"{k} x{art[k]/max(base[k],1e-9):.2f}" for k in ("gap", "sfm") if k in base)
+            row("do_no_harm", worst <= LIM["harm_x"],
+                f"no worse than untreated: {det}, both <= x{LIM['harm_x']} "
+                f"(untreated EDT {base.get('edt_ms')} ms)   [reported, not gated: {info}]",
+                dict(ratios={k: round(art[k] / max(base[k], 1e-9), 3) for k in base if k in art},
+                     untreated={k: base[k] for k in base if k in art}), gated=G)
+        else:
+            # ⚠ NOT a silent skip. A missing baseline is RECORDED, so a reader can tell
+            # "checked against its own untreated signal" from "nobody looked".
+            rows.append(dict(key="do_no_harm", ok=True, not_measured=True, value="not_measured",
+                             text="do no harm: NO UNTREATED BASELINE RECORDED"))
+            print(f"  ??    do no harm NOT MEASURED -- no {os.path.basename(C.untreated_path(path))}; "
+                  f"the stage holding the untreated audio never called common.stash_untreated()")
         row("dryness", dry >= ref["dryness"] - LIM["dry"],
             f"words stop cleanly: drop {dry:.1f} dB 64 ms after a word vs his {ref['dryness']:.1f} (>= his - {LIM['dry']})", round(dry, 2), gated=G)
     I, TP, LRA = C.ebur(path)
@@ -174,7 +208,10 @@ if __name__ == "__main__":
     ap.add_argument("--ref", help="gate against a different reference file (testing only)")
     ap.add_argument("--no-stamp", action="store_true")
     ap.add_argument("--reference-rows-only", action="store_true", help="selftest: only the rows measured against the reference")
+    ap.add_argument("--untreated", help="do-no-harm baseline: a media file or its .audio_untreated.json "
+                                        "(default: <file>.audio_untreated.json)")
     ap.add_argument("--reference-mix", help="the editor's own finished mix this file carries verbatim (shortad path): provenance is verified per second; rows that measure HIS mixing become informational")
     A = ap.parse_args()
-    ok, _ = gate(A.file, A.synthetic, A.ab, A.video, A.ref, not A.no_stamp, A.reference_rows_only, reference_mix=A.reference_mix)
+    ok, _ = gate(A.file, A.synthetic, A.ab, A.video, A.ref, not A.no_stamp, A.reference_rows_only,
+                 reference_mix=A.reference_mix, untreated=A.untreated)
     sys.exit(0 if ok else 1)

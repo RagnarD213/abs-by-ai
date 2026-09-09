@@ -237,13 +237,37 @@ the audio still be wrong.**
 file and which `qc.js` and `deliver.js` REQUIRE a PASS stamp from** (⚠ the earlier claim here that
 `audiogate.py` was "wired into qc.js" was false — nothing referenced it; corrected 2026-09-02). It fails
 over 80 ms — the approved/rejected boundary (website rev 2 approved at 75, this batch rejected at 85). The fix is automatic: `voice_chain.py` runs `_shared/audio/dereverb.py` — spectral
-subtraction of the late field (`alpha=0.62 d1_ms=20 d2_ms=150 floor_db=-24 smooth=0.30`) — whenever the
-raw lav measures > 55 ms, and re-fits the EQ after it. ffmpeg cannot do this: there is no dereverb filter,
-`arnndn` has no model here, and a broadband expander only reached 63 ms and pumped.
+subtraction of the late field — whenever the raw lav measures > 55 ms, and re-fits the EQ after it.
+ffmpeg cannot do this: there is no dereverb filter, `arnndn` has no model here, and a broadband
+expander only reached 63 ms and pumped.
 
-⚠ **`floor_db` is the lever, and it is counter-intuitive.** Raising `alpha` past 0.62 makes EDT
-*worse* — the tail starts riding the floor instead of decaying. Dropping the floor from −14 to
-−24 dB is what took EDT from 50 ms to 40.
+### ⚠ THE SETTINGS CHANGED ON 2026-09-09 — AND THE OLD ONES ARE WHY THIS BATCH WAS REJECTED TWICE
+
+`alpha=0.62 d1_ms=20 d2_ms=150 floor_db=-24 smooth=0.30` shipped this batch on 09-02 and Dan
+rejected it as **"absolutely awful… it sounds like I'm underwater."** It hit EDT 32 ms — *past*
+Muhammad's 40 — and paid 1.29× his spectral flux, 1.19× his HF swirl and a floor 14 dB deeper.
+Measured, **our untreated signal was closer to him than our processed output on every damage
+metric.** He then picked the gentler build by ear from a four-way A/B.
+
+**The approved setting is now the module default — pass no overrides:
+`alpha 0.30, d1 22, d2 70, floor_db −10, smooth 0.45`** (spray tan lands EDT 37–56 ms against
+his 40; flux ×1.05–1.11 and swirl ×1.25–1.29 of untreated).
+
+⚠ **`floor_db` is the dominant lever — it sets how deep the suppression may dig, and −24 is what
+dug the hole.** The old note here said dropping the floor to −24 "took EDT from 50 ms to 40" and
+treated that as the win. It was the defect: EDT is not the only thing a floor moves.
+
+⚠ **DO NOT CHASE EDT.** 45–55 ms with no artefacts beats 32 ms with them — that is the trade Dan
+chose by ear, and `audio_gate.py`'s `artifacts` (≤ his ×1.10) and `do_no_harm` (≤ ×1.35 of the
+same file untreated) rows now enforce it. Never raise those limits to make a build pass.
+
+### ⚠ THE PIPELINE HAD ITS OWN COPY OF THE DEREVERB, SO THE SHARED FIX DID NOT REACH IT
+
+`spray-tan-first/work/dereverb.py` was a **fork** at `alpha=0.62`, and `render.js` called *that*
+file **and** passed the rejected numbers on its command line. Correcting `_shared/audio` changed
+nothing here. Both are fixed (the fork is a shim; `render.js` calls the shared module with no
+overrides), but the lesson generalises: **before assuming a shared fix has landed in a batch,
+`find` for forks and grep the caller for hardcoded parameters.**
 
 ⚠ **Re-fit the octave EQ AFTER dereverb** (`work/dereverb_eq.txt`); removing the tail changes the
 shape.
@@ -264,6 +288,25 @@ brutal lowpass. The finished shorts came back **11–16 dB down above 450 Hz**, 
 (`Math.abs(size0 - size1) > 4096`) passed, because **a mono file with twice the frames is exactly
 the same number of bytes.** De-interleave on read, and assert **duration and channel count** via
 ffprobe, never file size.
+
+### ⚠ THE CORRECTOR AND THE GATE MUST MEASURE THE SAME BANDS — AND THE GATE MOVED
+
+`finishaudio.py` fitted its own **seven** octave bands while `_shared/audio` grades **ten**
+(80/150/250/400/600/900/1400/2200/3500/5500/9000, 2048-pt, top-40 % speech frames). It reported
+0.25–0.30 dB while the gate measured 2.6–4.8 dB on the same files, and **the batch shipped ungated
+— when it was finally gated on 09-09, 6/6 failed `artifacts` and 5/6 failed `tone`.** The stage now
+calls `C.analyse` and `voice_chain.eq_chain` directly and scores on the gate's own limits
+(mean ≤ 1.2, max ≤ 2.5), not on RMS: a file can sit at 0.3 dB RMS and still fail on one 3 dB band.
+After the fix all six read mean 0.39–0.77, max 0.69–1.22, and 6/6 PASS with stamps.
+
+### ⚠ Rebuild the AUDIO ONLY; never re-render the picture for a sound fix
+
+The untreated per-piece WAVs (`build/<id>/aud-*.wav`) survive a render, so a dereverb change needs
+no new picture: concat them, dereverb, re-EQ, and swap the stream into the existing lossless `.mov`
+with `-c:v copy`. Frame counts are asserted before and after.
+**⚠ Never `-shortest` on that swap** — on one segment the rebuilt audio was 3 frames shorter than
+the picture and `-shortest` silently truncated the *video*. Pad/trim the audio to the picture's
+exact duration instead.
 
 ### The general rule this batch bought
 

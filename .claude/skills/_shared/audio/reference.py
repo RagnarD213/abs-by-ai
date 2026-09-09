@@ -42,7 +42,7 @@ def measure(path, amap=None):
     return dict(bands=[round(float(b), 3) for b in bands], floor=[round(float(v), 3) for v in floor],
                 dryness=round(dry, 3), spread=round(spread, 3), edt_ms=round(C.edt(x), 2),
                 comb_ripple=round(C.comb_ripple(x), 3), lufs=round(I, 2), tp=round(TP, 2), lra=round(LRA, 2),
-                flux=round(C.artifacts(x)[0], 4), swirl=round(C.artifacts(x)[1], 4))
+                **{k: round(float(v), 4) for k, v in C.artifacts(x).items()})
 
 
 def pin(src=None):

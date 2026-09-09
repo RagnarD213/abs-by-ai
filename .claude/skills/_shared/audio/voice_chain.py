@@ -126,6 +126,10 @@ def main():
     ap.add_argument("--tp", type=float, default=-2.5); ap.add_argument("--no-fit", action="store_true")
     ap.add_argument("--eq", help="use this EQ chain instead of fitting")
     ap.add_argument("--no-dereverb", action="store_true")
+    ap.add_argument("--dereverb", help="override the approved dereverb params, 'alpha=0.62,floor_db=-24' "
+                                       "(TESTING ONLY - the defaults are what Dan approved by ear on "
+                                       "2026-09-09; the selftest uses this to prove the gate still fails "
+                                       "the build he rejected)")
     ap.add_argument("--frame-lock", help="pad/trim the output to exactly this picture's duration")
     ap.add_argument("--finish-only", action="store_true",
                     help="input is an already-finished STEREO mix (e.g. the reference's own mix): no pull/dereverb/fit/expander, just measured gain + limiter to target")
@@ -147,12 +151,25 @@ def main():
         lav, x, how = pull(A.src, A.source, A.pull, work); log["pull"] = how
         print(f"voice_chain  {os.path.basename(A.src)}  pull: {how}  {len(x)/C.SR:.2f} s")
 
-        # ---- dereverb if wet
+        # ---- DO-NO-HARM BASELINE, recorded before anything touches the signal (2026-09-09).
+        # This is the only moment the untreated audio exists. audio_gate's `do_no_harm` row has
+        # nothing to compare against without it, and a build that is worse than doing nothing
+        # ships on a good EDT alone - which is exactly what happened to three Shorts batches.
         ss, dur = C.analysis_window(lav)
-        e0 = C.edt(C.pcm(lav, ss=ss, dur=dur)); log["edt_raw"] = round(e0, 1)
+        b = C.stash_untreated(A.out, C.pcm(lav, ss=ss, dur=dur), note=f"pull: {how}")
+        log["untreated"] = b
+        print(f"  untreated baseline: flux {b['flux']:.3f}  swirl {b['swirl']:.3f}  EDT {b['edt_ms']:.0f} ms"
+              f"  -> {os.path.basename(C.untreated_path(A.out))}")
+
+        # ---- dereverb if wet
+        e0 = b["edt_ms"]; log["edt_raw"] = e0
         if e0 > EDT_WET and not A.no_dereverb:
-            y = dereverb(x, sr=C.SR, **DEREVERB); write_wav(lav, y)
-            e1 = C.edt(C.pcm(lav, ss=ss, dur=dur)); log["edt_dereverb"] = round(e1, 1); log["dereverb"] = DEREVERB
+            kw = dict(DEREVERB)
+            if A.dereverb:
+                kw.update({k: float(v) for k, v in (t.split("=") for t in A.dereverb.split(","))})
+                print(f"  !! --dereverb OVERRIDE {kw} (testing only; approved defaults {DEREVERB})")
+            y = dereverb(x, sr=C.SR, **kw); write_wav(lav, y)
+            e1 = C.edt(C.pcm(lav, ss=ss, dur=dur)); log["edt_dereverb"] = round(e1, 1); log["dereverb"] = kw
             print(f"  room: EDT {e0:.0f} ms > {EDT_WET:.0f} -> dereverb -> {e1:.0f} ms (his {ref['edt_ms']:.0f})")
         else:
             print(f"  room: EDT {e0:.0f} ms (<= {EDT_WET:.0f}, his {ref['edt_ms']:.0f}) -- no dereverb")

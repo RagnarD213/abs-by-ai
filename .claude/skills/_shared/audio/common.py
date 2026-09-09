@@ -134,19 +134,28 @@ def edt(x):
 
 
 def artifacts(x, sr=SR):
-    """Two PROCESSING-DAMAGE measures. Everything else in this module measures level, tone or
-    suppression; these measure what suppression COSTS, which is what Dan hears as "underwater".
+    """The four PROCESSING-DAMAGE measures, as a dict. Everything else in this module measures
+    level, tone or suppression; these measure what suppression COSTS, which is what Dan heard as
+    "underwater" on 2026-09-09. HIGHER IS WORSE ON ALL FOUR.
 
-      flux  - sd of the frame-to-frame log-spectral change on speech frames. Spectral subtraction
-              makes each frame's gain differ from its neighbour's, so the voice shimmers.
-      swirl - mean |delta| of the 3-9 kHz envelope in dB. The audible "swimmy" top end.
+      flux   - sd of the frame-to-frame log-spectral change on speech frames. Spectral subtraction
+               makes each frame's gain differ from its neighbour's, so the voice shimmers.
+      sfm    - sd of the spectral flatness of speech frames: the classic musical-noise tell.
+      swirl  - mean |delta| of the 3-9 kHz envelope in dB. The audible "swimmy" top end.
+      gap    - speech level over the noise floor, dB. An over-suppressing dereverb digs the
+               between-word floor into a hole the voice falls out of.
 
-    Both are compared against the REFERENCE in audio_gate, never against a constant: a drier
-    reference must not make the row unfailable.
+    ⚠ ONLY flux AND swirl ARE GATED (audio_gate.HARM_KEYS). Measured 2026-09-09 on matched pairs:
+    `gap` cannot separate damage from intent (the chain's downward expander alone costs 1.22x,
+    which is the very thing the `floor` row rewards) and `sfm` moves the WRONG WAY on this
+    material (the rejected build's sfm is LOWER than untreated). Both are reported, not gated.
+
+    Compared in audio_gate against the REFERENCE and against the file's OWN UNTREATED baseline,
+    never against a constant: a drier reference must not make either row unfailable.
     """
     N, hop = 1024, 256
     n = (len(x) - N) // hop
-    if n < 8: return 0.0, 0.0
+    if n < 8: return dict(flux=0.0, sfm=0.0, swirl=0.0, gap=0.0)
     idx = np.arange(N)[None, :] + (np.arange(n) * hop)[:, None]
     S = np.abs(np.fft.rfft(x[idx] * np.hanning(N), axis=1)) + 1e-12
     ff = np.fft.rfftfreq(N, 1 / sr)
@@ -154,10 +163,16 @@ def artifacts(x, sr=SR):
     loud = e > np.percentile(e, 75)
     L = np.log(S[:, (ff > 300) & (ff < 8000)])
     flux = float(np.abs(np.diff(L, axis=0)).mean(1)[loud[:-1]].std())
+    P = S[:, (ff > 300) & (ff < 8000)] ** 2
+    sfm_t = np.exp(np.log(P + 1e-20).mean(1)) / (P.mean(1) + 1e-20)
+    sfm = float(sfm_t[loud].std() * 10)
     hi = (ff >= 3000) & (ff < 9000)
     env = 10 * np.log10(S[:, hi].mean(1) + 1e-12); env = env - env.mean()
     swirl = float(np.abs(np.diff(env)).mean())
-    return flux, swirl
+    return dict(flux=flux, sfm=sfm, swirl=swirl, gap=snr(x))
+
+
+ARTIFACT_KEYS = ("flux", "sfm", "swirl", "gap")
 
 
 def comb_ripple(sig, sr=SR):
@@ -210,6 +225,41 @@ def sha256(path, chunk=1 << 22):
     with open(path, "rb") as f:
         for b in iter(lambda: f.read(chunk), b""): h.update(b)
     return h.hexdigest()
+
+
+# ------------------------------------------------------------------ do-no-harm baseline
+# ⚠ 2026-09-09. The gate could not see the damage Dan called "underwater" because it had nothing
+# to compare the delivered file against EXCEPT the reference - and the reference is a different
+# room. The missing comparison is the file's OWN untreated signal: whatever stage holds it
+# (voice_chain after the pull, a render before its dereverb) stashes these numbers beside the
+# delivered file, and audio_gate's `do_no_harm` row refuses an output that scores worse than it.
+def untreated_path(media):
+    return media + ".audio_untreated.json"
+
+
+def stash_untreated(media, x, note=""):
+    """measure the UNTREATED signal (post-pull, pre-dereverb) and record it beside `media`."""
+    a = artifacts(x)
+    d = dict(version=STAMP_VERSION, note=note, seconds=round(len(x) / SR, 3), edt_ms=round(edt(x), 1),
+             **{k: round(float(a[k]), 4) for k in a})
+    json.dump(d, open(untreated_path(media), "w"), indent=1)
+    return d
+
+
+def carry_untreated(src_media, dst_media):
+    """copy a baseline forward when a pipeline re-encodes or renames the file it belongs to."""
+    p = untreated_path(src_media)
+    if os.path.exists(p) and os.path.abspath(src_media) != os.path.abspath(dst_media):
+        with open(p) as f, open(untreated_path(dst_media), "w") as g: g.write(f.read())
+        return True
+    return False
+
+
+def load_untreated(media_or_json):
+    p = media_or_json if media_or_json.endswith(".json") else untreated_path(media_or_json)
+    if not os.path.exists(p): return None
+    try: return json.load(open(p))
+    except Exception: return None
 
 
 def stamp_path(media):

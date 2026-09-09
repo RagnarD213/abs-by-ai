@@ -6,9 +6,16 @@
 > metric. He then picked the gentler build by ear from a four-way A/B:
 > **alpha 0.30, d1 22, d2 70, floor_db -10, smooth 0.45** (EDT ~48 ms, flux 1.04x his, swirl 0.81x).
 >
-> `audio_gate.py` now has an **`artifacts`** row bounding flux and swirl at his x1.10 — the
-> counterweight to `edt`/`dryness`/`floor`, which all reward MORE suppression and between them
-> scored the rejected build as better. **Never raise `artifact_x` to make a build pass.**
+> `audio_gate.py` now has TWO counterweights to `edt`/`dryness`/`floor` (which all reward MORE
+> suppression and between them scored the rejected build as *better*):
+>
+> * **`artifacts`** — flux and swirl ≤ **his × 1.10**. Bounds us against HIS room.
+> * **`do_no_harm`** — flux and swirl ≤ **× 1.35 of THIS FILE UNTREATED**. Bounds us against
+>   doing nothing. Added 2026-09-09; it blocks **16 of 16** of the shipped 09-02 Zepbound and
+>   supplements shorts, and the rejected spray-tan setting through the shared chain.
+>
+> **Never raise `artifact_x` or `harm_x` to make a build pass** — that is the failure mode these
+> rows exist to stop.
 >
 > Re-renders of the three affected batches: `Handoffs/handoff-20260909-audio-match-muhammad.md`.
 > ⚠ `selftest.sh` is currently BROKEN (unbound variable + pre-09-08 reference paths) — fix before a batch.
@@ -30,9 +37,9 @@ let comb-filtered and roomy audio ship four times.
 | `audio_gate.py <delivered>` | **the one gate, on the exact delivered file**: L/R ≥ +0.97 · comb ripple ≤ his + 0.35 dB · EDT ≤ 80 ms · tone mean ≤ 1.2 / max ≤ 2.5 dB · floor within 3 dB of his · dryness ≥ his − 1.5 · −14 ±1 LUFS · speech spread ≥ his − 3 dB · TP ≤ −1.0 dBTP · 0 silent seconds · audio length = picture ± 0.10 s. Writes `<file>.audio_gate.json` (sha256 + every number + PASS/FAIL). `--synthetic` for AI voices keeps loudness/TP/silence/length/image. `--ab out.mp4` = his three sentences, then ours. |
 | `require_stamp.py <file>` / `qclib.js requireStamp()` | **the enforcement**: stamp exists, sha256 matches THIS file, verdict PASS, same pinned reference. Called by every QC and every deliver script. |
 | `reference.py` + `reference/` | the reference **pinned by fingerprint**: a mono 48 k FLAC of his audio + `reference.json` (sha256, bands, floor, EDT, dryness, spread, LUFS). Regenerates from the .mp4 wherever it lives and refuses a mismatch. Moving the file cannot silently break a gate again. |
-| `dereverb.py` | spectral subtraction of the late field (moved from spray-tan, unchanged) |
+| `dereverb.py` | spectral subtraction of the late field. Defaults are the 2026-09-09 approved setting. Its CLI records the do-no-harm baseline on its INPUT; `stash=<delivered path>` parks it where the gate looks. |
 | `common.py` | the measurement functions, verbatim from the approved gates, so today's numbers are yesterday's numbers |
-| `selftest.sh` | run before any batch: identity on the reference, PASS on Ad 2 rev 2, FAIL on a synthetic both-mics render, `pick_lav` on all four roll types, stacked-pan refusal, chain end-to-end on an 8/28 excerpt |
+| `selftest.sh` | run before any batch: identity on the reference, PASS on the Ad 1 vertical and the approved website rev 2, FAIL on rev 1 and on a synthetic both-mics render, `pick_lav` on all four roll types, stacked-pan refusal, chain end-to-end on an 8/28 excerpt, and **step 7: the dereverb Dan rejected must FAIL `do_no_harm` while still passing the dry-room row** |
 
 ## The standard, measured (20–140 s window)
 
@@ -48,6 +55,8 @@ let comb-filtered and roomy audio ship four times.
 | not crushed | speech spread p90−p10 (LRA reported) | 8.2 dB (3.5 LU) | 7.6 dB (2.9 LU) | ≥ his − 3.0 dB (approved website rev 2 reads 5.5) |
 | no clipping on phones | true peak, delivered file | +0.1 (his; too hot) | **−1.30** | ≤ −1.0 dBTP |
 | nothing missing | silent seconds; audio vs picture | 0; equal | 0; equal | 0; ± 0.10 s |
+| no processing damage | spectral flux / 3–9 k swirl | 0.072 / 0.835 | — | ≤ his × 1.10 |
+| **no worse than doing nothing** | the same two, vs **this file untreated** | — | — | **≤ × 1.35** (see below) |
 
 **Every limit traces to a file Dan approved or rejected** (see the comment above `LIM` in `audio_gate.py`).
 The website video rev 2 (approved) measured EDT 75 ms and spread 5.5 dB against the handoff's proposed 55 ms
@@ -83,6 +92,36 @@ row — non-negotiable 6: a defect the gate cannot see becomes a row.
   (room 67–93 ms → 29–48 ms), every delivered file carries a PASS stamp; the pre-fix files are in
   `Short-form video content/_pre-audiofix-20260902/`.
 
+## Do no harm — the row that would have stopped all of it (2026-09-09)
+
+`edt`, `dryness` and `floor` all improve as suppression increases, so for eight days the gate
+graded a dereverb on the one number it was aimed at and nothing else. The missing comparison was
+never the reference — it was **the file's own untreated signal**. Measured, our raw right channel
+was closer to Muhammad than our processed output on every damage metric.
+
+So whichever stage still holds the untreated audio records it — `voice_chain` right after the
+pull, `dereverb.py`'s CLI on its input (`stash=<delivered path>`) — as
+`<delivered>.audio_untreated.json`, and the gate refuses an output that scores worse than it.
+
+| ratio to the same file untreated | flux | swirl |
+|---|---|---|
+| the chain with **no dereverb at all** | 0.98 | 0.96 |
+| **alpha 0.30 / floor −10** (approved by ear) | 1.05 – 1.21 | 1.21 – 1.29 |
+| limit `harm_x` | **1.35** | **1.35** |
+| alpha 0.62 / floor −24 (rejected, "underwater") | 1.30 – 1.61 | 1.57 – 1.94 |
+
+The chain minus the dereverb costs *nothing* (0.96–0.98), which is what makes this row fair: it
+charges the dereverb, not the EQ, expander, limiter or AAC encode.
+
+**`gap` and `sfm` are measured and printed but NOT gated.** `gap` (speech over floor) cannot
+separate damage from intent — the downward expander alone costs 1.22×, and that is exactly what
+the `floor` row rewards. `sfm` moves the *wrong way* on this material: the rejected build's sfm is
+LOWER than untreated. A metric that cannot fail a bad build does not belong in a gated row.
+
+**A missing baseline is reported, never skipped silently** — the stamp records
+`do_no_harm: not_measured` so a reader can tell "checked against its own untreated signal" from
+"nobody looked". Legacy files gated before 09-09 read `not_measured`.
+
 ## Calibration notes
 
 - **Bed level (2026-09-03, 04 invest-health, roll C1511):** `--bed-db -30` failed the floor row by
@@ -98,3 +137,9 @@ row — non-negotiable 6: a defect the gate cannot see becomes a row.
 4. The reference is pinned by fingerprint.
 5. An A/B clip (his three sentences, then ours) ships with every review copy.
 6. A metric Dan rejects on that the gate cannot see becomes a new row.
+7. **Processing may never leave a file worse than doing nothing.** If a row rewards suppression,
+   a row bounding its damage ships with it, in the same commit.
+8. **No skill keeps its own copy of the maths.** The spray-tan pipeline held a forked
+   `work/dereverb.py` AND passed the rejected parameters on the command line, so correcting the
+   shared module changed nothing there. It is a shim now; `render.js` calls this module with no
+   overrides. Grep for forks before assuming a shared fix has landed.
