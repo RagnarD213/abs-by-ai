@@ -633,14 +633,14 @@ h1 em { font-style: normal; color: var(--acc); }
     $('trialCta').href = '/?' + out.toString();
   });
 
-  // ── Sticky CTA once the hero button is off screen ──
-  const sticky = $('stickyCta');
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver((entries) => {
-      const heroVisible = entries.some((e) => e.isIntersecting);
-      sticky.classList.toggle('on', !heroVisible && window.scrollY > 200);
-    }, { threshold: 0 }).observe($('heroCta'));
+  // ── Sticky CTA once the hero button has scrolled off the top ──
+  const sticky = $('stickyCta'), heroBtn = $('heroCta');
+  function updateSticky() {
+    sticky.classList.toggle('on', heroBtn.getBoundingClientRect().bottom < 0 && window.scrollY > 200);
   }
+  window.addEventListener('scroll', updateSticky, { passive: true });
+  window.addEventListener('resize', updateSticky);
+  updateSticky();
 
   // ── Landing seen ──
   ph('vsl_landing_seen', { forced: VSL.forced, video_live: videoLive, placeholder: VSL.vp && !videoLive });
