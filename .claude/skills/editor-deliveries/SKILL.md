@@ -91,28 +91,85 @@ content). Do not trust an editor's own numbering beyond that — map by what the
 Ad 2 HD by hand on 2026-09-08 and it was byte-identical to what was already filed). A `pending` row
 moves to `filed` when Dan confirms, or is deleted when he says it is a draft. Commit the file.
 
-## Finding deliveries without opening Chrome for nothing
+## A quiet run must be PROVEN quiet, not assumed (added 2026-09-09 after a missed delivery)
 
-Do the cheap reads first; open Chrome only if there is something to read.
+The failure on 2026-09-09 was not really the Drive index. It was that **an empty search result was
+reported as proof that nothing had arrived.** Two of the three editors' Upwork threads would not
+render that morning; instead of calling the run incomplete, the run used a Drive query it had no way
+to validate to overrule that, wrote *"No new Drive video from teamcrackhow4@ since 2026-09-07, so no
+delivery was missed"* into `state.json`, and told Dan *"Drive proves nothing was missed."* Zeeshan's
+545 MB cut had been sitting in his folder for six hours. Dan found it himself.
+
+Four hard rules follow, in priority order. **Rule 1 alone would have caught this.**
+
+1. **An unread thread is an unfinished run.** If an editor had a message you could not read, that
+   editor goes in `pending` with reason `"thread unread — delivery status unknown"`. Never let any
+   other signal close him out. "No Drive hit" does not clear an unread thread; the two are
+   independent and the Drive side is the weaker of the two.
+2. **A negative search result is never evidence.** `{}` means the query returned nothing, which is
+   equally consistent with "nothing arrived" and "the index cannot see it". You may only report a
+   quiet run from checks that are *capable* of returning a positive — which, for Zeeshan, means the
+   browser folder listing and nothing else.
+3. **Carry a positive control.** In each sweep include one query whose answer you already know —
+   e.g. `owner = 'sharkimageryproduction@gmail.com' and mimeType contains 'video/'`, which must
+   return the known drafts. If the control comes back empty, Drive is not answering and the whole
+   sweep is void; say so rather than reporting a quiet day.
+4. **Write what you did, not what you concluded.** "The Drive search returned nothing" is a fact.
+   "No delivery was missed" / "Drive proves nothing was missed" is an inference the data does not
+   support — never write either, in `state.json` or to Dan. If a check did not run, the summary
+   leads with that, before anything that did.
+
+**Timing note, so a thread-only fix is not mistaken for enough:** Zeeshan announced this delivery at
+11:30Z, ~40 min *after* the 05:40 CT run. The file was already on Drive at 04:42Z. So on any given
+morning the message may not exist yet while the file does — which is exactly why the folder listing
+(rule 2) is the primary detector for him and the thread is the confirmation, not the trigger.
+
+## Finding deliveries — cheap reads first, but Zeeshan's folders ALWAYS
+
+Do the cheap reads first. **The one thing that is never optional is opening Zeeshan's shared folders
+in the browser** (step 2) — no API query can see his deliveries, so skipping it is skipping him
+entirely. For Muhammad and Waleed, Chrome is only needed when there is a thread to read.
 
 1. **Gmail** (MCP `search_threads`): `from:upwork.com newer_than:2d subject:"sent you a message"`.
    The sender address is the room: `room_<hex>@email.upwork.com` → thread URL
    `https://www.upwork.com/ab/messages/rooms/room_<hex>`. The email body has no message text, so
    this only tells you *which* rooms to open. A room id not in `state.json` is a new editor: open it,
    add him.
-2. **Drive** (MCP `search_files`): `sharedWithMe = true and mimeType contains 'video/' and
-   modifiedTime > '<last_run>T00:00:00Z'` plus `owner = '<each drive_owner>'`. Gives id, size, owner,
-   title. Muhammad's team uploads from several accounts (`wadeededitteam@`, `sharkimageryproduction@`);
-   Zeeshan is `teamcrackhow4@` (shares folders — list children with `parentId = '<folder id>'`);
-   Waleed is `info.taimoormirzaa@`.
-   ⚠ **A `parentId` search does NOT return `.srt` files.** Measured 2026-09-09: Zeeshan's "video 2"
-   folder held `Video 2 Rev 3.mp4` AND `Video 2 Subtitle.srt` (uploaded 7 hours earlier), and the
-   search returned only the MP4 — `.srt` comes back as `application/octet-stream` and Drive's index
-   does not surface it. Zeeshan ships the subtitle file in the SAME folder as the MP4 every time
-   (Dan confirmed it as his pattern), and Dan's revision docs ask every editor for one. So always
-   probe by name too (`title contains 'Subtitle'` / `title contains 'srt'`) or open the folder in
-   the browser, and file the `.srt` beside the video. Never report a subtitle file as missing on the
-   strength of a `parentId` search — say the search returned only the MP4.
+2. **Drive** (MCP `search_files`) — **catches Muhammad and Waleed, and CANNOT catch Zeeshan.**
+   `sharedWithMe = true and mimeType contains 'video/' and modifiedTime > '<last_run>T00:00:00Z'`,
+   plus `owner = '<each drive_owner>'`. Muhammad's team uploads from several accounts
+   (`wadeededitteam@`, `sharkimageryproduction@`); Waleed is `info.taimoormirzaa@`.
+
+   ⚠⚠ **THE INDEX ONLY CONTAINS FILES DAN HAS ALREADY SEEN. A file dropped into a folder that
+   was shared with Dan earlier is invisible to EVERY query until someone opens it.** This is the
+   single biggest trap in this skill and it caused a missed delivery on 2026-09-09. Measured that
+   day, on `Video 2 Rev 3.mp4` (545 MB) in Zeeshan's "video 2" folder:
+
+   | when | query | result |
+   |---|---|---|
+   | 10:48Z (6 h after upload) | `owner = 'teamcrackhow4@…' and mimeType contains 'video/' and modifiedTime > '2026-09-07…'` | **`{}`** |
+   | 15:05Z | a session opened the folder in the browser and the file itself | — |
+   | 15:30Z | **the identical query** | returns the file |
+
+   Nothing about the file changed between those two runs; only `viewedByMeTime` was set. The
+   `.srt` sitting beside it, which Dan never opened in Drive, is **still** invisible today to
+   `parentId`, `owner`, `title contains 'Subtitle'`, `title contains 'srt'` and `sharedWithMe` alike.
+   The earlier note here blamed the `.srt`'s `application/octet-stream` type and suggested probing
+   by name — **that was wrong on both counts: a 545 MB `video/mp4` vanished the same way, and both
+   name probes return nothing.** Do not rely on them.
+
+   **Why the other two editors are safe:** Muhammad and Waleed share each file individually, so
+   every delivery gets its own share event and its own `sharedWithMeTime` — that is what puts it in
+   the index. Zeeshan shared two FOLDERS once (`Final Video 1`, `video 2`) and drops files in; no
+   further share event ever occurs. **Search is structurally incapable of discovering his deliveries.**
+   Note the tell: a file with no `sharedWithMeTime` but a `parentId` reached you through a folder.
+
+   **So: enumerate Zeeshan's folders in the browser on every run** — no Drive query substitutes for
+   it. Folder ids are in `state.json` under `editors.<name>.shared_folders`:
+   `navigate` to `https://drive.google.com/drive/folders/<id>`, `get_page_text`, and compare the
+   listing against `filed` + `not_final_seen`. That listing is the authority on what he has sent.
+   File the `.srt` beside the video when one is there (he ships one every time — memory
+   `zeeshan-delivery-includes-srt`).
 3. **Upwork thread** (Chrome extension — `mcp__claude-in-chrome__*`, load via ToolSearch): navigate
    to the room URL, `get_page_text`, read the messages since `last_run`. This is where the "final"
    wording lives (rule 1). Dan's own messages in the thread are the "this is finalized" signal. The
@@ -161,3 +218,12 @@ twice — record the delivery in `pending` with reason "chrome unavailable" and 
 - **2026-09-08:** a file the editor re-uploads under a new name is not a new delivery. Compare the
   Drive `fileSize` against `filed` before anything else; `cmp -n 1000000` on the local copy settles
   the rest (Muhammad's Ad 1 came down twice with different container layouts and identical content).
+- **2026-09-09 — the miss that produced the rules above.** The 05:40 run reported "nothing new from
+  the editors". Zeeshan's `Video 2 Rev 3.mp4` (545 MB, his answer to the round-3 ab-wheel revisions)
+  had been on Drive since 04:42Z. Three things had to line up: Drive's index could not see it
+  (folder share, never opened); his Upwork room would not render, so the message was unread; and his
+  announcement did not arrive until 11:30Z, after the run. **Any one of them alone was survivable —
+  what made it a miss was reporting the run as quiet anyway.** Two of three threads were unread and
+  the summary still said "Drive proves nothing was missed". Dan found the file himself. The lesson
+  is not "Drive is unreliable" (it is, but that is only the trigger); it is that a check which could
+  not run must be reported as not run, and must leave its editor in `pending`.
