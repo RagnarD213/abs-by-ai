@@ -38,17 +38,12 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
-**Website conversion video — ONE CLICK FROM LIVE (2026-09-09).** Dan's finished rev 5 master
-(`claude edited long form content/06 - …/website_video_16x9.mp4`, 3:50, sha256 matches its audio-gate PASS
-stamp) is ready to go up as an UNLISTED YouTube video and embed itself in the shared video slot used by BOTH
-the analysis page and `/start`. Everything is built: `scripts/youtube/upload.js`, a `YOUTUBE_REFRESH_TOKEN`
-for the **Abs by AI brand channel**, title/description staged. **Blocked on one thing only: the YouTube Data
-API v3 is not enabled on Cloud project `768453214640`, and Claude is policy-blocked from the Google Cloud
-Console.** Dan clicks Enable at
-`console.cloud.google.com/apis/library/youtube.googleapis.com?project=768453214640`, then any session runs
-the script and sets `ANALYSIS_VIDEO.youtubeId` (one line, `public/index.html` ~4823). A 35 MB web-encoded
-fallback sits at `public/video/website-conversion-rev5.mp4` (gitignored — repo policy bans committed video,
-so self-hosting would need a CDN). Delete this entry once the video is embedded and live.
+**Website conversion video — LIVE ON THE SITE 2026-09-09, Dan looks.** Rev 5 is uploaded UNLISTED to the
+**Abs by AI** channel as `CwEGFxpIM-E` (3:51, HD, embeddable, processing succeeded) and embedded via
+`public/site-video.js`, which BOTH the post-lock-in analysis page and `/start` read — verified rendering on
+both live. Swapping the video later = paste a new id in that one file. ⚠ **Native retest trigger:** the iOS
+and Android wrappers now show a YouTube iframe on the analysis page; check inline vs fullscreen playback on
+his phone. Delete this entry once he confirms it plays.
 
 **Google Ads account fixes — EXECUTED AND VERIFIED 2026-09-09. Live in account 342-717-0837; Dan reviews the results in
 a few days.** All of `Handoffs/handoff-20260909-google-ads-account-fixes.md` is done, read back from the account after
