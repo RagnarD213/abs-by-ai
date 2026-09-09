@@ -513,3 +513,15 @@ exact timing or an exact link.
     the whole after-picture screen (Ad 3 V3).** When the previous round asked for two things on one element, check that the
     fix for one did not remove the other; write the fix as an ordered recipe (limiter first, then lift; hold the screen at
     the top, do not scroll) so the next attempt cannot go the wrong way again.
+39. **Batch 3 (2026-09-09, eight Muhammad cuts) — three things to check before reviewing anything.** (a) **md5 every
+    re-delivered link against the previous download.** His "AD 02 v2" link was the Ad 4 v2 file byte for byte and his "AD 08"
+    link was the unchanged 09-07 file — Drive `get_file_metadata` (title + modifiedTime) plus an md5 against the 0908 `dl/`
+    copy settled both in a minute; reviewing either as a new cut would have produced a doc for a video that does not exist.
+    (b) **Once the level lands, the next failure is over-done noise reduction.** Six of eight cuts failed the gate's
+    `artifacts` row (flux ×1.17–1.29 of Ad 1, HF swirl ×1.15–1.31) on rooms already at 32–40 ms; write it as "watery /
+    underwater top end, back it off, gaps only, no de-reverb", never as a number the editor cannot meter. (c) **Check the
+    doc's own links before blaming the editor.** Dan's Ad 7 item linked the plain before picture under the "bad Photoshop"
+    slot, so Muhammad put the before picture there; the round-2 doc owns the link in Dan's voice ("the link I gave you was
+    wrong, which is on me"). Also: the SFX can bypass a limiter placed on the voice track (Ad 3 v4: voice capped at −2.6 dB,
+    whoosh at +0.02) — say "limiter on the finished mix, the last thing before export". Recipe as in lesson 35; a full batch of
+    eight took 25 min of prep (two at a time, load 8–28) and one subagent per cut at ~220–310k tokens each.

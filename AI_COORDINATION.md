@@ -77,11 +77,15 @@ in-memory held images — a locked result made before a deploy cannot be analyze
 `deploy-drops-locked-holds`). **Native retest needed** (lock-in → sliders → trial CTA, AND the locked result →
 analysis → unlock on iOS/Android). Delete this entry once Dan confirms or changes the defaults.
 
-**Editor rounds out 2026-09-08 — waiting on the editors, nothing for a session to do.** Dan reviewed, edited and
-sent all eight docs on 09-08 (Muhammad Ads 3–8 in the batch-2 doc, Waleed round 3 in a new doc, Zeeshan round 3 at the
-top of his doc). Next deliveries get the same sweep; the skill was recalibrated from his edits (calibration pass 2,
-rules 12–21). The scripts doc's three before/after cue lines (Ad 5, Ad 6, Ad 8) were corrected 2026-09-08.
-Delete this entry once the next cuts arrive.
+**Muhammad round out 2026-09-09 — DOCS WRITTEN, Dan reads and forwards.** Eight sections appended to his batch doc
+(`1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`): Ad 3 r4 (3 items), Ad 5 r3 (2), Ad 6 r2 (7), Ad 7 r2 (9), Ads 9/10/13/14
+r1 (15/14/14/9). Level landed on 5/6/7/14 (−13.4 to −14.0 LUFS); the new failure class is over-done noise reduction
+(gate `artifacts` row) on 3/6/7/9/13/14. Md copies in `revision docs/`, work dir `/Volumes/Extreme/_edit_work/revisions-0909/`.
+⚠ His "AD 02 v2" link is byte-identical to Ad 4 v2 (md5 match) and the "AD 08" link is the unchanged 09-07 file — no Ad 2 v2,
+Ad 4 v3 or Ad 8 v2 exists yet; Dan's message asks for them. Dan's calls (not in the doc): Ad 13 0:24 Six Pack Shortcuts
+screenshot with the SIXPACKSHORTCUTS.COM watermark; Ad 7 whether we generate the Dan's-face Photoshop gag ourselves; Ad 10
+the "slightly enhanced" before picture does not exist. Zeeshan r3 / Waleed r3 still waiting on those editors.
+Delete this entry once Dan has forwarded the doc and the next cuts arrive.
 
 **Ad-1 vertical audio — REBUILT, Dan listens** (2026-09-02). He rejected the audio on
 `Muhammad Ad Videos/this picture got me abs/… | claude | 9x16.mp4` and attributed it to the
