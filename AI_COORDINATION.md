@@ -43,12 +43,6 @@ is the permanent record of code changes.
 original pixels pasted back, 4:5 only) in `photos/finalized social media photos/_variations/studio-blue-89/`; two
 alternates in `_alternates/`. $0.97 spent. Recipe in `/background-removal`. No dashboard row. Delete once he has picked.
 
-**Thumbnails for the 5 finished ads — Ad 2 INSTALLED 2026-09-10, Ad 1 waiting on Dan's pick.** Ad 2 variant C set on
-`Dtk5knWM7c8` + `7XgHxn59Tsg` by API (`scripts/youtube/set-thumbnail.js`) and read back matching. Ad 1: O1 dark studio vs
-O2 his light backdrop widened, sheet `_finished-ads-build-2026-09-10/r3/REVIEW_ad1_clean.jpg`, files already in the Ad 1
-folder (`*_O1-*` / `*_O2-*`). On his pick: set `lf46ytHacss` + `1oEcwdp21Fg` (16:9) and `Iz0u8KHRbyE` (9:16), read back,
-fill the Thumbnail column in `Docs/AD_VIDEO_IDS.md`, then delete this entry + the handoff lines (here and `Handoffs/README.md`).
-
 **Web pay-first cart — LIVE 2026-09-10, Dan runs the live card test.** The web checkout is now analysis page →
 cart (`#cartSection`: Monthly $19.99 pre-selected, Annual $69.99 "save 71%", trial timeline, disclosure above the
 button, video slot) → Stripe collects the email with the card → account created after payment (one-time claim login +
@@ -386,10 +380,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
   fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
-- **`Handoffs/handoff-20260910-ad-thumbnails-finish.md`** — Dan's picks 2026-09-10: Ad 2 = jeans photo on black+red (files
-  exist, install by API); Ad 1 = arm-behind-head Muay Thai cutout on a "cleaner, more trustable" background (two options
-  to build, he picks), 16:9 + 9:16; then install all five by `thumbnails.set` and read back. Fable 5.1 medium.
-  **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260910-google-ads-api-client.md`** — Google Ads by API: Explorer access is granted on Cloud
   project `abs-by-ai`; mint the Ads-scope refresh token (Dan's one consent click), prove a call, build
   `scripts/ads/api/client.js`, port the manual queue, report Ad 1's policy state. Do not enable campaign 24243839443

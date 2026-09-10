@@ -83,10 +83,14 @@ async function thumbUrl(token, id) {
 
 async function fetchBytes(info) {
   for (const s of info.sizes) {
-    // No cache-buster: i.ytimg.com 404s some query-string URLs that serve fine bare (2026-09-10).
+    // Cache-busted first: the bare maxres URL can keep serving the OLD image from a CDN edge long
+    // after the set took (2 of 3 videos on 2026-09-10, while ?cb= and every smaller size were new).
+    // Bare second: right after a set, a query-string URL can 404 while the bare one serves.
     // All sizes 404 for a minute or two while YouTube processes a freshly set thumbnail.
-    const r = await fetch(s.url, { cache: 'no-store' });
-    if (r.ok) { info.url = s.url; info.key = s.key; info.w = s.width; info.h = s.height; return Buffer.from(await r.arrayBuffer()); }
+    for (const u of [`${s.url}?cb=${Date.now()}`, s.url]) {
+      const r = await fetch(u, { cache: 'no-store' });
+      if (r.ok) { info.url = s.url; info.key = s.key; info.w = s.width; info.h = s.height; return Buffer.from(await r.arrayBuffer()); }
+    }
   }
   throw new Error(`no thumbnail size serves yet: ${info.sizes.map((s) => s.url).join(', ')}`);
 }

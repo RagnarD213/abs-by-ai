@@ -253,6 +253,14 @@ file itself.
 `--thumbnail <jpg|png ≤2 MB>` (thumbnails.set after the upload) and
 `--synthetic true|false` (the altered-content disclosure). First scheduled long-form
 through it: "The $17 Ab Wheel Beats Every Crunch", 1.05 GB master, plus its 5 Shorts.
+**Swapping the thumbnail on a video already up:** `node scripts/youtube/set-thumbnail.js
+--video <id> --file <jpg> --out readback.jpg` (thumbnails.set, then waits for the new image
+to serve and saves it; compare a downscaled grey diff, not bytes). First used 2026-09-10
+on the five finished-ad videos. Traps: (1) every size 404s for a minute or two right after
+a set; (2) the BARE `maxresdefault.jpg` can keep serving the old image from a CDN edge while
+`?cb=<n>` and every smaller size are already new — that is lag, not a failed set; (3) a 9:16
+thumbnail on a long (non-Short) video is served 1280×720 with a blurred zoomed copy of itself
+filling the sides, so compare only the centre strip.
 **Still Studio-only (the token has `youtube.upload` + `youtube.readonly`, not
 `youtube.force-ssl`):** pinned comment, playlists, end screens, captions upload, and
 the thumbnail A/B "Test & Compare". The browser tricks below are for those.
