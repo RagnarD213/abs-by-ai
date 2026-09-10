@@ -213,7 +213,33 @@ turns a 4-minute video into ~16 frames to inspect.
 
 ## Step 4 — AUDIO, BEFORE ANY OF THE PICTURE WORK
 
-> ## ⚠ [APPROVED METHOD — Dan, 2026-08-27] THE AUDIO IS THE REFERENCE'S OWN MIX
+> ## ⚠⚠⚠ THE EDITOR'S AUDIO, UNTOUCHED. NO GAIN, NO LIMITER, NO MONO SUM, NO LOUDNESS TARGET.
+> **(Dan, 2026-09-10, on the Zeeshan Ad 1 vertical: "What the fuck happened to the audio? Zishan's audio
+> sounds much better. This is an awful mistake which can't happen again. … Use Zishan's audio.")**
+> That build lifted his −23.5 LUFS mix +9.9 dB into a 4×-oversampled limiter, summed it to mono and
+> re-encoded it, to pass OUR rows (−14 LUFS, L/R ≥ 0.98) — rows Zeeshan's own mix fails. Every check it
+> faced was level-normalised or target-based, so it passed 20/20 while the loudness range fell 5.9 → 4.1 LU.
+>
+> **The method now, for every vertical or cutdown rebuilt from an editor's finished cut:**
+> * **Full length: COPY his audio stream** from his export into the rebuilt picture (`-map 1:a -c:a copy`);
+>   `a6/zmux.py` asserts the audio stream's md5 equals his, bit for bit.
+> * **Cutdown: CUT his mix and nothing else** — `cut/his_mix.wav`, his decoded mix cut at the seams with
+>   4 ms raised-cosine joins, encoded AAC 320k with no filter of any kind.
+> * **Gate: `audio_gate.py <file> --reference-mix <his> --verbatim`**, and `"audio_mode": "verbatim"` in
+>   `qc.json`. The verbatim rows fail any change to his level (every second within ±0.5 dB), his dynamics
+>   (loudness and LRA within 0.3 LU) and his stereo image (L/R within 0.01); the absolute −14 LUFS and
+>   L/R rows are declared not applicable, with that reason, because **his mix is the standard.**
+> * **If his export is too quiet for a feed, ask the editor for a louder export.** A small constant lift only when
+>   Dan asks for one: the approved Muhammad verticals (+4.2 dB, loudness range 3.5 → 2.8 LU, no mono) are its
+>   ceiling, and the rejected Zeeshan build (+9.9 dB into the limiter, 5.9 → 4.1, mono) is what past it sounds like.
+>   Never a mono sum. Both rejected files are corpus entries (`ad1zee-vertical-processed-audio`, `…-59s-…`); his
+>   own export is the approved anchor (`zeeshan-ad1-16x9`).
+>
+> Everything below in this box is the HISTORY of how we got it wrong: the gain + limiter method was never
+> confirmed by Dan (the 09-02 rebuild sat at "Dan listens"), Ad 2's approval covered its picture, and on a
+> quieter master the same method did the damage Dan heard. Do not revive it.
+>
+> ## [SUPERSEDED 2026-09-10 — history] THE AUDIO IS THE REFERENCE'S OWN MIX
 >
 > **This is now the standard for every vertical rebuilt from a finished horizontal, and
 > the approach Dan approved on the Ad-1 vertical: "this audio sounds great … probably
@@ -975,7 +1001,8 @@ me abs - ad 1/recipe-vertical/`). Thirteen lessons, every one measured on this b
 5. **Tag every intermediate BT.709 and give fillers the same tags.** A graded conform with no colour tags, stream-copy
    concatenated with untagged black fillers, is two different H.264 parameter sets in one file. Set the matrices
    explicitly (`scale=in_color_matrix=bt709` / `out_color_matrix=bt709`) and tag every segment identically.
-6. **A quiet, dynamic reference mix needs a true-peak limiter.** His master: -23.5 LUFS, -1.7 dBTP, LRA 5.9 -- +9.9 dB
+6. ⚠ **[REJECTED BY DAN 2026-09-10 -- Step 4 and lesson 26; kept as history, do not repeat] A quiet, dynamic
+   reference mix needs a true-peak limiter.** His master: -23.5 LUFS, -1.7 dBTP, LRA 5.9 -- +9.9 dB
    of constant gain. The 48 kHz limiter held the samples at -1.4 and the true peak still read -0.3 dBTP; **new opt-in
    `voice_chain.py --oversample 4`** runs the limiter at 192 kHz. And the AAC encode matters: 192k/256k overshot to
    -0.8/-0.7, **320k landed -1.2 dBTP** -- the masters are muxed at 320k (`zmux.py`). The window is narrow: loudness
@@ -1026,7 +1053,8 @@ me abs - ad 1/recipe-vertical/`). Thirteen lessons, every one measured on this b
     sentence by 1.2 s, so the range that began there printed "If You Saw Yourself With Abs, You'd Be MOTIVATED" over
     "And right now you can generate…". Only overlays that start inside a range survive (the persistent CTA bar is the
     exception).
-16. ⚠ **An editor's mix that sits ON the L/R line fails the shared gate after AAC -- sum it to centre, never relax the
+16. ⚠ **[REJECTED BY DAN 2026-09-10 -- lesson 26; kept as history: gate his image against HIS, never sum it]
+    An editor's mix that sits ON the L/R line fails the shared gate after AAC -- sum it to centre, never relax the
     row.** His mix read L/R +0.970 against the gate's +0.97 and the AAC encode took ours to +0.968. It was not the
     two-mic fault (both channels carry the lav at the same instant, 0.92 each, lag 0.04 ms, equal level) -- a faint
     stereo difference. **New opt-in `voice_chain.py --mono-sum`** (finish-only) sums to centred mono before the constant
@@ -1086,6 +1114,18 @@ me abs - ad 1/recipe-vertical/`). Thirteen lessons, every one measured on this b
     measurement is what actually cleared that master. Check 17 now reuses the cache only when `centering/source.key`
     (path | size | mtime) matches the file it is grading. **Any gate that caches per-file work must key the cache on
     the file** -- same class of bug as lesson 24.
+26. ⚠⚠ **Dan rejected the delivered verticals' AUDIO (2026-09-10): "What the fuck happened to the audio? Zishan's
+    audio sounds much better. This is an awful mistake which can't happen again."** Lessons 6 and 16 processed
+    Zeeshan's finished mix to pass OUR rows -- +9.9 dB into a 4x-oversampled limiter for -14 LUFS, a mono sum for L/R
+    >= 0.98 -- rows his own mix FAILS (-23.5 LUFS, L/R 0.970). Every check it met was level-normalised (provenance
+    0.9989) or target-based (LUFS, L/R, a 4.5 dB one-sided shave allowance), so it passed `qc.py` 20/20 while the
+    loudness range fell 5.9 -> 4.1 LU -- measured, written up as a "trade-off", shipped anyway. **The fix is
+    structural: the editor's audio ships untouched (Step 4), and `audio_gate.py --verbatim` + `qc.json
+    "audio_mode": "verbatim"` gate his level, dynamics and stereo image against HIS.** The re-delivery's full length
+    carries his audio stream bit for bit (md5 5051f4f4...), its cutdown his cut mix encoded with no filter; both
+    rejected files are corpus entries the verbatim rows fail three ways, and his own export is the approved anchor.
+    The A/B sent with that delivery also played the pinned MUHAMMAD reference as "his" -- `--ab` in verbatim mode now
+    plays the editor's own mix.
 
 ## Standing content rules that override the reference
 

@@ -71,12 +71,17 @@ IMPLEMENTED = {
     "audio_gate:tp": "audio_gate", "audio_gate:silence": "audio_gate",
     "audio_gate:length": "audio_gate", "audio_gate:artifacts": "audio_gate",
     "audio_gate:do_no_harm": "audio_gate", "audio_gate:reference_rows": "audio_gate",
+    # --reference-mix --verbatim (2026-09-10): the editor's mix, untouched
+    "audio_gate:provenance": "audio_gate", "audio_gate:verbatim_level": "audio_gate",
+    "audio_gate:verbatim_image": "audio_gate", "audio_gate:verbatim_lufs": "audio_gate",
 }
 # Row key by human name, so an entry can name either.
 ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": "tone",
           "clean between words": "floor", "words stop cleanly": "dryness", "loudness": "lufs",
           "not crushed": "spread", "no clipping": "tp", "nothing missing": "silence",
-          "no processing damage": "artifacts", "do no harm": "do_no_harm", "audio": "length"}
+          "no processing damage": "artifacts", "do no harm": "do_no_harm", "audio": "length",
+          "reference mix": "provenance", "verbatim level": "verbatim_level",
+          "verbatim image": "verbatim_image", "verbatim loudness": "verbatim_lufs"}
 
 # Phases that will implement the rest. Printed with each PENDING so the queue is legible.
 PENDING_OWNER = {
@@ -151,6 +156,10 @@ def check_entry(e, corpus, strict_pending):
     gate_ok, rows, log = (None, {}, "")
     if audio_needed:
         extra = ["--reference-rows-only"] if e["verdict"] == "reference" else []
+        # per-entry gate arguments (2026-09-10): a {root, path} item resolves like the entry's own path, so an entry
+        # can name the editor's mix its audio must equal (--reference-mix <his export> --verbatim)
+        for x in e.get("gate_args", []):
+            extra.append(resolve(x, corpus) if isinstance(x, dict) else x)
         gate_ok, rows, log = run_audio_gate(p, extra)
         res["gate"] = "PASS" if gate_ok else "FAIL"
         res["failing_rows"] = sorted(k for k, v in rows.items() if v is False)

@@ -69,6 +69,14 @@ sessions (and any other assistant, if one is in use).
   Muhammad's pinned reference and stamps it. Every QC and delivery script refuses a file without a matching
   PASS stamp. Do not write a new chain or a new gate in a skill; extend the module with a flag.
 - Run `selftest.sh` before a batch. Send the gate's A/B clip with every review copy.
+- **An editor's finished mix is delivered UNTOUCHED by default** (Dan, 2026-09-10: *"Zishan's audio sounds much
+  better… This is an awful mistake which can't happen again… Use Zishan's audio."*). A vertical or cutdown rebuilt
+  from Muhammad's, Zeeshan's or any editor's finished cut carries his audio exactly as he exported it — stream-copied,
+  or only CUT for a cutdown — gated with `audio_gate.py --reference-mix <his> --verbatim`. Our loudness and L/R
+  targets are for OUR mixes; never bend an editor's audio to pass them, and never sum it to mono. A small constant
+  lift happens only when Dan asks for one, and the approved Muhammad verticals (+4.2 dB, loudness range 3.5 → 2.8 LU)
+  are its ceiling; the rejected Zeeshan build (+9.9 dB into the limiter, range 5.9 → 4.1, mono) is what past it
+  sounds like. If his export is too quiet for a feed, ask him for a louder one.
 
 ## No gate change ships without the regression corpus (2026-09-09)
 

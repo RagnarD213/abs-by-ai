@@ -141,17 +141,6 @@ screenshot with the SIXPACKSHORTCUTS.COM watermark; Ad 7 whether we generate the
 the "slightly enhanced" before picture does not exist. Zeeshan r3 / Waleed r3 still waiting on those editors.
 Delete this entry once Dan has forwarded the doc and the next cuts arrive.
 
-**Ad-1 vertical audio — REBUILT, Dan listens** (2026-09-02). He rejected the audio on
-`Muhammad Ad Videos/this picture got me abs/… | claude | 9x16.mp4` and attributed it to the
-two-mic fault. **It was not that** — both delivered files measure L/R corr 0.99 at lag 0, and
-the 9:16's audio IS Muhammad's mix (per-second corr 0.997). The cause was `loudnorm` silently
-falling back to DYNAMIC mode (his master −18.2 LUFS at +0.0 dBTP, so a linear +4 dB lift is
-impossible): it was swinging the gain +1.2→+9.5 dB second to second, 133 of 232 seconds pushed
-up. Rebuilt as constant +4.2 dB + `alimiter=limit=0.85:level=disabled` → −14.5 LUFS, −1.3 dBTP,
-picture stream untouched (6977 frames, `-c:v copy`). Master replaced in place; A/B + 540p sent.
-New gate `/shortad-from-longform reference/gain_flatness.py` + skill rules committed (`a54686f`)
-and cross-referenced from /shorts and /longform-edit. Delete this entry once he confirms.
-
 **ManyChat per-topic keywords — DONE AND LIVE 2026-09-08, awaiting Dan's OK to delete this entry.**
 `ABS` is split into six live keywords — ABS / FOOD / TRAIN / TRACK / SLEEP / COACH — each with its own
 DM copy and `utm_campaign`. All 47 queued Instagram CTA captions rewritten to match (34 changed, 13 stayed
@@ -260,11 +249,12 @@ not duplicates); recommend deleting once he confirms the current files are the o
 
 **Home filming set — GEAR ARRIVED, Dan hiring an installer (2026-09-10).** Installer work order published
 (https://claude.ai/code/artifact/2b21b748-62f0-455f-aafb-ac9a6a23ad44 — look B plant+lamp default, rod drilled, NO
-floor marks: Jeff marks spots at the first shoot); job ad + TaskRabbit recommendation given in chat. Dan: buy 3 pre-filled
-Sandbaggy 15 lb saddle bags (2-pack + single, $113) + LUXON amber E26 bulb 4-pack ($18.99) — both pages open in his
-Chrome — then book a Tasker (Mounting, ~5 h) and share the sheet link. Stool = the Linon 29" barstool he already has.
-Verified 09-10: the 09-01 duplicate order set was cancelled EXCEPT one VIVO TV floor stand ($54.11) → he owns TWO
-(both delivered 09-04); return one by ~Oct 5 unless intended. After install: build the look-A telemetry loop file.
+floor marks: Jeff marks spots at the first shoot; installer FILLS the stands' own sandbags — Dan bought sand 09-10).
+Stool = the Linon 29" barstool he already has. **Craigslist post: Dan posted it himself 09-10 — do NOT re-post.**
+**Duplicate VIVO TV floor stand: return CONFIRMED 09-10** (order 114-5180568-9257862, "Ordered too many", still boxed) —
+UPS drop-off only, $11.40 deducted from the refund, label emailed + in Your Orders; **Dan drops it at UPS by Oct 5.**
+Next: Dan picks an installer from the replies and shares the sheet link. After install: build
+the look-A telemetry loop file.
 
 **Paid ads** — Dan decides whether both Meta campaigns being toggled OFF was intentional
 (3 unpublished draft edits still pending). Launch specs are in the 8/31 artifact.
@@ -413,13 +403,34 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Ad 1 "this picture got me abs" — 9:16 verticals from ZEESHAN's final — DELIVERED 2026-09-10, Dan reviews.** Full length
-(4:09, 24 fps) + a 0:55.5 cutdown beside his 16x9 in `Zeeshan Ad Videos/this picture got me abs - ad 1/` (540p review
-copies, A/B audio, `notes-vertical.md`); both `qc.py` 20/20, audio stamped PASS, corpus PASS. An independent audit failed
-the first render (4 mechanical defects that had passed every gate) — fixed and re-rendered before Dan saw it; lessons
-A6.19–25 in `/shortad-from-longform`. ⚠ The one trade-off is audio: his −23.5 LUFS mix lifted +9.9 dB narrows LRA
-5.9 → 4.1 LU — Dan's ear decides. ⚠ Zeeshan's own cut shows the banned email-capture screen at 3:09 — worth a line to
-him. Check off the dashboard row "Cut 9:16 vertical ads…" ONLY when Dan approves; then delete this entry.
+**/start VSL edit (handoff 20260910-start-vsl-edit-and-install) — BLOCKED ON THE FOOTAGE 2026-09-10.** Dan fired the
+handoff with the starter prompt's `<folder>` placeholder unfilled, and no recording exists anywhere reachable: nothing newer
+than the 8/28 shoot on the Extreme drive, nothing in Downloads/Desktop/Movies/Photos, nothing on Drive (only editor
+deliveries). The footage-independent part is DONE but UNCOMMITTED, owned by this session: `public/site-video.js` gained
+`window.ABS_START_VIDEO` (empty id → /start falls back to `ABS_SITE_VIDEO`, so nothing changes until an id is pasted) and
+`public/start.html` reads it first, driving the hero caption, variant B's heading/description and the iframe title from
+its `title`/`lengthLabel`. Verified on the local server: fallback identical to live in `?v=a` and `?v=b`; with a stand-in id
+both variants switch and `/?demo=analysis` still plays `CwEGFxpIM-E`. Deliberately not pushed (handoff: one commit with
+the real id; every push wipes locked holds). **Next: Dan names the folder → run /website-video on the rolls; then paste the
+id into `ABS_START_VIDEO` and commit both files together.** Delete this entry when that session starts.
+
+**Finished ads on YouTube — 7 UPLOADED UNLISTED 2026-09-10, 5 USABLE, Dan uses the links in Google Ads.** Ad 2 ×2 and
+Ad 1 ×3 (Muhammad 16:9, Zeeshan 16:9 4K, Muhammad's vertical — Dan approved that one 09-10) are good. ⚠ The two Zeeshan
+verticals (`rimBWjT9-oo`, `JOZVk4_HDwQ`) are byte-identical to the files he REJECTED for processed audio 09-10 — do not
+use; the token cannot delete, Dan removes them in Studio. Links: `Docs/AD_VIDEO_IDS.md`. When the Zeeshan rebuild is
+approved, upload it as a new video and add a row there. Delete this entry once the campaign is built on these ids.
+⚠ For the session holding the uncommitted `_shared/qc_corpus/corpus.json`: I appended two approved entries
+(`muhammad-ad1-vertical-approved` with a `do_no_harm` known_gap, `muhammad-ad2-vertical-approved`) on disk and left
+them UNCOMMITTED so your in-flight work is not committed under my name. Please keep them in your commit.
+
+**Ad 1 "this picture got me abs" — 9:16 verticals from ZEESHAN's final — RE-DELIVERED 2026-09-10 WITH HIS AUDIO UNTOUCHED,
+Dan reviews.** He rejected the second delivery's audio ("Zishan's audio sounds much better… Use Zishan's audio") — it had
+lifted his −23.5 LUFS mix +9.9 dB into a limiter and summed it to mono. Now the full length carries his exported track bit
+for bit (md5 = his) and the cutdown his mix only cut; both `qc.py` 20/20 in the new `audio_gate.py --verbatim` mode,
+corpus PASS 19/19 (both rejected files are entries and fail three verbatim rows; the `muhammad-ad*-vertical-approved`
+entries are committed with it). Rule in `AGENTS.md`; skill Step 4 + lesson 26. ⚠ YouTube `rimBWjT9-oo` / `JOZVk4_HDwQ`
+carry the REJECTED audio — upload the fixed files only when Dan approves. ⚠ Zeeshan's own cut shows the banned
+email-capture screen at 3:09. Check off the dashboard row "Cut 9:16 vertical ads…" ONLY when Dan approves; then delete.
 
 **Video quality VQC-A (Phase 0 + 3) — DONE AND PUSHED 2026-09-09. Two things for Dan to know, nothing to do.**
 The seven bypasses are closed (`require_stamp` strict by default; the instructed `--no-stamp` gone; an unmeasured

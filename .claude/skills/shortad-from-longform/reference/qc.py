@@ -118,15 +118,35 @@ def main():
                         "-f", "null", "-"], capture_output=True, text=True).stderr
     g = lambda k: float(re.search(rf"{k}:\s+(-?[\d.]+)", r).group(1))
     I, TP = g("Input Integrated"), g("Input True Peak")
-    chk(abs(I + 14) <= 0.8, "4  loudness -14 LUFS", f"{I} LUFS")
+    # ⚠ VERBATIM (Dan, 2026-09-10: "Zishan's audio sounds much better... Use Zishan's audio"). When the cut carries an
+    # editor's finished mix, HIS level and HIS stereo image are the standard. Our -14 LUFS and L/R > 0.98 rows would
+    # have FAILED Zeeshan's own mix (-23.5 LUFS, L/R 0.970) -- and we "fixed" that by lifting and mono-summing his
+    # audio, which is the build Dan rejected. So in audio_mode "verbatim" rows 4 and 6 compare to HIS mix.
+    VB = C.get("audio_mode") == "verbatim"
+    hm = rel(C.get("his_mix"))
+    if VB and not (hm and os.path.exists(hm)):
+        unmeasured("4  loudness is HIS mix's (delivered untouched)", "audio_mode verbatim needs his_mix in qc.json")
+    elif VB:
+        rh = subprocess.run([FF, "-hide_banner", "-nostats", "-i", hm, "-af", "loudnorm=print_format=summary",
+                             "-f", "null", "-"], capture_output=True, text=True).stderr
+        Ih = float(re.search(r"Input Integrated:\s+(-?[\d.]+)", rh).group(1))
+        chk(abs(I - Ih) <= 0.3, "4  loudness is HIS mix's (delivered untouched)", f"{I} vs his {Ih} LUFS")
+    else:
+        chk(abs(I + 14) <= 0.8, "4  loudness -14 LUFS", f"{I} LUFS")
     chk(TP <= -1.0, "5  true peak at or under -1.0 dBTP", f"{TP} dBTP")
 
-    # 6 centred voice
+    # 6 centred voice (verbatim: HIS stereo image, not summed to mono, not widened)
     wav = "/tmp/_qc_shortad.wav"
     subprocess.run([FF, "-v", "error", "-y", "-i", V, "-map", "0:a", "-ar", "16000", "-ac", "2", wav], check=True)
     a = np.frombuffer(wave.open(wav).readframes(10**9), dtype="<i2").astype(np.float32).reshape(-1, 2)
     c = float(np.corrcoef(a[:, 0], a[:, 1])[0, 1])
-    chk(c > 0.98, "6  voice is centred / mono-safe", f"L/R corr {c:.4f}")
+    if VB and hm and os.path.exists(hm):
+        subprocess.run([FF, "-v", "error", "-y", "-i", hm, "-ar", "16000", "-ac", "2", "/tmp/_qc_shortad_his.wav"], check=True)
+        b2 = np.frombuffer(wave.open("/tmp/_qc_shortad_his.wav").readframes(10**9), dtype="<i2").astype(np.float32).reshape(-1, 2)
+        ch = float(np.corrcoef(b2[:, 0], b2[:, 1])[0, 1])
+        chk(abs(c - ch) <= 0.01, "6  stereo image is HIS mix's (not summed, not widened)", f"L/R corr {c:.4f} vs his {ch:.4f}")
+    else:
+        chk(c > 0.98, "6  voice is centred / mono-safe", f"L/R corr {c:.4f}")
 
     # 7/8 visual change rate and the longest static stretch
     vals = subprocess.run([FF, "-v", "info", "-i", V, "-vf",
@@ -223,9 +243,18 @@ def main():
             cors.append(float(np.dot(xx, yy) / np.sqrt((xx ** 2).sum() * (yy ** 2).sum())))
             gains.append(20 * np.log10(max(gg, 1e-9)))
         med = float(np.median(cors)) if cors else 0.0
-        chk(med >= 0.99, "13 audio is HIS finished mix (per-second, level-normalised)",
-            f"median {med:.4f} over {len(cors)} windows; limiter rides "
-            f"{min(gains):+.1f}..{max(gains):+.1f} dB" if cors else "no usable windows")
+        if VB:
+            # verbatim (2026-09-10): his audio at HIS level, untouched -- no gain, every second within +/-0.5 dB of
+            # him. The rejected build read 0.9991 on the level-normalised test below while riding +5.0..+9.9 dB.
+            gm = float(np.median(gains)) if gains else 99.0
+            chk(bool(cors) and med >= 0.999 and abs(gm) <= 0.1 and min(gains) >= -0.5 and max(gains) <= 0.5,
+                "13 audio IS his finished mix, untouched (per second)",
+                f"median corr {med:.4f} over {len(cors)} windows; level vs his {gm:+.2f} dB "
+                f"(seconds {min(gains):+.2f}..{max(gains):+.2f})" if cors else "no usable windows")
+        else:
+            chk(med >= 0.99, "13 audio is HIS finished mix (per-second, level-normalised)",
+                f"median {med:.4f} over {len(cors)} windows; limiter rides "
+                f"{min(gains):+.1f}..{max(gains):+.1f} dB" if cors else "no usable windows")
 
     # 15 THE WATCH PASS on THIS EXACT FILE -- the gate, not the metrics.
     wl = rel(C.get("watch_log"))
@@ -288,6 +317,13 @@ def main():
     try:
         from require_stamp import require_stamp
         require_stamp(V, quiet=True); sok, sd = True, "stamp present, matches this file, PASS"
+        if VB:
+            # a verbatim cut needs a VERBATIM stamp: a reference-mix stamp passed the rejected, processed build
+            smode = json.load(open(V + ".audio_gate.json")).get("mode")
+            if smode != "reference-verbatim":
+                sok, sd = False, f"stamp mode is {smode!r}; audio_mode verbatim needs audio_gate.py --verbatim"
+            else:
+                sd = "stamp present, matches this file, PASS (verbatim: the editor's audio, untouched)"
     except BaseException as e:
         sok, sd = False, f"NO VALID STAMP: {e}"
     chk(sok, "18 audio gate stamp (_shared/audio/audio_gate.py) on this exact file", sd)
