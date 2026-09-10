@@ -390,6 +390,10 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   exist, install by API); Ad 1 = arm-behind-head Muay Thai cutout on a "cleaner, more trustable" background (two options
   to build, he picks), 16:9 + 9:16; then install all five by `thumbnails.set` and read back. Fable 5.1 medium.
   **Not on the dashboard** (his rule).
+- **`Handoffs/handoff-20260910-google-ads-api-client.md`** — Google Ads by API: Explorer access is granted on Cloud
+  project `abs-by-ai`; mint the Ads-scope refresh token (Dan's one consent click), prove a call, build
+  `scripts/ads/api/client.js`, port the manual queue, report Ad 1's policy state. Do not enable campaign 24243839443
+  without Dan's go. Sonnet 5 standard / Codex flagship medium. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260910-start-vsl-edit-and-install.md`** — fire after Dan records the /start VSL: edit the
   hero (×4 hooks) + full cut with /website-video, give /start its own video slot (the analysis page keeps
   `CwEGFxpIM-E`), verify live, then check off the dashboard VSL row. Fable 5.1 high. **Not on the dashboard** (his rule).
