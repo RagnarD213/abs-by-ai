@@ -380,10 +380,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
   fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
-- **`Handoffs/handoff-20260910-google-ads-api-client.md`** — Google Ads by API: Explorer access is granted on Cloud
-  project `abs-by-ai`; mint the Ads-scope refresh token (Dan's one consent click), prove a call, build
-  `scripts/ads/api/client.js`, port the manual queue, report Ad 1's policy state. Do not enable campaign 24243839443
-  without Dan's go. Sonnet 5 standard / Codex flagship medium. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260910-start-vsl-edit-and-install.md`** — fire after Dan records the /start VSL: edit the
   hero (×4 hooks) + full cut with /website-video, give /start its own video slot (the analysis page keeps
   `CwEGFxpIM-E`), verify live, then check off the dashboard VSL row. Fable 5.1 high. **Not on the dashboard** (his rule).
@@ -415,7 +411,7 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Demand Gen conversion campaign — BUILT PAUSED 2026-09-10, Dan reviews and enables.** Campaign `24243839443`
+**Demand Gen conversion campaign — LIVE: Dan enabled it in the Ads UI 2026-09-10 16:12 CT; policy review still running.** Campaign `24243839443`
 (`[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home`): $20/day, target CPA $30 on Free
 Generation Started only, 4 ad groups (Ad 1 / Ad 2 × /start / home), 10 ads (every finished version of each ad), one
 named Audience per ad (male + unknown, 25-54, the custom segments), US + Canada + English on each ad group. Full
@@ -424,8 +420,11 @@ Dan's own headlines are on all 10 ads (his 09-10 screenshots); the one descripti
 rewritten on the six Ad 1 ads (16:05 CT) and is in re-review. ⚠ Ad 1 read "Approved (limited) — Clickbait" until
 re-review clears; a limited ad never spends here. This campaign is OUTSIDE the ytads retry automation. The two
 rejected Zeeshan verticals (`rimBWjT9-oo`, `JOZVk4_HDwQ`) are not in it; Dan still removes them in Studio.
-**Dan: enable the campaign when happy.** Google Ads API: the token form is gone; the API is enabled on Cloud project `abs-by-ai` and **Explorer access is GRANTED** (2,880 production ops/day, campaign management + reporting; doc §API access) — next: mint an `adwords`-scope refresh token (an OAuth consent click) and the Ads Script channel is no longer needed. Delete this entry
-once it is live and the policy state is clean.
+Policy read by API 17:22 CT (`node scripts/ads/api/client.js policy 24243839443`): Clickbait is gone; 8 of 10 ads
+APPROVED; the two on **Zeeshan's 16:9 `1oEcwdp21Fg`** (824179684065, 824179684203) are APPROVED_LIMITED for
+"exaggerated or inaccurate claims"; Dan's new headlines + the rewritten description still in review. SERVING/LEARNING,
+$0 spent then. Google Ads API is LIVE (`Docs/GOOGLE_ADS_API.md`). Delete this entry once review settles and the two
+limited ads are resolved (retry rule: tamer thumbnail on `1oEcwdp21Fg`, then remove).
 
 **Ad 1 "this picture got me abs" — 9:16 verticals from ZEESHAN's final — RE-DELIVERED 2026-09-10 WITH HIS AUDIO UNTOUCHED,
 Dan reviews.** He rejected the second delivery's audio ("Zishan's audio sounds much better… Use Zishan's audio") — it had

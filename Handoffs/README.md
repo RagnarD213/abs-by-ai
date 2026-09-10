@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260910-google-ads-api-client.md](handoff-20260910-google-ads-api-client.md) | **NEXT for Google Ads.** Explorer API access is granted on Cloud project `abs-by-ai`; mint the Ads-scope refresh token (Dan's one consent click), prove a call, build `scripts/ads/api/client.js`, run the first jobs through it, retire the paste-a-script channel. Sonnet 5 standard / Codex flagship medium |
 | [handoff-20260910-start-vsl-edit-and-install.md](handoff-20260910-start-vsl-edit-and-install.md) | after Dan records the /start VSL (script doc linked inside) — edit hero ×4 hooks + full cut with /website-video, then give /start its own video slot (analysis page keeps `CwEGFxpIM-E`), verify live. Fable 5.1 high |
 | [handoff-20260812-revenuecat-restore-behavior-audit.md](handoff-20260812-revenuecat-restore-behavior-audit.md) | fire the day Apple approves (IN_REVIEW since 09-08) |
 | [handoff-20260812-purchase-before-account.md](handoff-20260812-purchase-before-account.md) | after approval AND after the RevenueCat audit |
@@ -42,6 +41,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-10 | [handoff-20260910-google-ads-api-client.md](handoff-20260910-google-ads-api-client.md) | Google Ads by API — EXECUTED 2026-09-10: token minted, no developer token needed, client `scripts/ads/api/client.js`, manual queue immediate; see `Docs/GOOGLE_ADS_API.md` |
 | 2026-09-10 | [handoff-20260910-web-pay-first-cart.md](handoff-20260910-web-pay-first-cart.md) | Handoff: Web pay-first checkout — a research-led cart that comes BEFORE the account |
 | 2026-09-09 | [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | Handoff — upload the finalized website conversion video to YouTube (unlisted) and install it on the analysis page + /start |
 | 2026-09-09 | [handoff-20260909-website-video-rev6.md](handoff-20260909-website-video-rev6.md) | Handoff — Website conversion video rev 6: audio pass toward Muhammad's, the uneven spray-tan patch, toe-touches replacing the curls, the 1:24 AI Trainer PiP, steak instead of chicken |

@@ -465,16 +465,10 @@ async function fetchMeta(day, baselineFrom) {
 // GOOGLE ADS
 // ============================================================
 //
-// NOT REACHABLE AS OF 2026-09-02 and the reason is specific, not a shrug:
-// Phase 1 of Handoffs/handoff-20260831-google-ads-api-setup-engagement-ad-automation.md
-// is unexecuted, so there is no developer token, and the stored GOOGLE_REFRESH_TOKEN
-// is scoped to calendar.readonly only (verified 2026-09-02 against tokeninfo).
-// Two separate credentials are missing, and neither can be minted from here.
-//
-// The query and the whole response mapping below are written and ready. When the
-// developer token and an adwords-scoped refresh token exist, this leg starts
-// returning data with no further code — that is the point of writing it now
-// rather than leaving a TODO.
+// Blind from 2026-09-02 (no developer token, no adwords-scoped token) until
+// 2026-09-10, when Google moved API access to the Cloud project (Explorer level on
+// `abs-by-ai`) and GOOGLE_ADS_REFRESH_TOKEN was minted. Reads now go through
+// scripts/ads/api/client.js; setup and the measured answers: Docs/GOOGLE_ADS_API.md.
 async function fetchGoogle(day, baselineFrom) {
   const customer = (process.env.GOOGLE_ADS_CUSTOMER_ID || GOOGLE_CUSTOMER_DEFAULT).replace(/-/g, '');
   const link = `https://ads.google.com/aw/campaigns?__c=${customer}`;
@@ -483,38 +477,6 @@ async function fetchGoogle(day, baselineFrom) {
     ok: false, platform: 'google', account: customer, reason, setup, link,
     spend: null, campaigns: [], anomalies: [], winners: [],
   });
-
-  const devToken = process.env.GOOGLE_ADS_DEVELOPER_TOKEN || '';
-  const refresh  = process.env.GOOGLE_ADS_REFRESH_TOKEN || '';
-  const clientId = process.env.GOOGLE_CLIENT_ID || '';
-  const secret   = process.env.GOOGLE_CLIENT_SECRET || '';
-
-  if (!devToken) {
-    return blind(
-      'No Google Ads developer token — API access was never set up (handoff Phase 1 unexecuted).',
-      'Apply for a developer token in MCC 324-458-6445 → Tools → API Center, then set GOOGLE_ADS_DEVELOPER_TOKEN.'
-    );
-  }
-  if (!refresh || !clientId || !secret) {
-    return blind(
-      'No adwords-scoped OAuth refresh token (the stored GOOGLE_REFRESH_TOKEN is calendar.readonly only).',
-      'Run the OAuth consent flow for https://www.googleapis.com/auth/adwords and set GOOGLE_ADS_REFRESH_TOKEN.'
-    );
-  }
-
-  // Exchange the refresh token.
-  const tok = await getJson('https://oauth2.googleapis.com/token', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      client_id: clientId, client_secret: secret,
-      refresh_token: refresh, grant_type: 'refresh_token',
-    }),
-  });
-  if (!tok.ok || !tok.body.access_token) {
-    return blind(`OAuth refresh failed: ${tok.body?.error_description || tok.body?.error || tok.status}`,
-                 'Re-run the adwords OAuth consent flow.');
-  }
 
   // GAQL. `metrics.conversions` is the inflated column — see
   // GOOGLE_CONVERSION_INFLATION above; the deflation happens after the fetch and
@@ -527,28 +489,20 @@ async function fetchGoogle(day, baselineFrom) {
     WHERE segments.date BETWEEN '${baselineFrom}' AND '${day}'
   `.trim();
 
-  const res = await getJson(
-    `https://googleads.googleapis.com/v18/customers/${customer}/googleAds:searchStream`,
-    {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${tok.body.access_token}`,
-        'developer-token': devToken,
-        'login-customer-id': (process.env.GOOGLE_ADS_LOGIN_CUSTOMER_ID || GOOGLE_LOGIN_CUSTOMER).replace(/-/g, ''),
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query: gaql }),
-    }
-  );
-  if (!res.ok) {
-    const msg = res.body?.error?.message
-             || res.body?.[0]?.error?.message
-             || `HTTP ${res.status}`;
-    return blind(`Google Ads API error: ${msg}`, 'Check the developer token is approved and the login-customer-id is the MCC.');
+  // Through the shared client (scripts/ads/api/client.js): OAuth refresh, the MCC
+  // login-customer-id, paging and retries live there, not here.
+  let rows;
+  try {
+    rows = await require('./api/client.js').search(gaql, { cid: customer });
+  } catch (e) {
+    return /GOOGLE_ADS_REFRESH_TOKEN missing/.test(e.message)
+      ? blind('No adwords-scoped OAuth refresh token (GOOGLE_ADS_REFRESH_TOKEN is not set).',
+              'Mint one per Docs/GOOGLE_ADS_API.md and set GOOGLE_ADS_REFRESH_TOKEN.')
+      : blind(`Google Ads API error: ${e.message}`, 'See Docs/GOOGLE_ADS_API.md (token, MCC login-customer-id, access level).');
   }
 
   const byCampaign = new Map();
-  const batches = Array.isArray(res.body) ? res.body : [res.body];
+  const batches = [{ results: rows }];
   for (const batch of batches) {
     for (const r of (batch.results || [])) {
       const id = r.campaign?.id;

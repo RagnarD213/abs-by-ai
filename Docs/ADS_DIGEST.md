@@ -56,31 +56,18 @@ echo "META_ADS_TOKEN=<paste>" >> ~/.absbyai-secrets.env
 Then `node scripts/ads/ads-digest.js` and the Meta leg is live. Optionally add
 `META_ADS_TOKEN` to Railway so `/api/ads-digest` is populated from the server too.
 
-### Google — two credentials missing, both gated on the API handoff
+### Google — LIVE since 2026-09-10
 
-1. **No developer token.** Phase 1 of
-   `Handoffs/handoff-20260831-google-ads-api-setup-engagement-ad-automation.md` is
-   unexecuted. Apply in MCC **324-458-6445** → Tools → **API Center**. Basic access
-   is enough for reporting.
-2. **The stored OAuth token is calendar-only.** Verified 2026-09-02 against
-   `tokeninfo`: `GOOGLE_REFRESH_TOKEN` carries `calendar.readonly` and nothing
-   else. The digest needs a separate refresh token scoped to
-   `https://www.googleapis.com/auth/adwords`.
+The Google leg reads through the shared client `scripts/ads/api/client.js` using
+`GOOGLE_ADS_REFRESH_TOKEN` (adwords scope). **No developer token is needed** (Google
+moved API access to the Cloud project; Explorer level on `abs-by-ai`), and the account
+is called with itself as login customer — 342-717-0837 is not under the MCC. Setup,
+re-minting and traps: `Docs/GOOGLE_ADS_API.md`. First run (`--day 2026-09-09`)
+returned every Google campaign and a live `zero_results` anomaly on the remarketing
+campaign ($34.61, 0 conversions over 8 days).
 
-```bash
-echo "GOOGLE_ADS_DEVELOPER_TOKEN=<token>" >> ~/.absbyai-secrets.env
-echo "GOOGLE_ADS_REFRESH_TOKEN=<token>"   >> ~/.absbyai-secrets.env
-```
-
-Account ids default correctly (customer `342-717-0837`, login-customer the MCC),
-so no other configuration is needed. The GAQL query and the full response mapping
-are already written — this leg starts returning data on the credentials alone.
-
-**Until then the Google section prints one line naming the missing token.** There
-is no report-export fallback: Google Ads scheduled reports can only be emailed or
-dropped in Drive on a schedule Dan would have to configure by hand, and parsing a
-CSV attachment is a worse dependency than the API it is standing in for. The gap
-is stated rather than papered over.
+If the token is ever missing or revoked, the Google section prints one line naming
+the cause instead of numbers — the gap is stated rather than papered over.
 
 ---
 

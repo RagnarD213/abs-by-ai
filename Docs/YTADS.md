@@ -95,9 +95,15 @@ node scripts/ads/ytads/manual.js enable  customers/3427170837/adGroupAds/<group>
 node scripts/ads/ytads/manual.js raw '{"adGroupAdOperation":{"remove":"customers/3427170837/adGroupAds/<group>~<ad>"}}' --note "why"
 ```
 
-The next **live** hourly run appends the queued rows to its plan as commands `m<id>`, the script passes each
-`mutation` straight to `AdsApp.mutate`, and the results call marks the row `done` or `failed` (Google's error
-text verbatim) and writes a `manual` / `error` event. A dry run leaves the queue untouched.
+**Since 2026-09-10 a queued edit executes IMMEDIATELY through the Google Ads API** (`scripts/ads/api/client.js`,
+`Docs/GOOGLE_ADS_API.md`): the row is claimed `pending → api`, sent, and marked `done` / `failed` (Google's error
+verbatim, `result.channel = "api"`) with a `manual` / `error` event — no waiting for the hourly run. `--dry-run`
+has Google validate the edit and queues nothing; `--defer` leaves the row `pending` for the old path;
+`manual.js run [<id>]` sends pending rows now.
+
+The old path, still live as the fallback: the next **live** hourly run appends `pending` rows to its plan as
+commands `m<id>`, the script passes each `mutation` straight to `AdsApp.mutate`, and the results call marks the
+row `done` or `failed` and writes the same event. A script dry run leaves the queue untouched.
 
 What Google allows on an existing Demand Gen ad (measured 2026-09-08): headlines / long headlines /
 descriptions **yes** (`adOperation.update` + `updateMask: 'demandGenVideoResponsiveAd.headlines'`), status
