@@ -81,6 +81,48 @@
       "priority": "high",
       "why": "Dan 09-10 /prioritize ('get an alternate path' — Claude's reading, confirm). Funnel: 516 of 571 /start-era visitors (90%) never upload a photo.",
       "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Live card test of the new web cart: private window → Monthly → pay $0 → confirm logged in + set-password email → cancel before day 7",
+      "priority": "key",
+      "why": "Claude's add, 09-10 evening /prioritize. The pay-first cart went live 09-10 and no real card has been through it; the Demand Gen campaign ($20/day) now sends paid traffic into it. Steps: Docs/WEB_CART.md.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Check the Google Ads campaigns: Demand Gen conversion first day (spend, policy on the 2 limited ads), Search after the 09-09 fixes, YouTube engagement champions",
+      "priority": "high",
+      "why": "Dan 09-10 evening /prioritize: 'check on those ad campaigns'. Demand Gen 24243839443 enabled 09-10 16:12 CT.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Add the new finished ads to the Google Ads campaigns with thumbnails / cover images (Ad 5 now; Zeeshan's Ad 1 verticals once approved; Ads 3 + 4 when Muhammad's HD lands)",
+      "priority": "key",
+      "why": "Dan 09-10 evening /prioritize. Ad 5's YouTube upload is scheduled-private until 09-16, so the ad needs its own unlisted copy.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Check the iOS App Store review status (expedited); on approval fire the RevenueCat restore audit",
+      "priority": "high",
+      "why": "Dan 09-10 evening /prioritize. Still IN_REVIEW at 09-10 ~7 PM CT (API read); expedite granted 09-10.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Upwork: forward the 09-10 revisions doc to Muhammad, then give revisions on any new cuts",
+      "priority": "high",
+      "why": "Dan 09-10 evening /prioritize. Six sections were appended 09-10 to batch doc 1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A; paste-ready messages in out/*.summary.md.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Choose the installer for the filming room from the Craigslist replies and book a date",
+      "priority": "high",
+      "why": "Dan 09-10 evening /prioritize. Work order: artifact 2b21b748. Memory: Craigslist hires have abandoned jobs before — prefer someone with reviews, TaskRabbit as fallback.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Clean out the filming room so it is ready for the installer",
+      "priority": "high",
+      "why": "Dan 09-10 evening /prioritize. Physical task; do before the install date.",
+      "addedAt": "2026-09-10"
     }
   ],
   "health": [
