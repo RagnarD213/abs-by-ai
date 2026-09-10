@@ -38,6 +38,15 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**/start VSL script — WRITTEN 2026-09-10, Dan reads it and records.** Google Doc
+`1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`: hero cut (≈1:15, demo-first — Dan uploads his own before photo, "I'll
+go first"), full cut (≈3:15, "This picture got me abs"), four hook takes, shot list, B-roll, research, compliance. One
+call is Dan's (doc §7: the on-screen line under his real photos). After recording, fire
+`Handoffs/handoff-20260910-start-vsl-edit-and-install.md` — /start needs its OWN video slot. The dashboard row "Write
+and record a video sales letter (VSL) for /start" stays unchecked until the recording is live. ⚠ Found: the live
+post-generation video claims "thousands of guys" twice (3:16, 3:41) — 75 people have ever generated; a task chip for
+the fix was offered. Delete this entry when the edit+install handoff runs.
+
 **Website conversion video — LIVE ON THE SITE 2026-09-09, Dan looks.** Rev 6 version A (Dan's final) is uploaded UNLISTED to the
 **Abs by AI** channel as `CwEGFxpIM-E` (3:51, HD, embeddable, processing succeeded) and embedded via
 `public/site-video.js`, which BOTH the post-lock-in analysis page and `/start` read — verified rendering on
@@ -348,6 +357,9 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
   fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
+- **`Handoffs/handoff-20260910-start-vsl-edit-and-install.md`** — fire after Dan records the /start VSL: edit the
+  hero (×4 hooks) + full cut with /website-video, give /start its own video slot (the analysis page keeps
+  `CwEGFxpIM-E`), verify live, then check off the dashboard VSL row. Fable 5.1 high. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260910-web-pay-first-cart.md`** — WEB pay-first checkout: research high-converting DR carts
   (MadMuscles, V Shred + a few), show Dan a private teardown artifact, then build a cart that comes right after the
   analysis page and BEFORE any account (Stripe collects the email; account + set-password link after payment; the
@@ -380,11 +392,6 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 ---
 
 # ACTIVE TASK
-
-**/start VSL teleprompter script — IN PROGRESS 2026-09-10 (this session owns it).** Writing the pre-upload VSL for
-`absbyai.com/start` (60–90 s hero cut + 3–4 min full cut, hook variants, shot list, B-roll cues) into a new Google Doc;
-research on competitor VSLs, AI photo-upload funnels and the future-self science feeds it. Script only — Dan records it;
-no code, no install. Will become a HANDOFFS line (edit + install) when the doc is delivered.
 
 **Ad 1 "this picture got me abs" — 9:16 vertical from ZEESHAN's final (2026-09-10, this session owns it).** Building the
 full-length 9:16 + a ≤0:59 cutdown per `/shortad-from-longform` in `/Volumes/Extreme/_edit_work/ad1-zee-vert/`, his mix

@@ -86,6 +86,22 @@ copy in `claude edited long form content/06 - …/`. Uploaded with `scripts/yout
 `youtube-upload-capability`). To swap it later: upload the new master with that script and paste the new id into
 `youtubeId` — one line, one deploy, which wipes in-memory locked holds, so bundle it with other code.
 
+## The /start VSL script (written 2026-09-10, not yet recorded)
+
+A dedicated pre-upload video for this page — its one job is getting the photo uploaded. Script, hook takes, shot list,
+B-roll and the research behind it: Google Doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`
+("Abs By AI — /start VSL scripts (hero + full) — WITH FILMING NOTES").
+
+- **Hero cut** (~260 words, ≈1:15, demo-first: Dan uploads his own before photo on camera — "I'll go first") is meant
+  for the hero slot on both variants; **full cut** (~660 words, ≈3:15, "This picture got me abs") is the test arm.
+- Four hook takes end on the same line, so any hook splices onto the hero body; hook 3 ("How far are you from abs?")
+  matches variant B's headline.
+- **Install needs its own slot:** `site-video.js` is shared with the analysis page, which must keep `CwEGFxpIM-E`. The
+  hero caption ("…3:50") and variant B's section copy also describe the old video. Steps:
+  `Handoffs/handoff-20260910-start-vsl-edit-and-install.md`.
+- Judge it on `vsl_photo_chosen ÷ vsl_landing_seen`, not plays. As of 2026-09-10 /start had ~4 visitors, so the 90 %
+  home-page drop above is still the baseline.
+
 ## Compliance (memory: ad-suspension-prevention)
 
 Dan removed the boxed AI-disclosure paragraph from the hero on 2026-09-09. What still carries the disclosure
