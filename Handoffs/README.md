@@ -13,12 +13,12 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260910-web-pay-first-cart.md](handoff-20260910-web-pay-first-cart.md) | any time — WEB pay-first cart: research DR carts (MadMuscles, V Shred +) → private teardown for Dan → build (card before account, set-password after, questions become onboarding, cart-video placeholder, Monthly default). Native untouched. Fable 5.1 high |
 | [handoff-20260812-revenuecat-restore-behavior-audit.md](handoff-20260812-revenuecat-restore-behavior-audit.md) | fire the day Apple approves (IN_REVIEW since 09-08) |
 | [handoff-20260812-purchase-before-account.md](handoff-20260812-purchase-before-account.md) | after approval AND after the RevenueCat audit |
 | [handoff-20260818-android-public-build-swap.md](handoff-20260818-android-public-build-swap.md) | small; needs Dan's Android phone on adb |
 | [handoff-20260826-danrosefit-abs-image-gap-fill.md](handoff-20260826-danrosefit-abs-image-gap-fill.md) | last 7 of 70 posts; re-run iggap_fill.py --apply from ~09-12 once Blotato's queue has room |
 | [handoff-20260908-google-ads-custom-segments.md](handoff-20260908-google-ads-custom-segments.md) | PARTIAL 2026-09-08: 9 of 12 segments built; 7a/7b/7c + members list + Phase 2 remain — see the doc's Execution notes; Fable 5.1 high |
-| [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | now — upload the FINALIZED website video (rev 6 A) to YouTube unlisted + paste the id into `public/site-video.js` (analysis page + /start), verify live; the upload itself needs Dan or a YouTube-scoped token; Fable 5.1 medium |
 | [handoff-20260909-video-quality-to-muhammad-standard.md](handoff-20260909-video-quality-to-muhammad-standard.md) | STRATEGY + EVIDENCE for the video-quality programme. Not executable on its own — read it, then run VQC-A→D below |
 | ~~[handoff-20260909-vqc-A-phase0-3-bypasses-and-corpus.md](handoff-20260909-vqc-A-phase0-3-bypasses-and-corpus.md)~~ | ✅ **EXECUTED 2026-09-09** (`a696ac4`). Seven bypasses closed; `_shared/qc_corpus/` live and green; standing rule in `AGENTS.md`; baseline at `Docs/VQC_baseline_20260909.md`. B, C and D are now unblocked |
 | [handoff-20260909-vqc-B-phase1-2-shared-gate-and-watch.md](handoff-20260909-vqc-B-phase1-2-shared-gate-and-watch.md) | **NEXT — unblocked, refreshed 2026-09-09 after A ran.** One shared version-stamped delivery gate replacing **17 forks / 3,083 lines**; watch pass mandatory in all six skills; implements 5 of the corpus's 14 pending checks. Fable 5.1 high |
@@ -29,6 +29,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Why |
 |---|---|
+| [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | executed 2026-09-09 — unlisted `CwEGFxpIM-E` (rev 6 A) live on the analysis page + both `/start` variants |
 | [handoff-20260908-post-lockin-analysis-page.md](handoff-20260908-post-lockin-analysis-page.md) | executed 2026-09-08 — `analysis` screen + `POST /api/body-analysis` live |
 | [handoff-20260908-website-video-rev5.md](handoff-20260908-website-video-rev5.md) | executed 2026-09-08 — rev 5 delivered, all gates green, $0.00 spend |
 | [handoff-20260901-danrosefit-ad-identity-fix.md](handoff-20260901-danrosefit-ad-identity-fix.md) | superseded — @danrosefit profile-visits campaign live via the API script since 09-02 |
@@ -39,6 +40,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-10 | [handoff-20260910-web-pay-first-cart.md](handoff-20260910-web-pay-first-cart.md) | Handoff: Web pay-first checkout — a research-led cart that comes BEFORE the account |
 | 2026-09-09 | [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | Handoff — upload the finalized website conversion video to YouTube (unlisted) and install it on the analysis page + /start |
 | 2026-09-09 | [handoff-20260909-website-video-rev6.md](handoff-20260909-website-video-rev6.md) | Handoff — Website conversion video rev 6: audio pass toward Muhammad's, the uneven spray-tan patch, toe-touches replacing the curls, the 1:24 AI Trainer PiP, steak instead of chicken |
 | 2026-09-08 | [handoff-20260908-website-video-rev5.md](handoff-20260908-website-video-rev5.md) | Handoff — Website conversion video rev 5: the three rev-4 review fixes (two Veo clip-tail artifacts, remove the goal-image card at 3:36); framing locked |

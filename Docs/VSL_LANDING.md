@@ -79,13 +79,12 @@ then `generation_started` {source: 'vsl' | 'home'} and the existing funnel.
 the post-lock-in analysis page (`ANALYSIS_VIDEO` in `index.html`). Poster: `public/img/video-poster.jpg`
 (a caption-free frame at 0.05 s of the rev-5 master, 1280×720).
 
-**Not hosted yet.** The master is `claude edited long form content/06 - Website Conversion Video
-(post-generation)/website_video_16x9.mp4` (rev 5, 3:50, 315 MB) — too big for the repo and for the
-Chrome extension's 10 MB upload cap, and the stored Google token is calendar-scoped. **Dan's one step:
-upload it to YouTube as Unlisted, then paste the 11-character id into `youtubeId` in
-`public/site-video.js`** (or hand the id to a session). Until then both pages simply hide the slot
-(variant A shows the proof pair in its place); nothing broken is visible to a visitor. Pushing that
-one-line change redeploys and wipes in-memory locked holds — bundle it with other code when possible.
+**Hosted 2026-09-09.** Unlisted YouTube video **`CwEGFxpIM-E`** on the Abs by AI channel
+(https://www.youtube.com/watch?v=CwEGFxpIM-E): the finalized **rev 6 version A** master (3:50, ~424 MB, captions
+burned in) — `Website Videos/Website Conversion Video (post-generation)/website_video_16x9.mp4`, byte-identical to the
+copy in `claude edited long form content/06 - …/`. Uploaded with `scripts/youtube/upload.js` (memory
+`youtube-upload-capability`). To swap it later: upload the new master with that script and paste the new id into
+`youtubeId` — one line, one deploy, which wipes in-memory locked holds, so bundle it with other code.
 
 ## Compliance (memory: ad-suspension-prevention)
 

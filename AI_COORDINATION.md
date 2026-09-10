@@ -38,14 +38,14 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
-**Website conversion video — LIVE ON THE SITE 2026-09-09, Dan looks.** Rev 5 is uploaded UNLISTED to the
+**Website conversion video — LIVE ON THE SITE 2026-09-09, Dan looks.** Rev 6 version A (Dan's final) is uploaded UNLISTED to the
 **Abs by AI** channel as `CwEGFxpIM-E` (3:51, HD, embeddable, processing succeeded) and embedded via
 `public/site-video.js`, which BOTH the post-lock-in analysis page and `/start` read — verified rendering on
 both live. Swapping the video later = paste a new id in that one file. **Review without generating:**
 `absbyai.com/?demo=analysis` (add `&locked=1`, `&sex=female`, `&cond=…`) — real photo read on the public
-sample pair, no credits, no localStorage writes, no funnel/ads events. ⚠ **Native retest trigger:** the iOS
-and Android wrappers now show a YouTube iframe on the analysis page; check inline vs fullscreen playback on
-his phone. Delete this entry once he confirms it plays.
+sample pair, no credits, no localStorage writes, no funnel/ads events. ⚠ **Native retest, one phone session, two things:** the analysis page now shows a YouTube iframe inside the
+iOS/Android wrappers (check inline vs fullscreen playback), and the `10eda3b` fix for the member hub / Trainer / program /
+nutrition / membership screens that the 09-08 analysis page had left blank for logged-in members (verified on web only). Delete this entry once he confirms it plays.
 
 **Google Ads account fixes — EXECUTED AND VERIFIED 2026-09-09. Live in account 342-717-0837; Dan reviews the results in
 a few days.** All of `Handoffs/handoff-20260909-google-ads-account-fixes.md` is done, read back from the account after
@@ -137,14 +137,6 @@ The test comment and its auto-reply were deleted afterwards (post re-read: "No c
 ⚠ The ManyChat account shows a **TRIAL** badge. If the Pro trial lapses, "any post or reel" dies for all six
 keywords at once. Still open from the original build: whether to switch off Blotato's IG auto first-comment
 (**ask before touching it**, queue-wide), and the CTA reels are eligible for the 2026-08-31 paid-ads specs.
-
-**Website conversion video — FINALIZED 2026-09-09 (rev 6, version A tan-corrected; Dan: "perfect, finalized").** Master
-exported at max quality as `website_video_16x9.mp4`, re-gated on that file, filed in BOTH
-`claude edited long form content/06 - Website Conversion Video (post-generation)/` (B kept as `…_ALT.mp4`, rev 5 as `*_REV5`)
-and the new **`Website Videos/Website Conversion Video (post-generation)/`** (git-ignored). **Next: the YouTube upload +
-install handoff** (HANDOFFS list below) — nothing else is open on the video; delete this entry when that handoff runs.
-⚠ Still open from this session: **native retest** of the live fix `10eda3b` (the 09-08 analysis page had left the member
-hub / Trainer / program / nutrition / membership screens BLANK for logged-in members; fixed and verified on web).
 
 **Exercise demos batch 4** — 9 final candidates delivered and sent in chat (kb-swing,
 kb-deadlift, kb-goblet-squat, kb-row, kb-press, deficit-pushup, ab-wheel-rollout, step-up,
@@ -356,11 +348,11 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
   fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
-- **`Handoffs/handoff-20260909-website-video-youtube-install.md`** — upload the FINALIZED website video (rev 6, version A,
-  `Website Videos/…/website_video_16x9.mp4`, ~400 MB) to YouTube as Unlisted and paste the id into `youtubeId` in
-  `public/site-video.js` (lights up the analysis page AND `/start`), deploy, verify live. The upload needs Dan (2-minute
-  drag into Studio) or a YouTube-scoped OAuth token — the stored Google token is calendar-only and the extension caps
-  uploads at 10 MB. Fable 5.1, medium. **Not on the dashboard** (his rule).
+- **`Handoffs/handoff-20260910-web-pay-first-cart.md`** — WEB pay-first checkout: research high-converting DR carts
+  (MadMuscles, V Shred + a few), show Dan a private teardown artifact, then build a cart that comes right after the
+  analysis page and BEFORE any account (Stripe collects the email; account + set-password link after payment; the
+  questions become onboarding), with a cart-video placeholder and Monthly pre-selected over Annual. Native apps
+  untouched. Fire any time; Fable 5.1 high. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260908-google-ads-custom-segments.md`** — ten Google Ads custom segments (six search-term,
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which
@@ -388,6 +380,17 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 ---
 
 # ACTIVE TASK
+
+**/start VSL teleprompter script — IN PROGRESS 2026-09-10 (this session owns it).** Writing the pre-upload VSL for
+`absbyai.com/start` (60–90 s hero cut + 3–4 min full cut, hook variants, shot list, B-roll cues) into a new Google Doc;
+research on competitor VSLs, AI photo-upload funnels and the future-self science feeds it. Script only — Dan records it;
+no code, no install. Will become a HANDOFFS line (edit + install) when the doc is delivered.
+
+**Ad 1 "this picture got me abs" — 9:16 vertical from ZEESHAN's final (2026-09-10, this session owns it).** Building the
+full-length 9:16 + a ≤0:59 cutdown per `/shortad-from-longform` in `/Volumes/Extreme/_edit_work/ad1-zee-vert/`, his mix
+verbatim (constant gain + limiter), hair-anchored framing. His cut is 24 fps / 4:09.2 from raw C1591. ⚠ His 3:09 shows
+the banned "Download Your Future Self" email screen — the vertical substitutes the cropped after-only card. Delivery goes
+beside his 16x9 in `Zeeshan Ad Videos/this picture got me abs - ad 1/`; dashboard row stays unchecked until Dan approves.
 
 **Video quality VQC-A (Phase 0 + 3) — DONE AND PUSHED 2026-09-09. Two things for Dan to know, nothing to do.**
 The seven bypasses are closed (`require_stamp` strict by default; the instructed `--no-stamp` gone; an unmeasured

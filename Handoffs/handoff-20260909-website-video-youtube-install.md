@@ -1,5 +1,8 @@
 # Handoff — Website conversion video: upload to YouTube (unlisted) and install on the analysis page + /start
 
+> ✅ **EXECUTED 2026-09-09** — uploaded with `scripts/youtube/upload.js` as unlisted `CwEGFxpIM-E` and installed in
+> `public/site-video.js`; live on the analysis page and both `/start` variants. Kept for history.
+
 **Written 2026-09-09, after Dan finalized rev 6 ("you nailed it, this is perfect, this video is finalized"). Not executed.**
 
 ## What exists
