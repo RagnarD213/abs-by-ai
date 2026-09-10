@@ -299,7 +299,8 @@ re-upload would change the video id and break the campaigns pointing at them.
 
 **iOS submission `ccc7a7ae`** — **IN_REVIEW with Apple as of 2026-09-08** (was WAITING_FOR_REVIEW
 since 2026-08-26; 5.1.1(v) argued, UX fixed, no new binary). A reviewer has picked it up — expect an
-approval or a rejection within a day or two. Fallback if they hold the line is spec'd at the bottom of
+approval or a rejection within a day or two. **Still IN_REVIEW 2026-09-10; expedited review requested and
+GRANTED that day** (Dan's go; the old Resolution Center thread is closed, so no written note reached Apple). Fallback if they hold the line is spec'd at the bottom of
 `app-store-assets/APP_REVIEW_REPLY_20260826_G511v.md`. Status check:
 `GET /v1/apps/6794097836/reviewSubmissions` with the ASC key (`~/.appstoreconnect/private_keys/AuthKey_D7UC9KJD3B.p8`).
 
