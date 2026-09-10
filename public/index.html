@@ -1259,6 +1259,59 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .member-benefits li::before { content: '✓'; color: #1e9e5a; font-weight: 800; }
 .credit-convert-note { font-size: 13px; font-weight: 700; color: #1e9e5a; background: rgba(30,158,90,0.08); border: 1px solid rgba(30,158,90,0.25); border-radius: 11px; padding: 10px 13px; margin-top: 12px; }
 .guarantee-note { font-size: 12px; color: var(--mute); text-align: center; margin-top: 12px; }
+/* ── Web pay-first cart (2026-09-10) — the checkout that comes BEFORE the account ── */
+.cart-head { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.12; text-align: center; margin: 2px 0 6px; }
+.cart-sub { font-size: 14px; color: var(--mute); text-align: center; margin-bottom: 14px; line-height: 1.4; }
+.cart-recap { display: flex; gap: 12px; align-items: center; background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 10px 12px; margin-bottom: 14px; box-shadow: var(--shadow); }
+.cart-recap-img { position: relative; width: 74px; height: 92px; border-radius: 12px; overflow: hidden; flex: none; background: #e9e6df; }
+.cart-recap-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.cart-recap-img.locked img { filter: blur(0.6px); }
+.cart-recap-lock { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%; background: rgba(20,18,15,0.82); display: flex; align-items: center; justify-content: center; color: #fff; }
+.cart-recap-body { min-width: 0; }
+.cart-recap-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--faint); margin-bottom: 3px; }
+.cart-recap-line { font-size: 14px; font-weight: 700; line-height: 1.3; }
+.cart-recap-line .an-goal { color: var(--acc); }
+.cart-recap-fine { font-size: 11px; color: var(--faint); margin-top: 3px; }
+.cart-plans { display: flex; flex-direction: column; gap: 10px; margin: 6px 0 12px; }
+.cart-plan { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 14px 15px; border: 1.5px solid var(--line); border-radius: 14px; background: var(--card); cursor: pointer; font: inherit; color: var(--ink); }
+.cart-plan.selected { border-color: var(--acc); background: rgba(47,95,224,0.05); box-shadow: 0 0 0 2px rgba(47,95,224,0.12); }
+.cart-plan-radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--faint); flex: none; position: relative; }
+.cart-plan.selected .cart-plan-radio { border-color: var(--acc); }
+.cart-plan.selected .cart-plan-radio::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: var(--acc); }
+.cart-plan-body { flex: 1; min-width: 0; }
+.cart-plan-name { font-size: 15px; font-weight: 800; letter-spacing: -0.1px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.cart-plan-sub { font-size: 12px; color: var(--mute); margin-top: 2px; }
+.cart-plan-price { text-align: right; flex: none; }
+.cart-plan-price b { display: block; font-size: 17px; font-weight: 800; letter-spacing: -0.3px; }
+.cart-plan-price span { font-size: 11px; color: var(--mute); }
+.cart-timeline { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 12px 14px 6px; margin-bottom: 14px; }
+.cart-timeline-title { font-size: 12px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
+.cart-tl-row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding-bottom: 12px; position: relative; }
+.cart-tl-row::before { content: ''; position: absolute; left: 10px; top: 20px; bottom: 0; width: 2px; background: var(--line); }
+.cart-tl-row:last-child::before { display: none; }
+.cart-tl-dot { width: 22px; height: 22px; border-radius: 50%; background: var(--acc-soft); border: 2px solid var(--acc); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--acc); }
+.cart-tl-row.now .cart-tl-dot { background: var(--acc); color: #fff; }
+.cart-tl-when { font-size: 11.5px; font-weight: 700; color: var(--faint); text-transform: uppercase; letter-spacing: 0.3px; }
+.cart-tl-what { font-size: 13.5px; font-weight: 600; line-height: 1.35; }
+.cart-tl-what small { display: block; font-weight: 500; color: var(--mute); font-size: 12px; }
+.cart-benefits { margin: 0 0 14px; padding: 0; list-style: none; }
+.cart-benefits li { display: flex; gap: 9px; align-items: flex-start; font-size: 13.5px; padding: 4px 0; line-height: 1.35; }
+.cart-benefits li::before { content: '✓'; color: #1e9e5a; font-weight: 800; flex: none; }
+.cart-disclosure { font-size: 12.5px; color: var(--disc); line-height: 1.45; text-align: center; margin: 0 0 10px; padding: 10px 12px; background: var(--acc-soft); border-radius: 12px; }
+.cart-pay-sub { font-size: 12px; color: var(--mute); text-align: center; margin: 8px 0 4px; }
+.cart-skip { display: block; width: 100%; background: none; border: none; color: var(--mute); font: inherit; font-size: 13px; font-weight: 600; text-decoration: underline; cursor: pointer; padding: 12px; text-align: center; }
+.cart-done-hero { text-align: center; padding: 8px 0 14px; }
+.cart-done-badge { width: 62px; height: 62px; border-radius: 50%; background: #1e9e5a; color: #fff; display: flex; align-items: center; justify-content: center; margin: 4px auto 12px; box-shadow: 0 8px 24px rgba(30,158,90,0.3); }
+.cart-done-email { font-size: 13.5px; color: var(--mute); margin-top: 4px; word-break: break-all; }
+.cart-pw { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 15px; margin: 0 0 14px; }
+.cart-pw-title { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+.cart-pw-sub { font-size: 12px; color: var(--mute); margin-bottom: 10px; line-height: 1.4; }
+.cart-pw-row { display: flex; gap: 8px; }
+.cart-pw-row .text-field { flex: 1; box-shadow: none; }
+.cart-pw-btn { flex: none; background: var(--ink); color: #fff; border: none; border-radius: 12px; padding: 0 16px; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; }
+.cart-pw-btn:disabled { opacity: 0.5; cursor: default; }
+.cart-pw-ok { font-size: 12.5px; color: #1e9e5a; font-weight: 700; margin-top: 8px; }
+
 
 /* ── In-app (iOS/Android) digital-purchase gating ──
    Apple & Google require their own billing for digital goods, so inside the
@@ -2868,19 +2921,20 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
     </div>
 
     <div class="plan-cards app-hide-purchase">
-      <button class="plan-card" data-plan="annual" id="planAnnual">
-        <span>
-          <span class="plan-name">Annual<span class="plan-badge">BEST VALUE — $5.83/mo</span></span>
-          <span class="plan-sub" style="display:block">7 days free, then $69.99/year</span>
-        </span>
-        <span class="plan-price">$69.99</span>
-      </button>
+      <!-- Monthly first and pre-selected (Dan, 2026-09-10) — matches the web cart. -->
       <button class="plan-card" data-plan="monthly" id="planMonthly">
         <span>
           <span class="plan-name">Monthly</span>
           <span class="plan-sub" style="display:block">7 days free, then $19.99/mo</span>
         </span>
         <span class="plan-price">$19.99</span>
+      </button>
+      <button class="plan-card" data-plan="annual" id="planAnnual">
+        <span>
+          <span class="plan-name">Annual<span class="plan-badge">SAVE 71% — $5.83/mo</span></span>
+          <span class="plan-sub" style="display:block">7 days free, then $69.99/year</span>
+        </span>
+        <span class="plan-price">$69.99</span>
       </button>
     </div>
 
@@ -2891,6 +2945,109 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 
     <!-- The pay-as-you-go credit-pack strip that used to sit here was retired
          2026-08-12 along with every other credit purchase path. -->
+  </div>
+
+  <!-- ════════════════ WEB CART (pay first, account after) ════════════════
+       The checkout for every non-member on the WEB (2026-09-10). Stripe collects
+       the email with the card; the account is created from it after payment
+       (server: fulfillMembershipSession + /api/stripe/claim). The native apps
+       never see this screen — showMembershipScreen keeps IAP/account-first there.
+       Review without paying: /?demo=checkout (+ &locked=1, &sex=female). -->
+  <div id="cartSection" class="screen" style="display:none">
+    <div class="nav-bar">
+      <button class="nav-icon-btn" id="cartBackBtn" title="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span class="nav-title">Start your free trial</span>
+      <span style="width:26px"></span>
+    </div>
+
+    <div id="cartMain">
+      <div class="cart-head" id="cartHead">Your plan is ready.</div>
+      <div class="cart-sub" id="cartSub">Start your 7 days free. Nothing is charged today.</div>
+
+      <!-- Video slot: hidden until ABS_CART_VIDEO (site-video.js) has a youtubeId or
+           mp4; a labelled placeholder renders on localhost, ?vp=1 and ?demo=checkout. -->
+      <div id="cartVideoBlock" class="an-video" style="display:none">
+        <div class="an-video-frame" id="cartVideoFrame"></div>
+      </div>
+
+      <div id="cartRecap" class="cart-recap" style="display:none">
+        <div class="cart-recap-img" id="cartRecapImgWrap">
+          <img id="cartRecapImg" alt="Your AI-generated goal image" />
+          <div class="cart-recap-lock" id="cartRecapLock" style="display:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></div>
+        </div>
+        <div class="cart-recap-body">
+          <div class="cart-recap-lbl" id="cartRecapLbl">Your goal image</div>
+          <div class="cart-recap-line" id="cartRecapLine"></div>
+          <div class="cart-recap-fine" id="cartRecapFine">AI visualization, not a real result · visual estimates</div>
+        </div>
+      </div>
+
+      <div class="cart-plans" id="cartPlans">
+        <button type="button" class="cart-plan selected" data-plan="monthly" id="cartPlanMonthly">
+          <span class="cart-plan-radio"></span>
+          <span class="cart-plan-body">
+            <span class="cart-plan-name">Monthly</span>
+            <span class="cart-plan-sub">7 days free, then $19.99 a month</span>
+          </span>
+          <span class="cart-plan-price"><b>$19.99</b><span>/month</span></span>
+        </button>
+        <button type="button" class="cart-plan" data-plan="annual" id="cartPlanAnnual">
+          <span class="cart-plan-radio"></span>
+          <span class="cart-plan-body">
+            <span class="cart-plan-name">Annual <span class="plan-badge" style="margin-left:0">SAVE 71%</span></span>
+            <span class="cart-plan-sub">7 days free, then $69.99 a year · $5.83 a month</span>
+          </span>
+          <span class="cart-plan-price"><b>$69.99</b><span>/year</span></span>
+        </button>
+      </div>
+      <div id="cartCreditNote" class="credit-convert-note" style="display:none;margin:0 0 12px"></div>
+
+      <div class="cart-timeline">
+        <div class="cart-timeline-title">How your free trial works</div>
+        <div class="cart-tl-row now"><div class="cart-tl-dot">✓</div><div><div class="cart-tl-when">Today</div><div class="cart-tl-what">$0 — everything unlocked<small>Your goal image, the AI trainer, the nutrition plan, the macro tracker.</small></div></div></div>
+        <div class="cart-tl-row"><div class="cart-tl-dot">5</div><div><div class="cart-tl-when">Day 5</div><div class="cart-tl-what">We email you a reminder<small>Two days before your trial ends, so nothing surprises you.</small></div></div></div>
+        <div class="cart-tl-row"><div class="cart-tl-dot">7</div><div><div class="cart-tl-when">Day 7</div><div class="cart-tl-what" id="cartTlCharge">First charge: $19.99<small id="cartTlChargeSub">Cancel any time before then in Manage membership and you pay nothing.</small></div></div></div>
+      </div>
+
+      <ul class="cart-benefits">
+        <li>Your AI training program, built from your photo and your numbers</li>
+        <li>Unlimited future-self images and the AI nutrition plan</li>
+        <li>Unlimited AI meal &amp; macro tracking, the Sleep Coach, Supplement Audits</li>
+        <li>Cancel in two taps — Manage membership, then Cancel</li>
+      </ul>
+
+      <div id="cartError" class="error-toast" style="display:none;margin-bottom:12px"></div>
+      <div class="cart-disclosure" id="cartDisclosure">7 days free, then $19.99/month, billed automatically and renewed every month until you cancel. Cancel any time before the trial ends and you won't be charged. Manage or cancel in Manage membership. <a href="/terms" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Terms</a>.</div>
+      <button type="button" id="cartPayBtn" class="cta-btn" style="margin-top:0">Start my free 7 days →</button>
+      <div class="cart-pay-sub" id="cartPaySub">Apple Pay, Link or card · your email becomes your login</div>
+      <button type="button" id="cartSkipBtn" class="cart-skip">Continue to my hub without a trial →</button>
+    </div>
+
+    <!-- After payment. Two states: the account was CREATED (buyer is logged in
+         through the one-time claim; optional password), or the email already had
+         an account (membership attached; buyer logs in — never automatically). -->
+    <div id="cartDone" style="display:none">
+      <div class="cart-done-hero">
+        <div class="cart-done-badge"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div class="cart-head" id="cartDoneTitle">You're in — your 7-day trial is active</div>
+        <div class="cart-done-email" id="cartDoneEmail"></div>
+      </div>
+      <div class="cart-pw" id="cartPwBlock">
+        <div class="cart-pw-title">Create a password (optional)</div>
+        <div class="cart-pw-sub">You're logged in on this device. A password lets you log in anywhere else — we've also emailed you a link to set one later.</div>
+        <form id="cartPwForm" class="cart-pw-row">
+          <input type="password" id="cartPwInput" class="text-field" placeholder="At least 8 characters" minlength="8" autocomplete="new-password" />
+          <button type="submit" id="cartPwBtn" class="cart-pw-btn">Save</button>
+        </form>
+        <div id="cartPwOk" class="cart-pw-ok" style="display:none">Password saved.</div>
+        <div id="cartPwErr" class="error-toast" style="display:none;margin-top:8px"></div>
+      </div>
+      <div id="cartExistingNote" class="hub-preview-note" style="display:none;margin-bottom:14px">Your membership is attached to the account with this email. Log in to continue — we've also emailed you a link.</div>
+      <button type="button" id="cartDoneBtn" class="cta-btn" style="margin-top:0">Build my program →</button>
+      <div class="cart-pay-sub" id="cartDoneSub">Five quick questions, then your program.</div>
+    </div>
   </div>
 
 </div><!-- /.app -->
@@ -3556,7 +3713,7 @@ function fireAdConversion(label, opts) {
   // browser before anything leaves the page — no plaintext email reaches
   // Google. Anonymous fires (Free Generation Started) carry nothing, as before.
   try {
-    const email = isLoggedIn() ? String(auth.email || '').trim().toLowerCase() : '';
+    const email = String(opts.email || (isLoggedIn() ? auth.email : '') || '').trim().toLowerCase();
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) gtag('set', 'user_data', { email });
   } catch (e) { /* attribution extra, never blocks the fire */ }
   try { gtag('event', 'conversion', payload); } catch (e) { return false; }
@@ -4217,7 +4374,7 @@ Output ONLY the final image-editing prompt as plain text. No preamble, no JSON, 
 const $ = (id) => document.getElementById(id);
 
 function renderScreen(name) {
-  ['formSection', 'resultSection', 'chooserSection', 'analysisSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection'].forEach(id => {
+  ['formSection', 'resultSection', 'chooserSection', 'analysisSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection', 'cartSection'].forEach(id => {
     const el = $(id);
     if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
   });
@@ -4822,6 +4979,8 @@ function selectPick(gridId, value, stateKey) {
 // Configured in public/site-video.js — the ONE place the website video lives,
 // shared with the /start ad landing page. Paste the YouTube id THERE, not here.
 const ANALYSIS_VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '/img/video-poster.jpg' }, window.ABS_SITE_VIDEO || {});
+// The short cart video (placeholder until Dan has the file) — same one-file rule.
+const CART_VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '' }, window.ABS_CART_VIDEO || {});
 
 // ── Demo mode: /?demo=analysis ──────────────────────────────────────────────
 // Opens the analysis page on a sample before/after pair so the layout, the video
@@ -4836,8 +4995,12 @@ const ANALYSIS_VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '/img/vid
 const DEMO = (() => {
   try {
     const q = new URLSearchParams(location.search);
-    if (q.get('demo') !== 'analysis') return null;
+    // ?demo=analysis reviews the analysis page; ?demo=checkout the web cart.
+    // Both: public sample pair, no credits, no localStorage writes, no funnel
+    // events, and the cart's pay button is disabled (never a Stripe session).
+    if (q.get('demo') !== 'analysis' && q.get('demo') !== 'checkout') return null;
     return {
+      kind: q.get('demo'),
       locked: q.get('locked') === '1',
       sex: q.get('sex') === 'female' ? 'female' : 'male',
       cond: ['heavier', 'moderate', 'fit', 'very_lean'].includes(q.get('cond')) ? q.get('cond') : 'moderate',
@@ -5291,6 +5454,7 @@ async function startAnalysisDemo() {
     // copy. It is deliberately not a real hold, so the body read falls back to
     // the lookup tables rather than unlocking anything.
     state.lockedUnlockToken = DEMO.locked ? 'demo' : null;
+    if (DEMO.kind === 'checkout') { showCartScreen(null, { from: 'demo' }); return; }
     showAnalysisScreen({ from: DEMO.locked ? 'paywall' : 'lockin' });
   } catch (e) {
     console.warn('analysis demo failed:', e);
@@ -6069,6 +6233,12 @@ function setAuthMode(mode) {
     forgot: { nav: 'Reset password', title: 'Forgot your password?', sub: 'Enter your email and we\'ll send you a reset link.', btn: 'Send Reset Link' },
     reset:  { nav: 'New password', title: 'Choose a new password', sub: 'Enter a new password for your account.', btn: 'Set New Password' },
   }[mode] || {};
+  if (mode === 'reset' && window._resetWelcome) {
+    copy.nav = 'Set your password';
+    copy.title = 'Welcome — set your password';
+    copy.sub = 'Your trial is active. Choose a password so you can log in on any device.';
+    copy.btn = 'Save password & continue';
+  }
   if (trialSignup) {
     copy.nav = 'Start free trial';
     copy.title = 'Create your account to start your free trial';
@@ -6320,7 +6490,7 @@ function startQuiz() {
       quizState.answers.heightIn = analysisState.heightIn % 12;
     }
   }
-  if (window.posthog) posthog.capture('quiz_started');
+  if (window.posthog) posthog.capture(quizState.onboarding ? 'onboarding_quiz_started' : 'quiz_started');
   renderQuiz();
   showScreen('quiz');
 }
@@ -6437,17 +6607,19 @@ async function finishQuiz() {
 
   const fill = $('quizProgressFill');
   if (fill) fill.style.width = '100%';
-  if (window.posthog) posthog.capture('quiz_completed', { fields: Object.keys(profile) });
+  if (window.posthog) posthog.capture(quizState.onboarding ? 'onboarding_quiz_completed' : 'quiz_completed', { fields: Object.keys(profile) });
   // Best-effort — never block the funnel on a profile write.
   try {
     const r = await authApi('/api/profile', { method: 'PATCH', body: JSON.stringify({ profile, source: 'quiz' }) });
     profileState.data = r.profile || profile; profileState.loaded = true;
   } catch (e) {}
+  if (quizState.onboarding) return finishCartOnboarding();
   proceedToTrialGate(true);
 }
 
 function skipQuiz() {
-  if (window.posthog) posthog.capture('quiz_skipped', { step: quizState.step });
+  if (window.posthog) posthog.capture(quizState.onboarding ? 'onboarding_quiz_skipped' : 'quiz_skipped', { step: quizState.step });
+  if (quizState.onboarding) return finishCartOnboarding();
   proceedToTrialGate(false);
 }
 
@@ -6460,6 +6632,9 @@ function showTrialGate(feature) {
   pendingTrialFeature = feature;
   if (window.posthog) posthog.capture('trial_gate_shown', { feature, logged_in: isLoggedIn() });
   if (isLoggedIn()) return showMembershipScreen(openPendingTrialFeature, { trialGate: true });
+  // WEB: no signup wall — the cart takes the card first and creates the account
+  // from the email Stripe collects. Native keeps account-first (IAP).
+  if (!IS_NATIVE_APP) return showCartScreen(openPendingTrialFeature, { trialGate: true });
   window._afterAuth = continueTrialAfterAccountCreation;
   showAuthScreen('signup', { trialGate: true });
 }
@@ -7279,11 +7454,19 @@ function initAccounts() {
   $('authForgotBtn').addEventListener('click', () => setAuthMode('forgot'));
 
   // Arriving from a reset email: /?reset=TOKEN → straight to the new-password form.
-  const resetToken = new URLSearchParams(window.location.search).get('reset');
+  const bootQuery = new URLSearchParams(window.location.search);
+  const resetToken = bootQuery.get('reset');
   if (resetToken) {
     window._resetToken = resetToken;
+    // &welcome=1 = the cart's "set your password" email (account created at
+    // checkout, no password yet): same form, welcoming copy.
+    window._resetWelcome = bootQuery.get('welcome') === '1';
     window.history.replaceState(window.history.state || {}, '', window.location.pathname);
     showAuthScreen('reset');
+  } else if (bootQuery.get('login') === '1' && !isLoggedIn()) {
+    // The "membership attached to your existing account — log in" email.
+    window.history.replaceState(window.history.state || {}, '', window.location.pathname);
+    showAuthScreen('login');
   }
   $('authForm').addEventListener('submit', handleAuthSubmit);
   $('hubLogoutBtn').addEventListener('click', handleLogout);
@@ -7832,7 +8015,7 @@ function initProgress() {
 //  MEMBERSHIP — plans, paywall, subscription checkout
 // ============================================================
 const memberState = { active: false, plan: null, periodEnd: null, status: null, discountCents: 0, loaded: false, userId: null, source: null };
-let selectedPlan = 'annual';
+let selectedPlan = 'monthly'; // Monthly is the default (Dan, 2026-09-10); Annual stays one tap away
 let membershipReturnTo = null; // where to go after subscribing (or backing out)
 let membershipGateBackToHub = false;
 
@@ -7975,6 +8158,9 @@ function applyPurchaseDeepLink() {
 }
 
 function showMembershipScreen(returnTo, opts) {
+  // WEB: every non-member lands on the cart (pay first, account after). The
+  // native apps and members (manage / beta states) keep this screen exactly.
+  if (!IS_NATIVE_APP && !hasMemberAccess() && memberState.status !== 'comp') return showCartScreen(returnTo, opts);
   membershipReturnTo = returnTo || membershipReturnTo;
   membershipGateBackToHub = !!opts?.trialGate;
   if (window.posthog) posthog.capture('membership_screen_viewed');
@@ -8012,14 +8198,336 @@ function showMembershipScreen(returnTo, opts) {
   showScreen('membership');
 }
 
-async function handleMembershipSubscribe() {
-  if (IS_NATIVE_APP) return; // digital purchases are disabled in the native apps
-  if (!isLoggedIn()) {
-    // Membership lives on the account — create one, then come right back.
-    window._afterAuth = () => { refreshMembership().then(() => showMembershipScreen()); };
-    showAuthScreen('signup');
+// ============================================================
+// WEB CART — pay first, account after (2026-09-10)
+// The checkout for every non-member on the web. Research (Cart teardown,
+// 2026-09-10): one screen, the result recap on top, Monthly pre-selected with
+// Annual one tap away, a trial timeline instead of a countdown, the renewal
+// terms in body-size type directly above the button, wallets first. Stripe
+// collects the email with the card; the account is created from it after
+// payment and the paying browser is logged in through a one-time claim.
+// ============================================================
+let cartFrom = null;            // screen to return to on Back
+let cartSessionId = null;       // the Stripe session being paid, for the claim
+let cartResult = null;          // { created, email } after payment
+
+// Every cart event goes through here so /?demo=checkout never pollutes the
+// funnel the ads are judged on (same rule as anCapture on the analysis page).
+function cartCapture(event, props) {
+  if (DEMO) return;
+  if (window.posthog) posthog.capture(event, props);
+}
+
+const CART_PLAN_COPY = {
+  monthly: { charge: 'First charge: $19.99', chargeSub: 'Then $19.99 a month. Cancel any time before day 7 in Manage membership and you pay nothing.',
+    disclosure: '7 days free, then $19.99/month, billed automatically and renewed every month until you cancel. Cancel any time before the trial ends and you won\'t be charged. Manage or cancel in Manage membership.' },
+  annual:  { charge: 'First charge: $69.99', chargeSub: 'Then $69.99 a year ($5.83 a month). Cancel any time before day 7 in Manage membership and you pay nothing.',
+    disclosure: '7 days free, then $69.99/year, billed automatically and renewed every year until you cancel. Cancel any time before the trial ends and you won\'t be charged. Manage or cancel in Manage membership.' },
+};
+
+function renderCartPlan() {
+  const c = CART_PLAN_COPY[selectedPlan] || CART_PLAN_COPY.monthly;
+  document.querySelectorAll('.cart-plan').forEach((el) => el.classList.toggle('selected', el.dataset.plan === selectedPlan));
+  const charge = $('cartTlCharge');
+  charge.firstChild.textContent = c.charge;
+  $('cartTlChargeSub').textContent = c.chargeSub;
+  $('cartDisclosure').innerHTML = `${c.disclosure} <a href="/terms" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Terms</a>.`;
+}
+
+// Video slot — mirrors renderAnalysisVideo(): YouTube → nocookie iframe, mp4 →
+// <video>, nothing → hidden for real users, a labelled placeholder on localhost,
+// ?vp=1 and ?demo=checkout so the layout can be reviewed before the file exists.
+function renderCartVideo() {
+  const block = $('cartVideoBlock'), frame = $('cartVideoFrame');
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  let vp = false;
+  try { vp = new URLSearchParams(location.search).get('vp') === '1'; } catch (e) {}
+  const real = !!(CART_VIDEO.youtubeId || CART_VIDEO.mp4);
+  if (!real && !isLocal && !vp && !(DEMO && DEMO.kind === 'checkout')) { block.style.display = 'none'; frame.innerHTML = ''; return false; }
+  block.style.display = '';
+  if (frame.dataset.rendered === (real ? 'real' : 'ph')) return real;
+  frame.dataset.rendered = real ? 'real' : 'ph';
+  if (CART_VIDEO.youtubeId) {
+    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(CART_VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1" title="What you get with Abs by AI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    let hovered = false;
+    frame.addEventListener('mouseenter', () => { hovered = true; });
+    frame.addEventListener('mouseleave', () => { hovered = false; });
+    frame.addEventListener('touchstart', () => { hovered = true; }, { passive: true });
+    window.addEventListener('blur', () => {
+      if (hovered && !frame.dataset.played) { frame.dataset.played = '1'; cartCapture('cart_video_play', { kind: 'youtube' }); }
+    });
+  } else if (CART_VIDEO.mp4) {
+    frame.innerHTML = `<video playsinline controls preload="metadata"${CART_VIDEO.poster ? ` poster="${CART_VIDEO.poster}"` : ''} src="${CART_VIDEO.mp4}"></video>`;
+    const v = frame.querySelector('video');
+    const fired = {};
+    v.addEventListener('play', () => { if (!fired.play) { fired.play = 1; cartCapture('cart_video_play', { kind: 'mp4' }); } });
+    v.addEventListener('timeupdate', () => {
+      if (!v.duration) return;
+      const pct = v.currentTime / v.duration * 100;
+      [25, 50, 75, 100].forEach((m) => {
+        if (pct >= m - (m === 100 ? 1.5 : 0) && !fired[m]) { fired[m] = 1; cartCapture('cart_video_progress', { pct: m }); }
+      });
+    });
+    v.addEventListener('ended', () => { if (!fired[100]) { fired[100] = 1; cartCapture('cart_video_progress', { pct: 100 }); } });
+  } else {
+    frame.innerHTML = `<div class="an-video-ph"${CART_VIDEO.poster ? ` style="background-image:url('${CART_VIDEO.poster}')"` : ''}>
+      <div class="an-video-ph-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="an-video-ph-lbl">CART VIDEO — COMING</div>
+      <div style="font-size:12px;opacity:.6">Dan: the short cart video goes here (ABS_CART_VIDEO in site-video.js)</div>
+    </div>`;
+  }
+  return real;
+}
+
+// The recap: the goal image (locked → the blurred teaser with a lock) and the
+// one line of numbers the analysis page computed, so the cart continues that
+// page instead of restarting the pitch. Hidden when the visitor has no result
+// (a hub tile, say) — the plan picker still stands on its own.
+function renderCartRecap() {
+  const wrap = $('cartRecap');
+  let after = '';
+  try { after = analysisImages().after || localStorage.getItem(LAST_AFTER_KEY) || state.lastAfterDataUrl || ''; } catch (e) { after = state.lastAfterDataUrl || ''; }
+  if (!after) { wrap.style.display = 'none'; return; }
+  const locked = analysisLocked();
+  $('cartRecapImg').src = after;
+  $('cartRecapImgWrap').classList.toggle('locked', locked);
+  $('cartRecapLock').style.display = locked ? '' : 'none';
+  $('cartRecapLbl').textContent = locked ? 'Your goal image — unlocks with the trial' : 'Your goal image';
+  let line = '';
+  try {
+    const a = analysisState.analysis || (state.condition ? tableBodyAnalysis() : null);
+    if (a && analysisState.weight) {
+      const n = computeAnalysisNumbers(a, analysisState.weight, analysisSex());
+      line = `Body fat ${a.bf_now_low}–${a.bf_now_high}% <span class="an-goal">→ ${a.bf_goal}%</span> · goal ≈${Math.round(n.goalW)} lb`;
+    }
+  } catch (e) {}
+  $('cartRecapLine').innerHTML = line || 'Your program starts from this picture.';
+  $('cartRecapFine').style.display = line ? '' : 'none';
+  wrap.style.display = '';
+}
+
+function showCartScreen(returnTo, opts) {
+  if (IS_NATIVE_APP) return showMembershipScreen(returnTo, opts); // never on native
+  membershipReturnTo = returnTo || membershipReturnTo;
+  membershipGateBackToHub = !!opts?.trialGate;
+  const current = screenStack[screenStack.length - 1];
+  if (current !== 'cart') cartFrom = current;
+  const demo = !!(DEMO && DEMO.kind === 'checkout');
+  const locked = analysisLocked();
+  cartCapture('cart_viewed', { from: opts?.from || cartFrom || null, locked, logged_in: isLoggedIn(), plan: selectedPlan });
+
+  $('cartMain').style.display = '';
+  $('cartDone').style.display = 'none';
+  $('cartHead').textContent = locked ? 'Unlock your goal image — free for 7 days' : 'Your plan is ready.';
+  $('cartSub').textContent = locked
+    ? 'See it in full, plus everything in the app. Nothing is charged today.'
+    : 'Start your 7 days free. Nothing is charged today.';
+  renderCartVideo();
+  renderCartRecap();
+  renderCartPlan();
+  const note = $('cartCreditNote');
+  if (!memberState.active && memberState.discountCents > 0) {
+    const n = Math.round(memberState.discountCents / 100);
+    note.textContent = `✦ Your ${n} credit${n !== 1 ? 's' : ''} = $${n} off your first payment`;
+    note.style.display = '';
+  } else {
+    note.style.display = 'none';
+  }
+  const btn = $('cartPayBtn');
+  btn.disabled = demo;
+  btn.textContent = demo ? 'Demo — checkout disabled' : 'Start my free 7 days →';
+  $('cartPaySub').textContent = isLoggedIn()
+    ? `Apple Pay, Link or card · billed to ${auth.email}`
+    : 'Apple Pay, Link or card · your email becomes your login';
+  $('cartError').style.display = 'none';
+  showScreen('cart');
+}
+
+async function handleCartPay() {
+  if (IS_NATIVE_APP) return;
+  if (DEMO && DEMO.kind === 'checkout') return;
+  const btn = $('cartPayBtn');
+  btn.disabled = true;
+  $('cartError').style.display = 'none';
+  cartCapture('cart_checkout_opened', { plan: selectedPlan, logged_in: isLoggedIn() });
+  try {
+    if (!STRIPE_PUBLISHABLE_KEY) throw new Error('Payments are warming up — try again in a moment.');
+    const data = await authApi('/api/stripe/create-cart-checkout', {
+      method: 'POST',
+      body: JSON.stringify({ plan: selectedPlan, deviceId: getDeviceId(), adClickId: getAdClickId(), adClickType: getAdClickType() }),
+    });
+    cartSessionId = data.sessionId;
+    const stripeJs = Stripe(STRIPE_PUBLISHABLE_KEY);
+    const sessionId = data.sessionId;
+    const checkout = await stripeJs.initEmbeddedCheckout({
+      clientSecret: data.clientSecret,
+      onComplete: () => { handleCartComplete(sessionId, !!data.anon); },
+    });
+    $('checkoutOverlay').style.display = 'flex';
+    $('checkout').innerHTML = '';
+    checkout.mount('#checkout');
+    window._stripeCheckout = checkout;
+  } catch (err) {
+    $('cartError').textContent = err.message || 'Something went wrong. Please try again.';
+    $('cartError').style.display = '';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// Ask the server to log this browser in on the account the checkout created.
+// The webhook may land after Stripe's onComplete, so a "still activating"
+// answer is retried a few times before giving up to the emailed link.
+async function claimCartSession(sessionId) {
+  let last = null;
+  for (let i = 0; i < 6; i++) {
+    try {
+      return await authApi('/api/stripe/claim', { method: 'POST', body: JSON.stringify({ session_id: sessionId }) });
+    } catch (err) {
+      last = err;
+      if (err.status !== 409) break;
+      await new Promise((r) => setTimeout(r, 1500));
+    }
+  }
+  throw last || new Error('Could not sign you in.');
+}
+
+async function handleCartComplete(sessionId, anon) {
+  closeCreditsCheckout();
+  // Logged-in buyer: the existing post-payment routine already does everything
+  // (conversions with the account email, unlocks, the returnTo).
+  if (!anon || isLoggedIn()) return handleMembershipComplete(sessionId);
+
+  let claim = null;
+  try { claim = await claimCartSession(sessionId); }
+  catch (err) {
+    // Fulfilment is still guaranteed by the webhook + the emailed link; report
+    // the sale and show the way in rather than leaving a paying buyer stranded.
+    console.warn('cart claim failed:', err.message);
+    try { await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(sessionId)}`); } catch (e) {}
+    claim = { existingAccount: true, email: '', unclaimed: true };
+  }
+
+  const created = !!claim.token;
+  if (created) setLoggedIn({ token: claim.token, email: claim.email, deviceId: claim.deviceId });
+  if (window.posthog) posthog.capture('account_claimed', { created, existing: !created });
+
+  // Conversions — AFTER the login so the enhanced-conversions email rides on
+  // the trial fire; the existing-account case passes the email explicitly.
+  if (window.posthog) posthog.capture('membership_subscribed', { plan: selectedPlan, anon: true });
+  if (window.posthog) posthog.capture('cart_checkout_completed', { plan: selectedPlan, anon: true, created });
+  fireAdConversion('AqLTCMnl4dkcEJvEqLNE', { value: 20, currency: 'USD', email: claim.email || '' }); // ~1 month of membership revenue
+  fireTikTokEvent('StartTrial', { value: 20, currency: 'USD' });
+  fireConfetti();
+
+  cartResult = { created, email: claim.email || '' };
+  if (created) {
+    await refreshMembership();
+    loadCredits(); // converted credits were zeroed
+    // Carry the funnel onto the new account: the before/after pair (+ the
+    // analysis it carries) and the slider height/weight.
+    try { saveTransformationIfLoggedIn({ intensity: state.effectiveIntensity, condition: state.condition }); } catch (e) {}
+    seedProfileFromFunnel();
+    await unlockProgramAfterSubscribe();
+    await unlockMealPlanAfterSubscribe();
+    await unlockSleepAfterSubscribe();
+    await unlockCounselAfterSubscribe();
+  }
+  showCartDone();
+}
+
+function showCartDone() {
+  const created = !!(cartResult && cartResult.created);
+  $('cartMain').style.display = 'none';
+  $('cartDone').style.display = '';
+  $('cartDoneTitle').textContent = created ? "You're in — your 7-day trial is active" : 'Your membership is active';
+  $('cartDoneEmail').textContent = cartResult && cartResult.email
+    ? (created ? `Logged in as ${cartResult.email}` : `On the account ${cartResult.email}`)
+    : "Check your email — we've sent you a link to get in.";
+  $('cartPwBlock').style.display = created ? '' : 'none';
+  $('cartExistingNote').style.display = created ? 'none' : '';
+  $('cartPwInput').value = '';
+  $('cartPwOk').style.display = 'none';
+  $('cartPwErr').style.display = 'none';
+  $('cartDoneBtn').textContent = created ? 'Build my program →' : 'Log in to continue →';
+  $('cartDoneSub').textContent = created ? 'Five quick questions, then your program.' : 'Use the password for that account, or "Forgot password".';
+  showScreen('cart');
+}
+
+async function handleCartSetPassword(e) {
+  e.preventDefault();
+  const btn = $('cartPwBtn');
+  const pw = $('cartPwInput').value;
+  $('cartPwErr').style.display = 'none';
+  if (pw.length < 8) { $('cartPwErr').textContent = 'Use at least 8 characters.'; $('cartPwErr').style.display = ''; return; }
+  btn.disabled = true;
+  try {
+    await authApi('/api/auth/set-password', { method: 'POST', body: JSON.stringify({ password: pw }) });
+    $('cartPwOk').style.display = '';
+    $('cartPwInput').value = '';
+    if (window.posthog) posthog.capture('cart_password_set');
+  } catch (err) {
+    $('cartPwErr').textContent = err.message || 'Could not save that password.';
+    $('cartPwErr').style.display = '';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// "Build my program" → the five questions as onboarding → the continuation
+// (the pending feature, the locked-image release, or the hub).
+function handleCartDoneContinue() {
+  if (!(cartResult && cartResult.created)) {
+    // Existing account: log in (never automatically), then continue.
+    const email = cartResult && cartResult.email;
+    window._afterAuth = () => finishCartOnboarding();
+    showAuthScreen('login');
+    if (email) $('authEmail').value = email;
     return;
   }
+  quizState.onboarding = true;
+  startQuiz();
+}
+
+function finishCartOnboarding() {
+  quizState.onboarding = false;
+  const dest = membershipReturnTo;
+  membershipReturnTo = null;
+  membershipGateBackToHub = false;
+  cartResult = null;
+  if (dest) dest(); else if (loadStoredProgram()) showProgram(); else showHub();
+}
+
+function wireCartScreen() {
+  $('cartBackBtn').addEventListener('click', () => {
+    if ($('cartDone').style.display !== 'none') return; // paid: forward only
+    const back = cartFrom;
+    cartFrom = null;
+    if (membershipGateBackToHub && back === 'hub') { membershipGateBackToHub = false; return showHub(); }
+    membershipReturnTo = null;
+    membershipGateBackToHub = false;
+    if (back && back !== 'cart' && back !== 'auth') return showScreen(back);
+    if (isLoggedIn()) showHub(); else showScreen('form');
+  });
+  document.querySelectorAll('.cart-plan').forEach((el) => el.addEventListener('click', () => {
+    selectedPlan = el.dataset.plan;
+    cartCapture('cart_plan_selected', { plan: selectedPlan });
+    renderCartPlan();
+  }));
+  $('cartPayBtn').addEventListener('click', handleCartPay);
+  $('cartSkipBtn').addEventListener('click', () => {
+    cartCapture('cart_skipped', { plan: selectedPlan });
+    membershipReturnTo = null;
+    membershipGateBackToHub = false;
+    showHub();
+  });
+  $('cartPwForm').addEventListener('submit', handleCartSetPassword);
+  $('cartDoneBtn').addEventListener('click', handleCartDoneContinue);
+}
+
+async function handleMembershipSubscribe() {
+  if (IS_NATIVE_APP) return; // digital purchases are disabled in the native apps
+  if (!isLoggedIn()) return showCartScreen(); // web: card first, account after
   const btn = $('membershipSubscribeBtn');
   btn.disabled = true;
   $('membershipError').style.display = 'none';
@@ -9037,6 +9545,7 @@ function initTrainer() {
     document.querySelectorAll('.plan-card').forEach(c => c.classList.toggle('selected', c === card));
   }));
   $('membershipSubscribeBtn').addEventListener('click', handleMembershipSubscribe);
+  wireCartScreen();
   // Pre-trial quiz nav: Back steps within the quiz (skips out on the first step);
   // Skip jumps straight to the trial gate. Both keep the profile graceful.
   $('quizBackBtn').addEventListener('click', () => {

@@ -4709,6 +4709,62 @@ async function sendResetEmail(email, token) {
   if (!res.ok) console.error('Resend error:', res.status, (await res.text()).slice(0, 300));
 }
 
+// Cart purchase that CREATED the account: the buyer never chose a password, so
+// the "set your password" link is the backup way in (the claim login is the
+// primary). Reuses the password-reset machinery with a 7-day token — 60 minutes
+// is right for a reset someone just asked for, wrong for an email that may sit
+// unread until the trial reminder lands.
+async function sendSetPasswordEmail(email, userId) {
+  if (!db) return;
+  const token = crypto.randomBytes(32).toString('hex');
+  const hash = crypto.createHash('sha256').update(token).digest('hex');
+  await db.query(
+    `INSERT INTO password_reset_tokens (token_hash, user_id, expires_at) VALUES ($1, $2, now() + interval '7 days')`,
+    [hash, userId]
+  );
+  if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — set-password email skipped for', email); return; }
+  const link = `${SITE_URL}/?reset=${token}&welcome=1`;
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: RESET_FROM,
+      to: [email],
+      subject: 'Your Abs by AI trial is active — set your password',
+      html: `<p>You're in. Your 7-day free trial is active and your account is <b>${email}</b>.</p>
+<p>Set a password so you can log in on any device:</p>
+<p><a href="${link}" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Set my password</a></p>
+<p>Or paste this link into your browser:<br>${link}</p>
+<p>This link works for 7 days. We'll email you 2 days before your trial ends; cancel any time before then from Manage membership and you won't be charged.</p>`,
+    }),
+  });
+  if (!res.ok) console.error('Resend error:', res.status, (await res.text()).slice(0, 300));
+}
+
+// Cart purchase whose email already had an account: the membership is attached
+// to that account and the buyer is told to log in — the paying browser is
+// deliberately never logged in automatically.
+async function sendMembershipAttachedEmail(email, plan) {
+  if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — membership-attached email skipped for', email); return; }
+  const planDef = MEMBERSHIP_PLANS[plan] || MEMBERSHIP_PLANS.monthly;
+  const priceStr = planDef.interval === 'year'
+    ? `$${(planDef.priceInCents / 100).toFixed(2)}/year`
+    : `$${(planDef.priceInCents / 100).toFixed(2)}/month`;
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: RESET_FROM,
+      to: [email],
+      subject: 'Your Abs by AI membership is active — log in to continue',
+      html: `<p>Your 7-day free trial is active on the Abs by AI account <b>${email}</b> (then ${priceStr}, cancel any time before the trial ends).</p>
+<p><a href="${SITE_URL}/?login=1" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Log in</a></p>
+<p>Forgot your password? Use "Forgot password" on the login screen and we'll send a reset link.</p>`,
+    }),
+  });
+  if (!res.ok) console.error('Resend error:', res.status, (await res.text()).slice(0, 300));
+}
+
 // Trial-ending reminder (fires 2 days out via trialReminderSweep). Returns true
 // only when Resend accepted the email, so the sweep sets the "sent" flag only on
 // a real send and retries on the next pass otherwise (incl. when the key is unset).
@@ -5037,6 +5093,25 @@ app.post('/api/auth/request-reset', authLimiter, async (req, res) => {
     console.log(`Password reset requested: ${email}`);
   } catch (e) {
     console.error('request-reset error:', e.message);
+  }
+});
+
+// The post-payment screen's optional "create a password" field. The buyer is
+// already logged in through the claim; this just replaces the unusable random
+// hash the cart account was created with.
+app.post('/api/auth/set-password', authLimiter, requireAuth, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  const password = String(req.body?.password || '');
+  if (password.length < 8) return res.status(400).json({ error: 'Password must be at least 8 characters' });
+  try {
+    const hash = await bcrypt.hash(password, 10);
+    await db.query('UPDATE users SET password_hash = $1 WHERE id = $2', [hash, req.user.id]);
+    // The emailed set-password link is now redundant — retire it.
+    await db.query('DELETE FROM password_reset_tokens WHERE user_id = $1', [req.user.id]);
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('set-password error:', e.message);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
@@ -6318,79 +6393,128 @@ app.get(['/api/ads/offline-conversions.csv', '/api/ads/offline-conversions-commi
 });
 
 // Create an embedded Stripe Checkout session for a membership subscription.
-app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res) => {
-  try {
-    const stripe = getStripe();
-    if (!stripe) return res.status(503).json({ error: 'Payments are not configured yet.' });
-    const { plan, deviceId } = req.body || {};
-    const planDef = MEMBERSHIP_PLANS[plan];
-    if (!planDef) return res.status(400).json({ error: 'Invalid plan' });
+// ── Membership checkout — two doors, one session builder ──
+// The web cart (2026-09-10) takes the card BEFORE the account exists, so the
+// session builder has to work with or without a user row. Logged-in callers
+// keep every rule that existed before (one trial per account, the active-member
+// rejection, the credit-conversion coupon); anonymous callers get a session
+// whose metadata carries everything fulfilment needs to create the account
+// afterwards — including the ad click id, which recordAdClickId() cannot store
+// yet because there is no user id to store it on.
+class CheckoutError extends Error {
+  constructor(status, message) { super(message); this.status = status; }
+}
+
+async function buildMembershipCheckout({ user, plan, deviceId, adClickId, adClickType }) {
+  const stripe = getStripe();
+  if (!stripe) throw new CheckoutError(503, 'Payments are not configured yet.');
+  const planDef = MEMBERSHIP_PLANS[plan];
+  if (!planDef) throw new CheckoutError(400, 'Invalid plan');
+
+  let row = null;
+  let isFirstSubscription = true;
+  if (user) {
     // Capture here as well as at signup: an existing account that clicks an ad
     // and only then subscribes would otherwise carry the click id from whenever
     // it first registered, or none at all.
-    await recordAdClickId(req.user.id, req.body?.adClickId, req.body?.adClickType);
-
-    const row = await getUserRow(req.user.id);
+    await recordAdClickId(user.id, adClickId, adClickType);
+    row = await getUserRow(user.id);
     // A beta (comp) tester may still choose to pay; the webhook then overwrites
     // comp with a real subscription (paying wins). Comp rows have no
     // stripe_subscription_id, so isFirstSubscription stays true → 7-day trial.
     if (isActiveMembership(row) && row.membership_status !== 'comp') {
-      return res.status(400).json({ error: 'You already have an active membership.' });
+      throw new CheckoutError(400, 'You already have an active membership.');
     }
-
-    const dev = String(deviceId || row.device_id || '');
-    const discountCents = creditDiscountCents(dev, plan);
-    const discounts = [];
-    if (discountCents > 0) {
-      const coupon = await stripe.coupons.create({
-        amount_off: discountCents,
-        currency: 'usd',
-        duration: 'once',
-        name: `Credit conversion (${Math.round(discountCents / 100)} credits)`,
-      });
-      discounts.push({ coupon: coupon.id });
-    }
-
     // One trial per user: brand-new subscribers get 7 free days; a returning
     // member who previously subscribed (row has a prior subscription id) pays
     // immediately. The credit-conversion coupon is duration:'once', so with a
     // trial it discounts the first real invoice after the trial ends.
-    const isFirstSubscription = !row.stripe_subscription_id;
+    isFirstSubscription = !row.stripe_subscription_id;
+  }
+  // Anonymous: the per-account check cannot run before the account exists, so
+  // the trial is always granted here; fulfilment logs a TRIAL_REUSE line when
+  // the email turns out to belong to an account that already had one.
 
-    const session = await stripe.checkout.sessions.create({
-      ui_mode: 'embedded',
-      mode: 'subscription',
-      redirect_on_completion: 'never',
-      customer_email: req.user.email,
-      // Require a card up front even during the trial, and keep it explicit so
-      // a future change can't silently make collection optional.
-      payment_method_collection: 'always',
-      ...(isFirstSubscription ? { subscription_data: { trial_period_days: 7 } } : {}),
-      line_items: [{
-        quantity: 1,
-        price_data: {
-          currency: 'usd',
-          unit_amount: planDef.priceInCents,
-          recurring: { interval: planDef.interval },
-          product_data: {
-            name: `Abs By AI ${planDef.label}`,
-            description: '7-day free trial, then full access: AI trainer, unlimited transformations & meal tracking. Cancel anytime.',
-          },
-        },
-      }],
-      ...(discounts.length ? { discounts } : {}),
-      metadata: {
-        kind: 'membership',
-        plan,
-        userId: String(req.user.id),
-        deviceId: dev,
-        creditDiscountCents: String(discountCents),
-      },
+  const dev = String(deviceId || (row && row.device_id) || '');
+  const discountCents = creditDiscountCents(dev, plan);
+  const discounts = [];
+  if (discountCents > 0) {
+    const coupon = await stripe.coupons.create({
+      amount_off: discountCents,
+      currency: 'usd',
+      duration: 'once',
+      name: `Credit conversion (${Math.round(discountCents / 100)} credits)`,
     });
+    discounts.push({ coupon: coupon.id });
+  }
 
-    res.json({ clientSecret: session.client_secret, sessionId: session.id, discountCents });
+  const anon = !user;
+  const session = await stripe.checkout.sessions.create({
+    ui_mode: 'embedded',
+    mode: 'subscription',
+    redirect_on_completion: 'never',
+    // Logged in: the account's email, fixed. Anonymous: no customer_email at
+    // all, so Stripe's form collects it — that email BECOMES the account.
+    // (Prefilling would make Stripe render the field read-only, so a typo in a
+    // funnel-captured email would be permanent; deliberately not done.)
+    ...(user ? { customer_email: user.email } : {}),
+    // Require a card up front even during the trial, and keep it explicit so
+    // a future change can't silently make collection optional.
+    payment_method_collection: 'always',
+    ...(isFirstSubscription ? { subscription_data: { trial_period_days: 7 } } : {}),
+    line_items: [{
+      quantity: 1,
+      price_data: {
+        currency: 'usd',
+        unit_amount: planDef.priceInCents,
+        recurring: { interval: planDef.interval },
+        product_data: {
+          name: `Abs By AI ${planDef.label}`,
+          description: '7-day free trial, then full access: AI trainer, unlimited transformations & meal tracking. Cancel anytime.',
+        },
+      },
+    }],
+    ...(discounts.length ? { discounts } : {}),
+    metadata: {
+      kind: 'membership',
+      plan,
+      ...(user ? { userId: String(user.id) } : { anon: '1' }),
+      deviceId: dev,
+      creditDiscountCents: String(discountCents),
+      // Rides along for the anonymous case; harmless (and unused) when userId
+      // is set because recordAdClickId already ran above.
+      adClickId: sanitizeAdClickId(adClickId),
+      adClickType: sanitizeAdClickType(adClickType),
+    },
+  });
+
+  return { clientSecret: session.client_secret, sessionId: session.id, discountCents, anon };
+}
+
+app.post('/api/stripe/create-membership-checkout', requireAuth, async (req, res) => {
+  try {
+    const { plan, deviceId, adClickId, adClickType } = req.body || {};
+    const out = await buildMembershipCheckout({ user: req.user, plan, deviceId, adClickId, adClickType });
+    res.json(out);
   } catch (err) {
+    if (err instanceof CheckoutError) return res.status(err.status).json({ error: err.message });
     console.error('create-membership-checkout error:', err.message);
+    res.status(500).json({ error: 'Could not start checkout. Please try again.' });
+  }
+});
+
+// The web cart's door. Works logged in (identical to the endpoint above) and
+// logged out (Stripe collects the email with the card). Rate-limited like the
+// auth endpoints: every call creates a Stripe object.
+app.post('/api/stripe/create-cart-checkout', authLimiter, optionalAuth, async (req, res) => {
+  try {
+    if (!db) return dbUnavailable(res); // the account has to be creatable afterwards
+    const { plan, deviceId, adClickId, adClickType } = req.body || {};
+    const out = await buildMembershipCheckout({ user: req.user || null, plan, deviceId, adClickId, adClickType });
+    res.json(out);
+  } catch (err) {
+    if (err instanceof CheckoutError) return res.status(err.status).json({ error: err.message });
+    console.error('create-cart-checkout error:', err.message);
     res.status(500).json({ error: 'Could not start checkout. Please try again.' });
   }
 });
@@ -6521,15 +6645,84 @@ app.delete('/api/admin/beta-members/:email', authLimiter, requireAdmin, async (r
 });
 
 // Idempotently activate membership for a completed subscription checkout.
+//
+// Two shapes of session arrive here (see buildMembershipCheckout):
+//   - meta.userId  — the buyer was logged in; update that row. Unchanged.
+//   - meta.anon    — the web cart: no account existed when the card was taken.
+//                    The email Stripe collected becomes the account (or finds
+//                    an existing one), the membership is applied to it, the ad
+//                    click id is recorded, and the buyer is emailed a way in.
+//
+// The webhook and the browser's claim/session-status call race for the same
+// session. The `fulfilled` flag is only written at the END, so both could pass
+// the check and both run the account step — the second would then see the row
+// the first created and wrongly treat the buyer as a pre-existing account.
+// One in-flight promise per session id serialises them: the loser awaits the
+// winner's result instead of doing its own work.
+const membershipFulfillInFlight = new Map();
+
 async function fulfillMembershipSession(session) {
   if (!session || !db) return false;
   const sid = session.id;
   if (creditsStore.fulfilled[`member_${sid}`]) return false;
   const meta = session.metadata || {};
-  if (meta.kind !== 'membership' || !meta.userId) return false;
+  if (meta.kind !== 'membership') return false;
+  if (!meta.userId && meta.anon !== '1') return false;
+  if (membershipFulfillInFlight.has(sid)) return membershipFulfillInFlight.get(sid);
+  const p = fulfillMembershipSessionInner(session, sid, meta)
+    .finally(() => { membershipFulfillInFlight.delete(sid); });
+  membershipFulfillInFlight.set(sid, p);
+  return p;
+}
+
+// Claim rows live 15 minutes: long enough for the paying browser's onComplete
+// round trip, short enough that a leaked session id is worthless by the time
+// anyone could use it.
+const CLAIM_TTL_MINUTES = 15;
+function sessionHash(sid) { return crypto.createHash('sha256').update(String(sid)).digest('hex'); }
+
+// Find-or-create the account for an anonymous cart purchase. Returns
+// { userId, created, email, hadSubscription }. The INSERT … ON CONFLICT DO
+// NOTHING is what makes "created" trustworthy under concurrency: exactly one
+// caller ever gets a row back from it for a given email.
+async function resolveCartAccount(email, deviceId) {
+  const existing = async () => {
+    const { rows } = await db.query('SELECT id, stripe_subscription_id FROM users WHERE email = $1', [email]);
+    return rows.length ? { userId: rows[0].id, created: false, email, hadSubscription: !!rows[0].stripe_subscription_id } : null;
+  };
+  // SELECT first (the common case, and pg-mem returns the conflicting row from
+  // DO NOTHING … RETURNING, which real Postgres does not), then the atomic
+  // insert-or-nothing for the race, then a re-select when the race was lost.
+  const found = await existing();
+  if (found) return found;
+  const hash = await bcrypt.hash(crypto.randomBytes(24).toString('base64url'), 10); // unusable until set
+  const { rows: inserted } = await db.query(
+    `INSERT INTO users (email, password_hash, device_id) VALUES ($1, $2, $3)
+     ON CONFLICT (email) DO NOTHING RETURNING id`,
+    [email, hash, deviceId || ('cart-' + crypto.randomBytes(6).toString('hex'))]
+  );
+  if (inserted.length) return { userId: inserted[0].id, created: true, email, hadSubscription: false };
+  const lost = await existing();
+  if (!lost) throw new Error('cart account resolve: insert lost and select found nothing');
+  return lost;
+}
+
+async function fulfillMembershipSessionInner(session, sid, meta) {
   // Subscription checkouts report payment_status 'paid' (or 'no_payment_required'
   // when a coupon covers the first invoice).
   if (session.payment_status !== 'paid' && session.payment_status !== 'no_payment_required') return false;
+
+  let userId = meta.userId ? parseInt(meta.userId, 10) : null;
+  let account = null;
+  if (!userId) {
+    const email = String(session.customer_details?.email || session.customer_email || '').trim().toLowerCase();
+    if (!EMAIL_RE.test(email) || email.length > 254) {
+      console.error(`CART_FULFILL_NO_EMAIL: session ${sid} completed with no usable email`);
+      return false;
+    }
+    account = await resolveCartAccount(email, meta.deviceId);
+    userId = account.userId;
+  }
 
   const stripe = getStripe();
   let periodEnd = null;
@@ -6551,8 +6744,38 @@ async function fulfillMembershipSession(session) {
     `UPDATE users SET stripe_customer_id = $1, stripe_subscription_id = $2,
        membership_status = $3, membership_plan = $4, membership_period_end = $5
      WHERE id = $6`,
-    [session.customer || null, subId, subStatus, meta.plan || 'monthly', periodEnd, parseInt(meta.userId, 10)]
+    [session.customer || null, subId, subStatus, meta.plan || 'monthly', periodEnd, userId]
   );
+
+  if (account) {
+    // The click id could not be stored at checkout (no user row yet) — it
+    // rode along in the metadata so the Google Ads offline feed still gets it.
+    await recordAdClickId(userId, meta.adClickId, meta.adClickType);
+    // The claim row: only a CREATED account is claimable. A pre-existing
+    // account gets a non-claimable row so the browser can learn which case it
+    // is in without ever receiving anything that grants access.
+    try {
+      await db.query(
+        `INSERT INTO checkout_claims (session_hash, user_id, created, expires_at)
+         VALUES ($1, $2, $3, now() + interval '${CLAIM_TTL_MINUTES} minutes')
+         ON CONFLICT (session_hash) DO NOTHING`,
+        [sessionHash(sid), userId, account.created]
+      );
+    } catch (e) { console.error('checkout_claims insert failed:', e.message); }
+    if (account.created) {
+      pushToMailerLite(account.email).catch(() => {}); // same as signup
+      sendSetPasswordEmail(account.email, userId).catch((e) => console.error('set-password email failed:', e.message));
+      console.log(`CART_ACCOUNT_CREATED: user ${userId} from session ${sid}`);
+    } else {
+      sendMembershipAttachedEmail(account.email, meta.plan).catch((e) => console.error('membership-attached email failed:', e.message));
+      if (account.hadSubscription) {
+        // Allowed, not blocked (blocking would need the email BEFORE the card).
+        // Logged so it can be counted; Dan decides if it ever needs a rule.
+        console.log(`TRIAL_REUSE: existing user ${userId} started a new trial through the cart (session ${sid})`);
+      }
+      console.log(`CART_MEMBERSHIP_ATTACHED: existing user ${userId} from session ${sid}`);
+    }
+  }
 
   // Converted credits were spent as the checkout discount — zero the balance.
   if (parseInt(meta.creditDiscountCents, 10) > 0 && meta.deviceId) {
@@ -6560,9 +6783,62 @@ async function fulfillMembershipSession(session) {
   }
   creditsStore.fulfilled[`member_${sid}`] = true;
   await persistCreditsStore();
-  console.log(`Membership activated for user ${meta.userId} (${meta.plan}, session ${sid})`);
+  console.log(`Membership activated for user ${userId} (${meta.plan}, session ${sid})`);
   return true;
 }
+
+// The paying browser's login, for a cart purchase that CREATED the account.
+// Proof of purchase is the Stripe session id — the same value the browser
+// already holds inside its client secret — checked against Stripe as
+// `complete`, then against the claim row: single use, 15-minute TTL, and only
+// ever issued for an account this session created. A pre-existing account
+// gets { existingAccount: true } and nothing that grants access, so paying
+// with someone else's email can never walk into their account.
+app.post('/api/stripe/claim', authLimiter, async (req, res) => {
+  if (!db) return dbUnavailable(res);
+  try {
+    const stripe = getStripe();
+    if (!stripe) return res.status(503).json({ error: 'Payments are not configured yet.' });
+    const sid = String(req.body?.session_id || '');
+    if (!/^cs_[A-Za-z0-9_]{10,}$/.test(sid)) return res.status(400).json({ error: 'Missing session_id' });
+
+    const session = await stripe.checkout.sessions.retrieve(sid);
+    if (session.status !== 'complete' || session.metadata?.kind !== 'membership') {
+      return res.status(409).json({ error: 'Checkout is not complete yet.' });
+    }
+    // Fallback fulfilment, same as session-status: the webhook may not have
+    // landed yet. Idempotent and serialised per session.
+    await fulfillMembershipSession(session);
+
+    const { rows } = await db.query(
+      `SELECT c.user_id, c.created, c.used_at, c.expires_at, u.email, u.device_id
+         FROM checkout_claims c JOIN users u ON u.id = c.user_id
+        WHERE c.session_hash = $1`,
+      [sessionHash(sid)]
+    );
+    if (!rows.length) return res.status(409).json({ error: 'Still activating — try again in a moment.' });
+    const claim = rows[0];
+    if (!claim.created) {
+      // Never log this browser in. The masked email lets the page say WHICH
+      // account the membership landed on without echoing the full address.
+      return res.json({ existingAccount: true, email: claim.email });
+    }
+    if (claim.used_at || new Date(claim.expires_at) < new Date()) {
+      return res.status(410).json({ error: 'This sign-in link was already used. Use the email we sent you to set a password.' });
+    }
+    const { rowCount } = await db.query(
+      'UPDATE checkout_claims SET used_at = now() WHERE session_hash = $1 AND used_at IS NULL',
+      [sessionHash(sid)]
+    );
+    if (!rowCount) return res.status(410).json({ error: 'This sign-in link was already used.' });
+    const token = await createSession(claim.user_id);
+    console.log(`CART_CLAIMED: user ${claim.user_id}`); // never the session id or token
+    res.json({ token, email: claim.email, deviceId: claim.device_id, created: true });
+  } catch (err) {
+    console.error('claim error:', err.message);
+    res.status(500).json({ error: 'Could not sign you in. Use the email we sent you to set a password.' });
+  }
+});
 
 // ── Google Ads "Subscribe" conversion: the trial → PAID moment ──────────────
 // A 7-day trial converts to a paid membership about a week after checkout,
@@ -10585,5 +10861,5 @@ setInterval(() => { assistantDoneSweep(); }, ASSISTANT_SWEEP_MS).unref?.();
 
 // Exposed for tests. Requiring this module also starts the server; tests point
 // DATABASE_URL at pgmem:// and stub the stripe / node-fetch modules.
-module.exports = { app, db, trialReminderSweep, welcomeSweep, assistantDoneSweep, sweepOrphanedAuditJobs, fulfillMembershipSession };
+module.exports = { app, db, trialReminderSweep, welcomeSweep, assistantDoneSweep, sweepOrphanedAuditJobs, fulfillMembershipSession, buildMembershipCheckout, sessionHash };
 

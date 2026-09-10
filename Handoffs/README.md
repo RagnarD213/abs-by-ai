@@ -14,7 +14,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | Document | Fire when |
 |---|---|
 | [handoff-20260910-start-vsl-edit-and-install.md](handoff-20260910-start-vsl-edit-and-install.md) | after Dan records the /start VSL (script doc linked inside) — edit hero ×4 hooks + full cut with /website-video, then give /start its own video slot (analysis page keeps `CwEGFxpIM-E`), verify live. Fable 5.1 high |
-| [handoff-20260910-web-pay-first-cart.md](handoff-20260910-web-pay-first-cart.md) | any time — WEB pay-first cart: research DR carts (MadMuscles, V Shred +) → private teardown for Dan → build (card before account, set-password after, questions become onboarding, cart-video placeholder, Monthly default). Native untouched. Fable 5.1 high |
 | [handoff-20260812-revenuecat-restore-behavior-audit.md](handoff-20260812-revenuecat-restore-behavior-audit.md) | fire the day Apple approves (IN_REVIEW since 09-08) |
 | [handoff-20260812-purchase-before-account.md](handoff-20260812-purchase-before-account.md) | after approval AND after the RevenueCat audit |
 | [handoff-20260818-android-public-build-swap.md](handoff-20260818-android-public-build-swap.md) | small; needs Dan's Android phone on adb |

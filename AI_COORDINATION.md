@@ -38,6 +38,22 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Web pay-first cart — LIVE 2026-09-10, Dan runs the live card test.** The web checkout is now analysis page →
+cart (`#cartSection`: Monthly $19.99 pre-selected, Annual $69.99 "save 71%", trial timeline, disclosure above the
+button, video slot) → Stripe collects the email with the card → account created after payment (one-time claim login +
+set-password email; an existing email gets the membership attached and is told to log in, never auto-logged-in) →
+"You're in" → the five questions as onboarding → the program. Native/IAP untouched. Research: the private "Cart
+teardown" artifact (https://claude.ai/code/artifact/a7424907-bc1a-41a9-b7af-b0f7a17d8512). Doc + Dan's test script:
+`Docs/WEB_CART.md`. Review without paying: `absbyai.com/?demo=checkout` (+`&locked=1`, `&sex=female`); `?vp=1` shows
+the cart video placeholder. Server fixture tests green (`node scripts/cart/cart-fulfillment.test.js`, 45 checks).
+**Dan: (1) the live card test in a private window — cart → Monthly → pay $0 → confirm logged in + set-password email →
+cancel before day 7; (2) Google Pay on/off in Stripe (recommended on; Claude will not flip it unasked); (3) the shipped
+defaults — cart video hidden until the file exists, anonymous trial reuse allowed and logged, no email before the card,
+no urgency device.** ⚠ Native retest: the apps load the same page — confirm iOS/Android still show the IAP screen and
+the account-first flow (verified locally with `IS_NATIVE_APP` forced, not on a phone). ⚠ PostHog funnels that used
+`account_signup` between the trial button and payment must be rebuilt (`cart_viewed` → `cart_checkout_opened` →
+`cart_checkout_completed` → `account_claimed`). Delete this entry once Dan's card test passes.
+
 **$17 Ab Wheel long-form + its 5 shorts — SCHEDULED ON EVERY PLATFORM 2026-09-10, nothing blocked.** Muhammad's v2 HD
 goes public Sun 09-13 9 AM CT: YouTube `bkzT-3ENpoU` (full-quality master, thumbnail A, chapters) + FB / IG @danrosefit /
 TikTok via Blotato (@abs.by.ai 09-14). The 5 approved shorts (cut 08-28 from this exact file) post Oct 27/29/31, Nov 3/5
@@ -242,10 +258,13 @@ the Key dashboard task `money::Execute handoff: studio batch 6…` — that clos
 programme. ⚠ 60 ` 2.jpg` conflict copies sit in the delivery folder (pre-warp-bump versions,
 not duplicates); recommend deleting once he confirms the current files are the ones he wants.
 
-**Home filming set** — final buy list ($1,083.65), 21 product pages open in his Chrome.
-Dan buys (TL60 **qty 2**, stand 2-pack, rod 72-144, backdrop stand 10x8.5), then runs the
-3 phone tests before the gear lands. Then: build the look-A telemetry loop file once the
-monitor is in the room.
+**Home filming set — GEAR ARRIVED, Dan hiring an installer (2026-09-10).** Installer work order published
+(https://claude.ai/code/artifact/2b21b748-62f0-455f-aafb-ac9a6a23ad44 — look B plant+lamp default, rod drilled, NO
+floor marks: Jeff marks spots at the first shoot); job ad + TaskRabbit recommendation given in chat. Dan: buy 3 pre-filled
+Sandbaggy 15 lb saddle bags (2-pack + single, $113) + LUXON amber E26 bulb 4-pack ($18.99) — both pages open in his
+Chrome — then book a Tasker (Mounting, ~5 h) and share the sheet link. Stool = the Linon 29" barstool he already has.
+Verified 09-10: the 09-01 duplicate order set was cancelled EXCEPT one VIVO TV floor stand ($54.11) → he owns TWO
+(both delivered 09-04); return one by ~Oct 5 unless intended. After install: build the look-A telemetry loop file.
 
 **Paid ads** — Dan decides whether both Meta campaigns being toggled OFF was intentional
 (3 unpublished draft edits still pending). Launch specs are in the 8/31 artifact.
@@ -366,11 +385,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
 - **`Handoffs/handoff-20260910-start-vsl-edit-and-install.md`** — fire after Dan records the /start VSL: edit the
   hero (×4 hooks) + full cut with /website-video, give /start its own video slot (the analysis page keeps
   `CwEGFxpIM-E`), verify live, then check off the dashboard VSL row. Fable 5.1 high. **Not on the dashboard** (his rule).
-- **`Handoffs/handoff-20260910-web-pay-first-cart.md`** — WEB pay-first checkout: research high-converting DR carts
-  (MadMuscles, V Shred + a few), show Dan a private teardown artifact, then build a cart that comes right after the
-  analysis page and BEFORE any account (Stripe collects the email; account + set-password link after payment; the
-  questions become onboarding), with a cart-video placeholder and Monthly pre-selected over Annual. Native apps
-  untouched. Fire any time; Fable 5.1 high. **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260908-google-ads-custom-segments.md`** — ten Google Ads custom segments (six search-term,
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which

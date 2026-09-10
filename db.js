@@ -161,6 +161,18 @@ async function initDb() {
       expires_at TIMESTAMPTZ NOT NULL,
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
+    -- Web pay-first cart (2026-09-10): a checkout that CREATED the account gets
+    -- one claim, keyed on the hashed Stripe session id, so the browser that just
+    -- paid can be logged in once. A session that landed on a pre-existing
+    -- account gets a row with created=false and is never claimable.
+    CREATE TABLE IF NOT EXISTS checkout_claims (
+      session_hash TEXT PRIMARY KEY,
+      user_id      INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      created      BOOLEAN NOT NULL DEFAULT false,
+      expires_at   TIMESTAMPTZ NOT NULL,
+      used_at      TIMESTAMPTZ,
+      created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
     CREATE TABLE IF NOT EXISTS audit_jobs (
       id         TEXT PRIMARY KEY,
       user_id    INTEGER,
