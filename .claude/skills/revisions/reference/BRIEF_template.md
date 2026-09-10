@@ -99,7 +99,10 @@ AD 7 572–674, AD 8 675–end. For a round ≥ 2 cut, your checklist is the LAS
 - App/phone demo: the one-line block ("The real app recording is the right thing here, keep it. But it ends on the
   Generating screen and never pays off … end on that recording's own after picture alone … Small AI-GENERATED tag") +
   the recording link + the goal-image STANDING RULE. Identity-check the before picture inside every phone/app clip
-  against Dan's real before picture; if it is not Dan, one line + the before-picture link.
+  against Dan's real before picture; if it is not Dan, one line + the before-picture link (`02_BEFORE-PICTURE_dan-200lb.png`,
+  `11Qb559-mqga9FznIpC8tgxLLfz1BUKQX`). ⚠ The only real app recording that exists (`example generation video.MP4` =
+  `09_CLIP_app-generate-future-self.mp4`) uploads a STRANGER — there is no recording of Dan's own upload, so never write "use
+  this recording of my own upload"; the fix is always the before-picture swap inside the clip (lesson 40).
 - After-photo beats: "Show TWO pictures here, images below" with two empty `- ` sub-bullets for Dan to fill; do not
   pick stills; never the same pair as an earlier beat in the same ad. No item about WHICH real after photo.
 - Logo in frame: "Take the logo out." + `STANDING RULE: Do not use logos of other companies in our ads. Names of other

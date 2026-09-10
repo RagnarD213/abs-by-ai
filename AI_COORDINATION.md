@@ -131,15 +131,18 @@ in-memory held images — a locked result made before a deploy cannot be analyze
 `deploy-drops-locked-holds`). **Native retest needed** (lock-in → sliders → trial CTA, AND the locked result →
 analysis → unlock on iOS/Android). Delete this entry once Dan confirms or changes the defaults.
 
-**Muhammad round out 2026-09-09 — DOCS WRITTEN, Dan reads and forwards.** Eight sections appended to his batch doc
-(`1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`): Ad 3 r4 (3 items), Ad 5 r3 (2), Ad 6 r2 (7), Ad 7 r2 (9), Ads 9/10/13/14
-r1 (15/14/14/9). Level landed on 5/6/7/14 (−13.4 to −14.0 LUFS); the new failure class is over-done noise reduction
-(gate `artifacts` row) on 3/6/7/9/13/14. Md copies in `revision docs/`, work dir `/Volumes/Extreme/_edit_work/revisions-0909/`.
-⚠ His "AD 02 v2" link is byte-identical to Ad 4 v2 (md5 match) and the "AD 08" link is the unchanged 09-07 file — no Ad 2 v2,
-Ad 4 v3 or Ad 8 v2 exists yet; Dan's message asks for them. Dan's calls (not in the doc): Ad 13 0:24 Six Pack Shortcuts
-screenshot with the SIXPACKSHORTCUTS.COM watermark; Ad 7 whether we generate the Dan's-face Photoshop gag ourselves; Ad 10
-the "slightly enhanced" before picture does not exist. Zeeshan r3 / Waleed r3 still waiting on those editors.
-Delete this entry once Dan has forwarded the doc and the next cuts arrive.
+**Muhammad round out 2026-09-10 — SIX SECTIONS APPENDED TO HIS DOC, Dan reads and forwards.** Batch doc
+`1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`, read back byte-intact. **Ad 3 r5 and Ad 4 r3 are APPROVED** (approved-line
+sections; audio −13.7 / −14.0 LUFS, no clipping); Ad 8 r2 (2 items: five AI labels 50% bigger), Ad 9 r2 (4), Ad 13 r2 (4),
+Ad 15 r1 (10 + audio: −12.6 LUFS, −0.2 dBTP, first cut in the batch that came in OVER). **Ad 5 v3 HD received and verified
+final** — frame-identical to the approved cut, 1080p, −14.0 LUFS at −1.0 dBTP, every gate row passes; not yet filed or
+uploaded. Md copies in `revision docs/*9-10-26.md`; work dir `/Volumes/Extreme/_edit_work/revisions-0910/`; paste-ready
+Upwork messages in `out/*.summary.md`. ⚠ Found: the only "real app recording" (`example generation video.MP4` =
+`09_CLIP_app-generate-future-self.mp4`, same 62,300,869 bytes) uploads a STRANGER, not Dan — so every phone demo in the batch
+(Ads 6, 8, 9, 10, 13, 14, 15) carries a before picture that is not Dan; the 09-10 items use Dan's Ad 14 form ("use this photo
+for the before picture in the clip" + `02_BEFORE-PICTURE_dan-200lb.png`). Dan's calls (not in the doc): Ad 13 whether the
+SIXPACKSHORTCUTS.COM watermark also goes; Ad 15 the empty image slot at 0:25.5 and whether Ad 15 runs as an ad at all (the
+script note says YouTube content first). Delete this entry once Dan has forwarded the doc and the next cuts arrive.
 
 **ManyChat per-topic keywords — DONE AND LIVE 2026-09-08, awaiting Dan's OK to delete this entry.**
 `ABS` is split into six live keywords — ABS / FOOD / TRAIN / TRACK / SLEEP / COACH — each with its own

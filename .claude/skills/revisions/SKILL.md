@@ -596,3 +596,23 @@ exact timing or an exact link.
     wrong, which is on me"). Also: the SFX can bypass a limiter placed on the voice track (Ad 3 v4: voice capped at −2.6 dB,
     whoosh at +0.02) — say "limiter on the finished mix, the last thing before export". Recipe as in lesson 35; a full batch of
     eight took 25 min of prep (two at a time, load 8–28) and one subagent per cut at ~220–310k tokens each.
+
+40. **Batch 4 (2026-09-10, seven Muhammad cuts) — the app recording is a STRANGER, and a "final HD" gets a gate + frame-diff, not
+    a review.** (a) The only real app screen recording in the asset library — `example generation video.MP4`
+    (`1fwRGtoHh4oTlwfQZ0gItY3Oj7DZPkN6P`, the link Dan pasted into his Ad 8 / 10 items) is byte-identical (62,300,869 bytes) to
+    `09_CLIP_app-generate-future-self.mp4` in the reference-ad folder, and the photo it uploads is a heavier, older man who is
+    NOT Dan (checked side by side against `02_BEFORE-PICTURE_dan-200lb.png` and his profile photo). So every phone demo in the
+    batch carries a stranger as the before picture, and there is no "recording of my own upload" to link — a reviewer that
+    writes "use this recording of my own upload instead" is wrong (Ad 15's first draft did). The correct item is Dan's own Ad 14
+    form: "the before picture inside the phone is not me" + **Use this photo for the before picture in the clip** + the
+    `02_BEFORE-PICTURE` link + the goal-image STANDING RULE. Three subagents independently called the man a stranger, which is
+    what lesson 10 warns against — so the check that settled it was a four-panel strip (real before, the recording's upload
+    frame, `ai_warning_heavier.png`, profile photo) read once. (b) A delivered "V3 HD" of an APPROVED cut is not a review: run
+    the gate and `framediff.sh` against the approved review copy. Ad 5's read frame-identical (mean diff 0.53, max 1.27 — pure
+    re-encode noise), 1080p at 10 Mbps, −14.0 LUFS at exactly −1.0 dBTP, every gate row PASS except the un-measurable
+    `do_no_harm` (needs our own untreated baseline; declare it, don't hide it). Nothing goes in the doc; it goes in Dan's
+    message and the delivery filing. (c) Muhammad delivers from two Drive accounts (`wadeededitteam@` and
+    `sharkimageryproduction@` — Ad 8 v1, Ad 8 v2 and Ad 15 came from the second); an unfamiliar owner is not a different editor.
+    (d) Once his level lands, rounds 2+ are picture-only and go fast: six reviewers at 210–250k tokens each, 4–8 minutes
+    apiece, and two of six came back as the APPROVED form with zero items. The doc paste (six sections, 25 KB HTML, 72 bullets)
+    verified as an exact-prefix read-back in one go.
