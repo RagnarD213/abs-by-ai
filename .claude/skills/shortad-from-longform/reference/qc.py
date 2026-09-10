@@ -256,7 +256,16 @@ def main():
     else:
         try:
             import centering as CE
-            rows = CE.measure(rebuild=not os.path.exists(os.path.join(bd, "centering/m")))
+            # Reuse the frame cache ONLY when it was built from this exact file. Keyed on nothing but the folder's
+            # existence, a re-render at the same path was measured on the PREVIOUS render's frames -- on 2026-09-10 the
+            # Ad 1 master's "2/28 beyond 70px" came from a 14 s test render, and its re-rendered cutdown repeated its
+            # first render's numbers to the pixel. A green row that measured the wrong file is worse than a red one.
+            st = os.stat(V); key = f"{V}|{st.st_size}|{st.st_mtime_ns}"
+            kp = os.path.join(bd, "centering", "source.key")
+            fresh = os.path.isdir(os.path.join(bd, "centering/m")) and os.path.exists(kp) and open(kp).read() == key
+            rows = CE.measure(rebuild=not fresh)
+            if not fresh:
+                os.makedirs(os.path.dirname(kp), exist_ok=True); open(kp, "w").write(key)
             talk = np.array([[r0[0], r0[2]] for r0 in rows if r0[1] == "talk"])
             cv = talk[:, 1]
             runs, cur = [], []

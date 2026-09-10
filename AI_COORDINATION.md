@@ -413,11 +413,13 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Ad 1 "this picture got me abs" — 9:16 vertical from ZEESHAN's final (2026-09-10, this session owns it).** Building the
-full-length 9:16 + a ≤0:59 cutdown per `/shortad-from-longform` in `/Volumes/Extreme/_edit_work/ad1-zee-vert/`, his mix
-verbatim (constant gain + limiter), hair-anchored framing. His cut is 24 fps / 4:09.2 from raw C1591. ⚠ His 3:09 shows
-the banned "Download Your Future Self" email screen — the vertical substitutes the cropped after-only card. Delivery goes
-beside his 16x9 in `Zeeshan Ad Videos/this picture got me abs - ad 1/`; dashboard row stays unchecked until Dan approves.
+**Ad 1 "this picture got me abs" — 9:16 verticals from ZEESHAN's final — DELIVERED 2026-09-10, Dan reviews.** Full length
+(4:09, 24 fps) + a 0:55.5 cutdown beside his 16x9 in `Zeeshan Ad Videos/this picture got me abs - ad 1/` (540p review
+copies, A/B audio, `notes-vertical.md`); both `qc.py` 20/20, audio stamped PASS, corpus PASS. An independent audit failed
+the first render (4 mechanical defects that had passed every gate) — fixed and re-rendered before Dan saw it; lessons
+A6.19–25 in `/shortad-from-longform`. ⚠ The one trade-off is audio: his −23.5 LUFS mix lifted +9.9 dB narrows LRA
+5.9 → 4.1 LU — Dan's ear decides. ⚠ Zeeshan's own cut shows the banned email-capture screen at 3:09 — worth a line to
+him. Check off the dashboard row "Cut 9:16 vertical ads…" ONLY when Dan approves; then delete this entry.
 
 **Video quality VQC-A (Phase 0 + 3) — DONE AND PUSHED 2026-09-09. Two things for Dan to know, nothing to do.**
 The seven bypasses are closed (`require_stamp` strict by default; the instructed `--no-stamp` gone; an unmeasured

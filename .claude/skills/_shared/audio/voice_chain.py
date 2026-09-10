@@ -133,6 +133,10 @@ def main():
     ap.add_argument("--frame-lock", help="pad/trim the output to exactly this picture's duration")
     ap.add_argument("--finish-only", action="store_true",
                     help="input is an already-finished STEREO mix (e.g. the reference's own mix): no pull/dereverb/fit/expander, just measured gain + limiter to target")
+    ap.add_argument("--oversample", type=int, default=1,
+                    help="run the limiter at N x 48 kHz (true-peak aware); 4 on a dynamic mix that needs a big lift")
+    ap.add_argument("--mono-sum", action="store_true",
+                    help="finish-only: sum a near-mono stereo mix to centred mono (L/R >= ~0.95 at lag 0 only)")
     ap.add_argument("--work", help="work dir (default beside --out)")
     A = ap.parse_args()
     work = A.work or os.path.join(os.path.dirname(os.path.abspath(A.out)), "_voice_chain"); os.makedirs(work, exist_ok=True)
@@ -146,7 +150,11 @@ def main():
         # the limiter-delay measurement window below needs `ss` on this path too (it was only
         # set on the full-chain path -- NameError on the first real --finish-only run, 2026-09-03)
         ss, dur = C.analysis_window(lav)
-        voice = "aformat=channel_layouts=stereo"; eq = gains = fstep = None; log["voice"] = voice
+        # --mono-sum: his two channels are the SAME lav with a faint stereo difference (Zeeshan's Ad 1: L/R +0.970 at lag 0,
+        # each channel 0.92 against the raw lav) -- summed at lag 0 they cannot comb, and the side component it drops sits
+        # ~18 dB under the voice. It is the house standard (one centred voice) applied to a finished mix. 2026-09-10.
+        voice = ("pan=stereo|c0=0.5*c0+0.5*c1|c1=0.5*c0+0.5*c1" if A.mono_sum else "aformat=channel_layouts=stereo")
+        eq = gains = fstep = None; log["voice"] = voice; log["mono_sum"] = bool(A.mono_sum)
     else:
         lav, x, how = pull(A.src, A.source, A.pull, work); log["pull"] = how
         print(f"voice_chain  {os.path.basename(A.src)}  pull: {how}  {len(x)/C.SR:.2f} s")
@@ -214,6 +222,13 @@ def main():
         I0, TP0, LRA0 = ebur("anull"); print(f"  premix  I {I0:.2f}  TP {TP0:.2f}  LRA {LRA0:.2f}")
         gain = A.target - I0
         lim = f"alimiter=limit={10**(A.tp/20):.4f}:attack=5:release=60:level=false"
+        # --oversample N: run the limiter at N x 48 kHz so it catches the INTERSAMPLE peaks a 48 kHz limiter
+        # cannot see (2026-09-10, Zeeshan's Ad 1 mix: -23.5 LUFS / -1.7 dBTP, so +10 dB of constant gain;
+        # at 48 kHz the limiter held the samples at -1.4 and the true peak still read -0.3 dBTP after AAC;
+        # at 4x it read -1.2 with the same gain, the same ceiling and the same per-second shave).
+        if A.oversample > 1:
+            lim = f"aresample={48000*A.oversample},{lim},aresample=48000"
+        log["oversample"] = A.oversample
         # limiter delay measured on the real programme by cross-correlation (audio2.py lesson)
         pcmargs = ["-ac", "2", "-ar", "48000", "-f", "f32le", "-"]
         refx = np.frombuffer(render(f"volume={gain:.3f}dB", pcmargs).stdout, dtype=np.float32).reshape(-1, 2)[:, 0]

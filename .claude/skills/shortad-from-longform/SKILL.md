@@ -947,6 +947,146 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
     (The un-suffixed `… | claude | 9x16.mp4` name the first delivery used was renamed by that skill on 2026-09-03;
     a second delivery under the old name made a duplicate master — `deliver.py` now writes the convention.)
 
+## [A6] Zeeshan's Ad 1 (2026-09-10) — a 24 fps editor, a quiet dynamic mix, and a compositor
+
+Build dir `/Volumes/Extreme/_edit_work/ad1-zee-vert/` (recipe beside the master in `Zeeshan Ad Videos/this picture got
+me abs - ad 1/recipe-vertical/`). Thirteen lessons, every one measured on this build:
+
+1. **Probe the reference's frame rate; never assume 29.97.** Zeeshan cut the 29.97 roll on a **24 fps** timeline, so
+   the vertical is 24 fps and frame n is his frame n (5,980 frames). `caption_sync_check.py` had `FPS = 30000/1001`
+   compiled in and pulls frames BY INDEX -- on a 24 fps master it would have sampled the caption band 25 % late by the
+   end. It now probes the delivered file (corpus re-run: PASS).
+2. **Picture EDL, frame-exact, from two instruments reconciled.** Per-frame matching of his frames against the raw
+   (256x144 gray caches, his fitted framing via `warpAffine`, NCC over head+torso) finds his talking-head frames
+   exactly (3,571 at r >= 0.90) but its raw index JITTERS +-0.2 s in low-motion stretches (the mouth is a few pixels).
+   So every segment's **offset comes from the dense acoustic profile** (r 0.99, +-1 ms) and only the **cut frame from the
+   picture crossover** at each audio join (`zedl.py`). Result: 23 picture segments, every picture cut within +-4 frames
+   of its audio join (his J/L cuts).
+3. **Talk ranges need bridging AND trimming.** A one-frame flash or a zoom-ramp frame falls under any match threshold,
+   so gaps <= 12 frames inside talk are bridged -- which then lets a range run one frame past his hard cut into an
+   insert, so every segment is trimmed at his talk->insert cut frames (`zedl3.py`). ⚠ **A flash frame belongs to the
+   shot whose picture it is**: extending the incoming segment back onto a flash that was the OUTGOING shot's last frame
+   overlapped two segments and made the conform 5,981 frames.
+4. **When his talking head is the raw at framing 1.0, fit his grade as a 3D LUT from pixel correspondences** (`zlut.py`:
+   33^3 bins, median of his RGB per raw-RGB bin, overlays rejected by the median). Per-channel curves could not fit him:
+   the centre-box fit left the fridge 21 levels too red, the wide fit put skin 9 off. The LUT: skin / tank / door within
+   2-4 levels; a residual ~5 % less red on his fridge highlights is spatial and was accepted. Measure his vignette first:
+   his was flat (0.96-1.03), which is what made a whole-frame fit legitimate.
+5. **Tag every intermediate BT.709 and give fillers the same tags.** A graded conform with no colour tags, stream-copy
+   concatenated with untagged black fillers, is two different H.264 parameter sets in one file. Set the matrices
+   explicitly (`scale=in_color_matrix=bt709` / `out_color_matrix=bt709`) and tag every segment identically.
+6. **A quiet, dynamic reference mix needs a true-peak limiter.** His master: -23.5 LUFS, -1.7 dBTP, LRA 5.9 -- +9.9 dB
+   of constant gain. The 48 kHz limiter held the samples at -1.4 and the true peak still read -0.3 dBTP; **new opt-in
+   `voice_chain.py --oversample 4`** runs the limiter at 192 kHz. And the AAC encode matters: 192k/256k overshot to
+   -0.8/-0.7, **320k landed -1.2 dBTP** -- the masters are muxed at 320k (`zmux.py`). The window is narrow: loudness
+   >= -14.8 (qc 4) against a deepest shave <= 4.5 dB (gain_flatness); `--target -14.4` landed -14.7 with a 4.29 dB shave
+   (cutdown: +9.7 dB, 2.70 dB). **LRA measured on the delivered files: 5.9 -> 4.1 LU (the cutdown's windows 4.9 -> 3.7)**
+   -- a 1.8 LU loss, past the ~0.8 LU rule of thumb in Step 4. That is a FINDING, reported to Dan with the A/B, not
+   excused: there is no smaller lift inside the gate, and the result still reads more dynamic than the pinned approved
+   reference (LRA 3.5; speech spread 8.0 dB vs 8.2). If Dan hears it as squashed, the fix is his call on the -14 target
+   for quiet masters, never a looser gate.
+7. **Translate his card language by its logic, not its look.** In 16:9 he cards the media that does not fill his frame
+   (portrait photos). In 9:16 the landscape clips are the ones that do not, so they go in HIS black-bordered card on
+   HIS field (1280x720 -> 1000 wide: a sharp DOWNSCALE, never the 2.7x crop), while portrait and high-res media fill the
+   frame. The mirror of his rule reads as his style and costs no resolution.
+8. **Lift from his render what our library does not have -- and inspect the crop edge at full resolution.** His
+   phone-on-marble, hand-holding-phone and anatomy clips are not in the asset library; lifted from his 4K render with the
+   window clear of his burned label and CTA bar. The first hand-phone crop still carried the TOPS of his "AI" glyphs in
+   its bottom-right corner, invisible on a contact sheet. His SECOND phone beat is the first beat's 111 frames played
+   1:1 then held (r = 1.000 frame for frame) with his CTA bar burned in -- reuse the first instance, never the second.
+9. **A Python frame compositor instead of an ffmpeg filter graph** (`zrender.py`). Per-frame crop straight from
+   `crop.json`, overlays composited on their measured frames, captions from the SAME caption states the sync gate reads,
+   his flashes as a screen blend on their exact frames, frame count asserted. Every trap in [A2]-[A5] that came from
+   expressing per-frame state as filter expressions (crop-expression order, overlays gated not shifted, index-keyed plate
+   caches, truncated plates) cannot occur. ~13 fps at 1080x1920; a `--stills` mode renders chosen frames for review first.
+10. **The hair standard on a roll with no headroom.** This 8/14 roll puts his hair 19-45 px below its OWN top edge, so
+    `y0 = hold min hair top - 4 % of the crop height` clamps to the source top in most holds and the phone shows 44-77 px
+    of headroom. The delivered-frame gate (`zhairgate.py`, the website gate's two tests rebuilt for this geometry and
+    scaled x1920/1080) declares holds at y0 = 0 as source-limited -- auditable -- while the hair floor still gates every
+    frame. Measure the hair top RELATIVE to what is above it: a fixed luma threshold climbed to y = 0 on the dim wall.
+11. **Cutdown edges only ever move AWAY from the words.** Snapping a start forward onto the pool card cut "You're"; now
+    the picture keeps the card and the AUDIO LEADS it by 5 frames (a J-cut, taken from the previous range's silent tail,
+    so the total stays exact). Ends snap to his PICTURE cuts as well as beat edges (one frame past a picture cut leaks a
+    one-frame shot). A seam with talk on both sides flips FAR<->NEAR **only when both sides would otherwise be the same
+    level** (lesson 21). His mix had no bed (30-120 Hz +4.9 dB in the gaps; a bed reads ~+12), so the cutdown cuts HIS
+    mix at the same windows with 4 ms raised-cosine joins.
+12. **Process traps, again.** `pkill -f "python3 zbase.py"` did not match the framework Python, two conforms raced and
+    wrote a 5,981-frame base -- kill by PID. Never name a module after the stdlib: a local `zlib.py` broke PIL's import of
+    `zlib` in every script in the directory. A code statement pasted after a `#` comment silently dropped the AI label.
+13. **His email-capture screen (188.75-190.33) became the app's AFTER IMAGE ALONE in his black-bordered card, under his
+    "Final Result AI" label -- with an AI label on the result image**, which his had not: the standing rule is ours. The
+    first build cropped the screen above the form and it still read as that screen (lesson 19c).
+14. ⚠ **A caption's held last word must stop at the next muted graphic and at every cutdown seam.** The "hold the last
+    word up to 0.8 s" rule (lesson A5.21) had no other stop, so on this master **10 caption lines ran 0.23-0.91 s into
+    graphics that mute them** -- "the game." sat on the app screen, "can generate" on the title card, "In" under the
+    checklist header -- and in the cutdown the last line of each range rode across the seam. Only the consecutive-frame
+    strips showed it; `caption_sync_check.py` samples each word at its own time and cannot. `captions.py` now clips every
+    hold at the next mute start and the next `beats.SEAMS`.
+15. **A cutdown must drop a text overlay whose START lies in dropped material.** His 1:35 lower third outlives its
+    sentence by 1.2 s, so the range that began there printed "If You Saw Yourself With Abs, You'd Be MOTIVATED" over
+    "And right now you can generate…". Only overlays that start inside a range survive (the persistent CTA bar is the
+    exception).
+16. ⚠ **An editor's mix that sits ON the L/R line fails the shared gate after AAC -- sum it to centre, never relax the
+    row.** His mix read L/R +0.970 against the gate's +0.97 and the AAC encode took ours to +0.968. It was not the
+    two-mic fault (both channels carry the lav at the same instant, 0.92 each, lag 0.04 ms, equal level) -- a faint
+    stereo difference. **New opt-in `voice_chain.py --mono-sum`** (finish-only) sums to centred mono before the constant
+    gain: L/R +1.000, provenance 0.9989, and the dropped side sits ~18 dB under the voice. Corpus re-run: PASS.
+17. ⚠ **A green highlight over green-toned footage is unreadable to the eye AND to the sync gate -- fix the picture,
+    not the gate.** The cutdown failed check 20 at 96.0 % (97 needed) and three of its four misses were words burned
+    correctly but invisible to the detector: over his phone-on-marble clip the goal photo's pool deck and neon shorts put
+    6,400-7,500 green pixels in the caption band, 3,600-4,300 of them within 40 levels of the lime highlight. The
+    tempting fix -- teach the gate the build's exact highlight colour -- was **measured and ruled out before any edit**:
+    no tolerance separates the word from that background. The real fix is a legibility one: a soft dark gradient behind
+    the caption band on those beats (`scrim=True`, 0 -> 0.65 over y 1200-1370), which puts the background under both the
+    eye's and the detector's threshold while the lit word stays full colour. The fourth miss was genuine 24 fps
+    quantisation (a 40 ms "it" spans less than one frame) and stays inside the 97 % allowance.
+18. **Run `qc.py` from INSIDE the build directory, and make generated build modules resolve files next to themselves.**
+    Run from the parent, the cutdown's generated `beats.py` opened `cut_timeline.json` against the caller's cwd and
+    failed to import (3b, 9, 12 NOT MEASURED) -- and `centering.py`'s `sys.path.insert(0, '.')` then imported the
+    MASTER's beat sheet, so check 17 "passed" the cutdown against the master's timeline. A green row that measured the
+    wrong file is worse than a red one; `zcut_build.py` now writes paths relative to `__file__`.
+19. ⚠ **An independent audit found four defects that had passed `qc.py` 20/20, the watch pass and every gate -- the
+    first delivery was withdrawn before Dan saw it.** Each was mechanical; each is now a rule:
+    (a) **an overlay cache settles on its LAST element.** `overlay_img()` froze the problem lower third 0.45 s in; its
+    subtitle draws on at 1.83 s, so "No Time, No Motivation." showed for 3 frames of 4.96 s. No watch boundary fell
+    inside the lower third, so **every overlay's sub-element in-times (subtitles, checklist items, an end card's second
+    line) are watch boundaries now** (`a6/watch_zee_ad1.py`). ⚠ Gap: the cutdown's generated `beats.py` carries only frame
+    numbers (`m0/m1`), not the master's spec fields, so its end card's second line is not a boundary there -- this build
+    confirmed it from the frozen-run split instead (53.92 s = 51.875 + 49/24). Carry the spec into `cut_timeline.json`
+    next time; (b) **label by the asset index, not by eye** -- the crude-photoshop gag is filed
+    under "04 AI-GENERATED CLIPS" and ran 7 s full-frame unlabelled; (c) **a banned screen is banned by its look, not
+    just its form** -- cropping the email screen above the form left its heading and confetti, still recognisably that
+    screen; take the photo's own pixels (`after_still.png`) or record the current product; (d) **measure every text
+    cue on his frames, the end card's second line included** (his 5942; ours cued 5973 and showed it for 7 frames).
+20. **"Alternating across visible joins" means visible IN HIS CUT.** Zeeshan pose-matched five splices: his render's
+    frame-to-frame change at the join was 1.1-2.3x the change around it, against >= 4.3x at every real cut. A zoom at
+    those turned his seamless splices into visible ones -- the very technique that separates the human editors from us
+    (memory `muhammad-trial-edit-analysis`). `zcrop.py` reads his 256x144 cache, calls a join visible above 3x, and
+    carries the level (and the hair-anchored y0, from the group's minimum hair) across the rest.
+21. **Choose the level a talk run opens on by drift, and flip a cutdown seam only when the levels match.** The crop
+    deliberately does not chase a lean; magnified at NEAR, one lean (99.9-100.6 s) walked the cutdown to -132 px for
+    1.0 s. `zcrop.py` tries both parities per run and keeps the one with the shortest sustained > 60 px stretch (FAR on
+    a tie; his punch-ins forced NEAR); `zcut_build.py` flips an incoming hold only when the seam would otherwise join two
+    holds of the same level -- here the new parity made that seam a zoom cut on its own.
+22. **A beat that prints no words keeps its captions -- the hook above all.** The split (Dan above, the door photo
+    below) was muted, so a muted viewer read "...it's not even real." then "I was 200 pounds." with no "I generated this
+    picture with AI". The door card now sits between Dan and the caption band -- and at 0.87x instead of a soft 1.45x
+    blow-up.
+23. **Settle a disputed caption word acoustically, not by majority or grammar.** Whisper small heard "a specific
+    equipment", Whisper medium "the". The CTC negative log-likelihood of each full transcript under the aligner's own
+    wav2vec2 (19.1 for "a" vs 34.7 for "the"; greedy decode "A") showed the caption was right.
+24. ⚠ **A cache keyed on a sequence number serves stale pictures the moment the sequence changes.** `captions.py` drew
+    a state image only when `c{n:05d}.png` did not exist; unmuting one beat regrouped every caption after it, and the
+    re-run silently reused the previous run's images -- "I was 200 pounds." burned over "I generated this picture"
+    while `list.txt` timed it perfectly. Test stills caught it before a render. State files are now named by their
+    CONTENT (`md5(line text | lit word | CAP_Y)`), in the build and in `reference/captions.py`.
+25. ⚠ **`qc.py` check 17 measured a PREVIOUS render.** It reused `centering/m` whenever the folder existed, so the
+    first master's "2/28 beyond 70px" came from a 14 s test render (28 samples at 2 fps; the 249 s master has ~290),
+    and the re-rendered cutdown repeated its first render's numbers to the pixel. The independent audit's own 589-frame
+    measurement is what actually cleared that master. Check 17 now reuses the cache only when `centering/source.key`
+    (path | size | mtime) matches the file it is grading. **Any gate that caches per-file work must key the cache on
+    the file** -- same class of bug as lesson 24.
+
 ## Standing content rules that override the reference
 
 The reference editor does not know Dan's ad rules. Check every beat you are reproducing:

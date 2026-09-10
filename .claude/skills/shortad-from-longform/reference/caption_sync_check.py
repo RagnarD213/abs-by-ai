@@ -15,7 +15,12 @@ import json, os, subprocess, sys, wave
 import numpy as np
 FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 V = sys.argv[1] if len(sys.argv) > 1 else 'ad2v2h_vertical_9x16.mp4'
-FPS = 30000/1001; VW = 1080
+VW = 1080
+# The frame rate is the DELIVERED file's, probed, never assumed: every sample below is pulled by frame index, and
+# a 24 fps master read at 29.97 samples the caption band 25 % too late by the end (Zeeshan's Ad 1, 2026-09-10).
+_fr = subprocess.run([FF.replace('ffmpeg', 'ffprobe'), '-v', 'error', '-select_streams', 'v', '-show_entries',
+                      'stream=r_frame_rate', '-of', 'csv=p=0', V], capture_output=True, text=True).stdout.strip().split('\n')[0]
+_n, _d = (_fr.split('/') + ['1'])[:2]; FPS = int(_n) / int(_d)
 sys.path.insert(0, '.'); import captions as C
 words = C.load_words(); mute = C.suppressed(); gs = C.groups(words, mute)
 F = C.F
