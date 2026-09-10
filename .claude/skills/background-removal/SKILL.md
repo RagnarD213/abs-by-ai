@@ -93,6 +93,40 @@ three-frame stress test before trusting it on a new setting.
    alpha (real anti-aliasing + hair). Near-zero means a jagged binary mask;
    several percent means the model was unsure — eyeball that frame's sheet.
 
+## Putting a cutout on a new background (validated 2026-09-10, studio-blue-89)
+
+**Solid colour** — the ORIGINAL pixels over the colour through the cutout's alpha, no AI. Two
+things stop it reading as a sticker:
+- **A soft radial gradient, not a flat fill** (black ≈ #262628 behind him → #030304 at the
+  edges). On flat black his black hair and black satin shorts vanish.
+- **A blue despill in a ~12 px band inside the edge only** — `B = min(B, (R+G)/2)`, weighted by
+  the eroded-alpha band blurred 3 px. The blue backdrop leaves spill on the outline (mean 5.6,
+  p95 25 levels on blue-89) that shows on black and red; the interior is untouched, so the satin
+  keeps its sheen.
+- Crop the 4:5 at the existing `-IG-4x5.jpg`'s y-offset — find it by row-matching (blue-89: 296).
+
+**An AI scene ("put me in a Muay Thai gym")** — never ship the model's render. Even with the
+/photo-edit face and body locks, Nano Banana Pro re-draws him: harsher brow, warmer, oilier skin.
+Use the render for the ROOM only:
+1. Render from the 4:5 crop at 2048 with `_shared/gemini-image.js generate --tier final
+   --aspect 4:5`: "THE ONE CHANGE: replace the backdrop with …", 85 mm f/2 shallow depth, the
+   locks, "same position and size in the frame". Two takes per scene at $0.24. Prompts that
+   worked: `photos/finalized social media photos/_variations/studio-blue-89/_recipe/`.
+2. The 4K 4:5 output is **3712×4608 — not exactly 4:5.** Resize to the original's width, register,
+   then crop an exact 4:5 inside the overlap (3344×4180).
+3. ⚠ **Register on BLURRED edge maps, coarse to fine** (1/4 → 1/2 → 1/1 scale, blur 1 / 1.5 /
+   2.5), NCC inside the dilated subject mask over face, embroidery and outline windows. A
+   full-res edge NCC locks onto skin-texture noise and returns a nonsense shift pinned to the edge
+   of the search window (r ≈ 0.05). The multiscale search agreed on all four renders at r 0.68–0.82:
+   a pure translation of (−2, +11…12) px, no scale. Confirm on a 50/50 blend crop (single edges).
+4. **Build a clean plate.** The AI's figure extends past his real outline by up to ~18 px
+   (0.13–0.21 % of frame) and would show as a rim of AI skin. Cut the render out too
+   (`removebg.py --contract 0`), Telea-inpaint the union of both figures at quarter res (the room
+   is out of focus, so it holds), and feather the fill in.
+5. Composite the original pixels (with the despill) over the plate, then apply a **35 % scene
+   grade** — a per-channel quantile LUT from his original skin to the render's skin inside an
+   eroded mask — so he sits in the room's light without the render's tan.
+
 ## Definition of done
 
 - Cutouts in the delivery folder, full source resolution, RGBA, readable.

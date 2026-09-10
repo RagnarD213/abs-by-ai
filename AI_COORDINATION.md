@@ -38,6 +38,11 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**studio-blue-89 social variations — DELIVERED 2026-09-10, Dan picks.** Black / white / crimson backgrounds (full +
+4:5, original pixels through the existing cutout) and two Muay Thai gym versions (Thai camp, modern gym — AI room, his
+original pixels pasted back, 4:5 only) in `photos/finalized social media photos/_variations/studio-blue-89/`; two
+alternates in `_alternates/`. $0.97 spent. Recipe in `/background-removal`. No dashboard row. Delete once he has picked.
+
 **Thumbnails for the 5 finished ads — DAN PICKED 2026-09-10; finish + install is a HANDOFF, not started.** Ad 2 = jeans
 photo on the black+red ground (variant C, both aspects, files exist). Ad 1 = the arm-behind-head Muay Thai cutout on a
 "cleaner, more trustable" background — to be built (two options, he picks). Everything is in
