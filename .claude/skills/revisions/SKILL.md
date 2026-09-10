@@ -51,6 +51,19 @@ Two audiences, same skill:
   it. If we already have a matching asset, link that exact asset instead.
 - Why-explanations appear only when the rule is new ("Why this is important: …").
 - New standing rules get flagged: "For all future videos, …" / "Hard rule for future videos: …".
+- **STANDING RULE blocks (Dan, 2026-09-10).** Muhammad edits with an AI tool, so a rule stated the same way every
+  time gets learned and stops needing repeating. Every item that violates a standing rule gets, as its LAST
+  sub-bullet, a bold line beginning `STANDING RULE:` — one or two sentences, the rule plus the why — and the
+  same line is repeated under every item in every ad where it applies (Dan pasted the before/after rule into
+  four ads and the goal-image rule into five). Use the canonical wordings in "Standing rules to check" below
+  verbatim; do not paraphrase them per ad.
+- **Bold the key change in every item.** The item is one diagnostic sentence, then the action in bold (the
+  replacement, the removal, the exact text), then the timing. Dan bolded "**Replace it with the bad Photoshop with
+  my face on the bodybuilder's body**" and cut a five-sentence 0:00 item down to "Take the logo out." plus the rule
+  plus "Remove all graphics from this duration, just make this plain camera scene". A reader skimming the bold
+  should be able to do the edit.
+- **A finished ad gets one bold line under its H2: `APPROVED - FINALIZED - READY FOR HIGH QUALITY EXPORT`**,
+  then the credit paragraph, and nothing else — no THROUGHOUT, no items (Ad 5 round 3, 2026-09-10).
 
 ## Calibration from Dan's edits — the doc must need ZERO changes (2026-09-03)
 
@@ -180,6 +193,48 @@ fill, not the occasional judgement call. The diff of what he cut (method: lesson
     kneeling rollout under the line about the standing variation was cut as an item; "none of it is new
     work" has to be true. **American spelling always** (COLOUR → COLOR was his only edit to Waleed's doc).
 
+### Calibration pass 3 — Dan's edits to the 2026-09-09 batch (Ad 3 r4, Ad 5 r3, Ad 6 r2, Ad 7 r2, Ads 9/10/13/14 r1)
+
+Dan's verdict: "pretty good", with one big correction — **too picky on audio in rounds 2 and 3** — plus the two
+format rules above (STANDING RULE blocks, bold the key change). The diff (method: lesson 34) makes it precise:
+
+22. **Late-round audio: once it sounds right, stop asking.** He deleted the whole audio block on Ad 5 r3 (−14.0 LUFS,
+    true peak −0.2), Ad 6 r2 (−13.7, −0.8, tone and NR off) and Ad 7 r2 (−13.6, −0.7, NR off), and kept it on Ad 3 r4
+    (−15.3 LUFS, 0.0 dBTP with 35 clipped samples) and on every round-1 cut. The line: on a round ≥ 2, audio is an
+    item ONLY if the level is outside −14 ±1, or the true peak is at/over 0 with clipped samples, or the mic/room is
+    wrong. Tone, the artifacts row and a ceiling at −0.7/−0.8 dBTP are round-1 notes, never a reason for another
+    round. If audio was the only thing left, the section is the APPROVED line (Ad 5).
+23. **Do not itemise the end hold.** Every "hold the last frame ~2 s" item was deleted (Ads 5, 6, 7, 9, 10, 14 — holds of
+    0.2 to 1.2 s). The only end item that survived is Ad 13's, where the button LEFT while he was still saying "get
+    started". Rule: an end item exists only if the button or the picture cuts off before the last word ends.
+24. **Fills are still being cut.** Ad 9's one benefit chip (2:08) went, and so did the phone-lock-screen asset swap at
+    1:52 (the goal image on the card is fine on that line) and Ad 13's "$1,000+/Month" chip replacing his two verbatim
+    hook chips (his skip-stopper chips are his). Round-1 fills: none unless a 15 s+ stretch has nothing and the chip
+    is a benefit. Never replace an editor's own hook chips with ours.
+25. **App / phone demos are a one-line fix plus the rule, and the fix is a link.** Dan replaced both Ad 10 demo items
+    (a paragraph each about the upload being a stranger) with the same block: "The real app recording is the right
+    thing here, keep it. But it ends on the Generating screen and never pays off. … end on that recording's own
+    after picture alone … Small AI-GENERATED tag on it" + the recording link + STANDING RULE. Write that block, link
+    the recording, and let the link carry the "whose photo" fix. **But the identity check is still ours to do:** he
+    ADDED an item we missed on Ad 14 — "2:00 - 2:07 Use this photo for before picture in clip. The script says 'my
+    body, my photo' but the before picture isn't me." Check the before picture inside every phone/app clip against the
+    real before picture at full res (lesson 10 in reverse) and, when it is not Dan, one line + the before-picture link.
+26. **After-photo beats: two real photos, Dan picks which.** He struck the item asking for the script's specific
+    "trees, hands on hips" still (any real after photo satisfies the cue), kept "Show TWO pictures here" but removed
+    our picks and links, leaving empty image slots he fills himself, and wrote "use these ones, different from
+    before" on the second beat. Rule: itemise count (two) and label (none), write "images below" with two empty
+    sub-bullets, do not choose the stills, and never repeat the pair used in an earlier beat of the same ad. The
+    "used my family as an excuse" line takes the two fat-dad-with-daughter photos, not the before picture.
+27. **Adjacency inside or beside an approved AI asset is not an item.** Ad 7 0:26: the phone clip (heavier me holding
+    the ripped picture) running into real ripped me on the mat was cut — after→after is fine, and the heavier/ripped
+    pair inside that clip is the approved asset itself.
+28. **A bullet panel mid-build is not a composition defect.** Ad 10 2:07 ("first bullet at the top with dead space
+    until the second comes in") was cut; rule 4 applies to a finished, static panel only.
+29. **Logo item = "take the logo out" + STANDING RULE + "camera scene".** Do not design the replacement title chip
+    (Ad 14 0:00: our two-line title and "drop the lower third" were cut; he wants plain camera scene there).
+30. **Missed defect to add to the pass:** the before picture inside the Ad 14 phone clip at 2:00 was not Dan (rule 25).
+    Nothing else was added, so the picture pass is otherwise calibrated.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -248,6 +303,12 @@ exact timing or an exact link.
    restating the line, none a list of negatives or a question; no bullet build or device copied from another
    ad in the batch; no app screen used as a gap fill; no item cross-references another and no item count in
    the prose; the hero asset matches the script's literal claim; American spelling throughout.
+   Then the pass-3 checks (rules 22–30): on a round ≥ 2, audio is an item only for level outside −14 ±1, peaks at 0
+   with clipping, or the wrong mic/room — otherwise the audio block is deleted, and an ad with nothing else left gets
+   the APPROVED line instead of a section; no end-hold item unless the button leaves before the last word; every
+   rule violation carries its bold STANDING RULE sub-bullet in the canonical wording; the key change in every item is
+   bolded; app/phone demo items are the one-line block + recording link; every phone/app before picture was
+   identity-checked against Dan; after-photo beats say "two, images below" with empty slots and no picks.
 8. **Write the Google Doc** via the Google Drive MCP `create_file` with
    `contentMimeType: text/markdown` — it converts cleanly to a Doc, including links.
    Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the
@@ -280,7 +341,17 @@ exact timing or an exact link.
 - **Presentation**: no raw black pillarboxing of 9:16 assets (brand card or blurred
   fill); alternating ~50%/~70% punch-ins on talking heads; no dead air > 0.3s; every
   insert and overlay leaves when its line ends (rule 2); text centred in its panel
-  (rule 4); the video holds ~2 s on the button after the last word.
+  (rule 4, finished panels only); the end is an item ONLY if the button or picture cuts off before the last
+  word ends (rule 23) — never for a short hold.
+- **Canonical STANDING RULE wordings (Dan's own, 2026-09-10 — paste verbatim, bold, as the last sub-bullet of
+  every item that violates one, in every ad it applies to):**
+  - `STANDING RULE: do not show before and after images on screen at the same time, or immediately before and after each other. Always break them up with camera scene footage or something else to avoid having the ad suspended for violating Google Ads policies.`
+  - `STANDING RULE: Always show the AI generated goal image in clips where I am talking about generation functionality. Always label goal image at the end AI generated`
+  - `STANDING RULE: Do not put AI generated label on real photos, only AI generated photos. All pictures from pool photo shoot used as after photos are real photos. Pool picture of me that is used as AI generated example is the only pool photo that is AI generated, the rest are real.`
+  - `STANDING RULE: Make all AI generated clips of someone who is supposed to look like the successful prospect someone who looks like this. White or Asian man with abs, 30-50. Not fat, not bodybuilder muscular.`
+  - `STANDING RULE: Use a guy who looks like this to illustrate "before" unsuccessful prospect. White or Asian male 30-50 in American average shape, with small belly`
+  - `STANDING RULE: Do not use logos of other companies in our ads. Names of other companies are OK`
+  - Audio (write it the same way each time, round 1 or when the level/peaks are wrong): `STANDING RULE: Every finished mix reads -14 LUFS integrated with a limiter on the finished mix at -1 dBTP true peak, nothing at 0, one mic, no heavy noise reduction on a dry recording.`
 - **Voice input caveat**: Dan dictates; if a quoted correction seems odd, check the
   transcript audio before flagging his script wording as a "typo".
 
@@ -494,7 +565,7 @@ exact timing or an exact link.
     `/Volumes/Extreme/_edit_work/revisions-<date>/dl/`, then ONE prep script per cut (`prep.sh`: ffprobe, `pick_lav
     --analyse`, `audio_gate --no-stamp --ab`, per-second peak scan, silencedetect, scene count, mean luma, 2 fps frames →
     labelled 10×6 contact sheets, Whisper small) run through `xargs -P 2` (the two-build cap), and one reviewer subagent per
-    cut launched the moment its prep finishes, all reading a shared `BRIEF.md` that points at the skill and the work dir.
+    cut launched the moment its prep finishes, all reading a shared `BRIEF.md` that points at the skill and the work dir (start from `reference/BRIEF_template.md`, which carries the pass-3 rules).
     Each subagent writes `out/<name>.md` (the section, in the `md_to_docs_clipboard.py` dialect) and `out/<name>.summary.md`
     (scorecard + paste-ready Upwork message). Muhammad's six sections were concatenated and pasted in ONE cmd+v at the end
     of his doc; read-back showed the old text byte-intact and all six headings. Traps: the editors' earlier review copies
