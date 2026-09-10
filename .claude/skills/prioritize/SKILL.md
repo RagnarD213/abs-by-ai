@@ -11,6 +11,16 @@ description: Brainstorm and rank what Dan should work on next — "what should I
 
 The only writes allowed in this session: updating this skill, memory, or the coordination/task boards if Dan asks — plus the dashboard intake rule below, which is a standing ask.
 
+## Evening mode — planning TOMORROW (Dan's instruction, 2026-09-10)
+
+Dan now runs this at the **end of the day** to plan the next day, and the 6 AM morning brief sends him back to this chat to fire the sessions. When the ask is "plan tomorrow" (or it's evening), plan for tomorrow's date and, before finishing:
+
+1. `mcp__ccd_session_mgmt__get_session("self")` → the `local_…` sessionId; rename the chat **"Plan for <Day MM-DD>"** (`set_session_title`).
+2. Write `~/.claude/scheduled-tasks/abs-by-ai-morning-brief/next-day-plan.json`: `{ forDate, writtenAt, sessionId, sessionTitle, link, oneThing, fire: [{name, model}], dan: [..] }` with `link` = `claude://code/continue?session=<sessionId>`. Verified against the Claude app's URL handler 2026-09-10: the id must match `^local_[A-Za-z0-9-]{1,64}$` and is looked up among **non-archived** sessions — never archive a planning chat before its day ends. The brief renders it as element 1b and uses `oneThing` as its one thing; `fire`/`dan` only feed counts (the brief is committed to a public repo — the prompts stay in the chat).
+3. `POST /api/plan` with `date` = tomorrow and `order` = the day's task ids (`money::<exact text>`), after the dashboard intake below so the ids exist.
+
+Output shape in evening mode: a **timeline for the day** — tonight's 5-minute items, the morning's Dan decisions that unblock sessions, the sessions to fire first thing (Claude-intensive work goes in the morning — Dan's standing preference; respect the two-video-build cap), Dan's offline/physical work in the afternoon — plus one starter prompt per session. When Dan comes back in the morning and says "fire", he copies the prompts into new sessions; this chat still executes nothing.
+
 ## Dashboard intake (Dan's instruction, 2026-08-19)
 
 **Any task Dan mentions in a /prioritize conversation that is not already on the dashboard gets ADDED to the dashboard by Claude in that session, with the priority Claude judges best.** This is now the PRIMARY way tasks enter the dashboard — Dan prefers surfacing tasks in these morning conversations over typing them into the board himself. Mechanics:
