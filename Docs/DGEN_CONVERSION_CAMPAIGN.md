@@ -85,8 +85,10 @@ your Google Cloud Console". Done on 2026-09-10 in Cloud project **`abs-by-ai`** 
 1. `console.cloud.google.com/apis/library/googleads.googleapis.com?project=abs-by-ai` → **Enable** (done).
 2. API page → **Access levels → Manage** (`console.cloud.google.com/google/ads-apis/overview?project=abs-by-ai`):
    level was **Test** (15,000 ops/day, test accounts only). **Applied for Explorer** ("allows calls to production
-   accounts") — one click, no form; the page then read *"Your application for explorer level access is currently
-   under review. Please check back in a few minutes."*
+   accounts") — one click, no form; **granted within ~2 minutes (2026-09-10 16:20 CT)**: *"Current access level:
+   Explorer — 15,000 daily API operations (test accounts), 2,880 daily API operations (production accounts),
+   access to most features including campaign management and reporting."* "Basic" is the next level if 2,880
+   ops/day ever binds.
 3. When Explorer shows, the existing OAuth client + a refresh token with the `adwords` scope (the stored
    `GOOGLE_REFRESH_TOKEN` is `calendar.readonly` only — mint a new one) can call the REST API on 342-717-0837
    through the MCC. Ads Scripts stay as the fallback channel.
