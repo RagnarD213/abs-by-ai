@@ -184,6 +184,26 @@ now holds only banner drafts. The same white wordmark with alpha is at
 **`Media/video_edit/work/logo_white.png`** (360×111, identical to `public/img/logo.png`).
 It is already white, so the recolour step in the old scripts is now a no-op.
 
+
+### Ad thumbnails, two styles per video (added 2026-09-10)
+
+Built for the five finished ads (`Docs/AD_VIDEO_IDS.md`): per video, **A = studio cutout on a Brandon
+Carter ground, B = pool-shoot photo widened by gen-fill in the house style**, same copy on both (Dan edits
+copy). Working build + delivery notes: `social media graphics/youtube/thumbnails/_finished-ads-build-2026-09-10/`
+(`DELIVERY.md` has the picks, cost and traps). The BC device library (Anton grunge/stroke type, red wash,
+embers, rim glow, zigzag/curved arrows, brush, red ring) lives in
+`…/The 17 Dollar Ab Wheel Beats Every Crunch/_build-2026-09-01/build.py|build2.py` — import it, don't rewrite it.
+- ⚠ **The composition lock can still fail: check `comp.py`'s IoU.** One of six fills slid Dan 0.11 W to the
+  right while keeping his size; the registration hit its ±40 px search limit at IoU 0.29 and a widened search
+  still left the generated head peeking out above the real one. **IoU < 0.9 or a search-limit hit = regenerate
+  ($0.134), never widen the search and ship.** Frames where he touches the strip edge are the ones at risk.
+- ⚠ **`personmask` is `personmask OUTDIR IN...`** — the `mask IN` form in the 3-min `comp.py` exits 0 and writes
+  nothing.
+- **Fit type to the mask with a 45 px margin, assert 25 px on the finished file** — the mask re-measured after
+  scrim + text reads 5–15 px tighter than on the bare photo.
+- A prop can be the ad's own subject: Ad 1's phone shows the AI goal picture (labelled). Dan's REAL photo is
+  still never repainted.
+
 ## Shorts
 
 **Use `/shorts` — it supersedes this section.** Every short's audio goes through

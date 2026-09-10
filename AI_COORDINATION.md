@@ -38,6 +38,13 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Thumbnails for the 5 finished ads — DELIVERED 2026-09-10, Dan picks and edits copy.** Two per video, all 10 in
+`social media graphics/youtube/thumbnails/Ad 1 This Picture Got Me Abs/` and `…/Ad 2 Stop Wasting Money On Nutritionists/`
+(`_A-studio` = studio cutout, Brandon Carter style; `_B-pool` = pool shoot widened by gen-fill, house style; copy
+THIS PICTURE / GOT ME ABS and STOP WASTING / MONEY ON / NUTRITIONISTS). Review sheet sent in chat; recipe + traps in
+`…/_finished-ads-build-2026-09-10/DELIVERY.md`; $0.80 of Gemini spend. Install = `scripts/youtube/upload.js`'s thumbnail
+path is upload-time only, so set these in Studio on the existing ids. No dashboard row. Delete once he has picked.
+
 **Web pay-first cart — LIVE 2026-09-10, Dan runs the live card test.** The web checkout is now analysis page →
 cart (`#cartSection`: Monthly $19.99 pre-selected, Annual $69.99 "save 71%", trial timeline, disclosure above the
 button, video slot) → Stripe collects the email with the card → account created after payment (one-time claim login +
