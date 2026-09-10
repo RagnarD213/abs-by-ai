@@ -2,6 +2,11 @@
 
 **Written 2026-09-10. NOT EXECUTED. Fire only after Dan has recorded the script.**
 
+> **Update 2026-09-10 (later):** Dan had no footage, so step 5 was done ahead of time — `/start` already has its own
+> slot, `window.ABS_START_VIDEO` in `public/site-video.js` (commit `ef9b185`), currently carrying Muhammad's Ad 1 16:9
+> (`lf46ytHacss`) as the interim video. When the VSL is cut and uploaded: replace `youtubeId`, `title` and `lengthLabel`
+> in that one object; nothing in `start.html` needs touching. Steps 1–4 and 6–8 still apply.
+
 ## What this is
 
 Dan asked for a video sales letter for `absbyai.com/start` whose single job is getting a cold visitor to upload a

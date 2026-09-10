@@ -403,16 +403,12 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**/start VSL edit (handoff 20260910-start-vsl-edit-and-install) — BLOCKED ON THE FOOTAGE 2026-09-10.** Dan fired the
-handoff with the starter prompt's `<folder>` placeholder unfilled, and no recording exists anywhere reachable: nothing newer
-than the 8/28 shoot on the Extreme drive, nothing in Downloads/Desktop/Movies/Photos, nothing on Drive (only editor
-deliveries). The footage-independent part is DONE but UNCOMMITTED, owned by this session: `public/site-video.js` gained
-`window.ABS_START_VIDEO` (empty id → /start falls back to `ABS_SITE_VIDEO`, so nothing changes until an id is pasted) and
-`public/start.html` reads it first, driving the hero caption, variant B's heading/description and the iframe title from
-its `title`/`lengthLabel`. Verified on the local server: fallback identical to live in `?v=a` and `?v=b`; with a stand-in id
-both variants switch and `/?demo=analysis` still plays `CwEGFxpIM-E`. Deliberately not pushed (handoff: one commit with
-the real id; every push wipes locked holds). **Next: Dan names the folder → run /website-video on the rolls; then paste the
-id into `ABS_START_VIDEO` and commit both files together.** Delete this entry when that session starts.
+**/start video — INTERIM AD 1 LIVE 2026-09-10 (`ef9b185`), verified; the VSL itself is still unrecorded.** Dan has no
+VSL footage yet and chose Muhammad's finished 16:9 of Ad 1 "This Picture Got Me Abs" (`lf46ytHacss`, 3:53) for the page
+meanwhile. `/start` now has its OWN slot, `window.ABS_START_VIDEO` in `public/site-video.js` (id, title, lengthLabel);
+the analysis page keeps `CwEGFxpIM-E` (verified live). Caption + variant B heading follow the config. When the VSL is
+cut, the install is one line there. The edit+install handoff stays listed for the recording; the dashboard VSL row stays
+unchecked. Delete this entry once Dan has seen the page.
 
 **Finished ads on YouTube — 7 UPLOADED UNLISTED 2026-09-10, 5 USABLE, Dan uses the links in Google Ads.** Ad 2 ×2 and
 Ad 1 ×3 (Muhammad 16:9, Zeeshan 16:9 4K, Muhammad's vertical — Dan approved that one 09-10) are good. ⚠ The two Zeeshan
