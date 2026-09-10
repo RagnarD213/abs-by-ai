@@ -128,6 +128,22 @@ below) is the worked example. Voice traits:
 - Honest, no-hype framing. He'll say "reasonably accurate", he won't overpromise.
 - Numbers written out for the teleprompter ("two hundred pounds", "thirty-eight").
 
+## Product claims you can make (verified 2026-09-10 for the /start VSL — re-check if the app changes)
+
+- **Free:** a new device gets 3 free generations (`FREE_CREDITS` in `server.js`), and seeing the image needs no
+  account and no card — say "free," "no account, no credit card."
+- **Speed:** "about twenty seconds" — the app's own loader copy.
+- **Privacy, one calm line:** "never sold, never used to train AI — and unless you sign up, we don't keep it"
+  (privacy policy lines 76–89; photos held in memory ≤ 1 hour, `HELD_TTL_MS`). No alarm words (leak, hack, spam).
+- **Lock screen:** tell viewers to *screenshot* the result, not "save it" — on iPhone web the Save button downloads
+  to Files, not Photos.
+- **No invented social proof:** 75 people had ever completed a generation on 2026-09-10. Never "thousands of guys"
+  (the live post-generation website video still says it; a fix was offered as its own task).
+- **The one study that fits, worded to match the paper:** Stanford (Fox & Bailenson 2009) — people who watched a
+  virtual version of themselves run reported about an hour more exercise over the next day than people who watched a
+  stranger. Never claim the picture causes weight loss: the closest test of the idea (Ossolinski 2017) found slightly
+  slower loss. Full research + the VSL script: Google Doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`.
+
 ## The process
 
 1. **Use Dan's drafted lines nearly verbatim when they're good.** He writes his own
