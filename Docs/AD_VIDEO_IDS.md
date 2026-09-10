@@ -12,9 +12,14 @@ goal images of Dan). Every video was read back after upload: processed, HD, embe
 | Ad 2 Stop Wasting Money On Nutritionists | Muhammad V2 HD | 16:9 | 4:37 | https://youtu.be/Dtk5knWM7c8 | editor final |
 | Ad 1 This Picture Got Me Abs | Muhammad | 16:9 | 3:53 | https://youtu.be/lf46ytHacss | editor final |
 | Ad 1 This Picture Got Me Abs | Zeeshan (4K master) | 16:9 | 4:10 | https://youtu.be/1oEcwdp21Fg | editor final |
-| Ad 1 This Picture Got Me Abs | Claude vertical of Muhammad's | 9:16 | 3:53 | https://youtu.be/Iz0u8KHRbyE | awaiting Dan (audio rebuild) |
-| Ad 1 This Picture Got Me Abs | Claude vertical of Zeeshan's | 9:16 | 4:10 | https://youtu.be/rimBWjT9-oo | awaiting Dan (delivered 09-10) |
-| Ad 1 This Picture Got Me Abs | Claude vertical of Zeeshan's, cutdown | 9:16 | 0:56 | https://youtu.be/JOZVk4_HDwQ | awaiting Dan (delivered 09-10) |
+| Ad 1 This Picture Got Me Abs | Claude vertical of Muhammad's | 9:16 | 3:53 | https://youtu.be/Iz0u8KHRbyE | yes (09-10) |
+| ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's | 9:16 | 4:10 | ~~https://youtu.be/rimBWjT9-oo~~ | **REJECTED 09-10 — do not use** |
+| ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's, cutdown | 9:16 | 0:56 | ~~https://youtu.be/JOZVk4_HDwQ~~ | **REJECTED 09-10 — do not use** |
+
+⚠ The two struck rows are byte-identical (sha256) to the files Dan rejected for processed audio on 2026-09-10
+(corpus entries `ad1zee-vertical-processed-audio` and `…-59s-…`). They were uploaded before that rejection
+was known. The upload token cannot delete videos, so Dan removes them in Studio. When the rebuild is
+approved, upload it as a NEW video and add a row here.
 
 Each description links `absbyai.com/start` with `utm_source=youtube&utm_medium=video_ad&utm_campaign=<slug>`
 (`ad2-claude-9x16`, `ad2-muhammad-16x9`, `ad1-muhammad-16x9`, `ad1-zeeshan-16x9`, `ad1-muhammad-claude-9x16`,
