@@ -6,15 +6,20 @@ which only takes videos that are on YouTube. Uploaded 2026-09-10 with `scripts/y
 category 26, not made for kids, "altered or synthetic content" = yes (the ads show AI-generated
 goal images of Dan). Every video was read back after upload: processed, HD, embeddable.
 
-| Ad | Version | Aspect | Length | Link | Approved? |
-|---|---|---|---|---|---|
-| Ad 2 Stop Wasting Money On Nutritionists | Claude vertical of Muhammad's V2 | 9:16 | 4:37 | https://youtu.be/7XgHxn59Tsg | yes (09-08) |
-| Ad 2 Stop Wasting Money On Nutritionists | Muhammad V2 HD | 16:9 | 4:37 | https://youtu.be/Dtk5knWM7c8 | editor final |
-| Ad 1 This Picture Got Me Abs | Muhammad | 16:9 | 3:53 | https://youtu.be/lf46ytHacss | editor final — **also the interim video on `absbyai.com/start` since 2026-09-10** (`ABS_START_VIDEO` in `public/site-video.js`) |
-| Ad 1 This Picture Got Me Abs | Zeeshan (4K master) | 16:9 | 4:10 | https://youtu.be/1oEcwdp21Fg | editor final |
-| Ad 1 This Picture Got Me Abs | Claude vertical of Muhammad's | 9:16 | 3:53 | https://youtu.be/Iz0u8KHRbyE | yes (09-10) |
-| ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's | 9:16 | 4:10 | ~~https://youtu.be/rimBWjT9-oo~~ | **REJECTED 09-10 — do not use** |
-| ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's, cutdown | 9:16 | 0:56 | ~~https://youtu.be/JOZVk4_HDwQ~~ | **REJECTED 09-10 — do not use** |
+| Ad | Version | Aspect | Length | Link | Approved? | Thumbnail |
+|---|---|---|---|---|---|---|
+| Ad 2 Stop Wasting Money On Nutritionists | Claude vertical of Muhammad's V2 | 9:16 | 4:37 | https://youtu.be/7XgHxn59Tsg | yes (09-08) | `ad2-vertical-7XgHxn59Tsg_C-jeans-black-9x16-FINAL.jpg` (set + read back 09-10) |
+| Ad 2 Stop Wasting Money On Nutritionists | Muhammad V2 HD | 16:9 | 4:37 | https://youtu.be/Dtk5knWM7c8 | editor final | `ad2-muhammad-16x9-Dtk5knWM7c8_C-jeans-black-FINAL.jpg` (set + read back 09-10) |
+| Ad 1 This Picture Got Me Abs | Muhammad | 16:9 | 3:53 | https://youtu.be/lf46ytHacss | editor final — **also the interim video on `absbyai.com/start` since 2026-09-10** (`ABS_START_VIDEO` in `public/site-video.js`) | YouTube auto frame — Dan picking O1/O2 |
+| Ad 1 This Picture Got Me Abs | Zeeshan (4K master) | 16:9 | 4:10 | https://youtu.be/1oEcwdp21Fg | editor final | YouTube auto frame — Dan picking O1/O2 |
+| Ad 1 This Picture Got Me Abs | Claude vertical of Muhammad's | 9:16 | 3:53 | https://youtu.be/Iz0u8KHRbyE | yes (09-10) | YouTube auto frame — Dan picking O1/O2 |
+| ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's | 9:16 | 4:10 | ~~https://youtu.be/rimBWjT9-oo~~ | **REJECTED 09-10 — do not use** | — |
+| ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's, cutdown | 9:16 | 0:56 | ~~https://youtu.be/JOZVk4_HDwQ~~ | **REJECTED 09-10 — do not use** | — |
+
+Thumbnail files live in `social media graphics/youtube/thumbnails/<Ad folder>/` (git-ignored). Swap one with
+`node scripts/youtube/set-thumbnail.js --video <id> --file <jpg> --out readback.jpg` — it sets, waits for the
+new image to serve, and saves the read-back. A 9:16 thumbnail is served as 1280×720 with a blurred copy of
+itself filling the sides (not black bars).
 
 ⚠ The two struck rows are byte-identical (sha256) to the files Dan rejected for processed audio on 2026-09-10
 (corpus entries `ad1zee-vertical-processed-audio` and `…-59s-…`). They were uploaded before that rejection

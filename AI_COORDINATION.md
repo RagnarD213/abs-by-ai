@@ -43,10 +43,11 @@ is the permanent record of code changes.
 original pixels pasted back, 4:5 only) in `photos/finalized social media photos/_variations/studio-blue-89/`; two
 alternates in `_alternates/`. $0.97 spent. Recipe in `/background-removal`. No dashboard row. Delete once he has picked.
 
-**Thumbnails for the 5 finished ads — DAN PICKED 2026-09-10; finish + install is a HANDOFF, not started.** Ad 2 = jeans
-photo on the black+red ground (variant C, both aspects, files exist). Ad 1 = the arm-behind-head Muay Thai cutout on a
-"cleaner, more trustable" background — to be built (two options, he picks). Everything is in
-`Handoffs/handoff-20260910-ad-thumbnails-finish.md`; nothing installed yet. Delete this entry when that handoff runs.
+**Thumbnails for the 5 finished ads — Ad 2 INSTALLED 2026-09-10, Ad 1 waiting on Dan's pick.** Ad 2 variant C set on
+`Dtk5knWM7c8` + `7XgHxn59Tsg` by API (`scripts/youtube/set-thumbnail.js`) and read back matching. Ad 1: O1 dark studio vs
+O2 his light backdrop widened, sheet `_finished-ads-build-2026-09-10/r3/REVIEW_ad1_clean.jpg`, files already in the Ad 1
+folder (`*_O1-*` / `*_O2-*`). On his pick: set `lf46ytHacss` + `1oEcwdp21Fg` (16:9) and `Iz0u8KHRbyE` (9:16), read back,
+fill the Thumbnail column in `Docs/AD_VIDEO_IDS.md`, then delete this entry + the handoff lines (here and `Handoffs/README.md`).
 
 **Web pay-first cart — LIVE 2026-09-10, Dan runs the live card test.** The web checkout is now analysis page →
 cart (`#cartSection`: Monthly $19.99 pre-selected, Annual $69.99 "save 71%", trial timeline, disclosure above the
