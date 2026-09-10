@@ -296,3 +296,10 @@ Impact and Copperplate live in `/System/Library/Fonts/Supplemental/`.
   **Cover** → Add from camera roll → pick it → check the **Profile grid** tab (3:4 crop
   must keep the title) → ✓ → ✓. Verify on the web grid; the phone app shows its cached
   tile for a while.
+
+## No claims in cover / thumbnail copy (Dan, 2026-09-10)
+
+Covers and thumbnails on anything that runs as a paid ad are rarely seen by viewers but are scrutinised by
+Google Ads compliance. Never put a result claim, a before/after promise or a number in the copy ("THIS PICTURE
+GOT ME ABS" → "HOW TO USE AI TO GET IN SHAPE"). How-to, topic or command phrasing only. Same rule lives in
+`/youtube-packaging`.

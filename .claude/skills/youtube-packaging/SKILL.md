@@ -204,6 +204,23 @@ embers, rim glow, zigzag/curved arrows, brush, red ring) lives in
 - A prop can be the ad's own subject: Ad 1's phone shows the AI goal picture (labelled). Dan's REAL photo is
   still never repainted.
 
+
+### Compliance and format rules for AD thumbnails (Dan, 2026-09-10)
+
+- **No claims in thumbnail copy.** Thumbnails on ad videos are rarely seen but ARE scrutinised by Google Ads
+  compliance. "THIS PICTURE GOT ME ABS" was rejected for that reason and became "HOW TO USE AI TO GET IN SHAPE".
+  Write the headline as a how-to, a topic or a command — never a result, a before/after promise or a number.
+- **A vertical (9:16) video gets a 9:16 thumbnail** (1080x1920): headline in the top band above him, subject in
+  the lower ~60 %, vertical scrim. Never hand a 16:9 file to a vertical ad.
+- **Crop the pool-shoot photos AT THE WAISTLINE** (measured per photo on a ruler sheet: 247 → 0.675, 172 → 0.605,
+  221 → 0.70, 138 → 0.72 of source height) so the swim brief never reads — "make it look like regular shorts".
+  A sliver of waistband is fine; a visible brief is not.
+- Gen-fill seeds that carry his elbow at the strip edge, and cutouts on a flat placeholder, both invite the model to
+  slide/shrink him — `comp2.py` / `env/comp_env.py` refuse at IoU < 0.9; regenerate, and for cutout-on-placeholder
+  seeds say explicitly that the frame cuts him at mid-thigh and no legs/feet are to be added.
+- Environment composites (real cutout over a generated scene: yacht deck, rooftop pool) live in
+  `_finished-ads-build-2026-09-10/r2/env/`; the clean full-res photos are in `photos/ai-environment composites 9-10-26/`.
+
 ## Shorts
 
 **Use `/shorts` — it supersedes this section.** Every short's audio goes through

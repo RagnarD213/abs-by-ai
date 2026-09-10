@@ -38,12 +38,14 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
-**Thumbnails for the 5 finished ads — DELIVERED 2026-09-10, Dan picks and edits copy.** Two per video, all 10 in
-`social media graphics/youtube/thumbnails/Ad 1 This Picture Got Me Abs/` and `…/Ad 2 Stop Wasting Money On Nutritionists/`
-(`_A-studio` = studio cutout, Brandon Carter style; `_B-pool` = pool shoot widened by gen-fill, house style; copy
-THIS PICTURE / GOT ME ABS and STOP WASTING / MONEY ON / NUTRITIONISTS). Review sheet sent in chat; recipe + traps in
-`…/_finished-ads-build-2026-09-10/DELIVERY.md`; $0.80 of Gemini spend. Install = `scripts/youtube/upload.js`'s thumbnail
-path is upload-time only, so set these in Studio on the existing ids. No dashboard row. Delete once he has picked.
+**Thumbnails for the 5 finished ads — ROUND 2 DELIVERED 2026-09-10 per Dan's revisions; he picks.** Ad 1 (all three
+videos): pool photos cropped at the waistline, copy "HOW TO USE AI TO GET IN SHAPE", the vertical video in **9:16**.
+Ad 2 (both videos): the two studio photos he sent (arm-behind-head A/B; jeans C/D/E on the colour grounds, F yacht deck,
+G rooftop pool — real cutout over generated scenes), 16:9 + 9:16. Files in `social media graphics/youtube/thumbnails/Ad 1…/`
+and `…/Ad 2…/`; review sheets + the four clean environment photos (`photos/ai-environment composites 9-10-26/`) sent in
+chat. Round 1 parked in `_finished-ads-build-2026-09-10/_superseded-round1/`. Rules saved: no claims in ad thumbnails,
+9:16 for vertical ads, waist crop (both skills + memory). Session spend $2.41. Install = Studio on the existing ids.
+Delete once he has picked.
 
 **Web pay-first cart — LIVE 2026-09-10, Dan runs the live card test.** The web checkout is now analysis page →
 cart (`#cartSection`: Monthly $19.99 pre-selected, Annual $69.99 "save 71%", trial timeline, disclosure above the
