@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-09T11:09:28.068Z",
-  "day": "2026-09-08",
+  "generatedAt": "2026-09-10T11:06:32.011Z",
+  "day": "2026-09-09",
   "window": {
-    "from": "2026-09-01",
-    "to": "2026-09-08",
+    "from": "2026-09-02",
+    "to": "2026-09-09",
     "baselineDays": 7
   },
   "blind": [
@@ -14,14 +14,25 @@
     }
   ],
   "totals": {
-    "spendYesterday": 8.01,
-    "spend7dMean": 6.07,
-    "deltaPct": 0.32,
+    "spendYesterday": 16.32,
+    "spend7dMean": 6.34,
+    "deltaPct": 1.57,
     "platformsLive": [
       "meta"
     ]
   },
-  "anomalies": [],
+  "anomalies": [
+    {
+      "severity": "medium",
+      "platform": "meta",
+      "scope": "campaign",
+      "kind": "cpa_degraded",
+      "name": "[AUTO] IG PROFILE VISITS - danrosefit",
+      "headline": "[AUTO] IG PROFILE VISITS - danrosefit cost per video view rose to $0.05",
+      "detail": "Its own 7-day average is $0.03 (+67%).",
+      "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682"
+    }
+  ],
   "winners": [],
   "platforms": {
     "meta": {
@@ -29,9 +40,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 8.01,
-      "spend7dMean": 6.07,
-      "deltaPct": 0.32,
+      "spend": 16.32,
+      "spend7dMean": 6.34,
+      "deltaPct": 1.57,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -39,20 +50,31 @@
           "status": "ACTIVE",
           "resultLabel": "video view",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 8.01,
-          "results": 209,
-          "impressions": 1029,
-          "costPerResult": 0.04,
+          "spend": 16.32,
+          "results": 315,
+          "impressions": 1783,
+          "costPerResult": 0.05,
           "baseline": {
-            "days": 6,
-            "meanSpend": 6.07,
-            "totalSpend": 36.39,
-            "results": 1200,
+            "days": 7,
+            "meanSpend": 6.34,
+            "totalSpend": 44.4,
+            "results": 1409,
             "costPerResult": 0.03
           }
         }
       ],
-      "anomalies": [],
+      "anomalies": [
+        {
+          "severity": "medium",
+          "platform": "meta",
+          "scope": "campaign",
+          "kind": "cpa_degraded",
+          "name": "[AUTO] IG PROFILE VISITS - danrosefit",
+          "headline": "[AUTO] IG PROFILE VISITS - danrosefit cost per video view rose to $0.05",
+          "detail": "Its own 7-day average is $0.03 (+67%).",
+          "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682"
+        }
+      ],
       "winners": []
     },
     "google": {
@@ -70,8 +92,8 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-09T10:17:21.155Z",
-    "ageHours": 0.87,
+    "lastRunAt": "2026-09-10T10:15:57.331Z",
+    "ageHours": 0.84,
     "stale": false,
     "dryRun": false,
     "enabled": true,
@@ -79,18 +101,18 @@
       "caps": {
         "reason": null,
         "testsCap": 300,
-        "testsMtd": 2.46,
+        "testsMtd": 14.06,
         "totalCap": 500,
-        "totalMtd": 46.52,
+        "totalMtd": 63.47,
         "capReached": false,
-        "testsCommitted": 35,
-        "totalCommitted": 79.06
+        "testsCommitted": 40,
+        "totalCommitted": 89.41
       },
       "pair": {
         "ads": [
           {
             "adId": "120250753783030682",
-            "spend": 2.96,
+            "spend": 3.01,
             "active": true,
             "visits": 28,
             "mediaId": "18188183254395331",
@@ -98,40 +120,18 @@
           },
           {
             "adId": "120250753783950682",
-            "spend": 41.1,
+            "spend": 46.4,
             "active": true,
-            "visits": 431,
+            "visits": 480,
             "mediaId": "18192762022391478",
             "costPerVisit": 0.1
           }
         ],
-        "reason": "waiting for both to reach $10.00 ($2.96 / $41.10)",
+        "reason": "waiting for both to reach $10.00 ($3.01 / $46.40)",
         "resolved": false
       },
       "skips": [],
       "tests": [
-        {
-          "label": "IMAGE | Ten minutes of jump rope beats thirty on a treadmill | TEST::18144562216559806",
-          "media": {
-            "id": "18144562216559806",
-            "type": "IMAGE",
-            "title": "Ten minutes of jump rope beats thirty on a treadmill",
-            "caption": "Ten minutes of jump rope beats thirty on a treadmill. Same calorie burn in a thi",
-            "postedAt": "2026-09-06T22:00:26+0000",
-            "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/"
-          },
-          "phase": "running",
-          "spend": 0.48,
-          "status": "ACTIVE",
-          "visits": 6,
-          "adsetId": "120250868070210682",
-          "endTime": "2026-09-13T15:59:17-0500",
-          "mediaId": "18144562216559806",
-          "verdict": null,
-          "createdAt": "2026-09-08T15:59:52-0500",
-          "impressions": 73,
-          "costPerVisit": 0.08
-        },
         {
           "label": "IMAGE | Pick a sport, not a cardio machine | TEST::17983238982111705",
           "media": {
@@ -143,16 +143,38 @@
             "permalink": "https://www.instagram.com/p/DczQmVTmKvm/"
           },
           "phase": "running",
-          "spend": 0.6,
+          "spend": 2.2,
           "status": "ACTIVE",
-          "visits": 7,
+          "visits": 31,
           "adsetId": "120250868066640682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17983238982111705",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:21-0500",
-          "impressions": 61,
-          "costPerVisit": 0.09
+          "impressions": 219,
+          "costPerVisit": 0.07
+        },
+        {
+          "label": "IMAGE | Ten minutes of jump rope beats thirty on a treadmill | TEST::18144562216559806",
+          "media": {
+            "id": "18144562216559806",
+            "type": "IMAGE",
+            "title": "Ten minutes of jump rope beats thirty on a treadmill",
+            "caption": "Ten minutes of jump rope beats thirty on a treadmill. Same calorie burn in a thi",
+            "postedAt": "2026-09-06T22:00:26+0000",
+            "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/"
+          },
+          "phase": "running",
+          "spend": 2.02,
+          "status": "ACTIVE",
+          "visits": 27,
+          "adsetId": "120250868070210682",
+          "endTime": "2026-09-13T15:59:17-0500",
+          "mediaId": "18144562216559806",
+          "verdict": null,
+          "createdAt": "2026-09-08T15:59:52-0500",
+          "impressions": 258,
+          "costPerVisit": 0.07
         },
         {
           "label": "IMAGE | Your supplements are about 3% of your results | TEST::17874665394562729",
@@ -165,38 +187,16 @@
             "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
           },
           "phase": "running",
-          "spend": 0.49,
+          "spend": 2.08,
           "status": "ACTIVE",
-          "visits": 3,
+          "visits": 18,
           "adsetId": "120250868068030682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17874665394562729",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:37-0500",
-          "impressions": 62,
-          "costPerVisit": 0.16
-        },
-        {
-          "label": "REEL | Hire a maid instead of a personal trainer | TEST::18122536861661975",
-          "media": {
-            "id": "18122536861661975",
-            "type": "VIDEO",
-            "title": "Hire a maid instead of a personal trainer",
-            "caption": "Hire a maid instead of a personal trainer. Sounds backwards. It isn't — not if y",
-            "postedAt": "2026-09-03T22:00:43+0000",
-            "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/"
-          },
-          "phase": "running",
-          "spend": 0.25,
-          "status": "ACTIVE",
-          "visits": 1,
-          "adsetId": "120250868067070682",
-          "endTime": "2026-09-13T15:59:17-0500",
-          "mediaId": "18122536861661975",
-          "verdict": null,
-          "createdAt": "2026-09-08T15:59:28-0500",
-          "impressions": 30,
-          "costPerVisit": 0.25
+          "impressions": 206,
+          "costPerVisit": 0.12
         },
         {
           "label": "REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709",
@@ -209,16 +209,60 @@
             "permalink": "https://www.instagram.com/reel/DdCtYQOF69_/"
           },
           "phase": "running",
-          "spend": 0.01,
+          "spend": 1.49,
           "status": "ACTIVE",
-          "visits": 0,
+          "visits": 10,
           "adsetId": "120250868876510682",
           "endTime": "2026-09-13T17:18:44-0500",
           "mediaId": "18624174223051709",
           "verdict": null,
           "createdAt": "2026-09-08T17:18:46-0500",
-          "impressions": 4,
-          "costPerVisit": null
+          "impressions": 173,
+          "costPerVisit": 0.15
+        },
+        {
+          "label": "IMAGE | Train your abs every single day | TEST::18133073164657545",
+          "media": {
+            "id": "18133073164657545",
+            "type": "IMAGE",
+            "title": "Train your abs every single day",
+            "caption": "Train your abs every single day. Abs recover fast. They're built to work all day",
+            "postedAt": "2026-09-09T22:00:31+0000",
+            "permalink": "https://www.instagram.com/p/DdFSLHplpDf/"
+          },
+          "phase": "running",
+          "spend": 0.17,
+          "status": "ACTIVE",
+          "visits": 1,
+          "adsetId": "120250888181140682",
+          "endTime": "2026-09-14T17:16:20-0500",
+          "mediaId": "18133073164657545",
+          "verdict": null,
+          "createdAt": "2026-09-09T17:16:22-0500",
+          "impressions": 27,
+          "costPerVisit": 0.17
+        },
+        {
+          "label": "REEL | Hire a maid instead of a personal trainer | TEST::18122536861661975",
+          "media": {
+            "id": "18122536861661975",
+            "type": "VIDEO",
+            "title": "Hire a maid instead of a personal trainer",
+            "caption": "Hire a maid instead of a personal trainer. Sounds backwards. It isn't — not if y",
+            "postedAt": "2026-09-03T22:00:43+0000",
+            "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/"
+          },
+          "phase": "running",
+          "spend": 1.95,
+          "status": "ACTIVE",
+          "visits": 10,
+          "adsetId": "120250868067070682",
+          "endTime": "2026-09-13T15:59:17-0500",
+          "mediaId": "18122536861661975",
+          "verdict": null,
+          "createdAt": "2026-09-08T15:59:28-0500",
+          "impressions": 197,
+          "costPerVisit": 0.2
         },
         {
           "label": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
@@ -231,16 +275,16 @@
             "permalink": "https://www.instagram.com/reel/DdAIo4-j_RS/"
           },
           "phase": "running",
-          "spend": 0.37,
+          "spend": 1.92,
           "status": "ACTIVE",
-          "visits": 0,
+          "visits": 5,
           "adsetId": "120250868071570682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17899133421377575",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:58-0500",
-          "impressions": 33,
-          "costPerVisit": null
+          "impressions": 171,
+          "costPerVisit": 0.38
         },
         {
           "label": "REEL | Make AI macro estimates way more accurate | TEST::17909653590464795",
@@ -253,16 +297,16 @@
             "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/"
           },
           "phase": "running",
-          "spend": 0.26,
+          "spend": 2.23,
           "status": "ACTIVE",
-          "visits": 0,
+          "visits": 2,
           "adsetId": "120250868068990682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17909653590464795",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:43-0500",
-          "impressions": 34,
-          "costPerVisit": null
+          "impressions": 167,
+          "costPerVisit": 1.12
         }
       ],
       "dryRun": false,
@@ -275,14 +319,14 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 46.52,
-          "visits": 476,
+          "spend": 63.47,
+          "visits": 611,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 42.41,
+        "spend": 42.68,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
@@ -290,11 +334,11 @@
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 440,
+        "visits": 441,
         "window": {
           "days": 7,
-          "since": "2026-09-03",
-          "until": "2026-09-09"
+          "since": "2026-09-04",
+          "until": "2026-09-10"
         },
         "follows": 0,
         "activeAds": [
@@ -333,85 +377,19 @@
       "warnings": [],
       "events24h": [
         {
-          "at": "2026-09-08T20:59:28.065Z",
+          "at": "2026-09-09T22:16:29.796Z",
           "event": "created",
           "detail": {
-            "adId": "120250868066970682",
-            "adsetId": "120250868066640682",
-            "permalink": "https://www.instagram.com/p/DczQmVTmKvm/",
-            "creativeId": "1055127503814906"
+            "adId": "120250888182240682",
+            "adsetId": "120250888181140682",
+            "permalink": "https://www.instagram.com/p/DdFSLHplpDf/",
+            "creativeId": "941811775646855"
           },
-          "mediaId": "17983238982111705"
-        },
-        {
-          "at": "2026-09-08T20:59:36.805Z",
-          "event": "created",
-          "detail": {
-            "adId": "120250868068000682",
-            "adsetId": "120250868067070682",
-            "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/",
-            "creativeId": "1844487043585144"
-          },
-          "mediaId": "18122536861661975"
-        },
-        {
-          "at": "2026-09-08T20:59:43.126Z",
-          "event": "created",
-          "detail": {
-            "adId": "120250868068590682",
-            "adsetId": "120250868068030682",
-            "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/",
-            "creativeId": "1350071370240358"
-          },
-          "mediaId": "17874665394562729"
-        },
-        {
-          "at": "2026-09-08T20:59:52.136Z",
-          "event": "created",
-          "detail": {
-            "adId": "120250868070090682",
-            "adsetId": "120250868068990682",
-            "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/",
-            "creativeId": "2037318506931551"
-          },
-          "mediaId": "17909653590464795"
-        },
-        {
-          "at": "2026-09-08T20:59:58.583Z",
-          "event": "created",
-          "detail": {
-            "adId": "120250868070970682",
-            "adsetId": "120250868070210682",
-            "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/",
-            "creativeId": "2336736757157474"
-          },
-          "mediaId": "18144562216559806"
-        },
-        {
-          "at": "2026-09-08T21:00:08.343Z",
-          "event": "created",
-          "detail": {
-            "adId": "120250868073230682",
-            "adsetId": "120250868071570682",
-            "permalink": "https://www.instagram.com/reel/DdAIo4-j_RS/",
-            "creativeId": "28133495319648297"
-          },
-          "mediaId": "17899133421377575"
-        },
-        {
-          "at": "2026-09-08T22:18:54.121Z",
-          "event": "created",
-          "detail": {
-            "adId": "120250868877240682",
-            "adsetId": "120250868876510682",
-            "permalink": "https://www.instagram.com/reel/DdCtYQOF69_/",
-            "creativeId": "1093623710030971"
-          },
-          "mediaId": "18624174223051709"
+          "mediaId": "18133073164657545"
         }
       ],
       "candidates": [],
-      "generatedAt": "2026-09-09T10:17:18.022Z",
+      "generatedAt": "2026-09-10T10:15:54.217Z",
       "championAdset": "120250753601020682"
     }
   },
@@ -419,8 +397,8 @@
     "ok": true,
     "enabled": true,
     "dryRun": false,
-    "lastRunAt": "2026-09-09T11:00:04.621Z",
-    "ageHours": 0.16,
+    "lastRunAt": "2026-09-10T11:00:05.629Z",
+    "ageHours": 0.11,
     "stale": false,
     "resultsPosted": true,
     "thresholds": {
@@ -444,16 +422,16 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 1,
+            "daysWaiting": 2,
             "policy": "APPROVED_LIMITED"
           },
           {
             "adId": "823972446145",
             "videoId": "3J_ZSNDkZSU",
-            "spend": 0.09,
+            "spend": 1.09,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED"
           },
           {
@@ -462,16 +440,16 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
           },
           {
             "adId": "824051827676",
             "videoId": "27vZC4xVkms",
-            "spend": 0,
+            "spend": 0.84,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED"
           }
         ],
@@ -505,7 +483,15 @@
       },
       "tier1": {
         "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
-        "champion": null,
+        "champion": {
+          "adId": "822882636654",
+          "name": "truth about supplements",
+          "videoId": "P9VUGyWeNtY",
+          "spend30d": 5.73,
+          "conv30d": 7,
+          "costPerConv30d": 0.82,
+          "approxCostPerSubscriber30d": 1.61
+        },
         "testsRunning": [
           {
             "adId": "823924422642",
@@ -513,16 +499,16 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 1,
+            "daysWaiting": 2,
             "policy": "APPROVED_LIMITED"
           },
           {
             "adId": "823972420558",
             "videoId": "3J_ZSNDkZSU",
-            "spend": 0.25,
+            "spend": 3.81,
             "of": 5,
-            "conv": 0,
-            "daysWaiting": 0,
+            "conv": 1,
+            "daysWaiting": 1,
             "policy": "APPROVED"
           },
           {
@@ -531,12 +517,20 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
           }
         ],
         "verdicts": [],
         "policy": [
+          {
+            "adId": "822882639786",
+            "name": "late night eating",
+            "topics": [
+              "CLICKBAIT:PROHIBITED"
+            ],
+            "limited": true
+          },
           {
             "adId": "823924422642",
             "name": "AUTO test · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · tier1 · 2026-09-08",
@@ -554,13 +548,7 @@
             "limited": true
           }
         ],
-        "dayOne": {
-          "paused": [],
-          "reason": "no champion yet",
-          "champion": null,
-          "deferred": "no hand-made ad has ≥$5.00 spend and ≥2 conversions; the first qualifying test becomes champion and the hand-made ads are paused then",
-          "reversal": []
-        },
+        "dayOne": null,
         "created": []
       },
       "tier2": {
@@ -569,8 +557,8 @@
           "adId": "821125719022",
           "name": "top 10 ab tips",
           "videoId": "2T4LrQrmz9s",
-          "spend30d": 282.82,
-          "conv30d": 2639,
+          "spend30d": 291.19,
+          "conv30d": 2668,
           "costPerConv30d": 0.11,
           "approxCostPerSubscriber30d": 0.22
         },
@@ -581,25 +569,16 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 1,
+            "daysWaiting": 2,
             "policy": "APPROVED_LIMITED"
           },
           {
             "adId": "823972295725",
             "videoId": "3J_ZSNDkZSU",
-            "spend": 0,
+            "spend": 0.11,
             "of": 5,
-            "conv": 0,
-            "daysWaiting": 0,
-            "policy": "APPROVED"
-          },
-          {
-            "adId": "823972420498",
-            "videoId": "27vZC4xVkms",
-            "spend": 0.05,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 0,
+            "conv": 1,
+            "daysWaiting": 1,
             "policy": "APPROVED"
           },
           {
@@ -608,11 +587,43 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
           }
         ],
-        "verdicts": [],
+        "verdicts": [
+          {
+            "adId": "823972420498",
+            "conv": 9,
+            "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · tier2 · 2026-09-09",
+            "phase": "judged",
+            "spend": 5.06,
+            "detail": "$0.56 per conversion does not beat the champion's $0.11 (30d)",
+            "policy": "APPROVED",
+            "status": "ENABLED",
+            "created": "2026-09-09",
+            "verdict": "lose",
+            "videoId": "27vZC4xVkms",
+            "champion": {
+              "d30": {
+                "conv": 2668,
+                "cost": 291.19,
+                "costPerConv": 0.11
+              },
+              "adId": "821125719022",
+              "name": "top 10 ab tips",
+              "status": "PAUSED",
+              "videoId": "2T4LrQrmz9s",
+              "lifetime": {
+                "conv": 2668,
+                "cost": 291.19,
+                "costPerConv": 0.11
+              }
+            },
+            "costPerConv": 0.56,
+            "daysWaiting": 1
+          }
+        ],
         "policy": [
           {
             "adId": "822882429006",
@@ -649,1014 +660,262 @@
     "counts": {
       "label": 0,
       "manual": 0,
-      "pauseAd": 0,
-      "commands": 0,
+      "pauseAd": 1,
+      "commands": 1,
       "createAd": 0
     },
     "events24h": {
-      "created": [
+      "created": [],
+      "verdicts": [
         {
-          "at": "2026-09-08T22:00:34.563Z",
-          "campaign": "tier2",
-          "videoId": "27vZC4xVkms",
-          "adId": "823960375351",
-          "name": "AUTO test yt:27vZC4xVkms · tier2 · 2026-09-08",
-          "headlines": [
-            "3 Minute Total Body Home Workout",
-            "Follow Along Home Workout",
-            "Total Body Workout At Home",
-            "5 Exercises, 40 Seconds Each",
-            "No Talking Home Workout Video"
-          ],
-          "videoTitle": "3 Minute Total Body Home Workout - Follow Along (No Talking)",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose runs the full circuit on screen so you can follow along at home.",
-            "No talking, just the workout: kettlebell deadlift, push-ups, jump squats, towel rows.",
-            "Watch the follow along version of my total body home workout for men."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~823960375351",
-          "longHeadlines": [
-            "Follow along with my 3 minute total body home workout, no talking, just the work.",
-            "Five exercises, 40 seconds each: kettlebell deadlift, push-ups, jump squats and more.",
-            "Run through my 3 minute home circuit with me, three times for a longer session."
-          ]
-        },
-        {
-          "at": "2026-09-08T22:00:34.564Z",
-          "campaign": "tier1",
-          "videoId": "27vZC4xVkms",
-          "adId": "823916639496",
-          "name": "AUTO test yt:27vZC4xVkms · tier1 · 2026-09-08",
-          "headlines": [
-            "3 Minute Total Body Home Workout",
-            "Follow Along Home Workout",
-            "Total Body Workout At Home",
-            "5 Exercises, 40 Seconds Each",
-            "No Talking Home Workout Video"
-          ],
-          "videoTitle": "3 Minute Total Body Home Workout - Follow Along (No Talking)",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose runs the full circuit on screen so you can follow along at home.",
-            "No talking, just the workout: kettlebell deadlift, push-ups, jump squats, towel rows.",
-            "Watch the follow along version of my total body home workout for men."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~823916639496",
-          "longHeadlines": [
-            "Follow along with my 3 minute total body home workout, no talking, just the work.",
-            "Five exercises, 40 seconds each: kettlebell deadlift, push-ups, jump squats and more.",
-            "Run through my 3 minute home circuit with me, three times for a longer session."
-          ]
-        },
-        {
-          "at": "2026-09-08T22:00:34.566Z",
-          "campaign": "rmktg",
-          "videoId": "27vZC4xVkms",
-          "adId": "824039869187",
-          "name": "AUTO test yt:27vZC4xVkms · rmktg · 2026-09-08",
-          "headlines": [
-            "3 Minute Total Body Home Workout",
-            "Follow Along Home Workout",
-            "Total Body Workout At Home",
-            "5 Exercises, 40 Seconds Each",
-            "No Talking Home Workout Video"
-          ],
-          "videoTitle": "3 Minute Total Body Home Workout - Follow Along (No Talking)",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose runs the full circuit on screen so you can follow along at home.",
-            "No talking, just the workout: kettlebell deadlift, push-ups, jump squats, towel rows.",
-            "Watch the follow along version of my total body home workout for men."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824039869187",
-          "longHeadlines": [
-            "Follow along with my 3 minute total body home workout, no talking, just the work.",
-            "Five exercises, 40 seconds each: kettlebell deadlift, push-ups, jump squats and more.",
-            "Run through my 3 minute home circuit with me, three times for a longer session."
-          ]
-        },
-        {
-          "at": "2026-09-08T22:00:34.568Z",
-          "campaign": "tier2",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "823960375411",
-          "name": "AUTO test yt:3J_ZSNDkZSU · tier2 · 2026-09-08",
-          "headlines": [
-            "Better AI Macro Estimates",
-            "One Detail For Accurate Macros",
-            "How I Photograph My Meals For AI",
-            "Make AI Macro Counts Closer",
-            "Photo Captions And AI Macros"
-          ],
-          "videoTitle": "Make AI Macro Estimates Way More Accurate",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose shows the detail he adds to meal photos for closer AI macro estimates.",
-            "Watch how one extra line in your photo caption improves the AI macro estimate.",
-            "See my exact caption method for asking AI to estimate the macros in a meal photo."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~823960375411",
-          "longHeadlines": [
-            "Here's the one detail I add to my photo caption so AI macro estimates get closer.",
-            "I show how I caption meal photos to get more accurate macro estimates from AI.",
-            "Learn how a single line in your caption changes the macro estimate AI gives you."
-          ]
-        },
-        {
-          "at": "2026-09-08T22:00:34.569Z",
-          "campaign": "tier1",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "824039904182",
-          "name": "AUTO test yt:3J_ZSNDkZSU · tier1 · 2026-09-08",
-          "headlines": [
-            "Better AI Macro Estimates",
-            "One Detail For Accurate Macros",
-            "How I Photograph My Meals For AI",
-            "Make AI Macro Counts Closer",
-            "Photo Captions And AI Macros"
-          ],
-          "videoTitle": "Make AI Macro Estimates Way More Accurate",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose shows the detail he adds to meal photos for closer AI macro estimates.",
-            "Watch how one extra line in your photo caption improves the AI macro estimate.",
-            "See my exact caption method for asking AI to estimate the macros in a meal photo."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~824039904182",
-          "longHeadlines": [
-            "Here's the one detail I add to my photo caption so AI macro estimates get closer.",
-            "I show how I caption meal photos to get more accurate macro estimates from AI.",
-            "Learn how a single line in your caption changes the macro estimate AI gives you."
-          ]
-        },
-        {
-          "at": "2026-09-08T22:00:34.571Z",
-          "campaign": "rmktg",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "824039958383",
-          "name": "AUTO test yt:3J_ZSNDkZSU · rmktg · 2026-09-08",
-          "headlines": [
-            "Better AI Macro Estimates",
-            "One Detail For Accurate Macros",
-            "How I Photograph My Meals For AI",
-            "Make AI Macro Counts Closer",
-            "Photo Captions And AI Macros"
-          ],
-          "videoTitle": "Make AI Macro Estimates Way More Accurate",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose shows the detail he adds to meal photos for closer AI macro estimates.",
-            "Watch how one extra line in your photo caption improves the AI macro estimate.",
-            "See my exact caption method for asking AI to estimate the macros in a meal photo."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824039958383",
-          "longHeadlines": [
-            "Here's the one detail I add to my photo caption so AI macro estimates get closer.",
-            "I show how I caption meal photos to get more accurate macro estimates from AI.",
-            "Learn how a single line in your caption changes the macro estimate AI gives you."
-          ]
-        },
-        {
-          "at": "2026-09-08T22:00:34.574Z",
-          "campaign": "tier2",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "823960399324",
-          "name": "AUTO test yt:LvOMn7IpuCI · tier2 · 2026-09-08",
-          "headlines": [
-            "Hire A Maid Instead Of A Trainer",
-            "Where My Training Budget Goes",
-            "A Better Use Of $200 A Month",
-            "Why I Skip The Personal Trainer",
-            "Rethinking The Trainer Budget"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why he puts the personal trainer budget somewhere else.",
-            "Watch my case for spending the monthly trainer fee on help around the house.",
-            "A short video on trainers, time at home, and how I use AI to plan my training."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~823960399324",
-          "longHeadlines": [
-            "Here's why I would spend the trainer money on a maid instead, at 40 years old.",
-            "In this short I explain what I do with the $200 a month a trainer would cost.",
-            "My take on personal trainers, and the spending swap I made instead."
-          ]
-        },
-        {
-          "at": "2026-09-08T22:00:34.575Z",
-          "campaign": "tier1",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824039965097",
-          "name": "AUTO test yt:LvOMn7IpuCI · tier1 · 2026-09-08",
-          "headlines": [
-            "Hire A Maid Instead Of A Trainer",
-            "Where My Training Budget Goes",
-            "A Better Use Of $200 A Month",
-            "Why I Skip The Personal Trainer",
-            "Rethinking The Trainer Budget"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why he puts the personal trainer budget somewhere else.",
-            "Watch my case for spending the monthly trainer fee on help around the house.",
-            "A short video on trainers, time at home, and how I use AI to plan my training."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~824039965097",
-          "longHeadlines": [
-            "Here's why I would spend the trainer money on a maid instead, at 40 years old.",
-            "In this short I explain what I do with the $200 a month a trainer would cost.",
-            "My take on personal trainers, and the spending swap I made instead."
-          ]
-        },
-        {
-          "at": "2026-09-08T22:00:34.577Z",
-          "campaign": "rmktg",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824039904602",
-          "name": "AUTO test yt:LvOMn7IpuCI · rmktg · 2026-09-08",
-          "headlines": [
-            "Hire A Maid Instead Of A Trainer",
-            "Where My Training Budget Goes",
-            "A Better Use Of $200 A Month",
-            "Why I Skip The Personal Trainer",
-            "Rethinking The Trainer Budget"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why he puts the personal trainer budget somewhere else.",
-            "Watch my case for spending the monthly trainer fee on help around the house.",
-            "A short video on trainers, time at home, and how I use AI to plan my training."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824039904602",
-          "longHeadlines": [
-            "Here's why I would spend the trainer money on a maid instead, at 40 years old.",
-            "In this short I explain what I do with the $200 a month a trainer would cost.",
-            "My take on personal trainers, and the spending swap I made instead."
-          ]
-        },
-        {
-          "at": "2026-09-08T23:00:18.745Z",
-          "campaign": "tier2",
-          "videoId": "GVNzvm5sUbk",
-          "adId": "823924427661",
-          "name": "AUTO test · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · tier2 · 2026-09-08",
-          "headlines": [
-            "Why I Stopped Ab Exercises",
-            "What To Do Before Ab Exercises",
-            "Ab Exercises Are Not First",
-            "The Order I Train Abs In",
-            "Ab Training - What Comes First"
-          ],
-          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why ab exercises are not the first thing he does.",
-            "Most men start with ab exercises. Here's what Daniel Rose does first instead.",
-            "Men: this video shows where ab exercises sit in my routine, and what comes first."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~823924427661",
-          "longHeadlines": [
-            "Here's why I stopped doing ab exercises first, and what I do before them instead.",
-            "This video shows the order I put ab exercises in at 40 years old.",
-            "Here's what I work on before ab exercises, in one short video."
-          ]
-        },
-        {
-          "at": "2026-09-08T23:00:18.756Z",
-          "campaign": "tier1",
-          "videoId": "GVNzvm5sUbk",
-          "adId": "823924422642",
-          "name": "AUTO test · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · tier1 · 2026-09-08",
-          "headlines": [
-            "Why I Stopped Ab Exercises",
-            "What To Do Before Ab Exercises",
-            "Ab Exercises Are Not First",
-            "The Order I Train Abs In",
-            "Ab Training - What Comes First"
-          ],
-          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why ab exercises are not the first thing he does.",
-            "Most men start with ab exercises. Here's what Daniel Rose does first instead.",
-            "Men: this video shows where ab exercises sit in my routine, and what comes first."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~823924422642",
-          "longHeadlines": [
-            "Here's why I stopped doing ab exercises first, and what I do before them instead.",
-            "This video shows the order I put ab exercises in at 40 years old.",
-            "Here's what I work on before ab exercises, in one short video."
-          ]
-        },
-        {
-          "at": "2026-09-08T23:00:18.762Z",
-          "campaign": "rmktg",
-          "videoId": "GVNzvm5sUbk",
-          "adId": "823968353731",
-          "name": "AUTO test · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · rmktg · 2026-09-08",
-          "headlines": [
-            "Why I Stopped Ab Exercises",
-            "What To Do Before Ab Exercises",
-            "Ab Exercises Are Not First",
-            "The Order I Train Abs In",
-            "Ab Training - What Comes First"
-          ],
-          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why ab exercises are not the first thing he does.",
-            "Most men start with ab exercises. Here's what Daniel Rose does first instead.",
-            "Men: this video shows where ab exercises sit in my routine, and what comes first."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~823968353731",
-          "longHeadlines": [
-            "Here's why I stopped doing ab exercises first, and what I do before them instead.",
-            "This video shows the order I put ab exercises in at 40 years old.",
-            "Here's what I work on before ab exercises, in one short video."
-          ]
-        },
-        {
-          "at": "2026-09-09T01:00:14.048Z",
+          "at": "2026-09-10T11:00:09.487Z",
           "campaign": "tier2",
           "videoId": "27vZC4xVkms",
           "adId": "823972420498",
-          "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · tier2 · 2026-09-09",
-          "headlines": [
-            "3 Minute Total Body Home Workout",
-            "Follow Along Home Workout",
-            "Total Body Workout At Home",
-            "5 Exercises, 40 Seconds Each",
-            "No Talking Home Workout Video"
-          ],
-          "videoTitle": "3 Minute Total Body Home Workout - Follow Along (No Talking)",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose runs the full circuit on screen so you can follow along at home.",
-            "No talking, just the workout: kettlebell deadlift, push-ups, jump squats, towel rows.",
-            "Watch the follow along version of my total body home workout for men."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~823972420498",
-          "longHeadlines": [
-            "Follow along with my 3 minute total body home workout, no talking, just the work.",
-            "Five exercises, 40 seconds each: kettlebell deadlift, push-ups, jump squats and more.",
-            "Run through my 3 minute home circuit with me, three times for a longer session."
-          ]
-        },
-        {
-          "at": "2026-09-09T01:00:14.050Z",
-          "campaign": "tier1",
-          "videoId": "27vZC4xVkms",
-          "adId": "823972485052",
-          "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · tier1 · 2026-09-09",
-          "headlines": [
-            "3 Minute Total Body Home Workout",
-            "Follow Along Home Workout",
-            "Total Body Workout At Home",
-            "5 Exercises, 40 Seconds Each",
-            "No Talking Home Workout Video"
-          ],
-          "videoTitle": "3 Minute Total Body Home Workout - Follow Along (No Talking)",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose runs the full circuit on screen so you can follow along at home.",
-            "No talking, just the workout: kettlebell deadlift, push-ups, jump squats, towel rows.",
-            "Watch the follow along version of my total body home workout for men."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~823972485052",
-          "longHeadlines": [
-            "Follow along with my 3 minute total body home workout, no talking, just the work.",
-            "Five exercises, 40 seconds each: kettlebell deadlift, push-ups, jump squats and more.",
-            "Run through my 3 minute home circuit with me, three times for a longer session."
-          ]
-        },
-        {
-          "at": "2026-09-09T01:00:14.052Z",
-          "campaign": "rmktg",
-          "videoId": "27vZC4xVkms",
-          "adId": "824051827676",
-          "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · rmktg · 2026-09-09",
-          "headlines": [
-            "3 Minute Total Body Home Workout",
-            "Follow Along Home Workout",
-            "Total Body Workout At Home",
-            "5 Exercises, 40 Seconds Each",
-            "No Talking Home Workout Video"
-          ],
-          "videoTitle": "3 Minute Total Body Home Workout - Follow Along (No Talking)",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose runs the full circuit on screen so you can follow along at home.",
-            "No talking, just the workout: kettlebell deadlift, push-ups, jump squats, towel rows.",
-            "Watch the follow along version of my total body home workout for men."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824051827676",
-          "longHeadlines": [
-            "Follow along with my 3 minute total body home workout, no talking, just the work.",
-            "Five exercises, 40 seconds each: kettlebell deadlift, push-ups, jump squats and more.",
-            "Run through my 3 minute home circuit with me, three times for a longer session."
-          ]
-        },
-        {
-          "at": "2026-09-09T01:00:14.056Z",
-          "campaign": "tier2",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "823972295725",
-          "name": "AUTO test · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · tier2 · 2026-09-09",
-          "headlines": [
-            "Better AI Macro Estimates",
-            "How To Track Macros With AI",
-            "How I Photograph My Meals For AI",
-            "Make AI Macro Counts Closer",
-            "AI Macro Tracking From Photos"
-          ],
-          "videoTitle": "Make AI Macro Estimates Way More Accurate",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose shows the detail he adds to meal photos for closer AI macro estimates.",
-            "Watch how one extra line in your photo caption improves the AI macro estimate.",
-            "See my exact caption method for asking AI to estimate the macros in a meal photo."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~823972295725",
-          "longHeadlines": [
-            "Here's the one detail I add to my photo caption so AI macro estimates get closer.",
-            "I show how I caption meal photos to get more accurate macro estimates from AI.",
-            "Learn how a single line in your caption changes the macro estimate AI gives you."
-          ]
-        },
-        {
-          "at": "2026-09-09T01:00:14.057Z",
-          "campaign": "tier1",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "823972420558",
-          "name": "AUTO test · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · tier1 · 2026-09-09",
-          "headlines": [
-            "Better AI Macro Estimates",
-            "How To Track Macros With AI",
-            "How I Photograph My Meals For AI",
-            "Make AI Macro Counts Closer",
-            "AI Macro Tracking From Photos"
-          ],
-          "videoTitle": "Make AI Macro Estimates Way More Accurate",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose shows the detail he adds to meal photos for closer AI macro estimates.",
-            "Watch how one extra line in your photo caption improves the AI macro estimate.",
-            "See my exact caption method for asking AI to estimate the macros in a meal photo."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~823972420558",
-          "longHeadlines": [
-            "Here's the one detail I add to my photo caption so AI macro estimates get closer.",
-            "I show how I caption meal photos to get more accurate macro estimates from AI.",
-            "Learn how a single line in your caption changes the macro estimate AI gives you."
-          ]
-        },
-        {
-          "at": "2026-09-09T01:00:14.058Z",
-          "campaign": "rmktg",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "823972446145",
-          "name": "AUTO test · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · rmktg · 2026-09-09",
-          "headlines": [
-            "Better AI Macro Estimates",
-            "How To Track Macros With AI",
-            "How I Photograph My Meals For AI",
-            "Make AI Macro Counts Closer",
-            "AI Macro Tracking From Photos"
-          ],
-          "videoTitle": "Make AI Macro Estimates Way More Accurate",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose shows the detail he adds to meal photos for closer AI macro estimates.",
-            "Watch how one extra line in your photo caption improves the AI macro estimate.",
-            "See my exact caption method for asking AI to estimate the macros in a meal photo."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~823972446145",
-          "longHeadlines": [
-            "Here's the one detail I add to my photo caption so AI macro estimates get closer.",
-            "I show how I caption meal photos to get more accurate macro estimates from AI.",
-            "Learn how a single line in your caption changes the macro estimate AI gives you."
-          ]
-        },
-        {
-          "at": "2026-09-09T01:00:14.060Z",
-          "campaign": "tier2",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "823972446160",
-          "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · tier2 · 2026-09-09",
-          "headlines": [
-            "Hire A Maid Instead Of A Trainer",
-            "Where My Training Budget Goes",
-            "Fire Your Personal Trainer",
-            "Why I Skip The Personal Trainer",
-            "Rethinking The Trainer Budget"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why he puts the personal trainer budget somewhere else.",
-            "Watch my case for spending the monthly trainer fee on help around the house.",
-            "A short video on trainers, time at home, and how I use AI to plan my training."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~823972446160",
-          "longHeadlines": [
-            "Here's why I would spend the trainer money on a maid instead, at 40 years old.",
-            "In this short I explain what I do with the $200 a month a trainer would cost.",
-            "My take on personal trainers, and the spending swap I made instead."
-          ]
-        },
-        {
-          "at": "2026-09-09T01:00:14.062Z",
-          "campaign": "tier1",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824051827874",
-          "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · tier1 · 2026-09-09",
-          "headlines": [
-            "Hire A Maid Instead Of A Trainer",
-            "Where My Training Budget Goes",
-            "Fire Your Personal Trainer",
-            "Why I Skip The Personal Trainer",
-            "Rethinking The Trainer Budget"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why he puts the personal trainer budget somewhere else.",
-            "Watch my case for spending the monthly trainer fee on help around the house.",
-            "A short video on trainers, time at home, and how I use AI to plan my training."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~824051827874",
-          "longHeadlines": [
-            "Here's why I would spend the trainer money on a maid instead, at 40 years old.",
-            "In this short I explain what I do with the $200 a month a trainer would cost.",
-            "My take on personal trainers, and the spending swap I made instead."
-          ]
-        },
-        {
-          "at": "2026-09-09T01:00:14.066Z",
-          "campaign": "rmktg",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "823972446217",
-          "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · rmktg · 2026-09-09",
-          "headlines": [
-            "Hire A Maid Instead Of A Trainer",
-            "Where My Training Budget Goes",
-            "Fire Your Personal Trainer",
-            "Why I Skip The Personal Trainer",
-            "Rethinking The Trainer Budget"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains why he puts the personal trainer budget somewhere else.",
-            "Watch my case for spending the monthly trainer fee on help around the house.",
-            "A short video on trainers, time at home, and how I use AI to plan my training."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~823972446217",
-          "longHeadlines": [
-            "Here's why I would spend the trainer money on a maid instead, at 40 years old.",
-            "In this short I explain what I do with the $200 a month a trainer would cost.",
-            "My take on personal trainers, and the spending swap I made instead."
-          ]
-        }
-      ],
-      "verdicts": [
-        {
-          "at": "2026-09-09T04:00:05.479Z",
-          "campaign": "tier1",
-          "videoId": "27vZC4xVkms",
-          "adId": "823972485052",
-          "detail": "0 conversions at $8.27 — under the 2 needed in tier1",
-          "verdict": "no-read"
+          "detail": "$0.56 per conversion does not beat the champion's $0.11 (30d)",
+          "verdict": "lose"
         }
       ],
       "promotes": [],
       "skips": [],
       "errors": [
         {
-          "at": "2026-09-08T23:00:18.769Z",
-          "campaign": "tier2",
-          "videoId": "27vZC4xVkms",
-          "adId": "823960375351",
-          "op": "renameAd",
-          "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · tier2 · 2026-09-08",
-          "runId": 3,
-          "reason": "name:add-title",
-          "message": "unknown op renameAd"
+          "at": "2026-09-09T22:00:34.069Z",
+          "campaign": null,
+          "videoId": null,
+          "adId": null,
+          "op": "mutate",
+          "note": "task1 brand goal SUBMIT_LEAD_FORM/WEBSITE -> biddable=true (was true at account level)",
+          "runId": 27,
+          "reason": "manual:raw",
+          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
+          "manualId": 16,
+          "mutation": {
+            "campaignConversionGoalOperation": {
+              "update": {
+                "biddable": true,
+                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~SUBMIT_LEAD_FORM~WEBSITE"
+              },
+              "updateMask": "biddable"
+            }
+          }
         },
         {
-          "at": "2026-09-08T23:00:18.784Z",
-          "campaign": "tier2",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "823960375411",
-          "op": "renameAd",
-          "name": "AUTO test · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · tier2 · 2026-09-08",
-          "runId": 3,
-          "reason": "name:add-title",
-          "message": "unknown op renameAd"
+          "at": "2026-09-09T22:00:34.076Z",
+          "campaign": null,
+          "videoId": null,
+          "adId": null,
+          "op": "mutate",
+          "note": "task1 brand goal PURCHASE/WEBSITE -> biddable=false (was true at account level)",
+          "runId": 27,
+          "reason": "manual:raw",
+          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
+          "manualId": 17,
+          "mutation": {
+            "campaignConversionGoalOperation": {
+              "update": {
+                "biddable": false,
+                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~PURCHASE~WEBSITE"
+              },
+              "updateMask": "biddable"
+            }
+          }
         },
         {
-          "at": "2026-09-08T23:00:18.806Z",
-          "campaign": "tier2",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "823960399324",
-          "op": "renameAd",
-          "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · tier2 · 2026-09-08",
-          "runId": 3,
-          "reason": "name:add-title",
-          "message": "unknown op renameAd"
+          "at": "2026-09-09T22:00:34.079Z",
+          "campaign": null,
+          "videoId": null,
+          "adId": null,
+          "op": "mutate",
+          "note": "task1 brand goal SIGNUP/WEBSITE -> biddable=false (was true at account level)",
+          "runId": 27,
+          "reason": "manual:raw",
+          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
+          "manualId": 18,
+          "mutation": {
+            "campaignConversionGoalOperation": {
+              "update": {
+                "biddable": false,
+                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~SIGNUP~WEBSITE"
+              },
+              "updateMask": "biddable"
+            }
+          }
         },
         {
-          "at": "2026-09-08T23:00:18.813Z",
-          "campaign": "tier1",
-          "videoId": "27vZC4xVkms",
-          "adId": "823916639496",
-          "op": "renameAd",
-          "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · tier1 · 2026-09-08",
-          "runId": 3,
-          "reason": "name:add-title",
-          "message": "unknown op renameAd"
+          "at": "2026-09-09T22:00:34.082Z",
+          "campaign": null,
+          "videoId": null,
+          "adId": null,
+          "op": "mutate",
+          "note": "task1 brand goal SUBSCRIBE_PAID/WEBSITE -> biddable=false (was true at account level)",
+          "runId": 27,
+          "reason": "manual:raw",
+          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
+          "manualId": 19,
+          "mutation": {
+            "campaignConversionGoalOperation": {
+              "update": {
+                "biddable": false,
+                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~SUBSCRIBE_PAID~WEBSITE"
+              },
+              "updateMask": "biddable"
+            }
+          }
         },
         {
-          "at": "2026-09-08T23:00:18.819Z",
-          "campaign": "tier1",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "824039904182",
-          "op": "renameAd",
-          "name": "AUTO test · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · tier1 · 2026-09-08",
-          "runId": 3,
-          "reason": "name:add-title",
-          "message": "unknown op renameAd"
+          "at": "2026-09-09T22:00:34.084Z",
+          "campaign": null,
+          "videoId": null,
+          "adId": null,
+          "op": "mutate",
+          "note": "task1 brand goal ENGAGEMENT/YOUTUBE_HOSTED -> biddable=false (was true at account level)",
+          "runId": 27,
+          "reason": "manual:raw",
+          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
+          "manualId": 20,
+          "mutation": {
+            "campaignConversionGoalOperation": {
+              "update": {
+                "biddable": false,
+                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~ENGAGEMENT~YOUTUBE_HOSTED"
+              },
+              "updateMask": "biddable"
+            }
+          }
         },
         {
-          "at": "2026-09-08T23:00:18.826Z",
-          "campaign": "tier1",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824039965097",
-          "op": "renameAd",
-          "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · tier1 · 2026-09-08",
-          "runId": 3,
-          "reason": "name:add-title",
-          "message": "unknown op renameAd"
+          "at": "2026-09-09T22:00:34.088Z",
+          "campaign": null,
+          "videoId": null,
+          "adId": null,
+          "op": "mutate",
+          "note": "task1 brand goal YOUTUBE_FOLLOW_ON_VIEWS/YOUTUBE_HOSTED -> biddable=false (was true at account level)",
+          "runId": 27,
+          "reason": "manual:raw",
+          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
+          "manualId": 21,
+          "mutation": {
+            "campaignConversionGoalOperation": {
+              "update": {
+                "biddable": false,
+                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~YOUTUBE_FOLLOW_ON_VIEWS~YOUTUBE_HOSTED"
+              },
+              "updateMask": "biddable"
+            }
+          }
         },
         {
-          "at": "2026-09-08T23:00:18.835Z",
-          "campaign": "rmktg",
-          "videoId": "27vZC4xVkms",
-          "adId": "824039869187",
-          "op": "renameAd",
-          "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · rmktg · 2026-09-08",
-          "runId": 3,
-          "reason": "name:add-title",
-          "message": "unknown op renameAd"
+          "at": "2026-09-09T22:00:34.094Z",
+          "campaign": null,
+          "videoId": null,
+          "adId": null,
+          "op": "mutate",
+          "note": "task3c Brand - Search - US: MAXIMIZE_CONVERSIONS -> TARGET_SPEND (Maximize Clicks) with $2.00 cpc ceiling",
+          "runId": 27,
+          "reason": "manual:raw",
+          "message": "The field mask updated a field with subfields: 'target_spend'. At campaignOperation",
+          "manualId": 23,
+          "mutation": {
+            "campaignOperation": {
+              "update": {
+                "targetSpend": {
+                  "cpcBidCeilingMicros": 2000000
+                },
+                "resourceName": "customers/3427170837/campaigns/24086091285"
+              },
+              "updateMask": "target_spend"
+            }
+          }
         },
         {
-          "at": "2026-09-08T23:00:18.841Z",
-          "campaign": "rmktg",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824039904602",
-          "op": "renameAd",
-          "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · rmktg · 2026-09-08",
-          "runId": 3,
-          "reason": "name:add-title",
-          "message": "unknown op renameAd"
-        },
-        {
-          "at": "2026-09-08T23:00:18.846Z",
-          "campaign": "rmktg",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "824039958383",
-          "op": "renameAd",
-          "name": "AUTO test · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · rmktg · 2026-09-08",
-          "runId": 3,
-          "reason": "name:add-title",
-          "message": "unknown op renameAd"
-        },
-        {
-          "at": "2026-09-08T23:38:58.992Z",
-          "campaign": "tier2",
-          "videoId": "27vZC4xVkms",
-          "adId": "823960375351",
-          "op": "renameAd",
-          "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · tier2 · 2026-09-08",
-          "runId": 4,
-          "reason": "name:add-title",
-          "message": "Field 'name' cannot be modified by 'UPDATE' operation. At adOperation.update.name"
-        },
-        {
-          "at": "2026-09-08T23:38:58.996Z",
-          "campaign": "tier2",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "823960375411",
-          "op": "renameAd",
-          "name": "AUTO test · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · tier2 · 2026-09-08",
-          "runId": 4,
-          "reason": "name:add-title",
-          "message": "Field 'name' cannot be modified by 'UPDATE' operation. At adOperation.update.name"
-        },
-        {
-          "at": "2026-09-08T23:38:58.998Z",
-          "campaign": "tier2",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "823960399324",
-          "op": "renameAd",
-          "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · tier2 · 2026-09-08",
-          "runId": 4,
-          "reason": "name:add-title",
-          "message": "Field 'name' cannot be modified by 'UPDATE' operation. At adOperation.update.name"
-        },
-        {
-          "at": "2026-09-08T23:38:59.001Z",
-          "campaign": "tier1",
-          "videoId": "27vZC4xVkms",
-          "adId": "823916639496",
-          "op": "renameAd",
-          "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · tier1 · 2026-09-08",
-          "runId": 4,
-          "reason": "name:add-title",
-          "message": "Field 'name' cannot be modified by 'UPDATE' operation. At adOperation.update.name"
-        },
-        {
-          "at": "2026-09-08T23:38:59.003Z",
-          "campaign": "tier1",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "824039904182",
-          "op": "renameAd",
-          "name": "AUTO test · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · tier1 · 2026-09-08",
-          "runId": 4,
-          "reason": "name:add-title",
-          "message": "Field 'name' cannot be modified by 'UPDATE' operation. At adOperation.update.name"
-        },
-        {
-          "at": "2026-09-08T23:38:59.005Z",
-          "campaign": "tier1",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824039965097",
-          "op": "renameAd",
-          "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · tier1 · 2026-09-08",
-          "runId": 4,
-          "reason": "name:add-title",
-          "message": "Field 'name' cannot be modified by 'UPDATE' operation. At adOperation.update.name"
-        },
-        {
-          "at": "2026-09-08T23:38:59.006Z",
-          "campaign": "rmktg",
-          "videoId": "27vZC4xVkms",
-          "adId": "824039869187",
-          "op": "renameAd",
-          "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · rmktg · 2026-09-08",
-          "runId": 4,
-          "reason": "name:add-title",
-          "message": "Field 'name' cannot be modified by 'UPDATE' operation. At adOperation.update.name"
-        },
-        {
-          "at": "2026-09-08T23:38:59.008Z",
-          "campaign": "rmktg",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824039904602",
-          "op": "renameAd",
-          "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · rmktg · 2026-09-08",
-          "runId": 4,
-          "reason": "name:add-title",
-          "message": "Field 'name' cannot be modified by 'UPDATE' operation. At adOperation.update.name"
-        },
-        {
-          "at": "2026-09-08T23:38:59.009Z",
-          "campaign": "rmktg",
-          "videoId": "3J_ZSNDkZSU",
-          "adId": "824039958383",
-          "op": "renameAd",
-          "name": "AUTO test · Make AI Macro Estimates Way More Accurate · yt:3J_ZSNDkZSU · rmktg · 2026-09-08",
-          "runId": 4,
-          "reason": "name:add-title",
-          "message": "Field 'name' cannot be modified by 'UPDATE' operation. At adOperation.update.name"
+          "at": "2026-09-09T22:00:34.097Z",
+          "campaign": null,
+          "videoId": null,
+          "adId": null,
+          "op": "mutate",
+          "note": "task3c Search - US - Non-Brand - AI Abs Preview: MAXIMIZE_CONVERSIONS -> TARGET_SPEND (Maximize Clicks) with $2.00 cpc ceiling",
+          "runId": 27,
+          "reason": "manual:raw",
+          "message": "The field mask updated a field with subfields: 'target_spend'. At campaignOperation",
+          "manualId": 24,
+          "mutation": {
+            "campaignOperation": {
+              "update": {
+                "targetSpend": {
+                  "cpcBidCeilingMicros": 2000000
+                },
+                "resourceName": "customers/3427170837/campaigns/24148587722"
+              },
+              "updateMask": "target_spend"
+            }
+          }
         }
       ],
       "policy": [],
       "dayOne": [
         {
-          "at": "2026-09-08T20:54:50.509Z",
-          "campaign": "tier2",
-          "runId": 1,
-          "dryRun": true,
-          "paused": [
-            {
-              "adId": "821620155967",
-              "name": "1 min ab workout full workout short",
-              "lifetime": {
-                "conv": 12,
-                "cost": 0.52
-              },
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~821620155967"
-            },
-            {
-              "adId": "822882429006",
-              "name": "late night eating",
-              "lifetime": {
-                "conv": 0,
-                "cost": 0
-              },
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882429006"
-            },
-            {
-              "adId": "822882631584",
-              "name": "truth about supplements",
-              "lifetime": {
-                "conv": 10,
-                "cost": 0.73
-              },
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882631584"
-            },
-            {
-              "adId": "822882636627",
-              "name": "how to use ai to track macros",
-              "lifetime": {
-                "conv": 2,
-                "cost": 0.13
-              },
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882636627"
-            }
-          ],
-          "reason": "no champion yet",
-          "champion": {
-            "adId": "821125719022",
-            "name": "top 10 ab tips",
-            "lifetime": {
-              "conv": 2638,
-              "cost": 282.47
-            },
-            "costPerConv": 0.11
-          },
-          "reversal": [
-            {
-              "op": "enableAd",
-              "adId": "821620155967",
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~821620155967"
-            },
-            {
-              "op": "enableAd",
-              "adId": "822882429006",
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882429006"
-            },
-            {
-              "op": "enableAd",
-              "adId": "822882631584",
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882631584"
-            },
-            {
-              "op": "enableAd",
-              "adId": "822882636627",
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882636627"
-            }
-          ]
-        },
-        {
-          "at": "2026-09-08T20:54:50.517Z",
+          "at": "2026-09-10T00:00:09.264Z",
           "campaign": "tier1",
-          "runId": 1,
-          "dryRun": true,
-          "paused": [
-            {
-              "adId": "822882622017",
-              "name": "how to use ai to track macros",
-              "lifetime": {
-                "conv": 0,
-                "cost": 0.74
-              },
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882622017"
-            },
-            {
-              "adId": "822882636654",
-              "name": "truth about supplements",
-              "lifetime": {
-                "conv": 1,
-                "cost": 2.82
-              },
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882636654"
-            },
-            {
-              "adId": "822882639786",
-              "name": "late night eating",
-              "lifetime": {
-                "conv": 0,
-                "cost": 0
-              },
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882639786"
-            }
-          ],
-          "reason": "no champion yet",
-          "champion": {
-            "adId": "821875813611",
-            "name": "1 min ab workout workout only",
-            "lifetime": {
-              "conv": 128,
-              "cost": 131.37
-            },
-            "costPerConv": 1.03
-          },
-          "reversal": [
-            {
-              "op": "enableAd",
-              "adId": "822882622017",
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882622017"
-            },
-            {
-              "op": "enableAd",
-              "adId": "822882636654",
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882636654"
-            },
-            {
-              "op": "enableAd",
-              "adId": "822882639786",
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882639786"
-            }
-          ]
-        },
-        {
-          "at": "2026-09-08T22:00:03.823Z",
-          "campaign": "tier2",
-          "runId": 2,
+          "runId": 29,
           "dryRun": false,
           "paused": [
             {
-              "adId": "821620155967",
-              "name": "1 min ab workout full workout short",
+              "adId": "822882622017",
+              "name": "how to use ai to track macros",
               "lifetime": {
-                "conv": 12,
-                "cost": 0.52
+                "conv": 1,
+                "cost": 1.31
               },
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~821620155967"
+              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882622017"
             },
             {
-              "adId": "822882429006",
+              "adId": "822882639786",
               "name": "late night eating",
               "lifetime": {
                 "conv": 0,
                 "cost": 0
               },
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882429006"
-            },
-            {
-              "adId": "822882631584",
-              "name": "truth about supplements",
-              "lifetime": {
-                "conv": 10,
-                "cost": 0.73
-              },
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882631584"
-            },
-            {
-              "adId": "822882636627",
-              "name": "how to use ai to track macros",
-              "lifetime": {
-                "conv": 2,
-                "cost": 0.13
-              },
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882636627"
+              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882639786"
             }
           ],
           "reason": "no champion yet",
           "champion": {
-            "adId": "821125719022",
-            "name": "top 10 ab tips",
+            "adId": "822882636654",
+            "name": "truth about supplements",
             "lifetime": {
-              "conv": 2638,
-              "cost": 282.5
+              "conv": 5,
+              "cost": 5.21
             },
-            "costPerConv": 0.11
+            "costPerConv": 1.04
           },
           "reversal": [
             {
               "op": "enableAd",
-              "adId": "821620155967",
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~821620155967"
+              "adId": "822882622017",
+              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882622017"
             },
             {
               "op": "enableAd",
-              "adId": "822882429006",
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882429006"
-            },
-            {
-              "op": "enableAd",
-              "adId": "822882631584",
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882631584"
-            },
-            {
-              "op": "enableAd",
-              "adId": "822882636627",
-              "resourceName": "customers/3427170837/adGroupAds/197884856303~822882636627"
+              "adId": "822882639786",
+              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882639786"
             }
           ]
         }
       ]
     },
     "lastResults": {
-      "at": "2026-09-09T11:00:06.030Z",
+      "at": "2026-09-10T11:00:09.484Z",
       "dryRun": false,
-      "results": []
+      "results": [
+        {
+          "id": "c1",
+          "ok": true,
+          "op": "pauseAd",
+          "labelErrors": [],
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~823972420498"
+        }
+      ]
     }
   },
   "thresholds": {
