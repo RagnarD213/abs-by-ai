@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260910-start-hero-copy-revisions.md](handoff-20260910-start-hero-copy-revisions.md) | now — Dan's four /start hero revisions (drop the video caption/avatar, subtitle under the button, only a Privacy Policy link under it, chips + privacy sentence moved above the footer). One file, Opus 5 medium |
 | [handoff-20260910-start-vsl-edit-and-install.md](handoff-20260910-start-vsl-edit-and-install.md) | after Dan records the /start VSL (script doc linked inside) — edit hero ×4 hooks + full cut with /website-video, then give /start its own video slot (analysis page keeps `CwEGFxpIM-E`), verify live. Fable 5.1 high |
 | [handoff-20260812-revenuecat-restore-behavior-audit.md](handoff-20260812-revenuecat-restore-behavior-audit.md) | fire the day Apple approves (IN_REVIEW since 09-08) |
 | [handoff-20260812-purchase-before-account.md](handoff-20260812-purchase-before-account.md) | after approval AND after the RevenueCat audit |
