@@ -80,7 +80,7 @@ and Preview is a genuine Google-validated dry run of step 1. Measured on 2026-09
 The old developer-token form is gone: the MCC's API center (`ads.google.com/aw/apicenter?ocid=364714550`) now
 says it is for the App Conversion Tracking API only and that Google Ads API access is "enabled and managed in
 your Google Cloud Console". Done on 2026-09-10 in Cloud project **`abs-by-ai`** (the project whose OAuth client
-`GOOGLE_CLIENT_ID` belongs to — project number 768453214640, confirm in the console before wiring anything):
+`GOOGLE_CLIENT_ID` belongs to — project number 768453214640, confirmed on the project dashboard 2026-09-10):
 
 1. `console.cloud.google.com/apis/library/googleads.googleapis.com?project=abs-by-ai` → **Enable** (done).
 2. API page → **Access levels → Manage** (`console.cloud.google.com/google/ads-apis/overview?project=abs-by-ai`):
