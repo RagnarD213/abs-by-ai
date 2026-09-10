@@ -10809,6 +10809,16 @@ app.get('/api/personal-lists', (req, res) => {
   }
 });
 
+// ── SixPackAbs.com feeds ─────────────────────────────────────────────
+// Public JSON the sixpackabs.com WordPress theme pulls hourly: the Abs by AI
+// channel's PUBLIC videos and @danrosefit's latest photo posts. The tokens stay
+// here; WordPress never talks to Google or Meta. The public-only filter and the
+// cache live in scripts/sixpackabs/feed.js (tests: scripts/sixpackabs/feed.test.js).
+const { createSixpackabsFeeds, REFRESH_MS: SPA_FEED_REFRESH_MS } = require('./scripts/sixpackabs/feed');
+const spaFeeds = createSixpackabsFeeds({ fetch, env: process.env });
+app.get('/api/sixpackabs/channel.json', spaFeeds.channelRoute);
+app.get('/api/sixpackabs/instagram.json', spaFeeds.instagramRoute);
+
 // Serve index.html for all non-API, non-dashboard routes (SPA fallback)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -10858,6 +10868,11 @@ setInterval(() => { sweepOrphanedAuditJobs().catch((e) => console.error('audit j
 // Completed-assistant-task cleanup — hourly, first pass shortly after boot.
 setTimeout(() => { assistantDoneSweep(); }, 75 * 1000).unref?.();
 setInterval(() => { assistantDoneSweep(); }, ASSISTANT_SWEEP_MS).unref?.();
+
+// SixPackAbs.com feeds — hourly refresh, first pass shortly after boot so the
+// WordPress sync never lands on a cold cache.
+setTimeout(() => { spaFeeds.refreshAll(); }, 50 * 1000).unref?.();
+setInterval(() => { spaFeeds.refreshAll(); }, SPA_FEED_REFRESH_MS).unref?.();
 
 // Exposed for tests. Requiring this module also starts the server; tests point
 // DATABASE_URL at pgmem:// and stub the stripe / node-fetch modules.
