@@ -51,6 +51,36 @@
       "priority": "med",
       "why": "2026-09-09 AM planning — Dan's daily sweep; a session pre-pulls failed posts + comment counts",
       "addedAt": "2026-09-09"
+    },
+    {
+      "text": "Cut 9:16 vertical ads from the finished editor cuts (Zeeshan's Ad 1 first, Muhammad's as each goes final)",
+      "priority": "high",
+      "why": "Dan 09-10 /prioritize: 'a few ads Muhammad finished that I need to make verticals from'. Ads 1+2 already have verticals; Zeeshan Ad 1 is final with none; Muhammad Ads 3-14 are still in revision rounds.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Finish the /start landing page (video placement + PostHog flag)",
+      "priority": "high",
+      "why": "Dan 09-10 /prioritize. Live since 09-09; the owning session is waiting on Dan's video-placement feedback; the PostHog flag vsl-landing-variant still needs creating by hand.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Finish the analysis screen: confirm the 3 defaults + walk it on iPhone and Android",
+      "priority": "high",
+      "why": "Dan 09-10 /prioritize. Defaults: women's height 5'4\", video slot, out-of-credits path. Native retest outstanding while Apple review is live.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Write and record a video sales letter (VSL) for /start — cold-traffic version",
+      "priority": "key",
+      "why": "Dan 09-10 /prioritize: /start needs its own conversion video; the current one is written for people who already generated.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Build an alternate /start path for visitors with no photo handy",
+      "priority": "high",
+      "why": "Dan 09-10 /prioritize ('get an alternate path' — Claude's reading, confirm). Funnel: 516 of 571 /start-era visitors (90%) never upload a photo.",
+      "addedAt": "2026-09-10"
     }
   ],
   "health": [
@@ -87,6 +117,12 @@
     {
       "text": "Inject Zepbound",
       "priority": "high"
+    },
+    {
+      "text": "Get the Oura ring syncing again",
+      "priority": "high",
+      "why": "Dan 09-10 /prioritize. API token is fine (200) and heart rate synced 7:23 AM, but no sleep score for 09-07, 09-08 or 09-10 — a ring/phone sync problem, not the account.",
+      "addedAt": "2026-09-10"
     }
   ],
   "personal": [
