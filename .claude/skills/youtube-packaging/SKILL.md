@@ -219,6 +219,11 @@ embers, rim glow, zigzag/curved arrows, brush, red ring) lives in
   was 0.60; the head-to-knee hands-on-hips frames sit much lower: blue-247 waistband top 0.61 → use **0.645**,
   white-23 0.665 → **0.695**. At 0.60 both cut through the abs (Ad 5, 2026-09-10). Ruler sheet first, every photo.
   Ad 5 build: `thumbnails/Ad 5 Every Diet You've Tried Failed For The Same Reason/_build-2026-09-10/build.py`.
+- **"Clean / trustable / modern" = the O1 dark-studio recipe, not the Brandon Carter devices.** Dan asked for it on
+  Ad 1 and again on Ad 5 (both 09-10) after seeing the grunge/ember/red-wash version: Manrope ExtraBold caps, red
+  accent bar, wordmark top-left, cutout on a charcoal ground with a soft white spot (O1), or his own seamless extruded
+  (O2). Parametrised per photo in `…/Ad 5 …/_build-2026-09-10/build_clean.py` (from `r3/build_ad1clean.py`). For an ad
+  thumbnail, default to this look first.
 - Gen-fill seeds that carry his elbow at the strip edge, and cutouts on a flat placeholder, both invite the model to
   slide/shrink him — `comp2.py` / `env/comp_env.py` refuse at IoU < 0.9; regenerate, and for cutout-on-placeholder
   seeds say explicitly that the frame cuts him at mid-thigh and no legs/feet are to be added.
