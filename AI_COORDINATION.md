@@ -38,14 +38,10 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
-**Thumbnails for the 5 finished ads — ROUND 2 DELIVERED 2026-09-10 per Dan's revisions; he picks.** Ad 1 (all three
-videos): pool photos cropped at the waistline, copy "HOW TO USE AI TO GET IN SHAPE", the vertical video in **9:16**.
-Ad 2 (both videos): the two studio photos he sent (arm-behind-head A/B; jeans C/D/E on the colour grounds, F yacht deck,
-G rooftop pool — real cutout over generated scenes), 16:9 + 9:16. Files in `social media graphics/youtube/thumbnails/Ad 1…/`
-and `…/Ad 2…/`; review sheets + the four clean environment photos (`photos/ai-environment composites 9-10-26/`) sent in
-chat. Round 1 parked in `_finished-ads-build-2026-09-10/_superseded-round1/`. Rules saved: no claims in ad thumbnails,
-9:16 for vertical ads, waist crop (both skills + memory). Session spend $2.41. Install = Studio on the existing ids.
-Delete once he has picked.
+**Thumbnails for the 5 finished ads — DAN PICKED 2026-09-10; finish + install is a HANDOFF, not started.** Ad 2 = jeans
+photo on the black+red ground (variant C, both aspects, files exist). Ad 1 = the arm-behind-head Muay Thai cutout on a
+"cleaner, more trustable" background — to be built (two options, he picks). Everything is in
+`Handoffs/handoff-20260910-ad-thumbnails-finish.md`; nothing installed yet. Delete this entry when that handoff runs.
 
 **Web pay-first cart — LIVE 2026-09-10, Dan runs the live card test.** The web checkout is now analysis page →
 cart (`#cartSection`: Monthly $19.99 pre-selected, Annual $69.99 "save 71%", trial timeline, disclosure above the
@@ -384,6 +380,10 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
   fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
+- **`Handoffs/handoff-20260910-ad-thumbnails-finish.md`** — Dan's picks 2026-09-10: Ad 2 = jeans photo on black+red (files
+  exist, install by API); Ad 1 = arm-behind-head Muay Thai cutout on a "cleaner, more trustable" background (two options
+  to build, he picks), 16:9 + 9:16; then install all five by `thumbnails.set` and read back. Fable 5.1 medium.
+  **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260910-start-vsl-edit-and-install.md`** — fire after Dan records the /start VSL: edit the
   hero (×4 hooks) + full cut with /website-video, give /start its own video slot (the analysis page keeps
   `CwEGFxpIM-E`), verify live, then check off the dashboard VSL row. Fable 5.1 high. **Not on the dashboard** (his rule).
