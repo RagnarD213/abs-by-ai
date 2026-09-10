@@ -30,6 +30,7 @@
 const TEST_SPEND_USD = 5.00;          // a test is judged once it has spent this much
 const MIN_CONV = { tier2: 5, tier1: 2, rmktg: 1 };   // interpretation 2 in the handoff
 const CHAMPION_WINDOW_DAYS = 30;      // the champion is judged on its trailing 30 days
+const LIMITED_STUCK_DAYS = 2;         // an "Approved (limited)" test still at $0 after this many days is flagged (measured 2026-09-10: no limited ad in the account has ever spent)
 const CAMPAIGN_KEYS = ['tier2', 'tier1', 'rmktg'];
 
 const LABELS = {
@@ -60,6 +61,7 @@ const round2 = (n) => Math.round(n * 100) / 100;
 const ymd = (d) => new Date(d).toISOString().slice(0, 10);
 const videoIdOf = (name) => { const m = /yt:([A-Za-z0-9_-]{11})/.exec(name || ''); return m ? m[1] : null; };
 const createdDateOf = (name) => { const m = /(\d{4}-\d{2}-\d{2})\s*$/.exec(name || ''); return m ? m[1] : null; };
+const titleOf = (name) => { const m = /^(?:AT|AUTO test) · (.+?) · yt:/.exec(name || ''); return m ? m[1] : null; };
 
 const hasLabel = (ad, label) => (ad.labels || []).includes(label);
 // Name prefixes: "AT · " (Dan's rule 2026-09-09) and the earlier "AUTO test " (ads created 2026-09-08, left as they are).
@@ -190,6 +192,7 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
   if (unmatched.length) warnings.push(`ignored campaigns in snapshot: ${unmatched.map(u => u.name).join(' | ')}`);
 
   const perCampaign = {};
+  const stuck = {};   // videoId → limited tests that are not delivering, reported once per video
 
   for (const key of CAMPAIGN_KEYS) {
     const c = campaigns[key]; if (!c) continue;
@@ -269,6 +272,15 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
                     costPerConv: costPerConv(life.cost, life.conv), created, daysWaiting,
                     policy: (t.policy && t.policy.approvalStatus) || null };
       if (!isEnabled(t)) { row.note = 'not enabled'; summary.tests.push(row); continue; }
+      // A limited test that never spends never reaches $5, so it never gets a verdict and
+      // would sit as "running" forever. Reported, never acted on (policy is Google's call).
+      if (/LIMITED/i.test(row.policy || '') && life.cost === 0 && daysWaiting !== null && daysWaiting >= LIMITED_STUCK_DAYS) {
+        row.note = 'limited by Google, not delivering';
+        const id = row.videoId || t.adId;
+        const s = stuck[id] || (stuck[id] = { title: titleOf(t.name) || row.videoId || t.name, videoId: row.videoId, campaigns: [], topics: new Set(), days: 0 });
+        s.campaigns.push(key); s.days = Math.max(s.days, daysWaiting);
+        for (const topic of (t.policy && t.policy.topics) || []) s.topics.add(topic);
+      }
       if (life.cost < TEST_SPEND_USD) { row.phase = 'running'; summary.tests.push(row); continue; }
 
       // Reached $5 — verdict.
@@ -308,6 +320,11 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
     summary.champion = champStats(champion);
 
     // Interpretation-6 pause deferred: with no champion and no day-one, the hand-made ads keep running.
+  }
+
+  for (const s of Object.values(stuck)) {
+    const topics = [...s.topics].map(x => x.replace(/:LIMITED$/, '').replace(/^YOUTUBE_AD_REQUIREMENTS_/, '').replace(/_/g, ' ').toLowerCase().replace('exagerrated', 'exaggerated'));
+    warnings.push(`blocked by Google: "${s.title}"${s.videoId ? ` (yt:${s.videoId})` : ''} is Approved (limited)${topics.length ? ` for ${topics.join(', ')}` : ''} and has spent $0 in ${s.days} days in ${s.campaigns.join(', ')} — it will not run unless Google re-reviews it (appeal in Google Ads)`);
   }
 
   // ── 2–4. New videos → new ads ──
@@ -366,6 +383,6 @@ function pickTemplate(ads) {
 }
 
 module.exports = {
-  plan, candidates, resolveCampaigns, isSkipped, isAuto, stateOf, videoIdOf, createdDateOf, testAdName, cleanTitle, lacksTitle, pickTemplate,
-  TEST_SPEND_USD, MIN_CONV, CHAMPION_WINDOW_DAYS, CAMPAIGN_KEYS, LABELS, DEFAULT_CAMPAIGN_MATCH, CREATE_ERROR_RETRIES,
+  plan, candidates, resolveCampaigns, isSkipped, isAuto, stateOf, videoIdOf, createdDateOf, titleOf, testAdName, cleanTitle, lacksTitle, pickTemplate,
+  TEST_SPEND_USD, MIN_CONV, CHAMPION_WINDOW_DAYS, LIMITED_STUCK_DAYS, CAMPAIGN_KEYS, LABELS, DEFAULT_CAMPAIGN_MATCH, CREATE_ERROR_RETRIES,
 };

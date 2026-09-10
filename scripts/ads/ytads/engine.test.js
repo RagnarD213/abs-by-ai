@@ -221,6 +221,23 @@ console.log('\n6. POLICY');
   check('a disapproved NON-AUTO ad is Dan\'s business, not ours', !r.commands.some(c => c.adId === danBad.adId));
 }
 {
+  // A limited test that never spends would sit as "running" forever (the 09-08 Short, 2026-09-10) — flagged after LIMITED_STUCK_DAYS.
+  const mk = (campaign, key, date, life) => ad({ campaign, name: `AT · Stop Doing Ab Exercises · yt:stuckVid001 · ${key} · ${date}`, labels: ['AUTO', 'AUTO:TEST'], life,
+    policy: { approvalStatus: 'APPROVED_LIMITED', reviewStatus: 'REVIEWED', topics: ['YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED'] } });
+  const events = E.CAMPAIGN_KEYS.map(k => ({ video_id: null, campaign_key: k, event: 'dayone', detail: {} }));
+  const blocked = (r) => r.report.warnings.filter(w => /^blocked by Google/.test(w));
+  const r = run({ snapshot: snap([mk(T2, 'tier2', '2026-09-02', [0, 0]), mk(T1, 'tier1', '2026-09-02', [0, 0])]), events });
+  const w = blocked(r);
+  check('limited + $0 after 2 days → ONE warning per video, naming title, campaigns, days and topic',
+        w.length === 1 && /"Stop Doing Ab Exercises" \(yt:stuckVid001\)/.test(w[0]) && /tier2, tier1/.test(w[0]) && /2 days/.test(w[0]) && /exaggerated or inaccurate claims/.test(w[0]), w);
+  check('the stuck test is still not acted on', r.commands.length === 0, r.commands);
+  check('the stuck row carries a note', r.report.campaigns.tier2.tests[0].note === 'limited by Google, not delivering');
+  check('limited + $0 after only 1 day → no warning yet', blocked(run({ snapshot: snap([mk(T2, 'tier2', '2026-09-03', [0, 0])]), events })).length === 0);
+  check('limited but spending → no warning (it is delivering)', blocked(run({ snapshot: snap([mk(T2, 'tier2', '2026-09-02', [0.4, 0])]), events })).length === 0);
+  check('titleOf reads both prefixes, null for the legacy untitled format',
+        E.titleOf('AT · A b · yt:abcdefghijk · tier2 · 2026-09-09') === 'A b' && E.titleOf('AUTO test · T · yt:abcdefghijk · rmktg · 2026-09-08') === 'T' && E.titleOf('AUTO test yt:abcdefghijk · tier2 · 2026-09-08') === null);
+}
+{
   // A DISAPPROVED champion is paused and no longer used as the bar.
   const champ = ad({ campaign: T2, name: 'dan champ', labels: ['AUTO', 'AUTO:CHAMPION'], life: [40, 200], d30: [10, 40], policy: { approvalStatus: 'DISAPPROVED', reviewStatus: 'REVIEWED', topics: [] } });
   const t = ad({ campaign: T2, name: 'AUTO test yt:tVid0000001 · tier2 · 2026-09-03', labels: ['AUTO', 'AUTO:TEST'], life: [5, 5] });

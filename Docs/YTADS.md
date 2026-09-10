@@ -55,6 +55,14 @@ Policy: a DISAPPROVED `AUTO` ad is paused and retired and that video is never re
 campaign (its ad stays in the ledger). "Eligible (Limited)" is reported, not acted on. Hand-made ads'
 policy state is never touched.
 
+**A limited test that never spends is flagged (added 2026-09-10).** Measured that day: no "Approved (limited)" ad
+in this account has ever spent anything — the 09-08 Short and "Hire A Maid" (flagged *exaggerated or inaccurate
+claims*, a YouTube-ad-requirements topic, so it is the video and not our headlines) and Dan's own hand-made "late
+night eating" all sit at $0. Such a test never reaches $5, so it never gets a verdict and would read as "running"
+forever. After `LIMITED_STUCK_DAYS` (2) at $0 the engine adds one `blocked by Google: …` warning per video (title,
+campaigns, days, topic) to the report; the morning brief prints it as a row. Still never acted on — the fix is a
+re-review appeal in the Google Ads UI, which is Dan's call.
+
 ## Running / checking by hand
 
 ```bash
