@@ -134,3 +134,11 @@ changed (struck → replacement) because they did not say what the video is abou
 6. **(2026-09-10) Resubmissions are tamer than normal ads.** When an ad is disapproved or limited, the retry
    rule rewrites it as a flat description of what the video shows — no hooks, commands, questions, contrast or
    claim-like numbers, and rule 2 does not apply. Enforced by `lint.js` `TAME_RULES` (`{ tame: true }`).
+
+2. **(2026-09-10) No claim that reads unbelievable without the video's context.** Google limited every
+   Ad 1 ad in the conversion campaign for CLICKBAIT within minutes on *"This Picture Got Me Abs"* /
+   *"Abs At 40 - The Photo That Did It"*. Dan: *"This picture got me abs (I think) would be too much. It
+   might seem unbelievable if you don't know the context."* The shapes he wants reused instead:
+   **"How I Got Abs At 40"**, **"How AI Got Me Abs"**, **"How I Got Abs With AI"** — first person, plain,
+   the outcome stated as his own history, not as a reveal. Most viewers never read the copy (in-stream),
+   but Google scrutinises it.

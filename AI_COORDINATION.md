@@ -420,14 +420,17 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Finished ads on YouTube — 7 UPLOADED UNLISTED 2026-09-10, 5 USABLE, Dan uses the links in Google Ads.** Ad 2 ×2 and
-Ad 1 ×3 (Muhammad 16:9, Zeeshan 16:9 4K, Muhammad's vertical — Dan approved that one 09-10) are good. ⚠ The two Zeeshan
-verticals (`rimBWjT9-oo`, `JOZVk4_HDwQ`) are byte-identical to the files he REJECTED for processed audio 09-10 — do not
-use; the token cannot delete, Dan removes them in Studio. Links: `Docs/AD_VIDEO_IDS.md`. When the Zeeshan rebuild is
-approved, upload it as a new video and add a row there. Delete this entry once the campaign is built on these ids.
-⚠ For the session holding the uncommitted `_shared/qc_corpus/corpus.json`: I appended two approved entries
-(`muhammad-ad1-vertical-approved` with a `do_no_harm` known_gap, `muhammad-ad2-vertical-approved`) on disk and left
-them UNCOMMITTED so your in-flight work is not committed under my name. Please keep them in your commit.
+**Demand Gen conversion campaign — BUILT PAUSED 2026-09-10, Dan reviews and enables.** Campaign `24243839443`
+(`[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home`): $20/day, target CPA $30 on Free
+Generation Started only, 4 ad groups (Ad 1 / Ad 2 × /start / home), 10 ads (every finished version of each ad), one
+named Audience per ad (male + unknown, 25-54, the custom segments), US + Canada + English on each ad group. Full
+record + the Ads Scripts traps: `Docs/DGEN_CONVERSION_CAMPAIGN.md`; builder `scripts/ads/oneoff/build-video-campaign.js`.
+Dan's own headlines are on all 10 ads (his 09-10 screenshots); the one description Google disapproved as Clickbait was
+rewritten on the six Ad 1 ads (16:05 CT) and is in re-review. ⚠ Ad 1 read "Approved (limited) — Clickbait" until
+re-review clears; a limited ad never spends here. This campaign is OUTSIDE the ytads retry automation. The two
+rejected Zeeshan verticals (`rimBWjT9-oo`, `JOZVk4_HDwQ`) are not in it; Dan still removes them in Studio.
+**Dan: enable the campaign when happy; developer-token application status is in the same doc.** Delete this entry
+once it is live and the policy state is clean.
 
 **Ad 1 "this picture got me abs" — 9:16 verticals from ZEESHAN's final — RE-DELIVERED 2026-09-10 WITH HIS AUDIO UNTOUCHED,
 Dan reviews.** He rejected the second delivery's audio ("Zishan's audio sounds much better… Use Zishan's audio") — it had
