@@ -430,7 +430,7 @@ Dan's own headlines are on all 10 ads (his 09-10 screenshots); the one descripti
 rewritten on the six Ad 1 ads (16:05 CT) and is in re-review. ⚠ Ad 1 read "Approved (limited) — Clickbait" until
 re-review clears; a limited ad never spends here. This campaign is OUTSIDE the ytads retry automation. The two
 rejected Zeeshan verticals (`rimBWjT9-oo`, `JOZVk4_HDwQ`) are not in it; Dan still removes them in Studio.
-**Dan: enable the campaign when happy; developer-token application status is in the same doc.** Delete this entry
+**Dan: enable the campaign when happy.** Google Ads API: the token form is gone; the API is enabled on Cloud project `abs-by-ai` and the **Explorer** access application is under review (doc §API access) — once it shows, mint an `adwords`-scope refresh token and the Ads Script channel is no longer needed. Delete this entry
 once it is live and the policy state is clean.
 
 **Ad 1 "this picture got me abs" — 9:16 verticals from ZEESHAN's final — RE-DELIVERED 2026-09-10 WITH HIS AUDIO UNTOUCHED,

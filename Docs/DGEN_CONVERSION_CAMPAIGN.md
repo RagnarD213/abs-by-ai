@@ -74,3 +74,22 @@ and Preview is a genuine Google-validated dry run of step 1. Measured on 2026-09
   Run / Preview by clicking the `material-button` by text from JS; the "Preview before running?"
   dialog's *Run without preview* needs a coordinate click. Preview of an unsaved editor runs the SAVED
   version. Results: `POST /api/ytads/dump` → `ytads_events` (events 138–149 are this build).
+
+## Google Ads API access (started 2026-09-10, so future builds need no Ads Script)
+
+The old developer-token form is gone: the MCC's API center (`ads.google.com/aw/apicenter?ocid=364714550`) now
+says it is for the App Conversion Tracking API only and that Google Ads API access is "enabled and managed in
+your Google Cloud Console". Done on 2026-09-10 in Cloud project **`abs-by-ai`** (the project whose OAuth client
+`GOOGLE_CLIENT_ID` belongs to — project number 768453214640, confirm in the console before wiring anything):
+
+1. `console.cloud.google.com/apis/library/googleads.googleapis.com?project=abs-by-ai` → **Enable** (done).
+2. API page → **Access levels → Manage** (`console.cloud.google.com/google/ads-apis/overview?project=abs-by-ai`):
+   level was **Test** (15,000 ops/day, test accounts only). **Applied for Explorer** ("allows calls to production
+   accounts") — one click, no form; the page then read *"Your application for explorer level access is currently
+   under review. Please check back in a few minutes."*
+3. When Explorer shows, the existing OAuth client + a refresh token with the `adwords` scope (the stored
+   `GOOGLE_REFRESH_TOKEN` is `calendar.readonly` only — mint a new one) can call the REST API on 342-717-0837
+   through the MCC. Ads Scripts stay as the fallback channel.
+
+The one-off build script is left in the account as `ONE-OFF build video campaign 2026-09-10 (delete after)`,
+unscheduled (it cannot run on its own); the Options menu offers no Remove — Dan removes it from the editor's ⋮ menu.
