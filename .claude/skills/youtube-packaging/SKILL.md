@@ -223,7 +223,8 @@ embers, rim glow, zigzag/curved arrows, brush, red ring) lives in
   Ad 1 and again on Ad 5 (both 09-10) after seeing the grunge/ember/red-wash version: Manrope ExtraBold caps, red
   accent bar, wordmark top-left, cutout on a charcoal ground with a soft white spot (O1), or his own seamless extruded
   (O2). Parametrised per photo in `…/Ad 5 …/_build-2026-09-10/build_clean.py` (from `r3/build_ad1clean.py`). For an ad
-  thumbnail, default to this look first.
+  thumbnail, default to this look first and show BOTH grounds — Dan picked O1 dark for Ad 1 but **O2 light (white
+  backdrop) for Ad 5** ("That looks better to me"), so neither is a settled default.
 - Gen-fill seeds that carry his elbow at the strip edge, and cutouts on a flat placeholder, both invite the model to
   slide/shrink him — `comp2.py` / `env/comp_env.py` refuse at IoU < 0.9; regenerate, and for cutout-on-placeholder
   seeds say explicitly that the frame cuts him at mid-thigh and no legs/feet are to be added.

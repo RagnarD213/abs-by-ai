@@ -18,7 +18,7 @@ script), queue 193 → 197, all 4 verified on a fresh pull (schedules 4327372–
 
 | FB · IG @danrosefit · TikTok | IG @abs.by.ai | YouTube |
 |---|---|---|
-| Wed Sep 16, 9 AM CT | Sep 17, 9 AM | `bwfSQopZy1w`, Sep 16 9 AM, thumbnail B1 clean dark studio (studio-white-23) |
+| Wed Sep 16, 9 AM CT | Sep 17, 9 AM | `bwfSQopZy1w`, Sep 16 9 AM, thumbnail B2 clean white backdrop (studio-white-23, Dan's pick) |
 
 - IG CTA keyword **`FOOD`** (diet/meal-plan topic); UTM `utm_campaign=longform&utm_content=ad5-every-diet`.
   Links go to the absbyai.com root, not `/start`, so organic traffic stays out of the `/start` A/B test.

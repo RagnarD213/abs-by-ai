@@ -67,9 +67,8 @@ the 09-13 TikTok post fails, that is the account's length cap. Table: `BLOTATO_Q
 
 **Ad 5 "Every Diet You've Tried Failed" (Muhammad V3 HD) — FILED + SCHEDULED ON EVERY PLATFORM 2026-09-10, nothing
 blocked.** Public Wed 09-16 9 AM CT: YouTube `bwfSQopZy1w` + FB / IG @danrosefit / TikTok via Blotato (@abs.by.ai 09-17; `scripts/blotato/ad5_queue.py`,
-queue 197/200). Dan asked for a "clean, trustable, modern" thumbnail: B1 (dark studio, white-23) is live + read back;
-A1 / A2 / B2 sent on a review sheet — Dan picks, swap = `set-thumbnail.js`. Optional in Studio: the A/B test, a pinned
-comment. Delete once it posts.
+queue 197/200). Thumbnail = Dan's pick B2 (clean white backdrop, white-23), live + read back. Optional in Studio: a
+pinned comment. Delete once it posts.
 
 **/start VSL script — WRITTEN 2026-09-10, Dan reads it and records.** Google Doc
 `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`: hero cut (≈1:15, demo-first — Dan uploads his own before photo, "I'll
