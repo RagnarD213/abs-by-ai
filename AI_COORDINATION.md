@@ -375,10 +375,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
 - **`Handoffs/handoff-20260910-start-vsl-edit-and-install.md`** — fire after Dan records the /start VSL: edit the
   hero (×4 hooks) + full cut with /website-video, give /start its own video slot (the analysis page keeps
   `CwEGFxpIM-E`), verify live, then check off the dashboard VSL row. Fable 5.1 high. **Not on the dashboard** (his rule).
-- **`Handoffs/handoff-20260910-start-hero-copy-revisions.md`** — Dan's four /start hero revisions (2026-09-10, after seeing Ad 1
-  live): drop the avatar caption under the video, subtitle under the button, only a Privacy Policy link under it, the
-  "Free to try…" chips + privacy sentence moved above the footer links. One file (`public/start.html`); Opus 5 medium.
-  **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260908-google-ads-custom-segments.md`** — ten Google Ads custom segments (six search-term,
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which
@@ -406,13 +402,6 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 ---
 
 # ACTIVE TASK
-
-**/start video — INTERIM AD 1 LIVE 2026-09-10 (`ef9b185`), verified; the VSL itself is still unrecorded.** Dan has no
-VSL footage yet and chose Muhammad's finished 16:9 of Ad 1 "This Picture Got Me Abs" (`lf46ytHacss`, 3:53) for the page
-meanwhile. `/start` now has its OWN slot, `window.ABS_START_VIDEO` in `public/site-video.js` (id, title, lengthLabel);
-the analysis page keeps `CwEGFxpIM-E` (verified live). Caption + variant B heading follow the config. When the VSL is
-cut, the install is one line there. The edit+install handoff stays listed for the recording; the dashboard VSL row stays
-unchecked. Delete this entry once Dan has seen the page.
 
 **Finished ads on YouTube — 7 UPLOADED UNLISTED 2026-09-10, 5 USABLE, Dan uses the links in Google Ads.** Ad 2 ×2 and
 Ad 1 ×3 (Muhammad 16:9, Zeeshan 16:9 4K, Muhammad's vertical — Dan approved that one 09-10) are good. ⚠ The two Zeeshan

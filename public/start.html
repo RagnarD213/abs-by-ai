@@ -122,7 +122,8 @@ img { max-width: 100%; display: block; }
 .hero { padding: 2px 0 8px; }
 /* Sized to the viewport so the headline wraps to the same three lines on every phone width (Dan, 2026-09-09). */
 h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7px; font-weight: 800; margin-bottom: 12px; }
-.sub { font-size: 15px; line-height: 1.5; color: var(--mute); font-weight: 500; margin-bottom: 12px; }
+/* Sits under the hero button, centred to it (Dan, 2026-09-10). */
+.sub { font-size: 15px; line-height: 1.5; color: var(--mute); font-weight: 500; margin-top: 12px; text-align: center; }
 .hero-visual { margin-bottom: 18px; }
 
 /* Video frame (shared by hero + section) */
@@ -133,8 +134,6 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
 .video-ph > * { position: relative; }
 .video-ph-play { width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
 .video-ph-lbl { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; }
-.video-cap { display: flex; align-items: center; gap: 8px; margin-top: 9px; font-size: 12.5px; color: var(--mute); font-weight: 600; }
-.video-cap img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; }
 
 /* Before / after pair */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -265,14 +264,13 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
     <div class="hero-copy">
       <!-- A · control: image-led, the video leads -->
       <h1 class="only-control">See Yourself With Abs, Then Get A Personalized Plan To Make It Real.</h1>
-      <p class="sub only-control">Upload one photo. In about 20 seconds our AI shows you an image of your goal body — then builds a workout and nutrition plan around it.</p>
 
       <!-- B · analysis: numbers-led, the video sits below the proof -->
       <h1 class="only-analysis">Find Out How Far You Are From Abs — From One Photo.</h1>
-      <p class="sub only-analysis">Upload a photo and our AI reads your estimated body fat and lean muscle, shows where your plan should focus — and generates an AI image of your goal body.</p>
 
       <div class="hero-visual hero-visual-mobile" id="heroVisualMobile"></div>
 
+      <!-- Button → subtitle → Privacy Policy, same order in both variants (Dan, 2026-09-10). -->
       <div class="cta-block" id="ctaBlock">
         <input type="file" id="photoInput" accept="image/*" style="display:none" />
         <button type="button" class="cta-btn" id="heroCta" data-cta="hero">
@@ -280,8 +278,9 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
           <span class="only-control">Upload a photo — see your abs</span>
           <span class="only-analysis">Upload a photo — get my analysis</span>
         </button>
-        <div class="cta-note"><span>Free to try</span><span>About 20 seconds</span><span>No sign-up to see it</span></div>
-        <div class="cta-legal">Your photo is sent securely to our AI partners (Anthropic, Google, Replicate) to create your result — never sold, delete anytime. <a href="/privacy">Privacy Policy</a></div>
+        <p class="sub only-control">Upload one photo. In about 20 seconds our AI shows you an image of your goal body — then builds a workout and nutrition plan around it.</p>
+        <p class="sub only-analysis">Upload a photo and our AI reads your estimated body fat and lean muscle, shows where your plan should focus — and generates an AI image of your goal body.</p>
+        <div class="cta-legal"><a href="/privacy">Privacy Policy</a></div>
       </div>
     </div>
 
@@ -290,7 +289,6 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
            desktop slot (right column) by a script; content is built once. -->
       <div id="heroVideoBlock" style="display:none">
         <div class="video-frame" id="heroVideoFrame"></div>
-        <div class="video-cap"><img src="/img/dan-avatar.jpg" alt=""><span id="heroVideoCap">Dan Rose, founder · what happens after your photo · 3:50</span></div>
       </div>
       <div id="heroProof" class="only-control">
         <div class="pair">
@@ -455,6 +453,11 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
   </section>
 
   <div class="legal">AbsByAI is an app for generating an image of your fitness goal. <strong>The examples shown above are not real fitness transformations.</strong> They are examples of the type of images our app can make. Abs By AI does not change your body and does not promise any physical result. AI-generated images are labelled as such.</div>
+  <!-- Moved here from under the hero button (Dan, 2026-09-10). -->
+  <div style="margin-top: 18px">
+    <div class="cta-note"><span>Free to try</span><span>About 20 seconds</span><span>No sign-up to see it</span></div>
+    <div class="cta-legal">Your photo is sent securely to our AI partners (Anthropic, Google, Replicate) to create your result — never sold, delete anytime. <a href="/privacy">Privacy Policy</a></div>
+  </div>
   <div class="footer-links">
     <a href="/how-it-works">How it works</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/refunds">Refunds</a> &middot; <a href="/disclaimer">Disclaimer</a> &middot; <a href="/sources">Sources</a> &middot; <a href="/contact">Contact</a> &middot; <a href="/">Already a member? Log in</a>
   </div>
@@ -475,8 +478,7 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
   const OWN = !!(START.youtubeId || START.mp4);
   const VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '', title: '', lengthLabel: '' }, OWN ? START : (window.ABS_SITE_VIDEO || {}));
   if (OWN) {
-    const t = VIDEO.title || 'see yourself with abs', len = VIDEO.lengthLabel ? ' · ' + VIDEO.lengthLabel : '';
-    const cap = $('heroVideoCap'); if (cap) cap.textContent = 'Dan Rose, founder · ' + t + len;
+    const t = VIDEO.title || 'see yourself with abs';
     const h = $('sectionVideoH'); if (h) h.textContent = 'Watch: ' + t;
     const p = $('sectionVideoP'); if (p) p.textContent = 'Dan Rose, founder of Abs by AI, uploads his own before photo and shows you what comes back.' + (VIDEO.lengthLabel ? ' ' + VIDEO.lengthLabel + '.' : '');
   }
