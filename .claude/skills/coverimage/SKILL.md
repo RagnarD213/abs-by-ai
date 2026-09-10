@@ -281,3 +281,18 @@ Impact and Copperplate live in `/System/Library/Fonts/Supplemental/`.
   `Short-form video content/covers/review/upload-youtube/` → Save. Studio may
   throw a "Verify it's you" dialog first; clicking **Next** opens a Google popup
   that clears itself, then reload the edit page.
+
+## Instagram: fixing the cover on a reel that is already posted (2026-09-10)
+
+- **Cause seen:** a Blotato post created without `coverImageUrl` (the 08-24 @danrosefit
+  backfill in `scripts/blotato/danrosefit_migration.py` passed none for the night-snacking
+  reel `DdAIo4-j_RS`), so Instagram used a video frame. Always pass `coverImageUrl` on reels.
+- **The website cannot change a cover** — instagram.com's Edit shows caption, location,
+  collaborators and accessibility only. The Graph API cannot either.
+- **What works:** the iPhone app via iPhone Mirroring (needs full-screen control; background
+  clicks do not reach the mirrored phone). First put the 1080x1920 cover in Dan's library —
+  `sips -s format jpeg` it, then `osascript -e 'tell application "Photos" to import {POSIX file "<jpg>"} skip check duplicates true'`;
+  iCloud has it on the phone within a minute. Then: profile → the reel → ⋯ → Edit → tap
+  **Cover** → Add from camera roll → pick it → check the **Profile grid** tab (3:4 crop
+  must keep the title) → ✓ → ✓. Verify on the web grid; the phone app shows its cached
+  tile for a while.
