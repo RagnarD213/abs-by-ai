@@ -128,3 +128,9 @@ changed (struck → replacement) because they did not say what the video is abou
    shape: one plain sentence about what the video shows, first person or "Daniel Rose shows/explains…".
 4. **(2026-09-09) Ad NAMES start with `AT`** (not "AUTO test"): `AT · <video title> · yt:<id> · <campaign> · <date>`. Existing
    ads keep their old names. Names are not copy and are never shown to viewers.
+5. **(2026-09-10) Never use the word "trick".** Google flagged Dan's "late night eating" ad as **Clickbait** on
+   exactly the two lines that said it (*"Here's the AI trick that finally eliminated my late night junk food
+   habit."*, *"…try this trick to fight it I learned from AI."*). Enforced in `lint.js` (rule `trick`).
+6. **(2026-09-10) Resubmissions are tamer than normal ads.** When an ad is disapproved or limited, the retry
+   rule rewrites it as a flat description of what the video shows — no hooks, commands, questions, contrast or
+   claim-like numbers, and rule 2 does not apply. Enforced by `lint.js` `TAME_RULES` (`{ tame: true }`).

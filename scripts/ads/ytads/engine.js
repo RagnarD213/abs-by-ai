@@ -30,14 +30,17 @@
 const TEST_SPEND_USD = 5.00;          // a test is judged once it has spent this much
 const MIN_CONV = { tier2: 5, tier1: 2, rmktg: 1 };   // interpretation 2 in the handoff
 const CHAMPION_WINDOW_DAYS = 30;      // the champion is judged on its trailing 30 days
-const LIMITED_STUCK_DAYS = 2;         // an "Approved (limited)" test still at $0 after this many days is flagged (measured 2026-09-10: no limited ad in the account has ever spent)
+// Retry rule (Dan 2026-09-10) — see plan() step 6b.
+const RETRY_WAIT_DAYS = 2;            // a LIMITED ad still at $0 after this many days has failed review (measured 2026-09-10: no limited ad in the account has ever spent); DISAPPROVED fails at once
+const THUMB_SETTLE_MINUTES = 50;      // after the thumbnail swap, wait this long before attempt 3 so Google reviews the new image
 const CAMPAIGN_KEYS = ['tier2', 'tier1', 'rmktg'];
 
 const LABELS = {
   AUTO: 'AUTO', TEST: 'AUTO:TEST', CHAMPION: 'AUTO:CHAMPION',
   RETIRED: 'AUTO:RETIRED', RETIRED_DAY1: 'AUTO:RETIRED-DAY1',
+  SUPERSEDED: 'AUTO:SUPERSEDED',   // failed review and replaced by a retry attempt; removed if the whole chain fails
 };
-const STATE_LABELS = [LABELS.TEST, LABELS.CHAMPION, LABELS.RETIRED, LABELS.RETIRED_DAY1];
+const STATE_LABELS = [LABELS.TEST, LABELS.CHAMPION, LABELS.RETIRED, LABELS.RETIRED_DAY1, LABELS.SUPERSEDED];
 
 // How the three campaigns are recognised in the snapshot. All three ids were PINNED
 // from the first Ads Script snapshot (run 1, 2026-09-08 20:54 UTC). Name matching is
@@ -62,6 +65,10 @@ const ymd = (d) => new Date(d).toISOString().slice(0, 10);
 const videoIdOf = (name) => { const m = /yt:([A-Za-z0-9_-]{11})/.exec(name || ''); return m ? m[1] : null; };
 const createdDateOf = (name) => { const m = /(\d{4}-\d{2}-\d{2})\s*$/.exec(name || ''); return m ? m[1] : null; };
 const titleOf = (name) => { const m = /^(?:AT|AUTO test) · (.+?) · yt:/.exec(name || ''); return m ? m[1] : null; };
+const attemptOf = (name) => { const m = / · r([23]) · /.exec(name || ''); return m ? Number(m[1]) : 1; };   // retry attempt, from the name
+const approvalOf = (ad) => String((ad.policy && ad.policy.approvalStatus) || '').toUpperCase();
+const videoOfAd = (ad) => videoIdOf(ad.name) || ad.videoId || null;   // hand-made ads carry the video only in the snapshot
+const daysSince = (iso, now) => (iso ? Math.max(0, Math.floor((now - new Date(iso)) / 86400e3)) : null);
 
 const hasLabel = (ad, label) => (ad.labels || []).includes(label);
 // Name prefixes: "AT · " (Dan's rule 2026-09-09) and the earlier "AUTO test " (ads created 2026-09-08, left as they are).
@@ -77,6 +84,20 @@ const isEnabled = (ad) => String(ad.status || '').toUpperCase() === 'ENABLED';
 const costPerConv = (cost, conv) => (num(conv) > 0 ? round2(cost / conv) : null);
 const stats = (block) => ({ cost: usd(block && block.costMicros), conv: round2(num(block && block.conversions)) });
 
+// Google's review of one ad, as the retry rule reads it: 'failed' | 'pending' | 'ok'.
+// Disapproved fails at once. Limited fails only while it has spent nothing for
+// RETRY_WAIT_DAYS (a limited ad that spends is running — Dan's answer 2026-09-10);
+// `forced` (a retry:force event) skips the wait. Anything else in review is pending.
+function policyVerdict(ad, ageDays, forced) {
+  const a = approvalOf(ad);
+  if (a === 'DISAPPROVED') return 'failed';
+  if (/LIMITED/.test(a)) {
+    if (stats(ad.lifetime).cost > 0) return 'ok';
+    return forced || (ageDays !== null && ageDays >= RETRY_WAIT_DAYS) ? 'failed' : 'pending';
+  }
+  return a === 'APPROVED' ? 'ok' : 'pending';
+}
+
 // Ad names are for Dan's eyes in Ads Manager as much as for the ledger: "AT" (Dan's
 // prefix, 2026-09-09), the video title, then the machine-readable tail. Parsers key on
 // "yt:<id>", the trailing date and the prefix — never on the title (Dan's rule
@@ -86,10 +107,12 @@ function cleanTitle(title) {
   const t = String(title || '').replace(/[·|\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim();
   return t.length > TITLE_MAX ? t.slice(0, TITLE_MAX - 1).trimEnd() + '…' : t;
 }
-function testAdName(videoId, key, now, title) {
+// attempt 2/3 = a retry (" · r2 · " after the id); attempt 1 names are unchanged.
+function testAdName(videoId, key, now, title, attempt = 1) {
   const t = cleanTitle(title);
-  return t ? `AT · ${t} · yt:${videoId} · ${key} · ${ymd(now)}`
-           : `AT · yt:${videoId} · ${key} · ${ymd(now)}`;
+  const r = attempt > 1 ? ` · r${attempt}` : '';
+  return t ? `AT · ${t} · yt:${videoId}${r} · ${key} · ${ymd(now)}`
+           : `AT · yt:${videoId}${r} · ${key} · ${ymd(now)}`;
 }
 // An AUTO ad created before titles went into names (format "AUTO test yt:…"). Kept for
 // reporting only — such an ad cannot be renamed (see plan()).
@@ -160,6 +183,8 @@ function permanentSkip(events, videoId, key) {
   const mine = (events || []).filter(e => e.video_id === videoId && (e.campaign_key === key || e.campaign_key == null));
   if (mine.some(e => e.event === 'skip' && e.detail && e.detail.permanent)) return 'skip:' + (mine.find(e => e.event === 'skip' && e.detail.permanent).detail.reason || 'permanent');
   if (mine.some(e => e.event === 'policy')) return 'policy:disapproved';
+  // Removed ads drop out of the snapshot, so without this the video would look untested and start over.
+  if (mine.some(e => e.event === 'retry:failed' && e.campaign_key === key)) return 'retry:failed';
   const errs = mine.filter(e => e.event === 'error' && e.detail && e.detail.op === 'createAd' && e.campaign_key === key).length;
   if (errs >= CREATE_ERROR_RETRIES) return `create-error×${errs}`;
   return null;
@@ -180,7 +205,8 @@ function groupAdsByCampaign(snapshot, campaigns) {
 
 // headlinesByVideo: { [videoId]: {headlines, longHeadlines, descriptions} } — only
 // videos with a passing set get an ad; the others are reported as waiting.
-function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun }) {
+// retryCopyByVideo: { [videoId]: set } — the tamer copy for a resubmission (retrycopy events).
+function plan({ snapshot, videos, events, headlinesByVideo, retryCopyByVideo, now, config, dryRun }) {
   now = now ? new Date(now) : new Date();
   const { campaigns, unmatched, missing } = resolveCampaigns(snapshot, config);
   const adsBy = groupAdsByCampaign(snapshot, campaigns);
@@ -192,7 +218,25 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
   if (unmatched.length) warnings.push(`ignored campaigns in snapshot: ${unmatched.map(u => u.name).join(' | ')}`);
 
   const perCampaign = {};
-  const stuck = {};   // videoId → limited tests that are not delivering, reported once per video
+
+  // Retry-rule state, rebuilt from the events every hour.
+  const retry = { waitingCopy: [], seen: [], thumbnails: [], restore: [], failed: [], actions: [] };
+  const seen = {}, forced = new Set(), thumb = {}, retryCopyFailed = new Set(), inPlay = new Set();
+  for (const e of (events || [])) {
+    if (e.event === 'limited:seen' && e.ad_id && !seen[e.ad_id]) seen[e.ad_id] = e.at;
+    else if (e.event === 'retry:force' && e.ad_id) forced.add(String(e.ad_id));
+    else if (e.event === 'retrycopy:failed' && e.video_id) retryCopyFailed.add(e.video_id);
+    else if (e.event === 'retrycopy' && e.video_id) retryCopyFailed.delete(e.video_id);
+    else if (/^thumb:/.test(e.event) && e.video_id) {
+      const t = thumb[e.video_id] = thumb[e.video_id] || {};
+      if (e.event === 'thumb:swapped') { t.swappedAt = e.at; t.failed = null; }
+      else if (e.event === 'thumb:restored') t.restoredAt = e.at;
+      else if (e.event === 'thumb:failed' && !(e.detail && e.detail.transient)) t.failed = (e.detail && e.detail.reason) || 'unknown reason';
+    }
+  }
+  const adAge = (ad) => { const d = createdDateOf(ad.name); return d ? daysSince(d + 'T00:00:00Z', now) : (seen[ad.adId] ? daysSince(seen[ad.adId], now) : null); };
+  const assetTitles = {}; for (const a of Object.values(snapshot.assets || {})) if (a && a.videoId) assetTitles[a.videoId] = a.title;
+  const titleFor = (vid, vads) => ((videos || []).find(v => v.id === vid) || {}).title || vads.map(a => titleOf(a.name)).find(Boolean) || assetTitles[vid] || vid;
 
   for (const key of CAMPAIGN_KEYS) {
     const c = campaigns[key]; if (!c) continue;
@@ -213,6 +257,89 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
         ad._paused = true;
       } else if (/LIMITED/i.test(approval) || /LIMITED/i.test(String(ad.policy && ad.policy.reviewStatus || ''))) {
         summary.policy.push({ adId: ad.adId, name: ad.name, limited: true, topics: (ad.policy && ad.policy.topics) || [] });
+      }
+    }
+
+    // ── 6b. Retry rule (Dan 2026-09-10) ──
+    // A disapproved ad, or a limited one still at $0 after RETRY_WAIT_DAYS, is resubmitted:
+    // attempt 2 = a new ad with tamer copy; attempt 3 = a clean, text-free thumbnail on the
+    // video (done by routes.js between runs), then a fresh ad. If attempt 3 fails too, every
+    // ad in the chain is removed and the original thumbnail goes back. An attempt that passes
+    // review simply runs on as an ordinary test. Hand-made ads are included (Dan's answer);
+    // ones he paused himself are not (only enabled, day-one-retired or disapproved ones).
+    {
+      const groupsEnabled = (c.adGroups || []).filter(g => String(g.status || '').toUpperCase() === 'ENABLED');
+      const verdictOf = (ad) => policyVerdict(ad, adAge(ad), forced.has(String(ad.adId)));
+      const createRetry = (attempt, vid, title, set) => {
+        if (!set) { warnings.push(`retry: no copy for attempt ${attempt} of "${title}" (yt:${vid}) in ${key}`); return null; }
+        if (groupsEnabled.length !== 1) { warnings.push(`${key}: ${groupsEnabled.length} enabled ad groups — retry of yt:${vid} held, ask Dan`); return null; }
+        const template = pickTemplate(ads);
+        if (!template) { warnings.push(`${key}: no existing ad to copy business name / URL / logo from (retry of yt:${vid})`); return null; }
+        const name = testAdName(vid, key, now, title, attempt);
+        const made = cmd({
+          op: 'createAd', campaign: key, campaignId: c.id, adGroupId: String(groupsEnabled[0].id), videoId: vid, videoTitle: title,
+          name, attempt, reason: `retry:${attempt}`, labels: { add: [LABELS.AUTO, LABELS.TEST], remove: [] },
+          headlines: set.headlines, longHeadlines: set.longHeadlines, descriptions: set.descriptions,
+          businessName: template.businessName, finalUrls: template.finalUrls, logoImages: template.logoImages,
+          callToActions: template.callToActions || [], templateAdId: template.adId,
+        });
+        summary.created.push({ commandId: made.id, videoId: vid, title, name, attempt, headlines: set.headlines });
+        return made;
+      };
+      const supersede = (list) => {
+        for (const ad of list) {
+          const labels = { add: [LABELS.AUTO, LABELS.SUPERSEDED], remove: [LABELS.TEST, LABELS.CHAMPION] };
+          if (isEnabled(ad) && !ad._paused) cmd({ op: 'pauseAd', campaign: key, adId: ad.adId, resourceName: ad.resourceName, videoId: videoOfAd(ad), reason: 'retry:superseded', labels });
+          else if (!hasLabel(ad, LABELS.SUPERSEDED)) cmd({ op: 'label', campaign: key, adId: ad.adId, resourceName: ad.resourceName, videoId: videoOfAd(ad), reason: 'retry:superseded', labels });
+          ad._paused = true;
+        }
+      };
+      const byVideo = {};
+      for (const ad of ads) { const v = videoOfAd(ad); if (v) (byVideo[v] = byVideo[v] || []).push(ad); }
+      for (const [vid, vads] of Object.entries(byVideo)) {
+        if ((events || []).some(e => e.event === 'retry:failed' && e.video_id === vid && e.campaign_key === key)) continue;
+        const a1 = vads.filter(ad => attemptOf(ad.name) === 1), a2 = vads.filter(ad => attemptOf(ad.name) === 2), a3 = vads.filter(ad => attemptOf(ad.name) === 3);
+        // A limited hand-made ad carries no creation date: the first hour we see it limited starts its clock.
+        for (const ad of a1) if (/LIMITED/.test(approvalOf(ad)) && !createdDateOf(ad.name) && !seen[ad.adId]) retry.seen.push({ adId: ad.adId, campaign: key, videoId: vid });
+        const chain1 = a1.filter(ad => hasLabel(ad, LABELS.SUPERSEDED) ||
+          (verdictOf(ad) === 'failed' && (isEnabled(ad) || hasLabel(ad, LABELS.RETIRED_DAY1) || approvalOf(ad) === 'DISAPPROVED')));
+        const title = titleFor(vid, vads);
+        if (!a2.length && !a3.length) {
+          // Nothing failed, or the video still runs here on another ad → leave it.
+          if (!chain1.length || a1.some(ad => isEnabled(ad) && !ad._paused && verdictOf(ad) !== 'failed')) continue;
+          const set = retryCopyByVideo && retryCopyByVideo[vid];
+          if (!set) {
+            if (retryCopyFailed.has(vid)) warnings.push(`retry: the tamer copy for "${title}" (yt:${vid}) failed the lint — attempt 2 in ${key} is on hold`);
+            else if (!retry.waitingCopy.some(w => w.videoId === vid)) retry.waitingCopy.push({ videoId: vid, title, prior: copyOf(chain1[0]), topics: topicsOf(chain1) });
+            continue;
+          }
+          const made = createRetry(2, vid, title, set); if (!made) continue;
+          supersede(chain1);
+          retry.actions.push({ videoId: vid, title, campaign: key, step: 'attempt2', commandId: made.id, replaces: chain1.map(a => a.adId) });
+        } else if (!a3.length) {
+          const r2 = newest(a2);
+          if (verdictOf(r2) !== 'failed') continue;   // approved → an ordinary test from here on; in review → wait
+          inPlay.add(vid);
+          const th = thumb[vid] || {};
+          if (!th.swappedAt) {
+            if (th.failed) warnings.push(`retry: no clean thumbnail could be made for "${title}" (yt:${vid}) — ${th.failed}; attempt 3 in ${key} is on hold`);
+            else if (!retry.thumbnails.some(t => t.videoId === vid)) retry.thumbnails.push({ videoId: vid, title });
+            continue;
+          }
+          if ((now - new Date(th.swappedAt)) / 60000 < THUMB_SETTLE_MINUTES) continue;   // let YouTube serve the new thumbnail before Google reviews the ad
+          const made = createRetry(3, vid, title, copyOf(r2) || (retryCopyByVideo && retryCopyByVideo[vid])); if (!made) continue;
+          supersede([r2]);
+          retry.actions.push({ videoId: vid, title, campaign: key, step: 'attempt3', commandId: made.id, replaces: [r2.adId] });
+        } else {
+          const r3 = newest(a3);
+          if (verdictOf(r3) !== 'failed') { inPlay.add(vid); continue; }
+          const doomed = [...chain1, ...a2, ...a3];
+          for (const ad of doomed) {
+            cmd({ op: 'mutate', campaign: key, adId: ad.adId, videoId: vid, reason: 'retry:remove', note: `retry chain failed — removing ${ad.name}`,
+                  mutation: { adGroupAdOperation: { remove: ad.resourceName } } });
+          }
+          retry.failed.push({ videoId: vid, title, campaign: key, removed: doomed.map(ad => ({ adId: ad.adId, name: ad.name })) });
+        }
       }
     }
 
@@ -272,15 +399,6 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
                     costPerConv: costPerConv(life.cost, life.conv), created, daysWaiting,
                     policy: (t.policy && t.policy.approvalStatus) || null };
       if (!isEnabled(t)) { row.note = 'not enabled'; summary.tests.push(row); continue; }
-      // A limited test that never spends never reaches $5, so it never gets a verdict and
-      // would sit as "running" forever. Reported, never acted on (policy is Google's call).
-      if (/LIMITED/i.test(row.policy || '') && life.cost === 0 && daysWaiting !== null && daysWaiting >= LIMITED_STUCK_DAYS) {
-        row.note = 'limited by Google, not delivering';
-        const id = row.videoId || t.adId;
-        const s = stuck[id] || (stuck[id] = { title: titleOf(t.name) || row.videoId || t.name, videoId: row.videoId, campaigns: [], topics: new Set(), days: 0 });
-        s.campaigns.push(key); s.days = Math.max(s.days, daysWaiting);
-        for (const topic of (t.policy && t.policy.topics) || []) s.topics.add(topic);
-      }
       if (life.cost < TEST_SPEND_USD) { row.phase = 'running'; summary.tests.push(row); continue; }
 
       // Reached $5 — verdict.
@@ -322,9 +440,13 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
     // Interpretation-6 pause deferred: with no champion and no day-one, the hand-made ads keep running.
   }
 
-  for (const s of Object.values(stuck)) {
-    const topics = [...s.topics].map(x => x.replace(/:LIMITED$/, '').replace(/^YOUTUBE_AD_REQUIREMENTS_/, '').replace(/_/g, ' ').toLowerCase().replace('exagerrated', 'exaggerated'));
-    warnings.push(`blocked by Google: "${s.title}"${s.videoId ? ` (yt:${s.videoId})` : ''} is Approved (limited)${topics.length ? ` for ${topics.join(', ')}` : ''} and has spent $0 in ${s.days} days in ${s.campaigns.join(', ')} — it will not run unless Google re-reviews it (appeal in Google Ads)`);
+  // Retry rule, last step: the clean thumbnail stays only while some attempt 3 is still
+  // in play or passed; once every one failed, the original goes back (Dan 2026-09-10).
+  for (const [vid, th] of Object.entries(thumb)) {
+    if (!th.swappedAt || th.restoredAt || inPlay.has(vid)) continue;
+    const failedNow = retry.failed.find(f => f.videoId === vid);
+    const failedBefore = (events || []).find(e => e.event === 'retry:failed' && e.video_id === vid && new Date(e.at) >= new Date(th.swappedAt));
+    if (failedNow || failedBefore) retry.restore.push({ videoId: vid, title: (failedNow && failedNow.title) || (failedBefore && failedBefore.detail && failedBefore.detail.title) || vid });
   }
 
   // ── 2–4. New videos → new ads ──
@@ -363,13 +485,18 @@ function plan({ snapshot, videos, events, headlinesByVideo, now, config, dryRun 
   const report = {
     at: now.toISOString(), dryRun: !!dryRun,
     thresholds: { testSpendUsd: TEST_SPEND_USD, minConv: MIN_CONV, championWindowDays: CHAMPION_WINDOW_DAYS, startDate: config.startDate },
-    campaigns: perCampaign, skipped, waitingHeadlines, warnings,
+    campaigns: perCampaign, skipped, waitingHeadlines, warnings, retry,
     counts: { commands: commands.length, createAd: commands.filter(c => c.op === 'createAd').length,
               pauseAd: commands.filter(c => c.op === 'pauseAd').length, label: commands.filter(c => c.op === 'label').length,
               manual: commands.filter(c => c.op === 'mutate').length },
   };
   return { commands, report };
 }
+
+const newest = (list) => list.slice().sort((a, b) => String(createdDateOf(b.name) || '').localeCompare(String(createdDateOf(a.name) || '')) || Number(b.adId) - Number(a.adId))[0];
+const copyOf = (ad) => (ad && ad.content && (ad.content.headlines || []).length
+  ? { headlines: ad.content.headlines, longHeadlines: ad.content.longHeadlines || [], descriptions: ad.content.descriptions || [] } : null);
+const topicsOf = (list) => [...new Set(list.flatMap(ad => (ad.policy && ad.policy.topics) || []))];
 
 // The ad whose required fields a new test copies. The champion first (it is the
 // proven one), else the most-spent enabled hand-made ad with content.
@@ -383,6 +510,6 @@ function pickTemplate(ads) {
 }
 
 module.exports = {
-  plan, candidates, resolveCampaigns, isSkipped, isAuto, stateOf, videoIdOf, createdDateOf, titleOf, testAdName, cleanTitle, lacksTitle, pickTemplate,
-  TEST_SPEND_USD, MIN_CONV, CHAMPION_WINDOW_DAYS, LIMITED_STUCK_DAYS, CAMPAIGN_KEYS, LABELS, DEFAULT_CAMPAIGN_MATCH, CREATE_ERROR_RETRIES,
+  plan, candidates, resolveCampaigns, isSkipped, isAuto, stateOf, videoIdOf, createdDateOf, titleOf, attemptOf, policyVerdict, testAdName, cleanTitle, lacksTitle, pickTemplate,
+  TEST_SPEND_USD, MIN_CONV, CHAMPION_WINDOW_DAYS, RETRY_WAIT_DAYS, THUMB_SETTLE_MINUTES, CAMPAIGN_KEYS, LABELS, DEFAULT_CAMPAIGN_MATCH, CREATE_ERROR_RETRIES,
 };

@@ -220,23 +220,104 @@ console.log('\n6. POLICY');
   check('Eligible (Limited) is reported, not acted on', !r.commands.some(c => c.adId === limited.adId) && r.report.campaigns.tier2.policy.some(x => x.adId === limited.adId && x.limited));
   check('a disapproved NON-AUTO ad is Dan\'s business, not ours', !r.commands.some(c => c.adId === danBad.adId));
 }
+
+console.log('\n6b. RETRY RULE (Dan 2026-09-10)');
 {
-  // A limited test that never spends would sit as "running" forever (the 09-08 Short, 2026-09-10) — flagged after LIMITED_STUCK_DAYS.
-  const mk = (campaign, key, date, life) => ad({ campaign, name: `AT · Stop Doing Ab Exercises · yt:stuckVid001 · ${key} · ${date}`, labels: ['AUTO', 'AUTO:TEST'], life,
-    policy: { approvalStatus: 'APPROVED_LIMITED', reviewStatus: 'REVIEWED', topics: ['YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED'] } });
-  const events = E.CAMPAIGN_KEYS.map(k => ({ video_id: null, campaign_key: k, event: 'dayone', detail: {} }));
-  const blocked = (r) => r.report.warnings.filter(w => /^blocked by Google/.test(w));
-  const r = run({ snapshot: snap([mk(T2, 'tier2', '2026-09-02', [0, 0]), mk(T1, 'tier1', '2026-09-02', [0, 0])]), events });
-  const w = blocked(r);
-  check('limited + $0 after 2 days → ONE warning per video, naming title, campaigns, days and topic',
-        w.length === 1 && /"Stop Doing Ab Exercises" \(yt:stuckVid001\)/.test(w[0]) && /tier2, tier1/.test(w[0]) && /2 days/.test(w[0]) && /exaggerated or inaccurate claims/.test(w[0]), w);
-  check('the stuck test is still not acted on', r.commands.length === 0, r.commands);
-  check('the stuck row carries a note', r.report.campaigns.tier2.tests[0].note === 'limited by Google, not delivering');
-  check('limited + $0 after only 1 day → no warning yet', blocked(run({ snapshot: snap([mk(T2, 'tier2', '2026-09-03', [0, 0])]), events })).length === 0);
-  check('limited but spending → no warning (it is delivering)', blocked(run({ snapshot: snap([mk(T2, 'tier2', '2026-09-02', [0.4, 0])]), events })).length === 0);
-  check('titleOf reads both prefixes, null for the legacy untitled format',
-        E.titleOf('AT · A b · yt:abcdefghijk · tier2 · 2026-09-09') === 'A b' && E.titleOf('AUTO test · T · yt:abcdefghijk · rmktg · 2026-09-08') === 'T' && E.titleOf('AUTO test yt:abcdefghijk · tier2 · 2026-09-08') === null);
+  const LIM = { approvalStatus: 'APPROVED_LIMITED', reviewStatus: 'REVIEWED', topics: ['YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED'] };
+  const DIS = { approvalStatus: 'DISAPPROVED', reviewStatus: 'REVIEWED', topics: ['CLICKBAIT:PROHIBITED'] };
+  const APP = { approvalStatus: 'APPROVED', reviewStatus: 'REVIEWED', topics: [] };
+  const REV = { approvalStatus: 'UNKNOWN', reviewStatus: 'REVIEW_IN_PROGRESS', topics: [] };
+  const DAYONE = E.CAMPAIGN_KEYS.map(k => ({ video_id: null, campaign_key: k, event: 'dayone', detail: {} }));
+  const COPY = { headlines: ['Ab routine order at home', 'Where ab exercises fit', 'My ab training order'], longHeadlines: ['Daniel Rose shows the order he trains his abs in.'], descriptions: ['A short video on the order of an ab routine.'] };
+  const V = 'stuckVid001';
+  const t1 = (o = {}) => ad({ campaign: T2, name: `AT · Stop Doing Ab Exercises · yt:${V} · tier2 · ${o.date || '2026-09-02'}`, labels: ['AUTO', 'AUTO:TEST'], life: o.life || [0, 0], policy: o.policy || LIM, status: o.status || 'ENABLED' });
+  const tr = (n, o = {}) => ad({ campaign: o.campaign || T2, name: `AT · Stop Doing Ab Exercises · yt:${V} · r${n} · ${o.key || 'tier2'} · ${o.date || '2026-09-02'}`, labels: ['AUTO', 'AUTO:TEST'], life: o.life || [0, 0], policy: o.policy || LIM });
+  const R = (ads, o = {}) => E.plan({ snapshot: snap(ads), videos: [], events: [...DAYONE, ...(o.events || [])], headlinesByVideo: {}, retryCopyByVideo: o.copy || {}, now: NOW, config: CFG, dryRun: false });
+  const evt = (event, extra = {}) => ({ video_id: V, campaign_key: null, ad_id: null, event, detail: {}, at: '2026-09-03T00:00:00Z', ...extra });
+
+  // ── attempt 2: tamer copy ──
+  let a = t1(); let r = R([a]);
+  check('limited + $0 after 2 days, no tamer copy yet → asks for copy (with the policy topic), creates nothing',
+        r.report.retry.waitingCopy.some(w => w.videoId === V && w.topics.length === 1) && r.commands.length === 0, r.commands);
+  a = t1(); r = R([a], { copy: { [V]: COPY } });
+  const c2 = ops(r, 'createAd')[0];
+  check('with copy → attempt 2 ad: r2 in the name, the tamer copy, TEST labels',
+        c2 && c2.name === `AT · Stop Doing Ab Exercises · yt:${V} · r2 · tier2 · 2026-09-04` && c2.attempt === 2 && c2.headlines === COPY.headlines && c2.labels.add.join() === 'AUTO,AUTO:TEST', c2);
+  check('the failed original is paused and labelled SUPERSEDED', ops(r, 'pauseAd').some(c => c.adId === a.adId && c.reason === 'retry:superseded' && c.labels.add.includes('AUTO:SUPERSEDED')));
+  check('the r2 name still parses: a TEST for this video, attempt 2, dated', E.attemptOf(c2.name) === 2 && E.videoIdOf(c2.name) === V && E.stateOf({ name: c2.name, labels: [] }) === 'AUTO:TEST' && E.createdDateOf(c2.name) === '2026-09-04');
+  check('limited + $0 after only 1 day → waits', R([t1({ date: '2026-09-03' })], { copy: { [V]: COPY } }).commands.length === 0);
+  a = t1({ date: '2026-09-03' });
+  check('a retry:force event skips the wait (Dan\'s one-off resubmits)', ops(R([a], { copy: { [V]: COPY }, events: [evt('retry:force', { ad_id: a.adId })] }), 'createAd').length === 1);
+  check('limited but spending → it is running, no retry', R([t1({ life: [0.4, 0] })], { copy: { [V]: COPY } }).commands.length === 0);
+  a = t1({ date: '2026-09-04', policy: DIS });
+  r = R([a], { copy: { [V]: COPY } });
+  check('disapproved → attempt 2 at once, and the original is paused exactly once', ops(r, 'createAd').some(c => c.attempt === 2) && ops(r, 'pauseAd').filter(c => c.adId === a.adId).length === 1, r.commands.map(c => c.op + ':' + c.reason));
+  check('tamer copy that failed the lint → attempt 2 held with a warning', R([t1()], { events: [evt('retrycopy:failed')] }).report.warnings.some(w => /attempt 2 in tier2 is on hold/.test(w)));
+
+  // ── hand-made ads (Dan: retry them too) ──
+  const hand = (o = {}) => Object.assign(ad({ campaign: o.campaign || RM, name: 'late night eating', labels: o.labels || [], life: [0, 0], policy: LIM, status: o.status || 'ENABLED' }), { videoId: 'handVid0001' });
+  let h = hand(); r = R([h], { copy: { handVid0001: COPY } });
+  check('a limited hand-made ad (no date in its name) starts its clock with limited:seen and waits', r.report.retry.seen.some(s => s.adId === h.adId) && r.commands.length === 0);
+  h = hand(); r = R([h], { copy: { handVid0001: COPY }, events: [{ video_id: 'handVid0001', campaign_key: 'rmktg', ad_id: h.adId, event: 'limited:seen', detail: {}, at: '2026-09-01T00:00:00Z' }] });
+  check('…and is resubmitted once it has been limited at $0 for 2 days', ops(r, 'createAd').some(c => c.campaign === 'rmktg' && c.videoId === 'handVid0001' && c.attempt === 2) && ops(r, 'pauseAd').some(c => c.adId === h.adId));
+  h = hand({ campaign: T2, labels: ['AUTO', 'AUTO:RETIRED-DAY1'], status: 'PAUSED' });
+  r = R([h], { copy: { handVid0001: COPY }, events: [{ video_id: 'handVid0001', campaign_key: 'tier2', ad_id: h.adId, event: 'retry:force', detail: {}, at: NOW }] });
+  check('a day-one-retired hand-made ad is resubmitted and only relabelled (it is already paused)', ops(r, 'createAd').length === 1 && ops(r, 'label').some(c => c.adId === h.adId && c.reason === 'retry:superseded') && !ops(r, 'pauseAd').some(c => c.adId === h.adId));
+  check('a hand-made ad Dan paused himself is left alone', R([hand({ status: 'PAUSED' })], { copy: { handVid0001: COPY } }).commands.length === 0);
+
+  // ── attempt 3: clean thumbnail, then a fresh ad ──
+  const supL = () => { const x = t1({ status: 'PAUSED' }); x.labels = ['AUTO', 'AUTO:SUPERSEDED']; return x; };
+  check('attempt 2 approved → nothing more (it runs on as an ordinary test)', R([supL(), tr(2, { policy: APP })]).commands.length === 0);
+  check('attempt 2 still in review → wait', R([supL(), tr(2, { policy: REV })]).commands.length === 0);
+  r = R([supL(), tr(2)]);
+  check('attempt 2 failed → the thumbnail swap is requested, no ad yet', r.report.retry.thumbnails.some(t => t.videoId === V) && r.commands.length === 0);
+  check('thumbnail swapped 30 min ago → wait for YouTube to serve it', R([supL(), tr(2)], { events: [evt('thumb:swapped', { at: '2026-09-04T14:40:00Z' })] }).commands.length === 0);
+  const r2 = tr(2); r2.content = { ...r2.content, ...COPY };
+  r = R([supL(), r2], { events: [evt('thumb:swapped', { at: '2026-09-04T13:00:00Z' })] });
+  const c3 = ops(r, 'createAd')[0];
+  check('thumbnail swapped over an hour ago → attempt 3 with attempt 2\'s copy; attempt 2 superseded',
+        c3 && c3.attempt === 3 && / · r3 · tier2 · /.test(c3.name) && c3.headlines === COPY.headlines && ops(r, 'pauseAd').some(c => c.adId === r2.adId && c.reason === 'retry:superseded'), r.commands);
+  check('no clean frame could be made → attempt 3 held with a warning', R([supL(), tr(2)], { events: [evt('thumb:failed', { detail: { reason: 'no frame without text' } })] }).report.warnings.some(w => /attempt 3 in tier2 is on hold/.test(w)));
+  check('a transient thumbnail failure is retried, not held', R([supL(), tr(2)], { events: [evt('thumb:failed', { detail: { reason: 'network', transient: true } })] }).report.retry.thumbnails.length === 1);
+
+  // ── give up: remove the chain, restore the thumbnail ──
+  const o1 = supL(), o2 = tr(2), o3 = tr(3);
+  o2.labels = ['AUTO', 'AUTO:SUPERSEDED']; o2.status = 'PAUSED';
+  r = R([o1, o2, o3], { events: [evt('thumb:swapped')] });
+  const removes = r.commands.filter(c => c.op === 'mutate' && c.reason === 'retry:remove');
+  check('attempt 3 failed → every ad in the chain is removed (original, r2, r3)', removes.length === 3 && [o1, o2, o3].every(x => removes.some(c => c.mutation.adGroupAdOperation.remove === x.resourceName)), removes);
+  check('…the chain is reported failed and the original thumbnail restore is requested', r.report.retry.failed.some(f => f.videoId === V && f.campaign === 'tier2') && r.report.retry.restore.some(x => x.videoId === V));
+  r = R([o1, o2, o3, tr(3, { campaign: T1, key: 'tier1', policy: APP })], { events: [evt('thumb:swapped')] });
+  check('attempt 3 passed in another campaign → that ad keeps running and the clean thumbnail stays', r.report.retry.failed.length === 1 && r.report.retry.restore.length === 0);
+  const gone = [evt('retry:failed', { campaign_key: 'tier2' })];
+  check('after a chain failed, the video is never started over in that campaign',
+        E.candidates({ snapshot: snap([]), videos: [video(V, '2026-09-03T00:00:00Z')], events: gone, config: CFG }).candidates.every(x => !x.campaigns.includes('tier2')));
+  check('…and its leftover ads are not processed again', R([o1, o2, o3], { events: gone }).commands.length === 0);
+  check('policyVerdict: limited+$0 pending → failed at 2 days; spending = ok; disapproved = failed at once',
+        E.policyVerdict({ policy: LIM, lifetime: {} }, 1) === 'pending' && E.policyVerdict({ policy: LIM, lifetime: {} }, 2) === 'failed' &&
+        E.policyVerdict({ policy: LIM, lifetime: { costMicros: 10000 } }, 9) === 'ok' && E.policyVerdict({ policy: DIS, lifetime: {} }, 0) === 'failed');
 }
+check('lint: "trick" fails every ad (Dan 2026-09-10)', !L.lintLine('The AI trick for late night snacking').ok && !L.lintLine('Two tricks I use').ok);
+check('lint: tame mode rejects hooks, questions and claim numbers that normal mode allows',
+      L.lintLine('Stop doing crunches first').ok && !L.lintLine('Stop doing crunches first', 'headline', { tame: true }).ok &&
+      !L.lintLine('Why do abs hide?', 'headline', { tame: true }).ok && !L.lintLine('Supplements are 3% of it', 'headline', { tame: true }).ok &&
+      L.lintLine('My ab training order', 'headline', { tame: true }).ok);
+{
+  // Attempt 3's thumbnail framing is computed by rule from the located head (thumbs.js cropFromHead).
+  const T = require('./thumbs.js');
+  const HEAD = { top: 0.2, bottom: 0.45, left: 0.3, right: 0.7 };   // on a 1080×1920 Short frame: head 480 px tall
+  const b = T.cropFromHead(HEAD, [{ top: 0.55, bottom: 0.6, left: 0.1, right: 0.9 }], 1080, 1920);
+  check('thumbnail crop: room above the hair and below the chin, and it stops above the caption',
+        b && b.top <= 0.2 * 1920 - 0.08 * 480 && b.top + b.height >= 0.45 * 1920 + 0.1 * 480 && b.top + b.height <= 0.55 * 1920, b);
+  check('thumbnail crop: a caption across the face → no crop', T.cropFromHead(HEAD, [{ top: 0.3, bottom: 0.35, left: 0, right: 1 }], 1080, 1920) === null);
+  check('thumbnail crop: head touching the top of the frame → no crop (the hair would be cut)', T.cropFromHead({ top: 0.0, bottom: 0.3, left: 0.3, right: 0.7 }, [], 1080, 1920) === null);
+  const GOOD = { dan: true, text: false, face: true, cut: false, expression: 'good' };
+  check('thumbnail check: Dan, no text, whole face, nothing cut AND a calm expression',
+        T.passes(GOOD) && !T.passes({ ...GOOD, expression: 'bad' }) && !T.passes({ ...GOOD, cut: true }) && !T.passes({ ...GOOD, text: true }));
+  check('thumbnail check: a B-roll stranger never becomes the thumbnail (measured 2026-09-10)', !T.passes({ ...GOOD, dan: false }) && !T.passes({ ...GOOD, dan: undefined }));
+}
+check('titleOf reads both prefixes, null for the legacy untitled format',
+      E.titleOf('AT · A b · yt:abcdefghijk · tier2 · 2026-09-09') === 'A b' && E.titleOf('AUTO test · T · yt:abcdefghijk · rmktg · 2026-09-08') === 'T' && E.titleOf('AUTO test yt:abcdefghijk · tier2 · 2026-09-08') === null);
 {
   // A DISAPPROVED champion is paused and no longer used as the bar.
   const champ = ad({ campaign: T2, name: 'dan champ', labels: ['AUTO', 'AUTO:CHAMPION'], life: [40, 200], d30: [10, 40], policy: { approvalStatus: 'DISAPPROVED', reviewStatus: 'REVIEWED', topics: [] } });
@@ -277,7 +358,7 @@ for (const bad of ['Get Real Abs Using AI Tools', 'Get Sixpack Abs Using AI Tool
   check(`fails: "${bad}"`, !L.lintLine(bad).ok);
 }
 check('"Make them real" fails on the result-promise rule', L.lintLine('Make them real').reasons.length > 0);
-for (const good of ['See what you would look like with abs', 'Why I love the ab wheel', 'A photo replaces your food scale', 'The 3 supplements I actually take', 'One minute, four ab muscles', 'My honest update at six months', 'The AI trick that ended my snacking', 'What I eat before jiu jitsu']) {
+for (const good of ['See what you would look like with abs', 'Why I love the ab wheel', 'A photo replaces your food scale', 'The 3 supplements I actually take', 'One minute, four ab muscles', 'My honest update at six months', 'What I eat before jiu jitsu']) {   // "The AI trick that ended my snacking" left this list 2026-09-10 (Dan's no-"trick" rule)
   check(`passes: "${good}"`, L.lintLine(good).ok, L.lintLine(good).reasons);
 }
 check('long headline limit is 90', L.lintLine('x'.repeat(90), 'longHeadline').ok && !L.lintLine('x'.repeat(91), 'longHeadline').ok);

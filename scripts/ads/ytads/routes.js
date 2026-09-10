@@ -23,6 +23,7 @@ const engine = require('./engine.js');
 const { fetchVideos } = require('./feed.js');
 const { generateHeadlines } = require('./headlines.js');
 const { buildBrief } = require('./brief.js');
+const thumbs = require('./thumbs.js');
 
 const START_DATE_DEFAULT = '2026-09-03';   // go-live day; videos published before it are history
 const HEADLINE_TIME_BUDGET_MS = 20000;     // the script is waiting on this request; the rest is generated after we respond
@@ -84,7 +85,8 @@ module.exports = function mountYtads(app, { pool }) {
   }
 
   const db = {
-    events: async () => (await pool.query('SELECT id, video_id, campaign_key, ad_id, event, detail, at FROM ytads_events ORDER BY at')).rows,
+    // The saved original thumbnails (base64) are left out: the engine never needs them.
+    events: async () => (await pool.query("SELECT id, video_id, campaign_key, ad_id, event, CASE WHEN event = 'thumb:original' THEN '{}'::jsonb ELSE detail END AS detail, at FROM ytads_events ORDER BY at")).rows,
     event: (videoId, key, adId, event, detail) =>
       pool.query('INSERT INTO ytads_events (video_id, campaign_key, ad_id, event, detail) VALUES ($1, $2, $3, $4, $5)',
                  [videoId || null, key || null, adId == null ? null : String(adId), event, JSON.stringify(detail || {})]),
@@ -127,6 +129,68 @@ module.exports = function mountYtads(app, { pool }) {
     return null;
   }
 
+  // Retry rule (Dan 2026-09-10): tamer copy for a video whose ad failed Google's review —
+  // written once per video and shared by the campaigns (`retrycopy` event).
+  const copyInFlight = new Set();
+  async function writeRetryCopyFor(w, videos) {
+    if (copyInFlight.has(w.videoId)) return null;
+    copyInFlight.add(w.videoId);
+    try {
+      const apiKey = process.env.ANTHROPIC_API_KEY;
+      if (!apiKey) return null;
+      const video = (videos || []).find(v => v.id === w.videoId) || { id: w.videoId, title: w.title, description: '' };
+      const r = await generateHeadlines({ video, apiKey, tame: { prior: w.prior, topics: w.topics } });
+      if (r.ok) { await db.event(w.videoId, null, null, 'retrycopy', { title: w.title, set: r.set, attempts: r.attempts, topics: w.topics, failures: r.failures }); return r.set; }
+      await db.event(w.videoId, null, null, 'retrycopy:failed', { title: w.title, error: r.error, failures: r.failures });
+      return null;
+    } finally { copyInFlight.delete(w.videoId); }
+  }
+
+  // Attempt 3's thumbnail swap on the public video, and the restore once attempt 3 has
+  // failed everywhere. Run after the sync has answered (they take a minute); the next
+  // hourly run reads the thumb:* events. The original is saved once, before any swap.
+  const thumbBusy = new Set();
+  const thumbEvents = async (videoId) => (await pool.query("SELECT event, detail, at FROM ytads_events WHERE video_id = $1 AND event LIKE 'thumb:%' ORDER BY at", [videoId])).rows;
+  async function thumbJobs({ thumbnails = [], restore = [] }) {
+    for (const t of thumbnails) {
+      if (thumbBusy.has(t.videoId)) continue;
+      thumbBusy.add(t.videoId);
+      try {
+        const evs = await thumbEvents(t.videoId);
+        if (evs.some(e => e.event === 'thumb:swapped')) continue;
+        if (!evs.some(e => e.event === 'thumb:original')) {
+          const cur = await thumbs.fetchCurrent(t.videoId);
+          await db.event(t.videoId, null, null, 'thumb:original', { title: t.title, url: cur.url, bytes: cur.buf.length, b64: cur.buf.toString('base64') });
+        }
+        const made = await thumbs.makeCleanThumbnail({ videoId: t.videoId, apiKey: process.env.ANTHROPIC_API_KEY });
+        if (!made.ok) { await db.event(t.videoId, null, null, 'thumb:failed', { title: t.title, reason: made.reason, transient: false }); continue; }
+        await thumbs.setThumbnail(t.videoId, made.jpeg);
+        await db.event(t.videoId, null, null, 'thumb:swapped', { title: t.title, frame: made.frame, crop: made.crop, bytes: made.jpeg.length, check: made.check, why: made.why });
+        console.log(`YTADS clean thumbnail set on ${t.videoId} (${made.frame})`);
+      } catch (e) {
+        console.error(`ytads thumbnail ${t.videoId}:`, e.message);
+        await db.event(t.videoId, null, null, 'thumb:failed', { title: t.title, reason: e.message, transient: true }).catch(() => {});
+      } finally { thumbBusy.delete(t.videoId); }
+    }
+    for (const r of restore) {
+      if (thumbBusy.has(r.videoId)) continue;
+      thumbBusy.add(r.videoId);
+      try {
+        const evs = await thumbEvents(r.videoId);
+        const swapped = evs.filter(e => e.event === 'thumb:swapped').pop();
+        if (!swapped || evs.some(e => e.event === 'thumb:restored' && new Date(e.at) >= new Date(swapped.at))) continue;
+        const orig = evs.find(e => e.event === 'thumb:original');
+        if (!orig || !orig.detail || !orig.detail.b64) throw new Error('the original thumbnail was never saved');
+        await thumbs.setThumbnail(r.videoId, Buffer.from(orig.detail.b64, 'base64'));
+        await db.event(r.videoId, null, null, 'thumb:restored', { title: r.title, from: orig.detail.url });
+        console.log(`YTADS original thumbnail restored on ${r.videoId}`);
+      } catch (e) {
+        console.error(`ytads thumbnail restore ${r.videoId}:`, e.message);
+        await db.event(r.videoId, null, null, 'thumb:failed', { title: r.title, reason: 'restore: ' + e.message, transient: true, restore: true }).catch(() => {});
+      } finally { thumbBusy.delete(r.videoId); }
+    }
+  }
+
   app.post('/api/ytads/sync', scriptAuth, async (req, res) => {
     const t0 = Date.now();
     try {
@@ -161,7 +225,24 @@ module.exports = function mountYtads(app, { pool }) {
       }
       events = await db.events();
 
-      const { commands, report } = engine.plan({ snapshot, videos, events, headlinesByVideo, now: new Date(), config: cfg, dryRun });
+      const retryCopy = () => { const m = {}; for (const e of events) if (e.event === 'retrycopy' && e.detail && e.detail.set) m[e.video_id] = e.detail.set; return m; };
+      const planNow = () => engine.plan({ snapshot, videos, events, headlinesByVideo, retryCopyByVideo: retryCopy(), now: new Date(), config: cfg, dryRun });
+      let { commands, report } = planNow();
+
+      // Retry rule: tamer copy for videos whose ad failed review — same time budget; the rest after we answer.
+      if (report.retry.waitingCopy.length) {
+        let wrote = 0; const later = [];
+        for (const w of report.retry.waitingCopy) {
+          if (Date.now() - t0 > HEADLINE_TIME_BUDGET_MS) { later.push(w); continue; }
+          try { if (await writeRetryCopyFor(w, videos)) wrote++; } catch (e) { warnings.push(`tamer copy for ${w.videoId} failed: ${e.message}`); }
+        }
+        if (later.length) {
+          warnings.push(`tamer copy for ${later.length} video(s) is being written after this run; their resubmissions are created next hour`);
+          setImmediate(async () => { for (const w of later) { try { await writeRetryCopyFor(w, videos); } catch (e) { console.error('ytads deferred retry copy:', e.message); } } });
+        }
+        if (wrote) { events = await db.events(); ({ commands, report } = planNow()); }
+      }
+      for (const s of report.retry.seen) await db.event(s.videoId, s.campaign, s.adId, 'limited:seen', {});
       report.warnings = [...warnings, ...report.warnings];
       report.videosSeen = videos.length;
 
@@ -174,6 +255,12 @@ module.exports = function mountYtads(app, { pool }) {
       const snapshotStored = { ...snapshot, receivedAt: new Date().toISOString() };
       const run = await db.run(dryRun, isEnabled, snapshotStored, commands, report);
       await db.manualClaim(manual.map(m => m.id), run.id);
+
+      // A chain given up on is recorded BEFORE the script removes its ads (removed ads leave the snapshot).
+      if (!dryRun) for (const f of report.retry.failed) await db.event(f.videoId, f.campaign, null, 'retry:failed', { runId: run.id, title: f.title, removed: f.removed });
+      if (!dryRun && (report.retry.thumbnails.length || report.retry.restore.length)) {
+        setImmediate(() => thumbJobs(report.retry).catch(e => console.error('ytads thumbs:', e.message)));
+      }
 
       // Day-one pause list is written BEFORE the script executes it — reversibility.
       for (const [key, c] of Object.entries(report.campaigns)) {
@@ -219,7 +306,7 @@ module.exports = function mountYtads(app, { pool }) {
           }
           if (!r.ok) { await db.event(c.videoId || null, c.campaign, c.adId || null, 'error', { ...base, name: c.name || null }); }
           if (c.op === 'createAd' && r.ok) {
-            await db.event(c.videoId, c.campaign, r.adId || null, 'created', { name: c.name, resourceName: r.resourceName || null, videoTitle: c.videoTitle,
+            await db.event(c.videoId, c.campaign, r.adId || null, 'created', { name: c.name, attempt: c.attempt || 1, resourceName: r.resourceName || null, videoTitle: c.videoTitle,
               headlines: c.headlines, longHeadlines: c.longHeadlines, descriptions: c.descriptions, labelErrors: r.labelErrors || null });
           } else if (c.op === 'pauseAd' && r.ok && /^verdict:/.test(c.reason || '')) {
             await db.event(c.videoId, c.campaign, c.adId, 'verdict', { verdict: c.reason.replace('verdict:', ''), detail: c.verdict || null });
@@ -227,6 +314,8 @@ module.exports = function mountYtads(app, { pool }) {
             await db.event(c.videoId, c.campaign, c.adId, 'promote', { detail: c.verdict || null });
           } else if (c.op === 'pauseAd' && r.ok && c.reason === 'policy:disapproved') {
             await db.event(c.videoId, c.campaign, c.adId, 'policy', { topics: c.topics || [] });
+          } else if (c.op === 'mutate' && r.ok && c.reason === 'retry:remove') {
+            await db.event(c.videoId, c.campaign, c.adId, 'retry:removed', { note: c.note || null });
           } else if (/^dayone:/.test(c.reason || '')) {
             (dayOneOutcome[c.campaign] = dayOneOutcome[c.campaign] || []).push({ adId: c.adId, op: c.op, ok: !!r.ok, error: r.error || null });
           }

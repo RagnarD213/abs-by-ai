@@ -55,13 +55,27 @@ Policy: a DISAPPROVED `AUTO` ad is paused and retired and that video is never re
 campaign (its ad stays in the ledger). "Eligible (Limited)" is reported, not acted on. Hand-made ads'
 policy state is never touched.
 
-**A limited test that never spends is flagged (added 2026-09-10).** Measured that day: no "Approved (limited)" ad
-in this account has ever spent anything — the 09-08 Short and "Hire A Maid" (flagged *exaggerated or inaccurate
-claims*, a YouTube-ad-requirements topic, so it is the video and not our headlines) and Dan's own hand-made "late
-night eating" all sit at $0. Such a test never reaches $5, so it never gets a verdict and would read as "running"
-forever. After `LIMITED_STUCK_DAYS` (2) at $0 the engine adds one `blocked by Google: …` warning per video (title,
-campaigns, days, topic) to the report; the morning brief prints it as a row. Still never acted on — the fix is a
-re-review appeal in the Google Ads UI, which is Dan's call.
+## The retry rule — Dan's standing rule, 2026-09-10
+
+**Any ad that is disapproved or limited is resubmitted, then resubmitted with a tamer thumbnail, then removed.**
+Measured the day it was made: no "Approved (limited)" ad in this account has ever spent anything (the 09-08 Short,
+"Hire A Maid", Dan's own "late night eating"), so a limited test never reached $5 and read as "running" forever.
+
+| step | when | what the system does |
+|---|---|---|
+| failed review | `DISAPPROVED` at once; `LIMITED` only if still **$0 after 2 days** (`RETRY_WAIT_DAYS`; a limited ad that spends is left alone — Dan's answer). Hand-made ads have no date in their name, so the first hour they are seen limited writes `limited:seen` and starts the clock | — |
+| attempt 2 | first failure | Claude writes **tamer copy** once per video (`retrycopy` event; `lint.js` `TAME_RULES`: no hooks, commands, questions, contrast or claim numbers, and never "trick"); a new ad `AT · <title> · yt:<id> · r2 · <campaign> · <date>`; the failed original(s) are paused and labelled `AUTO:SUPERSEDED` |
+| attempt 3 | attempt 2 fails | a **clean, text-free frame of Dan becomes the PUBLIC video's thumbnail** (Dan's choice; a Demand Gen ad has no thumbnail of its own). `thumbs.js`: YouTube's own full-size frames; Claude only LOCATES Dan's head, the text areas and the expression on each (against a reference frame of Dan, so B-roll strangers are excluded), the crop is computed by rule (room above the hair and below the chin, clear of captions; a tall crop sits on plain side bars matched to the frame), and a second Claude look must confirm "Dan, no text, whole face, nothing cut, calm expression" before `thumbnails.set`. The original is saved first (`thumb:original`, base64). After `THUMB_SETTLE_MINUTES` (50) a fresh `· r3 ·` ad with attempt 2's copy goes in |
+| give up | attempt 3 fails | `retry:failed` is written, then **every ad in the chain is removed** (original + r2 + r3, hand-made included — Dan's answer); once no attempt 3 for that video is still in play or passed, the **original thumbnail is put back** (`thumb:restored`). The video is never started over in that campaign |
+| success | attempt 2 or 3 approved | it simply runs on as an ordinary $5 test |
+
+- Hand-made ads are covered if enabled, day-one-retired or disapproved; an ad Dan paused himself is not touched.
+- Holds, each a morning-brief row: tamer copy that fails the lint 3 times (`retrycopy:failed`), or no text-free frame
+  (`thumb:failed`, not transient). Network / credential failures are `transient` and retried hourly.
+- One-off "resubmit now" (skips the 2-day wait): insert a `retry:force` event with the ad's `ad_id`.
+- Out of scope: ads in campaigns other than the three (e.g. "the upload all vars", campaign 24096135826, not running).
+- Server env: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `YOUTUBE_REFRESH_TOKEN` (the upload.js token; scope
+  `youtube.upload` covers `thumbnails.set`, verified 2026-09-10).
 
 ## Running / checking by hand
 

@@ -7,6 +7,7 @@
 const { CHAMPION_WINDOW_DAYS, TEST_SPEND_USD, MIN_CONV } = require('./engine.js');
 const GOOGLE_CONVERSION_INFLATION = 1.96;   // measured 2026-08-26 (1,553 conversions vs 792 real subscribers); same constant as ads-digest.js
 const STALE_HOURS = 3;                       // hourly script; two missed runs is a problem worth a line
+const RETRY_EVENTS = ['retry:failed', 'retry:removed', 'thumb:swapped', 'thumb:restored', 'thumb:failed', 'retrycopy:failed'];
 
 const round2 = (n) => Math.round((Number(n) || 0) * 100) / 100;
 
@@ -61,7 +62,11 @@ function buildBrief({ run, events, enabled, now = new Date() }) {
       errors:   ev('error').map(e => ({ at: e.at, campaign: e.campaign_key, videoId: e.video_id, adId: e.ad_id, ...(e.detail || {}) })),
       policy:   ev('policy').map(e => ({ at: e.at, campaign: e.campaign_key, videoId: e.video_id, adId: e.ad_id, ...(e.detail || {}) })),
       dayOne:   ev('dayone').map(e => ({ at: e.at, campaign: e.campaign_key, ...(e.detail || {}) })),
+      // Retry rule (2026-09-10): resubmissions, thumbnail swaps/restores, chains given up on.
+      retries:  recent.filter(e => RETRY_EVENTS.includes(e.event) || (e.event === 'created' && e.detail && e.detail.attempt > 1))
+                      .map(e => { const { b64, ...detail } = e.detail || {}; return { at: e.at, event: e.event, campaign: e.campaign_key, videoId: e.video_id, adId: e.ad_id, ...detail }; }),
     },
+    retry: report.retry || null,
     lastResults: run.results || null,
   };
 }

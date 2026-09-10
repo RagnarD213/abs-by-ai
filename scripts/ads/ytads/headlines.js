@@ -15,7 +15,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { lintSet, passingOnly, RULES_TEXT, LIMITS } = require('./lint.js');
+const { lintSet, passingOnly, RULES_TEXT, TAME_RULES_TEXT, LIMITS } = require('./lint.js');
 
 const MODEL = 'claude-opus-5';
 const MAX_ATTEMPTS = 3;
@@ -26,7 +26,11 @@ function loadStyle() {
   try { return fs.readFileSync(STYLE_FILE, 'utf8'); } catch { return '(no style file yet)'; }
 }
 
-function buildPrompt({ video, style, failures }) {
+const readableTopic = (t) => String(t).replace(/:(LIMITED|PROHIBITED|AREA_OF_INTEREST_ONLY)$/, '').replace(/^YOUTUBE_AD_REQUIREMENTS_/, '').replace(/_/g, ' ').toLowerCase().replace('exagerrated', 'exaggerated');
+
+// tame: { prior: {headlines, longHeadlines, descriptions} | null, topics: [policy topic strings] } —
+// set for a RESUBMISSION under the retry rule (Dan 2026-09-10).
+function buildPrompt({ video, style, failures, tame }) {
   const desc = String(video.description || '').split('\n').filter(l => !/^https?:\/\//.test(l.trim()) && !/^#/.test(l.trim())).join('\n').slice(0, 1200);
   let user = `Write Google Ads Demand Gen copy for this YouTube ${video.isShort ? 'Short' : 'video'} from the Abs by AI channel. The ad's only goal is to get the viewer to WATCH the video and subscribe; it must describe what the video shows.
 
@@ -38,6 +42,14 @@ Return ONLY a JSON object, no prose, shaped exactly:
 {"headlines": [5 strings, each ≤ ${LIMITS.headline} characters],
  "longHeadlines": [3 strings, each ≤ ${LIMITS.longHeadline} characters],
  "descriptions": [3 strings, each ≤ ${LIMITS.description} characters]}`;
+  if (tame) {
+    const p = tame.prior || {};
+    const prior = [...(p.headlines || []), ...(p.longHeadlines || []), ...(p.descriptions || [])];
+    const topics = (tame.topics || []).map(readableTopic);
+    user += `\n\nTHIS IS A RESUBMISSION. Google limited or disapproved the previous ad for this video${topics.length ? ` (policy: ${topics.join(', ')})` : ''}.` +
+      (prior.length ? ` The previous copy was:\n${prior.map(l => `- ${l}`).join('\n')}\nDo not reuse any of those lines or their hooks.` : '') +
+      `\nWrite noticeably TAMER copy than a normal ad: a flat, factual description of what the video shows. Ignore style rule 2 ("Fire Your X") for this ad.\nRESUBMISSION RULES (hard gate):\n${TAME_RULES_TEXT.map(r => '- ' + r).join('\n')}`;
+  }
   if (failures && failures.length) {
     user += `\n\nYour previous attempt had lines that FAILED the compliance lint. Do not repeat them or anything like them:\n` +
       failures.map(f => `- [${f.kind}] "${f.text}" → ${f.reasons.join('; ')}`).join('\n');
@@ -84,23 +96,24 @@ async function callClaude({ system, user, apiKey, fetchImpl = fetch }) {
 }
 
 // → { ok, set, attempts, failures:[...all failing lines seen...], error? }
-async function generateHeadlines({ video, apiKey, fetchImpl, style = loadStyle(), generate }) {
+async function generateHeadlines({ video, apiKey, fetchImpl, style = loadStyle(), generate, tame }) {
   const gen = generate || (async (p) => parseJson(await callClaude({ ...p, apiKey, fetchImpl })));
+  const opts = { tame: !!tame };
   const allFailures = [];
   let last = null; let lastFailures = [];
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     let set;
-    try { set = await gen(buildPrompt({ video, style, failures: lastFailures })); }
+    try { set = await gen(buildPrompt({ video, style, failures: lastFailures, tame })); }
     catch (e) { allFailures.push({ kind: 'error', text: '', reasons: [e.message] }); continue; }
     last = set;
-    const lint = lintSet(set);
-    if (lint.ok && enough(set)) return { ok: true, set: passingOnly(set), attempts: attempt, failures: allFailures };
+    const lint = lintSet(set, opts);
+    if (lint.ok && enough(set)) return { ok: true, set: passingOnly(set, opts), attempts: attempt, failures: allFailures };
     lastFailures = lint.failures;
     allFailures.push(...lint.failures);
     if (!lint.ok) continue;
   }
   // Out of attempts: keep what passes, if it is enough.
-  const kept = last ? passingOnly(last) : { headlines: [], longHeadlines: [], descriptions: [] };
+  const kept = last ? passingOnly(last, opts) : { headlines: [], longHeadlines: [], descriptions: [] };
   if (enough(kept)) return { ok: true, set: kept, attempts: MAX_ATTEMPTS, failures: allFailures, partial: true };
   return { ok: false, set: kept, attempts: MAX_ATTEMPTS, failures: allFailures,
            error: `only ${kept.headlines.length}/${kept.longHeadlines.length}/${kept.descriptions.length} lines passed lint (need ${MIN_LINES.headlines}/${MIN_LINES.longHeadlines}/${MIN_LINES.descriptions})` };
