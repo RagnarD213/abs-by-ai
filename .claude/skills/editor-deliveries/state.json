@@ -77,6 +77,27 @@
       "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h265.mov",
       "size": 594268291,
       "filed_on": "2026-09-08"
+    },
+    {
+      "drive_id": "1Jby6q3qJGaplKFuJn96vdMXfMXUwOl-A",
+      "editor": "Zeeshan",
+      "title": "the 17 dollar ab wheel beats every crunch",
+      "kind": "content",
+      "number": 1,
+      "path": "Zeeshan Content Videos/the 17 dollar ab wheel beats every crunch - video 1/the 17 dollar ab wheel beats every crunch | zeeshan | 16x9 | video 1.mp4",
+      "size": 545035144,
+      "filed_on": "2026-09-10",
+      "why_final": "Video 2 Rev 3 (delivered 09-09 04:42Z). Dan in the Upwork room 09-09 10:15: 'this video is looking great, and it's finalized'; milestone approved 10:16. No revision round after round 3 (09-08). Downloaded by curl, size matches Drive exactly."
+    },
+    {
+      "drive_id": "1y41uH1mmjVuxaieq49ANMrB3Bp7F0qLM",
+      "editor": "Zeeshan",
+      "title": "the 17 dollar ab wheel beats every crunch",
+      "kind": "content",
+      "number": 1,
+      "path": "Zeeshan Content Videos/the 17 dollar ab wheel beats every crunch - video 1/the 17 dollar ab wheel beats every crunch | zeeshan | 16x9 | video 1.srt",
+      "size": 11980,
+      "filed_on": "2026-09-10"
     }
   ],
   "not_final_seen": [
@@ -84,7 +105,23 @@
       "drive_id": "1o96syme-vP549sjtgfdtezvFXtwz-_n2",
       "editor": "Zeeshan",
       "file": "Test Video 2 Revision 2.mp4",
-      "why": "$17 ab wheel round 3 — 8 revision items open 2026-09-08"
+      "why": "$17 ab wheel round 3 — 8 revision items open 2026-09-08 (superseded by Rev 3, filed 09-10)"
+    },
+    {
+      "drive_id": "1YtpMv-U9sSMbHqEEiUsDKDS82S51xldz",
+      "editor": "Zeeshan",
+      "file": "video-2.mov",
+      "size": 770091169,
+      "delivered_on": "2026-08-27",
+      "why": "Aug 27 round-1 ab-wheel cut in the 'Final Video 1' folder; superseded. Recorded so folder_scan.py does not re-flag it."
+    },
+    {
+      "drive_id": "1EXUtWvtJibT9zlTpf5NWJjJf7XK5c1ak",
+      "editor": "Zeeshan",
+      "file": "Video  2.mov (double space)",
+      "size": 770091180,
+      "delivered_on": "2026-08-27",
+      "why": "NOT a new delivery — 770,091,180 B near-duplicate of video-2.mov (770,091,169 B), same Aug 27 round-1 ab-wheel cut re-uploaded. Recorded so folder_scan.py does not re-flag it every run."
     },
     {
       "drive_id": "1KqmGfSPQkXRiXdvPkt9c419KMlmvz6YW",
@@ -99,10 +136,18 @@
       "why": "Ad 3 round 3 revisions 2026-09-08"
     },
     {
+      "drive_id": "1fsAnRYpVR89jExW6yAOK01sybyjBEBLh",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 3 V4.mp4",
+      "size": 358591399,
+      "delivered_on": "2026-09-09",
+      "why": "HD-class size, but Ad 3 round 4 revisions written on it 2026-09-09 ('This list ends the job') and his 09-09 message lists it as a review link, no final wording. Watch for the V5 / HD after round 4."
+    },
+    {
       "drive_id": "1DHZZbNP7LfTzc_iiHjq5KKqSI3Xi875I",
       "editor": "Muhammad",
       "file": "Daniel HQ Fitness Video Ad4 V2.mp4",
-      "why": "28 MB draft; Ad 4 round 2 open"
+      "why": "28 MB draft; Ad 4 round 2 open. His 09-09 'AD 02 v2' link is byte-identical to this file (per coordination)."
     },
     {
       "drive_id": "1ow6KQTQGVXS9ZACpprA-3D2f07MPnU1W",
@@ -117,54 +162,70 @@
       "why": "110 MB draft; Ad 6 round 1 open"
     },
     {
+      "drive_id": "1T8RjW4iZ_RoEbyS6QyosbesAZw78i8e9",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 6 v2.mp4",
+      "size": 110884131,
+      "delivered_on": "2026-09-09",
+      "why": "draft size; Ad 6 round 2 revisions 2026-09-09"
+    },
+    {
       "drive_id": "1XOrNxCsDczxI35SLQFJRQqksFN4kmDpb",
       "editor": "Muhammad",
       "file": "Daniel HQ Ad 7.mp4",
       "why": "86 MB draft; Ad 7 round 1 open"
     },
     {
+      "drive_id": "1oNkL-N1rn08HZIGTXX1tbvG8TUYkIY47",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 7 v2.mp4",
+      "size": 86284979,
+      "delivered_on": "2026-09-09",
+      "why": "draft size; Ad 7 round 2 revisions 2026-09-09"
+    },
+    {
       "drive_id": "12T8bhMLYuhFamLTHq9_8gAPXe86QinJP",
       "editor": "Muhammad",
       "file": "Daniel HQ Ad 8.mp4",
-      "why": "26 MB draft; Ad 8 round 1 open"
+      "why": "26 MB draft; Ad 8 round 1 open (re-linked unchanged in his 09-09 message)"
     },
     {
-      "drive_id": "1Jby6q3qJGaplKFuJn96vdMXfMXUwOl-A",
-      "editor": "Zeeshan",
-      "file": "Video 2 Rev 3.mp4",
-      "size": 545035144,
+      "drive_id": "1jCUzkg1ov-uk1jWDfa7Z8mp045EZEZ-h",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 9.mp4",
+      "size": 24122610,
+      "delivered_on": "2026-09-08",
+      "why": "draft size; Ad 9 round 1 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "1BQSO_Puwf08HtS8RGDtIY9uog2rnM5zr",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 10.mp4",
+      "size": 21400488,
+      "delivered_on": "2026-09-08",
+      "why": "draft size; Ad 10 round 1 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "1Wujumw4rtohhQ3LT1LtuvboVImUB9-F0",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 13.mp4",
+      "size": 30212736,
+      "delivered_on": "2026-09-08",
+      "why": "draft size; Ad 13 round 1 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "1FCQcXVLPsqsKecRTTp_RqOsM6fubEWbC",
+      "editor": "Muhammad",
+      "file": "Daniel HQ ads 14.mp4",
+      "size": 79399678,
       "delivered_on": "2026-09-09",
-      "why": "Zeeshan's answer to the 09-08 round-3 revisions on the $17 ab wheel. MISSED by the 09-09 05:40 run (see SKILL.md 'A quiet run must be PROVEN quiet'); Dan found and downloaded it himself, byte-exact, to 'Organic Videos/The $17 Ab Wheel/Zeeshan edit/' with Video 2 Subtitle.srt. NOT filed under the naming convention and NOT confirmed final — Dan reviews first. Do not re-download."
-    },
-    {
-      "drive_id": "1y41uH1mmjVuxaieq49ANMrB3Bp7F0qLM",
-      "editor": "Zeeshan",
-      "file": "Video 2 Subtitle.srt",
-      "size": 11980,
-      "delivered_on": "2026-09-09",
-      "why": "subtitle file for Video 2 Rev 3; INVISIBLE to every Drive search query — found only by folder_scan.py. Dan already has a copy on disk. Files with its mp4 when that is filed."
-    },
-    {
-      "drive_id": "1EXUtWvtJibT9zlTpf5NWJjJf7XK5c1ak",
-      "editor": "Zeeshan",
-      "file": "Video  2.mov (double space)",
-      "size": 770091180,
-      "delivered_on": "2026-08-27",
-      "why": "NOT a new delivery — 770,091,180 B near-duplicate of video-2.mov (770,091,169 B), same Aug 27 round-1 ab-wheel cut re-uploaded. Recorded so folder_scan.py does not re-flag it every run."
+      "why": "draft size; Ad 14 round 1 revisions 2026-09-09"
     }
   ],
-  "pending": [
-    {
-      "editor": "Zeeshan",
-      "reason": "thread unread — the 2026-09-09 05:40 run could not render his Upwork room (3 messages: 09-08 15:45Z, 09-09 00:45Z, 09-09 11:30Z) and wrongly closed the run as quiet. Dan has the file; confirm from the thread whether Rev 3 is his final before filing.",
-      "added_on": "2026-09-09"
-    },
-    {
-      "editor": "UNKNOWN — 'Romaisa R.'",
-      "room": "room_3a0dd1a1b1b542c53ceff9b79d2af92f",
-      "reason": "new Upwork room (msg 2026-09-09 00:01Z), not in editors, room would not render. Open it and add the editor if it is one.",
-      "added_on": "2026-09-09"
-    }
+  "pending": [],
+  "resolved_2026-09-10": [
+    "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
+    "Romaisa R. (room_3a0dd1a1…) — not an editor on the job: an applicant following up ('I hope you've found a good editor… available to work'). Same for Abdul W. (room_549d5bcc…, proposal) and Gbadamosi I. (room_3f398d8b…, 'How are you?'). None delivered anything."
   ],
-  "last_run": "2026-09-09"
+  "last_run": "2026-09-10"
 }

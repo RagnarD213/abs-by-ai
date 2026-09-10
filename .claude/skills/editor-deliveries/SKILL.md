@@ -209,7 +209,16 @@ passes rule 3, and `revision docs/` must have nothing newer (rule 2).
 ## Downloading from Drive (measured recipe, 2026-09-08)
 
 The Drive MCP's `download_file_content` returns base64 into context — **never use it for video**.
-`GOOGLE_REFRESH_TOKEN` in the secrets cache is calendar-only. The working route is Chrome:
+`GOOGLE_REFRESH_TOKEN` in the secrets cache is calendar-only.
+
+**Try `curl` first — no browser (verified 2026-09-10 on Zeeshan's Rev 3 + .srt).** A link-shared file
+(anything inside Zeeshan's shared folders, and any file an editor shares "anyone with the link")
+downloads directly:
+`curl -sL -o "<target>.part" "https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t"`
+— `confirm=t` skips the virus-scan page. Probe first with `-r 0-1023` and check the bytes are video
+(`ftyp`), not an HTML sign-in page; then download to `.part`, compare `stat -f %z` to Drive's
+`fileSize`, and rename only on an exact match. A file shared only to Dan's account returns HTML —
+fall back to Chrome:
 
 1. `navigate` to `https://drive.usercontent.google.com/download?id=<DRIVE_ID>&export=download`.
    Files over ~100 MB show the "Google Drive can't scan this file for viruses" page with one
