@@ -290,7 +290,7 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
            desktop slot (right column) by a script; content is built once. -->
       <div id="heroVideoBlock" style="display:none">
         <div class="video-frame" id="heroVideoFrame"></div>
-        <div class="video-cap"><img src="/img/dan-avatar.jpg" alt=""><span>Dan Rose, founder · what happens after your photo · 3:50</span></div>
+        <div class="video-cap"><img src="/img/dan-avatar.jpg" alt=""><span id="heroVideoCap">Dan Rose, founder · what happens after your photo · 3:50</span></div>
       </div>
       <div id="heroProof" class="only-control">
         <div class="pair">
@@ -354,8 +354,8 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
 
   <!-- ════════ VIDEO (variant B home; hidden until the video is hosted) ════════ -->
   <section class="section only-analysis" id="videoSection" style="display:none">
-    <h2 class="section-h">Watch: what happens after your photo</h2>
-    <p class="section-p">Dan Rose, founder of Abs by AI, walks through the goal image, the analysis and the plan. 3 min 50 s.</p>
+    <h2 class="section-h" id="sectionVideoH">Watch: what happens after your photo</h2>
+    <p class="section-p" id="sectionVideoP">Dan Rose, founder of Abs by AI, walks through the goal image, the analysis and the plan. 3 min 50 s.</p>
     <div class="video-frame" id="sectionVideoFrame"></div>
   </section>
 
@@ -469,7 +469,17 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
 (function () {
   const VSL = window.VSL;
   const $ = (id) => document.getElementById(id);
-  const VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '' }, window.ABS_SITE_VIDEO || {});
+  // /start's own video (ABS_START_VIDEO, the VSL) when it has an id; otherwise the
+  // shared website video (ABS_SITE_VIDEO) that the analysis page also plays.
+  const START = window.ABS_START_VIDEO || {};
+  const OWN = !!(START.youtubeId || START.mp4);
+  const VIDEO = Object.assign({ youtubeId: '', mp4: '', poster: '', title: '', lengthLabel: '' }, OWN ? START : (window.ABS_SITE_VIDEO || {}));
+  if (OWN) {
+    const t = VIDEO.title || 'see yourself with abs', len = VIDEO.lengthLabel ? ' · ' + VIDEO.lengthLabel : '';
+    const cap = $('heroVideoCap'); if (cap) cap.textContent = 'Dan Rose, founder · ' + t + len;
+    const h = $('sectionVideoH'); if (h) h.textContent = 'Watch: ' + t;
+    const p = $('sectionVideoP'); if (p) p.textContent = 'Dan Rose, founder of Abs by AI, uploads his own before photo and shows you what comes back.' + (VIDEO.lengthLabel ? ' ' + VIDEO.lengthLabel + '.' : '');
+  }
   const HANDOFF_KEY = 'absbyai_vsl_handoff';
   const MAX_DIM = 1024, JPEG_Q = 0.85;
 
@@ -482,7 +492,7 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
     const real = !!(VIDEO.youtubeId || VIDEO.mp4);
     if (!real && !VSL.vp) return false;
     if (VIDEO.youtubeId) {
-      frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1" title="What happens after your photo — Abs by AI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+      frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1" title="${OWN ? 'See yourself with abs' : 'What happens after your photo'} — Abs by AI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
       // A YouTube play is only observable through the IFrame API; a click into
       // the frame (window blur while it is hovered) is the cheap proxy.
       let hovered = false;
@@ -506,7 +516,7 @@ h1 { font-size: clamp(22px, 6.9vw, 30px); line-height: 1.1; letter-spacing: -0.7
       frame.innerHTML = `<div class="video-ph"${VIDEO.poster ? ` style="background-image:url('${VIDEO.poster}')"` : ''}>
         <div class="video-ph-play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-ph-lbl">VIDEO PLACEHOLDER</div>
-        <div style="font-size:12px;opacity:.75">Dan: what happens after your photo (rev 5, awaiting the YouTube id)</div>
+        <div style="font-size:12px;opacity:.75">${OWN ? 'Dan: the /start VSL' : 'Dan: what happens after your photo'} (awaiting the YouTube id)</div>
       </div>`;
     }
     return real;
