@@ -35,12 +35,6 @@
       "addedAt": "2026-09-09"
     },
     {
-      "text": "Build the Abs By AI conversion (VSL) landing page + an alternate variant for A/B",
-      "priority": "key",
-      "why": "2026-09-09 AM planning — Dan: conversion process needs improvement; rev-5 website video is delivered but installed nowhere (ANALYSIS_VIDEO slot empty)",
-      "addedAt": "2026-09-09"
-    },
-    {
       "text": "Launch the first Google Ads conversion campaign with the finished ads (Ad 2 V2 + Ad 1 vertical)",
       "priority": "key",
       "why": "2026-09-09 AM planning — Dan wants the first ads live on Google Ads; gated by the payment-method fix and the 2:30 rep call about the six LIMITED ads",
@@ -63,38 +57,36 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-08"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-08"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-08"
+      "recurring": true
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-08"
+      "recurring": true
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-08"
+      "recurring": true
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-08"
+      "recurring": true
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
