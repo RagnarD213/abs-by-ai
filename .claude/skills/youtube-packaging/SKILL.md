@@ -215,6 +215,10 @@ embers, rim glow, zigzag/curved arrows, brush, red ring) lives in
 - **Crop the pool-shoot photos AT THE WAISTLINE** (measured per photo on a ruler sheet: 247 → 0.675, 172 → 0.605,
   221 → 0.70, 138 → 0.72 of source height) so the swim brief never reads — "make it look like regular shorts".
   A sliver of waistband is fine; a visible brief is not.
+- **Studio cutouts need their own measured `waist_frac` too — never reuse 0.60.** blue-89 (a head-to-hip frame)
+  was 0.60; the head-to-knee hands-on-hips frames sit much lower: blue-247 waistband top 0.61 → use **0.645**,
+  white-23 0.665 → **0.695**. At 0.60 both cut through the abs (Ad 5, 2026-09-10). Ruler sheet first, every photo.
+  Ad 5 build: `thumbnails/Ad 5 Every Diet You've Tried Failed For The Same Reason/_build-2026-09-10/build.py`.
 - Gen-fill seeds that carry his elbow at the strip edge, and cutouts on a flat placeholder, both invite the model to
   slide/shrink him — `comp2.py` / `env/comp_env.py` refuse at IoU < 0.9; regenerate, and for cutout-on-placeholder
   seeds say explicitly that the frame cuts him at mid-thigh and no legs/feet are to be added.

@@ -10,6 +10,20 @@ Last updated 2026-08-18 by Claude Code.
 - **TikTok deliberately NOT connected** until ~2026-09-02 (warm-up; early third-party connection risks a bot flag).
 - **YouTube is connected but deliberately unused.** All 28 Shorts are already scheduled natively in YouTube Studio, so posting them through Blotato too would double-post. Blotato only posts where a post names that accountId, and no Automations exist, so it is inert. Dan's decision 2026-08-17: leave connected, revisit after the native queue runs dry (post Oct 15).
 
+## DONE — Ad 5 "Every Diet You've Tried Failed for the Same Reason", every platform (2026-09-10)
+
+Muhammad's V3 HD (3:55, 311 MB, md5 `3873513e…`), posted untouched — under the 400 MB cap, so no
+re-encode. **4 Blotato posts** by `scripts/blotato/ad5_queue.py` (same shape and guards as the ab-wheel
+script), queue 193 → 197, all 4 verified on a fresh pull (schedules 4327372–4327375).
+
+| FB · IG @danrosefit · TikTok | IG @abs.by.ai | YouTube |
+|---|---|---|
+| Wed Sep 16, 9 AM CT | Sep 17, 9 AM | `bwfSQopZy1w`, Sep 16 9 AM, thumbnail B (studio-white-23) |
+
+- IG CTA keyword **`FOOD`** (diet/meal-plan topic); UTM `utm_campaign=longform&utm_content=ad5-every-diet`.
+  Links go to the absbyai.com root, not `/start`, so organic traffic stays out of the `/start` A/B test.
+- TikTok `isAiGenerated: true` — the video shows the AI future-self image.
+
 ## DONE — "The $17 Ab Wheel Beats Every Crunch" + its 5 Shorts, every platform (2026-09-10)
 
 Source: Muhammad's v2 HD cut (6:58, md5 `05eb475f…`) — the same file the 5 approved ab-wheel Shorts

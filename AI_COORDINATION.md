@@ -65,6 +65,11 @@ TikTok via Blotato (@abs.by.ai 09-14). The 5 approved shorts (cut 08-28 from thi
 5 PM CT, IG cover A. Optional in Studio: thumbnail F as the A/B test, a pinned comment. ⚠ TikTok long-form is 6:58 — if
 the 09-13 TikTok post fails, that is the account's length cap. Table: `BLOTATO_QUEUE_PROGRESS.md`. Delete once it posts.
 
+**Ad 5 "Every Diet You've Tried Failed" (Muhammad V3 HD) — FILED + SCHEDULED ON EVERY PLATFORM 2026-09-10, nothing
+blocked.** Public Wed 09-16 9 AM CT: YouTube `bwfSQopZy1w` (thumbnail B studio-white-23 set + read back) + FB / IG
+@danrosefit / TikTok via Blotato (@abs.by.ai 09-17; `scripts/blotato/ad5_queue.py`, queue 197/200). Optional in Studio:
+thumbnail A (studio-blue-247) as the A/B test, a pinned comment. Delete once it posts.
+
 **/start VSL script — WRITTEN 2026-09-10, Dan reads it and records.** Google Doc
 `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`: hero cut (≈1:15, demo-first — Dan uploads his own before photo, "I'll
 go first"), full cut (≈3:15, "This picture got me abs"), four hook takes, shot list, B-roll, research, compliance. One
