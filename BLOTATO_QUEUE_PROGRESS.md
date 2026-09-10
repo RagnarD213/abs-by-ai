@@ -10,6 +10,35 @@ Last updated 2026-08-18 by Claude Code.
 - **TikTok deliberately NOT connected** until ~2026-09-02 (warm-up; early third-party connection risks a bot flag).
 - **YouTube is connected but deliberately unused.** All 28 Shorts are already scheduled natively in YouTube Studio, so posting them through Blotato too would double-post. Blotato only posts where a post names that accountId, and no Automations exist, so it is inert. Dan's decision 2026-08-17: leave connected, revisit after the native queue runs dry (post Oct 15).
 
+## DONE — "The $17 Ab Wheel Beats Every Crunch" + its 5 Shorts, every platform (2026-09-10)
+
+Source: Muhammad's v2 HD cut (6:58, md5 `05eb475f…`) — the same file the 5 approved ab-wheel Shorts
+were cut from on 08-28, so nothing new was cut. **24 Blotato posts** by `scripts/blotato/abwheel_queue.py`
+(idempotent; refuses a slot clash or the 200 cap), queue 173 → 197, all 24 verified on a fresh pull.
+Accounts now in use: FB page 47105, IG `@danrosefit` 67203 (main), IG `@abs.by.ai` 65632 (mirror, next
+day), TikTok 58181. **YouTube is scheduled natively** with `scripts/youtube/upload.js --publish-at`
+(full-quality 1.1 GB master; Blotato caps uploads at 400 MB) and spends no Blotato slot.
+
+| video | FB · IG @danrosefit · TikTok | IG @abs.by.ai | YouTube |
+|---|---|---|---|
+| long-form | Sun Sep 13, 9 AM CT | Sep 14, 9 AM | `bkzT-3ENpoU`, Sep 13 9 AM, thumbnail A |
+| short 1 Why I Love The Ab Wheel | Tue Oct 27, 5 PM | Oct 28 | `xPPeXcNXs8Y` |
+| short 2 The Biggest Ab Wheel Mistake | Thu Oct 29 | Oct 30 | `q4xGarIzRnI` |
+| short 3 How To Do Ab Wheel Rollouts | Sat Oct 31 | Nov 1 | `GzjiGqbX3Wo` |
+| short 4 How Fast To Roll Out With The Ab Wheel | Tue Nov 3 | Nov 4 | `hnxqAmmO0gM` |
+| short 5 Why The Ab Wheel Beats Crunches | Thu Nov 5 | Nov 6 | `iA5PXzzaJzI` |
+
+- The long-form on Blotato is a 193 MB copy (h264_videotoolbox 4 Mbps, audio stream copied untouched).
+  Facebook gets it with **no mediaType**, i.e. a plain video, per the 90 s Reels rule below.
+- The Shorts start where the Reels queue ends (Oct 24). **Oct 3 and Oct 15 have no Reel but
+  `@danrosefit` has a photo in both 5 PM slots** — the script's clash check caught it before anything
+  was created. 5 PM is 22:00Z until Nov 1 and 23:00Z after.
+- Instagram covers = the **A** variant of each (its eyebrow/headline is the short's own burned title).
+  IG CTA keyword `ABS`; UTMs `utm_campaign=abwheel&utm_content=abwheel-short<N>` (long-form:
+  `utm_campaign=longform&utm_content=abwheel`, as V7).
+- ⚠ The TikTok long-form is 6:58. TikTok's per-account maximum length is not visible through Blotato;
+  if the Sep 13 TikTok post fails, check that first.
+
 ## DONE — 27 Shorts × 2 platforms = 54 posts scheduled
 
 All at **5:00 PM Central** (= `22:00Z`; Aug–Oct is CDT, UTC−5). Dates **mirror the existing YouTube Studio schedule exactly**, read live off the Studio content list rather than from any doc.

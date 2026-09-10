@@ -23,6 +23,9 @@
  *   node scripts/youtube/upload.js --file "path/to/video.mp4" \
  *     --title "Title" [--description-file notes.md] [--privacy unlisted] \
  *     [--tags "a,b,c"] [--made-for-kids false] [--dry-run]
+ *     [--publish-at 2026-09-13T14:00:00Z]   schedule: uploads private, goes public then
+ *     [--thumbnail thumb.jpg]               custom thumbnail, set after the upload
+ *     [--synthetic true|false]              altered/synthetic content disclosure
  *
  * Prints the video id and watch/embed URLs on success. Safe to re-run only if the
  * previous attempt failed — YouTube does not dedupe, a second run makes a second video.
@@ -64,6 +67,9 @@ function args() {
     else if (k === '--category') o.category = a[++i];
     else if (k === '--made-for-kids') o.madeForKids = a[++i] === 'true';
     else if (k === '--dry-run') o.dryRun = true;
+    else if (k === '--publish-at') o.publishAt = a[++i];
+    else if (k === '--thumbnail') o.thumbnail = a[++i];
+    else if (k === '--synthetic') o.synthetic = a[++i] === 'true';
   }
   return o;
 }
@@ -102,6 +108,15 @@ async function main() {
   if (!fs.existsSync(o.file)) throw new Error('file not found: ' + o.file);
   if (!o.title) throw new Error('--title is required');
   if (!['unlisted', 'private', 'public'].includes(o.privacy)) throw new Error('--privacy must be unlisted|private|public');
+  // A scheduled video has to go up private; YouTube flips it to public at publishAt.
+  if (o.publishAt) {
+    const t = Date.parse(o.publishAt);
+    if (isNaN(t)) throw new Error('--publish-at must be an ISO 8601 time, e.g. 2026-09-13T14:00:00Z');
+    if (t <= Date.now()) throw new Error('--publish-at is in the past');
+    o.publishAt = new Date(t).toISOString();
+    o.privacy = 'private';
+  }
+  if (o.thumbnail && !fs.existsSync(o.thumbnail)) throw new Error('thumbnail not found: ' + o.thumbnail);
 
   const size = fs.statSync(o.file).size;
   const description = o.descriptionFile ? fs.readFileSync(o.descriptionFile, 'utf8') : (o.description || '');
@@ -111,7 +126,11 @@ async function main() {
   console.log(`channel: ${ch.title} (${ch.id})`);
   console.log(`file:    ${path.basename(o.file)} — ${(size / 1048576).toFixed(1)} MB`);
   console.log(`title:   ${o.title}`);
-  console.log(`privacy: ${o.privacy}`);
+  console.log(`privacy: ${o.privacy}${o.publishAt ? ` — goes public ${o.publishAt}` : ''}`);
+  if (o.thumbnail) console.log(`thumb:   ${path.basename(o.thumbnail)}`);
+  // YouTube caps tags at 500 characters, counting a tag with a space as if quoted.
+  const tagChars = (o.tags || []).reduce((n, t) => n + t.length + (t.includes(' ') ? 2 : 0), 0) + Math.max(0, (o.tags || []).length - 1);
+  if (tagChars > 500) throw new Error(`tags are ${tagChars} characters; YouTube allows 500`);
   if (o.dryRun) { console.log('DRY RUN — nothing uploaded.'); return; }
 
   const metadata = {
@@ -125,6 +144,8 @@ async function main() {
       privacyStatus: o.privacy,
       selfDeclaredMadeForKids: !!o.madeForKids,
       embeddable: true,
+      ...(o.publishAt ? { publishAt: o.publishAt } : {}),
+      ...(o.synthetic !== undefined ? { containsSyntheticMedia: o.synthetic } : {}),
     },
   };
 
@@ -198,6 +219,19 @@ async function main() {
   console.log(`watch:     https://www.youtube.com/watch?v=${videoId}`);
   console.log(`embed:     https://www.youtube-nocookie.com/embed/${videoId}`);
   console.log(`studio:    https://studio.youtube.com/video/${videoId}/edit`);
+
+  // 3. Custom thumbnail (JPEG/PNG, max 2 MB). A failure here leaves a good upload
+  //    behind, so report it rather than exit non-zero and invite a duplicate re-run.
+  if (o.thumbnail) {
+    const type = /\.png$/i.test(o.thumbnail) ? 'image/png' : 'image/jpeg';
+    const r = await fetch(`https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=${videoId}&uploadType=media`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': type },
+      body: fs.readFileSync(o.thumbnail),
+    });
+    if (r.ok) console.log(`thumbnail: set from ${path.basename(o.thumbnail)}`);
+    else console.error(`thumbnail NOT set (${r.status}): ${await r.text()}`);
+  }
 }
 
 main().catch((e) => { console.error('\nERROR:', e.message); process.exit(1); });

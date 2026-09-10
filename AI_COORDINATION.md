@@ -38,6 +38,12 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**$17 Ab Wheel long-form + its 5 shorts — SCHEDULED ON EVERY PLATFORM 2026-09-10, nothing blocked.** Muhammad's v2 HD
+goes public Sun 09-13 9 AM CT: YouTube `bkzT-3ENpoU` (full-quality master, thumbnail A, chapters) + FB / IG @danrosefit /
+TikTok via Blotato (@abs.by.ai 09-14). The 5 approved shorts (cut 08-28 from this exact file) post Oct 27/29/31, Nov 3/5
+5 PM CT, IG cover A. Optional in Studio: thumbnail F as the A/B test, a pinned comment. ⚠ TikTok long-form is 6:58 — if
+the 09-13 TikTok post fails, that is the account's length cap. Table: `BLOTATO_QUEUE_PROGRESS.md`. Delete once it posts.
+
 **/start VSL script — WRITTEN 2026-09-10, Dan reads it and records.** Google Doc
 `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`: hero cut (≈1:15, demo-first — Dan uploads his own before photo, "I'll
 go first"), full cut (≈3:15, "This picture got me abs"), four hook takes, shot list, B-roll, research, compliance. One

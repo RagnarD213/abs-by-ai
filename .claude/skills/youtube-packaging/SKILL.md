@@ -210,10 +210,17 @@ Dan's expectation is that Claude **applies** the packaging in Studio, not just w
 a document. All of it is drivable through the Chrome MCP except pushing the video
 file itself.
 
-**What Claude CANNOT do: upload the video file.** Long-form files are 0.4–3 GB; the
-only way to hand a local file to a page is via browser memory, and a 3 GB blob crashes
-the tab. Chrome's native file picker isn't drivable either (computer-use is read-only
-on browsers). **The file drag is Dan's, ~30s per video.** Everything after is Claude's.
+**SUPERSEDED 2026-09-09/10 — Claude uploads, schedules and thumbnails by API now.**
+`scripts/youtube/upload.js` does a resumable Data API upload of any size, and since
+2026-09-10 takes `--publish-at <ISO>` (uploads private, YouTube flips it public then),
+`--thumbnail <jpg|png ≤2 MB>` (thumbnails.set after the upload) and
+`--synthetic true|false` (the altered-content disclosure). First scheduled long-form
+through it: "The $17 Ab Wheel Beats Every Crunch", 1.05 GB master, plus its 5 Shorts.
+**Still Studio-only (the token has `youtube.upload` + `youtube.readonly`, not
+`youtube.force-ssl`):** pinned comment, playlists, end screens, captions upload, and
+the thumbnail A/B "Test & Compare". The browser tricks below are for those.
+Old note, for history: long-form files are 0.4–3 GB and a 3 GB blob crashes the tab,
+which is why the file drag used to be Dan's.
 
 **Getting the THUMBNAIL file in — three methods, only the third works on Studio:**
 1. ❌ **localhost `fetch` → DataTransfer** (the technique that works on Play Console):
