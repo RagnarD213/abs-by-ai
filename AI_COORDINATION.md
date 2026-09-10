@@ -380,6 +380,12 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
   fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
+- **`Handoffs/handoff-20260910-sixpackabs-homepage-redesign.md`** — sixpackabs.com video-first homepage to the locked
+  design in `Docs/sixpackabs-redesign/` (child theme over SSH/SFTP, `spa_video` post type, hourly YouTube + @danrosefit
+  Instagram sync served by two new absbyai.com feed endpoints, new header/footer site-wide, newsletter → existing
+  MailerLite list). Fire once Dan has enabled SSH/SFTP on sixpackabs.com + its staging site and put `SPA_SSH_*` in the
+  secrets file. Staging first; production only on Dan's go; **every old blog URL preserved, no redirects.** Opus 5 high.
+  **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260910-start-vsl-edit-and-install.md`** — fire after Dan records the /start VSL: edit the
   hero (×4 hooks) + full cut with /website-video, give /start its own video slot (the analysis page keeps
   `CwEGFxpIM-E`), verify live, then check off the dashboard VSL row. Fable 5.1 high. **Not on the dashboard** (his rule).

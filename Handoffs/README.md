@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260910-sixpackabs-homepage-redesign.md](handoff-20260910-sixpackabs-homepage-redesign.md) | after Dan enables SSH/SFTP on sixpackabs.com + its staging site and adds the `SPA_SSH_*` creds to the secrets file — child theme + video post type + hourly YouTube/Instagram sync to the locked design in `Docs/sixpackabs-redesign/`; staging first, production on Dan's go; every old post URL preserved. Opus 5 high |
 | [handoff-20260910-start-vsl-edit-and-install.md](handoff-20260910-start-vsl-edit-and-install.md) | after Dan records the /start VSL (script doc linked inside) — edit hero ×4 hooks + full cut with /website-video, then give /start its own video slot (analysis page keeps `CwEGFxpIM-E`), verify live. Fable 5.1 high |
 | [handoff-20260812-revenuecat-restore-behavior-audit.md](handoff-20260812-revenuecat-restore-behavior-audit.md) | fire the day Apple approves (IN_REVIEW since 09-08) |
 | [handoff-20260812-purchase-before-account.md](handoff-20260812-purchase-before-account.md) | after approval AND after the RevenueCat audit |
