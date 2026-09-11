@@ -1,6 +1,7 @@
 {
   "checked": [
-    "money::Upwork: forward the 09-10 revisions doc to Muhammad, then give revisions on any new cuts"
+    "money::Upwork: forward the 09-10 revisions doc to Muhammad, then give revisions on any new cuts",
+    "money::Request Unemployment Payment"
   ],
   "log": {
     "health::Shower": [
@@ -218,6 +219,7 @@
     ]
   },
   "checkedAt": {
-    "money::Upwork: forward the 09-10 revisions doc to Muhammad, then give revisions on any new cuts": "2026-09-11"
+    "money::Upwork: forward the 09-10 revisions doc to Muhammad, then give revisions on any new cuts": "2026-09-11",
+    "money::Request Unemployment Payment": "2026-09-11"
   }
 }
