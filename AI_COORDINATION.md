@@ -38,6 +38,34 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Google Ads rep tasks (GA4, Search → /start, MCC account) — EXECUTED AND VERIFIED 2026-09-11. TWO CLICKS LEFT FOR DAN.**
+✅ **GA4 is live and linked.** Property "Abs By AI" `553864929`, stream absbyai.com `15763007741`, **`G-1M1SY7GGKF`**,
+inside GA account SixPackAbs.com `145219380`; linked to Ads `342-717-0837`, personalized advertising on, **no
+conversion import** (the gtag actions stay primary — an import double-counts). Installed as a second `gtag('config')`
+on the existing Ads loader across all 11 tagged pages (`17a90dc`), live-verified: a real `g/collect` hit with
+`tid=G-1M1SY7GGKF` on `/` and `/start`, and GA4 Realtime showed it within a minute. ⚠ Google's "use the tag found on
+your site" shortcut was REFUSED on purpose — it warns it overwrites the Ads tag's settings, which carry
+`allow_enhanced_conversions`. ⚠ **Native retest:** the wrappers load the same page, so GA4 counts app sessions as web.
+✅ **Every ENABLED Search ad now points at `https://absbyai.com/start`** (5 of 5, read back); the 5 home originals are
+PAUSED with their URLs updated, so history stays readable. The homepage became a **sitelink** — both Search campaigns
+carry four: Abs By AI Home `419963241925`, How It Works `419855564105` (both new), FAQ `401566853985`, Contact Us
+`419837287031`. ⚠ A final-URL change re-triggers policy review — run `node scripts/ads/api/client.js policy 24148587722`
+and `… 24086091285` on 09-12.
+✅ **Callouts recommendation: nothing to do.** All four callouts are ENABLED on BOTH campaigns and the API returns **no
+callout recommendation at all** — the card in Dan's screenshot is gone. No duplicates were added.
+❌ **DAN: the empty "SixPackAbs.com" MCC account needs you.** Both channels are closed to Claude — the API returns
+`DEVELOPER_TOKEN_NOT_APPROVED` ("not allowed with explorer access") and the UI puts a **reCAPTCHA** in front of the
+form. MCC `324-458-6445` → Accounts → **+** → *Create new account*, tick the CAPTCHA, then: name **SixPackAbs.com**,
+`America/Chicago`, USD, **skip billing**, take the "create an account without a campaign" / Expert Mode link.
+⚠ **FOR DAN, unrelated but found in the change log: the "$2.00 CPC ceiling killed Search on 09-10" explanation is
+dead — the ceiling is already GONE.** Today 09-11 it was removed from Brand at 14:39 in the Ads UI and from Non-Brand
+at 14:46 by **`GOOGLE_ADS_RECOMMENDATIONS` — Google's auto-apply, not a human.** Both campaigns now read
+MAXIMIZE_CONVERSIONS with no target CPA and no ceiling, Non-Brand "Eligible (Learning)". Nothing here touched
+bidding. Worth knowing that auto-apply can change bid settings on this account by itself.
+Docs: `Docs/GOOGLE_ADS_API.md` (new GA4 + MCC sections), `Docs/VSL_LANDING.md` (the home-vs-`/start` A/B is closed).
+Memory: `google-ads-ga4-link`, `google-ads-account-creation-blocked`. No dashboard row (his 09-08 rule).
+Delete this entry once Dan has made the MCC account and seen the bidding note.
+
 **Video editing strategy — RESEARCH DELIVERED 2026-09-11, Dan picks what to run.** Private report "The Muhammad
 Standard" (https://claude.ai/code/artifact/0fac6195-accb-415b-99fa-70e3825d4906): every approval of our video work came
 where the design was fixed (verticals/Shorts cut from Muhammad's masters, the locked website recipe). Plan: room acoustic
@@ -398,11 +426,6 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
-- **`Handoffs/handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md`** — Dan's 09-11 Google Ads rep meeting: GA4 for
-  absbyai.com (through the existing gtag loader) linked to Ads with no primary import; every Search RSA → `/start`
-  (home originals paused) + homepage/FAQ/Contact/How-it-works sitelinks; an EMPTY "SixPackAbs.com" client account under
-  MCC 324-458-6445; the screenshot's "add two callouts" card is stale (four are live on both campaigns) — verify and
-  dismiss. Fable 5.1 high. **Not on the dashboard.**
 - **Square (1:1) versions of every finalized ad — six per-ad docs + `Handoffs/handoff-20260911-square-ads-00-shared-rules.md`
   (read first).** Rep's ask: 1:1 fills Demand Gen in-feed/Discover/Gmail. Each is a re-layout of the ad's vertical
   build (same EDL/grade/beats/captions, audio bit for bit), 1080×1080, all gates + the audit. Firing order:

@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md](handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md) | Google Ads rep meeting 09-11: GA4 property through the existing gtag loader + linked to Ads (no primary import); every Search RSA → `absbyai.com/start`, homepage/FAQ/Contact/How-it-works sitelinks; EMPTY "SixPackAbs.com" client account under MCC 324-458-6445; verify the four callouts already on Non-Brand. Fable 5.1 high |
 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | READ FIRST for any square build — the 1:1 translation rules, gates, naming, after-build steps and the firing order for the six per-ad docs below |
 | [handoff-20260911-square-ad2-muhammad.md](handoff-20260911-square-ad2-muhammad.md) | **1st** — now; Ad 2 square from the approved vertical build `ad2-vert-v2/`. Fable 5.1 high |
 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | **2nd** — now; Ad 1 (Muhammad) square from `ad1-8-14/vert9x16/`, land on his 6,976 frames. Fable 5.1 high |

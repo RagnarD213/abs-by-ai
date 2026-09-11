@@ -110,3 +110,26 @@ example … not a real result" line directly under the hero pair (kept at Dan's 
 visual-estimate qualifier + `/sources` on every number, the FAQ, and the legal footer. The headline's "make it
 real" is the same phrasing the home page has carried since the August reinstatement; if Google ever flags
 the page, that phrase and the missing hero paragraph are the first two things to put back.
+
+## The Search landing-page test (home vs `/start`) is OVER — every Search ad now points at `/start` (2026-09-11)
+
+On the Google Ads rep's advice, and with Dan's agreement in the meeting, the 09-09 Search A/B ended without
+being read. Each of the five Search ad groups had two byte-identical RSAs, one on the homepage and one on
+`/start`, rotating indefinitely.
+
+What was done (`Handoffs/handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md`, task 2):
+
+- The five **home** RSAs — `821203927140`, `821417868428`, `821344283230`, `821344275016` (Non-Brand; all four
+  were on **`http://`**) and `818993763993` (Brand) — had `final_urls` updated to `https://absbyai.com/start`
+  and were then **PAUSED**, so their history stays readable. The five `/start` copies carry the ad groups.
+- Read back: **5 ENABLED Search ads, every one `["https://absbyai.com/start"]`**; 5 PAUSED.
+- The homepage did not disappear from Search — it became a **sitelink**. Both Search campaigns now carry four:
+  **Abs By AI Home** `419963241925` → `https://absbyai.com` (new), **How It Works** `419855564105` →
+  `/how-it-works.html` (new), **FAQ** `401566853985`, **Contact Us** `419837287031`. Four is what Google wants
+  before it serves the rich format, and every sitelink URL differs from the ads' final URL and from each other.
+  `Terms & Conditions` `401566879386` stays unlinked, as it was removed on purpose.
+- No tracking template / UTMs were added: `/start` reads `gclid` for the Ads conversion and PostHog attributes
+  from referrer + gclid.
+
+⚠ Changing a final URL re-triggers policy review. Run `node scripts/ads/api/client.js policy 24148587722` and
+`… 24086091285` the next day.
