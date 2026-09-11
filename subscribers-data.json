@@ -263,11 +263,12 @@
       "subscribedAt": "2026-09-06T23:43:00.195Z",
       "deviceId": "dev-1788737884224-dyk0fh0t",
       "synced": false,
-      "welcomeStep": 2,
-      "welcomeNextAt": "2026-09-11T00:50:51.912Z",
+      "welcomeStep": 3,
+      "welcomeNextAt": "2026-09-14T01:29:41.233Z",
       "welcomeSentAt": {
         "1": "2026-09-07T00:11:17.847Z",
-        "2": "2026-09-09T00:50:52.070Z"
+        "2": "2026-09-09T00:50:52.070Z",
+        "3": "2026-09-11T01:29:41.416Z"
       },
       "unsubscribed": false
     },
