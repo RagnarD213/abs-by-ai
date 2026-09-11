@@ -453,12 +453,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   the selftest repair and the **spray-tan re-render (6)** are done and pushed (`9f42e12`). What is left is
   **Zepbound (8) and supplements (8)** on the same settings, which are parked behind the long-form hold —
   fire it once Dan confirms the spray-tan sound. **Not on the dashboard** (his rule).
-- **`Handoffs/handoff-20260910-sixpackabs-homepage-redesign.md`** — sixpackabs.com video-first homepage to the locked
-  design in `Docs/sixpackabs-redesign/` (child theme over SSH/SFTP, `spa_video` post type, hourly YouTube + @danrosefit
-  Instagram sync served by two new absbyai.com feed endpoints, new header/footer site-wide, newsletter → existing
-  MailerLite list). Fire once Dan has enabled SSH/SFTP on sixpackabs.com + its staging site and put `SPA_SSH_*` in the
-  secrets file. Staging first; production only on Dan's go; **every old blog URL preserved, no redirects.** Opus 5 high.
-  **Not on the dashboard** (his rule).
 - **`Handoffs/handoff-20260910-start-vsl-edit-and-install.md`** — fire after Dan records the /start VSL: edit the
   hero (×4 hooks) + full cut with /website-video, give /start its own video slot (the analysis page keeps
   `CwEGFxpIM-E`), verify live, then check off the dashboard VSL row. Fable 5.1 high. **Not on the dashboard** (his rule).
@@ -499,6 +493,17 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
+**8/28 shoot Drive backup — UPLOADING OVERNIGHT 2026-09-11, self-verifying 09-12. Nothing for Dan to do.** The
+267 GB / 259-file 8/28 shoot existed on ONE drive with no backup of any kind — it is the source of every ad in
+production. `rclone` (installed at `~/bin/rclone`, remote `gdrive` authorized) is copying it to Drive folder
+`1gzGtstw-WGjo4fK4QL11UMbwST9YFw37`, wrapped in `caffeinate`, resumable, `.DS_Store` excluded. Measured ~4 MiB/s
+(his uplink, not throttling — zero 403s), so ETA ~13:00-14:00 CT 09-12. Scheduled task `verify-828-drive-backup`
+fires 08:30 and either reports progress or runs
+`scripts/backup/verify-drive-copy.sh <src> <folder-id>` (MD5 per file; expect 259 files / ~266.5 GiB) and deletes
+this entry on PASS. ⚠ Do NOT run the verify script mid-transfer — it reports a false FAIL on an incomplete copy.
+Remaining gap after this: the welcome-video first shoot (114 GB), the last irreplaceable folder with no second
+copy. Drive is a 5 TB plan, 4.5 TB free. No dashboard row.
+
 **Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 square cutdown from the APPROVED 9:16 vertical — IN PROGRESS
 (session started 2026-09-11 17:35 CT, owns it).** `Handoffs/handoff-20260911-square-ad1-muhammad.md`; build dir
 `/Volumes/Extreme/_edit_work/ad1-sq/` (the attempt-3 pipeline re-laid-out for 1080x1080: `sqlib.py` + `sqassets.py` +
@@ -533,13 +538,22 @@ stranger from the recording (lesson 40). Audio fine on both. Md copies in `revis
 **Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — IN PROGRESS (session started
 2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive `1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3` (265.2 s, 29.97);
 raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/` (a7 pipeline). Ad 4's vertical is a DIFFERENT
-session in `ad4-vert/` — do not touch either build dir. **Status 17:45 CT:** master rendered (7,948 frames, his audio bit
-for bit), caption sync + hair gate PASS, **my watch pass on it is COMPLETE (42 sheets, 251 boundaries)** and found two
-fixes, both coded and waiting on ONE re-render: (1) the lower thirds typed on in 1.55 s against his measured 0.37 s —
-the Ad 4 session's `a8_ad4/g8.py` found the same defect independently; (2) the four photo-shoot stills at 2:42 are REAL
-after pictures and were missing Dan's new 09-11 label. Render is HELD only because two other builds are running (the
-Fable audit + another session's ad5 watch). Cutdown still blocked on Dan: its true peak is −0.90 dBTP against a −1.0
-bar and only filtering his audio reaches −1.0, so either Muhammad re-exports at −1.2 or Dan OKs a −0.1 dB trim.
+session in `ad4-vert/` — do not touch either build dir. **Status 18:50 CT: RENDER 3 QUEUED (waits for the 2-build gate).**
+Render 2 + my watch pass (42 sheets, 251 boundaries) + an independent Fable audit are done; the audit said **"does not
+ship"** (18 findings) and all of them are now coded. Fixed: his picture cut not the audio splice (1352→1356, 3402→3407,
+4334→4316, 7680→7687, from pic.json's own offset steps); 1732/7155 forced to a level change (our crop magnifies a snap
+his 16:9 hides); **window headroom** — windows ignored the hair anchor and held his hair 12–35 px under the box edge,
+now his ~10%; the window→talk cut off his flash peak; the story retime on the source's real 121-frame shots (was
+drifting +6); a 0.246-score scroll sample that opened the workout phone on the screenshot's BOTTOM; the upload scroll
+anchored instead of followed (it juddered); headers TYPE on like his; his blue-cyan light leak; his pop-zoom on the
+flag still; the opening clip's blur-in; bars held ~3 frames longer. Plus the watch pass's three: lower thirds at his
+0.37 s pace (was 1.55), Dan's new real-picture label on the four photo-shoot stills, and the app card opening past the
+stranger's photo. **Not reproduced: item 17** (demo static holds — inside the real card rect there are no runs, only
+single duplicated frames from 24→29.97). **Left alone with reasons: item 1** (1286 — three instruments disagree by up
+to 20 frames and 1286 is already the best position in its window) and items 13/5. After the render: re-watch the
+changed boundaries, rebuild the cutdown (`cut5.sh` — cut/ is a FORK with its own beats/g3/g5 and an embedded time map),
+then a second audit. Cutdown still blocked on Dan: true peak −0.90 dBTP vs a −1.0 bar; only filtering his audio reaches
+−1.0. ✅ Dan accepted the same −0.90 on Ad 4 09-11 ("I think the audio sounded fine") — that likely answers this too.
 ⚠ **Muhammad's Ad 3 v6 HD is NOT the approved round-5 draft:**
 at 2:14.1–2:23.1 the "Because even though I was a personal trainer…" bullet lost "back in my 20s, as a 38 year old dad
 running a successful ad agency." (proof `ad3-vert/hdcheck/w4_hd_vs_draft.png`, sent to Dan 14:38). Do NOT file or upload
@@ -554,23 +568,18 @@ picture full-bleed portrait (replace the two landscape shots and the photo-panel
 AI-generated"** label on every real after picture. **The label is now a standing rule** in `AGENTS.md` and every video skill
 (Dan, 09-11). Build dir `/Volumes/Extreme/_edit_work/ad5-vert/`. Delete this entry when the revised files are re-delivered.
 
-**sixpackabs.com video-first redesign — LIVE ON STAGING 2026-09-11, Dan reviews.**
-https://staging-cac5-danroseconsulting-fedqa.wpcomstaging.com (staging site created this session; robots-blocked).
-`sixpackabs-child` is active there with all 18 public videos + 6 @danrosefit photos imported; **URL gate 219/219 = 200,
-no redirects**; player, menu, newsletter validation and VideoObject JSON-LD verified on staging. Feed endpoints live on
-absbyai.com (`7dee0bb` fixed a YouTube paging drift that had dropped a public video). Theme committed `cfa4ad7`;
-self-test 30/30. **Dan's round-1 revisions are IN (`615af71`, verified on staging):** the latest long-form video plays
-in place on the homepage (click-to-play, nothing loads from YouTube until clicked; title + cue still go to the video
-page); Shorts cards use his cover art instead of YouTube's vertical thumbnail (that one is a frame grabbed from the
-video — 10 of 12 were mid-sentence with burned captions); Contact added to the top menu; footer "Contact / Collab" →
-"Contact", "Article archive" → "Blog". ⚠ **Staging runs an uploaded ZIP, not `deploy.sh`** — WordPress.com's wp-admin
-theme upload works (submit the form via fetch from the page; a normal click gets redirected to the WP.com dashboard;
-an update answers "already exists" → follow its `overwrite=update-theme` link), so SSH is no longer a blocker for
-production either; `SPA_SSH_*` still unset and SFTP/SSH still disabled on both sites. ⚠ **Always Settings → Caching →
-Clear all after a theme update** — WP.com's edge cache served the OLD build to plain URLs while `?query=` requests
-showed the new one, which briefly made a verified change look unshipped. **Next action:** Dan's go, then the same ZIP
-on production + clear cache + re-run `sixpackabs/url-check.sh https://sixpackabs.com`. **Production theme untouched
-until he says go.** Recipe + traps: `sixpackabs/README.md`.
+**sixpackabs.com video-first redesign — LIVE ON PRODUCTION 2026-09-11, Dan confirms.** https://sixpackabs.com now
+runs `sixpackabs-child`: video-first homepage (latest long-form plays in place), a page per public video at
+/videos/<slug>/, /videos/ + /shorts/ archives, @danrosefit photos, new header/footer site-wide. **URL gate 219/219 = 200,
+no redirects**, every page type checked, player/menu/newsletter/PostHog verified on the live site. 18 videos + 6 photos
+imported and refreshed hourly. Staging kept for future changes:
+https://staging-cac5-danroseconsulting-fedqa.wpcomstaging.com (robots-blocked).
+⚠ **Deploys are a ZIP upload, not `deploy.sh`** (SSH never needed; `SPA_SSH_*` still unset) and **every theme update
+needs Settings → Caching → Clear all** or WP.com serves the old build to plain URLs. Theme activation can go through
+the WP.com connector's `theme.set` — that is how production was switched when the Chrome extension dropped.
+⚠ Rollback = re-activate Twenty Twenty-Five; the July DB template overrides are intact and come back untouched, so
+do not delete them. **Open for Dan:** whether to update the Yoast homepage title/description to the video-first
+positioning (not changed — it affects SEO). Doc: `Docs/SIXPACKABS_SITE.md`; recipe + traps: `sixpackabs/README.md`.
 
 **Demand Gen conversion campaign `24243839443` — LIVE, 6 ad groups (Ad 1 / Ad 2 / Ad 5 × /start / home), $20/day
 unchanged, target CPA $30 on Free Generation Started.** First ~18 h (to 09-11 10:00 CT): $20.14, 17 clicks, **0
