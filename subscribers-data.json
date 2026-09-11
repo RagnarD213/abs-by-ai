@@ -278,11 +278,12 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 2,
-      "welcomeNextAt": "2026-09-11T04:44:23.513Z",
+      "welcomeStep": 3,
+      "welcomeNextAt": "2026-09-14T05:29:41.283Z",
       "welcomeSentAt": {
         "1": "2026-09-07T04:11:17.880Z",
-        "2": "2026-09-09T04:44:23.665Z"
+        "2": "2026-09-09T04:44:23.665Z",
+        "3": "2026-09-11T05:29:41.461Z"
       },
       "unsubscribed": false
     },
@@ -291,11 +292,12 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 2,
-      "welcomeNextAt": "2026-09-11T04:44:23.513Z",
+      "welcomeStep": 3,
+      "welcomeNextAt": "2026-09-14T05:29:41.283Z",
       "welcomeSentAt": {
         "1": "2026-09-07T04:11:18.027Z",
-        "2": "2026-09-09T04:44:23.815Z"
+        "2": "2026-09-09T04:44:23.815Z",
+        "3": "2026-09-11T05:29:41.615Z"
       },
       "unsubscribed": false
     },
