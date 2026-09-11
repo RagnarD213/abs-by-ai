@@ -4,7 +4,8 @@
     "money::Request Unemployment Payment",
     "health::Inject Zepbound",
     "money::Launch the first Google Ads conversion campaign with the finished ads (Ad 2 V2 + Ad 1 vertical)",
-    "money::Build an alternate /start path for visitors with no photo handy"
+    "money::Build an alternate /start path for visitors with no photo handy",
+    "money::Finish the /start landing page (video placement + PostHog flag)"
   ],
   "log": {
     "health::Shower": [
@@ -226,6 +227,7 @@
     "money::Request Unemployment Payment": "2026-09-11",
     "health::Inject Zepbound": "2026-09-11",
     "money::Launch the first Google Ads conversion campaign with the finished ads (Ad 2 V2 + Ad 1 vertical)": "2026-09-11",
-    "money::Build an alternate /start path for visitors with no photo handy": "2026-09-11"
+    "money::Build an alternate /start path for visitors with no photo handy": "2026-09-11",
+    "money::Finish the /start landing page (video placement + PostHog flag)": "2026-09-11"
   }
 }
