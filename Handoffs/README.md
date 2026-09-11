@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 140 documents (index regenerated 2026-09-09).
+Every handoff document for Abs By AI, in one place. 148 documents (index regenerated 2026-09-11).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,6 +13,14 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md](handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md) | Google Ads rep meeting 09-11: GA4 property through the existing gtag loader + linked to Ads (no primary import); every Search RSA → `absbyai.com/start`, homepage/FAQ/Contact/How-it-works sitelinks; EMPTY "SixPackAbs.com" client account under MCC 324-458-6445; verify the four callouts already on Non-Brand. Fable 5.1 high |
+| [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | READ FIRST for any square build — the 1:1 translation rules, gates, naming, after-build steps and the firing order for the six per-ad docs below |
+| [handoff-20260911-square-ad2-muhammad.md](handoff-20260911-square-ad2-muhammad.md) | **1st** — now; Ad 2 square from the approved vertical build `ad2-vert-v2/`. Fable 5.1 high |
+| [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | **2nd** — now; Ad 1 (Muhammad) square from `ad1-8-14/vert9x16/`, land on his 6,976 frames. Fable 5.1 high |
+| [handoff-20260911-square-ad5-muhammad.md](handoff-20260911-square-ad5-muhammad.md) | **3rd** — after the Ad 5 vertical revisions handoff runs and Dan approves. Fable 5.1 high |
+| [handoff-20260911-square-ad4-muhammad.md](handoff-20260911-square-ad4-muhammad.md) | **4th** — after the Ad 4 vertical (building 09-11) is delivered and approved. Fable 5.1 high |
+| [handoff-20260911-square-ad3-muhammad.md](handoff-20260911-square-ad3-muhammad.md) | **5th** — after Muhammad's corrected Ad 3 HD AND the approved Ad 3 vertical. Fable 5.1 high |
+| [handoff-20260911-square-ad1-zeeshan.md](handoff-20260911-square-ad1-zeeshan.md) | **6th** — after Dan approves the re-delivered Zeeshan Ad 1 vertical; 24 fps, his audio verbatim. Fable 5.1 high |
 | [handoff-20260910-sixpackabs-homepage-redesign.md](handoff-20260910-sixpackabs-homepage-redesign.md) | after Dan enables SSH/SFTP on sixpackabs.com + its staging site and adds the `SPA_SSH_*` creds to the secrets file — child theme + video post type + hourly YouTube/Instagram sync to the locked design in `Docs/sixpackabs-redesign/`; staging first, production on Dan's go; every old post URL preserved. Opus 5 high |
 | [handoff-20260910-start-vsl-edit-and-install.md](handoff-20260910-start-vsl-edit-and-install.md) | after Dan records the /start VSL (script doc linked inside) — edit hero ×4 hooks + full cut with /website-video, then give /start its own video slot (analysis page keeps `CwEGFxpIM-E`), verify live. Fable 5.1 high |
 | [handoff-20260812-revenuecat-restore-behavior-audit.md](handoff-20260812-revenuecat-restore-behavior-audit.md) | fire the day Apple approves (IN_REVIEW since 09-08) |
@@ -42,6 +50,14 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-11 | [handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md](handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md) | Google Ads rep meeting: GA4 + Ads link, Search ads → /start with homepage sitelink, empty MCC account for sixpackabs.com |
+| 2026-09-11 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | Square (1:1) ad versions — shared rules, gates, naming, firing order |
+| 2026-09-11 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | Ad 1 (Muhammad) — square 1:1 version |
+| 2026-09-11 | [handoff-20260911-square-ad1-zeeshan.md](handoff-20260911-square-ad1-zeeshan.md) | Ad 1 (Zeeshan) — square 1:1 version |
+| 2026-09-11 | [handoff-20260911-square-ad2-muhammad.md](handoff-20260911-square-ad2-muhammad.md) | Ad 2 (Muhammad V2) — square 1:1 version |
+| 2026-09-11 | [handoff-20260911-square-ad3-muhammad.md](handoff-20260911-square-ad3-muhammad.md) | Ad 3 (Muhammad) — square 1:1 version |
+| 2026-09-11 | [handoff-20260911-square-ad4-muhammad.md](handoff-20260911-square-ad4-muhammad.md) | Ad 4 (Muhammad V4) — square 1:1 version |
+| 2026-09-11 | [handoff-20260911-square-ad5-muhammad.md](handoff-20260911-square-ad5-muhammad.md) | Ad 5 (Muhammad V3) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-ad5-vertical-revisions.md](handoff-20260911-ad5-vertical-revisions.md) | Ad 5 vertical (Muhammad V3) — Dan's round-1 revisions: every real after picture full-bleed portrait, the new "Real picture of me — not AI-generated" label; audio untouched. Opus, high. |
 | 2026-09-10 | [handoff-20260910-google-ads-api-client.md](handoff-20260910-google-ads-api-client.md) | Google Ads by API — EXECUTED 2026-09-10: token minted, no developer token needed, client `scripts/ads/api/client.js`, manual queue immediate; see `Docs/GOOGLE_ADS_API.md` |
 | 2026-09-10 | [handoff-20260910-web-pay-first-cart.md](handoff-20260910-web-pay-first-cart.md) | Handoff: Web pay-first checkout — a research-led cart that comes BEFORE the account |

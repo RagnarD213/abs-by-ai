@@ -381,6 +381,17 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
+- **`Handoffs/handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md`** — Dan's 09-11 Google Ads rep meeting: GA4 for
+  absbyai.com (through the existing gtag loader) linked to Ads with no primary import; every Search RSA → `/start`
+  (home originals paused) + homepage/FAQ/Contact/How-it-works sitelinks; an EMPTY "SixPackAbs.com" client account under
+  MCC 324-458-6445; the screenshot's "add two callouts" card is stale (four are live on both campaigns) — verify and
+  dismiss. Fable 5.1 high. **Not on the dashboard.**
+- **Square (1:1) versions of every finalized ad — six per-ad docs + `Handoffs/handoff-20260911-square-ads-00-shared-rules.md`
+  (read first).** Rep's ask: 1:1 fills Demand Gen in-feed/Discover/Gmail. Each is a re-layout of the ad's vertical
+  build (same EDL/grade/beats/captions, audio bit for bit), 1080×1080, all gates + the audit. Firing order:
+  `…-square-ad2-muhammad.md` (now) → `…-ad1-muhammad.md` (now) → `…-ad5-muhammad.md` (after the Ad 5 revisions) →
+  `…-ad4-muhammad.md` (after its vertical is approved) → `…-ad3-muhammad.md` (after Muhammad's corrected HD + vertical) →
+  `…-ad1-zeeshan.md` (after Dan approves that vertical). Fable 5.1 high each. **Not on the dashboard.**
 - **`Handoffs/handoff-20260911-ad5-vertical-revisions.md`** — Dan's round-1 revisions on the Ad 5 vertical (full-bleed
   portrait after pictures + the "Real picture of me — not AI-generated" label). Fire next; Opus, high. **Not on the dashboard.**
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
@@ -428,6 +439,13 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 ---
 
 # ACTIVE TASK
+
+**Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — IN PROGRESS (session
+started 2026-09-11 14:05 CT, owns it).** Drive `14on08ZTz2bXPJtwp8_fAENrtEGASo0bg`, filed as `Muhammad Ad Videos/stop wasting
+money on supplements - ad 4/… | muhammad | 16x9 | ad 4.mp4`. HD verified = the approved round-3 draft: committed `hd_vs_draft.py`
+(86ff33b) VERDICT IDENTICAL — 0 changed windows, 7,160 = 7,160 frames, mix corr 0.998, 0 clipped runs, TP −0.9 (the r3 fix). Raw roll C1594; build dir `/Volumes/Extreme/_edit_work/ad4-vert/` (a7 pipeline +
+Dan's 09-11 Ad 5 revisions applied up front: every real after picture full-bleed portrait + "Real picture of me — not
+AI-generated"). Ad 3's vertical is a DIFFERENT session in `ad3-vert/` — do not touch either build dir.
 
 **Muhammad Ad 7 r3 + Ad 10 r2 — APPENDED TO HIS DOC 2026-09-11, Dan reads and forwards.** Batch doc
 `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`, read back byte-intact. Ad 7: Photoshop now Dan's face; 3 items + the new "Real
