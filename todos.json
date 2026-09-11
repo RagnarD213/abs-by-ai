@@ -117,38 +117,50 @@
       "priority": "high",
       "why": "Dan 09-10 evening /prioritize. Physical task; do before the install date.",
       "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Review Zeeshan video",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-09-11"
     }
   ],
   "health": [
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-11"
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-11"
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-11"
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-11"
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-11"
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-11"
     },
     {
       "text": "Get the Oura ring syncing again",
@@ -158,7 +170,8 @@
     },
     {
       "text": "Inject Zepbound",
-      "priority": "high"
+      "priority": "high",
+      "addedAt": "2026-09-11"
     }
   ],
   "personal": [
