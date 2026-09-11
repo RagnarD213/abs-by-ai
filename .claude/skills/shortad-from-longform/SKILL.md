@@ -1127,6 +1127,59 @@ me abs - ad 1/recipe-vertical/`). Thirteen lessons, every one measured on this b
     The A/B sent with that delivery also played the pinned MUHAMMAD reference as "his" -- `--ab` in verbatim mode now
     plays the editor's own mix.
 
+## [A7] Muhammad's Ad 5 (2026-09-10) — a processed mix, a 29.97 editor, and two audits that found what the gates could not
+
+Build dir `/Volumes/Extreme/_edit_work/ad5-vert/`, scripts in `reference/a7/`. Every lesson below was paid for on this build;
+the first independent audit returned "does not ship" with nine findings after 20/20 gates, the re-audit found two more.
+
+1. **A processed editor mix needs GCC-PHAT to lock against the raw.** Muhammad's EQ'd / de-reverbed / compressed mix
+   correlated 0.61 (median) with the raw lav waveform, against Zeeshan's untreated 0.99; `zedl.py`'s r > 0.85 run threshold
+   then found 10 audio runs of 65. PHAT whitening (`zprofile2.py`) locks 1,718 of 2,341 windows, 3.3 ms within-run jitter.
+2. **His text-left / Dan-right screens need a RIGHT-HALF framing template.** The centre template sits over his text panel,
+   the fit reads r 0.2, and the EDL calls a 17 s window beat "insert" — base black. `zfit_right.py` re-fits every sample
+   under 0.80 with x 150–252 and records the template box on the sample; zpic2/zedl score with it.
+3. ⚠ **An ODD-width raw frame from ffmpeg on yuv420p SHEARS silently.** A 817-px card hole → `crop=817:…` is rounded to 816
+   by the chroma subsampling, the raw pipe delivers 816×h×3 bytes per frame, and a reader that reads 817×h×3 tears every
+   frame diagonally with an alternating brightness — the watch scan called it "jumps", the strips showed a 3-frame flicker.
+   `format=rgb24` first in the chain, EVEN hole sizes, and the reader raises on a short read.
+4. **Recover his flash strength from HIS luma trace, per side of the cut.** A guessed envelope with one base level washed
+   ten frames near-white; k = (his − base) / (255 − base) with the outgoing side's last frame and the incoming side's
+   settled level as bases reproduces his 3-pulse light leak frame for frame (`beats.py _flash_windows`).
+5. ⚠ **A plate cache that "settles" before its last element drops that element.** The bullets plate settled 1.6 s after
+   the last bullet; "COMPLETELY FREE" typed on 1.2 s later and never appeared. The audit caught it; the settle time now
+   includes every sub-element (same class as A6.19a).
+6. **Type-on speed scales to the overlay's duration**: a 0.83 s Day chip with a 0.75 s type-on never finished its line.
+7. **Size Dan's window from the BOTTOM safe edge (1660), not from the top**: `h = 1660 − 60 − 74 − text_h − 24`. The old
+   150 px allowance put three-bullet builds at y 1795.
+8. ⚠ **Every lift from his render must be checked for HIS burned text, at full resolution.** The cooking clip carried his
+   lower third in its bottom fifth (ours drew the same words underneath — "duplicated lower third"), the laptop dad his
+   AI label. Inset the window with `crop=` (still a downscale) and prefer the clean library source where one exists
+   (the stressed dad = `ai_busydad_kitchen.mp4` at 1:1, matched by NCC).
+9. **His cut can sit ON the flash peak**: the salad-guy lift started at the beat (4458) and showed five frames of his
+   16:9 bullets screen inside our card before his cut at 4463. Start the lift on his cut frame and let the flash ride.
+10. **A lift must cover its beat; play it slower rather than holding the last frame.** Two held tails (0.2 s and 0.3 s)
+    came from lifts a few frames short; `rate=` on the reader (setpts) fills the beat with no freeze.
+11. ⚠ **The hair detector must walk UP from inside the hair.** A dim wall above the bright fridge above his head sat below
+    the hair/forehead midpoint, and the top-down search read the hair top at y = 0 on half the samples (the delivered-frame
+    gate FAILED a correct crop). `zhairgate2.py` / `zhair_ad5.py` walk up from the mask top while rows stay hair-dark.
+12. **A time-based `-ss` seek lands on the WRONG frame on these masters** (measured: a frame ~1 s away, which read as
+    "hair cut at the top" and cost an hour). Extract by index: `-vf "select='eq(n,N)'" -fps_mode passthrough`.
+13. **NEAR holds anchor on the HEAD.** The audited torso anchor centred the shoulders while a 53 px head lean read as 122
+    px off at the 2.3× NEAR magnification. `zcrop_ad5.py` tracks 0.4·torso + 0.6·head for NEAR, torso for FAR. And a
+    punch-in whose head lean exceeds 60 px for ~0.8 s at NEAR is DEMOTED to FAR (skill A6.21: never chase a lean).
+14. **His punch-in starts ON his picture cut when the fit puts it within 8 frames**: a cut then a push 0.2 s later reads as a
+    naked cut plus a zoom (re-audit N2). Snap punch edges to the EDL.
+15. **The join-visibility ratio cannot tell a pose snap at 1.1 from a pose-matched splice at 1.0** — six joins the audit
+    read as naked sat at ratios 1.1–1.5 while the four it called invisible sat at 1.0–1.2. Lower VIS_K to 1.8, then let the
+    audit's eye decide the rest (`FORCE_VISIBLE`); a level change hides a snap that the ratio cannot see.
+16. **Cutdown L-cut tails**: a word that ends 1–4 frames past his picture cut ("…future self." under the title card's first
+    frames) is finished over the next range's first frames instead of being clipped (`zcutdown_ad5.py`), and the
+    generated cut beats carry the full spec so window bodies and mutes survive into `cut/`.
+17. **The watch scan's "unexplained jump" inside an app card is the recording's own screen change** on his time map —
+    report it, do not chase it.
+18. **Two audits, not one.** The re-audit of the "fixed" render found two new defects the fixes had introduced (a lift's
+    in-point, a punch start that missed the cut). Budget the second audit; it is where the last real defects are.
+
 ## Standing content rules that override the reference
 
 The reference editor does not know Dan's ad rules. Check every beat you are reproducing:
