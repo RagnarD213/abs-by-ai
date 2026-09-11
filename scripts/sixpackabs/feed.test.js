@@ -61,8 +61,6 @@ const VIDEOS = [
   video('liveNow', { live: 'live', duration: 'P0D' }),
   video('rejected1', { upload: 'rejected', duration: 'PT2M' }),
 ];
-const PLAYLIST_PAGE1 = { items: VIDEOS.slice(0, 7).map((v) => ({ contentDetails: { videoId: v.id } })), nextPageToken: 'P2' };
-const PLAYLIST_PAGE2 = { items: VIDEOS.slice(7).map((v) => ({ contentDetails: { videoId: v.id } })) };
 const CHANNEL = { items: [{ snippet: { customUrl: '@absbyai' }, statistics: { subscriberCount: '3030', videoCount: '18', hiddenSubscriberCount: false } }] };
 
 const IG_TOKEN = 'EAAG-secret-graph-token';
@@ -98,7 +96,21 @@ function makeFetch(state = {}) {
     const u = new URL(url);
     if (state.down) return resp(500, { error: { message: 'upstream down' } });
     if (u.href === 'https://oauth2.googleapis.com/token') return resp(200, { access_token: 'ya29.test', expires_in: 3600 });
-    if (u.pathname === '/youtube/v3/playlistItems') return resp(200, u.searchParams.get('pageToken') === 'P2' ? PLAYLIST_PAGE2 : PLAYLIST_PAGE1);
+    if (u.pathname === '/youtube/v3/playlistItems') {
+      // Two pages split at 7 items. `state.drift` reproduces 2026-09-11 at page size 50:
+      // item 6 on both pages, public item 4 on neither. `state.omit` drops an id from
+      // every listing (a video YouTube's playlist forgets while it is still public).
+      const size = Number(u.searchParams.get('maxResults'));
+      const p2 = u.searchParams.get('pageToken') === 'P2';
+      let ids;
+      if (state.drift && size === 50) {
+        ids = (p2 ? [6, 7, 8, 9, 10, 11, 12] : [0, 1, 2, 3, 5, 6]).map((i) => VIDEOS[i].id);
+      } else {
+        const all = VIDEOS.map((v) => v.id).filter((id) => id !== state.omit);
+        ids = p2 ? all.slice(7) : all.slice(0, 7);
+      }
+      return resp(200, { items: ids.map((id) => ({ contentDetails: { videoId: id } })), nextPageToken: p2 ? undefined : 'P2' });
+    }
     if (u.pathname === '/youtube/v3/videos') {
       const ids = u.searchParams.get('id').split(',');
       return resp(200, { items: VIDEOS.filter((v) => ids.includes(v.id)) });
@@ -179,7 +191,25 @@ async function check(name, fn) {
     assert.strictEqual(t.pub181, 'long');
     assert.strictEqual(t.pubLong1, 'long');
     assert.strictEqual(t.pubShortNoOar, 'short');
-    assert.strictEqual(fetch.calls.filter((c) => c.url.includes('/playlistItems')).length, 2);
+    const listCalls = fetch.calls.filter((c) => c.url.includes('/playlistItems'));
+    assert.strictEqual(listCalls.filter((c) => c.url.includes('maxResults=50')).length, 2);
+    assert.strictEqual(listCalls.filter((c) => c.url.includes('maxResults=20')).length, 2);
+  });
+
+  await check('YouTube paging drift: a duplicate at a page boundary and a skipped video are both fixed', async () => {
+    const f5 = createSixpackabsFeeds({ fetch: makeFetch({ drift: true }), env: ENV, now: () => clock, log });
+    const ids = (await f5.channel.get()).videos.map((v) => v.id);
+    assert.deepStrictEqual([...ids].sort(), ['pub180', 'pub181', 'pubLong1', 'pubShortNoOar', 'pubShortOar']);
+    assert.strictEqual(new Set(ids).size, ids.length, 'duplicate id in the feed');
+  });
+
+  await check('a video missing from every listing but still public stays in the feed', async () => {
+    const st = {};
+    const f6 = createSixpackabsFeeds({ fetch: makeFetch(st), env: ENV, now: () => clock, log });
+    await f6.channel.get();
+    st.omit = 'pub181';
+    const ids = (await f6.channel.get({ force: true })).videos.map((v) => v.id);
+    assert.ok(ids.includes('pub181'), 'pub181 dropped although YouTube still says public');
   });
 
   await check('channel.json: portrait thumbnail verified, falls back to maxres; etag as version', () => {

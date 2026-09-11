@@ -20,6 +20,13 @@
  * upstream failure serves the last good copy with `stale: true` — never an error
  * while a cache exists.
  *
+ * YOUTUBE PAGING DRIFTS: the uploads playlist pages by offset and reorders while
+ * scheduled videos go live. On 2026-09-11 a 55-item listing returned one video
+ * twice and silently skipped a public one ("Welcome to Abs by AI!"), which the
+ * WordPress sync then drafted. So the playlist is listed at two page sizes (the
+ * page boundaries differ), the ids are unioned and de-duplicated, and every video
+ * that was public on the previous refresh is re-checked by id.
+ *
  * Tests: node scripts/sixpackabs/feed.test.js
  */
 
@@ -203,14 +210,12 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
     return null;
   }
 
-  async function loadChannel() {
-    const headers = { Authorization: `Bearer ${await youtubeToken()}` };
-
+  async function listUploads(headers, pageSize) {
     const ids = [];
     let pageToken = '';
     let pages = 0;
     do {
-      const q = new URLSearchParams({ part: 'contentDetails', maxResults: '50', playlistId: UPLOADS_PLAYLIST_ID });
+      const q = new URLSearchParams({ part: 'contentDetails', maxResults: String(pageSize), playlistId: UPLOADS_PLAYLIST_ID });
       if (pageToken) q.set('pageToken', pageToken);
       const page = await getJson(`${YT_API}/playlistItems?${q}`, { headers });
       for (const item of page.items || []) {
@@ -219,7 +224,19 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
       }
       pageToken = page.nextPageToken || '';
       pages += 1;
-    } while (pageToken && pages < 40);
+    } while (pageToken && pages < 100);
+    return ids;
+  }
+
+  let lastPublicIds = [];
+
+  async function loadChannel() {
+    const headers = { Authorization: `Bearer ${await youtubeToken()}` };
+
+    // Two page sizes so a drifting page boundary can't hide the same video twice,
+    // plus everything that was public last time (see the note at the top).
+    const [byFifty, byTwenty] = await Promise.all([listUploads(headers, 50), listUploads(headers, 20)]);
+    const ids = [...new Set([...byFifty, ...byTwenty, ...lastPublicIds])];
 
     const raw = [];
     for (let i = 0; i < ids.length; i += 50) {
@@ -228,7 +245,12 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
       raw.push(...(page.items || []));
     }
 
-    const listable = raw.filter(isListable);
+    const seenIds = new Set();
+    const listable = raw.filter((v) => {
+      if (!v || seenIds.has(v.id)) return false;
+      seenIds.add(v.id);
+      return isListable(v);
+    });
     const videos = await Promise.all(listable.map(async (v) => {
       const secs = parseIsoDuration(v.contentDetails.duration);
       const [version, portrait] = await Promise.all([
@@ -238,6 +260,7 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
       return toFeedVideo(v, { version, portrait });
     }));
     videos.sort((a, b) => String(b.publishedAt || '').localeCompare(String(a.publishedAt || '')));
+    lastPublicIds = videos.map((v) => v.id);
 
     const ch = await getJson(`${YT_API}/channels?${new URLSearchParams({ part: 'snippet,statistics', id: CHANNEL_ID })}`, { headers });
     const c = (ch.items || [])[0] || {};
