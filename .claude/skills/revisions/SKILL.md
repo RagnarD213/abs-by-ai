@@ -257,6 +257,36 @@ He added three THROUGHOUT items to our doc, all of them things we measured and t
 34. **When he adds an item that contradicts a credit sentence, fix the credit sentence in the same pass.** His 80% item sat
     under our line "the wheel and my breathing sit at the same level as my talking, which is exactly right".
 
+### Calibration pass 5 — Dan's rulings on Ad 7 round 3 and Ad 10 round 2 (2026-09-11): WHOSE generation is on screen
+
+Dan's verdict on the batch: "you got this pretty dialed, but one error you keep making is that it is sometimes
+appropriate to use the AI-generated strangers instead of myself." Three rules come out of it, and they replace the
+blanket "the man in the phone must be Dan" reading of pass-3 rule 25:
+
+35. **The SCRIPT's subject decides whose generation is on screen — read the sentence under the demo before writing a
+    word.** Dan's own framing: "When I reference myself in the script, like me generating, then we should use myself.
+    At other times, if I'm talking about the prospect generating, then we should use one of the AI-generated
+    strangers."
+    - **His line** ("I made mine", "my photo", "this picture got me abs", "I uploaded"): the phone shows HIS before
+      picture (`11Qb559-mqga9FznIpC8tgxLLfz1BUKQX`) and the demo ends on HIS goal image with the AI-GENERATED tag.
+    - **The prospect's line** ("you upload a picture of where you're at now", "generate your future self image",
+      "so generate yours"): it is SUPPOSED to be somebody else. Keep the man the recording uploads and end on an AI
+      after picture of THAT man, labeled. Do not write an identity item at all — the correct note is only about what
+      the demo ends on. Ad 7 3:25.5 and the Ad 10 demos are the worked examples; Ad 7's 2:00 demo is the his-line case.
+    - Say which case applies in the item, so the editor learns the pattern instead of the exception.
+36. **A different generated person in every ad — never the same image twice across the batch** (Dan, 2026-09-11:
+    "I want a different image in every ad, either one that we already made or, if we don't have it, then just generate
+    those images and provide him with that"). Every stranger is in the prospect's demographic (white or Asian man,
+    30–50, lean-with-abs after, never a bodybuilder; the before is American-average with a small belly). Before
+    directing a new one, check what already exists (the reference-ad folder, `Media/ad-assets/`, the benefit/dad clips
+    folder) and reuse it ONLY if no other ad in the batch is using it; otherwise generate the picture yourself, upload
+    it (lesson 44) and link the file. Track which ad got which person so two ads never share a face.
+37. **The Photoshop gag is not before/after imagery, and neither is a stranger's photo inside a demo.** Dan deleted
+    the Ad 7 1:53 item twice — "I did delete on purpose because it's not really a before and after." The adjacency
+    rule protects REAL before and after pictures of Dan and genuine transformation reveals. An obviously-fake gag
+    image (his face badly pasted on a bodybuilder), or the upload photo inside an app recording, does not trigger it.
+    Do not spend an item on those adjacencies.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -394,6 +424,11 @@ exact timing or an exact link.
 - **Product truth**: real app screens and the real generation flow only — never
   invented dashboards or generic AI-app mockups. End cards / demo flows end on the
   after picture ALONE.
+- **Demo identity** (Dan, 2026-09-11, calibration rules 35–36): the person inside a phone or app demo follows the
+  SCRIPT — Dan's own line gets Dan's before picture and Dan's goal image; a line about the prospect generating gets an
+  AI-generated stranger, kept from the recording and ended on an after picture of that same man. Every ad in a batch
+  uses a DIFFERENT generated person, always in the prospect's demographic; reuse an existing image only if no other ad
+  has it, otherwise generate it and hand the editor the file.
 - **Presentation**: no raw black pillarboxing of 9:16 assets (brand card or blurred
   fill); alternating ~50%/~70% punch-ins on talking heads; no dead air > 0.3s; every
   insert and overlay leaves when its line ends (rule 2); text centred in its panel

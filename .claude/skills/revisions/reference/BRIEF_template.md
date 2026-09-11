@@ -98,11 +98,11 @@ AD 7 572–674, AD 8 675–end. For a round ≥ 2 cut, your checklist is the LAS
 - BOLD THE KEY CHANGE in every item: one diagnostic sentence, then the action in **bold**, then timing. Short.
 - App/phone demo: the one-line block ("The real app recording is the right thing here, keep it. But it ends on the
   Generating screen and never pays off … end on that recording's own after picture alone … Small AI-GENERATED tag") +
-  the recording link + the goal-image STANDING RULE. Identity-check the before picture inside every phone/app clip
-  against Dan's real before picture; if it is not Dan, one line + the before-picture link (`02_BEFORE-PICTURE_dan-200lb.png`,
-  `11Qb559-mqga9FznIpC8tgxLLfz1BUKQX`). ⚠ The only real app recording that exists (`example generation video.MP4` =
-  `09_CLIP_app-generate-future-self.mp4`) uploads a STRANGER — there is no recording of Dan's own upload, so never write "use
-  this recording of my own upload"; the fix is always the before-picture swap inside the clip (lesson 40).
+  the recording link + the goal-image STANDING RULE. ⚠ **Whether the man in the phone should be Dan is decided by the
+  SCRIPT — see Pass-5 below before writing any identity item.** The only real app recording that exists
+  (`example generation video.MP4` = `09_CLIP_app-generate-future-self.mp4`) uploads a stranger (an Asian man), so never
+  write "use this recording of my own upload" — none exists; on a Dan line the fix is the before-picture swap inside the
+  clip (`02_BEFORE-PICTURE_dan-200lb.png`, `11Qb559-mqga9FznIpC8tgxLLfz1BUKQX`), and on a prospect line the stranger stays.
 - After-photo beats: "Show TWO pictures here, images below" with two empty `- ` sub-bullets for Dan to fill; do not
   pick stills; never the same pair as an earlier beat in the same ad. No item about WHICH real after photo.
 - Logo in frame: "Take the logo out." + `STANDING RULE: Do not use logos of other companies in our ads. Names of other
@@ -152,3 +152,17 @@ The standard Ad 1 set, already linked in previous sections (copy the exact links
 `10veL4yDYVaaDh1q_2VKJObfa-YpGEW_A`, benefit/dad AI clips folder `1bO1mZAk0ii9c-m45-YhSYmuYq_qPIpvm`. If an ad
 needs an asset that exists nowhere (e.g. Ad 9's bad-AI attempt image if he did not build one), give DIRECTIONS
 for it as "stock footage or an AI clip / AI image, with the label" — do not invent a link.
+
+## Pass-5 rules (Dan's rulings 2026-09-11: WHOSE generation is on screen) — these override the pass-3 demo rule
+- **Read the sentence under every phone/app demo first.** Dan's own line ("I made mine", "my photo", "this picture got
+  me abs") ⇒ his before picture in the phone and his goal image at the end. A PROSPECT line ("you upload a picture of
+  where you're at now", "generate your future self image") ⇒ it is supposed to be somebody else: keep the man the
+  recording uploads, write no identity item, and the only note is that the demo must end on an AI after picture of
+  THAT man, labeled (Ad 7 3:25.5 uses `13_AFTER_ai-generated_app-demo-man.jpg` = `1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp`).
+  Name which case applies in the item.
+- **A different generated person in every ad of the batch — never the same image twice.** Always in the prospect's
+  demographic (white or Asian man 30–50; lean with abs for an after, American-average with a small belly for a before).
+  Reuse an existing image only if no other ad in the batch uses it; otherwise generate it, upload it (skill lesson 44)
+  and link the file for the editor.
+- **The Photoshop gag and a stranger's upload photo are NOT before/after imagery** — no adjacency item for either
+  (Dan deleted that Ad 7 item twice: "it's not really a before and after").
