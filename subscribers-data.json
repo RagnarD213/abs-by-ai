@@ -236,12 +236,13 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 3,
-      "welcomeNextAt": "2026-09-11T04:13:10.938Z",
+      "welcomeStep": 4,
+      "welcomeNextAt": "2026-09-14T04:29:41.268Z",
       "welcomeSentAt": {
         "1": "2026-09-04T04:11:22.967Z",
         "2": "2026-09-06T04:12:54.586Z",
-        "3": "2026-09-08T04:13:11.109Z"
+        "3": "2026-09-08T04:13:11.109Z",
+        "4": "2026-09-11T04:29:41.440Z"
       },
       "unsubscribed": false
     },
@@ -314,9 +315,11 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 0,
-      "welcomeNextAt": "2026-09-11T03:34:59.125Z",
-      "welcomeSentAt": {},
+      "welcomeStep": 1,
+      "welcomeNextAt": "2026-09-13T04:29:41.268Z",
+      "welcomeSentAt": {
+        "1": "2026-09-11T04:29:41.587Z"
+      },
       "unsubscribed": false
     },
     "shanedaniel.1987@aol.com": {
@@ -324,9 +327,11 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 0,
-      "welcomeNextAt": "2026-09-11T03:38:53.849Z",
-      "welcomeSentAt": {},
+      "welcomeStep": 1,
+      "welcomeNextAt": "2026-09-13T04:29:41.268Z",
+      "welcomeSentAt": {
+        "1": "2026-09-11T04:29:41.764Z"
+      },
       "unsubscribed": false
     },
     "newellcartwright72@aol.com": {
@@ -334,9 +339,11 @@
       "deviceId": "",
       "synced": false,
       "source": "sixpackabs",
-      "welcomeStep": 0,
-      "welcomeNextAt": "2026-09-11T03:39:18.797Z",
-      "welcomeSentAt": {},
+      "welcomeStep": 1,
+      "welcomeNextAt": "2026-09-13T04:29:41.268Z",
+      "welcomeSentAt": {
+        "1": "2026-09-11T04:29:41.930Z"
+      },
       "unsubscribed": false
     }
   }
