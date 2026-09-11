@@ -90,6 +90,11 @@ const META_RESULT_PRIORITY = [
   { key: 'offsite_conversion.fb_pixel_lead',     label: 'lead' },
   { key: 'lead',                                 label: 'lead' },
   { key: 'onsite_conversion.lead_grouped',       label: 'lead' },
+  // A top-level insights field, not an action type. Without it the @danrosefit
+  // profile-visits campaign fell through to video_view, and the IMAGE tests the
+  // auto-boost job added on 09-08 (spend, zero video views) read as a +50% CPA
+  // "anomaly" on 09-10 while cost per visit was flat.
+  { key: 'instagram_profile_visits',             label: 'profile visit', field: true },
   { key: 'link_click',                           label: 'link click' },
   { key: 'video_view',                           label: 'video view' },
   { key: 'post_engagement',                      label: 'engagement' },
@@ -315,6 +320,10 @@ function metaResultFrom(insight) {
 
   const actions = insight.actions || [];
   for (const p of META_RESULT_PRIORITY) {
+    if (p.field) {
+      if (num(insight[p.key]) > 0) return { results: num(insight[p.key]), label: p.label };
+      continue;
+    }
     const hit = actions.find(a => a.action_type === p.key);
     if (hit) return { results: num(hit.value), label: p.label };
   }
@@ -352,7 +361,7 @@ async function fetchMeta(day, baselineFrom) {
 
   const campaignsUrl = `${META_API}/${account}/insights?` + params({
     level: 'campaign',
-    fields: 'campaign_id,campaign_name,spend,impressions,clicks,actions,video_thruplay_watched_actions',
+    fields: 'campaign_id,campaign_name,spend,impressions,clicks,actions,video_thruplay_watched_actions,instagram_profile_visits',
   });
 
   const r = await getJson(campaignsUrl);
@@ -409,7 +418,7 @@ async function fetchMeta(day, baselineFrom) {
   // Ad level, same window, for winner detection.
   const adsRes = await getJson(`${META_API}/${account}/insights?` + params({
     level: 'ad',
-    fields: 'ad_id,ad_name,campaign_name,spend,impressions,actions,video_thruplay_watched_actions',
+    fields: 'ad_id,ad_name,campaign_name,spend,impressions,actions,video_thruplay_watched_actions,instagram_profile_visits',
   }));
   const byAd = new Map();
   if (adsRes.ok) {

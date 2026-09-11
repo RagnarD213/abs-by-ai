@@ -174,6 +174,18 @@ console.log('\n7. META RESULT SELECTION');
   }).results === 47953);
 
   check('never returns NaN on an empty insight', metaResultFrom({}).results === 0);
+
+  // The real 2026-09-10 campaign row: $14.82, 121 profile visits, 250 video views.
+  // Graded on video views it read as a +50% CPA anomaly; the visits never moved.
+  const visits = metaResultFrom({
+    instagram_profile_visits: '121',
+    actions: [{ action_type: 'video_view', value: '250' }, { action_type: 'post_engagement', value: '380' }],
+  });
+  check('grades the profile-visits campaign on profile visits', visits.label === 'profile visit' && visits.results === 121,
+        JSON.stringify(visits));
+  check('a zero visits field falls through to the next result', metaResultFrom({
+    instagram_profile_visits: '0', actions: [{ action_type: 'link_click', value: '3' }],
+  }).label === 'link click');
 }
 
 console.log('\n8. THE ~2x GOOGLE CONVERSION INFLATION');
