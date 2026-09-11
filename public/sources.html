@@ -15,6 +15,9 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-18361229851');
+  // GA4 (property "Abs By AI", stream absbyai.com) rides the Ads loader above — one
+  // gtag.js, two destinations. Never add a second loader script.
+  gtag('config', 'G-1M1SY7GGKF', { send_page_view: true });
 </script>
 <!-- Meta Pixel Code -->
 <script>

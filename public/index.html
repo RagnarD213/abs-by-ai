@@ -34,6 +34,9 @@
   // fireAdConversion() (hashed email alongside a conversion) and is harmless
   // next to Google's automatic collection.
   gtag('config', 'AW-18361229851', { allow_enhanced_conversions: true });
+  // GA4 (property "Abs By AI", stream absbyai.com) rides the Ads loader above — one
+  // gtag.js, two destinations. Never add a second loader script.
+  gtag('config', 'G-1M1SY7GGKF', { send_page_view: true });
 </script>
 <!-- Meta Pixel Code -->
 <script>
@@ -3602,6 +3605,11 @@ function ensureAiConsent() {
 }
 
 const AD_CONVERSION_ID = 'AW-18361229851';
+// GA4 property "Abs By AI" (stream absbyai.com). Same gtag.js loader as the Ads
+// tag — declared here only so the virtual pageview below can name it as a second
+// destination. Conversions are NOT sent here: the Ads conversion actions stay the
+// single source of truth and a GA4 copy would double-count them.
+const GA4_MEASUREMENT_ID = 'G-1M1SY7GGKF';
 const AD_CONVERSION_DEDUPE_DAYS = 400;
 // The account's "Subscribe" action — a trial that converted to a PAID
 // membership. Distinct from Trial Signup (AqLTCMnl4dkcEJvEqLNE) and Free
@@ -3745,7 +3753,11 @@ function fireAdVirtualPageview(path) {
   if (!window.gtag || !path) return false;
   try {
     gtag('event', 'page_view', {
-      send_to: AD_CONVERSION_ID,
+      // Both destinations: Ads needs it for /vp/ audience rules, GA4 needs it or
+      // the whole SPA collapses to one page_view per session (the app changes
+      // screens without touching history, so GA4's enhanced measurement sees
+      // nothing after the initial load).
+      send_to: [AD_CONVERSION_ID, GA4_MEASUREMENT_ID],
       page_location: location.origin + path,
       page_path: path,
       page_title: 'AbsByAI' + path.replace(/\//g, ' ')

@@ -14,6 +14,9 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-18361229851');
+  // GA4 (property "Abs By AI", stream absbyai.com) rides the Ads loader above — one
+  // gtag.js, two destinations. Never add a second loader script.
+  gtag('config', 'G-1M1SY7GGKF', { send_page_view: true });
 </script>
 <!-- Meta Pixel Code -->
 <script>
@@ -97,7 +100,7 @@ src="https://www.facebook.com/tr?id=908268999001961&ev=PageView&noscript=1"
     <p>Payments are processed by <a href="https://stripe.com/privacy">Stripe</a>. We never see or store your full card details.</p>
 
     <h2>Analytics</h2>
-    <p>We use <a href="https://posthog.com/privacy">PostHog</a> to collect usage analytics (pages visited, buttons clicked, approximate region, device type) so we can improve the product. We do not sell your data.</p>
+    <p>We use <a href="https://posthog.com/privacy">PostHog</a> and <a href="https://policies.google.com/privacy">Google Analytics</a> to collect usage analytics (pages visited, buttons clicked, approximate region, device type) so we can improve the product. We do not sell your data.</p>
 
     <h2>Advertising</h2>
     <p>We advertise Abs by AI on <a href="https://policies.google.com/technologies/ads">Google Ads</a> and <a href="https://www.tiktok.com/legal/privacy-policy">TikTok</a>. These platforms set their own cookies to measure whether their ads work. If you arrive from one of our ads, the platform's click identifier (for example Google's <code>gclid</code>) is stored in your browser and, should you create an account, saved to your account record. A hashed (one-way encrypted) version of your account email address may also be sent to Google to confirm which ads led to a membership; Google cannot recover the address from it. We use these for one purpose: to tell which ads lead to sign-ups and paid memberships, so we stop paying for the ones that don't. It is not used to build advertising profiles about you, is never sold, and is never shared with data brokers. Deleting your account deletes it along with everything else.</p>
