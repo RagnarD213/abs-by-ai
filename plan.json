@@ -9,8 +9,11 @@
     "money::Check the iOS App Store review status (expedited); on approval fire the RevenueCat restore audit",
     "money::Write and record a video sales letter (VSL) for /start — cold-traffic version",
     "money::Choose the installer for the filming room from the Craigslist replies and book a date",
-    "money::Clean out the filming room so it is ready for the installer"
+    "money::Clean out the filming room so it is ready for the installer",
+    "money::Launch the first Google Ads conversion campaign with the finished ads (Ad 2 V2 + Ad 1 vertical)"
   ],
-  "excluded": [],
+  "excluded": [
+    "money::Make the AI Trainer recovery-aware: scale volume from last night's Oura sleep/HRV"
+  ],
   "sessionsCompleted": 0
 }
