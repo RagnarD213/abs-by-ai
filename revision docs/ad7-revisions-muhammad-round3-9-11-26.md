@@ -20,8 +20,8 @@ What is left is the before picture inside the phone in the app demos, which is n
         - <https://drive.google.com/file/d/11Qb559-mqga9FznIpC8tgxLLfz1BUKQX/view>
     - **STANDING RULE: Always show the AI generated goal image in clips where I am talking about generation functionality. Always label goal image at the end AI generated**
 - 3:25.5 - 3:28.5
-    - The closing demo ends on my goal image alone with its tag at 3:28.5, keep that. But the before picture inside the phone from 3:25.5 to 3:28.5 is not me, it is a stranger at a pool, and it turns into my goal image at the end. **Use this photo for the before picture in the clip,** on the upload screen and everywhere it shows on the screens after it, same timing as now, same ending on the goal image with its tag, then back to me with the button as you have it.
-        - <https://drive.google.com/file/d/11Qb559-mqga9FznIpC8tgxLLfz1BUKQX/view>
+    - Leave this one as the other guy's generation, that is the point of it: keep the man from the recording on the upload screen, with the AI-GENERATED tag as you have it. **The only change is the picture it ends on: use his own AI generated after picture below instead of my goal image,** same timing as now, out at 3:28.5, small AI-GENERATED tag on it, then back to me with the button as you have it. Just the picture, never the app's email screen it sits on.
+        - <https://drive.google.com/file/d/1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp/view>
     - **STANDING RULE: Always show the AI generated goal image in clips where I am talking about generation functionality. Always label goal image at the end AI generated**
 
 Everything else, keep.

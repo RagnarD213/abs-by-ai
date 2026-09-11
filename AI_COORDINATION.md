@@ -459,16 +459,24 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — IN PROGRESS (session
-started 2026-09-11 14:05 CT, owns it).** Drive `14on08ZTz2bXPJtwp8_fAENrtEGASo0bg`, filed as `Muhammad Ad Videos/stop wasting
-money on supplements - ad 4/… | muhammad | 16x9 | ad 4.mp4`. HD verified = the approved round-3 draft: committed `hd_vs_draft.py`
-(86ff33b) VERDICT IDENTICAL — 0 changed windows, 7,160 = 7,160 frames, mix corr 0.998, 0 clipped runs, TP −0.9 (the r3 fix). Raw roll C1594; build dir `/Volumes/Extreme/_edit_work/ad4-vert/` (a7 pipeline +
-Dan's 09-11 Ad 5 revisions applied up front: every real after picture full-bleed portrait + "Real picture of me — not
-AI-generated"). Ad 3's vertical is a DIFFERENT session in `ad3-vert/` — do not touch either build dir.
+**Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — REVIEW COPIES DELIVERED
+2026-09-11, Dan reviews + ONE CALL.** Folder `Muhammad Ad Videos/stop wasting money on supplements - ad 4/`: his V4 HD filed
+(committed `hd_vs_draft.py`: IDENTICAL to the approved r3 draft), our REVIEW 540p/480p of both cuts, both A/B audio clips,
+`notes-vertical.md`, `recipe-vertical/`. Master 7,160 frames = his to the frame, cutdown 57.19 s; **his audio untouched**
+(full length = his AAC stream md5-identical; cutdown = his mix cut at the seams). `qc.py` **18/20 on both** — the two FAILs
+are one finding: **his export peaks at −0.90 dBTP against Dan's −1.0 rule**, so the verbatim stamp cannot pass and
+`deliver4.py` refuses the MASTERS (held in `/Volumes/Extreme/_edit_work/ad4-vert/`). Three independent audits: 10 findings,
+then 4, then all verified — **audit 3: SHIPS on both files**. **Dan: (1) accept the −0.9 dBTP or have Muhammad re-export at
+−1.0 (then a 5-minute re-mux + `deliver4.py` puts the masters in the folder); (2) an ear check on three spots listed at the
+end of `notes-vertical.md`.** Dashboard row for the verticals stays unchecked until he approves (his rule). Skill: [A8] +
+`reference/a8_ad4/` committed (6128273 + this session's follow-up). Delete this entry once he has approved and the masters
+are delivered.
 
 **Muhammad Ad 7 r3 + Ad 10 r2 — APPENDED TO HIS DOC 2026-09-11, Dan reads and forwards.** Batch doc
 `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`, read back byte-intact. Ad 7: Photoshop now Dan's face; 3 items + the new "Real
-picture of me" label. Ad 10: all 11 round-1 items done; 2 items + the label. Both: the app demos' before picture is the
+picture of me" label. Dan's 09-11 change is folded in: the CLOSING demo keeps the stranger (he is Asian) and ends on that
+recording's own AI after picture, cropped and uploaded as `13_AFTER_ai-generated_app-demo-man.jpg`
+(`1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp`) — only the 2:00 demo swaps in Dan's before picture. Ad 10: all 11 round-1 items done; 2 items + the label. Both: the app demos' before picture is the
 stranger from the recording (lesson 40). Audio fine on both. Md copies in `revision docs/*9-11-26.md`; work dir
 `/Volumes/Extreme/_edit_work/revisions-0911m/`. Delete once Dan has forwarded and the next cuts arrive.
 
@@ -489,14 +497,16 @@ picture full-bleed portrait (replace the two landscape shots and the photo-panel
 AI-generated"** label on every real after picture. **The label is now a standing rule** in `AGENTS.md` and every video skill
 (Dan, 09-11). Build dir `/Volumes/Extreme/_edit_work/ad5-vert/`. Delete this entry when the revised files are re-delivered.
 
-**sixpackabs.com video-first redesign — BUILT + VERIFIED LOCALLY, blocked on Dan: SSH credentials + a staging site.**
-Feed endpoints LIVE on absbyai.com (`/api/sixpackabs/channel.json` + `instagram.json`, public videos only; `7dee0bb` fixed a
-YouTube paging drift that had dropped a public video). Theme committed (`cfa4ad7`, `sixpackabs/theme/sixpackabs-child/`):
-matches #2a/#2b line for line in a local Playground with real data, self-test 30/30. **Next action:** once `SPA_SSH_*` /
-`SPA_STAGING_SSH_*` are in `~/.absbyai-secrets.env` (none as of 09-11 12:30 CT; no WP.com staging site yet) run
-`sixpackabs/deploy.sh check staging` → `deploy.sh staging` →
-`sixpackabs/url-check.sh <staging-url>` (prod baseline 219/219 = 200), then send Dan the staging link. **Production
-theme untouched until Dan says go.** Recipe + traps: `sixpackabs/README.md`.
+**sixpackabs.com video-first redesign — LIVE ON STAGING 2026-09-11, Dan reviews.**
+https://staging-cac5-danroseconsulting-fedqa.wpcomstaging.com (staging site created this session; robots-blocked).
+`sixpackabs-child` is active there with all 18 public videos + 6 @danrosefit photos imported; **URL gate 219/219 = 200,
+no redirects**; player, menu, newsletter validation and VideoObject JSON-LD verified on staging. Feed endpoints live on
+absbyai.com (`7dee0bb` fixed a YouTube paging drift that had dropped a public video). Theme committed `cfa4ad7`;
+self-test 30/30. ⚠ **Staging runs an uploaded ZIP, not `deploy.sh`** — WordPress.com's wp-admin theme upload works
+(submit the form via fetch from the page; a normal click gets redirected to the WP.com dashboard), so SSH is no longer
+a blocker for production either; `SPA_SSH_*` still unset and SFTP/SSH still disabled on both sites. **Next action:**
+Dan's go, then the same ZIP on production + re-run `sixpackabs/url-check.sh https://sixpackabs.com`. **Production theme
+untouched until he says go.** Recipe + traps: `sixpackabs/README.md`.
 
 **Demand Gen conversion campaign `24243839443` — LIVE, 6 ad groups (Ad 1 / Ad 2 / Ad 5 × /start / home), $20/day
 unchanged, target CPA $30 on Free Generation Started.** First ~18 h (to 09-11 10:00 CT): $20.14, 17 clicks, **0
@@ -509,12 +519,15 @@ verticals / Claude's Ad 5 verticals only after Dan approves them; Ads 3/4 when M
 `Docs/DGEN_CONVERSION_CAMPAIGN.md`. ⚠ Remarketing campaign 24169507109 spends ~$2.50/day with 0 clicks, 0 conversions
 ever ($48.75+ lifetime) — Dan's call whether to pause. Delete this entry once review settles on r2 + Ad 5.
 
-**Ads 3 + 4 — UPLOADED + IN THE DGEN CAMPAIGN 2026-09-11 (new skill `/ad-setup`), Google reviewing.** Muhammad's HD
+**Ads 3 + 4 — LIVE AND APPROVED 2026-09-11 (new skill `/ad-setup`).** Google approved all four ads ~14:40 CT (no
+limited line, no clickbait flag); ad groups ENABLED at $30, campaign $20/day across 10 groups. ✅ **Ad 4's −0.90 dBTP
+true peak: DAN ACCEPTED IT AS-IS 09-11** (*"I think the audio sounded fine"*) — no re-export from Muhammad; this
+answers the Ad 4 vertical session's question too. Muhammad's HD
 finals unlisted: Ad 3 `QWW1oumpNg4`, Ad 4 `R08TPEtkjuQ` (descriptions + chapters, clean thumbnails, O1/O2 alternates in
 the thumbnail folders). Ad groups Ad 3 199782847163 /start + 199360345839 home, Ad 4 202812319169 /start + 203842477407
-home, $30 each; ids in `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Next: `client.js policy 24243839443` ~09-12; a flagged line →
-rewrite only that line. ⚠ Ad 5's *Why My Diets Kept Failing* headline is DISAPPROVED (CLICKBAIT) — for the Ad 5 owner
-above. Dashboard row "Add the new finished ads…" left open only for Zeeshan's Ad 1 verticals. Delete once review settles.
+home, $30 each; ids in `Docs/DGEN_CONVERSION_CAMPAIGN.md`. ⚠ Ad 5's *Why My Diets Kept Failing* headline is DISAPPROVED
+(CLICKBAIT) — for the Ad 5 owner above. Dashboard row "Add the new finished ads…" left open only for Zeeshan's Ad 1
+verticals. Watch spend/conversions on the new groups from 09-12. Delete this entry once they have a few days of data.
 
 **Ad 1 "this picture got me abs" — 9:16 verticals from ZEESHAN's final — RE-DELIVERED 2026-09-10 WITH HIS AUDIO UNTOUCHED,
 Dan reviews.** He rejected the second delivery's audio ("Zishan's audio sounds much better… Use Zishan's audio") — it had

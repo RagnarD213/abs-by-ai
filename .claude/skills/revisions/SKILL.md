@@ -451,7 +451,8 @@ exact timing or an exact link.
 
 ## Lessons
 
-1. **Google Drive web upload cannot be automated from the Chrome extension.** The
+1. **Google Drive web upload cannot be automated from the Chrome extension.** ⚠ **SUPERSEDED
+   2026-09-11 — it CAN: use the synthetic-drop recipe in `/findassets` §6 (lesson 44).** The
    file input is created transiently and clicked natively; synthetic DragEvent drops
    are ignored (Drive reads `webkitGetAsEntry`, null for scripted DataTransfer), and
    a prototype-click hook did not catch it. Check whether the asset already exists in
@@ -705,3 +706,30 @@ exact timing or an exact link.
     line and finishing the pitch. Run word-timestamped Whisper on the raw pickup and hand the editor the exact range. Also:
     Zeeshan names deliveries by his own running count ("Video 3.mp4" was batch video 1) and shared this one as a single file,
     not in his folders — identify the video by its content and his Upwork message, never by the file name.
+
+42. **Editing a section in the Doc after Dan has typed a `[CLAUDE - …]` note (2026-09-11) — three traps, two of
+    them destructive.** (a) **`cmd+f` followed by `type` does not reach the find box**: the keystrokes land in the
+    DOCUMENT at the cursor (this session typed "INSERT IMAGE FOR HIM" into the middle of the Ad 3 section). Click the
+    find field first, or navigate with the left-hand outline panel, which is safer. (b) **`cmd+z` to undo that stray
+    typing also removed chunks of the section pasted EARLIER in the same Docs session** — Ad 7's whole 1:53 item and
+    Ad 10's entire TIMESTAMPED REVISIONS block (both app-demo items) vanished, silently, nowhere near the cursor. So:
+    keep the post-paste Drive read-back on disk, and after ANY undo, read the doc back and diff against it before
+    doing anything else. Restoring is easy from the `out/*.md` copies (type the small block, paste the big one).
+    (c) **Replacing his note in place works**: triple-click the bullet, `cmd+\` (clear formatting, or his bold carries
+    into your text), type the prose, `cmd+b` around the key change, `Return`+`Tab` for the link sub-bullet (URL plus a
+    trailing space auto-links), `Return`+`shift+Tab`+`cmd+\` for the STANDING RULE line. The Drive markdown export
+    renders those typed bold lines as `**\*\*…\*\***` — an export artifact, not literal asterisks; confirm by zooming
+    the page, not by reading the export.
+43. **The app recording's own after picture is an asset, and the man in it is ASIAN** (2026-09-11). In
+    `example generation video.MP4` the "Download Your Future Self" screen at 0:29–0:33 shows his AI after image.
+    Crop the card at full res — the picture only, never the screen, which carries the banned email-capture form —
+    and it is the right ending for any demo Dan wants to keep as somebody else's generation rather than his:
+    `13_AFTER_ai-generated_app-demo-man.jpg` = `1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp`, in the reference-ad folder.
+    Dan's call on Ad 7 round 3: keep the stranger in the closing demo, end it on HIS after picture, not Dan's goal image.
+44. **Drive upload is solved — `/findassets` §6, not base64** (2026-09-11; supersedes lessons 1 and 25 for files under
+    10 MB). Open the destination folder in Chrome, inject an `input[type=file]`, `file_upload` the local path into it,
+    then dispatch dragenter→dragover→drop **once** on `document.querySelector('[role="grid"] [role="row"]')`, verify by
+    listing the folder by `parentId` (twice — indexing lags), remove the input. An 89 KB JPEG landed exactly once and
+    inherited the folder's "anyone with the link" sharing, so no `share_file` call was needed. Do NOT push base64
+    through `create_file` for anything but a few KB, and do not put a third party's likeness in `public/ad-assets/` —
+    that repo is public; Drive is the right home for it.
