@@ -41,12 +41,6 @@
       "addedAt": "2026-09-09"
     },
     {
-      "text": "Review the Ad 1 vertical (9:16) audio rebuild — approve or reject",
-      "priority": "high",
-      "why": "2026-09-09 AM planning — rebuilt 09-02 (constant +4.2 dB, not loudnorm); it is a launch creative for the Google campaign",
-      "addedAt": "2026-09-09"
-    },
-    {
       "text": "Review social media: comments, DMs, what posted, what is performing",
       "priority": "med",
       "why": "2026-09-09 AM planning — Dan's daily sweep; a session pre-pulls failed posts + comment counts",
@@ -157,14 +151,14 @@
       "recurring": true
     },
     {
-      "text": "Inject Zepbound",
-      "priority": "high"
-    },
-    {
       "text": "Get the Oura ring syncing again",
       "priority": "high",
       "why": "Dan 09-10 /prioritize. API token is fine (200) and heart rate synced 7:23 AM, but no sleep score for 09-07, 09-08 or 09-10 — a ring/phone sync problem, not the account.",
       "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Inject Zepbound",
+      "priority": "high"
     }
   ],
   "personal": [
