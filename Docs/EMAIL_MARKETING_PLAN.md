@@ -13,13 +13,18 @@ Current state: the email screen in `index.html` only does `localStorage.setItem(
 - **Frontend** (`index.html`, `emailForm` submit handler): after saving to localStorage, `POST /api/subscribe` with `{ email, deviceId }`. Fire-and-forget — never block the user's path to the product screen if the request fails.
 - **Backend** (`server.js`): new `POST /api/subscribe` endpoint that:
   1. Validates the email format.
-  2. Appends to `subscribers-data.json` persisted to the GitHub repo (same pattern as `credits-data.json`) — we always own the raw list, independent of MailerLite.
+  2. Appends to the subscriber store — we always own the raw list, independent of MailerLite. ⚠ **Superseded 2026-09-11:** this originally persisted `subscribers-data.json` to the GitHub repo (the `credits-data.json` pattern). That was only ever safe on a private repo, and this repo is public, so the whole list was world-readable for months. The list now lives in Postgres (`subscribers` table) — see `Docs/SUBSCRIBER_STORE.md`. **Never persist personal data through the GitHub contents-API helpers in `server.js`.**
   3. Pushes to MailerLite via API (below). Idempotent — MailerLite upserts on email, and we skip the API call if the email is already in our local store.
 - **Consent line** under the email input: *"We'll email you your image plus fitness tips and offers. Unsubscribe anytime."* — this is what makes later affiliate sends legitimate.
 - **PostHog**: capture an `email_subscribed` event so signup rate is visible in analytics.
 - **Privacy policy**: add/update a page covering email collection before affiliate sends start.
 
-> Note: the repo holding `subscribers-data.json` must stay **private** — it will contain PII.
+> ~~Note: the repo holding `subscribers-data.json` must stay **private** — it will contain PII.~~
+> **This assumption was never true.** `RagnarD213/abs-by-ai` is and has been a PUBLIC repo, so
+> every address the file held was readable by anyone at `raw.githubusercontent.com` with no
+> token and no login. Found and fixed 2026-09-11 by moving the list to Postgres. A design that
+> is only safe on a private repo does not belong in this codebase — put personal data in the
+> database, where the repo's visibility cannot leak it.
 
 ## 2. Sending to MailerLite
 

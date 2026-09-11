@@ -38,6 +38,20 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Subscriber list was PUBLIC — code fixed 2026-09-11, NOT yet deployed; two decisions for Dan.** The newsletter list
+(`subscribers-data.json`, 28 entries / 23 real addresses) was persisted to this PUBLIC repo and served at
+`raw.githubusercontent.com` to anyone, no login — verified 200 OK. It now persists to Postgres (`subscribers` table);
+42 fixture tests green, all four existing suites still green. Work is on branch `claude/nifty-dirac-5mu8si`, NOT merged,
+so **production is still writing to the public file until this merges to main**. ⚠ **Ships in TWO deploys and the order
+is load-bearing**: (1) merge this branch — the boot seeds the table from the file, verify with
+`curl -H "X-Dash-Key: $DASH_SECRET" absbyai.com/api/subscribers/status` against digest
+`1f0cb629799fa9f75573111eec22374a3c6f5b0829d5bf2c0df0c1d7d3cbb404` / 28 rows; (2) only then delete the file from main.
+Both in one deploy seeds from nothing and re-sends the 5-email welcome sequence to 21 people. Sequence + audit:
+`Docs/SUBSCRIBER_STORE.md`. **Dan's two calls: (a) purge the file from git history (force-push) or make the repo
+private — the addresses stay in history until one of those happens; (b) `monarch-data.json` publishes his net worth and
+61 points of net-worth history in the same public repo — move it or accept it.** ⚠ Armed but not yet fired:
+`push-subs.json` will be created in the public repo the moment anyone subscribes to web push. No dashboard row.
+
 **studio-blue-89 social variations — DELIVERED 2026-09-10, Dan picks.** Black / white / crimson backgrounds (full +
 4:5, original pixels through the existing cutout) and two Muay Thai gym versions (Thai camp, modern gym — AI room, his
 original pixels pasted back, 4:5 only) in `photos/finalized social media photos/_variations/studio-blue-89/`; two
