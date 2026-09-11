@@ -24,9 +24,10 @@
 // brief must never fail because an ad token expired.
 //
 // CREDENTIALS: read from the environment, falling back to ~/.absbyai-secrets.env.
-// Neither platform is readable as of 2026-09-02 — see Docs/ADS_DIGEST.md for the
-// one-time setup. The script says exactly which credential is missing and how to
-// get it, in the output, every run, until it is fixed.
+// Both platforms are live: Meta on META_ADS_TOKEN (since 2026-09-02), Google on
+// GOOGLE_ADS_REFRESH_TOKEN through scripts/ads/api/client.js (since 2026-09-10, no
+// developer token). If either credential goes missing the script says which one
+// and how to restore it, in the output, every run — see Docs/ADS_DIGEST.md.
 
 'use strict';
 
@@ -151,14 +152,15 @@ async function getJson(url, init) {
 
 function summarise(row, day, baselineFrom, baselineTo) {
   const d = row.days || {};
-  const today = d[day] || { spend: 0, results: 0, impressions: 0 };
+  const today = d[day] || { spend: 0, results: 0, impressions: 0, clicks: 0 };
 
-  let baseSpend = 0, baseResults = 0, baseDays = 0;
+  let baseSpend = 0, baseResults = 0, baseClicks = 0, baseDays = 0;
   for (let x = baselineFrom; x <= baselineTo; x = addDays(x, 1)) {
     const e = d[x];
     if (!e) continue;
     baseSpend   += e.spend;
     baseResults += e.results;
+    baseClicks  += e.clicks || 0;
     baseDays++;
   }
   const meanSpend = baseDays ? baseSpend / baseDays : 0;
@@ -172,11 +174,13 @@ function summarise(row, day, baselineFrom, baselineTo) {
     spend: round2(today.spend),
     results: today.results,
     impressions: today.impressions,
+    clicks: today.clicks || 0,
     costPerResult: today.results > 0 ? round2(today.spend / today.results) : null,
     baseline: {
       days: baseDays,
       meanSpend: round2(meanSpend),
       totalSpend: round2(baseSpend),
+      clicks: baseClicks,
       results: baseResults,
       costPerResult: baseResults > 0 ? round2(baseSpend / baseResults) : null,
     },
@@ -348,7 +352,7 @@ async function fetchMeta(day, baselineFrom) {
 
   const campaignsUrl = `${META_API}/${account}/insights?` + params({
     level: 'campaign',
-    fields: 'campaign_id,campaign_name,spend,impressions,actions,video_thruplay_watched_actions',
+    fields: 'campaign_id,campaign_name,spend,impressions,clicks,actions,video_thruplay_watched_actions',
   });
 
   const r = await getJson(campaignsUrl);
@@ -380,7 +384,7 @@ async function fetchMeta(day, baselineFrom) {
     const { results, label } = metaResultFrom(ins);
     if (label !== 'result') row.resultLabel = label;
     row.days[ins.date_start] = {
-      spend: num(ins.spend), results, impressions: num(ins.impressions),
+      spend: num(ins.spend), results, impressions: num(ins.impressions), clicks: num(ins.clicks),
     };
   }
 
@@ -469,7 +473,59 @@ async function fetchMeta(day, baselineFrom) {
 // 2026-09-10, when Google moved API access to the Cloud project (Explorer level on
 // `abs-by-ai`) and GOOGLE_ADS_REFRESH_TOKEN was minted. Reads now go through
 // scripts/ads/api/client.js; setup and the measured answers: Docs/GOOGLE_ADS_API.md.
-async function fetchGoogle(day, baselineFrom) {
+//
+// GAQL rows (the REST JSON shape: costMicros / clicks / impressions arrive as
+// strings, conversions as a possibly fractional number) → one Row per campaign.
+// Pure, so the test can feed it rows exactly as Google returns them.
+function foldGoogleRows(rows, customer = GOOGLE_CUSTOMER_DEFAULT) {
+  const byCampaign = new Map();
+  for (const r of (rows || [])) {
+    const id = r.campaign?.id;
+    const date = r.segments?.date;
+    if (!id || !date) continue;
+    if (!byCampaign.has(id)) {
+      byCampaign.set(id, {
+        id, name: r.campaign.name, status: r.campaign.status,
+        days: {}, resultLabel: 'conversion',
+        link: `https://ads.google.com/aw/campaigns?__c=${customer}&campaignId=${id}`,
+      });
+    }
+    byCampaign.get(id).days[date] = {
+      spend: num(r.metrics?.costMicros) / 1e6,
+      clicks: num(r.metrics?.clicks),
+      results: num(r.metrics?.conversions),
+      impressions: num(r.metrics?.impressions),
+    };
+  }
+  return [...byCampaign.values()];
+}
+
+// Spend / clicks / conversions over [from, to] across one or more Rows, with the
+// deflated subscriber estimate carried BESIDE the raw conversions, never in place
+// of them (see GOOGLE_CONVERSION_INFLATION).
+function googleTotals(rows, from, to) {
+  let spend = 0, clicks = 0, conversions = 0;
+  for (const r of rows) {
+    for (let x = from; x <= to; x = addDays(x, 1)) {
+      const e = r.days[x];
+      if (!e) continue;
+      spend += e.spend; clicks += e.clicks || 0; conversions += e.results;
+    }
+  }
+  const est = conversions / GOOGLE_CONVERSION_INFLATION;
+  return {
+    from, to,
+    spend: round2(spend),
+    clicks,
+    conversions: round2(conversions),
+    estSubscribers: round2(est),
+    estCostPerSubscriber: est >= 1 ? round2(spend / est) : null,
+  };
+}
+
+// `search` is injectable so the test drives this whole leg offline; in production
+// it is the shared client's GAQL search.
+async function fetchGoogle(day, baselineFrom, { search } = {}) {
   const customer = (process.env.GOOGLE_ADS_CUSTOMER_ID || GOOGLE_CUSTOMER_DEFAULT).replace(/-/g, '');
   const link = `https://ads.google.com/aw/campaigns?__c=${customer}`;
 
@@ -493,7 +549,8 @@ async function fetchGoogle(day, baselineFrom) {
   // login-customer-id, paging and retries live there, not here.
   let rows;
   try {
-    rows = await require('./api/client.js').search(gaql, { cid: customer });
+    const run = search || require('./api/client.js').search;
+    rows = await run(gaql, { cid: customer });
   } catch (e) {
     return /GOOGLE_ADS_REFRESH_TOKEN missing/.test(e.message)
       ? blind('No adwords-scoped OAuth refresh token (GOOGLE_ADS_REFRESH_TOKEN is not set).',
@@ -501,38 +558,19 @@ async function fetchGoogle(day, baselineFrom) {
       : blind(`Google Ads API error: ${e.message}`, 'See Docs/GOOGLE_ADS_API.md (token, MCC login-customer-id, access level).');
   }
 
-  const byCampaign = new Map();
-  const batches = [{ results: rows }];
-  for (const batch of batches) {
-    for (const r of (batch.results || [])) {
-      const id = r.campaign?.id;
-      if (!id) continue;
-      if (!byCampaign.has(id)) {
-        byCampaign.set(id, {
-          id, name: r.campaign.name, status: r.campaign.status,
-          days: {}, resultLabel: 'conversion',
-          link: `https://ads.google.com/aw/campaigns?__c=${customer}&campaignId=${id}`,
-        });
-      }
-      byCampaign.get(id).days[r.segments.date] = {
-        spend: num(r.metrics?.costMicros) / 1e6,
-        results: num(r.metrics?.conversions),
-        impressions: num(r.metrics?.impressions),
-      };
-    }
-  }
-
+  const folded     = foldGoogleRows(rows, customer);
   const baselineTo = addDays(day, -1);
-  const campaigns = [...byCampaign.values()].map(r => {
+  const last7From  = addDays(day, -6);   // "last 7 days" as Google's UI means it: ending yesterday
+  const campaigns = folded.map(r => {
     const s = summarise(r, day, baselineFrom, baselineTo);
-    // The estimate, always alongside the raw figure, never instead of it.
-    const windowSpend   = s.baseline.totalSpend + s.spend;
-    const windowResults = s.baseline.results + s.results;
-    const estSubs = windowResults / GOOGLE_CONVERSION_INFLATION;
+    const last7d = googleTotals([r], last7From, day);
     return {
       ...s,
-      estSubscribers: round2(estSubs),
-      estCostPerSubscriber: estSubs >= 1 ? round2(windowSpend / estSubs) : null,
+      yesterday: googleTotals([r], day, day),
+      last7d,
+      // The estimate, always alongside the raw figure, never instead of it.
+      estSubscribers: last7d.estSubscribers,
+      estCostPerSubscriber: last7d.estCostPerSubscriber,
       estimateBasis: GOOGLE_INFLATION_BASIS,
     };
   });
@@ -545,6 +583,8 @@ async function fetchGoogle(day, baselineFrom) {
     spend: spendToday,
     spend7dMean: meanDaily,
     deltaPct: meanDaily > 0 ? round2(spendToday / meanDaily - 1) : null,
+    yesterday: googleTotals(folded, day, day),
+    last7d: googleTotals(folded, last7From, day),
     conversionInflation: GOOGLE_CONVERSION_INFLATION,
     conversionInflationBasis: GOOGLE_INFLATION_BASIS,
     campaigns: campaigns.sort((a, b) => b.spend - a.spend),
@@ -713,6 +753,10 @@ async function main() {
   if (spendYesterday !== null) parts.push(`spend ${usd(spendYesterday)}`);
   parts.push(`${anomalies.length} anomal${anomalies.length === 1 ? 'y' : 'ies'}`);
   parts.push(`${winners.length} winner${winners.length === 1 ? '' : 's'}`);
+  if (google.ok) {
+    const g = google.yesterday;
+    parts.push(`google ${usd(g.spend)} / ${g.clicks} clicks / ${g.conversions} conv (~${g.estSubscribers} real)`);
+  }
   if (blind.length) parts.push(`BLIND: ${blind.map(b => b.platform).join(', ')}`);
   parts.push(autoBoost.ok
     ? `auto-boost ${autoBoost.enabled ? 'ON' : 'OFF'} (last run ${autoBoost.ageHours}h ago${autoBoost.stale ? ', STALE' : ''})`
@@ -729,6 +773,7 @@ async function main() {
 // against fixtures. The rules are the part that must be right and the part that
 // no live credential currently exercises — see the test for why that matters.
 module.exports = { summarise, detectAnomalies, detectWinners, addDays, metaResultFrom,
+                   foldGoogleRows, googleTotals, fetchGoogle,
                    GOOGLE_CONVERSION_INFLATION };
 
 // Only run when executed directly, so requiring this file from the test does not

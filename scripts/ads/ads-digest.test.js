@@ -3,11 +3,12 @@
 //
 // ADS DIGEST — detection tests.
 //
-// WHY THIS FILE EXISTS. Neither ad platform is readable yet (no ads_read token on
-// Meta, no Google Ads developer token), so the detection rules have never seen a
-// real number and will not until Dan grants a credential. Shipping untested
-// judgement logic into a page Dan reads every morning is how a digest starts
-// crying wolf — and the first time it does, he stops reading it.
+// WHY THIS FILE EXISTS. The detection rules were written (2026-09-02) before either
+// platform was readable, and they judge a page Dan reads every morning. Shipping
+// untested judgement logic there is how a digest starts crying wolf — and the
+// first time it does, he stops reading it. Both platforms are live now (Meta 09-02,
+// Google 09-10 through scripts/ads/api/client.js); section 10 drives the Google leg
+// end to end on REST-shaped rows with the client's search() stubbed out.
 //
 // So the fixtures below are built from the REAL measured figures in the
 // 2026-08-26 paid audit and the 2026-08-31 pull (AI_COORDINATION.md). Each case
@@ -20,6 +21,7 @@
 
 const {
   summarise, detectAnomalies, detectWinners, addDays, metaResultFrom,
+  foldGoogleRows, googleTotals, fetchGoogle,
   GOOGLE_CONVERSION_INFLATION,
 } = require('./ads-digest.js');
 
@@ -196,5 +198,102 @@ console.log('\n9. NO CRASHES ON DEGENERATE INPUT');
   check('winners on an empty list', detectWinners('meta', [], null).length === 0);
 }
 
-console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} passed, ${fail} failed\n`);
-process.exit(fail === 0 ? 0 : 1);
+// ============================================================
+// 10. THE GOOGLE LEG, END TO END — rows exactly as the REST API returns them
+// (costMicros / clicks / impressions as STRINGS, conversions as a fractional
+// number), through foldGoogleRows → summarise → the shared rules.
+// Brand 09-07..09-10 are the live pull of 2026-09-11 (the day the $2 CPC ceiling
+// left it at 1 impression and $0); 09-03..09-06 are fillers that reproduce the
+// $89.79 / 7-day baseline the digest reported that morning.
+const GDAY = '2026-09-10';
+const GFROM = addDays(GDAY, -7);
+const BRAND = '24086091285', DGEN = '24163535721';
+const grow = (id, name, date, dollars, clicks, conv, impr) => ({
+  campaign: { resourceName: `customers/3427170837/campaigns/${id}`, status: 'ENABLED', name, id },
+  metrics: { clicks: String(clicks), conversions: conv, costMicros: String(Math.round(dollars * 1e6)), impressions: String(impr) },
+  segments: { date },
+});
+const BRAND_SERIES = [   // date, $, clicks, conversions, impressions
+  ['2026-09-03', 15.00, 6, 1, 30], ['2026-09-04', 14.00, 5, 1, 28], ['2026-09-05', 16.00, 7, 0, 33],
+  ['2026-09-06', 14.46, 6, 1, 29], ['2026-09-07', 12.20, 1, 0, 6],  ['2026-09-08', 10.77, 1, 0, 10],
+  ['2026-09-09', 7.36, 2, 1, 13],  ['2026-09-10', 0, 0, 0, 1],
+];
+const G_ROWS = [
+  ...BRAND_SERIES.map(([d, s, c, v, i]) => grow(BRAND, 'Brand - Search - US', d, s, c, v, i)),
+  ...flat(GFROM, addDays(GDAY, -1), 0, 0).map(([d]) => grow(DGEN, 'DGEN geo tier 1', d, 17.50, 40, 19.6, 3000)),
+  grow(DGEN, 'DGEN geo tier 1', GDAY, 21.10, 50, 9, 3500),
+  { campaign: { id: '999', name: 'no date' }, metrics: {} },            // malformed: no segments.date
+  { segments: { date: GDAY }, metrics: { costMicros: '5000000' } },     // malformed: no campaign
+];
+
+(async () => {
+  console.log('\n10. GOOGLE LEG — REST rows through foldGoogleRows and fetchGoogle');
+  {
+    const folded = foldGoogleRows(G_ROWS);
+    const brand = folded.find(r => r.id === BRAND);
+    check('folds into one Row per campaign, malformed rows dropped', folded.length === 2, `got ${folded.length}`);
+    check('costMicros string → dollars', brand && brand.days['2026-09-07'].spend === 12.2);
+    check('clicks string → number', brand && brand.days['2026-09-05'].clicks === 7);
+    check('a $0 day with an impression is still a day', brand && brand.days[GDAY] && brand.days[GDAY].spend === 0);
+
+    const t = googleTotals([brand], addDays(GDAY, -6), GDAY);
+    check('7-day spend ends yesterday, starts 6 days before', t.spend === 74.79, `got ${t.spend}`);
+    check('7-day clicks', t.clicks === 22, `got ${t.clicks}`);
+    check('7-day conversions stay raw', t.conversions === 3, `got ${t.conversions}`);
+    check('estimate is conversions / 1.96, beside the raw number',
+          Math.abs(t.estSubscribers - 3 / GOOGLE_CONVERSION_INFLATION) < 0.01, `got ${t.estSubscribers}`);
+    check('no cost-per-subscriber below one estimated subscriber',
+          googleTotals([brand], GDAY, GDAY).estCostPerSubscriber === null);
+  }
+
+  {
+    let seenQuery = null, seenOpts = null;
+    const g = await fetchGoogle(GDAY, GFROM, { search: async (q, o) => { seenQuery = q; seenOpts = o; return G_ROWS; } });
+    const brand = g.campaigns.find(c => c.id === BRAND);
+    const dgen  = g.campaigns.find(c => c.id === DGEN);
+
+    check('queries the whole 8-day window', /BETWEEN '2026-09-03' AND '2026-09-10'/.test(seenQuery || ''), seenQuery);
+    check('asks for clicks, cost and conversions',
+          /metrics\.clicks/.test(seenQuery) && /metrics\.cost_micros/.test(seenQuery) && /metrics\.conversions/.test(seenQuery));
+    check('calls account 342-717-0837', seenOpts && seenOpts.cid === '3427170837');
+    check('leg is live', g.ok === true && g.platform === 'google');
+
+    check('platform yesterday: spend', g.yesterday.spend === 21.1, `got ${g.yesterday.spend}`);
+    check('platform yesterday: clicks', g.yesterday.clicks === 50, `got ${g.yesterday.clicks}`);
+    check('platform yesterday: conversions', g.yesterday.conversions === 9, `got ${g.yesterday.conversions}`);
+    check('platform last 7 days: spend', g.last7d.spend === round(74.79 + 6 * 17.50 + 21.10), `got ${g.last7d.spend}`);
+    check('platform last 7 days: clicks', g.last7d.clicks === 22 + 6 * 40 + 50, `got ${g.last7d.clicks}`);
+
+    // DGEN: 6 × 19.6 + 9 = 126.6 conversions on $126.10 → ~64.6 real, ~$1.95 each.
+    check('campaign last7d carries the deflated estimate',
+          dgen && Math.abs(dgen.last7d.estSubscribers - 64.59) < 0.01 && dgen.last7d.estCostPerSubscriber === 1.95,
+          dgen && JSON.stringify(dgen.last7d));
+    check('campaign raw conversions are never deflated', dgen && dgen.results === 9 && dgen.last7d.conversions === 126.6);
+    check('estimate travels with its basis', dgen && /1,553/.test(dgen.estimateBasis) && g.conversionInflation === 1.96);
+    check('summarise carries clicks for the day and the baseline',
+          dgen && dgen.clicks === 50 && dgen.baseline.clicks === 280);
+
+    check('the real 09-10 Search stall fires spend_stopped',
+          g.anomalies.some(a => a.kind === 'spend_stopped' && a.name === 'Brand - Search - US' && /\$12\.83\/day/.test(a.detail)),
+          JSON.stringify(g.anomalies.map(a => [a.kind, a.name, a.detail])));
+    check('DGEN yesterday at 2.6x its cost/conv fires cpa_degraded',
+          g.anomalies.some(a => a.kind === 'cpa_degraded' && a.name === 'DGEN geo tier 1'));
+  }
+
+  {
+    const noToken = await fetchGoogle(GDAY, GFROM, {
+      search: async () => { throw new Error('GOOGLE_ADS_REFRESH_TOKEN missing (mint recipe: Docs/GOOGLE_ADS_API.md)'); },
+    });
+    check('missing token → blind, not a crash', noToken.ok === false && /GOOGLE_ADS_REFRESH_TOKEN/.test(noToken.reason));
+    check('blind result names the fix', /GOOGLE_ADS_API\.md/.test(noToken.setup));
+    const apiErr = await fetchGoogle(GDAY, GFROM, { search: async () => { throw new Error('USER_PERMISSION_DENIED'); } });
+    check('API error → blind with Google\'s own message', apiErr.ok === false && /USER_PERMISSION_DENIED/.test(apiErr.reason));
+    const empty = await fetchGoogle(GDAY, GFROM, { search: async () => [] });
+    check('no rows → live, $0, no anomalies', empty.ok && empty.yesterday.spend === 0 && empty.anomalies.length === 0);
+  }
+
+  console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} passed, ${fail} failed\n`);
+  process.exit(fail === 0 ? 0 : 1);
+})();
+
+function round(n) { return Math.round(n * 100) / 100; }

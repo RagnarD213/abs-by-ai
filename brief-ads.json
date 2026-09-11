@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T11:06:47.540Z",
+  "generatedAt": "2026-09-11T14:48:58.010Z",
   "day": "2026-09-10",
   "window": {
     "from": "2026-09-03",
@@ -98,11 +98,13 @@
           "spend": 14.82,
           "results": 250,
           "impressions": 1568,
+          "clicks": 113,
           "costPerResult": 0.06,
           "baseline": {
             "days": 7,
             "meanSpend": 8.44,
             "totalSpend": 59.07,
+            "clicks": 576,
             "results": 1678,
             "costPerResult": 0.04
           }
@@ -130,6 +132,24 @@
       "spend": 31.82,
       "spend7dMean": 61.97,
       "deltaPct": -0.49,
+      "yesterday": {
+        "from": "2026-09-10",
+        "to": "2026-09-10",
+        "spend": 31.83,
+        "clicks": 25,
+        "conversions": 22,
+        "estSubscribers": 11.22,
+        "estCostPerSubscriber": 2.84
+      },
+      "last7d": {
+        "from": "2026-09-04",
+        "to": "2026-09-10",
+        "spend": 403.6,
+        "clicks": 721,
+        "conversions": 712,
+        "estSubscribers": 363.27,
+        "estCostPerSubscriber": 1.11
+      },
       "conversionInflation": 1.96,
       "conversionInflationBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676",
       "campaigns": [
@@ -142,16 +162,36 @@
           "spend": 21.1,
           "results": 9,
           "impressions": 1889,
+          "clicks": 10,
           "costPerResult": 2.34,
           "baseline": {
             "days": 7,
             "meanSpend": 17.57,
             "totalSpend": 123,
+            "clicks": 132,
             "results": 134,
             "costPerResult": 0.92
           },
-          "estSubscribers": 72.96,
-          "estCostPerSubscriber": 1.98,
+          "yesterday": {
+            "from": "2026-09-10",
+            "to": "2026-09-10",
+            "spend": 21.1,
+            "clicks": 10,
+            "conversions": 9,
+            "estSubscribers": 4.59,
+            "estCostPerSubscriber": 4.6
+          },
+          "last7d": {
+            "from": "2026-09-04",
+            "to": "2026-09-10",
+            "spend": 127.94,
+            "clicks": 136,
+            "conversions": 137,
+            "estSubscribers": 69.9,
+            "estCostPerSubscriber": 1.83
+          },
+          "estSubscribers": 69.9,
+          "estCostPerSubscriber": 1.83,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -163,16 +203,36 @@
           "spend": 5.64,
           "results": 13,
           "impressions": 3112,
+          "clicks": 12,
           "costPerResult": 0.43,
           "baseline": {
             "days": 7,
             "meanSpend": 15.33,
             "totalSpend": 107.33,
+            "clicks": 809,
             "results": 822,
             "costPerResult": 0.13
           },
-          "estSubscribers": 426.02,
-          "estCostPerSubscriber": 0.27,
+          "yesterday": {
+            "from": "2026-09-10",
+            "to": "2026-09-10",
+            "spend": 5.64,
+            "clicks": 12,
+            "conversions": 13,
+            "estSubscribers": 6.63,
+            "estCostPerSubscriber": 0.85
+          },
+          "last7d": {
+            "from": "2026-09-04",
+            "to": "2026-09-10",
+            "spend": 94.59,
+            "clicks": 560,
+            "conversions": 568,
+            "estSubscribers": 289.8,
+            "estCostPerSubscriber": 0.33
+          },
+          "estSubscribers": 289.8,
+          "estCostPerSubscriber": 0.33,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -184,13 +244,33 @@
           "spend": 2.6,
           "results": 0,
           "impressions": 206,
+          "clicks": 3,
           "costPerResult": null,
           "baseline": {
             "days": 0,
             "meanSpend": 0,
             "totalSpend": 0,
+            "clicks": 0,
             "results": 0,
             "costPerResult": null
+          },
+          "yesterday": {
+            "from": "2026-09-10",
+            "to": "2026-09-10",
+            "spend": 2.6,
+            "clicks": 3,
+            "conversions": 0,
+            "estSubscribers": 0,
+            "estCostPerSubscriber": null
+          },
+          "last7d": {
+            "from": "2026-09-04",
+            "to": "2026-09-10",
+            "spend": 2.6,
+            "clicks": 3,
+            "conversions": 0,
+            "estSubscribers": 0,
+            "estCostPerSubscriber": null
           },
           "estSubscribers": 0,
           "estCostPerSubscriber": null,
@@ -205,13 +285,33 @@
           "spend": 2.48,
           "results": 0,
           "impressions": 23,
+          "clicks": 0,
           "costPerResult": null,
           "baseline": {
             "days": 7,
             "meanSpend": 4.42,
             "totalSpend": 30.96,
+            "clicks": 3,
             "results": 0,
             "costPerResult": null
+          },
+          "yesterday": {
+            "from": "2026-09-10",
+            "to": "2026-09-10",
+            "spend": 2.48,
+            "clicks": 0,
+            "conversions": 0,
+            "estSubscribers": 0,
+            "estCostPerSubscriber": null
+          },
+          "last7d": {
+            "from": "2026-09-04",
+            "to": "2026-09-10",
+            "spend": 31.23,
+            "clicks": 3,
+            "conversions": 0,
+            "estSubscribers": 0,
+            "estCostPerSubscriber": null
           },
           "estSubscribers": 0,
           "estCostPerSubscriber": null,
@@ -226,16 +326,36 @@
           "spend": 0,
           "results": 0,
           "impressions": 1,
+          "clicks": 0,
           "costPerResult": null,
           "baseline": {
             "days": 7,
             "meanSpend": 12.83,
             "totalSpend": 89.79,
+            "clicks": 9,
             "results": 4,
             "costPerResult": 22.45
           },
-          "estSubscribers": 2.04,
-          "estCostPerSubscriber": 44,
+          "yesterday": {
+            "from": "2026-09-10",
+            "to": "2026-09-10",
+            "spend": 0,
+            "clicks": 0,
+            "conversions": 0,
+            "estSubscribers": 0,
+            "estCostPerSubscriber": null
+          },
+          "last7d": {
+            "from": "2026-09-04",
+            "to": "2026-09-10",
+            "spend": 76.84,
+            "clicks": 8,
+            "conversions": 3,
+            "estSubscribers": 1.53,
+            "estCostPerSubscriber": 50.2
+          },
+          "estSubscribers": 1.53,
+          "estCostPerSubscriber": 50.2,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -247,16 +367,36 @@
           "spend": 0,
           "results": 0,
           "impressions": 4,
+          "clicks": 0,
           "costPerResult": null,
           "baseline": {
             "days": 7,
             "meanSpend": 11.82,
             "totalSpend": 82.77,
+            "clicks": 13,
             "results": 4,
             "costPerResult": 20.69
           },
+          "yesterday": {
+            "from": "2026-09-10",
+            "to": "2026-09-10",
+            "spend": 0,
+            "clicks": 0,
+            "conversions": 0,
+            "estSubscribers": 0,
+            "estCostPerSubscriber": null
+          },
+          "last7d": {
+            "from": "2026-09-04",
+            "to": "2026-09-10",
+            "spend": 70.4,
+            "clicks": 11,
+            "conversions": 4,
+            "estSubscribers": 2.04,
+            "estCostPerSubscriber": 34.49
+          },
           "estSubscribers": 2.04,
-          "estCostPerSubscriber": 40.56,
+          "estCostPerSubscriber": 34.49,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         }
       ],
@@ -317,21 +457,21 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-11T10:19:24.442Z",
-    "ageHours": 0.79,
+    "lastRunAt": "2026-09-11T14:45:00.498Z",
+    "ageHours": 0.07,
     "stale": false,
-    "dryRun": false,
-    "enabled": true,
+    "dryRun": true,
+    "enabled": false,
     "report": {
       "caps": {
         "reason": null,
         "testsCap": 300,
-        "testsMtd": 22.4,
+        "testsMtd": 24.03,
         "totalCap": 500,
-        "totalMtd": 78.17,
+        "totalMtd": 80.45,
         "capReached": false,
         "testsCommitted": 45,
-        "totalCommitted": 100.77
+        "totalCommitted": 101.42
       },
       "pair": {
         "ads": [
@@ -345,14 +485,14 @@
           },
           {
             "adId": "120250753783950682",
-            "spend": 52.76,
+            "spend": 53.41,
             "active": true,
-            "visits": 541,
+            "visits": 545,
             "mediaId": "18192762022391478",
             "costPerVisit": 0.1
           }
         ],
-        "reason": "waiting for both to reach $10.00 ($3.01 / $52.76)",
+        "reason": "waiting for both to reach $10.00 ($3.01 / $53.41)",
         "resolved": false
       },
       "skips": [],
@@ -368,15 +508,15 @@
             "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/"
           },
           "phase": "running",
-          "spend": 2.75,
+          "spend": 2.87,
           "status": "ACTIVE",
-          "visits": 40,
+          "visits": 41,
           "adsetId": "120250868070210682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "18144562216559806",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:52-0500",
-          "impressions": 359,
+          "impressions": 372,
           "costPerVisit": 0.07
         },
         {
@@ -390,15 +530,15 @@
             "permalink": "https://www.instagram.com/p/DczQmVTmKvm/"
           },
           "phase": "running",
-          "spend": 3.18,
+          "spend": 3.29,
           "status": "ACTIVE",
-          "visits": 46,
+          "visits": 47,
           "adsetId": "120250868066640682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17983238982111705",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:21-0500",
-          "impressions": 332,
+          "impressions": 347,
           "costPerVisit": 0.07
         },
         {
@@ -412,7 +552,7 @@
             "permalink": "https://www.instagram.com/p/DdFSLHplpDf/"
           },
           "phase": "running",
-          "spend": 1.51,
+          "spend": 1.61,
           "status": "ACTIVE",
           "visits": 14,
           "adsetId": "120250888181140682",
@@ -420,8 +560,8 @@
           "mediaId": "18133073164657545",
           "verdict": null,
           "createdAt": "2026-09-09T17:16:22-0500",
-          "impressions": 201,
-          "costPerVisit": 0.11
+          "impressions": 219,
+          "costPerVisit": 0.12
         },
         {
           "label": "IMAGE | Your supplements are about 3% of your results | TEST::17874665394562729",
@@ -434,16 +574,16 @@
             "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
           },
           "phase": "running",
-          "spend": 3.1,
+          "spend": 3.32,
           "status": "ACTIVE",
-          "visits": 24,
+          "visits": 27,
           "adsetId": "120250868068030682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17874665394562729",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:37-0500",
-          "impressions": 313,
-          "costPerVisit": 0.13
+          "impressions": 330,
+          "costPerVisit": 0.12
         },
         {
           "label": "REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709",
@@ -456,7 +596,7 @@
             "permalink": "https://www.instagram.com/reel/DdCtYQOF69_/"
           },
           "phase": "running",
-          "spend": 2.64,
+          "spend": 2.86,
           "status": "ACTIVE",
           "visits": 16,
           "adsetId": "120250868876510682",
@@ -464,8 +604,8 @@
           "mediaId": "18624174223051709",
           "verdict": null,
           "createdAt": "2026-09-08T17:18:46-0500",
-          "impressions": 271,
-          "costPerVisit": 0.17
+          "impressions": 291,
+          "costPerVisit": 0.18
         },
         {
           "label": "REEL | Hire a maid instead of a personal trainer | TEST::18122536861661975",
@@ -478,7 +618,7 @@
             "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/"
           },
           "phase": "running",
-          "spend": 2.99,
+          "spend": 3.07,
           "status": "ACTIVE",
           "visits": 16,
           "adsetId": "120250868067070682",
@@ -486,52 +626,8 @@
           "mediaId": "18122536861661975",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:28-0500",
-          "impressions": 293,
+          "impressions": 305,
           "costPerVisit": 0.19
-        },
-        {
-          "label": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
-          "media": {
-            "id": "17899133421377575",
-            "type": "VIDEO",
-            "title": "I lost the weight in the hour I wasn't training",
-            "caption": "I lost the weight in the hour I wasn't training. Dinner is done, you're on the c",
-            "postedAt": "2026-09-07T22:01:03+0000",
-            "permalink": "https://www.instagram.com/reel/DdAIo4-j_RS/"
-          },
-          "phase": "running",
-          "spend": 2.96,
-          "status": "ACTIVE",
-          "visits": 8,
-          "adsetId": "120250868071570682",
-          "endTime": "2026-09-13T15:59:17-0500",
-          "mediaId": "17899133421377575",
-          "verdict": null,
-          "createdAt": "2026-09-08T15:59:58-0500",
-          "impressions": 248,
-          "costPerVisit": 0.37
-        },
-        {
-          "label": "REEL | Make AI macro estimates way more accurate | TEST::17909653590464795",
-          "media": {
-            "id": "17909653590464795",
-            "type": "VIDEO",
-            "title": "Make AI macro estimates way more accurate",
-            "caption": "Make AI macro estimates way more accurate. If you photograph your food and the n",
-            "postedAt": "2026-09-05T22:00:42+0000",
-            "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/"
-          },
-          "phase": "running",
-          "spend": 3.27,
-          "status": "ACTIVE",
-          "visits": 4,
-          "adsetId": "120250868068990682",
-          "endTime": "2026-09-13T15:59:17-0500",
-          "mediaId": "17909653590464795",
-          "verdict": null,
-          "createdAt": "2026-09-08T15:59:43-0500",
-          "impressions": 226,
-          "costPerVisit": 0.82
         },
         {
           "label": "REEL | Your protein shake might be stopping your abs | TEST::18140555551597443",
@@ -544,36 +640,293 @@
             "permalink": "https://www.instagram.com/reel/DdH3EbdlWIe/"
           },
           "phase": "running",
-          "spend": 0,
+          "spend": 0.35,
           "status": "ACTIVE",
-          "visits": 0,
+          "visits": 1,
           "adsetId": "120250910902520682",
           "endTime": "2026-09-15T17:17:51-0500",
           "mediaId": "18140555551597443",
           "verdict": null,
           "createdAt": "2026-09-10T17:17:53-0500",
-          "impressions": 0,
-          "costPerVisit": null
+          "impressions": 36,
+          "costPerVisit": 0.35
+        },
+        {
+          "label": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
+          "media": {
+            "id": "17899133421377575",
+            "type": "VIDEO",
+            "title": "I lost the weight in the hour I wasn't training",
+            "caption": "I lost the weight in the hour I wasn't training. Dinner is done, you're on the c",
+            "postedAt": "2026-09-07T22:01:03+0000",
+            "permalink": "https://www.instagram.com/reel/DdAIo4-j_RS/"
+          },
+          "phase": "running",
+          "spend": 3.26,
+          "status": "ACTIVE",
+          "visits": 8,
+          "adsetId": "120250868071570682",
+          "endTime": "2026-09-13T15:59:17-0500",
+          "mediaId": "17899133421377575",
+          "verdict": null,
+          "createdAt": "2026-09-08T15:59:58-0500",
+          "impressions": 279,
+          "costPerVisit": 0.41
+        },
+        {
+          "label": "REEL | Make AI macro estimates way more accurate | TEST::17909653590464795",
+          "media": {
+            "id": "17909653590464795",
+            "type": "VIDEO",
+            "title": "Make AI macro estimates way more accurate",
+            "caption": "Make AI macro estimates way more accurate. If you photograph your food and the n",
+            "postedAt": "2026-09-05T22:00:42+0000",
+            "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/"
+          },
+          "phase": "running",
+          "spend": 3.4,
+          "status": "ACTIVE",
+          "visits": 4,
+          "adsetId": "120250868068990682",
+          "endTime": "2026-09-13T15:59:17-0500",
+          "mediaId": "17909653590464795",
+          "verdict": null,
+          "createdAt": "2026-09-08T15:59:43-0500",
+          "impressions": 237,
+          "costPerVisit": 0.85
         }
       ],
-      "dryRun": false,
+      "dryRun": true,
+      "verify": {
+        "ads": [
+          {
+            "ad": "REEL | I was 200 lbs at 38 | CHAMPION::18188183254395331",
+            "adset": "CHAMPION",
+            "spend": "3.01",
+            "actionTypes": [
+              "post_reaction=1",
+              "onsite_conversion.post_unlike=1",
+              "post_engagement=72",
+              "post_interaction_gross=3",
+              "page_engagement=72",
+              "post_interaction_net=4",
+              "onsite_conversion.post_save=2",
+              "onsite_conversion.post_net_save=2",
+              "onsite_conversion.post_net_like=0",
+              "video_view=69"
+            ],
+            "instagram_profile_visits": "28"
+          },
+          {
+            "ad": "REEL | A three-minute total body workout with almost no equipment | CHAMPION::18192762022391478",
+            "adset": "CHAMPION",
+            "spend": "53.41",
+            "actionTypes": [
+              "post_reaction=83",
+              "onsite_conversion.post_unlike=2",
+              "post_engagement=1885",
+              "post_interaction_gross=125",
+              "page_engagement=1885",
+              "post_interaction_net=127",
+              "post=8",
+              "onsite_conversion.post_save=34",
+              "onsite_conversion.post_net_save=34",
+              "onsite_conversion.post_net_like=81",
+              "video_view=1760"
+            ],
+            "instagram_profile_visits": "545"
+          },
+          {
+            "ad": "IMAGE | Pick a sport, not a cardio machine | TEST::17983238982111705",
+            "adset": "IMAGE | Pick a sport, not a cardio machine | TEST::17983238982111705",
+            "spend": "3.29",
+            "actionTypes": [
+              "post_reaction=7",
+              "post_engagement=8",
+              "post_interaction_gross=8",
+              "page_engagement=8",
+              "post_interaction_net=8",
+              "onsite_conversion.post_save=1",
+              "onsite_conversion.post_net_save=1",
+              "onsite_conversion.post_net_like=7"
+            ],
+            "instagram_profile_visits": "47"
+          },
+          {
+            "ad": "REEL | Hire a maid instead of a personal trainer | TEST::18122536861661975",
+            "adset": "REEL | Hire a maid instead of a personal trainer | TEST::18122536861661975",
+            "spend": "3.07",
+            "actionTypes": [
+              "post_reaction=1",
+              "post_engagement=82",
+              "post_interaction_gross=1",
+              "page_engagement=82",
+              "post_interaction_net=1",
+              "onsite_conversion.post_net_like=1",
+              "video_view=81"
+            ],
+            "instagram_profile_visits": "16"
+          },
+          {
+            "ad": "IMAGE | Your supplements are about 3% of your results | TEST::17874665394562729",
+            "adset": "IMAGE | Your supplements are about 3% of your results | TEST::17874665394562729",
+            "spend": "3.32",
+            "actionTypes": [
+              "post_reaction=3",
+              "post_engagement=3",
+              "post_interaction_gross=3",
+              "page_engagement=3",
+              "post_interaction_net=3",
+              "onsite_conversion.post_net_like=3"
+            ],
+            "instagram_profile_visits": "27"
+          },
+          {
+            "ad": "REEL | Make AI macro estimates way more accurate | TEST::17909653590464795",
+            "adset": "REEL | Make AI macro estimates way more accurate | TEST::17909653590464795",
+            "spend": "3.4",
+            "actionTypes": [
+              "post_engagement=23",
+              "post_interaction_gross=1",
+              "page_engagement=23",
+              "post_interaction_net=1",
+              "onsite_conversion.post_save=1",
+              "onsite_conversion.post_net_save=1",
+              "video_view=22"
+            ],
+            "instagram_profile_visits": "4"
+          },
+          {
+            "ad": "IMAGE | Ten minutes of jump rope beats thirty on a treadmill | TEST::18144562216559806",
+            "adset": "IMAGE | Ten minutes of jump rope beats thirty on a treadmill | TEST::18144562216559806",
+            "spend": "2.87",
+            "actionTypes": [
+              "post_reaction=14",
+              "onsite_conversion.post_unlike=1",
+              "post_engagement=16",
+              "post_interaction_gross=16",
+              "page_engagement=16",
+              "post_interaction_net=17",
+              "onsite_conversion.post_save=2",
+              "onsite_conversion.post_net_save=2",
+              "onsite_conversion.post_net_like=13"
+            ],
+            "instagram_profile_visits": "41"
+          },
+          {
+            "ad": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
+            "adset": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
+            "spend": "3.26",
+            "actionTypes": [
+              "post_engagement=79",
+              "post_interaction_gross=1",
+              "page_engagement=79",
+              "post_interaction_net=1",
+              "onsite_conversion.post_save=1",
+              "onsite_conversion.post_net_save=1",
+              "video_view=78"
+            ],
+            "instagram_profile_visits": "8"
+          },
+          {
+            "ad": "REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709",
+            "adset": "REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709",
+            "spend": "2.86",
+            "actionTypes": [
+              "post_engagement=65",
+              "post_interaction_gross=3",
+              "comment=1",
+              "page_engagement=65",
+              "post_interaction_net=3",
+              "onsite_conversion.post_save=2",
+              "onsite_conversion.post_net_comment=1",
+              "onsite_conversion.post_net_save=2",
+              "video_view=62"
+            ],
+            "instagram_profile_visits": "16"
+          },
+          {
+            "ad": "IMAGE | Train your abs every single day | TEST::18133073164657545",
+            "adset": "IMAGE | Train your abs every single day | TEST::18133073164657545",
+            "spend": "1.61",
+            "actionTypes": [
+              "post_reaction=2",
+              "post_engagement=2",
+              "post_interaction_gross=2",
+              "page_engagement=2",
+              "post_interaction_net=2",
+              "onsite_conversion.post_net_like=2"
+            ],
+            "instagram_profile_visits": "14"
+          },
+          {
+            "ad": "REEL | Your protein shake might be stopping your abs | TEST::18140555551597443",
+            "adset": "REEL | Your protein shake might be stopping your abs | TEST::18140555551597443",
+            "spend": "0.35",
+            "actionTypes": [
+              "post_engagement=7",
+              "page_engagement=7",
+              "video_view=7"
+            ],
+            "instagram_profile_visits": "1"
+          }
+        ],
+        "pinned": {
+          "visitsField": "instagram_profile_visits",
+          "visitActionFallbacks": [
+            "instagram_profile_visit",
+            "ig_profile_visit",
+            "profile_visit"
+          ],
+          "followActionCandidates": [
+            "instagram_follow",
+            "ig_follow",
+            "follow",
+            "onsite_conversion.ig_follow",
+            "onsite_conversion.follow",
+            "onsite_conversion.instagram_follow",
+            "page_like",
+            "like"
+          ]
+        },
+        "campaign": {
+          "spend": 80.45,
+          "actionTypes": [
+            "post_reaction=111",
+            "onsite_conversion.post_unlike=4",
+            "post_engagement=2241",
+            "post_interaction_gross=163",
+            "comment=1",
+            "page_engagement=2241",
+            "post_interaction_net=167",
+            "post=8",
+            "onsite_conversion.post_save=43",
+            "onsite_conversion.post_net_comment=1",
+            "onsite_conversion.post_net_save=43",
+            "onsite_conversion.post_net_like=107",
+            "video_view=2078"
+          ],
+          "instagram_profile_visits": "747"
+        },
+        "howToMatch": "Ads Manager → Columns → Customize → search \"Instagram profile visits\" and \"Follows\" for the same date range; the API string whose count equals the column is the metric."
+      },
       "actions": [],
       "created": [],
-      "enabled": true,
+      "enabled": false,
       "metrics": {
         "followsType": null,
         "visitsField": "instagram_profile_visits",
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 78.17,
-          "visits": 736,
+          "spend": 80.45,
+          "visits": 747,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 41.45,
+        "spend": 42.1,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
@@ -581,7 +934,7 @@
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 436,
+        "visits": 440,
         "window": {
           "days": 7,
           "since": "2026-09-05",
@@ -636,7 +989,7 @@
         }
       ],
       "candidates": [],
-      "generatedAt": "2026-09-11T10:19:21.406Z",
+      "generatedAt": "2026-09-11T14:44:55.337Z",
       "championAdset": "120250753601020682"
     }
   },
@@ -644,8 +997,8 @@
     "ok": true,
     "enabled": true,
     "dryRun": false,
-    "lastRunAt": "2026-09-11T11:00:05.631Z",
-    "ageHours": 0.11,
+    "lastRunAt": "2026-09-11T14:00:05.249Z",
+    "ageHours": 0.81,
     "stale": false,
     "resultsPosted": true,
     "thresholds": {
@@ -675,7 +1028,7 @@
           {
             "adId": "824051827676",
             "videoId": "27vZC4xVkms",
-            "spend": 1.06,
+            "spend": 1.08,
             "of": 5,
             "conv": 0,
             "daysWaiting": 2,
@@ -820,7 +1173,7 @@
           {
             "adId": "824317084973",
             "videoId": "B6Oku5GjrLs",
-            "spend": 0.01,
+            "spend": 0.32,
             "of": 5,
             "conv": 0,
             "daysWaiting": 1,
@@ -1625,7 +1978,7 @@
       "waitingCopy": []
     },
     "lastResults": {
-      "at": "2026-09-11T11:00:06.031Z",
+      "at": "2026-09-11T14:00:05.707Z",
       "dryRun": false,
       "results": []
     }

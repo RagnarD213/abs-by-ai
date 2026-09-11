@@ -273,21 +273,14 @@ the look-A telemetry loop file.
 (3 unpublished draft edits still pending). Launch specs are in the 8/31 artifact.
 (Google Ads billing is fine — a $500 threshold charge cleared 2026-09-09 on the Visa •7763.)
 
-**Ads digest — BUILT AND LIVE, BLIND UNTIL DAN GRANTS TWO TOKENS** (2026-09-02). Daily
-Meta + Google spend brief with anomaly and winning-ad detection; renders as an "Ad spend"
-section in the morning brief. Engine `scripts/ads/ads-digest.js` → `brief-ads.json`, gated
-`GET /api/ads-digest` (live-verified, 401 without the key). Dashboard task checked off.
-⚠ **Neither platform is readable and both fixes are Dan's**: the stored
-`FACEBOOK_PAGE_ACCESS_TOKEN` is a PAGE token with no `ads_read` (Graph returns "(#200) Ad
-account owner has NOT grant ads_management or ads_read"), and `GOOGLE_REFRESH_TOKEN` is
-`calendar.readonly` only with no developer token in existence. **Dan: the Meta fix is ~5
-minutes — Business settings → System users → token with `ads_read` → `META_ADS_TOKEN` in
-`~/.absbyai-secrets.env`.** Google needs the API handoff's Phase 1 first. The digest names
-the missing credential in the brief every morning and goes quiet by itself once it lands —
-no follow-up task. Setup paths, detection rules and the ~2x Google conversion correction:
-`Docs/ADS_DIGEST.md`. Rules are tested against the 8/26 + 8/31 figures
-(`scripts/ads/ads-digest.test.js`, 28 cases). The render spec lives in the morning-brief
-task's `SKILL.md` (`~/.claude/scheduled-tasks/abs-by-ai-morning-brief/`), outside the repo.
+**Ads digest — BOTH PLATFORMS LIVE (Meta 09-02; Google 09-10 via `scripts/ads/api/client.js`, no developer
+token); Google half extended 2026-09-11.** `brief-ads.json` reads `platformsLive ["meta","google"]`, `blind []`. Google
+now carries `yesterday` / `last7d` spend, clicks, conversions + the ~2x `est*` subscriber estimate beside the raw
+column, per platform and per campaign; 56 tests (`scripts/ads/ads-digest.test.js`, section 10 runs the Google leg
+offline). Doc `Docs/ADS_DIGEST.md`; the render spec is in the morning-brief task's `SKILL.md`, outside the repo.
+⚠ **For Dan: both Search campaigns went dark on 09-10** — Brand 1 impression, Non-brand 4, $0 each, against 7-day
+averages of $12.83 and $11.82/day — since the $2.00 CPC ceiling set 09-09 (both still ENABLED/SERVING). The digest
+flags both as `spend_stopped`. Raise the ceiling or accept it. Delete this entry once Dan has seen that.
 
 **Resend read key** — delivery rates can't be queried; the stored key is send-only. Dan
 creates a full-access key at resend.com/api-keys → `RESEND_READ_API_KEY` in

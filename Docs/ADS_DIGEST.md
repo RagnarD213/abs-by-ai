@@ -7,7 +7,7 @@ enough to scale.
 | | |
 |---|---|
 | engine | `scripts/ads/ads-digest.js` (Node, zero dependencies) |
-| tests | `scripts/ads/ads-digest.test.js` — 28 cases, run with `node scripts/ads/ads-digest.test.js` |
+| tests | `scripts/ads/ads-digest.test.js` — run with `node scripts/ads/ads-digest.test.js` (section 10 drives the Google leg offline, client stubbed) |
 | output | `brief-ads.json` at the repo root |
 | read by | the morning-brief job (Step 1.5) and `GET /api/ads-digest` (gated) |
 | cost | $0.00 — plain HTTP against each platform's own API, no model calls |
@@ -19,16 +19,20 @@ node scripts/ads/ads-digest.js --day 2026-08-31 --print
 
 ---
 
-## ⚠ IT CANNOT SEE EITHER PLATFORM YET, AND THAT IS A CREDENTIAL GAP, NOT A BUG
+## Both platforms are live
 
-Both legs are written and tested. Neither has a working read credential as of
-2026-09-02, and **both fixes need Dan** — Claude cannot mint either one.
+`totals.platformsLive` reads `["meta","google"]`. If a credential ever goes missing
+or is revoked, that platform moves to `blind[]` with the exact reason and fix, every
+run, and drops out of the totals — the gap is stated rather than papered over.
 
-The digest reports this itself, every run, in `blind[]`, with the exact reason and
-the exact fix. It stops saying so the moment a credential lands. No code change
-and no follow-up task is needed on either side.
+### Meta — LIVE since 2026-09-02
 
-### Meta — the stored token is the wrong kind of token
+Reads on `META_ADS_TOKEN` (system user `abs-automation`, never expires, `ads_read`
+among its scopes). The Business Settings token UI silently fails for ads scopes;
+it was minted via `POST /{system_user_id}/access_tokens` with `appsecret_proof`.
+The original diagnosis, kept for the day it has to be redone:
+
+#### Why the old stored token could not work
 
 `FACEBOOK_PAGE_ACCESS_TOKEN` is a **Page** token. Verified against `debug_token`
 on 2026-09-02: its scopes are `pages_read_engagement`, `pages_manage_posts`,
@@ -66,8 +70,20 @@ re-minting and traps: `Docs/GOOGLE_ADS_API.md`. First run (`--day 2026-09-09`)
 returned every Google campaign and a live `zero_results` anomaly on the remarketing
 campaign ($34.61, 0 conversions over 8 days).
 
-If the token is ever missing or revoked, the Google section prints one line naming
-the cause instead of numbers — the gap is stated rather than papered over.
+One GAQL query per run (`campaign` × `segments.date`, the 8-day window, cost /
+clicks / impressions / conversions). `platforms.google` carries, beside the
+per-campaign rows the rules judge:
+
+| field | what |
+|---|---|
+| `yesterday` | `{ spend, clicks, conversions, estSubscribers, estCostPerSubscriber }` for the graded day |
+| `last7d` | the same over the 7 days **ending yesterday** (Google UI's "last 7 days") |
+| `campaigns[].yesterday` / `.last7d` | the same, per campaign; `estSubscribers` / `estCostPerSubscriber` at the campaign's top level are the `last7d` ones |
+
+`conversions` is always Google's raw column; the `est*` fields are the ~2x
+correction below, never a replacement for it. Dates are the account's time zone
+(America/Chicago). `fetchGoogle()` takes an injectable `search`, which is how the
+test runs the whole leg offline.
 
 ---
 
