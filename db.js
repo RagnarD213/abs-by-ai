@@ -190,6 +190,31 @@ async function initDb() {
       after_image  TEXT,
       created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
     );
+    -- The newsletter/marketing list (2026-09-11). Until now this lived in
+    -- subscribers-data.json, persisted to the GitHub repo — which is PUBLIC, so
+    -- every captured address was world-readable at raw.githubusercontent.com.
+    -- One row per address; the columns mirror the old JSON entry exactly, and
+    -- the extra JSONB column catches any key added to the entry shape but not to
+    -- this table, so a load/save round trip can never silently drop a field.
+    -- NULL means "key absent" on every optional column: welcome_step IS NULL is
+    -- what tells the welcome sweep this subscriber predates the sequence and
+    -- needs its fields backfilled, so it must not be defaulted to 0.
+    CREATE TABLE IF NOT EXISTS subscribers (
+      email           TEXT PRIMARY KEY,
+      subscribed_at   TIMESTAMPTZ,
+      device_id       TEXT,
+      source          TEXT,
+      synced          BOOLEAN,
+      welcome_step    INTEGER,
+      welcome_next_at TIMESTAMPTZ,
+      welcome_sent_at JSONB,
+      unsubscribed    BOOLEAN,
+      unsubscribed_at TIMESTAMPTZ,
+      excluded        BOOLEAN,
+      deleted_account BOOLEAN,
+      extra           JSONB NOT NULL DEFAULT '{}',
+      updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
   `);
   // Membership columns (added after the users table shipped). ADD COLUMN IF NOT
   // EXISTS keeps this idempotent across deploys; pg-mem supports it too.

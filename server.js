@@ -7,6 +7,10 @@ const path = require('path');
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const { pool: db, initDb } = require('./db');
+// Kicked off at require time, not after listen(): the subscriber store loads at
+// startup and reads a table this creates, so anything that touches the schema
+// during boot awaits this first.
+const dbReady = initDb().catch(e => { console.error('initDb error:', e.message); });
 
 // Used only to render the degraded teaser for a paywalled (locked) generation, so
 // the finished image never reaches an unpaid client. Guarded because it is the one
@@ -173,7 +177,10 @@ const PRINTIFY_API_KEY     = process.env.PRINTIFY_API_KEY;
 const PRINTIFY_SHOP_ID     = process.env.PRINTIFY_SHOP_ID;
 const MAILERLITE_API_KEY   = process.env.MAILERLITE_API_KEY;
 const MAILERLITE_GROUP_ID  = process.env.MAILERLITE_GROUP_ID;
-const SUBSCRIBERS_FILE     = 'subscribers-data.json'; // persists captured emails (repo is private — contains PII)
+// Legacy: the captured-email list lived in this repo file until 2026-09-11. The
+// repo is PUBLIC, so it was world-readable — the list is in Postgres now and
+// this name survives only to seed the table on the first boot after the switch.
+const SUBSCRIBERS_FILE     = 'subscribers-data.json';
 const CREDITS_FILE         = 'credits-data.json'; // persists per-device credit balances + fulfilled checkout sessions
 const FREE_CREDITS         = 3;  // free generations every new device starts with
 // Credit packs offered on the paywall. Prices in cents. Keys must match the
@@ -195,6 +202,9 @@ const FREE_MEAL_ANALYSES = 3;
 // exercises.js lives in public/ (browser loads it at /exercises.js); the server
 // also uses its exports here, so require it from the new location.
 const { EXERCISE_BY_ID, exercisesForEquipment } = require('./public/exercises');
+// Fingerprint of the marketing list, shared with scripts/subscribers/digest.js so
+// a local file and live production can be compared without printing addresses.
+const { subscribersDigest } = require('./scripts/subscribers/digest');
 const MONARCH_PUSH_SECRET  = process.env.MONARCH_PUSH_SECRET;
 // Google Ads offline-conversion feed (Phase B). Google Data Manager's HTTPS
 // source authenticates with HTTP Basic — username AND password are both
@@ -264,6 +274,7 @@ const DASH_APIS  = [
   '/api/ads-digest', '/api/ytads/state',
   '/api/health-debug', '/api/todos', '/api/plan', '/api/assign-priority',
   '/api/tasks-state', '/api/personal-lists', '/api/timesheet/mark-paid',
+  '/api/subscribers/status',
 ];
 
 const dashSign = (expMs) => crypto.createHmac('sha256', DASH_SECRET).update(String(expMs)).digest('hex');
@@ -4314,46 +4325,201 @@ async function fulfillCreditsSession(session) {
 }
 
 // ============================================================
-// EMAIL SUBSCRIBERS — capture + MailerLite sync
+// EMAIL SUBSCRIBERS — capture + welcome sequence
 // ============================================================
-// Emails captured on the download screen, persisted as JSON in the GitHub
-// repo (same pattern as credits) so we always own the raw list, and pushed
-// to MailerLite which runs the autoresponder. Shape:
-//   { emails: { [email]: { subscribedAt, deviceId, synced } } }
+// Emails captured on the download screen and on sixpackabs.com, held in memory
+// and persisted to Postgres (`subscribers` table). Shape of the in-memory copy,
+// unchanged since this was a JSON file:
+//   { emails: { [email]: { subscribedAt, deviceId, synced, welcome* } } }
 // `synced:false` entries are retried on the next subscribe attempt from the
-// same email, so a MailerLite outage never loses an address.
+// same email, so a MailerLite outage never loses an address. (MailerLite itself
+// was retired 2026-07-17; Resend runs the welcome sequence off this store.)
+//
+// ⚠ 2026-09-11 — WHY THIS IS POSTGRES AND NOT A FILE. It used to persist by
+// PUTting subscribers-data.json to the GitHub contents API, the same trick the
+// dashboard data files use. That design assumed a PRIVATE repo (it is written
+// down that way in Docs/EMAIL_MARKETING_PLAN.md). The repo is PUBLIC, so every
+// address the site ever captured was readable by anyone at
+// raw.githubusercontent.com — no token, no login. Never persist personal data
+// through the GitHub helpers in this file; the marketing list, and anything
+// else carrying a real person's details, belongs in the database.
 let subscribersStore = { emails: {} };
 
-async function loadSubscribersStore() {
-  if (!GITHUB_TOKEN) return { emails: {} };
+// Every key the entry shape uses. Anything NOT in here is preserved verbatim in
+// the `extra` JSONB column, so adding a field to an entry and forgetting to add
+// a column loses nothing — it round-trips instead of vanishing on the next save.
+const SUBSCRIBER_COLUMNS = {
+  subscribedAt:   'subscribed_at',
+  deviceId:       'device_id',
+  source:         'source',
+  synced:         'synced',
+  welcomeStep:    'welcome_step',
+  welcomeNextAt:  'welcome_next_at',
+  welcomeSentAt:  'welcome_sent_at',
+  unsubscribed:   'unsubscribed',
+  unsubscribedAt: 'unsubscribed_at',
+  excluded:       'excluded',
+  deletedAccount: 'deleted_account',
+};
+const SUBSCRIBER_TS_KEYS = new Set(['subscribedAt', 'welcomeNextAt', 'unsubscribedAt']);
+
+// Timestamps come back from pg as Date objects and from the legacy JSON as ISO
+// strings; normalise to the ISO string the rest of the code has always seen.
+function subIso(v) {
+  if (v === undefined || v === null || v === '') return null;
+  const d = v instanceof Date ? v : new Date(v);
+  return isNaN(d.getTime()) ? null : d.toISOString();
+}
+
+function subscriberRowToEntry(row) {
+  const entry = { ...(row.extra || {}) };
+  for (const [key, col] of Object.entries(SUBSCRIBER_COLUMNS)) {
+    const v = row[col];
+    // NULL means the key was absent. Keep it absent — welcomeStep in particular
+    // is read with `!== undefined` to decide whether to backfill the sequence.
+    if (v === null || v === undefined) continue;
+    entry[key] = SUBSCRIBER_TS_KEYS.has(key) ? subIso(v) : v;
+  }
+  return entry;
+}
+
+function subscriberEntryToRow(email, entry) {
+  const e = entry || {};
+  const extra = {};
+  for (const [k, v] of Object.entries(e)) {
+    if (!(k in SUBSCRIBER_COLUMNS)) extra[k] = v;
+  }
+  const val = (k) => {
+    const v = e[k];
+    if (v === undefined) return null;
+    return SUBSCRIBER_TS_KEYS.has(k) ? subIso(v) : v;
+  };
+  return [
+    email,
+    val('subscribedAt'), val('deviceId'), val('source'), val('synced'),
+    val('welcomeStep'), val('welcomeNextAt'),
+    e.welcomeSentAt === undefined ? null : JSON.stringify(e.welcomeSentAt),
+    val('unsubscribed'), val('unsubscribedAt'), val('excluded'), val('deletedAccount'),
+    JSON.stringify(extra),
+  ];
+}
+
+// The pre-Postgres list, read once so the first boot after this change can seed
+// the table. Disk first (the file ships in the deployed repo), GitHub second.
+// Both go away once the file is removed from main; by then the table is filled.
+async function readLegacySubscribers() {
+  try {
+    // SUBSCRIBERS_LEGACY_FILE overrides the path — used by the tests, and by a
+    // re-seed from a downloaded backup if the table ever has to be rebuilt.
+    const local = process.env.SUBSCRIBERS_LEGACY_FILE || path.join(__dirname, SUBSCRIBERS_FILE);
+    if (fs.existsSync(local)) {
+      const parsed = JSON.parse(fs.readFileSync(local, 'utf8'));
+      if (parsed?.emails && Object.keys(parsed.emails).length) return parsed.emails;
+    }
+  } catch (e) { console.error('readLegacySubscribers (disk) error:', e.message); }
+  if (!GITHUB_TOKEN) return {};
   try {
     const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SUBSCRIBERS_FILE}`, {
       headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
     });
-    if (!res.ok) return { emails: {} };
+    if (!res.ok) return {};
     const data = await res.json();
-    const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
-    return { emails: parsed.emails || {} };
+    return JSON.parse(Buffer.from(data.content, 'base64').toString('utf8')).emails || {};
   } catch (e) {
-    console.error('loadSubscribersStore error:', e.message);
+    console.error('readLegacySubscribers (github) error:', e.message);
+    return {};
+  }
+}
+
+async function loadSubscribersStore() {
+  await dbReady; // the table has to exist before we read it
+  if (!db) {
+    // No DATABASE_URL (local dev / preview). Load read-only so the welcome
+    // sequence and /api/subscribe still behave; nothing is written anywhere.
+    const emails = await readLegacySubscribers();
+    if (Object.keys(emails).length) {
+      console.warn(`DATABASE_URL not set — ${Object.keys(emails).length} subscriber(s) loaded READ-ONLY; changes will not persist`);
+    }
+    return { emails };
+  }
+  try {
+    let { rows } = await db.query('SELECT * FROM subscribers');
+    if (!rows.length) {
+      // One-time migration off the JSON file. Idempotent: once the table has a
+      // row this branch never runs again.
+      const legacy = await readLegacySubscribers();
+      const addresses = Object.keys(legacy);
+      if (addresses.length) {
+        try {
+          for (const email of addresses) {
+            await writeSubscriberRows(email, legacy[email]);
+          }
+        } catch (e) {
+          // Undo a partial seed. A half-filled table is the dangerous outcome:
+          // it is no longer empty, so the next boot skips this branch entirely
+          // and the rest of the list is silently gone. Only rows this seed just
+          // inserted are removed — we are here only because the table was empty.
+          console.error('Subscriber migration failed, rolling back the partial seed:', e.message);
+          for (const email of addresses) {
+            try { await db.query('DELETE FROM subscribers WHERE email = $1', [email]); } catch (_) {}
+          }
+          throw e;
+        }
+        ({ rows } = await db.query('SELECT * FROM subscribers'));
+        console.log(`Subscribers migrated to Postgres: ${rows.length} of ${addresses.length} row(s) from ${SUBSCRIBERS_FILE}`);
+        if (rows.length !== addresses.length) {
+          console.error(`SUBSCRIBER MIGRATION INCOMPLETE — ${addresses.length - rows.length} address(es) did not land. Do not remove ${SUBSCRIBERS_FILE}.`);
+        }
+      }
+    }
+    return { emails: Object.fromEntries(rows.map(r => [r.email, subscriberRowToEntry(r)])) };
+  } catch (e) {
+    // Booting with an empty store is survivable in a way it was NOT under the
+    // old whole-file persistence: saves are per-address upserts now, so a new
+    // signup written on top of an empty in-memory store adds one row instead of
+    // overwriting the file with a one-entry list. The welcome sweep simply has
+    // nothing to do until a restart loads the list properly.
+    console.error('loadSubscribersStore error — starting with an EMPTY list:', e.message);
     return { emails: {} };
   }
 }
 
-async function persistSubscribersStore() {
-  if (!GITHUB_TOKEN) return;
+async function writeSubscriberRows(email, entry) {
+  if (!db) return;
+  await db.query(
+    `INSERT INTO subscribers
+       (email, subscribed_at, device_id, source, synced, welcome_step, welcome_next_at,
+        welcome_sent_at, unsubscribed, unsubscribed_at, excluded, deleted_account, extra, updated_at)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13, now())
+     ON CONFLICT (email) DO UPDATE SET
+       subscribed_at   = EXCLUDED.subscribed_at,
+       device_id       = EXCLUDED.device_id,
+       source          = EXCLUDED.source,
+       synced          = EXCLUDED.synced,
+       welcome_step    = EXCLUDED.welcome_step,
+       welcome_next_at = EXCLUDED.welcome_next_at,
+       welcome_sent_at = EXCLUDED.welcome_sent_at,
+       unsubscribed    = EXCLUDED.unsubscribed,
+       unsubscribed_at = EXCLUDED.unsubscribed_at,
+       excluded        = EXCLUDED.excluded,
+       deleted_account = EXCLUDED.deleted_account,
+       extra           = EXCLUDED.extra,
+       updated_at      = now()`,
+    subscriberEntryToRow(email, entry)
+  );
+}
+
+// Save subscribers to Postgres. Pass the addresses that changed; with no
+// argument it writes the whole store (the safe default, and what a caller that
+// predates the argument gets).
+async function persistSubscribersStore(emails) {
+  if (!db) return;
+  const list = emails && emails.length ? emails : Object.keys(subscribersStore.emails);
   try {
-    const content = Buffer.from(JSON.stringify(subscribersStore, null, 2)).toString('base64');
-    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SUBSCRIBERS_FILE}`, {
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    const body = { message: 'Update subscribers', content };
-    if (getRes.ok) { const cur = await getRes.json(); body.sha = cur.sha; }
-    await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SUBSCRIBERS_FILE}`, {
-      method: 'PUT',
-      headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
+    for (const email of list) {
+      const entry = subscribersStore.emails[email];
+      if (entry) await writeSubscriberRows(email, entry);
+    }
   } catch (e) { console.error('persistSubscribersStore error:', e.message); }
 }
 
@@ -4418,9 +4584,44 @@ app.post('/api/subscribe', async (req, res) => {
     ensureWelcomeFields(email, entry); // new subscriber → Email 1 on next sweep
   }
   subscribersStore.emails[email] = entry;
-  persistSubscribersStore(); // fire-and-forget; in-memory copy is source of truth
+  persistSubscribersStore([email]); // fire-and-forget; in-memory copy is source of truth
   console.log(`Subscriber ${existing ? 'retried' : 'added'}: ${email} (MailerLite sync: ${synced})`);
   res.json({ ok: true });
+});
+
+// GET /api/subscribers/status — gated (listed in DASH_APIS). Counts, sequence
+// progress and a digest of the list; NEVER an address. It exists so the move off
+// the public JSON file could be proven correct against production before the
+// file was deleted: run `node scripts/subscribers/digest.js subscribers-data.json`
+// and compare `digest`. Equal digests mean every address, welcome step and
+// timestamp survived the migration intact.
+app.get('/api/subscribers/status', async (req, res) => {
+  const entries = Object.values(subscribersStore.emails);
+  const byStep = {};
+  let excluded = 0, unsubscribed = 0;
+  for (const e of entries) {
+    const step = e?.welcomeStep === undefined ? 'unset' : String(e.welcomeStep);
+    byStep[step] = (byStep[step] || 0) + 1;
+    if (e?.excluded) excluded++;
+    if (e?.unsubscribed) unsubscribed++;
+  }
+  let dbRows = null;
+  if (db) {
+    try {
+      const { rows } = await db.query('SELECT COUNT(*) AS n FROM subscribers');
+      dbRows = Number(rows[0].n);
+    } catch (e) { dbRows = `error: ${e.message}`; }
+  }
+  res.json({
+    persistence: db ? 'postgres' : 'none (in-memory, read-only)',
+    inMemory: entries.length,
+    dbRows,
+    excluded,
+    unsubscribed,
+    mailable: entries.filter(e => !e?.excluded && !e?.unsubscribed).length,
+    byStep,
+    digest: subscribersDigest(subscribersStore.emails),
+  });
 });
 
 // One-click / link unsubscribe from the welcome sequence. GET is used by the
@@ -4446,7 +4647,7 @@ async function handleUnsubscribe(req, res) {
   if (entry && !entry.unsubscribed) {
     entry.unsubscribed = true;
     entry.unsubscribedAt = new Date().toISOString();
-    persistSubscribersStore();
+    persistSubscribersStore([email]);
     console.log(`Unsubscribed from welcome sequence: ${email}`);
   }
   res.status(200).send(unsubscribePage("You're unsubscribed."));
@@ -5048,12 +5249,12 @@ function ensureWelcomeFields(email, entry) {
 // The welcome sweep — clone of trialReminderSweep's send-then-advance pattern.
 async function welcomeSweep() {
   if (!WELCOME_ENABLED) return;
-  let changed = false;
+  const changed = new Set(); // addresses to write back, not the whole list
   const now = Date.now();
   for (const [email, entry] of Object.entries(subscribersStore.emails)) {
     if (!entry) continue;
     // Lazily backfill sequence fields on any entry that predates this feature.
-    if (ensureWelcomeFields(email, entry)) changed = true;
+    if (ensureWelcomeFields(email, entry)) changed.add(email);
     if (entry.excluded || entry.unsubscribed) continue;
     if (entry.welcomeStep >= WELCOME_EMAILS.length) continue;
     if (/@example\.com$/i.test(email)) continue;
@@ -5068,10 +5269,10 @@ async function welcomeSweep() {
     entry.welcomeSentAt[String(idx + 1)] = new Date().toISOString();
     const delayDays = WELCOME_DELAYS_DAYS[idx];
     entry.welcomeNextAt = delayDays ? new Date(now + delayDays * DAY_MS).toISOString() : null;
-    changed = true;
+    changed.add(email);
     console.log(`Welcome email ${idx + 1}/${WELCOME_EMAILS.length} sent to ${email}`);
   }
-  if (changed) persistSubscribersStore();
+  if (changed.size) await persistSubscribersStore([...changed]);
 }
 
 const sha256 = (s) => crypto.createHash('sha256').update(s).digest('hex');
@@ -5219,7 +5420,7 @@ app.post('/api/auth/delete-account', authLimiter, requireAuth, async (req, res) 
       sub.unsubscribed = true;
       sub.unsubscribedAt = new Date().toISOString();
       sub.deletedAccount = true;
-      persistSubscribersStore();
+      await persistSubscribersStore([email]);
     }
 
     // (c) Rows the cascade cannot reach:
@@ -10417,25 +10618,25 @@ app.get('/api/stripe/session-status', async (req, res) => {
 
 // Load persisted balances at startup.
 loadCreditsStore().then(s => { creditsStore = s; console.log('Credits store loaded'); });
-loadSubscribersStore().then(async s => {
+const subscribersReady = loadSubscribersStore().then(async s => {
   subscribersStore = s;
-  console.log('Subscribers store loaded');
+  console.log(`Subscribers store loaded (${Object.keys(s.emails).length})`);
   // Backfill welcome-sequence fields onto any subscriber captured before this
   // feature existed (the 4 real signups). @example.com test rows are marked
   // excluded so they never get emailed. New signups init on capture instead.
-  let backfilled = 0;
+  const backfilled = [];
   for (const [email, entry] of Object.entries(subscribersStore.emails)) {
-    if (ensureWelcomeFields(email, entry)) backfilled++;
+    if (ensureWelcomeFields(email, entry)) backfilled.push(email);
   }
-  if (backfilled) { persistSubscribersStore(); console.log(`Backfilled welcome fields for ${backfilled} subscriber(s)`); }
+  if (backfilled.length) { await persistSubscribersStore(backfilled); console.log(`Backfilled welcome fields for ${backfilled.length} subscriber(s)`); }
   // Heal addresses captured while MailerLite was unconfigured or unreachable.
   if (!MAILERLITE_API_KEY) return;
-  let healed = 0;
+  const healed = [];
   for (const [email, entry] of Object.entries(subscribersStore.emails)) {
     if (entry.synced) continue;
-    if (await pushToMailerLite(email)) { entry.synced = true; healed++; }
+    if (await pushToMailerLite(email)) { entry.synced = true; healed.push(email); }
   }
-  if (healed) { persistSubscribersStore(); console.log(`Re-synced ${healed} subscriber(s) to MailerLite`); }
+  if (healed.length) { await persistSubscribersStore(healed); console.log(`Re-synced ${healed.length} subscriber(s) to MailerLite`); }
 });
 
 // ============================================================
@@ -10830,7 +11031,9 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Abs By AI backend running on port ${PORT}`);
 });
-initDb().catch(e => console.error('initDb error:', e.message));
+// initDb() now runs at require time (see `dbReady` at the top) so the startup
+// subscriber load can await the schema instead of racing it.
+dbReady.then(() => console.log('Postgres ready'));
 
 // ── Keep-warm heartbeat ──────────────────────────────────────────────
 // A user's first generation after an idle period can stall a few seconds while
@@ -10876,5 +11079,12 @@ setInterval(() => { spaFeeds.refreshAll(); }, SPA_FEED_REFRESH_MS).unref?.();
 
 // Exposed for tests. Requiring this module also starts the server; tests point
 // DATABASE_URL at pgmem:// and stub the stripe / node-fetch modules.
-module.exports = { app, db, trialReminderSweep, welcomeSweep, assistantDoneSweep, sweepOrphanedAuditJobs, fulfillMembershipSession, buildMembershipCheckout, sessionHash };
+module.exports = {
+  app, db, trialReminderSweep, welcomeSweep, assistantDoneSweep, sweepOrphanedAuditJobs,
+  fulfillMembershipSession, buildMembershipCheckout, sessionHash,
+  // Subscriber store internals, for scripts/subscribers/subscribers.test.js.
+  loadSubscribersStore, persistSubscribersStore, subscribersReady,
+  getSubscribersStore: () => subscribersStore,
+  setSubscribersStore: (s) => { subscribersStore = s; },
+};
 

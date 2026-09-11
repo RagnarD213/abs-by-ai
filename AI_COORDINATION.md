@@ -52,6 +52,20 @@ links Pixabay "Energy Gym Thunder" (knox-gym, rock, 3:32, NOT Content ID registe
 Paste-ready Upwork message in `/Volumes/Extreme/_edit_work/revisions-0911/out/video1_abwheel_workout.summary.md`.
 Delete once the next cut arrives.
 
+**Subscriber list was PUBLIC — deploy 1 of 2 merged 2026-09-11. TWO STEPS LEFT, one is Dan's click.** The newsletter
+list (`subscribers-data.json`, 28 entries / 23 real addresses) was persisted to THIS PUBLIC repo and served at
+`raw.githubusercontent.com` to anyone, no login — verified 200 OK before the fix. It now persists to Postgres
+(`subscribers` table); 42 fixture tests, all four existing suites still green. **(1) DAN: make the repo private**
+(his call 2026-09-11 — Settings → General → Danger Zone; no API tool for it). That is what removes the addresses,
+which are still readable in git history, and it also covers `monarch-data.json` (his net worth + 61 points of
+net-worth history), `credits-data.json` (live Stripe session ids), `watch-data.json` (his resting HR) — full audit in
+`Docs/SUBSCRIBER_STORE.md`. **(2) DAN, 15 seconds: `curl -s -H "X-Dash-Key: $DASH_SECRET"
+https://absbyai.com/api/subscribers/status`** — this container has no secrets file, so Claude cannot run it. Expect
+`dbRows` 28, `mailable` 21, digest `1f0cb629799fa9f75573111eec22374a3c6f5b0829d5bf2c0df0c1d7d3cbb404`. On that
+confirmation, deploy 2 deletes the file from main (branch `claude/nifty-dirac-5mu8si` is merged; the removal commit is
+NOT yet written). Measured, so nobody panics: an empty seed emails NO ONE — the sweep iterates the store. ⚠ Armed but
+not fired: `push-subs.json` gets created in the repo the moment anyone subscribes to web push. No dashboard row.
+
 **studio-blue-89 social variations — DELIVERED 2026-09-10, Dan picks.** Black / white / crimson backgrounds (full +
 4:5, original pixels through the existing cutout) and two Muay Thai gym versions (Thai camp, modern gym — AI room, his
 original pixels pasted back, 4:5 only) in `photos/finalized social media photos/_variations/studio-blue-89/`; two
