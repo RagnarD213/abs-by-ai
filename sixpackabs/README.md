@@ -61,11 +61,36 @@ What the sync does to a video:
   if the video is public again. A video Dan drafted or trashed himself stays that way.
 - Instagram images are downloaded once (Graph CDN links expire) — nothing is hotlinked.
 
-## Local preview (no SSH needed)
+## Local preview and tests (no SSH needed)
 
 `preview_start` → `sixpackabs-playground` (in `.claude/launch.json`) boots WordPress Playground on
 `http://127.0.0.1:9400` with this theme mounted, seeds stand-in pages and three real articles
-(`playground/seed.php`) and runs the real sync against the live feeds.
+(`playground/seed.php`) and runs the real sync against the live feeds. Browse it at
+`127.0.0.1`, not `localhost` — the fonts are same-origin only.
+
+Self-test of the sync and the edit screen (fixture feeds, no network, ~1 min):
+
+```bash
+npx -y @wp-playground/cli@3.1.53 php \
+  --mount-dir sixpackabs/theme/sixpackabs-child /wordpress/wp-content/themes/sixpackabs-child \
+  --mount-dir sixpackabs/playground /spa-playground \
+  --blueprint=sixpackabs/playground/selftest-blueprint.json -- /spa-playground/selftest.php
+```
+
+Feed endpoints: `node scripts/sixpackabs/feed.test.js`.
+
+Tooling traps (measured 2026-09-10):
+- The Playground `php` command needs `--` before the script path ("Unknown command" otherwise).
+- Playground's SQLite layer rewrites ISO-8601 strings stored in meta (`…T14:00:00Z` → `… 14:00:00`),
+  so the sync stores dates as plain UTC; compare nothing else as ISO strings.
+- Headless Chrome on macOS will not make a window narrower than ~500 px, so a "430 px" shot silently
+  lays out wider and crops. Render phones as a 430 px iframe centred in a 560 px window, then
+  `sips -c <h> 860` (sips crops from the centre; `--cropOffset` is ignored). Headless `--screenshot`
+  sometimes never exits — wrap each run in `perl -e 'alarm 45; exec @ARGV' …`.
+
+The newsletter posts to `absbyai.com/api/subscribe` (source `sixpackabs`) — the same subscriber list
+and Resend welcome sequence as every other form. MailerLite was retired 2026-07-17; the server log's
+"MailerLite sync: false" is expected.
 
 ## Traps
 
