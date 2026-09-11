@@ -13,6 +13,11 @@ description: >
 
 # Editing a longform video from raw shoot footage
 
+## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)
+
+- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style and with the same placement rules as the AI label — low on the frame, above the caption band, never over his face. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
+  This applies in every aspect ratio and in every skill that puts a picture of Dan on screen (ads, longforms, shorts, website video, verticals). First applied on the Ad 5 vertical revisions (`Handoffs/handoff-20260911-ad5-vertical-revisions.md`).
+
 Built from one full pass: the **2026-08-03 meal-prep / Macro Tracker tutorial**
 (`C1541.MP4`, 5:45 raw → 3:48 finished), taken end to end — bake-off, rough cut,
 split screen, color, graphics, subtitles. Dan approved every stage.

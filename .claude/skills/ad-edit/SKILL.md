@@ -189,6 +189,7 @@ These carry the marketing message; be pickiest here. Dan's rule set (2026-08-20)
   for standalone demo beats. Punch into the phone column briefly on the key
   number/moment (longform rule). In the 9:16 export, demo recordings go
   full-frame — they're native vertical.
+- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style and with the same placement rules as the AI label — low on the frame, above the caption band, never over his face. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
 - **Compliance on every demo/AI asset:** the AI-GENERATED label on every AI
   goal/after image; never a drug name on screen. **NEVER a side-by-side
   before/after ANYWHERE — the in-app-UI exception is REVOKED (Dan, 2026-08-20,

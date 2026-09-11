@@ -5,6 +5,11 @@ description: Build a WEBSITE conversion video for absbyai.com — the trust vide
 
 # Website video: the last thing a visitor watches before they pay
 
+## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)
+
+- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style and with the same placement rules as the AI label — low on the frame, above the caption band, never over his face. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
+  This applies in every aspect ratio and in every skill that puts a picture of Dan on screen (ads, longforms, shorts, website video, verticals). First applied on the Ad 5 vertical revisions (`Handoffs/handoff-20260911-ad5-vertical-revisions.md`).
+
 **Built 2026-09-09 from six revisions of the first website conversion video** (rev 1 rejected on audio, framing and
 graphics; rev 2 on headroom, a repeated line and caption collisions; rev 3 on hair cut off in every hold; rev 4 on
 two AI-clip tails and a card; rev 5 on audio room, a skin patch, an unnatural clip, a lower third and chicken; rev 6

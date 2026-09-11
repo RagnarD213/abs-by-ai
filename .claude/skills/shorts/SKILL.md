@@ -12,6 +12,11 @@ description: >
 
 # Cutting Shorts from a long-form video
 
+## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)
+
+- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style and with the same placement rules as the AI label — low on the frame, above the caption band, never over his face. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
+  This applies in every aspect ratio and in every skill that puts a picture of Dan on screen (ads, longforms, shorts, website video, verticals). First applied on the Ad 5 vertical revisions (`Handoffs/handoff-20260911-ad5-vertical-revisions.md`).
+
 Built from three passes: V1 channel-intro (2026-08-04, none cut — Dan's call), V4
 1-minute ab workout (2026-08-06, 5 shorts), V2 six-ways-AI-abs (2026-08-10, 7 shorts),
 and the V4 short1 rebuild (2026-08-10) that produced the band layout.

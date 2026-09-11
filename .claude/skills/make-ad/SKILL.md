@@ -11,6 +11,11 @@ description: >
 
 # Make-Ad: AI Video Ad Production for Abs By AI
 
+## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)
+
+- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style and with the same placement rules as the AI label — low on the frame, above the caption band, never over his face. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
+  This applies in every aspect ratio and in every skill that puts a picture of Dan on screen (ads, longforms, shorts, website video, verticals). First applied on the Ad 5 vertical revisions (`Handoffs/handoff-20260911-ad5-vertical-revisions.md`).
+
 **STATUS: v2 — updated 2026-07-30 after the completed "The Upload" pilot** (two
 finished ads: narrator cut + first-person cut, total spend ~$40, both in
 `ad-factory/the-upload/final/`). Every ⚠️ assumption was tested; the answers live in

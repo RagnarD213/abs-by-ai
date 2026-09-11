@@ -53,6 +53,10 @@ sessions (and any other assistant, if one is in use).
 - You are authorized to read and write the Victory Dashboard's task data (`/api/todos`, `/api/task-checks`, `/api/plan`) without asking for confirmation each time: adding a handoff row only when Dan explicitly asks for one (never automatically — Dan's rule 2026-09-08), checking off completed tasks, and updating the focus list, per the rules in AI_COORDINATION.md.
 - This authorization does not permit deleting tasks Dan created or rewriting task text he wrote.
 
+## Label Dan's real pictures (Dan, 2026-09-11)
+
+- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style and with the same placement rules as the AI label — low on the frame, above the caption band, never over his face. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
+
 ## Delivery and deployment
 
 - Do not leave changes made for a task only on the local computer.

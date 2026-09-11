@@ -276,7 +276,8 @@ the text for residue from any bad paste and for the banned copy rules.
   when the cue asks for it. Use a generic glowing "AI" badge and say so in the note.
   A competitor trademark in a paid ad is a real Google/Meta review risk.
 - The **AI future-self image keeps its "AI-GENERATED" tag**. Dan's real photo-shoot
-  pictures need no label.
+  pictures carry the burned label "Real picture of me — not AI-generated" (Dan, 2026-09-11; viewers were taking
+  them for AI) — the two labels are mutually exclusive, and neither ever sits over his face.
 - Never write "GLP-1" or any drug name — "weight loss medication".
 - Crude-photoshop gags must be generic fakes, never a real person's face.
 - Never sell sleep.

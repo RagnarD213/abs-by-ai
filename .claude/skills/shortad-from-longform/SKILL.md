@@ -1247,6 +1247,7 @@ The reference editor does not know Dan's ad rules. Check every beat you are repr
 - **NEVER show the email-capture screen**, and never the app's "Meet the new you"
   before/after screen. In the product recording `clip_109_replacement.mp4` those start at
   **26 s and 29 s** — the usable window is **0–25 s**. Assert it in QC.
+- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style and with the same placement rules as the AI label — low on the frame, above the caption band, never over his face. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
 - **Label AI-generated imagery — and NEVER put the label over a face** (Dan, 2026-08-27:
   "don't cover my face with labels like this. Make that a rule for future ones"). On a
   full-bleed person shot the chip goes low — at the shorts/waistline area, above the

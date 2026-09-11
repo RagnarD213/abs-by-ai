@@ -42,6 +42,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-11 | [handoff-20260911-ad5-vertical-revisions.md](handoff-20260911-ad5-vertical-revisions.md) | Ad 5 vertical (Muhammad V3) — Dan's round-1 revisions: every real after picture full-bleed portrait, the new "Real picture of me — not AI-generated" label; audio untouched. Opus, high. |
 | 2026-09-10 | [handoff-20260910-google-ads-api-client.md](handoff-20260910-google-ads-api-client.md) | Google Ads by API — EXECUTED 2026-09-10: token minted, no developer token needed, client `scripts/ads/api/client.js`, manual queue immediate; see `Docs/GOOGLE_ADS_API.md` |
 | 2026-09-10 | [handoff-20260910-web-pay-first-cart.md](handoff-20260910-web-pay-first-cart.md) | Handoff: Web pay-first checkout — a research-led cart that comes BEFORE the account |
 | 2026-09-09 | [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | Handoff — upload the finalized website conversion video to YouTube (unlisted) and install it on the analysis page + /start |

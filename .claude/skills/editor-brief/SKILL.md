@@ -145,7 +145,8 @@ suspended, so an ad that breaks one has to be recut"). The standing set:
 no side-by-side before/after in any frame (cut sequentially instead); never show the app's
 email-capture form; never show the in-app before/after screen; AI-GENERATED label on every AI
 visual, large, upper-left, **never over Dan's face**; "Results are not guaranteed." on the real
-physique photographs; no drug or medication brand names in any graphic even if Dan says one
+physique photographs AND the burned label "Real picture of me — not AI-generated" on every real picture of Dan shown as a
+result (Dan, 2026-09-11 — viewers were taking his real photos for AI; the two labels are mutually exclusive, low on the frame, never over his face); no drug or medication brand names in any graphic even if Dan says one
 aloud; nothing fake — no mocked-up app screens or third-party apps standing in for ours.
 
 ### 10. Delivery and questions
