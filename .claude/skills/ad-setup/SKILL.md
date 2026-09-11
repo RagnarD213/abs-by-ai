@@ -40,7 +40,13 @@ Target: `<Editor> Ad Videos/<title> - ad N/<title> | <editor> | 16x9 | ad N.mp4`
 lowercase, no punctuation, the "Use AI Instead" tail dropped — `stop paying human trainers`, `stop wasting money on
 supplements`). Rename from `.part` only when `stat -f %z` equals Drive's `fileSize`. Then `ffprobe` it (1920×1080,
 duration). Add a `filed` row to `.claude/skills/editor-deliveries/state.json`. The editor's audio is delivered
-untouched — no gate, no re-encode, upload the file exactly as he exported it.
+untouched — no re-encode, upload the file exactly as he exported it. **But measure it and report it:**
+`ffmpeg -i <master> -af ebur128=peak=true -f null -` → integrated LUFS and true peak. Dan's rule for editor
+exports is −14 LUFS / ≤ −1.0 dBTP; a miss is Dan's call (accept, or ask the editor for a re-export), never a
+reason to process his audio and never a reason to hold the upload. Say the numbers in the report. (Ad 4 V4 HD,
+09-11: −13.9 LUFS, −0.90 dBTP, 0 clipped samples — flagged by the Ad 4 vertical session after the upload.)
+A re-export replaces the video: upload it new, add it as a second `videos` entry in the ad's config, rerun
+`dgen-add-ad.js --apply`, pause the old-video ads.
 
 ## 2. Title and tags
 
