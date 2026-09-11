@@ -111,6 +111,16 @@ AD 7 572–674, AD 8 675–end. For a round ≥ 2 cut, your checklist is the LAS
   own skip-stopper chips. Adjacency inside/beside an approved AI asset is not an item. A bullet build mid-build is not a
   composition defect.
 
+## Pass-4 rules (Dan's edits 2026-09-11: framing, workout sets, music)
+- Run `reference/framing.py` on every cut with a talking head or live sets, and `reference/sets_level.py` (Whisper with
+  `--word_timestamps True`) on every cut with live sets. A LOOSE shot is Dan's "Crop in closer by about N%" item plus
+  the framing STANDING RULE. A LOUD or BURIED set is his mic item ("Reduce volume of my mic by 80% while I am actively
+  doing sets", or bring it back if buried) plus the workout-sets STANDING RULE.
+- Judge the music's genre, not only its level: a workout bed must be upbeat and high energy (electronic, hip-hop,
+  rock). If it is unknown or chill, write "Change music to this music track" with a Pixabay link that is NOT
+  Content ID registered (recipe in the skill's asset library), plus the workout-music STANDING RULE.
+- Never credit a sound, a framing or a music bed that these checks flag.
+
 ## Output (write these files, nothing else)
 1. `/Volumes/Extreme/_edit_work/<WORKDIR>/out/<NAME>.md` — the doc section, in the exact dialect
    `md_to_docs_clipboard.py` parses: `## ` H2 title line, plain paragraphs, `- ` bullets with 4-space nesting,

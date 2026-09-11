@@ -76,6 +76,17 @@ pacing / dead air, insert-and-graphic coverage as a % of runtime, punch-in count
 interval between framing changes, what graphics exist, music tempo, and the audio master
 (LUFS and true peak). See /ad-edit and /longform-edit for how these get measured.
 
+**Three calls every brief states (Dan, 2026-09-11, all three from Zeeshan's ab wheel follow-along).** Put them in
+this section in plain words, with the numbers:
+- **Tight framing.** Crop to the top of his hair: a small margin above his head and at the sides, never a wide shot
+  with empty space above and around him. The looser of the two framings still has little headroom, and in a workout
+  the frame holds the whole rep tightly. Dan's words on the loose cut: "Crop in closer by 20-30%".
+- **The mic comes down during live sets.** Turn it down about 80% (−14 dB) while he is doing a set, so the grunting,
+  the breathing and the equipment stay audible but sit clearly under his voice (5–14 dB quieter than his talking).
+  Back to full level the moment he talks.
+- **Workout music is upbeat and high energy**: electronic, hip-hop or rock, never chill, relaxing or elevator-like.
+  Pixabay only, and never a track whose page says "Content ID Registered".
+
 ### 5. Raw footage table
 One row per video: number, title, roll id, raw length, script word count, **expected finished
 runtime**, and a direct Drive link.
@@ -139,7 +150,9 @@ aloud; nothing fake — no mocked-up app screens or third-party apps standing in
 
 ### 10. Delivery and questions
 Folder, filename convention (`ad<number>_16x9.mp4`), a 720p review copy alongside each master
-so Dan can watch on his phone, and one line per video on any deviation and why.
+so Dan can watch on his phone, and one line per video on any deviation and why. **Also ask for the music
+track's name and link with every delivery**: the reviewer cannot hear the bed under the camera sound, and the genre
+tag on the track page is how a chill bed gets caught before Dan hears it.
 Close with "ask before you guess" — a missing asset costs one message, a wrong one costs a
 revision round.
 

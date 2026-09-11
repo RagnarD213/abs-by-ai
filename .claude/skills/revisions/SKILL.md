@@ -243,11 +243,12 @@ He added three THROUGHOUT items to our doc, all of them things we measured and t
     `framing-standard-hair-anchored`). He added "**Crop in closer by 20-30% throughout the video**": in the wide shot no excess
     space above the head or to the sides, in the tight shot almost as tight as possible without cutting him off. Our pass
     confirmed that a wide / punch-in / wide pattern existed and never judged how big he was in the frame.
+    `reference/framing.py` now measures it (step 3).
 32. **The effort sound in a live set is NOT "right because it matches the raw clip".** We proved the camera track ran under
     the sets at the same gain as his talking and credited it; he added "**Reduce volume of my mic by 80% while I am actively
     doing sets. Keep volume the same when I am talking**". Grunts at their natural level (momentary −9 LUFS against −14 to −16
-    for speech) are too loud for him. Measure the per-second momentary loudness inside each set, and if the effort peaks sit
-    above the talking level, write his item plus the STANDING RULE below.
+    for speech) are too loud for him. `reference/sets_level.py` measures it (step 1): the effort peaks must sit 5-14 dB
+    under the talking level; within 5 dB of it (or above), write his item plus the STANDING RULE below.
 33. **Judge the music bed's genre and energy against the video type, not only its level.** We credited "the music sitting under
     my voice where it should" (the level was right); he added "**Change music to this music track**" plus the rule below. For a
     workout, a bed that is chill or elevator-like is an item even at the perfect level. Supply the replacement link yourself
@@ -294,6 +295,19 @@ exact timing or an exact link.
    - Music bed: noise floor p5 above ≈ −45 dB in speech gaps *suggests* one; our shoots' raw
      floor is ≈ −53 dB. **This heuristic false-positives on an over-loud, hard-limited master** —
      confirm with per-band gap spectra on the lav channel before claiming a bed exists.
+   - **Workout videos (live sets): measure the effort sound against the talking** (calibration rule 32):
+
+         python3 .claude/skills/revisions/reference/sets_level.py CUT.mp4 --whisper CUT.json
+
+     Transcribe with `--word_timestamps True` for this: after music, segment starts snap to Whisper's 30 s windows
+     and swallow the end of a set. Target: the grunting, breathing and equipment are audible but clearly under the
+     voice, with the effort peaks (p95 momentary) **5-14 dB under the talking level**. LOUD (within 5 dB, or above
+     it) is Dan's "reduce volume of my mic by 80% while I am actively doing sets" item plus the workout-sets STANDING
+     RULE. BURIED (max more than 20 dB under) is the explainer round-3 "no sound in the sets" item. Zeeshan's ab
+     wheel follow-along read +2.2 to +5.4 dB ABOVE the talking (single grunts +10 to +12 dB): all three sets LOUD,
+     and Dan rejected it. His approved ab wheel explainer (09-09) read -6.9 to -9.9 dB: all three OK. The 5 dB line
+     sits between the two, and Dan's "80%" on the rejected cut lands at about -9 to -12 dB. The script measures in
+     the 250-4000 Hz band, where grunting lives. Full-band, the explainer's set 2 false-alarmed on the music's bass.
 2. **Transcribe** with local Whisper `small` (segment timestamps are enough) — this
    maps every script beat to a timecode for the doc.
 3. **Look at every second.** Extract frames at 1/2s, montage into labeled contact
@@ -303,11 +317,28 @@ exact timing or an exact link.
    text panel at full resolution and transcribe it word for word against the script;
    and for every insert/overlay, extract the frame after its line ends and confirm it
    has left the screen. Note the vertical placement of text inside each panel.
+   Then **measure the framing** (calibration rule 31). The contact sheet shows it, and a reviewer still missed it:
+
+       python3 .claude/skills/revisions/reference/framing.py CUT.mp4 --sheet framing_sheet.jpg
+
+   Per shot it reports the empty frame above and beside Dan and how far the shot could be cropped in without
+   cutting him off. LOOSE = an upright shot with more than 8% of the frame above his head, or with his knees in
+   frame (the banned full-body wide), or a movement shot that could be cropped in 15% or more. Write Dan's item with
+   the number ("Crop in closer by about 30%") plus the framing STANDING RULE, and LOOK at the proof sheet (a pose
+   miss is reported as NO SUBJECT, never passed). Zeeshan's follow-along: 10 of 13 camera shots LOOSE (every wide
+   could crop in 24-35%, every talking shot had his knees in frame); the tight punch-ins on the rollouts were
+   already full width and read OK, which is right, because cropping them further would cut the rep off.
 4. **Compare against the target style** (currently Muhammad A's reference edit:
    pause-free pacing, music bed ~−20 dB under voice, whoosh/pop SFX on every graphic,
    animated bullet builds / lower-third chips / title cards, phrase-synced punch-ins,
    highlight boxes on referenced photos, brighter grade, NO burned captions) — but
    re-skinned to OUR brand, never his pastel cyan.
+   **Judge the music's genre, not only its level** (calibration rule 33). For a workout or live-set video the bed
+   must be upbeat and high energy: electronic, hip-hop or rock. Chill, lofi, trip-hop, ambient, corporate or
+   "elevator" music is an item at any level. The reviewer cannot hear it under the camera sound, so ask the editor
+   for the track name (the brief asks for it with every delivery) and read its genre and mood tags. If the track is
+   unknown or not clearly high energy, write Dan's "Change music to this music track" item with a replacement link
+   found by the recipe in the asset library, plus the workout-music STANDING RULE. Dan's rule: when in doubt, put it in.
 5. **Check every standing rule** (below). Each violation becomes an item; new
    classes of violation also get a "hard rule for future videos" line.
 6. **Choose replacement assets from what already exists** before directing anything
@@ -330,6 +361,10 @@ exact timing or an exact link.
    rule violation carries its bold STANDING RULE sub-bullet in the canonical wording; the key change in every item is
    bolded; app/phone demo items are the one-line block + recording link; every phone/app before picture was
    identity-checked against Dan; after-photo beats say "two, images below" with empty slots and no picks.
+   Then the pass-4 checks (rules 31-34) on any cut with a talking head or live sets: `framing.py` ran and every
+   LOOSE shot is an item with its crop-in number; `sets_level.py` ran on a workout and a LOUD or BURIED verdict is an
+   item; the music's genre was checked and a workout bed is upbeat and high energy; no credit sentence contradicts
+   an item.
 8. **Write the Google Doc** via the Google Drive MCP `create_file` with
    `contentMimeType: text/markdown` — it converts cleanly to a Doc, including links.
    Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the
@@ -364,6 +399,14 @@ exact timing or an exact link.
   insert and overlay leaves when its line ends (rule 2); text centred in its panel
   (rule 4, finished panels only); the end is an item ONLY if the button or picture cuts off before the last
   word ends (rule 23) — never for a short hold.
+- **Framing** (Dan, 2026-09-08 and 2026-09-11): hair-anchored and tight, with a small margin above his hair and at
+  the sides; never the full-body wide on a talking shot; movement shots hold the whole rep tightly. Measured by
+  `reference/framing.py` (step 3).
+- **Workout audio** (2026-09-11): during live sets the mic comes down (Dan: "by 80%", about −14 dB), so the effort
+  sounds stay audible but sit 5-14 dB under the talking; back to full level when he talks. Measured by
+  `reference/sets_level.py` (step 1).
+- **Workout music** (2026-09-11): upbeat and high energy, electronic / hip-hop / rock, never chill or elevator-like;
+  Pixabay only, never a track whose page says "Content ID Registered".
 - **Canonical STANDING RULE wordings (Dan's own, 2026-09-10 — paste verbatim, bold, as the last sub-bullet of
   every item that violates one, in every ad it applies to):**
   - `STANDING RULE: do not show before and after images on screen at the same time, or immediately before and after each other. Always break them up with camera scene footage or something else to avoid having the ad suspended for violating Google Ads policies.`
@@ -375,6 +418,7 @@ exact timing or an exact link.
   - Audio (write it the same way each time, round 1 or when the level/peaks are wrong): `STANDING RULE: Every finished mix reads -14 LUFS integrated with a limiter on the finished mix at -1 dBTP true peak, nothing at 0, one mic, no heavy noise reduction on a dry recording.`
   - Workout sets (Dan, 2026-09-11): `STANDING RULE: Keep audio during workout sets, but if grunting is extremely loud and blowing out mic reduce volume significantly to avoid this becoming annoying to the viewer.`
   - Workout music (Dan, 2026-09-11): `STANDING RULE: Use upbeat, high energy music for workouts. Consider electronic, hip-hop, and rock. Avoid any music that is chill, relaxing, or which sounds like elevator music`
+  - Framing (built from Dan's own 09-11 item wording): `STANDING RULE: Crop in closer. In the wide shot, avoid excessive space above my head and towards the sides. In the tight shot, leave only a small amount of space above me and to the sides, almost as tight as possible without me going out of frame.`
 - **Voice input caveat**: Dan dictates; if a quoted correction seems odd, check the
   transcript audio before flagging his script wording as a "typo".
 
@@ -394,6 +438,15 @@ exact timing or an exact link.
   than compositing our render); only offer the files if Dan wants.
 - List a Drive folder's contents with the Drive MCP:
   `search_files` query `parentId = '<folderId>'`.
+- **Music for a workout video: the replacement recipe (2026-09-11).** Pixabay only (licence settled: commercial,
+  no attribution). Most popular workout tracks there are Content ID registered, so check every candidate: the
+  search listing shows a small shield beside the duration of a registered track, and its page says "Content ID
+  Registered" (WebFetch reads it; no such text = not registered). Accept genre electronic / hip-hop / rock with mood
+  energetic; reject "Laid Back", "Smooth", lofi, trip-hop, corporate and ambient. Instrumental, and as long as the
+  video or loopable. Current pick: "Energy Gym Thunder" (knox-gym, rock, 3:32, AI-generated, not registered),
+  <https://pixabay.com/music/rock-energy-gym-thunder-538872/>. Dan listens before it goes out. NOT for workouts: our
+  cleared bed `Media/music beds/rhythmical-melodic-syncopation-triphop-130bpm-pixabay-10091.mp3` (trip-hop; a
+  talking-content bed).
 
 ## Lessons
 
