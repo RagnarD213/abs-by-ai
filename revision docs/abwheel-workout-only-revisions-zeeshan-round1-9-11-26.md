@@ -2,12 +2,21 @@
 
 All timecodes refer to your cut "Video 3.mp4" (3:35).
 
-This is a strong first cut. It opens straight into the workout, all three sets are in and in order with the Set 1 / Set 2 / Set 3 banners, every set is cut wide / punch-in / wide, and the rest timer and the fast-forward on the first rest both work. The camera sound is running under all three sets: I checked it against the raw clip, and the wheel and my breathing sit at the same level as my talking, which is exactly right. The crew chatter is all gone ("am I in the frame", the planes, the sunglasses remark). The audio is right too: -14.6 LUFS, true peak -1.6, no clipped samples, one mic, with the music sitting under my voice where it should. 1920x1080 at 29.97, and the subscribe pop lands on the line. Keep all of that.
+This is a strong first cut. It opens straight into the workout, all three sets are in and in order with the Set 1 / Set 2 / Set 3 banners, every set is cut wide / punch-in / wide, and the rest timer and the fast-forward on the first rest both work. The camera sound is running under all three sets: keep the wheel and my breathing in there. The crew chatter is all gone ("am I in the frame", the planes, the sunglasses remark). The audio is right too: -14.6 LUFS, true peak -1.6, no clipped samples, one mic, with the music sitting under my voice where it should. 1920x1080 at 29.97, and the subscribe pop lands on the line. Keep all of that.
 
 What is left is below. None of it is big.
 
 **\*\*TIMESTAMPED REVISIONS\*\***
 
+- THROUGHOUT VIDEO
+    - **\*\*Crop in closer by 20-30% throughout the video\*\***
+        - In wide shot, avoid excessive space above my head and towards the side
+        - In tight shot, leave only a small amount of space above me and to the sides. Be sure that I do not go out of frame, but get it almost as tight as possible with only a small amount of space above me and on the sides for the tigh tshot
+    - **\*\*Reduce volume of my mic by 80% while I am actively doing sets. Keep volume the same when I am talking and not doing the exercise\*\***
+        - **\*\*STANDING RULE: Keep audio during workout sets, but if grunting is extremely loud and blowing out mic reduce volume significantly to avoid this becoming annoying to the viewer.\*\***
+    - **\*\*Change music to this music track\*\***
+        - **Use this track: "Energy Gym Thunder"** <https://pixabay.com/music/rock-energy-gym-thunder-538872/> **- free for commercial use, no credit needed. It runs 3:32, so loop a section to carry it to the last frame of the end card.**
+        - **\*\*STANDING RULE: Use upbeat, high energy music for workouts. Consider electronic, hip-hop, and rock. Avoid any music that is chill, relaxing, or which sounds like elevator music\*\***
 - 1:11 - 1:14 and 2:04 - 2:21 - the rest timer
     - The label under the last box reads "Second". **Make it "Seconds"**, to match "Hours" and "Minutes".
 - 1:49 - 1:51 - the gold reflector

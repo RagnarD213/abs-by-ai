@@ -40,9 +40,10 @@ is the permanent record of code changes.
 
 **Zeeshan content batch video 1 (ab wheel workout only) — ROUND 1 DOC WRITTEN 2026-09-11, Dan forwards.** His
 "Video 3.mp4" is batch video 1 (his own file count). Round 1 is pasted at the TOP of "Zeeshan Video Revisions"
-(`13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`); md copy in `revision docs/`, paste-ready Upwork message in
-`/Volumes/Extreme/_edit_work/revisions-0911/out/video1_abwheel_workout.summary.md`. Dan's one call: keep or delete the
-call-to-action item (swaps in the pickup after the plane, C1633 6:53.5–7:18, +~20 s). Delete once the next cut arrives.
+(`13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`); Dan added framing / sets-mic / music items, and the music slot now
+links Pixabay "Energy Gym Thunder" (knox-gym, rock, 3:32, NOT Content ID registered, AI-generated — Dan listens first).
+Paste-ready Upwork message in `/Volumes/Extreme/_edit_work/revisions-0911/out/video1_abwheel_workout.summary.md`.
+Delete once the next cut arrives.
 
 **studio-blue-89 social variations — DELIVERED 2026-09-10, Dan picks.** Black / white / crimson backgrounds (full +
 4:5, original pixels through the existing cutout) and two Muay Thai gym versions (Thai camp, modern gym — AI room, his

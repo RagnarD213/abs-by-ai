@@ -235,6 +235,27 @@ format rules above (STANDING RULE blocks, bold the key change). The diff (method
 30. **Missed defect to add to the pass:** the before picture inside the Ad 14 phone clip at 2:00 was not Dan (rule 25).
     Nothing else was added, so the picture pass is otherwise calibrated.
 
+### Calibration pass 4 — Dan's edits to Zeeshan's content-batch video 1, round 1 (2026-09-11, a workout follow-along)
+
+He added three THROUGHOUT items to our doc, all of them things we measured and then credited instead of flagging:
+
+31. **Framing is checked on every cut, workout sets included, against the hair-anchored standard** (memory
+    `framing-standard-hair-anchored`). He added "**Crop in closer by 20-30% throughout the video**": in the wide shot no excess
+    space above the head or to the sides, in the tight shot almost as tight as possible without cutting him off. Our pass
+    confirmed that a wide / punch-in / wide pattern existed and never judged how big he was in the frame.
+32. **The effort sound in a live set is NOT "right because it matches the raw clip".** We proved the camera track ran under
+    the sets at the same gain as his talking and credited it; he added "**Reduce volume of my mic by 80% while I am actively
+    doing sets. Keep volume the same when I am talking**". Grunts at their natural level (momentary −9 LUFS against −14 to −16
+    for speech) are too loud for him. Measure the per-second momentary loudness inside each set, and if the effort peaks sit
+    above the talking level, write his item plus the STANDING RULE below.
+33. **Judge the music bed's genre and energy against the video type, not only its level.** We credited "the music sitting under
+    my voice where it should" (the level was right); he added "**Change music to this music track**" plus the rule below. For a
+    workout, a bed that is chill or elevator-like is an item even at the perfect level. Supply the replacement link yourself
+    (Pixabay, not Content ID registered: the track page must NOT show "Content ID Registered"), and check the genre tag. A
+    "trip-hop" or "lofi" tag is chill however high its BPM.
+34. **When he adds an item that contradicts a credit sentence, fix the credit sentence in the same pass.** His 80% item sat
+    under our line "the wheel and my breathing sit at the same level as my talking, which is exactly right".
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -352,6 +373,8 @@ exact timing or an exact link.
   - `STANDING RULE: Use a guy who looks like this to illustrate "before" unsuccessful prospect. White or Asian male 30-50 in American average shape, with small belly`
   - `STANDING RULE: Do not use logos of other companies in our ads. Names of other companies are OK`
   - Audio (write it the same way each time, round 1 or when the level/peaks are wrong): `STANDING RULE: Every finished mix reads -14 LUFS integrated with a limiter on the finished mix at -1 dBTP true peak, nothing at 0, one mic, no heavy noise reduction on a dry recording.`
+  - Workout sets (Dan, 2026-09-11): `STANDING RULE: Keep audio during workout sets, but if grunting is extremely loud and blowing out mic reduce volume significantly to avoid this becoming annoying to the viewer.`
+  - Workout music (Dan, 2026-09-11): `STANDING RULE: Use upbeat, high energy music for workouts. Consider electronic, hip-hop, and rock. Avoid any music that is chill, relaxing, or which sounds like elevator music`
 - **Voice input caveat**: Dan dictates; if a quoted correction seems odd, check the
   transcript audio before flagging his script wording as a "typo".
 
