@@ -305,7 +305,8 @@
       "welcomeStep": 0,
       "welcomeNextAt": "2026-09-11T00:18:45.399Z",
       "welcomeSentAt": {},
-      "unsubscribed": false
+      "unsubscribed": true,
+      "unsubscribedAt": "2026-09-11T00:26:08.701Z"
     }
   }
 }
