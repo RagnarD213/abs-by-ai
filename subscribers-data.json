@@ -296,6 +296,16 @@
         "2": "2026-09-09T04:44:23.815Z"
       },
       "unsubscribed": false
+    },
+    "spa-form-test+20260910@absbyai.com": {
+      "subscribedAt": "2026-09-11T00:18:45.399Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-09-11T00:18:45.399Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
