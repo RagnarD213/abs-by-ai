@@ -1,6 +1,6 @@
 ---
 name: shortad-from-longform
-description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 short ad, reproducing the finished video's style as closely as possible — recover its edit from the raw footage, measure its grade, palette and graphics, re-lay them out for a phone, then cut a ≤0:59 version. Use whenever Dan asks for a vertical or 9:16 version of a finished video, to "make a short ad from" a long-form cut, to reproduce an editor's finished style in vertical, or to turn a finalized ad or content video into Shorts/Reels creative — even if he doesn't say "/shortad-from-longform". For cutting shorts out of a video we ourselves rendered, /shorts is cheaper. For editing an ad from raw shoot footage use /ad-edit; for content videos use /longform-edit.
+description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 short ad, reproducing the finished video's style as closely as possible — first verify the editor's HD export is the draft Dan approved with no new errors (so Dan never has to watch the export), then recover its edit from the raw footage, measure its grade, palette and graphics, re-lay them out for a phone, then cut a ≤0:59 version. Use whenever Dan asks for a vertical or 9:16 version of a finished video, to "make a short ad from" a long-form cut, to reproduce an editor's finished style in vertical, or to turn a finalized ad or content video into Shorts/Reels creative — even if he doesn't say "/shortad-from-longform". For cutting shorts out of a video we ourselves rendered, /shorts is cheaper. For editing an ad from raw shoot footage use /ad-edit; for content videos use /longform-edit.
 ---
 
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
@@ -59,6 +59,63 @@ he names in chat. Check `get_file_metadata` → `owner`.
 Probe both, and transcribe the reference with local Whisper `small`, `word_timestamps=True`.
 You need the raw roll's word timestamps too — a previous /ad-edit or /longform-edit session
 has usually already written one (`<ROLL>.whisper.json`); reuse it.
+
+---
+
+## ⚠ Step 0b — WATCH HIS HD ONCE AGAINST THE DRAFT DAN APPROVED, BEFORE ANY CUT (Dan, 2026-09-11)
+
+*"Watch the video once before making the cut, just to ensure the high-definition version is exactly
+the same as the last approved draft and that no new errors got introduced in the high-definition
+version. This way, I can skip watching that final export."*
+
+**Dan no longer watches the editor's HD export. This step is his watch, so it is never skipped.**
+The vertical inherits the HD frame for frame and bit for bit (his audio goes through untouched), so
+any fault in the HD ships in our master and our cutdown. Hours of recovery and render on a bad
+HD are wasted. Do this step before Step 1.
+
+1. **Find the approved draft**: the file Dan's LAST round of notes was written against, or the
+   cut he approved outright. The revision doc's last round names it (a Drive link). The
+   `/revisions` sessions leave their downloads in `/Volumes/Extreme/_edit_work/revisions-MMDD/dl/`
+   (e.g. `ad5_v3.mp4`); otherwise `gdown` it from the doc's link. Confirm the Drive owner is the
+   editor, as in Step 0. **If you cannot identify which draft was approved, the step has not run.**
+   That counts as a failure, not a pass: say so to Dan and do not start the cut.
+2. **Run the comparison** (~35 s for a 4-minute ad; a light decode, not a build):
+   ```bash
+   python3 reference/hd_vs_draft.py --hd "<his HD>.mp4" --draft "<approved draft>.mp4" --out <build dir>/hdcheck
+   ```
+   It diffs every frame (96×54 grey, MAD > 6 = changed; calibrated on Ad 2 V1→V2 and Ad 5) and
+   every second of audio after aligning both timelines. It also checks what only an export can
+   break: frame size and rate, frame count, whether the end still lines up, a truncated audio
+   stream, a new silent second, new clipping, a new frozen or black run, loudness and true peak,
+   and **whether the HD is real HD or an upscale of the draft**. That last check is spectral:
+   real 1080p reads about −12 dB (Ad 5's HD, full file: −13.7), a 540p/720p upscale −19 to −21,
+   gate −16. A real HD that fails close to −16 (soft or dark footage) gets a full-res look at `spot/`
+   and a note to Dan. Never move the gate to pass it. It writes `hd_vs_draft.json`,
+   `strips/` (HD over draft, consecutive frames at the start and end of every changed window,
+   full resolution) and `spot/` (ten full-res HD frames).
+3. **Look, don't just read the verdict.** Open `spot/` (compression blocks, a wrong crop,
+   letterboxing and a missing graphic show there first) and every strip in `strips/`.
+   * **Exit 0, IDENTICAL**: every frame Dan approved, and nothing new. Proceed.
+   * **Exit 1, DIFFERS**: **match every changed window, audio second and end offset to a numbered
+     note in Dan's last round.** A change explained by a note is expected. Watch its strips for
+     the damage a revision causes: a naked jump cut where an insert was removed (Step 7c), a
+     graphic that lost its timing, a clipped word at the new splice. **Then check the reverse:
+     every note in that round must appear as a change.** A requested fix that is missing gets
+     reported, not silently inherited. Ad 5: Muhammad's HD carried the round-3 limiter fix
+     (true peak −0.2 → −1.0 dBTP) but not the round-3 2 s end hold. An UNEXPLAINED change is a
+     new error: stop.
+   * **Exit 2, EXPORT FAULT** (or a measurement that could not run): stop.
+4. **When you stop**, tell Dan in a few lines: what differs, the timestamp, the strip, and whether
+   it is a new error or a missing fix. He tells the editor. Do not start the cut on an HD that
+   has an unexplained difference unless Dan says to build on it anyway.
+5. **Report it either way.** The first section of `notes-vertical.md` is **"The HD export vs the
+   approved draft"**. Use Ad 5's notes as the template: same cut or not, frame counts, the
+   largest per-frame difference, mix correlation and level, loudness/TP of both, each change
+   with the note it answers, and each note not done. Put the one-line verdict in the delivery
+   message too, because it is what lets Dan skip the export.
+
+What this step cannot see is a fault that was already in the draft Dan approved. That is his
+approval, not our gate. Our own watch pass (Step 7) still runs on the vertical we build.
 
 ---
 
