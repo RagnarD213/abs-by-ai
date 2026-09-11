@@ -1,7 +1,5 @@
 {
-  "checked": [
-    "money::Review the Ad 1 vertical (9:16) audio rebuild — approve or reject"
-  ],
+  "checked": [],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -217,7 +215,5 @@
       "2026-08-30"
     ]
   },
-  "checkedAt": {
-    "money::Review the Ad 1 vertical (9:16) audio rebuild — approve or reject": "2026-09-10"
-  }
+  "checkedAt": {}
 }
