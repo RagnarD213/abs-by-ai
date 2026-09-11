@@ -467,10 +467,18 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   all** — a fix lands in 1 of 6 pipelines. Acceptance test throughout: `_shared/qc_corpus/run.py` green.
   Fable 5.1 high, ~3–4 sessions. ✅ VQC-A done (`a696ac4`). Evidence: `…-video-quality-to-muhammad-standard.md`;
   baseline `Docs/VQC_baseline_20260909.md`. **Not on the dashboard** (his 09-08 rule).
-- **Still open from the old split:** `…-vqc-C-phase4-cut-technique.md` (pose-matched picture cuts off the audio
-  splice — `piccuts.py`, built for Ad 2 and never promoted; push coverage, 0 px landing, grade) and **Phase 6 only**
-  of `…-vqc-D-phase5-6-framing-and-junk.md` (the six junk-footage detectors run as one report + take selection).
-  Both can run after the engine doc. VQC-B is fully superseded. **Not on the dashboard.**
+- **`Handoffs/handoff-20260909-vqc-C-phase4-cut-technique.md`** — **fire after the engine doc's Phase 1,
+  BEFORE its Phase 4.** The measured #1 gap to Muhammad: he cuts picture **1–15 frames off the audio splice on a
+  pose-matched frame** (`piccuts.py`, built for Ad 2, never promoted) — plus 0 px landing, dead air paired with a
+  picture cut, and the grade. ⚠ **Scope corrected 2026-09-11:** its item 2 (push coverage) is now the engine doc's
+  Phase 1 rows, and its item 6 (`picture.json`) is the **input to that doc's Phase 4** — build it first or Phase 4
+  re-derives it. Fable 5.1 high, ~1–2 sessions. **Not on the dashboard.**
+- **`Handoffs/handoff-20260911-junk-footage-pass.md`** — **fire after the engine doc's Phase 1; parallel-safe with its
+  Phases 2–4.** Extracted from VQC-D Phase 6 so nobody has to fire a half-superseded doc. Six junk detectors that
+  already work but have never been run together → one pre-render `junk_report.json`, plus **take selection, which
+  does not exist at all** (we remove flubs, we never pick the best take). Junk is 1 of the 11 rejections; the test is
+  corpus entry `spraytan-longform-rev0`. Cheapest item left. Fable 5.1 high, ~1 session. **Not on the dashboard.**
+- **VQC-B and VQC-D are fully superseded** and carry do-not-fire banners; they stay on disk as source material.
 
 Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md` (superseded — the @danrosefit profile-visits
 campaign has been live via the API script since 09-02), `handoff-20260902-shorts-centering-queue-fix.md` (done
@@ -480,6 +488,13 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 ---
 
 # ACTIVE TASK
+
+**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 square cutdown from the APPROVED 9:16 vertical — IN PROGRESS
+(session started 2026-09-11 17:35 CT, owns it).** `Handoffs/handoff-20260911-square-ad1-muhammad.md`; build dir
+`/Volumes/Extreme/_edit_work/ad1-sq/` (the attempt-3 pipeline re-laid-out for 1080x1080: `sqlib.py` + `sqassets.py` +
+`render.py`). Lands on Muhammad's **6,976** frames (the approved vertical is 6,977 — the frame-count assert postdates it);
+audio is the vertical's AAC stream copied bit for bit. ⚠ **A CONCURRENT SESSION owns `/Volumes/Extreme/_edit_work/ad2-sq/`
+(the Ad 2 square) — do not touch it, and do not start a third video build** (AGENTS.md cap of two).
 
 **Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — REVIEW COPIES DELIVERED
 2026-09-11, Dan reviews + ONE CALL.** Folder `Muhammad Ad Videos/stop wasting money on supplements - ad 4/`: his V4 HD filed
@@ -534,11 +549,18 @@ https://staging-cac5-danroseconsulting-fedqa.wpcomstaging.com (staging site crea
 `sixpackabs-child` is active there with all 18 public videos + 6 @danrosefit photos imported; **URL gate 219/219 = 200,
 no redirects**; player, menu, newsletter validation and VideoObject JSON-LD verified on staging. Feed endpoints live on
 absbyai.com (`7dee0bb` fixed a YouTube paging drift that had dropped a public video). Theme committed `cfa4ad7`;
-self-test 30/30. ⚠ **Staging runs an uploaded ZIP, not `deploy.sh`** — WordPress.com's wp-admin theme upload works
-(submit the form via fetch from the page; a normal click gets redirected to the WP.com dashboard), so SSH is no longer
-a blocker for production either; `SPA_SSH_*` still unset and SFTP/SSH still disabled on both sites. **Next action:**
-Dan's go, then the same ZIP on production + re-run `sixpackabs/url-check.sh https://sixpackabs.com`. **Production theme
-untouched until he says go.** Recipe + traps: `sixpackabs/README.md`.
+self-test 30/30. **Dan's round-1 revisions are IN (`615af71`, verified on staging):** the latest long-form video plays
+in place on the homepage (click-to-play, nothing loads from YouTube until clicked; title + cue still go to the video
+page); Shorts cards use his cover art instead of YouTube's vertical thumbnail (that one is a frame grabbed from the
+video — 10 of 12 were mid-sentence with burned captions); Contact added to the top menu; footer "Contact / Collab" →
+"Contact", "Article archive" → "Blog". ⚠ **Staging runs an uploaded ZIP, not `deploy.sh`** — WordPress.com's wp-admin
+theme upload works (submit the form via fetch from the page; a normal click gets redirected to the WP.com dashboard;
+an update answers "already exists" → follow its `overwrite=update-theme` link), so SSH is no longer a blocker for
+production either; `SPA_SSH_*` still unset and SFTP/SSH still disabled on both sites. ⚠ **Always Settings → Caching →
+Clear all after a theme update** — WP.com's edge cache served the OLD build to plain URLs while `?query=` requests
+showed the new one, which briefly made a verified change look unshipped. **Next action:** Dan's go, then the same ZIP
+on production + clear cache + re-run `sixpackabs/url-check.sh https://sixpackabs.com`. **Production theme untouched
+until he says go.** Recipe + traps: `sixpackabs/README.md`.
 
 **Demand Gen conversion campaign `24243839443` — LIVE, 6 ad groups (Ad 1 / Ad 2 / Ad 5 × /start / home), $20/day
 unchanged, target CPA $30 on Free Generation Started.** First ~18 h (to 09-11 10:00 CT): $20.14, 17 clicks, **0

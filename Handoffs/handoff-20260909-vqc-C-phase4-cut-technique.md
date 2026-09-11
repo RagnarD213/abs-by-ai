@@ -1,5 +1,22 @@
 # VQC-C — Phase 4: the cut technique that is actually Muhammad's advantage
 
+> ⚠ **SCOPE CORRECTED 2026-09-11 — still live, but two of its six items moved.** Read this before firing.
+>
+> * **Item 2 (≥25 % push coverage / never one fixed crop) is now owned by
+>   `handoff-20260911-video-quality-engine.md` Phase 1** — it registers the corpus checks `style:coverage`
+>   and `style:static_run`. This document already said "or hand the row to VQC-B". **Do not build that row
+>   here; verify it exists and move on.**
+> * **Item 6 (`picture.json`, the picture reference) is the input to that document's Phase 4 (the locked
+>   kit)** — same measurements: talking-head luma, shot-length distribution, cut rate, insert coverage,
+>   graphic density, push coverage and ramp shape. **Build it here, and build it FIRST**, so Phase 4 can
+>   consume it instead of re-deriving it.
+> * **Items 1, 3, 4 and 5 are untouched and are the reason to fire this** — pose-matched picture cuts
+>   (`piccuts.py`), 0 px landing, dead air paired with a picture cut, and the grade. Nothing else covers them.
+>
+> **Fire after Phase 1 of the engine document and before its Phase 4.** The related check `landing_check.py`
+> is folded into the engine's Phase 1 gate; the *fix* for it (item 3) is still here.
+
+
 **Part 3 of 4 of the video-quality programme.** Evidence and the full plan:
 `Handoffs/handoff-20260909-video-quality-to-muhammad-standard.md`.
 

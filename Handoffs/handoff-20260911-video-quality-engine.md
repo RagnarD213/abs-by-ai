@@ -74,11 +74,18 @@ in the forks in the first place.
 3. **Phase 3 — the watch pass, mandatory in all six skills.**
 4. **Phase 4 — the locked kit.** Gated on 1–3 landing, and on a blind test before it spreads.
 
-**Deliberately OUT of scope**, so a later session knows they were not forgotten:
-`handoff-20260909-vqc-C-phase4-cut-technique.md` (pose-matched picture cuts, push coverage, grade)
-is still open and unrun; and VQC-D's **Phase 6** junk-footage tooling stays in that document. The
-one piece of Phase 6 that belongs here — the *visual* junk pass, which has no audio signature — is
-folded into Phase 3's watch checklist, because that is where it can actually be caught.
+**Deliberately OUT of scope, and both still live** (scope corrected 2026-09-11):
+
+* **`handoff-20260909-vqc-C-phase4-cut-technique.md`** — pose-matched picture cuts (`piccuts.py`),
+  0 px landing, dead air paired with a picture cut, the grade. **Its item 2 (push coverage) is now
+  Phase 1's `style:coverage` / `style:static_run` rows here; its item 6 (`picture.json`) is the
+  INPUT to Phase 4 below and must be built before it.** Fire C after Phase 1 and before Phase 4.
+* **`handoff-20260911-junk-footage-pass.md`** — the six junk-footage detectors run as one report,
+  plus take selection. Extracted from VQC-D Phase 6 into its own document. Fire after Phase 1;
+  independent of Phases 2–4.
+
+The one piece of the junk work that belongs *here* — the *visual* junk pass, which has no audio
+signature and which no scanner can find — is folded into Phase 3's watch checklist below.
 
 ---
 
@@ -332,6 +339,13 @@ and the panel system already in it.**
 
 ### The work — one format, proven blind, then expand
 
+0. **Consume `_shared/reference/picture.json`** — built by `handoff-20260909-vqc-C-phase4-cut-technique.md`
+   item 6 off Muhammad's two finished edits (talking-head luma, shot-length distribution, cut rate,
+   insert coverage, graphic density, push coverage, ramp shape). **If it does not exist yet, fire C
+   first.** Do not re-derive these numbers here.
+   ⚠ **Bound our output to his ranges in BOTH directions.** We made the overshoot mistake once: the
+   dereverb hit EDT 32 ms against his 40 — *past* the target — and Dan called it "underwater"
+   (memory `audio-never-over-strip`). **Overshooting a reference is a warning, not a win.**
 1. Build the kit for **one format only** — the 9:16 vertical ad, because that is where we have
    approved output to match and the most repeat volume.
 2. **Prove it by blind A/B before it spreads.** The matched pairs already exist on disk:
