@@ -123,7 +123,9 @@ function spa_video_img( $post_id, $shape, $sizes, $eager = false ) {
 		$attrs['fetchpriority'] = 'high';
 	}
 	if ( $att ) {
-		return wp_get_attachment_image( $att, 'full', false, $attrs );
+		// 'portrait' asks for the 9:16 crop registered in functions.php so the card is
+		// sharp without downloading the whole 16:9 cover; everything else uses the cover.
+		return wp_get_attachment_image( $att, 'portrait' === $shape ? 'spa-short' : 'full', false, $attrs );
 	}
 	// Not downloaded yet (the first sync is still running): YouTube's own copy.
 	$url = get_post_meta( $post_id, '_spa_thumb_url', true );

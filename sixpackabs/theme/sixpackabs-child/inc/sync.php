@@ -395,7 +395,36 @@ function spa_sync_thumbnails( $post_id, array $v ) {
 	// YouTube's vertical thumbnail is NOT downloaded: it is a frame from the video
 	// (mid-sentence, burned captions). Shorts show Dan's cover art cropped to 9:16
 	// instead — his call, 2026-09-11. See spa_video_img().
+	$have = (int) get_post_thumbnail_id( $post_id );
+	if ( $have ) {
+		spa_ensure_short_crop( $have );
+	}
 	return $changed;
+}
+
+/**
+ * Make sure an attachment has the 9:16 'spa-short' rendition. Image sizes are only
+ * built at upload time, so thumbnails downloaded before the size existed need one
+ * pass of regeneration. Runs once per attachment (the guard meta stops retries on
+ * a host whose image editor cannot make it).
+ */
+function spa_ensure_short_crop( $att_id ) {
+	$meta = wp_get_attachment_metadata( $att_id );
+	if ( ! is_array( $meta ) || isset( $meta['sizes']['spa-short'] ) ) {
+		return;
+	}
+	if ( get_post_meta( $att_id, '_spa_short_crop_tried', true ) ) {
+		return;
+	}
+	update_post_meta( $att_id, '_spa_short_crop_tried', 1 );
+	$file = get_attached_file( $att_id );
+	if ( ! $file || ! file_exists( $file ) ) {
+		return;
+	}
+	$fresh = wp_generate_attachment_metadata( $att_id, $file );
+	if ( is_array( $fresh ) && isset( $fresh['sizes']['spa-short'] ) ) {
+		wp_update_attachment_metadata( $att_id, $fresh );
+	}
 }
 
 function spa_sideload( $url, $filename, $parent_id, $description ) {

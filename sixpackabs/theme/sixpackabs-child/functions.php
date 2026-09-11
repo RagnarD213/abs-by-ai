@@ -54,7 +54,34 @@ add_action( 'enqueue_block_editor_assets', function () {
 add_action( 'after_setup_theme', function () {
 	// The same stylesheet inside the editor, so the server-rendered blocks preview as they ship.
 	add_editor_style( 'assets/css/site.css' );
+
+	// Shorts cards are 9:16 but Dan's cover art is 16:9, so the card shows only the
+	// middle third of the width. Asking for the full cover wastes two thirds of the
+	// pixels and still renders soft (a 768 px file leaves 243 px doing a 358 px job).
+	// This size is cropped to the card's shape server-side: every pixel is visible,
+	// sharp on 2x and 3x screens, and lighter than the full cover. 405x720 is exactly
+	// 9:16 and the tallest crop a 1280x720 cover can give without upscaling.
+	add_image_size( 'spa-short', 405, 720, true );
 } );
+
+// The covers are 1280x720, so a 9:16 crop tops out at 405x720 — there is no more
+// detail in the file. WordPress.com's image CDN still offers 2x and 3x variants of
+// it, which are upscales: on a 3x phone the browser would fetch 179 KB instead of
+// 68 KB and see exactly the same picture. Cap this size at its true resolution.
+add_filter( 'wp_calculate_image_srcset', function ( $sources, $size_array ) {
+	if ( ! is_array( $sources ) || ! is_array( $size_array ) ) {
+		return $sources;
+	}
+	if ( 405 !== (int) ( $size_array[0] ?? 0 ) || 720 !== (int) ( $size_array[1] ?? 0 ) ) {
+		return $sources;
+	}
+	foreach ( array_keys( $sources ) as $width ) {
+		if ( (int) $width > 405 ) {
+			unset( $sources[ $width ] );
+		}
+	}
+	return $sources;
+}, 999, 2 );
 
 // First activation (and every re-activation): register the model, make sure both
 // type terms exist, rebuild the rewrite rules so /videos/ and /shorts/ resolve,
