@@ -474,6 +474,12 @@ exact timing or an exact link.
   than compositing our render); only offer the files if Dan wants.
 - List a Drive folder's contents with the Drive MCP:
   `search_files` query `parentId = '<folderId>'`.
+- **Generated people in use — one per ad, never repeated (2026-09-11, calibration rule 36).** Keep this list current:
+  Dan's own goal image `1-8QAfoeAIt52fswKhFvg6ep1i4iqLGGu` (only for HIS generation lines); the app recording's Asian
+  man, after picture `13_AFTER_ai-generated_app-demo-man.jpg` = `1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp` (Ad 7's closing
+  demo, 2026-09-11 — do not reuse it in another ad). Anything else has to be generated: prospect demographic, white or
+  Asian man 30-50, lean with abs for an after, American-average with a small belly for a before, then uploaded by
+  lesson 44 and linked in the item.
 - **Music for a workout video: the replacement recipe (2026-09-11).** Pixabay only (licence settled: commercial,
   no attribution). Most popular workout tracks there are Content ID registered, so check every candidate: the
   search listing shows a small shield beside the duration of a registered track, and its page says "Content ID
