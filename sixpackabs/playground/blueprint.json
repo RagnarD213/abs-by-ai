@@ -1,0 +1,19 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/",
+	"preferredVersions": { "php": "8.3", "wp": "latest" },
+	"features": { "networking": true },
+	"steps": [
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "SixPackAbs.com",
+				"blogdescription": "The Ultimate Guide To Six Pack Abs Workouts, Nutrition, and Supplements",
+				"timezone_string": "America/Chicago",
+				"permalink_structure": "/%postname%/"
+			}
+		},
+		{ "step": "activateTheme", "themeFolderName": "sixpackabs-child" },
+		{ "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/spa-playground/seed.php';" }
+	]
+}

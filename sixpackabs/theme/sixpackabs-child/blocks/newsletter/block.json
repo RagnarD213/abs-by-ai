@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/newsletter",
+	"title": "SixPackAbs: Newsletter",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "Email capture to the absbyai.com subscriber list (source: sixpackabs).",
+	"textdomain": "sixpackabs-child",
+	"attributes": {
+		"placement": {
+			"type": "string",
+			"default": "home"
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

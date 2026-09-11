@@ -24,6 +24,22 @@
       ],
       "port": 3011,
       "autoPort": true
+    },
+    {
+      "name": "sixpackabs-playground",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "-y",
+        "@wp-playground/cli@3.1.53",
+        "server",
+        "--port=9400",
+        "--php=8.3",
+        "--define-bool", "WP_DEBUG", "true",
+        "--mount-dir", "sixpackabs/theme/sixpackabs-child", "/wordpress/wp-content/themes/sixpackabs-child",
+        "--mount-dir", "sixpackabs/playground", "/spa-playground",
+        "--blueprint=sixpackabs/playground/blueprint.json"
+      ],
+      "port": 9400
     }
   ]
 }

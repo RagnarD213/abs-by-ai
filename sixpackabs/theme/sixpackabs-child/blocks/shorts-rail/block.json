@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/shorts-rail",
+	"title": "SixPackAbs: Shorts rail",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "The newest Shorts: a swipe rail on phones, a 6-up grid on desktop.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {
+		"count": {
+			"type": "number",
+			"default": 6
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

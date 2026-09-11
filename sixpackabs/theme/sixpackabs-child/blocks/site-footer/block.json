@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/site-footer",
+	"title": "SixPackAbs: Site footer",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "SixPackAbs footer links and copyright line.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

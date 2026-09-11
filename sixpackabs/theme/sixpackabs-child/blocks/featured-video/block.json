@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/featured-video",
+	"title": "SixPackAbs: Latest video (featured)",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "The newest long-form video as a large card.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/video-grid",
+	"title": "SixPackAbs: Video archive grid",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "The /videos/ or /shorts/ grid with pagination.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

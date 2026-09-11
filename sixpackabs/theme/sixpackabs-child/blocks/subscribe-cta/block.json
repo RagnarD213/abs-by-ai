@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/subscribe-cta",
+	"title": "SixPackAbs: Subscribe box",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "Subscribe-on-YouTube call to action with the subscriber count.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {
+		"placement": {
+			"type": "string",
+			"default": "video_page"
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

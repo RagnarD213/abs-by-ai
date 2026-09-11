@@ -1,0 +1,14 @@
+/*
+Theme Name: SixPackAbs Child
+Theme URI: https://sixpackabs.com/
+Description: Video-first SixPackAbs.com — Dan Rose's Abs by AI YouTube channel on the homepage, a page per video, the legacy articles untouched at their original URLs. Child of Twenty Twenty-Five. Design: Docs/sixpackabs-redesign/DESIGN_HANDOFF.md (#2a mobile, #2b desktop).
+Author: SixPackAbs.com
+Template: twentytwentyfive
+Version: 1.0.0
+Requires at least: 6.7
+Requires PHP: 8.1
+License: GNU General Public License v2 or later
+Text Domain: sixpackabs-child
+*/
+
+/* All styles live in assets/css/site.css (enqueued in functions.php). */

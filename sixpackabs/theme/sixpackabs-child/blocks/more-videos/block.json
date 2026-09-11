@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/more-videos",
+	"title": "SixPackAbs: More videos",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "More videos of the same type as the current one.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {
+		"count": {
+			"type": "number",
+			"default": 4
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

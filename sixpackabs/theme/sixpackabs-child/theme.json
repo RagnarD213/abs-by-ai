@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+	"version": 3,
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base", "name": "Base", "color": "#ffffff" },
+				{ "slug": "contrast", "name": "Contrast", "color": "#1b1a18" },
+				{ "slug": "accent-1", "name": "Accent 1", "color": "#FFEE58" },
+				{ "slug": "accent-2", "name": "Accent 2", "color": "#F6CFF4" },
+				{ "slug": "accent-3", "name": "Accent 3", "color": "#503AA8" },
+				{ "slug": "accent-4", "name": "Accent 4", "color": "#6e6b64" },
+				{ "slug": "accent-5", "name": "Accent 5", "color": "#f6f5f2" },
+				{ "slug": "accent-6", "name": "Accent 6", "color": "color-mix(in srgb, currentColor 20%, transparent)" },
+				{ "slug": "spa-bg", "name": "Page background", "color": "#f6f5f2" },
+				{ "slug": "spa-surface", "name": "Surface", "color": "#ffffff" },
+				{ "slug": "spa-ink", "name": "Ink", "color": "#1b1a18" },
+				{ "slug": "spa-muted", "name": "Ink muted", "color": "#6e6b64" },
+				{ "slug": "spa-faint", "name": "Ink faint (dark grounds only)", "color": "#a29e95" },
+				{ "slug": "spa-hairline", "name": "Hairline", "color": "#e7e4dd" },
+				{ "slug": "spa-border", "name": "Border", "color": "#d9d5cc" },
+				{ "slug": "spa-field", "name": "Dark field", "color": "#2a2926" },
+				{ "slug": "spa-red", "name": "Accent red", "color": "#e5322d" },
+				{ "slug": "spa-blue", "name": "Accent blue", "color": "#2f5fe0" }
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var:preset|color|spa-bg",
+			"text": "var:preset|color|spa-ink"
+		},
+		"typography": {
+			"fontWeight": "400"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontWeight": "700",
+					"letterSpacing": "-0.015em",
+					"lineHeight": "1.15"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/video-hero",
+	"title": "SixPackAbs: Video player",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "Title, date and a click-to-play YouTube player for the current video.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

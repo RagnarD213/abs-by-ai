@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/instagram-grid",
+	"title": "SixPackAbs: Instagram grid",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "The 6 latest @danrosefit photo posts.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}
