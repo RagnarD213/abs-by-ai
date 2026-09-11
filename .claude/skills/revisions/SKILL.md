@@ -616,3 +616,15 @@ exact timing or an exact link.
     (d) Once his level lands, rounds 2+ are picture-only and go fast: six reviewers at 210–250k tokens each, 4–8 minutes
     apiece, and two of six came back as the APPROVED form with zero items. The doc paste (six sections, 25 KB HTML, 72 bullets)
     verified as an exact-prefix read-back in one go.
+
+41. **A workout-only cut (Zeeshan, content batch video 1, 2026-09-11) — three checks the standard pass misses.** (a) The gate's
+    20 s + 120 s window lands inside the live sets, so its tone / floor / artifacts rows grade music and wheel noise, not the
+    voice — do not quote them. Prove the brief's "keep the camera sound under the sets" item instead by cross-correlating the
+    cut against the raw clip (FFT over ±4 s, least-squares gain): the track under all three sets read +0.2 to +1.0 dB of the
+    raw lav at correlation 0.8–0.98, the same gain as his talking, so it is present and unprocessed. (b) Outdoor wide shots
+    carry crew gear: a gold reflector swung across set 2 for 1.5 s (1:49.1–1:50.6) and read as a smudge on the 2 fps sheet —
+    zoom any colour intrusion at a frame edge. (c) A close the editor stopped early often has a clean pickup after an
+    interruption: C1633's plane pause (6:37–6:53, lav RMS rising −51 → −31 dB and falling) was followed by Dan re-saying the
+    line and finishing the pitch. Run word-timestamped Whisper on the raw pickup and hand the editor the exact range. Also:
+    Zeeshan names deliveries by his own running count ("Video 3.mp4" was batch video 1) and shared this one as a single file,
+    not in his folders — identify the video by its content and his Upwork message, never by the file name.
