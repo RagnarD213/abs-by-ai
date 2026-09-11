@@ -308,6 +308,16 @@
       "welcomeSentAt": {},
       "unsubscribed": true,
       "unsubscribedAt": "2026-09-11T00:26:08.701Z"
+    },
+    "wilford.douglas74@aol.com": {
+      "subscribedAt": "2026-09-11T03:34:59.125Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-09-11T03:34:59.125Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
