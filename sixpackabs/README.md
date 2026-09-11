@@ -92,6 +92,21 @@ The newsletter posts to `absbyai.com/api/subscribe` (source `sixpackabs`) — th
 and Resend welcome sequence as every other form. MailerLite was retired 2026-07-17; the server log's
 "MailerLite sync: false" is expected.
 
+## Updating the theme without SSH (how staging was deployed, 2026-09-11)
+
+WordPress.com accepts a theme ZIP in wp-admin, so SSH is optional:
+
+1. `cd sixpackabs/theme && zip -r /tmp/sixpackabs-child.zip sixpackabs-child -x '*.DS_Store'`
+2. wp-admin → Appearance → Themes → **Add Theme** → **Upload Theme**, choose the ZIP.
+3. **Submit the form from the page** (`fetch(form.action, {method:'POST', body:new FormData(form)})`).
+   A normal click on "Install Now" gets redirected to the WordPress.com dashboard and installs
+   nothing. On an update WordPress answers "already exists" — follow its
+   `overwrite=update-theme` link to replace.
+4. **Clear the edge cache** — Settings → Caching → **Clear all**. WordPress.com serves cached
+   pages to normal visitors, so without this the site looks unchanged to everyone except
+   requests carrying a query string. This is why a check with `?shot=1` can pass while the page
+   Dan actually loads is stale.
+
 ## Traps
 
 - **Activating a child theme abandons the parent's database template overrides.** Everything the
