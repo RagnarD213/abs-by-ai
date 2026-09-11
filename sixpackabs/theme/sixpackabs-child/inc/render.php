@@ -103,16 +103,15 @@ function spa_get_videos( $type, $count, $offset = 0, $exclude = array() ) {
 }
 
 /**
- * Thumbnail <img>. 'landscape' = the featured image (YouTube maxres, 16:9);
- * 'portrait' = a Short's vertical thumbnail when the sync found one, else the
- * featured image (object-fit crops it to the centred vertical frame). Alt is
- * empty: every card shows the title as text inside the same link.
+ * Thumbnail <img>. Always Dan's own cover art (the YouTube custom thumbnail,
+ * stored as the featured image); `$shape` only picks the `sizes` hint. Shorts
+ * used to use YouTube's vertical thumbnail, but that is a frame grabbed from the
+ * video — mid-sentence, with burned captions — so Dan's cover is used for those
+ * too and cropped to the 9:16 card (his call, 2026-09-11). Alt is empty: every
+ * card shows the title as text inside the same link.
  */
 function spa_video_img( $post_id, $shape, $sizes, $eager = false ) {
-	$att = 'portrait' === $shape ? (int) get_post_meta( $post_id, '_spa_portrait_id', true ) : 0;
-	if ( ! $att || ! wp_attachment_is_image( $att ) ) {
-		$att = (int) get_post_thumbnail_id( $post_id );
-	}
+	$att = (int) get_post_thumbnail_id( $post_id );
 	$attrs = array(
 		'class'    => 'spa-thumb__img',
 		'alt'      => '',
@@ -127,7 +126,7 @@ function spa_video_img( $post_id, $shape, $sizes, $eager = false ) {
 		return wp_get_attachment_image( $att, 'full', false, $attrs );
 	}
 	// Not downloaded yet (the first sync is still running): YouTube's own copy.
-	$url = get_post_meta( $post_id, 'portrait' === $shape ? '_spa_portrait_url' : '_spa_thumb_url', true );
+	$url = get_post_meta( $post_id, '_spa_thumb_url', true );
 	if ( ! $url ) {
 		return '';
 	}

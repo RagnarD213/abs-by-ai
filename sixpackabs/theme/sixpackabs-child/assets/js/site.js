@@ -131,7 +131,11 @@
 		iframe.setAttribute( 'allowfullscreen', '' );
 		btn.replaceWith( iframe );
 		iframe.focus();
-		capture( 'video_page_play', { video_id: id, type: btn.getAttribute( 'data-type' ) || '' } );
+		capture( 'video_page_play', {
+			video_id: id,
+			type: btn.getAttribute( 'data-type' ) || '',
+			placement: btn.getAttribute( 'data-placement' ) || 'video_page'
+		} );
 	} );
 
 	/* ---------------------------------------------------------- newsletter */

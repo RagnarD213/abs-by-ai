@@ -392,18 +392,9 @@ function spa_sync_thumbnails( $post_id, array $v ) {
 		}
 	}
 
-	$portrait = (string) ( $thumbs['portrait'] ?? '' );
-	if ( $portrait && false !== strpos( $portrait, 'oardefault' ) ) {
-		$pid = (int) get_post_meta( $post_id, '_spa_portrait_id', true );
-		if ( ! $pid || ! get_post( $pid ) || ( $version && $version !== (string) get_post_meta( $post_id, '_spa_portrait_version', true ) ) ) {
-			$att = spa_sideload( $portrait, 'yt-' . $v['id'] . '-vertical.jpg', $post_id, $title );
-			if ( ! is_wp_error( $att ) ) {
-				update_post_meta( $post_id, '_spa_portrait_id', $att );
-				update_post_meta( $post_id, '_spa_portrait_version', $version );
-				$changed = true;
-			}
-		}
-	}
+	// YouTube's vertical thumbnail is NOT downloaded: it is a frame from the video
+	// (mid-sentence, burned captions). Shorts show Dan's cover art cropped to 9:16
+	// instead — his call, 2026-09-11. See spa_video_img().
 	return $changed;
 }
 

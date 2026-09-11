@@ -30,6 +30,7 @@ function spa_nav_items() {
 		array( 'label' => 'About Dan', 'url' => spa_url( 'about' ) ),
 		array( 'label' => 'Abs Calculator', 'url' => spa_url( 'calculator' ) ),
 		array( 'label' => 'Collab', 'url' => spa_url( 'collab' ) ),
+		array( 'label' => 'Contact', 'url' => spa_url( 'contact' ) ),
 	);
 }
 
@@ -94,8 +95,8 @@ function spa_render_site_footer() {
 	$ig  = '<a href="' . esc_url( spa_url( 'instagram' ) ) . '" target="_blank" rel="noopener"' . spa_track( 'instagram', 'footer' ) . '>Instagram</a>';
 	$app = spa_app_link( 'footer', 'Try the AI App', '' );
 	$cal = '<a href="' . esc_url( spa_url( 'calculator' ) ) . '">Abs Calculator</a>';
-	$con = '<a href="' . esc_url( spa_url( 'contact' ) ) . '">Contact / Collab</a>';
-	$arc = '<a href="' . esc_url( spa_url( 'archive' ) ) . '">Article archive</a>';
+	$con = '<a href="' . esc_url( spa_url( 'contact' ) ) . '">Contact</a>';
+	$arc = '<a href="' . esc_url( spa_url( 'archive' ) ) . '">Blog</a>';
 	$dis = '<a href="' . esc_url( spa_url( 'disclaimer' ) ) . '">Disclaimer</a>';
 	return '<div class="spa-footer"><div class="spa-wrap spa-footer__inner">'
 		. '<nav class="spa-footer__m" aria-label="Footer">' . $yt . $ig . $app . $cal . $con . $arc . '</nav>'
@@ -106,20 +107,42 @@ function spa_render_site_footer() {
 
 /* ------------------------------------------------------------------ homepage */
 
+/**
+ * The latest long-form video. It PLAYS ON THE HOMEPAGE (Dan, 2026-09-11): the
+ * thumbnail is a click-to-play facade, exactly like a video page — nothing loads
+ * from YouTube until it is clicked. The title and the link cue still go to the
+ * video page so the written notes keep their traffic.
+ */
 function spa_render_featured_video() {
 	$posts = spa_get_videos( 'long', 1 );
 	if ( ! $posts ) {
 		return '';
 	}
-	$p = $posts[0];
-	return sprintf(
-		'<a class="spa-featured" href="%1$s"><span class="spa-thumb spa-thumb--featured">%2$s<span class="spa-play spa-play--red spa-play--lg" aria-hidden="true"></span>%3$s</span><span class="spa-featured__text"><span class="spa-eyebrow">Latest video</span><h2 class="spa-featured__title">%4$s</h2><span class="spa-featured__excerpt">%5$s</span><span class="spa-cue">Watch + read the notes →</span></span></a>',
-		esc_url( get_permalink( $p ) ),
-		spa_video_img( $p->ID, 'landscape', '(min-width: 1280px) 724px, (min-width: 1024px) calc(100vw - 556px), calc(100vw - 62px)', true ),
-		spa_duration_pill( $p->ID, 'spa-pill spa-pill--lg' ),
-		esc_html( get_the_title( $p ) ),
-		esc_html( wp_strip_all_tags( get_the_excerpt( $p ) ) )
-	);
+	$p     = $posts[0];
+	$yt    = (string) get_post_meta( $p->ID, '_spa_youtube_id', true );
+	$title = get_the_title( $p );
+	$img   = spa_video_img( $p->ID, 'landscape', '(min-width: 1280px) 724px, (min-width: 1024px) calc(100vw - 556px), calc(100vw - 62px)', true );
+	$inner = $img . '<span class="spa-play spa-play--red spa-play--lg" aria-hidden="true"></span>' . spa_duration_pill( $p->ID, 'spa-pill spa-pill--lg' );
+
+	if ( $yt && '0' !== (string) get_post_meta( $p->ID, '_spa_embeddable', true ) ) {
+		$player = sprintf(
+			'<button type="button" class="spa-player__facade" data-yt="%1$s" data-type="long" data-placement="home" data-title="%2$s" aria-label="%3$s">%4$s</button>',
+			esc_attr( $yt ),
+			esc_attr( wp_strip_all_tags( $title ) ),
+			esc_attr( 'Play video: ' . wp_strip_all_tags( $title ) ),
+			$inner
+		);
+	} else {
+		$player = sprintf( '<a class="spa-player__facade" href="%1$s">%2$s</a>', esc_url( get_permalink( $p ) ), $inner );
+	}
+
+	return '<div class="spa-featured">'
+		. '<div class="spa-player spa-player--long spa-featured__player">' . $player . '</div>'
+		. '<div class="spa-featured__text"><span class="spa-eyebrow">Latest video</span>'
+		. '<h2 class="spa-featured__title"><a href="' . esc_url( get_permalink( $p ) ) . '">' . esc_html( $title ) . '</a></h2>'
+		. '<span class="spa-featured__excerpt">' . esc_html( wp_strip_all_tags( get_the_excerpt( $p ) ) ) . '</span>'
+		. '<a class="spa-cue" href="' . esc_url( get_permalink( $p ) ) . '">Watch + read the notes →</a>'
+		. '</div></div>';
 }
 
 function spa_render_video_list( $attrs ) {

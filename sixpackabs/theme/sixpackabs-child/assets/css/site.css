@@ -246,6 +246,11 @@ html.spa-menu-open { overflow: hidden; }
 	text-decoration: none;
 }
 .spa-thumb--featured { aspect-ratio: 16 / 9; border-radius: 12px; }
+/* The featured video plays in place on the homepage (Dan, 2026-09-11). */
+.spa-featured__player { border-radius: 12px; }
+.spa-featured__title a { color: inherit; text-decoration: none; }
+.spa-cue { display: inline-block; }
+a.spa-cue:hover { text-decoration: underline; }
 .spa-featured__text { display: flex; flex-direction: column; gap: 8px; padding: 0 4px; }
 .spa-eyebrow {
 	color: var(--spa-red);
@@ -466,7 +471,7 @@ html.spa-menu-open { overflow: hidden; }
 @media (hover: hover) {
 	.spa-thumb--row, .spa-thumb--short, .spa-thumb--card { transition: transform .15s ease-out; }
 	.spa-row:hover .spa-thumb, .spa-short:hover .spa-thumb, .spa-card:hover .spa-thumb { transform: translateY(-2px); }
-	.spa-featured:hover .spa-featured__title, .spa-row:hover .spa-row__title,
+	.spa-featured__title a:hover, .spa-row:hover .spa-row__title,
 	.spa-short:hover .spa-short__title, .spa-card:hover .spa-card__title { color: var(--spa-blue); }
 }
 
@@ -544,7 +549,7 @@ html.spa-menu-open { overflow: hidden; }
 
 	.spa-feature-row { display: grid; grid-template-columns: 1fr 400px; gap: 28px; align-items: start; padding-block: 26px 56px; }
 	.spa-featured { gap: 16px; padding: 14px 14px 20px; border-radius: 20px; }
-	.spa-thumb--featured { border-radius: 14px; }
+	.spa-thumb--featured, .spa-featured__player { border-radius: 14px; }
 	.spa-play--lg { width: 84px; height: 84px; box-shadow: 0 12px 34px rgba(0, 0, 0, .28); }
 	.spa-play--lg::before { border-width: 17px 0 17px 28px; margin-left: 7px; }
 	.spa-play--dim { width: 44px; height: 44px; }
@@ -598,10 +603,12 @@ html.spa-menu-open { overflow: hidden; }
 	.spa-archive__h1 { font-size: 52px; }
 }
 
-/* The full desktop header needs ~930 px; tighten it between 1024 and 1199. */
-@media (min-width: 1024px) and (max-width: 1199px) {
-	.spa-header .spa-wrap { padding-inline: 32px; }
-	.spa-nav { gap: 22px; }
+/* Six nav items need ~1000 px; tighten the header between 1024 and 1279. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+	.spa-header .spa-wrap { padding-inline: 24px; }
+	.spa-nav { gap: 16px; }
+	.spa-header__app { padding: 11px 14px; }
+	.spa-header__sub { padding: 10px 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
