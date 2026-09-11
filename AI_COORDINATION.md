@@ -80,22 +80,32 @@ links Pixabay "Energy Gym Thunder" (knox-gym, rock, 3:32, NOT Content ID registe
 Paste-ready Upwork message in `/Volumes/Extreme/_edit_work/revisions-0911/out/video1_abwheel_workout.summary.md`.
 Delete once the next cut arrives.
 
-**Subscriber list was PUBLIC — deploy 1 of 2 merged 2026-09-11. TWO STEPS LEFT, one is Dan's click.** The newsletter
-list (`subscribers-data.json`, 28 entries / 23 real addresses) was persisted to THIS PUBLIC repo and served at
-`raw.githubusercontent.com` to anyone, no login — verified 200 OK before the fix. It now persists to Postgres
-(`subscribers` table); 42 fixture tests, all four existing suites still green. **(1) DAN: make the repo private**
-(his call 2026-09-11 — Settings → General → Danger Zone; no API tool for it). That is what removes the addresses,
-which are still readable in git history, and it also covers `monarch-data.json` (his net worth + 61 points of
-net-worth history), `credits-data.json` (live Stripe session ids), `watch-data.json` (his resting HR) — full audit in
-`Docs/SUBSCRIBER_STORE.md`. **(2) VERIFY, then merge deploy 2 — `curl -s -H "X-Dash-Key: $DASH_SECRET"
-https://absbyai.com/api/subscribers/status`.** ⚠ **The web/remote session could NOT run this: its network policy 403s
-absbyai.com on CONNECT, so no live verification of deploy 1 was possible from there** — run it from the Mac. Expect
-`dbRows` 28, `inMemory` 28, `mailable` 21, `byStep {"0":1,"1":5,"3":4,"4":2,"5":16}`, digest
-`1f0cb629799fa9f75573111eec22374a3c6f5b0829d5bf2c0df0c1d7d3cbb404`. **Deploy 2 is WRITTEN AND PUSHED but deliberately
-NOT merged** — `claude/nifty-dirac-5mu8si` commit `c08938b` deletes the file + gitignores it; merge it once that curl
-is right. Measured, so nobody panics: if the table were empty the sweep emails NO ONE (it iterates the store), and
-reverting `c08938b` restores the file and re-seeds. ⚠ Armed but not fired: `push-subs.json` gets created in the repo
-the moment anyone subscribes to web push. No dashboard row.
+**Subscriber list was PUBLIC — BOTH DEPLOYS LIVE AND VERIFIED 2026-09-11. ONE STEP LEFT AND IT IS DAN'S CLICK.**
+The newsletter list (`subscribers-data.json`, 28 entries / 23 real addresses) was persisted to THIS PUBLIC repo and
+served at `raw.githubusercontent.com` to anyone, no login. It now persists to Postgres (`subscribers` table), and
+deploy 2 (`6e1bfc3`, merge of `c08938b`) has removed the file from the tip + gitignored it — `raw.githubusercontent.com`
+now returns **404**, Railway deploy SUCCESS, absbyai.com 200.
+**Verified BEFORE merging, not just by counts:** `/api/subscribers/status` reads 28 dbRows / 28 inMemory / 21 mailable,
+and a field-by-field compare of every Postgres row against the snapshot found **27 entries byte-identical and one
+differing in exactly 3 fields** — `h***@melottogroup.com` welcomeStep 4→5, welcomeNextAt →null, welcomeSentAt gaining
+`5`, because that person's fifth welcome email was due 22:15Z and sent normally. So the live digest is now
+`9dbf07fe248093b9cebcb50f4c10c46a32a0b4fb0f350dd3b094dd29097f4c1f`, not the `1f0cb629…` written here earlier;
+`byStep {"0":1,"1":5,"3":4,"4":1,"5":17}`. **Nothing was lost and no welcome progress was reset.**
+⚠ The expected-digest trap for anyone re-verifying: the digest covers welcome state, so the sequence advancing
+changes it legitimately. Compare the DB against `~/.absbyai-subscribers-snapshot-20260911.json` (0600, outside the
+repo, kept because the merge deleted the in-repo copy) rather than trusting a digest match. Reading prod Postgres from
+the Mac needs `DATABASE_PUBLIC_URL` from `railway variables --service Postgres` — the cached `DATABASE_URL` is
+`postgres.railway.internal` and will not resolve.
+**(1) DAN, THE ONLY THING LEFT: make the repo private** (his call 2026-09-11 — Settings → General → Danger Zone; no
+API tool for it). The addresses are still readable in git HISTORY, and that is what closes it; it also covers
+`monarch-data.json` (net worth + 61 points of history), `credits-data.json` (live Stripe session ids),
+`watch-data.json` (resting HR) — audit in `Docs/SUBSCRIBER_STORE.md`. **Checked this session: going private breaks
+nothing.** Every GitHub read/write in `server.js` is authenticated with `GITHUB_TOKEN` (monarch, todos, timesheet,
+digests, plan, task-checks, push-subs, watch, credits, subscribers), and there is **no unauthenticated
+`raw.githubusercontent` fetch anywhere in the tree** — that was the one thing that would have broken. Only moving
+part is Railway's GitHub app; after he flips it, push a trivial commit and confirm the deploy, and reconnect in
+Railway if it hiccups (the running site stays up either way).
+⚠ Armed but not fired: `push-subs.json` gets created in the repo the moment anyone subscribes to web push. No dashboard row.
 
 **studio-blue-89 social variations — DELIVERED 2026-09-10, Dan picks.** Black / white / crimson backgrounds (full +
 4:5, original pixels through the existing cutout) and two Muay Thai gym versions (Thai camp, modern gym — AI room, his
