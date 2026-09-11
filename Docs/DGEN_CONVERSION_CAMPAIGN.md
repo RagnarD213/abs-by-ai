@@ -51,6 +51,33 @@ at that time. Re-run the command to re-check.
 **Dan's copy rule (2026-09-10):** no claim that reads unbelievable without the video's context. *"This
 picture got me abs"* is too much; *"How I get abs at 40"* / *"How AI got me abs"* are the shapes to reuse.
 
+## 2026-09-11 — first full day, the retry, Ad 5
+
+**Numbers (09-10 16:12 CT → 09-11 ~10:00 CT):** $20.14 spent, 1,091 impressions, 17 clicks, 225 views,
+**0 Free Generation Started** (Bidding: LEARNING_NEW). PostHog confirms the clicks land (~18 visitors: 8 home, 10
+`/start`, 2 VSL plays) and none uploaded a photo; the tag itself works (Search logged 7 FGS conversions this week).
+Ad 2 took ~80 % of the spend; Ad 2's vertical on home (824221872415) had 283 impressions and 0 clicks.
+
+**Retry rule, attempt 2 (applied at once on Dan's instruction, not after the 2-day $0 wait):** the two Zeeshan
+16:9 `1oEcwdp21Fg` ads (824179684065 /start, 824179684203 home) were still APPROVED_LIMITED
+(`YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS`, ad level, no text line flagged) with $0 spent. They are
+**PAUSED** and replaced by `… | Zeeshan 16:9 | /start | r2` **824329225648** and `… | home | r2` **824329225651** —
+same video, copy that passes `lint.js { tame: true }` (headlines *Abs By AI - Here's How It Works · An AI Picture Of
+Yourself With Abs · How The Abs By AI App Works · Daniel Rose On The Abs By AI App · AI Workout And Meal Plans At 40*).
+Because the flag is at ad level and the identical copy is APPROVED on the Muhammad ads, the video itself is the
+likely trigger — so attempt 3 (clean text-free thumbnail on `1oEcwdp21Fg`) is the probable next step; if that fails,
+remove both chains and restore the thumbnail.
+
+**Ad 5 added 2026-09-11 ~10:15 CT** (one atomic 14-op API batch): ad group `Ad 5 Every Diet You've Tried Failed |
+/start` **200151423317** (ad **824412395729**) and `… | home` **200151529597** (ad **824329323031**), video asset
+`419894297239`, audience **358973573**, US + CA + English on both, `utm_campaign=dgen-conv-ad5`. Its organic upload `bwfSQopZy1w` is private until 09-16, so the ad
+runs on a separate **UNLISTED copy `Yo-6TQik3qY`** (Muhammad V3 HD 16:9, Dan's thumbnail B2 "Why Most Diets Fail",
+synthetic-media disclosure on, description with "trick" removed). Audience: a new `Ad 5 … | MU 25-54 | AI fitness +
+competitor apps + get abs belly fat` (same dimensions as Ad 2's). Copy: Dan's shapes *How I Got Abs At 40* / *How AI
+Got Me Abs* plus *Why My Diets Kept Failing · AI Meal Plans Built Around Your Foods · Abs By AI - Here's How It Works*.
+Not added: Claude's Ad 5 verticals and Zeeshan's Ad 1 verticals (both still awaiting Dan's approval), Ads 3/4 (no HD
+final in `Muhammad Ad Videos/` yet). Budget unchanged at $20/day.
+
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and
 off at 15:49). Ad groups and ads were already ENABLED. The API client refuses to enable a campaign itself unless
