@@ -138,3 +138,7 @@ Website Videos/
 # The QC regression corpus stores PATHS + sha256, never masters (this repo is public).
 # `run.py --extract` rebuilds these excerpts from the masters on any machine that has them.
 .claude/skills/_shared/qc_corpus/excerpts/
+
+# The marketing list lived here until 2026-09-11. It is in Postgres now
+# (Docs/SUBSCRIBER_STORE.md) — never let this file come back into the repo.
+subscribers-data.json
