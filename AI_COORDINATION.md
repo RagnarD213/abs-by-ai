@@ -66,8 +66,10 @@ absbyai.com on CONNECT, so no live verification of deploy 1 was possible from th
 `1f0cb629799fa9f75573111eec22374a3c6f5b0829d5bf2c0df0c1d7d3cbb404`. **Deploy 2 is WRITTEN AND PUSHED but deliberately
 NOT merged** — `claude/nifty-dirac-5mu8si` commit `c08938b` deletes the file + gitignores it; merge it once that curl
 is right. Measured, so nobody panics: if the table were empty the sweep emails NO ONE (it iterates the store), and
-reverting `c08938b` restores the file and re-seeds. ⚠ Armed but not fired: `push-subs.json` gets created in the repo
-the moment anyone subscribes to web push. No dashboard row.
+reverting `c08938b` restores the file and re-seeds. ✅ The armed-but-unfired `push-subs.json` is FIXED 2026-09-11 on
+`claude/exciting-franklin-uigb4i`: web-push subscriptions now persist to the `push_subscriptions` table, the GitHub
+PUT is gone, the file is gitignored, `scripts/push/push-subs.test.js` is 38/38 and the other five suites still pass.
+One deploy, not two — there was no file to keep in the tree. No dashboard row.
 
 **studio-blue-89 social variations — DELIVERED 2026-09-10, Dan picks.** Black / white / crimson backgrounds (full +
 4:5, original pixels through the existing cutout) and two Muay Thai gym versions (Thai camp, modern gym — AI room, his

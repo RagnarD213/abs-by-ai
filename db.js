@@ -215,6 +215,28 @@ async function initDb() {
       extra           JSONB NOT NULL DEFAULT '{}',
       updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
     );
+    -- Web-push subscriptions (2026-09-11). Same fix as the subscribers table
+    -- above, and for the same reason: savePushSubs() used to PUT push-subs.json
+    -- to the GitHub contents API. A push subscription is a CREDENTIAL — the
+    -- endpoint URL plus its p256dh and auth keys are together everything needed
+    -- to send a notification to that person's device — so it belongs in the
+    -- database, not in version control. Nobody had subscribed yet, so there was
+    -- never a file to leak; this is the fix landing before the feature is
+    -- switched on. One row per endpoint (the browser's own natural key). The
+    -- meta column is stored whole, NULL when absent, because the reminder sweep
+    -- distinguishes a legacy dashboard subscription (no meta, morning summary
+    -- only) from a per-user one. The extra column catches any other top-level
+    -- key the browser sends (expirationTime today), so a round trip drops
+    -- nothing.
+    CREATE TABLE IF NOT EXISTS push_subscriptions (
+      endpoint   TEXT PRIMARY KEY,
+      p256dh     TEXT,
+      auth       TEXT,
+      meta       JSONB,
+      extra      JSONB NOT NULL DEFAULT '{}',
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
   `);
   // Membership columns (added after the users table shipped). ADD COLUMN IF NOT
   // EXISTS keeps this idempotent across deploys; pg-mem supports it too.

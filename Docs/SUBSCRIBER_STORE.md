@@ -117,8 +117,17 @@ GitHub-contents-API persistence pattern, and all are world-readable today:
 | `brief-ads.json` | 79 KB of ad spend, campaign names, CPCs, conversions | Competitive intelligence |
 | `todos.json`, `task-checks.json`, `plan.json`, `brief-ask.json` | the task board and daily plan | Business internals |
 
-**Armed, not yet fired: `push-subs.json`.** It is not in the repo today only because nobody has
-subscribed to web push yet. `savePushSubs()` PUTs it to the public repo, and a push subscription
-carries the endpoint URL plus its `p256dh` and `auth` keys — enough for anyone who reads the
-file to send notifications to that person's device. **Move it to Postgres before web push is
-switched on**; it is the same shape of change as this one.
+**`push-subs.json` — FIXED 2026-09-11, the same day, before it ever fired.** It was never in the
+repo, only because nobody had subscribed to web push yet; `savePushSubs()` would have PUT it
+there on the first subscription, and a push subscription carries the endpoint URL plus its
+`p256dh` and `auth` keys — enough for anyone who reads the file to send notifications to that
+person's device. It now lives in the `push_subscriptions` table (`db.js`), one row per endpoint,
+seeded from the legacy file on the first boot that finds the table empty (`PUSH_SUBS_LEGACY_FILE`
+overrides the source path) — in production there was nothing to seed, which is the expected case.
+The GitHub PUT is gone, `push-subs.json` is in `.gitignore`, and `scripts/push/push-subs.test.js`
+(38 checks, pg-mem) asserts zero writes to the contents API for it. Unlike the marketing list this
+needed **one** deploy, not two: there was no file to keep in the tree while the table filled.
+
+One behaviour changed for the better on the way: an endpoint the push service reports as gone
+(404/410) is now DELETED from the table on both send paths. Under the whole-file persistence a
+failed save meant the dead endpoint came back on the next boot and was retried forever.

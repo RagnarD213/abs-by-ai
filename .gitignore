@@ -138,3 +138,10 @@ Website Videos/
 # The QC regression corpus stores PATHS + sha256, never masters (this repo is public).
 # `run.py --extract` rebuilds these excerpts from the masters on any machine that has them.
 .claude/skills/_shared/qc_corpus/excerpts/
+
+# Web-push subscriptions. Moved to Postgres on 2026-09-11 (push_subscriptions in
+# db.js); savePushSubs() used to PUT this file to the GitHub contents API. An
+# endpoint plus its p256dh and auth keys is everything needed to send a
+# notification to that person's device — a credential, never a tracked file.
+# PUSH_SUBS_LEGACY_FILE points at a local copy if the table ever has to be re-seeded.
+push-subs.json

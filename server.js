@@ -1942,8 +1942,18 @@ app.post('/api/task-checks', async (req, res) => { await withTaskDataLock(async 
 // ââ Apple Watch data â stored in GitHub so it survives Railway deploys ââ
 // ── Web Push (morning notification) ──
 // VAPID keys live in env (VAPID_PUBLIC_KEY / VAPID_PRIVATE_KEY). Subscriptions
-// are stored in GitHub (push-subs.json) so they survive deploys. The morning
-// summary is sent by POSTing /api/send-push (triggered from the Mac 7am job).
+// live in Postgres (`push_subscriptions`, see db.js) so they survive deploys.
+// The morning summary is sent by POSTing /api/send-push (triggered from the Mac
+// 7am job).
+//
+// They USED to be persisted by PUTting push-subs.json to the GitHub contents
+// API, the same pattern the dashboard data files in this file still use. A push
+// subscription is a CREDENTIAL — the endpoint URL plus its p256dh and auth keys
+// are together everything needed to send a notification to that person's device
+// — so it was moved into the database on 2026-09-11, the same move the
+// marketing list got that morning (Docs/SUBSCRIBER_STORE.md). Nothing leaked:
+// the file had never been created, because nobody had ever subscribed. Never
+// persist a credential or a real person's details through the GitHub helpers.
 const VAPID_PUBLIC_KEY  = process.env.VAPID_PUBLIC_KEY;
 const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY;
 const VAPID_SUBJECT     = process.env.VAPID_SUBJECT || 'mailto:danroseconsulting@gmail.com';
@@ -1961,31 +1971,159 @@ function getWebPush() {
   return webpush;
 }
 
-async function loadPushSubs() {
-  if (!GITHUB_TOKEN) return { subs: [], sha: null };
+// In-memory mirror of the table, in exactly the shape the send path has always
+// read: { endpoint, keys: { p256dh, auth }, meta?: { userId, tzOffset, prefs } }.
+let pushSubsStore = [];
+
+// Every top-level key that has a column of its own. Anything else (the
+// browser's expirationTime today) round-trips through the `extra` JSONB column,
+// so adding a field and forgetting a column loses nothing.
+const PUSH_SUB_COLUMNS = new Set(['endpoint', 'keys', 'meta']);
+
+function pushRowToSub(row) {
+  const sub = { ...(row.extra || {}), endpoint: row.endpoint };
+  // A real subscription always carries both keys. A row with neither had no
+  // `keys` object to begin with, so don't invent an empty one.
+  if (row.p256dh !== null || row.auth !== null) {
+    sub.keys = {};
+    if (row.p256dh !== null) sub.keys.p256dh = row.p256dh;
+    if (row.auth !== null) sub.keys.auth = row.auth;
+  }
+  // NULL means "no meta at all" — a legacy dashboard subscription, which the
+  // reminder sweep skips and the morning summary still reaches.
+  if (row.meta !== null && row.meta !== undefined) sub.meta = row.meta;
+  return sub;
+}
+
+function pushSubToRow(sub) {
+  const s = sub || {};
+  const extra = {};
+  for (const [k, v] of Object.entries(s)) if (!PUSH_SUB_COLUMNS.has(k)) extra[k] = v;
+  const keys = s.keys || {};
+  return [
+    s.endpoint,
+    keys.p256dh === undefined ? null : keys.p256dh,
+    keys.auth === undefined ? null : keys.auth,
+    s.meta === undefined ? null : JSON.stringify(s.meta),
+    JSON.stringify(extra),
+  ];
+}
+
+async function writePushSubRow(sub) {
+  if (!db) return;
+  await db.query(
+    `INSERT INTO push_subscriptions (endpoint, p256dh, auth, meta, extra, updated_at)
+     VALUES ($1,$2,$3,$4,$5, now())
+     ON CONFLICT (endpoint) DO UPDATE SET
+       p256dh     = EXCLUDED.p256dh,
+       auth       = EXCLUDED.auth,
+       meta       = EXCLUDED.meta,
+       extra      = EXCLUDED.extra,
+       updated_at = now()`,
+    pushSubToRow(sub)
+  );
+}
+
+// Drop endpoints the push service has rejected as gone (404/410). They are
+// deleted from the TABLE, not just from the in-memory copy — under the old
+// whole-file persistence a missed save meant a dead endpoint came back on the
+// next boot and was retried forever.
+async function removePushSubs(endpoints) {
+  const list = (endpoints || []).filter(Boolean);
+  if (!list.length) return;
+  if (db) {
+    for (const endpoint of list) {
+      try { await db.query('DELETE FROM push_subscriptions WHERE endpoint = $1', [endpoint]); }
+      catch (e) { console.warn('removePushSubs error:', e.message); }
+    }
+  }
+  pushSubsStore = pushSubsStore.filter(s => !list.includes(s.endpoint));
+}
+
+// The pre-Postgres file, read once so the first boot after this change can seed
+// the table. It was only ever written to the GitHub repo, never to the deployed
+// disk, so GitHub is the real source — the disk is checked first anyway, and
+// PUSH_SUBS_LEGACY_FILE overrides the path (the tests use it, and so would a
+// re-seed from a backup). The expected result in production is NOTHING to seed:
+// the file was never created, because web push was never switched on.
+async function readLegacyPushSubs() {
+  const parse = (text) => {
+    const parsed = JSON.parse(text);
+    return Array.isArray(parsed && parsed.subs) ? parsed.subs.filter(s => s && s.endpoint) : [];
+  };
+  try {
+    const local = process.env.PUSH_SUBS_LEGACY_FILE || path.join(__dirname, PUSH_SUBS_FILE);
+    if (fs.existsSync(local)) {
+      const subs = parse(fs.readFileSync(local, 'utf8'));
+      if (subs.length) return subs;
+    }
+  } catch (e) { console.error('readLegacyPushSubs (disk) error:', e.message); }
+  if (!GITHUB_TOKEN) return [];
   try {
     const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${PUSH_SUBS_FILE}`, {
       headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
     });
-    if (!res.ok) return { subs: [], sha: null };
+    if (!res.ok) return []; // 404 is the expected case: the file never existed
     const data = await res.json();
-    const parsed = JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
-    return { subs: Array.isArray(parsed.subs) ? parsed.subs : [], sha: data.sha };
+    return parse(Buffer.from(data.content, 'base64').toString('utf8'));
   } catch (e) {
-    console.error('loadPushSubs error:', e.message);
-    return { subs: [], sha: null };
+    console.error('readLegacyPushSubs (github) error:', e.message);
+    return [];
   }
 }
 
-async function savePushSubs(subs, sha) {
-  const content = Buffer.from(JSON.stringify({ subs }, null, 2)).toString('base64');
-  const body = { message: 'Update push subscriptions', content };
-  if (sha) body.sha = sha;
-  return fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${PUSH_SUBS_FILE}`, {
-    method: 'PUT',
-    headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
+async function loadPushSubsStore() {
+  await dbReady; // the table has to exist before we read it
+  if (!db) {
+    // No DATABASE_URL (local dev / preview). Read-only: pushes still go out,
+    // but a subscribe or an expiry is not persisted anywhere.
+    const subs = await readLegacyPushSubs();
+    if (subs.length) console.warn(`DATABASE_URL not set — ${subs.length} push subscription(s) loaded READ-ONLY; changes will not persist`);
+    return subs;
+  }
+  try {
+    let { rows } = await db.query('SELECT * FROM push_subscriptions');
+    if (!rows.length) {
+      // One-time migration off the JSON file. Idempotent: once the table has a
+      // row this branch never runs again.
+      const legacy = await readLegacyPushSubs();
+      if (legacy.length) {
+        try {
+          for (const sub of legacy) await writePushSubRow(sub);
+        } catch (e) {
+          // Undo a partial seed. A half-filled table is the dangerous outcome:
+          // it is no longer empty, so the next boot skips this branch and the
+          // rest of the subscriptions are silently gone.
+          console.error('Push subscription migration failed, rolling back the partial seed:', e.message);
+          for (const sub of legacy) {
+            try { await db.query('DELETE FROM push_subscriptions WHERE endpoint = $1', [sub.endpoint]); } catch (_) {}
+          }
+          throw e;
+        }
+        ({ rows } = await db.query('SELECT * FROM push_subscriptions'));
+        console.log(`Push subscriptions migrated to Postgres: ${rows.length} row(s) from ${PUSH_SUBS_FILE}`);
+      }
+    }
+    return rows.map(pushRowToSub);
+  } catch (e) {
+    console.error('loadPushSubsStore error — starting with NO push subscriptions:', e.message);
+    return [];
+  }
+}
+
+const pushSubsReady = loadPushSubsStore().then((subs) => { pushSubsStore = subs; return subs; });
+
+// Current subscriptions, read straight from the table so a second Railway
+// instance's writes and anything stored since boot are both seen. Returns the
+// in-memory mirror when there is no database.
+async function loadPushSubs() {
+  await pushSubsReady;
+  if (!db) return pushSubsStore;
+  try {
+    const { rows } = await db.query('SELECT * FROM push_subscriptions');
+    pushSubsStore = rows.map(pushRowToSub);
+  } catch (e) { console.error('loadPushSubs error:', e.message); }
+  return pushSubsStore;
 }
 
 app.get('/api/push/public-key', (req, res) => {
@@ -1998,7 +2136,7 @@ app.get('/api/push/public-key', (req, res) => {
 // opt-ins { weigh, photo, mealPrep, workout }. A logged-in caller gets its
 // userId attached so the reminder sweep can look up their data.
 app.post('/api/push/subscribe', (req, res, next) => optionalAuth(req, res, next), async (req, res) => {
-  if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
+  if (!db) return res.status(503).json({ error: 'storage not configured' });
   const raw = req.body || {};
   const sub = raw.subscription || raw;
   if (!sub || !sub.endpoint) return res.status(400).json({ error: 'invalid subscription' });
@@ -2010,33 +2148,24 @@ app.post('/api/push/subscribe', (req, res, next) => optionalAuth(req, res, next)
     };
   }
   try {
-    for (let attempt = 0; attempt < 4; attempt++) {
-      const cur = await loadPushSubs();
-      const subs = cur.subs.filter(s => s.endpoint !== sub.endpoint); // dedupe by endpoint
-      subs.push(sub);
-      const putRes = await savePushSubs(subs, cur.sha);
-      if (putRes.ok) return res.json({ ok: true, count: subs.length });
-      if (putRes.status === 409 || putRes.status === 422) continue;
-      return res.status(502).json({ error: `github ${putRes.status}` });
-    }
-    return res.status(503).json({ error: 'write conflict, please retry' });
+    // One upsert keyed on the endpoint, so re-subscribing from the same browser
+    // updates its row instead of adding one. No read-modify-write, which is why
+    // the 4-attempt retry loop the whole-file GitHub PUT needed (sha races) is
+    // gone along with it.
+    await writePushSubRow(sub);
+    const subs = await loadPushSubs();
+    res.json({ ok: true, count: subs.length });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
 app.post('/api/push/unsubscribe', async (req, res) => {
-  if (!GITHUB_TOKEN) return res.status(503).json({ error: 'storage not configured' });
+  if (!db) return res.status(503).json({ error: 'storage not configured' });
   const { endpoint } = req.body || {};
   if (!endpoint) return res.status(400).json({ error: 'endpoint required' });
   try {
-    for (let attempt = 0; attempt < 4; attempt++) {
-      const cur = await loadPushSubs();
-      const subs = cur.subs.filter(s => s.endpoint !== endpoint);
-      const putRes = await savePushSubs(subs, cur.sha);
-      if (putRes.ok) return res.json({ ok: true, count: subs.length });
-      if (putRes.status === 409 || putRes.status === 422) continue;
-      return res.status(502).json({ error: `github ${putRes.status}` });
-    }
-    return res.status(503).json({ error: 'write conflict, please retry' });
+    await removePushSubs([endpoint]);
+    const subs = await loadPushSubs();
+    res.json({ ok: true, count: subs.length });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
@@ -2074,7 +2203,7 @@ app.post('/api/send-push', async (req, res) => {
   const wp = getWebPush();
   if (!wp) return res.status(503).json({ error: 'push not configured (set VAPID_PUBLIC_KEY / VAPID_PRIVATE_KEY)' });
   try {
-    const { subs, sha } = await loadPushSubs();
+    const subs = await loadPushSubs();
     if (!subs.length) return res.json({ ok: true, sent: 0, note: 'no subscriptions' });
     const summary = req.body && req.body.title ? req.body : await buildMorningSummary();
     const payload = JSON.stringify({ ...summary, url: '/dashboard' });
@@ -2085,10 +2214,7 @@ app.post('/api/send-push', async (req, res) => {
       try { await wp.sendNotification(s, payload); sent++; }
       catch (e) { if (e.statusCode === 404 || e.statusCode === 410) stale.push(s.endpoint); }
     }));
-    if (stale.length) {
-      const keep = subs.filter(s => !stale.includes(s.endpoint));
-      await savePushSubs(keep, sha).catch(() => {});
-    }
+    if (stale.length) await removePushSubs(stale).catch(() => {});
     res.json({ ok: true, sent, removed_stale: stale.length });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
@@ -2145,9 +2271,9 @@ async function pickReminder(userId, local) {
 }
 
 async function reminderSweep() {
-  if (!db || !getWebPush() || !GITHUB_TOKEN) return;
+  if (!db || !getWebPush()) return;
   try {
-    const { subs, sha } = await loadPushSubs();
+    const subs = await loadPushSubs();
     const wp = getWebPush();
     const stale = [];
     for (const s of subs) {
@@ -2177,10 +2303,7 @@ async function reminderSweep() {
         else console.warn('reminder send error:', e.message);
       }
     }
-    if (stale.length) {
-      const keep = subs.filter((s) => !stale.includes(s.endpoint));
-      await savePushSubs(keep, sha).catch(() => {});
-    }
+    if (stale.length) await removePushSubs(stale).catch(() => {});
     // Keep the dedupe set from growing unbounded.
     if (sentReminders.size > 5000) sentReminders.clear();
   } catch (e) { console.warn('reminderSweep error:', e.message); }
@@ -11084,6 +11207,8 @@ module.exports = {
   fulfillMembershipSession, buildMembershipCheckout, sessionHash,
   // Subscriber store internals, for scripts/subscribers/subscribers.test.js.
   loadSubscribersStore, persistSubscribersStore, subscribersReady,
+  // Push subscription store internals, for scripts/push/push-subs.test.js.
+  loadPushSubs, loadPushSubsStore, pushSubsReady, reminderSweep,
   getSubscribersStore: () => subscribersStore,
   setSubscribersStore: (s) => { subscribersStore = s; },
 };
