@@ -38,6 +38,13 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Video editing strategy — RESEARCH DELIVERED 2026-09-11, Dan picks what to run.** Private report "The Muhammad
+Standard" (https://claude.ai/code/artifact/0fac6195-accb-415b-99fa-70e3825d4906): every approval of our video work came
+where the design was fixed (verticals/Shorts cut from Muhammad's masters, the locked website recipe). Plan: room acoustic
+treatment → shadow-edit every Muhammad delivery + blind review page → Remotion "Muhammad kit" → one shared engine → hand
+over formats by blind test. Three starter prompts in the report; nothing executed. ⚠ It recommends folding VQC-B into
+the engine rather than firing it as written. Delete once Dan has chosen.
+
 **Zeeshan content batch video 1 (ab wheel workout only) — ROUND 1 DOC WRITTEN 2026-09-11, Dan forwards.** His
 "Video 3.mp4" is batch video 1 (his own file count). Round 1 is pasted at the TOP of "Zeeshan Video Revisions"
 (`13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`); Dan added framing / sets-mic / music items, and the music slot now
@@ -116,8 +123,8 @@ average). That is an over-delivery Google credits back if asked. (2) **Trial Sig
 the identical `fireAdConversion()` path recorded 8 Free Generation Started conversions last week. "Misconfigured" is
 Google's label for *no attributable conversions recently*: 4 of the 6 were native IAP (no ad click) and only one web
 checkout ever carried a real gclid. Add **Sign-ups** to both campaigns' goals the day a real ad-attributed trial lands.
-⚠ Also found, not fixed (out of scope): `handleIapRestore()` calls `handleMembershipComplete()`, so an iOS **restore**
-would fire a Trial Signup conversion. Harmless today (the app is not approved) — worth fixing before it is.
+✅ The iOS **restore** false-conversion is FIXED 2026-09-11 (`549946a`): a restore no longer fires Trial Signup,
+`membership_subscribed` or TikTok StartTrial. ⚠ Native retest: one sandbox "Restore purchases" on iOS.
 Channels used, and why: the one-off Ads Script ran the READ (`scripts/ads/oneoff/search-repair.js`, now disabled in the
 account, never scheduled); the writes went through the **ytads manual mutation queue** (36/44 first pass) and the **Ads
 UI** for the two the queue cannot do — campaign conversion goals need `{partialFailure:false}` and the bidding switch
@@ -272,13 +279,19 @@ not duplicates); recommend deleting once he confirms the current files are the o
 floor marks: Jeff marks spots at the first shoot; installer FILLS the stands' own sandbags — Dan bought sand 09-10).
 Stool = the Linon 29" barstool he already has. **Craigslist post: Dan posted it himself 09-10 — do NOT re-post.**
 **Duplicate VIVO TV floor stand: return CONFIRMED 09-10** (order 114-5180568-9257862, "Ordered too many", still boxed) —
-UPS drop-off only, $11.40 deducted from the refund, label emailed + in Your Orders; **Dan drops it at UPS by Oct 5.**
+$11.40 return shipping deducted from the refund. **UPS home pickup BOOKED 09-11 (Dan paid $16.15): Mon 09-14, 10 AM–7 PM,
+front door, request # 298404F1F6B, label 1ZY228K59022913823** — Dan prints the label, tapes it on the box, slip inside.
 Next: Dan picks an installer from the replies and shares the sheet link. After install: build
 the look-A telemetry loop file.
 
-**Paid ads** — Dan decides whether both Meta campaigns being toggled OFF was intentional
-(3 unpublished draft edits still pending). Launch specs are in the 8/31 artifact.
-(Google Ads billing is fine — a $500 threshold charge cleared 2026-09-09 on the Visa •7763.)
+**@danrosefit Meta ads — $50 review DONE 2026-09-11, two calls for Dan.** Private report:
+https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d. **$2.02/follow** since 09-08 (586 − 566 = +20 on
+$40.43, all-in incl. tests; 6.1 % of 329 visits followed) → under $3. **Dan: raise champion ad set `120250753601020682`
+$6.50 → $8.00/day?** (not raised). Two dead reel tests paused (macro estimates, lost-weight hour); image tests lead at
+$0.07/visit vs the champion's $0.10 — six tests judge 09-13. **Dan: confirm both [DAN] [ENGAGEMENT] campaigns stay OFF**
+($96.64 lifetime → 26 profile visits, vs 747 for $80.45 here); leave the 3 IG GEO drafts unpublished, never the global
+"Review and publish". The digest's "cost per video view" alarm was a false positive (image tests), fixed `f5feb67`.
+Next follower reading Fri 09-18 against the table in `Docs/AUTO_BOOST.md`. Delete once Dan has answered both.
 
 **Ads digest — BOTH PLATFORMS LIVE (Meta 09-02; Google 09-10 via `scripts/ads/api/client.js`, no developer
 token); Google half extended 2026-09-11.** `brief-ads.json` reads `platformsLive ["meta","google"]`, `blind []`. Google
@@ -346,15 +359,6 @@ hashed). Until then the two import-action EC warnings stay red by design. Drivin
 
 ---
 
-**IG profile-visits campaign — LIVE since 2026-09-02 ~18:00 CT.** Campaign `120250753198730682`,
-ad set `120250753601020682` (**$6.50/day ≈ $200/mo, Dan's call 2026-09-02**) and both ads on the real @danrosefit reels are ACTIVE; ads
-clear Meta review on their own. **Auto-boost is LIVE since 2026-09-08 21:00 UTC** (`AUTO_BOOST_ENABLED=1`; first Railway live run 21:17 UTC, idempotent): campaign
-renamed `[AUTO] …`, ad set renamed `CHAMPION`, six $5 tests running on the Sep 2–7 posts (end 09-13). The job judges tests on cost/visit;
-**follows are NOT readable from the API, so cost/follow is a manual weekly check against the baseline of 566 followers at $40.02 spend
-(2026-09-08)** — recipe in `Docs/AUTO_BOOST.md`. Kill >$5/follow, scale <$3/follow. Recipe: `scripts/ads/boost_danrosefit_posts.py`. ⚠ Never click the global
-"Review and publish (7)". This ad set is the first CHAMPION of the auto-boost system
-(`Handoffs/handoff-20260902-ig-auto-boost.md`). Delete this entry once the $50 review is done.
-
 **Meta API access — WORKING.** `META_ADS_TOKEN` (system user `abs-automation`, never expires:
 ads_management, ads_read, business_management, pages_show_list, pages_read_engagement,
 pages_manage_posts, instagram_basic) + `META_APP_SECRET` in `~/.absbyai-secrets.env`.
@@ -377,6 +381,8 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
+- **`Handoffs/handoff-20260911-ad5-vertical-revisions.md`** — Dan's round-1 revisions on the Ad 5 vertical (full-bleed
+  portrait after pictures + the "Real picture of me — not AI-generated" label). Fire next; Opus, high. **Not on the dashboard.**
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
 - **`Handoffs/handoff-20260812-purchase-before-account.md`** — after approval AND after the RevenueCat audit.
 - **`Handoffs/handoff-20260818-android-public-build-swap.md`** — small; needs Dan's Android phone on adb.
@@ -423,20 +429,55 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Demand Gen conversion campaign — LIVE: Dan enabled it in the Ads UI 2026-09-10 16:12 CT; policy review still running.** Campaign `24243839443`
-(`[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home`): $20/day, target CPA $30 on Free
-Generation Started only, 4 ad groups (Ad 1 / Ad 2 × /start / home), 10 ads (every finished version of each ad), one
-named Audience per ad (male + unknown, 25-54, the custom segments), US + Canada + English on each ad group. Full
-record + the Ads Scripts traps: `Docs/DGEN_CONVERSION_CAMPAIGN.md`; builder `scripts/ads/oneoff/build-video-campaign.js`.
-Dan's own headlines are on all 10 ads (his 09-10 screenshots); the one description Google disapproved as Clickbait was
-rewritten on the six Ad 1 ads (16:05 CT) and is in re-review. ⚠ Ad 1 read "Approved (limited) — Clickbait" until
-re-review clears; a limited ad never spends here. This campaign is OUTSIDE the ytads retry automation. The two
-rejected Zeeshan verticals (`rimBWjT9-oo`, `JOZVk4_HDwQ`) are not in it; Dan still removes them in Studio.
-Policy read by API 17:22 CT (`node scripts/ads/api/client.js policy 24243839443`): Clickbait is gone; 8 of 10 ads
-APPROVED; the two on **Zeeshan's 16:9 `1oEcwdp21Fg`** (824179684065, 824179684203) are APPROVED_LIMITED for
-"exaggerated or inaccurate claims"; Dan's new headlines + the rewritten description still in review. SERVING/LEARNING,
-$0 spent then. Google Ads API is LIVE (`Docs/GOOGLE_ADS_API.md`). Delete this entry once review settles and the two
-limited ads are resolved (retry rule: tamer thumbnail on `1oEcwdp21Fg`, then remove).
+**Muhammad Ad 7 r3 + Ad 10 r2 — APPENDED TO HIS DOC 2026-09-11, Dan reads and forwards.** Batch doc
+`1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`, read back byte-intact. Ad 7: Photoshop now Dan's face; 3 items + the new "Real
+picture of me" label. Ad 10: all 11 round-1 items done; 2 items + the label. Both: the app demos' before picture is the
+stranger from the recording (lesson 40). Audio fine on both. Md copies in `revision docs/*9-11-26.md`; work dir
+`/Volumes/Extreme/_edit_work/revisions-0911m/`. Delete once Dan has forwarded and the next cuts arrive.
+
+**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — IN PROGRESS (session started
+2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive `1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3` (265.2 s, 29.97);
+raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/` (a7 pipeline). Ad 4's vertical is a DIFFERENT
+session in `ad4-vert/` — do not touch either build dir. ⚠ **Muhammad's Ad 3 v6 HD is NOT the approved round-5 draft:**
+at 2:14.1–2:23.1 the "Because even though I was a personal trainer…" bullet lost "back in my 20s, as a 38 year old dad
+running a successful ad agency." (proof `ad3-vert/hdcheck/w4_hd_vs_draft.png`, sent to Dan 14:38). Do NOT file or upload
+it as final; Dan asks him to re-export. The vertical rebuilds that graphic with the full text, so it is unaffected.
+
+**Ad 5 "Every Diet You've Tried Failed" — 9:16 VERTICAL + 55 s CUTDOWN from MUHAMMAD's V3 HD — DELIVERED 2026-09-10, Dan
+APPROVED overall 09-11 ("excellent job… audio sounds good, cropping is good, all the graphics look good") with three
+revisions, HANDED OFF.** Files: `Muhammad Ad Videos/every diet you've tried failed for the same reason - ad 5/… | claude | 9x16 |
+ad 5.mp4` + `… | 9x16 59s | ad 5.mp4` (+ review copies, A/B audio, stamps, `notes-vertical.md`, `recipe-vertical/`). Audio is
+Muhammad's untouched (md5 = his). Fire `Handoffs/handoff-20260911-ad5-vertical-revisions.md` (Opus, high): every real after
+picture full-bleed portrait (replace the two landscape shots and the photo-panels pair), the new **"Real picture of me — not
+AI-generated"** label on every real after picture. **The label is now a standing rule** in `AGENTS.md` and every video skill
+(Dan, 09-11). Build dir `/Volumes/Extreme/_edit_work/ad5-vert/`. Delete this entry when the revised files are re-delivered.
+
+**sixpackabs.com video-first redesign — BUILT + VERIFIED LOCALLY, blocked on Dan: SSH credentials + a staging site.**
+Feed endpoints LIVE on absbyai.com (`/api/sixpackabs/channel.json` + `instagram.json`, public videos only; `7dee0bb` fixed a
+YouTube paging drift that had dropped a public video). Theme committed (`cfa4ad7`, `sixpackabs/theme/sixpackabs-child/`):
+matches #2a/#2b line for line in a local Playground with real data, self-test 30/30. **Next action:** once `SPA_SSH_*` /
+`SPA_STAGING_SSH_*` are in `~/.absbyai-secrets.env` (none as of 09-11 12:30 CT; no WP.com staging site yet) run
+`sixpackabs/deploy.sh check staging` → `deploy.sh staging` →
+`sixpackabs/url-check.sh <staging-url>` (prod baseline 219/219 = 200), then send Dan the staging link. **Production
+theme untouched until Dan says go.** Recipe + traps: `sixpackabs/README.md`.
+
+**Demand Gen conversion campaign `24243839443` — LIVE, 6 ad groups (Ad 1 / Ad 2 / Ad 5 × /start / home), $20/day
+unchanged, target CPA $30 on Free Generation Started.** First ~18 h (to 09-11 10:00 CT): $20.14, 17 clicks, **0
+conversions**, still LEARNING; PostHog shows ~18 visitors landed and none uploaded a photo. **09-11: retry-rule attempt 2
+applied** — the limited Zeeshan `1oEcwdp21Fg` ads 824179684065/824179684203 PAUSED, tamer-copy r2 ads 824329225648 /
+824329225651 in review. **Ad 5 added** on an UNLISTED ad copy `Yo-6TQik3qY` (thumbnail B2): ad groups 200151423317
+/start + 200151529597 home, in review. Next: re-run `node scripts/ads/api/client.js policy 24243839443` ~09-12; if r2 is
+limited again, attempt 3 = clean text-free thumbnail on `1oEcwdp21Fg`, then remove the chain. Add Zeeshan's Ad 1
+verticals / Claude's Ad 5 verticals only after Dan approves them; Ads 3/4 when Muhammad's HD lands. Record:
+`Docs/DGEN_CONVERSION_CAMPAIGN.md`. ⚠ Remarketing campaign 24169507109 spends ~$2.50/day with 0 clicks, 0 conversions
+ever ($48.75+ lifetime) — Dan's call whether to pause. Delete this entry once review settles on r2 + Ad 5.
+
+**Ads 3 + 4 — UPLOADED + IN THE DGEN CAMPAIGN 2026-09-11 (new skill `/ad-setup`), Google reviewing.** Muhammad's HD
+finals unlisted: Ad 3 `QWW1oumpNg4`, Ad 4 `R08TPEtkjuQ` (descriptions + chapters, clean thumbnails, O1/O2 alternates in
+the thumbnail folders). Ad groups Ad 3 199782847163 /start + 199360345839 home, Ad 4 202812319169 /start + 203842477407
+home, $30 each; ids in `Docs/DGEN_CONVERSION_CAMPAIGN.md`. Next: `client.js policy 24243839443` ~09-12; a flagged line →
+rewrite only that line. ⚠ Ad 5's *Why My Diets Kept Failing* headline is DISAPPROVED (CLICKBAIT) — for the Ad 5 owner
+above. Dashboard row "Add the new finished ads…" left open only for Zeeshan's Ad 1 verticals. Delete once review settles.
 
 **Ad 1 "this picture got me abs" — 9:16 verticals from ZEESHAN's final — RE-DELIVERED 2026-09-10 WITH HIS AUDIO UNTOUCHED,
 Dan reviews.** He rejected the second delivery's audio ("Zishan's audio sounds much better… Use Zishan's audio") — it had
