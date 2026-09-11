@@ -230,6 +230,86 @@
       "size": 79399678,
       "delivered_on": "2026-09-09",
       "why": "draft size; Ad 14 round 1 revisions 2026-09-09"
+    },
+    {
+      "drive_id": "1uySIxi5xjboDi8Dre6-kLtzEOslqQ6-O",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 3 V5.mp4",
+      "size": 32881260,
+      "delivered_on": "2026-09-10",
+      "why": "33 MB review cut. Dan APPROVED it in round 5 (09-10: 'Send the 1080p export and it is final'). The HD export is owed and not delivered yet (Muhammad 09-11 01:46Z: 'Alright got it.'). File the HD when it lands."
+    },
+    {
+      "drive_id": "1yMrwUbJNVDT1o8kRb7OACVJhfG44qBpP",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 4 V3.mp4",
+      "size": 29579632,
+      "delivered_on": "2026-09-10",
+      "why": "30 MB review cut. Dan APPROVED it in round 3 (09-10: 'Send the 1080p export of this exact cut'). HD owed, not delivered yet. File the HD when it lands."
+    },
+    {
+      "drive_id": "1QfFatHM7_f6WEUzuYwRf0bFRmwcFvXnR",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 13 V2.mp4",
+      "size": 30390831,
+      "delivered_on": "2026-09-10",
+      "why": "draft size; Ad 13 round 2 revisions 2026-09-10"
+    },
+    {
+      "drive_id": "1ZXhKEFEK500d1pqlboQVRGaCaycEN8Od",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 9 v2.mp4",
+      "size": 24162803,
+      "delivered_on": "2026-09-10",
+      "why": "draft size; Ad 9 round 2 revisions 2026-09-10"
+    },
+    {
+      "drive_id": "1lQMNQ0LR8YpnstyDWUIZZvB8jHSL00vp",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 8 V2.mp4",
+      "size": 26170836,
+      "delivered_on": "2026-09-09",
+      "why": "draft size; Ad 8 round 2 revisions 2026-09-10"
+    },
+    {
+      "drive_id": "1iGNMkhAd5Pp_-SuiLYwnmrDKjRRx387S",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 15.mp4",
+      "size": 25719141,
+      "delivered_on": "2026-09-09",
+      "why": "draft size; Ad 15 round 1 revisions 2026-09-10"
+    },
+    {
+      "drive_id": "1gFRPDZviN3-p7Revup51LrOW2YqYtq81",
+      "editor": "Waleed",
+      "file": "Test Video 1 Final Audio.mp4",
+      "size": 336639610,
+      "delivered_on": "2026-09-02",
+      "why": "superseded: Waleed round-3 revisions 2026-09-08. Recorded so owner queries without a date filter do not re-flag it."
+    },
+    {
+      "drive_id": "1iezCU6YHY3TSIExmtR4I4Ty30NJe6Fnz",
+      "editor": "Waleed",
+      "file": "Test Video 1 Revision.mp4",
+      "size": 344996790,
+      "delivered_on": "2026-08-28",
+      "why": "superseded by rounds 2-3 (08-30, 09-08)"
+    },
+    {
+      "drive_id": "1sdFuT_aS9D47WAE6xCRtkeZ1PpZqN31w",
+      "editor": "Waleed",
+      "file": "Test Video 1 (1).mp4",
+      "size": 344999804,
+      "delivered_on": "2026-08-27",
+      "why": "superseded by rounds 2-3"
+    },
+    {
+      "drive_id": "1ZWv5t3rNitubDUDaSKcrn5SqVJCEX2ip",
+      "editor": "Waleed",
+      "file": "Test Video 1.mp4",
+      "size": 345003623,
+      "delivered_on": "2026-08-24",
+      "why": "round-1 cut; superseded"
     }
   ],
   "pending": [],
@@ -237,5 +317,9 @@
     "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
     "Romaisa R. (room_3a0dd1a1…) — not an editor on the job: an applicant following up ('I hope you've found a good editor… available to work'). Same for Abdul W. (room_549d5bcc…, proposal) and Gbadamosi I. (room_3f398d8b…, 'How are you?'). None delivered anything."
   ],
-  "last_run": "2026-09-10"
+  "last_run": "2026-09-11",
+  "watch": [
+    "Muhammad owes the 1080p HD exports of Ad 3 (stop paying trainers) and Ad 4 (stop wasting money on supplements). Both were approved 09-10 and he acknowledged 09-11 01:46Z. File each one when it lands, as ad 3 / ad 4 under 'Muhammad Ad Videos/'.",
+    "Zeeshan started the 5-video content batch 09-10 14:27Z ($30/video agreed) and said the first cut would come 'in less then 24 hours'. It may land in a NEW shared folder that folder_scan.py does not know. Resolve his link, add the folder to shared_folders, then set folder_scan_expected. A first cut is a draft, not a final."
+  ]
 }
