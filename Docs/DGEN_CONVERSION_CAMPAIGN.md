@@ -78,6 +78,28 @@ Got Me Abs* plus *Why My Diets Kept Failing · AI Meal Plans Built Around Your F
 Not added: Claude's Ad 5 verticals and Zeeshan's Ad 1 verticals (both still awaiting Dan's approval), Ads 3/4 (no HD
 final in `Muhammad Ad Videos/` yet). Budget unchanged at $20/day.
 
+## 2026-09-11 afternoon — Ads 3 + 4 added (first run of `/ad-setup`)
+
+Muhammad's HD finals (Ad 3 v6, Ad 4 V4; both approved 09-10) uploaded UNLISTED and built by the new reusable
+builder `scripts/ads/api/dgen-add-ad.js` (configs + read-backs in `scripts/ads/api/dgen-ads/`), 14 atomic ops each,
+Google dry run first. Every new ad group carries a **$30 ad-group target CPA**, matching what Dan set on all six
+existing groups in the web UI at 13:36 CT today.
+
+| ad | video (asset) | audience | ad group → ad |
+|---|---|---|---|
+| Ad 3 Stop Paying Human Trainers | `QWW1oumpNg4` | Ad 3 … AI fitness + competitor apps + get abs belly fat | /start **199782847163** → **824427749693**; home **199360345839** → **824344861381** |
+| Ad 4 Stop Wasting Money On Supplements | `R08TPEtkjuQ` | Ad 4 … same segments | /start **202812319169** → **824427753506**; home **203842477407** → **824427753800** |
+
+`utm_campaign=dgen-conv-ad3|ad4`. Copy: Dan's *How I Got Abs At 40 · How AI Got Me Abs* on both; Ad 3 adds his
+*Fire Your Personal Trainer* + two plain lines; Ad 4 is all his own supplements copy (*How AI Fixed My Supplements ·
+Audit Supplements With AI · The Truth About Supplements* and his long headline / description) + plain lines. Budget
+unchanged at $20/day, now shared by 10 ad groups.
+
+⚠ **Ad 5 policy, read 09-11 afternoon:** its headline *Why My Diets Kept Failing* is **DISAPPROVED — CLICKBAIT** on
+both ads, and the video asset `Yo-6TQik3qY` is APPROVED_LIMITED (exaggerated claims). Dan's rule is to rewrite only
+the flagged line; left to the session that owns Ad 5 (ACTIVE TASK entry). The "Why My X Kept Failing" shape is now
+refused by `dgen-add-ad.js`.
+
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and
 off at 15:49). Ad groups and ads were already ENABLED. The API client refuses to enable a campaign itself unless

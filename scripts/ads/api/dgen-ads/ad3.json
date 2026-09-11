@@ -1,0 +1,30 @@
+{
+  "adNumber": 3,
+  "label": "Ad 3 Stop Paying Human Trainers",
+  "videos": [
+    { "youtubeId": "QWW1oumpNg4", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "Fire Your Personal Trainer",
+      "How AI Replaces Personal Trainers",
+      "An AI Trainer At Every Workout",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Here's why I stopped paying a personal trainer and use an AI trainer instead.",
+      "AI builds a workout plan around your goal, your injuries and your equipment. Here's how.",
+      "Daniel Rose explains what a personal trainer costs and what AI does for him instead."
+    ],
+    "descriptions": [
+      "Daniel Rose shows how an AI trainer builds his plan and adjusts it at every workout.",
+      "Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job.",
+      "AI workout planning and exercise videos, explained by a guy who did it at 40 years old."
+    ]
+  }
+}

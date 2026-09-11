@@ -14,6 +14,8 @@ goal images of Dan). Every video was read back after upload: processed, HD, embe
 | Ad 1 This Picture Got Me Abs | Zeeshan (4K master) | 16:9 | 4:10 | https://youtu.be/1oEcwdp21Fg | editor final | O1 dark studio (set + read back 09-10) |
 | Ad 1 This Picture Got Me Abs | Claude vertical of Muhammad's | 9:16 | 3:53 | https://youtu.be/Iz0u8KHRbyE | yes (09-10) | O1 dark studio (set + read back 09-10) |
 | Ad 5 Every Diet You've Tried Failed For The Same Reason | Muhammad V3 HD | 16:9 | 3:55 | https://youtu.be/bwfSQopZy1w | editor final (09-10) — **SCHEDULED PUBLIC Wed 2026-09-16 9 AM CT** (Dan's ask: YouTube + every Blotato platform), private until then; UTM link to the absbyai.com root | `ad5-muhammad-16x9-bwfSQopZy1w_B2-light-backdrop-studio-white-23-FINAL.jpg` — clean look, **Dan's pick 09-10** (set + read back 09-10) |
+| Ad 3 Stop Paying Human Trainers | Muhammad v6 HD | 16:9 | 4:25 | https://youtu.be/QWW1oumpNg4 | yes (09-10, round 5) — in the DGen conversion campaign since 09-11 (`/ad-setup`) | `ad3-muhammad-16x9_O1-dark-studio-studio-gray-87-FINAL.jpg` (set + read back 09-11; O2 light alternate beside it) |
+| Ad 4 Stop Wasting Money On Supplements | Muhammad V4 HD | 16:9 | 3:59 | https://youtu.be/R08TPEtkjuQ | yes (09-10, round 3) — in the DGen conversion campaign since 09-11 (`/ad-setup`) | `ad4-muhammad-16x9_O2-light-backdrop-studio-white-57-FINAL.jpg` (set + read back 09-11; O1 dark alternate beside it) |
 | ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's | 9:16 | 4:10 | ~~https://youtu.be/rimBWjT9-oo~~ | **REJECTED 09-10 — do not use** | — |
 | ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's, cutdown | 9:16 | 0:56 | ~~https://youtu.be/JOZVk4_HDwQ~~ | **REJECTED 09-10 — do not use** | — |
 

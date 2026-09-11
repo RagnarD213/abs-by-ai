@@ -7,7 +7,7 @@
         "sharkimageryproduction@gmail.com"
       ],
       "upwork_room": "room_49041dfecc20c11fb2d7b9b0b8aac744",
-      "shares_by": "individual files (each gets sharedWithMeTime) — Drive search finds these"
+      "shares_by": "individual files (each gets sharedWithMeTime) \u2014 Drive search finds these"
     },
     "Zeeshan": {
       "upwork_name": "Zeeshan Haider",
@@ -25,7 +25,7 @@
           "title": "video 2"
         }
       ],
-      "shares_by": "folder — files inside are INVISIBLE to every Drive query until opened; list the folders in the browser every run",
+      "shares_by": "folder \u2014 files inside are INVISIBLE to every Drive query until opened; list the folders in the browser every run",
       "folder_scan_expected": 6
     },
     "Waleed": {
@@ -34,7 +34,7 @@
         "info.taimoormirzaa@gmail.com"
       ],
       "upwork_room": "room_6238c4790346683db7c5ddf3f3d48122",
-      "shares_by": "individual files (each gets sharedWithMeTime) — Drive search finds these"
+      "shares_by": "individual files (each gets sharedWithMeTime) \u2014 Drive search finds these"
     }
   },
   "filed": [
@@ -108,6 +108,26 @@
       "path": "Muhammad Ad Videos/every diet you've tried failed for the same reason - ad 5/every diet you've tried failed for the same reason | muhammad | 16x9 | ad 5.mp4",
       "size": 310935286,
       "filed_on": "2026-09-10"
+    },
+    {
+      "drive_id": "14on08ZTz2bXPJtwp8_fAENrtEGASo0bg",
+      "editor": "Muhammad",
+      "title": "stop wasting money on supplements",
+      "kind": "ad",
+      "number": 4,
+      "path": "Muhammad Ad Videos/stop wasting money on supplements - ad 4/stop wasting money on supplements | muhammad | 16x9 | ad 4.mp4",
+      "size": 321084473,
+      "filed_on": "2026-09-11"
+    },
+    {
+      "drive_id": "1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3",
+      "editor": "Muhammad",
+      "title": "stop paying human trainers",
+      "kind": "ad",
+      "number": 3,
+      "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | muhammad | 16x9 | ad 3.mp4",
+      "size": 358548186,
+      "filed_on": "2026-09-11"
     }
   ],
   "not_final_seen": [
@@ -115,7 +135,7 @@
       "drive_id": "1o96syme-vP549sjtgfdtezvFXtwz-_n2",
       "editor": "Zeeshan",
       "file": "Test Video 2 Revision 2.mp4",
-      "why": "$17 ab wheel round 3 — 8 revision items open 2026-09-08 (superseded by Rev 3, filed 09-10)"
+      "why": "$17 ab wheel round 3 \u2014 8 revision items open 2026-09-08 (superseded by Rev 3, filed 09-10)"
     },
     {
       "drive_id": "1YtpMv-U9sSMbHqEEiUsDKDS82S51xldz",
@@ -131,7 +151,7 @@
       "file": "Video  2.mov (double space)",
       "size": 770091180,
       "delivered_on": "2026-08-27",
-      "why": "NOT a new delivery — 770,091,180 B near-duplicate of video-2.mov (770,091,169 B), same Aug 27 round-1 ab-wheel cut re-uploaded. Recorded so folder_scan.py does not re-flag it every run."
+      "why": "NOT a new delivery \u2014 770,091,180 B near-duplicate of video-2.mov (770,091,169 B), same Aug 27 round-1 ab-wheel cut re-uploaded. Recorded so folder_scan.py does not re-flag it every run."
     },
     {
       "drive_id": "1KqmGfSPQkXRiXdvPkt9c419KMlmvz6YW",
@@ -317,17 +337,16 @@
       "file": "Video 3.mp4",
       "size": 276692587,
       "delivered_on": "2026-09-11",
-      "why": "content batch VIDEO 1 (ab wheel workout only) round-1 cut — 'Video 3' is his own running count, his message says 'the first video'. Round-1 revisions written 2026-09-11 at the top of 'Zeeshan Video Revisions'. Shared as a single file (has sharedWithMeTime), not in a folder."
+      "why": "content batch VIDEO 1 (ab wheel workout only) round-1 cut \u2014 'Video 3' is his own running count, his message says 'the first video'. Round-1 revisions written 2026-09-11 at the top of 'Zeeshan Video Revisions'. Shared as a single file (has sharedWithMeTime), not in a folder."
     }
   ],
   "pending": [],
   "resolved_2026-09-10": [
-    "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
-    "Romaisa R. (room_3a0dd1a1…) — not an editor on the job: an applicant following up ('I hope you've found a good editor… available to work'). Same for Abdul W. (room_549d5bcc…, proposal) and Gbadamosi I. (room_3f398d8b…, 'How are you?'). None delivered anything."
+    "Zeeshan 'thread unread' \u2014 room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
+    "Romaisa R. (room_3a0dd1a1\u2026) \u2014 not an editor on the job: an applicant following up ('I hope you've found a good editor\u2026 available to work'). Same for Abdul W. (room_549d5bcc\u2026, proposal) and Gbadamosi I. (room_3f398d8b\u2026, 'How are you?'). None delivered anything."
   ],
   "last_run": "2026-09-11",
   "watch": [
-    "Muhammad owes the 1080p HD exports of Ad 3 (stop paying trainers) and Ad 4 (stop wasting money on supplements). Both were approved 09-10 and he acknowledged 09-11 01:46Z. File each one when it lands, as ad 3 / ad 4 under 'Muhammad Ad Videos/'.",
-    "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder — so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final."
+    "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder \u2014 so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final."
   ]
 }
