@@ -1,6 +1,5 @@
 {
   "checked": [
-    "money::Build the 0:59 vertical Ad 1 from Dan's edited script",
     "money::Review the Ad 1 vertical (9:16) audio rebuild — approve or reject"
   ],
   "log": {
@@ -219,7 +218,6 @@
     ]
   },
   "checkedAt": {
-    "money::Build the 0:59 vertical Ad 1 from Dan's edited script": "2026-09-08",
     "money::Review the Ad 1 vertical (9:16) audio rebuild — approve or reject": "2026-09-10"
   }
 }
