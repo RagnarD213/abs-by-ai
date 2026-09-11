@@ -318,6 +318,16 @@
       "welcomeNextAt": "2026-09-11T03:34:59.125Z",
       "welcomeSentAt": {},
       "unsubscribed": false
+    },
+    "shanedaniel.1987@aol.com": {
+      "subscribedAt": "2026-09-11T03:38:53.848Z",
+      "deviceId": "",
+      "synced": false,
+      "source": "sixpackabs",
+      "welcomeStep": 0,
+      "welcomeNextAt": "2026-09-11T03:38:53.849Z",
+      "welcomeSentAt": {},
+      "unsubscribed": false
     }
   }
 }
