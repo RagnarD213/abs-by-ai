@@ -59,12 +59,15 @@ list (`subscribers-data.json`, 28 entries / 23 real addresses) was persisted to 
 (his call 2026-09-11 — Settings → General → Danger Zone; no API tool for it). That is what removes the addresses,
 which are still readable in git history, and it also covers `monarch-data.json` (his net worth + 61 points of
 net-worth history), `credits-data.json` (live Stripe session ids), `watch-data.json` (his resting HR) — full audit in
-`Docs/SUBSCRIBER_STORE.md`. **(2) DAN, 15 seconds: `curl -s -H "X-Dash-Key: $DASH_SECRET"
-https://absbyai.com/api/subscribers/status`** — this container has no secrets file, so Claude cannot run it. Expect
-`dbRows` 28, `mailable` 21, digest `1f0cb629799fa9f75573111eec22374a3c6f5b0829d5bf2c0df0c1d7d3cbb404`. On that
-confirmation, deploy 2 deletes the file from main (branch `claude/nifty-dirac-5mu8si` is merged; the removal commit is
-NOT yet written). Measured, so nobody panics: an empty seed emails NO ONE — the sweep iterates the store. ⚠ Armed but
-not fired: `push-subs.json` gets created in the repo the moment anyone subscribes to web push. No dashboard row.
+`Docs/SUBSCRIBER_STORE.md`. **(2) VERIFY, then merge deploy 2 — `curl -s -H "X-Dash-Key: $DASH_SECRET"
+https://absbyai.com/api/subscribers/status`.** ⚠ **The web/remote session could NOT run this: its network policy 403s
+absbyai.com on CONNECT, so no live verification of deploy 1 was possible from there** — run it from the Mac. Expect
+`dbRows` 28, `inMemory` 28, `mailable` 21, `byStep {"0":1,"1":5,"3":4,"4":2,"5":16}`, digest
+`1f0cb629799fa9f75573111eec22374a3c6f5b0829d5bf2c0df0c1d7d3cbb404`. **Deploy 2 is WRITTEN AND PUSHED but deliberately
+NOT merged** — `claude/nifty-dirac-5mu8si` commit `c08938b` deletes the file + gitignores it; merge it once that curl
+is right. Measured, so nobody panics: if the table were empty the sweep emails NO ONE (it iterates the store), and
+reverting `c08938b` restores the file and re-seeds. ⚠ Armed but not fired: `push-subs.json` gets created in the repo
+the moment anyone subscribes to web push. No dashboard row.
 
 **studio-blue-89 social variations — DELIVERED 2026-09-10, Dan picks.** Black / white / crimson backgrounds (full +
 4:5, original pixels through the existing cutout) and two Muay Thai gym versions (Thai camp, modern gym — AI room, his
