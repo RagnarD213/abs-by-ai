@@ -1,5 +1,10 @@
 # VQC-B — Phase 1 + Phase 2: one shared delivery gate, and the watch pass everywhere
 
+> ⛔ **SUPERSEDED 2026-09-11 by `Handoffs/handoff-20260911-video-quality-engine.md`** — Dan asked for one document instead of four.
+> Everything executable here is carried into that document in full. **Do not fire this one.**
+> Kept on disk as source material only.
+
+
 **Part 2 of 4 of the video-quality programme.** Evidence and the full plan:
 `Handoffs/handoff-20260909-video-quality-to-muhammad-standard.md`.
 **Updated 2026-09-09 after VQC-A ran** — the inventory below is re-measured, not inherited.

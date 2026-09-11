@@ -433,20 +433,21 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   four interest/site/app) + a `website | member hub | 540 day` exclusion list for the new Demand Gen app campaign;
   Dan's top three are #2 AI abs preview tool, #5 competitor apps, #9 get abs / belly fat. Fire once Dan says which
   to build (default all ten); Fable 5.1, high. **Not on the dashboard** (he has not asked).
-- **`Handoffs/handoff-20260909-video-quality-to-muhammad-standard.md`** — Dan, 2026-09-09: our cuts are "far
-  below the quality the human editors have made" (audio, framing, jump cuts, junk footage) and he will not ship
-  them. Audited: **33 QC scripts, one shared**; `_shared/` has no picture/framing/cut/caption module at all; the
-  style gate reaches 1 of 6 skills; the watch pass is mandatory in 1 of 6 (`/shorts` mentions it zero times); four
-  scripts SKILL.mds call **do not exist**; `--no-stamp`/`--synthetic`/`AUDIO_UNGATED` bypasses are live and one
-  skill instructs one. The measured gap to Muhammad: **he cuts picture 1–15 frames off the audio splice on a
-  pose-matched frame** (`piccuts.py`, already built for Ad 2 and never promoted), and our talk ran at one fixed
-  crop. **Split into four executable handoffs 2026-09-09. ✅ VQC-A (Phase 0 + 3) IS DONE AND PUSHED —
-  every bypass closed, `_shared/qc_corpus/` built and green, standing rule in `AGENTS.md`. B, C and D
-  are unrun; **B is refreshed against what A found (2026-09-09) and is the next one to fire**:
-  `…-vqc-B-phase1-2-shared-gate-and-watch.md`, `…-vqc-C-phase4-cut-technique.md`,
-  `…-vqc-D-phase5-6-framing-and-junk.md`; B and C can run in parallel now.** The corpus names
-  **14 checks nothing implements** — that list is the build queue, and B covers the most of it.
-  Baseline: `Docs/VQC_baseline_20260909.md`. **Not on the dashboard** (his 09-08 rule).
+- **`Handoffs/handoff-20260911-video-quality-engine.md`** — **the video-quality work as ONE document**
+  (Dan, 2026-09-11: he had four and fired none). Merges VQC-B + VQC-D Phase 5 in full, in build order:
+  (1) `_shared/deliver/gate.py`, one version-stamped gate replacing **17 forks / 3,083 lines**; (2) **portable
+  framing moved FORWARD into that gate** — it was LAST in the old order, yet framing is **4 of the 11 rejections**
+  in the corpus and today's hair check only runs on the 8/28 kitchen set; (3) watch pass mandatory in all six
+  skills (hard gate in 1 today, `/shorts` mentions it zero times); (4) a locked kit for ONE format, proven by a
+  **blind A/B in front of Dan** using matched pairs already on the Extreme drive. Measured basis: our 11 rejections
+  are **5 audio + 4 framing**, and they repeat because `_shared/` has **no picture/framing/cut/caption module at
+  all** — a fix lands in 1 of 6 pipelines. Acceptance test throughout: `_shared/qc_corpus/run.py` green.
+  Fable 5.1 high, ~3–4 sessions. ✅ VQC-A done (`a696ac4`). Evidence: `…-video-quality-to-muhammad-standard.md`;
+  baseline `Docs/VQC_baseline_20260909.md`. **Not on the dashboard** (his 09-08 rule).
+- **Still open from the old split:** `…-vqc-C-phase4-cut-technique.md` (pose-matched picture cuts off the audio
+  splice — `piccuts.py`, built for Ad 2 and never promoted; push coverage, 0 px landing, grade) and **Phase 6 only**
+  of `…-vqc-D-phase5-6-framing-and-junk.md` (the six junk-footage detectors run as one report + take selection).
+  Both can run after the engine doc. VQC-B is fully superseded. **Not on the dashboard.**
 
 Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md` (superseded — the @danrosefit profile-visits
 campaign has been live via the API script since 09-02), `handoff-20260902-shorts-centering-queue-fix.md` (done

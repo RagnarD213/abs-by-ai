@@ -1,5 +1,11 @@
 # VQC-D — Phase 5 + Phase 6: portable framing, and the junk-footage tools wired together
 
+> ⚠ **PARTLY SUPERSEDED 2026-09-11 by `Handoffs/handoff-20260911-video-quality-engine.md`.**
+> **Phase 5 (portable framing) is carried into that document in full — do not run Phase 5 from here.**
+> **Phase 6 (the junk-footage tools) is NOT carried over and is still open**, except its visual-junk
+> checklist items, which moved into that document's watch pass. Fire this doc for Phase 6 only.
+
+
 **Part 4 of 4 of the video-quality programme.** Evidence and the full plan:
 `Handoffs/handoff-20260909-video-quality-to-muhammad-standard.md`.
 
