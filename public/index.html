@@ -3518,7 +3518,7 @@ async function handleIapRestore() {
     await refreshMembership();
     if (memberState.active) {
       if (window.posthog) posthog.capture('iap_restore_succeeded');
-      await handleMembershipComplete(null);
+      await handleMembershipComplete(null, { restore: true });
     } else {
       iapShowError('No previous purchase found on this Apple ID.');
       if (window.posthog) posthog.capture('iap_restore_empty');
@@ -8554,16 +8554,20 @@ async function handleMembershipSubscribe() {
   }
 }
 
-async function handleMembershipComplete(sessionId) {
+async function handleMembershipComplete(sessionId, opts = {}) {
   try {
     if (sessionId) {
       await fetch(`${BACKEND_URL}/api/stripe/session-status?session_id=${encodeURIComponent(sessionId)}`).catch(() => {});
     }
   } catch (e) {}
   closeCreditsCheckout();
-  if (window.posthog) posthog.capture('membership_subscribed', { plan: selectedPlan });
-  fireAdConversion('AqLTCMnl4dkcEJvEqLNE', { value: 20, currency: 'USD' }); // ~1 month of membership revenue
-  fireTikTokEvent('StartTrial', { value: 20, currency: 'USD' });
+  // A restore hands back a membership the user already bought — it is not a
+  // new trial, so it must not count as one in PostHog or the ad platforms.
+  if (!opts.restore) {
+    if (window.posthog) posthog.capture('membership_subscribed', { plan: selectedPlan });
+    fireAdConversion('AqLTCMnl4dkcEJvEqLNE', { value: 20, currency: 'USD' }); // ~1 month of membership revenue
+    fireTikTokEvent('StartTrial', { value: 20, currency: 'USD' });
+  }
   await refreshMembership();
   loadCredits(); // converted credits were zeroed
   fireConfetti();
