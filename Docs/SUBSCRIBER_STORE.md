@@ -81,10 +81,18 @@ fallback. Both sources are the file itself.
 2. **Deploy 2 — delete `subscribers-data.json` from the tip of `main`.** By now the table is
    populated, so the legacy read is never consulted again.
 
-**Landing both in one deploy loses the list**: the container would have the new code, no file
-on disk, and a 404 from GitHub, so it would seed from nothing — every subscriber's welcome
-progress reset to step 0 and 21 people re-sent the five-email sequence. The data would still
-be recoverable from git history, but the emails would already have gone out.
+**Landing both in one deploy loses the app's copy of the list**: the container would have the
+new code, no file on disk, and a 404 from GitHub, so it would seed from nothing.
+
+Measured, not assumed — booted with an empty table and no legacy file, the store loads 0
+subscribers and the welcome sweep sends **zero** emails. It iterates the store, so an empty
+store is silent. Nobody is re-mailed; the failure is quiet, not loud, which is its own hazard.
+Recovery is to re-seed from any copy of the file (git history has every version) via
+`SUBSCRIBERS_LEGACY_FILE` with the table empty.
+
+So the two-deploy order is cheap insurance rather than a disaster preventer — but it costs
+nothing and it is the difference between a verified migration and a hoped-for one, so do it in
+order anyway.
 
 Deleting the file from the tip does **not** remove it from git history. Whether to purge the
 history (needs a force-push) or make the repo private is Dan's call — see the audit below.
