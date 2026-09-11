@@ -1,36 +1,81 @@
 {
-  "generatedAt": "2026-09-10T11:06:32.011Z",
-  "day": "2026-09-09",
+  "generatedAt": "2026-09-11T11:06:47.540Z",
+  "day": "2026-09-10",
   "window": {
-    "from": "2026-09-02",
-    "to": "2026-09-09",
+    "from": "2026-09-03",
+    "to": "2026-09-10",
     "baselineDays": 7
   },
-  "blind": [
-    {
-      "platform": "google",
-      "reason": "No Google Ads developer token — API access was never set up (handoff Phase 1 unexecuted).",
-      "setup": "Apply for a developer token in MCC 324-458-6445 → Tools → API Center, then set GOOGLE_ADS_DEVELOPER_TOKEN."
-    }
-  ],
+  "blind": [],
   "totals": {
-    "spendYesterday": 16.32,
-    "spend7dMean": 6.34,
-    "deltaPct": 1.57,
+    "spendYesterday": 46.64,
+    "spend7dMean": 70.41,
+    "deltaPct": -0.34,
     "platformsLive": [
-      "meta"
+      "meta",
+      "google"
     ]
   },
   "anomalies": [
+    {
+      "severity": "high",
+      "platform": "google",
+      "scope": "campaign",
+      "kind": "zero_results",
+      "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
+      "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $33.44 for zero conversions",
+      "detail": "Across the last 8 days.",
+      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
+    },
+    {
+      "severity": "high",
+      "platform": "google",
+      "scope": "campaign",
+      "kind": "spend_stopped",
+      "name": "Brand - Search - US",
+      "headline": "Brand - Search - US stopped spending",
+      "detail": "$0.00 yesterday against a 7-day average of $12.83/day — status reads ENABLED.",
+      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285"
+    },
+    {
+      "severity": "high",
+      "platform": "google",
+      "scope": "campaign",
+      "kind": "spend_stopped",
+      "name": "Search - US - Non-Brand - AI Abs Preview",
+      "headline": "Search - US - Non-Brand - AI Abs Preview stopped spending",
+      "detail": "$0.00 yesterday against a 7-day average of $11.82/day — status reads ENABLED.",
+      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24148587722"
+    },
     {
       "severity": "medium",
       "platform": "meta",
       "scope": "campaign",
       "kind": "cpa_degraded",
       "name": "[AUTO] IG PROFILE VISITS - danrosefit",
-      "headline": "[AUTO] IG PROFILE VISITS - danrosefit cost per video view rose to $0.05",
-      "detail": "Its own 7-day average is $0.03 (+67%).",
+      "headline": "[AUTO] IG PROFILE VISITS - danrosefit cost per video view rose to $0.06",
+      "detail": "Its own 7-day average is $0.04 (+50%).",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682"
+    },
+    {
+      "severity": "medium",
+      "platform": "google",
+      "scope": "campaign",
+      "kind": "cpa_degraded",
+      "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
+      "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $2.34",
+      "detail": "Its own 7-day average is $0.92 (+154%).",
+      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721"
+    },
+    {
+      "severity": "medium",
+      "platform": "google",
+      "scope": "campaign",
+      "kind": "cpa_degraded",
+      "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT",
+      "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT cost per conversion rose to $0.43",
+      "detail": "Its own 7-day average is $0.13 (+231%).",
+      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676"
     }
   ],
   "winners": [],
@@ -40,9 +85,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 16.32,
-      "spend7dMean": 6.34,
-      "deltaPct": 1.57,
+      "spend": 14.82,
+      "spend7dMean": 8.44,
+      "deltaPct": 0.76,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -50,16 +95,16 @@
           "status": "ACTIVE",
           "resultLabel": "video view",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 16.32,
-          "results": 315,
-          "impressions": 1783,
-          "costPerResult": 0.05,
+          "spend": 14.82,
+          "results": 250,
+          "impressions": 1568,
+          "costPerResult": 0.06,
           "baseline": {
             "days": 7,
-            "meanSpend": 6.34,
-            "totalSpend": 44.4,
-            "results": 1409,
-            "costPerResult": 0.03
+            "meanSpend": 8.44,
+            "totalSpend": 59.07,
+            "results": 1678,
+            "costPerResult": 0.04
           }
         }
       ],
@@ -70,30 +115,210 @@
           "scope": "campaign",
           "kind": "cpa_degraded",
           "name": "[AUTO] IG PROFILE VISITS - danrosefit",
-          "headline": "[AUTO] IG PROFILE VISITS - danrosefit cost per video view rose to $0.05",
-          "detail": "Its own 7-day average is $0.03 (+67%).",
+          "headline": "[AUTO] IG PROFILE VISITS - danrosefit cost per video view rose to $0.06",
+          "detail": "Its own 7-day average is $0.04 (+50%).",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682"
         }
       ],
       "winners": []
     },
     "google": {
-      "ok": false,
+      "ok": true,
       "platform": "google",
       "account": "3427170837",
-      "reason": "No Google Ads developer token — API access was never set up (handoff Phase 1 unexecuted).",
-      "setup": "Apply for a developer token in MCC 324-458-6445 → Tools → API Center, then set GOOGLE_ADS_DEVELOPER_TOKEN.",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837",
-      "spend": null,
-      "campaigns": [],
-      "anomalies": [],
+      "spend": 31.82,
+      "spend7dMean": 61.97,
+      "deltaPct": -0.49,
+      "conversionInflation": 1.96,
+      "conversionInflationBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676",
+      "campaigns": [
+        {
+          "id": "24163535721",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721",
+          "spend": 21.1,
+          "results": 9,
+          "impressions": 1889,
+          "costPerResult": 2.34,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 17.57,
+            "totalSpend": 123,
+            "results": 134,
+            "costPerResult": 0.92
+          },
+          "estSubscribers": 72.96,
+          "estCostPerSubscriber": 1.98,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24122099676",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676",
+          "spend": 5.64,
+          "results": 13,
+          "impressions": 3112,
+          "costPerResult": 0.43,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 15.33,
+            "totalSpend": 107.33,
+            "results": 822,
+            "costPerResult": 0.13
+          },
+          "estSubscribers": 426.02,
+          "estCostPerSubscriber": 0.27,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24243839443",
+          "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443",
+          "spend": 2.6,
+          "results": 0,
+          "impressions": 206,
+          "costPerResult": null,
+          "baseline": {
+            "days": 0,
+            "meanSpend": 0,
+            "totalSpend": 0,
+            "results": 0,
+            "costPerResult": null
+          },
+          "estSubscribers": 0,
+          "estCostPerSubscriber": null,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24169507109",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109",
+          "spend": 2.48,
+          "results": 0,
+          "impressions": 23,
+          "costPerResult": null,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 4.42,
+            "totalSpend": 30.96,
+            "results": 0,
+            "costPerResult": null
+          },
+          "estSubscribers": 0,
+          "estCostPerSubscriber": null,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24086091285",
+          "name": "Brand - Search - US",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285",
+          "spend": 0,
+          "results": 0,
+          "impressions": 1,
+          "costPerResult": null,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 12.83,
+            "totalSpend": 89.79,
+            "results": 4,
+            "costPerResult": 22.45
+          },
+          "estSubscribers": 2.04,
+          "estCostPerSubscriber": 44,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24148587722",
+          "name": "Search - US - Non-Brand - AI Abs Preview",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24148587722",
+          "spend": 0,
+          "results": 0,
+          "impressions": 4,
+          "costPerResult": null,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 11.82,
+            "totalSpend": 82.77,
+            "results": 4,
+            "costPerResult": 20.69
+          },
+          "estSubscribers": 2.04,
+          "estCostPerSubscriber": 40.56,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        }
+      ],
+      "anomalies": [
+        {
+          "severity": "medium",
+          "platform": "google",
+          "scope": "campaign",
+          "kind": "cpa_degraded",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
+          "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $2.34",
+          "detail": "Its own 7-day average is $0.92 (+154%).",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721"
+        },
+        {
+          "severity": "medium",
+          "platform": "google",
+          "scope": "campaign",
+          "kind": "cpa_degraded",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT",
+          "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT cost per conversion rose to $0.43",
+          "detail": "Its own 7-day average is $0.13 (+231%).",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676"
+        },
+        {
+          "severity": "high",
+          "platform": "google",
+          "scope": "campaign",
+          "kind": "zero_results",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
+          "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $33.44 for zero conversions",
+          "detail": "Across the last 8 days.",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
+        },
+        {
+          "severity": "high",
+          "platform": "google",
+          "scope": "campaign",
+          "kind": "spend_stopped",
+          "name": "Brand - Search - US",
+          "headline": "Brand - Search - US stopped spending",
+          "detail": "$0.00 yesterday against a 7-day average of $12.83/day — status reads ENABLED.",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285"
+        },
+        {
+          "severity": "high",
+          "platform": "google",
+          "scope": "campaign",
+          "kind": "spend_stopped",
+          "name": "Search - US - Non-Brand - AI Abs Preview",
+          "headline": "Search - US - Non-Brand - AI Abs Preview stopped spending",
+          "detail": "$0.00 yesterday against a 7-day average of $11.82/day — status reads ENABLED.",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24148587722"
+        }
+      ],
       "winners": []
     }
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-10T10:15:57.331Z",
-    "ageHours": 0.84,
+    "lastRunAt": "2026-09-11T10:19:24.442Z",
+    "ageHours": 0.79,
     "stale": false,
     "dryRun": false,
     "enabled": true,
@@ -101,12 +326,12 @@
       "caps": {
         "reason": null,
         "testsCap": 300,
-        "testsMtd": 14.06,
+        "testsMtd": 22.4,
         "totalCap": 500,
-        "totalMtd": 63.47,
+        "totalMtd": 78.17,
         "capReached": false,
-        "testsCommitted": 40,
-        "totalCommitted": 89.41
+        "testsCommitted": 45,
+        "totalCommitted": 100.77
       },
       "pair": {
         "ads": [
@@ -120,40 +345,18 @@
           },
           {
             "adId": "120250753783950682",
-            "spend": 46.4,
+            "spend": 52.76,
             "active": true,
-            "visits": 480,
+            "visits": 541,
             "mediaId": "18192762022391478",
             "costPerVisit": 0.1
           }
         ],
-        "reason": "waiting for both to reach $10.00 ($3.01 / $46.40)",
+        "reason": "waiting for both to reach $10.00 ($3.01 / $52.76)",
         "resolved": false
       },
       "skips": [],
       "tests": [
-        {
-          "label": "IMAGE | Pick a sport, not a cardio machine | TEST::17983238982111705",
-          "media": {
-            "id": "17983238982111705",
-            "type": "IMAGE",
-            "title": "Pick a sport, not a cardio machine",
-            "caption": "Pick a sport, not a cardio machine. The treadmill isn't better than kickboxing. ",
-            "postedAt": "2026-09-02T22:00:26+0000",
-            "permalink": "https://www.instagram.com/p/DczQmVTmKvm/"
-          },
-          "phase": "running",
-          "spend": 2.2,
-          "status": "ACTIVE",
-          "visits": 31,
-          "adsetId": "120250868066640682",
-          "endTime": "2026-09-13T15:59:17-0500",
-          "mediaId": "17983238982111705",
-          "verdict": null,
-          "createdAt": "2026-09-08T15:59:21-0500",
-          "impressions": 219,
-          "costPerVisit": 0.07
-        },
         {
           "label": "IMAGE | Ten minutes of jump rope beats thirty on a treadmill | TEST::18144562216559806",
           "media": {
@@ -165,60 +368,38 @@
             "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/"
           },
           "phase": "running",
-          "spend": 2.02,
+          "spend": 2.75,
           "status": "ACTIVE",
-          "visits": 27,
+          "visits": 40,
           "adsetId": "120250868070210682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "18144562216559806",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:52-0500",
-          "impressions": 258,
+          "impressions": 359,
           "costPerVisit": 0.07
         },
         {
-          "label": "IMAGE | Your supplements are about 3% of your results | TEST::17874665394562729",
+          "label": "IMAGE | Pick a sport, not a cardio machine | TEST::17983238982111705",
           "media": {
-            "id": "17874665394562729",
+            "id": "17983238982111705",
             "type": "IMAGE",
-            "title": "Your supplements are about 3% of your results",
-            "caption": "Your supplements are about 3% of your results. Not zero. But if your sleep, prot",
-            "postedAt": "2026-09-04T22:00:27+0000",
-            "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
+            "title": "Pick a sport, not a cardio machine",
+            "caption": "Pick a sport, not a cardio machine. The treadmill isn't better than kickboxing. ",
+            "postedAt": "2026-09-02T22:00:26+0000",
+            "permalink": "https://www.instagram.com/p/DczQmVTmKvm/"
           },
           "phase": "running",
-          "spend": 2.08,
+          "spend": 3.18,
           "status": "ACTIVE",
-          "visits": 18,
-          "adsetId": "120250868068030682",
+          "visits": 46,
+          "adsetId": "120250868066640682",
           "endTime": "2026-09-13T15:59:17-0500",
-          "mediaId": "17874665394562729",
+          "mediaId": "17983238982111705",
           "verdict": null,
-          "createdAt": "2026-09-08T15:59:37-0500",
-          "impressions": 206,
-          "costPerVisit": 0.12
-        },
-        {
-          "label": "REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709",
-          "media": {
-            "id": "18624174223051709",
-            "type": "VIDEO",
-            "title": "Stop doing ab exercises until you can actually see your abs",
-            "caption": "Stop doing ab exercises until you can actually see your abs. You already have a ",
-            "postedAt": "2026-09-08T22:00:42+0000",
-            "permalink": "https://www.instagram.com/reel/DdCtYQOF69_/"
-          },
-          "phase": "running",
-          "spend": 1.49,
-          "status": "ACTIVE",
-          "visits": 10,
-          "adsetId": "120250868876510682",
-          "endTime": "2026-09-13T17:18:44-0500",
-          "mediaId": "18624174223051709",
-          "verdict": null,
-          "createdAt": "2026-09-08T17:18:46-0500",
-          "impressions": 173,
-          "costPerVisit": 0.15
+          "createdAt": "2026-09-08T15:59:21-0500",
+          "impressions": 332,
+          "costPerVisit": 0.07
         },
         {
           "label": "IMAGE | Train your abs every single day | TEST::18133073164657545",
@@ -231,15 +412,59 @@
             "permalink": "https://www.instagram.com/p/DdFSLHplpDf/"
           },
           "phase": "running",
-          "spend": 0.17,
+          "spend": 1.51,
           "status": "ACTIVE",
-          "visits": 1,
+          "visits": 14,
           "adsetId": "120250888181140682",
           "endTime": "2026-09-14T17:16:20-0500",
           "mediaId": "18133073164657545",
           "verdict": null,
           "createdAt": "2026-09-09T17:16:22-0500",
-          "impressions": 27,
+          "impressions": 201,
+          "costPerVisit": 0.11
+        },
+        {
+          "label": "IMAGE | Your supplements are about 3% of your results | TEST::17874665394562729",
+          "media": {
+            "id": "17874665394562729",
+            "type": "IMAGE",
+            "title": "Your supplements are about 3% of your results",
+            "caption": "Your supplements are about 3% of your results. Not zero. But if your sleep, prot",
+            "postedAt": "2026-09-04T22:00:27+0000",
+            "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
+          },
+          "phase": "running",
+          "spend": 3.1,
+          "status": "ACTIVE",
+          "visits": 24,
+          "adsetId": "120250868068030682",
+          "endTime": "2026-09-13T15:59:17-0500",
+          "mediaId": "17874665394562729",
+          "verdict": null,
+          "createdAt": "2026-09-08T15:59:37-0500",
+          "impressions": 313,
+          "costPerVisit": 0.13
+        },
+        {
+          "label": "REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709",
+          "media": {
+            "id": "18624174223051709",
+            "type": "VIDEO",
+            "title": "Stop doing ab exercises until you can actually see your abs",
+            "caption": "Stop doing ab exercises until you can actually see your abs. You already have a ",
+            "postedAt": "2026-09-08T22:00:42+0000",
+            "permalink": "https://www.instagram.com/reel/DdCtYQOF69_/"
+          },
+          "phase": "running",
+          "spend": 2.64,
+          "status": "ACTIVE",
+          "visits": 16,
+          "adsetId": "120250868876510682",
+          "endTime": "2026-09-13T17:18:44-0500",
+          "mediaId": "18624174223051709",
+          "verdict": null,
+          "createdAt": "2026-09-08T17:18:46-0500",
+          "impressions": 271,
           "costPerVisit": 0.17
         },
         {
@@ -253,16 +478,16 @@
             "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/"
           },
           "phase": "running",
-          "spend": 1.95,
+          "spend": 2.99,
           "status": "ACTIVE",
-          "visits": 10,
+          "visits": 16,
           "adsetId": "120250868067070682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "18122536861661975",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:28-0500",
-          "impressions": 197,
-          "costPerVisit": 0.2
+          "impressions": 293,
+          "costPerVisit": 0.19
         },
         {
           "label": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
@@ -275,16 +500,16 @@
             "permalink": "https://www.instagram.com/reel/DdAIo4-j_RS/"
           },
           "phase": "running",
-          "spend": 1.92,
+          "spend": 2.96,
           "status": "ACTIVE",
-          "visits": 5,
+          "visits": 8,
           "adsetId": "120250868071570682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17899133421377575",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:58-0500",
-          "impressions": 171,
-          "costPerVisit": 0.38
+          "impressions": 248,
+          "costPerVisit": 0.37
         },
         {
           "label": "REEL | Make AI macro estimates way more accurate | TEST::17909653590464795",
@@ -297,16 +522,38 @@
             "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/"
           },
           "phase": "running",
-          "spend": 2.23,
+          "spend": 3.27,
           "status": "ACTIVE",
-          "visits": 2,
+          "visits": 4,
           "adsetId": "120250868068990682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17909653590464795",
           "verdict": null,
           "createdAt": "2026-09-08T15:59:43-0500",
-          "impressions": 167,
-          "costPerVisit": 1.12
+          "impressions": 226,
+          "costPerVisit": 0.82
+        },
+        {
+          "label": "REEL | Your protein shake might be stopping your abs | TEST::18140555551597443",
+          "media": {
+            "id": "18140555551597443",
+            "type": "VIDEO",
+            "title": "Your protein shake might be stopping your abs",
+            "caption": "Your protein shake might be stopping your abs. Not because protein is bad. Becau",
+            "postedAt": "2026-09-10T22:01:24+0000",
+            "permalink": "https://www.instagram.com/reel/DdH3EbdlWIe/"
+          },
+          "phase": "running",
+          "spend": 0,
+          "status": "ACTIVE",
+          "visits": 0,
+          "adsetId": "120250910902520682",
+          "endTime": "2026-09-15T17:17:51-0500",
+          "mediaId": "18140555551597443",
+          "verdict": null,
+          "createdAt": "2026-09-10T17:17:53-0500",
+          "impressions": 0,
+          "costPerVisit": null
         }
       ],
       "dryRun": false,
@@ -319,14 +566,14 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 63.47,
-          "visits": 611,
+          "spend": 78.17,
+          "visits": 736,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 42.68,
+        "spend": 41.45,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
@@ -334,11 +581,11 @@
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 441,
+        "visits": 436,
         "window": {
           "days": 7,
-          "since": "2026-09-04",
-          "until": "2026-09-10"
+          "since": "2026-09-05",
+          "until": "2026-09-11"
         },
         "follows": 0,
         "activeAds": [
@@ -377,19 +624,19 @@
       "warnings": [],
       "events24h": [
         {
-          "at": "2026-09-09T22:16:29.796Z",
+          "at": "2026-09-10T22:18:03.526Z",
           "event": "created",
           "detail": {
-            "adId": "120250888182240682",
-            "adsetId": "120250888181140682",
-            "permalink": "https://www.instagram.com/p/DdFSLHplpDf/",
-            "creativeId": "941811775646855"
+            "adId": "120250910903050682",
+            "adsetId": "120250910902520682",
+            "permalink": "https://www.instagram.com/reel/DdH3EbdlWIe/",
+            "creativeId": "1827301132046725"
           },
-          "mediaId": "18133073164657545"
+          "mediaId": "18140555551597443"
         }
       ],
       "candidates": [],
-      "generatedAt": "2026-09-10T10:15:54.217Z",
+      "generatedAt": "2026-09-11T10:19:21.406Z",
       "championAdset": "120250753601020682"
     }
   },
@@ -397,7 +644,7 @@
     "ok": true,
     "enabled": true,
     "dryRun": false,
-    "lastRunAt": "2026-09-10T11:00:05.629Z",
+    "lastRunAt": "2026-09-11T11:00:05.631Z",
     "ageHours": 0.11,
     "stale": false,
     "resultsPosted": true,
@@ -417,25 +664,34 @@
         "champion": null,
         "testsRunning": [
           {
-            "adId": "823968353731",
-            "videoId": "GVNzvm5sUbk",
-            "spend": 0,
+            "adId": "823972446145",
+            "videoId": "3J_ZSNDkZSU",
+            "spend": 1.49,
             "of": 5,
             "conv": 0,
             "daysWaiting": 2,
-            "policy": "APPROVED_LIMITED"
+            "policy": "APPROVED"
           },
           {
-            "adId": "823972446145",
-            "videoId": "3J_ZSNDkZSU",
-            "spend": 1.09,
+            "adId": "824051827676",
+            "videoId": "27vZC4xVkms",
+            "spend": 1.06,
+            "of": 5,
+            "conv": 0,
+            "daysWaiting": 2,
+            "policy": "APPROVED"
+          },
+          {
+            "adId": "824195543401",
+            "videoId": "y0XIbNoA2Xo",
+            "spend": 0,
             "of": 5,
             "conv": 0,
             "daysWaiting": 1,
             "policy": "APPROVED"
           },
           {
-            "adId": "823972446217",
+            "adId": "824195596555",
             "videoId": "LvOMn7IpuCI",
             "spend": 0,
             "of": 5,
@@ -444,17 +700,34 @@
             "policy": "APPROVED_LIMITED"
           },
           {
-            "adId": "824051827676",
-            "videoId": "27vZC4xVkms",
-            "spend": 0.84,
+            "adId": "824234854054",
+            "videoId": "B6Oku5GjrLs",
+            "spend": 0.04,
             "of": 5,
             "conv": 0,
             "daysWaiting": 1,
-            "policy": "APPROVED"
+            "policy": "APPROVED_LIMITED"
+          },
+          {
+            "adId": "824277352232",
+            "videoId": "GVNzvm5sUbk",
+            "spend": 0,
+            "of": 5,
+            "conv": 0,
+            "daysWaiting": 1,
+            "policy": "APPROVED_LIMITED"
           }
         ],
         "verdicts": [],
         "policy": [
+          {
+            "adId": "822882639759",
+            "name": "late night eating",
+            "topics": [
+              "CLICKBAIT:PROHIBITED"
+            ],
+            "limited": true
+          },
           {
             "adId": "823968353731",
             "name": "AUTO test · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · rmktg · 2026-09-08",
@@ -466,6 +739,30 @@
           {
             "adId": "823972446217",
             "name": "AUTO test · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · rmktg · 2026-09-09",
+            "topics": [
+              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+            ],
+            "limited": true
+          },
+          {
+            "adId": "824195596555",
+            "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · rmktg · 2026-09-10",
+            "topics": [
+              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+            ],
+            "limited": true
+          },
+          {
+            "adId": "824234854054",
+            "name": "AT · Your Protein Shake Might Be Stopping Your Abs · yt:B6Oku5GjrLs · rmktg · 2026-09-10",
+            "topics": [
+              "CLICKBAIT:PROHIBITED"
+            ],
+            "limited": true
+          },
+          {
+            "adId": "824277352232",
+            "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · rmktg · 2026-09-10",
             "topics": [
               "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
             ],
@@ -487,34 +784,43 @@
           "adId": "822882636654",
           "name": "truth about supplements",
           "videoId": "P9VUGyWeNtY",
-          "spend30d": 5.73,
-          "conv30d": 7,
-          "costPerConv30d": 0.82,
-          "approxCostPerSubscriber30d": 1.61
+          "spend30d": 7.11,
+          "conv30d": 8,
+          "costPerConv30d": 0.89,
+          "approxCostPerSubscriber30d": 1.74
         },
         "testsRunning": [
           {
-            "adId": "823924422642",
+            "adId": "824153198067",
             "videoId": "GVNzvm5sUbk",
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 2,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
           },
           {
-            "adId": "823972420558",
-            "videoId": "3J_ZSNDkZSU",
-            "spend": 3.81,
+            "adId": "824153242209",
+            "videoId": "LvOMn7IpuCI",
+            "spend": 0,
             "of": 5,
-            "conv": 1,
+            "conv": 0,
+            "daysWaiting": 1,
+            "policy": "APPROVED_LIMITED"
+          },
+          {
+            "adId": "824195590798",
+            "videoId": "y0XIbNoA2Xo",
+            "spend": 0.13,
+            "of": 5,
+            "conv": 0,
             "daysWaiting": 1,
             "policy": "APPROVED"
           },
           {
-            "adId": "824051827874",
-            "videoId": "LvOMn7IpuCI",
-            "spend": 0,
+            "adId": "824317084973",
+            "videoId": "B6Oku5GjrLs",
+            "spend": 0.01,
             "of": 5,
             "conv": 0,
             "daysWaiting": 1,
@@ -546,6 +852,30 @@
               "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
             ],
             "limited": true
+          },
+          {
+            "adId": "824153198067",
+            "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · tier1 · 2026-09-10",
+            "topics": [
+              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+            ],
+            "limited": true
+          },
+          {
+            "adId": "824153242209",
+            "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · tier1 · 2026-09-10",
+            "topics": [
+              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+            ],
+            "limited": true
+          },
+          {
+            "adId": "824317084973",
+            "name": "AT · Your Protein Shake Might Be Stopping Your Abs · yt:B6Oku5GjrLs · tier1 · 2026-09-10",
+            "topics": [
+              "CLICKBAIT:PROHIBITED"
+            ],
+            "limited": true
           }
         ],
         "dayOne": null,
@@ -557,73 +887,59 @@
           "adId": "821125719022",
           "name": "top 10 ab tips",
           "videoId": "2T4LrQrmz9s",
-          "spend30d": 291.19,
-          "conv30d": 2668,
+          "spend30d": 294.49,
+          "conv30d": 2677,
           "costPerConv30d": 0.11,
           "approxCostPerSubscriber30d": 0.22
         },
         "testsRunning": [
           {
-            "adId": "823924427661",
+            "adId": "823972295725",
+            "videoId": "3J_ZSNDkZSU",
+            "spend": 0.13,
+            "of": 5,
+            "conv": 1,
+            "daysWaiting": 2,
+            "policy": "APPROVED"
+          },
+          {
+            "adId": "824153278794",
             "videoId": "GVNzvm5sUbk",
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 2,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
           },
           {
-            "adId": "823972295725",
-            "videoId": "3J_ZSNDkZSU",
-            "spend": 0.11,
+            "adId": "824195573032",
+            "videoId": "y0XIbNoA2Xo",
+            "spend": 0,
             "of": 5,
-            "conv": 1,
+            "conv": 0,
             "daysWaiting": 1,
             "policy": "APPROVED"
           },
           {
-            "adId": "823972446160",
+            "adId": "824195573740",
             "videoId": "LvOMn7IpuCI",
             "spend": 0,
             "of": 5,
             "conv": 0,
             "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
-          }
-        ],
-        "verdicts": [
+          },
           {
-            "adId": "823972420498",
-            "conv": 9,
-            "name": "AUTO test · 3 Minute Total Body Home Workout - Follow Along (No Talking) · yt:27vZC4xVkms · tier2 · 2026-09-09",
-            "phase": "judged",
-            "spend": 5.06,
-            "detail": "$0.56 per conversion does not beat the champion's $0.11 (30d)",
-            "policy": "APPROVED",
-            "status": "ENABLED",
-            "created": "2026-09-09",
-            "verdict": "lose",
-            "videoId": "27vZC4xVkms",
-            "champion": {
-              "d30": {
-                "conv": 2668,
-                "cost": 291.19,
-                "costPerConv": 0.11
-              },
-              "adId": "821125719022",
-              "name": "top 10 ab tips",
-              "status": "PAUSED",
-              "videoId": "2T4LrQrmz9s",
-              "lifetime": {
-                "conv": 2668,
-                "cost": 291.19,
-                "costPerConv": 0.11
-              }
-            },
-            "costPerConv": 0.56,
-            "daysWaiting": 1
+            "adId": "824234854048",
+            "videoId": "B6Oku5GjrLs",
+            "spend": 0,
+            "of": 5,
+            "conv": 0,
+            "daysWaiting": 1,
+            "policy": "APPROVED"
           }
         ],
+        "verdicts": [],
         "policy": [
           {
             "adId": "822882429006",
@@ -648,274 +964,670 @@
               "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
             ],
             "limited": true
+          },
+          {
+            "adId": "824153278794",
+            "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · tier2 · 2026-09-10",
+            "topics": [
+              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+            ],
+            "limited": true
+          },
+          {
+            "adId": "824195573740",
+            "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · tier2 · 2026-09-10",
+            "topics": [
+              "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+            ],
+            "limited": true
           }
         ],
         "dayOne": null,
         "created": []
       }
     },
-    "warnings": [],
+    "warnings": [
+      "ignored campaigns in snapshot: [DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home"
+    ],
     "skipped": [],
     "waitingHeadlines": [],
     "counts": {
       "label": 0,
       "manual": 0,
-      "pauseAd": 1,
-      "commands": 1,
+      "pauseAd": 0,
+      "commands": 0,
       "createAd": 0
     },
     "events24h": {
-      "created": [],
+      "created": [
+        {
+          "at": "2026-09-10T16:00:35.953Z",
+          "campaign": "tier2",
+          "videoId": "y0XIbNoA2Xo",
+          "adId": "824195573032",
+          "name": "AT · The AI Trick That Killed My Late-Night Snacking · yt:y0XIbNoA2Xo · r2 · tier2 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "My Late Night Snacking Routine",
+            "What AI Suggested For Snacking",
+            "An 11pm Alarm And A Pack Of Gum",
+            "Late Night Snacking And AI",
+            "My AI Coach On Evening Snacking"
+          ],
+          "videoTitle": "The AI Trick That Killed My Late-Night Snacking",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his evening snacking routine and what his AI coach suggested.",
+            "The video covers an 11pm alarm, a pack of gum, and how AI arrived at both.",
+            "Daniel Rose, 40 years old, walks through the AI suggestions he uses in the evening."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824195573032",
+          "longHeadlines": [
+            "Daniel Rose shows the 11pm alarm and gum his AI coach suggested for evening snacking.",
+            "In this video I go over what my AI coach suggested about late night snacking.",
+            "A short video on my evening snacking routine and the two things AI suggested for it."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.955Z",
+          "campaign": "tier2",
+          "videoId": "GVNzvm5sUbk",
+          "adId": "824153278794",
+          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · tier2 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Ab Exercises In My Routine",
+            "Where Ab Exercises Fit For Me",
+            "My Ab Training Routine At 40",
+            "Ab Exercise Order Explained",
+            "Ab Training Routine For Men"
+          ],
+          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
+            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
+            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824153278794",
+          "longHeadlines": [
+            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
+            "This video covers ab exercises and the other training Daniel Rose does at home.",
+            "A short video about ab exercise order and the rest of Daniel Rose's routine."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.958Z",
+          "campaign": "tier2",
+          "videoId": "LvOMn7IpuCI",
+          "adId": "824195573740",
+          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · tier2 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Personal Trainers And My Budget",
+            "How I Use My Fitness Budget",
+            "My Thoughts On Personal Trainers",
+            "Monthly Fitness Spending At 40",
+            "Personal Trainer Spending Talk"
+          ],
+          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
+            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
+            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824195573740",
+          "longHeadlines": [
+            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
+            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
+            "A short video about personal trainers, help at home, and monthly fitness spending."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.962Z",
+          "campaign": "tier1",
+          "videoId": "y0XIbNoA2Xo",
+          "adId": "824195590798",
+          "name": "AT · The AI Trick That Killed My Late-Night Snacking · yt:y0XIbNoA2Xo · r2 · tier1 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "My Late Night Snacking Routine",
+            "What AI Suggested For Snacking",
+            "An 11pm Alarm And A Pack Of Gum",
+            "Late Night Snacking And AI",
+            "My AI Coach On Evening Snacking"
+          ],
+          "videoTitle": "The AI Trick That Killed My Late-Night Snacking",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his evening snacking routine and what his AI coach suggested.",
+            "The video covers an 11pm alarm, a pack of gum, and how AI arrived at both.",
+            "Daniel Rose, 40 years old, walks through the AI suggestions he uses in the evening."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824195590798",
+          "longHeadlines": [
+            "Daniel Rose shows the 11pm alarm and gum his AI coach suggested for evening snacking.",
+            "In this video I go over what my AI coach suggested about late night snacking.",
+            "A short video on my evening snacking routine and the two things AI suggested for it."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.963Z",
+          "campaign": "tier1",
+          "videoId": "GVNzvm5sUbk",
+          "adId": "824153198067",
+          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · tier1 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Ab Exercises In My Routine",
+            "Where Ab Exercises Fit For Me",
+            "My Ab Training Routine At 40",
+            "Ab Exercise Order Explained",
+            "Ab Training Routine For Men"
+          ],
+          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
+            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
+            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824153198067",
+          "longHeadlines": [
+            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
+            "This video covers ab exercises and the other training Daniel Rose does at home.",
+            "A short video about ab exercise order and the rest of Daniel Rose's routine."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.965Z",
+          "campaign": "tier1",
+          "videoId": "LvOMn7IpuCI",
+          "adId": "824153242209",
+          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · tier1 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Personal Trainers And My Budget",
+            "How I Use My Fitness Budget",
+            "My Thoughts On Personal Trainers",
+            "Monthly Fitness Spending At 40",
+            "Personal Trainer Spending Talk"
+          ],
+          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
+            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
+            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824153242209",
+          "longHeadlines": [
+            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
+            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
+            "A short video about personal trainers, help at home, and monthly fitness spending."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.966Z",
+          "campaign": "rmktg",
+          "videoId": "y0XIbNoA2Xo",
+          "adId": "824195543401",
+          "name": "AT · The AI Trick That Killed My Late-Night Snacking · yt:y0XIbNoA2Xo · r2 · rmktg · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "My Late Night Snacking Routine",
+            "What AI Suggested For Snacking",
+            "An 11pm Alarm And A Pack Of Gum",
+            "Late Night Snacking And AI",
+            "My AI Coach On Evening Snacking"
+          ],
+          "videoTitle": "The AI Trick That Killed My Late-Night Snacking",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his evening snacking routine and what his AI coach suggested.",
+            "The video covers an 11pm alarm, a pack of gum, and how AI arrived at both.",
+            "Daniel Rose, 40 years old, walks through the AI suggestions he uses in the evening."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824195543401",
+          "longHeadlines": [
+            "Daniel Rose shows the 11pm alarm and gum his AI coach suggested for evening snacking.",
+            "In this video I go over what my AI coach suggested about late night snacking.",
+            "A short video on my evening snacking routine and the two things AI suggested for it."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.967Z",
+          "campaign": "rmktg",
+          "videoId": "GVNzvm5sUbk",
+          "adId": "824277352232",
+          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · rmktg · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Ab Exercises In My Routine",
+            "Where Ab Exercises Fit For Me",
+            "My Ab Training Routine At 40",
+            "Ab Exercise Order Explained",
+            "Ab Training Routine For Men"
+          ],
+          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
+            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
+            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824277352232",
+          "longHeadlines": [
+            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
+            "This video covers ab exercises and the other training Daniel Rose does at home.",
+            "A short video about ab exercise order and the rest of Daniel Rose's routine."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.968Z",
+          "campaign": "rmktg",
+          "videoId": "LvOMn7IpuCI",
+          "adId": "824195596555",
+          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · rmktg · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Personal Trainers And My Budget",
+            "How I Use My Fitness Budget",
+            "My Thoughts On Personal Trainers",
+            "Monthly Fitness Spending At 40",
+            "Personal Trainer Spending Talk"
+          ],
+          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
+            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
+            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824195596555",
+          "longHeadlines": [
+            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
+            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
+            "A short video about personal trainers, help at home, and monthly fitness spending."
+          ]
+        },
+        {
+          "at": "2026-09-10T23:00:21.329Z",
+          "campaign": "tier2",
+          "videoId": "B6Oku5GjrLs",
+          "adId": "824234854048",
+          "name": "AT · Your Protein Shake Might Be Stopping Your Abs · yt:B6Oku5GjrLs · tier2 · 2026-09-10",
+          "attempt": 1,
+          "headlines": [
+            "When I Drink My Protein Shake",
+            "Whey Protein Shake Timing",
+            "Protein Shake Timing For Men",
+            "Why I Moved My Protein Shake",
+            "The Truth About Protein Shakes"
+          ],
+          "videoTitle": "Your Protein Shake Might Be Stopping Your Abs",
+          "labelErrors": [],
+          "descriptions": [
+            "Many men drink whey at the wrong time. Here's how Daniel Rose times his shake.",
+            "Timing matters more with whey than most men think. This video shows what I do.",
+            "Daniel Rose shares when he drinks his protein shake and why he changed it."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824234854048",
+          "longHeadlines": [
+            "Here's why I moved my protein shake to a different time of day, at 40 years old.",
+            "Daniel Rose explains what whey does and why shake timing matters.",
+            "This video shows how I time my whey protein shake around my training."
+          ]
+        },
+        {
+          "at": "2026-09-10T23:00:21.332Z",
+          "campaign": "tier1",
+          "videoId": "B6Oku5GjrLs",
+          "adId": "824317084973",
+          "name": "AT · Your Protein Shake Might Be Stopping Your Abs · yt:B6Oku5GjrLs · tier1 · 2026-09-10",
+          "attempt": 1,
+          "headlines": [
+            "When I Drink My Protein Shake",
+            "Whey Protein Shake Timing",
+            "Protein Shake Timing For Men",
+            "Why I Moved My Protein Shake",
+            "The Truth About Protein Shakes"
+          ],
+          "videoTitle": "Your Protein Shake Might Be Stopping Your Abs",
+          "labelErrors": [],
+          "descriptions": [
+            "Many men drink whey at the wrong time. Here's how Daniel Rose times his shake.",
+            "Timing matters more with whey than most men think. This video shows what I do.",
+            "Daniel Rose shares when he drinks his protein shake and why he changed it."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824317084973",
+          "longHeadlines": [
+            "Here's why I moved my protein shake to a different time of day, at 40 years old.",
+            "Daniel Rose explains what whey does and why shake timing matters.",
+            "This video shows how I time my whey protein shake around my training."
+          ]
+        },
+        {
+          "at": "2026-09-10T23:00:21.336Z",
+          "campaign": "rmktg",
+          "videoId": "B6Oku5GjrLs",
+          "adId": "824234854054",
+          "name": "AT · Your Protein Shake Might Be Stopping Your Abs · yt:B6Oku5GjrLs · rmktg · 2026-09-10",
+          "attempt": 1,
+          "headlines": [
+            "When I Drink My Protein Shake",
+            "Whey Protein Shake Timing",
+            "Protein Shake Timing For Men",
+            "Why I Moved My Protein Shake",
+            "The Truth About Protein Shakes"
+          ],
+          "videoTitle": "Your Protein Shake Might Be Stopping Your Abs",
+          "labelErrors": [],
+          "descriptions": [
+            "Many men drink whey at the wrong time. Here's how Daniel Rose times his shake.",
+            "Timing matters more with whey than most men think. This video shows what I do.",
+            "Daniel Rose shares when he drinks his protein shake and why he changed it."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824234854054",
+          "longHeadlines": [
+            "Here's why I moved my protein shake to a different time of day, at 40 years old.",
+            "Daniel Rose explains what whey does and why shake timing matters.",
+            "This video shows how I time my whey protein shake around my training."
+          ]
+        }
+      ],
       "verdicts": [
         {
-          "at": "2026-09-10T11:00:09.487Z",
-          "campaign": "tier2",
-          "videoId": "27vZC4xVkms",
-          "adId": "823972420498",
-          "detail": "$0.56 per conversion does not beat the champion's $0.11 (30d)",
-          "verdict": "lose"
+          "at": "2026-09-10T20:00:05.941Z",
+          "campaign": "tier1",
+          "videoId": "3J_ZSNDkZSU",
+          "adId": "823972420558",
+          "detail": "1 conversions at $5.66 — under the 2 needed in tier1",
+          "verdict": "no-read"
         }
       ],
       "promotes": [],
       "skips": [],
-      "errors": [
-        {
-          "at": "2026-09-09T22:00:34.069Z",
-          "campaign": null,
-          "videoId": null,
-          "adId": null,
-          "op": "mutate",
-          "note": "task1 brand goal SUBMIT_LEAD_FORM/WEBSITE -> biddable=true (was true at account level)",
-          "runId": 27,
-          "reason": "manual:raw",
-          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
-          "manualId": 16,
-          "mutation": {
-            "campaignConversionGoalOperation": {
-              "update": {
-                "biddable": true,
-                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~SUBMIT_LEAD_FORM~WEBSITE"
-              },
-              "updateMask": "biddable"
-            }
-          }
-        },
-        {
-          "at": "2026-09-09T22:00:34.076Z",
-          "campaign": null,
-          "videoId": null,
-          "adId": null,
-          "op": "mutate",
-          "note": "task1 brand goal PURCHASE/WEBSITE -> biddable=false (was true at account level)",
-          "runId": 27,
-          "reason": "manual:raw",
-          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
-          "manualId": 17,
-          "mutation": {
-            "campaignConversionGoalOperation": {
-              "update": {
-                "biddable": false,
-                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~PURCHASE~WEBSITE"
-              },
-              "updateMask": "biddable"
-            }
-          }
-        },
-        {
-          "at": "2026-09-09T22:00:34.079Z",
-          "campaign": null,
-          "videoId": null,
-          "adId": null,
-          "op": "mutate",
-          "note": "task1 brand goal SIGNUP/WEBSITE -> biddable=false (was true at account level)",
-          "runId": 27,
-          "reason": "manual:raw",
-          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
-          "manualId": 18,
-          "mutation": {
-            "campaignConversionGoalOperation": {
-              "update": {
-                "biddable": false,
-                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~SIGNUP~WEBSITE"
-              },
-              "updateMask": "biddable"
-            }
-          }
-        },
-        {
-          "at": "2026-09-09T22:00:34.082Z",
-          "campaign": null,
-          "videoId": null,
-          "adId": null,
-          "op": "mutate",
-          "note": "task1 brand goal SUBSCRIBE_PAID/WEBSITE -> biddable=false (was true at account level)",
-          "runId": 27,
-          "reason": "manual:raw",
-          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
-          "manualId": 19,
-          "mutation": {
-            "campaignConversionGoalOperation": {
-              "update": {
-                "biddable": false,
-                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~SUBSCRIBE_PAID~WEBSITE"
-              },
-              "updateMask": "biddable"
-            }
-          }
-        },
-        {
-          "at": "2026-09-09T22:00:34.084Z",
-          "campaign": null,
-          "videoId": null,
-          "adId": null,
-          "op": "mutate",
-          "note": "task1 brand goal ENGAGEMENT/YOUTUBE_HOSTED -> biddable=false (was true at account level)",
-          "runId": 27,
-          "reason": "manual:raw",
-          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
-          "manualId": 20,
-          "mutation": {
-            "campaignConversionGoalOperation": {
-              "update": {
-                "biddable": false,
-                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~ENGAGEMENT~YOUTUBE_HOSTED"
-              },
-              "updateMask": "biddable"
-            }
-          }
-        },
-        {
-          "at": "2026-09-09T22:00:34.088Z",
-          "campaign": null,
-          "videoId": null,
-          "adId": null,
-          "op": "mutate",
-          "note": "task1 brand goal YOUTUBE_FOLLOW_ON_VIEWS/YOUTUBE_HOSTED -> biddable=false (was true at account level)",
-          "runId": 27,
-          "reason": "manual:raw",
-          "message": "This operation cannot be used with \"partial_failure\". At campaignConversionGoalOperation",
-          "manualId": 21,
-          "mutation": {
-            "campaignConversionGoalOperation": {
-              "update": {
-                "biddable": false,
-                "resourceName": "customers/3427170837/campaignConversionGoals/24086091285~YOUTUBE_FOLLOW_ON_VIEWS~YOUTUBE_HOSTED"
-              },
-              "updateMask": "biddable"
-            }
-          }
-        },
-        {
-          "at": "2026-09-09T22:00:34.094Z",
-          "campaign": null,
-          "videoId": null,
-          "adId": null,
-          "op": "mutate",
-          "note": "task3c Brand - Search - US: MAXIMIZE_CONVERSIONS -> TARGET_SPEND (Maximize Clicks) with $2.00 cpc ceiling",
-          "runId": 27,
-          "reason": "manual:raw",
-          "message": "The field mask updated a field with subfields: 'target_spend'. At campaignOperation",
-          "manualId": 23,
-          "mutation": {
-            "campaignOperation": {
-              "update": {
-                "targetSpend": {
-                  "cpcBidCeilingMicros": 2000000
-                },
-                "resourceName": "customers/3427170837/campaigns/24086091285"
-              },
-              "updateMask": "target_spend"
-            }
-          }
-        },
-        {
-          "at": "2026-09-09T22:00:34.097Z",
-          "campaign": null,
-          "videoId": null,
-          "adId": null,
-          "op": "mutate",
-          "note": "task3c Search - US - Non-Brand - AI Abs Preview: MAXIMIZE_CONVERSIONS -> TARGET_SPEND (Maximize Clicks) with $2.00 cpc ceiling",
-          "runId": 27,
-          "reason": "manual:raw",
-          "message": "The field mask updated a field with subfields: 'target_spend'. At campaignOperation",
-          "manualId": 24,
-          "mutation": {
-            "campaignOperation": {
-              "update": {
-                "targetSpend": {
-                  "cpcBidCeilingMicros": 2000000
-                },
-                "resourceName": "customers/3427170837/campaigns/24148587722"
-              },
-              "updateMask": "target_spend"
-            }
-          }
-        }
-      ],
+      "errors": [],
       "policy": [],
-      "dayOne": [
+      "dayOne": [],
+      "retries": [
         {
-          "at": "2026-09-10T00:00:09.264Z",
-          "campaign": "tier1",
-          "runId": 29,
-          "dryRun": false,
-          "paused": [
-            {
-              "adId": "822882622017",
-              "name": "how to use ai to track macros",
-              "lifetime": {
-                "conv": 1,
-                "cost": 1.31
-              },
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882622017"
-            },
-            {
-              "adId": "822882639786",
-              "name": "late night eating",
-              "lifetime": {
-                "conv": 0,
-                "cost": 0
-              },
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882639786"
-            }
+          "at": "2026-09-10T16:00:35.953Z",
+          "event": "created",
+          "campaign": "tier2",
+          "videoId": "y0XIbNoA2Xo",
+          "adId": "824195573032",
+          "name": "AT · The AI Trick That Killed My Late-Night Snacking · yt:y0XIbNoA2Xo · r2 · tier2 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "My Late Night Snacking Routine",
+            "What AI Suggested For Snacking",
+            "An 11pm Alarm And A Pack Of Gum",
+            "Late Night Snacking And AI",
+            "My AI Coach On Evening Snacking"
           ],
-          "reason": "no champion yet",
-          "champion": {
-            "adId": "822882636654",
-            "name": "truth about supplements",
-            "lifetime": {
-              "conv": 5,
-              "cost": 5.21
-            },
-            "costPerConv": 1.04
-          },
-          "reversal": [
-            {
-              "op": "enableAd",
-              "adId": "822882622017",
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882622017"
-            },
-            {
-              "op": "enableAd",
-              "adId": "822882639786",
-              "resourceName": "customers/3427170837/adGroupAds/206274722584~822882639786"
-            }
+          "videoTitle": "The AI Trick That Killed My Late-Night Snacking",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his evening snacking routine and what his AI coach suggested.",
+            "The video covers an 11pm alarm, a pack of gum, and how AI arrived at both.",
+            "Daniel Rose, 40 years old, walks through the AI suggestions he uses in the evening."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824195573032",
+          "longHeadlines": [
+            "Daniel Rose shows the 11pm alarm and gum his AI coach suggested for evening snacking.",
+            "In this video I go over what my AI coach suggested about late night snacking.",
+            "A short video on my evening snacking routine and the two things AI suggested for it."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.955Z",
+          "event": "created",
+          "campaign": "tier2",
+          "videoId": "GVNzvm5sUbk",
+          "adId": "824153278794",
+          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · tier2 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Ab Exercises In My Routine",
+            "Where Ab Exercises Fit For Me",
+            "My Ab Training Routine At 40",
+            "Ab Exercise Order Explained",
+            "Ab Training Routine For Men"
+          ],
+          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
+            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
+            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824153278794",
+          "longHeadlines": [
+            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
+            "This video covers ab exercises and the other training Daniel Rose does at home.",
+            "A short video about ab exercise order and the rest of Daniel Rose's routine."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.958Z",
+          "event": "created",
+          "campaign": "tier2",
+          "videoId": "LvOMn7IpuCI",
+          "adId": "824195573740",
+          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · tier2 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Personal Trainers And My Budget",
+            "How I Use My Fitness Budget",
+            "My Thoughts On Personal Trainers",
+            "Monthly Fitness Spending At 40",
+            "Personal Trainer Spending Talk"
+          ],
+          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
+            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
+            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824195573740",
+          "longHeadlines": [
+            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
+            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
+            "A short video about personal trainers, help at home, and monthly fitness spending."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.962Z",
+          "event": "created",
+          "campaign": "tier1",
+          "videoId": "y0XIbNoA2Xo",
+          "adId": "824195590798",
+          "name": "AT · The AI Trick That Killed My Late-Night Snacking · yt:y0XIbNoA2Xo · r2 · tier1 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "My Late Night Snacking Routine",
+            "What AI Suggested For Snacking",
+            "An 11pm Alarm And A Pack Of Gum",
+            "Late Night Snacking And AI",
+            "My AI Coach On Evening Snacking"
+          ],
+          "videoTitle": "The AI Trick That Killed My Late-Night Snacking",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his evening snacking routine and what his AI coach suggested.",
+            "The video covers an 11pm alarm, a pack of gum, and how AI arrived at both.",
+            "Daniel Rose, 40 years old, walks through the AI suggestions he uses in the evening."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824195590798",
+          "longHeadlines": [
+            "Daniel Rose shows the 11pm alarm and gum his AI coach suggested for evening snacking.",
+            "In this video I go over what my AI coach suggested about late night snacking.",
+            "A short video on my evening snacking routine and the two things AI suggested for it."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.963Z",
+          "event": "created",
+          "campaign": "tier1",
+          "videoId": "GVNzvm5sUbk",
+          "adId": "824153198067",
+          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · tier1 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Ab Exercises In My Routine",
+            "Where Ab Exercises Fit For Me",
+            "My Ab Training Routine At 40",
+            "Ab Exercise Order Explained",
+            "Ab Training Routine For Men"
+          ],
+          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
+            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
+            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824153198067",
+          "longHeadlines": [
+            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
+            "This video covers ab exercises and the other training Daniel Rose does at home.",
+            "A short video about ab exercise order and the rest of Daniel Rose's routine."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.965Z",
+          "event": "created",
+          "campaign": "tier1",
+          "videoId": "LvOMn7IpuCI",
+          "adId": "824153242209",
+          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · tier1 · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Personal Trainers And My Budget",
+            "How I Use My Fitness Budget",
+            "My Thoughts On Personal Trainers",
+            "Monthly Fitness Spending At 40",
+            "Personal Trainer Spending Talk"
+          ],
+          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
+            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
+            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824153242209",
+          "longHeadlines": [
+            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
+            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
+            "A short video about personal trainers, help at home, and monthly fitness spending."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.966Z",
+          "event": "created",
+          "campaign": "rmktg",
+          "videoId": "y0XIbNoA2Xo",
+          "adId": "824195543401",
+          "name": "AT · The AI Trick That Killed My Late-Night Snacking · yt:y0XIbNoA2Xo · r2 · rmktg · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "My Late Night Snacking Routine",
+            "What AI Suggested For Snacking",
+            "An 11pm Alarm And A Pack Of Gum",
+            "Late Night Snacking And AI",
+            "My AI Coach On Evening Snacking"
+          ],
+          "videoTitle": "The AI Trick That Killed My Late-Night Snacking",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his evening snacking routine and what his AI coach suggested.",
+            "The video covers an 11pm alarm, a pack of gum, and how AI arrived at both.",
+            "Daniel Rose, 40 years old, walks through the AI suggestions he uses in the evening."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824195543401",
+          "longHeadlines": [
+            "Daniel Rose shows the 11pm alarm and gum his AI coach suggested for evening snacking.",
+            "In this video I go over what my AI coach suggested about late night snacking.",
+            "A short video on my evening snacking routine and the two things AI suggested for it."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.967Z",
+          "event": "created",
+          "campaign": "rmktg",
+          "videoId": "GVNzvm5sUbk",
+          "adId": "824277352232",
+          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r2 · rmktg · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Ab Exercises In My Routine",
+            "Where Ab Exercises Fit For Me",
+            "My Ab Training Routine At 40",
+            "Ab Exercise Order Explained",
+            "Ab Training Routine For Men"
+          ],
+          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
+            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
+            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824277352232",
+          "longHeadlines": [
+            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
+            "This video covers ab exercises and the other training Daniel Rose does at home.",
+            "A short video about ab exercise order and the rest of Daniel Rose's routine."
+          ]
+        },
+        {
+          "at": "2026-09-10T16:00:35.968Z",
+          "event": "created",
+          "campaign": "rmktg",
+          "videoId": "LvOMn7IpuCI",
+          "adId": "824195596555",
+          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r2 · rmktg · 2026-09-10",
+          "attempt": 2,
+          "headlines": [
+            "Personal Trainers And My Budget",
+            "How I Use My Fitness Budget",
+            "My Thoughts On Personal Trainers",
+            "Monthly Fitness Spending At 40",
+            "Personal Trainer Spending Talk"
+          ],
+          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
+            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
+            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824195596555",
+          "longHeadlines": [
+            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
+            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
+            "A short video about personal trainers, help at home, and monthly fitness spending."
           ]
         }
       ]
     },
+    "retry": {
+      "seen": [],
+      "failed": [],
+      "actions": [],
+      "restore": [],
+      "thumbnails": [],
+      "waitingCopy": []
+    },
     "lastResults": {
-      "at": "2026-09-10T11:00:09.484Z",
+      "at": "2026-09-11T11:00:06.031Z",
       "dryRun": false,
-      "results": [
-        {
-          "id": "c1",
-          "ok": true,
-          "op": "pauseAd",
-          "labelErrors": [],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~823972420498"
-        }
-      ]
+      "results": []
     }
   },
   "thresholds": {
