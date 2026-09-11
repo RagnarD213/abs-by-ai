@@ -68,6 +68,20 @@ lifetime campaign spend** (read via `GET /17841401601139982?fields=followers_cou
 ever recorded. Weekly: read the count again, subtract, divide the spend since by the follows since. Over $5 a
 follow with $35+ spent → pause the champion by hand (the job's rule, applied manually); under $3 → scale.
 
+| reading (UTC) | followers | lifetime spend | visits | since previous |
+|---|---|---|---|---|
+| 2026-09-08 ~21:00 | 566 | $40.02 | 418 | baseline |
+| 2026-09-11 14:49 | 586 | $80.45 | 747 | +20 follows / $40.43 = **$2.02/follow**, 6.1 % of visits followed → scale candidate |
+
+Spend in the last column is ALL campaign spend (champion + tests), so cost/follow is all-in. Next reading compares
+against the latest row. The count is net of every source; organic IG photo posts report 0 follows each (Blotato
+analytics), so the ads account for nearly all of it.
+
+**The ads token cannot read Instagram insights.** `META_ADS_TOKEN` lacks `instagram_manage_insights`, so
+`/{ig-user}/insights` (follower_count, profile_views) and `/{media}/insights` both return error #10, and
+`business_discovery` is refused the same way. `followers_count` on the IG user still works. Per-post organic reach,
+watch time, shares and (photo posts only) follows come from Blotato: `blotato_list_top_posts` / `blotato_get_post_analytics`.
+
 ## The two metric names — one verified, one still to match (read this before trusting a verdict)
 
 Probed against the live account on 2026-09-02, zero-spend, everything deleted afterwards:
