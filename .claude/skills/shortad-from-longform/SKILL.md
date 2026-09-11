@@ -1237,6 +1237,69 @@ the first independent audit returned "does not ship" with nine findings after 20
 18. **Two audits, not one.** The re-audit of the "fixed" render found two new defects the fixes had introduced (a lift's
     in-point, a punch start that missed the cut). Budget the second audit; it is where the last real defects are.
 
+## [A8] Muhammad's Ad 4 (2026-09-11) — a sibling build's revisions, small phones, his pace, and moving a level change
+
+Build dir `/Volumes/Extreme/_edit_work/ad4-vert/`, scripts in `reference/a8_ad4/` (its README maps each script to its step:
+the a7 pipeline + `g8.py` / `render8.py`). Audit 1 returned "does not ship" with ten findings after the gates and a
+211-strip watch pass; audit 2 verified eight of nine fixes and found four more. Every one is a rule below.
+
+1. **Step 0b's first draft lied on a clean export** (fixed in the committed `hd_vs_draft.py`): it counted clipping on a
+   `-ac 1 -ar 16000` decode, and ffmpeg's stereo→mono downmix lifts a correlated mix ~2.3 dB — 8,810 "clipped" samples in an
+   HD with ZERO samples ≥ 0.999 natively. Before stopping on an export fault, re-measure it independently.
+2. **Read `git log` for new standing rules at the start AND before the first render.** Dan's Ad 5 round-1 revisions landed
+   20 minutes into this build (every real after picture full-bleed portrait + "Real picture of me — not AI-generated").
+   Reproducing Muhammad literally would have shipped his two landscape stills in cards.
+3. **A phone ~300 px wide at 1920 cannot be matched at 640.** The matcher locked on one frame (r 0.50, constant t) while his
+   phone scrolled. Full-res crops + a multi-scale template search (`zmatch4c.py`): r 0.67–0.94, monotonic. Take coordinates
+   off the FULL-RES frame — a contact-sheet tile's local x × 3 put the first crop 240 px off the phone.
+4. **A clip beside the editor's own label needs a FIXED box** (his tag swallowed the hole detector: r 0.2 → 0.55–0.60), and
+   **a low-motion clip's time map is linear per shot**: the NCC jitter + running maximum made 13 frozen runs of 8–20 frames.
+5. **Reproduce the editor's own AI label device, ON from the first frame.** His "AI-generated video" tag + dashed arrow
+   (Dan-approved) points DOWN in 9:16; typed on, it left the clip unlabelled for 5 frames. The card fades up over 10 frames
+   with the tag already on — his entrance.
+6. **Every text reveal at HIS pace.** g5's reveals typed 3–6× slower than his: a 1.5 s "AI can read the label" was readable
+   for 6 frames. His line is complete 4–8 frames after the tab, his bullets in ~6, tails in 1–2, his title card's headline by
+   +15 and sub by +25. `g8.py`: LT_GROW 0.15, LT_HEAD 0.06, LT_STAG 0.10, LT_TYPE 0.25, BUL_TYPE 0.30, TAIL_TYPE 0.25, and
+   a faster `title_card` (audit 2 caught the title card still at the old pace — it is a text reveal too). Cue an overlay at
+   his FIRST letter, not at the olive tab's first detection.
+7. **A window beat ends ON his cut.** His window wipes out over ~8 frames and his take change sits inside the wipe (1267,
+   5905): ending at the wipe's start left a 3-frame shot of the old take; ending after his cut showed his pose jump inside
+   our window.
+8. **Move a level change WITH its beat edge, as a pair.** When W4's end moved onto his cut (5912 → 5905) the level change
+   stayed at the old edge: 7 FAR frames, then a punch on continuous footage (audit 2). Mark the new edge `FORCE_VISIBLE` and
+   the old one `FORCE_INVISIBLE` — the group count is unchanged, so no other hold moves. Merging the groups instead changes
+   the parity of the free run back to the previous fixed punch and re-levels every hold in between. Diff `zoom_per_frame`
+   before and after: here only 5905–5911 changed.
+9. **A visible join INSIDE his punch-in is a naked jump cut in ours** (3925: he hid it with a punch-OUT; our punch range
+   forced NEAR both sides) — end the punch range on that cut. Joins his render reads as invisible (ratio 1.1–1.6) can still
+   jump at 2.3× (2937 a blink, 3543 hands): `FORCE_VISIBLE` after the audit's eye, as in A7.15. The reverse: a join 3–6
+   frames from a beat edge (1267, 6508) is `FORCE_INVISIBLE`, or it leaves a sliver at another level or y0.
+10. **The hair floor is met by the level, not by headroom that does not exist.** This roll puts the hair 22 px under its own
+    top; a 9-frame FAR opening read 34 px on the phone (floor 36). NEAR magnifies it to ~50, so the hook opens on NEAR.
+11. **Rebuild an approved screen from the recording's own pixels:** his download screen = the page header + the after image
+    enlarged to the screen width at 40.5 % down, the email form out of frame (Dan r2/r3); the photo's box came from its EDGE
+    gradients (threshold detectors failed on the page's grey card). **A phone mockup takes the MEDIA's aspect** — a 9:16
+    recording cover-cropped into a 19.5:9 phone loses ~9 % of list text per side.
+12. **Captions: settle words acoustically, read the greedy decode, merge Whisper's hyphen splits.** CTC NLL picked "name it"
+    and "can't"; the greedy decode "TOP" settled "tub" where "tone"/"tongue"/"tube" scored within 0.5; "abs" over "ads" is
+    below CTC's resolution (meaning decides); "my supplements that workouts" won two acoustic tests against Whisper-medium's
+    "supplement stack" — kept, flagged for Dan's ear. "science -based" was two tokens → FIX `('science', '-based'):
+    ('science-based', '')`. ⚠ **`align_ctc.py` reads its own previous `words_ctc.json`**, so a FIX change is silently
+    ignored (here it asserted 728 vs 731) — move `words_ctc.json` aside before re-aligning.
+13. **Cutdown seams:** a range never ends inside a strobe's RISE (two brightening frames, then a hard cut, read as a flicker at
+    two seams — `zcutdown.py` ends it at the strobe's first flashed frame), and **the last seam flips the OUTGOING hold** —
+    the ending was his walk-out, and at NEAR Dan's face left the right edge (`zcut_build.py`).
+14. **`zcut_build.py` generated a cut/beats.py with Ad 5's caption-mute kinds hard-coded** (new kinds would have run captions
+    under the cutdown's graphics — the sets now come from the master's beats), and read `his_mix.wav` as int16 (a float WAV is
+    silently misread — it asserts 16-bit stereo). A range that opens mid-sentence capitalises its first word.
+15. **Near-static media freezes in our gate even when his does not** (0.93× card downscale of a slow clip): video cards carry
+    a 4 % push, title cards 8 %.
+16. **The editor's export can miss Dan's true-peak rule by a hair.** Muhammad's V4 HD peaks at −0.90 dBTP against −1.0 (the
+    draft Dan approved read −0.2). Verbatim mode gates TP absolutely, so the stamp FAILS and `deliver4.py` refuses the
+    masters; his audio is not ours to trim (Step 4) — report it, deliver review copies, and let Dan choose (accept, or a −1.0
+    re-export from the editor, then a 5-minute re-mux).
+17. **Load:** at a 1-minute load average of 60–220 (three sessions building), the compositor ran at ~2 fps against ~12 quiet.
+
 ## Standing content rules that override the reference
 
 The reference editor does not know Dan's ad rules. Check every beat you are reproducing:
