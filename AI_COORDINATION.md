@@ -449,6 +449,15 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
   doc specs the band just under the top safe line instead, and the one-line label caps at 52 px so two lines at 64–72 px
   is the recommendation. ⚠ `g5.real_chip` is shared with the Ad 4 vertical. Opus, high. **Not on the dashboard.**
 
+- **`Handoffs/handoff-20260912-vqc-phase3-watch-pass.md`** — **PHASE 3 of the video-quality engine, fire next.**
+  Phases 1–2 are DONE (`eff3896`, `0d62064`; gate 1.2.0, corpus 19/19). Makes the watch pass a hard gate in all six
+  skills: one plan-driven streamed `_shared/deliver/watch.py` folding in the three forks (keeping the −2..+2
+  consecutive-frame strips and watch_longform's merged events + graphic-presence check), a sheet-judged first pass
+  against a checklist built from Dan's rejections (incl. the visual-junk items no scanner can see), `cut:naked_splices`
+  registered and measured on `ad1-vertical-attempt1` FIRST, a synthetic frozen/black/jump fixture, `watch:pass`
+  required for every format (GATE_VERSION 1.3.0), Step 7b's subagent audit into the other four skills, and only then
+  the 30 bannered QC forks deleted. Fable 5.1 high, ~2 sessions. **Not on the dashboard** (his 09-08 rule).
+
 Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
@@ -527,7 +536,7 @@ vs 0.94–0.97 on every look-alike). Skill wiring: `/shortad-from-longform` Step
 `Handoffs/handoff-20260911-video-quality-engine.md`. **Next: Phase 3 (the watch pass) in a fresh session.** No
 dashboard row. Delete this entry once Dan has seen the ads finding.
 
-**Codex one-month video-editing trial — 02 NEEDS REVIEW (2026-09-12, Codex owns trial only).** Exact 87.854 s raw C1631 sample, randomized human comparison, audio A/B and SRT are prepared under `Media/codex-video-trial/02-organic-sample/`. Full audits retained; gate 1.2.0 FAIL. Next: Dan’s consolidated verdict/corrections; no approval inferred. Private records only; no publishing or dashboard row.
+**Codex one-month video-editing trial — 02 REVISING (2026-09-12, Codex owns trial only).** Dan finds first draft nearly identical to Muhammad, no A/B preference. Now testing tighter kneeling / safe rollout crops and localized necklace-mic overload repair in `Media/codex-video-trial/02-organic-sample/rev2/`. First draft and exact feedback preserved; private diagnostic-review authorization persists. Next: revised88second sample + focused before/after sound comparison, then Dan review. Private records only; no publishing or dashboard row.
 
 **Video-quality engine PHASE 1 — SHIPPED 2026-09-11 (`eff3896` + follow-up), nothing blocked. Two things for Dan.**
 `_shared/deliver/gate.py` is now THE delivery gate for all seven video skills — **30 rows x 7 formats, no holes**
