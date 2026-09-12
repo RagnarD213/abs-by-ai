@@ -38,6 +38,22 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Waleed's Video 1, round 4 — REVIEWED AND DELIVERED 2026-09-12, Dan reads and forwards.**
+[Video 1 revisions - Waleed - round 4](https://docs.google.com/document/d/1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw/edit)
++ markdown copy in `revision docs/`. Most of round 3's list landed clean (label spelling, all four missing
+labels, the email-capture screen, the diary clip, both capitalization fixes, the green transition, and
+loudness back to -13.0 LUFS from the -8.6 disaster). ⚠ **New compliance problem, not in round 3:** the
+transition Waleed built to fix the old before/after hard-cut at 0:04 now holds BOTH phones on screen at once
+for about 1.5s (0:06.6-0:08.1) — a side-by-side before/after, worse than what it replaced. Also unresolved,
+both repeats from round 3 with the same asset links re-sent: the plan-section app screen (3:34.5-3:48.5, still
+replaying the generate-a-picture recording a third time) and the equipment-line app screen (4:00.5-4:04.4,
+now a generic gym clip); the end hold still isn't there (under 1s of tail, was asked for ~4s). One small new
+audio item: true peak +2.9 dBTP with ~4,200 samples clipped (loudness itself is fixed). Verified by
+frame-diffing against the round-3 source cached at `/Volumes/Extreme/_edit_work/revisions-0908/dl/waleed_v3.mp4`
+— only the 22 windows that actually changed were re-checked, not the whole video. Note: `editor-deliveries/state.json`
+still says Waleed was blocked on doc access as of 09-11 — that's stale, he's clearly since gotten in and worked
+the list; worth a quick correction next time that file's touched. Delete this entry once Dan has reviewed and forwarded.
+
 **Google Ads rep tasks (GA4, Search → /start, MCC account) — EXECUTED AND VERIFIED 2026-09-11. TWO CLICKS LEFT FOR DAN.**
 ✅ **GA4 is live and linked.** Property "Abs By AI" `553864929`, stream absbyai.com `15763007741`, **`G-1M1SY7GGKF`**,
 inside GA account SixPackAbs.com `145219380`; linked to Ads `342-717-0837`, personalized advertising on, **no
@@ -559,24 +575,20 @@ to fix the banned-screen pairing test early. No dashboard row (his 09-08 rule). 
 the two warnings.
 
 
-**Ad 2 square (1:1) — DELIVERED 2026-09-12, Dan reviews.** `Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/
-… | claude | 1x1 | ad 2.mp4` + 540p/480p review copies, A/B audio, stamp, `notes-square.md`, `recipe-square/`. 1080×1080,
-**8,275 frames = his to the frame**; the audio is the APPROVED VERTICAL's AAC stream **md5-identical** (`muxsq.py` refuses to
-write otherwise). No cutdown — Ad 2's vertical never had one. `qc.py` **19/20**, watch pass 88/88, centering median +0 px /
-0 runs, hair min 24 px, 0 duplicated frames at 32 cuts, 0 newly bare splices.
-**TWO independent audits.** #1 returned "does not ship" after a 20/20 — worst: the conveyor lower third was rendered ENTIRELY
-OFF FRAME for 4.3 s (a 9:16 default passed by the caller, empty alpha on its overlay), so that beat carried no words at all;
-plus a caption over the closing CTA, `fatdad_a`'s crown cut, and a caption on the plaque. Fixing the first exposed a fifth (the
-AI chip 46 px under the bar). #2 returned **SHIPS**, verified all six fixes on the delivered file (its own centering: 600
-samples, median +1, sd 9.4, **0 beyond 60 px**), and found one more — `fatdad_b` clipping the crown, inherited (the approved
-9:16 is worse) and fixed anyway since its twin is fixed in the same beat.
-⚠ **The one red row is qc 20 (caption sync) and BOTH audits agree it is the INSTRUMENT, not the captions:** a concurrent
-session moved `caption_sync_check.py` to full resolution mid-build, and Muhammad's graded room tone sits inside ±22 of his own
-olive accent — on one word the mask admits 10,889 background px against 2,737 inside the word box. All 12 flagged words pulled
-at full res are correct and legible. Recorded in the gate file; NOT tuned away. Optional picture-side fix if Dan wants it: the
-scrim ([A6].17) — both audits point at 1:07–1:08 (olive on broccoli) as the case for it.
-Skill: **[A10]** + `reference/a10_sq/` (commit c93faaf). Dashboard row stays unchecked until Dan approves (verticals rule).
-Delete this entry once he has.
+**Ad 2 square (1:1) — APPROVED AND FINALIZED by Dan 2026-09-12; one handoff left to fire.** Final master
+`Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/… | claude | 1x1 | ad 2.mp4` (1080×1080, **8,275 frames =
+Muhammad's to the frame**, audio = the approved vertical's AAC stream **md5-identical**), + 540p/480p review copies, A/B
+audio, stamp, `notes-square.md`, `recipe-square/`. `qc.py` 19/20; watch pass 88/88; TWO independent audits (#1 "does not
+ship" after a 20/20 — worst: a lower third rendered ENTIRELY OFF FRAME for 4.3 s; #2 SHIPS). The one red row is qc 20 and
+both audits called it a gate calibration defect on olive-graded material, not a caption defect — recorded in the gate file,
+not tuned away. Skill: **[A10]** + `reference/a10_sq/`.
+**NEXT: `Handoffs/handoff-20260912-ad2-square-youtube-and-ads.md`** — upload unlisted + add as one more `videos` entry on
+Ad 2's two existing Demand Gen ad groups (200136997156 / 199420011265, campaign 24243839443). Not on the dashboard (his rule).
+⚠ **Dan changed the LABEL PLACEMENT rule on seeing this video, for FUTURE videos only** (*"I don't want to make this change
+in this video… only going forward"*): a label may not cover his face OR his abs — above his head, to the side, or the largest
+band his body does not occupy, chosen by measuring him on the rendered frame, never at a fixed y. Now in `AGENTS.md` and all
+seven video skills + `/revisions` lesson 48 + `/editor-brief`. **Do not re-render Ad 2 for it.**
+Delete this entry once the upload/ads handoff has run.
 
 **8/28 shoot Drive backup — UPLOADING OVERNIGHT 2026-09-11, self-verifying 09-12. Nothing for Dan to do.** The
 267 GB / 259-file 8/28 shoot existed on ONE drive with no backup of any kind — it is the source of every ad in

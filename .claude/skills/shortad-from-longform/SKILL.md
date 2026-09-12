@@ -1689,11 +1689,15 @@ The reference editor does not know Dan's ad rules. Check every beat you are repr
   before/after screen. In the product recording `clip_109_replacement.mp4` those start at
   **26 s and 29 s** — the usable window is **0–25 s**. Assert it in QC.
 - **A before and after picture are the SAME PERSON** (Dan, 2026-09-12: *"don't mix before-and-after pictures… That doesn't really make sense if you change the person."*). Never pair one person's before with another's after — in an app recording, a result screen, a card or a thumbnail. If that person's after does not exist, generate it for THEM through the live product (a real generation, never a composite) or change the before so the pair matches. ⚠ The only real app recording in the asset library uploads a man who is NOT Dan, so every phone demo cut from it inherits this.
-- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style and with the same placement rules as the AI label — low on the frame, above the caption band, never over his face. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
+- **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style as the AI label. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
+- ⚠ **LABEL PLACEMENT — NEVER OVER HIS FACE AND NEVER OVER HIS ABS** (Dan, 2026-09-12, on the Ad 2 square: *"the label will not block my face or my abs… put it above my head, to the side, or somewhere that it doesn't block my face and my abs in all of these after pictures"*). This REPLACES the old "low on the frame, at the shorts/waistline" rule, which is what put the chip across his lower abs. Put it **above his head, off to one side, or anywhere in the frame his body does not occupy** — still inside the safe area, still large enough to read, still clear of the caption band. **The picture exists to show the physique; a label over the abs defeats the picture.** Choose the position by MEASURING him on the RENDERED frame (person mask → the bounding box of head + torso, then place the chip in the largest clear band), never at a fixed y — every photo frames him differently. If nothing is clear enough, shrink the chip or move it to a corner before you put it on him. Applies to BOTH labels on any picture of Dan.
 - **Label AI-generated imagery — and NEVER put the label over a face** (Dan, 2026-08-27:
-  "don't cover my face with labels like this. Make that a rule for future ones"). On a
-  full-bleed person shot the chip goes low — at the shorts/waistline area, above the
-  caption band — sized large enough to read (~68% of frame width on 1080).
+  "don't cover my face with labels like this. Make that a rule for future ones") **OR OVER HIS
+  ABS** (Dan, 2026-09-12 — see the placement rule above). On a full-bleed shot of Dan the chip
+  goes **above his head or off to one side**, in the largest band his body does not occupy,
+  sized large enough to read (~68% of frame width on 1080). ⚠ The old wording here said "low —
+  at the shorts/waistline area", and that is exactly what put the chip across his lower abs on
+  the Ad 2 square; a fixed y is the mistake, measure him on the rendered frame instead.
 - **Casting: white or Asian men 30–50.** Contact-sheet the RENDERED 9:16 crop of every stock
   clip before committing — 4 of the first 10 picks here were off-demographic and one was a
   woman, and none of that is visible from a search-page thumbnail.

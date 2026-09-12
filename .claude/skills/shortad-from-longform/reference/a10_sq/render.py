@@ -278,6 +278,13 @@ def run(cmd):
     if r.returncode:
         print(' '.join(str(c) for c in cmd[:60]), '\n', r.stderr[-1800:]); raise SystemExit(1)
 
+# ⚠⚠ SUPERSEDED PLACEMENT (Dan, 2026-09-12). The `y=784` default and the "shorts/waistline"
+# reasoning below are what SHIPPED on the Ad 2 square, and Dan finalized that video as it is --
+# but he changed the rule on seeing it: **a label may not cover his face OR his abs.** Going
+# forward put it ABOVE HIS HEAD, off to one side, or in the largest band his body does not
+# occupy, chosen by MEASURING him on the rendered frame (person mask -> head+torso bounding box)
+# rather than from a fixed y. Kept here unchanged as the record of what Ad 2 actually shipped;
+# the next square must not copy the default.
 def vlib_chip(label, path, y=784):
     """Label chip for a full-bleed beat -- "AI-GENERATED" on AI imagery, "Real picture of me --
     not AI-generated" on Dan's real after pictures (AGENTS.md, Dan 2026-09-11). NEVER over the

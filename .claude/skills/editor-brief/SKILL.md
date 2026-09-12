@@ -152,7 +152,7 @@ email-capture form; never show the in-app before/after screen; AI-GENERATED labe
 visual, large, upper-left, **never over Dan's face**; "Results are not guaranteed." on the real
 physique photographs AND the rule that **a before and after picture are the SAME PERSON** (Dan, 2026-09-12 — never one
 person's before against another's after) AND the burned label "Real picture of me — not AI-generated" on every real picture of Dan shown as a
-result (Dan, 2026-09-11 — viewers were taking his real photos for AI; the two labels are mutually exclusive, low on the frame, never over his face); no drug or medication brand names in any graphic even if Dan says one
+result (Dan, 2026-09-11 — viewers were taking his real photos for AI; the two labels are mutually exclusive, and NEITHER EVER COVERS HIS FACE OR HIS ABS — above his head, off to one side, or anywhere his body is not, never at a fixed height on the frame; Dan, 2026-09-12); no drug or medication brand names in any graphic even if Dan says one
 aloud; nothing fake — no mocked-up app screens or third-party apps standing in for ours.
 
 ### 10. Delivery and questions

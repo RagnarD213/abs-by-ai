@@ -804,3 +804,12 @@ exact timing or an exact link.
     bold upright capitals, same size, inside the bottom edge of the picture, not italic, no brackets. Check the new
     label against the old one at full resolution in the round that introduces it, and write the item identically in
     every ad of the batch so the two labels cannot drift apart.
+48. ⚠ **A LABEL ON A PICTURE OF DAN MAY NOT COVER HIS FACE OR HIS ABS (Dan, 2026-09-12).** *"The label will not
+    block my face or my abs… put it above my head, to the side, or somewhere that it doesn't block my face and my
+    abs in all of these after pictures."* This SUPERSEDES "inside the bottom edge of the picture" in lesson 47 and
+    every earlier "low on the frame / at the shorts line" wording — those are what put the chip across his lower
+    abs. When reviewing a cut: **look at every labelled picture of Dan and flag any label touching his face or his
+    midsection**, and say where it should go instead (above his head, off to one side, or the largest band his body
+    does not occupy). The reason is the whole point of the picture — an after photo exists to show the physique, so
+    a label over the abs cancels the shot it is labelling. The chip's CONSTRUCTION (lesson 47) is unchanged; only
+    where it sits has changed.
