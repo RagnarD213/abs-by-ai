@@ -464,7 +464,7 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
 - **Square (1:1) versions of every finalized ad — six per-ad docs + `Handoffs/handoff-20260911-square-ads-00-shared-rules.md`
   (read first).** Rep's ask: 1:1 fills Demand Gen in-feed/Discover/Gmail. Each is a re-layout of the ad's vertical
   build (same EDL/grade/beats/captions, audio bit for bit), 1080×1080, all gates + the audit. Firing order:
-  `…-ad1-muhammad.md` (now; Ad 2's is EXECUTED) → `…-ad5-muhammad.md` (after the Ad 5 revisions) →
+  **`…-ad1-muhammad.md` and `…-ad2-muhammad.md` are both EXECUTED** → `…-ad5-muhammad.md` (after the Ad 5 revisions) →
   `…-ad4-muhammad.md` (after its vertical is approved) → `…-ad3-muhammad.md` (after Muhammad's corrected HD + vertical) →
   `…-ad1-zeeshan.md` (after Dan approves that vertical). Fable 5.1 high each. **Not on the dashboard.**
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).

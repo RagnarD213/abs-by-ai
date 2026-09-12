@@ -27,7 +27,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260912-ad5-vertical-revisions-round2.md](handoff-20260912-ad5-vertical-revisions-round2.md) | **now** — Dan's round-2 revisions on the Ad 5 vertical: the app demo's before and after must be the same man (his after must be generated, it is not in the library), and the "Real picture of me" label on EVERY real picture, off his abs and larger. Opus, high |
 | [handoff-20260912-vqc-phase3-watch-pass.md](handoff-20260912-vqc-phase3-watch-pass.md) | **next in the video-quality engine** — Phase 3: the watch pass becomes mandatory in all six skills (one shared `watch.py`, sheet-judged first pass, `cut:naked_splices` proven on the corpus, then the 30 bannered QC forks deleted). Phases 1–2 done (`eff3896`, `0d62064`). Fable 5.1 high, ~2 sessions |
 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | READ FIRST for any square build — the 1:1 translation rules, gates, naming, after-build steps and the firing order for the six per-ad docs below |
-| [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | **2nd** — now; Ad 1 (Muhammad) square from `ad1-8-14/vert9x16/`, land on his 6,976 frames. Fable 5.1 high |
 | [handoff-20260911-square-ad5-muhammad.md](handoff-20260911-square-ad5-muhammad.md) | **3rd** — after the Ad 5 vertical revisions handoff runs and Dan approves. Fable 5.1 high |
 | [handoff-20260911-square-ad4-muhammad.md](handoff-20260911-square-ad4-muhammad.md) | **4th** — after the Ad 4 vertical (building 09-11) is delivered and approved. Fable 5.1 high |
 | [handoff-20260911-square-ad3-muhammad.md](handoff-20260911-square-ad3-muhammad.md) | **5th** — after Muhammad's corrected Ad 3 HD AND the approved Ad 3 vertical. Fable 5.1 high |
@@ -64,7 +63,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 |---|---|---|
 | 2026-09-11 | [handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md](handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md) | Google Ads rep meeting: GA4 + Ads link, Search ads → /start with homepage sitelink, empty MCC account for sixpackabs.com |
 | 2026-09-11 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | Square (1:1) ad versions — shared rules, gates, naming, firing order |
-| 2026-09-11 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | Ad 1 (Muhammad) — square 1:1 version |
+| 2026-09-11 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | Ad 1 (Muhammad) — square 1:1 version — **EXECUTED 2026-09-12**, both files delivered and gate-PASS |
 | 2026-09-11 | [handoff-20260911-square-ad1-zeeshan.md](handoff-20260911-square-ad1-zeeshan.md) | Ad 1 (Zeeshan) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad3-muhammad.md](handoff-20260911-square-ad3-muhammad.md) | Ad 3 (Muhammad) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad4-muhammad.md](handoff-20260911-square-ad4-muhammad.md) | Ad 4 (Muhammad V4) — square 1:1 version |
