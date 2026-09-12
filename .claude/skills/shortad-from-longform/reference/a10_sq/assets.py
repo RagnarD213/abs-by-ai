@@ -17,8 +17,20 @@ MEDIA = {
     # both whole, 0.78 and above slice "ONE SIZE" mid-word). This is the one place the square
     # shows MORE of his frame than the approved vertical does.
     'conveyor':  ('vid', f'{HERE}/rev/clipD.mp4',    0.00, 1.0, dict(ox=0.72)),
-    'fatdad_a':  ('img', f'{PROJ}/before-photo-candidates/fat dad pic - standing_RECENTERED-4x5.jpg', 0, 1.0, dict(ox=0.37)),  # room for the girl at the left edge
-    'fatdad_b':  ('img', f'{HERE}/rev/fatdad_ride.jpg', 0, 1.0, dict(ox=0.15)),   # REV 4; Dan centred, stomach in (2026-09-08)
+    # ⚠ oy=0, NOT the default 0.5. This is a 4:5 photo (3506x4382): a 1:1 cover crop takes 10 % of
+    # its height at the start and 12.8 % by the end of the push, and CENTRED it takes that off the
+    # TOP OF HIS HEAD -- exactly the fault that moved `before_dan` and `goal_dan` into cards, found
+    # on this asset by the independent audit after the frame-0 contact sheet had looked fine
+    # (`sqstill_end.py` renders both ends now). Anchored at 0 the crown and the girl both survive
+    # and the crop comes off the bottom, below the caption band. ox 0.37 keeps room for her.
+    'fatdad_a':  ('img', f'{PROJ}/before-photo-candidates/fat dad pic - standing_RECENTERED-4x5.jpg', 0, 1.0, dict(ox=0.37, oy=0.0)),
+    # ⚠ oy=0 for the SAME reason as fatdad_a, found by the RE-AUDIT: measured on the delivered
+    # file the person mask put 178 px on the top two rows by frame 4600 and 390 px by 4656 -- the
+    # push clips his crown at the end of the beat. The approved 9:16 has the identical fault
+    # (311 -> 687 px), so this is inherited, not new; it is fixed here anyway because its twin
+    # fatdad_a is fixed in the same beat, and a dissolve from a photo that keeps the crown into
+    # one that loses it is the kind of thing a viewer sees without knowing why.
+    'fatdad_b':  ('img', f'{HERE}/rev/fatdad_ride.jpg', 0, 1.0, dict(ox=0.15, oy=0.0)),
     # REV 5. The beat is 4.905 s and the clip 4.50 s, so it is stretched 1.15x (a touch of slow motion
     # on a toe-touch, invisible) rather than looped -- a loop wraps to frame 0 mid-rep.
     # ... and then motion-interpolated (minterpolate mci) to 29.97 so the stretch repeats no frames:

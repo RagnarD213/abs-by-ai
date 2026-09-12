@@ -536,7 +536,7 @@ vs 0.94–0.97 on every look-alike). Skill wiring: `/shortad-from-longform` Step
 `Handoffs/handoff-20260911-video-quality-engine.md`. **Next: Phase 3 (the watch pass) in a fresh session.** No
 dashboard row. Delete this entry once Dan has seen the ads finding.
 
-**Codex one-month video-editing trial — 02 REVISING (2026-09-12, Codex owns trial only).** Dan finds first draft nearly identical to Muhammad, no A/B preference. Now testing tighter kneeling / safe rollout crops and localized necklace-mic overload repair in `Media/codex-video-trial/02-organic-sample/rev2/`. First draft and exact feedback preserved; private diagnostic-review authorization persists. Next: revised88second sample + focused before/after sound comparison, then Dan review. Private records only; no publishing or dashboard row.
+**Codex one-month video-editing trial — 03 IN PROGRESS (2026-09-12, Codex owns trial only).** Building the complete ab-wheel video from C1630–C1633 in `Media/codex-video-trial/03-organic-abwheel/`, using approved rev2b framing/audio and frozen template v1. Next: complete source/take map, render, exact-file checks and independent audiovisual review; proposed template v1.1 saved with the build. Private review only; no publishing or dashboard row.
 
 **Video-quality engine PHASE 1 — SHIPPED 2026-09-11 (`eff3896` + follow-up), nothing blocked. Two things for Dan.**
 `_shared/deliver/gate.py` is now THE delivery gate for all seven video skills — **30 rows x 7 formats, no holes**
@@ -559,18 +559,23 @@ to fix the banned-screen pairing test early. No dashboard row (his 09-08 rule). 
 the two warnings.
 
 
-**Ad 2 square (1:1) — DELIVERED 2026-09-11, Dan reviews.** `Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/
+**Ad 2 square (1:1) — DELIVERED 2026-09-12, Dan reviews.** `Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/
 … | claude | 1x1 | ad 2.mp4` + 540p/480p review copies, A/B audio, stamp, `notes-square.md`, `recipe-square/`. 1080×1080,
-**8,275 frames = his to the frame**, and the audio is the APPROVED VERTICAL's AAC stream **md5-identical** (`muxsq.py` refuses to
-write otherwise). No cutdown — Ad 2's vertical never had one. `qc.py` **19/20**; watch pass 88/88; centering median +0 px,
-0 sustained runs; hair min 24 px; landing 0 duplicated frames; 0 newly bare splices. **The independent audit returned "does not
-ship" with 4 findings after a 20/20 — worst: the conveyor lower third was rendered ENTIRELY OFF FRAME for 4.3 s (a 9:16 default
-passed by the caller), so that beat had no words at all. All fixed and re-verified on the delivered frames.**
-⚠ **The one red row is qc 20 (caption sync, 98.2 %) and it is the INSTRUMENT, not the captions:** a concurrent session moved
-`caption_sync_check.py` to full resolution mid-build, and Muhammad's graded room tone sits inside ±22 of his own olive accent,
-so the mask matched 13,347 px where the lit word is ~1,200. **All 12 flagged words were pulled at full res and are correct and
-legible.** Recorded in the gate file + `notes-square.md`; NOT tuned away. Optional picture-side fix if Dan wants it: the scrim
-([A6].17). Skill: **[A10]** + `reference/a10_sq/`. Dashboard row stays unchecked until Dan approves (verticals rule).
+**8,275 frames = his to the frame**; the audio is the APPROVED VERTICAL's AAC stream **md5-identical** (`muxsq.py` refuses to
+write otherwise). No cutdown — Ad 2's vertical never had one. `qc.py` **19/20**, watch pass 88/88, centering median +0 px /
+0 runs, hair min 24 px, 0 duplicated frames at 32 cuts, 0 newly bare splices.
+**TWO independent audits.** #1 returned "does not ship" after a 20/20 — worst: the conveyor lower third was rendered ENTIRELY
+OFF FRAME for 4.3 s (a 9:16 default passed by the caller, empty alpha on its overlay), so that beat carried no words at all;
+plus a caption over the closing CTA, `fatdad_a`'s crown cut, and a caption on the plaque. Fixing the first exposed a fifth (the
+AI chip 46 px under the bar). #2 returned **SHIPS**, verified all six fixes on the delivered file (its own centering: 600
+samples, median +1, sd 9.4, **0 beyond 60 px**), and found one more — `fatdad_b` clipping the crown, inherited (the approved
+9:16 is worse) and fixed anyway since its twin is fixed in the same beat.
+⚠ **The one red row is qc 20 (caption sync) and BOTH audits agree it is the INSTRUMENT, not the captions:** a concurrent
+session moved `caption_sync_check.py` to full resolution mid-build, and Muhammad's graded room tone sits inside ±22 of his own
+olive accent — on one word the mask admits 10,889 background px against 2,737 inside the word box. All 12 flagged words pulled
+at full res are correct and legible. Recorded in the gate file; NOT tuned away. Optional picture-side fix if Dan wants it: the
+scrim ([A6].17) — both audits point at 1:07–1:08 (olive on broccoli) as the case for it.
+Skill: **[A10]** + `reference/a10_sq/` (commit c93faaf). Dashboard row stays unchecked until Dan approves (verticals rule).
 Delete this entry once he has.
 
 **8/28 shoot Drive backup — UPLOADING OVERNIGHT 2026-09-11, self-verifying 09-12. Nothing for Dan to do.** The
@@ -630,37 +635,49 @@ pictures, prospect line → an AI stranger), a DIFFERENT generated person in eve
 stranger from the recording (lesson 40). Audio fine on both. Md copies in `revision docs/*9-11-26.md`; work dir
 `/Volumes/Extreme/_edit_work/revisions-0911m/`. Delete once Dan has forwarded and the next cuts arrive.
 
-**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — IN PROGRESS (session
-started 2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive `1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3`
-(265.2 s, 29.97); raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/`. Ad 4's vertical is a
-DIFFERENT session in `ad4-vert/` — do not touch either build dir. **Status 09-12 12:35: RENDER 9 BUILDING; five
-audits done, four said "does not ship."** Every render passed 20/20 and still had real defects — **in four of five
-rounds the findings included MY OWN previous fix making things worse.** ⚠ Do NOT deliver on a gate pass alone.
-**The ad's one lesson: a picture cut goes on HIS PICTURE's frame, never on the audio splice** (he trims a pause in
-the audio and puts the picture cut 2–15 frames away on a pose-matched frame; small in 16:9, a jump at our 1.9–2.3x
-crop). **Its corollary, which cost render 8: "where a join is least visible" is a DIFFERENT question from "where he
-cut"** — I scored candidate frames by how well the two raw frames matched, got a clean basin at 1139, and that put
-the cut inside the word "minutes", 10 frames ahead of the sound. His step is 1150, in the pause. Confirmed three
-ways (his take track, my own motion track, the word timings); crop.json came back byte-identical, proving the join
-is invisible.
-**Render 9 also carries a finding no audit made.** Audits 4 and 5 said 13 bullets were 8–11 frames late; re-measuring
-ALL 20 text cues showed why — `ov3`'s `(luma>170)` curve fires at the MIDPOINT of his 12-frame blur-in, not its
-onset, so every cue read off it was ~6 frames late by construction. The 13 corrections were right, **and 7 more
-nobody flagged were 5–10 frames late** (now fixed), and `REVEAL` was 0.27 s read off the WINDOW's opening where his
-bullets measure 0.40 s (now fixed). Instrument kept: `zbulonset.py` (full-res onset vs sharp; the reference frame
-must not sit inside another animation). ⚠ I nearly REVERTED all 13 correct fixes by re-measuring with the same
-biased curve — the lesson is to prove the instrument measures the instant you mean.
-**Cutdown re-selected (`cut6.sh`), not waiting on Dan.** It said the CTA twice (19 s of 57 on a talking head), which
-is why coverage was 44% vs the 55% bound and his own 62%; the first CTA is dropped and the AI-trainer beat takes its
-place — **57.92 s, 63.0%**, one CTA at the end. ⚠ Its true peak −0.90 dBTP is **NOT** Ad 4's situation: Ad 3's master
-is −1.0 (his stream copied bit for bit) and the −0.90 is OUR AAC re-encode overshooting his wav, so it is ours to
-fix, not Dan's to accept. Next: gates + watch pass + audit 6 on render 9, then `cut6.sh`, then deliver.
-New tools for `reference/a9/`: `ztake.py`, `zhisstep.py`, `zjoinratio.py`, `znostranger.py`, `zpicjoin.py`,
-`zltdiff.py`, `zbulonset.py`.
+**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — RENDER 9 BUILT AND
+GATED, audit 6 next (session started 2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive
+`1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3`; raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/`.
+Ad 4's vertical is a DIFFERENT session in `ad4-vert/` — do not touch either build dir.
+**Master: `qc.py` 20/20, watch pass recorded** (all 42 sheets / 237 boundaries, sha256 042c9f48c52e), audio md5 =
+his. **Cutdown rebuilt: 57.92 s, 63.0 % inserts.** ⚠ Do NOT deliver on a gate pass alone — five audits followed a
+20/20 and four said "does not ship."
+**The ad's one lesson: a picture cut goes on HIS PICTURE's frame, never the audio splice.** Its corollary, which
+cost render 8: **"where a join is least visible" is a DIFFERENT question from "where he cut"** — a clean basin at
+1139 put the cut inside the word "minutes", 10 frames ahead of the sound. His step is 1150, in the pause; confirmed
+by his take track, my own motion track and the word timings, and `crop.json` came back byte-identical.
+**⚠⚠ A THRESHOLD INSTRUMENT REPORTS THE MIDDLE OF A BLUR-IN, NOT ITS ONSET — and it nearly cost 13 correct fixes.**
+`ov3`'s `(luma>170)` text curve fires ~6 frames into his 12-frame bullet blur, so every cue read off it was late by
+construction. Audits 4+5 were RIGHT; re-measuring all 20 cues at full resolution (`zbulonset.py`: onset = new pixels
+appear, sharp = edge energy plateaus) also found **7 more nobody flagged, 5–10 frames late**, and `REVEAL` was
+0.27 s read off the WINDOW's opening where his bullets measure 0.40 s. All fixed; hand-read side by side confirms
+~11 frames both. ⚠ The reference frame must not sit inside another animation.
+**⚠ THE SHARED CAPTION FILES IN THIS BUILD WERE STALE** (as the 09-12 notice warned): `caption_sync_check.py` was
+**89 lines against the skill's 175** (missing per-process temp files, CAP_Y derivation, in-span sampling,
+least-washed-frame retry) and `captions.py` had the trailing-concat bug. Both replaced, wired into `cut6.sh`.
+Ad 3 ESCAPED the CTA-pill defect by 3 frames (caption ended f7850, pill starts f7853) but held a stale caption ~2
+frames; fixed and re-rendered. ⚠ Do NOT copy the skill's `captions.py` wholesale into a Muhammad build — its
+`suppressed()` uses kind `'cta'` and skips window bodies, where Ad 3 needs `beats.muted_ranges()` (`'pill'` + window
+bodies); taking it raw runs captions through every bullet screen and pill.
+**`_shared/deliver/gate.py` 1.2.0 on the master: 25 pass / 2 fail / 8 NOT MEASURED.** ⚠ **One FAIL was the
+INSTRUMENT, and it will false-FAIL every build of this style: `plan_build.py` wrote each SRT cue's end from the
+word's acoustic end, ignoring the rendered HARD-STOP clamp**, so `captions:card_collision` flagged "shoulder
+midweek," at 119.956 against the phone card at 119.920 — while the delivered frames measure caption ink 3.86 % at
+f3593 and **exactly 0.000 % at f3594**, the card's first frame. Fixed locally (`cue_end()`); **belongs back in the
+skill's `plan_build.py`.** The other FAIL is `compliance:labels`, the limitation the Ad 5 session already recorded
+(one chip position per kind vs his per-card corners) — "0 carrying the WRONG label", and the real-picture chip is
+present on EVERY frame of the photoseq, verified at full res. **All four `framing:*` rows read NOT MEASURED** — the
+gate's scene detector never settles on this layout (Dan sits in a window above text), so it sees 94 % insert; our
+own `zhairgate2.py` + `centering.py` DO measure and pass. For the Phase 2 owner.
+Next: audit 6 on render 9, cutdown watch pass + `qc.py` + its own delivery gate, then deliver.
+⚠ **This build's skill section is [A12], NOT [A9]** — [A9] is Ad 5 round 1, [A10] the first square, and [A11]
+is being written by the Ad 1 square session right now. Draft (renumbered) in `ad3-vert/a12_draft/LESSONS.md`;
+tools go to `reference/a12_ad3/`: `ztake.py`, `zhisstep.py`, `zjoinratio.py`, `znostranger.py`, `zpicjoin.py`,
+`zltdiff.py`, **`zbulonset.py`**. Re-read SKILL.md from disk before pasting.
 ⚠ **Muhammad's Ad 3 v6 HD is NOT the approved round-5 draft:** at 2:14.1–2:23.1 the "Because even though I was a
 personal trainer…" bullet lost "back in my 20s, as a 38 year old dad running a successful ad agency." (proof
-`ad3-vert/hdcheck/w4_hd_vs_draft.png`, sent to Dan 14:38). Do NOT file or upload it as final; Dan asks him to
-re-export. The vertical rebuilds that graphic with the full text, so it is unaffected.
+`ad3-vert/hdcheck/w4_hd_vs_draft.png`). Do NOT file or upload it as final; Dan asks him to re-export. The vertical
+rebuilds that graphic with the full text (verified on screen at 2:14), so it is unaffected.
 
 **Ad 5 "Every Diet You've Tried Failed" — 9:16 VERTICAL + 0:59 CUTDOWN — ROUND 1 REVISIONS RE-DELIVERED 2026-09-11, Dan
 reviews.** All three of his asks are in: every real after picture is FULL-BLEED PORTRAIT and carries the new **"Real picture
