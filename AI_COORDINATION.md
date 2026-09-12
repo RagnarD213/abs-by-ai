@@ -441,8 +441,9 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 - **Codex trial handoff series — `Handoffs/codex-video-trial/00-start-here.md`**, then in order: `01-reference-study.md`, `02-raw-footage-sample.md`, `03-first-organic.md`, `04-first-ad.md`, `05-reusable-recipes.md`, `06-unseen-videos.md`, `07-lower-cost-repeat.md`, optional `08-format-pilot.md`, and `09-final-decision.md` by Oct 11. Models/efforts and prerequisites are in the guide; master context remains `Handoffs/handoff-20260911-codex-video-editing-trial.md`. Local documents; Codex owns the separate trial; no dashboard row.
 
 - **`Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`** — Dan's round-2 revisions on the Ad 5 vertical:
-  (1) the app demo must show the SAME man in the before and after (his after is NOT in the library — both existing pairs
-  are white men — so it has to be generated for him through the live app, never composited); (2) the "Real picture of me"
+  (1) the app demo must show the SAME man in the before and after — ✅ **Dan named that after picture 2026-09-12**,
+  `13_AFTER_ai-generated_app-demo-man.jpg` (`1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp`, the man's own AI result cropped from the
+  recording), now staged in the build dir, so the "generate it through the live app" plan is SUPERSEDED — no spend; (2) the "Real picture of me"
   label goes on EVERY real picture of Dan (six more beats), moved off his abs, and made larger. ⚠ "Above my head" is not
   available — the sources cover-crop to full height and his hair sits 135 px from the top, inside the Shorts UI band; the
   doc specs the band just under the top safe line instead, and the one-line label caps at 52 px so two lines at 64–72 px
@@ -514,7 +515,7 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Codex one-month video-editing trial — 01 COMPLETE; 02 READY (2026-09-12, Codex owns trial only).** Verified both HD Muhammad references, five raw rolls/mics, historical baseline provenance and an 87.854 s raw-mapped sample. Style cards, supported audio-analysis evidence and build brief: `Media/codex-video-trial/records/02-sample-brief.md`. Estimated API spend $0.58; exact ledger saved. Two later originals shortlisted without matching edit/verdict exposure. Next: run handoff 02 when Dan starts it; reload current delivery gate (other session advanced it to 1.1.0). Private local records/branch only; no dashboard row.
+**Codex one-month video-editing trial — 02 RUNNING (2026-09-12, Codex owns trial only).** Building the verified 87.854 s C1631 sample under `Media/codex-video-trial/02-organic-sample/`; phase 01 records reused. Next: picture/audio proof, complete render, shared gates and independent audit, then randomized comparison + audio A/B + SRT for Dan. Private local records only; no publishing or dashboard row.
 
 **Video-quality engine PHASE 1 — SHIPPED 2026-09-11 (`eff3896` + follow-up), nothing blocked. Two things for Dan.**
 `_shared/deliver/gate.py` is now THE delivery gate for all seven video skills — **30 rows x 7 formats, no holes**
