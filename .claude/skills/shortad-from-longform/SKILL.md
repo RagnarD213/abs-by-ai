@@ -1603,6 +1603,40 @@ first one actually cost. Build dir `/Volumes/Extreme/_edit_work/ad1-sq/` (`sqlib
     -- a FAIL on a frame the gate should never have looked at. Build the frame set the way the
     renderer does, and keep a 2-frame guard either side of every edge.
 
+22. ⚠⚠ **A SELECTION CUTDOWN IS WHERE THE SQUARE'S REAL DEFECTS WERE, AND EVERY GATE PASSED THEM.**
+    The Ad 1 square's 0:59 was cleared by `qc.py`, the watch pass, the hair gate, the caption gate,
+    the landing check AND `_shared/deliver/gate.py` before the independent audit returned DOES NOT
+    SHIP. Tools and the full write-up: `reference/a11_sq_ad1/`. The four, each waiting for the next
+    square: **(a)** `-ss f"{t:.4f}"` drops a frame whenever the rounding lands above that frame's own
+    pts — 4 of 9 ranges started one frame late, which flashed a third photo for one frame at a seam,
+    dropped the peak frame of a light leak and ran the picture **33 ms ahead of the audio over 23.6 s
+    of 49 s**, with every count green because the counts were right and the CONTENT was shifted. Seek
+    half a frame early and **assert each range's first and last frame against the master on the
+    pixels**. **(b)** Range edges come from the CTC alignment, never Whisper (it clipped the onset of
+    "You're" and cut "changes." 118 ms early): floor a start, ceil an end, **round an edge that
+    snapped onto a beat boundary** — a boundary is one frame index and both sides must use the same
+    number. **(c)** Three things conspire to delete the first word after a seam: the range map must
+    CLAMP a straddling word, `groups()`' 0.15 s mute slack must be clipped at `beats.SEAMS` (the CTA
+    pill ending on the seam was muting the next range's first word), and that clip needs a **1 ms
+    tolerance** because a span clamped to a range edge and the seam are two different float sums,
+    1e-5 apart. It belongs in `groups()`, because `caption_sync_check.py` re-derives its grouping
+    from that same function. **(d)** ⚠ **The cutdown's mute list and word list were each derived
+    TWICE** — by the builder from the in-memory plan, and by `sqcut_build.py` from `cut_plan.json`'s
+    5-decimal numbers. They agreed to a few milliseconds, and one word fell on opposite sides of the
+    mute line: the render burned 103 caption states, the gate re-derived 104 and reported three
+    misses on captions that are correct on the frame. Written once now, read by both. **Any number a
+    gate re-derives instead of reading is a number that can disagree with the render.**
+23. **The concat demuxer's trailing `file` line is RENDERED — write the BLANK.** [S1].6 was recorded
+    on Ad 2 and never applied in code, so the last caption state re-showed its lit word past its own
+    planned end: "six pack abs," printed across the closing CTA pill's "With Abs" for 7 frames, in
+    the Ad 1 square master AND its cutdown, while `cap/list.txt` ended correctly at the pill's own
+    mute start. ⚠ **The APPROVED 9:16 verticals of Ad 1 and Ad 2 carry the same overprint** — a
+    caption rebuild plus a mux fixes them, with no re-render.
+24. **Two copies of the delivered file share one name** (the build root's and the one the gate chain
+    copies into `cut/`). Check mtime and md5 before believing a frame pulled from `cut/`: three
+    extractions in this build were of a stale copy, and one looked exactly like a defect that had
+    already been fixed.
+
 15. **Gates that must be rebuilt for 1:1, not reused:** the hair gate's bound is the standard's
     **fraction** of frame height (36/1920 = 1.875 % → 20 px of 1080), `centering.py` samples
     270×270, `caption_sync_check.py` must read the build's own `CAP_Y` (hard-coded at 1385 for
