@@ -41,6 +41,12 @@ sessions (and any other assistant, if one is in use).
 - Any tracking-code change to production follows the normal delivery rules: commit, push, deploy, live-verify, and flag native-retest triggers.
 - This authorization does not permit deleting historical analytics data, changing feature flags that alter app behavior for users, granting other people access to analytics accounts, or purchasing paid analytics plans.
 
+## Standing authorization for Gemini quality review
+
+- Dan authorizes sending project materials, including raw footage, rendered previews, and processed or untreated audio, to Gemini for quality review without asking each time (2026-09-12).
+- Ask for permission only when the estimated cost of a Gemini quality-review run or batch exceeds **$5**. State the estimate before running and record actual usage; do not split a batch to avoid the limit.
+- This authorization is for quality review; it does not authorize unrelated sharing or public publishing.
+
 ## Standing authorization for small AI-generation spend
 
 - You are authorized to spend up to **$25 per work session** on AI generation calls (Replicate, Gemini, MiniMax, Anthropic, and similar metered providers) for testing, evals, bake-offs, marketing assets, and ad production, without asking for confirmation each time. (Raised from $10 on 2026-08-18 at Dan's instruction to cut unnecessary permission stops.)
