@@ -1,0 +1,15 @@
+{
+  "_": "Ad 2 SQUARE 1:1. Every number is the approved 9:16 vertical's own, except the frame size.",
+  "size": "1080x1080",
+  "fps": "30000/1001",
+  "target_seconds": 276.109167,
+  "his_mix": "his_mix.wav",
+  "captions": "captions.mov",
+  "watch_log": "logs/watch_pass.json",
+  "min_changes_per_min": 9.0,
+  "max_static": 31.6,
+  "min_coverage": 0.39,
+  "min_push_frac": 0.25,
+  "_audio_mode": "NOT verbatim, deliberately. This cut carries the APPROVED VERTICAL's audio stream bit for bit (muxsq.py asserts the md5), and that stream is Muhammad's mix plus the one constant +5.2 dB and limiter Dan approved on 2026-09-08 -- so it is verbatim against the thing that was approved, not against his raw export. Gating it with --verbatim against his_mix.wav would fail on the 5.2 dB, which is the sound Dan said yes to. Mode is reference-mix, exactly as the vertical's own stamp reads, and checks 13/19 still prove per-second provenance and a single constant gain.",
+  "skip": {}
+}

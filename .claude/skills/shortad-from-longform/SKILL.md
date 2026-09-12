@@ -1376,6 +1376,68 @@ returning DOES NOT SHIP the first time, on two different things — and the seco
    ~15 minutes each and the gray-trace diff then PROVES the change set — on all three rounds it came back as exactly
    the intended spans. A spliced render cannot make that claim, and A4.0aa is what splicing costs when it goes wrong.
 
+## [A10] The first SQUARE (Ad 2, 2026-09-11) — a 1:1 re-layout of an APPROVED vertical
+
+Build dir `/Volumes/Extreme/_edit_work/ad2-sq/`, tools in `reference/a10_sq/` (its README maps each
+script to its step). Rules: `Handoffs/handoff-20260911-square-ads-00-shared-rules.md`. The audit
+returned **"does not ship"** with four findings after `qc.py` scored 20/20 and every sub-gate passed;
+fixing the first exposed a fifth. Every lesson below is measured on this build.
+
+1. ⚠⚠ **A FULL-HEIGHT WINDOW IN A 1080-TALL FRAME IS ALWAYS 1.00x, WHATEVER ITS WIDTH.** The crop is
+   1080 tall and the window is 1080 tall, so the magnification is fixed and a NARROWER window shows
+   LESS of the subject, not a wider shot. The editor's own 16:9 split gets away with a full-height
+   window only because his is 945 px of 1920 (49 % of his frame); at 496 px of 1080 the same
+   construction put Dan's head at **81 % of the window width**. Size any window beside other content
+   from the MAGNIFICATION you want and derive the height: `win_h = win_w*1080/(win_w/mag)`.
+   And check the balance against HIS: his Dan-head-to-phone-width ratio is 0.55; the square read 0.33
+   at the vertical's own 0.60x, because the phone takes 47 % of a 1:1 frame against 22 % of his 16:9.
+2. ⚠⚠ **A 9:16 DEFAULT PASSED BY THE CALLER SURVIVES A FIX TO THE FUNCTION'S OWN DEFAULT.**
+   `render.py` had `y_bottom=spec.get('y_bottom', 1600)`. Changing `overlay_lower_third`'s default to
+   a square value did nothing, so a lower third was drawn at y 1447-1600 in a 1080-tall frame --
+   **entirely off frame for 4.3 s** -- and because a lower third MUTES the captions that beat carried
+   **no words on screen at all**. Its overlay `.mov` had EMPTY ALPHA. `qc.py` 20/20, the watch scan,
+   the caption gate and the safe-area measurements all passed on it. **Grep the renderer for every
+   literal that encodes the old frame's geometry, not just the library.**
+3. ⚠ **A LABEL CHIP AND A LOWER THIRD ON THE SAME BEAT MUST BE MEASURED AGAINST EACH OTHER.** With the
+   bar above finally visible, the AI-GENERATED chip sat 46 px UNDER it. Two elements both left on
+   their defaults collide the moment the frame changes shape.
+4. ⚠ **CHECK A STILL AT THE PUSH'S END, NOT ONLY AT FRAME 0.** `still_chain` starts at zoom 1.0, so a
+   frame-0 contact sheet shows the LOOSEST framing a beat ever has. A 1:1 cover crop of a 4:5 photo
+   takes 10 % of its height at the start and **12.8 % by the end** -- off the top of his head on a
+   photo a frame-0 sheet had cleared. `a10_sq/sqstills.py` renders frame 0; **`sqstill_end.py` renders
+   both ends** -- use it on every full-bleed still.
+5. **Which stills survive a 1:1 crop is a MEASUREMENT, not a rule.** On this ad the two portraits at
+   0.73-0.75 lost their heads and went into his card; the three after pictures (0.67 portrait and two
+   landscapes) kept head and waist and stayed full-bleed. Contact-sheet the rendered crop of every
+   one before building, and card the ones that fail -- carding is also his own language for media
+   that does not fill his frame.
+6. **The concat demuxer's trailing `file` line repeats THAT image.** Written as the last caption state
+   it re-showed the final lit word for 7 frames past its own end -- a word stamped across the closing
+   CTA pill. Write the BLANK. (The approved 9:16 carries the identical overprint.)
+7. **The square is the format that shows MORE of his frame, not less.** A 1080 px window of a 1920 px
+   clip has 840 px of freedom against 9:16's 1312, but it is 472 px WIDER -- it held a sign the
+   vertical had cut in half. And the talking head is a PURE CROP at 1.00x, so the `unsharp` the
+   vertical needs for its 1.78x upscale is removed (measured: Laplacian energy 0.92-0.96 of the
+   conform, no halos). Attach a sharpen only where the chain actually resamples.
+8. **Sizing, in this order:** the caption band sits at CAP_Y 880 and cards must END above it (64-848,
+   against the vertical's 1180) -- which still runs a phone 44 % wider than his own 16:9 card does.
+   Window type comes DOWN (46/50 -> 40/44) until no beat clamps: at the vertical's sizes the
+   four-bullet beat asked 440 px of type and left Dan 444, a silent overflow past the bottom safe
+   line. Margins 100 and SYMMETRIC: the in-feed reserve is on the right only, but an asymmetric text
+   column in a square reads as mis-centred type, and the measured cost of 76 -> 100 was ONE extra
+   wrapped line in the whole ad.
+9. **Audio: copy the APPROVED VERTICAL's stream and assert its md5 before writing the file**
+   (`a10_sq/muxsq.py`). Ad 2's vertical carries his mix plus the one constant +5.2 dB Dan approved, so
+   `--verbatim` against his raw export would FAIL on the very sound he said yes to: the mode is
+   `reference-mix`, exactly as the vertical's own stamp reads, and the md5 is the real guarantee.
+10. ⚠ **A GATE SHARED BY THREE CONCURRENT SESSIONS CAN CHANGE UNDER A RUNNING BUILD.**
+   `caption_sync_check.py` moved from half to full resolution mid-build. On olive-graded material
+   that regresses: the grade sits inside +-22 of the accent colour, so the exact mask matched 13,347
+   px where the lit word is ~1,200 and the heaviest column run landed on the background. Twelve words
+   were reported as misses and **all twelve are correct and legible on the delivered frame.** Report
+   it, record it in the gate file, do not tune it -- and never assume the instrument that graded your
+   last render is the one grading this one.
+
 ## Standing content rules that override the reference
 
 The reference editor does not know Dan's ad rules. Check every beat you are reproducing:

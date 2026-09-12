@@ -439,7 +439,7 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
 - **Square (1:1) versions of every finalized ad — six per-ad docs + `Handoffs/handoff-20260911-square-ads-00-shared-rules.md`
   (read first).** Rep's ask: 1:1 fills Demand Gen in-feed/Discover/Gmail. Each is a re-layout of the ad's vertical
   build (same EDL/grade/beats/captions, audio bit for bit), 1080×1080, all gates + the audit. Firing order:
-  `…-square-ad2-muhammad.md` (now) → `…-ad1-muhammad.md` (now) → `…-ad5-muhammad.md` (after the Ad 5 revisions) →
+  `…-ad1-muhammad.md` (now; Ad 2's is EXECUTED) → `…-ad5-muhammad.md` (after the Ad 5 revisions) →
   `…-ad4-muhammad.md` (after its vertical is approved) → `…-ad3-muhammad.md` (after Muhammad's corrected HD + vertical) →
   `…-ad1-zeeshan.md` (after Dan approves that vertical). Fable 5.1 high each. **Not on the dashboard.**
 - **`Handoffs/handoff-20260911-ad5-vertical-revisions.md`** — Dan's round-1 revisions on the Ad 5 vertical (full-bleed
@@ -492,6 +492,20 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 ---
 
 # ACTIVE TASK
+
+**Ad 2 square (1:1) — DELIVERED 2026-09-11, Dan reviews.** `Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/
+… | claude | 1x1 | ad 2.mp4` + 540p/480p review copies, A/B audio, stamp, `notes-square.md`, `recipe-square/`. 1080×1080,
+**8,275 frames = his to the frame**, and the audio is the APPROVED VERTICAL's AAC stream **md5-identical** (`muxsq.py` refuses to
+write otherwise). No cutdown — Ad 2's vertical never had one. `qc.py` **19/20**; watch pass 88/88; centering median +0 px,
+0 sustained runs; hair min 24 px; landing 0 duplicated frames; 0 newly bare splices. **The independent audit returned "does not
+ship" with 4 findings after a 20/20 — worst: the conveyor lower third was rendered ENTIRELY OFF FRAME for 4.3 s (a 9:16 default
+passed by the caller), so that beat had no words at all. All fixed and re-verified on the delivered frames.**
+⚠ **The one red row is qc 20 (caption sync, 98.2 %) and it is the INSTRUMENT, not the captions:** a concurrent session moved
+`caption_sync_check.py` to full resolution mid-build, and Muhammad's graded room tone sits inside ±22 of his own olive accent,
+so the mask matched 13,347 px where the lit word is ~1,200. **All 12 flagged words were pulled at full res and are correct and
+legible.** Recorded in the gate file + `notes-square.md`; NOT tuned away. Optional picture-side fix if Dan wants it: the scrim
+([A6].17). Skill: **[A10]** + `reference/a10_sq/`. Dashboard row stays unchecked until Dan approves (verticals rule).
+Delete this entry once he has.
 
 **8/28 shoot Drive backup — UPLOADING OVERNIGHT 2026-09-11, self-verifying 09-12. Nothing for Dan to do.** The
 267 GB / 259-file 8/28 shoot existed on ONE drive with no backup of any kind — it is the source of every ad in
