@@ -779,3 +779,28 @@ exact timing or an exact link.
     inherited the folder's "anyone with the link" sharing, so no `share_file` call was needed. Do NOT push base64
     through `create_file` for anything but a few KB, and do not put a third party's likeness in `public/ad-assets/` —
     that repo is public; Drive is the right home for it.
+45. **`framediff.txt` gives FALSE NEGATIVES on small graphics — never score an item off it (2026-09-12).** It reported
+    Ad 14's 0:00–0:20 as UNCHANGED, yet the red YouTube play button had been removed in that stretch: a small
+    high-contrast logo on a 1080p frame averages under the 2.0 luma threshold once both frames are scaled to 320×180.
+    Read the diff only as a MAP of where the editor worked (Ad 6's was decisive: 3:20–4:33 byte-identical proved he
+    never went near the missing 4:10 label), and verify every ask on its own full-resolution frames. It is also
+    useless outright when the resolutions differ — Ad 7 and Ad 10 came back as 1080p exports of 480p review copies,
+    and upscaling noise marked Ad 10's entire running time as "changed" (mean 4.1). **Identical frame count and
+    duration to the microsecond means nothing either way**: all four cuts in this batch matched their predecessor
+    exactly and three of them had real picture changes.
+46. **He GENERALIZES a fix to every beat that looks like the one you fixed — so say what must NOT change (2026-09-12).**
+    Ad 7 round 3 asked for Dan's before picture in the 2:00 demo and explicitly said to LEAVE the 3:25.5 closing demo
+    as the other man's generation; round 4 came back with both demos identical, Dan's photo and Dan's goal image in
+    each, so the prospect line "so generate your future self image" was illustrated with Dan's own generation. The
+    same shape appeared unprompted in Ad 14 (the closing flow uploads the recording's stranger and ends on Dan's goal
+    image — one man's before against another's after). When an item changes one of two similar beats, name the other
+    one in the same item, say it stays as it is, and give the rule behind the difference in one line so the pattern is
+    learnable rather than an exception to memorise.
+47. **Introduce a NEW label by specifying how it is BUILT, not just what it says (2026-09-12).** "Same chip style as
+    the AI-GENERATED tag" produced, in two ads independently, an italic sentence-case caption inside literal square
+    brackets on a see-through band overflowing both edges of the picture — against the AI tag's bold upright caps on
+    a solid black rounded pill sitting inside the picture. Both are "a label low on the frame", and his is not
+    unreasonable; it is just not the same chip. Spell out the construction the first time: solid black rounded pill,
+    bold upright capitals, same size, inside the bottom edge of the picture, not italic, no brackets. Check the new
+    label against the old one at full resolution in the round that introduces it, and write the item identically in
+    every ad of the batch so the two labels cannot drift apart.
