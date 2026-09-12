@@ -73,12 +73,17 @@ treatment → shadow-edit every Muhammad delivery + blind review page → Remoti
 over formats by blind test. Three starter prompts in the report; nothing executed. ⚠ It recommends folding VQC-B into
 the engine rather than firing it as written. Delete once Dan has chosen.
 
-**Zeeshan content batch video 1 (ab wheel workout only) — ROUND 1 DOC WRITTEN 2026-09-11, Dan forwards.** His
-"Video 3.mp4" is batch video 1 (his own file count). Round 1 is pasted at the TOP of "Zeeshan Video Revisions"
-(`13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`); Dan added framing / sets-mic / music items, and the music slot now
-links Pixabay "Energy Gym Thunder" (knox-gym, rock, 3:32, NOT Content ID registered, AI-generated — Dan listens first).
-Paste-ready Upwork message in `/Volumes/Extreme/_edit_work/revisions-0911/out/video1_abwheel_workout.summary.md`.
-Delete once the next cut arrives.
+**Zeeshan content batch video 1 (ab wheel workout only) — ROUND 2 DOC WRITTEN 2026-09-12, Dan forwards + ONE EAR
+CHECK.** His "Video Rev 1.mp4" (3:52) is round 2; doc pasted at the TOP of "Zeeshan Video Revisions"
+(`13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`, round 1 read back byte-intact). **7 of 9 round-1 items done**
+(Seconds, reflector, 3:19 jump, the whole C1633 CTA pickup with clean audio, AI goal image + label, AbsByAI.com,
+music track swapped and ducked 16 dB under the voice); 4 items left — finish the crop (wides went 33% → 18% empty
+above his head, another 15% to go; talking shots still knees-in-frame), another 5 dB off the mic in the sets (grunts
+still +3.6/+5.0/+5.7 above his talking), **lift the finished mix 2 dB** (it reads −19.9 LUFS because the sets came
+down as asked — the voice only moved 1.0 dB, to −16.1), and hold the end card + music to the last frame.
+⚠ **DAN: listen to the new music bed** — the track changed (measured), but genre/energy cannot be measured; say so
+if it is not the Energy Gym Thunder track. Paste-ready Upwork message + all numbers:
+`revision docs/abwheel-workout-only-revisions-zeeshan-round2-9-12-26.summary.md`. Delete once the next cut arrives.
 
 **Subscriber list was PUBLIC — BOTH DEPLOYS LIVE AND VERIFIED 2026-09-11. ONE STEP LEFT AND IT IS DAN'S CLICK.**
 The newsletter list (`subscribers-data.json`, 28 entries / 23 real addresses) was persisted to THIS PUBLIC repo and
