@@ -10,6 +10,7 @@ goal images of Dan). Every video was read back after upload: processed, HD, embe
 |---|---|---|---|---|---|---|
 | Ad 2 Stop Wasting Money On Nutritionists | Claude vertical of Muhammad's V2 | 9:16 | 4:37 | https://youtu.be/7XgHxn59Tsg | yes (09-08) | `ad2-vertical-7XgHxn59Tsg_C-jeans-black-9x16-FINAL.jpg` (set + read back 09-10) |
 | Ad 2 Stop Wasting Money On Nutritionists | Muhammad V2 HD | 16:9 | 4:37 | https://youtu.be/Dtk5knWM7c8 | editor final | `ad2-muhammad-16x9-Dtk5knWM7c8_C-jeans-black-FINAL.jpg` (set + read back 09-10) |
+| Ad 2 Stop Wasting Money On Nutritionists | Claude 1:1 square re-layout of Muhammad's V2 | 1:1 | 4:36 | https://youtu.be/hHiPzQKTzrg | yes (approved + finalized 09-12) | `ad2-square-hHiPzQKTzrg_C-jeans-black-1x1-FINAL.jpg` (built + set + read back 09-12) |
 | Ad 1 This Picture Got Me Abs | Muhammad | 16:9 | 3:53 | https://youtu.be/lf46ytHacss | editor final — **also the interim video on `absbyai.com/start` since 2026-09-10** (`ABS_START_VIDEO` in `public/site-video.js`) | O1 dark studio (set + read back 09-10) |
 | Ad 1 This Picture Got Me Abs | Zeeshan (4K master) | 16:9 | 4:10 | https://youtu.be/1oEcwdp21Fg | editor final | O1 dark studio (set + read back 09-10) |
 | Ad 1 This Picture Got Me Abs | Claude vertical of Muhammad's | 9:16 | 3:53 | https://youtu.be/Iz0u8KHRbyE | yes (09-10) | O1 dark studio (set + read back 09-10) |

@@ -25,7 +25,7 @@ Ten ads, named `<ad group> | <video> | <landing page>`, one YouTube video each, 
 | ad group | videos (YouTube id → asset) |
 |---|---|
 | Ad 1 (both landing pages) | Muhammad 16:9 `lf46ytHacss` → `419514921434`, Zeeshan 16:9 `1oEcwdp21Fg` → `419514919721`, Muhammad vertical `Iz0u8KHRbyE` → `419514921437` |
-| Ad 2 (both landing pages) | Muhammad 16:9 `Dtk5knWM7c8` → `419623700809`, Muhammad vertical `7XgHxn59Tsg` → `419700324321` |
+| Ad 2 (both landing pages) | Muhammad 16:9 `Dtk5knWM7c8` → `419623700809`, Muhammad vertical `7XgHxn59Tsg` → `419700324321`, Muhammad square `hHiPzQKTzrg` → `420294626051` |
 
 Copy: **headlines are Dan's own** (screenshots 2026-09-10): Ad 1 *How I Got Abs At 40 · See Yourself
 With Abs - Use AI · Abs by AI ® · Abs By AI - Here's How It Works · How I Got Abs With AI Workouts*;
@@ -99,6 +99,23 @@ unchanged at $20/day, now shared by 10 ad groups.
 both ads, and the video asset `Yo-6TQik3qY` is APPROVED_LIMITED (exaggerated claims). Dan's rule is to rewrite only
 the flagged line; left to the session that owns Ad 5 (ACTIVE TASK entry). The "Why My X Kept Failing" shape is now
 refused by `dgen-add-ad.js`.
+
+## 2026-09-12 — Ad 2 square (1:1) added as a third `videos` entry
+
+Ad 2's finished 1:1 re-layout (approved + finalized 09-12) uploaded UNLISTED (`hHiPzQKTzrg`) and added with
+`dgen-add-ad.js scripts/ads/api/dgen-ads/ad2-square.json --apply`: reused both existing ad groups and the
+existing audience by name, created one video asset and one new ad per landing page — the existing 16:9 and
+9:16 ads were untouched. Copy is byte-identical to the existing Ad 2 ads (Dan's *Fire Your Nutritionist. Use
+AI Instead · How AI Replaces Nutritionists · How I Got Abs With AI · How I Got Abs At 40 · How AI Got Me
+Abs* + the same long headlines/descriptions). Budget unchanged at $20/day, now shared by 3 ads per group
+instead of 2.
+
+| ad | video (asset) | ad group → new ad |
+|---|---|---|
+| Ad 2 Stop Wasting Money On Nutritionists | `hHiPzQKTzrg` → `420294626051` | /start **200136997156** → **824523055421**; home **199420011265** → **824523055424** |
+
+`utm_campaign=dgen-conv-ad2&utm_content=muhammad-square-<start\|home>`. Both new ads ENABLED,
+REVIEW_IN_PROGRESS at creation. Check `node scripts/ads/api/client.js policy 24243839443` the next day.
 
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and

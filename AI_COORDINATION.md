@@ -575,21 +575,6 @@ to fix the banned-screen pairing test early. No dashboard row (his 09-08 rule). 
 the two warnings.
 
 
-**Ad 2 square (1:1) — APPROVED AND FINALIZED by Dan 2026-09-12; one handoff left to fire.** Final master
-`Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/… | claude | 1x1 | ad 2.mp4` (1080×1080, **8,275 frames =
-Muhammad's to the frame**, audio = the approved vertical's AAC stream **md5-identical**), + 540p/480p review copies, A/B
-audio, stamp, `notes-square.md`, `recipe-square/`. `qc.py` 19/20; watch pass 88/88; TWO independent audits (#1 "does not
-ship" after a 20/20 — worst: a lower third rendered ENTIRELY OFF FRAME for 4.3 s; #2 SHIPS). The one red row is qc 20 and
-both audits called it a gate calibration defect on olive-graded material, not a caption defect — recorded in the gate file,
-not tuned away. Skill: **[A10]** + `reference/a10_sq/`.
-**NEXT: `Handoffs/handoff-20260912-ad2-square-youtube-and-ads.md`** — upload unlisted + add as one more `videos` entry on
-Ad 2's two existing Demand Gen ad groups (200136997156 / 199420011265, campaign 24243839443). Not on the dashboard (his rule).
-⚠ **Dan changed the LABEL PLACEMENT rule on seeing this video, for FUTURE videos only** (*"I don't want to make this change
-in this video… only going forward"*): a label may not cover his face OR his abs — above his head, to the side, or the largest
-band his body does not occupy, chosen by measuring him on the rendered frame, never at a fixed y. Now in `AGENTS.md` and all
-seven video skills + `/revisions` lesson 48 + `/editor-brief`. **Do not re-render Ad 2 for it.**
-Delete this entry once the upload/ads handoff has run.
-
 **8/28 shoot Drive backup — UPLOADING OVERNIGHT 2026-09-11, self-verifying 09-12. Nothing for Dan to do.** The
 267 GB / 259-file 8/28 shoot existed on ONE drive with no backup of any kind — it is the source of every ad in
 production. `rclone` (installed at `~/bin/rclone`, remote `gdrive` authorized) is copying it to Drive folder

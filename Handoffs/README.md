@@ -63,7 +63,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 |---|---|---|
 | 2026-09-11 | [handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md](handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md) | Google Ads rep meeting: GA4 + Ads link, Search ads → /start with homepage sitelink, empty MCC account for sixpackabs.com |
 | 2026-09-11 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | Square (1:1) ad versions — shared rules, gates, naming, firing order |
-| 2026-09-11 | [handoff-20260912-ad2-square-youtube-and-ads.md](handoff-20260912-ad2-square-youtube-and-ads.md) | Ad 2 SQUARE is APPROVED — upload it unlisted and add it as one more `videos` entry on Ad 2's two existing Demand Gen ad groups. Fable 5.1 medium |
 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | Ad 1 (Muhammad) — square 1:1 version — **EXECUTED 2026-09-12**, both files delivered and gate-PASS |
 | 2026-09-11 | [handoff-20260911-square-ad1-zeeshan.md](handoff-20260911-square-ad1-zeeshan.md) | Ad 1 (Zeeshan) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad3-muhammad.md](handoff-20260911-square-ad3-muhammad.md) | Ad 3 (Muhammad) — square 1:1 version |
