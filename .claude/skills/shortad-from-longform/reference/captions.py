@@ -153,7 +153,16 @@ def render(gs, out='captions.mov', capdir='cap'):
     with open(f'{capdir}/list.txt', 'w') as f:
         for p, d in entries:
             f.write(f"file '{os.path.abspath(p)}'\nduration {d:.4f}\n")
-        f.write(f"file '{os.path.abspath(entries[-1][0])}'\n")
+        # ⚠ THE TRAILING `file` LINE IS RENDERED, AND IT MUST BE THE BLANK (skill [S1].6).
+        # The concat demuxer needs one more `file` after the last `duration`, and writing the
+        # last caption STATE there re-showed its lit word past its own planned end: measured on
+        # this build, "six pack abs," printed across the closing CTA pill's "With Abs" for 7
+        # frames (master f6936-6942, 231.43-231.63 s) -- in the master AND in the cutdown, whose
+        # caption stream ends at the same pill. The plan was right (cap/list.txt ends at 231.400,
+        # the pill's own mute start); only the trailing repeat was wrong. The lesson was written
+        # up on the Ad 2 square and never applied in code. A blank, held, then repeated.
+        f.write(f"file '{os.path.abspath(blank)}'\nduration 0.5000\n")
+        f.write(f"file '{os.path.abspath(blank)}'\n")
     subprocess.run([FF, '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', f'{capdir}/list.txt',
                     '-r', '30000/1001', '-c:v', 'qtrle', '-pix_fmt', 'argb', out], check=True)
     print(f'{len(gs)} groups, {n} word states -> {out}')

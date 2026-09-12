@@ -220,11 +220,30 @@ def labels(key, pr, cfg, plan, video, work):
     refs = {k: chip_ref(v) for k, v in chips.items() if k in ("ai", "real")}
     pos = plan.get("label_pos") or {}
     thr = cfg["min_corr"]
+    # ⚠ AN INSERT MAY CARRY ITS LABEL SOMEWHERE ELSE, AND AT ANOTHER SIZE. One chip image and one
+    # position per KIND assumes every chip of that kind is drawn identically -- true of a build whose
+    # labels all sit on a full-bleed frame, false of an editor's card language, where the chip hangs
+    # off the card's own animated media hole and its font shrinks to the card's width. Measured on Ad 5
+    # (a goal-image card 10 px off read 0.23) and again on the Ad 1 square (a card chip read -0.03
+    # against a full-frame reference) -- in BOTH cases every label was present and correct, and the row
+    # was reporting the instrument, not the build. So an insert may declare its OWN `chip` and `pos`;
+    # absent those it falls back to the per-kind pair exactly as before. This cannot make a wrong label
+    # pass: each chip still has to correlate >= min_corr with its own reference at its own position,
+    # and the cross-label test is unchanged.
+    extra = {}
 
-    def reads(kind, t):
-        ref = refs[kind]
+    def _ref_for(kind, b):
+        c = (b or {}).get("chip")
+        if not c:
+            return refs[kind]
+        if c not in extra:
+            extra[c] = chip_ref(c)
+        return extra[c]
+
+    def reads(kind, t, b=None):
+        ref = _ref_for(kind, b)
         h, w = ref.shape
-        x, y = pos.get(kind, (40, 40))
+        x, y = ((b or {}).get("pos") or pos.get(kind, (40, 40)))
         raw = subprocess.run([C.FF, "-v", "error", "-ss", f"{t:.3f}", "-i", video, "-frames:v", "1",
                               "-vf", f"crop={w}:{h}:{x}:{y},format=gray", "-f", "rawvideo", "-"],
                              capture_output=True).stdout
@@ -243,7 +262,7 @@ def labels(key, pr, cfg, plan, video, work):
             for t in (a + 0.9, (a + z) / 2, max(a + 0.9, z - 0.9)):
                 if t >= z:
                     continue
-                c = reads(kind, t)
+                c = reads(kind, t, b)
                 o = reads(other, t)
                 if c is None:
                     missing.append((b.get("name", "?"), round(t, 2), "no frame"))

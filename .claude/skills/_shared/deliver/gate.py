@@ -55,7 +55,8 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "1.0.0"
+GATE_VERSION = "1.1.0"        # 1.1.0: an insert may declare its own label chip + position
+                              # (a card hangs its chip off the card, not at the full-bleed waistline)
 
 STAMP_SUFFIX = ".deliver_gate.json"
 
@@ -66,10 +67,11 @@ PLAN_KEYS = """
   covered          [[a, b], ...]   beats that hide a join
   punch            [[a, b, LEVEL]] framing segments;  punch_covered [bool] marks the hidden ones
   graphics         [{name, beat:[a,b], mov}]        lower thirds and cards, with their own MOVs
-  ai_inserts       [{name, beat:[a,b]}]             AI imagery of Dan
-  real_photos      [{name, beat:[a,b]}]             REAL photographs of Dan
+  ai_inserts       [{name, beat:[a,b], chip?, pos?}] AI imagery of Dan
+  real_photos      [{name, beat:[a,b], chip?, pos?}] REAL photographs of Dan
   cards            [[a, b], ...]   full-screen beats a caption may not sit on
   label_chips      {ai: png, real: png}             label_pos {ai: [x,y], real: [x,y]}
+                                   -- an insert's own `chip`/`pos` override these
   captions_ass / srt               the caption file as delivered
   words            [{w, t, e}]     what the cut intended to say
   transcript_words [{w}]           what the FINISHED render actually says (re-transcribed)
@@ -148,6 +150,9 @@ def load_plan(path, video):
         for k, v in list(chips.items()):
             if v and not os.path.isabs(v):
                 chips[k] = os.path.normpath(os.path.join(base, v))
+        for b in (plan.get("ai_inserts") or []) + (plan.get("real_photos") or []):
+            if b.get("chip") and not os.path.isabs(b["chip"]):
+                b["chip"] = os.path.normpath(os.path.join(base, b["chip"]))
     plan["_sha256"] = C.sha256(video)
     plan["_dir"] = os.path.dirname(os.path.abspath(path)) if path else os.path.dirname(
         os.path.abspath(video))
