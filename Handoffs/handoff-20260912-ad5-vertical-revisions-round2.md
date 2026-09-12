@@ -40,31 +40,44 @@ which uploads **a heavier Asian man who is not Dan**, and then at `result_n = 69
 **Dan's** AI goal image (`01 Before and After Images/dan by pool - AI GOAL IMAGE.png`) under "YOUR GOAL IMAGE". So the
 before is one person and the after is another — exactly what Dan is calling out.
 
-**⚠ His after picture does not exist yet.** The library's only before/after pairs are `male-before/after.webp` and
-`male2-before/after.webp`, and **both are white men** — neither is the man in the recording (checked 2026-09-12). So this
-cannot be solved by swapping in an existing asset.
+**✅ His after picture EXISTS and Dan has named it (2026-09-12).** He sent
+<https://drive.google.com/file/d/1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp/view> — *"Use the attached Google Drive image as the
+after picture for the generation. This is the one that we should be using for that fat Asian guy's after AI picture."*
+That is `13_AFTER_ai-generated_app-demo-man.jpg`, **this same man's own AI after image**, cropped at full res out of the
+app recording's own "Download Your Future Self" screen on 2026-09-11 and uploaded to the reference-ad folder
+(`/revisions` lesson 43; it is what Ad 7's closing demo ends on). Local copy:
+`/Volumes/Extreme/_edit_work/revisions-0911m/zoom7/13_AFTER_ai-generated_app-demo-man.jpg`, 800×1028 JPEG, 89,643 bytes —
+picture only, no app chrome, no email-capture form. Verified by eye 2026-09-12: it is the man from the recording, lean,
+at a pool. **Already staged for the build at `/Volumes/Extreme/_edit_work/ad5-vert/assets/13_AFTER_ai-generated_app-demo-man.jpg`**
+(copied 2026-09-12; nothing else in that build dir was touched).
 
-**The method, and it is a standing rule of this skill (A5.23):** *an app screen with a different person is a REAL
-GENERATION, never a composite.* Dan rejected a pasted-in before photo within minutes once. So:
+**So there is NO generation to run.** The earlier plan in this doc — pull his before photo out of the recording at full
+res and put it through the live site with Playwright — is **superseded and must not be executed.** It would cost money,
+take a session, and produce a *different* AI man than the one Dan pointed at. Nothing here spends anything now.
 
-1. Pull **his before photo at full resolution** out of the recording — the upload/adjust screen is on screen around
-   3:44–3:47 (master frames ~6716–6800). Extract **by index** (`select='eq(n,N)'`, `-fps_mode passthrough`), take the photo
-   inside the phone's own crop box, and keep it at the largest clean size the recording gives.
-2. **Run a real generation with that photo** through the live site, exactly as `reference/record_gen_male2.py` does:
-   Playwright, iPhone emulation, `set_input_files`, handle the "Which future you?" chooser by clicking the first
-   "Keep this one", then capture the result screen **AFTER-ONLY** by hiding the before column and the body-fat row in the
-   live DOM (`grid-template-columns:1fr`, `display:none`). One generation costs ~$0.10 and a fresh Playwright context has
-   free generations — inside the standing spend authorization. **Never pass a `deviceId`.**
-3. Rebuild the result screen from **the app's own rendering** of that man's result, in the same layout the current
-   `assets/app_result.png` uses (page header + the image at the screen width, 40.5 % down, email form out of frame —
-   the A8.11 recipe), and keep the **AI-GENERATED** chip on it: it is an AI image, just of him rather than of Dan.
-4. **Do not use the before/after pair screen and do not show the chooser** — both are banned layouts (standing content
+**What to build instead:**
+
+1. Rebuild the result screen at `result_n = 6905` exactly as it is built today, but with the image slot carrying
+   `13_AFTER_ai-generated_app-demo-man.jpg` in place of `01 Before and After Images/dan by pool - AI GOAL IMAGE.png`.
+   Same layout as the current `assets/app_result.png` — page header, image at the screen width, 40.5 % down, email form
+   out of frame (the A8.11 recipe).
+2. Keep the **AI-GENERATED** chip on it. It is an AI image, just of him rather than of Dan — and under Dan's 09-11
+   label rule it must carry exactly one label, which is that one. The "Real picture of me" chip must NOT appear here.
+3. **Check the scale before rendering.** The source is only 800 px wide. Measure the pixel width of the image slot in
+   the composited 1080-wide frame; if the slot is wider than 800 px the picture is being upscaled. It is probably close
+   — the crop came from the recording's own card — but if it is materially soft, re-crop the card from
+   `09_CLIP_app-generate-future-self.mp4` / `example generation video.MP4` at 0:29–0:33 **by frame index**, picture only,
+   never the screen (that screen carries the banned email-capture form).
+4. Its aspect is 0.778 against Dan's goal image; **do not stretch.** Cover-crop or letterbox inside the slot the same way
+   the build handles any other still, and confirm no part of his head or the pool edge is cut in a way that reads as an
+   error.
+5. **Do not use the before/after pair screen and do not show the chooser** — both are banned layouts (standing content
    rules). After-only, as now.
 
-**If the generation cannot be made to work on his photo**, the fallback is the one Dan set for the rest of this batch on
-09-10: re-record the demo with **Dan's own** before picture (`00 ASSETS USED IN THE REFERENCE AD/02_BEFORE-PICTURE_dan-200lb.png`,
-his Ad 14 form of words) so the demo is Dan → Dan and still one person. **Ask Dan before taking the fallback** — he said
-"use his before-and-after picture, not mine", so it is a change of his instruction, not a judgement call.
+⚠ **This knowingly breaks `/revisions` calibration rule 36** ("a DIFFERENT generated person in every ad" — this man's
+after picture is already Ad 7's closing image, and the note there says do not reuse it). Dan's same-person rule and his
+explicit instruction here win: the picture must match the man in the recording, and there is exactly one of him. Say so
+in the delivery note so he sees the overlap with Ad 7 rather than discovering it.
 
 ⚠ This same recording is the app demo in **Ads 6, 8, 9, 10, 13, 14, 15** of Muhammad's batch and in the Ad 3 / Ad 4
 verticals. Fixing it here does not fix those; say so in the delivery note so Dan can decide whether the batch gets the
@@ -186,7 +199,9 @@ former** — Dan's instruction is about the device, not about this one ad.
 
 > Execute `Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`: Dan's round-2 revisions on the Ad 5 vertical
 > (`/Volumes/Extreme/_edit_work/ad5-vert/`) — (1) the app demo at the end must show the SAME man in the before and the
-> after (his after has to be generated through the live app, it is not in the library), and (2) the "Real picture of me —
+> after, using the after picture Dan named on 2026-09-12,
+> `13_AFTER_ai-generated_app-demo-man.jpg` (`1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp`; local copy under
+> `/Volumes/Extreme/_edit_work/revisions-0911m/zoom7/`) — **no generation to run, that plan is superseded** — and (2) the "Real picture of me —
 > not AI-generated" label goes on EVERY real picture of Dan (six more beats), moved off his face and abs to just under the
 > top safe line, and made larger (two lines at 64–72 px is the recommendation). Muhammad's audio untouched. Load
 > `/shortad-from-longform` first and read [A9]. Render, every gate on the exact files including `_shared/deliver/gate.py`,
