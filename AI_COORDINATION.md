@@ -584,26 +584,27 @@ this entry on PASS. ⚠ Do NOT run the verify script mid-transfer — it reports
 Remaining gap after this: the welcome-video first shoot (114 GB), the last irreplaceable folder with no second
 copy. Drive is a 5 TB plan, 4.5 TB free. No dashboard row.
 
-**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 square cutdown — BOTH FILES GATED, audit 2 running
-(session of 2026-09-12 owns it; the 09-11 session stopped one step before delivery).** Build dir
-`/Volumes/Extreme/_edit_work/ad1-sq/`. Master **6,976 frames = Muhammad's**, audio the approved vertical's AAC
-stream **md5-identical**; cutdown **1,491 frames / 49.75 s**, his mix cut at the seams. Both now read
-**`_shared/deliver/gate.py` DELIVERY GATE PASS** (26 rows each, 0 failed) and **caption sync 100.0 %**
-(507/507 and 104/104). Three defects were IN the delivered files and are fixed: a caption printed across the
-closing CTA pill for 7 frames (both files), the cutdown's picture selection one frame late in 4 of 9 ranges,
-and "You're" deleted from the captions at a seam by three separate causes. Not delivered to the ad folder
-until audit 2 clears.
-⚠⚠ **FOR EVERY OTHER VIDEO SESSION — SHARED FILES CHANGED TODAY (`0d365db`, `e8efbc3`, `beb5656`), RE-COPY
-THEM INTO YOUR BUILD:** (1) **`reference/captions.py`** — its trailing concat entry re-showed the last caption
-state, so **the APPROVED 9:16 verticals of Ad 1 and Ad 2 both print a caption across their closing CTA pill
-for 7 frames** (Dan's call whether to re-mux: a caption rebuild plus a mux, no re-render); and its mute slack
-now stops at a cutdown seam. (2) **`_shared/deliver/gate.py` is GATE_VERSION 1.1.0**, so every earlier stamp
-is invalid — the Ad 5 vertical is the only one — because an insert may now declare its own label `chip`/`pos`
-(one chip per KIND read **−0.031** on a card whose label was present and correct). Corpus PASS before both
-commits. (3) Corrected cutdown tooling + the four defects written up: **`reference/a11_sq_ad1/`**, SKILL.md
-**[S1] 22–24**.
-⚠ This build's `caption_sync_check.py` was **stale** (missing both 09-11 Ad 5 fixes) — **`ad3-vert/` and
-`ad4-vert/` were named as carrying the same stale copy and should re-copy the skill's.**
+**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 square cutdown — DELIVERED 2026-09-12, Dan reviews.**
+`Muhammad Ad Videos/this picture got me abs - ad 1/… | claude | 1x1 | ad 1.mp4` (**6,976 frames = Muhammad's, to
+the frame**) + `… | 1x1 59s | ad 1.mp4` (**1,493 f / 49.82 s**), 540p/480p review copies, both A/B audio clips,
+audio + delivery stamps, `notes-square.md`, `recipe-square/`. Audio is the APPROVED VERTICAL's AAC stream
+**md5-identical** (cutdown: his mix cut at the seams only). Both files: **`_shared/deliver/gate.py` DELIVERY GATE
+PASS at gate 1.2.0** including Phase 2's framing rows, **caption sync 100.0 %** (507/507 and 104/104), labels
+**0 wrong** at correlation ≥ 0.986, watch pass 125/125 and 31/31.
+**Three independent audits ran; the first cleared the master and refused the cutdown, and two more refused it
+again on different defects.** Six real defects were IN the delivered files, all now fixed AT SOURCE in the shared
+pipeline: a caption printed across the closing CTA pill for 7 frames (**both files — and the APPROVED 9:16
+verticals of Ad 1 AND Ad 2 carry the identical overprint; Dan's call whether to re-mux them, it is a caption
+rebuild plus a mux, no re-render**); the cutdown's picture one frame late in 4 of 9 ranges (a third photo
+flashing at a seam, a light-leak peak dropped, picture 33 ms ahead of audio over 23.6 s); "You're" deleted from
+the captions at a seam by three separate causes; and the seam cutting the "s" of "abs." at its loudest point.
+⚠⚠ **EVERY OTHER VIDEO SESSION: re-copy `reference/captions.py` and re-gate.** `_shared/deliver` went to
+**1.1.0** here (an insert may declare its own label `chip`/`pos` — one chip per KIND read **−0.031** on a card
+whose label was present and correct) and a sibling session took it to 1.2.0, so **every stamp older than 1.2.0
+is invalid**. Corrected cutdown tooling + all six defects written up: **`reference/a11_sq_ad1/`**, SKILL.md
+**[S1] 22–24**. ⚠ This build's `caption_sync_check.py` was **stale** — **`ad3-vert/` and `ad4-vert/` were named
+as carrying the same stale copy and should re-copy the skill's.**
+Dashboard row stays unchecked until Dan approves (the verticals rule). Delete this entry once he has.
 
 **Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — REVIEW COPIES DELIVERED
 2026-09-11, Dan reviews + ONE CALL.** Folder `Muhammad Ad Videos/stop wasting money on supplements - ad 4/`: his V4 HD filed
