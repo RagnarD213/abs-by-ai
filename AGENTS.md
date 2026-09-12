@@ -82,6 +82,21 @@ sessions (and any other assistant, if one is in use).
   are its ceiling; the rejected Zeeshan build (+9.9 dB into the limiter, range 5.9 → 4.1, mono) is what past it
   sounds like. If his export is too quiet for a feed, ask him for a louder one.
 
+## One delivery gate, versioned, on the delivered file (2026-09-11)
+
+- **Every delivered video goes through `.claude/skills/_shared/deliver/gate.py --format <fmt>` and
+  carries its PASS stamp.** One gate for all seven video skills, run on the file that actually goes
+  out. Every bound lives in `_shared/deliver/formats.py` beside the file and the date it was measured
+  on — **never in a per-video script**, which is how a fix landed in one of six pipelines and the
+  other five kept the bug.
+- **A missing input is NOT MEASURED, which FAILS**, and **a row a format has not answered for FAILS
+  as UNCONFIGURED.** If a check genuinely does not apply, it is an entry in that format's
+  `not_applicable` with a written reason a reader can audit. Silence is not a pass.
+- **`GATE_VERSION` invalidates every older stamp.** Change a check or a bound, bump it, and
+  everything previously stamped has to be re-gated. `Docs/VQC_baseline_20260909.md` is why: 20
+  delivered files carry a PASS stamp that would fail a re-gate today.
+- Module README and the current known gaps: `.claude/skills/_shared/deliver/README.md`.
+
 ## No gate change ships without the regression corpus (2026-09-09)
 
 - **`python3 .claude/skills/_shared/qc_corpus/run.py` must pass before any change to a quality gate,

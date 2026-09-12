@@ -76,6 +76,46 @@ _CAPTION_BAND_16x9 = (0.156, 0.861, 0.688, 0.102)
 _CAPTION_BAND_9x16 = (0.10, 0.70, 0.80, 0.14)
 # the vertical caption safe area from the /make-ad 1080x1920 spec.
 
+_BANNED = dict(
+    grid_w=384,
+    scales=(1.00, 0.92, 0.85, 0.78, 0.70, 0.62, 0.50),
+    # ⚠ 0.85 IS IN THIS LIST BECAUSE THE ROW MISSED WITHOUT IT. The spray-tan longform carries the
+    # banned screen as a phone PiP filling 85% of the frame height, and the previous grid stepped
+    # 0.92 -> 0.80 straight over it.
+    chrome_top=(0.00, 0.26),
+    chrome_bottom=(0.55, 1.00),
+    # the generation-INVARIANT thirds of the app's "Meet the new you" screen, read off the recording
+    # 2026-09-11: nav bar + headline + BEFORE/AFTER labels above, body-fat row + "Lock in this goal"
+    # + the Safari bar below. Between them sit the two photographs, which are different in every
+    # generation -- which is why matching the whole screen matched only the one recording.
+    prescreen_ncc=0.45,
+    # stage 1: the cheap top strip. Below this the frame cannot be the screen, so the bottom strip
+    # is never computed. Measured: the true frame reads 0.657-0.683 here.
+    min_strip_ncc=0.58,
+    # ⚠ STAGE 2, AND THE MARGIN HERE IS 0.003. BOTH strips must reach this. Measured 2026-09-11:
+    #     spray-tan longform at 18:04 (the real violation)   paired 0.626   -> FLAGGED, 87/91 frames
+    #     website rev 4, all 6,900 frames (approved)         paired 0.577   -> clean, by 0.003
+    # 0.577 is rev 4's own macro-tracker phone screen at 65.3 s, and that is the whole difficulty:
+    # the chrome is generation-invariant but it is SHARED WITH EVERY OTHER APP SCREEN, while the
+    # part that identifies THIS screen -- the two photographs -- is what changes between
+    # generations. Neither half separates on its own.
+    # **So this row is expected to raise false positives until the next discriminator lands**, and
+    # that is the right direction to err for a Google Ads strike: a false positive costs a person
+    # one look, a false negative costs the account. It is NOT registered in the regression corpus,
+    # because a 0.003 margin measured on one rejected frame against one approved frame is a
+    # coincidence with code around it, not a proven bound.
+    # NEXT STEP, measured and ready to build: a before/after is the same person in the same pose
+    # twice, so the photo band's left and right halves correlate. Probed 2026-09-11 --
+    #     the real violation          L/R +0.441
+    #     rev 4's macro screen        L/R +0.222 (and -0.041 / -0.013 on other crops of it)
+    #     a talking-head control      L/R -0.192
+    # Requiring chrome AND pairing separates them with real margin on both axes. Build it against
+    # MORE than one frame per verdict before trusting it.
+    position_slop_px=8,
+    # and they must agree about WHERE: same column, and the layout's own vertical offset apart.
+    # Measured on the true frame: 1 px of column disagreement, 98 px apart against a predicted 101.
+)
+
 
 def _common(drop=(), **over):
     """The rows whose bound genuinely does not vary by format.
@@ -141,7 +181,7 @@ FORMATS = {
                 "captions:card_collision": dict(),
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
                 # Dan, 2026-09-08: the highlighted word must be the word being said.
-                "compliance:banned_screen": dict(max_ncc=0.72, grid_w=192),
+                "compliance:banned_screen": dict(**_BANNED),
                 # 0.72 is shortad-from-longform/reference/qc.py check 10's bound, unchanged.
                 "compliance:labels": dict(min_corr=0.85),
                 # 0.85: website-video/recipe/qc_frame.ai_tags, measured over its AI inserts.
@@ -176,7 +216,7 @@ FORMATS = {
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_16x9),
                 "captions:card_collision": dict(),
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
-                "compliance:banned_screen": dict(max_ncc=0.72, grid_w=192),
+                "compliance:banned_screen": dict(**_BANNED),
                 "compliance:labels": dict(min_corr=0.85),
                 "watch:pass": dict(required=False,
                                    pending="Phase 3 of handoff-20260911-video-quality-engine.md "
@@ -209,7 +249,7 @@ FORMATS = {
                 "captions:burned": dict(present=True, min_frac=0.45, band=(0.08, 0.72, 0.84, 0.16)),
                 "captions:card_collision": dict(),
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
-                "compliance:banned_screen": dict(max_ncc=0.72, grid_w=192),
+                "compliance:banned_screen": dict(**_BANNED),
                 "compliance:labels": dict(min_corr=0.85),
                 "watch:pass": dict(required=True),
                 # a square build is delivered to an ad platform; it gets the vertical's hard gate.
@@ -250,7 +290,7 @@ FORMATS = {
                 "captions:burned": dict(present=False, max_frac=0.10, band=_CAPTION_BAND_16x9),
                 # the INVERTED rule. See the note above.
                 "captions:card_collision": dict(),
-                "compliance:banned_screen": dict(max_ncc=0.72, grid_w=192),
+                "compliance:banned_screen": dict(**_BANNED),
                 # the row that was missing here: the app's before/after screen reached the delivered
                 # spray-tan longform for 5.6 s at 18:04 because only /ad-edit template-scanned.
                 "compliance:labels": dict(min_corr=0.85),
@@ -297,7 +337,7 @@ FORMATS = {
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=4),
                 # the row two of the four shorts gates did not have at all: full-bleed/qc.js and
                 # scored-source/qc.js cannot see a desynced caption.
-                "compliance:banned_screen": dict(max_ncc=0.72, grid_w=192),
+                "compliance:banned_screen": dict(**_BANNED),
                 "compliance:labels": dict(min_corr=0.85),
                 "watch:pass": dict(required=False,
                                    pending="Phase 3 of handoff-20260911-video-quality-engine.md "
@@ -336,7 +376,7 @@ FORMATS = {
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_16x9),
                 "captions:card_collision": dict(),
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
-                "compliance:banned_screen": dict(max_ncc=0.72, grid_w=192),
+                "compliance:banned_screen": dict(**_BANNED),
                 # measured on rev 4 2026-09-11: best NCC 0.484 over 6,900 frames, nothing over 0.72.
                 "compliance:labels": dict(min_corr=0.85),
                 "watch:pass": dict(required=False,

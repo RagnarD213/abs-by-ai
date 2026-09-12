@@ -80,7 +80,7 @@ IMPLEMENTED = {
     # which FORMAT to grade against in its "deliver" block, because one pinned reference cannot
     # grade every programme -- a trust video holds on Dan's face on purpose and a longform does not.
     "style:coverage": "deliver_gate", "style:static_run": "deliver_gate",
-    "cut:uncovered_joins": "deliver_gate", "compliance:banned_screen": "deliver_gate",
+    "cut:uncovered_joins": "deliver_gate",
 }
 # Row key by human name, so an entry can name either.
 ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": "tone",
@@ -92,13 +92,13 @@ ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": 
 
 # Phases that will implement the rest. Printed with each PENDING so the queue is legible.
 PENDING_OWNER = {
-    "framing:": "VQC-D phase 5 (portable framing)",
-    "cut:": "VQC-C phase 4 (pose-matched picture cuts)",
-    "junk:": "VQC-D phase 6 (the junk / bad-take pipeline)",
-    "style:": "VQC-B phase 1 (_shared/deliver: qc_style's rows in the shared gate)",
-    "captions:": "VQC-B phase 1 (_shared/deliver)",
-    "compliance:": "VQC-B phase 1 (_shared/deliver: the Negative Events + banned-screen scan)",
-    "music:": "VQC-C phase 4 (grade + bed against his measured ranges)",
+    "framing:": "nothing implements this yet -- Phase 2 (portable framing)",
+    "cut:": "nothing implements this yet -- VQC-C phase 4 (pose-matched picture cuts)",
+    "junk:": "nothing implements this yet -- handoff-20260911-junk-footage-pass.md",
+    "style:": "nothing implements this yet -- Phase 1 (_shared/deliver)",
+    "captions:": "nothing implements this yet -- Phase 1 (_shared/deliver)",
+    "compliance:": "nothing implements this yet -- Phase 1 (_shared/deliver)",
+    "music:": "nothing implements this yet -- VQC-C phase 4 (grade + bed vs his ranges)",
 }
 
 # ⚠ ONE PHASE-1 ROW IS BUILT BUT DELIBERATELY NOT REGISTERED, and this is the honest reason.
@@ -113,8 +113,25 @@ PENDING_OWNER = {
 # texture behind a locked-off camera, or from the two halves of one caption line split at a word
 # space ("goal physique." alone read as two blocks 44 px apart). It clears the first time a
 # delivery carries both the defect and its plan.
-PENDING_OWNER["captions:"] = ("Phase 1 BUILT it (_shared/deliver/checks/captions.py) but it needs "
-                              "the build's cap.ass + gfx MOVs, which rev 2's build no longer has")
+# ⚠ AND `compliance:banned_screen` IS BUILT, LIVE IN THE GATE, AND STILL NOT REGISTERED HERE --
+# because it does not separate. The row now FINDS the violation the corpus names (the spray-tan
+# longform's before/after screen at 18:04, paired chrome score 0.626, flagged on 87 of 91 frames of
+# that beat) where the method it replaced could not: whole-screen template matching read 0.526,
+# because it matches an INSTANCE and the banned recording is a different person's generation.
+# But the approved website rev 4 reads 0.577 across all 6,900 of its frames -- its own macro-tracker
+# phone screen -- so the separation is 0.003. The chrome of the app is shared with every other app
+# screen; the photographs that identify THIS screen are what changes between generations. Registering
+# a bound with a 0.003 margin, fitted to one rejected frame and one approved frame, is precisely the
+# "built backwards from the last rejection" failure this file exists to stop. The measured next step
+# (the left/right pairing test) is written down in _shared/deliver/formats.py.
+PENDING_OWNER["compliance:banned_screen"] = (
+    "BUILT in Phase 1 and live in the gate -- it finds the violation (0.626) where the old method "
+    "could not (0.526), but an APPROVED file reads 0.577, so the margin is 0.003 and it is not a "
+    "proven bound. Next step measured and recorded in _shared/deliver/formats.py")
+
+PENDING_OWNER["captions:graphic_clearance"] = (
+    "BUILT in Phase 1 (_shared/deliver/checks/captions.py) and running on every future delivery, "
+    "but it needs the build's cap.ass + gfx MOVs and rev 2's are not on disk")
 
 
 def sha256(p, cap=None):
@@ -231,7 +248,8 @@ def check_entry(e, corpus, strict_pending):
         must_pass = w.startswith("+")
         c = w.lstrip("+")
         if c not in IMPLEMENTED:
-            owner = next((v for k, v in PENDING_OWNER.items() if c.startswith(k)), "unassigned")
+            owner = PENDING_OWNER.get(c) or next(
+                (v for k, v in PENDING_OWNER.items() if c.startswith(k)), "unassigned")
             res["pending"].append(dict(check=c, owner=owner, must_pass=must_pass))
             continue
         if IMPLEMENTED.get(c) == "deliver_gate":
@@ -358,7 +376,7 @@ def main():
         if r.get("deliver_unmeasured"): print(f"           delivery rows NOT MEASURED: {', '.join(r['deliver_unmeasured'])}")
         if r.get("why"): print(f"           {r['why']}")
         for q in r["pending"]:
-            print(f"           PENDING  {q['check']:28s} nothing implements this yet -> {q['owner']}")
+            print(f"           PENDING  {q['check']:28s} {q['owner']}")
 
     mism = [r for r in out if r["state"] in ("BLIND", "OVERTIGHT", "CHANGED", "PENDING",
                                             "STALE-GAP", "UNGRADED")]
@@ -373,7 +391,8 @@ def main():
         print(f"\n{len(pend)} check(s) the corpus asks for and nothing implements "
               f"(this is the Phase 1-6 queue, not a pass):")
         for c in pend:
-            owner = next((v for k, v in PENDING_OWNER.items() if c.startswith(k)), "unassigned")
+            owner = PENDING_OWNER.get(c) or next(
+                (v for k, v in PENDING_OWNER.items() if c.startswith(k)), "unassigned")
             print(f"    {c:28s} {owner}")
     if A.json: json.dump(out, open(A.json, "w"), indent=1)
     print(f"\nCORPUS {'PASS' if not mism else 'FAIL'}   ({time.time()-t0:.0f}s)")

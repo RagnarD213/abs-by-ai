@@ -76,7 +76,7 @@ approved (rev 4 measures 37%). That is per-format config — *not* a widened bou
 
 ```bash
 python3 .claude/skills/_shared/deliver/gate.py --audit          # no format has a hole
-python3 .claude/skills/_shared/qc_corpus/run.py                 # must stay green (≈8 min)
+python3 .claude/skills/_shared/qc_corpus/run.py                 # must stay green (~15 min)
 ```
 
 **`run.py` is the acceptance test for this module.** It re-runs our gates over every file Dan
@@ -88,7 +88,7 @@ and pass every approved one. No gate or setting change ships unless it passes.
 | row | cost |
 |---|---|
 | the picture rows together (three decodes, shared) | ~75 s for a 4-minute 1080p master |
-| `compliance:banned_screen` (every frame × 20 templates) | ~3 min for 4 minutes of video; ~16 min for 19 |
+| `compliance:banned_screen` (every frame × 28 layout templates at a 384-wide grid) | ~11 min for 4 minutes of video |
 | everything else | seconds |
 
 `compliance:banned_screen` is the expensive one and it is deliberate: a sampling scan cannot see a
@@ -103,6 +103,13 @@ and a 2 fps scan stepped straight over it.
   against corpus entry `website-rev2`, because that build's plan is not on disk. Four delivered-pixel
   substitutes were measured on 2026-09-11 and none separated rev 2 from rev 4. See the note in
   `checks/captions.py` and in `qc_corpus/run.py`.
+* **`compliance:banned_screen` finds the violation but does not separate cleanly.** It was blind
+  before Phase 1 — and so are `/ad-edit`'s and `/website-video`'s own scans, which is a live Google
+  Ads exposure: whole-screen template matching matches the *recording*, and a different generation
+  of the same screen reads 0.526. Rebuilt as a paired chrome matcher it flags the real violation at
+  0.626, but an approved master's own app screen reads 0.577. The row is live and errs toward
+  flagging; it is **not** in the corpus, and the measured next step (left/right pairing of the photo
+  band) is in `formats.py`.
 * **`watch:pass` is a hard gate for `ad9x16` and `ad1x1` only.** Every other format carries a dated
   `pending` note and the gate prints the row as PENDING — never as a pass. Phase 3 of
   `Handoffs/handoff-20260911-video-quality-engine.md` turns it on everywhere.

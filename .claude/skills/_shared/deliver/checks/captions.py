@@ -252,24 +252,31 @@ def sync(key, pr, cfg, plan, video, work):
     speech = env > thr
     gap = cfg.get("silence_before_s", 0.30)
     tol = cfg["tolerance_ms"] / 1000.0
+    # ⚠ SEARCH BACKWARDS AS WELL AS FORWARDS. Searching only forward from the cue can produce a
+    # negative offset for nothing, so a caption that arrives LATE -- the speech already running when
+    # the cue appears -- would read as perfectly synced. Both directions, or the row is one-sided.
+    back = cfg.get("search_back_s", 0.60)
+    fwd = cfg.get("search_fwd_s", 1.50)
     offs = []
     for st, _en, _t in cues:
         i = int(st / 0.005)
         g = int(gap / 0.005)
-        if i - g < 0 or i + int(1.0 / 0.005) >= len(speech):
+        b = int(back / 0.005)
+        if i - g - b < 0 or i + int(fwd / 0.005) >= len(speech):
             continue
-        if speech[max(0, i - g):i].mean() > 0.15:
+        if speech[max(0, i - g - b):i - b].mean() > 0.15:
             continue                                        # not preceded by silence: skip
-        nxt = np.where(speech[i:i + int(1.5 / 0.005)])[0]
+        w = speech[i - b:i + int(fwd / 0.005)]
+        nxt = np.where(w)[0]
         if not len(nxt):
             continue
-        offs.append(round(float(nxt[0] * 0.005), 3))
+        offs.append(round(float(nxt[0] * 0.005 - back), 3))
     if len(offs) < cfg.get("min_samples", 5):
         return unmeasured(key, f"only {len(offs)} cue(s) start after {gap}s of silence -- not "
                                f"enough to measure caption sync on this cut")
     med = float(np.median(offs))
-    worst = max(offs)
-    return Row(key, abs(med) <= tol and worst <= tol * 3,
+    worst = max(offs, key=abs)
+    return Row(key, abs(med) <= tol and abs(worst) <= tol * 3,
                f"{len(offs)} cues measured: speech starts a median {med*1000:+.0f} ms after the cue "
                f"(worst {worst*1000:+.0f} ms, max {tol*1000:.0f} ms)",
                dict(n=len(offs), median_ms=round(med * 1000, 1), worst_ms=round(worst * 1000, 1),

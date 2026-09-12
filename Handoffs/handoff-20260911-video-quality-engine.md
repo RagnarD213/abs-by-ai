@@ -194,6 +194,59 @@ scripts, not check claims. **Either make each one true or delete the claim.**
 
 ---
 
+### ✅ PHASE 1 EXECUTED 2026-09-11 — commit `eff3896`. Read this before starting Phase 2.
+
+`_shared/deliver/` exists: `gate.py` (runner, versioned stamp, `--audit`), `formats.py` (every bound,
+with the file and date it was measured on), `checks/` (container, audio, picture, captions,
+compliance, process), `README.md`. **30 rows × 7 formats, no holes.** All seven video skills' SKILL.md
+call it. Calibration table for the picture rows is in `formats.py`.
+
+**Landed:** `style:coverage`, `style:static_run`, `cut:uncovered_joins` registered in the corpus and
+**proven** — they fail the rejected files and pass every approved one. `audio:lipsync` and the
+`compliance:labels` pairing check are new (both were documented and enforced nowhere). Exercise-demo
+calibration measured off the 33 shipped demos. The "21 named-but-missing scripts" resolved: 10 remain
+and none is a check claim (see `Docs/VQC_baseline_20260909.md` §6).
+
+**Two rows are built but NOT registered in the corpus, deliberately, and both are real findings:**
+
+1. **`captions:graphic_clearance`** is exact and runs on every future delivery, but it needs the
+   build's `cap.ass` + graphic MOVs and website rev 2's are not on disk (they lived in `Media/`).
+   Four delivered-pixel substitutes were measured and none separated rev 2 from rev 4.
+2. **`compliance:banned_screen` was BLIND, is now much better, and still does not separate.**
+   ⚠ **The blind spot was real and it is in `/ad-edit` and `/website-video` too, where it has been
+   reading as coverage.** Whole-screen template matching matches an **instance**, not a **layout**:
+   the banned recording is one person's generation, so ~30% of that screen is photographs that
+   differ in every other generation. On the spray-tan longform, which shows the screen at ~18:04,
+   the old method read **0.526** against a 0.72 bound — a live Google Ads / app-store exposure that
+   nothing was catching. Two real bugs were fixed on the way: the template aspect was hardcoded
+   1080/1920 where the recording is 1320×2868 (every template stretched 22%), and the scale grid
+   stepped 0.92 → 0.80 straight over the 0.85 the phone PiP actually occupies.
+
+   Rebuilt as a **paired chrome matcher** — the nav/headline/BEFORE-AFTER strip and the
+   body-fat/button/Safari strip, which are generation-invariant, required to match *at
+   geometrically consistent positions*. It now **flags the violation on 87 of 91 frames of that
+   beat, paired score 0.626**. But the approved website rev 4 reads **0.577** across all 6,900 of
+   its frames — its own macro-tracker phone screen — because the app's chrome is shared with every
+   other app screen. **A 0.003 margin fitted to one rejected frame against one approved frame is
+   not a bound**, so the row is live in the gate (erring toward flagging, which is the right
+   direction for a strike) but **deliberately NOT registered in the corpus**.
+
+   **The next discriminator is measured and written down** in `_shared/deliver/formats.py`: a
+   before/after is the same person in the same pose twice, so the photo band's left and right
+   halves correlate — the real violation reads **+0.441**, rev 4's macro screen **+0.222**, a
+   talking-head control **−0.192**. Requiring chrome AND pairing separates them with real margin on
+   both axes. **Build it against more than one frame per verdict.** Do this early in Phase 2.
+
+**The 17 forks are BANNERED, NOT DELETED.** Five video builds were in flight against them
+(`ad1-sq`, `ad2-sq`, `ad3-vert`, `ad4-vert`, `ad5-vert`) and each fork still holds rows the shared
+gate has not absorbed — framing is Phase 2, the watch pass Phase 3. Banners are comment-only.
+**Delete them at the end of Phase 3, not before.**
+
+**Cost, measured:** the picture rows ~75 s for a 4-minute 1080p master; `compliance:banned_screen`
+~2.5 min for 4 minutes of video and ~17 min for 19. The full corpus run is now ~40 min, not ~8.
+
+---
+
 ## PHASE 2 — portable framing, inside the shared gate
 
 ### The standard being enforced (LOCKED 2026-09-08 — do not renegotiate it)

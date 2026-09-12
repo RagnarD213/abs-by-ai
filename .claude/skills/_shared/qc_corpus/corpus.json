@@ -209,7 +209,7 @@
    "deliver": {
     "format": "longform",
     "plan": "plans/spraytan-longform-rev0.json",
-    "_why": "same format; the plan supplies only the banned-screen SOURCE, which is an asset-library fact, not a judgment about this file"
+    "_why": "longform bounds. The plan supplies only the banned-screen SOURCE, an asset-library fact rather than a judgment about this file. compliance:banned_screen is deliberately NOT registered -- see the note above PENDING_OWNER in run.py"
    }
   },
   {

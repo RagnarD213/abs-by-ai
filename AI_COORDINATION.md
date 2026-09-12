@@ -493,6 +493,27 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
+**Video-quality engine PHASE 1 — SHIPPED 2026-09-11 (`eff3896` + follow-up), nothing blocked. Two things for Dan.**
+`_shared/deliver/gate.py` is now THE delivery gate for all seven video skills — **30 rows x 7 formats, no holes**
+(`gate.py --audit` proves it), every bound in `formats.py` beside the file and date it was measured on, versioned
+stamp that invalidates older ones, `NOT MEASURED` and `UNCONFIGURED` both FAIL. Registered in the corpus and PROVEN:
+`style:coverage`, `style:static_run`, `cut:uncovered_joins`. New rows nothing had: **`audio:lipsync`** (the
+`alimiter` 4.966 ms every loudness-finished master has carried — the audio gate checks length, never alignment) and
+**`compliance:labels`** (Dan's 09-11 real-vs-AI rule as a PAIRING check). Exercise-demo calibrated off the 33 shipped
+demos. Standing rule in `AGENTS.md`; module README lists every known gap.
+⚠ **FOR DAN, a live ads exposure: our banned-screen compliance scan was BLIND, in `/ad-edit` and `/website-video`
+too.** It matched the app *recording*, not the *screen*, so a different generation of the same BEFORE/AFTER screen
+read 0.526 against a 0.72 bar — the spray-tan longform has carried it at 18:04 all along. Rebuilt as a paired
+chrome matcher it now flags it (0.626, 87/91 frames), but an approved master's own app screen reads 0.577, so the
+margin is 0.003 and it is **live but NOT corpus-registered**. The next discriminator is measured and written down.
+⚠ **The 17 forks are BANNERED, NOT DELETED** — five video builds were in flight tonight (ad1-sq, ad2-sq, ad3-vert,
+ad4-vert, ad5-vert) and each fork still holds rows the shared gate has not absorbed. Delete at the end of Phase 3.
+Found in passing: `public/exercise-demos/plank.mp4` ships at 960x536 where all 32 others are 960x540.
+**Next: Phase 2 (portable framing) in a fresh session** — the handoff records exactly what changed for it, and says
+to fix the banned-screen pairing test early. No dashboard row (his 09-08 rule). Delete this entry once Dan has read
+the two warnings.
+
+
 **Ad 2 square (1:1) — DELIVERED 2026-09-11, Dan reviews.** `Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/
 … | claude | 1x1 | ad 2.mp4` + 540p/480p review copies, A/B audio, stamp, `notes-square.md`, `recipe-square/`. 1080×1080,
 **8,275 frames = his to the frame**, and the audio is the APPROVED VERTICAL's AAC stream **md5-identical** (`muxsq.py` refuses to
@@ -552,22 +573,21 @@ stranger from the recording (lesson 40). Audio fine on both. Md copies in `revis
 **Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — IN PROGRESS (session started
 2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive `1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3` (265.2 s, 29.97);
 raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/` (a7 pipeline). Ad 4's vertical is a DIFFERENT
-session in `ad4-vert/` — do not touch either build dir. **Status 18:50 CT: RENDER 3 QUEUED (waits for the 2-build gate).**
-Render 2 + my watch pass (42 sheets, 251 boundaries) + an independent Fable audit are done; the audit said **"does not
-ship"** (18 findings) and all of them are now coded. Fixed: his picture cut not the audio splice (1352→1356, 3402→3407,
-4334→4316, 7680→7687, from pic.json's own offset steps); 1732/7155 forced to a level change (our crop magnifies a snap
-his 16:9 hides); **window headroom** — windows ignored the hair anchor and held his hair 12–35 px under the box edge,
-now his ~10%; the window→talk cut off his flash peak; the story retime on the source's real 121-frame shots (was
-drifting +6); a 0.246-score scroll sample that opened the workout phone on the screenshot's BOTTOM; the upload scroll
-anchored instead of followed (it juddered); headers TYPE on like his; his blue-cyan light leak; his pop-zoom on the
-flag still; the opening clip's blur-in; bars held ~3 frames longer. Plus the watch pass's three: lower thirds at his
-0.37 s pace (was 1.55), Dan's new real-picture label on the four photo-shoot stills, and the app card opening past the
-stranger's photo. **Not reproduced: item 17** (demo static holds — inside the real card rect there are no runs, only
-single duplicated frames from 24→29.97). **Left alone with reasons: item 1** (1286 — three instruments disagree by up
-to 20 frames and 1286 is already the best position in its window) and items 13/5. After the render: re-watch the
-changed boundaries, rebuild the cutdown (`cut5.sh` — cut/ is a FORK with its own beats/g3/g5 and an embedded time map),
-then a second audit. Cutdown still blocked on Dan: true peak −0.90 dBTP vs a −1.0 bar; only filtering his audio reaches
-−1.0. ✅ Dan accepted the same −0.90 on Ad 4 09-11 ("I think the audio sounded fine") — that likely answers this too.
+session in `ad4-vert/` — do not touch either build dir. **Status 20:00 CT: RENDER 3 BUILT AND WATCHED; render 4 waits
+on the second audit.** Render 3 passed every gate (7,948 frames, his audio md5 = his, caption sync 397/397, hair gate,
+0 black frames, no duplicated frames at any cut) and carries all 18 audit-1 findings + the 3 from my first watch pass.
+My watch pass ON RENDER 3 (42 sheets, 249 boundaries) then found 3 MORE, now coded for render 4: (1) ⚠ **the app card
+still showed the stranger** — the floor fixed its opening, but the recording's "Creating your future self" screen puts
+that man's photo back on screen full size from source 8.52 s, and the card ran to 10.23; it now ends at 8.45, on the
+Generate button (both library recordings are the same session — there is no take with Dan); (2) three ZOOM ISLANDS
+(1665, 3407, 7155) where a picture cut landed 4-7 frames before a punch, so the level popped FAR and straight back —
+the audit's item 11 in three more places; a new PUNCH_SNAP rule starts a punch AT the cut when one is within 10 frames,
+which also matches his own measured ramp starts (fit.json: ~1666, ~3409, ~4819, ~7155); (3) the forced level flip at
+1732 did nothing and should not — his scale reads a flat 1.22 either side of his own cut there, so any change would be
+ours. Verified fixed on screen: the four moved cuts, window headroom, the workout phone opening on the top, headers
+typing on, the real-picture label on all four stills, his flag pop-zoom. Cutdown NOT yet rebuilt (`cut5.sh`; cut/ is a
+FORK with its own beats/g3/g5 and an embedded time map). Cutdown true peak −0.90 dBTP vs a −1.0 bar — ✅ Dan accepted
+exactly that on Ad 4 on 09-11 ("I think the audio sounded fine"), which likely answers this too.
 ⚠ **Muhammad's Ad 3 v6 HD is NOT the approved round-5 draft:**
 at 2:14.1–2:23.1 the "Because even though I was a personal trainer…" bullet lost "back in my 20s, as a 38 year old dad
 running a successful ad agency." (proof `ad3-vert/hdcheck/w4_hd_vs_draft.png`, sent to Dan 14:38). Do NOT file or upload

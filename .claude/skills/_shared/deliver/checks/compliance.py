@@ -25,14 +25,20 @@ def _norm(a):
     return a / max(float(a.std()), 1e-6)
 
 
-def _ncc_max(F, T):
+def _fft_shape(fh_in, th):
+    return 1 << int(np.ceil(np.log2(fh_in + th - 1)))
+
+
+def _ncc_peak(FT, F, T, th, tw, fh, fw):
     """Peak normalised cross-correlation of template T anywhere in frame F.
 
     Full NCC, not a fixed-crop correlation: the app screen appears as a full frame in a vertical
     ad, as a phone PiP beside Dan in a longform, and at whatever size an editor chose in between.
     A gate pinned to one crop only sees the layout it was written for.
+
+    FT is the frame's rfft2 at this (fh, fw), passed in so it is computed ONCE per scale rather
+    than once per template -- four templates share each scale, so hoisting it cuts the scan by ~4x.
     """
-    th, tw = T.shape
     if th > F.shape[0] or tw > F.shape[1]:
         return -1.0, None
     n = th * tw
@@ -41,9 +47,7 @@ def _ncc_max(F, T):
     box = lambda I: I[th:, tw:] - I[:-th, tw:] - I[th:, :-tw] + I[:-th, :-tw]   # noqa: E731
     mu = box(P) / n
     sd = np.sqrt(np.maximum(box(P2) / n - mu * mu, 0.0))
-    fh = 1 << int(np.ceil(np.log2(F.shape[0] + th - 1)))
-    fw = 1 << int(np.ceil(np.log2(F.shape[1] + tw - 1)))
-    c = np.fft.irfft2(np.fft.rfft2(F, (fh, fw)) * np.conj(np.fft.rfft2(T, (fh, fw))), (fh, fw))
+    c = np.fft.irfft2(FT * np.conj(np.fft.rfft2(T, (fh, fw))), (fh, fw))
     c = c[:F.shape[0] - th + 1, :F.shape[1] - tw + 1]
     # ⚠ A FLAT PATCH HAS NO CORRELATION, IT HAS A DIVISION BY ZERO. Measured 2026-09-11: flooring
     # the VARIANCE at 1e-6 (sd 1e-3 on a 0-255 scale) made the letterboxed black bars either side of
@@ -70,10 +74,22 @@ def banned_screen(key, pr, cfg, plan, video, work):
     where the full-rate scan reported 1.000 and failed the build. A compliance gate that samples
     cannot see a single-frame violation, so this one decodes the whole picture.
 
-    Calibrated 2026-09-11 on the corpus:
-        FINAL_spraytan_PRE_REBUILD  REJECTED   the app "Meet the new you" BEFORE/AFTER screen is on
-                                               screen as a phone PiP from ~18:04 (measured below)
-        website rev 4               approved   best NCC 0.484 over 6,900 frames, 0 frames over 0.72
+    ⚠ AND IT MATCHES THE LAYOUT, NOT THE RECORDING. This is the finding that rebuilt the row on
+    2026-09-11. Whole-screen template matching -- the method in BOTH gates this was ported from --
+    matches an INSTANCE: the banned source is one person's generation, so roughly 30% of that screen
+    is photographs that differ in every other generation of it. Measured on the file the row exists
+    for, the spray-tan longform, which shows the screen as a phone PiP at ~18:04:
+
+        whole screen, best scale        0.581      <- under any usable bound
+        the two photos only             0.491      <- correctly low: different photos
+        chrome TOP    (nav + "Meet the new you" + BEFORE/AFTER labels)     0.657 .. 0.683
+        chrome BOTTOM (body-fat row + "Lock in this goal" + Safari bar)    0.617 .. 0.623
+
+    So neither strip clears a single-correlation bound on its own either. What is decisive is that
+    they agree about WHERE: at the true scale the top strip peaked at (14, 42) and the bottom at
+    (112, 43) -- the same column, and 98 px apart against the 101 px the layout predicts. Two
+    independent chrome strips at the geometrically correct offset is evidence a chance correlation
+    cannot manufacture. That pairing is what this row tests.
     """
     src = plan.get("banned_source")
     times = plan.get("banned_times")
@@ -83,46 +99,84 @@ def banned_screen(key, pr, cfg, plan, video, work):
     if not times:
         return unmeasured(key, "the plan gives no `banned_times` into the banned source")
     W, H = pr["width"], pr["height"]
-    gw = cfg.get("grid_w", 192)
+    gw = cfg.get("grid_w", 384)
     gh = max(2, int(round(gw * H / W / 2)) * 2)
-    scales = cfg.get("scales", (1.00, 0.92, 0.80, 0.65, 0.50))
-    tpl = []
+    scales = cfg["scales"]
+    # ⚠ THE SOURCE'S OWN ASPECT, PROBED -- never a constant. The default was 1080/1920 = 0.5625 and
+    # the actual recording is 1320x2868 = 0.4603, so every template was stretched 22% wider than the
+    # screen it was looking for. Measured 2026-09-11: that alone loses the match.
+    sp = C.probe(src)
+    aspect = sp["width"] / sp["height"]
+    top0, top1 = cfg["chrome_top"]
+    bot0, bot1 = cfg["chrome_bottom"]
+
+    specs = []                      # (t, scale, phone_h, TOP, BOTTOM, expected dy)
     for t in times:
         for frac in scales:
-            th = int(round(gh * frac))
-            tw = max(2, int(round(th * cfg.get("source_aspect", 1080 / 1920))))
+            ph = int(round(gh * frac))
+            pw = max(2, int(round(ph * aspect)))
             raw = subprocess.run([C.FF, "-v", "error", "-ss", f"{t:.3f}", "-i", src,
-                                  "-frames:v", "1", "-vf", f"scale={tw}:{th},format=gray",
+                                  "-frames:v", "1", "-vf", f"scale={pw}:{ph},format=gray",
                                   "-f", "rawvideo", "-"], capture_output=True).stdout
-            if len(raw) < tw * th:
+            if len(raw) < pw * ph:
                 continue
-            tpl.append((t, frac, _norm(np.frombuffer(raw[:tw * th], np.uint8).reshape(th, tw))))
-    if not tpl:
-        return unmeasured(key, "no template frame could be read out of the banned source")
+            S = np.frombuffer(raw[:pw * ph], np.uint8).reshape(ph, pw).astype(np.float32)
+            T = S[int(ph * top0):int(ph * top1)]
+            B = S[int(ph * bot0):int(ph * bot1)]
+            if T.shape[0] < 8 or B.shape[0] < 8 or T.shape[1] > gw or B.shape[0] > gh:
+                continue
+            specs.append((t, frac, ph, _norm(T), _norm(B), int(ph * (bot0 - top0))))
+    if not specs:
+        return unmeasured(key, "no template strip could be read out of the banned source")
 
-    thr = cfg["max_ncc"]
+    pre = cfg["prescreen_ncc"]
+    both = cfg["min_strip_ncc"]
+    slop = cfg["position_slop_px"]
     p = subprocess.Popen([C.FF, "-v", "error", "-i", video, "-vf", f"scale={gw}:{gh},format=gray",
                           "-an", "-f", "rawvideo", "-"], stdout=subprocess.PIPE)
     best, hits, n = (-1.0, None, None), [], 0
+    ffts = {}
     while True:
         raw = p.stdout.read(gw * gh)
         if len(raw) < gw * gh:
             break
         F = np.frombuffer(raw, np.uint8).reshape(gh, gw).astype(np.float32)
         n += 1
-        for t, frac, T in tpl:
-            v, _pos = _ncc_max(F, T)
-            if v > best[0]:
-                best = (v, round(n / pr["fps"], 2), (t, frac))
-            if v > thr:
-                hits.append((round(n / pr["fps"], 2), round(v, 3)))
+        ffts.clear()
+        hit = False
+        for t, frac, ph, T, B, dy in specs:
+            # STAGE 1: the cheap top strip. Most frames die here.
+            th, tw = T.shape
+            shp = (_fft_shape(gh, th), _fft_shape(gw, tw))
+            if shp not in ffts:
+                ffts[shp] = np.fft.rfft2(F, shp)
+            vt, pt = _ncc_peak(ffts[shp], F, T, th, tw, *shp)
+            if vt < pre:
+                continue
+            # STAGE 2: the bottom strip must agree, and agree about WHERE.
+            bh, bw = B.shape
+            shp2 = (_fft_shape(gh, bh), _fft_shape(gw, bw))
+            if shp2 not in ffts:
+                ffts[shp2] = np.fft.rfft2(F, shp2)
+            vb, pb = _ncc_peak(ffts[shp2], F, B, bh, bw, *shp2)
+            score = min(vt, vb)
+            if score > best[0]:
+                best = (score, round(n / pr["fps"], 2), (t, frac, round(vt, 3), round(vb, 3)))
+            if vt >= both and vb >= both and pt and pb \
+                    and abs(pb[1] - pt[1]) <= slop and abs((pb[0] - pt[0]) - dy) <= slop:
+                hits.append((round(n / pr["fps"], 2), round(vt, 3), round(vb, 3), frac))
+                hit = True
                 break
+        if hit:
+            continue
     p.stdout.close()
     p.wait()
     return Row(key, not hits,
-               f"{n} frames scanned against {len(tpl)} templates; best {best[0]:.3f} at "
-               f"{best[1]}s (source {best[2]}); {len(hits)} frame(s) over {thr}: {hits[:6]}",
-               dict(frames=n, best=round(best[0], 3), best_at=best[1], hits=hits[:60], max_ncc=thr))
+               f"{n} frames x {len(specs)} layout templates; best paired score {best[0]:.3f} at "
+               f"{best[1]}s {best[2]}; {len(hits)} frame(s) with BOTH chrome strips over {both} at "
+               f"consistent positions: {hits[:6]}",
+               dict(frames=n, best=round(best[0], 3), best_at=best[1], hits=hits[:60],
+                    min_strip_ncc=both, prescreen=pre))
 
 
 # ---------------------------------------------------------------------------- labels

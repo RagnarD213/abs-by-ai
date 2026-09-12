@@ -12,28 +12,35 @@ import re
 from ..common import Row, unmeasured
 
 
-def _log_for(path, sha, what):
-    """Read a build log and confirm it names THIS file."""
+def _log_for(path, sha, video, what):
+    """Read a build log and confirm it names THIS file.
+
+    A sha256 is the only real proof, because a re-render keeps the path and the filename. A log that
+    names only a filename is accepted with that weaker check and says so; a log that names neither
+    is refused outright, since it could have been written for anything.
+    """
     if not path:
-        return None, f"the plan gives no `{what}`"
+        return None, None, f"the plan gives no `{what}`"
     if not os.path.exists(path):
-        return None, f"`{what}` is not on disk: {path}"
+        return None, None, f"`{what}` is not on disk: {path}"
     try:
         d = json.load(open(path))
     except Exception as e:                                   # noqa: BLE001
-        return None, f"`{what}` is not readable json ({e})"
+        return None, None, f"`{what}` is not readable json ({e})"
     named = d.get("sha256") or d.get("file_sha256")
-    if named and named != sha:
-        return None, (f"`{what}` is for {str(named)[:12]}, this file is {str(sha)[:12]} "
-                      f"-- it was written for a different render")
-    if not named:
-        base = d.get("video") or d.get("file")
-        if base and os.path.basename(base) != os.path.basename(path if False else d.get("video", "")):
-            pass
-        if not base:
-            return None, (f"`{what}` names neither a sha256 nor a video; it cannot be tied to this "
-                          f"render, so it proves nothing")
-    return d, None
+    if named:
+        if named != sha:
+            return None, None, (f"`{what}` is for {str(named)[:12]}, this file is {str(sha)[:12]} "
+                                f"-- it was written for a different render")
+        return d, "sha256", None
+    base = d.get("video") or d.get("file")
+    if not base:
+        return None, None, (f"`{what}` names neither a sha256 nor a video, so it cannot be tied to "
+                            f"this render and proves nothing")
+    if os.path.basename(base) != os.path.basename(video):
+        return None, None, (f"`{what}` is for {os.path.basename(base)}, not "
+                            f"{os.path.basename(video)}")
+    return d, "filename", None
 
 
 def watch_pass(key, pr, cfg, plan, video, work):
@@ -52,7 +59,7 @@ def watch_pass(key, pr, cfg, plan, video, work):
     sha = plan.get("_sha256")
     if not cfg.get("required", True):
         return Row(key, None, f"PENDING -- {cfg.get('pending', 'not yet enforced for this format')}")
-    d, why = _log_for(plan.get("watch_log"), sha, "watch_log")
+    d, tied_by, why = _log_for(plan.get("watch_log"), sha, video, "watch_log")
     if why:
         return unmeasured(key, why)
     reviewed, total = d.get("reviewed", 0), d.get("boundaries", 0)
@@ -60,9 +67,10 @@ def watch_pass(key, pr, cfg, plan, video, work):
         return unmeasured(key, "the watch log records no boundaries, so nothing was reviewed")
     ok = d.get("inspected") is True and reviewed >= total
     return Row(key, ok,
-               f"{reviewed}/{total} boundaries reviewed as consecutive frames"
+               f"{reviewed}/{total} boundaries reviewed as consecutive frames (tied to this file "
+               f"by {tied_by})"
                f"{'' if d.get('inspected') is True else '; `inspected` is not true'}",
-               dict(reviewed=reviewed, boundaries=total))
+               dict(reviewed=reviewed, boundaries=total, tied_by=tied_by))
 
 
 def srt_present(key, pr, cfg, plan, video, work):
