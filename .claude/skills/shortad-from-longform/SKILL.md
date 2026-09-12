@@ -554,6 +554,29 @@ and that lifts lav hiss with the air. Gate BEFORE the EQ, always.
 
 ---
 
+## THE DELIVERY GATE — `_shared/deliver/gate.py` **(REQUIRED on the delivered file, 2026-09-11)**
+
+```bash
+python3 .claude/skills/_shared/deliver/gate.py <delivered file> --format ad9x16 --plan plan.json
+```
+
+**One gate, all six video skills, run on the file that is actually going out.** It carries the
+union of the rows that used to live in seventeen per-video QC forks, with every bound in
+`_shared/deliver/formats.py` beside the file and the date it was measured on. It writes
+`<file>.deliver_gate.json`; `gate.require_stamp(<file>)` refuses anything without a PASS stamp at
+the current `GATE_VERSION`.
+
+- **A missing input is `NOT MEASURED`, which FAILS** — never a silent skip. `--plan-keys` lists what
+  `plan.json` may carry; a row whose key is absent says so and fails.
+- **A row this format has not answered for FAILS as `UNCONFIGURED`.** If a check genuinely does not
+  apply here, add it to that format's `not_applicable` in `formats.py` with a written reason.
+- **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
+  must stay green, and it is what proves a bound change did not resurrect a rejected cut.
+
+⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
+absorbed yet (framing is Phase 2, the watch pass is Phase 3 of
+`Handoffs/handoff-20260911-video-quality-engine.md`). **Run both until those land.**
+
 ## Step 7 — QC: the WATCH PASS is the gate; the metrics are preconditions
 
 **[R1] The metric gate passed a rejected video 11/11.** Before delivery, always run
@@ -1299,6 +1322,59 @@ the a7 pipeline + `g8.py` / `render8.py`). Audit 1 returned "does not ship" with
     masters; his audio is not ours to trim (Step 4) — report it, deliver review copies, and let Dan choose (accept, or a −1.0
     re-export from the editor, then a 5-minute re-mux).
 17. **Load:** at a 1-minute load average of 60–220 (three sessions building), the compositor ran at ~2 fps against ~12 quiet.
+
+## [A9] Ad 5 round 1 (2026-09-11) — the real-picture label, and a fix that was worse than the defect
+
+Dan approved the Ad 5 vertical's picture and asked for three revisions: every real after picture full-bleed and
+PORTRAIT, the new "Real picture of me — not AI-generated" label on each, audio untouched. Build dir
+`/Volumes/Extreme/_edit_work/ad5-vert/`; `reference/zpick.py` is the tool it added. Two independent audits, both
+returning DOES NOT SHIP the first time, on two different things — and the second one was a fix *I* had introduced.
+
+1. **A LANDSCAPE still can never be full-bleed in 9:16 — it is not a crop decision, it is a different picture.** His
+   1.22:1 and 1.49:1 photo-shoot stills keep a head and throw the body away. When the standing rule says every after
+   picture is full-bleed, those get REPLACED, and the replacements come from the same shoot so the run still reads as
+   his. Four distinct shots in a four-shot reveal, as he had.
+2. ⚠ **A finished, retouched, Dan-approved photo can still be composed OFF-CENTRE, and a centred cover crop inherits
+   it.** `studio-white-23` puts its subject 218 px left of the photo's own frame centre: rendered full-bleed that is
+   **torso −122 / head −96 px** on the phone, and the cut to the next studio shot popped him 118 px. Nothing upstream
+   sees this — the beat sheet is right, the asset is "final". **Measure every full-bleed still's rendered crop with
+   `rc/personmask` + `anchor.py` BEFORE the render** and pass an `ox` per media; here `ox=0.02` (the window slid to the
+   photo's left edge) gave torso −26 / head 0 against the neighbour's +14 / +20. Found by the audit, not by any gate.
+3. **Pick pictures on the RENDERED 9:16 crop, with the push windows drawn on it** (`reference/zpick.py`): portrait
+   filter, cover crop, the tightest push (z 1.05) outlined, the real-picture chip composited where it will sit. Skill
+   rule 12's "verify before rendering" is otherwise a sentence nobody executes when there are 176 candidates.
+4. ⚠⚠ **A bright photo behind the burned caption band is a legibility regression — and the obvious cure is worse than
+   the defect.** Full-bleed photos put the OLIVE lit word on red Muay Thai shorts (background luma 74 against the
+   olive's 125), pale water (76) and a white studio backdrop (98–110). A6.17 says fix the picture, not the gate, so the
+   first fix was a full-width gradient, 0 → 0.50 alpha, held to the frame bottom. It is invisible on the six dark
+   photos — and on a WHITE CYCLORAMA it paints a mid-grey fog across a backdrop that has no floor line or shadow to
+   explain it. The re-audit read it at 1:1 and called it a rendering fault; it refused the build over it. **The device
+   that works on every background is a caption-LOCAL black plate sized to the caption image's own alpha bbox**
+   (`g5.caption_plate`, with a `min_w` so a one-word line does not get a cramped box), in the same chip language as the
+   AI and real-picture labels: it reads as design on white, it disappears on a frame that prints no caption, and it
+   costs none of the picture. Do not weaken the gradient instead — at 0.25 the olive on white is back under threshold.
+5. **Order two stills so the big luma step lands on the EXIT, not the entry.** Cutting from his dim room into a
+   near-white frame was the largest non-flash luma jump in the film and read for a beat like one of his light leaks.
+   Entering on the grey seamless and exiting on the white one moves that step to a cut INTO darkness, which cannot be
+   mistaken for a leak. Measured: entry 79.6 → 87.8, exit 134.5 → 78.6.
+6. **A8.13 again, and it shipped inside a build Dan had already approved:** the cutdown's second range ended TWO frames
+   into one of his light leaks (luma 100.8 → 143.0, 142.9 → 53.9) because his peak frame belongs to the next beat and
+   was never carried — two brightening frames, then a hard cut, a flicker. `zcutdown.py` now pulls any range end that
+   sits inside a strobe back to the strobe's FIRST flashed frame. **Dan's approval of a cut is not evidence its seams
+   are clean** — he is watching the film, not the seams.
+7. ⚠⚠ **TWO GATE SCRIPTS WRITING THE SAME `/tmp` PATH. With two builds running, one graded the other's file.**
+   `caption_sync_check.py` wrote `/tmp/_cs.wav`; a sibling session's extraction overwrote it between this run's write
+   and its read, and test B measured THIS file's word list against a 276-second file's audio — 8 phantom "words lit
+   outside speech" on a file whose audio had not changed by a byte. Per-process `mkdtemp`, removed at exit. **Any gate
+   that stages work on disk must stage it per process** — the same class as A6.25 (a cache keyed on anything but the
+   file it is grading) and worse, because a green row that measured the wrong file is what ships a defect.
+8. **When a cutdown CHANGES LENGTH, a frame-by-frame diff against the previous cutdown is meaningless after the first
+   seam** — everything downstream is shifted and the "changed spans" report is noise. Verify **cut frame → master
+   frame** through `cut_plan.json` instead: every frame must match the master within encoder noise, except the one
+   range where `zcut_build.py` deliberately flips the hold FAR↔NEAR (its log names it: "seam flip APPLIED").
+9. **Re-render the whole master rather than splicing the changed spans.** Three full renders on a loaded machine cost
+   ~15 minutes each and the gray-trace diff then PROVES the change set — on all three rounds it came back as exactly
+   the intended spans. A spliced render cannot make that claim, and A4.0aa is what splicing costs when it goes wrong.
 
 ## Standing content rules that override the reference
 

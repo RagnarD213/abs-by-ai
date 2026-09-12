@@ -1,3 +1,12 @@
+// ⚠ SUPERSEDED BY `.claude/skills/_shared/deliver/gate.py` (2026-09-11, Phase 1 of
+//   Handoffs/handoff-20260911-video-quality-engine.md). Its rows are folded into the shared gate,
+//   with every bound moved to `_shared/deliver/formats.py` beside the file and the date it was
+//   measured on. DO NOT add a check here -- add it there, or it lands in one of six pipelines and
+//   the other five keep the bug.
+//   ⚠ STILL ON DISK ON PURPOSE: three sessions were mid-build against these scripts when the shared
+//   gate landed (ad1-sq, ad2-sq, ad3-vert, ad4-vert, ad5-vert). It is deleted once those deliver,
+//   and it still carries rows the shared gate has not absorbed yet -- framing is Phase 2, the watch
+//   pass Phase 3. RUN BOTH until those land.
 // Automated QC for the rendered Shorts. Checks the things that are cheap to get wrong:
 // container specs, duration drift, dead/black frames, and the audio splice in the
 // two segments that are stitched from non-contiguous pieces of the source.

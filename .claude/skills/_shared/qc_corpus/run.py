@@ -53,7 +53,9 @@ import argparse, hashlib, json, os, subprocess, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", ".."))
 SHARED_AUDIO = os.path.join(REPO, ".claude/skills/_shared/audio")
+SHARED_DELIVER = os.path.join(REPO, ".claude/skills/_shared/deliver")
 GATE = os.path.join(SHARED_AUDIO, "audio_gate.py")
+DGATE = os.path.join(SHARED_DELIVER, "gate.py")
 FF = os.path.join(REPO, "Media/video_edit/bin/ffmpeg")
 CORPUS = os.path.join(HERE, "corpus.json")
 CACHE = os.path.join(HERE, "excerpts")
@@ -74,6 +76,11 @@ IMPLEMENTED = {
     # --reference-mix --verbatim (2026-09-10): the editor's mix, untouched
     "audio_gate:provenance": "audio_gate", "audio_gate:verbatim_level": "audio_gate",
     "audio_gate:verbatim_image": "audio_gate", "audio_gate:verbatim_lufs": "audio_gate",
+    # _shared/deliver/gate.py rows (2026-09-11, Phase 1). The value is the runner; the entry says
+    # which FORMAT to grade against in its "deliver" block, because one pinned reference cannot
+    # grade every programme -- a trust video holds on Dan's face on purpose and a longform does not.
+    "style:coverage": "deliver_gate", "style:static_run": "deliver_gate",
+    "cut:uncovered_joins": "deliver_gate", "compliance:banned_screen": "deliver_gate",
 }
 # Row key by human name, so an entry can name either.
 ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": "tone",
@@ -94,6 +101,21 @@ PENDING_OWNER = {
     "music:": "VQC-C phase 4 (grade + bed against his measured ranges)",
 }
 
+# ⚠ ONE PHASE-1 ROW IS BUILT BUT DELIBERATELY NOT REGISTERED, and this is the honest reason.
+# `captions:graphic_clearance` EXISTS in _shared/deliver/checks/captions.py and runs on every future
+# delivery: it renders each cue over green for its true ink bbox and compares that against the
+# graphic's own alpha -- the measurement that caught website rev 2. It cannot be PROVEN against
+# corpus entry `website-rev2`, because that build's plan (tight_cuts.json, cap.ass, gfx/*.mov) is
+# not on disk: it lived in Media/, which is gitignored. Registering it would turn a NOT MEASURED
+# into a green must_trigger, which is exactly the lie this file exists to prevent. Four delivered-
+# pixel substitutes were tried and measured on 2026-09-11 and none separated rev 2 from rev 4 --
+# they could not tell a caption from a phone screen recording's on-screen keyboard, from B-roll
+# texture behind a locked-off camera, or from the two halves of one caption line split at a word
+# space ("goal physique." alone read as two blocks 44 px apart). It clears the first time a
+# delivery carries both the defect and its plan.
+PENDING_OWNER["captions:"] = ("Phase 1 BUILT it (_shared/deliver/checks/captions.py) but it needs "
+                              "the build's cap.ass + gfx MOVs, which rev 2's build no longer has")
+
 
 def sha256(p, cap=None):
     h = hashlib.sha256()
@@ -109,6 +131,27 @@ def resolve(e, corpus):
     root = corpus["roots"][e.get("root", "repo")]
     base = REPO if root == "." else root
     return os.path.join(base, e["path"])
+
+
+def run_deliver_gate(path, fmt, rows, plan=None):
+    """Run _shared/deliver/gate.py for just these rows. --row implies a partial run: it never
+    stamps, so the corpus cannot change a file's delivery state by measuring it."""
+    import tempfile
+    out = tempfile.NamedTemporaryFile(suffix=".json", delete=False).name
+    cmd = ["python3", DGATE, path, "--format", fmt, "--no-stamp", "--json", out]
+    if plan:
+        cmd += ["--plan", plan]
+    for r in rows:
+        cmd += ["--row", r]
+    p = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
+    try:
+        d = json.load(open(out))
+    except Exception:
+        return {}, p.stdout + p.stderr
+    finally:
+        try: os.unlink(out)
+        except OSError: pass
+    return {r["key"]: r for r in d["rows"]}, p.stdout + p.stderr
 
 
 def run_audio_gate(path, extra=()):
@@ -164,6 +207,26 @@ def check_entry(e, corpus, strict_pending):
         res["gate"] = "PASS" if gate_ok else "FAIL"
         res["failing_rows"] = sorted(k for k, v in rows.items() if v is False)
 
+    # ---- the delivery gate, for the rows it owns
+    dneed = sorted({w.lstrip("+") for w in wants
+                    if IMPLEMENTED.get(w.lstrip("+")) == "deliver_gate"})
+    drows = {}
+    if dneed:
+        dcfg = e.get("deliver")
+        if not dcfg or not dcfg.get("format"):
+            # ⚠ NOT a skip. An entry that asks for a delivery-gate row without saying which format
+            # to grade it against cannot be measured, and an unmeasured check is a FAILURE.
+            res["state"] = "UNGRADED"
+            res["why"] = (f"{', '.join(dneed)} need a \"deliver\": {{\"format\": ...}} block on "
+                          f"this entry -- the bound is per format and nothing can pick one for it")
+            return res
+        dplan = dcfg.get("plan")
+        if dplan and not os.path.isabs(dplan):
+            dplan = os.path.join(HERE, dplan)
+        drows, dlog = run_deliver_gate(p, dcfg["format"], dneed, dplan)
+        res["deliver_failing"] = sorted(k for k, v in drows.items() if v.get("ok") is False)
+        res["deliver_unmeasured"] = sorted(k for k, v in drows.items() if v.get("ok") is None)
+
     for w in wants:
         must_pass = w.startswith("+")
         c = w.lstrip("+")
@@ -171,7 +234,17 @@ def check_entry(e, corpus, strict_pending):
             owner = next((v for k, v in PENDING_OWNER.items() if c.startswith(k)), "unassigned")
             res["pending"].append(dict(check=c, owner=owner, must_pass=must_pass))
             continue
-        if c == "audio_gate":                       # the whole gate = no row fails
+        if IMPLEMENTED.get(c) == "deliver_gate":
+            d = drows.get(c)
+            # ⚠ A ROW THAT DID NOT RUN IS NOT A PASS AND NOT A FAIL -- it is a MISMATCH, reported
+            # here rather than counted as whichever the entry happened to want.
+            if d is None or d.get("ok") is None:
+                res["results"].append(dict(
+                    check=c, want="PASS" if must_pass else "FAIL", got="NOT MEASURED", ok=False,
+                    why=(d or {}).get("detail", "the delivery gate returned nothing for this row")))
+                continue
+            got = bool(d["ok"])
+        elif c == "audio_gate":                     # the whole gate = no row fails
             failing = {k for k, v in rows.items() if v is False} - gapped_rows
             got = bool(gate_ok) or not failing
         else:                                       # one named row
@@ -278,14 +351,17 @@ def main():
         out.append(r)
         tag = {"ok": "  ok  ", "BLIND": " BLIND", "OVERTIGHT": " TIGHT", "PENDING": "  ...  ",
                "GAP": " gap  ", "STALE-GAP": "STALE!", "UNAVAILABLE": " ---- ",
-               "CHANGED": "CHANGED"}[r["state"]]
+               "UNGRADED": "UNGRAD", "CHANGED": "CHANGED"}[r["state"]]
         print(f"[{tag}] {r['id']:28s} {r['verdict']:20s} {r.get('gate', ''):5s}")
         if r.get("failing_rows"): print(f"           audio rows failing: {', '.join(r['failing_rows'])}")
+        if r.get("deliver_failing"): print(f"           delivery rows failing: {', '.join(r['deliver_failing'])}")
+        if r.get("deliver_unmeasured"): print(f"           delivery rows NOT MEASURED: {', '.join(r['deliver_unmeasured'])}")
         if r.get("why"): print(f"           {r['why']}")
         for q in r["pending"]:
             print(f"           PENDING  {q['check']:28s} nothing implements this yet -> {q['owner']}")
 
-    mism = [r for r in out if r["state"] in ("BLIND", "OVERTIGHT", "CHANGED", "PENDING", "STALE-GAP")]
+    mism = [r for r in out if r["state"] in ("BLIND", "OVERTIGHT", "CHANGED", "PENDING",
+                                            "STALE-GAP", "UNGRADED")]
     unav = [r for r in out if r["state"] == "UNAVAILABLE"]
     gapd = [r for r in out if r["state"] == "GAP"]
     pend = sorted({q["check"] for r in out for q in r["pending"]})

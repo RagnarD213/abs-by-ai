@@ -389,6 +389,29 @@ Also from this round: a real cycle inside one leg (Kling calf raise) still canno
 
 ---
 
+## THE DELIVERY GATE — `_shared/deliver/gate.py` **(REQUIRED on the delivered file, 2026-09-11)**
+
+```bash
+python3 .claude/skills/_shared/deliver/gate.py <delivered file> --format exercise-demo --plan plan.json
+```
+
+**One gate, all six video skills, run on the file that is actually going out.** It carries the
+union of the rows that used to live in seventeen per-video QC forks, with every bound in
+`_shared/deliver/formats.py` beside the file and the date it was measured on. It writes
+`<file>.deliver_gate.json`; `gate.require_stamp(<file>)` refuses anything without a PASS stamp at
+the current `GATE_VERSION`.
+
+- **A missing input is `NOT MEASURED`, which FAILS** — never a silent skip. `--plan-keys` lists what
+  `plan.json` may carry; a row whose key is absent says so and fails.
+- **A row this format has not answered for FAILS as `UNCONFIGURED`.** If a check genuinely does not
+  apply here, add it to that format's `not_applicable` in `formats.py` with a written reason.
+- **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
+  must stay green, and it is what proves a bound change did not resurrect a rejected cut.
+
+⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
+absorbed yet (framing is Phase 2, the watch pass is Phase 3 of
+`Handoffs/handoff-20260911-video-quality-engine.md`). **Run both until those land.**
+
 ## THE BACKGROUND-GHOST SCAN (Dan's instruction, 2026-08-20) — MANDATORY before delivery
 
 Dan caught weight stacks on background cable machines pumping up and down in time with the seated

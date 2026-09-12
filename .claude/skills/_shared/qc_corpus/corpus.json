@@ -1,7 +1,7 @@
 {
  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
- "version": 1,
- "updated": "2026-09-09",
+ "version": 2,
+ "updated": "2026-09-11",
  "roots": {
   "repo": ".",
   "ssd": "/Volumes/Extreme/_edit_work"
@@ -205,7 +205,12 @@
    "measured": "junk at 4:00 (a 1.6 s stretched word Whisper folded a pause into, kept as a self-correction); 41 uncovered joins; the banned side-by-side before/after screen on-screen for 5.6 s at 18:04.",
    "notes": "The banned-screen template scan exists in /ad-edit only, which is how the side-by-side reached a delivered longform.",
    "sha256": "5f39b9c4c6cba98563011fe3ce2c61dde32994ae5775134bfe582f6cf33cbcd4",
-   "bytes": 994075328
+   "bytes": 994075328,
+   "deliver": {
+    "format": "longform",
+    "plan": "plans/spraytan-longform-rev0.json",
+    "_why": "same format; the plan supplies only the banned-screen SOURCE, which is an asset-library fact, not a judgment about this file"
+   }
   },
   {
    "id": "spraytan-shorts-20260902",
@@ -284,7 +289,11 @@
    "measured": "insert coverage 21% against his ~90%; longest bare stretch 64 s TWICE against Dan's own written 30 s rule; and the delivered file plays his voice out of the RIGHT SPEAKER ONLY with hiss on the left for all nine minutes (left channel SNR 0.4-1.0 dB).",
    "notes": "This rejection produced qc_style.py -- which then reached exactly one skill. \u26a0 The handoff's seed table says 'coverage 8.7 %'; the figure recorded at the time, and the one qc_style.py's MIN_COVERAGE comment cites, is 21%. 21% is what this entry asserts.",
    "sha256": "58287396662ad8c047ccd6559eab46aa03d5e0a0c94fcf4bd88b4ecba2b6da17",
-   "bytes": 282967743
+   "bytes": 282967743,
+   "deliver": {
+    "format": "longform",
+    "_why": "an organic YouTube long-form: graded against longform bounds, which is where qc_style's MIN_COVERAGE 0.40 and Dan's 30 s static rule live"
+   }
   },
   {
    "id": "muhammad-ad1-16x9",
@@ -350,7 +359,7 @@
     "audio_gate:verbatim_lufs"
    ],
    "measured": "Zeeshan's -23.5 LUFS / LRA 5.9 / L/R +0.970 mix, lifted +9.9 dB into a 4x-oversampled limiter (alimiter 0.85), mono-summed, AAC 320k: -14.70 LUFS / LRA 4.1 / L/R +1.000; per second vs his +5.61..+9.90 dB, 52 of 249 s shaved > 1 dB. The gate it shipped under PASSED it: provenance 0.9989 (level-normalised), gain_flatness PASS (4.29 dB shave vs a 4.5 limit), the -14 LUFS and L/R rows PASS, qc.py 20/20.",
-   "notes": "('Zishan' is Wispr for Zeeshan.) ⚠ The rows that passed it measured OUR TARGETS, not HIS AUDIO: -14 LUFS and L/R >= 0.98 would have FAILED Zeeshan's own mix, so the build processed his mix until they passed. The 1.8 LU loudness-range loss was measured and shipped as a 'trade-off' against the skill's own ~0.8 LU rule of thumb. The verbatim rows (audio_gate --reference-mix <his export> --verbatim) fail it three ways.",
+   "notes": "('Zishan' is Wispr for Zeeshan.) \u26a0 The rows that passed it measured OUR TARGETS, not HIS AUDIO: -14 LUFS and L/R >= 0.98 would have FAILED Zeeshan's own mix, so the build processed his mix until they passed. The 1.8 LU loudness-range loss was measured and shipped as a 'trade-off' against the skill's own ~0.8 LU rule of thumb. The verbatim rows (audio_gate --reference-mix <his export> --verbatim) fail it three ways.",
    "sha256": "8fc644575789b26c04e63f3a24464fc79be21d443502db8ec7752760f24f11ee",
    "bytes": 448375174
   },

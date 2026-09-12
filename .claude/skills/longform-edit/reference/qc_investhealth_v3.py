@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# ⚠ SUPERSEDED BY `.claude/skills/_shared/deliver/gate.py` (2026-09-11, Phase 1 of
+#   Handoffs/handoff-20260911-video-quality-engine.md). Its rows are folded into the shared gate,
+#   with every bound moved to `_shared/deliver/formats.py` beside the file and the date it was
+#   measured on. DO NOT add a check here -- add it there, or it lands in one of six pipelines and
+#   the other five keep the bug.
+#   ⚠ STILL ON DISK ON PURPOSE: three sessions were mid-build against these scripts when the shared
+#   gate landed (ad1-sq, ad2-sq, ad3-vert, ad4-vert, ad5-vert). It is deleted once those deliver,
+#   and it still carries rows the shared gate has not absorbed yet -- framing is Phase 2, the watch
+#   pass Phase 3. RUN BOTH until those land.
 """QC v3. Adds to qc_v2: the v3 revision joints re-transcribed from the FINISHED
 render, a phrase-level (3-5 word shingle) repeat scan over the whole finished
 transcript, the SRT text gate, and zoom-contrast frame pairs.
