@@ -514,7 +514,7 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Codex one-month video-editing trial — 01 REFERENCE STUDY RUNNING (2026-09-12, Codex owns trial only).** Verifying the two Muhammad masters, raw rolls and historical baselines; preparing source maps/style cards for 02 in `Media/codex-video-trial/records/`. No other video handoff is being executed. Private local records/branch only under the trial storage instruction; next: complete supported picture/audio study and freeze the sample brief; no dashboard row.
+**Codex one-month video-editing trial — 01 COMPLETE; 02 READY (2026-09-12, Codex owns trial only).** Verified both HD Muhammad references, five raw rolls/mics, historical baseline provenance and an 87.854 s raw-mapped sample. Style cards, supported audio-analysis evidence and build brief: `Media/codex-video-trial/records/02-sample-brief.md`. Estimated API spend $0.58; exact ledger saved. Two later originals shortlisted without matching edit/verdict exposure. Next: run handoff 02 when Dan starts it; reload current delivery gate (other session advanced it to 1.1.0). Private local records/branch only; no dashboard row.
 
 **Video-quality engine PHASE 1 — SHIPPED 2026-09-11 (`eff3896` + follow-up), nothing blocked. Two things for Dan.**
 `_shared/deliver/gate.py` is now THE delivery gate for all seven video skills — **30 rows x 7 formats, no holes**
@@ -562,12 +562,26 @@ this entry on PASS. ⚠ Do NOT run the verify script mid-transfer — it reports
 Remaining gap after this: the welcome-video first shoot (114 GB), the last irreplaceable folder with no second
 copy. Drive is a 5 TB plan, 4.5 TB free. No dashboard row.
 
-**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 square cutdown from the APPROVED 9:16 vertical — IN PROGRESS
-(session started 2026-09-11 17:35 CT, owns it).** `Handoffs/handoff-20260911-square-ad1-muhammad.md`; build dir
-`/Volumes/Extreme/_edit_work/ad1-sq/` (the attempt-3 pipeline re-laid-out for 1080x1080: `sqlib.py` + `sqassets.py` +
-`render.py`). Lands on Muhammad's **6,976** frames (the approved vertical is 6,977 — the frame-count assert postdates it);
-audio is the vertical's AAC stream copied bit for bit. ⚠ **A CONCURRENT SESSION owns `/Volumes/Extreme/_edit_work/ad2-sq/`
-(the Ad 2 square) — do not touch it, and do not start a third video build** (AGENTS.md cap of two).
+**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 square cutdown — BOTH FILES GATED, audit 2 running
+(session of 2026-09-12 owns it; the 09-11 session stopped one step before delivery).** Build dir
+`/Volumes/Extreme/_edit_work/ad1-sq/`. Master **6,976 frames = Muhammad's**, audio the approved vertical's AAC
+stream **md5-identical**; cutdown **1,491 frames / 49.75 s**, his mix cut at the seams. Both now read
+**`_shared/deliver/gate.py` DELIVERY GATE PASS** (26 rows each, 0 failed) and **caption sync 100.0 %**
+(507/507 and 104/104). Three defects were IN the delivered files and are fixed: a caption printed across the
+closing CTA pill for 7 frames (both files), the cutdown's picture selection one frame late in 4 of 9 ranges,
+and "You're" deleted from the captions at a seam by three separate causes. Not delivered to the ad folder
+until audit 2 clears.
+⚠⚠ **FOR EVERY OTHER VIDEO SESSION — SHARED FILES CHANGED TODAY (`0d365db`, `e8efbc3`, `beb5656`), RE-COPY
+THEM INTO YOUR BUILD:** (1) **`reference/captions.py`** — its trailing concat entry re-showed the last caption
+state, so **the APPROVED 9:16 verticals of Ad 1 and Ad 2 both print a caption across their closing CTA pill
+for 7 frames** (Dan's call whether to re-mux: a caption rebuild plus a mux, no re-render); and its mute slack
+now stops at a cutdown seam. (2) **`_shared/deliver/gate.py` is GATE_VERSION 1.1.0**, so every earlier stamp
+is invalid — the Ad 5 vertical is the only one — because an insert may now declare its own label `chip`/`pos`
+(one chip per KIND read **−0.031** on a card whose label was present and correct). Corpus PASS before both
+commits. (3) Corrected cutdown tooling + the four defects written up: **`reference/a11_sq_ad1/`**, SKILL.md
+**[S1] 22–24**.
+⚠ This build's `caption_sync_check.py` was **stale** (missing both 09-11 Ad 5 fixes) — **`ad3-vert/` and
+`ad4-vert/` were named as carrying the same stale copy and should re-copy the skill's.**
 
 **Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — REVIEW COPIES DELIVERED
 2026-09-11, Dan reviews + ONE CALL.** Folder `Muhammad Ad Videos/stop wasting money on supplements - ad 4/`: his V4 HD filed
@@ -596,22 +610,29 @@ stranger from the recording (lesson 40). Audio fine on both. Md copies in `revis
 **Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — IN PROGRESS (session started
 2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive `1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3` (265.2 s, 29.97);
 raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/` (a7 pipeline). Ad 4's vertical is a DIFFERENT
-session in `ad4-vert/` — do not touch either build dir. **Status 09-12 00:10: RENDER 6 BUILDING; three audits done, the
-third still says "does not ship" on ONE class of defect that is now fixed.** Renders 3-5 are gated and watched (master
-20/20 incl. the watch pass; cutdown 17/20). Audit 3 confirmed every round-3 fix held — the take, BOTH stranger fixes,
-the zoom islands, all three phone scrolls, the ramps, 1732, 6062, his audio bit for bit — and then found six naked
-picture snaps, **all one cause: the cut sat on the AUDIO splice while HIS picture steps 2-4 frames away.** That is the
-fourth time this build made that mistake and it is the ad's lesson. Fixed against pic.json (r 0.97-0.98 either side):
-3000→2998, 3966→3964, 4285→4289 (under his flash), 5746→5748, 6779→6781 (his leak's SECOND pulse). Two more of the six
-were MY round-3 doing: following his AUDIO through the 32-47 s window invented cuts at 1079/1120/1272. His picture is a
-rock-solid 818 from 957 to 1080 and 1455 from 1355 to 1423 — he HOLDS one take across the window and cuts once,
-pose-matched, at 1355 — so it is now ONE segment 957-1355 with his single cut, which deletes all three. ⚠ **Two of
-audit 2's findings were my own fixes making things worse** (a score filter froze all three phones; a forced level flip
-at 1732 contradicted his flat 1.22) — both undone. New tools worth promoting: `ztake.py` (which take his AUDIO is on —
-envelope vs the raw LAV; ⚠ this roll's two mics are polarity-inverted so `-ac 1` cancels the voice, and waveform
-correlation dies in his mix), `znostranger.py`, `zhisstep.py`, `zpicjoin.py`. Next: gates + watch pass + audit 4 on
-render 6, rebuild the cutdown (`cut5.sh`), then deliver. Cutdown's only blockers are Dan's: true peak −0.90 dBTP
-(✅ he accepted exactly that on Ad 4 09-11) and insert coverage 44% vs 55% (his cut has Dan to camera for both CTAs).
+session in `ad4-vert/` — do not touch either build dir. **Status 09-12 11:05: RENDER 8 BUILDING; FOUR audits done, all
+four said "does not ship".** Renders 3/5/7 each passed every gate (master 20/20 incl. the watch pass; cutdown 17/20)
+and each audit still found real defects — **in three of the four rounds the findings included MY OWN previous fix
+making things worse.** The ad's one lesson, which cost four rounds: **a picture cut goes on HIS PICTURE's frame, never
+on the audio splice** — an editor trims a pause in the audio and puts the picture cut 2-15 frames away on a
+pose-matched frame, and what reads small in his 16:9 is a jump at our 1.9-2.3x crop. `pic.json`'s per-frame offset
+says where he cut; where it does not step, he did not cut.
+⚠ **The 32-47 s window was got wrong TWICE, in opposite directions.** Audit 4 settled it with the right instrument
+(high-pass NCC on the PERSON REGION vs the roll, take A raw 1870-2260 vs take B 2470-2850): his frames 1300-1371 are
+take B at +1455 on every frame, his window inset is take B too (+1430 -> +1440 -> +1455), and **his own diff at 1355
+is 1.5 — he has no cut there.** pic.json's 805-843 through the window is the matcher locking onto the WRONG TAKE at
+low resolution, and its clean 818->1455 step at 1355 is it finally finding take B once Dan is full-frame. Round 3 had
+the take right but his steps wrong; round 4 read that noise as "he holds take A" and put 9.1 s back on the wrong take.
+Render 8 = his take at HIS steps: 957-1081 at 818, then 1430 / 1440 / 1455 with the A->B change under the window
+opening at 1081 and his later step inside his own 1298-1309 leak. Also in: 2942->2947 (my own tooling had flagged it
+and it was never applied), the five bullet onsets 8-11 frames late, and 7221 — a naked NEAR->NEAR jump that
+FORCE_VISIBLE could NOT fix because a join inside a punch has NEAR both sides (same reason 1732's flip never
+happened); the last punch now ENDS on his 7221 cut, which also follows his own scale (1.22 at 7218 -> 1.18 at 7224).
+New tools worth promoting to `reference/a9/`: `ztake.py`, `zhisstep.py`, `zjoinratio.py`, `znostranger.py`,
+`zpicjoin.py`, `zltdiff.py`. Next: gates + watch pass + audit 5 on render 8, rebuild the cutdown (`cut5.sh`), deliver.
+Cutdown's only blockers are Dan's: true peak −0.90 dBTP (✅ he accepted exactly that on Ad 4 09-11) and insert
+coverage 44% vs 55% (his cut has Dan to camera for both CTAs). ⚠ Do NOT deliver on a gate pass alone — every render
+here passed 20/20 and still did not ship.
 ⚠ **Muhammad's Ad 3 v6 HD is NOT the approved round-5 draft:**
 at 2:14.1–2:23.1 the "Because even though I was a personal trainer…" bullet lost "back in my 20s, as a 38 year old dad
 running a successful ad agency." (proof `ad3-vert/hdcheck/w4_hd_vs_draft.png`, sent to Dan 14:38). Do NOT file or upload
