@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260911-codex-video-editing-trial.md](handoff-20260911-codex-video-editing-trial.md) | **now, Codex owns the trial** — through Oct 11; first reproduce Muhammad's ab-wheel organic + Ad 1 from raw footage/audio, then test transfer and cost. Interview complete; original files located; no trial render yet |
 | [handoff-20260911-vqc-phase2-portable-framing.md](handoff-20260911-vqc-phase2-portable-framing.md) | **now** — Phase 2 of the video-quality engine; Phase 1 is done (`eff3896`, `5e10200`). Portable framing into the shared gate + the banned-screen pairing fix first (a live Google Ads exposure). Fable 5.1 high, ~2 sessions |
 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | READ FIRST for any square build — the 1:1 translation rules, gates, naming, after-build steps and the firing order for the six per-ad docs below |
 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | **2nd** — now; Ad 1 (Muhammad) square from `ad1-8-14/vert9x16/`, land on his 6,976 frames. Fable 5.1 high |
@@ -57,7 +58,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | 2026-09-11 | [handoff-20260911-square-ad3-muhammad.md](handoff-20260911-square-ad3-muhammad.md) | Ad 3 (Muhammad) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad4-muhammad.md](handoff-20260911-square-ad4-muhammad.md) | Ad 4 (Muhammad V4) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad5-muhammad.md](handoff-20260911-square-ad5-muhammad.md) | Ad 5 (Muhammad V3) — square 1:1 version |
-| 2026-09-11 | [handoff-20260911-ad5-vertical-revisions.md](handoff-20260911-ad5-vertical-revisions.md) | Ad 5 vertical (Muhammad V3) — Dan's round-1 revisions: every real after picture full-bleed portrait, the new "Real picture of me — not AI-generated" label; audio untouched. Opus, high. |
 | 2026-09-10 | [handoff-20260910-google-ads-api-client.md](handoff-20260910-google-ads-api-client.md) | Google Ads by API — EXECUTED 2026-09-10: token minted, no developer token needed, client `scripts/ads/api/client.js`, manual queue immediate; see `Docs/GOOGLE_ADS_API.md` |
 | 2026-09-10 | [handoff-20260910-web-pay-first-cart.md](handoff-20260910-web-pay-first-cart.md) | Handoff: Web pay-first checkout — a research-led cart that comes BEFORE the account |
 | 2026-09-09 | [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | Handoff — upload the finalized website conversion video to YouTube (unlisted) and install it on the analysis page + /start |

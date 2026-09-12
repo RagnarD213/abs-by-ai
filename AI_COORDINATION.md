@@ -433,6 +433,8 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
+- **`Handoffs/handoff-20260911-codex-video-editing-trial.md`** — Dan's one-month trial through Oct 11: raw footage to Muhammad's standard; first organic ab-wheel + Ad 1, then transfer tests. Codex owns this trial; no dashboard row. Next: independent raw-audio/picture sample of the ab-wheel video.
+
 Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
@@ -442,8 +444,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   `…-ad1-muhammad.md` (now; Ad 2's is EXECUTED) → `…-ad5-muhammad.md` (after the Ad 5 revisions) →
   `…-ad4-muhammad.md` (after its vertical is approved) → `…-ad3-muhammad.md` (after Muhammad's corrected HD + vertical) →
   `…-ad1-zeeshan.md` (after Dan approves that vertical). Fable 5.1 high each. **Not on the dashboard.**
-- **`Handoffs/handoff-20260911-ad5-vertical-revisions.md`** — Dan's round-1 revisions on the Ad 5 vertical (full-bleed
-  portrait after pictures + the "Real picture of me — not AI-generated" label). Fire next; Opus, high. **Not on the dashboard.**
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
 - **`Handoffs/handoff-20260812-purchase-before-account.md`** — after approval AND after the RevenueCat audit.
 - **`Handoffs/handoff-20260818-android-public-build-swap.md`** — small; needs Dan's Android phone on adb.
@@ -500,6 +500,8 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 ---
 
 # ACTIVE TASK
+
+**Codex one-month video-editing trial — PLAN SAVED LOCALLY (2026-09-11).** Interview/source inspection complete; plan in `Handoffs/handoff-20260911-codex-video-editing-trial.md`, also saved on LOCAL branch `codex/video-trial-plan-private`. Automatic review blocked the push; GitHub confirmed the repo is public, so do not stage/push the plan containing Dan's business details without explicit publication consent. Codex owns the separate trial; next: freeze ab-wheel references and rebuild 60–90 seconds from raw picture/audio, respecting the two-build cap; no trial render yet.
 
 **Video-quality engine PHASE 1 — SHIPPED 2026-09-11 (`eff3896` + follow-up), nothing blocked. Two things for Dan.**
 `_shared/deliver/gate.py` is now THE delivery gate for all seven video skills — **30 rows x 7 formats, no holes**
@@ -601,14 +603,32 @@ at 2:14.1–2:23.1 the "Because even though I was a personal trainer…" bullet 
 running a successful ad agency." (proof `ad3-vert/hdcheck/w4_hd_vs_draft.png`, sent to Dan 14:38). Do NOT file or upload
 it as final; Dan asks him to re-export. The vertical rebuilds that graphic with the full text, so it is unaffected.
 
-**Ad 5 "Every Diet You've Tried Failed" — 9:16 VERTICAL + 55 s CUTDOWN from MUHAMMAD's V3 HD — DELIVERED 2026-09-10, Dan
-APPROVED overall 09-11 ("excellent job… audio sounds good, cropping is good, all the graphics look good") with three
-revisions, HANDED OFF.** Files: `Muhammad Ad Videos/every diet you've tried failed for the same reason - ad 5/… | claude | 9x16 |
-ad 5.mp4` + `… | 9x16 59s | ad 5.mp4` (+ review copies, A/B audio, stamps, `notes-vertical.md`, `recipe-vertical/`). Audio is
-Muhammad's untouched (md5 = his). Fire `Handoffs/handoff-20260911-ad5-vertical-revisions.md` (Opus, high): every real after
-picture full-bleed portrait (replace the two landscape shots and the photo-panels pair), the new **"Real picture of me — not
-AI-generated"** label on every real after picture. **The label is now a standing rule** in `AGENTS.md` and every video skill
-(Dan, 09-11). Build dir `/Volumes/Extreme/_edit_work/ad5-vert/`. Delete this entry when the revised files are re-delivered.
+**Ad 5 "Every Diet You've Tried Failed" — 9:16 VERTICAL + 0:59 CUTDOWN — ROUND 1 REVISIONS RE-DELIVERED 2026-09-11, Dan
+reviews.** All three of his asks are in: every real after picture is FULL-BLEED PORTRAIT and carries the new **"Real picture
+of me — not AI-generated"** chip, his two LANDSCAPE stills are replaced by pool-shoot portraits (`photo-221`, `photo-247`)
+and the two-photo panel is now two full-screen STUDIO shots (`studio-gray-79` then `studio-white-23`); AI pictures keep
+AI-GENERATED. **Muhammad's audio untouched** (master stream md5 = his; cutdown = his mix cut only). Cutdown 54.92 s.
+`qc.py` **20/20 on both**, corpus 19/19, **three independent audits** (`audit4/5/6`) — the first two returned DOES NOT SHIP
+and both blockers are fixed: `studio-white-23` was 218 px off-centre in its own source (now `ox=0.02`), and my first caption
+fix (a full-width gradient) fogged the white backdrop, replaced by a caption-sized black plate. Also fixed, pre-existing:
+the cutdown's 0:16.7 seam ended two frames inside one of his light leaks (A8.13 ported to `zcutdown.py`).
+⚠ **Two shared-gate fixes are in `reference/caption_sync_check.py` and MUST NOT be lost: per-process temp files** (it wrote
+`/tmp/_cs.wav`, and with two builds running one graded the OTHER's audio — 8 phantom failures) **and least-washed-frame
+sampling** (a word inside an editor's light leak is unreadable on the frame the gate happened to pick). The first fix was
+already clobbered once by a concurrent rewrite of that file and has been merged back. **The `ad3-vert/` and `ad4-vert/`
+build copies still write the fixed `/tmp` paths and can still collide with each other — those sessions should re-copy the
+skill's version.** ⚠ The new `_shared/deliver/gate.py` is NOT yet wired to this build: see the note below. Build dir
+`/Volumes/Extreme/_edit_work/ad5-vert/`. Delete this entry once Dan approves the revised cuts.
+
+**`_shared/deliver/gate.py` vs the Ad 5 vertical — 23+ rows pass, and three findings for whoever owns Phase 2.** Run with a
+full `plan.json` generated from the build (`plan_build.py`, committed beside the recipe). (1) **`compliance:labels` cannot
+be measured on a Muhammad-style build:** it takes ONE chip position per kind, and his card design puts the AI chip at each
+card's own bottom-right corner — ours sit at four different positions, so three of them read as "missing". The real-picture
+chip (one fixed position) passes on all seven photos and nothing carries the WRONG label. (2) **`cut:min_segment` flags two
+framing segments of 3 and 5 frames** (68.60 s, 133.17 s) — pre-existing in the crop Dan approved, surfaced by the new gate;
+not re-run, because `zcrop` must not be re-run while the EDL is unchanged. (3) **`captions:graphic_clearance` needs per-graphic
+MOVs** that a Python frame compositor never produces. ⚠ Feeding `crop.json`'s `holds` straight into `punch` is wrong — 20 of
+68 are contiguous same-level splits and read as jump cuts that do not exist; merge them first (`plan_build.py` does).
 
 **sixpackabs.com video-first redesign — LIVE ON PRODUCTION 2026-09-11, Dan confirms.** https://sixpackabs.com now
 runs `sixpackabs-child`: video-first homepage (latest long-form plays in place), a page per public video at

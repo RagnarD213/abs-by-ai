@@ -1353,6 +1353,7 @@ returning DOES NOT SHIP the first time, on two different things — and the seco
    (`g5.caption_plate`, with a `min_w` so a one-word line does not get a cramped box), in the same chip language as the
    AI and real-picture labels: it reads as design on white, it disappears on a frame that prints no caption, and it
    costs none of the picture. Do not weaken the gradient instead — at 0.25 the olive on white is back under threshold.
+   ⚠ And the gate can fail on this too, for its own reasons: see 10.
 5. **Order two stills so the big luma step lands on the EXIT, not the entry.** Cutting from his dim room into a
    near-white frame was the largest non-flash luma jump in the film and read for a beat like one of his light leaks.
    Entering on the grey seamless and exiting on the white one moves that step to a cut INTO darkness, which cannot be
@@ -1372,7 +1373,23 @@ returning DOES NOT SHIP the first time, on two different things — and the seco
    seam** — everything downstream is shifted and the "changed spans" report is noise. Verify **cut frame → master
    frame** through `cut_plan.json` instead: every frame must match the master within encoder noise, except the one
    range where `zcut_build.py` deliberately flips the hold FAR↔NEAR (its log names it: "seam flip APPLIED").
-9. **Re-render the whole master rather than splicing the changed spans.** Three full renders on a loaded machine cost
+10. ⚠ **A GATE CAN SAMPLE A WORD ON A FRAME WHERE THE WORD IS PHYSICALLY UNREADABLE — AND THAT IS THE INSTRUMENT
+    FAILING, NOT THE BUILD.** `caption_sync_check.py` grades each word on ONE frame, 40 % into it. Inside the editor's
+    light-leak strobe the caption band is washed toward white for a few frames at a time: measured on Ad 5's cutdown,
+    "when" (frames 212–215, inside his 209–220 leak) carries 96 qualifying pixels at 212 and **zero** at 214–215, and
+    the heuristic landed on a washed one — 96.1 % on a correct cutdown, a FAIL. The caption image is IDENTICAL across a
+    word's own span, so the gate now tries up to five frames inside that span, **least-washed first**, and grades the
+    first that reads. **That is a strictly better measurement of the same word, not a looser bound** — a word lit
+    wrongly is lit wrongly on every frame of its span — and the 97 % threshold was not touched. A word readable on no
+    frame of its span is still a miss and still reported. Run the corpus after any change here; it passed 19/19.
+11. ⚠⚠ **TWO SESSIONS EDITING THE SAME SHARED GATE WILL CLOBBER EACH OTHER, SILENTLY.** A fix committed to
+    `reference/caption_sync_check.py` was overwritten an hour later by a concurrent session's rewrite of the same file
+    (a good rewrite — full-resolution band, exact highlight colour, dense-blob centroid — which simply did not have the
+    earlier change in it). It was only noticed because `qc.py` runs the SKILL's copy while the build chain runs the
+    BUILD's copy, and the two disagreed on the same file. **When you touch a shared gate while other builds are running:
+    diff the skill's copy against the build's before you trust either, re-apply rather than rewrite, and say so in the
+    coordination file.** A build copy that has drifted from the skill copy is its own defect class.
+12. **Re-render the whole master rather than splicing the changed spans.** Three full renders on a loaded machine cost
    ~15 minutes each and the gray-trace diff then PROVES the change set — on all three rounds it came back as exactly
    the intended spans. A spliced render cannot make that claim, and A4.0aa is what splicing costs when it goes wrong.
 
@@ -1437,6 +1454,160 @@ fixing the first exposed a fifth. Every lesson below is measured on this build.
    were reported as misses and **all twelve are correct and legible on the delivered frame.** Report
    it, record it in the gate file, do not tune it -- and never assume the instrument that graded your
    last render is the one grading this one.
+
+## [S1] THE SQUARE (1:1) TRANSLATION — Ad 1, 2026-09-11
+
+Dan's Google Ads rep asked for a **1:1 version of every finalized ad**: a Demand Gen video ad
+serves across YouTube in-feed, Shorts, Discover and Gmail, and Google fills each placement from
+the aspect ratios the ad carries. The shared rules are
+`Handoffs/handoff-20260911-square-ads-00-shared-rules.md`; this section is what building the
+first one actually cost. Build dir `/Volumes/Extreme/_edit_work/ad1-sq/` (`sqlib.py` +
+`sqassets.py` + `render.py` + `sqmux.py` + `sqcutdown.py`, the attempt-3 pipeline re-laid-out).
+
+1. **A square is a re-layout of the APPROVED VERTICAL, not a third recovery of the editor's cut.**
+   Copy the vertical's build dir, keep its beat sheet, EDL, grade, flashes, pushes, lower thirds
+   and SFX unchanged, and change only the geometry — plus whatever standing rules have landed
+   since. The whole build is then a day, not a week. Do NOT copy the whole dir: Ad 1's vertical
+   is 65 GB of caches. The 2.8 GB that matter are the scripts, the JSON, `base.mp4`, the assets,
+   `_flash/final/` and `ref_audit/his.wav`.
+
+2. **The audio is the approved vertical's AAC stream, COPIED, with the md5 asserted at the mux**
+   (`sqmux.py`), so the square sounds exactly like the cut Dan approved. The cutdown cuts that
+   same mix at the seams with 4 ms raised-cosine joins and encodes it once at 320k with no filter.
+   ⚠ The vertical's own `cutdown.py` rebuilt the music bed and ran two-pass `loudnorm` — the class
+   of thing Dan rejected on 2026-09-10. Delete that path when you copy the dir; do not run it.
+
+3. ⚠⚠ **CHOOSE THE WINDOW'S CROP BY MAGNIFICATION, NOT BY "FIT THE ROOM IN".** The first cut of
+   the stacked (text-below) layout sized Dan's window from the text and then filled it with the
+   whole 1920-wide frame. Two things went wrong at once and neither is visible in the code: Dan
+   came out **a third of the size he is in Muhammad's own frame**, and because the crop was the
+   full source width the face track's x **clamps to 0**, so he sat at one edge of the window with
+   an empty doorway beside him. The fix is two numbers: the crop is sized so the on-screen
+   magnification matches HIS (a 16:9 frame shown 1080 wide is the source × 0.5625), and the crop
+   width is **capped** (1400 px here) so the track keeps ~260 px of travel. Verify by rendering
+   the window beats and looking — the statistics upstream were all green.
+
+4. **The talking head at 1:1 is the source at 1.00× — the square's one free advantage.** A
+   1080×1080 crop of a 1920×1080 conform needs no upscale at all, against the vertical's 1.78×
+   (608×1080 → 1080×1920), and it amplifies the subject's lean 1.78× LESS. Measured on the
+   delivered Ad 1 square: median +(-1) px, sd 33, 9 of 192 talk samples beyond 70 px, **zero**
+   sustained runs. The same track in the vertical is magnified nearly twice as far.
+
+5. **Decide full-bleed vs full-height by LOOKING at the 1:1 crop of every asset, never by the
+   aspect ratio.** What a 1:1 crop takes off a standing photo of a person is their head or their
+   shorts, and which one is not predictable from the number: of Ad 1's assets, three landscape and
+   portrait stills survived a 1:1 cover crop whole while four portraits lost his head entirely.
+   Contact-sheet them all first (`_sq/media_1to1.jpg`) and record the decision per media key with
+   its reason (`sqassets.py`). A 2:3 portrait that cannot be full-bleed goes **full HEIGHT on his
+   field** — that is the square's "vertical and full screen".
+
+6. **A 1:1 frame HAS the width to keep the editor's own left/right split for portrait media.**
+   Muhammad's product beat is phone LEFT / Dan RIGHT and the square keeps it exactly. ⚠ Check his
+   render, not the handoff: the Ad 1 handoff said "Dan left, phone right" and his frames say the
+   opposite.
+
+7. **But the TEXT screens cannot keep it.** Beside Dan, a 1:1 text column is ~620 px, which puts
+   his 48 px type at 27 px. Those go stacked (Dan above, text below) with a type ladder that steps
+   down only as far as it must, and an assert that FAILS the build if the block ever ends below
+   the safe line.
+
+8. ⚠ **A LABEL BURNED IN FOR A 9:16 FRAME BECOMES TOO SMALL AT FULL HEIGHT IN A SQUARE.** The
+   hook's goal clip carries its own AI-GENERATED chip, measured at x 186..896 of 1080×1920; shown
+   at full height in a 1:1 frame it lands 411 px wide — 38 % of the frame against the ~68 % the
+   skill asks for. Adding a second chip beside it is two labels. **Draw ours OVER it, and assert
+   the coverage in code** (`chip_png(..., cover_box=...)` raises if our box does not contain the
+   burned one).
+
+9. **The square is where an old build meets the standing rules it predates.** Ad 1's vertical was
+   approved before the "Real picture of me — not AI-generated" rule (2026-09-11) and before the
+   photoshop gag's missing AI label (A6.19b) was known — and its beat sheet had no label mechanism
+   at all outside the olive card. Re-read `git log` for standing rules at the start of a square
+   build, walk every beat against them, and put each addition in the notes as a difference from
+   the file Dan approved.
+
+10. ⚠ **THE CUTDOWN PLAN MUST BE IN FRAMES, NOT SECONDS.** The last range's `src1` is `beats.DUR`
+    (232.768 s) while 6,976 frames is 232.7659 s, so the selection asked for one frame more than
+    the master holds and came out a frame short — with every duration check still green. Each
+    range takes exactly the frames that exist between its two frame indices.
+
+11. ⚠ **`wave` CANNOT READ ffmpeg's `pcm_s24le`** (WAVE_FORMAT_EXTENSIBLE, tag 65534) — it raises
+    outright, and a float WAV it would read SILENTLY WRONG (A8.14). Decode the editor's mix with
+    the same tool that wrote it.
+
+12. **A green highlight over green-toned footage is unreadable, and the fix is the picture**
+    (A6.17 again, on a new cut). The square's caption band lands lower in the frame than the
+    vertical's (81 % down vs 73 %), which on this ad put it straight across the **neon
+    yellow-green stripe of his shorts** in the hook: 16,500–18,400 pixels within 90 levels of the
+    olive highlight, three consecutive words lit invisibly, `caption_sync_check.py` failing the
+    build on the run at 98.4 % overall. A soft dark bed behind the band (0 → 0.55, ramped, drawn
+    into every caption state under the text) fixes the eye and the gate together. **Put the scrim
+    parameters in the caption cache key** or the re-run silently serves the previous pictures
+    (A6.24).
+
+13. ⚠ **NEVER OVERWRITE THE FILE AN AUDIT IS READING.** The independent audit was launched on the
+    master, then the master was re-muxed at the same path for the caption fix — killing the mux
+    mid-write left the auditor reading a truncated file. Render a revision to a NEW name, or
+    launch the audit only after the file is final. (The skill already budgets two audits; this is
+    a reason to keep them strictly sequential.)
+
+14. **Re-align the captions when you re-lay-out an old build.** Ad 1's approved vertical timed its
+    captions from Whisper's own word timestamps. Measured against a CTC forced alignment on the
+    same mix: Whisper's starts run **+129 ms early on average (sd 91, p90 +237), and 214 of 761
+    words are more than 150 ms off** — the fault Dan rejected on 2026-09-08. The square's captions
+    come from `align_ctc.py` and score 98.4 % on the delivered-file gate.
+
+16. ⚠⚠ **A RANGE MAP MUST CLAMP A SPAN, NEVER DROP IT.** The cutdown's caption mutes are the
+    master's suppressed spans mapped through `cut_plan.json`. Mapping the two ends
+    independently and discarding the span when EITHER end falls outside a range threw away
+    **both CTA pills' mutes** -- each pill starts inside a kept range and ends just past it --
+    and the delivered cutdown printed "below to see yourself" straight across "With Abs". That
+    is the A4.7 defect, reintroduced by a helper. A span maps to its INTERSECTIONS with the
+    ranges, clamped. The same bug dropped both pills from the generated cut beat sheet, so
+    nothing downstream could notice either. **No gate in the set caught it** -- it was found by
+    mapping the master's overlays by hand and looking at the frames.
+
+17. ⚠ **A HELD CAPTION'S STOPS BELONG TO THE FILE BEING RENDERED.** `captions.render()`
+    recomputed its hard stops from the beat sheet, which in a cutdown is the MASTER's
+    timeline -- times that do not exist in the cut. So even with the mutes fixed, the held
+    last word of the group before the pill still rode across it. The caller passes its own
+    stops (`stops=[a for a, b in mute] + seams`).
+
+18. ⚠ **A GENERATED BEAT SHEET IS PYTHON, NOT JSON.** `json.dumps` writes `false` and `null`,
+    which are not Python names, so `cut/beats.py` raised `NameError: name 'false' is not
+    defined` on import -- and `qc.py` reports an unimportable beat sheet as NOT MEASURED,
+    which is a FAILURE, not a skip. Emit `repr()`.
+
+19. **Measure the "longest static stretch" bound off HIS cut before trusting it.** Ad 1's
+    square inherited `max_static: 16.0` from the old vertical's config, where it had been
+    copied rather than measured. Measured with the same instrument: **his 16:9 final holds
+    16.5 s at 27.39-43.88**, ours 16.7 s on the same passage (the approved 9:16 reads 15.3 s
+    because its detector places the preceding cut 1.4 s later). The bound is his number, so
+    the check fails by 0.2 s and that is reported -- **never raised to go green**.
+
+20. ⚠⚠ **IN A SELECTION CUTDOWN, A6.15 IS A PICTURE PROBLEM, NOT A BEAT-SHEET PROBLEM.** The
+    cutdown selects intervals out of the FINISHED master, so his lower thirds and CTA pills are
+    already in the pixels. A range that opens part-way through one inherits words belonging to a
+    sentence the cutdown no longer contains -- Ad 1's range 5 opened at 91.02 inside his
+    86.90-91.85 lower third and printed "If you saw yourself with abs, you'd be MOTIVATED" over
+    "And right now, you can generate...". The generated cut beat sheet was CORRECT (it drops an
+    overlay whose start was cut away), which is exactly why nothing caught it. **Assert it
+    structurally** (`assert_no_orphan_overlay`): no range may start inside an overlay whose own
+    start lies in dropped material. The fix here was to open the range at 91.85 instead -- the
+    lower third's end, which is also the bullets screen's start, and the bullets print those very
+    words. It cost "And right now," (0.83 s) and the seam capitalisation makes the line read.
+
+21. ⚠ **A GATE MUST CLASSIFY FRAMES BY THE RENDERER'S CUMULATIVE FRAME PLAN, NOT BY SECONDS.**
+    Converting each beat's t0/t1 to frames independently disagrees with a cumulative plan by a
+    frame at a boundary, so the hair gate graded a PHOTO as a talking-head frame: the towel
+    picture's dark trees above his head read 0.89 on the detector-free test against a 0.20 bound
+    -- a FAIL on a frame the gate should never have looked at. Build the frame set the way the
+    renderer does, and keep a 2-frame guard either side of every edge.
+
+15. **Gates that must be rebuilt for 1:1, not reused:** the hair gate's bound is the standard's
+    **fraction** of frame height (36/1920 = 1.875 % → 20 px of 1080), `centering.py` samples
+    270×270, `caption_sync_check.py` must read the build's own `CAP_Y` (hard-coded at 1385 for
+    9:16 it reads 505 px below a square build's captions and finds no highlight at all — a gate
+    measuring empty field would FAIL a correct build), and `watch.py`'s strips are square.
 
 ## Standing content rules that override the reference
 
