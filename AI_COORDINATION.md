@@ -485,14 +485,6 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   all** — a fix lands in 1 of 6 pipelines. Acceptance test throughout: `_shared/qc_corpus/run.py` green.
   Fable 5.1 high, ~3–4 sessions. ✅ VQC-A done (`a696ac4`). Evidence: `…-video-quality-to-muhammad-standard.md`;
   baseline `Docs/VQC_baseline_20260909.md`. **Not on the dashboard** (his 09-08 rule).
-- **`Handoffs/handoff-20260911-vqc-phase2-portable-framing.md`** — **PHASE 2, fire next.** Phase 1 of the
-  engine doc is DONE and pushed (`eff3896`, `5e10200`). Makes the framing standard portable: today's hair check
-  depends on the luma profile of the door behind Dan in the 8/28 kitchen and runs on one set in one skill, while
-  `/shortad-from-longform` re-crops him into vertical for every ad with **no framing rule at all**. All five
-  `framing:` rows are arithmetic on one per-frame tracker; the corpus already encodes the acceptance test (fail
-  rev 2 / rev 3 / `v2-short3-offcentre`, pass rev 4 / 5 / 6). ⚠ **Item 0 first, half a session: the banned-screen
-  pairing fix — our compliance scan is BLIND and so are `/ad-edit`'s and `/website-video`'s**; the discriminator is
-  already measured (`_shared/deliver/formats.py`, `_BANNED`). Fable 5.1 high, ~2 sessions. **Not on the dashboard.**
 - **`Handoffs/handoff-20260909-vqc-C-phase4-cut-technique.md`** — **fire after the engine doc's Phase 1,
   BEFORE its Phase 4.** The measured #1 gap to Muhammad: he cuts picture **1–15 frames off the audio splice on a
   pose-matched frame** (`piccuts.py`, built for Ad 2, never promoted) — plus 0 px landing, dead air paired with a
@@ -515,7 +507,27 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Codex one-month video-editing trial — 02 RUNNING (2026-09-12, Codex owns trial only).** Building the verified 87.854 s C1631 sample under `Media/codex-video-trial/02-organic-sample/`; phase 01 records reused. Next: picture/audio proof, complete render, shared gates and independent audit, then randomized comparison + audio A/B + SRT for Dan. Private local records only; no publishing or dashboard row.
+**Video-quality engine PHASE 2 (portable framing + banned-screen stage 3) — SHIPPED 2026-09-12, corpus 19/19 green,
+gate 1.2.0. ONE LIVE ADS FINDING FOR DAN.** `_shared/deliver/checks/framing.py` grades every delivered file on the locked
+hair-anchored standard with **no plan and no set-specific background** (mediapipe FaceMesh + Apple Vision person
+segmentation; the door-panel `hairgate.py` stays as the website recipe's plan-side tool). Five `framing:` rows, bounds
+per format in `formats.py` with file + date, native-scale proof sheet `<file>.framing_proof.jpg` on every full run.
+Proven: rev 2 fails headroom (101–146), rev 3 fails hair_top (0 px on 661 samples), the off-centre Short fails
+centering (−145 px), the fixed-crop Ad 1 cutdown fails push_coverage (spread ×1.005); rev 4/5/6 and Muhammad Ad 2 pass.
+`compliance:banned_screen` is registered: the pairing test the handoff proposed was measured and does NOT separate
+(a white table reads L/R 0.59); what does is **the band between the chrome strips is a photograph** (0.00–0.30 white
+vs 0.94–0.97 on every look-alike). Skill wiring: `/shortad-from-longform` Step 5 rule 14, `/revisions`,
+`/editor-brief`, `/website-video`. Every earlier gate stamp (1.1.0) is invalid — re-gate before delivery.
+⚠ **DAN: Muhammad's Ad 2 16:9 master shows the app's BEFORE/AFTER screen at 3:11 and the email-capture screen at
+3:12 and 3:23** — the exact screens the compliance scan exists to catch, in a LIVE Google Ads creative (its vertical
+`7XgHxn59Tsg` and the 09-11 square are re-layouts of the same cut). Zeeshan's Ad 1 has the email screen at 3:09
+(known). Nothing was changed on the ads; Dan decides whether to pull them or have the beats replaced.
+⚠ rev 6 (his approved final) passes the per-hold headroom ceiling with ZERO margin (its opening hold reads exactly
+70 px) — recorded in `formats.py`, not tuned. Handoff record: "✅ PHASE 2 EXECUTED" in
+`Handoffs/handoff-20260911-video-quality-engine.md`. **Next: Phase 3 (the watch pass) in a fresh session.** No
+dashboard row. Delete this entry once Dan has seen the ads finding.
+
+**Codex one-month video-editing trial — 02 NEEDS REVIEW (2026-09-12, Codex owns trial only).** Exact 87.854 s raw C1631 sample, randomized human comparison, audio A/B and SRT are prepared under `Media/codex-video-trial/02-organic-sample/`. Full audits retained; gate 1.2.0 FAIL. Next: Dan’s consolidated verdict/corrections; no approval inferred. Private records only; no publishing or dashboard row.
 
 **Video-quality engine PHASE 1 — SHIPPED 2026-09-11 (`eff3896` + follow-up), nothing blocked. Two things for Dan.**
 `_shared/deliver/gate.py` is now THE delivery gate for all seven video skills — **30 rows x 7 formats, no holes**
@@ -608,36 +620,37 @@ pictures, prospect line → an AI stranger), a DIFFERENT generated person in eve
 stranger from the recording (lesson 40). Audio fine on both. Md copies in `revision docs/*9-11-26.md`; work dir
 `/Volumes/Extreme/_edit_work/revisions-0911m/`. Delete once Dan has forwarded and the next cuts arrive.
 
-**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — IN PROGRESS (session started
-2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive `1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3` (265.2 s, 29.97);
-raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/` (a7 pipeline). Ad 4's vertical is a DIFFERENT
-session in `ad4-vert/` — do not touch either build dir. **Status 09-12 11:05: RENDER 8 BUILDING; FOUR audits done, all
-four said "does not ship".** Renders 3/5/7 each passed every gate (master 20/20 incl. the watch pass; cutdown 17/20)
-and each audit still found real defects — **in three of the four rounds the findings included MY OWN previous fix
-making things worse.** The ad's one lesson, which cost four rounds: **a picture cut goes on HIS PICTURE's frame, never
-on the audio splice** — an editor trims a pause in the audio and puts the picture cut 2-15 frames away on a
-pose-matched frame, and what reads small in his 16:9 is a jump at our 1.9-2.3x crop. `pic.json`'s per-frame offset
-says where he cut; where it does not step, he did not cut.
-⚠ **The 32-47 s window was got wrong TWICE, in opposite directions.** Audit 4 settled it with the right instrument
-(high-pass NCC on the PERSON REGION vs the roll, take A raw 1870-2260 vs take B 2470-2850): his frames 1300-1371 are
-take B at +1455 on every frame, his window inset is take B too (+1430 -> +1440 -> +1455), and **his own diff at 1355
-is 1.5 — he has no cut there.** pic.json's 805-843 through the window is the matcher locking onto the WRONG TAKE at
-low resolution, and its clean 818->1455 step at 1355 is it finally finding take B once Dan is full-frame. Round 3 had
-the take right but his steps wrong; round 4 read that noise as "he holds take A" and put 9.1 s back on the wrong take.
-Render 8 = his take at HIS steps: 957-1081 at 818, then 1430 / 1440 / 1455 with the A->B change under the window
-opening at 1081 and his later step inside his own 1298-1309 leak. Also in: 2942->2947 (my own tooling had flagged it
-and it was never applied), the five bullet onsets 8-11 frames late, and 7221 — a naked NEAR->NEAR jump that
-FORCE_VISIBLE could NOT fix because a join inside a punch has NEAR both sides (same reason 1732's flip never
-happened); the last punch now ENDS on his 7221 cut, which also follows his own scale (1.22 at 7218 -> 1.18 at 7224).
-New tools worth promoting to `reference/a9/`: `ztake.py`, `zhisstep.py`, `zjoinratio.py`, `znostranger.py`,
-`zpicjoin.py`, `zltdiff.py`. Next: gates + watch pass + audit 5 on render 8, rebuild the cutdown (`cut5.sh`), deliver.
-Cutdown's only blockers are Dan's: true peak −0.90 dBTP (✅ he accepted exactly that on Ad 4 09-11) and insert
-coverage 44% vs 55% (his cut has Dan to camera for both CTAs). ⚠ Do NOT deliver on a gate pass alone — every render
-here passed 20/20 and still did not ship.
-⚠ **Muhammad's Ad 3 v6 HD is NOT the approved round-5 draft:**
-at 2:14.1–2:23.1 the "Because even though I was a personal trainer…" bullet lost "back in my 20s, as a 38 year old dad
-running a successful ad agency." (proof `ad3-vert/hdcheck/w4_hd_vs_draft.png`, sent to Dan 14:38). Do NOT file or upload
-it as final; Dan asks him to re-export. The vertical rebuilds that graphic with the full text, so it is unaffected.
+**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — IN PROGRESS (session
+started 2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive `1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3`
+(265.2 s, 29.97); raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/`. Ad 4's vertical is a
+DIFFERENT session in `ad4-vert/` — do not touch either build dir. **Status 09-12 12:35: RENDER 9 BUILDING; five
+audits done, four said "does not ship."** Every render passed 20/20 and still had real defects — **in four of five
+rounds the findings included MY OWN previous fix making things worse.** ⚠ Do NOT deliver on a gate pass alone.
+**The ad's one lesson: a picture cut goes on HIS PICTURE's frame, never on the audio splice** (he trims a pause in
+the audio and puts the picture cut 2–15 frames away on a pose-matched frame; small in 16:9, a jump at our 1.9–2.3x
+crop). **Its corollary, which cost render 8: "where a join is least visible" is a DIFFERENT question from "where he
+cut"** — I scored candidate frames by how well the two raw frames matched, got a clean basin at 1139, and that put
+the cut inside the word "minutes", 10 frames ahead of the sound. His step is 1150, in the pause. Confirmed three
+ways (his take track, my own motion track, the word timings); crop.json came back byte-identical, proving the join
+is invisible.
+**Render 9 also carries a finding no audit made.** Audits 4 and 5 said 13 bullets were 8–11 frames late; re-measuring
+ALL 20 text cues showed why — `ov3`'s `(luma>170)` curve fires at the MIDPOINT of his 12-frame blur-in, not its
+onset, so every cue read off it was ~6 frames late by construction. The 13 corrections were right, **and 7 more
+nobody flagged were 5–10 frames late** (now fixed), and `REVEAL` was 0.27 s read off the WINDOW's opening where his
+bullets measure 0.40 s (now fixed). Instrument kept: `zbulonset.py` (full-res onset vs sharp; the reference frame
+must not sit inside another animation). ⚠ I nearly REVERTED all 13 correct fixes by re-measuring with the same
+biased curve — the lesson is to prove the instrument measures the instant you mean.
+**Cutdown re-selected (`cut6.sh`), not waiting on Dan.** It said the CTA twice (19 s of 57 on a talking head), which
+is why coverage was 44% vs the 55% bound and his own 62%; the first CTA is dropped and the AI-trainer beat takes its
+place — **57.92 s, 63.0%**, one CTA at the end. ⚠ Its true peak −0.90 dBTP is **NOT** Ad 4's situation: Ad 3's master
+is −1.0 (his stream copied bit for bit) and the −0.90 is OUR AAC re-encode overshooting his wav, so it is ours to
+fix, not Dan's to accept. Next: gates + watch pass + audit 6 on render 9, then `cut6.sh`, then deliver.
+New tools for `reference/a9/`: `ztake.py`, `zhisstep.py`, `zjoinratio.py`, `znostranger.py`, `zpicjoin.py`,
+`zltdiff.py`, `zbulonset.py`.
+⚠ **Muhammad's Ad 3 v6 HD is NOT the approved round-5 draft:** at 2:14.1–2:23.1 the "Because even though I was a
+personal trainer…" bullet lost "back in my 20s, as a 38 year old dad running a successful ad agency." (proof
+`ad3-vert/hdcheck/w4_hd_vs_draft.png`, sent to Dan 14:38). Do NOT file or upload it as final; Dan asks him to
+re-export. The vertical rebuilds that graphic with the full text, so it is unaffected.
 
 **Ad 5 "Every Diet You've Tried Failed" — 9:16 VERTICAL + 0:59 CUTDOWN — ROUND 1 REVISIONS RE-DELIVERED 2026-09-11, Dan
 reviews.** All three of his asks are in: every real after picture is FULL-BLEED PORTRAIT and carries the new **"Real picture
