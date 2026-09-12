@@ -172,8 +172,12 @@ the current `GATE_VERSION`.
   must stay green, and it is what proves a bound change did not resurrect a rejected cut.
 
 ⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
-absorbed yet (framing is Phase 2, the watch pass is Phase 3 of
-`Handoffs/handoff-20260911-video-quality-engine.md`). **Run both until those land.**
+absorbed yet (the watch pass is Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).
+**Framing landed in the shared gate 2026-09-12**: the five `framing:` rows in
+`_shared/deliver/checks/framing.py` grade the delivered file with mediapipe FaceMesh + Apple Vision
+person segmentation, so they need no `hairtrack.json` door-panel profile and run on any set.
+`hairgate.py` stays as this recipe's plan-side check (it still drives the anchors); the shared rows
+are what the stamp is judged on. **Run both until Phase 3 lands.**
 
 ## Delivery layout
 

@@ -29,25 +29,53 @@ def _fft_shape(fh_in, th):
     return 1 << int(np.ceil(np.log2(fh_in + th - 1)))
 
 
-def _ncc_peak(FT, F, T, th, tw, fh, fw):
-    """Peak normalised cross-correlation of template T anywhere in frame F.
+class _Frame:
+    """One grid frame with its integral images and its FFTs, computed once and shared by every
+    template strip that is matched against it (2026-09-12: the box sums and the frame FFT were
+    being recomputed per template, 56 times per frame)."""
+
+    __slots__ = ("F", "P", "P2", "ffts")
+
+    def __init__(self, F):
+        self.F = F
+        self.P = np.pad(np.cumsum(np.cumsum(F, 0), 1), ((1, 0), (1, 0)))
+        self.P2 = np.pad(np.cumsum(np.cumsum(F * F, 0), 1), ((1, 0), (1, 0)))
+        self.ffts = {}
+
+    def fft(self, shp):
+        if shp not in self.ffts:
+            self.ffts[shp] = np.fft.rfft2(self.F, shp)
+        return self.ffts[shp]
+
+
+class _Tmpl:
+    """A normalised template strip with its conjugate FFT at the frame's padded shape, computed once."""
+
+    __slots__ = ("T", "th", "tw", "shp", "TF")
+
+    def __init__(self, T, gh, gw):
+        self.T = T
+        self.th, self.tw = T.shape
+        self.shp = (_fft_shape(gh, self.th), _fft_shape(gw, self.tw))
+        self.TF = np.conj(np.fft.rfft2(T, self.shp))
+
+
+def _ncc_peak(fr, tm):
+    """Peak normalised cross-correlation of template strip `tm` anywhere in frame `fr`.
 
     Full NCC, not a fixed-crop correlation: the app screen appears as a full frame in a vertical
     ad, as a phone PiP beside Dan in a longform, and at whatever size an editor chose in between.
     A gate pinned to one crop only sees the layout it was written for.
-
-    FT is the frame's rfft2 at this (fh, fw), passed in so it is computed ONCE per scale rather
-    than once per template -- four templates share each scale, so hoisting it cuts the scan by ~4x.
     """
+    F, th, tw = fr.F, tm.th, tm.tw
     if th > F.shape[0] or tw > F.shape[1]:
         return -1.0, None
     n = th * tw
-    P = np.pad(np.cumsum(np.cumsum(F, 0), 1), ((1, 0), (1, 0)))
-    P2 = np.pad(np.cumsum(np.cumsum(F * F, 0), 1), ((1, 0), (1, 0)))
     box = lambda I: I[th:, tw:] - I[:-th, tw:] - I[th:, :-tw] + I[:-th, :-tw]   # noqa: E731
-    mu = box(P) / n
-    sd = np.sqrt(np.maximum(box(P2) / n - mu * mu, 0.0))
-    c = np.fft.irfft2(FT * np.conj(np.fft.rfft2(T, (fh, fw))), (fh, fw))
+    mu = box(fr.P) / n
+    sd = np.sqrt(np.maximum(box(fr.P2) / n - mu * mu, 0.0))
+    fh, fw = tm.shp
+    c = np.fft.irfft2(fr.fft(tm.shp) * tm.TF, (fh, fw))
     c = c[:F.shape[0] - th + 1, :F.shape[1] - tw + 1]
     # ⚠ A FLAT PATCH HAS NO CORRELATION, IT HAS A DIVISION BY ZERO. Measured 2026-09-11: flooring
     # the VARIANCE at 1e-6 (sd 1e-3 on a 0-255 scale) made the letterboxed black bars either side of
@@ -110,7 +138,31 @@ def banned_screen(key, pr, cfg, plan, video, work):
     top0, top1 = cfg["chrome_top"]
     bot0, bot1 = cfg["chrome_bottom"]
 
-    specs = []                      # (t, scale, phone_h, TOP, BOTTOM, expected dy)
+    photo0, photo1 = cfg["photo_band"]
+    lcol, rcol = cfg["photo_cols"]
+    slop = cfg["position_slop_px"]
+
+    def lr_corr(F, y0, x0, ph, pw):
+        """Left/right correlation of the photo band of a phone box at (y0, x0) of size (ph, pw)."""
+        r0, r1 = y0 + int(ph * photo0), y0 + int(ph * photo1)
+        L = F[r0:r1, x0 + int(pw * lcol[0]):x0 + int(pw * lcol[1])]
+        R = F[r0:r1, x0 + int(pw * rcol[0]):x0 + int(pw * rcol[1])]
+        w = min(L.shape[1], R.shape[1])
+        L, R = L[:, :w], R[:, :w]
+        if L.size < 16 or L.std() < 1.0 or R.std() < 1.0:
+            return 0.0
+        return float(np.corrcoef(L.ravel(), R.ravel())[0, 1])
+
+    def photo_band(F, y0, x0, ph, pw):
+        """Is the band between the chrome strips a PHOTOGRAPH? (white fraction, luma sd)"""
+        r0, r1 = y0 + int(ph * photo0), y0 + int(ph * photo1)
+        band = F[r0:r1, x0 + int(pw * lcol[0]):x0 + int(pw * rcol[1])]
+        if band.size < 16:
+            return 1.0, 0.0
+        return float((band > 215).mean()), float(band.std())
+
+    specs = []                      # (t, kind, scale, phone_h, phone_w, TOP, BOTTOM, expected dy)
+    kinds = {}
     for t in times:
         for frac in scales:
             ph = int(round(gh * frac))
@@ -121,62 +173,73 @@ def banned_screen(key, pr, cfg, plan, video, work):
             if len(raw) < pw * ph:
                 continue
             S = np.frombuffer(raw[:pw * ph], np.uint8).reshape(ph, pw).astype(np.float32)
+            if t not in kinds:
+                # THE SCREEN'S OWN KIND, READ OFF THE SOURCE: a before/after screen's photo band
+                # correlates left with right (the same person in the same pose twice); a single-
+                # photo screen does not. Measured 2026-09-12 on the recording: "Meet the new you"
+                # +0.81, the email-capture "Download Your Future Self" -0.26.
+                kinds[t] = "paired" if lr_corr(S, 0, 0, ph, pw) >= cfg["pair_self_min"] else "single"
             T = S[int(ph * top0):int(ph * top1)]
             B = S[int(ph * bot0):int(ph * bot1)]
             if T.shape[0] < 8 or B.shape[0] < 8 or T.shape[1] > gw or B.shape[0] > gh:
                 continue
-            specs.append((t, frac, ph, _norm(T), _norm(B), int(ph * (bot0 - top0))))
+            specs.append((t, kinds[t], frac, ph, pw, _Tmpl(_norm(T), gh, gw), _Tmpl(_norm(B), gh, gw),
+                          int(ph * (bot0 - top0))))
     if not specs:
         return unmeasured(key, "no template strip could be read out of the banned source")
 
     pre = cfg["prescreen_ncc"]
-    both = cfg["min_strip_ncc"]
-    slop = cfg["position_slop_px"]
+    both = {"paired": cfg["min_strip_ncc_paired"], "single": cfg["min_strip_ncc_single"]}
+    white_max, sd_min = cfg["photo_white_max"], cfg["photo_sd_min"]
     p = subprocess.Popen([C.FF, "-v", "error", "-i", video, "-vf", f"scale={gw}:{gh},format=gray",
                           "-an", "-f", "rawvideo", "-"], stdout=subprocess.PIPE)
-    best, hits, n = (-1.0, None, None), [], 0
-    ffts = {}
+    best = {"paired": (-1.0, None, None), "single": (-1.0, None, None)}
+    hits, n = [], 0
     while True:
         raw = p.stdout.read(gw * gh)
         if len(raw) < gw * gh:
             break
-        F = np.frombuffer(raw, np.uint8).reshape(gh, gw).astype(np.float32)
+        fr = _Frame(np.frombuffer(raw, np.uint8).reshape(gh, gw).astype(np.float32))
         n += 1
-        ffts.clear()
-        hit = False
-        for t, frac, ph, T, B, dy in specs:
+        for t, kind, frac, ph, pw, T, B, dy in specs:
             # STAGE 1: the cheap top strip. Most frames die here.
-            th, tw = T.shape
-            shp = (_fft_shape(gh, th), _fft_shape(gw, tw))
-            if shp not in ffts:
-                ffts[shp] = np.fft.rfft2(F, shp)
-            vt, pt = _ncc_peak(ffts[shp], F, T, th, tw, *shp)
+            vt, pt = _ncc_peak(fr, T)
             if vt < pre:
                 continue
             # STAGE 2: the bottom strip must agree, and agree about WHERE.
-            bh, bw = B.shape
-            shp2 = (_fft_shape(gh, bh), _fft_shape(gw, bw))
-            if shp2 not in ffts:
-                ffts[shp2] = np.fft.rfft2(F, shp2)
-            vb, pb = _ncc_peak(ffts[shp2], F, B, bh, bw, *shp2)
+            vb, pb = _ncc_peak(fr, B)
+            if not (pt and pb and abs(pb[1] - pt[1]) <= slop and abs((pb[0] - pt[0]) - dy) <= slop):
+                continue
             score = min(vt, vb)
-            if score > best[0]:
-                best = (score, round(n / pr["fps"], 2), (t, frac, round(vt, 3), round(vb, 3)))
-            if vt >= both and vb >= both and pt and pb \
-                    and abs(pb[1] - pt[1]) <= slop and abs((pb[0] - pt[0]) - dy) <= slop:
-                hits.append((round(n / pr["fps"], 2), round(vt, 3), round(vb, 3), frac))
-                hit = True
+            # STAGE 3: the layout's own signature inside the phone box the chrome located -- the
+            # band between the strips is a PHOTOGRAPH on every banned screen and a white panel on
+            # every look-alike. (L/R pairing is recorded for the reader; it is not the test -- a
+            # white table reads L/R 0.59 at the coarse grid, a real before/after 0.37-0.60.)
+            white, sd = photo_band(fr.F, pt[0], pt[1], ph, pw)
+            lr = lr_corr(fr.F, pt[0], pt[1], ph, pw) if kind == "paired" else None
+            photo = white <= white_max and sd >= sd_min
+            if score > best[kind][0]:
+                best[kind] = (score, round(n / pr["fps"], 2),
+                              dict(t=t, scale=frac, top=round(vt, 3), bottom=round(vb, 3),
+                                   white=round(white, 2), sd=round(sd, 1),
+                                   lr=None if lr is None else round(lr, 3), photo=photo))
+            if score >= both[kind] and photo:
+                hits.append((round(n / pr["fps"], 2), kind, round(vt, 3), round(vb, 3),
+                             round(white, 2), round(sd, 1), frac))
                 break
-        if hit:
-            continue
     p.stdout.close()
     p.wait()
+    bp, bs = best["paired"], best["single"]
     return Row(key, not hits,
-               f"{n} frames x {len(specs)} layout templates; best paired score {best[0]:.3f} at "
-               f"{best[1]}s {best[2]}; {len(hits)} frame(s) with BOTH chrome strips over {both} at "
-               f"consistent positions: {hits[:6]}",
-               dict(frames=n, best=round(best[0], 3), best_at=best[1], hits=hits[:60],
-                    min_strip_ncc=both, prescreen=pre))
+               f"{n} frames x {len(specs)} layout templates ({sum(1 for k in kinds.values() if k == 'paired')} "
+               f"paired + {sum(1 for k in kinds.values() if k == 'single')} single screens); best consistent "
+               f"paired-screen match {bp[0]:.3f} at {bp[1]}s {bp[2]} (needs both strips >= {both['paired']}); "
+               f"best consistent single-screen match {bs[0]:.3f} at {bs[1]}s {bs[2]} (needs both >= "
+               f"{both['single']}); and the band between the strips must be a photograph (white "
+               f"<= {white_max}, sd >= {sd_min}); {len(hits)} frame(s) hit (t, kind, top, bottom, white, "
+               f"sd, scale): {hits[:6]}",
+               dict(frames=n, best_paired=bp, best_single=bs, hits=hits[:60],
+                    min_strip_ncc=both, photo_white_max=white_max, photo_sd_min=sd_min, prescreen=pre))
 
 
 # ---------------------------------------------------------------------------- labels

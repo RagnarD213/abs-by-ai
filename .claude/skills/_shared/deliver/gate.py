@@ -45,7 +45,8 @@ from _shared.deliver import common as C                      # noqa: E402
 from _shared.deliver import formats as FMT                   # noqa: E402
 from _shared.deliver.checks import audio as A                # noqa: E402
 from _shared.deliver.checks import captions as CAP           # noqa: E402
-from _shared.deliver.checks import container as CON          # noqa: E402
+from _shared.deliver.checks import container as CON        # noqa: E402
+from _shared.deliver.checks import framing as FR           # noqa: E402
 from _shared.deliver.checks import compliance as COMP        # noqa: E402
 from _shared.deliver.checks import picture as PIC            # noqa: E402
 from _shared.deliver.checks import process as PROC           # noqa: E402
@@ -55,8 +56,11 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "1.1.0"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "1.2.0"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
+                              # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
+                              # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
+                              # compliance:banned_screen (the screen's own signature: L/R pairing).
 
 STAMP_SUFFIX = ".deliver_gate.json"
 
@@ -66,6 +70,8 @@ PLAN_KEYS = """
   joins            [t, ...]        splice times on the DELIVERED timeline
   covered          [[a, b], ...]   beats that hide a join
   punch            [[a, b, LEVEL]] framing segments;  punch_covered [bool] marks the hidden ones
+                                   (framing:* needs NO plan: it tracks the delivered picture; a plan's
+                                   ai_inserts / real_photos / graphics / cards beats are excluded)
   graphics         [{name, beat:[a,b], mov}]        lower thirds and cards, with their own MOVs
   ai_inserts       [{name, beat:[a,b], chip?, pos?}] AI imagery of Dan
   real_photos      [{name, beat:[a,b], chip?, pos?}] REAL photographs of Dan
@@ -101,6 +107,11 @@ ROWS = {
     "style:coverage":             ("picture", PIC.coverage),
     "style:static_run":           ("picture", PIC.static_run),
     "style:change_rate":          ("picture", PIC.change_rate),
+    "framing:hair_top":           ("picture", FR.hair_top),
+    "framing:headroom":           ("picture", FR.headroom),
+    "framing:centering":          ("picture", FR.centering),
+    "framing:no_wide_level":      ("picture", FR.no_wide_level),
+    "framing:push_coverage":      ("picture", FR.push_coverage),
     "cut:uncovered_joins":        ("picture", PIC.uncovered_joins),
     "cut:black_frames":           ("picture", PIC.black_frames),
     "cut:min_segment":            ("picture", PIC.min_segment),
@@ -202,6 +213,15 @@ def run(video, fmt, plan_path=None, only=None):
             r = Row(key, False, f"the check itself raised {type(e).__name__}: {e}",
                     dict(traceback=traceback.format_exc()[-800:]))
         out.append(r)
+    # the framing rows' native-scale proof sheet, beside the file, on every FULL run (never on a
+    # --row debugging run). Every earlier proof sheet lied at 480-px tiles; this one is 1:1 and the
+    # executor LOOKS at it: the green line sits on the top of his hair on the tightest tiles.
+    tr = getattr(pic, "_framing", None)
+    if not only and tr is not None and tr.valid():
+        try:
+            FR.proof_sheet(pic, tr, video + ".framing_proof.jpg")
+        except Exception as e:                               # noqa: BLE001
+            print(f"  (framing proof sheet not written: {e})")
     return pr, plan, out
 
 

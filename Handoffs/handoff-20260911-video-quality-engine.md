@@ -315,6 +315,64 @@ The framing row runs from `_shared/deliver/gate.py` on any set with no 8/28 door
 it fails rev 2, rev 3 and `v2-short3-offcentre` and passes rev 4; `/shortad-from-longform`,
 `/revisions` and `/editor-brief` carry the standard; `run.py` still green.
 
+### ✅ PHASE 2 EXECUTED 2026-09-12. Read this before starting Phase 3.
+
+**Gate version 1.2.0.** `_shared/deliver/checks/framing.py` is the portable tracker: mediapipe
+FaceMesh (plus the full-range FaceDetection model for a small face — rev 1's banned wide shot had a
+150 px face FaceMesh alone missed on 107 of 112 samples) anchors the head band; Apple Vision person
+segmentation (`shorts/reference/recentre/personmask`, on a head crop — crop and full-frame tops
+agree within 2 px) gives the hair top; hairgate's independent top-rows test now runs on a second
+segmenter (mediapipe selfie segmentation) instead of the door panel's luma. Five rows, one track,
+no plan needed; every bound in `formats.py` with its file and date; proof sheet
+`<file>.framing_proof.jpg` at native scale on every full run. Registered in `run.py`, deliver
+blocks on the nine framing entries, and **proven**: rev 2 fails headroom (per-hold min 101–146),
+rev 3 fails hair_top (0 px on 661 samples, edge test 661/661), `v2-short3` fails centering
+(−145 / −104 / −103 px), `ad1-vertical-attempt1` fails push_coverage (spread ×1.005); rev 4 / 5 / 6
+pass (per-hold min 43–65, median 56–57) and Muhammad Ad 2 passes push_coverage (×1.18).
+
+**Three things the measurements changed, all recorded in `checks/framing.py`:**
+1. **A dissolve is not a frame.** Rev 4's mid-dissolve frame into an AI insert read a hair top of
+   6 px on an approved file; on-scene now needs ±0.5 s of on-scene palette, and a hair-at-the-edge
+   reading must persist two samples (rev 3 reads 661 in a row).
+2. **`push_coverage` is a SPREAD of per-hold median head heights, not a per-sample count.** A
+   locked-off crop still reads ±10 % of head height as Dan leans (attempt 1: 425–479 px inside one
+   hold), and its photo cards read ×1.59 of the talk — the first two definitions passed the
+   rejected file as "47 % pushed" and "38 % pushed". Holds outside ×0.75–1.40 of the dominant level
+   are a different shot and are ignored.
+3. **The rows grade TALKING holds** (mouth-opening sd ≥ 0.012 over the hold; every real talk hold
+   in the corpus reads 0.019–0.054): a photo card with a face on it is framed by other rules.
+   ⚠ Mute b-roll of Dan talking still reads as talk.
+
+**Per-format, not one number:** an editor's 16:9 anchors tighter than the website standard
+(Muhammad Ad 2 per-hold min 25–38, median 42 → `ad16x9` floor 20, not 30), and the approved
+verticals inherit it (Ad 1 52–101, Ad 2 42–70 → `ad9x16` floor 20 ×H/1080). `centering` is n/a
+for `website` / `ad16x9` / `longform` (PIP and bullets-left layouts put Dan off-centre by design:
+rev 4 +278..+355, Muhammad +482..+495) and `no_wide_level` is n/a for `ad9x16` / `ad1x1` (Dan sits
+in a window above the text; his head is 22 % of the frame by layout). `no_wide_level` for 16:9 is
+0.27 — the midpoint of rev 1's wide (20–24 %) and rev 4's FAR (30–32 %).
+
+**Item 0, banned screens — the pairing test was measured and is NOT the discriminator.** At the
+384 grid a white macro table reads L/R 0.59 and the real before/after 0.37–0.60. What separates,
+with real margin on both axes, is that **the band between the chrome strips is a photograph**:
+white fraction 0.00–0.30 / luma sd 41–68 on every banned screen vs 0.94–0.97 / 10–19 on every
+look-alike. Stage 3 is that test; each banned time is classified off the source as paired (chrome
+0.55) or single (0.62). The matcher also caches per-frame integral images and template FFTs
+(~real-time now, was 56 FFTs per frame). Registered in the corpus.
+⚠ **Found on the way, for Dan: Muhammad's Ad 2 16:9 master shows the app's BEFORE/AFTER screen
+at 3:11 and the email-capture screen at 3:12 and 3:23** (chrome 0.75–0.79, photograph band) — the
+same screens the row exists to catch, in a live Google Ads creative. Its vertical and square are
+re-layouts of the same cut.
+
+**Skill wiring:** `/shortad-from-longform` Step 5 rule 14 (it had zero framing mentions);
+`/revisions` and `/editor-brief` had gained a framing item on 2026-09-11 from a concurrent session
+— both now carry the locked numbers and point at the shared rows; `/website-video`'s gate note
+updated. `hairdet.py` / `hairgate.py` stay as that recipe's plan-side tools.
+
+**Left for Phase 3:** the 17 bannered forks (unchanged); `watch:pass` still pending outside
+`ad9x16` / `ad1x1`. **Known limits of the tracker:** a photo card with a face and no plan is
+tracked for hair_top/centering (the approved verticals pass, measured); `personmask` must exist on
+disk (the rows fail NOT MEASURED without it); cost ~3–4 min per 4-minute master on a quiet Mac.
+
 ---
 
 ## PHASE 3 — the watch pass becomes mandatory in all six skills

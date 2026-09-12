@@ -81,6 +81,12 @@ IMPLEMENTED = {
     # grade every programme -- a trust video holds on Dan's face on purpose and a longform does not.
     "style:coverage": "deliver_gate", "style:static_run": "deliver_gate",
     "cut:uncovered_joins": "deliver_gate",
+    # Phase 2 (2026-09-12): the portable framing tracker (checks/framing.py) and the banned-screen
+    # row's stage 3 (the screen's own signature inside the box the chrome located).
+    "framing:hair_top": "deliver_gate", "framing:headroom": "deliver_gate",
+    "framing:centering": "deliver_gate", "framing:no_wide_level": "deliver_gate",
+    "framing:push_coverage": "deliver_gate",
+    "compliance:banned_screen": "deliver_gate",
 }
 # Row key by human name, so an entry can name either.
 ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": "tone",
@@ -92,7 +98,6 @@ ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": 
 
 # Phases that will implement the rest. Printed with each PENDING so the queue is legible.
 PENDING_OWNER = {
-    "framing:": "nothing implements this yet -- Phase 2 (portable framing)",
     "cut:": "nothing implements this yet -- VQC-C phase 4 (pose-matched picture cuts)",
     "junk:": "nothing implements this yet -- handoff-20260911-junk-footage-pass.md",
     "style:": "nothing implements this yet -- Phase 1 (_shared/deliver)",
@@ -113,22 +118,12 @@ PENDING_OWNER = {
 # texture behind a locked-off camera, or from the two halves of one caption line split at a word
 # space ("goal physique." alone read as two blocks 44 px apart). It clears the first time a
 # delivery carries both the defect and its plan.
-# ⚠ AND `compliance:banned_screen` IS BUILT, LIVE IN THE GATE, AND STILL NOT REGISTERED HERE --
-# because it does not separate. The row now FINDS the violation the corpus names (the spray-tan
-# longform's before/after screen at 18:04, paired chrome score 0.626, flagged on 87 of 91 frames of
-# that beat) where the method it replaced could not: whole-screen template matching read 0.526,
-# because it matches an INSTANCE and the banned recording is a different person's generation.
-# But the approved website rev 4 reads 0.577 across all 6,900 of its frames -- its own macro-tracker
-# phone screen -- so the separation is 0.003. The chrome of the app is shared with every other app
-# screen; the photographs that identify THIS screen are what changes between generations. Registering
-# a bound with a 0.003 margin, fitted to one rejected frame and one approved frame, is precisely the
-# "built backwards from the last rejection" failure this file exists to stop. The measured next step
-# (the left/right pairing test) is written down in _shared/deliver/formats.py.
-PENDING_OWNER["compliance:banned_screen"] = (
-    "BUILT in Phase 1 and live in the gate -- it finds the violation (0.626) where the old method "
-    "could not (0.526), but an APPROVED file reads 0.577, so the margin is 0.003 and it is not a "
-    "proven bound. Next step measured and recorded in _shared/deliver/formats.py")
-
+# `compliance:banned_screen` was registered 2026-09-12 (Phase 2 item 0). Its stage 3 -- the screen's
+# own signature inside the phone box the chrome located: L/R pairing of the photo band for a
+# before/after screen, a higher chrome bound for the single-photo email-capture screen -- separates
+# the real violation from approved rev 4's macro screen with the margins recorded in
+# _shared/deliver/formats.py `_BANNED`. It also found the email-capture screen in Muhammad's Ad 2
+# master at 3:12 and 3:23 (a reference entry here; reported, not registered as a must_trigger).
 PENDING_OWNER["captions:graphic_clearance"] = (
     "BUILT in Phase 1 (_shared/deliver/checks/captions.py) and running on every future delivery, "
     "but it needs the build's cap.ass + gfx MOVs and rev 2's are not on disk")

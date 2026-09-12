@@ -80,7 +80,12 @@ interval between framing changes, what graphics exist, music tempo, and the audi
 this section in plain words, with the numbers:
 - **Tight framing.** Crop to the top of his hair: a small margin above his head and at the sides, never a wide shot
   with empty space above and around him. The looser of the two framings still has little headroom, and in a workout
-  the frame holds the whole rep tightly. Dan's words on the loose cut: "Crop in closer by 20-30%".
+  the frame holds the whole rep tightly. Dan's words on the loose cut: "Crop in closer by 20-30%". **The numbers
+  (Dan's locked standard, 2026-09-08):** the top of his hair sits about **4 % of the frame height below the top
+  edge** (roughly 40 px in a 1080p frame — between 30 and 70 px on every shot, never under 20); **two framings only**,
+  a closer one from his hair to his belly button and a wider one from his hair to his shorts line — never a shot
+  with his knees in it; his head on the centre line, not off to one side. We measure the delivered file on exactly
+  these numbers, so quote them rather than "tight".
 - **The mic comes down during live sets.** Turn it down about 80% (−14 dB) while he is doing a set, so the grunting,
   the breathing and the equipment stay audible but sit clearly under his voice (5–14 dB quieter than his talking).
   Back to full level the moment he talks.

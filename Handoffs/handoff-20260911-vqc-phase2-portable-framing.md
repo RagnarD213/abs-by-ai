@@ -1,3 +1,8 @@
+> ✅ **EXECUTED 2026-09-12.** Item 0 (banned-screen stage 3), the portable framing tracker, the five
+> `framing:` rows, the corpus registration and the skill wiring are all in. Results and the two
+> findings are recorded in the "✅ PHASE 2 EXECUTED" section of
+> `handoff-20260911-video-quality-engine.md`. Kept on disk as the record of what was asked.
+
 # Phase 2 — portable framing, inside the shared gate
 
 **This is Phase 2 of `Handoffs/handoff-20260911-video-quality-engine.md`, extracted as its own

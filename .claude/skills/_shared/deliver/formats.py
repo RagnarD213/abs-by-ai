@@ -40,6 +40,8 @@ ALL_ROWS = (
     "container:size", "container:fps", "container:codec", "container:duration", "container:frames",
     "audio:stamp", "audio:stream_integrity", "audio:lipsync", "audio:click_at_joins",
     "style:coverage", "style:static_run", "style:change_rate",
+    "framing:hair_top", "framing:headroom", "framing:centering", "framing:no_wide_level",
+    "framing:push_coverage",
     "cut:uncovered_joins", "cut:black_frames", "cut:min_segment", "cut:jump_cut",
     "cut:splice_visibility",
     "captions:graphic_clearance", "captions:card_collision", "captions:burned",
@@ -84,36 +86,53 @@ _BANNED = dict(
     # 0.92 -> 0.80 straight over it.
     chrome_top=(0.00, 0.26),
     chrome_bottom=(0.55, 1.00),
-    # the generation-INVARIANT thirds of the app's "Meet the new you" screen, read off the recording
-    # 2026-09-11: nav bar + headline + BEFORE/AFTER labels above, body-fat row + "Lock in this goal"
-    # + the Safari bar below. Between them sit the two photographs, which are different in every
-    # generation -- which is why matching the whole screen matched only the one recording.
+    # the generation-INVARIANT thirds of the app's screens, read off the recording 2026-09-11: nav
+    # bar + headline + BEFORE/AFTER labels above, body-fat row + "Lock in this goal" + the Safari
+    # bar below. Between them sit the photographs, which are different in every generation --
+    # which is why matching the whole screen matched only the one recording.
     prescreen_ncc=0.45,
     # stage 1: the cheap top strip. Below this the frame cannot be the screen, so the bottom strip
     # is never computed. Measured: the true frame reads 0.657-0.683 here.
-    min_strip_ncc=0.58,
-    # ⚠ STAGE 2, AND THE MARGIN HERE IS 0.003. BOTH strips must reach this. Measured 2026-09-11:
-    #     spray-tan longform at 18:04 (the real violation)   paired 0.626   -> FLAGGED, 87/91 frames
-    #     website rev 4, all 6,900 frames (approved)         paired 0.577   -> clean, by 0.003
-    # 0.577 is rev 4's own macro-tracker phone screen at 65.3 s, and that is the whole difficulty:
-    # the chrome is generation-invariant but it is SHARED WITH EVERY OTHER APP SCREEN, while the
-    # part that identifies THIS screen -- the two photographs -- is what changes between
-    # generations. Neither half separates on its own.
-    # **So this row is expected to raise false positives until the next discriminator lands**, and
-    # that is the right direction to err for a Google Ads strike: a false positive costs a person
-    # one look, a false negative costs the account. It is NOT registered in the regression corpus,
-    # because a 0.003 margin measured on one rejected frame against one approved frame is a
-    # coincidence with code around it, not a proven bound.
-    # NEXT STEP, measured and ready to build: a before/after is the same person in the same pose
-    # twice, so the photo band's left and right halves correlate. Probed 2026-09-11 --
-    #     the real violation          L/R +0.441
-    #     rev 4's macro screen        L/R +0.222 (and -0.041 / -0.013 on other crops of it)
-    #     a talking-head control      L/R -0.192
-    # Requiring chrome AND pairing separates them with real margin on both axes. Build it against
-    # MORE than one frame per verdict before trusting it.
     position_slop_px=8,
-    # and they must agree about WHERE: same column, and the layout's own vertical offset apart.
-    # Measured on the true frame: 1 px of column disagreement, 98 px apart against a predicted 101.
+    # stage 2: the bottom strip must agree about WHERE -- same column, and the layout's own
+    # vertical offset apart. Measured on the true frame: 1 px of column disagreement, 98 px apart
+    # against a predicted 101.
+    # ------------------------------------------------------------------ stage 3 (2026-09-12)
+    # THE SCREEN'S OWN SIGNATURE, INSIDE THE BOX THE CHROME LOCATED. Chrome alone could not
+    # separate: the paired chrome read 0.626 on the real violation and 0.577 on approved rev 4's
+    # macro-tracker screen, because the app's chrome is shared with every other app screen. Each
+    # banned time is classified off the SOURCE as `paired` (a before/after: the photo band's left
+    # and right halves are the same person in the same pose, L/R correlation +0.81 on the recording)
+    # or `single` (the email-capture screen, one photograph, -0.26), and each kind has its own test.
+    photo_band=(0.26, 0.51),
+    photo_cols=((0.06, 0.48), (0.52, 0.94)),
+    # the rows and the two columns of the before/after photographs, as fractions of the phone,
+    # read off the recording 2026-09-12.
+    pair_self_min=0.50,
+    min_strip_ncc_paired=0.55,
+    min_strip_ncc_single=0.62,
+    # the chrome bound per kind, position-consistent frames only. Measured 2026-09-12:
+    #     spray-tan longform 18:04, the real before/after     0.613-0.661 / 0.572-0.626  (paired)
+    #     Zeeshan Ad 1 16x9 at 3:09, the email-capture screen  0.705-0.742 / 0.704-0.730  (single)
+    #     Muhammad Ad 2 16x9 at 3:12 and 3:23, the same screen 0.767-0.785 / 0.770-0.774  (single)
+    #     website rev 4's macro-tracker screen (approved)      0.590 / 0.553               (a look-alike)
+    #     Muhammad Ad 2's meal-analysis screen (reference)     0.485 / 0.407               (a look-alike)
+    # So chrome alone still has a 0.02 margin against rev 4 on the paired kind. What separates is
+    # stage 3 below; the chrome bounds stay where the real screens were measured.
+    photo_white_max=0.50,
+    photo_sd_min=30.0,
+    # STAGE 3, THE SCREEN'S OWN SIGNATURE: the band between the two chrome strips is a PHOTOGRAPH
+    # on every banned screen and a white panel on every look-alike. Fraction of the band over
+    # luma 215, and the band's luma sd, at the 384 grid, measured 2026-09-12 in the located box:
+    #     the recording itself (both screens)                 white 0.13 / 0.27,  sd 66.6 / 68.3
+    #     spray-tan 18:04                                     white 0.00-0.16,    sd 41-63
+    #     Zeeshan 3:09                                        white 0.20,         sd 65
+    #     Muhammad Ad 2 3:12                                  white 0.25-0.30,    sd 44-68
+    #     rev 4's macro screen (approved)                     white 0.97,         sd 10.4
+    #     Muhammad Ad 2's meal screen                         white 0.94,         sd 18.9
+    # 0.50 / 30 sit roughly midway on both axes. ⚠ The L/R pairing Phase 1 proposed was measured
+    # and is NOT the test: at the coarse grid a white table reads L/R 0.59 and the real before/after
+    # 0.37-0.60. It is recorded in the row's detail for the reader.
 )
 
 
@@ -177,6 +196,20 @@ FORMATS = {
                 # Our approved verticals read 17.0 and 25.7.
                 "style:change_rate": dict(min_per_min=7.0),
                 # approved verticals read 13.7 and 8.3; his 16x9 masters 12.1 and 9.8.
+                "framing:hair_top": dict(min_px=20, edge_frac=0.20),
+                "framing:headroom": dict(seg_min_px=20, seg_max_px=70, median_max_px=75),
+                # scaled by H/1080 (-> 36 / 124 / 133 px at 1920). The per-hold floor is the
+                # hair_top floor, as for ad16x9: a vertical ad is a re-crop of the editor's 16:9,
+                # which anchors tighter than the website standard. Measured 2026-09-12 on the
+                # APPROVED verticals: Ad 1 per-hold min 52-101, median 84; Ad 2 42-70, median 76.
+                "framing:centering": dict(max_off_frac=0.06),
+                # a hold's median head centre within 6 % of the width of the centre line (65 px at
+                # 1080). v2-short3 (rejected, "one of my arms is cut off and there's space on the
+                # other side") reads -145 / -104 / -103 px = 13 %. Measured 2026-09-12.
+                "framing:push_coverage": dict(min_spread=1.10, push_ratio=(0.75, 1.40),
+                                              level_step=0.02),
+                # ad1-vertical-attempt1 ("truly awful"): 100 % of talk at one crop, spread x1.005;
+                # the approved Ad 1 / Ad 2 verticals read x1.22 / x1.25. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_9x16),
                 "captions:card_collision": dict(),
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
@@ -189,6 +222,11 @@ FORMATS = {
                 # the one format where the watch pass is already a hard gate (qc.py check 15).
             }),
         not_applicable={
+            "framing:no_wide_level": "Dan sits in a full-width WINDOW above the text (Step 5 rule 1 "
+                                     "of /shortad-from-longform), so his head is ~22 % of the frame by "
+                                     "layout, not by a wide crop: the approved Ad 1 vertical reads 427-"
+                                     "436 px of 1920 on its window beats (2026-09-12). The window's "
+                                     "own crop is graded by headroom and hair_top",
             "srt:present": "a vertical ad burns its captions; there is no sidecar deliverable",
             "srt:shape": "no sidecar -- see srt:present",
         },
@@ -213,6 +251,17 @@ FORMATS = {
                 # ad-edit/rev5/qc5.py's own bound; the three references read 16.8, 19.7 and 18.0.
                 "style:change_rate": dict(min_per_min=8.0),
                 # the three references read 12.1, 9.8 and 9.6.
+                "framing:hair_top": dict(min_px=20, edge_frac=0.20),
+                "framing:headroom": dict(seg_min_px=20, seg_max_px=70, median_max_px=75),
+                # an editor's 16:9 anchors TIGHTER than the website standard: Muhammad Ad 2 (the
+                # reference, 21 holds) reads per-hold min 25-38, median 42 -- so the per-hold floor
+                # here is the hair_top floor itself, not 30. Measured 2026-09-12.
+                "framing:no_wide_level": dict(min_head_frac=0.27),
+                # the website number; Muhammad Ad 2's smallest talking hold reads 379 px = 35 %.
+                "framing:push_coverage": dict(min_spread=1.10, push_ratio=(0.75, 1.40),
+                                              level_step=0.02),
+                # Muhammad Ad 2 reads x1.18 (his own count: 14 pushes, 39 % of talk);
+                # ad1-vertical-attempt1 x1.005. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_16x9),
                 "captions:card_collision": dict(),
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
@@ -223,6 +272,8 @@ FORMATS = {
                                            "turns the watch pass on for /ad-edit (2026-09-11)"),
             }),
         not_applicable={
+            "framing:centering": "the editor's layout puts bullets left and Dan right (Muhammad "
+                                 "Ad 2 holds read +482..+495 px); centring is the layout's call",
             "srt:present": "a 16:9 ad burns its captions; there is no sidecar deliverable",
             "srt:shape": "no sidecar -- see srt:present",
         },
@@ -246,6 +297,20 @@ FORMATS = {
                 "style:change_rate": dict(min_per_min=7.0),
                 # a square build is a re-layout of an approved vertical, so it inherits the
                 # vertical's bounds: the EDL, the beats and the coverage are the same cut.
+                "framing:hair_top": dict(min_px=20, edge_frac=0.20),
+                "framing:headroom": dict(seg_min_px=20, seg_max_px=70, median_max_px=75),
+                # scaled by H/1080 (-> 36 / 124 / 133 px at 1920). The per-hold floor is the
+                # hair_top floor, as for ad16x9: a vertical ad is a re-crop of the editor's 16:9,
+                # which anchors tighter than the website standard. Measured 2026-09-12 on the
+                # APPROVED verticals: Ad 1 per-hold min 52-101, median 84; Ad 2 42-70, median 76.
+                "framing:centering": dict(max_off_frac=0.06),
+                # a hold's median head centre within 6 % of the width of the centre line (65 px at
+                # 1080). v2-short3 (rejected, "one of my arms is cut off and there's space on the
+                # other side") reads -145 / -104 / -103 px = 13 %. Measured 2026-09-12.
+                "framing:push_coverage": dict(min_spread=1.10, push_ratio=(0.75, 1.40),
+                                              level_step=0.02),
+                # ad1-vertical-attempt1 ("truly awful"): 100 % of talk at one crop, spread x1.005;
+                # the approved Ad 1 / Ad 2 verticals read x1.22 / x1.25. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=(0.08, 0.72, 0.84, 0.16)),
                 "captions:card_collision": dict(),
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
@@ -255,6 +320,11 @@ FORMATS = {
                 # a square build is delivered to an ad platform; it gets the vertical's hard gate.
             }),
         not_applicable={
+            "framing:no_wide_level": "Dan sits in a full-width WINDOW above the text (Step 5 rule 1 "
+                                     "of /shortad-from-longform), so his head is ~22 % of the frame by "
+                                     "layout, not by a wide crop: the approved Ad 1 vertical reads 427-"
+                                     "436 px of 1920 on its window beats (2026-09-12). The window's "
+                                     "own crop is graded by headroom and hair_top",
             "srt:present": "a square ad burns its captions; there is no sidecar deliverable",
             "srt:shape": "no sidecar -- see srt:present",
         },
@@ -287,6 +357,14 @@ FORMATS = {
                 "style:change_rate": dict(min_per_min=4.0),
                 # qc_style.MIN_SCENES_PER_MIN. The reference cut runs 7.7/min; the rejected ab-wheel
                 # cut 2.1.
+                "framing:hair_top": dict(min_px=20, edge_frac=0.20),
+                "framing:headroom": dict(seg_min_px=20, seg_max_px=70, median_max_px=75),
+                "framing:no_wide_level": dict(min_head_frac=0.27),
+                "framing:push_coverage": dict(min_spread=1.10, push_ratio=(0.75, 1.40),
+                                              level_step=0.02),
+                # the ad16x9 numbers. ⚠ Not yet measured on an approved organic longform -- the
+                # corpus holds no approved longform of ours (Dan, 2026-09-11 on Zeeshan's follow-
+                # along: "Crop in closer by 20-30%"). Re-measure when one is approved.
                 "captions:burned": dict(present=False, max_frac=0.10, band=_CAPTION_BAND_16x9),
                 # the INVERTED rule. See the note above.
                 "captions:card_collision": dict(),
@@ -304,6 +382,8 @@ FORMATS = {
                 # mis-hearing of "GLP"; it has come back three times.
             }),
         not_applicable={
+            "framing:centering": "a 16:9 content video's layout may put Dan beside a graphic or a "
+                                 "screen recording; centring is the layout's call, as for ad16x9",
             "captions:sync": "an organic longform burns no captions, so there is no on-screen "
                              "highlight to synchronise; srt:shape covers the sidecar",
             "captions:graphic_clearance": "no burned captions -- nothing to clear a graphic by",
@@ -332,6 +412,21 @@ FORMATS = {
                 # master and have not been re-gated. Re-measure when they are.
                 "style:static_run": dict(max=30.0),
                 "style:change_rate": dict(min_per_min=4.0),
+                "framing:hair_top": dict(min_px=20, edge_frac=0.20),
+                "framing:headroom": dict(seg_min_px=30, seg_max_px=70, median_max_px=75),
+                # the locked standard, scaled by H/1080 (4 % of a 1920-tall frame = 77 px).
+                "framing:centering": dict(max_off_frac=0.06),
+                # a hold's median head centre within 6 % of the width of the centre line (65 px at
+                # 1080). v2-short3 (rejected, "one of my arms is cut off and there's space on the
+                # other side") reads -145 / -104 / -103 px = 13 %. Measured 2026-09-12.
+                "framing:no_wide_level": dict(min_head_frac=0.27),
+                # the website number scaled to the frame: v2-short3's full-bleed talk reads 566-585
+                # px of 1920 = 29.5-30.5 %; ad1-vertical-attempt1's locked-off wide talk (knees in
+                # frame) 434-436 = 22.6 %.
+                "framing:push_coverage": dict(min_spread=1.10, push_ratio=(0.75, 1.40),
+                                              level_step=0.02),
+                # ad1-vertical-attempt1 ("truly awful"): 100 % of talk at one crop, spread x1.005;
+                # the approved Ad 1 / Ad 2 verticals read x1.22 / x1.25. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_9x16),
                 "captions:card_collision": dict(),
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=4),
@@ -373,6 +468,26 @@ FORMATS = {
                 # and 10.8.
                 "style:change_rate": dict(min_per_min=8.0),
                 # the approved revs read 12.0, 11.7 and 12.5.
+                "framing:hair_top": dict(min_px=20, edge_frac=0.20),
+                "framing:headroom": dict(seg_min_px=30, seg_max_px=70, median_max_px=75),
+                # THE LOCKED STANDARD (Dan, 2026-09-08; hairgate.py HAIR_MIN/SEG_MIN/SEG_MAX/
+                # MEDIAN_MAX/DARK_MAX unchanged). Re-measured with the portable tracker 2026-09-12:
+                #   rev 3 (rejected, "hair cut off")   hair top 0 on 661 samples; edge test 661/661
+                #   rev 2 (rejected, "excessive space") per-hold min 101-146, median 139
+                #   rev 4 (approved)                    per-hold min 43-60, median 56
+                #   rev 5 (approved)                    per-hold min 46-59, median 57
+                #   rev 6 (approved, his final)         per-hold min 43-70, median 57
+                # ⚠ rev 6's opening hold reads EXACTLY 70 -- the approved final passes the
+                # per-hold ceiling with zero margin. Not tuned; recorded.
+                "framing:no_wide_level": dict(min_head_frac=0.27),
+                # hair->chin per talking hold >= 27 % of the frame height. Measured 2026-09-12:
+                # rev 1's banned wide shot ("don't ever use this super wide crop") reads 216-262 px
+                # = 20.0-24.3 %; rev 4's FAR level (approved) 328-345 = 30.4-32 %; rev 2's loosest
+                # 295 = 27.3 %. 0.27 is the midpoint of the rejected wide and the approved FAR.
+                "framing:push_coverage": dict(min_spread=1.10, push_ratio=(0.75, 1.40),
+                                              level_step=0.02),
+                # per-hold median head height spread across the talk: rev 4 reads x1.26 (NEAR and
+                # FAR alternate); ad1-vertical-attempt1 x1.005. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_16x9),
                 "captions:card_collision": dict(),
                 "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
@@ -384,6 +499,8 @@ FORMATS = {
                                            "turns the watch pass on for /website-video (2026-09-11)"),
             }),
         not_applicable={
+            "framing:centering": "the PIP level pushes Dan right by design so a phone sits beside "
+                                 "him (rev 4 holds read +278..+355 px); centring is plan-driven here",
             "srt:present": "the website player carries no sidecar; captions are burned",
             "srt:shape": "no sidecar -- see srt:present",
         },
@@ -440,6 +557,12 @@ FORMATS = {
             "captions:card_collision": "no captions and no cards",
             "captions:within_runtime": "no captions",
             "captions:sync": "no captions",
+            "framing:hair_top": "AI-Dan performing a movement is not a talking head; the loop's "
+                                "framing is the generated clip's own (exercisegeneration/SKILL.md)",
+            "framing:headroom": "no talking head -- see framing:hair_top",
+            "framing:centering": "no talking head -- see framing:hair_top",
+            "framing:no_wide_level": "a full-body movement IS the wide shot, by design",
+            "framing:push_coverage": "one generated loop has no push schedule",
             "compliance:banned_screen": "no app UI appears in a generated exercise demo",
             "compliance:labels": "AI-Dan is not a picture of Dan's physique making a before/after "
                                  "claim; the demos carry the app's own AI disclosure in the UI",

@@ -436,7 +436,11 @@ exact timing or an exact link.
   word ends (rule 23) — never for a short hold.
 - **Framing** (Dan, 2026-09-08 and 2026-09-11): hair-anchored and tight, with a small margin above his hair and at
   the sides; never the full-body wide on a talking shot; movement shots hold the whole rep tightly. Measured by
-  `reference/framing.py` (step 3).
+  `reference/framing.py` (step 3) on an editor's cut. The locked numbers (hair ≥ 20 px from the top edge, per hold
+  30–70 px, median ≤ 75 px at 1080p, two levels, centred, a push schedule) are the delivery gate's `framing:` rows
+  (`_shared/deliver/checks/framing.py`, 2026-09-12); a cut our own pipeline is going to re-render is graded on
+  those, and `python3 .claude/skills/_shared/deliver/checks/framing.py CUT.mp4 --sheet framing_proof.jpg` prints
+  the same per-hold numbers for a human editor's cut when a "crop in" item needs a measurement behind it.
 - **Workout audio** (2026-09-11): during live sets the mic comes down (Dan: "by 80%", about −14 dB), so the effort
   sounds stay audible but sit 5-14 dB under the talking; back to full level when he talks. Measured by
   `reference/sets_level.py` (step 1).

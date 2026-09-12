@@ -1,7 +1,7 @@
 {
  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
  "version": 2,
- "updated": "2026-09-11",
+ "updated": "2026-09-12",
  "roots": {
   "repo": ".",
   "ssd": "/Volumes/Extreme/_edit_work"
@@ -26,7 +26,11 @@
    "measured": "gate FAILS on floor + tone (and 3 more rows on a 2026-09-09 re-gate). The wide crop has no check yet.",
    "notes": "The rejection that produced the hair-anchored framing standard three revisions later. Also the file selftest.sh step 2b requires to FAIL.",
    "sha256": "ea2ba18e42ed5e10c8282ce02b1aed7e257a99a654d116d1591673879c95dce6",
-   "bytes": 146905659
+   "bytes": 146905659,
+   "deliver": {
+    "format": "website",
+    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+   }
   },
   {
    "id": "website-rev2",
@@ -57,7 +61,11 @@
      "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
      "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
     }
-   ]
+   ],
+   "deliver": {
+    "format": "website",
+    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+   }
   },
   {
    "id": "website-rev3",
@@ -73,10 +81,14 @@
    "must_trigger": [
     "framing:hair_top"
    ],
-   "measured": "hair cut in 23 of 26 holds, 17-50 px at 1080p. \u26a0 THE CALIBRATION CASE FOR THE WHOLE PROGRAMME: rev 3's OWN gate passed this file at 21-95 px because its detector read the HAIRLINE, 90 px inside his hair. hairgate.py's detector-free test B failed 5371 of 5781 frames on it.",
+   "measured": "hair cut in 23 of 26 holds, 17-50 px at 1080p. ⚠ THE CALIBRATION CASE FOR THE WHOLE PROGRAMME: rev 3's OWN gate passed this file at 21-95 px because its detector read the HAIRLINE, 90 px inside his hair. hairgate.py's detector-free test B failed 5371 of 5781 frames on it.",
    "notes": "A gate that passes this file is measuring the wrong point, whatever number it reports.",
    "sha256": "10541335f257f4d3486287eb0cc108543cee33347059ff030e7e89bf1554a626",
-   "bytes": 293778811
+   "bytes": 293778811,
+   "deliver": {
+    "format": "website",
+    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+   }
   },
   {
    "id": "website-rev4",
@@ -105,7 +117,11 @@
      "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
      "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
     }
-   ]
+   ],
+   "deliver": {
+    "format": "website",
+    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+   }
   },
   {
    "id": "website-rev5",
@@ -134,7 +150,11 @@
      "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
      "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
     }
-   ]
+   ],
+   "deliver": {
+    "format": "website",
+    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+   }
   },
   {
    "id": "website-rev6",
@@ -163,7 +183,11 @@
      "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
      "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
     }
-   ]
+   ],
+   "deliver": {
+    "format": "website",
+    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+   }
   },
   {
    "id": "ad1-vertical-attempt1",
@@ -182,9 +206,13 @@
     "music:bed_tempo"
    ],
    "measured": "23 of 72 recovered splices shipped as naked jump cuts; 100% of talk ran at ONE FIXED CROP (his: 14 pushes, 39% of talk); bed 99 BPM acoustic at -21 dB against his driving 120+ BPM.",
-   "notes": "\u26a0 THE META-FAILURE THIS WHOLE PROGRAMME EXISTS FOR: the QC gate passed this file 11/11. Every check measured format -- LUFS, frame size, coverage %, change rate -- and no check ever watched the picture. \u26a0 Attempt 1's MASTER no longer exists: attempt 2 overwrote ad1_vertical_9x16.mp4 on 2026-08-27. The 0:59 cutdown, one of the two files he rejected that day, is what survives.",
+   "notes": "⚠ THE META-FAILURE THIS WHOLE PROGRAMME EXISTS FOR: the QC gate passed this file 11/11. Every check measured format -- LUFS, frame size, coverage %, change rate -- and no check ever watched the picture. ⚠ Attempt 1's MASTER no longer exists: attempt 2 overwrote ad1_vertical_9x16.mp4 on 2026-08-27. The 0:59 cutdown, one of the two files he rejected that day, is what survives.",
    "sha256": "edfbfdc0c297295cfc51426350a6c46f2046e8eecabf581577955e6bc4900855",
-   "bytes": 49990079
+   "bytes": 49990079,
+   "deliver": {
+    "format": "ad9x16",
+    "_why": "a vertical ad cutdown: the 9:16 bounds; push_coverage is the row this file must fail"
+   }
   },
   {
    "id": "spraytan-longform-rev0",
@@ -209,7 +237,7 @@
    "deliver": {
     "format": "longform",
     "plan": "plans/spraytan-longform-rev0.json",
-    "_why": "longform bounds. The plan supplies only the banned-screen SOURCE, an asset-library fact rather than a judgment about this file. compliance:banned_screen is deliberately NOT registered -- see the note above PENDING_OWNER in run.py"
+    "_why": "longform bounds. The plan supplies only the banned-screen SOURCE, an asset-library fact rather than a judgment about this file. compliance:banned_screen registered 2026-09-12 (stage 3: pairing)."
    }
   },
   {
@@ -227,7 +255,7 @@
     "audio_gate:do_no_harm",
     "audio_gate:artifacts"
    ],
-   "measured": "the alpha 0.62 / floor -24 dereverb: flux 1.30-1.61x and swirl 1.57-1.94x THIS FILE UNTREATED, against a 1.35 limit. \u26a0 It hit EDT 32 ms -- PAST Muhammad's 40 -- and the 09-02 gate therefore scored it as BETTER than the build he liked.",
+   "measured": "the alpha 0.62 / floor -24 dereverb: flux 1.30-1.61x and swirl 1.57-1.94x THIS FILE UNTREATED, against a 1.35 limit. ⚠ It hit EDT 32 ms -- PAST Muhammad's 40 -- and the 09-02 gate therefore scored it as BETTER than the build he liked.",
    "notes": "The do_no_harm row was written from this file. It blocks 16 of 16 of the 09-02 batch.",
    "sha256": "a379d05bfbc86d86dd036aef80c7b15e7790b5440268e17b10e993806f862369",
    "bytes": 43342568
@@ -247,7 +275,7 @@
     "audio_gate:artifacts"
    ],
    "measured": "flux 1.31x Muhammad's against a 1.10 limit.",
-   "notes": "\u26a0 THE VERSIONED-GATE CASE. This file was stamped PASS on 2026-09-03 and nothing re-checked it when the dereverb settings were rejected six days later. Phase 1's gate version would have invalidated the stamp automatically.",
+   "notes": "⚠ THE VERSIONED-GATE CASE. This file was stamped PASS on 2026-09-03 and nothing re-checked it when the dereverb settings were rejected six days later. Phase 1's gate version would have invalidated the stamp automatically.",
    "sha256": "88934ee363142c57ef9041ec98a76b56099818efd3914372e3a516e58eaacca9",
    "bytes": 1615810595
   },
@@ -268,7 +296,11 @@
    "measured": "133 px off centre -- the calibration point. Root cause: plan.js set one TALK_X = 0.478 for the whole video; Dan's measured torso centre wanders 0.411 -> 0.505, and a 9:16 window is 0.317 of the frame, so 0.06 of drift is ~200 px delivered.",
    "notes": "A sibling build (v6-3min-home-workout/plan.js) had ALREADY found there is no single TALK_X, and the lesson was never carried back. /shortad-from-longform still has no framing rule at all.",
    "sha256": "76cba4dc540b737583420a3a9139c82e8946e2d1aba046a795bc7f13654fb7ce",
-   "bytes": 44516398
+   "bytes": 44516398,
+   "deliver": {
+    "format": "short",
+    "_why": "a vertical Short: the 9:16 bounds, scaled by H/1080; centring is graded here (a phone crop)"
+   }
   },
   {
    "id": "abwheel-8-20-cut",
@@ -287,7 +319,7 @@
     "audio_gate:lr_corr"
    ],
    "measured": "insert coverage 21% against his ~90%; longest bare stretch 64 s TWICE against Dan's own written 30 s rule; and the delivered file plays his voice out of the RIGHT SPEAKER ONLY with hiss on the left for all nine minutes (left channel SNR 0.4-1.0 dB).",
-   "notes": "This rejection produced qc_style.py -- which then reached exactly one skill. \u26a0 The handoff's seed table says 'coverage 8.7 %'; the figure recorded at the time, and the one qc_style.py's MIN_COVERAGE comment cites, is 21%. 21% is what this entry asserts.",
+   "notes": "This rejection produced qc_style.py -- which then reached exactly one skill. ⚠ The handoff's seed table says 'coverage 8.7 %'; the figure recorded at the time, and the one qc_style.py's MIN_COVERAGE comment cites, is 21%. 21% is what this entry asserts.",
    "sha256": "58287396662ad8c047ccd6559eab46aa03d5e0a0c94fcf4bd88b4ecba2b6da17",
    "bytes": 282967743,
    "deliver": {
@@ -310,7 +342,7 @@
     "audio_gate:reference_rows"
    ],
    "measured": "the pinned audio reference. EDT 40 ms, comb ripple 0.54 dB, dryness 7.4 dB, flux 0.072, swirl 0.835, LUFS -18.2.",
-   "notes": "\u26a0 do_no_harm is INFORMATIONAL on this file: it is not ours, so there is no processing of ours to charge. Its true peak is +0.1 dBTP -- too hot for a platform -- which is why our tp row is -1.0 and not 'his + margin'.",
+   "notes": "⚠ do_no_harm is INFORMATIONAL on this file: it is not ours, so there is no processing of ours to charge. Its true peak is +0.1 dBTP -- too hot for a platform -- which is why our tp row is -1.0 and not 'his + margin'.",
    "sha256": "e99a9332851a85a552c19fdb9e49b00260446776c0e57f2378000f885ed9453c",
    "bytes": 313570091
   },
@@ -329,10 +361,14 @@
     "cut:pose_matched_offset",
     "framing:push_coverage"
    ],
-   "measured": "he cuts the PICTURE 1-15 frames off the audio splice on a pose-matched frame (22 of 33 cuts moved by -15..+10 at confidence >= 0.6). 14 pushes, 39% of talk. \u26a0 AUDIO: this file FAILS artifacts, floor and tone against Ad 1's pinned reference -- his bed sits 6-7 dB hotter between words here. That is not a defect in his mix and not a bug in ours; it is why Ad 1 is the pinned reference and Ad 2 is not, and why --reference-mix mode exists. Do NOT widen a bound to make this file pass the audio rows.",
-   "notes": "\u26a0 A reference is not automatically a pass: gating Ad 2 against Ad 1's pinned numbers fails rows that measure HIS mixing. That is what --reference-mix mode exists for.",
+   "measured": "he cuts the PICTURE 1-15 frames off the audio splice on a pose-matched frame (22 of 33 cuts moved by -15..+10 at confidence >= 0.6). 14 pushes, 39% of talk. ⚠ AUDIO: this file FAILS artifacts, floor and tone against Ad 1's pinned reference -- his bed sits 6-7 dB hotter between words here. That is not a defect in his mix and not a bug in ours; it is why Ad 1 is the pinned reference and Ad 2 is not, and why --reference-mix mode exists. Do NOT widen a bound to make this file pass the audio rows.",
+   "notes": "⚠ A reference is not automatically a pass: gating Ad 2 against Ad 1's pinned numbers fails rows that measure HIS mixing. That is what --reference-mix mode exists for.",
    "sha256": "f21c69629ebf1f39c36dfb4b792a274af06e2650281056a50499c80074b8539b",
-   "bytes": 372767004
+   "bytes": 372767004,
+   "deliver": {
+    "format": "ad16x9",
+    "_why": "an editor's 16:9 master: push_coverage graded against the ad16x9 bounds (Muhammad anchors tighter than the website standard, so headroom is per-format)"
+   }
   },
   {
    "id": "ad1zee-vertical-processed-audio",
@@ -359,7 +395,7 @@
     "audio_gate:verbatim_lufs"
    ],
    "measured": "Zeeshan's -23.5 LUFS / LRA 5.9 / L/R +0.970 mix, lifted +9.9 dB into a 4x-oversampled limiter (alimiter 0.85), mono-summed, AAC 320k: -14.70 LUFS / LRA 4.1 / L/R +1.000; per second vs his +5.61..+9.90 dB, 52 of 249 s shaved > 1 dB. The gate it shipped under PASSED it: provenance 0.9989 (level-normalised), gain_flatness PASS (4.29 dB shave vs a 4.5 limit), the -14 LUFS and L/R rows PASS, qc.py 20/20.",
-   "notes": "('Zishan' is Wispr for Zeeshan.) \u26a0 The rows that passed it measured OUR TARGETS, not HIS AUDIO: -14 LUFS and L/R >= 0.98 would have FAILED Zeeshan's own mix, so the build processed his mix until they passed. The 1.8 LU loudness-range loss was measured and shipped as a 'trade-off' against the skill's own ~0.8 LU rule of thumb. The verbatim rows (audio_gate --reference-mix <his export> --verbatim) fail it three ways.",
+   "notes": "('Zishan' is Wispr for Zeeshan.) ⚠ The rows that passed it measured OUR TARGETS, not HIS AUDIO: -14 LUFS and L/R >= 0.98 would have FAILED Zeeshan's own mix, so the build processed his mix until they passed. The 1.8 LU loudness-range loss was measured and shipped as a 'trade-off' against the skill's own ~0.8 LU rule of thumb. The verbatim rows (audio_gate --reference-mix <his export> --verbatim) fail it three ways.",
    "sha256": "8fc644575789b26c04e63f3a24464fc79be21d443502db8ec7752760f24f11ee",
    "bytes": 448375174
   },

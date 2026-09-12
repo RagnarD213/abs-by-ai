@@ -496,6 +496,28 @@ each one was arrived at by getting it wrong first.
    interactions run near real time (1.2–1.9×) and the progress/loading screens ~5× —
    a uniform speed makes the app's loading feel slow (Dan's 3:13 note).
 
+14. **⚠ THE FRAMING STANDARD IS LOCKED (Dan, 2026-09-08) AND THE DELIVERED FILE IS GATED ON IT
+   (2026-09-12).** Framing is 4 of Dan's 11 recorded rejections, and until 2026-09-12 this skill —
+   which re-crops Dan into vertical for every ad — had no framing rule at all. The standard, which
+   cost the website video four revisions and is not open for renegotiation (memory
+   `framing-standard-hair-anchored`):
+   * **every talking-head crop is anchored to the MEASURED TOP OF HIS HAIR** — never to the frame
+     edge, never to a skin/hairline detector (rev 3's hairline detector read 90 px inside his hair
+     and cut it in 23 of 26 holds: *"basically not usable"*);
+   * **per hold, that hold's tallest hair instant sits ~4 % of the crop height below the top edge**
+     (~43 px at 1080p, ~77 px in a 1080×1920 vertical). Delivered: hair ≥ 20 px from the edge on
+     every frame, per-hold minimum 30–70 px, median ≤ 75 px, all ×(H/1080);
+   * **two levels only** — NEAR (hair → belly button) and FAR (hair → shorts line, waistband in
+     frame). **No wide level exists**, and no knees in a talking shot;
+   * **the head band sits on the vertical centre line** (rule 5 and rule 11 say how: a smoothed
+     face track, never one fixed x). Dan caught `v2-short3` 133 px off: *"one of my arms is cut
+     off and there's space on the other side"*;
+   * **a push schedule, never one fixed crop** (rule 8).
+   The delivery gate's `framing:` rows (`_shared/deliver/checks/framing.py`) measure all five off
+   the DELIVERED pixels with mediapipe FaceMesh + Apple Vision person segmentation — no plan, no
+   set-specific background — and `<file>.framing_proof.jpg` is the native-scale proof sheet. Look
+   at it: the green line must sit on the top of his hair on the tightest tiles.
+
 ---
 
 ## Step 6 — BUILD ORDER
@@ -574,8 +596,9 @@ the current `GATE_VERSION`.
   must stay green, and it is what proves a bound change did not resurrect a rejected cut.
 
 ⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
-absorbed yet (framing is Phase 2, the watch pass is Phase 3 of
-`Handoffs/handoff-20260911-video-quality-engine.md`). **Run both until those land.**
+absorbed yet (the watch pass is Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`;
+**framing landed in the shared gate 2026-09-12** — the five `framing:` rows, Step 5 rule 14).
+**Run both until Phase 3 lands.**
 
 ## Step 7 — QC: the WATCH PASS is the gate; the metrics are preconditions
 

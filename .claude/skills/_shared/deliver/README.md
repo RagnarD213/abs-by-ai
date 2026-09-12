@@ -88,6 +88,7 @@ and pass every approved one. No gate or setting change ships unless it passes.
 | row | cost |
 |---|---|
 | the picture rows together (three decodes, shared) | ~75 s for a 4-minute 1080p master |
+| the five `framing:` rows (one 4 fps native decode, FaceMesh + two segmenters) | ~3–4 min for a 4-minute master on a quiet Mac |
 | `compliance:banned_screen` (every frame × 28 layout templates at a 384-wide grid) | ~11 min for 4 minutes of video |
 | everything else | seconds |
 
@@ -103,19 +104,31 @@ and a 2 fps scan stepped straight over it.
   against corpus entry `website-rev2`, because that build's plan is not on disk. Four delivered-pixel
   substitutes were measured on 2026-09-11 and none separated rev 2 from rev 4. See the note in
   `checks/captions.py` and in `qc_corpus/run.py`.
-* **`compliance:banned_screen` finds the violation but does not separate cleanly.** It was blind
-  before Phase 1 — and so are `/ad-edit`'s and `/website-video`'s own scans, which is a live Google
-  Ads exposure: whole-screen template matching matches the *recording*, and a different generation
-  of the same screen reads 0.526. Rebuilt as a paired chrome matcher it flags the real violation at
-  0.626, but an approved master's own app screen reads 0.577. The row is live and errs toward
-  flagging; it is **not** in the corpus, and the measured next step (left/right pairing of the photo
-  band) is in `formats.py`.
+* **`compliance:banned_screen` is registered in the corpus as of 2026-09-12 (Phase 2 item 0).**
+  Stage 3 tests the phone box the chrome located for the screen's own signature: **the band
+  between the two chrome strips is a photograph** (white fraction ≤ 0.50, luma sd ≥ 30) — on every
+  banned screen it is (0.00–0.30 white, sd 41–68) and on every look-alike it is a white panel
+  (rev 4's macro tracker 0.97 / 10, Muhammad's meal screen 0.94 / 19). Each banned time is also
+  classified off the source as *paired* (before/after, chrome bound 0.55) or *single* (the
+  email-capture form, 0.62). ⚠ Phase 1's proposed L/R pairing test was measured and is **not** the
+  discriminator: at the 384 grid a white table reads L/R 0.59 and the real before/after 0.37–0.60.
+  It is recorded in the detail. ⚠ Measured on the way: **Muhammad's Ad 2 master shows the
+  before/after screen at 3:11 and the email-capture screen at 3:12 and 3:23** — a live ad.
+  `/ad-edit`'s and `/website-video`'s own scans are still the blind whole-screen matchers; this row
+  is the one that counts.
 * **`watch:pass` is a hard gate for `ad9x16` and `ad1x1` only.** Every other format carries a dated
   `pending` note and the gate prints the row as PENDING — never as a pass. Phase 3 of
   `Handoffs/handoff-20260911-video-quality-engine.md` turns it on everywhere.
-* **`framing:*` is not here yet.** Phase 2 of the same handoff adds it, and it is the second-largest
-  rejection cause. Today's hair check (`website-video/reference/recipe/hairgate.py`) depends on the
-  luma profile of the door panel behind Dan in the 8/28 kitchen and cannot run on any other set.
+* **`framing:*` landed 2026-09-12 (Phase 2)** — five rows on one tracker (`checks/framing.py`):
+  mediapipe FaceMesh (plus the full-range detector for a small face) anchors the head band, Apple
+  Vision person segmentation (`shorts/reference/recentre/personmask`) gives the hair top, and the
+  independent top-rows test from `hairgate.py` now runs on a second segmenter (mediapipe selfie
+  segmentation) instead of the 8/28 door panel's luma. Needs no plan and no set-specific reference.
+  Proven on the corpus: fails rev 2, rev 3, `v2-short3-offcentre`, `ad1-vertical-attempt1`; passes
+  rev 4/5/6 and Muhammad Ad 2. Known limits: a face on a **photo card** is tracked like Dan on
+  camera unless the plan declares the card (the palette filter only drops cutaways whose palette
+  differs), and `personmask` is an arm64 binary that must exist on disk — the rows fail NOT MEASURED
+  without it, never silently.
 * **`style:coverage` for `short` is not measured on approved Shorts.** The five ab-wheel Shorts Dan
   approved are cut from Muhammad's master and have not been re-gated. The bound is borrowed from the
   lowest approved long-form-family reading and says so.
