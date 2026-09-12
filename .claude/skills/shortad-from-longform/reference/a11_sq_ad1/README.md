@@ -50,6 +50,18 @@ defect was in how a SELECTION cutdown is built, so every one of them is waiting 
    by the builder, from the lists it hands to `captions.render()`. **Any number a gate re-derives
    instead of reading is a number that can disagree with the render.**
 
+5. ⚠ **A CTC WORD END TRUNCATES A FRICATIVE — CEILING IT BY ONE FRAME IS NOT ENOUGH** (audit 3). The
+   34.10 s seam ended a range on "...six pack abs." and cut the "s" **at its loudest point**: in 5 ms
+   bins the sibilant runs −45 ms to +70 ms around the cut and was still RISING at **−20.9 dBFS**,
+   while CTC had ended the word 14 ms earlier. It played as "with ab-" into silence. `pad_tail()`
+   carries a range end forward in 5 ms steps while the mix is above **−35 dBFS**, capped at 0.30 s
+   and never into the next word. Measured on the delivered file: the last 10 ms before that seam went
+   from −23.8 to **−40.0 dBFS**. A range end that snapped onto a beat boundary is exempt.
+6. **The delivery-gate stamp travels with the file.** The gate is run from inside `cut/` for the
+   cutdown, so its sidecar sits beside THAT copy while the file that ships is the build root's.
+   `deliver_sq.py` now finds the stamp, asserts it says PASS, and copies it beside the delivered
+   bytes — a stamp that is not next to the file is a stamp nobody can check.
+
 ## Two more that are not the cutdown's
 
 * **The concat demuxer's trailing `file` line is RENDERED, and it must be the blank** ([S1].6, which

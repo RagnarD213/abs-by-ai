@@ -53,6 +53,20 @@ def main():
         if r.returncode:
             raise SystemExit('AUDIO GATE FAILED ON THE DELIVERED FILE ' + name)
         print(sh(['python3', f'{AUD}/require_stamp.py', dst]))
+        # ⚠ THE DELIVERY-GATE STAMP TRAVELS WITH THE FILE (audit 3, 2026-09-12). The gate is run
+        # from inside cut/ for the cutdown, so its sidecar sits beside THAT copy while the file that
+        # actually ships is the build root's. A stamp that is not beside the delivered bytes is a
+        # stamp nobody can check; `_shared/deliver/gate.py --check` looks for it next to the file.
+        import glob as _g
+        cand = [src + '.deliver_gate.json', os.path.join('cut', os.path.basename(src) + '.deliver_gate.json')]
+        st = next((c for c in cand if os.path.exists(c)), None)
+        assert st, f'NO DELIVERY GATE STAMP for {src} -- run _shared/deliver/gate.py --format ad1x1'
+        g = json.load(open(st))
+        assert g.get('verdict') == 'PASS', f'{src}: delivery gate stamp says {g.get("verdict")}'
+        shutil.copyfile(st, dst + '.deliver_gate.json')
+        if os.path.abspath(st) != os.path.abspath(src + '.deliver_gate.json'):
+            shutil.copyfile(st, src + '.deliver_gate.json')
+        print(f'  delivery gate {g["gate_version"]} {g["verdict"]} ({g.get("format")}) -> stamp delivered')
         for tag, vf, crf in (('REVIEW 540p 1x1', 'scale=540:540:flags=lanczos', '23'),
                              ('REVIEW 480p 1x1 phone', 'scale=480:480:flags=lanczos', '26')):
             rv = os.path.join(DEST, name.replace('| claude |', f'| {tag} |'))

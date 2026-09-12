@@ -85,6 +85,43 @@ def snap(t, tol=0.35):
 
 MASTER_FRAMES = 6976            # Muhammad's count; the square master is asserted to it
 
+
+# ⚠⚠ A CTC WORD END TRUNCATES A FRICATIVE. CEILING IT BY ONE FRAME IS NOT ENOUGH (audit 3, 2026-09-12).
+# The 34.10 s seam ended range 5 on "...six pack abs." and cut the "s" AT ITS LOUDEST POINT: measured in
+# 5 ms bins on his mix, the sibilant (high-frequency ratio 0.93-0.99) runs from -45 ms to +70 ms around
+# the cut and is still RISING at -20.9 dBFS on the cut frame, while CTC had ended the word 14 ms earlier.
+# It played as "with ab-" into silence. Ceiling the end (the audit-2 fix) bought one frame of it; the
+# word needs its DECAY. So a range end that is not pinned to a beat boundary is carried forward while
+# the mix is still loud, stopping at the first quiet frame -- never into the next word, and never more
+# than TAIL_MAX. Same class as the in-point clip audit 2 found, mirrored onto the out-point.
+TAIL_DB, TAIL_MAX, TAIL_GAP = -35.0, 0.30, 0.04
+
+
+def _mix():
+    """His mix, mono float, at SR. Decoded with the tool that wrote it (skill S1.11: `wave` raises on
+    ffmpeg's pcm_s24le and reads a float WAV silently wrong)."""
+    if not hasattr(_mix, 'a'):
+        raw = subprocess.run([FF, '-nostdin', '-v', 'error', '-i', 'his_mix.wav', '-map', '0:a',
+                              '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'],
+                             capture_output=True).stdout
+        _mix.a = np.frombuffer(raw, '<i2').astype(np.float32) / 32768
+    return _mix.a
+
+
+def pad_tail(b, snapped):
+    """Carry a range end past the CTC word end until the sound it belongs to has decayed."""
+    if snapped: return b
+    a = _mix()
+    nxt = min([w[1] for w in _CTC if w[1] > b + 1e-3] or [b + TAIL_MAX + 1.0])
+    lim = min(b + TAIL_MAX, nxt - TAIL_GAP)
+    t = b
+    while t < lim:
+        seg = a[int(t*SR):int((t + 0.005)*SR)]
+        if len(seg) == 0: break
+        if 20*np.log10(float(np.sqrt((seg**2).mean())) + 1e-12) < TAIL_DB: break
+        t += 0.005
+    return t
+
 def plan():
     """⚠ THE PLAN IS IN FRAMES, NOT SECONDS. A range expressed in seconds can ask for one
     frame more than the master holds (the last range's src1 is beats.DUR = 232.768 s, while
@@ -103,6 +140,7 @@ def plan():
         # on this cut it leaked the first frame of `today_flag` between the trees photo and the app
         # recording (the flicker audit 2 found) and turned a contiguous join into a real seam.
         n0 = max(0, int(round(a*FPS) if a_snapped else math.floor(a*FPS)))
+        b = pad_tail(b, b_snapped)
         n1 = min(int(round(b*FPS) if b_snapped else math.ceil(b*FPS)), MASTER_FRAMES)
         assert n1 > n0, (a, b, n0, n1)
         out.append(dict(src0=round(n0/FPS, 5), src1=round(n1/FPS, 5), frames=n1-n0, n0=n0,
