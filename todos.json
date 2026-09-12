@@ -23,24 +23,6 @@
       "addedAt": "2026-08-30"
     },
     {
-      "text": "Get the Meta/IG engagement + follower ads running: switch auto-boost ON, run the $50 profile-visits review, decide the two OFF [DAN] [ENGAGEMENT] campaigns",
-      "priority": "key",
-      "why": "2026-09-08 PM planning — Dan: engagement campaigns on Google Ads and Instagram are the top priority; Meta followers + IG followers",
-      "addedAt": "2026-09-08"
-    },
-    {
-      "text": "Request Unemployment Payment",
-      "priority": "high",
-      "why": "Biweekly unemployment claim window",
-      "addedAt": "2026-09-09"
-    },
-    {
-      "text": "Launch the first Google Ads conversion campaign with the finished ads (Ad 2 V2 + Ad 1 vertical)",
-      "priority": "key",
-      "why": "2026-09-09 AM planning — Dan wants the first ads live on Google Ads; gated by the payment-method fix and the 2:30 rep call about the six LIMITED ads",
-      "addedAt": "2026-09-09"
-    },
-    {
       "text": "Review social media: comments, DMs, what posted, what is performing",
       "priority": "med",
       "why": "2026-09-09 AM planning — Dan's daily sweep; a session pre-pulls failed posts + comment counts",
@@ -50,12 +32,6 @@
       "text": "Cut 9:16 vertical ads from the finished editor cuts (Zeeshan's Ad 1 first, Muhammad's as each goes final)",
       "priority": "high",
       "why": "Dan 09-10 /prioritize: 'a few ads Muhammad finished that I need to make verticals from'. Ads 1+2 already have verticals; Zeeshan Ad 1 is final with none; Muhammad Ads 3-14 are still in revision rounds.",
-      "addedAt": "2026-09-10"
-    },
-    {
-      "text": "Finish the /start landing page (video placement + PostHog flag)",
-      "priority": "high",
-      "why": "Dan 09-10 /prioritize. Live since 09-09; the owning session is waiting on Dan's video-placement feedback; the PostHog flag vsl-landing-variant still needs creating by hand.",
       "addedAt": "2026-09-10"
     },
     {
@@ -71,39 +47,15 @@
       "addedAt": "2026-09-10"
     },
     {
-      "text": "Build an alternate /start path for visitors with no photo handy",
-      "priority": "high",
-      "why": "Dan 09-10 /prioritize ('get an alternate path' — Claude's reading, confirm). Funnel: 516 of 571 /start-era visitors (90%) never upload a photo.",
-      "addedAt": "2026-09-10"
-    },
-    {
       "text": "Live card test of the new web cart: private window → Monthly → pay $0 → confirm logged in + set-password email → cancel before day 7",
       "priority": "key",
       "why": "Claude's add, 09-10 evening /prioritize. The pay-first cart went live 09-10 and no real card has been through it; the Demand Gen campaign ($20/day) now sends paid traffic into it. Steps: Docs/WEB_CART.md.",
       "addedAt": "2026-09-10"
     },
     {
-      "text": "Check the Google Ads campaigns: Demand Gen conversion first day (spend, policy on the 2 limited ads), Search after the 09-09 fixes, YouTube engagement champions",
-      "priority": "high",
-      "why": "Dan 09-10 evening /prioritize: 'check on those ad campaigns'. Demand Gen 24243839443 enabled 09-10 16:12 CT.",
-      "addedAt": "2026-09-10"
-    },
-    {
-      "text": "Add the new finished ads to the Google Ads campaigns with thumbnails / cover images (Ad 5 now; Zeeshan's Ad 1 verticals once approved; Ads 3 + 4 when Muhammad's HD lands)",
-      "priority": "key",
-      "why": "Dan 09-10 evening /prioritize. Ad 5's YouTube upload is scheduled-private until 09-16, so the ad needs its own unlisted copy.",
-      "addedAt": "2026-09-10"
-    },
-    {
       "text": "Check the iOS App Store review status (expedited); on approval fire the RevenueCat restore audit",
       "priority": "high",
       "why": "Dan 09-10 evening /prioritize. Still IN_REVIEW at 09-10 ~7 PM CT (API read); expedite granted 09-10.",
-      "addedAt": "2026-09-10"
-    },
-    {
-      "text": "Upwork: forward the 09-10 revisions doc to Muhammad, then give revisions on any new cuts",
-      "priority": "high",
-      "why": "Dan 09-10 evening /prioritize. Six sections were appended 09-10 to batch doc 1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A; paste-ready messages in out/*.summary.md.",
       "addedAt": "2026-09-10"
     },
     {
@@ -129,49 +81,38 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-11"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-11"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-11"
+      "recurring": true
     },
     {
       "text": "Salad by 2:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-11"
+      "recurring": true
     },
     {
       "text": "Large meal by 6:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-11"
+      "recurring": true
     },
     {
       "text": "Small meal by 9:00 PM",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-11"
+      "recurring": true
     },
     {
       "text": "Get the Oura ring syncing again",
       "priority": "high",
       "why": "Dan 09-10 /prioritize. API token is fine (200) and heart rate synced 7:23 AM, but no sleep score for 09-07, 09-08 or 09-10 — a ring/phone sync problem, not the account.",
       "addedAt": "2026-09-10"
-    },
-    {
-      "text": "Inject Zepbound",
-      "priority": "high",
-      "addedAt": "2026-09-11"
     }
   ],
   "personal": [
