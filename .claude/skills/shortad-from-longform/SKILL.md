@@ -1660,6 +1660,18 @@ first one actually cost. Build dir `/Volumes/Extreme/_edit_work/ad1-sq/` (`sqlib
     extractions in this build were of a stale copy, and one looked exactly like a defect that had
     already been fixed.
 
+22. ⚠ **A `pgrep -f` WAIT LOOP MATCHES ITS OWN SHELL AND NEVER EXITS.**
+    `until ! pgrep -f "qc_corpus/run.py" > /dev/null; do sleep 45; done` never finishes: the
+    loop's own command line CONTAINS that string, so pgrep always finds at least one match --
+    itself. Five of these ran for 18 hours on this build, long after their jobs were done, and
+    they are what a user sees in the background-task list. Wait on something that cannot
+    match the waiter: a sentinel file, a marker line in the log, or the PID captured with `$!`.
+    (Related, and separately paid for: **never `pgrep -f "python3 X.py"`** -- these scripts run
+    under the framework Python, whose command line reads `Python X.py`, so that wait matches
+    nothing and the next step races the build. And **never put a step that must fail the chain
+    behind a pipe**: `cmd | tail` returns tail's status, so `set -e` never sees the failure --
+    that is how a mux failed and the rest of the chain silently graded the previous file.)
+
 15. **Gates that must be rebuilt for 1:1, not reused:** the hair gate's bound is the standard's
     **fraction** of frame height (36/1920 = 1.875 % → 20 px of 1080), `centering.py` samples
     270×270, `caption_sync_check.py` must read the build's own `CAP_Y` (hard-coded at 1385 for
