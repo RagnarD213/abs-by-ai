@@ -7,7 +7,7 @@
         "sharkimageryproduction@gmail.com"
       ],
       "upwork_room": "room_49041dfecc20c11fb2d7b9b0b8aac744",
-      "shares_by": "individual files (each gets sharedWithMeTime) \u2014 Drive search finds these"
+      "shares_by": "individual files (each gets sharedWithMeTime) — Drive search finds these"
     },
     "Zeeshan": {
       "upwork_name": "Zeeshan Haider",
@@ -23,10 +23,14 @@
         {
           "id": "1xEK_71af1L8toiSEk2F_Jqwarw5mW2RC",
           "title": "video 2"
+        },
+        {
+          "id": "1UpJwDPWplSH_Sf1HctTZwEXd28gn_fnI",
+          "title": "content batch video 1 (ab wheel workout only) — rev 1"
         }
       ],
-      "shares_by": "folder \u2014 files inside are INVISIBLE to every Drive query until opened; list the folders in the browser every run",
-      "folder_scan_expected": 6
+      "shares_by": "folder — files inside are INVISIBLE to every Drive query until opened; list the folders in the browser every run",
+      "folder_scan_expected": 8
     },
     "Waleed": {
       "upwork_name": "Waleed Ahmad",
@@ -34,7 +38,7 @@
         "info.taimoormirzaa@gmail.com"
       ],
       "upwork_room": "room_6238c4790346683db7c5ddf3f3d48122",
-      "shares_by": "individual files (each gets sharedWithMeTime) \u2014 Drive search finds these"
+      "shares_by": "individual files (each gets sharedWithMeTime) — Drive search finds these"
     }
   },
   "filed": [
@@ -135,7 +139,7 @@
       "drive_id": "1o96syme-vP549sjtgfdtezvFXtwz-_n2",
       "editor": "Zeeshan",
       "file": "Test Video 2 Revision 2.mp4",
-      "why": "$17 ab wheel round 3 \u2014 8 revision items open 2026-09-08 (superseded by Rev 3, filed 09-10)"
+      "why": "$17 ab wheel round 3 — 8 revision items open 2026-09-08 (superseded by Rev 3, filed 09-10)"
     },
     {
       "drive_id": "1YtpMv-U9sSMbHqEEiUsDKDS82S51xldz",
@@ -151,7 +155,7 @@
       "file": "Video  2.mov (double space)",
       "size": 770091180,
       "delivered_on": "2026-08-27",
-      "why": "NOT a new delivery \u2014 770,091,180 B near-duplicate of video-2.mov (770,091,169 B), same Aug 27 round-1 ab-wheel cut re-uploaded. Recorded so folder_scan.py does not re-flag it every run."
+      "why": "NOT a new delivery — 770,091,180 B near-duplicate of video-2.mov (770,091,169 B), same Aug 27 round-1 ab-wheel cut re-uploaded. Recorded so folder_scan.py does not re-flag it every run."
     },
     {
       "drive_id": "1KqmGfSPQkXRiXdvPkt9c419KMlmvz6YW",
@@ -337,16 +341,43 @@
       "file": "Video 3.mp4",
       "size": 276692587,
       "delivered_on": "2026-09-11",
-      "why": "content batch VIDEO 1 (ab wheel workout only) round-1 cut \u2014 'Video 3' is his own running count, his message says 'the first video'. Round-1 revisions written 2026-09-11 at the top of 'Zeeshan Video Revisions'. Shared as a single file (has sharedWithMeTime), not in a folder."
+      "why": "content batch VIDEO 1 (ab wheel workout only) round-1 cut — 'Video 3' is his own running count, his message says 'the first video'. Round-1 revisions written 2026-09-11 at the top of 'Zeeshan Video Revisions'. Shared as a single file (has sharedWithMeTime), not in a folder."
+    },
+    {
+      "drive_id": "1vKp_AVbHapPFkg2prpNI2Sh4x5p5Mlwj",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 7 v3.mp4",
+      "size": 26259199,
+      "delivered_on": "2026-09-11",
+      "why": "26 MB draft; Ad 7 round 3 revisions written 2026-09-11 on this exact cut (revision docs/ad7-revisions-muhammad-round3-9-11-26.md). Sent in his 09-11 18:16Z message as 'AD 7 V3', no final wording."
+    },
+    {
+      "drive_id": "1mMJbTvk1cRcAbEzW0IbTW5pGr7xCcIAq",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 10 V2.mp4",
+      "size": 21413677,
+      "delivered_on": "2026-09-11",
+      "why": "21 MB draft; Ad 10 round 2 revisions written 2026-09-11 on this exact cut (revision docs/ad10-revisions-muhammad-round2-9-11-26.md). Sent in his 09-11 18:18Z message as 'AD 10 v2', no final wording."
     }
   ],
-  "pending": [],
-  "resolved_2026-09-10": [
-    "Zeeshan 'thread unread' \u2014 room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
-    "Romaisa R. (room_3a0dd1a1\u2026) \u2014 not an editor on the job: an applicant following up ('I hope you've found a good editor\u2026 available to work'). Same for Abdul W. (room_549d5bcc\u2026, proposal) and Gbadamosi I. (room_3f398d8b\u2026, 'How are you?'). None delivered anything."
+  "pending": [
+    {
+      "drive_id": "1u2wS_z4AVhPBMOQIcqdDe99GuNHquUZ_",
+      "editor": "Zeeshan",
+      "file": "Video Rev 1.mp4",
+      "size": 300779658,
+      "delivered_on": "2026-09-12",
+      "reason": "Round-2 cut of content batch VIDEO 1 (ab wheel workout only), answering Dan's round-1 revisions of 2026-09-11. HD-class (301 MB) and no revision round dated after it, so rules 2 and 3 pass — but rule 1 fails: his 09-12 07:04Z message says only 'Hello brother here is the revised video', not final/HD wording, and Dan has not reviewed it yet. Same shape as 'Video 2 Rev 3.mp4', which was filed only after Dan wrote 'it's finalized'. File it the moment Dan approves. Delivered in a NEW shared folder 1UpJwDPWplSH_Sf1HctTZwEXd28gn_fnI (now registered), alongside 'Video 2 Subtitle.srt' id 1dKwjimAp18El3KymD2MVqvzTHYOxx3JU, 12,543 B — a DIFFERENT file from the already-filed 11,980 B srt of the same name; check which one belongs to this cut before filing.",
+      "added_on": "2026-09-12"
+    }
   ],
-  "last_run": "2026-09-11",
+  "resolved_2026-09-10": [
+    "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
+    "Romaisa R. (room_3a0dd1a1…) — not an editor on the job: an applicant following up ('I hope you've found a good editor… available to work'). Same for Abdul W. (room_549d5bcc…, proposal) and Gbadamosi I. (room_3f398d8b…, 'How are you?'). None delivered anything."
+  ],
+  "last_run": "2026-09-12",
   "watch": [
-    "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder \u2014 so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final."
+    "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder — so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final.",
+    "Waleed is BLOCKED and it is Dan's to clear: his 2026-09-11 10:57Z Upwork message says 'I don't have an access to the document you gave me for round 3.' No delivery from him since 'Test Video 1_Final.mp4' (09-05, superseded by round-3 revisions). He cannot start round 3 until Dan opens sharing on that revisions doc."
   ]
 }
