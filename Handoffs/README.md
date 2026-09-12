@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260911-vqc-phase2-portable-framing.md](handoff-20260911-vqc-phase2-portable-framing.md) | **now** — Phase 2 of the video-quality engine; Phase 1 is done (`eff3896`, `5e10200`). Portable framing into the shared gate + the banned-screen pairing fix first (a live Google Ads exposure). Fable 5.1 high, ~2 sessions |
 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | READ FIRST for any square build — the 1:1 translation rules, gates, naming, after-build steps and the firing order for the six per-ad docs below |
 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | **2nd** — now; Ad 1 (Muhammad) square from `ad1-8-14/vert9x16/`, land on his 6,976 frames. Fable 5.1 high |
 | [handoff-20260911-square-ad5-muhammad.md](handoff-20260911-square-ad5-muhammad.md) | **3rd** — after the Ad 5 vertical revisions handoff runs and Dan approves. Fable 5.1 high |

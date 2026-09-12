@@ -471,6 +471,14 @@ prompts. Whoever runs one deletes its row there AND removes it here and from `Ha
   all** — a fix lands in 1 of 6 pipelines. Acceptance test throughout: `_shared/qc_corpus/run.py` green.
   Fable 5.1 high, ~3–4 sessions. ✅ VQC-A done (`a696ac4`). Evidence: `…-video-quality-to-muhammad-standard.md`;
   baseline `Docs/VQC_baseline_20260909.md`. **Not on the dashboard** (his 09-08 rule).
+- **`Handoffs/handoff-20260911-vqc-phase2-portable-framing.md`** — **PHASE 2, fire next.** Phase 1 of the
+  engine doc is DONE and pushed (`eff3896`, `5e10200`). Makes the framing standard portable: today's hair check
+  depends on the luma profile of the door behind Dan in the 8/28 kitchen and runs on one set in one skill, while
+  `/shortad-from-longform` re-crops him into vertical for every ad with **no framing rule at all**. All five
+  `framing:` rows are arithmetic on one per-frame tracker; the corpus already encodes the acceptance test (fail
+  rev 2 / rev 3 / `v2-short3-offcentre`, pass rev 4 / 5 / 6). ⚠ **Item 0 first, half a session: the banned-screen
+  pairing fix — our compliance scan is BLIND and so are `/ad-edit`'s and `/website-video`'s**; the discriminator is
+  already measured (`_shared/deliver/formats.py`, `_BANNED`). Fable 5.1 high, ~2 sessions. **Not on the dashboard.**
 - **`Handoffs/handoff-20260909-vqc-C-phase4-cut-technique.md`** — **fire after the engine doc's Phase 1,
   BEFORE its Phase 4.** The measured #1 gap to Muhammad: he cuts picture **1–15 frames off the audio splice on a
   pose-matched frame** (`piccuts.py`, built for Ad 2, never promoted) — plus 0 px landing, dead air paired with a
