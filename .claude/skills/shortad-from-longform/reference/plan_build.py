@@ -8,15 +8,14 @@ what the render actually says, not what the script meant to say).
 """
 import json, os, subprocess, sys, hashlib, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# ⚠ RUN FROM INSIDE THE BUILD DIR THE PLAN IS FOR (skill A6.18). Imported from the parent, the CUTDOWN's
+# plan picked up the MASTER's captions.py and wrote the master's 185 cues into cut/plan_assets/captions.srt
+# while plan['words'] held the cutdown's 189 -- a plan that describes neither file.
 CUT = '--cut' in sys.argv
-D = 'cut' if CUT else '.'
-sys.path.insert(0, D)
-import importlib
-B = importlib.import_module('cut.beats' if CUT else 'beats') if False else None
-if CUT:
-    sys.path.insert(0, os.path.abspath('cut')); import beats as B          # noqa
-else:
-    import beats as B                                                      # noqa
+if CUT: os.chdir('cut')
+D = '.'
+sys.path.insert(0, os.getcwd())
+import beats as B                                                          # noqa
 FPS = B.FPS; NTOT = B.NTOT
 VID = f'{D}/ad5_vertical_9x16_59s.mp4' if CUT else 'ad5_vertical_9x16.mp4'
 tl, ov = B.timeline()
@@ -88,7 +87,7 @@ open(f'{D}/plan_assets/captions.srt', 'w').write('\n'.join(srt))
 
 plan = dict(
     target_seconds=round(NTOT/FPS, 6), target_frames=NTOT,
-    reference_cut=os.path.abspath('ref/ad5_v3_hd.mp4') if not CUT else None,
+    reference_cut=None if CUT else os.path.abspath('ref/ad5_v3_hd.mp4'),
     joins=joins, covered=covered, cards=cards, punch=punch, punch_covered=punch_covered,
     real_photos=real_photos, ai_inserts=ai_inserts,
     label_chips=dict(real=os.path.abspath(f'{D}/plan_assets/chip_real.png'),

@@ -620,15 +620,19 @@ build copies still write the fixed `/tmp` paths and can still collide with each 
 skill's version.** ⚠ The new `_shared/deliver/gate.py` is NOT yet wired to this build: see the note below. Build dir
 `/Volumes/Extreme/_edit_work/ad5-vert/`. Delete this entry once Dan approves the revised cuts.
 
-**`_shared/deliver/gate.py` vs the Ad 5 vertical — 23+ rows pass, and three findings for whoever owns Phase 2.** Run with a
-full `plan.json` generated from the build (`plan_build.py`, committed beside the recipe). (1) **`compliance:labels` cannot
-be measured on a Muhammad-style build:** it takes ONE chip position per kind, and his card design puts the AI chip at each
-card's own bottom-right corner — ours sit at four different positions, so three of them read as "missing". The real-picture
-chip (one fixed position) passes on all seven photos and nothing carries the WRONG label. (2) **`cut:min_segment` flags two
-framing segments of 3 and 5 frames** (68.60 s, 133.17 s) — pre-existing in the crop Dan approved, surfaced by the new gate;
-not re-run, because `zcrop` must not be re-run while the EDL is unchanged. (3) **`captions:graphic_clearance` needs per-graphic
-MOVs** that a Python frame compositor never produces. ⚠ Feeding `crop.json`'s `holds` straight into `punch` is wrong — 20 of
-68 are contiguous same-level splits and read as jump cuts that do not exist; merge them first (`plan_build.py` does).
+**`_shared/deliver/gate.py` RUN ON THE AD 5 VERTICAL — master 26 pass / 2 fail, cutdown 27 / 1; three findings for whoever
+owns Phase 2.** `plan_build.py` (committed, `reference/`) generates the plan from a build's own files incl. a Whisper
+transcript of the FINISHED render. Passing: script_fidelity **100 %**, banned_screen clean over 7,036 frames, uncovered_joins
+**0**, jump_cut **0**, click_at_joins 0/58, lipsync 0.000 ms, card_collision 0/86, watch:pass tied by sha256.
+(1) **`compliance:labels` cannot be measured on a Muhammad-style build:** it takes ONE chip position per kind, and his card
+design puts the AI chip at each card's own bottom-right corner — ours sit at four positions, so the goal-image card (10 px
+off) reads 0.23. **`0 carrying the WRONG label`**; the real-picture chip passes on all seven photos, and the row PASSES on
+the cutdown. (2) **`cut:min_segment` flags two framing segments of 5 and 3 frames** (68.60 s, 133.17 s) — pre-existing in
+the crop Dan approved, surfaced by a gate that postdates it; `zcrop` was not re-run because the EDL did not change. A
+one-line merge of each stub into the hold before it would clear it in a future round. (3) **`captions:graphic_clearance`
+needs per-graphic MOVs** a Python frame compositor never produces; **`captions:sync` NOT MEASURED** (needs cues after 0.3 s
+of silence; this cut has one) — `qc.py` 20 covers it at 99.7 %. ⚠ **Feeding `crop.json`'s `holds` straight into `punch` is
+wrong** — 20 of 68 are contiguous same-level splits and read as **8 jump cuts that do not exist**; merge them first.
 
 **sixpackabs.com video-first redesign — LIVE ON PRODUCTION 2026-09-11, Dan confirms.** https://sixpackabs.com now
 runs `sixpackabs-child`: video-first homepage (latest long-form plays in place), a page per public video at
