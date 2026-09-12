@@ -68,7 +68,20 @@ def load_words(source='words_ctc.json'):
 
 def suppressed():
     """Where captions must not run: graphics that carry their own words, plus any beat
-    explicitly flagged caps=False (a card with a kicker or a caption)."""
+    explicitly flagged caps=False (a card with a kicker or a caption).
+
+    ⚠ IN A CUTDOWN THIS LIST IS READ FROM `mute.json`, WRITTEN BY THE CUTDOWN BUILDER (2026-09-12).
+    The builder maps the MASTER's spans through the range plan; the generated cut beat sheet maps
+    the BEATS. Those two agree to within a few milliseconds -- and a few milliseconds is enough,
+    because groups() treats a word starting within 0.15 s of a span as muted. On this cutdown the
+    card beat read 2.936 in the generated sheet against 2.950 in the builder, which muted one extra
+    word: the render burned 103 caption states and `caption_sync_check.py`, re-deriving the
+    grouping from THIS function, graded 104 and reported three "misses" on captions that are
+    correct on the frame. One file, written once, read by both."""
+    import os as _os, json as _json
+    _m = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'mute.json')
+    if _os.path.exists(_m):
+        return [tuple(x) for x in _json.load(open(_m))]
     tl, ov = BT.timeline()
     # Lower thirds AND CTA pills print words of their own, so they mute the captions for
     # their duration exactly as the bullet screens do. Missing 'cta' here ran the captions
@@ -77,7 +90,33 @@ def suppressed():
             if b['kind'] in BT.NO_CAPS_KINDS or b['kind'] in ('lt','cta') or b.get('caps') is False]
 
 def groups(words, mute):
-    def muted(t): return any(a - 0.15 <= t <= b + 0.05 for a, b in mute)
+    # ⚠ THE MUTE SLACK MUST NOT REACH ACROSS A CUTDOWN SEAM (2026-09-12, Ad 1 square audit 2).
+    # A word is treated as muted if it starts within [a - 0.15, b + 0.05] of a suppressed span --
+    # slack that stops a caption flashing on the first or last frames of a graphic. At a SEAM the
+    # graphic is not there any anymore: the next range's picture is a different part of the film.
+    # Measured on this cutdown: the first CTA pill's mute ends exactly on the 34.10 s seam and its
+    # +0.05 swallowed "You're" at 34.133, so the line read "more attractive to" while the audio
+    # said "You're more attractive to women". SEAMS is [] on a master, so nothing outside a
+    # cutdown changes. It lives HERE, not in the cutdown builder, because caption_sync_check.py
+    # re-derives the grouping from this same function -- a fix applied in only one of the two
+    # makes the gate grade a grouping the render never had (it read 99.0 % on correct captions).
+    _seams = sorted(getattr(BT, 'SEAMS', []) or [])
+
+    def muted(t):
+        for a, b in mute:
+            lo, hi = a - 0.15, b + 0.05
+            # ⚠ COMPARE WITH A TOLERANCE. A span clamped to a range edge and the seam itself are
+            # computed by two different sums (dst0 + (a1 - src0) vs the next range's dst0) and came
+            # out 1e-5 apart on this cut -- so an exact `s >= b` never matched, the slack stayed at
+            # b + 0.05, and "You're" was muted again after the rule moved here. 1 ms is far below
+            # the 50 ms slack this is clamping and far above the float noise.
+            EPS = 1e-3
+            for s in _seams:
+                if s >= b - EPS: hi = min(hi, s); break
+            for s in reversed(_seams):
+                if s <= a + EPS: lo = max(lo, s); break
+            if lo <= t <= hi: return True
+        return False
     gs, cur = [], []
     for w in words:
         if muted(w[1]):
