@@ -433,7 +433,15 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **`Handoffs/handoff-20260911-codex-video-editing-trial.md`** — Dan's one-month trial through Oct 11: raw footage to Muhammad's standard; first organic ab-wheel + Ad 1, then transfer tests. Codex owns this trial; no dashboard row. Next: independent raw-audio/picture sample of the ab-wheel video.
+- **Codex trial handoff series — `Handoffs/codex-video-trial/00-start-here.md`**, then in order: `01-reference-study.md`, `02-raw-footage-sample.md`, `03-first-organic.md`, `04-first-ad.md`, `05-reusable-recipes.md`, `06-unseen-videos.md`, `07-lower-cost-repeat.md`, optional `08-format-pilot.md`, and `09-final-decision.md` by Oct 11. Models/efforts and prerequisites are in the guide; master context remains `Handoffs/handoff-20260911-codex-video-editing-trial.md`. Local documents; Codex owns the separate trial; no dashboard row.
+
+- **`Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`** — Dan's round-2 revisions on the Ad 5 vertical:
+  (1) the app demo must show the SAME man in the before and after (his after is NOT in the library — both existing pairs
+  are white men — so it has to be generated for him through the live app, never composited); (2) the "Real picture of me"
+  label goes on EVERY real picture of Dan (six more beats), moved off his abs, and made larger. ⚠ "Above my head" is not
+  available — the sources cover-crop to full height and his hair sits 135 px from the top, inside the Shorts UI band; the
+  doc specs the band just under the top safe line instead, and the one-line label caps at 52 px so two lines at 64–72 px
+  is the recommendation. ⚠ `g5.real_chip` is shared with the Ad 4 vertical. Opus, high. **Not on the dashboard.**
 
 Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
@@ -501,7 +509,7 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
-**Codex one-month video-editing trial — PLAN SAVED LOCALLY (2026-09-11).** Interview/source inspection complete; plan in `Handoffs/handoff-20260911-codex-video-editing-trial.md`, also saved on LOCAL branch `codex/video-trial-plan-private`. Automatic review blocked the push; GitHub confirmed the repo is public, so do not stage/push the plan containing Dan's business details without explicit publication consent. Codex owns the separate trial; next: freeze ab-wheel references and rebuild 60–90 seconds from raw picture/audio, respecting the two-build cap; no trial render yet.
+**Codex one-month video-editing trial — 01 REFERENCE STUDY RUNNING (2026-09-12, Codex owns trial only).** Verifying the two Muhammad masters, raw rolls and historical baselines; preparing source maps/style cards for 02 in `Media/codex-video-trial/records/`. No other video handoff is being executed. Private local records/branch only under the trial storage instruction; next: complete supported picture/audio study and freeze the sample brief; no dashboard row.
 
 **Video-quality engine PHASE 1 — SHIPPED 2026-09-11 (`eff3896` + follow-up), nothing blocked. Two things for Dan.**
 `_shared/deliver/gate.py` is now THE delivery gate for all seven video skills — **30 rows x 7 formats, no holes**
@@ -583,21 +591,22 @@ stranger from the recording (lesson 40). Audio fine on both. Md copies in `revis
 **Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — IN PROGRESS (session started
 2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive `1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3` (265.2 s, 29.97);
 raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/` (a7 pipeline). Ad 4's vertical is a DIFFERENT
-session in `ad4-vert/` — do not touch either build dir. **Status 20:00 CT: RENDER 3 BUILT AND WATCHED; render 4 waits
-on the second audit.** Render 3 passed every gate (7,948 frames, his audio md5 = his, caption sync 397/397, hair gate,
-0 black frames, no duplicated frames at any cut) and carries all 18 audit-1 findings + the 3 from my first watch pass.
-My watch pass ON RENDER 3 (42 sheets, 249 boundaries) then found 3 MORE, now coded for render 4: (1) ⚠ **the app card
-still showed the stranger** — the floor fixed its opening, but the recording's "Creating your future self" screen puts
-that man's photo back on screen full size from source 8.52 s, and the card ran to 10.23; it now ends at 8.45, on the
-Generate button (both library recordings are the same session — there is no take with Dan); (2) three ZOOM ISLANDS
-(1665, 3407, 7155) where a picture cut landed 4-7 frames before a punch, so the level popped FAR and straight back —
-the audit's item 11 in three more places; a new PUNCH_SNAP rule starts a punch AT the cut when one is within 10 frames,
-which also matches his own measured ramp starts (fit.json: ~1666, ~3409, ~4819, ~7155); (3) the forced level flip at
-1732 did nothing and should not — his scale reads a flat 1.22 either side of his own cut there, so any change would be
-ours. Verified fixed on screen: the four moved cuts, window headroom, the workout phone opening on the top, headers
-typing on, the real-picture label on all four stills, his flag pop-zoom. Cutdown NOT yet rebuilt (`cut5.sh`; cut/ is a
-FORK with its own beats/g3/g5 and an embedded time map). Cutdown true peak −0.90 dBTP vs a −1.0 bar — ✅ Dan accepted
-exactly that on Ad 4 on 09-11 ("I think the audio sounded fine"), which likely answers this too.
+session in `ad4-vert/` — do not touch either build dir. **Status 09-12 00:10: RENDER 6 BUILDING; three audits done, the
+third still says "does not ship" on ONE class of defect that is now fixed.** Renders 3-5 are gated and watched (master
+20/20 incl. the watch pass; cutdown 17/20). Audit 3 confirmed every round-3 fix held — the take, BOTH stranger fixes,
+the zoom islands, all three phone scrolls, the ramps, 1732, 6062, his audio bit for bit — and then found six naked
+picture snaps, **all one cause: the cut sat on the AUDIO splice while HIS picture steps 2-4 frames away.** That is the
+fourth time this build made that mistake and it is the ad's lesson. Fixed against pic.json (r 0.97-0.98 either side):
+3000→2998, 3966→3964, 4285→4289 (under his flash), 5746→5748, 6779→6781 (his leak's SECOND pulse). Two more of the six
+were MY round-3 doing: following his AUDIO through the 32-47 s window invented cuts at 1079/1120/1272. His picture is a
+rock-solid 818 from 957 to 1080 and 1455 from 1355 to 1423 — he HOLDS one take across the window and cuts once,
+pose-matched, at 1355 — so it is now ONE segment 957-1355 with his single cut, which deletes all three. ⚠ **Two of
+audit 2's findings were my own fixes making things worse** (a score filter froze all three phones; a forced level flip
+at 1732 contradicted his flat 1.22) — both undone. New tools worth promoting: `ztake.py` (which take his AUDIO is on —
+envelope vs the raw LAV; ⚠ this roll's two mics are polarity-inverted so `-ac 1` cancels the voice, and waveform
+correlation dies in his mix), `znostranger.py`, `zhisstep.py`, `zpicjoin.py`. Next: gates + watch pass + audit 4 on
+render 6, rebuild the cutdown (`cut5.sh`), then deliver. Cutdown's only blockers are Dan's: true peak −0.90 dBTP
+(✅ he accepted exactly that on Ad 4 09-11) and insert coverage 44% vs 55% (his cut has Dan to camera for both CTAs).
 ⚠ **Muhammad's Ad 3 v6 HD is NOT the approved round-5 draft:**
 at 2:14.1–2:23.1 the "Because even though I was a personal trainer…" bullet lost "back in my 20s, as a 38 year old dad
 running a successful ad agency." (proof `ad3-vert/hdcheck/w4_hd_vs_draft.png`, sent to Dan 14:38). Do NOT file or upload

@@ -448,6 +448,7 @@ exact timing or an exact link.
   - `STANDING RULE: Always show the AI generated goal image in clips where I am talking about generation functionality. Always label goal image at the end AI generated`
   - `STANDING RULE: Do not put AI generated label on real photos, only AI generated photos. All pictures from pool photo shoot used as after photos are real photos. Pool picture of me that is used as AI generated example is the only pool photo that is AI generated, the rest are real.`
   - `STANDING RULE (Dan, 2026-09-11): Every real after picture of me carries the label "Real picture of me — not AI-generated" (viewers were taking them for AI). AI pictures keep AI-GENERATED. One label or the other on every picture of my physique, never over my face.`
+  - `STANDING RULE (Dan, 2026-09-12): A before and after picture are the SAME PERSON. Never one person's before against another's after -- in an app recording, a result screen, a card or a thumbnail. If that person's after does not exist, it gets generated for THEM, never composited.`
   - `STANDING RULE: Make all AI generated clips of someone who is supposed to look like the successful prospect someone who looks like this. White or Asian man with abs, 30-50. Not fat, not bodybuilder muscular.`
   - `STANDING RULE: Use a guy who looks like this to illustrate "before" unsuccessful prospect. White or Asian male 30-50 in American average shape, with small belly`
   - `STANDING RULE: Do not use logos of other companies in our ads. Names of other companies are OK`

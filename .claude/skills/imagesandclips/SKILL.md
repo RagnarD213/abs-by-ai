@@ -278,6 +278,8 @@ the text for residue from any bad paste and for the banned copy rules.
 - The **AI future-self image keeps its "AI-GENERATED" tag**. Dan's real photo-shoot
   pictures carry the burned label "Real picture of me — not AI-generated" (Dan, 2026-09-11; viewers were taking
   them for AI) — the two labels are mutually exclusive, and neither ever sits over his face.
+- **A before and after picture are the SAME PERSON** (Dan, 2026-09-12): never source one person's before against
+  another's after; if that person's after does not exist, generate it for THEM rather than substituting someone else's.
 - Never write "GLP-1" or any drug name — "weight loss medication".
 - Crude-photoshop gags must be generic fakes, never a real person's face.
 - Never sell sleep.

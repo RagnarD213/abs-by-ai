@@ -13,7 +13,18 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260911-codex-video-editing-trial.md](handoff-20260911-codex-video-editing-trial.md) | **now, Codex owns the trial** — through Oct 11; first reproduce Muhammad's ab-wheel organic + Ad 1 from raw footage/audio, then test transfer and cost. Interview complete; original files located; no trial render yet |
+| [Codex trial: start here](codex-video-trial/00-start-here.md) | Shared rules, model recommendations, and execution order; documents remain local pending private/public storage decision |
+| [01 — Reference study](codex-video-trial/01-reference-study.md) | **now** — Astra / High; verify sources and learn Muhammad's organic/ad styles |
+| [02 — Raw-footage sample](codex-video-trial/02-raw-footage-sample.md) | after 01 — Astra / High; deliver the first 60–90 seconds for calibration |
+| [03 — First organic](codex-video-trial/03-first-organic.md) | after sample feedback — Astra / High; complete the ab-wheel video |
+| [04 — First ad](codex-video-trial/04-first-ad.md) | after 03's delivery/lessons — Astra / High; complete Ad 1 from raw |
+| [05 — Reusable recipes](codex-video-trial/05-reusable-recipes.md) | after organic/ad feedback — Sol / High; preserve the working process |
+| [06 — Two unseen videos](codex-video-trial/06-unseen-videos.md) | after 05 — Astra / High; first organic/ad transfer pair |
+| [07 — Lower-cost repeat](codex-video-trial/07-lower-cost-repeat.md) | after 06 review — Sol / High; second organic/ad pair and cost test |
+| [08 — Optional format pilot](codex-video-trial/08-format-pilot.md) | after accepted originals, if time/budget permit — Sol / High; vertical, square, derivative Short |
+| [09 — Final decision](codex-video-trial/09-final-decision.md) | October 9–11 regardless of unfinished tests — Sol / Medium; evidence and subscription decision |
+| [Original Codex trial plan](handoff-20260911-codex-video-editing-trial.md) | Interview/strategy record; execute the numbered series above, not a duplicate run of this plan |
+| [handoff-20260912-ad5-vertical-revisions-round2.md](handoff-20260912-ad5-vertical-revisions-round2.md) | **now** — Dan's round-2 revisions on the Ad 5 vertical: the app demo's before and after must be the same man (his after must be generated, it is not in the library), and the "Real picture of me" label on EVERY real picture, off his abs and larger. Opus, high |
 | [handoff-20260911-vqc-phase2-portable-framing.md](handoff-20260911-vqc-phase2-portable-framing.md) | **now** — Phase 2 of the video-quality engine; Phase 1 is done (`eff3896`, `5e10200`). Portable framing into the shared gate + the banned-screen pairing fix first (a live Google Ads exposure). Fable 5.1 high, ~2 sessions |
 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | READ FIRST for any square build — the 1:1 translation rules, gates, naming, after-build steps and the firing order for the six per-ad docs below |
 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | **2nd** — now; Ad 1 (Muhammad) square from `ad1-8-14/vert9x16/`, land on his 6,976 frames. Fable 5.1 high |

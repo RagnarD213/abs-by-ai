@@ -53,6 +53,18 @@ sessions (and any other assistant, if one is in use).
 - You are authorized to read and write the Victory Dashboard's task data (`/api/todos`, `/api/task-checks`, `/api/plan`) without asking for confirmation each time: adding a handoff row only when Dan explicitly asks for one (never automatically — Dan's rule 2026-09-08), checking off completed tasks, and updating the focus list, per the rules in AI_COORDINATION.md.
 - This authorization does not permit deleting tasks Dan created or rewriting task text he wrote.
 
+## A before and after picture are the SAME PERSON (Dan, 2026-09-12)
+
+- **Never mix people across a before/after pair.** Dan, on the Ad 5 vertical's app demo, which uploaded one man's photo and
+  returned his own AI result: *"Generally, going forward, don't mix before-and-after pictures. It should be the same person
+  in the before and after. That doesn't really make sense if you change the person."*
+- This binds every place a pair appears: an app recording, a result screen, a card, a thumbnail, a landing page. If the
+  "after" for a given "before" does not exist, **generate it for that person** (a real generation through the live product,
+  never a composite — an overlaid photo was rejected within minutes) or change the before so the pair matches. Do not ship
+  the mismatch and do not crop around it.
+- ⚠ The only real app recording in the asset library uploads a man who is **not Dan**, so every phone demo cut from it
+  inherits this fault until it is re-recorded.
+
 ## Label Dan's real pictures (Dan, 2026-09-11)
 
 - **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style and with the same placement rules as the AI label — low on the frame, above the caption band, never over his face. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.

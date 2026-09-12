@@ -157,7 +157,8 @@ below) is the worked example. Voice traits:
    (speakable, button-text-agnostic).
 4. **Compliance (settled decisions, don't relitigate):** every AI-generated
    goal/after image shown on screen keeps an "AI-GENERATED" label; Dan's real photos
-   carry the burned label "Real picture of me — not AI-generated" (Dan, 2026-09-11; viewers were taking them for AI). Keep claims positive-framed (aspiration, not body-shaming) for ad
+   carry the burned label "Real picture of me — not AI-generated" (Dan, 2026-09-11; viewers were taking them for AI).
+   **A before and after picture are the SAME PERSON** (Dan, 2026-09-12) — never cue one person's before against another's after. Keep claims positive-framed (aspiration, not body-shaming) for ad
    policy safety. Add a short "Production notes" block for anything the editor needs.
    Two hard rules from 2026-08-06:
    - **Never say "GLP-1", or any brand or generic name of a weight-loss drug.**
