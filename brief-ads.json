@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-09-12T11:06:54.274Z",
-  "day": "2026-09-11",
+  "generatedAt": "2026-09-13T11:06:52.411Z",
+  "day": "2026-09-12",
   "window": {
-    "from": "2026-09-04",
-    "to": "2026-09-11",
+    "from": "2026-09-05",
+    "to": "2026-09-12",
     "baselineDays": 7
   },
   "blind": [],
   "totals": {
-    "spendYesterday": 97.98,
-    "spend7dMean": 69.72,
-    "deltaPct": 0.41,
+    "spendYesterday": 66.93,
+    "spend7dMean": 84.61,
+    "deltaPct": -0.21,
     "platformsLive": [
       "meta",
       "google"
@@ -23,8 +23,8 @@
       "scope": "campaign",
       "kind": "zero_results",
       "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
-      "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home has spent $40.68 for zero conversions",
-      "detail": "Across the last 2 days.",
+      "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home has spent $57.38 for zero conversions",
+      "detail": "Across the last 3 days.",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443"
     },
     {
@@ -33,7 +33,7 @@
       "scope": "campaign",
       "kind": "zero_results",
       "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
-      "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $32.02 for zero conversions",
+      "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $30.49 for zero conversions",
       "detail": "Across the last 8 days.",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
     },
@@ -43,19 +43,9 @@
       "scope": "campaign",
       "kind": "cpa_degraded",
       "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
-      "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $2.61",
-      "detail": "Its own 7-day average is $0.93 (+181%).",
+      "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $2.32",
+      "detail": "Its own 7-day average is $0.98 (+137%).",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721"
-    },
-    {
-      "severity": "medium",
-      "platform": "google",
-      "scope": "campaign",
-      "kind": "cpa_degraded",
-      "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT",
-      "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT cost per conversion rose to $0.26",
-      "detail": "Its own 7-day average is $0.17 (+53%).",
-      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676"
     }
   ],
   "winners": [],
@@ -65,9 +55,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 14.33,
-      "spend7dMean": 9.83,
-      "deltaPct": 0.46,
+      "spend": 13.45,
+      "spend7dMean": 10.79,
+      "deltaPct": 0.25,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -75,17 +65,17 @@
           "status": "ACTIVE",
           "resultLabel": "profile visit",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 14.33,
-          "results": 130,
-          "impressions": 1520,
-          "clicks": 130,
-          "costPerResult": 0.11,
+          "spend": 13.45,
+          "results": 151,
+          "impressions": 1591,
+          "clicks": 150,
+          "costPerResult": 0.09,
           "baseline": {
             "days": 7,
-            "meanSpend": 9.83,
-            "totalSpend": 68.81,
-            "clicks": 643,
-            "results": 648,
+            "meanSpend": 10.79,
+            "totalSpend": 75.55,
+            "clicks": 705,
+            "results": 719,
             "costPerResult": 0.11
           }
         }
@@ -98,63 +88,104 @@
       "platform": "google",
       "account": "3427170837",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837",
-      "spend": 83.65,
-      "spend7dMean": 59.89,
-      "deltaPct": 0.4,
+      "spend": 53.48,
+      "spend7dMean": 73.82,
+      "deltaPct": -0.28,
       "yesterday": {
-        "from": "2026-09-11",
-        "to": "2026-09-11",
-        "spend": 83.64,
-        "clicks": 71,
-        "conversions": 30,
-        "estSubscribers": 15.31,
-        "estCostPerSubscriber": 5.46
+        "from": "2026-09-12",
+        "to": "2026-09-12",
+        "spend": 53.47,
+        "clicks": 54,
+        "conversions": 42,
+        "estSubscribers": 21.43,
+        "estCostPerSubscriber": 2.5
       },
       "last7d": {
-        "from": "2026-09-05",
-        "to": "2026-09-11",
-        "spend": 415,
-        "clicks": 636,
-        "conversions": 589,
-        "estSubscribers": 300.51,
-        "estCostPerSubscriber": 1.38
+        "from": "2026-09-06",
+        "to": "2026-09-12",
+        "spend": 411.34,
+        "clicks": 562,
+        "conversions": 501,
+        "estSubscribers": 255.61,
+        "estCostPerSubscriber": 1.61
       },
       "conversionInflation": 1.96,
       "conversionInflationBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676",
       "campaigns": [
+        {
+          "id": "24163535721",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721",
+          "spend": 20.86,
+          "results": 9,
+          "impressions": 2135,
+          "clicks": 7,
+          "costPerResult": 2.32,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 18.68,
+            "totalSpend": 130.74,
+            "clicks": 131,
+            "results": 134,
+            "costPerResult": 0.98
+          },
+          "yesterday": {
+            "from": "2026-09-12",
+            "to": "2026-09-12",
+            "spend": 20.86,
+            "clicks": 7,
+            "conversions": 9,
+            "estSubscribers": 4.59,
+            "estCostPerSubscriber": 4.54
+          },
+          "last7d": {
+            "from": "2026-09-06",
+            "to": "2026-09-12",
+            "spend": 142.94,
+            "clicks": 126,
+            "conversions": 131,
+            "estSubscribers": 66.84,
+            "estCostPerSubscriber": 2.14
+          },
+          "estSubscribers": 66.84,
+          "estCostPerSubscriber": 2.14,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
         {
           "id": "24243839443",
           "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443",
-          "spend": 38.08,
+          "spend": 16.7,
           "results": 0,
-          "impressions": 1932,
-          "clicks": 36,
+          "impressions": 882,
+          "clicks": 11,
           "costPerResult": null,
           "baseline": {
-            "days": 1,
-            "meanSpend": 2.6,
-            "totalSpend": 2.6,
-            "clicks": 3,
+            "days": 2,
+            "meanSpend": 20.34,
+            "totalSpend": 40.68,
+            "clicks": 39,
             "results": 0,
             "costPerResult": null
           },
           "yesterday": {
-            "from": "2026-09-11",
-            "to": "2026-09-11",
-            "spend": 38.08,
-            "clicks": 36,
+            "from": "2026-09-12",
+            "to": "2026-09-12",
+            "spend": 16.7,
+            "clicks": 11,
             "conversions": 0,
             "estSubscribers": 0,
             "estCostPerSubscriber": null
           },
           "last7d": {
-            "from": "2026-09-05",
-            "to": "2026-09-11",
-            "spend": 40.68,
-            "clicks": 39,
+            "from": "2026-09-06",
+            "to": "2026-09-12",
+            "spend": 57.38,
+            "clicks": 50,
             "conversions": 0,
             "estSubscribers": 0,
             "estCostPerSubscriber": null
@@ -164,126 +195,44 @@
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
-          "id": "24163535721",
-          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
-          "status": "ENABLED",
-          "resultLabel": "conversion",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721",
-          "spend": 20.92,
-          "results": 8,
-          "impressions": 1453,
-          "clicks": 7,
-          "costPerResult": 2.61,
-          "baseline": {
-            "days": 7,
-            "meanSpend": 18.28,
-            "totalSpend": 127.94,
-            "clicks": 135,
-            "results": 137,
-            "costPerResult": 0.93
-          },
-          "yesterday": {
-            "from": "2026-09-11",
-            "to": "2026-09-11",
-            "spend": 20.92,
-            "clicks": 7,
-            "conversions": 8,
-            "estSubscribers": 4.08,
-            "estCostPerSubscriber": 5.13
-          },
-          "last7d": {
-            "from": "2026-09-05",
-            "to": "2026-09-11",
-            "spend": 130.74,
-            "clicks": 131,
-            "conversions": 134,
-            "estSubscribers": 68.37,
-            "estCostPerSubscriber": 1.91
-          },
-          "estSubscribers": 68.37,
-          "estCostPerSubscriber": 1.91,
-          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
-        },
-        {
-          "id": "24086091285",
-          "name": "Brand - Search - US",
-          "status": "ENABLED",
-          "resultLabel": "conversion",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285",
-          "spend": 9.46,
-          "results": 1,
-          "impressions": 2,
-          "clicks": 2,
-          "costPerResult": 9.46,
-          "baseline": {
-            "days": 7,
-            "meanSpend": 10.98,
-            "totalSpend": 76.84,
-            "clicks": 8,
-            "results": 3,
-            "costPerResult": 25.61
-          },
-          "yesterday": {
-            "from": "2026-09-11",
-            "to": "2026-09-11",
-            "spend": 9.46,
-            "clicks": 2,
-            "conversions": 1,
-            "estSubscribers": 0.51,
-            "estCostPerSubscriber": null
-          },
-          "last7d": {
-            "from": "2026-09-05",
-            "to": "2026-09-11",
-            "spend": 61.87,
-            "clicks": 8,
-            "conversions": 4,
-            "estSubscribers": 2.04,
-            "estCostPerSubscriber": 30.32
-          },
-          "estSubscribers": 2.04,
-          "estCostPerSubscriber": 30.32,
-          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
-        },
-        {
           "id": "24148587722",
           "name": "Search - US - Non-Brand - AI Abs Preview",
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24148587722",
-          "spend": 9.23,
+          "spend": 5.87,
           "results": 1,
-          "impressions": 14,
-          "clicks": 3,
-          "costPerResult": 9.23,
+          "impressions": 47,
+          "clicks": 4,
+          "costPerResult": 5.87,
           "baseline": {
             "days": 7,
-            "meanSpend": 10.06,
-            "totalSpend": 70.4,
-            "clicks": 11,
-            "results": 4,
-            "costPerResult": 17.6
+            "meanSpend": 9.75,
+            "totalSpend": 68.23,
+            "clicks": 13,
+            "results": 5,
+            "costPerResult": 13.65
           },
           "yesterday": {
-            "from": "2026-09-11",
-            "to": "2026-09-11",
-            "spend": 9.23,
-            "clicks": 3,
+            "from": "2026-09-12",
+            "to": "2026-09-12",
+            "spend": 5.87,
+            "clicks": 4,
             "conversions": 1,
             "estSubscribers": 0.51,
             "estCostPerSubscriber": null
           },
           "last7d": {
-            "from": "2026-09-05",
-            "to": "2026-09-11",
-            "spend": 68.23,
-            "clicks": 13,
+            "from": "2026-09-06",
+            "to": "2026-09-12",
+            "spend": 63.39,
+            "clicks": 16,
             "conversions": 5,
             "estSubscribers": 2.55,
-            "estCostPerSubscriber": 26.75
+            "estCostPerSubscriber": 24.85
           },
           "estSubscribers": 2.55,
-          "estCostPerSubscriber": 26.75,
+          "estCostPerSubscriber": 24.85,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -292,39 +241,80 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676",
-          "spend": 5.17,
-          "results": 20,
-          "impressions": 4451,
-          "clicks": 23,
-          "costPerResult": 0.26,
+          "spend": 5.3,
+          "results": 32,
+          "impressions": 5324,
+          "clicks": 31,
+          "costPerResult": 0.17,
           "baseline": {
             "days": 7,
-            "meanSpend": 13.51,
-            "totalSpend": 94.59,
-            "clicks": 560,
-            "results": 568,
-            "costPerResult": 0.17
+            "meanSpend": 11.96,
+            "totalSpend": 83.74,
+            "clicks": 442,
+            "results": 446,
+            "costPerResult": 0.19
           },
           "yesterday": {
-            "from": "2026-09-11",
-            "to": "2026-09-11",
-            "spend": 5.17,
-            "clicks": 23,
-            "conversions": 20,
-            "estSubscribers": 10.2,
-            "estCostPerSubscriber": 0.51
+            "from": "2026-09-12",
+            "to": "2026-09-12",
+            "spend": 5.3,
+            "clicks": 31,
+            "conversions": 32,
+            "estSubscribers": 16.33,
+            "estCostPerSubscriber": 0.32
           },
           "last7d": {
-            "from": "2026-09-05",
-            "to": "2026-09-11",
-            "spend": 83.74,
-            "clicks": 442,
-            "conversions": 446,
-            "estSubscribers": 227.55,
-            "estCostPerSubscriber": 0.37
+            "from": "2026-09-06",
+            "to": "2026-09-12",
+            "spend": 72.85,
+            "clicks": 361,
+            "conversions": 362,
+            "estSubscribers": 184.69,
+            "estCostPerSubscriber": 0.39
           },
-          "estSubscribers": 227.55,
-          "estCostPerSubscriber": 0.37,
+          "estSubscribers": 184.69,
+          "estCostPerSubscriber": 0.39,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24086091285",
+          "name": "Brand - Search - US",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285",
+          "spend": 3.99,
+          "results": 0,
+          "impressions": 5,
+          "clicks": 1,
+          "costPerResult": null,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 8.84,
+            "totalSpend": 61.87,
+            "clicks": 8,
+            "results": 4,
+            "costPerResult": 15.47
+          },
+          "yesterday": {
+            "from": "2026-09-12",
+            "to": "2026-09-12",
+            "spend": 3.99,
+            "clicks": 1,
+            "conversions": 0,
+            "estSubscribers": 0,
+            "estCostPerSubscriber": null
+          },
+          "last7d": {
+            "from": "2026-09-06",
+            "to": "2026-09-12",
+            "spend": 54.28,
+            "clicks": 8,
+            "conversions": 3,
+            "estSubscribers": 1.53,
+            "estCostPerSubscriber": 35.46
+          },
+          "estSubscribers": 1.53,
+          "estCostPerSubscriber": 35.46,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -333,33 +323,33 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109",
-          "spend": 0.79,
+          "spend": 0.76,
           "results": 0,
-          "impressions": 18,
+          "impressions": 12,
           "clicks": 0,
           "costPerResult": null,
           "baseline": {
             "days": 7,
-            "meanSpend": 4.46,
-            "totalSpend": 31.23,
+            "meanSpend": 4.25,
+            "totalSpend": 29.73,
             "clicks": 3,
             "results": 0,
             "costPerResult": null
           },
           "yesterday": {
-            "from": "2026-09-11",
-            "to": "2026-09-11",
-            "spend": 0.79,
+            "from": "2026-09-12",
+            "to": "2026-09-12",
+            "spend": 0.76,
             "clicks": 0,
             "conversions": 0,
             "estSubscribers": 0,
             "estCostPerSubscriber": null
           },
           "last7d": {
-            "from": "2026-09-05",
-            "to": "2026-09-11",
-            "spend": 29.73,
-            "clicks": 3,
+            "from": "2026-09-06",
+            "to": "2026-09-12",
+            "spend": 20.49,
+            "clicks": 1,
             "conversions": 0,
             "estSubscribers": 0,
             "estCostPerSubscriber": null
@@ -371,34 +361,24 @@
       ],
       "anomalies": [
         {
-          "severity": "high",
-          "platform": "google",
-          "scope": "campaign",
-          "kind": "zero_results",
-          "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
-          "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home has spent $40.68 for zero conversions",
-          "detail": "Across the last 2 days.",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443"
-        },
-        {
           "severity": "medium",
           "platform": "google",
           "scope": "campaign",
           "kind": "cpa_degraded",
           "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
-          "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $2.61",
-          "detail": "Its own 7-day average is $0.93 (+181%).",
+          "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $2.32",
+          "detail": "Its own 7-day average is $0.98 (+137%).",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721"
         },
         {
-          "severity": "medium",
+          "severity": "high",
           "platform": "google",
           "scope": "campaign",
-          "kind": "cpa_degraded",
-          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT",
-          "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT cost per conversion rose to $0.26",
-          "detail": "Its own 7-day average is $0.17 (+53%).",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676"
+          "kind": "zero_results",
+          "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
+          "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home has spent $57.38 for zero conversions",
+          "detail": "Across the last 3 days.",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443"
         },
         {
           "severity": "high",
@@ -406,7 +386,7 @@
           "scope": "campaign",
           "kind": "zero_results",
           "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
-          "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $32.02 for zero conversions",
+          "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $30.49 for zero conversions",
           "detail": "Across the last 8 days.",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
         }
@@ -416,8 +396,8 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-12T10:16:15.406Z",
-    "ageHours": 0.84,
+    "lastRunAt": "2026-09-13T10:19:59.286Z",
+    "ageHours": 0.78,
     "stale": false,
     "dryRun": false,
     "enabled": true,
@@ -425,33 +405,33 @@
       "caps": {
         "reason": null,
         "testsCap": 300,
-        "testsMtd": 30.77,
+        "testsMtd": 37.99,
         "totalCap": 500,
-        "totalMtd": 92.72,
+        "totalMtd": 108.11,
         "capReached": false,
-        "testsCommitted": 46.66,
-        "totalCommitted": 108.61
+        "testsCommitted": 49.78,
+        "totalCommitted": 119.9
       },
       "pair": {
         "ads": [
           {
+            "adId": "120250753783950682",
+            "spend": 61.33,
+            "active": false,
+            "visits": 635,
+            "mediaId": "18192762022391478",
+            "costPerVisit": 0.1
+          },
+          {
             "adId": "120250753783030682",
             "spend": 3.01,
-            "active": true,
+            "active": false,
             "visits": 28,
             "mediaId": "18188183254395331",
             "costPerVisit": 0.11
-          },
-          {
-            "adId": "120250753783950682",
-            "spend": 58.94,
-            "active": true,
-            "visits": 608,
-            "mediaId": "18192762022391478",
-            "costPerVisit": 0.1
           }
         ],
-        "reason": "waiting for both to reach $10.00 ($3.01 / $58.94)",
+        "reason": "pair is not both active",
         "resolved": false
       },
       "skips": [],
@@ -467,16 +447,16 @@
             "permalink": "https://www.instagram.com/p/DdKbwNFnXQN/"
           },
           "phase": "running",
-          "spend": 0.29,
+          "spend": 1.76,
           "status": "ACTIVE",
-          "visits": 9,
+          "visits": 33,
           "adsetId": "120250931319700682",
           "endTime": "2026-09-16T17:16:08-0500",
           "mediaId": "17909933289467493",
           "verdict": null,
           "createdAt": "2026-09-11T17:16:09-0500",
-          "impressions": 46,
-          "costPerVisit": 0.03
+          "impressions": 268,
+          "costPerVisit": 0.05
         },
         {
           "label": "IMAGE | Pick a sport, not a cardio machine | TEST::17983238982111705",
@@ -488,17 +468,24 @@
             "postedAt": "2026-09-02T22:00:26+0000",
             "permalink": "https://www.instagram.com/p/DczQmVTmKvm/"
           },
-          "phase": "running",
-          "spend": 4.15,
-          "status": "ACTIVE",
-          "visits": 62,
+          "phase": "done",
+          "spend": 4.51,
+          "status": "PAUSED",
+          "visits": 71,
           "adsetId": "120250868066640682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17983238982111705",
-          "verdict": null,
+          "verdict": {
+            "spend": 4.51,
+            "reason": "$0.06/visit beats the champion's $0.10/visit (71 visits)",
+            "result": "win",
+            "visits": 71,
+            "adsetId": "120250868066640682",
+            "costPerVisit": 0.06
+          },
           "createdAt": "2026-09-08T15:59:21-0500",
-          "impressions": 458,
-          "costPerVisit": 0.07
+          "impressions": 507,
+          "costPerVisit": 0.06
         },
         {
           "label": "IMAGE | Ten minutes of jump rope beats thirty on a treadmill | TEST::18144562216559806",
@@ -510,39 +497,24 @@
             "postedAt": "2026-09-06T22:00:26+0000",
             "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/"
           },
-          "phase": "running",
-          "spend": 4.02,
-          "status": "ACTIVE",
-          "visits": 60,
+          "phase": "done",
+          "spend": 4.52,
+          "status": "PAUSED",
+          "visits": 66,
           "adsetId": "120250868070210682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "18144562216559806",
-          "verdict": null,
-          "createdAt": "2026-09-08T15:59:52-0500",
-          "impressions": 510,
-          "costPerVisit": 0.07
-        },
-        {
-          "label": "IMAGE | Your supplements are about 3% of your results | TEST::17874665394562729",
-          "media": {
-            "id": "17874665394562729",
-            "type": "IMAGE",
-            "title": "Your supplements are about 3% of your results",
-            "caption": "Your supplements are about 3% of your results. Not zero. But if your sleep, prot",
-            "postedAt": "2026-09-04T22:00:27+0000",
-            "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
+          "verdict": {
+            "spend": 4.52,
+            "reason": "$0.07/visit beats the champion's $0.10/visit (66 visits)",
+            "result": "win",
+            "visits": 66,
+            "adsetId": "120250868070210682",
+            "costPerVisit": 0.07
           },
-          "phase": "running",
-          "spend": 4.03,
-          "status": "ACTIVE",
-          "visits": 34,
-          "adsetId": "120250868068030682",
-          "endTime": "2026-09-13T15:59:17-0500",
-          "mediaId": "17874665394562729",
-          "verdict": null,
-          "createdAt": "2026-09-08T15:59:37-0500",
-          "impressions": 408,
-          "costPerVisit": 0.12
+          "createdAt": "2026-09-08T15:59:52-0500",
+          "impressions": 584,
+          "costPerVisit": 0.07
         },
         {
           "label": "IMAGE | Train your abs every single day | TEST::18133073164657545",
@@ -555,16 +527,45 @@
             "permalink": "https://www.instagram.com/p/DdFSLHplpDf/"
           },
           "phase": "running",
-          "spend": 2.43,
+          "spend": 3.99,
           "status": "ACTIVE",
-          "visits": 19,
+          "visits": 41,
           "adsetId": "120250888181140682",
           "endTime": "2026-09-14T17:16:20-0500",
           "mediaId": "18133073164657545",
           "verdict": null,
           "createdAt": "2026-09-09T17:16:22-0500",
-          "impressions": 313,
-          "costPerVisit": 0.13
+          "impressions": 477,
+          "costPerVisit": 0.1
+        },
+        {
+          "label": "IMAGE | Your supplements are about 3% of your results | TEST::17874665394562729",
+          "media": {
+            "id": "17874665394562729",
+            "type": "IMAGE",
+            "title": "Your supplements are about 3% of your results",
+            "caption": "Your supplements are about 3% of your results. Not zero. But if your sleep, prot",
+            "postedAt": "2026-09-04T22:00:27+0000",
+            "permalink": "https://www.instagram.com/p/Dc4aMF3iQEt/"
+          },
+          "phase": "done",
+          "spend": 4.51,
+          "status": "PAUSED",
+          "visits": 41,
+          "adsetId": "120250868068030682",
+          "endTime": "2026-09-13T15:59:17-0500",
+          "mediaId": "17874665394562729",
+          "verdict": {
+            "spend": 4.51,
+            "reason": "$0.11/visit does not beat the champion's $0.07/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 41,
+            "adsetId": "120250868068030682",
+            "costPerVisit": 0.11
+          },
+          "createdAt": "2026-09-08T15:59:37-0500",
+          "impressions": 475,
+          "costPerVisit": 0.11
         },
         {
           "label": "REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709",
@@ -576,16 +577,20 @@
             "postedAt": "2026-09-08T22:00:42+0000",
             "permalink": "https://www.instagram.com/reel/DdCtYQOF69_/"
           },
-          "phase": "running",
-          "spend": 3.65,
+          "phase": "ready",
+          "spend": 4.54,
           "status": "ACTIVE",
-          "visits": 22,
+          "visits": 27,
           "adsetId": "120250868876510682",
           "endTime": "2026-09-13T17:18:44-0500",
           "mediaId": "18624174223051709",
-          "verdict": null,
+          "verdict": {
+            "reason": "$0.17/visit does not beat the champion's $0.10/visit (ties keep the champion)",
+            "result": "lose",
+            "costPerVisit": 0.17
+          },
           "createdAt": "2026-09-08T17:18:46-0500",
-          "impressions": 352,
+          "impressions": 438,
           "costPerVisit": 0.17
         },
         {
@@ -598,17 +603,24 @@
             "postedAt": "2026-09-03T22:00:43+0000",
             "permalink": "https://www.instagram.com/reel/Dc11aEEG5a9/"
           },
-          "phase": "running",
-          "spend": 3.78,
-          "status": "ACTIVE",
-          "visits": 18,
+          "phase": "done",
+          "spend": 4.58,
+          "status": "PAUSED",
+          "visits": 21,
           "adsetId": "120250868067070682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "18122536861661975",
-          "verdict": null,
+          "verdict": {
+            "spend": 4.56,
+            "reason": "$0.22/visit does not beat the champion's $0.10/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 21,
+            "adsetId": "120250868067070682",
+            "costPerVisit": 0.22
+          },
           "createdAt": "2026-09-08T15:59:28-0500",
-          "impressions": 351,
-          "costPerVisit": 0.21
+          "impressions": 423,
+          "costPerVisit": 0.22
         },
         {
           "label": "REEL | Your protein shake might be stopping your abs | TEST::18140555551597443",
@@ -621,16 +633,16 @@
             "permalink": "https://www.instagram.com/reel/DdH3EbdlWIe/"
           },
           "phase": "running",
-          "spend": 1.76,
+          "spend": 2.92,
           "status": "ACTIVE",
-          "visits": 6,
+          "visits": 13,
           "adsetId": "120250910902520682",
           "endTime": "2026-09-15T17:17:51-0500",
           "mediaId": "18140555551597443",
           "verdict": null,
           "createdAt": "2026-09-10T17:17:53-0500",
-          "impressions": 168,
-          "costPerVisit": 0.29
+          "impressions": 283,
+          "costPerVisit": 0.22
         },
         {
           "label": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
@@ -675,10 +687,34 @@
           "createdAt": "2026-09-08T15:59:43-0500",
           "impressions": 237,
           "costPerVisit": 0.85
+        },
+        {
+          "label": "REEL | Milk is not a health food if you want abs | TEST::18104387519626708",
+          "media": {
+            "id": "18104387519626708",
+            "type": "VIDEO",
+            "title": "Milk is not a health food if you want abs",
+            "caption": "Milk is not a health food if you want abs. It's not poison either. But a \"health",
+            "postedAt": "2026-09-12T22:00:42+0000",
+            "permalink": "https://www.instagram.com/reel/DdNAj64DnuW/"
+          },
+          "phase": "running",
+          "spend": 0,
+          "status": "ACTIVE",
+          "visits": 0,
+          "adsetId": "120250945212710682",
+          "endTime": "2026-09-17T17:15:37-0500",
+          "mediaId": "18104387519626708",
+          "verdict": null,
+          "createdAt": "2026-09-12T17:15:41-0500",
+          "impressions": 0,
+          "costPerVisit": null
         }
       ],
       "dryRun": false,
-      "actions": [],
+      "actions": [
+        "DID: pause finished \"REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709\" (lose)"
+      ],
       "created": [],
       "enabled": true,
       "metrics": {
@@ -687,14 +723,14 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 92.72,
-          "visits": 878,
+          "spend": 108.11,
+          "visits": 1054,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 40.88,
+        "spend": 39.86,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
@@ -702,36 +738,24 @@
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 424,
+        "visits": 419,
         "window": {
           "days": 7,
-          "since": "2026-09-06",
-          "until": "2026-09-12"
+          "since": "2026-09-07",
+          "until": "2026-09-13"
         },
         "follows": 0,
         "activeAds": [
           {
-            "adId": "120250753783030682",
-            "name": "REEL | I was 200 lbs at 38 | CHAMPION::18188183254395331",
+            "adId": "120250946416150682",
+            "name": "IMAGE | Ten minutes of jump rope beats thirty on a treadmill | CHAMPION::18144562216559806",
             "media": {
-              "id": "18188183254395331",
-              "type": "VIDEO",
-              "title": "I was 200 lbs at 38",
-              "caption": "I was 200 lbs at 38. I had a real six-pack at 40. No trainer, no coach, no progr",
-              "postedAt": "2026-08-25T22:01:23+0000",
-              "permalink": "https://www.instagram.com/reel/DceqQVcEUk-/"
-            }
-          },
-          {
-            "adId": "120250753783950682",
-            "name": "REEL | A three-minute total body workout with almost no equipment | CHAMPION::18192762022391478",
-            "media": {
-              "id": "18192762022391478",
-              "type": "VIDEO",
-              "title": "A three-minute total body workout with almost no equipment",
-              "caption": "A three-minute total body workout with almost no equipment. Legs, back, chest, a",
-              "postedAt": "2026-08-30T14:04:04+0000",
-              "permalink": "https://www.instagram.com/reel/DcqrXotjlsk/"
+              "id": "18144562216559806",
+              "type": "IMAGE",
+              "title": "Ten minutes of jump rope beats thirty on a treadmill",
+              "caption": "Ten minutes of jump rope beats thirty on a treadmill. Same calorie burn in a thi",
+              "postedAt": "2026-09-06T22:00:26+0000",
+              "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/"
             }
           }
         ],
@@ -741,23 +765,121 @@
         "costPerFollow": null,
         "followsReadable": false
       },
-      "verdicts": [],
+      "verdicts": [
+        {
+          "spend": 4.54,
+          "reason": "$0.17/visit does not beat the champion's $0.10/visit (ties keep the champion)",
+          "result": "lose",
+          "visits": 27,
+          "adsetId": "120250868876510682",
+          "mediaId": "18624174223051709",
+          "permalink": "https://www.instagram.com/reel/DdCtYQOF69_/",
+          "costPerVisit": 0.17
+        }
+      ],
       "warnings": [],
       "events24h": [
         {
-          "at": "2026-09-11T22:16:16.506Z",
+          "at": "2026-09-12T22:15:50.693Z",
           "event": "created",
           "detail": {
-            "adId": "120250931320510682",
-            "adsetId": "120250931319700682",
-            "permalink": "https://www.instagram.com/p/DdKbwNFnXQN/",
-            "creativeId": "28253019197688036"
+            "adId": "120250945218230682",
+            "adsetId": "120250945212710682",
+            "permalink": "https://www.instagram.com/reel/DdNAj64DnuW/",
+            "creativeId": "27317946297881557"
           },
-          "mediaId": "17909933289467493"
+          "mediaId": "18104387519626708"
+        },
+        {
+          "at": "2026-09-12T22:15:57.907Z",
+          "event": "promote",
+          "detail": {
+            "adId": "120250945218380682",
+            "source": {
+              "spend": 4.51,
+              "visits": 71,
+              "testAdset": "120250868066640682"
+            },
+            "retired": [
+              "120250753783030682",
+              "120250753783950682"
+            ],
+            "creativeId": "1429010152419995"
+          },
+          "mediaId": "17983238982111705"
+        },
+        {
+          "at": "2026-09-12T22:15:58.828Z",
+          "event": "verdict",
+          "detail": {
+            "spend": 4.51,
+            "reason": "$0.06/visit beats the champion's $0.10/visit (71 visits)",
+            "result": "win",
+            "visits": 71,
+            "adsetId": "120250868066640682",
+            "costPerVisit": 0.06
+          },
+          "mediaId": "17983238982111705"
+        },
+        {
+          "at": "2026-09-13T00:18:51.879Z",
+          "event": "verdict",
+          "detail": {
+            "spend": 4.56,
+            "reason": "$0.22/visit does not beat the champion's $0.10/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 21,
+            "adsetId": "120250868067070682",
+            "costPerVisit": 0.22
+          },
+          "mediaId": "18122536861661975"
+        },
+        {
+          "at": "2026-09-13T01:17:59.343Z",
+          "event": "promote",
+          "detail": {
+            "adId": "120250946416150682",
+            "source": {
+              "spend": 4.52,
+              "visits": 66,
+              "testAdset": "120250868070210682"
+            },
+            "retired": [
+              "120250945218380682"
+            ],
+            "creativeId": "2251971815346111"
+          },
+          "mediaId": "18144562216559806"
+        },
+        {
+          "at": "2026-09-13T01:18:00.216Z",
+          "event": "verdict",
+          "detail": {
+            "spend": 4.52,
+            "reason": "$0.07/visit beats the champion's $0.10/visit (66 visits)",
+            "result": "win",
+            "visits": 66,
+            "adsetId": "120250868070210682",
+            "costPerVisit": 0.07
+          },
+          "mediaId": "18144562216559806"
+        },
+        {
+          "at": "2026-09-13T01:18:01.192Z",
+          "event": "verdict",
+          "detail": {
+            "spend": 4.51,
+            "reason": "$0.11/visit does not beat the champion's $0.07/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 41,
+            "adsetId": "120250868068030682",
+            "costPerVisit": 0.11
+          },
+          "mediaId": "17874665394562729"
         }
       ],
       "candidates": [],
-      "generatedAt": "2026-09-12T10:16:12.411Z",
+      "generatedAt": "2026-09-13T10:19:54.778Z",
       "championAdset": "120250753601020682"
     }
   },
@@ -765,7 +887,7 @@
     "ok": true,
     "enabled": true,
     "dryRun": false,
-    "lastRunAt": "2026-09-12T11:00:04.048Z",
+    "lastRunAt": "2026-09-13T11:00:04.671Z",
     "ageHours": 0.11,
     "stale": false,
     "resultsPosted": true,
@@ -790,16 +912,16 @@
             "spend": 1.53,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 3,
+            "daysWaiting": 4,
             "policy": "APPROVED"
           },
           {
             "adId": "824051827676",
             "videoId": "27vZC4xVkms",
-            "spend": 1.43,
+            "spend": 1.65,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 3,
+            "daysWaiting": 4,
             "policy": "APPROVED"
           },
           {
@@ -808,7 +930,7 @@
             "spend": 0.05,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 2,
+            "daysWaiting": 3,
             "policy": "APPROVED"
           },
           {
@@ -817,7 +939,7 @@
             "spend": 0.04,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 2,
+            "daysWaiting": 3,
             "policy": "APPROVED_LIMITED"
           },
           {
@@ -826,7 +948,7 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
           },
           {
@@ -835,8 +957,17 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
+          },
+          {
+            "adId": "824532605702",
+            "videoId": "YvfQfo9Qh4s",
+            "spend": 0,
+            "of": 5,
+            "conv": 0,
+            "daysWaiting": 1,
+            "policy": "APPROVED"
           }
         ],
         "verdicts": [],
@@ -921,28 +1052,28 @@
           "adId": "822882636654",
           "name": "truth about supplements",
           "videoId": "P9VUGyWeNtY",
-          "spend30d": 7.2,
+          "spend30d": 7.34,
           "conv30d": 8,
-          "costPerConv30d": 0.9,
-          "approxCostPerSubscriber30d": 1.76
+          "costPerConv30d": 0.92,
+          "approxCostPerSubscriber30d": 1.8
         },
         "testsRunning": [
           {
             "adId": "824195590798",
             "videoId": "y0XIbNoA2Xo",
-            "spend": 0.2,
+            "spend": 0.25,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 2,
+            "daysWaiting": 3,
             "policy": "APPROVED"
           },
           {
             "adId": "824317084973",
             "videoId": "B6Oku5GjrLs",
-            "spend": 0.33,
+            "spend": 0.39,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 2,
+            "daysWaiting": 3,
             "policy": "APPROVED_LIMITED"
           },
           {
@@ -951,7 +1082,7 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
           },
           {
@@ -960,8 +1091,17 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
+          },
+          {
+            "adId": "824532188852",
+            "videoId": "YvfQfo9Qh4s",
+            "spend": 1.17,
+            "of": 5,
+            "conv": 0,
+            "daysWaiting": 1,
+            "policy": "APPROVED"
           }
         ],
         "verdicts": [],
@@ -1040,8 +1180,8 @@
           "adId": "821125719022",
           "name": "top 10 ab tips",
           "videoId": "2T4LrQrmz9s",
-          "spend30d": 299.48,
-          "conv30d": 2697,
+          "spend30d": 304.68,
+          "conv30d": 2729,
           "costPerConv30d": 0.11,
           "approxCostPerSubscriber30d": 0.22
         },
@@ -1052,7 +1192,7 @@
             "spend": 0.13,
             "of": 5,
             "conv": 1,
-            "daysWaiting": 3,
+            "daysWaiting": 4,
             "policy": "APPROVED"
           },
           {
@@ -1061,7 +1201,7 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 2,
+            "daysWaiting": 3,
             "policy": "APPROVED"
           },
           {
@@ -1070,7 +1210,7 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 2,
+            "daysWaiting": 3,
             "policy": "APPROVED"
           },
           {
@@ -1079,7 +1219,7 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
           },
           {
@@ -1088,8 +1228,17 @@
             "spend": 0,
             "of": 5,
             "conv": 0,
-            "daysWaiting": 0,
+            "daysWaiting": 1,
             "policy": "APPROVED_LIMITED"
+          },
+          {
+            "adId": "824406386061",
+            "videoId": "YvfQfo9Qh4s",
+            "spend": 0,
+            "of": 5,
+            "conv": 0,
+            "daysWaiting": 1,
+            "policy": "APPROVED"
           }
         ],
         "verdicts": [],
@@ -1170,171 +1319,87 @@
     "events24h": {
       "created": [
         {
-          "at": "2026-09-12T01:00:21.547Z",
+          "at": "2026-09-12T23:00:17.704Z",
           "campaign": "tier2",
-          "videoId": "GVNzvm5sUbk",
-          "adId": "824325319560",
-          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r3 · tier2 · 2026-09-12",
-          "attempt": 3,
+          "videoId": "YvfQfo9Qh4s",
+          "adId": "824406386061",
+          "name": "AT · Milk Is Not A Health Food If You Want Abs · yt:YvfQfo9Qh4s · tier2 · 2026-09-12",
+          "attempt": 1,
           "headlines": [
-            "Ab Exercises In My Routine",
-            "Where Ab Exercises Fit For Me",
-            "My Ab Training Routine At 40",
-            "Ab Exercise Order Explained",
-            "Ab Training Routine For Men"
+            "Why I Stopped Drinking Milk",
+            "Milk Is Not A Health Food",
+            "Liquid Calories In Milk",
+            "The Truth About Milk Calories",
+            "Milk - My Take At 40 Years Old"
           ],
-          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
+          "videoTitle": "Milk Is Not A Health Food If You Want Abs",
           "labelErrors": [],
           "descriptions": [
-            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
-            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
-            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
+            "Liquid calories are the easiest ones to drink without noticing. Here's my take on milk.",
+            "Daniel Rose explains why he does not count milk as a health food.",
+            "Most men forget the calories they drink. Milk is the first one I cut back on."
           ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~824325319560",
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824406386061",
           "longHeadlines": [
-            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
-            "This video covers ab exercises and the other training Daniel Rose does at home.",
-            "A short video about ab exercise order and the rest of Daniel Rose's routine."
+            "Here's why I stopped counting milk as a health food, at 40 years old.",
+            "Daniel Rose explains how liquid calories add up without you noticing.",
+            "This video shows why I watch the calories I drink, starting with milk."
           ]
         },
         {
-          "at": "2026-09-12T01:00:21.551Z",
-          "campaign": "tier2",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824325771060",
-          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · tier2 · 2026-09-12",
-          "attempt": 3,
-          "headlines": [
-            "Personal Trainers And My Budget",
-            "How I Use My Fitness Budget",
-            "My Thoughts On Personal Trainers",
-            "Monthly Fitness Spending At 40",
-            "Personal Trainer Spending Talk"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
-            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
-            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~824325771060",
-          "longHeadlines": [
-            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
-            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
-            "A short video about personal trainers, help at home, and monthly fitness spending."
-          ]
-        },
-        {
-          "at": "2026-09-12T01:00:21.556Z",
+          "at": "2026-09-12T23:00:17.712Z",
           "campaign": "tier1",
-          "videoId": "GVNzvm5sUbk",
-          "adId": "824325368367",
-          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r3 · tier1 · 2026-09-12",
-          "attempt": 3,
+          "videoId": "YvfQfo9Qh4s",
+          "adId": "824532188852",
+          "name": "AT · Milk Is Not A Health Food If You Want Abs · yt:YvfQfo9Qh4s · tier1 · 2026-09-12",
+          "attempt": 1,
           "headlines": [
-            "Ab Exercises In My Routine",
-            "Where Ab Exercises Fit For Me",
-            "My Ab Training Routine At 40",
-            "Ab Exercise Order Explained",
-            "Ab Training Routine For Men"
+            "Why I Stopped Drinking Milk",
+            "Milk Is Not A Health Food",
+            "Liquid Calories In Milk",
+            "The Truth About Milk Calories",
+            "Milk - My Take At 40 Years Old"
           ],
-          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
+          "videoTitle": "Milk Is Not A Health Food If You Want Abs",
           "labelErrors": [],
           "descriptions": [
-            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
-            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
-            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
+            "Liquid calories are the easiest ones to drink without noticing. Here's my take on milk.",
+            "Daniel Rose explains why he does not count milk as a health food.",
+            "Most men forget the calories they drink. Milk is the first one I cut back on."
           ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~824325368367",
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824532188852",
           "longHeadlines": [
-            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
-            "This video covers ab exercises and the other training Daniel Rose does at home.",
-            "A short video about ab exercise order and the rest of Daniel Rose's routine."
+            "Here's why I stopped counting milk as a health food, at 40 years old.",
+            "Daniel Rose explains how liquid calories add up without you noticing.",
+            "This video shows why I watch the calories I drink, starting with milk."
           ]
         },
         {
-          "at": "2026-09-12T01:00:21.560Z",
-          "campaign": "tier1",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824368290634",
-          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · tier1 · 2026-09-12",
-          "attempt": 3,
-          "headlines": [
-            "Personal Trainers And My Budget",
-            "How I Use My Fitness Budget",
-            "My Thoughts On Personal Trainers",
-            "Monthly Fitness Spending At 40",
-            "Personal Trainer Spending Talk"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
-            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
-            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~824368290634",
-          "longHeadlines": [
-            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
-            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
-            "A short video about personal trainers, help at home, and monthly fitness spending."
-          ]
-        },
-        {
-          "at": "2026-09-12T01:00:21.563Z",
+          "at": "2026-09-12T23:00:17.722Z",
           "campaign": "rmktg",
-          "videoId": "GVNzvm5sUbk",
-          "adId": "824368287319",
-          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r3 · rmktg · 2026-09-12",
-          "attempt": 3,
+          "videoId": "YvfQfo9Qh4s",
+          "adId": "824532605702",
+          "name": "AT · Milk Is Not A Health Food If You Want Abs · yt:YvfQfo9Qh4s · rmktg · 2026-09-12",
+          "attempt": 1,
           "headlines": [
-            "Ab Exercises In My Routine",
-            "Where Ab Exercises Fit For Me",
-            "My Ab Training Routine At 40",
-            "Ab Exercise Order Explained",
-            "Ab Training Routine For Men"
+            "Why I Stopped Drinking Milk",
+            "Milk Is Not A Health Food",
+            "Liquid Calories In Milk",
+            "The Truth About Milk Calories",
+            "Milk - My Take At 40 Years Old"
           ],
-          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
+          "videoTitle": "Milk Is Not A Health Food If You Want Abs",
           "labelErrors": [],
           "descriptions": [
-            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
-            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
-            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
+            "Liquid calories are the easiest ones to drink without noticing. Here's my take on milk.",
+            "Daniel Rose explains why he does not count milk as a health food.",
+            "Most men forget the calories they drink. Milk is the first one I cut back on."
           ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824368287319",
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824532605702",
           "longHeadlines": [
-            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
-            "This video covers ab exercises and the other training Daniel Rose does at home.",
-            "A short video about ab exercise order and the rest of Daniel Rose's routine."
-          ]
-        },
-        {
-          "at": "2026-09-12T01:00:21.568Z",
-          "campaign": "rmktg",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824368290652",
-          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · rmktg · 2026-09-12",
-          "attempt": 3,
-          "headlines": [
-            "Personal Trainers And My Budget",
-            "How I Use My Fitness Budget",
-            "My Thoughts On Personal Trainers",
-            "Monthly Fitness Spending At 40",
-            "Personal Trainer Spending Talk"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
-            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
-            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824368290652",
-          "longHeadlines": [
-            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
-            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
-            "A short video about personal trainers, help at home, and monthly fitness spending."
+            "Here's why I stopped counting milk as a health food, at 40 years old.",
+            "Daniel Rose explains how liquid calories add up without you noticing.",
+            "This video shows why I watch the calories I drink, starting with milk."
           ]
         }
       ],
@@ -1344,230 +1409,7 @@
       "errors": [],
       "policy": [],
       "dayOne": [],
-      "retries": [
-        {
-          "at": "2026-09-12T00:00:22.820Z",
-          "event": "thumb:swapped",
-          "campaign": null,
-          "videoId": "GVNzvm5sUbk",
-          "adId": null,
-          "crop": {
-            "top": 0,
-            "left": 0,
-            "width": 1080,
-            "height": 1038
-          },
-          "bytes": 68720,
-          "check": {
-            "cut": false,
-            "dan": true,
-            "face": true,
-            "note": "Same man with glasses, black tank top, same doorway background; no overlays or captions; entire face visible with space above hair and below chin; eyes open, mouth closed in slight smirk.",
-            "text": false,
-            "expression": "good"
-          },
-          "frame": "https://i.ytimg.com/vi/GVNzvm5sUbk/oar2.jpg",
-          "title": "Stop Doing Ab Exercises Until You Can See Your Abs"
-        },
-        {
-          "at": "2026-09-12T00:00:59.465Z",
-          "event": "thumb:swapped",
-          "campaign": null,
-          "videoId": "LvOMn7IpuCI",
-          "adId": null,
-          "crop": {
-            "top": 0,
-            "left": 0,
-            "width": 1080,
-            "height": 1117
-          },
-          "bytes": 63744,
-          "check": {
-            "cut": false,
-            "dan": true,
-            "face": true,
-            "note": "Same man in black tank top and glasses, same doorway background; face fully visible with space above hair and below chin; mouth open in normal speech, eyes open; no visible text or watermark.",
-            "text": false,
-            "expression": "good"
-          },
-          "frame": "https://i.ytimg.com/vi/LvOMn7IpuCI/oar2.jpg",
-          "title": "Hire A Maid Instead Of A Personal Trainer"
-        },
-        {
-          "at": "2026-09-12T01:00:21.547Z",
-          "event": "created",
-          "campaign": "tier2",
-          "videoId": "GVNzvm5sUbk",
-          "adId": "824325319560",
-          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r3 · tier2 · 2026-09-12",
-          "attempt": 3,
-          "headlines": [
-            "Ab Exercises In My Routine",
-            "Where Ab Exercises Fit For Me",
-            "My Ab Training Routine At 40",
-            "Ab Exercise Order Explained",
-            "Ab Training Routine For Men"
-          ],
-          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
-            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
-            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~824325319560",
-          "longHeadlines": [
-            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
-            "This video covers ab exercises and the other training Daniel Rose does at home.",
-            "A short video about ab exercise order and the rest of Daniel Rose's routine."
-          ]
-        },
-        {
-          "at": "2026-09-12T01:00:21.551Z",
-          "event": "created",
-          "campaign": "tier2",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824325771060",
-          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · tier2 · 2026-09-12",
-          "attempt": 3,
-          "headlines": [
-            "Personal Trainers And My Budget",
-            "How I Use My Fitness Budget",
-            "My Thoughts On Personal Trainers",
-            "Monthly Fitness Spending At 40",
-            "Personal Trainer Spending Talk"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
-            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
-            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~824325771060",
-          "longHeadlines": [
-            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
-            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
-            "A short video about personal trainers, help at home, and monthly fitness spending."
-          ]
-        },
-        {
-          "at": "2026-09-12T01:00:21.556Z",
-          "event": "created",
-          "campaign": "tier1",
-          "videoId": "GVNzvm5sUbk",
-          "adId": "824325368367",
-          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r3 · tier1 · 2026-09-12",
-          "attempt": 3,
-          "headlines": [
-            "Ab Exercises In My Routine",
-            "Where Ab Exercises Fit For Me",
-            "My Ab Training Routine At 40",
-            "Ab Exercise Order Explained",
-            "Ab Training Routine For Men"
-          ],
-          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
-            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
-            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~824325368367",
-          "longHeadlines": [
-            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
-            "This video covers ab exercises and the other training Daniel Rose does at home.",
-            "A short video about ab exercise order and the rest of Daniel Rose's routine."
-          ]
-        },
-        {
-          "at": "2026-09-12T01:00:21.560Z",
-          "event": "created",
-          "campaign": "tier1",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824368290634",
-          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · tier1 · 2026-09-12",
-          "attempt": 3,
-          "headlines": [
-            "Personal Trainers And My Budget",
-            "How I Use My Fitness Budget",
-            "My Thoughts On Personal Trainers",
-            "Monthly Fitness Spending At 40",
-            "Personal Trainer Spending Talk"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
-            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
-            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~824368290634",
-          "longHeadlines": [
-            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
-            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
-            "A short video about personal trainers, help at home, and monthly fitness spending."
-          ]
-        },
-        {
-          "at": "2026-09-12T01:00:21.563Z",
-          "event": "created",
-          "campaign": "rmktg",
-          "videoId": "GVNzvm5sUbk",
-          "adId": "824368287319",
-          "name": "AT · Stop Doing Ab Exercises Until You Can See Your Abs · yt:GVNzvm5sUbk · r3 · rmktg · 2026-09-12",
-          "attempt": 3,
-          "headlines": [
-            "Ab Exercises In My Routine",
-            "Where Ab Exercises Fit For Me",
-            "My Ab Training Routine At 40",
-            "Ab Exercise Order Explained",
-            "Ab Training Routine For Men"
-          ],
-          "videoTitle": "Stop Doing Ab Exercises Until You Can See Your Abs",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose describes his ab training routine at 40 years old in a short video.",
-            "A plain walkthrough of where ab exercises sit in Daniel Rose's training week.",
-            "Men: this video covers ab exercises and the rest of the routine Daniel Rose follows."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824368287319",
-          "longHeadlines": [
-            "Daniel Rose talks through where ab exercises sit in his routine at 40 years old.",
-            "This video covers ab exercises and the other training Daniel Rose does at home.",
-            "A short video about ab exercise order and the rest of Daniel Rose's routine."
-          ]
-        },
-        {
-          "at": "2026-09-12T01:00:21.568Z",
-          "event": "created",
-          "campaign": "rmktg",
-          "videoId": "LvOMn7IpuCI",
-          "adId": "824368290652",
-          "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · rmktg · 2026-09-12",
-          "attempt": 3,
-          "headlines": [
-            "Personal Trainers And My Budget",
-            "How I Use My Fitness Budget",
-            "My Thoughts On Personal Trainers",
-            "Monthly Fitness Spending At 40",
-            "Personal Trainer Spending Talk"
-          ],
-          "videoTitle": "Hire A Maid Instead Of A Personal Trainer",
-          "labelErrors": [],
-          "descriptions": [
-            "Daniel Rose explains how he allocates the money he sets aside for training each month.",
-            "A short video on personal trainers and how Daniel Rose plans his own training with AI.",
-            "Daniel Rose describes his monthly fitness spending and the help he pays for at home."
-          ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824368290652",
-          "longHeadlines": [
-            "Daniel Rose talks through how he spends his monthly fitness budget at 40 years old.",
-            "In this short, Daniel Rose describes his approach to paying for a personal trainer.",
-            "A short video about personal trainers, help at home, and monthly fitness spending."
-          ]
-        }
-      ]
+      "retries": []
     },
     "retry": {
       "seen": [],
@@ -1578,7 +1420,7 @@
       "waitingCopy": []
     },
     "lastResults": {
-      "at": "2026-09-12T11:00:04.486Z",
+      "at": "2026-09-13T11:00:05.023Z",
       "dryRun": false,
       "results": []
     }
