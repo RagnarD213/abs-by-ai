@@ -35,10 +35,12 @@
     "Waleed": {
       "upwork_name": "Waleed Ahmad",
       "drive_owners": [
-        "info.taimoormirzaa@gmail.com"
+        "info.taimoormirzaa@gmail.com",
+        "waleedatwork124@gmail.com"
       ],
       "upwork_room": "room_6238c4790346683db7c5ddf3f3d48122",
-      "shares_by": "individual files (each gets sharedWithMeTime) — Drive search finds these"
+      "shares_by": "individual files (each gets sharedWithMeTime) — Drive search finds these",
+      "owner_note": "Delivered from info.taimoormirzaa@gmail.com through 09-05; the 09-12 round-4 cut came from waleedatwork124@gmail.com. Query BOTH owners."
     }
   },
   "filed": [
@@ -358,6 +360,46 @@
       "size": 21413677,
       "delivered_on": "2026-09-11",
       "why": "21 MB draft; Ad 10 round 2 revisions written 2026-09-11 on this exact cut (revision docs/ad10-revisions-muhammad-round2-9-11-26.md). Sent in his 09-11 18:18Z message as 'AD 10 v2', no final wording."
+    },
+    {
+      "drive_id": "1mTizfbX4Uk97EwJOF_uO3KBp1P3PToh1",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 7 V4 HD.mp4",
+      "size": 283970782,
+      "delivered_on": "2026-09-12",
+      "why": "HD-class (284 MB) and his 09-12 18:52Z message calls it 'AD 7 HD', so rules 1 and 3 pass - but rule 2 fails: Ad 7 round 4 revisions were written on THIS EXACT CUT on 09-12 (revision docs/ad7-revisions-muhammad-round4-9-12-26.md, 14:25 CT). Proof: byte-identical size to the reviewed copy at /Volumes/Extreme/_edit_work/revisions-0912m/dl/ad7_hd.mp4. He confirmed at 19:59Z he is making the revisions. File the NEXT HD after round 4."
+    },
+    {
+      "drive_id": "1582XKVpH-6LYq8fEJlFQksMZE0HL1Ct5",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 10 v3 HD.mp4",
+      "size": 240209477,
+      "delivered_on": "2026-09-12",
+      "why": "HD-class (240 MB), message says 'AD 10 v3 HD' - but Ad 10 round 3 revisions were written on this exact cut 09-12 (ad10-revisions-muhammad-round3-9-12-26.md). Size matches revisions-0912m/dl/ad10_v3hd.mp4 exactly. One item left (the chip style)."
+    },
+    {
+      "drive_id": "1dPbNikLQAQSl39184qUs78EAiXIJofz2",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 6 V3.mp4",
+      "size": 110783688,
+      "delivered_on": "2026-09-12",
+      "why": "111 MB draft size AND Ad 6 round 3 revisions written on it 09-12 (4 items). Size matches revisions-0912m/dl/ad6_v3.mp4. Fails rules 2 and 3."
+    },
+    {
+      "drive_id": "13UAyggL-r3in0Y6fyKVj7MDfWaaCyDL4",
+      "editor": "Muhammad",
+      "file": "Daniel HQ ad 14 V2.mp4",
+      "size": 79567016,
+      "delivered_on": "2026-09-12",
+      "why": "80 MB draft size AND Ad 14 round 2 revisions written on it 09-12 (4 items). Size matches revisions-0912m/dl/ad14_v2.mp4. Fails rules 2 and 3."
+    },
+    {
+      "drive_id": "1Q-cmEcXKhNwB7c8fVF0OMtsejLj3XdE4",
+      "editor": "Waleed",
+      "file": "Test Video 1.mp4",
+      "size": 345053547,
+      "delivered_on": "2026-09-12",
+      "why": "THE ROUND-4 CUT OF VIDEO 1, and it is NOT final. 345 MB and his 09-12 17:18Z message says 'Video 1 done, as per feedback' with a milestone payment request - but rule 2 fails: round-4 revisions were written on this exact file the same day (video1-revisions-waleed-round4-9-12-26.md, 14:32 CT = 19:32Z; file created 17:12Z, message 17:18Z). Four items open, one a compliance problem (0:06.6-0:08.1 holds both phones on screen = a side-by-side before/after), plus true peak +2.9 dBTP. New owner account waleedatwork124@gmail.com. File the cut that answers round 4."
     }
   ],
   "pending": [
@@ -375,9 +417,10 @@
     "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
     "Romaisa R. (room_3a0dd1a1…) — not an editor on the job: an applicant following up ('I hope you've found a good editor… available to work'). Same for Abdul W. (room_549d5bcc…, proposal) and Gbadamosi I. (room_3f398d8b…, 'How are you?'). None delivered anything."
   ],
-  "last_run": "2026-09-12",
+  "last_run": "2026-09-13",
   "watch": [
     "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder — so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final.",
-    "Waleed is BLOCKED and it is Dan's to clear: his 2026-09-11 10:57Z Upwork message says 'I don't have an access to the document you gave me for round 3.' No delivery from him since 'Test Video 1_Final.mp4' (09-05, superseded by round-3 revisions). He cannot start round 3 until Dan opens sharing on that revisions doc."
+    "Waleed: access block cleared; he delivered the round-4 cut of Video 1 on 2026-09-12 (Test Video 1.mp4, id 1Q-cmEcXKhNwB7c8fVF0OMtsejLj3XdE4) and requested milestone payment. It is in not_final_seen, NOT filed - round-4 revisions were written on that exact file the same day, so rule 2 forbids filing it. (A 09-12 note in this file said to file it on the next run; that was wrong and is corrected here.) File the cut that answers round 4. He now delivers from waleedatwork124@gmail.com, not info.taimoormirzaa@.",
+    "Muhammad owes finals on several ads at once. Awaiting the HD/final AFTER the 09-12 round: Ad 7 (after r4), Ad 10 (after r3), Ad 6 (after r3), Ad 14 (after r2), plus the still-owed HD exports of the APPROVED Ad 3 V5 and Ad 4 V3 cuts. He acknowledged the 09-12 feedback at 19:59Z: 'I'll make these revisions and get them finalized.'"
   ]
 }
