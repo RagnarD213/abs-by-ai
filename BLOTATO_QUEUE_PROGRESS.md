@@ -10,6 +10,21 @@ Last updated 2026-08-18 by Claude Code.
 - **TikTok deliberately NOT connected** until ~2026-09-02 (warm-up; early third-party connection risks a bot flag).
 - **YouTube is connected but deliberately unused.** All 28 Shorts are already scheduled natively in YouTube Studio, so posting them through Blotato too would double-post. Blotato only posts where a post names that accountId, and no Automations exist, so it is inert. Dan's decision 2026-08-17: leave connected, revisit after the native queue runs dry (post Oct 15).
 
+## DONE — "Ab Wheel Workout: 3 Sets For Stronger Abs (Do It With Me)", every platform (2026-09-13)
+
+Zeeshan's final "Video 1 Rev 2.mp4" (3:52, 300,660,846 bytes, md5 `b85099f6…`), filed at
+`Zeeshan Content Videos/ab wheel workout - video 1/`, posted untouched (under the 400 MB cap). **4 Blotato posts** by the
+new generic `scripts/blotato/longform_queue.py scripts/blotato/configs/abwheel-workout.json`, queue 187 → 191, all 4
+verified on a fresh pull. Built and recorded as the `/video-setup` skill.
+
+| FB · IG @danrosefit · TikTok | IG @abs.by.ai | YouTube |
+|---|---|---|
+| Sun Sep 20, 9 AM CT (schedules 4413699 / 4413701 / 4413702) | Sep 21, 9 AM (4413703) | `b_bS9NdmL-g`, Sep 20 9 AM, thumbnail 5 (rollout screenshot) A/B vs 1 (pool photo-172) |
+
+- IG CTA keyword `ABS`; UTM `utm_campaign=longform&utm_content=abwheel-workout`. TikTok `isAiGenerated: true` and
+  YouTube synthetic disclosure on (the CTA shows the AI goal image).
+- The Test & Compare reads "Ineligible — not public" until 09-20; confirm it is running after publish.
+
 ## DONE — Ad 5 "Every Diet You've Tried Failed for the Same Reason", every platform (2026-09-10)
 
 Muhammad's V3 HD (3:55, 311 MB, md5 `3873513e…`), posted untouched — under the 400 MB cap, so no
