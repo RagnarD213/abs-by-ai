@@ -9,9 +9,10 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 ## Context preservation
 
 - Dan prefers a proactive handoff over automatic context compaction. Do not intentionally continue a task until it nears the model context limit.
-- Codex does not expose an exact live context percentage, so use a conservative practical threshold: after a substantial research or implementation phase, or when the task has accumulated extensive tool output, create a handoff at roughly half of the model's advertised context window. For the common 400k-token Codex models, treat this as about 200k tokens of effective task context, with a margin for tool-heavy work.
-- Before that threshold is approached, write a concise, self-contained file in `Handoffs/` recording: goal, decisions, completed work and verification, relevant file paths/URLs/IDs, current state, open risks, and the exact next action. Then continue in a fresh task using that handoff. Do not wait for quality to degrade or for compaction to occur.
-- If context consumption cannot be estimated reliably, choose the earlier handoff. A handoff after a major milestone is preferable to risking compaction.
+- Codex does not expose an exact live context percentage, so use a conservative practical threshold: around half of the model's advertised context window. For the common 400k-token Codex models, treat this as about 200k tokens of effective task context, with a margin for tool-heavy work.
+- At that threshold, or earlier after a major completed phase, **suggest** a handoff to Dan and state why it is a good transition point. Give him the choice to hand off or keep going. Do not create a handoff or a new task without his approval.
+- Do not suggest a handoff merely because the threshold is reached if only a small, well-defined amount of work remains. Finish that work first, unless doing so risks approaching compaction.
+- If Dan chooses a handoff, write a concise, self-contained file in `Handoffs/` recording: goal, decisions, completed work and verification, relevant file paths/URLs/IDs, current state, open risks, and the exact next action. Then continue in a fresh task using that handoff. Do not wait for quality to degrade or for compaction to occur.
 
 ## Session coordination
 
