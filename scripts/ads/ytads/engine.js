@@ -39,8 +39,9 @@ const LABELS = {
   AUTO: 'AUTO', TEST: 'AUTO:TEST', CHAMPION: 'AUTO:CHAMPION',
   RETIRED: 'AUTO:RETIRED', RETIRED_DAY1: 'AUTO:RETIRED-DAY1',
   SUPERSEDED: 'AUTO:SUPERSEDED',   // failed review and replaced by a retry attempt; removed if the whole chain fails
+  LIBRARY: 'AUTO:LIBRARY',   // library mode (Dan 2026-09-13): created paused, never tested/promoted — see plan()
 };
-const STATE_LABELS = [LABELS.TEST, LABELS.CHAMPION, LABELS.RETIRED, LABELS.RETIRED_DAY1, LABELS.SUPERSEDED];
+const STATE_LABELS = [LABELS.TEST, LABELS.CHAMPION, LABELS.RETIRED, LABELS.RETIRED_DAY1, LABELS.SUPERSEDED, LABELS.LIBRARY];
 
 // How the three campaigns are recognised in the snapshot. All three ids were PINNED
 // from the first Ads Script snapshot (run 1, 2026-09-08 20:54 UTC). Name matching is
@@ -208,6 +209,12 @@ function groupAdsByCampaign(snapshot, campaigns) {
 // retryCopyByVideo: { [videoId]: set } — the tamer copy for a resubmission (retrycopy events).
 function plan({ snapshot, videos, events, headlinesByVideo, retryCopyByVideo, now, config, dryRun }) {
   now = now ? new Date(now) : new Date();
+  // Library mode (Dan 2026-09-13, "advertise the newest long-form video only"): the
+  // $5-test / champion-promotion / retry machinery is off — nothing is auto-enabled or
+  // auto-paused for performance. New videos (Shorts included) still get an ad created in
+  // each campaign so the library keeps growing, but PAUSED, labelled AUTO:LIBRARY. Dan
+  // controls which single ad is enabled by hand. Revert with config.mode = 'champion'.
+  const libraryMode = (config && config.mode) !== 'champion';
   const { campaigns, unmatched, missing } = resolveCampaigns(snapshot, config);
   const adsBy = groupAdsByCampaign(snapshot, campaigns);
   const commands = []; const warnings = []; const decisions = [];
@@ -267,7 +274,8 @@ function plan({ snapshot, videos, events, headlinesByVideo, retryCopyByVideo, no
     // ad in the chain is removed and the original thumbnail goes back. An attempt that passes
     // review simply runs on as an ordinary test. Hand-made ads are included (Dan's answer);
     // ones he paused himself are not (only enabled, day-one-retired or disapproved ones).
-    {
+    // Off in library mode (Dan 2026-09-13): nothing is being tested, so nothing to retry.
+    if (!libraryMode) {
       const groupsEnabled = (c.adGroups || []).filter(g => String(g.status || '').toUpperCase() === 'ENABLED');
       const verdictOf = (ad) => policyVerdict(ad, adAge(ad), forced.has(String(ad.adId)));
       const createRetry = (attempt, vid, title, set) => {
@@ -353,7 +361,9 @@ function plan({ snapshot, videos, events, headlinesByVideo, retryCopyByVideo, no
                lifetime: { ...life, costPerConv: costPerConv(life.cost, life.conv) } };
     };
 
-    // ── 7. Day-one pass (once per campaign) ──
+    // ── 7. Day-one pass (once per campaign) — off in library mode: nothing is being
+    // tested, so hand-made ads are never auto-paused and no champion is auto-crowned.
+    if (!libraryMode) {
     const dayOneDone = (events || []).some(e => e.event === 'dayone' && e.campaign_key === key && !(e.detail && e.detail.dryRun));
     const handMade = ads.filter(ad => !isAuto(ad) && isEnabled(ad));
     // testWins: called from the promote path — the winning TEST is the champion, so
@@ -435,9 +445,13 @@ function plan({ snapshot, videos, events, headlinesByVideo, retryCopyByVideo, no
               reason: `verdict:${verdict}`, labels: { add: [LABELS.RETIRED], remove: [LABELS.TEST] }, verdict: detail });
       }
     }
-    summary.champion = champStats(champion);
 
     // Interpretation-6 pause deferred: with no champion and no day-one, the hand-made ads keep running.
+    } // !libraryMode (day-one pass + judge finished tests)
+    // Reported in every mode: whichever ad already carries the champion label (in library
+    // mode this is just Dan's manually-enabled ad, if he has labelled it so — nothing here
+    // promotes or demotes it).
+    summary.champion = champStats(champion);
   }
 
   // Retry rule, last step: the clean thumbnail stays only while some attempt 3 is still
@@ -467,7 +481,8 @@ function plan({ snapshot, videos, events, headlinesByVideo, retryCopyByVideo, no
       const name = testAdName(video.id, key, now, video.title);
       const created = cmd({
         op: 'createAd', campaign: key, campaignId: c.id, adGroupId: String(groups[0].id), videoId: video.id, videoTitle: video.title,
-        name, labels: { add: [LABELS.AUTO, LABELS.TEST], remove: [] },
+        name, status: libraryMode ? 'PAUSED' : 'ENABLED',
+        labels: { add: libraryMode ? [LABELS.AUTO, LABELS.LIBRARY] : [LABELS.AUTO, LABELS.TEST], remove: [] },
         headlines: set.headlines, longHeadlines: set.longHeadlines, descriptions: set.descriptions,
         businessName: template.businessName, finalUrls: template.finalUrls, logoImages: template.logoImages,
         callToActions: template.callToActions || [], templateAdId: template.adId,

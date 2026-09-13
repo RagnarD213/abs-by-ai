@@ -40,7 +40,11 @@ function safeEq(a, b) {
 
 module.exports = function mountYtads(app, { pool }) {
   const enabled = () => process.env.YTADS_ENABLED === '1';
-  const config = () => ({ startDate: process.env.YTADS_START_DATE || START_DATE_DEFAULT, skiplist: loadSkiplist() });
+  // Library mode (Dan 2026-09-13): new videos still get an ad added to each campaign so
+  // the library keeps growing, but PAUSED — no $5 tests, no champion promotion, no retry
+  // chain. Default is 'library'; set YTADS_MODE=champion on Railway to go back to the
+  // old auto-testing behavior.
+  const config = () => ({ startDate: process.env.YTADS_START_DATE || START_DATE_DEFAULT, mode: process.env.YTADS_MODE || 'library', skiplist: loadSkiplist() });
 
   let schemaReady = null;
   function ensureSchema() {

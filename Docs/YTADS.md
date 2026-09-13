@@ -4,6 +4,39 @@
 The design decisions in that handoff are Dan's and are final; this doc is how the built thing works
 and how to operate it. The Meta twin is `Docs/AUTO_BOOST.md`.
 
+## LIBRARY MODE — the current standing behavior (Dan 2026-09-13)
+
+Dan is trying a new approach: **advertise the newest long-form video only.** He manually paused every
+ad in the three engagement campaigns except one (`AT · The $17 Ab Wheel Beats Every Crunch · yt:bkzT-3ENpoU
+· rmktg · 2026-09-13`), and asked that, going forward, the automation keep adding an ad for every new
+Short and long-form video (so the library keeps growing and nothing has to be built from scratch later)
+**but leave every one of them PAUSED**, never auto-enabling or auto-rotating anything. He picks which
+single ad is enabled by hand.
+
+This is `config.mode = 'library'` in `engine.js`, and it is now the **default** (`routes.js` sets it
+unless `YTADS_MODE=champion` is set on Railway). In library mode:
+
+- **New-video ad creation still runs** (the "2–4" step) — one `createAd` per campaign per new video,
+  same headline-writing/lint pipeline as before — but the command carries `status: 'PAUSED'` and the
+  label `AUTO:LIBRARY` instead of `AUTO:TEST`. `ads-script.js`'s `createAd` handler reads `c.status`
+  (falls back to `ENABLED` for old commands), so the Ads Script must be at or after this version for
+  paused creation to actually take effect on the account — **the live copy in the Scripts editor must
+  be re-pasted from this file** (see "Installing a new version" below); editing the repo file alone
+  changes nothing live.
+- **The $5-test / judge / promote loop (step 5), the day-one hand-made-ad pass (step 7), and the
+  disapproved/limited retry chain (step 6b) are all skipped entirely.** Nothing is ever auto-enabled,
+  auto-paused for performance, or auto-promoted to champion. Dan's one enabled ad runs forever until he
+  changes it himself.
+- **Policy watch (step 6) still runs** — a `DISAPPROVED` ad that is somehow enabled still gets paused.
+  That is a compliance safety net, not testing, and it's the only command library mode can still issue
+  against an ad Dan didn't just create.
+- The manual queue (`manual.js`) is untouched — Dan's own one-off edits (enable an ad, fix copy) work
+  exactly as before in either mode.
+- To go back to the old auto-testing behavior: set `YTADS_MODE=champion` on Railway (`abs-by-ai`
+  service) and redeploy nothing else — `routes.js` reads it live. `engine.test.js` section "6c" covers
+  the library-mode rules; every other section still tests champion mode (`CFG.mode = 'champion'`) so a
+  revert needs no code changes, only the env var.
+
 ## What it does, in one paragraph
 
 Dan wants YouTube subscribers. Every hour a small Google Ads Script inside account 342-717-0837 reads

@@ -16,7 +16,7 @@ function check(name, cond, extra) {
 }
 
 const NOW = '2026-09-04T15:10:00Z';
-const CFG = { startDate: '2026-09-03', skiplist: { videoIds: ['skipME12345'], titlePatterns: ['ab wheel beats crunches'] } };
+const CFG = { startDate: '2026-09-03', mode: 'champion', skiplist: { videoIds: ['skipME12345'], titlePatterns: ['ab wheel beats crunches'] } };
 const M = (usd) => Math.round(usd * 1e6);
 
 // ── fixture builders ─────────────────────────────────────────
@@ -326,6 +326,47 @@ check('titleOf reads both prefixes, null for the legacy untitled format',
   const r = run({ snapshot: snap([champ, t]), events });
   check('disapproved champion paused', ops(r, 'pauseAd').some(c => c.adId === champ.adId && c.reason === 'policy:disapproved'));
   check('a qualifying test then takes the empty seat', ops(r, 'label').some(c => c.reason === 'promote' && c.adId === t.adId));
+}
+
+console.log('\n6c. LIBRARY MODE (Dan 2026-09-13 — "advertise the newest long-form video only")');
+{
+  const LIB = { ...CFG, mode: 'library' };
+  // The one ad Dan enabled by hand and left running; it already carries the champion
+  // label from before he switched modes.
+  const enabledPick = ad({ campaign: RM, name: 'AT · The $17 Ab Wheel Beats Every Crunch · yt:bkzT-3ENpoU · rmktg · 2026-09-13', labels: ['AUTO', 'AUTO:CHAMPION'], life: [5, 5] });
+  // Every other AUTO ad in tier2/tier1 is paused, same as Dan's manual sweep — still
+  // needed as a template source (business name / url / logo) for the new ads.
+  const pausedTier2 = ad({ campaign: T2, name: 'AT · An older short · yt:oldShort0001 · tier2 · 2026-09-05', labels: ['AUTO', 'AUTO:LIBRARY'], status: 'PAUSED', life: [0, 0] });
+  const pausedTier1 = ad({ campaign: T1, name: 'AT · An older short · yt:oldShort0001 · tier1 · 2026-09-05', labels: ['AUTO', 'AUTO:LIBRARY'], status: 'PAUSED', life: [0, 0] });
+  const s = snap([enabledPick, pausedTier2, pausedTier1]);
+  const r = run({ snapshot: s, videos: [video('newShort0001', '2026-09-13T22:00:00Z', 'A new short')], headlines: { newShort0001: HL }, config: LIB });
+  const creates = ops(r, 'createAd');
+  check('a new video still gets a createAd in every campaign (the library keeps growing)', creates.length === 3 && new Set(creates.map(c => c.campaign)).size === 3, creates.map(c => c.campaign));
+  check('every new ad is created PAUSED, not ENABLED', creates.every(c => c.status === 'PAUSED'), creates.map(c => c.status));
+  check('every new ad is labelled AUTO:LIBRARY, not AUTO:TEST', creates.every(c => c.labels.add.join() === 'AUTO,AUTO:LIBRARY'), creates.map(c => c.labels.add));
+  check('no pauseAd / enableAd / promote commands are ever issued in library mode', !r.commands.some(c => c.op === 'pauseAd' || c.op === 'enableAd' || (c.op === 'label' && c.reason && c.reason !== undefined && /dayone|promote|dethroned/.test(c.reason))));
+  check('the manually-enabled ad is left completely alone (no command targets it)', !r.commands.some(c => c.adId === enabledPick.adId));
+  check('its champion label is still reported (read-only), even though nothing promoted it', r.report.campaigns.rmktg.champion && r.report.campaigns.rmktg.champion.adId === enabledPick.adId);
+
+  // A hand-made ad Dan hasn't paused would, in champion mode, get day-one-retired the
+  // moment a test qualifies. In library mode it is never touched.
+  const handMade = ad({ campaign: T2, name: 'dan hand-made', life: [20, 60] });
+  const r2 = run({ snapshot: snap([handMade]), videos: [video('newVid00002', '2026-09-13T22:00:00Z')], headlines: { newVid00002: HL }, config: LIB });
+  check('a hand-made ad is never day-one-paused in library mode', !ops(r2, 'pauseAd').some(c => c.adId === handMade.adId));
+  check('no dayOne block is reported in library mode', r2.report.campaigns.tier2.dayOne === null);
+
+  // Retry rule is off: a disapproved AUTO test just sits there (policy watch alone still
+  // pauses it — that is compliance, not testing — but nothing resubmits it).
+  const disapproved = ad({ campaign: T2, name: 'AT · Bad copy · yt:dVid0000001 · tier2 · 2026-09-11', labels: ['AUTO', 'AUTO:LIBRARY'], life: [0, 0], policy: { approvalStatus: 'DISAPPROVED', reviewStatus: 'REVIEWED', topics: [] } });
+  const r3 = run({ snapshot: snap([disapproved]), config: LIB });
+  check('policy watch still pauses a disapproved AUTO ad (compliance, not testing)', ops(r3, 'pauseAd').some(c => c.adId === disapproved.adId && c.reason === 'policy:disapproved'));
+  check('no retry (r2/r3) ad is ever created for it', !ops(r3, 'createAd').length);
+
+  check('champion mode (config.mode absent or "champion") is unaffected: still creates ENABLED / AUTO:TEST', (() => {
+    const rc = run({ snapshot: snap([ad({ campaign: T2, name: 'dan 1', life: [20, 60] })]), videos: [video('newVid00003', '2026-09-13T22:00:00Z')], headlines: { newVid00003: HL } });
+    const c = ops(rc, 'createAd').find(x => x.campaign === 'tier2');
+    return c && c.status === 'ENABLED' && c.labels.add.join() === 'AUTO,AUTO:TEST';
+  })());
 }
 
 console.log('\n7. DRY RUN, MISSING CAMPAIGNS, AMBIGUOUS AD GROUP');

@@ -190,7 +190,7 @@ function execute(cid, c, labels, snapshot) {
     };
     if (c.callToActions && c.callToActions.length) dg.callToActions = c.callToActions.map(function (rn) { return { asset: rn }; });
     var op = { adGroupAdOperation: { create: {
-      adGroup: 'customers/' + cid + '/adGroups/' + c.adGroupId, status: 'ENABLED',
+      adGroup: 'customers/' + cid + '/adGroups/' + c.adGroupId, status: c.status || 'ENABLED',
       ad: { name: c.name, finalUrls: c.finalUrls, demandGenVideoResponsiveAd: dg },
     } } };
     var res = AdsApp.mutate(op);
