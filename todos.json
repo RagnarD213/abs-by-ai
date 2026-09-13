@@ -75,6 +75,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-09-11"
+    },
+    {
+      "text": "Have every video check read twice and hand me only the disagreements",
+      "priority": "high",
+      "why": "One mis-calibrated measurement nearly sent 13 wrong timecodes to Muhammad this week; a second reader catches it",
+      "addedAt": "2026-09-13"
     }
   ],
   "health": [
