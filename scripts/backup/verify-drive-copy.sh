@@ -1,40 +1,60 @@
-#!/bin/zsh
+#!/bin/bash
 # Verify a local folder has a true copy in Google Drive.
 #
 #   verify-drive-copy.sh <local-dir> <drive-folder-id>
 #
-# Compares every file by MD5 via `rclone check`. Exits non-zero if the copy
-# is incomplete or any file differs. Counts and sizes are reported too, so a
-# pass is auditable and not just a green checkmark.
+# Compares every file by MD5 via `rclone check`, plus file counts and total
+# bytes. Exits 0 ONLY on a full pass; any mismatch, missing input, or failed
+# check exits non-zero. A check that could not run is a FAILURE, never a pass.
 #
 # Requires: ~/bin/rclone with the `gdrive` remote authorized.
 
-set -u
-SRC="${1:?usage: verify-drive-copy.sh <local-dir> <drive-folder-id>}"
-FID="${2:?usage: verify-drive-copy.sh <local-dir> <drive-folder-id>}"
-RCLONE=~/bin/rclone
+set -uo pipefail
 
-[[ -d "$SRC" ]] || { print -r -- "FAIL: local dir not found: $SRC"; exit 1; }
+SRC="${1:-}"
+FID="${2:-}"
+RCLONE="$HOME/bin/rclone"
 
-print -r -- "=== source ==="
-print -r -- "$SRC"
+if [[ -z "$SRC" || -z "$FID" ]]; then
+  echo "usage: verify-drive-copy.sh <local-dir> <drive-folder-id>" >&2; exit 2
+fi
+[[ -d "$SRC" ]]      || { echo "FAIL: local dir not found: $SRC" >&2; exit 2; }
+[[ -x "$RCLONE" ]]   || { echo "FAIL: rclone not found at $RCLONE" >&2; exit 2; }
+
+echo "=== source ==="
+echo "$SRC"
 LOCAL_N=$(find "$SRC" -type f ! -name '.DS_Store' | wc -l | tr -d ' ')
-LOCAL_B=$(find "$SRC" -type f ! -name '.DS_Store' -print0 | xargs -0 stat -f%z | awk '{s+=$1} END{print s+0}')
-print -r -- "local:  $LOCAL_N files, $LOCAL_B bytes"
+LOCAL_B=$(find "$SRC" -type f ! -name '.DS_Store' -print0 | xargs -0 stat -f%z | awk '{s+=$1} END{printf "%d", s+0}')
+echo "local:  $LOCAL_N files, $LOCAL_B bytes"
 
-REMOTE_N=$($RCLONE size gdrive: --drive-root-folder-id="$FID" --exclude '.DS_Store' --json 2>/dev/null | sed -n 's/.*"count":\([0-9]*\).*/\1/p')
-REMOTE_B=$($RCLONE size gdrive: --drive-root-folder-id="$FID" --exclude '.DS_Store' --json 2>/dev/null | sed -n 's/.*"bytes":\([0-9]*\).*/\1/p')
-print -r -- "drive:  ${REMOTE_N:-?} files, ${REMOTE_B:-?} bytes"
+SIZE_JSON=$("$RCLONE" size gdrive: --drive-root-folder-id="$FID" --exclude '.DS_Store' --json 2>/dev/null)
+REMOTE_N=$(echo "$SIZE_JSON" | sed -n 's/.*"count":[[:space:]]*\([0-9]*\).*/\1/p')
+REMOTE_B=$(echo "$SIZE_JSON" | sed -n 's/.*"bytes":[[:space:]]*\([0-9]*\).*/\1/p')
+echo "drive:  ${REMOTE_N:-UNKNOWN} files, ${REMOTE_B:-UNKNOWN} bytes"
 
-print -r -- "\n=== rclone check (MD5 per file) ==="
-$RCLONE check "$SRC" gdrive: --drive-root-folder-id="$FID" --exclude '.DS_Store' --one-way 2>&1 | tail -20
-RC=${pipestatus[1]}
+if [[ -z "$REMOTE_N" || -z "$REMOTE_B" ]]; then
+  echo -e "\n=== verdict ===\nFAIL — could not read the Drive folder's size. The check did not run." >&2
+  exit 1
+fi
 
-print -r -- "\n=== verdict ==="
-if [[ $RC -eq 0 && "$LOCAL_N" == "$REMOTE_N" && "$LOCAL_B" == "$REMOTE_B" ]]; then
-  print -r -- "PASS — $LOCAL_N files, byte-identical, every file MD5-matched."
+echo ""
+echo "=== rclone check (MD5 per file) ==="
+CHECK_OUT=$("$RCLONE" check "$SRC" gdrive: --drive-root-folder-id="$FID" --exclude '.DS_Store' --one-way 2>&1)
+CHECK_RC=$?
+echo "$CHECK_OUT" | tail -20
+
+echo ""
+echo "=== verdict ==="
+FAILED=0
+[[ $CHECK_RC -eq 0 ]]            || { echo "  - rclone check exited $CHECK_RC"; FAILED=1; }
+[[ "$LOCAL_N" == "$REMOTE_N" ]]  || { echo "  - file count differs: local $LOCAL_N vs drive $REMOTE_N"; FAILED=1; }
+[[ "$LOCAL_B" == "$REMOTE_B" ]]  || { echo "  - total bytes differ: local $LOCAL_B vs drive $REMOTE_B"; FAILED=1; }
+echo "$CHECK_OUT" | grep -q '0 differences found' || { echo "  - rclone did not report '0 differences found'"; FAILED=1; }
+
+if [[ $FAILED -eq 0 ]]; then
+  echo "PASS — $LOCAL_N files, $LOCAL_B bytes, every file MD5-matched, 0 differences."
   exit 0
 fi
-print -r -- "FAIL — rclone check rc=$RC; local $LOCAL_N/$LOCAL_B vs drive ${REMOTE_N:-?}/${REMOTE_B:-?}"
-print -r -- "Re-run the copy to fix; rclone only re-sends what is missing or differing."
+echo "FAIL — see the reasons above."
+echo "Re-run the copy to fix; rclone only re-sends what is missing or differing."
 exit 1
