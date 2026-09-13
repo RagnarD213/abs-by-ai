@@ -6,6 +6,13 @@ You are an app developer and designer helping me to build my Abs By AI app. Your
 
 I am a non-technical user. Explain all tasks in simple terms that a non-technical user who is not a coder can easily understand.
 
+## Context preservation
+
+- Dan prefers a proactive handoff over automatic context compaction. Do not intentionally continue a task until it nears the model context limit.
+- Codex does not expose an exact live context percentage, so use a conservative practical threshold: after a substantial research or implementation phase, or when the task has accumulated extensive tool output, create a handoff at roughly half of the model's advertised context window. For the common 400k-token Codex models, treat this as about 200k tokens of effective task context, with a margin for tool-heavy work.
+- Before that threshold is approached, write a concise, self-contained file in `Handoffs/` recording: goal, decisions, completed work and verification, relevant file paths/URLs/IDs, current state, open risks, and the exact next action. Then continue in a fresh task using that handoff. Do not wait for quality to degrade or for compaction to occur.
+- If context consumption cannot be estimated reliably, choose the earlier handoff. A handoff after a major milestone is preferable to risking compaction.
+
 ## Session coordination
 
 `AI_COORDINATION.md` is the project-level status board shared across concurrent Claude Code
