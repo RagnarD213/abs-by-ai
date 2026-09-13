@@ -39,7 +39,7 @@ const CAMPS = [
 ];
 const T2 = '24122099676', T1 = '24163535721', RM = '24169507109';  // the real ids, pinned 2026-09-08
 const snap = (ads, campaigns = CAMPS) => ({ campaigns, ads });
-const video = (id, published, title = 'A video') => ({ id, title, published, description: '' });
+const video = (id, published, title = 'A video', isShort = false) => ({ id, title, published, description: '', isShort });
 const HL = { headlines: ['Why I love the ab wheel', 'One move for the whole core', 'The rollout, done slowly'], longHeadlines: ['Dan shows the ab wheel rollout he does every week'], descriptions: ['Watch the full form breakdown'] };
 const run = (o) => E.plan({ snapshot: o.snapshot, videos: o.videos || [], events: o.events || [], headlinesByVideo: o.headlines || {}, now: NOW, config: o.config || CFG, dryRun: !!o.dryRun });
 const ops = (r, op) => r.commands.filter(c => c.op === op);
@@ -74,6 +74,16 @@ console.log('\n1. NEW-VIDEO DISCOVERY');
   const s = snap([ad({ campaign: T2, name: 'dan 1', life: [20, 60] })]);
   const r = run({ snapshot: s, videos: [video('newVid00001', '2026-09-03T22:00:00Z')] });
   check('no headlines yet → no createAd, reported as waiting', ops(r, 'createAd').length === 0 && r.report.waitingHeadlines[0].videoId === 'newVid00001');
+}
+{
+  // Dan 2026-09-13: long-form engagement ads run in-feed only; Shorts keep the default.
+  const s = snap([ad({ campaign: T2, name: 'dan 1', life: [20, 60] }), ad({ campaign: T1, name: 'dan 2', life: [20, 8] }), ad({ campaign: RM, name: 'dan 3', life: [9, 0] })]);
+  const r = run({ snapshot: s, videos: [video('longVid00001', '2026-09-13T22:00:00Z', 'A long one', false), video('shortVid0001', '2026-09-13T22:00:00Z', 'A short one', true)],
+                  headlines: { longVid00001: HL, shortVid0001: HL } });
+  const longCreate = ops(r, 'createAd').find(c => c.videoId === 'longVid00001');
+  const shortCreate = ops(r, 'createAd').find(c => c.videoId === 'shortVid0001');
+  check('a long-form video is created in-feed only', JSON.stringify(longCreate.inventoryPreference) === JSON.stringify({ inFeed: true, inStream: false, shorts: false }), longCreate.inventoryPreference);
+  check('a Short is created with no inventory preference (default)', shortCreate.inventoryPreference === null, shortCreate.inventoryPreference);
 }
 
 console.log('\n2. SKIP LIST + ONE-AD-PER-(VIDEO,CAMPAIGN)');

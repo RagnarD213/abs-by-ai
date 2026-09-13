@@ -284,12 +284,14 @@ function plan({ snapshot, videos, events, headlinesByVideo, retryCopyByVideo, no
         const template = pickTemplate(ads);
         if (!template) { warnings.push(`${key}: no existing ad to copy business name / URL / logo from (retry of yt:${vid})`); return null; }
         const name = testAdName(vid, key, now, title, attempt);
+        const srcVideo = (videos || []).find(v => v.id === vid);
         const made = cmd({
           op: 'createAd', campaign: key, campaignId: c.id, adGroupId: String(groupsEnabled[0].id), videoId: vid, videoTitle: title,
           name, attempt, reason: `retry:${attempt}`, labels: { add: [LABELS.AUTO, LABELS.TEST], remove: [] },
           headlines: set.headlines, longHeadlines: set.longHeadlines, descriptions: set.descriptions,
           businessName: template.businessName, finalUrls: template.finalUrls, logoImages: template.logoImages,
           callToActions: template.callToActions || [], templateAdId: template.adId,
+          inventoryPreference: srcVideo && !srcVideo.isShort ? { inFeed: true, inStream: false, shorts: false } : null,
         });
         summary.created.push({ commandId: made.id, videoId: vid, title, name, attempt, headlines: set.headlines });
         return made;
@@ -486,6 +488,10 @@ function plan({ snapshot, videos, events, headlinesByVideo, retryCopyByVideo, no
         headlines: set.headlines, longHeadlines: set.longHeadlines, descriptions: set.descriptions,
         businessName: template.businessName, finalUrls: template.finalUrls, logoImages: template.logoImages,
         callToActions: template.callToActions || [], templateAdId: template.adId,
+        // Dan 2026-09-13: long-form videos in the engagement campaigns run in-feed only
+        // (never in-stream, never Shorts placement) — measured to engage better. Shorts
+        // keep the default (no preference set, i.e. all formats).
+        inventoryPreference: video.isShort ? null : { inFeed: true, inStream: false, shorts: false },
       });
       summary.created.push({ commandId: created.id, videoId: video.id, title: video.title, name, headlines: set.headlines,
                              longHeadlines: set.longHeadlines, descriptions: set.descriptions });

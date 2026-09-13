@@ -188,6 +188,15 @@ function execute(cid, c, labels, snapshot) {
       videos: [{ asset: videoAsset }],
       logoImages: c.logoImages.map(function (rn) { return { asset: rn }; }),
     };
+    // Dan 2026-09-13: long-form videos run in-feed only (never in-stream, never Shorts
+    // placement). c.inventoryPreference is null for Shorts (leave the default, no preference set).
+    if (c.inventoryPreference) {
+      dg.videos[0].adVideoAssetInfo = { adVideoAssetInventoryPreferences: {
+        inFeedPreference: !!c.inventoryPreference.inFeed,
+        inStreamPreference: !!c.inventoryPreference.inStream,
+        shortsPreference: !!c.inventoryPreference.shorts,
+      } };
+    }
     if (c.callToActions && c.callToActions.length) dg.callToActions = c.callToActions.map(function (rn) { return { asset: rn }; });
     var op = { adGroupAdOperation: { create: {
       adGroup: 'customers/' + cid + '/adGroups/' + c.adGroupId, status: c.status || 'ENABLED',

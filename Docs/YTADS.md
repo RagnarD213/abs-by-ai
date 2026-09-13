@@ -37,6 +37,49 @@ unless `YTADS_MODE=champion` is set on Railway). In library mode:
   the library-mode rules; every other section still tests champion mode (`CFG.mode = 'champion'`) so a
   revert needs no code changes, only the env var.
 
+## Long-form ads run in-feed only (Dan 2026-09-13)
+
+Dan's second standing rule for these campaigns: **every long-form video ad runs in-feed only** — never
+in-stream, never the Shorts placement — to maximize engagement. Shorts keep the default (no preference
+set, i.e. "all formats"). This applies in every mode (library or champion) and to every campaign
+(tier2, tier1, rmktg); it does **not** touch the Demand Gen conversion campaign or the Search campaigns.
+
+- The field is `demand_gen_video_responsive_ad.videos[].ad_video_asset_info.ad_video_asset_inventory_preferences`
+  (`in_feed_preference` / `in_stream_preference` / `shorts_preference`, all booleans) — mutable through
+  the standard Google Ads API (`adOperation.update`, `updateMask: 'demand_gen_video_responsive_ad.videos'`),
+  confirmed 2026-09-13. **The Google Ads UI calls this "Prefer on" per video, behind a "Choose where your
+  videos show" toggle that is OFF by default** — a new video has no preference until this is set.
+- `engine.js`'s new-ad creation (both the ordinary candidate path and the retry-rule's attempt-2/3 path)
+  now sets `inventoryPreference: { inFeed: true, inStream: false, shorts: false }` on every `createAd`
+  command for a video where `video.isShort` is false, and `null` (no preference — the default) for a
+  Short. `ads-script.js`'s `createAd` handler reads it and adds the `adVideoAssetInfo` block only when
+  non-null — so this is applied automatically to every new long-form ad going forward, in both modes.
+- ⚠ **The Ads UI's own click handling on this control is unreliable under browser automation** — the
+  checkbox toggles its own `aria-selected` but the displayed "Prefer on: …" summary can desync from
+  what actually saves, and a synthetic `.click()` via JS updates the option's own state without
+  reaching whatever emits the save. **Use the API field above, never the UI, for anything but a single
+  manual edit** — it is atomic, verifiable in one `search` call, and works from a script with no browser
+  needed.
+- One-off fix / audit recipe:
+  ```bash
+  node scripts/ads/api/client.js search "SELECT ad_group_ad.ad.id, ad_group_ad.ad.demand_gen_video_responsive_ad.videos FROM ad_group_ad WHERE campaign.id IN (24122099676,24163535721,24169507109) AND ad_group_ad.status != 'REMOVED'" --json
+  # cross-reference each video's asset.youtube_video_asset.youtube_video_id against the RSS feed's
+  # isShort flag (or fetch https://www.youtube.com/shorts/<id> with redirects disabled: 200 = Short,
+  # 303 → /watch = long-form) — then mutate long-form ones:
+  node scripts/ads/api/client.js mutate ops.json --note "why"
+  # ops.json: one {"adOperation":{"update":{"resourceName":"customers/3427170837/ads/<id>",
+  # "demandGenVideoResponsiveAd":{"videos":[{"asset":"customers/3427170837/assets/<assetId>",
+  # "adVideoAssetInfo":{"adVideoAssetInventoryPreferences":{"inFeedPreference":true,
+  # "inStreamPreference":false,"shortsPreference":false}}}]}},"updateMask":"demand_gen_video_responsive_ad.videos"}}
+  # per ad (asset id is read back from the same search, not guessed).
+  ```
+- **All 10 existing long-form ad instances across the 3 campaigns were fixed 2026-09-13** (4 distinct
+  long-form videos × their instances in tier2/tier1/rmktg: `top 10 ab tips` / `2T4LrQrmz9s`, `AUTO test ·
+  3 Minute Total Body Home Workout` / `27vZC4xVkms`, `1 min ab workout workout only` / `8BaCYcGhRPY`, `AT
+  · The $17 Ab Wheel Beats Every Crunch` / `bkzT-3ENpoU`) — verified in-feed-only by re-reading every one
+  back. Every other AUTO/hand-made ad in the three campaigns was confirmed to be a Short (`isShort` true
+  via the RSS feed or the `/shorts/<id>` redirect test) and left untouched.
+
 ## What it does, in one paragraph
 
 Dan wants YouTube subscribers. Every hour a small Google Ads Script inside account 342-717-0837 reads
