@@ -84,6 +84,32 @@ sessions (and any other assistant, if one is in use).
 - **Dan's REAL after pictures carry a burned label: "Real picture of me — not AI-generated"** (Dan, 2026-09-11: viewers were taking his real photos for AI). Every real photo-shoot or studio picture of Dan shown as a result gets it for its full duration, in the same chip style as the AI label. AI images of Dan keep "AI-GENERATED". The two labels are mutually exclusive: every picture of Dan's physique carries exactly one of them.
 - ⚠ **LABEL PLACEMENT — NEVER OVER HIS FACE AND NEVER OVER HIS ABS** (Dan, 2026-09-12, on the Ad 2 square: *"the label will not block my face or my abs… put it above my head, to the side, or somewhere that it doesn't block my face and my abs in all of these after pictures"*). This REPLACES the old "low on the frame, at the shorts/waistline" rule, which is what put the chip across his lower abs. Put it **above his head, off to one side, or anywhere in the frame his body does not occupy** — still inside the safe area, still large enough to read, still clear of the caption band. **The picture exists to show the physique; a label over the abs defeats the picture.** Choose the position by MEASURING him on the RENDERED frame (person mask → the bounding box of head + torso, then place the chip in the largest clear band), never at a fixed y — every photo frames him differently. If nothing is clear enough, shrink the chip or move it to a corner before you put it on him. Applies to BOTH labels on any picture of Dan.
 
+## Don't default to frowning photos (Dan, 2026-09-13)
+
+- **Don't use a photo where Dan is frowning/scowling/unhappy-looking as a thumbnail or cover
+  image unless he specifically asks for one, or the video/post is itself about something sad,
+  negative, or a failure/bad event** (e.g. "I made this mistake," a warning, a rant). Flagged
+  when the live "The 17 Dollar Ab Wheel Beats Every Crunch" thumbnail used `studio-blue-271`
+  (the red "THAI BOXING" shorts photo) with a visibly downturned, sullen mouth — wrong tone for
+  an upbeat "do this" thumbnail.
+- Every finalized photo with a genuine frown/scowl/sullen resting expression is sorted into
+  `photos/finalized social media photos/Frowning Photos/` (both the `_FINAL_PRIMARY.jpg` and
+  `-IG-4x5.jpg` files) so it doesn't get picked by default when browsing or building a new
+  thumbnail. As of 2026-09-13 that's 11 photos: `studio-blue-271`, `photo-20`, `studio-blue-47`,
+  `studio-white-2`, `studio-gray-63`, `photo-81`, `photo-84`, `photo-135`, `photo-137`,
+  `photo-138`, `photo-158`. Their `_cutouts/*_CUTOUT.png` files were left in place (still usable
+  on request); only the browsing copies moved.
+- The bar is a real downturned/scowling mouth, not merely "not smiling" — plenty of good serious
+  or intense-focus photos (flexed poses, martial-arts stances, side profiles) stay in the main
+  folder because a stern/intense look is a normal fitness-brand vibe, not a frown.
+- When adding new finalized photos to the folder in the future, sort any genuinely frowning ones
+  into `Frowning Photos/` the same way, and don't route around this rule by pulling one back out
+  for a normal thumbnail without Dan's say-so.
+- A few already-delivered `reference/recipe/` build scripts (`ad-edit/reference/ad1/`,
+  `website-video/reference/recipe/**`) hardcode paths to `photo-137`/`photo-158` in the old
+  location — those masters are already shipped, so this wasn't fixed, but a future rebuild from
+  one of those exact recipes needs the path corrected to `Frowning Photos/`.
+
 ## Delivery and deployment
 
 - Do not leave changes made for a task only on the local computer.
