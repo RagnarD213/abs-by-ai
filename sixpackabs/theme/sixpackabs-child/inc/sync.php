@@ -38,12 +38,41 @@ add_action( 'init', function () {
 	if ( ! wp_next_scheduled( 'spa_sync' ) ) {
 		wp_schedule_event( time() + 60, 'hourly', 'spa_sync' );
 	}
+	if ( ! wp_next_scheduled( 'spa_sync_sunday_release' ) ) {
+		wp_schedule_single_event( spa_next_sunday_release_time(), 'spa_sync_sunday_release' );
+	}
 } );
 
 // Switching away from this theme stops the job (it comes back on re-activation).
 add_action( 'switch_theme', function () {
 	wp_clear_scheduled_hook( 'spa_sync' );
+	wp_clear_scheduled_hook( 'spa_sync_sunday_release' );
 } );
+
+/**
+ * The Sunday 9 AM CT release gets one extra check at 9:01 AM CT, on top of the
+ * regular hourly sync, so that week's video is live within a minute instead of
+ * waiting for the next hourly tick. `wp_schedule_event()`'s built-in intervals
+ * are fixed-second gaps, not calendar-aware, so a real "weekly" schedule would
+ * drift off 9:01 AM over time (DST twice a year, in particular). Instead this
+ * fires once, then reschedules itself for next Sunday right after it runs.
+ */
+add_action( 'spa_sync_sunday_release', function () {
+	spa_sync_run();
+	wp_schedule_single_event( spa_next_sunday_release_time(), 'spa_sync_sunday_release' );
+} );
+
+function spa_next_sunday_release_time() {
+	$tz     = new DateTimeZone( 'America/Chicago' );
+	$now    = new DateTime( 'now', $tz );
+	$target = new DateTime( 'now', $tz );
+	$target->setTime( 9, 1, 0 );
+	$target->modify( '+' . ( ( 7 - (int) $now->format( 'w' ) ) % 7 ) . ' days' ); // 'w': 0 = Sunday
+	if ( $target <= $now ) {
+		$target->modify( '+7 days' );
+	}
+	return $target->getTimestamp();
+}
 
 function spa_sync_run() {
 	if ( get_transient( 'spa_sync_lock' ) ) {
