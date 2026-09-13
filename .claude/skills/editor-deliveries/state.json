@@ -134,6 +134,27 @@
       "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | muhammad | 16x9 | ad 3.mp4",
       "size": 358548186,
       "filed_on": "2026-09-11"
+    },
+    {
+      "drive_id": "1PRMKJVmnYZThT9MqnXSZBM-G4zOqApcG",
+      "editor": "Zeeshan",
+      "title": "ab wheel workout",
+      "kind": "content",
+      "number": 1,
+      "path": "Zeeshan Content Videos/ab wheel workout - video 1/ab wheel workout | zeeshan | 16x9 | video 1.mp4",
+      "size": 300660846,
+      "filed_on": "2026-09-13",
+      "why_final": "Video 1 Rev 2 (09-13 13:54Z). Dan called Rev 2 final; filed + scheduled by the /video-setup session 09-13 (YouTube b_bS9NdmL-g). Recorded here 09-13 by the ads-variant audit; local size = Drive size."
+    },
+    {
+      "drive_id": "1Ek2t1KdhMKCh-TJsG5qLP445w7x53L7p",
+      "editor": "Zeeshan",
+      "title": "ab wheel workout",
+      "kind": "content",
+      "number": 1,
+      "path": "Zeeshan Content Videos/ab wheel workout - video 1/ab wheel workout | zeeshan | 16x9 | video 1.srt",
+      "size": 3081,
+      "filed_on": "2026-09-13"
     }
   ],
   "not_final_seen": [
@@ -400,19 +421,17 @@
       "size": 345053547,
       "delivered_on": "2026-09-12",
       "why": "THE ROUND-4 CUT OF VIDEO 1, and it is NOT final. 345 MB and his 09-12 17:18Z message says 'Video 1 done, as per feedback' with a milestone payment request - but rule 2 fails: round-4 revisions were written on this exact file the same day (video1-revisions-waleed-round4-9-12-26.md, 14:32 CT = 19:32Z; file created 17:12Z, message 17:18Z). Four items open, one a compliance problem (0:06.6-0:08.1 holds both phones on screen = a side-by-side before/after), plus true peak +2.9 dBTP. New owner account waleedatwork124@gmail.com. File the cut that answers round 4."
-    }
-  ],
-  "pending": [
+    },
     {
       "drive_id": "1u2wS_z4AVhPBMOQIcqdDe99GuNHquUZ_",
       "editor": "Zeeshan",
       "file": "Video Rev 1.mp4",
       "size": 300779658,
       "delivered_on": "2026-09-12",
-      "reason": "Round-2 cut of content batch VIDEO 1 (ab wheel workout only), answering Dan's round-1 revisions of 2026-09-11. HD-class (301 MB) and no revision round dated after it, so rules 2 and 3 pass — but rule 1 fails: his 09-12 07:04Z message says only 'Hello brother here is the revised video', not final/HD wording, and Dan has not reviewed it yet. Same shape as 'Video 2 Rev 3.mp4', which was filed only after Dan wrote 'it's finalized'. File it the moment Dan approves. Delivered in a NEW shared folder 1UpJwDPWplSH_Sf1HctTZwEXd28gn_fnI (now registered), alongside 'Video 2 Subtitle.srt' id 1dKwjimAp18El3KymD2MVqvzTHYOxx3JU, 12,543 B — a DIFFERENT file from the already-filed 11,980 B srt of the same name; check which one belongs to this cut before filing.",
-      "added_on": "2026-09-12"
+      "why": "superseded by 'Video 1 Rev 2.mp4' (09-13), which Dan called final; was pending 09-12"
     }
   ],
+  "pending": [],
   "resolved_2026-09-10": [
     "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
     "Romaisa R. (room_3a0dd1a1…) — not an editor on the job: an applicant following up ('I hope you've found a good editor… available to work'). Same for Abdul W. (room_549d5bcc…, proposal) and Gbadamosi I. (room_3f398d8b…, 'How are you?'). None delivered anything."

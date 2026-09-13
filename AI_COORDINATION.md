@@ -477,12 +477,13 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** list (Dan's ask, 09-08) with their starter
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
-- **Square (1:1) versions of every finalized ad — six per-ad docs + `Handoffs/handoff-20260911-square-ads-00-shared-rules.md`
-  (read first).** Rep's ask: 1:1 fills Demand Gen in-feed/Discover/Gmail. Each is a re-layout of the ad's vertical
-  build (same EDL/grade/beats/captions, audio bit for bit), 1080×1080, all gates + the audit. Firing order:
-  **`…-ad1-muhammad.md` and `…-ad2-muhammad.md` are both EXECUTED** → `…-ad5-muhammad.md` (after the Ad 5 revisions) →
-  `…-ad4-muhammad.md` (after its vertical is approved) → `…-ad3-muhammad.md` (after Muhammad's corrected HD + vertical) →
-  `…-ad1-zeeshan.md` (after Dan approves that vertical). Fable 5.1 high each. **Not on the dashboard.**
+- **`Handoffs/handoff-20260913-ad-variants-master-queue.md` — THE ONE QUEUE for vertical / square / ≤0:59 variants of
+  every finalized ad** (Dan, 09-13). Coverage matrix for Ads 1–5 (+ Zeeshan's Ad 1) and jobs J1–J9 with one reusable
+  "run the next READY job" starter prompt. READY now: **J1** Ad 4 held vertical masters → folder, **J2** Ad 1 (Muhammad)
+  9:16 59s, **J3** Ad 2 59s cut plan → 9:16 59s + 1:1 59s, **J4** Ad 5 vertical round 2 (= the round-2 doc below).
+  The five remaining per-ad square docs + `…-square-ads-00-shared-rules.md` are its specs (J5 Ad 5, J7 Ad 3, J8 Ad 4,
+  J9 Zeeshan Ad 1); J6 is the live Ad 3 vertical session. New finals (Ads 6–15, Waleed V1) get rows there when filed.
+  Fable 5.1 high. **Not on the dashboard.**
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
 - **`Handoffs/handoff-20260812-purchase-before-account.md`** — after approval AND after the RevenueCat audit.
 - **`Handoffs/handoff-20260818-android-public-build-swap.md`** — small; needs Dan's Android phone on adb.

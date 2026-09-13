@@ -80,6 +80,9 @@ per-cut numbers set for 1080×1080 — a qc.py edit for the new dims is a gate c
 
 ## Firing order (what is blocked on what)
 
+> ⚠ **Superseded 2026-09-13:** the live firing order and status are in `Handoffs/handoff-20260913-ad-variants-master-queue.md`
+> (Ads 1 + 2 squares are executed; the table below is the original 09-11 plan).
+
 | order | doc | fire when |
 |---|---|---|
 | 1 | `…-square-ad2-muhammad.md` | now — vertical approved 09-08, nothing blocks |
