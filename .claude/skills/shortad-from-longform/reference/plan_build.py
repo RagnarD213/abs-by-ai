@@ -80,9 +80,27 @@ words = CP.load_words(); gs = CP.groups(words, CP.suppressed())
 def ts(t):
     h = int(t//3600); m = int(t % 3600//60); s = t % 60
     return f'{h:02d}:{m:02d}:{s:06.3f}'.replace('.', ',')
+# ⚠ A CUE'S END IS THE RENDERED END, NOT THE WORD'S ACOUSTIC END (2026-09-12, Ad 3 render 9).
+# captions.render() holds a line's last word up to 0.8 s AND clamps that hold to the next HARD STOP -- the start of
+# any graphic that mutes the captions, or a cutdown seam. Writing `g[-1][2]` here ignores the clamp, so the plan
+# describes a caption the render does not contain and `captions:card_collision` FAILS a correct file: on Ad 3 it
+# read "shoulder midweek," as ending 119.956 s against the phone card at 119.920, while the delivered frames measure
+# caption ink 3.86 % at f3593 and EXACTLY 0.000 % at f3594, the card's first frame. This is not an Ad 3 quirk -- any
+# cut whose last word runs into a muting graphic hits it. "Run on the delivered file, never on the build plan" is
+# the deliver module's own first rule, and the plan is how the gate is told what was delivered.
+_STOPS = sorted(set([a_ for a_, b_ in CP.suppressed()] + list(getattr(B, 'SEAMS', []))))
+def cue_end(g, nxt):
+    ws, we = g[-1][1], g[-1][2]
+    hold = max(we, ws + 0.12)
+    end = min(nxt, max(hold, min(nxt, we + 0.8))) if nxt is not None else we + 0.3
+    end = max(end, ws + 1.0/29.97)
+    stop = next((s_ for s_ in _STOPS if s_ > ws + 1e-3), None)
+    if stop is not None: end = max(min(end, stop), ws + 1.0/29.97)
+    return end
 srt = []
 for i, g in enumerate(gs, 1):
-    srt.append(f"{i}\n{ts(g[0][1])} --> {ts(g[-1][2])}\n{' '.join(x[0] for x in g)}\n")
+    nxt = gs[i][0][1] if i < len(gs) else None
+    srt.append(f"{i}\n{ts(g[0][1])} --> {ts(cue_end(g, nxt))}\n{' '.join(x[0] for x in g)}\n")
 open(f'{D}/plan_assets/captions.srt', 'w').write('\n'.join(srt))
 
 plan = dict(

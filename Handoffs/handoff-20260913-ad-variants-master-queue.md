@@ -69,7 +69,7 @@ is actively using. Copy it.
 | **J3** | Ad 2: ≤0:59 cutdown plan → 9:16 59s + 1:1 59s | **READY** | — |
 | **J4** | Ad 5: vertical round-2 revisions + BT.709 re-grade (full + 59s) | **READY** | — |
 | J5 | Ad 5: square full + 59s | BLOCKED | J4 delivered AND Dan approves the revised vertical |
-| J6 | Ad 3: vertical full + 59s | READY: `handoff-20260914-ad3-ai-smoke-artifact-fix.md` (colour + audio approved 09-14) | Kling budget for one shot |
+| J6 | Ad 3: vertical full + 59s | DELIVERED 09-14 for Dan's review (smoke shot replaced, story v2; cutdown held on −0.90 dBTP) | Dan approves both files |
 | J7 | Ad 3: square full + 59s | BLOCKED | J6 approved AND Muhammad's corrected Ad 3 HD passes `hd_vs_draft.py` |
 | J8 | Ad 4: square full + 59s | BLOCKED | Dan approves the Ad 4 vertical |
 | J9 | Ad 1 (Zeeshan): square full + 59s | BLOCKED | Dan approves the Zeeshan Ad 1 vertical |
@@ -227,6 +227,11 @@ Spec: **`Handoffs/handoff-20260911-square-ad3-muhammad.md`**. Two blockers: J6 a
 (the filed v6 HD is missing "back in my 20s, as a 38 year old dad running a successful ad agency." at 2:14.1–2:23.1)
 passing `hd_vs_draft.py` VERDICT IDENTICAL. When the corrected HD lands, `/editor-deliveries` files it, and the 16:9 in the
 Demand Gen campaign (`QWW1oumpNg4`) needs replacing via `/ad-setup`.
+**Smoke shot (2026-09-14):** the story clip is now `ai-trainer-vs-robot-story-35s_v2.mp4` (shot 3 regenerated, no breath
+fog). `ad3-vert/media_map.json` already points at v2 (both `ai8` and `story`); before J7 renders, re-check that, and that
+`grade_post.json`, `grade_seg.json`, `grade_final.json`, `his.cube`, `vignette.json` and `label_place.json` are in the build
+dir. Muhammad's corrected HD must carry v2 too (round-6 request in `revision docs/ad3-revisions-muhammad-round6-9-14-26.md`);
+until then `Muhammad Ad Videos/stop paying human trainers - ad 3/… (smoke shot replaced) | 16x9 …` is the clean 16:9.
 
 ### J8 — Ad 4: square full + 59s
 

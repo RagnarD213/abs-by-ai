@@ -1,7 +1,7 @@
 {
  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
  "version": 2,
- "updated": "2026-09-12",
+ "updated": "2026-09-14",
  "roots": {
   "repo": ".",
   "ssd": "/Volumes/Extreme/_edit_work"
@@ -566,6 +566,62 @@
    "notes": "The first SQUARE Dan approved with no further revisions: labels placed by person mask above/beside his head (sqlabelplace.py), text screens to a 1030 bottom line, hook from the clean goal still. /shortad-from-longform [S1].25-26.",
    "sha256": "55bbb2eebd9f0c1196c73e8a134e69e2bdcafdde1597241fdc03f760988bfd14",
    "bytes": 35767678
+  },
+  {
+   "id": "ad3-vertical-r9-color",
+   "verdict": "rejected",
+   "date": "2026-09-13",
+   "root": "ssd",
+   "path": "ad3-vert/_rejected_r9/ad3_vertical_9x16_r9_REJECTED_color.mp4",
+   "excerpt": [
+    0,
+    60
+   ],
+   "dan": "To me, this ad doesn't look the same as Muhammad's with the color correction. ... Yes, they look different in VLC too. Muhammad's look brighter, like the colors are more vivid. I look more tan. It's just better color correction overall.",
+   "dan_direction": "Go ahead and reedit this again and make it look like Muhammad's.",
+   "must_trigger": [
+    "style:reference_color_fidelity"
+   ],
+   "must_pass": [
+    "watch:pass",
+    "audio:stamp",
+    "cut:uncovered_joins",
+    "cut:jump_cut"
+   ],
+   "measured": "Every in-house check read this grade as a MATCH, because every check decoded Muhammad's file the same wrong way. His ad3_v6hd.mp4 carries NO colour tags; ffmpeg's scaler decodes an untagged file with the BT.601 matrix, while VLC and browsers decode untagged HD as BT.709. The grade LUT (zlut.py) was fitted to the BT.601 reading. At 16 matched talk frames, same scene pixels, both decoded by ffmpeg default: his RGB mean 116/94/75 vs ours 112/91/70, skin 134/88/58 vs 131/85/53 -- a 'match'. Decoded as a player shows them (both BT.709): his all-pixel RGB 121/99/80 sat 0.385 vs ours 114/92/71 sat 0.406; his highlights p95 250 vs ours 238. Ours is darker, warmer/muddier (blue ~9 short) and dimmer in the whites.",
+   "notes": "A reference-colour-fidelity row must decode the reference with the matrix a PLAYER uses (BT.709 for untagged HD), never ffmpeg's untagged default. Master preserved at the path above; render 9, watch pass sha 042c9f48c52e.",
+   "sha256": "042c9f48c52ecec4177b770007cbab65c5d7125d15563d1000b7a98b8d13b348",
+   "bytes": 580306843,
+   "deliver": {
+    "format": "ad9x16",
+    "plan": "/Volumes/Extreme/_edit_work/ad3-vert/_rejected_r9/plan.json"
+   }
+  },
+  {
+   "id": "ad3-vertical-r11-approved",
+   "verdict": "approved-with-notes",
+   "date": "2026-09-14",
+   "root": "ssd",
+   "path": "ad3-vert/_approved_r11/ad3_vertical_9x16_r11_APPROVED.mp4",
+   "excerpt": [
+    0,
+    60
+   ],
+   "dan": "Okay, this is overall looking very good. The color correction looks good, and the audio sounds good. I think this is a great reproduction of what Muhammad did.",
+   "dan_direction": "There is one issue in the video at 1:16. There's an AI clip with a weird AI artifact. He exhales, and there's smoke coming out when he exhales. This was also in the original video, so I want you to see if you can fix this both in the vertical and in the original video.",
+   "must_trigger": [
+    "compliance:ai_artifact_giveaways"
+   ],
+   "must_pass": [
+    "style:reference_color_fidelity"
+   ],
+   "measured": "The colour-fixed render of ad3-vertical-r9-color. Talk frames read as a player shows both files (BT.709), same scene pixels: opening 0-43 s his RGB 123.1/94.6/72.6 bright p5/50/95 12/90/248 sat 0.414 skin 151/90/53 vs this file 121.2/93.2/70.7, 11/88/247, 0.422, 150/90/53; rest of the ad his 117.2/92.8/69.5, 11/80/249, 0.428, skin 136/81/44 vs 116.4/92.1/69.0, 10/79/248, 0.437, 134/81/44. Audio stream md5 = his. The pairing a reference-colour row must reproduce: FAIL r9, PASS this file.",
+   "notes": "Approved on colour and audio. The one note is an AI artifact Dan caught at 1:16 (76.6-78.07 s): breath smoke / the mirror fogging in shot 3 of ai-trainer-vs-robot-story-35s.mp4 -- also in Muhammad's original. must_trigger names a check nothing implements yet. Fix: Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md.",
+   "sha256": "405eff4a512fa13e389756d57cbbf71db0022bd34f5ab31f0fb1cc61ee31d8ed",
+   "bytes": 614914053,
+   "deliver": {
+    "format": "ad9x16"
+   }
   }
  ]
 }

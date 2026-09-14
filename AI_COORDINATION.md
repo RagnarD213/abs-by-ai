@@ -458,9 +458,8 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **Codex trial — Phase 06 RUNNING (September 14, Codex task 01a0a1a1).** Private originals owned here only: `Media/codex-video-trial/06-organic/` (C1652) and `06-ad/` (C1603/Ad14, replacing exposed Ad15). Both source/cut plans verified; original app demonstrations and animated profile assets prepared. Organic full picture renderer PID 53228 RUNNING in one slot; source framing measured and organic voice mixed. Next: finish ad graphics, render ad when capacity allows, then exact-file QA and freeze. Next: render, review and freeze before matching exports. Muhammad keeps production batch; private Git only, no publication or new metered spend.
+- **Codex trial — Phase 06 RUNNING (September 14, Codex task 01a0a1a1).** Owns private C1652 organic + C1603/Ad14 originals. Organic final transition correction render/QC running (one video slot); ad transition fix prepared, waiting for capacity. Both full internal cuts exist. Ad audio PASS; full delivery gate retains missing measurements and watch PENDING. Next finish picture, exact-file checks/reviews, freeze BOTH before matching references, then Dan verdicts. Muhammad owns production batch; no publication.
 
-- **`Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md`** — Ad 3 vertical approved on colour + audio 09-14; remove the AI breath-smoke artifact at 1:16 (regenerate story shot 3 from its start frame), re-render the vertical, patch Muhammad's 16:9, then cutdown + gates + delivery + [A12] commit. Master queue J6. Opus 5 / Fable 5.1 high. **Not on the dashboard.**
 
 - **`Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`** — Dan's round-2 revisions on the Ad 5 vertical:
   (1) the app demo must show the SAME man in the before and after — ✅ **Dan named that after picture 2026-09-12**,
@@ -634,21 +633,24 @@ PROSPECT line yet the item swaps in Dan's photo, following his own Ad 10 precede
 New skill lessons 45-47 (frame-diff false negatives, he generalizes a fix to every similar beat, specify how a new
 label is BUILT). Delete once Dan has forwarded the doc and the next cuts arrive.
 
-**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL from MUHAMMAD's v6 HD — COLOUR + AUDIO APPROVED 2026-09-14, ONE AI
-ARTIFACT TO FIX → `Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md` — ⏳ IN PROGRESS 2026-09-14 (Opus 5 session owns it:
-shot 3 regenerated clean, story `_v2` built, vertical render 12 running; do not touch `ad3-vert/`).** Dan on
-render 11: *"The color correction looks good, and the audio sounds good. I think this is a great reproduction of what
-Muhammad did."* The one issue: at 1:16 the AI story clip shows breath smoke / the mirror fogging (story shot 3,
-`Media/ad-assets/batch1-ads/shots/s3.mp4`, also in Muhammad's 16:9). The handoff regenerates that shot, re-renders the
-vertical, patches the 16:9, then builds the cutdown on the approved colour, gates, delivers and commits [A12]. Approved
-master preserved at `/Volumes/Extreme/_edit_work/ad3-vert/_approved_r11/`; corpus entries `ad3-vertical-r9-color`
-(rejected) and `ad3-vertical-r11-approved` added but **NOT committed** — the corpus run must pass first (handoff step
-5.4), together with `plan_build.py` (cue-end fix) and `reference/a6/zlut.py` (BT.709 decode). `/revisions` now has an
-AI-artifact pass (step 3b + lesson 49). Nothing delivered to Dan's folder yet.
-⚠⚠ **FOR THE AD 4 AND AD 5 VERTICAL OWNERS: the BT.601 colour fault is in your builds too.** `ad4-vert/reference.mp4` and
-`ad5-vert/reference.mp4` are untagged, and both `zlut.py` decode without `in_color_matrix` (memory `untagged-video-bt601-trap`).
-Open for Dan: whether his two 200 lb BEFORE pictures (2:26–2:33) also get the "Real picture" label; Muhammad's v6 HD
-dropped the "back in my 20s…" bullet text at 2:14 — do not file it as final.
+**Ad 3 "Stop Paying Human Trainers" — SMOKE SHOT REPLACED + DELIVERED 2026-09-14, Dan reviews + TWO CALLS.** Render 12 = the
+approved render 11 with only the AI bathroom shot (1:13.5–1:18) regenerated: no breath/fog, mouth closed, reflection
+follows him (8 Kling takes, ~$6; the first pick was sent back by an independent audit). Every other frame ≥48.6 dB vs
+r11, his audio md5-identical; qc 20/20, delivery gate = only the known label/framing limits; a second audit says ships
+(glance at a 0.2 s fist blur at 1:13.9). Folder `Muhammad Ad Videos/stop paying human trainers - ad 3/`: our 9:16 master +
+review copies, `notes-vertical.md`, a clean 16:9 `… muhammad (smoke shot replaced) | 16x9 …` (his card rebuilt, audio
+his), `notes-16x9-smoke-shot.md`. Story clip v2 (Drive `1gd6nWft4nDJ3z4Hoz0umn2_zCK0txMzW`, same shots otherwise);
+`ad3-vert/media_map.json` points at it, so the square (J7) inherits the fix. Round-6 ask for Muhammad (new clip, 2:14
+bullet, −1.2 dBTP): `revision docs/ad3-revisions-muhammad-round6-9-14-26.md` — NOT yet pasted into his doc.
+**DAN: (1) accept the ≤0:59's −0.90 dBTP (AAC overshoot, as on Ad 4) → then `deliver3.py` without `--master-only`;
+(2) swap the live unlisted `QWW1oumpNg4` for the clean 16:9 or not (new id breaks the ads).** Also open: label his two
+200 lb BEFORE pictures (2:26–2:33)? Dashboard row stays unchecked until he approves. Skill [A12] committed.
+⚠ FOUND + FIXED: another session's 10:25 write replaced `Muhammad Ad Videos/this picture got me abs - ad 1/… muhammad |
+16x9 | ad 1.mp4` (the audio selftest's pinned reference) with a 24 s audio-only file; restored from
+`_edit_work/ad1-8-14/reference/muhammad_final.mp4` (sha matches corpus), bad file kept in `_edit_work/_clobbered_20260914/`.
+⚠⚠ **FOR THE AD 4 AND AD 5 VERTICAL OWNERS: the BT.601 colour fault is in your builds too** (untagged references,
+`zlut.py` without `in_color_matrix`; memory `untagged-video-bt601-trap`) — and decode with `accurate_rnd` or RGB reads
+1.7 levels dark.
 
 **Ad 5 "Every Diet You've Tried Failed" — 9:16 VERTICAL + 0:59 CUTDOWN — ROUND 1 REVISIONS RE-DELIVERED 2026-09-11, Dan
 reviews.** All three of his asks are in: every real after picture is FULL-BLEED PORTRAIT and carries the new **"Real picture

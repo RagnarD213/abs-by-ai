@@ -11,21 +11,21 @@ E = json.load(open('edl_picture.json'))
 ns = []
 for s in E:
     for k in range(s['n0']+6, s['n1']-6, 18):
-        if tuple(s['framing'][k-s['n0']]) == (1.0, 0.0, 0.0): ns.append((k, k/24 + s['off']))
+        if tuple(s['framing'][k-s['n0']]) == (1.0, 0.0, 0.0): ns.append((k, k/(30000/1001) + s['off']))
 fit, hold = ns[::2][:60], ns[1::2][:20]
 W, H = 960, 540
 def grab(src, t):
-    # ⚠ DECODE AS A PLAYER DOES (2026-09-13, Ad 3: Dan rejected the vertical's colour side by side in VLC). Editors' masters
-    # often carry NO colour tags; ffmpeg reads an untagged file with the BT.601 matrix, VLC and browsers read untagged HD as
-    # BT.709. A grade fitted to the 601 reading matches his file in every ffmpeg comparison and looks darker and muddier than
-    # his on screen. Force BT.709 on BOTH inputs (a tagged 709 raw is unaffected). Memory: untagged-video-bt601-trap.
+    # ⚠ DECODE AS A PLAYER DOES (2026-09-13, Dan rejected render 9's colour). His ad3_v6hd.mp4 carries NO colour tags, and
+    # ffmpeg's scaler reads an untagged file with the BT.601 matrix -- but VLC and every browser show untagged HD as BT.709.
+    # Fitted to the 601 reading, the grade matched his file in every ffmpeg measurement and looked darker, muddier and less
+    # vivid than his in VLC. Force BT.709 / TV range on BOTH inputs (the raw is tagged 709 already; forcing it is a no-op).
     b = subprocess.run([FF,'-nostdin','-v','error','-ss',f'{t:.4f}','-i',src,'-frames:v','1','-vf',f'scale={W}:{H}:flags=area:in_color_matrix=bt709:in_range=tv',
                         '-pix_fmt','rgb24','-f','rawvideo','-'], capture_output=True).stdout
     return np.frombuffer(b, np.uint8).reshape(H, W, 3).astype(np.float32)/255
-def pair(lst): return np.stack([grab('reference.mov', n/24-0.01) for n, _ in lst]), np.stack([grab('raw.mp4', t+0.001) for _, t in lst])
+def pair(lst): return np.stack([grab('reference.mp4', n/(30000/1001)-0.01) for n, _ in lst]), np.stack([grab('raw.mp4', t+0.001) for _, t in lst])
 Hf, Of = pair(fit)
 # drop regions his overlays can occupy (checklist top-right, lower-third/CTA bands) -- the median rejects the rest
-mask = np.ones((H, W), bool); mask[0:280, 620:] = False; mask[420:, :] = False; mask[100:210, 0:330] = False
+mask = np.ones((H, W), bool); mask[420:, :] = False; mask[0:210, 0:330] = False; mask[0:160, 830:] = False   # his lower thirds/chips, the note+title, the photo panels
 src = Of[:, mask].reshape(-1, 3); dst = Hf[:, mask].reshape(-1, 3)
 N = 33; idx = np.clip(np.round(src*(N-1)).astype(int), 0, N-1)
 flat = idx[:, 0]*N*N + idx[:, 1]*N + idx[:, 2]
@@ -48,7 +48,7 @@ for _ in range(6):
 filled = np.clip(filled, 0, 1)
 print('bins with data:', int((wts > 0).sum()), 'of', N**3)
 with open('his.cube', 'w') as f:
-    f.write('TITLE "zeeshan ad1 grade (fitted)"\nLUT_3D_SIZE 33\nDOMAIN_MIN 0 0 0\nDOMAIN_MAX 1 1 1\n')
+    f.write('TITLE "muhammad ad3 grade (fitted)"\nLUT_3D_SIZE 33\nDOMAIN_MIN 0 0 0\nDOMAIN_MAX 1 1 1\n')
     for b in range(N):                     # .cube order: R fastest, then G, then B
         for gg in range(N):
             for r in range(N):

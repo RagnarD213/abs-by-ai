@@ -1760,6 +1760,333 @@ Ad 1 that way. Do not redesign unless he asks.
     9:16 it reads 505 px below a square build's captions and finds no highlight at all — a gate
     measuring empty field would FAIL a correct build), and `watch.py`'s strips are square.
 
+## [A12] Muhammad's Ad 3 — "Stop Paying Human Trainers! Use AI Instead" (2026-09-11 → 09-14) — 9:16 vertical + cutdown
+
+Scripts: `reference/a12_ad3/`. Build dir `/Volumes/Extreme/_edit_work/ad3-vert/` (renders 1–12; render 11 = Dan's colour + audio
+approval, render 12 = render 11 + the regenerated story shot).
+
+This ad took **six renders, one watch pass per render, and three independent audits**. Audits 1 and 2 and 3 each
+returned "does not ship". Every one of them was right. The lessons below are ordered by how much they cost.
+
+---
+
+### A12.1 ⚠⚠ THE ONE LESSON: a picture cut goes on HIS PICTURE'S frame, never on the audio splice.
+
+This build made the same mistake **four separate times**, and each time an audit had to find it:
+
+| audit | what it found | the cut was on | his picture steps at |
+|---|---|---|---|
+| 1 | 4 naked jump cuts | the audio splice | 1356, 3407, 4316, 7687 |
+| 2 | 1356 still jumping | the audio splice (wrong take) | — |
+| 3 | 6 more naked snaps | the audio splice | 2998, 3964, 4289, 5748, 6781 |
+| 3 | 3 of those were the round-2 "fix" | **his AUDIO's** splices | he does not cut there at all |
+
+An editor trims a pause in the AUDIO and then puts the PICTURE cut 2–15 frames away, on a frame where the subject
+is in the same pose. Conform to the audio and you land mid-gesture. At a 16:9 viewing size his snap reads small;
+**at our 1.9–2.3× vertical crop the same snap is a jump cut.**
+
+**`pic.json` already contains the answer.** It records, per frame, `d` = (the source frame he is showing) − (his own
+frame). Where `d` steps, he cut. Where it does not, he did not. Read it before placing any cut:
+
+```
+2990:2183(0.98) … 2997:2183(0.98)  2998:2191(0.98)     <- his cut is at 2998; ours was at 3000
+```
+
+`reference/a12_ad3/zhisstep.py` does this for every join. Trust it only where `r ≥ 0.9` and the run either side is long;
+where Dan is small under a graphic it degrades to noise (see A12.2).
+
+### A12.1b ⚠⚠ "Where a join is least visible" is a DIFFERENT QUESTION from "where he cut". Never let it answer.
+
+The corollary to A12.1, and it cost a whole render on its own — because the wrong answer *felt* like the rigorous one.
+
+Audit 4 put his 1430→1440 take step somewhere in 1141–1149 but could not pin it. So I scored every candidate frame
+by the thing `zpicjoin.py` measures: **the difference between the two raw source frames a cut there would join.**
+1139 came back at 1.45 against 2.63 at 1145 and 2.9 by 1153 — a clean basin, a factor of two clear of its
+neighbours. I took it as his pose match and shipped it.
+
+**That metric cannot find his cut. It finds the frame where a cut would be least VISIBLE — which is exactly the
+frame a cut hides at, whether or not anybody cut there.** The two questions have different answers, and in a
+silent pause they are almost uncorrelated: with nobody moving, *every* join is cheap, so the basin wanders to
+wherever the noise is lowest. Audit 5 tracked his picture against both takes frame by frame and the margin holds
+**+0.026 through 1149, then flips to −0.030 at 1150** — a step, not a basin. At 1139 the two candidates are merely
+*most alike*.
+
+The cost was a real defect: 1139 sits **inside the word "minutes"** (1137.5–1146.0), so the picture ran 10 frames
+(333 ms) ahead of the sound for half a second at 38.0–38.5 s. His own step is in the **pause** (1146.0–1156.4),
+mouth closed both sides. **Introduced by my own fix**, which is A12.5 for the third time.
+
+**Rule: locate his cut with a measurement of HIS PICTURE (pic.json, a take track, the audio envelope), and use the
+join score ONLY to choose among frames that measurement already allows.** And when the step lands in a silence,
+say so: three independent methods agreed here only on the *band* 1145–1156, because **silence carries no motion to
+measure.** That under-determination is not a reason to reach for the join score — it is the reason a pose-matched
+cut is invisible there in the first place. Take the word gap's frame and move on.
+
+⚠ Confirm the band with the transcript every time. A candidate inside a word is wrong however good its join scores.
+
+### A12.2 ⚠ An editor HOLDS one take across a graphic while his audio splices inside another. Reproduce the PICTURE.
+
+The 32–47 s stretch cost two renders. `pic.json` reads a rock-solid **818 for every confident sample from 957 to
+1080** and **1455 for every one from 1355 to 1423**; between 1081 and 1354 Dan is small inside the window graphic and
+the match is noise (805–843). His picture **holds one take across the whole window and cuts once, pose-matched, at
+1355** — while his AUDIO splices three times inside the *other* take.
+
+Round 2 followed the audio (correctly identifying the take — see A12.3) and gave the picture cuts at 1079, 1120 and
+1272 **that he does not have**: a take change two frames before the window opens, a 10-frame skip, and a 63-px crop
+whip across a 15-frame skip. Audit 3 caught all three.
+
+The fix is one segment and his one cut. It works because the two takes are the same lines at the same pace (603
+frames apart), so holding his take keeps lip-sync within ±3 frames on 33 of 35 words — which is why he could do it.
+
+**Rule: where the picture match is confident, follow the PICTURE. Where it is noise, HOLD — do not let the word
+alignment invent cuts inside a graphic.**
+
+### A12.3 The instrument that settles a take argument is the AUDIO ENVELOPE against the raw LAV. Two traps.
+
+When the same lines exist in two takes at the same pace, word alignment cannot separate them and the picture matcher
+is noise under a graphic. `reference/a12_ad3/ztake.py` correlates the **amplitude envelope** (300–3400 Hz, rectified,
+20 ms smoothing, ~200 Hz) of his mix against the roll. On this ad it read take B at 0.75–0.95 against take A's
+0.40–0.81 across the disputed window, and read **46 of 50 segments correct** everywhere else.
+
+* ⚠ **The roll's two mics are 7.88 ms apart and POLARITY INVERTED** (`raw.audio_source.json`, pair corr −0.80).
+  `-ac 1` downmixes them and cancels the voice: every segment then scores 0.0–0.16 and reads as a wrong take,
+  *including ones that are certainly right*. **Use the lav channel alone.**
+* ⚠ **Waveform correlation does not survive his mix** (EQ, compression, limiter) even on the lav — it stays at
+  noise. Correlate the envelope.
+* **Validate the instrument on a segment you already know is right** before believing it anywhere. Here: 3966–4285,
+  known from the picture at r 0.97 over 303 samples — the envelope lands within 1 frame at 0.880. Three instruments
+  that disagree by 20 frames are three broken instruments until one is calibrated.
+* A constant small bias in the answer (here −1.3 frames, = 2048 AAC priming samples inherited from his export) is
+  not an error; a *scattered* disagreement is. A real take change shows the SAME delta on adjacent segments (+604
+  three times here); spurious matches scatter (−623, −391, −134, −16).
+
+### A12.4 ⚠ Nobody else's body in Dan's ad — and the check must cover the WHOLE beat and the WHOLE screen.
+
+The only real app recording uploads a **stranger's** photo, not Dan (coordination 2026-09-10). It reached the
+delivered file twice and I claimed it fixed twice before it was:
+
+1. the questionnaire is still **scrolling past his photo** at the editor's in-point → a source **floor**;
+2. the recording's "Creating your future self" screen **brings him back full size** at the other end → a **ceiling**;
+3. ⚠ and the phone **LOCK SCREEN** lifted from his render — "Download Your Future Self" — *was the stranger's AI
+   after picture*, presented as the result. No note had ever mentioned it; audit 2 found it. Rebuilt with Dan's own
+   goal image composited into the screen's photo block, AI-GENERATED redrawn in place, and asserted zero rows of the
+   original photo remaining.
+
+⚠ **The measurement that got it wrong:** a skin-fraction scan that sampled the MIDDLE of the screen and took its
+baseline from inside the contaminated range put the photo's arrival at 8.52 s when it is **7.967 s** — it enters
+from the BOTTOM. A ceiling set from it still left his head in the card's last frames. **Scan the whole screen, take
+the baseline from a range you have proved clean, then LOOK at the rendered frames.**
+
+`reference/a12_ad3/znostranger.py` scans every frame of the beat and needs a negative control: the delivered file reads
+**0.0000**, the pre-fix render **0.1134 on 48 frames**. A check with no failing case is not a check.
+
+### A12.5 ⚠ Your own fix is the next defect. Two of audit 2's findings were mine.
+
+* **A score filter froze all three phones.** One scroll sample scored 0.246 against ~0.78 and held a screenshot at
+  its bottom for 14 frames, so I dropped low-score samples. But the match scores **decay along every scroll** — they
+  fall below 0.55 after 22/16/12 frames — so dropping them stranded the interpolation on its last kept sample and
+  froze the assessment phone for **347 frames (11.6 s)** where his keeps moving. One bad sample became three dead
+  screens. The honest filter is **monotonicity**, not score: a phone scrolls one way, so keep the longest forward
+  run, drop leaps, extend at the trailing rate to the beat's end, and compress to what the asset actually has
+  (`_off_series`). ⚠ And a long still run may be HIS: his assessment phone genuinely stops for 114 frames.
+* **A forced level flip at 1732 contradicted his own data.** Audit 1 described him covering that cut with a
+  "1.14→1.22 punch"; `fit.json` reads a **flat 1.22 from 1686 to 1746**. The flip could not even take effect (both
+  holds sit inside a punch, so both are NEAR) and the two places it *did* take effect left 4–6 frame FAR islands.
+  **Check the editor's measured data before acting on an auditor's prose description of it.**
+
+### A12.6 A cut that lands just before a zoom leaves an island. Snap the zoom to the cut.
+
+Moving cuts onto his frames created a new defect three times: the few frames between the cut and a punch became
+their own group, the level popped FAR and the punch pulled it straight back — a 4–7 frame zoom out-and-back.
+`PUNCH_SNAP`: a punch starting within 10 frames after a picture cut **begins at that cut**. This also matches him —
+his own scale ramps start at ~1666, ~3409, ~4819, ~7155 (`fit.json`), i.e. at those cuts. Assert it: crop.json must
+contain **no hold shorter than 14 frames**.
+
+### A12.7 Windows need the hair anchor too.
+
+The talk crops anchor to the top of Dan's hair; `window_src` took the source from y=0 at full height, so his hair sat
+**12–35 px** under the window's rounded top edge (the assessment window held him at 12–25 px for 12 s) against 29–70
+in the talk crops. The window box is nearly the source's own aspect, so there is no room to crop — take the rect from
+`y = −pad` and let `BORDER_REPLICATE` extend row 0, widening the rect to keep the box's aspect. `WIN_PAD = 90` lands
+the hair at **10.0–12.5 % of the window height at every window size**, which is what his framing gives.
+
+### A12.8 Reveal timings are per-ad measurements, not inherited constants.
+
+`g5.lower_third` typed its two lines over **1.55 s** (inherited from Ad 5, never re-measured). Read frame by frame
+off his Ad 3: the bar is up ~3 frames before the first letter and **both lines land 11 frames later — 0.37 s, 3.4×
+faster**, and ours opened on 6 frames of empty plate. Eight bars in this ad. Independently corroborated the same day:
+the Ad 4 session's `a8_ad4/g8.py` found the identical defect from its own audit.
+
+Also per-ad and also wrong here until an audit caught it: his **section headers TYPE on** (bullets blur in); his
+**light leaks are blue-cyan**, not white (measured per channel: R 0.918–0.926, G 0.954–0.957, B 0.977–0.982, peaks
+RGB 240/246/251); his punch ramps are **smoothstep over ~16–24 frames**, not ease-out over 6 (ease-out cubic put
+37 % of the zoom on the ramp's first frame — a jolt at 0.097/frame against his ~0.01).
+
+⚠⚠ **A THRESHOLD INSTRUMENT REPORTS THE MIDDLE OF A BLUR-IN, NOT ITS ONSET — and it will make correct fixes look
+like defects.** This one nearly cost thirteen good corrections, and it is the subtlest trap in the build.
+
+Every bullet cue on this ad was read off `ref/ov3.npz`, whose text curve is `(luma > 170).mean()` over his left
+panel. Audit 4 said five bullets were ~8–11 frames late; audit 5 said eight more were. I corrected all thirteen —
+then re-measured the whole population against that same `ov3` curve and got the opposite answer: the thirteen
+"corrected" ones now read 8–12 frames EARLY, and the seven nobody had touched read perfect. **I was one edit away
+from reverting thirteen correct fixes**, with a clean-looking table to justify it.
+
+The instrument was lying, and here is why: **his bullets do not pop, they blur in over 12 frames** — and blurred
+text is spread and dim, so it does not cross a brightness threshold until it is roughly HALF SHARPENED. Measured
+at full resolution on his 3106 bullet, the text first appears at **3100** and finishes sharpening at **3110**,
+while the `ov3` step fires at **3106** — the midpoint. Every cue read off that curve was therefore ~6 frames late
+by construction, which is exactly the bias both audits found.
+
+**The instrument that answers "when does it appear" is the DIFFERENCE FROM A CLEAN REFERENCE FRAME at full
+resolution**, in two separate numbers: *onset* = first frame where new pixels appear at all (|diff| > 28 over > 1 %
+of the panel), *sharp* = where the difference's edge energy plateaus. `reference/a12_ad3/zbulonset.py`. Two traps inside
+that one: the reference frame must not sit inside another animation (a lookback that crosses the window's own
+opening put six of twenty onsets 20 frames wrong), and for an item that appears WITH its panel, difference against
+a SETTLED FUTURE frame instead and read where the distance falls to zero.
+
+Re-measured properly, all twenty: thirteen were right (the audits' corrections, −3 to 0), and **seven that no audit
+ever flagged were 5–10 frames late.** Both halves matter. **A systematic bias does not announce itself by being
+large — it announces itself by being everywhere; when a correction is the same size and the same direction on every
+instance an audit names, re-measure the WHOLE population, with an instrument you have proved measures the instant
+you actually mean.**
+
+⚠ The same confusion set `REVEAL` itself. It was 0.27 s, read off his 1085→1093 sharpening — but that is the
+WINDOW PANEL opening, a different animation from the bullets inside it. His bullets measure **12 frames (0.40 s)**.
+
+⚠ **Automated instruments failed on all of these and failed QUIETLY.** A band-brightness trace caught his captions;
+a plate-bounding-box search returned the whole frame because his background is dark; a flat-row detector found 1 bar
+of 8. Extracting ~20 CONSECUTIVE frames, cropping to the band and READING the strip took one image. Where an
+instrument cannot be trusted, the honest report is "I read it by hand", not a number.
+
+### A12.9 Retimes: measure the source's own shot length, do not assume it.
+
+The story clip's shots are **121 frames at 24 fps (5.0417 s)**, not the 5.000 s the map assumed. That made the slope
+1.0938 against his 1.1029, so our shots ran 138 of his frames against his 137 and the clip's cuts drifted +1, +2, +3,
++3, +5, +6 across the beat. Detect the source's own cuts (frame-diff) and read the interval.
+
+⚠ And a per-frame NCC map of a phone SCROLL is right on average and wrong frame to frame: followed literally the
+upload recording advanced 1,2,1,1,2,1,3,3,4,2,3,3,2,3,4,2,2,4,1,6,3,1,4,0,4,1,4,1,6,0 source frames per output
+frame — it juddered where his decays smoothly. **Anchor every ~8th sample** and let interpolation carry the rest,
+keeping his own internal cuts exact (`_anchor(..., keep=(...))`).
+
+### A12.10 A threshold defined as "his own longest" must be MEASURED on his cut.
+
+qc check 8 failed at 17.2 s against a 16.0 s bound — and his own longest stretch is **17.2 s at the identical
+timecodes** (208.88 → 226.06, his "IT DESIGNS THE WHOLE PLAN" window). 16.0 was the skill's generic style target for
+OUR cuts, entered where a measurement of HIS belongs. Correcting it is not tuning a gate to pass: the check's own
+wording is "no stretch longer than his own longest", and every other stretch of ours is shorter than his. Record the
+measurement and the timecodes in `qc.json` beside the number.
+
+### A12.10b ⚠ A GATE IS ONLY AS HONEST AS THE PLAN IT IS HANDED. Describe what was RENDERED, not what was intended.
+
+`_shared/deliver/gate.py`'s own first rule is **"run on the delivered file, never on the build plan"** — but the
+plan is how the gate is *told* what the delivered file contains, so a plan that describes an intention rather than a
+render turns the gate into a liar in both directions.
+
+Measured here: `captions:card_collision` FAILED with *"1 cue on a card: (119.17, 'shoulder midweek,')"*. It was a
+correct file. `plan_build.py` wrote each SRT cue's end as `g[-1][2]`, the last word's **acoustic** end (119.956) —
+while `captions.render()` holds that word and then **clamps the hold to the next HARD STOP**, the start of any
+graphic that mutes the captions. The phone card starts at 119.920, so the render stops the caption there. On the
+delivered frames the caption band measures **3.86 % ink at f3593 and exactly 0.000 % at f3594**, the card's first
+frame. The plan described a caption that does not exist.
+
+**This is not an Ad 3 quirk** — any cut whose last word runs into a muting graphic hits it, so the row would have
+false-FAILED every build of this style. Fixed by giving `plan_build.py` the same `cue_end()` the compositor uses.
+
+**Rule: every value in a plan must be derived from the code that actually drew the frame, not from the source data
+that fed it.** When a gate fails, ask "is the FILE wrong, or is the PLAN wrong?" before you touch the build — and
+settle it by measuring the delivered pixels, which is the one thing that cannot be re-argued.
+
+⚠ Two more rows this gate cannot answer on a Muhammad-style vertical, both worth declaring rather than chasing:
+`compliance:labels` takes ONE chip position per kind, but his card design puts each chip in its own card's corner
+(it reported "0 carrying the WRONG label", and the real-picture chip is on EVERY frame of the photoseq at full
+res); and all four `framing:*` rows read **NOT MEASURED** because the gate's scene detector never settles on a
+main scene when Dan sits in a window above the text — our own `zhairgate2.py` and `centering.py` do measure it and
+pass. A row a gate cannot measure on your format is a finding to report upward, never a number to invent.
+
+### A12.11 Smaller things, each paid for
+
+* **A graphics-only re-render must be PROVEN graphics-only.** `zltdiff.py` walks both renders frame by frame and
+  fails unless every differing frame falls in an expected window — otherwise the watch pass has to be redone whole.
+* **A forked build dir does not receive a fix.** `cut/` carries its own `beats.py`, `g3.py`, `g5.py` **and an
+  embedded copy of the time map**; regenerate it from the fixed master (`zcut_build3.py`) and refresh the forks.
+* **Mux atomically.** Write beside the deliverable and `os.replace` it; a re-mux in place gives anything reading the
+  file (an audit, a watch scan) a torn decode and a defect that does not exist.
+* ⚠ **zsh does not word-split an unquoted parameter.** `for R in "0 2845"; do set -- $R` passes one argument.
+* ⚠ **An inspection script that ignores EXIF invents a defect.** Plain `Image.open` showed two photos upside down;
+  the render was right (`ImageOps.exif_transpose`). Check the delivered frames before reporting.
+* ⚠ **Read watch sheets at full resolution before believing a defect.** A thumbnail of a blue button and form blocks
+  read as a stranger's photo; the full-resolution frame settled it in one look.
+* **Dan's standing rules can change MID-BUILD.** The "Real picture of me — not AI-generated" rule landed while this
+  was rendering. Re-read `AI_COORDINATION.md` and `AGENTS.md` before finishing, not only before starting. Scope, from
+  his own words: after pictures get it, BEFORE pictures stay unlabelled, AI images keep AI-GENERATED, and every
+  picture of his physique carries exactly one. Size the chip once for the whole sequence — his four stills flip in
+  ~1 s and are not all the same aspect, so a per-photo size resizes on every flip.
+* **Budget three audits, not two**, and expect at least one round where your own fix is the finding.
+
+### A12.12 ⚠⚠ COLOUR: an editor's master has NO colour tags — decode it as BT.709, then match his grade SECTION BY SECTION
+
+Dan rejected render 9's colour (2026-09-13, VLC side by side): *"Muhammad's look brighter, like the colors are more vivid. I
+look more tan."* Every colour number in the build had passed. **Root cause: his file carries no colour tags. ffmpeg decodes
+untagged video as BT.601; VLC and browsers show untagged HD as BT.709.** The grade was fitted to a 601 reading of his file,
+then our file was written as 709 — so what Dan saw in VLC was a different picture from the one every fit measured.
+(memory `untagged-video-bt601-trap`)
+
+* **Every decode of an editor's file carries `scale=in_color_matrix=bt709:in_range=tv`** — the LUT fit (`zlut.py`), the
+  grade fits, every lift of his stock clips (`lift3.py`), every QC comparison. Grep a build for `-i ref/` without it.
+* **One global table cannot match his grade.** His opening 0–43 s is warmer (skin R−G 57–60 vs ours 52–54) while the rest
+  matches within 1–4 levels. The approved chain is four stages, each fitted on held-out frames:
+  1. `zlut.py` — his colour as a 3D LUT (`his.cube`), 709 decode;
+  2. `zgrade2.py --post` — per-channel curves AFTER the vignette (`grade_post.json`);
+  3. `zgrade3.py` — per-EDL-segment Monge–Kantorovich transfer (mean + covariance → 3×3 + offset), smoothed over 5 s so an
+     invisible join cannot pop colour (`grade_seg.json`);
+  4. `zgrade4.py` — a final per-channel + saturation trim fitted on the DELIVERED render against his file, because the
+     unsharp in `render3.py` raises local contrast after every colour stage the emulated fits saw (`grade_final.json`).
+* These stages grade only base frames (talk + window beats). Library clips (the AI story, stock) are NOT touched by them —
+  which is why a story clip can be swapped later without reopening an approved grade.
+* ⚠ The same fault is in the Ad 4 and Ad 5 vertical builds (untagged references, `zlut.py` without `in_color_matrix`).
+
+### A12.13 ⚠ AI CLIPS: an approved build shipped a breath-smoke artifact through five audits — and how to fix it after approval
+
+Dan, 2026-09-14, on render 11 (otherwise approved): at 1:16 the AI story's bathroom shot shows the man exhale and **the
+mirror fog over**. It was in Muhammad's cut too, and survived five of his revision rounds, our rebuild, five audits and a
+237-boundary watch pass, because it grows slowly in one corner for 1.5 s. The check that catches it is `/revisions` step 3b:
+every AI shot as CONSECUTIVE full-resolution frames, all of its last 2 s, mirrors/mouths/hands cropped and read alone.
+Image-to-video degrades late (the fog starts 3.4 s into a 5.0 s shot).
+
+**The fix recipe (worked, 2026-09-14, $≈3 of Kling):**
+1. Regenerate ONLY that shot from its own start frame (`Media/ad-assets/batch1-ads/frames/`), same model and mode as the
+   original — the raw shot's size tells you the mode (716×1284 = Kling v3 `standard`). Put the giveaway words (breath, steam,
+   smoke, mist, fog, condensation, fogged mirror) in `negative_prompt`, never "no smoke" in the prompt; ask for a locked-off
+   camera and the reflection matching his movement. Read every frame of every take.
+   ⚠ **Ask for LESS motion, not a different emotion.** Batch 1 asked him to "glance up at the mirror and shake his head":
+   every take acted it out — mouth open, a long sigh, head tipped back — and the take I picked (no fog, looked clean on
+   8-per-second strips) was sent back by the independent audit: ~3 s of open mouth with no speech, a reflection turning its
+   head on its own, and his face drifting (hairline, nose) across the shot. Batch 2 asked for "he barely moves, mouth closed,
+   the reflection moves only when he moves", with lips-moving / head-turning / face-changing in the negative prompt — and
+   produced the keeper (u2).
+   ⚠ **`end_image` = the start frame gives a STILL, not a calm shot**: both such takes drifted 0.7 levels over 5 s (the
+   original moves 27) — a freeze frame. Use it only when you want a hold.
+   ⚠ Measure motion per take (mean frame diff, drift from frame 0) before reading it; and run an INDEPENDENT audit on the
+   chosen shot before any render goes to Dan — your own read of your own pick is the weakest check in the chain.
+2. Rebuild the library clip with the other shots BYTE-IDENTICAL: the story is a concat-demuxer `-c copy` of per-shot files
+   (`scale=1080:-2,crop=1080:1920`, x264 slow crf 18, 24 fps). Prove it with `framemd5`: v2 differed from v1 in exactly
+   frames 242–362. Keep v1; name the new one `_v2`.
+3. **Vertical:** point `media_map.json` at v2 (every key that uses the clip), re-render ONLY the chunk that contains the beat
+   after proving no other input is newer than that chunk's render, concat with the approved chunks, mux his audio untouched.
+   Prove the rest unchanged: frames outside the shot read ≥ 48 dB PSNR against the approved render (x264 re-encodes a few
+   dozen frames either side of a changed range — encoder noise, not a change), and the shot's first and last frames land on
+   the same frame numbers.
+4. **The editor's 16:9:** rebuild his card from HIS frames instead of asking for a re-export first — fit scale/offset by
+   template match + ECC (0.5177 at 683.07, 37.89 here), his grade as a 10-term per-channel colour model on the clean part of
+   the shot, keep his own pixels outside the window, matte his window edge (per-pixel s·P+k) and his white label
+   (O = (1−a)·P + a·L). **Validate by reconstructing his ORIGINAL frames from the OLD clip** (1.7/255 held-out) before
+   trusting the new ones. ⚠ **Decode AND encode with `flags=accurate_rnd+full_chroma_int`**: ffmpeg's default RGB path read
+   his file 1.72 levels dark (round trip yuv→rgb→yuv biased −1.72 Y; with the flag, 0.00), so the first patch came out
+   2 levels darker than his neighbouring frames — caught by the audit, invisible in the fit error because both sides of
+   the fit shared the bias. Replace only his shot frames, re-encode crf 12 tagged BT.709, stream-copy his audio (md5), and
+   prove every other frame ≥ 47.9 dB against his file. Scripts: `reference/a12_ad3/patch169/`.
+5. Upload v2 beside v1 on Drive and put a re-export item in the editor's next round, so his next HD carries it.
+
 ## Standing content rules that override the reference
 
 The reference editor does not know Dan's ad rules. Check every beat you are reproducing:
