@@ -40,12 +40,12 @@ EDL, beats, captions, audio). Both cutdowns share one `cut_plan.json`, because v
 
 | ad | editor 16:9 | 9:16 full | 9:16 ≤0:59 | 1:1 full | 1:1 ≤0:59 |
 |---|---|---|---|---|---|
-| **1** this picture got me abs (Muhammad) | filed | ✅ approved 09-10 (`Iz0u8KHRbyE`) | ❌ **J2** | 🟡 delivered 09-12, Dan reviews | 🟡 delivered 09-12, Dan reviews |
+| **1** this picture got me abs (Muhammad) | filed | ✅ approved 09-10 (`Iz0u8KHRbyE`) | ❌ **J2** | 🔧 Dan reviewed 09-13: 2 revisions → **J14** | 🔧 same → **J14** |
 | **1** this picture got me abs (Zeeshan) | filed | 🟡 delivered 09-10, Dan reviews | 🟡 delivered 09-10, Dan reviews | ❌ J9 | ❌ J9 |
 | **2** stop wasting money on nutritionists | filed | ✅ approved 09-08 (`7XgHxn59Tsg`) | ❌ **J3** | ✅ approved 09-12 (`hHiPzQKTzrg`) | ❌ **J3** |
-| **3** stop paying human trainers | filed ⚠ HD text defect | 🔧 J6 being built by another session | 🔧 J6 | ❌ J7 | ❌ J7 |
-| **4** stop wasting money on supplements | filed | 🟡 review copies only, masters held → **J1**; Dan reviews | 🟡 same | ❌ J8 | ❌ J8 |
-| **5** every diet you've tried failed | filed | 🟡 delivered, round-2 revisions open → **J4** | 🟡 same | ❌ J5 | ❌ J5 |
+| **3** stop paying human trainers | filed ⚠ HD text defect | 🔧 J6: colour rejected 09-13, render 10 building (another session) | 🔧 J6 | ❌ J7 | ❌ J7 |
+| **4** stop wasting money on supplements | filed | 🟡 review copies only, masters held; ⚠ grade has the BT.601 fault → **J1** | 🟡 same | ❌ J8 | ❌ J8 |
+| **5** every diet you've tried failed | filed | 🟡 delivered; round-2 revisions + ⚠ the same BT.601 grade fault → **J4** | 🟡 same | ❌ J5 | ❌ J5 |
 | **7** in 2010 i photoshopped my face on a fitness model | filed 09-13 | ❌ **J10** | ❌ **J10** | ❌ J11 | ❌ J11 |
 | **10** my dad bod at 38 my dad bod at 40 | filed 09-13 | ❌ **J12** | ❌ **J12** | ❌ J13 | ❌ J13 |
 
@@ -63,10 +63,11 @@ is actively using. Copy it.
 
 | job | what | status | blocked on |
 |---|---|---|---|
-| **J1** | Ad 4: put the held 9:16 masters (full + 59s) in the folder | **READY** | — |
+| **J14** | Ad 1 (Muhammad): square full + 59s, Dan's round-1 revisions | **READY** | — |
+| **J1** | Ad 4: re-grade the vertical (BT.709), then deliver full + 59s masters | **READY** | — |
 | **J2** | Ad 1 (Muhammad): 9:16 ≤0:59 cutdown | **READY** | — |
 | **J3** | Ad 2: ≤0:59 cutdown plan → 9:16 59s + 1:1 59s | **READY** | — |
-| **J4** | Ad 5: vertical round-2 revisions (full + 59s) | **READY** | — |
+| **J4** | Ad 5: vertical round-2 revisions + BT.709 re-grade (full + 59s) | **READY** | — |
 | J5 | Ad 5: square full + 59s | BLOCKED | J4 delivered AND Dan approves the revised vertical |
 | J6 | Ad 3: vertical full + 59s | IN PROGRESS, owned by the Ad 3 vertical session | that session; Dan's approval |
 | J7 | Ad 3: square full + 59s | BLOCKED | J6 approved AND Muhammad's corrected Ad 3 HD passes `hd_vs_draft.py` |
@@ -77,12 +78,39 @@ is actively using. Copy it.
 | **J12** | Ad 10: vertical full + 59s | **READY** | — |
 | J13 | Ad 10: square full + 59s | BLOCKED | Dan approves J12 |
 
-Suggested order among the READY jobs: **J1** (minutes), **J4** (Dan is waiting on it and it unblocks J5), **J3** (Ad 2 took
-~80% of the campaign's early spend), **J2**, then **J10** and **J12** (brand-new ads, which have no variants at all yet).
+Suggested order among the READY jobs: **J14** (Dan just reviewed it; small geometry + label pass), **J4** (Dan is waiting
+on it and it unblocks J5), **J1** (unblocks J8), **J3** (Ad 2 took ~80% of the campaign's early spend), **J2**, then **J10**
+and **J12** (brand-new ads, which have no variants at all yet).
+
+## ⚠ Colour: the BT.601 decode trap (found 2026-09-13 by the Ad 3 vertical session): read before ANY job
+
+Dan rejected the Ad 3 vertical's colour side by side in VLC: *"Muhammad's look brighter, like the colors are more vivid.
+I look more tan."* **Cause:** Muhammad's HD masters carry no colour tags. ffmpeg decodes untagged video as BT.601, while VLC
+and browsers use BT.709. So every grade fitted and every clip lifted through the ffmpeg default is off, and every ffmpeg-based
+comparison still calls it a match (memory `untagged-video-bt601-trap`). The fix is proven on Ad 3 render 10: decode his
+master with `scale=in_color_matrix=bt709:in_range=tv` in `zlut.py` and `lift3.py`, then `zgrade2.py --post` (per-channel
+match after the vignette) and `zgrade3.py` (section-by-section match; his grade varies through the ad). The tools and
+held-out numbers are in `ad3-vert/` and the skill's [A12] section. **`ad4-vert/` and `ad5-vert/` have the same fault**
+(confirmed untagged references, grades fitted without the matrix). The already delivered Ad 5 vertical is affected. Any
+new build (J10, J12) must decode as BT.709 from the start. **Verify colour against his file decoded as BT.709, never
+through the default decode.**
 
 ---
 
-### J1 — Ad 4: deliver the held 9:16 masters
+### J14 — Ad 1 (Muhammad): square round-1 revisions
+
+Spec: **`Handoffs/handoff-20260913-ad1-square-round1-revisions.md`**, written by the session that built the square, with
+Dan's words and the measurements. (A) Lower the four window screens (0:25, 1:35, 2:46, 3:46) and remove the dead space at
+the bottom. (B) Move every "Real picture of me" chip off his face and abs, and rebuild the hook from the clean goal still.
+Colour and audio approved, so do not touch them. Re-renders both the full length and the 59s. Model and starter prompt are
+in that doc. When it is approved, the J2 cutdown can reuse its label placements.
+
+### J1 — Ad 4: re-grade the vertical, then deliver the masters
+
+**Step 0 (added 09-13): the colour fault above applies.** The held masters were graded through the BT.601 decode. Re-fit the
+grade in a copy of `ad4-vert/` with the Ad 3 render-10 tools, re-render full + 59s, and send Dan a BT.709-verified review copy
+before anything below. The steps below then apply to the re-rendered files. Model becomes Fable 5.1, effort high (a re-grade
+and re-render), and the starter prompt needs "re-grade per the colour section first".
 
 **What exists.** `/Volumes/Extreme/_edit_work/ad4-vert/ad4_vertical_9x16.mp4` (561 MB, 09-11) and
 `ad4-vert/cut/ad4_vertical_9x16_59s.mp4` (122 MB, 57.19 s). `qc.py` 18/20 on both, three audits, and audit 3 said
@@ -173,7 +201,9 @@ Model: Fable 5.1, effort high (may need two sessions; if so, deliver the 9:16 fi
 
 Spec: **`Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`** (Dan's two asks: the app demo ends on the same man's
 after picture, which Dan named on 09-12, and the real-picture label on every real picture of Dan, off his abs and larger).
-Rebuilds both the full length and the 59s. Model and starter prompt are in that doc.
+Rebuilds both the full length and the 59s. Model and starter prompt are in that doc. **Also fix the colour (section
+above):** `ad5-vert/`'s grade was fitted through the BT.601 decode, so re-fit it with the Ad 3 render-10 tools in the same
+re-render and verify against Muhammad's file decoded as BT.709. Add that to the doc's starter prompt when firing.
 
 ### J5 — Ad 5: square full + 59s
 
@@ -183,8 +213,10 @@ delivered and Dan approves. Its doc was written before round 2, so take the pict
 
 ### J6 — Ad 3: vertical full + 59s (in progress, not a handoff)
 
-Owned by the Ad 3 vertical session (`/Volumes/Extreme/_edit_work/ad3-vert/`, section [A12]). Draft review copies were
-built 09-13 14:19 in `ad3-vert/review/`. **Do not touch.** When it delivers into `Muhammad Ad Videos/stop paying human
+Owned by the Ad 3 vertical session (`/Volumes/Extreme/_edit_work/ad3-vert/`, section [A12]). Dan rejected render 9's
+colour on 09-13 (the BT.601 trap above); render 10 with the fixed grade and labels moved off his body is building.
+**Do not touch.** Open question from that session for Dan: whether his two 200 lb BEFORE pictures (2:26–2:33) also get the
+"Real picture" label. When it delivers into `Muhammad Ad Videos/stop paying human
 trainers - ad 3/` and Dan approves, mark J6 done and re-check J7.
 
 ### J7 — Ad 3: square full + 59s
@@ -217,8 +249,9 @@ Spec: **`Handoffs/handoff-20260911-square-ad1-zeeshan.md`**. Fire after Dan appr
 | review copy already measured | `/Volumes/Extreme/_edit_work/revisions-0912m/dl/ad7_hd.mp4` (same bytes) | `…/dl/ad10_v3hd.mp4` (same bytes) |
 
 **Build** with `/shortad-from-longform` end to end (Step 0b's "approved draft" is this HD itself; Dan approved the HD, so
-there is no separate draft to diff). Copy the newest a7/a12 compositor build (`ad5-vert/`, or `ad3-vert/` once its session
-ends) into `ad7-vert/` / `ad10-vert/`, never working inside another session's directory. Muhammad's audio untouched
+there is no separate draft to diff). Copy the Ad 3 render-10 compositor (`ad3-vert/`, once its session has
+delivered; its grade tools decode as BT.709) into `ad7-vert/` / `ad10-vert/`, never working inside another session's
+directory. Do not start from `ad5-vert/`, whose grade has the BT.601 fault (colour section above). Muhammad's audio untouched
 (`--verbatim`), the cutdown his mix cut at the seams.
 
 **Carry Dan's two unfixed 09-12 notes into our version**, because he shipped the 16:9 with them and they cost nothing in a

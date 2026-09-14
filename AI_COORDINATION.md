@@ -480,11 +480,12 @@ Swept 2026-09-08. The first four are on the dashboard's **Handoffs to fire** lis
 prompts. Whoever runs one deletes its row there AND removes it here and from `Handoffs/README.md`.
 
 - **`Handoffs/handoff-20260913-ad-variants-master-queue.md` — THE ONE QUEUE for vertical / square / ≤0:59 variants of
-  every finalized ad** (Dan, 09-13). Coverage matrix for Ads 1–5 (+ Zeeshan's Ad 1) and jobs J1–J9 with one reusable
-  "run the next READY job" starter prompt. READY now: **J1** Ad 4 held vertical masters → folder, **J2** Ad 1 (Muhammad)
-  9:16 59s, **J3** Ad 2 59s cut plan → 9:16 59s + 1:1 59s, **J4** Ad 5 vertical round 2 (= the round-2 doc below).
-  The five remaining per-ad square docs + `…-square-ads-00-shared-rules.md` are its specs (J5 Ad 5, J7 Ad 3, J8 Ad 4,
-  J9 Zeeshan Ad 1); J6 is the live Ad 3 vertical session. New finals (Ads 6–15, Waleed V1) get rows there when filed.
+  every finalized ad** (Dan, 09-13). Coverage matrix for Ads 1–5, 7, 10 (+ Zeeshan's Ad 1) and jobs J1–J14 with one
+  reusable "run the next READY job" starter prompt. READY: **J14** Ad 1 square round-1 revisions (= the doc above),
+  **J4** Ad 5 vertical round 2 + colour fix, **J1** Ad 4 vertical re-grade → deliver masters, **J3** Ad 2 59s pair,
+  **J2** Ad 1 9:16 59s, **J10/J12** Ads 7 + 10 verticals (Muhammad's HDs filed 09-13 — Dan called both final in Upwork
+  09-12). The per-ad square docs + `…-square-ads-00-shared-rules.md` are its specs; J6 is the live Ad 3 vertical session.
+  New finals (Ads 6, 8, 9, 13, 14, 15, Waleed V1) get rows there when filed.
   Fable 5.1 high. **Not on the dashboard.**
 - **`Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md`** — fire the day Apple approves (IN_REVIEW).
 - **`Handoffs/handoff-20260812-purchase-before-account.md`** — after approval AND after the RevenueCat audit.
