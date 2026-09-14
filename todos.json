@@ -87,6 +87,30 @@
       "priority": "high",
       "why": "Resolve 21.1 (09-08) ships an official connector Claude Code can drive, Studio edition only; it would replace building our own timeline exporter",
       "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Get the morning brief onto iPad and phone, not just this Mac",
+      "priority": "high",
+      "why": "Dan 09-14 /prioritize: he only reads the brief on this device, which is why he isn't actually using it day to day.",
+      "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Rethink the website conversion process — make the cart/analysis funnel a more traditional, optimized conversion flow",
+      "priority": "high",
+      "why": "Dan 09-14 /prioritize: the pay-first cart works technically but isn't converting; he wants the flow itself redesigned, not just bug-tested.",
+      "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Test an app-install ad campaign (Android download CTA) instead of the current web signup flow",
+      "priority": "med",
+      "why": "Dan 09-14 /prioritize idea: a 'download the Android app' CTA might convert better than driving cold traffic to the web cart.",
+      "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Schedule the next filming shoot",
+      "priority": "high",
+      "why": "Dan 09-14 /prioritize: content pipeline needs a shoot date on the calendar.",
+      "addedAt": "2026-09-14"
     }
   ],
   "health": [
