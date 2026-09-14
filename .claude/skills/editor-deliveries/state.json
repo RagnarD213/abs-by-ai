@@ -155,6 +155,28 @@
       "path": "Zeeshan Content Videos/ab wheel workout - video 1/ab wheel workout | zeeshan | 16x9 | video 1.srt",
       "size": 3081,
       "filed_on": "2026-09-13"
+    },
+    {
+      "drive_id": "1mTizfbX4Uk97EwJOF_uO3KBp1P3PToh1",
+      "editor": "Muhammad",
+      "title": "in 2010 i photoshopped my face on a fitness model ai just did it for real",
+      "kind": "ad",
+      "number": 7,
+      "path": "Muhammad Ad Videos/in 2010 i photoshopped my face on a fitness model ai just did it for real - ad 7/in 2010 i photoshopped my face on a fitness model ai just did it for real | muhammad | 16x9 | ad 7.mp4",
+      "size": 283970782,
+      "filed_on": "2026-09-13",
+      "why_final": "Dan in the Upwork room 09-12 2:46 PM CT: 'Both HD videos at 7 and 10 are looking good, and those are finalized.' That message came AFTER the round-4 revision doc written on this same file (14:25 CT), so the 09-12/09-13 runs wrongly held it as not final: the Gmail notifications never carry Dan's own messages. Downloaded by curl, size = Drive; first 2 MB identical to the reviewed copy in revisions-0912m/dl/."
+    },
+    {
+      "drive_id": "1582XKVpH-6LYq8fEJlFQksMZE0HL1Ct5",
+      "editor": "Muhammad",
+      "title": "my dad bod at 38 my dad bod at 40",
+      "kind": "ad",
+      "number": 10,
+      "path": "Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/my dad bod at 38 my dad bod at 40 | muhammad | 16x9 | ad 10.mp4",
+      "size": 240209477,
+      "filed_on": "2026-09-13",
+      "why_final": "Dan in the Upwork room 09-12 2:46 PM CT: 'Both HD videos at 7 and 10 are looking good, and those are finalized.' That message came AFTER the round-3 revision doc written on this same file (14:25 CT), so the 09-12/09-13 runs wrongly held it as not final: the Gmail notifications never carry Dan's own messages. Downloaded by curl, size = Drive; first 2 MB identical to the reviewed copy in revisions-0912m/dl/."
     }
   ],
   "not_final_seen": [
@@ -383,22 +405,6 @@
       "why": "21 MB draft; Ad 10 round 2 revisions written 2026-09-11 on this exact cut (revision docs/ad10-revisions-muhammad-round2-9-11-26.md). Sent in his 09-11 18:18Z message as 'AD 10 v2', no final wording."
     },
     {
-      "drive_id": "1mTizfbX4Uk97EwJOF_uO3KBp1P3PToh1",
-      "editor": "Muhammad",
-      "file": "Daniel HQ Ad 7 V4 HD.mp4",
-      "size": 283970782,
-      "delivered_on": "2026-09-12",
-      "why": "HD-class (284 MB) and his 09-12 18:52Z message calls it 'AD 7 HD', so rules 1 and 3 pass - but rule 2 fails: Ad 7 round 4 revisions were written on THIS EXACT CUT on 09-12 (revision docs/ad7-revisions-muhammad-round4-9-12-26.md, 14:25 CT). Proof: byte-identical size to the reviewed copy at /Volumes/Extreme/_edit_work/revisions-0912m/dl/ad7_hd.mp4. He confirmed at 19:59Z he is making the revisions. File the NEXT HD after round 4."
-    },
-    {
-      "drive_id": "1582XKVpH-6LYq8fEJlFQksMZE0HL1Ct5",
-      "editor": "Muhammad",
-      "file": "Daniel HQ Ad 10 v3 HD.mp4",
-      "size": 240209477,
-      "delivered_on": "2026-09-12",
-      "why": "HD-class (240 MB), message says 'AD 10 v3 HD' - but Ad 10 round 3 revisions were written on this exact cut 09-12 (ad10-revisions-muhammad-round3-9-12-26.md). Size matches revisions-0912m/dl/ad10_v3hd.mp4 exactly. One item left (the chip style)."
-    },
-    {
       "drive_id": "1dPbNikLQAQSl39184qUs78EAiXIJofz2",
       "editor": "Muhammad",
       "file": "Daniel HQ Ad 6 V3.mp4",
@@ -440,6 +446,6 @@
   "watch": [
     "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder — so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final.",
     "Waleed: access block cleared; he delivered the round-4 cut of Video 1 on 2026-09-12 (Test Video 1.mp4, id 1Q-cmEcXKhNwB7c8fVF0OMtsejLj3XdE4) and requested milestone payment. It is in not_final_seen, NOT filed - round-4 revisions were written on that exact file the same day, so rule 2 forbids filing it. (A 09-12 note in this file said to file it on the next run; that was wrong and is corrected here.) File the cut that answers round 4. He now delivers from waleedatwork124@gmail.com, not info.taimoormirzaa@.",
-    "Muhammad owes finals on several ads at once. Awaiting the HD/final AFTER the 09-12 round: Ad 7 (after r4), Ad 10 (after r3), Ad 6 (after r3), Ad 14 (after r2), plus the still-owed HD exports of the APPROVED Ad 3 V5 and Ad 4 V3 cuts. He acknowledged the 09-12 feedback at 19:59Z: 'I'll make these revisions and get them finalized.'"
+    "Muhammad owes finals after the 09-12 round: Ad 6 (after r3) and Ad 14 (after r2) — he said 09-13 he sends them 'tomorrow my morning time'. Ads 7 and 10 are FILED (Dan finalized both 09-12). Ads 8, 9, 13, 15 still in revision rounds (last notes 09-10)."
   ]
 }

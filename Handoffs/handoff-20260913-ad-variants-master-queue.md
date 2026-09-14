@@ -46,10 +46,14 @@ EDL, beats, captions, audio). Both cutdowns share one `cut_plan.json`, because v
 | **3** stop paying human trainers | filed ⚠ HD text defect | 🔧 J6 being built by another session | 🔧 J6 | ❌ J7 | ❌ J7 |
 | **4** stop wasting money on supplements | filed | 🟡 review copies only, masters held → **J1**; Dan reviews | 🟡 same | ❌ J8 | ❌ J8 |
 | **5** every diet you've tried failed | filed | 🟡 delivered, round-2 revisions open → **J4** | 🟡 same | ❌ J5 | ❌ J5 |
+| **7** in 2010 i photoshopped my face on a fitness model | filed 09-13 | ❌ **J10** | ❌ **J10** | ❌ J11 | ❌ J11 |
+| **10** my dad bod at 38 my dad bod at 40 | filed 09-13 | ❌ **J12** | ❌ **J12** | ❌ J13 | ❌ J13 |
 
-**Not final yet, so no variants are owed:** Muhammad's Ads 6, 7, 8, 9, 10, 13, 14, 15 (all in revision rounds as of 09-12;
-Ad 7 and Ad 10 HDs came in but carry revisions), and Waleed's Video 1 (= a third Ad 1, round 4 open). Muhammad wrote
-on 09-13 18:56Z that he will "send tomorrow"; the next `/editor-deliveries` run files whatever arrives.
+**Not final yet, so no variants are owed:** Muhammad's Ads 6 and 14 (09-12 revisions; he said on 09-13 he will send them
+"tomorrow my morning time"), Ads 8, 9, 13 and 15 (revision rounds, last notes 09-10), and Waleed's Video 1 (= a third Ad 1,
+round 4 open). **Ads 7 and 10 were added 09-13:** a full read of Muhammad's Upwork thread (Aug 28 → 09-13) found Dan's
+09-12 2:46 PM message *"Both HD videos at 7 and 10 are looking good, and those are finalized"*. Both are now filed. Every
+other final in that thread (Ads 2, 3, 4, 5; Ad 1 came from the earlier trial room) was already filed.
 
 ## The queue
 
@@ -68,9 +72,13 @@ is actively using. Copy it.
 | J7 | Ad 3: square full + 59s | BLOCKED | J6 approved AND Muhammad's corrected Ad 3 HD passes `hd_vs_draft.py` |
 | J8 | Ad 4: square full + 59s | BLOCKED | Dan approves the Ad 4 vertical |
 | J9 | Ad 1 (Zeeshan): square full + 59s | BLOCKED | Dan approves the Zeeshan Ad 1 vertical |
+| **J10** | Ad 7: vertical full + 59s | **READY** | — |
+| J11 | Ad 7: square full + 59s | BLOCKED | Dan approves J10 |
+| **J12** | Ad 10: vertical full + 59s | **READY** | — |
+| J13 | Ad 10: square full + 59s | BLOCKED | Dan approves J12 |
 
 Suggested order among the READY jobs: **J1** (minutes), **J4** (Dan is waiting on it and it unblocks J5), **J3** (Ad 2 took
-~80% of the campaign's early spend), **J2**.
+~80% of the campaign's early spend), **J2**, then **J10** and **J12** (brand-new ads, which have no variants at all yet).
 
 ---
 
@@ -196,9 +204,51 @@ so the folder holds the masters the square is checked against.
 Spec: **`Handoffs/handoff-20260911-square-ad1-zeeshan.md`**. Fire after Dan approves the Zeeshan Ad 1 vertical, re-delivered
 09-10 with his audio untouched. 24 fps, the email-capture screen at 188.75–190.33 s replaced, his audio verbatim.
 
+### J10 / J12 — Ad 7 and Ad 10: vertical full + ≤0:59 (one ad per session)
+
+**What exists.**
+
+| | Ad 7 | Ad 10 |
+|---|---|---|
+| editor final | `Muhammad Ad Videos/in 2010 i photoshopped my face on a fitness model ai just did it for real - ad 7/… \| muhammad \| 16x9 \| ad 7.mp4` | `Muhammad Ad Videos/my dad bod at 38 my dad bod at 40 - ad 10/… \| muhammad \| 16x9 \| ad 10.mp4` |
+| file | 1920×1080, 29.97, **6,358 frames, 3:32.1**, Drive `1mTizfbX4Uk97EwJOF_uO3KBp1P3PToh1` | 1920×1080, 29.97, **5,443 frames, 3:01.6**, Drive `1582XKVpH-6LYq8fEJlFQksMZE0HL1Ct5` |
+| approval | Dan in Upwork 09-12 2:46 PM: "finalized" | same message |
+| last notes | `revision docs/ad7-revisions-muhammad-round4-9-12-26.md` | `revision docs/ad10-revisions-muhammad-round3-9-12-26.md` |
+| review copy already measured | `/Volumes/Extreme/_edit_work/revisions-0912m/dl/ad7_hd.mp4` (same bytes) | `…/dl/ad10_v3hd.mp4` (same bytes) |
+
+**Build** with `/shortad-from-longform` end to end (Step 0b's "approved draft" is this HD itself; Dan approved the HD, so
+there is no separate draft to diff). Copy the newest a7/a12 compositor build (`ad5-vert/`, or `ad3-vert/` once its session
+ends) into `ad7-vert/` / `ad10-vert/`, never working inside another session's directory. Muhammad's audio untouched
+(`--verbatim`), the cutdown his mix cut at the seams.
+
+**Carry Dan's two unfixed 09-12 notes into our version**, because he shipped the 16:9 with them and they cost nothing in a
+rebuild. The notes are in the revision docs above:
+* **Both ads:** Muhammad's "Real picture of me — not AI-generated" label is italic, in square brackets, on a see-through
+  band hanging off the picture. Ours is the same solid black rounded chip as AI-GENERATED, upright, inside the picture,
+  **never over face or abs** (`AGENTS.md` 09-12). Ad 7 real pictures at 0:48.5–0:50.6 and 2:20.5–2:24. Ad 10 at 0:08–0:11,
+  0:27.5–0:30 and 1:46–1:48.
+* **Ad 7 only, 3:25.5–3:29:** the closing demo plays Dan's own generation again under "So generate your future self image".
+  Dan wanted the app-recording man there, ending on **that man's** AI after picture
+  (`1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp`, AI-GENERATED chip), never the email screen. Rebuild that beat that way in the
+  vertical and record it in `notes-vertical.md`. It matches the before/after = same person rule.
+* Both ads' other app demos already show Dan's before → Dan's goal image (verified in the notes). Keep them.
+* `compliance:banned_screen` scan over every frame, and a watch pass at full resolution.
+
+Deliver `… | claude | 9x16 | ad N.mp4` + `… | 9x16 59s | ad N.mp4`, review copies, A/B, stamps, `notes-vertical.md`,
+`recipe-vertical/` into the ad's folder. Send Dan the review copies. J11/J13 (squares) follow the shared square rules
+from the approved vertical build.
+
+Neither ad is on YouTube or in Google Ads yet. `/ad-setup` for the 16:9 is separate from this queue (Dan's call).
+
+Model: Fable 5.1, effort high. Starter prompt:
+> Execute job J10 (or J12) in `Handoffs/handoff-20260913-ad-variants-master-queue.md`: build the 9:16 vertical and ≤0:59
+> cutdown of Muhammad's Ad 7 (or Ad 10) with `/shortad-from-longform`, carrying Dan's 09-12 label-chip note (and for Ad 7
+> the closing-demo same-person fix), Muhammad's audio untouched. Every gate, the independent audit, deliver, send Dan the
+> review copies. Model: Fable 5.1, effort high.
+
 ---
 
-## When a new ad goes final (Ads 6–15, Waleed's Video 1)
+## When a new ad goes final (Ads 6, 8, 9, 13, 14, 15, Waleed's Video 1)
 
 When `/editor-deliveries` files a new 16:9 final, the session that files it adds one row per missing variant to the
 matrix and two jobs to the queue:
@@ -208,8 +258,8 @@ matrix and two jobs to the queue:
 
 Rules that already bind these ads: the before and after in any pair are the same person. Every real picture of Dan
 carries the real-picture label, off face and abs. No email-capture or side-by-side before/after app screen
-(`compliance:banned_screen`). Editor audio stays untouched. Ads 6, 8, 9, 10, 13, 14 and 15 use the stranger's app recording
-(09-10 finding), so their demos need the matching after picture.
+(`compliance:banned_screen`). Editor audio stays untouched. Ads 6, 8, 9, 13, 14 and 15 used the stranger's app recording
+(09-10 finding; Ad 10's demos were fixed to Dan's own before/after in round 3), so their demos need the matching after picture.
 
 ## Closing out
 

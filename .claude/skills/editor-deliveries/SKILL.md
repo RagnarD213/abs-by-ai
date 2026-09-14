@@ -66,10 +66,10 @@ numbers as `AD-NN_C16xx_<slug>.MP4`:
 | 4 | stop wasting money on supplements |
 | 5 | every diet failed for the same reason |
 | 6 | not too old to get abs |
-| 7 | photoshopped fitness model |
+| 7 | in 2010 i photoshopped my face on a fitness model ai just did it for real (filed 09-13) |
 | 8 | ai showed me two futures |
 | 9 | tried abs with chatgpt |
-| 10 | dad bod 38 vs 40 |
+| 10 | my dad bod at 38 my dad bod at 40 (filed 09-13) |
 | 13 | what getting abs was supposed to cost |
 | 14 | watched 400 workout videos |
 | 15 | dad who swam in a tshirt |
@@ -273,3 +273,12 @@ twice — record the delivery in `pending` with reason "chrome unavailable" and 
   never return. Both were verified against the exact delivery that was missed. **A wrong note in a
   skill sent every future run down the expensive, fragile path for weeks; the note cost more than
   the bug.** When a step is documented as impossible, re-test it before building around it.
+- **2026-09-13 — two finals held back for a day because rule 2 was read from the repo, not the thread.**
+  Muhammad's `Daniel HQ Ad 7 V4 HD.mp4` and `Daniel HQ Ad 10 v3 HD.mp4` (09-12) were recorded as not final
+  because a revision doc was written on each that afternoon (14:25 CT). But at **2:46 PM CT** Dan wrote in
+  the Upwork room *"Both HD videos at 7 and 10 are looking good, and those are finalized"* and sent revisions
+  for Ads 6 and 14 only. **Dan's latest word in the thread beats a revision doc dated earlier the same day** —
+  he often drafts notes with Claude, then decides to ship. The Gmail notifications cannot show this (they carry
+  only the editor's messages), so **whenever a rule-2 "revision doc exists" verdict holds back an HD-class
+  file with final wording, read Dan's own messages in the room after that doc before recording it as not
+  final.** Found by Dan asking for a thread re-check; both filed the same day.
