@@ -59,8 +59,13 @@ def main():
         # stamp nobody can check; `_shared/deliver/gate.py --check` looks for it next to the file.
         import glob as _g
         cand = [src + '.deliver_gate.json', os.path.join('cut', os.path.basename(src) + '.deliver_gate.json')]
-        st = next((c for c in cand if os.path.exists(c)), None)
-        assert st, f'NO DELIVERY GATE STAMP for {src} -- run _shared/deliver/gate.py --format ad1x1'
+        # ⚠ A STAMP COUNTS ONLY IF ITS sha256 IS THE DELIVERED BYTES (round-1 audit finding 1: the
+        # root candidate was a 09-12 stamp for the round-0 cutdown and would have shipped beside the
+        # round-1 file, because the first existing candidate won).
+        import hashlib as _h
+        want = _h.sha256(open(dst, 'rb').read()).hexdigest()
+        st = next((c for c in cand if os.path.exists(c) and json.load(open(c)).get('sha256') == want), None)
+        assert st, f'NO DELIVERY GATE STAMP whose sha256 is {src} ({want[:12]}) -- run _shared/deliver/gate.py --format ad1x1'
         g = json.load(open(st))
         assert g.get('verdict') == 'PASS', f'{src}: delivery gate stamp says {g.get("verdict")}'
         shutil.copyfile(st, dst + '.deliver_gate.json')

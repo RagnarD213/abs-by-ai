@@ -82,3 +82,13 @@ defect was in how a SELECTION cutdown is built, so every one of them is waiting 
 `cut/` so the cut-side gates can run beside `cut/beats.py`. **Check the mtimes and the md5 before
 you believe a frame you pulled out of `cut/`** — three extractions in this build were of a stale
 copy, and one of them looked like a defect that had already been fixed.
+
+## Round 1 (Dan's review 2026-09-13, rebuilt 2026-09-14)
+
+* `sqlabelplace.py` (new) — measured label placement; see SKILL.md [S1].25. Output `label_place.json`, copied into
+  `sqassets.py`'s `chip=` entries.
+* `sqlib.py` — `WIN_BOT 1030`, `MAX_WIN_H 820`, `BUL_SIZES` from 42/38, no trailing bullet gap, header sized at +48
+  (the value the plate draws), `chip_at` + 1/2/3-line real chip; `bleed_chip` removed.
+* `render.py` — `chip_png(kind, chip)` from the measured placement; `cover_chip` path removed.
+* `deliver_sq.py` — the delivery stamp must carry the delivered file's sha256.
+* Delivered: master 6,976 f, cutdown 1,493 f, both `_shared/deliver/gate.py` 1.2.0 PASS 35/35; independent audit SHIPS.

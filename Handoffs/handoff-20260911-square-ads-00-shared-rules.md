@@ -49,8 +49,17 @@ onto the SAME Demand Gen ad as one more `videos` entry (`/ad-setup` step 6), not
    with the editor's card margins — never blurred pillars, never mirror padding. Contact-sheet the rendered frames.
 5. **Captions:** PIL-rendered word-timed Manrope from `words_ctc.json`, centred at **y≈900**, suppressed under any
    graphic that carries its own words. **Safe area:** nothing that must be read below **y≈980** or above **y≈80**,
-   nothing readable in the right-hand 100 px (in-feed UI). Labels (AI / real-picture chips) sit low on the frame
-   above the caption band, never over a face.
+   nothing readable in the right-hand 100 px (in-feed UI). ⚠ **Labels (AI / real-picture chips) go ABOVE or BESIDE
+   his head, measured with the person mask on the rendered beat — never over his face and never over his abs**
+   (Dan, 09-12 Ad 2 square + 09-13 Ad 1 square; the old "low, above the caption band" wording is what put them on
+   his abs). Ad 1's tool: `ad1-sq/sqlabelplace.py`.
+   **Text-screen bottom line = 1030** (Ad 1 round 1, Dan 09-13: the 980 line + a trailing bullet gap left ~140 px of
+   dead field and pushed his window up). ⚠ **Measured 2026-09-14, for Dan to weigh:** Google's own square safe-zone
+   template (`services.google.com/fh/files/misc/youtubesafezoneoverlay-square.png`, linked from Google Ads Help
+   answer 13547298) marks only **x 48–978, y 48–689** (y 104 on the right half) as clear of YouTube UI "within
+   certain inventory". Every square built so far keeps its captions (y≈880) and text screens below y 690, so the
+   980→1030 change does not alter that exposure; a layout that honours the template is a redesign, not a nudge.
+   Meta's 1:1 feed draws its name and CTA outside the picture.
 6. **SFX only on graphic entrances, at HIS count** ([R1]); flashes on his frames from the vertical's beat sheet.
 7. **The cutdown reuses the vertical's `cut_plan.json`** frame for frame (same timeline); rebuild only the picture.
 

@@ -1672,6 +1672,19 @@ first one actually cost. Build dir `/Volumes/Extreme/_edit_work/ad1-sq/` (`sqlib
     behind a pipe**: `cmd | tail` returns tail's status, so `set -e` never sees the failure --
     that is how a mux failed and the rest of the chain silently graded the previous file.)
 
+25. ⚠ **ROUND 1 ON THE AD 1 SQUARE (Dan, 2026-09-13) — labels by measurement, text screens to 1030.**
+    `reference/a11_sq_ad1/sqlabelplace.py` places every chip on a picture of Dan: render the beat WITHOUT a
+    chip, person-mask every 3rd frame, union + 16 px dilation, then search above-head (one line) → beside-head
+    (one/two/three lines) → anywhere clear, **bigger type before fewer lines**, inside a full-height photo's own
+    width. The numbers go into `sqassets.py` as `chip=dict(x, y, lines, size)`, drawn by `sqlib.chip_at`. The old
+    `bleed_chip` (waistline) and the hook's `cover_chip` are deleted; the hook is the clean goal STILL because the
+    video had AI-GENERATED burned over his abs. Text screens: `WIN_BOT = 1030`, no gap after the last bullet,
+    `MAX_WIN_H 820`, bullets 42 px. ⚠ **`_bullet_layout` sized the header at +30 while the plate draws it at +48**
+    — invisible until the bottom line moved; the audit measured the 0:25 text 16 px past the line. ⚠ Google's
+    square safe-zone template marks only y 48–689 as clear of YouTube UI; every square's captions and text sit
+    below it (recorded in the shared square rules for Dan). And **a stamp beside a file counts only if its
+    sha256 is that file** — `deliver_sq.py` took the first existing candidate and would have shipped the round-0
+    cutdown's stamp beside the round-1 bytes.
 15. **Gates that must be rebuilt for 1:1, not reused:** the hair gate's bound is the standard's
     **fraction** of frame height (36/1920 = 1.875 % → 20 px of 1080), `centering.py` samples
     270×270, `caption_sync_check.py` must read the build's own `CAP_Y` (hard-coded at 1385 for

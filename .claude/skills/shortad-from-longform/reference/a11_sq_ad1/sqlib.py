@@ -45,6 +45,13 @@ BAR      = (0, 0, 0)
 TOP_SAFE, BOT_SAFE = 80, 980
 RIGHT_SAFE = 100
 CAP_Y  = 880                # caption band: 64 px ExtraBold ends ~958, clear of 980
+# Round 1 (Dan, 2026-09-13): the TEXT SCREENS' bottom line. 980 left ~140 px of dead field under
+# every window screen and pushed his window up ("unnecessary blank space at the bottom"). 1030 =
+# a 50 px margin. Checked 2026-09-14: Meta's 1:1 feed draws no UI over the picture; Google's own
+# square template (services.google.com/fh/files/misc/youtubesafezoneoverlay-square.png) marks only
+# x 48-978, y 48/104-689 as safe, i.e. EVERYTHING under y=690 (captions at 880 included) is in its
+# covered band already, so 980 vs 1030 does not change that exposure. Recorded for Dan.
+WIN_BOT = 1030
 MARGIN = 64
 
 # ------------------------------------------------------------------ background
@@ -145,7 +152,7 @@ def type_lines(d, lines, f, x, y, fill, k, lead=1.14, align="l", w=None, stagger
 #  MAGNIFICATION, never by "fit the whole room in": fitting the room made Dan a third of the
 #  size he is in Muhammad's own frame, and left him off to one side with an empty doorway
 #  beside him, because a 1920-wide crop leaves the face track nothing to centre.
-MAX_WIN_H, MIN_WIN_H = 700, 380
+MAX_WIN_H, MIN_WIN_H = 820, 380   # 700 -> 820 in round 1 (1:35 wants 785, 3:46 738)
 WIN_TOP = 34
 GAP     = 40
 # HIS magnification. In his 16:9 frame Dan's panel is source pixels at 1:1 inside a 1920-wide
@@ -159,7 +166,7 @@ def window_rect(text_h):
     """Dan's window for a STACKED beat: FULL WIDTH, as tall as the beat's text leaves room
     for. Full width because the crop is chosen by magnification (below), so a wide window
     shows more ROOM at the same size of Dan -- never a smaller Dan."""
-    h = BOT_SAFE - WIN_TOP - GAP - text_h - 10
+    h = WIN_BOT - WIN_TOP - GAP - text_h - 10
     h = max(MIN_WIN_H, min(MAX_WIN_H, h))
     h -= h % 2
     return (0, WIN_TOP, VW, WIN_TOP+h)
@@ -210,7 +217,8 @@ def _punch(plate, hole, radius):
     return plate
 
 # ---- STACKED: Dan above, his text below -------------------------------------
-BUL_SIZES = [(46, 42), (42, 38), (38, 34), (34, 31)]   # (bullet, header) ladder
+# round 1: one rung smaller throughout (46/42 dropped) so every window screen keeps one bullet size
+BUL_SIZES = [(42, 38), (38, 34), (34, 31)]   # (bullet, header) ladder
 
 def _bullet_layout(header, bullets):
     """Pick the largest type ladder rung whose wrapped block still leaves Dan a window of
@@ -223,11 +231,14 @@ def _bullet_layout(header, bullets):
         fb, fh = font(bs, "SemiBold"), font(hs, "ExtraBold")
         items = [wrap(b, fb, maxw) for b in bullets]
         lh = int(fb.size*1.14)
-        text_h = ((hs+30) if header else 0) + sum(len(it)*lh + 30 for it in items)
-        if BOT_SAFE - WIN_TOP - GAP - text_h - 10 >= MIN_WIN_H or (bs, hs) == BUL_SIZES[-1]:
+        # no gap AFTER the last bullet: that trailing 30 px was pure dead space under the block
+        # ⚠ the header advances fh.size + 48 in plate_window's body -- sizing it at +30 put the 0:25
+        # screen's last line 16-18 px below the bottom line (round-1 audit finding 2)
+        text_h = ((hs+48) if header else 0) + sum(len(it)*lh for it in items) + 30*(len(items)-1)
+        if WIN_BOT - WIN_TOP - GAP - text_h - 10 >= MIN_WIN_H or (bs, hs) == BUL_SIZES[-1]:
             bottom = WIN_TOP + max(MIN_WIN_H, min(MAX_WIN_H,
-                     BOT_SAFE - WIN_TOP - GAP - text_h - 10)) + GAP + text_h
-            assert bottom <= BOT_SAFE, f'bullet block ends at y={bottom}, past the {BOT_SAFE} safe line'
+                     WIN_BOT - WIN_TOP - GAP - text_h - 10)) + GAP + text_h
+            assert bottom <= WIN_BOT, f'bullet block ends at y={bottom}, past the {WIN_BOT} line'
             return fb, fh, items, lh, text_h
     raise AssertionError
 
@@ -271,10 +282,10 @@ def plate_stmt_window(parts, dur, fps=FPS, radius=0, reveal=1.15):
             col = OLIVE if kind == "olive" else INK
             for ln in wrap(txt, f, VW-2*MARGIN-RIGHT_SAFE): lines.append((ln, f, col))
         text_h = sum(int(f.size*1.16) for _, f, _ in lines)
-        if BOT_SAFE - WIN_TOP - GAP - text_h - 10 >= MIN_WIN_H or big == 50: break
+        if WIN_BOT - WIN_TOP - GAP - text_h - 10 >= MIN_WIN_H or big == 50: break
     bottom = WIN_TOP + max(MIN_WIN_H, min(MAX_WIN_H,
-             BOT_SAFE - WIN_TOP - GAP - text_h - 10)) + GAP + text_h
-    assert bottom <= BOT_SAFE, f'statement block ends at y={bottom}, past the {BOT_SAFE} safe line'
+             WIN_BOT - WIN_TOP - GAP - text_h - 10)) + GAP + text_h
+    assert bottom <= WIN_BOT, f'statement block ends at y={bottom}, past the {WIN_BOT} line'
     def body(d, im, t, ty):
         for n, (ln, f, col) in enumerate(lines):
             k = clamp01((t - 0.25 - n*0.22) / reveal)
@@ -370,7 +381,8 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
 #  Two mutually exclusive labels (AGENTS.md, Dan 2026-09-11):
 #    'AI-GENERATED'                        on every AI image / clip
 #    'Real picture of me — not AI-generated'  on every real after picture of Dan
-#  Both sit LOW on the frame, above the caption band, NEVER over his face.
+#  ROUND 1 (Dan 2026-09-13): on a picture of Dan the chip goes ABOVE or BESIDE his head, measured
+#  (chip_at + sqlabelplace.py) -- never over his face and never over his abs.
 REAL_LABEL = "Real picture of me — not AI-generated"
 AI_LABEL   = "AI-GENERATED"
 
@@ -389,10 +401,38 @@ def chip_layer(label, y_bottom, f=None, max_w=None):
     ImageDraw.Draw(lay).text((bx+17, by+11), label, font=f, fill=INK, anchor="lt")
     return lay
 
-def bleed_chip(label, y_bottom=None):
-    """Chip for a full-bleed shot: low on the frame, at the shorts/waist line, above the
-    caption band -- never over his face (Dan, 2026-08-27)."""
-    return chip_layer(label, y_bottom if y_bottom is not None else CAP_Y - 26)
+REAL_LINES = ("Real picture of me \u2014", "not AI-generated")
+REAL_LINES3 = ("Real picture", "of me \u2014 not", "AI-generated")
+
+def _chip_parts(label, lines):
+    if lines == 1 or label != REAL_LABEL: return [label]
+    return list(REAL_LINES if lines == 2 else REAL_LINES3)
+
+def chip_dims(label, lines=1, size=34):
+    """(w, h) of a chip, same padding as chip_layer (17 px sides, 11 px top/bottom)."""
+    f = font(size, "SemiBold")
+    parts = _chip_parts(label, lines)
+    lh = int(size * 1.18)
+    tw = max(text_size(p_, f)[0] for p_ in parts)
+    th = text_size(parts[0], f)[1] if len(parts) == 1 else lh * len(parts) - (lh - size)
+    return tw + 34, th + 22
+
+def chip_at(label, x, y, lines=1, size=34):
+    """Round 1 (Dan, 2026-09-13): a chip at an explicit TOP-LEFT (x, y), one or two lines.
+    Positions are chosen by MEASURING him (sqlabelplace.py, person mask on the rendered beat)
+    -- above his head or beside it, never over his face or his abs. Same look as chip_layer."""
+    f = font(size, "SemiBold")
+    parts = _chip_parts(label, lines)
+    w, h = chip_dims(label, lines, size)
+    lay = Image.new("RGBA", (VW, VH), (0,0,0,0)); d = ImageDraw.Draw(lay)
+    d.rounded_rectangle([x, y, x+w, y+h], radius=9, fill=(0,0,0,215))
+    if len(parts) == 1:
+        d.text((x+17, y+11), parts[0], font=f, fill=INK, anchor="lt")
+    else:
+        lh = int(size * 1.18); asc = f.getmetrics()[0]
+        for i, p_ in enumerate(parts):
+            d.text((x + (w - text_size(p_, f)[0])//2, y + 11 + i*lh + asc), p_, font=f, fill=INK, anchor="ls")
+    return lay
 
 # ---- TITLE ------------------------------------------------------------------
 def plate_title_card(headline, sub, dur, fps=FPS):

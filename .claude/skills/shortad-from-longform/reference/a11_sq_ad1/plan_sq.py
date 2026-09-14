@@ -102,10 +102,9 @@ def _chip_for_inner(b, kind, outdir):
         hole = V.card_hole(R.media_ar(b['media']), bool(b.get('caption') or b.get('kicker')))
         lay = V.chip_layer(txt, int(hole[3]) - 34, V.font(28, 'SemiBold'))
     else:
-        # bleed / fith go through render.chip_png, which is also where the hook's COVER chip is
-        # built (it is drawn over the chip burned into the goal video, so it is a different shape)
+        # bleed / fith go through render.chip_png at the measured round-1 placement
         from PIL import Image as _I
-        lay = _I.open(R.chip_png(kind, t.get('cover_chip'))).convert('RGBA')
+        lay = _I.open(R.chip_png(kind, t['chip'])).convert('RGBA')
     bb = lay.getchannel('A').getbbox()
     os.makedirs(os.path.join(outdir, 'plan_assets'), exist_ok=True)
     q = os.path.join(outdir, 'plan_assets', f"chip_{kind}_{_name(b)}_{t['mode']}.png")

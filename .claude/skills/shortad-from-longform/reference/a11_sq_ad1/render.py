@@ -42,6 +42,12 @@ import numpy as np
 # LAYOUT the plate was drawn with.
 LAYOUT_SIG = hashlib.md5(
     b''.join(open(f, 'rb').read() for f in ('sqlib.py', 'sqassets.py'))).hexdigest()[:8]
+# ⚠ THE SIGNATURE COVERS THE LAYOUT LIBRARY, NOT THIS FILE. A change to render.py itself
+# does NOT invalidate a cached segment, so a renderer fix must have its affected segments
+# deleted by hand. That is how `anchor_top` -- declared on the photoshop gag in sqassets.py
+# and silently ignored by the `fith` branch below -- survived a full re-render: the
+# declaration was in the key, the code that reads it was not. From a clean cache the
+# committed code reproduces the delivery exactly; incrementally it does not.
 
 FF  = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
 FP  = FF.replace('ffmpeg', 'ffprobe')
@@ -185,32 +191,16 @@ def media_ar(key):
 
 
 # ---------------------------------------------------------------- label chips
-def chip_png(label_kind, cover_box=None):
-    """One static PNG per label, content-addressed. `cover_box` forces the chip to fully
-    cover a chip that is already burned into the media (the hook's goal video)."""
+def chip_png(label_kind, chip):
+    """One static PNG per label placement, content-addressed. `chip` is the measured placement
+    from sqassets (round 1: above/beside his head, never over his face or abs)."""
+    assert chip, f'{label_kind} label without a measured placement'
     txt = V.REAL_LABEL if label_kind == 'real' else V.AI_LABEL
-    sig = hashlib.md5(repr((txt, cover_box, V.CAP_Y)).encode()).hexdigest()[:8]
+    spec = (txt, chip['x'], chip['y'], chip['lines'], chip['size'])
+    sig = hashlib.md5(repr(spec).encode()).hexdigest()[:8]
     p = f'gfx/chip_{label_kind}_{sig}.png'
-    if os.path.exists(p): return p
-    if cover_box:
-        from PIL import ImageDraw
-        from motionlib import font, text_size
-        x0, y0, x1, y1 = cover_box
-        lay = Image.new("RGBA", (VW, VH), (0, 0, 0, 0))
-        f = font(40, "SemiBold")
-        while f.size > 22 and text_size(txt, f)[0] + 40 > VW - 2*40:
-            f = font(f.size-2, "SemiBold")
-        lw, lh = text_size(txt, f)
-        bw, bh = max(lw + 40, x1 - x0 + 24), max(lh + 26, y1 - y0 + 8)
-        bx, by = (VW - bw)//2, int((y0 + y1)/2 - bh/2)
-        assert bx <= x0 and bx + bw >= x1 and by <= y0 and by + bh >= y1, \
-            f'chip {bx},{by},{bx+bw},{by+bh} does not cover the burned chip {cover_box}'
-        d = ImageDraw.Draw(lay)
-        d.rounded_rectangle([bx, by, bx+bw, by+bh], radius=10, fill=(0, 0, 0, 255))
-        d.text(((VW-lw)//2, by + (bh-lh)//2), txt, font=f, fill=V.INK, anchor="lt")
-    else:
-        lay = V.bleed_chip(txt)
-    lay.save(p)
+    if not os.path.exists(p):
+        V.chip_at(txt, chip['x'], chip['y'], chip['lines'], chip['size']).save(p)
     return p
 
 
@@ -261,7 +251,7 @@ def _render(out, b, nfr, t0):
         fc = f'[0:v]{ch},unsharp=5:5:0.4:5:5:0.0[v0];[1:v]scale={VW}:{VH}[vg];{VIG}[vv]'
         idx = 2
         if T['label']:
-            ins += ['-loop', '1', '-framerate', '30000/1001', '-i', chip_png(T['label'])]
+            ins += ['-loop', '1', '-framerate', '30000/1001', '-i', chip_png(T['label'], T['chip'])]
             fc += f';[vv][{idx}:v]overlay=0:0:shortest=1'
         else:
             fc += ';[vv]null'
@@ -273,7 +263,8 @@ def _render(out, b, nfr, t0):
         ar = media_ar(b['media'])
         w = int(round(VH*ar)); w -= w % 2
         x = (VW - w)//2
-        chain = (still_chain(w, VH, nfr, amt=0.05) if MEDIA[b['media']][0] == 'img'
+        chain = (still_chain(w, VH, nfr, amt=0.05, anchor_top=T.get('anchor_top', False))
+                 if MEDIA[b['media']][0] == 'img'
                  else f'setpts=PTS-STARTPTS,scale={w}:{VH}:flags=lanczos,setsar=1')
         ins = ['-loop', '1', '-framerate', '30000/1001', '-t', f'{dur+0.25:.4f}', '-i', 'field_sq.png'] \
               + media_input(b['media'], nfr)
@@ -281,8 +272,7 @@ def _render(out, b, nfr, t0):
               f'[0:v]scale={VW}:{VH},setsar=1[bg];[bg][m]overlay={x}:0[vv]')
         idx = 2
         if T['label']:
-            ins += ['-loop', '1', '-framerate', '30000/1001', '-i',
-                    chip_png(T['label'], T.get('cover_chip'))]
+            ins += ['-loop', '1', '-framerate', '30000/1001', '-i', chip_png(T['label'], T['chip'])]
             fc += f';[vv][{idx}:v]overlay=0:0:shortest=1'
         else:
             fc += ';[vv]null'

@@ -23,10 +23,10 @@ labels  (AGENTS.md, Dan 2026-09-11 -- mutually exclusive, exactly one per pictur
   None   nothing: BEFORE pictures are neither (his 09-11 rule is about the AFTER pictures),
          and an asset whose chip is already burned in does not get a second one.
 
-`cover_chip` is a box in DELIVERED-frame coordinates that our chip must fully cover: the
-hook's goal video carries a chip burned in for a 1080x1920 frame, which lands 411 px wide
-at full height here -- 38 % of the frame against the ~68 % the skill asks for. Our chip is
-drawn over it rather than beside it, so the label is one label.
+`chip` (ROUND 1, Dan 2026-09-13) is the label's top-left + line count + size, MEASURED by
+`sqlabelplace.py` (person mask over every 3rd frame of the rendered beat, clearance 16 px):
+above his head where there is room, beside it otherwise -- never over his face or his abs.
+The old waistline chip (`bleed_chip` at CAP_Y-26) and the hook's `cover_chip` are gone.
 """
 
 SQ = {
@@ -35,19 +35,21 @@ SQ = {
   # 1080x1920 -> x 341..740, y 705..770 at full height in the square.
   # top 690, not 698: the burned chip's own LIGHT 1-px outline sits at y=693 and showed as
   # a ghost above our box (audit F5). Measure the outline, not just the dark box.
-  'ai_goal_plain' : dict(mode='fith', label='ai', cover_chip=(341, 690, 740, 780)),
+  # ROUND 1: the hook is the CLEAN goal still (the video had a chip burned in over his abs);
+  # the old cover_chip path is gone -- one way to label the hook.
+  'ai_goal_still' : dict(mode='fith', label='ai', anchor_top=True, chip=dict(x=178, y=80, lines=1, size=34)),
   'before_200lb'  : dict(mode='card', label=None),          # BEFORE picture: unlabelled
   # --- "this is where I'm at today": his three REAL after pictures ---------
-  'today_towel'   : dict(mode='cover', label='real', oy=0.14, anchor_top=True),
-  'today_trees'   : dict(mode='cover', label='real', anchor_top=True),
-  'today_flag'    : dict(mode='cover', label='real', anchor_top=True),
+  'today_towel'   : dict(mode='cover', label='real', oy=0.14, anchor_top=True, chip=dict(x=248, y=80, lines=1, size=34)),
+  'today_trees'   : dict(mode='cover', label='real', anchor_top=True, chip=dict(x=40, y=136, lines=2, size=34)),
+  'today_flag'    : dict(mode='cover', label='real', anchor_top=True, chip=dict(x=264, y=80, lines=1, size=34)),
   # --- conditioning -------------------------------------------------------
   # His 0:48 model slot is Dan's own pool photo = a real after picture. Dan's 09-11 rule
   # takes it out of the card and gives it the frame (cf. the Ad 5 revisions table).
-  'bodybuilder'   : dict(mode='fith', label='real'),
+  'bodybuilder'   : dict(mode='fith', label='real', chip=dict(x=186, y=80, lines=3, size=34)),
   # The crude-photoshop gag is filed under "04 AI-Generated Clips" and ran unlabelled in
   # the approved vertical -- the A6.19b defect. Labelled here.
-  'photoshop_gag' : dict(mode='fith', label='ai', anchor_top=True),
+  'photoshop_gag' : dict(mode='fith', label='ai', anchor_top=True, chip=dict(x=144, y=80, lines=1, size=34)),
   # --- product ------------------------------------------------------------
   'app_flow_a'    : dict(mode='sbs',  label=None),          # phone LEFT / Dan RIGHT, his own
   'app_flow_b'    : dict(mode='fith', label=None),          # his full-frame phone beat
@@ -77,10 +79,11 @@ SQ = {
   'bl_eating'     : dict(mode='cover', label=None),
   # unused in the beat sheet but kept resolvable
   'ai_goal_scan'  : dict(mode='fith', label='ai'),
+  'ai_goal_plain' : dict(mode='fith', label='ai'),
 }
 
 def treat(key):
-    t = dict(mode='card', label=None, ox=0.5, oy=0.5, cover_chip=None, anchor_top=False)
+    t = dict(mode='card', label=None, ox=0.5, oy=0.5, anchor_top=False, chip=None)
     t.update(SQ.get(key, {}))
     return t
 

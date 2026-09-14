@@ -454,9 +454,10 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **Codex trial — Ad 1 REJECTED; Muhammad-matching rebuild in progress (Codex, September 13).** Dan: “totally unacceptable”; “Make it look like what Muhammad did.” Rejection saved in trial records + regression corpus; original master and first-delivery.json preserved. Current owner: Rebuild Ad 1 like Muhammad, isolated `04-ad1/rebuild-muhammad/`. Next: matching-frame playback comparison and representative original-footage/audio/app proof before full 16:9 rebuild. Private local branch only; stage05 premature; no publish/deploy/dashboard row.
+- **Codex trial — full Ad 1 rebuild handoff READY (September 14).** Dan approved the revised audio as close enough to Muhammad for the full ad; representative visuals were already approved. Execute `Handoffs/handoff-20260914-codex-ad1-full-rebuild-approved-audio.md` from the frozen approved recipe; full replacement unbuilt, Stage05 premature. Current owner released. Private branch only; no dashboard row. Reference overwrite/symlink trap and exact backup are documented in the handoff.
 
-- **`Handoffs/handoff-20260913-ad1-square-round1-revisions.md`** — Dan's round-1 notes on the Ad 1 1:1 square: lower the four window screens and remove their bottom dead space, move every label off his face and abs (hook rebuilt from the clean goal still). Colour and audio approved. Fable 5.1 high. **Not on the dashboard.**
+- **`Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md`** — Ad 3 vertical approved on colour + audio 09-14; remove the AI breath-smoke artifact at 1:16 (regenerate story shot 3 from its start frame), re-render the vertical, patch Muhammad's 16:9, then cutdown + gates + delivery + [A12] commit. Master queue J6. Opus 5 / Fable 5.1 high. **Not on the dashboard.**
+- ~~`Handoffs/handoff-20260913-ad1-square-round1-revisions.md`~~ — EXECUTED 2026-09-14 (entry under ACTIVE TASK); remove this line once Dan approves.
 
 - **`Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`** — Dan's round-2 revisions on the Ad 5 vertical:
   (1) the app demo must show the SAME man in the before and after — ✅ **Dan named that after picture 2026-09-12**,
@@ -593,18 +594,17 @@ the next big upload** — rclone's shared one hit `403 Quota exceeded`, failed 2
 14 h job into 32 h; it is also being retired during 2026. ⚠ Do not run the verify script mid-transfer (false FAIL).
 No dashboard row.
 
-**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 cutdown — DAN REVIEWED 2026-09-13: "pretty solid", colour and
-audio approved, TWO REVISIONS → `Handoffs/handoff-20260913-ad1-square-round1-revisions.md` (fire next, Fable 5.1 high).**
-(A) the window screens at 0:25, 1:35, 2:46, 3:46 sit too high with dead space at the bottom — measured cause: the
-text block stops at our own `BOT_SAFE 980` plus a trailing 30 px after the last bullet; the doc gives the window
-heights for every option (default 0:25 422→546, 1:35 680→785, 2:46 524→691, 3:46 628→738). (B) the "Real picture of
-me" chips sit at the waistline, over his abs — the placement rule Dan gave on the Ad 2 square 09-12 had not reached
-this build; the doc has the clear space above/beside his head measured on all six labelled pictures, and the hook
-must be rebuilt from the clean goal still because its video has AI-GENERATED burned in over his abs.
-Delivered files stay in the folder until the re-delivery. Build dir `/Volumes/Extreme/_edit_work/ad1-sq/`.
-⚠ Still open from the delivery, for Dan: the APPROVED 9:16 verticals of Ad 1 and Ad 2 print a caption across their
-closing CTA pill for 7 frames (fix = caption rebuild + mux; a re-upload changes the video id the ads point at).
-Dashboard row stays unchecked until he approves the revised square. Delete this entry then.
+**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 cutdown — ROUND 1 RE-DELIVERED 2026-09-14, Dan reviews.**
+Both of his 09-13 revisions done, nothing else moved (gray-trace diff proves the change set): text screens at 0:25,
+1:35, 2:46, 2:52, 3:46 lowered (bottom line 980→1030, bullets 46→42 px, no trailing gap; his window 422→518, 680→774,
+524→680, 628→728) and all six labels on pictures of him placed ABOVE/BESIDE his head by person mask (`sqlabelplace.py`;
+hook now the clean goal still). Audio md5 = approved vertical. Both files `_shared/deliver/gate.py` 1.2.0 PASS 35/35,
+captions 100 %, independent audit SHIPS (its 3 findings fixed or kept as a stated trade-off: the 1:01 gag's AI chip
+overlaps the photo corner — no clear room inside the photo). Folder `Muhammad Ad Videos/this picture got me abs - ad 1/`,
+notes-square.md "Round 1". ⚠ **For Dan:** Google's own square safe-zone template marks only the top ~690 px as clear
+of YouTube UI; every square's captions/text sit below it — a layout redesign if he wants it honoured (shared square
+rules doc). ⚠ Still open: the APPROVED 9:16 verticals of Ad 1 and Ad 2 print a caption across their closing CTA pill
+for 7 frames. On approval: corpus entry with his words, upload unlisted + Demand Gen, check off the dashboard row, delete this entry.
 
 **Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — REVIEW COPIES DELIVERED
 2026-09-11, Dan reviews + ONE CALL.** Folder `Muhammad Ad Videos/stop wasting money on supplements - ad 4/`: his V4 HD filed
@@ -638,24 +638,20 @@ PROSPECT line yet the item swaps in Dan's photo, following his own Ad 10 precede
 New skill lessons 45-47 (frame-diff false negatives, he generalizes a fix to every similar beat, specify how a new
 label is BUILT). Delete once Dan has forwarded the doc and the next cuts arrive.
 
-**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — DAN REJECTED THE COLOUR
-2026-09-13, RENDER 10 BUILDING (session started 2026-09-11, owns it).** Build dir `/Volumes/Extreme/_edit_work/ad3-vert/`
-(Ad 4's vertical is a DIFFERENT session in `ad4-vert/`). Dan compared render 9 to Muhammad's in VLC: *"Muhammad's look
-brighter, like the colors are more vivid. I look more tan."* Corpus entry `ad3-vertical-r9-color` added (rejected file kept in
-`ad3-vert/_rejected_r9/`). **Root cause: his master has NO colour tags; ffmpeg decodes untagged video as BT.601, VLC/browsers
-as BT.709, and the grade (`zlut.py`) and the six lifted stock clips (`lift3.py`) were built from the 601 reading** — so every
-ffmpeg comparison called it a match. Fixed: both decode as 709, base rebuilt, `zgrade2.py --post` matches each channel after
-the vignette, `zgrade3.py` matches his grade section by section (his opening 0–43 s is warmer than the rest). Held-out:
-whole-picture RGB 118.4/93.4/70.3 vs his 118.7/93.5/70.2, opening skin R−G 59/57/59 vs his 60/58/59 (was 53/52/55). Also in
-render 10: the "Real picture of me" chip moved OFF HIS BODY on all four stills (measured person masks, `zlabelplace.py`).
-Next: send Dan a review copy → watch pass + `qc.py` + delivery gate → cutdown (`cut6.sh`) → audit 6 → deliver.
-⚠⚠ **FOR THE AD 4 AND AD 5 VERTICAL OWNERS: the same fault is in your builds.** `ad4-vert/reference.mp4` and
-`ad5-vert/reference.mp4` are also untagged, and both builds' `zlut.py` decode without `in_color_matrix` — so those grades
-were fitted to the BT.601 reading too. Memory `untagged-video-bt601-trap`. Not touched by this session.
-Open for Dan (in `notes.md`): whether his two 200 lb BEFORE pictures (2:26–2:33) also get the "Real picture" label.
-Skill section for this build is **[A12]** (draft `ad3-vert/a12_draft/LESSONS.md`); `plan_build.py` cue-end fix already in
-the skill copy, not yet committed (corpus must pass first). ⚠ Muhammad's Ad 3 v6 HD dropped the "back in my 20s…" bullet
-text at 2:14 — do not file it as final; the vertical rebuilds that graphic in full.
+**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL from MUHAMMAD's v6 HD — COLOUR + AUDIO APPROVED 2026-09-14, ONE AI
+ARTIFACT TO FIX → `Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md` (fire next, Opus 5 / Fable 5.1 high).** Dan on
+render 11: *"The color correction looks good, and the audio sounds good. I think this is a great reproduction of what
+Muhammad did."* The one issue: at 1:16 the AI story clip shows breath smoke / the mirror fogging (story shot 3,
+`Media/ad-assets/batch1-ads/shots/s3.mp4`, also in Muhammad's 16:9). The handoff regenerates that shot, re-renders the
+vertical, patches the 16:9, then builds the cutdown on the approved colour, gates, delivers and commits [A12]. Approved
+master preserved at `/Volumes/Extreme/_edit_work/ad3-vert/_approved_r11/`; corpus entries `ad3-vertical-r9-color`
+(rejected) and `ad3-vertical-r11-approved` added but **NOT committed** — the corpus run must pass first (handoff step
+5.4), together with `plan_build.py` (cue-end fix) and `reference/a6/zlut.py` (BT.709 decode). `/revisions` now has an
+AI-artifact pass (step 3b + lesson 49). Nothing delivered to Dan's folder yet.
+⚠⚠ **FOR THE AD 4 AND AD 5 VERTICAL OWNERS: the BT.601 colour fault is in your builds too.** `ad4-vert/reference.mp4` and
+`ad5-vert/reference.mp4` are untagged, and both `zlut.py` decode without `in_color_matrix` (memory `untagged-video-bt601-trap`).
+Open for Dan: whether his two 200 lb BEFORE pictures (2:26–2:33) also get the "Real picture" label; Muhammad's v6 HD
+dropped the "back in my 20s…" bullet text at 2:14 — do not file it as final.
 
 **Ad 5 "Every Diet You've Tried Failed" — 9:16 VERTICAL + 0:59 CUTDOWN — ROUND 1 REVISIONS RE-DELIVERED 2026-09-11, Dan
 reviews.** All three of his asks are in: every real after picture is FULL-BLEED PORTRAIT and carries the new **"Real picture

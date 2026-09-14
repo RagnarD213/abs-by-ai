@@ -1,5 +1,7 @@
 # Handoff — Ad 1 square (1:1) — Dan's round-1 revisions
 
+> ✅ **EXECUTED AND RE-DELIVERED 2026-09-14.** Record: `notes-square.md` "Round 1" beside the files and `/shortad-from-longform` [S1].25. Bottom line chosen 1030 (Google's square template finding recorded in the shared rules). Remaining: Dan's approval → the "When Dan approves" list below.
+
 **Written 2026-09-13 by the session that built and delivered the square.** Dan reviewed the delivered
 `… | claude | 1x1 | ad 1.mp4` and called it *"pretty solid"* with two revisions. Nothing about the edit, the
 grade or the audio changes. This is a geometry pass on four graphics and a label pass on six pictures, then a
