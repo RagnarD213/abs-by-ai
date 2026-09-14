@@ -4385,10 +4385,26 @@ Output ONLY the final image-editing prompt as plain text. No preamble, no JSON, 
 // ============================================================
 const $ = (id) => document.getElementById(id);
 
+// Pause any video inside `root`: <video> directly, YouTube embeds through the
+// IFrame API command channel (the embed URLs carry enablejsapi=1 for this).
+function pauseMediaIn(root) {
+  if (!root) return;
+  root.querySelectorAll('video').forEach((v) => { try { v.pause(); } catch (e) {} });
+  root.querySelectorAll('iframe[src*="youtube"]').forEach((f) => {
+    try { f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }), '*'); } catch (e) {}
+  });
+}
+
 function renderScreen(name) {
   ['formSection', 'resultSection', 'chooserSection', 'analysisSection', 'productSection', 'customizeSection', 'confirmationSection', 'macroSection', 'authSection', 'hubSection', 'trainerSection', 'programSection', 'nutritionSection', 'mealPlanSection', 'counselSection', 'counselIntakeSection', 'counselReportSection', 'sleepSection', 'sleepBriefingSection', 'transformationsSection', 'progressSection', 'progressPhotoSection', 'quizSection', 'membershipSection', 'cartSection'].forEach(id => {
     const el = $(id);
-    if (el) el.style.display = (id === name + 'Section') ? '' : 'none';
+    if (!el) return;
+    const show = id === name + 'Section';
+    // A hidden <section> does not stop its video, so the website video kept
+    // talking after "Start my trial" opened the cart (Dan, 2026-09-14). Pause
+    // every player on a screen we are leaving.
+    if (!show && el.style.display !== 'none') pauseMediaIn(el);
+    el.style.display = show ? '' : 'none';
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
   const dotMap = { form: 0, result: 1 };
@@ -5242,7 +5258,7 @@ function renderAnalysisVideo() {
   if (frame.dataset.rendered === (real ? 'real' : 'ph')) return real;
   frame.dataset.rendered = real ? 'real' : 'ph';
   if (ANALYSIS_VIDEO.youtubeId) {
-    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(ANALYSIS_VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1" title="How Abs by AI turns your goal image into a plan" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(ANALYSIS_VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1&enablejsapi=1" title="How Abs by AI turns your goal image into a plan" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
     // A YouTube play is only observable through the IFrame API; a click into
     // the frame is the cheap proxy (window blur while the frame is hovered).
     let hovered = false;
@@ -8260,7 +8276,7 @@ function renderCartVideo() {
   if (frame.dataset.rendered === (real ? 'real' : 'ph')) return real;
   frame.dataset.rendered = real ? 'real' : 'ph';
   if (CART_VIDEO.youtubeId) {
-    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(CART_VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1" title="What you get with Abs by AI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(CART_VIDEO.youtubeId)}?rel=0&modestbranding=1&playsinline=1&enablejsapi=1" title="What you get with Abs by AI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
     let hovered = false;
     frame.addEventListener('mouseenter', () => { hovered = true; });
     frame.addEventListener('mouseleave', () => { hovered = false; });
