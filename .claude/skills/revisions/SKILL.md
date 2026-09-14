@@ -867,3 +867,13 @@ exact timing or an exact link.
     shots degrade toward their END**, so a check of a clip's opening passes a clip that breaks later. Step 3b is the
     procedure; the checklist there is the set of giveaways to look for, not the only ones.
 
+50. **Two checks a workout-demo cut needs that the tools miss (Zeeshan, arms & shoulders video 2, 2026-09-14).**
+    (a) **`framing.py` cannot see a crop that is too TIGHT on an overhead move.** It reported every triceps shot as
+    "top 0%, could crop in 0%" — the same reading as a well-framed shot — while the crop cut the dumbbell, his hands and
+    the top of his head off on every overhead rep, including the chair safety demo the brief called the most valuable
+    40 seconds. For every shot where a limb or weight goes above his head, look at the frame at the TOP of the rep and
+    compare it with the raw clip (`/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera/` for the 3 Aug rolls).
+    (b) **Time the live round against what he says on camera.** He says "30 seconds per exercise"; the cut ran each
+    exercise about 20 s, with no timer. A 1 fps sheet of the raw clip settles the true set lengths in one image. Also
+    read every safety-section chip against his exact words: "Go Down As Far As Possible" dropped his "safely" and told
+    viewers to do the thing he was warning against.

@@ -38,6 +38,16 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Zeeshan's Arms & Shoulders (content batch video 2), round 1 — DOC WRITTEN 2026-09-14. Dan forwards it and listens to
+the music.** His "Video2.mp4" (10:53) is in a NEW shared folder `1mvqEowzfNNprOCxPta6DASIT20MdYfvX` (not the two in memory
+`zeeshan-delivery-includes-srt`). Round 1 is pasted at the TOP of "Zeeshan Video Revisions" and was read back intact.
+Biggest items: the triceps crops cut the dumbbell and his head off, chair demo included; the live round is cut to ~20 s
+per exercise against his "30 seconds" (the raw C1586 1:03-2:48 has the full round) and has no timer; the grade jumps
+(brightness 81 → 114 at 5:13); crop in on the wides; limiter at −1 dBTP (−0.6 now); six text fixes, including "As Far As
+Possible" contradicting the safety warning. Dan's two calls: whether the music bed is energetic enough (not measurable),
+and whether the brief's "jugs of water" language cut stands. Paste-ready message:
+`revision docs/arms-shoulders-revisions-zeeshan-round1-9-14-26.summary.md`. Delete once the next cut arrives.
+
 **Waleed's Video 1, round 4 — REVIEWED AND DELIVERED 2026-09-12, Dan reads and forwards.**
 [Video 1 revisions - Waleed - round 4](https://docs.google.com/document/d/1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw/edit)
 + markdown copy in `revision docs/`. Most of round 3's list landed clean (label spelling, all four missing
@@ -454,7 +464,7 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **Codex trial — full Ad 1 rebuild handoff READY (September 14).** Dan approved the revised audio as close enough to Muhammad for the full ad; representative visuals were already approved. Execute `Handoffs/handoff-20260914-codex-ad1-full-rebuild-approved-audio.md` from the frozen approved recipe; full replacement unbuilt, Stage05 premature. Current owner released. Private branch only; no dashboard row. Reference overwrite/symlink trap and exact backup are documented in the handoff.
+- **Codex trial — full Ad 1 rebuild ACTIVE (September 14), owner: this Codex task.** Executing `Handoffs/handoff-20260914-codex-ad1-full-rebuild-approved-audio.md` in `Media/codex-video-trial/04-ad1/rebuild-muhammad/full-ad-approved/`. Approved picture and exact right-lav audio recipe locked; next: resolve opening, validate complete timeline, extend full visual assembly and run final review. Private branch only; Stage05 awaits Dan’s full-ad approval.
 
 - **`Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md`** — Ad 3 vertical approved on colour + audio 09-14; remove the AI breath-smoke artifact at 1:16 (regenerate story shot 3 from its start frame), re-render the vertical, patch Muhammad's 16:9, then cutdown + gates + delivery + [A12] commit. Master queue J6. Opus 5 / Fable 5.1 high. **Not on the dashboard.**
 - ~~`Handoffs/handoff-20260913-ad1-square-round1-revisions.md`~~ — EXECUTED 2026-09-14 (entry under ACTIVE TASK); remove this line once Dan approves.
