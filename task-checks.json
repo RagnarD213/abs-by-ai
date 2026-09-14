@@ -1,5 +1,7 @@
 {
-  "checked": [],
+  "checked": [
+    "money::Live card test of the new web cart: private window → Monthly → pay $0 → confirm logged in + set-password email → cancel before day 7"
+  ],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -215,5 +217,7 @@
       "2026-08-30"
     ]
   },
-  "checkedAt": {}
+  "checkedAt": {
+    "money::Live card test of the new web cart: private window → Monthly → pay $0 → confirm logged in + set-password email → cancel before day 7": "2026-09-14"
+  }
 }
