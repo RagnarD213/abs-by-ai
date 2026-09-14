@@ -17,7 +17,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [01 — Reference study](codex-video-trial/01-reference-study.md) | **now** — Astra / High; verify sources and learn Muhammad's organic/ad styles |
 | [02 — Raw-footage sample](codex-video-trial/02-raw-footage-sample.md) | after 01 — Astra / High; deliver the first 60–90 seconds for calibration |
 | [03 — First organic](codex-video-trial/03-first-organic.md) | after sample feedback — Astra / High; complete the ab-wheel video |
-| [04 — First ad](codex-video-trial/04-first-ad.md) | after 03's delivery/lessons — Astra / High; complete Ad 1 from raw |
 | [05 — Reusable recipes](codex-video-trial/05-reusable-recipes.md) | after organic/ad feedback — Sol / High; preserve the working process |
 | [06 — Two unseen videos](codex-video-trial/06-unseen-videos.md) | after 05 — Astra / High; first organic/ad transfer pair |
 | [07 — Lower-cost repeat](codex-video-trial/07-lower-cost-repeat.md) | after 06 review — Sol / High; second organic/ad pair and cost test |
@@ -66,6 +65,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | 2026-09-13 | [handoff-20260913-ad-variants-master-queue.md](handoff-20260913-ad-variants-master-queue.md) | Ad variants master queue — vertical, square and ≤0:59 cutdowns for every finalized ad |
 | 2026-09-11 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | Square (1:1) ad versions — shared rules, gates, naming, firing order |
 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | Ad 1 (Muhammad) — square 1:1 version — **EXECUTED 2026-09-12**, both files delivered and gate-PASS |
+| 2026-09-13 | [handoff-20260913-ad1-square-round1-revisions.md](handoff-20260913-ad1-square-round1-revisions.md) | Ad 1 square — Dan's round-1 revisions: window screens lower, labels off face and abs. **Fire next** |
 | 2026-09-11 | [handoff-20260911-square-ad1-zeeshan.md](handoff-20260911-square-ad1-zeeshan.md) | Ad 1 (Zeeshan) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad3-muhammad.md](handoff-20260911-square-ad3-muhammad.md) | Ad 3 (Muhammad) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad4-muhammad.md](handoff-20260911-square-ad4-muhammad.md) | Ad 4 (Muhammad V4) — square 1:1 version |

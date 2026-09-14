@@ -454,7 +454,9 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **Codex trial handoff series — `Handoffs/codex-video-trial/00-start-here.md`**, then in order: `01-reference-study.md`, `02-raw-footage-sample.md`, `03-first-organic.md`, `04-first-ad.md`, `05-reusable-recipes.md`, `06-unseen-videos.md`, `07-lower-cost-repeat.md`, optional `08-format-pilot.md`, and `09-final-decision.md` by Oct 11. Models/efforts and prerequisites are in the guide; master context remains `Handoffs/handoff-20260911-codex-video-editing-trial.md`. Local documents; Codex owns the separate trial; no dashboard row.
+- **Codex trial — Ad 1 REJECTED; Muhammad-matching rebuild in progress (Codex, September 13).** Dan: “totally unacceptable”; “Make it look like what Muhammad did.” Rejection saved in trial records + regression corpus; original master and first-delivery.json preserved. Current owner: Rebuild Ad 1 like Muhammad, isolated `04-ad1/rebuild-muhammad/`. Next: matching-frame playback comparison and representative original-footage/audio/app proof before full 16:9 rebuild. Private local branch only; stage05 premature; no publish/deploy/dashboard row.
+
+- **`Handoffs/handoff-20260913-ad1-square-round1-revisions.md`** — Dan's round-1 notes on the Ad 1 1:1 square: lower the four window screens and remove their bottom dead space, move every label off his face and abs (hook rebuilt from the clean goal still). Colour and audio approved. Fable 5.1 high. **Not on the dashboard.**
 
 - **`Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`** — Dan's round-2 revisions on the Ad 5 vertical:
   (1) the app demo must show the SAME man in the before and after — ✅ **Dan named that after picture 2026-09-12**,
@@ -533,6 +535,12 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 
 # ACTIVE TASK
 
+**Zeeshan's Ab Wheel Workout (video 1) — SCHEDULED ON EVERY PLATFORM 2026-09-13, nothing blocked.** YouTube `b_bS9NdmL-g`
+public Sun 09-20 9 AM CT with a thumbnail A/B (5 screenshot vs 1 pool); FB / IG @danrosefit / TikTok the same time via
+Blotato, @abs.by.ai 09-21. ⚠ On 09-20, confirm Studio's thumbnail test flipped from "Ineligible (not public)" to running.
+Record: `BLOTATO_QUEUE_PROGRESS.md`. New skill `/video-setup`. Delete once it posts. (Supersedes the round-2 revisions
+entry for this video — Dan called Rev 2 final.)
+
 **Video-quality engine PHASE 2 (portable framing + banned-screen stage 3) — SHIPPED 2026-09-12, corpus 19/19 green,
 gate 1.2.0. ONE LIVE ADS FINDING FOR DAN.** `_shared/deliver/checks/framing.py` grades every delivered file on the locked
 hair-anchored standard with **no plan and no set-specific background** (mediapipe FaceMesh + Apple Vision person
@@ -552,8 +560,6 @@ vs 0.94–0.97 on every look-alike). Skill wiring: `/shortad-from-longform` Step
 70 px) — recorded in `formats.py`, not tuned. Handoff record: "✅ PHASE 2 EXECUTED" in
 `Handoffs/handoff-20260911-video-quality-engine.md`. **Next: Phase 3 (the watch pass) in a fresh session.** No
 dashboard row. Delete this entry once Dan has seen the ads finding.
-
-**Codex one-month video-editing trial — 03 IN PROGRESS (2026-09-12, Codex owns trial only).** Building the complete ab-wheel video from C1630–C1633 in `Media/codex-video-trial/03-organic-abwheel/`, using approved rev2b framing/audio and frozen template v1. Next: complete source/take map, render, exact-file checks and independent audiovisual review; proposed template v1.1 saved with the build. Private review only; no publishing or dashboard row.
 
 **Video-quality engine PHASE 1 — SHIPPED 2026-09-11 (`eff3896` + follow-up), nothing blocked. Two things for Dan.**
 `_shared/deliver/gate.py` is now THE delivery gate for all seven video skills — **30 rows x 7 formats, no holes**
@@ -576,38 +582,28 @@ to fix the banned-screen pairing test early. No dashboard row (his 09-08 rule). 
 the two warnings.
 
 
-**8/28 shoot Drive backup — UPLOADING OVERNIGHT 2026-09-11, self-verifying 09-12. Nothing for Dan to do.** The
-267 GB / 259-file 8/28 shoot existed on ONE drive with no backup of any kind — it is the source of every ad in
-production. `rclone` (installed at `~/bin/rclone`, remote `gdrive` authorized) is copying it to Drive folder
-`1gzGtstw-WGjo4fK4QL11UMbwST9YFw37`, wrapped in `caffeinate`, resumable, `.DS_Store` excluded. Measured ~4 MiB/s
-(his uplink, not throttling — zero 403s), so ETA ~13:00-14:00 CT 09-12. Scheduled task `verify-828-drive-backup`
-fires 08:30 and either reports progress or runs
-`scripts/backup/verify-drive-copy.sh <src> <folder-id>` (MD5 per file; expect 259 files / ~266.5 GiB) and deletes
-this entry on PASS. ⚠ Do NOT run the verify script mid-transfer — it reports a false FAIL on an incomplete copy.
-Remaining gap after this: the welcome-video first shoot (114 GB), the last irreplaceable folder with no second
-copy. Drive is a 5 TB plan, 4.5 TB free. No dashboard row.
+**Raw-footage backups — 8/28 DONE AND VERIFIED 2026-09-13, ONE QUESTION FOR DAN.** The 8/28 shoot (259 files,
+286,123,768,096 bytes) is now copied to Drive folder `1gzGtstw-WGjo4fK4QL11UMbwST9YFw37` and verified file-by-file
+by MD5 — `PASS, 0 differences`. It previously existed on ONE drive. **Dan: the welcome-video first shoot (114 GB,
+`/Volumes/Extreme/abs by ai welcome-video first shoot`) is the last irreplaceable folder with no second copy — upload
+it too?** Drive is a 5 TB plan with ~4.5 TB free. Capability, reusable: `~/bin/rclone` (remote `gdrive`, authorized)
++ `scripts/backup/verify-drive-copy.sh <local-dir> <drive-folder-id>`. ⚠ **Set up a personal Google client_id before
+the next big upload** — rclone's shared one hit `403 Quota exceeded`, failed 2 files, forced a full retry and turned a
+14 h job into 32 h; it is also being retired during 2026. ⚠ Do not run the verify script mid-transfer (false FAIL).
+No dashboard row.
 
-**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 square cutdown — DELIVERED 2026-09-12, Dan reviews.**
-`Muhammad Ad Videos/this picture got me abs - ad 1/… | claude | 1x1 | ad 1.mp4` (**6,976 frames = Muhammad's, to
-the frame**) + `… | 1x1 59s | ad 1.mp4` (**1,493 f / 49.82 s**), 540p/480p review copies, both A/B audio clips,
-audio + delivery stamps, `notes-square.md`, `recipe-square/`. Audio is the APPROVED VERTICAL's AAC stream
-**md5-identical** (cutdown: his mix cut at the seams only). Both files: **`_shared/deliver/gate.py` DELIVERY GATE
-PASS at gate 1.2.0** including Phase 2's framing rows, **caption sync 100.0 %** (507/507 and 104/104), labels
-**0 wrong** at correlation ≥ 0.986, watch pass 125/125 and 31/31.
-**Three independent audits ran; the first cleared the master and refused the cutdown, and two more refused it
-again on different defects.** Six real defects were IN the delivered files, all now fixed AT SOURCE in the shared
-pipeline: a caption printed across the closing CTA pill for 7 frames (**both files — and the APPROVED 9:16
-verticals of Ad 1 AND Ad 2 carry the identical overprint; Dan's call whether to re-mux them, it is a caption
-rebuild plus a mux, no re-render**); the cutdown's picture one frame late in 4 of 9 ranges (a third photo
-flashing at a seam, a light-leak peak dropped, picture 33 ms ahead of audio over 23.6 s); "You're" deleted from
-the captions at a seam by three separate causes; and the seam cutting the "s" of "abs." at its loudest point.
-⚠⚠ **EVERY OTHER VIDEO SESSION: re-copy `reference/captions.py` and re-gate.** `_shared/deliver` went to
-**1.1.0** here (an insert may declare its own label `chip`/`pos` — one chip per KIND read **−0.031** on a card
-whose label was present and correct) and a sibling session took it to 1.2.0, so **every stamp older than 1.2.0
-is invalid**. Corrected cutdown tooling + all six defects written up: **`reference/a11_sq_ad1/`**, SKILL.md
-**[S1] 22–24**. ⚠ This build's `caption_sync_check.py` was **stale** — **`ad3-vert/` and `ad4-vert/` were named
-as carrying the same stale copy and should re-copy the skill's.**
-Dashboard row stays unchecked until Dan approves (the verticals rule). Delete this entry once he has.
+**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 cutdown — DAN REVIEWED 2026-09-13: "pretty solid", colour and
+audio approved, TWO REVISIONS → `Handoffs/handoff-20260913-ad1-square-round1-revisions.md` (fire next, Fable 5.1 high).**
+(A) the window screens at 0:25, 1:35, 2:46, 3:46 sit too high with dead space at the bottom — measured cause: the
+text block stops at our own `BOT_SAFE 980` plus a trailing 30 px after the last bullet; the doc gives the window
+heights for every option (default 0:25 422→546, 1:35 680→785, 2:46 524→691, 3:46 628→738). (B) the "Real picture of
+me" chips sit at the waistline, over his abs — the placement rule Dan gave on the Ad 2 square 09-12 had not reached
+this build; the doc has the clear space above/beside his head measured on all six labelled pictures, and the hook
+must be rebuilt from the clean goal still because its video has AI-GENERATED burned in over his abs.
+Delivered files stay in the folder until the re-delivery. Build dir `/Volumes/Extreme/_edit_work/ad1-sq/`.
+⚠ Still open from the delivery, for Dan: the APPROVED 9:16 verticals of Ad 1 and Ad 2 print a caption across their
+closing CTA pill for 7 frames (fix = caption rebuild + mux; a re-upload changes the video id the ads point at).
+Dashboard row stays unchecked until he approves the revised square. Delete this entry then.
 
 **Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — REVIEW COPIES DELIVERED
 2026-09-11, Dan reviews + ONE CALL.** Folder `Muhammad Ad Videos/stop wasting money on supplements - ad 4/`: his V4 HD filed
@@ -641,49 +637,24 @@ PROSPECT line yet the item swaps in Dan's photo, following his own Ad 10 precede
 New skill lessons 45-47 (frame-diff false negatives, he generalizes a fix to every similar beat, specify how a new
 label is BUILT). Delete once Dan has forwarded the doc and the next cuts arrive.
 
-**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — RENDER 9 BUILT AND
-GATED, audit 6 next (session started 2026-09-11 14:05 CT, owns it).** /shortad-from-longform on Drive
-`1qsBpkrm8T7BDaYF67NL1k_x67sTsxsb3`; raw roll C1593 (8/14); build dir `/Volumes/Extreme/_edit_work/ad3-vert/`.
-Ad 4's vertical is a DIFFERENT session in `ad4-vert/` — do not touch either build dir.
-**Master: `qc.py` 20/20, watch pass recorded** (all 42 sheets / 237 boundaries, sha256 042c9f48c52e), audio md5 =
-his. **Cutdown rebuilt: 57.92 s, 63.0 % inserts.** ⚠ Do NOT deliver on a gate pass alone — five audits followed a
-20/20 and four said "does not ship."
-**The ad's one lesson: a picture cut goes on HIS PICTURE's frame, never the audio splice.** Its corollary, which
-cost render 8: **"where a join is least visible" is a DIFFERENT question from "where he cut"** — a clean basin at
-1139 put the cut inside the word "minutes", 10 frames ahead of the sound. His step is 1150, in the pause; confirmed
-by his take track, my own motion track and the word timings, and `crop.json` came back byte-identical.
-**⚠⚠ A THRESHOLD INSTRUMENT REPORTS THE MIDDLE OF A BLUR-IN, NOT ITS ONSET — and it nearly cost 13 correct fixes.**
-`ov3`'s `(luma>170)` text curve fires ~6 frames into his 12-frame bullet blur, so every cue read off it was late by
-construction. Audits 4+5 were RIGHT; re-measuring all 20 cues at full resolution (`zbulonset.py`: onset = new pixels
-appear, sharp = edge energy plateaus) also found **7 more nobody flagged, 5–10 frames late**, and `REVEAL` was
-0.27 s read off the WINDOW's opening where his bullets measure 0.40 s. All fixed; hand-read side by side confirms
-~11 frames both. ⚠ The reference frame must not sit inside another animation.
-**⚠ THE SHARED CAPTION FILES IN THIS BUILD WERE STALE** (as the 09-12 notice warned): `caption_sync_check.py` was
-**89 lines against the skill's 175** (missing per-process temp files, CAP_Y derivation, in-span sampling,
-least-washed-frame retry) and `captions.py` had the trailing-concat bug. Both replaced, wired into `cut6.sh`.
-Ad 3 ESCAPED the CTA-pill defect by 3 frames (caption ended f7850, pill starts f7853) but held a stale caption ~2
-frames; fixed and re-rendered. ⚠ Do NOT copy the skill's `captions.py` wholesale into a Muhammad build — its
-`suppressed()` uses kind `'cta'` and skips window bodies, where Ad 3 needs `beats.muted_ranges()` (`'pill'` + window
-bodies); taking it raw runs captions through every bullet screen and pill.
-**`_shared/deliver/gate.py` 1.2.0 on the master: 25 pass / 2 fail / 8 NOT MEASURED.** ⚠ **One FAIL was the
-INSTRUMENT, and it will false-FAIL every build of this style: `plan_build.py` wrote each SRT cue's end from the
-word's acoustic end, ignoring the rendered HARD-STOP clamp**, so `captions:card_collision` flagged "shoulder
-midweek," at 119.956 against the phone card at 119.920 — while the delivered frames measure caption ink 3.86 % at
-f3593 and **exactly 0.000 % at f3594**, the card's first frame. Fixed locally (`cue_end()`); **belongs back in the
-skill's `plan_build.py`.** The other FAIL is `compliance:labels`, the limitation the Ad 5 session already recorded
-(one chip position per kind vs his per-card corners) — "0 carrying the WRONG label", and the real-picture chip is
-present on EVERY frame of the photoseq, verified at full res. **All four `framing:*` rows read NOT MEASURED** — the
-gate's scene detector never settles on this layout (Dan sits in a window above text), so it sees 94 % insert; our
-own `zhairgate2.py` + `centering.py` DO measure and pass. For the Phase 2 owner.
-Next: audit 6 on render 9, cutdown watch pass + `qc.py` + its own delivery gate, then deliver.
-⚠ **This build's skill section is [A12], NOT [A9]** — [A9] is Ad 5 round 1, [A10] the first square, and [A11]
-is being written by the Ad 1 square session right now. Draft (renumbered) in `ad3-vert/a12_draft/LESSONS.md`;
-tools go to `reference/a12_ad3/`: `ztake.py`, `zhisstep.py`, `zjoinratio.py`, `znostranger.py`, `zpicjoin.py`,
-`zltdiff.py`, **`zbulonset.py`**. Re-read SKILL.md from disk before pasting.
-⚠ **Muhammad's Ad 3 v6 HD is NOT the approved round-5 draft:** at 2:14.1–2:23.1 the "Because even though I was a
-personal trainer…" bullet lost "back in my 20s, as a 38 year old dad running a successful ad agency." (proof
-`ad3-vert/hdcheck/w4_hd_vs_draft.png`). Do NOT file or upload it as final; Dan asks him to re-export. The vertical
-rebuilds that graphic with the full text (verified on screen at 2:14), so it is unaffected.
+**Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's v6 HD — DAN REJECTED THE COLOUR
+2026-09-13, RENDER 10 BUILDING (session started 2026-09-11, owns it).** Build dir `/Volumes/Extreme/_edit_work/ad3-vert/`
+(Ad 4's vertical is a DIFFERENT session in `ad4-vert/`). Dan compared render 9 to Muhammad's in VLC: *"Muhammad's look
+brighter, like the colors are more vivid. I look more tan."* Corpus entry `ad3-vertical-r9-color` added (rejected file kept in
+`ad3-vert/_rejected_r9/`). **Root cause: his master has NO colour tags; ffmpeg decodes untagged video as BT.601, VLC/browsers
+as BT.709, and the grade (`zlut.py`) and the six lifted stock clips (`lift3.py`) were built from the 601 reading** — so every
+ffmpeg comparison called it a match. Fixed: both decode as 709, base rebuilt, `zgrade2.py --post` matches each channel after
+the vignette, `zgrade3.py` matches his grade section by section (his opening 0–43 s is warmer than the rest). Held-out:
+whole-picture RGB 118.4/93.4/70.3 vs his 118.7/93.5/70.2, opening skin R−G 59/57/59 vs his 60/58/59 (was 53/52/55). Also in
+render 10: the "Real picture of me" chip moved OFF HIS BODY on all four stills (measured person masks, `zlabelplace.py`).
+Next: send Dan a review copy → watch pass + `qc.py` + delivery gate → cutdown (`cut6.sh`) → audit 6 → deliver.
+⚠⚠ **FOR THE AD 4 AND AD 5 VERTICAL OWNERS: the same fault is in your builds.** `ad4-vert/reference.mp4` and
+`ad5-vert/reference.mp4` are also untagged, and both builds' `zlut.py` decode without `in_color_matrix` — so those grades
+were fitted to the BT.601 reading too. Memory `untagged-video-bt601-trap`. Not touched by this session.
+Open for Dan (in `notes.md`): whether his two 200 lb BEFORE pictures (2:26–2:33) also get the "Real picture" label.
+Skill section for this build is **[A12]** (draft `ad3-vert/a12_draft/LESSONS.md`); `plan_build.py` cue-end fix already in
+the skill copy, not yet committed (corpus must pass first). ⚠ Muhammad's Ad 3 v6 HD dropped the "back in my 20s…" bullet
+text at 2:14 — do not file it as final; the vertical rebuilds that graphic in full.
 
 **Ad 5 "Every Diet You've Tried Failed" — 9:16 VERTICAL + 0:59 CUTDOWN — ROUND 1 REVISIONS RE-DELIVERED 2026-09-11, Dan
 reviews.** All three of his asks are in: every real after picture is FULL-BLEED PORTRAIT and carries the new **"Real picture
