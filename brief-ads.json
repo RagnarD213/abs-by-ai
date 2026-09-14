@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-09-13T11:06:52.411Z",
-  "day": "2026-09-12",
+  "generatedAt": "2026-09-14T11:06:46.745Z",
+  "day": "2026-09-13",
   "window": {
-    "from": "2026-09-05",
-    "to": "2026-09-12",
+    "from": "2026-09-06",
+    "to": "2026-09-13",
     "baselineDays": 7
   },
   "blind": [],
   "totals": {
-    "spendYesterday": 66.93,
-    "spend7dMean": 84.61,
-    "deltaPct": -0.21,
+    "spendYesterday": 99.49,
+    "spend7dMean": 81.44,
+    "deltaPct": 0.22,
     "platformsLive": [
       "meta",
       "google"
@@ -22,18 +22,8 @@
       "platform": "google",
       "scope": "campaign",
       "kind": "zero_results",
-      "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
-      "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home has spent $57.38 for zero conversions",
-      "detail": "Across the last 3 days.",
-      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443"
-    },
-    {
-      "severity": "high",
-      "platform": "google",
-      "scope": "campaign",
-      "kind": "zero_results",
       "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
-      "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $30.49 for zero conversions",
+      "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $21.35 for zero conversions",
       "detail": "Across the last 8 days.",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
     },
@@ -43,8 +33,8 @@
       "scope": "campaign",
       "kind": "cpa_degraded",
       "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
-      "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $2.32",
-      "detail": "Its own 7-day average is $0.98 (+137%).",
+      "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $5.21",
+      "detail": "Its own 7-day average is $1.09 (+378%).",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721"
     }
   ],
@@ -55,9 +45,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 13.45,
-      "spend7dMean": 10.79,
-      "deltaPct": 0.25,
+      "spend": 14.92,
+      "spend7dMean": 11.75,
+      "deltaPct": 0.27,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -65,18 +55,18 @@
           "status": "ACTIVE",
           "resultLabel": "profile visit",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 13.45,
-          "results": 151,
-          "impressions": 1591,
-          "clicks": 150,
+          "spend": 14.92,
+          "results": 170,
+          "impressions": 1908,
+          "clicks": 166,
           "costPerResult": 0.09,
           "baseline": {
             "days": 7,
-            "meanSpend": 10.79,
-            "totalSpend": 75.55,
-            "clicks": 705,
-            "results": 719,
-            "costPerResult": 0.11
+            "meanSpend": 11.75,
+            "totalSpend": 82.25,
+            "clicks": 774,
+            "results": 791,
+            "costPerResult": 0.1
           }
         }
       ],
@@ -88,30 +78,71 @@
       "platform": "google",
       "account": "3427170837",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837",
-      "spend": 53.48,
-      "spend7dMean": 73.82,
-      "deltaPct": -0.28,
+      "spend": 84.57,
+      "spend7dMean": 69.69,
+      "deltaPct": 0.21,
       "yesterday": {
-        "from": "2026-09-12",
-        "to": "2026-09-12",
-        "spend": 53.47,
-        "clicks": 54,
-        "conversions": 42,
-        "estSubscribers": 21.43,
-        "estCostPerSubscriber": 2.5
+        "from": "2026-09-13",
+        "to": "2026-09-13",
+        "spend": 84.57,
+        "clicks": 114,
+        "conversions": 66,
+        "estSubscribers": 33.67,
+        "estCostPerSubscriber": 2.51
       },
       "last7d": {
-        "from": "2026-09-06",
-        "to": "2026-09-12",
-        "spend": 411.34,
-        "clicks": 562,
-        "conversions": 501,
-        "estSubscribers": 255.61,
-        "estCostPerSubscriber": 1.61
+        "from": "2026-09-07",
+        "to": "2026-09-13",
+        "spend": 432.57,
+        "clicks": 568,
+        "conversions": 458,
+        "estSubscribers": 233.67,
+        "estCostPerSubscriber": 1.85
       },
       "conversionInflation": 1.96,
       "conversionInflationBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676",
       "campaigns": [
+        {
+          "id": "24243839443",
+          "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443",
+          "spend": 35.17,
+          "results": 1,
+          "impressions": 2658,
+          "clicks": 47,
+          "costPerResult": 35.17,
+          "baseline": {
+            "days": 3,
+            "meanSpend": 19.12,
+            "totalSpend": 57.35,
+            "clicks": 50,
+            "results": 0,
+            "costPerResult": null
+          },
+          "yesterday": {
+            "from": "2026-09-13",
+            "to": "2026-09-13",
+            "spend": 35.17,
+            "clicks": 47,
+            "conversions": 1,
+            "estSubscribers": 0.51,
+            "estCostPerSubscriber": null
+          },
+          "last7d": {
+            "from": "2026-09-07",
+            "to": "2026-09-13",
+            "spend": 92.52,
+            "clicks": 97,
+            "conversions": 1,
+            "estSubscribers": 0.51,
+            "estCostPerSubscriber": null
+          },
+          "estSubscribers": 0.51,
+          "estCostPerSubscriber": null,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
         {
           "id": "24163535721",
           "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
@@ -119,161 +150,38 @@
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721",
           "spend": 20.86,
-          "results": 9,
-          "impressions": 2135,
-          "clicks": 7,
-          "costPerResult": 2.32,
+          "results": 4,
+          "impressions": 2294,
+          "clicks": 3,
+          "costPerResult": 5.21,
           "baseline": {
             "days": 7,
-            "meanSpend": 18.68,
-            "totalSpend": 130.74,
-            "clicks": 131,
-            "results": 134,
-            "costPerResult": 0.98
-          },
-          "yesterday": {
-            "from": "2026-09-12",
-            "to": "2026-09-12",
-            "spend": 20.86,
-            "clicks": 7,
-            "conversions": 9,
-            "estSubscribers": 4.59,
-            "estCostPerSubscriber": 4.54
-          },
-          "last7d": {
-            "from": "2026-09-06",
-            "to": "2026-09-12",
-            "spend": 142.94,
+            "meanSpend": 20.42,
+            "totalSpend": 142.94,
             "clicks": 126,
-            "conversions": 131,
-            "estSubscribers": 66.84,
-            "estCostPerSubscriber": 2.14
-          },
-          "estSubscribers": 66.84,
-          "estCostPerSubscriber": 2.14,
-          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
-        },
-        {
-          "id": "24243839443",
-          "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
-          "status": "ENABLED",
-          "resultLabel": "conversion",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443",
-          "spend": 16.7,
-          "results": 0,
-          "impressions": 882,
-          "clicks": 11,
-          "costPerResult": null,
-          "baseline": {
-            "days": 2,
-            "meanSpend": 20.34,
-            "totalSpend": 40.68,
-            "clicks": 39,
-            "results": 0,
-            "costPerResult": null
+            "results": 131,
+            "costPerResult": 1.09
           },
           "yesterday": {
-            "from": "2026-09-12",
-            "to": "2026-09-12",
-            "spend": 16.7,
-            "clicks": 11,
-            "conversions": 0,
-            "estSubscribers": 0,
-            "estCostPerSubscriber": null
+            "from": "2026-09-13",
+            "to": "2026-09-13",
+            "spend": 20.86,
+            "clicks": 3,
+            "conversions": 4,
+            "estSubscribers": 2.04,
+            "estCostPerSubscriber": 10.22
           },
           "last7d": {
-            "from": "2026-09-06",
-            "to": "2026-09-12",
-            "spend": 57.38,
-            "clicks": 50,
-            "conversions": 0,
-            "estSubscribers": 0,
-            "estCostPerSubscriber": null
+            "from": "2026-09-07",
+            "to": "2026-09-13",
+            "spend": 143.22,
+            "clicks": 108,
+            "conversions": 112,
+            "estSubscribers": 57.14,
+            "estCostPerSubscriber": 2.51
           },
-          "estSubscribers": 0,
-          "estCostPerSubscriber": null,
-          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
-        },
-        {
-          "id": "24148587722",
-          "name": "Search - US - Non-Brand - AI Abs Preview",
-          "status": "ENABLED",
-          "resultLabel": "conversion",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24148587722",
-          "spend": 5.87,
-          "results": 1,
-          "impressions": 47,
-          "clicks": 4,
-          "costPerResult": 5.87,
-          "baseline": {
-            "days": 7,
-            "meanSpend": 9.75,
-            "totalSpend": 68.23,
-            "clicks": 13,
-            "results": 5,
-            "costPerResult": 13.65
-          },
-          "yesterday": {
-            "from": "2026-09-12",
-            "to": "2026-09-12",
-            "spend": 5.87,
-            "clicks": 4,
-            "conversions": 1,
-            "estSubscribers": 0.51,
-            "estCostPerSubscriber": null
-          },
-          "last7d": {
-            "from": "2026-09-06",
-            "to": "2026-09-12",
-            "spend": 63.39,
-            "clicks": 16,
-            "conversions": 5,
-            "estSubscribers": 2.55,
-            "estCostPerSubscriber": 24.85
-          },
-          "estSubscribers": 2.55,
-          "estCostPerSubscriber": 24.85,
-          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
-        },
-        {
-          "id": "24122099676",
-          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT",
-          "status": "ENABLED",
-          "resultLabel": "conversion",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676",
-          "spend": 5.3,
-          "results": 32,
-          "impressions": 5324,
-          "clicks": 31,
-          "costPerResult": 0.17,
-          "baseline": {
-            "days": 7,
-            "meanSpend": 11.96,
-            "totalSpend": 83.74,
-            "clicks": 442,
-            "results": 446,
-            "costPerResult": 0.19
-          },
-          "yesterday": {
-            "from": "2026-09-12",
-            "to": "2026-09-12",
-            "spend": 5.3,
-            "clicks": 31,
-            "conversions": 32,
-            "estSubscribers": 16.33,
-            "estCostPerSubscriber": 0.32
-          },
-          "last7d": {
-            "from": "2026-09-06",
-            "to": "2026-09-12",
-            "spend": 72.85,
-            "clicks": 361,
-            "conversions": 362,
-            "estSubscribers": 184.69,
-            "estCostPerSubscriber": 0.39
-          },
-          "estSubscribers": 184.69,
-          "estCostPerSubscriber": 0.39,
+          "estSubscribers": 57.14,
+          "estCostPerSubscriber": 2.51,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -282,39 +190,121 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285",
-          "spend": 3.99,
+          "spend": 16.33,
           "results": 0,
           "impressions": 5,
-          "clicks": 1,
+          "clicks": 3,
           "costPerResult": null,
           "baseline": {
             "days": 7,
-            "meanSpend": 8.84,
-            "totalSpend": 61.87,
+            "meanSpend": 7.75,
+            "totalSpend": 54.28,
             "clicks": 8,
-            "results": 4,
-            "costPerResult": 15.47
+            "results": 3,
+            "costPerResult": 18.09
           },
           "yesterday": {
-            "from": "2026-09-12",
-            "to": "2026-09-12",
-            "spend": 3.99,
-            "clicks": 1,
+            "from": "2026-09-13",
+            "to": "2026-09-13",
+            "spend": 16.33,
+            "clicks": 3,
             "conversions": 0,
             "estSubscribers": 0,
             "estCostPerSubscriber": null
           },
           "last7d": {
-            "from": "2026-09-06",
-            "to": "2026-09-12",
-            "spend": 54.28,
-            "clicks": 8,
-            "conversions": 3,
-            "estSubscribers": 1.53,
-            "estCostPerSubscriber": 35.46
+            "from": "2026-09-07",
+            "to": "2026-09-13",
+            "spend": 60.11,
+            "clicks": 10,
+            "conversions": 2,
+            "estSubscribers": 1.02,
+            "estCostPerSubscriber": 58.91
           },
-          "estSubscribers": 1.53,
-          "estCostPerSubscriber": 35.46,
+          "estSubscribers": 1.02,
+          "estCostPerSubscriber": 58.91,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24148587722",
+          "name": "Search - US - Non-Brand - AI Abs Preview",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24148587722",
+          "spend": 6.35,
+          "results": 2,
+          "impressions": 28,
+          "clicks": 4,
+          "costPerResult": 3.18,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 9.06,
+            "totalSpend": 63.39,
+            "clicks": 16,
+            "results": 5,
+            "costPerResult": 12.68
+          },
+          "yesterday": {
+            "from": "2026-09-13",
+            "to": "2026-09-13",
+            "spend": 6.35,
+            "clicks": 4,
+            "conversions": 2,
+            "estSubscribers": 1.02,
+            "estCostPerSubscriber": 6.22
+          },
+          "last7d": {
+            "from": "2026-09-07",
+            "to": "2026-09-13",
+            "spend": 58.53,
+            "clicks": 18,
+            "conversions": 6,
+            "estSubscribers": 3.06,
+            "estCostPerSubscriber": 19.12
+          },
+          "estSubscribers": 3.06,
+          "estCostPerSubscriber": 19.12,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24122099676",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 2 | ALL CONTENT",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676",
+          "spend": 5,
+          "results": 59,
+          "impressions": 8259,
+          "clicks": 57,
+          "costPerResult": 0.08,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 10.41,
+            "totalSpend": 72.85,
+            "clicks": 361,
+            "results": 362,
+            "costPerResult": 0.2
+          },
+          "yesterday": {
+            "from": "2026-09-13",
+            "to": "2026-09-13",
+            "spend": 5,
+            "clicks": 57,
+            "conversions": 59,
+            "estSubscribers": 30.1,
+            "estCostPerSubscriber": 0.17
+          },
+          "last7d": {
+            "from": "2026-09-07",
+            "to": "2026-09-13",
+            "spend": 60.42,
+            "clicks": 335,
+            "conversions": 337,
+            "estSubscribers": 171.94,
+            "estCostPerSubscriber": 0.35
+          },
+          "estSubscribers": 171.94,
+          "estCostPerSubscriber": 0.35,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -323,33 +313,33 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109",
-          "spend": 0.76,
+          "spend": 0.86,
           "results": 0,
-          "impressions": 12,
+          "impressions": 17,
           "clicks": 0,
           "costPerResult": null,
           "baseline": {
             "days": 7,
-            "meanSpend": 4.25,
-            "totalSpend": 29.73,
-            "clicks": 3,
+            "meanSpend": 2.93,
+            "totalSpend": 20.49,
+            "clicks": 1,
             "results": 0,
             "costPerResult": null
           },
           "yesterday": {
-            "from": "2026-09-12",
-            "to": "2026-09-12",
-            "spend": 0.76,
+            "from": "2026-09-13",
+            "to": "2026-09-13",
+            "spend": 0.86,
             "clicks": 0,
             "conversions": 0,
             "estSubscribers": 0,
             "estCostPerSubscriber": null
           },
           "last7d": {
-            "from": "2026-09-06",
-            "to": "2026-09-12",
-            "spend": 20.49,
-            "clicks": 1,
+            "from": "2026-09-07",
+            "to": "2026-09-13",
+            "spend": 17.77,
+            "clicks": 0,
             "conversions": 0,
             "estSubscribers": 0,
             "estCostPerSubscriber": null
@@ -366,8 +356,8 @@
           "scope": "campaign",
           "kind": "cpa_degraded",
           "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
-          "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $2.32",
-          "detail": "Its own 7-day average is $0.98 (+137%).",
+          "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $5.21",
+          "detail": "Its own 7-day average is $1.09 (+378%).",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721"
         },
         {
@@ -375,18 +365,8 @@
           "platform": "google",
           "scope": "campaign",
           "kind": "zero_results",
-          "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
-          "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home has spent $57.38 for zero conversions",
-          "detail": "Across the last 3 days.",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443"
-        },
-        {
-          "severity": "high",
-          "platform": "google",
-          "scope": "campaign",
-          "kind": "zero_results",
           "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
-          "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $30.49 for zero conversions",
+          "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $21.35 for zero conversions",
           "detail": "Across the last 8 days.",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
         }
@@ -396,8 +376,8 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-13T10:19:59.286Z",
-    "ageHours": 0.78,
+    "lastRunAt": "2026-09-14T10:16:13.463Z",
+    "ageHours": 0.84,
     "stale": false,
     "dryRun": false,
     "enabled": true,
@@ -405,12 +385,12 @@
       "caps": {
         "reason": null,
         "testsCap": 300,
-        "testsMtd": 37.99,
+        "testsMtd": 43.72,
         "totalCap": 500,
-        "totalMtd": 108.11,
+        "totalMtd": 120.16,
         "capReached": false,
-        "testsCommitted": 49.78,
-        "totalCommitted": 119.9
+        "testsCommitted": 58.85,
+        "totalCommitted": 135.29
       },
       "pair": {
         "ads": [
@@ -447,16 +427,16 @@
             "permalink": "https://www.instagram.com/p/DdKbwNFnXQN/"
           },
           "phase": "running",
-          "spend": 1.76,
+          "spend": 2.7,
           "status": "ACTIVE",
-          "visits": 33,
+          "visits": 46,
           "adsetId": "120250931319700682",
           "endTime": "2026-09-16T17:16:08-0500",
           "mediaId": "17909933289467493",
           "verdict": null,
           "createdAt": "2026-09-11T17:16:09-0500",
-          "impressions": 268,
-          "costPerVisit": 0.05
+          "impressions": 403,
+          "costPerVisit": 0.06
         },
         {
           "label": "IMAGE | Pick a sport, not a cardio machine | TEST::17983238982111705",
@@ -526,17 +506,24 @@
             "postedAt": "2026-09-09T22:00:31+0000",
             "permalink": "https://www.instagram.com/p/DdFSLHplpDf/"
           },
-          "phase": "running",
-          "spend": 3.99,
-          "status": "ACTIVE",
-          "visits": 41,
+          "phase": "done",
+          "spend": 4.53,
+          "status": "PAUSED",
+          "visits": 49,
           "adsetId": "120250888181140682",
           "endTime": "2026-09-14T17:16:20-0500",
           "mediaId": "18133073164657545",
-          "verdict": null,
+          "verdict": {
+            "spend": 4.52,
+            "reason": "$0.09/visit does not beat the champion's $0.09/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 49,
+            "adsetId": "120250888181140682",
+            "costPerVisit": 0.09
+          },
           "createdAt": "2026-09-09T17:16:22-0500",
-          "impressions": 477,
-          "costPerVisit": 0.1
+          "impressions": 552,
+          "costPerVisit": 0.09
         },
         {
           "label": "IMAGE | Your supplements are about 3% of your results | TEST::17874665394562729",
@@ -577,21 +564,68 @@
             "postedAt": "2026-09-08T22:00:42+0000",
             "permalink": "https://www.instagram.com/reel/DdCtYQOF69_/"
           },
-          "phase": "ready",
+          "phase": "done",
           "spend": 4.54,
-          "status": "ACTIVE",
+          "status": "PAUSED",
           "visits": 27,
           "adsetId": "120250868876510682",
           "endTime": "2026-09-13T17:18:44-0500",
           "mediaId": "18624174223051709",
           "verdict": {
+            "spend": 4.54,
             "reason": "$0.17/visit does not beat the champion's $0.10/visit (ties keep the champion)",
             "result": "lose",
+            "visits": 27,
+            "adsetId": "120250868876510682",
             "costPerVisit": 0.17
           },
           "createdAt": "2026-09-08T17:18:46-0500",
           "impressions": 438,
           "costPerVisit": 0.17
+        },
+        {
+          "label": "REEL | Your protein shake might be stopping your abs | TEST::18140555551597443",
+          "media": {
+            "id": "18140555551597443",
+            "type": "VIDEO",
+            "title": "Your protein shake might be stopping your abs",
+            "caption": "Your protein shake might be stopping your abs. Not because protein is bad. Becau",
+            "postedAt": "2026-09-10T22:01:24+0000",
+            "permalink": "https://www.instagram.com/reel/DdH3EbdlWIe/"
+          },
+          "phase": "running",
+          "spend": 3.98,
+          "status": "ACTIVE",
+          "visits": 19,
+          "adsetId": "120250910902520682",
+          "endTime": "2026-09-15T17:17:51-0500",
+          "mediaId": "18140555551597443",
+          "verdict": null,
+          "createdAt": "2026-09-10T17:17:53-0500",
+          "impressions": 356,
+          "costPerVisit": 0.21
+        },
+        {
+          "label": "REEL | This $17 infomercial gimmick beats every crunch | TEST::17996865398991415",
+          "media": {
+            "id": "17996865398991415",
+            "type": "VIDEO",
+            "title": "This $17 infomercial gimmick beats every crunch",
+            "caption": "This $17 infomercial gimmick beats every crunch. The ab wheel keeps your abs und",
+            "postedAt": "2026-09-13T14:02:24+0000",
+            "permalink": "https://www.instagram.com/reel/DdOubn3FFWS/"
+          },
+          "phase": "running",
+          "spend": 1.08,
+          "status": "ACTIVE",
+          "visits": 5,
+          "adsetId": "120250952645250682",
+          "endTime": "2026-09-18T09:17:38-0500",
+          "mediaId": "17996865398991415",
+          "verdict": null,
+          "createdAt": "2026-09-13T09:17:40-0500",
+          "impressions": 73,
+          "costPerVisit": 0.22
         },
         {
           "label": "REEL | Hire a maid instead of a personal trainer | TEST::18122536861661975",
@@ -623,26 +657,48 @@
           "costPerVisit": 0.22
         },
         {
-          "label": "REEL | Your protein shake might be stopping your abs | TEST::18140555551597443",
+          "label": "IMAGE | Try to knee yourself in the face | TEST::17911245750466310",
           "media": {
-            "id": "18140555551597443",
-            "type": "VIDEO",
-            "title": "Your protein shake might be stopping your abs",
-            "caption": "Your protein shake might be stopping your abs. Not because protein is bad. Becau",
-            "postedAt": "2026-09-10T22:01:24+0000",
-            "permalink": "https://www.instagram.com/reel/DdH3EbdlWIe/"
+            "id": "17911245750466310",
+            "type": "IMAGE",
+            "title": "Try to knee yourself in the face",
+            "caption": "Try to knee yourself in the face. That's the cue for a real sit-up. If your head",
+            "postedAt": "2026-09-13T22:00:31+0000",
+            "permalink": "https://www.instagram.com/p/DdPlWaxGG3u/"
           },
           "phase": "running",
-          "spend": 2.92,
+          "spend": 0.25,
           "status": "ACTIVE",
-          "visits": 13,
-          "adsetId": "120250910902520682",
-          "endTime": "2026-09-15T17:17:51-0500",
-          "mediaId": "18140555551597443",
+          "visits": 1,
+          "adsetId": "120250956316700682",
+          "endTime": "2026-09-18T17:16:37-0500",
+          "mediaId": "17911245750466310",
           "verdict": null,
-          "createdAt": "2026-09-10T17:17:53-0500",
-          "impressions": 283,
-          "costPerVisit": 0.22
+          "createdAt": "2026-09-13T17:16:38-0500",
+          "impressions": 37,
+          "costPerVisit": 0.25
+        },
+        {
+          "label": "REEL | Milk is not a health food if you want abs | TEST::18104387519626708",
+          "media": {
+            "id": "18104387519626708",
+            "type": "VIDEO",
+            "title": "Milk is not a health food if you want abs",
+            "caption": "Milk is not a health food if you want abs. It's not poison either. But a \"health",
+            "postedAt": "2026-09-12T22:00:42+0000",
+            "permalink": "https://www.instagram.com/reel/DdNAj64DnuW/"
+          },
+          "phase": "running",
+          "spend": 1.86,
+          "status": "ACTIVE",
+          "visits": 6,
+          "adsetId": "120250945212710682",
+          "endTime": "2026-09-17T17:15:37-0500",
+          "mediaId": "18104387519626708",
+          "verdict": null,
+          "createdAt": "2026-09-12T17:15:41-0500",
+          "impressions": 144,
+          "costPerVisit": 0.31
         },
         {
           "label": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
@@ -654,14 +710,21 @@
             "postedAt": "2026-09-07T22:01:03+0000",
             "permalink": "https://www.instagram.com/reel/DdAIo4-j_RS/"
           },
-          "phase": "running",
+          "phase": "done",
           "spend": 3.26,
           "status": "PAUSED",
           "visits": 8,
           "adsetId": "120250868071570682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17899133421377575",
-          "verdict": null,
+          "verdict": {
+            "spend": 3.26,
+            "reason": "8 visits on $3.26 — needs 10 to be believed",
+            "result": "lose",
+            "visits": 8,
+            "adsetId": "120250868071570682",
+            "costPerVisit": 0.41
+          },
           "createdAt": "2026-09-08T15:59:58-0500",
           "impressions": 279,
           "costPerVisit": 0.41
@@ -676,45 +739,28 @@
             "postedAt": "2026-09-05T22:00:42+0000",
             "permalink": "https://www.instagram.com/reel/Dc6-_fvkynM/"
           },
-          "phase": "running",
+          "phase": "done",
           "spend": 3.4,
           "status": "PAUSED",
           "visits": 4,
           "adsetId": "120250868068990682",
           "endTime": "2026-09-13T15:59:17-0500",
           "mediaId": "17909653590464795",
-          "verdict": null,
+          "verdict": {
+            "spend": 3.4,
+            "reason": "4 visits on $3.40 — needs 10 to be believed",
+            "result": "lose",
+            "visits": 4,
+            "adsetId": "120250868068990682",
+            "costPerVisit": 0.85
+          },
           "createdAt": "2026-09-08T15:59:43-0500",
           "impressions": 237,
           "costPerVisit": 0.85
-        },
-        {
-          "label": "REEL | Milk is not a health food if you want abs | TEST::18104387519626708",
-          "media": {
-            "id": "18104387519626708",
-            "type": "VIDEO",
-            "title": "Milk is not a health food if you want abs",
-            "caption": "Milk is not a health food if you want abs. It's not poison either. But a \"health",
-            "postedAt": "2026-09-12T22:00:42+0000",
-            "permalink": "https://www.instagram.com/reel/DdNAj64DnuW/"
-          },
-          "phase": "running",
-          "spend": 0,
-          "status": "ACTIVE",
-          "visits": 0,
-          "adsetId": "120250945212710682",
-          "endTime": "2026-09-17T17:15:37-0500",
-          "mediaId": "18104387519626708",
-          "verdict": null,
-          "createdAt": "2026-09-12T17:15:41-0500",
-          "impressions": 0,
-          "costPerVisit": null
         }
       ],
       "dryRun": false,
-      "actions": [
-        "DID: pause finished \"REEL | Stop doing ab exercises until you can actually see your abs | TEST::18624174223051709\" (lose)"
-      ],
+      "actions": [],
       "created": [],
       "enabled": true,
       "metrics": {
@@ -723,26 +769,26 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 108.11,
-          "visits": 1054,
+          "spend": 120.16,
+          "visits": 1205,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 39.86,
+        "spend": 40.05,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
-          "costPerVisit": 0.1,
+          "costPerVisit": 0.09,
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 419,
+        "visits": 457,
         "window": {
           "days": 7,
-          "since": "2026-09-07",
-          "until": "2026-09-13"
+          "since": "2026-09-08",
+          "until": "2026-09-14"
         },
         "follows": 0,
         "activeAds": [
@@ -761,125 +807,90 @@
         ],
         "adsetStatus": "ACTIVE",
         "dailyBudget": 6.5,
-        "costPerVisit": 0.1,
+        "costPerVisit": 0.09,
         "costPerFollow": null,
         "followsReadable": false
       },
-      "verdicts": [
-        {
-          "spend": 4.54,
-          "reason": "$0.17/visit does not beat the champion's $0.10/visit (ties keep the champion)",
-          "result": "lose",
-          "visits": 27,
-          "adsetId": "120250868876510682",
-          "mediaId": "18624174223051709",
-          "permalink": "https://www.instagram.com/reel/DdCtYQOF69_/",
-          "costPerVisit": 0.17
-        }
-      ],
+      "verdicts": [],
       "warnings": [],
       "events24h": [
         {
-          "at": "2026-09-12T22:15:50.693Z",
+          "at": "2026-09-13T10:19:58.731Z",
+          "event": "verdict",
+          "detail": {
+            "spend": 4.54,
+            "reason": "$0.17/visit does not beat the champion's $0.10/visit (ties keep the champion)",
+            "result": "lose",
+            "visits": 27,
+            "adsetId": "120250868876510682",
+            "costPerVisit": 0.17
+          },
+          "mediaId": "18624174223051709"
+        },
+        {
+          "at": "2026-09-13T14:17:51.264Z",
           "event": "created",
           "detail": {
-            "adId": "120250945218230682",
-            "adsetId": "120250945212710682",
-            "permalink": "https://www.instagram.com/reel/DdNAj64DnuW/",
-            "creativeId": "27317946297881557"
+            "adId": "120250952646230682",
+            "adsetId": "120250952645250682",
+            "permalink": "https://www.instagram.com/reel/DdOubn3FFWS/",
+            "creativeId": "1403082311799829"
           },
-          "mediaId": "18104387519626708"
+          "mediaId": "17996865398991415"
         },
         {
-          "at": "2026-09-12T22:15:57.907Z",
-          "event": "promote",
-          "detail": {
-            "adId": "120250945218380682",
-            "source": {
-              "spend": 4.51,
-              "visits": 71,
-              "testAdset": "120250868066640682"
-            },
-            "retired": [
-              "120250753783030682",
-              "120250753783950682"
-            ],
-            "creativeId": "1429010152419995"
-          },
-          "mediaId": "17983238982111705"
-        },
-        {
-          "at": "2026-09-12T22:15:58.828Z",
+          "at": "2026-09-13T21:18:27.258Z",
           "event": "verdict",
           "detail": {
-            "spend": 4.51,
-            "reason": "$0.06/visit beats the champion's $0.10/visit (71 visits)",
-            "result": "win",
-            "visits": 71,
-            "adsetId": "120250868066640682",
-            "costPerVisit": 0.06
-          },
-          "mediaId": "17983238982111705"
-        },
-        {
-          "at": "2026-09-13T00:18:51.879Z",
-          "event": "verdict",
-          "detail": {
-            "spend": 4.56,
-            "reason": "$0.22/visit does not beat the champion's $0.10/visit (ties keep the champion)",
+            "spend": 3.26,
+            "reason": "8 visits on $3.26 — needs 10 to be believed",
             "result": "lose",
-            "visits": 21,
-            "adsetId": "120250868067070682",
-            "costPerVisit": 0.22
+            "visits": 8,
+            "adsetId": "120250868071570682",
+            "costPerVisit": 0.41
           },
-          "mediaId": "18122536861661975"
+          "mediaId": "17899133421377575"
         },
         {
-          "at": "2026-09-13T01:17:59.343Z",
-          "event": "promote",
+          "at": "2026-09-13T21:18:27.261Z",
+          "event": "verdict",
           "detail": {
-            "adId": "120250946416150682",
-            "source": {
-              "spend": 4.52,
-              "visits": 66,
-              "testAdset": "120250868070210682"
-            },
-            "retired": [
-              "120250945218380682"
-            ],
-            "creativeId": "2251971815346111"
+            "spend": 3.4,
+            "reason": "4 visits on $3.40 — needs 10 to be believed",
+            "result": "lose",
+            "visits": 4,
+            "adsetId": "120250868068990682",
+            "costPerVisit": 0.85
           },
-          "mediaId": "18144562216559806"
+          "mediaId": "17909653590464795"
         },
         {
-          "at": "2026-09-13T01:18:00.216Z",
+          "at": "2026-09-13T22:16:45.730Z",
+          "event": "created",
+          "detail": {
+            "adId": "120250956317710682",
+            "adsetId": "120250956316700682",
+            "permalink": "https://www.instagram.com/p/DdPlWaxGG3u/",
+            "creativeId": "1063218739744084"
+          },
+          "mediaId": "17911245750466310"
+        },
+        {
+          "at": "2026-09-14T02:17:07.341Z",
           "event": "verdict",
           "detail": {
             "spend": 4.52,
-            "reason": "$0.07/visit beats the champion's $0.10/visit (66 visits)",
-            "result": "win",
-            "visits": 66,
-            "adsetId": "120250868070210682",
-            "costPerVisit": 0.07
-          },
-          "mediaId": "18144562216559806"
-        },
-        {
-          "at": "2026-09-13T01:18:01.192Z",
-          "event": "verdict",
-          "detail": {
-            "spend": 4.51,
-            "reason": "$0.11/visit does not beat the champion's $0.07/visit (ties keep the champion)",
+            "reason": "$0.09/visit does not beat the champion's $0.09/visit (ties keep the champion)",
             "result": "lose",
-            "visits": 41,
-            "adsetId": "120250868068030682",
-            "costPerVisit": 0.11
+            "visits": 49,
+            "adsetId": "120250888181140682",
+            "costPerVisit": 0.09
           },
-          "mediaId": "17874665394562729"
+          "mediaId": "18133073164657545"
         }
       ],
       "candidates": [],
-      "generatedAt": "2026-09-13T10:19:54.778Z",
+      "generatedAt": "2026-09-14T10:16:10.363Z",
       "championAdset": "120250753601020682"
     }
   },
@@ -887,7 +898,7 @@
     "ok": true,
     "enabled": true,
     "dryRun": false,
-    "lastRunAt": "2026-09-13T11:00:04.671Z",
+    "lastRunAt": "2026-09-14T11:00:04.495Z",
     "ageHours": 0.11,
     "stale": false,
     "resultsPosted": true,
@@ -905,71 +916,7 @@
       "rmktg": {
         "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
         "champion": null,
-        "testsRunning": [
-          {
-            "adId": "823972446145",
-            "videoId": "3J_ZSNDkZSU",
-            "spend": 1.53,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 4,
-            "policy": "APPROVED"
-          },
-          {
-            "adId": "824051827676",
-            "videoId": "27vZC4xVkms",
-            "spend": 1.65,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 4,
-            "policy": "APPROVED"
-          },
-          {
-            "adId": "824195543401",
-            "videoId": "y0XIbNoA2Xo",
-            "spend": 0.05,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 3,
-            "policy": "APPROVED"
-          },
-          {
-            "adId": "824234854054",
-            "videoId": "B6Oku5GjrLs",
-            "spend": 0.04,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 3,
-            "policy": "APPROVED_LIMITED"
-          },
-          {
-            "adId": "824368287319",
-            "videoId": "GVNzvm5sUbk",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 1,
-            "policy": "APPROVED_LIMITED"
-          },
-          {
-            "adId": "824368290652",
-            "videoId": "LvOMn7IpuCI",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 1,
-            "policy": "APPROVED_LIMITED"
-          },
-          {
-            "adId": "824532605702",
-            "videoId": "YvfQfo9Qh4s",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 1,
-            "policy": "APPROVED"
-          }
-        ],
+        "testsRunning": [],
         "verdicts": [],
         "policy": [
           {
@@ -1037,13 +984,7 @@
             "limited": true
           }
         ],
-        "dayOne": {
-          "paused": [],
-          "reason": "no champion yet",
-          "champion": null,
-          "deferred": "no hand-made ad has ≥$5.00 spend and ≥1 conversions; the first qualifying test becomes champion and the hand-made ads are paused then",
-          "reversal": []
-        },
+        "dayOne": null,
         "created": []
       },
       "tier1": {
@@ -1052,58 +993,12 @@
           "adId": "822882636654",
           "name": "truth about supplements",
           "videoId": "P9VUGyWeNtY",
-          "spend30d": 7.34,
+          "spend30d": 7.38,
           "conv30d": 8,
           "costPerConv30d": 0.92,
           "approxCostPerSubscriber30d": 1.8
         },
-        "testsRunning": [
-          {
-            "adId": "824195590798",
-            "videoId": "y0XIbNoA2Xo",
-            "spend": 0.25,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 3,
-            "policy": "APPROVED"
-          },
-          {
-            "adId": "824317084973",
-            "videoId": "B6Oku5GjrLs",
-            "spend": 0.39,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 3,
-            "policy": "APPROVED_LIMITED"
-          },
-          {
-            "adId": "824325368367",
-            "videoId": "GVNzvm5sUbk",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 1,
-            "policy": "APPROVED_LIMITED"
-          },
-          {
-            "adId": "824368290634",
-            "videoId": "LvOMn7IpuCI",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 1,
-            "policy": "APPROVED_LIMITED"
-          },
-          {
-            "adId": "824532188852",
-            "videoId": "YvfQfo9Qh4s",
-            "spend": 1.17,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 1,
-            "policy": "APPROVED"
-          }
-        ],
+        "testsRunning": [],
         "verdicts": [],
         "policy": [
           {
@@ -1180,67 +1075,12 @@
           "adId": "821125719022",
           "name": "top 10 ab tips",
           "videoId": "2T4LrQrmz9s",
-          "spend30d": 304.68,
-          "conv30d": 2729,
+          "spend30d": 308.28,
+          "conv30d": 2761,
           "costPerConv30d": 0.11,
           "approxCostPerSubscriber30d": 0.22
         },
-        "testsRunning": [
-          {
-            "adId": "823972295725",
-            "videoId": "3J_ZSNDkZSU",
-            "spend": 0.13,
-            "of": 5,
-            "conv": 1,
-            "daysWaiting": 4,
-            "policy": "APPROVED"
-          },
-          {
-            "adId": "824195573032",
-            "videoId": "y0XIbNoA2Xo",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 3,
-            "policy": "APPROVED"
-          },
-          {
-            "adId": "824234854048",
-            "videoId": "B6Oku5GjrLs",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 3,
-            "policy": "APPROVED"
-          },
-          {
-            "adId": "824325319560",
-            "videoId": "GVNzvm5sUbk",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 1,
-            "policy": "APPROVED_LIMITED"
-          },
-          {
-            "adId": "824325771060",
-            "videoId": "LvOMn7IpuCI",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 1,
-            "policy": "APPROVED_LIMITED"
-          },
-          {
-            "adId": "824406386061",
-            "videoId": "YvfQfo9Qh4s",
-            "spend": 0,
-            "of": 5,
-            "conv": 0,
-            "daysWaiting": 1,
-            "policy": "APPROVED"
-          }
-        ],
+        "testsRunning": [],
         "verdicts": [],
         "policy": [
           {
@@ -1319,87 +1159,87 @@
     "events24h": {
       "created": [
         {
-          "at": "2026-09-12T23:00:17.704Z",
+          "at": "2026-09-13T15:00:18.932Z",
           "campaign": "tier2",
-          "videoId": "YvfQfo9Qh4s",
-          "adId": "824406386061",
-          "name": "AT · Milk Is Not A Health Food If You Want Abs · yt:YvfQfo9Qh4s · tier2 · 2026-09-12",
+          "videoId": "bkzT-3ENpoU",
+          "adId": "824586380861",
+          "name": "AT · The $17 Ab Wheel Beats Every Crunch · yt:bkzT-3ENpoU · tier2 · 2026-09-13",
           "attempt": 1,
           "headlines": [
-            "Why I Stopped Drinking Milk",
-            "Milk Is Not A Health Food",
-            "Liquid Calories In Milk",
-            "The Truth About Milk Calories",
-            "Milk - My Take At 40 Years Old"
+            "Why The Ab Wheel Beats Crunches",
+            "The $17 Ab Wheel Vs Crunches",
+            "How To Do An Ab Wheel Rollout",
+            "3 Reasons I Use The Ab Wheel",
+            "Ab Wheel Form - What To Watch"
           ],
-          "videoTitle": "Milk Is Not A Health Food If You Want Abs",
+          "videoTitle": "The $17 Ab Wheel Beats Every Crunch",
           "labelErrors": [],
           "descriptions": [
-            "Liquid calories are the easiest ones to drink without noticing. Here's my take on milk.",
-            "Daniel Rose explains why he does not count milk as a health food.",
-            "Most men forget the calories they drink. Milk is the first one I cut back on."
+            "Daniel Rose shows how to do an ab wheel rollout with a flat back and locked arms.",
+            "Constant tension, a built-in progression, and every ab muscle at once - here's why.",
+            "Men: see the beginner, intermediate and advanced rollouts, plus 3 live sets at home."
           ],
-          "resourceName": "customers/3427170837/adGroupAds/197884856303~824406386061",
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824586380861",
           "longHeadlines": [
-            "Here's why I stopped counting milk as a health food, at 40 years old.",
-            "Daniel Rose explains how liquid calories add up without you noticing.",
-            "This video shows why I watch the calories I drink, starting with milk."
+            "Here's why I use the $17 ab wheel instead of crunches, plus how to do a rollout.",
+            "This video shows ab wheel form, the beginner version, and three live sets at the end.",
+            "Daniel Rose explains the three reasons the ab wheel beats crunches for ab training."
           ]
         },
         {
-          "at": "2026-09-12T23:00:17.712Z",
+          "at": "2026-09-13T15:00:18.938Z",
           "campaign": "tier1",
-          "videoId": "YvfQfo9Qh4s",
-          "adId": "824532188852",
-          "name": "AT · Milk Is Not A Health Food If You Want Abs · yt:YvfQfo9Qh4s · tier1 · 2026-09-12",
+          "videoId": "bkzT-3ENpoU",
+          "adId": "824502298303",
+          "name": "AT · The $17 Ab Wheel Beats Every Crunch · yt:bkzT-3ENpoU · tier1 · 2026-09-13",
           "attempt": 1,
           "headlines": [
-            "Why I Stopped Drinking Milk",
-            "Milk Is Not A Health Food",
-            "Liquid Calories In Milk",
-            "The Truth About Milk Calories",
-            "Milk - My Take At 40 Years Old"
+            "Why The Ab Wheel Beats Crunches",
+            "The $17 Ab Wheel Vs Crunches",
+            "How To Do An Ab Wheel Rollout",
+            "3 Reasons I Use The Ab Wheel",
+            "Ab Wheel Form - What To Watch"
           ],
-          "videoTitle": "Milk Is Not A Health Food If You Want Abs",
+          "videoTitle": "The $17 Ab Wheel Beats Every Crunch",
           "labelErrors": [],
           "descriptions": [
-            "Liquid calories are the easiest ones to drink without noticing. Here's my take on milk.",
-            "Daniel Rose explains why he does not count milk as a health food.",
-            "Most men forget the calories they drink. Milk is the first one I cut back on."
+            "Daniel Rose shows how to do an ab wheel rollout with a flat back and locked arms.",
+            "Constant tension, a built-in progression, and every ab muscle at once - here's why.",
+            "Men: see the beginner, intermediate and advanced rollouts, plus 3 live sets at home."
           ],
-          "resourceName": "customers/3427170837/adGroupAds/206274722584~824532188852",
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824502298303",
           "longHeadlines": [
-            "Here's why I stopped counting milk as a health food, at 40 years old.",
-            "Daniel Rose explains how liquid calories add up without you noticing.",
-            "This video shows why I watch the calories I drink, starting with milk."
+            "Here's why I use the $17 ab wheel instead of crunches, plus how to do a rollout.",
+            "This video shows ab wheel form, the beginner version, and three live sets at the end.",
+            "Daniel Rose explains the three reasons the ab wheel beats crunches for ab training."
           ]
         },
         {
-          "at": "2026-09-12T23:00:17.722Z",
+          "at": "2026-09-13T15:00:18.945Z",
           "campaign": "rmktg",
-          "videoId": "YvfQfo9Qh4s",
-          "adId": "824532605702",
-          "name": "AT · Milk Is Not A Health Food If You Want Abs · yt:YvfQfo9Qh4s · rmktg · 2026-09-12",
+          "videoId": "bkzT-3ENpoU",
+          "adId": "824502211387",
+          "name": "AT · The $17 Ab Wheel Beats Every Crunch · yt:bkzT-3ENpoU · rmktg · 2026-09-13",
           "attempt": 1,
           "headlines": [
-            "Why I Stopped Drinking Milk",
-            "Milk Is Not A Health Food",
-            "Liquid Calories In Milk",
-            "The Truth About Milk Calories",
-            "Milk - My Take At 40 Years Old"
+            "Why The Ab Wheel Beats Crunches",
+            "The $17 Ab Wheel Vs Crunches",
+            "How To Do An Ab Wheel Rollout",
+            "3 Reasons I Use The Ab Wheel",
+            "Ab Wheel Form - What To Watch"
           ],
-          "videoTitle": "Milk Is Not A Health Food If You Want Abs",
+          "videoTitle": "The $17 Ab Wheel Beats Every Crunch",
           "labelErrors": [],
           "descriptions": [
-            "Liquid calories are the easiest ones to drink without noticing. Here's my take on milk.",
-            "Daniel Rose explains why he does not count milk as a health food.",
-            "Most men forget the calories they drink. Milk is the first one I cut back on."
+            "Daniel Rose shows how to do an ab wheel rollout with a flat back and locked arms.",
+            "Constant tension, a built-in progression, and every ab muscle at once - here's why.",
+            "Men: see the beginner, intermediate and advanced rollouts, plus 3 live sets at home."
           ],
-          "resourceName": "customers/3427170837/adGroupAds/203082125721~824532605702",
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824502211387",
           "longHeadlines": [
-            "Here's why I stopped counting milk as a health food, at 40 years old.",
-            "Daniel Rose explains how liquid calories add up without you noticing.",
-            "This video shows why I watch the calories I drink, starting with milk."
+            "Here's why I use the $17 ab wheel instead of crunches, plus how to do a rollout.",
+            "This video shows ab wheel form, the beginner version, and three live sets at the end.",
+            "Daniel Rose explains the three reasons the ab wheel beats crunches for ab training."
           ]
         }
       ],
@@ -1420,7 +1260,7 @@
       "waitingCopy": []
     },
     "lastResults": {
-      "at": "2026-09-13T11:00:05.023Z",
+      "at": "2026-09-14T11:00:04.770Z",
       "dryRun": false,
       "results": []
     }
