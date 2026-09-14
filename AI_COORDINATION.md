@@ -143,21 +143,15 @@ Railway if it hiccups (the running site stays up either way).
 original pixels pasted back, 4:5 only) in `photos/finalized social media photos/_variations/studio-blue-89/`; two
 alternates in `_alternates/`. $0.97 spent. Recipe in `/background-removal`. No dashboard row. Delete once he has picked.
 
-**Web pay-first cart — LIVE 2026-09-10, Dan runs the live card test.** The web checkout is now analysis page →
-cart (`#cartSection`: Monthly $19.99 pre-selected, Annual $69.99 "save 71%", trial timeline, disclosure above the
-button, video slot) → Stripe collects the email with the card → account created after payment (one-time claim login +
-set-password email; an existing email gets the membership attached and is told to log in, never auto-logged-in) →
-"You're in" → the five questions as onboarding → the program. Native/IAP untouched. Research: the private "Cart
-teardown" artifact (https://claude.ai/code/artifact/a7424907-bc1a-41a9-b7af-b0f7a17d8512). Doc + Dan's test script:
-`Docs/WEB_CART.md`. Review without paying: `absbyai.com/?demo=checkout` (+`&locked=1`, `&sex=female`); `?vp=1` shows
-the cart video placeholder. Server fixture tests green (`node scripts/cart/cart-fulfillment.test.js`, 45 checks).
-**Dan: (1) the live card test in a private window — cart → Monthly → pay $0 → confirm logged in + set-password email →
-cancel before day 7; (2) Google Pay on/off in Stripe (recommended on; Claude will not flip it unasked); (3) the shipped
-defaults — cart video hidden until the file exists, anonymous trial reuse allowed and logged, no email before the card,
-no urgency device.** ⚠ Native retest: the apps load the same page — confirm iOS/Android still show the IAP screen and
-the account-first flow (verified locally with `IS_NATIVE_APP` forced, not on a phone). ⚠ PostHog funnels that used
-`account_signup` between the trial button and payment must be rebuilt (`cart_viewed` → `cart_checkout_opened` →
-`cart_checkout_completed` → `account_claimed`). Delete this entry once Dan's card test passes.
+**Web pay-first cart — LIVE 2026-09-10; Dan's live card test PASSED 2026-09-14.** Analysis page → cart → Stripe (email
+with the card) → account created after payment → onboarding. Doc `Docs/WEB_CART.md`; demo `absbyai.com/?demo=checkout`.
+09-14 fix `a943506`: the analysis-page video kept playing after the visitor opened the cart (a hidden screen does not
+stop its YouTube iframe) — `renderScreen` now pauses players on the screen it leaves; live-verified playing→paused.
+**Dan, still open: (1) Google Pay on/off in Stripe (recommended on); (2) the shipped defaults — cart video hidden until
+the file exists, anonymous trial reuse allowed, no email before the card, no urgency device.** ⚠ Native retest: iOS/
+Android still show IAP + account-first (and the video pause inside the wrappers). ⚠ PostHog funnels on
+`account_signup` must be rebuilt (`cart_viewed` → `cart_checkout_opened` → `cart_checkout_completed` → `account_claimed`).
+Delete once Dan has answered (1)–(2).
 
 **$17 Ab Wheel long-form + its 5 shorts — SCHEDULED ON EVERY PLATFORM 2026-09-10, nothing blocked.** Muhammad's v2 HD
 goes public Sun 09-13 9 AM CT: YouTube `bkzT-3ENpoU` (full-quality master, thumbnail A, chapters) + FB / IG @danrosefit /
@@ -464,7 +458,7 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **Codex trial — Phase 06 RUNNING (September 14, Codex task 01a0a1a1).** Private originals owned here only: `Media/codex-video-trial/06-organic/` (C1652) and `06-ad/` (C1603/Ad14, replacing exposed Ad15). Both source/cut plans verified; original app demonstrations and animated profile assets prepared. Both currently free video/QC slots temporarily active here for source framing + organic voice processing; no third pipeline. Then first-cut renders and gates. Next: render, review and freeze before matching exports. Muhammad keeps production batch; private Git only, no publication or new metered spend.
+- **Codex trial — Phase 06 RUNNING (September 14, Codex task 01a0a1a1).** Private originals owned here only: `Media/codex-video-trial/06-organic/` (C1652) and `06-ad/` (C1603/Ad14, replacing exposed Ad15). Both source/cut plans verified; original app demonstrations and animated profile assets prepared. Organic full picture renderer PID 53228 RUNNING in one slot; source framing measured and organic voice mixed. Next: finish ad graphics, render ad when capacity allows, then exact-file QA and freeze. Next: render, review and freeze before matching exports. Muhammad keeps production batch; private Git only, no publication or new metered spend.
 
 - **`Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md`** — Ad 3 vertical approved on colour + audio 09-14; remove the AI breath-smoke artifact at 1:16 (regenerate story shot 3 from its start frame), re-render the vertical, patch Muhammad's 16:9, then cutdown + gates + delivery + [A12] commit. Master queue J6. Opus 5 / Fable 5.1 high. **Not on the dashboard.**
 
