@@ -43,7 +43,7 @@ EDL, beats, captions, audio). Both cutdowns share one `cut_plan.json`, because v
 | **1** this picture got me abs (Muhammad) | filed | ✅ approved 09-10 (`Iz0u8KHRbyE`) | ❌ **J2** | 🔧 Dan reviewed 09-13: 2 revisions → **J14** | 🔧 same → **J14** |
 | **1** this picture got me abs (Zeeshan) | filed | 🟡 delivered 09-10, Dan reviews | 🟡 delivered 09-10, Dan reviews | ❌ J9 | ❌ J9 |
 | **2** stop wasting money on nutritionists | filed | ✅ approved 09-08 (`7XgHxn59Tsg`) | ❌ **J3** | ✅ approved 09-12 (`hHiPzQKTzrg`) | ❌ **J3** |
-| **3** stop paying human trainers | filed ⚠ HD text defect | 🔧 J6: colour rejected 09-13, render 10 building (another session) | 🔧 J6 | ❌ J7 | ❌ J7 |
+| **3** stop paying human trainers | filed ⚠ HD text defect | 🔧 J6: colour + audio approved 09-14, smoke shot fix pending | 🔧 J6 | ❌ J7 | ❌ J7 |
 | **4** stop wasting money on supplements | filed | 🟡 review copies only, masters held; ⚠ grade has the BT.601 fault → **J1** | 🟡 same | ❌ J8 | ❌ J8 |
 | **5** every diet you've tried failed | filed | 🟡 delivered; round-2 revisions + ⚠ the same BT.601 grade fault → **J4** | 🟡 same | ❌ J5 | ❌ J5 |
 | **7** in 2010 i photoshopped my face on a fitness model | filed 09-13 | ❌ **J10** | ❌ **J10** | ❌ J11 | ❌ J11 |
@@ -69,7 +69,7 @@ is actively using. Copy it.
 | **J3** | Ad 2: ≤0:59 cutdown plan → 9:16 59s + 1:1 59s | **READY** | — |
 | **J4** | Ad 5: vertical round-2 revisions + BT.709 re-grade (full + 59s) | **READY** | — |
 | J5 | Ad 5: square full + 59s | BLOCKED | J4 delivered AND Dan approves the revised vertical |
-| J6 | Ad 3: vertical full + 59s | IN PROGRESS, owned by the Ad 3 vertical session | that session; Dan's approval |
+| J6 | Ad 3: vertical full + 59s | READY: `handoff-20260914-ad3-ai-smoke-artifact-fix.md` (colour + audio approved 09-14) | Kling budget for one shot |
 | J7 | Ad 3: square full + 59s | BLOCKED | J6 approved AND Muhammad's corrected Ad 3 HD passes `hd_vs_draft.py` |
 | J8 | Ad 4: square full + 59s | BLOCKED | Dan approves the Ad 4 vertical |
 | J9 | Ad 1 (Zeeshan): square full + 59s | BLOCKED | Dan approves the Zeeshan Ad 1 vertical |
@@ -214,8 +214,10 @@ delivered and Dan approves. Its doc was written before round 2, so take the pict
 ### J6 — Ad 3: vertical full + 59s (in progress, not a handoff)
 
 Owned by the Ad 3 vertical session (`/Volumes/Extreme/_edit_work/ad3-vert/`, section [A12]). Dan rejected render 9's
-colour on 09-13 (the BT.601 trap above); render 10 with the fixed grade and labels moved off his body is building.
-**Do not touch.** Open question from that session for Dan: whether his two 200 lb BEFORE pictures (2:26–2:33) also get the
+colour on 09-13 (the BT.601 trap above). **Render 11 APPROVED on colour and audio 2026-09-14** (*"a great reproduction of
+what Muhammad did"*) with ONE note: an AI breath-smoke artifact at 1:16 in the trainer-vs-robot story clip, also in
+Muhammad's 16:9. Next step for J6 is **`Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md`** — clean shot 3,
+re-render the vertical, patch the 16:9, then the cutdown and delivery. **J7 must build from the v2 story clip.** Open question from that session for Dan: whether his two 200 lb BEFORE pictures (2:26–2:33) also get the
 "Real picture" label. When it delivers into `Muhammad Ad Videos/stop paying human
 trainers - ad 3/` and Dan approves, mark J6 done and re-check J7.
 

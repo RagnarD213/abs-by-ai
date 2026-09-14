@@ -358,6 +358,41 @@ exact timing or an exact link.
    miss is reported as NO SUBJECT, never passed). Zeeshan's follow-along: 10 of 13 camera shots LOOSE (every wide
    could crop in 24-35%, every talking shot had his knees in frame); the tight punch-ins on the rollouts were
    already full width and read OK, which is right, because cropping them further would cut the rep off.
+3b. **AI-ARTIFACT PASS — every AI-generated shot, frame by frame, looking for the thing that gives it away**
+   (Dan, 2026-09-14). The 1/2 s contact sheet above CANNOT see these, and it did not: Ad 3's story clip shows a man
+   exhaling in a bathroom and the MIRROR FOGS OVER with breath smoke (1:16, 76.6–78.1 s). It survived five
+   revision rounds of Muhammad's cut, our own vertical rebuild, five audits and a 237-boundary watch pass, because it
+   lives in one corner of the frame for 1.5 s and grows slowly. Dan caught it on the finished vertical: *"He exhales,
+   and there's smoke coming out when he exhales"* — anything *"that just give[s] away that this is AI-generated and
+   make[s] it seem like it's not a real clip"* is an item.
+   **How:** list every AI shot's span (the AI-GENERATED labels mark them; also any shot you cannot verify as real
+   footage). For each one extract CONSECUTIVE frames at full resolution — at least 8 fps across the whole shot, all
+   frames of its last 2 s — and read them as strips, then crop and re-read the small regions the eye skips: mirrors
+   and glass, faces and mouths, hands, anything the person holds, the background behind them, screens and text.
+   Image-to-video generations (Kling, Veo) degrade LATE: Ad 3's fog starts 3.4 s into a 5.0 s shot, so a first-second
+   check passes a shot that breaks at the end. Optional second opinion: send the AI shots to Gemini with this checklist
+   (standing authorization, AGENTS.md, ≤ $5 per batch without asking) — but a Gemini "clean" never overrules your own
+   frames, and every artifact it reports is confirmed at full resolution before it becomes an item.
+   **The giveaways to check on every AI shot:**
+   - **Breath, steam, smoke, mist or fog with no physical cause** — visible exhales indoors, mirrors or glass fogging
+     on a breath, steam off food or drinks that should not steam, smoke from nothing.
+   - **Hands and held objects** — extra, merging or missing fingers; a hand passing through or fusing with a phone,
+     cup, towel or dumbbell; objects that change shape, size or colour mid-shot.
+   - **Faces** — the person's identity drifting across the shot, melting or smearing features in motion, mushy teeth
+     or tongue, eyes that do not track or blink oddly, lips moving with no speech.
+   - **Mirrors, reflections and shadows** — a reflection that does not match the body (wrong pose, wrong timing,
+     wrong direction), missing or doubled reflections, shadows falling the wrong way or sliding.
+   - **Bodies and movement** — rubbery limbs, joints bending wrongly, a belly or build changing size mid-shot, plastic
+     skin, hair or clothing morphing, weightless or looped movement, sudden speed ramps.
+   - **Scene physics** — objects appearing, vanishing or duplicating; walls, door frames or floors warping; liquids
+     that do not pour or splash right; lighting that pulses or highlights that slide.
+   - **Text and screens** — gibberish letters on phones, signs, labels, books and packaging; UI that melts.
+   - **Background people** — melting or duplicated faces, bodies merging.
+   **The item** (Dan's voice, directions not generation, calibration rule 5): the timecode, what gives it away in plain
+   words, and the fix — *"At 1:16, the AI clip shows smoke coming out of his mouth when he exhales and the mirror
+   fogging up. Replace this shot with a version without the smoke: regenerate it, or use stock footage or an AI clip
+   of the same moment."* Link the shot's raw file and its start frame when the asset library has them, so the editor
+   can regenerate from the same image. Add the AI REALISM standing rule line (below) as its last sub-bullet.
 4. **Compare against the target style** (currently Muhammad A's reference edit:
    pause-free pacing, music bed ~−20 dB under voice, whoosh/pop SFX on every graphic,
    animated bullet builds / lower-third chips / title cards, phrase-synced punch-ins,
@@ -395,6 +430,9 @@ exact timing or an exact link.
    LOOSE shot is an item with its crop-in number; `sets_level.py` ran on a workout and a LOUD or BURIED verdict is an
    item; the music's genre was checked and a workout bed is upbeat and high energy; no credit sentence contradicts
    an item.
+   Then the AI-artifact check (step 3b, Dan 2026-09-14): EVERY AI shot was read as consecutive full-resolution frames,
+   including all of its last 2 s, with mirrors, mouths, hands, held objects, backgrounds and screens cropped and read on
+   their own; every giveaway is an item with its timecode and the AI realism STANDING RULE line.
 8. **Write the Google Doc** via the Google Drive MCP `create_file` with
    `contentMimeType: text/markdown` — it converts cleanly to a Doc, including links.
    Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the
@@ -411,6 +449,10 @@ exact timing or an exact link.
   straight into after-imagery (camera scene between them, calibration rule 3); NO
   morph/transformation-in-one-shot; NO body-shaming — belly-fat grabs, pinches, zooms;
   NO email-capture form on screen.
+- **AI realism** (Dan, 2026-09-14): no AI shot may show a giveaway that it is AI — breath smoke or a fogging mirror
+  on an exhale, melting hands or faces, morphing objects, gibberish text, mismatched reflections. Checked by the
+  step 3b AI-artifact pass, frame by frame, never from the contact sheet. A disclosure label does not excuse an
+  artifact: the clip is labelled AI, but it must still read as a plausible real moment.
 - **Disclosure**: "*AI Generated" on every AI visual, full duration; upper-left and
   ~50% larger on full-frame AI clips; centered small tag on panel inserts.
 - **Brand graphics**: black bg (or #162118 dark green field), headers large dark
@@ -459,6 +501,7 @@ exact timing or an exact link.
   - Audio (write it the same way each time, round 1 or when the level/peaks are wrong): `STANDING RULE: Every finished mix reads -14 LUFS integrated with a limiter on the finished mix at -1 dBTP true peak, nothing at 0, one mic, no heavy noise reduction on a dry recording.`
   - Workout sets (Dan, 2026-09-11): `STANDING RULE: Keep audio during workout sets, but if grunting is extremely loud and blowing out mic reduce volume significantly to avoid this becoming annoying to the viewer.`
   - Workout music (Dan, 2026-09-11): `STANDING RULE: Use upbeat, high energy music for workouts. Consider electronic, hip-hop, and rock. Avoid any music that is chill, relaxing, or which sounds like elevator music`
+  - AI realism (built from Dan's own 09-14 wording): `STANDING RULE: Check every AI clip frame by frame for anything that gives away that it is AI-generated and makes it seem like it's not a real clip, like smoke coming out when someone exhales. Replace or regenerate any shot that has one.`
   - Framing (built from Dan's own 09-11 item wording): `STANDING RULE: Crop in closer. In the wide shot, avoid excessive space above my head and towards the sides. In the tight shot, leave only a small amount of space above me and to the sides, almost as tight as possible without me going out of frame.`
 - **Voice input caveat**: Dan dictates; if a quoted correction seems odd, check the
   transcript audio before flagging his script wording as a "typo".
@@ -813,3 +856,14 @@ exact timing or an exact link.
     does not occupy). The reason is the whole point of the picture — an after photo exists to show the physique, so
     a label over the abs cancels the shot it is labelling. The chip's CONSTRUCTION (lesson 47) is unchanged; only
     where it sits has changed.
+49. ⚠ **AI ARTIFACTS HIDE WHERE A CONTACT SHEET CANNOT LOOK — read every AI shot frame by frame (Dan, 2026-09-14).**
+    Ad 3's trainer-vs-robot story (1:16, 76.6–78.1 s on his timeline) shows a man exhaling at a bathroom mirror and the
+    mirror FOGGING with breath smoke. It went through five rounds of Muhammad's revisions, our own 9:16 rebuild, five
+    independent audits and a 237-boundary watch pass, and nobody flagged it: it sits in the mirror corner, not on the
+    man, and it grows over 1.5 s, so no single half-second thumbnail looks wrong. Dan saw it the first time he watched
+    the finished vertical at full size: *"He exhales, and there's smoke coming out when he exhales… things that just
+    give away that this is AI-generated and make it seem like it's not a real clip."* The source is a 5.04 s Kling v3
+    image-to-video shot (`Media/ad-assets/batch1-ads/shots/s3.mp4`), and the fog starts 3.4 s in — **image-to-video
+    shots degrade toward their END**, so a check of a clip's opening passes a clip that breaks later. Step 3b is the
+    procedure; the checklist there is the set of giveaways to look for, not the only ones.
+
