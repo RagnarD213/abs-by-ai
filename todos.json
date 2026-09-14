@@ -81,6 +81,12 @@
       "priority": "high",
       "why": "One mis-calibrated measurement nearly sent 13 wrong timecodes to Muhammad this week; a second reader catches it",
       "addedAt": "2026-09-13"
+    },
+    {
+      "text": "Decide on DaVinci Resolve Studio so Claude can hand the editors a real, openable timeline",
+      "priority": "high",
+      "why": "Resolve 21.1 (09-08) ships an official connector Claude Code can drive, Studio edition only; it would replace building our own timeline exporter",
+      "addedAt": "2026-09-14"
     }
   ],
   "health": [
