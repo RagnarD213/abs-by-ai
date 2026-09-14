@@ -1,0 +1,31 @@
+{
+  "adNumber": 1,
+  "label": "Ad 1 This Picture Got Me Abs",
+  "videos": [
+    { "youtubeId": "VFCQAgzNIkA", "version": "Claude square", "utm": "claude-square" },
+    { "youtubeId": "C8tjH0-hPFg", "version": "Claude square 59s", "utm": "claude-square-59s" }
+  ],
+  "audience": {
+    "label": "AI abs preview tool + what would I look like + competitor apps",
+    "segments": ["1013657222", "1011514666", "1011514645"]
+  },
+  "copy": {
+    "headlines": [
+      "How I Got Abs At 40",
+      "See Yourself With Abs - Use AI",
+      "Abs by AI ®",
+      "Abs By AI - Here's How It Works",
+      "How I Got Abs With AI Workouts"
+    ],
+    "longHeadlines": [
+      "Here's the AI picture of myself with abs that got me to change how I eat and train.",
+      "Upload one photo and AI shows you with abs. This video shows you how I used mine.",
+      "Daniel Rose explains how one AI photo of himself with abs changed his training at 40."
+    ],
+    "descriptions": [
+      "Daniel Rose shows his AI abs picture and the training plan he followed at 40.",
+      "Upload a photo and AI makes a picture of you with abs. Here's how it works.",
+      "This video shows how the Abs By AI picture works and what I did after seeing mine."
+    ]
+  }
+}

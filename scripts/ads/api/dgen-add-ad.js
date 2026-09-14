@@ -46,6 +46,9 @@ const DAN_APPROVED = new Set([
   'How AI Fixed My Supplements', 'Audit Supplements With AI', 'The Truth About Supplements',
   "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI",
   'Many supplements are a waste of money. AI can identify which supplements you should cut.',
+  // Ad 1's own live, already-Google-approved headlines (read back from the account 2026-09-14).
+  'See Yourself With Abs - Use AI', 'Abs by AI ®', "Abs By AI - Here's How It Works",
+  'How I Got Abs With AI Workouts',
 ]);
 
 // Lines Google has already refused in this account — never reuse them.

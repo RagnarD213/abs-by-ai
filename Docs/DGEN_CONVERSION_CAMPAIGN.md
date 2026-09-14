@@ -24,7 +24,7 @@ Ten ads, named `<ad group> | <video> | <landing page>`, one YouTube video each, 
 
 | ad group | videos (YouTube id → asset) |
 |---|---|
-| Ad 1 (both landing pages) | Muhammad 16:9 `lf46ytHacss` → `419514921434`, Zeeshan 16:9 `1oEcwdp21Fg` → `419514919721`, Muhammad vertical `Iz0u8KHRbyE` → `419514921437` |
+| Ad 1 (both landing pages) | Muhammad 16:9 `lf46ytHacss` → `419514921434`, Zeeshan 16:9 `1oEcwdp21Fg` → `419514919721`, Muhammad vertical `Iz0u8KHRbyE` → `419514921437`, Claude square `VFCQAgzNIkA` → `421227330534`, Claude square 59s `C8tjH0-hPFg` → `421227329091` |
 | Ad 2 (both landing pages) | Muhammad 16:9 `Dtk5knWM7c8` → `419623700809`, Muhammad vertical `7XgHxn59Tsg` → `419700324321`, Muhammad square `hHiPzQKTzrg` → `420294626051` |
 
 Copy: **headlines are Dan's own** (screenshots 2026-09-10): Ad 1 *How I Got Abs At 40 · See Yourself
@@ -116,6 +116,31 @@ instead of 2.
 
 `utm_campaign=dgen-conv-ad2&utm_content=muhammad-square-<start\|home>`. Both new ads ENABLED,
 REVIEW_IN_PROGRESS at creation. Check `node scripts/ads/api/client.js policy 24243839443` the next day.
+
+## 2026-09-14 — Ad 1 square (1:1) + its 0:59 cutdown added
+
+Dan approved both Ad 1 square files 09-14 (*"both of these are looking excellent"*). Uploaded UNLISTED —
+full length `VFCQAgzNIkA` (3:53), 59s cutdown `C8tjH0-hPFg` (0:50) — with a matching 1080×1080 thumbnail
+(`ad1-square-VFCQAgzNIkA_O1-dark-studio-1x1-FINAL.jpg`, same studio-blue-89 source and "HOW TO USE AI / TO
+GET IN SHAPE" copy as Ad 1's existing 16:9/9:16 thumbnails) set on both. Added with
+`dgen-add-ad.js scripts/ads/api/dgen-ads/ad1-square.json --apply`: reused both existing ad groups and the
+existing audience by name, created two video assets and one new ad per video per landing page — the
+existing 16:9 and 9:16 ads were untouched. Copy is byte-identical to the live Ad 1 ads, read back from the
+account first (Dan's *How I Got Abs At 40 · See Yourself With Abs - Use AI · Abs by AI ® · Abs By AI -
+Here's How It Works · How I Got Abs With AI Workouts* + the same long headlines/descriptions); the three
+headlines the lint had not seen yet (®, and "How I Got Abs With AI Workouts") were added to `DAN_APPROVED`
+in `dgen-add-ad.js` rather than rewritten. Budget unchanged at $20/day, now shared by 5 ads per group
+instead of 3.
+
+| ad | video (asset) | ad group → new ad |
+|---|---|---|
+| Ad 1 This Picture Got Me Abs, square | `VFCQAgzNIkA` → `421227330534` | /start **199420011065** → **824641889488**; home **202965542111** → **824641889494** |
+| Ad 1 This Picture Got Me Abs, square 59s | `C8tjH0-hPFg` → `421227329091` | /start **199420011065** → **824641889491**; home **202965542111** → **824641889497** |
+
+`utm_campaign=dgen-conv-ad1&utm_content=claude-square<-59s>-<start|home>`. All four new ads ENABLED,
+REVIEW_IN_PROGRESS at creation. Check `node scripts/ads/api/client.js policy 24243839443` the next day —
+Ad 1 has a policy history (CLICKBAIT limited on its original copy 09-10, Zeeshan's 16:9 APPROVED_LIMITED
+for exaggerated claims), so watch these four closely.
 
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and

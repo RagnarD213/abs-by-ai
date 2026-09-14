@@ -67,7 +67,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | 2026-09-13 | [handoff-20260913-ad-variants-master-queue.md](handoff-20260913-ad-variants-master-queue.md) | Ad variants master queue — vertical, square and ≤0:59 cutdowns for every finalized ad |
 | 2026-09-11 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | Square (1:1) ad versions — shared rules, gates, naming, firing order |
 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | Ad 1 (Muhammad) — square 1:1 version — **EXECUTED 2026-09-12**, both files delivered and gate-PASS |
-| 2026-09-14 | [handoff-20260914-ad1-square-youtube-and-ads.md](handoff-20260914-ad1-square-youtube-and-ads.md) | Ad 1 square + 0:59 cutdown (Dan approved 09-14) — upload unlisted to YouTube, add both to Ad 1's Demand Gen ad groups. **Fire next**, Sonnet 5 medium |
 | 2026-09-11 | [handoff-20260911-square-ad1-zeeshan.md](handoff-20260911-square-ad1-zeeshan.md) | Ad 1 (Zeeshan) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad3-muhammad.md](handoff-20260911-square-ad3-muhammad.md) | Ad 3 (Muhammad) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad4-muhammad.md](handoff-20260911-square-ad4-muhammad.md) | Ad 4 (Muhammad V4) — square 1:1 version |

@@ -467,7 +467,6 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 - **Codex trial — Phase 05 running (September 14), owner: current Codex task.** Packaging focused ad/organic skills, shared standards, versioned recipes and a bounded replay/cache test under `Media/codex-video-trial/05-recipes/`. Accepted audio/color and four deferred Ad 1 picture corrections remain scoped; other video workflows/gates retain their owners. Next: validate and install skills, verify Phase 6/7 candidates by source metadata. Private branch only; $0 target, no full films or publication.
 
 - **`Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md`** — Ad 3 vertical approved on colour + audio 09-14; remove the AI breath-smoke artifact at 1:16 (regenerate story shot 3 from its start frame), re-render the vertical, patch Muhammad's 16:9, then cutdown + gates + delivery + [A12] commit. Master queue J6. Opus 5 / Fable 5.1 high. **Not on the dashboard.**
-- **`Handoffs/handoff-20260914-ad1-square-youtube-and-ads.md`** — Dan APPROVED the Ad 1 square + its 0:59 cutdown 09-14: upload both unlisted (one 1:1 thumbnail), add each as a `videos` entry on Ad 1's two Demand Gen ad groups via a new `dgen-ads/ad1-square.json` (dry run must REUSE the groups), record ids, policy check next day. Sonnet 5 medium. **Not on the dashboard.**
 
 - **`Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`** — Dan's round-2 revisions on the Ad 5 vertical:
   (1) the app demo must show the SAME man in the before and after — ✅ **Dan named that after picture 2026-09-12**,
@@ -604,16 +603,6 @@ the next big upload** — rclone's shared one hit `403 Quota exceeded`, failed 2
 14 h job into 32 h; it is also being retired during 2026. ⚠ Do not run the verify script mid-transfer (false FAIL).
 No dashboard row.
 
-**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + 0:59 cutdown — APPROVED BY DAN 2026-09-14, UPLOAD NOT YET DONE.**
-*"both of these are looking excellent. You nailed it with both the full square version and the cutdown."* Files in
-`Muhammad Ad Videos/this picture got me abs - ad 1/` (gate 1.2.0 PASS 35/35 each; corpus `ad1-square-r1-approved`,
-`ad1-square-59s-r1-approved`). Next: fire `Handoffs/handoff-20260914-ad1-square-youtube-and-ads.md` (unlisted upload
-of both + a `videos` entry each on Ad 1's two Demand Gen ad groups). The approved geometry is now the skill default:
-`/shortad-from-longform` [S1] START HERE + `reference/a11_sq_ad1/` (two new gates: `sqlabelplace.py --verify`,
-`sqtextcheck.py`). ⚠ For Dan: Google's square safe-zone template marks only the top ~690 px as clear of YouTube UI
-(shared square rules). ⚠ Still open: the APPROVED 9:16 verticals of Ad 1 and Ad 2 print a caption across their closing
-CTA pill for 7 frames. No dashboard row exists for the square. Delete this entry when the upload handoff runs.
-
 **Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — REVIEW COPIES DELIVERED
 2026-09-11, Dan reviews + ONE CALL.** Folder `Muhammad Ad Videos/stop wasting money on supplements - ad 4/`: his V4 HD filed
 (committed `hd_vs_draft.py`: IDENTICAL to the approved r3 draft), our REVIEW 540p/480p of both cuts, both A/B audio clips,
@@ -647,7 +636,8 @@ New skill lessons 45-47 (frame-diff false negatives, he generalizes a fix to eve
 label is BUILT). Delete once Dan has forwarded the doc and the next cuts arrive.
 
 **Ad 3 "Stop Paying Human Trainers" — 9:16 VERTICAL from MUHAMMAD's v6 HD — COLOUR + AUDIO APPROVED 2026-09-14, ONE AI
-ARTIFACT TO FIX → `Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md` (fire next, Opus 5 / Fable 5.1 high).** Dan on
+ARTIFACT TO FIX → `Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md` — ⏳ IN PROGRESS 2026-09-14 (Opus 5 session owns it:
+shot 3 regenerated clean, story `_v2` built, vertical render 12 running; do not touch `ad3-vert/`).** Dan on
 render 11: *"The color correction looks good, and the audio sounds good. I think this is a great reproduction of what
 Muhammad did."* The one issue: at 1:16 the AI story clip shows breath smoke / the mirror fogging (story shot 3,
 `Media/ad-assets/batch1-ads/shots/s3.mp4`, also in Muhammad's 16:9). The handoff regenerates that shot, re-renders the

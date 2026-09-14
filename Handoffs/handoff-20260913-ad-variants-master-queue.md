@@ -63,7 +63,7 @@ is actively using. Copy it.
 
 | job | what | status | blocked on |
 |---|---|---|---|
-| **J14** | Ad 1 (Muhammad): square full + 59s, Dan's round-1 revisions | **APPROVED 09-14** → upload: `handoff-20260914-ad1-square-youtube-and-ads.md` | — |
+| **J14** | Ad 1 (Muhammad): square full + 59s, Dan's round-1 revisions | **LIVE 09-14** — YouTube `VFCQAgzNIkA` (full) + `C8tjH0-hPFg` (59s), added to both Demand Gen ad groups | — |
 | **J1** | Ad 4: re-grade the vertical (BT.709), then deliver full + 59s masters | **READY** | — |
 | **J2** | Ad 1 (Muhammad): 9:16 ≤0:59 cutdown | **READY** | — |
 | **J3** | Ad 2: ≤0:59 cutdown plan → 9:16 59s + 1:1 59s | **READY** | — |
