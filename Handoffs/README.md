@@ -13,12 +13,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [Ad 1: full rebuild with approved audio](handoff-20260914-codex-ad1-full-rebuild-approved-audio.md) | **now** — Dan accepted the audio approach September 14; extend the approved picture/audio proof to the complete original-source 16:9 ad. Private trial only; full ad unbuilt. |
 | [Codex trial: start here](codex-video-trial/00-start-here.md) | Shared rules, model recommendations, and execution order; documents remain local pending private/public storage decision |
 | [01 — Reference study](codex-video-trial/01-reference-study.md) | **now** — Astra / High; verify sources and learn Muhammad's organic/ad styles |
 | [02 — Raw-footage sample](codex-video-trial/02-raw-footage-sample.md) | after 01 — Astra / High; deliver the first 60–90 seconds for calibration |
 | [03 — First organic](codex-video-trial/03-first-organic.md) | after sample feedback — Astra / High; complete the ab-wheel video |
-| [05 — Reusable recipes](codex-video-trial/05-reusable-recipes.md) | after organic/ad feedback — Sol / High; preserve the working process |
+| [05 — Editing skills and reusable recipes](codex-video-trial/05-reusable-recipes.md) | **Next** — package validated ad/organic workflows and shared standards; four Ad 1 picture fixes deferred |
 | [06 — Two unseen videos](codex-video-trial/06-unseen-videos.md) | after 05 — Astra / High; first organic/ad transfer pair |
 | [07 — Lower-cost repeat](codex-video-trial/07-lower-cost-repeat.md) | after 06 review — Sol / High; second organic/ad pair and cost test |
 | [08 — Optional format pilot](codex-video-trial/08-format-pilot.md) | after accepted originals, if time/budget permit — Sol / High; vertical, square, derivative Short |
@@ -68,7 +67,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | 2026-09-13 | [handoff-20260913-ad-variants-master-queue.md](handoff-20260913-ad-variants-master-queue.md) | Ad variants master queue — vertical, square and ≤0:59 cutdowns for every finalized ad |
 | 2026-09-11 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | Square (1:1) ad versions — shared rules, gates, naming, firing order |
 | [handoff-20260911-square-ad1-muhammad.md](handoff-20260911-square-ad1-muhammad.md) | Ad 1 (Muhammad) — square 1:1 version — **EXECUTED 2026-09-12**, both files delivered and gate-PASS |
-| 2026-09-13 | [handoff-20260913-ad1-square-round1-revisions.md](handoff-20260913-ad1-square-round1-revisions.md) | Ad 1 square — Dan's round-1 revisions: window screens lower, labels off face and abs. **EXECUTED 2026-09-14, Dan reviews** |
+| 2026-09-14 | [handoff-20260914-ad1-square-youtube-and-ads.md](handoff-20260914-ad1-square-youtube-and-ads.md) | Ad 1 square + 0:59 cutdown (Dan approved 09-14) — upload unlisted to YouTube, add both to Ad 1's Demand Gen ad groups. **Fire next**, Sonnet 5 medium |
 | 2026-09-11 | [handoff-20260911-square-ad1-zeeshan.md](handoff-20260911-square-ad1-zeeshan.md) | Ad 1 (Zeeshan) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad3-muhammad.md](handoff-20260911-square-ad3-muhammad.md) | Ad 3 (Muhammad) — square 1:1 version |
 | 2026-09-11 | [handoff-20260911-square-ad4-muhammad.md](handoff-20260911-square-ad4-muhammad.md) | Ad 4 (Muhammad V4) — square 1:1 version |

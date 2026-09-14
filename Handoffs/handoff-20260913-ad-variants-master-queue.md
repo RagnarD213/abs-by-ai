@@ -40,7 +40,7 @@ EDL, beats, captions, audio). Both cutdowns share one `cut_plan.json`, because v
 
 | ad | editor 16:9 | 9:16 full | 9:16 ≤0:59 | 1:1 full | 1:1 ≤0:59 |
 |---|---|---|---|---|---|
-| **1** this picture got me abs (Muhammad) | filed | ✅ approved 09-10 (`Iz0u8KHRbyE`) | ❌ **J2** | 🔧 round 1 re-delivered 09-14 (**J14**) | 🔧 same → **J14** |
+| **1** this picture got me abs (Muhammad) | filed | ✅ approved 09-10 (`Iz0u8KHRbyE`) | ❌ **J2** | ✅ approved 09-14, upload pending | ✅ approved 09-14, upload pending |
 | **1** this picture got me abs (Zeeshan) | filed | 🟡 delivered 09-10, Dan reviews | 🟡 delivered 09-10, Dan reviews | ❌ J9 | ❌ J9 |
 | **2** stop wasting money on nutritionists | filed | ✅ approved 09-08 (`7XgHxn59Tsg`) | ❌ **J3** | ✅ approved 09-12 (`hHiPzQKTzrg`) | ❌ **J3** |
 | **3** stop paying human trainers | filed ⚠ HD text defect | 🔧 J6: colour + audio approved 09-14, smoke shot fix pending | 🔧 J6 | ❌ J7 | ❌ J7 |
@@ -63,7 +63,7 @@ is actively using. Copy it.
 
 | job | what | status | blocked on |
 |---|---|---|---|
-| **J14** | Ad 1 (Muhammad): square full + 59s, Dan's round-1 revisions | **DELIVERED 09-14, Dan reviews** | — |
+| **J14** | Ad 1 (Muhammad): square full + 59s, Dan's round-1 revisions | **APPROVED 09-14** → upload: `handoff-20260914-ad1-square-youtube-and-ads.md` | — |
 | **J1** | Ad 4: re-grade the vertical (BT.709), then deliver full + 59s masters | **READY** | — |
 | **J2** | Ad 1 (Muhammad): 9:16 ≤0:59 cutdown | **READY** | — |
 | **J3** | Ad 2: ≤0:59 cutdown plan → 9:16 59s + 1:1 59s | **READY** | — |

@@ -510,6 +510,62 @@
    "notes": "The identity case: gated against itself in --verbatim mode it must pass every row, which also proves verbatim mode does not smuggle our targets back in. The re-delivered vertical carries this file's audio stream bit for bit (md5 5051f4f40a7c3a7a944bf1763c05a888).",
    "sha256": "c7234b18f7997b2cb39d0b3909f09987f8e440fde167f8fdbfb3d0ddeb534859",
    "bytes": 289333241
+  },
+  {
+   "id": "ad1-square-r1-approved",
+   "verdict": "approved",
+   "date": "2026-09-14",
+   "root": "repo",
+   "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 1x1 | ad 1.mp4",
+   "excerpt": [
+    10,
+    30
+   ],
+   "dan": "All right, both of these are looking excellent. You nailed it with both the full square version and the cutdown. This is what we need to see here.",
+   "dan_round1_notes": "(2026-09-13, on round 0) put the real-picture label above my head or somewhere it doesn't block my face or abs ... lower the graphic ... eliminate the blank space at the bottom. Color correction looked good, and audio looked good.",
+   "gate_args": [
+    "--reference-mix",
+    {
+     "root": "ssd",
+     "path": "ad1-sq/his_mix.wav"
+    },
+    "--verbatim"
+   ],
+   "must_pass": [
+    "audio_gate"
+   ],
+   "measured": "Round 1 re-delivery 2026-09-14: _shared/deliver/gate.py 1.2.0 PASS 35/35 (compliance:labels min 0.985, framing, captions 100 %), audio verbatim PASS, independent audit SHIPS. Audio stream md5 = the approved 9:16 vertical (16799987...).",
+   "notes": "The first SQUARE Dan approved with no further revisions: labels placed by person mask above/beside his head (sqlabelplace.py), text screens to a 1030 bottom line, hook from the clean goal still. /shortad-from-longform [S1].25-26.",
+   "sha256": "f14d935af9e781389b405519dfd252b819db558edffaab089e61b62f0fe9fbef",
+   "bytes": 166821500
+  },
+  {
+   "id": "ad1-square-59s-r1-approved",
+   "verdict": "approved",
+   "date": "2026-09-14",
+   "root": "repo",
+   "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 1x1 59s | ad 1.mp4",
+   "excerpt": [
+    0,
+    20
+   ],
+   "dan": "All right, both of these are looking excellent. You nailed it with both the full square version and the cutdown. This is what we need to see here.",
+   "dan_round1_notes": "(2026-09-13, on round 0) put the real-picture label above my head or somewhere it doesn't block my face or abs ... lower the graphic ... eliminate the blank space at the bottom. Color correction looked good, and audio looked good.",
+   "gate_args": [
+    "--reference-mix",
+    {
+     "root": "ssd",
+     "path": "ad1-sq/cut/his_mix.wav"
+    },
+    "--verbatim"
+   ],
+   "must_pass": [
+    "audio_gate"
+   ],
+   "measured": "Round 1 re-delivery 2026-09-14: _shared/deliver/gate.py 1.2.0 PASS 35/35 (compliance:labels min 0.985, framing, captions 100 %), audio verbatim PASS, independent audit SHIPS. His mix cut at the seams, no filter.",
+   "notes": "The first SQUARE Dan approved with no further revisions: labels placed by person mask above/beside his head (sqlabelplace.py), text screens to a 1030 bottom line, hook from the clean goal still. /shortad-from-longform [S1].25-26.",
+   "sha256": "55bbb2eebd9f0c1196c73e8a134e69e2bdcafdde1597241fdc03f760988bfd14",
+   "bytes": 35767678
   }
  ]
 }

@@ -37,7 +37,9 @@ onto the SAME Demand Gen ad as one more `videos` entry (`/ad-setup` step 6), not
    the editor's punch-in schedule is reproduced as ramps (rule 8, `push_z_expr`); hair-anchored NEAR/FAR framing
    (memory `framing-standard-hair-anchored`, `zhairgate2.py` rebound for 1080 tall).
 2. **Two beat families, not one.** *Stacked* (his text-left / Dan-right window screens): Dan in a full-width window at
-   the top, height adapting to the wrapped text, clamped **560–700 px**, text on the field below in his tokens.
+   the top, height adapting to the wrapped text, clamped **380–820 px** (Ad 1 approved 2026-09-14 at 518–774), text on the field below
+   in his tokens: one bullet size (42 px), text bottom line 1030, no dead band. **Start from `/shortad-from-longform` [S1] START HERE
+   and the `a11_sq_ad1/` template — the approved square.**
    *Side-by-side* (portrait media: the phone recording, a portrait photo beside Dan): keep the editor's own left/right
    layout — Dan in a ~520×1080 crop on one side, the media on the other — because a 1:1 frame has the width for it.
    Pick per beat by measuring the wrapped text; never one fixed compromise.

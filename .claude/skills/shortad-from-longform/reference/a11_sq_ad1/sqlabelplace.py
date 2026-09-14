@@ -16,7 +16,7 @@ the photo itself (never straddling the photo's edge and the field). Writes label
 numbers are then copied into sqassets.py so the placement is auditable in the treatment table.
 
   python3 sqlabelplace.py            # measure + choose
-  python3 sqlabelplace.py --verify   # re-measure on the RENDERED picture.mp4 with the chip in
+  python3 sqlabelplace.py --verify <delivered.mp4> [--boxes boxes.json]   # gate: no chip touches him (8 px)
 """
 import json, os, subprocess, sys, glob, shutil
 sys.path.insert(0, '.')
@@ -131,5 +131,35 @@ def main():
         sheet.save(f'{D}/{key}_proof.jpg')
     json.dump(res, open('label_place.json', 'w'), indent=1)
 
+def verify(video, override=None):
+    """On the DELIVERED file: every labelled beat, every 3rd frame + last, person mask, and the chip box from
+    sqassets (or `override` {key: (x, y, w, h)}) must not touch him (8 px). Exit 1 on any contact."""
+    bad = 0; out = {}
+    for b, n0, nfr in plan():
+        key = b.get('media')
+        if not key: continue
+        T = SA.treat(key)
+        if not T['label'] or T['mode'] not in ('cover', 'fith'): continue
+        if override and key in override:
+            x, y, w, h = override[key]
+        else:
+            c = T['chip']; label = V.REAL_LABEL if T['label'] == 'real' else V.AI_LABEL
+            w, h = V.chip_dims(label, c['lines'], c['size']); x, y = c['x'], c['y']
+        idxs = sorted(set([n0 + k for k in range(0, nfr, 3)] + [n0 + nfr - 1]))
+        fs, ms = masks_for(video, idxs, 'verify_' + key)
+        worst = 0
+        for m in ms:
+            worst = max(worst, int(dilate(m, 8)[y:y+h, x:x+w].sum()))
+        ok = worst == 0; bad += not ok
+        out[key] = dict(box=[x, y, w, h], frames=len(ms), contact_px=worst, ok=ok)
+        print(f"{'PASS' if ok else 'FAIL'}  {key:15s} box {x},{y} {w}x{h}  {len(ms)} frames  contact {worst} px")
+    json.dump(out, open(video + '.labelcheck.json', 'w'), indent=1)
+    print('LABELS OFF HIS BODY', 'PASS' if not bad else f'FAIL ({bad})')
+    return bad
+
 if __name__ == '__main__':
+    if '--verify' in sys.argv:
+        v = sys.argv[sys.argv.index('--verify') + 1]
+        ov = json.load(open(sys.argv[sys.argv.index('--boxes') + 1])) if '--boxes' in sys.argv else None
+        sys.exit(1 if verify(v, ov) else 0)
     main()

@@ -464,10 +464,10 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **Codex trial — full Ad 1 rebuild ACTIVE (September 14), owner: this Codex task.** Executing `Handoffs/handoff-20260914-codex-ad1-full-rebuild-approved-audio.md` in `Media/codex-video-trial/04-ad1/rebuild-muhammad/full-ad-approved/`. Approved picture and exact right-lav audio recipe locked; next: resolve opening, validate complete timeline, extend full visual assembly and run final review. Private branch only; Stage05 awaits Dan’s full-ad approval.
+- **Codex trial — Phase 05 running (September 14), owner: current Codex task.** Packaging focused ad/organic skills, shared standards, versioned recipes and a bounded replay/cache test under `Media/codex-video-trial/05-recipes/`. Accepted audio/color and four deferred Ad 1 picture corrections remain scoped; other video workflows/gates retain their owners. Next: validate and install skills, verify Phase 6/7 candidates by source metadata. Private branch only; $0 target, no full films or publication.
 
 - **`Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md`** — Ad 3 vertical approved on colour + audio 09-14; remove the AI breath-smoke artifact at 1:16 (regenerate story shot 3 from its start frame), re-render the vertical, patch Muhammad's 16:9, then cutdown + gates + delivery + [A12] commit. Master queue J6. Opus 5 / Fable 5.1 high. **Not on the dashboard.**
-- ~~`Handoffs/handoff-20260913-ad1-square-round1-revisions.md`~~ — EXECUTED 2026-09-14 (entry under ACTIVE TASK); remove this line once Dan approves.
+- **`Handoffs/handoff-20260914-ad1-square-youtube-and-ads.md`** — Dan APPROVED the Ad 1 square + its 0:59 cutdown 09-14: upload both unlisted (one 1:1 thumbnail), add each as a `videos` entry on Ad 1's two Demand Gen ad groups via a new `dgen-ads/ad1-square.json` (dry run must REUSE the groups), record ids, policy check next day. Sonnet 5 medium. **Not on the dashboard.**
 
 - **`Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`** — Dan's round-2 revisions on the Ad 5 vertical:
   (1) the app demo must show the SAME man in the before and after — ✅ **Dan named that after picture 2026-09-12**,
@@ -604,17 +604,15 @@ the next big upload** — rclone's shared one hit `403 Quota exceeded`, failed 2
 14 h job into 32 h; it is also being retired during 2026. ⚠ Do not run the verify script mid-transfer (false FAIL).
 No dashboard row.
 
-**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + ≤0:59 cutdown — ROUND 1 RE-DELIVERED 2026-09-14, Dan reviews.**
-Both of his 09-13 revisions done, nothing else moved (gray-trace diff proves the change set): text screens at 0:25,
-1:35, 2:46, 2:52, 3:46 lowered (bottom line 980→1030, bullets 46→42 px, no trailing gap; his window 422→518, 680→774,
-524→680, 628→728) and all six labels on pictures of him placed ABOVE/BESIDE his head by person mask (`sqlabelplace.py`;
-hook now the clean goal still). Audio md5 = approved vertical. Both files `_shared/deliver/gate.py` 1.2.0 PASS 35/35,
-captions 100 %, independent audit SHIPS (its 3 findings fixed or kept as a stated trade-off: the 1:01 gag's AI chip
-overlaps the photo corner — no clear room inside the photo). Folder `Muhammad Ad Videos/this picture got me abs - ad 1/`,
-notes-square.md "Round 1". ⚠ **For Dan:** Google's own square safe-zone template marks only the top ~690 px as clear
-of YouTube UI; every square's captions/text sit below it — a layout redesign if he wants it honoured (shared square
-rules doc). ⚠ Still open: the APPROVED 9:16 verticals of Ad 1 and Ad 2 print a caption across their closing CTA pill
-for 7 frames. On approval: corpus entry with his words, upload unlisted + Demand Gen, check off the dashboard row, delete this entry.
+**Ad 1 "This Picture Got Me Abs" — 1:1 SQUARE + 0:59 cutdown — APPROVED BY DAN 2026-09-14, UPLOAD NOT YET DONE.**
+*"both of these are looking excellent. You nailed it with both the full square version and the cutdown."* Files in
+`Muhammad Ad Videos/this picture got me abs - ad 1/` (gate 1.2.0 PASS 35/35 each; corpus `ad1-square-r1-approved`,
+`ad1-square-59s-r1-approved`). Next: fire `Handoffs/handoff-20260914-ad1-square-youtube-and-ads.md` (unlisted upload
+of both + a `videos` entry each on Ad 1's two Demand Gen ad groups). The approved geometry is now the skill default:
+`/shortad-from-longform` [S1] START HERE + `reference/a11_sq_ad1/` (two new gates: `sqlabelplace.py --verify`,
+`sqtextcheck.py`). ⚠ For Dan: Google's square safe-zone template marks only the top ~690 px as clear of YouTube UI
+(shared square rules). ⚠ Still open: the APPROVED 9:16 verticals of Ad 1 and Ad 2 print a caption across their closing
+CTA pill for 7 frames. No dashboard row exists for the square. Delete this entry when the upload handoff runs.
 
 **Ad 4 "Stop Wasting Money on Supplements" — 9:16 VERTICAL + ≤0:59 CUTDOWN from MUHAMMAD's V4 HD — REVIEW COPIES DELIVERED
 2026-09-11, Dan reviews + ONE CALL.** Folder `Muhammad Ad Videos/stop wasting money on supplements - ad 4/`: his V4 HD filed

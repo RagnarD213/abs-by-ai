@@ -12,7 +12,7 @@ defect was in how a SELECTION cutdown is built, so every one of them is waiting 
 | `sqcut_build.py` | writes `cut/beats.py`, copies the gates into `cut/`; it no longer re-derives the word list | **yes** |
 | `cut_edl.py` | a picture EDL for the CUTDOWN, so `sqlanding.py` can run there at all (master cuts mapped through `cut_plan.json` + the seams) | **yes** |
 | `plan_sq.py` | `plan.json` for `_shared/deliver/gate.py` from an attempt-3 build (framing segments from `beats.PUSHES`, per-insert label chips) | **yes**, adapt the media keys |
-| `sqlib.py` `sqassets.py` `render.py` | the 1:1 layout library, the per-media square treatment + label, the compositor | Ad 1 specific; read the diffs |
+| `sqlib.py` `sqassets.py` `render.py` | the 1:1 layout library, the per-media square treatment + label, the compositor | **yes: the APPROVED square (Dan 2026-09-14) — the template for every future square**; change the media keys and beat sheet, keep the geometry |
 | `sqmux.py` | copies the APPROVED VERTICAL's AAC stream and asserts its md5; asserts the editor's frame count | **yes**, change `VERT` |
 | `sqhairgate.py` `sqlanding.py` `deliver_sq.py` | the square hair gate, the landing check, delivery | **yes** |
 
@@ -92,3 +92,6 @@ copy, and one of them looked like a defect that had already been fixed.
 * `render.py` — `chip_png(kind, chip)` from the measured placement; `cover_chip` path removed.
 * `deliver_sq.py` — the delivery stamp must carry the delivered file's sha256.
 * Delivered: master 6,976 f, cutdown 1,493 f, both `_shared/deliver/gate.py` 1.2.0 PASS 35/35; independent audit SHIPS.
+* `sqtextcheck.py` (new) + `sqlabelplace.py --verify` — the two delivered-file gates for Dan's round-1 notes (SKILL.md [S1] START HERE).
+* **Dan approved both files 2026-09-14** ("You nailed it with both the full square version and the cutdown"): corpus
+  `ad1-square-r1-approved`, `ad1-square-59s-r1-approved`. Upload + Ads: `Handoffs/handoff-20260914-ad1-square-youtube-and-ads.md`.

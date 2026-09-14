@@ -1,6 +1,6 @@
 ---
 name: shortad-from-longform
-description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 short ad, reproducing the finished video's style as closely as possible — first verify the editor's HD export is the draft Dan approved with no new errors (so Dan never has to watch the export), then recover its edit from the raw footage, measure its grade, palette and graphics, re-lay them out for a phone, then cut a ≤0:59 version. Use whenever Dan asks for a vertical or 9:16 version of a finished video, to "make a short ad from" a long-form cut, to reproduce an editor's finished style in vertical, or to turn a finalized ad or content video into Shorts/Reels creative — even if he doesn't say "/shortad-from-longform". For cutting shorts out of a video we ourselves rendered, /shorts is cheaper. For editing an ad from raw shoot footage use /ad-edit; for content videos use /longform-edit.
+description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 short ad, reproducing the finished video's style as closely as possible — first verify the editor's HD export is the draft Dan approved with no new errors (so Dan never has to watch the export), then recover its edit from the raw footage, measure its grade, palette and graphics, re-lay them out for a phone, then cut a ≤0:59 version. Use whenever Dan asks for a vertical or 9:16 version of a finished video, to "make a short ad from" a long-form cut, to reproduce an editor's finished style in vertical, or to turn a finalized ad or content video into Shorts/Reels creative, or to build a 1:1 SQUARE version (and its ≤0:59 square cutdown) of an approved ad for Google Ads Demand Gen / Meta feed — even if he doesn't say "/shortad-from-longform". For cutting shorts out of a video we ourselves rendered, /shorts is cheaper. For editing an ad from raw shoot footage use /ad-edit; for content videos use /longform-edit.
 ---
 
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
@@ -1487,6 +1487,76 @@ the aspect ratios the ad carries. The shared rules are
 first one actually cost. Build dir `/Volumes/Extreme/_edit_work/ad1-sq/` (`sqlib.py` +
 `sqassets.py` + `render.py` + `sqmux.py` + `sqcutdown.py`, the attempt-3 pipeline re-laid-out).
 
+### ✅ START HERE: THE APPROVED SQUARE (Dan, 2026-09-14). Build every square to this, first render included
+
+**The Ad 1 square round 1 is the first square Dan approved with no revisions pending** (full length AND cutdown):
+*"both of these are looking excellent. You nailed it with both the full square version and the cutdown. This is
+what we need to see here."* Corpus entries `ad1-square-r1-approved`, `ad1-square-59s-r1-approved`. It took one
+review round to get there. Everything that round fixed is below as a DEFAULT, so the next square ships on its
+first review. **The template is `reference/a11_sq_ad1/` (Ad 1), not `a10_sq/` (Ad 2)**; Ad 2's square shipped
+before the label rule and was never revised.
+
+**A. Labels on any picture of Dan: measured, above or beside his head, never on his face or abs.**
+Round 0 put every chip at the waistline (`CAP_Y − 26`). Dan: *"put that above my head or somewhere it doesn't
+block my face or abs... this is supposed to be proof, and this is kind of blocking the proof."*
+1. Give every Dan picture its label (`real` or `ai`) in `sqassets.py`, then run **`sqlabelplace.py` BEFORE the
+   first full render.** It renders each labelled `cover`/`fith` beat without a chip and person-masks every 3rd
+   frame plus the last (stills push, so frame 0 is not enough). It takes the union, dilates it 16 px, and searches
+   above-head in one line first, then beside-head in 1, 2 or 3 lines, then anywhere clear. **Bigger type wins
+   over fewer lines** (3 lines @34 beat 2 lines @24 on the pool photo). Search stays inside a full-height photo's
+   own width and above the caption band. Copy its numbers into `chip=dict(x, y, lines, size)`; `sqlib.chip_at`
+   draws them, `render.chip_png(kind, chip)` caches them by content.
+2. **Look at `_r1/place/*_proof.jpg`** (first and last frame, mask outline, chip) before rendering.
+3. **Never keep a label burned into a media file.** If a clip has AI-GENERATED baked over his body, rebuild the beat
+   from the clean source (the Ad 1 hook uses `01 Before and After Images/dan by pool - AI GOAL IMAGE.png` as a
+   pushed still). The old "draw ours OVER the burned chip" (rule 8 below) is retired.
+4. Known limit, reported rather than hidden: a narrow photo filled edge to edge by his body (the 0.56:1 photoshop
+   gag) has no clear box inside the photo at any readable size. The chip then takes the photo's top corner beside
+   his head, overlapping the edge (audit-accepted). Say so in the notes.
+5. Card media (his olive card) keeps the card chip under the hole; that is not on Dan's body.
+
+**B. Text screens (Dan in a window above, bullets below): no dead band, the window as tall as the text allows.**
+Round 0 stopped the text at y 980 and added 30 px after the last bullet, leaving ~140 px of empty field. Dan:
+*"the graphic is a little bit too high... more of my body is visible... unnecessary blank space at the bottom."*
+Defaults in `sqlib.py`:
+* `WIN_BOT = 1030` for window/statement text (lower thirds keep `BOT_SAFE 980`). `MAX_WIN_H = 820`.
+* **One bullet size for the whole ad, 42 px** (`BUL_SIZES` starts at (42, 38)).
+* **No gap after the last bullet**, and the header sized at **`fh.size + 48`**, the value `plate_window` draws.
+  Sizing it at +30 pushed the 0:25 text 16 px past the line, and only the audit saw it.
+* The window crop is anchored at the hair (y = 0 of the conform), so every added pixel of height is torso.
+* **Measure on the RENDERED frame before review:** the lowest bright ink row of each text screen ≤ 1030, and the empty
+  band under it ≤ ~60 px. Ad 1 approved at window heights 518 / 774 / 680 / 728 px, ink ending 1019–1027.
+
+**C. Delivery discipline that the round cost.**
+* A delivery stamp counts only if its `sha256` is the delivered bytes (`deliver_sq.py` asserts it). The cutdown
+  was about to ship the previous round's stamp.
+* After any re-render: the gray-trace diff against the previous render must list only the beats you meant to
+  change. Re-scan `compliance:negative_events` (its record carries the file's sha256), re-mark the watch pass
+  with a note that names the strips you actually opened, and run `plan_sq.py --transcribe` with the project
+  ffmpeg on `PATH` (Whisper shells out to `ffmpeg`).
+* A strip tile that looks black is not proof of a black frame. Read the luma of those frame indices first.
+* The render takes ~6 min on a quiet machine and a full gate chain ~25 min. **Fix an audit finding and
+  re-render; don't ship around it.** When the fix's frame diff touches one beat, a targeted re-check replaces a
+  second full audit. Say so.
+
+**Two gates enforce A and B on the delivered bytes. Run both on the master AND the cutdown, before any review
+copy goes to Dan** (calibrated on both sides of his verdict: they pass round 1 and fail round 0):
+* `python3 sqlabelplace.py --verify <file>`: person mask on every 3rd frame of every labelled beat. No chip box
+  may come within 8 px of him. Round 1: 6/6 at 0 px contact; round 0's waistline chips: 5 FAIL at 13k–36k px.
+* `python3 sqtextcheck.py <file>`: each text screen's settled frame needs ink ≤ `WIN_BOT + 6` and an empty band
+  ≤ 70 px. Round 1: ink 1017–1031, band 48–62; round 0: 938–981 / 98–141; the audit-flagged header bug read 1046.
+Both scripts are in `reference/a11_sq_ad1/`. Copy them into the build with the rest of the template.
+
+**D. Open for Dan, not a build default.** Google's square safe-zone template
+(`services.google.com/fh/files/misc/youtubesafezoneoverlay-square.png`) marks only y 48–689 as clear of YouTube
+UI "within certain inventory". Every square's captions (y ≈ 880) and text screens sit below it, and Dan approved
+Ad 1 that way. Do not redesign unless he asks.
+
+**E. After approval:** corpus entries with his words (same session), then the upload + Google Ads handoff:
+`Handoffs/handoff-20260914-ad1-square-youtube-and-ads.md` is the template (both files, one 1:1 thumbnail, a
+`dgen-ads/adN-square.json` whose copy is read back from the live ads, dry run must REUSE the ad groups).
+
+
 1. **A square is a re-layout of the APPROVED VERTICAL, not a third recovery of the editor's cut.**
    Copy the vertical's build dir, keep its beat sheet, EDL, grade, flashes, pushes, lower thirds
    and SFX unchanged, and change only the geometry — plus whatever standing rules have landed
@@ -1537,9 +1607,8 @@ first one actually cost. Build dir `/Volumes/Extreme/_edit_work/ad1-sq/` (`sqlib
 8. ⚠ **A LABEL BURNED IN FOR A 9:16 FRAME BECOMES TOO SMALL AT FULL HEIGHT IN A SQUARE.** The
    hook's goal clip carries its own AI-GENERATED chip, measured at x 186..896 of 1080×1920; shown
    at full height in a 1:1 frame it lands 411 px wide — 38 % of the frame against the ~68 % the
-   skill asks for. Adding a second chip beside it is two labels. **Draw ours OVER it, and assert
-   the coverage in code** (`chip_png(..., cover_box=...)` raises if our box does not contain the
-   burned one).
+   skill asks for. Adding a second chip beside it is two labels. ~~Draw ours OVER it~~ **RETIRED
+   2026-09-13: the chip it covered sat on his abs. Rebuild the beat from the clean source (START HERE, A.3).**
 
 9. **The square is where an old build meets the standing rules it predates.** Ad 1's vertical was
    approved before the "Real picture of me — not AI-generated" rule (2026-09-11) and before the
