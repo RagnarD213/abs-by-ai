@@ -83,9 +83,9 @@
       "addedAt": "2026-09-13"
     },
     {
-      "text": "Decide on DaVinci Resolve Studio so Claude can hand the editors a real, openable timeline",
+      "text": "Test DaVinci Resolve Studio as a start-to-finish AI editor on one video Muhammad already cut",
       "priority": "high",
-      "why": "Resolve 21.1 (09-08) ships an official connector Claude Code can drive, Studio edition only; it would replace building our own timeline exporter",
+      "why": "Resolve 21.1 (09-08) lets Claude Code or Codex drive real edits: cuts, grade, loudness, render. One blind test against his cut decides the $295 licence",
       "addedAt": "2026-09-14"
     },
     {
