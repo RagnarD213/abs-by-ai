@@ -43,10 +43,10 @@ the music.** His "Video2.mp4" (10:53) is in a NEW shared folder `1mvqEowzfNNprOC
 `zeeshan-delivery-includes-srt`). Round 1 is pasted at the TOP of "Zeeshan Video Revisions" and was read back intact.
 Biggest items: the triceps crops cut the dumbbell and his head off, chair demo included; the live round is cut to ~20 s
 per exercise against his "30 seconds" (the raw C1586 1:03-2:48 has the full round) and has no timer; the grade jumps
-(brightness 81 → 114 at 5:13); crop in on the wides; limiter at −1 dBTP (−0.6 now); six text fixes, including "As Far As
+(brightness 81 → 114 at 5:13); limiter at −1 dBTP (−0.6 now); six text fixes, including "As Far As
 Possible" contradicting the safety warning. Dan's two calls: whether the music bed is energetic enough (not measurable),
 and whether the brief's "jugs of water" language cut stands. Paste-ready message:
-`revision docs/arms-shoulders-revisions-zeeshan-round1-9-14-26.summary.md`. Delete once the next cut arrives.
+`revision docs/arms-shoulders-revisions-zeeshan-round1-9-14-26.summary.md`. Headroom checked in the raw on Dan's ask: C1582-C1585 (0:00-7:55) have his hair at the very top edge (median 0-2 px), so there is nothing to recover; C1586 (7:56-9:47) has ~85 px that the cut uses up; the doc now says so. Dan deleted our crop-in item and added a no-crop-the-hair rule. Delete once the next cut arrives.
 
 **Waleed's Video 1, round 4 — REVIEWED AND DELIVERED 2026-09-12, Dan reads and forwards.**
 [Video 1 revisions - Waleed - round 4](https://docs.google.com/document/d/1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw/edit)
@@ -464,7 +464,7 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **Codex trial — Phase 05 running (September 14), owner: current Codex task.** Packaging focused ad/organic skills, shared standards, versioned recipes and a bounded replay/cache test under `Media/codex-video-trial/05-recipes/`. Accepted audio/color and four deferred Ad 1 picture corrections remain scoped; other video workflows/gates retain their owners. Next: validate and install skills, verify Phase 6/7 candidates by source metadata. Private branch only; $0 target, no full films or publication.
+- **Codex trial — Phase 06 RUNNING (September 14, Codex task 01a0a1a1).** Private originals owned here only: `Media/codex-video-trial/06-organic/` (C1652) and `06-ad/` (C1603/Ad14, replacing exposed Ad15). Both source/cut plans verified; original app demonstrations and animated profile assets prepared. Both currently free video/QC slots temporarily active here for source framing + organic voice processing; no third pipeline. Then first-cut renders and gates. Next: render, review and freeze before matching exports. Muhammad keeps production batch; private Git only, no publication or new metered spend.
 
 - **`Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md`** — Ad 3 vertical approved on colour + audio 09-14; remove the AI breath-smoke artifact at 1:16 (regenerate story shot 3 from its start frame), re-render the vertical, patch Muhammad's 16:9, then cutdown + gates + delivery + [A12] commit. Master queue J6. Opus 5 / Fable 5.1 high. **Not on the dashboard.**
 
@@ -545,6 +545,11 @@ campaign has been live via the API script since 09-02), `handoff-20260902-shorts
 ---
 
 # ACTIVE TASK
+
+**SixPackAbs rebrand research — REPORT DELIVERED 2026-09-14, owner: Codex brand research.** 11-page report with 36 sources: `output/pdf/sixpackabs-rebrand-research.pdf`. Recommends SixPackAbs.com as main brand/site, YouTube “SixPackAbs.com with Dan Rose,” retaining @danrosefit, and staged app rebranding. Current FAQ contradicts founder identity; original @sixpackshortcuts channel still exists (4.46M subscribers), control unverified. No site/account/campaign changes. Next: Dan decides whether to proceed; coordinate any brand test with the funnel work below.
+
+**Conversion funnel research — REPORT READY 2026-09-14, owner: Codex funnel research.** Live-page/account audit and VidTao research complete; 15-page strategy and test plan prepared. No product or campaign changes. Report: `/Users/danielrose/.codex/visualizations/2026/09/14/01a0a186-e6d4-7a61-9300-dba78b1932e7/abs-by-ai-conversion-strategy.docx`. Next: Dan selects a funnel to build; optional private Drive upload requires approval after auto-review rejection.
+
 
 **Zeeshan's Ab Wheel Workout (video 1) — SCHEDULED ON EVERY PLATFORM 2026-09-13, nothing blocked.** YouTube `b_bS9NdmL-g`
 public Sun 09-20 9 AM CT with a thumbnail A/B (5 screenshot vs 1 pool); FB / IG @danrosefit / TikTok the same time via

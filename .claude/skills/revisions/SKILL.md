@@ -502,6 +502,7 @@ exact timing or an exact link.
   - Workout sets (Dan, 2026-09-11): `STANDING RULE: Keep audio during workout sets, but if grunting is extremely loud and blowing out mic reduce volume significantly to avoid this becoming annoying to the viewer.`
   - Workout music (Dan, 2026-09-11): `STANDING RULE: Use upbeat, high energy music for workouts. Consider electronic, hip-hop, and rock. Avoid any music that is chill, relaxing, or which sounds like elevator music`
   - AI realism (built from Dan's own 09-14 wording): `STANDING RULE: Check every AI clip frame by frame for anything that gives away that it is AI-generated and makes it seem like it's not a real clip, like smoke coming out when someone exhales. Replace or regenerate any shot that has one.`
+  - Headroom (Dan's own words, 2026-09-14): `STANDING RULE: Do not crop out the top of my head or hair, leave a small amount of space above my hair so the top of my hair does not go out of frame`
   - Framing (built from Dan's own 09-11 item wording): `STANDING RULE: Crop in closer. In the wide shot, avoid excessive space above my head and towards the sides. In the tight shot, leave only a small amount of space above me and to the sides, almost as tight as possible without me going out of frame.`
 - **Voice input caveat**: Dan dictates; if a quoted correction seems odd, check the
   transcript audio before flagging his script wording as a "typo".
@@ -877,3 +878,12 @@ exact timing or an exact link.
     exercise about 20 s, with no timer. A 1 fps sheet of the raw clip settles the true set lengths in one image. Also
     read every safety-section chip against his exact words: "Go Down As Far As Possible" dropped his "safely" and told
     viewers to do the thing he was warning against.
+51. **Measure the RAW's headroom before writing any crop item (Dan, arms & shoulders video 2, 2026-09-14).** Dan deleted
+    our "crop in closer by 20-30%" item and added *"Do not crop out the top of my head or hair, leave a small amount of
+    space above my hair"*, then asked whether the raw had room. It mostly did not: `python3 -m deliver.checks.framing
+    <RAW.MP4> --json out.json` (run from `.claude/skills/_shared`, the file uses relative imports) read the hair top
+    at a median of 0-2 px on C1582-C1585 and 85 px on C1586. On a 1080p shoot framed with the head at the edge, a crop
+    can only come from the bottom and sides, and "crop in" makes the cut look more cropped. Our first draft also claimed
+    the raw triceps clip had "plenty of room above me" off a 1 fps contact sheet; at full resolution the dumbbell leaves
+    the top of the RAW frame too. Never state what the raw holds from a thumbnail. Measure it, or look at full-resolution
+    frames at the top of the rep.
