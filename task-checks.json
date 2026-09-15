@@ -1,6 +1,7 @@
 {
   "checked": [
-    "money::Clean out the filming room so it is ready for the installer"
+    "money::Clean out the filming room so it is ready for the installer",
+    "money::Review Zeeshan video"
   ],
   "log": {
     "health::Shower": [
@@ -223,6 +224,7 @@
     ]
   },
   "checkedAt": {
-    "money::Clean out the filming room so it is ready for the installer": "2026-09-15"
+    "money::Clean out the filming room so it is ready for the installer": "2026-09-15",
+    "money::Review Zeeshan video": "2026-09-15"
   }
 }
