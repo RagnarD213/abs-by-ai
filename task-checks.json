@@ -1,6 +1,7 @@
 {
   "checked": [
-    "money::Clean out the filming room so it is ready for the installer"
+    "money::Clean out the filming room so it is ready for the installer",
+    "money::Write and record a video sales letter (VSL) for /start — cold-traffic version"
   ],
   "log": {
     "health::Shower": [
@@ -223,6 +224,7 @@
     ]
   },
   "checkedAt": {
-    "money::Clean out the filming room so it is ready for the installer": "2026-09-15"
+    "money::Clean out the filming room so it is ready for the installer": "2026-09-15",
+    "money::Write and record a video sales letter (VSL) for /start — cold-traffic version": "2026-09-15"
   }
 }
