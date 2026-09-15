@@ -1,11 +1,10 @@
 {
   "date": "2026-09-15",
-  "order": [
+  "order": [],
+  "excluded": [
+    "money::Review Zeeshan video",
     "money::Make the AI Trainer recovery-aware: scale volume from last night's Oura sleep/HRV",
     "money::Write and record a video sales letter (VSL) for /start — cold-traffic version"
-  ],
-  "excluded": [
-    "money::Review Zeeshan video"
   ],
   "sessionsCompleted": 0
 }
