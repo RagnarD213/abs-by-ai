@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260914-coordination-board-diet.md](handoff-20260914-coordination-board-diet.md) | **now** — shrink `AI_COORDINATION.md` to ≤2,500 words (saves ~15k tokens per message), verbatim archive + inventory so nothing open is lost, add a size-budget rule. Opus 5 high |
 | [Codex trial: start here](codex-video-trial/00-start-here.md) | Shared rules, model recommendations, and execution order; documents remain local pending private/public storage decision |
 | [01 — Reference study](codex-video-trial/01-reference-study.md) | **now** — Astra / High; verify sources and learn Muhammad's organic/ad styles |
 | [02 — Raw-footage sample](codex-video-trial/02-raw-footage-sample.md) | after 01 — Astra / High; deliver the first 60–90 seconds for calibration |
