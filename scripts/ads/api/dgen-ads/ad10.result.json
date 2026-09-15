@@ -1,0 +1,67 @@
+{
+ "at": "2026-09-15T23:30:46.358Z",
+ "results": [
+  "customers/3427170837/assets/421589398534",
+  "customers/3427170837/audiences/359638252",
+  "customers/3427170837/adGroups/206979993984",
+  "customers/3427170837/adGroupCriteria/206979993984~2840",
+  "customers/3427170837/adGroupCriteria/206979993984~2124",
+  "customers/3427170837/adGroupCriteria/206979993984~1000",
+  "customers/3427170837/adGroupCriteria/206979993984~2501809717596",
+  "customers/3427170837/adGroupAds/206979993984~824793606450",
+  "customers/3427170837/adGroups/206979994264",
+  "customers/3427170837/adGroupCriteria/206979994264~2840",
+  "customers/3427170837/adGroupCriteria/206979994264~2124",
+  "customers/3427170837/adGroupCriteria/206979994264~1000",
+  "customers/3427170837/adGroupCriteria/206979994264~2501995234465",
+  "customers/3427170837/adGroupAds/206979994264~824793582135"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206979994264",
+    "id": "206979994264",
+    "name": "Ad 10 Busy Dad Fitness | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206979994264~824793582135",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824793582135",
+     "id": "824793582135",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=muhammad-16x9-home"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206979993984",
+    "id": "206979993984",
+    "name": "Ad 10 Busy Dad Fitness | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206979993984~824793606450",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824793606450",
+     "id": "824793606450",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad10&utm_content=muhammad-16x9-start"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

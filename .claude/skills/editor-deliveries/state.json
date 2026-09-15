@@ -161,15 +161,15 @@
       "filed_on": "2026-09-13"
     },
     {
-      "drive_id": "1mTizfbX4Uk97EwJOF_uO3KBp1P3PToh1",
+      "drive_id": "1D7sc0Nyq_ViM1bEJGP4xXStMphpVzmFs",
       "editor": "Muhammad",
       "title": "in 2010 i photoshopped my face on a fitness model ai just did it for real",
       "kind": "ad",
       "number": 7,
       "path": "Muhammad Ad Videos/in 2010 i photoshopped my face on a fitness model ai just did it for real - ad 7/in 2010 i photoshopped my face on a fitness model ai just did it for real | muhammad | 16x9 | ad 7.mp4",
-      "size": 283970782,
-      "filed_on": "2026-09-13",
-      "why_final": "Dan in the Upwork room 09-12 2:46 PM CT: 'Both HD videos at 7 and 10 are looking good, and those are finalized.' That message came AFTER the round-4 revision doc written on this same file (14:25 CT), so the 09-12/09-13 runs wrongly held it as not final: the Gmail notifications never carry Dan's own messages. Downloaded by curl, size = Drive; first 2 MB identical to the reviewed copy in revisions-0912m/dl/."
+      "size": 283996801,
+      "filed_on": "2026-09-15",
+      "why_final": "Replaced the 09-13 master with Muhammad's 09-14 re-export. It fixes the off-screen header at 2:48-2:51 but its label reads 'AI-GENERATEd' on that beat. Dan explicitly authorized uploading everything on 2026-09-15 after this defect was reported. The prior 283970782-byte master is preserved beside it as *.superseded-20260913.mp4. Downloaded by curl and truncated to Drive's exact recorded size after the endpoint appended an extra trailing range; ffprobe confirms 1920x1080, 6358 frames, 212.145 s."
     },
     {
       "drive_id": "1582XKVpH-6LYq8fEJlFQksMZE0HL1Ct5",
@@ -203,6 +203,17 @@
       "size": 363314897,
       "filed_on": "2026-09-15",
       "why_final": "Daniel HQ Ad 6 V4 HD.mp4 (created 09-14 07:39Z). Answers Dan's Upwork message 09-14 4:50 PM CT 'please send over the high-quality files for video 6 and 14'; Muhammad replied 11:04 PM CT with the link. No revision doc after the 09-12 round 3. 363 MB. Downloaded by curl, size = Drive exactly. Title from the round-3 doc heading ('You're Not Too Old to Get Abs. I'm Proof.'), apostrophes kept like the Ad 5 folder. Filing is not approval: Dan has not yet confirmed round 3's four items landed."
+    },
+    {
+      "drive_id": "1VQuOxzfbmXv_TgO5GgURXrLkkwusU6_k",
+      "editor": "Muhammad",
+      "title": "i watched 400 workout videos and gained weight",
+      "kind": "ad",
+      "number": 14,
+      "path": "Muhammad Ad Videos/i watched 400 workout videos and gained weight - ad 14/i watched 400 workout videos and gained weight | muhammad | 16x9 | ad 14.mp4",
+      "size": 79337649,
+      "filed_on": "2026-09-15",
+      "why_final": "Daniel HQ ad 14 V3.mp4. This is a 1920x1080, 5924-frame, 197.664 s export at about 3.0 Mbps video bitrate rather than Muhammad's usual ~10 Mbps final bitrate. Dan was told this and explicitly authorized uploading everything on 2026-09-15. Downloaded by curl, size matches Drive exactly; replace this master and its YouTube/Ads video asset when an HD re-export arrives."
     }
   ],
   "not_final_seen": [
@@ -512,24 +523,6 @@
     }
   ],
   "pending": [
-    {
-      "drive_id": "1VQuOxzfbmXv_TgO5GgURXrLkkwusU6_k",
-      "editor": "Muhammad",
-      "file": "Daniel HQ ad 14 V3.mp4",
-      "size": 79337649,
-      "delivered_on": "2026-09-14",
-      "reason": "Sent in reply to Dan's 09-14 request for the HIGH-QUALITY files of 6 and 14, but it is 79 MB with no 'HD' in the name (same size class as the 80 MB v2 draft), and Drive shows it modified 09-15 06:46Z, after his message. Looks like the review cut, not the HD export. Not downloaded. Dan: review it, or ask Muhammad for 'Ad 14 V3 HD'.",
-      "added_on": "2026-09-15"
-    },
-    {
-      "drive_id": "1D7sc0Nyq_ViM1bEJGP4xXStMphpVzmFs",
-      "editor": "Muhammad",
-      "file": "Daniel HQ Ad 7 V4 HD.mp4",
-      "size": 283996801,
-      "delivered_on": "2026-09-14",
-      "reason": "A SECOND Ad 7 V4 HD (created 09-14 07:09Z), 26,019 bytes larger than the one already filed 09-13 (1mTizfbX…, 283,970,782 B) and a different file. Nobody asked for it: Dan finalized Ad 7 on 09-12. Probably Muhammad applied the round-4 items anyway (inverted closing demo + chip style). Not downloaded, filed master not overwritten. Dan: say whether it replaces the filed Ad 7 master.",
-      "added_on": "2026-09-15"
-    }
   ],
   "resolved_2026-09-10": [
     "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",

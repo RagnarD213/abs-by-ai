@@ -1,0 +1,30 @@
+{
+  "adNumber": 10,
+  "label": "Ad 10 Busy Dad Fitness",
+  "videos": [
+    { "youtubeId": "Sg3vcEY2P_8", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "A Dad's AI Fitness Plan",
+      "Fitness At 38 And 40",
+      "A Busy Dad's Fitness System",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "A busy dad explains the workout, meal and adjustment plan he uses with AI.",
+      "See how Daniel built a fitness plan around work, family, equipment and real life.",
+      "AI workout planning explained by a working dad who put the plan into practice at 40."
+    ],
+    "descriptions": [
+      "Daniel Rose shows the practical fitness system he follows as a busy working dad.",
+      "AI plans workouts and meals around your schedule, equipment and starting point.",
+      "A dad explains how he uses AI to keep his training and nutrition plan realistic."
+    ]
+  }
+}

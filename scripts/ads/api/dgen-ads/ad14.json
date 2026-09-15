@@ -1,0 +1,30 @@
+{
+  "adNumber": 14,
+  "label": "Ad 14 Workout Video Overload",
+  "videos": [
+    { "youtubeId": "z5AfM0fhcIg", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "I Watched 400 Workout Videos",
+      "Too Many Workout Videos",
+      "An AI Plan Beats Video Bingeing",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Daniel Rose watched hundreds of workout videos but still lacked one plan to follow.",
+      "Workout videos gave Daniel more information. AI helped organize it into one plan.",
+      "See why a specific workout and nutrition plan is more useful than another video."
+    ],
+    "descriptions": [
+      "Daniel Rose explains why watching more workouts did not give him one plan to follow.",
+      "AI organizes workouts, meals and weekly adjustments into a plan built around you.",
+      "A practical look at replacing fitness information overload with one usable plan."
+    ]
+  }
+}

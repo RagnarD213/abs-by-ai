@@ -91,7 +91,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 **6 ways AI thumbnail variations — REVIEW 2026-09-15, owner: Codex 01a0a748.** Four private designs delivered for YouTube `0zspIJVrv08`, original headline and four finalized studio photos. Next: Dan selects a design. Files: `output/thumbnails/0zspIJVrv08-20260915/`.
 
-**Ads 6, 7, 10, 14 YouTube + Google Ads — ACTIVE 2026-09-15, owner: Codex 01a0a744.** Running the finalized-ad handoff end to end; Dan authorized available Ad 7/14 exports and kept the live shared budget at $40/day. Next: compliance scan, package/upload unlisted, build Demand Gen groups, record IDs. Detail: `Handoffs/handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md`.
+**Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
 

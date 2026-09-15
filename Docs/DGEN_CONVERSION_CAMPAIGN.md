@@ -9,7 +9,7 @@ target CPA $30 on Free Generation Started, **built PAUSED for his review**.
 
 | thing | id / value |
 |---|---|
-| Campaign `[DAN] [DGEN] [CONVERSION] MU 25-54 \| US+CA \| ad 1 + ad 2 \| start vs home` | `24243839443`, **ENABLED — Dan switched it on in the Ads web UI 2026-09-10 16:12 CT** (API `change_event`; built PAUSED), Demand Gen, Target CPA $30.00, budget `15862488218` $20.00/day, locations by presence |
+| Campaign `[DAN] [DGEN] [CONVERSION] MU 25-54 \| US+CA \| ad 1 + ad 2 \| start vs home` | `24243839443`, **ENABLED — Dan switched it on in the Ads web UI 2026-09-10 16:12 CT** (API `change_event`; built PAUSED), Demand Gen, Target CPA $30.00, budget `15862488218` **$40.00/day** (read back 2026-09-15; Dan said leave it there), locations by presence |
 | Ad group `Ad 1 This Picture Got Me Abs \| /start` | `199420011065` |
 | Ad group `Ad 1 This Picture Got Me Abs \| home` | `202965542111` |
 | Ad group `Ad 2 Stop Wasting Money On Nutritionists \| /start` | `200136997156` |
@@ -165,6 +165,34 @@ Campaign budget read back at **$40/day** (the 09-11 notes say $20; not changed h
 left an empty unlisted husk `J-fOMvEJwDs` (0 s, stuck processing). List the channel's uploads before any retry.
 ⚠ **Trap: Google refuses an asset while YouTube is still processing** (`YOUTUBE_VIDEO_DURATION_NOT_DEFINED` in
 the dry run) — wait for `processingStatus: succeeded`, then re-run.
+
+## 2026-09-15 — Ads 6, 7, 10 and 14 added
+
+Dan instructed the upload/setup session to use every available export and leave the shared campaign budget at
+**$40/day**. All four masters passed the full-frame `compliance:banned_screen` scan before upload. They were uploaded
+UNLISTED with chaptered descriptions, tags, custom thumbnails and `containsSyntheticMedia: true`; YouTube read-back
+confirmed `processingStatus: succeeded`, `unlisted`, and `embeddable=true`. Each config passed Google `validateOnly`
+before its 14-operation atomic apply. Every new group is ENABLED, US + CA, English, male + unknown, age 25–54 +
+unknown, carries a **$30 target CPA**, and uses the same three custom segments as Ads 2–4. The campaign itself was
+already enabled; its $40/day budget is shared across all groups.
+
+| ad | video → asset | audience | /start group → ad | home group → ad |
+|---|---|---|---|---|
+| Ad 6 You're Not Too Old | `Je2yvk00SHE` → `421668364056` | `359315789` | `199737961146` → `824793581487` | `200408248299` → `824835138385` |
+| Ad 7 Photoshop To AI | `92A3JhaU4wE` → `421486048157` | `358684278` | `200289025116` → `824919205805` | `203111703551` → `824919205814` |
+| Ad 10 Busy Dad Fitness | `Sg3vcEY2P_8` → `421589398534` | `359638252` | `206979993984` → `824793606450` | `206979994264` → `824793582135` |
+| Ad 14 Workout Video Overload | `z5AfM0fhcIg` → `421486077779` | `359315129` | `205864199888` → `824835458839` | `200914309675` → `824835458866` |
+
+Final URLs use `utm_campaign=dgen-conv-ad6|ad7|ad10|ad14` and `utm_content=muhammad-16x9-<start|home>`.
+Copy uses Dan's approved *How I Got Abs At 40* and *How AI Got Me Abs* on every ad, plus plain descriptions of
+the age-40 story, Photoshop story, busy-dad system, or workout-video overload. Initial policy read-back: all eight
+ads are ENABLED and `REVIEW_IN_PROGRESS`; re-run `node scripts/ads/api/client.js policy 24243839443` the next day.
+
+Known replacement items, explicitly accepted for this launch: Ad 7's better 09-14 re-export fixes the off-screen
+header but reads `AI-GENERATEd` at 2:48–2:51; Ad 14 is the available 79 MB / 3.0 Mbps export and should be replaced
+when Muhammad supplies V3 HD. Audio was left untouched: Ad 6 −13.7 LUFS / −1.1 dBTP; Ad 7 −14.2 / −1.1; Ad 10
+−13.5 / −1.0; Ad 14 −13.9 / −0.8 (the last is 0.2 dB over the preferred true-peak ceiling, documented rather than
+processed). Organic/public posting was not part of this run.
 
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and
