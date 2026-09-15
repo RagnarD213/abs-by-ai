@@ -105,6 +105,24 @@
       "priority": "high",
       "why": "Dan 09-14 /prioritize: content pipeline needs a shoot date on the calendar.",
       "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Review the Codex video-editing trial Phase 06 deliverables (two unseen videos: organic + ad)",
+      "priority": "high",
+      "why": "Dan 09-15 /prioritize ('review my Codex edits'). Private review page already built (http://127.0.0.1:8806/06-organic/review/index.html); this is a first-cut-vs-Muhammad blind comparison. Blocks Phase 07 (the Sol-model cost trial) and the Oct 9-11 subscription decision.",
+      "addedAt": "2026-09-15"
+    },
+    {
+      "text": "Build a batch of new Instagram image content from the finalized studio-shoot photo library, using Codex",
+      "priority": "med",
+      "why": "Dan 09-15 /prioritize: wants to start producing IG image content from the studio shoot photos (370+ finalized files in 'photos/finalized social media photos/') and specifically wants this run through Codex instead of Claude to save tokens.",
+      "addedAt": "2026-09-15"
+    },
+    {
+      "text": "Build a Shopify drop-shipping store for SixPackAbs.com, using Codex",
+      "priority": "med",
+      "why": "Dan 09-15 /prioritize: new idea, not yet scoped (no product line, budget or margin decided). Depends on the SixPackAbs rebrand-research decision delivered 09-14 (still his call) since that report sets SixPackAbs.com's positioning before a store gets built on it.",
+      "addedAt": "2026-09-15"
     }
   ],
   "health": [
