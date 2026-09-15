@@ -810,37 +810,49 @@ perfect — when a QC metric fails, confirm the metric before "fixing" the media
 Then look at a contact sheet of every card/pip moment from the **finished file**. That is
 the check against the actual requirement.
 
-## ⚠ Step 10.5 — YouTube's auto-picked Shorts thumbnail can land on garbage (found 2026-09-15)
+## ⚠ Step 10.5 — a built cover is worthless until it's actually INSTALLED on the live Short (found 2026-09-15)
 
-Two published Shorts — "Stop Doing Ab Exercises Until You Can See Your Abs" (Sep 8, 818 views)
-and "Hire A Maid Instead Of A Personal Trainer" (Sep 3, 338 views) — went live with a **plain
-gray thumbnail** that read as "missing" in the channel grid and the homepage Shorts shelf.
-Root cause: YouTube auto-picks a Short's thumbnail from a handful of algorithmically-chosen
-candidate frames, and in both cases it landed on a mid-video **app screen-recording insert**
-(a loading/"generating" spinner UI) instead of a frame of Dan on camera. Unlike a long-form
-video, Studio's Shorts row shows only the ONE frame it picked — there is no multi-thumbnail
-picker surfaced anywhere for you to catch this before it ships.
+Three published Shorts — "Why I Train Abs Every Single Day", "Stop Doing Ab Exercises Until
+You Can See Your Abs", and "Hire A Maid Instead Of A Personal Trainer" — went live showing a
+talking-head/tank-top frame (one was a literal blank gray app-loading-spinner frame) instead
+of their real, already-built covers. `/coverimage`-style covers for all three had existed for
+weeks in `Short-form video content/covers/posted covers/` (and a YouTube-ready JPG copy in
+`covers/review/upload-youtube/`) — **the cover was built and just never installed on YouTube.**
+This is a delivery gap, not a design gap: building the cover is not the same as shipping it, and
+nothing in the pipeline checked that the two matched before the Short went live.
 
-**Never leave a Short's thumbnail on YouTube's auto-pick — always set it explicitly, every
-time.** Right after a Short goes live (whichever step does the upload/schedule), open it in
-Studio and confirm the thumbnail shows Dan clearly:
+**Two different mechanisms exist for setting a video's thumbnail, and only one of them actually
+changes what a Short's grid tile shows:**
 
-1. `studio.youtube.com/video/<id>/edit` → hover the Thumbnail box → kebab menu (⋮) →
-   **Select from video** → pick a frame with his face, not mid-blink, not a screen recording,
-   not a transition → **Done** → **Save**.
-2. If none of the 3 offered frames work, `/coverimage` builds a proper 1080×1920 custom cover
-   (Studio takes it uncropped for Shorts) — use that instead of settling for a bad auto-pick.
+- `scripts/youtube/set-thumbnail.js` (the classic Data API `thumbnails.set`) updates the image
+  served at `i.ytimg.com/vi/<id>/maxresdefault.jpg` — what shows in search results, embeds, and
+  link previews. **It does NOT update the Shorts-specific grid cover** shown on the channel's
+  Shorts tab or the homepage Shorts shelf — confirmed by shipping the correct cover via the API,
+  then watching the Shorts grid keep showing the old frame.
+- **Only uploading through Studio's own per-video Thumbnail control actually updates the Shorts
+  grid.** In the browser: open `studio.youtube.com/video/<id>/edit`, hover the Thumbnail box →
+  kebab (⋮) → **Change** opens a file picker — don't click it directly (an OS dialog you can't
+  drive); instead `find` the file input and use `file_upload` on its ref with the cover's
+  `covers/review/upload-youtube/<slug>_cover.jpg` path, then **Save**. This is the only path
+  proven to update both surfaces.
 
-Any Short whose source contains an app screen-recording insert (macro-tracking demos, "AI
-trainer" walkthroughs, upload/generate flows — the whole "Use AI To Get REAL Six Pack Abs"
-and macro-estimate family) is at the highest risk, because the loading-spinner frame is visually
-flat and an easy landing spot for the auto-pick.
+**Verifying is its own trap — two more caches sit in between:**
 
-**Periodic sweep** (cheap enough to run any time thumbnails are suspect): open
-`studio.youtube.com/channel/UC236gjadarHAhEhOMYNGJ9g/videos/short`, set Rows per page to the
-max, and scroll every row looking for a solid-color/blank thumbnail — that flat, textureless
-look is the tell. Both failures above sat live and unnoticed for days before Dan spotted them
-on the channel homepage.
+- **Studio's own Details page can show a stale thumbnail** after a real change (it showed the
+  ORIGINAL broken spinner frame minutes after a successful API-level fix). Don't trust Studio's
+  preview as proof; check the actual public page.
+- **The public Shorts grid autoplays a silent scrubbed preview of the real video a couple
+  seconds after a tile loads, or the instant your cursor rests over it** (YouTube's own "Video
+  previews" setting, on by default — `youtube.com/account_playback`). A browser-automation
+  cursor left sitting over a tile after a scroll/click will trigger this and make a freshly-fixed
+  cover look "wrong" — always move the mouse to a neutral corner (or explicitly `hover` there)
+  before screenshotting to check a Short's real static cover.
+
+**Any Short whose designed cover was built** (check `Short-form video content/covers/posted
+covers/` and `covers/review/upload-youtube/` for a `<slug>_cover.*` matching the video's
+`utm_content` slug in its description) **must have that exact file installed via the Studio
+file-input method above before the Short is considered delivered — not before it's scheduled,
+before it goes PUBLIC.** Treat "cover built" and "cover live" as two separate checklist items.
 
 ---
 
