@@ -1,20 +1,15 @@
 {
- "at": "2026-09-11T19:15:54.832Z",
+ "at": "2026-09-15T00:05:16.893Z",
  "results": [
-  "customers/3427170837/assets/420015666783",
-  "customers/3427170837/audiences/358991501",
-  "customers/3427170837/adGroups/199782847163",
-  "customers/3427170837/adGroupCriteria/199782847163~2840",
-  "customers/3427170837/adGroupCriteria/199782847163~2124",
-  "customers/3427170837/adGroupCriteria/199782847163~1000",
-  "customers/3427170837/adGroupCriteria/199782847163~2501972251838",
-  "customers/3427170837/adGroupAds/199782847163~824427749693",
-  "customers/3427170837/adGroups/199360345839",
-  "customers/3427170837/adGroupCriteria/199360345839~2840",
-  "customers/3427170837/adGroupCriteria/199360345839~2124",
-  "customers/3427170837/adGroupCriteria/199360345839~1000",
-  "customers/3427170837/adGroupCriteria/199360345839~2501972056958",
-  "customers/3427170837/adGroupAds/199360345839~824344861381"
+  "customers/3427170837/assets/421279652331",
+  "customers/3427170837/assets/421096838324",
+  "customers/3427170837/assets/421279652334",
+  "customers/3427170837/adGroupAds/199782847163~824617143813",
+  "customers/3427170837/adGroupAds/199782847163~824617143816",
+  "customers/3427170837/adGroupAds/199782847163~824617143819",
+  "customers/3427170837/adGroupAds/199360345839~824617143822",
+  "customers/3427170837/adGroupAds/199360345839~824617143825",
+  "customers/3427170837/adGroupAds/199360345839~824617143828"
  ],
  "readBack": [
   {
@@ -34,6 +29,75 @@
       "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad3&utm_content=muhammad-16x9-home"
      ],
      "name": "Ad 3 Stop Paying Human Trainers | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199360345839",
+    "id": "199360345839",
+    "name": "Ad 3 Stop Paying Human Trainers | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199360345839~824617143822",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824617143822",
+     "id": "824617143822",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad3&utm_content=muhammad-16x9-clean-home"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Muhammad 16:9 clean | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199360345839",
+    "id": "199360345839",
+    "name": "Ad 3 Stop Paying Human Trainers | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199360345839~824617143825",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824617143825",
+     "id": "824617143825",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad3&utm_content=claude-9x16-home"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199360345839",
+    "id": "199360345839",
+    "name": "Ad 3 Stop Paying Human Trainers | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199360345839~824617143828",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824617143828",
+     "id": "824617143828",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad3&utm_content=claude-9x16-59s-home"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 59s | home"
     },
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS"
@@ -57,6 +121,75 @@
       "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad3&utm_content=muhammad-16x9-start"
      ],
      "name": "Ad 3 Stop Paying Human Trainers | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199782847163",
+    "id": "199782847163",
+    "name": "Ad 3 Stop Paying Human Trainers | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199782847163~824617143813",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824617143813",
+     "id": "824617143813",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad3&utm_content=muhammad-16x9-clean-start"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Muhammad 16:9 clean | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199782847163",
+    "id": "199782847163",
+    "name": "Ad 3 Stop Paying Human Trainers | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199782847163~824617143816",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824617143816",
+     "id": "824617143816",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad3&utm_content=claude-9x16-start"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199782847163",
+    "id": "199782847163",
+    "name": "Ad 3 Stop Paying Human Trainers | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199782847163~824617143819",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824617143819",
+     "id": "824617143819",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad3&utm_content=claude-9x16-59s-start"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 59s | /start"
     },
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS"

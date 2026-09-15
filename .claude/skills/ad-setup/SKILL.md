@@ -168,3 +168,11 @@ ads' problems seen in the policy report), and that organic posting was not done 
   Replicate took 5 s per ad. The policy report run at the start showed Ad 5's *Why My Diets Kept Failing* headline
   DISAPPROVED (CLICKBAIT) and its video limited for exaggerated claims — read other ads' verdicts before writing new
   copy; they are the fastest signal of what Google is refusing this week.
+- **2026-09-14 (Ad 3 clean 16:9 + 9:16 + 9:16 59s):** three parallel uploads of 110–585 MB; the 585 MB one died at
+  90 % with `ERROR: fetch failed` — and **still left a video**: `J-fOMvEJwDs`, unlisted, 0 s, stuck "processing"
+  (the resumable session creates the record up front). Before re-running a failed upload, list the channel's
+  uploads (`channels?mine=true` → uploads playlist); re-upload, record the husk as do-not-use, Dan deletes it in
+  Studio (the token cannot). Two big files in parallel is the safer ceiling. Also: **the Ads dry run refuses a video
+  still processing** (`YOUTUBE_VIDEO_DURATION_NOT_DEFINED`) — poll `processingStatus: succeeded` first. A 9:16
+  thumbnail = the 16:9 design restacked (type band on top, him centred at 94 % width, waist crop), built by
+  `_ad-setup-2026-09-14-ad3-vertical/build.py` with a vertical-clearance QC.

@@ -142,6 +142,30 @@ REVIEW_IN_PROGRESS at creation. Check `node scripts/ads/api/client.js policy 242
 Ad 1 has a policy history (CLICKBAIT limited on its original copy 09-10, Zeeshan's 16:9 APPROVED_LIMITED
 for exaggerated claims), so watch these four closely.
 
+## 2026-09-14 evening — Ad 3 clean 16:9 + 9:16 + 9:16 59s added, smoke-shot ads paused
+
+Dan approved all three 09-14 (*"Okay, all these are looking good, and they are approved."*). Uploaded UNLISTED with
+sha256 verified first; added with `dgen-add-ad.js scripts/ads/api/dgen-ads/ad3.json --apply` (3 new `videos`
+entries, the old `Muhammad 16:9` entry kept so its ads are recognised). Plan reused both ad groups and audience
+`358991501`; 3 video assets + 6 ads, 9 operations. Copy byte-identical to the live Ad 3 ads (all 11 lines read back
+APPROVED first). Read-back `ad3.result.json`; the 09-11 original is `ad3.result.20260911.json`.
+
+| version | video → asset | /start 199782847163 | home 199360345839 |
+|---|---|---|---|
+| Muhammad 16:9 clean (smoke shot replaced) | `86jbUhqBTUQ` → `421279652331` | **824617143813** | **824617143822** |
+| Claude 9:16 | `xlC-tigurnA` → `421096838324` | **824617143816** | **824617143825** |
+| Claude 9:16 59s | `-wTErCSi640` → `421279652334` | **824617143819** | **824617143828** |
+
+**PAUSED** (not removed, `manual.js` m62/m63): `824427749693` (/start) and `824344861381` (home), the two ads on
+`QWW1oumpNg4`, the old 16:9 with the AI breath-smoke shot. Both were APPROVED; the video stays on YouTube.
+`utm_content=muhammad-16x9-clean|claude-9x16|claude-9x16-59s-<start|home>`. All six ENABLED, REVIEW_IN_PROGRESS.
+Campaign budget read back at **$40/day** (the 09-11 notes say $20; not changed here), shared by more ads now.
+
+⚠ **Trap: a dropped upload still creates a video.** The first vertical upload failed at 90 % (`fetch failed`) and
+left an empty unlisted husk `J-fOMvEJwDs` (0 s, stuck processing). List the channel's uploads before any retry.
+⚠ **Trap: Google refuses an asset while YouTube is still processing** (`YOUTUBE_VIDEO_DURATION_NOT_DEFINED` in
+the dry run) — wait for `processingStatus: succeeded`, then re-run.
+
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and
 off at 15:49). Ad groups and ads were already ENABLED. The API client refuses to enable a campaign itself unless

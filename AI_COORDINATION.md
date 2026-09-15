@@ -462,7 +462,6 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **`Handoffs/handoff-20260914-ad3-youtube-and-ads.md`** — Ad 3's approved clean 16:9, 9:16 and 9:16 59s → YouTube unlisted + Ad 3's Demand Gen ad groups; pause the two old smoke-shot ads. Sonnet 5 medium. **Not on the dashboard.**
 - **`Handoffs/handoff-20260914-ad3-square-codex.md`** — Ad 3 1:1 square + 59s from the approved vertical, written for Dan's Codex trial (J7). **Not on the dashboard.**
 - **Codex trial — Phase 06 AWAITING DAN (September 14, Codex task 01a0a1a1).** C1652 organic + C1603/Ad14 first cuts frozen before reference exposure. Private review: http://127.0.0.1:8806/06-organic/review/index.html (organic + full randomized adA/B against available Muhammadround2, not an approved final). Both audioPASS; actual delivery-gate failures retained. Next Dan verdicts/category notes/review time, one consolidated revision, then outcomes and recipe1.1.0 decision. No production publish; Muhammad owns production batch.
 
@@ -639,14 +638,15 @@ PROSPECT line yet the item swaps in Dan's photo, following his own Ad 10 precede
 New skill lessons 45-47 (frame-diff false negatives, he generalizes a fix to every similar beat, specify how a new
 label is BUILT). Delete once Dan has forwarded the doc and the next cuts arrive.
 
-**Ad 3 "Stop Paying Human Trainers" — 16:9 (smoke shot replaced), 9:16 and 9:16 59s ALL APPROVED BY DAN 2026-09-14.**
-*"Okay, all these are looking good, and they are approved."* (this also accepts the 59s's −0.90 dBTP; note beside the file).
-All three filed in `Muhammad Ad Videos/stop paying human trainers - ad 3/`; corpus entries `ad3-vertical-r12-approved`,
-`ad3-vertical-59s-r12-approved`, `muhammad-ad3-16x9-smokefix-approved`. Next: `handoff-20260914-ad3-youtube-and-ads.md`
-(uploads + Ads, pauses the old `QWW1oumpNg4` ads) and `handoff-20260914-ad3-square-codex.md` (J7, Codex trial). Still
-open: Muhammad's round-6 ask (`revision docs/ad3-revisions-muhammad-round6-9-14-26.md`, not yet pasted to his doc); label
-his 200 lb BEFORE pictures? Dashboard row "Cut 9:16 vertical ads…" names several ads, so not checked off. Delete this
-entry once the upload handoff runs.
+**Ad 3 "Stop Paying Human Trainers" — clean 16:9, 9:16 and 9:16 59s UPLOADED + LIVE IN GOOGLE ADS 2026-09-14; old smoke-shot
+ads PAUSED.** Unlisted: 16:9 `86jbUhqBTUQ`, 9:16 `xlC-tigurnA`, 59s `-wTErCSi640` (thumbnails set + read back; new 9:16
+thumbnail `ad3-claude-9x16_O1-…-FINAL.jpg`). Six new ads in groups 199782847163 (/start) + 199360345839 (home), ids in
+`Docs/DGEN_CONVERSION_CAMPAIGN.md`; 824427749693 + 824344861381 (on `QWW1oumpNg4`) PAUSED, video kept. **Next (09-15):**
+`node scripts/ads/api/client.js policy 24243839443` for the six. **Dan:** delete the empty failed-upload husk
+`J-fOMvEJwDs` in Studio; the campaign budget reads $40/day (docs said $20 — not changed here). Still open: Muhammad's
+round-6 ask (`revision docs/ad3-revisions-muhammad-round6-9-14-26.md`, not pasted), whose re-export replaces the 16:9
+again; label his 200 lb BEFORE pictures? Dashboard row "Cut 9:16 vertical ads…" still covers Ads 4/5, not checked off.
+Delete once policy has settled and round 6 is filed.
 ⚠ FOUND + FIXED 09-14: another session's 10:25 write replaced `Muhammad Ad Videos/this picture got me abs - ad 1/… muhammad |
 16x9 | ad 1.mp4` (the audio selftest's pinned reference) with a 24 s audio-only file; restored from
 `_edit_work/ad1-8-14/reference/muhammad_final.mp4` (sha matches corpus), bad file kept in `_edit_work/_clobbered_20260914/`.
