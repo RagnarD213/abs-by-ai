@@ -1,6 +1,6 @@
 # Abs By AI — Coordination / Status Board
 
-**Loaded into every Claude Code message in this project — keep it short.** A STATUS BOARD, not a log: what is open,
+Loaded into every Claude Code message in this project — keep it short. A STATUS BOARD, not a log: what is open,
 who is blocked, the exact next action. History, and the verbatim board before the 2026-09-15 diet, are in
 [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md) (not auto-loaded). Facts moved off the board:
 `Docs/BOARD_REFERENCE.md`. Git history is the record of code changes.
@@ -18,43 +18,44 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 1. One owner per task. Don't continue or overwrite another session's work without a handoff or review request.
 2. Update when you start, get blocked, hand off or finish. **Re-read from disk before saving; edit only your entry.**
-3. Finished and approved → **delete the entry**, after putting anything durable where the table says.
-4. **Size budget: this file stays under 2,500 words. If an edit pushes it over, compress or archive before saving.**
-5. Entry format, ≤ 3 lines: `**Title — STATUS date, owner.** State. Next: action. ⚠ only a warning that changes the next action. Detail: path.`
+3. Finished and approved → **delete the entry**; report in chat and the morning brief, never as FYI here. Preserve durable details first.
+4. Size budget: at most 2,500 words; each bold-titled entry at most 80 words and dated. Run `scripts/board-check.sh` after editing; compress before finishing if it fails.
+5. Dates: `Updated: YYYY-MM-DD` for substantive changes; preserve `Decision since: YYYY-MM-DD`. Morning aging/weekly archive: `Docs/BOARD_MORNING_MAINTENANCE.md`.
+6. Entry format, ≤ 3 lines: `**Title — STATUS date, owner.** State. Next: action. ⚠ only a warning that changes the next action. Detail: path.`
 
 ---
 
 # DAN'S DECISIONS
 
-- **Make the GitHub repo private** (Settings → General → Danger Zone). Rec: yes — checked, breaks nothing; closes the
+- **Make the GitHub repo private (baseline 2026-09-15; age unknown)** (Settings → General → Danger Zone). Rec: yes — checked, breaks nothing; closes the
   subscriber addresses still in git history. A session then pushes a trivial commit and confirms deploy. `Docs/SUBSCRIBER_STORE.md`
-- **Create the empty SixPackAbs.com Google Ads account** (CAPTCHA blocks Claude): MCC `324-458-6445` → Accounts → + →
+- **Create the empty SixPackAbs.com Google Ads account (baseline 2026-09-15; age unknown)** (CAPTCHA blocks Claude): MCC `324-458-6445` → Accounts → + →
   Create new account; SixPackAbs.com, America/Chicago, USD, skip billing, no campaign. `Docs/GOOGLE_ADS_API.md`
 - **Search bidding:** Google auto-apply removed the $2 CPC ceiling on 09-11 (both campaigns Maximize conversions, no
   target). Accept, or change it / turn auto-apply off. Brand's 09-04 over-delivery is creditable if asked. `Docs/GOOGLE_ADS_API.md`
-- **Ad 2 16:9 master (live in Google Ads) shows the banned BEFORE/AFTER screen at 3:11 and email screen at 3:12, 3:23** —
+- **Ad 2 16:9 master (live in Google Ads) shows the banned BEFORE/AFTER screen at 3:11 and email screen at 3:12, 3:23 (baseline 2026-09-15; age unknown)** —
   also in its vertical `7XgHxn59Tsg` and square. Pull, or have the beats replaced. (Zeeshan's Ad 1 email screen 3:09, known.)
-- **Web cart:** Google Pay on (rec on); OK the shipped defaults (cart video hidden until the file exists, anonymous trial
+- **Web cart: (baseline 2026-09-15; age unknown)** Google Pay on (rec on); OK the shipped defaults (cart video hidden until the file exists, anonymous trial
   reuse, no email before card, no urgency device). `Docs/WEB_CART.md`
-- **Analysis page defaults:** women's height 5'4" (men 5'9"). **/start:** create PostHog flag `vsl-landing-variant`
+- **Analysis page defaults: (baseline 2026-09-15; age unknown)** women's height 5'4" (men 5'9"). **/start:** create PostHog flag `vsl-landing-variant`
   (control/analysis 50/50) + experiment — API keys lack flag scopes. `Docs/VSL_LANDING.md`
-- **/start VSL:** read script doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`, decide §7 (on-screen line under real
+- **/start VSL: (baseline 2026-09-15; age unknown)** read script doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`, decide §7 (on-screen line under real
   photos), record; also review Codex's second VSL attempt (task 01a0a22d,
   `~/.codex/visualizations/2026/09/14/01a0a22d-ab09-7a01-9a60-72c3b1017fc1/attempt-2/`). ⚠ Live post-generation video
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
-- **@danrosefit Meta ads:** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
+- **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
-- **Google Ads remarketing `24169507109`** (~$2.50/day, 0 clicks/conversions ever) — pause?
-- **Ad 3:** delete empty husk `J-fOMvEJwDs` in Studio; campaign budget reads $40/day (docs said $20); label his 200 lb
+- **Google Ads remarketing `24169507109` (baseline 2026-09-15; age unknown)** (~$2.50/day, 0 clicks/conversions ever) — pause?
+- **Ad 3: (baseline 2026-09-15; age unknown)** delete empty husk `J-fOMvEJwDs` in Studio; campaign budget reads $40/day (docs said $20); label his 200 lb
   BEFORE pictures?; paste Muhammad round-6 ask `revision docs/ad3-revisions-muhammad-round6-9-14-26.md`.
-- **YouTube engagement tier 1:** ad `821875813611` was paused in the UI — re-enable if accidental. `Docs/YTADS.md`
-- **Four published off-centre Shorts** (`y0XIbNoA2Xo`, `P9VUGyWeNtY`, `VOlZHV1ibmU`, `rqyK5IDsxX0`): delete + re-upload on
+- **YouTube engagement tier 1: (baseline 2026-09-15; age unknown)** ad `821875813611` was paused in the UI — re-enable if accidental. `Docs/YTADS.md`
+- **Four published off-centre Shorts (baseline 2026-09-15; age unknown)** (`y0XIbNoA2Xo`, `P9VUGyWeNtY`, `VOlZHV1ibmU`, `rqyK5IDsxX0`): delete + re-upload on
   open Tue/Thu/Sat slots, or leave?
 - **Longforms 02 (Zepbound) + 03 (Supplements):** on hold purely by Dan's call — Muhammad had delivered neither (checked
   09-08). **Do not upload or chase.** ⚠ Whoever closes it deletes the reminder block in the morning-brief task's `SKILL.md`.
-- **V4 + V5 longform Content ID claims:** Replace song or leave (they cost nothing until monetised). ⚠ Never delete +
+- **V4 + V5 longform Content ID claims: (baseline 2026-09-15; age unknown)** Replace song or leave (they cost nothing until monetised). ⚠ Never delete +
   re-upload — both are live ad destinations.
-- **Upload the welcome-video first shoot (114 GB) to Drive** as its only second copy? ⚠ Set up a personal rclone
+- **Upload the welcome-video first shoot (114 GB) to Drive (baseline 2026-09-15; age unknown)** as its only second copy? ⚠ Set up a personal rclone
   client_id first (shared one hit 403 quota). Memory `drive-backup-capability`.
 - **Forward editor docs + his calls:** Zeeshan Arms & Shoulders r1 (`revision docs/arms-shoulders-revisions-zeeshan-round1-9-14-26.summary.md`;
   is the music energetic enough; does the "jugs of water" cut stand). Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`;
@@ -65,38 +66,33 @@ who is blocked, the exact next action. History, and the verbatim board before th
   REJECTED audio — replace only on approval, then check off dashboard row "Cut 9:16 vertical ads…"). Ad 4 vertical +
   cutdown (ear check, `notes-vertical.md`; −0.9 dBTP accepted 09-11). Spray-tan shorts sound (`review/AB_three-way_audio.mp4`;
   yes unlocks the audio-match handoff). 04 invest-health room: dry (delivered) vs 09-09 dereverb.
-- **Picks:** studio-blue-89 variations (`photos/finalized social media photos/_variations/studio-blue-89/`); 3-min total
+- **Picks: (baseline 2026-09-15; age unknown)** studio-blue-89 variations (`photos/finalized social media photos/_variations/studio-blue-89/`); 3-min total
   body thumbnails A/B/C; ab-wheel shorts covers A or B ×5; Zepbound shorts swaps (`SHORTS.md`, picks were Claude's);
   exercise demos batch 4 (9 in `Media/exercise-demos/_batch4/`; `db-lunge` blocked — full Veo 3.1, Kling end_image, or film; approved ones get `-FINAL` + batch-2 install = native retest);
   **White-49 rev 2** (approval closes studio batch 6 → check off `money::Execute handoff: studio batch 6…`; delete the 60 ` 2.jpg` copies?).
-- **Research to act on:** SixPackAbs rebrand (Codex, `output/pdf/sixpackabs-rebrand-research.pdf`); conversion funnel
+- **Research to act on: (baseline 2026-09-15; age unknown)** SixPackAbs rebrand (Codex, `output/pdf/sixpackabs-rebrand-research.pdf`); conversion funnel
   (Codex, `~/.codex/visualizations/2026/09/14/01a0a186-e6d4-7a61-9300-dba78b1932e7/abs-by-ai-conversion-strategy.docx`;
   Drive upload needs approval); "The Muhammad Standard" https://claude.ai/code/artifact/0fac6195-accb-415b-99fa-70e3825d4906
   (⚠ folds VQC-B into the engine).
-- **sixpackabs.com:** confirm the live video-first redesign; update the Yoast homepage title/description? `Docs/SIXPACKABS_SITE.md`
-- **ManyChat:** OK to close the keywords task; switch Chrome's Instagram back to @danrosefit; turn off Blotato's IG auto
+- **sixpackabs.com: (baseline 2026-09-15; age unknown)** confirm the live video-first redesign; update the Yoast homepage title/description? `Docs/SIXPACKABS_SITE.md`
+- **ManyChat: (baseline 2026-09-15; age unknown)** OK to close the keywords task; switch Chrome's Instagram back to @danrosefit; turn off Blotato's IG auto
   first-comment? (ask before touching). ⚠ Account shows TRIAL — lapse kills all six keywords. `Docs/MANYCHAT_KEYWORDS.md`
-- **Resend:** create a full-access key → `RESEND_READ_API_KEY` in `~/.absbyai-secrets.env`.
+- **Resend: (baseline 2026-09-15; age unknown)** create a full-access key → `RESEND_READ_API_KEY` in `~/.absbyai-secrets.env`.
 - **Home filming set:** pick an installer, share the work order (https://claude.ai/code/artifact/2b21b748-62f0-455f-aafb-ac9a6a23ad44).
   VIVO stand return: UPS pickup was Mon 09-14 (# 298404F1F6B) — confirm it went. After install a session builds the look-A telemetry file.
-- **Native retest (one phone session):** analysis page YouTube iframe (inline vs fullscreen, pauses on leaving); `10eda3b`
+- **Native retest (one phone session): (baseline 2026-09-15; age unknown)** analysis page YouTube iframe (inline vs fullscreen, pauses on leaving); `10eda3b`
   member screens; lock-in → sliders → trial CTA and locked result → analysis → unlock; iOS sandbox Restore purchases
   (`549946a`); native still shows IAP + account-first.
 
-# FYI FOR DAN (read once, then delete)
-
-- GA4 `G-1M1SY7GGKF` live and linked to Ads, no conversion import (native wrappers count as web). Search ads all → `/start`.
-- Subscriber list moved to Postgres; the public file now 404s. Nothing lost. ⚠ `push-subs.json` must move to Postgres before web push is switched on.
-- Google Ads 09-09 account fixes are live (goals, negatives, keywords, `/start` RSAs) — results are ready to review. `Docs/GOOGLE_ADS_API.md`
-- Ads digest covers Meta + Google (`Docs/ADS_DIGEST.md`); its 09-10 "Search went dark" flag predates the ceiling removal.
-- Website conversion video `CwEGFxpIM-E` is live on the analysis page and /start; review at `absbyai.com/?demo=analysis`.
-- Web cart live test passed 09-14; `a943506` pauses the analysis video when the cart opens. ⚠ PostHog `account_signup` funnels need rebuilding.
-- Video-quality engine Phases 1–2 shipped (gate 1.2.0, corpus 19/19); gate stamps before 1.2.0 are invalid. Baseline:
-  21 of 23 published V2/V3/V6 cutdowns miss −14 LUFS, unowned. `Docs/BOARD_REFERENCE.md`
-- 8/28 raw shoot backed up to Drive and MD5-verified.
-- Meta $50 review: $2.02/follow (target < $3); two dead reel tests paused; image tests judged 09-13; next reading Fri 09-18.
-
 # ACTIVE
+
+**Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
+
+**Web push storage — OPEN 2026-09-15.** Move `push-subs.json` to Postgres before enabling web push. Subscriber-list migration is already finished.
+
+**PostHog signup funnels — OPEN 2026-09-15.** Rebuild `account_signup` funnels after the web-cart changes. Next: assign a session.
+
+**Published cutdown audio — UNOWNED 2026-09-15.** 21 of 23 V2/V3/V6 cutdowns miss −14 LUFS. Next: scope remediation from `Docs/BOARD_REFERENCE.md`; preserve editor mixes under the standing audio rule.
 
 **Ad 3 square R2 — ACTIVE 2026-09-15, owner: Codex 01a0a6d7.** First R2 rejected for missing flashes; corrected R2.1
 restores all 142 flash frames with a hard preflight. Next: moving comparisons, full rebuild, fresh checks/review, then
@@ -108,7 +104,7 @@ colour/transition proof and a stock/AI scene approval package. Render and AI mot
 **Codex organic C1652 revision — ACTIVE 2026-09-15, task 01a0a70e.** Owns only `Media/codex-video-trial/06-organic-r1/`:
 seven-reason/five-step visual plan, AI endpoint frames, framing/skin/transition proof for Dan before motion/render. Private.
 
-**Google Ads policy checks — OVERDUE, next session.** `node scripts/ads/api/client.js policy 24243839443` (six new Ad 3
+**Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (six new Ad 3
 ads; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
 If r2 is limited again: attempt 3 = text-free thumbnail on `1oEcwdp21Fg`, then remove. ⚠ Ad 5 headline "Why My Diets Kept
 Failing" DISAPPROVED (clickbait). Add Zeeshan Ad 1 / Ad 5 verticals only after Dan approves. `Docs/DGEN_CONVERSION_CAMPAIGN.md`
@@ -124,13 +120,13 @@ hit the length cap; thumbnail F optional as A/B) — its 5 shorts post Oct 27–
 540 day` list, Phase 2 if the Demand Gen draft exists. ⚠ No pointer events or `await` in `javascript_tool` on a busy Ads
 tab; stop rather than click into spinners. `Handoffs/handoff-20260908-google-ads-custom-segments.md`
 
-**Ad 4 vertical masters — HELD** in `/Volumes/Extreme/_edit_work/ad4-vert/` (`deliver4.py` refuses the −0.9 dBTP verbatim
+**Ad 4 vertical masters — HELD (baseline 2026-09-15; age unknown)** in `/Volumes/Extreme/_edit_work/ad4-vert/` (`deliver4.py` refuses the −0.9 dBTP verbatim
 stamp). Next: after Dan approves, deliver masters and check off the verticals row. Skill [A8].
 
-**Shorts parked behind the long-form hold.** Zepbound (8) + Supplements (8) need the new spray-tan sound
+**Shorts parked behind the long-form hold. (baseline 2026-09-15; age unknown)** Zepbound (8) + Supplements (8) need the new spray-tan sound
 (`Handoffs/handoff-20260909-audio-match-muhammad.md`); nothing posts until a parent long-form is public.
 
-⚠⚠ **Vertical build owners (Ads 4/5): the BT.601 colour fault is in your builds** — memory `untagged-video-bt601-trap`;
+⚠⚠ **Vertical build owners (Ads 4/5): the BT.601 colour fault is in your builds (baseline 2026-09-15; age unknown)** — memory `untagged-video-bt601-trap`;
 decode with `accurate_rnd`. Re-copy the skill's `caption_sync_check.py` into `ad3-vert/` / `ad4-vert/` (fixed `/tmp` paths collide).
 
 # BLOCKED — external
@@ -138,11 +134,11 @@ decode with `accurate_rnd`. Re-copy the skill's `caption_sync_check.py` into `ad
 **iOS submission `ccc7a7ae` — IN_REVIEW, expedite granted 09-10.** Check `GET /v1/apps/6794097836/reviewSubmissions` (ASC key
 `AuthKey_D7UC9KJD3B.p8`). Fallback: bottom of `app-store-assets/APP_REVIEW_REPLY_20260826_G511v.md`. On approval fire the RevenueCat audit.
 
-**Blotato 200/200 queue.** IG gap-fill: last 7 of 70 wait for slots → `scripts/blotato/iggap_fill.py --apply`. TikTok: then
+**Blotato 200/200 queue. (baseline 2026-09-15; age unknown)** IG gap-fill: last 7 of 70 wait for slots → `scripts/blotato/iggap_fill.py --apply`. TikTok: then
 `tiktok_mirror.py --restore-fb --apply` (6 FB mirrors in `fb_trimmed.json`). Post `667411` exceeded the 400 MB cap — re-encode
 before re-queuing. ⚠ A Blotato `failed` on a big video may be live (memory `blotato-false-failure-large-video`).
 
-**Google Ads Purchase conversion + enhanced-conversion mapping — wait for the first real sale.** The feed is empty because no
+**Google Ads Purchase conversion + enhanced-conversion mapping — wait for the first real sale. (baseline 2026-09-15; age unknown)** The feed is empty because no
 sale has happened; do not manufacture a row. Then map the `Email` column in Data manager and tidy Purchase/Subscribe.
 Memory `google-ads-ui-automation`.
 

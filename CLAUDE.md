@@ -20,7 +20,8 @@ When Dan asks a "what should we work on" / "what should I use my limit for" / "h
 
 - Before doing project work, inspect the current Git state. `AI_COORDINATION.md` is already loaded above.
 - **`AI_COORDINATION.md` is a STATUS BOARD, not a log — keep it short.** It is loaded into every message in this project, so every line costs context in every session. Record only what is open: the task, who is blocked, and the exact next action, in a few factual sentences. Never a transcript.
-- **Size budget: `AI_COORDINATION.md` stays under 2,500 words.** If an edit pushes it over, compress or archive (to `AI_COORDINATION_ARCHIVE.md`) before saving.
+- **Size budget: `AI_COORDINATION.md` stays under 2,500 words.** Each bold-titled entry is at most 80 words and dated. Run `scripts/board-check.sh` after editing the board; compress before finishing if it fails.
+- Report finished work in chat and the morning brief, never as FYI on the board. Follow `Docs/BOARD_MORNING_MAINTENANCE.md` for aging and weekly cleanup.
 - **A finished, approved task's entry gets DELETED, not marked complete.** Before deleting it, put anything durable where it belongs: techniques and traps go in the relevant skill, code history in git, unexecuted work in `Handoffs/`, lasting facts in memory, standing rules in `AGENTS.md`. The table at the top of `AI_COORDINATION.md` is the routing guide.
 - **Re-read `AI_COORDINATION.md` from disk before finishing a task, not just before starting one.** The copy in context is a snapshot from session start and a concurrent session may have written to it; edit only your own entry. This is how the dashboard check-off rule got missed on 2026-07-29, and how an entry got clobbered on 2026-09-01.
 - Only one session owns implementation of a task at a time. Don't continue or overwrite another session's unfinished work without an explicit handoff or a review request.

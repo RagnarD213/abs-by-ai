@@ -11016,3 +11016,21 @@ Facts with no other home went to `Docs/BOARD_REFERENCE.md`, `Docs/SUBSCRIBER_STO
 | Codex organic C1652 revision | A | ACTIVE |
 
 Spot-check of five old ⚠ lines: (1) "Native retest: GA4 counts app sessions as web" — kept (FYI GA4). (2) "Instagram in Dan's Chrome left signed in as @abs.by.ai" — kept (DECISIONS ManyChat). (3) "the $2.00 CPC ceiling killed Search" — obsolete: Google auto-apply removed the ceiling 09-11; recorded in `Docs/GOOGLE_ADS_API.md` and DECISIONS bidding. (4) "Every push redeploys and wipes the in-memory held images" — moved: memory `deploy-drops-locked-holds` already holds it. (5) "Found: the live post-generation video claims 'thousands of guys'" — kept (DECISIONS /start VSL).
+
+
+## FYI section retired — 2026-09-15
+
+Finished updates moved off the live board. Outstanding warnings retained there as open follow-ups. Include these completions once in the next morning brief.
+
+# FYI FOR DAN (read once, then delete)
+
+- GA4 `G-1M1SY7GGKF` live and linked to Ads, no conversion import (native wrappers count as web). Search ads all → `/start`.
+- Subscriber list moved to Postgres; the public file now 404s. Nothing lost. ⚠ `push-subs.json` must move to Postgres before web push is switched on.
+- Google Ads 09-09 account fixes are live (goals, negatives, keywords, `/start` RSAs) — results are ready to review. `Docs/GOOGLE_ADS_API.md`
+- Ads digest covers Meta + Google (`Docs/ADS_DIGEST.md`); its 09-10 "Search went dark" flag predates the ceiling removal.
+- Website conversion video `CwEGFxpIM-E` is live on the analysis page and /start; review at `absbyai.com/?demo=analysis`.
+- Web cart live test passed 09-14; `a943506` pauses the analysis video when the cart opens. ⚠ PostHog `account_signup` funnels need rebuilding.
+- Video-quality engine Phases 1–2 shipped (gate 1.2.0, corpus 19/19); gate stamps before 1.2.0 are invalid. Baseline:
+  21 of 23 published V2/V3/V6 cutdowns miss −14 LUFS, unowned. `Docs/BOARD_REFERENCE.md`
+- 8/28 raw shoot backed up to Drive and MD5-verified.
+- Meta $50 review: $2.02/follow (target < $3); two dead reel tests paused; image tests judged 09-13; next reading Fri 09-18.

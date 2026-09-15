@@ -25,6 +25,10 @@ sessions (and any other assistant, if one is in use).
   session owns unless the user requests a review or the file records an explicit handoff.
 - Re-read it from disk before finishing, not just before starting — a concurrent session may
   have written to it. Edit only your own entry.
+- **Board budget: at most 2,500 words; each bold-titled entry at most 80 words and dated.**
+  Run `scripts/board-check.sh` after editing the board; compress before finishing if it fails.
+- Report finished work in chat and the morning brief, never as FYI on the board.
+  The morning brief follows `Docs/BOARD_MORNING_MAINTENANCE.md` for aging and weekly cleanup.
 - When a task is finished, delivered and approved, **delete its entry**, having first put
   anything durable where it belongs: techniques and traps in the relevant skill, code history
   in Git, unexecuted work in `Handoffs/`, lasting facts in memory, standing rules here.
