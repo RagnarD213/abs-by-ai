@@ -261,6 +261,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-09-15"
+    },
+    {
+      "text": "Put away dishes and load dishwasher",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-09-15"
     }
   ],
   "handoffs": [
