@@ -48,10 +48,12 @@ EDL, beats, captions, audio). Both cutdowns share one `cut_plan.json`, because v
 | **5** every diet you've tried failed | filed | 🟡 delivered; round-2 revisions + ⚠ the same BT.601 grade fault → **J4** | 🟡 same | ❌ J5 | ❌ J5 |
 | **7** in 2010 i photoshopped my face on a fitness model | filed 09-13 | ❌ **J10** | ❌ **J10** | ❌ J11 | ❌ J11 |
 | **10** my dad bod at 38 my dad bod at 40 | filed 09-13 | ❌ **J12** | ❌ **J12** | ❌ J13 | ❌ J13 |
+| **6** you're not too old to get abs i'm proof | filed 09-15 | ❌ **J15** | ❌ **J15** | ❌ J16 | ❌ J16 |
+| **14** i watched 400 workout videos and gained weight | 🟡 finalized 09-15, HD export still owed | ❌ **J17** | ❌ **J17** | ❌ J18 | ❌ J18 |
 
-**Not final yet, so no variants are owed:** Muhammad's Ads 6 and 14 (09-12 revisions; he said on 09-13 he will send them
-"tomorrow my morning time"), Ads 8, 9, 13 and 15 (revision rounds, last notes 09-10), and Waleed's Video 1 (= a third Ad 1,
-round 4 open). **Ads 7 and 10 were added 09-13:** a full read of Muhammad's Upwork thread (Aug 28 → 09-13) found Dan's
+**Not final yet, so no variants are owed:** Ads 8, 9, 13 and 15 (revision rounds written 09-15 on his 09-14 cuts) and
+Waleed's Video 1 (= a third Ad 1, round 4 open). **Ads 6 and 14 went final 2026-09-15** — spec for their four builds:
+`handoff-20260915-ads-6-14-variants.md`. **Ads 7 and 10 were added 09-13:** a full read of Muhammad's Upwork thread (Aug 28 → 09-13) found Dan's
 09-12 2:46 PM message *"Both HD videos at 7 and 10 are looking good, and those are finalized"*. Both are now filed. Every
 other final in that thread (Ads 2, 3, 4, 5; Ad 1 came from the earlier trial room) was already filed.
 
@@ -77,6 +79,10 @@ is actively using. Copy it.
 | J11 | Ad 7: square full + 59s | BLOCKED | Dan approves J10 |
 | **J12** | Ad 10: vertical full + 59s | **READY** | — |
 | J13 | Ad 10: square full + 59s | BLOCKED | Dan approves J12 |
+| **J15** | Ad 6: vertical full + 59s | **READY** — spec `handoff-20260915-ads-6-14-variants.md` | — |
+| J16 | Ad 6: square full + 59s | BLOCKED | Dan approves J15 |
+| **J17** | Ad 14: vertical full + 59s | **READY** — same spec; build from Muhammad's HD export, not the 3.0 Mbps file | HD export owed |
+| J18 | Ad 14: square full + 59s | BLOCKED | Dan approves J17 |
 
 Suggested order among the READY jobs: **J14** (Dan just reviewed it; small geometry + label pass), **J4** (Dan is waiting
 on it and it unblocks J5), **J1** (unblocks J8), **J3** (Ad 2 took ~80% of the campaign's early spend), **J2**, then **J10**

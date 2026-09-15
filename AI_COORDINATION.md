@@ -57,6 +57,9 @@ who is blocked, the exact next action. History, and the verbatim board before th
   re-upload — both are live ad destinations.
 - **Upload the welcome-video first shoot (114 GB) to Drive (baseline 2026-09-15; age unknown)** as its only second copy? ⚠ Set up a personal rclone
   client_id first (shared one hit 403 quota). Memory `drive-backup-capability`.
+- **Muhammad batch 09-14 reviewed 2026-09-15** (6 + 14 finalized; 7 r5, 8 r3, 9 r3, 13 r3, 15 r2 in his doc). Forward it.
+  ⚠ Four AI clips from **Dan's own** "AI clips for Muhammad" folder show artifacts (beach smudge, merged handshake hands,
+  morphing coffee pot, robot arm) — the robot clip is LIVE in Ad 3. Replace centrally? Ad 14 needs its HD export.
 - **Forward editor docs + his calls:** Zeeshan Arms & Shoulders r1 (`revision docs/arms-shoulders-revisions-zeeshan-round1-9-14-26.summary.md`;
   is the music energetic enough; does the "jugs of water" cut stand). Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`;
   ⚠ new side-by-side before/after 0:06.6–0:08.1). Muhammad batch doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`:
@@ -86,6 +89,8 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
+**Ads 6, 7, 10, 14 YouTube + Google Ads — ACTIVE 2026-09-15, owner: Codex 01a0a744.** Running the finalized-ad handoff end to end; Dan authorized available Ad 7/14 exports and kept the live shared budget at $40/day. Next: compliance scan, package/upload unlisted, build Demand Gen groups, record IDs. Detail: `Handoffs/handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md`.
+
 **Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
 
 **Web push storage — OPEN 2026-09-15.** Move `push-subs.json` to Postgres before enabling web push. Subscriber-list migration is already finished.
@@ -101,8 +106,7 @@ Dan. No upload, Ads, dashboard or deployment.
 **Codex Ad14 revision R1 — ACTIVE 2026-09-15, task 01a0a70f.** Owns only `06-ad-r1/`: matching C1603 to approved Muhammad A,
 colour/transition proof and a stock/AI scene approval package. Render and AI motion wait for Dan's frame approval. Private.
 
-**Codex organic C1652 revision — ACTIVE 2026-09-15, task 01a0a70e.** Owns only `Media/codex-video-trial/06-organic-r1/`:
-seven-reason/five-step visual plan, AI endpoint frames, framing/skin/transition proof for Dan before motion/render. Private.
+**Codex organic C1652 revision — ACTIVE 2026-09-15, task 01a0a70e.** `06-organic-r1/`: Dan approved wider-only, productivity and shown stock. Revising shirtless relationship endpoints + four Hinge-style screens; use photo273 and actual before→loader→result. Full edit authorized; replacement motion frames and credential source remain pending. Details `06-organic-r1/STATUS.md`.
 
 **Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (six new Ad 3
 ads; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
@@ -146,6 +150,8 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
+- `handoff-20260915-ads-6-14-variants.md` — master-queue J15–J18, Ads 6 + 14 vertical/square/59s (2026-09-15). Fable 5.1 high.
 - `handoff-20260913-ad-variants-master-queue.md` — THE queue for 9:16 / 1:1 / ≤0:59 variants; READY J14, J4, J1, J3, J2, J10/J12. Fable 5.1 high.
 - `handoff-20260915-ad3-square-steadier-wide-framing.md` — Ad 3 square R2; Codex executing (ACTIVE). GPT-6 Astra high.
 - `codex-video-trial/06a-organic-revision.md` + `06b-ad14-revision.md` — Codex executing (ACTIVE). GPT-6 Astra high.

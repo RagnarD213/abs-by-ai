@@ -1,0 +1,15 @@
+## AD 9 — ROUND 3 (I Tried to Get Abs With ChatGPT. Here's What Happened.)
+
+You got everything from the last round. The label on the ChatGPT picture at the top now reads "AI-generated" instead of "AI Generated Video", it is about half the size it was, and it sits down in the lower left of the card. The ride picture is back in the before beat, and the order plays right: my before picture at 1:39, the flag picture at 1:41.2, me and my daughter on the ride at 1:42.1 - 1:43.4, then camera scene from 1:43.4 to 1:44.8 before the goal image comes in on its own with its AI-GENERATED tag at 1:45. Nothing slides or dissolves between a before and an after anywhere in the cut. And the photo inside the phone in the generate flow at 2:20 - 2:24 is me now, my own before picture, all the way through the scan and the Generating screen, and it still pays off on the goal image alone with its tag at 2:25 - 2:28, so the before and the after in that demo are the same person. The audio is untouched and still exactly right: -14.5 LUFS, peaks at -0.8 with nothing clipped anywhere, one clean mic in a dry room. Everywhere else the picture is the version I already approved, so every chip, card, panel, app screen, the four numbered reasons and the button are all exactly where I want them. Keep all of that.
+
+What is left is the label on the second play of the ChatGPT picture and the way the new real-picture label is built. This list ends the job on this one.
+
+**\*\*TIMESTAMPED REVISIONS\*\***
+
+- 0:11.5 - 0:17
+    - The ChatGPT picture plays twice and it carries a different label each time. At 0:00 it is the small "AI-generated" low on the left of the card, the way I asked for it. Here it is still the old big version sitting halfway up the card, about 60% wider than the one at the top. **Make this label identical to the one at 0:00** - same "AI-generated" text, same size, same low left position on the card, same dashed arrow - so the same picture carries the same label both times it plays.
+- 1:56.5 - 1:58.5
+    - The real-picture label on the two photo shoot pictures is the right words in the wrong build. It reads "[Real picture of me — not AI-generated]" in italics, in sentence case, inside square brackets, as plain text on a see-through band. My AI-GENERATED tag on the goal image is a solid black rounded pill with bold upright capitals sitting inside the picture. **Build the real-picture label as that same chip: solid black rounded pill, bold upright capitals reading "REAL PICTURE OF ME — NOT AI-GENERATED", same size as the AI-GENERATED tag, not italic, no square brackets.** Keep it low on both pictures where it is now, clear of my face and my abs, and have it on from the first frame of each picture - on the red shorts picture it comes in about a third of a second late.
+    - **STANDING RULE (Dan, 2026-09-11): Every real after picture of me carries the label "Real picture of me — not AI-generated" (viewers were taking them for AI). AI pictures keep AI-GENERATED. One label or the other on every picture of my physique, never over my face.**
+
+Everything else, keep.
