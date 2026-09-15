@@ -810,6 +810,38 @@ perfect — when a QC metric fails, confirm the metric before "fixing" the media
 Then look at a contact sheet of every card/pip moment from the **finished file**. That is
 the check against the actual requirement.
 
+## ⚠ Step 10.5 — YouTube's auto-picked Shorts thumbnail can land on garbage (found 2026-09-15)
+
+Two published Shorts — "Stop Doing Ab Exercises Until You Can See Your Abs" (Sep 8, 818 views)
+and "Hire A Maid Instead Of A Personal Trainer" (Sep 3, 338 views) — went live with a **plain
+gray thumbnail** that read as "missing" in the channel grid and the homepage Shorts shelf.
+Root cause: YouTube auto-picks a Short's thumbnail from a handful of algorithmically-chosen
+candidate frames, and in both cases it landed on a mid-video **app screen-recording insert**
+(a loading/"generating" spinner UI) instead of a frame of Dan on camera. Unlike a long-form
+video, Studio's Shorts row shows only the ONE frame it picked — there is no multi-thumbnail
+picker surfaced anywhere for you to catch this before it ships.
+
+**Never leave a Short's thumbnail on YouTube's auto-pick — always set it explicitly, every
+time.** Right after a Short goes live (whichever step does the upload/schedule), open it in
+Studio and confirm the thumbnail shows Dan clearly:
+
+1. `studio.youtube.com/video/<id>/edit` → hover the Thumbnail box → kebab menu (⋮) →
+   **Select from video** → pick a frame with his face, not mid-blink, not a screen recording,
+   not a transition → **Done** → **Save**.
+2. If none of the 3 offered frames work, `/coverimage` builds a proper 1080×1920 custom cover
+   (Studio takes it uncropped for Shorts) — use that instead of settling for a bad auto-pick.
+
+Any Short whose source contains an app screen-recording insert (macro-tracking demos, "AI
+trainer" walkthroughs, upload/generate flows — the whole "Use AI To Get REAL Six Pack Abs"
+and macro-estimate family) is at the highest risk, because the loading-spinner frame is visually
+flat and an easy landing spot for the auto-pick.
+
+**Periodic sweep** (cheap enough to run any time thumbnails are suspect): open
+`studio.youtube.com/channel/UC236gjadarHAhEhOMYNGJ9g/videos/short`, set Rows per page to the
+max, and scroll every row looking for a solid-color/blank thumbnail — that flat, textureless
+look is the tell. Both failures above sat live and unnoticed for days before Dan spotted them
+on the channel homepage.
+
 ---
 
 ## ffmpeg traps — all of these cost real time
