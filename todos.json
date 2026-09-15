@@ -47,12 +47,6 @@
       "addedAt": "2026-09-10"
     },
     {
-      "text": "Live card test of the new web cart: private window → Monthly → pay $0 → confirm logged in + set-password email → cancel before day 7",
-      "priority": "key",
-      "why": "Claude's add, 09-10 evening /prioritize. The pay-first cart went live 09-10 and no real card has been through it; the Demand Gen campaign ($20/day) now sends paid traffic into it. Steps: Docs/WEB_CART.md.",
-      "addedAt": "2026-09-10"
-    },
-    {
       "text": "Check the iOS App Store review status (expedited); on approval fire the RevenueCat restore audit",
       "priority": "high",
       "why": "Dan 09-10 evening /prioritize. Still IN_REVIEW at 09-10 ~7 PM CT (API read); expedite granted 09-10.",
@@ -130,25 +124,9 @@
       "recurring": true
     },
     {
-      "text": "Salad by 2:00 PM",
+      "text": "Salad",
       "priority": "high",
       "recurring": true
-    },
-    {
-      "text": "Large meal by 6:00 PM",
-      "priority": "high",
-      "recurring": true
-    },
-    {
-      "text": "Small meal by 9:00 PM",
-      "priority": "high",
-      "recurring": true
-    },
-    {
-      "text": "Get the Oura ring syncing again",
-      "priority": "high",
-      "why": "Dan 09-10 /prioritize. API token is fine (200) and heart rate synced 7:23 AM, but no sleep score for 09-07, 09-08 or 09-10 — a ring/phone sync problem, not the account.",
-      "addedAt": "2026-09-10"
     }
   ],
   "personal": [
