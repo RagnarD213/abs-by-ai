@@ -7,7 +7,7 @@
         "sharkimageryproduction@gmail.com"
       ],
       "upwork_room": "room_49041dfecc20c11fb2d7b9b0b8aac744",
-      "shares_by": "individual files (each gets sharedWithMeTime) — Drive search finds these"
+      "shares_by": "individual files — BUT his 09-14 batch (7 files, links ending usp=drivesdk) has NO sharedWithMeTime and every Drive search (sharedWithMe + owner + modifiedTime) returned {} for it on 09-15; found only by resolving the Gmail message links + get_file_metadata. Always resolve his message links; do not trust search for him either."
     },
     "Zeeshan": {
       "upwork_name": "Zeeshan Haider",
@@ -192,6 +192,17 @@
       "size": 542401194,
       "filed_on": "2026-09-14",
       "why_final": "Not a Drive delivery: Muhammad's approved v6 HD with the AI breath-smoke shot (1:13.5-1:18) replaced by Claude, his audio bit for bit (notes-16x9-smoke-shot.md). Dan 2026-09-14: 'Okay, all these are looking good, and they are approved.' sha256 85a7da67edc2fc47... Uploaded unlisted as 86jbUhqBTUQ. Muhammad's round-6 re-export will replace it."
+    },
+    {
+      "drive_id": "1jO-re15wKmdzD6SQsQLHkSbnVXdDUPOI",
+      "editor": "Muhammad",
+      "title": "you're not too old to get abs i'm proof",
+      "kind": "ad",
+      "number": 6,
+      "path": "Muhammad Ad Videos/you're not too old to get abs i'm proof - ad 6/you're not too old to get abs i'm proof | muhammad | 16x9 | ad 6.mp4",
+      "size": 363314897,
+      "filed_on": "2026-09-15",
+      "why_final": "Daniel HQ Ad 6 V4 HD.mp4 (created 09-14 07:39Z). Answers Dan's Upwork message 09-14 4:50 PM CT 'please send over the high-quality files for video 6 and 14'; Muhammad replied 11:04 PM CT with the link. No revision doc after the 09-12 round 3. 363 MB. Downloaded by curl, size = Drive exactly. Title from the round-3 doc heading ('You're Not Too Old to Get Abs. I'm Proof.'), apostrophes kept like the Ad 5 folder. Filing is not approval: Dan has not yet confirmed round 3's four items landed."
     }
   ],
   "not_final_seen": [
@@ -466,18 +477,70 @@
       "size": 26452,
       "delivered_on": "2026-09-13",
       "why": "subtitle file for the batch video 2 first cut above; file it with the final"
+    },
+    {
+      "drive_id": "1N_tlSX3AkbHD0XF4CO9GJYOIOP_tqBgT",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 8 V3.mp4",
+      "size": 26183989,
+      "delivered_on": "2026-09-14",
+      "why": "26 MB review cut, answers Ad 8 round 2 (09-10). Not reviewed yet — needs /revisions."
+    },
+    {
+      "drive_id": "1JBEwPZWuDy7nTlIRlCO4Bpjpu5EsxjBo",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 9 v3.mp4",
+      "size": 24166217,
+      "delivered_on": "2026-09-14",
+      "why": "24 MB review cut, answers Ad 9 round 2 (09-10). Not reviewed yet — needs /revisions."
+    },
+    {
+      "drive_id": "1WWdDs4RXQWGAxRDKaQ4PXg8pNAK49J48",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 13 V3.mp4",
+      "size": 30359315,
+      "delivered_on": "2026-09-14",
+      "why": "30 MB review cut, answers Ad 13 round 2 (09-10). Not reviewed yet — needs /revisions."
+    },
+    {
+      "drive_id": "1jSdEMnAlng1td8LDyuVl3nFaUxSFCERi",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 15 V2.mp4",
+      "size": 25756346,
+      "delivered_on": "2026-09-14",
+      "why": "26 MB review cut, answers Ad 15 round 1 (09-10). Not reviewed yet — needs /revisions."
     }
   ],
-  "pending": [],
+  "pending": [
+    {
+      "drive_id": "1VQuOxzfbmXv_TgO5GgURXrLkkwusU6_k",
+      "editor": "Muhammad",
+      "file": "Daniel HQ ad 14 V3.mp4",
+      "size": 79337649,
+      "delivered_on": "2026-09-14",
+      "reason": "Sent in reply to Dan's 09-14 request for the HIGH-QUALITY files of 6 and 14, but it is 79 MB with no 'HD' in the name (same size class as the 80 MB v2 draft), and Drive shows it modified 09-15 06:46Z, after his message. Looks like the review cut, not the HD export. Not downloaded. Dan: review it, or ask Muhammad for 'Ad 14 V3 HD'.",
+      "added_on": "2026-09-15"
+    },
+    {
+      "drive_id": "1D7sc0Nyq_ViM1bEJGP4xXStMphpVzmFs",
+      "editor": "Muhammad",
+      "file": "Daniel HQ Ad 7 V4 HD.mp4",
+      "size": 283996801,
+      "delivered_on": "2026-09-14",
+      "reason": "A SECOND Ad 7 V4 HD (created 09-14 07:09Z), 26,019 bytes larger than the one already filed 09-13 (1mTizfbX…, 283,970,782 B) and a different file. Nobody asked for it: Dan finalized Ad 7 on 09-12. Probably Muhammad applied the round-4 items anyway (inverted closing demo + chip style). Not downloaded, filed master not overwritten. Dan: say whether it replaces the filed Ad 7 master.",
+      "added_on": "2026-09-15"
+    }
+  ],
   "resolved_2026-09-10": [
     "Zeeshan 'thread unread' — room read in Chrome 09-10: Dan called Rev 3 finalized 09-09 10:15; filed.",
     "Romaisa R. (room_3a0dd1a1…) — not an editor on the job: an applicant following up ('I hope you've found a good editor… available to work'). Same for Abdul W. (room_549d5bcc…, proposal) and Gbadamosi I. (room_3f398d8b…, 'How are you?'). None delivered anything."
   ],
-  "last_run": "2026-09-14",
+  "last_run": "2026-09-15",
   "watch": [
     "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder — so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final.",
-    "Waleed: access block cleared; he delivered the round-4 cut of Video 1 on 2026-09-12 (Test Video 1.mp4, id 1Q-cmEcXKhNwB7c8fVF0OMtsejLj3XdE4) and requested milestone payment. It is in not_final_seen, NOT filed - round-4 revisions were written on that exact file the same day, so rule 2 forbids filing it. (A 09-12 note in this file said to file it on the next run; that was wrong and is corrected here.) File the cut that answers round 4. He now delivers from waleedatwork124@gmail.com, not info.taimoormirzaa@.",
     "Zeeshan's content batch VIDEO 2 first cut (Video2.mp4, 848 MB) landed 09-13 16:30Z in a NEW folder (1mvqEowzfNNprOCxPta6DASIT20MdYfvX), announced 09-14 00:52Z. It needs a /revisions review; nothing to file until Dan calls a later cut final.",
-    "Muhammad owes finals after the 09-12 round: Ad 6 (after r3) and Ad 14 (after r2) — he said 09-13 18:56Z he sends them 'tomorrow my morning time'; not on Drive as of the 09-14 run. Ads 7 and 10 are FILED (Dan finalized both 09-12). Ads 8, 9, 13, 15 still in revision rounds (last notes 09-10)."
+    "Muhammad 09-14 batch: Ad 6 V4 HD FILED 09-15; Ad 14 and a second Ad 7 V4 HD in pending; Ads 8 V3, 9 v3, 13 V3, 15 V2 are new ~25-30 MB review cuts needing /revisions (last notes 09-10).",
+    "Waleed 09-14 18:17Z: proposes ending the job at video 1 for the $50 milestone and asks for 5-star feedback. No new delivery; his round-4 cut (1Q-cmEcX…) stays not final. Nothing to file unless Dan accepts that cut as final.",
+    "Zeeshan 09-15 06:35Z: 'Thanks for feedback brother I will send you asap' — acknowledging the arms & shoulders round 1. Next cut not on Drive yet (folder_scan 10/10 known)."
   ]
 }
