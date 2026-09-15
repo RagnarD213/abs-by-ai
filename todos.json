@@ -141,6 +141,12 @@
       "priority": "med",
       "why": "2026-08-19 planning — a couple of current ones aren't ideal",
       "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Get the Oura ring syncing again",
+      "priority": "med",
+      "addedAt": "2026-09-15",
+      "why": "Was parked in the health list; the daily health reset would have wiped it"
     }
   ],
   "assistant": [
