@@ -133,7 +133,15 @@ AD 7 572–674, AD 8 675–end. For a round ≥ 2 cut, your checklist is the LAS
    Open with what he fixed / what works ("keep all of this"), then THROUGHOUT, then TIMESTAMPED REVISIONS in play
    order, then "Everything else, keep." Every item states the exact replacement (exact text, exact Drive link from
    the scripts doc or the asset library in the skill, or exact source timecodes).
-2. `/Volumes/Extreme/_edit_work/<WORKDIR>/out/<NAME>.summary.md` — for Dan's chat report: 5–10 lines:
+   ⚠ **Every AI-artifact item passes the false-positive protocol in step 3b of the skill first** (Dan, 2026-09-15 —
+   three of four went out wrong in one batch): watched at playback speed at full resolution, never called off an
+   occlusion (a handshake, a spotter's arm, a hand around a cup) or a light (glow, flare, specular on sweat), and an
+   object only when you can name it in two clearly-readable frames. Still include a doubtful one — Dan would rather
+   delete than miss — but it goes in the summary block below so deleting costs him a glance.
+2. `/Volumes/Extreme/_edit_work/<WORKDIR>/out/<NAME>.summary.md` — for Dan's chat report: 5–10 lines, and when the ad
+   has any AI shot, a block headed **"AI CLIPS FLAGGED — watch before forwarding"**: one line per flagged shot with its
+   timecode, what to look at, CONFIRMED (tier A, or the two-frame identity test) or POSSIBLE (tier B), and whether the
+   clip is one of Dan's own assets (then it is live in other ads and his to replace centrally). Then:
    scorecard vs last round (DONE / PARTLY / NOT DONE counts, for round ≥ 2), the 3 biggest findings with numbers,
    the item count, anything that needs Dan's call (kept OUT of the doc), and a one-paragraph paste-ready Upwork
    message from Dan to Muhammad saying the round is in the same doc

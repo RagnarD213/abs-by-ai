@@ -62,8 +62,11 @@ Two audiences, same skill:
   my face on the bodybuilder's body**" and cut a five-sentence 0:00 item down to "Take the logo out." plus the rule
   plus "Remove all graphics from this duration, just make this plain camera scene". A reader skimming the bold
   should be able to do the edit.
-- **A finished ad gets one bold line under its H2: `APPROVED - FINALIZED - READY FOR HIGH QUALITY EXPORT`**,
-  then the credit paragraph, and nothing else — no THROUGHOUT, no items (Ad 5 round 3, 2026-09-10).
+- **A finished ad gets one bold line under its H2** — Dan's own wording since 2026-09-15:
+  `FINALIZED - APPROVED - HQ EXPORT DELIVERED` when the high-quality export is in hand, or
+  `FINALIZED - APPROVED - NEEDS HQ EXPORT FOR UPLOAD` when it is not (these replace the older
+  "APPROVED - FINALIZED - READY FOR HIGH QUALITY EXPORT"). Then the credit paragraph if the round earned one, and
+  nothing else — no THROUGHOUT, no items. **Dan decides which line**; see calibration rule 39.
 
 ## Calibration from Dan's edits — the doc must need ZERO changes (2026-09-03)
 
@@ -287,6 +290,35 @@ blanket "the man in the phone must be Dan" reading of pass-3 rule 25:
     image (his face badly pasted on a bodybuilder), or the upload photo inside an app recording, does not trigger it.
     Do not spend an item on those adjacencies.
 
+### Calibration pass 6 — Dan's edits to the 2026-09-15 batch (Ads 7, 8, 13, 15 and the two finalized)
+
+Seven cuts, five reviewed. Dan deleted six items and one whole section, changed two status lines, and kept every item
+about label construction, compliance and demo identity. What the deletions say:
+
+38. **Three of four AI-artifact items were wrong** — the protocol that fixes it is in step 3b above, and it is the
+    highest-value change in this pass. He kept the one where an object became a different object.
+39. **Dan's status lines, verbatim, and HE decides which one:** `FINALIZED - APPROVED - HQ EXPORT DELIVERED` when the
+    high-quality export is already in hand, `FINALIZED - APPROVED - NEEDS HQ EXPORT FOR UPLOAD` when it is not. These
+    REPLACE "APPROVED - FINALIZED - READY FOR HIGH QUALITY EXPORT" and "FINALIZED - NO FURTHER REVISIONS NEEDED".
+    **Do not infer which from the file.** We measured Ad 14's export at 3.0 Mbps against the batch's usual 10 and wrote
+    that it still owed its HD; Dan marked it HQ EXPORT DELIVERED, and marked Ad 7 — a 10 Mbps, 284 MB file — as still
+    needing one. State the bitrate and size in the SUMMARY as a measurement and let him set the line.
+40. **A FINALIZED ad is not reopened for a cosmetic defect.** Ad 7's re-export fixed a headline running off frame and
+    introduced "AI-GENERATEd" — one letter's case, inside a 3 s chip. We wrote a one-item round 5; Dan deleted the
+    section and stamped it finalized. Once an ad is finalized, only a compliance break, the wrong person, the wrong
+    asset or something that makes it unusable reopens it. Anything smaller is a line in the summary, for him.
+41. **Never itemise how long a picture holds** — the extension of rule 23 to the whole timeline, not just the end. Ad 15
+    3:03.5: the after picture was up half a second, gone before his line ended; deleted. Insert duration is the editor's
+    rhythm. The only picture-timing item left is a line that plays with nothing on screen at all.
+42. **On a late round, a defect that has been on screen unchanged since a round Dan reviewed is HIS call, not a new
+    item.** Ad 13 round 3: the "SIXPACKSHORTCUTS.CO" watermark burned into his own old-show footage, and the missing AI
+    label on the supplement-bowls picture (an open question from round 2) — both deleted, both already known to him and
+    named in earlier sections of his own doc. Put that class in the summary. A compliance break, or a rule he made since
+    the last round, is the exception and stays an item.
+43. **What he kept, every time:** a label built wrong (italic, sentence case, in square brackets, on a see-through band
+    instead of the black pill chip — three ads in one batch), a before picture running into an after picture, a demo
+    that shows the wrong person for the line under it, and text panels that do not match the script.
+
 **Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
@@ -388,6 +420,37 @@ exact timing or an exact link.
      that do not pour or splash right; lighting that pulses or highlights that slide.
    - **Text and screens** — gibberish letters on phones, signs, labels, books and packaging; UI that melts.
    - **Background people** — melting or duplicated faces, bodies merging.
+   **⚠ CONFIRMING ONE — the false-positive protocol (Dan, 2026-09-15). Four artifacts went out in one batch and only
+   ONE was real.** Dan watched all four: he kept the Ad 8 coffee pot (*"Great job catching that… I missed that"*) and
+   deleted the other three — Ad 8's gym handshake ("their hands merge into one fingerless lump"), Ad 8's beach run ("a
+   glowing orange smudge welded to his stomach"), Ad 13's robot trainer ("the robot's forearm and his arm are one
+   limb"). *"There were a few clips where you identified issues, but I watched it, and there wasn't really any issue."*
+   **What separated the real one:** a DISCRETE OBJECT CHANGED IDENTITY over the shot — a glass jug became a metal moka
+   pot became a short pot, a jacket became a smear — provable by naming the object in two clearly-readable frames.
+   **What all three false ones were:** momentary OVERLAP or LIGHT, judged from single frames of small, blurred or
+   occluded regions. Before an artifact becomes an item it passes all of these:
+   - **Watch it at speed, not as stills.** Cut the shot out at full resolution and read it at its true frame rate, then
+     say what a viewer watching once would see. Frame-level strangeness that disappears at playback speed is not an item.
+   - **The occlusion test** (the number-one false positive). When two things touch or cross — a handshake, a spotter's
+     arm over a lifter's arm, a hand around a cup — real 1080p footage with motion blur ALSO looks merged. It is an item
+     only if the impossible shape persists while the two things are clearly SEPARATE, or a hand, finger or limb is
+     missing or doubled in a still, unoccluded, in-focus view.
+   - **The light test.** A glow, flare, bloom, hot specular on sweaty skin or sun through haze is not an artifact, and it
+     tracks the body because the light is ON the body — that is not evidence. It is an item only if the glow has a hard
+     edge that hides texture underneath and stays when the subject turns away from the light.
+   - **The two-frame identity test** (the one that found the real one). Name the object, pick two clearly-readable
+     frames, and write what it is in each. If you cannot name it confidently in both frames, you do not have an item.
+   - **Full resolution only** — never from the 2 fps sheet, a 320 px frame or a scaled strip.
+   - **Tier the giveaways.** TIER A, always an item: breath fog/steam with no cause, gibberish text on a screen or sign,
+     a face's identity drifting, an object becoming a different object, a limb or finger count changing, a reflection
+     that contradicts the body. TIER B, only if it survives every test above: merged hands or limbs, blurry background
+     faces, plastic skin, a glow, a small oddity at the frame edge.
+   - **Dan's instruction stands: when in doubt, still put it in** — *"I would rather have it in there and delete it than
+     not have it."* The protocol is for cutting the obvious misses, not for going quiet. But EVERY AI-artifact item is
+     also listed in the summary file under **"AI CLIPS FLAGGED — watch before forwarding"**, one line each: timecode,
+     what to look at, and CONFIRMED (tier A, or the two-frame test) or POSSIBLE (tier B), so deleting one costs Dan a
+     glance. Say when the clip is one of Dan's OWN assets (the "AI clips for Muhammad" folder, a supplied story clip) —
+     it is then live in other ads and his to replace centrally.
    **The item** (Dan's voice, directions not generation, calibration rule 5): the timecode, what gives it away in plain
    words, and the fix — *"At 1:16, the AI clip shows smoke coming out of his mouth when he exhales and the mirror
    fogging up. Replace this shot with a version without the smoke: regenerate it, or use stock footage or an AI clip
@@ -432,7 +495,14 @@ exact timing or an exact link.
    an item.
    Then the AI-artifact check (step 3b, Dan 2026-09-14): EVERY AI shot was read as consecutive full-resolution frames,
    including all of its last 2 s, with mirrors, mouths, hands, held objects, backgrounds and screens cropped and read on
-   their own; every giveaway is an item with its timecode and the AI realism STANDING RULE line.
+   their own; every giveaway is an item with its timecode and the AI realism STANDING RULE line. **And every one of
+   those items passed the false-positive protocol** (step 3b, Dan 2026-09-15): watched at playback speed at full
+   resolution, not called off an occlusion or a light, named in two clearly-readable frames if it is an object, tiered
+   A or B — and every one is repeated in the summary's "AI CLIPS FLAGGED — watch before forwarding" block as CONFIRMED
+   or POSSIBLE, marked when the clip is one of Dan's own assets.
+   Then the pass-6 checks (rules 38–43): the finalized line is Dan's current wording and the bitrate went in the summary
+   as a measurement rather than a conclusion; no section reopens an ad Dan has FINALIZED for anything cosmetic; no item
+   about how long a picture holds; nothing raised late that has been on screen unchanged since a round he reviewed.
 8. **Write the Google Doc** via the Google Drive MCP `create_file` with
    `contentMimeType: text/markdown` — it converts cleanly to a Doc, including links.
    Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the
@@ -887,3 +957,15 @@ exact timing or an exact link.
     the raw triceps clip had "plenty of room above me" off a 1 fps contact sheet; at full resolution the dumbbell leaves
     the top of the RAW frame too. Never state what the raw holds from a thumbnail. Measure it, or look at full-resolution
     frames at the top of the rep.
+52. ⚠ **DAN'S DICTATION OVERWRITES THE CLIPBOARD — set it and paste in the very next action (2026-09-15).** Lesson 20
+    said a concurrent session can overwrite the clipboard between set and paste; the real cause is usually Wispr Flow,
+    which copies whatever Dan dictates anywhere on the machine. A paste four tool calls after `md_to_docs_clipboard.py`
+    put a sentence of Dan's dictation into Muhammad's doc instead of the sections. Recovery is clean: `cmd+z` once, then
+    re-run the converter and `cmd+v` as the immediately following call. Do the browser work FIRST (open the doc, click
+    into the body, `cmd+ArrowDown`, check the B button is off), and only then set the clipboard. After any undo, verify
+    the whole doc, not just the cursor area (lesson 42b).
+53. **Verify a paste with a text export, not a screenshot (2026-09-15).** `curl -sL
+    "https://docs.google.com/document/d/<ID>/export?format=txt" -o after.txt` costs nothing, needs no Drive call, and a
+    one-line `b.startswith(a)` against the pre-paste export proves every earlier word is byte-identical and lists the
+    new headings. Keep the pre-paste export on disk; the same file is what the next session diffs against to learn from
+    Dan's edits (lesson 34). It is also how a false "the doc looks fine" screenshot gets caught.
