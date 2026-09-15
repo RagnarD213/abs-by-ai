@@ -267,6 +267,12 @@
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-09-15"
+    },
+    {
+      "text": "Fold laundry",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-09-15"
     }
   ],
   "handoffs": [
