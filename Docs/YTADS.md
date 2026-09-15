@@ -229,3 +229,9 @@ event for the video first (the last `headlines` event wins).
   snapshot (`UrlFetchApp` runs in preview) but executes nothing.
 - The Google Ads tab freezes for minutes at a time (CDP timeouts); when it does, the hourly schedule at :00 is
   the reliable executor — queue the work and wait.
+
+## Tier 1 has no champion (moved from the coordination board, 2026-09-15)
+
+"1 min ab workout workout only" (ad `821875813611`, $1.03/conv, 136 conv) was paused in the UI between the dry run and
+the first live run on 09-08 — not by this system. Dan's call: re-enable if accidental
+(`manual.js enable customers/3427170837/adGroupAds/206274722584~821875813611`), otherwise leave it.

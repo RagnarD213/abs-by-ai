@@ -122,3 +122,16 @@ subscribed to web push yet. `savePushSubs()` PUTs it to the public repo, and a p
 carries the endpoint URL plus its `p256dh` and `auth` keys — enough for anyone who reads the
 file to send notifications to that person's device. **Move it to Postgres before web push is
 switched on**; it is the same shape of change as this one.
+
+## Re-verifying the store (moved from the coordination board, 2026-09-15)
+
+- **Reading prod Postgres from the Mac needs `DATABASE_PUBLIC_URL`** from `railway variables --service Postgres`.
+  The cached `DATABASE_URL` is `postgres.railway.internal` and will not resolve off Railway.
+- **Do not trust a digest match.** The subscriber digest covers welcome-sequence state, so it changes legitimately
+  every time a welcome email sends (09-11: `1f0cb629…` became `9dbf07fe248093b9cebcb50f4c10c46a32a0b4fb0f350dd3b094dd29097f4c1f`
+  when one subscriber's fifth email went out). Compare the DB row-by-row against
+  `~/.absbyai-subscribers-snapshot-20260911.json` (0600, outside the repo) instead.
+- `/api/subscribers/status` read 28 dbRows / 28 inMemory / 21 mailable at cutover (deploy `6e1bfc3`, merge of `c08938b`).
+- Making the repo private breaks nothing: every GitHub read/write in `server.js` uses `GITHUB_TOKEN`, and there is no
+  unauthenticated `raw.githubusercontent` fetch in the tree. After the flip, push a trivial commit and confirm the
+  Railway deploy (reconnect Railway's GitHub app if it hiccups).

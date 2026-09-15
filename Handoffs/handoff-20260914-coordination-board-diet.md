@@ -1,5 +1,7 @@
 # Handoff — put `AI_COORDINATION.md` back on a diet (2026-09-14)
 
+**Status: EXECUTED 2026-09-15** — board 11,722 words / 78,469 bytes → ~2,000 words / ~15 KB. Snapshot + inventory at the end of `AI_COORDINATION_ARCHIVE.md`; moved facts in `Docs/BOARD_REFERENCE.md`.
+
 ## Goal
 
 `AI_COORDINATION.md` is loaded into **every message of every Claude Code session** in this project. Its own header

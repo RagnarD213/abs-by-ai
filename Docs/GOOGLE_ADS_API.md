@@ -152,3 +152,21 @@ Task 3 of the same handoff. **Not created.**
   **"Let's make sure you're human"** gate. Claude is not permitted to complete CAPTCHAs, so **Dan has to click
   that one checkbox**, then finish the wizard: name **SixPackAbs.com**, `America/Chicago`, USD, **skip billing**,
   and take the "create an account without a campaign" / Expert Mode link so no campaign is made.
+
+## Search bidding changed by Google auto-apply (2026-09-11) — moved from the coordination board
+
+- The $2.00 CPC ceiling set on 09-09 is **gone**: removed from Brand at 14:39 (Ads UI) and from Non-Brand at 14:46 by
+  **`GOOGLE_ADS_RECOMMENDATIONS` — Google's auto-apply, not a human.** Both Search campaigns now read
+  MAXIMIZE_CONVERSIONS with no target CPA and no ceiling. Auto-apply can change bid settings on this account by itself.
+  The digest's 09-10 "Search went dark since the ceiling" flag predates this.
+- 09-09 fixes (detail: `Handoffs/handoff-20260909-google-ads-account-fixes.md`): campaign goals = Submit lead forms
+  only; Tier-2 Demand Gen $15 → $5/day; 8 Brand phrase negatives; 3 Non-brand negatives + 14 phrase keywords;
+  five `/start` RSAs with rotate-indefinitely.
+- Brand ($10/day throughout) delivered **$24.43 on 09-04**, above Google's 2× cap — a creditable over-delivery if asked.
+  Non-brand's $5/day was set 09-08, so its $88.91 week was against $10/day (benign).
+- **Trial Signup is not broken** — it reads Misconfigured only because no ad-attributed trial has happened
+  (`membership_subscribed` fired 6×, last 08-25; 4 were native IAP). **Add Sign-ups to both Search campaigns' goals the
+  day a real ad-attributed trial lands.**
+- 09-11 rep tasks: every enabled Search ad points at `/start` (5 home originals paused); homepage + How It Works
+  sitelinks added (ids in `Docs/VSL_LANDING.md`); callouts need nothing. A final-URL change re-triggers policy review:
+  `node scripts/ads/api/client.js policy 24148587722` and `… 24086091285`.

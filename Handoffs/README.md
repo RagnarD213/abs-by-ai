@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260914-coordination-board-diet.md](handoff-20260914-coordination-board-diet.md) | **now** — shrink `AI_COORDINATION.md` to ≤2,500 words (saves ~15k tokens per message), verbatim archive + inventory so nothing open is lost, add a size-budget rule. Opus 5 high |
 | [Codex trial: start here](codex-video-trial/00-start-here.md) | Shared rules, model recommendations, and execution order; documents remain local pending private/public storage decision |
 | [01 — Reference study](codex-video-trial/01-reference-study.md) | **now** — Astra / High; verify sources and learn Muhammad's organic/ad styles |
 | [02 — Raw-footage sample](codex-video-trial/02-raw-footage-sample.md) | after 01 — Astra / High; deliver the first 60–90 seconds for calibration |
@@ -23,7 +22,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [08 — Optional format pilot](codex-video-trial/08-format-pilot.md) | after accepted originals, if time/budget permit — Sol / High; vertical, square, derivative Short |
 | [09 — Final decision](codex-video-trial/09-final-decision.md) | October 9–11 regardless of unfinished tests — Sol / Medium; evidence and subscription decision |
 | [Original Codex trial plan](handoff-20260911-codex-video-editing-trial.md) | Interview/strategy record; execute the numbered series above, not a duplicate run of this plan |
-| [handoff-20260914-ad3-square-codex.md](handoff-20260914-ad3-square-codex.md) | **now, for Codex** (master queue **J7**) — Ad 3 1:1 square + ≤0:59 square from the approved vertical build; written in detail for a first-time Codex run. Codex strongest model, high |
+| [handoff-20260915-ad3-square-steadier-wide-framing.md](handoff-20260915-ad3-square-steadier-wide-framing.md) | **now** — full R2 only: calmer wider-shot tracking, tight shots unchanged; short R1 finished/optional. Moving comparisons before full render. GPT-6 Astra / High |
 | [handoff-20260913-ad-variants-master-queue.md](handoff-20260913-ad-variants-master-queue.md) | **the ONE queue for ad variants** — coverage matrix (every finalized ad × 9:16 / 9:16 59s / 1:1 / 1:1 59s) and jobs J1–J14 with a reusable "run the next READY job" prompt; the square docs below are its specs. READY: J14 Ad 1 square round 1, J4 Ad 5 round 2 + colour, J1 Ad 4 re-grade + masters, J3 Ad 2 59s pair, J2 Ad 1 9:16 59s, J10/J12 Ads 7 + 10 verticals (filed 09-13). ⚠ BT.601 colour trap section. Fable 5.1 high |
 | [handoff-20260912-ad5-vertical-revisions-round2.md](handoff-20260912-ad5-vertical-revisions-round2.md) | **now** (master queue **J4**) — Dan's round-2 revisions on the Ad 5 vertical: the app demo's before and after must be the same man (his after must be generated, it is not in the library), and the "Real picture of me" label on EVERY real picture, off his abs and larger. Opus, high |
 | [handoff-20260912-vqc-phase3-watch-pass.md](handoff-20260912-vqc-phase3-watch-pass.md) | **next in the video-quality engine** — Phase 3: the watch pass becomes mandatory in all six skills (one shared `watch.py`, sheet-judged first pass, `cut:naked_splices` proven on the corpus, then the 30 bannered QC forks deleted). Phases 1–2 done (`eff3896`, `0d62064`). Fable 5.1 high, ~2 sessions |
@@ -62,6 +61,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-15 | [handoff-20260914-coordination-board-diet.md](handoff-20260914-coordination-board-diet.md) | EXECUTED — board cut 11,722 → ~2,000 words; verbatim snapshot + inventory in the archive |
+| 2026-09-15 | [handoff-20260915-ad3-square-steadier-wide-framing.md](handoff-20260915-ad3-square-steadier-wide-framing.md) | Ad 3 full square: steadier wider shots; short square finished and optional |
 | 2026-09-11 | [handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md](handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md) | Google Ads rep meeting: GA4 + Ads link, Search ads → /start with homepage sitelink, empty MCC account for sixpackabs.com |
 | 2026-09-14 | [handoff-20260914-ad3-square-codex.md](handoff-20260914-ad3-square-codex.md) | Ad 3 square + square 59s, for Codex |
 | 2026-09-14 | [handoff-20260914-ad3-youtube-and-ads.md](handoff-20260914-ad3-youtube-and-ads.md) | Ad 3 clean 16:9 + 9:16 + 9:16 59s → YouTube + Google Ads |
