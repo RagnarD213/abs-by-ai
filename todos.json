@@ -251,10 +251,9 @@
     },
     {
       "text": "Clean Master Bathroom & Guest Bathroom",
-      "priority": "unassigned",
+      "priority": "high",
       "recurring": false,
-      "addedAt": "2026-09-01",
-      "addedBy": "assistant"
+      "addedAt": "2026-09-01"
     },
     {
       "text": "Cook meal prep",
