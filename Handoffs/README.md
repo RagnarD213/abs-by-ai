@@ -17,11 +17,13 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [01 — Reference study](codex-video-trial/01-reference-study.md) | **now** — Astra / High; verify sources and learn Muhammad's organic/ad styles |
 | [02 — Raw-footage sample](codex-video-trial/02-raw-footage-sample.md) | after 01 — Astra / High; deliver the first 60–90 seconds for calibration |
 | [03 — First organic](codex-video-trial/03-first-organic.md) | after sample feedback — Astra / High; complete the ab-wheel video |
-| [06 — Two unseen videos](codex-video-trial/06-unseen-videos.md) | **Running** — private C1652 organic + C1603 / Ad 14 originals; Ad 15 replaced after status-board critique exposure; freeze both cuts before matching references |
+| [06 — Two unseen videos](codex-video-trial/06-unseen-videos.md) | **Awaiting Dan** — both first cuts frozen; organic publishability test + full randomized Ad14 comparison against an available human revision; collect verdicts and one revision list |
 | [07 — Lower-cost repeat](codex-video-trial/07-lower-cost-repeat.md) | after 06 review — Sol / High; second organic/ad pair and cost test |
 | [08 — Optional format pilot](codex-video-trial/08-format-pilot.md) | after accepted originals, if time/budget permit — Sol / High; vertical, square, derivative Short |
 | [09 — Final decision](codex-video-trial/09-final-decision.md) | October 9–11 regardless of unfinished tests — Sol / Medium; evidence and subscription decision |
 | [Original Codex trial plan](handoff-20260911-codex-video-editing-trial.md) | Interview/strategy record; execute the numbered series above, not a duplicate run of this plan |
+| [handoff-20260914-ad3-youtube-and-ads.md](handoff-20260914-ad3-youtube-and-ads.md) | **now** — Dan approved Ad 3's clean 16:9, 9:16 and 9:16 59s 09-14: upload all three unlisted, add them to Ad 3's two Demand Gen ad groups, pause the two old smoke-shot ads. Sonnet 5 medium |
+| [handoff-20260914-ad3-square-codex.md](handoff-20260914-ad3-square-codex.md) | **now, for Codex** (master queue **J7**) — Ad 3 1:1 square + ≤0:59 square from the approved vertical build; written in detail for a first-time Codex run. Codex strongest model, high |
 | [handoff-20260913-ad-variants-master-queue.md](handoff-20260913-ad-variants-master-queue.md) | **the ONE queue for ad variants** — coverage matrix (every finalized ad × 9:16 / 9:16 59s / 1:1 / 1:1 59s) and jobs J1–J14 with a reusable "run the next READY job" prompt; the square docs below are its specs. READY: J14 Ad 1 square round 1, J4 Ad 5 round 2 + colour, J1 Ad 4 re-grade + masters, J3 Ad 2 59s pair, J2 Ad 1 9:16 59s, J10/J12 Ads 7 + 10 verticals (filed 09-13). ⚠ BT.601 colour trap section. Fable 5.1 high |
 | [handoff-20260912-ad5-vertical-revisions-round2.md](handoff-20260912-ad5-vertical-revisions-round2.md) | **now** (master queue **J4**) — Dan's round-2 revisions on the Ad 5 vertical: the app demo's before and after must be the same man (his after must be generated, it is not in the library), and the "Real picture of me" label on EVERY real picture, off his abs and larger. Opus, high |
 | [handoff-20260912-vqc-phase3-watch-pass.md](handoff-20260912-vqc-phase3-watch-pass.md) | **next in the video-quality engine** — Phase 3: the watch pass becomes mandatory in all six skills (one shared `watch.py`, sheet-judged first pass, `cut:naked_splices` proven on the corpus, then the 30 bannered QC forks deleted). Phases 1–2 done (`eff3896`, `0d62064`). Fable 5.1 high, ~2 sessions |
@@ -61,6 +63,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | Date | Document | Subject |
 |---|---|---|
 | 2026-09-11 | [handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md](handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md) | Google Ads rep meeting: GA4 + Ads link, Search ads → /start with homepage sitelink, empty MCC account for sixpackabs.com |
+| 2026-09-14 | [handoff-20260914-ad3-square-codex.md](handoff-20260914-ad3-square-codex.md) | Ad 3 square + square 59s, for Codex |
+| 2026-09-14 | [handoff-20260914-ad3-youtube-and-ads.md](handoff-20260914-ad3-youtube-and-ads.md) | Ad 3 clean 16:9 + 9:16 + 9:16 59s → YouTube + Google Ads |
 | 2026-09-14 | [handoff-20260914-ad3-ai-smoke-artifact-fix.md](handoff-20260914-ad3-ai-smoke-artifact-fix.md) | Ad 3: remove the AI breath-smoke artifact (vertical + 16:9), then finish delivery |
 | 2026-09-13 | [handoff-20260913-ad-variants-master-queue.md](handoff-20260913-ad-variants-master-queue.md) | Ad variants master queue — vertical, square and ≤0:59 cutdowns for every finalized ad |
 | 2026-09-11 | [handoff-20260911-square-ads-00-shared-rules.md](handoff-20260911-square-ads-00-shared-rules.md) | Square (1:1) ad versions — shared rules, gates, naming, firing order |

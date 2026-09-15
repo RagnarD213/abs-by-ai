@@ -622,6 +622,71 @@
    "deliver": {
     "format": "ad9x16"
    }
+  },
+  {
+   "id": "ad3-vertical-r12-approved",
+   "verdict": "approved",
+   "date": "2026-09-14",
+   "root": "repo",
+   "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | claude | 9x16 | ad 3.mp4",
+   "excerpt": [
+    60,
+    90
+   ],
+   "dan": "Okay, all these are looking good, and they are approved.",
+   "gate_args": [
+    "--reference-mix",
+    {
+     "root": "ssd",
+     "path": "ad3-vert/ref/ad3_v6hd.mp4"
+    },
+    "--verbatim"
+   ],
+   "must_pass": [
+    "audio_gate"
+   ],
+   "measured": "Render 12 = r11 (ad3-vertical-r11-approved) with story shot 3 regenerated (frames 2202-2338); every other frame identical or >=48.6 dB vs r11; audio stream md5 = his. qc.py 20/20; deliver gate 1.2.0 28 PASS / FAIL compliance:labels (per-card chip, known limit) / 6 NOT MEASURED (window-layout framing, graphic_clearance, captions:sync). Two independent audits: first take rejected, this take ships.",
+   "notes": "The pairing a future compliance:ai_artifact_giveaways row must reproduce: FLAG ad3-vertical-r11-approved at 76.6-78.1 s, PASS this file. Excerpt 60-90 s covers the replaced shot.",
+   "sha256": "6ef0538cf055183a028eb888769c751fd5281c04b912143fce9778a5d404c9a6",
+   "bytes": 613646735
+  },
+  {
+   "id": "ad3-vertical-59s-r12-approved",
+   "verdict": "approved-with-notes",
+   "date": "2026-09-14",
+   "root": "repo",
+   "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | claude | 9x16 59s | ad 3.mp4",
+   "excerpt": [
+    0,
+    30
+   ],
+   "dan": "Okay, all these are looking good, and they are approved.",
+   "must_pass": [
+    "style:reference_color_fidelity"
+   ],
+   "measured": "57.92 s cutdown of render 12 (6 segments, no story shot 3). Audio = his mix cut at the seams, AAC 320k no filter: true peak -0.90 dBTP (AAC overshoot of his -1.0 mix), so the verbatim audio stamp FAILS on tp; Dan was told and approved it (DAN_ACCEPTED.md beside the file). qc.py 18/20 (tp + stamp only). Audit: ships.",
+   "notes": "audio_gate deliberately NOT in must_pass: the tp row is a known over-bound that Dan accepted, and listing it as a known_gap would read as relaxing the bound. If a -1.0 re-export arrives, rebuild and add audio_gate here.",
+   "sha256": "1a295123fca844795f986067cd2ef7cb944705cee252956de199670de3d7603c",
+   "bytes": 115145805
+  },
+  {
+   "id": "muhammad-ad3-16x9-smokefix-approved",
+   "verdict": "approved-with-notes",
+   "date": "2026-09-14",
+   "root": "repo",
+   "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | muhammad (smoke shot replaced) | 16x9 | ad 3.mp4",
+   "excerpt": [
+    60,
+    90
+   ],
+   "dan": "Okay, all these are looking good, and they are approved.",
+   "must_pass": [
+    "compliance:ai_artifact_giveaways"
+   ],
+   "measured": "Muhammad v6 HD with frames 2202-2338 replaced by his card rebuilt around the new shot (held-out reconstruction error 1.66/255, accurate_rnd decode, card brightness within 0.5 levels). Audio md5 = his (db408fd0...). Outside the patch >=47.89 dB vs his.",
+   "notes": "Still carries his HD's own 2:14.1-2:23.1 missing bullet lines (not ours to fix). Approved as the clean 16:9 until his round-6 re-export.",
+   "sha256": "85a7da67edc2fc478968eb83d2ec01ea0f13b23692c9e4ae02ef715d73f46c58",
+   "bytes": 542401194
   }
  ]
 }

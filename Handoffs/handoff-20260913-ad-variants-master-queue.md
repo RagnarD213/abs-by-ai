@@ -69,8 +69,8 @@ is actively using. Copy it.
 | **J3** | Ad 2: ≤0:59 cutdown plan → 9:16 59s + 1:1 59s | **READY** | — |
 | **J4** | Ad 5: vertical round-2 revisions + BT.709 re-grade (full + 59s) | **READY** | — |
 | J5 | Ad 5: square full + 59s | BLOCKED | J4 delivered AND Dan approves the revised vertical |
-| J6 | Ad 3: vertical full + 59s | DELIVERED 09-14 for Dan's review (smoke shot replaced, story v2; cutdown held on −0.90 dBTP) | Dan approves both files |
-| J7 | Ad 3: square full + 59s | BLOCKED | J6 approved AND Muhammad's corrected Ad 3 HD passes `hd_vs_draft.py` |
+| J6 | Ad 3: vertical full + 59s | ✅ APPROVED 09-14 (with the clean 16:9); upload + Ads: `handoff-20260914-ad3-youtube-and-ads.md` | — |
+| J7 | Ad 3: square full + 59s | READY (Codex trial): `handoff-20260914-ad3-square-codex.md` — builds from the approved vertical, so Muhammad's re-export no longer blocks it | — |
 | J8 | Ad 4: square full + 59s | BLOCKED | Dan approves the Ad 4 vertical |
 | J9 | Ad 1 (Zeeshan): square full + 59s | BLOCKED | Dan approves the Zeeshan Ad 1 vertical |
 | **J10** | Ad 7: vertical full + 59s | **READY** | — |

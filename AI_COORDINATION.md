@@ -38,6 +38,10 @@ is the permanent record of code changes.
 
 # OPEN — waiting on Dan
 
+**Ad 3 square — IN PROGRESS 2026-09-14, owner: Codex 01a0a253.** Re-layout of approved Ad 3 vertical in `/Volumes/Extreme/_edit_work/ad3-sq/`; vertical build is read-only. Required reading complete; next settle every beat on still frames, then master + 59s, all gates and independent review. Private trial branch only; no uploads, Ads or dashboard changes.
+
+**New purchase-first VSL — SCRIPT DELIVERED 2026-09-14, owner: Codex VSL task 01a0a22d.** Separate 2,467-word script (about 13–16 min), all five outline uses, three signup CTAs, editable DOCX + clean teleprompter text. Files: `/Users/danielrose/.codex/visualizations/2026/09/14/01a0a22d-ab09-7a01-9a60-72c3b1017fc1/abs-by-ai-vsl-script.docx` and adjacent `abs-by-ai-vsl-teleprompter.txt`, `production-notes.md`; all 8 pages visually checked. Dan explicitly requested planned direct Oura integration be written as available; record that demo when built. Source outline untouched, no testimonials invented, no site/campaign changes. Next: Dan reviews and compares with Claude's separate variation.
+
 **Zeeshan's Arms & Shoulders (content batch video 2), round 1 — DOC WRITTEN 2026-09-14. Dan forwards it and listens to
 the music.** His "Video2.mp4" (10:53) is in a NEW shared folder `1mvqEowzfNNprOCxPta6DASIT20MdYfvX` (not the two in memory
 `zeeshan-delivery-includes-srt`). Round 1 is pasted at the TOP of "Zeeshan Video Revisions" and was read back intact.
@@ -458,7 +462,9 @@ apart** — `instagram_business_account` reads empty for ALL pages, a false nega
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- **Codex trial — Phase 06 RUNNING (September 14, Codex task 01a0a1a1).** Owns private C1652 organic + C1603/Ad14 originals. Organic final transition correction render/QC running (one video slot); ad transition fix prepared, waiting for capacity. Both full internal cuts exist. Ad audio PASS; full delivery gate retains missing measurements and watch PENDING. Next finish picture, exact-file checks/reviews, freeze BOTH before matching references, then Dan verdicts. Muhammad owns production batch; no publication.
+- **`Handoffs/handoff-20260914-ad3-youtube-and-ads.md`** — Ad 3's approved clean 16:9, 9:16 and 9:16 59s → YouTube unlisted + Ad 3's Demand Gen ad groups; pause the two old smoke-shot ads. Sonnet 5 medium. **Not on the dashboard.**
+- **`Handoffs/handoff-20260914-ad3-square-codex.md`** — Ad 3 1:1 square + 59s from the approved vertical, written for Dan's Codex trial (J7). **Not on the dashboard.**
+- **Codex trial — Phase 06 AWAITING DAN (September 14, Codex task 01a0a1a1).** C1652 organic + C1603/Ad14 first cuts frozen before reference exposure. Private review: http://127.0.0.1:8806/06-organic/review/index.html (organic + full randomized adA/B against available Muhammadround2, not an approved final). Both audioPASS; actual delivery-gate failures retained. Next Dan verdicts/category notes/review time, one consolidated revision, then outcomes and recipe1.1.0 decision. No production publish; Muhammad owns production batch.
 
 
 - **`Handoffs/handoff-20260912-ad5-vertical-revisions-round2.md`** — Dan's round-2 revisions on the Ad 5 vertical:
@@ -633,19 +639,15 @@ PROSPECT line yet the item swaps in Dan's photo, following his own Ad 10 precede
 New skill lessons 45-47 (frame-diff false negatives, he generalizes a fix to every similar beat, specify how a new
 label is BUILT). Delete once Dan has forwarded the doc and the next cuts arrive.
 
-**Ad 3 "Stop Paying Human Trainers" — SMOKE SHOT REPLACED + DELIVERED 2026-09-14, Dan reviews + TWO CALLS.** Render 12 = the
-approved render 11 with only the AI bathroom shot (1:13.5–1:18) regenerated: no breath/fog, mouth closed, reflection
-follows him (8 Kling takes, ~$6; the first pick was sent back by an independent audit). Every other frame ≥48.6 dB vs
-r11, his audio md5-identical; qc 20/20, delivery gate = only the known label/framing limits; a second audit says ships
-(glance at a 0.2 s fist blur at 1:13.9). Folder `Muhammad Ad Videos/stop paying human trainers - ad 3/`: our 9:16 master +
-review copies, `notes-vertical.md`, a clean 16:9 `… muhammad (smoke shot replaced) | 16x9 …` (his card rebuilt, audio
-his), `notes-16x9-smoke-shot.md`. Story clip v2 (Drive `1gd6nWft4nDJ3z4Hoz0umn2_zCK0txMzW`, same shots otherwise);
-`ad3-vert/media_map.json` points at it, so the square (J7) inherits the fix. Round-6 ask for Muhammad (new clip, 2:14
-bullet, −1.2 dBTP): `revision docs/ad3-revisions-muhammad-round6-9-14-26.md` — NOT yet pasted into his doc.
-**DAN: (1) accept the ≤0:59's −0.90 dBTP (AAC overshoot, as on Ad 4) → then `deliver3.py` without `--master-only`;
-(2) swap the live unlisted `QWW1oumpNg4` for the clean 16:9 or not (new id breaks the ads).** Also open: label his two
-200 lb BEFORE pictures (2:26–2:33)? Dashboard row stays unchecked until he approves. Skill [A12] committed.
-⚠ FOUND + FIXED: another session's 10:25 write replaced `Muhammad Ad Videos/this picture got me abs - ad 1/… muhammad |
+**Ad 3 "Stop Paying Human Trainers" — 16:9 (smoke shot replaced), 9:16 and 9:16 59s ALL APPROVED BY DAN 2026-09-14.**
+*"Okay, all these are looking good, and they are approved."* (this also accepts the 59s's −0.90 dBTP; note beside the file).
+All three filed in `Muhammad Ad Videos/stop paying human trainers - ad 3/`; corpus entries `ad3-vertical-r12-approved`,
+`ad3-vertical-59s-r12-approved`, `muhammad-ad3-16x9-smokefix-approved`. Next: `handoff-20260914-ad3-youtube-and-ads.md`
+(uploads + Ads, pauses the old `QWW1oumpNg4` ads) and `handoff-20260914-ad3-square-codex.md` (J7, Codex trial). Still
+open: Muhammad's round-6 ask (`revision docs/ad3-revisions-muhammad-round6-9-14-26.md`, not yet pasted to his doc); label
+his 200 lb BEFORE pictures? Dashboard row "Cut 9:16 vertical ads…" names several ads, so not checked off. Delete this
+entry once the upload handoff runs.
+⚠ FOUND + FIXED 09-14: another session's 10:25 write replaced `Muhammad Ad Videos/this picture got me abs - ad 1/… muhammad |
 16x9 | ad 1.mp4` (the audio selftest's pinned reference) with a 24 s audio-only file; restored from
 `_edit_work/ad1-8-14/reference/muhammad_final.mp4` (sha matches corpus), bad file kept in `_edit_work/_clobbered_20260914/`.
 ⚠⚠ **FOR THE AD 4 AND AD 5 VERTICAL OWNERS: the BT.601 colour fault is in your builds too** (untagged references,
