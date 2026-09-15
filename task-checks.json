@@ -1,5 +1,7 @@
 {
-  "checked": [],
+  "checked": [
+    "money::Clean out the filming room so it is ready for the installer"
+  ],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -216,5 +218,7 @@
       "2026-09-14"
     ]
   },
-  "checkedAt": {}
+  "checkedAt": {
+    "money::Clean out the filming room so it is ready for the installer": "2026-09-15"
+  }
 }
