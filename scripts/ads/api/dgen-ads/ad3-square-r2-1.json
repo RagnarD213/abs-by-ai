@@ -2,10 +2,6 @@
   "adNumber": 3,
   "label": "Ad 3 Stop Paying Human Trainers",
   "videos": [
-    { "youtubeId": "QWW1oumpNg4", "version": "Muhammad 16:9", "utm": "muhammad-16x9" },
-    { "youtubeId": "86jbUhqBTUQ", "version": "Muhammad 16:9 clean", "utm": "muhammad-16x9-clean" },
-    { "youtubeId": "xlC-tigurnA", "version": "Claude 9:16", "utm": "claude-9x16" },
-    { "youtubeId": "-wTErCSi640", "version": "Claude 9:16 59s", "utm": "claude-9x16-59s" },
     { "youtubeId": "DXRkrfvcJEM", "version": "Claude 1:1 R2.1", "utm": "claude-square-r2-1" }
   ],
   "audience": {

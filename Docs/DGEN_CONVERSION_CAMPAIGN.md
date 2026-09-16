@@ -194,6 +194,28 @@ when Muhammad supplies V3 HD. Audio was left untouched: Ad 6 −13.7 LUFS / −1
 −13.5 / −1.0; Ad 14 −13.9 / −0.8 (the last is 0.2 dB over the preferred true-peak ceiling, documented rather than
 processed). Organic/public posting was not part of this run.
 
+## 2026-09-16 — Ad 3 square R2.1 added as-is
+
+Dan explicitly instructed the approved full square R2.1 export to be uploaded as-is after the internal checker
+findings were disclosed. The exact SHA-256 `a46861e9d1e3c5f4f517f0b9018d5f129807b9b6f2408382a38492121788646b`
+was uploaded UNLISTED as `DXRkrfvcJEM`; picture and audio were not changed. YouTube read-back confirmed the Abs by
+AI channel, 1080×1080 HD, 4:26, stereo, embeddable, processed, custom thumbnail, not made for kids and AI-use set to
+Yes. The existing 11-chapter description and approved dark-studio thumbnail were reused.
+
+The square-only config passed Google `validateOnly` with exactly three intended operations, then created video asset
+`422079967995` and one enabled ad in each existing Ad 3 group. Both are honestly `UNKNOWN / REVIEW_IN_PROGRESS` at
+creation; this is not a Google approval claim.
+
+| version | video → asset | /start 199782847163 | home 199360345839 |
+|---|---|---|---|
+| Claude 1:1 R2.1 | `DXRkrfvcJEM` → `422079967995` | **824906283483** | **824906283486** |
+
+Final URLs use `utm_campaign=dgen-conv-ad3&utm_content=claude-square-r2-1-<start|home>`. Both returned HTTP 200 with
+tracking intact. Campaign `24243839443` remains ENABLED at **$40/day** with $30 target CPA; both groups remain ENABLED
+at $30 target CPA. The previous three enabled Ad 3 variants and two paused superseded-video ads were unchanged.
+The shared gate v1.2.0 FAIL record (24 measured PASS, 3 N/A, 2 FAIL, 6 NOT MEASURED) remains preserved as history;
+this one-file user-directed release does not change future gate enforcement. Organic/public posting was not done.
+
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and
 off at 15:49). Ad groups and ads were already ENABLED. The API client refuses to enable a campaign itself unless

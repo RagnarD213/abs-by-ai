@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260916-ad3-square-upload-as-is.md](handoff-20260916-ad3-square-upload-as-is.md) | **ready** — upload exact approved R2.1 as-is, unlisted + two existing Ad 3 groups; Dan authorized proceeding despite internal findings. Independent of checker repair. GPT-6 Astra / High |
 | [handoff-20260916-video-checker-repair.md](handoff-20260916-video-checker-repair.md) | **ready, independent** — fix shared caption, framing and label checks for future videos; full regression validation. GPT-6 Astra / High |
 | [Codex trial: start here](codex-video-trial/00-start-here.md) | Shared rules, model recommendations, and execution order; documents remain local pending private/public storage decision |
 | [01 — Reference study](codex-video-trial/01-reference-study.md) | **now** — Astra / High; verify sources and learn Muhammad's organic/ad styles |
@@ -53,6 +52,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Why |
 |---|---|
+| [handoff-20260916-ad3-square-upload-as-is.md](handoff-20260916-ad3-square-upload-as-is.md) | ✅ EXECUTED 2026-09-16 — exact R2.1 uploaded unchanged and unlisted as `DXRkrfvcJEM`; two existing-group Ads created (`824906283483`, `824906283486`) |
 | [handoff-20260910-start-hero-copy-revisions.md](handoff-20260910-start-hero-copy-revisions.md) | ✅ EXECUTED 2026-09-10 — /start caption off, subtitle under the button, chips + privacy sentence above the footer |
 | [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | executed 2026-09-09 — unlisted `CwEGFxpIM-E` (rev 6 A) live on the analysis page + both `/start` variants |
 | [handoff-20260908-post-lockin-analysis-page.md](handoff-20260908-post-lockin-analysis-page.md) | executed 2026-09-08 — `analysis` screen + `POST /api/body-analysis` live |

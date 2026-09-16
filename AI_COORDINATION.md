@@ -101,17 +101,12 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 **Published cutdown audio — UNOWNED 2026-09-15.** 21 of 23 V2/V3/V6 cutdowns miss −14 LUFS. Next: scope remediation from `Docs/BOARD_REFERENCE.md`; preserve editor mixes under the standing audio rule.
 
-**Ad 3 square R2.1 — AWAITING DAN 2026-09-15, owner: Codex 01a0a6d7.** Full revision and independent review complete;
-27 wider shots hold horizontally, tight tracking/audio/finished short preserved. Review + findings:
-`Muhammad Ad Videos/stop paying human trainers - ad 3/notes-square-r2.md`. Shared gate: 24 measured PASS + 3 N/A, 2 FAIL (labels + uncertain inherited bathroom imagery),
-6 NOT MEASURED; subjective playback and inherited-image concern remain for Dan. No upload, Ads, dashboard or deployment.
-
 **Codex Ad14 revision R1 — APPROVAL PACKAGE READY 2026-09-15, task 01a0a70f.** `06-ad-r1/`, private review http://127.0.0.1:8814/index.html. Color/transition picture proof, five Pexels candidates and AI endpoints ready; Dan’s appearance/frame approvals pending. Original SFX and genuine trainer recording still needed; selftest later failures preserved. Next: approvals → finish source gaps → full revision. Details `06-ad-r1/STATUS.md`.
 
 **Codex organic C1652 revision — REVISED FRAMES READY 2026-09-15, task 01a0a70e.** `06-organic-r1/`: wider-only, no whoosh, photo273 configured. Shirtless pair + four Hinge screens ready at http://127.0.0.1:8816/review/index.html?v=2; waiting replacement-frame approval + exact project-key permission. Actual before→loader→same-man result recipe ready; full cut not rendered. Eight still calls cost unknown; paid motion/QC $0. `STATUS.md` records next work.
 
-**Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (six new Ad 3
-ads; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
+**Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (eight new Ad 3
+ads, including square 824906283483/824906283486; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
 If r2 is limited again: attempt 3 = text-free thumbnail on `1oEcwdp21Fg`, then remove. ⚠ Ad 5 headline "Why My Diets Kept
 Failing" DISAPPROVED (clickbait). Add Zeeshan Ad 1 / Ad 5 verticals only after Dan approves. `Docs/DGEN_CONVERSION_CAMPAIGN.md`
 
@@ -152,7 +147,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260916-ad3-square-upload-as-is.md` — exact R2.1 upload as-is → YouTube unlisted + two existing Ads groups; Dan superseded internal-gate hold (2026-09-16). Astra / High.
 - `handoff-20260916-video-checker-repair.md` — independent shared-checker repair for future captions, layouts and labels; corpus required (2026-09-16). Astra / High.
 
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
