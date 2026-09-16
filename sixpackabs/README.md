@@ -1,6 +1,6 @@
 # sixpackabs.com — video-first theme
 
-The sixpackabs.com homepage is Dan's **Dan Rose Fitness** YouTube channel: the newest long-form video
+The sixpackabs.com homepage is Dan's **Abs by AI** YouTube channel: the newest long-form video
 large, more videos beside it, a Shorts rail, the latest @danrosefit photos, the bio and the
 newsletter. Every public video also gets its own page at `/videos/<slug>/` (player + the written
 notes). The 165 legacy articles and 46 pages keep their exact URLs and their in-post CTAs and

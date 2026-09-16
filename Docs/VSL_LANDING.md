@@ -86,6 +86,19 @@ copy in `claude edited long form content/06 - …/`. Uploaded with `scripts/yout
 `youtube-upload-capability`). To swap it later: upload the new master with that script and paste the new id into
 `youtubeId` — one line, one deploy, which wipes in-memory locked holds, so bundle it with other code.
 
+## New membership VSL selection — 2026-09-16
+
+Dan selected [Claude's “AI Got Me Abs at Forty”](https://claude.ai/artifact/BQ98aXCrbqX9bTfQFVzrSz)
+over both Codex attempts for the new membership VSL. This assignment follows
+[the new outline](https://docs.google.com/document/d/1y4ZrYoehmh54IQf0Hayv_krkG1K0NZjVVN8ZNrADX8w/edit),
+primarily for a new page that requires signup before generation, also usable on
+`/start`. Dan requested direct ring connection to be written as available for the
+planned feature. Selection does not mean the video has been recorded or installed.
+
+Writing lessons and paired examples:
+`../.claude/skills/scriptwriting/references/vsl-2026-09-16-lessons.md`.
+The earlier pre-upload script below is a separate deliverable.
+
 ## The /start VSL script (written 2026-09-10, not yet recorded)
 
 A dedicated pre-upload video for this page — its one job is getting the photo uploaded. Script, hook takes, shot list,

@@ -6,7 +6,7 @@
  * or Meta. Its hourly WP-Cron job pulls these two documents from absbyai.com,
  * where the tokens already live:
  *
- *   GET /api/sixpackabs/channel.json    PUBLIC videos on the Dan Rose Fitness channel
+ *   GET /api/sixpackabs/channel.json    PUBLIC videos on the Abs by AI channel
  *   GET /api/sixpackabs/instagram.json  the 6 latest @danrosefit photo posts
  *
  * THE RULE THAT MATTERS: the YouTube OAuth token sees every upload — unlisted
@@ -32,7 +32,7 @@
 
 const CHANNEL_ID = 'UC236gjadarHAhEhOMYNGJ9g';
 const UPLOADS_PLAYLIST_ID = 'UU236gjadarHAhEhOMYNGJ9g';
-const CHANNEL_URL = 'https://www.youtube.com/@danrosefit';
+const CHANNEL_URL = 'https://www.youtube.com/@absbyai';
 const IG_USER_ID = '17841401601139982';
 const IG_USERNAME = 'danrosefit';
 
@@ -268,7 +268,7 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
     return {
       channel: {
         id: CHANNEL_ID,
-        handle: '@danrosefit',
+        handle: (c.snippet && c.snippet.customUrl) || '@absbyai',
         url: CHANNEL_URL,
         subscriberCount: stats.hiddenSubscriberCount ? null : (Number(stats.subscriberCount) || null),
         videoCount: Number(stats.videoCount) || videos.length,

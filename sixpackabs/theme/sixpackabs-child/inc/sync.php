@@ -597,7 +597,7 @@ add_action( 'admin_notices', function () {
 	if ( isset( $_GET['spa_synced'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 		echo '<p><strong>Synced with YouTube and Instagram.</strong></p>';
 	}
-	echo '<p>These pages are created automatically from the public videos on the Dan Rose Fitness YouTube channel, every hour. Edit a video\'s notes here and the sync leaves its text alone from then on.</p>';
+	echo '<p>These pages are created automatically from the public videos on the Abs by AI YouTube channel, every hour. Edit a video\'s notes here and the sync leaves its text alone from then on.</p>';
 	spa_sync_status_line();
 	echo '</div>';
 } );

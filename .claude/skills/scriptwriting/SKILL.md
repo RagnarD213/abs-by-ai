@@ -16,6 +16,29 @@ description: >
 batch-1 scripts. The finalized doc IS the style reference now: match how those
 ads read after his edits, not how they read before.**
 
+## VSL voice calibration — Dan's selection, 2026-09-16
+
+Dan chose [Claude's VSL](https://claude.ai/artifact/BQ98aXCrbqX9bTfQFVzrSz)
+over both Codex drafts: the content was similar, but Claude said it better and
+more persuasively. For a VSL or substantial sales script, read
+[the paired examples and lessons](references/vsl-2026-09-16-lessons.md) before
+drafting. This is a voice reference; it does not independently verify its claims.
+
+- Lead benefit sections with what happened: "AI got me back in the gym" carries
+  more force than "AI changed my motivation." Carry that result into the proof.
+- Use an object, action or recognisable moment where the draft names a category:
+  a taken squat rack, a pair of dumbbells, a shirt staying on at the pool.
+- Match Dan's reasoning and conviction as well as his vocabulary. Repeating
+  "far, far" and chopping prose into fragments does not establish his voice.
+  Let setup sentences flow; reserve short sentences for turns and payoffs.
+- Make each benefit change what the viewer believes is possible for him. End
+  on the wanted result; practical support and a usable plan explain how to get it.
+- Review spoken copy against the chosen reference before building the artifact.
+  Check comparable passages for desire, credibility, specificity and momentum.
+  A rewrite that covers the same points more neatly can still lose on persuasion.
+- Keep factual limits precise. Do not generalize them into a timid tone, and do
+  not imitate unsupported absolutes to sound confident.
+
 ## THE FIRST MINUTE DECIDES EVERYTHING (v2 — Dan's #1 feedback)
 
 Dan's verdict on the batch: beyond the first minute, pretty good — but the first

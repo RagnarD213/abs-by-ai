@@ -4,7 +4,7 @@
 
 SixPackAbs.com is being repositioned. Today it is an AI-generated blog that posts other
 people's videos. The redesign makes the homepage and all featured content Dan Rose's own
-YouTube content from the **Dan Rose Fitness** channel (`@danrosefit`, channel id
+YouTube content from the **Abs by AI** channel (`@AbsbyAI`, channel id
 `UC236gjadarHAhEhOMYNGJ9g`), with an accompanying written post per video (the YouTube
 description or a lightly edited version of it).
 

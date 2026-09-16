@@ -24,6 +24,7 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 - At that threshold, or earlier after a major completed phase, **suggest** a handoff to Dan and state why it is a good transition point. Give him the choice to hand off or keep going. Do not create a handoff or a new task without his approval.
 - Do not suggest a handoff merely because the threshold is reached if only a small, well-defined amount of work remains. Finish that work first, unless doing so risks approaching compaction.
 - If Dan chooses a handoff, write a concise, self-contained file in `Handoffs/` recording: goal, decisions, completed work and verification, relevant file paths/URLs/IDs, current state, open risks, and the exact next action. Then continue in a fresh task using that handoff. Do not wait for quality to degrade or for compaction to occur.
+- **Every handoff delivery — this workflow or the built-in `/handoff` skill — always states a ready-to-paste starter prompt and a recommended model + effort level directly in the chat message, never only inside the doc.** No exceptions, even for a small handoff (Dan's rule, reaffirmed 2026-09-14; memory: `handoff-starter-prompt-rule`).
 
 ## Session coordination
 
@@ -77,6 +78,14 @@ sessions (and any other assistant, if one is in use).
 - Spend above $25 in a session, or any single batch estimated over $15, still requires an explicit go-ahead with a stated budget.
 - This authorization does not permit topping up provider balances, adding payment methods, or upgrading plans.
 
+## Video clip generation budget and frame approval (Dan, 2026-09-15)
+
+- **Reaffirmed by Dan, 2026-09-16:** Gemini and Replicate generation is standing-authorized up to **$5 total per video**. Use the project's Gemini/Replicate keys, including `bakeoff/.env`, for this authorized work without asking again. Ask for spend authorization only before exceeding $5 for that video; do not request separate approval for a batch within the remaining budget. Track costs and retries across revisions. Dan explicitly approved the pending C1652 three-clip batch (estimated $0.75) after being told the earlier built-in still costs were unreported; preserve those unknown costs honestly without repeating the same permission stop.
+- Up to **$5 per video** is authorized for AI clip generation. Count supporting start/end-frame generation and paid retries in that video's total; a new task or revision does not reset it. This more specific limit applies within the existing session and batch limits above.
+- Before exceeding $5, discuss the specific clips, why existing assets or suitable stock will not do, and the estimated new total. Dan is generally open to **up to $10 with a reason**, but that is not automatic authorization to exceed $5.
+- Show Dan the **start and end frames plus the intended action** for approval before generating motion. Budget authorization does not replace frame approval. Materially different replacement frames require approval again.
+- Current stock choice (Dan, 2026-09-15): **Pexels and existing assets with known usage rights only; no paid stock service or subscription.** Use AI where the intended scene needs it. Keep a per-video generation total, including paid unsuccessful attempts. Gemini quality-review spend remains governed by its separate standing authorization.
+
 ## Standing authorization for dashboard and task-board updates
 
 - You are authorized to read and write the Victory Dashboard's task data (`/api/todos`, `/api/task-checks`, `/api/plan`) without asking for confirmation each time: adding a handoff row only when Dan explicitly asks for one (never automatically — Dan's rule 2026-09-08), checking off completed tasks, and updating the focus list, per the rules in AI_COORDINATION.md.
@@ -93,6 +102,13 @@ sessions (and any other assistant, if one is in use).
   the mismatch and do not crop around it.
 - ⚠ The only real app recording in the asset library uploads a man who is **not Dan**, so every phone demo cut from it
   inherits this fault until it is re-recorded.
+
+## Video editing feedback — organic C1652 (Dan, 2026-09-16)
+
+- **No repeated stock clip within one video.** Use a different source clip for each stock placement; different trims of the same stock source still count as repetition. Audit source IDs/hashes across the full timeline.
+- **Real videos are not still photos.** Do not put “Real picture of me — not AI-generated” on real moving footage of Dan. That disclosure applies to real physique photographs; AI-generated imagery retains the appropriate AI label. This clarifies the photo-label rule below.
+- **Horizontal framing stays still.** In 16:9 videos, choose a fixed horizontal center per shot. Recenter only if Dan is actually approaching the frame edge; do not follow ordinary movement in ample horizontal space. Preserve deliberate wide/tight cuts and approved framing sizes.
+- **Audio/graphics acceptance is specific to the delivered video.** C1652 R1 audio and graphic treatment were rejected despite a numeric audio PASS. Match Muhammad using actual listening/moving reference comparisons, and record the verified reusable method in the shared skill; earlier approval on another source is not proof of parity here.
 
 ## Label Dan's real pictures (Dan, 2026-09-11)
 

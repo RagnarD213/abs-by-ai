@@ -249,7 +249,7 @@ function spa_render_subscribe_cta( $attrs ) {
 	$subs      = spa_channel()['subscriberCount'];
 	return '<section class="spa-subcta"><div class="spa-wrap"><div class="spa-subcta__box">'
 		. '<div class="spa-subcta__text"><p class="spa-subcta__h">New videos every week from Dan</p>'
-		. '<p class="spa-subcta__sub">Dan Rose Fitness on YouTube' . ( $subs ? ' · ' . esc_html( number_format_i18n( $subs ) ) . ' subscribers' : '' ) . '</p></div>'
+		. '<p class="spa-subcta__sub">Abs by AI on YouTube' . ( $subs ? ' · ' . esc_html( number_format_i18n( $subs ) ) . ' subscribers' : '' ) . '</p></div>'
 		. spa_subscribe_button( $placement, 'spa-subcta__btn' )
 		. '</div></div></section>';
 }

@@ -154,6 +154,7 @@ Memory `google-ads-ui-automation`.
 - `codex-video-trial/06a-organic-revision.md` + `06b-ad14-revision.md` — Codex executing (ACTIVE). GPT-6 Astra high.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
+- `handoff-20260916-vqc-phase4-locked-kit.md` — fire next in the video-quality engine: the 9:16 ad kit, proven blind. Codex high (kit code) + Fable 5.1 high (cut rule, blind page), ~2 sessions.
 - `handoff-20260909-vqc-C-phase4-cut-technique.md` — before engine Phase 4. Fable 5.1 high.
 - `handoff-20260911-junk-footage-pass.md` — parallel-safe with engine Phases 2–4. Fable 5.1 high.
 - `handoff-20260911-video-quality-engine.md` — master plan; Phases 1–2 done. VQC-B/VQC-D superseded, do not fire.

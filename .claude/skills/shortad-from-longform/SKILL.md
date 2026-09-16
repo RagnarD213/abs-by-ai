@@ -5,6 +5,18 @@ description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 sh
 
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
 
+## Edit queue status — REQUIRED when this video is a job on Dan's edit queue
+
+If the video is on `Handoffs/video-editing/00-MASTER.md` (IDs like `RA-01`, `DS-04`, `RO-02`, `SL-01`, `AV-05`, `AS-04`),
+keep its status current on Dan's pinned **Abs By AI Edit Queue** page: `in_progress` when you start building,
+`delivered` when the review copy goes to Dan, and **`finalized` the moment Dan says it is finalized / approved** (his
+words, never a passed gate). Never set `uploaded` here; that is `/ad-setup` (ads) or `/video-setup` (organic), after
+the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skills/_shared/edit-queue/README.md`.
+
+## Square and vertical camera movement — updated 2026-09-16
+
+Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
+
 > ## ⚠ ATTEMPT 2 (2026-08-26) FOUND SIX DEFECTS THAT PASSED EVERY METRIC
 >
 > Attempt 2 was built to these rules, and its FIRST render still passed the whole gate
@@ -475,14 +487,14 @@ each one was arrived at by getting it wrong first.
    one PNG per word state and assemble with the concat demuxer (`duration` directives); that
    is fast and keeps one type system.
 
-11. **[APPROVED 2026-08-27] The talking-head crop FOLLOWS a smoothed face track — never a
-   fixed x.** The subject leans through a locked-off shot (Dan's face wandered 835–1037 in
-   1920), and a ~608-px 9:16 crop nearly doubles every lean on the phone; Dan caught one
-   timestamp and it was a class. Build the track from a skin-band centroid per 0.25 s
-   **restricted to FACE height (y 70–240 of 1080 — raised hands pollute a wider band)**,
-   median-filter ~2 s, slope-limit 80 px/s, and drive `crop x` with a piecewise-linear
-   expression. Same track feeds the window/statement beats' hole crop (per-beat median).
-   Verify by drawing the centreline on frames at the extremes of the track.
+11. **[UPDATED 2026-09-16] Wider shots hold steady; very tight shots track only when necessary.**
+   Follow [the shared framing rule](../_shared/framing-motion.md). Choose and inspect a
+   fixed horizontal center per continuous wider shot. For a tight crop where a fixed
+   center loses the subject, use a smoothed track; exclude hands from the measured face
+   band. The historical ~608-px vertical recipe used a face-height band y 70–240,
+   0.25 s samples, ~2 s median filtering and an 80 px/s limit. Those are source-specific
+   values, not universal settings. Wider statement windows should not inherit the tight
+   crop’s time-varying track automatically. Compare moving excerpts before a full build.
 
 12. **[APPROVED 2026-08-27] A card still needs MARGINS sized for the push, and the subject's
    full head-to-shorts must survive the tightest zoom.** The still-push crops ~6% per side
@@ -510,9 +522,10 @@ each one was arrived at by getting it wrong first.
      every frame, per-hold minimum 30–70 px, median ≤ 75 px, all ×(H/1080);
    * **two levels only** — NEAR (hair → belly button) and FAR (hair → shorts line, waistband in
      frame). **No wide level exists**, and no knees in a talking shot;
-   * **the head band sits on the vertical centre line** (rule 5 and rule 11 say how: a smoothed
-     face track, never one fixed x). Dan caught `v2-short3` 133 px off: *"one of my arms is cut
-     off and there's space on the other side"*;
+   * **choose a balanced crop for each shot** (rule 5 and updated rule 11). Wider shots
+     can let the head move naturally around the center; very tight shots track only as
+     needed. Do not confuse this with one fixed x reused across takes: Dan caught
+     `v2-short3` 133 px off, with one arm cut off and spare space on the other side;
    * **a push schedule, never one fixed crop** (rule 8).
    The delivery gate's `framing:` rows (`_shared/deliver/checks/framing.py`) measure all five off
    the DELIVERED pixels with mediapipe FaceMesh + Apple Vision person segmentation — no plan, no
@@ -827,8 +840,9 @@ necessary, take things directly from his video."* Eight lessons, each paid for:
    always `level=disabled` for peak-shaving. And AAC overshoots the wav's true peak by
    ~0.5–0.7 dB, so a −1.4 dBTP wav can fail a −1.0 gate after encode; limit the wav to
    ~−2 dBTP first.
-11. **The subject LEANS through a locked-off shot, and a 608-px-wide 9:16 crop amplifies
-   it** (±60 px lean = ±110 px on the phone). A fixed crop centred on the measured mean
+11. **Historical tight-crop lesson; scoped by the 2026-09-16 shared framing rule.**
+   The subject LEANS through a locked-off shot, and a 608-px-wide 9:16 crop amplifies
+   it (±60 px lean = ±110 px on the phone). A fixed crop centred on the measured mean
    reads off-centre at the extremes — Dan caught it at one timestamp and it was a class.
    Fix: a smoothed face track (skin-band centroid per 0.25 s, median filter, slope-limit
    80 px/s) driving a piecewise-linear `crop x` expression — a gentle auto-reframe. Skin

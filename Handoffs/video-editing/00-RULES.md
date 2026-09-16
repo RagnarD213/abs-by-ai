@@ -90,7 +90,7 @@ Follow the Codex branch rule in `Handoffs/codex-video-trial/00-start-here.md`.
 
 ## 5. Closing out (every job)
 
-1. Update the job's status with `python3 scripts/edit-queue/queue.py set <ID> <state>`: `in_progress` at start, `delivered` when Dan gets the review copy, `finalized` when **Dan says** it's finalized, `uploaded` after `/ad-setup` or `/video-setup` has uploaded it. The script updates `jobs.json` and the `00-MASTER.md` row. The script also uploads the status file Dan's pinned page reads from Google Drive, so the page updates within about a minute whichever agent runs it (Claude, Codex, Grok Bot). Claude sessions additionally mirror it with `Artifact write_db`. Commit `jobs.json` + `00-MASTER.md`. Procedure: `.claude/skills/_shared/edit-queue/README.md`.
+1. Update the job's status with `python3 scripts/edit-queue/queue.py set <ID> <state>`: `in_progress` at start, `delivered` when Dan gets the review copy, `finalized` when **Dan says** it's finalized, `uploaded` after `/ad-setup` or `/video-setup` has uploaded it. The script updates `jobs.json` and the `00-MASTER.md` row. **Claude sessions also push it to Dan's pinned page** with `Artifact write_db`, and **Codex commits the change** for the next Claude session to sync. Procedure: `.claude/skills/_shared/edit-queue/README.md`.
    If the job unblocks another (a square waits on its vertical), change that row to READY.
 2. On approval: delete your `AI_COORDINATION.md` entry. Once the job is FINALIZED, the job doc can be deleted or moved to
    `Handoffs/video-editing/done/` (keep its notes in the delivery folder).

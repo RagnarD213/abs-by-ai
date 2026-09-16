@@ -18,9 +18,9 @@ function spa_img_uri( $file ) {
 function spa_url( $key, $campaign = '' ) {
 	switch ( $key ) {
 		case 'subscribe':
-			return 'https://www.youtube.com/@danrosefit?sub_confirmation=1';
+			return 'https://www.youtube.com/@absbyai?sub_confirmation=1';
 		case 'youtube':
-			return 'https://www.youtube.com/@danrosefit';
+			return 'https://www.youtube.com/@absbyai';
 		case 'instagram':
 			return 'https://www.instagram.com/danrosefit/';
 		case 'app':

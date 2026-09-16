@@ -37,7 +37,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | ad | roll | status | size |
 |---|---|---|---|---|
-| [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | READY | S |
+| [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | IN PROGRESS — Claude 2026-09-16 (plan `RA-01-plan.md`; Opus edits, Fable checks) | S |
 | [RA-02](RA-02-how-to-generate-abs-with-ai.md) | How To Generate Abs With AI | C1663 | READY | S |
 | [RA-03](RA-03-watch-ai-put-abs-on-me-in-30-seconds.md) | Watch AI Put Abs On Me In 30 Seconds | C1664 | READY (needs a recording of your own generation) | S |
 | [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | READY | S |
@@ -173,7 +173,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 
 | job | ad | status | size |
 |---|---|---|---|
-| [AS-01](AS-01-ad1-zeeshan-square.md) | Ad 1 (Zeeshan) | BLOCKED | M |
+| [AS-01](AS-01-ad1-zeeshan-square.md) | Ad 1 (Zeeshan) | BLOCKED: you approve his vertical + NEEDS DAN (still wanted?) | M |
 | [AS-02](AS-02-ad4-square.md) | Ad 4 | BLOCKED: AV-03 approved | M |
 | [AS-03](AS-03-ad5-square.md) | Ad 5 | BLOCKED: AV-04 approved | M |
 | [AS-04](AS-04-ad6-square.md) | Ad 6 | BLOCKED: AV-05 approved | M |
