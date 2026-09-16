@@ -54,6 +54,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Why |
 |---|---|
+| [handoff-20260916-install-approved-youtube-thumbnails.md](handoff-20260916-install-approved-youtube-thumbnails.md) | ✅ EXECUTED 2026-09-16 — six approved YouTube thumbnails installed and verified; protected videos unchanged; five Blotato records preserved because scheduled-cover edits are unsupported in place. Report: `output/thumbnails/channel-refresh-20260916/installation/INSTALLATION_REPORT.md` |
 | [handoff-20260916-ad3-square-upload-as-is.md](handoff-20260916-ad3-square-upload-as-is.md) | ✅ EXECUTED 2026-09-16 — exact R2.1 uploaded unchanged and unlisted as `DXRkrfvcJEM`; two existing-group Ads created (`824906283483`, `824906283486`) |
 | [handoff-20260910-start-hero-copy-revisions.md](handoff-20260910-start-hero-copy-revisions.md) | ✅ EXECUTED 2026-09-10 — /start caption off, subtitle under the button, chips + privacy sentence above the footer |
 | [handoff-20260909-website-video-youtube-install.md](handoff-20260909-website-video-youtube-install.md) | executed 2026-09-09 — unlisted `CwEGFxpIM-E` (rev 6 A) live on the analysis page + both `/start` variants |

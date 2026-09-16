@@ -89,8 +89,6 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
-**YouTube thumbnail refresh — HANDOFF READY 2026-09-16, owner: Codex 01a0ab9c.** All finalized, including Video 6 C2 stronger ab definition. Six replacements; Videos 2/4 keep current; Top 10 excluded. Nothing installed. Next: launch separate installation task using `Handoffs/handoff-20260916-install-approved-youtube-thumbnails.md` and the approved manifest. Exact files/checksums and YouTube/Blotato verification steps are packaged privately.
-
 **6 ways AI thumbnail variations — REVIEW 2026-09-15, owner: Codex 01a0a748.** Four private designs delivered for YouTube `0zspIJVrv08`, original headline and four finalized studio photos. Next: Dan selects a design. Files: `output/thumbnails/0zspIJVrv08-20260915/`.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
