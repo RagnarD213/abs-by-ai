@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260916-install-approved-youtube-thumbnails.md](handoff-20260916-install-approved-youtube-thumbnails.md) | **ready** — install six final thumbnails on YouTube and matching queued Blotato covers; Video 6 C2 approved. GPT-5.6 Sol / High. |
 | **[video-editing/00-MASTER.md](video-editing/00-MASTER.md)** | **THE master list of video-editing work (2026-09-16)** — 69 job docs (raw first cuts, dedicated shorts, shorts from long-forms, ad verticals/squares), each with Claude + Codex starter prompts; shared rules `video-editing/00-RULES.md`. Supersedes the ad-variants master queue. |
 | [handoff-20260916-video-checker-repair.md](handoff-20260916-video-checker-repair.md) | **ready, independent** — fix shared caption, framing and label checks for future videos; full regression validation. GPT-6 Astra / High |
 | [Codex trial: start here](codex-video-trial/00-start-here.md) | Shared rules, model recommendations, and execution order; documents remain local pending private/public storage decision |

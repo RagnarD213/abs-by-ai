@@ -89,7 +89,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
-**YouTube thumbnail refresh — REVIEW 2026-09-16, owner: Codex 01a0ab9c.** Finalized: 1A, revisions 3/5/7; keep current 2/4. Compare B/C/D for 6 and 8: preferred 6B unchanged, 8B light blue, four distinct standing screenshots. Video 8 standing frames come from the related poolside shoot (its opening is kneeling). Next: Dan chooses 6/8, then installation separately. Nothing installed. Detail: `output/thumbnails/channel-refresh-20260916/revision-3/README.md`.
+**YouTube thumbnail refresh — HANDOFF READY 2026-09-16, owner: Codex 01a0ab9c.** All finalized, including Video 6 C2 stronger ab definition. Six replacements; Videos 2/4 keep current; Top 10 excluded. Nothing installed. Next: launch separate installation task using `Handoffs/handoff-20260916-install-approved-youtube-thumbnails.md` and the approved manifest. Exact files/checksums and YouTube/Blotato verification steps are packaged privately.
 
 **6 ways AI thumbnail variations — REVIEW 2026-09-15, owner: Codex 01a0a748.** Four private designs delivered for YouTube `0zspIJVrv08`, original headline and four finalized studio photos. Next: Dan selects a design. Files: `output/thumbnails/0zspIJVrv08-20260915/`.
 
