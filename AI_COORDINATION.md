@@ -89,7 +89,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
-**YouTube thumbnail refresh — REVIEW 2026-09-16, owner: Codex 01a0ab9c.** Video 1 natural pool A approved (supersedes B); keep current 2 and 4. Seven revised options delivered for 3/5/6/7/8, with distinct sources; 8 current remains a contender. Next: Dan finalizes remaining choices, then a separate installation task. Nothing installed. Gallery/private backup: `output/thumbnails/channel-refresh-20260916/revision-2/README.md`.
+**YouTube thumbnail refresh — REVIEW 2026-09-16, owner: Codex 01a0ab9c.** Finalized: 1A, revisions 3/5/7; keep current 2/4. Compare B/C/D for 6 and 8: preferred 6B unchanged, 8B light blue, four distinct standing screenshots. Video 8 standing frames come from the related poolside shoot (its opening is kneeling). Next: Dan chooses 6/8, then installation separately. Nothing installed. Detail: `output/thumbnails/channel-refresh-20260916/revision-3/README.md`.
 
 **6 ways AI thumbnail variations — REVIEW 2026-09-15, owner: Codex 01a0a748.** Four private designs delivered for YouTube `0zspIJVrv08`, original headline and four finalized studio photos. Next: Dan selects a design. Files: `output/thumbnails/0zspIJVrv08-20260915/`.
 
