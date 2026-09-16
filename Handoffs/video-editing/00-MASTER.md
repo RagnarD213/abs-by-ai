@@ -2,6 +2,7 @@
 
 **The one list of every video-editing job still owed.** Built 2026-09-16 by checking every raw roll (full transcripts of the
 8/28 and 7/8 talking rolls), the script docs, Upwork (Muhammad, Zeeshan, Waleed), the Codex trial and every ad/content folder.
+Pinnable page with copy buttons (a 2026-09-16 snapshot; this file is the live status): https://claude.ai/artifact/1r1T8Znf96XH24zHZhybHs
 Every job has its own handoff doc in this folder with **two starter prompts, one for Claude and one for Codex.** You choose the order.
 
 **Firing a job:** open its doc, copy the Claude or Codex starter prompt into a fresh session. **Max two video builds on the
