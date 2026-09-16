@@ -13,6 +13,10 @@ description: >
 
 # Editing a longform video from raw shoot footage
 
+## Square and vertical camera movement — updated 2026-09-16
+
+Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
+
 ## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)
 
 - **A before and after picture are the SAME PERSON** (Dan, 2026-09-12: *"don't mix before-and-after pictures… That doesn't really make sense if you change the person."*). Never pair one person's before with another's after — in an app recording, a result screen, a card or a thumbnail. If that person's after does not exist, generate it for THEM through the live product (a real generation, never a composite) or change the before so the pair matches. ⚠ The only real app recording in the asset library uploads a man who is NOT Dan, so every phone demo cut from it inherits this.

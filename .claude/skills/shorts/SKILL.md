@@ -12,6 +12,10 @@ description: >
 
 # Cutting Shorts from a long-form video
 
+## Square and vertical camera movement — updated 2026-09-16
+
+Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
+
 ## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)
 
 - **A before and after picture are the SAME PERSON** (Dan, 2026-09-12: *"don't mix before-and-after pictures… That doesn't really make sense if you change the person."*). Never pair one person's before with another's after — in an app recording, a result screen, a card or a thumbnail. If that person's after does not exist, generate it for THEM through the live product (a real generation, never a composite) or change the before so the pair matches. ⚠ The only real app recording in the asset library uploads a man who is NOT Dan, so every phone demo cut from it inherits this.
@@ -487,7 +491,7 @@ talking-head shot in the video". It does not. **He shifts in the doorway between
 his measured torso centre wanders **0.411 → 0.505** across V2+V3, and a 9:16 window is only
 0.317 of the frame wide, so a 0.06 error moves him ~200 px in a 1080-wide delivered frame.
 V6's plan had already found this the hard way ("there is NO single TALK_X") and the lesson
-was never carried back to V2/V3. **Measure a centre per SHOT. Never reuse one constant.**
+was never carried back to V2/V3. **Measure a centre per SHOT. Never reuse one constant across different takes.**
 
 **The measurement that works, and the two that do not.** Anchor on the **torso block** —
 the columns where the mask fills ≥60 % of its own tallest column:
@@ -496,8 +500,8 @@ the columns where the mask fills ≥60 % of its own tallest column:
   because his hands fly in and out of frame while he talks. Same median, useless per frame.
 - ❌ *Edge-energy column search* (`choose-crops.py`'s `auto_x`) locks onto the fridge.
 - ✅ **Torso block**: ~23–31 px frame-to-frame spread, which is his real sway, not noise.
-  A per-shot constant is then enough — **no time-varying pan is needed** and a pan on a
-  locked tripod reads as a mistake.
+  A per-shot constant was enough in these wider shots. Default to that steady framing;
+  a very tight crop may still need gentle tracking under the shared framing rule above.
 
 **Get the mask from Apple's Vision framework, not from colour.** A skin+dark-garment
 heuristic bled straight into the stainless fridge and reported centres 0.15 too far right.

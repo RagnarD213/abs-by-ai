@@ -12,6 +12,10 @@ description: >
 
 # Ad-Edit: raw teleprompter footage → finished ad creative
 
+## Square and vertical camera movement — updated 2026-09-16
+
+Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
+
 **STATUS: v1 — written 2026-08-20, before the first ad was cut.** Built from a
 measured study of 11 winning direct-response ads (7 of Dan's own green-marked
 winners + V Shred's #1 all-time and 2026 winner + MadMuscles' current top ad) —
