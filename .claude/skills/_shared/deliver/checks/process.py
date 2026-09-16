@@ -44,17 +44,22 @@ def _log_for(path, sha, video, what):
 
 
 def watch_pass(key, pr, cfg, plan, video, work):
-    """watch:pass -- somebody actually looked at the moving picture.
+    """watch:pass -- somebody actually looked at the moving picture, and found nothing left open.
 
     ⚠ WHY THIS ROW OUTRANKS EVERY METRIC HERE. `watch.py`'s own docstring records it: "Ad 1 attempt
     1 passed 11/11 on a metric gate and Dan rejected it: every check measured format, none ever
     looked at the moving picture." That file is corpus entry `ad1-vertical-attempt1` and Dan's words
     on it are "truly awful... definitely won't work."
 
-    ⚠ PHASE 3 OF handoff-20260911-video-quality-engine.md OWNS TURNING THIS ON EVERYWHERE. Today it
-    is a hard gate in /shortad-from-longform only; /shorts mentions a watch pass zero times. A
-    format whose config sets `required: false` here is carrying a DATED note saying so, and the
-    gate prints it as a pending row -- never as a pass.
+    A HARD GATE FOR EVERY FORMAT since 2026-09-16 (Phase 3). The log is written by
+    `_shared/deliver/watch.py` for THIS file's sha256, and passes only when:
+      * `inspected` is true and `reviewed` covers every boundary the pass wrote a strip for;
+      * every sheet and every strip the pass wrote carries a verdict in `judged` (the judge cannot
+        skip an image);
+      * no `defect` verdict is left open (a defect is closed only by a re-render -- which changes
+        the sha256 and voids the log -- or by `disposition: accepted_by_dan` with his words).
+    A log from one of the retired per-skill forks (no `watch_version`) is refused: it was never
+    judged image by image and it cannot say what it looked at.
     """
     sha = plan.get("_sha256")
     if not cfg.get("required", True):
@@ -62,15 +67,45 @@ def watch_pass(key, pr, cfg, plan, video, work):
     d, tied_by, why = _log_for(plan.get("watch_log"), sha, video, "watch_log")
     if why:
         return unmeasured(key, why)
-    reviewed, total = d.get("reviewed", 0), d.get("boundaries", 0)
+    if not d.get("watch_version"):
+        return unmeasured(key, "the watch log was not written by _shared/deliver/watch.py (no "
+                               "`watch_version`); the per-skill forks are retired -- re-run the shared pass")
+    if tied_by != "sha256":
+        return unmeasured(key, "the watch log names no sha256; the shared watch.py always writes one, "
+                               "so this log was edited or written by something else")
+    reviewed, total = int(d.get("reviewed") or 0), int(d.get("boundaries") or 0)
     if not total:
         return unmeasured(key, "the watch log records no boundaries, so nothing was reviewed")
-    ok = d.get("inspected") is True and reviewed >= total
+    images = set(d.get("sheets") or []) | set(d.get("strips") or [])
+    if not images:
+        return unmeasured(key, "the watch log lists no sheets or strips, so there was nothing to judge")
+    judged = d.get("judged") or []
+    covered = {os.path.basename(str(e.get("image", ""))) for e in judged}
+    missing = sorted(images - covered)
+    open_defects = [e for e in judged
+                    if e.get("verdict") == "defect" and e.get("disposition") != "accepted_by_dan"]
+    accepted = [e for e in judged
+                if e.get("verdict") == "defect" and e.get("disposition") == "accepted_by_dan"]
+    inspected = d.get("inspected") is True
+    ok = inspected and reviewed >= total and not missing and not open_defects
+    problems = []
+    if not inspected:
+        problems.append("`inspected` is not true")
+    if reviewed < total:
+        problems.append(f"only {reviewed}/{total} boundaries reviewed")
+    if missing:
+        problems.append(f"{len(missing)} image(s) without a verdict (first: {missing[:3]})")
+    if open_defects:
+        problems.append(f"{len(open_defects)} open defect(s): " + "; ".join(
+            f"{e.get('item')} @ {e.get('t', e.get('image'))}" for e in open_defects[:4]))
     return Row(key, ok,
-               f"{reviewed}/{total} boundaries reviewed as consecutive frames (tied to this file "
-               f"by {tied_by})"
-               f"{'' if d.get('inspected') is True else '; `inspected` is not true'}",
-               dict(reviewed=reviewed, boundaries=total, tied_by=tied_by))
+               f"{reviewed}/{total} boundaries reviewed as consecutive frames, {len(covered)}/{len(images)} "
+               f"images judged by {d.get('judged_by') or '?'} (tied to this file by sha256)"
+               f"{'; ' + str(len(accepted)) + ' defect(s) accepted by Dan' if accepted else ''}"
+               f"{'; ' + ', '.join(problems) if problems else ''}",
+               dict(reviewed=reviewed, boundaries=total, images=len(images), judged=len(covered),
+                    open_defects=len(open_defects), accepted=len(accepted), tied_by=tied_by,
+                    watch_version=d.get("watch_version")))
 
 
 def srt_present(key, pr, cfg, plan, video, work):

@@ -13,18 +13,6 @@ description: >
 
 # Editing a longform video from raw shoot footage
 
-## Edit queue status — REQUIRED when this video is a job on Dan's edit queue
-
-If the video is on `Handoffs/video-editing/00-MASTER.md` (IDs like `RA-01`, `DS-04`, `RO-02`, `SL-01`, `AV-05`, `AS-04`),
-keep its status current on Dan's pinned **Abs By AI Edit Queue** page: `in_progress` when you start building,
-`delivered` when the review copy goes to Dan, and **`finalized` the moment Dan says it is finalized / approved** (his
-words, never a passed gate). Never set `uploaded` here; that is `/ad-setup` (ads) or `/video-setup` (organic), after
-the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skills/_shared/edit-queue/README.md`.
-
-## Square and vertical camera movement — updated 2026-09-16
-
-Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
-
 ## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)
 
 - **A before and after picture are the SAME PERSON** (Dan, 2026-09-12: *"don't mix before-and-after pictures… That doesn't really make sense if you change the person."*). Never pair one person's before with another's after — in an app recording, a result screen, a card or a thumbnail. If that person's after does not exist, generate it for THEM through the live product (a real generation, never a composite) or change the before so the pair matches. ⚠ The only real app recording in the asset library uploads a man who is NOT Dan, so every phone demo cut from it inherits this.
@@ -200,9 +188,8 @@ were all cut carrying both mics.
 It probes every stream and channel, cross-correlates the live candidates within ±20 ms, scores
 arrival, floor, post-word decay and clipping, and writes the exact `-map` + filter every build
 script reads (`build_graded.py`, `build_split.py`, `build_*_singlemic.py`). It exits non-zero on
-ambiguity. Then `voice_chain.py` (Step 5.6) and `audio_gate.py` (Step 7.6); `qc_style.py`,
-`qc_generic.py`, the invest-health QCs, `cutdown_final_gate.py` and `deliver.sh` all refuse a file
-without the gate's stamp. Module README: `.claude/skills/_shared/audio/README.md`.
+ambiguity. Then `voice_chain.py` (Step 5.6) and `audio_gate.py` (Step 7.6); the shared delivery gate
+(`audio:stamp`) and `deliver.sh` refuse a file without the gate's stamp. Module README: `.claude/skills/_shared/audio/README.md`.
 
 **Flag to Jeff before the next shoot:** the far mic is opposite polarity on at least one roll, and
 the left input has been recorded hot enough to clip. Fix the polarity or drop the second mic, and
@@ -242,7 +229,7 @@ by opinion.
 
 These used to sit at Steps 5.5–8, which is where a session runs out of room, and that is
 exactly why they got skipped on the ab-wheel video. **Every one of them is a hard failure
-in `reference/qc_style.py`.** Plan for them now, not after the cut is locked.
+in the shared gate (`_shared/deliver`, the rows `qc_style.py` became).** Plan for them now, not after the cut is locked.
 
 | # | requirement | gate | where |
 |---|---|---|---|
@@ -260,8 +247,10 @@ cutaways; only the file proves it. That is deliberate — the old QC read `chip_
 and would happily certify a plan that never made it to the picture.
 
 ```bash
-python3 reference/qc_style.py FINAL.mp4 --plan plan.json --srt captions.srt --talking-head
+python3 .claude/skills/_shared/deliver/gate.py FINAL.mp4 --format longform --plan plan.json
 ```
+
+(`qc_style.py`'s rows are the gate's `style:*` and `cut:*` rows since 2026-09-11; the fork is deleted.)
 
 ### The three failures this gate exists to catch
 
@@ -355,8 +344,10 @@ could not place in silence. Read the flags: on this batch they caught six genuin
 clipped words across three videos, and the rest were benign Whisper inflation.
 
 **Re-transcribe EVERY beat's tail from the finished render, not just the flagged ones**
-(`reference/tailcheck.py`). It is the only check that sees a clipped trailing fricative, and on
-the ab-wheel cut it found the one real defect among 18 beats after every other metric passed.
+(the shared gate's `compliance:script_fidelity` row re-transcribes the FINISHED render and diffs it against the
+script; `tailcheck.py`, its per-video ancestor hardcoded to the ab-wheel build, was deleted 2026-09-16). It is the
+only check that sees a clipped trailing fricative, and on the ab-wheel cut it found the one real defect among 18
+beats after every other metric passed.
 
 **The window MUST extend ~1.5 s PAST the join.** Ending it at the join truncates Whisper's audio
 and it silently drops the final word — that produced **7 false "last word missing" reports** on a
@@ -761,7 +752,8 @@ Dan's rule, given on the spray-tan revision: **"generally there shouldn't be mor
 30 seconds without a clip or some kind of graphic… I'd rather have a little bit too much
 and eliminate them than not enough."** On a 19-minute video that is ~40 inserts minimum.
 What shipped was 95, covering 51 % of the running time, with the longest bare stretch at
-18.8 s. `reference/verify_cover.py` asserts the rule and prints the longest gaps.
+18.8 s. The gate's `style:coverage` and `style:static_run` rows assert the rule (`verify_cover.py`, deleted
+2026-09-16, was their ancestor).
 
 **Map the EXISTING chips first, then fill the gaps.** Chips count toward the rule and they
 are already timed to the narration; starting from zero re-does that work and produces
@@ -824,9 +816,12 @@ the current `GATE_VERSION`.
 - **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
   must stay green, and it is what proves a bound change did not resurrect a rejected cut.
 
-⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
-absorbed yet (framing is Phase 2, the watch pass is Phase 3 of
-`Handoffs/handoff-20260911-video-quality-engine.md`). **Run both until those land.**
+**The shared gate is the only gate (2026-09-16, Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).**
+The per-video QC forks that used to sit in `reference/` are deleted; every row they carried, framing and the watch
+pass included, lives in `_shared/deliver`, and `python3 .claude/skills/_shared/deliver/gate.py --formats` says what
+each format is held to. Do not resurrect a fork from git history to "double-check": a second gate with its own copy
+of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and missed the other (memory
+`shared-fix-may-not-reach-the-pipeline`).
 
 ## Step 5.6 — AUDIO: the shared chain  **REQUIRED — gate: `_shared/audio/audio_gate.py` PASS stamp on the delivered file**
 
@@ -1288,30 +1283,47 @@ Upload in YouTube Studio: Subtitles → Add → **Upload file → With timing**.
 
 ---
 
-## Step 8.5 — THE WATCH PASS  **`reference/watch_longform.py`** — REQUIRED before delivery
+## Step 8.5 — THE WATCH PASS  **`_shared/deliver/watch.py`** — REQUIRED; `watch:pass` is a hard gate row
 
-`qc_style.py` measures the finished file and still cannot see a black frame at a splice, a
-segment that froze, or a graphic that rendered to an `.mov` and never reached the picture.
-The ad pipeline paid for this twice: attempt 2 passed 15/15 and Dan found 13 problems,
-eight of which a human sees in one viewing, and an earlier build shipped **all 7 lower
-thirds, all 3 CTA pills and all 11 flashes invisible** with every metric green.
-
-Three things, on the EXACT file being delivered:
-
-1. **Full-frame scan, every frame, streamed** — black frames, frozen runs, and jumps far
-   above the file's own noise level that do not sit at a declared boundary. Merge
-   consecutive over-threshold frames into ONE event: a dissolve, a wiping graphic and a
-   fast motion passage each trip the threshold on every frame they last, and eighty
-   "unexplained jumps" that are really one 0.4 s animation is noise, not a finding.
-2. **Graphic presence at full resolution** — difference the delivered picture against the
-   pre-graphics source inside every declared window. This is the only check that can see
-   an overlay that never composited.
-3. **Boundary strips** — consecutive frames spanning each change, as contact sheets.
+Every metric above measures format. Nobody has looked at the moving picture until this runs, and the delivery
+gate's `watch:pass` row refuses the file until somebody has (Phase 3, 2026-09-16: one module for all six video
+skills; the per-skill watch scripts are gone).
 
 ```bash
-python3 reference/watch_longform.py FINAL.mp4 --base CUT_graded_NO-GRAPHICS.mp4 \
-        --windows windows.json --out watch
+python3 .claude/skills/_shared/deliver/watch.py <delivered file> --plan plan.json
+#  -> logs/watch_pass.json  +  watch/sheets/*.jpg  watch/strips/*.jpg  watch/CHECKLIST.md
 ```
+
+On the EXACT delivered file, in one pass: **(1) the scan, every frame at native rate** — frozen runs, black frames,
+and discontinuities not at a boundary the plan declares, consecutive hits merged into one event, the threshold the
+file's own noise; **(2) naked splices** — the instrument behind the gate row `cut:naked_splices` (a same-scene,
+single-frame jump where the subject moves and the background does not; a push or a pan aligns and is not one);
+**(3) graphic presence** — is each declared `graphics[].mov` actually in the delivered pixels (or does the picture
+differ from `source_picture` there); **(4) a strip of the five CONSECUTIVE frames at −2/−1/0/+1/+2 for every
+boundary**, plus the −1|0 pair at half size — the only thing that exposes a jump cut, a frozen beat or a mistimed
+animation by eye (a 1 s contact sheet cannot, and `fps=1/N` sheets lag content by ~N/2 s); **(5) contact sheets of
+exact frame indices** for the checklist items a strip cannot show (hair at the edge, a junk card, a label on his
+face, a wide level, visual junk with no audio signature — look-aways, glasses, drinking, recomposing while talking).
+
+**Then the judge.** Launch a **fresh subagent** (Step 8.6) with `watch/CHECKLIST.md`, every image in
+`watch/sheets` and `watch/strips`, the delivered file and the `personmask` CLI. It gives EVERY image a verdict —
+`clean`, `defect` (naming the checklist item and the time) or `expected` (a change the plan declares; it says which)
+— as `findings.json` (`{"entries": [{"image", "verdict", "item", "t", "note"}]}`), then:
+
+```bash
+python3 .claude/skills/_shared/deliver/watch.py --judge logs/watch_pass.json --findings findings.json --by "<who>"
+```
+
+Put `"watch_log": "logs/watch_pass.json"` in `plan.json` and run the gate (`--format longform`). The row passes only
+when the log names this file's sha256, every sheet and strip carries a verdict, and no defect is open. **A defect is
+closed by a re-render** (new sha256, new watch pass) or by `"disposition": "accepted_by_dan"` with his words in the
+note — never by editing the log. There is no skip flag. A log from one of the old per-skill watch scripts is refused.
+
+The metric gate cannot see a black frame at a splice, a segment that froze, or a graphic that rendered to an `.mov`
+and never reached the picture. The ad pipeline paid for this twice: attempt 2 passed 15/15 and Dan found 13
+problems, eight of which a human sees in one viewing, and an earlier build shipped **all 7 lower thirds, all 3 CTA
+pills and all 11 flashes invisible** with every metric green. For the graphic-presence check give the plan the
+pre-graphics render as `"source_picture": "CUT_graded_NO-GRAPHICS.mp4"` (or each graphic's own `mov`).
 
 ⚠ **Check the app screenshots on any product card against the standing rules.** The
 delivered spray-tan master carried the App Store screenshot `01-the-reveal.png` on its
@@ -1322,12 +1334,33 @@ BEFORE/AFTER**, on screen for 5.6 s at 18:04. `00-home-hero.png`,
 reliable replacement — and the live page's own example carousel shows a pair too, so cut
 that band out.
 
-## Step 9 — QC, automated  **BOTH gates, every time**
+### ⚠ Step 8.6 — AN INDEPENDENT SUBAGENT AUDIT IS PART OF THIS SKILL (Dan, 2026-09-01)
+
+**"I think calling Fable to review should be a part of this skill going forward."** In `/shortad-from-longform` it
+has overturned the session's own "this is fixed" twice — once measuring a build just called centred at sd ~110 px,
+39 % of talking frames beyond 70 px and two multi-second stretches where his face was cut by the frame edge, and once
+catching that eyeball reads of "he is off to the left" were MIRRORED at three of four timestamps. So after the watch
+pass, before delivering, launch a **fresh Fable subagent** on the exact delivered file. Give it the compiled
+`personmask` CLI (`shorts/reference/recentre/personmask`), the watch pass's sheets and strips, and the plan; tell it
+which beat kinds to judge (talk only); and demand the population statistics, every contiguous run beyond 60 px off
+centre or outside the framing bounds for ≥ 1 s, full-resolution verification of anything it flags (exact `-ss` grabs,
+never a sheet), **and an explicit opinion on whatever trade-off you just made** — a faster tracking crop can swap a
+centering problem for a visible pan, and you are the last person who will notice that in your own build. Ask it to
+be skeptical and to say plainly if one visible problem was traded for another. Relay its verdict to Dan rather than
+your own. The watch-pass judge above and this audit may be one subagent run when it is given the delivered file too.
+
+⚠ **A subagent that has completed cannot be resumed** — its transcript is gone and `SendMessage` fails. Launch a
+fresh one for the re-audit and restate the context.
+
+## Step 9 — QC, automated  **the shared gate, every time**
 
 ```bash
-python3 reference/qc_style.py FINAL.mp4 --plan plan.json --srt captions.srt --talking-head
-python3 reference/qc_generic.py <slug> FINAL.mp4        # the technical checks below
+python3 .claude/skills/_shared/deliver/gate.py FINAL.mp4 --format longform --plan plan.json
 ```
+
+`qc_style.py` and `qc_generic.py` were folded into that gate on 2026-09-11 (the `style:*`, `cut:*`, `container:*`
+and `srt:*` rows, every bound in `_shared/deliver/formats.py` with its provenance) and deleted on 2026-09-16. The
+lessons below still name them because they are where the rows came from.
 
 **`qc_style.py` is the one that matters and it is the reason this skill was rebuilt.** It
 measures the FINISHED FILE — not `chip_timings.json`, not the EDL, not your plan — because
@@ -1416,9 +1449,9 @@ and the circular cut-cleanliness metric in Step 3 reported the exact opposite of
   falls back to `dynamic` and compresses the programme (on V4 it took LRA 4.40 → 4.20). Prefer
   an explicit `volume=<gain>dB` + `alimiter`, and read `normalization_type` in the pass-2 JSON.
   ⚠ **Reading the JSON is not enough — prove it on the finished MP4** with
-  `/shortad-from-longform reference/gain_flatness.py SOURCE OUT --gain G`, which takes the
-  per-second RMS ratio against the source and fails on any second sitting ABOVE the constant
-  gain. That is what a fallback-to-dynamic looks like, and it is why Dan rejected the Ad-1
+  `_shared/audio/audio_gate.py OUT --reference-mix SOURCE --verbatim` (its `verbatim level` row is
+  `gain_flatness.py`'s test, deleted 2026-09-16), which takes the per-second level against the source and
+  fails on any second sitting ABOVE the constant gain. That is what a fallback-to-dynamic looks like, and it is why Dan rejected the Ad-1
   vertical on 2026-09-02: 133 of its 232 seconds were being pushed up, by as much as 5.3 dB,
   while every correlation and loudness check read green.
 - **AAC overshoots the WAV's true peak, and by how much depends on the content.** Same chain,

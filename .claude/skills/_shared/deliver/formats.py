@@ -43,7 +43,7 @@ ALL_ROWS = (
     "framing:hair_top", "framing:headroom", "framing:centering", "framing:no_wide_level",
     "framing:push_coverage",
     "cut:uncovered_joins", "cut:black_frames", "cut:min_segment", "cut:jump_cut",
-    "cut:splice_visibility",
+    "cut:splice_visibility", "cut:naked_splices",
     "captions:graphic_clearance", "captions:card_collision", "captions:burned",
     "captions:within_runtime", "captions:sync",
     "compliance:banned_screen", "compliance:labels", "compliance:drug_names",
@@ -209,6 +209,21 @@ FORMATS = {
                 # 31.6 s is Muhammad's own longest talking stretch (shortad-from-longform qc.json).
                 # Our approved verticals read 17.0 and 25.7.
                 "style:change_rate": dict(min_per_min=7.0),
+                "cut:naked_splices": dict(max_per_min=12.0),
+                # THE WATCH INSTRUMENT (_shared/deliver/watch.py), measured 2026-09-16 with no plan:
+                #   ad1-vertical-attempt1  REJECTED ("truly awful")   12 in 50.8 s = 14.2/min
+                #   ad 1 | claude | 9x16   approved                    7.0/min
+                #   ad 2 | claude | 9x16   approved                    2.6/min
+                #   ad 3 | claude | 9x16   approved (r12)              0.45/min
+                #   ad 1 | claude | 1x1    approved (the same cut)    10.3/min  <- the highest approved
+                #   muhammad ad 1 / ad 2 16x9 (references)             9.5 / 7.6/min
+                # 12.0 sits between the highest approved reading and the rejected one, x1.16 / x1.18.
+                # ⚠ THIN, AND WHY: at this instrument's resolution one of attempt 1's jumps is NOT
+                # distinguishable from one of Muhammad's pose-matched same-scene cuts (his masters carry
+                # 7.6-9.5/min of them); what separates the rejected cut is the RATE, and the missing
+                # discriminator is the audio splice (his picture cuts sit 1-15 frames off it -- VQC-C
+                # phase 4, cut:pose_matched_offset). A plan's declared punches are subtracted, so a real
+                # build reads lower than these no-plan calibration numbers.
                 # approved verticals read 13.7 and 8.3; his 16x9 masters 12.1 and 9.8.
                 "framing:hair_top": dict(min_px=20, edge_frac=0.20),
                 "framing:headroom": dict(seg_min_px=20, seg_max_px=70, median_max_px=75),
@@ -266,6 +281,10 @@ FORMATS = {
                 "style:static_run": dict(max=25.0),
                 # ad-edit/rev5/qc5.py's own bound; the three references read 16.8, 19.7 and 18.0.
                 "style:change_rate": dict(min_per_min=8.0),
+                "cut:naked_splices": dict(max_per_min=12.0),
+                # measured 2026-09-16, no plan: Muhammad ad 1 / ad 2 masters 9.5 / 7.6/min (his pose-
+                # matched cuts), Zeeshan's approved ad 1 2.2/min. No rejected 16:9 ad is in the corpus;
+                # the bound is the vertical's (see ad9x16), which the same cuts re-layout.
                 # the three references read 12.1, 9.8 and 9.6.
                 "framing:hair_top": dict(min_px=20, edge_frac=0.20),
                 "framing:headroom": dict(seg_min_px=20, seg_max_px=70, median_max_px=75),
@@ -284,9 +303,9 @@ FORMATS = {
                                       min_state_corr=0.60, min_word_match_frac=0.97),
                 "compliance:banned_screen": dict(**_BANNED),
                 "compliance:labels": dict(_LABELS),
-                "watch:pass": dict(required=False,
-                                   pending="Phase 3 of handoff-20260911-video-quality-engine.md "
-                                           "turns the watch pass on for /ad-edit (2026-09-11)"),
+                "watch:pass": dict(required=True),
+                # a hard gate since 2026-09-16 (Phase 3): _shared/deliver/watch.py writes the log,
+                # a judge scores every sheet and strip, and no defect may be left open.
             }),
         not_applicable={
             "framing:centering": "the editor's layout puts bullets left and Dan right (Muhammad "
@@ -312,6 +331,10 @@ FORMATS = {
                 "style:coverage": dict(min=0.38),
                 "style:static_run": dict(max=31.6),
                 "style:change_rate": dict(min_per_min=7.0),
+                "cut:naked_splices": dict(max_per_min=12.0),
+                # measured 2026-09-16, no plan: the approved Ad 1 square reads 10.3/min (its 0:59 6.0),
+                # the highest approved reading anywhere -- the same cut reads 7.0 as a vertical, so the
+                # square layout (more of the frame is Dan) raises the count. See ad9x16.
                 # a square build is a re-layout of an approved vertical, so it inherits the
                 # vertical's bounds: the EDL, the beats and the coverage are the same cut.
                 "framing:hair_top": dict(min_px=20, edge_frac=0.20),
@@ -373,6 +396,11 @@ FORMATS = {
                 # Dan's own written rule, 2026-08-21 (spray-tan rev 1). The rejected ab-wheel cut
                 # sits still for 79.2 s.
                 "style:change_rate": dict(min_per_min=4.0),
+                "cut:naked_splices": dict(max_per_min=12.0),
+                # measured 2026-09-16, no plan: the two REJECTED longforms read 1.2 (ab-wheel 8/20) and
+                # 0.9/min (spray-tan rev 0) -- neither was rejected for splices. ⚠ No approved organic
+                # longform of ours is in the corpus (as for the framing rows); the ad bound is carried
+                # and stated. Re-measure when one is approved.
                 # qc_style.MIN_SCENES_PER_MIN. The reference cut runs 7.7/min; the rejected ab-wheel
                 # cut 2.1.
                 "framing:hair_top": dict(min_px=20, edge_frac=0.20),
@@ -390,9 +418,9 @@ FORMATS = {
                 # the row that was missing here: the app's before/after screen reached the delivered
                 # spray-tan longform for 5.6 s at 18:04 because only /ad-edit template-scanned.
                 "compliance:labels": dict(_LABELS),
-                "watch:pass": dict(required=False,
-                                   pending="Phase 3 of handoff-20260911-video-quality-engine.md "
-                                           "turns the watch pass on for /longform-edit (2026-09-11)"),
+                "watch:pass": dict(required=True),
+                # a hard gate since 2026-09-16 (Phase 3): _shared/deliver/watch.py writes the log,
+                # a judge scores every sheet and strip, and no defect may be left open.
                 "srt:present": dict(required=True),
                 "srt:shape": dict(max_line_chars=48, max_lines=2,
                                   banned_spellings=["GOP", "Zepbound", "Ozempic"]),
@@ -430,6 +458,12 @@ FORMATS = {
                 # master and have not been re-gated. Re-measure when they are.
                 "style:static_run": dict(max=30.0),
                 "style:change_rate": dict(min_per_min=4.0),
+                "cut:naked_splices": dict(max_per_min=12.0),
+                # measured 2026-09-16, no plan: v2-short3-offcentre (REJECTED, on centering) reads
+                # 14.8/min -- it is cut from a rendered longform whose 6 % alternating punch-ins Dan
+                # himself called jump cuts (longform-edit junk pass 5), and the instrument counts them
+                # as such. The approved 0:59 cutdowns read 1.0 (Ad 3) and 6.0 (Ad 1 square). ⚠ Not
+                # measured on an approved Short of ours; the ad bound is carried and stated.
                 "framing:hair_top": dict(min_px=20, edge_frac=0.20),
                 "framing:headroom": dict(seg_min_px=30, seg_max_px=70, median_max_px=75),
                 # the locked standard, scaled by H/1080 (4 % of a 1920-tall frame = 77 px).
@@ -453,10 +487,9 @@ FORMATS = {
                 # scored-source/qc.js cannot see a desynced caption.
                 "compliance:banned_screen": dict(**_BANNED),
                 "compliance:labels": dict(_LABELS),
-                "watch:pass": dict(required=False,
-                                   pending="Phase 3 of handoff-20260911-video-quality-engine.md "
-                                           "turns the watch pass on for /shorts, which mentions it "
-                                           "zero times today (2026-09-11)"),
+                "watch:pass": dict(required=True),
+                # a hard gate since 2026-09-16 (Phase 3): _shared/deliver/watch.py writes the log,
+                # a judge scores every sheet and strip, and no defect may be left open.
             }),
         not_applicable={
             "srt:present": "a Short burns its captions; there is no sidecar deliverable",
@@ -486,6 +519,11 @@ FORMATS = {
                 # website-video/recipe/qc.py check 3, unchanged. The approved revs read 12.2, 13.5
                 # and 10.8.
                 "style:change_rate": dict(min_per_min=8.0),
+                "cut:naked_splices": dict(max_per_min=12.0),
+                # measured 2026-09-16, no plan: rev 1 / 2 / 3 (rejected on audio and framing) 0.8 / 2.3 /
+                # 3.1, rev 4 / 5 / 6 (APPROVED) 4.4 / 5.0 / 5.2/min -- the approved revs read higher
+                # because they carry more pushes and no plan subtracts them here. No website rejection
+                # was ever about splices; the ad bound is carried and stated.
                 # the approved revs read 12.0, 11.7 and 12.5.
                 "framing:hair_top": dict(min_px=20, edge_frac=0.20),
                 "framing:headroom": dict(seg_min_px=30, seg_max_px=70, median_max_px=75),
@@ -514,9 +552,9 @@ FORMATS = {
                 "compliance:banned_screen": dict(**_BANNED),
                 # measured on rev 4 2026-09-11: best NCC 0.484 over 6,900 frames, nothing over 0.72.
                 "compliance:labels": dict(_LABELS),
-                "watch:pass": dict(required=False,
-                                   pending="Phase 3 of handoff-20260911-video-quality-engine.md "
-                                           "turns the watch pass on for /website-video (2026-09-11)"),
+                "watch:pass": dict(required=True),
+                # a hard gate since 2026-09-16 (Phase 3): _shared/deliver/watch.py writes the log,
+                # a judge scores every sheet and strip, and no defect may be left open.
             }),
         not_applicable={
             "framing:centering": "the PIP level pushes Dan right by design so a phone sits beside "
@@ -592,8 +630,12 @@ FORMATS = {
             "compliance:negative_events": "a demo of a movement shows no body-shame imagery",
             "srt:present": "the demos play inside the app with no sidecar",
             "srt:shape": "no sidecar -- see srt:present",
-            "watch:pass": "delivered in batches of 9-15 and reviewed as a batch by Dan before "
-                          "install; Phase 3 decides whether a per-file watch pass is worth it",
+            "watch:pass": "a 15-28 s generated loop with no cuts, no graphics and no captions: the "
+                          "boundary strips would have no boundaries to show. Its picture is covered "
+                          "by the ghost scan (exercisegeneration/SKILL.md) and by Dan reviewing each "
+                          "batch of 9-15 before install. Decided 2026-09-16 (Phase 3)",
+            "cut:naked_splices": "a seamless loop is one continuous generated rep; its loop point is "
+                                 "a same-scene discontinuity by construction (see cut:uncovered_joins)",
         },
     ),
 }

@@ -120,11 +120,12 @@ approved (rev 4 measures 37%). That is per-format config — *not* a widened bou
 ## Verifying a change
 
 ```bash
-python3 -m unittest discover -s .claude/skills/_shared/deliver/tests -v
+python3 -m unittest .claude/skills/_shared/deliver/tests/test_contract_v2.py .claude/skills/_shared/deliver/tests/test_watch_scan.py -v
 python3 .claude/skills/_shared/deliver/gate.py --audit          # no format has a hole
 python3 .claude/skills/_shared/qc_corpus/run.py                 # must stay green (~15 min)
 ```
 
+The watch scan's own fixture (`tests/test_watch_scan.py`) runs there and as `run.py` step 0b.
 The focused fixtures cover positive and negative PNG collisions, early/late continuous-speech
 timing, present/missing/wrong and partial label states, stale hashes, invalid square/vertical
 windows, clipped hair inside a declared window, fixed-wide intent, legacy ASS parsing, and the four
@@ -165,9 +166,9 @@ and a 2 fps scan stepped straight over it.
   before/after screen at 3:11 and the email-capture screen at 3:12 and 3:23** — a live ad.
   `/ad-edit`'s and `/website-video`'s own scans are still the blind whole-screen matchers; this row
   is the one that counts.
-* **`watch:pass` is a hard gate for `ad9x16` and `ad1x1` only.** Every other format carries a dated
-  `pending` note and the gate prints the row as PENDING — never as a pass. Phase 3 of
-  `Handoffs/handoff-20260911-video-quality-engine.md` turns it on everywhere.
+* **`watch:pass` is a hard gate for every format since 2026-09-16 (Phase 3)** — see "The watch pass"
+  below. `exercise-demo` declares it not applicable with its reason (a generated loop has no boundaries
+  to strip; the ghost scan and Dan's batch review are its picture checks).
 * **`framing:*` landed 2026-09-12 (Phase 2), composite windows landed 2026-09-16** — five rows on one tracker (`checks/framing.py`):
   mediapipe FaceMesh (plus the full-range detector for a small face) anchors the head band, Apple
   Vision person segmentation (`shorts/reference/recentre/personmask`) gives the hair top, and the
@@ -183,6 +184,50 @@ and a 2 fps scan stepped straight over it.
   approved are cut from Muhammad's master and have not been re-gated. The bound is borrowed from the
   lowest approved long-form-family reading and says so.
 
+## The watch pass (`watch.py`, Phase 3, 2026-09-16)
+
+Every metric row measures format. `watch.py` is the one module that looks at the **moving picture**, on
+the delivered file, for all six skills — it replaced three per-skill scripts that each imported their
+own build's `beats.py`, hardcoded an ffmpeg path and wrote 6,000 PNGs per pass.
+
+```bash
+python3 .claude/skills/_shared/deliver/watch.py <file> --plan plan.json       # scan + strips + sheets + log
+python3 .claude/skills/_shared/deliver/watch.py --judge logs/watch_pass.json --findings findings.json --by "<who>"
+python3 .claude/skills/_shared/deliver/watch.py --checklist
+```
+
+One streamed pass at native frame rate on a 160×90 grid oriented like the file (never a PNG per
+frame, never a sampled rate): frozen runs, black frames, and discontinuities not at a boundary the
+plan declares, consecutive hits merged into one event against the file's own noise. **Naked
+splices** — the instrument behind the `cut:naked_splices` row — are same-scene, single-frame jumps
+where the subject moves and the background does not: a sharp spike in the peak block, the same
+palette both sides, most *textured* blocks still (a flat wall reads still under a zoom too), enough
+blocks moved to be a person rather than a caption word, measured over the top 70 % of the frame
+(captions and lower thirds live below it in every format), then the two frames are grabbed at exact
+`-ss -copyts` and tested against a scale-about-centre + phase-correlated shift over the changed
+region: a push or a pan aligns, a jump cut does not. ⚠ `cut:uncovered_joins` is NOT this instrument:
+it reads the rejected `ad1-vertical-attempt1` at **0.0/min**, because a subject jump is local and a
+whole-frame mean at 48×27 dilutes it to nothing.
+
+For every boundary — the plan's (`joins`, `punch`, `graphics`, `ai_inserts`, `real_photos`,
+`covered`, `cards`, v2 `graphic_regions` / `talking_head_windows`) plus everything the scan found
+on its own — a **strip of the five consecutive frames at −2/−1/0/+1/+2** and the −1|0 pair at half
+size. Contact sheets of exact frame indices (1 fps up to 5 minutes, then a wider stride) cover the
+checklist items a strip cannot show. Declared graphics are checked for **presence** against their
+own MOV's alpha (or a `source_picture` render).
+
+**The judge.** The pass writes `CHECKLIST.md` (ten items, each citing the rejection it comes from)
+and `JUDGE_PROMPT.md`. A fresh subagent gives EVERY sheet and strip a verdict — `clean`, `defect`
+(item + time) or `expected` (what the plan declares there) — in `findings.json`; `--judge` folds it
+into the log and refuses to mark it inspected while any image lacks a verdict. The `watch:pass` row
+then passes only when the log names this file's sha256, was written by this module, every image is
+judged, and no defect is open (closed by a re-render or by `disposition: accepted_by_dan` with his
+words). A log from a retired fork is refused. There is no skip flag.
+
+Its own fixture, `tests/test_watch_scan.py`, injects a frozen run, a black frame, a subject jump, a
+scene cut and a push into a synthetic clip and into 12 s of approved real footage and asserts the
+three defects are found and the two deliberate changes are not. `qc_corpus/run.py` runs it as step 0b.
+
 ## The forks this replaces
 
 `formats.py` and `checks/` carry the union of the rows in: `website-video/reference/recipe/qc.py`
@@ -193,8 +238,12 @@ plus `caption_sync_check.py`, `gain_flatness.py`, `landing_check.py`, `srt_valid
 `content_flags.py`, `verify_cover.py`, `tailcheck.py`, the three `syncgate.py` and
 `shorts/reference/recentre/delivered_gate.py`.
 
-⚠ **They are still on disk on purpose.** Three sessions were mid-build against them when this module
-landed (2026-09-11: `ad1-sq`, `ad2-sq`, `ad3-vert`, `ad4-vert`, `ad5-vert`). Deleting a live
-dependency under a running build is how you lose a night's render. Each fork gets a deprecation
-banner instead; they come out once those builds have delivered. **Grep for forks before assuming a
-shared fix has landed** — `_shared/audio/README.md` non-negotiable 9.
+…and the three watch scripts: `shortad-from-longform/reference/a2/watch.py`,
+`website-video/reference/recipe/watch.py`, `longform-edit/reference/watch_longform.py`.
+
+**Deleted 2026-09-16 (Phase 3).** They carried deprecation banners from 2026-09-11 while five builds
+were in flight against their own SSD copies; those delivered, every SKILL.md step that named one was
+re-pointed at the shared gate in the same commit, and the list above stays as the provenance of half
+the bounds in `formats.py`. A build that copied a fork into its own directory still has its copy;
+nothing new may start from one. **Grep for forks before assuming a shared fix has landed** —
+`_shared/audio/README.md` non-negotiable 9.

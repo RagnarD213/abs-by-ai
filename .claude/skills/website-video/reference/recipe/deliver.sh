@@ -2,7 +2,10 @@
 # REV 6 delivery gates + copies, run on the EXACT finished master. PARAMETERISED (rev 6 ships TWO masters):
 #   ./deliver.sh website_video_16x9_A_tan-corrected.mp4      ./deliver.sh website_video_16x9_B_tan-as-is.mp4
 #   1 the audio gate (_shared/audio/audio_gate.py) + the A/B clip     2 contact sheet from EXACT -ss grabs (lesson 94)
-#   3 qc.py (14 checks + caption clearance in pixels + hair on the delivered frames)   4 watch.py   5 540p review copy
+#   3 the shared delivery gate (_shared/deliver/gate.py --format website; qc.py's rows since 2026-09-11)
+#   4 the shared watch pass (_shared/deliver/watch.py; recipe/watch.py deleted 2026-09-16) -- then a JUDGE
+#     (a fresh subagent) scores every sheet and strip and `watch.py --judge` folds it in, and the gate is re-run
+#     so its watch:pass row can read the judged log   5 540p review copy
 #   6 silent-seconds check on master + review copy.  Every gate is per-file (the stamp is keyed to the file's sha256).
 set -e
 export PATH="/Volumes/Extreme/_edit_work/bin:$PATH"
@@ -15,10 +18,12 @@ echo "== 1 audio gate (the shared gate, on the EXACT delivered file $M)"
 python3 "$SH/audio_gate.py" $M --ab AB_his-vs-ours$TAG.mp4 && echo "audio gate PASSED"
 echo "== 1.5 stamp"; python3 "$SH/require_stamp.py" $M
 echo "== 2 contact sheet, exact grabs every 5 s"; python3 sheet.py $M pv/final_sheet_5s$TAG.jpg 5
-echo "== 3 qc"; rm -f qc.whisper.json; QCIN=$M python3 qc.py
-echo "== 4 watch"; rm -rf watch; python3 watch.py $M
-cp pv/hair_tight*.png pv/hair_loose*.png pv/hairgate_sheet.jpg pv/hairtrack_proof.jpg watch/strip/ 2>/dev/null || true
-rm -rf watch$TAG; [ -n "$TAG" ] && mv watch watch$TAG || true
+DL="/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/deliver"
+echo "== 4 watch (the shared pass; write plan.json's watch_log as logs/watch_pass.json)"
+rm -rf watch$TAG; python3 "$DL/watch.py" $M --plan plan.json --out watch$TAG --log logs/watch_pass$TAG.json
+cp pv/hair_tight*.png pv/hair_loose*.png pv/hairgate_sheet.jpg pv/hairtrack_proof.jpg watch$TAG/strips/ 2>/dev/null || true
+echo "== 3 the shared delivery gate (watch:pass reads the judged log; until the judge has run it FAILS, on purpose)"
+python3 "$DL/gate.py" $M --format website --plan plan.json || echo "delivery gate NOT PASSING yet -- judge the watch pass, then re-run"
 echo "== 5 review copy"; ffmpeg -v error -y -i $M -vf scale=960:540 -c:v libx264 -preset medium -crf 23 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart REVIEW_540p_website_video$TAG.mp4
 echo "== 6 silence"; for f in $M REVIEW_540p_website_video$TAG.mp4; do
   n=$(ffmpeg -nostats -i $f -af silencedetect=n=-50dB:d=1 -f null - 2>&1 | grep -c silence_start || true)

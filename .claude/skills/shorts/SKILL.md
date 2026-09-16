@@ -12,18 +12,6 @@ description: >
 
 # Cutting Shorts from a long-form video
 
-## Edit queue status — REQUIRED when this video is a job on Dan's edit queue
-
-If the video is on `Handoffs/video-editing/00-MASTER.md` (IDs like `RA-01`, `DS-04`, `RO-02`, `SL-01`, `AV-05`, `AS-04`),
-keep its status current on Dan's pinned **Abs By AI Edit Queue** page: `in_progress` when you start building,
-`delivered` when the review copy goes to Dan, and **`finalized` the moment Dan says it is finalized / approved** (his
-words, never a passed gate). Never set `uploaded` here; that is `/ad-setup` (ads) or `/video-setup` (organic), after
-the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skills/_shared/edit-queue/README.md`.
-
-## Square and vertical camera movement — updated 2026-09-16
-
-Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
-
 ## Permanent YouTube visibility rule (Dan, 2026-09-16)
 
 Never upload a Short as Public and never use YouTube native scheduling. An ad Short is always **Unlisted** on
@@ -128,9 +116,9 @@ count against container duration. More than ~50 ms apart and the timelines disag
 ffmpeg -i SRC -vn -af "aresample=async=1:first_pts=0" -ac 1 -ar 48000 -c:a pcm_s16le out.wav
 ```
 
-**Then gate it on the delivered file.** `reference/clean-master/syncgate.py` transcribes each
-finished short and matches every caption's first word to the heard audio; `qc.js` refuses to
-pass a file the gate has not seen. ⚠ It carries a measured **−80 ms** correction because the
+**Then gate it on the delivered file.** The shared gate's `captions:sync` row (the successor of the three
+`syncgate.py` forks, deleted 2026-09-16) transcribes each finished short and matches every caption to the heard
+audio; the gate refuses to pass a file that row has not seen. ⚠ It carries a measured **−80 ms** correction because the
 gate's `base.en` and the pipeline's `medium.en` disagree on word onsets by exactly that much
 (n=414, identical across three spans). Without it the gate fails good builds — the fourth time
 in this pipeline's history that a QC metric was wrong rather than the media.
@@ -238,8 +226,8 @@ and the two both tokenise *and spell* differently — caption "All right," → `
 "When" as "and" on another short. It now falls back to a **similarity ratio on the opening ~12
 letters** (0.80 threshold). ⚠ It also read `build/<ID>.ass` where the renderer writes
 `build/<ID>/<ID>.ass` — it had only ever run in a folder carrying stale top-level copies.
-**Fix the gate, never override it**; the corrected file is in `reference/spray-tan/syncgate.py`
-and has been copied over the `clean-master` and `zepbound` versions.
+**Fix the gate, never override it**; the corrected logic lives in the shared gate's `captions:sync` row now
+(the three `syncgate.py` copies were deleted 2026-09-16).
 
 ## ⚠ Step 0.6 — MEASURE THE ROOM. This is the one Dan keeps rejecting.
 
@@ -506,7 +494,7 @@ talking-head shot in the video". It does not. **He shifts in the doorway between
 his measured torso centre wanders **0.411 → 0.505** across V2+V3, and a 9:16 window is only
 0.317 of the frame wide, so a 0.06 error moves him ~200 px in a 1080-wide delivered frame.
 V6's plan had already found this the hard way ("there is NO single TALK_X") and the lesson
-was never carried back to V2/V3. **Measure a centre per SHOT. Never reuse one constant across different takes.**
+was never carried back to V2/V3. **Measure a centre per SHOT. Never reuse one constant.**
 
 **The measurement that works, and the two that do not.** Anchor on the **torso block** —
 the columns where the mask fills ≥60 % of its own tallest column:
@@ -515,8 +503,8 @@ the columns where the mask fills ≥60 % of its own tallest column:
   because his hands fly in and out of frame while he talks. Same median, useless per frame.
 - ❌ *Edge-energy column search* (`choose-crops.py`'s `auto_x`) locks onto the fridge.
 - ✅ **Torso block**: ~23–31 px frame-to-frame spread, which is his real sway, not noise.
-  A per-shot constant was enough in these wider shots. Default to that steady framing;
-  a very tight crop may still need gentle tracking under the shared framing rule above.
+  A per-shot constant is then enough — **no time-varying pan is needed** and a pan on a
+  locked tripod reads as a mistake.
 
 **Get the mask from Apple's Vision framework, not from colour.** A skin+dark-garment
 heuristic bled straight into the stainless fridge and reported centres 0.15 too far right.
@@ -608,7 +596,8 @@ off-centre files on schedule** — four went live (`y0XIbNoA2Xo`, `P9VUGyWeNtY`,
      "Saving...". Verify at the end on the Shorts list: every new id Scheduled, no old id present.
    - The metadata read-back JS must mask query strings (`.replace(/\?utm[^\s]*/g,'?UTM')`) or the
      tool refuses to return it; rebuild the UTM from the plan's campaign + slug.
-4. **Run `recentre/delivered_gate.py` on the delivered file and LOOK at the strip** before any of
+4. **Run the shared gate's `framing:` rows and the shared watch pass on the delivered file and LOOK at the
+   strips** (`recentre/delivered_gate.py`, deleted 2026-09-16, was the ancestor) before any of
    the above; nothing ships on the numbers alone. Metric verdicts from this audit: the torso
    anchor under-reports a SEATED subject whose legs extend to one side (`v6-short2` measured head
    −2 px / upper body +7 px in the delivered file and was left alone against the handoff's
@@ -807,7 +796,12 @@ a small content jump at every cut. Render shots `-an`, then map audio from a sin
 
 ## Step 10 — QC, automated
 
-`qc.js`. Assert: 1080×1920, **24fps**, AAC 48kHz stereo, duration within 0.25s of plan,
+```bash
+python3 .claude/skills/_shared/deliver/gate.py <short.mp4> --format short --plan plan.json
+```
+
+The four `qc.js` forks were folded into that gate (2026-09-11) and deleted (2026-09-16). What they asserted, and
+the gate still does: 1080×1920, the source's frame rate, AAC 48kHz stereo, duration within 0.25s of plan,
 no black frames, last caption inside the video, no click at any splice, **and the `_shared/audio`
 gate stamp for this exact file** (`requireStamp` — no stamp, another build's stamp, or a FAIL is not
 deliverable; `deliver.js` checks it again).
@@ -828,6 +822,60 @@ perfect — when a QC metric fails, confirm the metric before "fixing" the media
 
 Then look at a contact sheet of every card/pip moment from the **finished file**. That is
 the check against the actual requirement.
+
+## Step 10.1 — THE WATCH PASS  **`_shared/deliver/watch.py`** — REQUIRED; `watch:pass` is a hard gate row
+
+Every metric above measures format. Nobody has looked at the moving picture until this runs, and the delivery
+gate's `watch:pass` row refuses the file until somebody has (Phase 3, 2026-09-16: one module for all six video
+skills; the per-skill watch scripts are gone).
+
+```bash
+python3 .claude/skills/_shared/deliver/watch.py <delivered file> --plan plan.json
+#  -> logs/watch_pass.json  +  watch/sheets/*.jpg  watch/strips/*.jpg  watch/CHECKLIST.md
+```
+
+On the EXACT delivered file, in one pass: **(1) the scan, every frame at native rate** — frozen runs, black frames,
+and discontinuities not at a boundary the plan declares, consecutive hits merged into one event, the threshold the
+file's own noise; **(2) naked splices** — the instrument behind the gate row `cut:naked_splices` (a same-scene,
+single-frame jump where the subject moves and the background does not; a push or a pan aligns and is not one);
+**(3) graphic presence** — is each declared `graphics[].mov` actually in the delivered pixels (or does the picture
+differ from `source_picture` there); **(4) a strip of the five CONSECUTIVE frames at −2/−1/0/+1/+2 for every
+boundary**, plus the −1|0 pair at half size — the only thing that exposes a jump cut, a frozen beat or a mistimed
+animation by eye (a 1 s contact sheet cannot, and `fps=1/N` sheets lag content by ~N/2 s); **(5) contact sheets of
+exact frame indices** for the checklist items a strip cannot show (hair at the edge, a junk card, a label on his
+face, a wide level, visual junk with no audio signature — look-aways, glasses, drinking, recomposing while talking).
+
+**Then the judge.** Launch a **fresh subagent** (Step 10.2) with `watch/CHECKLIST.md`, every image in
+`watch/sheets` and `watch/strips`, the delivered file and the `personmask` CLI. It gives EVERY image a verdict —
+`clean`, `defect` (naming the checklist item and the time) or `expected` (a change the plan declares; it says which)
+— as `findings.json` (`{"entries": [{"image", "verdict", "item", "t", "note"}]}`), then:
+
+```bash
+python3 .claude/skills/_shared/deliver/watch.py --judge logs/watch_pass.json --findings findings.json --by "<who>"
+```
+
+Put `"watch_log": "logs/watch_pass.json"` in `plan.json` and run the gate (`--format short`). The row passes only
+when the log names this file's sha256, every sheet and strip carries a verdict, and no defect is open. **A defect is
+closed by a re-render** (new sha256, new watch pass) or by `"disposition": "accepted_by_dan"` with his words in the
+note — never by editing the log. There is no skip flag. A log from one of the old per-skill watch scripts is refused.
+
+### ⚠ Step 10.2 — AN INDEPENDENT SUBAGENT AUDIT IS PART OF THIS SKILL (Dan, 2026-09-01)
+
+**"I think calling Fable to review should be a part of this skill going forward."** In `/shortad-from-longform` it
+has overturned the session's own "this is fixed" twice — once measuring a build just called centred at sd ~110 px,
+39 % of talking frames beyond 70 px and two multi-second stretches where his face was cut by the frame edge, and once
+catching that eyeball reads of "he is off to the left" were MIRRORED at three of four timestamps. So after the watch
+pass, before delivering, launch a **fresh Fable subagent** on the exact delivered file. Give it the compiled
+`personmask` CLI (`shorts/reference/recentre/personmask`), the watch pass's sheets and strips, and the plan; tell it
+which beat kinds to judge (talk only); and demand the population statistics, every contiguous run beyond 60 px off
+centre or outside the framing bounds for ≥ 1 s, full-resolution verification of anything it flags (exact `-ss` grabs,
+never a sheet), **and an explicit opinion on whatever trade-off you just made** — a faster tracking crop can swap a
+centering problem for a visible pan, and you are the last person who will notice that in your own build. Ask it to
+be skeptical and to say plainly if one visible problem was traded for another. Relay its verdict to Dan rather than
+your own. The watch-pass judge above and this audit may be one subagent run when it is given the delivered file too.
+
+⚠ **A subagent that has completed cannot be resumed** — its transcript is gone and `SendMessage` fails. Launch a
+fresh one for the re-audit and restate the context.
 
 ## ⚠ Step 10.5 — a built cover is worthless until it's actually INSTALLED on the live Short (found 2026-09-15)
 
@@ -941,7 +989,8 @@ with a limiter, video copied.
 silently falls back to dynamic mode and compresses the mix, which is what Dan rejected on the Ad-1
 vertical on 2026-09-02 ("sounds horrible ... never deliver anything again that doesn't sound like
 Muhammad's videos"). Prefer an explicit `volume=<gain>dB` + `alimiter=level=disabled`, and prove it
-on the finished MP4 with `/shortad-from-longform reference/gain_flatness.py SOURCE OUT --gain G`.
+on the finished MP4 with `_shared/audio/audio_gate.py OUT --reference-mix SOURCE --verbatim` (its `verbatim level`
+row; `gain_flatness.py` was deleted 2026-09-16).
 
 **Burned graphics are shown whole or cropped off — never sliced.** Measure them (`work/gfxbox.py`,
 `work/ltwindows.py`); on that cut the top pill was 1595 px wide, 83% of the frame, so no horizontal
@@ -1038,7 +1087,10 @@ Five shorts, **four review rounds**. Everything Dan rejected was something a con
 showed me and I read wrong. These are the generalisable lessons; the rule statements are in the
 steps above.
 
-**THE CONTACT SHEET IS NOT A GATE. Every framing fault in this batch survived one.** Rev 1 shipped
+**THE CONTACT SHEET IS NOT A GATE. Every framing fault in this batch survived one.** The instrument is the shared
+watch pass's boundary strips — the five CONSECUTIVE frames at −2/−1/0/+1/+2 around every cut, judged one image at
+a time (Step 10.1) — and the gate's measured `framing:` rows; a sheet only shows what a strip cannot (a junk card,
+a label on his face, a wide level). Rev 1 shipped
 six talk crops 291–508 px off centre, and rev 2 shipped demo crops that cut his hands off on every
 rep — both after I had rendered the proposed vertical frames and looked at them. A 170 px-wide
 thumbnail cannot show you a 300 px error on a 1080 px frame, and it cannot show you that the hand
@@ -1099,9 +1151,12 @@ the current `GATE_VERSION`.
 - **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
   must stay green, and it is what proves a bound change did not resurrect a rejected cut.
 
-⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
-absorbed yet (framing is Phase 2, the watch pass is Phase 3 of
-`Handoffs/handoff-20260911-video-quality-engine.md`). **Run both until those land.**
+**The shared gate is the only gate (2026-09-16, Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).**
+The per-video QC forks that used to sit in `reference/` are deleted; every row they carried, framing and the watch
+pass included, lives in `_shared/deliver`, and `python3 .claude/skills/_shared/deliver/gate.py --formats` says what
+each format is held to. Do not resurrect a fork from git history to "double-check": a second gate with its own copy
+of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and missed the other (memory
+`shared-fix-may-not-reach-the-pipeline`).
 
 ## Delivery
 

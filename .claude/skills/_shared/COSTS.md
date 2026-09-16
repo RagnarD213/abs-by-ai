@@ -54,3 +54,15 @@ The round-8 swap moved the male anchor from `gemini-2.5-flash-image` ($0.039) to
 `gemini-3-pro-image` ($0.134), so a male generation went ~$0.08 → ~$0.17. Invisible
 at 80 generations; at 10,000 it is $1,700 vs $800, and members are unlimited.
 Nano Banana 2 is the documented one-line fallback (see `AI_COORDINATION.md`).
+
+
+## The watch pass (video delivery), measured 2026-09-16
+
+| step | cost |
+|---|---|
+| `_shared/deliver/watch.py` on a 3:50 1080p master (scan of every frame, 20 naked-splice candidates aligned, 46 boundary strips + pairs, 10 contact sheets) | **59 s wall, 307 s CPU** on this Mac at load ~10; ~26 s of it is the scan |
+| the same scan inside the delivery gate (`cut:naked_splices` + `cut:black_frames`, one decode shared) | ~25-60 s per 4-minute master, added to the gate's ~75 s picture rows |
+| the judge (a fresh subagent reading every sheet and strip) | $0 in API spend; ~56 images per 4-minute ad, ~1 image per declared or detected boundary plus one sheet per 25 s |
+| a model-API judge | not built — the local Anthropic key is recorded invalid (memory `load-time-optimizations`), and a flag that does not run is worse than none. If it is ever built: sheets are cents; **never** video-model input (Gemini charges $0.15 per second of video, ≈$36 for one 4-minute ad) |
+
+The full regression corpus (`qc_corpus/run.py`, 62 entries after the 2026-09-16 additions) runs ~40-60 min under load.

@@ -13,15 +13,29 @@ measuring something else. If you must change them, re-measure the whole corpus a
 import numpy as np
 
 from .. import common as C
+from .. import watch as W
 from ..common import Row, unmeasured
 
 
 class Picture:
     """Lazy, once-per-run decodes of the delivered file. Three representations, no more."""
 
-    def __init__(self, video, dur):
+    def __init__(self, video, dur, fps=None, width=None, height=None):
         self.v, self.dur = video, dur
-        self._g6 = self._rgb2 = self._rgb12 = None
+        self.fps, self.w, self.h = fps, width, height
+        self._g6 = self._rgb2 = self._rgb12 = self._stream = None
+
+    def stream(self):
+        """The watch pass's NATIVE-RATE scan (watch.scan): every frame, 160x90 oriented like the
+        file. The fourth representation, and the only one that is not sampled -- a one-frame black
+        or a one-frame jump is invisible at 6 fps (the email-capture screen was once exposed for
+        exactly one frame and a 2 fps scan stepped over it)."""
+        if self._stream is None:
+            if self.fps is None or self.w is None or self.h is None:
+                pr = C.probe(self.v)
+                self.fps, self.w, self.h = pr["fps"], pr["width"], pr["height"]
+            self._stream = W.scan(self.v, self.fps, self.w, self.h)
+        return self._stream
 
     @property
     def g6(self):
@@ -202,15 +216,51 @@ def uncovered_joins(key, pic, cfg, plan):
 
 
 def black_frames(key, pic, cfg, plan):
-    """cut:black_frames -- a black frame in the body of a cut is a hole, never a design choice."""
-    g = pic.g6.mean(1)
+    """cut:black_frames -- a black frame in the body of a cut is a hole, never a design choice.
+
+    Measured on EVERY frame (the watch scan), not the 6 fps representation: shortad's watch pass
+    found six ONE-FRAME blacks that a sampled scan sees one time in five. Changed 2026-09-16 (gate
+    2.1.0); the bound is unchanged.
+    """
+    sc = pic.stream()
+    fps, lum = sc["fps"], sc["lum"]
     lead = cfg.get("allow_lead_s", 0.0)
     tail = cfg.get("allow_tail_s", 0.0)
-    bad = [round(i / 6.0, 2) for i, v in enumerate(g)
-           if v < cfg["max_luma"] and lead <= i / 6.0 <= pic.dur - tail]
+    bad = [round(i / fps, 3) for i, v in enumerate(lum)
+           if v < cfg["max_luma"] and lead <= i / fps <= pic.dur - tail]
     return Row(key, not bad,
-               f"{len(bad)} frame(s) under luma {cfg['max_luma']} in the body: {bad[:8]}",
-               dict(black=bad[:40], max_luma=cfg["max_luma"]))
+               f"{len(bad)} frame(s) under luma {cfg['max_luma']} in the body (every frame scanned): {bad[:8]}",
+               dict(black=bad[:40], max_luma=cfg["max_luma"], frames=int(sc["n"])))
+
+
+def naked_splices(key, pic, cfg, plan):
+    """cut:naked_splices -- same-scene, same-framing single-frame jumps where the subject moves.
+
+    ⚠ NOT the same instrument as cut:uncovered_joins. That row reads the rejected Ad 1 vertical
+    (corpus `ad1-vertical-attempt1`, 23 of 72 splices naked) at 0.0/min, because a subject jump is
+    LOCAL and a whole-frame mean at 48x27 dilutes it to nothing. This one reads the peak BLOCK of
+    a 16x9 grid at native rate, requires a sharp single-frame spike with the same palette both
+    sides, most blocks still and enough blocks moved to be a person (not a caption word), then
+    grabs the two frames at exact `-ss` and tests them against a global scale/shift alignment.
+    A push or a pan aligns; a jump cut does not. The measurement and its settings live in
+    _shared/deliver/watch.py; the per-minute bound lives in formats.py beside the files it was
+    measured on. Declared beats (punch, graphics, inserts, covered, cards) are subtracted.
+    """
+    sc = pic.stream()
+    declared = W.declared_spans(plan)
+    naked, cands = W.naked_splices(pic.v, sc, declared, sc["fps"])
+    dur = sc["n"] / sc["fps"]
+    rate = len(naked) / max(dur / 60.0, 1e-6)
+    lo = cfg["max_per_min"]
+    how = "declared beats subtracted" if declared else "no plan: every deliberate same-frame change counts too"
+    return Row(key, rate <= lo,
+               f"{len(naked)} naked splice(s) of {len(cands)} candidates = {rate:.2f}/min "
+               f"(max {lo}/min, {how}); first {[c['t'] for c in naked[:6]]}",
+               dict(naked=len(naked), per_min=round(rate, 3), max=lo, candidates=len(cands),
+                    times=[c["t"] for c in naked[:40]], declared_beats=len(declared),
+                    settings=dict(peak=W.NAKED_PEAK, sharp=W.NAKED_SHARP, still=W.NAKED_STILL,
+                                  hot_min=W.NAKED_HOT_MIN, subject_rows=W.SUBJECT_ROWS,
+                                  palette=W.PALETTE_SAME, align_explains=W.ALIGN_EXPLAINS)))
 
 
 def min_segment(key, pic, cfg, plan):

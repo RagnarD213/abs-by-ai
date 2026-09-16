@@ -12,18 +12,6 @@ description: >
 
 # Ad-Edit: raw teleprompter footage → finished ad creative
 
-## Edit queue status — REQUIRED when this video is a job on Dan's edit queue
-
-If the video is on `Handoffs/video-editing/00-MASTER.md` (IDs like `RA-01`, `DS-04`, `RO-02`, `SL-01`, `AV-05`, `AS-04`),
-keep its status current on Dan's pinned **Abs By AI Edit Queue** page: `in_progress` when you start building,
-`delivered` when the review copy goes to Dan, and **`finalized` the moment Dan says it is finalized / approved** (his
-words, never a passed gate). Never set `uploaded` here; that is `/ad-setup` (ads) or `/video-setup` (organic), after
-the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skills/_shared/edit-queue/README.md`.
-
-## Square and vertical camera movement — updated 2026-09-16
-
-Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
-
 **STATUS: v1 — written 2026-08-20, before the first ad was cut.** Built from a
 measured study of 11 winning direct-response ads (7 of Dan's own green-marked
 winners + V Shred's #1 all-time and 2026 winner + MadMuscles' current top ad) —
@@ -83,8 +71,8 @@ first if you haven't this session.
 
 **Every video this skill renders takes the LAV TRACK ONLY, as mono, duplicated to centred stereo,
 through ONE shared voice chain and ONE shared gate measured against Muhammad's `this picture got me
-abs | muhammad | 16x9.mp4` — and `qc.py`/`qc5.py` and `deliver.sh` refuse a file that does not carry
-that gate's stamp.** Module: `.claude/skills/_shared/audio/` (README there). Run `selftest.sh` before
+abs | muhammad | 16x9.mp4` — and the shared delivery gate's `audio:stamp` row (and `deliver.sh`) refuses a file
+that does not carry that gate's stamp.** Module: `.claude/skills/_shared/audio/` (README there). Run `selftest.sh` before
 a batch.
 
 1. **`pick_lav.py <roll>`** on every roll, first. It probes every stream and channel (the 8/3 and 8/14
@@ -416,9 +404,66 @@ the current `GATE_VERSION`.
 - **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
   must stay green, and it is what proves a bound change did not resurrect a rejected cut.
 
-⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
-absorbed yet (framing is Phase 2, the watch pass is Phase 3 of
-`Handoffs/handoff-20260911-video-quality-engine.md`). **Run both until those land.**
+**The shared gate is the only gate (2026-09-16, Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).**
+The per-video QC forks that used to sit in `reference/` are deleted; every row they carried, framing and the watch
+pass included, lives in `_shared/deliver`, and `python3 .claude/skills/_shared/deliver/gate.py --formats` says what
+each format is held to. Do not resurrect a fork from git history to "double-check": a second gate with its own copy
+of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and missed the other (memory
+`shared-fix-may-not-reach-the-pipeline`).
+
+## Step 9.9 — THE WATCH PASS  **`_shared/deliver/watch.py`** — REQUIRED; `watch:pass` is a hard gate row
+
+Every metric above measures format. Nobody has looked at the moving picture until this runs, and the delivery
+gate's `watch:pass` row refuses the file until somebody has (Phase 3, 2026-09-16: one module for all six video
+skills; the per-skill watch scripts are gone).
+
+```bash
+python3 .claude/skills/_shared/deliver/watch.py <delivered file> --plan plan.json
+#  -> logs/watch_pass.json  +  watch/sheets/*.jpg  watch/strips/*.jpg  watch/CHECKLIST.md
+```
+
+On the EXACT delivered file, in one pass: **(1) the scan, every frame at native rate** — frozen runs, black frames,
+and discontinuities not at a boundary the plan declares, consecutive hits merged into one event, the threshold the
+file's own noise; **(2) naked splices** — the instrument behind the gate row `cut:naked_splices` (a same-scene,
+single-frame jump where the subject moves and the background does not; a push or a pan aligns and is not one);
+**(3) graphic presence** — is each declared `graphics[].mov` actually in the delivered pixels (or does the picture
+differ from `source_picture` there); **(4) a strip of the five CONSECUTIVE frames at −2/−1/0/+1/+2 for every
+boundary**, plus the −1|0 pair at half size — the only thing that exposes a jump cut, a frozen beat or a mistimed
+animation by eye (a 1 s contact sheet cannot, and `fps=1/N` sheets lag content by ~N/2 s); **(5) contact sheets of
+exact frame indices** for the checklist items a strip cannot show (hair at the edge, a junk card, a label on his
+face, a wide level, visual junk with no audio signature — look-aways, glasses, drinking, recomposing while talking).
+
+**Then the judge.** Launch a **fresh subagent** (Step 9.9b) with `watch/CHECKLIST.md`, every image in
+`watch/sheets` and `watch/strips`, the delivered file and the `personmask` CLI. It gives EVERY image a verdict —
+`clean`, `defect` (naming the checklist item and the time) or `expected` (a change the plan declares; it says which)
+— as `findings.json` (`{"entries": [{"image", "verdict", "item", "t", "note"}]}`), then:
+
+```bash
+python3 .claude/skills/_shared/deliver/watch.py --judge logs/watch_pass.json --findings findings.json --by "<who>"
+```
+
+Put `"watch_log": "logs/watch_pass.json"` in `plan.json` and run the gate (`--format ad16x9`). The row passes only
+when the log names this file's sha256, every sheet and strip carries a verdict, and no defect is open. **A defect is
+closed by a re-render** (new sha256, new watch pass) or by `"disposition": "accepted_by_dan"` with his words in the
+note — never by editing the log. There is no skip flag. A log from one of the old per-skill watch scripts is refused.
+
+### ⚠ Step 9.9b — AN INDEPENDENT SUBAGENT AUDIT IS PART OF THIS SKILL (Dan, 2026-09-01)
+
+**"I think calling Fable to review should be a part of this skill going forward."** In `/shortad-from-longform` it
+has overturned the session's own "this is fixed" twice — once measuring a build just called centred at sd ~110 px,
+39 % of talking frames beyond 70 px and two multi-second stretches where his face was cut by the frame edge, and once
+catching that eyeball reads of "he is off to the left" were MIRRORED at three of four timestamps. So after the watch
+pass, before delivering, launch a **fresh Fable subagent** on the exact delivered file. Give it the compiled
+`personmask` CLI (`shorts/reference/recentre/personmask`), the watch pass's sheets and strips, and the plan; tell it
+which beat kinds to judge (talk only); and demand the population statistics, every contiguous run beyond 60 px off
+centre or outside the framing bounds for ≥ 1 s, full-resolution verification of anything it flags (exact `-ss` grabs,
+never a sheet), **and an explicit opinion on whatever trade-off you just made** — a faster tracking crop can swap a
+centering problem for a visible pan, and you are the last person who will notice that in your own build. Ask it to
+be skeptical and to say plainly if one visible problem was traded for another. Relay its verdict to Dan rather than
+your own. The watch-pass judge above and this audit may be one subagent run when it is given the delivered file too.
+
+⚠ **A subagent that has completed cannot be resumed** — its transcript is gone and `SendMessage` fails. Launch a
+fresh one for the re-audit and restate the context.
 
 ## Step 10 — QC, review loop, delivery
 

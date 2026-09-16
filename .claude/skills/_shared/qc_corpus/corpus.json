@@ -1,692 +1,1404 @@
 {
- "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
- "version": 2,
- "updated": "2026-09-14",
- "roots": {
-  "repo": ".",
-  "ssd": "/Volumes/Extreme/_edit_work"
- },
- "entries": [
-  {
-   "id": "website-rev1",
-   "verdict": "rejected",
-   "date": "2026-09-02",
-   "root": "repo",
-   "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV1_REJECTED.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "The audio is no good. We need to make it sound like Muhammad's video... It sounds like we still have the two-channel audio issue going on. We've got to change our skill so this doesn't keep happening. // The opening shot is much too wide. I don't want to use this wide shot ever. ... don't ever use this super wide crop. Many of these shots also have a light in the shot. That's totally unacceptable.",
-   "must_trigger": [
-    "audio_gate:floor",
-    "audio_gate:tone",
-    "framing:no_wide_level"
-   ],
-   "measured": "gate FAILS on floor + tone (and 3 more rows on a 2026-09-09 re-gate). The wide crop has no check yet.",
-   "notes": "The rejection that produced the hair-anchored framing standard three revisions later. Also the file selftest.sh step 2b requires to FAIL.",
-   "sha256": "ea2ba18e42ed5e10c8282ce02b1aed7e257a99a654d116d1591673879c95dce6",
-   "bytes": 146905659,
-   "deliver": {
-    "format": "website",
-    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
-   }
+  "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
+  "version": 2,
+  "updated": "2026-09-16",
+  "roots": {
+    "repo": ".",
+    "ssd": "/Volumes/Extreme/_edit_work"
   },
-  {
-   "id": "website-rev2",
-   "verdict": "rejected",
-   "date": "2026-09-02",
-   "root": "repo",
-   "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV2_REJECTED.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "audio, you got it nailed. This is the audio that we want. The frame is better, but still not good. The main issue with the video is that excessive space above my head in all the shots. We need to crop in closer and also lower throughout the video. We also want to make sure that captions don't overlap graphics.",
-   "must_trigger": [
-    "framing:headroom",
-    "captions:graphic_clearance"
-   ],
-   "must_pass": [
-    "audio_gate"
-   ],
-   "measured": "headroom 159-261 px, median 201. AUDIO IS APPROVED on this file -- it is the fixture selftest.sh step 2b requires to PASS, and the file the -14 LUFS / EDT-80 / spread rows were calibrated against.",
-   "notes": "REJECTED ON PICTURE, APPROVED ON AUDIO. The corpus must be able to hold both about one file: a gate change that makes this file's AUDIO fail is a regression.",
-   "sha256": "ae66f4623f7d74444049d8e102e88ca993726dbad36dbc6bf8ba9eb711c092e2",
-   "bytes": 276361530,
-   "known_gap": [
+  "entries": [
     {
-     "check": "audio_gate:do_no_harm",
-     "since": "2026-09-09",
-     "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
-     "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
-    }
-   ],
-   "deliver": {
-    "format": "website",
-    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
-   }
-  },
-  {
-   "id": "website-rev3",
-   "verdict": "rejected",
-   "date": "2026-09-08",
-   "root": "repo",
-   "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV3_REJECTED.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "My hair is cut off in the opening scene here and throughout the video. Fix this. We have space above my head. Never cut off my hair or below my shorts line. ... The most serious issue with this video is the cropping issue. We have to resolve this. If the video's top is cut off, it's basically not usable.",
-   "must_trigger": [
-    "framing:hair_top"
-   ],
-   "measured": "hair cut in 23 of 26 holds, 17-50 px at 1080p. ⚠ THE CALIBRATION CASE FOR THE WHOLE PROGRAMME: rev 3's OWN gate passed this file at 21-95 px because its detector read the HAIRLINE, 90 px inside his hair. hairgate.py's detector-free test B failed 5371 of 5781 frames on it.",
-   "notes": "A gate that passes this file is measuring the wrong point, whatever number it reports.",
-   "sha256": "10541335f257f4d3486287eb0cc108543cee33347059ff030e7e89bf1554a626",
-   "bytes": 293778811,
-   "deliver": {
-    "format": "website",
-    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
-   }
-  },
-  {
-   "id": "website-rev4",
-   "verdict": "approved",
-   "date": "2026-09-08",
-   "root": "repo",
-   "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV4.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "The framing and the cropping are all looking good. You nailed it with this one. Let's lock that in and crop all the videos like this going forward.",
-   "must_pass": [
-    "framing:hair_top",
-    "framing:headroom",
-    "audio_gate"
-   ],
-   "measured": "the file the hair-anchored framing standard is locked to (memory: framing-standard-hair-anchored).",
-   "notes": "APPROVED ON FRAMING. Three AI-artifact fixes followed in rev 5 -- those are content, not gate rows.",
-   "sha256": "47d883314c6b55d102111a931623f84ca97cf5de7fae8cbf1a1787a316bbba50",
-   "bytes": 308846126,
-   "known_gap": [
-    {
-     "check": "audio_gate:do_no_harm",
-     "since": "2026-09-09",
-     "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
-     "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
-    }
-   ],
-   "deliver": {
-    "format": "website",
-    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
-   }
-  },
-  {
-   "id": "website-rev5",
-   "verdict": "approved-with-notes",
-   "date": "2026-09-08",
-   "root": "repo",
-   "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV5.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "(rev-5 review produced six rev-6 items; framing and audio unchanged and still approved)",
-   "must_pass": [
-    "framing:hair_top",
-    "framing:headroom",
-    "audio_gate"
-   ],
-   "measured": "six content items went to rev 6. DO NOT GATE ON THEM -- they are editorial, not measurable rows.",
-   "notes": "Here to catch a gate that over-tightens: nothing in this file should ever fail.",
-   "sha256": "5924d482191571ed32e6cd56d6d0aa588835356e0f8df91ca7d974d4e41b827b",
-   "bytes": 315490692,
-   "known_gap": [
-    {
-     "check": "audio_gate:do_no_harm",
-     "since": "2026-09-09",
-     "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
-     "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
-    }
-   ],
-   "deliver": {
-    "format": "website",
-    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
-   }
-  },
-  {
-   "id": "website-rev6",
-   "verdict": "approved",
-   "date": "2026-09-09",
-   "root": "repo",
-   "path": "Website Videos/Website Conversion Video (post-generation)/website_video_16x9.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "perfect, finalized",
-   "must_pass": [
-    "framing:hair_top",
-    "framing:headroom",
-    "audio_gate"
-   ],
-   "measured": "the shipped master (version A, tan-corrected). Re-gated on the delivered file 2026-09-09.",
-   "notes": "The current best example of the whole pipeline. Any gate change that fails this file is wrong until proven otherwise.",
-   "sha256": "eb34eb2d9fda1808fa81b5a38b12c14200cc80ae5950209e91fcbb520d59a443",
-   "bytes": 443945383,
-   "known_gap": [
-    {
-     "check": "audio_gate:do_no_harm",
-     "since": "2026-09-09",
-     "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
-     "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
-    }
-   ],
-   "deliver": {
-    "format": "website",
-    "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
-   }
-  },
-  {
-   "id": "ad1-vertical-attempt1",
-   "verdict": "rejected",
-   "date": "2026-08-25",
-   "root": "ssd",
-   "path": "ad1-8-14/vert9x16/ad1_vertical_59s.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "truly awful... definitely won't work.",
-   "must_trigger": [
-    "cut:naked_splices",
-    "framing:push_coverage",
-    "music:bed_tempo"
-   ],
-   "measured": "23 of 72 recovered splices shipped as naked jump cuts; 100% of talk ran at ONE FIXED CROP (his: 14 pushes, 39% of talk); bed 99 BPM acoustic at -21 dB against his driving 120+ BPM.",
-   "notes": "⚠ THE META-FAILURE THIS WHOLE PROGRAMME EXISTS FOR: the QC gate passed this file 11/11. Every check measured format -- LUFS, frame size, coverage %, change rate -- and no check ever watched the picture. ⚠ Attempt 1's MASTER no longer exists: attempt 2 overwrote ad1_vertical_9x16.mp4 on 2026-08-27. The 0:59 cutdown, one of the two files he rejected that day, is what survives.",
-   "sha256": "edfbfdc0c297295cfc51426350a6c46f2046e8eecabf581577955e6bc4900855",
-   "bytes": 49990079,
-   "deliver": {
-    "format": "ad9x16",
-    "_why": "a vertical ad cutdown: the 9:16 bounds; push_coverage is the row this file must fail"
-   }
-  },
-  {
-   "id": "spraytan-longform-rev0",
-   "verdict": "rejected",
-   "date": "2026-08-21",
-   "root": "repo",
-   "path": "claude edited long form content/01 - My First Spray Tan/FINAL_spraytan_PRE_REBUILD.mp4",
-   "excerpt": [
-    235,
-    30
-   ],
-   "dan": "junk footage and repeated takes were kept in here. Eliminate this junk footage.",
-   "must_trigger": [
-    "junk:repeated_take",
-    "cut:uncovered_joins",
-    "compliance:banned_screen"
-   ],
-   "measured": "junk at 4:00 (a 1.6 s stretched word Whisper folded a pause into, kept as a self-correction); 41 uncovered joins; the banned side-by-side before/after screen on-screen for 5.6 s at 18:04.",
-   "notes": "The banned-screen template scan exists in /ad-edit only, which is how the side-by-side reached a delivered longform.",
-   "sha256": "5f39b9c4c6cba98563011fe3ce2c61dde32994ae5775134bfe582f6cf33cbcd4",
-   "bytes": 994075328,
-   "deliver": {
-    "format": "longform",
-    "plan": "plans/spraytan-longform-rev0.json",
-    "_why": "longform bounds. The plan supplies only the banned-screen SOURCE, an asset-library fact rather than a judgment about this file. compliance:banned_screen registered 2026-09-12 (stage 3: pairing)."
-   }
-  },
-  {
-   "id": "spraytan-shorts-20260902",
-   "verdict": "rejected",
-   "date": "2026-09-09",
-   "root": "repo",
-   "path": "YouTube Long Form Video Content/spray-tan-first/out/_PRE_AUDIO_20260909/a_why-tanning-makes-you-look-ripped.mp4",
-   "excerpt": [
-    5,
-    25
-   ],
-   "dan": "absolutely awful, far far worse than before... It sounds like I'm underwater.",
-   "must_trigger": [
-    "audio_gate:do_no_harm",
-    "audio_gate:artifacts"
-   ],
-   "measured": "the alpha 0.62 / floor -24 dereverb: flux 1.30-1.61x and swirl 1.57-1.94x THIS FILE UNTREATED, against a 1.35 limit. ⚠ It hit EDT 32 ms -- PAST Muhammad's 40 -- and the 09-02 gate therefore scored it as BETTER than the build he liked.",
-   "notes": "The do_no_harm row was written from this file. It blocks 16 of 16 of the 09-02 batch.",
-   "sha256": "a379d05bfbc86d86dd036aef80c7b15e7790b5440268e17b10e993806f862369",
-   "bytes": 43342568
-  },
-  {
-   "id": "invest-health-underwater",
-   "verdict": "rejected",
-   "date": "2026-09-09",
-   "root": "repo",
-   "path": "claude edited long form content/04 - Why You Should Invest More In Your Health/FINAL_invest_health_UNDERWATER.mp4",
-   "excerpt": [
-    120,
-    30
-   ],
-   "dan": "absolutely awful... It sounds underwater. We can never, ever strip audio like this.",
-   "must_trigger": [
-    "audio_gate:artifacts"
-   ],
-   "measured": "flux 1.31x Muhammad's against a 1.10 limit.",
-   "notes": "⚠ THE VERSIONED-GATE CASE. This file was stamped PASS on 2026-09-03 and nothing re-checked it when the dereverb settings were rejected six days later. Phase 1's gate version would have invalidated the stamp automatically.",
-   "sha256": "88934ee363142c57ef9041ec98a76b56099818efd3914372e3a516e58eaacca9",
-   "bytes": 1615810595
-  },
-  {
-   "id": "v2-short3-offcentre",
-   "verdict": "rejected",
-   "date": "2026-08-27",
-   "root": "repo",
-   "path": "Short-form video content/_pre-recentre-2026-08-27/v2-short3_supplements-3-percent.mp4",
-   "excerpt": [
-    0,
-    25
-   ],
-   "dan": "off-center ... one of my arms is cut off and there's space on the other side.",
-   "must_trigger": [
-    "framing:centering"
-   ],
-   "measured": "133 px off centre -- the calibration point. Root cause: plan.js set one TALK_X = 0.478 for the whole video; Dan's measured torso centre wanders 0.411 -> 0.505, and a 9:16 window is 0.317 of the frame, so 0.06 of drift is ~200 px delivered.",
-   "notes": "A sibling build (v6-3min-home-workout/plan.js) had ALREADY found there is no single TALK_X, and the lesson was never carried back. /shortad-from-longform still has no framing rule at all.",
-   "sha256": "76cba4dc540b737583420a3a9139c82e8946e2d1aba046a795bc7f13654fb7ce",
-   "bytes": 44516398,
-   "deliver": {
-    "format": "short",
-    "_why": "a vertical Short: the 9:16 bounds, scaled by H/1080; centring is graded here (a phone crop)"
-   }
-  },
-  {
-   "id": "abwheel-8-20-cut",
-   "verdict": "rejected",
-   "date": "2026-08-24",
-   "root": "ssd",
-   "path": "abwheel/roughcuts/FINAL_abwheel.mp4",
-   "excerpt": [
-    60,
-    30
-   ],
-   "dan": "substantially better than what we made. It looks better, it sounds better, and the graphics are better. Everything about his video is better than ours.",
-   "must_trigger": [
-    "style:coverage",
-    "style:static_run",
-    "audio_gate:lr_corr"
-   ],
-   "measured": "insert coverage 21% against his ~90%; longest bare stretch 64 s TWICE against Dan's own written 30 s rule; and the delivered file plays his voice out of the RIGHT SPEAKER ONLY with hiss on the left for all nine minutes (left channel SNR 0.4-1.0 dB).",
-   "notes": "This rejection produced qc_style.py -- which then reached exactly one skill. ⚠ The handoff's seed table says 'coverage 8.7 %'; the figure recorded at the time, and the one qc_style.py's MIN_COVERAGE comment cites, is 21%. 21% is what this entry asserts.",
-   "sha256": "58287396662ad8c047ccd6559eab46aa03d5e0a0c94fcf4bd88b4ecba2b6da17",
-   "bytes": 282967743,
-   "deliver": {
-    "format": "longform",
-    "_why": "an organic YouTube long-form: graded against longform bounds, which is where qc_style's MIN_COVERAGE 0.40 and Dan's 30 s static rule live"
-   }
-  },
-  {
-   "id": "muhammad-ad1-16x9",
-   "verdict": "reference",
-   "date": "2026-09-02",
-   "root": "repo",
-   "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
-   "excerpt": [
-    20,
-    30
-   ],
-   "dan": "(the standard: the editor's cut every one of our audio limits is measured against)",
-   "must_pass": [
-    "audio_gate:reference_rows"
-   ],
-   "measured": "the pinned audio reference. EDT 40 ms, comb ripple 0.54 dB, dryness 7.4 dB, flux 0.072, swirl 0.835, LUFS -18.2.",
-   "notes": "⚠ do_no_harm is INFORMATIONAL on this file: it is not ours, so there is no processing of ours to charge. Its true peak is +0.1 dBTP -- too hot for a platform -- which is why our tp row is -1.0 and not 'his + margin'.",
-   "sha256": "e99a9332851a85a552c19fdb9e49b00260446776c0e57f2378000f885ed9453c",
-   "bytes": 313570091
-  },
-  {
-   "id": "muhammad-ad2-16x9",
-   "verdict": "reference",
-   "date": "2026-09-03",
-   "root": "repo",
-   "path": "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4",
-   "excerpt": [
-    20,
-    30
-   ],
-   "dan": "(the second reference cut: the source of the pose-matched picture-cut finding)",
-   "must_pass": [
-    "cut:pose_matched_offset",
-    "framing:push_coverage"
-   ],
-   "measured": "he cuts the PICTURE 1-15 frames off the audio splice on a pose-matched frame (22 of 33 cuts moved by -15..+10 at confidence >= 0.6). 14 pushes, 39% of talk. ⚠ AUDIO: this file FAILS artifacts, floor and tone against Ad 1's pinned reference -- his bed sits 6-7 dB hotter between words here. That is not a defect in his mix and not a bug in ours; it is why Ad 1 is the pinned reference and Ad 2 is not, and why --reference-mix mode exists. Do NOT widen a bound to make this file pass the audio rows.",
-   "notes": "⚠ A reference is not automatically a pass: gating Ad 2 against Ad 1's pinned numbers fails rows that measure HIS mixing. That is what --reference-mix mode exists for.",
-   "sha256": "f21c69629ebf1f39c36dfb4b792a274af06e2650281056a50499c80074b8539b",
-   "bytes": 372767004,
-   "deliver": {
-    "format": "ad16x9",
-    "_why": "an editor's 16:9 master: push_coverage graded against the ad16x9 bounds (Muhammad anchors tighter than the website standard, so headroom is per-format)"
-   }
-  },
-  {
-   "id": "ad1zee-vertical-processed-audio",
-   "verdict": "rejected",
-   "date": "2026-09-10",
-   "root": "ssd",
-   "path": "ad1-zee-vert/rejected/ad1zee_vertical_9x16_REJECTED_processed-audio_20260910.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "What the fuck happened to the audio? Zishan's audio sounds much better. This is an awful mistake which can't happen again. Why do these audio problems keep happening? Use Zishan's audio. This is the audio you made. There are serious issues with your quality control on the audio. Over and over again, you produce bad audio. We have to fix this.",
-   "gate_args": [
-    "--reference-mix",
-    {
-     "root": "repo",
-     "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h264.mov"
+      "id": "website-rev1",
+      "verdict": "rejected",
+      "date": "2026-09-02",
+      "root": "repo",
+      "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV1_REJECTED.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "The audio is no good. We need to make it sound like Muhammad's video... It sounds like we still have the two-channel audio issue going on. We've got to change our skill so this doesn't keep happening. // The opening shot is much too wide. I don't want to use this wide shot ever. ... don't ever use this super wide crop. Many of these shots also have a light in the shot. That's totally unacceptable.",
+      "must_trigger": [
+        "audio_gate:floor",
+        "audio_gate:tone",
+        "framing:no_wide_level"
+      ],
+      "measured": "gate FAILS on floor + tone (and 3 more rows on a 2026-09-09 re-gate). The wide crop has no check yet.",
+      "notes": "The rejection that produced the hair-anchored framing standard three revisions later. Also the file selftest.sh step 2b requires to FAIL.",
+      "sha256": "ea2ba18e42ed5e10c8282ce02b1aed7e257a99a654d116d1591673879c95dce6",
+      "bytes": 146905659,
+      "deliver": {
+        "format": "website",
+        "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+      }
     },
-    "--verbatim"
-   ],
-   "must_trigger": [
-    "audio_gate:verbatim_level",
-    "audio_gate:verbatim_image",
-    "audio_gate:verbatim_lufs"
-   ],
-   "measured": "Zeeshan's -23.5 LUFS / LRA 5.9 / L/R +0.970 mix, lifted +9.9 dB into a 4x-oversampled limiter (alimiter 0.85), mono-summed, AAC 320k: -14.70 LUFS / LRA 4.1 / L/R +1.000; per second vs his +5.61..+9.90 dB, 52 of 249 s shaved > 1 dB. The gate it shipped under PASSED it: provenance 0.9989 (level-normalised), gain_flatness PASS (4.29 dB shave vs a 4.5 limit), the -14 LUFS and L/R rows PASS, qc.py 20/20.",
-   "notes": "('Zishan' is Wispr for Zeeshan.) ⚠ The rows that passed it measured OUR TARGETS, not HIS AUDIO: -14 LUFS and L/R >= 0.98 would have FAILED Zeeshan's own mix, so the build processed his mix until they passed. The 1.8 LU loudness-range loss was measured and shipped as a 'trade-off' against the skill's own ~0.8 LU rule of thumb. The verbatim rows (audio_gate --reference-mix <his export> --verbatim) fail it three ways.",
-   "sha256": "8fc644575789b26c04e63f3a24464fc79be21d443502db8ec7752760f24f11ee",
-   "bytes": 448375174
-  },
-  {
-   "id": "ad1zee-vertical-59s-processed-audio",
-   "verdict": "rejected",
-   "date": "2026-09-10",
-   "root": "ssd",
-   "path": "ad1-zee-vert/rejected/ad1zee_vertical_59s_REJECTED_processed-audio_20260910.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "What the fuck happened to the audio? Zishan's audio sounds much better. This is an awful mistake which can't happen again. Why do these audio problems keep happening? Use Zishan's audio. This is the audio you made. There are serious issues with your quality control on the audio. Over and over again, you produce bad audio. We have to fix this.",
-   "gate_args": [
-    "--reference-mix",
     {
-     "root": "ssd",
-     "path": "ad1-zee-vert/cut/his_mix.wav"
+      "id": "website-rev2",
+      "verdict": "rejected",
+      "date": "2026-09-02",
+      "root": "repo",
+      "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV2_REJECTED.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "audio, you got it nailed. This is the audio that we want. The frame is better, but still not good. The main issue with the video is that excessive space above my head in all the shots. We need to crop in closer and also lower throughout the video. We also want to make sure that captions don't overlap graphics.",
+      "must_trigger": [
+        "framing:headroom",
+        "captions:graphic_clearance"
+      ],
+      "must_pass": [
+        "audio_gate"
+      ],
+      "measured": "headroom 159-261 px, median 201. AUDIO IS APPROVED on this file -- it is the fixture selftest.sh step 2b requires to PASS, and the file the -14 LUFS / EDT-80 / spread rows were calibrated against.",
+      "notes": "REJECTED ON PICTURE, APPROVED ON AUDIO. The corpus must be able to hold both about one file: a gate change that makes this file's AUDIO fail is a regression.",
+      "sha256": "ae66f4623f7d74444049d8e102e88ca993726dbad36dbc6bf8ba9eb711c092e2",
+      "bytes": 276361530,
+      "known_gap": [
+        {
+          "check": "audio_gate:do_no_harm",
+          "since": "2026-09-09",
+          "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
+          "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
+        }
+      ],
+      "deliver": {
+        "format": "website",
+        "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+      }
     },
-    "--verbatim"
-   ],
-   "must_trigger": [
-    "audio_gate:verbatim_level",
-    "audio_gate:verbatim_image",
-    "audio_gate:verbatim_lufs"
-   ],
-   "measured": "the same delivery's cutdown: his mix cut at the seams (-23.2 LUFS / LRA 4.9), lifted +9.7 dB into the same limiter and mono-summed: -14.70 LUFS / LRA 3.7, per second +7.00..+9.70 dB.",
-   "notes": "Its reference is his mix CUT at the same seams (cut/his_mix.wav, a build intermediate on the SSD -- zcut_build.py regenerates it byte-identical from his export).",
-   "sha256": "4bf3d5a2ff26ac2616c1bede2e286750fcdf30e63da6267a9e8b1b851f1de8dc",
-   "bytes": 63891676
-  },
-  {
-   "id": "muhammad-ad1-vertical-approved",
-   "verdict": "approved",
-   "date": "2026-09-10",
-   "root": "repo",
-   "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 9x16 | ad 1.mp4",
-   "excerpt": [
-    20,
-    30
-   ],
-   "dan": "For ad 1, the vertical version for Muhammad's ad is approved.",
-   "must_pass": [
-    "audio_gate"
-   ],
-   "measured": "the 2026-09-02 rebuild: Muhammad's own mix at a CONSTANT +4.2 dB into alimiter 0.85 (level=disabled) -> -14.5 LUFS, -1.3 dBTP; picture stream copied untouched (6977 frames). Stamped PASS 09-02 against the pinned Ad 1 reference. Uploaded to YouTube as Iz0u8KHRbyE.",
-   "notes": "The approved answer to the 09-02 rejection, which was loudnorm silently falling back to DYNAMIC mode (+1.2..+9.5 dB per second). Constant gain on the editor's mix is the pattern Dan approves; compare the rejected Zeeshan vertical (ad1zee-*), where +9.9 dB into the limiter shaved 52 s by > 1 dB.",
-   "sha256": "b71cd6610f26aa82a30246fb3ae6e78ef22cad1b8f9f3cbdd382ef72fc9782eb",
-   "bytes": 351240913,
-   "known_gap": [
     {
-     "check": "audio_gate:do_no_harm",
-     "since": "2026-09-10",
-     "why": "rendered 2026-09-02, before voice_chain started stashing the untreated signal, so there is no .audio_untreated.json and the row reads NOT MEASURED (a FAIL since Phase 0). Every OTHER row passes on 2026-09-10, including 'no processing damage': flux 0.071 vs Muhammad's 0.072, HF swirl 0.836 vs his 0.835. The audio is his own mix at constant gain, so there is nothing of ours for the row to bound. `--untreated <his master>` did not supply a baseline (tried 2026-09-10).",
-     "clears_when": "this file is re-rendered through voice_chain.py, or an .audio_untreated.json is built from his 16x9 master and passed with --untreated. Delete this known_gap the moment either happens."
+      "id": "website-rev3",
+      "verdict": "rejected",
+      "date": "2026-09-08",
+      "root": "repo",
+      "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV3_REJECTED.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "My hair is cut off in the opening scene here and throughout the video. Fix this. We have space above my head. Never cut off my hair or below my shorts line. ... The most serious issue with this video is the cropping issue. We have to resolve this. If the video's top is cut off, it's basically not usable.",
+      "must_trigger": [
+        "framing:hair_top"
+      ],
+      "measured": "hair cut in 23 of 26 holds, 17-50 px at 1080p. \u26a0 THE CALIBRATION CASE FOR THE WHOLE PROGRAMME: rev 3's OWN gate passed this file at 21-95 px because its detector read the HAIRLINE, 90 px inside his hair. hairgate.py's detector-free test B failed 5371 of 5781 frames on it.",
+      "notes": "A gate that passes this file is measuring the wrong point, whatever number it reports.",
+      "sha256": "10541335f257f4d3486287eb0cc108543cee33347059ff030e7e89bf1554a626",
+      "bytes": 293778811,
+      "deliver": {
+        "format": "website",
+        "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+      }
+    },
+    {
+      "id": "website-rev4",
+      "verdict": "approved",
+      "date": "2026-09-08",
+      "root": "repo",
+      "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV4.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "The framing and the cropping are all looking good. You nailed it with this one. Let's lock that in and crop all the videos like this going forward.",
+      "must_pass": [
+        "framing:hair_top",
+        "framing:headroom",
+        "audio_gate",
+        "cut:naked_splices"
+      ],
+      "measured": "the file the hair-anchored framing standard is locked to (memory: framing-standard-hair-anchored).",
+      "notes": "APPROVED ON FRAMING. Three AI-artifact fixes followed in rev 5 -- those are content, not gate rows.",
+      "sha256": "47d883314c6b55d102111a931623f84ca97cf5de7fae8cbf1a1787a316bbba50",
+      "bytes": 308846126,
+      "known_gap": [
+        {
+          "check": "audio_gate:do_no_harm",
+          "since": "2026-09-09",
+          "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
+          "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
+        }
+      ],
+      "deliver": {
+        "format": "website",
+        "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+      }
+    },
+    {
+      "id": "website-rev5",
+      "verdict": "approved-with-notes",
+      "date": "2026-09-08",
+      "root": "repo",
+      "path": "claude edited long form content/06 - Website Conversion Video (post-generation)/website_video_16x9_REV5.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "(rev-5 review produced six rev-6 items; framing and audio unchanged and still approved)",
+      "must_pass": [
+        "framing:hair_top",
+        "framing:headroom",
+        "audio_gate",
+        "cut:naked_splices"
+      ],
+      "measured": "six content items went to rev 6. DO NOT GATE ON THEM -- they are editorial, not measurable rows.",
+      "notes": "Here to catch a gate that over-tightens: nothing in this file should ever fail.",
+      "sha256": "5924d482191571ed32e6cd56d6d0aa588835356e0f8df91ca7d974d4e41b827b",
+      "bytes": 315490692,
+      "known_gap": [
+        {
+          "check": "audio_gate:do_no_harm",
+          "since": "2026-09-09",
+          "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
+          "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
+        }
+      ],
+      "deliver": {
+        "format": "website",
+        "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+      }
+    },
+    {
+      "id": "website-rev6",
+      "verdict": "approved",
+      "date": "2026-09-09",
+      "root": "repo",
+      "path": "Website Videos/Website Conversion Video (post-generation)/website_video_16x9.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "perfect, finalized",
+      "must_pass": [
+        "framing:hair_top",
+        "framing:headroom",
+        "audio_gate",
+        "cut:naked_splices"
+      ],
+      "measured": "the shipped master (version A, tan-corrected). Re-gated on the delivered file 2026-09-09.",
+      "notes": "The current best example of the whole pipeline. Any gate change that fails this file is wrong until proven otherwise.",
+      "sha256": "eb34eb2d9fda1808fa81b5a38b12c14200cc80ae5950209e91fcbb520d59a443",
+      "bytes": 443945383,
+      "known_gap": [
+        {
+          "check": "audio_gate:do_no_harm",
+          "since": "2026-09-09",
+          "why": "rendered before voice_chain started stashing the untreated signal, so there is no baseline to compare against. The row correctly reads NOT MEASURED, which Phase 0 made a FAIL: nobody looked. This is a fact about the file's history, not about its audio -- every OTHER row still passes.",
+          "clears_when": "this file is next re-rendered through voice_chain.py (which stashes the baseline), or a baseline is recovered from its source roll and passed with --untreated. Delete this known_gap the moment either happens -- run.py tells you when it has healed."
+        }
+      ],
+      "deliver": {
+        "format": "website",
+        "_why": "the website format carries the locked framing standard (hair >= 20 px, per hold 30-70, median <= 75 at 1080p)"
+      }
+    },
+    {
+      "id": "ad1-vertical-attempt1",
+      "verdict": "rejected",
+      "date": "2026-08-25",
+      "root": "ssd",
+      "path": "ad1-8-14/vert9x16/ad1_vertical_59s.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "truly awful... definitely won't work.",
+      "must_trigger": [
+        "cut:naked_splices",
+        "framing:push_coverage",
+        "music:bed_tempo"
+      ],
+      "measured": "23 of 72 recovered splices shipped as naked jump cuts; 100% of talk ran at ONE FIXED CROP (his: 14 pushes, 39% of talk); bed 99 BPM acoustic at -21 dB against his driving 120+ BPM. // cut:naked_splices MEASURED 2026-09-16 (Phase 3): 12 same-scene subject jumps in 50.8 s = 14.2/min on the shared watch instrument; the approved verticals read 0.45-7.0, the approved square 10.3, Muhammad's own masters 7.6-9.5 (his pose-matched cuts). Bound 12/min. \u26a0 cut:uncovered_joins reads this file at 0.0/min -- it is not this instrument.",
+      "notes": "\u26a0 THE META-FAILURE THIS WHOLE PROGRAMME EXISTS FOR: the QC gate passed this file 11/11. Every check measured format -- LUFS, frame size, coverage %, change rate -- and no check ever watched the picture. \u26a0 Attempt 1's MASTER no longer exists: attempt 2 overwrote ad1_vertical_9x16.mp4 on 2026-08-27. The 0:59 cutdown, one of the two files he rejected that day, is what survives.",
+      "sha256": "edfbfdc0c297295cfc51426350a6c46f2046e8eecabf581577955e6bc4900855",
+      "bytes": 49990079,
+      "deliver": {
+        "format": "ad9x16",
+        "_why": "a vertical ad cutdown: the 9:16 bounds; push_coverage is the row this file must fail"
+      }
+    },
+    {
+      "id": "spraytan-longform-rev0",
+      "verdict": "rejected",
+      "date": "2026-08-21",
+      "root": "repo",
+      "path": "claude edited long form content/01 - My First Spray Tan/FINAL_spraytan_PRE_REBUILD.mp4",
+      "excerpt": [
+        235,
+        30
+      ],
+      "dan": "junk footage and repeated takes were kept in here. Eliminate this junk footage.",
+      "must_trigger": [
+        "junk:repeated_take",
+        "cut:uncovered_joins",
+        "compliance:banned_screen"
+      ],
+      "measured": "junk at 4:00 (a 1.6 s stretched word Whisper folded a pause into, kept as a self-correction); 41 uncovered joins; the banned side-by-side before/after screen on-screen for 5.6 s at 18:04.",
+      "notes": "The banned-screen template scan exists in /ad-edit only, which is how the side-by-side reached a delivered longform.",
+      "sha256": "5f39b9c4c6cba98563011fe3ce2c61dde32994ae5775134bfe582f6cf33cbcd4",
+      "bytes": 994075328,
+      "deliver": {
+        "format": "longform",
+        "plan": "plans/spraytan-longform-rev0.json",
+        "_why": "longform bounds. The plan supplies only the banned-screen SOURCE, an asset-library fact rather than a judgment about this file. compliance:banned_screen registered 2026-09-12 (stage 3: pairing)."
+      }
+    },
+    {
+      "id": "spraytan-shorts-20260902",
+      "verdict": "rejected",
+      "date": "2026-09-09",
+      "root": "repo",
+      "path": "YouTube Long Form Video Content/spray-tan-first/out/_PRE_AUDIO_20260909/a_why-tanning-makes-you-look-ripped.mp4",
+      "excerpt": [
+        5,
+        25
+      ],
+      "dan": "absolutely awful, far far worse than before... It sounds like I'm underwater.",
+      "must_trigger": [
+        "audio_gate:do_no_harm",
+        "audio_gate:artifacts"
+      ],
+      "measured": "the alpha 0.62 / floor -24 dereverb: flux 1.30-1.61x and swirl 1.57-1.94x THIS FILE UNTREATED, against a 1.35 limit. \u26a0 It hit EDT 32 ms -- PAST Muhammad's 40 -- and the 09-02 gate therefore scored it as BETTER than the build he liked.",
+      "notes": "The do_no_harm row was written from this file. It blocks 16 of 16 of the 09-02 batch.",
+      "sha256": "a379d05bfbc86d86dd036aef80c7b15e7790b5440268e17b10e993806f862369",
+      "bytes": 43342568
+    },
+    {
+      "id": "invest-health-underwater",
+      "verdict": "rejected",
+      "date": "2026-09-09",
+      "root": "repo",
+      "path": "claude edited long form content/04 - Why You Should Invest More In Your Health/FINAL_invest_health_UNDERWATER.mp4",
+      "excerpt": [
+        120,
+        30
+      ],
+      "dan": "absolutely awful... It sounds underwater. We can never, ever strip audio like this.",
+      "must_trigger": [
+        "audio_gate:artifacts"
+      ],
+      "measured": "flux 1.31x Muhammad's against a 1.10 limit.",
+      "notes": "\u26a0 THE VERSIONED-GATE CASE. This file was stamped PASS on 2026-09-03 and nothing re-checked it when the dereverb settings were rejected six days later. Phase 1's gate version would have invalidated the stamp automatically.",
+      "sha256": "88934ee363142c57ef9041ec98a76b56099818efd3914372e3a516e58eaacca9",
+      "bytes": 1615810595
+    },
+    {
+      "id": "v2-short3-offcentre",
+      "verdict": "rejected",
+      "date": "2026-08-27",
+      "root": "repo",
+      "path": "Short-form video content/_pre-recentre-2026-08-27/v2-short3_supplements-3-percent.mp4",
+      "excerpt": [
+        0,
+        25
+      ],
+      "dan": "off-center ... one of my arms is cut off and there's space on the other side.",
+      "must_trigger": [
+        "framing:centering"
+      ],
+      "measured": "133 px off centre -- the calibration point. Root cause: plan.js set one TALK_X = 0.478 for the whole video; Dan's measured torso centre wanders 0.411 -> 0.505, and a 9:16 window is 0.317 of the frame, so 0.06 of drift is ~200 px delivered.",
+      "notes": "A sibling build (v6-3min-home-workout/plan.js) had ALREADY found there is no single TALK_X, and the lesson was never carried back. /shortad-from-longform still has no framing rule at all.",
+      "sha256": "76cba4dc540b737583420a3a9139c82e8946e2d1aba046a795bc7f13654fb7ce",
+      "bytes": 44516398,
+      "deliver": {
+        "format": "short",
+        "_why": "a vertical Short: the 9:16 bounds, scaled by H/1080; centring is graded here (a phone crop)"
+      }
+    },
+    {
+      "id": "abwheel-8-20-cut",
+      "verdict": "rejected",
+      "date": "2026-08-24",
+      "root": "ssd",
+      "path": "abwheel/roughcuts/FINAL_abwheel.mp4",
+      "excerpt": [
+        60,
+        30
+      ],
+      "dan": "substantially better than what we made. It looks better, it sounds better, and the graphics are better. Everything about his video is better than ours.",
+      "must_trigger": [
+        "style:coverage",
+        "style:static_run",
+        "audio_gate:lr_corr"
+      ],
+      "measured": "insert coverage 21% against his ~90%; longest bare stretch 64 s TWICE against Dan's own written 30 s rule; and the delivered file plays his voice out of the RIGHT SPEAKER ONLY with hiss on the left for all nine minutes (left channel SNR 0.4-1.0 dB).",
+      "notes": "This rejection produced qc_style.py -- which then reached exactly one skill. \u26a0 The handoff's seed table says 'coverage 8.7 %'; the figure recorded at the time, and the one qc_style.py's MIN_COVERAGE comment cites, is 21%. 21% is what this entry asserts.",
+      "sha256": "58287396662ad8c047ccd6559eab46aa03d5e0a0c94fcf4bd88b4ecba2b6da17",
+      "bytes": 282967743,
+      "deliver": {
+        "format": "longform",
+        "_why": "an organic YouTube long-form: graded against longform bounds, which is where qc_style's MIN_COVERAGE 0.40 and Dan's 30 s static rule live"
+      }
+    },
+    {
+      "id": "muhammad-ad1-16x9",
+      "verdict": "reference",
+      "date": "2026-09-02",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+      "excerpt": [
+        20,
+        30
+      ],
+      "dan": "(the standard: the editor's cut every one of our audio limits is measured against)",
+      "must_pass": [
+        "audio_gate:reference_rows"
+      ],
+      "measured": "the pinned audio reference. EDT 40 ms, comb ripple 0.54 dB, dryness 7.4 dB, flux 0.072, swirl 0.835, LUFS -18.2.",
+      "notes": "\u26a0 do_no_harm is INFORMATIONAL on this file: it is not ours, so there is no processing of ours to charge. Its true peak is +0.1 dBTP -- too hot for a platform -- which is why our tp row is -1.0 and not 'his + margin'.",
+      "sha256": "e99a9332851a85a552c19fdb9e49b00260446776c0e57f2378000f885ed9453c",
+      "bytes": 313570091
+    },
+    {
+      "id": "muhammad-ad2-16x9",
+      "verdict": "reference",
+      "date": "2026-09-03",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4",
+      "excerpt": [
+        20,
+        30
+      ],
+      "dan": "(the second reference cut: the source of the pose-matched picture-cut finding)",
+      "must_pass": [
+        "cut:pose_matched_offset",
+        "framing:push_coverage",
+        "cut:naked_splices"
+      ],
+      "measured": "he cuts the PICTURE 1-15 frames off the audio splice on a pose-matched frame (22 of 33 cuts moved by -15..+10 at confidence >= 0.6). 14 pushes, 39% of talk. \u26a0 AUDIO: this file FAILS artifacts, floor and tone against Ad 1's pinned reference -- his bed sits 6-7 dB hotter between words here. That is not a defect in his mix and not a bug in ours; it is why Ad 1 is the pinned reference and Ad 2 is not, and why --reference-mix mode exists. Do NOT widen a bound to make this file pass the audio rows.",
+      "notes": "\u26a0 A reference is not automatically a pass: gating Ad 2 against Ad 1's pinned numbers fails rows that measure HIS mixing. That is what --reference-mix mode exists for.",
+      "sha256": "f21c69629ebf1f39c36dfb4b792a274af06e2650281056a50499c80074b8539b",
+      "bytes": 372767004,
+      "deliver": {
+        "format": "ad16x9",
+        "_why": "an editor's 16:9 master: push_coverage graded against the ad16x9 bounds (Muhammad anchors tighter than the website standard, so headroom is per-format) // cut:naked_splices calibration: 7.61/min on 2026-09-16 (his pose-matched cuts)"
+      }
+    },
+    {
+      "id": "ad1zee-vertical-processed-audio",
+      "verdict": "rejected",
+      "date": "2026-09-10",
+      "root": "ssd",
+      "path": "ad1-zee-vert/rejected/ad1zee_vertical_9x16_REJECTED_processed-audio_20260910.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "What the fuck happened to the audio? Zishan's audio sounds much better. This is an awful mistake which can't happen again. Why do these audio problems keep happening? Use Zishan's audio. This is the audio you made. There are serious issues with your quality control on the audio. Over and over again, you produce bad audio. We have to fix this.",
+      "gate_args": [
+        "--reference-mix",
+        {
+          "root": "repo",
+          "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h264.mov"
+        },
+        "--verbatim"
+      ],
+      "must_trigger": [
+        "audio_gate:verbatim_level",
+        "audio_gate:verbatim_image",
+        "audio_gate:verbatim_lufs"
+      ],
+      "measured": "Zeeshan's -23.5 LUFS / LRA 5.9 / L/R +0.970 mix, lifted +9.9 dB into a 4x-oversampled limiter (alimiter 0.85), mono-summed, AAC 320k: -14.70 LUFS / LRA 4.1 / L/R +1.000; per second vs his +5.61..+9.90 dB, 52 of 249 s shaved > 1 dB. The gate it shipped under PASSED it: provenance 0.9989 (level-normalised), gain_flatness PASS (4.29 dB shave vs a 4.5 limit), the -14 LUFS and L/R rows PASS, qc.py 20/20.",
+      "notes": "('Zishan' is Wispr for Zeeshan.) \u26a0 The rows that passed it measured OUR TARGETS, not HIS AUDIO: -14 LUFS and L/R >= 0.98 would have FAILED Zeeshan's own mix, so the build processed his mix until they passed. The 1.8 LU loudness-range loss was measured and shipped as a 'trade-off' against the skill's own ~0.8 LU rule of thumb. The verbatim rows (audio_gate --reference-mix <his export> --verbatim) fail it three ways.",
+      "sha256": "8fc644575789b26c04e63f3a24464fc79be21d443502db8ec7752760f24f11ee",
+      "bytes": 448375174
+    },
+    {
+      "id": "ad1zee-vertical-59s-processed-audio",
+      "verdict": "rejected",
+      "date": "2026-09-10",
+      "root": "ssd",
+      "path": "ad1-zee-vert/rejected/ad1zee_vertical_59s_REJECTED_processed-audio_20260910.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "What the fuck happened to the audio? Zishan's audio sounds much better. This is an awful mistake which can't happen again. Why do these audio problems keep happening? Use Zishan's audio. This is the audio you made. There are serious issues with your quality control on the audio. Over and over again, you produce bad audio. We have to fix this.",
+      "gate_args": [
+        "--reference-mix",
+        {
+          "root": "ssd",
+          "path": "ad1-zee-vert/cut/his_mix.wav"
+        },
+        "--verbatim"
+      ],
+      "must_trigger": [
+        "audio_gate:verbatim_level",
+        "audio_gate:verbatim_image",
+        "audio_gate:verbatim_lufs"
+      ],
+      "measured": "the same delivery's cutdown: his mix cut at the seams (-23.2 LUFS / LRA 4.9), lifted +9.7 dB into the same limiter and mono-summed: -14.70 LUFS / LRA 3.7, per second +7.00..+9.70 dB.",
+      "notes": "Its reference is his mix CUT at the same seams (cut/his_mix.wav, a build intermediate on the SSD -- zcut_build.py regenerates it byte-identical from his export).",
+      "sha256": "4bf3d5a2ff26ac2616c1bede2e286750fcdf30e63da6267a9e8b1b851f1de8dc",
+      "bytes": 63891676
+    },
+    {
+      "id": "muhammad-ad1-vertical-approved",
+      "verdict": "approved",
+      "date": "2026-09-10",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 9x16 | ad 1.mp4",
+      "excerpt": [
+        20,
+        30
+      ],
+      "dan": "For ad 1, the vertical version for Muhammad's ad is approved.",
+      "must_pass": [
+        "audio_gate",
+        "cut:naked_splices"
+      ],
+      "measured": "the 2026-09-02 rebuild: Muhammad's own mix at a CONSTANT +4.2 dB into alimiter 0.85 (level=disabled) -> -14.5 LUFS, -1.3 dBTP; picture stream copied untouched (6977 frames). Stamped PASS 09-02 against the pinned Ad 1 reference. Uploaded to YouTube as Iz0u8KHRbyE.",
+      "notes": "The approved answer to the 09-02 rejection, which was loudnorm silently falling back to DYNAMIC mode (+1.2..+9.5 dB per second). Constant gain on the editor's mix is the pattern Dan approves; compare the rejected Zeeshan vertical (ad1zee-*), where +9.9 dB into the limiter shaved 52 s by > 1 dB.",
+      "sha256": "b71cd6610f26aa82a30246fb3ae6e78ef22cad1b8f9f3cbdd382ef72fc9782eb",
+      "bytes": 351240913,
+      "known_gap": [
+        {
+          "check": "audio_gate:do_no_harm",
+          "since": "2026-09-10",
+          "why": "rendered 2026-09-02, before voice_chain started stashing the untreated signal, so there is no .audio_untreated.json and the row reads NOT MEASURED (a FAIL since Phase 0). Every OTHER row passes on 2026-09-10, including 'no processing damage': flux 0.071 vs Muhammad's 0.072, HF swirl 0.836 vs his 0.835. The audio is his own mix at constant gain, so there is nothing of ours for the row to bound. `--untreated <his master>` did not supply a baseline (tried 2026-09-10).",
+          "clears_when": "this file is re-rendered through voice_chain.py, or an .audio_untreated.json is built from his 16x9 master and passed with --untreated. Delete this known_gap the moment either happens."
+        }
+      ],
+      "deliver": {
+        "format": "ad9x16",
+        "_why": "cut:naked_splices calibration: 6.96/min on 2026-09-16"
+      }
+    },
+    {
+      "id": "muhammad-ad2-vertical-approved",
+      "verdict": "approved",
+      "date": "2026-09-08",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | claude | 9x16 | ad 2.mp4",
+      "excerpt": [
+        20,
+        30
+      ],
+      "dan": "Approved, mark it done and clear the board entry.",
+      "gate_args": [
+        "--reference-mix",
+        {
+          "root": "ssd",
+          "path": "ad2-vert-v2/his_mix.wav"
+        }
+      ],
+      "must_pass": [
+        "audio_gate",
+        "cut:naked_splices"
+      ],
+      "measured": "stamped PASS 2026-09-08 in reference-mix mode against his mix (per-second corr median 0.9996). Uploaded to YouTube as 7XgHxn59Tsg.",
+      "notes": "Approved 09-08, before this corpus existed; added 09-10 so a gate change cannot start blocking it.",
+      "sha256": "6fef8d65882ec90ace36d32ea52c0a09765e0980737da6b5d81a8bb3f6bcbbc2",
+      "bytes": 370433811,
+      "deliver": {
+        "format": "ad9x16",
+        "_why": "cut:naked_splices calibration: 2.61/min on 2026-09-16"
+      }
+    },
+    {
+      "id": "zeeshan-ad1-16x9",
+      "verdict": "approved",
+      "date": "2026-09-10",
+      "root": "repo",
+      "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h264.mov",
+      "excerpt": [
+        20,
+        30
+      ],
+      "dan": "Zishan's audio sounds much better. ... Use Zishan's audio.",
+      "gate_args": [
+        "--reference-mix",
+        {
+          "root": "repo",
+          "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h264.mov"
+        },
+        "--verbatim"
+      ],
+      "must_pass": [
+        "audio_gate",
+        "audio_gate:verbatim_level",
+        "audio_gate:verbatim_image",
+        "audio_gate:verbatim_lufs",
+        "cut:naked_splices"
+      ],
+      "measured": "-23.5 LUFS, -1.7 dBTP, LRA 5.9, L/R +0.970, early decay 89 ms (the pinned reference's 40). It FAILS our -14 LUFS row and qc.py's L/R > 0.98 -- which is why those rows are declared not applicable to an editor's mix delivered verbatim, and why bending his audio to pass them was the rejected build.",
+      "notes": "The identity case: gated against itself in --verbatim mode it must pass every row, which also proves verbatim mode does not smuggle our targets back in. The re-delivered vertical carries this file's audio stream bit for bit (md5 5051f4f40a7c3a7a944bf1763c05a888).",
+      "sha256": "c7234b18f7997b2cb39d0b3909f09987f8e440fde167f8fdbfb3d0ddeb534859",
+      "bytes": 289333241,
+      "deliver": {
+        "format": "ad16x9",
+        "_why": "cut:naked_splices calibration: 2.17/min on 2026-09-16"
+      }
+    },
+    {
+      "id": "ad1-square-r1-approved",
+      "verdict": "approved",
+      "date": "2026-09-14",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 1x1 | ad 1.mp4",
+      "excerpt": [
+        10,
+        30
+      ],
+      "dan": "All right, both of these are looking excellent. You nailed it with both the full square version and the cutdown. This is what we need to see here.",
+      "dan_round1_notes": "(2026-09-13, on round 0) put the real-picture label above my head or somewhere it doesn't block my face or abs ... lower the graphic ... eliminate the blank space at the bottom. Color correction looked good, and audio looked good.",
+      "gate_args": [
+        "--reference-mix",
+        {
+          "root": "ssd",
+          "path": "ad1-sq/his_mix.wav"
+        },
+        "--verbatim"
+      ],
+      "must_pass": [
+        "audio_gate",
+        "cut:naked_splices"
+      ],
+      "measured": "Round 1 re-delivery 2026-09-14: _shared/deliver/gate.py 1.2.0 PASS 35/35 (compliance:labels min 0.985, framing, captions 100 %), audio verbatim PASS, independent audit SHIPS. Audio stream md5 = the approved 9:16 vertical (16799987...).",
+      "notes": "The first SQUARE Dan approved with no further revisions: labels placed by person mask above/beside his head (sqlabelplace.py), text screens to a 1030 bottom line, hook from the clean goal still. /shortad-from-longform [S1].25-26.",
+      "sha256": "f14d935af9e781389b405519dfd252b819db558edffaab089e61b62f0fe9fbef",
+      "bytes": 166821500,
+      "deliver": {
+        "format": "ad1x1",
+        "_why": "cut:naked_splices calibration: 10.31/min on 2026-09-16 -- the highest approved reading; the bound is 12"
+      }
+    },
+    {
+      "id": "ad1-square-59s-r1-approved",
+      "verdict": "approved",
+      "date": "2026-09-14",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 1x1 59s | ad 1.mp4",
+      "excerpt": [
+        0,
+        20
+      ],
+      "dan": "All right, both of these are looking excellent. You nailed it with both the full square version and the cutdown. This is what we need to see here.",
+      "dan_round1_notes": "(2026-09-13, on round 0) put the real-picture label above my head or somewhere it doesn't block my face or abs ... lower the graphic ... eliminate the blank space at the bottom. Color correction looked good, and audio looked good.",
+      "gate_args": [
+        "--reference-mix",
+        {
+          "root": "ssd",
+          "path": "ad1-sq/cut/his_mix.wav"
+        },
+        "--verbatim"
+      ],
+      "must_pass": [
+        "audio_gate"
+      ],
+      "measured": "Round 1 re-delivery 2026-09-14: _shared/deliver/gate.py 1.2.0 PASS 35/35 (compliance:labels min 0.985, framing, captions 100 %), audio verbatim PASS, independent audit SHIPS. His mix cut at the seams, no filter.",
+      "notes": "The first SQUARE Dan approved with no further revisions: labels placed by person mask above/beside his head (sqlabelplace.py), text screens to a 1030 bottom line, hook from the clean goal still. /shortad-from-longform [S1].25-26.",
+      "sha256": "55bbb2eebd9f0c1196c73e8a134e69e2bdcafdde1597241fdc03f760988bfd14",
+      "bytes": 35767678
+    },
+    {
+      "id": "ad3-vertical-r9-color",
+      "verdict": "rejected",
+      "date": "2026-09-13",
+      "root": "ssd",
+      "path": "ad3-vert/_rejected_r9/ad3_vertical_9x16_r9_REJECTED_color.mp4",
+      "excerpt": [
+        0,
+        60
+      ],
+      "dan": "To me, this ad doesn't look the same as Muhammad's with the color correction. ... Yes, they look different in VLC too. Muhammad's look brighter, like the colors are more vivid. I look more tan. It's just better color correction overall.",
+      "dan_direction": "Go ahead and reedit this again and make it look like Muhammad's.",
+      "must_trigger": [
+        "style:reference_color_fidelity"
+      ],
+      "must_pass": [
+        "watch:pass",
+        "audio:stamp",
+        "cut:uncovered_joins",
+        "cut:jump_cut"
+      ],
+      "measured": "Every in-house check read this grade as a MATCH, because every check decoded Muhammad's file the same wrong way. His ad3_v6hd.mp4 carries NO colour tags; ffmpeg's scaler decodes an untagged file with the BT.601 matrix, while VLC and browsers decode untagged HD as BT.709. The grade LUT (zlut.py) was fitted to the BT.601 reading. At 16 matched talk frames, same scene pixels, both decoded by ffmpeg default: his RGB mean 116/94/75 vs ours 112/91/70, skin 134/88/58 vs 131/85/53 -- a 'match'. Decoded as a player shows them (both BT.709): his all-pixel RGB 121/99/80 sat 0.385 vs ours 114/92/71 sat 0.406; his highlights p95 250 vs ours 238. Ours is darker, warmer/muddier (blue ~9 short) and dimmer in the whites.",
+      "notes": "A reference-colour-fidelity row must decode the reference with the matrix a PLAYER uses (BT.709 for untagged HD), never ffmpeg's untagged default. Master preserved at the path above; render 9, watch pass sha 042c9f48c52e.",
+      "sha256": "042c9f48c52ecec4177b770007cbab65c5d7125d15563d1000b7a98b8d13b348",
+      "bytes": 580306843,
+      "deliver": {
+        "format": "ad9x16",
+        "plan": "/Volumes/Extreme/_edit_work/ad3-vert/_rejected_r9/plan.json"
+      }
+    },
+    {
+      "id": "ad3-vertical-r11-approved",
+      "verdict": "approved-with-notes",
+      "date": "2026-09-14",
+      "root": "ssd",
+      "path": "ad3-vert/_approved_r11/ad3_vertical_9x16_r11_APPROVED.mp4",
+      "excerpt": [
+        0,
+        60
+      ],
+      "dan": "Okay, this is overall looking very good. The color correction looks good, and the audio sounds good. I think this is a great reproduction of what Muhammad did.",
+      "dan_direction": "There is one issue in the video at 1:16. There's an AI clip with a weird AI artifact. He exhales, and there's smoke coming out when he exhales. This was also in the original video, so I want you to see if you can fix this both in the vertical and in the original video.",
+      "must_trigger": [
+        "compliance:ai_artifact_giveaways"
+      ],
+      "must_pass": [
+        "style:reference_color_fidelity"
+      ],
+      "measured": "The colour-fixed render of ad3-vertical-r9-color. Talk frames read as a player shows both files (BT.709), same scene pixels: opening 0-43 s his RGB 123.1/94.6/72.6 bright p5/50/95 12/90/248 sat 0.414 skin 151/90/53 vs this file 121.2/93.2/70.7, 11/88/247, 0.422, 150/90/53; rest of the ad his 117.2/92.8/69.5, 11/80/249, 0.428, skin 136/81/44 vs 116.4/92.1/69.0, 10/79/248, 0.437, 134/81/44. Audio stream md5 = his. The pairing a reference-colour row must reproduce: FAIL r9, PASS this file.",
+      "notes": "Approved on colour and audio. The one note is an AI artifact Dan caught at 1:16 (76.6-78.07 s): breath smoke / the mirror fogging in shot 3 of ai-trainer-vs-robot-story-35s.mp4 -- also in Muhammad's original. must_trigger names a check nothing implements yet. Fix: Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md.",
+      "sha256": "405eff4a512fa13e389756d57cbbf71db0022bd34f5ab31f0fb1cc61ee31d8ed",
+      "bytes": 614914053,
+      "deliver": {
+        "format": "ad9x16"
+      }
+    },
+    {
+      "id": "ad3-vertical-r12-approved",
+      "verdict": "approved",
+      "date": "2026-09-14",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | claude | 9x16 | ad 3.mp4",
+      "excerpt": [
+        60,
+        90
+      ],
+      "dan": "Okay, all these are looking good, and they are approved.",
+      "gate_args": [
+        "--reference-mix",
+        {
+          "root": "ssd",
+          "path": "ad3-vert/ref/ad3_v6hd.mp4"
+        },
+        "--verbatim"
+      ],
+      "must_pass": [
+        "audio_gate",
+        "cut:naked_splices"
+      ],
+      "measured": "Render 12 = r11 (ad3-vertical-r11-approved) with story shot 3 regenerated (frames 2202-2338); every other frame identical or >=48.6 dB vs r11; audio stream md5 = his. qc.py 20/20; deliver gate 1.2.0 28 PASS / FAIL compliance:labels (per-card chip, known limit) / 6 NOT MEASURED (window-layout framing, graphic_clearance, captions:sync). Two independent audits: first take rejected, this take ships.",
+      "notes": "The pairing a future compliance:ai_artifact_giveaways row must reproduce: FLAG ad3-vertical-r11-approved at 76.6-78.1 s, PASS this file. Excerpt 60-90 s covers the replaced shot.",
+      "sha256": "6ef0538cf055183a028eb888769c751fd5281c04b912143fce9778a5d404c9a6",
+      "bytes": 613646735,
+      "deliver": {
+        "format": "ad9x16",
+        "_why": "cut:naked_splices calibration: 0.45/min on 2026-09-16"
+      }
+    },
+    {
+      "id": "ad3-vertical-59s-r12-approved",
+      "verdict": "approved-with-notes",
+      "date": "2026-09-14",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | claude | 9x16 59s | ad 3.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "Okay, all these are looking good, and they are approved.",
+      "must_pass": [
+        "style:reference_color_fidelity"
+      ],
+      "measured": "57.92 s cutdown of render 12 (6 segments, no story shot 3). Audio = his mix cut at the seams, AAC 320k no filter: true peak -0.90 dBTP (AAC overshoot of his -1.0 mix), so the verbatim audio stamp FAILS on tp; Dan was told and approved it (DAN_ACCEPTED.md beside the file). qc.py 18/20 (tp + stamp only). Audit: ships.",
+      "notes": "audio_gate deliberately NOT in must_pass: the tp row is a known over-bound that Dan accepted, and listing it as a known_gap would read as relaxing the bound. If a -1.0 re-export arrives, rebuild and add audio_gate here.",
+      "sha256": "1a295123fca844795f986067cd2ef7cb944705cee252956de199670de3d7603c",
+      "bytes": 115145805
+    },
+    {
+      "id": "muhammad-ad3-16x9-smokefix-approved",
+      "verdict": "approved-with-notes",
+      "date": "2026-09-14",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | muhammad (smoke shot replaced) | 16x9 | ad 3.mp4",
+      "excerpt": [
+        60,
+        90
+      ],
+      "dan": "Okay, all these are looking good, and they are approved.",
+      "must_pass": [
+        "compliance:ai_artifact_giveaways"
+      ],
+      "measured": "Muhammad v6 HD with frames 2202-2338 replaced by his card rebuilt around the new shot (held-out reconstruction error 1.66/255, accurate_rnd decode, card brightness within 0.5 levels). Audio md5 = his (db408fd0...). Outside the patch >=47.89 dB vs his.",
+      "notes": "Still carries his HD's own 2:14.1-2:23.1 missing bullet lines (not ours to fix). Approved as the clean 16:9 until his round-6 re-export.",
+      "sha256": "85a7da67edc2fc478968eb83d2ec01ea0f13b23692c9e4ae02ef715d73f46c58",
+      "bytes": 542401194
+    },
+    {
+      "id": "ad3-square-r1-wide-camera-motion",
+      "verdict": "rejected",
+      "date": "2026-09-15",
+      "root": "ssd",
+      "path": "ad3-sq/ad3_square_r1.mp4",
+      "excerpt": [
+        7.47,
+        7.17
+      ],
+      "dan": "For the longer version I found some of the camera movement to keep me centered distracting. In the tight shot it was necessary but in the wide shot I want you to try centering a little bit less aggressively so there's less camera movement. The shot is a little bit more static and there's less distraction from the camera moving back and forth in the wide shot. Go ahead and make a handoff document to make that next revision",
+      "must_trigger": [
+        "framing:camera_motion"
+      ],
+      "measured": "R1 full structural QC 20/20, centring and landing checks passed. Crop centre over FAR window frames 224-438 spans 143 source pixels and travels 344 pixels. Dan found wider-shot recentering distracting; he did not name specific timecodes. This excerpt is an editor-selected investigation candidate.",
+      "notes": "Preserve full R1. Revision is less aggressive horizontal tracking in visibly wider shots; keep necessary tight-shot tracking. framing:camera_motion is not implemented and is PENDING, not a pass. Motion review and per-shot experiment are assigned to Handoffs/handoff-20260915-ad3-square-steadier-wide-framing.md. No threshold changed.",
+      "sha256": "d027852bdb11a94b47d3d808e08b5e00d27f8a5e96e4fa9566e04b9dee0a9998",
+      "bytes": 328282962
+    },
+    {
+      "id": "ad3-square-59s-r1-accepted-optional",
+      "verdict": "approved-with-notes",
+      "date": "2026-09-15",
+      "root": "ssd",
+      "path": "ad3-sq/cut/ad3_square_59s_r1.mp4",
+      "excerpt": [
+        0,
+        30
+      ],
+      "dan": "Okay the short version is looking good but I'm not sure we need a short version that's square. I think the only purpose of making that shortcut down is to get to the short sides, which is vertical only. Check on that. If we do actually need a short version for square, then it's all set.",
+      "must_pass": [
+        "style:reference_color_fidelity"
+      ],
+      "measured": "1736 frames, 57.924533 seconds. Exact vertical-cut AAC stream MD5 65bd0f4c27a03298f59237b1d8921f67. Ten colour checks passed, max mean channel shift 0.190/255. Inherited true peak -0.90 dBTP against -1.0: audio gate FAIL retained, structural QC 18/20. Shared gate 27 PASS, 2 FAIL, 6 NOT MEASURED, 3 N/A.",
+      "notes": "Creative acceptance with a qualification about whether the short square is needed, not publication permission. Research found no separate short-square requirement; preserve as an optional finished asset and do not rebuild. Colour fidelity assertion follows the approved vertical-cut corpus entry and is currently PENDING in the corpus runner. No overall audio-gate must_pass because its source peak exception remains.",
+      "sha256": "f317d2541916e5a8bc7d84a2204d6bfc771999929907df7bf0505818213e22a2",
+      "bytes": 68733565
+    },
+    {
+      "id": "phase06-organic-first-cut-notes",
+      "verdict": "approved-with-notes",
+      "date": "2026-09-15",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic/frozen-first/FIRST_CUT.mp4",
+      "sha256": "01a708d14e0a5fda54a5850d35a4786462857d1164ae11addc4d3126ca1bc72d",
+      "bytes": 1014472364,
+      "excerpt": [
+        0,
+        12
+      ],
+      "dan": "Verdict: Small corrections\nTotal review time: 10 minutes\nPlayback time: 6.7 minutes\nThe revisions: the sound effect, that weird sound effect that it starts with, I don't like that at all. I don't like that sound effect. I want to make the transitions like Muhammad's transitions: exact same effect and exact same sound, not that weird swiping sound. Never use that weird swiping sound and never start a video like that \n\nAt 4:14 I don't think this was the appropriate picture to use. I'd like you to use a picture of me in the bathing suit, maybe one with a towel where I look like I'm going by the pool, not this one where it looks like an exercise photo. I want one that looks like I'm in the bathing suit going into the pool \n\nI really like this graphic at 4:40. I think that really helped illustrate things \n\nThere was a small amount of drug footage included at 0:08 where I look away from the camera. Cut that \n\nAnother small junk footage included at 10:34, where I pause unnecessarily. Cut that \n\nOnce you save Revellie by emergency, go to AbsByAI.com. I need it before you happen. At 10:42 use a clip that shows the generation functionality with somebody else, with the overweight white guy. At this point don't just show my after picture. Just show the generation functionality clip when I reference that generally \n\nOverall I think this was a solid first attempt but there are some significant changes that we need:\n1. With this video there were some issues with my tan and my makeup, where my skin was not evenly colored. Because of this I think the zooms you chose would be perfect in a normal video but for this shoot specifically I'd like to zoom out a little bit more. Make both the wide shot and the tight shot about 10% wider if we have the room. If not, just what we have the room for.\n2. I want to use AI-generated clips and stock footage much more. For example, when I reference \"if you're ripped then you'll have all the matches on dating apps,\" then you'll have:\n- a picture of a ripped guy's profile with tons of matches\n- a fat guy's profile with no matches\n- \"Your relationship will be better\": a woman with a fat guy and she's checking out a ripped guy while he looks like a pathetic cuck next to her\n- \"The productivity\": a clip of a ripped guy being productive while the fat guy is struggling\nBasically illustrate each top-level point with an AI-generated clip or a stock clip. I want that for each top-level point and I also want, throughout the video, more stock footage and AI-generated clips to break it up. It's just a lot of camera scenes.\nFor this shoot specifically we'll do those zooms and then we'll add in the AI-generated clips and the stock footage more generally to all videos. For this one specifically, to each top-level point and also at other points throughout the video, as you think is best.\nAlso if there is anything you think you can do to minimize the appearance of that white spot near my lips, that would be good. It's on my left side when you're looking at me on video and on my right side when I'm looking at you. It's right near my mouth in the dimple area.\n",
+      "must_trigger": [],
+      "must_pass": [
+        "style:instructional_graphic_value"
+      ],
+      "measured": "User verdict bound to verified frozen master SHA-256. Earlier technical gate results remain unchanged. No new quality gate run or threshold change.",
+      "notes": "Small corrections verdict, not final publication approval. Dan liked graphic at 4:40; requested more clips, no swipe, cleanup, photo/app changes and shoot-specific crop/skin work.",
+      "feedback_path": "Media/codex-video-trial/records/06-feedback-20260915.txt"
+    },
+    {
+      "id": "phase06-ad14-codex-first-cut-rejected",
+      "verdict": "rejected",
+      "date": "2026-09-15",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad/frozen-first/FIRST_CUT.mp4",
+      "sha256": "bf8215d3c633e69e7b3feac1924c2bee160ddb72262b37f2b7352445143593dd",
+      "bytes": 130786855,
+      "excerpt": [
+        0,
+        60
+      ],
+      "dan": "Verdict: Would not publish\nTotal review time: 5 minutes\nPlayback time: 2.4 minutes\nOkay right off the bat, the color correction is no good. Massive difference from Muhammad's. This color correction doesn't work at all. We got to make it look like Muhammad's I also hate that swiping sound effect you started the video with. Never start a video like that. Never use that effect again. That is awful and it doesn't seem like Muhammad's transitions at all. Also Muhammad did not start off the video like that. \n\nAt 38 seconds I don't think that text graphic added any value. I would remove that \n\nSame thing with the graphic at 46 seconds. I think we'd be better off replacing that with a clip to illustrate the point rather than just a simple graphic like this \n\nI don't like the graphic at 1:55. I feel like we'd be better off to use an AI-generated clip or a stock clip here to illustrate the point. This graphic just doesn't really add any value when it looks too basic \n\nSame thing at 207. I don't like this plug in the middle. It doesn't really illustrate the point at all. We'd be better off with an AI clip or a stock clip that would illustrate that \n\nThe graphic at 3:05 and the one right after that: same thing, looks basic, and doesn't add any value. Better off to use a clip here \n\nThe most severe problem was that Muhammad's color correction was much better than yours. His graphics were much better than yours. The clips that he used were much better than yours. The audio was good and the cropping and the framing were good but graphics, color correction, and clips are not up to Muhammad's standard. This is not something I would publish. This is not acceptable or something I could use ",
+      "must_trigger": [
+        "style:reference_color_fidelity",
+        "style:illustrative_asset_relevance",
+        "style:transition_reference_match"
+      ],
+      "must_pass": [],
+      "measured": "User verdict bound to verified frozen master SHA-256. Earlier technical gate results remain unchanged. No new quality gate run or threshold change.",
+      "notes": "Voice, cropping and framing accepted; color, graphics and clip choices rejected. New creative predicates are PENDING, not implemented detectors.",
+      "feedback_path": "Media/codex-video-trial/records/06-feedback-20260915.txt"
+    },
+    {
+      "id": "phase06-ad14-muhammad-reference-approved",
+      "verdict": "approved",
+      "date": "2026-09-15",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad/reference/HUMAN_MATCHED_v2.mp4",
+      "sha256": "7ea0e352f929ea1e08f3a1b9d548e090859e2f7996eb0407bfd28a0c20fa706b",
+      "bytes": 79567016,
+      "excerpt": [
+        0,
+        60
+      ],
+      "dan": "Verdict: Publish as-is\nTotal review time: Not recorded minutes\nPlayback time: 0.4 minutes\nThis looks excellent. I can tell this is Muhammad's edit right away. This is the standard for what we want \n",
+      "must_trigger": [],
+      "must_pass": [
+        "style:reference_color_fidelity",
+        "style:illustrative_asset_relevance",
+        "style:transition_reference_match"
+      ],
+      "measured": "User verdict bound to verified frozen master SHA-256. Earlier technical gate results remain unchanged. No new quality gate run or threshold change.",
+      "notes": "Exact Ad A version approved and preferred; recognized immediately. Historical export notes do not erase this new creative verdict; no publication performed.",
+      "feedback_path": "Media/codex-video-trial/records/06-feedback-20260915.txt"
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-0",
+      "verdict": "approved",
+      "date": "2026-09-15",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/review/approved-prep-v1/wider.mp4",
+      "sha256": "58cf6a7b5f9badde6c13b16e1087b26a4d0ff55506783c58f4015960858b85fa",
+      "bytes": 14825919,
+      "dan": "The skin correction didn't look any different to me but I like the 10% wider. Let's use that.",
+      "must_trigger": [],
+      "must_pass": [
+        "style:source_framing"
+      ],
+      "measured": "Direct user visual verdict on preparation asset only; no automated predicate implemented; no full-film approval.",
+      "notes": "Approval/rejection recorded before replacement. Still-image entries require visual review, not video gates."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-1",
+      "verdict": "rejected",
+      "date": "2026-09-15",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/review/approved-prep-v1/pool-card.jpg",
+      "sha256": "e320670abf1f2821667dcae9a25a17e7a68e500f2caee1bf94a45e2fa6afd41e",
+      "bytes": 115999,
+      "dan": "The pool towel photo is not what we're going for. This looks like a photo shoot or like a fitness shoot. I'm going to give you the specific picture to use",
+      "must_trigger": [
+        "style:pool_photo_selection"
+      ],
+      "must_pass": [],
+      "measured": "Direct user visual verdict on preparation asset only; no automated predicate implemented; no full-film approval.",
+      "notes": "Approval/rejection recorded before replacement. Still-image entries require visual review, not video gates."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-2",
+      "verdict": "rejected",
+      "date": "2026-09-15",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/review/approved-prep-v1/dating-0-start.png",
+      "sha256": "cd911c6ea0d690e787e7c08a8542a1f7345c6dd934bc663787214eb921ab8363",
+      "bytes": 896529,
+      "dan": "For the dating profile I want this to be basically a screenshot looking like it's in a real Hinge profile, with these pictures and real matches, not just a graphic saying that.",
+      "must_trigger": [
+        "style:dating_ui_fidelity"
+      ],
+      "must_pass": [],
+      "measured": "Direct user visual verdict on preparation asset only; no automated predicate implemented; no full-film approval.",
+      "notes": "Approval/rejection recorded before replacement. Still-image entries require visual review, not video gates."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-3",
+      "verdict": "approved",
+      "date": "2026-09-15",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/review/approved-prep-v1/productivity-start.png",
+      "sha256": "63fa681ff2ca107cc2c1ccea064404c5d79d55af72ddfa2a83d147560e925c42",
+      "bytes": 1862178,
+      "dan": "Productivity looks good",
+      "must_trigger": [],
+      "must_pass": [
+        "style:productivity_endpoint"
+      ],
+      "measured": "Direct user visual verdict on preparation asset only; no automated predicate implemented; no full-film approval.",
+      "notes": "Approval/rejection recorded before replacement. Still-image entries require visual review, not video gates."
+    },
+    {
+      "id": "ad3-square-r2-1-steady-wide-approved",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "ssd",
+      "path": "ad3-sq-r2/ad3_square_r2_1.mp4",
+      "excerpt": [
+        7.47,
+        7.17
+      ],
+      "dan": "This looks excellent, really great work here. The wide shots look far better than what Claude was doing with that movement tracking around and the tight shots, where you kept that movement. Everything looks great with that ad.",
+      "must_pass": [
+        "framing:camera_motion"
+      ],
+      "measured": "7948 frames; 27 wider shots (3419 frames) hold horizontally. Tight tracking and full editor AAC MD5 db408fd0bc0ba2a44245df947cb7e1f3 preserved. Structural 20/20 and verbatim audio PASS. Shared gate: 24 measured PASS, 3 N/A, 2 FAIL, 6 NOT MEASURED.",
+      "notes": "Dan approved the full creative after R2.1 review. This pairs with rejected ad3-square-r1-wide-camera-motion. Human motion approval; framing:camera_motion remains unimplemented/PENDING, not an automatic pass. No gate, bound or numeric setting changed. Failed shared label/negative-imagery rows and missing measurements remain explicit; no overall delivery-gate must_pass or policy waiver. Setup is assigned to the 2026-09-16 handoff.",
+      "sha256": "a46861e9d1e3c5f4f517f0b9018d5f129807b9b6f2408382a38492121788646b",
+      "bytes": 328520062
+    },
+    {
+      "id": "phase06-ad14-color-prep-r1-more-tan",
+      "verdict": "rejected",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/proof/COLOR_COMPARISON.mp4",
+      "sha256": "3531d907205e78ef3dfcccf4928e6b46cbfc56fb918cebc703552c5cd19d87c1",
+      "bytes": 907612,
+      "dan": "This is very close, very, very close to what Muhammad did but it's still not there. If you look at Muhammad's, the colors seem a little more vivid and more saturated. I look a little more tan overall. I look a little better in Muhammad's. Ours is not exactly there. It's almost there, much better than what you did before but I want to do another attempt on that and get a little closer to Muhammad's, with the more vivid colors and me looking a little bit more tan.",
+      "must_trigger": [
+        "color:reference_match"
+      ],
+      "must_pass": [],
+      "measured": "Direct user verdict on the preparation picture only. No automated predicate implemented; no final-film or audio approval.",
+      "notes": "Recorded before the next color candidate. Color needs a small refinement; transition picture is approved. AI endpoints remain unapproved pending spoken context."
+    },
+    {
+      "id": "phase06-ad14-transition-prep-r1-approved",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/proof/TRANSITION_CANDIDATE.mp4",
+      "sha256": "b09df6344e6887cd421063a02265c4bd3cd4e83cdbeb53df29bf4b7124b87089",
+      "bytes": 379257,
+      "dan": "With the transitions that's looking good.",
+      "must_trigger": [],
+      "must_pass": [
+        "style:transition_picture"
+      ],
+      "measured": "Direct user verdict on the preparation picture only. No automated predicate implemented; no final-film or audio approval.",
+      "notes": "Recorded before the next color candidate. Color needs a small refinement; transition picture is approved. AI endpoints remain unapproved pending spoken context."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-00",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/relationship-start.png",
+      "sha256": "ff57cee42debc1ab4ca7c53438e3eff6c6aa3e7b6d275f63b7edda41b430b0e2",
+      "bytes": 2177663,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-01",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/relationship-end.png",
+      "sha256": "c2f8c692bd443c5ddc8cde7244a99365b65726c68288f7205ac298b64d6b83c2",
+      "bytes": 2114020,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-02",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/productivity-start.png",
+      "sha256": "63fa681ff2ca107cc2c1ccea064404c5d79d55af72ddfa2a83d147560e925c42",
+      "bytes": 1862178,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-03",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/productivity-end.png",
+      "sha256": "d75ee093b06c922c2566539a44d9d0f1c201048ba3b07a034dba8aca4cc80bcc",
+      "bytes": 1784840,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-04",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/dating-0-start.png",
+      "sha256": "c357b648326711a84e219157a20655c7af9bf8a0a356342fae6f3f5c8990325d",
+      "bytes": 418845,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-05",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/dating-0-end.png",
+      "sha256": "cbca0ec85b634950fc21081c1eb1dd6434cf80bc63ed7ccb45a9db71c24286c7",
+      "bytes": 39909,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-06",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/dating-1-start.png",
+      "sha256": "fe075a65c3533ab800c70922dd68370f47bc17e7b9eec81f3aedaa23d9f5510d",
+      "bytes": 412707,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-07",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/dating-1-end.png",
+      "sha256": "d1d8afdc85d94031bfaf15189cda52e35d4f96fdc2b48162dd193e0a2e2a1412",
+      "bytes": 124360,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-08",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/pexels-6998077.mp4",
+      "sha256": "936476d9b449a3e837833f9b1fd16589a22e6aaf0ef6fcdd05381a19fd6e6cdc",
+      "bytes": 11502424,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-09",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/pexels-6894088.mp4",
+      "sha256": "905360eec29ad752669dda21c443e054acf000aec1bbdec07dafafdbf4fcc61f",
+      "bytes": 35981672,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-organic-r1-prep-feedback-approved-20260916-10",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/assets/pexels-6631150.mp4",
+      "sha256": "997ca1f3f2d3c0132c8a8f6d2741555007549b27b56d270a844126bb08cddb72",
+      "bytes": 12489040,
+      "dan": "All right, all the frames for the AI clips and all the stock clips are looking good. Yes we're set to generate or edit the next version of this video. Go ahead and create a handoff document to incorporate all this into our next edit",
+      "must_trigger": [],
+      "must_pass": [
+        "style:approved_organic_scene_asset"
+      ],
+      "measured": "Direct user creative approval of this exact preparation asset; full film and generated motion not measured.",
+      "notes": "This is not an automated gate PASS. Preserve approved source frames; no detector or threshold changed."
+    },
+    {
+      "id": "phase06-ad14-stock-8836866-20260916",
+      "verdict": "rejected",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/pexels-8836866.mp4",
+      "sha256": "dd0f331799f57a25c36e4a932092012c4888ac1fbcf9656fa5c8636506edba4f",
+      "bytes": 21848628,
+      "dan": "Change this to someone who looks like the prospect: a straight man, 30 to 50, doing a simple home workout.",
+      "must_trigger": [
+        "style:prospect_casting"
+      ],
+      "must_pass": [],
+      "measured": "Direct user stock-selection verdict; no automated semantic predicate implemented. No full-film, AI-frame or color approval inferred.",
+      "notes": "Home-workout replacement uses observable casting and presentation: apparent age 30\u201350, plain workout clothes and simple home exercise. No sexual orientation is inferred from appearance or recorded as a fact about the actor. Record created before replacement."
+    },
+    {
+      "id": "phase06-ad14-stock-9484987-20260916",
+      "verdict": "rejected",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/pexels-9484987.mp4",
+      "sha256": "15c2cf27d4beb36543a198003b9e080a8744400cba285f8e7082675d5771f950",
+      "bytes": 13638898,
+      "dan": "I think this looks too delicious because we want to illustrate that it's plain and bland. What we want is a very plain and bland-looking image of chicken breasts and broccoli without the rice.",
+      "must_trigger": [
+        "style:spoken_food_match"
+      ],
+      "must_pass": [],
+      "measured": "Direct user stock-selection verdict; no automated semantic predicate implemented. No full-film, AI-frame or color approval inferred.",
+      "notes": "Home-workout replacement uses observable casting and presentation: apparent age 30\u201350, plain workout clothes and simple home exercise. No sexual orientation is inferred from appearance or recorded as a fact about the actor. Record created before replacement."
+    },
+    {
+      "id": "phase06-ad14-stock-5319085-20260916",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/pexels-5319085.mp4",
+      "sha256": "e315b0d521b5d313923133f93537832268173808a660a57cd10d774543011994",
+      "bytes": 11497789,
+      "dan": "The rest of these are looking good except for the chicken and broccoli.",
+      "must_trigger": [],
+      "must_pass": [
+        "style:stock_selection"
+      ],
+      "measured": "Direct user stock-selection verdict; no automated semantic predicate implemented. No full-film, AI-frame or color approval inferred.",
+      "notes": "Home-workout replacement uses observable casting and presentation: apparent age 30\u201350, plain workout clothes and simple home exercise. No sexual orientation is inferred from appearance or recorded as a fact about the actor. Record created before replacement."
+    },
+    {
+      "id": "phase06-ad14-stock-6823282-20260916",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/pexels-6823282.mp4",
+      "sha256": "009ba117526ffefa68ffd1d689a845ed3617bfd2a1bed011435ce2b2477f46c3",
+      "bytes": 23867346,
+      "dan": "The rest of these are looking good except for the chicken and broccoli.",
+      "must_trigger": [],
+      "must_pass": [
+        "style:stock_selection"
+      ],
+      "measured": "Direct user stock-selection verdict; no automated semantic predicate implemented. No full-film, AI-frame or color approval inferred.",
+      "notes": "Home-workout replacement uses observable casting and presentation: apparent age 30\u201350, plain workout clothes and simple home exercise. No sexual orientation is inferred from appearance or recorded as a fact about the actor. Record created before replacement."
+    },
+    {
+      "id": "phase06-ad14-stock-6326748-20260916",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/pexels-6326748.mp4",
+      "sha256": "a8108151e8f2a2975b0cb618133f96a3deb498060bab7982344f74c13c3a23d9",
+      "bytes": 11091021,
+      "dan": "The rest of these are looking good except for the chicken and broccoli.",
+      "must_trigger": [],
+      "must_pass": [
+        "style:stock_selection"
+      ],
+      "measured": "Direct user stock-selection verdict; no automated semantic predicate implemented. No full-film, AI-frame or color approval inferred.",
+      "notes": "Home-workout replacement uses observable casting and presentation: apparent age 30\u201350, plain workout clothes and simple home exercise. No sexual orientation is inferred from appearance or recorded as a fact about the actor. Record created before replacement."
+    },
+    {
+      "id": "phase06-ad14-bland-chicken-r2-approved",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/bland-chicken-broccoli-r2.png",
+      "sha256": "8a9a2d9f5055bc8e9e1658a1828486bcacebf78ec385e45146df7a3c48f6154e",
+      "bytes": 2380968,
+      "dan": "The chicken and broccoli look good",
+      "must_trigger": [],
+      "must_pass": [
+        "style:spoken_food_match"
+      ],
+      "measured": "Direct user approval of the food still only; automated predicate unimplemented.",
+      "notes": "Video playback failure is a separate technical issue, not a rejection of the stock selection."
+    },
+    {
+      "id": "phase06-ad14-home-6496181-rejected",
+      "verdict": "rejected",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/pexels-6496181.mp4",
+      "sha256": "f71cf6597d2e8dd5d2dc9655689a4ebda6e59eab91d0853248d44877b1d5df52",
+      "bytes": 2083314,
+      "dan": "The simple home training still isn't good.",
+      "must_trigger": [
+        "style:prospect_casting"
+      ],
+      "must_pass": [],
+      "measured": "Direct user rejection of this source selection; automated semantic predicate unimplemented.",
+      "notes": "Replacement brief for this scene: fictional man 30\u201350 with masculine styling, short hair, plain workout clothes, straightforward home exercise. User requested White, Asian or Indian casting. Do not infer a real actor\u2019s ethnicity or sexuality from appearance; no blanket race exclusion or racial attitude stereotype is adopted."
+    },
+    {
+      "id": "phase06-ad14-prep-approved-20260916-0",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/ai-home-workout-start-r3.png",
+      "sha256": "92de85f3b88f21f6eb8794b87f56cad4937bebf746297d8c07ceca59912313a7",
+      "bytes": 2076285,
+      "dan": "All right those starting end frames look good. Everything is looking good. Go ahead and make the video",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Direct user visual approval; full-film motion/audio not yet reviewed.",
+      "notes": "Approved current preparation: both AI endpoint pairs, color R2, retained stock and food, transition picture; proceed motion and full private revision. Phone scene placed at recommended g16. No publication implied."
+    },
+    {
+      "id": "phase06-ad14-prep-approved-20260916-1",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/ai-home-workout-end-r3.png",
+      "sha256": "17777beb3faff50a849e7bf46e7a112637f16c05558928686c6bde71af3179b1",
+      "bytes": 1931924,
+      "dan": "All right those starting end frames look good. Everything is looking good. Go ahead and make the video",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Direct user visual approval; full-film motion/audio not yet reviewed.",
+      "notes": "Approved current preparation: both AI endpoint pairs, color R2, retained stock and food, transition picture; proceed motion and full private revision. Phone scene placed at recommended g16. No publication implied."
+    },
+    {
+      "id": "phase06-ad14-prep-approved-20260916-2",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/ai-personalization-start.png",
+      "sha256": "0b075a56b4f8adad9f1c4ea10f516ffc1ca1ccef52e1e4a767a4030c54d723be",
+      "bytes": 2061568,
+      "dan": "All right those starting end frames look good. Everything is looking good. Go ahead and make the video",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Direct user visual approval; full-film motion/audio not yet reviewed.",
+      "notes": "Approved current preparation: both AI endpoint pairs, color R2, retained stock and food, transition picture; proceed motion and full private revision. Phone scene placed at recommended g16. No publication implied."
+    },
+    {
+      "id": "phase06-ad14-prep-approved-20260916-3",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/assets/ai-personalization-end.png",
+      "sha256": "97f12a1eda28937fe8ac2d180b6b0d687778562d9162a7a914a28a10a743a46e",
+      "bytes": 1972232,
+      "dan": "All right those starting end frames look good. Everything is looking good. Go ahead and make the video",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Direct user visual approval; full-film motion/audio not yet reviewed.",
+      "notes": "Approved current preparation: both AI endpoint pairs, color R2, retained stock and food, transition picture; proceed motion and full private revision. Phone scene placed at recommended g16. No publication implied."
+    },
+    {
+      "id": "phase06-ad14-prep-approved-20260916-4",
+      "verdict": "approved",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/proof/color-r2/COLOR_R2_COMPARISON.mp4",
+      "sha256": "7bff353071ca7efc58d4df0cb12d89deb28291c67d6e82da8c1b1cd17c3fa6aa",
+      "bytes": 1821076,
+      "dan": "All right those starting end frames look good. Everything is looking good. Go ahead and make the video",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Direct user visual approval; full-film motion/audio not yet reviewed.",
+      "notes": "Approved current preparation: both AI endpoint pairs, color R2, retained stock and food, transition picture; proceed motion and full private revision. Phone scene placed at recommended g16. No publication implied."
+    },
+    {
+      "id": "phase06-ad14-r1-minor-revisions-20260916",
+      "verdict": "rejected",
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r1/AD14_REVISION_R1.mp4",
+      "sha256": "f63f8d7707f96ce68f6c35200485948dd4eba6fb7a0b7539f26dd898c58c9551",
+      "bytes": 208506663,
+      "dan": "Okay revision. At 2:17 I want you to show the generation functionality here. When I reference that I generated a photo of myself, generally we should be using the generation clip of me with my before picture and this same after picture that you have at 2:24 there are a couple different issues with the clip of me that you have in at this point:\n\n1. We have this in full screen. We should just make it full screen. There's no reason to make that vertical.\n2. It's a video not a picture so you don't need the label: \"real picture of me, not AI-generated.\"\n\nI want you to search through this whole video too and just make sure. I think some of the AI-generated clips we have are actually horizontal. There's no reason to cut it down to vertical. Just make sure throughout this video we're not unnecessarily cutting down clips. We have the full horizontal video, not the vertical. Also this clip is very grainy and low quality. We should be using the full-quality 16:9 horizontal aspect ratio clip.\n\nSo overall this is looking very, very good. Very minimal revisions left. This is solid and I think you got most of the things down. Make a handoff document for Sol to finish this in a new task",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Human editorial feedback only. No implemented gate predicate claimed.",
+      "scope": "g17 generation demonstration; g18 original horizontal source, quality and erroneous still-photo label; whole-film aspect/source audit.",
+      "notes": "Scoped revision request, not a rejection of the overall treatment. Dan says very very good/solid/minimal revisions. Preserve color, narration, host framing, transitions and approved scenes. Completed export not approved for publication."
+    },
+    {
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/FIRST_CUT_INTERNAL.mp4",
+      "sha256": "596edf6575d127fb83dedd5010e4d2fecc7197b5188c9a6b89cb422aae3215a2",
+      "bytes": 903232088,
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human editorial verdict. No implemented automated predicate claimed; audio numeric PASS conflicts with user rejection.",
+      "notes": "Scoped evidence only, not whole-film approval. Full revisions and screenshots: Handoffs/codex-video-trial/06e-organic-r2-audio-graphics.md",
+      "id": "phase06-organic-r1-review-feedback-audio-20260916",
+      "verdict": "rejected",
+      "dan": "First of all the audio on this isn't really sounding good. It's not up to Muhammad's standard.",
+      "scope": "Entire delivered narration/mix; lav provenance and perceptual Muhammad match need diagnosis."
+    },
+    {
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/FIRST_CUT_INTERNAL.mp4",
+      "sha256": "596edf6575d127fb83dedd5010e4d2fecc7197b5188c9a6b89cb422aae3215a2",
+      "bytes": 903232088,
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human editorial verdict. No implemented automated predicate claimed; audio numeric PASS conflicts with user rejection.",
+      "notes": "Scoped evidence only, not whole-film approval. Full revisions and screenshots: Handoffs/codex-video-trial/06e-organic-r2-audio-graphics.md",
+      "id": "phase06-organic-r1-review-feedback-graphics-20260916",
+      "verdict": "rejected",
+      "dan": "Your graphics are not as good as Muhammad's. We need to imitate Muhammad as closely as possible. Make the graphics look like his. Right now your graphics do not look like his. They're not up to Muhammad's standards and we have to make them look like what Muhammad made.",
+      "scope": "General treatment and specific rejected cards in handoff; useful explanatory content below retained."
+    },
+    {
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/FIRST_CUT_INTERNAL.mp4",
+      "sha256": "596edf6575d127fb83dedd5010e4d2fecc7197b5188c9a6b89cb422aae3215a2",
+      "bytes": 903232088,
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human editorial verdict. No implemented automated predicate claimed; audio numeric PASS conflicts with user rejection.",
+      "notes": "Scoped evidence only, not whole-film approval. Full revisions and screenshots: Handoffs/codex-video-trial/06e-organic-r2-audio-graphics.md",
+      "id": "phase06-organic-r1-review-feedback-cuts-color-20260916",
+      "verdict": "approved",
+      "dan": "All the cuts and framing are looking good.\nColor correction is looking pretty good.",
+      "scope": "Cuts, crop sizes and color only; horizontal recentering explicitly rejected."
+    },
+    {
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/FIRST_CUT_INTERNAL.mp4",
+      "sha256": "596edf6575d127fb83dedd5010e4d2fecc7197b5188c9a6b89cb422aae3215a2",
+      "bytes": 903232088,
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human editorial verdict. No implemented automated predicate claimed; audio numeric PASS conflicts with user rejection.",
+      "notes": "Scoped evidence only, not whole-film approval. Full revisions and screenshots: Handoffs/codex-video-trial/06e-organic-r2-audio-graphics.md",
+      "id": "phase06-organic-r1-review-feedback-cycle-20260916",
+      "verdict": "approved",
+      "dan": "I like the graphic at 4:38. I feel like that's an example of the type of graphic that would add value and not just repeat what I said in the full-screen graphic",
+      "scope": "g26 271.838233\u2013285.885600: explanatory value; restyle toward Muhammad."
+    },
+    {
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/FIRST_CUT_INTERNAL.mp4",
+      "sha256": "596edf6575d127fb83dedd5010e4d2fecc7197b5188c9a6b89cb422aae3215a2",
+      "bytes": 903232088,
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human editorial verdict. No implemented automated predicate claimed; audio numeric PASS conflicts with user rejection.",
+      "notes": "Scoped evidence only, not whole-film approval. Full revisions and screenshots: Handoffs/codex-video-trial/06e-organic-r2-audio-graphics.md",
+      "id": "phase06-organic-r1-review-feedback-progression-20260916",
+      "verdict": "approved",
+      "dan": "I like this graphic at 8:24. I feel like that adds value.",
+      "scope": "g47-post 502.4019\u2013506.8063: explanation retained; user requests Muhammad-like subtle background motion."
+    },
+    {
+      "date": "2026-09-16",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r1/FIRST_CUT_INTERNAL.mp4",
+      "sha256": "596edf6575d127fb83dedd5010e4d2fecc7197b5188c9a6b89cb422aae3215a2",
+      "bytes": 903232088,
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human editorial verdict. No implemented automated predicate claimed; audio numeric PASS conflicts with user rejection.",
+      "notes": "Scoped evidence only, not whole-film approval. Full revisions and screenshots: Handoffs/codex-video-trial/06e-organic-r2-audio-graphics.md",
+      "id": "phase06-organic-r1-review-feedback-generation-20260916",
+      "verdict": "approved",
+      "dan": "the generation clip at 10:46 was a great use of the generation clip. Appropriate to use somebody else in this situation too",
+      "scope": "r1-generation 640.7401\u2013652.7521 actual same-man generation sequence."
     }
-   ]
-  },
-  {
-   "id": "muhammad-ad2-vertical-approved",
-   "verdict": "approved",
-   "date": "2026-09-08",
-   "root": "repo",
-   "path": "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | claude | 9x16 | ad 2.mp4",
-   "excerpt": [
-    20,
-    30
-   ],
-   "dan": "Approved, mark it done and clear the board entry.",
-   "gate_args": [
-    "--reference-mix",
-    {
-     "root": "ssd",
-     "path": "ad2-vert-v2/his_mix.wav"
-    }
-   ],
-   "must_pass": [
-    "audio_gate"
-   ],
-   "measured": "stamped PASS 2026-09-08 in reference-mix mode against his mix (per-second corr median 0.9996). Uploaded to YouTube as 7XgHxn59Tsg.",
-   "notes": "Approved 09-08, before this corpus existed; added 09-10 so a gate change cannot start blocking it.",
-   "sha256": "6fef8d65882ec90ace36d32ea52c0a09765e0980737da6b5d81a8bb3f6bcbbc2",
-   "bytes": 370433811
-  },
-  {
-   "id": "zeeshan-ad1-16x9",
-   "verdict": "approved",
-   "date": "2026-09-10",
-   "root": "repo",
-   "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h264.mov",
-   "excerpt": [
-    20,
-    30
-   ],
-   "dan": "Zishan's audio sounds much better. ... Use Zishan's audio.",
-   "gate_args": [
-    "--reference-mix",
-    {
-     "root": "repo",
-     "path": "Zeeshan Ad Videos/this picture got me abs - ad 1/this picture got me abs | zeeshan | 16x9 | ad 1 | h264.mov"
-    },
-    "--verbatim"
-   ],
-   "must_pass": [
-    "audio_gate",
-    "audio_gate:verbatim_level",
-    "audio_gate:verbatim_image",
-    "audio_gate:verbatim_lufs"
-   ],
-   "measured": "-23.5 LUFS, -1.7 dBTP, LRA 5.9, L/R +0.970, early decay 89 ms (the pinned reference's 40). It FAILS our -14 LUFS row and qc.py's L/R > 0.98 -- which is why those rows are declared not applicable to an editor's mix delivered verbatim, and why bending his audio to pass them was the rejected build.",
-   "notes": "The identity case: gated against itself in --verbatim mode it must pass every row, which also proves verbatim mode does not smuggle our targets back in. The re-delivered vertical carries this file's audio stream bit for bit (md5 5051f4f40a7c3a7a944bf1763c05a888).",
-   "sha256": "c7234b18f7997b2cb39d0b3909f09987f8e440fde167f8fdbfb3d0ddeb534859",
-   "bytes": 289333241
-  },
-  {
-   "id": "ad1-square-r1-approved",
-   "verdict": "approved",
-   "date": "2026-09-14",
-   "root": "repo",
-   "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 1x1 | ad 1.mp4",
-   "excerpt": [
-    10,
-    30
-   ],
-   "dan": "All right, both of these are looking excellent. You nailed it with both the full square version and the cutdown. This is what we need to see here.",
-   "dan_round1_notes": "(2026-09-13, on round 0) put the real-picture label above my head or somewhere it doesn't block my face or abs ... lower the graphic ... eliminate the blank space at the bottom. Color correction looked good, and audio looked good.",
-   "gate_args": [
-    "--reference-mix",
-    {
-     "root": "ssd",
-     "path": "ad1-sq/his_mix.wav"
-    },
-    "--verbatim"
-   ],
-   "must_pass": [
-    "audio_gate"
-   ],
-   "measured": "Round 1 re-delivery 2026-09-14: _shared/deliver/gate.py 1.2.0 PASS 35/35 (compliance:labels min 0.985, framing, captions 100 %), audio verbatim PASS, independent audit SHIPS. Audio stream md5 = the approved 9:16 vertical (16799987...).",
-   "notes": "The first SQUARE Dan approved with no further revisions: labels placed by person mask above/beside his head (sqlabelplace.py), text screens to a 1030 bottom line, hook from the clean goal still. /shortad-from-longform [S1].25-26.",
-   "sha256": "f14d935af9e781389b405519dfd252b819db558edffaab089e61b62f0fe9fbef",
-   "bytes": 166821500
-  },
-  {
-   "id": "ad1-square-59s-r1-approved",
-   "verdict": "approved",
-   "date": "2026-09-14",
-   "root": "repo",
-   "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 1x1 59s | ad 1.mp4",
-   "excerpt": [
-    0,
-    20
-   ],
-   "dan": "All right, both of these are looking excellent. You nailed it with both the full square version and the cutdown. This is what we need to see here.",
-   "dan_round1_notes": "(2026-09-13, on round 0) put the real-picture label above my head or somewhere it doesn't block my face or abs ... lower the graphic ... eliminate the blank space at the bottom. Color correction looked good, and audio looked good.",
-   "gate_args": [
-    "--reference-mix",
-    {
-     "root": "ssd",
-     "path": "ad1-sq/cut/his_mix.wav"
-    },
-    "--verbatim"
-   ],
-   "must_pass": [
-    "audio_gate"
-   ],
-   "measured": "Round 1 re-delivery 2026-09-14: _shared/deliver/gate.py 1.2.0 PASS 35/35 (compliance:labels min 0.985, framing, captions 100 %), audio verbatim PASS, independent audit SHIPS. His mix cut at the seams, no filter.",
-   "notes": "The first SQUARE Dan approved with no further revisions: labels placed by person mask above/beside his head (sqlabelplace.py), text screens to a 1030 bottom line, hook from the clean goal still. /shortad-from-longform [S1].25-26.",
-   "sha256": "55bbb2eebd9f0c1196c73e8a134e69e2bdcafdde1597241fdc03f760988bfd14",
-   "bytes": 35767678
-  },
-  {
-   "id": "ad3-vertical-r9-color",
-   "verdict": "rejected",
-   "date": "2026-09-13",
-   "root": "ssd",
-   "path": "ad3-vert/_rejected_r9/ad3_vertical_9x16_r9_REJECTED_color.mp4",
-   "excerpt": [
-    0,
-    60
-   ],
-   "dan": "To me, this ad doesn't look the same as Muhammad's with the color correction. ... Yes, they look different in VLC too. Muhammad's look brighter, like the colors are more vivid. I look more tan. It's just better color correction overall.",
-   "dan_direction": "Go ahead and reedit this again and make it look like Muhammad's.",
-   "must_trigger": [
-    "style:reference_color_fidelity"
-   ],
-   "must_pass": [
-    "watch:pass",
-    "audio:stamp",
-    "cut:uncovered_joins",
-    "cut:jump_cut"
-   ],
-   "measured": "Every in-house check read this grade as a MATCH, because every check decoded Muhammad's file the same wrong way. His ad3_v6hd.mp4 carries NO colour tags; ffmpeg's scaler decodes an untagged file with the BT.601 matrix, while VLC and browsers decode untagged HD as BT.709. The grade LUT (zlut.py) was fitted to the BT.601 reading. At 16 matched talk frames, same scene pixels, both decoded by ffmpeg default: his RGB mean 116/94/75 vs ours 112/91/70, skin 134/88/58 vs 131/85/53 -- a 'match'. Decoded as a player shows them (both BT.709): his all-pixel RGB 121/99/80 sat 0.385 vs ours 114/92/71 sat 0.406; his highlights p95 250 vs ours 238. Ours is darker, warmer/muddier (blue ~9 short) and dimmer in the whites.",
-   "notes": "A reference-colour-fidelity row must decode the reference with the matrix a PLAYER uses (BT.709 for untagged HD), never ffmpeg's untagged default. Master preserved at the path above; render 9, watch pass sha 042c9f48c52e.",
-   "sha256": "042c9f48c52ecec4177b770007cbab65c5d7125d15563d1000b7a98b8d13b348",
-   "bytes": 580306843,
-   "deliver": {
-    "format": "ad9x16",
-    "plan": "/Volumes/Extreme/_edit_work/ad3-vert/_rejected_r9/plan.json"
-   }
-  },
-  {
-   "id": "ad3-vertical-r11-approved",
-   "verdict": "approved-with-notes",
-   "date": "2026-09-14",
-   "root": "ssd",
-   "path": "ad3-vert/_approved_r11/ad3_vertical_9x16_r11_APPROVED.mp4",
-   "excerpt": [
-    0,
-    60
-   ],
-   "dan": "Okay, this is overall looking very good. The color correction looks good, and the audio sounds good. I think this is a great reproduction of what Muhammad did.",
-   "dan_direction": "There is one issue in the video at 1:16. There's an AI clip with a weird AI artifact. He exhales, and there's smoke coming out when he exhales. This was also in the original video, so I want you to see if you can fix this both in the vertical and in the original video.",
-   "must_trigger": [
-    "compliance:ai_artifact_giveaways"
-   ],
-   "must_pass": [
-    "style:reference_color_fidelity"
-   ],
-   "measured": "The colour-fixed render of ad3-vertical-r9-color. Talk frames read as a player shows both files (BT.709), same scene pixels: opening 0-43 s his RGB 123.1/94.6/72.6 bright p5/50/95 12/90/248 sat 0.414 skin 151/90/53 vs this file 121.2/93.2/70.7, 11/88/247, 0.422, 150/90/53; rest of the ad his 117.2/92.8/69.5, 11/80/249, 0.428, skin 136/81/44 vs 116.4/92.1/69.0, 10/79/248, 0.437, 134/81/44. Audio stream md5 = his. The pairing a reference-colour row must reproduce: FAIL r9, PASS this file.",
-   "notes": "Approved on colour and audio. The one note is an AI artifact Dan caught at 1:16 (76.6-78.07 s): breath smoke / the mirror fogging in shot 3 of ai-trainer-vs-robot-story-35s.mp4 -- also in Muhammad's original. must_trigger names a check nothing implements yet. Fix: Handoffs/handoff-20260914-ad3-ai-smoke-artifact-fix.md.",
-   "sha256": "405eff4a512fa13e389756d57cbbf71db0022bd34f5ab31f0fb1cc61ee31d8ed",
-   "bytes": 614914053,
-   "deliver": {
-    "format": "ad9x16"
-   }
-  },
-  {
-   "id": "ad3-vertical-r12-approved",
-   "verdict": "approved",
-   "date": "2026-09-14",
-   "root": "repo",
-   "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | claude | 9x16 | ad 3.mp4",
-   "excerpt": [
-    60,
-    90
-   ],
-   "dan": "Okay, all these are looking good, and they are approved.",
-   "gate_args": [
-    "--reference-mix",
-    {
-     "root": "ssd",
-     "path": "ad3-vert/ref/ad3_v6hd.mp4"
-    },
-    "--verbatim"
-   ],
-   "must_pass": [
-    "audio_gate"
-   ],
-   "measured": "Render 12 = r11 (ad3-vertical-r11-approved) with story shot 3 regenerated (frames 2202-2338); every other frame identical or >=48.6 dB vs r11; audio stream md5 = his. qc.py 20/20; deliver gate 1.2.0 28 PASS / FAIL compliance:labels (per-card chip, known limit) / 6 NOT MEASURED (window-layout framing, graphic_clearance, captions:sync). Two independent audits: first take rejected, this take ships.",
-   "notes": "The pairing a future compliance:ai_artifact_giveaways row must reproduce: FLAG ad3-vertical-r11-approved at 76.6-78.1 s, PASS this file. Excerpt 60-90 s covers the replaced shot.",
-   "sha256": "6ef0538cf055183a028eb888769c751fd5281c04b912143fce9778a5d404c9a6",
-   "bytes": 613646735
-  },
-  {
-   "id": "ad3-vertical-59s-r12-approved",
-   "verdict": "approved-with-notes",
-   "date": "2026-09-14",
-   "root": "repo",
-   "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | claude | 9x16 59s | ad 3.mp4",
-   "excerpt": [
-    0,
-    30
-   ],
-   "dan": "Okay, all these are looking good, and they are approved.",
-   "must_pass": [
-    "style:reference_color_fidelity"
-   ],
-   "measured": "57.92 s cutdown of render 12 (6 segments, no story shot 3). Audio = his mix cut at the seams, AAC 320k no filter: true peak -0.90 dBTP (AAC overshoot of his -1.0 mix), so the verbatim audio stamp FAILS on tp; Dan was told and approved it (DAN_ACCEPTED.md beside the file). qc.py 18/20 (tp + stamp only). Audit: ships.",
-   "notes": "audio_gate deliberately NOT in must_pass: the tp row is a known over-bound that Dan accepted, and listing it as a known_gap would read as relaxing the bound. If a -1.0 re-export arrives, rebuild and add audio_gate here.",
-   "sha256": "1a295123fca844795f986067cd2ef7cb944705cee252956de199670de3d7603c",
-   "bytes": 115145805
-  },
-  {
-   "id": "muhammad-ad3-16x9-smokefix-approved",
-   "verdict": "approved-with-notes",
-   "date": "2026-09-14",
-   "root": "repo",
-   "path": "Muhammad Ad Videos/stop paying human trainers - ad 3/stop paying human trainers | muhammad (smoke shot replaced) | 16x9 | ad 3.mp4",
-   "excerpt": [
-    60,
-    90
-   ],
-   "dan": "Okay, all these are looking good, and they are approved.",
-   "must_pass": [
-    "compliance:ai_artifact_giveaways"
-   ],
-   "measured": "Muhammad v6 HD with frames 2202-2338 replaced by his card rebuilt around the new shot (held-out reconstruction error 1.66/255, accurate_rnd decode, card brightness within 0.5 levels). Audio md5 = his (db408fd0...). Outside the patch >=47.89 dB vs his.",
-   "notes": "Still carries his HD's own 2:14.1-2:23.1 missing bullet lines (not ours to fix). Approved as the clean 16:9 until his round-6 re-export.",
-   "sha256": "85a7da67edc2fc478968eb83d2ec01ea0f13b23692c9e4ae02ef715d73f46c58",
-   "bytes": 542401194
-  }
- ]
+  ]
 }

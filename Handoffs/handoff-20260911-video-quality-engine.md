@@ -424,6 +424,60 @@ recorded in `_shared/COSTS.md`.
 
 ---
 
+### ✅ PHASE 3 EXECUTED 2026-09-16. Read this before starting Phase 4.
+
+**Gate version 2.1.0.** `_shared/deliver/watch.py` is the one watch pass for all six skills, plan-driven
+and streamed (native rate, 160×90 oriented like the file, no PNG per frame, no sampling): frozen runs,
+black frames, unexplained jumps merged into events against the file's own noise; graphic presence
+against each declared MOV's alpha or a `source_picture`; a strip of the five consecutive frames at
+−2/−1/0/+1/+2 plus the −1|0 pair for every declared AND detected boundary; contact sheets of exact
+frame indices; `CHECKLIST.md` (ten items, each citing its rejection) and `JUDGE_PROMPT.md`. A fresh
+subagent judges every image into `findings.json`; `--judge` folds it in and refuses to mark the log
+inspected while any image lacks a verdict. **`watch:pass` is `required=True` for every format** and
+fails unless the log names this sha256, was written by this module, every image is judged and no
+defect is open (closed only by a re-render or `disposition: accepted_by_dan`). Exercise demos declare
+it not applicable with the reason written. `cut:black_frames` now scans every frame (it was 6 fps).
+The three watch forks and the 30 bannered QC forks are deleted; every SKILL.md step that named one is
+re-pointed; all six skills carry the watch step and Step 7b's independent subagent audit.
+`run.py` runs the scan's own fixture (`tests/test_watch_scan.py`: synthetic + real footage with a frozen
+run, a black frame, a subject jump, a scene cut and a push injected) as step 0b. Measured cost: 59 s wall
+for a 3:50 master (`_shared/COSTS.md`). Corpus: 61/61 before the change, green after it.
+
+**`cut:naked_splices` — built, registered, and the finding is not what the handoff expected.**
+`cut:uncovered_joins` reads `ad1-vertical-attempt1` at **0.0/min** (a subject jump is local; a
+whole-frame mean at 48×27 dilutes it to nothing), so the row is a different instrument: a sharp
+single-frame spike in the peak block of a native-rate 16×9 grid, the same palette both sides, most
+*textured* blocks still (a flat wall reads "still" under a zoom — Muhammad's 16:9 pushes read 58–85 %
+still before that fix), at least 8 blocks moved (a karaoke caption LINE swap reads exactly like a
+subject jump otherwise: 8–24 blocks hot, still 0.7–0.9 — so the statistics are taken over the top 70 %
+of the frame, below which captions and lower thirds live in every format), then the two frames grabbed
+at exact `-ss -copyts` (plain `-ss` landed one frame off on some indices) and tested against a
+scale-about-centre + phase-correlated shift over the changed region; a push or pan aligns, a jump does not.
+Measured 2026-09-16 with no plan: **rejected attempt 1 14.2/min**; approved verticals 7.0 / 2.6 / 0.45;
+the approved square 10.3 (the same cut as the 7.0 vertical — more of the frame is Dan); **Muhammad's own
+masters 9.5 / 7.6** (his pose-matched same-scene cuts); Zeeshan 2.2; website revs 0.8–5.2 (approved ones
+highest — more pushes, nothing subtracted); the rejected short 14.8 (its 6 % punch-ins, which Dan called
+jump cuts); rejected longforms 1.2 / 0.9. **Bound 12/min for every format, ×1.16 under the rejected
+file and ×1.18 over the highest approved. That margin is thin and it is the honest number:** at this
+instrument's resolution one of attempt 1's jumps is not distinguishable from one of Muhammad's
+pose-matched cuts (the −1|0 pairs of both were looked at); what separates the rejected cut is the rate,
+and the discriminator that would separate a single splice is the audio splice it sits on — his picture
+cuts sit 1–15 frames off it, ours sat on it. That is `cut:pose_matched_offset`, VQC-C phase 4, still
+pending. A build's declared punches are subtracted, so real builds read below these calibration numbers.
+
+**Not built, deliberately:** the model-API judge route (b). The local Anthropic key is recorded
+invalid and a flag that does not run is worse than no flag; the subagent route is $0 and doubles as
+the Step 7b audit. **Graphic presence** needs a MOV on disk or a `source_picture` (new plan key);
+without either it reads NOT MEASURED in the log rather than passing.
+
+**Left for later:** an approved organic longform and an approved Short of ours in the corpus (the
+longform / short naked-splice bounds are the ad bound, stated as such, like the framing rows);
+the corpus grew to 61 entries with a concurrent Codex session's phase06 verdict entries (committed
+here because the file cannot be split); `watch:pass` and `audio:stamp` still print as unassigned
+PENDING in `run.py` because no corpus entry carries a judged log.
+
+---
+
 ## PHASE 4 — the locked kit
 
 **Do not start this until Phases 1–3 are landed and green.** Without the gate, a kit just produces

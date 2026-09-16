@@ -87,6 +87,11 @@ IMPLEMENTED = {
     "framing:centering": "deliver_gate", "framing:no_wide_level": "deliver_gate",
     "framing:push_coverage": "deliver_gate",
     "compliance:banned_screen": "deliver_gate",
+    # Phase 3 (2026-09-16): the watch pass's instrument. NOT cut:uncovered_joins under a new name --
+    # that row reads ad1-vertical-attempt1 at 0.0/min; this one is built on the peak block of a
+    # native-rate grid plus a global-alignment test (see _shared/deliver/watch.py).
+    "cut:naked_splices": "deliver_gate",
+    "cut:black_frames": "deliver_gate",
 }
 # Row key by human name, so an entry can name either.
 ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": "tone",
@@ -98,7 +103,8 @@ ROWKEY = {"one voice": "lr_corr", "no comb": "comb", "dry room": "edt", "tone": 
 
 # Phases that will implement the rest. Printed with each PENDING so the queue is legible.
 PENDING_OWNER = {
-    "cut:": "nothing implements this yet -- VQC-C phase 4 (pose-matched picture cuts)",
+    "cut:": "nothing implements this yet -- VQC-C phase 4 (pose-matched picture cuts); "
+            "cut:naked_splices and cut:black_frames landed in Phase 3 (2026-09-16)",
     "junk:": "nothing implements this yet -- handoff-20260911-junk-footage-pass.md",
     "style:": "nothing implements this yet -- Phase 1 (_shared/deliver)",
     "captions:": "nothing implements this yet -- Phase 1 (_shared/deliver)",
@@ -356,6 +362,22 @@ def main():
             for l in (r.stdout + r.stderr).splitlines():
                 if "✗" in l: print("   " + l.strip())
             print("\nCORPUS FAIL -- the audio module's own selftest is failing; fix that first.")
+            return 1
+    # ---- step 0b (2026-09-16, Phase 3): the watch scan's own fixture. No corpus file carries a
+    # frozen run, a black frame or a naked splice ON PURPOSE, so the scanner is proven on two clips
+    # it builds itself (synthetic, and real footage with the defects cut in) before the corpus asks
+    # it about real files. A broken scanner cannot make the corpus green.
+    if not A.no_selftest and not A.id:
+        t_ = os.path.join(SHARED_DELIVER, "tests", "test_watch_scan.py")
+        print("_shared/deliver/tests/test_watch_scan.py ...", flush=True)
+        r = subprocess.run([sys.executable, "-m", "unittest", "-q", t_], capture_output=True, text=True,
+                           cwd=os.path.dirname(SHARED_DELIVER))
+        ok_ = r.returncode == 0
+        tail = [l for l in (r.stdout + r.stderr).splitlines() if l.strip()][-1:]
+        print(f"  {'PASS' if ok_ else 'FAIL'}  {tail[0].strip() if tail else ''}")
+        if not ok_:
+            print((r.stdout + r.stderr)[-3000:])
+            print("\nCORPUS FAIL -- the watch scan's own fixture is failing; fix that first.")
             return 1
     print(f"\nQC CORPUS  {len(entries)} entries  (corpus v{corpus['version']}, {corpus['updated']})\n")
     out, t0 = [], time.time()

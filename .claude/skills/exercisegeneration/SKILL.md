@@ -408,9 +408,10 @@ the current `GATE_VERSION`.
 - **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
   must stay green, and it is what proves a bound change did not resurrect a rejected cut.
 
-⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
-absorbed yet (framing is Phase 2, the watch pass is Phase 3 of
-`Handoffs/handoff-20260911-video-quality-engine.md`). **Run both until those land.**
+**The shared gate is the only gate (2026-09-16, Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).**
+The per-video QC forks in the other skills are deleted; every row lives in `_shared/deliver`. This format declares
+`watch:pass` not applicable in `formats.py` with its reason (a generated loop has no boundaries to strip; the ghost
+scan and Dan's batch review are its picture checks).
 
 ## THE BACKGROUND-GHOST SCAN (Dan's instruction, 2026-08-20) — MANDATORY before delivery
 

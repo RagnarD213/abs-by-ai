@@ -5,18 +5,6 @@ description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 sh
 
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
 
-## Edit queue status — REQUIRED when this video is a job on Dan's edit queue
-
-If the video is on `Handoffs/video-editing/00-MASTER.md` (IDs like `RA-01`, `DS-04`, `RO-02`, `SL-01`, `AV-05`, `AS-04`),
-keep its status current on Dan's pinned **Abs By AI Edit Queue** page: `in_progress` when you start building,
-`delivered` when the review copy goes to Dan, and **`finalized` the moment Dan says it is finalized / approved** (his
-words, never a passed gate). Never set `uploaded` here; that is `/ad-setup` (ads) or `/video-setup` (organic), after
-the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skills/_shared/edit-queue/README.md`.
-
-## Square and vertical camera movement — updated 2026-09-16
-
-Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
-
 > ## ⚠ ATTEMPT 2 (2026-08-26) FOUND SIX DEFECTS THAT PASSED EVERY METRIC
 >
 > Attempt 2 was built to these rules, and its FIRST render still passed the whole gate
@@ -342,7 +330,8 @@ turns a 4-minute video into ~16 frames to inspect.
 > master (0.79 cost 0.1 LU of LRA for nothing). `level=1`, the limiter's default, BOOSTS the
 > whole mix — always disable it; AAC overshoots the wav's true peak by ~0.5–0.7 dB.
 >
-> **THE GATE — `reference/gain_flatness.py SOURCE OUTPUT --gain G`, run on the ENCODED
+> **THE GATE — `_shared/audio/audio_gate.py OUTPUT --reference-mix SOURCE --verbatim` (its `verbatim level`
+> row; `gain_flatness.py` was its ancestor and was deleted 2026-09-16), run on the ENCODED
 > deliverable, never on the intermediate wav.** It takes the per-second RMS ratio against the
 > reference's mix and tests it ONE-SIDED, which is the whole trick: a limiter can only pull
 > the loudest seconds DOWN, while a compressor pushes quiet ones UP. Nothing above G
@@ -486,14 +475,14 @@ each one was arrived at by getting it wrong first.
    one PNG per word state and assemble with the concat demuxer (`duration` directives); that
    is fast and keeps one type system.
 
-11. **[UPDATED 2026-09-16] Wider shots hold steady; very tight shots track only when necessary.**
-   Follow [the shared framing rule](../_shared/framing-motion.md). Choose and inspect a
-   fixed horizontal center per continuous wider shot. For a tight crop where a fixed
-   center loses the subject, use a smoothed track; exclude hands from the measured face
-   band. The historical ~608-px vertical recipe used a face-height band y 70–240,
-   0.25 s samples, ~2 s median filtering and an 80 px/s limit. Those are source-specific
-   values, not universal settings. Wider statement windows should not inherit the tight
-   crop’s time-varying track automatically. Compare moving excerpts before a full build.
+11. **[APPROVED 2026-08-27] The talking-head crop FOLLOWS a smoothed face track — never a
+   fixed x.** The subject leans through a locked-off shot (Dan's face wandered 835–1037 in
+   1920), and a ~608-px 9:16 crop nearly doubles every lean on the phone; Dan caught one
+   timestamp and it was a class. Build the track from a skin-band centroid per 0.25 s
+   **restricted to FACE height (y 70–240 of 1080 — raised hands pollute a wider band)**,
+   median-filter ~2 s, slope-limit 80 px/s, and drive `crop x` with a piecewise-linear
+   expression. Same track feeds the window/statement beats' hole crop (per-beat median).
+   Verify by drawing the centreline on frames at the extremes of the track.
 
 12. **[APPROVED 2026-08-27] A card still needs MARGINS sized for the push, and the subject's
    full head-to-shorts must survive the tightest zoom.** The still-push crops ~6% per side
@@ -521,10 +510,9 @@ each one was arrived at by getting it wrong first.
      every frame, per-hold minimum 30–70 px, median ≤ 75 px, all ×(H/1080);
    * **two levels only** — NEAR (hair → belly button) and FAR (hair → shorts line, waistband in
      frame). **No wide level exists**, and no knees in a talking shot;
-   * **choose a balanced crop for each shot** (rule 5 and updated rule 11). Wider shots
-     can let the head move naturally around the center; very tight shots track only as
-     needed. Do not confuse this with one fixed x reused across takes: Dan caught
-     `v2-short3` 133 px off, with one arm cut off and spare space on the other side;
+   * **the head band sits on the vertical centre line** (rule 5 and rule 11 say how: a smoothed
+     face track, never one fixed x). Dan caught `v2-short3` 133 px off: *"one of my arms is cut
+     off and there's space on the other side"*;
    * **a push schedule, never one fixed crop** (rule 8).
    The delivery gate's `framing:` rows (`_shared/deliver/checks/framing.py`) measure all five off
    the DELIVERED pixels with mediapipe FaceMesh + Apple Vision person segmentation — no plan, no
@@ -553,8 +541,9 @@ finish_audio.py    _shared/audio/voice_chain.py --finish-only: CONSTANT gain + a
 a2/align_ctc.py    FORCE-ALIGN the caption words to the mix (Whisper timings are ~130 ms early)
 captions.py        word-timed from words_ctc.json, suppressed under text graphics, typo correction map
 caption_sync_check.py  THE SUBTITLE GATE on the delivered file (qc check 20)
-a2/watch.py        THE GATE: per-frame scan + a consecutive-frame strip at every boundary
-qc.py              20 checks (generic; per-cut numbers in qc.json). Check 15 = the watch pass
+(watch pass)       _shared/deliver/watch.py -- shared since 2026-09-16; a2/watch.py is gone
+(delivery gate)    _shared/deliver/gate.py --format ad9x16 --plan plan.json -- qc.py's 20 checks are its rows;
+                   qc.py was deleted 2026-09-16
 cutdown.py         the <=0:59 selection -- built ONLY from Dan's edited script
 ```
 
@@ -619,23 +608,32 @@ the current `GATE_VERSION`.
   `disposition: cleared`, `confirmed_violation`, or `needs_review`. The last one prints NEEDS HUMAN
   REVIEW and blocks the gate until a person records the disposition.
 
-⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
-absorbed yet (the watch pass is Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`;
-**framing landed in the shared gate 2026-09-12** — the five `framing:` rows, Step 5 rule 14).
-**Run both until Phase 3 lands.**
+**The shared gate is the only gate (2026-09-16, Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).**
+The per-video QC forks that used to sit in `reference/` are deleted; every row they carried, framing and the watch
+pass included, lives in `_shared/deliver`, and `python3 .claude/skills/_shared/deliver/gate.py --formats` says what
+each format is held to. Do not resurrect a fork from git history to "double-check": a second gate with its own copy
+of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and missed the other (memory
+`shared-fix-may-not-reach-the-pipeline`).
+**Framing landed in the shared gate 2026-09-12** (the five `framing:` rows, Step 5 rule 14) and **the watch pass
+on 2026-09-16** (`_shared/deliver/watch.py`, the `watch:pass` and `cut:naked_splices` rows).
 
 ## Step 7 — QC: the WATCH PASS is the gate; the metrics are preconditions
 
-**[R1] The metric gate passed a rejected video 11/11.** Before delivery, always run
-`reference/a2/watch.py`, which does two things no metric does:
+**[R1] The metric gate passed a rejected video 11/11.** Before delivery, always run the shared watch pass
+(`python3 .claude/skills/_shared/deliver/watch.py <delivered> --plan plan.json`; since 2026-09-16 — `a2/watch.py`
+is gone), which does two things no metric does:
 
 1. **Automated, over EVERY frame of the finished file:** frozen runs, black frames, and
    discontinuities that are not at a boundary the beat sheet knows about. This is what
    caught six one-frame blacks and twelve frozen card beats.
-2. **Human, at every boundary:** a 2 s clip AND a strip of CONSECUTIVE frames at
-   −4/−2/−1/0/+1/+2/+4/+8. **Consecutive frames are what expose a jump cut, a frozen
-   segment or a mistimed animation** — a contact sheet at 1 s intervals cannot, and if you
-   cannot play video, say so plainly in the notes rather than claiming you watched it.
+2. **Human, at every boundary:** a strip of CONSECUTIVE frames at −2/−1/0/+1/+2 plus the −1|0
+   pair at half resolution (a 2 s clip with `--clips`). **Consecutive frames are what expose a jump cut,
+   a frozen segment or a mistimed animation** — a contact sheet at 1 s intervals cannot, and if you
+   cannot play video, say so plainly in the notes rather than claiming you watched it. The judge
+   (Step 7b's fresh subagent, given `watch/CHECKLIST.md` and every sheet and strip) writes
+   `findings.json` with a verdict for EVERY image; `watch.py --judge logs/watch_pass.json --findings
+   findings.json --by "<who>"` folds it in, and the gate's `watch:pass` row refuses the file until every
+   image is judged and no defect is open (closed only by a re-render or `disposition: accepted_by_dan`).
 3. **Look at real full-resolution frames too.** The garbled lowercase type ([A2] trap 5)
    was invisible at every review size and obvious at 1080 wide.
 4. **The audio half is measurement when you cannot listen** — word alignment, clipped
@@ -701,7 +699,8 @@ incoming one -- and overlay it so it REPLACES the incoming segment's first frame
 length is preserved exactly because nothing is inserted. Then re-render only the beats that
 read from the base.
 
-Only then run `reference/qc.py <delivered.mp4> --build-dir <build>`, which is **20 checks**.
+Only then run the shared gate, `python3 .claude/skills/_shared/deliver/gate.py <delivered.mp4> --format ad9x16
+--plan plan.json`. Its rows are the **20 checks** below (folded in 2026-09-11; `qc.py` deleted 2026-09-16):
 
 > **⚠ THIS FILE NOW EXISTS (2026-09-09).** Until Phase 0 of the video-quality programme, this SKILL.md
 > referenced `reference/qc.py` five times and described its check list — and **the file was not there.**
@@ -721,7 +720,8 @@ The checks (16 = audio integrity, 18 = the `_shared/audio` gate stamp on this ex
 not read off the build plan** · 11 captions present · **12 the talking head is not one
 fixed crop (≥ 25 % of talk inside a push)** · **13 SFX no denser than one per 6 s** ·
 **14 bed tempo within 15 BPM of the reference bed** · **15 the WATCH PASS was done on this
-exact file** — check 15 reads `logs/watch_pass.json` and refuses to pass without it, which
+exact file** — the gate's `watch:pass` row reads `logs/watch_pass.json` (written and judged through
+`_shared/deliver/watch.py`) and refuses to pass without it, which
 is the only way a "watch the video" rule survives contact with a build that is running late ·
 **16 audio integrity: the audio stream runs the video's full length AND no second of the
 file is silent** (per-second RMS scan; run it on review copies too) · **20 captions synchronised — on the DELIVERED file, at the instant each word is spoken, the word lit is that word (≥ 97 %, no run of three misses) and no highlighted word sits outside speech (`caption_sync_check.py`; Dan, 2026-09-08)** · **17 the audio is
@@ -827,9 +827,8 @@ necessary, take things directly from his video."* Eight lessons, each paid for:
    always `level=disabled` for peak-shaving. And AAC overshoots the wav's true peak by
    ~0.5–0.7 dB, so a −1.4 dBTP wav can fail a −1.0 gate after encode; limit the wav to
    ~−2 dBTP first.
-11. **Historical tight-crop lesson; scoped by the 2026-09-16 shared framing rule.**
-   The subject LEANS through a locked-off shot, and a 608-px-wide 9:16 crop amplifies
-   it (±60 px lean = ±110 px on the phone). A fixed crop centred on the measured mean
+11. **The subject LEANS through a locked-off shot, and a 608-px-wide 9:16 crop amplifies
+   it** (±60 px lean = ±110 px on the phone). A fixed crop centred on the measured mean
    reads off-centre at the extremes — Dan caught it at one timestamp and it was a class.
    Fix: a smoothed face track (skin-band centroid per 0.25 s, median filter, slope-limit
    80 px/s) driving a piecewise-linear `crop x` expression — a gentle auto-reframe. Skin
@@ -1044,8 +1043,9 @@ invoked the skill with nothing but a screenshot. Twelve lessons, each paid for:
 19. **Ask the auditor to re-audit, and expect a "does not ship".** The first re-audit of the picture-cut
     rebuild found two narrow mechanical faults (duplicated first frames at 11 cuts, the whip above) that
     every gate had passed and that I had declared fixed. Its scripts (`audit_v3/p1_landing3.py`,
-    `p1_pananalyse3.py`) are reusable; `landing_check.py` is the builder-side version now run before
-    delivery: torso at n0−1 / n0 / n0+2 on the DELIVERED file for every cut, and `diff(n0→n0+1) ≥ 0.5`.
+    `p1_pananalyse3.py`) are reusable; `landing_check.py` (deleted 2026-09-16) was the builder-side version: torso at
+    n0−1 / n0 / n0+2 on the DELIVERED file for every cut, and `diff(n0→n0+1) ≥ 0.5` — today that is the shared
+    watch pass's −2..+2 boundary strips plus the gate's `framing:` rows.
 
 20. **A step breakpoint goes HALF A FRAME before the cut, with explicit values.** A pair at
     (c − 1/FPS, c) is written into the expression with 4 decimals, which can land it a hair AFTER the

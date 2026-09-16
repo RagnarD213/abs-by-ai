@@ -5,10 +5,6 @@ description: Build a WEBSITE conversion video for absbyai.com — the trust vide
 
 # Website video: the last thing a visitor watches before they pay
 
-## Square and vertical camera movement — updated 2026-09-16
-
-Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
-
 ## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)
 
 - **A before and after picture are the SAME PERSON** (Dan, 2026-09-12: *"don't mix before-and-after pictures… That doesn't really make sense if you change the person."*). Never pair one person's before with another's after — in an app recording, a result screen, a card or a thumbnail. If that person's after does not exist, generate it for THEM through the live product (a real generation, never a composite) or change the before so the pair matches. ⚠ The only real app recording in the asset library uploads a man who is NOT Dan, so every phone demo cut from it inherits this.
@@ -129,10 +125,14 @@ tails that way). Same man, same ambience density, tagged AI-GENERATED upper-left
 ### 5. QC and delivery — more thorough than any other video
 
 `deliver.sh <master>` runs, on the exact file that ships: the audio gate + stamp + A/B, the exact-grab contact sheet,
-`qc.py` (splices, jump cuts, levels, pacing, loudness, script fidelity, drug names, tags, banned screens on EVERY
-frame, caption/card and caption/lower-third/PiP clearance in pixels, hair on the delivered frames), `watch.py` (every
-frame for frozen runs and black; consecutive-frame strips at every boundary), the 540p review copy, and the silence
-check. **Then the human pass, which no metric replaces**: open `watch/strip/*.png` and `pv/final_sheet_5s.jpg` and
+the shared delivery gate (`_shared/deliver/gate.py --format website`: splices, jump cuts, levels, pacing, loudness,
+script fidelity, drug names, labels, banned screens on EVERY frame, caption/card and caption/lower-third/PiP clearance
+in pixels, hair on the delivered frames), the shared watch pass (`_shared/deliver/watch.py`: every frame for frozen
+runs, black and naked splices; consecutive-frame strips at every boundary; judged sheets — Phase 3, 2026-09-16; the
+recipe's own `qc.py` and `watch.py` are deleted), the 540p review copy, and the silence check. **Then the human pass,
+which no metric replaces**: the watch-pass judge (a fresh subagent with `watch/CHECKLIST.md`, every sheet and strip,
+and the delivered file — see `/shortad-from-longform` Step 7b) scores every image, `--judge` folds it in, and you
+open `watch/strips/*.jpg` and `pv/final_sheet_5s.jpg` yourself and
 look, with `reference/REVIEW_HISTORY.md` open beside them — that list is exactly what Dan looks for. A subjective
 retouch (a skin patch, a colour choice) ships as **two masters** (`_A` / `_B`) plus a region A/B clip so he can judge
 in twenty seconds instead of watching twice.
@@ -152,7 +152,8 @@ Each line is a revision that happened. If any line is not a measured yes, it is 
 - [ ] Food and props match Dan's preferences stated in review (steak, not chicken; no weights at home). (rev 5)
 - [ ] Skin: any patch Dan has mentioned handled by a landmark-anchored gain, under-corrected, delivered as A/B. (rev 5)
 - [ ] Nothing sits static > 25 s; no jump cut; no card the video ends on fades out. (rev 1–3)
-- [ ] Watch pass 0 frozen / 0 black; every flagged jump explained by an insert or a photo swap. (rev 4)
+- [ ] Watch pass: 0 frozen / 0 black / 0 naked splices; every flagged jump explained by an insert or a photo swap;
+      every sheet and strip judged, no defect open; `watch:pass` PASS in the gate. (rev 4; shared module 2026-09-16)
 - [ ] `notes.md` written for a non-technical reader: what changed, what did not, the gate table, what to look at.
 - [ ] Both review copies + audio A/B (+ region A/B) sent in chat; rev N−1 preserved as `*_REV<N-1>`.
 - [ ] The build never ran more than two encodes at once; nothing ran inside another session's build dir.
@@ -176,13 +177,20 @@ the current `GATE_VERSION`.
 - **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
   must stay green, and it is what proves a bound change did not resurrect a rejected cut.
 
-⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
-absorbed yet (the watch pass is Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).
+**The shared gate is the only gate (2026-09-16, Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).**
+The per-video QC forks that used to sit in `reference/` are deleted; every row they carried, framing and the watch
+pass included, lives in `_shared/deliver`, and `python3 .claude/skills/_shared/deliver/gate.py --formats` says what
+each format is held to. Do not resurrect a fork from git history to "double-check": a second gate with its own copy
+of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and missed the other (memory
+`shared-fix-may-not-reach-the-pipeline`).
+
 **Framing landed in the shared gate 2026-09-12**: the five `framing:` rows in
 `_shared/deliver/checks/framing.py` grade the delivered file with mediapipe FaceMesh + Apple Vision
 person segmentation, so they need no `hairtrack.json` door-panel profile and run on any set.
 `hairgate.py` stays as this recipe's plan-side check (it still drives the anchors); the shared rows
-are what the stamp is judged on. **Run both until Phase 3 lands.**
+are what the stamp is judged on. **The watch pass landed in the shared gate 2026-09-16** (`_shared/deliver/watch.py`
++ the `watch:pass` and `cut:naked_splices` rows); `recipe/watch.py` and `recipe/qc.py` are gone and `deliver.sh`
+calls the shared modules.
 
 ## Delivery layout
 
