@@ -61,7 +61,9 @@ const VIDEOS = [
   video('liveNow', { live: 'live', duration: 'P0D' }),
   video('rejected1', { upload: 'rejected', duration: 'PT2M' }),
 ];
-const CHANNEL = { items: [{ snippet: { customUrl: '@danrosefit' }, statistics: { subscriberCount: '3030', videoCount: '18', hiddenSubscriberCount: false } }] };
+// YouTube can keep returning the retired customUrl briefly after a handle
+// change. The feed must publish the configured current handle regardless.
+const CHANNEL = { items: [{ snippet: { customUrl: '@absbyai' }, statistics: { subscriberCount: '3030', videoCount: '18', hiddenSubscriberCount: false } }] };
 
 const IG_TOKEN = 'EAAG-secret-graph-token';
 const IG = {

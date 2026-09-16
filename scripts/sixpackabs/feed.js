@@ -268,7 +268,7 @@ function createSixpackabsFeeds({ fetch, env = process.env, now = Date.now, log =
     return {
       channel: {
         id: CHANNEL_ID,
-        handle: (c.snippet && c.snippet.customUrl) || '@danrosefit',
+        handle: '@danrosefit',
         url: CHANNEL_URL,
         subscriberCount: stats.hiddenSubscriberCount ? null : (Number(stats.subscriberCount) || null),
         videoCount: Number(stats.videoCount) || videos.length,
