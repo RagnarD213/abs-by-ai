@@ -6,7 +6,7 @@ states, words_ctc.json and qc.json. `--transcribe` re-transcribes the DELIVERED 
 what the render actually says, not what the script meant to say).
   python3 plan_build.py [--cut] [--transcribe]
 """
-import json, os, subprocess, sys, hashlib, datetime
+import json, os, subprocess, sys, hashlib, datetime, glob
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # ⚠ RUN FROM INSIDE THE BUILD DIR THE PLAN IS FOR (skill A6.18). Imported from the parent, the CUTDOWN's
 # plan picked up the MASTER's captions.py and wrote the master's 185 cues into cut/plan_assets/captions.srt
@@ -123,10 +123,81 @@ old = json.load(open(f'{D}/plan.json')) if os.path.exists(f'{D}/plan.json') else
 for k in ('transcript_words', 'negative_events_scan'):
     if k in old: plan[k] = old[k]
 
+delivered_speech = None
 if '--transcribe' in sys.argv:
     import whisper
-    r = whisper.load_model('small').transcribe(VID, word_timestamps=False, language='en')
+    r = whisper.load_model('small').transcribe(VID, word_timestamps=True, language='en')
     plan['transcript_words'] = [dict(w=w) for seg in r['segments'] for w in seg['text'].split()]
+    delivered_speech = [dict(w=w['word'].strip(), t=round(float(w['start']), 3),
+                             e=round(float(w['end']), 3))
+                        for seg in r['segments'] for w in seg.get('words', []) if w['word'].strip()]
+
+# --- evidence contract v2: compositor states and geometry, bound to this exact delivered file.
+def sha(p):
+    h = hashlib.sha256()
+    with open(p, 'rb') as f:
+        for chunk in iter(lambda: f.read(1 << 20), b''): h.update(chunk)
+    return h.hexdigest()
+
+if not os.path.exists(VID):
+    raise SystemExit(f"cannot bind plan evidence: delivered file is not on disk: {VID}")
+manifest = f'{D}/cap/manifest.json'
+if not os.path.exists(manifest):
+    raise SystemExit("cap/manifest.json is missing; rerun captions.py with the shared compositor "
+                     "manifest exporter before building the delivery plan")
+plan['caption_states'] = json.load(open(manifest))['caption_states']
+plan['speech_words'] = delivered_speech or list(plan['words'])
+plan['speech_words_evidence'] = (dict(method='delivered_asr', video_sha256=sha(VID))
+                                 if delivered_speech else dict(method='verbatim_source_ctc'))
+
+# Alpha graphics plus full-frame cards are the obstacles the PNG states must clear. Captions are
+# normally suppressed on cards; recording the card geometry proves that, rather than assuming it.
+regions = [dict(name=f'card@{a:.3f}', beat=[a, b], rect=[0, 0, 1080, 1920]) for a, b in cards]
+for o in ov:
+    fs = sorted(glob.glob(f"{D}/gfx/ov_{o['kind']}_*.mov"))
+    if fs:
+        regions.append(dict(name=f"{o['kind']}@{o['t0']:.3f}",
+                            beat=[round(o['t0'], 3), round(o['t1'], 3)],
+                            mov=os.path.abspath(fs[0]), mov_sha256=sha(fs[0])))
+plan['graphic_regions'] = regions
+
+# The window is compositor output geometry. Full-frame talk is tracking; plate windows are fixed
+# wide shots by design, so centering is not falsely graded as a tracking error.
+windows = []
+for i, b in enumerate(tl):
+    beat = [round(b['t0'], 3), round(b['t1'], 3)]
+    intent = b.get('framing_motion') or b.get('motion')
+    if intent not in (None, 'tracking', 'fixed-wide'):
+        raise SystemExit(f"beat {i} has invalid framing_motion {intent!r}")
+    if b['kind'] == 'talk':
+        windows.append(dict(name=f'talk-{i}', beat=beat, rect=[0, 0, 1080, 1920],
+                            motion=intent or 'tracking'))
+        continue
+    metas = sorted(glob.glob(f'{D}/gfx/p{i:03d}_*.mov.json'))
+    if metas:
+        holes = json.load(open(metas[-1]))
+        if 'dan' in holes:
+            x0, y0, x1, y1 = holes['dan']
+            windows.append(dict(name=f"{b['kind']}-{i}", beat=beat,
+                                rect=[round(x0), round(y0), round(x1-x0), round(y1-y0)],
+                                motion=intent or 'fixed-wide'))
+plan['talking_head_windows'] = windows
+
+tracks = []
+for kind, items in (('ai', ai_inserts), ('real', real_photos)):
+    other = 'real' if kind == 'ai' else 'ai'
+    for i, item in enumerate(items):
+        image = item.get('chip') or plan['label_chips'].get(kind)
+        wrong = plan['label_chips'].get(other)
+        if not image: continue
+        tracks.append(dict(name=f'{kind}-{i}-{item.get("name", "insert")}', kind=kind,
+                           beat=item['beat'], image=image, image_sha256=sha(image),
+                           wrong_image=wrong, wrong_image_sha256=sha(wrong) if wrong else None,
+                           pos=item.get('pos') or plan['label_pos'].get(kind), search_px=2,
+                           visibility='full'))
+plan['label_tracks'] = tracks
+plan['evidence_contract'] = dict(version=2, video_sha256=sha(VID),
+                                 generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat())
 
 json.dump(plan, open(f'{D}/plan.json', 'w'), indent=1)
 print(f"{D}/plan.json: {len(joins)} joins, {len(punch)} holds, {len(real_photos)} real photos, "

@@ -72,6 +72,17 @@ _NEGEV = dict(min_frames=24)
 # 24 frames: one sample every ~10 s of a 4-minute ad. The scan is a person's judgment (see
 # checks/compliance.py); this row only enforces that it happened on THIS render and was written down.
 
+_LABELS = dict(min_corr=0.85, min_track_corr=0.60, wrong_margin=0.03, max_search_px=4,
+               clearance_px=8)
+# 0.85 preserves the legacy still-label bound from website-video/recipe/qc_frame.ai_tags.
+# For moving v2 tracks, approved Ad 3 R2.1's 158 full label states bottom out at 0.890 while the
+# synthetic absent-label regression is below 0.30; 0.60 leaves margin for delivery compression
+# without accepting a missing chip. Its compositor-to-video rounding needs at most 3 px, so the
+# search is hard-capped at 4 px rather than letting the checker find a nearby unrelated shape.
+# 8 px body clearance is the delivered-file bound in the approved square pipeline's
+# `sqlabelplace.py --verify`; it catches a chip touching Dan without turning nearby negative space
+# into an obstruction.
+
 _CAPTION_BAND_16x9 = (0.156, 0.861, 0.688, 0.102)
 # x, y, w, h as fractions of the frame = crop=1320:110:300:930 at 1920x1080, the band
 # longform-edit/qc_style.py has sampled since 2026-08. Keep it in fractions so 4K and 1080p agree.
@@ -150,9 +161,12 @@ def _common(drop=(), **over):
         "compliance:script_fidelity": dict(min_ratio=0.95),
         # 0.95: website-video/recipe/qc.py and ad-edit/rev5/qc5.py both landed here independently;
         # below it a dropped half-sentence at a join stops being visible.
-        "captions:graphic_clearance": dict(min_px=20),
+        "captions:graphic_clearance": dict(min_px=20, min_state_corr=0.60),
         # 20 px: website rev 2 inked at y 727-806 over lower thirds at y 757-905 -- 49 px of
         # OVERLAP. 20 px is the clearance rev 4 was built to and Dan approved on 2026-09-08.
+        # Approved Ad 3 R2.1's 397 PNG caption states bottom out at correlation 0.987; the
+        # synthetic missing-state regression is below 0.30. 0.60 separates those measured cases
+        # while retaining room for normal H.264 compression.
         "captions:within_runtime": dict(tolerance_s=0.10),
         "cut:uncovered_joins": dict(max_per_min=2.5),
         # 2.5/min: the rejected spray-tan longform reads 3.2; the highest APPROVED reading in the
@@ -212,11 +226,13 @@ FORMATS = {
                 # the approved Ad 1 / Ad 2 verticals read x1.22 / x1.25. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_9x16),
                 "captions:card_collision": dict(),
-                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
-                # Dan, 2026-09-08: the highlighted word must be the word being said.
+                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5,
+                                      min_state_corr=0.60, min_word_match_frac=0.97),
+                # Dan, 2026-09-08: the highlighted word must be the word being said. Approved Ad 3
+                # R2.1 matches 397/397 captioned words; 97% preserves the established caption gate.
                 "compliance:banned_screen": dict(**_BANNED),
                 # 0.72 is shortad-from-longform/reference/qc.py check 10's bound, unchanged.
-                "compliance:labels": dict(min_corr=0.85),
+                "compliance:labels": dict(_LABELS),
                 # 0.85: website-video/recipe/qc_frame.ai_tags, measured over its AI inserts.
                 "watch:pass": dict(required=True),
                 # the one format where the watch pass is already a hard gate (qc.py check 15).
@@ -264,9 +280,10 @@ FORMATS = {
                 # ad1-vertical-attempt1 x1.005. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_16x9),
                 "captions:card_collision": dict(),
-                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
+                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5,
+                                      min_state_corr=0.60, min_word_match_frac=0.97),
                 "compliance:banned_screen": dict(**_BANNED),
-                "compliance:labels": dict(min_corr=0.85),
+                "compliance:labels": dict(_LABELS),
                 "watch:pass": dict(required=False,
                                    pending="Phase 3 of handoff-20260911-video-quality-engine.md "
                                            "turns the watch pass on for /ad-edit (2026-09-11)"),
@@ -313,9 +330,10 @@ FORMATS = {
                 # the approved Ad 1 / Ad 2 verticals read x1.22 / x1.25. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=(0.08, 0.72, 0.84, 0.16)),
                 "captions:card_collision": dict(),
-                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
+                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5,
+                                      min_state_corr=0.60, min_word_match_frac=0.97),
                 "compliance:banned_screen": dict(**_BANNED),
-                "compliance:labels": dict(min_corr=0.85),
+                "compliance:labels": dict(_LABELS),
                 "watch:pass": dict(required=True),
                 # a square build is delivered to an ad platform; it gets the vertical's hard gate.
             }),
@@ -371,7 +389,7 @@ FORMATS = {
                 "compliance:banned_screen": dict(**_BANNED),
                 # the row that was missing here: the app's before/after screen reached the delivered
                 # spray-tan longform for 5.6 s at 18:04 because only /ad-edit template-scanned.
-                "compliance:labels": dict(min_corr=0.85),
+                "compliance:labels": dict(_LABELS),
                 "watch:pass": dict(required=False,
                                    pending="Phase 3 of handoff-20260911-video-quality-engine.md "
                                            "turns the watch pass on for /longform-edit (2026-09-11)"),
@@ -429,11 +447,12 @@ FORMATS = {
                 # the approved Ad 1 / Ad 2 verticals read x1.22 / x1.25. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_9x16),
                 "captions:card_collision": dict(),
-                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=4),
+                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=4,
+                                      min_state_corr=0.60, min_word_match_frac=0.97),
                 # the row two of the four shorts gates did not have at all: full-bleed/qc.js and
                 # scored-source/qc.js cannot see a desynced caption.
                 "compliance:banned_screen": dict(**_BANNED),
-                "compliance:labels": dict(min_corr=0.85),
+                "compliance:labels": dict(_LABELS),
                 "watch:pass": dict(required=False,
                                    pending="Phase 3 of handoff-20260911-video-quality-engine.md "
                                            "turns the watch pass on for /shorts, which mentions it "
@@ -490,10 +509,11 @@ FORMATS = {
                 # FAR alternate); ad1-vertical-attempt1 x1.005. See checks/framing.py.
                 "captions:burned": dict(present=True, min_frac=0.45, band=_CAPTION_BAND_16x9),
                 "captions:card_collision": dict(),
-                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5),
+                "captions:sync": dict(tolerance_ms=120, silence_before_s=0.30, min_samples=5,
+                                      min_state_corr=0.60, min_word_match_frac=0.97),
                 "compliance:banned_screen": dict(**_BANNED),
                 # measured on rev 4 2026-09-11: best NCC 0.484 over 6,900 frames, nothing over 0.72.
-                "compliance:labels": dict(min_corr=0.85),
+                "compliance:labels": dict(_LABELS),
                 "watch:pass": dict(required=False,
                                    pending="Phase 3 of handoff-20260911-video-quality-engine.md "
                                            "turns the watch pass on for /website-video (2026-09-11)"),

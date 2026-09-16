@@ -10,11 +10,14 @@ same requirement with no check behind it.
 """
 import os
 import re
+import shutil
 import subprocess
+import tempfile
 
 import numpy as np
 
 from .. import common as C
+from .. import contract as CONTRACT
 from ..common import Row, unmeasured
 
 
@@ -243,6 +246,170 @@ def banned_screen(key, pr, cfg, plan, video, work):
 
 
 # ---------------------------------------------------------------------------- labels
+def _measure_label_clearance(video, tracks, clearance_px):
+    """Check each full label rectangle against an independent delivered-frame person mask."""
+    from PIL import Image
+    from scipy.ndimage import binary_dilation
+    from .framing import PERSONMASK
+    if not os.path.exists(PERSONMASK):
+        return None, 0, f"Apple Vision person segmenter is not built: {PERSONMASK}"
+    import cv2
+    cap = cv2.VideoCapture(video)
+    if not cap.isOpened():
+        return None, 0, f"cannot decode delivered file for label clearance: {video}"
+    fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+    W, H = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    jobs = []
+    for state in tracks:
+        if state.get("visibility", "full") != "full":
+            continue
+        path = state.get("image")
+        if not path or not os.path.exists(path):
+            continue
+        with Image.open(path) as im:
+            rect = CONTRACT.transform_rect(state, im.size)
+        if rect is None:
+            continue
+        a, b = (float(x) for x in state["beat"])
+        times = state.get("sample_times") or [a + (b - a) * f for f in (0.2, 0.5, 0.8)]
+        for t in times:
+            jobs.append((max(0, int(round(t * fps))), state.get("name", "?"), float(t), rect))
+    if not jobs:
+        cap.release()
+        return None, 0, "no full label state has a readable image, transform and sample time"
+    tmp = tempfile.mkdtemp(prefix="label_clearance_")
+    inputs, meta = [], {}
+    try:
+        by_frame = {}
+        for job in jobs:
+            by_frame.setdefault(job[0], []).append(job)
+        wanted, n = set(by_frame), 0
+        while wanted:
+            ok, frame = cap.read()
+            if not ok:
+                break
+            if n in wanted:
+                path = os.path.join(tmp, f"{n:08d}.png")
+                Image.fromarray(frame[..., ::-1]).save(path, compress_level=1)
+                inputs.append(path)
+                meta[path] = by_frame[n]
+                wanted.remove(n)
+            n += 1
+        cap.release()
+        if wanted:
+            return None, len(inputs), f"could not decode {len(wanted)} declared label frame(s)"
+        masks = os.path.join(tmp, "m")
+        for i in range(0, len(inputs), 200):
+            r = subprocess.run([PERSONMASK, masks] + inputs[i:i + 200],
+                               capture_output=True, text=True)
+            if r.returncode:
+                return None, i, f"person segmenter failed: {(r.stderr or r.stdout)[-300:]}"
+        obstruct, checked = [], 0
+        for path in inputs:
+            mp = os.path.join(masks, os.path.basename(path).replace(".png", ".mask.png"))
+            if not os.path.exists(mp):
+                return None, checked, f"person segmenter returned no mask for {os.path.basename(path)}"
+            mask = np.asarray(Image.open(mp).convert("L").resize((W, H))) > 127
+            mask = binary_dilation(mask, iterations=clearance_px)
+            for _frame, name, t, (x, y, w, h) in meta[path]:
+                checked += 1
+                if x < 0 or y < 0 or x + w > W or y + h > H:
+                    obstruct.append((name, round(t, 3), "label rectangle outside delivered frame"))
+                    continue
+                contact = int(mask[y:y + h, x:x + w].sum())
+                if contact:
+                    obstruct.append((name, round(t, 3), contact))
+        return obstruct, checked, None
+    finally:
+        cap.release()
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def _tracked_labels(key, cfg, plan, video):
+    err = CONTRACT.contract_error(plan, key)
+    if err:
+        return unmeasured(key, err)
+    tracks = plan.get("label_tracks") or []
+    if not tracks:
+        return Row.na(key, "this cut declares no label tracks")
+    threshold = cfg["min_track_corr"]
+    missing, wrong, partial, scores = [], [], [], []
+    cache = plan.setdefault("_pixel_corr_cache", {})
+    jobs = []
+    for i, state in enumerate(tracks):
+        if state.get("visibility", "full") == "partial":
+            continue
+        if int(state.get("search_px", 0)) > cfg["max_search_px"]:
+            continue
+        a, b = (float(x) for x in state["beat"])
+        times = state.get("sample_times") or [a + (b - a) * f for f in (0.2, 0.5, 0.8)]
+        for j, t in enumerate(times):
+            jobs.append((f"{i}-{j}-expected", state, t, "image"))
+            if state.get("wrong_image"):
+                jobs.append((f"{i}-{j}-wrong", state, t, "wrong_image"))
+    CONTRACT.pixel_correlations(video, jobs, cache)
+    for state in tracks:
+        from PIL import Image
+        path = state.get("image")
+        if int(state.get("search_px", 0)) > cfg["max_search_px"]:
+            missing.append((state.get("name", "?"), "search_px exceeds format maximum"))
+            continue
+        if not path or not os.path.exists(path):
+            missing.append((state.get("name", "?"), "reference missing"))
+            continue
+        with Image.open(path) as im:
+            source_size = im.size
+        rect = CONTRACT.transform_rect(state, source_size)
+        if rect is None:
+            missing.append((state.get("name", "?"), "invalid transform"))
+            continue
+        a, b = (float(x) for x in state["beat"])
+        visibility = state.get("visibility", "full")
+        if visibility == "partial":
+            partial.append((state.get("name", "?"), [a, b]))
+            continue
+        times = state.get("sample_times") or [a + (b - a) * f for f in (0.2, 0.5, 0.8)]
+        for t in times:
+            c = cache.get(CONTRACT.correlation_key(state, t, "image"))
+            o = cache.get(CONTRACT.correlation_key(state, t, "wrong_image")) if state.get("wrong_image") else None
+            scores.append(c)
+            if c is None or c < threshold:
+                missing.append((state.get("name", "?"), round(t, 3),
+                                None if c is None else round(c, 3)))
+            if o is not None and o >= threshold and (c is None or o >= c - cfg["wrong_margin"]):
+                wrong.append((state.get("name", "?"), round(t, 3), round(o, 3),
+                              None if c is None else round(c, 3)))
+    clearance = plan.get("label_clearance")
+    obstruct = []
+    clearance_checked = 0
+    if clearance:
+        if clearance.get("sha256") != plan.get("_sha256"):
+            return unmeasured(key, "label_clearance evidence is stale (video sha256 differs)")
+        report = clearance.get("clearance_report")
+        report_sha = clearance.get("clearance_report_sha256")
+        if report and (not os.path.exists(report) or
+                       (report_sha and CONTRACT.file_sha256(report) != report_sha)):
+            return unmeasured(key, "label_clearance report is missing or its sha256 changed")
+        obstruct = clearance.get("obstructions") or []
+        clearance_checked = int(clearance.get("checked") or
+                                sum(x.get("visibility", "full") == "full" for x in tracks))
+    else:
+        obstruct, clearance_checked, clearance_error = _measure_label_clearance(
+            video, tracks, cfg["clearance_px"])
+        if clearance_error:
+            return unmeasured(key, f"label face/abs clearance was not measured: {clearance_error}")
+    ok = not missing and not wrong and not obstruct
+    measured = [x for x in scores if x is not None]
+    return Row(key, ok,
+               f"{len(tracks)} renderer label state(s); min delivered-pixel correlation "
+               f"{min(measured) if measured else 'n/a'} (min {threshold}); {len(missing)} missing, "
+               f"{len(wrong)} wrong-label, {len(obstruct)} face/abs obstruction(s); "
+               f"clearance checked on {clearance_checked} state sample(s); {len(partial)} declared "
+               f"transition state(s) reported but not treated as missing",
+               dict(missing=missing[:30], wrong=wrong[:30], obstructions=obstruct[:30],
+                    partial=partial[:30], min_corr=min(measured) if measured else None))
+
+
 def labels(key, pr, cfg, plan, video, work):
     """compliance:labels -- every picture of Dan's physique carries EXACTLY ONE label.
 
@@ -255,6 +422,8 @@ def labels(key, pr, cfg, plan, video, work):
     AI insert and on no declared real photo, and the real-picture chip reads on every declared real
     photo and on no declared AI insert.
     """
+    if "label_tracks" in plan:
+        return _tracked_labels(key, cfg, plan, video)
     ai = plan.get("ai_inserts")
     real = plan.get("real_photos")
     chips = plan.get("label_chips") or {}
@@ -385,9 +554,41 @@ def negative_events(key, pr, cfg, plan, video, work):
     if n < cfg["min_frames"]:
         return Row(key, False, f"only {n} frames checked (min {cfg['min_frames']})")
     findings = rec.get("findings") or []
-    return Row(key, not findings,
-               f"scanned {n} frames on {rec.get('when')}; {len(findings)} finding(s): {findings[:4]}",
-               dict(frames=n, findings=findings[:20]))
+    confirmed, review, cleared, malformed = [], [], [], []
+    for f in findings:
+        if not isinstance(f, dict):
+            malformed.append(f)
+            continue
+        disposition = f.get("disposition")
+        # Backward compatibility is intentionally conservative. Older scans wrote `severity:
+        # uncertain`; those are review candidates, not proven violations and certainly not passes.
+        if not disposition and "uncertain" in str(f.get("severity", "")).lower():
+            disposition = "needs_review"
+        if disposition == "confirmed_violation":
+            confirmed.append(f)
+        elif disposition == "needs_review":
+            review.append(f)
+        elif disposition == "cleared":
+            cleared.append(f)
+        else:
+            malformed.append(f)
+    val = dict(frames=n, confirmed=confirmed[:20], review=review[:20], cleared=cleared[:20],
+               malformed=malformed[:20])
+    if confirmed:
+        return Row(key, False,
+                   f"scanned {n} frames on {rec.get('when')}; {len(confirmed)} confirmed "
+                   f"violation(s), {len(review)} review candidate(s): {confirmed[:4]}", val)
+    if malformed:
+        return unmeasured(key, f"{len(malformed)} finding(s) have no auditable disposition; use "
+                               "confirmed_violation, needs_review, or cleared: "
+                               f"{malformed[:3]}")
+    if review:
+        return Row.review(key,
+                          f"scanned {n} frames on {rec.get('when')}; {len(review)} unresolved "
+                          f"candidate(s): {review[:4]}", val)
+    return Row(key, True,
+               f"scanned {n} frames on {rec.get('when')}; no confirmed or unresolved negative-"
+               f"events finding ({len(cleared)} reviewer-cleared)", val)
 
 
 def script_fidelity(key, pr, cfg, plan, video, work):

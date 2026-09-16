@@ -50,19 +50,30 @@ class Row:
     and the reason is printed on every run where a reader can audit it.
     """
 
-    __slots__ = ("key", "ok", "detail", "value", "na_reason")
+    __slots__ = ("key", "ok", "detail", "value", "na_reason", "review_reason")
 
-    def __init__(self, key, ok, detail, value=None, na_reason=None):
+    def __init__(self, key, ok, detail, value=None, na_reason=None, review_reason=None):
         # ⚠ bool() on purpose: numpy comparisons return np.bool_, and `np.True_ is True` is False,
         # so a row that passed was counted as neither passed nor failed until 2026-09-11.
         self.key, self.detail = key, detail
         self.ok = None if ok is None else bool(ok)
         self.value = value or {}
         self.na_reason = na_reason
+        self.review_reason = review_reason
 
     @classmethod
     def na(cls, key, reason):
         return cls(key, True, f"not applicable: {reason}", na_reason=reason)
+
+    @classmethod
+    def review(cls, key, reason, value=None):
+        """A measured candidate that requires a person's judgment.
+
+        REVIEW is deliberately neither PASS nor NOT MEASURED. It blocks delivery, but it does not
+        falsely describe an uncertain policy candidate as a confirmed violation.
+        """
+        return cls(key, None, f"NEEDS HUMAN REVIEW -- {reason}", value=value,
+                   review_reason=reason)
 
     @property
     def passed(self):
@@ -72,6 +83,8 @@ class Row:
     def tag(self):
         if self.na_reason:
             return "n/a "
+        if self.review_reason:
+            return "REVIEW"
         if self.ok is None:
             return "????"
         return "PASS" if self.ok else "FAIL"

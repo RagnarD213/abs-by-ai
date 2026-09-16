@@ -42,6 +42,7 @@ sys.path.insert(0, os.path.dirname(HERE))                    # so `_shared.deliv
 sys.path.insert(0, os.path.dirname(os.path.dirname(HERE)))
 
 from _shared.deliver import common as C                      # noqa: E402
+from _shared.deliver import contract as CONTRACT             # noqa: E402
 from _shared.deliver import formats as FMT                   # noqa: E402
 from _shared.deliver.checks import audio as A                # noqa: E402
 from _shared.deliver.checks import captions as CAP           # noqa: E402
@@ -56,11 +57,14 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "1.2.0"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.0.0"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
                               # compliance:banned_screen (the screen's own signature: L/R pairing).
+                              # 2.0.0  2026-09-16: evidence-bound PNG caption states, continuous-
+                              # speech word timing, composite talking-head windows, transformed
+                              # label tracks, and a distinct NEEDS HUMAN REVIEW policy outcome.
 
 STAMP_SUFFIX = ".deliver_gate.json"
 
@@ -70,8 +74,8 @@ PLAN_KEYS = """
   joins            [t, ...]        splice times on the DELIVERED timeline
   covered          [[a, b], ...]   beats that hide a join
   punch            [[a, b, LEVEL]] framing segments;  punch_covered [bool] marks the hidden ones
-                                   (framing:* needs NO plan: it tracks the delivered picture; a plan's
-                                   ai_inserts / real_photos / graphics / cards beats are excluded)
+                                   (full-frame framing needs no geometry; composites use the v2
+                                   talking_head_windows schedule below)
   graphics         [{name, beat:[a,b], mov}]        lower thirds and cards, with their own MOVs
   ai_inserts       [{name, beat:[a,b], chip?, pos?}] AI imagery of Dan
   real_photos      [{name, beat:[a,b], chip?, pos?}] REAL photographs of Dan
@@ -79,6 +83,21 @@ PLAN_KEYS = """
   label_chips      {ai: png, real: png}             label_pos {ai: [x,y], real: [x,y]}
                                    -- an insert's own `chip`/`pos` override these
   captions_ass / srt               the caption file as delivered
+  evidence_contract {version:2, video_sha256}  binds all new geometry to this exact render
+  caption_states  [{beat,image,image_sha256,pos|rect,word}]
+                                   compositor-emitted PNG/highlight states on the delivered timeline
+  speech_words    [{w,t,e}]        word alignment made from the delivered audio
+  speech_words_evidence {method, video_sha256?}  `delivered_asr`, or source CTC only when this
+                                   exact video has a verbatim audio-gate PASS stamp
+  graphic_regions [{beat,rect}|{beat,image,pos}|{beat,mov}] visible obstacles captions must clear
+  talking_head_windows [{beat,rect,motion}]      composite/full-frame Dan windows;
+                                   motion is `tracking` or intentional `fixed-wide`
+  label_tracks [{kind,beat,image,image_sha256,rect|pos,scale?,visibility,sample_times?,search_px?}]
+                                   renderer-emitted moving/baked label states; sample_times pins a
+                                   transform-state midpoint, search_px is capped by the format
+  label_clearance {sha256,clearance_report?,clearance_report_sha256?,obstructions,checked?}
+                                   optional existing person-mask report; without it the gate runs
+                                   its own delivered-frame person-mask measurement
   words            [{w, t, e}]     what the cut intended to say
   transcript_words [{w}]           what the FINISHED render actually says (re-transcribed)
   source_audio                     the mix the picture was cut against, BEFORE the loudness finish
@@ -164,7 +183,9 @@ def load_plan(path, video):
         for b in (plan.get("ai_inserts") or []) + (plan.get("real_photos") or []):
             if b.get("chip") and not os.path.isabs(b["chip"]):
                 b["chip"] = os.path.normpath(os.path.join(base, b["chip"]))
+        CONTRACT.resolve_paths(plan, base)
     plan["_sha256"] = C.sha256(video)
+    plan["_contract_error"] = CONTRACT.validate(plan, plan["_sha256"])
     plan["_dir"] = os.path.dirname(os.path.abspath(path)) if path else os.path.dirname(
         os.path.abspath(video))
     return plan
@@ -228,9 +249,11 @@ def run(video, fmt, plan_path=None, only=None):
 def verdict(rows):
     """PASS only when every row was measured and passed. PENDING rows never make a PASS."""
     fails = [r for r in rows if r.ok is False]
-    unmeasured = [r for r in rows if r.ok is None and "PENDING" not in r.detail]
-    pending = [r for r in rows if r.ok is None and "PENDING" in r.detail]
-    return ("PASS" if not fails and not unmeasured else "FAIL"), fails, unmeasured, pending
+    reviews = [r for r in rows if r.review_reason]
+    unmeasured = [r for r in rows if r.ok is None and not r.review_reason and "PENDING" not in r.detail]
+    pending = [r for r in rows if r.ok is None and not r.review_reason and "PENDING" in r.detail]
+    return ("PASS" if not fails and not unmeasured and not pending and not reviews else "FAIL"), \
+        fails, unmeasured, pending, reviews
 
 
 def stamp(video, fmt, rows, v, pr):
@@ -239,6 +262,7 @@ def stamp(video, fmt, rows, v, pr):
              when=time.strftime("%Y-%m-%dT%H:%M:%S%z"),
              size=pr["size"], fps=pr["fps_str"], duration=pr["vdur"],
              rows={r.key: dict(ok=r.ok, detail=r.detail, **({"na": r.na_reason} if r.na_reason else {}),
+                               **({"review": r.review_reason} if r.review_reason else {}),
                                **({"value": r.value} if r.value else {})) for r in rows})
     json.dump(d, open(video + STAMP_SUFFIX, "w"), indent=1)
     return video + STAMP_SUFFIX
@@ -304,7 +328,7 @@ def main():
 
     t0 = time.time()
     pr, plan, rows = run(A_.video, A_.fmt, A_.plan, set(A_.row) if A_.row else None)
-    v, fails, unmeasured, pending = verdict(rows)
+    v, fails, unmeasured, pending, reviews = verdict(rows)
 
     print(f"\nDELIVERY GATE {GATE_VERSION}   {os.path.basename(A_.video)}")
     print(f"  format {A_.fmt}   {pr['size']} @ {pr['fps_str']}   {C.mmss(pr['vdur'])}"
@@ -312,10 +336,12 @@ def main():
     for r in rows:
         print(f"  {r.tag}  {r.key:28s} {r.detail}")
     print(f"\n  {sum(1 for r in rows if r.passed)} passed, {len(fails)} failed, "
-          f"{len(unmeasured)} NOT MEASURED, {len(pending)} pending, "
+          f"{len(unmeasured)} NOT MEASURED, {len(reviews)} NEEDS HUMAN REVIEW, {len(pending)} pending, "
           f"{sum(1 for r in rows if r.na_reason)} declared not applicable")
     if pending:
         print("  ⚠ a PENDING row is not a pass: " + ", ".join(r.key for r in pending))
+    if reviews:
+        print("  ⚠ human review required: " + ", ".join(r.key for r in reviews))
     if A_.row:
         print("  ⚠ --row was used: this is a partial run and must not be treated as a verdict")
 
@@ -324,7 +350,7 @@ def main():
     if A_.json:
         json.dump(dict(gate_version=GATE_VERSION, format=A_.fmt, verdict=v,
                        rows=[dict(key=r.key, ok=r.ok, detail=r.detail, value=r.value,
-                                  na=r.na_reason) for r in rows]),
+                                  na=r.na_reason, review=r.review_reason) for r in rows]),
                   open(A_.json, "w"), indent=1)
     print(f"\nDELIVERY GATE {v}   ({time.time()-t0:.0f}s)\n")
     return 0 if v == "PASS" else 1

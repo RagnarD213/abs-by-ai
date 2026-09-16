@@ -25,9 +25,11 @@ measured at TRACK_FPS with NO set-specific reference:
   1 mediapipe FaceMesh (legacy solutions API: bundled model, CPU, no download) anchors the face --
     centre x from the cheek edges, face height forehead (10) -> chin (152), and a head band
     +-0.4 face widths wide. A face FaceMesh's short-range finder misses (a wide shot) is located
-    by the full-range FaceDetection model and meshed on a crop -- see _facefinder. ⚠ It reads any face, so without a plan the track keeps only samples on
-    the MAIN SCENE (palette distance <= the coverage threshold, the same definition style:coverage
-    uses); with a plan it also drops every declared insert, photo, card and graphic beat.
+    by the full-range FaceDetection model and meshed on a crop -- see _facefinder. ⚠ It reads any
+    face, so a legacy/full-frame build keeps only samples on the MAIN SCENE (palette distance <=
+    the coverage threshold, the same definition style:coverage uses). Evidence-contract v2 builds
+    instead crop to each renderer-declared talking-head window, then prove a face and silhouette
+    exist inside those declared pixels.
   2 Apple Vision person segmentation (shorts/reference/recentre/personmask, .accurate) on a head
     crop gives the silhouette; the hair top is the first row of the head band that is >= 20 %
     person. Measured 2026-09-12 on the corpus frames: crop and full-frame tops agree within 2 px.
@@ -49,8 +51,8 @@ VALIDITY, so a wrong detection can never read as "fine":
   * a track with fewer than MIN_VALID_FRAC of its on-scene samples valid FAILS every row that
     needs it. Nobody looked is not it is fine.
 
-Bounds live in formats.py in 1080p pixels; every row scales them by H/1080 so a 1080x1920 vertical
-is graded to the same 4 % of its own height.
+Bounds live in formats.py in 1080p pixels; headroom is normalized to a 1080-high talking-head
+window so full-screen, stacked and side-by-side composites use the same physical standard.
 """
 import os
 import subprocess
@@ -59,6 +61,7 @@ import tempfile
 import numpy as np
 
 from .. import common as C
+from .. import contract as CONTRACT
 from ..common import Row, unmeasured
 
 TRACK_FPS = 4                 # hairgate.py sampled the delivered frames at 4 fps; kept
@@ -165,6 +168,11 @@ def build_track(pic, plan):
                          f"personmask.swift in shorts/reference/recentre)")
     pr = C.probe(pic.v)
     W, H = pr["width"], pr["height"]
+    windows = plan.get("talking_head_windows")
+    if windows is not None:
+        err = CONTRACT.contract_error(plan, "framing")
+        if err:
+            return Track([], H, W, TRACK_FPS, 0, why=err)
     _, pal_d = pic.palette()                       # 2 fps palette distance from the programme median
     declared = []
     for key in ("ai_inserts", "real_photos", "graphics"):
@@ -178,6 +186,11 @@ def build_track(pic, plan):
         palette sample within +-SCENE_GUARD s must be on-scene too. Measured on website rev 4
         (2026-09-12): a 0.5 s cross-dissolve into an AI insert blends a second person's head over
         Dan's, and the mid-dissolve frame read a hair top of 6 px on an approved file."""
+        if windows is not None:
+            # A composite can have no stable full-frame palette at all. The renderer's window
+            # schedule names exactly where Dan is; the face and two silhouette models still prove
+            # the declared pixels contain him.
+            return any(float(x["beat"][0]) <= t < float(x["beat"][1]) for x in windows)
         if any(a - 0.3 <= t <= b + 0.3 for a, b in declared):
             return False
         if not len(pal_d):
@@ -193,7 +206,6 @@ def build_track(pic, plan):
                           "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE,
                          bufsize=W * H * 3 * 2)
     samples, crops, k, n_scene = [], [], 0, 0
-    top_rows = max(4, int(round(TOP_ROWS * H / 1080.0)))
     while True:
         buf = p.stdout.read(W * H * 3)
         if len(buf) < W * H * 3:
@@ -203,10 +215,18 @@ def build_track(pic, plan):
         if not on_scene(t):
             continue
         n_scene += 1
-        fr = np.frombuffer(buf, np.uint8).reshape(H, W, 3)
-        P = _find_face(fm, fd, fr, W, H)
+        full = np.frombuffer(buf, np.uint8).reshape(H, W, 3)
+        win = CONTRACT.rect_at(windows, t, W, H)
+        if win is None:
+            samples.append(dict(t=round(t, 3), valid=False, why="invalid talking-head window"))
+            continue
+        ox, oy, w, h, wi = win
+        fr = np.ascontiguousarray(full[oy:oy + h, ox:ox + w])
+        top_rows = max(4, int(round(TOP_ROWS * h / 1080.0)))
+        P = _find_face(fm, fd, fr, w, h)
         s = dict(t=round(t, 3), valid=False, top=None, top_m=None, edge_m=None, hh=None, cx=None,
-                 fh=None, fw=None, why=None)
+                 fh=None, fw=None, why=None, ox=ox, oy=oy, win_w=w, win_h=h,
+                 motion=wi.get("motion", "tracking"), window=wi.get("name", "window"))
         if P is None:
             s["why"] = "no face"
             samples.append(s)
@@ -215,13 +235,13 @@ def build_track(pic, plan):
         fw = abs(P[454][0] - P[234][0])
         fore, chin = P[10][1], P[152][1]
         fh = chin - fore
-        if fh < 0.04 * H or fw < 0.02 * W:
+        if fh < 0.04 * h or fw < 0.02 * w:
             s["why"] = f"face too small ({fh:.0f} px)"
             samples.append(s)
             continue
-        cw = int(2.2 * fh)
-        x0 = int(max(0, min(W - cw, cx - cw / 2)))
-        y1 = int(min(H, chin + 0.25 * fh))
+        cw = min(w, int(2.2 * fh))
+        x0 = int(max(0, min(w - cw, cx - cw / 2)))
+        y1 = int(min(h, chin + 0.25 * fh))
         crop = np.ascontiguousarray(fr[0:y1, x0:x0 + cw])
         b0, b1 = int(max(0, cx - BAND_HALF * fw - x0)), int(min(cw, cx + BAND_HALF * fw - x0))
         # the independent segmenter, now
@@ -261,6 +281,9 @@ def build_track(pic, plan):
         climb = (s["fore"] - top) / s["fh"]
         s["top"], s["climb"] = top, round(float(climb), 3)
         s["hh"] = round(float(s["chin"] - top), 1)
+        s["top1080"] = round(float(top * 1080.0 / s["win_h"]), 2)
+        s["hh_frac"] = round(float(s["hh"] / s["win_h"]), 5)
+        s["cx_off_frac"] = round(float((s["cx"] - s["win_w"] / 2) / s["win_w"]), 5)
         if top > EDGE_PX and not (CLIMB[0] <= climb <= CLIMB[1]):
             s["why"] = f"hair band {climb:.2f} of face height, outside {CLIMB}"
             continue
@@ -365,18 +388,18 @@ def hair_top(key, pic, cfg, plan):
     bad = _need(key, tr)
     if bad is not None:
         return bad
-    k = tr.k
-    lo = cfg["min_px"] * k
+    lo = cfg["min_px"]
     v = tr.valid()
-    tops = np.array([s["top"] for s in v], dtype=float)
-    cut = _runs([(s["t"], s["top"]) for s in v if s["top"] < lo], tr.fps)
+    tops = np.array([s["top1080"] for s in v], dtype=float)
+    cut = _runs([(s["t"], s["top1080"]) for s in v if s["top1080"] < lo], tr.fps)
     # the independent test: the second segmenter sees head in the top rows of the band
     edge = _runs([(s["t"], s["edge_m"]) for s in tr.samples
                   if s.get("edge_m") is not None and s["edge_m"] >= cfg["edge_frac"]], tr.fps)
     ok = not cut and not edge
     return Row(key, ok,
                f"hair top below the edge: min {tops.min():.0f} px, median {np.median(tops):.0f} "
-               f"(min {lo:.0f} px @{tr.H}p); {len(cut)} sample(s) under it for >= {PERSIST} in a row "
+               f"(min {lo:.0f} px, normalized to each 1080-high talking-head window); {len(cut)} "
+               f"sample(s) under it for >= {PERSIST} in a row "
                f"{cut[:5]}; independent top-rows test: {len(edge)} sample(s) with head in the top "
                f"{TOP_ROWS} rows (>= {cfg['edge_frac']}) {edge[:5]}; {len(v)}/{tr.on_scene_n} valid",
                dict(min=float(tops.min()), median=float(np.median(tops)), cut=cut[:40],
@@ -389,22 +412,32 @@ def headroom(key, pic, cfg, plan):
     bad = _need(key, tr)
     if bad is not None:
         return bad
-    k = tr.k
-    lo, hi, med_max = cfg["seg_min_px"] * k, cfg["seg_max_px"] * k, cfg["median_max_px"] * k
-    hs = talk_holds(pic, tr)
-    if not hs:
+    lo, hi, med_max = cfg["seg_min_px"], cfg["seg_max_px"], cfg["median_max_px"]
+    all_hs = talk_holds(pic, tr)
+    hs = [h for h in all_hs if not all(s.get("motion") == "fixed-wide" for s in h)]
+    if not all_hs:
         return unmeasured(key, "no TALKING hold of >= 1 s with valid samples (mouth never moves "
                                "on a hold: b-roll only, or the face finder is on the wrong face)")
-    mins = [(round(h[0]["t"], 2), round(_robust_min(s["top"] for s in h))) for h in hs]
+    if not hs:
+        tops = [s["top1080"] for h in all_hs for s in h]
+        return Row(key, True,
+                   f"{len(all_hs)} talking hold(s) are intentional fixed-wide shots; tracking "
+                   f"headroom bounds do not apply, while hair safety remains measured on every "
+                   f"sample by framing:hair_top (median {np.median(tops):.0f} normalized px)",
+                   dict(fixed_wide=len(all_hs), tracked=0, median=float(np.median(tops))))
+    mins = [(round(h[0]["t"], 2), round(_robust_min(s["top1080"] for s in h))) for h in hs]
     loose = [m for m in mins if m[1] > hi]
     tight = [m for m in mins if m[1] < lo]
-    med = float(np.median([s["top"] for h in hs for s in h]))
+    med = float(np.median([s["top1080"] for h in hs for s in h]))
     ok = not loose and not tight and med <= med_max
     return Row(key, ok,
-               f"{len(hs)} talking holds; per-hold min hair top {[m[1] for m in mins[:12]]}{'...' if len(mins) > 12 else ''} "
-               f"(must sit in {lo:.0f}-{hi:.0f} px @{tr.H}p): {len(loose)} loose {loose[:4]}, "
+               f"{len(hs)} tracked talking holds + {len(all_hs)-len(hs)} intentional fixed-wide; "
+               f"per-hold min hair top {[m[1] for m in mins[:12]]}{'...' if len(mins) > 12 else ''} "
+               f"(must sit in {lo:.0f}-{hi:.0f} normalized px inside its own window): "
+               f"{len(loose)} loose {loose[:4]}, "
                f"{len(tight)} tight {tight[:4]}; median over the video {med:.0f} (max {med_max:.0f})",
-               dict(holds=len(hs), mins=mins[:60], loose=loose[:30], tight=tight[:30],
+               dict(holds=len(hs), fixed_wide=len(all_hs)-len(hs), mins=mins[:60],
+                    loose=loose[:30], tight=tight[:30],
                     median=med, seg_min=lo, seg_max=hi, median_max=med_max))
 
 
@@ -414,16 +447,22 @@ def centering(key, pic, cfg, plan):
     bad = _need(key, tr)
     if bad is not None:
         return bad
-    hs = holds(pic, tr)
+    all_hs = holds(pic, tr)
+    hs = [h for h in all_hs if not all(s.get("motion") == "fixed-wide" for s in h)]
     if not hs:
+        if all_hs:
+            return Row(key, True, f"{len(all_hs)} hold(s) are intentional fixed-wide shots; "
+                                  "face and hair were still detected inside every declared window",
+                       dict(fixed_wide=len(all_hs), tracked=0))
         return unmeasured(key, "no hold of >= 1 s with valid samples")
-    tol = cfg["max_off_frac"] * tr.W
-    offs = [(round(h[0]["t"], 2), round(float(np.median([s["cx"] for s in h])) - tr.W / 2)) for h in hs]
+    tol = cfg["max_off_frac"]
+    offs = [(round(h[0]["t"], 2), float(np.median([s["cx_off_frac"] for s in h]))) for h in hs]
     off = [o for o in offs if abs(o[1]) > tol]
     worst = max(offs, key=lambda o: abs(o[1]))
     return Row(key, not off,
-               f"{len(hs)} holds; head centre vs frame centre: worst {worst[1]:+.0f} px at {worst[0]}s "
-               f"(max +-{tol:.0f} px = {cfg['max_off_frac']*100:.0f} % of {tr.W}); {len(off)} hold(s) "
+               f"{len(hs)} tracked hold(s) + {len(all_hs)-len(hs)} intentional fixed-wide; head "
+               f"centre vs its window centre: worst {worst[1]*100:+.1f}% at {worst[0]}s "
+               f"(max +-{tol*100:.0f}%); {len(off)} hold(s) "
                f"off {off[:5]}",
                dict(worst=worst, off=off[:30], max_px=tol))
 
@@ -437,15 +476,16 @@ def no_wide_level(key, pic, cfg, plan):
     hs = talk_holds(pic, tr)
     if not hs:
         return unmeasured(key, "no TALKING hold of >= 1 s with valid samples")
-    lo = cfg["min_head_frac"] * tr.H
-    meds = [(round(h[0]["t"], 2), round(float(np.median([s["hh"] for s in h])))) for h in hs]
+    lo = cfg["min_head_frac"]
+    meds = [(round(h[0]["t"], 2), float(np.median([s["hh_frac"] for s in h]))) for h in hs]
     wide = [m for m in meds if m[1] < lo]
     smallest = min(meds, key=lambda m: m[1])
     return Row(key, not wide,
-               f"{len(hs)} talking holds; head height (hair -> chin) per hold: smallest {smallest[1]} px at "
-               f"{smallest[0]}s = {smallest[1]/tr.H*100:.1f} % of {tr.H} (min {cfg['min_head_frac']*100:.1f} %); "
+               f"{len(hs)} talking holds; head height (hair -> chin) per hold: smallest "
+               f"{smallest[1]*100:.1f}% of its window at {smallest[0]}s "
+               f"(min {cfg['min_head_frac']*100:.1f}%); "
                f"{len(wide)} wide hold(s) {wide[:5]}",
-               dict(smallest=smallest, wide=wide[:30], min_px=lo))
+               dict(smallest=smallest, wide=wide[:30], min_frac=lo))
 
 
 def push_coverage(key, pic, cfg, plan):
@@ -471,9 +511,9 @@ def push_coverage(key, pic, cfg, plan):
     hs = talk_holds(pic, tr)
     if not hs:
         return unmeasured(key, "no TALKING hold of >= 1 s with valid samples")
-    meds = np.array([float(np.median([s["hh"] for s in h])) for h in hs])
+    meds = np.array([float(np.median([s["hh_frac"] for s in h])) for h in hs])
     n = np.array([len(h) for h in hs])
-    step = cfg["level_step"] * tr.H
+    step = cfg["level_step"]
     q = np.round(meds / step).astype(int)
     vals, counts = np.unique(q, return_counts=True)
     dom = float(np.median(np.repeat(meds, n)[np.repeat(q, n) == vals[int(np.argmax(counts))]]))
@@ -481,17 +521,17 @@ def push_coverage(key, pic, cfg, plan):
     same = (meds / dom >= lo_r) & (meds / dom <= hi_r)
     if same.sum() < 2:
         return Row(key, False, f"only {int(same.sum())} talking hold(s) at the dominant shot "
-                               f"(head {dom:.0f} px): a single hold is one fixed crop by definition",
-                   dict(holds=int(same.sum()), dominant_px=dom))
+                               f"(head {dom*100:.1f}% of its window): a single hold is one fixed "
+                               "crop by definition", dict(holds=int(same.sum()), dominant_frac=dom))
     spread = float(meds[same].max() / meds[same].min())
     lo = cfg["min_spread"]
     off = float(n[same & (np.abs(meds / dom - 1.0) >= 0.06)].sum() / max(1, n[same].sum()))
     return Row(key, spread >= lo,
-               f"{int(same.sum())} talking holds on the dominant shot (head {dom:.0f} px = "
-               f"{dom/tr.H*100:.0f} % of H): per-hold median head height {meds[same].min():.0f}-"
-               f"{meds[same].max():.0f} px = spread x{spread:.3f} (min x{lo}); {off*100:.0f} % of that "
+               f"{int(same.sum())} talking holds on the dominant shot (head {dom*100:.1f}% of its "
+               f"window): per-hold median head height {meds[same].min()*100:.1f}-"
+               f"{meds[same].max()*100:.1f}% = spread x{spread:.3f} (min x{lo}); {off*100:.0f}% of that "
                f"talk sits >= 6 % off the dominant level; {int((~same).sum())} hold(s) on other shots ignored",
-               dict(spread=round(spread, 4), min_spread=lo, dominant_px=dom, off_frac=round(off, 3),
+               dict(spread=round(spread, 4), min_spread=lo, dominant_frac=dom, off_frac=round(off, 3),
                     holds=int(same.sum()), other_shots=int((~same).sum())))
 
 
@@ -524,16 +564,21 @@ def proof_sheet(pic, tr, out, n_tight=6, n_loose=3):
         if len(raw) < tr.W * tr.H * 3:
             continue
         full = np.frombuffer(raw[:tr.W * tr.H * 3], np.uint8).reshape(tr.H, tr.W, 3)
+        ox, oy, ww, wh = s.get("ox", 0), s.get("oy", 0), s.get("win_w", tr.W), s.get("win_h", tr.H)
+        win = full[oy:oy + wh, ox:ox + ww]
         cx = int(s["cx"])
-        xs = max(0, min(tr.W - TW, cx - TW // 2))
-        crop = full[0:TH, xs:xs + TW].astype(float)
+        xs = max(0, min(max(0, ww - TW), cx - TW // 2))
+        crop = win[0:min(TH, wh), xs:min(ww, xs + TW)].astype(float)
+        if crop.shape[:2] != (TH, TW):
+            crop = np.asarray(Image.fromarray(crop.astype(np.uint8)).resize((TW, TH)))
         lo_, hi_ = np.percentile(crop, 1), np.percentile(crop, 99)
         crop = np.clip((crop - lo_) / (hi_ - lo_ + 1e-6) * 255, 0, 255).astype(np.uint8)
         tile = Image.fromarray(crop)
         td = ImageDraw.Draw(tile)
-        td.line([(0, s["top"]), (TW, s["top"])], fill=(0, 255, 0), width=2)
+        sy = TH / max(1, wh)
+        td.line([(0, s["top"] * sy), (TW, s["top"] * sy)], fill=(0, 255, 0), width=2)
         if s.get("top_m") is not None:
-            td.line([(0, s["top_m"]), (TW, s["top_m"])], fill=(255, 0, 255), width=1)
+            td.line([(0, s["top_m"] * sy), (TW, s["top_m"] * sy)], fill=(255, 0, 255), width=1)
         for gy in range(0, TH, 50):
             td.line([(0, gy), (14, gy)], fill=(255, 0, 0), width=1)
             td.text((16, gy - 8), str(gy), fill=(255, 255, 0), font=fnt)

@@ -9,7 +9,7 @@ read out of the build -- nothing is typed in by hand.
 
   python3 plan_sq.py [--cut] [--transcribe]
 """
-import json, os, subprocess, sys, glob
+import json, os, subprocess, sys, glob, hashlib, datetime
 
 CUT = '--cut' in sys.argv
 BUILD = os.path.dirname(os.path.abspath(__file__))
@@ -154,10 +154,68 @@ plan = dict(
 old = json.load(open('plan.json')) if os.path.exists('plan.json') else {}
 for k in ('transcript_words', 'negative_events_scan', 'declare'):
     if k in old: plan[k] = old[k]
+delivered_speech = None
 if '--transcribe' in sys.argv:
     import whisper
-    r = whisper.load_model('small').transcribe(VID, word_timestamps=False, language='en')
+    r = whisper.load_model('small').transcribe(VID, word_timestamps=True, language='en')
     plan['transcript_words'] = [dict(w=w) for seg in r['segments'] for w in seg['text'].split()]
+    delivered_speech = [dict(w=w['word'].strip(), t=round(float(w['start']), 3),
+                             e=round(float(w['end']), 3))
+                        for seg in r['segments'] for w in seg.get('words', []) if w['word'].strip()]
+
+def sha(p):
+    h = hashlib.sha256()
+    with open(p, 'rb') as f:
+        for chunk in iter(lambda: f.read(1 << 20), b''): h.update(chunk)
+    return h.hexdigest()
+
+if not os.path.exists(VID):
+    raise SystemExit(f"cannot bind plan evidence: delivered file is not on disk: {VID}")
+if not os.path.exists('cap/manifest.json'):
+    raise SystemExit("cap/manifest.json is missing; rerun captions.py before plan_sq.py")
+plan['caption_states'] = json.load(open('cap/manifest.json'))['caption_states']
+plan['speech_words'] = delivered_speech or list(plan['words'])
+plan['speech_words_evidence'] = (dict(method='delivered_asr', video_sha256=sha(VID))
+                                 if delivered_speech else dict(method='verbatim_source_ctc'))
+plan['graphic_regions'] = [dict(g, mov_sha256=sha(g['mov'])) for g in graphics]
+plan['graphic_regions'] += [dict(name=f'card@{a:.3f}', beat=[a, b], rect=[0, 0, 1080, 1080])
+                            for a, b in cards]
+
+windows = []
+for i, b in enumerate(tl):
+    beat = [round(b['t0'], 3), round(b['t1'], 3)]
+    intent = b.get('framing_motion') or b.get('motion')
+    if intent not in (None, 'tracking', 'fixed-wide'):
+        raise SystemExit(f"beat {i} has invalid framing_motion {intent!r}")
+    if b['kind'] == 'talk':
+        windows.append(dict(name=f'talk-{i}', beat=beat, rect=[0, 0, 1080, 1080],
+                            motion=intent or 'tracking'))
+        continue
+    metas = sorted(glob.glob(f'gfx/p{i:03d}_*.mov.json'))
+    if metas:
+        holes = json.load(open(metas[-1]))
+        if 'dan' in holes:
+            x0, y0, x1, y1 = holes['dan']
+            windows.append(dict(name=f"{b['kind']}-{i}", beat=beat,
+                                rect=[round(x0), round(y0), round(x1-x0), round(y1-y0)],
+                                motion=intent or 'fixed-wide'))
+plan['talking_head_windows'] = windows
+
+tracks = []
+for kind, items in (('ai', ai_inserts), ('real', real_photos)):
+    other = 'real' if kind == 'ai' else 'ai'
+    for i, item in enumerate(items):
+        image = item.get('chip') or plan['label_chips'].get(kind)
+        wrong = plan['label_chips'].get(other)
+        if not image: continue
+        tracks.append(dict(name=f'{kind}-{i}-{item.get("name", "insert")}', kind=kind,
+                           beat=item['beat'], image=image, image_sha256=sha(image),
+                           wrong_image=wrong, wrong_image_sha256=sha(wrong) if wrong else None,
+                           pos=item.get('pos') or plan['label_pos'].get(kind), search_px=2,
+                           visibility='full'))
+plan['label_tracks'] = tracks
+plan['evidence_contract'] = dict(version=2, video_sha256=sha(VID),
+                                 generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat())
 json.dump(plan, open('plan.json', 'w'), indent=1)
 print(f"{os.getcwd()}/plan.json: {len(joins)} joins, {len(punch)} framing segments, "
       f"{len(real_photos)} real photos, {len(ai_inserts)} AI inserts, {len(graphics)} graphics, "

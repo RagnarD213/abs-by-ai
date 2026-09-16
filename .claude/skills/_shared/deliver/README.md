@@ -52,6 +52,51 @@ What divergence had already cost, each re-verified 2026-09-09:
 5. **Never raise a threshold to make a build pass.** If a corpus entry fails a bound, that *is* the
    finding. Report it; do not tune it away.
 
+## Evidence contract v2 (2026-09-16)
+
+Composite edits cannot be graded honestly from a flat SRT and a full-frame crop. A delivery plan
+that uses any v2 field must include:
+
+```json
+"evidence_contract": {"version": 2, "video_sha256": "<delivered file>"}
+```
+
+The new fields are `caption_states`, `speech_words`, `graphic_regions`,
+`talking_head_windows`, and `label_tracks`; `gate.py --plan-keys` documents their shapes. Renderer
+assets may carry their own SHA-256. Missing assets, changed assets, invalid rectangles, and geometry
+bound to another render all fail `NOT MEASURED`—stale metadata can never certify new pixels.
+
+`caption_states` are the compositor's real PNG/highlight states, not an SRT approximation. The gate
+checks their alpha/ink bounds against graphic regions and verifies the state itself in the delivered
+pixels. `speech_words` are timed from delivered-audio ASR, or from source CTC only when this exact
+file carries a verbatim audio-gate PASS stamp. The evidence method is explicit in
+`speech_words_evidence`, so continuous speech no longer depends on finding silence or trusting an
+unverified timing file.
+
+`talking_head_windows` makes the detector work inside full-screen, stacked, and side-by-side
+composites. Every state says `motion: tracking` or `motion: fixed-wide`; an intentional fixed-wide
+shot still has its hair/face measured but is not falsely failed for not tracking the centre line.
+
+`label_tracks` follow the renderer's source image and transform through the delivered pixels.
+Short transition states may be declared `visibility: partial`; they are reported separately, never
+counted as an unexplained missing label. A moving three-frame state can provide its exact
+`sample_times`; an optional position search is capped at four pixels by the format so codec/frame
+rounding is tolerated without allowing a misplaced label to pass. The gate also measures every
+full label rectangle against an independent delivered-frame person mask; `label_clearance` can
+instead bind an existing equivalent face/abs mask report to the delivered SHA.
+
+Policy scans now have four explicit outcomes: PASS, confirmed FAIL, NEEDS HUMAN REVIEW, and NOT
+MEASURED. Every finding must say `disposition: cleared|confirmed_violation|needs_review`; an
+unresolved review candidate blocks delivery without being mislabeled as a confirmed violation.
+
+Current automatic v2 exporters are the active `shortad-from-longform/reference/plan_build.py`
+vertical path (`ad9x16`) and its square `a11_sq_ad1/plan_sq.py` path (`ad1x1`). The other five
+declared formats continue through the legacy plan fields unless their renderer actually uses PNG
+states or composite windows; their existing ASS, full-frame and format-specific N/A behavior is
+unchanged. In particular, `longform` still requires no burned captions and delivers an SRT. Do not
+claim v2 coverage for `ad16x9`, `longform`, `short`, `website`, or `exercise-demo` until that
+format's renderer exports these facts.
+
 ## Where a number may live
 
 **`formats.py`, beside the file and the date it was measured on.** Nowhere else. If you are about
@@ -75,9 +120,15 @@ approved (rev 4 measures 37%). That is per-format config — *not* a widened bou
 ## Verifying a change
 
 ```bash
+python3 -m unittest discover -s .claude/skills/_shared/deliver/tests -v
 python3 .claude/skills/_shared/deliver/gate.py --audit          # no format has a hole
 python3 .claude/skills/_shared/qc_corpus/run.py                 # must stay green (~15 min)
 ```
+
+The focused fixtures cover positive and negative PNG collisions, early/late continuous-speech
+timing, present/missing/wrong and partial label states, stale hashes, invalid square/vertical
+windows, clipped hair inside a declared window, fixed-wide intent, legacy ASS parsing, and the four
+policy outcomes.
 
 **`run.py` is the acceptance test for this module.** It re-runs our gates over every file Dan
 rejected and every file he approved, with his words recorded, and it must fail every rejected one
@@ -98,12 +149,10 @@ and a 2 fps scan stepped straight over it.
 
 ## Known gaps, stated rather than hidden
 
-* **`captions:graphic_clearance` is built but not registered in the regression corpus.** It runs on
-  every future delivery (it renders each cue over green for its true ink bbox and compares that with
-  the graphic's own alpha — the measurement that caught website rev 2). It cannot be *proven*
-  against corpus entry `website-rev2`, because that build's plan is not on disk. Four delivered-pixel
-  substitutes were measured on 2026-09-11 and none separated rev 2 from rev 4. See the note in
-  `checks/captions.py` and in `qc_corpus/run.py`.
+* **Legacy ASS caption clearance still lacks the old website rev 2 build plan.** Future PNG-caption
+  builds use evidence contract v2: actual alpha/ink states, renderer graphic geometry, delivered-
+  pixel state verification, and regression fixtures. The legacy ASS path remains intact for old
+  masters and is still pending against `website-rev2` because its build assets were not preserved.
 * **`compliance:banned_screen` is registered in the corpus as of 2026-09-12 (Phase 2 item 0).**
   Stage 3 tests the phone box the chrome located for the screen's own signature: **the band
   between the two chrome strips is a photograph** (white fraction ≤ 0.50, luma sd ≥ 30) — on every
@@ -119,12 +168,13 @@ and a 2 fps scan stepped straight over it.
 * **`watch:pass` is a hard gate for `ad9x16` and `ad1x1` only.** Every other format carries a dated
   `pending` note and the gate prints the row as PENDING — never as a pass. Phase 3 of
   `Handoffs/handoff-20260911-video-quality-engine.md` turns it on everywhere.
-* **`framing:*` landed 2026-09-12 (Phase 2)** — five rows on one tracker (`checks/framing.py`):
+* **`framing:*` landed 2026-09-12 (Phase 2), composite windows landed 2026-09-16** — five rows on one tracker (`checks/framing.py`):
   mediapipe FaceMesh (plus the full-range detector for a small face) anchors the head band, Apple
   Vision person segmentation (`shorts/reference/recentre/personmask`) gives the hair top, and the
   independent top-rows test from `hairgate.py` now runs on a second segmenter (mediapipe selfie
-  segmentation) instead of the 8/28 door panel's luma. Needs no plan and no set-specific reference.
-  Proven on the corpus: fails rev 2, rev 3, `v2-short3-offcentre`, `ad1-vertical-attempt1`; passes
+  segmentation) instead of the 8/28 door panel's luma. Full-frame edits need no plan or set-specific
+  reference; composite edits need their renderer window schedule. Evidence contract v2 crops each sample to the declared compositor window before those same
+  detectors run and normalizes measurements to that window. Proven on the corpus: fails rev 2, rev 3, `v2-short3-offcentre`, `ad1-vertical-attempt1`; passes
   rev 4/5/6 and Muhammad Ad 2. Known limits: a face on a **photo card** is tracked like Dan on
   camera unless the plan declares the card (the palette filter only drops cutaways whose palette
   differs), and `personmask` is an arm64 binary that must exist on disk — the rows fail NOT MEASURED

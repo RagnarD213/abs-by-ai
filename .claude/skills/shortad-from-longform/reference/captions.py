@@ -140,7 +140,7 @@ def render(gs, out='captions.mov', capdir='cap'):
     blank = f'{capdir}/_blank.png'
     if not os.path.exists(blank):
         Image.new("RGBA", (VW, VH), (0, 0, 0, 0)).save(blank)
-    entries, n, t = [], 0, 0.0
+    entries, states, n, t = [], [], 0, 0.0
     # HARD STOPS (2026-09-10, lesson A6.14): a line's last word is held up to 0.8 s, and that hold must never run into a
     # graphic that mutes the captions nor across a cutdown seam (beats.SEAMS, when the build defines it).
     STOPS = sorted(set([a_ for a_, b_ in suppressed()] + list(getattr(BT, 'SEAMS', []))))
@@ -188,7 +188,15 @@ def render(gs, out='captions.mov', capdir='cap'):
                 if stop is not None: end = max(min(end, stop), ws + 1.0/29.97)
             else:
                 end = g[k + 1][1]
-            entries.append((p, max(0.04, end - max(ws, t)))); t = max(end, t)
+            start = max(ws, t)
+            duration = max(0.04, end - start)
+            entries.append((p, duration))
+            states.append(dict(name=f"caption-{n-1:05d}", word=w,
+                               beat=[round(start, 4), round(start + duration, 4)],
+                               speech=[round(ws, 4), round(we, 4)],
+                               image=os.path.abspath(p), pos=[0, 0], scale=1.0,
+                               image_sha256=hashlib.sha256(open(p, 'rb').read()).hexdigest()))
+            t = max(end, t)
     with open(f'{capdir}/list.txt', 'w') as f:
         for p, d in entries:
             f.write(f"file '{os.path.abspath(p)}'\nduration {d:.4f}\n")
@@ -202,6 +210,10 @@ def render(gs, out='captions.mov', capdir='cap'):
         # up on the Ad 2 square and never applied in code. A blank, held, then repeated.
         f.write(f"file '{os.path.abspath(blank)}'\nduration 0.5000\n")
         f.write(f"file '{os.path.abspath(blank)}'\n")
+    # Machine-readable compositor truth. plan_build.py binds this manifest to the delivered file;
+    # the gate then verifies these exact PNG/highlight states in the delivered pixels.
+    json.dump(dict(version=1, frame_size=[VW, VH], caption_states=states),
+              open(f'{capdir}/manifest.json', 'w'), indent=1)
     subprocess.run([FF, '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', f'{capdir}/list.txt',
                     '-r', '30000/1001', '-c:v', 'qtrle', '-pix_fmt', 'argb', out], check=True)
     print(f'{len(gs)} groups, {n} word states -> {out}')

@@ -6,6 +6,7 @@ longforms carry NO burned captions -- the .srt sidecar is the deliverable (Dan, 
 Shorts carry them. So `captions:burned` is a per-format config value with two legal settings, and a
 format must state which it is; it may not stay silent.
 """
+import json
 import os
 import re
 import subprocess
@@ -13,6 +14,7 @@ import subprocess
 import numpy as np
 
 from .. import common as C
+from .. import contract as CONTRACT
 from ..common import Row, unmeasured
 
 
@@ -26,7 +28,8 @@ def read_cues(path):
     """[(start, end, text)] from an .ass or .srt file."""
     if not path or not os.path.exists(path):
         return None
-    txt = open(path, errors="replace").read()
+    with open(path, errors="replace") as f:
+        txt = f.read()
     if path.lower().endswith(".ass"):
         out = []
         for line in txt.splitlines():
@@ -97,6 +100,90 @@ def _vgap(c, g):
     return -(min(c[3], g[3]) - max(c[1], g[1]))
 
 
+def _png_bbox(item):
+    """Actual alpha/ink bbox after the compositor's declared translation and scale."""
+    from PIL import Image
+    path = item.get("image")
+    if not path or not os.path.exists(path):
+        return None
+    with Image.open(path) as src:
+        im = src.convert("RGBA")
+    box = im.getchannel("A").getbbox()
+    if not box:
+        return None
+    rect = CONTRACT.transform_rect(item, im.size)
+    if rect is None:
+        return None
+    x, y, w, h = rect
+    sx, sy = w / im.width, h / im.height
+    return (x + int(round(box[0] * sx)), y + int(round(box[1] * sy)),
+            x + int(round(box[2] * sx)) - 1, y + int(round(box[3] * sy)) - 1)
+
+
+def _new_graphic_clearance(key, pr, cfg, plan, video):
+    err = CONTRACT.contract_error(plan, key)
+    if err:
+        return unmeasured(key, err)
+    states, regions = plan.get("caption_states") or [], plan.get("graphic_regions")
+    if not states:
+        return unmeasured(key, "`caption_states` is empty; export the PNG states the compositor drew")
+    if regions is None:
+        return unmeasured(key, "`graphic_regions` is absent (an empty list is a legal answer)")
+    min_corr, min_gap = cfg["min_state_corr"], cfg["min_px"]
+    pairs, bad, scores = [], [], []
+    cache = plan.setdefault("_pixel_corr_cache", {})
+    jobs = [(i, state, (float(state["beat"][0]) + float(state["beat"][1])) / 2, "image")
+            for i, state in enumerate(states)]
+    CONTRACT.pixel_correlations(video, jobs, cache)
+    for state in states:
+        cb = _png_bbox(state)
+        if cb is None:
+            bad.append((state.get("name", "?"), "invalid caption transform/image"))
+            continue
+        a, b = state["beat"]
+        t = (float(a) + float(b)) / 2
+        score = cache.get(CONTRACT.correlation_key(state, t))
+        if score is None or score < min_corr:
+            bad.append((state.get("name", "?"), "caption state not found in delivered pixels",
+                        None if score is None else round(score, 3)))
+        else:
+            scores.append(score)
+        for region in regions:
+            if b <= region["beat"][0] + 0.01 or a >= region["beat"][1] - 0.01:
+                continue
+            gb = CONTRACT.transform_rect(region)
+            if gb is None and region.get("image"):
+                ink = _png_bbox(region)
+                if ink is not None:
+                    gb = (ink[0], ink[1], ink[2] - ink[0] + 1, ink[3] - ink[1] + 1)
+            if gb is None and region.get("mov") and os.path.exists(region["mov"]):
+                lo, hi = max(float(a), float(region["beat"][0])), min(float(b), float(region["beat"][1]))
+                boxes = [_alpha_bbox(region["mov"], max(0.0, t - float(region["beat"][0])),
+                                     pr["width"], pr["height"])
+                         for t in (lo + 0.01, (lo + hi) / 2, max(lo + 0.01, hi - 0.01))]
+                boxes = [x for x in boxes if x]
+                if boxes:
+                    x0, y0 = min(x[0] for x in boxes), min(x[1] for x in boxes)
+                    x1, y1 = max(x[2] for x in boxes), max(x[3] for x in boxes)
+                    gb = (x0, y0, x1 - x0 + 1, y1 - y0 + 1)
+            if gb is None:
+                bad.append((state.get("name", "?"), region.get("name", "?"),
+                            "invalid graphic rect"))
+                continue
+            x, y, w, h = gb
+            gap = _vgap(cb, (x, y, x + w - 1, y + h - 1))
+            if gap is not None:
+                pairs.append(gap)
+                if gap < min_gap:
+                    bad.append((state.get("name", "?"), region.get("name", "?"), gap))
+    return Row(key, not bad,
+               f"{len(states)} compositor PNG state(s) verified in delivered pixels; {len(pairs)} "
+               f"state/graphic pairs, tightest {min(pairs) if pairs else 'n/a'} px (min {min_gap}); "
+               f"{len(bad)} problem(s): {bad[:5]}",
+               dict(states=len(states), verified=len(scores), min_state_corr=min(scores) if scores else None,
+                    pairs=len(pairs), tightest=min(pairs) if pairs else None, bad=bad[:30]))
+
+
 # ---------------------------------------------------------------------------- rows
 def graphic_clearance(key, pr, cfg, plan, video, work):
     """captions:graphic_clearance -- every caption clears every graphic it shares a frame with.
@@ -117,6 +204,8 @@ def graphic_clearance(key, pr, cfg, plan, video, work):
     that reason rather than letting the row go green on a NOT MEASURED. It clears the first time a
     delivery carries both the defect and its plan.
     """
+    if "caption_states" in plan:
+        return _new_graphic_clearance(key, pr, cfg, plan, video)
     ass = plan.get("captions_ass")
     gfx = plan.get("graphics")
     if not ass or not os.path.exists(ass):
@@ -125,7 +214,8 @@ def graphic_clearance(key, pr, cfg, plan, video, work):
     if not gfx:
         return unmeasured(key, "the plan declares no `graphics` (name, beat, mov) to clear")
     w, h = pr["width"], pr["height"]
-    cues = [l.rstrip("\n") for l in open(ass, errors="replace") if l.startswith("Dialogue:")]
+    with open(ass, errors="replace") as f:
+        cues = [l.rstrip("\n") for l in f if l.startswith("Dialogue:")]
     gap_min = cfg["min_px"]
     pairs, bad = [], []
     for line in cues:
@@ -240,6 +330,71 @@ def sync(key, pr, cfg, plan, video, work):
     audio: for every cue that follows at least `gap` of silence, the speech onset after the cue's
     start must land inside the tolerance. A caption that runs early reads as a different sentence.
     """
+    states = plan.get("caption_states")
+    if states is not None:
+        err = CONTRACT.contract_error(plan, key)
+        if err:
+            return unmeasured(key, err)
+        speech = plan.get("speech_words")
+        if not states or not speech:
+            return unmeasured(key, "continuous-speech sync needs both `caption_states` and timed "
+                                   "`speech_words` aligned from the delivered audio")
+        evidence = plan.get("speech_words_evidence") or {}
+        method = evidence.get("method")
+        if method == "delivered_asr":
+            if evidence.get("video_sha256") != plan.get("_sha256"):
+                return unmeasured(key, "speech_words_evidence is not bound to this delivered file")
+        elif method == "verbatim_source_ctc":
+            stamp_path = video + ".audio_gate.json"
+            if not os.path.exists(stamp_path):
+                return unmeasured(key, "source-mix CTC timing requires this file's audio-gate "
+                                       "verbatim PASS stamp")
+            with open(stamp_path) as f:
+                stamp = json.load(f)
+            if (stamp.get("sha256") != plan.get("_sha256") or stamp.get("verdict") != "PASS" or
+                    "verbatim" not in str(stamp.get("mode", ""))):
+                return unmeasured(key, "audio-gate stamp does not prove this delivered audio is "
+                                       "the verbatim source used for CTC word timing")
+        else:
+            return unmeasured(key, "speech_words_evidence.method must be `delivered_asr` or "
+                                   "`verbatim_source_ctc`")
+        pairs, nc, ns = CONTRACT.timed_word_pairs(states, speech)
+        if not pairs:
+            return unmeasured(key, "no caption words sequence-align with delivered-audio words")
+        tol = cfg["tolerance_ms"] / 1000.0
+        bad = [(round(d * 1000), c.get("word"), c.get("beat"),
+                [s.get("t", s.get("start")), s.get("e", s.get("end"))])
+               for d, c, s in pairs if abs(d) > tol]
+        verified, absent = [], []
+        cache = plan.setdefault("_pixel_corr_cache", {})
+        jobs = [(i, c, (float(c["beat"][0]) + float(c["beat"][1])) / 2, "image")
+                for i, c in enumerate(states)]
+        CONTRACT.pixel_correlations(video, jobs, cache)
+        for _d, c, _s in pairs:
+            a, b = c["beat"]
+            t = (float(a) + float(b)) / 2
+            score = cache.get(CONTRACT.correlation_key(c, t))
+            if score is None or score < cfg["min_state_corr"]:
+                absent.append((c.get("word"), round((a + b) / 2, 3),
+                               None if score is None else round(score, 3)))
+            else:
+                verified.append(score)
+        # Caption suppression is deliberate over graphics/cards, so speech_words is normally much
+        # longer than the caption sequence. Grade whether every captioned word found its matching
+        # delivered-audio word, not whether every spoken word was captioned.
+        match_frac = len(pairs) / max(nc, 1)
+        ok = (not bad and not absent and match_frac >= cfg["min_word_match_frac"])
+        offs = [d for d, _c, _s in pairs]
+        return Row(key, ok,
+                   f"{len(pairs)}/{nc} highlighted PNG word states aligned to {ns} delivered-audio "
+                   f"words ({match_frac*100:.1f}%, min {cfg['min_word_match_frac']*100:.0f}%); "
+                   f"median {np.median(offs)*1000:+.0f} ms, worst {max(offs, key=abs)*1000:+.0f} ms "
+                   f"(max {tol*1000:.0f}); {len(absent)} state(s) absent from delivered pixels, "
+                   f"{len(bad)} timing miss(es)",
+                   dict(matched=len(pairs), caption_words=nc, speech_words=ns, match_frac=match_frac,
+                        median_ms=round(float(np.median(offs))*1000, 1),
+                        worst_ms=round(float(max(offs, key=abs))*1000, 1),
+                        absent=absent[:30], bad=bad[:30]))
     cues = read_cues(plan.get("captions_ass") or plan.get("srt"))
     if cues is None:
         return unmeasured(key, "the plan gives no readable `captions_ass` or `srt`")

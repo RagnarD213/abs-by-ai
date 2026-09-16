@@ -599,6 +599,17 @@ the current `GATE_VERSION`.
   apply here, add it to that format's `not_applicable` in `formats.py` with a written reason.
 - **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
   must stay green, and it is what proves a bound change did not resurrect a rejected cut.
+- **PNG captions and composite layouts use evidence contract v2.** The caption compositor writes
+  `cap/manifest.json`; `plan_build.py` copies its per-word PNG/highlight states, delivered-audio
+  word timing, graphic regions, actual Dan-window rectangles, fixed-wide/tracking intent, and
+  transformed label states into `plan.json`, then binds all of it to the delivered file's SHA-256.
+  Never hand-type or copy this geometry from an older render. A stale hash, missing manifest, or
+  missing renderer asset is `NOT MEASURED` and blocks delivery.
+  Square builds use `a11_sq_ad1/plan_sq.py` and gate with `--format ad1x1`; vertical builds use
+  `plan_build.py` and `--format ad9x16`.
+- **Policy candidates are not automatic violations or passes.** Each negative-events finding gets
+  `disposition: cleared`, `confirmed_violation`, or `needs_review`. The last one prints NEEDS HUMAN
+  REVIEW and blocks the gate until a person records the disposition.
 
 ⚠ The older per-video QC script in `reference/` still runs and still has rows this gate has not
 absorbed yet (the watch pass is Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`;
