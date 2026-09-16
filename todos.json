@@ -123,6 +123,24 @@
       "priority": "med",
       "why": "Dan 09-15 /prioritize: new idea, not yet scoped (no product line, budget or margin decided). Depends on the SixPackAbs rebrand-research decision delivered 09-14 (still his call) since that report sets SixPackAbs.com's positioning before a store gets built on it.",
       "addedAt": "2026-09-15"
+    },
+    {
+      "text": "Do the hard part of the filming room setup yourself (mounting, lights, backdrop, power) — leave the finishing for Brittany Friday",
+      "priority": "key",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16: start the room today; it gates recording the website conversion videos. Work order: https://claude.ai/code/artifact/2b21b748-62f0-455f-aafb-ac9a6a23ad44"
+    },
+    {
+      "text": "Review Upwork: editor messages, deliveries and open jobs",
+      "priority": "high",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16 prioritize."
+    },
+    {
+      "text": "Check ad campaigns (Google Ads policy on Ads 6/7/10/14, spend and conversions; Meta)",
+      "priority": "high",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16. Policy re-run on the four new ads was due 09-16; Codex can run it."
     }
   ],
   "health": [
@@ -169,6 +187,18 @@
       "priority": "med",
       "addedAt": "2026-09-15",
       "why": "Was parked in the health list; the daily health reset would have wiped it"
+    },
+    {
+      "text": "Request unemployment payment (TWC)",
+      "priority": "high",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16; money, Dan-only login."
+    },
+    {
+      "text": "Update dating profiles",
+      "priority": "med",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16; photos in photos/dating video candidates/ and the finalized studio library."
     }
   ],
   "assistant": [
