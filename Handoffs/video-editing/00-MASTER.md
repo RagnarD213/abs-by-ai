@@ -164,6 +164,10 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
 | [AV-07](AV-07-ad10-vertical.md) | Ad 10 | READY | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
+| [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | READY | M |
+| [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT | READY | M |
+| [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs | READY | M |
+| [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | READY | M |
 
 **Squares (each builds full + ≤0:59, from the approved vertical)**
 
@@ -176,10 +180,13 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-05](AS-05-ad7-square.md) | Ad 7 | BLOCKED: AV-06 approved | M |
 | [AS-06](AS-06-ad10-square.md) | Ad 10 | BLOCKED: AV-07 approved | M |
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |
+| [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED: AV-09 approved | M |
+| [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
+| [AS-10](AS-10-ad13-square.md) | Ad 13 | BLOCKED: AV-11 approved | M |
+| [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
 
-**Will need all four variants once final (no handoff yet):** Ads **8** (Two Futures), **9** (ChatGPT), **13** (Added Up The
-Cost), **15** (T-Shirt Dad). Muhammad delivered their HD exports on 09-16, and they're waiting on your check. When you
-finalize one, add an AV + AS pair here by copying AV-05 / AS-04. Also every RA-01 … RA-16 once approved (square + any hook variants).
+Ads 8, 9, 13 and 15 were finalized and installed on YouTube + Demand Gen 09-16; their AV + AS jobs above now carry
+the remaining vertical, square and ≤0:59 variants. Also every RA-01 … RA-16 once approved needs its square + any hook variants.
 
 ---
 

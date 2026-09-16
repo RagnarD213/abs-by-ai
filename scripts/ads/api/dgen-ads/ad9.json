@@ -1,0 +1,30 @@
+{
+  "adNumber": 9,
+  "label": "Ad 9 ChatGPT For Abs",
+  "videos": [
+    { "youtubeId": "l4myK7f-sKo", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "I Tried ChatGPT For Abs",
+      "When An AI Image Misses",
+      "A Goal Image That Looks Like You",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Daniel Rose explains why a generic AI fitness image did not look like him.",
+      "See what a believable goal image needs to preserve from your own starting photo.",
+      "Daniel compares generic AI images with a fitness tool built for one specific job."
+    ],
+    "descriptions": [
+      "Daniel Rose shows why his first AI fitness image did not look like his face or body.",
+      "See how Abs by AI keeps the person's face, frame and starting point in the image.",
+      "A personal comparison of generic AI, fitness goal images and a practical plan."
+    ]
+  }
+}

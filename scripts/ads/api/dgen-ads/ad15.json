@@ -1,0 +1,30 @@
+{
+  "adNumber": 15,
+  "label": "Ad 15 Dad In A T-Shirt",
+  "videos": [
+    { "youtubeId": "TqXD2dGgAPs", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "I Swam In A T-Shirt",
+      "A Busy Dad's Fitness Plan",
+      "Fitness Built Around Family",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Daniel Rose tells the story of being the dad who kept his T-shirt on at the pool.",
+      "See how a busy dad built workouts and meals around work, family and real life.",
+      "AI workout and meal planning explained by a dad who used the system himself at 40."
+    ],
+    "descriptions": [
+      "Daniel Rose explains how family became his motivation to build a practical fitness plan.",
+      "A busy dad shows the workout and nutrition system he built around real life.",
+      "See how one goal image becomes a personalized workout and nutrition plan."
+    ]
+  }
+}

@@ -16,9 +16,23 @@ Checked 2026-09-16 against the review exports on record from Muhammad. Per Dan's
 
 Ad 14 is the only file proved to be the same finalized cut at higher quality. Ads 8, 9, 13 and 15 are not resolution-only exports of the accepted references: their audio and complete timelines were preserved, but their visuals were edited. This finding does **not** say those edits are bad or that abandoned revision requests should be restored. It says only that the four HD files are not identical to the finalized review exports used for comparison.
 
-Because exact identity was the upload condition, Ads 8, 9, 13 and 15 were not uploaded or added to Google Ads. Their HD files can still be used if Dan explicitly designates those changed HD versions as the new approved masters.
+Dan reviewed the changed ranges on 2026-09-16 and explicitly designated Ads 8, 9, 13 and 15 as finalized. Those HD
+files are therefore the authoritative approved masters; exact identity to the earlier review proxies is no longer the
+approval condition.
 
 Ad 14 passed and was installed: [YouTube `SGJoPjnl6AU`](https://youtu.be/SGJoPjnl6AU), Unlisted and fully processed. New Google Ads `824922224568` (`/start`) and `824922224571` (homepage) are enabled and under review; the two ads using the superseded low-bitrate upload are paused.
+
+The four newly finalized ads were also installed on 2026-09-16:
+
+| Ad | Unlisted YouTube | Google `/start` ad | Google homepage ad |
+|---|---|---|---|
+| 8 | `HMZdiJMAI3Y` | `824925649893` | `824966555242` |
+| 9 | `l4myK7f-sKo` | `824966559286` | `824966559307` |
+| 13 | `hrQf1240kQA` | `824925676464` | `824966566927` |
+| 15 | `TqXD2dGgAPs` | `825050916875` | `824925650094` |
+
+All eight Google ads are enabled and in policy review. The campaign remains enabled at its unchanged shared $40/day
+budget with $30 target CPA. Organic/public posting was not done.
 
 ## Evidence
 

@@ -1,0 +1,30 @@
+{
+  "adNumber": 13,
+  "label": "Ad 13 The Cost Of Getting Abs",
+  "videos": [
+    { "youtubeId": "hrQf1240kQA", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "The Cost Of Getting Abs",
+      "Fitness Advice Adds Up",
+      "One AI Fitness Plan",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Daniel Rose adds up the monthly cost of trainers, nutritionists, supplements and apps.",
+      "See why a plan built around one person can be more useful than a pile of generic advice.",
+      "Daniel compares paid fitness services with AI workout and meal planning."
+    ],
+    "descriptions": [
+      "Daniel Rose adds up what personal training, nutrition coaching and supplements can cost.",
+      "A practical comparison of generic fitness services and one personalized AI plan.",
+      "See how AI builds workouts and meals around your starting point, schedule and food."
+    ]
+  }
+}

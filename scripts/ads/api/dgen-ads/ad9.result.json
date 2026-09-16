@@ -1,0 +1,67 @@
+{
+ "at": "2026-09-16T22:17:28.079Z",
+ "results": [
+  "customers/3427170837/assets/422033283313",
+  "customers/3427170837/audiences/359424269",
+  "customers/3427170837/adGroups/200857678952",
+  "customers/3427170837/adGroupCriteria/200857678952~2840",
+  "customers/3427170837/adGroupCriteria/200857678952~2124",
+  "customers/3427170837/adGroupCriteria/200857678952~1000",
+  "customers/3427170837/adGroupCriteria/200857678952~2501923108699",
+  "customers/3427170837/adGroupAds/200857678952~824966559286",
+  "customers/3427170837/adGroups/198969095463",
+  "customers/3427170837/adGroupCriteria/198969095463~2840",
+  "customers/3427170837/adGroupCriteria/198969095463~2124",
+  "customers/3427170837/adGroupCriteria/198969095463~1000",
+  "customers/3427170837/adGroupCriteria/198969095463~2501923127939",
+  "customers/3427170837/adGroupAds/198969095463~824966559307"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/198969095463",
+    "id": "198969095463",
+    "name": "Ad 9 ChatGPT For Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/198969095463~824966559307",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824966559307",
+     "id": "824966559307",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad9&utm_content=muhammad-16x9-home"
+     ],
+     "name": "Ad 9 ChatGPT For Abs | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200857678952",
+    "id": "200857678952",
+    "name": "Ad 9 ChatGPT For Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200857678952~824966559286",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824966559286",
+     "id": "824966559286",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad9&utm_content=muhammad-16x9-start"
+     ],
+     "name": "Ad 9 ChatGPT For Abs | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

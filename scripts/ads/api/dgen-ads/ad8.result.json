@@ -1,0 +1,67 @@
+{
+ "at": "2026-09-16T22:17:27.973Z",
+ "results": [
+  "customers/3427170837/assets/422033285275",
+  "customers/3427170837/audiences/359424266",
+  "customers/3427170837/adGroups/201149830478",
+  "customers/3427170837/adGroupCriteria/201149830478~2840",
+  "customers/3427170837/adGroupCriteria/201149830478~2124",
+  "customers/3427170837/adGroupCriteria/201149830478~1000",
+  "customers/3427170837/adGroupCriteria/201149830478~2501536261095",
+  "customers/3427170837/adGroupAds/201149830478~824925649893",
+  "customers/3427170837/adGroups/203342192834",
+  "customers/3427170837/adGroupCriteria/203342192834~2840",
+  "customers/3427170837/adGroupCriteria/203342192834~2124",
+  "customers/3427170837/adGroupCriteria/203342192834~1000",
+  "customers/3427170837/adGroupCriteria/203342192834~2502722380231",
+  "customers/3427170837/adGroupAds/203342192834~824966555242"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201149830478",
+    "id": "201149830478",
+    "name": "Ad 8 Two AI Futures | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201149830478~824925649893",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824925649893",
+     "id": "824925649893",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad8&utm_content=muhammad-16x9-start"
+     ],
+     "name": "Ad 8 Two AI Futures | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/203342192834",
+    "id": "203342192834",
+    "name": "Ad 8 Two AI Futures | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/203342192834~824966555242",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824966555242",
+     "id": "824966555242",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad8&utm_content=muhammad-16x9-home"
+     ],
+     "name": "Ad 8 Two AI Futures | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

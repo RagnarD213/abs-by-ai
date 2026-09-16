@@ -234,9 +234,35 @@ were read back:
 | Superseded review-grade | `z5AfM0fhcIg` → `421486077779` | **824835458839** PAUSED | **824835458866** PAUSED |
 
 Final URLs use `utm_campaign=dgen-conv-ad14&utm_content=muhammad-16x9-hd-<start|home>`. The campaign, shared budget,
-audience, landing pages, copy, groups and $30 target CPA were unchanged. Ads 8, 9, 13 and 15 were not added because
+audience, landing pages, copy, groups and $30 target CPA were unchanged. At that checkpoint, Ads 8, 9, 13 and 15 were not added because
 their HD deliveries contain visual edits versus the finalized review references and therefore did not pass the
 resolution-only identity condition. Organic/public posting was not done.
+
+## 2026-09-16 — Ads 8, 9, 13 and 15 finalized and added
+
+After reviewing the visual differences from their earlier review proxies, Dan explicitly declared Muhammad's delivered
+HD exports finalized. The byte-matching filed masters were uploaded to channel `UC236gjadarHAhEhOMYNGJ9g` as Unlisted,
+processed successfully, read back as embeddable, and given their approved dark-studio thumbnails. Descriptions include
+chapters, disclosure and tracked homepage links.
+
+Each config passed Google `validateOnly` with 14 intended operations before apply. Four video assets, four audiences,
+eight $30-target-CPA ad groups and eight enabled ads were created and read back:
+
+| Ad | video → asset | audience | `/start` group → ad | home group → ad |
+|---|---|---|---|---|
+| Ad 8 Two AI Futures | `HMZdiJMAI3Y` → `422033285275` | `359424266` | `201149830478` → **`824925649893`** | `203342192834` → **`824966555242`** |
+| Ad 9 ChatGPT For Abs | `l4myK7f-sKo` → `422033283313` | `359424269` | `200857678952` → **`824966559286`** | `198969095463` → **`824966559307`** |
+| Ad 13 The Cost Of Getting Abs | `hrQf1240kQA` → `421933351559` | `359747866` | `197465035822` → **`824925676464`** | `200980520340` → **`824966566927`** |
+| Ad 15 Dad In A T-Shirt | `TqXD2dGgAPs` → `422033325238` | `359743849` | `199925345509` → **`825050916875`** | `198969095983` → **`824925650094`** |
+
+Final URLs use `utm_campaign=dgen-conv-ad8|ad9|ad13|ad15` and
+`utm_content=muhammad-16x9-<start|home>`. Policy read-back shows all eight ads ENABLED and
+`REVIEW_IN_PROGRESS`. Campaign `24243839443` remains ENABLED at its unchanged **$40/day shared budget**; every new ad
+group has the existing $30 target CPA, and no prior campaign assets were changed.
+
+Muhammad's audio was uploaded untouched. Measurements: Ad 8 −14.3 LUFS / −1.9 dBTP; Ad 9 −14.5 / −0.9; Ad 13 −14.1 /
+−1.0; Ad 15 −14.0 / −0.9. Ads 9 and 15 exceed the preferred true-peak ceiling by 0.1 dB; this was documented rather
+than processed, under the standing editor-audio rule. Organic/public posting was not done.
 
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and

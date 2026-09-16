@@ -1,0 +1,30 @@
+{
+  "adNumber": 8,
+  "label": "Ad 8 Two AI Futures",
+  "videos": [
+    { "youtubeId": "HMZdiJMAI3Y", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "AI Showed Me Two Futures",
+      "A Goal Image That Looks Like Me",
+      "A Visual Target For Fitness",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Daniel Rose compares two AI fitness images and explains why one became his daily target.",
+      "See how a specific goal image helped Daniel make an abstract fitness goal more concrete.",
+      "AI goal images, workout planning and meal planning explained by a dad who used them at 40."
+    ],
+    "descriptions": [
+      "Daniel Rose shows the two AI images that changed how he thought about his fitness goal.",
+      "See how one photo becomes a visual target plus a workout and nutrition plan.",
+      "A practical look at using an AI goal image to support daily fitness habits."
+    ]
+  }
+}
