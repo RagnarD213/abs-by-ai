@@ -13,6 +13,10 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 - Never request the same authorization twice. Authorization and preferences persist across turns and tasks when recorded in these project instructions.
 - Before asking a necessary question, complete all work already authorized so Dan is approving one concrete, reviewable final action. If a safe path is blocked, continue all independent work first and ask only once at the remaining boundary.
 
+## Standing authorization for thumbnail replacement (Dan, 2026-09-16)
+
+- When Dan requests a thumbnail replacement, install the approved new thumbnail without asking again about removing the old thumbnail or its completed A/B test. Preserve available test results in the installation notes first. This does not authorize deleting the video or post itself.
+
 ## Context preservation
 
 - Dan prefers a proactive handoff over automatic context compaction. Do not intentionally continue a task until it nears the model context limit.
