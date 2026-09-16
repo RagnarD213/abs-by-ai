@@ -67,3 +67,19 @@ add_action( 'wp_head', function () {
 	printf( '<meta property="og:video:width" content="%d">' . "\n", $short ? 1080 : 1280 );
 	printf( '<meta property="og:video:height" content="%d">' . "\n", $short ? 1920 : 720 );
 }, 20 );
+
+// Yoast still carries a legacy @SixPackAbsBlueprint URL in its Organization
+// sameAs data. Keep the structured-data profile aligned with the channel that
+// the theme actually links to, even if that retired dashboard setting survives.
+add_filter( 'wpseo_schema_organization', function ( $data ) {
+	$profiles = isset( $data['sameAs'] ) && is_array( $data['sameAs'] ) ? $data['sameAs'] : array();
+	$profiles = array_values( array_filter( $profiles, function ( $url ) {
+		return false === stripos( (string) $url, 'youtube.com/@SixPackAbsBlueprint' );
+	} ) );
+	$youtube = spa_url( 'youtube' );
+	if ( ! in_array( $youtube, $profiles, true ) ) {
+		$profiles[] = $youtube;
+	}
+	$data['sameAs'] = $profiles;
+	return $data;
+}, 11 );

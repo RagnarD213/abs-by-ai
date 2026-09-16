@@ -261,7 +261,7 @@ Impact and Copperplate live in `/System/Library/Fonts/Supplemental/`.
   `sardefault.jpg`, an auto frame serves `oar1`/`frame0`:
 
   ```bash
-  curl -s "https://www.youtube.com/@AbsbyAI/shorts" -H "Accept-Language: en-US" > /tmp/s.html
+  curl -s "https://www.youtube.com/@danrosefit/shorts" -H "Accept-Language: en-US" > /tmp/s.html
   python3 - <<'PY'
   import re
   h=open('/tmp/s.html').read()

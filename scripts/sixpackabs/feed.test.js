@@ -61,7 +61,7 @@ const VIDEOS = [
   video('liveNow', { live: 'live', duration: 'P0D' }),
   video('rejected1', { upload: 'rejected', duration: 'PT2M' }),
 ];
-const CHANNEL = { items: [{ snippet: { customUrl: '@absbyai' }, statistics: { subscriberCount: '3030', videoCount: '18', hiddenSubscriberCount: false } }] };
+const CHANNEL = { items: [{ snippet: { customUrl: '@danrosefit' }, statistics: { subscriberCount: '3030', videoCount: '18', hiddenSubscriberCount: false } }] };
 
 const IG_TOKEN = 'EAAG-secret-graph-token';
 const IG = {
@@ -221,7 +221,7 @@ async function check(name, fn) {
     assert.strictEqual(v.pubLong1.durationSeconds, 768);
     assert.ok(v.pubLong1.description.startsWith('First line for pubLong1.'));
     assert.strictEqual(body.channel.subscriberCount, 3030);
-    assert.strictEqual(body.channel.handle, '@absbyai');
+    assert.strictEqual(body.channel.handle, '@danrosefit');
     assert.strictEqual(res.headers['Cache-Control'], 'public, max-age=300');
   });
 
