@@ -197,7 +197,7 @@ other server feature.
       block with its email form, tags, prev/next, comments, More posts), restyled with the tokens, under the new
       header/footer. `page.html`, `page-no-title.html`, `archive.html` (category archives), `index.html`, `search.html`,
       `404.html` — same header/footer, tokens applied lightly. `/blog/` must keep rendering the article list.
-    - Header part: mobile = logo (`height: 22px`) + red **Subscribe** pill (`https://www.youtube.com/@absbyai?sub_confirmation=1`)
+    - Header part: mobile = logo (`height: 22px`) + red **Subscribe** pill (`https://www.youtube.com/@danrosefit?sub_confirmation=1`)
       + hamburger opening the full-screen overlay (Videos · Shorts · About Dan · Abs Calculator · Collab · Try the AI
       App · Subscribe; 200 ms ease-out, focus trapped, Escape and backdrop close). Desktop = logo 28 px, nav, outline
       **Try the AI App**, red **Subscribe**. Sticky on mobile. The PostHog snippet moves here (or to
@@ -287,7 +287,7 @@ other server feature.
   --service abs-by-ai --kv`) — `GOOGLE_CLIENT_*`, `YOUTUBE_REFRESH_TOKEN`, `MAILERLITE_GROUP_ID`, add `META_ADS_TOKEN`.
 - WordPress.com: site id `253647467`; MCP tools `wpcom-mcp-site-editing` (templates), `wpcom-mcp-site`
   (settings/plugins), `wpcom-mcp-content-authoring` (posts/media).
-- Channel: `https://www.youtube.com/@absbyai`, id `UC236gjadarHAhEhOMYNGJ9g`. Instagram: `https://www.instagram.com/danrosefit/`,
+- Channel: `https://www.youtube.com/@danrosefit`, id `UC236gjadarHAhEhOMYNGJ9g`. Instagram: `https://www.instagram.com/danrosefit/`,
   IG id `17841401601139982`. App: `https://try.sixpackabs.com`. Disclaimer: `https://absbyai.com/disclaimer`.
 - History of the July conversion layer and the August SixPackAbs skin: `AI_COORDINATION_ARCHIVE.md` (search "SixPackAbs").
 - Memories: `repo-is-public` (the repo is public — no secrets, no personal photos beyond what is already in
