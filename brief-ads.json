@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-09-15T11:06:48.664Z",
-  "day": "2026-09-14",
+  "generatedAt": "2026-09-16T11:07:18.877Z",
+  "day": "2026-09-15",
   "window": {
-    "from": "2026-09-07",
-    "to": "2026-09-14",
+    "from": "2026-09-08",
+    "to": "2026-09-15",
     "baselineDays": 7
   },
   "blind": [],
   "totals": {
-    "spendYesterday": 72.69,
-    "spend7dMean": 84.3,
-    "deltaPct": -0.14,
+    "spendYesterday": 110.85,
+    "spend7dMean": 79.33,
+    "deltaPct": 0.4,
     "platformsLive": [
       "meta",
       "google"
@@ -21,21 +21,21 @@
       "severity": "high",
       "platform": "google",
       "scope": "campaign",
-      "kind": "zero_results",
-      "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
-      "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $19.29 for zero conversions",
-      "detail": "Across the last 8 days.",
-      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
+      "kind": "spend_spike",
+      "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
+      "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home spent $47.28 — 2.22x its normal day",
+      "detail": "7-day average is $21.32/day.",
+      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443"
     },
     {
-      "severity": "medium",
+      "severity": "high",
       "platform": "google",
       "scope": "campaign",
-      "kind": "cpa_degraded",
-      "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
-      "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $10.30",
-      "detail": "Its own 7-day average is $1.28 (+705%).",
-      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721"
+      "kind": "zero_results",
+      "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
+      "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $15.46 for zero conversions",
+      "detail": "Across the last 8 days.",
+      "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
     }
   ],
   "winners": [],
@@ -45,9 +45,9 @@
       "platform": "meta",
       "account": "act_2143998876461525",
       "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525",
-      "spend": 12.35,
-      "spend7dMean": 12.57,
-      "deltaPct": -0.02,
+      "spend": 10.45,
+      "spend7dMean": 13.46,
+      "deltaPct": -0.22,
       "campaigns": [
         {
           "id": "120250753198730682",
@@ -55,17 +55,17 @@
           "status": "ACTIVE",
           "resultLabel": "profile visit",
           "link": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=2143998876461525&selected_campaign_ids=120250753198730682",
-          "spend": 12.35,
-          "results": 182,
-          "impressions": 1606,
-          "clicks": 173,
-          "costPerResult": 0.07,
+          "spend": 10.45,
+          "results": 109,
+          "impressions": 1286,
+          "clicks": 110,
+          "costPerResult": 0.1,
           "baseline": {
             "days": 7,
-            "meanSpend": 12.57,
-            "totalSpend": 87.98,
-            "clicks": 841,
-            "results": 863,
+            "meanSpend": 13.46,
+            "totalSpend": 94.2,
+            "clicks": 943,
+            "results": 976,
             "costPerResult": 0.1
           }
         }
@@ -78,110 +78,110 @@
       "platform": "google",
       "account": "3427170837",
       "link": "https://ads.google.com/aw/campaigns?__c=3427170837",
-      "spend": 60.34,
-      "spend7dMean": 71.73,
-      "deltaPct": -0.16,
+      "spend": 100.4,
+      "spend7dMean": 65.87,
+      "deltaPct": 0.52,
       "yesterday": {
-        "from": "2026-09-14",
-        "to": "2026-09-14",
-        "spend": 60.34,
-        "clicks": 136,
-        "conversions": 108,
-        "estSubscribers": 55.1,
-        "estCostPerSubscriber": 1.1
+        "from": "2026-09-15",
+        "to": "2026-09-15",
+        "spend": 100.4,
+        "clicks": 153,
+        "conversions": 92,
+        "estSubscribers": 46.94,
+        "estCostPerSubscriber": 2.14
       },
       "last7d": {
-        "from": "2026-09-08",
-        "to": "2026-09-14",
-        "spend": 418.38,
-        "clicks": 551,
-        "conversions": 420,
-        "estSubscribers": 214.29,
-        "estCostPerSubscriber": 1.95
+        "from": "2026-09-09",
+        "to": "2026-09-15",
+        "spend": 464.45,
+        "clicks": 601,
+        "conversions": 407,
+        "estSubscribers": 207.65,
+        "estCostPerSubscriber": 2.24
       },
       "conversionInflation": 1.96,
       "conversionInflationBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676",
       "campaigns": [
-        {
-          "id": "24163535721",
-          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
-          "status": "ENABLED",
-          "resultLabel": "conversion",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721",
-          "spend": 20.59,
-          "results": 2,
-          "impressions": 2400,
-          "clicks": 3,
-          "costPerResult": 10.3,
-          "baseline": {
-            "days": 7,
-            "meanSpend": 20.46,
-            "totalSpend": 143.22,
-            "clicks": 108,
-            "results": 112,
-            "costPerResult": 1.28
-          },
-          "yesterday": {
-            "from": "2026-09-14",
-            "to": "2026-09-14",
-            "spend": 20.59,
-            "clicks": 3,
-            "conversions": 2,
-            "estSubscribers": 1.02,
-            "estCostPerSubscriber": 20.18
-          },
-          "last7d": {
-            "from": "2026-09-08",
-            "to": "2026-09-14",
-            "spend": 145.17,
-            "clicks": 80,
-            "conversions": 84,
-            "estSubscribers": 42.86,
-            "estCostPerSubscriber": 3.39
-          },
-          "estSubscribers": 42.86,
-          "estCostPerSubscriber": 3.39,
-          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
-        },
         {
           "id": "24243839443",
           "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443",
-          "spend": 13.9,
-          "results": 0,
-          "impressions": 947,
-          "clicks": 23,
-          "costPerResult": null,
+          "spend": 47.28,
+          "results": 1,
+          "impressions": 3841,
+          "clicks": 59,
+          "costPerResult": 47.28,
           "baseline": {
-            "days": 4,
-            "meanSpend": 23.15,
-            "totalSpend": 92.61,
-            "clicks": 98,
+            "days": 5,
+            "meanSpend": 21.32,
+            "totalSpend": 106.6,
+            "clicks": 121,
             "results": 1,
-            "costPerResult": 92.61
+            "costPerResult": 106.6
           },
           "yesterday": {
-            "from": "2026-09-14",
-            "to": "2026-09-14",
-            "spend": 13.9,
-            "clicks": 23,
-            "conversions": 0,
-            "estSubscribers": 0,
-            "estCostPerSubscriber": null
-          },
-          "last7d": {
-            "from": "2026-09-08",
-            "to": "2026-09-14",
-            "spend": 106.5,
-            "clicks": 121,
+            "from": "2026-09-15",
+            "to": "2026-09-15",
+            "spend": 47.28,
+            "clicks": 59,
             "conversions": 1,
             "estSubscribers": 0.51,
             "estCostPerSubscriber": null
           },
-          "estSubscribers": 0.51,
-          "estCostPerSubscriber": null,
+          "last7d": {
+            "from": "2026-09-09",
+            "to": "2026-09-15",
+            "spend": 153.88,
+            "clicks": 180,
+            "conversions": 2,
+            "estSubscribers": 1.02,
+            "estCostPerSubscriber": 150.8
+          },
+          "estSubscribers": 1.02,
+          "estCostPerSubscriber": 150.8,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24163535721",
+          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721",
+          "spend": 20.81,
+          "results": 10,
+          "impressions": 2028,
+          "clicks": 10,
+          "costPerResult": 2.08,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 20.74,
+            "totalSpend": 145.17,
+            "clicks": 80,
+            "results": 84,
+            "costPerResult": 1.73
+          },
+          "yesterday": {
+            "from": "2026-09-15",
+            "to": "2026-09-15",
+            "spend": 20.81,
+            "clicks": 10,
+            "conversions": 10,
+            "estSubscribers": 5.1,
+            "estCostPerSubscriber": 4.08
+          },
+          "last7d": {
+            "from": "2026-09-09",
+            "to": "2026-09-15",
+            "spend": 146.01,
+            "clicks": 47,
+            "conversions": 50,
+            "estSubscribers": 25.51,
+            "estCostPerSubscriber": 5.72
+          },
+          "estSubscribers": 25.51,
+          "estCostPerSubscriber": 5.72,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -190,39 +190,39 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24086091285",
-          "spend": 10.47,
+          "spend": 11.59,
           "results": 0,
-          "impressions": 13,
+          "impressions": 4,
           "clicks": 2,
           "costPerResult": null,
           "baseline": {
             "days": 7,
-            "meanSpend": 8.59,
-            "totalSpend": 60.11,
-            "clicks": 10,
+            "meanSpend": 8.34,
+            "totalSpend": 58.38,
+            "clicks": 11,
             "results": 2,
-            "costPerResult": 30.06
+            "costPerResult": 29.19
           },
           "yesterday": {
-            "from": "2026-09-14",
-            "to": "2026-09-14",
-            "spend": 10.47,
+            "from": "2026-09-15",
+            "to": "2026-09-15",
+            "spend": 11.59,
             "clicks": 2,
             "conversions": 0,
             "estSubscribers": 0,
             "estCostPerSubscriber": null
           },
           "last7d": {
-            "from": "2026-09-08",
-            "to": "2026-09-14",
-            "spend": 58.38,
-            "clicks": 11,
+            "from": "2026-09-09",
+            "to": "2026-09-15",
+            "spend": 59.2,
+            "clicks": 12,
             "conversions": 2,
             "estSubscribers": 1.02,
-            "estCostPerSubscriber": 57.21
+            "estCostPerSubscriber": 58.02
           },
           "estSubscribers": 1.02,
-          "estCostPerSubscriber": 57.21,
+          "estCostPerSubscriber": 58.02,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -231,80 +231,39 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24122099676",
-          "spend": 10.3,
-          "results": 104,
-          "impressions": 12614,
-          "clicks": 105,
-          "costPerResult": 0.1,
+          "spend": 10.48,
+          "results": 80,
+          "impressions": 9675,
+          "clicks": 78,
+          "costPerResult": 0.13,
           "baseline": {
             "days": 7,
-            "meanSpend": 8.63,
-            "totalSpend": 60.42,
-            "clicks": 336,
-            "results": 338,
-            "costPerResult": 0.18
+            "meanSpend": 7.7,
+            "totalSpend": 53.87,
+            "clicks": 323,
+            "results": 327,
+            "costPerResult": 0.16
           },
           "yesterday": {
-            "from": "2026-09-14",
-            "to": "2026-09-14",
-            "spend": 10.3,
-            "clicks": 105,
-            "conversions": 104,
-            "estSubscribers": 53.06,
-            "estCostPerSubscriber": 0.19
+            "from": "2026-09-15",
+            "to": "2026-09-15",
+            "spend": 10.48,
+            "clicks": 78,
+            "conversions": 80,
+            "estSubscribers": 40.82,
+            "estCostPerSubscriber": 0.26
           },
           "last7d": {
-            "from": "2026-09-08",
-            "to": "2026-09-14",
-            "spend": 53.87,
-            "clicks": 322,
-            "conversions": 326,
-            "estSubscribers": 166.33,
-            "estCostPerSubscriber": 0.32
+            "from": "2026-09-09",
+            "to": "2026-09-15",
+            "spend": 53.55,
+            "clicks": 343,
+            "conversions": 346,
+            "estSubscribers": 176.53,
+            "estCostPerSubscriber": 0.3
           },
-          "estSubscribers": 166.33,
-          "estCostPerSubscriber": 0.32,
-          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
-        },
-        {
-          "id": "24148587722",
-          "name": "Search - US - Non-Brand - AI Abs Preview",
-          "status": "ENABLED",
-          "resultLabel": "conversion",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24148587722",
-          "spend": 3.56,
-          "results": 2,
-          "impressions": 20,
-          "clicks": 3,
-          "costPerResult": 1.78,
-          "baseline": {
-            "days": 7,
-            "meanSpend": 8.36,
-            "totalSpend": 58.53,
-            "clicks": 18,
-            "results": 6,
-            "costPerResult": 9.76
-          },
-          "yesterday": {
-            "from": "2026-09-14",
-            "to": "2026-09-14",
-            "spend": 3.56,
-            "clicks": 3,
-            "conversions": 2,
-            "estSubscribers": 1.02,
-            "estCostPerSubscriber": 3.49
-          },
-          "last7d": {
-            "from": "2026-09-08",
-            "to": "2026-09-14",
-            "spend": 44.19,
-            "clicks": 17,
-            "conversions": 7,
-            "estSubscribers": 3.57,
-            "estCostPerSubscriber": 12.37
-          },
-          "estSubscribers": 3.57,
-          "estCostPerSubscriber": 12.37,
+          "estSubscribers": 176.53,
+          "estCostPerSubscriber": 0.3,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         },
         {
@@ -313,32 +272,32 @@
           "status": "ENABLED",
           "resultLabel": "conversion",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109",
-          "spend": 1.52,
+          "spend": 5.21,
           "results": 0,
-          "impressions": 15,
+          "impressions": 33,
           "clicks": 0,
           "costPerResult": null,
           "baseline": {
             "days": 7,
-            "meanSpend": 2.54,
-            "totalSpend": 17.77,
+            "meanSpend": 1.46,
+            "totalSpend": 10.25,
             "clicks": 0,
             "results": 0,
             "costPerResult": null
           },
           "yesterday": {
-            "from": "2026-09-14",
-            "to": "2026-09-14",
-            "spend": 1.52,
+            "from": "2026-09-15",
+            "to": "2026-09-15",
+            "spend": 5.21,
             "clicks": 0,
             "conversions": 0,
             "estSubscribers": 0,
             "estCostPerSubscriber": null
           },
           "last7d": {
-            "from": "2026-09-08",
-            "to": "2026-09-14",
-            "spend": 10.25,
+            "from": "2026-09-09",
+            "to": "2026-09-15",
+            "spend": 14.08,
             "clicks": 0,
             "conversions": 0,
             "estSubscribers": 0,
@@ -347,18 +306,59 @@
           "estSubscribers": 0,
           "estCostPerSubscriber": null,
           "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
+        },
+        {
+          "id": "24148587722",
+          "name": "Search - US - Non-Brand - AI Abs Preview",
+          "status": "ENABLED",
+          "resultLabel": "conversion",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24148587722",
+          "spend": 5.03,
+          "results": 1,
+          "impressions": 35,
+          "clicks": 4,
+          "costPerResult": 5.03,
+          "baseline": {
+            "days": 7,
+            "meanSpend": 6.31,
+            "totalSpend": 44.19,
+            "clicks": 17,
+            "results": 7,
+            "costPerResult": 6.31
+          },
+          "yesterday": {
+            "from": "2026-09-15",
+            "to": "2026-09-15",
+            "spend": 5.03,
+            "clicks": 4,
+            "conversions": 1,
+            "estSubscribers": 0.51,
+            "estCostPerSubscriber": null
+          },
+          "last7d": {
+            "from": "2026-09-09",
+            "to": "2026-09-15",
+            "spend": 37.73,
+            "clicks": 19,
+            "conversions": 7,
+            "estSubscribers": 3.57,
+            "estCostPerSubscriber": 10.56
+          },
+          "estSubscribers": 3.57,
+          "estCostPerSubscriber": 10.56,
+          "estimateBasis": "measured 2026-08-26: 1,553 reported conversions vs 792 earned subscribers on campaign 24122099676"
         }
       ],
       "anomalies": [
         {
-          "severity": "medium",
+          "severity": "high",
           "platform": "google",
           "scope": "campaign",
-          "kind": "cpa_degraded",
-          "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT",
-          "headline": "[DAN] [DGEN] [ENGAGEMENT] MU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT cost per conversion rose to $10.30",
-          "detail": "Its own 7-day average is $1.28 (+705%).",
-          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24163535721"
+          "kind": "spend_spike",
+          "name": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home",
+          "headline": "[DAN] [DGEN] [CONVERSION] MU 25-54 | US+CA | ad 1 + ad 2 | start vs home spent $47.28 — 2.22x its normal day",
+          "detail": "7-day average is $21.32/day.",
+          "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24243839443"
         },
         {
           "severity": "high",
@@ -366,7 +366,7 @@
           "scope": "campaign",
           "kind": "zero_results",
           "name": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers",
-          "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $19.29 for zero conversions",
+          "headline": "[DAN] [DGEN] [ENGAGEMENT] [RMKTG] FMU 18-54 | in-feed & shorts | geo tier 1 | ALL CONTENT | youtube viewers has spent $15.46 for zero conversions",
           "detail": "Across the last 8 days.",
           "link": "https://ads.google.com/aw/campaigns?__c=3427170837&campaignId=24169507109"
         }
@@ -376,8 +376,8 @@
   },
   "autoBoost": {
     "ok": true,
-    "lastRunAt": "2026-09-15T10:19:10.931Z",
-    "ageHours": 0.79,
+    "lastRunAt": "2026-09-16T10:17:44.144Z",
+    "ageHours": 0.83,
     "stale": false,
     "dryRun": false,
     "enabled": true,
@@ -385,12 +385,12 @@
       "caps": {
         "reason": null,
         "testsCap": 300,
-        "testsMtd": 48.89,
+        "testsMtd": 54.45,
         "totalCap": 500,
-        "totalMtd": 132.93,
+        "totalMtd": 143.36,
         "capReached": false,
-        "testsCommitted": 63.35,
-        "totalCommitted": 147.39
+        "testsCommitted": 67.88,
+        "totalCommitted": 156.79
       },
       "pair": {
         "ads": [
@@ -426,16 +426,23 @@
             "postedAt": "2026-09-11T22:00:26+0000",
             "permalink": "https://www.instagram.com/p/DdKbwNFnXQN/"
           },
-          "phase": "running",
-          "spend": 3.87,
-          "status": "ACTIVE",
-          "visits": 66,
+          "phase": "done",
+          "spend": 4.53,
+          "status": "PAUSED",
+          "visits": 74,
           "adsetId": "120250931319700682",
           "endTime": "2026-09-16T17:16:08-0500",
           "mediaId": "17909933289467493",
-          "verdict": null,
+          "verdict": {
+            "spend": 4.53,
+            "reason": "$0.06/visit beats the champion's $0.08/visit (74 visits)",
+            "result": "win",
+            "visits": 74,
+            "adsetId": "120250931319700682",
+            "costPerVisit": 0.06
+          },
           "createdAt": "2026-09-11T17:16:09-0500",
-          "impressions": 532,
+          "impressions": 606,
           "costPerVisit": 0.06
         },
         {
@@ -507,16 +514,16 @@
             "permalink": "https://www.instagram.com/p/DdPlWaxGG3u/"
           },
           "phase": "running",
-          "spend": 1.66,
+          "spend": 2.57,
           "status": "ACTIVE",
-          "visits": 18,
+          "visits": 34,
           "adsetId": "120250956316700682",
           "endTime": "2026-09-18T17:16:37-0500",
           "mediaId": "17911245750466310",
           "verdict": null,
           "createdAt": "2026-09-13T17:16:38-0500",
-          "impressions": 185,
-          "costPerVisit": 0.09
+          "impressions": 295,
+          "costPerVisit": 0.08
         },
         {
           "label": "IMAGE | Train your abs every single day | TEST::18133073164657545",
@@ -558,15 +565,15 @@
             "permalink": "https://www.instagram.com/reel/DdOubn3FFWS/"
           },
           "phase": "running",
-          "spend": 2.71,
+          "spend": 3.36,
           "status": "ACTIVE",
-          "visits": 27,
+          "visits": 33,
           "adsetId": "120250952645250682",
           "endTime": "2026-09-18T09:17:38-0500",
           "mediaId": "17996865398991415",
           "verdict": null,
           "createdAt": "2026-09-13T09:17:40-0500",
-          "impressions": 244,
+          "impressions": 329,
           "costPerVisit": 0.1
         },
         {
@@ -686,6 +693,28 @@
           "costPerVisit": 0.22
         },
         {
+          "label": "REEL | You can have abs and still look wide | TEST::17991572051994947",
+          "media": {
+            "id": "17991572051994947",
+            "type": "VIDEO",
+            "title": "You can have abs and still look wide",
+            "caption": "You can have abs and still look wide. That is what nobody explains. Crunches bui",
+            "postedAt": "2026-09-14T22:00:48+0000",
+            "permalink": "https://www.instagram.com/reel/DdSKJ3oDzg7/"
+          },
+          "phase": "running",
+          "spend": 1.79,
+          "status": "ACTIVE",
+          "visits": 5,
+          "adsetId": "120250973830410682",
+          "endTime": "2026-09-19T17:18:40-0500",
+          "mediaId": "17991572051994947",
+          "verdict": null,
+          "createdAt": "2026-09-14T17:18:42-0500",
+          "impressions": 102,
+          "costPerVisit": 0.36
+        },
+        {
           "label": "REEL | Milk is not a health food if you want abs | TEST::18104387519626708",
           "media": {
             "id": "18104387519626708",
@@ -696,16 +725,16 @@
             "permalink": "https://www.instagram.com/reel/DdNAj64DnuW/"
           },
           "phase": "running",
-          "spend": 2.3,
+          "spend": 3.85,
           "status": "ACTIVE",
-          "visits": 6,
+          "visits": 10,
           "adsetId": "120250945212710682",
           "endTime": "2026-09-17T17:15:37-0500",
           "mediaId": "18104387519626708",
           "verdict": null,
           "createdAt": "2026-09-12T17:15:41-0500",
-          "impressions": 176,
-          "costPerVisit": 0.38
+          "impressions": 274,
+          "costPerVisit": 0.39
         },
         {
           "label": "REEL | I lost the weight in the hour I wasn't training | TEST::17899133421377575",
@@ -766,24 +795,24 @@
           "costPerVisit": 0.85
         },
         {
-          "label": "REEL | You can have abs and still look wide | TEST::17991572051994947",
+          "label": "REEL | Train abs every single day | TEST::17978977431092975",
           "media": {
-            "id": "17991572051994947",
+            "id": "17978977431092975",
             "type": "VIDEO",
-            "title": "You can have abs and still look wide",
-            "caption": "You can have abs and still look wide. That is what nobody explains. Crunches bui",
-            "postedAt": "2026-09-14T22:00:48+0000",
-            "permalink": "https://www.instagram.com/reel/DdSKJ3oDzg7/"
+            "title": "Train abs every single day",
+            "caption": "Train abs every single day. You've been told to rest them like legs. Abs aren't ",
+            "postedAt": "2026-09-15T22:00:43+0000",
+            "permalink": "https://www.instagram.com/reel/DdUu8YaFMZL/"
           },
           "phase": "running",
           "spend": 0,
           "status": "ACTIVE",
           "visits": 0,
-          "adsetId": "120250973830410682",
-          "endTime": "2026-09-19T17:18:40-0500",
-          "mediaId": "17991572051994947",
+          "adsetId": "120250992837930682",
+          "endTime": "2026-09-20T17:20:00-0500",
+          "mediaId": "17978977431092975",
           "verdict": null,
-          "createdAt": "2026-09-14T17:18:42-0500",
+          "createdAt": "2026-09-15T17:20:03-0500",
           "impressions": 0,
           "costPerVisit": null
         }
@@ -798,14 +827,14 @@
         "visitsReadable": true,
         "followsReadable": false,
         "campaignLifetime": {
-          "spend": 132.93,
-          "visits": 1383,
+          "spend": 143.34,
+          "visits": 1503,
           "follows": 0
         }
       },
       "campaign": "120250753198730682",
       "champion": {
-        "spend": 41.21,
+        "spend": 40.43,
         "health": {
           "action": "unjudged",
           "reason": "follows metric not readable yet — judged on cost/visit only, no kill rule applied",
@@ -813,24 +842,24 @@
           "costPerFollow": null,
           "followsReadable": false
         },
-        "visits": 508,
+        "visits": 535,
         "window": {
           "days": 7,
-          "since": "2026-09-09",
-          "until": "2026-09-15"
+          "since": "2026-09-10",
+          "until": "2026-09-16"
         },
         "follows": 0,
         "activeAds": [
           {
-            "adId": "120250946416150682",
-            "name": "IMAGE | Ten minutes of jump rope beats thirty on a treadmill | CHAMPION::18144562216559806",
+            "adId": "120251002432770682",
+            "name": "IMAGE | Milk is not a health food if you want abs | CHAMPION::17909933289467493",
             "media": {
-              "id": "18144562216559806",
+              "id": "17909933289467493",
               "type": "IMAGE",
-              "title": "Ten minutes of jump rope beats thirty on a treadmill",
-              "caption": "Ten minutes of jump rope beats thirty on a treadmill. Same calorie burn in a thi",
-              "postedAt": "2026-09-06T22:00:26+0000",
-              "permalink": "https://www.instagram.com/p/Dc9jxykoGbh/"
+              "title": "Milk is not a health food if you want abs",
+              "caption": "Milk is not a health food if you want abs. A glass with every meal is 400 calori",
+              "postedAt": "2026-09-11T22:00:26+0000",
+              "permalink": "https://www.instagram.com/p/DdKbwNFnXQN/"
             }
           }
         ],
@@ -844,32 +873,49 @@
       "warnings": [],
       "events24h": [
         {
-          "at": "2026-09-14T22:18:51.510Z",
+          "at": "2026-09-15T22:20:13.151Z",
           "event": "created",
           "detail": {
-            "adId": "120250973830830682",
-            "adsetId": "120250973830410682",
-            "permalink": "https://www.instagram.com/reel/DdSKJ3oDzg7/",
-            "creativeId": "1029731360057350"
+            "adId": "120250992838840682",
+            "adsetId": "120250992837930682",
+            "permalink": "https://www.instagram.com/reel/DdUu8YaFMZL/",
+            "creativeId": "1105651291884808"
           },
-          "mediaId": "17991572051994947"
+          "mediaId": "17978977431092975"
         },
         {
-          "at": "2026-09-14T23:16:03.839Z",
+          "at": "2026-09-16T08:19:40.640Z",
+          "event": "promote",
+          "detail": {
+            "adId": "120251002432770682",
+            "source": {
+              "spend": 4.53,
+              "visits": 74,
+              "testAdset": "120250931319700682"
+            },
+            "retired": [
+              "120250946416150682"
+            ],
+            "creativeId": "4405132649700828"
+          },
+          "mediaId": "17909933289467493"
+        },
+        {
+          "at": "2026-09-16T08:19:41.615Z",
           "event": "verdict",
           "detail": {
-            "spend": 4.5,
-            "reason": "$0.21/visit does not beat the champion's $0.08/visit (ties keep the champion)",
-            "result": "lose",
-            "visits": 21,
-            "adsetId": "120250910902520682",
-            "costPerVisit": 0.21
+            "spend": 4.53,
+            "reason": "$0.06/visit beats the champion's $0.08/visit (74 visits)",
+            "result": "win",
+            "visits": 74,
+            "adsetId": "120250931319700682",
+            "costPerVisit": 0.06
           },
-          "mediaId": "18140555551597443"
+          "mediaId": "17909933289467493"
         }
       ],
       "candidates": [],
-      "generatedAt": "2026-09-15T10:19:07.759Z",
+      "generatedAt": "2026-09-16T10:17:41.283Z",
       "championAdset": "120250753601020682"
     }
   },
@@ -877,8 +923,8 @@
     "ok": true,
     "enabled": true,
     "dryRun": false,
-    "lastRunAt": "2026-09-15T11:00:07.065Z",
-    "ageHours": 0.11,
+    "lastRunAt": "2026-09-16T11:00:04.728Z",
+    "ageHours": 0.12,
     "stale": false,
     "resultsPosted": true,
     "thresholds": {
@@ -959,6 +1005,14 @@
             "name": "AT · Hire A Maid Instead Of A Personal Trainer · yt:LvOMn7IpuCI · r3 · rmktg · 2026-09-12",
             "topics": [
               "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
+            ],
+            "limited": true
+          },
+          {
+            "adId": "824915036297",
+            "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · rmktg · 2026-09-15",
+            "topics": [
+              "CLICKBAIT:PROHIBITED"
             ],
             "limited": true
           }
@@ -1043,6 +1097,14 @@
               "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
             ],
             "limited": true
+          },
+          {
+            "adId": "824831300791",
+            "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · tier1 · 2026-09-15",
+            "topics": [
+              "CLICKBAIT:PROHIBITED"
+            ],
+            "limited": true
           }
         ],
         "dayOne": null,
@@ -1054,8 +1116,8 @@
           "adId": "821125719022",
           "name": "top 10 ab tips",
           "videoId": "2T4LrQrmz9s",
-          "spend30d": 308.28,
-          "conv30d": 2761,
+          "spend30d": 296.6,
+          "conv30d": 2733,
           "costPerConv30d": 0.11,
           "approxCostPerSubscriber30d": 0.22
         },
@@ -1117,6 +1179,14 @@
               "YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS:LIMITED"
             ],
             "limited": true
+          },
+          {
+            "adId": "824789285238",
+            "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · tier2 · 2026-09-15",
+            "topics": [
+              "CLICKBAIT:PROHIBITED"
+            ],
+            "limited": true
           }
         ],
         "dayOne": null,
@@ -1136,7 +1206,92 @@
       "createAd": 0
     },
     "events24h": {
-      "created": [],
+      "created": [
+        {
+          "at": "2026-09-15T23:00:25.318Z",
+          "campaign": "tier2",
+          "videoId": "Ub0BV4m5lMQ",
+          "adId": "824789285238",
+          "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · tier2 · 2026-09-15",
+          "attempt": 1,
+          "headlines": [
+            "Why I Train Abs Every Single Day",
+            "My Daily Ab Routine",
+            "Training Abs Daily - Here's Why",
+            "The Ab Set I Do Every Day",
+            "How Often To Train Abs"
+          ],
+          "videoTitle": "Why I Train Abs Every Single Day",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose explains why he trains abs daily and shows the ab set he does.",
+            "Abs recover fast. Daniel Rose shows the daily ab set he does at 40 years old.",
+            "Men: see the daily ab set Daniel Rose does and why he trains abs every day."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/197884856303~824789285238",
+          "longHeadlines": [
+            "Here's why I train abs every day, and the ab set I do at 40 years old.",
+            "This video shows the daily ab set I do and why I train abs every day.",
+            "Abs recover fast. Here's the ab set I do at home every single day."
+          ]
+        },
+        {
+          "at": "2026-09-15T23:00:25.320Z",
+          "campaign": "tier1",
+          "videoId": "Ub0BV4m5lMQ",
+          "adId": "824831300791",
+          "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · tier1 · 2026-09-15",
+          "attempt": 1,
+          "headlines": [
+            "Why I Train Abs Every Single Day",
+            "My Daily Ab Routine",
+            "Training Abs Daily - Here's Why",
+            "The Ab Set I Do Every Day",
+            "How Often To Train Abs"
+          ],
+          "videoTitle": "Why I Train Abs Every Single Day",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose explains why he trains abs daily and shows the ab set he does.",
+            "Abs recover fast. Daniel Rose shows the daily ab set he does at 40 years old.",
+            "Men: see the daily ab set Daniel Rose does and why he trains abs every day."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/206274722584~824831300791",
+          "longHeadlines": [
+            "Here's why I train abs every day, and the ab set I do at 40 years old.",
+            "This video shows the daily ab set I do and why I train abs every day.",
+            "Abs recover fast. Here's the ab set I do at home every single day."
+          ]
+        },
+        {
+          "at": "2026-09-15T23:00:25.321Z",
+          "campaign": "rmktg",
+          "videoId": "Ub0BV4m5lMQ",
+          "adId": "824915036297",
+          "name": "AT · Why I Train Abs Every Single Day · yt:Ub0BV4m5lMQ · rmktg · 2026-09-15",
+          "attempt": 1,
+          "headlines": [
+            "Why I Train Abs Every Single Day",
+            "My Daily Ab Routine",
+            "Training Abs Daily - Here's Why",
+            "The Ab Set I Do Every Day",
+            "How Often To Train Abs"
+          ],
+          "videoTitle": "Why I Train Abs Every Single Day",
+          "labelErrors": [],
+          "descriptions": [
+            "Daniel Rose explains why he trains abs daily and shows the ab set he does.",
+            "Abs recover fast. Daniel Rose shows the daily ab set he does at 40 years old.",
+            "Men: see the daily ab set Daniel Rose does and why he trains abs every day."
+          ],
+          "resourceName": "customers/3427170837/adGroupAds/203082125721~824915036297",
+          "longHeadlines": [
+            "Here's why I train abs every day, and the ab set I do at 40 years old.",
+            "This video shows the daily ab set I do and why I train abs every day.",
+            "Abs recover fast. Here's the ab set I do at home every single day."
+          ]
+        }
+      ],
       "verdicts": [],
       "promotes": [],
       "skips": [],
@@ -1154,7 +1309,7 @@
       "waitingCopy": []
     },
     "lastResults": {
-      "at": "2026-09-15T11:00:07.701Z",
+      "at": "2026-09-16T11:00:05.187Z",
       "dryRun": false,
       "results": []
     }

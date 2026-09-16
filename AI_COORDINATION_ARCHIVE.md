@@ -11034,3 +11034,7 @@ Finished updates moved off the live board. Outstanding warnings retained there a
   21 of 23 published V2/V3/V6 cutdowns miss −14 LUFS, unowned. `Docs/BOARD_REFERENCE.md`
 - 8/28 raw shoot backed up to Drive and MD5-verified.
 - Meta $50 review: $2.02/follow (target < $3); two dead reel tests paused; image tests judged 09-13; next reading Fri 09-18.
+
+## Weekly board cleanup — 2026-09-16
+
+First sweep (no prior marker). Zero entries eligible: every remaining board entry is awaiting Dan, review, verification or an external dependency.
