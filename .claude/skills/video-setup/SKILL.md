@@ -142,3 +142,10 @@ Worked 09-13 through the Chrome MCP on a SCHEDULED (still private) video:
 - Re-read `AI_COORDINATION.md` from disk; replace the entry with a one-liner "scheduled, nothing blocked, delete once
   it posts" (or delete it if Dan has nothing left to do). No dashboard row unless Dan asks.
 - Tell Dan in plain words: when it goes live where, which thumbnail(s), and anything he might want to do in Studio.
+
+## Edit queue: mark it UPLOADED
+
+After the Private YouTube upload is read back **and** the Blotato posts exist: if the video is a job on
+`Handoffs/video-editing/00-MASTER.md` (`RO-` long-form, `DS-` dedicated short, `SL-` shorts set), set it to `uploaded` on
+Dan's pinned Abs By AI Edit Queue page (`queue.py set <ID> uploaded` + `Artifact write_db`; procedure
+`.claude/skills/_shared/edit-queue/README.md`). A newly final long-form owes shorts: add its `SL-` job in the same session.

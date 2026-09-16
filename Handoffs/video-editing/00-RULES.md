@@ -14,7 +14,7 @@ same; only the tools differ (section 3).
 1. **Check that the job is still open.** Open `Handoffs/video-editing/00-MASTER.md` and read the job's row. If it says DONE,
    IN PROGRESS (someone else) or BLOCKED, stop and tell Dan. Then read `AI_COORDINATION.md` from disk and look for an
    ACTIVE entry naming the same video.
-2. **Claim it:** set the job's row in `00-MASTER.md` to `IN PROGRESS — <Claude|Codex> <date>` and add ONE short entry to
+2. **Claim it:** `python3 scripts/edit-queue/queue.py set <ID> in_progress --by <Claude|Codex>` (see §5) and add ONE short entry to
    `AI_COORDINATION.md` ACTIVE (≤ 3 lines, edit only your own entry, run `scripts/board-check.sh`).
 3. **Machine cap: never more than two video builds at once across all sessions** (renders, big ffmpeg encodes, Whisper,
    gate runs). Check first: `ps -Ao pcpu,command | grep -E 'ffmpeg|whisper|render\.py|gate\.py|qc_style' | grep -v -E 'grep|Renderer'`.
@@ -90,9 +90,9 @@ Follow the Codex branch rule in `Handoffs/codex-video-trial/00-start-here.md`.
 
 ## 5. Closing out (every job)
 
-1. Update the job's row in `00-MASTER.md`. Use `DELIVERED — awaiting Dan <date>` after delivery and `DONE <date>` after approval.
+1. Update the job's status with `python3 scripts/edit-queue/queue.py set <ID> <state>`: `in_progress` at start, `delivered` when Dan gets the review copy, `finalized` when **Dan says** it's finalized, `uploaded` after `/ad-setup` or `/video-setup` has uploaded it. The script updates `jobs.json` and the `00-MASTER.md` row. **Claude sessions also push it to Dan's pinned page** with `Artifact write_db`, and **Codex commits the change** for the next Claude session to sync. Procedure: `.claude/skills/_shared/edit-queue/README.md`.
    If the job unblocks another (a square waits on its vertical), change that row to READY.
-2. On approval: delete your `AI_COORDINATION.md` entry. Once the job is DONE, the job doc can be deleted or moved to
+2. On approval: delete your `AI_COORDINATION.md` entry. Once the job is FINALIZED, the job doc can be deleted or moved to
    `Handoffs/video-editing/done/` (keep its notes in the delivery folder).
 3. Put techniques and traps you learned into the relevant skill, not into this folder.
 4. **No dashboard rows** unless Dan asks (his 09-08 rule). Commit + push the doc changes to `main`.

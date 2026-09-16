@@ -324,6 +324,14 @@ Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", 
 item is one line in that register; keep the longer form only where the editor needs exact text,
 exact timing or an exact link.
 
+## Edit queue status — when Dan finalizes a queue job in review
+
+If the cut under review is a job on `Handoffs/video-editing/00-MASTER.md` (our own or Codex's build: `RA-`, `DS-`, `RO-`,
+`SL-`, `AV-`, `AS-` IDs) and Dan says it is **finalized / approved**, set that job to `finalized` on his pinned Abs By AI
+Edit Queue page in the same session. A revision round sent back is `in_progress`. Never `uploaded` (that's
+`/ad-setup` / `/video-setup`). An editor's own 16:9 final isn't a queue job, but if its finalization means an ad now owes
+vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared/edit-queue/README.md`.
+
 ## Review workflow
 
 0. **Fetch.** Drive file IDs come from the URL. Download with

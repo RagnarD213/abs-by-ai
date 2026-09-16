@@ -142,3 +142,6 @@ Website Videos/
 # The marketing list lived here until 2026-09-11. It is in Postgres now
 # (Docs/SUBSCRIBER_STORE.md) — never let this file come back into the repo.
 subscribers-data.json
+
+# edit queue artifact-sync exports (scripts/edit-queue/queue.py)
+tmp/edit-queue-export/

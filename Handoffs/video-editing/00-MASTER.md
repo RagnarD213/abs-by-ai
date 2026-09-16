@@ -6,11 +6,11 @@ Pinnable page with copy buttons (a 2026-09-16 snapshot; this file is the live st
 Every job has its own handoff doc in this folder with **two starter prompts, one for Claude and one for Codex.** You choose the order.
 
 **Firing a job:** open its doc, copy the Claude or Codex starter prompt into a fresh session. **Max two video builds on the
-machine at once.** The session claims the row (IN PROGRESS), and on delivery sets it to DELIVERED, then DONE when you approve.
+machine at once.** The session claims the row and moves it along; the pinned page updates live.
 Every doc starts by reading `00-RULES.md`.
 
 Status key: **READY** fire any time · **NEEDS DAN** a call from you first (listed below) · **BLOCKED** waits on the named
-thing · **IN PROGRESS / DELIVERED / DONE** set by the executing session.
+thing · **IN PROGRESS → DELIVERED → FINALIZED (you said so) → UPLOADED (set up by /ad-setup or /video-setup)**, set with `scripts/edit-queue/queue.py`, which also keeps `jobs.json` and your pinned page in step.
 Size: **S** ≈ one short build · **M** ≈ one full-length ad build · **L** ≈ a long-form (may need two sessions).
 
 Replaces `Handoffs/handoff-20260913-ad-variants-master-queue.md` (jobs J1–J18) and `handoff-20260915-ads-6-14-variants.md`.

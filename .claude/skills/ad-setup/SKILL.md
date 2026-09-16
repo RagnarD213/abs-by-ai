@@ -188,6 +188,15 @@ remove.
 - Dashboard: the row *"Add the new finished ads to the Google Ads campaigns…"* lists several ads — check it off only
   when every ad it names is in; otherwise say which part remains.
 
+### 7a. Edit queue: mark it UPLOADED
+
+After the Unlisted visibility is read back **and** the Demand Gen entry exists: if the video is a job on
+`Handoffs/video-editing/00-MASTER.md` (an `AV-`/`AS-` vertical or square, an `RA-` short ad), set it to `uploaded` on Dan's
+pinned Abs By AI Edit Queue page (`queue.py set <ID> uploaded` + `Artifact write_db`; procedure
+`.claude/skills/_shared/edit-queue/README.md`). A job goes `finalized` (Dan's words) → `uploaded` (this step); never
+skip straight to `uploaded` from anything but a finalized video. If you're setting up an editor's newly final 16:9
+that has no vertical/square yet, add its AV + AS jobs to the queue in the same session.
+
 ## Report to Dan (plain language)
 
 Video links, what the description and thumbnail say (send the review sheet with SendUserFile), the ad groups and

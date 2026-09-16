@@ -5,6 +5,14 @@ description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 sh
 
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
 
+## Edit queue status — REQUIRED when this video is a job on Dan's edit queue
+
+If the video is on `Handoffs/video-editing/00-MASTER.md` (IDs like `RA-01`, `DS-04`, `RO-02`, `SL-01`, `AV-05`, `AS-04`),
+keep its status current on Dan's pinned **Abs By AI Edit Queue** page: `in_progress` when you start building,
+`delivered` when the review copy goes to Dan, and **`finalized` the moment Dan says it is finalized / approved** (his
+words, never a passed gate). Never set `uploaded` here; that is `/ad-setup` (ads) or `/video-setup` (organic), after
+the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skills/_shared/edit-queue/README.md`.
+
 ## Square and vertical camera movement — updated 2026-09-16
 
 Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
