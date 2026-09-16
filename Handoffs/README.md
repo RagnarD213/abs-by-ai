@@ -13,6 +13,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260916-ad3-square-upload-as-is.md](handoff-20260916-ad3-square-upload-as-is.md) | **ready** — upload exact approved R2.1 as-is, unlisted + two existing Ad 3 groups; Dan authorized proceeding despite internal findings. Independent of checker repair. GPT-6 Astra / High |
+| [handoff-20260916-video-checker-repair.md](handoff-20260916-video-checker-repair.md) | **ready, independent** — fix shared caption, framing and label checks for future videos; full regression validation. GPT-6 Astra / High |
 | [Codex trial: start here](codex-video-trial/00-start-here.md) | Shared rules, model recommendations, and execution order; documents remain local pending private/public storage decision |
 | [01 — Reference study](codex-video-trial/01-reference-study.md) | **now** — Astra / High; verify sources and learn Muhammad's organic/ad styles |
 | [02 — Raw-footage sample](codex-video-trial/02-raw-footage-sample.md) | after 01 — Astra / High; deliver the first 60–90 seconds for calibration |

@@ -152,6 +152,9 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260916-ad3-square-upload-as-is.md` — exact R2.1 upload as-is → YouTube unlisted + two existing Ads groups; Dan superseded internal-gate hold (2026-09-16). Astra / High.
+- `handoff-20260916-video-checker-repair.md` — independent shared-checker repair for future captions, layouts and labels; corpus required (2026-09-16). Astra / High.
+
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - `handoff-20260915-ads-6-14-variants.md` — master-queue J15–J18, Ads 6 + 14 vertical/square/59s (2026-09-15). Fable 5.1 high.
 - `handoff-20260913-ad-variants-master-queue.md` — THE queue for 9:16 / 1:1 / ≤0:59 variants; READY J14, J4, J1, J3, J2, J10/J12. Fable 5.1 high.

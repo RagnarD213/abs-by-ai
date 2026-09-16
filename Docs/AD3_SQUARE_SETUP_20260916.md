@@ -1,6 +1,10 @@
 # Ad 3 square setup — 2026-09-16
 
-**Held before upload: the approved R2.1 export lacks the required delivery-gate PASS.** No YouTube or Google Ads account changes were made. No new video, asset or ad IDs exist.
+> **Updated instruction, 2026-09-16:** Dan requested an upload-as-is handoff and a separate future-checker repair handoff after the findings were explained. The previous internal-gate hold below is historical and superseded for this exact approved file. Execute `Handoffs/handoff-20260916-ad3-square-upload-as-is.md` without waiting for `Handoffs/handoff-20260916-video-checker-repair.md`. No upload or Ads change was made while writing the handoffs; the FAIL record remains truthful.
+
+## Historical preflight — before Dan’s as-is instruction
+
+**At that time, upload was held because the approved R2.1 export lacked the required delivery-gate PASS.** No YouTube or Google Ads account changes were made. No new video, asset or ad IDs exist.
 
 The exact master fingerprint matches the setup handoff. The current delivery stamp verifier refuses it. Resolving this needs shared-checker support for its caption/composite inputs, validated against the regression corpus, and resolution of the retained uncertain source-content finding. Do not substitute another export, alter the approved audio, upload the short, or treat creative approval as a waiver.
 
