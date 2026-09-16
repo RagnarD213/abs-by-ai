@@ -53,6 +53,34 @@ reason to process his audio and never a reason to hold the upload. Say the numbe
 A re-export replaces the video: upload it new, add it as a second `videos` entry in the ad's config, rerun
 `dgen-add-ad.js --apply`, pause the old-video ads.
 
+## 1.5. Prove the HD export preserves the reviewed cut
+
+An editor's “HD” filename is not proof that it is the approved edit. Identify the reference from Dan's latest
+Upwork message and the latest revision document, then compare before filing or uploading:
+
+```bash
+python3 .claude/skills/ad-setup/scripts/compare_hd_export.py \
+  "<approved review copy.mp4>" "<new HD export.mp4>" --out "<ad folder>/hd-comparison.json"
+```
+
+The comparison requires the same timeline/frame rate, the same audio mix, and no sampled picture change above
+re-encode noise. It first checks the AAC packet payload exactly; when the HD export also raises the audio bitrate,
+it accepts only a tightly matched decoded mix (≤0.15 dB level change and ≥0.99 cosine similarity at 16 kHz mono),
+then the canonical `audio_gate.py --reference-mix <approved> --verbatim` must pass on the filed master.
+It compares decoded luma after normalizing both files to the same small frame. Low-resolution review proxies can
+still create false positives around text, graphics and transitions, so any reported stretch outside the allowed
+windows gets a paired full-resolution frame inspection. A numeric FAIL is a lead to inspect, not permission to
+reject blindly; a visual mismatch is a real failure. A PASS supports “the same approved cut at higher quality”;
+it does not replace watching the exact export.
+
+If Dan gave revisions after the last review copy and the HD file is the first export containing them, do **not**
+call it an exact-copy check. Declare each allowed revision window with `--allow-window MM:SS-MM:SS`. The tool then
+requires the audio to remain exact and every sampled picture change to stay inside those windows. Inspect every
+allowed window at full resolution against the written revision, and inspect the whole changed-stretch report for
+anything outside the requested work. A changed window is allowed work, not automatically correct work. If even one
+explicit revision is missing, do not file, upload or create Google Ads for that export; write an editor-ready list
+with exact timestamps and keep the previous live version unchanged.
+
 ## 2. Title and tags
 
 - Title = the script title as Dan wrote it (`Stop Paying Human Trainers! Use AI Instead`). It is unlisted; SEO
