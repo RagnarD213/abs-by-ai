@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """Status helper for the video edit queue (Handoffs/video-editing/).
 
-jobs.json is the source of truth. The Abs By AI Edit Queue artifact reads the same
-records from its `jobs` db collection, so every change made here must also be pushed to
-the artifact db by a Claude session (`Artifact write_db`). Codex can't reach the
-artifact: it runs `set` and commits, and the next Claude session runs `pending` + syncs.
+jobs.json is the source of truth. Every `set`/`add` also uploads the status file to Dan's
+Google Drive ("Abs By AI automation/edit-queue-status.json", read live by the Abs By AI
+Edit Queue page), so Claude, Codex and Grok Bot all update the page the same way. Claude
+sessions additionally mirror changes into the artifact's `jobs` db (`Artifact write_db`),
+the page's fallback when a viewer's Drive connector isn't available.
 
   queue.py set RA-01 finalized --by "Claude" [--note "Dan finalized 09-18"]
   queue.py add new-job.json              # one job object, or a list of them
   queue.py pending                       # jobs changed since the last artifact sync
   queue.py export [ID ...]               # write db-ready JSON files, print write_db entries
   queue.py mark-synced ID [ID ...]       # after write_db succeeded
+  queue.py push                          # re-upload the Drive status file
   queue.py show ID
 
 States: ready, needs, blocked, in_progress, delivered, finalized, uploaded.
@@ -27,6 +29,8 @@ STATES = {
     "in_progress": "IN PROGRESS", "delivered": "DELIVERED — awaiting Dan",
     "finalized": "FINALIZED", "uploaded": "UPLOADED",
 }
+RCLONE = os.path.expanduser("~/bin/rclone")
+DRIVE_PATH = "gdrive:Abs By AI automation/edit-queue-status.json"   # Drive file id 1RX-GqepEKqB1LgJqJFRyRU2lOJMnRFgg
 DB_FIELDS = ("id", "list", "group", "sub", "title", "roll", "size", "file", "claudeModel", "claude",
              "codexModel", "codex", "state", "note", "order", "updated", "by", "rev")
 
@@ -65,6 +69,23 @@ def master_status(jid, label):
     return False
 
 
+def push_drive(data):
+    """Upload the page's status file to Drive. Best-effort: a failure never blocks the repo update."""
+    os.makedirs(EXPORT, exist_ok=True)
+    path = os.path.join(EXPORT, "edit-queue-status.json")
+    with open(path, "w") as f:
+        json.dump({"schema": 1, "generated": datetime.datetime.now().isoformat(timespec="seconds"),
+                   "jobs": [{k: j.get(k, "") for k in DB_FIELDS} for j in data["jobs"]]}, f, ensure_ascii=False)
+    import subprocess
+    try:
+        r = subprocess.run([RCLONE, "copyto", path, DRIVE_PATH], capture_output=True, text=True, timeout=120)
+        ok = r.returncode == 0
+    except Exception as e:  # rclone missing, timeout
+        ok, r = False, e
+    print("Drive status file (page updates on next open/refresh):", "uploaded" if ok else f"FAILED ({getattr(r, 'stderr', r)!s:.200}); run `queue.py push` later")
+    return ok
+
+
 def export(jobs):
     os.makedirs(EXPORT, exist_ok=True)
     entries = []
@@ -86,6 +107,7 @@ def main():
     e = sub.add_parser("export"); e.add_argument("ids", nargs="*")
     m = sub.add_parser("mark-synced"); m.add_argument("ids", nargs="+")
     sh = sub.add_parser("show"); sh.add_argument("id")
+    sub.add_parser("push")
     args = ap.parse_args()
     data = load()
 
@@ -100,7 +122,8 @@ def main():
         save(data)
         row = master_status(args.id, STATES[args.state])
         print(f"{args.id} -> {args.state} (rev {j['rev']}); 00-MASTER.md row {'updated' if row else 'NOT FOUND'}")
-        print("Sync to the artifact (Claude sessions):")
+        push_drive(data)
+        print("Claude sessions also mirror it to the artifact db (write_db set):")
         print(json.dumps(export([j])[0]))
     elif args.cmd == "add":
         new = json.load(open(args.json_file))
@@ -115,7 +138,8 @@ def main():
             n["rev"] = 1; n["syncedRev"] = 0
             data["jobs"].append(n)
         save(data)
-        print(f"added {[n['id'] for n in new]}; also add their rows to 00-MASTER.md, then sync:")
+        push_drive(data)
+        print(f"added {[n['id'] for n in new]}; also add their rows to 00-MASTER.md. Claude sessions mirror to the artifact db:")
         print(json.dumps(export(new)))
     elif args.cmd == "pending":
         p = [j for j in data["jobs"] if j.get("rev", 0) > j.get("syncedRev", 0)]
@@ -129,6 +153,8 @@ def main():
             j = find(data, i); j["syncedRev"] = j.get("rev", 0)
         save(data)
         print("synced:", args.ids)
+    elif args.cmd == "push":
+        push_drive(data)
     elif args.cmd == "show":
         print(json.dumps(find(data, args.id), indent=1, ensure_ascii=False))
 

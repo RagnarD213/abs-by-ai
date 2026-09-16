@@ -169,7 +169,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 
 | job | ad | status | size |
 |---|---|---|---|
-| [AS-01](AS-01-ad1-zeeshan-square.md) | Ad 1 (Zeeshan) | BLOCKED: you approve his vertical + NEEDS DAN (still wanted?) | M |
+| [AS-01](AS-01-ad1-zeeshan-square.md) | Ad 1 (Zeeshan) | BLOCKED | M |
 | [AS-02](AS-02-ad4-square.md) | Ad 4 | BLOCKED: AV-03 approved | M |
 | [AS-03](AS-03-ad5-square.md) | Ad 5 | BLOCKED: AV-04 approved | M |
 | [AS-04](AS-04-ad6-square.md) | Ad 6 | BLOCKED: AV-05 approved | M |

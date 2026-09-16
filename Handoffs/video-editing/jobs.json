@@ -1297,13 +1297,13 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table) and `Handoffs/handoff-20260914-ad3-square-codex.md` (the Ad 3 square you built, which Dan shipped: reuse its method), then execute `Handoffs/video-editing/AS-01-ad1-zeeshan-square.md`. Confirm the blocker is cleared first. Deliver, send Dan the review copies, update `00-MASTER.md`.",
    "state": "blocked",
-   "note": "BLOCKED: you approve his vertical +  (still wanted? · Also needs you: a square of Zeeshan's Ad 1 when Muhammad's Ad 1 square is already live. Still wanted?",
+   "note": "Waits on your approval of Zeeshan's Ad 1 vertical. Also your call: still want a square of his Ad 1 when Muhammad's Ad 1 square is already live?",
    "sub": "",
    "order": 62,
    "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "AS-02",

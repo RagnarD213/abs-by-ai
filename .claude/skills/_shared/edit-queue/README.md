@@ -2,11 +2,14 @@
 
 Dan's pinned page **https://claude.ai/artifact/1r1T8Znf96XH24zHZhybHs** lists every video-editing job
 (`Handoffs/video-editing/`, IDs like `RA-01`, `DS-04`, `RO-02`, `SL-01`, `AV-05`, `AS-04`). It reads each job's
-status live from the artifact's `jobs` db collection. **Any skill that edits, finalizes or uploads a video on that
-list updates its status at the moments below.** The record lives in two places, kept equal:
+status live. **Any skill or agent (Claude, Codex, Grok Bot) that edits, finalizes or uploads a video on that list
+updates its status at the moments below.** The record lives in three places, and `queue.py` keeps the first two equal:
 
-* `Handoffs/video-editing/jobs.json`: the source of truth in git (Claude and Codex both write it via the script)
-* the artifact db `jobs/<ID>`: what the page shows (only Claude sessions can write it)
+* `Handoffs/video-editing/jobs.json`: the source of truth in git
+* **Google Drive `Abs By AI automation/edit-queue-status.json`** (file id `1RX-GqepEKqB1LgJqJFRyRU2lOJMnRFgg`): uploaded
+  by `queue.py` on every change via `~/bin/rclone`. The page reads it through Dan's Google Drive connector and
+  re-checks every minute, so **any agent's update shows within about a minute of the page being open**
+* the artifact db `jobs/<ID>`: a mirror Claude sessions write, used when the Drive read isn't available
 
 ## When to set which status (Dan, 2026-09-16)
 
@@ -30,7 +33,8 @@ there's nothing to update. If a finalized ad now owes variants (Ads 8, 9, 13, 15
 ```bash
 python3 scripts/edit-queue/queue.py set AV-05 finalized --by "Claude" --note "Dan finalized 09-18"
 ```
-It updates `jobs.json` + the row in `00-MASTER.md` and prints one write entry. Push it to the page:
+It updates `jobs.json` + the row in `00-MASTER.md`, uploads the Drive status file (this is what updates the page), and
+prints one write entry. Mirror it to the artifact db:
 
 * `Artifact` → `action: "write_db"`, `url: "https://claude.ai/artifact/1r1T8Znf96XH24zHZhybHs"`, `db_op: "set"`,
   `collection: "jobs"`, `doc_id: "<ID>"`, `file_path: <the printed file_path>`
@@ -47,12 +51,16 @@ job record(s) in a JSON file (same fields as an existing record in `jobs.json`: 
 size, file, claudeModel, claude, codexModel, codex, state, note`), run `queue.py add <file>`, and send the printed
 entries with `write_db` batch. The page shows new IDs automatically.
 
-## How (Codex session)
+## How (Codex or Grok Bot session)
 
-Codex can't reach the artifact. Run the same `queue.py set …` command and commit `jobs.json` + `00-MASTER.md`. The
-next Claude session that runs `queue.py pending` pushes it to the page. Tell Dan the page may lag until then.
+Run the same `python3 scripts/edit-queue/queue.py set <ID> <state> --by "Codex"` (or `"Grok Bot"`) and check it prints
+`Drive status file … uploaded`. That alone updates Dan's page. Then commit `jobs.json` + `00-MASTER.md`. If the upload
+failed, run `queue.py push` once rclone works again, and tell Dan. Skip the `write_db` step: you can't reach the
+artifact, and the next Claude session's `queue.py pending` mirrors it.
 
 ## If a write fails
 
-`write_db` refusing (not signed in, artifact unreachable) is not a reason to skip the repo update: `jobs.json` still
-changes, `syncedRev` stays behind, and `pending` picks it up later. Tell Dan in one line that the page will catch up.
+A failed `write_db` or Drive upload never blocks the repo update: `jobs.json` still changes. For Drive, `queue.py push`
+re-uploads everything. For the db, `syncedRev` stays behind and `pending` picks it up later. ⚠ rclone uses a shared
+Google client id that Google is retiring during 2026 (memory `drive-backup-capability`). If uploads start failing
+with quota or auth errors, that's why, and Dan needs his own client id set up.
