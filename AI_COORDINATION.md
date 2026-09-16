@@ -89,6 +89,8 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
+**YouTube thumbnail refresh — REVIEW 2026-09-16, owner: Codex 01a0ab9c.** Video 1 natural pool A approved (supersedes B); keep current 2 and 4. Seven revised options delivered for 3/5/6/7/8, with distinct sources; 8 current remains a contender. Next: Dan finalizes remaining choices, then a separate installation task. Nothing installed. Gallery/private backup: `output/thumbnails/channel-refresh-20260916/revision-2/README.md`.
+
 **6 ways AI thumbnail variations — REVIEW 2026-09-15, owner: Codex 01a0a748.** Four private designs delivered for YouTube `0zspIJVrv08`, original headline and four finalized studio photos. Next: Dan selects a design. Files: `output/thumbnails/0zspIJVrv08-20260915/`.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.

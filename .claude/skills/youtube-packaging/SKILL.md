@@ -36,6 +36,10 @@ Working example output: `YouTube Content/channel-intro/` (PACKAGING.md, thumbnai
 
 ## Thumbnail rules
 
+### Source-photo variety (Dan, 2026-09-16)
+
+Do not reuse the same or near-identical photo across different videos or thumbnail alternatives. Check the thumbnails being kept as well as the new batch before selecting sources. Different crops or backgrounds do not make the same photograph a new choice. Prioritize the exercise shown in the video: kettlebell means kettlebell; ab wheel means ab wheel, not another ab exercise. A specifically requested similar exercise shot is allowed, but must be a different frame. Record each source photo or video timecode in the delivery manifest. Frowning photos are appropriate when Dan requests them for a failure/negative topic. Installation waits when Dan explicitly reserves it for a later task.
+
 **SUPERSEDED 2026-08-07 — read this first.** Dan **rejected** the old
 Arial-Black-white-text-with-heavy-black-stroke look and directed that thumbnails
 match the **channel banner** instead. The style below is current; the Arial Black
