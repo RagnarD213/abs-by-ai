@@ -1,20 +1,9 @@
 {
- "at": "2026-09-15T23:30:52.750Z",
+ "at": "2026-09-16T21:20:28.077Z",
  "results": [
-  "customers/3427170837/assets/421486077779",
-  "customers/3427170837/audiences/359315129",
-  "customers/3427170837/adGroups/205864199888",
-  "customers/3427170837/adGroupCriteria/205864199888~2840",
-  "customers/3427170837/adGroupCriteria/205864199888~2124",
-  "customers/3427170837/adGroupCriteria/205864199888~1000",
-  "customers/3427170837/adGroupCriteria/205864199888~2501830833499",
-  "customers/3427170837/adGroupAds/205864199888~824835458839",
-  "customers/3427170837/adGroups/200914309675",
-  "customers/3427170837/adGroupCriteria/200914309675~2840",
-  "customers/3427170837/adGroupCriteria/200914309675~2124",
-  "customers/3427170837/adGroupCriteria/200914309675~1000",
-  "customers/3427170837/adGroupCriteria/200914309675~2693459821112",
-  "customers/3427170837/adGroupAds/200914309675~824835458866"
+  "customers/3427170837/assets/422104479381",
+  "customers/3427170837/adGroupAds/205864199888~824922224568",
+  "customers/3427170837/adGroupAds/200914309675~824922224571"
  ],
  "readBack": [
   {
@@ -36,7 +25,7 @@
      "name": "Ad 14 Workout Video Overload | Muhammad 16:9 | /start"
     },
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS"
+     "reviewStatus": "REVIEWED"
     }
    }
   },
@@ -57,6 +46,52 @@
       "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad14&utm_content=muhammad-16x9-home"
      ],
      "name": "Ad 14 Workout Video Overload | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/205864199888",
+    "id": "205864199888",
+    "name": "Ad 14 Workout Video Overload | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/205864199888~824922224568",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824922224568",
+     "id": "824922224568",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad14&utm_content=muhammad-16x9-hd-start"
+     ],
+     "name": "Ad 14 Workout Video Overload | Muhammad 16:9 HD | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200914309675",
+    "id": "200914309675",
+    "name": "Ad 14 Workout Video Overload | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200914309675~824922224571",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824922224571",
+     "id": "824922224571",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad14&utm_content=muhammad-16x9-hd-home"
+     ],
+     "name": "Ad 14 Workout Video Overload | Muhammad 16:9 HD | home"
     },
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS"

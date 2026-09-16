@@ -25,9 +25,11 @@ stop to ask. The one thing Claude never does here: enable a paused campaign (`AD
 
 ## 0. Preconditions — 2 minutes, never skip
 
-- **It is really final.** The latest `revision docs/adN-revisions-<editor>-roundM-*.md` reads *APPROVED - FINALIZED*,
-  and nothing newer exists (the `/editor-deliveries` three-part rule). Drive `get_file_metadata` on the link:
-  `video/mp4`, hundreds of MB, 1080p-class. A 30 MB file is a review draft whatever it is called.
+- **It is really final.** Use the exact review export Dan explicitly called finalized as the authority. A revision
+  document is supporting history only: an old, abandoned or deliberately declined revision must never override Dan's
+  finalization of a file. If the exact finalized reference cannot be identified, say that the HD export is unverified
+  rather than judging it against an earlier draft. Drive `get_file_metadata` on the delivery link: `video/mp4`, hundreds
+  of MB, 1080p-class. A 30 MB file is normally a review proxy, not the high-quality upload master.
 - **Nobody else owns it.** Grep `AI_COORDINATION.md` for the ad. Another session building the ad's VERTICAL
   (e.g. `/Volumes/Extreme/_edit_work/ad3-vert/`) is not a conflict — uploads and the campaign are separate.
 - **What version is this?** A first 16:9 for an ad → the full run. A new version of an ad already in the campaign
@@ -53,10 +55,11 @@ reason to process his audio and never a reason to hold the upload. Say the numbe
 A re-export replaces the video: upload it new, add it as a second `videos` entry in the ad's config, rerun
 `dgen-add-ad.js --apply`, pause the old-video ads.
 
-## 1.5. Prove the HD export preserves the reviewed cut
+## 1.5. Prove the HD export preserves the finalized cut
 
-An editor's “HD” filename is not proof that it is the approved edit. Identify the reference from Dan's latest
-Upwork message and the latest revision document, then compare before filing or uploading:
+An editor's “HD” filename is not proof that it is the finalized edit. Identify the **exact file Dan approved** from
+his message/history and compare it before filing or uploading. This is an identity check, not a fresh creative review:
+do not reopen accepted flaws, enforce later standing rules retroactively, or treat declined revision ideas as required.
 
 ```bash
 python3 .claude/skills/ad-setup/scripts/compare_hd_export.py \
@@ -66,20 +69,23 @@ python3 .claude/skills/ad-setup/scripts/compare_hd_export.py \
 The comparison requires the same timeline/frame rate, the same audio mix, and no sampled picture change above
 re-encode noise. It first checks the AAC packet payload exactly; when the HD export also raises the audio bitrate,
 it accepts only a tightly matched decoded mix (≤0.15 dB level change and ≥0.99 cosine similarity at 16 kHz mono),
-then the canonical `audio_gate.py --reference-mix <approved> --verbatim` must pass on the filed master.
+then the canonical `audio_gate.py --reference-mix <approved> --verbatim` measures the filed master. The editor-audio
+rule in step 1 still controls delivery: a small loudness/peak miss is reported, never locally processed, and does not
+by itself overturn Dan's approval or hold an otherwise authorized upload.
 It compares decoded luma after normalizing both files to the same small frame. Low-resolution review proxies can
 still create false positives around text, graphics and transitions, so any reported stretch outside the allowed
 windows gets a paired full-resolution frame inspection. A numeric FAIL is a lead to inspect, not permission to
 reject blindly; a visual mismatch is a real failure. A PASS supports “the same approved cut at higher quality”;
 it does not replace watching the exact export.
 
-If Dan gave revisions after the last review copy and the HD file is the first export containing them, do **not**
-call it an exact-copy check. Declare each allowed revision window with `--allow-window MM:SS-MM:SS`. The tool then
-requires the audio to remain exact and every sampled picture change to stay inside those windows. Inspect every
-allowed window at full resolution against the written revision, and inspect the whole changed-stretch report for
-anything outside the requested work. A changed window is allowed work, not automatically correct work. If even one
-explicit revision is missing, do not file, upload or create Google Ads for that export; write an editor-ready list
-with exact timestamps and keep the previous live version unchanged.
+If the HD file has a different edit/version number from the finalized reference, do **not** use an older review file
+and infer approval from a revision list. Locate the matching finalized review export. If it is unavailable, stop the
+identity claim and report exactly which reference is missing. If the HD differs visually from the finalized reference,
+report only the changed time ranges and say it is not a resolution-only export; do not turn that finding into a list
+of creative corrections. Dan then decides whether the changed HD itself is the new approved master.
+
+`--allow-window MM:SS-MM:SS` is only for a different task: verifying a known, explicitly approved revision between two
+versions. Never use allowed windows to make a non-identical HD export pass this resolution-only identity check.
 
 ## 2. Title and tags
 
@@ -137,7 +143,8 @@ node scripts/youtube/upload.js --file "<master>" --title "<title>" --description
 node scripts/youtube/set-thumbnail.js --video <id> --file "<thumb FINAL.jpg>" --out "<build dir>/readback-<id>.jpg"
 ```
 
-- Check the log's first line says `channel: Abs by AI (UC236gjadarHAhEhOMYNGJ9g)` — the brand-account trap.
+- Check the log's first line has channel ID `UC236gjadarHAhEhOMYNGJ9g` (currently titled *Dan Rose Fitness*) — the
+  channel ID is authoritative because the display name can change.
 - Two uploads in parallel ran at ~2.8 MB/s each (340 MB ≈ 2 min). A re-run makes a SECOND video; only re-run a
   failed one.
 - Read back with `videos?part=status,processingDetails` until `processingStatus: succeeded`, `embeddable: true`,
@@ -171,8 +178,8 @@ second run is a no-op and a vertical is one more `videos` entry.
 - **Never "Why My X Kept Failing"** — Google DISAPPROVED it as CLICKBAIT on Ad 5 (09-11). No questions, no reveal,
   no withheld payoff, no "trick", no drug/medication/dose words (lint `medical` catches "dose").
 
-Budget stays at $20/day — adding ad groups does not change it; say in the report that the budget is now shared by
-more ad groups. Never enable a campaign.
+Read the campaign's current shared budget and preserve it exactly — adding ad groups must not change it. Say in the
+report that the existing budget is now shared by more ad groups. Never enable a paused campaign.
 
 **Policy, next day:** `client.js policy`. A DISAPPROVED line → rewrite ONLY that line (Dan's rule) with
 `scripts/ads/ytads/manual.js`. An ad-level `YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS` with no line

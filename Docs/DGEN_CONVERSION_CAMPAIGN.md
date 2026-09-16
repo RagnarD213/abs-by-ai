@@ -216,6 +216,28 @@ at $30 target CPA. The previous three enabled Ad 3 variants and two paused super
 The shared gate v1.2.0 FAIL record (24 measured PASS, 3 N/A, 2 FAIL, 6 NOT MEASURED) remains preserved as history;
 this one-file user-directed release does not change future gate enforcement. Organic/public posting was not done.
 
+## 2026-09-16 — Ad 14 exact-match HD replacement
+
+Muhammad's 260,253,922-byte V3 HD delivery was compared directly with the approved V3 review export. It has the same
+5,924-frame timeline and equivalent untouched audio, with no sampled picture change beyond ordinary re-encoding noise.
+The HD master replaced the review-grade file in the project; the earlier 79,337,649-byte file remains beside it as a
+superseded archive. The new video `SGJoPjnl6AU` was uploaded **Unlisted**, processed successfully, read back as
+embeddable, and received the existing approved Ad 14 thumbnail.
+
+The existing Ad 14 audience and ad groups were reused. Google `validateOnly` passed, then the replacement video asset
+`422104479381` and two enabled ads were created. The two old low-bitrate ads were paused only after the replacements
+were read back:
+
+| version | video → asset | /start `205864199888` | home `200914309675` |
+|---|---|---|---|
+| Muhammad 16:9 HD | `SGJoPjnl6AU` → `422104479381` | **824922224568** ENABLED, review in progress | **824922224571** ENABLED, review in progress |
+| Superseded review-grade | `z5AfM0fhcIg` → `421486077779` | **824835458839** PAUSED | **824835458866** PAUSED |
+
+Final URLs use `utm_campaign=dgen-conv-ad14&utm_content=muhammad-16x9-hd-<start|home>`. The campaign, shared budget,
+audience, landing pages, copy, groups and $30 target CPA were unchanged. Ads 8, 9, 13 and 15 were not added because
+their HD deliveries contain visual edits versus the finalized review references and therefore did not pass the
+resolution-only identity condition. Organic/public posting was not done.
+
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and
 off at 15:49). Ad groups and ads were already ENABLED. The API client refuses to enable a campaign itself unless

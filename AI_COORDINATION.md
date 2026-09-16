@@ -95,6 +95,8 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
+**Ads 8, 9, 13, 15 + Ad 14 HD replacement — WAITING ON DAN 2026-09-16, owner: Codex 01a0abca.** Ad 14 exact-match HD installed: YouTube `SGJoPjnl6AU`, new Ads 824922224568/571 enabled under review, old Ads paused. Ads 8/9/13/15 preserve timeline/audio but contain visual edits versus finalized review files; no creative judgment applied. Next: Dan designates those changed HDs as new approved masters or requests resolution-only exports. Detail: `revision docs/ads8-9-13-14-15-hd-exact-match-9-16-26.md`.
+
 **Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
 
 **Web push storage — OPEN 2026-09-15.** Move `push-subs.json` to Postgres before enabling web push. Subscriber-list migration is already finished.

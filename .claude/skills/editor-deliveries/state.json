@@ -205,15 +205,15 @@
       "why_final": "Daniel HQ Ad 6 V4 HD.mp4 (created 09-14 07:39Z). Answers Dan's Upwork message 09-14 4:50 PM CT 'please send over the high-quality files for video 6 and 14'; Muhammad replied 11:04 PM CT with the link. No revision doc after the 09-12 round 3. 363 MB. Downloaded by curl, size = Drive exactly. Title from the round-3 doc heading ('You're Not Too Old to Get Abs. I'm Proof.'), apostrophes kept like the Ad 5 folder. Filing is not approval: Dan has not yet confirmed round 3's four items landed."
     },
     {
-      "drive_id": "1VQuOxzfbmXv_TgO5GgURXrLkkwusU6_k",
+      "drive_id": "1SF5FpJ2vIiqi2BmHm6NqwhHsP3azvl9l",
       "editor": "Muhammad",
       "title": "i watched 400 workout videos and gained weight",
       "kind": "ad",
       "number": 14,
       "path": "Muhammad Ad Videos/i watched 400 workout videos and gained weight - ad 14/i watched 400 workout videos and gained weight | muhammad | 16x9 | ad 14.mp4",
-      "size": 79337649,
-      "filed_on": "2026-09-15",
-      "why_final": "Daniel HQ ad 14 V3.mp4. This is a 1920x1080, 5924-frame, 197.664 s export at about 3.0 Mbps video bitrate rather than Muhammad's usual ~10 Mbps final bitrate. Dan was told this and explicitly authorized uploading everything on 2026-09-15. Downloaded by curl, size matches Drive exactly; replace this master and its YouTube/Ads video asset when an HD re-export arrives."
+      "size": 260253922,
+      "filed_on": "2026-09-16",
+      "why_final": "Daniel HQ Ad 14 V3 HD.mp4. Exact-match verification against the approved V3 review export: same 5,924 frames and 197.664 s timeline, equivalent untouched audio, and no sampled visual changes beyond re-encode noise. SHA-256 4a20de7fff32dd67bd4c2bb5df722aa9825fcd6160b49ed3ec18ba5ef6c4e845. The prior 79,337,649-byte review-grade master is preserved beside it as a superseded archive. Uploaded unlisted as SGJoPjnl6AU and installed in Demand Gen on 2026-09-16."
     }
   ],
   "not_final_seen": [
@@ -547,7 +547,7 @@
   "watch": [
     "Zeeshan's 5-video content batch ($30/video, started 09-10): batch VIDEO 1 (ab wheel workout only) round 1 landed 09-11 as 'Video 3.mp4', shared as a single FILE, not in a folder — so an owner query finds it, but check his two folders too. His file names are his own running count, not the brief's numbers: identify each by content and his Upwork message. Finals file under 'Zeeshan Content Videos/<title> - video N/'. A first cut is a draft, not a final.",
     "Zeeshan's content batch VIDEO 2 first cut (Video2.mp4, 848 MB) landed 09-13 16:30Z in a NEW folder (1mvqEowzfNNprOCxPta6DASIT20MdYfvX), announced 09-14 00:52Z. It needs a /revisions review; nothing to file until Dan calls a later cut final.",
-    "Muhammad 09-14 batch: Ad 6 V4 HD FILED 09-15; Ad 14 and a second Ad 7 V4 HD in pending; Ads 8 V3, 9 v3, 13 V3, 15 V2 are new ~25-30 MB review cuts needing /revisions (last notes 09-10).",
+    "Muhammad batch: Ad 6 V4 HD filed 09-15; Ad 14 V3 HD exact-match replacement filed/uploaded 09-16; second Ad 7 V4 HD still needs classification. Ads 8/9/13/15 HD deliveries do not match the accepted review exports visually; use them only if Dan explicitly designates the changed HDs as the new approved masters.",
     "Waleed 09-14 18:17Z: proposes ending the job at video 1 for the $50 milestone and asks for 5-star feedback. No new delivery; his round-4 cut (1Q-cmEcX…) stays not final. Nothing to file unless Dan accepts that cut as final.",
     "Zeeshan 09-16: arms & shoulders Rev 1 (09-15) got round-2 revisions; he promised a revised cut and asked 07:17Z 'Do we need to change the entire music, or just the music underneath the sets?' — Dan's answer needed. Also 09-15 17:49Z explained a framing/crop limit (little headroom in raw). Muhammad 09-16 03:21Z 'Thanks Sure.' — no delivery."
   ]
