@@ -1,3 +1,5 @@
+> ⛔ **SUPERSEDED 2026-09-16** by `Handoffs/video-editing/00-MASTER.md` — J15–J18 now has its own AV-/AS- doc there. Do not fire from this file; it is kept for its history and detail.
+
 # Handoff — Ads 6 and 14: vertical, square and ≤0:59 versions (master-queue jobs J15–J18)
 
 **Written 2026-09-15** by the session that reviewed Muhammad's 09-14 batch, at Dan's request: *"Create a second

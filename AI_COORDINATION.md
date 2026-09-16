@@ -152,10 +152,9 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260916-video-checker-repair.md` — independent shared-checker repair for future captions, layouts and labels; corpus required (2026-09-16). Astra / High.
 
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
-- `handoff-20260915-ads-6-14-variants.md` — master-queue J15–J18, Ads 6 + 14 vertical/square/59s (2026-09-15). Fable 5.1 high.
-- `handoff-20260913-ad-variants-master-queue.md` — THE queue for 9:16 / 1:1 / ≤0:59 variants; READY J14, J4, J1, J3, J2, J10/J12. Fable 5.1 high.
+- **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
 - `codex-video-trial/06a-organic-revision.md` + `06b-ad14-revision.md` — Codex executing (ACTIVE). GPT-6 Astra high.
-- `handoff-20260912-ad5-vertical-revisions-round2.md` (J4) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
+- `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
 - `handoff-20260912-vqc-phase3-watch-pass.md` — fire next in the video-quality engine. Fable 5.1 high, ~2 sessions.
 - `handoff-20260909-vqc-C-phase4-cut-technique.md` — before engine Phase 4. Fable 5.1 high.

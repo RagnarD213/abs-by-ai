@@ -1,3 +1,5 @@
+> ⛔ **SUPERSEDED 2026-09-16** by `Handoffs/video-editing/00-MASTER.md` — every job now has its own AV-/AS- doc there. Do not fire from this file; it is kept for its history and detail.
+
 # Ad variants — MASTER QUEUE (vertical, square and ≤0:59 cutdowns for every finalized ad)
 
 **Written 2026-09-13 at Dan's request: "make sure that we don't miss square, vertical, or short-form for any of these
