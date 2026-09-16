@@ -1,6 +1,6 @@
 # Blotato IG + Facebook queue — progress
 
-Last updated 2026-08-18 by Claude Code.
+Last updated 2026-09-16.
 
 ## Account state
 
@@ -8,7 +8,7 @@ Last updated 2026-08-18 by Claude Code.
 - Connected: **Instagram `@abs.by.ai` (id 65632)**, **Facebook Page "Abs by AI" (id 47105, pageId 1294282227094660)**, **YouTube (id 46963)**.
 - Auth is **OAuth via the Blotato MCP connector** (`https://mcp.blotato.com/mcp`), added in the Claude desktop app. **No API key was ever generated and none is needed** — the key and the OAuth login are two alternative ways to authenticate the same account. The free trial blocked MCP entirely (`"Free trial does not include MCP access"`); activating the subscription unblocked it with no further setup.
 - **TikTok deliberately NOT connected** until ~2026-09-02 (warm-up; early third-party connection risks a bot flag).
-- **YouTube is connected but deliberately unused.** All 28 Shorts are already scheduled natively in YouTube Studio, so posting them through Blotato too would double-post. Blotato only posts where a post names that accountId, and no Automations exist, so it is inert. Dan's decision 2026-08-17: leave connected, revisit after the native queue runs dry (post Oct 15).
+- **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
 
 ## DONE — "Ab Wheel Workout: 3 Sets For Stronger Abs (Do It With Me)", every platform (2026-09-13)
 

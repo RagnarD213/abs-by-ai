@@ -10,10 +10,15 @@ set them up with descriptions and everything we need, and add these to our campa
 below was run end to end that day; the ids it produced are in `Docs/AD_VIDEO_IDS.md` and
 `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
-**Scope.** This is the PAID path: an unlisted YouTube video that Google Ads points at. It does NOT publish the
-video organically (public YouTube, Blotato to FB / IG / TikTok). Ad 5 got both only because Dan asked for both — if he
-wants it public too, that is `scripts/youtube/upload.js --publish-at` for a separate public copy plus a
-`scripts/blotato/ad5_queue.py`-style queue script. Ask nothing; just say in the report that organic posting was not done.
+**Permanent visibility rule (Dan, 2026-09-16): every ad video is Unlisted on YouTube, always. Never upload an ad
+as Public, never schedule it to become Public, and never create a separate Public YouTube copy.** If the ad is also
+queued on other social platforms, that does not change its YouTube visibility. Read the finished YouTube record back
+and require `privacyStatus: unlisted`; a missing or different value is a failed setup that must be corrected.
+
+**Scope.** This is the PAID path: an unlisted YouTube video that Google Ads points at. It does not publish the video
+organically. If cross-platform organic distribution is separately requested, queue those platforms through Blotato
+without changing or duplicating the YouTube ad upload. Say in the report that organic posting was not done when it was
+outside the request.
 
 All steps are reversible and covered by standing authorizations (analytics/ads config, bias toward action). Do not
 stop to ask. The one thing Claude never does here: enable a paused campaign (`ADS_ALLOW_ENABLE_CAMPAIGN=1` is Dan's).

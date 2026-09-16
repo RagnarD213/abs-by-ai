@@ -125,6 +125,13 @@ sessions (and any other assistant, if one is in use).
   location — those masters are already shipped, so this wasn't fixed, but a future rebuild from
   one of those exact recipes needs the path corrected to `Frowning Photos/`.
 
+## YouTube visibility — never upload Public (Dan, 2026-09-16)
+
+- **Never upload any video to YouTube as Public, and never use YouTube's native scheduling/publish-at path.** This applies to API uploads, Studio uploads, scripts and manual work. The upload-time visibility must always be non-public.
+- **Ad videos are always uploaded Unlisted.** No ad gets a separate Public YouTube copy, even if it will also be used on other platforms.
+- **Organic videos are always uploaded Private.** Blotato queues and releases the organic video at the intended time, including YouTube; do not schedule the Private upload to become Public from YouTube Studio or the YouTube API.
+- Before reporting an upload complete, read back the saved visibility. It must be `unlisted` for an ad or `private` for organic content. A missing or different value is a failure; correct it before continuing. If the video type is unclear, use Private while resolving it—never Public.
+
 ## Delivery and deployment
 
 - Do not leave changes made for a task only on the local computer.

@@ -8,6 +8,14 @@ description: Package an Abs By AI YouTube video for upload — SEO title options
 Established with Dan on 2026-08-04 while packaging the channel-intro video (V1).
 Working example output: `YouTube Content/channel-intro/` (PACKAGING.md, thumbnails, shorts/).
 
+## Permanent visibility gate (Dan, 2026-09-16)
+
+- Never upload any video as Public and never use YouTube native scheduling or `publishAt`.
+- Ad video → upload **Unlisted**, always. Never make a separate Public YouTube copy.
+- Organic video → upload **Private**, always. Blotato owns the scheduled release, including YouTube.
+- Read the saved visibility back before calling the upload complete: `unlisted` for an ad, `private` for organic.
+  Missing or wrong visibility fails the workflow and must be corrected. If classification is unclear, keep it Private.
+
 ## Workflow
 
 1. **Transcribe** the video with the ad-factory Whisper pipeline (word timestamps —
@@ -257,12 +265,12 @@ Dan's expectation is that Claude **applies** the packaging in Studio, not just w
 a document. All of it is drivable through the Chrome MCP except pushing the video
 file itself.
 
-**SUPERSEDED 2026-09-09/10 — Claude uploads, schedules and thumbnails by API now.**
-`scripts/youtube/upload.js` does a resumable Data API upload of any size, and since
-2026-09-10 takes `--publish-at <ISO>` (uploads private, YouTube flips it public then),
+**SUPERSEDED 2026-09-09/10 — Claude uploads and sets thumbnails by API now.**
+`scripts/youtube/upload.js` does a resumable Data API upload of any size. As of 2026-09-16 it deliberately rejects
+`--privacy public` and `--publish-at`; organic release timing belongs to Blotato. It takes
 `--thumbnail <jpg|png ≤2 MB>` (thumbnails.set after the upload) and
 `--synthetic true|false` (the altered-content disclosure). First scheduled long-form
-through it: "The $17 Ab Wheel Beats Every Crunch", 1.05 GB master, plus its 5 Shorts.
+through the retired native-scheduling path was "The $17 Ab Wheel Beats Every Crunch", 1.05 GB master, plus its 5 Shorts.
 **Swapping the thumbnail on a video already up:** `node scripts/youtube/set-thumbnail.js
 --video <id> --file <jpg> --out readback.jpg` (thumbnails.set, then waits for the new image
 to serve and saves it; compare a downscaled grey diff, not bytes). First used 2026-09-10

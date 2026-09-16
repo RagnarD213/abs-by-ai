@@ -1,6 +1,6 @@
 ---
 name: video-setup
-description: Take a FINISHED organic/content long-form video (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform — download and file it, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, schedule it on YouTube with the thumbnail (plus a Test & Compare A/B when Dan picks two), and queue Facebook, Instagram @danrosefit, TikTok and the @abs.by.ai mirror through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else" — even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
+description: Take a FINISHED organic/content long-form video (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform — download and file it, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, TikTok and the @abs.by.ai mirror for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else" — even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
 # /video-setup — finished content video → YouTube + Blotato, every platform
@@ -8,11 +8,12 @@ description: Take a FINISHED organic/content long-form video (usually an editor'
 Built 2026-09-13 on Zeeshan's "Ab Wheel Workout" (video 1, "Video 1 Rev 2.mp4", 3:52). Dan: *"Zishan has finished
 his video. I want you to cue this up on all platforms, YouTube and everything else, using Blotato… set this up with
 descriptions and thumbnails… Before setting it up, though, make the thumbnail images and show me five variations."*
-Everything below ran end to end that day. Result: YouTube `b_bS9NdmL-g` (public Sun 09-20 9 AM CT, thumbnails 5 vs 1 in Test & Compare), Blotato
+Everything below ran end to end that day. Historical result: YouTube `b_bS9NdmL-g` (scheduled under the retired native-publication workflow for Sun 09-20 9 AM CT, thumbnails 5 vs 1 in Test & Compare), Blotato
 schedules 4413699 / 4413701 / 4413702 / 4413703; record in `BLOTATO_QUEUE_PROGRESS.md`.
 
 **One stop for Dan, and only one: the thumbnail pick.** Everything else is reversible and runs without asking.
-Publishing is SCHEDULED (private until the time), so nothing goes public in-session.
+**Permanent visibility rule (Dan, 2026-09-16): upload organic YouTube videos Private and leave them Private;
+Blotato owns the scheduled release, including YouTube. Never upload Public and never use YouTube native scheduling.**
 
 ## Step 0 — before anything
 
@@ -79,22 +80,28 @@ It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so 
   `BLOTATO_QUEUE_PROGRESS.md` for the latest long-forms; recent pattern Sun / Wed. The @abs.by.ai mirror goes the
   next day, same time.
 
-## Step 4 — YouTube (native, never through Blotato)
+## Step 4 — YouTube holding upload (Private only)
 
 ```bash
 node scripts/youtube/upload.js --file "<filed mp4>" --title "<title>" \
   --description-file "<filed folder>/youtube-description.md" --privacy private \
-  --publish-at <ISO Z> --tags "a,b,c" --made-for-kids false --synthetic true|false \
+  --tags "a,b,c" --made-for-kids false --synthetic true|false \
   --thumbnail "<picked thumbnail A>"
 ```
 
 - Run it in the background — a 300 MB file takes minutes. **Never re-run on a slow upload: YouTube does not dedupe,
   a second run makes a second video.** Read the output file; only retry after a clear failure.
+- Read back the completed record and require `privacyStatus: private`. Do not add a YouTube `publishAt` value or
+  schedule it in Studio. A Public, Scheduled or unknown result fails the workflow and must be corrected.
 - `--synthetic true` whenever an AI image of Dan appears on screen (the absbyai.com CTA usually shows one).
 - Two thumbnails picked → the second goes in via Studio's **Test & Compare** (Studio-only; the token has no
   `youtube.force-ssl`). See Step 6.
 
-## Step 5 — Blotato (Facebook, IG @danrosefit, TikTok, IG @abs.by.ai mirror)
+## Step 5 — Blotato release queue (YouTube + Facebook + IG + TikTok)
+
+The connected Abs by AI YouTube account is Blotato account `46963`. Queue YouTube's release in Blotato for the
+chosen time; do not recreate the retired native YouTube schedule. Treat a missing YouTube Blotato schedule as an
+incomplete organic setup. Confirm the schedule by reading it back before reporting success.
 
 1. `blotato_create_presigned_upload_url` (filename `.mp4`) → `curl -X PUT -H "Content-Type: video/mp4"
    --data-binary @<file> "<presignedUrl>"` in the background → `curl -sI <publicUrl>` and confirm
@@ -104,7 +111,9 @@ node scripts/youtube/upload.js --file "<filed mp4>" --title "<title>" \
    hook / body / close in Dan's voice, ManyChat keyword per topic (`ABS` for ab content; the table is in
    `Docs/MANYCHAT_KEYWORDS.md`), `ai_generated` same as YouTube's synthetic flag.
 3. `python3 scripts/blotato/longform_queue.py <config>` (dry run: slot clashes + the 200-post cap), then `--apply`.
-   The script verifies all four against a fresh pull and prints the schedule ids. Idempotent — re-running is safe.
+   The current helper covers the four non-YouTube accounts. Queue the connected YouTube account through Blotato too,
+   using the same release time and media, and verify all five schedules on a fresh pull. Do not fall back to YouTube
+   native scheduling if Blotato needs repair; leave the holding upload Private until the Blotato path works.
    - Facebook gets no `mediaType` (FB Reels cap at 90 s). TikTok long-form over ~10 min may exceed the account cap.
    - Organic links go to the absbyai.com root, never `/start` (keeps organic out of the `/start` A/B test).
 

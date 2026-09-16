@@ -23,9 +23,12 @@
  *   node scripts/youtube/upload.js --file "path/to/video.mp4" \
  *     --title "Title" [--description-file notes.md] [--privacy unlisted] \
  *     [--tags "a,b,c"] [--made-for-kids false] [--dry-run]
- *     [--publish-at 2026-09-13T14:00:00Z]   schedule: uploads private, goes public then
  *     [--thumbnail thumb.jpg]               custom thumbnail, set after the upload
  *     [--synthetic true|false]              altered/synthetic content disclosure
+ *
+ * VISIBILITY POLICY (Dan, 2026-09-16)
+ *   Ads: unlisted. Organic: private, with release queued through Blotato.
+ *   Public uploads and YouTube-native scheduling are deliberately blocked.
  *
  * Prints the video id and watch/embed URLs on success. Safe to re-run only if the
  * previous attempt failed — YouTube does not dedupe, a second run makes a second video.
@@ -107,14 +110,11 @@ async function main() {
   if (!o.file) throw new Error('--file is required');
   if (!fs.existsSync(o.file)) throw new Error('file not found: ' + o.file);
   if (!o.title) throw new Error('--title is required');
-  if (!['unlisted', 'private', 'public'].includes(o.privacy)) throw new Error('--privacy must be unlisted|private|public');
-  // A scheduled video has to go up private; YouTube flips it to public at publishAt.
+  if (!['unlisted', 'private'].includes(o.privacy)) {
+    throw new Error('--privacy must be unlisted (ads) or private (organic); Public uploads are forbidden');
+  }
   if (o.publishAt) {
-    const t = Date.parse(o.publishAt);
-    if (isNaN(t)) throw new Error('--publish-at must be an ISO 8601 time, e.g. 2026-09-13T14:00:00Z');
-    if (t <= Date.now()) throw new Error('--publish-at is in the past');
-    o.publishAt = new Date(t).toISOString();
-    o.privacy = 'private';
+    throw new Error('--publish-at is disabled; upload organic videos Private and queue release through Blotato');
   }
   if (o.thumbnail && !fs.existsSync(o.thumbnail)) throw new Error('thumbnail not found: ' + o.thumbnail);
 
@@ -126,7 +126,7 @@ async function main() {
   console.log(`channel: ${ch.title} (${ch.id})`);
   console.log(`file:    ${path.basename(o.file)} — ${(size / 1048576).toFixed(1)} MB`);
   console.log(`title:   ${o.title}`);
-  console.log(`privacy: ${o.privacy}${o.publishAt ? ` — goes public ${o.publishAt}` : ''}`);
+  console.log(`privacy: ${o.privacy}`);
   if (o.thumbnail) console.log(`thumb:   ${path.basename(o.thumbnail)}`);
   // YouTube caps tags at 500 characters, counting a tag with a space as if quoted.
   const tagChars = (o.tags || []).reduce((n, t) => n + t.length + (t.includes(' ') ? 2 : 0), 0) + Math.max(0, (o.tags || []).length - 1);
@@ -144,7 +144,6 @@ async function main() {
       privacyStatus: o.privacy,
       selfDeclaredMadeForKids: !!o.madeForKids,
       embeddable: true,
-      ...(o.publishAt ? { publishAt: o.publishAt } : {}),
       ...(o.synthetic !== undefined ? { containsSyntheticMedia: o.synthetic } : {}),
     },
   };
