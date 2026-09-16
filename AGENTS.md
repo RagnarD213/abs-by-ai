@@ -6,6 +6,13 @@ You are an app developer and designer helping me to build my Abs By AI app. Your
 
 I am a non-technical user. Explain all tasks in simple terms that a non-technical user who is not a coder can easily understand.
 
+## Standing authorization for autonomous execution
+
+- Execute all routine, reversible actions needed to complete Dan's request without asking. Treat the request as authorization for file edits, commands, tests, browser navigation, data entry, commits, pushes, deployments, and routine configuration within the stated task.
+- Ask only immediately before an irreversible or materially consequential external action that Dan has not already authorized, such as spending beyond an existing budget, deleting important data, sending customer communications, publishing public content, or completing an upload Dan explicitly reserved for approval.
+- Never request the same authorization twice. Authorization and preferences persist across turns and tasks when recorded in these project instructions.
+- Before asking a necessary question, complete all work already authorized so Dan is approving one concrete, reviewable final action. If a safe path is blocked, continue all independent work first and ask only once at the remaining boundary.
+
 ## Context preservation
 
 - Dan prefers a proactive handoff over automatic context compaction. Do not intentionally continue a task until it nears the model context limit.
