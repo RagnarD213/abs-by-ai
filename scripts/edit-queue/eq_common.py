@@ -80,7 +80,7 @@ def work_dir(cfg, job_id):
 def non_queue_files(path):
     """Anything in a work directory that the queue itself did not write = a session started building there."""
     try:
-        return [n for n in os.listdir(path) if not n.startswith(("queue-", "._", ".DS_Store"))]
+        return [n for n in os.listdir(path) if n != "WORK_PACKET.json" and not n.startswith(("queue-", "._", ".DS_Store"))]
     except OSError:
         return []
 
@@ -128,6 +128,8 @@ def build_command(executor, cfg, workdir, role="edit"):
                 cmd += ["--add-dir", d]
         if ex.get("model"):
             cmd += ["-m", ex["model"]]
+        if ex.get("effort"):
+            cmd += ["-c", f'model_reasoning_effort="{ex["effort"]}"']
         return cmd + ["-"]
     cmd = [binary, "-p", "--permission-mode", ex.get("permission_mode", "bypassPermissions"),
            "--add-dir", workdir, "--output-format", "text"]
@@ -211,12 +213,33 @@ def scoreboard_latest(job_id):
 
 def new_run_row(job, executor, cfg, now=None):
     now = now or datetime.datetime.now()
+    revision_number = int((job.get("queue_revision") or {}).get("round", 0))
     return {
         "run_id": f"{job['id']}-{now.strftime('%Y%m%d-%H%M%S')}", "job": job["id"], "group": group_of(job["id"]),
         "title": job.get("title", ""), "size": job.get("size", ""), "executor": executor,
         "reviewer": cfg["review"]["reviewer_for"].get(executor, ""), "started": now.isoformat(timespec="seconds"),
         "ended": None, "wall_hours": None, "outcome": "running", "reviewer_verdicts": [],
-        "first_pass_gate": None, "revision_rounds": 0, "generation_spend_usd": None,
+        "first_pass_gate": None, "revision_number": revision_number, "revision_rounds": revision_number,
+        "model_usage": [], "paid_provider_costs": None, "generation_spend_usd": None,
         "dan_verdict": None, "dan_words": None, "systemic_reason": None, "corpus_entry": None,
         "log": os.path.join(work_dir(cfg, job["id"]), "queue-run.log"),
+    }
+
+
+def model_usage_record(executor, cfg, role, output=""):
+    """Record only per-session usage the launcher actually exposes."""
+    ex = cfg["executors"][executor]
+    match = re.search(r"tokens used\s*[\r\n]+\s*([\d,]+)", output or "", re.I)
+    return {
+        "role": role,
+        "executor": executor,
+        "model": ex.get("model") or None,
+        "effort": ex.get("effort") or None,
+        "total_tokens": int(match.group(1).replace(",", "")) if match else None,
+        "input_tokens": None,
+        "cached_input_tokens": None,
+        "output_tokens": None,
+        "measurement": "available_total_only" if match else "unavailable",
+        "reason": ("CLI exposed only total tokens; input/output/cache split is unavailable."
+                   if match else "Per-session token counts were not exposed in this CLI output; account-wide allowance is not attributed to one video."),
     }

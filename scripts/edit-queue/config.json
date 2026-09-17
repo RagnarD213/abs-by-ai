@@ -42,7 +42,8 @@
   },
 
   "review": {
-    "auto_revision_rounds": 1,
+    "reviews_per_candidate": 1,
+    "_why": "One editor owns the candidate, then one independent reviewer returns one consolidated verdict. Rejected candidates park for a separately scoped revision; there is no automatic supervisor/fix/re-review loop.",
     "reviewer_for": {"codex": "claude", "claude": "codex"}
   },
 
@@ -56,7 +57,8 @@
       "binary": "/Applications/ChatGPT.app/Contents/Resources/codex",
       "sandbox": "danger-full-access",
       "extra_writable_dirs": ["~/.config/rclone", "~/.cache"],
-      "model": "",
+      "model": "gpt-5.6-sol",
+      "effort": "medium",
       "auth_check": null
     },
     "claude": {

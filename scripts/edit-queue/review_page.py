@@ -75,6 +75,30 @@ def summary_table(sb):
     return "".join(out) + "</table>"
 
 
+def efficiency_line(run):
+    usage = []
+    for row in run.get("model_usage") or []:
+        model = row.get("model") or "model unavailable"
+        effort = row.get("effort") or "effort unavailable"
+        if row.get("total_tokens") is not None:
+            tokens = f"{row['total_tokens']:,} total tokens (split unavailable)"
+        elif row.get("input_tokens") is None or row.get("output_tokens") is None:
+            tokens = "tokens unavailable"
+        else:
+            tokens = f"{row['input_tokens']} in / {row['output_tokens']} out"
+        usage.append(f"{row.get('role', 'session')}: {model}, {effort}, {tokens}")
+    if not usage:
+        usage.append("model usage unavailable (no session measurement was recorded)")
+    costs = []
+    for row in run.get("paid_provider_costs") or []:
+        amount = f"${row['usd']:.2f}" if isinstance(row.get("usd"), (int, float)) else "cost unavailable"
+        reason = f" ({row['reason']})" if row.get("usd") is None and row.get("reason") else ""
+        costs.append(f"{row.get('provider', 'provider')}: {amount}{reason}")
+    if not costs:
+        costs.append("paid-provider costs unavailable (no per-video cost record was supplied)")
+    return " · ".join(usage + costs)
+
+
 def status_block(cfg, data, sb):
     d = eq.sibling("dispatcher")
     dec = d.decide(data, cfg, d.gather(cfg, data), sb)
@@ -128,7 +152,8 @@ def render(static=False):
             <button class=bad data-v=rejected>Reject</button><span class=msg></span>
           </div>"""
         cards.append(f"""<div class=card>{head}
-          <p class=dim>{E(run['executor'])} edited · {E(str(run.get('reviewer')))} reviewed · {run.get('revision_rounds', 0)} automatic revision(s) · {run.get('wall_hours') or '?'} h</p>
+          <p class=dim>{E(run['executor'])} edited · {E(str(run.get('reviewer')))} reviewed once · revision {run.get('revision_number', run.get('revision_rounds', 0))} · {run.get('wall_hours') or '?'} h</p>
+          <p class=dim>{E(efficiency_line(run))}</p>
           {f'<video controls preload=metadata src="{media(vid)}"></video>' if vid else '<p class=warn>No review copy listed in DELIVERY.json.</p>'}
           <p>{E(dl.get('summary', ''))}</p>
           <p><b>Reviewer:</b> {E(verdict)}<br>{'<br>'.join(E(l) for l in lines)}</p>
@@ -185,7 +210,10 @@ def record_verdict(job_id, verdict, words, systemic):
         if j["state"] not in cfg["stop"]["review_queue_states"]:
             return False, f"{job_id} is {j['state']}, not waiting for review"
         if verdict == "revise":
-            j["queue_revision"] = {"round": (j.get("queue_revision") or {}).get("round", 0) + 1, "words": words, "date": today}
+            prior_round = int((run or {}).get("revision_number", 0))
+            approved = delivery(cfg, job_id).get("approved_elements") or []
+            j["queue_revision"] = {"round": prior_round + 1, "words": words, "requested_changes": [words],
+                                   "approved_elements": approved, "date": today}
         q.set_state(data, job_id, state, "Dan (review page)", note)
         q.save(data)
     q.master_status(job_id, q.STATES[state])

@@ -8,7 +8,8 @@ Built 2026-09-17 (Phases 0–1). **Phase 2 (placeholder flow for AI-clip slots) 
 
 * **What runs on its own:** every 15 minutes a small script (not an AI, costs nothing) looks at the job list. If a
   build slot is free and nothing says stop, it starts the next job with the right tool (the table below), lets a
-  *different* AI review the result, allows one automatic fix round, then puts the video on your review page.
+  *different* AI review the completed candidate once, then either puts the video on your review page or parks it
+  with one consolidated correction list. There is no automatic fix/re-review supervision loop.
 * **Your review page:** http://127.0.0.1:8830 (on the Mac mini). Watch, then Approve, Send back, or Reject. Your words
   are saved exactly as you say them.
 * **Pause everything:** `python3 scripts/edit-queue/dispatcher.py pause`. Or create an empty file named `PAUSE` in
@@ -26,7 +27,7 @@ While you are using the Mac (keyboard or mouse in the last 10 minutes) it uses o
 
 | jobs | tool | reviewer |
 |---|---|---|
-| `RA` raw ads, `RO` organic long-form, `DS` dedicated shorts (all raw-footage first cuts) | **Codex** | Claude `ra-reviewer` |
+| `RA` raw ads, `RO` organic long-form, `DS` dedicated shorts (all raw-footage first cuts) | **Codex · Sol / medium** | Claude `ra-reviewer` |
 | `AV` ad verticals, `AS` ad squares, `SL` shorts from a long-form (all secondary cuts) | **Claude** | a fresh Codex session |
 | `RX` | never queued | |
 
@@ -41,10 +42,11 @@ join after Phase 2, because most of them have AI-clip slots that need Dan's fram
 | `queue.py` | the only writer of job state. New: `claim`, `heartbeat`, `release`, `stall`, the `stalled` state, a write lock |
 | `config.json` | routing table and every number |
 | `dispatcher.py` | the 15-minute tick: `tick`, `tick --dry-run`, `status`, `pause`, `resume`, `pause-group`, `resume-group`, `launch-one` |
-| `runner.py` | runs one job inside its slot: edit → cross-review → one revision → `delivered` or parked |
+| `runner.py` | runs one job inside its slot: one editor → one cross-review → `delivered` or parked |
+| `pre_render_check.py` | validates risky-source hashes and a real 0.5–15 second moving preview before the full render |
 | `preamble.md`, `reviewer-brief.md` | the fixed text put in front of every unattended edit / review |
 | `review_page.py` | the review page server (port 8830) and a static snapshot |
-| `scoreboard.json` | one row per run: tool, reviewer verdicts, gate, revision rounds, hours, spend, Dan's verdict and words |
+| `scoreboard.json` | one row per run: tool, reviewer verdicts, gate, revision number, model usage, provider cost, hours and Dan's verdict |
 | `launchd/`, `install.sh` | the two background jobs: `com.absbyai.edit-queue` (tick) and `com.absbyai.edit-queue-review` (page) |
 | `tests/` | `python3 scripts/edit-queue/tests/test_edit_queue.py` and `test_runner_end_to_end.py` (fake editor, spends nothing) |
 
@@ -66,10 +68,17 @@ paused. `dispatcher.py status` prints the reason per job.
 
 ## The contract with a launched session (`preamble.md`)
 
-Work in `/Volumes/Extreme/_edit_work/<JOB>/`. Finish by writing `DELIVERY.json` there, or `BLOCKED.md` for a real
-blocker. Do **not** set `delivered`: the runner does that only after the independent reviewer writes
-`QUEUE-REVIEW-<n>.md` with a first line of `VERDICT: SHIP`. `DOES NOT SHIP` buys one automatic revision; after that
-the job parks as `needs` with the review attached. No verdict line = the review did not run = parked.
+Work in `/Volumes/Extreme/_edit_work/<JOB>/`. The runner writes `WORK_PACKET.json`: one short change list plus the
+approved elements that must survive. The editor records fingerprint-backed reuse in `REUSE_REPORT.json`, and checks
+risky source choices with short moving previews in `PRE_RENDER_CHECK.json`, then runs `pre_render_check.py` before a
+full render. Finish by writing `DELIVERY.json` there, or `BLOCKED.md` for a real blocker. Do **not** set `delivered`:
+the runner does that only after the single independent reviewer writes `QUEUE-REVIEW-1.md` with `VERDICT: SHIP`.
+`DOES NOT SHIP` parks the candidate as `needs` with one consolidated review attached; Dan's later revision request
+starts a new bounded candidate.
+
+The scoreboard records the revision number, available paid-provider charges, and one model-usage row per editor or
+reviewer session. Codex's text footer supplies a per-session total when present; its input/output/cache split and any
+session whose tool omits usage stay explicitly `null`/unavailable instead of being guessed from account-wide usage.
 
 ## Exactly how the sessions are launched (Phase 0 findings, 2026-09-17)
 
@@ -78,7 +87,8 @@ the job parks as `needs` with the review attached. No verdict line = the review 
 ```
 /Applications/ChatGPT.app/Contents/Resources/codex exec -C <repo> -s danger-full-access \
   -c 'approval_policy="never"' -c sandbox_workspace_write.network_access=true \
-  --add-dir /Volumes/Extreme/_edit_work/<JOB> --add-dir ~/.config/rclone --add-dir ~/.cache  -   # prompt on stdin
+  --add-dir /Volumes/Extreme/_edit_work/<JOB> --add-dir ~/.config/rclone --add-dir ~/.cache \
+  -m gpt-5.6-sol -c 'model_reasoning_effort="medium"' -   # prompt on stdin
 ```
 ⚠ **`-s workspace-write` does not work for an edit.** It passed a smoke test (work drive, project ffmpeg, `queue.py`,
 Drive via rclone once `~/.config/rclone` was writable) but the first real job, DS-01, parked within two minutes:

@@ -16,7 +16,8 @@ os.environ["EDIT_QUEUE_SCOREBOARD"] = os.path.join(TMP, "scoreboard.json")
 sys.path.insert(0, PKG)
 import eq_common as eq                                          # noqa: E402
 eq.unshadow()
-q, d, runner = eq.sibling("queue"), eq.sibling("dispatcher"), eq.sibling("runner")
+q, d, runner, review_page = (eq.sibling("queue"), eq.sibling("dispatcher"), eq.sibling("runner"),
+                             eq.sibling("review_page"))
 
 NOW = datetime.datetime(2026, 9, 18, 2, 0, 0)          # 2 AM: Dan is asleep
 CFG = eq.load_config()
@@ -281,6 +282,7 @@ class Runner(unittest.TestCase):
     def test_commands_are_unattended_and_locked_down(self):
         cx = eq.build_command("codex", CFG, "/w/AV-01")
         self.assertIn('approval_policy="never"', cx); self.assertEqual(cx[-1], "-"); self.assertIn("/w/AV-01", cx)
+        self.assertIn("gpt-5.6-sol", cx); self.assertIn('model_reasoning_effort="medium"', cx)
         if eq.resolve_binary("claude", CFG):
             cl = eq.build_command("claude", CFG, "/w/AV-01", "review-1")
             self.assertIn("-p", cl); self.assertIn("bypassPermissions", cl); self.assertIn("--strict-mcp-config", cl)
@@ -290,6 +292,46 @@ class Runner(unittest.TestCase):
     def test_newest_claude_version_wins(self):
         self.assertLess(eq._version_key("/claude-code/2.1.260/x"), eq._version_key("/claude-code/2.1.270/x"))
         self.assertLess(eq._version_key("/claude-code/2.1.99/x"), eq._version_key("/claude-code/2.1.270/x"))
+
+    def test_revision_work_packet_is_short_and_preserves_approved_elements(self):
+        wd = tempfile.mkdtemp(dir=TMP)
+        j = job("AV-01", queue_revision={"round": 3, "words": "Replace only the workout shot",
+                                         "approved_elements": ["audio", "app demo"]})
+        p = runner.write_work_packet(j, wd, "run-1", {"files": ["/old.mp4"], "_archived_path": "/old-delivery.json"})
+        self.assertEqual(p["revision_number"], 3)
+        self.assertEqual(p["requested_changes"], ["Replace only the workout shot"])
+        self.assertEqual(p["approved_elements"], ["audio", "app demo"])
+        self.assertEqual(p["reuse_candidates"]["files"], ["/old.mp4"])
+
+    def test_usage_row_marks_unavailable_tokens(self):
+        row = eq.model_usage_record("codex", CFG, "editor")
+        self.assertEqual(row["measurement"], "unavailable")
+        self.assertIsNone(row["input_tokens"])
+        self.assertIn("not exposed", row["reason"])
+        measured = eq.model_usage_record("codex", CFG, "editor", "done\ntokens used\n156,790\n")
+        self.assertEqual(measured["total_tokens"], 156790)
+        self.assertEqual(measured["measurement"], "available_total_only")
+
+    def test_review_page_names_unavailable_measurements(self):
+        line = review_page.efficiency_line({"model_usage": [], "paid_provider_costs": None})
+        self.assertIn("model usage unavailable", line)
+        self.assertIn("paid-provider costs unavailable", line)
+
+    def test_delivery_contract_requires_reuse_cost_and_preview_evidence(self):
+        wd = tempfile.mkdtemp(dir=TMP)
+        json.dump({"status": "not_applicable", "reason": "Only caption text changed; source selection is unchanged."},
+                  open(os.path.join(wd, "PRE_RENDER_CHECK.json"), "w"))
+        delivered = os.path.join(wd, "cut.mp4")
+        open(delivered, "w").close()
+        packet = {"revision_number": 2}
+        info = {"files": [delivered], "review_copy": delivered, "gate": "PASS",
+                "revision_count": 2, "approved_elements": ["audio"],
+                "reuse": {k: {"status": "reused", "evidence": "REUSE_REPORT.json"}
+                          for k in ("scenes", "audio", "transcript", "assets")},
+                "paid_provider_costs": [{"provider": "none", "usd": 0}]}
+        self.assertEqual(runner.validate_delivery(info, wd, packet), [])
+        info["reuse"].pop("audio")
+        self.assertTrue(any("reuse.audio" in e for e in runner.validate_delivery(info, wd, packet)))
 
 
 if __name__ == "__main__":
