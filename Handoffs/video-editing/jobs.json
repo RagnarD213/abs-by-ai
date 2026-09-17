@@ -414,14 +414,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-04-only-ab-exercise-that-shrinks-belly-fat.md`: cut the dedicated short \"The Only Ab Exercise That Shrinks Your Belly Fat\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-04-only-ab-exercise-that-shrinks-belly-fat.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "in_progress",
+   "note": "Fable plans, Opus edits, Fable reviews; plan DS-04-plan.md",
    "sub": "Talking",
    "order": 20,
    "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-05",
