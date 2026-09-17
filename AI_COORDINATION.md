@@ -64,8 +64,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   via `handoff-20260916-muhammad-ads-8-9-13-15-forward-revisions.md` (Ad 9 r3 not yet pasted into his doc; 8/13/15
   just need Upwork messages sent). ⚠ Four AI clips from **Dan's own** "AI clips for Muhammad" folder show artifacts
   (beach smudge, hands, coffee pot, robot arm live in Ad 3) — replace centrally? Ad 14 needs its HD export.
-- **Forward editor docs + his calls:** Zeeshan Arms & Shoulders **r2** (`revision docs/arms-shoulders-revisions-zeeshan-round2-9-15-26.summary.md`;
-  r1 fixed except the colour match; listen to the music bed, its item is your call). Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`;
+- **Forward editor docs + his calls:** Zeeshan Arms & Shoulders **r3** 09-17 (`revision docs/arms-shoulders-revisions-zeeshan-round3-9-17-26.summary.md`;
+  3 items: Content-ID bed, .srt, black tail; colour is your call). Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`;
   ⚠ new side-by-side before/after 0:06.6–0:08.1). Muhammad batch doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`:
   09-10 sections (Ad 13 SIXPACKSHORTCUTS watermark; Ad 15 empty slot 0:25.5 and whether it runs as an ad) and 09-12 sections
   (Ads 6 + 7 end on the same generated man; Ad 14 watermark at 0:20).
@@ -97,7 +97,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-17 R4 ACTIVE 2026-09-17, Codex Astra/Sol.** Full-screen rope opening + natural audio improvement. Work: `/Volumes/Extreme/_edit_work/ds-17-r4/`. Next: private review/audio comparison. Not finalized.
+**DS-17 R4 ACTIVE 2026-09-17, Codex Astra/Sol.** Waiting; other video sessions please leave next render slot for DS-17. Work: `/Volumes/Extreme/_edit_work/ds-17-r4/`. Next: private review; not finalized.
 
 **DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
 
@@ -117,7 +117,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Published cutdown audio — UNOWNED 2026-09-15.** 21 of 23 V2/V3/V6 cutdowns miss −14 LUFS. Next: scope remediation from `Docs/BOARD_REFERENCE.md`; preserve editor mixes under the standing audio rule.
 
-**Codex Ad14 Round 3 — ACTIVE 2026-09-17, owner: Codex Astra/Sol R3 task.** Astra plans/reviews; Sol edits only g03/g17/g18 in isolated `06-ad-r3`. Preserve frozen R2 timing, other pictures and AAC. Next: source inspection → three-scene build → exact-file checks and complete private review. Detail: `Handoffs/codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md`.
+**Codex Ad14 Round 3 — REVIEW 2026-09-17, owner: Codex Astra/Sol R3 task.** Three requested scenes revised and independently checked; R2 AAC exact. Next: Dan watches complete private R3. Checks and inherited limits: `Media/codex-video-trial/06-ad-r3/CHANGE_REPORT.md`. Review: http://127.0.0.1:8873/review/index.html.
 
 **Codex organic C1652 R4 — ACTIVE 2026-09-17, owner: Codex Astra/Sol.** Isolated `06-organic-r4`; approved sound/color/crops protected. Next: plan → Sol edit → Astra review. Private trial. `Handoffs/codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md`.
 
@@ -167,7 +167,6 @@ Memory `google-ads-ui-automation`.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built 09-17 (ACTIVE above); fire **Phase 2** next: placeholder flow, frame picker, gate row. Fable or Codex Astra, high.
 - `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
-- `codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md` — Ad14 R3, ready09-17; full YouTube credibility screen, existing simulated Dan app flow, finished workout export. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
 - `handoff-20260916-vqc-phase4-locked-kit.md` — fire next in the video-quality engine: the 9:16 ad kit, proven blind. Codex high (kit code) + Fable 5.1 high (cut rule, blind page), ~2 sessions.
