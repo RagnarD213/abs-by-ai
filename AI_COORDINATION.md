@@ -159,6 +159,7 @@ Memory `google-ads-ui-automation`.
 
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
+- `handoff-20260917-overnight-edit-queue.md` — BUILD the overnight edit queue (2026-09-17): dispatcher keeps ≤2 edits running unattended, AI-clip placeholders, review page. Routing (Dan): Codex = raw first cuts RA/RO/DS; Claude = secondary cuts AV/AS/SL. Codex Astra, high.
 - `codex-video-trial/06f-organic-approved-r2-next-edit.md` — C1652 next edit, ready09-17; supersedes06e. Astra/High.
 - `codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md` — Ad14 R3, ready09-17; full YouTube credibility screen, existing simulated Dan app flow, finished workout export. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
