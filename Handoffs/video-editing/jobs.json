@@ -687,13 +687,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-17-how-to-jump-rope.md`: cut the dedicated short \"How To Jump Rope\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-17-how-to-jump-rope.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "",
+   "state": "needs",
+   "note": "45.18s R3 cut, 540p phone copy, covers and recipe prepared. Caption onsets verified 50/50 within34ms. Review delivery held for Dan: absolute audio-artifact gate also fails on untouched camera sound; exception to send a flagged review requested. Not uploaded or queued.",
    "sub": "Workout",
    "order": 33,
    "updated": "2026-09-17",
    "by": "Codex",
-   "rev": 2,
+   "rev": 3,
    "syncedRev": 1
   },
   {
