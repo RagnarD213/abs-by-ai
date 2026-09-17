@@ -1,32 +1,33 @@
 # Abs By AI — Coordination / Status Board
 
-Loaded into every Claude Code message in this project — keep it short. A STATUS BOARD, not a log: what is open,
-who is blocked, the exact next action. History, and the verbatim board before the 2026-09-15 diet, are in
-[`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md) (not auto-loaded). Facts moved off the board:
-`Docs/BOARD_REFERENCE.md`. Git history is the record of code changes.
+Loaded into every message here — keep it short. A STATUS BOARD, not a log: what is open, who is blocked,
+the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md)
+(not auto-loaded). Facts: `Docs/BOARD_REFERENCE.md`. Code changes: git history.
 
 | what | where it belongs |
 |---|---|
-| a technique, trap, recipe or measured calibration | the relevant **skill** (`.claude/skills/…`) |
+| a technique, trap, recipe or calibration | the relevant **skill** (`.claude/skills/…`) |
 | what changed in code and why | **git history** |
-| work spec'd but not executed | **`Handoffs/`** doc, listed below + `Handoffs/README.md`; dashboard only if Dan asks |
+| work spec'd but not executed | **`Handoffs/`** + `Handoffs/README.md`; dashboard only if Dan asks |
 | durable facts about Dan, the product or providers | **memory**, or a `Docs/` note |
 | standing rules and authorizations | **`AGENTS.md`** / **`CLAUDE.md`** |
 | open state between sessions | **here**, in ≤ 3 lines |
 
 ## Working rules
 
-1. One owner per task. Don't continue or overwrite another session's work without a handoff or review request.
+1. One owner per task; don't overwrite another session's work without a handoff or review request.
 2. Update when you start, get blocked, hand off or finish. **Re-read from disk before saving; edit only your entry.**
-3. Finished and approved → **delete the entry**; report in chat and the morning brief, never as FYI here. Preserve durable details first.
-4. Size budget: at most 2,500 words; each bold-titled entry at most 80 words and dated. Run `scripts/board-check.sh` after editing; compress before finishing if it fails.
-5. Dates: `Updated: YYYY-MM-DD` for substantive changes; preserve `Decision since: YYYY-MM-DD`. Morning aging/weekly archive: `Docs/BOARD_MORNING_MAINTENANCE.md`.
+3. Finished and approved → **delete the entry** (preserve durable details first); report in chat, never as FYI here.
+4. Budget: ≤2,500 words; each bold-titled entry ≤80 words and dated. Run `scripts/board-check.sh` after editing; compress if it fails.
+5. Dates: `Updated: YYYY-MM-DD`; preserve `Decision since: YYYY-MM-DD`. Aging/archive: `Docs/BOARD_MORNING_MAINTENANCE.md`.
 6. Entry format, ≤ 3 lines: `**Title — STATUS date, owner.** State. Next: action. ⚠ only a warning that changes the next action. Detail: path.`
 
 ---
 
 # DAN'S DECISIONS
 
+- **TikTok covers on 6 published posts (2026-09-17):** the whole queue is fixed, but only these 6 are still inside
+  TikTok's 7-day edit window and the fix needs the phone app. Do them, or leave them? `Docs/TIKTOK_COVERS.md`
 - **Make the GitHub repo private (baseline 2026-09-15; age unknown)** (Settings → General → Danger Zone). Rec: yes — checked, breaks nothing; closes the
   subscriber addresses still in git history. A session then pushes a trivial commit and confirms deploy. `Docs/SUBSCRIBER_STORE.md`
 - **Create the empty SixPackAbs.com Google Ads account (baseline 2026-09-15; age unknown)** (CAPTCHA blocks Claude): MCC `324-458-6445` → Accounts → + →
@@ -96,7 +97,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-17 HANDOFF 2026-09-17, Codex.** Ownership released. Full-screen jump-rope opening + better audio; freeze R3 first. `Handoffs/video-editing/DS-17-R4-opening-and-audio.md`. Not finalized.
+**DS-17 R4 ACTIVE 2026-09-17, Codex Astra/Sol.** Full-screen rope opening + natural audio improvement. Work: `/Volumes/Extreme/_edit_work/ds-17-r4/`. Next: private review/audio comparison. Not finalized.
 
 **DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
 
@@ -118,7 +119,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 **Codex Ad14 Round 3 — ACTIVE 2026-09-17, owner: Codex Astra/Sol R3 task.** Astra plans/reviews; Sol edits only g03/g17/g18 in isolated `06-ad-r3`. Preserve frozen R2 timing, other pictures and AAC. Next: source inspection → three-scene build → exact-file checks and complete private review. Detail: `Handoffs/codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md`.
 
-**Codex organic C1652 revision — REVIEW 2026-09-17, owner: Codex organic R3 task.** Complete11:14 privateR3 ready; September17 revisions applied, approved elements preserved. Final gate:28 passed/8 failed; documented without changing approved sound. Review: http://127.0.0.1:8824/review/index.html. Next: Dan watches full film. Detail: `Media/codex-video-trial/06-organic-r3/REPORT.md`. No publication.
+**Codex organic C1652 R4 — ACTIVE 2026-09-17, owner: Codex Astra/Sol.** Isolated `06-organic-r4`; approved sound/color/crops protected. Next: plan → Sol edit → Astra review. Private trial. `Handoffs/codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md`.
 
 **Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (eight new Ad 3
 ads, including square 824906283483/824906283486; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
@@ -165,7 +166,7 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built 09-17 (ACTIVE above); fire **Phase 2** next: placeholder flow, frame picker, gate row. Fable or Codex Astra, high.
-- `codex-video-trial/06f-organic-approved-r2-next-edit.md` — C1652 next edit, ready09-17; supersedes06e. Astra/High.
+- `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
 - `codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md` — Ad14 R3, ready09-17; full YouTube credibility screen, existing simulated Dan app flow, finished workout export. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
