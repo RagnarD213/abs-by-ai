@@ -8,6 +8,8 @@ Last updated 2026-09-16.
 - Connected: **Instagram `@abs.by.ai` (id 65632)**, **Facebook Page "Abs by AI" (id 47105, pageId 1294282227094660)**, **YouTube (id 46963)**.
 - Auth is **OAuth via the Blotato MCP connector** (`https://mcp.blotato.com/mcp`), added in the Claude desktop app. **No API key was ever generated and none is needed** — the key and the OAuth login are two alternative ways to authenticate the same account. The free trial blocked MCP entirely (`"Free trial does not include MCP access"`); activating the subscription unblocked it with no further setup.
 - **TikTok deliberately NOT connected** until ~2026-09-02 (warm-up; early third-party connection risks a bot flag).
+- **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
+  imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
 
 ## DONE — "Ab Wheel Workout: 3 Sets For Stronger Abs (Do It With Me)", every platform (2026-09-13)
@@ -25,7 +27,27 @@ verified on a fresh pull. Built and recorded as the `/video-setup` skill.
   YouTube synthetic disclosure on (the CTA shows the AI goal image).
 - The Test & Compare reads "Ineligible — not public" until 09-20; confirm it is running after publish.
 
-## DONE — Ad 5 "Every Diet You've Tried Failed for the Same Reason", every platform (2026-09-10)
+## ⚠ INCIDENT — Ad 5 was published ORGANICALLY and should never have been (2026-09-16/17)
+
+**Ad 5 is a PAID AD.** It ran free on Facebook, Instagram @danrosefit, the @abs.by.ai mirror and TikTok, and
+went Public on YouTube. Dan flagged it 2026-09-17. **The rule now: an ad is never published organically,
+however the request is phrased** (`AGENTS.md`, 2026-09-17).
+
+- **Cause:** on 2026-09-10 Dan wrote *"This video is finalized… upload it to YouTube and set it up on all
+  other platforms in the Blotato queue"* — the sentence he uses for content videos — and the session did
+  exactly that, building `ad5_queue.py`. `/ad-setup` positively permitted it at the time ("if cross-platform
+  organic distribution is separately requested, queue those platforms through Blotato"). Nothing
+  malfunctioned; the rule did not exist. Session `a5cc5f24-196b-41ca-ba1d-a30c000c41e1`, Claude Code.
+- **Live posts (still up unless Dan removes them):** TikTok `https://www.tiktok.com/@absbyai/video/7686132607964269855`,
+  Facebook `https://facebook.com/reel/29205625742377322/`, IG @danrosefit `https://www.instagram.com/reel/DdWc5d4CZof/`,
+  IG @abs.by.ai `https://www.instagram.com/reel/DdZBorwDTGP/`. YouTube `bwfSQopZy1w` is back to **unlisted**
+  (verified 09-17); all 26 ad videos read back unlisted.
+- **Queue audited 2026-09-17: CLEAN.** 174 scheduled posts, no other ad content — `python3 scripts/blotato/ad_guard.py --scan`.
+- **Fix:** `scripts/blotato/ad_guard.py` blocks an ad payload three ways (missing `content_type: organic`,
+  a source path under `<Editor> Ad Videos/`, a caption/slug matching a known ad title or ad YouTube id) and
+  every queue script imports it. `ad5_queue.py` is retired and refuses to run.
+
+## DONE (SUPERSEDED BY THE INCIDENT ABOVE) — Ad 5 "Every Diet You've Tried Failed for the Same Reason", every platform (2026-09-10)
 
 Muhammad's V3 HD (3:55, 311 MB, md5 `3873513e…`), posted untouched — under the 400 MB cap, so no
 re-encode. **4 Blotato posts** by `scripts/blotato/ad5_queue.py` (same shape and guards as the ab-wheel

@@ -1,5 +1,9 @@
 # Finished ads on YouTube: video ids for ad campaigns
 
+**Every video listed here is an AD. Ads are never published organically** — not Facebook, not Instagram, not
+TikTok, not Blotato, not YouTube Public (Dan, 2026-09-17; `AGENTS.md`). This table is the registry
+`scripts/blotato/ad_guard.py` reads to block them; keep the Ad titles in the first column accurate.
+
 Every finished ad master in `Muhammad Ad Videos/` and `Zeeshan Ad Videos/` is on the **Abs by AI**
 channel (`UC236gjadarHAhEhOMYNGJ9g`) as an **unlisted** video. Paste the link into Google Ads,
 which only takes videos that are on YouTube. Uploaded 2026-09-10 with `scripts/youtube/upload.js`,
@@ -16,7 +20,7 @@ goal images of Dan). Every video was read back after upload: processed, HD, embe
 | Ad 1 This Picture Got Me Abs | Claude vertical of Muhammad's | 9:16 | 3:53 | https://youtu.be/Iz0u8KHRbyE | yes (09-10) | O1 dark studio (set + read back 09-10) |
 | Ad 1 This Picture Got Me Abs | Claude 1:1 square re-layout of Muhammad's | 1:1 | 3:53 | https://youtu.be/VFCQAgzNIkA | yes (approved + finalized 09-14) | `ad1-square-VFCQAgzNIkA_O1-dark-studio-1x1-FINAL.jpg` (built + set + read back 09-14) |
 | Ad 1 This Picture Got Me Abs | Claude 1:1 square 59s cutdown | 1:1 | 0:50 | https://youtu.be/C8tjH0-hPFg | yes (approved + finalized 09-14) | same file, set + read back 09-14 |
-| Ad 5 Every Diet You've Tried Failed For The Same Reason | Muhammad V3 HD | 16:9 | 3:55 | https://youtu.be/bwfSQopZy1w | editor final (09-10) — **SCHEDULED PUBLIC Wed 2026-09-16 9 AM CT** (Dan's ask: YouTube + every Blotato platform), private until then; UTM link to the absbyai.com root | `ad5-muhammad-16x9-bwfSQopZy1w_B2-light-backdrop-studio-white-23-FINAL.jpg` — clean look, **Dan's pick 09-10** (set + read back 09-10) |
+| Ad 5 Every Diet You've Tried Failed For The Same Reason | Muhammad V3 HD | 16:9 | 3:55 | https://youtu.be/bwfSQopZy1w | editor final (09-10) — ⚠ **was made Public + posted organically on FB/IG/TikTok 09-16/17 by mistake; back to unlisted 09-17.** An ad is NEVER published organically (`AGENTS.md`, 2026-09-17). Organic posts recorded in `BLOTATO_QUEUE_PROGRESS.md` | `ad5-muhammad-16x9-bwfSQopZy1w_B2-light-backdrop-studio-white-23-FINAL.jpg` — clean look, **Dan's pick 09-10** (set + read back 09-10) |
 | Ad 6 You're Not Too Old to Get Abs. I'm Proof. | Muhammad V4 HD | 16:9 | 4:34 | https://youtu.be/Je2yvk00SHE | yes (09-15) — DGen campaign since 09-15 | `ad6-muhammad-16x9_O1-dark-studio-studio-gray-12-FINAL.jpg` (set + maxres read back 09-15) |
 | Ad 7 In 2010 I Photoshopped My Face on a Fitness Model. AI Just Did It for Real. | Muhammad 09-14 re-export | 16:9 | 3:32 | https://youtu.be/92A3JhaU4wE | yes (09-15) — better re-export used by Dan's instruction; fixes the cut-off header but carries `AI-GENERATEd` at 2:48–2:51; replace when corrected | `ad7-muhammad-16x9_O1-dark-studio-studio-white-13-FINAL.jpg` (set + maxres read back 09-15) |
 | Ad 8 AI Showed Me My Two Futures | Muhammad V4 HD | 16:9 | 3:31 | https://youtu.be/HMZdiJMAI3Y | yes (09-16) — Dan reviewed the differences and explicitly finalized this HD export; DGen campaign since 09-16 | `ad8-muhammad-16x9_O1-dark-studio-studio-white-42-FINAL.jpg` (set + maxres read back 09-16) |

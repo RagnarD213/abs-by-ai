@@ -35,6 +35,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ad_guard import AdGuardError, assert_organic  # noqa: E402
 from danrosefit_migration import api_key, call, fetch_schedules  # noqa: E402
 
 QUEUE_CAP = 200
@@ -135,6 +136,12 @@ def marker(v: dict) -> str:
 
 
 def main() -> int:
+    # Ads are never published organically (Dan, 2026-09-17).
+    try:
+        assert_organic({"content_type": "organic", "slug": "abwheel"},
+                       texts=[json.dumps(V) if "V" in globals() else ""])
+    except AdGuardError as exc:
+        print(f"REFUSING - ad_guard: {exc}"); return 1
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()

@@ -96,7 +96,8 @@ it was run on Ads 3, 4, 5 and 3-again. Do not improvise around it. The parts tha
 * Report to Dan in plain language: the four video links, what each description and thumbnail says (send the
   thumbnail review sheet with SendUserFile), the ad groups and their landing pages, that Google is reviewing, the
   shared-budget note, Ad 14's bitrate question, anything the compliance pass found, and that organic posting was not
-  done (Dan asks separately when he wants an ad public).
+  done — **an ad is never published organically** (Dan, 2026-09-17; `AGENTS.md`), and asking to "set it up on
+  all platforms" does not change that.
 * Tell the variants session it can start: **`Handoffs/handoff-20260915-ads-6-14-variants.md`** (jobs J15–J18 in the
   master queue) builds the vertical, square and ≤0:59 versions of Ads 6 and 14; Ads 7 and 10 are J10–J13 there.
   Uploading a variant later is the same skill with one more `videos` entry on the ad groups this job creates.

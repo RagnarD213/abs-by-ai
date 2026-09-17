@@ -15,10 +15,17 @@ as Public, never schedule it to become Public, and never create a separate Publi
 queued on other social platforms, that does not change its YouTube visibility. Read the finished YouTube record back
 and require `privacyStatus: unlisted`; a missing or different value is a failed setup that must be corrected.
 
-**Scope.** This is the PAID path: an unlisted YouTube video that Google Ads points at. It does not publish the video
-organically. If cross-platform organic distribution is separately requested, queue those platforms through Blotato
-without changing or duplicating the YouTube ad upload. Say in the report that organic posting was not done when it was
-outside the request.
+**Scope — and the thing this skill used to get wrong.** This is the PAID path and the ONLY path an ad takes: an
+unlisted YouTube video that Google Ads points at. **An ad is NEVER published organically — not Facebook, not
+Instagram, not TikTok, not Blotato, not YouTube Public** (Dan, 2026-09-17; `AGENTS.md`). Until 2026-09-17 this
+paragraph said the opposite — "if cross-platform organic distribution is separately requested, queue those platforms
+through Blotato" — and that sentence is why Ad 5 ran free on four organic accounts on 09-16/17.
+
+**If the request sounds like organic distribution** ("set it up on all platforms", "put it in the Blotato queue",
+"get it on YouTube and everything else") **and the video is an ad, stop and say so**: "this is an ad — ads don't go
+organic. Do you want it posted organically anyway?" Then wait for Dan's answer. Do the ad setup meanwhile; only the
+organic half is blocked. If he says yes, record his words in `ORGANIC_OVERRIDES` in `scripts/blotato/ad_guard.py`
+before queueing anything. Always say in the report that organic posting was not done.
 
 All steps are reversible and covered by standing authorizations (analytics/ads config, bias toward action). Do not
 stop to ask. The one thing Claude never does here: enable a paused campaign (`ADS_ALLOW_ENABLE_CAMPAIGN=1` is Dan's).

@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Queue Ad 5 "Every Diet You've Tried Failed for the Same Reason" (Muhammad V3 HD, 3:55) in Blotato.
+"""RETIRED 2026-09-17 - DO NOT RUN. This script put a paid AD on Facebook, Instagram, the
+@abs.by.ai mirror and TikTok on 2026-09-16/17. Ads are never published organically; the ad path
+is /ad-setup (unlisted YouTube + Google Ads). Kept only as the record of what happened - see
+scripts/blotato/ad_guard.py, which now blocks this payload three different ways.
+
+ORIGINAL DOCSTRING FOLLOWS.
+
+Queue Ad 5 "Every Diet You've Tried Failed for the Same Reason" (Muhammad V3 HD, 3:55) in Blotato.
 
 Dan, 2026-09-10: "upload it to YouTube and set it up on all other platforms in the Blotato queue".
 Same shape as abwheel_queue.py's long-form: YouTube is NOT in here — it is scheduled natively by
@@ -78,6 +85,11 @@ def acct_of(i: dict) -> str:
 
 
 def main() -> int:
+    print(__doc__.split("ORIGINAL DOCSTRING")[0].strip())
+    return 1
+
+
+def _retired_main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()

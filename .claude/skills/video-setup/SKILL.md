@@ -17,6 +17,14 @@ Blotato owns the scheduled release, including YouTube. Never upload Public and n
 
 ## Step 0 — before anything
 
+- **IS THIS AN AD? If yes, STOP — this skill does not apply.** Ads are never published organically (Dan,
+  2026-09-17; `AGENTS.md`); they go through `/ad-setup` only. Check the filed path (`<Editor> Ad Videos/…` = ad,
+  `<Editor> Content Videos/…` = content) and `Docs/AD_VIDEO_IDS.md`. Dan asking to "set it up on all platforms" does
+  **not** make an ad organic — that exact sentence published Ad 5 on four accounts on 09-16/17. Say "this is an ad —
+  ads don't go organic, do you want it posted anyway?" and wait for his answer.
+- Every config this skill writes carries `"content_type": "organic"` and a `"source"` path.
+  `scripts/blotato/ad_guard.py` blocks the queue without them. Run `python3 scripts/blotato/ad_guard.py --scan`
+  before and after the Blotato write.
 - `git status`; add an entry to `AI_COORDINATION.md` → ACTIVE TASK ("thumbnail pick pending").
 - ffmpeg is NOT on PATH. Use `Media/video_edit/bin/ffmpeg` / `ffprobe` (absolute path from the project root).
 - Video builds cap is two across sessions — a frame extraction is trivial, but check

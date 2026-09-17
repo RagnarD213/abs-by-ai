@@ -8,6 +8,7 @@ master, no Blotato slot, no 400 MB cap). Facebook gets no mediaType (FB Reels ca
 
 Config (JSON):
   {
+    "content_type": "organic",                 # REQUIRED. Ads never go organic - scripts/blotato/ad_guard.py
     "slug": "abwheel-workout",                 # utm_content + idempotency marker
     "video_url": "https://database.blotato.io/...mp4",   # from blotato_create_presigned_upload_url + PUT
     "main": "2026-09-20T14:00:00.000Z",        # FB / IG main / TikTok
@@ -16,7 +17,8 @@ Config (JSON):
     "ai_generated": true,                      # TikTok isAiGenerated (any AI image on screen)
     "hook": "...", "body": "...", "close": "...",
     "tags": "#a #b",
-    "mirror_cta": "More from @danrosefit 👇"
+    "mirror_cta": "More from @danrosefit 👇",
+    "source": "Zeeshan Content Videos/.../file.mp4"   # optional; checked against the ad folders
   }
 
 Idempotent: a post counts as done when a schedule exists for that account at that time whose payload
@@ -33,6 +35,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ad_guard import AdGuardError, assert_organic  # noqa: E402
 from danrosefit_migration import api_key, call, fetch_schedules  # noqa: E402
 
 QUEUE_CAP = 200
@@ -71,6 +74,17 @@ def main() -> int:
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
     v = json.load(open(args.config))
+
+    # Ads are never published organically (Dan, 2026-09-17). Runs before any API call, on the
+    # captions that are actually going out - not on the config's good intentions.
+    try:
+        assert_organic(v, texts=[v.get("hook"), v.get("body"), v.get("close"),
+                                 v.get("title"), v.get("mirror_cta")],
+                       sources=[v["source"]] if v.get("source") else [])
+    except AdGuardError as exc:
+        print(f"REFUSING - ad_guard: {exc}")
+        return 1
+
     key = api_key()
     items = fetch_schedules(key)
     marker = f"utm_content={v['slug']}"

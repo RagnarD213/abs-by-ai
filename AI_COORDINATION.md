@@ -44,18 +44,21 @@ who is blocked, the exact next action. History, and the verbatim board before th
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
 - **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
-- **Google Ads remarketing `24169507109` (baseline 2026-09-15; age unknown)** (~$2.50/day, 0 clicks/conversions ever) — pause?
+- **Ad 5 ran ORGANICALLY by mistake (09-17) — delete the 4 live posts?** TikTok `7686132607964269855`, FB reel
+  `29205625742377322`, IG `DdWc5d4CZof` + `DdZBorwDTGP`. Irreversible, so Dan's call. YouTube is unlisted again,
+  queue clean, cause fixed in code. `BLOTATO_QUEUE_PROGRESS.md`
+- **Google Ads remarketing `24169507109` (baseline 09-15)** — ~$2.50/day, 0 clicks/conversions ever. Pause?
 - **Ad 3: (baseline 2026-09-15; age unknown)** delete empty husk `J-fOMvEJwDs` in Studio; campaign budget reads $40/day (docs said $20); label his 200 lb
   BEFORE pictures?; paste Muhammad round-6 ask `revision docs/ad3-revisions-muhammad-round6-9-14-26.md`.
-- **YouTube engagement tier 1: (baseline 2026-09-15; age unknown)** ad `821875813611` was paused in the UI — re-enable if accidental. `Docs/YTADS.md`
-- **Four published off-centre Shorts (baseline 2026-09-15; age unknown)** (`y0XIbNoA2Xo`, `P9VUGyWeNtY`, `VOlZHV1ibmU`, `rqyK5IDsxX0`): delete + re-upload on
-  open Tue/Thu/Sat slots, or leave?
-- **Longforms 02 (Zepbound) + 03 (Supplements):** on hold purely by Dan's call — Muhammad had delivered neither (checked
-  09-08). **Do not upload or chase.** ⚠ Whoever closes it deletes the reminder block in the morning-brief task's `SKILL.md`.
+- **YouTube engagement tier 1 (baseline 09-15):** ad `821875813611` paused in the UI — re-enable if accidental. `Docs/YTADS.md`
+- **Four off-centre published Shorts (baseline 09-15)** (`y0XIbNoA2Xo`, `P9VUGyWeNtY`, `VOlZHV1ibmU`, `rqyK5IDsxX0`): delete + re-upload
+  on open Tue/Thu/Sat slots, or leave?
+- **Longforms 02 (Zepbound) + 03 (Supplements):** on hold by Dan's call; Muhammad delivered neither (09-08). **Do not
+  upload or chase.** ⚠ Whoever closes it deletes the reminder block in the morning-brief task's `SKILL.md`.
 - **V4 + V5 longform Content ID claims: (baseline 2026-09-15; age unknown)** Replace song or leave (they cost nothing until monetised). ⚠ Never delete +
   re-upload — both are live ad destinations.
-- **Upload the welcome-video first shoot (114 GB) to Drive (baseline 2026-09-15; age unknown)** as its only second copy? ⚠ Set up a personal rclone
-  client_id first (shared one hit 403 quota). Memory `drive-backup-capability`.
+- **Upload the welcome-video shoot (114 GB) to Drive (baseline 09-15)** as its only second copy? ⚠ Personal rclone client_id first
+  (the shared one hit a 403 quota). Memory `drive-backup-capability`.
 - **Muhammad batch 09-14 reviewed 2026-09-15** (6 + 14 finalized; 7 r5, 8 r3, 9 r3, 13 r3, 15 r2 in his doc). Forward
   via `handoff-20260916-muhammad-ads-8-9-13-15-forward-revisions.md` (Ad 9 r3 not yet pasted into his doc; 8/13/15
   just need Upwork messages sent). ⚠ Four AI clips from **Dan's own** "AI clips for Muhammad" folder show artifacts
@@ -80,7 +83,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
 - **sixpackabs.com: (baseline 2026-09-15; age unknown)** confirm the live video-first redesign; update the Yoast homepage title/description? `Docs/SIXPACKABS_SITE.md`
 - **ManyChat: (baseline 2026-09-15; age unknown)** OK to close the keywords task; switch Chrome's Instagram back to @danrosefit; turn off Blotato's IG auto
   first-comment? (ask before touching). ⚠ Account shows TRIAL — lapse kills all six keywords. `Docs/MANYCHAT_KEYWORDS.md`
-- **Resend: (baseline 2026-09-15; age unknown)** create a full-access key → `RESEND_READ_API_KEY` in `~/.absbyai-secrets.env`.
+- **Resend (baseline 09-15):** create a full-access key → `RESEND_READ_API_KEY` in `~/.absbyai-secrets.env`.
 - **Home filming set:** pick an installer, share the work order (https://claude.ai/code/artifact/2b21b748-62f0-455f-aafb-ac9a6a23ad44).
   VIVO stand return: UPS pickup was Mon 09-14 (# 298404F1F6B) — confirm it went. After install a session builds the look-A telemetry file.
 - **Native retest (one phone session): (baseline 2026-09-15; age unknown)** analysis page YouTube iframe (inline vs fullscreen, pauses on leaving); `10eda3b`
@@ -89,15 +92,17 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
+**Overnight edit queue — ACTIVE 2026-09-17, Claude.** Phases 0–1, `scripts/edit-queue/`.
+
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-17 REVIEW 2026-09-17, Codex.** 45.18s R3, phone copy/audio comparison/covers/recipe in `Short-form video content/`. Dan authorized the flagged review;35checksPASS, audio-artifactFAIL retained. Next: Dan watches and gives feedback/approval. Evidence: `/Volumes/Extreme/_edit_work/ds-17/`.
+**DS-17 REVIEW 2026-09-17, Codex.** Flagged review authorized/delivered; audio FAIL preserved. Await Dan’s feedback. Files: `Short-form video content/ds-17-support/`.
 
 **DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
 
 **Daily abs Short cover concepts — REVIEW 2026-09-17, owner: Codex cover task.** A revision 3: four photos × five header palettes, no labels/URL. Picks A02/A12/A04. Next: Dan selects. Gallery: http://127.0.0.1:8821/revision-3/. Private Drive backup verified. Files: `output/thumbnails/short-Ub0BV4m5lMQ-20260916/revision-3/`.
 
-**RA-01 "AI Trick That Got Me Abs" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 ≤0:59 + 16:9 from C1663 (native portrait roll, one clean lav stream). Plan: `Handoffs/video-editing/RA-01-plan.md`; work dir `/Volumes/Extreme/_edit_work/ra01/`. Next: round-1 edit → independent review → deliver + `Docs/SHOOT_828_FOOTAGE_REPORT.md`.
+**RA-01 "AI Trick That Got Me Abs" — ROUND 1 DONE 2026-09-17, Claude (Opus).** Masters HELD in `/Volumes/Extreme/_edit_work/ra01/`: audio gate FAILS `artifacts` (outdoor lav already over the bound untreated). Review copies + notes: `Claude Ad Videos/the ai trick that got me abs - RA-01/`. Next: review, then Dan's call.
 
 **VQC Phase 4 — the 9:16 kit, proven blind — ACTIVE 2026-09-17, owner: Claude (Fable).** `picture.json` PROVEN (a5f4645); kit in `shortad-from-longform/reference/kit9x16/`. From-master Ad 1 round 1 judged: 28 bare talk cuts read as jump cuts → kit now steps the framing on every bare cut, clamps moved cuts, renderer seek fixed; round 2 rendering in `/Volumes/Extreme/_edit_work/kit9x16/ad1-master/`. Next: judges + gate PASS → blind page for Dan. Detail: `Handoffs/handoff-20260916-vqc-phase4-locked-kit.md`.
 
@@ -111,9 +116,9 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 **Published cutdown audio — UNOWNED 2026-09-15.** 21 of 23 V2/V3/V6 cutdowns miss −14 LUFS. Next: scope remediation from `Docs/BOARD_REFERENCE.md`; preserve editor mixes under the standing audio rule.
 
-**Codex Ad14 Round 3 — HANDOFF READY 2026-09-17, owner: next ad editor.** Dan approves R2 except three picture changes: YouTube credibility screen at 0:25, authorized sunglasses-to-pool-goal simulated app flow at 2:17, finished/color-corrected workout source at 2:26. Next: execute `Handoffs/codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md`; preserve everything else and R2 AAC.
+**Codex Ad14 Round 3 — ACTIVE 2026-09-17, owner: Codex Astra/Sol R3 task.** Astra plans/reviews; Sol edits only g03/g17/g18 in isolated `06-ad-r3`. Preserve frozen R2 timing, other pictures and AAC. Next: source inspection → three-scene build → exact-file checks and complete private review. Detail: `Handoffs/codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md`.
 
-**Codex organic C1652 revision — REVIEW 2026-09-17, owner: Codex organic R3 task.** Complete11:14 privateR3 rendered; September17 revisions applied and approved elements preserved. Review: http://127.0.0.1:8824/review/index.html. Next: Dan watches full film; gate failures remain explicit, no sound reprocessing. Detail: `Media/codex-video-trial/06-organic-r3/REPORT.md`. No publication.
+**Codex organic C1652 revision — REVIEW 2026-09-17, owner: Codex organic R3 task.** Complete11:14 privateR3 ready; September17 revisions applied, approved elements preserved. Final gate:28 passed/8 failed; documented without changing approved sound. Review: http://127.0.0.1:8824/review/index.html. Next: Dan watches full film. Detail: `Media/codex-video-trial/06-organic-r3/REPORT.md`. No publication.
 
 **Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (eight new Ad 3
 ads, including square 824906283483/824906283486; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
@@ -123,9 +128,9 @@ Failing" DISAPPROVED (clickbait). Add Zeeshan Ad 1 / Ad 5 verticals only after D
 **Ads 3 + 4 in Demand Gen — LIVE 09-11.** Watch spend/conversions on the new groups; delete once they have a few days of data.
 Dashboard row "Add the new finished ads…" stays open only for Zeeshan's Ad 1 verticals.
 
-**Scheduled posts — confirm and delete.** $17 Ab Wheel long-form (public 09-13, YouTube `bkzT-3ENpoU`; ⚠ TikTok 6:58 may
-hit the length cap; thumbnail F optional as A/B) — its 5 shorts post Oct 27–Nov 5. Ad 5 long-form `bwfSQopZy1w` public
-09-16. Zeeshan Ab Wheel Workout `b_bS9NdmL-g` public 09-20 — ⚠ confirm Studio's thumbnail test starts. `BLOTATO_QUEUE_PROGRESS.md`
+**Scheduled posts — confirm and delete.** $17 Ab Wheel `bkzT-3ENpoU` public 09-13 (⚠ TikTok 6:58 vs the length cap);
+its 5 shorts post Oct 27–Nov 5. Zeeshan Ab Wheel Workout `b_bS9NdmL-g` public 09-20 — ⚠ confirm the Studio thumbnail
+test starts. `BLOTATO_QUEUE_PROGRESS.md`
 
 **Google Ads custom segments — 9 OF 12 BUILT 09-08, resume fresh.** Left: 7a/7b/7c (app picker), `website | member hub |
 540 day` list, Phase 2 if the Demand Gen draft exists. ⚠ No pointer events or `await` in `javascript_tool` on a busy Ads
