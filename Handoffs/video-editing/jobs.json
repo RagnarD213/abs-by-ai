@@ -689,12 +689,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-17-how-to-jump-rope.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "delivered",
-   "note": "R3 reviewed; Dan requests first 4 seconds full-screen fast jump-rope B-roll and cleaner audio closer to Muhammad. New-task handoff: Handoffs/video-editing/DS-17-R4-opening-and-audio.md. R3 audio FAIL preserved; not finalized. Ownership released.",
+   "note": "R4 delivered for review: sunny full-screen jump-rope opening 4.738s; Astra plan/review, Sol edit. Three gentle audio tests did not establish reliable improvement; exact R3 AAC retained, labeled Muhammad/R3/proposed comparison supplied. Visual and timing checks pass; audio artifact FAIL retained (delivery35PASS/1FAIL/0NOTMEASURED). Not finalized; awaiting Dan. See DS-17-R4-opening-and-audio.md.",
    "sub": "Workout",
    "order": 33,
    "updated": "2026-09-17",
-   "by": "Codex",
-   "rev": 5,
+   "by": "Codex Astra/Sol",
+   "rev": 7,
    "syncedRev": 4
   },
   {

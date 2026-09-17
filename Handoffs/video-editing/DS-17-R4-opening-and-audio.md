@@ -1,7 +1,7 @@
 # DS-17 R4 — full-screen jump-rope opening and cleaner audio
 
 **Handoff requested by Dan, 2026-09-17. Recommended: GPT-6 Astra, high effort.**
-This continues the reviewed R3, not a new first cut. No R4 edit has been made. Dan requested this handoff so a new task can finish the revisions. The previous task releases ownership here.
+This continues the reviewed R3, not a new first cut. Executed on 2026-09-17 with Astra planning, Sol editing, and independent Astra review/revision. R4 is delivered for review; this is not final approval.
 
 ## Dan's feedback and scope
 
@@ -99,3 +99,17 @@ Deliver R4 master, phone review, audio comparisons, stamps, notes and reproducib
 
 Starter prompt:
 > Read `Handoffs/video-editing/DS-17-R4-opening-and-audio.md` and the referenced rules. Continue from the reviewed R3 using `$abs-edit-organic` and `.claude/skills/shorts/SKILL.md`. Find the strongest real jump-rope footage and make the first approximately4 seconds full-screen B-roll. Test a cleaner, natural audio treatment closer to Muhammad, comparing against R3 and preserving it as the fallback. Verify, deliver the revised review and audio comparison, and update the master list. Do not upload or schedule.
+
+
+## R4 execution record — 2026-09-17
+
+Astra planned; Sol edited; Astra reviewed and corrected the opening. Final master SHA256: `ad4f7b464faf588909c880de7afddf703921e84e3c597ef8bdb4333bee12dc89`. Runtime and total frames remain unchanged.
+
+- Selected the finished owned sunny jump-rope library export over the overcast C1674 alternative for stronger visible definition and fast skipping. Full-bleed opening uses side angle source5.8s for75frames, then front angle16.3s for67frames, at natural speed. Keeping the complete142-frame/4.738s first sentence avoids a brief presenter flash. Native-frame review corrected a shoe-tip crop at the earlier front-angle entry. Later edit, spoken audio, caption wording/timing and covers are preserved.
+- Tested three shared-chain options: oversampling, gentle1.5:1 compression, and a modest presence trim. All retained the absolute artifact failure. The first blind listening result failed its identical-control check; a second comparison could not reliably establish improvement. Final audio therefore retains exact R3 AAC under the handoff's fallback instruction. The proposed trim remains available only in the labeled comparison; no claim of audible improvement, impossibility, or Muhammad parity.
+- R3 master/map/recipe/evidence frozen in `/Volumes/Extreme/_edit_work/ds-17/revisions/r3/`. R4 work and evidence: `/Volumes/Extreme/_edit_work/ds-17-r4/r4/`. Changed code snapshot: `.claude/skills/shorts/reference/ds17-r4/`; full private rebuild package remains with the review delivery.
+- Gemini quality-review spend for this revision: $0.270466, separately from inherited $0.33358. No AI video generation or public upload.
+
+Independent Astra visual review passed on the exact final hash: all142 opening frames,11 cut boundaries, full-video sheets and native later frames inspected; shared scan covered all1354frames with no open picture defects. All50 caption anchors passed within34ms. Exact-file audio has11 PASS/1 FAIL (artifact comparison only). Final delivery check:35 PASS,1 FAIL (`audio:stamp`),0 NOT MEASURED,3 declared N/A. The exact-file delivery stamp and package receipt are beside the review files.
+
+Review outputs retain the canonical paths listed above:1080p master,540p phone copy, support package and `notes-ds-17.md`. The matched-volume comparison is support `review/audio-comparison_Muhammad-R3-Proposed-C.wav` (Muhammad0–16s, R3/selected17–33s, proposed34–50s); its JSON records normalization and provenance. The labeled video version is `review/audio-comparison_Muhammad-R3-Proposed-C.mp4`. The final independent report is support `astra-review/ASTRA-REVIEW.md`. DS-17 remains delivered for Dan's review, not finalized.

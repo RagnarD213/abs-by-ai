@@ -1,0 +1,440 @@
+{
+  "id": "DS-17",
+  "fps": "30000/1001",
+  "frames": 1354,
+  "duration": 45.178466666666665,
+  "pieces": [
+    {
+      "id": "hook",
+      "start": 13.646966666666668,
+      "end": 18.385033333333332,
+      "frames": 142,
+      "out": 0.0
+    },
+    {
+      "id": "promise",
+      "start": 18.8188,
+      "end": 23.356666666666666,
+      "frames": 136,
+      "out": 4.738066666666667
+    },
+    {
+      "id": "twofeet",
+      "start": 23.857166666666668,
+      "end": 26.393033333333335,
+      "frames": 76,
+      "out": 9.275933333333333
+    },
+    {
+      "id": "alternate",
+      "start": 26.659966666666666,
+      "end": 28.79543333333333,
+      "frames": 64,
+      "out": 11.8118
+    },
+    {
+      "id": "benefits",
+      "start": 28.995633333333334,
+      "end": 33.6336,
+      "frames": 139,
+      "out": 13.947266666666668
+    },
+    {
+      "id": "beginner",
+      "start": 33.86716666666667,
+      "end": 38.5385,
+      "frames": 140,
+      "out": 18.585233333333335
+    },
+    {
+      "id": "slow",
+      "start": 39.005633333333336,
+      "end": 43.743700000000004,
+      "frames": 142,
+      "out": 23.256566666666668
+    },
+    {
+      "id": "accelerate",
+      "start": 55.8558,
+      "end": 61.49476666666667,
+      "frames": 169,
+      "out": 27.994633333333333
+    },
+    {
+      "id": "morning",
+      "start": 61.8618,
+      "end": 66.73333333333333,
+      "frames": 146,
+      "out": 33.6336
+    },
+    {
+      "id": "warmup",
+      "start": 71.40466666666667,
+      "end": 74.5745,
+      "frames": 95,
+      "out": 38.50513333333333
+    },
+    {
+      "id": "cta",
+      "start": 74.87480000000001,
+      "end": 78.37830000000001,
+      "frames": 105,
+      "out": 41.67496666666667
+    }
+  ],
+  "shots": [
+    {
+      "id": "hook-broll-r4",
+      "kind": "opening",
+      "source": "owned jump-rope B-roll export",
+      "source_start": 5.8,
+      "frames": 142,
+      "out": 0.0,
+      "height": 1920,
+      "crop": [
+        438,
+        0,
+        405,
+        720
+      ],
+      "layout": "full-bleed",
+      "source_path": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/jump rope 30 sec - 9x16.mov",
+      "source_cuts": [
+        {
+          "angle": "side",
+          "start": 5.8,
+          "frames": 75
+        },
+        {
+          "angle": "front",
+          "start": 16.3,
+          "frames": 67
+        }
+      ],
+      "transition_reason": "The full 142-frame first sentence remains B-roll. The angle change lands at frame 75 in the caption gap; the later front entry retains both shoes while avoiding a presenter flash before the existing 4.738-second cut."
+    },
+    {
+      "id": "promise",
+      "kind": "talk",
+      "source": "C1670",
+      "source_start": 18.8188,
+      "frames": 136,
+      "out": 4.738066666666667,
+      "height": 1610,
+      "crop": [
+        830,
+        1370,
+        530,
+        790
+      ],
+      "level": "NEAR",
+      "hair_min_source": 1401.0,
+      "center_range": [
+        991.3912564516068,
+        1164.0537357330322
+      ],
+      "tracking": [
+        [
+          0.05,
+          884.09
+        ],
+        [
+          0.45,
+          863.46
+        ],
+        [
+          0.85,
+          819.75
+        ],
+        [
+          1.25,
+          782.03
+        ],
+        [
+          1.65,
+          755.59
+        ],
+        [
+          2.05,
+          740.89
+        ],
+        [
+          2.45,
+          766.75
+        ],
+        [
+          2.85,
+          821.69
+        ],
+        [
+          3.25,
+          865.58
+        ],
+        [
+          3.65,
+          881.77
+        ],
+        [
+          4.05,
+          863.36
+        ],
+        [
+          4.45,
+          834.87
+        ]
+      ],
+      "motion_reason": "Tight NEAR crop: source head sways 147\u2013202 px inside a 530 px window; measured fixed preview leaves face close to side. Gentle tracking only on these three tight shots."
+    },
+    {
+      "id": "twofeet",
+      "kind": "demo",
+      "source": "C1674",
+      "source_start": 16.016000000000002,
+      "frames": 76,
+      "out": 9.275933333333333,
+      "height": 1080,
+      "crop": [
+        830,
+        0,
+        2160,
+        2160
+      ],
+      "label": "Two feet"
+    },
+    {
+      "id": "alternate",
+      "kind": "demo",
+      "source": "C1674",
+      "source_start": 95.9959,
+      "frames": 64,
+      "out": 11.8118,
+      "height": 1080,
+      "crop": [
+        830,
+        0,
+        2160,
+        2160
+      ],
+      "label": "One foot at a time"
+    },
+    {
+      "id": "benefits",
+      "kind": "demo",
+      "source": "C1674",
+      "source_start": 98.13136666666668,
+      "frames": 139,
+      "out": 13.947266666666668,
+      "height": 1080,
+      "crop": [
+        830,
+        0,
+        2160,
+        2160
+      ],
+      "label": "One foot at a time"
+    },
+    {
+      "id": "beginner",
+      "kind": "talk",
+      "source": "C1670",
+      "source_start": 33.86716666666667,
+      "frames": 140,
+      "out": 18.585233333333335,
+      "height": 1610,
+      "crop": [
+        770,
+        1366,
+        530,
+        790
+      ],
+      "level": "NEAR",
+      "hair_min_source": 1398.0,
+      "center_range": [
+        954.651934504509,
+        1156.2284553050995
+      ],
+      "tracking": [
+        [
+          0.05,
+          866.09
+        ],
+        [
+          0.45,
+          879.41
+        ],
+        [
+          0.85,
+          871.81
+        ],
+        [
+          1.25,
+          832.59
+        ],
+        [
+          1.65,
+          772.79
+        ],
+        [
+          2.05,
+          719.41
+        ],
+        [
+          2.45,
+          703.36
+        ],
+        [
+          2.85,
+          718.26
+        ],
+        [
+          3.25,
+          735.56
+        ],
+        [
+          3.65,
+          752.36
+        ],
+        [
+          4.05,
+          766.82
+        ],
+        [
+          4.45,
+          770.19
+        ]
+      ],
+      "motion_reason": "Tight NEAR crop: source head sways 147\u2013202 px inside a 530 px window; measured fixed preview leaves face close to side. Gentle tracking only on these three tight shots."
+    },
+    {
+      "id": "slow",
+      "kind": "demo",
+      "source": "C1674",
+      "source_start": 66.90016666666666,
+      "frames": 142,
+      "out": 23.256566666666668,
+      "height": 1080,
+      "crop": [
+        830,
+        0,
+        2160,
+        2160
+      ],
+      "label": "Start slowly"
+    },
+    {
+      "id": "accelerate",
+      "kind": "demo",
+      "source": "C1674",
+      "source_start": 71.63823333333333,
+      "frames": 169,
+      "out": 27.994633333333333,
+      "height": 1080,
+      "crop": [
+        830,
+        0,
+        2160,
+        2160
+      ],
+      "label": "Build speed gradually"
+    },
+    {
+      "id": "morning",
+      "kind": "talk",
+      "source": "C1670",
+      "source_start": 61.8618,
+      "frames": 146,
+      "out": 33.6336,
+      "height": 1610,
+      "crop": [
+        740,
+        1362,
+        618,
+        920
+      ],
+      "level": "FAR",
+      "hair_min_source": 1398,
+      "center_range": [
+        1029.6632355451584,
+        1157.848756313324
+      ],
+      "hair_measurement_note": "Morning sample 004 Vision mask included tree at crop top; actual hair in raw head crop starts 14 px lower. Verified original/mask independently; corrected to 1401 source px. Remaining minimum 1398."
+    },
+    {
+      "id": "warmup",
+      "kind": "talk",
+      "source": "C1670",
+      "source_start": 71.40466666666667,
+      "frames": 95,
+      "out": 38.50513333333333,
+      "height": 1610,
+      "crop": [
+        836,
+        1370,
+        530,
+        790
+      ],
+      "level": "NEAR",
+      "hair_min_source": 1401.0,
+      "center_range": [
+        995.5073475837708,
+        1142.8303384780884
+      ],
+      "tracking": [
+        [
+          0.05,
+          820.36
+        ],
+        [
+          0.45,
+          830.05
+        ],
+        [
+          0.85,
+          843.41
+        ],
+        [
+          1.25,
+          858.35
+        ],
+        [
+          1.65,
+          863.11
+        ],
+        [
+          2.05,
+          838.88
+        ],
+        [
+          2.45,
+          790.54
+        ],
+        [
+          2.85,
+          746.68
+        ]
+      ],
+      "motion_reason": "Tight NEAR crop: source head sways 147\u2013202 px inside a 530 px window; measured fixed preview leaves face close to side. Gentle tracking only on these three tight shots."
+    },
+    {
+      "id": "cta",
+      "kind": "talk",
+      "source": "C1670",
+      "source_start": 74.87480000000001,
+      "frames": 105,
+      "out": 41.67496666666667,
+      "height": 1610,
+      "crop": [
+        768,
+        1358,
+        618,
+        920
+      ],
+      "level": "FAR",
+      "hair_min_source": 1395.0,
+      "center_range": [
+        992.4905866384506,
+        1130.22840321064
+      ]
+    }
+  ]
+}

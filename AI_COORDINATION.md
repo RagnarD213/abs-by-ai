@@ -97,7 +97,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-17 R4 ACTIVE 2026-09-17, Codex Astra/Sol.** Waiting; other video sessions please leave next render slot for DS-17. Work: `/Volumes/Extreme/_edit_work/ds-17-r4/`. Next: private review; not finalized.
+**DS-17 R4 REVIEW 2026-09-17, Codex Astra/Sol.** Sunny full-screen opening delivered; independent visual/timing checks pass. Audio trials inconclusive; exact R3 retained with comparison and artifact FAIL. Review: `Short-form video content/ds-17_how-to-jump-rope_REVIEW_540p.mp4`. Next: Dan reviews; not finalized.
 
 **DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
 
