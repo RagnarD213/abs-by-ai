@@ -1,0 +1,620 @@
+{
+ "decode": "BT.709 in/out, accurate_rnd (a player's reading of an untagged HD file)",
+ "tokens": {
+  "field": {
+   "value": [
+    8,
+    9,
+    3
+   ],
+   "file": "ad1",
+   "t": 45.5,
+   "region": [
+    0,
+    0,
+    160,
+    60
+   ],
+   "vlib": "FIELD",
+   "vlib_value": [
+    13,
+    14,
+    11
+   ]
+  },
+  "field_centre": {
+   "value": [
+    17,
+    18,
+    11
+   ],
+   "file": "ad1",
+   "t": 45.5,
+   "region": [
+    900,
+    980,
+    1020,
+    1060
+   ],
+   "vlib": "FIELD_HI (radial lift)",
+   "vlib_value": [
+    23,
+    25,
+    19
+   ]
+  },
+  "card_olive": {
+   "value": [
+    91,
+    97,
+    57
+   ],
+   "file": "ad1",
+   "t": 45.5,
+   "region": [
+    520,
+    200,
+    640,
+    260
+   ],
+   "vlib": "CARD_OL",
+   "vlib_value": [
+    90,
+    100,
+    58
+   ]
+  },
+  "title_card_bbox": {
+   "value": [
+    220,
+    71,
+    1745,
+    850
+   ],
+   "file": "ad1",
+   "t": 45.5,
+   "note": "the olive title card in the 1920x1080 frame"
+  },
+  "title_card_radius": {
+   "value": 32.0,
+   "file": "ad1",
+   "t": 45.5,
+   "note": "read off the gridded proof frame (glow prevents a colour-bounded fit); +-4 px",
+   "vlib": "plate_title_card rrect 30 at 1080 wide -> 53 at 1920",
+   "vlib_value": 53
+  },
+  "title_card_margin_x": {
+   "value": [
+    220,
+    175
+   ],
+   "file": "ad1",
+   "t": 45.5,
+   "note": "left/right field margins of the card"
+  },
+  "grid_pitch_px_at_1920": {
+   "value": 76.8,
+   "strength": 6.06,
+   "file": "ad1",
+   "t": 45.5,
+   "region": [
+    0,
+    1000,
+    1920,
+    1070
+   ],
+   "vlib": "field() grid P=46 at 1080 wide == 73 at 1920",
+   "vlib_value": 73
+  },
+  "grid_pitch_frac_of_width": {
+   "value": 0.04,
+   "vlib_value": 0.0426
+  },
+  "photo_card_frame": {
+   "value": [
+    93,
+    98,
+    58
+   ],
+   "file": "ad1",
+   "t": 48.8,
+   "region": [
+    300,
+    400,
+    380,
+    700
+   ],
+   "vlib": "CARD_OL",
+   "vlib_value": [
+    90,
+    100,
+    58
+   ]
+  },
+  "photo_card_bbox": {
+   "value": [
+    240,
+    84,
+    1723,
+    1008
+   ],
+   "file": "ad1",
+   "t": 48.8,
+   "note": "the olive card in the 1920x1080 frame"
+  },
+  "photo_card_hole": {
+   "value": [
+    423,
+    111,
+    1494,
+    987
+   ],
+   "file": "ad1",
+   "t": 48.8,
+   "note": "the photograph inside it"
+  },
+  "photo_card_frame_px": {
+   "value": [
+    183,
+    27,
+    229,
+    21
+   ],
+   "file": "ad1",
+   "t": 48.8,
+   "note": "olive border left/top/right/bottom: his card is a FIXED size and the media sits centred with ~22 px above and below; left/right is the leftover",
+   "vlib": "plate_card frame 14 px @1080w (ours hugs the media)",
+   "vlib_value": 14
+  },
+  "photo_card_hole_radius": {
+   "value": 15.0,
+   "file": "ad1",
+   "t": 48.8,
+   "note": "fit rms 0.56 px; {'apex_offset_rows': 1, 'first_insets': [(11, 11), (8, 8), (6, 6), (4, 5), (3, 4), (3, 2), (2, 2), (2, 2), (1, 2), (1, 1)]}. The card's OUTER corner sits under a soft glow the colour tolerance cannot bound; it reads ~30-35 px on the proof frame",
+   "vlib": "plate_card hole radius 20 (at 1080 wide) -> x1.78 = 36 at 1920",
+   "vlib_value": 36
+  },
+  "photo_card_margin": {
+   "value": [
+    240,
+    84,
+    197,
+    72
+   ],
+   "file": "ad1",
+   "t": 48.8,
+   "note": "left/top/right/bottom field margins"
+  },
+  "photo_card_size_frac": {
+   "value": [
+    0.7724,
+    0.8556
+   ],
+   "file": "ad1",
+   "t": 48.8
+  },
+  "lower_third_tab": {
+   "value": [
+    98,
+    100,
+    54
+   ],
+   "file": "ad1",
+   "t": 37.5,
+   "region": [
+    330,
+    930,
+    700,
+    955
+   ],
+   "note": "translucent olive tab over the dark door (below 'The Problem')",
+   "vlib": "OLIVE (solid tab)",
+   "vlib_value": [
+    140,
+    153,
+    91
+   ]
+  },
+  "lower_third_fill": {
+   "value": [
+    14,
+    13,
+    13
+   ],
+   "file": "ad1",
+   "t": 37.5,
+   "region": [
+    1420,
+    860,
+    1620,
+    920
+   ],
+   "note": "translucent dark bar over the bright fridge; vlib draws (0,0,0,232)"
+  },
+  "lower_third_fill_transmission": {
+   "value": 0.146,
+   "file": "ad1",
+   "t": 37.5,
+   "note": "bar luma / the same fridge pixels 1.8 s earlier: how much of the picture shows through the bar (0.15 = ~85 % opaque)"
+  },
+  "lower_third_outline": {
+   "value": [
+    81,
+    85,
+    49
+   ],
+   "file": "ad1",
+   "t": 37.5,
+   "region": [
+    1420,
+    840,
+    1620,
+    842
+   ],
+   "note": "the olive outline on the bar's top edge (row of max G-B in y 826..852)",
+   "vlib": "OLIVE",
+   "vlib_value": [
+    140,
+    153,
+    91
+   ]
+  },
+  "lower_third_tab_bbox": {
+   "value": [
+    280,
+    820,
+    735,
+    960
+   ],
+   "file": "ad1",
+   "t": 37.5,
+   "note": "read off the gridded proof frame (+-5 px)"
+  },
+  "lower_third_bar_bbox": {
+   "value": [
+    735,
+    838,
+    1640,
+    940
+   ],
+   "file": "ad1",
+   "t": 37.5,
+   "note": "read off the gridded proof frame (+-5 px)"
+  },
+  "lower_third_y_bottom_frac": {
+   "value": 0.8889,
+   "file": "ad1",
+   "t": 37.5,
+   "note": "tab bottom",
+   "vlib": "overlay_lower_third y_bottom=1600/1920",
+   "vlib_value": 0.8333
+  },
+  "lower_third_height_frac": {
+   "value": {
+    "tab": 0.1296,
+    "bar": 0.0944
+   },
+   "file": "ad1",
+   "t": 37.5
+  },
+  "lower_third_left_frac": {
+   "value": 0.1458,
+   "file": "ad1",
+   "t": 37.5
+  },
+  "cta_pill": {
+   "value": [
+    141,
+    149,
+    88
+   ],
+   "file": "ad1",
+   "t": 99.8,
+   "region": [
+    660,
+    815,
+    1270,
+    832
+   ],
+   "vlib": "OLIVE",
+   "vlib_value": [
+    140,
+    153,
+    91
+   ]
+  },
+  "cta_pill_bbox": {
+   "value": [
+    656,
+    812,
+    1276,
+    969
+   ],
+   "file": "ad1",
+   "t": 99.8
+  },
+  "cta_pill_size_frac": {
+   "value": [
+    0.3229,
+    0.1454
+   ],
+   "file": "ad1",
+   "t": 99.8
+  },
+  "cta_pill_radius": {
+   "value": 33.0,
+   "file": "ad1",
+   "t": 99.8,
+   "note": "fit rms 2.07 px; {'apex_offset_rows': 15, 'first_insets': [(10, 0), (8, 0), (7, 0), (6, 0), (5, 0), (4, 0), (3, 0), (3, 2), (2, 1), (1, 0)]}",
+   "vlib": "overlay_cta rrect 26 at 1080 wide -> 46 at 1920",
+   "vlib_value": 46
+  },
+  "cta_pill_centre_y_frac": {
+   "value": 0.8245,
+   "file": "ad1",
+   "t": 99.8,
+   "note": "16:9 placement; the vertical puts the pill at the caption band",
+   "vlib": "overlay_cta y = CAP_Y - h/2 (CAP_Y 1400/1920)",
+   "vlib_value": 0.7292
+  },
+  "window_header_olive": {
+   "value": [
+    134,
+    143,
+    79
+   ],
+   "file": "ad1",
+   "t": 20.0,
+   "region": [
+    100,
+    183,
+    840,
+    185
+   ],
+   "note": "the underline under IN TODAY'S EPISODE (row of max G-B in y 150..210)",
+   "vlib": "OLIVE",
+   "vlib_value": [
+    140,
+    153,
+    91
+   ]
+  },
+  "window_field": {
+   "value": [
+    15,
+    16,
+    9
+   ],
+   "file": "ad1",
+   "t": 20.0,
+   "region": [
+    40,
+    820,
+    400,
+    1000
+   ],
+   "vlib": "FIELD",
+   "vlib_value": [
+    13,
+    14,
+    11
+   ]
+  },
+  "window_ink": {
+   "value": [
+    255,
+    255,
+    255
+   ],
+   "note": "white type (glyph cores are unreliable to sample; his ink is #FFFFFF in vlib)"
+  },
+  "window_text_left_frac": {
+   "value": 0.0521,
+   "file": "ad1",
+   "t": 20.0,
+   "note": "text column starts ~x 100 (read off the proof frame)"
+  },
+  "photo_card_frame_ad2": {
+   "value": [
+    94,
+    100,
+    60
+   ],
+   "file": "ad2",
+   "t": 27.0,
+   "region": [
+    250,
+    300,
+    285,
+    800
+   ],
+   "vlib": "CARD_OL",
+   "vlib_value": [
+    90,
+    100,
+    58
+   ]
+  },
+  "photo_card_bbox_ad2": {
+   "value": [
+    240,
+    57,
+    1725,
+    1026
+   ],
+   "file": "ad2",
+   "t": 27.0
+  },
+  "photo_card_hole_ad2": {
+   "value": [
+    274,
+    79,
+    1695,
+    1025
+   ],
+   "file": "ad2",
+   "t": 27.0
+  },
+  "photo_card_frame_px_ad2": {
+   "value": [
+    34,
+    22,
+    30,
+    1
+   ],
+   "file": "ad2",
+   "t": 27.0
+  },
+  "photo_card_hole_radius_ad2": {
+   "value": 42.0,
+   "file": "ad2",
+   "t": 27.0,
+   "note": "fit rms 3.94 px; {'apex_offset_rows': 15, 'first_insets': [(23, 0), (17, 0), (14, 0), (12, 0), (10, 0), (2, 0), (8, 0), (7, 0), (6, 0), (5, 0)]}"
+  },
+  "field_ad2": {
+   "value": [
+    13,
+    13,
+    6
+   ],
+   "file": "ad2",
+   "t": 27.0,
+   "region": [
+    0,
+    0,
+    160,
+    40
+   ],
+   "vlib": "FIELD",
+   "vlib_value": [
+    13,
+    14,
+    11
+   ]
+  },
+  "grid_pitch_px_at_1920_ad2": {
+   "value": 73.8,
+   "strength": 7.28,
+   "file": "ad2",
+   "t": 27.0,
+   "region": [
+    0,
+    1044,
+    1920,
+    1078
+   ]
+  },
+  "lower_third_tab_ad2": {
+   "value": [
+    89,
+    96,
+    48
+   ],
+   "file": "ad2",
+   "t": 70.5,
+   "region": [
+    285,
+    870,
+    375,
+    1005
+   ],
+   "note": "his numbered olive tab, white glyph excluded",
+   "vlib": "OLIVE",
+   "vlib_value": [
+    140,
+    153,
+    91
+   ]
+  },
+  "lower_third_bar_ad2": {
+   "value": [
+    0,
+    0,
+    0
+   ],
+   "file": "ad2",
+   "t": 70.5,
+   "region": [
+    1450,
+    880,
+    1620,
+    1000
+   ],
+   "note": "his bar fill on Ad 2 over the conveyor: near-opaque black"
+  },
+  "lower_third_y_bottom_frac_ad2": {
+   "value": 0.9352,
+   "file": "ad2",
+   "t": 70.5,
+   "note": "read off the proof frame"
+  }
+ },
+ "deltas_vs_vlib": {
+  "field": {
+   "max_channel_delta": 8
+  },
+  "field_centre": {
+   "max_channel_delta": 8
+  },
+  "card_olive": {
+   "max_channel_delta": 3
+  },
+  "title_card_radius": {
+   "delta": -21.0
+  },
+  "grid_pitch_px_at_1920": {
+   "delta": 3.8
+  },
+  "grid_pitch_frac_of_width": {
+   "delta": -0.003
+  },
+  "photo_card_frame": {
+   "max_channel_delta": 3
+  },
+  "photo_card_hole_radius": {
+   "delta": -21.0
+  },
+  "lower_third_tab": {
+   "max_channel_delta": 53
+  },
+  "lower_third_outline": {
+   "max_channel_delta": 68
+  },
+  "lower_third_y_bottom_frac": {
+   "delta": 0.056
+  },
+  "cta_pill": {
+   "max_channel_delta": 4
+  },
+  "cta_pill_radius": {
+   "delta": -13.0
+  },
+  "cta_pill_centre_y_frac": {
+   "delta": 0.095
+  },
+  "window_header_olive": {
+   "max_channel_delta": 12
+  },
+  "window_field": {
+   "max_channel_delta": 2
+  },
+  "photo_card_frame_ad2": {
+   "max_channel_delta": 4
+  },
+  "field_ad2": {
+   "max_channel_delta": 5
+  },
+  "lower_third_tab_ad2": {
+   "max_channel_delta": 57
+  }
+ },
+ "tolerance": {
+  "colour_max_channel": 18,
+  "note": "an 8-bit master under two encodes and a grade; a token further than this from vlib is a finding to report, not to overwrite silently"
+ },
+ "findings": [
+  "lower_third_tab",
+  "lower_third_outline",
+  "lower_third_tab_ad2"
+ ]
+}

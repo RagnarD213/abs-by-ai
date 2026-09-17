@@ -40,8 +40,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
 - **Analysis page defaults: (baseline 2026-09-15; age unknown)** women's height 5'4" (men 5'9"). **/start:** create PostHog flag `vsl-landing-variant`
   (control/analysis 50/50) + experiment — API keys lack flag scopes. `Docs/VSL_LANDING.md`
 - **/start VSL: (baseline 2026-09-15; age unknown)** read script doc `1DL2V34wePN75m1XxAuhpC2nghvobgr4C9RnTyszqqlA`, decide §7 (on-screen line under real
-  photos), record; also review Codex's second VSL attempt (task 01a0a22d,
-  `~/.codex/visualizations/2026/09/14/01a0a22d-ab09-7a01-9a60-72c3b1017fc1/attempt-2/`). ⚠ Live post-generation video
+  photos), record. ⚠ Live post-generation video
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
 - **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
@@ -57,9 +56,10 @@ who is blocked, the exact next action. History, and the verbatim board before th
   re-upload — both are live ad destinations.
 - **Upload the welcome-video first shoot (114 GB) to Drive (baseline 2026-09-15; age unknown)** as its only second copy? ⚠ Set up a personal rclone
   client_id first (shared one hit 403 quota). Memory `drive-backup-capability`.
-- **Muhammad batch 09-14 reviewed 2026-09-15** (6 + 14 finalized; 7 r5, 8 r3, 9 r3, 13 r3, 15 r2 in his doc). Forward it.
-  ⚠ Four AI clips from **Dan's own** "AI clips for Muhammad" folder show artifacts (beach smudge, merged handshake hands,
-  morphing coffee pot, robot arm) — the robot clip is LIVE in Ad 3. Replace centrally? Ad 14 needs its HD export.
+- **Muhammad batch 09-14 reviewed 2026-09-15** (6 + 14 finalized; 7 r5, 8 r3, 9 r3, 13 r3, 15 r2 in his doc). Forward
+  via `handoff-20260916-muhammad-ads-8-9-13-15-forward-revisions.md` (Ad 9 r3 not yet pasted into his doc; 8/13/15
+  just need Upwork messages sent). ⚠ Four AI clips from **Dan's own** "AI clips for Muhammad" folder show artifacts
+  (beach smudge, hands, coffee pot, robot arm live in Ad 3) — replace centrally? Ad 14 needs its HD export.
 - **Forward editor docs + his calls:** Zeeshan Arms & Shoulders **r2** (`revision docs/arms-shoulders-revisions-zeeshan-round2-9-15-26.summary.md`;
   r1 fixed except the colour match; listen to the music bed, its item is your call). Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`;
   ⚠ new side-by-side before/after 0:06.6–0:08.1). Muhammad batch doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`:
@@ -73,7 +73,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
   body thumbnails A/B/C; ab-wheel shorts covers A or B ×5; Zepbound shorts swaps (`SHORTS.md`, picks were Claude's);
   exercise demos batch 4 (9 in `Media/exercise-demos/_batch4/`; `db-lunge` blocked — full Veo 3.1, Kling end_image, or film; approved ones get `-FINAL` + batch-2 install = native retest);
   **White-49 rev 2** (approval closes studio batch 6 → check off `money::Execute handoff: studio batch 6…`; delete the 60 ` 2.jpg` copies?).
-- **Research to act on: (baseline 2026-09-15; age unknown)** SixPackAbs rebrand (Codex, `output/pdf/sixpackabs-rebrand-research.pdf`); conversion funnel
+- **Research to act on: (baseline 2026-09-15; age unknown)** SixPackAbs rebrand — Claude memo 09-16 says split brands, no migration before mid-2027, https://claude.ai/artifact/Xt9JYgKgo62JaQSwoNjBoC (Codex PDF said yes); ⚠ Dan: do you control the old 4.46M @sixpackshortcuts channel?; conversion funnel
   (Codex, `~/.codex/visualizations/2026/09/14/01a0a186-e6d4-7a61-9300-dba78b1932e7/abs-by-ai-conversion-strategy.docx`;
   Drive upload needs approval); "The Muhammad Standard" https://claude.ai/code/artifact/0fac6195-accb-415b-99fa-70e3825d4906
   (⚠ folds VQC-B into the engine).
@@ -89,7 +89,13 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
-**6 ways AI thumbnail variations — REVIEW 2026-09-15, owner: Codex 01a0a748.** Four private designs delivered for YouTube `0zspIJVrv08`, original headline and four finalized studio photos. Next: Dan selects a design. Files: `output/thumbnails/0zspIJVrv08-20260915/`.
+**DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
+
+**Daily abs Short cover concepts — REVIEW 2026-09-16, owner: Codex cover design task.** Revision 2 delivered: 12 F options (three new photos × four palettes), six B palettes; all mockups omit real-photo labels and URLs. Picks: FB1/FB2 and B1/B3. Gallery: http://127.0.0.1:8821/revision-2/. Private Drive backup verified. Next: Dan chooses a direction. Files: `output/thumbnails/short-Ub0BV4m5lMQ-20260916/revision-2/`.
+
+**RA-01 "AI Trick That Got Me Abs" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 ≤0:59 + 16:9 from C1663 (native portrait roll, one clean lav stream). Plan: `Handoffs/video-editing/RA-01-plan.md`; work dir `/Volumes/Extreme/_edit_work/ra01/`. Next: round-1 edit → independent review → deliver + `Docs/SHOOT_828_FOOTAGE_REPORT.md`.
+
+**VQC Phase 4 — the 9:16 kit, proven blind — ACTIVE 2026-09-16, owner: Claude (Fable).** Corpus run pre-check in progress (slow under load; one of my two build slots). Step 0 `_shared/reference/picture_ref.py` written, step 1 kit code in `shortad-from-longform/reference/kit9x16/`, scratch `/Volumes/Extreme/_edit_work/kit9x16/`. Next: build picture.json, calibrate the cut rule, from-master Ad 1 proof through the gate, then the blind page. Detail: `Handoffs/handoff-20260916-vqc-phase4-locked-kit.md`.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
@@ -101,9 +107,9 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 **Published cutdown audio — UNOWNED 2026-09-15.** 21 of 23 V2/V3/V6 cutdowns miss −14 LUFS. Next: scope remediation from `Docs/BOARD_REFERENCE.md`; preserve editor mixes under the standing audio rule.
 
-**Codex Ad14 revision R1 — APPROVAL PACKAGE READY 2026-09-15, task 01a0a70f.** `06-ad-r1/`, private review http://127.0.0.1:8814/index.html. Color/transition picture proof, five Pexels candidates and AI endpoints ready; Dan’s appearance/frame approvals pending. Original SFX and genuine trainer recording still needed; selftest later failures preserved. Next: approvals → finish source gaps → full revision. Details `06-ad-r1/STATUS.md`.
+**Codex Ad14 final revisions — REVIEW / BLOCKED 2026-09-16, owner: Codex Sol task.** Private R2 built: original horizontal workout restored full-screen without the still-photo label; all inserts audited; R1 AAC exact. No authentic recording/job connects Dan's matching before to the specified pool goal, so honest g17 still remains. Independent watch found two inherited frozen R1 jump cuts. Next: Dan reviews R2 and supplies the exact recording or approves another genuine result. Review: http://127.0.0.1:8814/index.html?v=full-r2c#revision.
 
-**Codex organic C1652 revision — REVISED FRAMES READY 2026-09-15, task 01a0a70e.** `06-organic-r1/`: wider-only, no whoosh, photo273 configured. Shirtless pair + four Hinge screens ready at http://127.0.0.1:8816/review/index.html?v=2; waiting replacement-frame approval + exact project-key permission. Actual before→loader→same-man result recipe ready; full cut not rendered. Eight still calls cost unknown; paid motion/QC $0. `STATUS.md` records next work.
+**Codex organic C1652 revision — WAITING 2026-09-16, owner: Codex current organic task.** Lav-only provenance verified; revised graphics/phone/stock prepared and samples inspected. No final R2 master; audio remains unaccepted, neural trial rejected. Next: Dan answers new-motion frames, photo provenance, opening and audio comparisons; then finalize/render/gate. Unchanged frames stay approved. Private isolated `06-organic-r2`; no shared-gate edits. Review: http://127.0.0.1:8818/review/index.html. Detail: `Media/codex-video-trial/06-organic-r2/STATE.md`.
 
 **Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (eight new Ad 3
 ads, including square 824906283483/824906283486; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
@@ -146,8 +152,6 @@ Memory `google-ads-ui-automation`.
 # HANDOFFS WRITTEN, NOT EXECUTED
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
-
-- `handoff-20260916-video-checker-repair.md` — independent shared-checker repair for future captions, layouts and labels; corpus required (2026-09-16). Astra / High.
 
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.

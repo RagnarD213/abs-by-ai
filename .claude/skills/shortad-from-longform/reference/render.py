@@ -256,6 +256,8 @@ def _sig(b, nfr, t0):
     # offset changed in assets.py served the stale segment on 2026-09-03 until this was added
     for mk in ('media', 'media_a', 'media_b'):
         if mk in b: extra['_' + mk] = repr(MEDIA[b[mk]])
+    if b.get('chip_png') and os.path.exists(b['chip_png']):
+        extra['_chip'] = hashlib.md5(open(b['chip_png'], 'rb').read()).hexdigest()[:10]
     return json.dumps({k: v_ for k, v_ in sorted(b.items())} | extra, sort_keys=True, default=str)
 
 COMMON = lambda nfr, out: ['-r','30000/1001','-frames:v',str(nfr),'-c:v','libx264','-preset','medium',
@@ -289,10 +291,21 @@ def render_segment(i, b, nfr, t0):
         bchain = (still_chain(VW, VH, nfr, amt=amt, **o) if isimg
                   else media_prefix(b['media']) + cover_chain(VW, VH, **o) + ',unsharp=5:5:0.4:5:5:0.0')
         lab = b.get('label')
+        # ⚠ A LABEL IS PLACED BY MEASURING HIM, NEVER AT A FIXED y (Dan, 2026-09-12: never over his face,
+        # never over his abs). A beat may carry `chip_png`: a full-frame RGBA layer whose position was
+        # chosen by kit9x16/kit_labels.py from a person mask of THIS beat's rendered frames (the approved
+        # square's method). The fixed-y `chip_y` path below is the pre-rule fallback and stays only for
+        # builds that predate it.
+        if b.get('chip_png'):
+            lab = lab or 'chip'
         if lab:
-            cy = int(b.get('chip_y', 1180))
-            chip = f'gfx/chip_{hashlib.md5(f"{lab}@{cy}".encode()).hexdigest()[:8]}.png'
-            if not os.path.exists(chip): vlib_chip(lab, chip, y=cy)
+            if b.get('chip_png'):
+                chip = b['chip_png']
+                if not os.path.exists(chip): raise SystemExit(f'chip_png missing: {chip}')
+            else:
+                cy = int(b.get('chip_y', 1180))
+                chip = f'gfx/chip_{hashlib.md5(f"{lab}@{cy}".encode()).hexdigest()[:8]}.png'
+                if not os.path.exists(chip): vlib_chip(lab, chip, y=cy)
             run([FF,'-v','error','-y'] + media_input(b['media'], nfr) +
                 ['-loop','1','-framerate','30000/1001','-i','vignette_soft.png',
                  '-loop','1','-framerate','30000/1001','-i',chip,
@@ -445,6 +458,7 @@ def main():
             elif kind == 'lt':  fr, _ = vlib.overlay_lower_third(spec['lines'], d, y_bottom=spec.get('y_bottom', 1600))
             else:               fr, _ = vlib.overlay_flash(d)
             encode(fr, mov, alpha=True)
+        open(mov + '.beat', 'w').write(f'{a:.4f}')
         ins += ['-i', mov]
         # An overlay must be SHIFTED onto the main timeline (setpts), not just gated with enable.
         fc.append(f"[{idx}:v]setpts=PTS+{a:.4f}/TB[s{n}];"

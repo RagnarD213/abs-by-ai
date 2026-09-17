@@ -1,0 +1,1789 @@
+{
+ "name": "picture reference -- Muhammad's finished 16:9 edits (Ad 1 + Ad 2)",
+ "version": 1,
+ "built": "2026-09-16",
+ "gate_version": "2.1.0",
+ "window": "the whole runtime of each master",
+ "rule": "lo/hi = [min - margin, max + margin] over the two edits, margin = max(0.5*(max-min), 0.10*mean), floored at 0. defect_side names the side a departure is a defect on; the other side is the overshoot warning (memory audio-never-over-strip: past the target is not a win).",
+ "sources": {
+  "ad1": {
+   "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+   "sha256": "e99a9332851a85a552c19fdb9e49b00260446776c0e57f2378000f885ed9453c",
+   "bytes": 313570091,
+   "size": "1920x1080",
+   "fps": "30000/1001",
+   "duration": 232.765867
+  },
+  "ad2": {
+   "path": "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4",
+   "sha256": "f21c69629ebf1f39c36dfb4b792a274af06e2650281056a50499c80074b8539b",
+   "bytes": 372767004,
+   "size": "1920x1080",
+   "fps": "30000/1001",
+   "duration": 276.109167
+  }
+ },
+ "numbers": {
+  "change_rate_per_min": {
+   "ad1": 12.12,
+   "ad2": 9.78,
+   "lo": 8.61,
+   "hi": 13.29,
+   "unit": "/min",
+   "defect_side": "low",
+   "instrument": "checks/picture.py change_events (6 fps, 64x36 gray, med+6*MAD) -- style:change_rate",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "coverage": {
+   "ad1": 0.4442,
+   "ad2": 0.3786,
+   "lo": 0.3375,
+   "hi": 0.4853,
+   "unit": "fraction",
+   "defect_side": "low",
+   "instrument": "checks/picture.py palette distance > 0.12 (2 fps, 48x27) -- style:coverage",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "static_run_s": {
+   "ad1": 16.83,
+   "ad2": 19.67,
+   "lo": 15.005,
+   "hi": 21.495,
+   "unit": "s",
+   "defect_side": "high",
+   "instrument": "checks/picture.py longest gap between change_events -- style:static_run",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "naked_splices_per_min": {
+   "ad1": 9.537,
+   "ad2": 7.606,
+   "lo": 6.6405,
+   "hi": 10.5025,
+   "unit": "/min",
+   "defect_side": "both",
+   "instrument": "watch.py naked_splices (native rate, peak block + alignment test), no plan -- cut:naked_splices; HIS pose-matched same-scene cuts, a range not a defect",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "push_spread": {
+   "ad1": 1.2599,
+   "ad2": 1.1817,
+   "lo": 1.0596,
+   "hi": 1.382,
+   "unit": "x",
+   "defect_side": "low",
+   "instrument": "checks/framing.py push_coverage spread of per-hold median head heights -- framing:push_coverage",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "push_off_frac": {
+   "ad1": 0.266,
+   "ad2": 0.016,
+   "lo": 0.0,
+   "hi": 0.391,
+   "unit": "fraction",
+   "defect_side": "low",
+   "instrument": "checks/framing.py push_coverage: fraction of talk >= 6 % off the dominant level",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "pushed_holds_per_min": {
+   "ad1": 2.3199,
+   "ad2": 0.2173,
+   "lo": 0.0,
+   "hi": 3.3712,
+   "unit": "/min",
+   "defect_side": "low",
+   "instrument": "checks/framing.py talk_holds: holds >= 6 % off the dominant level, per minute",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "events_per_min": {
+   "ad1": 9.0219,
+   "ad2": 5.6499,
+   "lo": 3.9639,
+   "hi": 10.7079,
+   "unit": "/min",
+   "defect_side": "low",
+   "instrument": "watch.py analyse merged events (p99 / med+6*MAD threshold, merged inside 0.4 s), no plan",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "shot_len_median_s": {
+   "ad1": 4.84,
+   "ad2": 7.74,
+   "lo": 3.39,
+   "hi": 9.19,
+   "unit": "s",
+   "defect_side": "high",
+   "instrument": "watch.py merged events: median gap between consecutive events",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "shot_len_p90_s": {
+   "ad1": 14.245,
+   "ad2": 23.528,
+   "lo": 9.6035,
+   "hi": 28.1695,
+   "unit": "s",
+   "defect_side": "high",
+   "instrument": "watch.py merged events: 90th-percentile gap",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "shot_len_max_s": {
+   "ad1": 20.85,
+   "ad2": 34.84,
+   "lo": 13.855,
+   "hi": 41.835,
+   "unit": "s",
+   "defect_side": "high",
+   "instrument": "watch.py merged events: longest gap",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "talking_head_luma": {
+   "ad1": 66.1748,
+   "ad2": 72.0007,
+   "lo": 59.266,
+   "hi": 78.9095,
+   "unit": "0-255",
+   "defect_side": "both",
+   "instrument": "watch.py scan: median frame-mean gray (160x90) over ON-SCENE frames (palette distance <= 0.12 from the programme median)",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "on_scene_frac": {
+   "ad1": 0.5761,
+   "ad2": 0.6195,
+   "lo": 0.5163,
+   "hi": 0.6792,
+   "unit": "fraction",
+   "defect_side": "high",
+   "instrument": "watch.py scan: fraction of frames on the main scene (palette distance <= 0.12)",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "opening_changes_15s": {
+   "ad1": 4,
+   "ad2": 4,
+   "lo": 3.6,
+   "hi": 4.4,
+   "unit": "count",
+   "defect_side": "low",
+   "instrument": "checks/picture.py change_events in the first 15 s (the ramp's opening)",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "closing_changes_15s": {
+   "ad1": 2,
+   "ad2": 1,
+   "lo": 0.5,
+   "hi": 2.5,
+   "unit": "count",
+   "defect_side": "low",
+   "instrument": "checks/picture.py change_events in the last 15 s",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "ad16x9"
+   }
+  },
+  "graphics_per_min": {
+   "ad1": 4.1243,
+   "ad2": 2.1731,
+   "lo": 1.1974,
+   "hi": 5.0999,
+   "unit": "/min",
+   "defect_side": "both",
+   "instrument": "hand count: lower thirds + CTA pills + text plates (window/title/stmt) per minute, off his frames",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "beat sheet"
+   }
+  },
+  "lower_thirds_per_min": {
+   "ad1": 1.8044,
+   "ad2": 0.4346,
+   "lo": 0.0,
+   "hi": 2.4893,
+   "unit": "/min",
+   "defect_side": "both",
+   "instrument": "hand count: lower thirds per minute",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "beat sheet"
+   }
+  },
+  "cta_count": {
+   "ad1": 3,
+   "ad2": 3,
+   "lo": 2.7,
+   "hi": 3.3,
+   "unit": "count",
+   "defect_side": "both",
+   "instrument": "hand count: CTA pills",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "beat sheet"
+   }
+  },
+  "inserts_per_min": {
+   "ad1": 6.9598,
+   "ad2": 3.9115,
+   "lo": 2.3874,
+   "hi": 8.4839,
+   "unit": "/min",
+   "defect_side": "low",
+   "instrument": "hand count: cards + full-bleed inserts + window-media beats per minute",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "beat sheet"
+   }
+  },
+  "insert_coverage_hand": {
+   "ad1": 0.5692,
+   "ad2": 0.4197,
+   "lo": 0.3449,
+   "hi": 0.644,
+   "unit": "fraction",
+   "defect_side": "low",
+   "instrument": "hand count: non-talk time / runtime from the beat sheet",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "beat sheet"
+   }
+  },
+  "flashes_per_min": {
+   "ad1": 2.8355,
+   "ad2": 3.4769,
+   "lo": 2.5148,
+   "hi": 3.7976,
+   "unit": "/min",
+   "defect_side": "both",
+   "instrument": "hand count: white light-leak transitions per minute",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "beat sheet"
+   }
+  },
+  "pushes_hand_per_min": {
+   "ad1": 3.6088,
+   "ad2": 3.2596,
+   "lo": 2.9162,
+   "hi": 3.9522,
+   "unit": "/min",
+   "defect_side": "low",
+   "instrument": "hand count: his zoom pushes (ramp in / hold / ramp out) per minute",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "beat sheet"
+   }
+  },
+  "longest_talk_hand_s": {
+   "ad1": 16.95,
+   "ad2": 25.58,
+   "lo": 12.635,
+   "hi": 29.895,
+   "unit": "s",
+   "defect_side": "high",
+   "instrument": "hand count: longest talk beat with no insert or text plate",
+   "measured_on": {
+    "files": [
+     "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+     "Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4"
+    ],
+    "date": "2026-09-16",
+    "format": "beat sheet"
+   }
+  }
+ },
+ "ramp": {
+  "ad1": {
+   "per_10s": [
+    3,
+    1,
+    1,
+    0,
+    2,
+    1,
+    4,
+    1,
+    2,
+    2,
+    3,
+    4,
+    2,
+    4,
+    2,
+    5,
+    1,
+    1,
+    2,
+    1,
+    1,
+    2,
+    2,
+    0
+   ],
+   "deciles": [
+    4,
+    2,
+    6,
+    4,
+    7,
+    7,
+    8,
+    2,
+    3,
+    4
+   ],
+   "changes": 47
+  },
+  "ad2": {
+   "per_10s": [
+    3,
+    1,
+    2,
+    2,
+    1,
+    2,
+    4,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    2,
+    3,
+    3,
+    2,
+    3,
+    4,
+    1,
+    1,
+    2,
+    1,
+    1,
+    0,
+    1,
+    0
+   ],
+   "deciles": [
+    6,
+    4,
+    6,
+    3,
+    2,
+    7,
+    7,
+    5,
+    4,
+    1
+   ],
+   "changes": 45
+  }
+ },
+ "shot_lengths": {
+  "ad1": {
+   "n": 36,
+   "p10": 1.53,
+   "p50": 4.84,
+   "p90": 14.25,
+   "max": 20.85,
+   "events": [
+    6.84,
+    12.31,
+    13.28,
+    27.13,
+    47.98,
+    50.58,
+    66.33,
+    75.91,
+    81.18,
+    86.89,
+    101.53,
+    106.27,
+    107.64,
+    110.98,
+    113.98,
+    116.35,
+    117.98,
+    128.86,
+    132.43,
+    133.97,
+    136.3,
+    142.94,
+    148.78,
+    152.22,
+    153.75,
+    155.12,
+    159.53,
+    177.34,
+    187.29,
+    199.8,
+    208.14,
+    213.08,
+    216.32,
+    220.72,
+    228.46
+   ]
+  },
+  "ad2": {
+   "n": 27,
+   "p10": 2.19,
+   "p50": 7.74,
+   "p90": 23.53,
+   "max": 34.84,
+   "events": [
+    3.57,
+    7.21,
+    14.01,
+    23.99,
+    31.7,
+    45.01,
+    56.69,
+    63.1,
+    65.3,
+    66.67,
+    68.94,
+    73.37,
+    108.21,
+    118.49,
+    127.39,
+    149.85,
+    155.39,
+    157.56,
+    165.3,
+    169.9,
+    171.17,
+    183.52,
+    193.26,
+    204.17,
+    229.3,
+    244.41
+   ]
+  }
+ },
+ "luma": {
+  "ad1": {
+   "on_scene_median": 66.1748275756836,
+   "on_scene_mean": 67.05,
+   "all_median": 69.67
+  },
+  "ad2": {
+   "on_scene_median": 72.000732421875,
+   "on_scene_mean": 71.99,
+   "all_median": 75.5
+  }
+ },
+ "push_coverage": {
+  "ad1": {
+   "detail": "22 talking holds on the dominant shot (head 36.5% of its window): per-hold median head height 35.3-44.5% = spread x1.260 (min x1.1); 27% of that talk sits >= 6 % off the dominant level; 0 hold(s) on other shots ignored",
+   "holds": 22,
+   "dominant_frac": 0.365415,
+   "pushed_holds": [
+    [
+     0.0,
+     2.25,
+     1.217
+    ],
+    [
+     67.5,
+     68.25,
+     1.216
+    ],
+    [
+     77.0,
+     80.25,
+     1.179
+    ],
+    [
+     111.5,
+     113.25,
+     1.173
+    ],
+    [
+     130.0,
+     131.75,
+     1.167
+    ],
+    [
+     144.0,
+     148.25,
+     1.146
+    ],
+    [
+     178.5,
+     179.75,
+     1.177
+    ],
+    [
+     201.0,
+     207.25,
+     1.079
+    ],
+    [
+     228.5,
+     232.5,
+     1.121
+    ]
+   ],
+   "talk_hold_levels": [
+    [
+     0.0,
+     0.4446
+    ],
+    [
+     8.0,
+     0.373
+    ],
+    [
+     15.5,
+     0.3667
+    ],
+    [
+     28.0,
+     0.3735
+    ],
+    [
+     51.5,
+     0.3826
+    ],
+    [
+     67.5,
+     0.4445
+    ],
+    [
+     71.5,
+     0.3674
+    ],
+    [
+     77.0,
+     0.4308
+    ],
+    [
+     87.5,
+     0.365
+    ],
+    [
+     95.0,
+     0.3529
+    ],
+    [
+     97.5,
+     0.3784
+    ],
+    [
+     111.5,
+     0.4285
+    ],
+    [
+     118.5,
+     0.3654
+    ],
+    [
+     130.0,
+     0.4265
+    ],
+    [
+     144.0,
+     0.4189
+    ],
+    [
+     165.0,
+     0.3618
+    ],
+    [
+     178.5,
+     0.4302
+    ],
+    [
+     180.0,
+     0.369
+    ],
+    [
+     201.0,
+     0.3943
+    ],
+    [
+     213.5,
+     0.37
+    ],
+    [
+     223.0,
+     0.3626
+    ],
+    [
+     228.5,
+     0.4095
+    ]
+   ]
+  },
+  "ad2": {
+   "detail": "21 talking holds on the dominant shot (head 36.6% of its window): per-hold median head height 35.1-41.5% = spread x1.182 (min x1.1); 2% of that talk sits >= 6 % off the dominant level; 0 hold(s) on other shots ignored",
+   "holds": 21,
+   "dominant_frac": 0.36639,
+   "pushed_holds": [
+    [
+     180.75,
+     182.75,
+     1.132
+    ]
+   ],
+   "talk_hold_levels": [
+    [
+     7.5,
+     0.3675
+    ],
+    [
+     15.0,
+     0.3673
+    ],
+    [
+     32.5,
+     0.3748
+    ],
+    [
+     43.5,
+     0.3509
+    ],
+    [
+     46.0,
+     0.3648
+    ],
+    [
+     51.5,
+     0.365
+    ],
+    [
+     58.5,
+     0.3782
+    ],
+    [
+     74.5,
+     0.3666
+    ],
+    [
+     83.75,
+     0.3683
+    ],
+    [
+     102.5,
+     0.3617
+    ],
+    [
+     110.5,
+     0.3712
+    ],
+    [
+     128.0,
+     0.375
+    ],
+    [
+     143.5,
+     0.3644
+    ],
+    [
+     166.5,
+     0.3647
+    ],
+    [
+     172.0,
+     0.3602
+    ],
+    [
+     180.75,
+     0.4146
+    ],
+    [
+     205.0,
+     0.3664
+    ],
+    [
+     211.75,
+     0.3807
+    ],
+    [
+     233.0,
+     0.3594
+    ],
+    [
+     248.0,
+     0.3689
+    ],
+    [
+     267.5,
+     0.3556
+    ]
+   ]
+  }
+ },
+ "naked_splices": {
+  "ad1": {
+   "naked": 37,
+   "candidates": 37,
+   "times": [
+    1.835,
+    11.545,
+    14.414,
+    17.818,
+    18.719,
+    22.756,
+    28.695,
+    35.102,
+    55.188,
+    60.027,
+    65.532,
+    70.337,
+    74.775,
+    90.991,
+    100.033,
+    100.5,
+    113.013,
+    123.223,
+    131.465,
+    141.608,
+    144.177,
+    145.445,
+    147.08,
+    151.318,
+    167.634,
+    171.705,
+    171.838,
+    179.746,
+    181.114,
+    183.083,
+    188.522,
+    190.524,
+    196.196,
+    203.036,
+    203.904,
+    205.872,
+    224.091
+   ]
+  },
+  "ad2": {
+   "naked": 35,
+   "candidates": 35,
+   "times": [
+    21.054,
+    23.323,
+    33.1,
+    36.87,
+    50.751,
+    53.954,
+    58.859,
+    61.662,
+    78.845,
+    84.451,
+    85.585,
+    89.823,
+    102.369,
+    109.409,
+    114.247,
+    126.126,
+    129.329,
+    142.876,
+    180.514,
+    184.751,
+    186.753,
+    196.463,
+    197.064,
+    200.934,
+    207.741,
+    211.611,
+    225.092,
+    231.932,
+    233.567,
+    234.734,
+    242.309,
+    242.976,
+    243.176,
+    248.648,
+    257.724
+   ]
+  }
+ },
+ "hand_count": {
+  "ad1": {
+   "text_plates": [
+    [
+     13.6,
+     26.95,
+     "window",
+     "In today's episode"
+    ],
+    [
+     43.9,
+     47.95,
+     "title",
+     "Visualizing your goal"
+    ],
+    [
+     91.85,
+     97.05,
+     "window",
+     ""
+    ],
+    [
+     162.4,
+     171.8,
+     "window",
+     ""
+    ],
+    [
+     171.8,
+     177.25,
+     "stmt",
+     ""
+    ],
+    [
+     220.75,
+     228.5,
+     "window",
+     ""
+    ]
+   ],
+   "inserts": [
+    [
+     2.95,
+     4.95,
+     "card",
+     "before_200lb"
+    ],
+    [
+     4.95,
+     6.75,
+     "card",
+     "phone_mock"
+    ],
+    [
+     12.3,
+     12.55,
+     "bleed",
+     "today_towel"
+    ],
+    [
+     12.55,
+     12.8,
+     "bleed",
+     "today_trees"
+    ],
+    [
+     12.8,
+     13.6,
+     "bleed",
+     "today_flag"
+    ],
+    [
+     47.95,
+     50.45,
+     "card",
+     "bodybuilder"
+    ],
+    [
+     61.45,
+     66.3,
+     "bleed",
+     "photoshop_gag"
+    ],
+    [
+     68.45,
+     75.8,
+     "winmedia",
+     "app_flow_a"
+    ],
+    [
+     81.2,
+     86.9,
+     "bleed",
+     "bl_home_abs"
+    ],
+    [
+     101.5,
+     106.25,
+     "card",
+     "ai_women_pool"
+    ],
+    [
+     106.25,
+     107.6,
+     "card",
+     "ai_respect_gym"
+    ],
+    [
+     107.6,
+     111.0,
+     "card",
+     "ai_beachrun"
+    ],
+    [
+     113.95,
+     116.3,
+     "bleed",
+     "bl_older_man"
+    ],
+    [
+     116.3,
+     117.95,
+     "bleed",
+     "bl_salad"
+    ],
+    [
+     126.4,
+     128.75,
+     "card",
+     "before_200lb"
+    ],
+    [
+     132.4,
+     134.0,
+     "card",
+     "dad_kids"
+    ],
+    [
+     134.0,
+     136.3,
+     "card",
+     "ai_busydad"
+    ],
+    [
+     136.3,
+     137.9,
+     "bleed",
+     "bl_alone_gym"
+    ],
+    [
+     137.9,
+     142.85,
+     "card",
+     "phone_mock"
+    ],
+    [
+     148.8,
+     152.45,
+     "card",
+     "outdoor_abs"
+    ],
+    [
+     152.45,
+     153.75,
+     "bleed",
+     "bl_mealprep"
+    ],
+    [
+     153.75,
+     155.1,
+     "bleed",
+     "bl_track"
+    ],
+    [
+     155.1,
+     159.5,
+     "bleed",
+     "bl_crunch_gym"
+    ],
+    [
+     159.5,
+     162.4,
+     "card",
+     "p_goal"
+    ],
+    [
+     187.3,
+     199.75,
+     "bleed",
+     "app_flow_b"
+    ],
+    [
+     208.1,
+     213.1,
+     "bleed",
+     "bl_abwheel"
+    ],
+    [
+     216.3,
+     220.75,
+     "bleed",
+     "bl_eating"
+    ]
+   ],
+   "lower_thirds": [
+    [
+     36.9,
+     43.9,
+     "The Problem / No time, no motivation"
+    ],
+    [
+     86.9,
+     91.85,
+     "If you saw yourself with abs, you'd be MOTIVATED / to make y"
+    ],
+    [
+     111.0,
+     113.95,
+     "You will probably live longer too"
+    ],
+    [
+     118.6,
+     126.4,
+     "You don't need more knowledge / You need motivation to execu"
+    ],
+    [
+     183.0,
+     185.04,
+     "Your AI generated picture is just step 1"
+    ],
+    [
+     200.0,
+     203.4,
+     "It builds you a customized / Workout & Nutrition Plan"
+    ],
+    [
+     213.2,
+     216.3,
+     "Your Nutrition Plan / Is calibrated exactly for your goal"
+    ]
+   ],
+   "ctas": [
+    [
+     99.0,
+     100.62
+    ],
+    [
+     179.7,
+     181.3
+    ],
+    [
+     231.4,
+     232.77
+    ]
+   ],
+   "talk": [
+    [
+     0.0,
+     2.95
+    ],
+    [
+     6.75,
+     12.3
+    ],
+    [
+     26.95,
+     43.9
+    ],
+    [
+     50.45,
+     61.45
+    ],
+    [
+     66.3,
+     68.45
+    ],
+    [
+     75.8,
+     81.2
+    ],
+    [
+     86.9,
+     91.85
+    ],
+    [
+     97.05,
+     101.5
+    ],
+    [
+     111.0,
+     113.95
+    ],
+    [
+     117.95,
+     126.4
+    ],
+    [
+     128.75,
+     132.4
+    ],
+    [
+     142.85,
+     148.8
+    ],
+    [
+     177.25,
+     187.3
+    ],
+    [
+     199.75,
+     208.1
+    ],
+    [
+     213.1,
+     216.3
+    ],
+    [
+     228.5,
+     232.77
+    ]
+   ],
+   "pushes": [
+    [
+     0.0,
+     0.0,
+     2.6,
+     2.78
+    ],
+    [
+     10.55,
+     11.05,
+     12.2,
+     12.3
+    ],
+    [
+     32.65,
+     33.2,
+     35.6,
+     36.3
+    ],
+    [
+     51.9,
+     52.5,
+     54.8,
+     55.6
+    ],
+    [
+     66.25,
+     66.8,
+     68.1,
+     68.45
+    ],
+    [
+     76.05,
+     76.55,
+     78.85,
+     79.6
+    ],
+    [
+     99.9,
+     100.5,
+     101.35,
+     101.5
+    ],
+    [
+     110.9,
+     111.5,
+     113.05,
+     113.6
+    ],
+    [
+     128.85,
+     129.35,
+     132.3,
+     132.4
+    ],
+    [
+     143.1,
+     143.55,
+     147.25,
+     148.6
+    ],
+    [
+     177.3,
+     177.8,
+     179.7,
+     179.95
+    ],
+    [
+     184.95,
+     185.5,
+     187.1,
+     187.3
+    ],
+    [
+     203.85,
+     204.3,
+     206.55,
+     207.85
+    ],
+    [
+     228.4,
+     229.0,
+     231.25,
+     231.95
+    ]
+   ],
+   "flashes": [
+    [
+     6.72,
+     7.16
+    ],
+    [
+     13.16,
+     13.6
+    ],
+    [
+     27.01,
+     27.45
+    ],
+    [
+     50.46,
+     50.9
+    ],
+    [
+     66.21,
+     66.65
+    ],
+    [
+     75.77,
+     76.21
+    ],
+    [
+     128.68,
+     129.22
+    ],
+    [
+     142.76,
+     143.26
+    ],
+    [
+     177.22,
+     177.7
+    ],
+    [
+     199.61,
+     200.12
+    ],
+    [
+     152.1,
+     152.62
+    ]
+   ],
+   "push_z": 1.2,
+   "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/shortad-from-longform/reference/beats.py",
+   "note": "his cut stepped at 1 s (233 contact-sheet frames, boundaries pinned to a 10 fps frame-difference peak); the only deviations are the banned before/after card cut sequentially and the app recording capped at 25 s"
+  },
+  "ad2": {
+   "text_plates": [
+    [
+     39.07,
+     45.01,
+     "window",
+     "I'll show you"
+    ],
+    [
+     50.38,
+     56.69,
+     "window",
+     "1) Why AI is better than human nutrition"
+    ],
+    [
+     98.95,
+     108.21,
+     "window",
+     "3) AI gives you a science-based nutritio"
+    ],
+    [
+     141.07,
+     149.85,
+     "window",
+     "How do I know all this?"
+    ],
+    [
+     222.15,
+     229.26,
+     "window",
+     "It builds your meal plan"
+    ]
+   ],
+   "inserts": [
+    [
+     3.57,
+     7.21,
+     "bleed",
+     "museum"
+    ],
+    [
+     23.99,
+     31.63,
+     "card",
+     "spa"
+    ],
+    [
+     63.1,
+     66.67,
+     "bleed",
+     "groceries"
+    ],
+    [
+     66.67,
+     68.94,
+     "bleed",
+     "mealprep"
+    ],
+    [
+     68.94,
+     73.37,
+     "bleed",
+     "conveyor"
+    ],
+    [
+     118.48,
+     127.39,
+     "card",
+     "app_soup"
+    ],
+    [
+     149.85,
+     155.39,
+     "bleed2",
+     "fatdad_a"
+    ],
+    [
+     157.25,
+     161.06,
+     "bleed",
+     "before_dan"
+    ],
+    [
+     161.06,
+     165.23,
+     "bleed",
+     "goal_dan"
+    ],
+    [
+     169.9,
+     170.7,
+     "bleed",
+     "flag"
+    ],
+    [
+     170.7,
+     171.5,
+     "bleed",
+     "after_standing"
+    ],
+    [
+     171.5,
+     172.3,
+     "bleed",
+     "after_smiling"
+    ],
+    [
+     183.17,
+     191.19,
+     "card",
+     "app_upload"
+    ],
+    [
+     191.19,
+     193.26,
+     "card",
+     "app_gen"
+    ],
+    [
+     193.26,
+     198.16,
+     "bleed",
+     "workout"
+    ],
+    [
+     198.16,
+     204.17,
+     "winmedia",
+     "scan_result"
+    ],
+    [
+     238.95,
+     244.34,
+     "card",
+     "app_item"
+    ],
+    [
+     262.3,
+     268.0,
+     "card",
+     "app_supp"
+    ]
+   ],
+   "lower_thirds": [
+    [
+     3.67,
+     7.06,
+     "AI has made human nutritionists / completely obsolete."
+    ],
+    [
+     68.94,
+     73.25,
+     "2   Human nutritionists hand everybody / the same generic me"
+    ]
+   ],
+   "ctas": [
+    [
+     172.3,
+     176.0
+    ],
+    [
+     176.2,
+     180.4
+    ],
+    [
+     272.3,
+     276.11
+    ]
+   ],
+   "talk": [
+    [
+     0.0,
+     3.57
+    ],
+    [
+     7.21,
+     23.99
+    ],
+    [
+     31.63,
+     39.07
+    ],
+    [
+     45.01,
+     50.38
+    ],
+    [
+     56.69,
+     63.1
+    ],
+    [
+     73.37,
+     98.95
+    ],
+    [
+     108.21,
+     118.48
+    ],
+    [
+     127.39,
+     141.07
+    ],
+    [
+     155.39,
+     157.25
+    ],
+    [
+     165.23,
+     169.9
+    ],
+    [
+     172.3,
+     183.17
+    ],
+    [
+     204.17,
+     222.15
+    ],
+    [
+     229.26,
+     238.95
+    ],
+    [
+     244.34,
+     262.3
+    ],
+    [
+     268.0,
+     276.11
+    ]
+   ],
+   "pushes": [
+    [
+     -0.05,
+     0.5,
+     3.0,
+     3.55
+    ],
+    [
+     8.95,
+     9.5,
+     14.0,
+     14.55
+    ],
+    [
+     20.95,
+     21.5,
+     24.0,
+     24.55
+    ],
+    [
+     56.45,
+     57.0,
+     60.0,
+     60.55
+    ],
+    [
+     72.95,
+     73.5,
+     76.5,
+     77.05
+    ],
+    [
+     82.95,
+     83.5,
+     86.5,
+     87.05
+    ],
+    [
+     107.95,
+     108.5,
+     111.5,
+     112.05
+    ],
+    [
+     135.95,
+     136.5,
+     139.5,
+     140.05
+    ],
+    [
+     155.45,
+     156.0,
+     157.5,
+     158.05
+    ],
+    [
+     168.45,
+     169.0,
+     170.0,
+     170.55
+    ],
+    [
+     180.45,
+     181.0,
+     183.5,
+     184.05
+    ],
+    [
+     211.45,
+     212.0,
+     215.0,
+     215.55
+    ],
+    [
+     228.95,
+     229.5,
+     232.5,
+     233.05
+    ],
+    [
+     244.45,
+     245.0,
+     247.5,
+     248.05
+    ],
+    [
+     263.95,
+     264.5,
+     267.0,
+     267.55
+    ]
+   ],
+   "flashes": [
+    [
+     13.9807,
+     14.3807
+    ],
+    [
+     31.53,
+     31.93
+    ],
+    [
+     44.91,
+     45.31
+    ],
+    [
+     56.59,
+     56.99
+    ],
+    [
+     73.2733,
+     73.6733
+    ],
+    [
+     108.11,
+     108.51
+    ],
+    [
+     127.29,
+     127.69
+    ],
+    [
+     149.7497,
+     150.1497
+    ],
+    [
+     155.2886,
+     155.6886
+    ],
+    [
+     165.13,
+     165.53
+    ],
+    [
+     172.203,
+     172.603
+    ],
+    [
+     193.1597,
+     193.5597
+    ],
+    [
+     204.0706,
+     204.4706
+    ],
+    [
+     229.16,
+     229.56
+    ],
+    [
+     244.24,
+     244.64
+    ],
+    [
+     267.9,
+     268.3
+    ]
+   ],
+   "push_z": 1.2,
+   "source": "/Volumes/Extreme/_edit_work/ad2-vert-v2/beats.py",
+   "note": "his V2 beat sheet, boundaries read at the frame off his render; pushes from the per-0.25 s framing fit of his own render (cover.json)"
+  }
+ },
+ "measure_seconds": {
+  "ad1": 63.3,
+  "ad2": 82.9
+ },
+ "notes": {
+  "push_off_frac / pushed_holds_per_min": "Ad 2 reads 0.016 / 0.22 while his own count is 15 pushes (39 % of talk): his Ad 2 ramps are shorter than the change-event HOLDS the tracker segments on, so a hold's median head height sits near the base level and the ramp is diluted. Ad 1's longer holds read 0.27 / 2.3. Both rows are therefore informational (lo = 0); the BINDING push row is `push_spread` (the gate's framing:push_coverage, x1.26 / x1.18) together with the hand count `pushes_hand_per_min` (3.6 / 3.3).",
+  "naked_splices_per_min": "his pose-matched same-scene cuts read 9.5 / 7.6 per minute with no plan; a kit build declares its punches so it reads lower. This is a RANGE for a from-raw cut, not a defect; the gate's bound is 12/min (formats.py).",
+  "talking_head_luma": "66 / 72 on the scan's 160x90 frame mean over on-scene frames. VQC-C item 5 read him at ~67 against our 55 on an earlier instrument; the numbers agree.",
+  "opening_changes_15s": "both edits: exactly 4 changes in the first 15 s (the hook's picture beat + card + the 'today' photos + the episode plate). A 3.6..4.4 band means 4."
+ }
+}

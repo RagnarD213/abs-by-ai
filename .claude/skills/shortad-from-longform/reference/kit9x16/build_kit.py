@@ -1,0 +1,399 @@
+#!/usr/bin/env python3
+"""BUILD THE 9:16 AD FROM THE KIT: template.json (his grammar) + content.json (WHAT goes where) + the
+audio EDL (the cut) -> beats.json, edl_picture.json, piccuts.json, kit_report.json, and a `beats.py`
+shim in the build dir that render.py / captions.py / mux.py / the plan builder import unchanged.
+
+  python3 build_kit.py --from-master --build DIR --edl edl_final.json --content content.json --words WORDS
+                       --reference his.mp4 --raw ROLL --grade grade.py [--rolls rolls.json] [--piccuts existing.json]
+  python3 build_kit.py --from-raw    --build DIR --edl edl.json       --content content.json --words WORDS
+                       --raw ROLL --grade grade.py [--rolls rolls.json] [--piccuts existing.json]
+  python3 build_kit.py ... --plan-only        (no frame extraction: pushes/flashes/overlays from the content only)
+
+WHAT THE KIT DECIDES (the design) and WHAT IT IS TOLD (the content):
+  content.json says which insert, plate, lower third and CTA go with which words. The kit decides every
+  time and every device around them the way his edits do: the picture cut at every talk splice
+  (cut_rules.md), the push schedule (ramps that cover what the cut cannot match and keep the talking
+  head from being one fixed crop), the light-leak on every insert -> talk return, lower-third and CTA
+  timing against the words, caption suppression, chip placement by measurement. Every number comes
+  from template.json, which cites _shared/reference/picture.json, and the generated design is scored
+  against picture.json's lo/hi BEFORE anything renders (kit_report.json). A design outside his range
+  is reported, never silently shipped -- and never fixed by moving the range.
+"""
+import argparse
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", ".."))
+PICREF = os.path.join(REPO, ".claude/skills/_shared/reference/picture.json")
+FPS = 30000 / 1001
+TEXT_KINDS = ("window", "title", "stmt")
+INSERT_KINDS = ("card", "bleed", "bleed2", "winmedia")
+BASE_KINDS = ("talk", "window", "card", "title", "stmt", "bleed", "bleed2", "winmedia")
+
+_n = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
+
+
+# ---------------------------------------------------------------------------- inputs
+def load_words(path):
+    """-> [{w, t, e}] from m.whisper.json (segments/words), words_ctc.json ([{word,start,end}]) or [{w,t,e}]."""
+    d = json.load(open(path))
+    out = []
+    if isinstance(d, dict) and "segments" in d:
+        for s in d["segments"]:
+            for w in s.get("words", []):
+                if w["word"].strip():
+                    out.append(dict(w=w["word"].strip(), t=float(w["start"]), e=float(w["end"])))
+    else:
+        for w in d:
+            if "w" in w:
+                out.append(dict(w=w["w"], t=float(w["t"]), e=float(w["e"])))
+            elif "word" in w:
+                out.append(dict(w=w["word"].strip(), t=float(w["start"]), e=float(w["end"])))
+    return out
+
+
+class Anchors:
+    def __init__(self, words):
+        self.W = [(_n(w["w"]), w["t"], w["e"]) for w in words if _n(w["w"])]
+
+    def _seq(self, phrase, after=0.0):
+        toks = [_n(t) for t in phrase.split() if _n(t)]
+        for i in range(len(self.W)):
+            if self.W[i][1] < after:
+                continue
+            if [w[0] for w in self.W[i:i + len(toks)]] == toks:
+                return i, len(toks)
+        raise SystemExit(f"content phrase not found after {after:.2f}s: {phrase!r}")
+
+    def at(self, phrase, after=0.0):
+        i, _ = self._seq(phrase, after)
+        return self.W[i][1]
+
+    def end(self, phrase, after=0.0):
+        i, n = self._seq(phrase, after)
+        return self.W[i + n - 1][2]
+
+
+def load_edl(path):
+    E = json.load(open(path))
+    out = []
+    for i, s in enumerate(E):
+        if "cut_in" in s:
+            out.append(dict(i=i, cut_in=float(s["cut_in"]), cut_out=float(s["cut_out"]), src_in=float(s["src_in"]),
+                            src_out=float(s.get("src_out", s["src_in"] + s["cut_out"] - s["cut_in"])), roll=s.get("roll")))
+        else:
+            a, b = s["out_seconds"]
+            out.append(dict(i=i, cut_in=float(a), cut_out=float(b), src_in=float(s["src_in"]), src_out=float(s["src_out"]), roll=s.get("roll")))
+    return out
+
+
+def ref_number(ref, key):
+    n = ref["numbers"].get(key)
+    return (n["lo"], n["hi"], n.get("defect_side", "both")) if n else (None, None, None)
+
+
+# ---------------------------------------------------------------------------- resolving content
+def resolve_times(item, A, last_t):
+    """t0/t1 from `t0`/`t1`, or from `at`/`until` phrases (+ pads), disambiguated after the previous item."""
+    if "t0" in item and "t1" in item:
+        return float(item["t0"]), float(item["t1"])
+    after = float(item.get("after", max(0.0, last_t - 2.0)))
+    t0 = A.at(item["at"], after) - float(item.get("pad_pre", 0.0))
+    t1 = A.end(item.get("until", item["at"]), after) + float(item.get("pad_post", 0.0))
+    if "dur" in item:
+        t1 = t0 + float(item["dur"])
+    return round(max(0.0, t0), 3), round(t1, 3)
+
+
+def make_timeline(beats, dur):
+    base = sorted([dict(b) for b in beats if b["kind"] in BASE_KINDS], key=lambda b: b["t0"])
+    fixed, t = [], 0.0
+    for b in base:
+        b["t0"] = max(b["t0"], t)
+        if b["t1"] - b["t0"] < 0.20:
+            continue
+        gap = b["t0"] - t
+        if gap > 0.40:
+            fixed.append(dict(kind="talk", t0=round(t, 3), t1=round(b["t0"], 3)))
+        elif gap > 0:
+            b["t0"] = t
+        fixed.append(b)
+        t = b["t1"]
+    if dur - t > 0.10:
+        fixed.append(dict(kind="talk", t0=round(t, 3), t1=dur))
+    return fixed
+
+
+# ---------------------------------------------------------------------------- the grammar
+def flashes_for(tl, T):
+    """A light-leak on every insert -> talk return (his rule), the content cut on the peak."""
+    pre, dur, gap = T["flash"]["pre_s"], T["flash"]["dur_s"], T["flash"]["min_spacing_s"]
+    out = []
+    for i in range(1, len(tl)):
+        if tl[i]["kind"] == "talk" and tl[i - 1]["kind"] != "talk" and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
+            c = tl[i]["t0"]
+            if out and c - (out[-1][0] + pre) < gap:
+                continue
+            out.append((round(c - pre, 3), round(c - pre + dur, 3)))
+    return out
+
+
+def pushes_for(tl, splices, cover, words, T, flashes):
+    """His push schedule, generated: a push covers every splice the cut rule could not match (ramp
+    leading the cut by `lead_before_cut_s`), then every talk run is filled so no stretch of talk goes
+    longer than `max_gap_s` without a push; pushes start on a sentence boundary when one is within
+    1.5 s, hold 1.5-3.5 s cycling, ramp in 0.5 s, ramp out 0.5-0.8 s; never inside `min_gap_to_flash_s`
+    of a flash; the first talk beat opens already punched when the template says so."""
+    P = T["push"]
+    holds = list(P["hold_s"]) if isinstance(P["hold_s"], list) else [P["hold_s"]]
+    outs = list(P["ramp_out_s"]) if isinstance(P["ramp_out_s"], list) else [P["ramp_out_s"]]
+    rin, lead, gap = P["ramp_in_s"], P["lead_before_cut_s"], P["max_gap_s"]
+    fl_guard = P.get("min_gap_to_flash_s", 0.3)
+    sents = sorted(w["e"] for w in words if w["w"].rstrip().endswith((".", "?", "!", ",")))
+    flash_pts = [a + T["flash"]["pre_s"] for a, b in flashes]
+
+    def near_flash(t):
+        return any(abs(t - f) < fl_guard for f in flash_pts)
+
+    def snap_sentence(t, lo, hi):
+        c = [s for s in sents if lo <= s <= hi and abs(s - t) <= 1.5]
+        return min(c, key=lambda s: abs(s - t)) if c else t
+
+    pushes, n = [], 0
+    talk = [b for b in tl if b["kind"] == "talk"]
+    if P.get("opens_punched", T["opening"].get("opens_punched")) and talk and talk[0]["t0"] < 0.5:
+        b = talk[0]
+        end = min(b["t1"], b["t0"] + holds[0] + 1.0)
+        pushes.append((0.0, 0.0, round(end - outs[0], 3), round(end, 3)))
+        n += 1
+    # 1. cover the unmatched splices
+    for s in sorted(splices):
+        if s not in cover:
+            continue
+        a1 = round(s - lead, 3)
+        if any(p[0] <= s <= p[3] for p in pushes):
+            continue
+        hold = holds[n % len(holds)]
+        ro = outs[n % len(outs)]
+        b1 = round(a1 + rin + hold, 3)
+        pushes.append((a1, round(a1 + rin, 3), b1, round(b1 + ro, 3)))
+        n += 1
+    # 2. fill every talk run so no stretch goes longer than max_gap_s without a push
+    for b in talk:
+        t = b["t0"]
+        while b["t1"] - t > gap:
+            target = t + gap * 0.75
+            if any(p[0] - 1.0 <= target <= p[3] + 1.0 for p in pushes):
+                t = max(p[3] for p in pushes if p[0] - 1.0 <= target <= p[3] + 1.0)
+                continue
+            a1 = snap_sentence(target, b["t0"] + 0.5, b["t1"] - 2.5)
+            if near_flash(a1):
+                a1 += fl_guard
+            hold = holds[n % len(holds)]
+            ro = outs[n % len(outs)]
+            a2 = round(a1 + rin, 3)
+            b1 = round(a2 + hold, 3)
+            b2 = round(min(b1 + ro, b["t1"]), 3)
+            if b2 - a1 < rin + 1.0:
+                break
+            pushes.append((round(a1, 3), a2, b1, b2))
+            n += 1
+            t = b2
+    pushes.sort()
+    # no overlaps: a push that starts inside the previous one is dropped
+    clean = []
+    for p in pushes:
+        if clean and p[0] < clean[-1][3] + 0.4:
+            continue
+        clean.append(p)
+    return clean
+
+
+def push_at(t, pushes, z):
+    best = 0.0
+    for a1, a2, b1, b2 in pushes:
+        k = 1.0 if a2 <= a1 else max(0.0, min(1.0, (t - a1) / (a2 - a1)))
+        ko = 0.0 if b2 <= b1 else max(0.0, min(1.0, (t - b1) / (b2 - b1)))
+        r = min(k, 1 - ko)
+        if t < a1:
+            r = 0.0
+        best = max(best, r * r * (3 - 2 * r))
+    return 1.0 + (z - 1.0) * best
+
+
+# ---------------------------------------------------------------------------- main
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    g = ap.add_mutually_exclusive_group(required=True)
+    g.add_argument("--from-master", action="store_true")
+    g.add_argument("--from-raw", action="store_true")
+    ap.add_argument("--build", required=True)
+    ap.add_argument("--template", default=os.path.join(HERE, "template.json"))
+    ap.add_argument("--edl", required=True)
+    ap.add_argument("--content", required=True)
+    ap.add_argument("--words", required=True)
+    ap.add_argument("--reference")
+    ap.add_argument("--raw")
+    ap.add_argument("--rolls")
+    ap.add_argument("--grade")
+    ap.add_argument("--piccuts", help="reuse an existing piccuts.json instead of extracting frames")
+    ap.add_argument("--plan-only", action="store_true")
+    a = ap.parse_args()
+
+    T = json.load(open(a.template))
+    ref = json.load(open(PICREF)) if os.path.exists(PICREF) else None
+    if ref is None:
+        raise SystemExit(f"{PICREF} does not exist -- build the picture reference first (step 0)")
+    C = json.load(open(a.content))
+    E = load_edl(a.edl)
+    words = load_words(a.words)
+    A = Anchors(words)
+    dur = round(E[-1]["cut_out"], 6)
+    os.makedirs(a.build, exist_ok=True)
+
+    # ---- content -> base beats and overlays (times resolved against the words)
+    beats, last = [], 0.0
+    for it in C["beats"]:
+        t0, t1 = resolve_times(it, A, last)
+        b = {k: v for k, v in it.items() if k not in ("at", "until", "pad_pre", "pad_post", "dur", "after")}
+        b.update(t0=t0, t1=min(t1, dur))
+        # a CARD with a label kind gets the chip text the plate draws under its hole (plate_card `label`);
+        # a full-bleed beat gets its chip PLACED BY MEASUREMENT later (kit_labels.py -> chip_png)
+        if b.get("label_kind") and b["kind"] == "card":
+            b["label"] = T["labels"]["real"] if b["label_kind"] == "real" else T["labels"]["ai"]
+        beats.append(b)
+        last = t1
+    tl = make_timeline(beats, dur)
+    lts, last = [], 0.0
+    L = T["lower_third"]
+    for it in C.get("lower_thirds", []):
+        t0, t1 = resolve_times(it, A, last)
+        if "t0" not in it:
+            t0 = round(t0 - L["lead_s"], 3)
+            t1 = round(min(max(t1, t0 + L["min_s"]), t0 + L["max_s"]), 3)
+        # never over a text plate: clip to the talk/insert beat it sits on
+        for b in tl:
+            if b["kind"] in TEXT_KINDS and b["t0"] < t1 and b["t1"] > t0:
+                t1 = min(t1, b["t0"]) if t0 < b["t0"] else t1
+                t0 = max(t0, b["t1"]) if t0 >= b["t0"] else t0
+        o = dict(kind="lt", t0=t0, t1=t1, lines=it["lines"])
+        if "y_bottom" in it:
+            o["y_bottom"] = it["y_bottom"]
+        lts.append(o)
+        last = t1
+    ctas, last = [], 0.0
+    Cc = T["cta"]
+    items = C.get("ctas") or [dict(at=p) for p in Cc["phrases"]]
+    for k, it in enumerate(items):
+        if "t0" in it:
+            t0 = float(it["t0"]); t1 = float(it.get("t1", t0 + Cc["dur_s"]))
+        else:
+            t0 = round(A.at(it["at"], float(it.get("after", last))), 3)
+            t1 = round(t0 + Cc["dur_s"], 3)
+        ctas.append(dict(kind="cta", t0=t0, t1=t1, top=it.get("top", C.get("cta_top", "Get A FREE AI Image Of Yourself")),
+                         big=it.get("big", C.get("cta_big", "With Abs")), **({"big_size": it["big_size"]} if "big_size" in it else {})))
+        last = t1 + 0.5
+    if ctas and Cc.get("last_runs_to_end"):
+        ctas[-1]["t1"] = dur
+    flashes = flashes_for(tl, T)
+
+    # ---- the talk splices and the picture cuts
+    talk_spans = [[b["t0"], b["t1"]] for b in tl if b["kind"] == "talk"]
+    json.dump(talk_spans, open(os.path.join(a.build, "talk_spans.json"), "w"))
+    splices = [s["cut_in"] for s in E[1:]]
+    in_talk = [s for s in splices if any(x + 0.05 <= s <= y - 0.05 for x, y in talk_spans)]
+    pc_path = a.piccuts or os.path.join(a.build, "piccuts.json")
+    if not a.plan_only and not (a.piccuts and os.path.exists(a.piccuts)):
+        cmd = [sys.executable, os.path.join(HERE, "kit_cuts.py"), "decide", "--build", a.build,
+               "--mode", "master" if a.from_master else "raw", "--raw", a.raw, "--edl", a.edl,
+               "--talk", os.path.join(a.build, "talk_spans.json"), "--search", str(T["cut"]["search_frames"]),
+               "--trusted", str(T["cut"]["trusted_conf"]), "--cover-below", str(T["cut"]["cover_below"])]
+        if a.reference:
+            cmd += ["--reference", a.reference]
+        if a.grade:
+            cmd += ["--grade", a.grade]
+        if a.rolls:
+            cmd += ["--rolls", a.rolls]
+        if a.from_master and not a.reference:
+            raise SystemExit("--from-master needs --reference (his render)")
+        print("kit_cuts:", " ".join(cmd[2:6]), flush=True)
+        subprocess.run(cmd, check=True)
+    piccuts = json.load(open(pc_path)) if os.path.exists(pc_path) else []
+    cover = {round(r["cut"], 3) for r in piccuts if r.get("cover")}
+    moved = {round(r["cut"], 3): r["k"] for r in piccuts if r.get("k")}
+
+    # ---- the push schedule and the design's own numbers
+    pushes = pushes_for(tl, [round(s, 3) for s in in_talk], cover, words, T, flashes)
+    z = T["push"]["z"]
+    talk_s = sum(b["t1"] - b["t0"] for b in tl if b["kind"] == "talk")
+    pushed = sum(1 for i in range(int(dur * 10)) if push_at(i / 10, pushes, z) > 1.0 + (z - 1) * 0.5
+                 and any(b["t0"] <= i / 10 < b["t1"] for b in tl if b["kind"] == "talk")) / 10
+    mins = dur / 60.0
+    ins = [b for b in tl if b["kind"] in INSERT_KINDS]
+    txt = [b for b in tl if b["kind"] in TEXT_KINDS]
+    design = dict(
+        pushes_hand_per_min=len(pushes) / mins,
+        push_off_frac=pushed / max(talk_s, 1e-6),
+        flashes_per_min=len(flashes) / mins,
+        lower_thirds_per_min=len(lts) / mins,
+        cta_count=len(ctas),
+        graphics_per_min=(len(lts) + len(ctas) + len(txt)) / mins,
+        inserts_per_min=len(ins) / mins,
+        insert_coverage_hand=sum(b["t1"] - b["t0"] for b in tl if b["kind"] != "talk") / dur,
+        longest_talk_hand_s=max((b["t1"] - b["t0"] for b in tl if b["kind"] == "talk"), default=0.0),
+        opening_changes_15s=sum(1 for b in tl if b["t0"] < 15.0) + sum(1 for f in flashes if f[0] < 15.0),
+    )
+    rows = []
+    for k, v in design.items():
+        lo, hi, side = ref_number(ref, k)
+        if lo is None:
+            rows.append((k, v, None, None, "no reference"))
+            continue
+        st = "PASS" if lo <= v <= hi else ("DEFECT" if (v < lo and side in ("low", "both")) or (v > hi and side in ("high", "both")) else "OVERSHOOT")
+        rows.append((k, v, lo, hi, st))
+
+    # ---- write the beat sheet the pipeline consumes
+    out = dict(
+        kit="kit9x16", template_version=T["version"], mode="master" if a.from_master else "raw",
+        dur=dur, fps="30000/1001", push_z=z,
+        beats=beats, lower_thirds=lts, ctas=ctas, insets=C.get("insets", []),
+        pushes=[list(p) for p in pushes], flashes=[list(f) for f in flashes],
+        no_caps_kinds=C.get("no_caps_kinds", ["window", "title", "stmt", "cta"]),
+        no_caps_bodies=C.get("no_caps_bodies", []),
+        base_kinds=list(BASE_KINDS), seams=[],
+        cta_top=C.get("cta_top", "Get A FREE AI Image Of Yourself"), cta_big=C.get("cta_big", "With Abs"),
+        deviations=C.get("deviations", []),
+        words=[dict(w=w["w"], t=round(w["t"], 3), e=round(w["e"], 3)) for w in words],
+        picture_cuts=dict(talk_splices=len(in_talk), moved=len(moved), covered=len(cover), source="piccuts.json"),
+    )
+    json.dump(out, open(os.path.join(a.build, "beats.json"), "w"), indent=1)
+    shutil.copy(os.path.join(HERE, "kit_beats.py"), os.path.join(a.build, "beats.py"))
+    rep = dict(build=os.path.abspath(a.build), mode=out["mode"], template=os.path.abspath(a.template),
+               reference=PICREF, reference_version=ref.get("version"),
+               design=design, rows=[dict(key=k, value=v, lo=lo, hi=hi, status=st) for k, v, lo, hi, st in rows],
+               timeline=[dict(kind=b["kind"], t0=b["t0"], t1=b["t1"], media=b.get("media")) for b in tl],
+               pushes=out["pushes"], flashes=out["flashes"], lower_thirds=[(o["t0"], o["t1"]) for o in lts],
+               ctas=[(o["t0"], o["t1"]) for o in ctas], talk_splices=in_talk,
+               covered_splices=sorted(cover), moved_splices=moved)
+    json.dump(rep, open(os.path.join(a.build, "kit_report.json"), "w"), indent=1)
+    print(f"\nkit9x16 {out['mode']}: {len(tl)} base beats, {len(ins)} inserts, {len(txt)} text plates, {len(lts)} lower thirds, "
+          f"{len(ctas)} CTAs, {len(flashes)} flashes, {len(pushes)} pushes ({100 * design['push_off_frac']:.0f}% of talk); "
+          f"{len(in_talk)} talk splices, {len(moved)} moved, {len(cover)} covered")
+    print(f"design vs picture.json v{ref.get('version')}:")
+    for k, v, lo, hi, st in rows:
+        band = f"[{lo:.3f} .. {hi:.3f}]" if lo is not None else ""
+        print(f"  {st:10s} {k:24s} {v:8.3f}  {band}")
+    bad = [k for k, *_, st in rows if st == "DEFECT"]
+    if bad:
+        print(f"  ⚠ the generated design is outside his range on {bad} -- fix the content or the grammar, never the range")
+    print(f"-> {a.build}/beats.json, beats.py, kit_report.json")
+    return 1 if bad else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

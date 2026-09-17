@@ -1,0 +1,204 @@
+{
+ "name": "kit9x16 -- the 9:16 vertical ad: Muhammad's pacing, panel system and push schedule as data",
+ "version": 1,
+ "date": "2026-09-16",
+ "reference": "_shared/reference/picture.json (every `from` below names the key the value is checked against; build_kit.py reads it live and reports the generated design's numbers against lo/hi before anything renders)",
+ "frame": {
+  "w": 1080,
+  "h": 1920,
+  "fps": "30000/1001"
+ },
+ "opening": {
+  "hold_s": 2.95,
+  "opens_punched": true,
+  "note": "his Ad 1 opens on the hook line with a picture beat (0-2.95, the goal picture) and the first talk is already inside a push (Ad 1 PUSHES[0] = (0, 0, 2.60, 2.78)); the first change lands inside 3 s"
+ },
+ "push": {
+  "z": 1.2,
+  "ramp_in_s": 0.5,
+  "ramp_out_s": [
+   0.5,
+   0.8
+  ],
+  "hold_s": [
+   1.5,
+   2.5,
+   3.5
+  ],
+  "recentre_up_px": 85,
+  "per_min": {
+   "from": "pushes_hand_per_min"
+  },
+  "talk_coverage": {
+   "from": "push_off_frac"
+  },
+  "max_gap_s": 16.6,
+  "at_sentence_boundary": true,
+  "lead_before_cut_s": 0.25,
+  "cover_unmatched_splice": true,
+  "min_gap_to_flash_s": 0.3,
+  "note": "Ad 1: 14 pushes in 232.8 s = one per 16.6 s of runtime, 39 % of the talk inside a push (shortad [A2] rule 8); they ramp ~0.5 s, hold 1.5-3.5 s, ramp out, and mostly SPAN splices rather than landing on them. push_coverage in the gate reads the spread of per-hold head heights (min x1.10); his 16:9 reads x1.18, the approved verticals x1.22 / x1.25"
+ },
+ "insert": {
+  "coverage": {
+   "from": "insert_coverage_hand"
+  },
+  "per_min": {
+   "from": "inserts_per_min"
+  },
+  "max_bare_talk_s": {
+   "from": "longest_talk_hand_s"
+  },
+  "still_push_amt": 0.055,
+  "bleed_push_amt": 0.075,
+  "card_for_16x9_sources": true,
+  "full_bleed_min_height_px": 1440,
+  "card_hole_from_media_aspect": true,
+  "note": "16:9 source is NEVER cropped to full-bleed 9:16 (a 2.7x upscale); it goes in his olive card, a downscale. Stills and cards never sit dead-frozen (his title card: 0/101 static frames)"
+ },
+ "lower_third": {
+  "per_min": {
+   "from": "lower_thirds_per_min"
+  },
+  "min_s": 2.0,
+  "max_s": 8.0,
+  "lead_s": 0.1,
+  "y_bottom": 1600,
+  "line1_px": 52,
+  "line2_px": 40,
+  "his_16x9": {
+   "from": "panels/measurements.json",
+   "y_bottom_frac": 0.8889,
+   "left_frac": 0.1458,
+   "tab_height_frac": 0.1296,
+   "bar_height_frac": 0.0944,
+   "bar_opacity": 0.85,
+   "tab": "translucent olive",
+   "bar": "translucent black with an olive outline"
+  },
+  "note": "vlib draws a solid olive tab + a (0,0,0,232) bar; the approved Ad 1 / Ad 2 verticals carry that. His 16:9 tab is translucent and taller than the bar (measured); recorded, not changed here"
+ },
+ "cta": {
+  "count": 3,
+  "dur_s": 1.62,
+  "last_runs_to_end": true,
+  "phrases": [
+   "tap the button below"
+  ],
+  "y": "CAP_Y - h/2 (vlib.overlay_cta)",
+  "his_16x9": {
+   "from": "panels/measurements.json",
+   "size_frac": [
+    0.3229,
+    0.1454
+   ],
+   "centre_y_frac": 0.8245,
+   "radius_px_at_1920": 33
+  }
+ },
+ "flash": {
+  "on_return_to_talk": true,
+  "pre_s": 0.11,
+  "dur_s": 0.44,
+  "min_spacing_s": 1.5,
+  "per_min": {
+   "from": "flashes_per_min"
+  },
+  "content_cut_on_peak": true,
+  "note": "his light-leak covers an insert -> talk return (Ad 2 beats.py rule, verified on his render); the content cut lands EXACTLY on the flash peak (Ad 1 notes [A3].2); never on a footage-to-footage cut, never with a whoosh (his flashes are silent)"
+ },
+ "captions": {
+  "band_y": 1400,
+  "font_px": 64,
+  "weight": "ExtraBold",
+  "group_max_chars": 22,
+  "highlight": "OLIVE",
+  "suppress_under": [
+   "window",
+   "title",
+   "stmt",
+   "cta",
+   "lt",
+   "caps=False"
+  ],
+  "timing": "words force-aligned to the delivered mix (a2/align_ctc.py); Whisper's own timings are ~130 ms early"
+ },
+ "labels": {
+  "real": "Real picture of me - not AI-generated",
+  "ai": "AI-GENERATED",
+  "mutually_exclusive": true,
+  "placement": "MEASURED per beat, never a fixed y: person mask over every 3rd rendered frame + the last (stills push), union, dilate 16 px; above his head in one line first, then beside the head in 1-3 lines, then anywhere clear above the caption band; never over his face or his abs (AGENTS.md, Dan 2026-09-12). Card media keeps the card's own chip under the hole (not on his body)",
+  "tool": "reference/a11_sq_ad1/sqlabelplace.py (the approved square's method) -- the kit's kit_labels.py ports it to 9:16",
+  "clearance_px": 16,
+  "verify_px": 8
+ },
+ "cut": {
+  "rule": "cut_rules.md",
+  "search_frames": 15,
+  "trusted_conf": 0.6,
+  "cover_below": 0.44,
+  "dissolve_frames": 5,
+  "his_same_scene_rate_per_min": {
+   "from": "naked_splices_per_min"
+  },
+  "gate_bound_per_min": 12.0,
+  "cover_below_calibration": "MEASURED 2026-09-16 (kit_cuts.py calibrate -> piccuts_calibration.json): self-similarity at HIS recovered k on Muhammad's 15 trusted Ad 2 cuts median 0.501 (p10 0.439); at k=0 on attempt 1's 72 splices median 0.379 (p90 0.517). The distributions OVERLAP (p10 his < p90 attempt 1), so self-similarity alone does not separate a good cut from a naked one -- what separates them is where the cut sits relative to the audio splice and whether it is covered. 0.44 is the midpoint of the medians and is used only as the COVER trigger: from a master his recovered frame is the cut when trusted; from raw the best-matching frame is the cut and a best match under 0.44 is covered by a push. Never raise this to let a cut go bare."
+ },
+ "layout": {
+  "talk_crop_w": 608,
+  "talk_upscale": 1.78,
+  "unsharp": "5:5:0.85:5:5:0.0",
+  "window_clamp_px": [
+   820,
+   1220
+  ],
+  "window_top": 60,
+  "cap_y": 1400,
+  "safe_top": 150,
+  "safe_bottom": 1660,
+  "margin": 76,
+  "track": "608 px is a tight crop of a 1920 source (a +-60 px lean is +-110 px on the phone): a smoothed, slope-limited face track per picture segment, stepping at the cuts (facetrack4.py); windows use a fixed centre per shot (_shared/framing-motion, 2026-09-16)"
+ },
+ "grade": {
+  "talking_head_luma": {
+   "from": "talking_head_luma"
+  },
+  "tone_curve": "fitted per build on the CENTRE box against his talking-head frames (Step 2); the 8/14 Ad 1 curve is grade.py CURVES",
+  "vignette": "grade.VIGNETTE remapped into 9:16 (two strengths: full on talk, x0.25 on inserts)",
+  "decode": "BT.709 in/out with accurate_rnd for any untagged editor master (memory untagged-video-bt601-trap)"
+ },
+ "audio": {
+  "from_master": "the editor's mix, untouched (stream-copied or the approved constant-gain treatment); gated audio_gate.py --reference-mix <his> --verbatim",
+  "from_raw": "_shared/audio/pick_lav.py per roll -> voice_chain.py (EQ fitted to the pinned reference) + bed + his ~22 ms tick at graphic entrances only; gated audio_gate.py on the delivered file",
+  "bed_bpm": {
+   "lo": 120,
+   "hi": 130,
+   "note": "his bed measures 0.480 s = 125 BPM (Ad 1 build notes); attempt 1's 99 BPM acoustic bed was 'sleepy'"
+  },
+  "bed_db": -19.0,
+  "sfx": "his count, measured: one click per graphic entrance, ZERO on flashes and on footage-to-footage cuts"
+ },
+ "panels": {
+  "measurements": "panels/measurements.json",
+  "layers": "panels/layers/index.json",
+  "library": "reference/vlib.py (J2AD palette; field 13,14,11 / olive 140,153,91 / card 90,100,58)"
+ },
+ "pacing_checks": [
+  "change_rate_per_min",
+  "coverage",
+  "static_run_s",
+  "naked_splices_per_min",
+  "push_spread",
+  "push_off_frac",
+  "pushed_holds_per_min",
+  "graphics_per_min",
+  "lower_thirds_per_min",
+  "inserts_per_min",
+  "insert_coverage_hand",
+  "flashes_per_min",
+  "pushes_hand_per_min",
+  "longest_talk_hand_s",
+  "opening_changes_15s",
+  "talking_head_luma"
+ ]
+}
