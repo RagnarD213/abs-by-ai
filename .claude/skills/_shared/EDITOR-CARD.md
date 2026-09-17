@@ -1,41 +1,61 @@
 # Editor card — read this BEFORE the skill, hold it for the whole build
 
-Written 2026-09-17 from a side-by-side of Codex's DS-17 "How To Jump Rope" R4 (Dan: *"this works and this is
-finalized"* — the first AI-edited video he approved to post) against Claude's DS-04 round 1 (9 defects, DOES NOT SHIP).
-**Both used the same skills, the same audio chain and the same gates. Codex won on method, not tooling.** The long
-skills hold the detail; this card is the part that must never fall out of your head. Evidence:
-`Short-form video content/ds-17-support/` (recipe, records, ASTRA-PLAN) and `/Volumes/Extreme/_edit_work/ds04/ROUND-1-REVIEW.md`.
+Written 2026-09-17 from two side-by-sides against Codex. **The main one: Codex's C1652 R4 "Why Your Belly Fat Is an
+Emergency" (11:14, 16:9)** — Dan: *"this is looking excellent… he did a great job… good enough to ship"*, and the video
+where *"Codex significantly exceeded you."* Compared with Claude's long-form `04 - Why You Should Invest More In Your
+Health`. Second: Codex's DS-17 short (approved; Dan rates it about equal to Claude's work) vs Claude's DS-04 round 1
+(9 defects). **Codex used our audio chain, our gates and our skills. It won on editorial judgment and method.**
+Watch the winner before a long-form build: `Media/codex-video-trial/06-organic-r4/C1652_FINAL_APPROVED.mp4`; its
+methods: `Media/codex-video-trial/skills/abs-edit-organic/references/c1652-r3-methods.md` and `c1652-r4-methods.md`.
 
-## How to work
+## A. What the picture must do (the part Codex won on)
 
-1. **Start from the last approved recipe, not a blank directory.** Copy `ds-17-support/recipe/` (dedicated shorts) or
-   the approved recipe for the format, and change the edit map. DS-04 wrote 30 new scripts and re-created solved
-   problems (caption position, chunking, b-roll card) with new bugs. New code is where the defects come from.
-2. **One short plan** (DS-17's was ~600 words): the requested changes, the approved elements to preserve, the source
-   candidates. Not a multi-thousand-word plan the editor cannot hold.
-3. **Search the finished asset library before the same-shoot raw roll.** DS-17's opener came from
-   `03 B-Roll - Real Footage/` — direct sun, far stronger definition than the overcast raw roll the brief pointed at.
-   Compare MOVING excerpts, and write down each rejected candidate and why (hair clipped, stops at 19 s, toe clipped).
-4. **Look at every cut at native resolution, full frame rate, before anyone else does.** First and last frames of
-   every shot: hair, toes, hands, mat edges. Codex rejected its own opener twice (hair, then a shoe tip) before the
-   reviewer saw it. DS-04's one-frame flash and sliced feet were findable the same way.
-5. **Internal rounds until the independent reviewer finds ZERO defects. Then Dan.** Dan's round is for taste ("not the
-   clip I was thinking of, but it works"), never for defects.
-6. **A revision rebuilds only what was asked.** Freeze the prior revision, reuse untouched picture caches
-   byte-for-byte, stream-copy approved audio, and prove both with hashes. Never regenerate something Dan accepted.
-7. **Audio: if a duplicate-control listen cannot tell the candidate from the approved track, keep the approved track.**
-   Report the gate row honestly as FAIL; never tune a threshold; never claim an improvement nobody can hear.
+1. **Show the story Dan is telling, not a stock synonym for a word he said.** C1652 illustrates each scenario with a
+   purpose-made scene: the overweight man tying his shoes and walking out the door, the same man LATER in the gym, the
+   woman glancing at the fit man by the pool, the dad on the sidelines while the family swims, tired-at-desk →
+   energised, the hiring handshake. Claude's 04 used generic Pexels (hands counting money, typing, an ECG strip).
+   Budget exists for this: up to $5/video of AI clips (C1652 spent ~$3.70). Frames approved by Dan first; then REAL
+   motion for the full action — never a still, a pan on a still, or a fragment plus a held frame.
+2. **Graphics label the idea in 2–6 words; they never transcribe the speech.** C1652 has 60 graphics in 11 minutes
+   (one per ~11 s) and almost none takes Dan off screen. Claude's 04 cut to black full-screen slides carrying three
+   full sentences of what Dan was already saying — a PowerPoint. Do not do that.
+3. **Use a vocabulary of graphic types, one palette.** Topic lower-third at the open; numbered lower-thirds for every
+   list item (01–07, then 01–05); a full-screen title card per section; a left-third list panel BESIDE Dan with rows
+   revealed as he says them; a diagram when the idea is a mechanism (the downward-spiral loop, arrows revealed in
+   order; 5/10/15-minute tiles); an anatomy illustration with callouts. Palette, type and motion copied from
+   Muhammad's actual moving graphics (olive tab + white bar, dark-green panel) — reuse Codex's
+   `06-organic-r4/muhammad_graphics.py`, `palette.py`, `design.py`; do not design a new look.
+4. **Every title is self-contained**: someone skipping to it knows the topic ("5 Ways to Fix Your Belly Fat Fast",
+   not "What changes").
+5. **Dan's own real assets before stock**: his real heavy photo (labelled), the three-vertical-portrait template
+   (`three_photo_template.py`), real app screens from ONE capture session inside a phone bezel with Dan still on
+   screen beside it (`build_salmon_phone.py`), his own workout footage from FINISHED graded masters, the approved
+   same-person AI demo.
+6. **Variety is what the viewer sees, not file IDs.** Three doctor beats = three casts and settings. Two exercise
+   inserts = two exercises. Claude's 04 showed fried eggs five times. Never blur-pad a vertical stock clip into 16:9,
+   and no cross-dissolves ghosting b-roll over Dan's face — hard cuts.
+7. **Framing: two sizes (mid / tighter), changed on cuts, Dan shifted aside when a panel needs the room. Zero camera
+   motion in horizontal video** — no pan, drift, tracking or recentering, ever (Dan, 2026-09-17; only square and
+   vertical reframes need it). Check the RENDERED footage at graphic entries and exits.
+8. **Disclosures are part of the design**: AI-GENERATED chip, "Illustrative footage", "Real picture(s) of me — not
+   AI-generated" on real physique photos only, "Not medical advice · Talk to your doctor", "My experience: 192 to
+   178 lb". Placed on the composed moving frame, clear of faces and abs.
+9. **Vertical shorts:** open full-bleed on the strongest MOVING shot of the topic; b-roll on a width-filling stage
+   with the whole body, captions in the band below, never on the body part the shot exists to show.
 
-## What the picture must do (vertical shorts)
+## B. How to work (why Codex converged and Claude did not)
 
-8. **Open full-bleed on the strongest MOVING picture of the topic**, under the first spoken sentence, no header or
-   footer. The header starts after it. A posed standing shot under a title bar is not a hook.
-9. **B-roll goes on a stage that fills the width** (DS-17: square, 1080 wide, whole body head-to-shoe), captions in the
-   dark band below it. Never a small letterboxed strip over dead black, and **never blur-pad fill** (Dan rejected it;
-   `shorts/SKILL.md` "locked design system").
-10. **Whole body in every demo shot.** If the source frame has the whole body, the crop must too. Pick the rep where he
-    actually does the exercise — set-up, shuffling, looking at the camera and yawns are junk, however the plan pinned it.
-11. **Captions never sit on the body part the shot exists to show** (stomach in a vacuum demo, abs in a physique shot).
-    Canonical style only: all-white, 2–4 words, break on punctuation, no blank frames between chunks mid-sentence.
-12. **Every pause-removal splice gets a framing step.** Two splices with an identical crop on both sides = a jump cut,
-    whether or not the gate plan declared it.
+10. **Start from the last approved recipe, not a blank directory.** DS-04 wrote 30 new scripts and re-broke solved
+    problems. New code is where the defects come from.
+11. **Each round with Dan LOCKS what he approved** (C1652: audio, colour, crop sizes, specific panels) and changes
+    only the timestamped list. R3→R4 reused 168 of 171 scene caches; approved audio carried byte-for-byte. A specific
+    approval beats a general redesign ("enlarge the text, keep everything else").
+12. **Record Dan's feedback verbatim with screenshots the moment it arrives**, one short authoritative list of
+    requested changes + elements to preserve. Short plans (~600 words), not ones the editor cannot hold.
+13. **Inspect at native resolution and full frame rate before anyone else does** — every cut, every generated clip
+    before AND after compositing (heads, hair, toes, labels over the crown). Reject your own work first.
+14. **Internal review to zero defects, then Dan.** Dan's round is for taste, never for defects. Keep model-QC
+    verdicts but check each claim against real frames — reviewers invent defects when primed.
+15. **Numbers and taste stay separate.** Report every gate FAIL honestly, never tune a threshold, never reprocess
+    approved sound to chase a meter, never claim an improvement a duplicate-control listen cannot hear.
+16. **Keep a per-video spend ledger** including failed calls; a revision does not reset it.

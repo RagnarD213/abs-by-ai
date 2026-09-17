@@ -10,7 +10,7 @@ description: >
   /longform-edit; for writing the script itself use /scriptwriting.
 ---
 
-> **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — the 12 points that decided Codex's approved DS-17 vs Claude's rejected DS-04 (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
+> **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
 
 # Ad-Edit: raw teleprompter footage → finished ad creative
 
