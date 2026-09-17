@@ -38,10 +38,15 @@ however the request is phrased** (`AGENTS.md`, 2026-09-17).
   exactly that, building `ad5_queue.py`. `/ad-setup` positively permitted it at the time ("if cross-platform
   organic distribution is separately requested, queue those platforms through Blotato"). Nothing
   malfunctioned; the rule did not exist. Session `a5cc5f24-196b-41ca-ba1d-a30c000c41e1`, Claude Code.
-- **Live posts (still up unless Dan removes them):** TikTok `https://www.tiktok.com/@absbyai/video/7686132607964269855`,
-  Facebook `https://facebook.com/reel/29205625742377322/`, IG @danrosefit `https://www.instagram.com/reel/DdWc5d4CZof/`,
-  IG @abs.by.ai `https://www.instagram.com/reel/DdZBorwDTGP/`. YouTube `bwfSQopZy1w` is back to **unlisted**
-  (verified 09-17); all 26 ad videos read back unlisted.
+- **Takedown, 2026-09-17 (Dan's instruction):** Facebook reel `29205625742377322` DELETED via Graph API (read back 404).
+  IG @danrosefit `DdWc5d4CZof` was already gone (confirmed absent from the profile while signed in as danrosefit).
+  IG @abs.by.ai `DdZBorwDTGP` DELETED in the web UI ("Post deleted.", gone from the grid). YouTube `bwfSQopZy1w`
+  is **unlisted**; all 26 ad videos read back unlisted.
+  ⚠ **STILL LIVE: TikTok `https://www.tiktok.com/@absbyai/video/7686132607964269855`.** TikTok Studio greys out
+  Delete on it — the post carries TikTok's **"Promotional content"** label (the queue script set
+  `isYourBrand: true`), and TikTok restricts managing those to the phone app; the web video page has no manage
+  menu at all. **Delete it in the TikTok app.** This is a general trap: anything queued with `isYourBrand: true`
+  cannot be deleted or edited from the web afterwards.
 - **Queue audited 2026-09-17: CLEAN.** 174 scheduled posts, no other ad content — `python3 scripts/blotato/ad_guard.py --scan`.
 - **Fix:** `scripts/blotato/ad_guard.py` blocks an ad payload three ways (missing `content_type: organic`,
   a source path under `<Editor> Ad Videos/`, a caption/slug matching a known ad title or ad YouTube id) and

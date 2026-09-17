@@ -28,10 +28,10 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 - **TikTok covers on 6 published posts (2026-09-17):** the whole queue is fixed, but only these 6 are still inside
   TikTok's 7-day edit window and the fix needs the phone app. Do them, or leave them? `Docs/TIKTOK_COVERS.md`
-- **Make the GitHub repo private (baseline 2026-09-15; age unknown)** (Settings → General → Danger Zone). Rec: yes — checked, breaks nothing; closes the
-  subscriber addresses still in git history. A session then pushes a trivial commit and confirms deploy. `Docs/SUBSCRIBER_STORE.md`
-- **Create the empty SixPackAbs.com Google Ads account (baseline 2026-09-15; age unknown)** (CAPTCHA blocks Claude): MCC `324-458-6445` → Accounts → + →
-  Create new account; SixPackAbs.com, America/Chicago, USD, skip billing, no campaign. `Docs/GOOGLE_ADS_API.md`
+- **Make the GitHub repo private (baseline 09-15)** (Settings → General → Danger Zone). Rec: yes — breaks nothing; closes the
+  subscriber addresses in git history. A session then pushes a trivial commit and confirms deploy. `Docs/SUBSCRIBER_STORE.md`
+- **Create the empty SixPackAbs.com Google Ads account (baseline 09-15)** (CAPTCHA blocks Claude): MCC `324-458-6445` → Accounts →
+  + → Create new account; SixPackAbs.com, America/Chicago, USD, skip billing, no campaign. `Docs/GOOGLE_ADS_API.md`
 - **Search bidding:** Google auto-apply removed the $2 CPC ceiling on 09-11 (both campaigns Maximize conversions, no
   target). Accept, or change it / turn auto-apply off. Brand's 09-04 over-delivery is creditable if asked. `Docs/GOOGLE_ADS_API.md`
 - **Ad 2 16:9 master (live in Google Ads) shows the banned BEFORE/AFTER screen at 3:11 and email screen at 3:12, 3:23 (baseline 2026-09-15; age unknown)** —
@@ -45,9 +45,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
 - **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
-- **Ad 5 ran ORGANICALLY by mistake (09-17) — delete the 4 live posts?** TikTok `7686132607964269855`, FB reel
-  `29205625742377322`, IG `DdWc5d4CZof` + `DdZBorwDTGP`. Irreversible, so Dan's call. YouTube is unlisted again,
-  queue clean, cause fixed in code. `BLOTATO_QUEUE_PROGRESS.md`
+- **Ad 5: delete its TikTok post from your phone (09-17)** — `@absbyai/video/7686132607964269855`. TikTok's web Studio
+  greys out Delete on "Promotional content"; the app allows it. FB + both IG reels deleted, YouTube unlisted, queue clean.
+- **Chrome's Instagram is signed in as @abs.by.ai (09-17)** — switched to delete the mirror; Chrome hung before switching back.
 - **Google Ads remarketing `24169507109` (baseline 09-15)** — ~$2.50/day, 0 clicks/conversions ever. Pause?
 - **Ad 3: (baseline 2026-09-15; age unknown)** delete empty husk `J-fOMvEJwDs` in Studio; campaign budget reads $40/day (docs said $20); label his 200 lb
   BEFORE pictures?; paste Muhammad round-6 ask `revision docs/ad3-revisions-muhammad-round6-9-14-26.md`.
