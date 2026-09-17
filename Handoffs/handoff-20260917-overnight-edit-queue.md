@@ -49,11 +49,17 @@ Dan can review each morning (3–4 items), not to keeping both slots full at any
 * `.claude/skills/_shared/deliver/gate.py` (GATE_VERSION 2.1.0, exact-match stamps) and
   `.claude/skills/_shared/qc_corpus/run.py` (must pass before any gate change).
 * Work directories: `/Volumes/Extreme/_edit_work/<job-id>/`, one per job.
-* Headless binaries found on this Mac 2026-09-17 (**verify each one actually runs unattended before relying on it**):
-  Codex at `/Applications/ChatGPT.app/Contents/Resources/codex`. No `claude` on the PATH; a binary exists under
-  `~/Library/Application Support/Claude/claude-code-vm/` but may be the app's internal VM build. If it isn't usable,
-  install the Claude Code CLI. If either tool cannot run a full job headless with project permissions pre-granted,
-  stop and report. Do not work around it with screen automation.
+* **Headless launch, tested 2026-09-17 with a one-line prompt:**
+  * **Codex: WORKS today.** `/Applications/ChatGPT.app/Contents/Resources/codex exec "<prompt>"` (codex-cli 0.154,
+    already signed in) answered from a plain shell command. So Claude, or the dispatcher, can start a Codex job now.
+  * **Claude: the program runs, but is NOT signed in.** Mac-native binary:
+    `~/Library/Application Support/Claude/claude-code/<version>/claude.app/Contents/MacOS/claude` (2.1.270; supports
+    `-p`). `claude -p` returned "Not logged in · Please run /login". **Dan must sign in once** (run that binary in
+    Terminal, `/login`); no AI can enter credentials. ⚠ The path is versioned and changes when the desktop app
+    updates: resolve the newest version folder at launch, or install the standalone Claude Code CLI instead. (The
+    other binary, under `claude-code-vm/`, is a Linux build. Ignore it.)
+  * Still to prove in Phase 0: a **full job** runs unattended with project permissions pre-granted (Codex sandbox/approval
+    flags; Claude `--permission-mode` / allowed-tools settings). If it can't, stop and report. No screen automation.
 
 ## 4. The dispatcher
 
