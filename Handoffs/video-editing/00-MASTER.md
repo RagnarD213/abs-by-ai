@@ -81,7 +81,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | short | roll | status | size |
 |---|---|---|---|---|
-| [DS-17](DS-17-how-to-jump-rope.md) | How To Jump Rope | C1670 | FINALIZED | S |
+| [DS-17](DS-17-how-to-jump-rope.md) | How To Jump Rope | C1670 | UPLOADED | S |
 | [DS-18](DS-18-how-to-kettlebell-deadlift.md) | How To Kettlebell Deadlift | C1671 | READY | S |
 | [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | READY | S |
 | [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | READY | S |

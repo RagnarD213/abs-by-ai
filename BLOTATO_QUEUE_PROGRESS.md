@@ -1,6 +1,6 @@
 # Blotato IG + Facebook queue — progress
 
-Last updated 2026-09-16.
+Last updated 2026-09-17.
 
 ## Account state
 
@@ -11,6 +11,18 @@ Last updated 2026-09-16.
 - **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
+
+## DONE — DS-17 “How to Jump Rope Without Tripping — Skip Like a Boxer” (2026-09-17)
+
+Approved 1080×1920 master (45.18 s, SHA-256 `ad4f7b46…`) uploaded to YouTube as **Private** (`m3oWfS1BTsw`) with cover A, then queued through Blotato for public organic release. Fresh readback verified every account, timestamp, caption, media URL, and cover field; queue 170 → 175; ad-guard scans clean before and after.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Fri Sep 18, 5 PM CDT (`4557023` / `4557024` / `4557025` / `4557027`) | Sat Sep 19, 5 PM (`4557026`) |
+
+- IG uses approved cover A. TikTok uses the same designed cover as frame 0 and saves `videoCoverTimestamp: 0`; the derivative retained every audio packet and passed decode/hash verification. YouTube's saved Blotato target includes the approved thumbnail URL.
+- To make DS-17 the next release, only three conflicting sodium **photo** posts were moved: `3584611`, `3841874`, and `3841875` to Sat Sep 19 at 9 AM. Existing Sunday/Tuesday videos were untouched.
+- Full evidence and exact settings: `Docs/DS17_SETUP_RECEIPT_20260917.md`.
 
 ## DONE — "Ab Wheel Workout: 3 Sets For Stronger Abs (Do It With Me)", every platform (2026-09-13)
 

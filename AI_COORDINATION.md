@@ -159,8 +159,6 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- `handoff-20260917-ds17-finalized-upload-and-setup.md` — finalized DS-17 organic Short → Private YouTube + Blotato. Sol/High. Ready2026-09-17.
-
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
