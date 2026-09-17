@@ -100,7 +100,7 @@ def main():
                             "-pix_fmt", "yuv420p", pa], check=True)
             t0 = s["n0"] / FPS
             ins += ["-i", pa]
-            fc.append(f"[{k + 1}:v]setpts=PTS+{t0:.6f}/TB,fade=t=out:st={t0:.6f}:d={D / FPS:.6f}:alpha=1,format=yuva420p[s{k}];"
+            fc.append(f"[{k + 1}:v]format=yuva420p,setpts=PTS+{t0:.6f}/TB,fade=t=out:st={t0:.6f}:d={D / FPS:.6f}:alpha=1[s{k}];"
                       f"[{last}][s{k}]overlay=0:0:enable='between(t,{t0:.6f},{(s['n0'] + D) / FPS:.6f})':eof_action=pass[o{k}]")
             last = f"o{k}"
         subprocess.run([FF, "-nostdin", "-v", "error", "-y"] + ins + ["-filter_complex", ";".join(fc), "-map", f"[{last}]",

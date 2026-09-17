@@ -38,6 +38,10 @@ REAL_LABEL = "Real picture of me — not AI-generated"
 AI_LABEL = "AI-GENERATED"
 CLEAR = 16                    # px of clearance between the chip and any pixel of him (sqlabelplace)
 VERIFY_PX = 8                 # the delivered-file bound (sqlabelplace --verify)
+VALIDATE_PX = 24              # the PLACEMENT margin with the chip drawn: three times the delivered bound. The
+                              # segmenter is unstable at the bound -- today_towel validated clear on first/mid/last
+                              # at 8 px and the delivered beat still read 53,735 px on its last three frames, when
+                              # the slow push brought his hair beside the chip (measured 2026-09-17)
 TOP_SAFE = 150                # nothing readable above this (vlib TOP_SAFE)
 CHIP_BOTTOM_MAX = 1340        # above the caption band (CAP_Y 1400 minus the shadow)
 INK = (255, 255, 255, 255)
@@ -165,11 +169,14 @@ def validate(label, c, frames, tag):
         im.convert("RGB").save(q)
         ps.append(q)
     subprocess.run([PERSONMASK, f"{d}/m"] + ps, check=True, capture_output=True)
-    worst = 0
+    worst, worst8 = 0, 0
     for q in ps:
         m = np.array(Image.open(f"{d}/m/" + os.path.basename(q).replace(".png", ".mask.png")).convert("L").resize((VW, VH))) > 127
-        worst = max(worst, int(dilate(m, VERIFY_PX)[c["y"]:c["y"] + c["h"], c["x"]:c["x"] + c["w"]].sum()))
+        box = (slice(c["y"], c["y"] + c["h"]), slice(c["x"], c["x"] + c["w"]))
+        worst = max(worst, int(dilate(m, VALIDATE_PX)[box].sum()))
+        worst8 = max(worst8, int(dilate(m, VERIFY_PX)[box].sum()))
     shutil.rmtree(d, ignore_errors=True)
+    c["contact_at_verify_px"] = worst8
     return worst
 
 
@@ -193,6 +200,11 @@ def place(build):
         b.pop("chip_png", None)
     for jb in J["beats"]:
         jb.pop("chip_png", None); jb.pop("chip_box", None)
+        # ⚠ a full-bleed beat must carry NO `label` text: render.py's pre-rule fallback draws a fixed-y chip
+        # at the WAISTLINE for it. The kit's second pass measured "chip-less" frames that still had that bar
+        # across his abs (2026-09-17), because the first pass had written the label text back into the beat.
+        if jb.get("kind") == "bleed" and jb.get("label_kind"):
+            jb.pop("label", None)
     json.dump(J, open("beats.json", "w"), indent=1)
     render_beats(build, [i for i, _ in todo])
     os.makedirs("labels", exist_ok=True)
@@ -215,13 +227,24 @@ def place(build):
             raise SystemExit(f"{key}: the person mask found nobody in the beat -- is this a picture of Dan?")
         hb = head_box(union)
         c, tried = None, []
-        probe = [fs[0], fs[len(fs) // 2], fs[-1]]
-        for cand in candidates(label, union, hb)[:24]:
+        probe = list(fs)                                  # EVERY sampled frame (each 3rd + the last): the push moves him
+        allc = candidates(label, union, hb)
+        # a bounded, class-balanced try list: validation costs a segmenter pass per candidate
+        tryl = [c_ for c_ in allc if c_["cls"] == "A"][:8] + [c_ for c_ in allc if c_["cls"] == "B"][:14] + \
+               [c_ for c_ in allc if c_["cls"] == "C"][:14]
+        fallback = None
+        for cand in tryl:
             contact = validate(label, cand, probe, key)
             tried.append((cand["cls"], cand["lines"], cand["size"], cand["x"], cand["y"], contact))
             if contact == 0:
                 c = cand
                 break
+            # second tier: clear at the DELIVERED bound (8 px) on every frame, smallest contact at the 24 px
+            # margin -- some pictures' segmentation never grants the full margin (today_towel, dark foliage)
+            if cand["contact_at_verify_px"] == 0 and (fallback is None or contact < fallback[0]):
+                fallback = (contact, cand)
+        if not c and fallback:
+            c = dict(fallback[1], margin_note=f"clear at {VERIFY_PX} px on every frame; {fallback[0]} px of contact at the {VALIDATE_PX} px margin")
         if not c:
             raise SystemExit(f"{key}: no placement the segmenter reads as clear with the chip drawn (tried {tried[:8]}...) -- "
                              "pick a different picture (Dan prefers a correct different picture over a cropped right one)")
@@ -235,7 +258,7 @@ def place(build):
             if jb.get("media") == b.get("media") and abs(jb["t0"] - b["t0"]) < 0.01:
                 jb["chip_png"] = png
                 jb["chip_box"] = [c["x"], c["y"], c["w"], c["h"]]
-                jb["label"] = label
+                jb["chip_label"] = label                      # NOT `label`: that key is render.py's fixed-y fallback
         tiles = []
         for f in (fs[0], fs[-1]):
             im = Image.open(f).convert("RGBA")

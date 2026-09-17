@@ -189,14 +189,18 @@ def render(gs, out='captions.mov', capdir='cap'):
             else:
                 end = g[k + 1][1]
             start = max(ws, t)
-            duration = max(0.04, end - start)
+            # ⚠ NO LIT WORD SHORTER THAN THREE FRAMES (kit9x16, 2026-09-17). A word the aligner squeezed against the
+            # next one ('you.' 66.322 -> 'But' 66.36) was lit for ONE frame: imperceptible, and the delivery gate
+            # reads the state as absent from the delivered pixels. The next word starts up to 0.06 s late instead,
+            # inside the 120 ms sync tolerance.
+            duration = max(0.10, end - start)
             entries.append((p, duration))
             states.append(dict(name=f"caption-{n-1:05d}", word=w,
                                beat=[round(start, 4), round(start + duration, 4)],
                                speech=[round(ws, 4), round(we, 4)],
                                image=os.path.abspath(p), pos=[0, 0], scale=1.0,
                                image_sha256=hashlib.sha256(open(p, 'rb').read()).hexdigest()))
-            t = max(end, t)
+            t = max(start + duration, end, t)
     with open(f'{capdir}/list.txt', 'w') as f:
         for p, d in entries:
             f.write(f"file '{os.path.abspath(p)}'\nduration {d:.4f}\n")

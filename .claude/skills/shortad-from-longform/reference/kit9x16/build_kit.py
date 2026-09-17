@@ -61,14 +61,37 @@ class Anchors:
     def __init__(self, words):
         self.W = [(_n(w["w"]), w["t"], w["e"]) for w in words if _n(w["w"])]
 
+    _ALIAS = {"gonna": "goingto", "wanna": "wantto", "youd": "youwould", "200": "twohundred", "38": "thirtyeight"}
+
     def _seq(self, phrase, after=0.0):
+        """The words that say `phrase`, at or after `after`. Exact first; then FUZZY: two transcripts of two
+        takes of one script disagree in small ways ("I'm going to" / "I'm gonna"), so the earliest window whose
+        tokens agree on >= 2/3 of the phrase (order kept) is taken. A phrase nothing resembles is an error."""
         toks = [_n(t) for t in phrase.split() if _n(t)]
+        n = len(toks)
         for i in range(len(self.W)):
             if self.W[i][1] < after:
                 continue
-            if [w[0] for w in self.W[i:i + len(toks)]] == toks:
-                return i, len(toks)
-        raise SystemExit(f"content phrase not found after {after:.2f}s: {phrase!r}")
+            if [w[0] for w in self.W[i:i + n]] == toks:
+                return i, n
+        import difflib
+        want = "".join(self._ALIAS.get(t, t) for t in toks)
+        best = (0.0, None, n)
+        for i in range(len(self.W)):
+            if self.W[i][1] < after:
+                continue
+            for m in (n, n - 1, n + 1):
+                if m < 1 or i + m > len(self.W):
+                    continue
+                got = "".join(self._ALIAS.get(w[0], w[0]) for w in self.W[i:i + m])
+                r = difflib.SequenceMatcher(None, want, got).ratio()
+                if r >= 0.80:
+                    return i, m                                   # the EARLIEST good window wins
+                if r > best[0]:
+                    best = (r, i, m)
+        if best[1] is not None and best[0] >= 0.66:
+            return best[1], best[2]
+        raise SystemExit(f"content phrase not found after {after:.2f}s: {phrase!r} (best similarity {best[0]:.2f})")
 
     def at(self, phrase, after=0.0):
         i, _ = self._seq(phrase, after)
@@ -136,7 +159,7 @@ def flashes_for(tl, T):
     out = []
     frm = tuple(T["flash"].get("on_return_from", ["card", "window", "title", "stmt", "winmedia"]))
     for i in range(1, len(tl)):
-        if tl[i]["kind"] == "talk" and tl[i - 1]["kind"] in frm and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
+        if tl[i]["kind"] == "talk" and (tl[i - 1]["kind"] in frm or tl[i - 1].get("flash_after")) and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
             c = tl[i]["t0"]
             if out and c - (out[-1][0] + pre) < gap:
                 continue
@@ -167,6 +190,7 @@ def pushes_for(tl, splices, cover, words, T, flashes):
 
     pushes, n = [], 0
     talk = [b for b in tl if b["kind"] == "talk"]
+    splices_all = list(splices)
     steps = []
     if T["cut"].get("step_every_bare_cut"):
         # THE ZOOM-CUT SYSTEM (ad-edit Step 3; measured on the kit's first Ad 1 render, 2026-09-16): a ramped
@@ -276,8 +300,31 @@ def pushes_for(tl, splices, cover, words, T, flashes):
             break
         if not placed:
             break
+    # no framing stub at a beat edge: a punch that would end (or start) within 0.6 s of its talk beat's edge
+    # ends (starts) WITH the beat (round 2's gate: a 0.2 s FAR segment at the very end of the film)
+    fixed = []
+    for p in clean:
+        p = list(p)
+        for b in talk:
+            if b["t0"] <= p[0] < b["t1"]:
+                if 0 < b["t1"] - p[3] < 0.6:
+                    p[2] = p[3] = round(b["t1"], 4)
+                if 0 < p[0] - b["t0"] < 0.6 and p[1] > p[0]:
+                    p[0] = p[1] = round(b["t0"], 4)
+        fixed.append(tuple(p))
+    clean = fixed
     clean.sort()
-    return clean
+    # a RAMPED push may not overlap a level step nor contain a bare cut: inside it the zoom is already at the
+    # punched level, so the step adds no size change and the cut reads naked (round 2 judge, 147.25 s)
+    step_spans = [(p[0], p[3]) for p in clean if p[1] <= p[0]]
+    cut_ts = sorted(splices_all)
+    out = []
+    for p in clean:
+        if p[1] > p[0]:
+            if any(a - 0.4 < p[3] and p[0] < b + 0.4 for a, b in step_spans) or any(p[0] - 0.2 <= c <= p[3] + 0.2 for c in cut_ts):
+                continue
+        out.append(p)
+    return out
 
 
 def push_at(t, pushes, z):
@@ -334,6 +381,18 @@ def main():
             b["label"] = T["labels"]["real"] if b["label_kind"] == "real" else T["labels"]["ai"]
         beats.append(b)
         last = t1
+    # carry a VALIDATED chip placement over from the previous beat sheet when the same picture sits on the
+    # same beat (kit_labels.py is a segmenter pass per candidate; a re-plan that does not move the beat keeps it)
+    prev_sheet = os.path.join(a.build, "beats.json")
+    if os.path.exists(prev_sheet):
+        old_beats = json.load(open(prev_sheet)).get("beats", [])
+        for b in beats:
+            for ob in old_beats:
+                if ob.get("chip_png") and ob.get("media") == b.get("media") and abs(ob["t0"] - b["t0"]) < 0.02 \
+                        and abs(ob["t1"] - b["t1"]) < 0.02 and os.path.exists(ob["chip_png"]):
+                    b["chip_png"], b["chip_box"] = ob["chip_png"], ob["chip_box"]
+                    if ob.get("chip_label"):
+                        b["chip_label"] = ob["chip_label"]
     tl = make_timeline(beats, dur)
     lts, last = [], 0.0
     L = T["lower_third"]
@@ -354,7 +413,20 @@ def main():
         last = t1
     ctas, last = [], 0.0
     Cc = T["cta"]
-    items = C.get("ctas") or [dict(at=p) for p in Cc["phrases"]]
+    items = C.get("ctas")
+    if not items:
+        # no CTA list in the content: a pill on EVERY occurrence of a template CTA phrase, in order
+        items = []
+        for ph in Cc["phrases"]:
+            aft = 0.0
+            while True:
+                try:
+                    i, n = A._seq(ph, aft)
+                except SystemExit:
+                    break
+                items.append(dict(t0=round(A.W[i][1], 3), t1=round(A.W[i][1] + Cc["dur_s"], 3)))
+                aft = A.W[i + n - 1][2] + 0.5
+        items.sort(key=lambda x: x["t0"])
     for k, it in enumerate(items):
         if "t0" in it:
             t0 = float(it["t0"]); t1 = float(it.get("t1", t0 + Cc["dur_s"]))
@@ -390,15 +462,46 @@ def main():
         print("kit_cuts:", " ".join(cmd[2:6]), flush=True)
         subprocess.run(cmd, check=True)
     piccuts = json.load(open(pc_path)) if os.path.exists(pc_path) else []
+    # ---- splices INSIDE a plated beat that shows Dan in a window (window / stmt / winmedia). The window is a
+    #      fixed crop with no zoom to step, and round 2's judge read three of these as jump cuts (167.6, 171.7,
+    #      224.0 s). They take the documented fallback: a 5-frame cross-dissolve in the BASE (shortad Step 7c),
+    #      where there are no graphics, so nothing downstream moves.
+    have = {r["i"] for r in piccuts}
+    piccuts = [r for r in piccuts if r.get("method") != "window-dissolve"]
+    for i in range(1, len(E)):
+        t = E[i]["cut_in"]
+        if i in have and not any(r["i"] == i and r.get("method") == "window-dissolve" for r in piccuts):
+            pass
+        def _kind(x):
+            return next((b["kind"] for b in tl if b["t0"] <= x < b["t1"]), None)
+        DANWIN = ("window", "stmt", "winmedia")
+        # both sides show Dan in a plate window (a cut 3 frames before a window -> statement boundary is as
+        # bare as one in the middle: round 2 judge, 171.7 s)
+        if _kind(t - 0.05) in DANWIN and _kind(t + 0.05) in DANWIN and not any(r["i"] == i for r in piccuts):
+            piccuts.append(dict(i=i, cut=round(t, 3), n0=round(t * FPS), k=0, pic_frame=round(t * FPS), conf=0.0,
+                                method="window-dissolve", cover="dissolve", sim_at_k=None))
+    piccuts.sort(key=lambda r: r["i"])
     # ---- clamp every moved cut so a take is never on screen for less than min_take_frames, then
     #      write edl_picture.json from the AUDIO EDL + the (clamped) k of every talk splice
     MINF = int(T["cut"].get("min_take_frames", 8))
     bounds = sorted({round(b["t0"] * FPS) for b in tl} | {round(b["t1"] * FPS) for b in tl})
     byi = {r["i"]: r for r in piccuts}
     n_audio = [round(s["cut_in"] * FPS) for s in E]
+    talk_edges = sorted({round(b["t0"] * FPS) for b in tl if b["kind"] == "talk"} | {round(b["t1"] * FPS) for b in tl if b["kind"] == "talk"})
     for r in piccuts:
+        if r.get("cover") == "dissolve":
+            continue
         i, k = r["i"], int(r["k"])
         n0 = n_audio[i]
+        # a cut within the search window of a talk-beat EDGE moves ONTO the edge: the insert boundary (and its
+        # flash) then hides it. Round 2's gate: the join at 50.72 s, 8 frames after a card -> talk return, read
+        # 86.3 against the file's own 66.5 ceiling.
+        near = [e for e in talk_edges if 0 < abs(e - n0) <= int(T["cut"]["search_frames"]) and e not in (0, round(dur * FPS))]
+        if near:
+            e = min(near, key=lambda x: abs(x - n0))
+            r["k_unsnapped"], r["k"], r["snapped_to_boundary"] = k, e - n0, True
+            r["cover"] = None
+            continue
         prev_n = n_audio[i - 1] + (int(byi[i - 1]["k"]) if (i - 1) in byi else 0)
         next_n = n_audio[i + 1] if i + 1 < len(E) else round(dur * FPS)
         lo_n = max([prev_n] + [b for b in bounds if b <= n0]) + MINF
@@ -425,7 +528,7 @@ def main():
     cover = {round(r["cut"], 3) for r in piccuts if r.get("cover")}
     moved = {round(r["cut"], 3): r["k"] for r in piccuts if r.get("k")}
     # the PICTURE cut times (on the delivered timeline) of every bare talk splice: each gets a level STEP
-    pic_cuts = sorted(round((n_audio[r["i"]] + int(r["k"])) / FPS, 4) for r in piccuts)
+    pic_cuts = sorted(round((n_audio[r["i"]] + int(r["k"])) / FPS, 4) for r in piccuts if r.get("cover") != "dissolve")
 
     # ---- the push schedule and the design's own numbers
     pushes = pushes_for(tl, pic_cuts if T["cut"].get("step_every_bare_cut") else [round(s, 3) for s in in_talk],

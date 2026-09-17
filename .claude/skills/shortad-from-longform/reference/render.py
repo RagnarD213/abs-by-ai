@@ -82,6 +82,30 @@ def crop_points(t0, t1):
             pts[round(c - 0.5/FPS + 0.002, 6)] = float(_x_at(c))
     return [(x - t0, v) for x, v in sorted(pts.items())]
 
+def window_x_expr(t0, t1, cw):
+    """Crop x for Dan's PLATE WINDOW over this beat: ONE fixed centre per picture segment (the median of the
+    face track inside it), stepping at the cuts -- the shared framing rule for wider shots (hold steady per
+    shot, never one x reused across takes). A single SUBJECT_CX for the whole beat left him at 64 % of the
+    width with a shoulder clipped in the bullet window's fourth take (kit9x16 round 2 judge, 22.6 s)."""
+    N, X = _TRK['n'], _TRK['x']
+    segs = [(max(sa, t0), min(sb, t1)) for sa, sb in _SEGS if sb > t0 and sa < t1]
+    vals = []
+    for sa, sb in segs:
+        xs = [x + CROP_W/2 for n, x in zip(N, X) if sa*FPS - 0.5 <= n < sb*FPS - 0.5]
+        cx = float(np.median(xs)) if xs else float(vlib_subject_cx())
+        vals.append((sa, max(0.0, min(1920.0 - cw, cx - cw/2))))
+    if not vals:
+        return f'{max(0.0, min(1920.0 - cw, vlib_subject_cx() - cw/2)):.1f}'
+    e = f'{vals[0][1]:.1f}'
+    for (sa, x), (_, xp) in zip(vals[1:], vals[:-1]):
+        if abs(x - xp) >= 1.0:
+            e += f'{x - xp:+.1f}*gte(t\\,{sa - t0 - 0.5/FPS:.4f})'
+    return e
+
+def vlib_subject_cx():
+    from grade import SUBJECT_CX
+    return SUBJECT_CX
+
 def crop_x_expr(t0, t1):
     """Piecewise-linear crop x over this beat as an ffmpeg expression in `t` (0 at the beat
     start, because the input is seeked with -ss) -- written as x0 + sum of slope*clip(t-ta,0,dt),
@@ -257,7 +281,7 @@ def _track_sig(t0, t1):
 def _sig(b, nfr, t0):
     v = 'v8-seek'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
     extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v}
-    if b['kind'] == 'talk': extra['_trk'] = _track_sig(t0, b['t1'])
+    if b['kind'] in ('talk', 'window', 'stmt', 'winmedia'): extra['_trk'] = _track_sig(t0, b['t1'])
     # ⚠ the MEDIA entry (path, in-point, rate, crop placement) is part of what was rendered: a crop
     # offset changed in assets.py served the stale segment on 2026-09-03 until this was added
     for mk in ('media', 'media_a', 'media_b'):
@@ -280,6 +304,8 @@ def render_bleed_frames(key, n, out, amt=0.075):
          media_prefix(key) + cover_chain(VW, VH, **o) + ',unsharp=5:5:0.4:5:5:0.0'
     run([FF,'-v','error','-y'] + media_input(key, n) +
         ['-filter_complex', f'[0:v]{ch}[v]', '-map', '[v]'] + COMMON(n, out))
+
+_VLIB_SIG = hashlib.md5(open(vlib.__file__.replace('.pyc', '.py'), 'rb').read()).hexdigest()[:8]
 
 def seek(t0):
     """⚠ SNAP THE BASE SEEK HALF A FRAME EARLY. `-ss f'{t0:.4f}'` rounds UP past the frame's own pts on 19 of
@@ -377,8 +403,10 @@ def render_segment(i, b, nfr, t0):
     # media file at the same path with a different shape reused the old plate and the picture was
     # cover-cropped into the wrong hole (the 3:18 split lost 40 px of UI at each side, 2026-09-08)
     mar = round(media_ar(b['media']), 4) if 'media' in b else 0
+    # ⚠ the key covers the LAYOUT LIBRARY too: a changed vlib.plate_card (the label chip moved below the hole)
+    # served every stale plate whose beat spec had not changed (kit9x16 round 2, the square's finding F3 again)
     key = hashlib.md5(repr(sorted((kk, str(v)) for kk, v in b.items())).encode()
-                      + f'|{nfr}|{dur:.4f}|ar{mar}'.encode()).hexdigest()[:10]
+                      + f'|{nfr}|{dur:.4f}|ar{mar}|vlib{_VLIB_SIG}'.encode()).hexdigest()[:10]
     plate = f'gfx/p{i:03d}_{key}.mov'
     meta  = plate + '.json'
     if not os.path.exists(plate):
@@ -413,7 +441,7 @@ def render_segment(i, b, nfr, t0):
         x, y, w, h = hole_args('dan')
         cw, ch, cx, cy = vlib.window_crop(h)
         ins += ['-ss', seek(t0), '-i', BASE]
-        prep.append(f'[{idx}:v]setpts=PTS-STARTPTS,crop={cw}:{ch}:{cx}:{cy},'
+        prep.append(f"[{idx}:v]setpts=PTS-STARTPTS,crop={cw}:{ch}:'{window_x_expr(t0, b['t1'], cw)}':{cy},"
                     f'scale={w}:{h}:flags=lanczos,unsharp=5:5:0.5:5:5:0.0,setsar=1[m{idx}]')
         over.append((idx, x, y)); idx += 1
     if 'media' in holes:

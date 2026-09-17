@@ -116,7 +116,7 @@ def main():
                         lw, lh_ = text_size(txt, fl)
                         lay = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
                         bx = (1080 - (lw + 34)) // 2
-                        by = int(hole[3]) - lh_ - 40
+                        by = int(hole[3]) + 14 + 14                # vlib.plate_card: below the hole, never over the picture
                         ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx + lw + 34, by + lh_ + 22], radius=9, fill=(0, 0, 0, 215))
                         ImageDraw.Draw(lay).text((bx + 17, by + 11), txt, font=fl, fill=(255, 255, 255, 255), anchor="lt")
                         bb = lay.getchannel("A").getbbox()
