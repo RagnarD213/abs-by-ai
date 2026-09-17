@@ -222,7 +222,8 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
         d  = ImageDraw.Draw(im)
         h  = _hole_at(hole, t)
         rrect(im, [h[0]-14, h[1]-14, h[2]+14, h[3]+14], 30, fill=CARD_OL+(255,), glow=26)
-        ty = hole[3] + 54
+        ty = hole[3] + 54 + (78 if label else 0)      # a labelled card's chip owns the first band under the frame; the
+                                                      # kicker / caption starts below it (round 3: the chip printed over '200 POUNDS')
         if top_kicker:
             k = ease_out_expo(clamp01((t-0.10)/0.42))
             kf = font(76, "ExtraBold")
@@ -245,7 +246,8 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
             lw, lh_ = text_size(label, fl)
             lay = Image.new("RGBA", (VW, VH), (0,0,0,0))
             bx = (VW-(lw+34))//2
-            by = int(hole[3]) + 14 + 14
+            by = int(hole[3]) + 14 + 30                   # 30 px under the card frame: a person cut off by the photo's bottom
+                                                          # edge bleeds ~20 px past it in the segmenter (dad_ride read 2,482 px at 14)
             ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx+lw+34, by+lh_+22], radius=9,
                                                   fill=(0,0,0,215))
             ImageDraw.Draw(lay).text((bx+17, by+11), label, font=fl, fill=INK, anchor="lt")

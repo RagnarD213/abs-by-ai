@@ -195,15 +195,31 @@ def render(gs, out='captions.mov', capdir='cap'):
             # inside the 120 ms sync tolerance.
             duration = max(0.10, end - start)
             entries.append((p, duration))
-            states.append(dict(name=f"caption-{n-1:05d}", word=w,
+            states.append(dict(_e=len(entries) - 1, name=f"caption-{n-1:05d}", word=w,
                                beat=[round(start, 4), round(start + duration, 4)],
                                speech=[round(ws, 4), round(we, 4)],
                                image=os.path.abspath(p), pos=[0, 0], scale=1.0,
                                image_sha256=hashlib.sha256(open(p, 'rb').read()).hexdigest()))
             t = max(start + duration, end, t)
+    # ⚠ QUANTISE EVERY BOUNDARY TO THE FRAME GRID BEFORE WRITING THE LIST (kit9x16, 2026-09-17). Durations written
+    # to 4 decimals and summed by the concat demuxer drift: by 109 s the stream ran more than a frame early, so a
+    # three-frame word ('and' 109.757-109.857) showed the NEXT word at its own midpoint and the delivery gate read
+    # the state as absent (corr 0.56 = right line, wrong lit word). Boundaries are now frame indices; each entry
+    # lasts a whole number of frames; the manifest records the quantised beat the pixels actually carry.
+    FPS_ = 30000/1001
+    bounds, T_ = [0.0], 0.0
+    for _, d in entries:
+        T_ += d; bounds.append(T_)
+    fidx = [int(round(b * FPS_)) for b in bounds]
+    for k in range(1, len(fidx)):                       # every entry keeps at least one frame
+        if fidx[k] <= fidx[k-1]: fidx[k] = fidx[k-1] + 1
+    entries = [(p, (fidx[k+1] - fidx[k]) / FPS_) for k, (p, _) in enumerate(entries)]
+    for st in states:
+        k = st.pop('_e')
+        st['beat'] = [round(fidx[k] / FPS_, 4), round(fidx[k+1] / FPS_, 4)]
     with open(f'{capdir}/list.txt', 'w') as f:
         for p, d in entries:
-            f.write(f"file '{os.path.abspath(p)}'\nduration {d:.4f}\n")
+            f.write(f"file '{os.path.abspath(p)}'\nduration {d:.6f}\n")
         # ⚠ THE TRAILING `file` LINE IS RENDERED, AND IT MUST BE THE BLANK (skill [S1].6).
         # The concat demuxer needs one more `file` after the last `duration`, and writing the
         # last caption STATE there re-showed its lit word past its own planned end: measured on

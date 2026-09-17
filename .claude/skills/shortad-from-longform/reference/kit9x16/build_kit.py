@@ -468,6 +468,11 @@ def main():
     #      where there are no graphics, so nothing downstream moves.
     have = {r["i"] for r in piccuts}
     piccuts = [r for r in piccuts if r.get("method") != "window-dissolve"]
+    wc_path = os.path.join(a.build, "_wincuts", "piccuts.json")
+    wincuts = {r["i"]: r for r in json.load(open(wc_path))} if os.path.exists(wc_path) else {}
+    # spans where Dan sits in a plate window, for `kit_cuts.py decide --talk window_spans.json`
+    json.dump([[b["t0"], b["t1"]] for b in tl if b["kind"] in ("window", "stmt", "winmedia")],
+              open(os.path.join(a.build, "window_spans.json"), "w"))
     for i in range(1, len(E)):
         t = E[i]["cut_in"]
         if i in have and not any(r["i"] == i and r.get("method") == "window-dissolve" for r in piccuts):
@@ -478,8 +483,26 @@ def main():
         # both sides show Dan in a plate window (a cut 3 frames before a window -> statement boundary is as
         # bare as one in the middle: round 2 judge, 171.7 s)
         if _kind(t - 0.05) in DANWIN and _kind(t + 0.05) in DANWIN and not any(r["i"] == i for r in piccuts):
-            piccuts.append(dict(i=i, cut=round(t, 3), n0=round(t * FPS), k=0, pic_frame=round(t * FPS), conf=0.0,
-                                method="window-dissolve", cover="dissolve", sim_at_k=None))
+            # the dissolve ghosts when the two takes differ in pose (round 3 judge: 22.66, 20.55, 14.65 s), so the
+            # window cut is pose-matched too when kit_cuts has decided it (<build>/_wincuts/piccuts.json)
+            wk = wincuts.get(i, {})
+            piccuts.append(dict(i=i, cut=round(t, 3), n0=round(t * FPS), k=int(wk.get("k", 0)), pic_frame=round(t * FPS) + int(wk.get("k", 0)),
+                                conf=wk.get("conf", 0.0), method="window-dissolve", cover="dissolve", sim_at_k=wk.get("sim_at_k"),
+                                sim_at_0=wk.get("sim_at_0")))
+    # ---- a splice that leaves a SLIVER of talk at a beat edge: the cut sits a few frames before an insert
+    #      covers (or after one ends), so the new take shows for 1-7 frames (round 3 judge: 113.914 s, one frame
+    #      before the b-roll at 113.947). kit_cuts never saw it (one side is not talk). It moves ONTO the edge.
+    MINF_ = int(T["cut"].get("min_take_frames", 8))
+    edges_f = sorted({round(b["t0"] * FPS) for b in tl} | {round(b["t1"] * FPS) for b in tl})
+    for i in range(1, len(E)):
+        if any(r["i"] == i for r in piccuts):
+            continue
+        n0 = round(E[i]["cut_in"] * FPS)
+        near = [e for e in edges_f if 0 < abs(e - n0) < MINF_ and 0 < e < round(dur * FPS)]
+        if near:
+            e = min(near, key=lambda x: abs(x - n0))
+            piccuts.append(dict(i=i, cut=round(E[i]["cut_in"], 3), n0=n0, k=e - n0, pic_frame=e, conf=0.0,
+                                method="edge-snap", cover=None, snapped_to_boundary=True, sim_at_k=None))
     piccuts.sort(key=lambda r: r["i"])
     # ---- clamp every moved cut so a take is never on screen for less than min_take_frames, then
     #      write edl_picture.json from the AUDIO EDL + the (clamped) k of every talk splice
@@ -489,10 +512,16 @@ def main():
     n_audio = [round(s["cut_in"] * FPS) for s in E]
     talk_edges = sorted({round(b["t0"] * FPS) for b in tl if b["kind"] == "talk"} | {round(b["t1"] * FPS) for b in tl if b["kind"] == "talk"})
     for r in piccuts:
-        if r.get("cover") == "dissolve":
+        if r.get("method") == "edge-snap":
             continue
         i, k = r["i"], int(r["k"])
         n0 = n_audio[i]
+        if r.get("cover") == "dissolve":                      # a window cut: clamp only (no talk-edge snap)
+            prev_n = n_audio[i - 1] + (int(byi[i - 1]["k"]) if (i - 1) in byi else 0)
+            next_n = n_audio[i + 1] if i + 1 < len(E) else round(dur * FPS)
+            lo_n, hi_n = prev_n + MINF, next_n - MINF - 5
+            r["k"] = max(lo_n - n0, min(hi_n - n0, k)) if lo_n <= hi_n else 0
+            continue
         # a cut within the search window of a talk-beat EDGE moves ONTO the edge: the insert boundary (and its
         # flash) then hides it. Round 2's gate: the join at 50.72 s, 8 frames after a card -> talk return, read
         # 86.3 against the file's own 66.5 ceiling.
@@ -528,7 +557,8 @@ def main():
     cover = {round(r["cut"], 3) for r in piccuts if r.get("cover")}
     moved = {round(r["cut"], 3): r["k"] for r in piccuts if r.get("k")}
     # the PICTURE cut times (on the delivered timeline) of every bare talk splice: each gets a level STEP
-    pic_cuts = sorted(round((n_audio[r["i"]] + int(r["k"])) / FPS, 4) for r in piccuts if r.get("cover") != "dissolve")
+    pic_cuts = sorted(round((n_audio[r["i"]] + int(r["k"])) / FPS, 4) for r in piccuts
+                      if r.get("cover") != "dissolve" and not r.get("snapped_to_boundary"))
 
     # ---- the push schedule and the design's own numbers
     pushes = pushes_for(tl, pic_cuts if T["cut"].get("step_every_bare_cut") else [round(s, 3) for s in in_talk],

@@ -99,7 +99,9 @@ def window_x_expr(t0, t1, cw):
     e = f'{vals[0][1]:.1f}'
     for (sa, x), (_, xp) in zip(vals[1:], vals[:-1]):
         if abs(x - xp) >= 1.0:
-            e += f'{x - xp:+.1f}*gte(t\\,{sa - t0 - 0.5/FPS:.4f})'
+            # the re-centre RAMPS across the same 5 frames the base dissolves the two takes over, so the
+            # background never steps sideways in one frame under a cross-fading subject
+            e += f'{x - xp:+.1f}*clip((t-{sa - t0 - 0.5/FPS:.4f})/{5/FPS:.4f}\\,0\\,1)'
     return e
 
 def vlib_subject_cx():
@@ -279,7 +281,7 @@ def _track_sig(t0, t1):
     return hashlib.md5(json.dumps(sl).encode()).hexdigest()[:10]
 
 def _sig(b, nfr, t0):
-    v = 'v8-seek'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
+    v = 'v9-winramp'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
     extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v}
     if b['kind'] in ('talk', 'window', 'stmt', 'winmedia'): extra['_trk'] = _track_sig(t0, b['t1'])
     # ⚠ the MEDIA entry (path, in-point, rate, crop placement) is part of what was rendered: a crop

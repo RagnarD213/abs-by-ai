@@ -104,7 +104,7 @@ def main():
             elif b["kind"] == "card":
                 # plate_card hangs the chip off the hole: rebuild the same layer the plate drew
                 import vlib
-                metas = sorted(glob.glob(f"gfx/p{tl.index(b):03d}_*.mov.json"))
+                metas = sorted(glob.glob(f"gfx/p{tl.index(b):03d}_*.mov.json"), key=os.path.getmtime)   # the plate THIS render used
                 if metas:
                     holes = json.load(open(metas[-1]))
                     hole = holes.get("media")
@@ -116,7 +116,7 @@ def main():
                         lw, lh_ = text_size(txt, fl)
                         lay = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
                         bx = (1080 - (lw + 34)) // 2
-                        by = int(hole[3]) + 14 + 14                # vlib.plate_card: below the hole, never over the picture
+                        by = int(hole[3]) + 14 + 30                # vlib.plate_card: 30 px below the card frame, never over the picture
                         ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx + lw + 34, by + lh_ + 22], radius=9, fill=(0, 0, 0, 215))
                         ImageDraw.Draw(lay).text((bx + 17, by + 11), txt, font=fl, fill=(255, 255, 255, 255), anchor="lt")
                         bb = lay.getchannel("A").getbbox()
@@ -212,7 +212,7 @@ def main():
         if b["kind"] == "talk":
             windows.append(dict(name=f"talk-{i}", beat=beat, rect=[0, 0, 1080, 1920], motion="tracking"))
             continue
-        metas = sorted(glob.glob(f"gfx/p{i:03d}_*.mov.json"))
+        metas = sorted(glob.glob(f"gfx/p{i:03d}_*.mov.json"), key=os.path.getmtime)
         if metas:
             holes = json.load(open(metas[-1]))
             if "dan" in holes:
