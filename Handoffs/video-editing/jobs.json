@@ -688,13 +688,13 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-17-how-to-jump-rope.md`: cut the dedicated short \"How To Jump Rope\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-17-how-to-jump-rope.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "R4 delivered for review: sunny full-screen jump-rope opening 4.738s; Astra plan/review, Sol edit. Three gentle audio tests did not establish reliable improvement; exact R3 AAC retained, labeled Muhammad/R3/proposed comparison supplied. Visual and timing checks pass; audio artifact FAIL retained (delivery35PASS/1FAIL/0NOTMEASURED). Not finalized; awaiting Dan. See DS-17-R4-opening-and-audio.md.",
+   "state": "finalized",
+   "note": "Dan explicitly finalized R4 on 2026-09-17, including the selected jump-rope opening and retained R3 audio. Exact approved master ad4f7b464faf588909c880de7afddf703921e84e3c597ef8bdb4333bee12dc89. Upload/setup is separate: Handoffs/handoff-20260917-ds17-finalized-upload-and-setup.md. Not uploaded yet; retain measured audio FAIL as evidence.",
    "sub": "Workout",
    "order": 33,
    "updated": "2026-09-17",
-   "by": "Codex Astra/Sol",
-   "rev": 7,
+   "by": "Codex",
+   "rev": 8,
    "syncedRev": 4
   },
   {

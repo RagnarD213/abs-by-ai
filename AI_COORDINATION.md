@@ -97,8 +97,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-17 R4 REVIEW 2026-09-17, Codex Astra/Sol.** Sunny full-screen opening delivered; independent visual/timing checks pass. Audio trials inconclusive; exact R3 retained with comparison and artifact FAIL. Review: `Short-form video content/ds-17_how-to-jump-rope_REVIEW_540p.mp4`. Next: Dan reviews; not finalized.
-
 **DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
 
 **Daily abs Short cover concepts — REVIEW 2026-09-17, owner: Codex cover task.** A revision 3: four photos × five header palettes, no labels/URL. Picks A02/A12/A04. Next: Dan selects. Gallery: http://127.0.0.1:8821/revision-3/. Private Drive backup verified. Files: `output/thumbnails/short-Ub0BV4m5lMQ-20260916/revision-3/`.
@@ -160,6 +158,8 @@ sale has happened; do not manufacture a row. Then map the `Email` column in Data
 Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
+
+- `handoff-20260917-ds17-finalized-upload-and-setup.md` — finalized DS-17 organic Short → Private YouTube + Blotato. Sol/High. Ready2026-09-17.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 

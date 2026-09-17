@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260917-ds17-finalized-upload-and-setup.md](handoff-20260917-ds17-finalized-upload-and-setup.md) | **Ready, 2026-09-17** — finalized DS-17 R4; Sol / High uploads the approved Short Private to YouTube, completes organic Blotato setup and verifies covers/schedules. |
 | **[video-editing/00-MASTER.md](video-editing/00-MASTER.md)** | **THE master list of video-editing work (2026-09-16)** — 69 job docs (raw first cuts, dedicated shorts, shorts from long-forms, ad verticals/squares), each with Claude + Codex starter prompts; shared rules `video-editing/00-RULES.md`. Supersedes the ad-variants master queue. |
 | [handoff-20260917-overnight-edit-queue.md](handoff-20260917-overnight-edit-queue.md) | **Phase 1 BUILT 2026-09-17, installed PAUSED; Phase 2 not started.** Dispatcher, runner, cross-review, scoreboard, review page (http://127.0.0.1:8830) and launchd jobs are in `scripts/edit-queue/` (read its `README.md`). Codex headless proven; Claude headless waits on Dan's one-time `/login`, then `dispatcher.py launch-one AV-01`, then `dispatcher.py resume`. Next build: Phase 2 (placeholder flow, frame picker, `compliance:placeholder` gate row). Fable 5.1 or Codex GPT-6 Astra / High |
 | [handoff-20260916-video-checker-repair.md](handoff-20260916-video-checker-repair.md) | **ready, independent** — fix shared caption, framing and label checks for future videos; full regression validation. GPT-6 Astra / High |

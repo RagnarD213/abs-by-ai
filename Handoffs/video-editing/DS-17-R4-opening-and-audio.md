@@ -113,3 +113,8 @@ Astra planned; Sol edited; Astra reviewed and corrected the opening. Final maste
 Independent Astra visual review passed on the exact final hash: all142 opening frames,11 cut boundaries, full-video sheets and native later frames inspected; shared scan covered all1354frames with no open picture defects. All50 caption anchors passed within34ms. Exact-file audio has11 PASS/1 FAIL (artifact comparison only). Final delivery check:35 PASS,1 FAIL (`audio:stamp`),0 NOT MEASURED,3 declared N/A. The exact-file delivery stamp and package receipt are beside the review files.
 
 Review outputs retain the canonical paths listed above:1080p master,540p phone copy, support package and `notes-ds-17.md`. The matched-volume comparison is support `review/audio-comparison_Muhammad-R3-Proposed-C.wav` (Muhammad0–16s, R3/selected17–33s, proposed34–50s); its JSON records normalization and provenance. The labeled video version is `review/audio-comparison_Muhammad-R3-Proposed-C.mp4`. The final independent report is support `astra-review/ASTRA-REVIEW.md`. DS-17 remains delivered for Dan's review, not finalized.
+
+
+## Finalized — 2026-09-17
+
+Dan explicitly finalized this exact R4, including the opening and retained audio: “All right this works and this is finalized.” Master SHA256 remains `ad4f7b464faf588909c880de7afddf703921e84e3c597ef8bdb4333bee12dc89`. Full verbatim approval is preserved in the support records and approval corpus. DS-17 is FINALIZED in the edit queue; measured gate failures remain unchanged. This supersedes the earlier awaiting-review status. Next: [Sol upload/setup handoff](../handoff-20260917-ds17-finalized-upload-and-setup.md), in a new task.
