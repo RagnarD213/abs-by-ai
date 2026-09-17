@@ -26,9 +26,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # DAN'S DECISIONS
 
-- **Covers for the Sep 13 + Sep 14 TikToks (09-17):** neither ever had a designed cover (uncovered on IG too), and
-  TikTok's 7-day edit window shuts Sep 20 / Sep 21. Commission `/coverimage` before then, or let them keep the
-  screenshot? The queue itself is fixed and proven live. `Docs/TIKTOK_COVERS.md`
+- **Covers for the Sep 13 + Sep 14 TikToks (09-17):** neither ever had a designed cover (uncovered on IG too); the
+  7-day window shuts Sep 20 / Sep 21. Commission `/coverimage` before then, or keep the screenshot? The queue is
+  fixed and proven live. `Docs/TIKTOK_COVERS.md`
 - **Make the GitHub repo private (baseline 09-15)** (Settings → General → Danger Zone). Rec: yes — breaks nothing; closes the
   subscriber addresses in git history. A session then pushes a trivial commit and confirms deploy. `Docs/SUBSCRIBER_STORE.md`
 - **Create the empty SixPackAbs.com Google Ads account (baseline 09-15)** (CAPTCHA blocks Claude): MCC `324-458-6445` → Accounts →
@@ -96,7 +96,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Video editing efficiency — ACTIVE 2026-09-17, owner: Codex 01a0b177.** Updating shared ad/organic workflow, reuse, bounded review, queue waiting, and usage reporting without touching active build directories. Next: isolated representative revision test, then commit/push. Detail: `scripts/edit-queue/` + `Media/codex-video-trial/05-recipes/`.
 
-**Overnight edit queue — PAUSED 2026-09-17.** Built; headless Claude signed in. Next: proof run, `Handoffs/handoff-20260917-overnight-queue-proof-run.md`. ⚠ No job IDs here: the dispatcher reads them as owned.
+**Overnight edit queue — PROOF RUN ACTIVE 2026-09-17, Claude (Fable).** Queue PAUSED; one Claude job hand-fired, unattended. Next: verify, resume. `Handoffs/handoff-20260917-overnight-queue-proof-run.md`. ⚠ No job IDs here: dispatcher reads them as owned.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
