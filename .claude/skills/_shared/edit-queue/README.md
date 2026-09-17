@@ -74,6 +74,11 @@ artifact, and the next Claude session's `queue.py pending` mirrors it.
 
 ## If a write fails
 
+⚠ **`write_db` refuses an unpinned write to a document that already exists** (`version_mismatch … carried no
+if_version`, found 2026-09-17; the whole batch writes nothing). Read the versions first
+(`Artifact read_db`, `db_op: "list"`, `collection: "jobs"`, `query.limit: 200`, with an `out_dir`), then add
+`"if_version": <that version>` to each entry for an existing job. Brand-new job IDs need no pin.
+
 A failed `write_db` or Drive upload never blocks the repo update: `jobs.json` still changes. For Drive, `queue.py push`
 re-uploads everything. For the db, `syncedRev` stays behind and `pending` picks it up later. ⚠ rclone uses a shared
 Google client id that Google is retiring during 2026 (memory `drive-backup-capability`). If uploads start failing

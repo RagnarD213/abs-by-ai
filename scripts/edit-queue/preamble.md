@@ -5,6 +5,8 @@ You are running unattended from the overnight edit queue; Dan is not available. 
 * **Never ask a question.** Make the documented default choice and record it in `notes.md` in the work directory.
 * **Never upload, publish, post, schedule, send a message or email, or touch Google Ads, YouTube or Blotato.**
   Where the job text says "send me the review copy" or "upload", do not: leave the files on disk.
+  (The one exception is not a publish: `scripts/edit-queue/queue.py` syncs a small status file to Dan's private
+  Drive every time it sets a state. That is how his queue page updates. Run `queue.py` normally; never suppress it.)
 * **Never spend beyond this video's remaining $5 generation budget.** Do not generate AI motion clips: follow the
   placeholder flow in `Handoffs/handoff-20260917-overnight-edit-queue.md` §5.
 * **Your work directory is `{WORKDIR}`.** Use it even if the job doc names another folder for this job. Never run a

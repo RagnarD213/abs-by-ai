@@ -37,7 +37,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | ad | roll | status | size |
 |---|---|---|---|---|
-| [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | IN PROGRESS — Claude 2026-09-16 (plan `RA-01-plan.md`; Opus edits, Fable checks) | S |
+| [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | IN PROGRESS | S |
 | [RA-02](RA-02-how-to-generate-abs-with-ai.md) | How To Generate Abs With AI | C1663 | READY | S |
 | [RA-03](RA-03-watch-ai-put-abs-on-me-in-30-seconds.md) | Watch AI Put Abs On Me In 30 Seconds | C1664 | READY (needs a recording of your own generation) | S |
 | [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | READY | S |
@@ -60,7 +60,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | short | roll | status | size |
 |---|---|---|---|---|
-| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | READY (cable-crunch stock) | S |
+| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | READY | S |
 | [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | READY | S |
 | [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | READY | S |
 | [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | IN PROGRESS | S |
@@ -95,7 +95,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | READY | L |
+| [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | IN PROGRESS | L |
 | [RO-02](RO-02-the-vacuum-explainer.md) | The Vacuum: Best Ab Exercise For Belly Fat | 8/14 C1614–29 (26 min) | READY | L |
 | [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | READY (best after RO-02) | S |
 | [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | BLOCKED: Zeeshan's Arms & Shoulders final | S |

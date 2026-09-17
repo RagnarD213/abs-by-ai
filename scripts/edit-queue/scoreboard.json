@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "runs": [
+  {
+   "run_id": "DS-01-20260917-150104",
+   "job": "DS-01",
+   "group": "DS",
+   "title": "Top 5 Ab Exercises",
+   "size": "S",
+   "executor": "codex",
+   "reviewer": "codex (fresh session; cross-reviewer unavailable)",
+   "started": "2026-09-17T15:01:04",
+   "ended": "2026-09-17T15:03:30",
+   "wall_hours": 0.04,
+   "outcome": "parked",
+   "reviewer_verdicts": [],
+   "first_pass_gate": null,
+   "revision_rounds": 0,
+   "generation_spend_usd": null,
+   "dan_verdict": null,
+   "dan_words": null,
+   "systemic_reason": null,
+   "corpus_entry": null,
+   "log": "/Volumes/Extreme/_edit_work/DS-01/queue-run.log",
+   "by_hand": true,
+   "note": "BLOCKED (queue run): The unattended sandbox denies /bin/ps, so the required machine-wide two-build safety check cannot run."
+  }
+ ]
+}

@@ -73,17 +73,19 @@ the job parks as `needs` with the review attached. No verdict line = the review 
 
 ## Exactly how the sessions are launched (Phase 0 findings, 2026-09-17)
 
-**Codex: PROVEN headless with no prompt.** Smoke test wrote to the work drive, ran the project ffmpeg, ran
-`queue.py`, and listed Drive through rclone:
+**Codex: headless with no prompt.** codex-cli 0.154.0-alpha.6.2, already signed in.
 
 ```
-/Applications/ChatGPT.app/Contents/Resources/codex exec -C <repo> -s workspace-write \
+/Applications/ChatGPT.app/Contents/Resources/codex exec -C <repo> -s danger-full-access \
   -c 'approval_policy="never"' -c sandbox_workspace_write.network_access=true \
   --add-dir /Volumes/Extreme/_edit_work/<JOB> --add-dir ~/.config/rclone --add-dir ~/.cache  -   # prompt on stdin
 ```
-codex-cli 0.154.0-alpha.6.2, already signed in. ⚠ Without `--add-dir ~/.config/rclone`, rclone lists Drive but cannot
-save its refreshed token (`operation not permitted`). If a full edit hits another sandbox wall, set
-`executors.codex.sandbox` to `danger-full-access`: that is what Dan's own `~/.codex/config.toml` already uses.
+⚠ **`-s workspace-write` does not work for an edit.** It passed a smoke test (work drive, project ffmpeg, `queue.py`,
+Drive via rclone once `~/.config/rclone` was writable) but the first real job, DS-01, parked within two minutes:
+that sandbox denies `/bin/ps`, and every edit must run `ps` to respect the two-build cap. `danger-full-access` is
+what Dan's own `~/.codex/config.toml` already uses, so a queue session has the same rights as a hand-fired one.
+That first run also proved the park path end to end: `BLOCKED.md` → `needs` with the reason → claim released →
+scoreboard row, nothing built, nothing uploaded.
 
 **Claude: NOT PROVEN. The program is signed out.** `claude auth status` → `"loggedIn": false`; `claude -p` →
 `Not logged in · Please run /login`. Dan signs in once (only he can):

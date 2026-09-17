@@ -195,10 +195,12 @@ stale claim, every stop condition and routing; a dry-run mode (`--dry-run` print
 consecutive clean nights.
 
 ### 8a. Where Phases 0–1 stand (2026-09-17)
-* **Codex headless: proven** on a permissions smoke test (work drive, project ffmpeg, `queue.py`, Drive via rclone,
-  no prompt) with `-s workspace-write`, approvals `never`, network on, and the work dir + `~/.config/rclone` +
-  `~/.cache` writable. A full raw job (**DS-01**, no AI slots) is queued to fire through `dispatcher.py launch-one`
-  as soon as a build slot is free; its result lands on the review page and in `scoreboard.json`.
+* **Codex headless: launches and parks cleanly with no prompt; a full finished edit is still owed.** The first real
+  run (**DS-01**, no AI slots) parked in two minutes: `-s workspace-write` denies `/bin/ps`, which every edit needs for
+  the two-build cap. The park path worked end to end (BLOCKED.md → `needs` → claim released → scoreboard). Config now
+  uses `danger-full-access`, the setting in Dan's own `~/.codex/config.toml`. DS-01 is reset to `ready` and a waiter
+  (`/Volumes/Extreme/_edit_work/_queue-smoke/phase0_wait_and_launch.sh`, 12 h) fires it again through
+  `dispatcher.py launch-one` when a slot is free; the result lands on the review page and in `scoreboard.json`.
 * **Claude headless: NOT proven.** `claude auth status` says signed out. Dan runs the binary once and types `/login`.
   Then: `python3 scripts/edit-queue/dispatcher.py launch-one AV-01` (the pilot job), read
   `/Volumes/Extreme/_edit_work/AV-01/queue-run.log`, and fix the flags in `config.json` if anything prompted.

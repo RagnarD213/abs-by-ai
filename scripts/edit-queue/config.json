@@ -52,9 +52,9 @@
 
   "executors": {
     "codex": {
-      "_proven": "2026-09-17 smoke test: write to the work dir, project ffmpeg, queue.py, rclone to Drive, all with no prompt. workspace-write blocks rclone's token refresh unless ~/.config/rclone is writable. If a full edit hits a sandbox wall, set sandbox to danger-full-access, which is what Dan's own ~/.codex/config.toml already uses.",
+      "_proven": "2026-09-17. workspace-write passed a smoke test (work dir, project ffmpeg, queue.py, rclone once ~/.config/rclone was writable) but FAILED the first real job (DS-01): that sandbox denies /bin/ps, and every edit must run ps to respect the two-build cap. danger-full-access is what Dan's own ~/.codex/config.toml already uses for his daily Codex sessions, so a queue session has the same rights as a hand-fired one. approval_policy=never in both cases: nothing ever prompts.",
       "binary": "/Applications/ChatGPT.app/Contents/Resources/codex",
-      "sandbox": "workspace-write",
+      "sandbox": "danger-full-access",
       "extra_writable_dirs": ["~/.config/rclone", "~/.cache"],
       "model": "",
       "auth_check": null

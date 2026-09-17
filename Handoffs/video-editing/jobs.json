@@ -15,14 +15,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RA-01-ai-trick-that-got-me-abs.md`: cut the \"The AI Trick That Got Me Abs\" short-form ad from its 8/28 raw takes with /ad-edit. Best take of every line, 9:16 master ≤0:59 plus the 16:9 from the same edit, lav picked per file, the 8/28 S-Log3 conversion, same-person before/after, claim lines flagged to me. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RA-01-ai-trick-that-got-me-abs.md` with `$abs-edit-ad`: 9:16 master ≤0:59 plus 16:9 from the same edit. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "",
    "sub": "",
    "order": 1,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-17",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "RA-02",
@@ -355,10 +355,11 @@
    "note": "cable-crunch stock",
    "sub": "Talking",
    "order": 17,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-17",
+   "by": "edit queue",
+   "rev": 5,
+   "syncedRev": 5,
+   "queue_owned": true
   },
   {
    "id": "DS-02",
@@ -694,7 +695,7 @@
    "updated": "2026-09-17",
    "by": "Codex",
    "rev": 4,
-   "syncedRev": 1
+   "syncedRev": 4
   },
   {
    "id": "DS-18",
@@ -876,14 +877,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-01-keep-your-muscle-on-zepbound.md`: transcribe the rolls, map the takes to the script, and cut \"How To Keep Your Muscle On Zepbound\" into a finished 16:9 first cut with /longform-edit to the approved organic standard (Zeeshan's ab wheel videos). Fill the B-roll and graphics cues, audio through the shared chain, every gate, independent audit, deliver master + SRT + chapters, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-01-keep-your-muscle-on-zepbound.md` with `$abs-edit-organic` and the frozen organic recipe. Deliver master + SRT + chapters, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "",
    "sub": "",
    "order": 42,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-17",
+   "by": "Codex",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "RO-02",
@@ -1449,7 +1450,7 @@
    "order": 69,
    "updated": "2026-09-16",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "AV-10",
@@ -1469,7 +1470,7 @@
    "order": 70,
    "updated": "2026-09-16",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "AV-11",
@@ -1489,7 +1490,7 @@
    "order": 71,
    "updated": "2026-09-16",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "AV-12",
@@ -1509,7 +1510,7 @@
    "order": 72,
    "updated": "2026-09-16",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "AS-08",
@@ -1529,7 +1530,7 @@
    "order": 73,
    "updated": "2026-09-16",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "AS-09",
@@ -1549,7 +1550,7 @@
    "order": 74,
    "updated": "2026-09-16",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "AS-10",
@@ -1569,7 +1570,7 @@
    "order": 75,
    "updated": "2026-09-16",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "AS-11",
@@ -1589,7 +1590,7 @@
    "order": 76,
    "updated": "2026-09-16",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   }
  ]
 }
