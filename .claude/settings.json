@@ -91,6 +91,18 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*blotato_(create_post|update_schedule|create_automation|update_automation|update_automation_trigger)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/blotato/hook_ad_guard.py",
+            "timeout": 15
+          }
+        ]
+      }
     ]
   }
 }

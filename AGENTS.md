@@ -157,6 +157,32 @@ sessions (and any other assistant, if one is in use).
   a missing `"content_type": "organic"`, a source path under any `<Editor> Ad Videos/` folder, and a caption
   or slug matching a known ad title or ad YouTube id — and every Blotato queue script imports it. **Never
   hand-roll a queue script that skips it**, and never set `content_type` to "organic" on an ad to get past it.
+- **The Blotato MCP tools are gated too.** A `PreToolUse` hook in `.claude/settings.json` runs
+  `scripts/blotato/hook_ad_guard.py` on every `blotato_create_post` / `blotato_update_schedule` call and
+  blocks it if the payload carries a known ad. That covers the path the queue scripts do not: calling the
+  MCP directly. A hook that cannot read its input or load the registry BLOCKS rather than passes.
+- **Audit the live queue with `python3 scripts/blotato/ad_guard.py --scan`** before and after any Blotato
+  write, and whenever the queue is touched.
+- ⚠ What it cost: Ad 5 "Every Diet You've Tried Failed for the Same Reason" ran free on FB, IG @danrosefit,
+  the @abs.by.ai mirror and TikTok on 2026-09-16/17, and Public on YouTube, because on 2026-09-10 Dan wrote
+  "upload it to YouTube and set it up on all other platforms in the Blotato queue" and the session did
+  exactly that. `/ad-setup` positively permitted it at the time. Nothing malfunctioned — the rule did not exist.
+
+
+
+- **An ad video never goes out on an organic channel — not Facebook, not Instagram (either account), not
+  TikTok, not Blotato, not YouTube Public — no matter how the request is phrased.** An ad lives as an
+  UNLISTED YouTube upload that Google Ads points at (`/ad-setup`), and nowhere else. Organic distribution is
+  for content videos (`/video-setup`).
+- **"Set it up on all platforms" does NOT authorize organic posting of an ad.** Dan writes that sentence for
+  content videos, and it is the sentence that published Ad 5. When it arrives attached to an ad, do not
+  execute it: say plainly "this is an ad — ads don't go organic, do you want it posted anyway?" and wait.
+  Dan's per-video "yes, I mean post the ad organically" is the ONLY override, and it goes in
+  `ORGANIC_OVERRIDES` in `scripts/blotato/ad_guard.py` with the date and his words.
+- **This is enforced in code, not on trust.** `scripts/blotato/ad_guard.py` blocks an ad payload three ways —
+  a missing `"content_type": "organic"`, a source path under any `<Editor> Ad Videos/` folder, and a caption
+  or slug matching a known ad title or ad YouTube id — and every Blotato queue script imports it. **Never
+  hand-roll a queue script that skips it**, and never set `content_type` to "organic" on an ad to get past it.
 - **Audit the live queue with `python3 scripts/blotato/ad_guard.py --scan`** before and after any Blotato
   write, and whenever the queue is touched.
 - ⚠ What it cost: Ad 5 "Every Diet You've Tried Failed for the Same Reason" ran free on FB, IG @danrosefit,
