@@ -96,7 +96,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Video editing efficiency — ACTIVE 2026-09-17, owner: Codex 01a0b177.** Updating shared ad/organic workflow, reuse, bounded review, queue waiting, and usage reporting without touching active build directories. Next: isolated representative revision test, then commit/push. Detail: `scripts/edit-queue/` + `Media/codex-video-trial/05-recipes/`.
 
-**Overnight edit queue — PAUSED 2026-09-17.** Built; Codex proof run awaits a slot. Next: Dan `/login`s headless Claude → `launch-one AV-01` → `resume`. `scripts/edit-queue/README.md`.
+**Overnight edit queue — PAUSED 2026-09-17.** Built; headless Claude signed in. Next: proof run, `Handoffs/handoff-20260917-overnight-queue-proof-run.md`. ⚠ No job IDs here: the dispatcher reads them as owned.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
@@ -171,7 +171,8 @@ Memory `google-ads-ui-automation`.
 - `codex-video-trial/06i-ad14-r4-dan-closeup-and-correct-workout.md` — ready09-17, Sol/High; two final picture fixes; app demo approved.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
-- `handoff-20260917-overnight-edit-queue.md` — Phase 1 built 09-17 (ACTIVE above); fire **Phase 2** next: placeholder flow, frame picker, gate row. Fable or Codex Astra, high.
+- `handoff-20260917-overnight-queue-proof-run.md` — **fire now**: one Claude job unattended, then un-pause. Fable 5.1, high.
+- `handoff-20260917-overnight-edit-queue.md` — Phase 1 built; **Phase 2** next (placeholder flow). Fable or Astra, high.
 - `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
