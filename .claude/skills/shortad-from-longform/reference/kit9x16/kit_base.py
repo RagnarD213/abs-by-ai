@@ -56,6 +56,8 @@ def main():
     parts = []
     for s in P:
         nfr = s["n1"] - s["n0"]
+        if nfr <= 0:
+            raise SystemExit(f"segment {s['i']} has {nfr} frames -- a zero-length picture segment breaks the conform's timestamps")
         src_path = rolls.get(s.get("roll"), a.raw) if s.get("roll") else a.raw
         p = f"segs_pic/{s['i']:03d}_{s['n0']}_{nfr}.mp4"
         parts.append(p)
@@ -103,13 +105,21 @@ def main():
             fc.append(f"[{k + 1}:v]format=yuva420p,setpts=PTS+{t0:.6f}/TB,fade=t=out:st={t0:.6f}:d={D / FPS:.6f}:alpha=1[s{k}];"
                       f"[{last}][s{k}]overlay=0:0:enable='between(t,{t0:.6f},{(s['n0'] + D) / FPS:.6f})':eof_action=pass[o{k}]")
             last = f"o{k}"
-        subprocess.run([FF, "-nostdin", "-v", "error", "-y"] + ins + ["-filter_complex", ";".join(fc), "-map", f"[{last}]",
-                        "-r", "30000/1001", "-video_track_timescale", "30000", "-c:v", "libx264", "-crf", a.crf, "-preset", "medium",
-                        "-pix_fmt", "yuv420p", "-an", "base.mp4"], check=True)
+        r = subprocess.run([FF, "-nostdin", "-v", "warning", "-y"] + ins + ["-filter_complex", ";".join(fc), "-map", f"[{last}]",
+                            "-r", "30000/1001", "-frames:v", str(P[-1]["n1"]), "-video_track_timescale", "30000", "-c:v", "libx264",
+                            "-crf", a.crf, "-preset", "medium", "-pix_fmt", "yuv420p", "-an", "base.mp4"], capture_output=True, text=True)
+        if r.returncode:
+            raise SystemExit("dissolve pass failed: " + r.stderr[-1500:])
+        if r.stderr.strip():
+            print("dissolve pass warnings:", r.stderr[-600:])
         print("dissolve patches:", [round(s["n0"] / FPS, 2) for s in jobs])
     else:
         subprocess.run(["cp", "base_pic.mp4", "base.mp4"], check=True)
-    print("base.mp4 frames", nframes("base.mp4"))
+    nb = nframes("base.mp4")
+    print("base.mp4 frames", nb)
+    # ⚠ A SHORT BASE IS A FAILURE, NOT A NUMBER TO PRINT (round 4: the dissolve pass wrote 2,036 of 6,976 frames,
+    # exited 0, and the track and the render ran on it)
+    assert nb == P[-1]["n1"], f"base.mp4 has {nb} frames, planned {P[-1]['n1']}"
 
 
 if __name__ == "__main__":

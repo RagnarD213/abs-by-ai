@@ -94,8 +94,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Video editing efficiency — ACTIVE 2026-09-17, owner: Codex 01a0b177.** Updating shared ad/organic workflow, reuse, bounded review, queue waiting, and usage reporting without touching active build directories. Next: isolated representative revision test, then commit/push. Detail: `scripts/edit-queue/` + `Media/codex-video-trial/05-recipes/`.
-
 **Overnight edit queue — PROOF RUN ACTIVE 2026-09-17, Claude (Fable).** Queue PAUSED; one Claude job hand-fired, unattended. Next: verify, resume. `Handoffs/handoff-20260917-overnight-queue-proof-run.md`. ⚠ No job IDs here: dispatcher reads them as owned.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.

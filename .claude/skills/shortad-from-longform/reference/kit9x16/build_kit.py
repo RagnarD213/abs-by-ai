@@ -548,10 +548,17 @@ def main():
     prev = 0
     for i, sg in enumerate(P):
         cum = round(sg["cut_out"] * FPS)
-        sg["n0"], sg["n1"] = prev, cum
+        sg["n0"], sg["n1"] = prev, max(prev, cum)
         sg["audio_cut_in"] = E[i]["cut_in"]
         sg["rel"] = int(byi[i]["k"]) if i in byi else 0
-        prev = cum
+        prev = sg["n1"]
+    # ⚠ A ZERO-FRAME PICTURE SEGMENT IS DROPPED. Two cuts snapped onto one frame left segment 30 with n1 == n0
+    # (round 4); its empty file collapsed the timestamps of every frame after it in the conform and the base came
+    # out at 2,036 of 6,976 frames. A take shorter than a frame shows nothing; the audio is untouched.
+    empty = [sg["i"] for sg in P if sg["n1"] <= sg["n0"]]
+    P = [sg for sg in P if sg["n1"] > sg["n0"]]
+    if empty:
+        print(f"  {len(empty)} zero-frame picture segment(s) dropped: {empty}")
     json.dump(P, open(os.path.join(a.build, "edl_picture.json"), "w"), indent=1)
     json.dump(piccuts, open(os.path.join(a.build, "piccuts.json"), "w"), indent=1)
     cover = {round(r["cut"], 3) for r in piccuts if r.get("cover")}
