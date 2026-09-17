@@ -1,7 +1,7 @@
 # 8/28 shoot — footage report from the first edit (RA-01, 2026-09-16)
 
-**Status: DRAFT — the planner's own measurements are in; the editor's per-hold numbers are marked `[editor]` and are
-filled in from `measurements-RA-01.json` when round 1 lands.**
+**Status: Part A COMPLETE 2026-09-17 — every number is from the files; the editor's per-hold numbers come from
+`Claude Ad Videos/the ai trick that got me abs - RA-01/measurements-RA-01.json` (round 1).**
 
 Written from the first edit of any 8/28 footage: RA-01 "The AI Trick That Got Me Abs", cut from roll C1663. Everything
 here was measured on the files, not remembered. Where an existing note (memory `shoot-828-slog3-format`, the RA job
@@ -32,63 +32,91 @@ Consequences for every edit of the middle family:
 * S-Log3 / S-Gamut3.Cine as expected. The approved conversion (`/Volumes/Extreme/_edit_work/website-video-828/grade.txt`)
   is the numpy-built 33³ LUT at exposure 1.45× plus `eq=saturation=0.88`, decoded BT.709. It was fitted on the indoor
   kitchen set; C1663 is **outdoors, overcast, by the pool**.
-* On the planner's four test frames the 1.45× LUT gives believable skin and a slightly flat, cool image with the sky
-  close to clipping and visible grain in the tree canopy (the push lifts the shadows). Exposure choice among
-  1.35 / 1.45 / 1.55 and the measured face luma/chroma against an approved indoor frame: `[editor]`.
-* Sky clip % and flat-patch noise sd: `[editor]`.
+* **The indoor 1.45× push is too bright outdoors.** Face luma against the approved website video (73.3):
+
+  | exposure | face luma | error vs reference |
+  |---|---|---|
+  | 1.00× | 71.0 | 2.3 |
+  | **1.30× (used in RA-01)** | 82.6 | 9.3 |
+  | 1.45× (the indoor setting) | 88.0 | 14.7 |
+  | 1.60× | 92.9 | 19.6 |
+
+  The editor took 1.30×, the lowest of the pushes it considered in range; on luma alone an unpushed 1.00× LUT is the
+  closest match, which says this roll was exposed about right for daylight and needs little or no push. Skin chroma
+  sits 8–11 levels under the indoor reference at every exposure — that is overcast daylight, not a grading error, so
+  no white-balance correction was applied (standing rule).
+* Sky clipped on 0.53 % of the top 600 rows; grain in a flat tree patch sd 14.4 after the push (visible at native
+  scale, not on a phone).
 
 ## 3. Which mic track was clean
 
 The lav, and it is the only useful signal: both channels of the single stream carry it identically. Noise floor
-between words, decay/EDT from the audio gate, and any wind or rain events (the crew mentions raindrops at 1:38 on
-C1663, right after the RA-01 pass ends): `[editor]`.
+between words −55.8 dBFS; early decay 29 ms (outdoors, so no dereverb — the chain's 55 ms trigger never fires); no
+wind or rain inside the kept takes (the crew's raindrops are at 1:38–1:41, after the last RA-01 line).
+
+⚠ **The outdoor lav fails one audio-gate row before we touch it.** The gate's `artifacts` row bounds spectral flux at
+the indoor reference × 1.1. Measured with the gate's own function: untreated lav **0.094**, voice chain alone 0.097,
+chain + music bed 0.093, delivered mix **0.090**, bound **0.079–0.084**. The chain improves the file (`do_no_harm`
+×0.95) and still cannot pass, and processing harder would break the never-over-strip rule. DS-17 (same shoot) hit the
+same row. Every outdoor 8/28 roll will: this is a property of open-air speech against an indoor reference, and it
+needs Dan's ruling (accept outdoors as-is, or have the gate carry an outdoor reference through the regression
+corpus) — not a per-video workaround.
 
 ## 4. Vertical-crop headroom and how big Dan is in frame
 
-Dan stands full-body, shirtless, centred, with feet on a tape mark. From the planner's frames (2160×3840 decoded):
-hair top ≈ y 780 (≈ 20 % down), belly button ≈ y 1620, shorts waistband ≈ y 1720, feet ≈ y 2600; he spans only
-≈ 35 % of the frame width. There is plenty of headroom — the opposite of the 8/14 kitchen rolls, where the hair sat
+Dan stands full-body, shirtless, centred, with feet on a tape mark. Measured on the 2160×3840 decoded frame: hair top
+y 1094–1158 (≈ 29 % down; per-hold minimum 1094–1110), belly button y 2093, shorts waistband y 2170, feet y 3523; he
+spans ≈ 41 % of the frame width and sits ≈ 140 px right of centre (hold centres x 1210–1257 of 2160). There is plenty of headroom — the opposite of the 8/14 kitchen rolls, where the hair sat
 19–45 px from the top edge.
 
 The cost is resolution. The hair-anchored levels are crops of a portrait 4K frame:
 
 | level | crop (est.) | delivered 1080×1920 | upscale |
 |---|---|---|---|
-| FAR (hair → shorts line) | ≈ 562×1000 | 1080×1920 | ≈ 1.9× |
-| NEAR (hair → belly button) | ≈ 472×840 | 1080×1920 | ≈ 2.3× |
+| FAR (hair → shorts line) | 630×1120 | 1080×1920 | **1.71×** |
+| NEAR (hair → belly button) | 504×896 | 1080×1920 | **2.14×** |
 
-Measured per-hold values, the delivered face sharpness (Laplacian variance) against the approved Ad 1 vertical, and
-whether the upscale is visible on a phone: `[editor]`. The 16:9 is the easier case (≈ 1.0–1.3×).
+**It shows.** Face sharpness (variance of the Laplacian over the face box, median of four frames): source at native
+scale 63.2, the delivered RA-01 vertical **10.6**, the approved Ad 1 vertical **27.2**. The source is sharp; the
+softness is entirely the enlargement. The 16:9 is the easy case (NEAR 1600×900 = 1.2×, FAR 2000×1125 = 0.96×).
 
 ## 5. Focus and exposure
 
 At native scale the face is sharp (hair strands and the glasses edge resolve). Exposure is S-Log3-normal — flat until
-converted — with the overcast sky the only near-clipped region. `[editor]` adds the histogram numbers.
+converted — with the overcast sky the only near-clipped region (0.53 % of the sky rows).
 
 ## 6. Lighting
 
 Overcast daylight, soft, no hard shadow side; the background (pool, stone wall, trees) is busier and brighter than an
 indoor set, so chips and captions need their own contrast (a plate or outline), which the J2 chip style provides.
-Sky-to-face luma ratio: `[editor]`.
+Sky-to-face luma ratio 1.18 (a flat, low-contrast key); the shadow side is camera-right; the pool and the pale
+limestone wall fill from below and behind, so the face carries little modelling.
 
 ## 7. Teleprompter eyeline
 
 Dan reads the ads off a prompter outdoors. On the planner's frames his eyes are on the lens axis with no visible
-down-and-left reading offset; the editor's yaw/pitch estimate per hold: `[editor]`. One full pass per script with a
+down-and-left reading offset. FaceMesh on the graded frames: median yaw −1.3° (range −17° to +8° with natural head
+movement), pitch +3.7° — a prompter on the lens axis. Nothing to fix. One full pass per script with a
 single retake (L5) and one false start, then straight into the next script — the crew chatter between scripts is the
 only cutting room floor.
 
 ## 8. Change at the next shoot
 
-1. **Frame tighter for the vertical rolls.** Dan is ≈ 35 % of the frame width; a hair-to-waistband framing straight
-   out of the camera would deliver the FAR level at ≈ 1.0× instead of ≈ 1.9×. Keep 4 % headroom above the hair,
-   not 20 %.
+1. **Frame tighter for the vertical rolls — the biggest single fix.** Dan is 41 % of the frame width with his hair
+   29 % down the frame and his feet in shot; the ad only ever uses hair-to-shorts. A hair-to-waistband framing
+   straight out of the camera delivers FAR at ≈ 1.0× instead of 1.71× and NEAR at ≈ 1.25× instead of 2.14×, which is
+   the difference between face sharpness 10.6 and the approved 27. Keep ≈ 4 % headroom above the hair.
 2. **Record the same audio layout on every roll**, or write the layout on the slate. Two families on one day cost a
    wrong memory and a wrong job doc; `pick_lav.py` caught it, a hard-coded map would not have.
 3. **Say on the slate whether the camera is rotated.** Rotation side-data is easy to miss in a probe.
 4. **One more full pass per ad script.** With a single pass, take selection is forced and any flub is in the ad.
-5. **Expose S-Log3 a stop brighter outdoors** (or use a lower push) — the 1.45× push shows grain in shadow areas.
-6. Keep the tape mark and the fixed full-body position: it makes the per-hold fixed centre trivial.
+5. **Outdoors the exposure was right; the indoor 1.45× push is what's wrong.** Use a 1.0–1.3× LUT for daylight
+   rolls and keep exposing as on 8/28.
+6. Keep the tape mark and the fixed standing position (it makes the per-hold fixed centre trivial) — just move the camera in.
+7. **Get a ruling on outdoor audio before the next outdoor shoot** (§3): either accept the open-air lav against the
+   indoor reference, or record one approved outdoor reference for the gate. What in the open-air signal drives the
+   reading (pool pump, breeze, traffic) was not isolated; a test recording with and without a lav windscreen at the
+   next outdoor setup would answer it.
 
 ---
 

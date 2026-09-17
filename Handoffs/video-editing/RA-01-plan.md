@@ -210,3 +210,64 @@ COULD NOT VERIFY: <what and why>
 ```
 
 A blocker or major defect = DOES NOT SHIP. Minor-only = SHIP with the minors listed for the next revision.
+
+---
+
+## 12. Round 2 rulings (planner, 2026-09-17) — these amend §4–§7; the reviewer's defect ids are in `ROUND-1-REVIEW.md`
+
+Round 1: DOES NOT SHIP. D1 (audio `artifacts` row: the untreated outdoor lav is already over the bound) is **Dan's
+ruling, not an editor fix** — do not process harder, do not touch the gate; masters stay HELD. Everything below is
+to be fixed in round 2.
+
+**R1 — the first 12 seconds are rebuilt (D2, D7, D9).** Captions run from the first word to the last, over every
+beat including photo cards and the phone recording; a caption is never dropped or started mid-sentence, and every
+sentence starts with a capital. Lay each card out so the caption band is clear (card above, captions in the band
+below it, on the J2 field) — captions still never sit on a chip, the pill, or a face. The file opens on the first
+word: ≤ 0.15 s of lead-in, no silent hold. New beat map for L1–L4:
+
+| words | picture |
+|---|---|
+| "This picture got me abs." | the AI image card, AI-GENERATED chip, on screen from frame 0 |
+| "And it's not even real!" | **Dan on camera, NEAR** (a face in the first 3 s) |
+| "I generated this picture with AI" | the AI image card again |
+| "back when I was 200 pounds." | the BEFORE picture, from the word "back", **≥ 1.2 s on screen** |
+| "And this is what I" | **Dan on camera, FAR, ≥ 0.8 s** — this is the "other" between before and after; never a sub-half-second flash |
+| "look like today." + the pause + the head of L4 ("Seeing this") | the three real after pictures, **≥ 0.6 s each**, real-picture chip on each |
+| "AI image of myself with abs changed me." | the AI image card, landing on the words "AI image" |
+
+**R2 — framing levels to the plan's definitions (D3).** Round 1 cropped a notch too tight (NEAR stopped below the
+pecs, FAR at the belly button). From the editor's own measurements (hair min 1094–1110, belly button 2093, waistband
+2170): **NEAR ≈ 603×1072 source px** (hair − 4 % → just below the belly button, ≈ 1.79×) and **FAR ≈ 707×1256**
+(hair − 4 % → waistband plus ≈ 130 px of shorts, ≈ 1.53×); 16:9 levels use the same heights. Spread ≈ 1.17 keeps
+`framing:push_coverage`. Fixed centre per hold on the torso; **his face box stays inside 8–92 % of the frame width on
+every frame** — a hold whose lean breaks that at NEAR is cut at FAR instead (keep the alternation by re-ordering
+levels, never two equal levels across a visible join). Re-measure delivered face sharpness against the Ad 1 vertical.
+
+**R3 — macro-tracker slice (D4).** Pick a slice in which the itemized list and the calorie total are stable for the
+whole beat: it must not include the recalculation (458 → 342) and must end ≥ 3 frames before the recording changes
+screen. Verify the last 10 frames of the beat one by one.
+
+**R4 — the 16:9 CTA pill (D5).** A compact pill sized to its text (the 9:16 pill's proportions), not a full-width
+band; low in the frame, never touching Dan's face, neck or shoulders line; captions lift above it.
+
+**R5 — skin colour (D6).** The plan's exposure-only limit was wrong for overcast daylight; this replaces it. Choose
+exposure in 1.00–1.30 by face luma (target 73 ± 5, the approved website video) and then raise `eq=saturation` from
+0.88 until face chroma reaches ≥ 85 % of the approved Ad 1 vertical's (reviewer measured ≈ 28 against our ≈ 16),
+capped at 1.25. No white-balance or hue change. Prove it on a sheet of four graded frames beside Ad 1 frames and
+check the trees, pool and shorts have not gone neon; record luma, chroma and the chosen values. Cards and the phone
+recording are not regraded. This look is flagged to Dan as his call.
+
+**R6 — chips and card field (D8).** In 9:16 every chip sits inside the platform-safe area: y ≥ 200 px from the top,
+x ≤ 940 px, and above the caption band; still placed by person-mask measurement, never on face, hair or abs. Cards
+sit on the J2AD field (flat dark), not on a blurred copy of the photo. 16:9 chips sit fully inside the card.
+
+**R7 — music bed (D10).** Remove the ≈ 0.1 s bed dropout and step near 0:56; no other mix change. SFX stay out
+(measured: they break the tone row) — accepted deviation.
+
+**R8 — gate paperwork (D11).** `not_applicable` reasons live in `formats.py`, which the editor may not edit; list in
+the round file each n/a row whose written reason does not describe this cut, with the equivalent measurement. The
+reviewer's frame-by-frame pass is the independent watch judge for round 2.
+
+After any change: re-render both aspects from one script, re-run every measurement and both gates on the new files,
+refresh the REVIEW copies, the A/B, `measurements-RA-01.json` and `notes-RA-01.md`, and write `ROUND-2-EDITOR.md`
+with each defect D2–D11 marked fixed / not fixed + why. Total duration still ≤ 59.00 s; no line cut unless §3 forces it.
