@@ -340,6 +340,15 @@
       "model": "Sonnet 5, standard",
       "addedAt": "2026-08-26",
       "prompt": "Read Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md in the Abs By AI repo and finish it. 63 of the 70 image posts are already scheduled and verified; the last 7 were blocked on Blotato's 200-post plan cap. First re-pull the live Blotato queue for @danrosefit and @abs.by.ai and confirm there are at least 7 free slots under the cap (it drains ~2 posts/day). If there are, run `scripts/blotato/iggap_fill.py --apply` (idempotent — it only schedules the missing days), then re-read the queue and verify every new post landed with the right account, time and caption. Report the final fill list. No AI generation, no production code, no deploy."
+    },
+    {
+      "text": "Fire phone handoff: delete the Ad 5 TikTok + install 2 covers",
+      "doc": "Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md",
+      "status": "phone-only — fire when you're away from the computer AND the phone",
+      "ready": true,
+      "prompt": "Read Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md and execute it. It is a phone-only session driven through iPhone Mirroring — my iPhone is locked and I have walked away from both it and the computer, so take over the screen and work straight through. Job A: delete the Ad 5 TikTok post 7686132607964269855 (confirm the caption reads \"Every diet you've tried failed for the same reason\" before you delete anything — it is irreversible). Job B: install the two designed covers, already in my Photos, on the Sep 12 \"milk\" and Sep 15 \"train abs\" posts, checking the crop preview keeps the headline before you save each one. If a post no longer offers Edit post / Edit cover its 7-day window has closed — stop on that post, say so, and do NOT delete-and-re-upload to get around it. Report what landed and what didn't.",
+      "model": "Sonnet 5 or Fable 5.1, medium",
+      "addedAt": "2026-09-17"
     }
   ]
 }
