@@ -17,13 +17,12 @@
   "z": 1.2,
   "ramp_in_s": 0.5,
   "ramp_out_s": [
-   0.5,
-   0.8
+   0.5
   ],
   "hold_s": [
-   1.5,
-   2.5,
-   3.5
+   1.2,
+   1.6,
+   2.0
   ],
   "recentre_up_px": 85,
   "per_min": {
@@ -32,12 +31,13 @@
   "talk_coverage": {
    "from": "push_off_frac"
   },
-  "max_gap_s": 16.6,
+  "max_gap_s": 8.0,
   "at_sentence_boundary": true,
   "lead_before_cut_s": 0.25,
   "cover_unmatched_splice": true,
   "min_gap_to_flash_s": 0.3,
-  "note": "Ad 1: 14 pushes in 232.8 s = one per 16.6 s of runtime, 39 % of the talk inside a push (shortad [A2] rule 8); they ramp ~0.5 s, hold 1.5-3.5 s, ramp out, and mostly SPAN splices rather than landing on them. push_coverage in the gate reads the spread of per-hold head heights (min x1.10); his 16:9 reads x1.18, the approved verticals x1.22 / x1.25"
+  "note": "Ad 1: 14 pushes in 232.8 s = one per 16.6 s of runtime, 39 % of the talk inside a push (shortad [A2] rule 8); they ramp ~0.5 s, hold 1.5-3.5 s, ramp out, and mostly SPAN splices rather than landing on them. push_coverage in the gate reads the spread of per-hold head heights (min x1.10); his 16:9 reads x1.18, the approved verticals x1.22 / x1.25 | 2026-09-16 first kit run: a 16.6 s runtime cadence applied to TALK gave 10 pushes (2.58/min, under his 2.92); his 14 pushes sit in ~100 s of talk = one per ~7 s of talk, so max_gap_s is 8.0 s of talk and the schedule tops up to target_per_min (the picture.json midpoint 3.43/min) on sentence boundaries | second kit run: holds 1.5/2.5/3.5 with 13 pushes put 73 % of the talk inside a push (his 39 %, an OVERSHOOT); holds 1.5/2.0/2.5 + 0.5-0.6 s out land ~40 % | third run (level steps on every bare cut): holds 1.2/1.6/2.0, out 0.5, so 18 steps + the top-up land near his 39 % with his push count",
+  "target_per_min": 3.43
  },
  "insert": {
   "coverage": {
@@ -105,7 +105,14 @@
    "from": "flashes_per_min"
   },
   "content_cut_on_peak": true,
-  "note": "his light-leak covers an insert -> talk return (Ad 2 beats.py rule, verified on his render); the content cut lands EXACTLY on the flash peak (Ad 1 notes [A3].2); never on a footage-to-footage cut, never with a whoosh (his flashes are silent)"
+  "note": "his light-leak covers an insert -> talk return (Ad 2 beats.py rule, verified on his render); the content cut lands EXACTLY on the flash peak (Ad 1 notes [A3].2); never on a footage-to-footage cut, never with a whoosh (his flashes are silent) | first kit run: a flash on EVERY insert->talk return gave 15 (3.87/min, over his 3.80); his Ad 1 flashes follow cards and plates, never a stock b-roll bleed -> on_return_from",
+  "on_return_from": [
+   "card",
+   "window",
+   "title",
+   "stmt",
+   "winmedia"
+  ]
  },
  "captions": {
   "band_y": 1400,
@@ -142,7 +149,10 @@
    "from": "naked_splices_per_min"
   },
   "gate_bound_per_min": 12.0,
-  "cover_below_calibration": "MEASURED 2026-09-16 (kit_cuts.py calibrate -> piccuts_calibration.json): self-similarity at HIS recovered k on Muhammad's 15 trusted Ad 2 cuts median 0.501 (p10 0.439); at k=0 on attempt 1's 72 splices median 0.379 (p90 0.517). The distributions OVERLAP (p10 his < p90 attempt 1), so self-similarity alone does not separate a good cut from a naked one -- what separates them is where the cut sits relative to the audio splice and whether it is covered. 0.44 is the midpoint of the medians and is used only as the COVER trigger: from a master his recovered frame is the cut when trusted; from raw the best-matching frame is the cut and a best match under 0.44 is covered by a push. Never raise this to let a cut go bare."
+  "cover_below_calibration": "MEASURED 2026-09-16 (kit_cuts.py calibrate -> piccuts_calibration.json): self-similarity at HIS recovered k on Muhammad's 15 trusted Ad 2 cuts median 0.501 (p10 0.439); at k=0 on attempt 1's 72 splices median 0.379 (p90 0.517). The distributions OVERLAP (p10 his < p90 attempt 1), so self-similarity alone does not separate a good cut from a naked one -- what separates them is where the cut sits relative to the audio splice and whether it is covered. 0.44 is the midpoint of the medians and is used only as the COVER trigger: from a master his recovered frame is the cut when trusted; from raw the best-matching frame is the cut and a best match under 0.44 is covered by a push. Never raise this to let a cut go bare.",
+  "step_every_bare_cut": true,
+  "min_take_frames": 8,
+  "step_note": "2026-09-16, the kit's first Ad 1 render judged: eight talk-to-talk cuts read as jump cuts on the phone at self-similarities 0.46-0.67 (two of them 'his frame', conf 0.64/0.79), including two inside a ramped push -- a ramp does not hide a residual jump at 1.78x. Two moved cuts left a take on screen for 1-2 frames before the next insert. Rules: every bare talk cut gets a framing LEVEL STEP on the cut frame (punch in / pull out, alternating), and a moved cut keeps >= 8 frames of both takes."
  },
  "layout": {
   "talk_crop_w": 608,

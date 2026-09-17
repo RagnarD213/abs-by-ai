@@ -80,7 +80,7 @@ def push_at(t):
     best = 0.0
     for a1, a2, b1, b2 in PUSHES:
         k = 1.0 if a2 <= a1 else max(0.0, min(1.0, (t - a1) / (a2 - a1)))
-        ko = 0.0 if b2 <= b1 else max(0.0, min(1.0, (t - b1) / (b2 - b1)))
+        ko = (1.0 if t >= b1 else 0.0) if b2 <= b1 else max(0.0, min(1.0, (t - b1) / (b2 - b1)))
         r = min(k, 1 - ko)
         if t < a1:
             r = 0.0

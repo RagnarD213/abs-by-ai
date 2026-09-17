@@ -134,8 +134,9 @@ def flashes_for(tl, T):
     """A light-leak on every insert -> talk return (his rule), the content cut on the peak."""
     pre, dur, gap = T["flash"]["pre_s"], T["flash"]["dur_s"], T["flash"]["min_spacing_s"]
     out = []
+    frm = tuple(T["flash"].get("on_return_from", ["card", "window", "title", "stmt", "winmedia"]))
     for i in range(1, len(tl)):
-        if tl[i]["kind"] == "talk" and tl[i - 1]["kind"] != "talk" and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
+        if tl[i]["kind"] == "talk" and tl[i - 1]["kind"] in frm and tl[i]["t1"] - tl[i]["t0"] >= 0.6:
             c = tl[i]["t0"]
             if out and c - (out[-1][0] + pre) < gap:
                 continue
@@ -166,6 +167,33 @@ def pushes_for(tl, splices, cover, words, T, flashes):
 
     pushes, n = [], 0
     talk = [b for b in tl if b["kind"] == "talk"]
+    steps = []
+    if T["cut"].get("step_every_bare_cut"):
+        # THE ZOOM-CUT SYSTEM (ad-edit Step 3; measured on the kit's first Ad 1 render, 2026-09-16): a ramped
+        # push spanning a cut does NOT hide a residual pose jump at the phone's 1.78x -- the judge read eight
+        # of them as jump cuts, at similarities 0.46-0.67. So every bare talk-to-talk cut gets a framing
+        # LEVEL CHANGE ON THE CUT FRAME: punch in (instant) if the head is at the base level, pull out
+        # (instant) if it is inside a punch. Consecutive cuts alternate. Ramped pushes then fill only the
+        # stretches with no cut. Reported separately as level steps; they are not his ramped pushes.
+        hold_i = 0
+        for c in sorted(splices):
+            if near_flash(c) or any(abs(c - b["t0"]) < 0.3 or abs(c - b["t1"]) < 0.3 for b in tl):
+                continue                                          # a beat boundary or a flash already covers it
+            fr = round((round(c * FPS) - 0.5) / FPS, 4)          # half a frame before the cut frame
+            live = steps[-1] if steps and steps[-1][0] < fr < steps[-1][3] else None
+            if live is not None:
+                live[2] = fr; live[3] = fr                        # inside a punch: the cut pulls out, instantly
+            else:
+                hold = holds[hold_i % len(holds)]; hold_i += 1    # at the base level: the cut punches in, holds, ramps out
+                steps.append([fr, fr, round(fr + hold, 4), round(fr + hold + outs[hold_i % len(outs)], 4)])
+        # a punch that would run past its beat's end ends with the beat
+        for st in steps:
+            for b in talk:
+                if b["t0"] <= st[0] < b["t1"] and st[3] > b["t1"]:
+                    st[2] = min(st[2], round(b["t1"], 4)); st[3] = round(b["t1"], 4)
+        pushes.extend(tuple(x) for x in steps)
+        n = len(steps)
+        splices = [c for c in splices if c in cover and not any(p[0] <= c <= p[3] for p in pushes)]
     if P.get("opens_punched", T["opening"].get("opens_punched")) and talk and talk[0]["t0"] < 0.5:
         b = talk[0]
         end = min(b["t1"], b["t0"] + holds[0] + 1.0)
@@ -199,6 +227,7 @@ def pushes_for(tl, splices, cover, words, T, flashes):
             a2 = round(a1 + rin, 3)
             b1 = round(a2 + hold, 3)
             b2 = round(min(b1 + ro, b["t1"]), 3)
+            b1 = min(b1, b2)
             if b2 - a1 < rin + 1.0:
                 break
             pushes.append((round(a1, 3), a2, b1, b2))
@@ -211,6 +240,43 @@ def pushes_for(tl, splices, cover, words, T, flashes):
         if clean and p[0] < clean[-1][3] + 0.4:
             continue
         clean.append(p)
+    # 3. top up to HIS count: the reference's pushes per minute (midpoint of lo/hi) times the runtime.
+    #    Each extra push goes into the longest stretch of talk with no push, on a sentence boundary.
+    dur = tl[-1]["t1"]
+    target = int(round(P.get("target_per_min", 3.43) * dur / 60.0))
+    guard = 0
+    nlike = lambda: sum(1 for p in clean if p[3] > p[2])          # pushes that hold and ramp out (steps that pull out instantly are not pushes)
+    while nlike() < target and guard < 40:
+        guard += 1
+        gaps = []
+        for b in talk:
+            edges = [b["t0"]] + sorted([q for p in clean for q in (p[0], p[3]) if b["t0"] < q < b["t1"]]) + [b["t1"]]
+            for x, y in zip(edges[:-1], edges[1:]):
+                if not any(p[0] <= x and y <= p[3] for p in clean):
+                    gaps.append((y - x, x, y))
+        gaps.sort(reverse=True)
+        placed = False
+        for ln, x, y in gaps:
+            if ln < rin + holds[0] + 0.6:
+                break
+            a1 = snap_sentence(x + ln * 0.4, x + 0.4, y - (rin + holds[0] + 0.5))
+            if near_flash(a1):
+                a1 += fl_guard
+            hold = holds[n % len(holds)]
+            ro = outs[n % len(outs)]
+            a2 = round(a1 + rin, 3)
+            b1 = round(a2 + hold, 3)
+            b2 = round(min(b1 + ro, y), 3)
+            b1 = min(b1, b2)
+            if b2 - a1 < rin + 1.0 or any(p[0] - 0.4 < b2 and a1 < p[3] + 0.4 for p in clean):
+                continue
+            clean.append((round(a1, 3), a2, b1, b2))
+            n += 1
+            placed = True
+            break
+        if not placed:
+            break
+    clean.sort()
     return clean
 
 
@@ -218,7 +284,7 @@ def push_at(t, pushes, z):
     best = 0.0
     for a1, a2, b1, b2 in pushes:
         k = 1.0 if a2 <= a1 else max(0.0, min(1.0, (t - a1) / (a2 - a1)))
-        ko = 0.0 if b2 <= b1 else max(0.0, min(1.0, (t - b1) / (b2 - b1)))
+        ko = (1.0 if t >= b1 else 0.0) if b2 <= b1 else max(0.0, min(1.0, (t - b1) / (b2 - b1)))
         r = min(k, 1 - ko)
         if t < a1:
             r = 0.0
@@ -324,11 +390,51 @@ def main():
         print("kit_cuts:", " ".join(cmd[2:6]), flush=True)
         subprocess.run(cmd, check=True)
     piccuts = json.load(open(pc_path)) if os.path.exists(pc_path) else []
+    # ---- clamp every moved cut so a take is never on screen for less than min_take_frames, then
+    #      write edl_picture.json from the AUDIO EDL + the (clamped) k of every talk splice
+    MINF = int(T["cut"].get("min_take_frames", 8))
+    bounds = sorted({round(b["t0"] * FPS) for b in tl} | {round(b["t1"] * FPS) for b in tl})
+    byi = {r["i"]: r for r in piccuts}
+    n_audio = [round(s["cut_in"] * FPS) for s in E]
+    for r in piccuts:
+        i, k = r["i"], int(r["k"])
+        n0 = n_audio[i]
+        prev_n = n_audio[i - 1] + (int(byi[i - 1]["k"]) if (i - 1) in byi else 0)
+        next_n = n_audio[i + 1] if i + 1 < len(E) else round(dur * FPS)
+        lo_n = max([prev_n] + [b for b in bounds if b <= n0]) + MINF
+        hi_n = min([next_n] + [b for b in bounds if b >= n0]) - MINF
+        kk = max(lo_n - n0, min(hi_n - n0, k)) if lo_n <= hi_n else 0
+        if kk != k:
+            r["k_unclamped"], r["k"], r["clamped_k"] = k, kk, True
+    P = [dict(s) for s in E]
+    for i in range(1, len(P)):
+        k = int(byi[i]["k"]) if i in byi else 0
+        if k:
+            dt = k / FPS
+            P[i]["cut_in"] += dt; P[i]["src_in"] += dt
+            P[i - 1]["cut_out"] += dt; P[i - 1]["src_out"] += dt
+    prev = 0
+    for i, sg in enumerate(P):
+        cum = round(sg["cut_out"] * FPS)
+        sg["n0"], sg["n1"] = prev, cum
+        sg["audio_cut_in"] = E[i]["cut_in"]
+        sg["rel"] = int(byi[i]["k"]) if i in byi else 0
+        prev = cum
+    json.dump(P, open(os.path.join(a.build, "edl_picture.json"), "w"), indent=1)
+    json.dump(piccuts, open(os.path.join(a.build, "piccuts.json"), "w"), indent=1)
     cover = {round(r["cut"], 3) for r in piccuts if r.get("cover")}
     moved = {round(r["cut"], 3): r["k"] for r in piccuts if r.get("k")}
+    # the PICTURE cut times (on the delivered timeline) of every bare talk splice: each gets a level STEP
+    pic_cuts = sorted(round((n_audio[r["i"]] + int(r["k"])) / FPS, 4) for r in piccuts)
 
     # ---- the push schedule and the design's own numbers
-    pushes = pushes_for(tl, [round(s, 3) for s in in_talk], cover, words, T, flashes)
+    pushes = pushes_for(tl, pic_cuts if T["cut"].get("step_every_bare_cut") else [round(s, 3) for s in in_talk],
+                        cover, words, T, flashes)
+    steps = [p for p in pushes if p[1] <= p[0]]                  # instant-in on a cut = a level step
+    ramped = [p for p in pushes if p[1] > p[0]]                   # a ramped emphasis push (the top-up)
+    # his hand-counted pushes are punch-ins on the talking head that also hide his trims; a step-in that
+    # holds and ramps out is one of those. A step whose pull-out is also instant is a pure framing change.
+    pushes_like = ramped + [p for p in steps if p[3] > p[2]]
     z = T["push"]["z"]
     talk_s = sum(b["t1"] - b["t0"] for b in tl if b["kind"] == "talk")
     pushed = sum(1 for i in range(int(dur * 10)) if push_at(i / 10, pushes, z) > 1.0 + (z - 1) * 0.5
@@ -337,7 +443,8 @@ def main():
     ins = [b for b in tl if b["kind"] in INSERT_KINDS]
     txt = [b for b in tl if b["kind"] in TEXT_KINDS]
     design = dict(
-        pushes_hand_per_min=len(pushes) / mins,
+        pushes_hand_per_min=len(pushes_like) / mins,
+        level_steps_per_min=len(steps) / mins,
         push_off_frac=pushed / max(talk_s, 1e-6),
         flashes_per_min=len(flashes) / mins,
         lower_thirds_per_min=len(lts) / mins,
@@ -346,13 +453,14 @@ def main():
         inserts_per_min=len(ins) / mins,
         insert_coverage_hand=sum(b["t1"] - b["t0"] for b in tl if b["kind"] != "talk") / dur,
         longest_talk_hand_s=max((b["t1"] - b["t0"] for b in tl if b["kind"] == "talk"), default=0.0),
-        opening_changes_15s=sum(1 for b in tl if b["t0"] < 15.0) + sum(1 for f in flashes if f[0] < 15.0),
     )
+    # opening_changes_15s, change_rate, static_run etc. are the gate's own instruments and are measured on the
+    # DELIVERED file (picture_ref.py check), not estimated here
     rows = []
     for k, v in design.items():
         lo, hi, side = ref_number(ref, k)
         if lo is None:
-            rows.append((k, v, None, None, "no reference"))
+            rows.append((k, v, None, None, "no reference (his cuts need none: his frame choice hides them)" if k == "level_steps_per_min" else "no reference"))
             continue
         st = "PASS" if lo <= v <= hi else ("DEFECT" if (v < lo and side in ("low", "both")) or (v > hi and side in ("high", "both")) else "OVERSHOOT")
         rows.append((k, v, lo, hi, st))
@@ -377,12 +485,12 @@ def main():
                reference=PICREF, reference_version=ref.get("version"),
                design=design, rows=[dict(key=k, value=v, lo=lo, hi=hi, status=st) for k, v, lo, hi, st in rows],
                timeline=[dict(kind=b["kind"], t0=b["t0"], t1=b["t1"], media=b.get("media")) for b in tl],
-               pushes=out["pushes"], flashes=out["flashes"], lower_thirds=[(o["t0"], o["t1"]) for o in lts],
+               pushes=[list(p) for p in ramped], level_steps=[list(p) for p in steps], flashes=out["flashes"], lower_thirds=[(o["t0"], o["t1"]) for o in lts],
                ctas=[(o["t0"], o["t1"]) for o in ctas], talk_splices=in_talk,
                covered_splices=sorted(cover), moved_splices=moved)
     json.dump(rep, open(os.path.join(a.build, "kit_report.json"), "w"), indent=1)
     print(f"\nkit9x16 {out['mode']}: {len(tl)} base beats, {len(ins)} inserts, {len(txt)} text plates, {len(lts)} lower thirds, "
-          f"{len(ctas)} CTAs, {len(flashes)} flashes, {len(pushes)} pushes ({100 * design['push_off_frac']:.0f}% of talk); "
+          f"{len(ctas)} CTAs, {len(flashes)} flashes, {len(ramped)} ramped pushes + {len(steps)} level steps ({100 * design['push_off_frac']:.0f}% of talk); "
           f"{len(in_talk)} talk splices, {len(moved)} moved, {len(cover)} covered")
     print(f"design vs picture.json v{ref.get('version')}:")
     for k, v, lo, hi, st in rows:

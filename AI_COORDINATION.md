@@ -89,15 +89,17 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
+**RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
+
 **DS-17 NEEDS DAN 2026-09-17, Codex.** 45.18s R3, phone copy/covers/recipe saved in `Short-form video content/`. Caption timing verified. Review held: audio-artifact test also fails untreated source; exception requested. Next: Dan decides whether to receive flagged review. Exact evidence: `/Volumes/Extreme/_edit_work/ds-17/`.
 
 **DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
 
-**Daily abs Short cover concepts — REVIEW 2026-09-16, owner: Codex cover design task.** Revision 2 delivered: 12 F options (three new photos × four palettes), six B palettes; all mockups omit real-photo labels and URLs. Picks: FB1/FB2 and B1/B3. Gallery: http://127.0.0.1:8821/revision-2/. Private Drive backup verified. Next: Dan chooses a direction. Files: `output/thumbnails/short-Ub0BV4m5lMQ-20260916/revision-2/`.
+**Daily abs Short cover concepts — REVIEW 2026-09-17, owner: Codex cover task.** A revision 3: four photos × five header palettes, no labels/URL. Picks A02/A12/A04. Next: Dan selects. Gallery: http://127.0.0.1:8821/revision-3/. Private Drive backup verified. Files: `output/thumbnails/short-Ub0BV4m5lMQ-20260916/revision-3/`.
 
 **RA-01 "AI Trick That Got Me Abs" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 ≤0:59 + 16:9 from C1663 (native portrait roll, one clean lav stream). Plan: `Handoffs/video-editing/RA-01-plan.md`; work dir `/Volumes/Extreme/_edit_work/ra01/`. Next: round-1 edit → independent review → deliver + `Docs/SHOOT_828_FOOTAGE_REPORT.md`.
 
-**VQC Phase 4 — the 9:16 kit, proven blind — ACTIVE 2026-09-16, owner: Claude (Fable).** Corpus run pre-check in progress (slow under load; one of my two build slots). Step 0 `_shared/reference/picture_ref.py` written, step 1 kit code in `shortad-from-longform/reference/kit9x16/`, scratch `/Volumes/Extreme/_edit_work/kit9x16/`. Next: build picture.json, calibrate the cut rule, from-master Ad 1 proof through the gate, then the blind page. Detail: `Handoffs/handoff-20260916-vqc-phase4-locked-kit.md`.
+**VQC Phase 4 — the 9:16 kit, proven blind — ACTIVE 2026-09-17, owner: Claude (Fable).** `picture.json` PROVEN (a5f4645); kit in `shortad-from-longform/reference/kit9x16/`. From-master Ad 1 round 1 judged: 28 bare talk cuts read as jump cuts → kit now steps the framing on every bare cut, clamps moved cuts, renderer seek fixed; round 2 rendering in `/Volumes/Extreme/_edit_work/kit9x16/ad1-master/`. Next: judges + gate PASS → blind page for Dan. Detail: `Handoffs/handoff-20260916-vqc-phase4-locked-kit.md`.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
@@ -109,9 +111,9 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 **Published cutdown audio — UNOWNED 2026-09-15.** 21 of 23 V2/V3/V6 cutdowns miss −14 LUFS. Next: scope remediation from `Docs/BOARD_REFERENCE.md`; preserve editor mixes under the standing audio rule.
 
-**Codex Ad14 final revisions — REVIEW / BLOCKED 2026-09-16, owner: Codex Sol task.** Private R2 built: original horizontal workout restored full-screen without the still-photo label; all inserts audited; R1 AAC exact. No authentic recording/job connects Dan's matching before to the specified pool goal, so honest g17 still remains. Independent watch found two inherited frozen R1 jump cuts. Next: Dan reviews R2 and supplies the exact recording or approves another genuine result. Review: http://127.0.0.1:8814/index.html?v=full-r2c#revision.
+**Codex Ad14 Round 3 — HANDOFF READY 2026-09-17, owner: next ad editor.** Dan approves R2 except three picture changes: YouTube credibility screen at 0:25, authorized sunglasses-to-pool-goal simulated app flow at 2:17, finished/color-corrected workout source at 2:26. Next: execute `Handoffs/codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md`; preserve everything else and R2 AAC.
 
-**Codex organic C1652 revision — WAITING 2026-09-16, owner: Codex current organic task.** Lav-only provenance verified; revised graphics/phone/stock prepared and samples inspected. No final R2 master; audio remains unaccepted, neural trial rejected. Next: Dan answers new-motion frames, photo provenance, opening and audio comparisons; then finalize/render/gate. Unchanged frames stay approved. Private isolated `06-organic-r2`; no shared-gate edits. Review: http://127.0.0.1:8818/review/index.html. Detail: `Media/codex-video-trial/06-organic-r2/STATE.md`.
+**Codex organic C1652 revision — REVIEW 2026-09-17, owner: Codex organic R3 task.** Complete11:14 privateR3 rendered; September17 revisions applied and approved elements preserved. Review: http://127.0.0.1:8824/review/index.html. Next: Dan watches full film; gate failures remain explicit, no sound reprocessing. Detail: `Media/codex-video-trial/06-organic-r3/REPORT.md`. No publication.
 
 **Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (eight new Ad 3
 ads, including square 824906283483/824906283486; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
@@ -157,7 +159,8 @@ Memory `google-ads-ui-automation`.
 
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
-- `codex-video-trial/06a-organic-revision.md` + `06b-ad14-revision.md` — Codex executing (ACTIVE). GPT-6 Astra high.
+- `codex-video-trial/06f-organic-approved-r2-next-edit.md` — C1652 next edit, ready09-17; supersedes06e. Astra/High.
+- `codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md` — Ad14 R3, ready09-17; full YouTube credibility screen, existing simulated Dan app flow, finished workout export. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
 - `handoff-20260916-vqc-phase4-locked-kit.md` — fire next in the video-quality engine: the 9:16 ad kit, proven blind. Codex high (kit code) + Fable 5.1 high (cut rule, blind page), ~2 sessions.

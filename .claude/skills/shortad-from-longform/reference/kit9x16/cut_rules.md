@@ -24,7 +24,21 @@ flash), the picture cut is placed at `s + k` frames, `k ∈ [−15, +15]`:
    high-passed NCC over the head-and-torso box at the grade, both frames cropped to the same 9:16 window the
    render will use. Search `k` over −15..+15 in steps of one frame. Pick the maximum; **ties within 0.02 go to
    the smaller |k|**, so the picture stays as close to the audio as the pose allows.
-3. **A cut that will not match is covered, never left bare.** If the best similarity is below the
+3. **EVERY bare talk-to-talk cut gets a framing LEVEL STEP on the cut frame** — the zoom-cut system of
+   the studied ads (`/ad-edit` Step 3: *"alternate strictly — never two identical framings across a
+   join"*). **Measured 2026-09-16 on the kit's first Ad 1 render:** the pose-matched frame alone left eight
+   cuts reading as jump cuts on the phone, at self-similarities 0.46–0.67, two of them on HIS recovered
+   frame (confidence 0.64 / 0.79) and two inside a *ramped* push — at the vertical's 1.78× magnification
+   a ramp does not hide a residual jump. So the picture punches in (instantly, 1.00 → 1.20) or pulls out
+   (instantly) ON the cut, alternating cut by cut; a cut at a beat boundary or under a flash needs none.
+   Ramped pushes then fill only the stretches with no cut, at his cadence. The steps are reported
+   separately (`level_steps_per_min`); they are not his ramped pushes — his cuts do not need them
+   because his frame choice hides them, which is exactly what our instrument could not reproduce.
+3b. **A moved cut keeps at least 8 frames of both takes** (`cut.min_take_frames`): the first render left
+   an incoming take on screen for 1 and 2 frames before the next insert (113.9 s, 81.1 s), which reads
+   as a flash of a different take. `k` is clamped to the room that exists.
+3c. **The similarity cover trigger stays as a warning.** Where the best match is below `cut.cover_below`
+   the cut is additionally covered as before: If the best similarity is below the
    **cover threshold** — calibrated, not guessed, by `kit_cuts.py calibrate`, which measures the same
    self-similarity on Muhammad's trusted Ad 2 cuts (corpus `muhammad-ad2-16x9`, at HIS recovered `k`) and on
    attempt 1's naked splices (corpus `ad1-vertical-attempt1`, at `k = 0`) and writes both distributions to

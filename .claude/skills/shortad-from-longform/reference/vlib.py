@@ -197,6 +197,11 @@ def card_hole(media_ar, has_text):
     # the captions for their duration.
     maxw = VW - 2*40
     top, bot = 150, (1330 if not has_text else 1240)
+    # a labelled card gives up 90 px at the bottom so its chip sits BELOW the hole, never over the picture
+    # (the approved square's rule: card media keeps the card chip under the hole, not on his body; the
+    # kit's first gate read 26 chip-over-person obstructions with the chip drawn inside the hole)
+    if has_text == "label":
+        bot = 1240
     maxh = bot - top
     w, h = maxw, maxw/media_ar
     if h > maxh: h, w = maxh, maxh*media_ar
@@ -208,7 +213,7 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
     """A photo / clip / phone screen inside his olive-glow card on the field."""
     if hole is None:
         if media_ar is None: media_ar = 0.62 if portrait else 16/9
-        hole = card_hole(media_ar, bool(caption or top_kicker))
+        hole = card_hole(media_ar, bool(caption or top_kicker) or ("label" if label else False))
     fc = font(44, "SemiBold"); fk = font(40, "ExtraBold"); fl = font(30, "SemiBold")
     out = []
     for i in range(nframes(dur, fps)):
@@ -236,11 +241,11 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
             draw_lines(d, lines, fc, MARGIN, ty+int((1-k)*18),
                        tuple(int(v*k) for v in INK), lead=1.14, align="c", w=VW-2*MARGIN)
         out.append(_punch(im, h, 20))
-        if label:                                     # AI-GENERATED chip, inside the card
+        if label:                                     # the label chip, BELOW the card's hole (never over the picture)
             lw, lh_ = text_size(label, fl)
             lay = Image.new("RGBA", (VW, VH), (0,0,0,0))
             bx = (VW-(lw+34))//2
-            by = int(h[3]) - lh_ - 40
+            by = int(hole[3]) + 14 + 14
             ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx+lw+34, by+lh_+22], radius=9,
                                                   fill=(0,0,0,215))
             ImageDraw.Draw(lay).text((bx+17, by+11), label, font=fl, fill=INK, anchor="lt")
@@ -297,9 +302,10 @@ def plate_statement(parts, dur=3.0, fps=FPS):
         out.append(im)
     return out, None
 
-def overlay_cta(top, big, dur, fps=FPS, y=None):
-    """His sage CTA pill. RGBA overlay -- it sits ON Dan, it does not replace him."""
-    ft = font(40, "SemiBold"); fb = font(70, "ExtraBold")
+def overlay_cta(top, big, dur, fps=FPS, y=None, big_size=70):
+    """His sage CTA pill. RGBA overlay -- it sits ON Dan, it does not replace him.
+    `big_size` (render.py passes spec['big_size'], default 70): a long second line drops to 46."""
+    ft = font(40, "SemiBold"); fb = font(big_size, "ExtraBold")
     tl = wrap(top, ft, VW-2*MARGIN-80); bl = wrap(big, fb, VW-2*MARGIN-80)
     w = max([text_size(x, ft)[0] for x in tl] + [text_size(x, fb)[0] for x in bl]) + 96
     w = min(w, VW-2*46)

@@ -151,7 +151,7 @@ if not os.path.exists('vignette_soft.png'):
 VIG = ('[v0]format=gbrp[v0f];[vg]format=gbrp[vgf];'
        '[v0f][vgf]blend=all_mode=multiply,format=yuv420p')
 
-def cover_chain(w, h, ox=0.5, oy=0.5):
+def cover_chain(w, h, ox=0.5, oy=0.5, ar=None):
     """Cover-crop; ox/oy place the window inside the overflow (0 = left/top, 1 = right/bottom).
     A centred 9:16 window of a 16:9 clip slices whatever sits at the sides -- the conveyor's
     'MEAL PLANS' sign read 'ME / PLA' centred (audit, 2026-09-03)."""
@@ -161,7 +161,7 @@ def cover_chain(w, h, ox=0.5, oy=0.5):
 NARROW = {'ai_women_pool': 0.80, 'ai_respect_gym': 0.80, 'ai_beachrun': 0.80,
           'ai_busydad': 0.80, 'bodybuilder': 0.80, 'outdoor_abs': 4/3}
 
-def still_chain(w, h, nfr, amt=0.055, ox=0.5, oy=0.5):
+def still_chain(w, h, nfr, amt=0.055, ox=0.5, oy=0.5, ar=None):
     """A still must not sit dead-frozen: his photo cards all carry a slow push. ox/oy place the
     crop window in the overflow AND anchor the push (oy=0 keeps the top edge fixed, so a photo
     whose hair touches the top never loses the crown as it zooms)."""
@@ -178,7 +178,9 @@ def push_z_expr(t0, t1):
     for a1, a2, b1, b2 in beats.PUSHES:
         if b2 <= t0 or a1 >= t1: continue
         kin  = '1' if a2 <= a1 else f'clip(({T}-{a1:.3f})/{a2-a1:.4f},0,1)'
-        kout = '0' if b2 <= b1 else f'clip(({T}-{b1:.3f})/{b2-b1:.4f},0,1)'
+        # a2 <= a1: an INSTANT punch-in on frame a1; b2 <= b1: an INSTANT pull-out on frame b1 (the kit's
+        # level step at a bare cut). The old '0' for b2 <= b1 meant a push with no ramp-out never ended.
+        kout = f'gte({T},{b1:.4f})' if b2 <= b1 else f'clip(({T}-{b1:.3f})/{b2-b1:.4f},0,1)'
         rs.append(f'(if(lt({T},{a1:.3f}),0,min({kin},1-{kout})))')
     if not rs: return None
     r = rs[0]
@@ -201,9 +203,11 @@ def media_input(key, nfr):
     return ['-ss', f'{spec[2]:.3f}', '-stream_loop', '4', '-i', spec[1]]
 
 def media_opts(key):
-    """Optional 5th field of a MEDIA entry: dict(ox=, oy=) crop placement."""
+    """Optional 5th field of a MEDIA entry: dict(ox=, oy=, amt=, ar=) crop placement / push / hole aspect."""
     spec = MEDIA[key]
-    return spec[4] if len(spec) > 4 and isinstance(spec[4], dict) else {}
+    o = dict(spec[4]) if len(spec) > 4 and isinstance(spec[4], dict) else {}
+    o.pop('ar', None) if False else None
+    return o
 
 def media_prefix(key):
     """A clip with a RATE is stretched (setpts) -- never looped to fill a beat."""
@@ -219,7 +223,9 @@ def media_ar(key):
                         '-show_entries','stream=width,height','-of','csv=p=0:s=x', MEDIA[key][1]],
                        capture_output=True, text=True).stdout.strip().split('\n')[0]
     w, h = (int(x) for x in o.split('x')[:2])
-    _AR[key] = NARROW.get(key, w/h)
+    # a media entry's opts may carry `ar`: the hole is sized to THAT aspect and the media cover-crops into
+    # it (kit9x16: the after-reveal recording's half-sliced header is cropped off with ar=0.86, oy=0.6)
+    _AR[key] = media_opts(key).get('ar') or NARROW.get(key, w/h)
     return _AR[key]
 
 def run(cmd):
@@ -249,7 +255,7 @@ def _track_sig(t0, t1):
     return hashlib.md5(json.dumps(sl).encode()).hexdigest()[:10]
 
 def _sig(b, nfr, t0):
-    v = 'v6-rev'   # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
+    v = 'v8-seek'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
     extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v}
     if b['kind'] == 'talk': extra['_trk'] = _track_sig(t0, b['t1'])
     # ⚠ the MEDIA entry (path, in-point, rate, crop placement) is part of what was rendered: a crop
@@ -258,6 +264,10 @@ def _sig(b, nfr, t0):
         if mk in b: extra['_' + mk] = repr(MEDIA[b[mk]])
     if b.get('chip_png') and os.path.exists(b['chip_png']):
         extra['_chip'] = hashlib.md5(open(b['chip_png'], 'rb').read()).hexdigest()[:10]
+    # ⚠ the PUSH SCHEDULE is part of what a talk segment rendered: a changed beats.PUSHES served stale
+    # segments until this was added (kit9x16, 2026-09-16)
+    if b['kind'] == 'talk':
+        extra['_pushes'] = [list(p) for p in beats.PUSHES if p[3] > t0 - 0.05 and p[0] < b['t1'] + 0.05]
     return json.dumps({k: v_ for k, v_ in sorted(b.items())} | extra, sort_keys=True, default=str)
 
 COMMON = lambda nfr, out: ['-r','30000/1001','-frames:v',str(nfr),'-c:v','libx264','-preset','medium',
@@ -271,6 +281,14 @@ def render_bleed_frames(key, n, out, amt=0.075):
     run([FF,'-v','error','-y'] + media_input(key, n) +
         ['-filter_complex', f'[0:v]{ch}[v]', '-map', '[v]'] + COMMON(n, out))
 
+def seek(t0):
+    """⚠ SNAP THE BASE SEEK HALF A FRAME EARLY. `-ss f'{t0:.4f}'` rounds UP past the frame's own pts on 19 of
+    51 beats of the kit's Ad 1 (the base pts sit on the exact N*1001/30000 grid; a 4-decimal seek that lands
+    a hair after it drops that frame), so those beats started ONE FRAME EARLY: every picture cut and every
+    push inside them sat one frame off the plan, and the watch pass's -1|0 pairs showed two frames from the
+    same side (measured 2026-09-16, kit9x16). The seek now lands 0.4 frame before the wanted frame."""
+    return f'{(round(t0 * FPS) - 0.4) / FPS:.5f}'
+
 def render_segment(i, b, nfr, t0):
     out = f'out/s{i:03d}.mp4'
     man = out + '.sig'
@@ -280,7 +298,7 @@ def render_segment(i, b, nfr, t0):
     k, dur = b['kind'], nfr/FPS
     common = COMMON(nfr, out)
     if k == 'talk':
-        run([FF,'-v','error','-y','-ss',f'{t0:.4f}','-i',BASE,
+        run([FF,'-v','error','-y','-ss',seek(t0),'-i',BASE,
              '-loop','1','-framerate','30000/1001','-i','vignette.png',
              '-filter_complex', f'[0:v]{talk_chain(t0, b["t1"])}[v0];'
                                 f'[1:v]scale={VW}:{VH}[vg];{VIG}'] + common)
@@ -288,8 +306,12 @@ def render_segment(i, b, nfr, t0):
         return
     if k == 'bleed':
         isimg = MEDIA[b['media']][0] == 'img'; o = dict(media_opts(b['media'])); amt = o.pop('amt', 0.075)
+        vpush = dict(media_opts(b['media'])).get('amt')
         bchain = (still_chain(VW, VH, nfr, amt=amt, **o) if isimg
-                  else media_prefix(b['media']) + cover_chain(VW, VH, **o) + ',unsharp=5:5:0.4:5:5:0.0')
+                  else media_prefix(b['media']) + cover_chain(VW, VH, **o) + ',unsharp=5:5:0.4:5:5:0.0'
+                  + (f",zoompan=z='1+{vpush:.4f}*on/{max(1,nfr-1)}':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)/2':d=1:s={VW}x{VH}:fps=30000/1001" if vpush else ''))
+        # ^ a screen recording holds still for seconds at a time (the kit's Ad 1: 1.53 s frozen at the app's
+        #   upload screen once the captions over it were removed); `amt` on a VIDEO entry gives it the slow push
         lab = b.get('label')
         # ⚠ A LABEL IS PLACED BY MEASURING HIM, NEVER AT A FIXED y (Dan, 2026-09-12: never over his face,
         # never over his abs). A beat may carry `chip_png`: a full-frame RGBA layer whose position was
@@ -390,7 +412,7 @@ def render_segment(i, b, nfr, t0):
     if 'dan' in holes:
         x, y, w, h = hole_args('dan')
         cw, ch, cx, cy = vlib.window_crop(h)
-        ins += ['-ss', f'{t0:.4f}', '-i', BASE]
+        ins += ['-ss', seek(t0), '-i', BASE]
         prep.append(f'[{idx}:v]setpts=PTS-STARTPTS,crop={cw}:{ch}:{cx}:{cy},'
                     f'scale={w}:{h}:flags=lanczos,unsharp=5:5:0.5:5:5:0.0,setsar=1[m{idx}]')
         over.append((idx, x, y)); idx += 1
@@ -408,7 +430,15 @@ def render_segment(i, b, nfr, t0):
     last = 'bg'
     for n, (j, x, y) in enumerate(over):
         fc.append(f'[{last}][m{j}]overlay={x}:{y}[u{n}]'); last = f'u{n}'
-    fc.append(f'[{last}][{idx}:v]overlay=0:0:shortest=1')
+    if k == 'title':
+        # NOTHING in his render sits still: his title card measures 0/101 static frames (shortad [A3].6).
+        # The attempt-3 renderer gave the title card a slow whole-frame push; V2 had dropped it and the
+        # kit's first watch pass read the 4 s title beat as a 2.84 s frozen run. Same push, restored.
+        fc.append(f'[{last}][{idx}:v]overlay=0:0:shortest=1,'
+                  f"zoompan=z='1+0.028*on/{max(1,nfr-1)}':x='(iw-iw/zoom)/2':"
+                  f"y='(ih-ih/zoom)/2':d=1:s={VW}x{VH}:fps=30000/1001")
+    else:
+        fc.append(f'[{last}][{idx}:v]overlay=0:0:shortest=1')
     run([FF,'-v','error','-y'] + ins + ['-filter_complex', ';'.join(fc)] + common)
     open(man, 'w').write(_sig(b, nfr, t0))
 

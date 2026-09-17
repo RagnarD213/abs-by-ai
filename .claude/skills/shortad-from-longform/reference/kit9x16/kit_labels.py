@@ -105,7 +105,10 @@ def head_box(m):
     return int(hs.min()), int(y0), int(hs.max()), int(y0 + 0.12 * VH)
 
 
-def choose(label, union, hbox):
+def candidates(label, union, hbox):
+    """Every clear placement worth trying, in preference order: class A (above the head) before B (beside
+    it) before C (anywhere clear), bigger type before fewer lines; per (class, size, lines) the best
+    position plus mirrored / lower alternates, because the VALIDATION below can refuse the first."""
     hx0, hy0, hx1, hy1 = hbox
     hcx = (hx0 + hx1) / 2
     dil = dilate(union, CLEAR)
@@ -114,11 +117,12 @@ def choose(label, union, hbox):
     def clear(x, y, w, h):
         return ii[y + h, x + w] - ii[y, x + w] - ii[y + h, x] + ii[y, x] == 0
     lines_opts = (1, 2, 3) if label == REAL_LABEL else (1,)
+    out = []
     for cls in ("A", "B", "C"):
         for size in (44, 40, 36, 34, 32, 30, 28):
             for lines in lines_opts:
                 w, h = chip_dims(label, lines, size)
-                best = None
+                found = []
                 for y in range(TOP_SAFE, CHIP_BOTTOM_MAX - h + 1, 6):
                     for x in range(40, VW - 40 - w + 1, 6):
                         if not clear(x, y, w, h):
@@ -130,11 +134,43 @@ def choose(label, union, hbox):
                         if cls == "B" and not beside:
                             continue
                         cost = abs(x + w / 2 - hcx) + (0 if cls == "A" else 0.5 * y)
-                        if best is None or cost < best[0]:
-                            best = (cost, x, y)
-                if best:
-                    return dict(cls=cls, lines=lines, size=size, x=best[1], y=best[2], w=w, h=h)
-    return None
+                        found.append((cost, x, y))
+                found.sort()
+                picked = []
+                for cost, x, y in found:                      # the best, then alternates at least 150 px away
+                    if all(abs(x - px) + abs(y - py) >= 150 for _, px, py in picked):
+                        picked.append((cost, x, y))
+                    if len(picked) >= 3:
+                        break
+                for cost, x, y in picked:
+                    out.append(dict(cls=cls, lines=lines, size=size, x=x, y=y, w=w, h=h))
+    return out
+
+
+def validate(label, c, frames, tag):
+    """⚠ VALIDATE WITH THE CHIP IN THE FRAME. The gate's compliance:labels row person-masks the DELIVERED
+    frame, chip and all, and Apple Vision absorbs a dark chip into the person on some pictures (the kit's
+    first Ad 1 render: `today_towel` read 33,275 px of contact = the whole chip box, at a placement that
+    is 16 px clear of him on the chip-less frame). A placement only counts if the segmenter still reads
+    the chip box as clear WITH the chip drawn, on the first, middle and last frames of the beat."""
+    d = f"labels/_val_{tag}"
+    shutil.rmtree(d, ignore_errors=True)
+    os.makedirs(d + "/m")
+    lay = chip_at(label, c["x"], c["y"], c["lines"], c["size"])
+    ps = []
+    for i, f in enumerate(frames):
+        im = Image.open(f).convert("RGBA")
+        im.alpha_composite(lay)
+        q = f"{d}/{i:02d}.png"
+        im.convert("RGB").save(q)
+        ps.append(q)
+    subprocess.run([PERSONMASK, f"{d}/m"] + ps, check=True, capture_output=True)
+    worst = 0
+    for q in ps:
+        m = np.array(Image.open(f"{d}/m/" + os.path.basename(q).replace(".png", ".mask.png")).convert("L").resize((VW, VH))) > 127
+        worst = max(worst, int(dilate(m, VERIFY_PX)[c["y"]:c["y"] + c["h"], c["x"]:c["x"] + c["w"]].sum()))
+    shutil.rmtree(d, ignore_errors=True)
+    return worst
 
 
 def render_beats(build, idxs):
@@ -178,14 +214,21 @@ def place(build):
         if union.sum() < 2000:
             raise SystemExit(f"{key}: the person mask found nobody in the beat -- is this a picture of Dan?")
         hb = head_box(union)
-        c = choose(label, union, hb)
+        c, tried = None, []
+        probe = [fs[0], fs[len(fs) // 2], fs[-1]]
+        for cand in candidates(label, union, hb)[:24]:
+            contact = validate(label, cand, probe, key)
+            tried.append((cand["cls"], cand["lines"], cand["size"], cand["x"], cand["y"], contact))
+            if contact == 0:
+                c = cand
+                break
         if not c:
-            raise SystemExit(f"{key}: no clear placement at any size -- pick a different picture (Dan prefers a correct "
-                             "different picture over a cropped right one)")
+            raise SystemExit(f"{key}: no placement the segmenter reads as clear with the chip drawn (tried {tried[:8]}...) -- "
+                             "pick a different picture (Dan prefers a correct different picture over a cropped right one)")
         lay = chip_at(label, c["x"], c["y"], c["lines"], c["size"])
         png = os.path.abspath(f"labels/chip_{key}.png")
         lay.save(png)
-        res[key] = dict(c, beat=[b["t0"], b["t1"]], head=hb, label=label, png=png,
+        res[key] = dict(c, beat=[b["t0"], b["t1"]], head=hb, label=label, png=png, tried=tried,
                         body=[int(v) for v in (np.nonzero(union)[1].min(), np.nonzero(union)[0].min(),
                                                np.nonzero(union)[1].max(), np.nonzero(union)[0].max())])
         for jb in J["beats"]:
