@@ -1,10 +1,14 @@
 {
-  "date": "2026-09-15",
-  "order": [],
+  "date": "2026-09-17",
+  "order": [
+    "money::Write and record a video sales letter (VSL) for /start — cold-traffic version",
+    "money::Do the hard part of the filming room setup yourself (mounting, lights, backdrop, power) — leave the finishing for Brittany Friday",
+    "money::Review the Codex video-editing trial Phase 06 deliverables (two unseen videos: organic + ad)",
+    "money::Check ad campaigns (Google Ads policy on Ads 6/7/10/14, spend and conversions; Meta)"
+  ],
   "excluded": [
     "money::Review Zeeshan video",
-    "money::Make the AI Trainer recovery-aware: scale volume from last night's Oura sleep/HRV",
-    "money::Write and record a video sales letter (VSL) for /start — cold-traffic version"
+    "money::Make the AI Trainer recovery-aware: scale volume from last night's Oura sleep/HRV"
   ],
   "sessionsCompleted": 0
 }
