@@ -89,6 +89,8 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
+**DS-17 ACTIVE 2026-09-17, Codex.** 45.18s cut/covers built in `/Volumes/Extreme/_edit_work/ds-17/`; visual audit clean. Audio gate conflicts with untreated source; Dan review exception requested. Next: caption timing check when a processing slot frees, then phone copy and review delivery.
+
 **DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
 
 **Daily abs Short cover concepts — REVIEW 2026-09-16, owner: Codex cover design task.** Revision 2 delivered: 12 F options (three new photos × four palettes), six B palettes; all mockups omit real-photo labels and URLs. Picks: FB1/FB2 and B1/B3. Gallery: http://127.0.0.1:8821/revision-2/. Private Drive backup verified. Next: Dan chooses a direction. Files: `output/thumbnails/short-Ub0BV4m5lMQ-20260916/revision-2/`.
