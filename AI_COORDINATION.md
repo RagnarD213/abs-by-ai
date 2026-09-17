@@ -96,7 +96,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-17 REVIEW 2026-09-17, Codex.** Flagged review authorized/delivered; audio FAIL preserved. Await Dan’s feedback. Files: `Short-form video content/ds-17-support/`.
+**DS-17 HANDOFF 2026-09-17, Codex.** Ownership released. Full-screen jump-rope opening + better audio; freeze R3 first. `Handoffs/video-editing/DS-17-R4-opening-and-audio.md`. Not finalized.
 
 **DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
 
