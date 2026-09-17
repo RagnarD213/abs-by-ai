@@ -308,14 +308,22 @@ def main():
             call("DELETE", f"/schedules/{r['id']}", key)
             print("   deleted old (backup on disk)")
             call("POST", "/posts", key, body)
-            time.sleep(3)
-            after = fetch_schedules(key)
-            new = [s for s in after
-                   if s["draft"]["accountId"] == TIKTOK and s["scheduledAt"] == it["scheduledAt"]
-                   and s["draft"]["content"].get("mediaUrls") == [new_url]
-                   and s["draft"]["target"].get("videoCoverTimestamp") == 0]
+            # Blotato's schedule list lags its own create. A single read 3 s later reported
+            # "not found" for 6 of 21 posts on 2026-09-17 that had in fact all been created --
+            # an alarming false failure that invites a human to double-create. Poll instead.
+            new = []
+            for attempt in range(8):
+                time.sleep(3)
+                new = [s for s in fetch_schedules(key)
+                       if s["draft"]["accountId"] == TIKTOK
+                       and s["scheduledAt"] == it["scheduledAt"]
+                       and s["draft"]["content"].get("mediaUrls") == [new_url]
+                       and s["draft"]["target"].get("videoCoverTimestamp") == 0]
+                if new:
+                    break
             if not new:
-                print(f"   !! not found -- replay {BACKUP}/{r['id']}.json by hand")
+                print(f"   !! still not visible after 24 s -- CHECK THE QUEUE BEFORE RETRYING "
+                      f"(it may exist); backup {BACKUP}/{r['id']}.json")
                 continue
             print(f"   verified new schedule {new[0]['id']}, cover pinned at frame 0")
 
