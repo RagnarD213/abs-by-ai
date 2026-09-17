@@ -1,6 +1,9 @@
 # Overnight edit queue — keep two video builds running while Dan is away
 
-**Written 2026-09-17 (Claude, Fable 5.1) from a design discussion with Dan. Not executed.**
+**Written 2026-09-17 (Claude, Fable 5.1) from a design discussion with Dan.**
+**STATUS 2026-09-17: Phase 1 BUILT and installed PAUSED; Phase 0 HALF proven (Codex yes, Claude blocked on Dan's
+one-time sign-in). Phase 2 not started. What was built, the proven launch commands and the open ends:
+`scripts/edit-queue/README.md`. Remaining before un-pausing: §8a below.**
 This is a BUILD handoff for the automation, not an editing job. It is ops/tooling work, so by Dan's 09-15 split it
 goes to **Codex**. One build session for Phases 0–1, a second for Phase 2.
 
@@ -190,6 +193,19 @@ waiting for a human, state and logs correct, no third build started, nothing upl
 review page. Cap 2–3 launches per night, size S only. Acceptance: unit tests for slot counting, double-claim,
 stale claim, every stop condition and routing; a dry-run mode (`--dry-run` prints what it would launch); three
 consecutive clean nights.
+
+### 8a. Where Phases 0–1 stand (2026-09-17)
+* **Codex headless: proven** on a permissions smoke test (work drive, project ffmpeg, `queue.py`, Drive via rclone,
+  no prompt) with `-s workspace-write`, approvals `never`, network on, and the work dir + `~/.config/rclone` +
+  `~/.cache` writable. A full raw job (**DS-01**, no AI slots) is queued to fire through `dispatcher.py launch-one`
+  as soon as a build slot is free; its result lands on the review page and in `scoreboard.json`.
+* **Claude headless: NOT proven.** `claude auth status` says signed out. Dan runs the binary once and types `/login`.
+  Then: `python3 scripts/edit-queue/dispatcher.py launch-one AV-01` (the pilot job), read
+  `/Volumes/Extreme/_edit_work/AV-01/queue-run.log`, and fix the flags in `config.json` if anything prompted.
+* **Un-pause only after that run is clean:** `python3 scripts/edit-queue/dispatcher.py resume`. Then the three
+  clean nights start counting.
+* Tests: 41 unit + 3 end-to-end (fake editor) pass. One real bug found by the first real launch and fixed with a
+  test: a job's own output path was read as a missing source.
 
 **Phase 2 — placeholder flow.** `draft_review` and `frames_approved` states, `placeholders.json`, still-frame
 placeholder rendering in the Codex ad/organic/shorts pipelines, the frame picker on the review page, night-2

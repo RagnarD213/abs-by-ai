@@ -28,6 +28,20 @@ updates its status at the moments below.** The record lives in three places, and
 square/vertical of an ad maps to its `AV-`/`AS-` job. If the video isn't on the list (e.g. an editor's own 16:9 final),
 there's nothing to update. If a finalized ad now owes variants (Ads 8, 9, 13, 15), add its AV/AS jobs (below).
 
+| the overnight queue finds a claim with no heartbeat for 45 min and a dead process | `stalled` | the dispatcher only |
+
+**`stalled` is never restarted automatically.** Look at the job's work directory first, then
+`queue.py release <ID>` and `queue.py set <ID> ready` (or `needs`).
+
+## The overnight queue (2026-09-17)
+
+`scripts/edit-queue/dispatcher.py` launches jobs unattended every 15 minutes and its runner sets `in_progress`,
+`delivered` and `needs` itself. **A session launched by the queue does not set `delivered`**: it writes
+`DELIVERY.json` in its work directory and the runner sets the state after the cross-review. Routing, stop
+conditions, the pause switch and the launch commands: `scripts/edit-queue/README.md`. A hand-fired session follows
+the table above as before; while it builds, the dispatcher counts it toward the two-build cap and keeps out of any
+job that has a work directory or a line in `AI_COORDINATION.md` ACTIVE.
+
 ## How (Claude session)
 
 ```bash

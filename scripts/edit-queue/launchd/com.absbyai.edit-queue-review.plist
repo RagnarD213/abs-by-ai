@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Dan's review page at http://127.0.0.1:8830, kept running. Template: install.sh fills __ROOT__ and __HOME__. -->
+<plist version="1.0"><dict>
+  <key>Label</key><string>com.absbyai.edit-queue-review</string>
+  <key>ProgramArguments</key><array>
+    <string>/usr/bin/python3</string><string>__ROOT__/scripts/edit-queue/review_page.py</string><string>serve</string>
+  </array>
+  <key>WorkingDirectory</key><string>__ROOT__</string>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>ProcessType</key><string>Background</string>
+  <key>EnvironmentVariables</key><dict>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:__HOME__/bin</string>
+  </dict>
+  <key>StandardOutPath</key><string>__HOME__/Library/Logs/absbyai-edit-queue/review-page.log</string>
+  <key>StandardErrorPath</key><string>__HOME__/Library/Logs/absbyai-edit-queue/review-page.log</string>
+</dict></plist>

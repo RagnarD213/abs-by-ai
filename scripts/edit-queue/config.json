@@ -1,0 +1,83 @@
+{
+  "_readme": "Every number and the routing table for the overnight edit queue. Dan's decisions live here so one row can be flipped without touching code. Procedure: scripts/edit-queue/README.md.",
+
+  "routing": {
+    "_decided": "Dan, 2026-09-17. A fixed rule, not an A/B test. No automatic re-routing: a change is Dan's call.",
+    "RA": "codex",
+    "RO": "codex",
+    "DS": "codex",
+    "AV": "claude",
+    "AS": "claude",
+    "SL": "claude"
+  },
+  "not_queued": ["RX"],
+
+  "unattended": {
+    "_why": "Phase 1 pilot: jobs with no AI-clip slots, small only. Widen in Phase 3, after Phase 2 builds the placeholder flow for raw cuts.",
+    "groups": ["AV", "AS", "SL"],
+    "sizes": ["S"],
+    "launch_states": ["frames_approved", "ready"],
+    "nightly_launch_cap": 3,
+    "night_rolls_over_at_hour": 12
+  },
+
+  "slots": {
+    "max": 2,
+    "when_dan_is_at_the_machine": 1,
+    "dan_idle_minutes": 10
+  },
+
+  "stop": {
+    "review_queue_limit": 4,
+    "review_queue_states": ["delivered", "draft_review"],
+    "volume": "/Volumes/Extreme",
+    "min_free_gb": 150,
+    "usage_backoff_hours": 2
+  },
+
+  "claims": {
+    "stale_minutes": 45,
+    "heartbeat_minutes": 5,
+    "max_job_hours": 10
+  },
+
+  "review": {
+    "auto_revision_rounds": 1,
+    "reviewer_for": {"codex": "claude", "claude": "codex"}
+  },
+
+  "paused_groups": [],
+
+  "work_root": "/Volumes/Extreme/_edit_work",
+
+  "executors": {
+    "codex": {
+      "_proven": "2026-09-17 smoke test: write to the work dir, project ffmpeg, queue.py, rclone to Drive, all with no prompt. workspace-write blocks rclone's token refresh unless ~/.config/rclone is writable. If a full edit hits a sandbox wall, set sandbox to danger-full-access, which is what Dan's own ~/.codex/config.toml already uses.",
+      "binary": "/Applications/ChatGPT.app/Contents/Resources/codex",
+      "sandbox": "workspace-write",
+      "extra_writable_dirs": ["~/.config/rclone", "~/.cache"],
+      "model": "",
+      "auth_check": null
+    },
+    "claude": {
+      "_unproven": "2026-09-17: the binary answers 'Not logged in'. Dan signs in once (run the binary in Terminal, /login). The flags below are what this project's settings.local.json already grants (bypassPermissions) plus a deny list; they have NOT been run on a full job yet.",
+      "binary_glob": "~/Library/Application Support/Claude/claude-code/*/claude.app/Contents/MacOS/claude",
+      "permission_mode": "bypassPermissions",
+      "model": "fable",
+      "effort": "high",
+      "no_mcp_servers": true,
+      "disallowed_tools": [
+        "Bash(node scripts/youtube/*)",
+        "Bash(python3 scripts/blotato/*)",
+        "Bash(node scripts/ads/*)"
+      ],
+      "reviewer_agent": "ra-reviewer",
+      "auth_check": ["auth", "status"]
+    }
+  },
+
+  "usage_limit_patterns": [
+    "usage limit", "rate limit", "limit reached", "hit your limit", "quota exceeded", "try again at", "out of credits"
+  ],
+  "auth_failure_patterns": ["Not logged in", "Please run /login", "not signed in", "401 Unauthorized"]
+}

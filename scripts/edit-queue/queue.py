@@ -15,12 +15,18 @@ the page's fallback when a viewer's Drive connector isn't available.
   queue.py push                          # re-upload the Drive status file
   queue.py show ID
 
-States: ready, needs, blocked, in_progress, delivered, finalized, uploaded.
+Overnight-queue commands (scripts/edit-queue/README.md). A claim is what holds one of the two build slots:
+  queue.py claim AV-01 --by codex --pid 1234   # atomic; refuses a job with a live claim or a non-launchable state
+  queue.py heartbeat AV-01                     # the runner touches this every few minutes (no Drive push, no rev bump)
+  queue.py release AV-01                       # drop the claim, leave the state alone
+  queue.py stall AV-01 --note "why"            # state -> stalled, claim kept for the record; never auto-restarted
+
+States: ready, needs, blocked, in_progress, delivered, finalized, uploaded, stalled.
 """
-import argparse, datetime, json, os, re, sys, tempfile
+import argparse, contextlib, datetime, fcntl, json, os, re, sys, tempfile
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-DIR = os.path.join(ROOT, "Handoffs", "video-editing")
+DIR = os.environ.get("EDIT_QUEUE_DIR") or os.path.join(ROOT, "Handoffs", "video-editing")  # env override: tests only
 JOBS = os.path.join(DIR, "jobs.json")
 MASTER = os.path.join(DIR, "00-MASTER.md")
 EXPORT = os.path.join(ROOT, "tmp", "edit-queue-export")  # git-ignored; Artifact file_path must sit under the repo
@@ -28,7 +34,10 @@ STATES = {
     "ready": "READY", "needs": "**NEEDS DAN**", "blocked": "BLOCKED",
     "in_progress": "IN PROGRESS", "delivered": "DELIVERED — awaiting Dan",
     "finalized": "FINALIZED", "uploaded": "UPLOADED",
+    "stalled": "**STALLED — needs a look**",
 }
+LAUNCHABLE = ("frames_approved", "ready")   # frames_approved arrives with Phase 2; it goes first
+LOCK = os.path.join(DIR, ".jobs.lock")
 RCLONE = os.path.expanduser("~/bin/rclone")
 DRIVE_PATH = "gdrive:Abs By AI automation/edit-queue-status.json"   # Drive file id 1RX-GqepEKqB1LgJqJFRyRU2lOJMnRFgg
 DB_FIELDS = ("id", "list", "group", "sub", "title", "roll", "size", "file", "claudeModel", "claude",
@@ -41,9 +50,57 @@ def load():
 
 
 def save(data):
-    with open(JOBS, "w") as f:
+    tmp = JOBS + ".tmp"          # atomic: a reader never sees a half-written list
+    with open(tmp, "w") as f:
         json.dump(data, f, indent=1, ensure_ascii=False)
         f.write("\n")
+    os.replace(tmp, JOBS)
+
+
+@contextlib.contextmanager
+def locked():
+    """One writer at a time: the dispatcher, a runner's heartbeat and an editing session all write jobs.json."""
+    with open(LOCK, "w") as fh:
+        fcntl.flock(fh, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(fh, fcntl.LOCK_UN)
+
+
+def now_iso():
+    return datetime.datetime.now().isoformat(timespec="seconds")
+
+
+def pid_alive(pid):
+    try:
+        os.kill(int(pid), 0)
+    except (OSError, ValueError, TypeError):
+        return False
+    return True
+
+
+def claim_is_live(job, now=None, stale_minutes=45, alive=pid_alive):
+    """A claim holds a slot until it is released. It only goes STALE when the heartbeat is older than
+    `stale_minutes` AND the pid is gone: a session that is thinking for an hour is still a live build."""
+    c = job.get("claim")
+    if not c:
+        return False
+    now = now or datetime.datetime.now()
+    beat = datetime.datetime.fromisoformat(c.get("heartbeat") or c["started"])
+    return alive(c.get("pid")) or (now - beat) < datetime.timedelta(minutes=stale_minutes)
+
+
+def claim_job(data, jid, by, pid, states=LAUNCHABLE):
+    """Claim first, launch second. Returns (ok, reason). Caller holds `locked()` and saves."""
+    j = find(data, jid)
+    if j.get("claim"):
+        return False, f"{jid} already has a claim by {j['claim'].get('by')} (pid {j['claim'].get('pid')})"
+    if j["state"] not in states:
+        return False, f"{jid} is {j['state']}, not one of {list(states)}"
+    t = now_iso()
+    j["claim"] = {"by": by, "pid": int(pid), "started": t, "heartbeat": t}
+    return True, "claimed"
 
 
 def find(data, jid):
@@ -77,6 +134,8 @@ def push_drive(data):
         json.dump({"schema": 1, "generated": datetime.datetime.now().isoformat(timespec="seconds"),
                    "jobs": [{k: j.get(k, "") for k in DB_FIELDS} for j in data["jobs"]]}, f, ensure_ascii=False)
     import subprocess
+    if os.environ.get("EDIT_QUEUE_NO_DRIVE"):   # tests
+        return True
     try:
         r = subprocess.run([RCLONE, "copyto", path, DRIVE_PATH], capture_output=True, text=True, timeout=120)
         ok = r.returncode == 0
@@ -108,17 +167,34 @@ def main():
     m = sub.add_parser("mark-synced"); m.add_argument("ids", nargs="+")
     sh = sub.add_parser("show"); sh.add_argument("id")
     sub.add_parser("push")
+    c = sub.add_parser("claim"); c.add_argument("id"); c.add_argument("--by", required=True)
+    c.add_argument("--pid", type=int, required=True)
+    sub.add_parser("heartbeat").add_argument("id")
+    sub.add_parser("release").add_argument("id")
+    st = sub.add_parser("stall"); st.add_argument("id"); st.add_argument("--note", default="")
     args = ap.parse_args()
+    if args.cmd in ("show", "pending", "export", "push"):
+        return run(args)
+    with locked():
+        return run(args)
+
+
+def set_state(data, jid, state, by="", note=None):
+    j = find(data, jid)
+    j["state"] = state
+    if note is not None:
+        j["note"] = note
+    j["updated"] = datetime.date.today().isoformat()
+    j["by"] = by
+    j["rev"] = j.get("rev", 0) + 1
+    return j
+
+
+def run(args):
     data = load()
 
     if args.cmd == "set":
-        j = find(data, args.id)
-        j["state"] = args.state
-        if args.note is not None:
-            j["note"] = args.note
-        j["updated"] = datetime.date.today().isoformat()
-        j["by"] = args.by
-        j["rev"] = j.get("rev", 0) + 1
+        j = set_state(data, args.id, args.state, args.by, args.note)
         save(data)
         row = master_status(args.id, STATES[args.state])
         print(f"{args.id} -> {args.state} (rev {j['rev']}); 00-MASTER.md row {'updated' if row else 'NOT FOUND'}")
@@ -155,6 +231,28 @@ def main():
         print("synced:", args.ids)
     elif args.cmd == "push":
         push_drive(data)
+    elif args.cmd == "claim":
+        ok, why = claim_job(data, args.id, args.by, args.pid)
+        if ok:
+            save(data)
+        print(why)
+        sys.exit(0 if ok else 3)
+    elif args.cmd == "heartbeat":
+        j = find(data, args.id)
+        if not j.get("claim"):
+            sys.exit(f"{args.id} has no claim")
+        j["claim"]["heartbeat"] = now_iso()
+        save(data)
+    elif args.cmd == "release":
+        find(data, args.id).pop("claim", None)
+        save(data)
+        print(f"{args.id}: claim released")
+    elif args.cmd == "stall":
+        j = set_state(data, args.id, "stalled", "edit-queue dispatcher", args.note or None)
+        save(data)
+        master_status(args.id, STATES["stalled"])
+        push_drive(data)
+        print(f"{args.id} -> stalled. Never auto-restarted: look at its work directory first, then `queue.py release` + `set ... ready`.")
     elif args.cmd == "show":
         print(json.dumps(find(data, args.id), indent=1, ensure_ascii=False))
 

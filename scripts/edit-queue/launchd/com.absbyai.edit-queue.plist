@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Overnight edit queue: one dispatcher tick every 15 minutes. Template: install.sh fills __ROOT__ and __HOME__. -->
+<plist version="1.0"><dict>
+  <key>Label</key><string>com.absbyai.edit-queue</string>
+  <key>ProgramArguments</key><array>
+    <string>/usr/bin/python3</string><string>__ROOT__/scripts/edit-queue/dispatcher.py</string><string>tick</string>
+  </array>
+  <key>WorkingDirectory</key><string>__ROOT__</string>
+  <key>StartInterval</key><integer>900</integer>
+  <key>RunAtLoad</key><true/>
+  <key>ProcessType</key><string>Background</string>
+  <key>AbandonProcessGroup</key><true/>
+  <key>EnvironmentVariables</key><dict>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:__HOME__/bin:__HOME__/.npm-global/bin</string>
+  </dict>
+  <key>StandardOutPath</key><string>__HOME__/Library/Logs/absbyai-edit-queue/dispatcher.log</string>
+  <key>StandardErrorPath</key><string>__HOME__/Library/Logs/absbyai-edit-queue/dispatcher.log</string>
+</dict></plist>

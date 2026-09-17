@@ -145,3 +145,12 @@ subscribers-data.json
 
 # edit queue artifact-sync exports (scripts/edit-queue/queue.py)
 tmp/edit-queue-export/
+
+# overnight edit queue: runtime files (scripts/edit-queue/README.md)
+scripts/edit-queue/PAUSE
+scripts/edit-queue/.installed-once
+scripts/edit-queue/review-snapshot.html
+scripts/edit-queue/scoreboard.json.lock
+scripts/edit-queue/*.tmp
+Handoffs/video-editing/.jobs.lock
+Handoffs/video-editing/jobs.json.tmp

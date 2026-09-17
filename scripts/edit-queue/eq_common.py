@@ -1,0 +1,222 @@
+#!/usr/bin/env python3
+"""Shared pieces of the overnight edit queue: config, routing, executor commands, the scoreboard.
+
+Nothing here decides anything. `dispatcher.py` decides what to launch, `runner.py` runs one job, and
+`queue.py` stays the only writer of job state. Procedure and the plain-language tour: README.md here.
+
+⚠ This folder holds a file named queue.py, which shadows Python's standard `queue` module for any script
+started from here (logging.handlers and concurrent.futures import it). Every script in this folder calls
+`unshadow()` first and loads its siblings with `sibling()`, never with a bare `import queue`.
+"""
+import contextlib, datetime, fcntl, glob, importlib.util, json, os, re, sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
+CONFIG = os.environ.get("EDIT_QUEUE_CONFIG") or os.path.join(HERE, "config.json")   # env override: tests only
+SCOREBOARD = os.environ.get("EDIT_QUEUE_SCOREBOARD") or os.path.join(HERE, "scoreboard.json")
+PAUSE_FILE = os.path.join(HERE, "PAUSE")
+PREAMBLE = os.path.join(HERE, "preamble.md")
+REVIEWER_BRIEF = os.path.join(HERE, "reviewer-brief.md")
+
+
+def unshadow():
+    sys.path[:] = [p for p in sys.path if os.path.abspath(p or os.getcwd()) != HERE]
+
+
+def sibling(name):
+    """Load scripts/edit-queue/<name>.py under the module name eq_<name>."""
+    alias = "eq_" + name
+    if alias in sys.modules:
+        return sys.modules[alias]
+    spec = importlib.util.spec_from_file_location(alias, os.path.join(HERE, name + ".py"))
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[alias] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def load_config(path=None):
+    with open(path or CONFIG) as f:
+        return json.load(f)
+
+
+def save_config(cfg, path=None):
+    path = path or CONFIG
+    with open(path + ".tmp", "w") as f:
+        json.dump(cfg, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+    os.replace(path + ".tmp", path)
+
+
+# ---------------------------------------------------------------- routing
+
+def group_of(job_id):
+    return job_id.split("-")[0].upper()
+
+
+def executor_for(job_id, cfg):
+    """Dan's routing table. None = this group is never launched by the queue (RX, or an unknown prefix)."""
+    g = group_of(job_id)
+    if g in cfg.get("not_queued", []):
+        return None
+    ex = cfg["routing"].get(g)
+    return ex if ex in cfg["executors"] else None
+
+
+def paused_reason(job_id, executor, cfg):
+    """Circuit breaker: a group paused for one executor (or for 'any')."""
+    for p in cfg.get("paused_groups", []):
+        if p.get("group") == group_of(job_id) and p.get("executor") in (executor, "any"):
+            return p.get("reason") or "paused"
+    return None
+
+
+# ---------------------------------------------------------------- work directories
+
+def work_dir(cfg, job_id):
+    return os.path.join(cfg["work_root"], job_id)
+
+
+def non_queue_files(path):
+    """Anything in a work directory that the queue itself did not write = a session started building there."""
+    try:
+        return [n for n in os.listdir(path) if not n.startswith(("queue-", "._", ".DS_Store"))]
+    except OSError:
+        return []
+
+
+def existing_work_dirs(cfg, job_id):
+    """Hand-fired jobs named their folders ra01, ds-17, AV-01. One with a build in it means: someone has
+    been here, so the queue keeps out. A folder holding only the queue's own logs does not count."""
+    want = {job_id.lower(), job_id.lower().replace("-", "")}
+    try:
+        names = os.listdir(cfg["work_root"])
+    except OSError:
+        return []
+    return [n for n in names if n.lower() in want and non_queue_files(os.path.join(cfg["work_root"], n))]
+
+
+# ---------------------------------------------------------------- executors
+
+def _version_key(path):
+    m = re.search(r"/claude-code/([0-9.]+)/", path)
+    return tuple(int(x) for x in m.group(1).split(".")) if m else ()
+
+
+def resolve_binary(executor, cfg):
+    ex = cfg["executors"][executor]
+    if ex.get("binary"):
+        return os.path.expanduser(ex["binary"])
+    # The desktop app's Claude Code lives in a versioned folder that changes on every app update.
+    hits = sorted(glob.glob(os.path.expanduser(ex["binary_glob"])), key=_version_key)
+    return hits[-1] if hits else None
+
+
+def build_command(executor, cfg, workdir, role="edit"):
+    """The exact argv that ran (Codex) or is expected to run (Claude) with no human prompt. Prompt goes on stdin."""
+    ex = cfg["executors"][executor]
+    binary = resolve_binary(executor, cfg)
+    if not binary:
+        raise FileNotFoundError(f"no {executor} binary found")
+    if executor == "codex":
+        cmd = [binary, "exec", "-C", ROOT, "-s", ex.get("sandbox", "workspace-write"),
+               "-c", 'approval_policy="never"', "-c", "sandbox_workspace_write.network_access=true",
+               "--add-dir", workdir]
+        for d in ex.get("extra_writable_dirs", []):
+            d = os.path.expanduser(d)
+            if os.path.isdir(d):
+                cmd += ["--add-dir", d]
+        if ex.get("model"):
+            cmd += ["-m", ex["model"]]
+        return cmd + ["-"]
+    cmd = [binary, "-p", "--permission-mode", ex.get("permission_mode", "bypassPermissions"),
+           "--add-dir", workdir, "--output-format", "text"]
+    if ex.get("model"):
+        cmd += ["--model", ex["model"]]
+    if ex.get("effort"):
+        cmd += ["--effort", ex["effort"]]
+    if ex.get("no_mcp_servers"):
+        cmd += ["--strict-mcp-config"]     # no connectors at all: nothing to post, send or upload with
+    if ex.get("disallowed_tools"):
+        cmd += ["--disallowedTools", ",".join(ex["disallowed_tools"])]
+    if role.startswith("review") and ex.get("reviewer_agent"):
+        cmd += ["--agent", ex["reviewer_agent"]]
+    return cmd
+
+
+def auth_ok(executor, cfg, run=None):
+    """Free sign-in check (no tokens). True / False, plus a sentence for the page."""
+    import subprocess
+    ex = cfg["executors"][executor]
+    binary = resolve_binary(executor, cfg)
+    if not binary or not os.path.exists(binary):
+        return False, f"{executor}: program not found"
+    if not ex.get("auth_check"):
+        return True, ""
+    try:
+        r = (run or subprocess.run)([binary] + ex["auth_check"], capture_output=True, text=True, timeout=30)
+        if json.loads(r.stdout).get("loggedIn"):
+            return True, ""
+        return False, f"{executor}: not signed in. Dan signs in once: run the program in Terminal and type /login"
+    except Exception as e:   # unreadable answer = not proven = not OK
+        return False, f"{executor}: sign-in check failed ({e!s:.80})"
+
+
+# ---------------------------------------------------------------- scoreboard
+
+@contextlib.contextmanager
+def _sb_lock():
+    with open(SCOREBOARD + ".lock", "w") as fh:
+        fcntl.flock(fh, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(fh, fcntl.LOCK_UN)
+
+
+def scoreboard_load():
+    if not os.path.exists(SCOREBOARD):
+        return {"schema": 1, "runs": []}
+    with open(SCOREBOARD) as f:
+        return json.load(f)
+
+
+def _sb_save(sb):
+    with open(SCOREBOARD + ".tmp", "w") as f:
+        json.dump(sb, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+    os.replace(SCOREBOARD + ".tmp", SCOREBOARD)
+
+
+def scoreboard_add(row):
+    with _sb_lock():
+        sb = scoreboard_load()
+        sb["runs"].append(row)
+        _sb_save(sb)
+
+
+def scoreboard_update(run_id, **fields):
+    with _sb_lock():
+        sb = scoreboard_load()
+        for r in sb["runs"]:
+            if r["run_id"] == run_id:
+                r.update(fields)
+        _sb_save(sb)
+
+
+def scoreboard_latest(job_id):
+    runs = [r for r in scoreboard_load()["runs"] if r["job"] == job_id]
+    return runs[-1] if runs else None
+
+
+def new_run_row(job, executor, cfg, now=None):
+    now = now or datetime.datetime.now()
+    return {
+        "run_id": f"{job['id']}-{now.strftime('%Y%m%d-%H%M%S')}", "job": job["id"], "group": group_of(job["id"]),
+        "title": job.get("title", ""), "size": job.get("size", ""), "executor": executor,
+        "reviewer": cfg["review"]["reviewer_for"].get(executor, ""), "started": now.isoformat(timespec="seconds"),
+        "ended": None, "wall_hours": None, "outcome": "running", "reviewer_verdicts": [],
+        "first_pass_gate": None, "revision_rounds": 0, "generation_spend_usd": None,
+        "dan_verdict": None, "dan_words": None, "systemic_reason": None, "corpus_entry": None,
+        "log": os.path.join(work_dir(cfg, job["id"]), "queue-run.log"),
+    }
