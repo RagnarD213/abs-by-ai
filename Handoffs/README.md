@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 148 documents (index regenerated 2026-09-11).
+Every handoff document for Abs By AI, in one place. 152 documents (index updated 2026-09-17).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,9 +13,12 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [Ad14 R4 — Dan speaking close-up and correct workout](codex-video-trial/06i-ad14-r4-dan-closeup-and-correct-workout.md) | **Ready, 2026-09-17 — Sol / High.** Use Dan speaking inside full YouTube page; use verified V4/V5 UPLOADED workout exports. Preserve explicitly approved R3 app demo and exact AAC. Supersedes executed 06g. |
+| [C1652 approved R4 — upload and setup](codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md) | **Ready, 2026-09-17 — Sol / Medium.** Exact master approved as is; thumbnail/package, YouTube Private holding upload and organic Blotato setup. Supersedes completed06h; do not reopen editing. |
 | **[video-editing/00-MASTER.md](video-editing/00-MASTER.md)** | **THE master list of video-editing work (2026-09-16)** — 69 job docs (raw first cuts, dedicated shorts, shorts from long-forms, ad verticals/squares), each with Claude + Codex starter prompts; shared rules `video-editing/00-RULES.md`. Supersedes the ad-variants master queue. |
+| [handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md](handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md) | **ready, phone-only — Dan fires it once he has walked away from the computer AND the phone.** Two jobs over iPhone Mirroring: (A) delete the Ad 5 TikTok post `7686132607964269855` — an ad that went out organically; TikTok's web Studio greys out Delete on "Promotional content", the app allows it. (B) install the designed cover on the 2 published TikToks still inside TikTok's 7-day edit window (Sep 12 milk, closes **Sep 19 22:00 UTC**; Sep 15 train-abs, closes **Sep 22 22:00 UTC**) — both images already imported to Photos. Three other posts are out of reach (one expired, two never had a cover). Sonnet 5 or Fable 5.1 / Medium |
 | [handoff-20260917-overnight-edit-queue.md](handoff-20260917-overnight-edit-queue.md) | **Phase 1 BUILT 2026-09-17, installed PAUSED; Phase 2 not started.** Dispatcher, runner, cross-review, scoreboard, review page (http://127.0.0.1:8830) and launchd jobs are in `scripts/edit-queue/` (read its `README.md`). Codex headless proven; Claude headless waits on Dan's one-time `/login`, then `dispatcher.py launch-one AV-01`, then `dispatcher.py resume`. Next build: Phase 2 (placeholder flow, frame picker, `compliance:placeholder` gate row). Fable 5.1 or Codex GPT-6 Astra / High |
-| [handoff-20260916-video-checker-repair.md](handoff-20260916-video-checker-repair.md) | **ready, independent** — fix shared caption, framing and label checks for future videos; full regression validation. GPT-6 Astra / High |
+| [handoff-20260916-muhammad-ads-8-9-13-15-forward-revisions.md](handoff-20260916-muhammad-ads-8-9-13-15-forward-revisions.md) | **ready, quick** — paste Ad 9's missing round-3 notes into Muhammad's doc, then get Dan's go to send all four paste-ready Upwork messages (Ads 8, 9, 13, 15). Sonnet 5 or Fable 5.1 / Medium |
 | [Codex trial: start here](codex-video-trial/00-start-here.md) | Shared rules, model recommendations, and execution order; documents remain local pending private/public storage decision |
 | [01 — Reference study](codex-video-trial/01-reference-study.md) | **now** — Astra / High; verify sources and learn Muhammad's organic/ad styles |
 | [02 — Raw-footage sample](codex-video-trial/02-raw-footage-sample.md) | after 01 — Astra / High; deliver the first 60–90 seconds for calibration |
@@ -26,7 +29,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [09 — Final decision](codex-video-trial/09-final-decision.md) | October 9–11 regardless of unfinished tests — Sol / Medium; evidence and subscription decision |
 | [Original Codex trial plan](handoff-20260911-codex-video-editing-trial.md) | Interview/strategy record; execute the numbered series above, not a duplicate run of this plan |
 | [handoff-20260916-vqc-phase4-locked-kit.md](handoff-20260916-vqc-phase4-locked-kit.md) | **next in the video-quality engine** — Phase 4: the 9:16 ad kit (picture.json first, then a plan template + panels on the shortad pipeline), proven BLIND in front of Dan beside the approved vertical; nothing spreads until he picks ours or a tie. Phases 1–3 done (`13369d9`). Codex high for the kit code / Fable 5.1 high for the cut rule + blind page, ~2 sessions |
-| [handoff-20260915-ad3-square-steadier-wide-framing.md](handoff-20260915-ad3-square-steadier-wide-framing.md) | **now** — full R2 only: calmer wider-shot tracking, tight shots unchanged; short R1 finished/optional. Moving comparisons before full render. GPT-6 Astra / High |
 | ~~[handoff-20260913-ad-variants-master-queue.md](handoff-20260913-ad-variants-master-queue.md)~~ | ⛔ **SUPERSEDED 2026-09-16** by `video-editing/00-MASTER.md` (J1→AV-03, J2→AV-01, J3→AV-02, J4→AV-04, J5→AS-03, J8→AS-02, J9→AS-01, J10→AV-06, J11→AS-05, J12→AV-07, J13→AS-06, J15→AV-05, J16→AS-04, J17→AV-08, J18→AS-07) |
 | [handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md](handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md) | **now** — Muhammad's finalized Ads 6, 7, 10 and 14 to YouTube unlisted + the Demand Gen campaign `24243839443` via `/ad-setup`. Resolve Ad 7's 09-14 re-export and Ad 14's 3.0 Mbps export first. Ops = Codex (GPT-6 Astra / High) |
 | ~~[handoff-20260915-ads-6-14-variants.md](handoff-20260915-ads-6-14-variants.md)~~ | ⛔ **SUPERSEDED 2026-09-16** — now AV-05/AS-04 (Ad 6) and AV-08/AS-07 (Ad 14) in `video-editing/` |
@@ -54,6 +56,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Why |
 |---|---|
+| [Ad14 — final small revisions for Sol](codex-video-trial/06d-ad14-final-revisions-sol.md) | ✅ EXECUTED 2026-09-16 as R2; superseded by Dan's Round 3 handoff `06g` on 2026-09-17. |
 | [handoff-20260916-install-approved-youtube-thumbnails.md](handoff-20260916-install-approved-youtube-thumbnails.md) | ✅ EXECUTED 2026-09-16 — six approved YouTube thumbnails installed and verified; protected videos unchanged; five Blotato records preserved because scheduled-cover edits are unsupported in place. Report: `output/thumbnails/channel-refresh-20260916/installation/INSTALLATION_REPORT.md` |
 | [handoff-20260916-ad3-square-upload-as-is.md](handoff-20260916-ad3-square-upload-as-is.md) | ✅ EXECUTED 2026-09-16 — exact R2.1 uploaded unchanged and unlisted as `DXRkrfvcJEM`; two existing-group Ads created (`824906283483`, `824906283486`) |
 | [handoff-20260910-start-hero-copy-revisions.md](handoff-20260910-start-hero-copy-revisions.md) | ✅ EXECUTED 2026-09-10 — /start caption off, subtitle under the button, chips + privacy sentence above the footer |

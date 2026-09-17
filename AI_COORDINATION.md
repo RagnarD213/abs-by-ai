@@ -26,8 +26,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # DAN'S DECISIONS
 
-- **TikTok covers on 6 published posts (2026-09-17):** the whole queue is fixed, but only these 6 are still inside
-  TikTok's 7-day edit window and the fix needs the phone app. Do them, or leave them? `Docs/TIKTOK_COVERS.md`
+- **Covers for the Sep 13 + Sep 14 TikToks (09-17):** neither ever had a designed cover (uncovered on IG too), and
+  TikTok's 7-day edit window shuts Sep 20 / Sep 21. Commission `/coverimage` before then, or let them keep the
+  screenshot? The queue itself is fixed and proven live. `Docs/TIKTOK_COVERS.md`
 - **Make the GitHub repo private (baseline 09-15)** (Settings → General → Danger Zone). Rec: yes — breaks nothing; closes the
   subscriber addresses in git history. A session then pushes a trivial commit and confirms deploy. `Docs/SUBSCRIBER_STORE.md`
 - **Create the empty SixPackAbs.com Google Ads account (baseline 09-15)** (CAPTCHA blocks Claude): MCC `324-458-6445` → Accounts →
@@ -45,8 +46,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
 - **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
-- **Ad 5: delete its TikTok post from your phone (09-17)** — `@absbyai/video/7686132607964269855`. TikTok's web Studio
-  greys out Delete on "Promotional content"; the app allows it. FB + both IG reels deleted, YouTube unlisted, queue clean.
+- **Fire the phone handoff (09-17):** deletes the Ad 5 TikTok `7686132607964269855` AND installs the 2 covers still in
+  window. Run it when away from computer + phone. `Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md`
 - **Chrome's Instagram is signed in as @abs.by.ai (09-17)** — switched to delete the mirror; Chrome hung before switching back.
 - **Google Ads remarketing `24169507109` (baseline 09-15)** — ~$2.50/day, 0 clicks/conversions ever. Pause?
 - **Ad 3: (baseline 2026-09-15; age unknown)** delete empty husk `J-fOMvEJwDs` in Studio; campaign budget reads $40/day (docs said $20); label his 200 lb
@@ -93,6 +94,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**Video editing efficiency — ACTIVE 2026-09-17, owner: Codex 01a0b177.** Updating shared ad/organic workflow, reuse, bounded review, queue waiting, and usage reporting without touching active build directories. Next: isolated representative revision test, then commit/push. Detail: `scripts/edit-queue/` + `Media/codex-video-trial/05-recipes/`.
+
 **Overnight edit queue — PAUSED 2026-09-17.** Built; Codex proof run awaits a slot. Next: Dan `/login`s headless Claude → `launch-one AV-01` → `resume`. `scripts/edit-queue/README.md`.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
@@ -103,7 +106,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RA-01 "AI Trick That Got Me Abs" — ROUND 1 DONE 2026-09-17, Claude (Opus).** Masters HELD in `/Volumes/Extreme/_edit_work/ra01/`: audio gate FAILS `artifacts` (outdoor lav already over the bound untreated). Review copies + notes: `Claude Ad Videos/the ai trick that got me abs - RA-01/`. Next: review, then Dan's call.
 
-**VQC Phase 4 — the 9:16 kit, proven blind — ACTIVE 2026-09-17, owner: Claude (Fable).** `picture.json` PROVEN (a5f4645); kit in `shortad-from-longform/reference/kit9x16/`. From-master Ad 1 round 1 judged: 28 bare talk cuts read as jump cuts → kit now steps the framing on every bare cut, clamps moved cuts, renderer seek fixed; round 2 rendering in `/Volumes/Extreme/_edit_work/kit9x16/ad1-master/`. Next: judges + gate PASS → blind page for Dan. Detail: `Handoffs/handoff-20260916-vqc-phase4-locked-kit.md`.
+**VQC Phase 4 kit — ACTIVE 2026-09-17, Claude (Fable).** Ad 1 judge rounds; next: Dan's blind page.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
@@ -115,9 +118,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Published cutdown audio — UNOWNED 2026-09-15.** 21 of 23 V2/V3/V6 cutdowns miss −14 LUFS. Next: scope remediation from `Docs/BOARD_REFERENCE.md`; preserve editor mixes under the standing audio rule.
 
-**Codex Ad14 Round 3 — REVIEW 2026-09-17, owner: Codex Astra/Sol R3 task.** Three requested scenes revised and independently checked; R2 AAC exact. Next: Dan watches complete private R3. Checks and inherited limits: `Media/codex-video-trial/06-ad-r3/CHANGE_REPORT.md`. Review: http://127.0.0.1:8873/review/index.html.
+**Codex Ad14 R4 — ACTIVE 2026-09-17, owner: Codex.** Building the two picture-only corrections from frozen R3; exact R3 AAC and approved g17 app demo stay locked. Next: select verified g03/g18 source ranges, isolated rebuild, exact-file gates and private review. Detail: `Handoffs/codex-video-trial/06i-ad14-r4-dan-closeup-and-correct-workout.md`.
 
-**Codex organic C1652 R4 — ACTIVE 2026-09-17, owner: Codex Astra/Sol.** Isolated `06-organic-r4`; approved sound/color/crops protected. Next: plan → Sol edit → Astra review. Private trial. `Handoffs/codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md`.
+
 
 **Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (eight new Ad 3
 ads, including square 824906283483/824906283486; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
@@ -159,15 +162,19 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
+**C1652 setup handoff — READY 2026-09-17.** R4 approved as is. Next: Sol/Medium executes `Handoffs/codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md`. YouTube Private; release through Blotato. Review-policy discussion recorded in handoff.
+
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
+  delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
+- `codex-video-trial/06i-ad14-r4-dan-closeup-and-correct-workout.md` — ready09-17, Sol/High; two final picture fixes; app demo approved.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built 09-17 (ACTIVE above); fire **Phase 2** next: placeholder flow, frame picker, gate row. Fable or Codex Astra, high.
 - `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
-- `handoff-20260916-vqc-phase4-locked-kit.md` — fire next in the video-quality engine: the 9:16 ad kit, proven blind. Codex high (kit code) + Fable 5.1 high (cut rule, blind page), ~2 sessions.
 - `handoff-20260909-vqc-C-phase4-cut-technique.md` — before engine Phase 4. Fable 5.1 high.
 - `handoff-20260911-junk-footage-pass.md` — parallel-safe with engine Phases 2–4. Fable 5.1 high.
 - `handoff-20260911-video-quality-engine.md` — master plan; Phases 1–2 done. VQC-B/VQC-D superseded, do not fire.
@@ -181,3 +188,6 @@ Memory `google-ads-ui-automation`.
 
 Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md`, `handoff-20260902-shorts-centering-queue-fix.md`,
 `handoff-20260902-google-ads-engagement-champion-automation.md` (live; `Docs/YTADS.md`).
+
+## ACTIVE
+- **Grok / AV-05 Ad 6 vertical** (2026-09-17 17:36 CT): building 9x16 + ≤0:59 from Muhammad Ad 6 via shortad-from-longform; workdir `/Volumes/Extreme/_edit_work/av05-ad6-vert/`.
