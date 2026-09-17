@@ -124,6 +124,12 @@ incomplete organic setup. Confirm the schedule by reading it back before reporti
    native scheduling if Blotato needs repair; leave the holding upload Private until the Blotato path works.
    - Facebook gets no `mediaType` (FB Reels cap at 90 s). TikTok long-form over ~10 min may exceed the account cap.
    - Organic links go to the absbyai.com root, never `/start` (keeps organic out of the `/start` A/B test).
+4. **Give the TikTok post its cover — this step is not optional and cannot be done later.**
+   TikTok's API takes no cover image, only a timestamp, so an uncovered post falls back to frame 0 of the video:
+   Dan mid-word under a burned caption. `python3 scripts/blotato/tiktok_cover.py` audits the queue,
+   `--build` prepends the designed cover as frame 0 (lossless; the viewer sees no change), `--apply` rebuilds
+   the schedule with `videoCoverTimestamp: 0`. **A posted video's cover can only be changed within 7 days, in
+   the mobile app** — miss that window and the screenshot is permanent. Why and how: `Docs/TIKTOK_COVERS.md`.
 
 ## Step 6 — thumbnail A/B in Studio (only when Dan picked two)
 

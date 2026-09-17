@@ -297,6 +297,23 @@ Impact and Copperplate live in `/System/Library/Fonts/Supplemental/`.
   must keep the title) → ✓ → ✓. Verify on the web grid; the phone app shows its cached
   tile for a while.
 
+## TikTok: the cover has to be INSIDE the video (2026-09-17)
+
+- **TikTok's API takes no cover image at all** — only `video_cover_timestamp_ms`, a timestamp
+  into the video (Blotato: `videoCoverTimestamp`). Send nothing and TikTok uses **frame 0**,
+  measured: three published videos' frame 0 matched their profile-grid tile exactly. On our
+  shorts that is Dan mid-word under a burned caption, which is the "it's just a screenshot"
+  Dan flagged on 2026-09-17.
+- **So the cover must BE frame 0.** `scripts/blotato/tiktok_cover.py` prepends this skill's
+  cover PNG as one frame (1/24 s — imperceptible in playback) and pins `videoCoverTimestamp: 0`.
+  Lossless: video stream-copied, audio mapped with `-itsoffset` so the mix is never re-encoded.
+  Run it after ANY script queues a TikTok post. Full reasoning: `Docs/TIKTOK_COVERS.md`.
+- **Already posted?** Same constraint as Instagram: no web route, no API route. The iPhone app
+  within **7 days** of posting — ⋯ → Edit post → Edit cover → Upload → pick the 1080×1920 from
+  the camera roll (import it to Photos the same way as above). Past 7 days the only option is
+  delete + re-upload, which throws away the post's views and comments — so cover a post
+  BEFORE it goes out, not after.
+
 ## No claims in cover / thumbnail copy (Dan, 2026-09-10)
 
 Covers and thumbnails on anything that runs as a paid ad are rarely seen by viewers but are scrutinised by

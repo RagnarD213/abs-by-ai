@@ -53,6 +53,12 @@ CTA_IG = "Comment ABS and I'll send you the free AI preview 👇"
 CTA_TIKTOK = "Free AI preview of your own six-pack — link in bio at AbsByAI.com 👇"
 
 # Dan's real filmed Shorts: no AI-generated disclosure, comments/duet/stitch open.
+#
+# NO COVER FIELD HERE ON PURPOSE. TikTok's API cannot take a cover image, only a timestamp into
+# the video, so a cover has to be BUILT INTO frame 0 of the file -- which this script cannot do,
+# because it reuses the Instagram post's media url verbatim. Every post this script creates is
+# therefore uncovered and falls back to TikTok's frame-0 screenshot.
+# Run scripts/blotato/tiktok_cover.py afterwards; see Docs/TIKTOK_COVERS.md.
 TIKTOK_TARGET = {
     "targetType": "tiktok",
     "privacyLevel": "PUBLIC_TO_EVERYONE",
@@ -272,6 +278,12 @@ def main() -> int:
               f"-> {res.get('postSubmissionId') or res.get('id')}", flush=True)
 
     print(f"\ncreated {len(todo)} TikTok posts, trimmed {len(trim)} Facebook posts")
+    if todo:
+        print("\n  !! These posts have NO COVER and will fall back to TikTok's frame-0\n"
+              "     screenshot. Finish the job now -- once a post is 7 days old its cover\n"
+              "     can never be changed:\n"
+              "         python3 scripts/blotato/tiktok_cover.py --build\n"
+              "     Why: Docs/TIKTOK_COVERS.md")
     return 0
 
 

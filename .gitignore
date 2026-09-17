@@ -127,6 +127,10 @@ after-photo-results/
 TWC work search/
 TWCCorrespondence.pdf
 scripts/blotato/swap_backup/
+# tiktok_cover.py scratch: multi-GB of downloaded + rebuilt videos, and cover_backup holds the
+# pre-swap post bodies. Both are local working state, never repo content.
+scripts/blotato/cover_work/
+scripts/blotato/cover_backup/
 .claude/skills/shorts/reference/recentre/personmask
 
 # Local report written by scripts/ads/auto-boost.js runs on this Mac; the cron records runs in Postgres
