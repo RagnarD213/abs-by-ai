@@ -92,7 +92,7 @@ who is blocked, the exact next action. History, and the verbatim board before th
 
 # ACTIVE
 
-**Overnight edit queue — PAUSED 2026-09-17.** Built; Codex DS-01 proof run queued. Next: Dan `/login`s headless Claude → `launch-one AV-01` → `resume`. `scripts/edit-queue/README.md`.
+**Overnight edit queue — PAUSED 2026-09-17.** Built; Codex proof run waits for a free slot. Next: Dan `/login`s headless Claude → `launch-one AV-01` → `resume`. `scripts/edit-queue/README.md`.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
