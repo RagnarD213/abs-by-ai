@@ -106,9 +106,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-01 REVIEW PENDING 2026-09-18, Codex.** Dan received the private R3 review under his explicit exception for 2 recorded gate failures. Audio/visual review pass. Next: Dan watches and gives one consolidated verdict. `/Volumes/Extreme/_edit_work/ro01/STATE.md`.
 
-**DS-04 vacuum short — DELIVERED 2026-09-18, Claude.** Opening rebuilt with Dan's pick. Gate 36/1 (his audio row), review SHIP. Next: his look → fire `handoff-20260918-ds04-install-vacuum-short.md`.
-
-
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
@@ -161,7 +158,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260918-ds04-install-vacuum-short.md` — install DS-04 on Dan's OK. ⚠ no TikTok without a cover. Codex Astra/high.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.

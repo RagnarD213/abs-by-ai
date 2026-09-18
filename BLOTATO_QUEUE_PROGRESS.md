@@ -12,6 +12,18 @@ Last updated 2026-09-18.
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
 
+## DONE — DS-04 “How to Do a Stomach Vacuum to Shrink Your Waist” (2026-09-18)
+
+Exact 70,119,789-byte master verified at SHA-256 `3e2a51b…` / MD5 `5f4b4457…`, then uploaded to YouTube as **Private** (`GNA1riDIdW4`) with cover A and no native publish time. Blotato owns release across all five organic destinations; fresh readback verified every account, timestamp, caption, target and media length. Queue 180 → 185; ad-guard scans clean before and after.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Mon Sep 21, 9 AM CDT (`4586862` / `4586863` / `4586884` / `4586866`) | Tue Sep 22, 9 AM (`4586865`) |
+
+- TikTok uses cover A as frame 0 with `videoCoverTimestamp: 0`; verification measured 1,502 → 1,503 video frames, 2,351 → 2,351 audio packets, a clean decode and 43.3 dB cover match.
+- ManyChat keyword `ABS`; no AI-media disclosure; organic links use the UTM-tagged `absbyai.com` root.
+- Dan’s accepted `audio:stamp` exception was left untouched. Full evidence: `Docs/DS04_SETUP_RECEIPT_20260918.md`.
+
 ## DONE — C1652 “Your Belly Fat Is an Emergency” (2026-09-18)
 
 Dan selected pool thumbnail **B only**; no A/B test. The exact approved 1.073 GB master was uploaded to YouTube as **Private** (`1mHgnH1GVtg`) with B, full description and chapters. Blotato owns release across all five organic destinations; fresh readback verified every account, timestamp, caption, target, media length and cover. Queue 175 → 180; ad-guard scans clean before and after.
