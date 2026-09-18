@@ -416,13 +416,13 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-04-only-ab-exercise-that-shrinks-belly-fat.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "delivered",
-   "note": "Review copy sent 2026-09-17; audio artifacts row needs Dan's call",
+   "note": "Dan 09-18: all good except the opening vacuum clip; revision handoff written",
    "sub": "Talking",
    "order": 20,
-   "updated": "2026-09-17",
+   "updated": "2026-09-18",
    "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3
+   "rev": 4,
+   "syncedRev": 4
   },
   {
    "id": "DS-05",

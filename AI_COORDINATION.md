@@ -98,7 +98,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-04 vacuum dedicated short — DELIVERED 2026-09-17, Claude.** Review copy + covers A/B sent; round-2 review: picture ships. ⚠ Audio gate `artifacts` row fails on the raw outdoor lav (0.088 vs 0.079; RA-01 identical) — Dan's call, never a threshold change. Next: Dan watches, rules on the audio row + title wording + cover; then `queue.py set DS-04 finalized`. Notes: `Short-form video content/ds-04_notes.md`.
+**DS-04 vacuum short — REVISION 1 WAITING 2026-09-18, unowned.** Dan approved all but the opening vacuum clip. Next: fire `Handoffs/handoff-20260918-ds04-opening-vacuum-clip-revision.md` (candidates → his pick → rebuild opening). No covers (Codex). ⚠ Audio `artifacts` row is an honest FAIL; Dan's call.
 
 
 **RA-01 "AI Trick That Got Me Abs" — NEEDS DAN 2026-09-18, Claude.** 3 rounds done (Opus edit, Fable review); both aspects ship-clean bar the audio `artifacts` row, which the untreated outdoor lav already fails → Dan's exception, masters HELD in `/Volumes/Extreme/_edit_work/ra01/`. Review copy sent. Next: Dan watches, rules on outdoor audio + skin look (`notes-RA-01.md` "Your calls"), then masters deliver. Detail: `Claude Ad Videos/the ai trick that got me abs - RA-01/`.
@@ -161,6 +161,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260918-ds04-opening-vacuum-clip-revision.md` — DS-04 revision 1 (see ACTIVE). Opus 5, high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
 - `codex-video-trial/06k-ad14-codex-r4-approved-upload-and-setup.md` — ready09-17, GPT-6 Astra/High; exact approved R4 → YouTube Unlisted + existing Ad14 DGen groups; preserve Muhammad HD, no organic posting.
