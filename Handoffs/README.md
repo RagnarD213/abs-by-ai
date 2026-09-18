@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 157 documents (index updated 2026-09-18).
+Every handoff document for Abs By AI, in one place. 158 documents (index updated 2026-09-18).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260918-ra01-ai-trick-approved-thumbnails-upload-setup.md](handoff-20260918-ra01-ai-trick-approved-thumbnails-upload-setup.md) | **Ready 2026-09-18 — Codex, GPT-6 Astra / High.** Dan approved RA-01 "The AI Trick That Got Me Abs" (9:16 + 16:9): build clean-look thumbnails in both aspects, upload both Unlisted as "How AI Got Me Abs", add as a new Demand Gen ad, record IDs. |
 | [handoff-20260918-kit-first-production-ad10-vertical.md](handoff-20260918-kit-first-production-ad10-vertical.md) | **Ready 2026-09-18 — Codex GPT-6 Astra / High.** The 9:16 kit's first production job: Ad 10's vertical + ≤0:59 (AV-07) built by the kit from Muhammad's master, content sheet written fresh; judged by fresh sessions, GATE PASS before Dan sees it. |
 | [handoff-20260918-claude-video-freeze-and-codex-routing.md](handoff-20260918-claude-video-freeze-and-codex-routing.md) | **Ready, fire first, 2026-09-18 — Codex Sol / Medium.** Route every edit-queue group (editor + reviewer) to Codex until the Claude weekly reset 2026-09-24 11:00 CT; dry-run proof; no gate or master touched. |
 | [handoff-20260918-shrink-always-loaded-instructions.md](handoff-20260918-shrink-always-loaded-instructions.md) | **Ready, 2026-09-18 — Codex Sol / High.** Move the video rules verbatim out of `AGENTS.md`/`CLAUDE.md` into `_shared/VIDEO-RULES.md` with pointers; target ≤ 3,000 always-loaded words, zero rules lost. |

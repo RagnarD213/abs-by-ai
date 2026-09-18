@@ -1250,6 +1250,26 @@ Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable
 6. **Transition SFX broke the `tone` row** (0.74/1.92 → 1.24/4.63 dB) on this mix; left out, accepted.
 7. **Gate-plan geometry must be measured from the render, never a static rectangle** — round 1's CTA rectangle was
    752 px wide of the truth in 16:9 and the caption-clearance rows were grading air.
+**APPROVED by Dan 2026-09-18 as the template for future videos** ("I think you nailed it. Audio sounded good, and
+color correction looks good. The way you cut it… transitions… this was a template for future videos"). Build the next
+filmed ads the same way:
+
+* **Process:** planner → Opus editor → blind reviewer, max three rounds (memory `three-role-video-pipeline`; agents
+  `.claude/agents/ra-editor.md` / `ra-reviewer.md`; copy the structure of `Handoffs/video-editing/RA-01-plan.md`:
+  measured source facts, take map, cue map with asset paths, framing numbers, audio, gates, round protocol).
+* **Hook grammar that was approved:** the picture the ad is about on frame 0 with its caption → Dan's FACE by 3 s →
+  back to the picture → BEFORE ≥ 1.2 s → Dan on camera ≥ 0.8 s (the "other" between before and after, never a flash)
+  → three real afters ≥ 0.6 s each → the AI image on the words that name it. File opens on the first word (≤ 0.15 s).
+* **The analysis card is a shared component now:** `.claude/skills/_shared/adkit/analysis_card.py` (README there).
+  Dan: "illustrated it better than we did in past videos… reuse in future videos." Use it on every "AI analysed my
+  picture / built my plan" line instead of rebuilding `reference/ad1/prep_assets3.py`'s stats scan.
+* **Cards** stop above the caption band on the flat J2AD field, hard cuts in and out, always drifting; 9:16 chips in
+  the safe band (y ≥ 200, x ≤ 940); 16:9 chips in a reserved strip inside the card. All in `adkit/cardlib.py`.
+* **16:9 zoom cuts:** every NEAR hold takes its neighbouring FAR hold's centre, or Dan hops sideways at each cut.
+* **CTA pill:** compact, sized to its text, placed by person mask where he never stands; same geometry for both CTAs.
+* **App clips:** verify the first frame is not an empty field and the last 10 frames hold one stable screen.
+* **One end-hold constant, one place** (picture and audio builders read the same value — round 2's `length` fail).
+
 8. **Loop mechanics that worked:** the reviewer reads only the plan, the rules and the files (never the editor's
    notes) and reports in a fixed defect format; the planner turns each review into numbered rulings appended to the
    plan; three rounds is the cap. Cost: Opus ≈ 0.3 / 0.8 / 0.5 M tokens per round, Fable review ≈ 0.3 M each.

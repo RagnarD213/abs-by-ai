@@ -233,3 +233,11 @@ cannot upload > 10 MB and the stored Google token is calendar-only — say so in
 A new set, a new script, a new product feature to show: keep the rule, re-derive the number, and write the number
 down here with the date. The runbook tells you which script holds each number. If a review adds a rule, it goes into
 `reference/REVIEW_HISTORY.md` AND into the pre-flight list above — the list is the contract.
+
+## Shared kit: the analysis card (Dan-approved on RA-01, 2026-09-18)
+
+When a line says the app ANALYSES the picture and builds the plan, use the shared card instead of inventing a graphic:
+`python3 .claude/skills/_shared/adkit/analysis_card.py --image <subject> --aspect 9x16|16x9 --dur <4–6 s> --label ai|real --out <path>`
+(scan line → BODY FAT / FAT TO LOSE / MUSCLE TO GAIN bars → YOUR WORKOUT PLAN; no printed numbers; chip placed by
+person mask; captions keep running under it). Dan: "Let's make this something that we reuse in future videos… it
+illustrated it better than we did in past videos." Geometry, chips and card rules: `_shared/adkit/README.md`.

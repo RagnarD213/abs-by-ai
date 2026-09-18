@@ -2276,3 +2276,11 @@ The whole job is **[A11] again with the geometry already correct**, so start the
    hold at all in the last talk stretch — the widest-to-tightest one. Report it as a finding about
    the instrument, measure it independently so the claim is not just an opinion, and **do not touch
    the bound or edit the plan to make the row pass**.
+
+## Shared kit: the analysis card (Dan-approved on RA-01, 2026-09-18)
+
+When a line says the app ANALYSES the picture and builds the plan, use the shared card instead of inventing a graphic:
+`python3 .claude/skills/_shared/adkit/analysis_card.py --image <subject> --aspect 9x16|16x9 --dur <4–6 s> --label ai|real --out <path>`
+(scan line → BODY FAT / FAT TO LOSE / MUSCLE TO GAIN bars → YOUR WORKOUT PLAN; no printed numbers; chip placed by
+person mask; captions keep running under it). Dan: "Let's make this something that we reuse in future videos… it
+illustrated it better than we did in past videos." Geometry, chips and card rules: `_shared/adkit/README.md`.

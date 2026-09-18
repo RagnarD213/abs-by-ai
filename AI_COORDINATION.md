@@ -103,8 +103,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 **DS-04 vacuum short — REVISION 1 ACTIVE 2026-09-18, Claude.** Opening beat only; `handoff-20260918-ds04-opening-vacuum-clip-revision.md` running. Next: Dan picks a draw-in. ⚠ Audio `artifacts` FAIL is his call.
 
 
-**RA-01 "AI Trick That Got Me Abs" — NEEDS DAN 2026-09-18, Claude.** 3 rounds done (Opus edit, Fable review); both aspects ship-clean bar the audio `artifacts` row, which the untreated outdoor lav already fails → Dan's exception, masters HELD in `/Volumes/Extreme/_edit_work/ra01/`. Review copy sent. Next: Dan watches, rules on outdoor audio + skin look (`notes-RA-01.md` "Your calls"), then masters deliver. Detail: `Claude Ad Videos/the ai trick that got me abs - RA-01/`.
-
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **Ads results follow-up — OPEN 2026-09-15.** Review Google Ads results after the 09-09 account fixes (`Docs/GOOGLE_ADS_API.md`). Meta $50 review: next reading 2026-09-18; last result $2.02/follow against <$3 target.
@@ -167,6 +165,7 @@ Memory `google-ads-ui-automation`.
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
 - `codex-video-trial/06k-ad14-codex-r4-approved-upload-and-setup.md` — ready09-17, GPT-6 Astra/High; exact approved R4 → YouTube Unlisted + existing Ad14 DGen groups; preserve Muhammad HD, no organic posting.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
+- `handoff-20260918-ra01-ai-trick-approved-thumbnails-upload-setup.md` — RA-01 approved 09-18 → thumbnails, YouTube Unlisted ×2, new DGen ad. Codex Astra/High.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
 - **Token savings, all Codex (09-18):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`, `…-move-routines-to-codex.md`.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built; **Phase 2** next (placeholder flow). Fable or Astra, high.

@@ -1808,6 +1808,56 @@
         "format": "ad9x16",
         "_why": "a 9:16 ad; naked_splices at the ad bound"
       }
+    },
+    {
+      "id": "av01-ad1-vertical-59s-final-approved-20260918",
+      "date": "2026-09-18",
+      "root": "repo",
+      "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 9x16 59s | ad 1.mp4",
+      "sha256": "aaa81b8a09c673285f18dd4df776a6355dc238e713e13f1cbdc9096d86f61c69",
+      "bytes": 61749767,
+      "verdict": "approved-with-notes",
+      "dan": "That ad looks good to me. I think that's actually good to ship.",
+      "scope": "Entire exact 9:16 49.816-second cutdown approved as-is after Dan watched the review copy and was shown the inherited visual findings.",
+      "must_trigger": [],
+      "must_pass": [
+        "audio_gate"
+      ],
+      "gate_args": [
+        "--reference-mix",
+        {
+          "root": "ssd",
+          "path": "AV-01/cut/his_mix.wav"
+        },
+        "--verbatim"
+      ],
+      "measured": "Exact master: 1080x1920, 30000/1001 fps, 1493 frames, 49.816433 s. Audio gate PASS, verbatim against Muhammad's cut mix (-14.40 LUFS, -1.30 dBTP). Shared delivery gate 2.1.0: 34 PASS, 2 FAIL; watch:pass records ten inherited picture defects and framing:push_coverage measures x1.039 versus x1.10. Dan explicitly approved shipping this exact file despite those retained findings.",
+      "notes": "Approval evidence and defect-by-defect proof are in notes-vertical-59s.md and recipe-vertical-59s/. No media, gate, threshold or GATE_VERSION was changed to obtain approval."
+    },
+    {
+      "id": "ra01-ai-trick-9x16-approved-20260918",
+      "date": "2026-09-18",
+      "root": "repo",
+      "path": "Claude Ad Videos/the ai trick that got me abs - RA-01/the ai trick that got me abs | claude | 9x16 | RA-01.mp4",
+      "sha256": "02d032180a3eb42dc81d1857613df55ef4b715ab4d31e315834baf2a63003e51",
+      "bytes": 80473688,
+      "verdict": "approved-with-notes",
+      "dan": "All right, this is looking excellent. I think you nailed it. Audio sounded good, and color correction looks good. The way you cut it, I think, is good. Transitions, yeah, I think this was a template for future videos here.",
+      "scope": "The whole round-3 9:16 master (first cut of any 8/28 outdoor portrait roll, C1663), approved after Dan watched the 540p review copy. Built planner (Fable) -> editor (Opus) -> blind reviewer (Fable), three rounds.",
+      "must_trigger": [],
+      "must_pass": [
+        "audio_gate"
+      ],
+      "known_gap": [
+        {
+          "check": "audio_gate:artifacts",
+          "since": "2026-09-18",
+          "why": "OUTDOOR lav against the INDOOR pinned reference: spectral flux 0.090 vs bound 0.079 (his 0.072 x1.1). The UNTREATED source already reads 0.096, the chain lowers it (do_no_harm x0.94) and cannot pass without over-processing (memory audio-never-over-strip). Dan listened and approved the audio: 'Audio sounded good'. DS-17 (same shoot) hits the same row. A fact about open-air speech vs an indoor reference, not processing damage.",
+          "clears_when": "the audio gate carries an approved OUTDOOR reference (or an outdoor-aware artifacts bound) proven through this corpus -- this file and Dan's words are the approved anchor for it. Delete this known_gap when that lands; never raise the indoor bound to clear it."
+        }
+      ],
+      "measured": "1080x1920, 30000/1001, 1714 frames, 57.190 s. Audio gate 12/13 rows PASS (-14.2 LUFS, -2.1 dBTP, EDT 29 ms, tone 0.74/1.9 dB); artifacts FAIL flux 0.090. Delivery gate 2.1.0: 35 PASS, 1 FAIL (audio:stamp, same cause), 0 NOT MEASURED, 3 n/a. Independent round-3 review: everything the editor controls SHIP-clean, three cosmetic minors.",
+      "notes": "Plan + rulings: Handoffs/video-editing/RA-01-plan.md. Approval record: APPROVAL.md beside the file. Lessons: ad-edit SKILL.md 'RA-01 lessons'; footage: Docs/SHOOT_828_FOOTAGE_REPORT.md. The 16:9 master carries the byte-identical mix."
     }
   ]
 }

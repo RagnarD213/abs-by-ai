@@ -1593,3 +1593,11 @@ two levels only (hair → belly button, hair → shorts line), no wide level, an
 `hairgate.py` (hair ≥ 20 px below the edge on every valid sample, plus the detector-free top-rows test). Prove the detector on a
 native-scale proof sheet of the tallest frames before rendering. Full rule: /ad-edit Step 3 "FRAMING STANDARD" and lessons
 108–109; the 9:16 centering rules here still apply on top of it.
+
+## Shared kit: the analysis card (Dan-approved on RA-01, 2026-09-18)
+
+When a line says the app ANALYSES the picture and builds the plan, use the shared card instead of inventing a graphic:
+`python3 .claude/skills/_shared/adkit/analysis_card.py --image <subject> --aspect 9x16|16x9 --dur <4–6 s> --label ai|real --out <path>`
+(scan line → BODY FAT / FAT TO LOSE / MUSCLE TO GAIN bars → YOUR WORKOUT PLAN; no printed numbers; chip placed by
+person mask; captions keep running under it). Dan: "Let's make this something that we reuse in future videos… it
+illustrated it better than we did in past videos." Geometry, chips and card rules: `_shared/adkit/README.md`.

@@ -37,7 +37,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | ad | roll | status | size |
 |---|---|---|---|---|
-| [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | DELIVERED — awaiting Dan 2026-09-18 (review copy sent; masters held on the outdoor-audio `artifacts` row = Dan's ruling; `RA-01-plan.md`) | S |
+| [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | FINALIZED | S |
 | [RA-02](RA-02-how-to-generate-abs-with-ai.md) | How To Generate Abs With AI | C1663 | READY | S |
 | [RA-03](RA-03-watch-ai-put-abs-on-me-in-30-seconds.md) | Watch AI Put Abs On Me In 30 Seconds | C1664 | READY (needs a recording of your own generation) | S |
 | [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | READY | S |
@@ -151,6 +151,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 7 In 2010 I Photoshopped My Face | ✅ (typo fix owed by Muhammad) | ❌ AV-06 | ❌ AV-06 | ❌ AS-05 | ❌ AS-05 |
 | 10 My Dad Bod At 38 / 40 | ✅ | ❌ AV-07 | ❌ AV-07 | ❌ AS-06 | ❌ AS-06 |
 | 14 I Watched 400 Workout Videos | ✅ (HD arrived 09-16, not yet filed) | ❌ AV-08 | ❌ AV-08 | ❌ AS-07 | ❌ AS-07 |
+| RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ | ✅ (is ≤0:59) | ✅ | ❌ not yet a job — add AS when Dan asks | ❌ |
 
 **Verticals (each builds full + ≤0:59)**
 

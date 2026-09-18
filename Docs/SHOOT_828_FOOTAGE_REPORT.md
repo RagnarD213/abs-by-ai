@@ -61,7 +61,9 @@ wind or rain inside the kept takes (the crew's raindrops are at 1:38–1:41, aft
 the indoor reference × 1.1. Measured with the gate's own function: untreated lav **0.094**, voice chain alone 0.097,
 chain + music bed 0.093, delivered mix **0.090**, bound **0.079–0.084**. The chain improves the file (`do_no_harm`
 ×0.95) and still cannot pass, and processing harder would break the never-over-strip rule. DS-17 (same shoot) hit the
-same row. Every outdoor 8/28 roll will: this is a property of open-air speech against an indoor reference, and it
+same row. **Dan listened to RA-01 and approved it on 2026-09-18 ("Audio sounded good, and color correction looks
+good")**, so RA-01 shipped on his approval with the row recorded as a `known_gap` in the regression corpus; the standing
+ruling for the other rolls is still open. Every outdoor 8/28 roll will hit it: this is a property of open-air speech against an indoor reference, and it
 needs Dan's ruling (accept outdoors as-is, or have the gate carry an outdoor reference through the regression
 corpus) — not a per-video workaround.
 

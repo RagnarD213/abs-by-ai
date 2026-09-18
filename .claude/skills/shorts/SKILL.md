@@ -1239,3 +1239,11 @@ native-scale proof sheet of the tallest frames before rendering. Full rule: /ad-
 - Whisper timestamps can put captions early during continuous speech. DS-17's separate acoustic alignment confirmed several real 0.16–0.38s early cue onsets. Preserve the original export, correct the onsets, and validate again on the new file. For chunk captions, map the first word of **every** chunk using full transcript order; sequence-matching a list of repeated first words against the whole transcript can select the wrong occurrence of “rope.” Retain all-word alignment and explicit chunk-onset scope. A separate inference with the same acoustic model is a separate measurement, not independent-model evidence.
 - Export actual caption alpha images from the same renderer for geometry verification. A combined header-plus-footer image has one huge alpha bounding box; it is unsuitable as a single text-obstacle rectangle. Declare the actual separate graphic regions and retain the complete runtime of any graphic movie used for visibility checks.
 - Probe each new roll. C1670 is native portrait with dual-mono stereo, despite the original handoff's landscape/four-track description. For its quiet raw lav, a documented analysis-only level lift was needed before applying the standard silence threshold. Never silently apply that analysis lift to the delivered sound.
+
+## Shared kit: the analysis card (Dan-approved on RA-01, 2026-09-18)
+
+When a line says the app ANALYSES the picture and builds the plan, use the shared card instead of inventing a graphic:
+`python3 .claude/skills/_shared/adkit/analysis_card.py --image <subject> --aspect 9x16|16x9 --dur <4–6 s> --label ai|real --out <path>`
+(scan line → BODY FAT / FAT TO LOSE / MUSCLE TO GAIN bars → YOUR WORKOUT PLAN; no printed numbers; chip placed by
+person mask; captions keep running under it). Dan: "Let's make this something that we reuse in future videos… it
+illustrated it better than we did in past videos." Geometry, chips and card rules: `_shared/adkit/README.md`.
