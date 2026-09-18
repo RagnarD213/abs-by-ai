@@ -81,6 +81,9 @@ def words(a):
         raise SystemExit("ref.whisper.json (the mix's Whisper transcript with word timings) must be in the build dir")
     if not os.path.exists("his_mix.wav"):
         raise SystemExit("his_mix.wav missing -- run the audio stage first")
+    if os.path.exists("words_ctc.json"):
+        os.remove("words_ctc.json")      # the aligner's OUTPUT; left over, captions.load_words() reads it as the input
+                                         # and the FIX map never re-applies (from-raw pass 6: 777 stale vs 769 fixed words)
     run([PY, "align_ctc.py"], cwd=a.build)
 
 
