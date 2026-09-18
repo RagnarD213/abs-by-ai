@@ -61,10 +61,10 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   re-upload — both are live ad destinations.
 - **Upload the welcome-video shoot (114 GB) to Drive (baseline 09-15)** as its only second copy? ⚠ Personal rclone client_id first
   (the shared one hit a 403 quota). Memory `drive-backup-capability`.
-- **Muhammad batch 09-14 reviewed 2026-09-15** (6 + 14 finalized; 7 r5, 8 r3, 9 r3, 13 r3, 15 r2 in his doc). Forward
-  via `handoff-20260916-muhammad-ads-8-9-13-15-forward-revisions.md` (Ad 9 r3 not yet pasted into his doc; 8/13/15
-  just need Upwork messages sent). ⚠ Four AI clips from **Dan's own** "AI clips for Muhammad" folder show artifacts
-  (beach smudge, hands, coffee pot, robot arm live in Ad 3) — replace centrally? Ad 14 needs its HD export.
+- **Muhammad ads 8/9/13/15 — FORWARDED 09-17, he thinks he's done (09-18).** His HD exports carry round-2 leftovers
+  only; verified still open in the HD masters: Ad 8 empty green card 1:21.8 + beach smudge, Ad 13 SIXPACKSHORTCUTS.CO
+  watermark + robot-arm fusion, Ad 15 bracketed labels. All four already YouTube-unlisted. Next: Dan sends the 09-18
+  reply. ⚠ Those AI clips are from **Dan's own** folder (robot arm live in Ad 3) — replace centrally?
 - **Forward editor docs + his calls:** Zeeshan Arms & Shoulders **r3** 09-17 (`revision docs/arms-shoulders-revisions-zeeshan-round3-9-17-26.summary.md`;
   3 items: Content-ID bed, .srt, black tail; colour is your call). Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`;
   ⚠ new side-by-side before/after 0:06.6–0:08.1). Muhammad batch doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`:
@@ -94,12 +94,11 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**DS-17 cover replacement — APPROVAL PENDING 2026-09-18, Codex.** Upload/scheduling is already complete and live-readback verified; DS-17 releases first at 5 PM CDT today, mirror tomorrow. Next: Dan picks the jump-rope-photo or in-video jump-rope screenshot cover; then replace and verify YouTube/Blotato/TikTok covers before release. Detail: `Docs/DS17_SETUP_RECEIPT_20260917.md`.
-
+**DS-17 cover — APPROVAL PENDING 2026-09-18, Codex.** Setup verified; releases first at 5 PM CDT today, mirror tomorrow. Next: Dan approves revised full-bleed C2, then replace and verify platform covers. Detail: `Docs/DS17_SETUP_RECEIPT_20260917.md`.
 
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 
-**RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
+**RO-01 HELD 2026-09-18, Codex.** Edit complete; master gate has 2 failures, phone gate running. Nothing delivered. Next: resolve flags or obtain flagged-review exception. `/Volumes/Extreme/_edit_work/ro01/STATE.md`.
 
 **DS-04 vacuum short — REVISION 1 ACTIVE 2026-09-18, Claude.** Opening beat only; `handoff-20260918-ds04-opening-vacuum-clip-revision.md` running. Next: Dan picks a draw-in. ⚠ Audio `artifacts` FAIL is his call.
 
@@ -161,7 +160,6 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
-- `codex-video-trial/06k-ad14-codex-r4-approved-upload-and-setup.md` — ready09-17, GPT-6 Astra/High; exact approved R4 → YouTube Unlisted + existing Ad14 DGen groups; preserve Muhammad HD, no organic posting.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - `handoff-20260918-ra01-ai-trick-approved-thumbnails-upload-setup.md` — RA-01 approved 09-18 → thumbnails, YouTube Unlisted ×2, new DGen ad. Codex Astra/High.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
