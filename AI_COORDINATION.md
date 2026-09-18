@@ -154,8 +154,6 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- `handoff-20260917-install-approved-a06-short-thumbnail.md` — ready 2026-09-17: approved A06 cover, exact YouTube Short, desktop Change verified. GPT-5.6 Sol / High.
-
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
