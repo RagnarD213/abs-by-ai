@@ -50,13 +50,17 @@ and cover-image tasks:
   cutout so he separates immediately from the busy background.
 - Use a very short curiosity headline in the clear upper band, with heavy Impact
   type, high contrast, one accent colour, and no copy over Dan's face or hair.
+- For YouTube Shorts, do not leave a large empty black cap above the design. Put
+  the category badge close to the top safe edge, raise the headline, and let the
+  topic background continue upward behind and around the copy. Keep only enough
+  darkening for clean readability.
 - Keep supporting copy to one compact outlined pill when it adds real context.
   Judge the finished design at 270×480 phone size before delivery.
 - This is a preferred visual family, not a mandate to reuse the same food props,
   colours, portrait or wording. Adapt the environment to the actual subject.
 
 Reference build and approved direction:
-`Short-form video content/covers/review/jelly-bean-refresh/build.py` — B's visual
+`Short-form video content/covers/review/jelly-bean-refresh/build.py`: B's visual
 configuration and the requested `B2-jelly-beans-beat-soda.png` copy swap.
 
 Search order: `photos/finalized social media photos/` → the short's own longform.
