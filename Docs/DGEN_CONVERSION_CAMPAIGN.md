@@ -289,6 +289,32 @@ Both ads are ENABLED and `UNKNOWN / REVIEW_IN_PROGRESS`. Final URLs carry
 groups, every existing ad, campaign state, Target CPA bidding, and the shared **$40/day** budget were read back
 unchanged.
 
+## 2026-09-18 — Ad 14 Codex R4 16:9 added
+
+Dan approved the complete R4 film as-is on 2026-09-17. The exact 213,660,168-byte master was re-hashed as
+`515953918d223c389754153cd1fa6388ba9d2d18b942024b6c680d3184979785` immediately before upload; it was not
+transcoded. Its recorded review remains honest: audio PASS 13/13 at −14.20 LUFS / −1.90 dBTP; delivery gate 31
+measured PASS, 3 N/A, 1 inherited FAIL and 1 NOT MEASURED, all known when Dan approved the exact film.
+
+YouTube video **`ACfVyQqPK08`** was uploaded with the AI-content disclosure and R4-specific chapters. It processed
+successfully and read back on channel `UC236gjadarHAhEhOMYNGJ9g` as **Unlisted**, HD, embeddable, not made for kids
+and 3:48. The existing approved Ad 14 dark-studio thumbnail was reused; its served maxres file was byte-identical to
+the Muhammad Ad 14 thumbnail readback. No Public or organic copy was created.
+
+Google `validateOnly` proposed exactly one new video asset and two new ads in the existing groups, then that same
+three-operation batch was applied:
+
+| version | video → asset | `/start` group `205864199888` → ad | home group `200914309675` → ad |
+|---|---|---|---|
+| Codex R4 16:9 | `ACfVyQqPK08` → **`422819661961`** | **`825282142526`** | **`825282142529`** |
+
+Both R4 ads are ENABLED and `UNKNOWN / REVIEW_IN_PROGRESS`. Final URLs carry
+`utm_campaign=dgen-conv-ad14&utm_content=codex-r4-16x9-<start|home>`. The live readback preserved campaign
+`24243839443` as ENABLED with Target CPA bidding and the same **$40/day shared budget**; both Ad 14 groups remain
+ENABLED at $30 target CPA; Muhammad HD ads `824922224568` / `824922224571` remain ENABLED and APPROVED; superseded
+review-grade ads `824835458839` / `824835458866` remain PAUSED. Audience `359315129`, copy and landing pages were
+unchanged.
+
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and
 off at 15:49). Ad groups and ads were already ENABLED. The API client refuses to enable a campaign itself unless
