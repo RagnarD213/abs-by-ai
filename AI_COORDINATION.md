@@ -64,11 +64,12 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 - **Muhammad ads 8/9/13/15 — HD checked vs the LIVE doc 09-18.** Dan's edits deleted the watermark, robot-arm,
   green-card and beach-smudge items. His HD exports already clear Ad 8 entirely and parts of 9/15. Left: the caps
   label build (9, 13, 15) and Ad 15's 3:16 demo. Next: Dan sends the 09-18 reply.
-- **Forward editor docs + his calls:** Zeeshan Arms & Shoulders **r3** 09-17 (`revision docs/arms-shoulders-revisions-zeeshan-round3-9-17-26.summary.md`;
-  3 items: Content-ID bed, .srt, black tail; colour is your call). Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`;
-  ⚠ new side-by-side before/after 0:06.6–0:08.1). Muhammad batch doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`:
-  09-10 sections (Ad 13 SIXPACKSHORTCUTS watermark; Ad 15 empty slot 0:25.5 and whether it runs as an ad) and 09-12 sections
-  (Ads 6 + 7 end on the same generated man; Ad 14 watermark at 0:20).
+- **Zeeshan — Arms & Shoulders r4 + STOP Deadlifting r1 (09-18):** both pasted at the top of doc
+  `13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`; confirm the round numbers, then forward. ⚠ Two calls for you in
+  `revision docs/zeeshan-batch-9-18-26.summary.md` (no gym footage of you exists; the 0:10 old-channel beat needs a capture).
+- **Forward, Waleed + Muhammad:** Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`; ⚠ new side-by-side
+  before/after 0:06.6–0:08.1). Muhammad doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`: 09-10 (Ad 13 watermark; Ad 15
+  empty slot 0:25.5, runs as an ad?) and 09-12 (Ads 6 + 7 end on the same man; Ad 14 watermark 0:20).
 - **Approve / listen:** Zeeshan's Ad 1 verticals (his audio untouched; ⚠ YouTube `rimBWjT9-oo` / `JOZVk4_HDwQ` carry the
   REJECTED audio — replace only on approval, then check off dashboard row "Cut 9:16 vertical ads…"). Ad 4 vertical +
   cutdown (ear check, `notes-vertical.md`; −0.9 dBTP accepted 09-11). Spray-tan shorts sound (`review/AB_three-way_audio.mp4`;
