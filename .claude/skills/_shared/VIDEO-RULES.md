@@ -10,6 +10,14 @@
 - Show Dan the **start and end frames plus the intended action** for approval before generating motion. Budget authorization does not replace frame approval. Materially different replacement frames require approval again.
 - Current stock choice (Dan, 2026-09-15): **Pexels and existing assets with known usage rights only; no paid stock service or subscription.** Use AI where the intended scene needs it. Keep a per-video generation total, including paid unsuccessful attempts. Gemini quality-review spend remains governed by its separate standing authorization.
 
+## Default asset approval + placeholder edit (Dan, 2026-09-18)
+
+- This is the default for every new ad or organic edit that proposes **new AI motion, stock, or existing B-roll**. Read [`ASSET-APPROVAL.md`](ASSET-APPROVAL.md). Skip the approval stage only when there are no such slots, or when the exact hashed asset/trim is already approved for this scope.
+- Immediately after the story/scene plan, send Dan **one compact batch**: the intended line and timeline slot; one best start/end-frame pair plus intended action and estimated generation cost for each AI clip; and a 0.5–15 second moving preview of the exact proposed trim/crop for each stock or existing B-roll clip. Still contact sheets do not substitute for moving previews.
+- Do not wait to edit the rest. The same editor continues the cut, audio, colour, captions, graphics and music with exact-duration, visibly labelled placeholders. Save the batch and hashes in `placeholders.json`. The approval package is an early source-selection checkpoint, not the independent final review.
+- No AI motion is generated before its frames are approved. A material frame, source, trim, action or slot-duration change requires approval again; unchanged approved items do not. After approval, insert the exact clips, rebuild only affected scenes/joins, remove every placeholder, then run the complete gates, full picture/audio review and one independent complete-candidate review.
+- A placeholder cut is internal **DRAFT** media and can never receive a delivery PASS or be uploaded. The queue's Phase 2 approval states and automatic placeholder gate are not built yet. Until they are, park a queued job in a currently supported waiting state with the packet path and exit; never pretend it will auto-resume, and never keep an AI session alive to poll. The existing queue still owns actual rendering, heartbeats and waiting.
+
 ## A before and after picture are the SAME PERSON (Dan, 2026-09-12)
 
 - **Never mix people across a before/after pair.** Dan, on the Ad 5 vertical's app demo, which uploaded one man's photo and
@@ -41,6 +49,10 @@
 
 - **Correct workout exports (Dan, 2026-09-17):** For the one-minute ab workout, use only `YouTube Long Form Video Content/V4 + V5 - The Ultimate 1 Minute Ab Workout - UPLOADED/V4 - 1 Minute Ab Workout That Hits All 4 Ab Muscle Groups (At Home) - UPLOADED.mp4` or `V5 - The Ultimate 1 Minute Ab Workout - Follow Along (No Talking) - UPLOADED.mp4` in that same directory, whichever gives the cleaner shot. Dan rejected Ad14 R3's use of `Media/video_edit/out/abs_workout_final_edited.mp4` as raw/uncorrected; never use that file or `Media/video_edit/work/main.mp4` as finished reference footage. A filename containing `final_edited` is not proof of approval.
 - **Approved Dan self-generation demo (Dan, 2026-09-17):** R3's 2:17 sunglasses-before → pool-goal demonstration is approved for reuse every time Dan refers to generating a photo of himself with AbsByAI. Preserve the exact approved sequence and disclosure treatment from R3 g17. Reusable assets/provenance: `Media/codex-video-trial/assets/ad/simulated-dan-sunglasses-to-pool/`. This extends the R3 simulation exception to reuse of this exact demo; retain simulated/composited internal provenance and same-person identity, and do not generalize it to unrelated pairs.
+
+## Cover text never covers Dan's face or hair (Dan, 2026-09-18)
+
+- On every thumbnail or cover image, keep all text completely clear of Dan's face **and every part of his hair**. Measure the rendered placement against the actual portrait; move or resize the text into clear negative space rather than allowing even a partial overlap.
 
 ## Label Dan's real pictures (Dan, 2026-09-11)
 

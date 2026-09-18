@@ -25,6 +25,10 @@ keep its status current on Dan's pinned **Abs By AI Edit Queue** page: `in_progr
 words, never a passed gate). Never set `uploaded` here; that is `/ad-setup` (ads) or `/video-setup` (organic), after
 the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skills/_shared/edit-queue/README.md`.
 
+## Default staffing and asset approval
+
+One editor owns planning through self-QA. Use one independent reviewer only after a complete, placeholder-free candidate exists; do not keep a planner or supervisor active through the build. For every new AI-motion, stock or existing-B-roll choice, follow [`_shared/ASSET-APPROVAL.md`](../_shared/ASSET-APPROVAL.md): send one early batch of AI start/end frames and short moving source previews, then continue the edit with exact-duration placeholders. Generate or insert only approved choices, rebuild only affected scenes/joins, and never deliver a placeholder draft.
+
 ## Square and vertical camera movement — updated 2026-09-16
 
 Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.

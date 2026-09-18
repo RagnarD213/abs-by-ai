@@ -24,6 +24,10 @@ keep its status current on Dan's pinned **Abs By AI Edit Queue** page: `in_progr
 words, never a passed gate). Never set `uploaded` here; that is `/ad-setup` (ads) or `/video-setup` (organic), after
 the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skills/_shared/edit-queue/README.md`.
 
+## Default staffing and asset approval
+
+One editor owns planning through self-QA. Use one independent reviewer only after a complete, placeholder-free candidate exists; do not use a recurring planner/reviewer supervision loop. For every new AI-motion, stock or existing-B-roll choice, follow [`_shared/ASSET-APPROVAL.md`](../_shared/ASSET-APPROVAL.md): send one early batch of AI start/end frames and short moving source previews, then keep editing with exact-duration placeholders. Generate or insert only approved choices, rebuild only affected scenes/joins, and never deliver a placeholder draft.
+
 ## Square and vertical camera movement — updated 2026-09-16
 
 Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
@@ -1254,9 +1258,10 @@ Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable
 color correction looks good. The way you cut it… transitions… this was a template for future videos"). Build the next
 filmed ads the same way:
 
-* **Process:** planner → Opus editor → blind reviewer, max three rounds (memory `three-role-video-pipeline`; agents
-  `.claude/agents/ra-editor.md` / `ra-reviewer.md`; copy the structure of `Handoffs/video-editing/RA-01-plan.md`:
-  measured source facts, take map, cue map with asset paths, framing numbers, audio, gates, round protocol).
+* **Process:** one editor owns the measured source facts, take map, cue map, framing, audio, build and self-QA. One
+  fresh independent reviewer enters only after a complete candidate exists and returns one consolidated verdict.
+  Keep `Handoffs/video-editing/RA-01-plan.md` as useful evidence, but do not repeat its planner → editor → reviewer
+  loop. For new AI/stock/existing-B-roll choices, use the shared early approval + placeholder workflow above.
 * **Hook grammar that was approved:** the picture the ad is about on frame 0 with its caption → Dan's FACE by 3 s →
   back to the picture → BEFORE ≥ 1.2 s → Dan on camera ≥ 0.8 s (the "other" between before and after, never a flash)
   → three real afters ≥ 0.6 s each → the AI image on the words that name it. File opens on the first word (≤ 0.15 s).
@@ -1270,9 +1275,11 @@ filmed ads the same way:
 * **App clips:** verify the first frame is not an empty field and the last 10 frames hold one stable screen.
 * **One end-hold constant, one place** (picture and audio builders read the same value — round 2's `length` fail).
 
-8. **Loop mechanics that worked:** the reviewer reads only the plan, the rules and the files (never the editor's
-   notes) and reports in a fixed defect format; the planner turns each review into numbered rulings appended to the
-   plan; three rounds is the cap. Cost: Opus ≈ 0.3 / 0.8 / 0.5 M tokens per round, Fable review ≈ 0.3 M each.
+8. **Review evidence that remains useful:** the independent reviewer reads the plan, rules and files rather than
+   being coached by the editor's conclusions, and reports one fixed-format, deduplicated verdict. A rejection parks
+   the candidate with a short correction list; it does not automatically start another supervisory loop. The old
+   three-role run consumed roughly 0.3–0.8 M editor tokens plus ≈0.3 M reviewer tokens per round, which is why it is
+   no longer the default.
 
 ## Decisions locked vs pending
 
