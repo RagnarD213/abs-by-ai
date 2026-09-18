@@ -106,7 +106,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-01 REVIEW PENDING 2026-09-18, Codex.** Dan received the private R3 review under his explicit exception for 2 recorded gate failures. Audio/visual review pass. Next: Dan watches and gives one consolidated verdict. `/Volumes/Extreme/_edit_work/ro01/STATE.md`.
 
-**DS-04 vacuum short — DELIVERED 2026-09-18, Claude.** Opening rebuilt with Dan's pick (C1677 @136.60s); AI opening rejected. Gate 36/1 (his audio row), review SHIP. Next: his final look → fire `handoff-20260918-ds04-install-vacuum-short.md`.
+**DS-04 vacuum short — DELIVERED 2026-09-18, Claude.** Opening rebuilt with Dan's pick. Gate 36/1 (his audio row), review SHIP. Next: his look → fire `handoff-20260918-ds04-install-vacuum-short.md`.
 
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
@@ -189,3 +189,5 @@ Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md`, `handoff-202
 
 ## ACTIVE
 - **Grok / AV-05 Ad 6 vertical** (2026-09-17 17:36 CT): building 9x16 + ≤0:59 from Muhammad Ad 6 via shortad-from-longform; workdir `/Volumes/Extreme/_edit_work/av05-ad6-vert/`.
+
+**YouTube content research — ACTIVE 2026-09-18, Codex.** Researching male-focused competitors and Dan Rose Fitness views, subscribers, traffic and retention. Next: deliver 20 long-form and 20 Short ideas, prioritizing subscriber growth. Read-only analytics; no publishing changes.
