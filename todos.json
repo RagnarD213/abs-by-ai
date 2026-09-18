@@ -141,6 +141,12 @@
       "priority": "high",
       "addedAt": "2026-09-16",
       "why": "Dan 09-16. Policy re-run on the four new ads was due 09-16; Codex can run it."
+    },
+    {
+      "text": "Test HyperFrames as our motion-graphics layer: rebuild one lower-third and one full-screen panel as transparent overlays",
+      "priority": "key",
+      "addedAt": "2026-09-18",
+      "why": "HeyGen open-sourced HyperFrames (Apache-2.0, free, no per-render fees): HTML+CSS+GSAP composed by Claude Code or Codex, rendered deterministically to MP4 or a TRANSPARENT overlay via headless Chrome + FFmpeg. It ships a /motion-graphics skill for lower-thirds and kinetic type and a /talking-head-recut skill for overlaying an existing cut. Our graphics are PIL-drawn panels, which is exactly the 'slides, not moving graphics' note that got C1652 R3 rejected. Overlay-only means Dan's approved picture and the editor's audio are untouched. github.com/heygen-com/hyperframes"
     }
   ],
   "health": [
