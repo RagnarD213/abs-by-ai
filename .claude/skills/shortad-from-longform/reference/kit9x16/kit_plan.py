@@ -187,12 +187,40 @@ def main():
         if k in old:
             plan[k] = old[k]
     delivered_speech = None
+    speech_timing = None
     if a.transcribe:
+        import shutil
+        import subprocess
         import whisper
         r = whisper.load_model("small").transcribe(VID, word_timestamps=True, language="en")
         plan["transcript_words"] = [dict(w=w) for seg in r["segments"] for w in seg["text"].split()]
         delivered_speech = [dict(w=w["word"].strip(), t=round(float(w["start"]), 3), e=round(float(w["end"]), 3))
                             for seg in r["segments"] for w in seg.get("words", []) if w["word"].strip()]
+        speech_timing = "whisper word timestamps"
+        # Whisper's own word starts run ~130 ms EARLY (captions.py: measured against a CTC forced alignment, the
+        # reason the captions moved to CTC timing after Dan's 2026-09-08 rejection). Measured against them, a
+        # CTC-exact caption track reads +109 ms late with 191 misses (kit9x16 from-raw pass 8). So the delivered
+        # ASR's WORDS keep their provenance and their TIMING comes from the same forced aligner run on the
+        # DELIVERED audio -- still evidence from the delivered file, just the accurate instrument.
+        d = os.path.abspath("_asr_ctc")
+        shutil.rmtree(d, ignore_errors=True)
+        os.makedirs(d)
+        try:
+            json.dump(r, open(os.path.join(d, "ref.whisper.json"), "w"))
+            env = dict(os.environ, PYTHONPATH=os.getcwd() + os.pathsep + os.environ.get("PYTHONPATH", ""))   # the build's captions/beats/assets
+            ff = os.path.join(REF, "..", "..", "..", "..", "Media", "video_edit", "bin", "ffmpeg")
+            ff = ff if os.path.exists(ff) else "ffmpeg"
+            subprocess.run([ff, "-v", "error", "-y", "-i", os.path.abspath(VID), "-vn", "-ac", "2", "-ar", "48000",
+                            "-c:a", "pcm_s16le", os.path.join(d, "his_mix.wav")], check=True)
+            subprocess.run([sys.executable, os.path.join(REF, "a2", "align_ctc.py")], cwd=d, check=True,
+                           capture_output=True, text=True, env=env)
+            ctc = json.load(open(os.path.join(d, "words_ctc.json")))
+            delivered_speech = [dict(w=w["word"].strip(), t=round(float(w["start"]), 3), e=round(float(w["end"]), 3))
+                                for w in ctc if w["word"].strip()]
+            speech_timing = "wav2vec2 CTC forced alignment of the delivered ASR words to the delivered audio"
+        except Exception as e:                                    # the words stand; only the timing falls back
+            tail = (getattr(e, "stderr", "") or "")[-400:]
+            print(f"delivered-ASR CTC timing unavailable ({e}) {tail}; whisper word timestamps used", flush=True)
 
     # ---- evidence contract v2
     manifest = "cap/manifest.json"
@@ -200,7 +228,7 @@ def main():
         raise SystemExit("cap/manifest.json is missing; run captions.py (the compositor manifest) before the plan")
     plan["caption_states"] = json.load(open(manifest))["caption_states"]
     plan["speech_words"] = delivered_speech or list(plan["words"])
-    plan["speech_words_evidence"] = (dict(method="delivered_asr", video_sha256=sha(VID)) if delivered_speech
+    plan["speech_words_evidence"] = (dict(method="delivered_asr", video_sha256=sha(VID), timing=speech_timing) if delivered_speech
                                      else dict(method="verbatim_source_ctc"))
     # region beats on the FRAME grid: a graphic enabled at t0 first draws on the first frame at or after t0, and
     # the compositor's caption states are frame-exact, so a state that ends on that frame (exclusive) does not
