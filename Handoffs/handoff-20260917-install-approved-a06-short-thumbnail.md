@@ -1,6 +1,6 @@
 # Install approved A06 thumbnail on the daily-abs Short
 
-Status: ready to install. Created September 17, 2026. Design approved; installation not started.
+Status: **executed September 18, 2026.** The approved A06 cover is installed and verified in Studio and on the public channel grid. Installation report: `Short-form video content/covers/approved/Ub0BV4m5lMQ-A06/installation-20260918/INSTALLATION_REPORT.md`.
 
 Recommended model: **GPT-5.6 Sol — High**.
 
