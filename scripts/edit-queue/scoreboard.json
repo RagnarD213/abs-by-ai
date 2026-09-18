@@ -24,6 +24,149 @@
    "log": "/Volumes/Extreme/_edit_work/DS-01/queue-run.log",
    "by_hand": true,
    "note": "BLOCKED (queue run): The unattended sandbox denies /bin/ps, so the required machine-wide two-build safety check cannot run."
+  },
+  {
+   "run_id": "DS-01-20260917-151454",
+   "job": "DS-01",
+   "group": "DS",
+   "title": "Top 5 Ab Exercises",
+   "size": "S",
+   "executor": "codex",
+   "reviewer": "codex (fresh session; cross-reviewer unavailable)",
+   "started": "2026-09-17T15:14:54",
+   "ended": "2026-09-17T15:21:32",
+   "wall_hours": 0.11,
+   "outcome": "parked",
+   "reviewer_verdicts": [],
+   "first_pass_gate": null,
+   "revision_rounds": 0,
+   "generation_spend_usd": null,
+   "dan_verdict": null,
+   "dan_words": null,
+   "systemic_reason": null,
+   "corpus_entry": null,
+   "log": "/Volumes/Extreme/_edit_work/DS-01/queue-run.log",
+   "by_hand": true,
+   "note": "BLOCKED (queue run): DS-01 needs a verified, rights-cleared cable-crunch clip; no local match was found and Pexels could not be accessed from this unattended run."
+  },
+  {
+   "run_id": "AV-01-20260917-201429",
+   "job": "AV-01",
+   "group": "AV",
+   "title": "Ad 1 (Muhammad): the 9:16 ≤0:59 only",
+   "size": "S",
+   "executor": "claude",
+   "reviewer": "codex",
+   "started": "2026-09-17T20:14:29",
+   "ended": "2026-09-17T20:23:39",
+   "wall_hours": 0.15,
+   "outcome": "session_failed",
+   "reviewer_verdicts": [],
+   "first_pass_gate": null,
+   "revision_number": 0,
+   "revision_rounds": 0,
+   "model_usage": [
+    {
+     "role": "editor",
+     "executor": "claude",
+     "model": "fable",
+     "effort": "high",
+     "total_tokens": null,
+     "input_tokens": null,
+     "cached_input_tokens": null,
+     "output_tokens": null,
+     "measurement": "unavailable",
+     "reason": "Per-session token counts were not exposed in this CLI output; account-wide allowance is not attributed to one video."
+    }
+   ],
+   "paid_provider_costs": [
+    {
+     "provider": "all",
+     "usd": null,
+     "reason": "Per-video paid-provider costs were unavailable because DELIVERY.json did not report them."
+    }
+   ],
+   "generation_spend_usd": null,
+   "dan_verdict": null,
+   "dan_words": null,
+   "systemic_reason": null,
+   "corpus_entry": null,
+   "log": "/Volumes/Extreme/_edit_work/AV-01/queue-run.log",
+   "by_hand": true,
+   "note": "session_failed: the claude session ended without DELIVERY.json or BLOCKED.md (exit 1); see queue-run.log"
+  },
+  {
+   "run_id": "AV-01-20260918-031351",
+   "job": "AV-01",
+   "group": "AV",
+   "title": "Ad 1 (Muhammad): the 9:16 ≤0:59 only",
+   "size": "S",
+   "executor": "claude",
+   "reviewer": "codex",
+   "started": "2026-09-18T03:13:51",
+   "ended": "2026-09-18T04:15:30",
+   "wall_hours": 1.03,
+   "outcome": "parked",
+   "reviewer_verdicts": [
+    "DOES NOT SHIP"
+   ],
+   "first_pass_gate": "FAIL",
+   "revision_number": 0,
+   "revision_rounds": 0,
+   "model_usage": [
+    {
+     "role": "editor",
+     "executor": "claude",
+     "model": "opus",
+     "effort": "high",
+     "total_tokens": null,
+     "input_tokens": null,
+     "cached_input_tokens": null,
+     "output_tokens": null,
+     "measurement": "unavailable",
+     "reason": "Per-session token counts were not exposed in this CLI output; account-wide allowance is not attributed to one video."
+    },
+    {
+     "role": "independent reviewer (by hand: Phase 0 review-leg proof, same brief/flags the runner uses; runner had skipped it because the editor's gate was FAIL)",
+     "executor": "codex",
+     "model": "gpt-5.6-sol",
+     "effort": "high",
+     "total_tokens": 224913,
+     "input_tokens": null,
+     "cached_input_tokens": null,
+     "output_tokens": null,
+     "measurement": "available_total_only",
+     "reason": "CLI exposed only total tokens; input/output/cache split is unavailable."
+    }
+   ],
+   "paid_provider_costs": [
+    {
+     "provider": "Replicate",
+     "purpose": "AI motion/stills",
+     "usd": 0,
+     "reason": "nothing was generated: the whole picture is a selection out of the approved master"
+    },
+    {
+     "provider": "Gemini",
+     "purpose": "quality review",
+     "usd": 0,
+     "reason": "no Gemini review was run; the independent audit was the local watch-pass judge"
+    },
+    {
+     "provider": "MiniMax",
+     "purpose": "AI motion",
+     "usd": 0,
+     "reason": "not used"
+    }
+   ],
+   "generation_spend_usd": 0,
+   "dan_verdict": null,
+   "dan_words": null,
+   "systemic_reason": null,
+   "corpus_entry": null,
+   "log": "/Volumes/Extreme/_edit_work/AV-01/queue-run.log",
+   "by_hand": true,
+   "note": "Efficiency evidence incomplete before review: DELIVERY gate must be PASS before independent review (got 'FAIL') | 04:17-04:26 by-hand Codex review-1 (Phase 0 review-leg proof): DOES NOT SHIP; every defect is the approved master's own (strobing card exits, take-splice jumps, beach-clip orb, captions over tight photo/phone card). Dan's call."
   }
  ]
 }

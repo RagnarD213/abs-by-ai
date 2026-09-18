@@ -94,7 +94,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Overnight edit queue — PROOF RUN LIVE 2026-09-18 03:13, Claude (Fable).** Queue PAUSED; try 1 (09-17 20:14) hit the usage limit; fixed, re-fired. Next: verify, resume. `Handoffs/handoff-20260917-overnight-queue-proof-run.md`. ⚠ No job IDs here: dispatcher reads them as owned.
+**Overnight edit queue — LIVE 2026-09-18 (Phase 0 passed).** Resumed; idle until an eligible job (SL-01/02 need Dan's picks → `unattended:false`). Pause: `dispatcher.py pause`. Next: Dan rules on the parked Ad 1 vertical (http://127.0.0.1:8830). ⚠ No job IDs here: dispatcher reads them as owned.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 

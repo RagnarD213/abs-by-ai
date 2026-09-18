@@ -58,14 +58,15 @@
       "sandbox": "danger-full-access",
       "extra_writable_dirs": ["~/.config/rclone", "~/.cache"],
       "model": "gpt-5.6-sol",
-      "effort": "medium",
+      "effort": "high",
+      "_models": "Dan, 2026-09-17: edits run Sol / high (Codex) and Opus / high (Claude). Commit 3403c6b overwrote this to Sol/medium + Fable/high by accident; restored 2026-09-18 by the Phase 0 proof session.",
       "auth_check": null
     },
     "claude": {
-      "_unproven": "2026-09-17: the binary answers 'Not logged in'. Dan signs in once (run the binary in Terminal, /login). The flags below are what this project's settings.local.json already grants (bypassPermissions) plus a deny list; they have NOT been run on a full job yet.",
+      "_proven": "2026-09-17 20:14 (AV-01, first real launch): the flags below start a session that works with no prompt (9 minutes of real cut-scanning in the work dir). It ended when the ACCOUNT's 5-hour usage window, shared with Dan's daytime sessions, was already spent ('You've hit your monthly spend limit ... your session limit resets 9pm'). The dispatcher cannot see remaining allowance before launching; the usage-limit back-off is the only guard, so its patterns must match that wording.",
       "binary_glob": "~/Library/Application Support/Claude/claude-code/*/claude.app/Contents/MacOS/claude",
       "permission_mode": "bypassPermissions",
-      "model": "fable",
+      "model": "opus",
       "effort": "high",
       "no_mcp_servers": true,
       "disallowed_tools": [
@@ -79,7 +80,9 @@
   },
 
   "usage_limit_patterns": [
-    "usage limit", "rate limit", "limit reached", "hit your limit", "quota exceeded", "try again at", "out of credits"
+    "usage limit", "rate limit", "limit reached", "hit your limit", "quota exceeded", "try again at", "out of credits",
+    "spend limit", "session limit", "limit resets", "hit your monthly", "hit your weekly"
   ],
+  "_usage_limit_patterns_why": "2026-09-17 AV-01 run: Claude's real wording was 'You've hit your monthly spend limit ... your session limit resets 9pm' and matched none of the first seven, so the run was filed session_failed/stalled instead of usage_limited/ready with the 2-hour back-off.",
   "auth_failure_patterns": ["Not logged in", "Please run /login", "not signed in", "401 Unauthorized"]
 }

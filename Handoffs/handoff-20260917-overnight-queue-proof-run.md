@@ -1,5 +1,11 @@
 # Overnight edit queue — Phase 0 proof run (AV-01 on Claude), then un-pause
 
+**EXECUTED 2026-09-18 (Claude, Fable 5.1).** Try 1 (09-17 20:14, fired from outside this task) hit the account usage
+limit after 9 min; runner misfiled it (`session_failed`), config had drifted to Fable/Sol-medium — both fixed. Try 2
+(09-18 03:13–04:15, Opus/high) ran clean unattended and parked honestly on the master's own faults; review leg proven
+by hand (Codex, `DOES NOT SHIP`, same faults). Queue resumed. Findings: `scripts/edit-queue/README.md`. AV-01 waits
+for Dan's call on the review page (accept the approved master's faults, or fix the master first).
+
 **Written 2026-09-17 (Claude, Fable 5.1). Dan's instruction: "go ahead and run the proof run" — as its own task.**
 Parent design: `Handoffs/handoff-20260917-overnight-edit-queue.md`. Queue operations: `scripts/edit-queue/README.md`.
 

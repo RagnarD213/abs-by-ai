@@ -27,10 +27,12 @@ While you are using the Mac (keyboard or mouse in the last 10 minutes) it uses o
 
 | jobs | tool | reviewer |
 |---|---|---|
-| `RA` raw ads, `RO` organic long-form, `DS` dedicated shorts (all raw-footage first cuts) | **Codex · Sol / medium** | Claude `ra-reviewer` |
-| `AV` ad verticals, `AS` ad squares, `SL` shorts from a long-form (all secondary cuts) | **Claude** | a fresh Codex session |
+| `RA` raw ads, `RO` organic long-form, `DS` dedicated shorts (all raw-footage first cuts) | **Codex · Sol / high** | Claude `ra-reviewer` |
+| `AV` ad verticals, `AS` ad squares, `SL` shorts from a long-form (all secondary cuts) | **Claude · Opus / high** | a fresh Codex session |
 | `RX` | never queued | |
 
+Models (Dan, 2026-09-17): edits run Opus / high and Sol / high. A review session uses the reviewing tool's same
+`model` / `effort` (there are no separate review keys); a Claude review runs as the `ra-reviewer` agent.
 Flip a row by editing `config.json`. Nothing re-routes itself; the scoreboard only records.
 **Pilot limits (`config.json` → `unattended`):** groups `AV/AS/SL`, size `S`, 3 launches a night. Raw cuts (`RA/RO/DS`)
 join after Phase 2, because most of them have AI-clip slots that need Dan's frame approval.
@@ -97,11 +99,39 @@ what Dan's own `~/.codex/config.toml` already uses, so a queue session has the s
 That first run also proved the park path end to end: `BLOCKED.md` → `needs` with the reason → claim released →
 scoreboard row, nothing built, nothing uploaded.
 
-**Claude: NOT PROVEN. The program is signed out.** `claude auth status` → `"loggedIn": false`; `claude -p` →
-`Not logged in · Please run /login`. Dan signs in once (only he can):
-`~/Library/Application\ Support/Claude/claude-code/2.1.270/claude.app/Contents/MacOS/claude`, then `/login`.
-The dispatcher checks `claude auth status` every tick (free) and launches no Claude job while it is signed out. The
-flags it will use are **untested on a real job**:
+**Claude: headless launch works; the first run died on the account's usage limit.** Dan signed in on 2026-09-17
+(~18:00). The first real launch (AV-01, 2026-09-17 20:14, fired by hand from another session) started a session that
+worked with **no prompt** — nine minutes of real cut-scanning in the work dir — and then ended with
+`You've hit your monthly spend limit · … your session limit resets 9pm`: Dan's daytime sessions had already spent the
+5-hour window the queue shares. Three findings, all fixed 2026-09-18 by the proof session:
+1. That wording matched none of `usage_limit_patterns`, so the run was filed `session_failed` → `stalled` instead of
+   `usage_limited` → `ready` with the 2-hour back-off. Patterns extended (`spend limit`, `session limit`, `limit resets`,
+   `hit your monthly/weekly`) with the real message as a test.
+2. Commit `3403c6b` (18:29) had overwritten Dan's model decision in `config.json` (Fable/high + Sol/medium instead of
+   **Opus/high + Sol/high**), so the run used Fable, and one test pinned the wrong value. Both restored.
+3. A run that dies this way leaves a half-used work dir, which the eligibility check reads as "in flight or
+   half-built"; nothing restarts it. Recovery: move the dir to `_edit_work/_queue-failed/<run id>/`, then
+   `queue.py set <ID> ready`. The dispatcher **cannot see remaining allowance before launching** — `claude auth status`
+   only reports sign-in — so the back-off is the only guard; expect a lost launch on any night Dan's day work drained the
+   window before 9 pm.
+**Re-run 2026-09-18 03:13 → 04:15 (AV-01, Opus/high): the Claude editor leg is proven.** 1.03 h wall, no prompt,
+no third build (the dispatcher's own ticks read 0 other builds throughout), nothing uploaded, $0 generated, masters
+held in the work dir, `DELIVERY.json` honest: gate FAIL on two rows that are the approved master's own faults, so the
+runner parked it as `needs` **without** spending a review (`DELIVERY gate must be PASS before independent review`).
+The review leg was then proven by hand on that candidate with the runner's exact command and brief (fresh Codex
+Sol/high, 8 min, 224,913 tokens): a valid `QUEUE-REVIEW-1.md`, `VERDICT: DOES NOT SHIP`, same defects. Still open:
+* A Claude `-p --output-format text` session exposes **no token counts** (`model_usage` = unavailable) and writes
+  **nothing to the log until it ends** — progress is only visible from files appearing in the work dir. Switching to
+  `--output-format json`/`stream-json` would fix both; the log parsing must change with it.
+* **By-hand `launch-one` runs count toward the nightly cap** (4 since Thu noon after the proof), so the tick launches
+  nothing until the next noon roll-over. Intended, but worth knowing on a proof night.
+* **`SL-01`/`SL-02` docs say "show Dan the list and wait for his picks"**; an unattended run cannot honour that, so
+  both carry `"unattended": false` (2026-09-18). Flip them once Dan has picked. With that, no job is eligible until a
+  new AV/AS/SL size-S job is ready — the queue is live but idle.
+* The 20:14 launch was fired by hand from outside the proof session (not the dispatcher, not its waiter; no Claude or
+  Codex transcript on this Mac holds the confirmation line). Unattributed.
+
+The flags, proven on that launch and the 2026-09-18 03:13 re-run:
 
 ```
 <newest claude-code/*/claude.app/Contents/MacOS/claude> -p --permission-mode bypassPermissions \

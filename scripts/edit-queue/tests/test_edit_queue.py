@@ -276,13 +276,18 @@ class Runner(unittest.TestCase):
     def test_failure_classifier(self):
         self.assertEqual(runner.classify_failure(1, "Not logged in · Please run /login", CFG), "auth_failed")
         self.assertEqual(runner.classify_failure(1, "You've hit your usage limit. Try again at 3am", CFG), "usage_limited")
+        # the real wording from the first Claude launch (AV-01, 2026-09-17 20:23), which the first pattern list missed
+        self.assertEqual(runner.classify_failure(
+            1, "You've hit your monthly spend limit · raise it at claude.ai/settings/usage?from=cc_cli_limit_message · "
+               "your session limit resets 9pm (America/Chicago)", CFG), "usage_limited")
         self.assertEqual(runner.classify_failure(1, "Traceback ...", CFG), "session_failed")
         self.assertEqual(runner.classify_failure(-9, "", CFG), "timeout")
 
     def test_commands_are_unattended_and_locked_down(self):
         cx = eq.build_command("codex", CFG, "/w/AV-01")
         self.assertIn('approval_policy="never"', cx); self.assertEqual(cx[-1], "-"); self.assertIn("/w/AV-01", cx)
-        self.assertIn("gpt-5.6-sol", cx); self.assertIn('model_reasoning_effort="medium"', cx)
+        # Dan, 2026-09-17: edits run Sol / high; the queue's own review sessions use review_effort
+        self.assertIn("gpt-5.6-sol", cx); self.assertIn('model_reasoning_effort="high"', cx)
         if eq.resolve_binary("claude", CFG):
             cl = eq.build_command("claude", CFG, "/w/AV-01", "review-1")
             self.assertIn("-p", cl); self.assertIn("bypassPermissions", cl); self.assertIn("--strict-mcp-config", cl)

@@ -201,9 +201,16 @@ consecutive clean nights.
   uses `danger-full-access`, the setting in Dan's own `~/.codex/config.toml`. DS-01 is reset to `ready` and a waiter
   (`/Volumes/Extreme/_edit_work/_queue-smoke/phase0_wait_and_launch.sh`, 12 h) fires it again through
   `dispatcher.py launch-one` when a slot is free; the result lands on the review page and in `scoreboard.json`.
-* **Claude headless: NOT proven.** `claude auth status` says signed out. Dan runs the binary once and types `/login`.
-  Then: `python3 scripts/edit-queue/dispatcher.py launch-one AV-01` (the pilot job), read
-  `/Volumes/Extreme/_edit_work/AV-01/queue-run.log`, and fix the flags in `config.json` if anything prompted.
+* **Claude headless: launches and works with no prompt; first run lost to the account usage limit.** Dan signed in
+  09-17 ~18:00. AV-01 was fired by hand at 20:14 (from a session other than the proof session's waiter), worked nine
+  minutes, then hit `hit your monthly spend limit … session limit resets 9pm` — the 5-hour window Dan's daytime
+  sessions share. The runner missed that wording (`session_failed`/`stalled` instead of `usage_limited`/`ready`),
+  and commit `3403c6b` had silently reverted the models to Fable/high + Sol/medium. Both fixed 09-18 (patterns +
+  test, Opus/high + Sol/high restored); failed dir archived to `_edit_work/_queue-failed/`. **Re-run 09-18 03:13 →
+  04:15: clean.** 1.03 h, no prompt, no third build, nothing uploaded, honest gate FAIL (the master's own faults) →
+  parked `needs` without a review; the review leg then proven by hand (Codex Sol/high, 8 min, valid `DOES NOT SHIP`).
+  Queue **resumed 09-18**; SL-01/SL-02 flagged `unattended:false` (they need Dan's segment picks), so it idles until a
+  new eligible job. Details: `scripts/edit-queue/README.md` "Exactly how the sessions are launched".
 * **Un-pause only after that run is clean:** `python3 scripts/edit-queue/dispatcher.py resume`. Then the three
   clean nights start counting.
 * Tests: 41 unit + 3 end-to-end (fake editor) pass. One real bug found by the first real launch and fixed with a
