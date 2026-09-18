@@ -35,6 +35,10 @@ wrong, the workflow has failed and must be corrected.
 
 Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Keep wider shots steady per shot where possible; track only when a very tight crop needs it. This supersedes any blanket tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
 
+## Full-frame portrait occupancy — locked 2026-09-18
+
+Apply the project-wide rule in `_shared/VIDEO-RULES.md`: if the source can support a clean portrait crop, it fills all 1080×1920 pixels. Never put native-portrait or portrait-safe footage into a square stage with black bands. For a dedicated talking Short, measure a crop with only a little clearance above Dan's hair and a lower edge around mid-thigh/shorts, then inspect the whole moving take for gesture containment. Check rotation metadata before interpreting encoded dimensions; a 3840×2160 file rotated −90° is native portrait after decoding. Compact titles/captions adapt to the footage and do not justify shrinking the picture. Use an inset/black field only when a full-screen crop would lose essential action, body, equipment, text or graphics, and record that reason.
+
 ## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)
 
 - **A before and after picture are the SAME PERSON** (Dan, 2026-09-12: *"don't mix before-and-after pictures… That doesn't really make sense if you change the person."*). Never pair one person's before with another's after — in an app recording, a result screen, a card or a thumbnail. If that person's after does not exist, generate it for THEM through the live product (a real generation, never a composite) or change the before so the pair matches. ⚠ The only real app recording in the asset library uploads a man who is NOT Dan, so every phone demo cut from it inherits this.

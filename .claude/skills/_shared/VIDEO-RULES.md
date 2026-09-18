@@ -18,6 +18,12 @@
 - No AI motion is generated before its frames are approved. A material frame, source, trim, action or slot-duration change requires approval again; unchanged approved items do not. After approval, insert the exact clips, rebuild only affected scenes/joins, remove every placeholder, then run the complete gates, full picture/audio review and one independent complete-candidate review.
 - A placeholder cut is internal **DRAFT** media and can never receive a delivery PASS or be uploaded. The queue's Phase 2 approval states and automatic placeholder gate are not built yet. Until they are, park a queued job in a currently supported waiting state with the packet path and exit; never pretend it will auto-resume, and never keep an AI session alive to poll. The existing queue still owns actual rendering, heartbeats and waiting.
 
+## Short-form footage fills the vertical frame (Dan, 2026-09-18)
+
+- **When the source can support a clean portrait crop, short-form footage occupies the complete 9:16 canvas.** Do not shrink it into a square/card stage or reserve black bands above and below. Black bars or an inset stage are only for footage whose essential action, body, equipment, text or graphics cannot survive a full-screen portrait crop.
+- For a dedicated talking Short, default to a tight measured portrait composition: only a little space above the top of Dan's hair, with the lower edge around the middle of his thighs/shorts. Centre each shot and inspect the whole moving take so gestures are not needlessly clipped. A native-portrait recording must be treated as portrait even when its encoded width/height appear landscape because of rotation metadata.
+- Titles and captions adapt to the full-frame picture; the picture is not reduced to make room for them. Place compact graphics in measured clear space and keep them off Dan's face and abs. If a full-screen crop is genuinely impossible, record the specific containment reason before using an inset or black field.
+
 ## A before and after picture are the SAME PERSON (Dan, 2026-09-12)
 
 - **Never mix people across a before/after pair.** Dan, on the Ad 5 vertical's app demo, which uploaded one man's photo and
