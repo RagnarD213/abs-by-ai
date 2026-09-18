@@ -94,7 +94,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Overnight edit queue — PROOF RUN ACTIVE 2026-09-17, Claude (Fable).** Queue PAUSED; one Claude job hand-fired, unattended. Next: verify, resume. `Handoffs/handoff-20260917-overnight-queue-proof-run.md`. ⚠ No job IDs here: dispatcher reads them as owned.
+**Overnight edit queue — PROOF RUN LIVE 2026-09-18 03:13, Claude (Fable).** Queue PAUSED; try 1 (09-17 20:14) hit the usage limit; fixed, re-fired. Next: verify, resume. `Handoffs/handoff-20260917-overnight-queue-proof-run.md`. ⚠ No job IDs here: dispatcher reads them as owned.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
@@ -103,7 +103,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RA-01 "AI Trick That Got Me Abs" — NEEDS DAN 2026-09-18, Claude.** 3 rounds done (Opus edit, Fable review); both aspects ship-clean bar the audio `artifacts` row, which the untreated outdoor lav already fails → Dan's exception, masters HELD in `/Volumes/Extreme/_edit_work/ra01/`. Review copy sent. Next: Dan watches, rules on outdoor audio + skin look (`notes-RA-01.md` "Your calls"), then masters deliver. Detail: `Claude Ad Videos/the ai trick that got me abs - RA-01/`.
 
-**VQC Phase 4 kit — DAN'S BLIND PICK 2026-09-18, Claude (Fable).** Both Ad 1 verticals gated (36/36, 0 defects, 8/10 judged rounds): `/Volumes/Extreme/_edit_work/kit9x16/{ad1-master,ad1-raw}/`. Blind page live http://127.0.0.1:8832/index.html (5 pairs, sealed key). Next: Dan answers → `blind/record_verdict.py --dir …/blind/page` → corpus. ⚠ corpus reads FAIL on `ds17-r4-final-approved` (audio artifacts; another session's entry, not the kit's). Detail: engine doc Phase 4 section.
+**VQC Phase 4 kit — DAN'S BLIND PICK 2026-09-18, Claude (Fable).** Both Ad 1 verticals gated (36/36, 0 defects): `/Volumes/Extreme/_edit_work/kit9x16/{ad1-master,ad1-raw}/`. Blind page http://127.0.0.1:8832/index.html (5 pairs, sealed key). Next: Dan answers → `blind/record_verdict.py --dir …/blind/page` → corpus. ⚠ corpus FAIL on `ds17-r4-final-approved` (audio artifacts; another session's entry). Detail: engine doc Phase 4.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
