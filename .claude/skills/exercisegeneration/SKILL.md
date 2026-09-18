@@ -3,6 +3,8 @@ name: exercisegeneration
 description: Generate a photorealistic AI exercise demo video for the Abs By AI Trainer — AI-Dan (Dan's likeness in the logo tank top) performing the movement in the canonical gym as a seamless looping rep, narrated by Dan's cloned voice reading the form cues. Use whenever Dan asks to generate exercise demos, demo videos, replace stick figures, or run a batch of exercises from the library — even if he doesn't say "/exercisegeneration". For ad videos use /make-ad; for retouching Dan's real photos use /photo-edit.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # Exercise demo generation ("keyframe-locked" AI-Dan demos)
 
 Produces one finished asset per exercise: a 15–25s MP4 of AI-Dan performing clean looping reps with

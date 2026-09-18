@@ -3,6 +3,8 @@ name: background-removal
 description: Remove the background from finished Abs By AI photos, producing full-resolution transparent PNG cutouts for thumbnails, covers, and composites. Use whenever Dan asks to remove a background, cut him out of a photo, make a transparent PNG, key out a backdrop, build cutouts for thumbnails, or extend the _cutouts folder with newly finalized photos — even if he doesn't say "/background-removal". Retouching the photo itself is /photo-edit; building the thumbnail that USES a cutout is /youtube-packaging or /coverimage.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # Background Removal — finished photos to transparent cutouts
 
 Turn finalized photos into full-res RGBA PNGs with the background removed, clean

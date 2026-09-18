@@ -1,3 +1,5 @@
+Read `_shared/VIDEO-RULES.md` first.
+
 # UNATTENDED RUN: read this before the job
 
 You are running unattended from the overnight edit queue; Dan is not available. Job: **{JOB}**.

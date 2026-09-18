@@ -3,6 +3,8 @@ name: shortad-from-longform
 description: Rebuild a FINISHED, finalized long-form video as a vertical 9:16 short ad, reproducing the finished video's style as closely as possible — first verify the editor's HD export is the draft Dan approved with no new errors (so Dan never has to watch the export), then recover its edit from the raw footage, measure its grade, palette and graphics, re-lay them out for a phone, then cut a ≤0:59 version. Use whenever Dan asks for a vertical or 9:16 version of a finished video, to "make a short ad from" a long-form cut, to reproduce an editor's finished style in vertical, or to turn a finalized ad or content video into Shorts/Reels creative, or to build a 1:1 SQUARE version (and its ≤0:59 square cutdown) of an approved ad for Google Ads Demand Gen / Meta feed — even if he doesn't say "/shortad-from-longform". For cutting shorts out of a video we ourselves rendered, /shorts is cheaper. For editing an ad from raw shoot footage use /ad-edit; for content videos use /longform-edit.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # /shortad-from-longform — a finished long-form cut, rebuilt vertical
 
 ## Edit queue status — REQUIRED when this video is a job on Dan's edit queue

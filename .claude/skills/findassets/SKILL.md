@@ -3,6 +3,8 @@ name: findassets
 description: Find an asset Dan called for in a revision note — a B-roll shot, a clip from one of our own finished videos, a stock or AI clip, a photo — then CUT the exact portion out, upload just that portion to Google Drive, and drop the link into the revision doc at the right place. Use whenever Dan writes a revision that names footage instead of linking it ("replace this with footage of me doing X", "use the clip from the Y video", "find that B-roll"), or leaves a "[CLAUDE - FIND THIS CLIP...]" placeholder in a doc — even if he doesn't say "/findassets". Writing the revision review itself is /revisions; re-rendering our own cuts is /ad-edit and /longform-edit.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # /findassets — locate the asset, cut it, upload it, link it
 
 Dan writes revision notes for human editors by hand. When he calls for footage we
@@ -243,4 +245,3 @@ Inherited from the asset library and the ad rules — they bind here too:
 13. **Typing a new bullet right after a hyperlink line inherits blue-underline styling** that is NOT a
     real link (the context menu offers "Insert link", not "Remove link"). Select the new lines and
     cmd+\ (Clear formatting); the list structure survives.
-

@@ -10,6 +10,8 @@ description: >
   use /youtube-packaging. For a fully AI-generated video ad use /make-ad.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 > **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
 
 # Cutting Shorts from a long-form video

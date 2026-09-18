@@ -3,6 +3,8 @@ name: video-setup
 description: Take a FINISHED organic/content long-form video (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform — download and file it, build thumbnail variations for Dan to pick from, write the title, description with chapters and tags, upload the YouTube holding copy Private, and queue YouTube, Facebook, Instagram @danrosefit, TikTok and the @abs.by.ai mirror for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else" — even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # /video-setup — finished content video → YouTube + Blotato, every platform
 
 Built 2026-09-13 on Zeeshan's "Ab Wheel Workout" (video 1, "Video 1 Rev 2.mp4", 3:52). Dan: *"Zishan has finished

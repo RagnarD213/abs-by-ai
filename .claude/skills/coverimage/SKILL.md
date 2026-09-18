@@ -10,6 +10,8 @@ description: >
   use /photo-edit.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # Cover images for Shorts
 
 Instagram defaults a Reel's cover to frame 0, which on our shorts is the black

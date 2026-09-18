@@ -3,6 +3,8 @@ name: youtube-packaging
 description: Package an Abs By AI YouTube video for upload — SEO title options, description with UTM link + chapters, tags, pinned comment, thumbnails, and Shorts cutdowns. Use whenever Dan asks to get a video ready for YouTube, make thumbnails, or cut Shorts.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # YouTube video packaging (Abs By AI channel)
 
 Established with Dan on 2026-08-04 while packaging the channel-intro video (V1).

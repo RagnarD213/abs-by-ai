@@ -3,6 +3,8 @@ name: ad-setup
 description: Take a FINISHED ad video (usually an editor's HD final shared as a Google Drive link) all the way to running — file it in the project folder, upload it to YouTube unlisted with a description, chapters, tags, the AI-content disclosure and a clean thumbnail, then add it to the Google Ads Demand Gen conversion campaign (one ad group per landing page, its own audience, compliant copy) and record the ids. Use whenever Dan says an ad is "complete", "final", "approved", sends an HD link and asks to "upload it", "set it up", "add it to the campaign", "put it in Google Ads", or adds a new version (a vertical) of an ad already running — even if he doesn't say "/ad-setup". Reviewing a cut is /revisions; filing alone is /editor-deliveries; thumbnails alone are /youtube-packaging.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # /ad-setup — finished ad → YouTube → Google Ads
 
 Built 2026-09-11 on Ads 3 + 4 (Muhammad's HD finals, Dan: *"These two ads are complete. Upload them to YouTube,

@@ -3,6 +3,8 @@ name: revisions
 description: Review a video cut delivered by an editor (human or a cheaper-model pipeline session) and produce a revisions document in Dan's exact format — timestamped, with specific directions, specific replacement text, and direct links to the exact assets to use. Use whenever Dan shares a video (usually a Google Drive link) and asks to "review it", "give revisions", "write up revision notes", or "check the editor's cut" — even if he doesn't say "/revisions". For revising videos OUR pipeline will re-render itself, /ad-edit and /longform-edit remain the execution skills; this skill produces the review document.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # /revisions — review a delivered cut and write Dan-style revision notes
 
 The deliverable is a **Google Doc in Dan's Drive**, written in Dan's voice and format,

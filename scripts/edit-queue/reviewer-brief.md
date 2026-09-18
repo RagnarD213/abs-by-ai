@@ -1,3 +1,5 @@
+Read `_shared/VIDEO-RULES.md` first.
+
 # UNATTENDED INDEPENDENT REVIEW: {JOB}, review {N}
 
 You are the independent reviewer for a video the overnight edit queue just built. Dan is not available; never ask

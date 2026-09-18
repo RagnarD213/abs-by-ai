@@ -1,3 +1,5 @@
+Read `_shared/VIDEO-RULES.md` first.
+
 # Video editing handoffs — rules every job shares
 
 **Written 2026-09-16 (Opus 5) with the master list `00-MASTER.md`.** Every job doc in this folder is short on purpose.

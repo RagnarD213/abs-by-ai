@@ -1,3 +1,5 @@
+Read `_shared/VIDEO-RULES.md` first.
+
 # Editor card — read this BEFORE the skill, hold it for the whole build
 
 Written 2026-09-17 from two side-by-sides against Codex. **The main one: Codex's C1652 R4 "Why Your Belly Fat Is an

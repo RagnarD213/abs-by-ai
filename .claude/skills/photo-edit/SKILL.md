@@ -3,6 +3,8 @@ name: photo-edit
 description: Facetune-style AI retouching and editing of Dan's real personal photos (NOT the Abs By AI product pipeline). Use this skill whenever Dan asks to edit, retouch, touch up, clean up, or "Facetune" a photo of himself — for Instagram, dating apps, social media, or publication — including abs/body definition, face de-shine, wrinkle smoothing, jawline, blemish removal, clothing/bulge tweaks, or picking + polishing the best shots from a photo shoot. Also use it when he pastes/attaches a photo of himself and asks to make it look better in any way.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # Photo Edit — Facetune-style retouching of Dan's real photos
 
 Retouch Dan's own photos so he looks like the best version of himself on the same day, in the same photo. The bar: the result must survive being compared to how he looks on video — a slightly imperfect real photo beats a heavy edit that drifts his face or body. These are keystone assets (IG, dating apps), so quality > speed; a full multi-candidate run costs well under $2.

@@ -9,6 +9,8 @@ description: >
   "/make-ad". Also use when reviewing or revising a previously produced ad.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # Make-Ad: AI Video Ad Production for Abs By AI
 
 ## Standing rule — label Dan's REAL pictures (Dan, 2026-09-11)

@@ -3,6 +3,8 @@ name: website-video
 description: Build a WEBSITE conversion video for absbyai.com — the trust video a visitor watches on the post-lock-in analysis page or the /start landing page right before they buy — from Dan's teleprompter shoot footage into a finished, gated 16:9 master, in ONE shot. Use this whenever Dan asks for a website video, a conversion video, a "video for the analysis page", a VSL / landing-page video, the "post-generation video", a re-cut or revision of the website video, or any video whose home is a page on absbyai.com rather than YouTube or an ad platform — even if he doesn't say "/website-video". It locks in the audio that sounds like Muhammad's, the hair-anchored framing, the slow trustworthy pacing, real app screens beside Dan, and AI clips re-rendered until perfect, and it QCs harder than any other video skill. For paid ads use /ad-edit; for YouTube content use /longform-edit; for Shorts use /shorts.
 ---
 
+Read `_shared/VIDEO-RULES.md` first.
+
 # Website video: the last thing a visitor watches before they pay
 
 ## Square and vertical camera movement — updated 2026-09-16
