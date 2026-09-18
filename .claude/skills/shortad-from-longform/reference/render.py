@@ -282,7 +282,8 @@ def _track_sig(t0, t1):
 
 def _sig(b, nfr, t0):
     v = 'v9-winramp'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
-    extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v}
+    extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v, '_vlib': _VLIB_SIG}   # the SEGMENT cache must see the layout library too:
+    # a plated beat's out/sNNN.mp4 was served after vlib changed (the '200 POUNDS' kicker under the chip, round 4)
     if b['kind'] in ('talk', 'window', 'stmt', 'winmedia'): extra['_trk'] = _track_sig(t0, b['t1'])
     # ⚠ the MEDIA entry (path, in-point, rate, crop placement) is part of what was rendered: a crop
     # offset changed in assets.py served the stale segment on 2026-09-03 until this was added

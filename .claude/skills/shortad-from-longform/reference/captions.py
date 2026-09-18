@@ -217,6 +217,21 @@ def render(gs, out='captions.mov', capdir='cap'):
     for st in states:
         k = st.pop('_e')
         st['beat'] = [round(fidx[k] / FPS_, 4), round(fidx[k+1] / FPS_, 4)]
+    # ⚠ ONE HARD-LINKED PNG PER OUTPUT FRAME, encoded as an image sequence at 30000/1001 (kit9x16 round 4). The
+    # concat demuxer keeps image timestamps in image2's 1/25 s timebase, so every `duration` is quantised to 40 ms
+    # and a third of the word switches landed ONE FRAME EARLY (measured: switches at 1094/1095, 3949/3950,
+    # 4805/4806 against the manifest). A frame sequence has no timestamps to round: frame k is state(k).
+    seqdir = f'{capdir}/frames'
+    if os.path.isdir(seqdir):
+        import shutil as _sh; _sh.rmtree(seqdir)
+    os.makedirs(seqdir)
+    for k, (p, _) in enumerate(entries):
+        for n_ in range(fidx[k], fidx[k+1]):
+            try:
+                os.link(os.path.abspath(p), f'{seqdir}/{n_:06d}.png')
+            except OSError:                                   # exFAT (the Extreme SSD) has no hard links
+                os.symlink(os.path.abspath(p), f'{seqdir}/{n_:06d}.png')
+    total_frames = fidx[-1]
     with open(f'{capdir}/list.txt', 'w') as f:
         for p, d in entries:
             f.write(f"file '{os.path.abspath(p)}'\nduration {d:.6f}\n")
@@ -234,8 +249,8 @@ def render(gs, out='captions.mov', capdir='cap'):
     # the gate then verifies these exact PNG/highlight states in the delivered pixels.
     json.dump(dict(version=1, frame_size=[VW, VH], caption_states=states),
               open(f'{capdir}/manifest.json', 'w'), indent=1)
-    subprocess.run([FF, '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', f'{capdir}/list.txt',
-                    '-r', '30000/1001', '-c:v', 'qtrle', '-pix_fmt', 'argb', out], check=True)
+    subprocess.run([FF, '-v', 'error', '-y', '-framerate', '30000/1001', '-start_number', '0', '-i', f'{seqdir}/%06d.png',
+                    '-frames:v', str(total_frames), '-r', '30000/1001', '-c:v', 'qtrle', '-pix_fmt', 'argb', out], check=True)
     print(f'{len(gs)} groups, {n} word states -> {out}')
 
 if __name__ == '__main__':

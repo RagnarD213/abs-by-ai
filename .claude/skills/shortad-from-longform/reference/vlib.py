@@ -503,7 +503,7 @@ def plate_title_card(headline, sub, dur, fps=FPS):
         lay = Image.new("RGBA", (VW, VH), (0,0,0,0)); d = ImageDraw.Draw(lay)
         y = box[1] + 75
         for n, ln in enumerate(hl):
-            k = clamp01((t - 0.18 - n*0.26)/0.62)
+            k = clamp01((t - 0.06 - n*0.26)/0.62)         # 2 frames of empty card, not 5 (round 4 judge: a 0.27 s blank card)
             draw_type(d, ln, fh, (VW - text_size(ln, fh)[0])//2, y, INK+(255,), k)
             y += lh
         lay = oblique(lay, 9.0, pivot_y=box[1]+75+len(hl)*lh/2)

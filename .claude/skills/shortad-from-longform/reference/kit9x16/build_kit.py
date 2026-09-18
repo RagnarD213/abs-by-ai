@@ -262,6 +262,14 @@ def pushes_for(tl, splices, cover, words, T, flashes):
     clean = []
     for p in pushes:
         if clean and p[0] < clean[-1][3] + 0.4:
+            if p[1] <= p[0]:
+                # a LEVEL STEP sits on a cut and is never dropped (round 4: the step at 146.11 s vanished because
+                # the previous punch had ramped out 0.25 s earlier); the earlier push ends where the step begins
+                q = list(clean[-1])
+                if q[3] > p[0]:
+                    q[2] = q[3] = round(p[0], 4)
+                    clean[-1] = tuple(q)
+                clean.append(p)
             continue
         clean.append(p)
     # 3. top up to HIS count: the reference's pushes per minute (midpoint of lo/hi) times the runtime.
@@ -483,6 +491,17 @@ def main():
         # both sides show Dan in a plate window (a cut 3 frames before a window -> statement boundary is as
         # bare as one in the middle: round 2 judge, 171.7 s)
         if _kind(t - 0.05) in DANWIN and _kind(t + 0.05) in DANWIN and not any(r["i"] == i for r in piccuts):
+            # a window splice within the search window of the plate's EDGE snaps onto the edge (the insert
+            # boundary and its flash hide it) -- never pose-matched past it into open talk (round 4: 177.18 moved
+            # +15 frames to 177.68, out from under the flash, and read as a naked splice)
+            n0_ = round(t * FPS)
+            edge_near = [e for e in sorted({round(b["t0"] * FPS) for b in tl} | {round(b["t1"] * FPS) for b in tl})
+                         if 0 < abs(e - n0_) <= int(T["cut"]["search_frames"]) and 0 < e < round(dur * FPS)]
+            if edge_near:
+                e = min(edge_near, key=lambda x: abs(x - n0_))
+                piccuts.append(dict(i=i, cut=round(t, 3), n0=n0_, k=e - n0_, pic_frame=e, conf=0.0, method="edge-snap",
+                                    cover=None, snapped_to_boundary=True, sim_at_k=None))
+                continue
             # the dissolve ghosts when the two takes differ in pose (round 3 judge: 22.66, 20.55, 14.65 s), so the
             # window cut is pose-matched too when kit_cuts has decided it (<build>/_wincuts/piccuts.json)
             wk = wincuts.get(i, {})
