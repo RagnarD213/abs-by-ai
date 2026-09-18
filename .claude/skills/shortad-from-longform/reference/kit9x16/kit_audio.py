@@ -60,7 +60,7 @@ def main():
     ap.add_argument("--rolls")
     ap.add_argument("--edl", required=True)
     ap.add_argument("--bed")
-    ap.add_argument("--bed-db", type=float, default=-30.0)   # voice_chain's own default; at -19 the gate read the floor between words 12 dB above his (kit9x16 from-raw, 2026-09-17)
+    ap.add_argument("--bed-db", type=float, default=-38.0)   # HIS bed level, measured (kit9x16 from-raw Ad 1, 2026-09-17): the gate's floor row wants the bed 28-35 dB under the voice like his; -19 read 14/23/16, -30 read 20/28/22, the treated voice alone 42/48/38 -- the bed is the whole floor, and -38 lands on his 28/35/28
     ap.add_argument("--tick")
     ap.add_argument("--tick-db", type=float, default=-12.0)
     a = ap.parse_args()
