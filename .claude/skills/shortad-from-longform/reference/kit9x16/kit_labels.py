@@ -169,14 +169,16 @@ def validate(label, c, frames, tag):
         im.convert("RGB").save(q)
         ps.append(q)
     subprocess.run([PERSONMASK, f"{d}/m"] + ps, check=True, capture_output=True)
-    worst, worst8 = 0, 0
+    worst, worst8, worst16 = 0, 0, 0
     for q in ps:
         m = np.array(Image.open(f"{d}/m/" + os.path.basename(q).replace(".png", ".mask.png")).convert("L").resize((VW, VH))) > 127
         box = (slice(c["y"], c["y"] + c["h"]), slice(c["x"], c["x"] + c["w"]))
         worst = max(worst, int(dilate(m, VALIDATE_PX)[box].sum()))
+        worst16 = max(worst16, int(dilate(m, 2 * VERIFY_PX)[box].sum()))
         worst8 = max(worst8, int(dilate(m, VERIFY_PX)[box].sum()))
     shutil.rmtree(d, ignore_errors=True)
     c["contact_at_verify_px"] = worst8
+    c["contact_at_2x_verify_px"] = worst16
     return worst
 
 
@@ -233,18 +235,26 @@ def place(build):
         tryl = [c_ for c_ in allc if c_["cls"] == "A"][:8] + [c_ for c_ in allc if c_["cls"] == "B"][:14] + \
                [c_ for c_ in allc if c_["cls"] == "C"][:14]
         fallback = None
+        fallback16 = None
         for cand in tryl:
             contact = validate(label, cand, probe, key)
             tried.append((cand["cls"], cand["lines"], cand["size"], cand["x"], cand["y"], contact))
             if contact == 0:
                 c = cand
                 break
-            # second tier: clear at the DELIVERED bound (8 px) on every frame, smallest contact at the 24 px
-            # margin -- some pictures' segmentation never grants the full margin (today_towel, dark foliage)
+            # second tier: clear at TWICE the delivered bound (16 px) on every frame, smallest contact at the 24 px
+            # margin -- some pictures' segmentation never grants the full margin (today_towel, dark foliage).
+            # Third tier, last resort: clear only at the delivered bound (8 px). A placement accepted there flipped
+            # on the delivered file (from-raw today_trees: 0 px measured, 1,479 px delivered -- the segmenter's
+            # edge moves a few px between a segment's frames and the muxed file's), so 16 px is tried first.
+            if cand.get("contact_at_2x_verify_px", 1) == 0 and (fallback16 is None or contact < fallback16[0]):
+                fallback16 = (contact, cand)
             if cand["contact_at_verify_px"] == 0 and (fallback is None or contact < fallback[0]):
                 fallback = (contact, cand)
+        if not c and fallback16:
+            c = dict(fallback16[1], margin_note=f"clear at {2 * VERIFY_PX} px on every frame; {fallback16[0]} px of contact at the {VALIDATE_PX} px margin")
         if not c and fallback:
-            c = dict(fallback[1], margin_note=f"clear at {VERIFY_PX} px on every frame; {fallback[0]} px of contact at the {VALIDATE_PX} px margin")
+            c = dict(fallback[1], margin_note=f"clear at {VERIFY_PX} px on every frame ONLY; {fallback[0]} px of contact at the {VALIDATE_PX} px margin")
         if not c:
             raise SystemExit(f"{key}: no placement the segmenter reads as clear with the chip drawn (tried {tried[:8]}...) -- "
                              "pick a different picture (Dan prefers a correct different picture over a cropped right one)")
