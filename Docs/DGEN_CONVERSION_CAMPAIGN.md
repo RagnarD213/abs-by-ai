@@ -315,6 +315,32 @@ ENABLED at $30 target CPA; Muhammad HD ads `824922224568` / `824922224571` remai
 review-grade ads `824835458839` / `824835458866` remain PAUSED. Audience `359315129`, copy and landing pages were
 unchanged.
 
+## 2026-09-18 — RA-01 How AI Got Me Abs added as a new ad
+
+Dan approved the exact RA-01 9:16 and 16:9 masters as-is, including the audio. SHA-256 verification matched the
+locked handoff values before upload: `02d032180a3eb42dc81d1857613df55ef4b715ab4d31e315834baf2a63003e51`
+(9:16) and `bcace8c490c8c8a3f105469c106ee1cbe40f4d839fb480fd7781fb1e4afb6a45` (16:9). Both 57.190-second files
+were uploaded without transcoding as **Unlisted**, with `containsSyntheticMedia: true`, and read back on channel
+`UC236gjadarHAhEhOMYNGJ9g` as processed, embeddable and `privacyStatus=unlisted`. The installed thumbnails use the
+new `studio-blue-109` portrait and compliant copy `SEE YOURSELF / WITH ABS`; both O1 dark-studio and O2 own-backdrop
+versions exist in each aspect, with O1 installed. No Public or organic copy was created.
+
+Config `scripts/ads/api/dgen-ads/ra01.json` passed Google `validateOnly` first with exactly 17 new operations: two
+video assets, one audience, two $30-target-CPA ad groups, their normal US + CA / English / audience criteria, and
+four ads. It reused or modified nothing. The identical batch was then applied and read back:
+
+| version | YouTube → asset | audience | `/start` group → ad | home group → ad |
+|---|---|---|---|---|
+| Claude vertical | `rfCsWNxuNV0` → **`422804568080`** | **`359952376`** | `195593120770` → **`825172744302`** | `201008893635` → **`825172744311`** |
+| Claude 16:9 | `OUw788sF1KY` → **`422804571407`** | **`359952376`** | `195593120770` → **`825172744305`** | `201008893635` → **`825172744314`** |
+
+All four ads are ENABLED and `UNKNOWN / REVIEW_IN_PROGRESS`. Final URLs use
+`utm_campaign=dgen-conv-ra01&utm_content=claude-vertical|claude-16x9-<start|home>`. The `/start` ads point to
+`https://absbyai.com/start`; the home ads point to `https://absbyai.com/`. Live readback before and after the build
+kept campaign `24243839443` ENABLED on Target CPA and preserved budget resource `15862488218` at **$50/day**; no
+budget operation was sent. Existing ads, assets, ad groups, bids and statuses were untouched. Re-run
+`node scripts/ads/api/client.js policy 24243839443` the next day for the final policy verdict.
+
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and
 off at 15:49). Ad groups and ads were already ENABLED. The API client refuses to enable a campaign itself unless
