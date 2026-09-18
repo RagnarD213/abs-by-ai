@@ -258,6 +258,17 @@
       "size": 279269753,
       "filed_on": "2026-09-16",
       "why_final": "Daniel HQ Ad 15 V3 HD.mp4. Dan reviewed the visual changes from the V2 proxy and explicitly declared this delivered HD export finalized on 2026-09-16. SHA-256 02e559489f9c3f50172de636e3457c4888011ee5c5fdb3576d5f4ed59befa94f. Audio uploaded untouched: -14.0 LUFS / -0.9 dBTP. Uploaded unlisted as TqXD2dGgAPs and installed in Demand Gen."
+    },
+    {
+      "drive_id": "local:AV-01-20260918",
+      "editor": "Claude",
+      "title": "this picture got me abs",
+      "kind": "ad",
+      "number": 1,
+      "path": "Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | claude | 9x16 59s | ad 1.mp4",
+      "size": 61749767,
+      "filed_on": "2026-09-18",
+      "why_final": "AV-01 exact approved cutdown, copied without transcoding from /Volumes/Extreme/_edit_work/AV-01/ad1_vertical_59s.mp4. SHA-256 aaa81b8a09c673285f18dd4df776a6355dc238e713e13f1cbdc9096d86f61c69. Dan: 'That ad looks good to me. I think that's actually good to ship.' Audio remains Muhammad's cut mix verbatim: -14.40 LUFS / -1.30 dBTP. Uploaded Unlisted as Rk7JxYyKawg and installed in the two existing Ad 1 Demand Gen groups."
     }
   ],
   "not_final_seen": [

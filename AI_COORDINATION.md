@@ -96,7 +96,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **DS-17 cover replacement — APPROVAL PENDING 2026-09-18, Codex.** Upload/scheduling is already complete and live-readback verified; DS-17 releases first at 5 PM CDT today, mirror tomorrow. Next: Dan picks the jump-rope-photo or in-video jump-rope screenshot cover; then replace and verify YouTube/Blotato/TikTok covers before release. Detail: `Docs/DS17_SETUP_RECEIPT_20260917.md`.
 
-**Ad 1 vertical 59s setup — ACTIVE 2026-09-18, Codex.** SHA-locked AV-01 master + approved 9:16 thumbnail verified. Next: file master/corpus entry, upload YouTube Unlisted, add only `Claude vertical 59s` to the two existing Ad 1 Demand Gen groups, read back and record IDs. Detail: `Handoffs/handoff-20260918-ad1-vertical-59s-approved-thumbnail-upload-setup.md`.
 
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 
@@ -155,7 +154,6 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-- `handoff-20260918-ad1-vertical-59s-approved-thumbnail-upload-setup.md` — 09-18: approved Ad 1 9:16 59s → thumbnail, Unlisted, DGen. Astra/High.
 - `handoff-20260917-install-approved-a06-short-thumbnail.md` — ready 2026-09-17: approved A06 cover, exact YouTube Short, desktop Change verified. GPT-5.6 Sol / High.
 
 **C1652 organic setup — APPROVAL PENDING 2026-09-18, Codex.** R4 hash verified; four requested photo-only thumbnails (2 pool, 2 studio) built/QC'd. Next: Dan picks one pool + one studio for A/B, then upload YouTube Private and queue five organic accounts through Blotato. Detail: `Handoffs/codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md`.

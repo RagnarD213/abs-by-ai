@@ -24,7 +24,7 @@ Ten ads, named `<ad group> | <video> | <landing page>`, one YouTube video each, 
 
 | ad group | videos (YouTube id → asset) |
 |---|---|
-| Ad 1 (both landing pages) | Muhammad 16:9 `lf46ytHacss` → `419514921434`, Zeeshan 16:9 `1oEcwdp21Fg` → `419514919721`, Muhammad vertical `Iz0u8KHRbyE` → `419514921437`, Claude square `VFCQAgzNIkA` → `421227330534`, Claude square 59s `C8tjH0-hPFg` → `421227329091` |
+| Ad 1 (both landing pages) | Muhammad 16:9 `lf46ytHacss` → `419514921434`, Zeeshan 16:9 `1oEcwdp21Fg` → `419514919721`, Muhammad vertical `Iz0u8KHRbyE` → `419514921437`, Claude square `VFCQAgzNIkA` → `421227330534`, Claude square 59s `C8tjH0-hPFg` → `421227329091`, Claude vertical 59s `Rk7JxYyKawg` → `422716018685` |
 | Ad 2 (both landing pages) | Muhammad 16:9 `Dtk5knWM7c8` → `419623700809`, Muhammad vertical `7XgHxn59Tsg` → `419700324321`, Muhammad square `hHiPzQKTzrg` → `420294626051` |
 
 Copy: **headlines are Dan's own** (screenshots 2026-09-10): Ad 1 *How I Got Abs At 40 · See Yourself
@@ -263,6 +263,31 @@ group has the existing $30 target CPA, and no prior campaign assets were changed
 Muhammad's audio was uploaded untouched. Measurements: Ad 8 −14.3 LUFS / −1.9 dBTP; Ad 9 −14.5 / −0.9; Ad 13 −14.1 /
 −1.0; Ad 15 −14.0 / −0.9. Ads 9 and 15 exceed the preferred true-peak ceiling by 0.1 dB; this was documented rather
 than processed, under the standing editor-audio rule. Organic/public posting was not done.
+
+## 2026-09-18 — Ad 1 Claude vertical 59s added
+
+Dan approved the exact AV-01 cutdown as-is: *“That ad looks good to me. I think that's actually good to ship.”* The
+61,749,767-byte master was filed without transcoding and re-hashed as
+`aaa81b8a09c673285f18dd4df776a6355dc238e713e13f1cbdc9096d86f61c69`. It is 1080×1920, 1,493 frames and
+49.816 seconds. Muhammad's cut audio remains verbatim at −14.40 LUFS / −1.30 dBTP. The exact-file delivery record
+remains honest: 34 PASS / 2 FAIL for inherited visual findings that Dan explicitly accepted; no threshold or media
+was changed.
+
+YouTube video **`Rk7JxYyKawg`** was uploaded with the AI-content disclosure, processed successfully and read back on
+channel `UC236gjadarHAhEhOMYNGJ9g` as **Unlisted**, embeddable and 0:50. The approved Ad 1 dark-studio vertical
+thumbnail was reused and read back. No Public or organic copy was created.
+
+Google `validateOnly` proposed exactly one new video asset and two new ads, then the same three-operation batch was
+applied. The live Ad 1 copy was read from ad `824641889491` and reused byte-for-byte.
+
+| version | video → asset | `/start` group `199420011065` → ad | home group `202965542111` → ad |
+|---|---|---|---|
+| Claude vertical 59s | `Rk7JxYyKawg` → **`422716018685`** | **`825155890776`** | **`825155890779`** |
+
+Both ads are ENABLED and `UNKNOWN / REVIEW_IN_PROGRESS`. Final URLs carry
+`utm_campaign=dgen-conv-ad1&utm_content=claude-vertical-59s-<start|home>`. Audience `358261317`, both $30 target-CPA
+groups, every existing ad, campaign state, Target CPA bidding, and the shared **$40/day** budget were read back
+unchanged.
 
 ## Switched on
 Dan enabled campaign 24243839443 in the Ads web UI on 2026-09-10 at 16:12 CT (it had also been flipped on and

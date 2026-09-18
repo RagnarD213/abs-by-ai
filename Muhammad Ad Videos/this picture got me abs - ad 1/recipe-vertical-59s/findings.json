@@ -1,0 +1,388 @@
+{
+ "entries": [
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 0.0,
+   "note": "AI-GENERATED chip burned into the opening AI pool still (0.00-2.94), sits over the shorts/waistband below the abs, as the plan declares; verified on the full-res 0.00 frame."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 4.0,
+   "note": "'200 POUNDS' deckchair BEFORE card (2.94-6.74) is unlabelled as declared. Note: the card's own crop clips the top of his hair at the card edge (card crop, not the frame edge)."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 11.45,
+   "note": "'Real picture of me - not AI-generated' chips on both real photos: photo 1 (11.45-12.40) above his head, photo 2 (12.40-13.35) top-left; both clear of face and abs."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "defect",
+   "t": 12.41,
+   "note": "Burned caption ('And this is where I'm' / 'at today.') sits directly across the upper abs of the real 'today' photo for its whole 12.40-13.35 hold; verified on the full-res 13.00 frame (caption band y~1440, abs span ~1280-1650). The picture exists to show the physique.",
+   "item": "label_over_face"
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "defect",
+   "t": 13.38,
+   "note": "Captions 'With AI, you can' / 'create a picture of' / 'yourself, your face,' / 'your body, with the' are printed over the phone-mock card, across the app screen (over the uploaded man's legs/zoom slider at 14.00, over the 'Describe your dream physique' row at 16.00) for the whole 13.35-18.51 split segment. Checklist: a caption on a card.",
+   "item": "label_over_face"
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 18.51,
+   "note": "AI-GENERATED chip on the 'Download Your Future Self' card (18.51-20.71) sits in the card header above the headline, clear of the man; the card caption 'ripped six pack abs' is below the card."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "defect",
+   "t": 6.74,
+   "note": "The card-out transition at 6.74 is not one white flash but a strobe: per-frame mean luma 128,128,226,126,149,223,163,163,212,125 (6.673-6.974) - three near-white frames at 6.740/6.840/6.940 interleaved with half-bright frames, a 10 Hz flicker over 0.2 s. Nearest checklist key (single-frame blacks); here they are single-frame whites.",
+   "item": "black_or_frozen"
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "defect",
+   "t": 20.72,
+   "note": "Same strobe on the card-out at 20.71: mean luma 148,225,123,147,222,161,162,211,124 (20.687-20.954) - white pulses at 20.721/20.821/20.921 with dimmer frames between. Reads as flicker, not a flash.",
+   "item": "black_or_frozen"
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "clean",
+   "t": 7.0,
+   "note": "Framing on every NEAR tile 6.74-24: top of hair sits at y~65-95 of 1920 on the full-res grabs (7.00, 10.00, 21.00, 22.50); no hair at the edge, no arm cut with space opposite, head ~37-45% of frame height."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "clean",
+   "t": 14.0,
+   "note": "Split-screen segment 13.35-18.51: the phone demo uploads a man who is not Dan and the 18.51 result card shows the same man's AI after - the before/after pair is one person, so the same-person rule holds; noted because the recording is the known non-Dan app capture."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "expected",
+   "t": 33.5,
+   "note": "CTA pills 'Get A FREE AI Image Of Yourself / With Abs' at 33.27-34.17 and 48.45-49.82 sit over his chest/shirt, clear of the face; text complete. Note the very last frame (49.78) shows the pill mid-fade as a dim grey box on his chest."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "expected",
+   "t": 35.0,
+   "note": "Three AI b-roll cards 34.17-37.80 carry burned AI-GENERATED chips at the card foot, over shorts/waist, clear of faces and abs. Handshake hands inspected at 35.60/36.00/36.50 full-res: finger counts and grip plausible."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "defect",
+   "t": 37.0,
+   "note": "Beach-runner AI card 36.86-37.80: a yellow light blob (~x750,y1000) stays fixed in screen space over the runner's left abdomen while his torso and arms move (checked 36.95, 37.20, 37.55, 37.75 full-res) - a floating artifact glued to his abs.",
+   "item": "ai_giveaway"
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "expected",
+   "t": 40.0,
+   "note": "FAR level inside the 16:9 lower-third panel (26.13-31.30, 37.80-45.55): hair top y~100-130, chin y~590 -> head ~24-26% of the full 1920 frame, ~37-40% of the 1230-px picture panel. Under the ~27% number by the letter, but it is the declared FAR-in-panel layout, not a wide crop; flagged for the lead's call."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "t": 28.0,
+   "note": "Lower-third bullets ('You can generate an AI image of yourself with ripped six-pack abs / COMPLETELY FREE'; 'Generating an image... / Our personalized AI fitness program...') typewriter in, fully on screen, no garbled type; both declared lower thirds and both CTA pills do appear."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "t": 47.5,
+   "note": "NEAR tiles 45.55-49.82: hair top y~65-95; head ~45% of frame; framing static within each shot."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "t": 35.55,
+   "note": "Caption/card offset: 'to women.' holds over the handshake card for 2+ frames after 35.50, and 'Men respect you more.' holds over the beach-runner card from 36.87 to ~37.1. Not a checklist item; a few-frame lag."
+  },
+  {
+   "image": "strip_000_00-01.94_join.jpg",
+   "verdict": "clean",
+   "t": 1.94,
+   "note": "AI pool still both sides; nothing moves across the join; caption under the chip, over the shorts."
+  },
+  {
+   "image": "strip_001_00-02.70_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 2.7,
+   "note": "Declared punch on the AI still; no visible change in any of the five frames."
+  },
+  {
+   "image": "strip_002_00-02.77_join.jpg",
+   "verdict": "clean",
+   "t": 2.77,
+   "note": "AI still; identical frames across the join."
+  },
+  {
+   "image": "strip_003_00-02.94_ai_goal_plain_out___cards_in___covered_i.jpg",
+   "verdict": "expected",
+   "t": 2.94,
+   "note": "Hard cut from the AI pool still to the '200 POUNDS' card; the label fades in over 2.94-3.00 (dark on the first frames)."
+  },
+  {
+   "image": "strip_004_00-05.21_join.jpg",
+   "verdict": "clean",
+   "t": 5.21,
+   "note": "Static card both sides; frames identical."
+  },
+  {
+   "image": "strip_005_00-06.61_join.jpg",
+   "verdict": "clean",
+   "t": 6.61,
+   "note": "Static card; +2f (6.673) is the first brightening of the flash."
+  },
+  {
+   "image": "strip_006_00-06.74_cards_out___covered_out___join.jpg",
+   "verdict": "defect",
+   "t": 6.74,
+   "note": "Card out through a white flash: 6.740 is near-white (luma 226), 6.773 hazy Dan, 6.807 brighter again, 6.840 white again (223), 6.940 white a third time (212). A strobing triple flash rather than one flash; see the per-frame luma in the sheet entry.",
+   "item": "black_or_frozen"
+  },
+  {
+   "image": "strip_007_00-08.61_join.jpg",
+   "verdict": "clean",
+   "t": 8.61,
+   "note": "Pair read at 8.575|8.609: same framing, head turn and hands continuous; the splice is invisible."
+  },
+  {
+   "image": "strip_008_00-10.81_punch_NEAR.jpg",
+   "verdict": "defect",
+   "t": 10.81,
+   "note": "Declared punch NEAR but the -1|0 pair (10.777|10.811, confirmed on full-res frames 323|324) is the SAME size (fridge handle and hair top at identical positions): the head jumps from tilted/mouth open/eyes off-camera to upright/lips pressed/eyes to camera in one frame. Same scene, subject jumps.",
+   "item": "naked_splice"
+  },
+  {
+   "image": "strip_009_00-11.45_covered_in___today_towel_in.jpg",
+   "verdict": "expected",
+   "t": 11.45,
+   "note": "NEAR -> real photo 1 with the real-picture chip above his head; caption over the shorts below the abs."
+  },
+  {
+   "image": "strip_010_00-11.51_join.jpg",
+   "verdict": "clean",
+   "t": 11.51,
+   "note": "Static real photo both sides; only the caption text changes."
+  },
+  {
+   "image": "strip_011_00-12.28_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 12.28,
+   "note": "Declared punch on the real photo; no visible size change; slow-zoom still continuous."
+  },
+  {
+   "image": "strip_012_00-12.40_covered_in___covered_out___today_towel_o.jpg",
+   "verdict": "expected",
+   "t": 12.4,
+   "note": "Photo 1 -> photo 2 hard cut; chip moves to the top-left corner, clear of face."
+  },
+  {
+   "image": "strip_012_00-12.40_covered_in___covered_out___today_towel_o.jpg",
+   "verdict": "defect",
+   "t": 12.41,
+   "note": "From the first photo-2 frame (12.412) the caption 'And this is where I'm' lands across the upper abs of the real photo (tile y~505 of 660, abs span ~440-600).",
+   "item": "label_over_face"
+  },
+  {
+   "image": "strip_013_00-13.25_join.jpg",
+   "verdict": "clean",
+   "t": 13.25,
+   "note": "Static photo 2 both sides of the join."
+  },
+  {
+   "image": "strip_013_00-13.25_join.jpg",
+   "verdict": "defect",
+   "t": 13.25,
+   "note": "Caption 'at today.' across the abs of the real 'today' photo on all five frames; full-res 13.00 confirms.",
+   "item": "label_over_face"
+  },
+  {
+   "image": "strip_014_00-13.35_covered_in___covered_out___join___today_.jpg",
+   "verdict": "expected",
+   "t": 13.35,
+   "note": "Declared seam: real photo -> split screen (Dan 16:9 top, phone below). Hard cut, no black, no frozen frame."
+  },
+  {
+   "image": "strip_014_00-13.35_covered_in___covered_out___join___today_.jpg",
+   "verdict": "defect",
+   "t": 13.38,
+   "note": "'With AI, you can' appears at 13.380 printed over the phone-mock card (over the uploaded photo's legs and the zoom slider) - a caption on a card.",
+   "item": "label_over_face"
+  },
+  {
+   "image": "strip_015_00-13.45_join.jpg",
+   "verdict": "defect",
+   "t": 13.41,
+   "note": "The declared 13.45 pair (13.413|13.447) is continuous, but two frames earlier, frames 401->402 (13.380->13.413, full-res 4-frame tile of the top panel), Dan's hands go from clasped at the chest to raised open at shoulder height with no motion blur - a naked splice one frame off the declared boundary, same scene both sides.",
+   "item": "naked_splice"
+  },
+  {
+   "image": "strip_016_00-13.95_join.jpg",
+   "verdict": "clean",
+   "t": 13.95,
+   "note": "Split screen; hands and head continuous across the join; phone content continuous."
+  },
+  {
+   "image": "strip_017_00-18.05_join.jpg",
+   "verdict": "clean",
+   "t": 18.05,
+   "note": "Pair read at 18.018|18.051: hands identical, mouth shape changes within speech, phone UI scrolls a few px; no jump."
+  },
+  {
+   "image": "strip_018_00-18.51_after_reveal_in___covered_in___covered_o.jpg",
+   "verdict": "expected",
+   "t": 18.51,
+   "note": "Split screen -> 'Download Your Future Self' card with confetti burst; AI-GENERATED chip in the card header; same man as the phone before."
+  },
+  {
+   "image": "strip_019_00-20.71_after_reveal_out___covered_out___join.jpg",
+   "verdict": "defect",
+   "t": 20.72,
+   "note": "Card out through a white flash that strobes: 20.721 white (225), 20.754 hazy Dan (123), 20.787 (147), 20.821 white again (222), 20.921 white a third time (211), settling by 21.0. Three white pulses in 0.2 s.",
+   "item": "black_or_frozen"
+  },
+  {
+   "image": "strip_020_00-20.75_join.jpg",
+   "verdict": "expected",
+   "t": 20.75,
+   "note": "Join under the flash: -1f (20.721) is the first white pulse, 0f Dan hazy, +2f (20.821) is the second white pulse - the same strobe scored on strip_019. Caption 'you've always wanted.' carries through the flash."
+  },
+  {
+   "image": "strip_021_00-21.22_punch_NEAR.jpg",
+   "verdict": "clean",
+   "t": 21.22,
+   "note": "Pair read at 21.188|21.221: same size (declared punch shows no size change), head straightening and hands rising continuously from -2f to +2f; no jump."
+  },
+  {
+   "image": "strip_022_00-22.46_join.jpg",
+   "verdict": "defect",
+   "t": 22.46,
+   "note": "Pair 22.422|22.456 (confirmed on full-res frames 672|673): same framing; head goes from tilted down with eyes lowered and no hands in frame to head up, eyes to camera, mouth open, both hands in frame - in one frame.",
+   "item": "naked_splice"
+  },
+  {
+   "image": "strip_023_00-24.16_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 24.16,
+   "note": "Pair read at 24.124|24.157: same size, head and hands static, mouth closes into a smile; no positional jump (borderline, mouth only)."
+  },
+  {
+   "image": "strip_024_00-24.76_join.jpg",
+   "verdict": "defect",
+   "t": 24.76,
+   "note": "Pair 24.725|24.758 (confirmed on full-res frames 741|742): head tilted back with eyes closed and hands low -> head level, mouth wide open, hands raised to chest. Gross jump, same scene.",
+   "item": "naked_splice"
+  },
+  {
+   "image": "strip_025_00-25.93_join.jpg",
+   "verdict": "defect",
+   "t": 25.93,
+   "note": "Pair 25.893|25.926: hands identical (clasped) but the head rotates several degrees and the mouth goes from open smile to 'o' in one frame; -2/-1 match each other, 0/+1/+2 match each other. A small but visible jump.",
+   "item": "naked_splice"
+  },
+  {
+   "image": "strip_026_00-26.13_cards_in___covered_in___join.jpg",
+   "verdict": "expected",
+   "t": 26.13,
+   "note": "Declared seam: NEAR -> FAR inside the lower-third panel layout; caption exits one frame before the cut; hard cut, no black."
+  },
+  {
+   "image": "strip_027_00-31.30_join___cards_out___covered_out.jpg",
+   "verdict": "expected",
+   "t": 31.3,
+   "note": "FAR panel -> NEAR; the visible cut is between 31.298 and 31.331 (one frame after the declared time); lower third exits with the cut."
+  },
+  {
+   "image": "strip_028_00-33.27_cards_in___cta_33_27_in.jpg",
+   "verdict": "expected",
+   "t": 33.27,
+   "note": "Caption 'below to' out at 33.267, CTA pill in at 33.300 over his chest; no overlap with a caption."
+  },
+  {
+   "image": "strip_029_00-34.17_ai_women_pool_in___cards_out___covered_i.jpg",
+   "verdict": "expected",
+   "t": 34.17,
+   "note": "Declared seam: NEAR + pill -> AI couple card with burned chip at the card foot; caption 'You're more attractive' below the card."
+  },
+  {
+   "image": "strip_030_00-35.50_join___ai_respect_gym_in___ai_women_pool.jpg",
+   "verdict": "expected",
+   "t": 35.5,
+   "note": "Couple card -> handshake card hard cut. Caption 'to women.' from the previous line holds over the new card for the visible frames (few-frame lag)."
+  },
+  {
+   "image": "strip_031_00-36.86_ai_beachrun_in___ai_respect_gym_out___co.jpg",
+   "verdict": "expected",
+   "t": 36.86,
+   "note": "Handshake card -> beach-runner card hard cut; caption 'Men respect you more.' lags onto the runner card."
+  },
+  {
+   "image": "strip_031_00-36.86_ai_beachrun_in___ai_respect_gym_out___co.jpg",
+   "verdict": "defect",
+   "t": 36.87,
+   "note": "From the runner card's first frame a yellow glowing blob sits on the runner's left abdomen and stays at the same screen position through 37.75 while his body moves - an AI/comp artifact on his abs.",
+   "item": "ai_giveaway"
+  },
+  {
+   "image": "strip_032_00-36.94_join.jpg",
+   "verdict": "clean",
+   "t": 36.94,
+   "note": "Runner card continuous across the join (the runner's arms move frame to frame, the join itself is invisible); the fixed blob is scored on strip_031."
+  },
+  {
+   "image": "strip_033_00-37.80_ai_beachrun_out___cards_in___covered_in_.jpg",
+   "verdict": "expected",
+   "t": 37.8,
+   "note": "Declared seam: runner card -> FAR panel; caption 'You feel better.' exits one frame before; the panel's lower third arrives later (39.0) as declared typewriter."
+  },
+  {
+   "image": "strip_034_00-41.07_join.jpg",
+   "verdict": "clean",
+   "t": 41.07,
+   "note": "FAR panel; hands clasped and head identical across the join, mouth opens within speech; no jump."
+  },
+  {
+   "image": "strip_035_00-45.48_join.jpg",
+   "verdict": "defect",
+   "t": 45.48,
+   "note": "Pair 45.445|45.479 (confirmed on full-res frames 1362|1363): same FAR panel framing; smile with hands clasped -> mouth open with hands apart and raised, head straightened, in one frame. Two frames later the picture punches to NEAR (45.55), so the jump is on screen for two frames before the level change.",
+   "item": "naked_splice"
+  },
+  {
+   "image": "strip_036_00-45.55_cards_out___covered_out___join.jpg",
+   "verdict": "expected",
+   "t": 45.55,
+   "note": "FAR panel -> NEAR level change; hands open both sides, motion continuous through the punch."
+  },
+  {
+   "image": "strip_037_00-45.78_punch_NEAR.jpg",
+   "verdict": "clean",
+   "t": 45.78,
+   "note": "Pair read at 45.746|45.779: same size (declared punch shows no size change), head and hands continuous, mouth opens; no jump."
+  },
+  {
+   "image": "strip_038_00-48.45_cards_in___cta_48_45_in.jpg",
+   "verdict": "expected",
+   "t": 48.45,
+   "note": "Caption 'six pack abs,' out at 48.415, one bare frame, CTA pill in at 48.482 over his chest."
+  },
+  {
+   "image": "strip_039_00-48.68_punch_FAR.jpg",
+   "verdict": "defect",
+   "t": 48.68,
+   "note": "Pair 48.649|48.682: same size (no visible punch); head tilt flips from left to right and the hand at the left edge in -2f/-1f is gone at 0f with a hand appearing at the right edge at +1f/+2f. A small jump under the CTA pill.",
+   "item": "naked_splice"
+  }
+ ]
+}

@@ -141,7 +141,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 
 | ad | 16:9 | 9:16 | 9:16 ≤0:59 | 1:1 | 1:1 ≤0:59 |
 |---|---|---|---|---|---|
-| 1 This Picture Got Me Abs (Muhammad) | ✅ | ✅ | ❌ AV-01 | ✅ | ✅ |
+| 1 This Picture Got Me Abs (Muhammad) | ✅ | ✅ | ✅ (uploaded 09-18) | ✅ | ✅ |
 | 1 This Picture Got Me Abs (Zeeshan) | ✅ | 🟡 | 🟡 | ❌ AS-01 | ❌ AS-01 |
 | 2 Stop Wasting Money On Nutritionists | ✅ | ✅ | ❌ AV-02 | ✅ | ❌ AV-02 |
 | 3 Stop Paying Human Trainers | ✅ | ✅ | ✅ | ✅ (R2.1 uploaded 09-16) | ✅ |
@@ -157,7 +157,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 
 | job | ad | status | size |
 |---|---|---|---|
-| [AV-01](AV-01-ad1-muhammad-vertical-59s.md) | Ad 1 (Muhammad): the 9:16 ≤0:59 only | FINALIZED | S |
+| [AV-01](AV-01-ad1-muhammad-vertical-59s.md) | Ad 1 (Muhammad): the 9:16 ≤0:59 only | UPLOADED | S |
 | [AV-02](AV-02-ad2-cutdowns-vertical-and-square-59s.md) | Ad 2: 9:16 ≤0:59 + 1:1 ≤0:59 | READY | M |
 | [AV-03](AV-03-ad4-vertical-regrade-and-masters.md) | Ad 4: re-grade the vertical + deliver masters | READY | M |
 | [AV-04](AV-04-ad5-vertical-round2-and-regrade.md) | Ad 5: your round-2 revisions + re-grade | READY | M |

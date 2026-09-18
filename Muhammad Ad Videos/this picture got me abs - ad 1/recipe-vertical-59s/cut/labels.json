@@ -1,0 +1,41 @@
+[
+ {
+  "media": "today_towel",
+  "png": "cut/chip_today_towel.png",
+  "t0": 11.45,
+  "t1": 12.4,
+  "box": [
+   256,
+   150,
+   644,
+   56
+  ],
+  "kind": "real"
+ },
+ {
+  "media": "today_trees",
+  "png": "cut/chip_today_trees.png",
+  "t0": 12.4,
+  "t1": 13.3467,
+  "box": [
+   48,
+   150,
+   248,
+   136
+  ],
+  "kind": "real"
+ },
+ {
+  "media": "after_reveal",
+  "png": "cut/chip_after_reveal.png",
+  "t0": 18.5116,
+  "t1": 20.7116,
+  "box": [
+   268,
+   176,
+   276,
+   48
+  ],
+  "kind": "ai"
+ }
+]

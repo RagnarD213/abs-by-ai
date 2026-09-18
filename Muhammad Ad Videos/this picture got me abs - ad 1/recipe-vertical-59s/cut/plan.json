@@ -1,0 +1,1603 @@
+{
+ "target_seconds": 49.816433,
+ "target_frames": 1493,
+ "joins": [
+  1.935,
+  2.769,
+  2.936,
+  5.205,
+  6.607,
+  6.74,
+  8.609,
+  11.511,
+  12.412,
+  13.247,
+  13.347,
+  13.447,
+  13.947,
+  18.051,
+  20.721,
+  20.754,
+  22.456,
+  24.758,
+  25.926,
+  26.126,
+  31.298,
+  34.167,
+  35.502,
+  36.937,
+  37.804,
+  41.074,
+  45.479,
+  45.546
+ ],
+ "covered": [
+  [
+   0.0,
+   2.936
+  ],
+  [
+   2.936,
+   6.74
+  ],
+  [
+   11.45,
+   12.4
+  ],
+  [
+   12.4,
+   13.347
+  ],
+  [
+   13.347,
+   18.512
+  ],
+  [
+   18.512,
+   20.712
+  ],
+  [
+   26.126,
+   31.318
+  ],
+  [
+   34.167,
+   35.513
+  ],
+  [
+   35.513,
+   36.863
+  ],
+  [
+   36.863,
+   37.804
+  ],
+  [
+   37.804,
+   45.545
+  ]
+ ],
+ "cards": [
+  [
+   2.936,
+   6.74
+  ],
+  [
+   26.126,
+   31.318
+  ],
+  [
+   37.804,
+   45.545
+  ],
+  [
+   33.268,
+   34.167
+  ],
+  [
+   48.451,
+   49.816
+  ]
+ ],
+ "punch": [
+  [
+   0.0,
+   2.703,
+   "NEAR"
+  ],
+  [
+   2.703,
+   10.811,
+   "FAR"
+  ],
+  [
+   10.811,
+   12.279,
+   "NEAR"
+  ],
+  [
+   12.279,
+   21.221,
+   "FAR"
+  ],
+  [
+   21.221,
+   24.157,
+   "NEAR"
+  ],
+  [
+   24.157,
+   45.779,
+   "FAR"
+  ],
+  [
+   45.779,
+   48.682,
+   "NEAR"
+  ],
+  [
+   48.682,
+   49.816,
+   "FAR"
+  ]
+ ],
+ "punch_covered": [
+  true,
+  true,
+  false,
+  true,
+  false,
+  false,
+  false,
+  false
+ ],
+ "real_photos": [
+  {
+   "name": "today_towel",
+   "beat": [
+    11.45,
+    12.4
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_real_today_towel.png",
+   "pos": [
+    256,
+    150
+   ]
+  },
+  {
+   "name": "today_trees",
+   "beat": [
+    12.4,
+    13.347
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_real_today_trees.png",
+   "pos": [
+    48,
+    150
+   ]
+  }
+ ],
+ "ai_inserts": [
+  {
+   "name": "ai_goal_plain",
+   "beat": [
+    0.0,
+    2.936
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_ai_goal_plain.png",
+   "pos": [
+    180,
+    1226
+   ]
+  },
+  {
+   "name": "after_reveal",
+   "beat": [
+    18.512,
+    20.712
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_after_reveal.png",
+   "pos": [
+    268,
+    176
+   ]
+  },
+  {
+   "name": "ai_women_pool",
+   "beat": [
+    34.167,
+    35.513
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_ai_women_pool.png",
+   "pos": [
+    416,
+    1257
+   ]
+  },
+  {
+   "name": "ai_respect_gym",
+   "beat": [
+    35.513,
+    36.863
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_ai_respect_gym.png",
+   "pos": [
+    416,
+    1257
+   ]
+  },
+  {
+   "name": "ai_beachrun",
+   "beat": [
+    36.863,
+    37.804
+   ],
+   "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_ai_beachrun.png",
+   "pos": [
+    416,
+    1257
+   ]
+  }
+ ],
+ "graphics": [
+  {
+   "name": "cta@33.27",
+   "beat": [
+    33.268,
+    34.167
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/AV-01/gfx/ov_cta_00817eaa.mov"
+  },
+  {
+   "name": "cta@48.45",
+   "beat": [
+    48.451,
+    49.816
+   ],
+   "mov": "/Volumes/Extreme/_edit_work/AV-01/gfx/ov_cta_00817eaa.mov"
+  }
+ ],
+ "label_chips": {
+  "real": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_real_today_towel.png",
+  "ai": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_ai_goal_plain.png"
+ },
+ "label_pos": {
+  "real": [
+   256,
+   150
+  ],
+  "ai": [
+   180,
+   1226
+  ]
+ },
+ "srt": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/captions.srt",
+ "words": [
+  {
+   "w": "This",
+   "t": 0.181,
+   "e": 0.342
+  },
+  {
+   "w": "picture",
+   "t": 0.443,
+   "e": 0.765
+  },
+  {
+   "w": "got",
+   "t": 1.006,
+   "e": 1.167
+  },
+  {
+   "w": "me",
+   "t": 1.228,
+   "e": 1.288
+  },
+  {
+   "w": "abs",
+   "t": 1.469,
+   "e": 1.65
+  },
+  {
+   "w": "and",
+   "t": 1.892,
+   "e": 1.952
+  },
+  {
+   "w": "it's",
+   "t": 1.972,
+   "e": 2.053
+  },
+  {
+   "w": "not",
+   "t": 2.113,
+   "e": 2.234
+  },
+  {
+   "w": "even",
+   "t": 2.294,
+   "e": 2.435
+  },
+  {
+   "w": "real.",
+   "t": 2.515,
+   "e": 2.697
+  },
+  {
+   "w": "I",
+   "t": 2.943,
+   "e": 2.963
+  },
+  {
+   "w": "generated",
+   "t": 3.123,
+   "e": 3.625
+  },
+  {
+   "w": "this",
+   "t": 3.706,
+   "e": 3.826
+  },
+  {
+   "w": "picture",
+   "t": 3.927,
+   "e": 4.228
+  },
+  {
+   "w": "with",
+   "t": 4.308,
+   "e": 4.449
+  },
+  {
+   "w": "AI",
+   "t": 4.549,
+   "e": 4.79
+  },
+  {
+   "w": "back",
+   "t": 5.031,
+   "e": 5.212
+  },
+  {
+   "w": "when",
+   "t": 5.292,
+   "e": 5.413
+  },
+  {
+   "w": "I",
+   "t": 5.453,
+   "e": 5.473
+  },
+  {
+   "w": "was",
+   "t": 5.533,
+   "e": 5.634
+  },
+  {
+   "w": "200",
+   "t": 5.64,
+   "e": 6.16
+  },
+  {
+   "w": "pounds.",
+   "t": 6.377,
+   "e": 6.698
+  },
+  {
+   "w": "I",
+   "t": 6.983,
+   "e": 7.003
+  },
+  {
+   "w": "made",
+   "t": 7.083,
+   "e": 7.243
+  },
+  {
+   "w": "it",
+   "t": 7.284,
+   "e": 7.324
+  },
+  {
+   "w": "my",
+   "t": 7.384,
+   "e": 7.444
+  },
+  {
+   "w": "phone",
+   "t": 7.524,
+   "e": 7.745
+  },
+  {
+   "w": "lock",
+   "t": 7.785,
+   "e": 7.966
+  },
+  {
+   "w": "screen",
+   "t": 8.046,
+   "e": 8.307
+  },
+  {
+   "w": "and",
+   "t": 8.508,
+   "e": 8.588
+  },
+  {
+   "w": "I",
+   "t": 8.668,
+   "e": 8.688
+  },
+  {
+   "w": "looked",
+   "t": 8.769,
+   "e": 8.99
+  },
+  {
+   "w": "at",
+   "t": 9.03,
+   "e": 9.09
+  },
+  {
+   "w": "it",
+   "t": 9.15,
+   "e": 9.19
+  },
+  {
+   "w": "every",
+   "t": 9.551,
+   "e": 9.792
+  },
+  {
+   "w": "single",
+   "t": 9.913,
+   "e": 10.194
+  },
+  {
+   "w": "day",
+   "t": 10.254,
+   "e": 10.455
+  },
+  {
+   "w": "for",
+   "t": 10.655,
+   "e": 10.756
+  },
+  {
+   "w": "more",
+   "t": 10.836,
+   "e": 10.976
+  },
+  {
+   "w": "than",
+   "t": 11.017,
+   "e": 11.137
+  },
+  {
+   "w": "a",
+   "t": 11.177,
+   "e": 11.197
+  },
+  {
+   "w": "year.",
+   "t": 11.257,
+   "e": 11.418
+  },
+  {
+   "w": "And",
+   "t": 11.528,
+   "e": 11.675
+  },
+  {
+   "w": "this",
+   "t": 11.786,
+   "e": 12.007
+  },
+  {
+   "w": "is",
+   "t": 12.39,
+   "e": 12.451
+  },
+  {
+   "w": "where",
+   "t": 12.491,
+   "e": 12.632
+  },
+  {
+   "w": "I'm",
+   "t": 12.652,
+   "e": 12.753
+  },
+  {
+   "w": "at",
+   "t": 12.773,
+   "e": 12.894
+  },
+  {
+   "w": "today.",
+   "t": 12.934,
+   "e": 13.176
+  },
+  {
+   "w": "With",
+   "t": 13.381,
+   "e": 13.501
+  },
+  {
+   "w": "AI,",
+   "t": 13.601,
+   "e": 13.882
+  },
+  {
+   "w": "you",
+   "t": 14.243,
+   "e": 14.323
+  },
+  {
+   "w": "can",
+   "t": 14.384,
+   "e": 14.464
+  },
+  {
+   "w": "create",
+   "t": 14.544,
+   "e": 14.765
+  },
+  {
+   "w": "a",
+   "t": 14.825,
+   "e": 14.845
+  },
+  {
+   "w": "picture",
+   "t": 14.905,
+   "e": 15.186
+  },
+  {
+   "w": "of",
+   "t": 15.226,
+   "e": 15.266
+  },
+  {
+   "w": "yourself,",
+   "t": 15.346,
+   "e": 15.868
+  },
+  {
+   "w": "your",
+   "t": 16.369,
+   "e": 16.529
+  },
+  {
+   "w": "face,",
+   "t": 16.63,
+   "e": 16.911
+  },
+  {
+   "w": "your",
+   "t": 17.314,
+   "e": 17.495
+  },
+  {
+   "w": "body,",
+   "t": 17.595,
+   "e": 17.856
+  },
+  {
+   "w": "with",
+   "t": 18.237,
+   "e": 18.357
+  },
+  {
+   "w": "the",
+   "t": 18.418,
+   "e": 18.478
+  },
+  {
+   "w": "ripped",
+   "t": 18.558,
+   "e": 18.759
+  },
+  {
+   "w": "six",
+   "t": 18.819,
+   "e": 18.959
+  },
+  {
+   "w": "pack",
+   "t": 19.06,
+   "e": 19.24
+  },
+  {
+   "w": "abs",
+   "t": 19.401,
+   "e": 19.561
+  },
+  {
+   "w": "you've",
+   "t": 19.782,
+   "e": 19.942
+  },
+  {
+   "w": "always",
+   "t": 20.083,
+   "e": 20.344
+  },
+  {
+   "w": "wanted.",
+   "t": 20.424,
+   "e": 20.685
+  },
+  {
+   "w": "And",
+   "t": 20.905,
+   "e": 20.966
+  },
+  {
+   "w": "once",
+   "t": 21.106,
+   "e": 21.247
+  },
+  {
+   "w": "you",
+   "t": 21.267,
+   "e": 21.347
+  },
+  {
+   "w": "see",
+   "t": 21.447,
+   "e": 21.568
+  },
+  {
+   "w": "yourself",
+   "t": 21.608,
+   "e": 21.909
+  },
+  {
+   "w": "with",
+   "t": 21.969,
+   "e": 22.069
+  },
+  {
+   "w": "abs,",
+   "t": 22.21,
+   "e": 22.37
+  },
+  {
+   "w": "the",
+   "t": 22.534,
+   "e": 22.614
+  },
+  {
+   "w": "real",
+   "t": 22.734,
+   "e": 22.975
+  },
+  {
+   "w": "you,",
+   "t": 23.075,
+   "e": 23.216
+  },
+  {
+   "w": "not",
+   "t": 23.677,
+   "e": 23.858
+  },
+  {
+   "w": "some",
+   "t": 23.898,
+   "e": 24.058
+  },
+  {
+   "w": "fitness",
+   "t": 24.078,
+   "e": 24.399
+  },
+  {
+   "w": "model,",
+   "t": 24.44,
+   "e": 24.7
+  },
+  {
+   "w": "everything",
+   "t": 24.981,
+   "e": 25.362
+  },
+  {
+   "w": "changes.",
+   "t": 25.443,
+   "e": 25.844
+  },
+  {
+   "w": "you",
+   "t": 26.222,
+   "e": 26.322
+  },
+  {
+   "w": "can",
+   "t": 26.402,
+   "e": 26.503
+  },
+  {
+   "w": "generate",
+   "t": 26.583,
+   "e": 26.964
+  },
+  {
+   "w": "an",
+   "t": 27.024,
+   "e": 27.064
+  },
+  {
+   "w": "AI",
+   "t": 27.205,
+   "e": 27.365
+  },
+  {
+   "w": "image",
+   "t": 27.525,
+   "e": 27.726
+  },
+  {
+   "w": "of",
+   "t": 27.768,
+   "e": 27.828
+  },
+  {
+   "w": "yourself",
+   "t": 27.87,
+   "e": 28.211
+  },
+  {
+   "w": "with",
+   "t": 28.511,
+   "e": 28.632
+  },
+  {
+   "w": "ripped",
+   "t": 28.752,
+   "e": 28.953
+  },
+  {
+   "w": "six",
+   "t": 28.973,
+   "e": 29.113
+  },
+  {
+   "w": "pack",
+   "t": 29.213,
+   "e": 29.394
+  },
+  {
+   "w": "abs,",
+   "t": 29.534,
+   "e": 29.695
+  },
+  {
+   "w": "completely",
+   "t": 30.056,
+   "e": 30.657
+  },
+  {
+   "w": "free.",
+   "t": 30.998,
+   "e": 31.219
+  },
+  {
+   "w": "Just",
+   "t": 31.54,
+   "e": 31.7
+  },
+  {
+   "w": "tap",
+   "t": 31.78,
+   "e": 31.981
+  },
+  {
+   "w": "the",
+   "t": 32.081,
+   "e": 32.161
+  },
+  {
+   "w": "button",
+   "t": 32.181,
+   "e": 32.362
+  },
+  {
+   "w": "below",
+   "t": 32.422,
+   "e": 32.663
+  },
+  {
+   "w": "to",
+   "t": 33.024,
+   "e": 33.104
+  },
+  {
+   "w": "see",
+   "t": 33.184,
+   "e": 33.324
+  },
+  {
+   "w": "yourself",
+   "t": 33.365,
+   "e": 33.665
+  },
+  {
+   "w": "with",
+   "t": 33.726,
+   "e": 33.806
+  },
+  {
+   "w": "abs.",
+   "t": 33.926,
+   "e": 34.087
+  },
+  {
+   "w": "You're",
+   "t": 34.2,
+   "e": 34.361
+  },
+  {
+   "w": "more",
+   "t": 34.401,
+   "e": 34.561
+  },
+  {
+   "w": "attractive",
+   "t": 34.585,
+   "e": 35.007
+  },
+  {
+   "w": "to",
+   "t": 35.047,
+   "e": 35.107
+  },
+  {
+   "w": "women.",
+   "t": 35.187,
+   "e": 35.408
+  },
+  {
+   "w": "Men",
+   "t": 35.669,
+   "e": 35.869
+  },
+  {
+   "w": "respect",
+   "t": 36.07,
+   "e": 36.451
+  },
+  {
+   "w": "you",
+   "t": 36.491,
+   "e": 36.572
+  },
+  {
+   "w": "more.",
+   "t": 36.652,
+   "e": 36.833
+  },
+  {
+   "w": "You",
+   "t": 37.073,
+   "e": 37.154
+  },
+  {
+   "w": "feel",
+   "t": 37.274,
+   "e": 37.475
+  },
+  {
+   "w": "better.",
+   "t": 37.555,
+   "e": 37.776
+  },
+  {
+   "w": "Generating",
+   "t": 37.862,
+   "e": 38.363
+  },
+  {
+   "w": "an",
+   "t": 38.404,
+   "e": 38.464
+  },
+  {
+   "w": "image",
+   "t": 38.584,
+   "e": 38.765
+  },
+  {
+   "w": "of",
+   "t": 38.845,
+   "e": 38.885
+  },
+  {
+   "w": "yourself",
+   "t": 38.945,
+   "e": 39.206
+  },
+  {
+   "w": "with",
+   "t": 39.266,
+   "e": 39.367
+  },
+  {
+   "w": "abs",
+   "t": 39.527,
+   "e": 39.688
+  },
+  {
+   "w": "is",
+   "t": 39.848,
+   "e": 39.908
+  },
+  {
+   "w": "just",
+   "t": 40.049,
+   "e": 40.289
+  },
+  {
+   "w": "the",
+   "t": 40.353,
+   "e": 40.414
+  },
+  {
+   "w": "first",
+   "t": 40.474,
+   "e": 40.674
+  },
+  {
+   "w": "step.",
+   "t": 40.735,
+   "e": 40.955
+  },
+  {
+   "w": "After",
+   "t": 41.296,
+   "e": 41.477
+  },
+  {
+   "w": "that,",
+   "t": 41.557,
+   "e": 41.718
+  },
+  {
+   "w": "our",
+   "t": 42.099,
+   "e": 42.179
+  },
+  {
+   "w": "personalized",
+   "t": 42.299,
+   "e": 42.962
+  },
+  {
+   "w": "AI",
+   "t": 43.082,
+   "e": 43.242
+  },
+  {
+   "w": "fitness",
+   "t": 43.363,
+   "e": 43.704
+  },
+  {
+   "w": "program",
+   "t": 43.724,
+   "e": 44.125
+  },
+  {
+   "w": "helps",
+   "t": 44.466,
+   "e": 44.707
+  },
+  {
+   "w": "you",
+   "t": 44.767,
+   "e": 44.848
+  },
+  {
+   "w": "make",
+   "t": 44.908,
+   "e": 45.048
+  },
+  {
+   "w": "it",
+   "t": 45.108,
+   "e": 45.148
+  },
+  {
+   "w": "real.",
+   "t": 45.209,
+   "e": 45.389
+  },
+  {
+   "w": "To",
+   "t": 45.612,
+   "e": 45.692
+  },
+  {
+   "w": "start",
+   "t": 45.793,
+   "e": 46.033
+  },
+  {
+   "w": "losing",
+   "t": 46.113,
+   "e": 46.354
+  },
+  {
+   "w": "your",
+   "t": 46.394,
+   "e": 46.494
+  },
+  {
+   "w": "belly",
+   "t": 46.534,
+   "e": 46.755
+  },
+  {
+   "w": "fat",
+   "t": 46.815,
+   "e": 47.015
+  },
+  {
+   "w": "and",
+   "t": 47.116,
+   "e": 47.196
+  },
+  {
+   "w": "getting",
+   "t": 47.236,
+   "e": 47.416
+  },
+  {
+   "w": "six",
+   "t": 47.496,
+   "e": 47.637
+  },
+  {
+   "w": "pack",
+   "t": 47.737,
+   "e": 47.897
+  },
+  {
+   "w": "abs,",
+   "t": 48.078,
+   "e": 48.238
+  },
+  {
+   "w": "tap",
+   "t": 48.659,
+   "e": 48.88
+  },
+  {
+   "w": "the",
+   "t": 48.98,
+   "e": 49.06
+  },
+  {
+   "w": "button",
+   "t": 49.1,
+   "e": 49.32
+  },
+  {
+   "w": "below.",
+   "t": 49.401,
+   "e": 49.621
+  }
+ ],
+ "source_audio": "/Volumes/Extreme/_edit_work/AV-01/cut/his_mix.wav",
+ "banned_source": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/clip_109_replacement.mp4",
+ "banned_times": [
+  26.4,
+  27.5,
+  29.6,
+  31.0
+ ],
+ "watch_log": "/Volumes/Extreme/_edit_work/AV-01/cut/logs/watch_pass.json",
+ "transcript_words": [
+  {
+   "w": "This"
+  },
+  {
+   "w": "picture"
+  },
+  {
+   "w": "got"
+  },
+  {
+   "w": "me"
+  },
+  {
+   "w": "abs"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "it's"
+  },
+  {
+   "w": "not"
+  },
+  {
+   "w": "even"
+  },
+  {
+   "w": "real."
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "generated"
+  },
+  {
+   "w": "this"
+  },
+  {
+   "w": "picture"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "back"
+  },
+  {
+   "w": "when"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "was"
+  },
+  {
+   "w": "200"
+  },
+  {
+   "w": "pounds."
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "made"
+  },
+  {
+   "w": "it"
+  },
+  {
+   "w": "my"
+  },
+  {
+   "w": "phone"
+  },
+  {
+   "w": "lock"
+  },
+  {
+   "w": "screen"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "I"
+  },
+  {
+   "w": "looked"
+  },
+  {
+   "w": "at"
+  },
+  {
+   "w": "it"
+  },
+  {
+   "w": "every"
+  },
+  {
+   "w": "single"
+  },
+  {
+   "w": "day"
+  },
+  {
+   "w": "for"
+  },
+  {
+   "w": "more"
+  },
+  {
+   "w": "than"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "year."
+  },
+  {
+   "w": "And"
+  },
+  {
+   "w": "this"
+  },
+  {
+   "w": "is"
+  },
+  {
+   "w": "where"
+  },
+  {
+   "w": "I'm"
+  },
+  {
+   "w": "at"
+  },
+  {
+   "w": "today"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "AI."
+  },
+  {
+   "w": "You"
+  },
+  {
+   "w": "can"
+  },
+  {
+   "w": "create"
+  },
+  {
+   "w": "a"
+  },
+  {
+   "w": "picture"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "yourself,"
+  },
+  {
+   "w": "your"
+  },
+  {
+   "w": "face,"
+  },
+  {
+   "w": "your"
+  },
+  {
+   "w": "body"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "RIP"
+  },
+  {
+   "w": "6"
+  },
+  {
+   "w": "pack"
+  },
+  {
+   "w": "abs."
+  },
+  {
+   "w": "You've"
+  },
+  {
+   "w": "always"
+  },
+  {
+   "w": "wanted."
+  },
+  {
+   "w": "And"
+  },
+  {
+   "w": "once"
+  },
+  {
+   "w": "you"
+  },
+  {
+   "w": "see"
+  },
+  {
+   "w": "yourself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "abs,"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "real"
+  },
+  {
+   "w": "you,"
+  },
+  {
+   "w": "not"
+  },
+  {
+   "w": "some"
+  },
+  {
+   "w": "fitness"
+  },
+  {
+   "w": "model,"
+  },
+  {
+   "w": "everything"
+  },
+  {
+   "w": "changes."
+  },
+  {
+   "w": "You"
+  },
+  {
+   "w": "can"
+  },
+  {
+   "w": "generate"
+  },
+  {
+   "w": "an"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "image"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "yourself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "RIP"
+  },
+  {
+   "w": "6"
+  },
+  {
+   "w": "pack"
+  },
+  {
+   "w": "abs."
+  },
+  {
+   "w": "Completely"
+  },
+  {
+   "w": "free."
+  },
+  {
+   "w": "Just"
+  },
+  {
+   "w": "tap"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "button"
+  },
+  {
+   "w": "below"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "see"
+  },
+  {
+   "w": "yourself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "abs."
+  },
+  {
+   "w": "You're"
+  },
+  {
+   "w": "more"
+  },
+  {
+   "w": "attractive"
+  },
+  {
+   "w": "to"
+  },
+  {
+   "w": "women."
+  },
+  {
+   "w": "Men"
+  },
+  {
+   "w": "respect"
+  },
+  {
+   "w": "you"
+  },
+  {
+   "w": "more."
+  },
+  {
+   "w": "You"
+  },
+  {
+   "w": "feel"
+  },
+  {
+   "w": "better."
+  },
+  {
+   "w": "Generating"
+  },
+  {
+   "w": "an"
+  },
+  {
+   "w": "image"
+  },
+  {
+   "w": "of"
+  },
+  {
+   "w": "yourself"
+  },
+  {
+   "w": "with"
+  },
+  {
+   "w": "abs"
+  },
+  {
+   "w": "is"
+  },
+  {
+   "w": "just"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "first"
+  },
+  {
+   "w": "step."
+  },
+  {
+   "w": "After"
+  },
+  {
+   "w": "that,"
+  },
+  {
+   "w": "our"
+  },
+  {
+   "w": "personalized"
+  },
+  {
+   "w": "AI"
+  },
+  {
+   "w": "fitness"
+  },
+  {
+   "w": "program"
+  },
+  {
+   "w": "helps"
+  },
+  {
+   "w": "you"
+  },
+  {
+   "w": "make"
+  },
+  {
+   "w": "it"
+  },
+  {
+   "w": "real."
+  },
+  {
+   "w": "To"
+  },
+  {
+   "w": "start"
+  },
+  {
+   "w": "losing"
+  },
+  {
+   "w": "your"
+  },
+  {
+   "w": "belly"
+  },
+  {
+   "w": "fat"
+  },
+  {
+   "w": "and"
+  },
+  {
+   "w": "getting"
+  },
+  {
+   "w": "6"
+  },
+  {
+   "w": "pack"
+  },
+  {
+   "w": "abs,"
+  },
+  {
+   "w": "tap"
+  },
+  {
+   "w": "the"
+  },
+  {
+   "w": "button"
+  },
+  {
+   "w": "below."
+  }
+ ],
+ "negative_events_scan": {
+  "sha256": "aaa81b8a09c673285f18dd4df776a6355dc238e713e13f1cbdc9096d86f61c69",
+  "when": "2026-09-18T03:46:48",
+  "frames_checked": 250,
+  "findings": [],
+  "notes": "AV-01 (2026-09-18). Scanned on the delivered bytes: the watch pass's two contact sheets (50 exact-index frames at 1.0 s across the whole 49.8 s cut) plus all 40 boundary strips (5 consecutive frames each = 200 frames), read at full resolution. No close-up of an out-of-shape body part and no shame framing. The only out-of-shape imagery is (a) Dan's own 200-lb deckchair card at 0:03-0:06, shown whole, head and stomach in frame, as his own story, and (b) the app-demo man's own uploaded photo inside the phone at 0:14-0:18 and inside the result card at 0:18.5-0:20.7, also whole-body and also his own picture. Neither is a zoomed body part and neither carries a disapproving reaction. This cut is a frame-exact selection (assert_range_lands proved every range's first and last frame against the master) out of the 9:16 master Dan approved on 2026-09-10; the only pixels that are not his are the three label chips this cutdown adds and the re-timed captions."
+ },
+ "declare": {
+  "captions:graphic_clearance": "This build renders its captions as PIL PNGs assembled with the concat demuxer (Manrope is a VARIABLE font and libass takes the default instance, so an ASS caption comes out Regular while every graphic in this film is ExtraBold). There is no .ass file and this row's own docstring rules out a delivered-pixel substitute. What IS measured instead, on these exact bytes: captions:card_collision (no cue sits on a card); the suppression list in captions.suppressed(), which mutes the captions for the full duration of both CTA pills; caption_sync_check.py at 104/104 = 100.0 % of highlighted words, 0 lit outside speech; and a frame-by-frame look at both CTA pills in the watch pass. The trailing-entry overprint that put a caption across the closing pill in the approved verticals (memory caption-trailing-entry-overprint) is fixed at source in captions.py -- the concat list now ends on a BLANK -- and was re-checked on the delivered file at 0:34.17 and 0:49.02.",
+  "captions:sync": "Not enough cues to measure: this row needs a cue that follows at least 0.30 s of silence and this cutdown has none -- it is 49.8 s of continuous speech selected out of the master. The same property is measured end to end by caption_sync_check.py on these exact bytes: 104 of 104 highlighted words are the word being spoken (100.0 %), longest miss run 0, 0 words lit outside speech, with the word timings from a wav2vec2 CTC forced alignment of the delivered mix."
+ }
+}
