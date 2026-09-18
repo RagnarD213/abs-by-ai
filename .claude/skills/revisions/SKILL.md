@@ -979,3 +979,23 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     one-line `b.startswith(a)` against the pre-paste export proves every earlier word is byte-identical and lists the
     new headings. Keep the pre-paste export on disk; the same file is what the next session diffs against to learn from
     Dan's edits (lesson 34). It is also how a false "the doc looks fine" screenshot gets caught.
+54. **An editor's folder drop: list it with `gdown --folder`, and md5 every sidecar across folders (2026-09-18).** The
+    Drive MCP's `search_files parentId = '<id>'` returns `{}` for a folder an editor shared — it cannot see folder drops
+    (memory `zeeshan-delivery-includes-srt`). `python3 -m gdown --folder "<folder url>"` lists AND downloads it in one
+    call. Then md5 the small files across the two folders before reading anything: Zeeshan's arms & shoulders folder
+    contained the **deadlift video's** `.srt`, byte-identical to the one in the deadlift folder, so the two-word .srt fix
+    from the previous round was silently unanswered. This is lesson 39a (md5 the re-delivered video) extended to the
+    sidecars — the .srt, the music mp3 and the thumbnail are where a wrong-file drop hides, because nobody opens them.
+55. **Envelope cross-correlation settles "which track is this?" to a yes or a no (2026-09-18).** Log-envelope at 400 Hz,
+    mean-removed, slid over the candidate with a cumulative-sum normalised correlation
+    (`revisions-20260918/music_match.py`): the real match read **r = +0.941** with the implied track start agreeing to
+    1.5 s across two overlapping windows; every non-match read **r = 0.06–0.16** with offsets that did not line up. The
+    0.14–0.39 "match" quoted in the 09-17 round-3 doc was a ducked bed measured over short windows — use 60–80 s windows
+    and check the offsets agree, not just the peak. That is what identified the live-round bed as knox-gym "Energy Gym
+    Thunder" and cleared it. **A bed's presence is a separate measurement**: gap floor p5 and the 80–500 Hz energy in the
+    quietest 10 % of frames (`gapfloor.py`). Our raw floor is ≈ −53 dB; a bed puts it at −37 to −40 dB. So "he changed
+    the track" and "there is still a track" are two different findings, and you can report both without the file.
+56. **`metadata=print` writes at info level, so `-v error` silently produces an EMPTY luma/scenes file (2026-09-18).**
+    The batch prep script has shipped with `-v error` on those two ffmpeg calls for weeks; they wrote 0 bytes and the
+    reviewer then had no brightness or scene data and did not notice. Use `-hide_banner -nostats` and let the level
+    default, or the check did not run (VIDEO-RULES: a check that did not run is a failure, not a pass).
