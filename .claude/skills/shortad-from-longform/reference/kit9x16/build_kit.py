@@ -323,7 +323,10 @@ def pushes_for(tl, splices, cover, words, T, flashes):
         p = list(p)
         for b in steppable:
             if b["t0"] <= p[0] < b["t1"]:
-                if 0 < b["t1"] - p[3] < 0.6:
+                # only a RAMPED end is pulled to the edge: an instant pull-out sits ON a cut and is that cut's
+                # cover (round 6 judge: the window cut at 26.39 s read naked because its pull-out, 0.56 s before
+                # the window's end, had been moved to the end)
+                if 0 < b["t1"] - p[3] < 0.6 and p[3] > p[2]:
                     p[2] = p[3] = round(b["t1"], 4)
                 if 0 < p[0] - b["t0"] < 0.6 and p[1] > p[0]:
                     p[0] = p[1] = round(b["t0"], 4)
