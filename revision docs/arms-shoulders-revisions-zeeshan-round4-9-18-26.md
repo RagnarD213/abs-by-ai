@@ -7,12 +7,8 @@ This one is done apart from two housekeeping things, and neither of them is edit
 **\*\*TIMESTAMPED REVISIONS\*\***
 
 - THROUGHOUT VIDEO
-    - **TELL ME THE NAME OF THE TRACK UNDER THE TALKING SECTIONS**
-        - The Content ID registered track that used to run under all of the talking is gone, so thank you for changing it. But the new bed is not the track I linked you either, and the only music file in the folder is the live round one. **Send me the name of the track that is now under the talking, or the file, so I can check it the same way I checked the live round one.**
-        - If it turns out that one is registered, swap it for this and keep the level where you have it: <https://pixabay.com/music/upbeat-rhythmical-melodic-syncopation-triphop-130-bpm-10091/>
-        - **STANDING RULE: Only use music that is free for commercial use and is NOT Content ID registered. On Pixabay, check the track's page. If it says "Content ID Registered", do not use it.**
     - **THE SUBTITLE FILE IN THE FOLDER IS THE WRONG VIDEO'S**
         - The .srt you put in the folder is called "Video 3 Subtitle.srt" and it is the deadlift video's subtitles — it opens on "Stop doing deadlifts. In today's video". It is byte for byte the same file you put in the deadlift folder.
         - **Send me the arms and shoulders .srt, with "GymBoss" at 8:09 and 8:14 changed to "Gymboss"** with a small b, which is the only thing still outstanding on it.
 
-Everything else, keep exactly as it is. This list ends the job on this video — once I have the track name and the right .srt, it is final.
+Everything else, keep exactly as it is. This list ends the job on this video — once I have the right .srt, it is final.

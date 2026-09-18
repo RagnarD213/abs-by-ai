@@ -194,3 +194,20 @@
 - Ordinary cuts between fixed compositions remain editing cuts, not camera motion. Graphics may animate without moving the presenter picture beneath them. Check actual rendered background landmarks: a fixed-X setting alone does not prove a static picture. If the camera source itself drifts, resolve that in source choice/stabilization rather than silently claiming the delivered picture is static.
 - Dan approved C1652 R4 as good enough to ship despite a small remaining movement near1:09. Do not reopen that accepted film to enforce the future rule. Its approved master is SHA256 `eace1bdbb9f7a16fadff8bb2d2e80812ea4e777cf413a1e06575527f95d64f44`.
 - C1652’s Zepbound text size is approved. Dan would prefer a third benefit, “Makes you serious about fat loss,” in a future relevant treatment; he accepted the existing two-row graphic in this final film. Do not expand its content without speech/timing context in future work.
+
+## On-screen text graphics are KEY POINTS, not a second set of subtitles (Dan, 2026-09-18)
+
+- **A text graphic exists to DISTILL the point, never to repeat the words being spoken under it.** Dan, on Zeeshan's
+  deadlift video: *"I don't think there's much value if, let's say, I say 'lower risk' and repeat that 'lower risk.'
+  The value of the graphic, I see, is distilling the key point for someone who may not have gotten it from a longer,
+  more complex explanation."*
+- **The format is his own, written into the doc by him:** `KEY POINT: <the distilled point>` — "KEY POINT:" in caps,
+  the point in Title Capitalization, and the one or two words that carry the punch in FULL CAPS. His worked example:
+  `KEY POINT: Deadlifts Cause More Injuries Than EVERY OTHER LIFT COMBINED`.
+- **Where two or three chips currently stack up saying the same thing three ways, it becomes ONE key point.** A
+  three-chip build that mirrors a three-item spoken list is the repetition he is rejecting, not a device.
+- **What is still allowed as a plain chip:** labels and signposts that are not repeats — the name of the exercise on a
+  demo clip, numbered section titles ("Exercise #2: Lat Pulldowns"), the URL chip, a product feature list in the CTA.
+- This applies to every video from here on, not just the one it was written on. When reviewing a cut, the graphics pass
+  is: transcribe every chip, then ask of each one "does this distill something, or does it just echo the audio?" —
+  and write the replacement key point, not a typo fix, for every chip that only echoes.

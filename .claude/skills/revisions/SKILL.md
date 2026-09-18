@@ -1073,3 +1073,39 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     The batch prep script has shipped with `-v error` on those two ffmpeg calls for weeks; they wrote 0 bytes and the
     reviewer then had no brightness or scene data and did not notice. Use `-hide_banner -nostats` and let the level
     default, or the check did not run (VIDEO-RULES: a check that did not run is a failure, not a pass).
+57. ⚠ **`revisions/reference/framing.py` CANNOT tell "perfectly tight" from "hair cut off", and a credit written off it
+    has now been wrong twice (2026-09-18).** On Zeeshan's deadlift video it reported "top 0%, could crop in 0% -> OK" on
+    all 55 camera shots and the review credited the framing in Dan's voice — *"every camera shot has a small margin above
+    my hair… do not change any of the crops."* Dan's reply: *"My hair is going out of the frame."* He was right: the
+    delivery gate's own check (`python3 -m deliver.checks.framing <file> --json out.json`, run from
+    `.claude/skills/_shared`) read **hair top median 0 px, p95 15 px, 74 % of frames at 0** against a standard of ≥ 20 px.
+    `framing.py` measures EMPTY FRAME ABOVE HIM and calls zero of it fine; the gate measures HAIR TOP IN PIXELS, which is
+    the thing Dan looks at. **Never credit or fail framing off `framing.py` alone — run the gate check too, and quote its
+    hair-top numbers.** Thirteen hand-picked top-strip crops also passed; a 15-point strip of `crop=1920:150:0:0` across
+    the whole video showed the hair sliced flat on 13 of 15. Sample the whole timeline, not the moments you chose.
+58. **Before writing a "crop in" or "he cropped too tight" item, measure the RAW the same way — it is often the camera
+    (2026-09-18).** Lesson 51 said measure the raw's headroom; this adds the crop factor. On the deadlift video the raw
+    (7/8 rolls C1487/C1488, Rec.709 10-bit 4:2:2 at 47 Mbps — that shoot is NOT S-Log3) read **head height median 408 px
+    against the delivered 401 px**: the editor barely cropped at all, and the raw itself is at hair-top median 0 with p95
+    30 px. So the fault is the camera framing, there is nothing to recover, and an item telling the editor to fix it
+    would be unexecutable. Map a cut time to a raw roll time by audio cross-correlation (`revisions-20260918/findraw.py`,
+    8 kHz mono, FFT-free `np.correlate` over the whole roll; a real match reads r ≈ 0.8–0.9, a wrong roll ≈ 0.1), then
+    compare the two frames' top strips side by side at full resolution.
+59. **The colour diagnosis that worked, with the reference numbers (2026-09-18).** Dan: *"the color correction, to me,
+    doesn't look as good as the other videos, but I'm not sure if this is due to the way this is filmed."* Measure four
+    things on matched frames — RAW, the delivered cut, and Muhammad's Ad 1 16:9 as the reference look
+    (`revisions-20260918/colstats.py`): **Y p1 (black point), median Y, % of pixels clipped at the top, and a face patch's
+    Y / R−B / saturation.** The deadlift video read black point **22** against the raw's 15 and Muhammad's **2**, median
+    51 → 82 (a ~30-level global lift), clipping **0.00 % → 1.30 %** — but the face read Y 81.6, R−B +37.0, sat 36.1 %
+    against Muhammad's 74.3 / +34.7 / 34.1 %. **So the skin was right and the picture around it was lifted, milky and
+    clipping**, which is a completely different note from "the grade is wrong", and it is the note Dan agreed with. Then
+    PROVE it: regrade one raw frame (`curves=all='0/0 0.06/0.012 0.235/0.30 0.50/0.56 0.83/0.88 1/1',eq=saturation=0.95`
+    landed black point 3.4, face sat 35.0 %, clipping 0.02 %) and send Dan a three-up still plus a 10 s moving
+    side-by-side. A moving comparison is what he judges on; a still alone is not enough.
+60. **Look in the editor's FOLDER and his MESSAGE for the music track before asking for it (Dan, 2026-09-18).** Zeeshan
+    put `knox-gym-energy-gym-thunder-538872.mp3` in both delivery folders and named it in his message, and the doc still
+    asked "send me the name of the track under the talking" because envelope correlation showed that track only under the
+    live round. Dan deleted the item: *"Make sure you're looking in the folder and the messages for the name of the music
+    track, to not give this unnecessary feedback."* **A track he supplied is answered once it is checked for Content ID —
+    if it is clean, there is no item, even if a second unidentified bed is also in the mix.** Raise a second bed only if
+    something measurable is actually wrong with it.
