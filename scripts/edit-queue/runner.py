@@ -232,9 +232,13 @@ def validate_draft_delivery(workdir, work_packet, approval_packet):
     visible = approval_packet.get("created_at")
     ended = draft.get("stage_one_ended")
     try:
-        if not visible or not ended or datetime.datetime.fromisoformat(visible) >= datetime.datetime.fromisoformat(ended):
+        visible_dt = datetime.datetime.fromisoformat(visible)
+        ended_dt = datetime.datetime.fromisoformat(ended)
+        if visible_dt.tzinfo is None or ended_dt.tzinfo is None:
+            errors.append("package/stage-one timestamps must include their UTC offset")
+        elif visible_dt >= ended_dt:
             errors.append("asset package must become visible before stage-one completion")
-    except ValueError:
+    except (TypeError, ValueError):
         errors.append("package/stage-one timestamps must be ISO-8601")
     if not isinstance(draft.get("full_render_count"), int) or draft["full_render_count"] < 0:
         errors.append("draft full_render_count must be a non-negative integer")

@@ -359,6 +359,7 @@ class Runner(unittest.TestCase):
                 "revision_count": 2, "approved_elements": ["audio"],
                 "reuse": {k: {"status": "reused", "evidence": "REUSE_REPORT.json"}
                           for k in ("scenes", "audio", "transcript", "assets")},
+                "generation_spend_usd": 0,
                 "paid_provider_costs": [{"provider": "none", "usd": 0}]}
         self.assertEqual(runner.validate_delivery(info, wd, packet), [])
         info["reuse"].pop("audio")
