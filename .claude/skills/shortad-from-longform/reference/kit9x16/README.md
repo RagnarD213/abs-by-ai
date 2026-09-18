@@ -69,6 +69,11 @@ shared chain (`_shared/audio/voice_chain.py` + bed + his tick at graphic entranc
   −104 px collision (six false rows in the round-5 gate).
 * **An AI clip's hands are checked frame by frame before it is used**; a clip whose hands melt is replaced by
   one of its own clean frames as a pushed still (`assets.py`: `ai_respect_gym`, `ai_women_pool`), $0.
+* **A chip burned into an asset is not verified by the gate's label row.** `phone_mock` / `p_goal` (the phone
+  mock-up of the AI goal image, Ad 1 0:05 + 2:18) carry an AI-GENERATED chip burned into the composite above the
+  picture, so the plate adds none; `label_tracks` only lists the chips the renderer drew, so that one is checked
+  by the watch judges by eye (clear of face and abs every round) and by nothing else. A future kit asset with a
+  physique picture should carry NO burned chip and take the kit's measured one.
 * **A watch judge is told which boundaries are ramps.** `plan.json` `punch` boundaries at a 50 % ramp crossing
   (`punch_FAR` / `punch_NEAR` strips) show a gradual zoom, not a step; three judges in a row reported them as
   "a declared step that never rendered". Say so in the judge prompt.

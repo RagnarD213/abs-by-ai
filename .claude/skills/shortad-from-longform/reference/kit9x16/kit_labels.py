@@ -255,7 +255,10 @@ def place(build):
                         body=[int(v) for v in (np.nonzero(union)[1].min(), np.nonzero(union)[0].min(),
                                                np.nonzero(union)[1].max(), np.nonzero(union)[0].max())])
         for jb in J["beats"]:
-            if jb.get("media") == b.get("media") and abs(jb["t0"] - b["t0"]) < 0.01:
+            # match on the beat's END: beats.timeline() snaps a beat's start onto the previous beat's end when the
+            # gap is under 0.4 s (the raw build: today_trees 15.48 -> 15.50), and a t0 match then silently wrote
+            # no chip -- two real photos rendered unlabelled (kit9x16 from-raw pass 5, 2026-09-18)
+            if jb.get("media") == b.get("media") and abs(float(jb["t1"]) - float(b["t1"])) < 0.01:
                 jb["chip_png"] = png
                 jb["chip_box"] = [c["x"], c["y"], c["w"], c["h"]]
                 jb["chip_label"] = label                      # NOT `label`: that key is render.py's fixed-y fallback
