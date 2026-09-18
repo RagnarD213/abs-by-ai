@@ -1,6 +1,5 @@
 {
   "checked": [
-    "money::Review Zeeshan video",
     "assistant::Cook meal prep",
     "assistant::Put away dishes and load dishwasher",
     "assistant::Fold laundry"
@@ -227,7 +226,6 @@
     ]
   },
   "checkedAt": {
-    "money::Review Zeeshan video": "2026-09-15",
     "assistant::Cook meal prep": "2026-09-15",
     "assistant::Put away dishes and load dishwasher": "2026-09-15",
     "assistant::Fold laundry": "2026-09-15"
