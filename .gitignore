@@ -158,3 +158,6 @@ scripts/edit-queue/scoreboard.json.lock
 scripts/edit-queue/*.tmp
 Handoffs/video-editing/.jobs.lock
 Handoffs/video-editing/jobs.json.tmp
+
+# macOS AppleDouble sidecars from the external drive
+._*
