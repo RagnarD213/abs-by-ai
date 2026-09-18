@@ -23,8 +23,8 @@ The master downloaded from Blotato was hashed after import and exactly matches t
 - Native YouTube publish time: **none**
 - Audience: not made for kids
 - Synthetic-media disclosure: false
-- Installed thumbnail: approved cover A, **HOW TO JUMP ROPE**, smiling `studio-blue-10`
-- YouTube Studio verification: “All changes saved”; uploaded thumbnail visible; HD and SD processing complete.
+- Installed thumbnail: approved cover **C2**, full-bleed jump-rope action photo with **HOW TO JUMP ROPE** above Dan's hair.
+- YouTube API verification on 2026-09-18: thumbnail changed and was downloaded back from YouTube; upload remains **Private** with processing `succeeded`.
 
 ## Blotato release schedule
 
@@ -33,18 +33,18 @@ All schedule records were fetched again after creation and matched the intended 
 | Destination | America/Chicago release | UTC | Schedule ID | Cover verification |
 |---|---:|---:|---:|---|
 | Facebook Page `47105` | Fri Sep 18, 2026, 5:00 PM CDT | `2026-09-18T22:00:00.000Z` | `4557023` | Video master verified by SHA-256 |
-| Instagram `@danrosefit` `67203` | Fri Sep 18, 2026, 5:00 PM CDT | `2026-09-18T22:00:00.000Z` | `4557024` | Approved Instagram cover A URL saved; downloaded cover hash matches local file |
-| TikTok `58181` | Fri Sep 18, 2026, 5:00 PM CDT | `2026-09-18T22:00:00.000Z` | `4557025` | Designed cover A is frame 0; `videoCoverTimestamp: 0` saved |
-| YouTube `46963` | Fri Sep 18, 2026, 5:00 PM CDT | `2026-09-18T22:00:00.000Z` | `4557027` | Approved YouTube cover A URL saved; downloaded cover hash matches local file |
-| Instagram mirror `@abs.by.ai` `65632` | Sat Sep 19, 2026, 5:00 PM CDT | `2026-09-19T22:00:00.000Z` | `4557026` | Approved Instagram cover A URL saved; downloaded cover hash matches local file |
+| Instagram `@danrosefit` `67203` | Fri Sep 18, 2026, 5:00 PM CDT | `2026-09-18T22:00:00.000Z` | `4584065` | Approved C2 image URL saved; downloaded cover hash matches local file |
+| TikTok `58181` | Fri Sep 18, 2026, 5:00 PM CDT | `2026-09-18T22:00:00.000Z` | `4584069` | Approved C2 is frame 0; `videoCoverTimestamp: 0` saved; scheduled media readback hash matches |
+| YouTube `46963` | Fri Sep 18, 2026, 5:00 PM CDT | `2026-09-18T22:00:00.000Z` | `4584075` | Approved C2 image URL saved; downloaded cover hash matches local file |
+| Instagram mirror `@abs.by.ai` `65632` | Sat Sep 19, 2026, 5:00 PM CDT | `2026-09-19T22:00:00.000Z` | `4584072` | Approved C2 image URL saved; downloaded cover hash matches local file |
 
 Blotato's YouTube target is saved as `privacyStatus: public`; that setting applies only when Blotato releases the post at the scheduled time. It does not change the Private holding upload above.
 
 ## TikTok cover derivative
 
-- File: `Short-form video content/ds-17-support/platform-derivatives/ds-17_how-to-jump-rope_tiktok-cover-A.mp4`
-- SHA-256: `a662afcdb0fae73e8aead71fc3e6637597acb08fcbb55ff34b7ac7999e80677d`
-- Validation: 1,355 output frames versus 1,354 source frames; all 2,119 source audio packets retained; no decode errors; frame-0 cover comparison PSNR 43.52 dB.
+- File: `Short-form video content/ds-17-support/platform-derivatives/ds-17_how-to-jump-rope_tiktok-cover-C2.mp4`
+- SHA-256: `43e24a1d0b7a09c03801b2bf0cdd8421292500db03b8da92a34a81a6920f3025`
+- Validation: 1,355 output frames versus 1,354 source frames; all 2,119 source audio packets retained; no decode errors; frame-0 cover comparison PSNR 43.83 dB.
 - The Blotato-hosted derivative was downloaded and its hash exactly matched the local derivative.
 
 ## Queue adjustment

@@ -94,9 +94,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**DS-17 cover replacement — APPROVAL PENDING 2026-09-18, Codex.** Upload/scheduling is already complete and live-readback verified; DS-17 releases first at 5 PM CDT today, mirror tomorrow. Next: Dan picks the jump-rope-photo or in-video jump-rope screenshot cover; then replace and verify YouTube/Blotato/TikTok covers before release. Detail: `Docs/DS17_SETUP_RECEIPT_20260917.md`.
-
-
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
