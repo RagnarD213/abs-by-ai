@@ -166,7 +166,7 @@ Memory `google-ads-ui-automation`.
 - `codex-video-trial/06k-ad14-codex-r4-approved-upload-and-setup.md` — ready09-17, GPT-6 Astra/High; exact approved R4 → YouTube Unlisted + existing Ad14 DGen groups; preserve Muhammad HD, no organic posting.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
-- `handoff-20260917-overnight-queue-proof-run.md` — **fire now**: one Claude job unattended, then un-pause. Fable 5.1, high.
+- **Token savings, all Codex (09-18):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`, `…-move-routines-to-codex.md`.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built; **Phase 2** next (placeholder flow). Fable or Astra, high.
 - `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
 - `handoff-20260912-ad5-vertical-revisions-round2.md` (spec for AV-04) — same man before/after (after picture `13_AFTER_ai-generated_app-demo-man.jpg`

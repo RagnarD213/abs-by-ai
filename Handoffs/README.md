@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 154 documents (index updated 2026-09-17).
+Every handoff document for Abs By AI, in one place. 157 documents (index updated 2026-09-18).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,6 +13,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260918-claude-video-freeze-and-codex-routing.md](handoff-20260918-claude-video-freeze-and-codex-routing.md) | **Ready, fire first, 2026-09-18 — Codex Sol / Medium.** Route every edit-queue group (editor + reviewer) to Codex until the Claude weekly reset 2026-09-24 11:00 CT; dry-run proof; no gate or master touched. |
+| [handoff-20260918-shrink-always-loaded-instructions.md](handoff-20260918-shrink-always-loaded-instructions.md) | **Ready, 2026-09-18 — Codex Sol / High.** Move the video rules verbatim out of `AGENTS.md`/`CLAUDE.md` into `_shared/VIDEO-RULES.md` with pointers; target ≤ 3,000 always-loaded words, zero rules lost. |
+| [handoff-20260918-move-routines-to-codex.md](handoff-20260918-move-routines-to-codex.md) | **Ready, 2026-09-18 — Codex Sol / Medium.** Rebuild editor-deliveries, watch-history (weekly) and the TWC payment reminder as Codex automations, prove one run each, then Dan toggles the Claude copies off. |
 | [handoff-20260917-install-approved-a06-short-thumbnail.md](handoff-20260917-install-approved-a06-short-thumbnail.md) | **Ready, 2026-09-17 — GPT-5.6 Sol / High.** Install approved A06 on Short `Ub0BV4m5lMQ`; exact artwork and desktop Change control verified. Preserve the existing video. |
 | [Ad14 Codex R4 approved — upload and Google Ads setup](codex-video-trial/06k-ad14-codex-r4-approved-upload-and-setup.md) | **Ready, 2026-09-17 — GPT-6 Astra / High.** Upload the exact approved R4 Unlisted and add it as a new variant in the existing Ad14 Demand Gen groups; preserve Muhammad HD and do not post organically. |
 | [C1652 approved R4 — upload and setup](codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md) | **Ready, 2026-09-17 — Sol / Medium.** Exact master approved as is; thumbnail/package, YouTube Private holding upload and organic Blotato setup. Supersedes completed06h; do not reopen editing. |
