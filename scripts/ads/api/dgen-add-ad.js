@@ -138,7 +138,8 @@ async function main() {
     for (const v of c.videos) {
       const adName = `${c.label} | ${v.version} | ${landingLabel}`;
       if (adNames.has(adName)) { plan.push(`skip ad "${adName}" (exists)`); continue; }
-      const finalUrl = `${url}?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad${c.adNumber}&utm_content=${v.utm}-${utmTag}`;
+      const utmCampaign = c.utmCampaign || `dgen-conv-ad${c.adNumber}`;
+      const finalUrl = `${url}?utm_source=google&utm_medium=video_ad&utm_campaign=${utmCampaign}&utm_content=${v.utm}-${utmTag}`;
       ops.push({ adGroupAdOperation: { create: { adGroup: group, status: 'ENABLED', ad: { name: adName, finalUrls: [finalUrl],
         demandGenVideoResponsiveAd: {
           videos: [{ asset: videoAsset[v.youtubeId] }],

@@ -15,14 +15,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RA-01-ai-trick-that-got-me-abs.md`: cut the \"The AI Trick That Got Me Abs\" short-form ad from its 8/28 raw takes with /ad-edit. Best take of every line, 9:16 master ≤0:59 plus the 16:9 from the same edit, lav picked per file, the 8/28 S-Log3 conversion, same-person before/after, claim lines flagged to me. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RA-01-ai-trick-that-got-me-abs.md` with `$abs-edit-ad`: 9:16 master ≤0:59 plus 16:9 from the same edit. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "",
+   "state": "uploaded",
+   "note": "YouTube Unlisted: 9x16 rfCsWNxuNV0; 16x9 OUw788sF1KY. Demand Gen ads: 825172744302, 825172744305, 825172744311, 825172744314.",
    "sub": "",
    "order": 1,
-   "updated": "2026-09-17",
-   "by": "Claude",
-   "rev": 2,
-   "syncedRev": 2
+   "updated": "2026-09-18",
+   "by": "Codex",
+   "rev": 4,
+   "syncedRev": 3
   },
   {
    "id": "RA-02",
