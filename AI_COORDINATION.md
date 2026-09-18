@@ -155,6 +155,7 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
+- `handoff-20260918-ad1-vertical-59s-approved-thumbnail-upload-setup.md` — 09-18: approved Ad 1 9:16 59s → thumbnail, Unlisted, DGen. Astra/High.
 - `handoff-20260917-install-approved-a06-short-thumbnail.md` — ready 2026-09-17: approved A06 cover, exact YouTube Short, desktop Change verified. GPT-5.6 Sol / High.
 
 **C1652 organic setup — ACTIVE 2026-09-17, Codex.** R4 hash verified; five thumbnails built/QC'd. Next: Dan picks one or two, then upload YouTube Private and queue five organic accounts through Blotato. Detail: `Handoffs/codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md`.

@@ -160,10 +160,10 @@
     }
    ],
    "generation_spend_usd": 0,
-   "dan_verdict": null,
-   "dan_words": null,
+   "dan_verdict": "approved",
+   "dan_words": "That ad looks good to me. I think that's actually good to ship.",
    "systemic_reason": null,
-   "corpus_entry": null,
+   "corpus_entry": "owed: the upload/setup session records Dan's words in qc_corpus once the master is filed",
    "log": "/Volumes/Extreme/_edit_work/AV-01/queue-run.log",
    "by_hand": true,
    "note": "Efficiency evidence incomplete before review: DELIVERY gate must be PASS before independent review (got 'FAIL') | 04:17-04:26 by-hand Codex review-1 (Phase 0 review-leg proof): DOES NOT SHIP; every defect is the approved master's own (strobing card exits, take-splice jumps, beach-clip orb, captions over tight photo/phone card). Dan's call."
