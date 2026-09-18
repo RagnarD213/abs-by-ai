@@ -26,13 +26,13 @@ Dan selected pool thumbnail **B only**; no A/B test. The exact approved 1.073 GB
 
 ## DONE — DS-17 “How to Jump Rope Without Tripping — Skip Like a Boxer” (2026-09-17)
 
-Approved 1080×1920 master (45.18 s, SHA-256 `ad4f7b46…`) uploaded to YouTube as **Private** (`m3oWfS1BTsw`) with cover A, then queued through Blotato for public organic release. Fresh readback verified every account, timestamp, caption, media URL, and cover field; queue 170 → 175; ad-guard scans clean before and after.
+Approved 1080×1920 master (45.18 s, SHA-256 `ad4f7b46…`) uploaded to YouTube as **Private** (`m3oWfS1BTsw`) and queued through Blotato for public organic release. Dan approved full-bleed action cover C2 on 2026-09-18; YouTube and all cover-bearing Blotato schedules were replaced and freshly verified. Queue and ad-guard scans remain clean.
 
 | FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
 |---|---|
-| Fri Sep 18, 5 PM CDT (`4557023` / `4557024` / `4557025` / `4557027`) | Sat Sep 19, 5 PM (`4557026`) |
+| Fri Sep 18, 5 PM CDT (`4557023` / `4584065` / `4584069` / `4584075`) | Sat Sep 19, 5 PM (`4584072`) |
 
-- IG uses approved cover A. TikTok uses the same designed cover as frame 0 and saves `videoCoverTimestamp: 0`; the derivative retained every audio packet and passed decode/hash verification. YouTube's saved Blotato target includes the approved thumbnail URL.
+- IG uses approved cover C2. TikTok uses the same designed cover as frame 0 and saves `videoCoverTimestamp: 0`; the C2 derivative retained every audio packet and passed decode/hash verification. YouTube's saved Blotato target and Private holding upload both use C2.
 - To make DS-17 the next release, only three conflicting sodium **photo** posts were moved: `3584611`, `3841874`, and `3841875` to Sat Sep 19 at 9 AM. Existing Sunday/Tuesday videos were untouched.
 - Full evidence and exact settings: `Docs/DS17_SETUP_RECEIPT_20260917.md`.
 

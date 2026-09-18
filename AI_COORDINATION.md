@@ -94,8 +94,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**DS-17 cover — APPROVAL PENDING 2026-09-18, Codex.** Setup verified; releases first at 5 PM CDT today, mirror tomorrow. Next: Dan approves revised full-bleed C2, then replace and verify platform covers. Detail: `Docs/DS17_SETUP_RECEIPT_20260917.md`.
-
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 
 **RO-01 HELD 2026-09-18, Codex.** Edit complete; master gate has 2 failures, phone gate running. Nothing delivered. Next: resolve flags or obtain flagged-review exception. `/Volumes/Extreme/_edit_work/ro01/STATE.md`.
