@@ -156,8 +156,6 @@ Memory `google-ads-ui-automation`.
 
 - `handoff-20260917-install-approved-a06-short-thumbnail.md` — ready 2026-09-17: approved A06 cover, exact YouTube Short, desktop Change verified. GPT-5.6 Sol / High.
 
-**C1652 organic setup — APPROVAL PENDING 2026-09-18, Codex.** R4 hash verified; four requested photo-only thumbnails (2 pool, 2 studio) built/QC'd. Next: Dan picks one pool + one studio for A/B, then upload YouTube Private and queue five organic accounts through Blotato. Detail: `Handoffs/codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md`.
-
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
