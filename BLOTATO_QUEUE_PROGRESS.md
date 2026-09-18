@@ -1,6 +1,6 @@
 # Blotato IG + Facebook queue — progress
 
-Last updated 2026-09-17.
+Last updated 2026-09-18.
 
 ## Account state
 
@@ -11,6 +11,18 @@ Last updated 2026-09-17.
 - **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
+
+## DONE — C1652 “Your Belly Fat Is an Emergency” (2026-09-18)
+
+Dan selected pool thumbnail **B only**; no A/B test. The exact approved 1.073 GB master was uploaded to YouTube as **Private** (`1mHgnH1GVtg`) with B, full description and chapters. Blotato owns release across all five organic destinations; fresh readback verified every account, timestamp, caption, target, media length and cover. Queue 175 → 180; ad-guard scans clean before and after.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Wed Sep 23, 9 AM CDT (`4578147` / `4578148` / `4578181` / `4578151`) | Thu Sep 24, 9 AM (`4578150`) |
+
+- IG and YouTube use B directly. TikTok uses the B-first-frame derivative with `videoCoverTimestamp: 0`; all approved AAC packets are unchanged.
+- The approved 236-cue English SRT is installed and published in YouTube Studio.
+- Full evidence and exact settings: `Docs/C1652_SETUP_RECEIPT_20260918.md`.
 
 ## DONE — DS-17 “How to Jump Rope Without Tripping — Skip Like a Boxer” (2026-09-17)
 
