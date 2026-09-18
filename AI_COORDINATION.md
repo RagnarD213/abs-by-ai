@@ -94,13 +94,11 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Edit queue Phase 2 asset approval — ACTIVE 2026-09-18, Codex.** Implementing the handed-off queue states, hash-bound approval packet, early review controls, stage-one/finishing resume, placeholder delivery gate, registry schema and isolated fake-executor coverage. Next: patch targeted queue/gate/docs files, run the isolated suites and full QC corpus, then commit/push. Detail: `Handoffs/handoff-20260918-edit-queue-phase2-asset-approval-automation.md`.
-
-**RA-01 setup — ACTIVE 2026-09-18, Codex.** Executing the approved-master handoff. Next: upload Unlisted and record all YouTube/Demand Gen IDs. Detail: `Handoffs/handoff-20260918-ra01-ai-trick-approved-thumbnails-upload-setup.md`.
+**STOP Deadlifting frames — NEEDS DAN 2026-09-18, Codex.** Two 16:9 three-frame concepts are delivered. Source folder was view-only; output is in Drive `1ZVVA6UCVUSsesMlnws1e5lc9uSnfOgGh`. Next: Dan picks variation 1 or 2 before motion.
 
 **AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
 
-**DS-18 kettlebell-deadlift short — ACTIVE 2026-09-18, Codex.** Claimed; planning and source review underway while the two-build machine cap is occupied. Next: select C1671 dialogue + C1673 demonstrations, send the required B-roll preview packet, then finish and audit. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
+**DS-18 kettlebell-deadlift short — NEEDS DAN 2026-09-18, Codex.** Exact C1673 B-roll approval reel sent; 45.31 s dialogue/audio/colour/captions, placeholder cut, A/B audio, and two covers are ready. Next: Dan approves or names a shot change; Codex replaces placeholders, runs final gates/audit, delivers, and updates the queue. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
 
 **RX-01 audit — DELIVERED 2026-09-18, Codex.** Map complete; no unlisted videos or M100 b-roll found. Next: Dan approves, then remove entry. Detail: `Docs/RAW_FOOTAGE_MAP.md`.
 
@@ -108,7 +106,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-01 REVIEW PENDING 2026-09-18, Codex.** Dan received the private R3 review under his explicit exception for 2 recorded gate failures. Audio/visual review pass. Next: Dan watches and gives one consolidated verdict. `/Volumes/Extreme/_edit_work/ro01/STATE.md`.
 
-**DS-04 vacuum short — REVISION 1 ACTIVE 2026-09-18, Claude.** Opening beat only; `handoff-20260918-ds04-opening-vacuum-clip-revision.md` running. Next: Dan picks a draw-in. ⚠ Audio `artifacts` FAIL is his call.
+**DS-04 vacuum short — DELIVERED 2026-09-18, Claude.** Opening rebuilt with Dan's pick (C1677 @136.60s); AI opening rejected. Gate 36/1 (his audio row), review SHIP. Next: his final look → fire `handoff-20260918-ds04-install-vacuum-short.md`.
 
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
@@ -163,6 +161,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260918-ds04-install-vacuum-short.md` — install the finished vacuum short when Dan finalizes it. ⚠ no TikTok without a cover. Codex Astra/high.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.

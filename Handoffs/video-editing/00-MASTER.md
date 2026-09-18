@@ -37,7 +37,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | ad | roll | status | size |
 |---|---|---|---|---|
-| [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | FINALIZED | S |
+| [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | UPLOADED | S |
 | [RA-02](RA-02-how-to-generate-abs-with-ai.md) | How To Generate Abs With AI | C1663 | READY | S |
 | [RA-03](RA-03-watch-ai-put-abs-on-me-in-30-seconds.md) | Watch AI Put Abs On Me In 30 Seconds | C1664 | READY (needs a recording of your own generation) | S |
 | [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | READY | S |
@@ -82,7 +82,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | short | roll | status | size |
 |---|---|---|---|---|
 | [DS-17](DS-17-how-to-jump-rope.md) | How To Jump Rope | C1670 | UPLOADED | S |
-| [DS-18](DS-18-how-to-kettlebell-deadlift.md) | How To Kettlebell Deadlift | C1671 | READY | S |
+| [DS-18](DS-18-how-to-kettlebell-deadlift.md) | How To Kettlebell Deadlift | C1671 | **NEEDS DAN** | S |
 | [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | READY | S |
 | [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | READY | S |
 | [DS-21](DS-21-how-to-do-hammer-curls.md) | How To Do Hammer Curls | C1672 | READY | S |
@@ -95,7 +95,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | IN PROGRESS | L |
+| [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | DELIVERED — awaiting Dan | L |
 | [RO-02](RO-02-the-vacuum-explainer.md) | The Vacuum: Best Ab Exercise For Belly Fat | 8/14 C1614–29 (26 min) | READY | L |
 | [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | READY (best after RO-02) | S |
 | [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | BLOCKED: Zeeshan's Arms & Shoulders final | S |
@@ -151,7 +151,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 7 In 2010 I Photoshopped My Face | ✅ (typo fix owed by Muhammad) | ❌ AV-06 | ❌ AV-06 | ❌ AS-05 | ❌ AS-05 |
 | 10 My Dad Bod At 38 / 40 | ✅ | ❌ AV-07 | ❌ AV-07 | ❌ AS-06 | ❌ AS-06 |
 | 14 I Watched 400 Workout Videos | ✅ (HD arrived 09-16, not yet filed) | ❌ AV-08 | ❌ AV-08 | ❌ AS-07 | ❌ AS-07 |
-| RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ | ✅ (is ≤0:59) | ✅ | ❌ not yet a job — add AS when Dan asks | ❌ |
+| RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ (uploaded 09-18) | ✅ (uploaded 09-18; is ≤0:59) | ✅ (same upload) | ❌ not yet a job — add AS when Dan asks | ❌ |
 
 **Verticals (each builds full + ≤0:59)**
 
@@ -161,9 +161,9 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-02](AV-02-ad2-cutdowns-vertical-and-square-59s.md) | Ad 2: 9:16 ≤0:59 + 1:1 ≤0:59 | READY | M |
 | [AV-03](AV-03-ad4-vertical-regrade-and-masters.md) | Ad 4: re-grade the vertical + deliver masters | READY | M |
 | [AV-04](AV-04-ad5-vertical-round2-and-regrade.md) | Ad 5: your round-2 revisions + re-grade | READY | M |
-| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | IN PROGRESS | M |
+| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | **NEEDS DAN** | M |
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
-| [AV-07](AV-07-ad10-vertical.md) | Ad 10 | READY | M |
+| [AV-07](AV-07-ad10-vertical.md) | Ad 10 | IN PROGRESS | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
 | [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | READY | M |
 | [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT | READY | M |
