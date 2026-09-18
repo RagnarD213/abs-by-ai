@@ -92,40 +92,80 @@ for si, s in enumerate(segs):
         out.append(dict(word=w[0], start=round(st,3), end=round(en,3), score=round(float(np.mean(scs)),3), src='ctc'))
 # A CTC slip on a tiny word can land it before its predecessor or after its successor (12 of 875 here even
 # with exact segment ownership): re-place such a word evenly in the gap between its neighbours.
-# First the honest repair: align the ONE word inside the gap its neighbours leave (a fresh forced alignment
-# over that window alone). Centring it in the gap put "to" 236 ms before the speech when the gap held a pause
-# (kit9x16 from-raw, 213.3 s; the gate's own forced alignment of the delivered file had it at 213.55).
-def align_in_gap(wtext, a, b):
-    n = norm(wtext)
-    if not n or b - a < 0.08: return None
-    a0 = max(0.0, a - 0.03); b0 = min(len(wav)/SR, b + 0.03)
+# The honest repair: a slipped run is re-aligned TOGETHER WITH its nearest trusted neighbours on both sides, so the
+# model anchors on real words (a single tiny word alone in a near-silent gap anchors on nothing: "to" at 213.3 s
+# went 236 ms early centred in its gap and 490 ms early aligned alone -- kit9x16 from-raw, 2026-09-18). The inner
+# words take their frames from that alignment; if it does not land between the anchors, the even placement stands.
+def realign_run(lo, hi):
+    """out[lo] and out[hi] are trusted ('ctc'); re-align out[lo..hi] over their audio span, return inner spans."""
+    ws = out[lo:hi + 1]
+    a0 = max(0.0, ws[0]['start'] - 0.05); b0 = min(len(wav)/SR, ws[-1]['end'] + 0.05)
     x = wav[int(a0*SR):int(b0*SR)]
-    if x.shape[0] < int(0.1*SR): return None
+    if x.shape[0] < int(0.15*SR): return None
     with torch.inference_mode():
         em, _ = model(x.unsqueeze(0))
     em = torch.log_softmax(em[0], dim=-1)
-    toks = [L['|']] + [L[c] for c in n.replace(' ', '|') if c in L] + [L['|']]
-    if len(toks) <= 2 or em.shape[0] < len(toks) + 2: return None
+    toks, spans = [], []
+    for w in ws:
+        n = norm(w['word'])
+        if not n: return None
+        t = [L['|']] + [L[c] for c in n.replace(' ', '|') if c in L]
+        spans.append((len(toks) + 1, len(toks) + len(t) - 1)); toks += t
+    toks.append(L['|'])
+    if em.shape[0] < len(toks) + 2: return None
     try:
         ali, _sc = torchaudio.functional.forced_align(em.unsqueeze(0), torch.tensor([toks]), blank=0)
     except Exception:
         return None
     ali = ali[0].tolist(); fdur = (x.shape[0]/SR) / em.shape[0]
-    frames = [f for f, t in enumerate(ali) if t not in (0, L['|'])]
-    if not frames: return None
-    return round(a0 + frames[0]*fdur, 3), round(a0 + (frames[-1]+1)*fdur, 3)
+    first, last, ti, prev = {}, {}, 0, None
+    for f, tok in enumerate(ali):
+        if tok == 0: prev = tok; continue
+        if tok == prev and ti > 0 and toks[ti-1] == tok and (ti-1) in last and last[ti-1] == f-1:
+            last[ti-1] = f; continue
+        if ti < len(toks) and toks[ti] == tok:
+            first[ti] = f; last[ti] = f; ti += 1
+        else:
+            if (ti-1) in last: last[ti-1] = f
+        prev = tok
+    res = []
+    for i0_, i1_ in spans:
+        f0 = first.get(i0_); f1 = last.get(i1_, first.get(i1_))
+        if f0 is None or f1 is None: return None
+        res.append((round(a0 + f0*fdur, 3), round(a0 + (f1+1)*fdur, 3)))
+    return res
 rep = regap = 0
-for i in range(1, len(out)-1):
+i = 1
+while i < len(out) - 1:
     p, w, n = out[i-1], out[i], out[i+1]
-    if w['start'] < p['end'] - 0.02 or w['start'] > n['start'] - 0.02:
-        a, b = p['end'], n['start']
-        g = align_in_gap(w['word'], a, b) if b > a else None
-        if g and a - 0.02 <= g[0] < g[1] <= b + 0.02:
-            w['start'], w['end'] = g; w['src'] = 'regap'; regap += 1; continue
-        if b - a < 0.06: b = a + 0.06
-        dur = min(max(0.06, 0.4*(b-a)), b-a)
-        w['start'] = round(a + 0.5*((b-a)-dur), 3); w['end'] = round(w['start']+dur, 3); w['src'] = 'repaired'; rep += 1
-print(f'{regap} misplaced words re-aligned inside their gap, {rep} re-placed evenly between their neighbours')
+    if not (w['start'] < p['end'] - 0.02 or w['start'] > n['start'] - 0.02):
+        i += 1; continue
+    # the slipped run: from this word to the last consecutive slipped word; anchors = nearest ctc words either side
+    j = i
+    while j + 1 < len(out) - 1 and (out[j+1]['start'] < out[j]['end'] - 0.02 or out[j+1]['start'] > out[j+2]['start'] - 0.02):
+        j += 1
+    lo = i - 1
+    while lo > 0 and out[lo].get('src') != 'ctc': lo -= 1
+    hi = j + 1
+    while hi < len(out) - 1 and out[hi].get('src') != 'ctc': hi += 1
+    spans_ = realign_run(lo, hi) if out[lo].get('src') == 'ctc' and out[hi].get('src') == 'ctc' and hi - lo <= 12 else None
+    ok = False
+    if spans_:
+        inner = spans_[1:-1]
+        a_, b_ = out[lo]['end'] - 0.03, out[hi]['start'] + 0.03
+        if all(a_ <= s_ < e_ <= b_ for s_, e_ in inner) and all(inner[k][1] <= inner[k+1][0] + 0.02 for k in range(len(inner)-1)):
+            for k, (s_, e_) in enumerate(inner):
+                out[lo+1+k]['start'], out[lo+1+k]['end'] = s_, e_; out[lo+1+k]['src'] = 'regap'
+            regap += len(inner); ok = True
+    if not ok:
+        for k in range(i, j + 1):
+            p, w, n = out[k-1], out[k], out[k+1]
+            a, b = p['end'], n['start']
+            if b - a < 0.06: b = a + 0.06
+            dur = min(max(0.06, 0.4*(b-a)), b-a)
+            w['start'] = round(a + 0.5*((b-a)-dur), 3); w['end'] = round(w['start']+dur, 3); w['src'] = 'repaired'; rep += 1
+    i = j + 1
+print(f'{regap} slipped words re-aligned with their anchors, {rep} re-placed evenly between their neighbours')
 json.dump(out, open('words_ctc.json','w'), indent=0)
 ctc = [o for o in out if o['src']=='ctc']
 print(f'{len(out)} words, {len(ctc)} CTC-aligned, {len(out)-len(ctc)} fell back to whisper')
