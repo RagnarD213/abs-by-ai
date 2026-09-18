@@ -24,6 +24,7 @@ Dan judges it blind (`blind/`). Never grade the kit yourself.
 | `kit_labels.py` | label chips on full-bleed pictures of Dan placed by MEASURING him (person mask, above the head first), the approved square's method; `--verify` on the delivered file |
 | `kit_plan.py` | plan.json for the gate, evidence contract v2, read out of the build |
 | `kit_deliver.py` | the build order as numbered stages: setup · audio · words · picture · captions · mux · gate · review |
+| `kit_fold.sh` | after the judges: merge their findings files (negscan entry excluded), `watch.py --judge`, `kit_negscan.py record`, then the delivery gate → `gate_final.json` + the PASS stamp |
 | `blind/blind_page.py` | the blind A/B page: labels hidden, order randomised, sealed `key.json`, Dan's words saved verbatim |
 
 ## Build order (from a master)

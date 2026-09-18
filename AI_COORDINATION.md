@@ -100,7 +100,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-04 vacuum short — REVISION 1 ACTIVE 2026-09-18, Claude.** Opening beat only. Next: Dan picks a draw-in candidate → rebuild. ⚠ Audio `artifacts` FAIL is his call.
+**DS-04 vacuum short — REVISION 1 ACTIVE 2026-09-18, Claude.** Opening beat only; `handoff-20260918-ds04-opening-vacuum-clip-revision.md` running. Next: Dan picks a draw-in. ⚠ Audio `artifacts` FAIL is his call.
 
 
 **RA-01 "AI Trick That Got Me Abs" — NEEDS DAN 2026-09-18, Claude.** 3 rounds done (Opus edit, Fable review); both aspects ship-clean bar the audio `artifacts` row, which the untreated outdoor lav already fails → Dan's exception, masters HELD in `/Volumes/Extreme/_edit_work/ra01/`. Review copy sent. Next: Dan watches, rules on outdoor audio + skin look (`notes-RA-01.md` "Your calls"), then masters deliver. Detail: `Claude Ad Videos/the ai trick that got me abs - RA-01/`.
@@ -162,7 +162,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260918-ds04-opening-vacuum-clip-revision.md` — DS-04 revision 1 (see ACTIVE). Opus 5, high.
+- `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07 (Ad 10 vertical). Codex Astra, high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
 - `codex-video-trial/06k-ad14-codex-r4-approved-upload-and-setup.md` — ready09-17, GPT-6 Astra/High; exact approved R4 → YouTube Unlisted + existing Ad14 DGen groups; preserve Muhammad HD, no organic posting.

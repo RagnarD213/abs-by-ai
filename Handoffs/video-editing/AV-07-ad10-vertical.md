@@ -7,6 +7,10 @@
   Finalized 09-12 (same Upwork message as Ad 7). On YouTube + Demand Gen since 09-15.
 * No vertical, square or cutdown exists.
 
+## Build WITH THE KIT (2026-09-18)
+Dan's blind verdict on the 9:16 kit was a tie; this job is its first production use. Follow
+`Handoffs/handoff-20260918-kit-first-production-ad10-vertical.md` — it wraps everything below in the kit's build order.
+
 ## Build (same method for every new Muhammad vertical)
 `/shortad-from-longform` end to end. Step 0b's "approved draft" is the editor's HD itself, since Dan approved the delivered cut.
 * **Colour: decode as BT.709 from the start.** Copy the Ad 3 render-10/12 compositor out of `/Volumes/Extreme/_edit_work/ad3-vert/`

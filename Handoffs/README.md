@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260918-kit-first-production-ad10-vertical.md](handoff-20260918-kit-first-production-ad10-vertical.md) | **Ready 2026-09-18 — Codex GPT-6 Astra / High.** The 9:16 kit's first production job: Ad 10's vertical + ≤0:59 (AV-07) built by the kit from Muhammad's master, content sheet written fresh; judged by fresh sessions, GATE PASS before Dan sees it. |
 | [handoff-20260918-claude-video-freeze-and-codex-routing.md](handoff-20260918-claude-video-freeze-and-codex-routing.md) | **Ready, fire first, 2026-09-18 — Codex Sol / Medium.** Route every edit-queue group (editor + reviewer) to Codex until the Claude weekly reset 2026-09-24 11:00 CT; dry-run proof; no gate or master touched. |
 | [handoff-20260918-shrink-always-loaded-instructions.md](handoff-20260918-shrink-always-loaded-instructions.md) | **Ready, 2026-09-18 — Codex Sol / High.** Move the video rules verbatim out of `AGENTS.md`/`CLAUDE.md` into `_shared/VIDEO-RULES.md` with pointers; target ≤ 3,000 always-loaded words, zero rules lost. |
 | [handoff-20260918-move-routines-to-codex.md](handoff-20260918-move-routines-to-codex.md) | **Ready, 2026-09-18 — Codex Sol / Medium.** Rebuild editor-deliveries, watch-history (weekly) and the TWC payment reminder as Codex automations, prove one run each, then Dan toggles the Claude copies off. |
