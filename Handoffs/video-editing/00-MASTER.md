@@ -23,8 +23,8 @@ Replaces `Handoffs/handoff-20260913-ad-variants-master-queue.md` (jobs J1–J18)
 |---|---|
 | RA-08 | "Why Are Trainers Going Out Of Business?" was filmed only up to *"Here's how it works"*. Cut a ~30 s version ending on the filmed CTA, or drop it? |
 | RA-16 | "AI Took My Job" opens *"I'm a personal trainer."* That's a deceptive-claim risk on a paid ad. Open on the second line, or keep it as filmed? |
-| DS-15 | "Does Jiu Jitsu Get You Abs?" needs BJJ b-roll that was never filmed. Film it at the academy, use your own archive footage, or use stock? |
-| DS-25 | "How To Do M100s" pulls b-roll from an M100 long-form that was never filmed. RX-01 checks the unchecked b-roll first; otherwise film 30 s of each move, or use stock? |
+| DS-15 | "Does Jiu Jitsu Get You Abs?" needs BJJ b-roll that was never filmed. Film it at the academy, use your own archive footage, or use stock? On the shoot list: `Docs/NEXT_SHOOT_LIST.md`. |
+| DS-25 | "How To Do M100s" pulls b-roll from an M100 long-form that was never filmed. RX-01 confirmed 2026-09-18 that no roll anywhere shows the three moves. On the shoot list now: `Docs/NEXT_SHOOT_LIST.md`. Film 30 s of each move, or use stock? |
 | RA-06, RA-07, RA-15 (+ RA-08, RA-16) | Spoken lines say *"thousands of guys"* / *"far better than any human trainer"*. They stay off on-screen text either way. OK to run as spoken? |
 | AS-01 | A square for **Zeeshan's** Ad 1, when Muhammad's Ad 1 square is already live. Still wanted? |
 
@@ -82,7 +82,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | short | roll | status | size |
 |---|---|---|---|---|
 | [DS-17](DS-17-how-to-jump-rope.md) | How To Jump Rope | C1670 | UPLOADED | S |
-| [DS-18](DS-18-how-to-kettlebell-deadlift.md) | How To Kettlebell Deadlift | C1671 | **NEEDS DAN** | S |
+| [DS-18](DS-18-how-to-kettlebell-deadlift.md) | How To Kettlebell Deadlift | C1671 | IN PROGRESS | S |
 | [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | READY | S |
 | [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | READY | S |
 | [DS-21](DS-21-how-to-do-hammer-curls.md) | How To Do Hammer Curls | C1672 | READY | S |
@@ -108,7 +108,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | what | status | size |
 |---|---|---|---|
-| [RX-01](RX-01-unmapped-footage-audit.md) | Map the rolls nobody has identified (welcome-video shoot, stray 7/8, 8/3 and 8/28 clips, unchecked b-roll). Adds any video it finds to this list. | DELIVERED — awaiting Dan | S |
+| [RX-01](RX-01-unmapped-footage-audit.md) | Map the rolls nobody has identified (welcome-video shoot, stray 7/8, 8/3 and 8/28 clips, unchecked b-roll). Adds any video it finds to this list. | DONE 2026-09-18, approved. No unlisted videos found. `Docs/RAW_FOOTAGE_MAP.md` | S |
 
 ---
 

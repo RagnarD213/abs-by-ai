@@ -94,13 +94,15 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**Edit queue per-job budgets - ACTIVE 2026-09-18, Codex.** Implementing the bounded time and full-render budget handoff without changing routing, models, caps, gates or media. Next: patch queue code and fake-editor tests, then run the full suite and dry-run proof. Detail: `Handoffs/handoff-20260918-edit-queue-per-job-work-budget.md`.
+
+**Roll sidecars footage index — ACTIVE 2026-09-18, Codex.** Building and testing the shared sidecar tool, then piloting the 8/28 main-camera roll before a background backfill that never takes an edit-queue slot. Next: inventory existing transcripts, footage, and reusable tooling. Detail: `Handoffs/handoff-20260918-roll-sidecars-footage-index.md`.
+
 **STOP Deadlifting frames — NEEDS DAN 2026-09-18, Codex.** Two 16:9 three-frame concepts are delivered. Source folder was view-only; output is in Drive `1ZVVA6UCVUSsesMlnws1e5lc9uSnfOgGh`. Next: Dan picks variation 1 or 2 before motion.
 
 **AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
 
-**DS-18 kettlebell-deadlift short — NEEDS DAN 2026-09-18, Codex.** Exact C1673 B-roll approval reel sent; 45.31 s dialogue/audio/colour/captions, placeholder cut, A/B audio, and two covers are ready. Next: Dan approves or names a shot change; Codex replaces placeholders, runs final gates/audit, delivers, and updates the queue. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
-
-**RX-01 audit — DELIVERED 2026-09-18, Codex.** Map complete; no unlisted videos or M100 b-roll found. Next: Dan approves, then remove entry. Detail: `Docs/RAW_FOOTAGE_MAP.md`.
+**DS-18 kettlebell-deadlift short — NEEDS DAN 2026-09-18, Codex.** R2 B-roll packet delivered: full-screen measured 9:16 crops, labels above Dan, complete weight-forward and rounded-back reps. Next: Dan approves the B-roll packet, then Codex builds and gates the final short. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
 
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 

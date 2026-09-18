@@ -20,7 +20,7 @@ The biggest correction is the first shoot: it is not miscellaneous unused footag
 - Script matching covered Shoot 5, Shoot 4, Shoot 3, Second Shoot, and the published V-video transcripts/content.
 - “Used by” names the matching published video or current queue job. “Source pool” means the roll belongs to that production, but this audit did not claim that every frame appeared in the final export.
 
-## Welcome-video first shoot — camera date 06-18
+## Welcome-video first shoot, camera date 06-18
 
 Source: `/Volumes/Extreme/abs by ai welcome-video first shoot/main camera/`
 
@@ -135,7 +135,7 @@ Source: `/Volumes/Extreme/abs by ai 8:14 shoot | teleprompter ads, indoor talkin
 
 Source: `/Volumes/Extreme/abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts, b roll, scripted long form content/main camera/`
 
-These older files were still on the card when the August 28 shoot was copied. Their embedded dates/content show that they are May, July, or earlier-August material—not additional August 28 scripts.
+These older files were still on the card when the August 28 shoot was copied. Their embedded dates/content show that they are May, July, or earlier-August material, not additional August 28 scripts.
 
 | Roll | Content | Used by |
 |---|---|---|
@@ -200,3 +200,24 @@ No audited roll shows the three M100 moves: **squat thrusts, mountain climbers, 
 ## Master-list action
 
 No additions were made. Every filmed Abs By AI script found here is already published, already assigned to an existing editor/job, or is supporting b-roll. Tests, duplicates, and personal footage do not belong on the video-production queue.
+
+---
+
+## Approved and acted on, 2026-09-18
+
+Dan approved this map on 2026-09-18. Three things were done as a result:
+
+1. **The 8/28 card leftovers were deleted from the Extreme drive.** Dan identified them as the
+   cameraman's own footage, copied across by mistake, not his family footage and not Abs By AI
+   material. 42 rolls removed, 38.3 GB recovered: `C1457`-`C1480`, `C1500`-`C1508`, `C1634`-`C1637`,
+   `C1639`, `C1642`-`C1645`, plus their sidecar `.XML` files. **`C1509` was deliberately kept**: it
+   is the "04 Why You Should Invest More In Your Health" pickup. Do not go looking for the deleted
+   rolls; they are gone on purpose.
+
+2. **The duplicated July 8 GoPro files were deleted from the 8/3 card.** `GH010268`, `GH020268`,
+   `GH030268`, `GH040268`, `GH010269` and `GH020269` in
+   `abs by ai 8:3 jeff chagrin shoot/gopro 2/` were byte-for-byte compared against the originals in
+   `abs by ai 7:8 Jeff Chagrin shoot/gopro/` and confirmed identical before removal. The originals
+   are untouched. About 20 GB recovered.
+
+3. **The filming gaps became a real list:** `Docs/NEXT_SHOOT_LIST.md`.
