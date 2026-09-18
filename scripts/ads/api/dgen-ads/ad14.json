@@ -3,7 +3,8 @@
   "label": "Ad 14 Workout Video Overload",
   "videos": [
     { "youtubeId": "z5AfM0fhcIg", "version": "Muhammad 16:9", "utm": "muhammad-16x9" },
-    { "youtubeId": "SGJoPjnl6AU", "version": "Muhammad 16:9 HD", "utm": "muhammad-16x9-hd" }
+    { "youtubeId": "SGJoPjnl6AU", "version": "Muhammad 16:9 HD", "utm": "muhammad-16x9-hd" },
+    { "youtubeId": "ACfVyQqPK08", "version": "Codex R4 16:9", "utm": "codex-r4-16x9" }
   ],
   "audience": {
     "label": "AI fitness + competitor apps + get abs belly fat",
