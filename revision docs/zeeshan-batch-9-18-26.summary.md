@@ -47,7 +47,6 @@ Folder: https://drive.google.com/drive/folders/1KSgdrBmiX8REMqJ47tg7naAfTXc25bJn
 - 6:33.5–6:38 Gymshark logo legible on the AI clip's shirt → regenerate plain.
 - 7:23.5 chip "Deadlifts Better To Build Leg Muscles" contradicts the video.
 - 7:33.5–7:42.5 the "leg press" clip is 9 s of a static macro of a weight plate — no leg press in it.
-- 8:10–8:16.5 the "rear delt fly" clip is a bent-over ROW — the exact mistake he warns about 8 s later.
 
 ---
 
@@ -70,3 +69,25 @@ Video 2 is basically done — the black at the end is gone and everything else i
 The deadlift video is a good first cut. The framing is right the whole way through, the colour is even, and the audio is right — no notes on any of that. Round 1 is at the top of the same doc: https://docs.google.com/document/d/13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk/edit
 
 The big ones: there's a four-minute stretch from 0:55 to 5:05 with no picture except me talking, so I need two or three inserts in there. A few of the exercise clips don't show the exercise I'm describing — the leg press one is a still close-up of a weight plate, and the rear delt one is a row, which is the exact thing I tell people not to do. And there's a list of words to fix in the graphics; the one that matters most is "AI Personal Traniner" at 9:14, which is my own product misspelled right where I'm sending people to the site. Send me the name of the music track on this one too, and the .srt with the next export.
+
+
+---
+
+## Final state, 2026-09-18 (after Dan's review)
+
+- **Framing credit was WRONG and is retracted in the doc.** `revisions/reference/framing.py` reads "top 0%" as OK; the
+  delivery gate reads hair-top **median 0 px, p95 15, 74 % of frames at 0** against a 20 px floor. The raw reads the same
+  (head height 408 px vs the cut's 401) — the camera was framed with no headroom, the editor barely cropped, and there is
+  nothing to recover. Skill lessons 57-58.
+- **Colour item added with numbers:** black point 22 vs the raw's 15 and Muhammad Ad 1's 2; median 51 → 82; clipping
+  0.00 % → 1.30 %; but the face matches Muhammad (81.6 / +37.0 / 36.1 % vs 74.3 / +34.7 / 34.1 %). Regrade proof built
+  and sent (still 3-up + 10 s moving). Skill lesson 59.
+- **All text graphics rewritten to Dan's KEY POINT format** — 15 key points replacing ~20 echo chips; the typo fixes that
+  died with their chips were removed; 7 survive. The rule is now in `_shared/VIDEO-RULES.md` and binds every video.
+- **0:10 - 0:20 now carries 6 s of Dan deadlifting in the 2010 SixPackShortcuts video** (`-UJHNZHbhiw`, 4:35.5-4:41.5),
+  uploaded to Drive `1t2lXssrgCjv47Ow_1E7bSj32clP5M0uh`. 360p is the ceiling (480p exists, every DASH format 403s).
+- **Music item restored, specific:** "Energy Gym Thunder" is confirmed clean and is the live-round bed (r = +0.941 at
+  8:25-9:45); a different, unidentified bed runs 0:00-8:19 and 9:55-end in the arms video and under the whole deadlift
+  video. Skill lesson 62.
+- **The 8:10 rear-delt item was wrong and stays deleted.** Dan: *"This is actually a rear delt fly... just done in the
+  unconventional way."* Skill lesson 61.

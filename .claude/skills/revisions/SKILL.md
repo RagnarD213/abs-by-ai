@@ -1109,3 +1109,20 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     track, to not give this unnecessary feedback."* **A track he supplied is answered once it is checked for Content ID —
     if it is clean, there is no item, even if a second unidentified bed is also in the mix.** Raise a second bed only if
     something measurable is actually wrong with it.
+61. ⚠ **DO NOT call an exercise's form wrong from a low frame rate or an overhead angle — it is a false positive
+    (Dan, 2026-09-18).** The deadlift video's 8:10 - 8:16.5 dumbbell clip was written up as "a bent over ROW, which is the
+    exact mistake I warn about eight seconds later". Dan deleted it and said so plainly: *"This is actually a rear delt
+    fly. You got that wrong. That is not a bent-over row. This is a rear delt fly, just done in the unconventional way."*
+    Read from above, a single-arm rear delt raise and a single-arm row look almost identical — the arm goes back and up in
+    both, and the difference is elbow angle and the arc of the hand, which a 2 fps strip cannot resolve. **A form call is
+    only an item when the movement is unambiguous at playback speed from a side or front angle**, and an unconventional
+    variation of a movement is still that movement. This is the false-positive protocol (step 3b) applied to exercise
+    form: name what makes it wrong in two clearly-readable frames, or do not write it. Dan does the exercises; on form
+    he is the authority and a wrong call costs credibility with him and with the editor.
+62. **A track the editor supplied answers only the sections it is actually under — say WHICH sections are still unknown
+    (Dan, 2026-09-18).** Lesson 60 had this half right. After Dan deleted the music item, the correlation numbers went to
+    him in chat and he put it straight back: *"Good catch with that music. Add that note back in. I thought that was the
+    only music track in there, but just add in the specific music that wasn't identified into the document."* So the
+    item is not "send me the track name" — it is **"'Energy Gym Thunder' is the track under the live round, 8:19 - 9:55,
+    and that one is clean; there is a DIFFERENT track under 0:00 - 8:19 and 9:55 to the end, send me that one too."**
+    Name the clean track, name its span, name the unidentified track's span, and say the clean one stays as it is.

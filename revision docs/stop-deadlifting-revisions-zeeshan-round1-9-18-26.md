@@ -13,6 +13,10 @@ What is left is the color, the graphics, four minutes where nothing happens, and
         - I compared your export against the camera file and against Muhammad's cut of "This Picture Got Me Abs", which is the look I want. The darkest one percent of the picture sits at 22 out of 255 in your version. In the camera file it is 15. In Muhammad's it is 2. That lifted black floor is why the whole thing looks milky and why I do not separate from the background.
         - You have also pushed the whole picture about thirty levels brighter than the camera file, and blown out 1.3% of the frame — mostly the fridge directly behind my head, which has full detail in the original and none in yours.
         - **My skin is right, do not touch it.** Bring the black point down to near zero, take the overall brightness lift back out, and recover the blown highlights. Everything else about the grade can stay.
+    - **SEND ME THE NAME OF THE MUSIC TRACK ON THIS ONE**
+        - The only music file in this folder is "Energy Gym Thunder", which is the gym track from the arms and shoulders video, and that is not what is playing here — I checked. There is a different bed running under this whole video. It is at a good level, sitting under my voice where it should be, so I am not asking you to change it.
+        - **I just need to know what it is. Send me the name, or drop the file in the folder the way you did with the gym track**, so I can make sure YouTube will not claim the video.
+        - **STANDING RULE: Only use music that is free for commercial use and is NOT Content ID registered. On Pixabay, check the track's page. If it says "Content ID Registered", do not use it.**
     - **DO NOT CROP IN ANY FURTHER**
         - The top of my hair is touching or past the top edge of the frame for most of this video. Most of that is how it was filmed, so there is not much to recover, but **never crop tighter than the camera file, and where the camera file has room at the top, use it.**
         - **STANDING RULE: Do not crop out the top of my head or hair, leave a small amount of space above my hair so the top of my hair does not go out of frame**
