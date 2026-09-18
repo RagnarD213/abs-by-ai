@@ -60,18 +60,31 @@ Folder: https://drive.google.com/drive/folders/1KSgdrBmiX8REMqJ47tg7naAfTXc25bJn
 
 ---
 
-## Paste-ready Upwork message
+## Paste-ready Upwork message (FINAL, 2026-09-18)
 
-Hey Zeeshan, thanks for both of these.
+Hey Zeeshan,
 
-Video 2 is basically done — the black at the end is gone and everything else is exactly where I left it. Two things left and neither one is editing: I need the name of the track that's now under the talking sections (the gym track you sent is the live-round one, and that one's clean, I checked it), and the subtitle file in the folder is the deadlift video's, not this one's. Send me the arms and shoulders .srt with "GymBoss" fixed to "Gymboss" and video 2 is finished.
+Thanks for both of these.
 
-The deadlift video is a good first cut. The framing is right the whole way through, the colour is even, and the audio is right — no notes on any of that. Round 1 is at the top of the same doc: https://docs.google.com/document/d/13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk/edit
+Video 2 is basically finished. The black at the end is gone, and I went through the rest of the picture frame by frame against the last version — nothing else moved, which is exactly what I wanted. Two things left on it and neither one is editing work. The gym track you sent is clean, I looked it up and it's not Content ID registered, so leave the live round exactly as it is. But that isn't the track under the talking sections — there's a second one in there and I don't know what it is. Send me the name of that one too, or just drop it in the folder the way you did with the other. And the subtitle file in the folder is the deadlift video's, not this one's, so I still need the arms and shoulders .srt with "GymBoss" fixed to "Gymboss".
 
-The big ones: there's a four-minute stretch from 0:55 to 5:05 with no picture except me talking, so I need two or three inserts in there. A few of the exercise clips don't show the exercise I'm describing — the leg press one is a still close-up of a weight plate, and the rear delt one is a row, which is the exact thing I tell people not to do. And there's a list of words to fix in the graphics; the one that matters most is "AI Personal Traniner" at 9:14, which is my own product misspelled right where I'm sending people to the site. Send me the name of the music track on this one too, and the .srt with the next export.
+The deadlift video is a good first cut. The pacing is right, there's no dead air anywhere in it, and the AI barbell row clip is genuinely good — I went through that one frame by frame looking for the usual AI giveaways and it holds up. The rear delt fly clips are right too.
 
+Round 1 is at the top of the same doc: https://docs.google.com/document/d/13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk/edit
 
----
+Three big things.
+
+First, the colour. I put your export up next to the camera file and next to Muhammad's ad, and the blacks are lifted — the darkest part of your picture sits at 22 out of 255, Muhammad's sits at 2. That's why it reads milky and why I don't separate from the fridge behind me, which you've also blown out. My skin tone is right, don't touch that. It's the black point and the overall brightness lift I need pulled back.
+
+Second, and this is the one I care most about going forward — the text graphics. Right now most of them just repeat the words I'm saying while I'm saying them, and that doesn't add anything, because the viewer already heard me say it. I want them to distill the point instead, for the guy who didn't follow the longer explanation. The format is "KEY POINT:" and then the actual takeaway. I've written out every single one of them in the doc so you don't have to guess. Where you've got two or three chips stacked up saying the same thing three different ways, that becomes one key point and the rest get deleted. Please use this format on every video from here on.
+
+Third, there's a four-minute stretch from 0:55 to 5:05 with nothing on screen but me talking. I need two or three inserts in there — that's where people leave.
+
+The rest is smaller. A few clips don't show the exercise I'm describing, the leg press one especially, which is nine seconds of a still close-up of a weight plate. And there are some words to fix in the chips that stay. The one that actually matters is "AI Personal Traniner" at 9:14 — that's my own product misspelled, right at the point where I'm sending people to the site.
+
+One thing I'm giving you rather than asking for: at 0:10 I talk about our first video going viral with Six Pack Shortcuts, which was a video of me deadlifting, and there's nothing on screen. I dug up the original from 2010 and cut six seconds of it for you. It's linked in the doc, already trimmed and silent, just drop it in. It's soft because it's fifteen years old — leave it that way, it should look old.
+
+Send me the name of the second music track on video 2, the name of the music on the deadlift video, and the .srt with the next export.
 
 ## Final state, 2026-09-18 (after Dan's review)
 
