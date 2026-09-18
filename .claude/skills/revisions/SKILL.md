@@ -1,6 +1,6 @@
 ---
 name: revisions
-description: Review a video cut delivered by an editor (human or a cheaper-model pipeline session) and produce a revisions document in Dan's exact format — timestamped, with specific directions, specific replacement text, and direct links to the exact assets to use. Use whenever Dan shares a video (usually a Google Drive link) and asks to "review it", "give revisions", "write up revision notes", or "check the editor's cut" — even if he doesn't say "/revisions". For revising videos OUR pipeline will re-render itself, /ad-edit and /longform-edit remain the execution skills; this skill produces the review document.
+description: Review a video cut delivered by an editor (human or a cheaper-model pipeline session) and produce a revisions document in Dan's exact format — timestamped, with specific directions, specific replacement text, and direct links to the exact assets to use. Use whenever Dan shares a video (usually a Google Drive link) and asks to "review it", "give revisions", "write up revision notes", or "check the editor's cut" — even if he doesn't say "/revisions". Also use it for STATUS CHECKS on an editor's batch ("did he make the revisions?", "what's still outstanding?", "he says he sent everything — is anything left?") and whenever Dan needs a paste-ready message written to an editor in his voice. For revising videos OUR pipeline will re-render itself, /ad-edit and /longform-edit remain the execution skills; this skill produces the review document.
 ---
 
 Read `_shared/VIDEO-RULES.md` first.
@@ -325,6 +325,80 @@ about label construction, compliance and demo identity. What the deletions say:
 Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
 item is one line in that register; keep the longer form only where the editor needs exact text,
 exact timing or an exact link.
+
+## The message Dan pastes to the editor — write it as Dan, not as a summary
+
+Every `.summary.md` ends with a paste-ready message. Dan sends these verbatim, so the message is a
+deliverable in its own right and it is judged on voice, not just accuracy. His instruction
+(2026-09-18): *"My goal is that when he sees this, he thinks I really wrote it, and I didn't just
+paste in Claude output without really caring about what he's doing."* The detail in these messages
+is already right; what gets rewritten is the tone.
+
+**The rules:**
+
+1. **Open "Hey <name> —"** and answer whatever he actually said first, in one clause. If he asked a
+   question or made a fair point, concede it plainly ("no confusion at all, the HD files came
+   through fine") before any notes.
+2. **Lead with specific praise, naming the exact thing.** Not "nice work" — "the app demo at 2:23 is
+   fixed, and that's exactly what I was after: the goal image paying off inside the phone instead of
+   cutting out to full screen." Dan compliments the editor by describing what he did, which proves
+   Dan actually watched it.
+3. **Prose, ad by ad, never a bulleted checklist.** One short paragraph per ad. A bulleted list of
+   findings is the single biggest tell that a message was generated.
+4. **His status words, undiluted.** "Ad 8 — FINALIZED." not "Ad 8 looks finished to me". Hedges read
+   as someone who did not check.
+5. **Contractions and plain words.** "that's sorted", "nothing further from me on this one", "it just
+   needs", "that's on me", "one thing left and it's small". No "additionally", "regarding",
+   "please ensure", no em-dash-per-sentence rhythm, no summarising adverbs.
+6. **Take the blame when the fault is Dan's** — a clip he supplied, a note he forgot to paste. He does
+   this unprompted and it is a large part of why his editors stay.
+7. **Say the list is finite.** "That's the whole list", "once these are in we're finished" — a
+   fixed-price editor quits when the loop looks unbounded (lesson 18 below).
+8. **Close with gratitude and the exact ask back.** What to send, on which ads, in what format.
+9. **Never mention Claude, a review, a check, a gate or a measurement as an actor.** Dan watched it.
+   See the `revision-docs-in-dans-voice` memory.
+
+**Calibrated against his own edits (2026-09-18).** He took a draft of this message, changed "this one
+looks finished to me" to "Ad 8 — FINALIZED", and added a closing line the draft had no equivalent of:
+*"Overall, these videos are looking excellent, and once these final small changes are made, they'll
+all be set. Thanks for doing a great job with this batch."* Both changes point the same way — more
+certainty, more warmth. Write the batch-level compliment in yourself; do not leave it for him to add.
+
+**Worked opening/closing in his register:**
+
+> Hey Muhammad — no confusion at all, the HD files came through fine. I went back through all four of
+> them properly this afternoon, and honestly you've done more than I gave you credit for, so let me
+> clear this up ad by ad.
+>
+> Ad 8 — FINALIZED. Both titles are exactly right, the real photo text is sitting above all four
+> pictures the way I wanted it, and you cropped the towel picture so it has room to breathe. Nothing
+> further from me on this one.
+>
+> […ad by ad…]
+>
+> That's the whole list. These are looking excellent — once these last small things are in, the batch
+> is set. Send me fresh HD exports of 9, 13 and 15 when they're done and we're finished. Really
+> appreciate the work on this one.
+
+## Status checks: the LIVE doc is the ask, not our copy
+
+When Dan asks whether revisions were made — a status check rather than a new review — **read the
+current Google Doc before anything else.** He deletes items he does not want and adds his own after
+the doc is written, so `revision docs/*.md` and the `.summary.md` files are drafts, not the request.
+Check the delivered file against only the items still in the doc, and tell Dan which ones he removed,
+since a deleted item may still be a real defect he has chosen to live with.
+
+Also check whether the editor's newest export is a **later version than the cut we reviewed** —
+compare a couple of the doc's own timestamps against the new file. On 2026-09-18 Muhammad's HD
+exports already satisfied most of Ads 8/9/13/15's round-3 lists, because the lists had been written
+against stale review proxies; he was right to ask why he was being sent notes he had already done.
+
+Mechanics: `read_file_content` on the doc id. The Muhammad batch doc is 200k+ characters, so it comes
+back as a tool-results file — slice the `## **AD n — ROUND n` sections out with python instead of
+reading it whole. Verify items by pulling frames at the doc's timestamps
+(`ffmpeg -ss <t> -i <file> -frames:v 1`, plus `fps=…,tile=6x4` contact sheets to find a moved shot).
+⚠ There is no `ffmpeg` on PATH on this Mac for these checks; use
+`/Applications/PhoneRescue.app/Contents/Resources/ffmpeg`.
 
 ## Edit queue status — when Dan finalizes a queue job in review
 
