@@ -117,3 +117,9 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - Dan does not use em dashes when he writes, so anything that carries his name and contains one reads as pasted AI
   output to the person receiving it. That is the whole reason for the rule.
 - **Check before delivering.** `grep -c '—' <file>` on any document, message, or script before it goes out. It must be 0.
+- **This is forward-looking only. Do not retrofit existing copy** (Dan, 2026-09-18: *"we don't need to edit the existing
+  copy. I just want to make sure that going forward, new copy doesn't use em dashes in any writing."*). The live site,
+  published descriptions, ad copy, already-sent revision docs, handoffs, skills, `Docs/`, memory and the board keep the
+  ones they have. Never propose or run a cleanup sweep of them. The rule binds what gets WRITTEN from 2026-09-18 on,
+  including any paragraph you happen to be rewriting in an old file for some other reason: the version you leave behind
+  has none.
