@@ -94,6 +94,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**DS-17 cover replacement — APPROVAL PENDING 2026-09-18, Codex.** Upload/scheduling is already complete and live-readback verified; DS-17 releases first at 5 PM CDT today, mirror tomorrow. Next: Dan picks the jump-rope-photo or in-video jump-rope screenshot cover; then replace and verify YouTube/Blotato/TikTok covers before release. Detail: `Docs/DS17_SETUP_RECEIPT_20260917.md`.
+
 **Ad 1 vertical 59s setup — ACTIVE 2026-09-18, Codex.** SHA-locked AV-01 master + approved 9:16 thumbnail verified. Next: file master/corpus entry, upload YouTube Unlisted, add only `Claude vertical 59s` to the two existing Ad 1 Demand Gen groups, read back and record IDs. Detail: `Handoffs/handoff-20260918-ad1-vertical-59s-approved-thumbnail-upload-setup.md`.
 
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
@@ -156,11 +158,11 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260918-ad1-vertical-59s-approved-thumbnail-upload-setup.md` — 09-18: approved Ad 1 9:16 59s → thumbnail, Unlisted, DGen. Astra/High.
 - `handoff-20260917-install-approved-a06-short-thumbnail.md` — ready 2026-09-17: approved A06 cover, exact YouTube Short, desktop Change verified. GPT-5.6 Sol / High.
 
-**C1652 organic setup — ACTIVE 2026-09-17, Codex.** R4 hash verified; five thumbnails built/QC'd. Next: Dan picks one or two, then upload YouTube Private and queue five organic accounts through Blotato. Detail: `Handoffs/codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md`.
+**C1652 organic setup — APPROVAL PENDING 2026-09-18, Codex.** R4 hash verified; four requested photo-only thumbnails (2 pool, 2 studio) built/QC'd. Next: Dan picks one pool + one studio for A/B, then upload YouTube Private and queue five organic accounts through Blotato. Detail: `Handoffs/codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07 (Ad 10 vertical). Codex Astra, high.
+- `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
 - `codex-video-trial/06k-ad14-codex-r4-approved-upload-and-setup.md` — ready09-17, GPT-6 Astra/High; exact approved R4 → YouTube Unlisted + existing Ad14 DGen groups; preserve Muhammad HD, no organic posting.
@@ -175,7 +177,7 @@ Memory `google-ads-ui-automation`.
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
 - `handoff-20260909-vqc-C-phase4-cut-technique.md` — before engine Phase 4. Fable 5.1 high.
 - `handoff-20260911-junk-footage-pass.md` — parallel-safe with engine Phases 2–4. Fable 5.1 high.
-- `handoff-20260911-video-quality-engine.md` — master plan; Phases 1–4 done (kit tied blind 09-18); next format: Dan. VQC-B/VQC-D superseded, do not fire.
+- `handoff-20260911-video-quality-engine.md` — master plan; Phases 1–4 done. VQC-B/VQC-D superseded, do not fire.
 - `handoff-20260910-start-vsl-edit-and-install.md` — after Dan records the VSL. Fable 5.1 high.
 - `handoff-20260909-audio-match-muhammad.md` — Zepbound + supplements, after Dan OKs the spray-tan sound.
 - `handoff-20260908-google-ads-custom-segments.md` — partly executed (ACTIVE). Fable 5.1 high.
