@@ -47,7 +47,7 @@ PAGE = """<!doctype html><html><head><meta charset="utf-8"><title>Blind review</
  .pair{border:1px solid #333;border-radius:12px;padding:18px;margin:0 0 28px;background:#181818}
  .pair h2{font-size:17px;margin:0 0 12px} .players{display:flex;gap:18px;flex-wrap:wrap}
  .side{flex:1 1 380px;min-width:300px} .side h3{margin:0 0 8px;font-size:15px;color:#ccc}
- video{width:100%;background:#000;border-radius:8px;max-height:78vh}
+ video{width:100%%;background:#000;border-radius:8px;max-height:78vh}
  .q{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
  label.pick{border:1px solid #444;border-radius:8px;padding:8px 12px;cursor:pointer}
  label.pick input{margin-right:6px} input.why{flex:1 1 320px;padding:9px;border-radius:8px;border:1px solid #444;background:#0d0d0d;color:#eee}
