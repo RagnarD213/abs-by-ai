@@ -1,0 +1,241 @@
+{
+ "note": "Per-hold face-box extremes in SOURCE pixels, derived from the round-2 DELIVERED masters (every frame, reviewer's mediapipe face box in review-r2/faces_<k>.json) mapped back through that render's crop (timeline_<k>.json). The 5 Hz landmark track in framing.json measures the cheek-to-cheek span, which is ~19 % narrower than the delivered-frame face box and under-samples a lean: that is why round 2 broke 8-92 % on 11 frames (D4). s05_plan.py takes the WIDER of the two.",
+ "holds": [
+  {
+   "name": "dan00",
+   "beat": 2.069,
+   "level": "NEAR",
+   "frames": 33,
+   "sx0": 1048.2,
+   "sx1": 1419.2,
+   "cx_med": 1203.1
+  },
+  {
+   "name": "dan01",
+   "beat": 6.773,
+   "level": "FAR",
+   "frames": 27,
+   "sx0": 1115.9,
+   "sx1": 1412.6,
+   "cx_med": 1252.9
+  },
+  {
+   "name": "dan02",
+   "beat": 12.312,
+   "level": "NEAR",
+   "frames": 121,
+   "sx0": 1006.8,
+   "sx1": 1451.3,
+   "cx_med": 1220.8
+  },
+  {
+   "name": "dan03",
+   "beat": 16.35,
+   "level": "FAR",
+   "frames": 117,
+   "sx0": 999.3,
+   "sx1": 1428.2,
+   "cx_med": 1215.7
+  },
+  {
+   "name": "dan04",
+   "beat": 20.254,
+   "level": "NEAR",
+   "frames": 88,
+   "sx0": 1039.5,
+   "sx1": 1492.4,
+   "cx_med": 1218.9
+  },
+  {
+   "name": "dan05",
+   "beat": 23.19,
+   "level": "FAR",
+   "frames": 50,
+   "sx0": 1042.1,
+   "sx1": 1399.3,
+   "cx_med": 1200.3
+  },
+  {
+   "name": "dan06",
+   "beat": 31.932,
+   "level": "NEAR",
+   "frames": 141,
+   "sx0": 1030.3,
+   "sx1": 1471.2,
+   "cx_med": 1228.5
+  },
+  {
+   "name": "dan07",
+   "beat": 39.74,
+   "level": "FAR",
+   "frames": 34,
+   "sx0": 1057.6,
+   "sx1": 1371.9,
+   "cx_med": 1216.0
+  },
+  {
+   "name": "dan08",
+   "beat": 40.874,
+   "level": "NEAR",
+   "frames": 108,
+   "sx0": 1075.7,
+   "sx1": 1372.1,
+   "cx_med": 1221.6
+  },
+  {
+   "name": "dan09",
+   "beat": 44.478,
+   "level": "FAR",
+   "frames": 93,
+   "sx0": 993.4,
+   "sx1": 1461.8,
+   "cx_med": 1215.4
+  },
+  {
+   "name": "dan10",
+   "beat": 47.581,
+   "level": "NEAR",
+   "frames": 110,
+   "sx0": 1060.1,
+   "sx1": 1405.8,
+   "cx_med": 1229.6
+  },
+  {
+   "name": "dan11",
+   "beat": 51.251,
+   "level": "FAR",
+   "frames": 80,
+   "sx0": 1069.8,
+   "sx1": 1440.8,
+   "cx_med": 1258.0
+  },
+  {
+   "name": "dan12",
+   "beat": 53.921,
+   "level": "NEAR",
+   "frames": 41,
+   "sx0": 1085.1,
+   "sx1": 1386.6,
+   "cx_med": 1231.6
+  }
+ ],
+ "holds16": [
+  {
+   "name": "dan00",
+   "beat": 2.069,
+   "level": "NEAR",
+   "frames": 33,
+   "sx0": 1057.5,
+   "sx1": 1419.2,
+   "cx_med": 1207.4
+  },
+  {
+   "name": "dan01",
+   "beat": 6.773,
+   "level": "FAR",
+   "frames": 27,
+   "sx0": 1113.7,
+   "sx1": 1397.6,
+   "cx_med": 1250.5
+  },
+  {
+   "name": "dan02",
+   "beat": 12.312,
+   "level": "NEAR",
+   "frames": 121,
+   "sx0": 935.5,
+   "sx1": 1818.8,
+   "cx_med": 1222.7
+  },
+  {
+   "name": "dan03",
+   "beat": 16.35,
+   "level": "FAR",
+   "frames": 117,
+   "sx0": 1009.7,
+   "sx1": 1423.5,
+   "cx_med": 1211.4
+  },
+  {
+   "name": "dan04",
+   "beat": 20.254,
+   "level": "NEAR",
+   "frames": 88,
+   "sx0": 1048.1,
+   "sx1": 1480.9,
+   "cx_med": 1218.7
+  },
+  {
+   "name": "dan05",
+   "beat": 23.19,
+   "level": "FAR",
+   "frames": 50,
+   "sx0": 1039.7,
+   "sx1": 1372.5,
+   "cx_med": 1199.5
+  },
+  {
+   "name": "dan06",
+   "beat": 31.932,
+   "level": "NEAR",
+   "frames": 141,
+   "sx0": 1027.8,
+   "sx1": 1458.9,
+   "cx_med": 1226.5
+  },
+  {
+   "name": "dan07",
+   "beat": 39.74,
+   "level": "FAR",
+   "frames": 34,
+   "sx0": 1066.7,
+   "sx1": 1364.1,
+   "cx_med": 1213.1
+  },
+  {
+   "name": "dan08",
+   "beat": 40.874,
+   "level": "NEAR",
+   "frames": 108,
+   "sx0": 1068.6,
+   "sx1": 1369.6,
+   "cx_med": 1222.6
+  },
+  {
+   "name": "dan09",
+   "beat": 44.478,
+   "level": "FAR",
+   "frames": 93,
+   "sx0": 1019.6,
+   "sx1": 1452.4,
+   "cx_med": 1215.6
+  },
+  {
+   "name": "dan10",
+   "beat": 47.581,
+   "level": "NEAR",
+   "frames": 110,
+   "sx0": 1065.5,
+   "sx1": 1405.9,
+   "cx_med": 1226.7
+  },
+  {
+   "name": "dan11",
+   "beat": 51.251,
+   "level": "FAR",
+   "frames": 80,
+   "sx0": 1084.5,
+   "sx1": 1434.2,
+   "cx_med": 1252.5
+  },
+  {
+   "name": "dan12",
+   "beat": 53.921,
+   "level": "NEAR",
+   "frames": 41,
+   "sx0": 1083.3,
+   "sx1": 1389.4,
+   "cx_med": 1230.5
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "_note": "Take spans for RA-01, anchored to PHRASES in the C1663 word list (never seconds). R3B is L11; the plan's length rule drops it first if the airtight cut runs over 59.00 s. Its neighbours are contiguous in the source, so keeping it costs no seam and dropping it makes exactly one.",
+ "ranges": [
+  {"name": "R1",  "lines": "L1-L4",   "after": 20.0, "from": "this picture got me",        "to": "changed me"},
+  {"name": "R2",  "lines": "L5t2-L6", "after": 45.5, "from": "it inspired me to start",    "to": "tap the button below"},
+  {"name": "R3A", "lines": "L7-L10",  "after": 56.4, "from": "and thats only the beginning","to": "track my macros"},
+  {"name": "R3B", "lines": "L11",     "after": 75.5, "from": "ai inspired me to work out", "to": "hit my goal"},
+  {"name": "R3C", "lines": "L12-L14", "after": 81.5, "from": "and you can change your life","to": "tap the button below"}
+ ]
+}

@@ -1225,6 +1225,33 @@ $0.00 spend, all gates green. Two rules came out of it, and the second one is wo
    kill and restage; threads in encode/decode = genuinely slow, wait.** A caption burn on the same box at the same
    moment ran at 242 % CPU with 53 threads, which is the control.
 
+## RA-01 lessons — first cut from the 8/28 outdoor portrait rolls (2026-09-18, three-role pipeline)
+
+Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable), plan + rulings in
+`Handoffs/video-editing/RA-01-plan.md`, three rounds. What is durable:
+
+1. **C1654–C1672 are PORTRAIT rolls with one dual-mono stereo stream.** ffmpeg autorotates to 2160×3840 — never
+   `-noautorotate`, never a `transpose`; `pick_lav.py` per file, never the four-track `a:1` rule (that is C1650–53
+   only). `Docs/SHOOT_828_FOOTAGE_REPORT.md`.
+2. **The outdoor lav fails the audio gate's `artifacts` (flux) row before any processing** (untreated 0.096 vs the
+   indoor-reference bound 0.079; the chain lowers it to 0.090 and cannot pass). Do not process harder, do not tune
+   the bound — it is Dan's exception per roll until the gate carries an outdoor reference through the corpus. Every
+   8/28 outdoor roll will hit it.
+3. **The kitchen LUT is wrong for daylight.** Face luma says an unpushed 1.0–1.15× LUT; skin then reads ≈ 73 % of
+   Ad 1's chroma at the 1.25 saturation cap and the rest is hue (overcast vs tungsten). Build a daylight LUT rather
+   than lifting saturation; the look is Dan's call.
+4. **Dan is small on these rolls (41 % of the width, hair 29 % down):** NEAR crops upscale 1.8×, FAR 1.5×, and the
+   delivered face sharpness is ≈ 0.5× the approved Ad 1 vertical. Next shoot: camera in, 4 % headroom.
+5. **Captions may print a spoken number.** "Never a printed number" binds cards, pills and headlines; burned captions
+   are a verbatim transcript (the approved Ad 1 vertical captions "200 pounds"). Captions run from the first word
+   to the last, over photo cards too — round 1 shipped 12 s of silence-with-a-still and was rejected for it.
+6. **Transition SFX broke the `tone` row** (0.74/1.92 → 1.24/4.63 dB) on this mix; left out, accepted.
+7. **Gate-plan geometry must be measured from the render, never a static rectangle** — round 1's CTA rectangle was
+   752 px wide of the truth in 16:9 and the caption-clearance rows were grading air.
+8. **Loop mechanics that worked:** the reviewer reads only the plan, the rules and the files (never the editor's
+   notes) and reports in a fixed defect format; the planner turns each review into numbered rulings appended to the
+   plan; three rounds is the cap. Cost: Opus ≈ 0.3 / 0.8 / 0.5 M tokens per round, Fable review ≈ 0.3 M each.
+
 ## Decisions locked vs pending
 
 | decision | status |

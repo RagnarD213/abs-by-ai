@@ -1,0 +1,21 @@
+{
+ "source_native": null,
+ "delivered_9x16": 14.2,
+ "ad1_vertical_reference": 29.1,
+ "delivered_over_ad1": 0.488,
+ "face_box_px_wide": {
+  "source_native": null,
+  "delivered_9x16": 421.0,
+  "ad1_vertical_reference": 486.0
+ },
+ "frames_used": {
+  "source": 0,
+  "delivered": 4,
+  "ad1": 4
+ },
+ "measured_on": {
+  "delivered": "/Volumes/Extreme/_edit_work/ra01/master_9x16.mp4",
+  "round": 3
+ },
+ "_method": "variance of the Laplacian over the FaceMesh bounding box, median of four frames (NOT scale-normalised; the normalised face256 comparison is r2/verify_9x16.json -> face_sharpness_lapvar_face256)"
+}

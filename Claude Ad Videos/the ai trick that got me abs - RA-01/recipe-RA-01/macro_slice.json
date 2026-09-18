@@ -1,0 +1,12 @@
+{
+ "_why": "34.60-38.24 is where the RECORDING ITSELF MOVES: the cooking questions are on screen, the user scrolls, and the itemized list, the meal total and the Log Meal button land. The settled 39.9-43.7 window that was here first held the answer and nothing else, so the card read as a screenshot of the product doing nothing (both watch-pass judges). No synthetic pan now -- the content's own motion is the motion.",
+ "t": 34.6,
+ "x": 30,
+ "w": 1260,
+ "h": 2240,
+ "y0": 430,
+ "y1": 580,
+ "source": "Media/ad-assets/ad2-nutritionist/clips/app-flow-macro-tracker-itemized.mp4",
+ "_crop_why": "the window starts below the half-sliced 'Note  Optional' label that the first crop left along the top edge (the watch-pass judge scored it junk_card)",
+ "_pan_why": "a 150 px pan over the beat on top of the recording's own scroll: the app pauses for about a second while the result lands, and a still run is a defect whatever caused it"
+}

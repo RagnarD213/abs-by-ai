@@ -1,0 +1,159 @@
+{
+ "_rule": "plan section 12 R5: exposure 1.00-1.30 by face luma (target 73 +- 5, the approved website video); saturation raised from 0.88 until face chroma >= 85 % of the approved Ad 1 vertical's, capped at 1.25; no white-balance or hue change.",
+ "exposure": "1.15",
+ "saturation": "1.25",
+ "lut": "/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.15.cube",
+ "filter": "lut3d=file=/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.15.cube:interp=tetrahedral,eq=saturation=1.25",
+ "reference": {
+  "ad1_vertical": {
+   "face_luma": 76.39,
+   "L": 34.12,
+   "a": 17.31,
+   "b": 23.79,
+   "chroma": 30.11,
+   "frames": 11
+  },
+  "website_video": {
+   "face_luma": 73.35,
+   "L": 32.3,
+   "a": 16.24,
+   "b": 14.31,
+   "chroma": 21.87,
+   "frames": 3
+  }
+ },
+ "target_face_luma": 73.35,
+ "chroma_floor_85pct_of_ad1": 25.59,
+ "chroma_floor_reached": false,
+ "exposure_tests": {
+  "1.00": {
+   "face_luma": 70.94,
+   "L": 30.68,
+   "a": 9.89,
+   "b": 9.77,
+   "chroma": 14.23,
+   "frames": 8,
+   "luma_err": 2.41
+  },
+  "1.15": {
+   "face_luma": 76.94,
+   "L": 33.29,
+   "a": 10.45,
+   "b": 10.22,
+   "chroma": 15.01,
+   "frames": 8,
+   "luma_err": 3.59
+  },
+  "1.30": {
+   "face_luma": 82.62,
+   "L": 35.73,
+   "a": 11.1,
+   "b": 10.69,
+   "chroma": 15.76,
+   "frames": 8,
+   "luma_err": 9.27
+  }
+ },
+ "saturation_tests": {
+  "0.88": {
+   "face_luma": 76.87,
+   "L": 33.26,
+   "a": 10.44,
+   "b": 10.23,
+   "chroma": 15.06,
+   "frames": 5,
+   "frame_chroma_p95": 17.69,
+   "frame_chroma_p99": 21.86
+  },
+  "0.95": {
+   "face_luma": 77.01,
+   "L": 33.33,
+   "a": 11.42,
+   "b": 11.04,
+   "chroma": 16.07,
+   "frames": 5,
+   "frame_chroma_p95": 18.76,
+   "frame_chroma_p99": 23.58
+  },
+  "1.00": {
+   "face_luma": 75.88,
+   "L": 33.07,
+   "a": 13.92,
+   "b": 10.76,
+   "chroma": 17.98,
+   "frames": 5,
+   "frame_chroma_p95": 20.77,
+   "frame_chroma_p99": 25.71
+  },
+  "1.05": {
+   "face_luma": 76.43,
+   "L": 33.31,
+   "a": 13.14,
+   "b": 12.95,
+   "chroma": 18.65,
+   "frames": 5,
+   "frame_chroma_p95": 21.4,
+   "frame_chroma_p99": 26.37
+  },
+  "1.10": {
+   "face_luma": 75.99,
+   "L": 33.18,
+   "a": 14.29,
+   "b": 13.12,
+   "chroma": 19.62,
+   "frames": 5,
+   "frame_chroma_p95": 22.34,
+   "frame_chroma_p99": 27.64
+  },
+  "1.15": {
+   "face_luma": 76.36,
+   "L": 33.36,
+   "a": 13.88,
+   "b": 14.23,
+   "chroma": 20.03,
+   "frames": 5,
+   "frame_chroma_p95": 23.22,
+   "frame_chroma_p99": 28.78
+  },
+  "1.20": {
+   "face_luma": 75.91,
+   "L": 33.31,
+   "a": 15.1,
+   "b": 14.38,
+   "chroma": 21.14,
+   "frames": 5,
+   "frame_chroma_p95": 24.36,
+   "frame_chroma_p99": 30.34
+  },
+  "1.25": {
+   "face_luma": 76.22,
+   "L": 33.45,
+   "a": 15.61,
+   "b": 14.33,
+   "chroma": 21.96,
+   "frames": 5,
+   "frame_chroma_p95": 25.11,
+   "frame_chroma_p99": 31.47
+  }
+ },
+ "grid": {
+  "1.00": {
+   "sat": "1.25",
+   "reached": false,
+   "luma_err_at_sat": 3.29,
+   "chroma_at_sat": 20.91
+  },
+  "1.15": {
+   "sat": "1.25",
+   "reached": false,
+   "luma_err_at_sat": 2.87,
+   "chroma_at_sat": 21.96
+  }
+ },
+ "face_chroma_pct_of_ad1": 72.9,
+ "round1_was": {
+  "exposure": "1.30",
+  "saturation": "0.88",
+  "face_chroma_measured_here": 15.76
+ }
+}

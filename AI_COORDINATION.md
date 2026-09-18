@@ -101,9 +101,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 **DS-04 vacuum dedicated short — DELIVERED 2026-09-17, Claude.** Review copy + covers A/B sent; round-2 review: picture ships. ⚠ Audio gate `artifacts` row fails on the raw outdoor lav (0.088 vs 0.079; RA-01 identical) — Dan's call, never a threshold change. Next: Dan watches, rules on the audio row + title wording + cover; then `queue.py set DS-04 finalized`. Notes: `Short-form video content/ds-04_notes.md`.
 
 
-**RA-01 — ROUND 2 DONE 2026-09-17, Claude (Opus).** D2–D11 fixed; both gates now 35/1 with only `audio:stamp` failing. Masters HELD in `/Volumes/Extreme/_edit_work/ra01/` pending Dan's ruling on the outdoor lav. Next: independent round-2 review. Detail: `ROUND-2-EDITOR.md`.
+**RA-01 "AI Trick That Got Me Abs" — NEEDS DAN 2026-09-18, Claude.** 3 rounds done (Opus edit, Fable review); both aspects ship-clean bar the audio `artifacts` row, which the untreated outdoor lav already fails → Dan's exception, masters HELD in `/Volumes/Extreme/_edit_work/ra01/`. Review copy sent. Next: Dan watches, rules on outdoor audio + skin look (`notes-RA-01.md` "Your calls"), then masters deliver. Detail: `Claude Ad Videos/the ai trick that got me abs - RA-01/`.
 
-**VQC Phase 4 kit — ACTIVE 2026-09-17, Claude (Fable).** Ad 1 judge rounds; next: Dan's blind page.
+**VQC Phase 4 kit — ACTIVE 2026-09-18, Claude (Fable).** Ad 1 from-master round 7 judged clean (0 defects/145 boundaries); round 8 + from-raw pass 6 rendering (phone-split window crop, transcript fixes, label write-back fix). Next: judges → gate PASS both → blind page for Dan. Detail: `/Volumes/Extreme/_edit_work/kit9x16/`.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 

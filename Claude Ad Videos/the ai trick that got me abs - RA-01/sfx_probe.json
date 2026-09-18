@@ -1,0 +1,64 @@
+{
+ "placed": [
+  {
+   "card": "before",
+   "t": 6.273,
+   "sfx": "whoosh"
+  },
+  {
+   "card": "after_1",
+   "t": 7.541,
+   "sfx": "pop"
+  },
+  {
+   "card": "after_2",
+   "t": 8.208,
+   "sfx": "pop"
+  },
+  {
+   "card": "after_3",
+   "t": 8.842,
+   "sfx": "pop"
+  },
+  {
+   "card": "ai_again",
+   "t": 9.509,
+   "sfx": "whoosh"
+  },
+  {
+   "card": "stats_scan",
+   "t": 25.459,
+   "sfx": "whoosh"
+  },
+  {
+   "card": "macro",
+   "t": 36.603,
+   "sfx": "whoosh"
+  },
+  {
+   "card": "end_card",
+   "t": 55.989,
+   "sfx": "whoosh"
+  }
+ ],
+ "window": [
+  1.0,
+  55.590867
+ ],
+ "bound_flux_local_remeasure": 0.0841,
+ "gate_row_text": "no processing damage: flux 0.090 (his 0.072), HF swirl 0.794 (his 0.835), both <= his x1.1",
+ "mix_no_sfx": {
+  "flux": 0.0933381466724369,
+  "sfm": 0.03664600991147805,
+  "swirl": 0.7952704772211632,
+  "gap": 34.928951263427734
+ },
+ "mix_with_sfx": {
+  "flux": 0.09079222000468681,
+  "sfm": 0.2157586522469829,
+  "swirl": 0.7703670507061413,
+  "gap": 36.47904968261719
+ },
+ "delta_flux": -0.00255,
+ "delta_swirl": -0.0249
+}

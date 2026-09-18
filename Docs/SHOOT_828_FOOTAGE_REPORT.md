@@ -80,8 +80,8 @@ The cost is resolution. The hair-anchored levels are crops of a portrait 4K fram
 | NEAR (hair → just below the belly button) | 594×1056 (round 1: 504×896) | 1080×1920 | **1.82×** |
 
 **It shows.** Face sharpness (variance of the Laplacian over the face box, median of four frames): source at native
-scale 63.2, round 1's delivered vertical **10.6**, the approved Ad 1 vertical **27.2**; round 2's looser crops
-recover part of that (reviewer's measurement in the delivery notes). The source is sharp; the softness is entirely
+scale 63.2, round 1's delivered vertical **10.6**, the final round-3 vertical **14.2**, the approved Ad 1 vertical
+**29.1** on the same method — about half the reference even after the looser crops. The source is sharp; the softness is entirely
 the enlargement. The 16:9 is the easy case (NEAR 1888×1062 = 1.14×, FAR 2144×1206 = 0.90×).
 
 ## 5. Focus and exposure
