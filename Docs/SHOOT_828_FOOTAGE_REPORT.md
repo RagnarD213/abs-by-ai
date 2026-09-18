@@ -158,7 +158,7 @@ Ab Exercise That Shrinks Your Belly Fat", cut from talking roll C1656 with b-rol
   Measured on the build: hair top y 1094–1110 across eight holds (median 1118 over the roll), head height 368 px,
   belly button y 2078, waistband y 2244, shoes y 3508, Dan 38.9 % of the width. The crops that satisfied the gate
   were **NEAR 700×998 (1.54×) and FAR 848×1208 (1.28×)** — tighter than the planner's estimate because the head has
-  to fill ≥ 27 % of the frame. **Delivered face sharpness 19.9 (variance of the Laplacian) against 27.2 on the
+  to fill ≥ 27 % of the frame. **Delivered face sharpness 21.1 (variance of the Laplacian) against 27.2 on the
   approved Ad 1 vertical**, from 56.9 at native scale: the upscale costs a visible amount of face detail.
 * **The hair detector does not work against trees.** `hairdet.py` assumes a bright wall above the head; on this
   roll the trees behind Dan are darker than his hair, so it returns a hair row 800 px too high and "climb too long".
@@ -190,8 +190,9 @@ Ab Exercise That Shrinks Your Belly Fat", cut from talking roll C1656 with b-rol
   own cue in real time** (slump 0:50–0:55, straighten 0:56, draw in 0:57–0:61, hold to 0:70), and front holds
   1:40–2:52. Between them **100+ s of empty frame** (0:30–0:46, 0:81–1:39, 2:53–3:25).
 * He fits a hair-to-thigh vertical crop out of the 16:9 (≈ 1500 px tall → ≈ 1.0–1.3× into the window), so the
-  standing vacuum needs no J2 frame. Used: front 822×1172 (1.31×), profile 698×996 (1.55×). Profile cue timing as
-  measured: fold 0:53.0–0:55.7, upright 0:55.9, draw-in 0:56.2–0:57.3, hold to ≈ 1:10. Empty frame: 106 s of 205.
+  standing vacuum needs no J2 frame. Used (round 2): front 974×1388 (1.11×), profile 916×1306 (1.18×), both
+  hair-to-below-the-knee so the caption band clears the stomach. Profile cue timing as measured: fold 0:53.0–0:55.7,
+  upright 0:55.9, draw-in 0:56.2–0:57.3, hold to ≈ 1:10. Empty frame: 106 s of 205.
 
 ## B3. C1673–C1685 — the exercise b-roll
 
@@ -204,10 +205,12 @@ Ab Exercise That Shrinks Your Belly Fat", cut from talking roll C1656 with b-rol
 | C1684 | covered patio | shade, dim | handstand push-ups | no |
 | C1685 | covered patio | shade, dim | battle ropes | marginal — standing but small in a wide frame |
 
-C1682 measured: one sit-up/crunch rep 0:56.5–0:58.9, eight toe-touch reps 0:59–1:20, five more 1:26–1:39; camera
+C1682 measured: **no crunch at all** — 0:56.5–0:58.9 is Dan sitting down and settling, not a rep — then eight
+toe-touch reps 0:59–1:20 and five more 1:26–1:39; camera
 at ground level (horizon at 0.30 of frame height), side-on. His silhouette spans 1212–1408 px of the 3840 width
 against a 1215 px 9:16 window, so a vertical crop slices a limb on every rep; the 4:3 cards used were 1464×1098 and
-1694×1270. C1683 holds no lying crunch and no toe touch.
+1694×1270 in round 1 and 2250×1266 in round 2. C1683 holds no crunch and no toe touch either; the script's
+"crunches" cue was filled with C1683's seated medicine-ball twist. **Nobody filmed a crunch on 8/28.**
 
 ## B4. Change at the next shoot (talking shorts and b-roll)
 
@@ -235,7 +238,10 @@ against a 1215 px 9:16 window, so a vertical crop slices a limb on every rep; th
    the camera would deliver both levels at ≤ 1.1×.
 10. **Find what makes the outdoor lav "fluxy"** (pool pump, wind on the necklace mount, the mic against bare skin)
    before the next outdoor shoot: both outdoor edits fail the same audio row on the raw signal.
-11. **Leave the stomach clear of the caption band on a how-to shot.** Captions sit at 70–84 % of the frame height;
+11. **Film the exercise the script names.** DS-04's cue reads "crunches and toe touches — footage exists"; the
+   8/28 exercise rolls hold toe touches, twists, planks and rollouts, and not one crunch. Before the shoot, walk
+   every b-roll cue in the scripts against the exercise list for the day.
+12. **Leave the stomach clear of the caption band on a how-to shot.** Captions sit at 70–84 % of the frame height;
    a profile demo framed hair-to-thigh puts the drawn-in stomach right under them. Shoot it a little wider.
-12. Same as Part A §8: 4 % headroom not 25 %, write the audio layout and the camera rotation on the slate, expose
+13. Same as Part A §8: 4 % headroom not 25 %, write the audio layout and the camera rotation on the slate, expose
    S-Log3 brighter outdoors, keep the tape mark.

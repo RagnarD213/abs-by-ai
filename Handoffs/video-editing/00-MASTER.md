@@ -60,10 +60,10 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | short | roll | status | size |
 |---|---|---|---|---|
-| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | READY | S |
+| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | **NEEDS DAN** | S |
 | [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | READY | S |
 | [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | READY | S |
-| [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | IN PROGRESS | S |
+| [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | DELIVERED — awaiting Dan | S |
 | [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | READY (2 AI clips, frame approval) | S |
 | [DS-06](DS-06-what-every-body-fat-percentage-looks-like.md) | What Every Body Fat Percentage Looks Like | C1657 | READY (5 AI stills, approval) | S |
 | [DS-07](DS-07-top-3-ways-to-use-ai-to-get-abs.md) | Top 3 Ways To Use AI To Get Abs | C1657 + C1658 | READY | S |
@@ -156,11 +156,11 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 
 | job | ad | status | size |
 |---|---|---|---|
-| [AV-01](AV-01-ad1-muhammad-vertical-59s.md) | Ad 1 (Muhammad): the 9:16 ≤0:59 only | READY | S |
+| [AV-01](AV-01-ad1-muhammad-vertical-59s.md) | Ad 1 (Muhammad): the 9:16 ≤0:59 only | **STALLED — needs a look** | S |
 | [AV-02](AV-02-ad2-cutdowns-vertical-and-square-59s.md) | Ad 2: 9:16 ≤0:59 + 1:1 ≤0:59 | READY | M |
 | [AV-03](AV-03-ad4-vertical-regrade-and-masters.md) | Ad 4: re-grade the vertical + deliver masters | READY | M |
 | [AV-04](AV-04-ad5-vertical-round2-and-regrade.md) | Ad 5: your round-2 revisions + re-grade | READY | M |
-| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | READY | M |
+| [AV-05](AV-05-ad6-vertical.md) | Ad 6 | IN PROGRESS | M |
 | [AV-06](AV-06-ad7-vertical.md) | Ad 7 | READY | M |
 | [AV-07](AV-07-ad10-vertical.md) | Ad 10 | READY | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |

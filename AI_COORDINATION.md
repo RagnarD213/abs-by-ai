@@ -98,11 +98,10 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-04 "Only Ab Exercise That Shrinks Belly Fat" first cut — ACTIVE 2026-09-16, owner: Claude (Fable planner, Opus editor, Fable reviewer).** 9:16 45–66 s from C1656 (portrait roll, dual-mono lav) + C1677 vacuum b-roll. Plan: `Handoffs/video-editing/DS-04-plan.md`; work dir `/Volumes/Extreme/_edit_work/ds04/`. Next: round-1 edit → independent review → deliver + footage-report section.
+**DS-04 vacuum dedicated short — DELIVERED 2026-09-17, Claude.** Review copy + covers A/B sent; round-2 review: picture ships. ⚠ Audio gate `artifacts` row fails on the raw outdoor lav (0.088 vs 0.079; RA-01 identical) — Dan's call, never a threshold change. Next: Dan watches, rules on the audio row + title wording + cover; then `queue.py set DS-04 finalized`. Notes: `Short-form video content/ds-04_notes.md`.
 
-**Daily abs Short cover concepts — REVIEW 2026-09-17, owner: Codex cover task.** A revision 3: four photos × five header palettes, no labels/URL. Picks A02/A12/A04. Next: Dan selects. Gallery: http://127.0.0.1:8821/revision-3/. Private Drive backup verified. Files: `output/thumbnails/short-Ub0BV4m5lMQ-20260916/revision-3/`.
 
-**RA-01 "AI Trick That Got Me Abs" — ROUND 1 DONE 2026-09-17, Claude (Opus).** Masters HELD in `/Volumes/Extreme/_edit_work/ra01/`: audio gate FAILS `artifacts` (outdoor lav already over the bound untreated). Review copies + notes: `Claude Ad Videos/the ai trick that got me abs - RA-01/`. Next: review, then Dan's call.
+**RA-01 — ROUND 2 DONE 2026-09-17, Claude (Opus).** D2–D11 fixed; both gates now 35/1 with only `audio:stamp` failing. Masters HELD in `/Volumes/Extreme/_edit_work/ra01/` pending Dan's ruling on the outdoor lav. Next: independent round-2 review. Detail: `ROUND-2-EDITOR.md`.
 
 **VQC Phase 4 kit — ACTIVE 2026-09-17, Claude (Fable).** Ad 1 judge rounds; next: Dan's blind page.
 
@@ -115,10 +114,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 **PostHog signup funnels — OPEN 2026-09-15.** Rebuild `account_signup` funnels after the web-cart changes. Next: assign a session.
 
 **Published cutdown audio — UNOWNED 2026-09-15.** 21 of 23 V2/V3/V6 cutdowns miss −14 LUFS. Next: scope remediation from `Docs/BOARD_REFERENCE.md`; preserve editor mixes under the standing audio rule.
-
-**Codex Ad14 R4 — ACTIVE 2026-09-17, owner: Codex.** Building the two picture-only corrections from frozen R3; exact R3 AAC and approved g17 app demo stay locked. Next: select verified g03/g18 source ranges, isolated rebuild, exact-file gates and private review. Detail: `Handoffs/codex-video-trial/06i-ad14-r4-dan-closeup-and-correct-workout.md`.
-
-
 
 **Google Ads policy checks — OVERDUE, next session. (baseline 2026-09-15; age unknown)** `node scripts/ads/api/client.js policy 24243839443` (eight new Ad 3
 ads, including square 824906283483/824906283486; Demand Gen r2 ads 824329225648/824329225651; Ad 5 groups) and `… 24148587722` / `… 24086091285` (final-URL change).
@@ -160,13 +155,15 @@ Memory `google-ads-ui-automation`.
 
 # HANDOFFS WRITTEN, NOT EXECUTED
 
-**C1652 setup handoff — READY 2026-09-17.** R4 approved as is. Next: Sol/Medium executes `Handoffs/codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md`. YouTube Private; release through Blotato. Review-policy discussion recorded in handoff.
+- `handoff-20260917-install-approved-a06-short-thumbnail.md` — ready 2026-09-17: approved A06 cover, exact YouTube Short, desktop Change verified. GPT-5.6 Sol / High.
+
+**C1652 organic setup — ACTIVE 2026-09-17, Codex.** R4 hash verified; five thumbnails built/QC'd. Next: Dan picks one or two, then upload YouTube Private and queue five organic accounts through Blotato. Detail: `Handoffs/codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
-- `codex-video-trial/06i-ad14-r4-dan-closeup-and-correct-workout.md` — ready09-17, Sol/High; two final picture fixes; app demo approved.
+- `codex-video-trial/06k-ad14-codex-r4-approved-upload-and-setup.md` — ready09-17, GPT-6 Astra/High; exact approved R4 → YouTube Unlisted + existing Ad14 DGen groups; preserve Muhammad HD, no organic posting.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
 - `handoff-20260917-overnight-queue-proof-run.md` — **fire now**: one Claude job unattended, then un-pause. Fable 5.1, high.

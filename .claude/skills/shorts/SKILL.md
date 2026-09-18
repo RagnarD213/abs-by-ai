@@ -1203,6 +1203,23 @@ session with the file path, size and *ready to review*. Helper that does all of 
 `.claude/skills/longform-edit/reference/render_wait.sh`. Full rule: the Delivery section of
 `/longform-edit`.
 
+### Lessons from DS-04, the first dedicated short cut from a raw 8/28 portrait roll (2026-09-17)
+
+- **`hairdet.py` fails against a dark background.** Its header model assumes a bright wall above the head; on the
+  outdoor rolls the trees behind Dan are darker than his hair, so it returns a hair row ~800 px too high with "climb
+  too long". Its skin-top is right: take the hair top as the last dark run within ~150 px above it, and prove it on a
+  native-scale proof sheet before rendering.
+- **Declare every join in the gate plan, or the jump-cut row never sees it.** DS-04 round 1 passed every gate row
+  and `watch.py`'s naked-splice detector scored it 0.00/min while a human judge found nine visible jump cuts; two
+  more same-level cuts survived because they were not in `joins`/`punch`. A join that is not declared is not checked.
+- **The caption band sits on the stomach on a torso-framed how-to.** The gate's 9:16 caption band is 70–84 % of the
+  frame; a hair-to-thigh crop of a standing vacuum puts the drawn-in stomach under it. Frame the how-to b-roll
+  hair-to-below-the-knee so the stomach lands above the band, and prove the clearance with the person mask.
+- **A card never sits on a blurred copy of its own footage** (Dan rejected blur-pad fill); the J2 field only, and the
+  card window must contain the whole body and both mat ends with ≥ 4 % margin.
+- **The outdoor 8/28 lav fails the audio gate's `artifacts` row untreated** (flux 0.102 vs 0.079; the chain lowers it
+  to 0.088). RA-01 and DS-04 both hit it. It is Dan's call, never a threshold change and never harder processing.
+
 ## FRAMING STANDARD (LOCKED 2026-09-08, from /ad-edit) — the top of Dan's hair is never cut
 
 Dan, approving the website video's rev-4 crops: "lock that in and crop all the videos like this going forward." Every crop of

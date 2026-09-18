@@ -150,6 +150,8 @@ and a 2 fps scan stepped straight over it.
 
 ## Known gaps, stated rather than hidden
 
+- **Undeclared joins bypass `cut:jump_cut` and `cut:naked_splices` (found 2026-09-16, DS-04 round 1).** The render passed every row and `watch.py` scored 0.00 naked splices/min while a judge found nine visible jump cuts; the joins were not in the plan's `joins`/`punch`. The rows check what the plan declares. A cross-check that finds joins from the picture itself (frame-diff peaks) and fails on any undeclared one is the fix; not built yet, and the corpus would need that rejected render first.
+
 * **Legacy ASS caption clearance still lacks the old website rev 2 build plan.** Future PNG-caption
   builds use evidence contract v2: actual alpha/ink states, renderer graphic geometry, delivered-
   pixel state verification, and regression fixtures. The legacy ASS path remains intact for old
