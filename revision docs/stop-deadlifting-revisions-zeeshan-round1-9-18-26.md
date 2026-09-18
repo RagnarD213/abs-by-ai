@@ -10,7 +10,7 @@ What is left is the color, the graphics, four minutes where nothing happens, and
 
 - THROUGHOUT VIDEO
     - **THE COLOR IS TOO BRIGHT AND THE BLACKS ARE WASHED OUT**
-        - I compared your export against the camera file and against Muhammad's cut of "This Picture Got Me Abs", which is the look I want. The darkest one percent of the picture sits at 22 out of 255 in your version. In the camera file it is 15. In Muhammad's it is 2. That lifted black floor is why the whole thing looks milky and why I do not separate from the background.
+        - I compared your export against the camera file and against my primary editor's cut of "This Picture Got Me Abs", which is the look I want. The darkest one percent of the picture sits at 22 out of 255 in your version. In the camera file it is 15. In his it is 2. That lifted black floor is why the whole thing looks milky and why I do not separate from the background.
         - You have also pushed the whole picture about thirty levels brighter than the camera file, and blown out 1.3% of the frame, mostly the fridge directly behind my head, which has full detail in the original and none in yours.
         - **My skin is right, do not touch it.** Bring the black point down to near zero, take the overall brightness lift back out, and recover the blown highlights. Everything else about the grade can stay.
     - **SEND ME THE NAME OF THE MUSIC TRACK ON THIS ONE**

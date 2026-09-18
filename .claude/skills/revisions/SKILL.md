@@ -1141,3 +1141,16 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     big things" as three short paragraphs, one line for the rest, and one paragraph for anything Dan is HANDING the
     editor rather than asking for. Details live in the doc, not the message. Do not restate timecodes the doc already
     carries, and do not list more than three priorities.
+65. **The editor message: warmer praise, big picture only, and never name another editor (Dan's edits, 2026-09-18).**
+    Dan rewrote three things in the Zeeshan message and kept the result as the model (it is saved verbatim in
+    `revision docs/zeeshan-batch-9-18-26.summary.md`). (a) **Praise runs hotter than the doc does.** "The deadlift video
+    is a good first cut." became *"The deadlift video is a real good first cut!"* and the sign-off gained *"Thanks!"*.
+    The exclamation marks are his. Be enthusiastically complimentary when the editor has actually done something well;
+    the measured register belongs in the doc, not the message. (b) **Never name one editor to another.** "next to
+    Muhammad's ad" became *"next to my primary editor's ad"*, and the same swap was made inside the doc's colour item.
+    Zeeshan has no idea who Muhammad is, so the name is noise to him. **Check every doc and message for another
+    editor's name before delivering** (`grep -n 'Muhammad\|Zeeshan\|Waleed'` on anything going to a different one).
+    (c) **No nitpicks in the message.** He deleted the "AI Personal Traniner" callout and the entire paragraph about the
+    archive clip Claude had cut for him: *"avoid mentioning very nitpicky small edits in these types of messages… Those
+    are in the document. The message is really only for the big-picture things that we need to communicate, not the
+    tiny tactical things."* Even an asset Dan is HANDING the editor does not need a paragraph if the doc carries it.

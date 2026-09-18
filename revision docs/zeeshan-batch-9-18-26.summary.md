@@ -60,27 +60,37 @@ Folder: https://drive.google.com/drive/folders/1KSgdrBmiX8REMqJ47tg7naAfTXc25bJn
 
 ---
 
-## Paste-ready Upwork message (FINAL v2, shorter, no em dashes)
+## Upwork message to Zeeshan (DAN'S OWN FINAL VERSION, sent)
+
+This is the version Dan edited and approved. Copy this shape next time: warm praise, big picture only, no rival
+editor named, no em dashes, no nitpicks.
 
 Hey Zeeshan, thanks for both of these.
 
 Video 2 is basically finished. The black at the end is gone and nothing else in the picture moved. Two things left and neither is editing work. The gym track you sent is clean, not Content ID registered, so leave the live round alone. But that isn't the track under the talking sections, there's a second one in there, so send me that name too. And the .srt in the folder is the deadlift video's, so I still need the arms and shoulders one with "GymBoss" fixed to "Gymboss".
 
-The deadlift video is a good first cut. Pacing is right, no dead air, and the AI barbell row clip holds up. I went through that one frame by frame. Round 1 is at the top of the same doc: https://docs.google.com/document/d/13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk/edit
+The deadlift video is a real good first cut! Pacing is right, no dead air, and the AI barbell row clip holds up. I went through that one frame by frame. Round 1 is at the top of the same doc: https://docs.google.com/document/d/13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk/edit
 
 Three big things.
 
-Colour. I put your export next to the camera file and next to Muhammad's ad. Your blacks sit at 22 out of 255, his sit at 2. That's why it reads milky and why I don't separate from the fridge behind me, which you've also blown out. My skin tone is right, don't touch it. It's the black point and the brightness lift that need to come back down.
+Colour. I put your export next to the camera file and next to my primary editor's ad. Your blacks sit at 22 out of 255, his sit at 2. That's why it reads milky and why I don't separate from the fridge behind me, which you've also blown out. My skin tone is right, don't touch it. It's the black point and the brightness lift that need to come back down.
 
 The text graphics, and this is the one I care most about going forward. Most of them just repeat the words I'm saying while I'm saying them, and that adds nothing, because the viewer already heard me. I want them to distill the point for the guy who didn't follow the explanation. The format is "KEY POINT:" and then the actual takeaway. I've written every one of them out in the doc. Where two or three chips say the same thing three ways, that becomes one. Use this format on every video from now on.
 
 And there's four minutes from 0:55 to 5:05 with nothing on screen but me talking. I need two or three inserts in there.
 
-The rest is in the doc. One worth flagging: "AI Personal Traniner" at 9:14 is my own product misspelled, right where I'm sending people to the site.
+The rest is in the doc.
 
-One thing I'm giving you rather than asking for. At 0:10 I talk about our first video going viral with Six Pack Shortcuts, which was me deadlifting. I found the original from 2010 and cut six seconds of it for you, linked in the doc, already trimmed and silent. It's soft because it's fifteen years old, so leave it that way.
+Send the music names and the .srt with the next export. Thanks!
 
-Send the music names and the .srt with the next export.
+### What Dan changed from the draft, and why
+
+- "a good first cut." became **"a real good first cut!"**, and he added **"Thanks!"** to the sign-off. Be warmer and
+  more enthusiastic when the editor has done something well.
+- "next to Muhammad's ad" became **"next to my primary editor's ad"**. Zeeshan does not know who Muhammad is. Never
+  name one editor to another, in the message or in the doc.
+- He deleted the "AI Personal Traniner" callout and the whole paragraph about the archive clip. *"The message is really
+  only for the big-picture things that we need to communicate, not the tiny tactical things."* Both are in the doc.
 
 ## Final state, 2026-09-18 (after Dan's review)
 
