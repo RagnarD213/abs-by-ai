@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!-- Overnight edit queue: one dispatcher tick every 15 minutes. Template: install.sh fills __ROOT__ and __HOME__. -->
+<!-- Overnight edit queue: one dispatcher tick every 15 minutes. Template: install.sh fills __ROOT__, __HOME__ and __PYTHON__ (the REAL python3, never the /usr/bin shim: launched through the shim, macOS intermittently denies the job access to ~/Documents; launched directly it is allowed). -->
 <plist version="1.0"><dict>
   <key>Label</key><string>com.absbyai.edit-queue</string>
   <key>ProgramArguments</key><array>
-    <string>/usr/bin/python3</string><string>__ROOT__/scripts/edit-queue/dispatcher.py</string><string>tick</string>
+    <string>__PYTHON__</string><string>__ROOT__/scripts/edit-queue/dispatcher.py</string><string>tick</string>
   </array>
   <key>WorkingDirectory</key><string>__ROOT__</string>
   <key>StartInterval</key><integer>900</integer>

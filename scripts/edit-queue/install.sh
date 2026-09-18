@@ -13,10 +13,13 @@ for L in com.absbyai.edit-queue com.absbyai.edit-queue-review; do
 done
 [ "${1:-}" = "uninstall" ] && { echo "Removed. Nothing runs on its own now."; exit 0; }
 mkdir -p "$AGENTS" "$HOME/Library/Logs/absbyai-edit-queue"
+# The real interpreter, not the /usr/bin/python3 shim: through the shim, macOS privacy checks intermittently
+# refused the launchd job access to ~/Documents (2026-09-17); launched directly it was allowed 5/5.
+PY="$(xcrun --find python3 2>/dev/null || command -v python3)"
 # First install starts paused: un-pausing is a deliberate act (dispatcher.py resume).
 [ -f "$HERE/.installed-once" ] || { python3 "$HERE/dispatcher.py" pause >/dev/null; : > "$HERE/.installed-once"; }
 for L in com.absbyai.edit-queue com.absbyai.edit-queue-review; do
-  sed -e "s|__ROOT__|$ROOT|g" -e "s|__HOME__|$HOME|g" "$HERE/launchd/$L.plist" > "$AGENTS/$L.plist"
+  sed -e "s|__ROOT__|$ROOT|g" -e "s|__HOME__|$HOME|g" -e "s|__PYTHON__|$PY|g" "$HERE/launchd/$L.plist" > "$AGENTS/$L.plist"
   launchctl bootstrap "$DOMAIN" "$AGENTS/$L.plist"
 done
 echo "Installed. Dispatcher ticks every 15 min; review page: http://127.0.0.1:8830"

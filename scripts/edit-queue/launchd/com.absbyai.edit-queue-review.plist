@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!-- Dan's review page at http://127.0.0.1:8830, kept running. Template: install.sh fills __ROOT__ and __HOME__. -->
+<!-- Dan's review page at http://127.0.0.1:8830, kept running. Template: install.sh fills __ROOT__, __HOME__ and __PYTHON__ (the REAL python3, never the /usr/bin shim: launched through the shim, macOS intermittently denies the job access to ~/Documents; launched directly it is allowed). -->
 <plist version="1.0"><dict>
   <key>Label</key><string>com.absbyai.edit-queue-review</string>
   <key>ProgramArguments</key><array>
-    <string>/usr/bin/python3</string><string>__ROOT__/scripts/edit-queue/review_page.py</string><string>serve</string>
+    <string>__PYTHON__</string><string>__ROOT__/scripts/edit-queue/review_page.py</string><string>serve</string>
   </array>
   <key>WorkingDirectory</key><string>__ROOT__</string>
   <key>RunAtLoad</key><true/>

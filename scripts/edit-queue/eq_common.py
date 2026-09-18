@@ -156,12 +156,12 @@ def auth_ok(executor, cfg, run=None):
     if not ex.get("auth_check"):
         return True, ""
     try:
-        r = (run or subprocess.run)([binary] + ex["auth_check"], capture_output=True, text=True, timeout=30)
+        r = (run or subprocess.run)([binary] + ex["auth_check"], capture_output=True, text=True, timeout=60)
         if json.loads(r.stdout).get("loggedIn"):
             return True, ""
         return False, f"{executor}: not signed in. Dan signs in once: run the program in Terminal and type /login"
     except Exception as e:   # unreadable answer = not proven = not OK
-        return False, f"{executor}: sign-in check failed ({e!s:.80})"
+        return False, f"{executor}: sign-in check failed ({e!s:.200})"
 
 
 # ---------------------------------------------------------------- scoreboard
