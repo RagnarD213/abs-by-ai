@@ -142,9 +142,8 @@ decode with `accurate_rnd`. Re-copy the skill's `caption_sync_check.py` into `ad
 
 # BLOCKED — external
 
-**iOS submission `ccc7a7ae` — REJECTED 2026-09-17 (rejection 6): 4.3(b) Spam + 1.1, with an "Extended Review" account warning.**
-⚠ Do NOT resubmit or reply until Dan rules on the plan (chat 09-18: native rebuild + goal image out of the iOS app, then a
-Meet-with-Apple appointment). Thread `c20863ae-678d-3055-b91e-4b5f8fd9014c`. Next: Dan decides. RevenueCat audit waits on approval.
+**iOS `ccc7a7ae` — REJECTED 2026-09-17: 4.3(b) Spam + 1.1, account warning.** ⚠ No resubmit/reply until Dan
+rules on the 09-18 plan. Thread `c20863ae-678d-3055-b91e-4b5f8fd9014c`.
 
 **Blotato 200/200 queue. (baseline 2026-09-15; age unknown)** IG gap-fill: last 7 of 70 wait for slots → `scripts/blotato/iggap_fill.py --apply`. TikTok: then
 `tiktok_mirror.py --restore-fb --apply` (6 FB mirrors in `fb_trimmed.json`). Post `667411` exceeded the 400 MB cap — re-encode
