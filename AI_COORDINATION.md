@@ -61,10 +61,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   re-upload — both are live ad destinations.
 - **Upload the welcome-video shoot (114 GB) to Drive (baseline 09-15)** as its only second copy? ⚠ Personal rclone client_id first
   (the shared one hit a 403 quota). Memory `drive-backup-capability`.
-- **Muhammad ads 8/9/13/15 — FORWARDED 09-17, he thinks he's done (09-18).** His HD exports carry round-2 leftovers
-  only; verified still open in the HD masters: Ad 8 empty green card 1:21.8 + beach smudge, Ad 13 SIXPACKSHORTCUTS.CO
-  watermark + robot-arm fusion, Ad 15 bracketed labels. All four already YouTube-unlisted. Next: Dan sends the 09-18
-  reply. ⚠ Those AI clips are from **Dan's own** folder (robot arm live in Ad 3) — replace centrally?
+- **Muhammad ads 8/9/13/15 — HD checked vs the LIVE doc 09-18.** Dan's edits deleted the watermark, robot-arm,
+  green-card and beach-smudge items. His HD exports already clear Ad 8 entirely and parts of 9/15. Left: the caps
+  label build (9, 13, 15) and Ad 15's 3:16 demo. Next: Dan sends the 09-18 reply.
 - **Forward editor docs + his calls:** Zeeshan Arms & Shoulders **r3** 09-17 (`revision docs/arms-shoulders-revisions-zeeshan-round3-9-17-26.summary.md`;
   3 items: Content-ID bed, .srt, black tail; colour is your call). Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`;
   ⚠ new side-by-side before/after 0:06.6–0:08.1). Muhammad batch doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`:
@@ -94,9 +93,17 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**RA-01 setup — ACTIVE 2026-09-18, Codex.** Executing the approved-master handoff. Next: upload Unlisted and record all YouTube/Demand Gen IDs. Detail: `Handoffs/handoff-20260918-ra01-ai-trick-approved-thumbnails-upload-setup.md`.
+
+**AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
+
+**DS-18 kettlebell-deadlift short — ACTIVE 2026-09-18, Codex.** Claimed; planning and source review underway while the two-build machine cap is occupied. Next: select C1671 dialogue + C1673 demonstrations, send the required B-roll preview packet, then finish and audit. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
+
+**RX-01 raw-footage audit — ACTIVE 2026-09-18, Codex.** Inventorying and matching the unmapped 06-18, 7/8, 8/3, 8/14 and 8/28 rolls. Next: transcribe once the two current Whisper jobs release the machine, then write the map and add any missing jobs. Detail: `Handoffs/video-editing/RX-01-unmapped-footage-audit.md`.
+
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 
-**RO-01 HELD 2026-09-18, Codex.** Edit complete; master gate has 2 failures, phone gate running. Nothing delivered. Next: resolve flags or obtain flagged-review exception. `/Volumes/Extreme/_edit_work/ro01/STATE.md`.
+**RO-01 REVIEW PENDING 2026-09-18, Codex.** Dan received the private R3 review under his explicit exception for 2 recorded gate failures. Audio/visual review pass. Next: Dan watches and gives one consolidated verdict. `/Volumes/Extreme/_edit_work/ro01/STATE.md`.
 
 **DS-04 vacuum short — REVISION 1 ACTIVE 2026-09-18, Claude.** Opening beat only; `handoff-20260918-ds04-opening-vacuum-clip-revision.md` running. Next: Dan picks a draw-in. ⚠ Audio `artifacts` FAIL is his call.
 
@@ -157,7 +164,6 @@ Memory `google-ads-ui-automation`.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
-- `handoff-20260918-ra01-ai-trick-approved-thumbnails-upload-setup.md` — RA-01 approved 09-18 → thumbnails, YouTube Unlisted ×2, new DGen ad. Codex Astra/High.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
 - **Watchlist follow-ups, both Codex (09-18):** `handoff-20260918-roll-sidecars-footage-index.md` (analyse each roll once, searchable; Sol/High), `handoff-20260918-edit-queue-per-job-work-budget.md` (time + render budget per queue job; Sol/Medium).
 - **Token savings, all Codex (09-18):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`, `…-move-routines-to-codex.md`.
