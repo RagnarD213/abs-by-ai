@@ -543,6 +543,10 @@ def main():
                                max(0.01 / 3600, (deadline - now).total_seconds() / 3600))
             code, tail, edit_hours = run_session(executor, cfg, workdir, edit_prompt, log_path, role,
                                                  edit_timeout, budget_enforced=budget_doc.get("enabled", True))
+            budget_started = datetime.datetime.fromisoformat(budget_doc["started"])
+            budget_now = (datetime.datetime.now(budget_started.tzinfo) if budget_started.tzinfo
+                          else datetime.datetime.now())
+            edit_hours = max(edit_hours, (budget_now - budget_started).total_seconds() / 3600)
             usage.append(eq.model_usage_record(executor, cfg,
                                                "finishing editor" if launch_state == "frames_approved" else "stage-one editor",
                                                tail))
