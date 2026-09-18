@@ -60,31 +60,27 @@ Folder: https://drive.google.com/drive/folders/1KSgdrBmiX8REMqJ47tg7naAfTXc25bJn
 
 ---
 
-## Paste-ready Upwork message (FINAL, 2026-09-18)
+## Paste-ready Upwork message (FINAL v2, shorter, no em dashes)
 
-Hey Zeeshan,
+Hey Zeeshan, thanks for both of these.
 
-Thanks for both of these.
+Video 2 is basically finished. The black at the end is gone and nothing else in the picture moved. Two things left and neither is editing work. The gym track you sent is clean, not Content ID registered, so leave the live round alone. But that isn't the track under the talking sections, there's a second one in there, so send me that name too. And the .srt in the folder is the deadlift video's, so I still need the arms and shoulders one with "GymBoss" fixed to "Gymboss".
 
-Video 2 is basically finished. The black at the end is gone, and I went through the rest of the picture frame by frame against the last version — nothing else moved, which is exactly what I wanted. Two things left on it and neither one is editing work. The gym track you sent is clean, I looked it up and it's not Content ID registered, so leave the live round exactly as it is. But that isn't the track under the talking sections — there's a second one in there and I don't know what it is. Send me the name of that one too, or just drop it in the folder the way you did with the other. And the subtitle file in the folder is the deadlift video's, not this one's, so I still need the arms and shoulders .srt with "GymBoss" fixed to "Gymboss".
-
-The deadlift video is a good first cut. The pacing is right, there's no dead air anywhere in it, and the AI barbell row clip is genuinely good — I went through that one frame by frame looking for the usual AI giveaways and it holds up. The rear delt fly clips are right too.
-
-Round 1 is at the top of the same doc: https://docs.google.com/document/d/13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk/edit
+The deadlift video is a good first cut. Pacing is right, no dead air, and the AI barbell row clip holds up. I went through that one frame by frame. Round 1 is at the top of the same doc: https://docs.google.com/document/d/13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk/edit
 
 Three big things.
 
-First, the colour. I put your export up next to the camera file and next to Muhammad's ad, and the blacks are lifted — the darkest part of your picture sits at 22 out of 255, Muhammad's sits at 2. That's why it reads milky and why I don't separate from the fridge behind me, which you've also blown out. My skin tone is right, don't touch that. It's the black point and the overall brightness lift I need pulled back.
+Colour. I put your export next to the camera file and next to Muhammad's ad. Your blacks sit at 22 out of 255, his sit at 2. That's why it reads milky and why I don't separate from the fridge behind me, which you've also blown out. My skin tone is right, don't touch it. It's the black point and the brightness lift that need to come back down.
 
-Second, and this is the one I care most about going forward — the text graphics. Right now most of them just repeat the words I'm saying while I'm saying them, and that doesn't add anything, because the viewer already heard me say it. I want them to distill the point instead, for the guy who didn't follow the longer explanation. The format is "KEY POINT:" and then the actual takeaway. I've written out every single one of them in the doc so you don't have to guess. Where you've got two or three chips stacked up saying the same thing three different ways, that becomes one key point and the rest get deleted. Please use this format on every video from here on.
+The text graphics, and this is the one I care most about going forward. Most of them just repeat the words I'm saying while I'm saying them, and that adds nothing, because the viewer already heard me. I want them to distill the point for the guy who didn't follow the explanation. The format is "KEY POINT:" and then the actual takeaway. I've written every one of them out in the doc. Where two or three chips say the same thing three ways, that becomes one. Use this format on every video from now on.
 
-Third, there's a four-minute stretch from 0:55 to 5:05 with nothing on screen but me talking. I need two or three inserts in there — that's where people leave.
+And there's four minutes from 0:55 to 5:05 with nothing on screen but me talking. I need two or three inserts in there.
 
-The rest is smaller. A few clips don't show the exercise I'm describing, the leg press one especially, which is nine seconds of a still close-up of a weight plate. And there are some words to fix in the chips that stay. The one that actually matters is "AI Personal Traniner" at 9:14 — that's my own product misspelled, right at the point where I'm sending people to the site.
+The rest is in the doc. One worth flagging: "AI Personal Traniner" at 9:14 is my own product misspelled, right where I'm sending people to the site.
 
-One thing I'm giving you rather than asking for: at 0:10 I talk about our first video going viral with Six Pack Shortcuts, which was a video of me deadlifting, and there's nothing on screen. I dug up the original from 2010 and cut six seconds of it for you. It's linked in the doc, already trimmed and silent, just drop it in. It's soft because it's fifteen years old — leave it that way, it should look old.
+One thing I'm giving you rather than asking for. At 0:10 I talk about our first video going viral with Six Pack Shortcuts, which was me deadlifting. I found the original from 2010 and cut six seconds of it for you, linked in the doc, already trimmed and silent. It's soft because it's fifteen years old, so leave it that way.
 
-Send me the name of the second music track on video 2, the name of the music on the deadlift video, and the .srt with the next export.
+Send the music names and the .srt with the next export.
 
 ## Final state, 2026-09-18 (after Dan's review)
 

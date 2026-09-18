@@ -1126,3 +1126,18 @@ vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared
     item is not "send me the track name" — it is **"'Energy Gym Thunder' is the track under the live round, 8:19 - 9:55,
     and that one is clean; there is a DIFFERENT track under 0:00 - 8:19 and 9:55 to the end, send me that one too."**
     Name the clean track, name its span, name the unidentified track's span, and say the clean one stays as it is.
+63. **NO EM DASHES, in the doc or in the message (Dan, 2026-09-18).** Dan: *"Em dashes are a major giveaway of Claude
+    output. I want you to have a standing rule for all of our writing that we never, ever, ever use an em dash in any
+    writing. No em dashes ever."* The revision doc carries HIS name, and he does not use them, so a doc full of them
+    reads to the editor as pasted AI output. The first pass of the 09-18 Zeeshan doc had 34 of them and they were all
+    rewritten out. Do not substitute an en dash either: use a comma, a colon, parentheses, or two sentences. A hyphen in
+    a compound word and a numeric range ("8:19 - 9:55") are fine. **Run `grep -c '—' <file>` on the markdown before the
+    clipboard step and on the paste-ready message before it goes in the summary. It must be 0.** The standing rule is in
+    `AGENTS.md`; memory `no-em-dashes`. Related: lesson 22 (the doc is written as Dan, first person, always).
+64. **The editor message is half the length you first write it (Dan, 2026-09-18).** His note on the first draft: *"Make
+    the message to Zeeshan a little bit briefer. Make it about half the length of what you wrote and still communicate
+    those key points."* The shape that survived: one line of thanks, a short paragraph closing out the finished video, a
+    short paragraph crediting the new one with something specific that proves he watched it, the doc link, then "three
+    big things" as three short paragraphs, one line for the rest, and one paragraph for anything Dan is HANDING the
+    editor rather than asking for. Details live in the doc, not the message. Do not restate timecodes the doc already
+    carries, and do not list more than three priorities.

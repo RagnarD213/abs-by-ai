@@ -104,3 +104,16 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - Verify the finished change on the live production site at `https://absbyai.com`.
 - Treat commit, push, deployment, and live-site verification as required parts of completing every change. Do not wait for a separate request to perform them.
 - Do not include unrelated pre-existing local files or changes in a commit unless they are part of the current task.
+
+## Never use an em dash, in anything (Dan, 2026-09-18)
+
+- **No em dash (—) ever appears in any writing produced for this project.** Not in revision docs, editor messages,
+  scripts, video captions, on-screen graphics, email, website copy, ad copy, handoffs, board entries, commit messages,
+  or chat replies to Dan. Dan's words: *"Em dashes are a major giveaway of Claude output. I want you to have a standing
+  rule for all of our writing that we never, ever, ever use an em dash in any writing. No em dashes ever."*
+- Do not swap in an en dash (–) to fake it either. Rewrite the sentence: use a comma, a colon, parentheses, or split it
+  into two sentences. A hyphen inside a compound word (lower-third, side-by-side) is fine, and so is a numeric range
+  written with a hyphen (8:19 - 9:55).
+- Dan does not use em dashes when he writes, so anything that carries his name and contains one reads as pasted AI
+  output to the person receiving it. That is the whole reason for the rule.
+- **Check before delivering.** `grep -c '—' <file>` on any document, message, or script before it goes out. It must be 0.
