@@ -36,6 +36,29 @@ FAIL if the abs don't read. Reject and keep looking rather than shipping one.
 4. **A video frame only when** no photo is relevant at all, or the video holds an
    unusually good moment. Then still pick on abs first, and retouch it (below).
 
+## Preferred topic-backdrop studio-cutout template (Dan, 2026-09-18)
+
+Dan strongly approved the visual concept from the `v3-short5_jelly-bean-vs-soda`
+thumbnail B and wants it treated as a reusable starting point for future thumbnail
+and cover-image tasks:
+
+- Build a bold, topic-specific photographic environment in the background rather
+  than dropping Dan onto a generic texture. Keep the topic props large enough to
+  read on a phone but subordinate to Dan and the headline.
+- Composite an approved **real studio-photo cutout** of Dan prominently in the
+  lower half. Do not AI-repaint Dan. Add a clean, crisp white keyline around the
+  cutout so he separates immediately from the busy background.
+- Use a very short curiosity headline in the clear upper band, with heavy Impact
+  type, high contrast, one accent colour, and no copy over Dan's face or hair.
+- Keep supporting copy to one compact outlined pill when it adds real context.
+  Judge the finished design at 270×480 phone size before delivery.
+- This is a preferred visual family, not a mandate to reuse the same food props,
+  colours, portrait or wording. Adapt the environment to the actual subject.
+
+Reference build and approved direction:
+`Short-form video content/covers/review/jelly-bean-refresh/build.py` — B's visual
+configuration and the requested `B2-jelly-beans-beat-soda.png` copy swap.
+
 Search order: `photos/finalized social media photos/` → the short's own longform.
 Do **not** pull from `photos/finalized dating photos/` — retouched for dating apps,
 not the brand.
