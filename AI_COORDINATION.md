@@ -94,7 +94,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Overnight edit queue — LIVE 2026-09-18 (Phase 0 passed).** Resumed; idle until an eligible job (SL-01/02 need Dan's picks → `unattended:false`). Pause: `dispatcher.py pause`. Next: Dan rules on the parked Ad 1 vertical (http://127.0.0.1:8830). ⚠ No job IDs here: dispatcher reads them as owned.
+**Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 

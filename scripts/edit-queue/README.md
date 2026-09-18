@@ -25,7 +25,16 @@ While you are using the Mac (keyboard or mouse in the last 10 minutes) it uses o
 
 ## Who edits what (`config.json` → `routing`; Dan, 2026-09-17)
 
-| jobs | tool | reviewer |
+**FROZEN 2026-09-18 → 2026-09-24 11:00 CT: every group below routes to Codex for both edit and review** (Dan's
+Claude allowance freeze — `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md`). The table's
+"normal" tool/reviewer columns are what to restore after the reset; until then `config.json` → `routing` sends
+`AV`/`AS`/`SL` to `codex` too, and `review.reviewer_for` maps both `codex` and `claude` to `codex` — so a `codex`
+edit is reviewed by a **fresh, separate `codex exec` process** (never the editor's own session; see
+`build_command` in `eq_common.py`), not by Claude. No code path can select `claude` as editor or reviewer while
+frozen; the only way to run Claude on a job is a human passing `dispatcher.py launch-one <ID> --executor claude`
+by hand, which is not something the queue does on its own.
+
+| jobs | tool (normal, resumes 2026-09-24) | reviewer (normal) |
 |---|---|---|
 | `RA` raw ads, `RO` organic long-form, `DS` dedicated shorts (all raw-footage first cuts) | **Codex · Sol / high** | Claude `ra-reviewer` |
 | `AV` ad verticals, `AS` ad squares, `SL` shorts from a long-form (all secondary cuts) | **Claude · Opus / high** | a fresh Codex session |

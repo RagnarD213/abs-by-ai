@@ -3,12 +3,13 @@
 
   "routing": {
     "_decided": "Dan, 2026-09-17. A fixed rule, not an A/B test. No automatic re-routing: a change is Dan's call.",
+    "_frozen": "Claude allowance freeze, Dan via handoff-20260918-claude-video-freeze-and-codex-routing.md: AV/AS/SL moved from claude to codex until 2026-09-24 11:00 CT. Revert to claude after the reset, per Dan.",
     "RA": "codex",
     "RO": "codex",
     "DS": "codex",
-    "AV": "claude",
-    "AS": "claude",
-    "SL": "claude"
+    "AV": "codex",
+    "AS": "codex",
+    "SL": "codex"
   },
   "not_queued": ["RX"],
 
@@ -44,7 +45,8 @@
   "review": {
     "reviews_per_candidate": 1,
     "_why": "One editor owns the candidate, then one independent reviewer returns one consolidated verdict. Rejected candidates park for a separately scoped revision; there is no automatic supervisor/fix/re-review loop.",
-    "reviewer_for": {"codex": "claude", "claude": "codex"}
+    "_frozen": "Claude allowance freeze until 2026-09-24 11:00 CT (Dan, via handoff-20260918-claude-video-freeze-and-codex-routing.md): codex reviews codex (a fresh headless `codex exec` process each time, per build_command in eq_common.py, so it is never the editor's own session). Revert reviewer_for to {codex: claude, claude: codex} after the reset.",
+    "reviewer_for": {"codex": "codex", "claude": "codex"}
   },
 
   "paused_groups": [],
