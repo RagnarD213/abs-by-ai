@@ -59,18 +59,6 @@
       "addedAt": "2026-09-10"
     },
     {
-      "text": "Clean out the filming room so it is ready for the installer",
-      "priority": "high",
-      "why": "Dan 09-10 evening /prioritize. Physical task; do before the install date.",
-      "addedAt": "2026-09-10"
-    },
-    {
-      "text": "Review Zeeshan video",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-09-11"
-    },
-    {
       "text": "Have every video check read twice and hand me only the disagreements",
       "priority": "high",
       "why": "One mis-calibrated measurement nearly sent 13 wrong timecodes to Muhammad this week; a second reader catches it",
@@ -153,26 +141,22 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-15"
+      "recurring": true
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-15"
+      "recurring": true
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-15"
+      "recurring": true
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true,
-      "addedAt": "2026-09-15"
+      "recurring": true
     }
   ],
   "personal": [
