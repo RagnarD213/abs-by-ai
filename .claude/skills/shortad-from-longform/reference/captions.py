@@ -33,7 +33,16 @@ FIX = {('your','gold','picture'):    ('your','goal','picture'),
        ('time','of','debt,'):        ('time','of','day,'),
        ('in','Seconds'):             ('in','seconds.'),
        ('6packabs','.com'):          ('6PackAbs.com',''),
-       ('nutritionist','and','diet'):('nutritionists','and','diet')}
+       ('nutritionist','and','diet'):('nutritionists','and','diet'),
+       # the kit's from-raw build (our own Whisper pass on our own mix, 2026-09-18, raw judge 3): two mis-hearings
+       # of "six-pack", one article, and Whisper's split of a hyphenated word into "six -pack" / "38 -year"
+       ('six','fat','abs.'):         ('six-pack','abs.',''),
+       ('six','back','abs,'):        ('six-pack','abs,',''),
+       ('uses','a','specific'):      ('uses','the','specific'),
+       ('six','-pack'):              ('six-pack',''),
+       ('38','-year','-old'):        ('38-year-old','',''),      # the 3-token form first: patterns apply in this order
+       ('38','-year'):               ('38-year',''),
+       ('woo','-woo'):               ('woo-woo','')}
 
 def load_words(source='words_ctc.json'):
     """Caption words with their timings. ⚠ WHISPER'S OWN WORD TIMESTAMPS ARE ~130 ms EARLY ON THIS MIX
