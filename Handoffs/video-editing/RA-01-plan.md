@@ -271,3 +271,22 @@ reviewer's frame-by-frame pass is the independent watch judge for round 2.
 After any change: re-render both aspects from one script, re-run every measurement and both gates on the new files,
 refresh the REVIEW copies, the A/B, `measurements-RA-01.json` and `notes-RA-01.md`, and write `ROUND-2-EDITOR.md`
 with each defect D2–D11 marked fixed / not fixed + why. Total duration still ≤ 59.00 s; no line cut unless §3 forces it.
+
+## 13. Round 3 rulings (planner, 2026-09-17) — final round; defect ids are in `ROUND-2-REVIEW.md`
+
+Round 2: D2–D9 fixed. Round 3 is a **targeted** revision — change only what is listed, re-render both aspects once,
+re-run the gates and measurements on the new files, refresh the delivery folder, and stop.
+
+* **Captions may print a spoken number (round-2 D2): no change.** The "never a printed number" rule in §4 binds
+  graphics, cards, pills and headlines; burned captions are a verbatim transcript of what Dan says, and the approved
+  Ad 1 vertical captions "back when I was 200 pounds" the same way. "200 pounds" stays in the caption.
+* **Music bed (D3):** the ≈ 15 dB step at ≈ 56.06 s (0.67 s into the end card) is in the bed or its envelope, not at
+  a join. Find it in the bed track / ducking envelope and remove it so the bed holds level or fades smoothly to the
+  last frame. No other mix change.
+* **Lean at 00:22.15–00:22.26 (D4):** cut that hold at FAR (re-order the alternation as §12 R2 allows) or widen its
+  fixed centre so the face box stays ≤ 92 % of the width on every frame.
+* **16:9 zoom-cut hop (D5):** the FAR crop is the full source width and cannot move, so set every 16:9 NEAR hold's
+  fixed centre to its neighbouring FAR hold's centre (measured, not the frame centre), so Dan does not step sideways
+  at a zoom cut. Prove it: his head centre within 1.5 % of the width across every NEAR↔FAR join in 16:9.
+* **16:9 CTA 2 pill (D6):** low in the frame like CTA 1, clear of Dan, captions lifted above it.
+* D1 (audio `artifacts`) and D7 (formats.py n/a wording; independent watch judge) are unchanged and not the editor's.
