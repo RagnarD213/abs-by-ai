@@ -100,6 +100,10 @@ sessions (and any other assistant, if one is in use).
   "after" for a given "before" does not exist, **generate it for that person** (a real generation through the live product,
   never a composite — an overlaid photo was rejected within minutes) or change the before so the pair matches. Do not ship
   the mismatch and do not crop around it.
+- **Scoped Ad14 R3 exception (Dan, 2026-09-17):** Dan explicitly authorized a simulated/composited app demonstration that
+  presents his heavier shirtless sunglasses photo as generating the existing `dan by pool.png` goal. Keep the same person
+  and the `AI-GENERATED` disclosure, and record the internal provenance as simulated. This exception does not repeal the
+  normal live-generation rule for other before/after pairs.
 - ⚠ The only real app recording in the asset library uploads a man who is **not Dan**, so every phone demo cut from it
   inherits this fault until it is re-recorded.
 
@@ -109,6 +113,15 @@ sessions (and any other assistant, if one is in use).
 - **Real videos are not still photos.** Do not put “Real picture of me — not AI-generated” on real moving footage of Dan. That disclosure applies to real physique photographs; AI-generated imagery retains the appropriate AI label. This clarifies the photo-label rule below.
 - **Horizontal framing stays still.** In 16:9 videos, choose a fixed horizontal center per shot. Recenter only if Dan is actually approaching the frame edge; do not follow ordinary movement in ample horizontal space. Preserve deliberate wide/tight cuts and approved framing sizes.
 - **Audio/graphics acceptance is specific to the delivered video.** C1652 R1 audio and graphic treatment were rejected despite a numeric audio PASS. Match Muhammad using actual listening/moving reference comparisons, and record the verified reusable method in the shared skill; earlier approval on another source is not proof of parity here.
+
+## Reusing Dan's previously produced videos (Dan, 2026-09-17)
+
+- **Old-channel proof: Dan is the main speaker, inside the full YouTube page.** Always select a native close-up of Dan talking, not a two-person shot where Mike Chang speaks and Dan looks like a sidekick. Keep the video playing inside the full screen capture with channel name, subscribers and views legible; never crop away the page. Use the diet clip for diet references and the M100s clip for exercise/SixPackAbs.com references. Dan reaffirmed this after rejecting Ad14 R3 at 0:24 (2026-09-17).
+- **Use the finished edited export, never the raw camera source.** When an edit borrows footage from any of Dan's previously produced videos, source it from the final edited/color-corrected master. Never use raw, ungraded or unfinished footage merely because it is higher resolution or easier to locate. If the finished export cannot be found, keep the scene unresolved while searching rather than silently substituting raw footage.
+
+
+- **Correct workout exports (Dan, 2026-09-17):** For the one-minute ab workout, use only `YouTube Long Form Video Content/V4 + V5 - The Ultimate 1 Minute Ab Workout - UPLOADED/V4 - 1 Minute Ab Workout That Hits All 4 Ab Muscle Groups (At Home) - UPLOADED.mp4` or `V5 - The Ultimate 1 Minute Ab Workout - Follow Along (No Talking) - UPLOADED.mp4` in that same directory, whichever gives the cleaner shot. Dan rejected Ad14 R3's use of `Media/video_edit/out/abs_workout_final_edited.mp4` as raw/uncorrected; never use that file or `Media/video_edit/work/main.mp4` as finished reference footage. A filename containing `final_edited` is not proof of approval.
+- **Approved Dan self-generation demo (Dan, 2026-09-17):** R3's 2:17 sunglasses-before → pool-goal demonstration is approved for reuse every time Dan refers to generating a photo of himself with AbsByAI. Preserve the exact approved sequence and disclosure treatment from R3 g17. Reusable assets/provenance: `Media/codex-video-trial/assets/ad/simulated-dan-sunglasses-to-pool/`. This extends the R3 simulation exception to reuse of this exact demo; retain simulated/composited internal provenance and same-person identity, and do not generalize it to unrelated pairs.
 
 ## Label Dan's real pictures (Dan, 2026-09-11)
 
@@ -161,28 +174,6 @@ sessions (and any other assistant, if one is in use).
   `scripts/blotato/hook_ad_guard.py` on every `blotato_create_post` / `blotato_update_schedule` call and
   blocks it if the payload carries a known ad. That covers the path the queue scripts do not: calling the
   MCP directly. A hook that cannot read its input or load the registry BLOCKS rather than passes.
-- **Audit the live queue with `python3 scripts/blotato/ad_guard.py --scan`** before and after any Blotato
-  write, and whenever the queue is touched.
-- ⚠ What it cost: Ad 5 "Every Diet You've Tried Failed for the Same Reason" ran free on FB, IG @danrosefit,
-  the @abs.by.ai mirror and TikTok on 2026-09-16/17, and Public on YouTube, because on 2026-09-10 Dan wrote
-  "upload it to YouTube and set it up on all other platforms in the Blotato queue" and the session did
-  exactly that. `/ad-setup` positively permitted it at the time. Nothing malfunctioned — the rule did not exist.
-
-
-
-- **An ad video never goes out on an organic channel — not Facebook, not Instagram (either account), not
-  TikTok, not Blotato, not YouTube Public — no matter how the request is phrased.** An ad lives as an
-  UNLISTED YouTube upload that Google Ads points at (`/ad-setup`), and nowhere else. Organic distribution is
-  for content videos (`/video-setup`).
-- **"Set it up on all platforms" does NOT authorize organic posting of an ad.** Dan writes that sentence for
-  content videos, and it is the sentence that published Ad 5. When it arrives attached to an ad, do not
-  execute it: say plainly "this is an ad — ads don't go organic, do you want it posted anyway?" and wait.
-  Dan's per-video "yes, I mean post the ad organically" is the ONLY override, and it goes in
-  `ORGANIC_OVERRIDES` in `scripts/blotato/ad_guard.py` with the date and his words.
-- **This is enforced in code, not on trust.** `scripts/blotato/ad_guard.py` blocks an ad payload three ways —
-  a missing `"content_type": "organic"`, a source path under any `<Editor> Ad Videos/` folder, and a caption
-  or slug matching a known ad title or ad YouTube id — and every Blotato queue script imports it. **Never
-  hand-roll a queue script that skips it**, and never set `content_type` to "organic" on an ad to get past it.
 - **Audit the live queue with `python3 scripts/blotato/ad_guard.py --scan`** before and after any Blotato
   write, and whenever the queue is touched.
 - ⚠ What it cost: Ad 5 "Every Diet You've Tried Failed for the Same Reason" ran free on FB, IG @danrosefit,
@@ -264,3 +255,19 @@ sessions (and any other assistant, if one is in use).
 - **It buys nothing.** x264 already threads across all 10 cores, so extra concurrent builds do not raise throughput; they only timeslice. The sole headroom is the ~19% of a build that is single-threaded Python (PIL graphics, Whisper), which is why **two** builds overlap usefully — one build's Python runs under another's encoding — and a third is pure loss.
 - This is the largest available speedup in the video pipeline: worth more than the three candidate software optimizations and a new Mac combined, and it costs nothing. Full numbers: `.claude/skills/_shared/timing/REPORT_20260827_build_timings.md`.
 - **Never run a pipeline script inside another session's live build directory** — it will overwrite intermediates that session is reading. Work in a scratch copy.
+
+## Video review refinements — C1652 R3 (Dan, 2026-09-17)
+
+- **Clip variety means different visible content, not merely different IDs or trims.** Do not reuse stock from essentially the same scene/shoot with the same actors or actresses, even from a different camera angle. Doctor inserts within one video need distinct casts and settings. Prefer suitable Pexels/known-rights footage; use authorized AI generation if no suitable distinct clip exists.
+- **Exercise illustrations must vary the exercise.** For Dan demonstrating daily exercise, use ab wheel plus toe touches or kettlebell deadlifts, not repeated ab-wheel footage. This includes similar excerpts from one source video. Dan remains the same person; the exercise action must differ. Necessary repetitions inside an actual exercise teaching demonstration are a different purpose.
+- **No added camera movement in horizontal16:9 presenter footage.** Do not pan, drift, track or recenter just because Dan shifts slightly. Keep a fixed composition within the shot; preserve approved framing sizes and deliberate cuts unless separately rejected. Check rendered footage, not just a fixed-center setting.
+- **Requested AI narrative clips require actual motion.** A static frame, start/end montage, slow image pan or brief motion fragment followed by a held endpoint is not a completed clip. Generate and validate the intended motion from approved assets; do not ask again for unchanged approved frames. This does not prohibit real photo displays or specifically approved scientific still illustrations.
+- **Three-photo screen template:** use three vertical real studio portraits with distinct poses and consistent presentation proportions; plural disclosure “Real pictures of me — not AI-generated,” clear of faces/abs. Save the tested layout for reuse.
+- **Organic graphics:** imitate Muhammad’s actual moving graphics, including lower-thirds and full-screen treatments. Use self-contained titles that name the topic. Specific approvals with limited requested edits take precedence over a general redesign; for C1652's Zepbound/stakes lists, enlarge text as requested and preserve the otherwise approved panel design.
+
+## Horizontal footage stays completely static — Dan, 2026-09-17
+
+- **No added camera movement or recentering on Dan in horizontal/16:9 videos.** No tracking, pan, drift, animated crop or zoom to follow or center him. Choose a fixed composition for each shot and leave it fixed. This supersedes earlier horizontal exceptions for approaching the frame edge; tracking is only for square/vertical layouts when actually needed.
+- Ordinary cuts between fixed compositions remain editing cuts, not camera motion. Graphics may animate without moving the presenter picture beneath them. Check actual rendered background landmarks: a fixed-X setting alone does not prove a static picture. If the camera source itself drifts, resolve that in source choice/stabilization rather than silently claiming the delivered picture is static.
+- Dan approved C1652 R4 as good enough to ship despite a small remaining movement near1:09. Do not reopen that accepted film to enforce the future rule. Its approved master is SHA256 `eace1bdbb9f7a16fadff8bb2d2e80812ea4e777cf413a1e06575527f95d64f44`.
+- C1652’s Zepbound text size is approved. Dan would prefer a third benefit, “Makes you serious about fat loss,” in a future relevant treatment; he accepted the existing two-row graphic in this final film. Do not expand its content without speech/timing context in future work.
