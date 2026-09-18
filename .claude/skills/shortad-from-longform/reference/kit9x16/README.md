@@ -45,7 +45,12 @@ kit_labels.py --build B --verify <name>.mp4
 ```
 
 From raw: the same, with `--from-raw`, no `--reference`, a script-aligned EDL, and the audio built by the
-shared chain (`_shared/audio/voice_chain.py` + bed + his tick at graphic entrances) instead of copied.
+shared chain (`_shared/audio/voice_chain.py` + bed + his tick at graphic entrances) instead of copied:
+`kit_audio.py --bed music.mp3` (bed −38 dB, his floor between words, measured 2026-09-18), then Whisper on the
+delivered mix → `ref.whisper.json`, `ln -s audio_final.wav his_mix.wav`, `kit_deliver.py words` (clears a stale
+`words_ctc.json` first), and `kit_plan.py --transcribe` (delivered-ASR words with forced-alignment timing, the
+evidence the gate's `captions:sync` / `script_fidelity` rows need when the audio is ours). The worked chains are in
+`/Volumes/Extreme/_edit_work/kit9x16/ad1-raw/run_raw*.sh`.
 
 ## Rules carried (do not re-open)
 

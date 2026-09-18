@@ -532,6 +532,64 @@ it goes.
 
 ---
 
+### ✅ PHASE 4 EXECUTED 2026-09-18 (kit built, both Ad 1 verticals gated; Dan's blind verdict pending). Read this before spreading the kit.
+
+**Step 0 — `_shared/reference/picture.json` (commit `a5f4645`).** Built by `picture_ref.py` from Muhammad's Ad 1 and
+Ad 2 16:9 masters with the gate's own instruments (`checks/picture.py`, `checks/framing.py`), lo/hi per number,
+`measured_on` per number; `picture_proof.json` PROVEN: both his edits pass every row, `ad1-vertical-attempt1` fails
+(push_spread ×1.02, naked_splices 14.2/min).
+
+**Step 1 — the kit, `shortad-from-longform/reference/kit9x16/`** (README there is the map). `template.json` is his
+grammar as data, every number citing its `picture.json` key; `panels/` measures his panel tokens off the masters and
+renders them with the same `vlib` calls; `cut_rules.md` + `kit_cuts.py` decide every talk splice on his recovered frame
+(from a master) or the pose-matched frame within ±15 (from raw); `build_kit.py` turns template + `content.json` + the
+audio EDL into `beats.json` / `edl_picture.json` / `kit_report.json` (design scored against `picture.json` BEFORE a
+render; a design out of range is reported, never shipped, never fixed by moving the range). `kit_labels.py` places every
+chip by measuring him on the rendered frame (person mask, above the head first) and validates with the chip DRAWN on a
+16-px tier before the 8-px one; `kit_plan.py` writes the evidence-contract plan out of the build's own files;
+`blind/blind_page.py` + `record_verdict.py` are the blind test. **Reproduced the approved "ad 1 | claude | 9x16" from
+Muhammad's master inside the gate:** 8 judged rounds (three fresh Opus judges per round, every strip and sheet opened,
+full-res grabs behind every call). Round 8 `kit_ad1_master_9x16.mp4` sha `178354fd…`: **GATE PASS 36/36** (gate 2.1.0),
+145/145 boundaries judged, 0 defects, his audio verbatim, 0 naked splices.
+
+**What the rounds found, and what the kit now does about it (all in code, all on disk):** the zoom-cut system — every bare
+talk cut carries an instant ~20 % size step (rounds 1–4: ~28 naked talk cuts before it; judges since: "every talk join
+carries a step"); **window splices are cut the same way** — his frame when trusted, else the pose-matched frame, with the
+step INSIDE the window anchored to its top (the 5-frame base dissolve of rounds 3–5 ghosted two poses at 23.09 / 69.04 /
+167.73 s and, measured frame by frame, did not even land at 223.59 s); an instant pull-out stays ON its cut (the edge rule
+had moved one 0.56 s and it read naked); a card's chip sits 68 px under the hole because the gate's segmenter reads a
+dark chip 44 px under a cut-off torso as his shorts (12 phantom obstructions, 0 at 64 px); region beats declared on the
+frame grid (sub-frame overlaps read as −104 px collisions); the phone-split window takes a chest-up crop (head 12–15 % →
+22–24 %); a real photo's push crops at the top of its overflow (hair left the frame); two AI clips with melting hands
+replaced by their own clean frames as pushed stills ($0). **From raw** (`kit_ad1_raw_9x16.mp4`, C1591 + Codex's
+script-aligned EDL, 250.75 s, sha `cf85e490…`): our voice chain + the funk bed at **−38 dB = his floor between words**
+(measured: −19 read 14/23/16 dB under the voice, −30 20/28/22, voice alone 42/48/38, his 28/35/28); Whisper's own
+mis-hearings fixed in `captions.py` FIX (six fat/back abs, a specific, the hyphen splits); the plan's delivered-ASR words
+take their timing from a wav2vec2 forced alignment on the delivered audio (Whisper's starts run ~130 ms early — a CTC-exact
+caption track read +109 ms late against them); `kit_labels` writes a chip back by the beat's END (the timeline snaps a
+start under a 0.4 s gap and two real photos rendered unlabelled); three judges, 0 defects, 121/121 boundaries.
+`kit_ad1_raw_9x16.mp4` (pass 10, sha `1d953785…`): **GATE PASS 36/36**, 121/121 boundaries judged, 0 defects (the pass-9 judge
+caught a slipped caption word re-aligned the wrong way — a lone tiny word in a near-silent gap anchors on nothing — so
+`align_ctc.py` now re-aligns a slipped run together with its trusted neighbours; "to" lands within 7 ms of the waveform onset).
+
+**Known, on the record for Dan:** the app recording shows a man who is not Dan (inherited, every cut from it); the
+phone-mock's AI-GENERATED chip is burned into the asset, so the label row does not verify it (judged by eye every round);
+confetti drifts over the after-reveal's torso for ~0.3 s; the closing pill fades before the last frame; window heads read
+22–24 % of the frame (a layout, not a wide level — `formats.py` should state the denominator); the 25 fps stock inserts
+carry a 1-in-6 duplicated-frame cadence; 24 of 769 raw caption words fell back to Whisper timing.
+
+**Step 2 — the blind page.** `blind_page.py build` copies the exact files served, seals `key.json` (0600, never linked),
+randomises left/right per pair, saves Dan's words verbatim to `answers.json`; `record_verdict.py` turns them into corpus
+entries (his words, the sha256 he watched, whichever way it goes). Pairs: A the from-raw kit vs the approved vertical;
+B/C/D the three existing 16:9 matched pairs; E the from-master kit vs the approved vertical. Corpus: 68/68 green
+before; the confirmation run at the end reads FAIL on exactly one entry, `ds17-r4-final-approved` (approved 2026-09-17 by
+another session, commit `805475c`), whose file fails `audio_gate:artifacts` / `do_no_harm` — no gate or audio code changed in this
+phase, so that is the DS-17 owner's finding to record, not a bound to move.
+
+**Step 3 — nothing further until Dan picks ours or a tie.** Never grade the kit yourself.
+
+---
+
 ## Traps — all of them, carried from both source handoffs
 
 * **Do not renegotiate the framing standard.** It cost four revisions and Dan locked it on 09-08.
