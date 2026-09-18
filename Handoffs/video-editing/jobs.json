@@ -710,12 +710,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-18-how-to-kettlebell-deadlift.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "needs",
-   "note": "Exact C1673 B-roll trim approval required; review /Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/review/asset-approval/DS-18-exact-broll-approval-reel.mp4. Audio, captions, colour, placeholder cut and covers are ready.",
+   "note": "R4 cover options C/D delivered: best C1673 lockout frame and pool-shoot photo 35; R3 cut and R2 B-roll also await Dan.",
    "sub": "Workout",
    "order": 34,
    "updated": "2026-09-18",
    "by": "Codex",
-   "rev": 3,
+   "rev": 8,
    "syncedRev": 1
   },
   {
