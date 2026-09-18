@@ -20,6 +20,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import eq_common as eq                                          # noqa: E402
 eq.unshadow()
 q = eq.sibling("queue")
+asset = eq.sibling("asset_approval")
 QUEUE_PY = os.path.join(eq.HERE, "queue.py")
 FFMPEG = os.path.join(eq.ROOT, "Media", "video_edit", "bin", "ffmpeg")
 FFPROBE = os.path.join(eq.ROOT, "Media", "video_edit", "bin", "ffprobe")
@@ -198,7 +199,89 @@ def validate_pre_render(workdir):
     return errors
 
 
-def validate_delivery(info, workdir, packet):
+def _json(path, label):
+    try:
+        with open(path) as fh:
+            return json.load(fh)
+    except Exception as exc:
+        raise ValueError(f"{label} is unreadable: {exc}") from exc
+
+
+def validate_draft_delivery(workdir, work_packet, approval_packet):
+    errors = []
+    path = Path(workdir) / "DRAFT-DELIVERY.json"
+    if not path.exists():
+        return ["DRAFT-DELIVERY.json is missing for a packet with approval items"]
+    try:
+        draft = _json(path, "DRAFT-DELIVERY.json")
+    except ValueError as exc:
+        return [str(exc)]
+    if draft.get("schema") != 1:
+        errors.append("DRAFT-DELIVERY schema must be 1")
+    if draft.get("gate") != "DRAFT":
+        errors.append("placeholder stage must record gate DRAFT, never PASS")
+    if draft.get("revision_count") != work_packet["revision_number"]:
+        errors.append("draft revision_count must equal WORK_PACKET revision")
+    if os.path.realpath(str(draft.get("packet") or "")) != os.path.realpath(
+            os.path.join(workdir, asset.PACKET_NAME)):
+        errors.append("draft marker does not name this job's placeholders.json")
+    if draft.get("packet_material_fingerprint") != asset.packet_material_fingerprint(approval_packet):
+        errors.append("draft marker is stale: proposed material changed after the draft")
+    if draft.get("draft_sha256") != approval_packet["draft"]["sha256"]:
+        errors.append("draft marker hash does not match placeholders.json")
+    visible = approval_packet.get("created_at")
+    ended = draft.get("stage_one_ended")
+    try:
+        if not visible or not ended or datetime.datetime.fromisoformat(visible) >= datetime.datetime.fromisoformat(ended):
+            errors.append("asset package must become visible before stage-one completion")
+    except ValueError:
+        errors.append("package/stage-one timestamps must be ISO-8601")
+    if not isinstance(draft.get("full_render_count"), int) or draft["full_render_count"] < 0:
+        errors.append("draft full_render_count must be a non-negative integer")
+    costs = draft.get("paid_provider_costs")
+    if not isinstance(costs, list) or not costs:
+        errors.append("draft paid_provider_costs must report itemized costs or an unavailable row")
+    if any(x.get("type") in ("stock", "existing_broll") for x in approval_packet.get("items") or []):
+        try:
+            preview_report = _json(os.path.join(workdir, "PRE_RENDER_CHECK.json"), "PRE_RENDER_CHECK.json")
+        except ValueError as exc:
+            errors.append(str(exc)); preview_report = {}
+        if preview_report.get("status") != "verified":
+            errors.append("stock/existing-B-roll approval items require PRE_RENDER_CHECK status verified")
+        proved = {(x.get("source_sha256"), x.get("preview_sha256"))
+                  for x in preview_report.get("risky_selections") or [] if isinstance(x, dict)}
+        for item in approval_packet.get("items") or []:
+            if item.get("type") in ("stock", "existing_broll"):
+                pair = (item["source"]["sha256"], item["preview"]["sha256"])
+                if pair not in proved:
+                    errors.append(f"{item['id']} exact source/preview hashes are absent from PRE_RENDER_CHECK")
+        errors.extend(validate_pre_render(workdir))
+    return errors
+
+
+def _placeholder_stamp_errors(files):
+    """A Phase-2 delivery must carry the current shared-gate PASS for the new row."""
+    errors = []
+    skills = os.path.join(eq.ROOT, ".claude", "skills")
+    if skills not in sys.path:
+        sys.path.insert(0, skills)
+    try:
+        from _shared.deliver import gate as delivery_gate
+    except Exception as exc:
+        return [f"shared delivery gate could not be loaded: {exc}"]
+    for video in files:
+        try:
+            stamp = delivery_gate.require_stamp(video, quiet=True)
+        except SystemExit as exc:
+            errors.append(f"{os.path.basename(video)} lacks a current delivery PASS: {exc}")
+            continue
+        row = (stamp.get("rows") or {}).get("compliance:placeholder") or {}
+        if row.get("ok") is not True:
+            errors.append(f"{os.path.basename(video)} has no passing compliance:placeholder row")
+    return errors
+
+
+def validate_delivery(info, workdir, packet, cfg=None, launch_state="ready"):
     """Require a real gated candidate plus complete efficiency evidence before review."""
     errors = validate_pre_render(workdir)
     files = info.get("files")
@@ -245,11 +328,84 @@ def validate_delivery(info, workdir, packet):
                 errors.append(f"paid_provider_costs row {i} has unavailable cost without a reason")
             elif isinstance(row.get("usd"), (int, float)) and row["usd"] < 0:
                 errors.append(f"paid_provider_costs row {i} has a negative cost")
+    finishing_spend = info.get("generation_spend_usd")
+    if not isinstance(finishing_spend, (int, float)) or isinstance(finishing_spend, bool) or finishing_spend < 0:
+        errors.append("DELIVERY generation_spend_usd must be a non-negative number for this session")
+    packet_path = os.path.join(workdir, asset.PACKET_NAME)
+    if os.path.exists(packet_path):
+        try:
+            approval_packet = asset.read_packet(packet_path, workdir,
+                                                eq.asset_allowed_roots(cfg or eq.load_config()))
+        except asset.PacketError as exc:
+            errors.append(f"placeholders.json refused: {exc}")
+            approval_packet = None
+        if approval_packet and approval_packet.get("items"):
+            if launch_state != "frames_approved":
+                errors.append("a placeholder-flow final may only be produced by the frames_approved finishing launch")
+            if os.path.realpath(str(info.get("placeholders") or "")) != os.path.realpath(packet_path):
+                errors.append("DELIVERY placeholders must name this work directory's placeholders.json")
+            final_files = [p for p in (files or []) if isinstance(p, str) and os.path.isfile(p)]
+            watch_log = info.get("watch_log")
+            if not isinstance(watch_log, str) or not os.path.isfile(watch_log):
+                errors.append("DELIVERY watch_log must name the final render's shared watch-pass log")
+            try:
+                asset.validate_packet(approval_packet, workdir,
+                                      eq.asset_allowed_roots(cfg or eq.load_config()),
+                                      require_complete=True,
+                                      delivered_video=(approval_packet.get("delivery") or {}).get("path"),
+                                      watch_log=watch_log if isinstance(watch_log, str) else None)
+            except (asset.PacketError, OSError, TypeError) as exc:
+                errors.append(f"placeholder flow is not complete and hash-bound: {exc}")
+            delivery_path = os.path.realpath(str((approval_packet.get("delivery") or {}).get("path") or ""))
+            if not final_files or delivery_path not in {os.path.realpath(p) for p in final_files}:
+                errors.append("packet delivery path must be one of DELIVERY.files")
+            if any(os.path.basename(p).upper().startswith("DRAFT") for p in final_files):
+                errors.append("a DRAFT file can never be delivered")
+            try:
+                marker = _json(os.path.join(workdir, "DRAFT-DELIVERY.json"), "DRAFT-DELIVERY.json")
+                stage_spend = marker.get("generation_spend_usd")
+                if not isinstance(stage_spend, (int, float)) or isinstance(stage_spend, bool) or stage_spend < 0:
+                    errors.append("DRAFT-DELIVERY generation_spend_usd must be a non-negative number for stage one")
+                elif isinstance(finishing_spend, (int, float)) and not isinstance(finishing_spend, bool):
+                    total = float(approval_packet.get("prior_paid_spend_usd") or 0) + float(stage_spend) + float(finishing_spend)
+                    if total > float(approval_packet.get("generation_budget_usd", asset.MAX_GENERATION_BUDGET_USD)) + 1e-9:
+                        errors.append(f"actual paid generation spend ${total:.2f} exceeds the packet's per-video budget")
+            except ValueError as exc:
+                errors.append(str(exc))
+            rebuild = info.get("asset_rebuild")
+            expected_scenes = sorted({s for x in approval_packet["items"] for s in x.get("affected_scenes", [])})
+            expected_joins = sorted({s for x in approval_packet["items"] for s in x.get("boundary_joins", [])})
+            if not isinstance(rebuild, dict):
+                errors.append("DELIVERY asset_rebuild evidence is missing")
+            else:
+                if sorted(rebuild.get("rebuilt_scenes") or []) != expected_scenes:
+                    errors.append("asset_rebuild rebuilt_scenes is not exactly the approved affected scenes")
+                if sorted(rebuild.get("rebuilt_joins") or []) != expected_joins:
+                    errors.append("asset_rebuild rebuilt_joins is not exactly the approved boundary joins")
+                if not isinstance(rebuild.get("full_render_count"), int) or rebuild["full_render_count"] < 0:
+                    errors.append("asset_rebuild full_render_count must be a non-negative integer")
+            errors.extend(_placeholder_stamp_errors(final_files))
     return errors
 
 
-def prompts(job, executor, cfg, workdir):
+def prompts(job, executor, cfg, workdir, launch_state="ready"):
     pre = open(eq.PREAMBLE).read().replace("{WORKDIR}", workdir).replace("{JOB}", job["id"])
+    if launch_state == "frames_approved":
+        pre += ("\n\n## THIS LAUNCH IS FINISHING, NOT A NEW REVISION\n\n"
+                "Read the existing placeholders.json and validate it with `asset_approval.py validate --approved` "
+                "before any generation or render. Recompute every approved hash; generate motion only for approved "
+                "AI items within the remaining per-video budget; insert the exact approved stock/B-roll trims; rebuild "
+                "only each item's affected_scenes and boundary_joins. Preserve the draft evidence, remove every "
+                "placeholder, append every successful or failed paid attempt to DRAFT-DELIVERY.json's itemized costs, "
+                "complete and hash-bind the packet, run the normal shared watch + delivery gates, then "
+                "write final DELIVERY.json. This second session is the same logical revision; revision_count does not rise.\n")
+    else:
+        pre += ("\n\n## THIS LAUNCH IS STAGE ONE WHEN APPROVAL ITEMS EXIST\n\n"
+                "Write the scene plan, then create a valid placeholders.json immediately with one best AI frame pair "
+                "or the exact moving stock/existing-B-roll preview for every new choice. Continue the entire cut with "
+                "labelled exact-duration placeholders. Do not generate AI motion, wait, poll, or start the independent "
+                "reviewer. When such items exist, write DRAFT-DELIVERY.json with gate DRAFT and exit; do not write "
+                "DELIVERY.json. If there are no approval items, keep the existing one-stage final path.\n")
     edit = pre + "\n\n---\n\n" + job[executor]
     if job.get("queue_revision"):
         rv = job["queue_revision"]
@@ -264,6 +420,7 @@ def prompts(job, executor, cfg, workdir):
 
 def main():
     job_id, executor, run_id = sys.argv[1:4]
+    launch_state = sys.argv[4] if len(sys.argv) > 4 else "ready"
     cfg = eq.load_config()
     job = q.find(q.load(), job_id)
     workdir = eq.work_dir(cfg, job_id)
@@ -274,8 +431,12 @@ def main():
     threading.Thread(target=heartbeat_loop, args=(job_id, stop, cfg["claims"]["heartbeat_minutes"]), daemon=True).start()
 
     outcome, note, verdicts, state = "session_failed", "", [], None
-    usage = []
+    existing_row = eq.scoreboard_get(run_id) or {}
+    usage = list(existing_row.get("model_usage") or [])
     packet = None
+    info = {}
+    approval_packet = None
+    marker = {}
     try:
         if cfg.get("review", {}).get("reviews_per_candidate") != 1:
             raise ValueError("review.reviews_per_candidate must remain 1; repeated supervisory loops are disabled")
@@ -295,31 +456,73 @@ def main():
             if re.fullmatch(r"QUEUE-REVIEW-\d+\.md", name):
                 os.replace(os.path.join(workdir, name), os.path.join(workdir, name + f".before-{run_id}"))
         packet = write_work_packet(job, workdir, run_id, prior_delivery)
-        pre, edit_prompt = prompts(job, executor, cfg, workdir)
-        code, tail = run_session(executor, cfg, workdir, edit_prompt, log_path, "edit", cfg["claims"]["max_job_hours"])
-        usage.append(eq.model_usage_record(executor, cfg, "editor", tail))
+        packet_path = os.path.join(workdir, asset.PACKET_NAME)
+        if launch_state == "frames_approved":
+            try:
+                approval_packet = asset.read_packet(packet_path, workdir, eq.asset_allowed_roots(cfg),
+                                                    require_approved=True)
+            except asset.PacketError as exc:
+                outcome, state = "parked", "draft_review"
+                note = f"Assets need a fresh decision before finishing: {exc}"
+        if state is None:
+            pre, edit_prompt = prompts(job, executor, cfg, workdir, launch_state)
+            role = "finishing" if launch_state == "frames_approved" else "stage-one"
+            code, tail = run_session(executor, cfg, workdir, edit_prompt, log_path, role,
+                                     cfg["claims"]["max_job_hours"])
+            usage.append(eq.model_usage_record(executor, cfg,
+                                               "finishing editor" if launch_state == "frames_approved" else "stage-one editor",
+                                               tail))
+        else:
+            code, tail = 3, note
         eq.scoreboard_update(run_id, model_usage=usage)
-        reviewer = cfg["review"]["reviewer_for"][executor]
-        if not eq.auth_ok(reviewer, cfg)[0]:
-            # Independent review still happens: a fresh session of the editor's own tool has not seen the build either.
-            reviewer = executor
-            eq.scoreboard_update(run_id, reviewer=f"{executor} (fresh session; cross-reviewer unavailable)")
         delivered = os.path.exists(os.path.join(workdir, "DELIVERY.json"))
-        if os.path.exists(os.path.join(workdir, "BLOCKED.md")):
+        if state is not None:
+            pass
+        elif os.path.exists(os.path.join(workdir, "BLOCKED.md")):
             reason = open(os.path.join(workdir, "BLOCKED.md"), errors="replace").readline().strip("# \n")[:200]
             outcome, state, note = "parked", "needs", f"BLOCKED (queue run): {reason}"
+        elif launch_state == "ready" and os.path.exists(packet_path):
+            try:
+                approval_packet = asset.read_packet(packet_path, workdir, eq.asset_allowed_roots(cfg))
+            except asset.PacketError as exc:
+                outcome, state, note = "parked", "needs", f"Unsafe asset approval packet: {exc}"
+            else:
+                if approval_packet.get("items"):
+                    try:
+                        marker = _json(os.path.join(workdir, "DRAFT-DELIVERY.json"), "DRAFT-DELIVERY.json")
+                    except ValueError:
+                        marker = {}
+                    errors = validate_draft_delivery(workdir, packet, approval_packet)
+                    if errors:
+                        outcome, state = "parked", "needs"
+                        note = "Stage-one draft evidence incomplete: " + "; ".join(errors[:6])
+                    elif delivered:
+                        outcome, state = "parked", "needs"
+                        note = "Stage one wrote DELIVERY.json even though approval items remain; a placeholder draft can never deliver."
+                    else:
+                        fully_approved = approval_packet["status"] == "approved"
+                        outcome = "assets_approved" if fully_approved else "draft_review"
+                        state = "frames_approved" if fully_approved else "draft_review"
+                        note = (f"Asset package approved during stage one; finishing is queued. Packet: {packet_path}"
+                                if fully_approved else
+                                f"DRAFT only — asset choices are waiting on the review page. Packet: {packet_path}")
         elif not delivered:
             outcome = classify_failure(code, tail, cfg)
             state = "ready" if outcome in ("usage_limited", "auth_failed") and not eq.non_queue_files(workdir) else "stalled"
             note = f"{outcome}: the {executor} session ended without DELIVERY.json or BLOCKED.md (exit {code}); see queue-run.log"
         else:
             info = json.load(open(os.path.join(workdir, "DELIVERY.json")))
-            contract_errors = validate_delivery(info, workdir, packet)
+            contract_errors = validate_delivery(info, workdir, packet, cfg, launch_state)
             if contract_errors:
                 outcome, state = "parked", "needs"
                 note = "Efficiency evidence incomplete before review: " + "; ".join(contract_errors[:5])
             else:
                 # Exactly one independent review, after the editor's complete candidate and self-QA.
+                reviewer = cfg["review"]["reviewer_for"][executor]
+                if not eq.auth_ok(reviewer, cfg)[0]:
+                    # A fresh process has not seen the build, even if the preferred cross-reviewer is unavailable.
+                    reviewer = executor
+                    eq.scoreboard_update(run_id, reviewer=f"{executor} (fresh session; cross-reviewer unavailable)")
                 brief = (open(eq.REVIEWER_BRIEF).read().replace("{WORKDIR}", workdir).replace("{JOB}", job_id)
                          .replace("{N}", "1").replace("{JOBDOC}", "Handoffs/video-editing/" + job.get("file", "")))
                 _review_code, review_tail = run_session(reviewer, cfg, workdir, brief, log_path, "review-1", 3)
@@ -336,11 +539,60 @@ def main():
         outcome, state, note = "runner_error", "stalled", f"runner error: {e!s:.200}"
     finally:
         stop.set()
-        info = {}
+        if not info:
+            try:
+                info = json.load(open(os.path.join(workdir, "DELIVERY.json")))
+            except Exception:
+                pass
         try:
-            info = json.load(open(os.path.join(workdir, "DELIVERY.json")))
+            marker = json.load(open(os.path.join(workdir, "DRAFT-DELIVERY.json")))
         except Exception:
-            pass
+            marker = marker or {}
+        costs = []
+        for source in (marker.get("paid_provider_costs"), info.get("paid_provider_costs")):
+            if isinstance(source, list):
+                costs.extend(source)
+        costs = list({json.dumps(row, sort_keys=True, ensure_ascii=False): row for row in costs}.values())
+        if not costs:
+            costs = [{"provider": "all", "usd": None,
+                      "reason": "Per-video paid-provider costs were unavailable because DELIVERY.json did not report them."}]
+        prior_hours = float(existing_row.get("wall_hours") or 0) if launch_state == "frames_approved" else 0.0
+        flow = dict((eq.scoreboard_get(run_id) or {}).get("asset_flow") or {})
+        if approval_packet and approval_packet.get("items"):
+            if launch_state == "ready":
+                flow.update(packet_visible_at=approval_packet.get("created_at"),
+                            stage_one_ended=marker.get("stage_one_ended") or q.now_iso(),
+                            full_render_count=int(marker.get("full_render_count") or 0))
+                approved_times = [x["approval"].get("timestamp") for x in approval_packet["items"]
+                                  if x["approval"].get("status") == "approved"]
+                if len(approved_times) == len(approval_packet["items"]):
+                    flow["assets_approved_at"] = max(approved_times)
+            else:
+                rebuild = info.get("asset_rebuild") or {}
+                flow.update(finishing_ended=q.now_iso(),
+                            full_render_count=int(rebuild.get("full_render_count") or flow.get("full_render_count") or 0),
+                            reused_scenes=rebuild.get("reused_scenes") or [],
+                            rebuilt_scenes=rebuild.get("rebuilt_scenes") or [],
+                            reused_audio=(info.get("reuse") or {}).get("audio"),
+                            reused_transcript=(info.get("reuse") or {}).get("transcript"),
+                            reused_assets=rebuild.get("reused_assets") or [])
+            if flow.get("packet_visible_at") and flow.get("assets_approved_at"):
+                try:
+                    a = datetime.datetime.fromisoformat(flow["packet_visible_at"])
+                    b = datetime.datetime.fromisoformat(flow["assets_approved_at"])
+                    flow["human_wait_hours"] = round(max(0, (b - a).total_seconds()) / 3600, 3)
+                except ValueError:
+                    pass
+        spend_rows = [float(x) for x in (marker.get("generation_spend_usd"), info.get("generation_spend_usd"))
+                      if isinstance(x, (int, float))]
+        eq.scoreboard_update(run_id, ended=q.now_iso(), wall_hours=round(prior_hours + (time.time() - t0) / 3600, 2), outcome=outcome,
+                             reviewer_verdicts=verdicts, revision_number=(packet or {}).get("revision_number", 0),
+                             revision_rounds=(packet or {}).get("revision_number", 0), model_usage=usage,
+                             first_pass_gate=info.get("gate") or marker.get("gate"), paid_provider_costs=costs,
+                             generation_spend_usd=sum(spend_rows) if spend_rows else None,
+                             asset_flow=flow, note=note)
+        # The claim is the queue's completion signal. Publish the complete logical scoreboard row first,
+        # then change state and release, so the next tick/page cannot observe a half-recorded finish.
         if state:
             if state == "stalled":
                 qcmd("stall", job_id, "--note", note)
@@ -352,15 +604,6 @@ def main():
             if outcome == "delivered":
                 j.pop("queue_revision", None)
             q.save(data)
-        costs = info.get("paid_provider_costs")
-        if not isinstance(costs, list):
-            costs = [{"provider": "all", "usd": None,
-                      "reason": "Per-video paid-provider costs were unavailable because DELIVERY.json did not report them."}]
-        eq.scoreboard_update(run_id, ended=q.now_iso(), wall_hours=round((time.time() - t0) / 3600, 2), outcome=outcome,
-                             reviewer_verdicts=verdicts, revision_number=(packet or {}).get("revision_number", 0),
-                             revision_rounds=(packet or {}).get("revision_number", 0), model_usage=usage,
-                             first_pass_gate=info.get("gate"), paid_provider_costs=costs,
-                             generation_spend_usd=info.get("generation_spend_usd"), note=note)
         try:
             eq.sibling("review_page").build()
         except Exception:

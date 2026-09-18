@@ -120,12 +120,16 @@ approved (rev 4 measures 37%). That is per-format config — *not* a widened bou
 ## Verifying a change
 
 ```bash
-python3 -m unittest .claude/skills/_shared/deliver/tests/test_contract_v2.py .claude/skills/_shared/deliver/tests/test_watch_scan.py -v
+python3 .claude/skills/_shared/deliver/tests/test_contract_v2.py
+python3 .claude/skills/_shared/deliver/tests/test_watch_scan.py
+python3 .claude/skills/_shared/deliver/tests/test_placeholder_gate.py
 python3 .claude/skills/_shared/deliver/gate.py --audit          # no format has a hole
 python3 .claude/skills/_shared/qc_corpus/run.py                 # must stay green (~15 min)
 ```
 
-The watch scan's own fixture (`tests/test_watch_scan.py`) runs there and as `run.py` step 0b.
+The watch scan and placeholder-flow fixtures run there and as `run.py` step 0b. The placeholder
+fixture proves an open packet fails, a complete hash-bound replacement passes, stale input fails,
+and a visibly judged placeholder remains non-waivable.
 The focused fixtures cover positive and negative PNG collisions, early/late continuous-speech
 timing, present/missing/wrong and partial label states, stale hashes, invalid square/vertical
 windows, clipped hair inside a declared window, fixed-wide intent, legacy ASS parsing, and the four
@@ -168,6 +172,10 @@ and a 2 fps scan stepped straight over it.
   before/after screen at 3:11 and the email-capture screen at 3:12 and 3:23** — a live ad.
   `/ad-edit`'s and `/website-video`'s own scans are still the blind whole-screen matchers; this row
   is the one that counts.
+* **`compliance:placeholder` is a hard gate for every format since 2026-09-18.** No packet means
+  the optional approval flow was not used. A present packet must be schema-1 complete and bind the
+  exact approved sources, inserted clips, final watch log and delivered SHA. The watch checklist
+  also names `placeholder`; a visible chip cannot be waived with `accepted_by_dan`.
 * **`watch:pass` is a hard gate for every format since 2026-09-16 (Phase 3)** — see "The watch pass"
   below. `exercise-demo` declares it not applicable with its reason (a generated loop has no boundaries
   to strip; the ghost scan and Dan's batch review are its picture checks).

@@ -27,6 +27,7 @@ the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skil
 ## Default staffing and asset approval
 
 One editor owns planning through self-QA. Use one independent reviewer only after a complete, placeholder-free candidate exists; do not use a recurring planner/reviewer supervision loop. For every new AI-motion, stock or existing-B-roll choice, follow [`_shared/ASSET-APPROVAL.md`](../_shared/ASSET-APPROVAL.md): send one early batch of AI start/end frames and short moving source previews, then keep editing with exact-duration placeholders. Generate or insert only approved choices, rebuild only affected scenes/joins, and never deliver a placeholder draft.
+For an edit-queue run, schema-1 `placeholders.json` and the queue's `draft_review` → `frames_approved` states are the authority; do not invent a chat-only approval or keep the editor session alive while waiting.
 
 ## Square and vertical camera movement — updated 2026-09-16
 

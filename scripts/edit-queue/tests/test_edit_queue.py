@@ -46,6 +46,18 @@ def run(data, f=None, sb=None, cfg=None):
 
 
 class Routing(unittest.TestCase):
+    def test_phase2_states_and_drive_schema_are_explicit(self):
+        self.assertIn("draft_review", q.STATES); self.assertIn("frames_approved", q.STATES)
+        old = q.EXPORT; q.EXPORT = TMP
+        try:
+            self.assertTrue(q.push_drive({"jobs": [job("AV-01", "draft_review")]}))
+            status = json.load(open(os.path.join(TMP, "edit-queue-status.json")))
+        finally:
+            q.EXPORT = old
+        self.assertEqual(status["schema"], 2)
+        self.assertEqual(status["assetApprovalSchema"], 1)
+        self.assertEqual(status["stateLabels"]["frames_approved"], "ASSETS APPROVED — finishing queued")
+
     def test_dans_assignment_2026_09_17(self):
         # Frozen 2026-09-18 -> 2026-09-24 11:00 CT (Claude allowance freeze, handoff-20260918-
         # claude-video-freeze-and-codex-routing.md): AV/AS/SL route to codex too. Revert this test's
@@ -68,6 +80,10 @@ class Routing(unittest.TestCase):
         data = {"jobs": [job("AV-02", order=2), job("AV-01", order=1)]}
         self.assertEqual(run(data)["launches"][0][0], "AV-01")
         data["jobs"][0]["queue_revision"] = {"round": 1, "words": "fix the captions"}
+        self.assertEqual(run(data)["launches"][0][0], "AV-02")
+
+    def test_approved_assets_finish_before_new_ready_work(self):
+        data = {"jobs": [job("AV-01", "ready", order=1), job("AV-02", "frames_approved", order=99)]}
         self.assertEqual(run(data)["launches"][0][0], "AV-02")
 
 
@@ -227,7 +243,7 @@ class Eligibility(unittest.TestCase):
         return r["skipped"].get(j["id"]) if not r["launches"] else None
 
     def test_states(self):
-        for s in ("needs", "blocked", "in_progress", "delivered", "finalized", "uploaded", "stalled"):
+        for s in ("draft_review", "needs", "blocked", "in_progress", "delivered", "finalized", "uploaded", "stalled"):
             self.assertEqual(run({"jobs": [job("AV-01", s)]})["launches"], [], s)
 
     def test_pilot_is_small_no_ai_slot_groups_only(self):
@@ -249,6 +265,7 @@ class Eligibility(unittest.TestCase):
         f = facts(work_dirs={"AV-01": ["av01"]})
         self.assertIn("work directory", self.why(job("AV-01"), f))
         self.assertIsNone(self.why(job("AV-01", queue_revision={"round": 1, "words": "x"}), f))
+        self.assertIsNone(self.why(job("AV-01", "frames_approved"), f))
 
     def test_missing_source_blocks(self):
         self.assertIn("source not on disk", self.why(job("AV-01"), facts(missing_sources={"AV-01": ["/Volumes/Extreme/x.mp4"]})))
@@ -346,6 +363,30 @@ class Runner(unittest.TestCase):
         self.assertEqual(runner.validate_delivery(info, wd, packet), [])
         info["reuse"].pop("audio")
         self.assertTrue(any("reuse.audio" in e for e in runner.validate_delivery(info, wd, packet)))
+
+    def test_stock_stage_cannot_claim_preview_check_not_applicable(self):
+        wd = tempfile.mkdtemp(dir=TMP)
+        draft = os.path.join(wd,"DRAFT.mp4"); open(draft,"wb").write(b"draft")
+        src = os.path.join(wd,"src.mp4"); open(src,"wb").write(b"source")
+        prev = os.path.join(wd,"preview.mp4"); open(prev,"wb").write(b"preview")
+        rec = lambda p: {"path":p,"sha256":runner.asset.sha256(p)}
+        item={"id":"B-1","type":"stock","in":1.0,"out":2.0,"duration":1.0,"spoken_beat":"beat",
+              "intended_action":"action","affected_scenes":["s1"],"boundary_joins":[],"estimated_usd":0,
+              "placeholder":{"label":"PLACEHOLDER — B-1","sha256":"0"*64},
+              "preview":dict(rec(prev),preview_seconds=1.0),
+              "source":dict(rec(src),trim_in=0.0,trim_out=1.0,crop="center",rights="licensed"),
+              "approval":{"status":"pending","selected_hashes":[],"words":None,"timestamp":None,"selection_fingerprint":None},
+              "final_clip":None}
+        packet={"schema_version":1,"video_id":"AV-01","revision":0,"status":"approval_required","draft":rec(draft),
+                "prior_paid_spend_usd":0,"items":[item],"created_at":"2026-09-18T10:00:00-05:00"}
+        marker={"schema":1,"gate":"DRAFT","revision_count":0,"packet":os.path.join(wd,"placeholders.json"),
+                "packet_material_fingerprint":runner.asset.packet_material_fingerprint(packet),"draft_sha256":rec(draft)["sha256"],
+                "stage_one_ended":"2026-09-18T10:01:00-05:00","full_render_count":1,
+                "paid_provider_costs":[{"provider":"none","usd":0}]}
+        json.dump(marker,open(os.path.join(wd,"DRAFT-DELIVERY.json"),"w"))
+        json.dump({"status":"not_applicable","reason":"incorrect fixture claim"},open(os.path.join(wd,"PRE_RENDER_CHECK.json"),"w"))
+        errors=runner.validate_draft_delivery(wd,{"revision_number":0},packet)
+        self.assertTrue(any("status verified" in x for x in errors),errors)
 
 
 if __name__ == "__main__":

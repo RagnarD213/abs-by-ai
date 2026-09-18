@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Dan's morning review page for the overnight edit queue (handoff §6, first version: no frame picker yet).
+"""Dan's local review page for delivered cuts and schema-1 asset approval packets.
 
   review_page.py serve     # http://127.0.0.1:8830  (launchd keeps it running)
   review_page.py build     # write a static snapshot (review-snapshot.html) without the buttons
 
 The page only reads jobs.json, the scoreboard and the files each run left in its work directory. Dan's
 verdict goes back through queue.py, with his exact words in the job note and on the scoreboard. It binds to
-127.0.0.1 only and serves only the video files a run listed in its DELIVERY.json.
+127.0.0.1 only and serves only hash-checked files listed by DELIVERY.json or placeholders.json.
 """
-import datetime, html, json, os, re, subprocess, sys
+import datetime, html, json, mimetypes, os, re, subprocess, sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, quote, urlparse
 
@@ -16,8 +16,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import eq_common as eq                                          # noqa: E402
 eq.unshadow()
 q = eq.sibling("queue")
-PORT = 8830
-SNAPSHOT = os.path.join(eq.HERE, "review-snapshot.html")
+asset = eq.sibling("asset_approval")
+PORT = int(os.environ.get("EDIT_QUEUE_PORT", "8830"))
+SNAPSHOT = os.environ.get("EDIT_QUEUE_SNAPSHOT") or os.path.join(eq.HERE, "review-snapshot.html")
 SYSTEMIC = ["", "audio", "framing", "colour", "captions", "graphics", "cut/pacing"]
 E = html.escape
 
@@ -42,12 +43,69 @@ def review_lines(cfg, job_id):
     return (lines[0] if lines else ""), [l for l in lines[1:] if not l.startswith(("#", "```"))][:2]
 
 
+def approval_packet(cfg, job_id):
+    wd = eq.work_dir(cfg, job_id)
+    path = os.path.join(wd, asset.PACKET_NAME)
+    if not os.path.isfile(path):
+        return None
+    try:
+        return asset.read_packet(path, wd, eq.asset_allowed_roots(cfg))
+    except asset.PacketError:
+        return None
+
+
 def allowed_media(cfg, data):
-    ok = set()
+    """Map only current hash-bound review files. A changed file immediately falls off the allowlist."""
+    ok = {}
     for j in data["jobs"]:
         d = delivery(cfg, j["id"])
-        ok.update(p for p in (d.get("files") or []) + [d.get("review_copy")] if p)
+        for p in (d.get("files") or []) + [d.get("review_copy")]:
+            if p and os.path.isfile(p):
+                ok[os.path.realpath(p)] = None
+        packet = approval_packet(cfg, j["id"])
+        if packet:
+            for _name, rec in asset.listed_media(packet):
+                p = os.path.realpath(rec["path"])
+                if os.path.isfile(p) and asset.sha256(p) == rec["sha256"]:
+                    ok[p] = rec["sha256"]
     return ok
+
+
+def asset_card(cfg, job, packet, run, media, static=False):
+    costs = asset.cost_summary(packet)
+    prior = (f"${costs['prior_paid_spend_usd']:.2f}" if isinstance(costs["prior_paid_spend_usd"], (int, float))
+             else f"unavailable ({E(str(costs.get('prior_paid_spend_reason') or 'not reported'))})")
+    projected = (f"${costs['projected_total_usd']:.2f}" if isinstance(costs["projected_total_usd"], (int, float))
+                 else "unavailable until prior spend is known")
+    items = []
+    for item in sorted(packet["items"], key=lambda x: (x["in"], x["id"])):
+        ap = item["approval"]
+        if item["type"] == "ai_motion":
+            visual = (f'<div class=frames><figure><img src="{media(item["start_frame"]["path"])}"><figcaption>start</figcaption></figure>'
+                      f'<figure><img src="{media(item["end_frame"]["path"])}"><figcaption>end</figcaption></figure></div>')
+        else:
+            visual = f'<video controls preload=metadata src="{media(item["preview"]["path"])}"></video>'
+        source = item.get("source") or {}
+        source_line = (f'<br><span class=dim>source {E(str(source.get("path")))} · trim {source.get("trim_in"):.2f}–{source.get("trim_out"):.2f}s'
+                       f' · crop {E(str(source.get("crop")))} · rights {E(str(source.get("rights")))}</span>'
+                       if source else "")
+        actionable = job["state"] in ("in_progress", "draft_review")
+        controls = "" if static or not actionable else f'''<fieldset data-asset="{E(item['id'])}">
+          <label><input type=radio name="asset-{E(item['id'])}" value=approved {'checked' if ap['status']=='approved' else ''}> Approve</label>
+          <label><input type=radio name="asset-{E(item['id'])}" value=rejected {'checked' if ap['status']=='rejected' else ''}> Reject</label>
+          <textarea placeholder="Exact words; required for a rejection.">{E(str(ap.get('words') or ''))}</textarea></fieldset>'''
+        items.append(f'''<article class=choice>{visual}<p><b>{E(item['id'])}</b> · {E(item['type'])} · {item['in']:.2f}–{item['out']:.2f}s<br>
+          {E(item['spoken_beat'])}<br><span class=dim>{E(item['intended_action'])} · scenes {E(', '.join(item['affected_scenes']))}
+          · joins {E(', '.join(item.get('boundary_joins') or []) or 'none')} · {E(item.get('reuse_status','new').replace('_',' '))}
+          · estimate ${item.get('estimated_usd',0):.2f}</span>{source_line}</p>{controls}</article>''')
+    submit = "" if static or not actionable else f'<button class="ok asset-submit" data-job="{E(job["id"])}">Submit every choice once</button><span class="asset-msg"></span>'
+    phase = "stage one is still building" if job.get("claim") else q.STATES.get(job["state"], job["state"])
+    reuse = (run or {}).get("asset_flow") or {}
+    return f'''<div class="card asset-card" data-job="{E(job['id'])}"><h3>{E(job['id'])} · {E(job['title'])}</h3>
+      <p class=warn><b>Asset choices</b> · {E(phase)} · packet revision {packet['revision']}</p>
+      <video controls preload=metadata src="{media(packet['draft']['path'])}"></video>
+      <p class=dim>New estimate ${costs['estimated_new_usd']:.2f} · prior paid spend {prior} · projected per-video total {projected} · budget ${costs['generation_budget_usd']:.2f} · full renders {reuse.get('full_render_count', 0)}</p>
+      {''.join(items)}{submit}</div>'''
 
 
 def summary_table(sb):
@@ -122,7 +180,10 @@ def render(static=False):
     latest = {}
     for r in sb["runs"]:
         latest[r["job"]] = r
-    waiting = [j for j in data["jobs"] if j["state"] in cfg["stop"]["review_queue_states"]]
+    waiting = [j for j in data["jobs"] if j["state"] == "delivered"]
+    asset_jobs = [(j, approval_packet(cfg, j["id"])) for j in data["jobs"]
+                  if j["state"] in ("in_progress", "draft_review", "frames_approved")]
+    asset_jobs = [(j, p) for j, p in asset_jobs if p and p.get("items")]
     parked = [j for j in data["jobs"] if j["state"] in ("needs", "stalled") and j.get("queue_owned")]
     running = [j for j in data["jobs"] if j.get("claim") and j["state"] != "stalled"]
     waiting.sort(key=lambda j: (latest.get(j["id"], {}).get("ended") or j.get("updated", "")), reverse=True)
@@ -160,6 +221,7 @@ def render(static=False):
           <p><b>Gate:</b> <span class="{'okc' if gate == 'PASS' else 'warn'}">{E(gate)}</span></p>{f'<ul>{fails}</ul>' if fails else ''}
           <p class=dim>Files: {'<br>'.join(E(f) for f in dl.get('files') or [])}</p>{form}</div>""")
 
+    asset_html = "".join(asset_card(cfg, j, p, latest.get(j["id"]), media, static) for j, p in asset_jobs)
     parked_html = "".join(f"<div class=card><h3>{E(j['id'])} · {E(j['title'])}</h3><p class=warn>{E(j['state'].upper())}</p>"
                           f"<p>{E(j.get('note', ''))}</p><p class=dim>Work folder: {E(eq.work_dir(cfg, j['id']))}</p></div>" for j in parked)
     running_html = "".join(f"<li>{E(j['id'])} · {E(j['title'])}: {E(j['claim']['by'])} since {E(j['claim']['started'][11:16])}, "
@@ -168,14 +230,15 @@ def render(static=False):
 <title>Edit Queue Review</title><style>
 body{{font:15px/1.5 -apple-system,Helvetica,sans-serif;background:#111;color:#eee;margin:0;padding:24px 16px;max-width:860px;margin-inline:auto}}
 h1{{font-size:22px;margin:0 0 4px}} h2{{font-size:16px;margin:28px 0 8px;border-bottom:2px solid #e11;padding-bottom:4px}} h3{{margin:0 0 4px;font-size:16px}}
-.card{{background:#1c1c1c;border-radius:10px;padding:16px;margin:12px 0}} video{{width:100%;max-height:70vh;border-radius:8px;background:#000}}
+.card{{background:#1c1c1c;border-radius:10px;padding:16px;margin:12px 0}} video{{width:100%;max-height:70vh;border-radius:8px;background:#000}} img{{max-width:100%;max-height:55vh}} .frames{{display:grid;grid-template-columns:1fr 1fr;gap:8px}} figure{{margin:0}} fieldset{{border:1px solid #444;margin:8px 0}}
 .dim{{color:#999;font-size:13px}} .warn{{color:#ffb020}} .okc{{color:#4cd964}} table{{border-collapse:collapse;font-size:13px;display:block;overflow-x:auto}}
 td,th{{border:1px solid #333;padding:4px 8px;text-align:left}} textarea{{width:100%;box-sizing:border-box;min-height:70px;background:#000;color:#eee;border:1px solid #444;border-radius:6px;padding:8px;font:inherit}}
 label{{display:block;margin:8px 0;font-size:13px;color:#bbb}} select{{font:inherit}} button{{font:inherit;padding:8px 14px;margin:4px 6px 0 0;border-radius:6px;border:0;background:#444;color:#fff;cursor:pointer}}
 button.ok{{background:#1a7f37}} button.bad{{background:#a1260d}} .msg{{margin-left:8px;color:#4cd964}}</style>
 <h1>Edit Queue Review</h1><p class=dim>Built {datetime.datetime.now():%a %b %d, %H:%M}. {'Snapshot: open http://127.0.0.1:' + str(PORT) + ' for the buttons.' if static else ''}</p>
 {status_block(cfg, data, sb)}
-<h2>Waiting for you ({len(waiting)} of {cfg['stop']['review_queue_limit']})</h2>{''.join(cards) or '<p class=dim>Nothing to review.</p>'}
+<h2>Asset choices ({len(asset_jobs)})</h2>{asset_html or '<p class=dim>No asset choices waiting.</p>'}
+<h2>Final videos waiting ({len(waiting)})</h2>{''.join(cards) or '<p class=dim>Nothing to review.</p>'}
 <h2>Parked: needs you ({len(parked)})</h2>{parked_html or '<p class=dim>Nothing parked.</p>'}
 <h2>Running now</h2><ul>{running_html or '<li class=dim>No queue job is running.</li>'}</ul>
 <h2>Scoreboard</h2>{summary_table(sb)}
@@ -188,7 +251,53 @@ document.querySelectorAll('.form button').forEach(b=>b.onclick=async()=>{{
     body:JSON.stringify({{job:f.dataset.job,verdict:v,words,systemic:f.querySelector('select').value}})}});
   f.querySelector('.msg').textContent=await r.text(); if(r.ok)setTimeout(()=>location.reload(),1200);
 }});
+document.querySelectorAll('.asset-submit').forEach(b=>b.onclick=async()=>{{
+  const card=b.closest('.asset-card'), decisions=[]; let bad='';
+  card.querySelectorAll('fieldset').forEach(f=>{{const pick=f.querySelector('input:checked'),words=f.querySelector('textarea').value;
+    if(!pick)bad='Choose approve or reject for every item.'; else if(pick.value==='rejected'&&!words.trim())bad='Explain every rejection in your exact words.';
+    decisions.push({{id:f.dataset.asset,status:pick?pick.value:'',words:words||(pick&&pick.value==='approved'?'Approved':'')}});}});
+  const msg=card.querySelector('.asset-msg'); if(bad){{msg.textContent=bad;return}}
+  if(!confirm('Submit every asset decision for '+b.dataset.job+'?'))return;
+  const r=await fetch('/asset-verdict',{{method:'POST',headers:{{'Content-Type':'application/json','X-Edit-Queue':'1'}},body:JSON.stringify({{job:b.dataset.job,decisions}})}});
+  msg.textContent=await r.text(); if(r.ok)setTimeout(()=>location.reload(),800);
+}});
 </script>"""
+
+
+def record_asset_decisions(job_id, decisions):
+    cfg = eq.load_config()
+    with q.locked():
+        data = q.load(); job = q.find(data, job_id)
+        if job["state"] not in ("in_progress", "draft_review"):
+            return False, f"{job_id} is {job['state']}, not accepting asset decisions"
+        wd = eq.work_dir(cfg, job_id)
+        packet = asset.decide(os.path.join(wd, asset.PACKET_NAME), decisions, wd, eq.asset_allowed_roots(cfg))
+        approved = packet["status"] == "approved"
+        # Approval during stage one does not alter the live claim. The runner sees the atomic packet
+        # and moves straight to frames_approved when it exits. After exit, this endpoint does it.
+        if job["state"] == "draft_review":
+            q.set_state(data, job_id, "frames_approved" if approved else "draft_review",
+                        "Dan (asset review page)",
+                        "All current asset choices approved; finishing queued." if approved else
+                        "One or more asset choices rejected; draft stays parked for a fresh packet.")
+            q.save(data)
+    run = eq.scoreboard_latest(job_id)
+    if run:
+        flow = dict(run.get("asset_flow") or {})
+        flow["approval_submissions"] = int(flow.get("approval_submissions") or 0) + 1
+        flow["approval_rejections"] = int(flow.get("approval_rejections") or 0) + sum(
+            x["approval"]["status"] == "rejected" for x in packet["items"])
+        if approved:
+            flow["assets_approved_at"] = max(x["approval"]["timestamp"] for x in packet["items"])
+            if flow.get("packet_visible_at"):
+                a = datetime.datetime.fromisoformat(flow["packet_visible_at"])
+                b = datetime.datetime.fromisoformat(flow["assets_approved_at"])
+                flow["human_wait_hours"] = round(max(0, (b-a).total_seconds()) / 3600, 3)
+        eq.scoreboard_update(run["run_id"], asset_flow=flow)
+    if job["state"] != "in_progress":
+        q.master_status(job_id, q.STATES["frames_approved" if approved else "draft_review"])
+        q.push_drive(q.load())
+    return True, "Every choice saved. Finishing is queued." if approved else "Every choice saved. Rejections keep the draft parked."
 
 
 def record_verdict(job_id, verdict, words, systemic):
@@ -243,15 +352,19 @@ class Handler(BaseHTTPRequestHandler):
         if u.path == "/":
             return self._send(200, render())
         if u.path == "/media":
-            path = parse_qs(u.query).get("p", [""])[0]
-            if path not in allowed_media(eq.load_config(), q.load()) or not os.path.isfile(path):
-                return self._send(404, "not a delivered file")
+            path = os.path.realpath(parse_qs(u.query).get("p", [""])[0])
+            allowed = allowed_media(eq.load_config(), q.load())
+            if path not in allowed or not os.path.isfile(path):
+                return self._send(404, "not a current hash-bound review file")
+            if allowed[path] and asset.sha256(path) != allowed[path]:
+                return self._send(409, "review file changed; refresh the approval packet")
             size = os.path.getsize(path)
             m = re.match(r"bytes=(\d*)-(\d*)", self.headers.get("Range", ""))
             start = int(m.group(1)) if m and m.group(1) else 0
             end = min(int(m.group(2)) if m and m.group(2) else size - 1, size - 1)
             self.send_response(206 if m else 200)
-            self.send_header("Content-Type", "video/mp4"); self.send_header("Accept-Ranges", "bytes")
+            self.send_header("Content-Type", mimetypes.guess_type(path)[0] or "application/octet-stream")
+            self.send_header("Accept-Ranges", "bytes")
             self.send_header("Content-Length", str(end - start + 1))
             if m:
                 self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
@@ -271,11 +384,15 @@ class Handler(BaseHTTPRequestHandler):
         self._send(404, "not found")
 
     def do_POST(self):
-        if urlparse(self.path).path != "/verdict" or self.headers.get("X-Edit-Queue") != "1":
+        route = urlparse(self.path).path
+        if route not in ("/verdict", "/asset-verdict") or self.headers.get("X-Edit-Queue") != "1":
             return self._send(403, "forbidden")
         try:
             b = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))))
-            ok, msg = record_verdict(b["job"], b["verdict"], (b.get("words") or "").strip(), b.get("systemic") or "")
+            if route == "/asset-verdict":
+                ok, msg = record_asset_decisions(b["job"], b.get("decisions"))
+            else:
+                ok, msg = record_verdict(b["job"], b["verdict"], (b.get("words") or "").strip(), b.get("systemic") or "")
         except Exception as e:
             ok, msg = False, f"error: {e!s:.120}"
         self._send(200 if ok else 400, msg, "text/plain; charset=utf-8")

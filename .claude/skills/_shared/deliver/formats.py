@@ -47,7 +47,7 @@ ALL_ROWS = (
     "captions:graphic_clearance", "captions:card_collision", "captions:burned",
     "captions:within_runtime", "captions:sync",
     "compliance:banned_screen", "compliance:labels", "compliance:drug_names",
-    "compliance:negative_events", "compliance:script_fidelity",
+    "compliance:negative_events", "compliance:script_fidelity", "compliance:placeholder",
     "watch:pass", "srt:present", "srt:shape",
 )
 
@@ -159,6 +159,7 @@ def _common(drop=(), **over):
         "compliance:drug_names": dict(pattern=_DRUGS),
         "compliance:negative_events": dict(_NEGEV),
         "compliance:script_fidelity": dict(min_ratio=0.95),
+        "compliance:placeholder": dict(required=True),
         # 0.95: website-video/recipe/qc.py and ad-edit/rev5/qc5.py both landed here independently;
         # below it a dropped half-sentence at a join stops being visible.
         "captions:graphic_clearance": dict(min_px=20, min_state_corr=0.60),

@@ -19,3 +19,10 @@ Updated 2026-09-16 from Dan’s approval of the Ad 3 square revision. Applies to
 5. Follow existing shared audio/delivery gates and the workflow’s independent-review requirements. Record Dan’s approval or rejection against the exact file in the regression corpus. Human motion approval does not turn failed or unmeasured machine checks into passes; an unimplemented camera-motion check stays PENDING. Changes to gate code, thresholds or settings still require the full regression corpus.
 
 Source-specific pixel widths, sampling bands, smoothing periods and speed limits are recipe parameters, not defaults for every video.
+
+## Horizontal footage stays completely static — Dan, 2026-09-17
+
+- **No added camera movement or recentering on Dan in horizontal/16:9 videos.** No tracking, pan, drift, animated crop or zoom to follow or center him. Choose a fixed composition for each shot and leave it fixed. This supersedes earlier horizontal exceptions for approaching the frame edge; tracking is only for square/vertical layouts when actually needed.
+- Ordinary cuts between fixed compositions remain editing cuts, not camera motion. Graphics may animate without moving the presenter picture beneath them. Check actual rendered background landmarks: a fixed-X setting alone does not prove a static picture. If the camera source itself drifts, resolve that in source choice/stabilization rather than silently claiming the delivered picture is static.
+- Dan approved C1652 R4 as good enough to ship despite a small remaining movement near1:09. Do not reopen that accepted film to enforce the future rule. Its approved master is SHA256 `eace1bdbb9f7a16fadff8bb2d2e80812ea4e777cf413a1e06575527f95d64f44`.
+- C1652’s Zepbound text size is approved. Dan would prefer a third benefit, “Makes you serious about fat loss,” in a future relevant treatment; he accepted the existing two-row graphic in this final film. Do not expand its content without speech/timing context in future work.

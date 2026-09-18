@@ -161,7 +161,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- `handoff-20260918-ds04-install-vacuum-short.md` — install the finished vacuum short when Dan finalizes it. ⚠ no TikTok without a cover. Codex Astra/high.
+- `handoff-20260918-ds04-install-vacuum-short.md` — install DS-04 on Dan's OK. ⚠ no TikTok without a cover. Codex Astra/high.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.

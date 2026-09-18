@@ -5,7 +5,7 @@
 > It must **fail every rejected file** and **pass every approved one**.
 
 ```bash
-python3 run.py                 # the audio selftest, then every gate we have, over every entry
+python3 run.py                 # audio + watch + placeholder selftests, then every gate over every entry
 python3 run.py --id website-rev3
 python3 run.py --extract       # rebuild the git-ignored excerpt cache from the masters
 python3 run.py --fingerprint   # re-record sha256 after a DELIBERATE re-render
@@ -94,6 +94,12 @@ A gap is not a bypass, and must never become one:
    is built. That is the only moment the quote and the measurement are both to hand.
 5. **A new approval becomes an entry too.** Half of this corpus's value is stopping a gate from
    blocking good work.
+
+`compliance:placeholder` is registered as a shared delivery-gate row. Its fail/pass proof is an
+isolated synthetic fixture (`deliver/tests/test_placeholder_gate.py`) rather than a production
+master: the same fake flow first has an open placeholder packet, then a complete hash-bound packet,
+and a separately judged visible chip fails even if marked accepted. `run.py` executes that fixture
+before it reads any corpus master.
 
 ## Adding an entry
 

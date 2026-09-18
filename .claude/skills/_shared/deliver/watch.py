@@ -71,7 +71,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(HERE)))
 
 from _shared.deliver import common as C                      # noqa: E402
 
-WATCH_VERSION = "1.0.0"   # 2026-09-16  Phase 3: one module for all six skills
+WATCH_VERSION = "1.1.0"   # 2026-09-18: placeholder is an explicit, non-waivable checklist item
 
 # ---------------------------------------------------------------------------- the scan settings
 # ⚠ These are part of the naked-splice calibration in formats.py. Change one and re-measure.
@@ -138,6 +138,8 @@ CHECKLIST = [
      "the build that shipped 7 lower thirds, 3 CTA pills and 11 flashes invisible"),
     ("ai_giveaway", "an AI clip giveaway: breath smoke, a fogging mirror, melting hands, drifting objects",
      "memory ai-clip-artifact-giveaways; website-video rev 4/5"),
+    ("placeholder", "any visible PLACEHOLDER — <id> chip or other temporary approval slate",
+     "edit-queue Phase 2: a draft may never become a delivery"),
 ]
 VERDICTS = ("clean", "defect", "expected")
 # expected = the strip shows a change the plan declares (a dissolve into an insert, a card popping
@@ -152,7 +154,7 @@ def judge_prompt(video, out, log, n_sheets, n_strips):
 You are the independent judge of the watch pass on `{os.path.abspath(video)}`. Nothing about this file has
 been looked at by a person yet; you are that person. Be skeptical: the session that built it believes it is fine.
 
-1. Read `{out}/CHECKLIST.md` -- the ten items, each with the rejection it comes from.
+1. Read `{out}/CHECKLIST.md` -- all {len(CHECKLIST)} items, each with the rejection it comes from.
 2. Look at EVERY image, one at a time, and give EVERY image a verdict. There are {n_sheets} contact sheets in
    `{out}/sheets/` and {n_strips} boundary strips in `{out}/strips/` (each strip has a `pair_*` image beside it:
    the -1|0 frames at half resolution -- read the pair whenever a strip suggests a cut). Do not sample. Do not

@@ -14,7 +14,7 @@
   "not_queued": ["RX"],
 
   "unattended": {
-    "_why": "Phase 1 pilot: jobs with no AI-clip slots, small only. Widen in Phase 3, after Phase 2 builds the placeholder flow for raw cuts.",
+    "_why": "Small secondary-cut pilot remains deliberately unchanged after Phase 2 added asset approval. Widen only after an explicit production-pilot decision.",
     "groups": ["AV", "AS", "SL"],
     "sizes": ["S"],
     "launch_states": ["frames_approved", "ready"],
@@ -40,6 +40,20 @@
     "stale_minutes": 45,
     "heartbeat_minutes": 5,
     "max_job_hours": 10
+  },
+
+  "asset_approval": {
+    "schema_version": 1,
+    "packet_name": "placeholders.json",
+    "allowed_source_roots": [
+      "Media",
+      "photos",
+      "YouTube Long Form Video Content",
+      "Short-form video content",
+      "/Volumes/Extreme"
+    ],
+    "approved_clip_registry": "/Volumes/Extreme/_edit_work/_approved_clips/index.json",
+    "_why": "Only hash-bound files inside the claimed work directory or these explicit source roots may enter an approval packet. The registry stays empty until a finalized video proves an unchanged clip was approved."
   },
 
   "review": {

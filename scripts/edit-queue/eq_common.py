@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 CONFIG = os.environ.get("EDIT_QUEUE_CONFIG") or os.path.join(HERE, "config.json")   # env override: tests only
 SCOREBOARD = os.environ.get("EDIT_QUEUE_SCOREBOARD") or os.path.join(HERE, "scoreboard.json")
-PAUSE_FILE = os.path.join(HERE, "PAUSE")
+PAUSE_FILE = os.environ.get("EDIT_QUEUE_PAUSE_FILE") or os.path.join(HERE, "PAUSE")
 PREAMBLE = os.path.join(HERE, "preamble.md")
 REVIEWER_BRIEF = os.path.join(HERE, "reviewer-brief.md")
 
@@ -75,6 +75,15 @@ def paused_reason(job_id, executor, cfg):
 
 def work_dir(cfg, job_id):
     return os.path.join(cfg["work_root"], job_id)
+
+
+def asset_allowed_roots(cfg):
+    """Resolve the explicit packet source roots. Relative entries are repo-relative."""
+    out = []
+    for root in cfg.get("asset_approval", {}).get("allowed_source_roots", []):
+        root = os.path.expanduser(root)
+        out.append(os.path.abspath(root if os.path.isabs(root) else os.path.join(ROOT, root)))
+    return out
 
 
 def non_queue_files(path):
@@ -211,6 +220,10 @@ def scoreboard_latest(job_id):
     return runs[-1] if runs else None
 
 
+def scoreboard_get(run_id):
+    return next((r for r in scoreboard_load()["runs"] if r["run_id"] == run_id), None)
+
+
 def new_run_row(job, executor, cfg, now=None):
     now = now or datetime.datetime.now()
     revision_number = int((job.get("queue_revision") or {}).get("round", 0))
@@ -222,6 +235,14 @@ def new_run_row(job, executor, cfg, now=None):
         "first_pass_gate": None, "revision_number": revision_number, "revision_rounds": revision_number,
         "model_usage": [], "paid_provider_costs": None, "generation_spend_usd": None,
         "dan_verdict": None, "dan_words": None, "systemic_reason": None, "corpus_entry": None,
+        "asset_flow": {
+            "schema": 1, "launch_state": job.get("state"), "packet_visible_at": None,
+            "stage_one_ended": None, "assets_approved_at": None, "finishing_started": None,
+            "finishing_ended": None, "human_wait_hours": None,
+            "approval_submissions": 0, "approval_rejections": 0,
+            "full_render_count": 0, "reused_scenes": [], "rebuilt_scenes": [],
+            "reused_audio": None, "reused_transcript": None, "reused_assets": [],
+        },
         "log": os.path.join(work_dir(cfg, job["id"]), "queue-run.log"),
     }
 
@@ -239,7 +260,9 @@ def model_usage_record(executor, cfg, role, output=""):
         "input_tokens": None,
         "cached_input_tokens": None,
         "output_tokens": None,
+        "available_tokens": None,
         "measurement": "available_total_only" if match else "unavailable",
         "reason": ("CLI exposed only total tokens; input/output/cache split is unavailable."
                    if match else "Per-session token counts were not exposed in this CLI output; account-wide allowance is not attributed to one video."),
+        "available_tokens_reason": "The executors do not expose a per-session or per-video remaining-token allowance.",
     }

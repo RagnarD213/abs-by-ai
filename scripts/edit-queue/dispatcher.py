@@ -166,7 +166,7 @@ def ineligible_reason(job, cfg, facts, calls, active):
         return "open 'Your calls' row in 00-MASTER.md"
     if jid in active:
         return "named in AI_COORDINATION.md ACTIVE (another session owns it)"
-    if facts["work_dirs"].get(jid) and not job.get("queue_revision"):
+    if job["state"] == "ready" and facts["work_dirs"].get(jid) and not job.get("queue_revision"):
         return f"work directory already exists ({facts['work_dirs'][jid][0]}): in flight or half-built, needs a look"
     why = eq.paused_reason(jid, ex, cfg)
     if why:
@@ -233,8 +233,9 @@ def decide(data, cfg, facts, scoreboard):
     calls, active = your_calls_jobs(facts["master"]), board_active_jobs(facts["board"])
     rank = {s: i for i, s in enumerate(cfg["unattended"]["launch_states"])}
     cands = []
-    # a revision Dan asked for goes first: finish half-done videos before starting new ones
-    for j in sorted(jobs, key=lambda j: (0 if j.get("queue_revision") else 1, rank.get(j["state"], 99), j.get("order", 9999))):
+    # Finish an approved stage-one cut before any ready work; within ready, Dan's revision goes first.
+    for j in sorted(jobs, key=lambda j: (rank.get(j["state"], 99),
+                                         0 if j.get("queue_revision") else 1, j.get("order", 9999))):
         why = ineligible_reason(j, cfg, facts, calls, active)
         ex = eq.executor_for(j["id"], cfg)
         if not why and ex in out["executor_stops"]:
@@ -271,18 +272,30 @@ def launch(job_id, executor, cfg, by_hand=False):
         if not ok:
             return False, why
         job = q.find(data, job_id)
-        row = eq.new_run_row(job, executor, cfg)
-        row["by_hand"] = by_hand
+        launch_state = job["state"]
+        prior = eq.scoreboard_latest(job_id) if launch_state == "frames_approved" else None
+        reuse_row = bool(prior and prior.get("asset_flow", {}).get("stage_one_ended") and
+                         not prior.get("asset_flow", {}).get("finishing_ended"))
+        if reuse_row:
+            row = prior
+            flow = dict(row.get("asset_flow") or {})
+            flow.update(finishing_started=q.now_iso(), launch_state="frames_approved")
+            eq.scoreboard_update(row["run_id"], outcome="running", ended=None, asset_flow=flow)
+        else:
+            row = eq.new_run_row(job, executor, cfg)
+            row["by_hand"] = by_hand
+            eq.scoreboard_add(row)
         wd = eq.work_dir(cfg, job_id)
         os.makedirs(wd, exist_ok=True)
         log = open(os.path.join(wd, "queue-runner.log"), "a")
-        proc = subprocess.Popen(["/usr/bin/caffeinate", "-i", sys.executable, runner, job_id, executor, row["run_id"]],
+        proc = subprocess.Popen(["/usr/bin/caffeinate", "-i", sys.executable, runner, job_id, executor,
+                                 row["run_id"], launch_state],
                                 stdin=subprocess.DEVNULL, stdout=log, stderr=log, cwd=eq.ROOT, start_new_session=True)
         job["claim"]["pid"] = proc.pid
+        job["claim"]["launch_state"] = launch_state
         job["queue_owned"] = True
         q.set_state(data, job_id, "in_progress", f"edit queue ({executor})")
         q.save(data)
-    eq.scoreboard_add(row)
     q.master_status(job_id, q.STATES["in_progress"])
     q.push_drive(q.load())
     return True, f"launched {job_id} with {executor} (runner pid {proc.pid}); log {wd}/queue-run.log"

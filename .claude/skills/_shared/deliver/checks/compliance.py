@@ -8,6 +8,8 @@ side-by-side before/after reached the delivered spray-tan longform for 5.6 s at 
 AI-GENERATED label check existed in `qc_frame.py` for `/ad-edit` only while `/make-ad` states the
 same requirement with no check behind it.
 """
+import importlib.util
+import json
 import os
 import re
 import shutil
@@ -19,6 +21,77 @@ import numpy as np
 from .. import common as C
 from .. import contract as CONTRACT
 from ..common import Row, unmeasured
+
+
+# ---------------------------------------------------------------------------- queue placeholder approval
+def _asset_module():
+    root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", ".."))
+    path = os.path.join(root, "scripts", "edit-queue", "asset_approval.py")
+    spec = importlib.util.spec_from_file_location("deliver_asset_approval", path)
+    if not spec or not spec.loader:
+        raise RuntimeError(f"queue asset validator is missing: {path}")
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    return mod, root
+
+
+def _approval_roots(root):
+    path = os.path.join(root, "scripts", "edit-queue", "config.json")
+    with open(path) as fh:
+        cfg = json.load(fh)
+    roots = []
+    for value in cfg.get("asset_approval", {}).get("allowed_source_roots", []):
+        roots.append(os.path.abspath(value if os.path.isabs(value) else os.path.join(root, value)))
+    return roots
+
+
+def placeholder(key, pr, cfg, plan, video, work):
+    """No queue approval placeholder, pending choice, or stale approved asset can ship.
+
+    No packet means this optional flow was not used and is a measured PASS. Once a packet exists,
+    the queue-owned schema validator is authoritative and every approval/input/final/render/watch
+    hash is recomputed against this exact delivered file. The watch pass is a second independent
+    backstop: `placeholder` is non-waivable even if another defect could be accepted by Dan.
+    """
+    packet_path = plan.get("placeholders")
+    adjacent = os.path.join(work, "placeholders.json")
+    if not packet_path and os.path.isfile(adjacent):
+        packet_path = adjacent
+    watch = plan.get("watch_log")
+    if packet_path and (not watch or not os.path.isfile(watch)):
+        return Row(key, False, "placeholder-flow delivery has no readable watch_log")
+    watched = None
+    if watch and os.path.isfile(watch):
+        try:
+            with open(watch) as fh:
+                watched = json.load(fh)
+        except Exception as exc:
+            return Row(key, False, f"watch_log is unreadable: {exc}")
+        if "placeholder" not in (watched.get("checklist") or []):
+            return Row(key, False, "watch_log predates the mandatory placeholder checklist item")
+        visible = [x for x in watched.get("judged") or []
+                   if x.get("verdict") == "defect" and x.get("item") == "placeholder"]
+        if visible:
+            return Row(key, False, f"watch judge saw {len(visible)} visible placeholder(s); this defect cannot be waived")
+    if not packet_path:
+        return Row(key, True, "asset-approval flow not used; watch checklist reports no visible placeholder")
+    if not os.path.isfile(packet_path):
+        return Row(key, False, f"placeholders packet is missing: {packet_path}")
+    try:
+        asset, root = _asset_module()
+        packet = asset.read_packet(packet_path, os.path.dirname(packet_path), _approval_roots(root),
+                                   require_complete=True, delivered_video=video, watch_log=watch)
+    except Exception as exc:  # schema/path/hash failures are all delivery failures
+        return Row(key, False, f"placeholder packet refused: {exc}")
+    delivery = packet.get("delivery") or {}
+    if os.path.realpath(str(delivery.get("watch_log") or "")) != os.path.realpath(watch):
+        return Row(key, False, "packet and delivery plan name different watch logs")
+    if watched.get("sha256") != plan.get("_sha256") or watched.get("inspected") is not True:
+        return Row(key, False, "watch_log is not inspected and hash-bound to this delivered render")
+    return Row(key, True,
+               f"schema-1 packet complete: {len(packet['items'])} approved choices and inserted clips; "
+               "all source, draft, clip, watch and delivery hashes match",
+               dict(packet=os.path.abspath(packet_path), items=len(packet["items"]),
+                    delivery_sha256=delivery.get("sha256"), watch_log_sha256=delivery.get("watch_log_sha256")))
 
 
 # ---------------------------------------------------------------------------- banned screens

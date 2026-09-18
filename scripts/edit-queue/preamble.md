@@ -9,8 +9,8 @@ You are running unattended from the overnight edit queue; Dan is not available. 
   Where the job text says "send me the review copy" or "upload", do not: leave the files on disk.
   (The one exception is not a publish: `scripts/edit-queue/queue.py` syncs a small status file to Dan's private
   Drive every time it sets a state. That is how his queue page updates. Run `queue.py` normally; never suppress it.)
-* **Never spend beyond this video's remaining $5 generation budget.** Do not generate AI motion clips: follow the
-  placeholder flow in `Handoffs/handoff-20260917-overnight-edit-queue.md` §5.
+* **Never spend beyond this video's remaining $5 generation budget.** In stage one, do not generate AI motion:
+  create the schema-1 packet through `scripts/edit-queue/asset_approval.py` and keep cutting with placeholders.
 * **Your work directory is `{WORKDIR}`.** Use it even if the job doc names another folder for this job. Never run a
   script inside another session's build directory; copy what you need.
 * **One editor owns this candidate.** Do not spawn a planning or supervisory agent. Read `WORK_PACKET.json` first;
@@ -37,7 +37,22 @@ You are running unattended from the overnight edit queue; Dan is not available. 
   complete candidate exists; do not wait for or poll that reviewer.
 * Commit docs and scripts only, never media, and never another session's uncommitted files.
 
-**When the edit is finished,** write `{WORKDIR}/DELIVERY.json`:
+**Stage one with approval items:** create `{WORKDIR}/placeholders.json` early, then write
+`{WORKDIR}/DRAFT-DELIVERY.json` and exit. Required fields are `schema: 1`, `gate: "DRAFT"`, `revision_count`, the
+absolute `packet` path, `packet_material_fingerprint`, `draft_sha256`, `stage_one_ended`, `full_render_count`,
+`generation_spend_usd`, and itemized `paid_provider_costs`. Do not write `DELIVERY.json`, call the final reviewer,
+generate motion, or claim PASS. The runner owns the state transition.
+
+**A finishing launch:** validate the current packet with `asset_approval.py validate --approved`, generate/insert
+only its approved choices, rebuild exactly its `affected_scenes` and `boundary_joins`, then use `mark-complete` to
+bind every final clip, the watch log and delivered render. Run the current shared gate; `compliance:placeholder`
+must PASS. Append every paid attempt—including a failed generation—to `DRAFT-DELIVERY.json.paid_provider_costs` as
+it happens, and list finishing costs in `DELIVERY.json`; never lose an attempt when a provider call fails. Write
+`DELIVERY.json` only after the gate passes. Each file's `generation_spend_usd` is session-only: stage-one spend in
+`DRAFT-DELIVERY.json`, finishing spend in `DELIVERY.json`. The queue adds both to prior spend and refuses a final that
+crosses the packet's hard $5 ceiling.
+
+**A one-stage job with no approval items, or a completed finishing launch,** writes `{WORKDIR}/DELIVERY.json`:
 
 ```json
 {"files": ["<absolute path of every delivered video>"], "review_copy": "<absolute path of the REVIEW 540p copy>",
@@ -49,6 +64,9 @@ You are running unattended from the overnight edit queue; Dan is not available. 
    "assets": {"status": "reused", "evidence": "REUSE_REPORT.json"}},
  "generation_spend_usd": 0,
  "paid_provider_costs": [{"provider": "Replicate", "purpose": "motion", "usd": 0.25}],
+ "placeholders": "<absolute placeholders.json, finishing only>", "watch_log": "<absolute shared watch log>",
+ "asset_rebuild": {"rebuilt_scenes": [], "rebuilt_joins": [], "reused_scenes": [],
+   "reused_assets": [], "full_render_count": 1},
  "summary": "<two plain sentences for Dan: what this is and what his call is>"}
 ```
 

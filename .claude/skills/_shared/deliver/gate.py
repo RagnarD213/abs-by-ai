@@ -57,7 +57,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.1.0"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.2.0"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -69,6 +69,8 @@ GATE_VERSION = "2.1.0"        # 1.1.0: an insert may declare its own label chip 
                               # format and requires a judged log from _shared/deliver/watch.py;
                               # cut:naked_splices (native-rate peak-block instrument + alignment
                               # test); cut:black_frames now scans every frame, not 6 fps.
+                              # 2.2.0  2026-09-18: compliance:placeholder is a hard, hash-bound
+                              # all-format row for the queue's two-stage asset approval flow.
 
 STAMP_SUFFIX = ".deliver_gate.json"
 
@@ -108,6 +110,8 @@ PLAN_KEYS = """
   banned_source / banned_times     the recording that contains the banned app screens
   watch_log                        logs/watch_pass.json, naming this file's sha256 -- written by
                                    _shared/deliver/watch.py and judged (--judge) before the gate
+  placeholders                     queue schema-1 placeholders.json; when present it must be
+                                   complete and hash-bind approvals, inserted clips, watch and video
   source_picture                   the render BEFORE graphics were composited, for the watch
                                    pass's graphic-presence check (a `graphics[].mov` also serves)
   negative_events_scan             {sha256, when, frames_checked, findings}
@@ -154,6 +158,7 @@ ROWS = {
     "compliance:drug_names":      ("work", COMP.drug_names),
     "compliance:negative_events": ("work", COMP.negative_events),
     "compliance:script_fidelity": ("work", COMP.script_fidelity),
+    "compliance:placeholder":     ("work", COMP.placeholder),
     "watch:pass":                 ("work", PROC.watch_pass),
     "srt:present":                ("work", PROC.srt_present),
     "srt:shape":                  ("work", PROC.srt_shape),
@@ -178,7 +183,7 @@ def load_plan(path, video):
         plan = json.load(open(path))
         base = os.path.dirname(os.path.abspath(path))
         for k in ("reference_cut", "captions_ass", "srt", "source_audio", "banned_source",
-                  "watch_log", "his_mix", "source_picture"):
+                  "watch_log", "his_mix", "source_picture", "placeholders"):
             if plan.get(k) and not os.path.isabs(plan[k]):
                 plan[k] = os.path.normpath(os.path.join(base, plan[k]))
         for g in (plan.get("graphics") or []):
@@ -220,7 +225,7 @@ def run(video, fmt, plan_path=None, only=None):
             out.append(Row.na(key, na[key]))
             continue
         # 2. this BUILD says it does not apply -- a written reason in its own plan.json
-        if key in declared:
+        if key in declared and key != "compliance:placeholder":
             out.append(Row.na(key, f"declared by this build: {declared[key]}"))
             continue
         # 3. the format never answered for it. That is the bug, and it fails.

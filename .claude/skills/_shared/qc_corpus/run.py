@@ -87,6 +87,7 @@ IMPLEMENTED = {
     "framing:centering": "deliver_gate", "framing:no_wide_level": "deliver_gate",
     "framing:push_coverage": "deliver_gate",
     "compliance:banned_screen": "deliver_gate",
+    "compliance:placeholder": "deliver_gate",
     # Phase 3 (2026-09-16): the watch pass's instrument. NOT cut:uncovered_joins under a new name --
     # that row reads ad1-vertical-attempt1 at 0.0/min; this one is built on the peak block of a
     # native-rate grid plus a global-alignment test (see _shared/deliver/watch.py).
@@ -370,7 +371,7 @@ def main():
     if not A.no_selftest and not A.id:
         t_ = os.path.join(SHARED_DELIVER, "tests", "test_watch_scan.py")
         print("_shared/deliver/tests/test_watch_scan.py ...", flush=True)
-        r = subprocess.run([sys.executable, "-m", "unittest", "-q", t_], capture_output=True, text=True,
+        r = subprocess.run([sys.executable, t_], capture_output=True, text=True,
                            cwd=os.path.dirname(SHARED_DELIVER))
         ok_ = r.returncode == 0
         tail = [l for l in (r.stdout + r.stderr).splitlines() if l.strip()][-1:]
@@ -378,6 +379,17 @@ def main():
         if not ok_:
             print((r.stdout + r.stderr)[-3000:])
             print("\nCORPUS FAIL -- the watch scan's own fixture is failing; fix that first.")
+            return 1
+        t_ = os.path.join(SHARED_DELIVER, "tests", "test_placeholder_gate.py")
+        print("_shared/deliver/tests/test_placeholder_gate.py ...", flush=True)
+        r = subprocess.run([sys.executable, t_], capture_output=True, text=True,
+                           cwd=os.path.dirname(SHARED_DELIVER))
+        ok_ = r.returncode == 0
+        tail = [l for l in (r.stdout + r.stderr).splitlines() if l.strip()][-1:]
+        print(f"  {'PASS' if ok_ else 'FAIL'}  {tail[0].strip() if tail else ''}")
+        if not ok_:
+            print((r.stdout + r.stderr)[-3000:])
+            print("\nCORPUS FAIL -- the placeholder gate's own fixture is failing; fix that first.")
             return 1
     print(f"\nQC CORPUS  {len(entries)} entries  (corpus v{corpus['version']}, {corpus['updated']})\n")
     out, t0 = [], time.time()
