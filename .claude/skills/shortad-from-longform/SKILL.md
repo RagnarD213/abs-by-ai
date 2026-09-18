@@ -2209,3 +2209,68 @@ The reference editor does not know Dan's ad rules. Check every beat you are repr
    "a gold picture" and "WuWu stuff" — three spelling mistakes in a finished ad. Keep an
    explicit correction map in `captions.py`, and break caption groups at full stops or
    you get "life. You're more" as one card.
+
+---
+
+## [A13] Ad 1's 9:16 ≤0:59 (AV-01, 2026-09-18) — a VERTICAL cutdown of an approved vertical, and two instruments that lied
+
+Built unattended by the overnight edit queue. Scripts: `reference/a13_av01_ad1_vert59/`
+(`vcutdown.py`, `vlabelplace.py`, `chips.py`, `chiplocate.py`, `vcut_build.py`, `cut_edl.py`,
+`plan_v.py`, `align_frames.py`) — all of them [A11]'s square scripts re-pointed at 1080×1920.
+The whole job is **[A11] again with the geometry already correct**, so start there and change
+`MASTER_FRAMES`, the picture path and `captions.py`'s `VW, VH`. Four new things came out of it.
+
+1. **A frame-count difference between two masters is a MEASUREMENT, not an assumption.** Ad 1's
+   approved vertical is 6,977 frames against Muhammad's and the square's 6,976, and the job doc
+   said "map every cut accordingly". Before mapping anything, `align_frames.py` correlated the two
+   masters' frame-to-frame **difference profiles** in 200-frame windows across the whole film:
+   lag 0 in every window (global r 0.975 at lag 0 against 0.48 at lag ±1). The extra frame is at
+   the TAIL — the vertical's final mux took its length from its longest input — so the square's
+   proven frame indices transferred **unchanged** and the plan landed on the same 1,493 frames.
+   Ten minutes of measurement replaced a whole re-derivation. Do this any time two cuts of the
+   same film disagree on length: it is cheap, and it also proves there is no drift in the middle.
+
+2. **⚠ THE PERSON MASK CANNOT BE RUN ON A FRAME THAT ALREADY CARRIES THE CHIP.** Apple Vision
+   absorbs the chip into the person. Measured here: the delivered frames of a labelled beat mask
+   from y=149 — exactly the chip's top edge — while the same content **without** the chip masks
+   from y=244, where the top of his hair actually is. A clearance check run that way reported the
+   whole 644×56 box as "contact" on a chip with a 94 px gap above his head. That is [A11]'s audit
+   finding 5 all over again (a correct file failing because of the instrument). **Split the
+   instrument, never the bound:** clearance on the MASTER's own pixels at the same frames (8 px
+   dilation, as `_shared/deliver` measures it), presence on the DELIVERED pixels (the chip box must
+   correlate ≥ 0.99 with the chip drawn over that master frame), and a **negative control** in the
+   same run — the same box dropped onto his torso must FAIL, or the clearance test is permissive
+   and you cannot tell. `vlabelplace.py --verify` does all three and prints the control.
+
+3. **A semi-transparent chip over a BRIGHT picture cannot be graded against a gray reference.**
+   `compliance:labels` composites the declared chip over gray(80); our chip is black at 215/255, so
+   16 % of the picture behind it bleeds through. On the same film, the same chip drawn by the same
+   call reads **0.929** over a dim gym card and **0.825** over a bright pool card — one side of the
+   0.85 bound each, with the label present and correct on every frame. The bound is right and must
+   not move. Declare the insert's own `chip` cropped from **the frame its position was measured on**
+   (the gate then samples three *other* frames, so the row proves the chip is present and steady),
+   and record the independently-rendered-template numbers beside it so nothing is hidden.
+   ⚠ Crop from the frame you located the chip on, not a different one: cropping the 0.2-of-beat
+   frame at the 0.5-of-beat frame's position put one reference 6 px off its own chip and the gate
+   read **0.22** on a perfect label.
+
+4. **A frame-exact selection inherits every defect of the master, and a 2026-09-16 watch pass will
+   find all of them.** The independent judge returned 10 distinct defects — six one-frame subject
+   jumps at Dan's own take splices, two white card-out transitions that strobe (three near-white
+   frames interleaved with half-bright), captions over a tight physique photo and over a card, and
+   a floating AI artifact — and **every one was verified to be in the approved master's own
+   pixels** (identical luma series, identical frames by index). `watch:pass` still FAILS, correctly:
+   a defect closes only by a re-render or by Dan's own words. **So when you cut down an approved
+   master, budget for that conversation**: the deliverable is the cut plus a table saying, defect by
+   defect, which are the master's and which are yours. Verify each one against the master before you
+   write that table — one of the ten did not survive checking (a "splice" that was Dan's hand
+   moving inside a continuous shot), and reporting it as inherited would have been just as wrong as
+   reporting it as new.
+
+5. **`framing:push_coverage` can miss the hold that carries the spread.** The row read ×1.039
+   against a ×1.1 minimum on three holds; an independent person-mask measurement (chest width 320 px
+   below the hair top, 25 samples over the four talk stretches) read 509 / 579 / 501 / 607 px = ×1.21,
+   and the approved master itself reads ×1.22 on the row's own reference table. The gate found no
+   hold at all in the last talk stretch — the widest-to-tightest one. Report it as a finding about
+   the instrument, measure it independently so the claim is not just an opinion, and **do not touch
+   the bound or edit the plan to make the row pass**.
