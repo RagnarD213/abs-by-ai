@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-09-16",
+  "updated": "2026-09-18",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work"
@@ -1401,6 +1401,295 @@
       "scope": "r1-generation 640.7401–652.7521 actual same-man generation sequence."
     },
     {
+      "id": "c1652-r2-feedback-20260917-action-start",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/assets/action-start.png",
+      "sha256": "cdced3f097d9b5f29c28b70e6b147820256dc978384b8c037e4b9af80de683de",
+      "bytes": 2044623,
+      "verdict": "approved",
+      "dan": "All of the start and end frames for the AI clips are looking good.",
+      "scope": "Displayed current asset and previously proposed action approved; no reapproval for unchanged endpoints. Generated motion itself still needs QA.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-action-end",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/assets/action-end.png",
+      "sha256": "912405e34cd12ba918aba9dde3a9f4f190d8fd12bf36ad64fb57cad002685c3f",
+      "bytes": 1973754,
+      "verdict": "approved",
+      "dan": "All of the start and end frames for the AI clips are looking good.",
+      "scope": "Displayed current asset and previously proposed action approved; no reapproval for unchanged endpoints. Generated motion itself still needs QA.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-action-later",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/assets/action-later.png",
+      "sha256": "2f6a9380bf4beb0edd63f10c545033e408ff6d7ff049c31b8997c652efcb4118",
+      "bytes": 1960728,
+      "verdict": "approved",
+      "dan": "All of the start and end frames for the AI clips are looking good.",
+      "scope": "Displayed current asset and previously proposed action approved; no reapproval for unchanged endpoints. Generated motion itself still needs QA.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-hiring-fictional",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/assets/hiring-fictional.png",
+      "sha256": "07c64e12afb6de328074fc55e71d3d7bd3f9befa725e16aa1082fec48b2dbc8a",
+      "bytes": 1976559,
+      "verdict": "approved",
+      "dan": "All of the start and end frames for the AI clips are looking good.",
+      "scope": "Displayed current asset and previously proposed action approved; no reapproval for unchanged endpoints. Generated motion itself still needs QA.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-anatomy-3d",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/assets/anatomy-3d.png",
+      "sha256": "cb0171929f1f00651860e7641731d085d2f6c951f23b0bdcfa274c8189f876e3",
+      "bytes": 2221333,
+      "verdict": "approved",
+      "dan": "All of the start and end frames for the AI clips are looking good.",
+      "scope": "Displayed current asset and previously proposed action approved; no reapproval for unchanged endpoints. Generated motion itself still needs QA.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-family",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/assets/family-pool-fictional.png",
+      "sha256": "f494f28d4c1324429f22d73137782d8315d185776f2b9e8f7fc95ef34cbc45a4",
+      "bytes": 2287893,
+      "verdict": "approved",
+      "dan": "All of the photos used are looking good.",
+      "scope": "Displayed family illustration approved.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-photos",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/review/photo-candidates.jpg",
+      "sha256": "7c30ca96690bee94dc262415aea13e81d4973718dbacb608c64484d477558326",
+      "bytes": 81026,
+      "verdict": "approved",
+      "dan": "All of the photos used are looking good.",
+      "scope": "Displayed real montage approved; keep accurate real-photo labels. No need to repeat old real-versus-AI clarification.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-voice",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/review/feedback-20260917/review-page-at-approval.html",
+      "sha256": "0a54dd26d869ddb6286d977b71bfcded82b386ac11232187fce4abe620925816",
+      "bytes": 5462,
+      "verdict": "approved",
+      "dan": "The voice is sounding good.",
+      "scope": "Approval of presented voice treatment. Page offered D as revised primary and C as earlier candidate; user did not name D versus C. Preserve primary D as working interpretation; do not falsely claim a named-file selection or approve rejected F. Bind exact primary and alternative hashes in approval manifest.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-zepbound",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/review/sample-339.372-350.95.mp4",
+      "sha256": "5f2db9fff3cb39bad24bbabae8d623c2c5702a4373972097009edbc080e7ec1e",
+      "bytes": 25922275,
+      "verdict": "approved-with-notes",
+      "dan": "For the graphics I like these graphics better but for this one in the screenshot, the Benefits of Zepbound, I feel like there's excessive space beneath it.",
+      "scope": "Keep treatment and two benefits; shrink panel to content, balance vertical/left spacing, change green per meal panel.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-stakes",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/review/sample-613.313-622.5.mp4",
+      "sha256": "e84bd4a80a1927a10b6d7333d9ed4a02b3fafebed7d63829486be33fa750ef92",
+      "bytes": 20951351,
+      "verdict": "approved-with-notes",
+      "dan": "I feel like that looks more filled out and makes sense for the size of the graphic for what we have; however I want to work on the spacing of this.",
+      "scope": "Keep six rows, balance top/bottom/left margins, change green.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-anatomy",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/review/sample-159.192-173.04.mp4",
+      "sha256": "eff3efec422eb4a4c7f8bd86a9f4ed9ec83ee2ed0280bb437eeec856fdd6a6e6",
+      "bytes": 13255504,
+      "verdict": "approved",
+      "dan": "I like this visceral fat full-screen graphic. I think that really illustrates the point well",
+      "scope": "Approve shown full-screen anatomy/callouts; no need to replace with speculative neural motion. Sample includes adjacent doctor footage; doctor reuse prohibition remains.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-meal",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/review/sample-435.135-450.651.mp4",
+      "sha256": "0164754c05585019eb49042d19664ffb508492aada1bf07a93c7d0cfd99ddcda",
+      "bytes": 30005353,
+      "verdict": "approved-with-notes",
+      "dan": "I'd like the functionality that you show. That's what we want to show.",
+      "scope": "Functionality approved; switch to genuine existing salmon flow, phone frame/no green panel, balanced spacing. Dark meal-panel green becomes other graphics palette.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-five-moves",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/review/sample-318.985-328.462.mp4",
+      "sha256": "d28a8ea481ddd1be3e1375a1372f628bb98ce5d68c2cf476698154cfd1a155dd",
+      "bytes": 21292322,
+      "verdict": "rejected",
+      "dan": "For the five moves all at once, I don't understand. That doesn't really make any sense to me. I don't like that graphic. We need to rethink that unless there's some context I'm not seeing. That doesn't really make any sense to me",
+      "scope": "Reject g29 title only. Separate five-action list g56 is not this screenshot and is not automatically rejected.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "c1652-r2-feedback-20260917-spiral",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r2/review/sample-271.838-285.886.mp4",
+      "sha256": "d17033d8c6ac78a792e359f60b85a3204d512dba8bab7058ecf603aab15c94c6",
+      "bytes": 14897446,
+      "verdict": "approved-with-notes",
+      "dan": "The downward spiral graphic, I like that. I think that illustrates the concept really well",
+      "scope": "Preserve concept/layout/motion; apply requested darker green palette only.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06f-organic-approved-r2-next-edit.md. No threshold or detector changes."
+    },
+    {
+      "id": "phase06-ad14-r2-r3-revisions-20260917",
+      "verdict": "rejected",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r2/AD14_REVISION_R2.mp4",
+      "sha256": "64d716995a75c3c66003887f2e6368cd132f46ee63dbcdda41fd0c4a1c28b796",
+      "bytes": 212244879,
+      "dan": "For this clip at 25 seconds of sixpackabs.com, I want to actually show this: not just a clip but the clip playing in the screen capture video of YouTube so you can see the view count, the channel name, and all that. The view count being visible is important for credibility. This footage at 2:26 is better because it's full screen but this is the raw footage. We want the final edited footage. Use the final edited footage from the video not the raw footage. At 2:17 I want you to fabricate the app demonstration with the after picture that you used in my before picture. Use the shirtless before picture of me where I'm wearing the sunglasses. Fake the generation and make it seem like I generated that after picture. Everything else is looking good so let's make those revisions.",
+      "scope": "Picture-only R3 request: g03 must retain the YouTube page with channel/view/subscriber credibility metrics; g17 may use the authorized simulated sunglasses-before to pool-goal generation; g18 must use the finished edited/color-corrected workout export rather than raw footage. Everything else is retained.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Direct human scoped editorial judgment; no automated predicate or full-film PASS claimed.",
+      "notes": "Handoffs/codex-video-trial/06g-ad14-r3-credibility-app-demo-and-final-footage.md. Standing source-reuse rules recorded in AGENTS.md and abs-edit-ad shared standards. No threshold or detector changes."
+    },
+    {
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r3/AD14_REVISION_R3.mp4",
+      "sha256": "0002d0e5a7313d1bb83e8e90270fd47fe45b503eec2fc881a0e0735d72274cf8",
+      "bytes": 213267584,
+      "feedback_path": "Media/codex-video-trial/records/ad14-r3-feedback-20260917-final-revisions/feedback.txt",
+      "id": "phase06-ad14-r3-archive-speaker-rejected",
+      "verdict": "rejected",
+      "excerpt": [
+        22.4557667,
+        8.008
+      ],
+      "dan": "This clip kind of makes me look like I'm Mike Chang's sidekick. I want it to look like I'm the main guy.",
+      "scope": "g03 only; full YouTube page treatment retained, select native close-up of Dan speaking.",
+      "must_trigger": [
+        "style:archive_dan_speaking_closeup"
+      ],
+      "must_pass": [],
+      "measured": "User rejection; semantic predicate is PENDING, not an implemented detector.",
+      "notes": "Use diet close-up for diet references, M100s close-up for exercise references; full page and metrics stay visible."
+    },
+    {
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r3/AD14_REVISION_R3.mp4",
+      "sha256": "0002d0e5a7313d1bb83e8e90270fd47fe45b503eec2fc881a0e0735d72274cf8",
+      "bytes": 213267584,
+      "feedback_path": "Media/codex-video-trial/records/ad14-r3-feedback-20260917-final-revisions/feedback.txt",
+      "id": "phase06-ad14-r3-workout-source-rejected",
+      "verdict": "rejected",
+      "excerpt": [
+        143.2764667,
+        5.4054
+      ],
+      "dan": "At 2:26 this is still not the right footage. This is the raw footage.",
+      "scope": "g18 only; source identity and finished/color-corrected treatment rejected.",
+      "must_trigger": [
+        "style:finished_workout_source_identity"
+      ],
+      "must_pass": [],
+      "measured": "R3 used Media/video_edit/out/abs_workout_final_edited.mp4, SHA982b52d9..., incorrectly classified as desired final. Dan specifies V4/V5 UPLOADED exports instead. Semantic source predicate is PENDING.",
+      "notes": "Never reuse the rejected source as a finished workout reference; do not trust final_edited filename."
+    },
+    {
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r3/AD14_REVISION_R3.mp4",
+      "sha256": "0002d0e5a7313d1bb83e8e90270fd47fe45b503eec2fc881a0e0735d72274cf8",
+      "bytes": 213267584,
+      "feedback_path": "Media/codex-video-trial/records/ad14-r3-feedback-20260917-final-revisions/feedback.txt",
+      "id": "phase06-ad14-r3-app-demo-approved",
+      "verdict": "approved",
+      "excerpt": [
+        132.4990333,
+        10.2102
+      ],
+      "dan": "App demo at 2:17 looks good. That's exactly what we need every time that I refer to me generating a photo of myself with AbsByAI",
+      "scope": "Only g17 demonstration/pixels/timing/disclosures approved; not whole R3 or global gate.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Explicit user approval bound to exact R3 hash and scene range; no new automated gate claim.",
+      "notes": "Reusable same-person sunglasses-to-pool simulation approved for future Dan-self-generation references. Retain internal simulated provenance and labels."
+    },
+    {
       "id": "ds17-r4-final-approved",
       "verdict": "approved",
       "date": "2026-09-17",
@@ -1420,6 +1709,105 @@
       ],
       "measured": "Dan approved after review. Current exact-file audio artifact check remains FAIL (flux0.0901/reference0.072; swirl0.9556/reference0.835). Delivery35PASS/1FAIL/0NOTMEASURED/3N/A; Astra visual0defects; caption50/50 within34ms.",
       "notes": "Explicit approval despite retained measurement failure: future corpus should expose TIGHT, not hide it with a known_gap or relaxed bound. No gate/threshold changes made at finalization. Approval record in support/records/dan-final-approval-20260917.json."
+    },
+    {
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r4/C1652_R4_PRIVATE_REVIEW.mp4",
+      "sha256": "eace1bdbb9f7a16fadff8bb2d2e80812ea4e777cf413a1e06575527f95d64f44",
+      "bytes": 1073659290,
+      "verdict": "approved-with-notes",
+      "must_trigger": [],
+      "must_pass": [],
+      "notes": "Evidence: Media/codex-video-trial/06-organic-r4/review/approval-20260917/approval.json. No gate or threshold changed; approval does not fabricate machine PASS.",
+      "id": "c1652-r4-20260917-final",
+      "dan": "Overall, this is looking excellent. Audio sounds good, AI clips look good, and framing is looking good. There was that one little camera motion issue but overall it was real good.\n\nOverall I think he did a great job with this video. There are a couple very nitpicky things that I could revise but I think this is good enough. The ship. Let's finalize this video, lock in these rules, and make a handoff document to upload and set this up in a new task",
+      "scope": "Whole finished film accepted as is for setup; residual camera motion and optional third Zepbound benefit accepted as notes.",
+      "measured": "Human approval; exact-file audio gate still FAILS edt/tone. Fresh full delivery gate/watch not completed; further review paused during Dan’s over-review discussion."
+    },
+    {
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r4/C1652_R4_PRIVATE_REVIEW.mp4",
+      "sha256": "eace1bdbb9f7a16fadff8bb2d2e80812ea4e777cf413a1e06575527f95d64f44",
+      "bytes": 1073659290,
+      "verdict": "approved-with-notes",
+      "must_trigger": [
+        "framing:camera_motion"
+      ],
+      "must_pass": [],
+      "notes": "Evidence: Media/codex-video-trial/06-organic-r4/review/approval-20260917/approval.json. No gate or threshold changed; approval does not fabricate machine PASS.",
+      "id": "c1652-r4-20260917-horizontal-motion",
+      "dan": "Okay at 109, there's still a little bit of camera movement. Ideally this would just be totally static. We don't need any camera movement in these types of horizontal videos let's make this a standing rule: no camera movement to center me in horizontal videos. There's no need for it.",
+      "scope": "Small remaining movement near1:09 is undesirable; whole film still accepted. Standing rule for future horizontal shots is completely static framing.",
+      "measured": "The previous sampled model review/fixed-X checks did not catch this human-visible residual movement. framing:camera_motion remains PENDING, not a measured PASS."
+    },
+    {
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-organic-r4/C1652_R4_PRIVATE_REVIEW.mp4",
+      "sha256": "eace1bdbb9f7a16fadff8bb2d2e80812ea4e777cf413a1e06575527f95d64f44",
+      "bytes": 1073659290,
+      "verdict": "approved-with-notes",
+      "must_trigger": [],
+      "must_pass": [],
+      "notes": "Evidence: Media/codex-video-trial/06-organic-r4/review/approval-20260917/approval.json. No gate or threshold changed; approval does not fabricate machine PASS.",
+      "id": "c1652-r4-20260917-zepbound",
+      "dan": "Okay for the Zepbound graphic at 5:43, I think it would have been a little bit better if you also included the third point that it makes you serious about fat loss. That text size is looking good though.",
+      "scope": "Text size approved; optional third benefit suggested, not a required current-film revision.",
+      "measured": "User feedback at5:43, screenshot hash recorded in approval manifest."
+    },
+    {
+      "id": "phase06-ad14-r4-final-approved-20260917",
+      "date": "2026-09-17",
+      "root": "repo",
+      "path": "Media/codex-video-trial/06-ad-r4/AD14_REVISION_R4.mp4",
+      "sha256": "515953918d223c389754153cd1fa6388ba9d2d18b942024b6c680d3184979785",
+      "bytes": 213660168,
+      "feedback_path": "Media/codex-video-trial/06-ad-r4/review/approval-20260917/feedback.txt",
+      "verdict": "approved",
+      "dan": "All right this video looks great. I love everything about it: the color correction, audio, and all the clips are looking good. All these final revisions were good. Good job finding the right workout footage. Good job with the app demo. Everything is looking good.",
+      "scope": "Entire final Ad14 R4, including color, audio, all clips, both picture corrections, selected V5 workout footage and the approved same-person app demonstration.",
+      "must_trigger": [],
+      "must_pass": [
+        "audio_gate"
+      ],
+      "gate_args": [
+        "--untreated",
+        {
+          "root": "repo",
+          "path": "Media/codex-video-trial/06-ad-r2/mix.wav.audio_untreated.json"
+        }
+      ],
+      "measured": "Exact-file audio gate PASS13/13. Shared delivery gate:31 measured PASS,3N/A,1FAIL,1NOTMEASURED; aggregate FAIL because two inherited out-of-scope naked splices remain at174.608s and205.939s; caption sync not measured.",
+      "notes": "Dan approved the whole film after reviewing the complete private R4. Approval evidence: Media/codex-video-trial/06-ad-r4/review/approval-20260917/approval.json. No gate or threshold changed; approval does not fabricate PASS for inherited findings."
+    },
+    {
+      "id": "kit9x16-ad1-from-raw-blind-tie",
+      "verdict": "approved-with-notes",
+      "date": "2026-09-18",
+      "root": "ssd",
+      "path": "kit9x16/blind-verdict-20260918/kit_ad1_raw_9x16.mp4",
+      "excerpt": [
+        20,
+        30
+      ],
+      "dan": "They're both very similar. The only thing I like better about the left one is the music; however, that's something which we could switch out pretty easily. Overall, the edits look very similar to me, except for the music, and both would work.",
+      "dan_pick": "tie",
+      "blind_pair": "A",
+      "blind_against": "muhammad-ad1-vertical-approved (sha b71cd661…), served LEFT; this file served RIGHT; labels hidden, order randomised, key sealed",
+      "must_pass": [
+        "cut:naked_splices",
+        "audio_gate"
+      ],
+      "measured": "VQC Phase 4 blind A/B, answered 2026-09-18T14:31Z: TIE. The kit's FROM-RAW Ad 1 vertical (C1591 + a script-aligned EDL, our voice chain, funk bed at -38 dB, CTC captions) beside the approved vertical. Delivery gate 2.1.0 PASS 36/36, 121/121 boundaries judged by three independent judges, 0 defects. The one thing he preferred on the other side is its MUSIC (Muhammad's bed).",
+      "notes": "First kit output Dan judged, blind. A tie unlocks the next format (handoff-20260916-vqc-phase4-locked-kit.md step 3). Carry his note: the kit's default bed is the weak point, not the edit. Frozen copy with its stamps, the sealed key and his answers beside it.",
+      "sha256": "1d9537859544b38b7dd6ed07968f68ea7f6f0e1795f5a37ebae930116ed5939c",
+      "bytes": 301949871,
+      "deliver": {
+        "format": "ad9x16",
+        "_why": "a 9:16 ad; naked_splices at the ad bound"
+      }
     }
   ]
 }

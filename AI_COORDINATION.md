@@ -94,16 +94,16 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
+**Ad 1 vertical 59s setup — ACTIVE 2026-09-18, Codex.** SHA-locked AV-01 master + approved 9:16 thumbnail verified. Next: file master/corpus entry, upload YouTube Unlisted, add only `Claude vertical 59s` to the two existing Ad 1 Demand Gen groups, read back and record IDs. Detail: `Handoffs/handoff-20260918-ad1-vertical-59s-approved-thumbnail-upload-setup.md`.
+
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 
 **RO-01 ACTIVE 2026-09-17, Codex.** `/Volumes/Extreme/_edit_work/ro01/`.
 
-**DS-04 vacuum short — REVISION 1 WAITING 2026-09-18, unowned.** Dan approved all but the opening vacuum clip. Next: fire `Handoffs/handoff-20260918-ds04-opening-vacuum-clip-revision.md` (candidates → his pick → rebuild opening). No covers (Codex). ⚠ Audio `artifacts` row is an honest FAIL; Dan's call.
+**DS-04 vacuum short — REVISION 1 ACTIVE 2026-09-18, Claude.** Opening beat only. Next: Dan picks a draw-in candidate → rebuild. ⚠ Audio `artifacts` FAIL is his call.
 
 
 **RA-01 "AI Trick That Got Me Abs" — NEEDS DAN 2026-09-18, Claude.** 3 rounds done (Opus edit, Fable review); both aspects ship-clean bar the audio `artifacts` row, which the untreated outdoor lav already fails → Dan's exception, masters HELD in `/Volumes/Extreme/_edit_work/ra01/`. Review copy sent. Next: Dan watches, rules on outdoor audio + skin look (`notes-RA-01.md` "Your calls"), then masters deliver. Detail: `Claude Ad Videos/the ai trick that got me abs - RA-01/`.
-
-**VQC Phase 4 kit — DAN'S BLIND PICK 2026-09-18, Claude (Fable).** Both Ad 1 verticals gated (36/36, 0 defects): `/Volumes/Extreme/_edit_work/kit9x16/{ad1-master,ad1-raw}/`. Blind page http://127.0.0.1:8832/index.html (5 pairs, sealed key). Next: Dan answers → `blind/record_verdict.py --dir …/blind/page` → corpus. ⚠ corpus FAIL on `ds17-r4-final-approved` (audio artifacts; another session's entry). Detail: engine doc Phase 4.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads — REVIEW 2026-09-15, owner: Codex 01a0a744.** Four unlisted uploads and eight enabled campaign ads are complete; shared budget stays $40/day. Google policy is `REVIEW_IN_PROGRESS`. Next: re-run policy 09-16; replace Ad 7 typo/Ad 14 low-bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
@@ -175,7 +175,7 @@ Memory `google-ads-ui-automation`.
   named, no spend); real-picture label on every real photo. ⚠ `g5.real_chip` is shared with Ad 4. Opus high.
 - `handoff-20260909-vqc-C-phase4-cut-technique.md` — before engine Phase 4. Fable 5.1 high.
 - `handoff-20260911-junk-footage-pass.md` — parallel-safe with engine Phases 2–4. Fable 5.1 high.
-- `handoff-20260911-video-quality-engine.md` — master plan; Phases 1–2 done. VQC-B/VQC-D superseded, do not fire.
+- `handoff-20260911-video-quality-engine.md` — master plan; Phases 1–4 done (kit tied blind 09-18); next format: Dan. VQC-B/VQC-D superseded, do not fire.
 - `handoff-20260910-start-vsl-edit-and-install.md` — after Dan records the VSL. Fable 5.1 high.
 - `handoff-20260909-audio-match-muhammad.md` — Zepbound + supplements, after Dan OKs the spray-tan sound.
 - `handoff-20260908-google-ads-custom-segments.md` — partly executed (ACTIVE). Fable 5.1 high.

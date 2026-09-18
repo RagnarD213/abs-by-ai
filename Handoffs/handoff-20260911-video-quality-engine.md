@@ -586,7 +586,14 @@ before; the confirmation run at the end reads FAIL on exactly one entry, `ds17-r
 another session, commit `805475c`), whose file fails `audio_gate:artifacts` / `do_no_harm` — no gate or audio code changed in this
 phase, so that is the DS-17 owner's finding to record, not a bound to move.
 
-**Step 3 — nothing further until Dan picks ours or a tie.** Never grade the kit yourself.
+**Step 3 — Dan's blind verdict, 2026-09-18: a TIE.** Pair A (the from-raw kit, served right, vs the approved vertical, served left; he
+did not know which was which): *"They're both very similar. The only thing I like better about the left one is the music; however,
+that's something which we could switch out pretty easily. Overall, the edits look very similar to me, except for the music, and both
+would work."* Corpus entry `kit9x16-ad1-from-raw-blind-tie` (approved-with-notes, sha `1d953785…`, frozen copy + sealed key + his answers in
+`/Volumes/Extreme/_edit_work/kit9x16/blind-verdict-20260918/`; passes `run.py --id`). Pairs B–E unanswered by his choice (too many videos).
+**A tie unlocks the next format** (verticals → Shorts → long-form → hero ads, one per phase, each proven blind). The delta he named is the
+MUSIC: the kit's default bed (`funk_break`, −38 dB) lost to Muhammad's — pick the bed by his tempo/feel before the next blind test. Never
+grade the kit yourself.
 
 ---
 
