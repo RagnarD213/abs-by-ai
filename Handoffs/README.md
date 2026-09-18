@@ -1,6 +1,6 @@
 # Handoffs
 
-Every handoff document for Abs By AI, in one place. 152 documents (index updated 2026-09-17).
+Every handoff document for Abs By AI, in one place. 153 documents (index updated 2026-09-17).
 
 A handoff is a self-contained brief written so a fresh session can pick up work with no prior context.
 
@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260917-install-approved-a06-short-thumbnail.md](handoff-20260917-install-approved-a06-short-thumbnail.md) | **Ready, 2026-09-17 — GPT-5.6 Sol / High.** Install approved A06 on Short `Ub0BV4m5lMQ`; exact artwork and desktop Change control verified. Preserve the existing video. |
 | [Ad14 R4 — Dan speaking close-up and correct workout](codex-video-trial/06i-ad14-r4-dan-closeup-and-correct-workout.md) | **Ready, 2026-09-17 — Sol / High.** Use Dan speaking inside full YouTube page; use verified V4/V5 UPLOADED workout exports. Preserve explicitly approved R3 app demo and exact AAC. Supersedes executed 06g. |
 | [C1652 approved R4 — upload and setup](codex-video-trial/06j-c1652-approved-r4-upload-and-setup.md) | **Ready, 2026-09-17 — Sol / Medium.** Exact master approved as is; thumbnail/package, YouTube Private holding upload and organic Blotato setup. Supersedes completed06h; do not reopen editing. |
 | **[video-editing/00-MASTER.md](video-editing/00-MASTER.md)** | **THE master list of video-editing work (2026-09-16)** — 69 job docs (raw first cuts, dedicated shorts, shorts from long-forms, ad verticals/squares), each with Claude + Codex starter prompts; shared rules `video-editing/00-RULES.md`. Supersedes the ad-variants master queue. |
