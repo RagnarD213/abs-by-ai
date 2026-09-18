@@ -296,6 +296,8 @@ def _sig(b, nfr, t0):
     # segments until this was added (kit9x16, 2026-09-16)
     if b['kind'] in ('talk', 'window', 'stmt', 'winmedia'):     # a window steps at its cuts too (kit9x16 round 6)
         extra['_pushes'] = [list(p) for p in beats.PUSHES if p[3] > t0 - 0.05 and p[0] < b['t1'] + 0.05]
+    if b['kind'] == 'winmedia':
+        extra['_wincrop'] = 'chest-up-560'                       # the phone-split band's tighter crop (round 8)
     return json.dumps({k: v_ for k, v_ in sorted(b.items())} | extra, sort_keys=True, default=str)
 
 COMMON = lambda nfr, out: ['-r','30000/1001','-frames:v',str(nfr),'-c:v','libx264','-preset','medium',
@@ -444,6 +446,15 @@ def render_segment(i, b, nfr, t0):
     if 'dan' in holes:
         x, y, w, h = hole_args('dan')
         cw, ch, cx, cy = vlib.window_crop(h)
+        if k == 'winmedia':
+            # the phone-split band is short (~650 px), and the full-height source scaled into it put his head at
+            # 12-15 % of the frame (kit9x16 round 6 + from-raw judges: 222 px against 420-535 in every other window).
+            # A chest-up crop -- 560 of the 1080 source rows, top-anchored so the hair keeps its headroom -- lands
+            # his head where the other windows put it (~22 %). Only this layout; the bullet windows are full height.
+            ch = 560
+            cw = int(round(ch * w / h)); cw -= cw % 2
+            # (crop x comes from window_x_expr, per take)
+            cy = 0
         ins += ['-ss', seek(t0), '-i', BASE]
         # the window steps at its cuts like a talk beat does (the kit's zoom-cut: an instant 1.20x punch on the
         # pose-matched cut frame, alternating in/out). Anchored to the TOP of the crop, not its centre: his hair
