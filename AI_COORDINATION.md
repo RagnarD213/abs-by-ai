@@ -189,5 +189,3 @@ Dead, do not run: `handoff-20260901-danrosefit-ad-identity-fix.md`, `handoff-202
 
 ## ACTIVE
 - **Grok / AV-05 Ad 6 vertical** (2026-09-17 17:36 CT): building 9x16 + ≤0:59 from Muhammad Ad 6 via shortad-from-longform; workdir `/Volumes/Extreme/_edit_work/av05-ad6-vert/`.
-
-**YouTube content research — ACTIVE 2026-09-18, Codex.** Researching male-focused competitors and Dan Rose Fitness views, subscribers, traffic and retention. Next: deliver 20 long-form and 20 Short ideas, prioritizing subscriber growth. Read-only analytics; no publishing changes.
