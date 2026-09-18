@@ -157,6 +157,12 @@ def efficiency_line(run):
     return " · ".join(usage + costs)
 
 
+def budget_stop_label(run):
+    stopped = (run.get("outcome") == "budget_exceeded" or
+               (run.get("budget") or {}).get("exceeded") is True)
+    return '<span class="budget-stop">stopped at budget</span>' if stopped else ""
+
+
 def status_block(cfg, data, sb):
     d = eq.sibling("dispatcher")
     dec = d.decide(data, cfg, d.gather(cfg, data), sb)
@@ -222,8 +228,14 @@ def render(static=False):
           <p class=dim>Files: {'<br>'.join(E(f) for f in dl.get('files') or [])}</p>{form}</div>""")
 
     asset_html = "".join(asset_card(cfg, j, p, latest.get(j["id"]), media, static) for j, p in asset_jobs)
-    parked_html = "".join(f"<div class=card><h3>{E(j['id'])} · {E(j['title'])}</h3><p class=warn>{E(j['state'].upper())}</p>"
-                          f"<p>{E(j.get('note', ''))}</p><p class=dim>Work folder: {E(eq.work_dir(cfg, j['id']))}</p></div>" for j in parked)
+    def parked_card(j):
+        run = latest.get(j["id"]) or {}
+        label = budget_stop_label(run)
+        return (f"<div class=card><h3>{E(j['id'])} · {E(j['title'])}</h3>"
+                f"<p class=warn>{E(j['state'].upper())} {label}</p>"
+                f"<p>{E(j.get('note', ''))}</p><p class=dim>Work folder: {E(eq.work_dir(cfg, j['id']))}</p></div>")
+
+    parked_html = "".join(parked_card(j) for j in parked)
     running_html = "".join(f"<li>{E(j['id'])} · {E(j['title'])}: {E(j['claim']['by'])} since {E(j['claim']['started'][11:16])}, "
                            f"last heartbeat {E(j['claim']['heartbeat'][11:16])}</li>" for j in running)
     return f"""<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
@@ -231,7 +243,7 @@ def render(static=False):
 body{{font:15px/1.5 -apple-system,Helvetica,sans-serif;background:#111;color:#eee;margin:0;padding:24px 16px;max-width:860px;margin-inline:auto}}
 h1{{font-size:22px;margin:0 0 4px}} h2{{font-size:16px;margin:28px 0 8px;border-bottom:2px solid #e11;padding-bottom:4px}} h3{{margin:0 0 4px;font-size:16px}}
 .card{{background:#1c1c1c;border-radius:10px;padding:16px;margin:12px 0}} video{{width:100%;max-height:70vh;border-radius:8px;background:#000}} img{{max-width:100%;max-height:55vh}} .frames{{display:grid;grid-template-columns:1fr 1fr;gap:8px}} figure{{margin:0}} fieldset{{border:1px solid #444;margin:8px 0}}
-.dim{{color:#999;font-size:13px}} .warn{{color:#ffb020}} .okc{{color:#4cd964}} table{{border-collapse:collapse;font-size:13px;display:block;overflow-x:auto}}
+.dim{{color:#999;font-size:13px}} .warn{{color:#ffb020}} .okc{{color:#4cd964}} .budget-stop{{display:inline-block;background:#6b3d00;color:#ffd08a;border-radius:999px;padding:2px 8px;margin-left:6px;font-size:12px}} table{{border-collapse:collapse;font-size:13px;display:block;overflow-x:auto}}
 td,th{{border:1px solid #333;padding:4px 8px;text-align:left}} textarea{{width:100%;box-sizing:border-box;min-height:70px;background:#000;color:#eee;border:1px solid #444;border-radius:6px;padding:8px;font:inherit}}
 label{{display:block;margin:8px 0;font-size:13px;color:#bbb}} select{{font:inherit}} button{{font:inherit;padding:8px 14px;margin:4px 6px 0 0;border-radius:6px;border:0;background:#444;color:#fff;cursor:pointer}}
 button.ok{{background:#1a7f37}} button.bad{{background:#a1260d}} .msg{{margin-left:8px;color:#4cd964}}</style>

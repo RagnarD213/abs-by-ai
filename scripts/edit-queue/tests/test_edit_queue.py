@@ -308,6 +308,38 @@ class Runner(unittest.TestCase):
                "your session limit resets 9pm (America/Chicago)", CFG), "usage_limited")
         self.assertEqual(runner.classify_failure(1, "Traceback ...", CFG), "session_failed")
         self.assertEqual(runner.classify_failure(-9, "", CFG), "timeout")
+        self.assertEqual(runner.classify_failure(runner.BUDGET_EXCEEDED_CODE, "usage limit", CFG), "budget_exceeded")
+
+    def test_size_budget_job_override_and_no_budget(self):
+        base = eq.job_budget(job("AV-01", size="S"), CFG)
+        self.assertEqual((base["edit_hours"], base["full_renders"], base["review_hours"]), (2.5, 2, 0.75))
+        override = eq.job_budget(job("AV-01", size="S", budget={"edit_hours": 4, "full_renders": 5}), CFG)
+        self.assertEqual((override["edit_hours"], override["full_renders"], override["review_hours"]), (4, 5, 0.75))
+        lifted = eq.job_budget(job("AV-01", size="S"), CFG, no_budget=True)
+        self.assertFalse(lifted["enabled"])
+        self.assertIsNone(lifted["full_renders"])
+        self.assertEqual(lifted["edit_hours"], CFG["claims"]["max_job_hours"])
+
+    def test_pre_render_check_counts_full_renders_and_refuses_the_next(self):
+        wd = tempfile.mkdtemp(dir=TMP)
+        json.dump({"status": "not_applicable", "reason": "Fixture has no risky source choice."},
+                  open(os.path.join(wd, "PRE_RENDER_CHECK.json"), "w"))
+        budget = eq.start_budget(job("AV-01", size="S"), CFG, wd, "fixture-run")
+        self.assertEqual(budget["renders_used"], 0)
+        self.assertEqual(runner.validate_pre_render(wd), [])
+        self.assertEqual(eq.load_budget(wd)["renders_used"], 0, "making and checking previews does not spend a full render")
+        cli = [sys.executable, os.path.join(PKG, "pre_render_check.py"), wd]
+        first = subprocess.run(cli, capture_output=True, text=True)
+        second = subprocess.run(cli, capture_output=True, text=True)
+        refused = subprocess.run(cli, capture_output=True, text=True)
+        self.assertEqual((first.returncode, second.returncode, refused.returncode), (0, 0, 1))
+        self.assertIn("full-render budget exhausted", refused.stdout)
+        self.assertEqual(eq.load_budget(wd)["renders_used"], 2)
+
+    def test_review_page_budget_stop_label(self):
+        self.assertIn("stopped at budget", review_page.budget_stop_label(
+            {"outcome": "budget_exceeded", "budget": {"exceeded": True}}))
+        self.assertEqual(review_page.budget_stop_label({"outcome": "parked", "budget": {"exceeded": False}}), "")
 
     def test_commands_are_unattended_and_locked_down(self):
         cx = eq.build_command("codex", CFG, "/w/AV-01")

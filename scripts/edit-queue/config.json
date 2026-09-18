@@ -42,6 +42,16 @@
     "max_job_hours": 10
   },
 
+  "budget": {
+    "_why": "Each launch gets a bounded editing clock and full-render count. The 70 percent soft deadline tells the editor to stop exploring and finish the current candidate. claims.max_job_hours remains the absolute outer ceiling.",
+    "soft_deadline_fraction": 0.7,
+    "sizes": {
+      "S": {"edit_hours": 2.5, "full_renders": 2, "review_hours": 0.75},
+      "M": {"edit_hours": 5, "full_renders": 3, "review_hours": 1},
+      "L": {"edit_hours": 8, "full_renders": 3, "review_hours": 1.5}
+    }
+  },
+
   "asset_approval": {
     "schema_version": 1,
     "packet_name": "placeholders.json",

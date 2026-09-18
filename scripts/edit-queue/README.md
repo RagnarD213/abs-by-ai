@@ -18,6 +18,9 @@ Built 2026-09-17–18 (Phases 0–2), including the two-stage asset-approval flo
   (or delete the file).
 * **Remove it completely:** `scripts/edit-queue/install.sh uninstall`.
 * **See what it would do right now, without doing it:** `python3 scripts/edit-queue/dispatcher.py status`.
+* **Per-job work budget:** each job now has a time limit and a cap on full renders. If it runs out, the queue parks
+  the job as `needs`, keeps every file in its work folder, and never restarts it on its own. Change the S, M and L
+  numbers in `config.json` under `budget`. A specific job can override that row with a `budget` object in `jobs.json`.
 
 It will never launch anything when: the PAUSE file exists · 4 videos are already waiting for your review ·
 the Extreme drive is unplugged or under 150 GB free · both build slots are busy (your own sessions count) · it
@@ -74,6 +77,14 @@ third build. `claim: {by, pid, started, heartbeat}` sits on the job record; the 
 jobs) are counted from the `00-RULES.md` §1.3 process pattern, grouped by parent process; over-counting is the safe side.
 A claim with no heartbeat for 45 minutes **and** a dead pid becomes `stalled`. A stalled job is **never restarted
 automatically**: look at its work directory, then `queue.py release <ID>` and `queue.py set <ID> ready`.
+
+Every launch writes `BUDGET.json` in its work folder. `pre_render_check.py` reserves one full render only after the
+source-preview evidence passes, then refuses the next render after the cap. The runner uses the size row's edit clock
+and review clock. If either clock expires, the scoreboard outcome is `budget_exceeded`, the job becomes `needs`, the
+claim is released, and the work folder stays intact. This is different from `timeout`, which is the unchanged absolute
+10-hour safety ceiling, and from `session_failed`, which means the editing program ended unexpectedly. A hand-fired
+`dispatcher.py launch-one <ID>` uses the same budget. Add `--no-budget` only for an intentional manual exception; it
+is logged and still cannot exceed the 10-hour outer ceiling.
 
 A job is skipped when: its state isn't `ready` or `frames_approved`; it has an open "Your calls" row in `00-MASTER.md`; its ID appears in
 `AI_COORDINATION.md` ACTIVE; a work directory with a build in it already exists (`ra01`, `ds-17`, `AV-01` spellings);

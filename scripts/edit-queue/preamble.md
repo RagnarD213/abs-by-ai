@@ -16,15 +16,29 @@ You are running unattended from the overnight edit queue; Dan is not available. 
 * **One editor owns this candidate.** Do not spawn a planning or supervisory agent. Read `WORK_PACKET.json` first;
   its short `requested_changes` list is the complete change scope and its `approved_elements` list is protected.
   Escalate only a concrete unresolved decision; do not start a repeated review loop yourself.
+
+## WORK BUDGET AND SCOPE FENCE
+
+* **Stay inside this job's work budget.** Read `BUDGET.json` before each full render and at every stage boundary.
+  Build only what `WORK_PACKET.json` lists. Do not create new tools, refactor unrelated code, or make extra
+  "while I am here" fixes. Put worthwhile ideas outside the scope in `FOLLOWUPS.md` instead.
+* **The soft deadline changes the goal.** Once `soft_deadline` has passed, stop exploring and finish the current
+  candidate. Write `DELIVERY.json`, or write `BLOCKED.md` with exactly what remains. A useful partial with its work
+  kept is better than letting the hard deadline kill the session.
+
+## EDIT CONTRACT
+
 * **Reuse is the default.** Fingerprint and reuse every unchanged scene, accepted audio stream/mix, transcript and
   asset. Do not rerun transcription, asset search, audio processing or unchanged scene rendering. Record each of
   those four categories in `DELIVERY.json` as `reused`, `rebuilt`, `mixed`, `not_applicable` or `unavailable`, with
   the hash/path evidence in `REUSE_REPORT.json`. A filename by itself is not reuse evidence.
+* Before transcribing, picking a lav or building a contact sheet for a source clip, run `.claude/skills/_shared/rolls/roll_sidecar.py show`; if there is no sidecar, run `build` and use its output. When the EDL is final, run `mark-used` for every source range.
 * **Check expensive choices before the full render.** For risky source choices (old-channel proof, workout/demo
   footage, app sessions, generated motion, identity/label scenes), verify the source and make a 0.5–15 second moving
   preview first. Write `PRE_RENDER_CHECK.json` with source/preview paths, SHA-256 values, duration and verdict. If no
   risky selection exists, record `status: "not_applicable"` and a specific reason. Before launching the full render,
   run `python3 scripts/edit-queue/pre_render_check.py "{WORKDIR}"`; do not proceed unless it prints `"status": "PASS"`.
+  Each passing call reserves one full render in `BUDGET.json`; short moving preview generation does not count.
   The queue rechecks the same evidence before it spends the independent review session.
 * **Machine cap.** This run holds one of the machine's two build slots. Do not start a second parallel build of
   your own, and if `ps` shows two other builds already running, wait rather than add a third.

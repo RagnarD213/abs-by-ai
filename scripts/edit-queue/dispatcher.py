@@ -263,7 +263,7 @@ def decide(data, cfg, facts, scoreboard):
 
 # ================================================================ acting
 
-def launch(job_id, executor, cfg, by_hand=False):
+def launch(job_id, executor, cfg, by_hand=False, no_budget=False):
     """Claim first, launch second, so two ticks can never take the same job."""
     runner = os.path.join(eq.HERE, "runner.py")
     with q.locked():
@@ -283,13 +283,30 @@ def launch(job_id, executor, cfg, by_hand=False):
             eq.scoreboard_update(row["run_id"], outcome="running", ended=None, asset_flow=flow)
         else:
             row = eq.new_run_row(job, executor, cfg)
-            row["by_hand"] = by_hand
-            eq.scoreboard_add(row)
         wd = eq.work_dir(cfg, job_id)
         os.makedirs(wd, exist_ok=True)
+        budget_doc = eq.start_budget(job, cfg, wd, row["run_id"], no_budget=no_budget,
+                                     preserve_renders=reuse_row)
+        budget_row = eq.scoreboard_budget(budget_doc)
+        if reuse_row:
+            prior_budget = row.get("budget") or {}
+            budget_row["hours_allowed"] += float(prior_budget.get("hours_allowed") or 0)
+            budget_row["hours_used"] = float(prior_budget.get("hours_used") or 0)
+            budget_row["review_hours_used"] = float(prior_budget.get("review_hours_used") or 0)
+            eq.scoreboard_update(row["run_id"], budget=budget_row)
+        else:
+            row["by_hand"] = by_hand
+            row["budget"] = budget_row
+            eq.scoreboard_add(row)
         log = open(os.path.join(wd, "queue-runner.log"), "a")
-        proc = subprocess.Popen(["/usr/bin/caffeinate", "-i", sys.executable, runner, job_id, executor,
-                                 row["run_id"], launch_state],
+        runner_cmd = ["/usr/bin/caffeinate", "-i", sys.executable, runner, job_id, executor,
+                      row["run_id"], launch_state]
+        if no_budget:
+            runner_cmd.append("--no-budget")
+            log.write(f"{q.now_iso()} launch-one --no-budget: per-size time and render caps lifted; "
+                      f"{cfg['claims']['max_job_hours']} h outer ceiling remains\n")
+            log.flush()
+        proc = subprocess.Popen(runner_cmd,
                                 stdin=subprocess.DEVNULL, stdout=log, stderr=log, cwd=eq.ROOT, start_new_session=True)
         job["claim"]["pid"] = proc.pid
         job["claim"]["launch_state"] = launch_state
@@ -298,7 +315,8 @@ def launch(job_id, executor, cfg, by_hand=False):
         q.save(data)
     q.master_status(job_id, q.STATES["in_progress"])
     q.push_drive(q.load())
-    return True, f"launched {job_id} with {executor} (runner pid {proc.pid}); log {wd}/queue-run.log"
+    lifted = "; budget lifted by --no-budget" if no_budget else ""
+    return True, f"launched {job_id} with {executor} (runner pid {proc.pid}){lifted}; log {wd}/queue-run.log"
 
 
 def apply_stalls(stalls):
@@ -314,6 +332,19 @@ def report(d, dry):
     lines = [f"[{datetime.datetime.now():%Y-%m-%d %H:%M}] edit-queue tick{' (DRY RUN: nothing is changed or launched)' if dry else ''}",
              f"  slots: {len(s['live_claims'])} queue job(s) {s['live_claims']}, {s['foreign_builds']} other build(s), "
              f"Dan at machine: {s['dan_at_machine']}, free: {s['free']}"]
+    for jid in s["live_claims"]:
+        try:
+            budget = eq.load_budget(eq.work_dir(eq.load_config(), jid))
+            started = datetime.datetime.fromisoformat(budget["started"])
+            now = datetime.datetime.now(started.tzinfo) if started.tzinfo else datetime.datetime.now()
+            used = max(0.0, (now - started).total_seconds() / 3600)
+            if budget.get("enabled", True):
+                lines.append(f"  budget: {jid}  {used:.1f}/{budget['hours_allowed']:g} h · "
+                             f"{budget['renders_used']}/{budget['max_full_renders']} renders")
+            else:
+                lines.append(f"  budget: {jid}  lifted · {budget['renders_used']} full renders")
+        except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
+            lines.append(f"  budget: {jid}  unavailable")
     lines += [f"  STALE -> stalled: {j}: {w}" for j, w in d["stalls"]]
     lines += [f"  STOP: {x}" for x in d["stops"]]
     lines += [f"  EXECUTOR OFF: {w}" for w in d["executor_stops"].values()]
@@ -352,6 +383,7 @@ def main():
     rg = sub.add_parser("resume-group"); rg.add_argument("group"); rg.add_argument("executor")
     lo = sub.add_parser("launch-one"); lo.add_argument("id"); lo.add_argument("--executor")
     lo.add_argument("--ignore-pilot-limits", action="store_true", help="allow a group/size outside the pilot (Phase 0 proof runs)")
+    lo.add_argument("--no-budget", action="store_true", help="lift the per-size clock and render cap; the absolute outer ceiling remains")
     a = ap.parse_args()
 
     if a.cmd == "tick":
@@ -387,7 +419,7 @@ def main():
         why = d["skipped"].get(a.id) or (stops[0] if stops else None)
         if why or (a.id, eq.executor_for(a.id, cfg)) not in d.get("eligible", []):
             sys.exit(f"NOT launching {a.id}: {why or 'not eligible'}")
-        print(launch(a.id, eq.executor_for(a.id, cfg), cfg, by_hand=True)[1])
+        print(launch(a.id, eq.executor_for(a.id, cfg), cfg, by_hand=True, no_budget=a.no_budget)[1])
 
 
 if __name__ == "__main__":

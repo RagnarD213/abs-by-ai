@@ -13,7 +13,7 @@ Files a session leaves in the work directory (the contract in preamble.md):
   BLOCKED.md             a real blocker; first line is the one-sentence reason
   QUEUE-REVIEW-<n>.md    the reviewer's report; first line `VERDICT: SHIP` or `VERDICT: DOES NOT SHIP`
 """
-import datetime, hashlib, json, os, re, subprocess, sys, threading, time
+import datetime, hashlib, json, os, re, signal, subprocess, sys, threading, time
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -24,6 +24,8 @@ asset = eq.sibling("asset_approval")
 QUEUE_PY = os.path.join(eq.HERE, "queue.py")
 FFMPEG = os.path.join(eq.ROOT, "Media", "video_edit", "bin", "ffmpeg")
 FFPROBE = os.path.join(eq.ROOT, "Media", "video_edit", "bin", "ffprobe")
+BUDGET_EXCEEDED_CODE = -10
+OUTER_TIMEOUT_CODE = -9
 
 
 def qcmd(*args):
@@ -35,36 +37,87 @@ def heartbeat_loop(job_id, stop, minutes):
         qcmd("heartbeat", job_id)
 
 
-def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h):
-    """One headless session. Returns (returncode, tail_of_log). Never raises for a session failure."""
+def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budget_enforced=True):
+    """One headless session. Returns (returncode, tail_of_log, wall_hours). Never raises for session failure."""
     with open(os.path.join(workdir, f"queue-prompt-{role}.txt"), "w") as f:
         f.write(prompt)
+    began = time.time()
     with open(log_path, "a") as log:
         log.write(f"\n===== {datetime.datetime.now():%Y-%m-%d %H:%M:%S} {role} session: {executor} =====\n")
+        start = log.tell()
         try:
             cmd = eq.build_command(executor, cfg, workdir, role)
             log.write("argv: " + json.dumps(cmd) + "\n"); log.flush()
             start = log.tell()
-            r = subprocess.run(["/usr/bin/caffeinate", "-i"] + cmd, input=prompt, text=True, stdout=log,
-                               stderr=subprocess.STDOUT, cwd=eq.ROOT, timeout=timeout_h * 3600)
-            code = r.returncode
+            proc = subprocess.Popen(["/usr/bin/caffeinate", "-i"] + cmd, stdin=subprocess.PIPE, text=True,
+                                    stdout=log, stderr=subprocess.STDOUT, cwd=eq.ROOT, start_new_session=True)
+            try:
+                proc.communicate(prompt, timeout=max(0.01, timeout_h * 3600))
+                code = proc.returncode
+            except subprocess.TimeoutExpired:
+                try:
+                    os.killpg(proc.pid, signal.SIGTERM)
+                    proc.wait(timeout=5)
+                except (ProcessLookupError, subprocess.TimeoutExpired):
+                    try:
+                        os.killpg(proc.pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+                    proc.wait()
+                label = "work budget" if budget_enforced else "absolute outer ceiling"
+                log.write(f"\n[runner] stopped process group after {timeout_h:g} h ({label})\n")
+                code = BUDGET_EXCEEDED_CODE if budget_enforced else OUTER_TIMEOUT_CODE
         except subprocess.TimeoutExpired:
-            log.write(f"\n[runner] killed after {timeout_h} h (claims.max_job_hours)\n"); code, start = -9, 0
+            log.write(f"\n[runner] stopped after {timeout_h:g} h\n")
+            code = BUDGET_EXCEEDED_CODE if budget_enforced else OUTER_TIMEOUT_CODE
         except Exception as e:
-            log.write(f"\n[runner] could not start {executor}: {e}\n"); code, start = -1, 0
+            log.write(f"\n[runner] could not start {executor}: {e}\n"); code = -1
     with open(log_path, errors="replace") as f:
         f.seek(start)
-        return code, f.read()[-6000:]
+        return code, f.read()[-6000:], (time.time() - began) / 3600
 
 
 def classify_failure(code, tail, cfg):
     """Only a session that FAILED is searched for limit/sign-in wording: a good edit's log can say 'rate limit' too."""
+    if code == BUDGET_EXCEEDED_CODE:
+        return "budget_exceeded"
+    if code == OUTER_TIMEOUT_CODE:
+        return "timeout"
     low = tail.lower()
     if any(p.lower() in low for p in cfg["auth_failure_patterns"]):
         return "auth_failed"
     if any(p.lower() in low for p in cfg["usage_limit_patterns"]):
         return "usage_limited"
-    return "timeout" if code == -9 else "session_failed"
+    return "session_failed"
+
+
+def budget_renders(workdir):
+    try:
+        return int(eq.load_budget(workdir).get("renders_used") or 0)
+    except (OSError, ValueError, TypeError, json.JSONDecodeError):
+        return 0
+
+
+def budget_note(hours, workdir, leg="edit"):
+    detail = "review clock expired" if leg == "review" else "edit clock expired"
+    return f"budget exceeded after {hours:.2f} h, {budget_renders(workdir)} renders; {detail}; see queue-run.log"
+
+
+def update_budget_file(workdir, edit_hours, review_hours, exceeded):
+    """Add measured usage to the launch document without changing its fixed deadlines or caps."""
+    path = os.path.join(workdir, eq.BUDGET_NAME)
+    try:
+        doc = eq.load_budget(workdir)
+    except (OSError, ValueError, TypeError, json.JSONDecodeError):
+        return {}
+    doc.update(hours_used=round(edit_hours, 6), review_hours_used=round(review_hours, 6),
+               exceeded=bool(exceeded))
+    tmp = path + ".tmp"
+    with open(tmp, "w") as fh:
+        json.dump(doc, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+    os.replace(tmp, path)
+    return doc
 
 
 def read_verdict(workdir, n):
@@ -425,11 +478,21 @@ def prompts(job, executor, cfg, workdir, launch_state="ready"):
 def main():
     job_id, executor, run_id = sys.argv[1:4]
     launch_state = sys.argv[4] if len(sys.argv) > 4 else "ready"
+    no_budget = "--no-budget" in sys.argv[5:]
     cfg = eq.load_config()
     job = q.find(q.load(), job_id)
     workdir = eq.work_dir(cfg, job_id)
     os.makedirs(workdir, exist_ok=True)
+    try:
+        budget_doc = eq.load_budget(workdir)
+    except (OSError, ValueError, TypeError, json.JSONDecodeError):
+        budget_doc = eq.start_budget(job, cfg, workdir, run_id, no_budget=no_budget,
+                                     preserve_renders=launch_state == "frames_approved")
     log_path = os.path.join(workdir, "queue-run.log")
+    if no_budget:
+        with open(log_path, "a") as log:
+            log.write(f"{q.now_iso()} launch-one --no-budget: per-size time and render caps lifted; "
+                      f"{cfg['claims']['max_job_hours']} h outer ceiling remains\n")
     t0 = time.time()
     stop = threading.Event()
     threading.Thread(target=heartbeat_loop, args=(job_id, stop, cfg["claims"]["heartbeat_minutes"]), daemon=True).start()
@@ -441,6 +504,9 @@ def main():
     info = {}
     approval_packet = None
     marker = {}
+    edit_hours = 0.0
+    review_hours = 0.0
+    budget_hit = False
     try:
         if cfg.get("review", {}).get("reviews_per_candidate") != 1:
             raise ValueError("review.reviews_per_candidate must remain 1; repeated supervisory loops are disabled")
@@ -471,8 +537,12 @@ def main():
         if state is None:
             pre, edit_prompt = prompts(job, executor, cfg, workdir, launch_state)
             role = "finishing" if launch_state == "frames_approved" else "stage-one"
-            code, tail = run_session(executor, cfg, workdir, edit_prompt, log_path, role,
-                                     cfg["claims"]["max_job_hours"])
+            deadline = datetime.datetime.fromisoformat(budget_doc["deadline"])
+            now = datetime.datetime.now(deadline.tzinfo) if deadline.tzinfo else datetime.datetime.now()
+            edit_timeout = min(float(cfg["claims"]["max_job_hours"]),
+                               max(0.01 / 3600, (deadline - now).total_seconds() / 3600))
+            code, tail, edit_hours = run_session(executor, cfg, workdir, edit_prompt, log_path, role,
+                                                 edit_timeout, budget_enforced=budget_doc.get("enabled", True))
             usage.append(eq.model_usage_record(executor, cfg,
                                                "finishing editor" if launch_state == "frames_approved" else "stage-one editor",
                                                tail))
@@ -482,6 +552,9 @@ def main():
         delivered = os.path.exists(os.path.join(workdir, "DELIVERY.json"))
         if state is not None:
             pass
+        elif code == BUDGET_EXCEEDED_CODE:
+            budget_hit = True
+            outcome, state, note = "budget_exceeded", "needs", budget_note(edit_hours, workdir)
         elif os.path.exists(os.path.join(workdir, "BLOCKED.md")):
             reason = open(os.path.join(workdir, "BLOCKED.md"), errors="replace").readline().strip("# \n")[:200]
             outcome, state, note = "parked", "needs", f"BLOCKED (queue run): {reason}"
@@ -529,16 +602,24 @@ def main():
                     eq.scoreboard_update(run_id, reviewer=f"{executor} (fresh session; cross-reviewer unavailable)")
                 brief = (open(eq.REVIEWER_BRIEF).read().replace("{WORKDIR}", workdir).replace("{JOB}", job_id)
                          .replace("{N}", "1").replace("{JOBDOC}", "Handoffs/video-editing/" + job.get("file", "")))
-                _review_code, review_tail = run_session(reviewer, cfg, workdir, brief, log_path, "review-1", 3)
+                review_timeout = min(float(cfg["claims"]["max_job_hours"]),
+                                     float(budget_doc["review_hours_allowed"]))
+                _review_code, review_tail, review_hours = run_session(
+                    reviewer, cfg, workdir, brief, log_path, "review-1", review_timeout,
+                    budget_enforced=budget_doc.get("enabled", True))
                 usage.append(eq.model_usage_record(reviewer, cfg, "independent reviewer", review_tail))
-                verdict, vpath = read_verdict(workdir, 1)
-                verdicts.append(verdict)
-                eq.scoreboard_update(run_id, reviewer_verdicts=verdicts, model_usage=usage)
-                if verdict == "SHIP":
-                    outcome, state, note = "delivered", "delivered", f"Queue run {run_id}: independent reviewer ({reviewer}) says SHIP. Review copy in DELIVERY.json."
+                if _review_code == BUDGET_EXCEEDED_CODE:
+                    budget_hit = True
+                    outcome, state, note = "budget_exceeded", "needs", budget_note(review_hours, workdir, "review")
                 else:
-                    outcome, state = "parked", "needs"
-                    note = f"Reviewer: {verdict}. One consolidated review is attached at {vpath}; no automatic supervision/fix loop ran."
+                    verdict, vpath = read_verdict(workdir, 1)
+                    verdicts.append(verdict)
+                    eq.scoreboard_update(run_id, reviewer_verdicts=verdicts, model_usage=usage)
+                    if verdict == "SHIP":
+                        outcome, state, note = "delivered", "delivered", f"Queue run {run_id}: independent reviewer ({reviewer}) says SHIP. Review copy in DELIVERY.json."
+                    else:
+                        outcome, state = "parked", "needs"
+                        note = f"Reviewer: {verdict}. One consolidated review is attached at {vpath}; no automatic supervision/fix loop ran."
     except Exception as e:
         outcome, state, note = "runner_error", "stalled", f"runner error: {e!s:.200}"
     finally:
@@ -589,12 +670,21 @@ def main():
                     pass
         spend_rows = [float(x) for x in (marker.get("generation_spend_usd"), info.get("generation_spend_usd"))
                       if isinstance(x, (int, float))]
+        budget_doc = update_budget_file(workdir, edit_hours, review_hours, budget_hit)
+        existing_budget = existing_row.get("budget") or {}
+        recorded_budget = dict((eq.scoreboard_get(run_id) or {}).get("budget") or {})
+        recorded_budget.update(
+            hours_used=round(float(existing_budget.get("hours_used") or 0) + edit_hours, 6),
+            renders_used=int(budget_doc.get("renders_used") or 0),
+            review_hours_used=round(float(existing_budget.get("review_hours_used") or 0) + review_hours, 6),
+            exceeded=bool(budget_hit),
+        )
         eq.scoreboard_update(run_id, ended=q.now_iso(), wall_hours=round(prior_hours + (time.time() - t0) / 3600, 2), outcome=outcome,
                              reviewer_verdicts=verdicts, revision_number=(packet or {}).get("revision_number", 0),
                              revision_rounds=(packet or {}).get("revision_number", 0), model_usage=usage,
                              first_pass_gate=info.get("gate") or marker.get("gate"), paid_provider_costs=costs,
                              generation_spend_usd=sum(spend_rows) if spend_rows else None,
-                             asset_flow=flow, note=note)
+                             asset_flow=flow, budget=recorded_budget, note=note)
         # The claim is the queue's completion signal. Publish the complete logical scoreboard row first,
         # then change state and release, so the next tick/page cannot observe a half-recorded finish.
         if state:

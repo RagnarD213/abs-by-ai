@@ -17,6 +17,7 @@ SCOREBOARD = os.environ.get("EDIT_QUEUE_SCOREBOARD") or os.path.join(HERE, "scor
 PAUSE_FILE = os.environ.get("EDIT_QUEUE_PAUSE_FILE") or os.path.join(HERE, "PAUSE")
 PREAMBLE = os.path.join(HERE, "preamble.md")
 REVIEWER_BRIEF = os.path.join(HERE, "reviewer-brief.md")
+BUDGET_NAME = "BUDGET.json"
 
 
 def unshadow():
@@ -89,7 +90,8 @@ def asset_allowed_roots(cfg):
 def non_queue_files(path):
     """Anything in a work directory that the queue itself did not write = a session started building there."""
     try:
-        return [n for n in os.listdir(path) if n != "WORK_PACKET.json" and not n.startswith(("queue-", "._", ".DS_Store"))]
+        owned = {"WORK_PACKET.json", BUDGET_NAME, BUDGET_NAME + ".lock"}
+        return [n for n in os.listdir(path) if n not in owned and not n.startswith(("queue-", "._", ".DS_Store"))]
     except OSError:
         return []
 
@@ -103,6 +105,104 @@ def existing_work_dirs(cfg, job_id):
     except OSError:
         return []
     return [n for n in names if n.lower() in want and non_queue_files(os.path.join(cfg["work_root"], n))]
+
+
+# ---------------------------------------------------------------- per-job work budgets
+
+def job_budget(job, cfg, no_budget=False):
+    """Resolve the size row, then apply a job's explicit override. The absolute ceiling always wins."""
+    size = job.get("size")
+    try:
+        values = dict(cfg["budget"]["sizes"][size])
+    except KeyError as exc:
+        raise ValueError(f"no budget is configured for job size {size!r}") from exc
+    override = job.get("budget") or {}
+    if not isinstance(override, dict):
+        raise ValueError("job budget override must be an object")
+    unknown = set(override) - {"edit_hours", "full_renders", "review_hours"}
+    if unknown:
+        raise ValueError(f"unknown job budget field(s): {', '.join(sorted(unknown))}")
+    values.update(override)
+    for key in ("edit_hours", "review_hours"):
+        if not isinstance(values.get(key), (int, float)) or isinstance(values.get(key), bool) or values[key] <= 0:
+            raise ValueError(f"budget {key} must be a positive number")
+    if (not isinstance(values.get("full_renders"), int) or isinstance(values.get("full_renders"), bool)
+            or values["full_renders"] < 1):
+        raise ValueError("budget full_renders must be a positive integer")
+    outer = float(cfg["claims"]["max_job_hours"])
+    soft = float(cfg["budget"].get("soft_deadline_fraction", 0.7))
+    if not 0 < soft < 1:
+        raise ValueError("budget soft_deadline_fraction must be between 0 and 1")
+    source = "no-budget override" if no_budget else ("job override" if override else f"size {size}")
+    return {
+        "enabled": not no_budget,
+        "source": source,
+        "edit_hours": outer if no_budget else min(float(values["edit_hours"]), outer),
+        "review_hours": outer if no_budget else min(float(values["review_hours"]), outer),
+        "full_renders": None if no_budget else int(values["full_renders"]),
+        "soft_deadline_fraction": soft,
+    }
+
+
+def start_budget(job, cfg, workdir, run_id, no_budget=False, preserve_renders=False, now=None):
+    """Write the launch's clock before its runner starts. Preserve render use for Phase 2 finishing."""
+    values = job_budget(job, cfg, no_budget)
+    now = now or datetime.datetime.now().astimezone()
+    if now.tzinfo is None:
+        now = now.astimezone()
+    path = os.path.join(workdir, BUDGET_NAME)
+    renders_used = 0
+    if preserve_renders and os.path.exists(path):
+        try:
+            with open(path) as fh:
+                renders_used = int(json.load(fh).get("renders_used") or 0)
+        except (OSError, ValueError, TypeError, json.JSONDecodeError):
+            renders_used = 0
+    deadline = now + datetime.timedelta(hours=values["edit_hours"])
+    soft = now + datetime.timedelta(hours=values["edit_hours"] * values["soft_deadline_fraction"])
+    doc = {
+        "schema": 1,
+        "job": job["id"],
+        "run_id": run_id,
+        "size": job.get("size"),
+        "enabled": values["enabled"],
+        "source": values["source"],
+        "started": now.isoformat(timespec="seconds"),
+        "deadline": deadline.isoformat(timespec="seconds"),
+        "soft_deadline": soft.isoformat(timespec="seconds"),
+        "hours_allowed": values["edit_hours"],
+        "review_hours_allowed": values["review_hours"],
+        "max_full_renders": values["full_renders"],
+        "renders_used": renders_used,
+        "hours_used": 0.0,
+        "review_hours_used": 0.0,
+        "exceeded": False,
+    }
+    tmp = path + ".tmp"
+    with open(tmp, "w") as fh:
+        json.dump(doc, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+    os.replace(tmp, path)
+    return doc
+
+
+def load_budget(workdir):
+    with open(os.path.join(workdir, BUDGET_NAME)) as fh:
+        return json.load(fh)
+
+
+def scoreboard_budget(doc):
+    return {
+        "hours_allowed": doc["hours_allowed"],
+        "hours_used": 0.0,
+        "renders_allowed": doc["max_full_renders"],
+        "renders_used": doc["renders_used"],
+        "review_hours_allowed": doc["review_hours_allowed"],
+        "review_hours_used": 0.0,
+        "exceeded": False,
+        "enabled": doc["enabled"],
+        "source": doc["source"],
+    }
 
 
 # ---------------------------------------------------------------- executors
@@ -224,9 +324,16 @@ def scoreboard_get(run_id):
     return next((r for r in scoreboard_load()["runs"] if r["run_id"] == run_id), None)
 
 
-def new_run_row(job, executor, cfg, now=None):
+def new_run_row(job, executor, cfg, now=None, budget_doc=None):
     now = now or datetime.datetime.now()
     revision_number = int((job.get("queue_revision") or {}).get("round", 0))
+    if budget_doc is None:
+        values = job_budget(job, cfg)
+        budget_doc = {
+            "hours_allowed": values["edit_hours"], "review_hours_allowed": values["review_hours"],
+            "max_full_renders": values["full_renders"], "renders_used": 0,
+            "enabled": values["enabled"], "source": values["source"],
+        }
     return {
         "run_id": f"{job['id']}-{now.strftime('%Y%m%d-%H%M%S')}", "job": job["id"], "group": group_of(job["id"]),
         "title": job.get("title", ""), "size": job.get("size", ""), "executor": executor,
@@ -234,6 +341,7 @@ def new_run_row(job, executor, cfg, now=None):
         "ended": None, "wall_hours": None, "outcome": "running", "reviewer_verdicts": [],
         "first_pass_gate": None, "revision_number": revision_number, "revision_rounds": revision_number,
         "model_usage": [], "paid_provider_costs": None, "generation_spend_usd": None,
+        "budget": scoreboard_budget(budget_doc) if budget_doc else None,
         "dan_verdict": None, "dan_words": None, "systemic_reason": None, "corpus_entry": None,
         "asset_flow": {
             "schema": 1, "launch_state": job.get("state"), "packet_visible_at": None,

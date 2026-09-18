@@ -16,7 +16,13 @@ wd = re.search(r"work directory is `([^`]+)`|`([^`]+)/DELIVERY.json`", prompt)
 wd = wd.group(1) or wd.group(2)
 if mode == "signedout":
     print("Not logged in · Please run /login"); sys.exit(1)
+if mode == "usage":
+    print("You've hit your monthly spend limit · your session limit resets 9pm"); sys.exit(1)
+if mode == "sleep":
+    time.sleep(2); sys.exit(0)
 if "INDEPENDENT REVIEW" in prompt:
+    if mode == "review_sleep":
+        time.sleep(2); sys.exit(0)
     n = int(re.search(r"review (\d+)", prompt).group(1))
     verdict = "VERDICT: DOES NOT SHIP" if mode == "review_fail" else "VERDICT: SHIP"
     open(os.path.join(wd, f"QUEUE-REVIEW-{n}.md"), "w").write(verdict + "\nGood pace.\nCaption late at 0:12.\n")
@@ -96,14 +102,14 @@ class EndToEnd(unittest.TestCase):
                         EDIT_QUEUE_PAUSE_FILE=os.path.join(self.tmp, "PAUSE"),
                         EDIT_QUEUE_SNAPSHOT=os.path.join(self.tmp,"review-snapshot.html"))
 
-    def go(self, mode):
+    def go(self, mode, no_budget=False):
         env = dict(self.env, FAKE_MODE=mode)
         code = ("import sys,os; sys.path.insert(0, %r); import eq_common as eq; eq.unshadow(); d=eq.sibling('dispatcher'); q=eq.sibling('queue');"
-                "cfg=eq.load_config(); print(d.launch('AV-01','claude',cfg)); "
+                "cfg=eq.load_config(); print(d.launch('AV-01','claude',cfg,no_budget=%r)); "
                 "import time\n"
                 "for _ in range(200):\n"
                 "    time.sleep(0.1)\n"
-                "    if 'claim' not in q.find(q.load(),'AV-01'): break\n") % PKG
+                "    if 'claim' not in q.find(q.load(),'AV-01'): break\n") % (PKG, no_budget)
         subprocess.run([sys.executable, "-c", code], env=env, check=True, capture_output=True, timeout=60)
         job = json.load(open(os.path.join(self.tmp, "jobs.json")))["jobs"][0]
         row = json.load(open(os.path.join(self.tmp, "scoreboard.json")))["runs"][-1]
@@ -114,6 +120,8 @@ class EndToEnd(unittest.TestCase):
         self.assertEqual(job["state"], "delivered"); self.assertNotIn("claim", job); self.assertTrue(job["queue_owned"])
         self.assertEqual(row["reviewer_verdicts"], ["SHIP"]); self.assertEqual(row["revision_rounds"], 0)
         self.assertEqual(row["outcome"], "delivered"); self.assertEqual(row["first_pass_gate"], "PASS"); self.assertIsNotNone(row["ended"])
+        self.assertFalse(row["budget"]["exceeded"])
+        self.assertEqual(row["budget"]["hours_allowed"], 2.5)
         self.assertEqual(len(row["model_usage"]), 2)
         self.assertIsNone(row["model_usage"][0]["input_tokens"])
         log = open(os.path.join(self.tmp, "work", "AV-01", "queue-run.log")).read()
@@ -141,6 +149,52 @@ class EndToEnd(unittest.TestCase):
         self.assertEqual(row["outcome"], "auth_failed"); self.assertEqual(job["state"], "ready"); self.assertNotIn("claim", job)
         self.assertIsNone(row["paid_provider_costs"][0]["usd"])
         self.assertIn("unavailable", row["paid_provider_costs"][0]["reason"])
+
+    def test_usage_limit_still_returns_ready_for_two_hour_backoff(self):
+        job, row = self.go("usage")
+        self.assertEqual(row["outcome"], "usage_limited")
+        self.assertEqual(job["state"], "ready")
+        self.assertNotIn("claim", job)
+
+    def test_tiny_budget_parks_as_needs_and_keeps_work(self):
+        cfg_path = os.path.join(self.tmp, "config.json")
+        cfg = json.load(open(cfg_path))
+        cfg["budget"]["sizes"]["S"]["edit_hours"] = 0.00003
+        json.dump(cfg, open(cfg_path, "w"))
+        job, row = self.go("sleep")
+        wd = os.path.join(self.tmp, "work", "AV-01")
+        self.assertEqual(job["state"], "needs")
+        self.assertNotIn("claim", job)
+        self.assertTrue(os.path.isdir(wd))
+        self.assertEqual(row["outcome"], "budget_exceeded")
+        self.assertTrue(row["budget"]["exceeded"])
+        self.assertEqual(row["budget"]["renders_used"], 0)
+        self.assertIn("budget exceeded after", job["note"])
+        self.assertTrue(json.load(open(os.path.join(wd, "BUDGET.json")))["exceeded"])
+
+    def test_no_budget_lifts_tiny_cap_and_is_logged(self):
+        cfg_path = os.path.join(self.tmp, "config.json")
+        cfg = json.load(open(cfg_path))
+        cfg["budget"]["sizes"]["S"]["edit_hours"] = 0.00003
+        cfg["budget"]["sizes"]["S"]["full_renders"] = 1
+        json.dump(cfg, open(cfg_path, "w"))
+        job, row = self.go("ok", no_budget=True)
+        self.assertEqual(job["state"], "delivered")
+        self.assertFalse(row["budget"]["enabled"])
+        self.assertEqual(row["budget"]["source"], "no-budget override")
+        self.assertIn("launch-one --no-budget", open(os.path.join(self.tmp, "work", "AV-01", "queue-run.log")).read())
+
+    def test_tiny_review_budget_parks_the_finished_candidate(self):
+        cfg_path = os.path.join(self.tmp, "config.json")
+        cfg = json.load(open(cfg_path))
+        cfg["budget"]["sizes"]["S"]["review_hours"] = 0.00003
+        json.dump(cfg, open(cfg_path, "w"))
+        job, row = self.go("review_sleep")
+        self.assertEqual(job["state"], "needs")
+        self.assertEqual(row["outcome"], "budget_exceeded")
+        self.assertTrue(row["budget"]["exceeded"])
+        self.assertIn("review clock expired", job["note"])
+        self.assertTrue(os.path.isfile(os.path.join(self.tmp, "work", "AV-01", "DELIVERY.json")))
 
     def test_phase2_approval_while_running_then_one_finishing_and_one_review(self):
         env = dict(self.env, FAKE_MODE="phase2_wait")
