@@ -102,7 +102,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **DS-18 kettlebell-deadlift short — ACTIVE 2026-09-18, Codex.** Claimed; planning and source review underway while the two-build machine cap is occupied. Next: select C1671 dialogue + C1673 demonstrations, send the required B-roll preview packet, then finish and audit. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
 
-**RX-01 raw-footage audit — ACTIVE 2026-09-18, Codex.** Inventorying and matching the unmapped 06-18, 7/8, 8/3, 8/14 and 8/28 rolls. Next: transcribe once the two current Whisper jobs release the machine, then write the map and add any missing jobs. Detail: `Handoffs/video-editing/RX-01-unmapped-footage-audit.md`.
+**RX-01 raw-footage audit — DELIVERED 2026-09-18, Codex.** All target rolls transcribed/contact-sheeted and mapped; no filmed-but-unlisted videos found, so no new jobs. DS-25 has no M100 b-roll. Next: Dan reviews/approves; then delete this entry. Detail: `Docs/RAW_FOOTAGE_MAP.md`.
 
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 
