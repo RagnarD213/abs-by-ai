@@ -47,6 +47,8 @@ methods: `Media/codex-video-trial/skills/abs-edit-organic/references/c1652-r3-me
 
 ## B. How to work (why Codex converged and Claude did not)
 
+Before transcribing, picking a lav, or building a contact sheet for a source clip, run `.claude/skills/_shared/rolls/roll_sidecar.py show`; if there is no sidecar, run `build` and use its output. When the EDL is final, run `mark-used` for every source range.
+
 10. **Start from the last approved recipe, not a blank directory.** DS-04 wrote 30 new scripts and re-broke solved
     problems. New code is where the defects come from.
 11. **Each round with Dan LOCKS what he approved** (C1652: audio, colour, crop sizes, specific panels) and changes

@@ -62,6 +62,8 @@ the editor received both mics (a comb filter on any phone) or, on an 8/28 roll, 
 
 ## Step 2 — find the source, and find the CLEAN source
 
+Search the permanent footage mirror first: `python3 .claude/skills/_shared/rolls/roll_sidecar.py find "<Dan's words for the shot>"`. Add `--shoot`, `--framing front|45|profile`, or `--unused` when useful. Use the returned clip and in/out range before starting the manual hunt below.
+
 Search both places, in parallel:
 
 - **Local / Seagate.** `find ~ /Volumes/Extreme -iname "*keyword*"`. Long-form masters

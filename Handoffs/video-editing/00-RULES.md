@@ -24,6 +24,7 @@ same; only the tools differ (section 3).
 4. **Never run a script inside another session's build directory.** Copy what you need into your own
    `/Volumes/Extreme/_edit_work/<job-id>/` directory.
 5. **Raw footage is read-only.** Never move, rename or re-encode anything in the shoot folders on `/Volumes/Extreme`.
+6. **Reuse roll sidecars first.** Before transcribing, picking a lav or building a contact sheet for a source clip, run `.claude/skills/_shared/rolls/roll_sidecar.py show`; if there is no sidecar, run `build` and use its output. When the EDL is final, run `mark-used` for every source range.
 
 ## 2. Standing content and quality rules (from `AGENTS.md`; the wording there is authoritative)
 
