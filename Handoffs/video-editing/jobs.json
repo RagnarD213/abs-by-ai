@@ -1451,11 +1451,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-09-ad8-vertical.md using .claude/skills/shortad-from-longform/SKILL.md. Deliver both review copies and update the queue.",
    "state": "ready",
-   "note": "",
+   "note": "16:9 finalized and uploaded (YouTube HMZdiJMAI3Y + Demand Gen approved); full 9:16 and 9:16 ≤0:59 still need editing",
    "order": 69,
-   "updated": "2026-09-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-18",
+   "rev": 2,
+   "syncedRev": 1,
+   "by": "Codex"
   },
   {
    "id": "AV-10",
@@ -1531,11 +1532,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Confirm AV-09 is approved, then execute Handoffs/video-editing/AS-08-ad8-square.md with /shortad-from-longform as a square re-layout. Deliver both review copies and update the queue.",
    "state": "blocked",
-   "note": "AV-09 approved",
+   "note": "16:9 finalized and uploaded; full 1:1 and 1:1 ≤0:59 still need editing after AV-09 is approved",
    "order": 73,
-   "updated": "2026-09-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-18",
+   "rev": 3,
+   "syncedRev": 1,
+   "by": "Codex"
   },
   {
    "id": "AS-09",

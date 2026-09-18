@@ -149,6 +149,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 5 Every Diet You've Tried Failed | ✅ | ❌ AV-04 (round 2) | ❌ AV-04 | ❌ AS-03 | ❌ AS-03 |
 | 6 You're Not Too Old To Get Abs | ✅ | ❌ AV-05 | ❌ AV-05 | ❌ AS-04 | ❌ AS-04 |
 | 7 In 2010 I Photoshopped My Face | ✅ (typo fix owed by Muhammad) | ❌ AV-06 | ❌ AV-06 | ❌ AS-05 | ❌ AS-05 |
+| 8 AI Showed Me Two Futures | ✅ (uploaded 09-16) | ❌ AV-09 | ❌ AV-09 | ❌ AS-08 | ❌ AS-08 |
 | 10 My Dad Bod At 38 / 40 | ✅ | ❌ AV-07 | ❌ AV-07 | ❌ AS-06 | ❌ AS-06 |
 | 14 I Watched 400 Workout Videos | ✅ (HD arrived 09-16, not yet filed) | ❌ AV-08 | ❌ AV-08 | ❌ AS-07 | ❌ AS-07 |
 | RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ (uploaded 09-18) | ✅ (uploaded 09-18; is ≤0:59) | ✅ (same upload) | ❌ not yet a job — add AS when Dan asks | ❌ |
@@ -181,7 +182,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AS-05](AS-05-ad7-square.md) | Ad 7 | BLOCKED: AV-06 approved | M |
 | [AS-06](AS-06-ad10-square.md) | Ad 10 | BLOCKED: AV-07 approved | M |
 | [AS-07](AS-07-ad14-square.md) | Ad 14 | BLOCKED: AV-08 approved | M |
-| [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED: AV-09 approved | M |
+| [AS-08](AS-08-ad8-square.md) | Ad 8 | BLOCKED | M |
 | [AS-09](AS-09-ad9-square.md) | Ad 9 | BLOCKED: AV-10 approved | M |
 | [AS-10](AS-10-ad13-square.md) | Ad 13 | BLOCKED: AV-11 approved | M |
 | [AS-11](AS-11-ad15-square.md) | Ad 15 | BLOCKED: AV-12 approved | M |
