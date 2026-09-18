@@ -92,15 +92,40 @@ for si, s in enumerate(segs):
         out.append(dict(word=w[0], start=round(st,3), end=round(en,3), score=round(float(np.mean(scs)),3), src='ctc'))
 # A CTC slip on a tiny word can land it before its predecessor or after its successor (12 of 875 here even
 # with exact segment ownership): re-place such a word evenly in the gap between its neighbours.
-rep = 0
+# First the honest repair: align the ONE word inside the gap its neighbours leave (a fresh forced alignment
+# over that window alone). Centring it in the gap put "to" 236 ms before the speech when the gap held a pause
+# (kit9x16 from-raw, 213.3 s; the gate's own forced alignment of the delivered file had it at 213.55).
+def align_in_gap(wtext, a, b):
+    n = norm(wtext)
+    if not n or b - a < 0.08: return None
+    a0 = max(0.0, a - 0.03); b0 = min(len(wav)/SR, b + 0.03)
+    x = wav[int(a0*SR):int(b0*SR)]
+    if x.shape[0] < int(0.1*SR): return None
+    with torch.inference_mode():
+        em, _ = model(x.unsqueeze(0))
+    em = torch.log_softmax(em[0], dim=-1)
+    toks = [L['|']] + [L[c] for c in n.replace(' ', '|') if c in L] + [L['|']]
+    if len(toks) <= 2 or em.shape[0] < len(toks) + 2: return None
+    try:
+        ali, _sc = torchaudio.functional.forced_align(em.unsqueeze(0), torch.tensor([toks]), blank=0)
+    except Exception:
+        return None
+    ali = ali[0].tolist(); fdur = (x.shape[0]/SR) / em.shape[0]
+    frames = [f for f, t in enumerate(ali) if t not in (0, L['|'])]
+    if not frames: return None
+    return round(a0 + frames[0]*fdur, 3), round(a0 + (frames[-1]+1)*fdur, 3)
+rep = regap = 0
 for i in range(1, len(out)-1):
     p, w, n = out[i-1], out[i], out[i+1]
     if w['start'] < p['end'] - 0.02 or w['start'] > n['start'] - 0.02:
         a, b = p['end'], n['start']
+        g = align_in_gap(w['word'], a, b) if b > a else None
+        if g and a - 0.02 <= g[0] < g[1] <= b + 0.02:
+            w['start'], w['end'] = g; w['src'] = 'regap'; regap += 1; continue
         if b - a < 0.06: b = a + 0.06
         dur = min(max(0.06, 0.4*(b-a)), b-a)
         w['start'] = round(a + 0.5*((b-a)-dur), 3); w['end'] = round(w['start']+dur, 3); w['src'] = 'repaired'; rep += 1
-print(f'{rep} misplaced words re-placed between their neighbours')
+print(f'{regap} misplaced words re-aligned inside their gap, {rep} re-placed evenly between their neighbours')
 json.dump(out, open('words_ctc.json','w'), indent=0)
 ctc = [o for o in out if o['src']=='ctc']
 print(f'{len(out)} words, {len(ctc)} CTC-aligned, {len(out)-len(ctc)} fell back to whisper')
