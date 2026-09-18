@@ -197,11 +197,15 @@ def card_hole(media_ar, has_text):
     # the captions for their duration.
     maxw = VW - 2*40
     top, bot = 150, (1330 if not has_text else 1240)
-    # a labelled card gives up 90 px at the bottom so its chip sits BELOW the hole, never over the picture
+    # a labelled card gives up 114 px at the bottom so its chip sits BELOW the hole, never over the picture
     # (the approved square's rule: card media keeps the card chip under the hole, not on his body; the
-    # kit's first gate read 26 chip-over-person obstructions with the chip drawn inside the hole)
+    # kit's first gate read 26 chip-over-person obstructions with the chip drawn inside the hole).
+    # 114 not 90: the gate's person segmenter reads a dark chip 44 px under a torso the hole cuts off as
+    # his shorts (round 5, after_reveal @198.5: 4,821 px of "body" on the chip); at a 64 px gap it reads
+    # nothing (0 px, same frame, chip moved 20 px) -- so the chip sits 68 px under the frame, label wins
+    # over kicker/caption for the hole size, and the kicker keeps its old absolute line.
     if has_text == "label":
-        bot = 1240
+        bot = 1216
     maxh = bot - top
     w, h = maxw, maxw/media_ar
     if h > maxh: h, w = maxh, maxh*media_ar
@@ -213,7 +217,7 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
     """A photo / clip / phone screen inside his olive-glow card on the field."""
     if hole is None:
         if media_ar is None: media_ar = 0.62 if portrait else 16/9
-        hole = card_hole(media_ar, bool(caption or top_kicker) or ("label" if label else False))
+        hole = card_hole(media_ar, "label" if label else bool(caption or top_kicker))
     fc = font(44, "SemiBold"); fk = font(40, "ExtraBold"); fl = font(30, "SemiBold")
     out = []
     for i in range(nframes(dur, fps)):
@@ -222,8 +226,9 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
         d  = ImageDraw.Draw(im)
         h  = _hole_at(hole, t)
         rrect(im, [h[0]-14, h[1]-14, h[2]+14, h[3]+14], 30, fill=CARD_OL+(255,), glow=26)
-        ty = hole[3] + 54 + (78 if label else 0)      # a labelled card's chip owns the first band under the frame; the
-                                                      # kicker / caption starts below it (round 3: the chip printed over '200 POUNDS')
+        ty = hole[3] + 54 + (102 if label else 0)     # a labelled card's chip owns the first band under the frame; the
+                                                      # kicker / caption starts below it (round 3: the chip printed over '200 POUNDS');
+                                                      # 102 = 78 + the 24 px the labelled hole gave up, so the kicker line stays put
         if top_kicker:
             k = ease_out_expo(clamp01((t-0.10)/0.42))
             kf = font(76, "ExtraBold")
@@ -246,8 +251,9 @@ def plate_card(dur, caption=None, label=None, portrait=False, fps=FPS,
             lw, lh_ = text_size(label, fl)
             lay = Image.new("RGBA", (VW, VH), (0,0,0,0))
             bx = (VW-(lw+34))//2
-            by = int(hole[3]) + 14 + 30                   # 30 px under the card frame: a person cut off by the photo's bottom
-                                                          # edge bleeds ~20 px past it in the segmenter (dad_ride read 2,482 px at 14)
+            by = int(hole[3]) + 14 + 54                   # 54 px under the card frame (68 under the hole): a person cut off by the
+                                                          # photo's bottom edge bleeds ~20 px past it in the segmenter (dad_ride read
+                                                          # 2,482 px at 14), and at 30 the dark chip itself reads as his shorts (see card_hole)
             ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx+lw+34, by+lh_+22], radius=9,
                                                   fill=(0,0,0,215))
             ImageDraw.Draw(lay).text((bx+17, by+11), label, font=fl, fill=INK, anchor="lt")

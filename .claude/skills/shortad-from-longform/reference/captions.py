@@ -223,7 +223,7 @@ def render(gs, out='captions.mov', capdir='cap'):
     # 4805/4806 against the manifest). A frame sequence has no timestamps to round: frame k is state(k).
     seqdir = f'{capdir}/frames'
     if os.path.isdir(seqdir):
-        import shutil as _sh; _sh.rmtree(seqdir)
+        subprocess.run(['rm', '-rf', seqdir], check=True)      # not shutil.rmtree: exFAT's ._ AppleDouble files trip it
     os.makedirs(seqdir)
     for k, (p, _) in enumerate(entries):
         for n_ in range(fidx[k], fidx[k+1]):

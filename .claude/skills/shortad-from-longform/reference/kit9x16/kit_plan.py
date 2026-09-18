@@ -116,7 +116,7 @@ def main():
                         lw, lh_ = text_size(txt, fl)
                         lay = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
                         bx = (1080 - (lw + 34)) // 2
-                        by = int(hole[3]) + 14 + 30                # vlib.plate_card: 30 px below the card frame, never over the picture
+                        by = int(hole[3]) + 14 + 54                # vlib.plate_card: 54 px below the card frame, never over the picture
                         ImageDraw.Draw(lay).rounded_rectangle([bx, by, bx + lw + 34, by + lh_ + 22], radius=9, fill=(0, 0, 0, 215))
                         ImageDraw.Draw(lay).text((bx + 17, by + 11), txt, font=fl, fill=(255, 255, 255, 255), anchor="lt")
                         bb = lay.getchannel("A").getbbox()
@@ -202,9 +202,16 @@ def main():
     plan["speech_words"] = delivered_speech or list(plan["words"])
     plan["speech_words_evidence"] = (dict(method="delivered_asr", video_sha256=sha(VID)) if delivered_speech
                                      else dict(method="verbatim_source_ctc"))
-    regions = [dict(name=f"card@{x:.3f}", beat=[x, y], rect=[0, 0, 1080, 1920]) for x, y in cards]
+    # region beats on the FRAME grid: a graphic enabled at t0 first draws on the first frame at or after t0, and
+    # the compositor's caption states are frame-exact, so a state that ends on that frame (exclusive) does not
+    # share a frame with it. Declared at the unquantised t0 the gate read a 0.9 ms "overlap" as a collision
+    # (round 5: 'improves.' ending 111.0109 vs card@111.000). The end rounds UP to the next frame: stricter.
+    import math
+    qa = lambda t: math.ceil(t * FPS - 1e-6) / FPS
+    qb = lambda t: (math.floor(t * FPS + 1e-6) + 1) / FPS
+    regions = [dict(name=f"card@{x:.3f}", beat=[qa(x), qb(y)], rect=[0, 0, 1080, 1920]) for x, y in cards]
     for g in graphics:
-        regions.append(dict(name=g["name"], beat=g["beat"], mov=g["mov"], mov_sha256=sha(g["mov"])))
+        regions.append(dict(name=g["name"], beat=[qa(g["beat"][0]), qb(g["beat"][1])], mov=g["mov"], mov_sha256=sha(g["mov"])))
     plan["graphic_regions"] = regions
     windows = []
     for i, b in enumerate(tl):

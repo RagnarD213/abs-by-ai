@@ -51,6 +51,16 @@ flash), the picture cut is placed at `s + k` frames, `k ∈ [−15, +15]`:
    * only if neither is possible, a **5-frame cross-dissolve in the base** (`build_base_pic.py`'s patches),
      the documented fallback from `/shortad-from-longform` Step 7c. **Never a dissolve on a cut that could
      have been pose-matched** (SKILL.md: *"his frame choice is"* the fix).
+   * ⚠ **The dissolve is retired for splices inside a Dan WINDOW (window / stmt / winmedia plates), 2026-09-17
+     round 6.** Rounds 3-5 dissolved every window splice; the round-5 judges read the ones between takes
+     that differ in pose as *"two clearly separate faces superimposed"* (23.09, 69.04, 167.73 s), and a
+     frame-by-frame measurement of the base found the patch did not land at 223.59 s at all (a bare
+     single-frame step, judged a naked splice) and mis-seeked at 69.04 (a hard cut followed by a blend of the
+     wrong frames). A window splice is now cut exactly like a talk splice: `build_kit.py` runs `kit_cuts.py
+     decide` over `window_spans.json` in the build's own mode (his recovered frame from a master, the
+     pose-matched frame from raw) into `<build>/_wincuts/`, and the cut carries the kit's instant size step
+     INSIDE the window (`render.py` applies the push schedule to the window crop, anchored to the crop's top
+     so his hair keeps its headroom; the per-take re-centre lands on the cut frame, no ramp).
 4. **Both takes must exist over the shifted range.** A positive `k` extends the outgoing take past its audio
    out-point; a negative `k` starts the incoming take before its audio in-point. If the raw does not have the
    frames (take at the end of a roll, or a splice inside the same take), `k` is clamped to what exists and the

@@ -19,7 +19,7 @@ Dan judges it blind (`blind/`). Never grade the kit yourself.
 | `build_kit.py` | template + `content.json` (WHAT goes where, phrase-anchored) + the audio EDL → `beats.json`, `beats.py` (shim), `edl_picture.json`, `piccuts.json`, `kit_report.json` (the generated design scored against picture.json's lo/hi BEFORE rendering) |
 | `content_from_beats.py` | lifts the content decisions out of an approved hand-written beats.py, with phrase anchors and label kinds |
 | `kit_beats.py` | the `beats` module the pipeline imports, reading `beats.json` |
-| `kit_base.py` | conform the picture to `edl_picture.json` at the grade (snapped seeks, rewritten pts), dissolve patches only where the rule fell back to one |
+| `kit_base.py` | conform the picture to `edl_picture.json` at the grade (snapped seeks, rewritten pts); its dissolve-patch pass is dormant since round 6 (window splices step like talk splices, `cut_rules.md` 3c) |
 | `kit_track.py` | the 608-px talk crop's face track per picture segment; fixed centre where the lean is small |
 | `kit_labels.py` | label chips on full-bleed pictures of Dan placed by MEASURING him (person mask, above the head first), the approved square's method; `--verify` on the delivered file |
 | `kit_plan.py` | plan.json for the gate, evidence contract v2, read out of the build |
@@ -55,3 +55,20 @@ shared chain (`_shared/audio/voice_chain.py` + bed + his tick at graphic entranc
 * An editor's finished mix ships untouched. Same person in a before/after. Real pictures carry the real
   label, off his face and abs, placed by measurement.
 * Assets live here in the skill, never only in `Media/`.
+
+## Measured traps (round 5, 2026-09-17)
+
+* **A card's label chip sits 68 px under the hole, not 44.** The gate's person segmenter reads a dark chip 44 px
+  under a torso the hole cuts off as his shorts (4,821 px of "body" on the chip at 198.5 s, 12 obstructions in
+  the round-5 gate); at a 64 px gap the same frame reads 0 px. `vlib.card_hole` gives a labelled card 114 px at
+  the bottom, `plate_card` hangs the chip at `hole[3] + 68`; the kicker keeps its old absolute line. Never move
+  the chip back up to make room.
+* **Graphic-region beats are declared on the frame grid** (`kit_plan.py`): a graphic enabled at `t0` first draws
+  on the first frame at or after `t0`, and the compositor's caption states are frame-exact, so a state that ends
+  on that frame does not share a frame with it. Declared at the unquantised `t0`, a 0.9 ms "overlap" read as a
+  −104 px collision (six false rows in the round-5 gate).
+* **An AI clip's hands are checked frame by frame before it is used**; a clip whose hands melt is replaced by
+  one of its own clean frames as a pushed still (`assets.py`: `ai_respect_gym`, `ai_women_pool`), $0.
+* **A watch judge is told which boundaries are ramps.** `plan.json` `punch` boundaries at a 50 % ramp crossing
+  (`punch_FAR` / `punch_NEAR` strips) show a gradual zoom, not a step; three judges in a row reported them as
+  "a declared step that never rendered". Say so in the judge prompt.

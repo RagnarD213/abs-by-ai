@@ -99,9 +99,10 @@ def window_x_expr(t0, t1, cw):
     e = f'{vals[0][1]:.1f}'
     for (sa, x), (_, xp) in zip(vals[1:], vals[:-1]):
         if abs(x - xp) >= 1.0:
-            # the re-centre RAMPS across the same 5 frames the base dissolves the two takes over, so the
-            # background never steps sideways in one frame under a cross-fading subject
-            e += f'{x - xp:+.1f}*clip((t-{sa - t0 - 0.5/FPS:.4f})/{5/FPS:.4f}\\,0\\,1)'
+            # the re-centre lands ON the cut frame: a window splice is a hard pose-matched cut with a size step
+            # (kit9x16 round 6; the 5-frame ramp belonged to the base dissolve, which ghosted two takes that
+            # differ in pose and, measured on round 5, failed to land at 223.59 and mis-seeked at 69.04)
+            e += f'{x - xp:+.1f}*gte(t\\,{sa - t0 - 0.5/FPS:.4f})'
     return e
 
 def vlib_subject_cx():
@@ -281,7 +282,7 @@ def _track_sig(t0, t1):
     return hashlib.md5(json.dumps(sl).encode()).hexdigest()[:10]
 
 def _sig(b, nfr, t0):
-    v = 'v9-winramp'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
+    v = 'v10-winstep'  # bump on any change to the crop/ramp code; the media spec and the track slice are hashed separately
     extra = {'_n': nfr, '_t0': round(t0, 4), '_v': v, '_vlib': _VLIB_SIG}   # the SEGMENT cache must see the layout library too:
     # a plated beat's out/sNNN.mp4 was served after vlib changed (the '200 POUNDS' kicker under the chip, round 4)
     if b['kind'] in ('talk', 'window', 'stmt', 'winmedia'): extra['_trk'] = _track_sig(t0, b['t1'])
@@ -293,7 +294,7 @@ def _sig(b, nfr, t0):
         extra['_chip'] = hashlib.md5(open(b['chip_png'], 'rb').read()).hexdigest()[:10]
     # ⚠ the PUSH SCHEDULE is part of what a talk segment rendered: a changed beats.PUSHES served stale
     # segments until this was added (kit9x16, 2026-09-16)
-    if b['kind'] == 'talk':
+    if b['kind'] in ('talk', 'window', 'stmt', 'winmedia'):     # a window steps at its cuts too (kit9x16 round 6)
         extra['_pushes'] = [list(p) for p in beats.PUSHES if p[3] > t0 - 0.05 and p[0] < b['t1'] + 0.05]
     return json.dumps({k: v_ for k, v_ in sorted(b.items())} | extra, sort_keys=True, default=str)
 
@@ -444,7 +445,12 @@ def render_segment(i, b, nfr, t0):
         x, y, w, h = hole_args('dan')
         cw, ch, cx, cy = vlib.window_crop(h)
         ins += ['-ss', seek(t0), '-i', BASE]
-        prep.append(f"[{idx}:v]setpts=PTS-STARTPTS,crop={cw}:{ch}:'{window_x_expr(t0, b['t1'], cw)}':{cy},"
+        # the window steps at its cuts like a talk beat does (the kit's zoom-cut: an instant 1.20x punch on the
+        # pose-matched cut frame, alternating in/out). Anchored to the TOP of the crop, not its centre: his hair
+        # sits close under the window's top edge, and a centred zoom would push it out (hair_top)
+        wz = push_z_expr(t0, b['t1'])
+        wzp = (f",zoompan=z='{wz}':x='(iw-iw/zoom)/2':y='0':d=1:s={cw}x{ch}:fps=30000/1001" if wz else '')
+        prep.append(f"[{idx}:v]setpts=PTS-STARTPTS,crop={cw}:{ch}:'{window_x_expr(t0, b['t1'], cw)}':{cy}{wzp},"
                     f'scale={w}:{h}:flags=lanczos,unsharp=5:5:0.5:5:5:0.0,setsar=1[m{idx}]')
         over.append((idx, x, y)); idx += 1
     if 'media' in holes:
