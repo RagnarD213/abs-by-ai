@@ -80,7 +80,7 @@ def main():
             raise SystemExit(f"no audio_source.json beside {src}: run _shared/audio/pick_lav.py on it first")
         n0 = int(round(s["cut_in"] * SR))
         n1 = int(round(s["cut_out"] * SR))
-        x = pcm(src, s["src_in"], (n1 - n0) / SR + 0.05, L["map"], L["filter"])[: n1 - n0]
+        x = np.array(pcm(src, s["src_in"], (n1 - n0) / SR + 0.05, L["map"], L["filter"])[: n1 - n0])   # a copy: pcm() hands back a read-only frombuffer view, and the join ramp writes into it
         if len(x) < n1 - n0:
             x = np.pad(x, (0, n1 - n0 - len(x)))
         # 4 ms raised-cosine joins so a trim never clicks
