@@ -11,8 +11,9 @@ Folder: `/Volumes/Extreme/abs by ai 8:28 shoot | jeff | dan | ads, dedicated sho
 | **C1680** (4:24) | The main ladder. Dan on the blue mat by the pool, profile angle, far framing. Knee pushups, standard pushups, then pushups on handles, with kneeling rests between sets (he faces the camera at the start and between sets). Silent: mean audio -78 dB. | levels 2, 3, 4 (and probably 5, verify) |
 | **C1681** (0:56) | Elevated pushups, feet on a chair, hands on handles. | level 6 (decline) |
 | **C1684** (0:40) | Handstand pushups against a pillar, patio, dim light. | optional bonus "beyond level 6" beat |
-| GoPro 1 `GOPR0044` / `GP010044` | Long low floor angle covering pushups and core takes. | second angle, verify what is on it |
-| GoPro 2 `GH010277` | Very low close angle of handstand pushups. | bonus angle |
+| **GoPro 1 `GOPR0044`** (8:53, has audio) | Second camera, low floor angle, same mat session. Dan speaks a slate before every clip: knee pushups, regular pushups, mistakes (half reps, butt in the air, sagging back), regular with handles, **close-grip with handles (level 5, confirmed)**, then the chair. Sidecar with transcript: `regular gopro 1/GOPR0044.roll.md`. | second angle for levels 2 to 6, and the mistake clips; the slates are the map |
+| **GoPro 2 `GH010276`** (15:44, has audio) | Same session from a third angle, same slates (knee, regular, mistakes, handles, close-grip, decline off the chair). Sidecar: `regular gopro 2/GH010276.roll.md`. | another angle, same use |
+| `GH010277` | Very low close angle of handstand pushups. | bonus angle |
 
 Roll sidecars (`<roll>.roll.md`) sit next to each file with timelines. **C1678 is NOT pushups** (it is ab wheel; the old
 shoot report mislabelled it). C1671 (about 2:20 to 3:50) holds the talking for the separate short DS-20; do not lift from it
@@ -24,16 +25,18 @@ Outline: Shoot 5 doc `1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`, Section 2, 
 The six levels: 1 incline (couch/table/wall), 2 knee, 3 standard floor, 4 standard with handles, 5 close-grip on handles,
 6 decline (feet up). Rule for moving up: 3 sets of 15 clean reps.
 
-## Known gaps to resolve FIRST (list them before building)
-* **Level 1 (incline / countertop):** the shot list put this in the kitchen. Nothing on C1680/C1681 shows it. Search GoPro 1
-  and the other 8/28 rolls; if it does not exist, say so and stop for Dan (options: film a pickup, or drop to 5 levels).
-* **Level 5 (close-grip):** confirm whether the last part of C1680 (after about 3:00) is close-grip or just handles at
-  shoulder width.
-* **On-camera talking (intro, "why pushups", form rules, when to move up, CTA):** the sidecars found no speech in C1680 or
-  C1681. Search every 8/28 roll (run `pick_lav.py` per file, transcribe the roll sidecars marked `not-run:lav-unresolved`)
-  for Dan talking the masterclass. If none exists, the video is a silent demonstration with on-screen text cards plus the
-  voice-over question for Dan. Do not invent narration in his voice.
-* C1680 and C1681 are also named as b-roll for DS-20 ("Five Levels Of Pushups"). Coordinate so both cuts stay consistent.
+## Known gaps (status 2026-09-19)
+* **Level 5 (close-grip): FOUND.** Slated "close grip pushups with handles done right" on GOPR0044 and GH010276; the matching stretch of C1680 is the main-camera version.
+* **Level 1 (countertop, outdoor kitchen): NOT FOUND YET.** Dan says it was filmed outside on a countertop near the end of the
+  8/28 shoot. Checked and ruled out: every main-camera sidecar C1646 to C1685 (transcripts and contact sheets, including the
+  dumbbell rolls C1675/C1676), GoPro 1 (all four clips), GoPro 2 `GH010276`. Not yet checked: GoPro 2 `GH010275`, `GH010277`,
+  `GH010278`, the 360 files, and anything on Dan's phone or a card not copied to the Extreme drive. First job for the editor:
+  ask Dan where it lives, or search those before building. Do not fill level 1 with AI.
+* **On-camera talking (intro, why pushups, form rules, when to move up, CTA): NOT FOUND YET.** Every talking roll's transcript was
+  searched (C1650 to C1672). The only pushup talking is the short DS-20 on C1671 (the five levels, 137 to 230 s). Same open
+  question as level 1: Dan says it was filmed outside at the end of the shoot, so it is probably on media not on the drive.
+  If it never surfaces, the fallback is a silent demonstration with level cards and text, or Dan records it as a pickup.
+* C1680 and C1681 are also named as b-roll for DS-20 ("Five Levels Of Pushups"). Keep both cuts consistent.
 
 ## Build
 * Codex first cut per the queue routing (`scripts/edit-queue/config.json`), `$abs-edit-organic`. Model the structure on the

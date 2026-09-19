@@ -1611,14 +1611,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-09-pushup-masterclass.md`: first list the gaps (level 1, level 5, any on-camera talking), then cut the Pushup Masterclass from 8/28 rolls C1680, C1681 and the extras to the approved organic standard. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-09-pushup-masterclass.md` with `$abs-edit-organic`. List the gaps first, deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "note": "demo only; level 1 + talking may be missing",
+   "note": "close-grip found (GoPro); level 1 countertop + talking not located, ask Dan",
    "by": "claude",
    "order": 77,
    "state": "ready",
    "sub": "",
    "updated": "2026-09-19",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 2
   }
  ]
 }
