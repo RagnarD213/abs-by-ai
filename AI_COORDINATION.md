@@ -64,9 +64,9 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 - **Muhammad ads 8/9/13/15 — HD checked vs the LIVE doc 09-18.** Dan's edits deleted the watermark, robot-arm,
   green-card and beach-smudge items. His HD exports already clear Ad 8 entirely and parts of 9/15. Left: the caps
   label build (9, 13, 15) and Ad 15's 3:16 demo. Next: Dan sends the 09-18 reply.
-- **Zeeshan — Arms & Shoulders r4 + STOP Deadlifting r1 (09-18):** at the top of doc
+- **Zeeshan: STOP Deadlifting r2 + Arms & Shoulders r4 (09-19):** both at the top of doc
   `13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`. Confirm the round numbers, then forward.
-  ⚠ Two calls for you in `revision docs/zeeshan-batch-9-18-26.summary.md`.
+  ⚠ Three calls for you in `revision docs/stop-deadlifting-revisions-zeeshan-round2-9-19-26.summary.md`.
 - **Forward, Waleed + Muhammad:** Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`; ⚠ new side-by-side
   before/after 0:06.6–0:08.1). Muhammad doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`: 09-10 (Ad 13 watermark;
   Ad 15 empty slot 0:25.5, an ad?) and 09-12 (Ads 6 + 7 same closing man; Ad 14 watermark 0:20).
@@ -94,15 +94,11 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # ACTIVE
 
-**Edit queue per-job budgets - ACTIVE 2026-09-18, Codex.** Implementing the bounded time and full-render budget handoff without changing routing, models, caps, gates or media. Next: patch queue code and fake-editor tests, then run the full suite and dry-run proof. Detail: `Handoffs/handoff-20260918-edit-queue-per-job-work-budget.md`.
-
-**Roll sidecars footage index — ACTIVE 2026-09-18, Codex.** Building and testing the shared sidecar tool, then piloting the 8/28 main-camera roll before a background backfill that never takes an edit-queue slot. Next: inventory existing transcripts, footage, and reusable tooling. Detail: `Handoffs/handoff-20260918-roll-sidecars-footage-index.md`.
-
-**STOP Deadlifting frames — NEEDS DAN 2026-09-18, Codex.** Two 16:9 three-frame concepts are delivered. Source folder was view-only; output is in Drive `1ZVVA6UCVUSsesMlnws1e5lc9uSnfOgGh`. Next: Dan picks variation 1 or 2 before motion.
+**STOP Deadlifting clip — NEEDS DAN 2026-09-18, Codex.** Variation 1 is finished as a 7.33-second 1080p clip with the approved red-X ending and uploaded to Drive (`1HNKVmVEsxdyXzyZ1eqxguOn7Vin3Khl1`). Decode/freeze checks passed; cited visual defects were contradicted by full-resolution adjudication. Next: Dan reviews the final clip; remove this entry after approval.
 
 **AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
 
-**DS-18 kettlebell-deadlift short — NEEDS DAN 2026-09-18, Codex.** R2 B-roll packet delivered: full-screen measured 9:16 crops, labels above Dan, complete weight-forward and rounded-back reps. Next: Dan approves the B-roll packet, then Codex builds and gates the final short. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
+**DS-18 kettlebell-deadlift short — NEEDS DAN 2026-09-18, Codex.** R3 placeholder and new C/D cover options delivered; R2 B-roll packet remains pending. Next: Dan approves/revises the R3 cut, R2 B-roll and cover, then Codex builds and gates the final short. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
 
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 
@@ -165,7 +161,7 @@ Memory `google-ads-ui-automation`.
   delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
-- **Watchlist follow-ups, both Codex (09-18):** `handoff-20260918-roll-sidecars-footage-index.md` (analyse each roll once, searchable; Sol/High), `handoff-20260918-edit-queue-per-job-work-budget.md` (time + render budget per queue job; Sol/Medium).
+- **Watchlist follow-up, Codex (09-18):** `handoff-20260918-roll-sidecars-footage-index.md` (analyse each roll once, searchable; Sol/High).
 - **Token savings, all Codex (09-18):** `handoff-20260918-claude-video-freeze-and-codex-routing.md` (fire first), `…-shrink-always-loaded-instructions.md`, `…-move-routines-to-codex.md`.
 - `handoff-20260917-overnight-edit-queue.md` — Phase 1 built; **Phase 2** next (placeholder flow). Fable or Astra, high.
 - `codex-video-trial/06h-organic-r4-motion-graphics-and-variety.md` — C1652 R4, ready09-17; supersedes executed06f. Astra/High.
