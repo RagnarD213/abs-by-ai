@@ -91,7 +91,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-24](DS-24-how-to-do-rear-delt-flys.md) | How To Do Rear Delt Flys | C1672 | READY | S |
 | [DS-25](DS-25-how-to-do-m100s.md) | How To Do M100s | C1672 | **NEEDS DAN** | S |
 
-### 1C · Organic long-form (8)
+### 1C · Organic long-form (9)
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
@@ -103,6 +103,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-06](RO-06-work-out-at-home-on-a-budget.md) | How To Work Out At Home On A Budget | 8/3 C1557–81 (31 min) | READY | L |
 | [RO-07](RO-07-why-you-must-work-out-every-day.md) | Why You MUST Work Out Every Day | 7/8 C1484–85 (30 min) | READY | L |
 | [RO-08](RO-08-intermittent-fasting.md) | Intermittent Fasting: Best Way To Get Abs | 7/8 C1486 (23 min) | READY | L |
+| [RO-09](RO-09-pushup-masterclass.md) | Pushup Masterclass: 6 Levels From Beginner To Advanced | 8/28 C1680, C1681 (+C1684) | READY (demo only; level 1 and talking may be missing) | M |
 
 ### 1D · Housekeeping
 

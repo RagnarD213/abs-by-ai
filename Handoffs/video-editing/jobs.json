@@ -1598,6 +1598,27 @@
    "updated": "2026-09-16",
    "rev": 1,
    "syncedRev": 1
+  },
+  {
+   "id": "RO-09",
+   "list": "1",
+   "group": "Organic long-form",
+   "title": "Pushup Masterclass: 6 Levels From Beginner To Advanced",
+   "roll": "8/28 C1680, C1681 (+C1684, GoPro)",
+   "size": "M",
+   "file": "RO-09-pushup-masterclass.md",
+   "claudeModel": "Opus 5, high",
+   "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-09-pushup-masterclass.md`: first list the gaps (level 1, level 5, any on-camera talking), then cut the Pushup Masterclass from 8/28 rolls C1680, C1681 and the extras to the approved organic standard. Every gate, independent audit, deliver, send me the review copy, update the master list.",
+   "codexModel": "GPT-6 Astra, high",
+   "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-09-pushup-masterclass.md` with `$abs-edit-organic`. List the gaps first, deliver, send Dan the review copy, update `00-MASTER.md`.",
+   "note": "demo only; level 1 + talking may be missing",
+   "by": "claude",
+   "order": 77,
+   "state": "ready",
+   "sub": "",
+   "updated": "2026-09-19",
+   "rev": 1,
+   "syncedRev": 1
   }
  ]
 }

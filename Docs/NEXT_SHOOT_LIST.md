@@ -60,9 +60,10 @@ Nobody should film these until the script exists. Writing them is its own job.
 - **M100s long-form.** The three 30 second pickups in section 1 unblock the short without it, so
   this is not urgent.
 - **Members' Area intro.**
-- **Pushup Masterclass.**
 - **Shoot 5 long-form outlines:** Zepbound tips, Future Body, Alcohol, Not Losing Weight,
   Lockscreen Trick, What I Eat.
+
+- **Pushup Masterclass** is NOT on this list: it was filmed on 8/28 (C1680, C1681) and is queued as RO-09. Only level 1 (incline) and any on-camera talking are unconfirmed.
 
 ## 6. Not a shoot, but still owed by you
 
