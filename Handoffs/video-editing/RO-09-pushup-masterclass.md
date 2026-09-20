@@ -27,11 +27,14 @@ The six levels: 1 incline (couch/table/wall), 2 knee, 3 standard floor, 4 standa
 
 ## Known gaps (status 2026-09-19)
 * **Level 5 (close-grip): FOUND.** Slated "close grip pushups with handles done right" on GOPR0044 and GH010276; the matching stretch of C1680 is the main-camera version.
-* **Level 1 (countertop, outdoor kitchen): NOT FOUND YET.** Dan says it was filmed outside on a countertop near the end of the
-  8/28 shoot. Checked and ruled out: every main-camera sidecar C1646 to C1685 (transcripts and contact sheets, including the
-  dumbbell rolls C1675/C1676), GoPro 1 (all four clips), GoPro 2 `GH010276`. Not yet checked: GoPro 2 `GH010275`, `GH010277`,
-  `GH010278`, the 360 files, and anything on Dan's phone or a card not copied to the Extreme drive. First job for the editor:
-  ask Dan where it lives, or search those before building. Do not fill level 1 with AI.
+* **Level 1 (countertop, outdoor kitchen): NOT ON THE DRIVE (searched exhaustively 2026-09-20).** Dan says it was filmed outdoors
+  right before the floor pushup b-roll. All four cards of the 8/28 shoot were searched (Jeff says "four cards to download" on
+  GH010278): main camera C1646 to C1685 (every contact sheet and transcript; the outdoor kitchen is the covered patio in C1684
+  and C1685, which hold only handstands and battle ropes), GoPro 1 (all four clips, frames and slates), GoPro 2 (all six clips),
+  and the 360 clips. Dan slates every clip out loud ("I'm now going to show ..."); no slate anywhere says countertop or
+  incline, and GoPro 1 ends its ab wheel clip with "Let's go to our push-ups on the ground". Next: ask Dan or Jeff whether it
+  was shot on a phone or a fifth card. If not found, film a 30 second pickup at the outdoor kitchen counter (on the next
+  shoot list) or build the video as five levels. Do not fill level 1 with AI.
 * **On-camera talking (intro, why pushups, form rules, when to move up, CTA): NOT FOUND YET.** Every talking roll's transcript was
   searched (C1650 to C1672). The only pushup talking is the short DS-20 on C1671 (the five levels, 137 to 230 s). Same open
   question as level 1: Dan says it was filmed outside at the end of the shoot, so it is probably on media not on the drive.
