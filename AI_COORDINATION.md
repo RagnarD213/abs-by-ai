@@ -98,7 +98,7 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **AV-07 Ad 10 vertical kit build — ACTIVE 2026-09-18, Codex.** Claimed; building the full 9:16 and ≤0:59 cutdown from Muhammad’s finalized master with the locked kit. Next: recover Ad 10’s edit/grade, author the fresh content sheet, render, then run three fresh-session strip/sheet reviews and require GATE PASS 36/36. Detail: `/Volumes/Extreme/_edit_work/kit9x16/ad10-master/`.
 
-**DS-18 kettlebell-deadlift short — NEEDS DAN 2026-09-18, Codex.** R3 placeholder and new C/D cover options delivered; R2 B-roll packet remains pending. Next: Dan approves/revises the R3 cut, R2 B-roll and cover, then Codex builds and gates the final short. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
+**DS-18 kettlebell-deadlift short - NEEDS DAN 2026-09-20, Codex.** R5 tighter, brighter real-frame cover is ready. R2 full-screen B-roll remains explicitly pending. Next: Dan confirms the exact R2 reel or gives changes; then Codex builds and gates the video regardless of cover status. Detail: `/Volumes/Extreme/_edit_work/ds18-kettlebell-deadlift/`.
 
 **Overnight edit queue — LIVE 2026-09-18, all groups on Codex until 2026-09-24 (Claude allowance freeze); revisit after reset.** `Handoffs/handoff-20260918-claude-video-freeze-and-codex-routing.md` executed: `config.json` routes every group + review to Codex; dry-run confirms no launch resolves to Claude. Idle until an eligible job (SL-01/02 need picks). Pause: `dispatcher.py pause`.
 

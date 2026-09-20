@@ -18,6 +18,11 @@
 - No AI motion is generated before its frames are approved. A material frame, source, trim, action or slot-duration change requires approval again; unchanged approved items do not. After approval, insert the exact clips, rebuild only affected scenes/joins, remove every placeholder, then run the complete gates, full picture/audio review and one independent complete-candidate review.
 - A placeholder cut is internal **DRAFT** media and can never receive a delivery PASS or be uploaded. The queue's Phase 2 approval states and automatic placeholder gate are not built yet. Until they are, park a queued job in a currently supported waiting state with the packet path and exit; never pretend it will auto-resume, and never keep an AI session alive to poll. The existing queue still owns actual rendering, heartbeats and waiting.
 
+## Cover work does not block an approved B-roll video build (Dan, 2026-09-20)
+
+- Treat B-roll approval and cover approval as separate decisions. Once Dan approves the exact B-roll clips, trims and crops, insert them and regenerate the video promptly, even if the cover image is still being revised.
+- An unfinished cover may still block packaging or upload when that workflow requires one, but it does not block the video render, exact-file quality checks or a review copy. Never imply pending B-roll is approved just because Dan asks for a final video.
+
 ## Short-form footage fills the vertical frame (Dan, 2026-09-18)
 
 - **When the source can support a clean portrait crop, short-form footage occupies the complete 9:16 canvas.** Do not shrink it into a square/card stage or reserve black bands above and below. Black bars or an inset stage are only for footage whose essential action, body, equipment, text or graphics cannot survive a full-screen portrait crop.
