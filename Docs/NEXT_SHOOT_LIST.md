@@ -27,6 +27,9 @@ These are tiny. Shoot them at the start of the next session while the lights are
 | Mountain climbers | ~30 seconds, clean full reps | DS-25 |
 | Squat jumps | ~30 seconds, clean full reps | DS-25 |
 
+**Also (only if the original never turns up): countertop pushups, level 1 of the Pushup Masterclass (RO-09).** About 30 seconds at the
+outdoor kitchen counter, full body, same profile angle as the floor pushups. Dan says it was filmed on 8/28 but it is not on any of the four cards.
+
 Notes: shoot each move full-body, front on, in a spot with room around you so the editor can
 reframe for vertical. One continuous take per move is enough. No talking needed, these are
 demonstration inserts only.
