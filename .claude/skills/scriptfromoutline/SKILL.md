@@ -318,3 +318,48 @@ matches and your choice of many attractive women").
 25. **Small factual grounders beat rhetoric**: he added "They slept five hours a
    night" to the what-they-actually-did list, and "wanting to get in shape" over
    "want abs" for the broader audience (mirrors lesson 2).
+
+## Lessons (9/23 shoot, four scripts, 2026-09-19: Dan said the Opus scripts read as "generic Claude output")
+
+26. **Read his real transcripts before writing, not just this file.** The flattened SRTs in
+   `claude edited long form content/` (supplements, Zepbound, invest in health) plus the V2/V3
+   transcripts are about 25,000 words of him talking. His edited script "The Real Reason You Don't
+   Have Abs" (Shoot 5 doc) is the written calibration.
+27. **Run a blind reviewer agent before delivering, every time.** Give a fresh agent the real
+   transcripts and the drafts and ask for line-level AI tells with replacements. On this batch it
+   scored the first drafts 6 to 7 out of 10 and found what self-review missed.
+28. **The biggest tell is paragraph SHAPE, not vocabulary: claim, two or three support sentences,
+   one-line kicker.** Every section had it. Dan's paragraphs end on a plain fact or an instruction.
+   Delete the last sentence of any paragraph that exists only to land a punch. "Nobody has ever..."
+   punchlines appeared 8 times in the drafts and 0 times in 16,600 words of real Dan.
+29. **Marker phrases per 16,600 real words, use them at about that rate:** "In my opinion" 19,
+   "I would say" 14, "Let's say" 14, "tremendous(ly)" 10, doubled intensifiers 25. He chains
+   clauses with "and", "so that way", "which", "but yet" instead of cutting thoughts into tidy units.
+30. **Rotate section openers.** Not "Number X." eight times. He says "Alright, let's talk about the
+   next one", "Here's the next thing I would do", "Okay, so once you've got that handled",
+   "And then finally".
+31. **His objection voice is "I know a lot of you guys are saying, oh Dan, ..." then "But yet
+   they're ..."** His register words: ripped, dialed in, locked in, blowout, broke, peasants, ballers,
+   cheap as dirt, crap, bullshit, make it happen, gets the job done, keep it real.
+32. **Honest calibration is a signature:** "I'm a hundred percent sure about fish oil. I'm not a
+   hundred percent sure about this", "not a huge effect, but it had some effect", "supplements are
+   only about five percent".
+33. **Use contractions.** The Opus scripts wrote "do not / it is / you are" throughout and it reads
+   stilted. His own edits use contractions.
+34. **Check every first-person claim against the outline and the transcripts.** On record: gym (pays
+   for a membership AND has a $20k home gym, for the people), Clean Eatz every other week about
+   $120, AG1 then coffee then gym, breaks the fast with a salad at 2 pm, Oura Ring, Thorne Deep
+   Sleep at night, Cure electrolytes, no whey or creatine (stomach). Write anything unconfirmed
+   as advice ("Weigh yourself every morning") or put a yellow `[DAN: CONFIRM ...]` cue on it.
+35. **Fact-check the outline's own claims and write the honest version.** "Tesla total cost of
+   ownership is lower than a Camry" did not check out (KBB 5 year: Model 3 $57,251 vs Camry
+   $47,878). The script says what is true (about $4,600 less in fuel and maintenance, and FSD at
+   $99 a month buys time back for about $5 an hour) and the chat summary tells Dan why.
+36. **Paste mechanics:** Docs ignores `padding-*` on pasted paragraphs, so spacing collapses. Use
+   `margin-top` / `margin-bottom`. `references/build_paste_html.py` builds the HTML in the doc's
+   existing format (16pt bold title, 10pt gray italic word count, 11pt body at 1.5, cues bold 10pt
+   on `#fff2a8`). One cmd+z removes a whole paste cleanly.
+37. **The find box moves.** After a paste the Docs find box sits further left; a click at the old
+   coordinates lands in the document and the search text gets TYPED INTO THE SCRIPT. After cmd+f
+   the old query is already selected, so just type, never click. Then search the doc for the
+   query string and confirm it appears once.
