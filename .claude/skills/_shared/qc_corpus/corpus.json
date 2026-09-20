@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-09-18",
+  "updated": "2026-09-20",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work"
@@ -1858,6 +1858,20 @@
       ],
       "measured": "1080x1920, 30000/1001, 1714 frames, 57.190 s. Audio gate 12/13 rows PASS (-14.2 LUFS, -2.1 dBTP, EDT 29 ms, tone 0.74/1.9 dB); artifacts FAIL flux 0.090. Delivery gate 2.1.0: 35 PASS, 1 FAIL (audio:stamp, same cause), 0 NOT MEASURED, 3 n/a. Independent round-3 review: everything the editor controls SHIP-clean, three cosmetic minors.",
       "notes": "Plan + rulings: Handoffs/video-editing/RA-01-plan.md. Approval record: APPROVAL.md beside the file. Lessons: ad-edit SKILL.md 'RA-01 lessons'; footage: Docs/SHOOT_828_FOOTAGE_REPORT.md. The 16:9 master carries the byte-identical mix."
+    },
+    {
+      "id": "stop-deadlifting-opening-v1-r1-rejected-20260920",
+      "verdict": "rejected",
+      "date": "2026-09-20",
+      "root": "repo",
+      "path": "Media/ai-frames/stop-deadlifting-opening-20260918/motion-v1/STOP-deadlifting-opening-variation-1-R1-REJECTED.mp4",
+      "excerpt": [3.5, 3.8],
+      "dan": "His head goes out of frame at the top of the rep. I want to fix that. // He does a half rep where he halfway goes down and then goes back up. I want him straining in a similar way but doing one slow grinding rep where he slowly, with a lot of struggle, gets it up one time and then lands out. // Avoid that rep at the end. Don't let his head go out of frame. Keep his head in frame the entire time",
+      "must_trigger": ["junk:head_cropped_during_lift", "junk:unwanted_half_rep"],
+      "measured": "7.333-second 1920x1080 silent clip. The top of the head is clipped during the first lockout, and the bar descends before rising again rather than showing one continuous grinding ascent. Both are visible in the submitted master and user screenshot. No automated motion predicate exists for these two defects yet.",
+      "notes": "Dan approved the variation 1 concept and frames but rejected these two motion defects in the delivered R1. Keep the exact approved frames for the corrective generation and verify full-frame head visibility plus a single ascent before delivery.",
+      "sha256": "e30664627fda63a56b6e2a60d1b8981c038864a6f5a54a2bb4e64c95bab06b10",
+      "bytes": 15965022
     }
   ]
 }
