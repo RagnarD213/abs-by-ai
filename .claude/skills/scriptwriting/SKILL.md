@@ -53,6 +53,12 @@ drafting. This is a voice reference; it does not independently verify its claims
 - Keep factual limits precise. Do not generalize them into a timid tone, and do
   not imitate unsupported absolutes to sound confident.
 
+## Hooks: read `../_shared/HOOKS.md` first (Dan, 2026-09-21)
+
+The shared hook rules apply to every ad: a fresh scroll-stopper in the first sentence, the
+viewer's payoff by second 5, three hook options per script with the two runners-up listed as
+HOOK TAKES. The first-minute rules below still apply on top.
+
 ## THE FIRST MINUTE DECIDES EVERYTHING (v2 — Dan's #1 feedback)
 
 Dan's verdict on the batch: beyond the first minute, pretty good — but the first

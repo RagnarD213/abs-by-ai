@@ -18,6 +18,13 @@ WHAT DAN CHANGED). v1 — created 2026-08-23. First test: "Your Belly Fat Is An 
 after Dan reviews the first scripted videos — his line edits ARE the style
 reference, same as /scriptwriting v2.**
 
+## Hooks: read `../_shared/HOOKS.md` first (Dan, 2026-09-21)
+
+Dan's feedback on the 9/23 short-form outlines applies to long-form openings too: the stopper
+lands in the first 5 seconds, names what the viewer gets, and is never a topic announcement or
+an outline point read aloud. Write three opening lines, use the strongest, list the other two
+as HOOK TAKES under the script. Section A below is how he writes the rest of the first 30 seconds.
+
 ## WHAT DAN CHANGED (his line edits to the four 9/23 shoot scripts, read 2026-09-21). READ FIRST.
 
 About 90 percent of the lines survived untouched, so the body voice (lessons 26 to 35 at the

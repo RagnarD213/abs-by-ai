@@ -19,6 +19,15 @@ Ab Exercises" and "How Getting Abs Looksmaxxes Your Face") and, more usefully, f
 what he REVERTED when Claude edited them. Both finished scripts landed at 177 and
 176 spoken words. That is not a coincidence and it is the spec.**
 
+## HOOK FIRST (Dan, 2026-09-21). Read `../_shared/HOOKS.md` before writing a word.
+
+Dan's verdict on the 9/23 short-form batch: the bodies were good, the hooks were the weakest part,
+because they transcribed the long-form section's opening point instead of stopping a stranger
+mid-scroll. **The first sentence must stop the scroll on its own, and by second 5 the viewer must
+know what he gets for staying.** Write three hooks per script from different hook types, ship the
+strongest, and list the other two under the script as **HOOK TAKES**. When a short is cut from a
+long-form's section, the section's first line is never the hook.
+
 ## Dan's 2026-09-21 line edits (cross-skill calibration)
 
 Dan line-edited four long-form content scripts on 2026-09-21 and asked for the lessons to carry
@@ -84,7 +93,7 @@ nothing. Over 217 is a rewrite, not a trim.
 
 | # | Beat | Words | Notes |
 |---|---|---|---|
-| 1 | **Opener** | 11-14 | A direct declarative claim. See the hard rules. |
+| 1 | **Hook** | 11-16 + payoff line | Scroll-stopper, then what the viewer gets. `../_shared/HOOKS.md`. |
 | 2 | *(optional)* **Proof beat** | ~17 | Only when there's a visual to show. The face script uses before-then-after here. |
 | 3 | **Structure statement** | 11-12 | "…improves your face in three ways." Tell them what's coming — **ONLY when the opener does not already name the number.** If the opener says "the three most important supplements," this beat is dead weight and Dan will delete it. See lesson 4. |
 | 4 | **The numbered beats** | **21-30 each** | "Number one, the ab wheel." / "First, it defines your jawline." Name + one reason + one qualifier or scaling note. |
@@ -141,7 +150,14 @@ people will argue about beats a question people will answer.
 A DM share outranks a comment 3-5x for reaching non-followers, so it is still worth
 having — deliver it as a **one-line note beside the script**, never inside it.
 
-### 3. Dan writes the opener, and it is a plain claim — not a contrarian negation.
+### 3. The opener is a scroll-stopper, and never a "you're wrong" negation.
+
+**Updated 2026-09-21:** the plain-claim default below produced weak hooks once scripts were built
+from long-form sections. The hook now follows `../_shared/HOOKS.md`: a surprising cause that blames
+a thing, a bold command, a first-person proof claim, or a deictic open on the visible subject,
+then the viewer's payoff by second 5. What still holds from the history below: never open by
+telling the viewer he is wrong, and when Dan writes the opener himself, his line wins.
+
 
 Claude replaced his opener with *"No ab exercise burns belly fat…"* — a correction
 hook with real data behind it. **He put his own back:** *"Here are the top five ab
@@ -257,7 +273,9 @@ face shots need confirming.
 ## Checklist before delivering
 
 - [ ] Word count counted, not estimated: target **172-185**, and the 198-wpm figure is **≤ 66 s (217 words)** — never over
-- [ ] Opener is a direct claim or claim-plus-proof-promise, not a negation
+- [ ] Hook written fresh (not the long-form section's first line), stops the scroll in sentence one, names the viewer's payoff by second 5 (`../_shared/HOOKS.md`)
+- [ ] Two alternate HOOK TAKES listed under the script
+- [ ] Opener is not a "you're wrong" negation
 - [ ] Structure statement's number matches the number of items actually listed
 - [ ] Each numbered beat is 21-30 words
 - [ ] The "nobody else says" beat is about the VIEWER's own body/life, not a third party (lesson 8)

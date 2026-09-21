@@ -19,6 +19,13 @@ description: >
 produced one finding that outranks everything else in this file: READ THE EXISTING
 LIST FIRST AND ONLY GENERATE INTO EMPTY TERRITORIES. See the next section.**
 
+## The opener bullet is a HOOK, not a summary (Dan, 2026-09-21)
+
+When an idea's first bullet is its opening line, write it to `../_shared/HOOKS.md`. The 9/23
+batch was mined from a long-form video and each idea's opener restated that section's point;
+Dan flagged the hooks as the weakest part. A short's first line stops a stranger mid-scroll and
+names his payoff. It is never the long-form section's first sentence.
+
 ## The job
 
 Dan is filming dedicated short-form content (not cutdowns of longforms). He needs a
