@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [handoff-20260921-shorts-scripts-doc-line-breaks.md](handoff-20260921-shorts-scripts-doc-line-breaks.md) | **Ready 2026-09-21, Sonnet 5 / Medium.** Add blank lines between cues, asset lines and script paragraphs in Muhammad's dedicated-shorts scripts doc, keeping the same doc ID. |
 | [handoff-20260920-install-approved-jelly-bean-thumbnail.md](handoff-20260920-install-approved-jelly-bean-thumbnail.md) | **Ready 2026-09-20, Codex GPT-5.6 Sol / Medium.** Install Dan's exact approved B3 cover on existing YouTube Short `JuLnoU9NV28`; back up the old thumbnail, preserve available test results, and verify the saved Studio preview. Do not redesign or re-upload. |
 | [handoff-20260918-edit-queue-phase2-asset-approval-automation.md](handoff-20260918-edit-queue-phase2-asset-approval-automation.md) | **Ready 2026-09-18 — Codex GPT-5.6 Sol / High. Fire first.** Build and isolate-test the existing queue's early AI/B-roll approval, labelled-placeholder pause/resume and hard placeholder delivery check. Software only; no real edit or provider spend. |
 | [handoff-20260918-edit-queue-phase2-ds05-production-pilot.md](handoff-20260918-edit-queue-phase2-ds05-production-pilot.md) | **After the Phase 2 automation handoff passes — Codex GPT-5.6 Sol / High.** Run one real DS-05 pilot through early frame approval and queue resume, measure usage/cost/reuse/revisions, then seed exact approved clips only if Dan finalizes it. No upload or publication. |
