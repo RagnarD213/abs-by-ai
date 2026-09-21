@@ -1,12 +1,14 @@
 ---
 name: editor-brief
-description: Write the job briefing document Dan sends to a freelance video editor for a BATCH of videos — the offer and terms, links to every raw roll, the asset inventory, the scripts document, the quality standard stated as measurements, and the compliance rules. Use whenever Dan asks for a job brief, a project brief, an editor briefing, a "document for the editor", or to brief out the rest of a shoot — even if he doesn't say "/editor-brief". For reviewing a cut an editor has already delivered use /revisions; for cutting the video ourselves use /ad-edit or /longform-edit.
+description: Write the job briefing document Dan sends to a freelance video editor for a BATCH of videos: the terms (never a price; the editor quotes first), links to every raw roll, the asset inventory, the scripts document, the quality standard stated as measurements, and the compliance rules. Use whenever Dan asks for a job brief, a project brief, an editor briefing, a "document for the editor", or to brief out the rest of a shoot, even if he doesn't say "/editor-brief". For reviewing a cut an editor has already delivered use /revisions; for cutting the video ourselves use /ad-edit or /longform-edit.
 ---
 
 # /editor-brief — the job briefing document for a freelance editor
 
-The deliverable is **one or two Google Docs in Dan's Drive**, written for the editor but
-**delivered to Dan as a draft**. Dan reads it, shares the files, and sends it himself.
+The deliverable is **always two Google Docs in Dan's Drive: the brief, and a separate scripts
+document** that ties every visual cue to the exact asset file (Dan's standing format, 2026-09-21:
+*"Let's always do the separate scripts and editing brief document like you did. I like this format"*).
+Both are written for the editor but **delivered to Dan as a draft**. Dan reads it, shares the files, and sends it himself.
 **Never contact an editor directly and never set link sharing on his behalf** — tell him
 which docs and folders need to be opened up before he sends.
 
@@ -54,13 +56,17 @@ What this batch is, and — if he has worked for Dan before — that his own ear
 the standard. One paragraph. Tell him to work only from this doc and the script doc it
 links, so nothing gets pulled from the wrong folder.
 
-### 2. The offer
-Per-video rate, batch total, and the bonus if there is one, with its **exact date** and its
-**exact quality condition**. State whether the bonus is all-or-nothing on the batch. State
-how many revision rounds are included, and **whether revision rounds count against a bonus
-deadline** — if they don't, say so explicitly, or a cautious editor will sandbag the last
-delivery. Tell him to deliver one at a time rather than holding the batch: the same note
-then does not repeat across twelve videos.
+### 2. The terms: NO price (Dan, 2026-09-21)
+**Never put a rate, a batch total or a bonus in the brief.** Dan's words: *"Don't put an initial
+offer in there. I prefer to let him make the first offer, then negotiate from there."* Whoever names
+the first number anchors the negotiation, so the brief asks the editor to quote.
+
+What the section does contain, so he can quote accurately: the video count, how many can start now
+versus wait on assets, the expected finished length of each, how many revision rounds are included,
+and a request to **quote a per-video price and a date for the whole batch**. Tell him to send the first
+one or two videos and wait for notes before doing the rest, then deliver one at a time rather than
+holding the batch: the same note then does not repeat across the batch. If Dan later agrees a bonus
+in the negotiation, he adds it himself; any bonus date is judged on FIRST delivery (Lesson 7).
 
 ### 3. What you are delivering, per video
 Container, resolution, aspect ratio, captions, colour, audio, music.
@@ -108,10 +114,25 @@ runtime**, and a direct Drive link.
   and that picking the take is the first job. Add: **the slated take is not automatically the
   right one** — on Ad 1 take 1 beat the slated take 2.
 
-### 6. The scripts document
-Link it, and explain how to read it: regular text is spoken, bracketed lines are visual cues
-and are not spoken, the image under a cue shows the intended asset, and where a real file
-exists its link is printed under the image.
+### 6. The scripts document (always a separate doc)
+Link it from the brief, and explain how to read it. The format Dan approved on 2026-09-21
+(Muhammad's dedicated-shorts batch, `1SzBTPp-tSjpIRjvKKsHNKduDhwpgqrNZ77hxAAPypaQ`):
+- One heading per video (`DS-01 · Title`), **each video starting on a new page**.
+- Under the heading, one line: the raw roll(s) as Drive links with the time range, the expected
+  finished length, and the status (READY, or WAIT FOR <the missing asset>).
+- The script itself: regular text is spoken; **bold `[bracketed]` lines are visual cues** and are
+  not spoken.
+- **Directly under each cue, indented, a green `USE:` line** linking the exact file(s) for that cue
+  with timecodes ("C1676 at 1:18 to 1:28"), plus the rule that applies (AI label, real-picture
+  label, crop, which part of a recording is banned). A red **`NOT FILMED YET:`** line where nothing
+  exists, saying whether stock is allowed or the beat is held on Dan.
+- **Line breaks everywhere (Dan, 2026-09-21):** a blank line between the status line and the script,
+  between every cue and its `USE:` line and the script around them, and between every paragraph of
+  the spoken script. The first version shipped as one wall of text and needed a separate fix session.
+  See Mechanics for why the HTML import strips the spacing and how to keep it.
+
+The asset links under each cue are the most useful part of the whole brief: an editor does not know
+what footage, AI clips or app recordings already exist. Find them before writing (Mechanics).
 
 ### 7. Assets — three sub-sections, and the third is the important one
 1. **The core folder**, file by file, each with a direct link, what it is, the rule attached
@@ -185,18 +206,37 @@ Dan asked for "the 14 scripts remaining"; the batch-1 doc has 13 ad scripts (Ads
 15 — **11 and 12 do not exist**) and one was already edited, so it was 12. The number drives the
 money, so correct it before writing anything and confirm the new total with him.
 
-**Build the scripts doc by COPYING and deleting, never by rebuilding from text.** The scripts
-carry embedded cue images, and a text export loses every one of them.
-1. Drive MCP `copy_file` with the new title.
-2. Open the copy in **Dan's real Chrome** (`mcp__claude-in-chrome__*`) — the in-app browser is
-   not signed into Google.
-3. Click at the start of the heading to remove, scroll (do **not** click the outline pane —
-   that moves the cursor and loses the anchor), then **shift+click at the start of the next
-   ad's heading** and press Delete.
-4. Retitle the document's top heading with a triple-click and retype.
-5. Verify from the outline pane that exactly the intended sections remain.
+**Find the existing assets first, per cue.** Before writing, run two research subagents in
+parallel (talking videos, exercise videos): read every bracketed cue, then search the whole asset
+library for material that fits it: finished videos, earlier shoots' raw rolls (with timecodes, from
+contact sheets), `Media/`, the AI clips on `/Volumes/Extreme/_edit_work/` build folders, app
+recordings, downloaded Pexels stock, Dan's photos. Each returns cue → file → timecode → Drive ID or
+"not in Drive" → rule caveat, and the true holes. Upload every useful local-only file into ONE new
+Drive folder for the batch (`rclone copy -L` from a staging folder of renamed symlinks, file names
+prefixed with the video numbers that use them), then `rclone lsjson -R` for the IDs. The 2026-09-21
+build (all generator code) is in `/Volumes/Extreme/_edit_work/muhammad-shorts-brief/`: reuse it.
 
-**Create the brief with Drive MCP `create_file`, `contentMimeType: text/html`.** HTML converts
+**Build the scripts doc by GENERATING it, not by copying the old doc.** Write a Python generator
+that reads the script text, prints each video's heading and status line, and under each cue inserts
+the `USE:` note from a per-cue map. Two traps:
+1. **Google's HTML import sets paragraph spacing to 0**, so plain `<p>` lines land flush against
+   each other. Emit an empty paragraph `<p><br></p>` after every paragraph (status line, cue, `USE:`
+   line, each spoken paragraph), and `<h2 style="page-break-before:always">` for every video after
+   the first.
+2. **If the source scripts doc carries embedded cue images** that exist nowhere else, a text rebuild
+   loses them. Link the original doc's section under the heading, or copy the doc and edit in
+   Chrome instead (copy with `copy_file`, open in Dan's real Chrome, click the start of a heading,
+   scroll without touching the outline pane, shift+click the next heading, Delete).
+
+**Import big docs with rclone, not the MCP.** `create_file` needs the whole HTML in the tool call; a
+22-script doc is ~65 KB. Instead: wrap the HTML in `<html><head><meta charset="utf-8"></head><body>`,
+put it alone in a folder, and run
+`~/bin/rclone copy <dir> gdrive: --drive-root-folder-id=0AFYhPET_BWanUk9PVA --drive-import-formats html --drive-export-formats html`
+(without `--drive-export-formats html` it errors "can't convert .html to .docx"). Read the new ID
+from `rclone lsjson`. Build the scripts doc first, then the brief, because the brief links the
+scripts doc's ID.
+
+**Small docs can use Drive MCP `create_file`, `contentMimeType: text/html`.** HTML converts
 cleanly to a Doc including tables, `rowspan`, links and nested lists. Use `text/markdown` only
 when the doc has no tables — markdown tables do not survive.
 - Keep the footage table to **five or six columns**. Seven made the title column wrap to six
@@ -221,8 +261,9 @@ Tell him to open all of them to the editor before sending, or every link in the 
    standard being matched. The full rule is at the top of this file.
 2. **Count the scripts, don't take the count on faith.** The ask said 14; it was 12. Ads 11 and 12
    were never written and Ad 1 was already delivered.
-3. **Copy the scripts doc, don't rebuild it** — the embedded cue images are half its value and a
-   text export drops all of them.
+3. **Generate the scripts doc with asset links under every cue** (2026-09-21, replaced the old
+   copy-and-delete method). If the source doc has embedded images that exist nowhere else, keep
+   them reachable (Mechanics, trap 2).
 4. **The in-app browser pane is not signed into Google.** Docs editing has to go through Claude in
    Chrome. Discovering this costs a round trip if you start in the wrong browser.
 5. **Clicking the Docs outline pane moves the text cursor**, which destroys a selection anchor you
@@ -231,11 +272,23 @@ Tell him to open all of them to the editor before sending, or every link in the 
    of the twelve ads called for AI gag clips that have never been generated. A brief that only
    lists what exists reads as complete and then stalls the editor mid-batch. Walk the cues, list
    the holes, and tell Dan in chat as well as in the doc.
-7. **State a bonus deadline against FIRST delivery and say so.** Otherwise revision rounds silently
-   put the bonus out of reach and the editor stops trusting the offer.
+7. **If Dan agrees a bonus later, its deadline is judged on FIRST delivery, and say so.** Otherwise
+   revision rounds silently put the bonus out of reach and the editor stops trusting the offer.
 8. **Say which aspect ratios NOT to build.** Our vertical comes free from `/shortad-from-longform`;
    paying an editor to also cut 9:16 buys a style Dan has not approved, from burned-in graphics that
    cannot be reframed back to wide.
+9. **No price in the brief (Dan, 2026-09-21).** The 09-21 shorts brief proposed $25 a short and a
+   $100 bonus; Dan: let the editor make the first offer, then negotiate. Ask for a per-video quote
+   and a batch date instead.
+10. **Blank lines between every paragraph in generated docs (Dan, 2026-09-21).** The HTML import
+   drops paragraph spacing; the first scripts doc read as one wall of text and needed a fix session.
+11. **Per-cue asset links are what the editor values most.** Dan asked for existing AI clips and
+   B-roll tied to the exact video because editors don't know what exists. Two research agents found
+   70 placements across 22 shorts, including footage everyone thought was never filmed.
+12. **Never edit a live Doc by typing into Find and replace through Chrome automation.** 2026-09-21: clicks
+   on the dialog's fields by `ref` did not take focus, so `cmd+a` + typing selected and replaced the WHOLE
+   document body. It was recovered with `cmd+z` in the doc. If a sent-out doc needs a text change, ask Dan,
+   or regenerate before he has edited it. Always read the doc back after any in-place edit.
 
 ---
 
@@ -255,7 +308,7 @@ Dan asked.
 The flow is 6 steps: title → description → skills → scope → location → budget → review →
 finalize. Settings that fit a batch like this: **Short term project**, scope **Medium**,
 **1 to 3 months**, **Expert level**, not contract-to-hire, **Worldwide**, **Fixed price** at the
-batch total (the bonus lives in the description, not the budget field), and
+total Dan and the editor agreed (any bonus lives in the description, not the budget field), and
 **"Post as standard for free"** — the **$29.99 Featured** upsell buys reach that is pointless when
 you are inviting one named person, and it is a purchase.
 
