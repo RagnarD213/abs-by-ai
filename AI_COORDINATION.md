@@ -61,9 +61,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   re-upload — both are live ad destinations.
 - **Upload the welcome-video shoot (114 GB) to Drive (baseline 09-15)** as its only second copy? ⚠ Personal rclone client_id first
   (the shared one hit a 403 quota). Memory `drive-backup-capability`.
-- **Muhammad ads 8/9/13/15 — HD checked vs the LIVE doc 09-18.** Dan's edits deleted the watermark, robot-arm,
-  green-card and beach-smudge items. His HD exports already clear Ad 8 entirely and parts of 9/15. Left: the caps
-  label build (9, 13, 15) and Ad 15's 3:16 demo. Next: Dan sends the 09-18 reply.
 - **Zeeshan: STOP Deadlifting r2 + Arms & Shoulders r4 (09-19):** both at the top of doc
   `13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`. Confirm the round numbers, then forward.
   ⚠ Three calls for you in `revision docs/stop-deadlifting-revisions-zeeshan-round2-9-19-26.summary.md`.
@@ -93,6 +90,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   (`549946a`); native still shows IAP + account-first.
 
 # ACTIVE
+
+**Ab Wheel Workout thumbnail refresh - NEEDS DAN 2026-09-21, Codex.** Three new designs preserve the same source frame and change only graphic overlays. Next: Dan picks A, B or C, then Codex installs it on YouTube and verifies the served image. Detail: `output/thumbnails/channel-refresh-20260916/revision-5/`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.
 
@@ -156,6 +155,7 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- **Ad 15 final fixes, ready 2026-09-21.** Dan finalized Ad 15; Claude adds the 3:19 AI tag, swaps the 2:31 repeated goal image for camera scene, then replaces the live ad. `Handoffs/handoff-20260921-finalize-ad15-tag-and-clip.md`. Opus 5/high.
 - **Jelly-bean Short B3 install, ready 2026-09-20, Codex.** Dan approved B3 for YouTube `JuLnoU9NV28`. Next: new task installs exact JPEG, preserves old cover/test results, verifies Studio. `Handoffs/handoff-20260920-install-approved-jelly-bean-thumbnail.md`.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
