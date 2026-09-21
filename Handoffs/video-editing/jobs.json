@@ -22,7 +22,7 @@
    "updated": "2026-09-18",
    "by": "Codex",
    "rev": 4,
-   "syncedRev": 3
+   "syncedRev": 4
   },
   {
    "id": "RA-02",
@@ -351,14 +351,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-01-top-5-ab-exercises.md`: cut the dedicated short \"Top 5 Ab Exercises\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-01-top-5-ab-exercises.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "needs",
-   "note": "BLOCKED (queue run): DS-01 needs a verified, rights-cleared cable-crunch clip; no local match was found and Pexels could not be accessed from this unattended run.",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 17,
-   "updated": "2026-09-17",
-   "by": "edit queue (codex)",
-   "rev": 8,
-   "syncedRev": 5,
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 9,
+   "syncedRev": 9,
    "queue_owned": true
   },
   {
@@ -373,14 +373,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-02-how-getting-abs-looksmaxxes-your-face.md`: cut the dedicated short \"How Getting Abs Looksmaxxes Your Face\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-02-how-getting-abs-looksmaxxes-your-face.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 18,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-03",
@@ -394,14 +394,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-03-3-most-important-supplements-for-men.md`: cut the dedicated short \"The 3 Most Important Supplements For Men\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-03-3-most-important-supplements-for-men.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 19,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-04",
@@ -422,7 +422,7 @@
    "updated": "2026-09-18",
    "by": "Codex",
    "rev": 8,
-   "syncedRev": 4
+   "syncedRev": 8
   },
   {
    "id": "DS-05",
@@ -436,14 +436,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-05-abs-beat-being-a-fat-millionaire.md`: cut the dedicated short \"Why Having Abs Is Better Than Being A Fat Millionaire\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-05-abs-beat-being-a-fat-millionaire.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "2 AI clips, frame approval",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 21,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-06",
@@ -457,14 +457,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-06-what-every-body-fat-percentage-looks-like.md`: cut the dedicated short \"What Every Body Fat Percentage Looks Like\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-06-what-every-body-fat-percentage-looks-like.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "5 AI stills, approval",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 22,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-07",
@@ -478,14 +478,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-07-top-3-ways-to-use-ai-to-get-abs.md`: cut the dedicated short \"Top 3 Ways To Use AI To Get Abs\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-07-top-3-ways-to-use-ai-to-get-abs.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 23,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-08",
@@ -499,14 +499,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-08-i-was-200-pounds-at-38.md`: cut the dedicated short \"I Was 200 Pounds At 38. The Thing That Fixed It Wasn't A Workout\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-08-i-was-200-pounds-at-38.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 24,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-09",
@@ -520,14 +520,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-09-how-to-make-time-to-work-out.md`: cut the dedicated short \"How To Make Time To Work Out\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-09-how-to-make-time-to-work-out.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 25,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-10",
@@ -541,14 +541,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-10-3-unexpected-ways-zepbound-helped-me.md`: cut the dedicated short \"3 Unexpected Ways Zepbound Helped Me\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-10-3-unexpected-ways-zepbound-helped-me.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "no drug name on screen",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 26,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-11",
@@ -562,14 +562,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-11-why-you-must-weigh-yourself-daily.md`: cut the dedicated short \"Why You Must Weigh Yourself Daily\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-11-why-you-must-weigh-yourself-daily.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 27,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-12",
@@ -583,14 +583,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-12-top-3-ways-to-looksmax.md`: cut the dedicated short \"Top 3 Ways To Looksmax\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-12-top-3-ways-to-looksmax.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "2 AI clips, shared with DS-05",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 28,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-13",
@@ -604,14 +604,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-13-number-1-change-to-get-abs-at-40.md`: cut the dedicated short \"The #1 Change I Made To Get Six Pack Abs At 40\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-13-number-1-change-to-get-abs-at-40.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 29,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-14",
@@ -625,14 +625,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-14-3-ways-to-reduce-alcohol.md`: cut the dedicated short \"3 Ways To Reduce Alcohol Consumption\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-14-3-ways-to-reduce-alcohol.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "no drug name on screen",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 30,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-15",
@@ -646,14 +646,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-15-does-jiu-jitsu-get-you-abs.md`: cut the dedicated short \"Does Jiu Jitsu Get You Abs?\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-15-does-jiu-jitsu-get-you-abs.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "needs",
-   "note": "The BJJ b-roll was never filmed. Film it at the academy, use your archive footage, or use stock?",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 31,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-16",
@@ -667,14 +667,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-16-how-to-lose-the-last-ten-pounds.md`: cut the dedicated short \"How To Lose The Last Ten Pounds Of Fat\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-16-how-to-lose-the-last-ten-pounds.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Talking",
    "order": 32,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-17",
@@ -695,7 +695,7 @@
    "updated": "2026-09-17",
    "by": "Codex",
    "rev": 9,
-   "syncedRev": 4
+   "syncedRev": 9
   },
   {
    "id": "DS-18",
@@ -716,7 +716,7 @@
    "updated": "2026-09-18",
    "by": "Codex",
    "rev": 8,
-   "syncedRev": 1
+   "syncedRev": 8
   },
   {
    "id": "DS-19",
@@ -730,14 +730,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-19-how-to-use-battle-ropes.md`: cut the dedicated short \"How To Use Battle Ropes\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-19-how-to-use-battle-ropes.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Workout",
    "order": 35,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-20",
@@ -751,14 +751,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-20-five-levels-of-pushups.md`: cut the dedicated short \"The Five Levels Of Pushups\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-20-five-levels-of-pushups.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Workout",
    "order": 36,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-21",
@@ -772,14 +772,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-21-how-to-do-hammer-curls.md`: cut the dedicated short \"How To Do Hammer Curls\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-21-how-to-do-hammer-curls.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Workout",
    "order": 37,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-22",
@@ -793,14 +793,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-22-how-to-use-the-ab-wheel.md`: cut the dedicated short \"How To Use The Ab Wheel\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-22-how-to-use-the-ab-wheel.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Workout",
    "order": 38,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-23",
@@ -814,14 +814,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-23-how-to-do-side-laterals.md`: cut the dedicated short \"How To Do Side Laterals\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-23-how-to-do-side-laterals.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Workout",
    "order": 39,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-24",
@@ -835,14 +835,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-24-how-to-do-rear-delt-flys.md`: cut the dedicated short \"How To Do Rear Delt Flys\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-24-how-to-do-rear-delt-flys.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Workout",
    "order": 40,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "DS-25",
@@ -856,14 +856,14 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-25-how-to-do-m100s.md`: cut the dedicated short \"How To Do M100s\" from its 8/28 raw takes. Best take of every line, 1080×1920, 45–66 s, J2 captions, every b-roll cue filled and labelled, the 8/28 S-Log3 conversion, lav picked per file, cover image. Every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-25-how-to-do-m100s.md` with `$abs-edit-organic` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "needs",
-   "note": "Its M100 b-roll source was never filmed. RX-01 checks the unchecked b-roll first; otherwise film 30 s of each move or use stock?",
+   "state": "blocked",
+   "note": "Briefed to Muhammad 2026-09-21 (brief 17JhkdWoSjl0BUD3Y6u2a7ePGniChlf0AepS83tahGjU). Do not build in-house unless Dan cancels the brief.",
    "sub": "Workout",
    "order": 41,
-   "updated": "2026-09-16",
-   "by": "master list",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "by": "Claude",
+   "rev": 2,
+   "syncedRev": 2
   },
   {
    "id": "RO-01",
@@ -884,7 +884,7 @@
    "updated": "2026-09-18",
    "by": "Codex",
    "rev": 5,
-   "syncedRev": 2
+   "syncedRev": 5
   },
   {
    "id": "RO-02",
@@ -1052,7 +1052,7 @@
    "updated": "2026-09-18",
    "by": "Codex",
    "rev": 3,
-   "syncedRev": 1
+   "syncedRev": 3
   },
   {
    "id": "SL-01",
@@ -1140,7 +1140,7 @@
    "updated": "2026-09-18",
    "by": "Codex",
    "rev": 8,
-   "syncedRev": 1,
+   "syncedRev": 8,
    "queue_owned": true
   },
   {
@@ -1225,7 +1225,7 @@
    "updated": "2026-09-18",
    "by": "Grok",
    "rev": 3,
-   "syncedRev": 1
+   "syncedRev": 3
   },
   {
    "id": "AV-06",
@@ -1267,7 +1267,7 @@
    "updated": "2026-09-18",
    "by": "Codex",
    "rev": 2,
-   "syncedRev": 1
+   "syncedRev": 2
   },
   {
    "id": "AV-08",
@@ -1455,7 +1455,7 @@
    "order": 69,
    "updated": "2026-09-18",
    "rev": 2,
-   "syncedRev": 1,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -1536,7 +1536,7 @@
    "order": 73,
    "updated": "2026-09-18",
    "rev": 3,
-   "syncedRev": 1,
+   "syncedRev": 3,
    "by": "Codex"
   },
   {
