@@ -229,11 +229,17 @@ So I would stop eating about three hours before you go to bed.
 
 [DAN: CONFIRM WHAT TIME YOU EAT YOUR LAST MEAL AND WHAT TIME YOU GO TO BED, AND SAY IT HERE IN ONE SENTENCE.]
 
-The other part of timing is fasting. In the last video I told you fasting works because it helps you eat less calories, and that's true. But it's also proven to have benefits outside of calories.
+The other part of timing is fasting. In the last video I told you fasting works because it helps you eat less calories. Here's the proof, and it's a lot stronger than most people realize.
 
-In one study, men with prediabetes ate all of their food in a six hour window. They didn't lose any weight, because the study was designed that way. But their insulin sensitivity and their blood pressure still got better.
+[ON SCREEN: STUDY TITLE CARD, UNIVERSITY OF ILLINOIS CHICAGO 2020, WITH "550 FEWER CALORIES A DAY" LARGE]
 
-So fasting is doing good things for your body even when the scale doesn't move. That's one more reason why I fast until two every day.
+Researchers at the University of Illinois gave a group of obese adults one rule. They could only eat inside a four or six hour window each day. Nobody counted calories, and nobody told them what to eat.
+
+After two months, they were eating about 550 fewer calories a day without even trying. And they lost about 3% of their body weight compared to the group that ate whenever they wanted.
+
+Then they ran a bigger study for a full year. One group fasted until noon every day and never counted a single calorie, and another group counted every calorie they ate. The fasting group ate about 425 fewer calories a day, and they lost about ten pounds more than the people who changed nothing. They did just as well as the calorie counters.
+
+So fasting changes your behavior. When you've got fewer hours to eat, you eat less, and you don't have to fight yourself all day to do it. That's one more reason why I fast until two every day.
 
 [FACTOR 5]
 
@@ -257,7 +263,15 @@ Alright, number six is exercise. And a lot of you guys aren't going to like this
 
 A thirty minute jog burns about three hundred calories, which is about one protein bar. And on top of that, your body makes up for it by burning less the rest of the day.
 
-Scientists measured a tribe of hunter gatherers in Africa who walk for miles every single day, and they burn about the same number of calories per day as an American sitting at a desk. When you move more, your body finds other places to spend less.
+[ON SCREEN: STUDY TITLE CARD, PENNINGTON BIOMEDICAL 2019, 171 ADULTS, WITH "9 OUT OF 10 ATE IT BACK" LARGE]
+
+Researchers at Pennington Biomedical proved this. They put overweight adults on supervised cardio for six months, and nobody told them to change their diet. The group doing the most cardio was burning about seventeen hundred extra calories a week.
+
+Based on the math, those people should've lost about nine and a half pounds. They only lost three and a half.
+
+The researchers measured where the rest went, and it came from eating more. Nine out of ten people in that group made up for their cardio, by about a hundred and twenty extra calories of food a day.
+
+Cardio makes you hungrier, and it makes you feel like you earned a treat. So if you're not tracking your calories, you eat a big piece of that workout right back.
 
 So unless you're doing A LOT of cardio, it doesn't change your fat loss very much. It does help a little, and it's great for your heart. So keep doing your cardio for your heart, but don't count on it to lose your belly fat.
 
@@ -313,4 +327,4 @@ And subscribe for more videos like this one.
 - No drug name in any on-screen graphic or chip. Spoken only.
 - No side-by-side before/after anywhere in this video. The "two guys at one eighty" beat is spoken only, or two separate full-screen shots, never a split.
 - Hook take 1 note: a true caloric deficit does cause weight loss, so commenters will push back on "gain fat in a deficit". The script body says "hold on to your belly fat" and "lose muscle instead", which every study below supports.
-- Studies, for the on-screen title cards and the description: Nedeltcheva et al., Annals of Internal Medicine 2010 (sleep, 8.5 vs 5.5 hours); Siler et al., Am J Clin Nutr 1999 (alcohol, fat oxidation down 73%); Vujovic et al., Cell Metabolism 2022 (late eating, Brigham and Women's); Sutton et al., Cell Metabolism 2018 (early time-restricted eating, no weight loss by design); Longland et al., Am J Clin Nutr 2016 (protein, McMaster); Pontzer et al., PLoS One 2012 (Hadza energy expenditure); Levine et al., Science 1999 (overfeeding and daily movement, Mayo Clinic).
+- Studies, for the on-screen title cards and the description: Nedeltcheva et al., Annals of Internal Medicine 2010 (sleep, 8.5 vs 5.5 hours); Siler et al., Am J Clin Nutr 1999 (alcohol, fat oxidation down 73%); Vujovic et al., Cell Metabolism 2022 (late eating, Brigham and Women's); Cienfuegos et al., Cell Metabolism 2020 (4 and 6 hour eating windows, about 550 fewer calories a day, no calorie counting); Lin et al., Annals of Internal Medicine 2023 (12 months, fasting without counting matched calorie counting); Longland et al., Am J Clin Nutr 2016 (protein, McMaster); Martin et al., E-MECHANIC, Am J Clin Nutr 2019 (cardio compensated for by eating more); Levine et al., Science 1999 (overfeeding and daily movement, Mayo Clinic).
