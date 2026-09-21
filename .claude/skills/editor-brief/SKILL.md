@@ -287,8 +287,14 @@ Tell him to open all of them to the editor before sending, or every link in the 
    70 placements across 22 shorts, including footage everyone thought was never filmed.
 12. **Never edit a live Doc by typing into Find and replace through Chrome automation.** 2026-09-21: clicks
    on the dialog's fields by `ref` did not take focus, so `cmd+a` + typing selected and replaced the WHOLE
-   document body. It was recovered with `cmd+z` in the doc. If a sent-out doc needs a text change, ask Dan,
-   or regenerate before he has edited it. Always read the doc back after any in-place edit.
+   document body. It was recovered with `cmd+z` in the doc. **The safe way to change text in a live Doc,
+   keeping Dan's edits and the doc ID:** export it as HTML (Drive API `files/<id>/export?mimeType=text/html`
+   with rclone's token from `rclone config dump`), change only the target text in that HTML, then strip the
+   list classes (`<ul class=...>` to `<ul>`, delete the `lst-kix` CSS rules) or every bullet and number comes
+   back as a plain paragraph, and write it back with `PATCH upload/drive/v3/files/<id>?uploadType=media`
+   (`Content-Type: text/html`). Then diff the plain-text export against a pre-edit export (only the intended
+   lines may differ) and compare counts of tables, links, headings and lists in the HTML. The Docs API is not
+   enabled on rclone's client project. Retry on Drive's per-minute quota 403s with an until-loop.
 
 ---
 
