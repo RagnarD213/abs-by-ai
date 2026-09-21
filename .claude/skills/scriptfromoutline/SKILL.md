@@ -133,6 +133,76 @@ exact numbers rather than inventing a plausible version.
 - "I'll link it right here" became "I'll link it in the description". Do not assume a card.
 - He works out at EIGHT in the morning, not six.
 
+## THE CALORIES PAIR (2026-09-21): outline stage, proof, studies, and what Dan changed. READ SECOND.
+
+Two scripts ("Calories: THE Reason You're Not Losing Weight", "When Calories DON'T Matter For Fat
+Loss") went outline, fleshed outline, script, Dan's edits, study swaps in one day. Dan called the
+final studies "significant improvements". Raw before/after: `references/dan-edits-2026-09-21-calories-pair.md`.
+
+**J. Flesh the outline out BEFORE scripting when Dan asks to see the direction.** Deliver it in
+chat: his points in his order, each with its proof and his personal angle, added points marked
+[NEW], the unknown personal facts listed as questions, and a cut order if it runs long. He approved
+this format in one pass. He cut 3 of the 6 points I added, with these reasons: "too obvious, the
+viewer won't perceive that as valuable" (cut ultra-processed and restaurant food) and "not tightly
+related to the video" (the shrinking deficit, water weight on the scale). The two tests for an added
+point: would the average guy feel he learned something new, and does it sit squarely on the video's
+thesis. The adds he kept were a surprising study with a simple action attached (salad first course,
+daily movement outside the gym) and a missing prerequisite (know your number).
+
+**K. Proof sections: brief, plain, and still thorough.** His instruction: under 90 seconds, do not
+lose people with science talk at the start, but do prove it. What worked: about 210 words, four
+proofs, the most memorable story first (the Twinkie diet professor), one number per study, the
+institution named instead of the journal, no jargon, and an ending that does not blame the viewer
+("Those people weren't lying"). Count the section's words and divide by 2.4 before delivering.
+
+**L. A study has to prove the outcome the viewer cares about, with a big plain number.** He rejected
+two accurate studies as weak: a fasting study where nobody lost weight ("that's what people care
+about"), and a hunter gatherer energy study standing in for "cardio gets eaten back". What he
+approved instead:
+- Fasting: people given only an eating window ate about 550 fewer calories a day with no calorie
+  counting (Cienfuegos 2020, Cell Metabolism), and a 12 month trial where fasting without counting
+  matched calorie counting (Lin 2023, Annals of Internal Medicine).
+- Cardio: predicted 9.5 pounds lost, actual 3.5, and 9 in 10 people made up for it by eating more
+  (Martin 2019, E-MECHANIC, Am J Clin Nutr).
+Rules: pick the study whose headline result IS the claim (weight lost, calories eaten), not a
+surrogate marker and not an analogy. Prefer a behavioral finding ("without trying", "without
+counting"). Prefer predicted versus actual, or "X out of 10", over percentages of a percentage.
+Never use a study whose own result is "no weight loss" in a fat loss video. Verify every number
+against the paper before it goes in: `pmc.ncbi.nlm.nih.gov` fetches cleanly, `cell.com` and
+`pubmed` block WebFetch, so use the PMC copy or a search summary. When the better study contradicts
+a sentence Dan wrote himself, leave his sentence alone and tell him in chat.
+
+**M. When swapping a passage he highlighted:** replace the highlighted paragraph AND rewrite the
+bridge sentence before it and the closer after it so they match the new study. Keep new spoken
+text on bright yellow (`background-color:#ffff00`) so he can find it. Add the matching ON SCREEN
+title card cue. Update the production notes' study list.
+
+**N. What Dan changed in the delivered scripts (diff of the live doc against the delivered copy):**
+- **He used his own outline hook as the opener in BOTH videos, and deleted everything I wrapped
+  around it:** my first-person stake paragraph, the "Listen:" on paragraph two, my replacement hook
+  for video 2, and every HOOK TAKES block. When the outline contains a hook he wrote, it is the
+  opener, verbatim, followed directly by his own next outline line. Offer alternates in CHAT only if
+  he asks. If his hook has an accuracy problem, say so once in chat and still deliver his hook.
+- **He deleted the swear aimed at people** ("The trainers telling you to do an hour of cardio are
+  full of shit") and opened the section mildly ("number six is exercise - but not in the way you
+  might expect"). The swear aimed at an industry's advice stayed ("most of what they're selling is
+  bullshit you don't need"). Aim swears at advice and institutions, never at a group of people.
+- **He replaced a visual comparison with a mechanism.** "Two guys diet down to one eighty, one
+  looks ripped, one looks soft" became: lose muscle and you have to bulk to regain it, bulking adds
+  fat, and you have to cut again, so "avoid this cycle of failure by weight training religiously".
+  Explain the consequence chain instead of painting two hypothetical guys.
+- **He added payoff sentences and cross-links between tips:** "You can enjoy a big, delicious
+  dinner every day and still lose fat." "Drinking black coffee alone is powerful. But when you
+  combine it with Zepbound, eating less calories will become far easier." Tie tips together and end
+  on what the viewer gets to enjoy.
+- **He added his own habits wherever a list was generic:** sardines in the snack list (and as the
+  hard-to-overeat example), a consistent bedtime, "I talk with my AI sleep coach every morning",
+  "Work at a standing desk". Seed lists with his known habits (memory `dan-personal-facts-for-scripts`).
+- **He deleted 2 of the 5 [DAN: ...] cues without filling them** (calorie target, optional story).
+  Use a cue only where the line cannot be written without his number. Never add an optional one.
+- Small: "So let me wrap this up" became "OK, let's wrap this up"; "Calories decide" became
+  "Calories are the most important factor in" (he restored the hedge that matches video 1).
+
 ## Why this skill exists (Dan's goals, 2026-08-23)
 
 Dan's content videos were shot off the cuff from outlines. Editing them proved
@@ -498,3 +568,11 @@ matches and your choice of many attractive women").
    coordinates lands in the document and the search text gets TYPED INTO THE SCRIPT. After cmd+f
    the old query is already selected, so just type, never click. Then search the doc for the
    query string and confirm it appears once.
+38. **NEVER press cmd+a or type "to search" unless a screenshot taken in that same step shows the
+   Find box open (2026-09-21).** An Escape in an earlier batch had closed the Find box, so cmd+a
+   selected the whole 65 page document and the search text replaced ALL of it. Recovery was four
+   single cmd+z presses with a screenshot between each, stopping the moment the content returned.
+   The safe sequence: cmd+f, screenshot, confirm the box (the previous query is already selected),
+   type the query, Return, screenshot. After that use the MOUSE only (scroll, click, shift+click)
+   to select. Never put Escape, cmd+a and typing in one batch. Verify every Docs edit with a Drive
+   export before and after and `diff` the two: the only differences must be the intended ones.

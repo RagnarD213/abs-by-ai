@@ -30,6 +30,15 @@ guy does and every cost into a price anchor he already pays; no recycled bits fr
 videos, no cute asides, no fragment punchlines, no standalone swear as a punchline, no clever
 arithmetic; "Listen:" with a colon is his paragraph opener; asides take a spaced hyphen.
 
+## Studies, proof sections and outline fleshing (cross-skill calibration, 2026-09-21)
+
+The calories pair taught four things that apply to ads and VSLs too. Full write-up: sections J to N
+of `.claude/skills/scriptfromoutline/SKILL.md`. In short: a study must prove the outcome the viewer
+cares about (weight lost, calories eaten) with one big plain number, never a surrogate marker;
+keep a proof block under 90 seconds with the most memorable story first; when the outline has a
+hook Dan wrote, it is the opener verbatim with nothing wrapped around it; and an added point has to
+be both new to the viewer and squarely on the video's thesis, or he cuts it.
+
 ## VSL voice calibration — Dan's selection, 2026-09-16
 
 Dan chose [Claude's VSL](https://claude.ai/artifact/BQ98aXCrbqX9bTfQFVzrSz)
