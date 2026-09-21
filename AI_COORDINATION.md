@@ -155,7 +155,6 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
-- **Shorts scripts line breaks, 2026-09-21.** `handoff-20260921-shorts-scripts-doc-line-breaks.md`, Sonnet 5/medium. DS rows held for Muhammad.
 - **Ads 9 + 13 policy check + remove old ads, ready 2026-09-22.** `Handoffs/handoff-20260922-ads-9-13-round4-policy-and-remove-old.md`. Sonnet 5/medium.
 - **Ad 15 final fixes, ready 2026-09-21.** Dan finalized Ad 15; Claude adds the 3:19 AI tag, swaps the 2:31 repeated goal image for camera scene, then replaces the live ad. `Handoffs/handoff-20260921-finalize-ad15-tag-and-clip.md`. Opus 5/high.
 - **Jelly-bean Short B3 install, ready 2026-09-20, Codex.** Dan approved B3 for YouTube `JuLnoU9NV28`. Next: new task installs exact JPEG, preserves old cover/test results, verifies Studio. `Handoffs/handoff-20260920-install-approved-jelly-bean-thumbnail.md`.
