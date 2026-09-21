@@ -2,11 +2,24 @@
   "adNumber": 13,
   "label": "Ad 13 The Cost Of Getting Abs",
   "videos": [
-    { "youtubeId": "hrQf1240kQA", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+    {
+      "youtubeId": "hrQf1240kQA",
+      "version": "Muhammad 16:9",
+      "utm": "muhammad-16x9"
+    },
+    {
+      "youtubeId": "-SuKGXGcbIg",
+      "version": "Muhammad 16:9 r4",
+      "utm": "muhammad-16x9-r4"
+    }
   ],
   "audience": {
     "label": "AI fitness + competitor apps + get abs belly fat",
-    "segments": ["1011510739", "1011514645", "1013657228"]
+    "segments": [
+      "1011510739",
+      "1011514645",
+      "1013657228"
+    ]
   },
   "copy": {
     "headlines": [

@@ -2,11 +2,24 @@
   "adNumber": 9,
   "label": "Ad 9 ChatGPT For Abs",
   "videos": [
-    { "youtubeId": "l4myK7f-sKo", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+    {
+      "youtubeId": "l4myK7f-sKo",
+      "version": "Muhammad 16:9",
+      "utm": "muhammad-16x9"
+    },
+    {
+      "youtubeId": "zvVk680kSfo",
+      "version": "Muhammad 16:9 r4",
+      "utm": "muhammad-16x9-r4"
+    }
   ],
   "audience": {
     "label": "AI fitness + competitor apps + get abs belly fat",
-    "segments": ["1011510739", "1011514645", "1013657228"]
+    "segments": [
+      "1011510739",
+      "1011514645",
+      "1013657228"
+    ]
   },
   "copy": {
     "headlines": [

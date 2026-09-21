@@ -398,3 +398,19 @@ your Google Cloud Console". Done on 2026-09-10 in Cloud project **`abs-by-ai`** 
 
 The one-off build script is left in the account as `ONE-OFF build video campaign 2026-09-10 (delete after)`,
 unscheduled (it cannot run on its own); the Options menu offers no Remove — Dan removes it from the editor's ⋮ menu.
+
+## 2026-09-21 - Ads 9 + 13 swapped to Muhammad's round 4 finals
+
+Dan finalized round 4 (Ad 9: matching ChatGPT label 0:14, real-photo chip 1:56; Ad 13: real-photo chip 0:41). Files
+filed untouched over the masters (09-16 files kept as `… (09-16).mp4`); durations identical, so chapters unchanged.
+Audio: Ad 9 -14.5 LUFS / -0.9 dBTP, Ad 13 -14.1 / -1.0. Uploaded Unlisted, processed, embeddable, same thumbnails,
+title, description and tags as the live videos.
+
+| Ad | new video → asset | `/start` ad | home ad | paused old ads |
+|---|---|---|---|---|
+| Ad 9 | `zvVk680kSfo` → `423683149862` | **`825520817992`** | **`825520817995`** | `824966559286`, `824966559307` |
+| Ad 13 | `-SuKGXGcbIg` → `423865478571` | **`825601774244`** | **`825601774247`** | `824925676464`, `824966566927` |
+
+Same copy, groups and audiences; `utm_content=muhammad-16x9-r4-<start|home>`. New ads ENABLED, `REVIEW_IN_PROGRESS`.
+Next: re-run policy; once APPROVED, remove the four paused ads and mark `l4myK7f-sKo` / `hrQf1240kQA` retired.
+⚠ Campaign budget read back **$50/day** on 09-21 (docs said $40); unchanged by this session.

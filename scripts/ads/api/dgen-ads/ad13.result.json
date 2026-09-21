@@ -1,20 +1,9 @@
 {
- "at": "2026-09-16T22:17:40.554Z",
+ "at": "2026-09-21T21:07:58.089Z",
  "results": [
-  "customers/3427170837/assets/421933351559",
-  "customers/3427170837/audiences/359747866",
-  "customers/3427170837/adGroups/197465035822",
-  "customers/3427170837/adGroupCriteria/197465035822~2840",
-  "customers/3427170837/adGroupCriteria/197465035822~2124",
-  "customers/3427170837/adGroupCriteria/197465035822~1000",
-  "customers/3427170837/adGroupCriteria/197465035822~2502363560315",
-  "customers/3427170837/adGroupAds/197465035822~824925676464",
-  "customers/3427170837/adGroups/200980520340",
-  "customers/3427170837/adGroupCriteria/200980520340~2840",
-  "customers/3427170837/adGroupCriteria/200980520340~2124",
-  "customers/3427170837/adGroupCriteria/200980520340~1000",
-  "customers/3427170837/adGroupCriteria/200980520340~2500711511481",
-  "customers/3427170837/adGroupAds/200980520340~824966566927"
+  "customers/3427170837/assets/423865478571",
+  "customers/3427170837/adGroupAds/197465035822~825601774244",
+  "customers/3427170837/adGroupAds/200980520340~825601774247"
  ],
  "readBack": [
   {
@@ -36,7 +25,7 @@
      "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 | /start"
     },
     "policySummary": {
-     "reviewStatus": "REVIEW_IN_PROGRESS"
+     "reviewStatus": "REVIEWED"
     }
    }
   },
@@ -57,6 +46,52 @@
       "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad13&utm_content=muhammad-16x9-home"
      ],
      "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197465035822",
+    "id": "197465035822",
+    "name": "Ad 13 The Cost Of Getting Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197465035822~825601774244",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825601774244",
+     "id": "825601774244",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad13&utm_content=muhammad-16x9-r4-start"
+     ],
+     "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 r4 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200980520340",
+    "id": "200980520340",
+    "name": "Ad 13 The Cost Of Getting Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200980520340~825601774247",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825601774247",
+     "id": "825601774247",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad13&utm_content=muhammad-16x9-r4-home"
+     ],
+     "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 r4 | home"
     },
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS"
