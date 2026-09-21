@@ -1,20 +1,9 @@
 {
- "at": "2026-09-16T22:17:40.698Z",
+ "at": "2026-09-21T22:45:26.155Z",
  "results": [
-  "customers/3427170837/assets/422033325238",
-  "customers/3427170837/audiences/359743849",
-  "customers/3427170837/adGroups/199925345509",
-  "customers/3427170837/adGroupCriteria/199925345509~2840",
-  "customers/3427170837/adGroupCriteria/199925345509~2124",
-  "customers/3427170837/adGroupCriteria/199925345509~1000",
-  "customers/3427170837/adGroupCriteria/199925345509~2499724047110",
-  "customers/3427170837/adGroupAds/199925345509~825050916875",
-  "customers/3427170837/adGroups/198969095983",
-  "customers/3427170837/adGroupCriteria/198969095983~2840",
-  "customers/3427170837/adGroupCriteria/198969095983~2124",
-  "customers/3427170837/adGroupCriteria/198969095983~1000",
-  "customers/3427170837/adGroupCriteria/198969095983~2501621954623",
-  "customers/3427170837/adGroupAds/198969095983~824925650094"
+  "customers/3427170837/assets/423796267369",
+  "customers/3427170837/adGroupAds/199925345509~825607455071",
+  "customers/3427170837/adGroupAds/198969095983~825607455074"
  ],
  "readBack": [
   {
@@ -34,6 +23,29 @@
       "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad15&utm_content=muhammad-16x9-home"
      ],
      "name": "Ad 15 Dad In A T-Shirt | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/198969095983",
+    "id": "198969095983",
+    "name": "Ad 15 Dad In A T-Shirt | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/198969095983~825607455074",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825607455074",
+     "id": "825607455074",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad15&utm_content=muhammad-16x9-final-home"
+     ],
+     "name": "Ad 15 Dad In A T-Shirt | Muhammad 16:9 final | home"
     },
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS"
@@ -57,6 +69,29 @@
       "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad15&utm_content=muhammad-16x9-start"
      ],
      "name": "Ad 15 Dad In A T-Shirt | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199925345509",
+    "id": "199925345509",
+    "name": "Ad 15 Dad In A T-Shirt | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199925345509~825607455071",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825607455071",
+     "id": "825607455071",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad15&utm_content=muhammad-16x9-final-start"
+     ],
+     "name": "Ad 15 Dad In A T-Shirt | Muhammad 16:9 final | /start"
     },
     "policySummary": {
      "reviewStatus": "REVIEW_IN_PROGRESS"

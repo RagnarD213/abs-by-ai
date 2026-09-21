@@ -2,7 +2,7 @@
 
 **List 3 · ad variant · READY.** Read `00-RULES.md` first. Dan finalized Muhammad’s V3 HD on 2026-09-16.
 
-> **SOURCE UPDATED 2026-09-21: BLOCKED until Claude finishes Ad 15's horizontal.** Dan finalized Muhammad's round 3 (Drive `1V1zsBIQn2XfhDhhJGSKA10F3tV2MQHYU`, 3:27.1) on 09-21, and a Claude session is now adding the 3:19 AI tag and swapping the 2:31 repeated goal image (`Handoffs/handoff-20260921-finalize-ad15-tag-and-clip.md`). Build ONLY from that session's finished 16:9 master, not Muhammad's raw export or the 09-16 file.
+> **SOURCE READY 2026-09-21.** Claude's final Ad 15 16:9 is filed at the Master path below (MD5 `595b434550202d44de8a1ed7f173d88c`, 287,848,188 bytes): Muhammad's round 3 HD with the 3:18.8-3:20.4 AI-GENERATED tag added and 2:30.9-2:34.8 replaced by camera scene (raw C1604, frame = ad frame + 2860). His audio is bit-exact. Build only from this file; the 09-16 copy beside it is marked superseded.
 
 
 ## Source and method

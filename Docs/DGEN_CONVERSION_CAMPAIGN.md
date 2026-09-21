@@ -414,3 +414,19 @@ title, description and tags as the live videos.
 Same copy, groups and audiences; `utm_content=muhammad-16x9-r4-<start|home>`. New ads ENABLED, `REVIEW_IN_PROGRESS`.
 Next: re-run policy; once APPROVED, remove the four paused ads and mark `l4myK7f-sKo` / `hrQf1240kQA` retired.
 ⚠ Campaign budget read back **$50/day** on 09-21 (docs said $40); unchanged by this session.
+
+## 2026-09-21 - Ad 15 final version swapped in
+
+Dan finalized Muhammad's round 3 HD (Drive `1V1zsBIQn2XfhDhhJGSKA10F3tV2MQHYU`). Claude added the AI-GENERATED tag on the
+prospect's after picture (3:18.8-3:20.4) and replaced the repeated goal-image insert (2:30.9-2:34.8) with camera scene
+recovered from raw C1604. Only those spans changed: every other frame is bit-identical to his export, audio bit-exact.
+Master MD5 `595b434550202d44de8a1ed7f173d88c`, uploaded Unlisted as `5GQQHP8bpM4` (processed, embeddable, same thumbnail).
+
+`ad15.json` gained a second `videos` entry (`Muhammad 16:9 final`, utm `muhammad-16x9-final`). Google `validateOnly`
+passed 3 operations, then applied: new video asset, `/start` group `199925345509` → **`825607455071`**, home group
+`198969095983` → **`825607455074`**, both ENABLED and `REVIEW_IN_PROGRESS`. Campaign budget read back at $50/day,
+not changed by this work.
+
+Old ads still ENABLED so Ad 15 does not go dark during review: `825050916875` (/start) and `824925650094` (home), on
+`TqXD2dGgAPs`. Pause ops validated in `dgen-ads/ad15-pause-0916-ads.json`; scheduled task `ad15-pause-old-version-ads`
+applies them 2026-09-22 09:00 CT only if both new ads are approved. Do not delete `TqXD2dGgAPs` until the new ads serve.

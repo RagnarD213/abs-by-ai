@@ -2,11 +2,24 @@
   "adNumber": 15,
   "label": "Ad 15 Dad In A T-Shirt",
   "videos": [
-    { "youtubeId": "TqXD2dGgAPs", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+    {
+      "youtubeId": "TqXD2dGgAPs",
+      "version": "Muhammad 16:9",
+      "utm": "muhammad-16x9"
+    },
+    {
+      "youtubeId": "5GQQHP8bpM4",
+      "version": "Muhammad 16:9 final",
+      "utm": "muhammad-16x9-final"
+    }
   ],
   "audience": {
     "label": "AI fitness + competitor apps + get abs belly fat",
-    "segments": ["1011510739", "1011514645", "1013657228"]
+    "segments": [
+      "1011510739",
+      "1011514645",
+      "1013657228"
+    ]
   },
   "copy": {
     "headlines": [

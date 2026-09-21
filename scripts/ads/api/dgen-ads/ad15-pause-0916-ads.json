@@ -1,0 +1,4 @@
+[
+  { "adGroupAdOperation": { "update": { "resourceName": "customers/3427170837/adGroupAds/199925345509~825050916875", "status": "PAUSED" }, "updateMask": "status" } },
+  { "adGroupAdOperation": { "update": { "resourceName": "customers/3427170837/adGroupAds/198969095983~824925650094", "status": "PAUSED" }, "updateMask": "status" } }
+]

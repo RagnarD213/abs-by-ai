@@ -1512,11 +1512,12 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md, then execute Handoffs/video-editing/AV-12-ad15-vertical.md using .claude/skills/shortad-from-longform/SKILL.md. Deliver both review copies and update the queue.",
    "state": "ready",
-   "note": "",
+   "note": "Ad 15 final 16:9 master filed 09-21 (md5 595b4345...); build from it",
    "order": 72,
-   "updated": "2026-09-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-09-21",
+   "rev": 2,
+   "syncedRev": 2,
+   "by": "Claude"
   },
   {
    "id": "AS-08",

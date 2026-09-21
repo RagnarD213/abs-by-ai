@@ -173,7 +173,7 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | READY | M |
 | [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT (round 4 source, 09-21) | READY | M |
 | [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | READY | M |
-| [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | BLOCKED: Claude's final 16:9 (09-21) | M |
+| [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | READY | M |
 
 **Squares (each builds full + ≤0:59, from the approved vertical)**
 
