@@ -250,3 +250,4 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - `handoff-20260909-audio-match-muhammad.md` — re-tune the dereverb that made the Shorts sound "underwater", add a do-no-harm row to the audio gate, re-render three batches after Dan approves an A/B.
 - `handoff-20260918-ds04-opening-vacuum-clip-revision.md` — DS-04 revision 1: show Dan 3–5 better opening vacuum clips (front/45°, dramatic draw-in), stop for his pick, then rebuild the opening only. No covers. Opus 5, high.
 - `handoff-20260921-finalize-ad15-tag-and-clip.md`: finish Muhammad's finalized Ad 15 (AI tag at 3:19, camera scene for the repeated goal image at 2:31), then swap it into YouTube + Demand Gen. Opus 5, high.
+- `handoff-20260922-ads-9-13-round4-policy-and-remove-old.md`: policy check on the 4 new Ad 9 + 13 ads, remove the 4 paused old ads once approved, retire old videos in docs. Sonnet 5, medium.
