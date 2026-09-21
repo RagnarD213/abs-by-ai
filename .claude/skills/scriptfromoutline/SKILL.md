@@ -12,10 +12,119 @@ description: >
 
 # Script From Outline: Content Outline → Teleprompter Script
 
-**STATUS: v1 — created 2026-08-23. First test: "Your Belly Fat Is An Emergency"
+**STATUS: v2, updated 2026-09-21 from Dan's line edits to the four 9/23 shoot scripts (start at
+WHAT DAN CHANGED). v1 — created 2026-08-23. First test: "Your Belly Fat Is An Emergency"
 (outline doc `1yZjcG5pkbw0kPsfTvc7OOr2bX6v0bVYMqquUiRENQ4k`). Update this file
 after Dan reviews the first scripted videos — his line edits ARE the style
 reference, same as /scriptwriting v2.**
+
+## WHAT DAN CHANGED (his line edits to the four 9/23 shoot scripts, read 2026-09-21). READ FIRST.
+
+About 90 percent of the lines survived untouched, so the body voice (lessons 26 to 35 at the
+bottom) is close. Every edit he made falls into one of the patterns below. The raw before/after
+is `references/dan-edits-2026-09-21.md`; the finished scripts are
+`Docs/SCRIPTS_923_SHOOT_LONGFORM_DAN_EDITED_20260921.md`. Read both before writing.
+
+**A. He rewrote the opening of 3 of the 4 scripts. The only opener he left alone was one he had
+written himself in the outline.** How he opens:
+- Sentence one is the strongest true claim or result, in first person, not a topic announcement.
+  "Today we're talking about glycine" became "This amino acid helped me sleep more than any other
+  supplement I've ever taken." Never "Today we're talking about X", even though he says that off
+  the cuff.
+- Then curiosity plus the viewer's benefit: "You're going to be surprised to learn what this is,
+  and why this might help you sleep better than anything else you can take."
+- Then his own stake in one short paragraph: "High calorie healthy foods were one of the biggest
+  reasons why I struggled to lose the last ten pounds... once I cut these out, I finally got the
+  abs I was trying to get for years."
+- Talk to "you", about belly fat, not about "most people": "The reason why most people don't get
+  in shape isn't a lack of knowledge" became "You don't have belly fat because you lack knowledge.
+  You have belly fat because you don't have the time to work out and eat right."
+- Paragraph two starts with "Listen:" (with a colon). He added it three times.
+- Name the deliverable: "I'll show you why this happens, and how to prevent it in today's video."
+
+**B. Never undersell the topic of the video.** The outline said glycine "made sleep a little
+better", so the draft opened with "it helped a little bit, but it's not going to change your
+life" and spent 150 words on three things that matter more than glycine. He changed the verdict
+to "made a huge difference" / "a significant difference", cut the whole three-things block to one
+sentence ("Glycine helped - but it's not a cure all..."), and pivoted straight back to selling
+it. Honest calibration is still his voice, but it gets one or two sentences in the middle, never
+the hook, never the verdict, and never a whole section arguing the video's subject is minor.
+
+**C. Paragraphs end on a PAYOFF, not a kicker and not a flat fact.** Deleting the clever closers
+was right; he then added a benefit promise where the draft ended flat or negative:
+- "You only wasted about two dollars." became "But if your numbers go up, you've got a new tool
+  in your toolbox for deeper sleep."
+- Added: "Once you start tracking, you'll be shocked at how much faster you start losing fat."
+- Added: "Get on Zepbound, and you'll finally start seeing rapid fat loss and results from all
+  your hard work." / "And that made hitting my calories so much easier."
+- "You'll be shocked at how..." is his phrase (three uses).
+
+**D. His section closer is "That's why I [do X], and why you should too."** Added three times:
+glycine ("That's why I take it every night, and why you should too if you're a hot sleeper"),
+Zepbound, morning workouts. Personal practice, then the command.
+
+**E. Never hand the viewer an easy way out. Escalate.** The draft's fallback "if you really can't
+quit your job, at least drop your hobbies" was deleted and replaced with: "Listen: money doesn't
+do you any good if you're dead... Cash out your 401k, use your savings, and take as much time off
+as you can possibly afford." When a big ask might get pushback, he raises the stakes, he does not
+offer a smaller version.
+
+**F. The personal-experience section needs HIS real numbers, and he will supply them.** He
+replaced generic lines with: AC only gets to 67 in the Texas heat, he sleeps best at 63, a partner
+in the bed means compromising at 66 or 67, Oura sleep score 70-75 before and 75-80 after, takes
+it every night, mixes it with electrolyte powder for flavor. Ask for these specifics BEFORE
+writing (process step 2). If writing without them, put a yellow `[DAN: ...]` cue asking for the
+exact numbers rather than inventing a plausible version.
+
+**G. Things he deleted, and the rule behind each:**
+- "There's a saying I got from Brandon Carter, shout out to Brandon Carter..." Do not recycle a
+  signature bit, shout-out or anecdote from an earlier video.
+- "I know a lot of you guys just made a face." No cute asides to the audience.
+- "A small handful, not half the bag." No fragment punchlines, even self-deprecating ones.
+- "It's bullshit." as a standalone sentence, and "Glycine is not going to do shit for you." A
+  swear survives when it is aimed at mainstream advice or an institution inside a full sentence
+  ("that advice is bullshit", "useless bullshit anyways", "half-ass this for years" all stayed).
+  A swear bolted on as its own punchline gets cut.
+- The clozapine warning. Caveats must matter to the average viewer. He replaced it with who the
+  thing is NOT for in everyday terms, then re-widened: "But most men sleep hot, so glycine makes
+  sense for most of you guys."
+- The "$99 a month buys your time back for $5 an hour" arithmetic. Clever math arguments read as
+  AI. He replaced it with a felt benefit: "You'll be shocked at how much more mental focus and
+  energy you have... once you're not wasting your energy on driving."
+- The closing AbsByAI pitch in 2 of 4 scripts. It survived where the feature continues the
+  video's topic (supplement audit after a supplement video, AI trainer and nutritionist after the
+  AI saves time video). It was cut where it was the generic "see yourself with abs" pitch, or a
+  jokey one. When the app is not the natural next step, end on one ask (subscribe or comment).
+  Mid-video he softened the tracker plug: "Try ours out, or use any other AI calorie tracking app
+  you like."
+
+**H. Things he added, and the rule behind each:**
+- Turn every number into what the guy actually does: after "a hundred and seventy grams of
+  protein" he added "That means every meal you eat needs to have a large serving of meat, fish,
+  or eggs. You're also snacking on protein once or twice per day."
+- Kill the "too expensive" objection with a price anchor they already pay: meal prep is "$9 per
+  meal or less", "less than ordering Chipotle"; "a normal lawn mower will cost you about the same
+  amount as the robot does."
+- Empathy that blames the approach, not the viewer: "If you tried and failed to lose your belly
+  fat many times, chances are trying again with the same approach isn't going to work. So do
+  something different."
+- A stronger, first-person stance than the draft dared: "a low dose of Zepbound has massive
+  benefits for nearly all men that outweigh the risks... I intend to remain on the medication the
+  rest of my life." The doctor line stays, then he says what he really thinks after it.
+- Sell AI by name and by trajectory: "GPS, cameras, and AI", "a paid Claude plan", "AI is
+  currently saving me at least ten hours per week... And this is the worst AI will ever be."
+- Precision over the vague word: "fruit is healthy" became "real fruit is fairly low in calories
+  and high in fiber". In a video attacking "healthy foods", do not call anything healthy.
+- His own small habits: "Or buy pre-packaged hard boiled eggs like I do to make it easy." "I drank
+  large amounts of coconut water for years, thinking I needed it to stay hydrated."
+
+**I. Mechanics.**
+- Shorter paragraphs. He split several of mine in two or three. Two to four sentences each.
+- An aside gets a spaced hyphen: "Glycine helped - but it's not a cure all."
+- He writes digits for prices, doses, temperatures and scores ("$9 per meal", "2.5 mg",
+  "67 degrees", "70-75"). Spelling every number out is not required.
+- "I'll link it right here" became "I'll link it in the description". Do not assume a card.
+- He works out at EIGHT in the morning, not six.
 
 ## Why this skill exists (Dan's goals, 2026-08-23)
 
@@ -73,7 +182,8 @@ ad voice traits (see /scriptwriting) PLUS:
   **daughter**. Zepbound update numbers: **192 → 181**.
 - Doubled intensifiers ("really, really", "far, far", "very, very"),
   "next level", "the truth is".
-- Numbers written out for the teleprompter ("two hundred pounds").
+- Numbers: spell out body weights and ages ("two hundred pounds"); digits are fine for prices,
+  doses, temperatures and scores (his own 09-21 edits use them).
 - Mid-video soft CTAs at hot moments are his real style ("If you want to start
   tracking your macros, go to absbyai.com") — short, then move on. He also
   name-drops free alternatives (Claude, Gemini) — that honesty stays.
@@ -184,7 +294,9 @@ matches and your choice of many attractive women").
 - **Fear is allowed when it IS the premise** (e.g. the "emergency" video). The
   ad rule "sell the goal, never the fear" softens to: land the fear beat
   honestly, then pivot each point to the goal side. Don't wallow.
-- **CTA close (Dan's confirmed default 2026-08-23):** short AbsByAI.com plug
+- **CTA close, UPDATED 2026-09-21 (see WHAT DAN CHANGED, G):** plug AbsByAI.com at the end only
+  when a specific feature continues the video's topic; otherwise end on one ask. Was:
+  **CTA close (Dan's confirmed default 2026-08-23):** short AbsByAI.com plug
   tied to whatever AI points the video made + subscribe. Not an ad-style pitch.
 - **Cue density (Dan's confirmed default 2026-08-23): LIGHT.** Bracketed cues
   only where a visual is load-bearing (before picture, a referenced video
@@ -200,11 +312,27 @@ matches and your choice of many attractive women").
 1. Read the outline (Drive MCP `read_file_content`; pull the .docx export if
    bullets hide images — see /scriptwriting mechanics).
 2. **Ask Dan the context questions first** — specifically: (a) which points he
-   has personal experience with (never fake first-person experience — the TRT
+   has personal experience with, AND his real numbers and habits for them (scores, doses,
+   temperatures, prices, what he buys, what time he does it; see WHAT DAN CHANGED, F) (never fake first-person experience — the TRT
    point in video 1 is general-recommendation because he said so), (b) CTA
    preference, (c) anything the outline asserts that needs his numbers/story.
 3. Write the script. Do a dedicated tightening pass over the first minute, and
    the repeat-scan pass over the whole thing.
+3b. **Run the zero-edit checklist (from Dan's 09-21 edits) on every script before it goes anywhere:**
+   - Opener: strongest first-person claim first, no "Today we're talking about", speaks to "you",
+     "Listen:" on paragraph two, deliverable named. Did Dan write the opener in the outline? Then
+     keep his.
+   - Does any line in the first minute or the wrap-up undersell the topic? Rewrite it.
+   - Does every how-to paragraph end on a payoff for the viewer (not a kicker, not a flat fact)?
+   - Does each major recommendation close with "That's why I do X, and why you should too"
+     wherever Dan really does X?
+   - Any easy way out offered after a big ask? Replace it with higher stakes.
+   - Any number left without "what that means you do"? Any cost left without a price anchor?
+   - Any recycled bit from an earlier video, cute aside, fragment punchline, standalone swear,
+     rare-case medical caveat, or clever arithmetic? Cut it.
+   - Personal-experience section: real numbers from Dan, or a yellow `[DAN: ...]` cue.
+   - Closing app pitch only if a specific feature continues this video's topic.
+   - Paragraphs two to four sentences. Then the blind reviewer agent (lesson 27).
 4. **Show the full script in chat for Dan's approval BEFORE the Google Doc.**
 5. Deliver into a Google Doc using the proven /scriptwriting Docs mechanics
    (osascript HTML-clipboard paste; all the clipboard/heading/undo traps
@@ -341,7 +469,7 @@ matches and your choice of many attractive women").
 31. **His objection voice is "I know a lot of you guys are saying, oh Dan, ..." then "But yet
    they're ..."** His register words: ripped, dialed in, locked in, blowout, broke, peasants, ballers,
    cheap as dirt, crap, bullshit, make it happen, gets the job done, keep it real.
-32. **Honest calibration is a signature:** "I'm a hundred percent sure about fish oil. I'm not a
+32. **Honest calibration is a signature, but only mid-video (see WHAT DAN CHANGED, B):** "I'm a hundred percent sure about fish oil. I'm not a
    hundred percent sure about this", "not a huge effect, but it had some effect", "supplements are
    only about five percent".
 33. **Use contractions.** The Opus scripts wrote "do not / it is / you are" throughout and it reads

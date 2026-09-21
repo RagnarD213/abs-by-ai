@@ -19,6 +19,20 @@ Ab Exercises" and "How Getting Abs Looksmaxxes Your Face") and, more usefully, f
 what he REVERTED when Claude edited them. Both finished scripts landed at 177 and
 176 spoken words. That is not a coincidence and it is the spec.**
 
+## Dan's 2026-09-21 line edits (cross-skill calibration)
+
+Dan line-edited four long-form content scripts on 2026-09-21 and asked for the lessons to carry
+into every script skill. The full write-up is the WHAT DAN CHANGED section at the top of
+`.claude/skills/scriptfromoutline/SKILL.md`, with the raw before/after in its
+`references/dan-edits-2026-09-21.md`. Read it before writing. The ones that apply here too:
+open on the strongest first-person claim, never a topic announcement; never undersell the thing
+the script is about; end paragraphs on a benefit payoff for the viewer, not a clever kicker and
+not a flat fact; close a recommendation with "That's why I do X, and why you should too"; never
+offer an easy way out after a big ask, raise the stakes instead; turn every number into what the
+guy does and every cost into a price anchor he already pays; no recycled bits from earlier
+videos, no cute asides, no fragment punchlines, no standalone swear as a punchline, no clever
+arithmetic; "Listen:" with a colon is his paragraph opener; asides take a spaced hyphen.
+
 ## The job
 
 One idea in, one finished script out. The input is either a line from the
