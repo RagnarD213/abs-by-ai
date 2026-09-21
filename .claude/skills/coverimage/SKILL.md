@@ -311,6 +311,14 @@ Impact and Copperplate live in `/System/Library/Fonts/Supplemental/`.
   throw a "Verify it's you" dialog first; clicking **Next** opens a Google popup
   that clears itself, then reload the edit page.
 
+- **A Blotato-released Short never gets the vertical cover, and the API cannot fix it
+  (2026-09-21).** Blotato publishes a NEW video id (not the Private holding copy), and both
+  its `coverImageUrl` and `scripts/youtube/set-thumbnail.js` only produce the wide 16:9
+  thumbnail. The Shorts shelf then serves an auto frame (`oar2`), which is what happened to
+  DS-17 jump rope `LTkjlBr_3tg` and DS-04 vacuum `le2OyN3biW4`. After every Blotato Shorts
+  release, run the audit above and upload the 1080x1920 JPG through the Studio file input
+  on the PUBLIC id. The audit flips to `sardefault` within a minute.
+
 ## Instagram: fixing the cover on a reel that is already posted (2026-09-10)
 
 - **Cause seen:** a Blotato post created without `coverImageUrl` (the 08-24 @danrosefit
