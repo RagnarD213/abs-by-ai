@@ -153,6 +153,8 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | 8 AI Showed Me Two Futures | ✅ (uploaded 09-16) | ❌ AV-09 | ❌ AV-09 | ❌ AS-08 | ❌ AS-08 |
 | 10 My Dad Bod At 38 / 40 | ✅ | ❌ AV-07 | ❌ AV-07 | ❌ AS-06 | ❌ AS-06 |
 | 14 I Watched 400 Workout Videos | ✅ (HD arrived 09-16, not yet filed) | ❌ AV-08 | ❌ AV-08 | ❌ AS-07 | ❌ AS-07 |
+| 9 I Tried To Get Abs With ChatGPT | ✅ (round 4 finalized 09-21) | ❌ AV-10 | ❌ AV-10 | ❌ AS-09 | ❌ AS-09 |
+| 13 I Added Up What Getting Abs Cost | ✅ (round 4 finalized 09-21) | ❌ AV-11 | ❌ AV-11 | ❌ AS-10 | ❌ AS-10 |
 | RA-01 The AI Trick That Got Me Abs (Claude, 57 s) | ✅ (uploaded 09-18) | ✅ (uploaded 09-18; is ≤0:59) | ✅ (same upload) | ❌ not yet a job — add AS when Dan asks | ❌ |
 
 **Verticals (each builds full + ≤0:59)**
@@ -168,8 +170,8 @@ handoff (`handoff-20260909-audio-match-muhammad.md`, waiting on your spray-tan s
 | [AV-07](AV-07-ad10-vertical.md) | Ad 10 | IN PROGRESS | M |
 | [AV-08](AV-08-ad14-vertical.md) | Ad 14 | READY (file the 09-16 HD first) | M |
 | [AV-09](AV-09-ad8-vertical.md) | Ad 8: Two Futures | READY | M |
-| [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT | READY | M |
-| [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs | READY | M |
+| [AV-10](AV-10-ad9-vertical.md) | Ad 9: ChatGPT (round 4 source, 09-21) | READY | M |
+| [AV-11](AV-11-ad13-vertical.md) | Ad 13: Cost Of Getting Abs (round 4 source, 09-21) | READY | M |
 | [AV-12](AV-12-ad15-vertical.md) | Ad 15: T-Shirt Dad | READY | M |
 
 **Squares (each builds full + ≤0:59, from the approved vertical)**

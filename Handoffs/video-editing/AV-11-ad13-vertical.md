@@ -2,6 +2,9 @@
 
 **List 3 · ad variant · READY.** Read `00-RULES.md` first. Dan finalized Muhammad’s V4 HD on 2026-09-16.
 
+> **SOURCE UPDATED 2026-09-21: build from Muhammad's ROUND 4 HD, not the 09-16 export.** Dan finalized round 4 on 09-21 (new real-photo label chips; `revision docs/muhammad-ads-9-13-15-hd-check-9-21-26.summary.md`). Drive `1m4QtkkGFBsMWsLfeBGvO-Q1YFnYhHKS7` (4:04.9, 329 MB, 1080p, ~10.5 Mbps). First step: download it and file it over the master path below (keep the old file as `… ad 13 (09-16).mp4`). YouTube `hrQf1240kQA` still holds the 09-16 cut until `Handoffs/handoff-20260921-ads-9-13-round4-youtube-and-google-ads.md` runs.
+
+
 ## Source and method
 
 - Master: `Muhammad Ad Videos/i added up what getting abs was supposed to cost - ad 13/i added up what getting abs was supposed to cost | muhammad | 16x9 | ad 13.mp4`

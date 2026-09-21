@@ -2,6 +2,9 @@
 
 **List 3 · ad variant · READY.** Read `00-RULES.md` first. Dan finalized Muhammad’s V3 HD on 2026-09-16.
 
+> **SOURCE UPDATED 2026-09-21: build from Muhammad's ROUND 4 HD, not the 09-16 export.** Dan finalized round 4 on 09-21 (new real-photo label chips; `revision docs/muhammad-ads-9-13-15-hd-check-9-21-26.summary.md`). Drive `16WCOA3ZfSbTkV229PYAUutZkslM2ksyz` (3:13.7, 263 MB, 1080p, ~10.5 Mbps). First step: download it and file it over the master path below (keep the old file as `… ad 9 (09-16).mp4`). YouTube `l4myK7f-sKo` still holds the 09-16 cut until `Handoffs/handoff-20260921-ads-9-13-round4-youtube-and-google-ads.md` runs.
+
+
 ## Source and method
 
 - Master: `Muhammad Ad Videos/i tried to get abs with chatgpt heres what happened - ad 9/i tried to get abs with chatgpt heres what happened | muhammad | 16x9 | ad 9.mp4`
