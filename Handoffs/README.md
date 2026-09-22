@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260922-install-approved-breakfast-short-thumbnail.md](handoff-20260922-install-approved-breakfast-short-thumbnail.md) | **Ready 2026-09-22, Codex GPT-5.6 Sol / Medium.** Install Dan's approved revised studio cover on existing Short `UFga137pseM`; back up old cover and test results, save and verify in Studio. No redesign or re-upload. |
 | [handoff-20260918-edit-queue-phase2-asset-approval-automation.md](handoff-20260918-edit-queue-phase2-asset-approval-automation.md) | **Ready 2026-09-18 — Codex GPT-5.6 Sol / High. Fire first.** Build and isolate-test the existing queue's early AI/B-roll approval, labelled-placeholder pause/resume and hard placeholder delivery check. Software only; no real edit or provider spend. |
 | [handoff-20260918-edit-queue-phase2-ds05-production-pilot.md](handoff-20260918-edit-queue-phase2-ds05-production-pilot.md) | **After the Phase 2 automation handoff passes — Codex GPT-5.6 Sol / High.** Run one real DS-05 pilot through early frame approval and queue resume, measure usage/cost/reuse/revisions, then seed exact approved clips only if Dan finalizes it. No upload or publication. |
 | [handoff-20260918-kit-first-production-ad10-vertical.md](handoff-20260918-kit-first-production-ad10-vertical.md) | **Ready 2026-09-18 — Codex GPT-6 Astra / High.** The 9:16 kit's first production job: Ad 10's vertical + ≤0:59 (AV-07) built by the kit from Muhammad's master, content sheet written fresh; judged by fresh sessions, GATE PASS before Dan sees it. |
@@ -81,6 +80,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| 2026-09-22 | [handoff-20260922-install-approved-breakfast-short-thumbnail.md](handoff-20260922-install-approved-breakfast-short-thumbnail.md) | EXECUTED: approved revised B2 installed on `UFga137pseM`; backup and verification in [installation report](../output/thumbnails/breakfast-short-20260922/INSTALLATION.md) |
 | 2026-09-15 | [handoff-20260914-coordination-board-diet.md](handoff-20260914-coordination-board-diet.md) | EXECUTED — board cut 11,722 → ~2,000 words; verbatim snapshot + inventory in the archive |
 | 2026-09-15 | [handoff-20260915-ad3-square-steadier-wide-framing.md](handoff-20260915-ad3-square-steadier-wide-framing.md) | Ad 3 full square: steadier wider shots; short square finished and optional |
 | 2026-09-11 | [handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md](handoff-20260911-google-ads-rep-ga4-start-urls-mcc.md) | Google Ads rep meeting: GA4 + Ads link, Search ads → /start with homepage sitelink, empty MCC account for sixpackabs.com |
