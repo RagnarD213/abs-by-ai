@@ -427,6 +427,5 @@ passed 3 operations, then applied: new video asset, `/start` group `199925345509
 `198969095983` → **`825607455074`**, both ENABLED and `REVIEW_IN_PROGRESS`. Campaign budget read back at $50/day,
 not changed by this work.
 
-Old ads still ENABLED so Ad 15 does not go dark during review: `825050916875` (/start) and `824925650094` (home), on
-`TqXD2dGgAPs`. Pause ops validated in `dgen-ads/ad15-pause-0916-ads.json`; scheduled task `ad15-pause-old-version-ads`
-applies them 2026-09-22 09:00 CT only if both new ads are approved. Do not delete `TqXD2dGgAPs` until the new ads serve.
+2026-09-22: both new ads read APPROVED, so the old ads `825050916875` (/start) and `824925650094` (home), on
+`TqXD2dGgAPs`, were PAUSED via `dgen-ads/ad15-pause-0916-ads.json`; new ads ENABLED. YouTube `TqXD2dGgAPs` kept for Dan to delete.
