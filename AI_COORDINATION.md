@@ -26,9 +26,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 # DAN'S DECISIONS
 
-- **Covers for the Sep 13 + Sep 14 TikToks (09-17):** neither ever had a designed cover (uncovered on IG too); the
-  7-day window shuts Sep 20 / Sep 21. Commission `/coverimage` before then, or keep the screenshot? The queue is
-  fixed and proven live. `Docs/TIKTOK_COVERS.md`
+- **TikTok covers on older posts (09-22):** every post before Sep 16 still shows a screenshot; TikTok's
+  7-day edit window has closed on them, so the only fix is delete + re-upload (loses views/comments). Do it, or leave them? `Docs/TIKTOK_COVERS.md`
 - **Make the GitHub repo private (baseline 09-15)** (Settings → General → Danger Zone). Rec: yes — breaks nothing; closes the
   subscriber addresses in git history. A session then pushes a trivial commit and confirms deploy. `Docs/SUBSCRIBER_STORE.md`
 - **Create the empty SixPackAbs.com Google Ads account (baseline 09-15)** (CAPTCHA blocks Claude): MCC `324-458-6445` → Accounts →
@@ -46,8 +45,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   says "thousands of guys" (3:16, 3:41); 75 people have ever generated.
 - **@danrosefit Meta ads: (baseline 2026-09-15; age unknown)** raise champion ad set `120250753601020682` $6.50 → $8/day? Confirm both [DAN] [ENGAGEMENT]
   campaigns stay OFF. Report: https://claude.ai/code/artifact/18397bc8-efc4-4554-a440-7961cbaa423d
-- **Fire the phone handoff (09-17):** deletes the Ad 5 TikTok `7686132607964269855` AND installs the 2 covers still in
-  window. Run it when away from computer + phone. `Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md`
+- **Fire the phone handoff (updated 09-22):** installs 3 TikTok covers already in Photos. ⏰ Sep 15 train-abs closes
+  TODAY 5 PM CT; the 2 long-forms close Sep 27/28. Ad 5 delete already done. `Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md`
 - **Chrome's Instagram is signed in as @abs.by.ai (09-17)** — switched to delete the mirror; Chrome hung before switching back.
 - **Google Ads remarketing `24169507109` (baseline 09-15)** — ~$2.50/day, 0 clicks/conversions ever. Pause?
 - **Ad 3: (baseline 2026-09-15; age unknown)** delete empty husk `J-fOMvEJwDs` in Studio; campaign budget reads $40/day (docs said $20); label his 200 lb
@@ -158,8 +157,7 @@ Memory `google-ads-ui-automation`.
 - **Ads 9 + 13 policy check + remove old ads, ready 2026-09-22.** `Handoffs/handoff-20260922-ads-9-13-round4-policy-and-remove-old.md`. Sonnet 5/medium.
 - **Jelly-bean Short B3 install, ready 2026-09-20, Codex.** Dan approved B3 for YouTube `JuLnoU9NV28`. Next: new task installs exact JPEG, preserves old cover/test results, verifies Studio. `Handoffs/handoff-20260920-install-approved-jelly-bean-thumbnail.md`.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
-- `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash] — PHONE ONLY, fire away from computer + phone:
-  delete the Ad 5 TikTok, install the 2 covers still in window. ⏰ Sep 19 / Sep 22 22:00 UTC. Sonnet 5 or Fable 5.1 / Medium.
+- `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.
 - **`video-editing/00-MASTER.md` — THE video-editing list (2026-09-16):** 16 raw short ads, 25 dedicated shorts, 8 long-forms, 3 shorts-from-long-form, 15 ad variants; one doc per job, Claude + Codex prompts. Supersedes the J1–J18 ad-variants queue. Dan picks the order.
 - **Footage index continuation, Codex (09-20):** `handoff-20260920-finish-roll-sidecar-backfill.md` (resume stopped raw-roll backfill, retry C1579, verify coverage; Sol/High).

@@ -64,6 +64,22 @@ saw in step 1, not against the number 21).
 
 ## Job B — install a cover on 2 published TikToks
 
+> **UPDATE 2026-09-22 (read first, it overrides the tables below).** Job A is already done: the Ad 5
+> TikTok `7686132607964269855` no longer resolves. The Sep 12 milk window has closed. Job B is now
+> THREE posts, all images already in Photos (match by the words on the image):
+>
+> | Post | Video id | Image in Photos | Window closes |
+> |---|---|---|---|
+> | "Train abs every single day." (Sep 15) | `7685885160851590430` | `TIKTOK-COVER-train-abs-every-day.jpg` (9:16) | **2026-09-22 22:00 UTC** (Tue 5 PM CT) |
+> | "3 sets of ab wheel rollouts" long-form (Sep 20) | `7687616895175904543` | `TIKTOK-COVER-live-ab-wheel-workout-16x9.jpg` | 2026-09-27 14:01 UTC |
+> | "Hundreds of crunches" long-form (Sep 21) | `7688111710657465630` | `TIKTOK-COVER-ultimate-1-minute-ab-workout-16x9.jpg` | 2026-09-28 22:01 UTC |
+>
+> The two long-forms are 16:9 videos whose cover was squashed sideways by a bug (fixed in
+> `scripts/blotato/tiktok_cover.py` on 09-22). Their replacement images are 16:9 on purpose: the
+> designed tall cover sits in the middle third, so TikTok's crop preview should need no adjustment
+> and the grid tile shows the full headline. Do not crop to the blurred side panels.
+
+
 ### Why this is only 2 posts
 
 TikTok's API has no cover-image field at all — only a timestamp into the video — so every TikTok we

@@ -68,6 +68,31 @@ So the backlog splits:
 This is why the fix matters going forward more than backward: every post that goes out
 uncovered is permanently uncovered a week later.
 
+## Long-form (16:9) videos: the cover must not be stretched (2026-09-22)
+
+Dan flagged two skewed tiles: the Sep 20 ab-wheel and Sep 21 "1-minute workout" long-forms. The
+first version of `tiktok_cover.py` scaled the 1080x1920 cover straight to the video's 1920x1080, so
+the cover was squashed 3x sideways and the grid showed a stretched headline.
+
+TikTok's profile grid is a 3:4 centre crop of the video. `cover_filter()` now lays a tall cover into a
+wide frame so that the grid's centre window shows exactly what a 9:16 post's tile shows: the cover is
+scaled to the window's width (height x 3/4), its middle is kept, and the sides are a dark blur. The
+QC check now compares frame 0 against that expected layout at the video's own aspect, so a distorted
+frame fails the build instead of shipping.
+
+A 16:9 long-form needs a TALL (9:16) cover, never its 16:9 YouTube thumbnail: the grid's centre
+crop cuts a wide thumbnail's title in half. Build one with `/coverimage`
+(`_build-cover-belly-fat-emergency.py` is the long-form template).
+
+For an already-posted landscape video inside the 7-day window, upload the 16:9 composite in the
+app (`render_cover_frame(cover, 1920, 1080, out)` makes it) so TikTok's crop step is a no-op.
+
+Rebuilding a post that is already marked covered:
+
+    python3 scripts/blotato/tiktok_cover.py --only ID --redo --covers C.json --sources S.json --build
+
+`--sources` points at the clean upload file so a bad cover frame is not stacked under a new one.
+
 ## Uploading (the awkward bit)
 
 Blotato has no REST route for a presigned upload — probed 2026-09-17:

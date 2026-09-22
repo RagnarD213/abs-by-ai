@@ -104,6 +104,39 @@ def fetch(url: str, dest: str):
     return dest
 
 
+def cover_filter(w: int, h: int) -> str:
+    """Fit the (9:16) cover into a w x h frame WITHOUT distorting it.
+
+    The first version scaled the cover straight to w x h. On a 16:9 long-form that squashed a
+    1080x1920 cover into 1920x1080 -- 3x too wide -- and TikTok's grid showed the stretched
+    headline (Dan, 2026-09-22: the 1-minute workout and ab-wheel long-forms).
+
+    TikTok's profile grid is a 3:4 centre crop of the video. A 9:16 post therefore shows the
+    middle 3:4 of its cover. For a landscape video we lay the cover out so the grid's centre
+    3:4 window shows EXACTLY that same region: scale the cover to the window's width (h*3/4),
+    keep its middle h pixels, and fill the sides with a dark blur of the cover. The grid tile
+    then matches every 9:16 post's tile; the full frame only shows for 1/24 s.
+    """
+    if w > h:
+        tw = int(round(h * 3 / 4 / 2)) * 2
+        return (f"[0:v]split[a][b];"
+                f"[a]scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,crop={w}:{h},"
+                f"boxblur=30:3,eq=brightness=-0.35[bg];"
+                f"[b]scale={tw}:-2:flags=lanczos,crop={tw}:'min(ih,{h})'[fg];"
+                f"[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1,format=yuv420p")
+    # Portrait / square: preserve aspect, centre, pad dark. A 1080x1920 cover on a 1080x1920
+    # video is a plain 1:1 copy.
+    return (f"[0:v]scale={w}:{h}:force_original_aspect_ratio=decrease:flags=lanczos,"
+            f"pad={w}:{h}:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,format=yuv420p")
+
+
+def render_cover_frame(cover: str, w: int, h: int, dest: str) -> str:
+    """The exact still build() puts in frame 0 -- also what to upload in the TikTok app."""
+    run([FFMPEG, "-v", "error", "-y", "-i", cover, "-filter_complex", cover_filter(w, h),
+         "-frames:v", "1", dest])
+    return dest
+
+
 def build(video: str, cover: str, dest: str, hold_frames: int = 1) -> dict:
     """Prepend `cover` as `hold_frames` frames of `video`. Video copied, audio untouched."""
     p = probe(video)
@@ -114,7 +147,7 @@ def build(video: str, cover: str, dest: str, hold_frames: int = 1) -> dict:
     # concat. Timescale is pinned too: a mismatched one makes the join stutter.
     run([FFMPEG, "-loglevel", "error", "-y", "-loop", "1", "-framerate", f"{p['fps']}",
          "-i", cover, "-frames:v", str(hold_frames),
-         "-vf", f"scale={p['w']}:{p['h']}:flags=lanczos,setsar=1",
+         "-filter_complex", cover_filter(p["w"], p["h"]),
          "-c:v", "libx264", "-profile:v", p["profile"], "-level", str(p["level"] / 10),
          "-pix_fmt", p["pix_fmt"], "-preset", "veryslow", "-crf", "14",
          "-video_track_timescale", "12288", "-an", cov_v])
@@ -140,9 +173,16 @@ def cover_psnr(out: str, cover: str, tmp: str) -> float:
     A correct pairing measures ~43 dB; a wrong one is in the teens.
     """
     from PIL import Image  # noqa: PLC0415 -- optional, only needed for this check
+    # Compare against the frame cover_filter() SHOULD have produced, at the video's own aspect,
+    # so a distorted layout fails here instead of shipping (the 2026-09-22 squash passed a
+    # check that stretched both sides to the same 180x320).
+    os.makedirs(tmp, exist_ok=True)
+    p = probe(out)
     a_png, b_png = os.path.join(tmp, "qc_f0.png"), os.path.join(tmp, "qc_cov.png")
-    run([FFMPEG, "-v", "error", "-y", "-i", out, "-frames:v", "1", "-vf", "scale=180:320", a_png])
-    run([FFMPEG, "-v", "error", "-y", "-i", cover, "-vf", "scale=180:320", b_png])
+    exp = render_cover_frame(cover, p["w"], p["h"], os.path.join(tmp, "qc_expected.png"))
+    size = "320:180" if p["w"] > p["h"] else "180:320"
+    run([FFMPEG, "-v", "error", "-y", "-i", out, "-frames:v", "1", "-vf", f"scale={size}", a_png])
+    run([FFMPEG, "-v", "error", "-y", "-i", exp, "-vf", f"scale={size}", b_png])
     da = list(Image.open(a_png).convert("L").getdata())
     db = list(Image.open(b_png).convert("L").getdata())
     mse = sum((x - y) ** 2 for x, y in zip(da, db)) / len(da)
@@ -232,16 +272,24 @@ def main():
     ap.add_argument("--urls", help="JSON {schedule id: publicUrl} of the uploaded builds")
     ap.add_argument("--covers", help="JSON {schedule id: /path/to/cover.png} for posts with no IG twin")
     ap.add_argument("--only", help="comma-separated schedule ids")
+    ap.add_argument("--sources", help="JSON {schedule id: /path/to/source.mp4}; use when the queued "
+                    "media already carries a (bad) cover frame, so it is not stacked twice")
+    ap.add_argument("--redo", action="store_true",
+                    help="with --only: rebuild posts already marked covered (e.g. a squashed cover)")
     ap.add_argument("--hold-frames", type=int, default=1,
                     help="frames the cover is held for (1 = imperceptible, the default)")
     a = ap.parse_args()
 
     covers = json.load(open(a.covers)) if a.covers else {}
+    sources = json.load(open(a.sources)) if a.sources else {}
     key = api_key()
     rows = plan(fetch_schedules(key), covers)
     if a.only:
         keep = set(a.only.split(","))
         rows = [r for r in rows if r["id"] in keep]
+        if a.redo:
+            for r in rows:
+                r["done"] = False
 
     todo = [r for r in rows if not r["done"] and r["cover"]]
     blocked = [r for r in rows if not r["done"] and not r["cover"]]
@@ -262,7 +310,7 @@ def main():
         os.makedirs(WORK, exist_ok=True)
         manifest = []
         for r in todo:
-            vid = fetch(r["media"], os.path.join(WORK, f"{r['id']}_src.mp4"))
+            vid = sources.get(r["id"]) or fetch(r["media"], os.path.join(WORK, f"{r['id']}_src.mp4"))
             covpath = r["cover"]
             if covpath.startswith("http"):
                 ext = ".png" if ".png" in covpath.lower() else ".jpg"
