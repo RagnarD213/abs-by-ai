@@ -4,7 +4,8 @@
     "assistant::Wash dishes",
     "assistant::Take out kitchen trash",
     "assistant::Clean Master Bathroom & Guest Bathroom",
-    "assistant::Tidy kitchen"
+    "assistant::Tidy kitchen",
+    "assistant::Change robot mop water & sweep corners that robot cannot get to."
   ],
   "log": {
     "health::Shower": [
@@ -233,6 +234,7 @@
     "assistant::Wash dishes": "2026-09-22",
     "assistant::Take out kitchen trash": "2026-09-22",
     "assistant::Clean Master Bathroom & Guest Bathroom": "2026-09-22",
-    "assistant::Tidy kitchen": "2026-09-22"
+    "assistant::Tidy kitchen": "2026-09-22",
+    "assistant::Change robot mop water & sweep corners that robot cannot get to.": "2026-09-22"
   }
 }
