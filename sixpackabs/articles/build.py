@@ -55,8 +55,8 @@ def check(path):
     raw = open(path, encoding='utf-8').read()
     words = len(re.sub(r'\[(.+?)\]\(.+?\)', r'\1', body).split())
     problems = []
-    if '—' in raw: problems.append('EM DASH')
-    if '–' in raw: problems.append('EN DASH')
+    if '\u2014' in raw: problems.append('EM DASH')
+    if '\u2013' in raw: problems.append('EN DASH')
     if len(meta['excerpt']) > 155: problems.append('excerpt %d chars' % len(meta['excerpt']))
     if body.count('{CTA}') != 1: problems.append('%d CTA links (want 1)' % body.count('{CTA}'))
     internal = len(re.findall(r'\]\(/', body)) + len(re.findall(r'\]\(https://sixpackabs\.com', body))

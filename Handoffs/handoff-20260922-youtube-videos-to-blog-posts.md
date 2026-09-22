@@ -1,6 +1,6 @@
 # Handoff: turn every YouTube video into a real blog post on sixpackabs.com
 
-Written 2026-09-22 by Claude (Opus 5.5). Status: NOT EXECUTED.
+Written 2026-09-22 by Claude (Opus 5.5). Status: EXECUTED 2026-09-22 (25 articles live, 2 Shorts skipped as duplicates; see `sixpackabs/articles/`).
 
 ## Goal
 

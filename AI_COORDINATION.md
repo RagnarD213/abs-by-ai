@@ -28,6 +28,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 - **TikTok covers on older posts (09-22):** every post before Sep 16 still shows a screenshot; TikTok's
   7-day edit window has closed on them, so the only fix is delete + re-upload (loses views/comments). Do it, or leave them? `Docs/TIKTOK_COVERS.md`
+- **sixpackabs.com Search Console (09-22):** danroseconsulting@gmail.com has no property, so the 25 new /videos/ articles
+  can't get indexing requests or an impressions check (due ~10-06). Add + verify it (Yoast meta tag), or name the owning account? `sixpackabs/articles/README.md`
 - **Make the GitHub repo private (baseline 09-15)** (Settings → General → Danger Zone). Rec: yes — breaks nothing; closes the
   subscriber addresses in git history. A session then pushes a trivial commit and confirms deploy. `Docs/SUBSCRIBER_STORE.md`
 - **Create the empty SixPackAbs.com Google Ads account (baseline 09-15)** (CAPTCHA blocks Claude): MCC `324-458-6445` → Accounts →
@@ -156,7 +158,6 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - `handoff-20260922-social-profile-links-sixpackabs-first.md` (PARTLY DONE 09-22): YouTube + both FB profiles done. Left: IG @danrosefit, IG @abs.by.ai, TikTok (phone only; iPhone Mirroring declined 09-22). Sonnet 5/Medium.
-- `handoff-20260922-youtube-videos-to-blog-posts.md`: article per video in the /videos/ pages. Opus 5.5/High.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.

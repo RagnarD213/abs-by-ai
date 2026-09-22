@@ -149,6 +149,25 @@ Worked 09-13 through the Chrome MCP on a SCHEDULED (still private) video:
    - It reads **"Ineligible — Your video is not public"** until the publish time. That is expected; the test starts
      once the video is public. Put a "check the test is running" line in the coordination entry for the publish day.
 
+## Step 6b: the sixpackabs.com article (write now, publish once the video is public)
+
+Every public video gets a page at `sixpackabs.com/videos/<slug>/` from the hourly `spa_sync`, up to an hour after it
+goes public. Its body starts as the YouTube description; we replace it with a real article, because Google search is
+the only channel that sends sixpackabs.com engaged visitors (GA4, 2026-09-22). Rules, file format, build and verify
+scripts: `sixpackabs/articles/README.md`. Read it, and one finished article there as the bar.
+
+1. **Now, in this session:** write `sixpackabs/articles/<youtube-id>.md` from the final's own words (transcribe the
+   delivered file; never invent a claim), 800 to 1,500 words, Dan's first person, one `{CTA}` link, 1 to 3 internal
+   links, excerpt under 155 characters. Leave `post_id: TBD`. `python3 sixpackabs/articles/build.py --check <file>`
+   must print OK (it refuses em and en dashes). Commit it with the config in Step 7.
+2. **Once the video is public** (the Blotato release time; the page appears within the hour): get the page's post id
+   with the WordPress.com MCP (`content-items.list`, `post_type: spa_video`, match `_spa_youtube_id`), fill in
+   `post_id`, publish with `content-items.update` (payload from `build.py <file>`), then
+   `python3 sixpackabs/articles/verify.py <file>` must print OK. If that is a later session, the Step 7 coordination
+   one-liner carries "publish sixpackabs article `<file>` after it posts".
+3. Content videos only. Ads are never organic and never get a page (the feed excludes unlisted videos). A Short gets
+   a 300 to 500 word article only when it answers a searchable question and no existing page covers the same topic.
+
 ## Step 7 — record and close
 
 - `BLOTATO_QUEUE_PROGRESS.md`: a `## DONE — <title>` section (source file + md5, YouTube id + time + thumbnail(s),
