@@ -1,8 +1,8 @@
 # Handoff — Phase 2 production pilot: DS-05, measurement and approved-clip seed (2026-09-18)
 
-**Status:** blocked on completion of
-`handoff-20260918-edit-queue-phase2-asset-approval-automation.md`. Run this only after that implementation is committed,
-pushed and proven green. This handoff uses one real production video; it does not publish it.
+**Status:** superseded on 2026-09-22. DS-05 is owned by Muhammad under the 22-shorts milestone and must not be edited by
+the AI queue. Use `Handoffs/handoff-20260922-edit-queue-phase2-ra11-production-pilot.md` instead. This historical DS-05
+plan is not authority to claim or edit his active job.
 
 ## Goal, in plain language
 
