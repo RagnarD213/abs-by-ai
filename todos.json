@@ -304,6 +304,13 @@
       "recurring": false,
       "addedAt": "2026-09-22",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Change robot mop water & sweep corners that robot cannot get to.",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-22",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
