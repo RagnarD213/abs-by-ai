@@ -91,8 +91,6 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
 
 **Raw footage index: ACTIVE 2026-09-22, Codex.** C1579 indexed after Gemini block; 91 clips in low-priority `screen`. Next: check `/Volumes/Extreme/_edit_work/roll-sidecar-backfill-20260922-status.json`, resolve errors, verify coverage and cost. No Git sidecars.
 
-**Arms & Shoulders Home Workout setup - NEEDS DAN 2026-09-22, Claude.** Zeeshan Rev 3 filed, YouTube Private `QHWOoWbgWcY` (read back) + Blotato media done; release Sun 09-27 9 AM CT (mirror 09-28). Next: Dan picks thumbnail (1-5), then fill covers in `scripts/blotato/configs/arms-shoulders-home-workout.json`, `longform_queue.py --apply`, TikTok cover, set thumbnail. Variants queued: AV-13, AS-12, SL-04; RO-04 unblocked.
-
 **Ads 9 + 13 round 4 swap - REVIEW 2026-09-21, Claude.** New unlisted `zvVk680kSfo` / `-SuKGXGcbIg`; 4 new DGen ads REVIEW_IN_PROGRESS, 4 old ads paused. Next: `client.js policy 24243839443`; once approved remove the paused ads, mark old videos retired. ⚠ Budget reads $50/day, not $40. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy delivered to the shared Drive folder: `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`. Full head visible; measured bar path rises once without reversing. Silent B-roll has no matching full-film delivery gate, so no gate PASS is claimed. Next: Dan reviews R3 and approves or names any corrections. Detail: `Media/ai-frames/stop-deadlifting-opening-20260918/motion-v2/R3_DELIVERY.json`.

@@ -1,6 +1,6 @@
 # Blotato IG + Facebook queue — progress
 
-Last updated 2026-09-18.
+Last updated 2026-09-22.
 
 ## Account state
 
@@ -11,6 +11,19 @@ Last updated 2026-09-18.
 - **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
   imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
 - **NEW PERMANENT RULE (Dan, 2026-09-16): Blotato owns future organic YouTube releases.** Upload organic videos to YouTube as Private and leave them Private; queue the release through connected YouTube account `46963`. Never upload Public or use YouTube native scheduling. Ads remain Unlisted and are not released publicly on YouTube. Existing native schedules are historical and must not be copied into new work; avoid double-posting anything already queued under the old process.
+
+## DONE: Arms & Shoulders Home Workout (Zeeshan "Video2 Rev 3", 11:00) (2026-09-22)
+
+Master `Zeeshan Content Videos/arms and shoulders home workout - video 2/arms and shoulders home workout | zeeshan | 16x9 | video 2.mp4`, MD5 `49c7dfb3d189043dbb2bc4b326e8fd81` (858,396,944 bytes). YouTube **Private** holding copy `QHWOoWbgWcY`, read back private, no publishAt, with Dan's own thumbnail "2 Min Home Arm Workout" (`social media graphics/youtube/thumbnails/Arms And Shoulders Home Workout/arms-shoulders-workout_DAN-2-min-home-arm-workout-FINAL.jpg`). Blotato copy re-encoded to 313 MB (videotoolbox 4 Mbps, audio stream-copied). Queue 157 to 162; ad-guard clean before and after.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Sun Sep 27, 9 AM CDT (`4722756` / `4722757` / `4722920` / `4722764`) | Mon Sep 28, 9 AM (`4722761`) |
+
+- TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 19784 to 19785, audio packets 30944 unchanged, cover match 51.7 dB).
+- Keyword `ABS`; AI disclosure on (goal image at 10:48). Config `scripts/blotato/configs/arms-shoulders-home-workout.json`.
+- Zeeshan's 09-22 "Video 2 No music" was NOT used: it strips the approved live-round track too.
+- Owes: AV-13 vertical, AS-12 square, SL-04 shorts (no short posts before 09-27), RO-04 follow-along.
 
 ## DONE — DS-04 “How to Do a Stomach Vacuum to Shrink Your Waist” (2026-09-18)
 
