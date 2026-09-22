@@ -155,6 +155,8 @@ Memory `google-ads-ui-automation`.
 
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
+- `handoff-20260922-social-profile-links-sixpackabs-first.md`: sixpackabs.com first, absbyai.com second on all social profiles. Sonnet 5/Medium.
+- `handoff-20260922-youtube-videos-to-blog-posts.md`: article per video in the /videos/ pages. Opus 5.5/High.
 - **Ads 9 + 13 policy check + remove old ads, ready 2026-09-22.** `Handoffs/handoff-20260922-ads-9-13-round4-policy-and-remove-old.md`. Sonnet 5/medium.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
