@@ -297,6 +297,13 @@
       "recurring": false,
       "addedAt": "2026-09-22",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Tidy kitchen",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-09-22",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
