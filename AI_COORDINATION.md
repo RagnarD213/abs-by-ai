@@ -156,7 +156,6 @@ Memory `google-ads-ui-automation`.
 `[dash]` = on the dashboard's Handoffs to fire list; whoever runs one deletes that row, this line and its README row.
 
 - **Ads 9 + 13 policy check + remove old ads, ready 2026-09-22.** `Handoffs/handoff-20260922-ads-9-13-round4-policy-and-remove-old.md`. Sonnet 5/medium.
-- **Jelly-bean Short B3 install, ready 2026-09-20, Codex.** Dan approved B3 for YouTube `JuLnoU9NV28`. Next: new task installs exact JPEG, preserves old cover/test results, verifies Studio. `Handoffs/handoff-20260920-install-approved-jelly-bean-thumbnail.md`.
 - `handoff-20260918-kit-first-production-ad10-vertical.md` — kit builds AV-07. Codex Astra/high.
 - `handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md` [dash]: PHONE ONLY, 3 TikTok covers (updated 09-22). Sonnet 5 or Fable 5.1 / Medium.
 - `handoff-20260915-finalized-ads-6-14-youtube-and-google-ads.md` — Ads 6, 7, 10, 14 → YouTube + DGen (2026-09-15). Codex, high.

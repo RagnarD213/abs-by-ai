@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [handoff-20260920-install-approved-jelly-bean-thumbnail.md](handoff-20260920-install-approved-jelly-bean-thumbnail.md) | **Ready 2026-09-20, Codex GPT-5.6 Sol / Medium.** Install Dan's exact approved B3 cover on existing YouTube Short `JuLnoU9NV28`; back up the old thumbnail, preserve available test results, and verify the saved Studio preview. Do not redesign or re-upload. |
 | [handoff-20260918-edit-queue-phase2-asset-approval-automation.md](handoff-20260918-edit-queue-phase2-asset-approval-automation.md) | **Ready 2026-09-18 — Codex GPT-5.6 Sol / High. Fire first.** Build and isolate-test the existing queue's early AI/B-roll approval, labelled-placeholder pause/resume and hard placeholder delivery check. Software only; no real edit or provider spend. |
 | [handoff-20260918-edit-queue-phase2-ds05-production-pilot.md](handoff-20260918-edit-queue-phase2-ds05-production-pilot.md) | **After the Phase 2 automation handoff passes — Codex GPT-5.6 Sol / High.** Run one real DS-05 pilot through early frame approval and queue resume, measure usage/cost/reuse/revisions, then seed exact approved clips only if Dan finalizes it. No upload or publication. |
 | [handoff-20260920-finish-roll-sidecar-backfill.md](handoff-20260920-finish-roll-sidecar-backfill.md) | **Ready 2026-09-20, Codex GPT-5.6 Sol / High.** Resume the stopped raw-footage index, retry the failed C1579 camera roll, exclude finished exports, and prove complete coverage. The tool and 8/28 pilot are already done. |
@@ -63,6 +62,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Why |
 |---|---|
+| [handoff-20260920-install-approved-jelly-bean-thumbnail.md](handoff-20260920-install-approved-jelly-bean-thumbnail.md) | ✅ EXECUTED 2026-09-22. Exact B3 JPEG installed on existing Short `JuLnoU9NV28`; old cover backed up; Studio reload and Shorts list verified. Report: `Short-form video content/covers/review/jelly-bean-refresh/installation-20260922/INSTALLATION_REPORT.md` |
 | [handoff-20260917-install-approved-a06-short-thumbnail.md](handoff-20260917-install-approved-a06-short-thumbnail.md) | ✅ EXECUTED 2026-09-18 — exact approved A06 installed on Short `Ub0BV4m5lMQ`; old cover backed up; Studio reload and public channel grid verified. Report: `Short-form video content/covers/approved/Ub0BV4m5lMQ-A06/installation-20260918/INSTALLATION_REPORT.md` |
 | [Ad14 Codex R4 approved — upload and Google Ads setup](codex-video-trial/06k-ad14-codex-r4-approved-upload-and-setup.md) | ✅ EXECUTED 2026-09-18 — exact approved R4 uploaded Unlisted as `ACfVyQqPK08`; new DGen ads `825282142526` / `825282142529`; Muhammad HD preserved; no organic posting. |
 | [Ad14 R4 — Dan speaking close-up and correct workout](codex-video-trial/06i-ad14-r4-dan-closeup-and-correct-workout.md) | ✅ EXECUTED 2026-09-17 as R4; Dan approved the complete film. Setup continues in `06k`. |
