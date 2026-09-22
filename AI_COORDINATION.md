@@ -60,9 +60,8 @@ the exact next action. History and the pre-2026-09-15 board: [`AI_COORDINATION_A
   re-upload — both are live ad destinations.
 - **Upload the welcome-video shoot (114 GB) to Drive (baseline 09-15)** as its only second copy? ⚠ Personal rclone client_id first
   (the shared one hit a 403 quota). Memory `drive-backup-capability`.
-- **Zeeshan: STOP Deadlifting r2 + Arms & Shoulders r4 (09-19):** both at the top of doc
-  `13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`. Confirm the round numbers, then forward.
-  ⚠ Three calls for you in `revision docs/stop-deadlifting-revisions-zeeshan-round2-9-19-26.summary.md`.
+- **Zeeshan (09-22):** Video 2 finalized (music was fine, our error). Video 3 round 4 at top of doc
+  `13uu4k9y2ttOWD9sp3KU-OLAeCNO74-3pWeIrBjcgVhk`; send the message in `revision docs/stop-deadlifting-revisions-zeeshan-round4-9-22-26.summary.md`. ⚠ Video 4 charts: do you have them?
 - **Forward, Waleed + Muhammad:** Waleed V1 r4 (doc `1Uxd6a2qSuazts6lSASbVhatNkvCFINhlLAtrcmXlFBw`; ⚠ new side-by-side
   before/after 0:06.6–0:08.1). Muhammad doc `1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A`: 09-10 (Ad 13 watermark;
   Ad 15 empty slot 0:25.5, an ad?) and 09-12 (Ads 6 + 7 same closing man; Ad 14 watermark 0:20).
