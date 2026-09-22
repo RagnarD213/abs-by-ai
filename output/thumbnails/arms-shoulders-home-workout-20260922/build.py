@@ -55,8 +55,8 @@ im = cover(Image.open(PHOTOS / "photo-122_FINAL_PRIMARY.jpg").convert("RGB"))
 im = ImageEnhance.Contrast(im).enhance(1.08)
 im = darken_left(im, 195, 560)
 d = ImageDraw.Draw(im)
-title(d, (42, 33), "BIG ARMS", 112, YELLOW)
-subtitle(d, (50, 151), "AT HOME", 48)
+title(d, (42, 18), "2 Min Home", 94, YELLOW)
+title(d, (42, 117), "Arm Workout", 94, YELLOW)
 save(im, "01-pool-double-biceps.jpg")
 
 # 2. Studio triceps pose, with a clear text column.
