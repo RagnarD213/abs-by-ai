@@ -412,8 +412,12 @@ title, description and tags as the live videos.
 | Ad 13 | `-SuKGXGcbIg` → `423865478571` | **`825601774244`** | **`825601774247`** | `824925676464`, `824966566927` |
 
 Same copy, groups and audiences; `utm_content=muhammad-16x9-r4-<start|home>`. New ads ENABLED, `REVIEW_IN_PROGRESS`.
-Next: re-run policy; once APPROVED, remove the four paused ads and mark `l4myK7f-sKo` / `hrQf1240kQA` retired.
 ⚠ Campaign budget read back **$50/day** on 09-21 (docs said $40); unchanged by this session.
+
+**2026-09-22 verdict:** all four new ads came back APPROVED / REVIEWED. Removed the four paused old ads
+(`824966559286`, `824966559307`, `824925676464`, `824966566927`); read back gone, new four still ENABLED.
+`l4myK7f-sKo` / `hrQf1240kQA` marked retired in `Docs/AD_VIDEO_IDS.md`, left up on YouTube unlisted.
+Budget re-checked, still **$50/day** (docs say $40, unchanged).
 
 ## 2026-09-21 - Ad 15 final version swapped in
 
