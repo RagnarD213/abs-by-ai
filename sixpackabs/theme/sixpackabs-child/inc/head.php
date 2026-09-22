@@ -67,3 +67,14 @@ add_action( 'wp_head', function () {
 	printf( '<meta property="og:video:width" content="%d">' . "\n", $short ? 1080 : 1280 );
 	printf( '<meta property="og:video:height" content="%d">' . "\n", $short ? 1920 : 720 );
 }, 20 );
+
+// Video pages: Yoast prints no meta description for spa_video by default. Use the
+// excerpt (a hand-written summary once an article is in place, else the first line
+// of the YouTube description) unless one is set in the Yoast box.
+add_filter( 'wpseo_metadesc', function ( $description ) {
+	if ( $description || ! is_singular( 'spa_video' ) ) {
+		return $description;
+	}
+	$post = get_queried_object();
+	return has_excerpt( $post ) ? wp_strip_all_tags( get_the_excerpt( $post ) ) : $description;
+} );
