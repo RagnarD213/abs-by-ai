@@ -141,22 +141,26 @@
     {
       "text": "Workout",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-22"
     },
     {
       "text": "Supplements",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-22"
     },
     {
       "text": "Shower",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-22"
     },
     {
       "text": "Salad",
       "priority": "high",
-      "recurring": true
+      "recurring": true,
+      "addedAt": "2026-09-22"
     }
   ],
   "personal": [
@@ -229,7 +233,7 @@
     },
     {
       "text": "Get quote to fix Audi from 1 other mechanic of Brittany's choice. Use either personal recommendation or Claude recommendation",
-      "priority": "high",
+      "priority": "key",
       "recurring": false,
       "addedAt": "2026-08-11"
     },
