@@ -1,5 +1,9 @@
 {
-  "checked": [],
+  "checked": [
+    "assistant::Set up filming room https://claude.ai/artifact/6KuxQDocTNAQDCboc7Byh5",
+    "assistant::Wash dishes",
+    "assistant::Take out kitchen trash"
+  ],
   "log": {
     "health::Shower": [
       "2026-06-25",
@@ -191,7 +195,8 @@
     "assistant::Put away dishes": [
       "2026-08-11",
       "2026-08-16",
-      "2026-09-15"
+      "2026-09-15",
+      "2026-09-22"
     ],
     "assistant::Change robot mop water": [
       "2026-08-11"
@@ -221,5 +226,9 @@
       "2026-09-14"
     ]
   },
-  "checkedAt": {}
+  "checkedAt": {
+    "assistant::Set up filming room https://claude.ai/artifact/6KuxQDocTNAQDCboc7Byh5": "2026-09-22",
+    "assistant::Wash dishes": "2026-09-22",
+    "assistant::Take out kitchen trash": "2026-09-22"
+  }
 }
